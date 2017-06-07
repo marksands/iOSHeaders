@@ -6,7 +6,7 @@
 
 #import <QuickLook/QLItemViewController.h>
 
-@class NSArray, QLDetailItemViewControllerState, QLFileIconImageView, UIButton, UIStackView, UIView;
+@class NSArray, NSString, QLDetailItemViewControllerState, QLFileIconImageView, UIButton, UIStackView, UIView;
 
 __attribute__((visibility("hidden")))
 @interface QLDetailItemViewController : QLItemViewController
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     UIButton *_actionButton;
     _Bool _isSettingStateAnimated;
     UIView *_currentActionButtonView;
+    NSString *_previewTitle;
     QLDetailItemViewControllerState *_state;
     NSArray *_information;
 }
@@ -30,7 +31,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)canPinchToDismiss;
 - (_Bool)canSwipeToDismiss;
 - (_Bool)canEnterFullScreen;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_updateInformation;
 - (void)setState:(id)arg1 animated:(_Bool)arg2;
 - (void)viewDidLoad;

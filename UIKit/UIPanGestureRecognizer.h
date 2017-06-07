@@ -27,6 +27,9 @@
     unsigned int _canPanHorizontally:1;
     unsigned int _canPanVertically:1;
     unsigned int _ignoresStationaryTouches:1;
+    unsigned int _multitouchTimerOn:1;
+    double _allowableTouchTimeSeparation;
+    unsigned int _requiresImmediateMultipleTouches:1;
     NSMutableArray *_movingTouches;
     struct CGPoint _digitizerLocation;
 }
@@ -76,6 +79,10 @@
 - (_Bool)_canPanHorizontally;
 - (_Bool)_ignoresStationaryTouches;
 - (void)_setIgnoresStationaryTouches:(_Bool)arg1;
+- (_Bool)_requiresImmediateMultipleTouches;
+- (void)_setRequiresImmediateMultipleTouches:(_Bool)arg1;
+- (double)_allowableTouchTimeSeparation;
+- (void)_setAllowableTouchTimeSeparation:(double)arg1;
 - (double)_allowableSeparation;
 - (void)_setAllowableSeparation:(double)arg1;
 - (double)_hysteresis;
@@ -85,6 +92,9 @@
 - (void)_setFailsPastHysteresisWithoutMinTouches:(_Bool)arg1;
 - (_Bool)failsPastMaxTouches;
 - (void)setFailsPastMaxTouches:(_Bool)arg1;
+- (void)multitouchExpired:(id)arg1;
+- (void)startMultitouchTimer:(double)arg1;
+- (void)clearMultitouchTimer;
 - (void)_resetGestureRecognizer;
 - (void)_resetVelocitySamples;
 - (void)encodeWithCoder:(id)arg1;

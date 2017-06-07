@@ -6,23 +6,23 @@
 
 #import <VideoSubscriberAccount/VSAsyncOperation.h>
 
-@class VSAccount, VSAccountStore, VSOptional;
+@class NSArray, VSAccountStore, VSOptional;
 
 __attribute__((visibility("hidden")))
 @interface VSCredentialSaveOperation : VSAsyncOperation
 {
     VSOptional *_result;
-    VSAccount *_unsavedAccount;
+    NSArray *_unsavedAccounts;
     VSAccountStore *_accountStore;
 }
 
 @property(retain, nonatomic) VSAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-@property(retain, nonatomic) VSAccount *unsavedAccount; // @synthesize unsavedAccount=_unsavedAccount;
+@property(copy, nonatomic) NSArray *unsavedAccounts; // @synthesize unsavedAccounts=_unsavedAccounts;
 @property(retain, nonatomic) VSOptional *result; // @synthesize result=_result;
 - (void).cxx_destruct;
 - (void)executionDidBegin;
-- (void)_didSaveAccount:(id)arg1 withResult:(_Bool)arg2 error:(id)arg3;
-- (id)initWithUnsavedAccount:(id)arg1 accountStore:(id)arg2;
+- (void)_didSaveAccounts:(id)arg1 withResult:(_Bool)arg2 error:(id)arg3;
+- (id)initWithUnsavedAccounts:(id)arg1 accountStore:(id)arg2;
 - (id)init;
 
 @end

@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
 __attribute__((visibility("hidden")))
-@interface PUSceneSettings : PUSettings
+@interface PUSceneSettings : PXSettings
 {
     _Bool _showConfidenceOverlay;
 }
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 + (id)sharedInstance;
 @property(nonatomic) _Bool showConfidenceOverlay; // @synthesize showConfidenceOverlay=_showConfidenceOverlay;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

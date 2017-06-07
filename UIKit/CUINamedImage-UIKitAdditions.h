@@ -8,6 +8,6 @@
 
 @interface CUINamedImage (UIKitAdditions)
 - (id)traitCollection;
-- (id)UIImage;
+- (id)UIImageWithVectorImage:(id)arg1;
 @end
 

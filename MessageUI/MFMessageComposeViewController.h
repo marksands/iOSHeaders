@@ -6,7 +6,7 @@
 
 #import <UIKit/UINavigationController.h>
 
-@class MSMessage, NSArray, NSMutableArray, NSString;
+@class MSMessage, NSArray, NSString;
 @protocol MFMessageComposeViewControllerDelegate;
 
 @interface MFMessageComposeViewController : UINavigationController
@@ -16,7 +16,6 @@
     NSString *_body;
     NSString *_subject;
     MSMessage *_message;
-    NSMutableArray *_mutableAttachmentURLs;
     unsigned long long _currentAttachedVideoCount;
     unsigned long long _currentAttachedAudioCount;
     unsigned long long _currentAttachedImageCount;
@@ -43,7 +42,6 @@
 @property(nonatomic) unsigned long long currentAttachedImageCount; // @synthesize currentAttachedImageCount=_currentAttachedImageCount;
 @property(nonatomic) unsigned long long currentAttachedAudioCount; // @synthesize currentAttachedAudioCount=_currentAttachedAudioCount;
 @property(nonatomic) unsigned long long currentAttachedVideoCount; // @synthesize currentAttachedVideoCount=_currentAttachedVideoCount;
-@property(copy, nonatomic) NSMutableArray *mutableAttachmentURLs; // @synthesize mutableAttachmentURLs=_mutableAttachmentURLs;
 @property(copy, nonatomic) NSString *subject; // @synthesize subject=_subject;
 @property(copy, nonatomic) NSString *body; // @synthesize body=_body;
 @property(copy, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
@@ -53,12 +51,12 @@
 - (void)smsComposeControllerSendStarted:(id)arg1;
 - (void)smsComposeControllerCancelled:(id)arg1;
 - (_Bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)setModalPresentationStyle:(long long)arg1;
 - (void)dealloc;
 - (void)disableUserAttachments;
-- (id)_buildAttachmentInfoForAttachmentURL:(id)arg1 andAlternameFilename:(id)arg2;
 - (void)_updateAttachmentCountForAttachmentURL:(id)arg1;
 @property(copy, nonatomic) MSMessage *message; // @synthesize message=_message;
 - (_Bool)addRichLinkData:(id)arg1 withWebpageURL:(id)arg2;
@@ -70,6 +68,7 @@
 - (_Bool)_isVideoMIMEType:(id)arg1;
 - (id)_contentTypeForMIMEType:(id)arg1;
 - (id)_MIMETypeForURL:(id)arg1;
+- (id)mutableAttachmentURLs;
 - (id)attachmentURLs;
 - (_Bool)canAddAttachmentURL:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

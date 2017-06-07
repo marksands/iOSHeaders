@@ -22,9 +22,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy, nonatomic) NSArray *groupIdentifiers; // @synthesize groupIdentifiers=_groupIdentifiers;
 @property(readonly, copy, nonatomic) NSArray *containerIdentifiers; // @synthesize containerIdentifiers=_containerIdentifiers;
 @property(readonly, copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithSearchString:(id)arg1 containerIdentifiers:(id)arg2 groupIdentifiers:(id)arg3;
 - (id)sgContactMatchesWithSortOrder:(long long)arg1 mutableObjects:(_Bool)arg2 service:(id)arg3 error:(id *)arg4;

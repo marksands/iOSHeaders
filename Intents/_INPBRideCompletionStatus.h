@@ -8,12 +8,14 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class PBUnknownFields, _INPBCurrencyAmountValue, _INPBUserActivity;
+@class NSMutableArray, PBUnknownFields, _INPBCurrencyAmountValue, _INPBUserActivity;
 
 @interface _INPBRideCompletionStatus : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    CDStruct_95bda58d _feedbackTypes;
     _INPBUserActivity *_completionUserActivity;
+    NSMutableArray *_defaultTippingOptions;
     _INPBCurrencyAmountValue *_paymentAmount;
     _Bool _canceled;
     _Bool _canceledByService;
@@ -29,7 +31,10 @@
     } _has;
 }
 
++ (Class)defaultTippingOptionsType;
 + (id)options;
+@property(retain, nonatomic) NSMutableArray *defaultTippingOptions; // @synthesize defaultTippingOptions=_defaultTippingOptions;
+@property(nonatomic) _Bool canceledByService; // @synthesize canceledByService=_canceledByService;
 @property(nonatomic) _Bool outstanding; // @synthesize outstanding=_outstanding;
 @property(retain, nonatomic) _INPBCurrencyAmountValue *paymentAmount; // @synthesize paymentAmount=_paymentAmount;
 @property(nonatomic) _Bool missedPickup; // @synthesize missedPickup=_missedPickup;
@@ -46,14 +51,26 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)defaultTippingOptionsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)defaultTippingOptionsCount;
+- (void)addDefaultTippingOptions:(id)arg1;
+- (void)clearDefaultTippingOptions;
+- (int)StringAsFeedbackTypes:(id)arg1;
+- (id)feedbackTypesAsString:(int)arg1;
+- (void)setFeedbackTypes:(int *)arg1 count:(unsigned long long)arg2;
+- (int)feedbackTypeAtIndex:(unsigned long long)arg1;
+- (void)addFeedbackType:(int)arg1;
+- (void)clearFeedbackTypes;
+@property(readonly, nonatomic) int *feedbackTypes;
+@property(readonly, nonatomic) unsigned long long feedbackTypesCount;
+@property(nonatomic) _Bool hasCanceledByService;
 @property(nonatomic) _Bool hasOutstanding;
 @property(readonly, nonatomic) _Bool hasPaymentAmount;
 @property(nonatomic) _Bool hasMissedPickup;
 @property(nonatomic) _Bool hasCanceled;
 @property(nonatomic) _Bool hasCompleted;
 @property(readonly, nonatomic) _Bool hasCompletionUserActivity;
-@property(nonatomic) _Bool hasCanceledByService;
-@property(nonatomic) _Bool canceledByService;
+- (void)dealloc;
 
 @end
 

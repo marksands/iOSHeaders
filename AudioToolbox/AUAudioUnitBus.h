@@ -15,6 +15,7 @@
     NSArray *_supportedChannelCounts;
     unsigned int _maximumChannelCount;
     _Bool _enabled;
+    _Bool _shouldAllocateBuffer;
     NSString *_name;
     unsigned long long _index;
     long long _busType;
@@ -31,6 +32,7 @@
 @property(readonly, nonatomic) long long busType; // @synthesize busType=_busType;
 @property(readonly, nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) _Bool shouldAllocateBuffer; // @synthesize shouldAllocateBuffer=_shouldAllocateBuffer;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)removeObserver:(id)arg1 forKeyPath:(id)arg2 context:(void *)arg3;

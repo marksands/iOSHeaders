@@ -10,6 +10,6 @@
 
 @protocol _MDRemoteExtensionContextProtocol <_MDExtensionContextProtocol>
 - (void)getLastUpdateTimeWithCompletionHandler:(void (^)(double))arg1;
-- (void)performJob:(CSIndexJob *)arg1 acknowledgementHandler:(void (^)(void))arg2;
+- (void)performJob:(CSIndexJob *)arg1 acknowledgementHandler:(void (^)(NSData *, NSError *))arg2;
 @end
 

@@ -45,6 +45,8 @@
 - (id)internalDelegate;
 - (void)setInternalDelegate:(id)arg1;
 @property(nonatomic) __weak id <ADPrivacyViewControllerDelegate> delegate;
+- (void)_considerRequestingRemotePrivacyViewController;
+- (_Bool)_deviceIsLocked;
 - (void)_commonInit;
 - (id)initWithTransparencyDetailsDictionary:(id)arg1;
 - (id)initWithTransparencyDetails:(id)arg1;

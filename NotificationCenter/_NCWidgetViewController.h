@@ -6,24 +6,21 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <NotificationCenter/SBUISizeObservingViewDelegate-Protocol.h>
+#import <NotificationCenter/NCSizeObservingViewDelegate-Protocol.h>
 #import <NotificationCenter/_NCWidgetViewController_Service_IPC-Protocol.h>
 
-@class NSMapTable, NSMutableArray, NSObject, NSString, UIScrollViewDelayedTouchesBeganGestureRecognizer, UIView;
-@protocol NCWidgetProvidingPrivate, OS_dispatch_queue, UIViewControllerAnimatedTransitioning;
+@class NSMapTable, NSObject, NSString, UIScrollViewDelayedTouchesBeganGestureRecognizer, UIView;
+@protocol NCWidgetProvidingPrivate, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
-@interface _NCWidgetViewController : UIViewController <_NCWidgetViewController_Service_IPC, SBUISizeObservingViewDelegate>
+@interface _NCWidgetViewController : UIViewController <_NCWidgetViewController_Service_IPC, NCSizeObservingViewDelegate>
 {
-    UIView *_contentView;
-    double _lastRequestedHeight;
-    struct UIEdgeInsets _clientMarginInsets;
     NSObject<OS_dispatch_queue> *_remoteViewControllerProxyQueue;
-    id <UIViewControllerAnimatedTransitioning> _transitionController;
-    NSMutableArray *_activeTransitionContexts;
     NSMapTable *_wrappedAppearStatesToOpenTransactionIDs;
     UIScrollViewDelayedTouchesBeganGestureRecognizer *_touchDelayGestureRecognizer;
     struct CGRect _initialBounds;
+    _Bool _snapshotTimestampsEnabled;
+    _Bool _clientUsesAutolayout;
     struct {
         unsigned int implementsPerformUpdateWithCompletionHandler:1;
         unsigned int implementsMarginInsets:1;
@@ -32,20 +29,20 @@ __attribute__((visibility("hidden")))
     } _contentProvidingViewControllerFlags;
     UIViewController<NCWidgetProvidingPrivate> *_contentProvidingViewController;
     long long _visibilityState;
+    UIView *_contentView;
     NSString *_widgetIdentifier;
     NSString *_containerIdentifier;
-    NSMapTable *_activeTransitionContextsByRequestID;
-    NSMutableArray *_pendingSizeTransitionUUIDStack;
+    struct UIEdgeInsets _clientMarginInsets;
 }
 
 + (void)_reduceTransparencyDidChange:(id)arg1;
 + (void)initialize;
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
-@property(readonly, nonatomic, getter=_pendingSizeTransitionUUIDStack) NSMutableArray *pendingSizeTransitionUUIDStack; // @synthesize pendingSizeTransitionUUIDStack=_pendingSizeTransitionUUIDStack;
-@property(retain, nonatomic, getter=_activeTransitionContextsByRequestID) NSMapTable *activeTransitionContextsByRequestID; // @synthesize activeTransitionContextsByRequestID=_activeTransitionContextsByRequestID;
 @property(copy, nonatomic, getter=_containerIdentifier) NSString *containerIdentifier; // @synthesize containerIdentifier=_containerIdentifier;
 @property(copy, nonatomic, getter=_widgetIdentifier) NSString *widgetIdentifier; // @synthesize widgetIdentifier=_widgetIdentifier;
+@property(nonatomic, getter=_clientMarginInsets, setter=_setClientMarginInsets:) struct UIEdgeInsets clientMarginInsets; // @synthesize clientMarginInsets=_clientMarginInsets;
+@property(retain, nonatomic, getter=_contentView, setter=_setContentView:) UIView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic, getter=_visibilityState, setter=_setVisibilityState:) long long visibilityState; // @synthesize visibilityState=_visibilityState;
 @property(retain, nonatomic, getter=_contentProvidingViewController) UIViewController<NCWidgetProvidingPrivate> *contentProvidingViewController; // @synthesize contentProvidingViewController=_contentProvidingViewController;
 - (void).cxx_destruct;
@@ -53,19 +50,13 @@ __attribute__((visibility("hidden")))
 - (void)__openTransactionForAppearanceCallWithState:(int)arg1 withIdentifier:(id)arg2;
 - (void)__performUpdateWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)__requestEncodedLayerTreeToURL:(id)arg1 withCodingImageFormat:(id)arg2 withReplyHandler:(CDUnknownBlockType)arg3;
-- (void)__closeTransactionForPreferredHeightChangeWithIdentifier:(id)arg1;
-- (void)__performOutstandingCompletionForRequestWithIdentifier:(id)arg1;
-- (void)__prepareForAnimationsForRequestWithIdentifier:(id)arg1 withReplyHandler:(CDUnknownBlockType)arg2;
-- (void)__viewWillTransitionToSize:(struct CGSize)arg1 requestIdentifier:(id)arg2;
 - (void)__setMaximumSize:(struct CGSize)arg1 forDisplayMode:(long long)arg2;
-- (void)__setActiveDisplayMode:(long long)arg1 requestIdentifier:(id)arg2;
+- (void)__setActiveDisplayMode:(long long)arg1;
 - (_Bool)_disableAutomaticKeyboardBehavior;
-- (void)_willAppearInRemoteViewController;
 - (void)_setVisibilityState:(long long)arg1 force:(_Bool)arg2;
 - (void)_setMaximumWidth:(double)arg1 forDisplayMode:(long long)arg2;
 - (void)delayed:(id)arg1;
-- (void)_setActiveDisplayMode:(long long)arg1 requestIdentifier:(id)arg2 force:(_Bool)arg3;
-- (void)_closeTransactionForActiveDisplayModeChangeWithIdentifier:(id)arg1;
+- (void)_setActiveDisplayMode:(long long)arg1 notifyingContentProvidingViewController:(_Bool)arg2;
 - (long long)_clientLargestSupportedDisplayMode;
 - (void)_encodeLayerTreeToURL:(id)arg1 withCodingImageFormat:(id)arg2 withReplyHandler:(CDUnknownBlockType)arg3;
 - (id)_widgetExtensionContext;
@@ -74,16 +65,14 @@ __attribute__((visibility("hidden")))
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (void)_performUpdateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)_shouldRemoveViewFromHierarchyOnDisappear;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
-- (double)_clientPreferredContentHeightPermittingAutolayout:(_Bool)arg1;
-- (void)_requestPreferredViewHeight:(double)arg1 usingAutolayout:(_Bool)arg2;
-- (void)_requestPreferredViewHeight:(double)arg1 usingAutolayout:(_Bool)arg2 force:(_Bool)arg3;
+- (double)_clientPreferredContentHeight;
+- (double)_clientPreferredContentHeightPermittingAutolayout:(_Bool)arg1 didUseFittingSize:(_Bool *)arg2;
+- (void)_requestPreferredViewHeight:(double)arg1;
+- (void)_requestPreferredViewHeight:(double)arg1 force:(_Bool)arg2;
 - (double)_effectiveHeightForRequestedHeight:(double)arg1;
-- (void)_configureAnimatorForTransitionContext:(id)arg1;
-- (id)_existingTransitionContextForRequestIdentifier:(id)arg1;
-- (id)_transitionContextForRequestIdentifier:(id)arg1 usingAutolayout:(_Bool)arg2 createIfNecessary:(_Bool)arg3;
-- (id)_customAnimator:(_Bool)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

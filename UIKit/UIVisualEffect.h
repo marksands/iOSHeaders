@@ -13,20 +13,30 @@
 
 @interface UIVisualEffect : NSObject <NSCopying, NSSecureCoding>
 {
-    _Bool __isATVStyle;
-    _Bool __isAutomaticStyle;
-    _UIBackdropViewSettings *_effectSettings;
     _UIVisualEffectConfig *_effectConfig;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)effectCompositingColor:(id)arg1 withMode:(long long)arg2 alpha:(double)arg3;
++ (id)effectCompositingImage:(id)arg1 withMode:(long long)arg2 alpha:(double)arg3;
++ (id)effectCompositingColor:(id)arg1;
++ (id)effectCompositingImage:(id)arg1;
++ (id)effectCombiningEffects:(id)arg1;
++ (id)emptyEffect;
 @property(readonly, nonatomic) _UIVisualEffectConfig *effectConfig; // @synthesize effectConfig=_effectConfig;
-@property(readonly, nonatomic) _Bool _isAutomaticStyle; // @synthesize _isAutomaticStyle=__isAutomaticStyle;
-@property(readonly, nonatomic) _Bool _isATVStyle; // @synthesize _isATVStyle=__isATVStyle;
-@property(readonly, nonatomic) _UIBackdropViewSettings *effectSettings; // @synthesize effectSettings=_effectSettings;
 - (void).cxx_destruct;
+- (long long)_expectedUsage;
+- (_Bool)_needsUpdateForOption:(id)arg1;
+- (_Bool)_needsUpdateForTransitionFromTraitCollection:(id)arg1 toTraitCollection:(id)arg2;
+- (void)_updateEffectNode:(id)arg1 forTraitCollection:(id)arg2;
+- (_Bool)_selectorOverriden:(SEL)arg1;
+- (void)_enumerateEffects:(CDUnknownBlockType)arg1;
 - (id)effectForUserInterfaceStyle:(long long)arg1;
+- (id)effectConfigForOptions:(id)arg1;
 - (id)effectConfigForQuality:(long long)arg1;
+@property(readonly, nonatomic) _Bool _isAutomaticStyle;
+@property(readonly, nonatomic) _Bool _isATVStyle;
+@property(readonly, nonatomic) _UIBackdropViewSettings *effectSettings;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

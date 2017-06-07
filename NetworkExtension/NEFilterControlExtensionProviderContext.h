@@ -22,6 +22,7 @@
 - (void)provideURLAppendStringMap:(id)arg1;
 - (void)provideRemediationMap:(id)arg1;
 - (void)notifyRulesChanged;
+- (void)handleReportForFlow:(id)arg1 action:(int)arg2;
 - (void)handleNewFlow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)stopWithReason:(int)arg1;

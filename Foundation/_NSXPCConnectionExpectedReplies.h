@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface _NSXPCConnectionExpectedReplies : NSObject
 {
     struct __CFDictionary *_replyTable;
-    int _lock;
+    struct _opaque_pthread_mutex_t _lock;
     unsigned long long _sequence;
     NSObject<OS_dispatch_group> *_replyGroup;
 }

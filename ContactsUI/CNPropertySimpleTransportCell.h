@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)updateWithPropertyItem:(id)arg1;
 - (void)setCardGroupItem:(id)arg1;
+- (void)updateLabelNeedingHuggingContent;
 @property(readonly, nonatomic) _Bool shouldShowStar;
 @property(readonly, nonatomic) CNTransportButton *transportIcon3;
 @property(readonly, nonatomic) CNTransportButton *transportIcon2;

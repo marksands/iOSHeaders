@@ -71,7 +71,8 @@
 - (void)_handleResidentDeviceCapableUpdatedNotification:(id)arg1;
 - (void)_handleAppDataUpdatedNotification:(id)arg1;
 - (void)_handleDataStateChangedChangedNotification:(id)arg1;
-- (void)_updateInvitation:(id)arg1 invitationState:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_updateInvitation:(id)arg1 presenceAuthStatus:(unsigned long long)arg2 invitationState:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_acceptInvitation:(id)arg1 presenceAuthStatus:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_acceptInvitation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_declineInvitation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleQueryHomeKitUsageStateResponse:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -94,6 +95,7 @@
 - (void)_updateHomes:(id)arg1;
 - (void)_updateCurrentHome:(id)arg1;
 - (void)_fetchHomeConfigurationWithCache:(_Bool)arg1 refreshRequested:(_Bool)arg2;
+- (void)_fetchHomeConfigurationVerifyCacheRefreshRequested:(_Bool)arg1;
 - (void)_dumpCache:(id)arg1;
 - (_Bool)_isValidCachedHomeConfiguration:(id)arg1;
 - (void)_removeCacheFile;
@@ -103,6 +105,10 @@
 - (void)_fetchHomeConfigurationWithPrivacyCheckWithCache:(_Bool)arg1 refreshRequested:(_Bool)arg2;
 - (void)_start;
 - (void)_pingDeviceWithUUID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_dumpHomeConfigurationFile:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)dumpHomeConfigurationFile:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_restartWithHomeConfiguration:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)restartWithHomeConfiguration:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_updateAccessAllowedWhenLocked:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateAccessAllowedWhenLocked:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_updateResidentEnabledForThisDevice:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;

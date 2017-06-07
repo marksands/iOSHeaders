@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface _CFPrefsClientContext : NSObject
 {
     struct os_unfair_lock_s _lock;
+    // Error parsing type: A@, name: _cfprefsd
     struct __CFDictionary *_readPermissionsCache;
     struct __CFDictionary *_writePermissionsCache;
     struct __CFDictionary *_suiteCache;

@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _edges;
     double _rowHeight;
     double _rightPadding;
-    CDStruct_961fb75c _visualStyling;
+    CDStruct_227bb23d _visualStyling;
     long long _textAlignment;
     double _cellPadding;
     double _minimumWidth;
@@ -40,8 +40,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)drawsSideBorders;
-+ (struct CGColor *)legacy_outlineShadowColorForVisualStyling:(CDStruct_961fb75c)arg1 candidatesVisualStyle:(int)arg2;
-+ (struct CGColor *)legacy_outlineColorForVisualStyling:(CDStruct_961fb75c)arg1 candidatesVisualStyle:(int)arg2;
++ (struct CGColor *)legacy_outlineShadowColorForVisualStyling:(CDStruct_227bb23d)arg1 candidatesVisualStyle:(int)arg2;
++ (struct CGColor *)legacy_outlineColorForVisualStyling:(CDStruct_227bb23d)arg1 candidatesVisualStyle:(int)arg2;
 + (double)widthForCandidate:(id)arg1 candidateNumber:(unsigned long long)arg2 visualStyle:(int)arg3;
 + (struct CGSize)sizeForGroupHeader:(id)arg1 visualStyle:(int)arg2;
 + (_Bool)shouldShowImageForGroupTitle:(id)arg1;
@@ -58,7 +58,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(nonatomic) long long textAlignment; // @synthesize textAlignment=_textAlignment;
 @property(nonatomic) int candidatesVisualStyle; // @synthesize candidatesVisualStyle=_candidatesVisualStyle;
-@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) CDStruct_227bb23d visualStyling; // @synthesize visualStyling=_visualStyling;
 @property(nonatomic) double rightPadding; // @synthesize rightPadding=_rightPadding;
 @property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(nonatomic) unsigned long long edges; // @synthesize edges=_edges;
@@ -73,6 +73,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(nonatomic) _Bool usesGroupHeaderAppearance; // @synthesize usesGroupHeaderAppearance=_usesGroupHeaderAppearance;
 @property(nonatomic) _Bool dummy; // @synthesize dummy=_dummy;
+- (void).cxx_destruct;
 - (void)setSelected:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool canShowCandidateNumber;
@@ -85,7 +86,6 @@ __attribute__((visibility("hidden")))
 - (void)prepareForReuse;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

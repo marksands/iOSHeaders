@@ -16,9 +16,13 @@ __attribute__((visibility("hidden")))
     double _preferredMaxLayoutWidth;
     CAGradientLayer *_topGradient;
     CAGradientLayer *_bottomGradient;
+    _Bool _showAsTitle;
 }
 
+@property(nonatomic) _Bool showAsTitle; // @synthesize showAsTitle=_showAsTitle;
 - (void).cxx_destruct;
+- (void)flashScrollIndicators;
+- (void)_updateFontStyling;
 - (void)setPreferredMaxLayoutWidth:(double)arg1;
 - (void)setText:(id)arg1;
 - (void)layoutMarginsDidChange;

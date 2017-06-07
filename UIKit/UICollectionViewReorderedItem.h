@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSIndexPath *originalIndexPath; // @synthesize originalIndexPath=_originalIndexPath;
 @property(readonly, nonatomic) UICollectionViewCell *cell; // @synthesize cell=_cell;
 - (void).cxx_destruct;
+- (_Bool)isNOOP;
+- (id)description;
 - (id)initWithCell:(id)arg1 indexPath:(id)arg2;
 
 @end

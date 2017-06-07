@@ -19,6 +19,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)photoEditModelWithAdjustmentData:(id)arg1 asset:(id)arg2;
 + (long long)adjustmentBaseVersionFromVideoRequestVersion:(long long)arg1;
 + (long long)videoRequestVersionFromAdjustmentBaseVersion:(long long)arg1;
 + (long long)adjustmentBaseVersionFromImageRequestVersion:(long long)arg1;

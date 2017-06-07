@@ -16,6 +16,7 @@
 + (id)sharedInstance;
 @property(copy, nonatomic) NSURL *contentProxyURL; // @synthesize contentProxyURL=_contentProxyURL;
 - (void)contentProxyURLDidChange:(id)arg1;
+- (void)dealloc;
 
 @end
 

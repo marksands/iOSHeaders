@@ -65,6 +65,7 @@
     struct UIEdgeInsets _loadingInsets;
 }
 
++ (unsigned long long)_defaultEdgesScrollingContentIntoSafeArea;
 @property(copy, nonatomic) CDUnknownBlockType onNextTileControllersUpdateBlock; // @synthesize onNextTileControllersUpdateBlock=_onNextTileControllersUpdateBlock;
 @property(readonly, nonatomic) NSMutableDictionary *_postLayoutBlocks; // @synthesize _postLayoutBlocks=__postLayoutBlocks;
 @property(nonatomic, setter=_setPagingFrictionAdjustment:) double _pagingFrictionAdjustment; // @synthesize _pagingFrictionAdjustment=__pagingFrictionAdjustment;

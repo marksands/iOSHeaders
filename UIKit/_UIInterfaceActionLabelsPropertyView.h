@@ -13,7 +13,6 @@
 __attribute__((visibility("hidden")))
 @interface _UIInterfaceActionLabelsPropertyView : UIView <UIInterfaceActionDisplayPropertyObserver>
 {
-    double _minimumEdgeMargin;
     NSLayoutConstraint *_leadingLabelLeadingConstraint;
     NSLayoutConstraint *_leadingLabelVerticalPositionConstraint;
     NSLayoutConstraint *_trailingLabelTrailingConstraint;

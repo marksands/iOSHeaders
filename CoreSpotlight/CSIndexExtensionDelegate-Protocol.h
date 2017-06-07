@@ -9,6 +9,7 @@
 @class CSIndexJob, NSArray, NSString;
 
 @protocol CSIndexExtensionDelegate <NSObject>
+- (void)indexRequestsPerformDataJob:(CSIndexJob *)arg1 forBundle:(NSString *)arg2 completionHandler:(void (^)(NSData *, NSError *))arg3;
 - (void)indexRequestsPerformJob:(CSIndexJob *)arg1 extensions:(NSArray *)arg2 perExtensionCompletionHandler:(void (^)(NSString *, NSError *))arg3 completionHandler:(void (^)(void))arg4;
 - (void)indexRequestsPerformJob:(CSIndexJob *)arg1 perExtensionCompletionHandler:(void (^)(NSString *, NSError *))arg2 completionHandler:(void (^)(void))arg3;
 - (void)indexRequestsPerformJob:(CSIndexJob *)arg1 forBundle:(NSString *)arg2 completionHandler:(void (^)(void))arg3;

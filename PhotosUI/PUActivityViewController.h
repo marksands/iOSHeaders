@@ -24,6 +24,7 @@
     id <PUActivityViewControllerDelegate> _delegate;
 }
 
++ (_Bool)needsConfidentialityCheckForActivityType:(id)arg1;
 + (id)photosApplicationActivities;
 + (id)defaultActivityTypeOrder;
 + (_Bool)_isOutboundShareActivity:(id)arg1;
@@ -36,7 +37,7 @@
 - (void)_cancel;
 - (void)_prepareActivity:(id)arg1;
 - (void)_performActivity:(id)arg1;
-- (_Bool)_shouldShowSystemActivity:(id)arg1;
+- (_Bool)_shouldShowSystemActivityType:(id)arg1;
 - (void)setCompletionWithItemsHandler:(CDUnknownBlockType)arg1;
 - (void)updateVisibleShareActions;
 - (void)setAssetItems:(id)arg1;
@@ -46,6 +47,7 @@
 - (void)_sharingManagerDidBeginPublishing:(id)arg1;
 - (void)mailActivity:(id)arg1 displayVideoRemakerProgressView:(id)arg2;
 - (void)setAggregateKey:(struct __CFString *)arg1;
+- (void)_presentConfidentialityWarningWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_prepareAssetProgressForActivity:(id)arg1;
 - (void)_showSharingWasInterruptedWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_removePreparationProgressView;

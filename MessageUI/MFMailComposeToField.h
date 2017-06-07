@@ -4,14 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MessageUI/MFMailComposeRecipientView.h>
+#import <MessageUI/MFComposeRecipientTextView.h>
 
 @class MFComposeSMIMELockButton;
 @protocol MFMailComposeToFieldDelegate;
 
-@interface MFMailComposeToField : MFMailComposeRecipientView
+@interface MFMailComposeToField : MFComposeRecipientTextView
 {
     MFComposeSMIMELockButton *_smimeButton;
+    _Bool _wantsEncryption;
+    _Bool _canEncrypt;
     _Bool _smimeButtonVisible;
     _Bool _smimeButtonEnabled;
     id <MFMailComposeToFieldDelegate> _toFieldDelegate;

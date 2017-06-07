@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableData *assetContent; // @synthesize assetContent=_assetContent;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void).cxx_destruct;
-- (id)assetContentWithError:(id *)arg1;
+- (id)assetContentWithError:(id *)arg1 expectedSignature:(id)arg2;
 - (_Bool)isContiguous;
 - (void)writeData:(id)arg1 atOffset:(id)arg2;
 - (id)init;

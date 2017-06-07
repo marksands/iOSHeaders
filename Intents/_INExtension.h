@@ -17,7 +17,6 @@
 }
 
 + (void)initialize;
-+ (void)load;
 - (id)currentApplicationContext;
 - (id)handlerForIntent:(id)arg1;
 - (void)beginRequestWithExtensionContext:(id)arg1;

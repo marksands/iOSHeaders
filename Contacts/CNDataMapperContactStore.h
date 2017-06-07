@@ -7,20 +7,23 @@
 #import <Contacts/CNContactStore.h>
 
 @class NSObject;
-@protocol CNDataMapper;
+@protocol CNContactsLogger, CNDataMapper;
 
-__attribute__((visibility("hidden")))
 @interface CNDataMapperContactStore : CNContactStore
 {
     id <CNDataMapper> _mapper;
+    id <CNContactsLogger> _logger;
 }
 
 + (Class)dataMapperClass;
++ (_Bool)enableContactsOutOfProcess;
+@property(readonly, nonatomic) id <CNContactsLogger> logger; // @synthesize logger=_logger;
 @property(readonly, retain, nonatomic) NSObject<CNDataMapper> *mapper; // @synthesize mapper=_mapper;
-- (_Bool)clearChangeHistoryForClient:(id)arg1 toSequenceNumber:(long long)arg2 error:(id *)arg3;
+- (void).cxx_destruct;
+- (_Bool)clearChangeHistoryForClientIdentifier:(id)arg1 toChangeAnchor:(id)arg2 error:(id *)arg3;
 - (id)changeHistoryWithFetchRequest:(id)arg1 error:(id *)arg2;
-- (_Bool)unregisterClientForChangeHistory:(id)arg1 error:(id *)arg2;
-- (_Bool)registerClientForChangeHistory:(id)arg1 error:(id *)arg2;
+- (_Bool)unregisterChangeHistoryClientIdentifier:(id)arg1 error:(id *)arg2;
+- (_Bool)registerChangeHistoryClientIdentifier:(id)arg1 error:(id *)arg2;
 - (id)matchingDictionaryForContact:(id)arg1;
 - (id)contactIdentifierWithMatchingDictionary:(id)arg1;
 - (id)descriptorForRequiredKeysForMatchingDictionary;
@@ -51,7 +54,8 @@ __attribute__((visibility("hidden")))
 - (id)groupWithIdentifier:(id)arg1 error:(id *)arg2;
 - (id)groupsMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (id)executeFetchRequest:(id)arg1 progressiveResults:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)contactIdentifiersForFetchRequest:(id)arg1 error:(id *)arg2;
+- (id)contactsFromMapperForFetchRequest:(id)arg1 matchInfos:(id *)arg2 error:(id *)arg3;
+- (id)enumerateContactsWithBatchEnumerator:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)batchEnumeratorForFetchRequest:(id)arg1;
 - (_Bool)enumerateContactsAndMatchInfoWithFetchRequest:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)unifiedContactsMatchingPredicate:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
@@ -62,10 +66,10 @@ __attribute__((visibility("hidden")))
 - (id)meContactIdentifierWithError:(id *)arg1;
 - (id)identifierWithError:(id *)arg1;
 - (id)requestAccessForEntityType:(long long)arg1;
-- (void)dealloc;
+- (id)description;
 - (id)initWithEnvironment:(id)arg1;
 - (id)init;
-- (id)initWithDataMapper:(id)arg1;
+- (id)initWithDataMapper:(id)arg1 environment:(id)arg2;
 - (id)iOSMapper;
 
 @end

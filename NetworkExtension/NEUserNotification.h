@@ -30,7 +30,7 @@
 - (id)initAddConfigurationsForApp:(id)arg1 warningHeader:(id)arg2 warning:(id)arg3;
 - (void)cancel;
 - (_Bool)postNotificationWithCallbackQueue:(id)arg1 callbackHandler:(CDUnknownBlockType)arg2;
-- (void)dealloc;
+- (void)executeOnMainLoop:(CDUnknownBlockType)arg1;
 - (id)initAuthenticationWithHeader:(id)arg1 options:(id)arg2 flags:(unsigned long long)arg3;
 - (id)initBannerWithHeader:(id)arg1 message:(id)arg2 alternateMessage:(id)arg3 defaultMessage:(id)arg4;
 

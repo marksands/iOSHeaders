@@ -6,12 +6,10 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/_UIFocusEnginePanGestureTouchObserver-Protocol.h>
-
-@class NSString, UIScrollView;
+@class UIScrollView;
 
 __attribute__((visibility("hidden")))
-@interface _UIFocusFastScrollingSwipeSequence : NSObject <_UIFocusEnginePanGestureTouchObserver>
+@interface _UIFocusFastScrollingSwipeSequence : NSObject
 {
     UIScrollView *_scrollView;
     unsigned long long _headingLock;
@@ -22,12 +20,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long headingLock; // @synthesize headingLock=_headingLock;
 @property(nonatomic) __weak UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void).cxx_destruct;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

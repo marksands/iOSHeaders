@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString;
+@class MTLType, NSString;
 
 @interface MTLStructMember : NSObject
 {
@@ -14,11 +14,14 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
+- (id)indirectArgumentType;
 - (id)arrayType;
 - (id)structType;
 
 // Remaining properties
 @property(readonly) unsigned long long dataType; // @dynamic dataType;
+@property(readonly) MTLType *dataTypeDescription; // @dynamic dataTypeDescription;
+@property(readonly) unsigned long long indirectArgumentIndex; // @dynamic indirectArgumentIndex;
 @property(readonly) NSString *name; // @dynamic name;
 @property(readonly) unsigned long long offset; // @dynamic offset;
 

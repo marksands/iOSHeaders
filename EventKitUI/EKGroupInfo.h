@@ -19,13 +19,18 @@
     NSString *_titleForBeginningOfSentence;
     _Bool _selected;
     _Bool _showSelectAllButton;
+    _Bool _showVerifyAccountButton;
     EKSource *_source;
+    NSString *_footer;
 }
 
+@property(retain, nonatomic) NSString *footer; // @synthesize footer=_footer;
+@property(nonatomic) _Bool showVerifyAccountButton; // @synthesize showVerifyAccountButton=_showVerifyAccountButton;
 @property(nonatomic) _Bool showSelectAllButton; // @synthesize showSelectAllButton=_showSelectAllButton;
 @property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 @property(retain, nonatomic) EKSource *source; // @synthesize source=_source;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) EKSource *sourceForSyncError;
 - (id)description;
 @property(readonly, nonatomic) int sortOrder;
 @property(readonly, nonatomic) _Bool isSubscribed;
@@ -47,7 +52,6 @@
 @property(readonly, copy, nonatomic) NSString *title;
 - (void)removeCalendar:(id)arg1;
 - (void)insertCalendarInfo:(id)arg1;
-- (void)insertDeclinedEventsItem;
 - (id)initWithCustomGroupType:(int)arg1;
 - (id)initWithSource:(id)arg1;
 - (id)init;

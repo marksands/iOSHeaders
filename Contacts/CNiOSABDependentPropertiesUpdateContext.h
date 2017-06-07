@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSData;
 
@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSData *pendingThumbnailImageData; // @synthesize pendingThumbnailImageData=_pendingThumbnailImageData;
 @property(nonatomic) struct CGRect pendingCropRect; // @synthesize pendingCropRect=_pendingCropRect;
 @property(copy, nonatomic) NSData *pendingImageData; // @synthesize pendingImageData=_pendingImageData;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (_Bool)setWatchChangesforThumbnailImageDataToPerson:(void *)arg1 error:(id *)arg2;
 - (_Bool)flushPendingImageChangesToPerson:(void *)arg1 error:(id *)arg2;
 - (void)resetAllData;

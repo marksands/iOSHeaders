@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @interface NSObject (CKPropertiesDescription)
+- (id)hashedDescription;
 - (id)CKDescription;
 - (id)CKPropertiesDescriptionStringFromProperties:(id)arg1;
 - (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;

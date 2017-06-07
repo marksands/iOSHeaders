@@ -46,7 +46,7 @@
 - (_Bool)canAddEditingItem;
 - (_Bool)labelsAreUnique;
 - (_Bool)isRequired;
-- (_Bool)_shoulShowGroupWhenEditing:(_Bool)arg1;
+- (_Bool)_shouldShowGroupWhenEditing:(_Bool)arg1;
 - (id)_itemToBeMergedWith:(id)arg1 fromItems:(id)arg2 forEditing:(_Bool)arg3;
 - (id)_mergeItems:(id)arg1 forEditing:(_Bool)arg2;
 - (id)_loadPropertyItems;

@@ -11,30 +11,46 @@
 @interface EKSource : EKObject
 {
     EKAvailabilityCache *_availabilityCache;
+    _Bool _isFacebook;
     NSDate *_timeOfLastExternalIdentificationCache;
     NSString *_cachedHost;
     long long _cachedPort;
     NSSet *_cachedOwnerAddresses;
 }
 
++ (long long)_calEventPrivacyLevelToEKPrivacyLevel:(int)arg1;
++ (int)_ekPrivacyLevelToCalEventPrivacyLevel:(long long)arg1;
 + (id)sourceWithEventStore:(id)arg1;
++ (_Bool)isWeakRelationship;
++ (Class)frozenClass;
+@property(readonly, nonatomic) _Bool isFacebook; // @synthesize isFacebook=_isFacebook;
 @property(retain, nonatomic) NSSet *cachedOwnerAddresses; // @synthesize cachedOwnerAddresses=_cachedOwnerAddresses;
 @property(nonatomic) long long cachedPort; // @synthesize cachedPort=_cachedPort;
 @property(retain, nonatomic) NSString *cachedHost; // @synthesize cachedHost=_cachedHost;
 @property(retain, nonatomic) NSDate *timeOfLastExternalIdentificationCache; // @synthesize timeOfLastExternalIdentificationCache=_timeOfLastExternalIdentificationCache;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool syncs;
 @property(readonly, nonatomic) NSSet *ownerAddresses;
 @property(readonly, nonatomic) long long serverPort;
 @property(readonly, nonatomic) NSString *serverHost;
 - (void)_cacheExternalIdentificationIfNeeded;
+- (void)_cacheExternalIdentification;
 @property(readonly, nonatomic) EKAvailabilityCache *availabilityCache;
 @property(readonly, nonatomic) _Bool wantsCommentPromptWhenDeclining;
 - (_Bool)remove:(id *)arg1;
 - (_Bool)commit:(id *)arg1;
 - (id)description;
+@property(readonly, nonatomic) _Bool isSyncing;
+@property(retain, nonatomic) NSDate *lastSyncEndDate;
+@property(retain, nonatomic) NSDate *lastSyncStartDate;
+@property(nonatomic) unsigned long long lastSyncError;
 @property(readonly, nonatomic) int displayOrderForNewCalendar;
 @property(readonly, nonatomic) CDBSourceConstraints *constraints;
+@property(readonly, nonatomic) _Bool supportsPhoneNumbers;
 @property(readonly, nonatomic) _Bool supportsJunkReporting;
+- (void)_countCalendarItemsOfCalType:(int)arg1 resultHandler:(CDUnknownBlockType)arg2;
+- (void)countCalendarItemsOfType:(unsigned long long)arg1 resultHandler:(CDUnknownBlockType)arg2;
+- (void)countCalendarItemsWithResultHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool supportsReminderActions;
 @property(readonly, nonatomic) _Bool supportsCalendarCreation;
 - (id)readWriteCalendarsForEntityType:(unsigned long long)arg1;
@@ -42,18 +58,26 @@
 @property(readonly, nonatomic) NSSet *allCalendars;
 @property(readonly, nonatomic) NSSet *calendars;
 @property(readonly, nonatomic) _Bool isFacebookSource;
-@property(readonly, nonatomic, getter=isEnabled) _Bool enabled;
+@property(nonatomic, getter=isEnabled) _Bool enabled;
+- (_Bool)disabled;
+@property(nonatomic) _Bool usesSelfAttendee;
+@property(nonatomic) _Bool wasMigrated;
+- (void)setFlag:(int)arg1 value:(_Bool)arg2;
+- (_Bool)flag:(int)arg1;
+@property(nonatomic) int flags;
 @property(nonatomic) _Bool onlyCreatorCanModify;
 @property(copy, nonatomic) NSString *externalModificationTag;
 @property(copy, nonatomic) NSString *externalID;
-@property(readonly, nonatomic) NSString *sourceIdentifier;
+@property(retain, nonatomic) NSString *sourceIdentifier;
 @property(copy, nonatomic) NSNumber *defaultAlarmOffset;
 @property(copy, nonatomic) NSString *title;
-@property(readonly, nonatomic) long long strictestEventPrivateValue;
-@property(readonly, nonatomic) long long preferredEventPrivateValue;
-@property(readonly, nonatomic) long long sourceType;
-- (id)_persistentItem;
-- (id)init;
+@property(nonatomic) long long strictestEventPrivateValue;
+- (void)setStrictestEventPrivateValueRaw:(int)arg1;
+- (int)strictestEventPrivateValueRaw;
+@property(nonatomic) long long preferredEventPrivateValue;
+- (void)setPreferredEventPrivateValueRaw:(int)arg1;
+- (int)preferredEventPrivateValueRaw;
+@property(nonatomic) long long sourceType;
 
 @end
 

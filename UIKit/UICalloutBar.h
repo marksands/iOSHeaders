@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSDictionary, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder;
+@class NSArray, NSDictionary, NSMutableArray, NSString, UICalloutBarBackground, UICalloutBarButton, UIResponder, UIScrollView, UIStackView;
 
 @interface UICalloutBar : UIView
 {
@@ -47,6 +47,10 @@
     _Bool m_showAllReplacements;
     _Bool m_ignoreFade;
     _Bool m_suppressesAppearance;
+    _Bool m_isDisplayingVertically;
+    UIScrollView *m_verticalScrollView;
+    UIStackView *m_verticalStackView;
+    NSMutableArray *m_axSeparatorViews;
 }
 
 + (void)hideSharedCalloutBar;
@@ -56,6 +60,9 @@
 + (id)activeCalloutBar;
 + (id)sharedCalloutBar;
 + (void)performWithoutAffectingSharedCalloutBar:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) UIStackView *verticalStackView; // @synthesize verticalStackView=m_verticalStackView;
+@property(readonly, nonatomic) UIScrollView *verticalScrollView; // @synthesize verticalScrollView=m_verticalScrollView;
+@property(readonly, nonatomic) _Bool isDisplayingVertically; // @synthesize isDisplayingVertically=m_isDisplayingVertically;
 @property(nonatomic) _Bool suppressesAppearance; // @synthesize suppressesAppearance=m_suppressesAppearance;
 @property(retain, nonatomic) NSDictionary *currentAppearOrFadeContext; // @synthesize currentAppearOrFadeContext=m_currentAppearOrFadeContext;
 @property(nonatomic) _Bool supressesHorizontalMovement; // @synthesize supressesHorizontalMovement=m_supressesHorizontalMovement;
@@ -99,14 +106,19 @@
 - (void)setTargetRect:(struct CGRect)arg1 pointBelowControls:(struct CGPoint)arg2 pointAboveControls:(struct CGPoint)arg3;
 - (_Bool)_updateVisibleItemsAnimated:(_Bool)arg1;
 - (void)adjustFrameToAvoidDividerOnArrow;
+- (void)addVerticalSeparatorAfterButton:(id)arg1;
+- (void)updateForCurrentVerticalPage;
+- (void)updateForCurrentHorizontalPage;
 - (void)updateForCurrentPage;
 - (void)configureButtons:(double)arg1;
+- (void)configureButtonsForVerticalView:(double)arg1;
 - (void)shrinkButtonTextSize:(id)arg1;
 - (_Bool)setFrameForSize:(struct CGSize)arg1;
 - (void)updateAvailableButtons;
 - (_Bool)calculateControlFrameInsideTargetRect:(struct CGSize)arg1;
 - (_Bool)calculateControlFrameForCalloutSize:(struct CGSize)arg1 right:(_Bool)arg2;
 - (_Bool)calculateControlFrameForCalloutSize:(struct CGSize)arg1 below:(_Bool)arg2;
+- (double)maxVerticalCalloutHeightForMinButtonHeight:(double)arg1;
 - (double)supressHorizontalXMovementIfNeededForPoint:(struct CGPoint)arg1 proposedX:(double)arg2;
 - (_Bool)rectClear:(struct CGRect)arg1;
 - (void)resetPage;

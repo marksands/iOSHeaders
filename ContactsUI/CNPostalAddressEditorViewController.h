@@ -25,9 +25,8 @@ __attribute__((visibility("hidden")))
 + (id)cellIdentifierForClass:(Class)arg1;
 + (id)cellIdentifierForEditingProperty:(id)arg1;
 - (void).cxx_destruct;
-- (id)displayAccountForContact:(id)arg1;
+- (id)contactViewCache;
 - (id)defaultValueForPropertyCell:(id)arg1;
-- (id)storeForPropertyCell:(id)arg1;
 - (void)propertyCellDidChangeLayout:(id)arg1;
 - (void)propertyCell:(id)arg1 performActionForItem:(id)arg2 withTransportType:(long long)arg3;
 - (void)propertyCell:(id)arg1 didUpdateItem:(id)arg2 withNewValue:(id)arg3;

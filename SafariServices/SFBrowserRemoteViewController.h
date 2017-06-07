@@ -24,10 +24,9 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)willOpenURLInHostApplication:(id)arg1;
 - (void)executeCustomActivityProxyID:(id)arg1;
-- (void)fetchHostAppCustomActivitiesForURL:(id)arg1 title:(id)arg2;
+- (void)fetchActivityViewControllerInfoForURL:(id)arg1 title:(id)arg2;
 - (void)didFinishInitialLoad:(_Bool)arg1;
 - (void)setRemoteSwipeGestureEnabled:(_Bool)arg1;
-- (void)willUpdateStatusBarStyle:(id)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)willDismissServiceViewController;
 - (void)didLoadWebView;

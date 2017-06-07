@@ -6,9 +6,10 @@
 
 #import <VideoSubscriberAccount/NSObject-Protocol.h>
 
-@class NSError, VSViewServiceHostViewController, VSViewServiceRequest, VSViewServiceResponse;
+@class NSError, NSString, VSViewServiceHostViewController, VSViewServiceRequest, VSViewServiceResponse;
 
 @protocol VSViewServiceHostViewControllerDelegate <NSObject>
+- (_Bool)viewServiceHostViewController:(VSViewServiceHostViewController *)arg1 shouldAuthenticateAccountProviderWithIdentifier:(NSString *)arg2;
 - (void)viewServiceHostViewController:(VSViewServiceHostViewController *)arg1 didCancelRequest:(VSViewServiceRequest *)arg2;
 - (void)viewServiceHostViewController:(VSViewServiceHostViewController *)arg1 didChooseAdditionalProvidersForRequest:(VSViewServiceRequest *)arg2;
 - (void)viewServiceHostViewController:(VSViewServiceHostViewController *)arg1 request:(VSViewServiceRequest *)arg2 didFailWithError:(NSError *)arg3;

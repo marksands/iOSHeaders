@@ -28,12 +28,12 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIButton *labelButton; // @synthesize labelButton=_labelButton;
 @property(retain, nonatomic) _MKUILabel *label; // @synthesize label=_label;
 - (void).cxx_destruct;
+- (double)currentHeight;
 - (void)setAttributionString:(id)arg1;
 - (void)attributionClicked;
 - (void)_contentSizeDidChange;
 - (void)updateConstraints;
 - (void)createConstraints;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

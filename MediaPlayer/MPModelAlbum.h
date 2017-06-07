@@ -133,6 +133,7 @@
 - (id)songPopularityForIdentifiers:(id)arg1;
 - (id)artworkCatalog;
 - (id)descriptionWithType:(long long)arg1;
+- (id)contentItemCollectionInfo;
 - (struct MPLibraryAddStatusObserverConfiguration)libraryAddStatusObserverConfiguration;
 - (long long)libraryRemovalSupportedOptions;
 - (id)newKeepLocalStatusObserverConfiguration;

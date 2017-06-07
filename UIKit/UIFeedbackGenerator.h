@@ -15,6 +15,7 @@
     long long _autoDeactivationCount[3];
     NSObject<OS_dispatch_source> *_autoDeactivateTimer;
     NSMutableDictionary *_preparationTimers;
+    CDUnknownBlockType _feedbackWarmingBlock;
     double _currentDelay;
     NSSet *_usedFeedbacks;
     _Bool _hasMutableFeedbackKeyPaths;
@@ -25,14 +26,15 @@
     NSSet *_engines;
 }
 
-+ (id)behaviorWithCoordinateSpace:(id)arg1;
-+ (id)behaviorWithConfiguration:(id)arg1 coordinateSpace:(id)arg2;
++ (id)_defaultCoordinateSpace;
 + (Class)_configurationClass;
 + (void)_setRunningTests:(_Bool)arg1;
 + (void)_resetPreparationTimeouts;
 + (void)_setPreparationTimeout:(double)arg1 forStyle:(long long)arg2;
 + (void)_resetAutoDeactivateTimeout;
 + (void)_setAutoDeactivateTimeout:(double)arg1;
++ (id)behaviorWithCoordinateSpace:(id)arg1;
++ (id)behaviorWithConfiguration:(id)arg1 coordinateSpace:(id)arg2;
 @property(readonly, nonatomic, getter=_hasMutableFeedbackKeyPaths) _Bool hasMutableFeedbackKeyPaths; // @synthesize hasMutableFeedbackKeyPaths=_hasMutableFeedbackKeyPaths;
 @property(readonly, nonatomic) NSSet *engines; // @synthesize engines=_engines;
 @property(retain, nonatomic, getter=_configuration, setter=_setConfiguration:) _UIFeedbackGeneratorConfiguration *configuration; // @synthesize configuration=_configuration;
@@ -57,12 +59,15 @@
 - (void)__deactivateWithStyle:(long long)arg1;
 - (void)_deactivateWithStyle:(long long)arg1;
 - (void)deactivate;
+- (void)_stopFeedbackWarming;
+- (void)_startFeedbackWarming;
+- (void)_scheduleFeedbackWarming;
 - (void)_activated;
 - (void)_setupEnginesIfNeeded;
 - (void)__activateWithStyle:(long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)_activateWithStyle:(long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)activateWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)_prepare;
+- (void)_setup;
 - (double)_preparationTimeoutForStyle:(long long)arg1;
 - (void)_stopPreparationForAllStyles;
 - (void)_stopPreparationForStyle:(long long)arg1;
@@ -78,10 +83,10 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithConfiguration:(id)arg1 coordinateSpace:(id)arg2;
+- (id)initWithCoordinateSpace:(id)arg1;
 - (id)initWithConfiguration:(id)arg1;
 - (id)init;
 @property(nonatomic, getter=_isMuted, setter=_setMuted:) _Bool muted;
-- (void)prepareForFeedback;
 - (void)_stats_playedFeedback;
 - (void)_stats_prepared;
 - (void)_stats_activationTimedOut;

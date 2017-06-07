@@ -14,6 +14,7 @@
 }
 
 + (id)defaultManager;
+- (void)getFileProviderMessageInterfacesForItemAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)containerURLForSecurityApplicationGroupIdentifier:(id)arg1;
 - (void)_registerForUbiquityAccountChangeNotifications;
 - (void)_postUbiquityAccountChangeNotification:(id)arg1;

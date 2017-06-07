@@ -6,6 +6,7 @@
 
 #import <MapKit/MKPlaceSectionViewController.h>
 
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
 #import <MapKit/MKOfficialAppViewDelegate-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
@@ -13,7 +14,7 @@
 @protocol MKOfficialAppViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKOfficialAppViewController : MKPlaceSectionViewController <MKOfficialAppViewDelegate, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKOfficialAppViewController : MKPlaceSectionViewController <MKOfficialAppViewDelegate, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     _Bool _isShowing;
     MKMapItem *_mapItem;
@@ -32,7 +33,6 @@ __attribute__((visibility("hidden")))
 - (void)officialAppViewDidSelectPunchOutButton:(id)arg1;
 - (void)_beginFindingOfficialApp;
 - (void)updateOfficialViewButtonText;
-- (void)dealloc;
 - (void)viewDidLoad;
 - (id)initWithMKMapItem:(id)arg1;
 

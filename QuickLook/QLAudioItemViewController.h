@@ -38,13 +38,15 @@ __attribute__((visibility("hidden")))
 - (id)accessoryView;
 - (void)didChangePlayingStatus;
 - (void)_tapRecognized:(id)arg1;
-- (void)setPlayControlsHidden:(_Bool)arg1;
+- (void)setPlayControlsHidden:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)performFirstTimeAppearanceActions:(unsigned long long)arg1;
+- (_Bool)canPerformFirstTimeAppearanceActions:(unsigned long long)arg1;
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
 - (void)addScrubberWithDeferral;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

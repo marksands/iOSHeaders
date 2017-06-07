@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (id)newActionBackgroundViewForViewState:(id)arg1;
 - (double)actionSectionSpacing;
 - (struct CGSize)minimumActionContentSize;
+- (struct UIEdgeInsets)contentMargin;
 
 @end
 

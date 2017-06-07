@@ -6,21 +6,29 @@
 
 #import <objc/NSObject.h>
 
+@class NSDictionary, NSMutableDictionary;
+
 @interface CLServiceVendor : NSObject
 {
+    NSMutableDictionary *_catalog;
+    NSDictionary *_serviceReplacementMap;
+    int _missBehavior;
 }
 
-+ (id)getSiloForService:(id)arg1;
-+ (id)proxyForService:(id)arg1 forClient:(id)arg2;
-+ (id)proxyForService:(id)arg1;
-+ (_Bool)ensureServiceIsRunning:(id)arg1;
-+ (_Bool)isServiceRunning:(id)arg1;
-+ (_Bool)isServiceEnabled:(id)arg1;
-+ (void)retireServiceWithName:(id)arg1;
-+ (id)getServiceWithName:(id)arg1;
-+ (_Bool)getKeyClass:(Class *)arg1 andSilo:(id *)arg2 forServiceWithName:(id)arg3;
++ (id)sharedInstance;
 + (void)rereadConfiguration;
 + (void)initialize;
+- (void).cxx_destruct;
+- (id)getSiloForService:(id)arg1;
+- (id)proxyForService:(id)arg1 forClient:(id)arg2;
+- (id)proxyForService:(id)arg1;
+- (_Bool)ensureServiceIsRunning:(id)arg1;
+- (_Bool)isServiceRunning:(id)arg1;
+- (_Bool)isServiceEnabled:(id)arg1;
+- (void)retireServiceWithName:(id)arg1;
+- (id)getServiceWithName:(id)arg1;
+- (void)setServiceReplacementMap:(id)arg1 missBehavior:(int)arg2;
+- (id)init;
 
 @end
 

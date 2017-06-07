@@ -33,6 +33,7 @@
 - (void)updateShowingSecurityWarningPageIfNeeded;
 - (void)hideSecurityWarningPage;
 - (void)showSecurityWarningPageWithSecurityInfo:(id)arg1;
+- (int)_wbsAnalyticsSafeBrowsingProviderFromProvider:(id)arg1;
 - (id)_securityWarningPageURL;
 - (void)commitProvisionalSecurityInfo;
 - (void)_fraudulentWebsiteCheckCompletedForURL:(id)arg1 withResult:(id)arg2 error:(id)arg3;

@@ -13,11 +13,12 @@
     long long _aggregationStyle;
     NSString *_unitString;
     HKUnit *_canonicalUnit;
-    long long _canonicalUnitToken;
+    struct os_unfair_lock_s _canonicalUnitLock;
 }
 
 + (id)_quantityTypeWithCode:(long long)arg1;
 - (void).cxx_destruct;
+- (_Bool)_validateMetadata:(id)arg1 error:(id *)arg2;
 - (void)validateUnitFromString:(id)arg1;
 - (void)validateUnit:(id)arg1;
 @property(readonly, nonatomic) _HKDimension *dimension;

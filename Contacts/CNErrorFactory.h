@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface CNErrorFactory : NSObject
 {
 }
 
++ (id)errorObject:(id)arg1 doesNotImplementSelector:(SEL)arg2;
 + (id)errorByAddingUserInfoEntries:(id)arg1 toError:(id)arg2;
 + (id)errorByPrependingKeyPath:(id)arg1 toKeyPathsInError:(id)arg2;
 + (id)_localizedReasonForCode:(long long)arg1;

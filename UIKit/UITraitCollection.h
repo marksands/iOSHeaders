@@ -13,7 +13,7 @@
 
 @interface UITraitCollection : NSObject <NSCopying, NSSecureCoding>
 {
-    CDStruct_44017d25 _builtinTraits;
+    CDStruct_759b680f _builtinTraits;
     NSDictionary *_clientDefinedTraits;
 }
 
@@ -61,7 +61,7 @@
 - (unsigned long long)hash;
 - (void)dealloc;
 - (id)init;
-- (id)_initWithBuiltinTraitStorage:(CDStruct_44017d25 *)arg1 clientDefinedTraits:(id)arg2;
+- (id)_initWithBuiltinTraitStorage:(CDStruct_759b680f *)arg1 clientDefinedTraits:(id)arg2;
 - (id)_namedImageDescription;
 @property(readonly, nonatomic) long long barPosition;
 @property(readonly, nonatomic) long long barMetrics;

@@ -63,7 +63,6 @@
 - (void)_cancelAutomaticTopLevelGroupEnding;
 - (void)_scheduleAutomaticTopLevelGroupEnding;
 - (void)_delayAutomaticTermination:(double)arg1;
-- (void)finalize;
 - (void)dealloc;
 - (id)init;
 - (void)_rollbackUndoGrouping;

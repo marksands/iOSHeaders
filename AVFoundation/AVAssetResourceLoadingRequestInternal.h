@@ -13,6 +13,12 @@
 {
     AVWeakReference *weakReference;
     AVWeakReference *weakReferenceToResourceLoader;
+    struct OpaqueFigCustomURLLoader *customURLLoader;
+    struct OpaqueFigCustomURLHandler *customURLHandler;
+    struct OpaqueFigCustomURLHandler *contentKeySessionCustomURLHandler;
+    struct __CFDictionary *requestInfo;
+    unsigned long long requestID;
+    long long responseInfoSentOnceToken;
     NSDictionary *requestDictionary;
     NSMutableURLRequest *URLRequest;
     NSURLResponse *response;

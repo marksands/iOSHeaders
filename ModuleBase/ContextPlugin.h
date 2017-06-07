@@ -29,7 +29,8 @@
 - (id)externalizedContext;
 - (void)externalizedContextWithReply:(CDUnknownBlockType)arg1;
 - (void)performOp:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)resetWithOriginator:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)retryEvent:(long long)arg1 originator:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)resetEvent:(long long)arg1 originator:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)checkCredentialSatisfied:(long long)arg1 policy:(long long)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)setCredential:(id)arg1 type:(long long)arg2 originator:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)isCredentialSet:(long long)arg1 originator:(id)arg2 reply:(CDUnknownBlockType)arg3;

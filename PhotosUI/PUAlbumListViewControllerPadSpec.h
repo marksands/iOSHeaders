@@ -29,12 +29,11 @@
 - (_Bool)shouldShowSectionHeaders;
 - (double)sectionFooterHeight;
 - (double)sectionHeaderHeight;
-- (struct CGSize)imageSizeForLayoutReferenceSize:(struct CGSize)arg1;
-- (void)configureGridLayout:(id)arg1 forLayoutReferenceSize:(struct CGSize)arg2;
+- (struct CGSize)imageSizeForLayoutReferenceSize:(struct CGSize)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
+- (void)configureGridLayout:(id)arg1 forLayoutReferenceSize:(struct CGSize)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (struct CGSize)cellSizeForStackSize:(struct CGSize)arg1;
-- (struct CGSize)stackSizeForLayoutReferenceSize:(struct CGSize)arg1;
-- (struct UIEdgeInsets)sectionInsetsForLayoutReferenceSize:(struct CGSize)arg1;
-- (void)_getStackSize:(struct CGSize *)arg1 edgeInset:(double *)arg2 forLayoutReferenceSize:(struct CGSize)arg3;
+- (struct CGSize)stackSizeForLayoutReferenceSize:(struct CGSize)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
+- (struct UIEdgeInsets)sectionInsetsForLayoutReferenceSize:(struct CGSize)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
 - (_Bool)shouldUseCollageForCloudFeedPlaceholder;
 - (_Bool)usesStackTransitionToGrid;
 - (long long)cellContentViewLayout;

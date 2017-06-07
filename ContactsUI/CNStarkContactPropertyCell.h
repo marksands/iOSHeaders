@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 - (void)_cnui_applyContactStyle;
 - (id)variableConstraints;
 - (id)constantConstraints;
-- (double)bottomBaselineConstant;
 - (void)transportButtonClicked:(id)arg1;
 - (id)standardStarView;
 - (id)standardTransportIcon;

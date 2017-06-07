@@ -17,6 +17,7 @@
 @property(readonly, nonatomic, getter=_estimatesSectionFooterHeights) _Bool estimatesSectionFooterHeights;
 @property(readonly, nonatomic, getter=_estimatesSectionHeaderHeights) _Bool estimatesSectionHeaderHeights;
 @property(readonly, nonatomic, getter=_estimatesRowHeights) _Bool estimatesRowHeights;
+@property(readonly, nonatomic, getter=_estimatesHeights) _Bool estimatesHeights;
 @property(readonly, nonatomic, getter=_providesRowHeights) _Bool providesRowHeights;
 @property(readonly, nonatomic, getter=_heightForTableFooter) double heightForTableFooter;
 @property(readonly, nonatomic, getter=_heightForTableHeader) double heightForTableHeader;
@@ -27,11 +28,10 @@
 @property(readonly, nonatomic, getter=_sidePadding) double sidePadding;
 @property(readonly, nonatomic, getter=_defaultSectionFooterHeight) double defaultSectionFooterHeight;
 @property(readonly, nonatomic, getter=_defaultSectionHeaderHeight) double defaultSectionHeaderHeight;
-@property(readonly, nonatomic, getter=_footerRightMarginWidth) double footerRightMarginWidth;
-@property(readonly, nonatomic, getter=_headerRightMarginWidth) double headerRightMarginWidth;
-@property(readonly, nonatomic, getter=_footerMarginWidth) double footerMarginWidth;
-@property(readonly, nonatomic, getter=_headerMarginWidth) double headerMarginWidth;
+@property(readonly, nonatomic, getter=_headerFooterTrailingMarginWidth) double headerFooterTrailingMarginWidth;
+@property(readonly, nonatomic, getter=_headerFooterLeadingMarginWidth) double headerFooterLeadingMarginWidth;
 @property(readonly, nonatomic, getter=_constants) id <UITableConstants> constants;
+- (void)_setHeight:(double)arg1 forRowAtIndexPath:(NSIndexPath *)arg2;
 - (double)_swipeToDeleteOffsetForRow:(long long)arg1 inSection:(long long)arg2;
 - (_Bool)_shouldStripHeaderTopPaddingForSection:(long long)arg1;
 - (double)_maxTitleWidthForFooterInSection:(long long)arg1;
@@ -43,6 +43,7 @@
 - (NSString *)_detailTextForHeaderInSection:(long long)arg1;
 - (NSString *)_titleForFooterInSection:(long long)arg1;
 - (NSString *)_titleForHeaderInSection:(long long)arg1;
+- (void)_coalesceContentSizeUpdateWithDelta:(double)arg1;
 - (void)_applyContentSizeDeltaForEstimatedHeightAdjustments:(double)arg1;
 - (double)_dataSourceHeightForFooterInSection:(long long)arg1;
 - (double)_dataSourceHeightForHeaderInSection:(long long)arg1;

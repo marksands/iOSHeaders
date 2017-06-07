@@ -8,7 +8,7 @@
 
 #import <PhotosUI/UITextViewDelegate-Protocol.h>
 
-@class NSArray, NSString, UIColor, UILabel, UINavigationItem, UITextField, UITextView;
+@class NSArray, NSLayoutConstraint, NSString, UIColor, UILabel, UINavigationItem, UITextField, UITextView;
 @protocol PUPhotoStreamCreateTitleDelegate;
 
 @interface PUPhotoStreamCreateTitleViewController : UIViewController <UITextViewDelegate>
@@ -21,6 +21,10 @@
     UINavigationItem *_navItem;
     UILabel *_instructionLabel;
     NSArray *_constraints;
+    _Bool _hidePlaceholder;
+    UILabel *_axPlaceholderLabel;
+    NSLayoutConstraint *_standardHeightConstraint;
+    NSLayoutConstraint *_axHeightConstraint;
     id <PUPhotoStreamCreateTitleDelegate> _titleDelegate;
 }
 
@@ -37,6 +41,7 @@
 - (struct CGSize)contentSizeForViewInPopover;
 - (id)_placeholderColor;
 - (void)textViewDidChange:(id)arg1;
+- (void)contentSizeChanged;
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

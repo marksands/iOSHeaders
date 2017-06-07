@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <Accounts/ACProtobufCoding-Protocol.h>
 #import <Accounts/NSSecureCoding-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
-@interface ACDataclassAction : NSObject <NSSecureCoding>
+@interface ACDataclassAction : NSObject <ACProtobufCoding, NSSecureCoding>
 {
     _Bool _isDestructive;
     long long _type;
@@ -25,12 +26,20 @@
 @property(readonly, nonatomic) _Bool isDestructive; // @synthesize isDestructive=_isDestructive;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (id)_encodeProtobufData;
+- (id)_encodeProtobuf;
+- (id)_initWithProtobufData:(id)arg1;
+- (id)_initWithProtobuf:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithType:(long long)arg1 destructivity:(_Bool)arg2 affectedContainers:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

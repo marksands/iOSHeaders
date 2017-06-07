@@ -18,10 +18,10 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (struct __CFArray *)cn_copyGroupsInAddressBook:(void *)arg1 error:(struct __CFError **)arg2;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1;
 

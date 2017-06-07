@@ -6,13 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class PUMediaProvider;
+@class PUMediaProvider, UIWindow;
 
 @interface PUContentTileProvider : NSObject
 {
     PUMediaProvider *_mediaProvider;
+    UIWindow *_window;
 }
 
+@property(retain, nonatomic) UIWindow *window; // @synthesize window=_window;
 @property(readonly, nonatomic) PUMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 - (void).cxx_destruct;
 - (id)tileControllerForAsset:(id)arg1 viewModel:(id)arg2 tilingView:(id)arg3;

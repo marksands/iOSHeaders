@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(readonly, nonatomic) UIColor *vibrantColor; // @synthesize vibrantColor=_vibrantColor;
 - (void).cxx_destruct;
+- (id)description;
 - (void)deconfigureLayerView:(id)arg1;
 - (void)configureLayerView:(id)arg1;
 

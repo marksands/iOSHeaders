@@ -26,13 +26,13 @@
 - (id)description;
 - (void)addStateFlag:(unsigned long long)arg1;
 - (id)initWithBundleIdentifier:(id)arg1 stateFlags:(unsigned long long)arg2 ratingRank:(int)arg3;
-@property(readonly, nonatomic) _Bool isBlocked;
-@property(readonly, nonatomic) _Bool isRemovedSystemApp;
-@property(readonly, nonatomic) _Bool isAlwaysAvailable;
-@property(readonly, nonatomic) _Bool isRestricted;
-@property(readonly, nonatomic) _Bool isInstalled;
-@property(readonly, nonatomic) _Bool isPlaceholder;
-@property(readonly, nonatomic) _Bool isValid;
+@property(readonly, nonatomic, getter=isBlocked) _Bool blocked;
+@property(readonly, nonatomic, getter=isRemovedSystemApp) _Bool removedSystemApp;
+@property(readonly, nonatomic, getter=isAlwaysAvailable) _Bool alwaysAvailable;
+@property(readonly, nonatomic, getter=isRestricted) _Bool restricted;
+@property(readonly, nonatomic, getter=isInstalled) _Bool installed;
+@property(readonly, nonatomic, getter=isPlaceholder) _Bool placeholder;
+@property(readonly, nonatomic, getter=isValid) _Bool valid;
 - (void)dealloc;
 
 @end

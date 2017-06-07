@@ -11,11 +11,13 @@
 @interface CKFetchShareParticipantKeyOperationInfo : CKDatabaseOperationInfo
 {
     NSDictionary *_baseTokensByShareID;
+    NSDictionary *_childRecordIDsByShareID;
     NSArray *_shareIDs;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSArray *shareIDs; // @synthesize shareIDs=_shareIDs;
+@property(retain, nonatomic) NSDictionary *childRecordIDsByShareID; // @synthesize childRecordIDsByShareID=_childRecordIDsByShareID;
 @property(retain, nonatomic) NSDictionary *baseTokensByShareID; // @synthesize baseTokensByShareID=_baseTokensByShareID;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

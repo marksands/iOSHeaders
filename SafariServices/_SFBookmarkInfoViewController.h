@@ -10,7 +10,7 @@
 #import <SafariServices/UITableViewDelegate-Protocol.h>
 #import <SafariServices/_SFBookmarkTextEntryTableViewControllerDelegate-Protocol.h>
 
-@class NSArray, NSString, SFBookmarkTextEntryTableViewCell, UITextField, WebBookmark, WebBookmarkCollection, _SFSiteIconView;
+@class NSArray, NSString, UITextField, WebBookmark, WebBookmarkCollection, _SFBookmarkTextEntryTableViewCell, _SFSiteIconView;
 @protocol _SFBookmarkInfoViewControllerDelegate;
 
 @interface _SFBookmarkInfoViewController : _SFPopoverSizingTableViewController <_SFBookmarkTextEntryTableViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -19,8 +19,8 @@
     WebBookmark *_parentBookmark;
     _Bool _addingBookmark;
     _Bool _saveWhenDismissed;
-    SFBookmarkTextEntryTableViewCell *_titleCell;
-    SFBookmarkTextEntryTableViewCell *_addressCell;
+    _SFBookmarkTextEntryTableViewCell *_titleCell;
+    _SFBookmarkTextEntryTableViewCell *_addressCell;
     _SFSiteIconView *_iconImageView;
     unsigned long long _editingField;
     _Bool _didSelectFolder;

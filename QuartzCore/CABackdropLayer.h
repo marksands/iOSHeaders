@@ -19,10 +19,12 @@
 @property double statisticsInterval;
 @property(copy) NSString *statisticsType;
 @property _Bool disablesOccludedBackdropBlurs;
+@property _Bool allowsInPlaceFiltering;
 @property _Bool captureOnly;
 @property double marginWidth;
 @property struct CGRect backdropRect;
 @property double scale;
+@property _Bool usesGlobalGroupNamespace;
 @property(copy) NSString *groupName;
 @property(getter=isEnabled) _Bool enabled;
 - (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;

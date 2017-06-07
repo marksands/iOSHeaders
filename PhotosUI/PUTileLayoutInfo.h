@@ -20,12 +20,14 @@
     struct CGPoint _center;
     struct CGSize _size;
     struct CGRect _contentsRect;
+    struct UIEdgeInsets _hitTestOutset;
     CDStruct_6c514524 _expandedRectInsets;
     struct CGAffineTransform _transform;
 }
 
 @property(nonatomic) CDStruct_6c514524 expandedRectInsets; // @synthesize expandedRectInsets=_expandedRectInsets;
 @property(retain, nonatomic, setter=_setCoordinateSystem:) id <PUTilingCoordinateSystem> coordinateSystem; // @synthesize coordinateSystem=_coordinateSystem;
+@property(readonly, nonatomic) struct UIEdgeInsets hitTestOutset; // @synthesize hitTestOutset=_hitTestOutset;
 @property(readonly, nonatomic) struct CGRect contentsRect; // @synthesize contentsRect=_contentsRect;
 @property(nonatomic, setter=_setZPosition:) double zPosition; // @synthesize zPosition=_zPosition;
 @property(nonatomic, setter=_setTransform:) struct CGAffineTransform transform; // @synthesize transform=_transform;
@@ -51,6 +53,7 @@
 @property(readonly, nonatomic) NSString *dataSourceIdentifier;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)initWithTileIdentifier:(id)arg1 center:(struct CGPoint)arg2 size:(struct CGSize)arg3 alpha:(double)arg4 transform:(struct CGAffineTransform)arg5 zPosition:(double)arg6 contentsRect:(struct CGRect)arg7 hitTestOutset:(struct UIEdgeInsets)arg8 coordinateSystem:(id)arg9;
 - (id)initWithTileIdentifier:(id)arg1 center:(struct CGPoint)arg2 size:(struct CGSize)arg3 alpha:(double)arg4 transform:(struct CGAffineTransform)arg5 zPosition:(double)arg6 contentsRect:(struct CGRect)arg7 coordinateSystem:(id)arg8;
 - (id)initWithTileIdentifier:(id)arg1 center:(struct CGPoint)arg2 size:(struct CGSize)arg3 alpha:(double)arg4 transform:(struct CGAffineTransform)arg5 zPosition:(double)arg6 coordinateSystem:(id)arg7;
 - (id)init;

@@ -14,33 +14,37 @@
 
 @interface CXProviderConfiguration : NSObject <NSSecureCoding, CXCopying, NSCopying>
 {
+    _Bool _includesCallsInRecents;
     _Bool _supportsVideo;
     _Bool _supportsAudioOnly;
     _Bool _supportsEmergency;
     _Bool _supportsVoicemail;
+    _Bool _supportsCurrentPlatform;
     unsigned int _audioSessionID;
     NSString *_localizedName;
     NSData *_iconTemplateImageData;
     unsigned long long _maximumCallGroups;
     unsigned long long _maximumCallsPerCallGroup;
     NSSet *_supportedHandleTypes;
-    NSArray *_emergencyNumbers;
+    NSArray *_emergencyHandles;
     NSArray *_emergencyLabeledHandles;
     NSArray *_handoffIdentifiers;
     NSURL *_ringtoneSoundURL;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool supportsCurrentPlatform; // @synthesize supportsCurrentPlatform=_supportsCurrentPlatform;
 @property(nonatomic) _Bool supportsVoicemail; // @synthesize supportsVoicemail=_supportsVoicemail;
 @property(nonatomic) _Bool supportsEmergency; // @synthesize supportsEmergency=_supportsEmergency;
 @property(nonatomic) _Bool supportsAudioOnly; // @synthesize supportsAudioOnly=_supportsAudioOnly;
 @property(copy, nonatomic) NSURL *ringtoneSoundURL; // @synthesize ringtoneSoundURL=_ringtoneSoundURL;
 @property(copy, nonatomic) NSArray *handoffIdentifiers; // @synthesize handoffIdentifiers=_handoffIdentifiers;
 @property(copy, nonatomic) NSArray *emergencyLabeledHandles; // @synthesize emergencyLabeledHandles=_emergencyLabeledHandles;
-@property(copy, nonatomic) NSArray *emergencyNumbers; // @synthesize emergencyNumbers=_emergencyNumbers;
+@property(copy, nonatomic) NSArray *emergencyHandles; // @synthesize emergencyHandles=_emergencyHandles;
 @property(nonatomic) unsigned int audioSessionID; // @synthesize audioSessionID=_audioSessionID;
 @property(copy, nonatomic) NSSet *supportedHandleTypes; // @synthesize supportedHandleTypes=_supportedHandleTypes;
 @property(nonatomic) _Bool supportsVideo; // @synthesize supportsVideo=_supportsVideo;
+@property(nonatomic) _Bool includesCallsInRecents; // @synthesize includesCallsInRecents=_includesCallsInRecents;
 @property(nonatomic) unsigned long long maximumCallsPerCallGroup; // @synthesize maximumCallsPerCallGroup=_maximumCallsPerCallGroup;
 @property(nonatomic) unsigned long long maximumCallGroups; // @synthesize maximumCallGroups=_maximumCallGroups;
 @property(copy, nonatomic) NSData *iconTemplateImageData; // @synthesize iconTemplateImageData=_iconTemplateImageData;

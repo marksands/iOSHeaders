@@ -23,9 +23,14 @@
     long long _numberOfDaysInCurrentMonth;
     NSDate *_startOfCurrentFitnessWeek;
     NSDate *_endOfCurrentFitnessWeek;
+    NSDate *_startOfCurrentMonth;
+    NSDate *_endOfCurrentMonth;
 }
 
 - (void).cxx_destruct;
+- (id)endOfCurrentMonth;
+- (id)startOfCurrentMonth;
+- (void)_updateCurrentMonthStartEnd;
 @property(readonly, nonatomic) NSNumber *endOfCurrentFitnessWeek;
 - (id)_endOfCurrentFitnessWeek;
 @property(readonly, nonatomic) NSNumber *startOfCurrentFitnessWeek;

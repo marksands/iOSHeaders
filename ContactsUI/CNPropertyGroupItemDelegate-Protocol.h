@@ -6,12 +6,12 @@
 
 #import <ContactsUI/NSObject-Protocol.h>
 
-@class CNContactStore, CNPropertyGroupItem;
+@class CNContactViewCache, CNPropertyGroupItem;
 
 @protocol CNPropertyGroupItemDelegate <NSObject>
 
 @optional
-- (CNContactStore *)storeForPropertyItem:(CNPropertyGroupItem *)arg1;
+- (CNContactViewCache *)contactViewCache;
 - (void)propertyItem:(CNPropertyGroupItem *)arg1 willChangeValue:(id)arg2;
 @end
 

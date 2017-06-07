@@ -4,17 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/_UIFeedbackStatesBehaviorConfiguration.h>
+#import <UIKit/_UIStatesFeedbackGeneratorSwipeActionConfiguration.h>
 
-@interface _UIFeedbackSwipeActionStatesBehaviorConfiguration : _UIFeedbackStatesBehaviorConfiguration
+@interface _UIFeedbackSwipeActionStatesBehaviorConfiguration : _UIStatesFeedbackGeneratorSwipeActionConfiguration
 {
 }
-
-+ (id)defaultConfiguration;
-+ (id)confirmState;
-+ (id)openState;
-+ (id)restingState;
-- (long long)requiredSupportLevel;
 
 @end
 

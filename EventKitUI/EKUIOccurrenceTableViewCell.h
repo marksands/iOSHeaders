@@ -23,6 +23,7 @@
     UIImageView *_angleStripeBackgroundView;
     UIImageView *_accessoryImageView;
     NSArray *_ekUIOccurrenceTableViewCellConstraints;
+    _Bool _areCurrentCellConstraintsForLargeText;
     UIVisualEffectView *_primaryVisualEffectParentView;
     UIVisualEffectView *_secondaryVisualEffectParentView;
     _Bool _travelTimeTemplate;
@@ -143,13 +144,18 @@
 - (void)_resetCountdownTimerBasedOnCurrentDateForStringGeneration:(id)arg1;
 - (void)_updateSecondaryTextLabel;
 - (void)_updatePrimaryTextLabel;
+- (void)_updateNumberOfLinesForLabel:(id)arg1 isRightAlignedInStandardLayout:(_Bool)arg2;
 - (void)_updateAngleBackgroundColor;
 - (void)_updateColorBarColor;
+- (id)_setUpLargeTextConstraints;
+- (id)_setUpStandardConstraints;
 - (void)_setUpConstraints;
 - (double)_rightMarginForTimeViewsFromTimeWidth:(double)arg1;
 - (double)_leftMarginForTimeViewsFromTimeWidth:(double)arg1;
 - (double)_widthForTimeViews;
+- (double)_verticalSpacingTopToTopForNonPrimaryLabel;
 - (double)_verticalSpacingBottomToBaselineForBottomLabel;
+- (double)_verticalSpacingPrimaryLabelToTimeLabel;
 - (double)_verticalSpacingTopToBaselineForBottomLabel;
 - (double)_verticalSpacingTopToBaselineForTopLabel;
 - (void)updateConstraints;

@@ -29,6 +29,7 @@
 - (CDUnknownBlockType)valueChangedHandler;
 - (id)controller;
 - (void).cxx_destruct;
+- (_Bool)supportsDpadTaps;
 - (void)setController:(id)arg1;
 - (void)setPlayerIndex:(long long)arg1;
 @property(readonly) NSString *name;

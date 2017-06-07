@@ -7,13 +7,12 @@
 #import <Foundation/NSObject.h>
 
 #import <MapKit/MKMapServiceTicket-Protocol.h>
-#import <MapKit/_MKMapServiceTicketForFreshness-Protocol.h>
 
-@class GEOMapRegion, GEOMapServiceTraits, GEORelatedSearchSuggestion, NSArray, NSError, NSString;
+@class GEODirectionIntent, GEOMapRegion, GEOMapServiceTraits, GEORelatedSearchSuggestion, NSArray, NSError, NSString;
 @protocol GEOMapServiceTicket;
 
 __attribute__((visibility("hidden")))
-@interface _MKTicket : NSObject <_MKMapServiceTicketForFreshness, MKMapServiceTicket>
+@interface _MKTicket : NSObject <MKMapServiceTicket>
 {
     id <GEOMapServiceTicket> _ticket;
     NSArray *_exactMapItems;
@@ -24,10 +23,15 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *sectionHeader;
 @property(readonly, nonatomic) double requestResponseTime;
+@property(readonly, nonatomic) _Bool showDymSuggestionCloseButton;
+@property(readonly, nonatomic) unsigned int dymSuggestionVisibleTime;
 @property(readonly, nonatomic) NSError *error;
 @property(readonly, nonatomic) _Bool shouldEnableRedoSearch;
+@property(readonly, nonatomic) NSArray *displayHeaderSubstitutes;
 @property(readonly, nonatomic) NSString *resultDisplayHeader;
+@property(readonly, nonatomic) GEODirectionIntent *directionIntent;
 @property(readonly, nonatomic) int searchResultType;
+@property(readonly, nonatomic) NSArray *browseCategories;
 @property(readonly, nonatomic) GEORelatedSearchSuggestion *defaultRelatedSuggestion;
 @property(readonly, nonatomic) NSArray *relatedSearchSuggestions;
 @property(readonly, nonatomic, getter=isChainResultSet) _Bool chainResultSet;
@@ -46,7 +50,6 @@ __attribute__((visibility("hidden")))
 - (void)submitWithHandler:(CDUnknownBlockType)arg1 timeout:(long long)arg2 networkActivity:(CDUnknownBlockType)arg3;
 @property(readonly, copy) NSString *description;
 - (id)initWithTicket:(id)arg1;
-@property(readonly, nonatomic) _Bool allAreFreshFromNetwork;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

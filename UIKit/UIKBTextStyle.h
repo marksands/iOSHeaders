@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     double _textOpacity;
     NSString *_textColor;
     NSString *_etchColor;
+    long long _alignment;
     double _pathWeight;
     double _fontWeight;
     long long _selector;
@@ -39,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double pathWeight; // @synthesize pathWeight=_pathWeight;
 @property(nonatomic) struct CGPoint etchOffset; // @synthesize etchOffset=_etchOffset;
 @property(nonatomic) struct CGPoint textOffset; // @synthesize textOffset=_textOffset;
+@property(nonatomic) long long alignment; // @synthesize alignment=_alignment;
 @property(retain, nonatomic) NSString *etchColor; // @synthesize etchColor=_etchColor;
 @property(retain, nonatomic) NSString *textColor; // @synthesize textColor=_textColor;
 @property(nonatomic) double textOpacity; // @synthesize textOpacity=_textOpacity;

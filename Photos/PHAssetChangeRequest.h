@@ -32,6 +32,12 @@
     _Bool _incrementShareCount;
     NSDate *_lastSharedDate;
     _Bool _incrementViewCount;
+    _Bool _toRetryUpload;
+    _Bool _didSetVariationSuggestionStates;
+    unsigned long long _variationSuggestionStates;
+    unsigned long long _variationSuggestionStatesMask;
+    _Bool _revealNonPrimaryAssetsInAssetGroup;
+    _Bool _hideNonPrimaryAssetsInAssetGroup;
     _Bool _didChangeAdjustments;
     _Bool _duplicateAllowsPrivateMetadata;
     unsigned short _photoIrisVisibilityState;
@@ -46,6 +52,7 @@
     CDStruct_1b6d18a9 _imageDisplayTime;
 }
 
++ (void)expungeAssets:(id)arg1;
 + (void)deleteAssets:(id)arg1;
 + (id)changeRequestForAsset:(id)arg1;
 + (id)creationRequestForAssetFromVideoComplementBundle:(id)arg1;
@@ -72,7 +79,6 @@
 - (void).cxx_destruct;
 - (void)markDidChangeAdjustments;
 - (void)didMutate;
-- (id)mutations;
 @property(readonly, nonatomic) NSManagedObjectID *objectID;
 @property(readonly, nonatomic) NSString *uuid;
 - (_Bool)isRevertingContentToOriginal;
@@ -93,11 +99,15 @@
 - (void)setAnalysisState:(int)arg1 lastIgnoredDate:(id)arg2 ignoreUntilDate:(id)arg3 forWorkerType:(short)arg4;
 - (void)encodeToXPCDict:(id)arg1;
 - (void)revertAssetContentToOriginal;
+- (void)retryUpload;
 - (void)setAdjustmentData:(id)arg1 withRenderedJPEGData:(id)arg2 orRenderedContentURL:(id)arg3 penultimateRenderedJPEGData:(id)arg4 isSubstandardRender:(_Bool)arg5 fullSizeRenderSize:(struct CGSize)arg6 renderedVideoComplementURL:(id)arg7 penultimateRenderedVideoComplementURL:(id)arg8;
 - (id)_mutableObjectIDsAndUUIDs;
 - (void)_prepareAssetIDsIfNeeded;
 - (void)_prepareWithFetchResult:(id)arg1;
 - (void)_setOriginalAsset:(id)arg1;
+- (void)hideNonPrimaryAssetsInAssetGroup;
+- (void)revealNonPrimaryAssetsInAssetGroup;
+- (void)setVariationSuggestionStates:(unsigned long long)arg1 forVariationType:(unsigned long long)arg2;
 - (void)incrementViewCount;
 - (void)incrementShareCount;
 - (void)incrementPlayCount;

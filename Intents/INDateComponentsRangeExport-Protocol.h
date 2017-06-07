@@ -7,9 +7,10 @@
 #import <Intents/JSExport-Protocol.h>
 #import <Intents/NSObject-Protocol.h>
 
-@class NSDateComponents;
+@class INRecurrenceRule, NSDateComponents;
 
 @protocol INDateComponentsRangeExport <NSObject, JSExport>
+@property(copy, nonatomic) INRecurrenceRule *recurrenceRule;
 @property(copy, nonatomic) NSDateComponents *endDateComponents;
 @property(copy, nonatomic) NSDateComponents *startDateComponents;
 - (id)init;

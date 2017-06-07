@@ -12,11 +12,9 @@ __attribute__((visibility("hidden")))
     unsigned int _textureType:15;
     unsigned int _isDepthTexture:1;
     unsigned short _textureDataType;
-    unsigned short _textureArrayLength;
 }
 
 - (id)formattedDescription:(unsigned long long)arg1;
-- (unsigned long long)arrayLength;
 - (unsigned long long)textureDataType;
 - (_Bool)isDepthTexture;
 - (unsigned long long)textureType;

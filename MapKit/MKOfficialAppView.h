@@ -36,7 +36,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *storeItemImage; // @synthesize storeItemImage=_storeItemImage;
 @property(retain, nonatomic) SSLookupItem *storeItem; // @synthesize storeItem=_storeItem;
 - (void).cxx_destruct;
-- (void)contentSizeDidChange;
 - (void)setConstraintConstants;
 - (void)_createConstraints;
 - (void)_updateLabelText;

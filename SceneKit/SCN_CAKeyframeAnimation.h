@@ -6,7 +6,6 @@
 
 #import <QuartzCore/CAKeyframeAnimation.h>
 
-__attribute__((visibility("hidden")))
 @interface SCN_CAKeyframeAnimation : CAKeyframeAnimation
 {
     struct __C3DKeyframedAnimation *_c3dAnimation;
@@ -45,6 +44,8 @@ __attribute__((visibility("hidden")))
 - (void)setRepeatDuration:(double)arg1;
 - (float)repeatCount;
 - (void)setRepeatCount:(float)arg1;
+- (id)keyPath;
+- (void)setKeyPath:(id)arg1;
 - (double)duration;
 - (void)setDuration:(double)arg1;
 - (void)setC3dAnimation:(struct __C3DKeyframedAnimation *)arg1;

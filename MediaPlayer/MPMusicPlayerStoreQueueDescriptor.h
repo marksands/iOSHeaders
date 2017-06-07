@@ -20,7 +20,6 @@
 @property(copy, nonatomic) NSArray *storeIDs; // @synthesize storeIDs=_storeIDs;
 - (void).cxx_destruct;
 - (id)assetStoreFronts;
-- (id)playbackContext;
 - (void)setSourceStorefront:(id)arg1 forItemWithStoreID:(id)arg2;
 - (void)setEndTime:(double)arg1 forItemWithStoreID:(id)arg2;
 - (void)setStartTime:(double)arg1 forItemWithStoreID:(id)arg2;

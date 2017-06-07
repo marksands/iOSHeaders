@@ -20,9 +20,10 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)enumerateKeysAndObjectsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_58648341 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)__apply:(CDUnknownFunctionPointerType)arg1 context:(void *)arg2;
 - (void)getObjects:(id *)arg1 andKeys:(id *)arg2 count:(unsigned long long)arg3;
+- (id)objectEnumerator;
 - (id)keyEnumerator;
 - (id)objectForKey:(id)arg1;
 - (_Bool)isEqualToDictionary:(id)arg1;

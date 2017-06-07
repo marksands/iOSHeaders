@@ -20,6 +20,8 @@
 + (id)requestViewControllerWithConnectionHandler:(CDUnknownBlockType)arg1;
 @property(nonatomic) __weak id <HMSetupRemoteHost> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)accessorySetupDidFinishPairing;
+- (void)accessorySetupDidBeginPairing;
 - (void)accessorySetupDidFinishWithError:(id)arg1;
 - (void)accessorySetupDidLoad;
 - (void)viewDidLoad;

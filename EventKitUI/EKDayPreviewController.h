@@ -45,7 +45,6 @@
 - (void)toggleExpandedState;
 - (_Bool)_shouldShowAllVisibleEvents;
 - (struct CGSize)preferredContentSize;
-- (double)_verticalMarginForInlineDayPreview;
 - (double)_dayViewHeight;
 - (struct _NSRange)_displayedHoursRange;
 - (id)_hourMaskForEvents:(id)arg1;
@@ -58,6 +57,9 @@
 - (id)_selectedCalendars;
 - (id)dayView:(id)arg1 eventsForStartDate:(id)arg2 endDate:(id)arg3;
 - (void)_setupAutoLayout;
+- (double)topInset;
+- (void)_setupDayView;
+- (void)viewDidLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;

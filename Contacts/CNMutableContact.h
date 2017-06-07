@@ -6,7 +6,7 @@
 
 #import <Contacts/CNContact.h>
 
-@class CNActivityAlert, NSArray, NSData, NSDateComponents, NSDictionary, NSSet, NSString;
+@class CNActivityAlert, CNContactKeyVector, NSArray, NSData, NSDate, NSDateComponents, NSDictionary, NSString;
 
 @interface CNMutableContact : CNContact
 {
@@ -17,9 +17,11 @@
 + (id)unifyContacts:(id)arg1;
 @property(readonly, nonatomic) _Bool hasChanges; // @synthesize hasChanges=_hasChanges;
 @property(copy, nonatomic) NSArray *linkedContacts; // @dynamic linkedContacts;
-@property(copy, nonatomic) NSSet *availableKeys;
+@property(copy, nonatomic) CNContactKeyVector *availableKeyDescriptor;
 @property(copy, nonatomic) CNContact *snapshot; // @dynamic snapshot;
-- (void)adoptValuesFromAndSetSnaphot:(id)arg1;
+- (void)overwriteStateFromContact:(id)arg1;
+- (void)resetToNewContact;
+- (void)updateStateFromContact:(id)arg1;
 - (void)setNilValueForKey:(id)arg1;
 @property(copy, nonatomic) NSDictionary *storeInfo; // @dynamic storeInfo;
 @property(copy, nonatomic) NSString *storeIdentifier; // @dynamic storeIdentifier;
@@ -53,8 +55,8 @@
 @property(nonatomic) struct CGRect cropRect;
 @property(copy, nonatomic) NSData *imageData;
 @property(copy, nonatomic) NSString *note; // @dynamic note;
-- (void)setModificationDate:(id)arg1;
-- (id)modificationDate;
+@property(copy, nonatomic) NSDate *modificationDate; // @dynamic modificationDate;
+@property(copy, nonatomic) NSDate *creationDate; // @dynamic creationDate;
 @property(copy, nonatomic) NSDateComponents *nonGregorianBirthday; // @dynamic nonGregorianBirthday;
 @property(copy, nonatomic) NSDateComponents *birthday; // @dynamic birthday;
 @property(copy, nonatomic) NSString *jobTitle; // @dynamic jobTitle;
@@ -78,6 +80,7 @@
 @property(copy, nonatomic) NSString *givenName; // @dynamic givenName;
 @property(copy, nonatomic) NSString *namePrefix; // @dynamic namePrefix;
 @property(nonatomic) int iOSLegacyIdentifier; // @dynamic iOSLegacyIdentifier;
+- (void)setFrozenSelfAsSnapshot;
 - (id)freezeWithSelfAsSnapshot;
 - (id)freeze;
 - (id)copyWithSelfAsSnapshot;

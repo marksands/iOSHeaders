@@ -20,9 +20,10 @@
 - (void)encodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (_Bool)isEqualForContact:(id)arg1 other:(id)arg2;
 - (id)init;
+- (_Bool)applyABMultivalueValueBytes:(char *)arg1 length:(unsigned long long)arg2 identifier:(id)arg3 legacyIdentifier:(int)arg4 label:(id)arg5 toCNMultivalueRepresentation:(id)arg6;
 - (void *)ABValueForABPerson:(void *)arg1;
 - (_Bool)setABValue:(void *)arg1 onABPerson:(void *)arg2 error:(struct __CFError **)arg3;
-- (int)abPropertyID:(int *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

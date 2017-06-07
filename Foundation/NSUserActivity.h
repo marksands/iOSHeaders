@@ -25,6 +25,7 @@
 + (id)_fetchUserActivityWithUUID:(id)arg1 intervalToWaitForDocumentSynchronizationToComplete:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)_userFacingErrorForLaunchServicesError:(id)arg1 userInfo:(id)arg2;
 @property(readonly, retain) UAUserActivity *_internalUserActivity; // @synthesize _internalUserActivity=_internal;
+- (void).cxx_destruct;
 - (void)setWebPageURL:(id)arg1;
 - (id)webPageURL;
 - (id)initWithTypeIdentifier:(id)arg1;
@@ -49,6 +50,7 @@
 - (id)contentAttributes;
 - (void)setContentType:(id)arg1;
 - (id)contentType;
+@property(copy) NSURL *referrerURL; // @dynamic referrerURL;
 @property(copy) NSURL *webpageURL; // @dynamic webpageURL;
 @property _Bool needsSave;
 - (void)addUserInfoEntriesFromDictionary:(id)arg1;

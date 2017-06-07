@@ -8,16 +8,18 @@
 
 #import <Intents/INCacheableObjectManagerObserver-Protocol.h>
 #import <Intents/INExtensionContextVending-Protocol.h>
+#import <Intents/_INImageServiceResponder-Protocol.h>
 
 @class NSString;
 
-@interface INExtensionContext : NSExtensionContext <INCacheableObjectManagerObserver, INExtensionContextVending>
+@interface INExtensionContext : NSExtensionContext <INCacheableObjectManagerObserver, _INImageServiceResponder, INExtensionContextVending>
 {
 }
 
 + (id)_extensionAuxiliaryVendorProtocol;
 + (id)_extensionAuxiliaryHostProtocol;
-+ (void)load;
++ (void)initialize;
+- (void)fetchSizeForINImage:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)cacheableObjectManager:(id)arg1 wasToldAboutCacheableObject:(id)arg2;
 - (id)_errorHandlingHostProxy;
 - (oneway void)handleIntent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -31,6 +33,8 @@
 - (oneway void)getApplicationContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_deliverIntent:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)_processIntentResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (CDUnknownBlockType)_processResolutionDataProviderForIntent:(id)arg1 intentSlotDescription:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (CDUnknownBlockType)_processIntentResponseCompletionHandlerWithCompletion:(CDUnknownBlockType)arg1;
 - (oneway void)handleIntent:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (oneway void)confirmIntent:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (oneway void)resolveIntentSlot:(id)arg1 forIntent:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;

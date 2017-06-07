@@ -6,14 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/_UIFocusPromiseRegionDelegate-Protocol.h>
 #import <UIKit/_UIFocusRegionContainer-Protocol.h>
 #import <UIKit/_UILegacyFocusRegion-Protocol.h>
 
-@class NSIndexPath, NSString, UITableView;
+@class NSArray, NSIndexPath, NSString, UITableView, UIView;
+@protocol UIFocusEnvironment;
 
 __attribute__((visibility("hidden")))
-@interface _UITableViewCellPromiseRegion : NSObject <_UIFocusPromiseRegionDelegate, _UILegacyFocusRegion, _UIFocusRegionContainer>
+@interface _UITableViewCellPromiseRegion : NSObject <_UILegacyFocusRegion, _UIFocusRegionContainer>
 {
     UITableView *_tableView;
     NSIndexPath *_indexPath;
@@ -22,26 +22,35 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
 @property(nonatomic) __weak UITableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
-- (id)_fulfillFocusPromiseRegion:(id)arg1;
+- (id)_regionForFocusedItem:(id)arg1 inCoordinateSpace:(id)arg2;
 - (void)_searchForFocusRegionsInContext:(id)arg1;
-- (_Bool)_shouldSearchForFocusRegionsInContext:(id)arg1;
+- (id)_preferredFocusRegionCoordinateSpace;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (_Bool)shouldUpdateFocusInContext:(id)arg1;
+- (void)updateFocusIfNeeded;
+- (void)setNeedsFocusUpdate;
+@property(readonly, copy, nonatomic) NSArray *preferredFocusEnvironments;
+@property(readonly, nonatomic, getter=_isEligibleForFocusInteraction) _Bool eligibleForFocusInteraction;
+@property(readonly, nonatomic, getter=_parentFocusEnvironment) __weak id <UIFocusEnvironment> parentFocusEnvironment;
 - (id)_focusDebugOverlayParentView;
 - (id)_focusRegionGuides;
 - (id)_focusRegionView;
 - (_Bool)_isTransparentFocusRegion;
 - (id)_fulfillPromisedFocusRegion;
 - (_Bool)_isPromiseFocusRegion;
-- (id)_childFocusRegionsInRect:(struct CGRect)arg1;
-- (id)_childFocusRegions;
-- (id)_focusRegionItem;
-- (_Bool)_focusRegionCanBecomeFocused;
-- (_Bool)_focusRegionIsEligibleForFocus;
+- (id)_childFocusRegionsInRect:(struct CGRect)arg1 inCoordinateSpace:(id)arg2;
+- (_Bool)canBecomeFocused;
+- (_Bool)_legacy_isEligibleForFocusInteraction;
 - (struct CGRect)_focusRegionFrame;
+- (id)_focusRegionFocusSystem;
 @property(readonly, copy) NSString *description;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic, getter=_linearFocusMovementSequences) NSArray *linearFocusMovementSequences;
+@property(readonly, nonatomic, getter=_preferredFocusMovementStyle) long long preferredFocusMovementStyle;
+@property(readonly, nonatomic) __weak UIView *preferredFocusedView;
 @property(readonly) Class superclass;
 
 @end

@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)backgroundImageName;
 - (id)backgroundColorWithTintColor:(id)arg1;
 - (_Bool)shouldUseVisualAltitude;
+- (_Bool)shouldProduceReturnEvent;
 - (_Bool)isDoubleHeight;
 - (_Bool)usesVerticalLayout;
 - (_Bool)isLockScreen;

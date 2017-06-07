@@ -15,6 +15,7 @@
     EAAccessory *_accessory;
     EASession *_session;
     int _sock;
+    _Bool _useSocket;
     NSMutableData *_inputFromAccData;
     NSCondition *_inputFromAccCondition;
     NSRecursiveLock *_statusLock;
@@ -36,6 +37,7 @@
 - (void)_accessoryDidDisconnect:(id)arg1;
 - (void)endStream;
 - (void)openCompleted;
+- (void)processIncomingAccessoryData:(id)arg1;
 - (_Bool)hasBytesAvailable;
 - (_Bool)getBuffer:(char **)arg1 length:(unsigned long long *)arg2;
 - (long long)read:(char *)arg1 maxLength:(unsigned long long)arg2;
@@ -50,6 +52,7 @@
 - (void)close;
 - (void)open;
 - (void)dealloc;
+- (id)initWithAccessoryWithoutSocket:(id)arg1 forSession:(id)arg2;
 - (id)initWithAccessory:(id)arg1 forSession:(id)arg2 socket:(int)arg3;
 
 @end

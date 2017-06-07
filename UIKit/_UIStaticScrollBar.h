@@ -6,10 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSInvocation, UIButton;
+#import <UIKit/UIScrollAccessory-Protocol.h>
 
-__attribute__((visibility("hidden")))
-@interface _UIStaticScrollBar : UIView
+@class NSArray, NSInvocation, UIButton, UIScrollView;
+
+@interface _UIStaticScrollBar : UIView <UIScrollAccessory>
 {
     UIButton *_upButton;
     UIButton *_downButton;
@@ -17,16 +18,25 @@ __attribute__((visibility("hidden")))
     NSInvocation *_invocation;
     NSArray *_constraints;
     _Bool _shouldInsetButtonsForIndex;
+    UIScrollView *_scrollView;
+    long long _edge;
 }
 
 @property(nonatomic) _Bool shouldInsetButtonsForIndex; // @synthesize shouldInsetButtonsForIndex=_shouldInsetButtonsForIndex;
+@property(nonatomic) long long edge; // @synthesize edge=_edge;
+@property(nonatomic) __weak UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void).cxx_destruct;
 - (struct CGRect)centeringBounds;
-@property(readonly, nonatomic) _Bool isOnLeftSide;
+@property(readonly, nonatomic) long long desiredAccessoryEdge;
 - (void)buttonTapped:(id)arg1;
-- (void)setTarget:(id)arg1 forAction:(SEL)arg2;
+- (void)update;
+- (int)_axis;
+@property(readonly, nonatomic) _Bool overlay;
+- (id)_constraintsForEdge:(long long)arg1;
 - (void)updateConstraints;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)willMoveToWindow:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

@@ -36,8 +36,6 @@
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
 - (void)loadView;
 - (id)initWithStickerSize:(long long)arg1;
-- (id)initWithStickerSizeClass:(long long)arg1;
-- (id)initWithLayout:(long long)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

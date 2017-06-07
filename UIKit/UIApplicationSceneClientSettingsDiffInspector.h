@@ -11,12 +11,16 @@
 }
 
 - (void)_observeOtherSetting:(unsigned long long)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)observeUserInterfaceStyleWithBlock:(CDUnknownBlockType)arg1;
+- (void)observeScreenEdgesDeferringSystemGesturesWithBlock:(CDUnknownBlockType)arg1;
+- (void)observeReachabilitySupportedWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeWhitePointAdaptivityStyleWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeIdleModeVisualEffectsEnabledWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeBackgroundStyleWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeWindowOverlayInsetsWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeNotificationCenterRevealModeWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeControlCenterRevealModeWithBlock:(CDUnknownBlockType)arg1;
+- (void)observeControlCenterAmbiguousActivationMargin:(CDUnknownBlockType)arg1;
 - (void)observeProximityDetectionModesWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeIdleTimerDisabledWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeSupportedInterfaceOrientationsWithBlock:(CDUnknownBlockType)arg1;

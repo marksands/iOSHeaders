@@ -6,16 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/UIGestureRecognizerDelegate-Protocol.h>
-#import <UIKit/_UIPanOrFlickGestureRecognizerDelegate-Protocol.h>
-
-@class NSMutableArray, NSString, UIDelayedAction, UITextMagnifierTimeWeightedPoint, _UIFeedbackStatesBehavior, _UIKeyboardTextSelectionController;
+@class NSMutableArray, UIDelayedAction, UITextMagnifierTimeWeightedPoint, _UIStatesFeedbackGenerator;
 @protocol _UIKeyboardTextSelectionGestureControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _UIKeyboardTextSelectionGestureController : NSObject <UIGestureRecognizerDelegate, _UIPanOrFlickGestureRecognizerDelegate>
+@interface _UIKeyboardTextSelectionGestureController : NSObject
 {
-    struct CGPoint _cursorLocationBase;
     _Bool _wasScrollingEnabled;
     _Bool _wasNestedPinchingDisabled;
     _Bool _suppressTwoFingerPan;
@@ -33,17 +29,19 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_activeGestures;
     UIDelayedAction *_tapLogTimer;
     UIDelayedAction *_longForcePressAction;
-    _UIFeedbackStatesBehavior *_feedbackBehaviour;
+    _UIStatesFeedbackGenerator *_feedbackBehaviour;
     struct CGPoint _lastPanTranslation;
     struct CGPoint _accumulatedAcceleration;
     struct CGPoint _accumulatedBounding;
+    struct CGPoint _cursorLocationBase;
 }
 
 + (id)sharedInstance;
-@property(retain, nonatomic) _UIFeedbackStatesBehavior *feedbackBehaviour; // @synthesize feedbackBehaviour=_feedbackBehaviour;
+@property(retain, nonatomic) _UIStatesFeedbackGenerator *feedbackBehaviour; // @synthesize feedbackBehaviour=_feedbackBehaviour;
 @property(retain, nonatomic) UIDelayedAction *longForcePressAction; // @synthesize longForcePressAction=_longForcePressAction;
 @property(nonatomic) int previousForcePressCount; // @synthesize previousForcePressCount=_previousForcePressCount;
 @property(retain, nonatomic) UIDelayedAction *tapLogTimer; // @synthesize tapLogTimer=_tapLogTimer;
+@property(nonatomic) struct CGPoint cursorLocationBase; // @synthesize cursorLocationBase=_cursorLocationBase;
 @property(nonatomic) _Bool didFloatCursor; // @synthesize didFloatCursor=_didFloatCursor;
 @property(retain, nonatomic) NSMutableArray *activeGestures; // @synthesize activeGestures=_activeGestures;
 @property(nonatomic) _Bool isPanning; // @synthesize isPanning=_isPanning;
@@ -61,85 +59,25 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGPoint accumulatedAcceleration; // @synthesize accumulatedAcceleration=_accumulatedAcceleration;
 @property(nonatomic) struct CGPoint lastPanTranslation; // @synthesize lastPanTranslation=_lastPanTranslation;
 @property(nonatomic) id <_UIKeyboardTextSelectionGestureControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)configureOneFingerForcePressRecognizer:(id)arg1;
+- (void)configureTwoFingerTapGestureRecognizer:(id)arg1;
+- (void)configureTwoFingerPanGestureRecognizer:(id)arg1;
 - (id)addTwoFingerTextSelectionGesturesToView:(id)arg1;
 - (id)addOneFingerTextSelectionGesturesToView:(id)arg1;
-- (id)addOneFingerForcePressRecognizerToView:(id)arg1;
-- (id)addTwoFingerTapRecognizerToView:(id)arg1;
-- (id)addTwoFingerPanRecognizerToView:(id)arg1;
-- (id)oneFingerForcePressRecognizer;
-- (void)configureOneFingerForcePressRecognizer:(id)arg1;
 - (_Bool)allowOneFingerDeepPress;
 - (double)oneFingerForcePressAllowableMovement;
 - (_Bool)oneFingerForcePressShouldCancelTouchesInView;
 - (_Bool)oneFingerForcePressShouldFailWithoutForce;
 - (double)oneFingerForcePressMinimumDuration;
-- (id)twoFingerTapRecognizer;
-- (void)configureTwoFingerTapGestureRecognizer:(id)arg1;
-- (id)twoFingerPanRecognizer;
-- (void)configureTwoFingerPanGestureRecognizer:(id)arg1;
-- (void)_gestureRecognizerFailed:(id)arg1;
-- (void)oneFingerForcePress:(id)arg1;
-- (void)_longForcePressDetected:(id)arg1;
-- (void)_cancelLongForcePressTimer;
-- (void)_beginLongForcePressTimerForGesture:(id)arg1;
-- (void)oneFingerForcePan:(id)arg1;
-- (void)_tidyUpGesture;
-- (void)_prepareForGesture;
-- (void)_didEndIndirectSelectionGesture:(id)arg1;
-- (void)_willBeginIndirectSelectionGesture:(id)arg1;
-- (void)clearKeyboardTouchesForGesture:(id)arg1;
-- (void)cancelTwoFingerLongPressWithExecutionContext:(id)arg1;
-- (void)endTwoFingerLongPressWithExecutionContext:(id)arg1;
-- (void)finishTwoFingerLongPressWithExecutionContext:(id)arg1;
-- (void)updateTwoFingerLongPressWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (void)beginTwoFingerLongPressWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (void)_granularityExpandingGestureWithTimeInterval:(double)arg1 timeGranularity:(double)arg2 isMidPan:(_Bool)arg3;
-- (void)_logTapCounts:(id)arg1;
-- (void)twoFingerTap:(id)arg1;
-- (void)indirectBlockPanGestureWithState:(long long)arg1 withTranslation:(struct CGPoint)arg2;
-- (void)endIndirectBlockPanWithExecutionContext:(id)arg1;
-- (void)updateIndirectBlockPanWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (void)beginIndirectBlockPanWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (void)indirectPanGestureWithState:(long long)arg1 withTranslation:(struct CGPoint)arg2 withFlickDirection:(unsigned long long)arg3;
-- (void)indirectCursorPanGestureWithState:(long long)arg1 withTranslation:(struct CGPoint)arg2 withFlickDirection:(unsigned long long)arg3;
-- (void)twoFingerLongPressGestureWithState:(long long)arg1 withTranslation:(struct CGPoint)arg2;
-- (void)twoFingerPan:(id)arg1;
-- (void)gestureRecognizerShouldBeginResponse:(id)arg1;
-- (struct CGPoint)boundedTranslation:(struct CGPoint)arg1;
-- (_Bool)isPlacedCarefully;
-- (struct CGPoint)acceleratedTranslation:(struct CGPoint)arg1 velocity:(struct CGPoint)arg2 final:(_Bool)arg3;
-- (long long)layoutDirectionFromFlickDirection:(unsigned long long)arg1;
 - (void)redisableEnclosingScrollViewNestedPinching;
 - (void)enableEnclosingScrollViewNestedPinching;
-- (void)disableEnclosingScrollViewScrolling;
-- (_Bool)enclosingScrollViewIsScrolling;
-- (void)cancelTwoFingerPanWithExecutionContext:(id)arg1;
-- (void)handleTwoFingerFlickInDirection:(long long)arg1 executionContext:(id)arg2;
-- (void)endTwoFingerPanWithExecutionContext:(id)arg1;
-- (void)updateTwoFingerPanWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (void)beginTwoFingerPanWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (void)beginTwoFingerCursorPanWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (void)endOneFingerSelectWithExecutionContext:(id)arg1;
-- (void)updateOneFingerSelectWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (void)beginOneFingerSelectWithTranslation:(struct CGPoint)arg1 executionContext:(id)arg2;
-- (struct CGPoint)cursorLocationForTranslation:(struct CGPoint)arg1;
-- (void)beginCursorManipulationFromRect:(struct CGRect)arg1;
-@property(readonly, nonatomic) _UIKeyboardTextSelectionController *selectionController;
-- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
-- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
-- (_Bool)forceTouchGestureRecognizerShouldBegin:(id)arg1;
 - (void)didRemoveSelectionController;
 - (void)willRemoveSelectionController;
 - (void)_cleanupDeadGesturesIfNecessary;
+- (id)selectionController;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (Class)gestureCluster;
 
 @end
 

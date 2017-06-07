@@ -4,15 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/_UIFeedbackGeneratorUserInteractionDrivenConfiguration.h>
+#import <UIKit/_UIButtonFeedbackGeneratorConfiguration.h>
 
-@interface _UIFeedbackButtonBehaviorConfiguration : _UIFeedbackGeneratorUserInteractionDrivenConfiguration
+@interface _UIFeedbackButtonBehaviorConfiguration : _UIButtonFeedbackGeneratorConfiguration
 {
 }
-
-+ (id)destructiveConfiguration;
-+ (id)defaultConfiguration;
-- (long long)requiredSupportLevel;
 
 @end
 

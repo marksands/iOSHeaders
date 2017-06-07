@@ -72,6 +72,7 @@
 - (id)description;
 - (void)_setMapDisplayStyle:(CDStruct_80aa614a)arg1;
 - (void)_setMapType:(unsigned long long)arg1;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (struct CGRect)_significantBounds;
 @property(nonatomic) _Bool animatesDrop;
 @property(retain, nonatomic) UIColor *pinTintColor;

@@ -76,9 +76,11 @@ __attribute__((visibility("hidden")))
 - (void)documentInteractionController:(id)arg1 didEndSendingToApplication:(id)arg2;
 - (void)documentInteractionControllerDidEndPreview:(id)arg1;
 - (void)previewPDF;
+- (id)documentInteractionControllerByPreparedForPreviewing;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (id)previewViewControllerForItemAtIndexPath:(id)arg1;
+- (id)_newTempURLForPreviewing;
 - (_Bool)canBecomeFirstResponder;
 - (_Bool)collectionView:(id)arg1 canPerformAction:(SEL)arg2 forItemAtIndexPath:(id)arg3 withSender:(id)arg4;
 - (_Bool)collectionView:(id)arg1 shouldShowMenuForItemAtIndexPath:(id)arg2;
@@ -111,6 +113,8 @@ __attribute__((visibility("hidden")))
 - (id)gestureRecognizersOfVisibleCells;
 - (void)handlePinch:(id)arg1;
 - (void)animateCellAndPresentDocumentInteractionController;
+- (void)updatePageLabel;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)pathOfCenterMostCell;
 - (void)trackCenterCell;
 - (id)getPageImageForPage:(long long)arg1 grayscale:(_Bool)arg2;

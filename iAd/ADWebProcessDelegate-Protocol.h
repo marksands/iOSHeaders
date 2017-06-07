@@ -6,12 +6,13 @@
 
 #import <iAd/NSObject-Protocol.h>
 
-@class NSURL, NSValue;
+@class NSDictionary, NSURL, NSValue;
 
 @protocol ADWebProcessDelegate <NSObject>
 
 @optional
 - (void)webProcessMRAIDJSODidCallOpen:(NSURL *)arg1;
+- (void)webProcessMRAIDJSODidCallCreateCalendarEvent:(NSDictionary *)arg1;
 - (void)webProcessMRAIDJSODidCallExpand:(NSURL *)arg1 withMaximumSize:(NSValue *)arg2;
 - (void)webProcessMRAIDJSODidCallClose;
 - (void)webProcessPlugInBrowserContextControllerGlobalObjectIsAvailableForFrame;

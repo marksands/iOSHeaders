@@ -6,26 +6,36 @@
 
 #import <UIKit/UIApplicationExtensionActivity.h>
 
+#import <UIKit/UIManagedConfigurationRestrictableActivity-Protocol.h>
+
 @class NSString, SLComposeViewController;
 
-@interface UISocialActivity : UIApplicationExtensionActivity
+@interface UISocialActivity : UIApplicationExtensionActivity <UIManagedConfigurationRestrictableActivity>
 {
+    _Bool sourceIsManaged;
     NSString *_builtinActivityType;
     SLComposeViewController *_socialComposeViewController;
 }
 
++ (id)_activityExtensionItemsForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
 + (long long)activityCategory;
 @property(retain, nonatomic) SLComposeViewController *socialComposeViewController; // @synthesize socialComposeViewController=_socialComposeViewController;
 @property(copy, nonatomic) NSString *builtinActivityType; // @synthesize builtinActivityType=_builtinActivityType;
+@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged;
 - (void).cxx_destruct;
+- (_Bool)_wantsAttachmentURLItemData;
+- (_Bool)_wantsThumbnailItemData;
 - (void)_cleanup;
 - (struct CGSize)_thumbnailSize;
 - (_Bool)_dismissActivityFromViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)_presentActivityOnViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)activityViewController;
-- (void)prepareWithActivityItems:(id)arg1;
+- (void)_prepareComposeViewController:(id)arg1 withActivityExtensionItems:(id)arg2;
+- (void)_prepareComposeViewController:(id)arg1 withInjectedExtensionItems:(id)arg2;
+- (void)prepareWithActivityExtensionItemData:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
-- (_Bool)_canBeExcludedByActivityViewController:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1 hostApplicationBundleID:(id)arg2;
+- (_Bool)_canBeExcludeWhenMatchingWithContext:(id)arg1;
 - (id)activityType;
 - (id)debugDescription;
 - (id)initWithActivityType:(id)arg1;

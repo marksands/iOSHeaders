@@ -31,6 +31,8 @@
     NSArray *_constraints;
 }
 
++ (double)minimumNaturalHeightForPrimaryTextUsingSmallText:(_Bool)arg1;
++ (void)initialize;
 @property _Bool animatingAlpha; // @synthesize animatingAlpha=_animatingAlpha;
 @property(retain) NSArray *constraints; // @synthesize constraints=_constraints;
 @property(retain) NSLayoutConstraint *trailingHorizontalPad; // @synthesize trailingHorizontalPad=_trailingHorizontalPad;
@@ -56,7 +58,6 @@
 - (double)_iconScale;
 - (id)_travelTimeIconForTravelModeWithColor:(id)arg1;
 - (void)_updateStringsColorsAndConstraintConstants;
-- (double)minimumNaturalHeightForPrimaryText;
 - (void)_setupStringContent;
 - (id)_textFont;
 - (id)initWithReusableTravelTimeView:(id)arg1;

@@ -10,12 +10,6 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct Atomic {
-    struct {
-        int _field1;
-    } _field1;
-};
-
 struct CGAffineTransform {
     double _field1;
     double _field2;
@@ -26,8 +20,6 @@ struct CGAffineTransform {
 };
 
 struct CGColorSpace;
-
-struct CGContext;
 
 struct CGPoint {
     double x;
@@ -56,33 +48,19 @@ struct CIBurstSupportVector {
     double _field2[7];
 };
 
-struct Context {
-    CDUnknownFunctionPointerType *_field1;
-    struct Atomic _field2;
-    struct CGColorSpace *_field3;
-    struct CGColorSpace *_field4;
-    int _field5;
-    _Bool _field6;
+struct CIRenderDestinationInternal {
+    struct RenderDestination *_field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    int _field4;
+    struct CGColorSpace *_field5;
+    unsigned long long _field6;
     _Bool _field7;
     _Bool _field8;
-    _Bool _field9;
-    struct CGContext *_field10;
-    float _field11;
-    _Bool _field12;
-    struct CGRect _field13;
-    struct CGAffineTransform _field14;
-    int _field15;
-    unsigned long long _field16;
-    unsigned long long _field17;
-    int _field18;
-    _Bool _field19;
-    struct TreeCacheElement _field20[1024];
-    unsigned long long _field21;
-    double _field22;
-    double _field23;
-    _Bool _field24;
-    id _field25;
-    id _field26;
+    int _field9;
+    _Bool _field10;
+    _Bool _field11;
+    id _field12;
 };
 
 struct FastRegistration_Signatures {
@@ -101,10 +79,6 @@ struct GridROI_t {
     int endY;
 };
 
-struct Hash {
-    unsigned char _field1[20];
-};
-
 struct IPoint {
     long long _field1;
     long long _field2;
@@ -120,21 +94,6 @@ struct ISize {
     unsigned long long _field2;
 };
 
-struct Kernel {
-    CDUnknownFunctionPointerType *_field1;
-    struct Atomic _field2;
-    char *_field3;
-    char *_field4;
-    _Bool _field5;
-    struct SerialIntArray *_field6;
-    struct SerialStringArray *_field7;
-    struct __CFString *_field8;
-    _Bool _field9;
-    _Bool _field10;
-    _Bool _field11;
-    int _field12;
-};
-
 struct Projections_meanStdTable {
     float *sumTable;
     float *sumSqTable;
@@ -147,53 +106,13 @@ struct Rectangle {
     double _field4;
 };
 
-struct SerialIntArray;
-
-struct SerialObjectPtrArray {
-    int _field1;
-    int _field2;
-    int _field3;
-    void **_field4;
-};
-
-struct SerialStringArray;
+struct RenderDestination;
 
 struct SharpnessGridElement_t {
     unsigned char _field1;
     unsigned char _field2;
     float _field3;
 };
-
-struct Texture {
-    union {
-        unsigned int _field1;
-        void *_field2;
-    } _field1;
-    unsigned int _field2;
-};
-
-struct TreeCacheElement {
-    struct Hash _field1;
-    unsigned long long _field2;
-    struct Kernel *_field3;
-};
-
-struct WarpKernel {
-    CDUnknownFunctionPointerType *_field1;
-    struct Atomic _field2;
-    char *_field3;
-    char *_field4;
-    _Bool _field5;
-    struct SerialIntArray *_field6;
-    struct SerialStringArray *_field7;
-    struct __CFString *_field8;
-    _Bool _field9;
-    _Bool _field10;
-    _Bool _field11;
-    int _field12;
-};
-
-struct __CFString;
 
 struct __SVMParameters {
     struct __SVMScaleOffset {
@@ -222,6 +141,13 @@ struct __va_list_tag {
 
 struct filterShape {
     struct CGRect _field1;
+};
+
+struct vImage_Buffer {
+    void *_field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
 };
 
 struct vec2 {
@@ -280,6 +206,12 @@ typedef struct {
     int _field24;
     int _field25;
 } CDStruct_e0ece3c1;
+
+typedef struct {
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+} CDStruct_14f26992;
 
 typedef struct {
     char *baseAddress;
@@ -404,6 +336,15 @@ typedef struct {
         float ystd;
     } BI;
 } CDStruct_907e448c;
+
+typedef struct {
+    struct CGRect _field1;
+    struct CGPoint _field2;
+    struct CGPoint _field3;
+    struct CGPoint _field4;
+    struct CGPoint _field5;
+    id _field6;
+} CDStruct_1b0b1413;
 
 // Ambiguous groups
 typedef struct {

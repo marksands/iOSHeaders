@@ -18,6 +18,7 @@
 + (id)_anchorWithRowid:(long long)arg1;
 + (id)anchorFromValue:(unsigned long long)arg1;
 @property(nonatomic, getter=_rowid, setter=_setRowid:) long long rowid; // @synthesize rowid=_rowid;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

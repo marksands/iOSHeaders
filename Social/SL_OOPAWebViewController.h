@@ -6,7 +6,6 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <Social/NSURLConnectionDataDelegate-Protocol.h>
 #import <Social/UIWebViewDelegate-Protocol.h>
 #import <Social/UIWebViewPrivateDelegate-Protocol.h>
 #import <Social/WKNavigationDelegate-Protocol.h>
@@ -14,7 +13,7 @@
 @class NSMutableURLRequest, NSObject, NSString, NSURL, SL_OOPASpinnerTitle, UIWebView, WKWebView;
 @protocol SL_OOPAWebViewControllerDelegate, SL_OOPAuthFlowDelegate;
 
-@interface SL_OOPAWebViewController : UIViewController <WKNavigationDelegate, UIWebViewDelegate, UIWebViewPrivateDelegate, NSURLConnectionDataDelegate>
+@interface SL_OOPAWebViewController : UIViewController <WKNavigationDelegate, UIWebViewDelegate, UIWebViewPrivateDelegate>
 {
     WKWebView *_wkWebView;
     UIWebView *_uiWebView;
@@ -42,10 +41,6 @@
 - (void)webViewDidStartLoad:(id)arg1;
 - (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
 - (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
-- (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
-- (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
-- (_Bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
 - (void)_loadWebView;
 - (void)_loadWebViewIfReady;
 - (void)viewDidAppear:(_Bool)arg1;

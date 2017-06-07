@@ -12,7 +12,7 @@
 }
 
 @property(nonatomic) unsigned long long speedBumpEdges; // @synthesize speedBumpEdges=_speedBumpEdges;
-- (unsigned long long)_boundariesBlockingFocusMovement:(id)arg1;
+- (unsigned long long)_boundariesBlockingFocusMovementRequest:(id)arg1;
 - (_Bool)_canBeOccludedByRegionsAbove;
 - (_Bool)_canOccludeRegionsBelow;
 - (id)copyWithZone:(struct _NSZone *)arg1;

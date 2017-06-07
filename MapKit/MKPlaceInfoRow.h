@@ -11,11 +11,15 @@
 __attribute__((visibility("hidden")))
 @interface MKPlaceInfoRow : NSObject
 {
+    _Bool _enable;
+    _Bool _showIcon;
     unsigned long long _type;
     MKPlaceSectionRowView *_rowView;
 }
 
 + (id)infoRow:(id)arg1 ofType:(unsigned long long)arg2;
+@property(nonatomic) _Bool showIcon; // @synthesize showIcon=_showIcon;
+@property(nonatomic) _Bool enable; // @synthesize enable=_enable;
 @property(readonly, nonatomic) MKPlaceSectionRowView *rowView; // @synthesize rowView=_rowView;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;

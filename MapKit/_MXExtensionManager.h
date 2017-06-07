@@ -33,10 +33,13 @@
 + (id)managerWithExtensionLookupPolicy:(id)arg1 updateHandler:(CDUnknownBlockType)arg2;
 + (id)managerWithLookupPolicy:(id)arg1 delegate:(id)arg2;
 + (id)lookupPolicyForRideSharingExtensions;
++ (void)_maps_updateRideBookingExtensions:(id)arg1;
 + (id)_maps_lookupPolicyForRidesharingNonUIExtensions;
 + (id)_maps_lookupPolicyForEnabledRidesharingNonUIExtensions;
 + (id)_maps_ridesharingIntentClassesForUIInteraction;
-+ (id)_maps_ridesharingIntentClassesForNonUIHandling;
++ (id)_maps_ridesharingRequiredIntentClassesForNonUIHandling;
++ (id)_maps_ridesharingOptionalIntentClassesForNonUIHandling;
++ (id)_maps_ridesharingAllIntentClassesForNonUIHandling;
 + (id)lookupPolicyForRestaurantQueueingExtensions;
 + (id)lookupPolicyForRestaurantQueueingExtensionWithContainingAppIdentifier:(id)arg1;
 + (id)restaurantQueueingIntentClassNames;

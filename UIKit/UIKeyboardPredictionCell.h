@@ -26,12 +26,15 @@ __attribute__((visibility("hidden")))
     int _state;
     unsigned int _slotID;
     TIKeyboardCandidate *_prediction;
+    long long _candidateType;
     struct CGRect _collapsedFrame;
     struct CGRect _baseFrame;
     struct CGRect _activeFrame;
 }
 
++ (double)fontSizeForSingleLineLayout;
 + (id)newKeyViewWithSize:(struct CGSize)arg1 state:(int)arg2 needsBackground:(_Bool)arg3;
+@property(nonatomic) long long candidateType; // @synthesize candidateType=_candidateType;
 @property(nonatomic) unsigned int slotID; // @synthesize slotID=_slotID;
 @property(nonatomic) _Bool isLongCandidate; // @synthesize isLongCandidate=_isLongCandidate;
 @property(nonatomic) _Bool isCenter; // @synthesize isCenter=_isCenter;
@@ -47,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (id)label;
 - (void)setText:(id)arg1 prediction:(id)arg2 active:(_Bool)arg3;
 - (_Bool)shouldDisplayHeaderForPrediction:(id)arg1;
+- (_Bool)shouldDisplayAsSuggestion:(id)arg1;
 - (void)setKeyViewForState:(int)arg1;
 - (void)clearKeyViewForState:(int)arg1;
 - (void)setState:(int)arg1 withAttrText:(id)arg2;

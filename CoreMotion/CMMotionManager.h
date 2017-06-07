@@ -15,6 +15,10 @@
 
 + (id)sharedManager;
 + (unsigned long long)availableAttitudeReferenceFrames;
+- (void)stopDeviceMotionLiteUpdatesForDeviceID:(id)arg1;
+- (void)startDeviceMotionLiteFusedUpdatesForDeviceID:(id)arg1 toQueue:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
+- (void)startDeviceMotionLiteUpdatesForDeviceID:(id)arg1 usingConfiguration:(CDStruct_fcaf9308)arg2 toQueue:(id)arg3 withFusedHandler:(CDUnknownBlockType)arg4;
+@property(readonly, nonatomic, getter=isDeviceMotionLiteAvailable) _Bool isDeviceMotionLiteAvailable;
 - (void)stopMagnetometerUpdates;
 - (void)startMagnetometerUpdates;
 - (void)startMagnetometerUpdatesToQueue:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
@@ -50,11 +54,6 @@
 @property(readonly, nonatomic, getter=isAccelerometerAvailable) _Bool accelerometerAvailable; // @dynamic accelerometerAvailable;
 - (void)dealloc;
 - (id)init;
-- (void)stopDeviceMotionLiteUpdatesForDeviceID:(id)arg1;
-- (void)startDeviceMotionLiteDebugUpdatesForDeviceID:(id)arg1 toQueue:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
-- (void)startDeviceMotionLiteFusedUpdatesForDeviceID:(id)arg1 toQueue:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
-- (void)startDeviceMotionLiteUpdatesForDeviceID:(id)arg1 usingConfiguration:(CDStruct_fcaf9308)arg2 toQueue:(id)arg3 withFusedHandler:(CDUnknownBlockType)arg4 debugHandler:(CDUnknownBlockType)arg5;
-@property(readonly, nonatomic, getter=isDeviceMotionLiteAvailable) _Bool isDeviceMotionLiteAvailable;
 
 @end
 

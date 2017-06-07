@@ -28,9 +28,6 @@ __attribute__((visibility("hidden")))
     double _tableTopPadding;
     double _tableBottomPadding;
     double _tableSidePadding;
-    NSIndexPath *_reorderedIndexPath;
-    NSIndexPath *_gapIndexPath;
-    double _reorderedRowHeight;
     struct {
         unsigned int tableHeaderHeightValid:1;
         unsigned int tableFooterHeightValid:1;
@@ -38,14 +35,22 @@ __attribute__((visibility("hidden")))
         unsigned int usesVariableMargins:1;
         unsigned int pinsTableHeaderView:1;
     } _rowDataFlags;
+    NSIndexPath *_gapIndexPath;
+    NSIndexPath *_reorderedIndexPath;
+    NSIndexPath *_draggedIndexPath;
     double _defaultSectionHeaderHeight;
     double _defaultSectionFooterHeight;
+    double _gapRowHeight;
+    double _draggedRowHeight;
 }
 
+@property(nonatomic) double draggedRowHeight; // @synthesize draggedRowHeight=_draggedRowHeight;
+@property(nonatomic) double gapRowHeight; // @synthesize gapRowHeight=_gapRowHeight;
 @property(readonly, nonatomic) double defaultSectionFooterHeight; // @synthesize defaultSectionFooterHeight=_defaultSectionFooterHeight;
 @property(readonly, nonatomic) double defaultSectionHeaderHeight; // @synthesize defaultSectionHeaderHeight=_defaultSectionHeaderHeight;
-@property(readonly, nonatomic) double reorderedRowHeight; // @synthesize reorderedRowHeight=_reorderedRowHeight;
-@property(readonly, nonatomic) NSIndexPath *reorderGapIndexPath; // @synthesize reorderGapIndexPath=_gapIndexPath;
+@property(retain, nonatomic) NSIndexPath *draggedIndexPath; // @synthesize draggedIndexPath=_draggedIndexPath;
+@property(retain, nonatomic) NSIndexPath *reorderedIndexPath; // @synthesize reorderedIndexPath=_reorderedIndexPath;
+@property(retain, nonatomic) NSIndexPath *gapIndexPath; // @synthesize gapIndexPath=_gapIndexPath;
 @property(nonatomic) double tableBottomPadding; // @synthesize tableBottomPadding=_tableBottomPadding;
 @property(nonatomic) double tableTopPadding; // @synthesize tableTopPadding=_tableTopPadding;
 @property(nonatomic) double rowSpacing; // @synthesize rowSpacing=_rowSpacing;
@@ -102,12 +107,19 @@ __attribute__((visibility("hidden")))
 - (long long)numberOfRowsBeforeSection:(long long)arg1;
 - (long long)numberOfRowsInSection:(long long)arg1;
 - (long long)numberOfSections;
-- (void)removeReorderGapFromIndexPath:(id)arg1;
-- (void)addReorderGapFromIndexPath:(id)arg1;
+- (void)removeDropTargetGap;
+- (void)moveDropTargetGapToIndexPath:(id)arg1;
+- (void)addDropTargetGapAtIndexPath:(id)arg1;
+- (double)_dropTargetGapHeightForIndexPath:(id)arg1;
 - (void)moveRowAtIndexPathFrom:(id)arg1 toIndexPath:(id)arg2;
-- (id)targetIndexPathForPoint:(struct CGPoint)arg1;
-- (id)reorderedIndexPath;
-- (void)setReorderedIndexPath:(id)arg1;
+- (struct CGRect)rectForGap;
+- (double)removeReorderedRowWithHeight:(double)arg1 atIndexPath:(id)arg2;
+- (void)restoreReorderedRowWithHeight:(double)arg1 atIndexPath:(id)arg2;
+@property(readonly, nonatomic) NSIndexPath *temporarilyDeletedIndexPathBeingReordered;
+- (void)removeGap;
+- (void)addGapAtIndexPath:(id)arg1;
+- (long long)dropLocationForPoint:(struct CGPoint)arg1 atIndexPath:(id)arg2 withInsets:(struct UIEdgeInsets)arg3;
+- (id)targetIndexPathForPoint:(struct CGPoint)arg1 adjustedForGap:(_Bool)arg2;
 - (void)invalidateSection:(long long)arg1;
 - (void)invalidateAllSectionOffsetsAndUpdatePadding;
 - (void)invalidateAllSections;

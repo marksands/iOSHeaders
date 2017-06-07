@@ -11,6 +11,7 @@
 @interface _HKZipArchiveExtractor : NSObject
 {
     NSString *_pathname;
+    NSData *_archiveData;
     struct archive *_archive;
     struct archive_entry *_entry;
     _Bool _dataRead;
@@ -27,6 +28,7 @@
 - (id)getDataForCurrentEntry;
 - (id)_getDataForCurrentEntryWithBufferingWithMaxSizeBytes:(unsigned long long)arg1;
 - (id)_getDataForCurrentEntryWithSize:(unsigned long long)arg1;
+- (id)initWithData:(id)arg1;
 - (id)initWithURL:(id)arg1;
 - (id)initWithPathname:(id)arg1;
 

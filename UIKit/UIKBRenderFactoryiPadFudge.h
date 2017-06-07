@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)_onLeftSide:(id)arg1 onKeyplane:(id)arg2;
 - (unsigned long long)_isFullHeightKeyFor:(id)arg1 onKeyplane:(id)arg2;
 - (id)lightKeycapsFontName;
-- (_Bool)supportsGestureBehaviors;
 - (_Bool)supportsInputTraits:(id)arg1 forKeyplane:(id)arg2;
 - (struct CGPoint)dualStringKeyBottomTextOffset:(id)arg1 keyplane:(id)arg2;
 - (struct CGPoint)dualStringKeyTopTextOffset:(id)arg1 keyplane:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import <CloudKit/CKDatabaseOperation.h>
 
-@class NSArray, NSDictionary, NSMutableDictionary;
+@class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
 
 @interface CKFetchRecordZoneChangesOperation : CKDatabaseOperation
 {
@@ -20,12 +20,16 @@
     CDUnknownBlockType _recordZoneFetchCompletionBlock;
     CDUnknownBlockType _fetchRecordZoneChangesCompletionBlock;
     NSMutableDictionary *_statusByZoneID;
+    NSMutableSet *_zoneIDsWithPendingArchivedRecords;
     NSMutableDictionary *_perItemErrors;
+    NSDictionary *_assetTransferOptionsByRecordTypeAndKey;
 }
 
+@property(retain, nonatomic) NSDictionary *assetTransferOptionsByRecordTypeAndKey; // @synthesize assetTransferOptionsByRecordTypeAndKey=_assetTransferOptionsByRecordTypeAndKey;
 @property(retain, nonatomic) NSMutableDictionary *perItemErrors; // @synthesize perItemErrors=_perItemErrors;
 @property(nonatomic) _Bool shouldFetchAssetContents; // @synthesize shouldFetchAssetContents=_shouldFetchAssetContents;
-@property(copy, nonatomic) NSMutableDictionary *statusByZoneID; // @synthesize statusByZoneID=_statusByZoneID;
+@property(retain, nonatomic) NSMutableSet *zoneIDsWithPendingArchivedRecords; // @synthesize zoneIDsWithPendingArchivedRecords=_zoneIDsWithPendingArchivedRecords;
+@property(retain, nonatomic) NSMutableDictionary *statusByZoneID; // @synthesize statusByZoneID=_statusByZoneID;
 @property(copy, nonatomic) CDUnknownBlockType fetchRecordZoneChangesCompletionBlock; // @synthesize fetchRecordZoneChangesCompletionBlock=_fetchRecordZoneChangesCompletionBlock;
 @property(copy, nonatomic) CDUnknownBlockType recordZoneFetchCompletionBlock; // @synthesize recordZoneFetchCompletionBlock=_recordZoneFetchCompletionBlock;
 @property(copy, nonatomic) CDUnknownBlockType recordZoneChangeTokensUpdatedBlock; // @synthesize recordZoneChangeTokensUpdatedBlock=_recordZoneChangeTokensUpdatedBlock;
@@ -44,6 +48,7 @@
 - (long long)changeTypesFromSetCallbacks;
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
+- (id)recordZoneIDsWithPendingArchivedRecords;
 - (id)recordZoneChangesStatusByZoneID;
 - (id)initWithRecordZoneIDs:(id)arg1 optionsByRecordZoneID:(id)arg2;
 - (id)init;

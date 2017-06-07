@@ -10,6 +10,8 @@
 {
 }
 
++ (unsigned long long)vehicularHints;
++ (unsigned long long)vehicularState;
 + (id)mostRecentInVehicle;
 + (id)mostRecentVehicleConnection;
 + (_Bool)isAvailable;

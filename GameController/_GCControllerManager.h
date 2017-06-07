@@ -72,7 +72,7 @@
 - (void)launchHIDInputThread;
 - (void)threadHIDInputOnMain:(id)arg1;
 - (void)threadHIDInputOffMain:(id)arg1;
-- (void)updateControllerWithEvent:(struct __IOHIDEvent *)arg1;
+-     // Error parsing type: v24@0:8^{__IOHIDEvent={__CFRuntimeBase=QAQ}QQQI*^v^v^{__CFArray}^{__IOHIDEvent}qq[0{IOHIDEventData=IIIC[3C]}]}16, name: updateControllerWithEvent:
 - (void)removeControllerWithServiceRef:(struct __IOHIDServiceClient *)arg1;
 - (void)addControllerWithServiceRef:(struct __IOHIDServiceClient *)arg1;
 - (void)stopHIDEventMonitor;

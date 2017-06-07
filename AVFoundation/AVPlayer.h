@@ -33,9 +33,12 @@
 + (id)playerWithFigPlayer:(struct OpaqueFigPlayer *)arg1;
 + (id)playerWithPlayerItem:(id)arg1;
 + (id)playerWithURL:(id)arg1;
++ (long long)propertyStorageCachePolicy;
 + (void)initialize;
 + (_Bool)isIAPDExtendedModeActive;
 + (_Bool)automaticallyNotifiesObserversOfAutoSwitchStreamVariants;
+- (_Bool)_allowsVideoPlaybackWhileInBackground;
+- (void)_setAllowsVideoPlaybackWhileInBackground:(_Bool)arg1;
 - (_Bool)_limitsBandwidthForCellularAccess;
 - (void)_setLimitsBandwidthForCellularAccess:(_Bool)arg1;
 - (_Bool)_dynamicallyChoosesInitialVariant;
@@ -95,7 +98,9 @@
 - (void)setAllowsExternalPlayback:(_Bool)arg1;
 - (_Bool)allowsExternalPlayback;
 - (_Bool)_allowsExternalPlayback;
+- (void)setPlayerRole:(id)arg1;
 - (void)setShouldReduceResourceUsage:(_Bool)arg1;
+- (id)playerRole;
 - (_Bool)shouldReduceResourceUsage;
 - (_Bool)isDisplayingClosedCaptions;
 - (_Bool)_isDisplayingClosedCaptions;
@@ -147,7 +152,7 @@
 - (void)playImmediatelyAtRate:(float)arg1;
 - (void)setRate:(float)arg1;
 - (void)setRate:(float)arg1 withVolumeRampDuration:(CDStruct_1b6d18a9)arg2;
-- (void)setRate:(float)arg1 withVolumeRampDuration:(CDStruct_1b6d18a9)arg2 playImmediately:(_Bool)arg3;
+- (void)setRate:(float)arg1 withVolumeRampDuration:(CDStruct_1b6d18a9)arg2 playImmediately:(_Bool)arg3 rateChangeReason:(int)arg4;
 - (float)rate;
 - (float)_rate;
 - (void)_removeAllItems;
@@ -216,10 +221,9 @@
 - (id)initWithURL:(id)arg1;
 - (id)initWithPlayerItem:(id)arg1;
 - (_Bool)outputObscuredDueToInsufficientExternalProtection;
-- (_Bool)_outputObscuredDueToInsufficientExternalProtectionPerformingCodeVerification:(_Bool)arg1;
+- (_Bool)_outputObscuredDueToInsufficientExternalProtection;
+- (long long)_extractFPExternalProtectionStatus:(id)arg1;
 @property(readonly, nonatomic) long long _externalProtectionStatus;
-- (long long)_extractFPExternalProtectionStatus:(id)arg1 withCodeVerification:(_Bool)arg2;
-- (long long)_externalProtectionStatusWithCodeVerification:(_Bool)arg1;
 @property(copy, nonatomic, setter=_setDisplaysUsedForPlayback:) NSArray *_displaysUsedForPlayback;
 - (id)_playbackDisplaysForFigPlayer;
 @property(readonly, nonatomic, getter=_cachedValueForPIPModePossible) _Bool cachedValueForPIPModePossible;
@@ -271,6 +275,8 @@
 @property(nonatomic) _Bool allowsOutOfBandTextTrackRendering;
 @property(copy, nonatomic) NSString *multichannelAudioStrategy;
 - (id)_multichannelAudioStrategy;
+@property(copy, nonatomic) NSString *captionRenderingStrategy;
+@property(copy, nonatomic) NSString *captionPipelineStrategy;
 @property(retain) AVAudioSession *audioSession;
 
 @end

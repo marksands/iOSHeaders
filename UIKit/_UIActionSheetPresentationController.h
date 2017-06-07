@@ -14,11 +14,13 @@
 @interface _UIActionSheetPresentationController : UIPopoverPresentationController <_UIActionSheetCompactPresentationControllerDelegate>
 {
     _Bool _dismissActionUsesShorterHeightWhenCompactVertically;
+    _Bool _avoidsKeyboardDisabled;
     NSString *_dismissActionTitle;
     id <UIActionSheetPresentationControllerDelegate> _actionSheetDelegate;
     _UIActionSheetCompactPresentationController *_compactPresentationController;
 }
 
+@property(nonatomic) _Bool avoidsKeyboardDisabled; // @synthesize avoidsKeyboardDisabled=_avoidsKeyboardDisabled;
 @property(retain, nonatomic) _UIActionSheetCompactPresentationController *compactPresentationController; // @synthesize compactPresentationController=_compactPresentationController;
 @property(nonatomic) __weak id <UIActionSheetPresentationControllerDelegate> actionSheetDelegate; // @synthesize actionSheetDelegate=_actionSheetDelegate;
 @property(nonatomic) _Bool dismissActionUsesShorterHeightWhenCompactVertically; // @synthesize dismissActionUsesShorterHeightWhenCompactVertically=_dismissActionUsesShorterHeightWhenCompactVertically;
@@ -26,6 +28,8 @@
 - (void).cxx_destruct;
 - (_Bool)actionSheetCompactPresentationControllerShouldPresentInCurrentContext:(id)arg1;
 - (void)actionSheetCompactPresentationControllerDidDismiss:(id)arg1;
+- (void)endPseudoAlertPresentationMode;
+- (void)beginPseudoAlertPresentationMode;
 - (id)_exceptionStringForNilSourceViewOrBarButtonItem;
 - (void)dimmingViewWasTapped:(id)arg1;
 - (_Bool)_shouldPresentedViewControllerControlStatusBarAppearance;

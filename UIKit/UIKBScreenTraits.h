@@ -29,8 +29,9 @@
 @property(readonly, nonatomic) _Bool knobInput; // @synthesize knobInput=_knobInput;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(readonly, nonatomic) UIScreen *screen; // @synthesize screen=_screen;
+- (void).cxx_destruct;
 - (id)description;
-- (void)updateForTextInputTraits:(id)arg1 supportsTouchInput:(id)arg2;
+- (void)updateForTextInputTraits:(id)arg1 supportedInteractionModel:(unsigned long long)arg2;
 @property(readonly, nonatomic) long long idiom;
 - (id)initWithScreen:(id)arg1 orientation:(long long)arg2;
 

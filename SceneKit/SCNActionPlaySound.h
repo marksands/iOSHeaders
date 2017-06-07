@@ -6,7 +6,6 @@
 
 #import <SceneKit/SCNAction.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNActionPlaySound : SCNAction
 {
     struct SCNCPlaySound *_mycaction;

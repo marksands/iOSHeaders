@@ -9,16 +9,18 @@
 #import <WebKit/NSCoding-Protocol.h>
 #import <WebKit/WKObject-Protocol.h>
 
-@class NSString;
+@class NSString, WKHTTPCookieStore;
 
 @interface WKWebsiteDataStore : NSObject <WKObject, NSCoding>
 {
     struct ObjectStorage<API::WebsiteDataStore> _websiteDataStore;
+    WKHTTPCookieStore *_httpCookieStore;
 }
 
 + (id)allWebsiteDataTypes;
 + (id)nonPersistentDataStore;
 + (id)defaultDataStore;
+@property(readonly, nonatomic) WKHTTPCookieStore *httpCookieStore; // @synthesize httpCookieStore=_httpCookieStore;
 @property(readonly) struct Object *_apiObject;
 - (void)removeDataOfTypes:(id)arg1 forDataRecords:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)removeDataOfTypes:(id)arg1 modifiedSince:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -29,6 +31,7 @@
 - (void)dealloc;
 @property(nonatomic, setter=_setResourceLoadStatisticsEnabled:) _Bool _resourceLoadStatisticsEnabled;
 - (void)_fetchDataRecordsOfTypes:(id)arg1 withOptions:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)_initWithConfiguration:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

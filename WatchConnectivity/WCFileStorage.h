@@ -35,6 +35,7 @@
 - (id)homeDirectoryURL;
 - (id)outgoingFileTransferPath;
 - (id)appendPathForFileTransfer:(id)arg1 toPath:(id)arg2;
+- (_Bool)removeItemAtURL:(id)arg1 numberOfRetries:(unsigned long long)arg2 error:(id *)arg3;
 - (void)cleanUpOldPairingIDFolderInFolder:(id)arg1 pairedDevicesPairingIDs:(id)arg2;
 - (void)cleanUpOldPairingIDFoldersWithPairedDevicesPairingIDs:(id)arg1;
 - (void)cleanUpWatchContentDirectoryWithCurrentAppInstallationID:(id)arg1;
@@ -56,7 +57,6 @@
 - (id)loadOutstandingUserInfoTransfersAndComplicationUserInfo:(id *)arg1;
 - (id)persistOutgoingUserInfoTransfer:(id)arg1;
 - (void)deleteOutstandingFileTransfer:(id)arg1;
-- (void)onqueue_persistFileTransfer:(id)arg1;
 - (void)persistOutgoingFileTransfer:(id)arg1;
 - (id)loadOutstandingFileTransfers;
 - (void)resetIndexes;

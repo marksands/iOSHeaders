@@ -85,6 +85,7 @@
 - (id)contentKeySession;
 - (void)_attachToContentKeySession:(id)arg1;
 @property(readonly, nonatomic) _Bool mayRequireContentKeysForMediaDataProcessing;
+- (id)_installHandlerForNSURLSessionConfiguration:(id)arg1 queue:(id)arg2;
 
 @end
 

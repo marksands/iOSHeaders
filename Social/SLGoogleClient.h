@@ -10,8 +10,10 @@
 {
 }
 
++ (id)youTubeScope;
 + (id)defaultScope;
 + (id)clientRedirect;
++ (id)clientRedirectForAppOpenURL;
 + (id)clientSecret;
 + (id)clientID;
 

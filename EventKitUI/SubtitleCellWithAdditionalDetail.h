@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <EventKitUI/EKUIConstrainedFontsTableViewCell.h>
+#import <EventKitUI/EKUITableViewCell.h>
 
 @class UILabel;
 
-@interface SubtitleCellWithAdditionalDetail : EKUIConstrainedFontsTableViewCell
+@interface SubtitleCellWithAdditionalDetail : EKUITableViewCell
 {
     UILabel *_additionalDetailLabel;
     id _source;
@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 - (_Bool)leftFrame:(struct CGRect)arg1 overlapsRightFrame:(struct CGRect)arg2 difference:(double *)arg3;
 - (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, retain, nonatomic) UILabel *additionalDetailLabel;
 
 @end

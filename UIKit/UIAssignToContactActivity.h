@@ -20,6 +20,7 @@
     UIImagePickerController *_imagePickerController;
 }
 
++ (unsigned long long)_xpcAttributes;
 @property(retain, nonatomic) UIImagePickerController *imagePickerController; // @synthesize imagePickerController=_imagePickerController;
 @property(retain, nonatomic) CNContact *person; // @synthesize person=_person;
 @property(retain, nonatomic) CNContactPickerViewController *peoplePicker; // @synthesize peoplePicker=_peoplePicker;

@@ -9,7 +9,7 @@
 #import <Photos/PHInsertChangeRequest-Protocol.h>
 #import <Photos/PHUpdateChangeRequest-Protocol.h>
 
-@class NSData, NSManagedObjectID, NSString, PHChangeRequestHelper, PHRelationshipChangeRequestHelper;
+@class NSData, NSManagedObjectID, NSString, PHChangeRequestHelper, PHObjectPlaceholder, PHRelationshipChangeRequestHelper;
 
 @interface PHFaceCropChangeRequest : NSObject <PHInsertChangeRequest, PHUpdateChangeRequest>
 {
@@ -22,6 +22,8 @@
     PHRelationshipChangeRequestHelper *_personHelper;
 }
 
++ (_Bool)canGenerateUUIDWithoutEntitlements;
++ (void)deleteFaceCrops:(id)arg1;
 + (id)creationRequestsForFaceCropsWithOriginatingFace:(id)arg1 resourceData:(id)arg2;
 + (id)_creationRequestForFaceCropWithOriginatingFace:(id)arg1 resourceData:(id)arg2 person:(id)arg3;
 + (id)_creationRequestForFaceCropWithOriginatingFace:(id)arg1 resourceData:(id)arg2 personLocalIdentifier:(id)arg3;
@@ -40,7 +42,6 @@
 - (_Bool)allowMutationToManagedObject:(id)arg1 propertyKey:(id)arg2 error:(id *)arg3;
 @property(readonly, getter=isNew) _Bool new;
 - (void)performTransactionCompletionHandlingInPhotoLibrary:(id)arg1;
-- (_Bool)canGenerateUUIDLocally;
 - (id)createManagedObjectForInsertIntoPhotoLibrary:(id)arg1 error:(id *)arg2;
 - (_Bool)validateInsertIntoPhotoLibrary:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) NSManagedObjectID *objectID;
@@ -51,13 +52,12 @@
 @property(nonatomic) short state;
 @property(retain, nonatomic) NSData *resourceData;
 - (void)setFace:(id)arg1;
-- (id)mutations;
 - (id)_mutablePersonObjectIDsAndUUIDs;
 - (id)_mutableFaceObjectIDsAndUUIDs;
 - (void)_preparePersonHelperIfNeeded;
 - (void)_prepareFaceHelperIfNeeded;
 - (void)didMutate;
-- (id)placeholderForCreatedObject;
+@property(readonly, nonatomic) PHObjectPlaceholder *placeholderForCreatedFaceCrop;
 - (id)initWithUUID:(id)arg1 objectID:(id)arg2;
 - (id)initForNewObject;
 

@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
     NSArray *_layoutConstraintsWhenInputIsVisible;
     NSArray *_layoutConstraintsWhenPasswordIsVisible;
     NSArray *_layoutConstraintsWhenInputAndPasswordAreVisible;
-    UIView *_separatorView;
     UIStackView *_actionButtonsView;
     UIButton *_primaryActionButton;
     UIButton *_secondaryActionButton;
@@ -35,12 +34,14 @@ __attribute__((visibility("hidden")))
 - (void)_primaryAction:(id)arg1;
 - (_Bool)_usesLoginFormAppearance;
 - (_Bool)textFieldShouldReturn:(id)arg1;
+- (void)didAppear;
 - (void)setPrimaryActionTitle:(id)arg1 secondaryActionTitle:(id)arg2;
 - (void)endEditing;
 - (void)_setText:(id)arg1 placeholder:(id)arg2 forTextField:(id)arg3;
 - (void)setPasswordText:(id)arg1 placeholder:(id)arg2;
 - (void)setInputText:(id)arg1 placeholder:(id)arg2;
 - (void)setMessageText:(id)arg1;
+@property(nonatomic) _Bool showMessageAsTitle;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (void)updateConstraints;

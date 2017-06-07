@@ -8,16 +8,18 @@
 
 #import <HealthKit/NSSecureCoding-Protocol.h>
 
-@class NSString;
+@class HKProfileIdentifier, NSString;
 
 __attribute__((visibility("hidden")))
 @interface HKServerConfiguration : NSObject <NSSecureCoding>
 {
     unsigned int _applicationSDKVersion;
     NSString *_debugIdentifier;
+    HKProfileIdentifier *_profileIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) HKProfileIdentifier *profileIdentifier; // @synthesize profileIdentifier=_profileIdentifier;
 @property(nonatomic) unsigned int applicationSDKVersion; // @synthesize applicationSDKVersion=_applicationSDKVersion;
 @property(copy, nonatomic) NSString *debugIdentifier; // @synthesize debugIdentifier=_debugIdentifier;
 - (void).cxx_destruct;

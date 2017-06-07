@@ -10,6 +10,7 @@
 
 @interface _NSAutoCalendar : NSCalendar
 {
+    struct _opaque_pthread_mutex_t _lock;
     NSCalendar *cal;
     NSLocale *changedLocale;
     NSTimeZone *changedTimeZone;

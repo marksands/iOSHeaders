@@ -20,6 +20,7 @@
 
 + (id)invocationWithMethodSignature:(id)arg1;
 + (id)_invocationWithMethodSignature:(id)arg1 frame:(void *)arg2;
++ (unsigned long long)requiredStackSizeForSignature:(id)arg1;
 - (void)invokeWithTarget:(id)arg1;
 - (void)invokeSuper;
 - (void)invokeUsingIMP:(CDUnknownFunctionPointerType)arg1;
@@ -37,6 +38,7 @@
 @property(readonly, retain) NSMethodSignature *methodSignature;
 - (void)dealloc;
 - (id)init;
+- (id)_initWithMethodSignature:(id)arg1 frame:(void *)arg2 buffer:(void *)arg3 size:(unsigned long long)arg4;
 
 @end
 

@@ -9,7 +9,7 @@
 #import <VideoSubscriberAccount/NSCopying-Protocol.h>
 #import <VideoSubscriberAccount/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSString, NSURL, VSOptional;
+@class NSArray, NSNumber, NSString, NSURL, VSOptional;
 
 @interface VSIdentityProvider : NSObject <NSCopying, NSSecureCoding>
 {
@@ -19,6 +19,7 @@
     VSOptional *_providerID;
     VSOptional *_providerInfo;
     NSString *_nameForSorting;
+    NSNumber *_rankForSorting;
     NSArray *_supportedTemplates;
     NSArray *_supportedAuthenticationSchemes;
     NSURL *_authenticationURL;
@@ -35,6 +36,7 @@
 @property(nonatomic, getter=isProhibitedByStore) _Bool prohibitedByStore; // @synthesize prohibitedByStore=_prohibitedByStore;
 @property(copy, nonatomic) NSArray *supportedAuthenticationSchemes; // @synthesize supportedAuthenticationSchemes=_supportedAuthenticationSchemes;
 @property(copy, nonatomic) NSArray *supportedTemplates; // @synthesize supportedTemplates=_supportedTemplates;
+@property(copy, nonatomic) NSNumber *rankForSorting; // @synthesize rankForSorting=_rankForSorting;
 @property(copy, nonatomic) NSString *nameForSorting; // @synthesize nameForSorting=_nameForSorting;
 @property(retain, nonatomic) VSOptional *providerInfo; // @synthesize providerInfo=_providerInfo;
 @property(retain, nonatomic) VSOptional *providerID; // @synthesize providerID=_providerID;

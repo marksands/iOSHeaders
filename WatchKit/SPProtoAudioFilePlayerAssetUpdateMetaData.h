@@ -16,6 +16,7 @@
     NSString *_albumTitle;
     NSString *_artist;
     NSString *_identifier;
+    NSString *_sandboxExtensionToken;
     NSString *_title;
     NSString *_uRL;
     struct {
@@ -23,6 +24,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *sandboxExtensionToken; // @synthesize sandboxExtensionToken=_sandboxExtensionToken;
 @property(retain, nonatomic) NSString *artist; // @synthesize artist=_artist;
 @property(retain, nonatomic) NSString *albumTitle; // @synthesize albumTitle=_albumTitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
@@ -39,6 +41,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasSandboxExtensionToken;
 @property(readonly, nonatomic) _Bool hasArtist;
 @property(readonly, nonatomic) _Bool hasAlbumTitle;
 @property(readonly, nonatomic) _Bool hasTitle;

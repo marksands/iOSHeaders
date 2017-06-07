@@ -6,7 +6,7 @@
 
 #import <WatchKit/NSObject-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSString;
+@class NSArray, NSData, NSDictionary, NSString, NSUUID;
 
 @protocol SPRemoteInterfaceProtocol <NSObject>
 - (void)layoutDirection:(long long)arg1;
@@ -14,7 +14,7 @@
 - (void)dataInterfaceWillResignActive:(NSString *)arg1;
 - (void)dataInterfaceDidBecomeActive:(NSString *)arg1;
 - (void)applicationDidReceiveNotification:(NSData *)arg1 clientIdentifier:(NSString *)arg2 withCompletionHandler:(void (^)(unsigned long long))arg3;
-- (void)applicationHandleWatchTaskKeys:(NSDictionary *)arg1 returnToPrimaryUI:(_Bool)arg2 visibleVCID:(NSString *)arg3 clientIdentifier:(NSString *)arg4;
+- (void)applicationHandleWatchTaskKeys:(NSDictionary *)arg1 reasonForSnapshot:(unsigned long long)arg2 visibleVCID:(NSString *)arg3 barTaskUUID:(NSUUID *)arg4 clientIdentifier:(NSString *)arg5;
 - (void)applicationIsStillActive;
 - (void)applicationWillResignActive:(NSString *)arg1;
 - (void)applicationDidBecomeActive:(NSString *)arg1;
@@ -25,8 +25,6 @@
 - (void)receiveData:(NSData *)arg1 fromIdentifier:(NSString *)arg2;
 
 @optional
-- (void)extensionDelegateHandlesBackgroudTasks:(void (^)(_Bool))arg1;
-- (void)extensionWillEndUsing;
 - (void)extensionDidBeginUsingWithLaunchEnv:(NSDictionary *)arg1 launchArgs:(NSArray *)arg2 completion:(void (^)(NSDictionary *))arg3;
 - (void)replyTimingData:(NSDictionary *)arg1;
 - (void)receiveNativeComplicationRequest:(NSDictionary *)arg1 completion:(void (^)(NSDictionary *))arg2;

@@ -17,6 +17,7 @@
 + (id)jpegStillImageNSDataRepresentationForSurface:(void *)arg1 size:(unsigned long long)arg2 metadata:(id)arg3;
 + (id)jpegStillImageNSDataRepresentation:(struct opaqueCMSampleBuffer *)arg1;
 + (unsigned long long)maxStillImageJPEGDataSize;
++ (id)new;
 + (void)initialize;
 - (void)handleNotification:(id)arg1 payload:(id)arg2;
 - (void)handleNotificationForPrepareRequest:(id)arg1 withPayload:(id)arg2;

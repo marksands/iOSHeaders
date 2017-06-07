@@ -6,12 +6,10 @@
 
 #import <UIKit/UIView.h>
 
-#import <UIKit/UIKeyboardCandidateList-Protocol.h>
-
-@class NSMutableArray, NSString, TIKeyboardCandidateResultSet;
+@class NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface UIAutocorrectInlinePrompt : UIView <UIKeyboardCandidateList>
+@interface UIAutocorrectInlinePrompt : UIView
 {
     struct CGRect m_originalTypedTextRect;
     NSString *m_typedText;
@@ -23,22 +21,12 @@ __attribute__((visibility("hidden")))
     UIView *m_correctionShadowView;
     _Bool m_fits;
     _Bool m_mouseDown;
-    id m_delegate;
-    long long m_index;
-    int m_promptTextType;
     double m_originalTypedTextRectCorrectionAmount;
     unsigned int m_usageTrackingMask;
-    TIKeyboardCandidateResultSet *_candidateResultSet;
 }
 
-@property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateResultSet; // @synthesize candidateResultSet=_candidateResultSet;
 @property(nonatomic) unsigned int usageTrackingMask; // @synthesize usageTrackingMask=m_usageTrackingMask;
 - (_Bool)prepareForAnimation:(struct CGRect)arg1;
-- (id)activeCandidateList;
-- (void)setSelectedItem:(unsigned long long)arg1;
-- (unsigned long long)numberOfShownItems;
-- (unsigned long long)index;
-- (void)_candidateSelected:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
@@ -56,45 +44,15 @@ __attribute__((visibility("hidden")))
 - (id)correction;
 - (struct CGRect)correctionFrameFromDesiredFrame:(struct CGRect)arg1 textHeight:(int)arg2 withExtraGap:(double)arg3;
 - (struct CGRect)horizontallySquishedCorrectionFrame:(struct CGRect)arg1;
-- (double)maximumCandidateWidth;
 - (_Bool)isAcceptableTextEffectsFrame:(struct CGRect)arg1 afterScrollBy:(double)arg2;
 - (void)addTypedTextRect:(struct CGRect)arg1;
-- (void)setCandidateObject:(id)arg1 candidateSet:(id)arg2 type:(int)arg3 typedText:(id)arg4 inRect:(struct CGRect)arg5 maxX:(double)arg6;
 - (void)setCorrection:(id)arg1 typedText:(id)arg2 inRect:(struct CGRect)arg3 maxX:(double)arg4;
-- (id)inlineText;
-@property(readonly, nonatomic) TIKeyboardCandidateResultSet *candidates;
-- (_Bool)isExtendedList;
-- (void)showPreviousRow;
-- (void)showNextRow;
-- (void)showPreviousPage;
-- (void)showNextPage;
-- (id)currentCandidate;
-- (void)showPreviousCandidate;
-- (void)showNextCandidate;
-- (void)showCandidateAtIndex:(unsigned long long)arg1;
-- (_Bool)showCandidate:(id)arg1;
-- (unsigned long long)selectedSortIndex;
-- (id)statisticsIdentifier;
-- (id)keyboardBehaviors;
-- (_Bool)hasCandidates;
-- (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
-- (unsigned long long)currentIndex;
-- (void)candidatesDidChange;
-- (void)setCandidates:(id)arg1 type:(int)arg2 inlineText:(id)arg3 inlineRect:(struct CGRect)arg4 maxX:(double)arg5 layout:(_Bool)arg6;
-- (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(double)arg4 layout:(_Bool)arg5;
-- (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (struct CGRect)shadowFrameForFrame:(struct CGRect)arg1;
 - (void)removePromptSubviews;
 - (void)dealloc;
 - (int)textEffectsVisibilityLevel;
 - (int)textEffectsVisibilityLevelInKeyboardWindow;
 - (id)initWithFrame:(struct CGRect)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

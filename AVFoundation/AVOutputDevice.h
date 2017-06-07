@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVOutputDeviceInternal, NSDictionary, NSString;
+@class AVFigEndpointOutputDeviceImpl, AVOutputDeviceInternal, NSString;
 
 @interface AVOutputDevice : NSObject
 {
@@ -14,26 +14,38 @@
 }
 
 + (id)sharedLocalDevice;
++ (void)initialize;
++ (id)outputDeviceWithFigEndpoint:(struct OpaqueFigEndpoint *)arg1;
 - (double)frecencyScore;
 - (void)updateFrecencyScore;
+- (void)setAdministrativeConfiguration:(id)arg1 administrationPassword:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)groupContainsGroupLeader;
+- (_Bool)isGroupLeader;
+- (_Bool)canBeGroupLeader;
+- (id)groupID;
+- (_Bool)canBeGrouped;
 - (void)setSecondDisplayEnabled:(_Bool)arg1;
-- (struct OpaqueFigEndpoint *)figEndpoint;
-@property(readonly, nonatomic) NSDictionary *modelSpecificInformation;
-@property(readonly, nonatomic) float batteryLevel;
-@property(readonly, nonatomic) _Bool hasBatteryLevel;
+- (_Bool)canAccessRemoteAssets;
+- (_Bool)requiresAuthorization;
+- (unsigned long long)deviceFeatures;
+- (id)connectedPairedDevices;
+- (_Bool)isInUseByPairedDevice;
+- (id)modelSpecificInformation;
+- (float)batteryLevel;
+- (_Bool)hasBatteryLevel;
 @property(readonly, nonatomic) NSString *modelID;
+@property(readonly, nonatomic) long long deviceSubType;
 @property(readonly, nonatomic) long long deviceType;
 @property(readonly, nonatomic) NSString *ID;
 @property(readonly, nonatomic) NSString *name;
-- (id)_figEndpointPropertyValueForKey:(struct __CFString *)arg1;
+- (id)impl;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)finalize;
 - (void)dealloc;
-- (id)_weakReference;
-- (id)initWithFigEndpoint:(struct OpaqueFigEndpoint *)arg1;
+- (id)initWithOutputDeviceImpl:(id)arg1;
 - (id)init;
+@property(readonly) AVFigEndpointOutputDeviceImpl *figEndpointOutputImpl;
 
 @end
 

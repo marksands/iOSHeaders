@@ -36,9 +36,12 @@
 - (id)propertiesWithSemantic:(unsigned long long)arg1;
 - (id)propertyWithSemantic:(unsigned long long)arg1;
 - (id)propertyNamed:(id)arg1;
+- (void)conformToMatProperties;
 - (id)initWithName:(id)arg1 physicallyPlausibleBSDF:(struct PhysicallyPlausibleDistribution *)arg2;
 - (id)initWithName:(id)arg1 scatteringFunction:(id)arg2;
 - (id)init;
+- (void)loadTexturesUsingResolver:(id)arg1;
+- (void)resolveTexturesWithResolver:(id)arg1;
 - (void)setScatteringFunction:(id)arg1;
 @property(readonly, retain, nonatomic) MDLScatteringFunction *scatteringFunction;
 

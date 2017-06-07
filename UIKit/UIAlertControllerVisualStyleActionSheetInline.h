@@ -17,17 +17,18 @@ __attribute__((visibility("hidden")))
     _UIPreviewPresentationEffectView *_sourceViewSnapshot;
 }
 
++ (void)positionContentsOfAlertController:(id)arg1 alertContentView:(id)arg2 availableSpaceView:(id)arg3 visualStyle:(id)arg4 updatableConstraints:(id)arg5;
 + (long long)interfaceActionPresentationStyle;
 @property(retain, nonatomic) _UIPreviewPresentationEffectView *sourceViewSnapshot; // @synthesize sourceViewSnapshot=_sourceViewSnapshot;
 @property(retain, nonatomic) UIVisualEffectView *revealEffectView; // @synthesize revealEffectView=_revealEffectView;
 @property(retain, nonatomic) UIView *headerView; // @synthesize headerView=_headerView;
+@property(nonatomic) _Bool actionsReversed; // @synthesize actionsReversed=_actionsReversed;
 - (void).cxx_destruct;
 - (_Bool)placementAvoidsKeyboard;
 - (_Bool)_shouldReverseActions;
 - (id)dimmingViewForAlertController:(id)arg1;
 - (_Bool)hideCancelAction:(id)arg1 inAlertController:(id)arg2;
 - (id)tintColorForAlertController:(id)arg1;
-- (void)positionAlertControllerView:(id)arg1 ofAlertController:(id)arg2 inAvailableSpaceView:(id)arg3;
 - (id)interactionProgressForTransitionOfType:(long long)arg1 forAlertController:(id)arg2;
 - (_Bool)transitionOfType:(long long)arg1 shouldBeInteractiveForAlertController:(id)arg2;
 - (double)minimumWidth;

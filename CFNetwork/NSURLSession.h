@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDictionary, NSOperationQueue, NSString, NSURLSessionConfiguration;
+@class NSDictionary, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString, NSURLSessionConfiguration;
 @protocol NSURLSessionDelegate, OS_dispatch_queue;
 
 @interface NSURLSession : NSObject
@@ -29,7 +29,7 @@
 - (id)dataTaskWithHTTPGetRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)streamTaskWithNetService:(id)arg1;
 - (id)streamTaskWithHostName:(id)arg1 port:(long long)arg2;
-- (_Bool)shouldUseStreamTask;
+- (id)aggregateAssetDownloadTaskWithURLAsset:(id)arg1 mediaSelections:(id)arg2 assetTitle:(id)arg3 assetArtworkData:(id)arg4 options:(id)arg5;
 - (id)assetDownloadTaskWithURLAsset:(id)arg1 assetTitle:(id)arg2 assetArtworkData:(id)arg3 options:(id)arg4;
 - (id)assetDownloadTaskWithURLAsset:(id)arg1 destinationURL:(id)arg2 options:(id)arg3;
 - (id)_AVAssetDownloadTaskWithURL:(id)arg1 destinationURL:(id)arg2 options:(id)arg3;
@@ -67,6 +67,14 @@
 - (_Bool)can_delegate_writeClosedForStreamTask;
 - (void)delegate_readClosedForStreamTask:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)can_delegate_readClosedForStreamTask;
+- (void)delegate_AVAggregateAssetDownloadTask:(id)arg1 didLoadTimeRange:(CDStruct_3c1748cc)arg2 totalTimeRangesLoaded:(id)arg3 timeRangeExpectedToLoad:(CDStruct_3c1748cc)arg4 forMediaSelection:(id)arg5;
+- (_Bool)can_delegate_AVAggregateAssetDownloadTask_didLoadTimeRange;
+- (void)delegate_AVAggregateAssetDownloadTask:(id)arg1 didCompleteForMediaSelection:(id)arg2;
+- (_Bool)can_delegate_AVAggregateAssetDownloadTask_didCompleteForMediaSelection;
+- (void)delegate_AVAggregateAssetDownloadTask:(id)arg1 willDownloadToURL:(id)arg2;
+- (_Bool)can_delegate_AVAggregateAssetDownloadTask_willDownloadToURL;
+- (void)delegate_AVAssetDownloadTask:(id)arg1 willDownloadToURL:(id)arg2;
+- (_Bool)can_delegate_AVAssetDownloadTask_willDownloadToURL;
 - (void)delegate_AVAssetDownloadTask:(id)arg1 didFinishDownloadingToURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)can_delegate_AVAssetDownloadTask_didFinishDownloadingToURL;
 - (void)delegate_AVAssetDownloadTask:(id)arg1 didResolveMediaSelection:(id)arg2;
@@ -124,6 +132,10 @@
 - (_Bool)can_delegate_task_didReceiveChallenge;
 - (void)delegate_task:(id)arg1 willPerformHTTPRedirection:(id)arg2 newRequest:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)can_delegate_task_willPerformHTTPRedirection;
+- (void)delegate_taskIsWaitingForConnectivity:(id)arg1;
+- (_Bool)can_delegate_taskIsWaitingForConnectivity;
+- (void)delegate_task:(id)arg1 willBeginDelayedRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)can_delegate_task_willBeginDelayedRequest;
 - (void)remote_externalAuthenticator_task:(id)arg1 getAuthHeadersForResponse:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)delegate_needConnectedSocketToHost:(id)arg1 port:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)can_delegate_needConnectedSocket;
@@ -139,8 +151,10 @@
 - (id)initWithConfiguration:(id)arg1 delegate:(id)arg2 delegateQueue:(id)arg3;
 
 // Remaining properties
+@property(retain) NSMutableDictionary *_altSvc; // @dynamic _altSvc;
 @property(copy) NSDictionary *_atsState; // @dynamic _atsState;
 @property(copy) CDUnknownBlockType _connBlock; // @dynamic _connBlock;
+@property(retain) NSMutableSet *_h2BlacklistedHosts; // @dynamic _h2BlacklistedHosts;
 @property _Bool _isSharedSession; // @dynamic _isSharedSession;
 @property(copy) NSURLSessionConfiguration *_local_immutable_configuration; // @dynamic _local_immutable_configuration;
 @property(copy) NSString *_uuid; // @dynamic _uuid;

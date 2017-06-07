@@ -9,7 +9,7 @@
 #import <PhotosUI/PUBrowsingVideoPlayerChangeObserver-Protocol.h>
 #import <PhotosUI/PUBrowsingViewModelChangeObserver-Protocol.h>
 
-@class AVPlayer, NSHashTable, NSString, PUBrowsingVideoPlayer, PUBrowsingViewModel, PUPlayPauseBarItemsControllerChange;
+@class ISWrappedAVPlayer, NSHashTable, NSString, PUBrowsingVideoPlayer, PUBrowsingViewModel, PUPlayPauseBarItemsControllerChange;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -27,14 +27,14 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *__observerQueue;
     NSHashTable *__changeObservers;
     PUBrowsingVideoPlayer *__videoPlayer;
-    AVPlayer *__avPlayer;
+    ISWrappedAVPlayer *__avPlayer;
     id __timeObservationToken;
     CDStruct_1b6d18a9 _currentPlaybackTime;
     CDStruct_1b6d18a9 _playbackDuration;
 }
 
 @property(retain, nonatomic, setter=_setTimeObservationToken:) id _timeObservationToken; // @synthesize _timeObservationToken=__timeObservationToken;
-@property(retain, nonatomic, setter=_setAVPlayer:) AVPlayer *_avPlayer; // @synthesize _avPlayer=__avPlayer;
+@property(retain, nonatomic, setter=_setAVPlayer:) ISWrappedAVPlayer *_avPlayer; // @synthesize _avPlayer=__avPlayer;
 @property(retain, nonatomic, setter=_setVideoPlayer:) PUBrowsingVideoPlayer *_videoPlayer; // @synthesize _videoPlayer=__videoPlayer;
 @property(nonatomic, setter=_setNeedsUpdateCurrentPlaybackTimeAndDuration:) _Bool _needsUpdateCurrentPlaybackTimeAndDuration; // @synthesize _needsUpdateCurrentPlaybackTimeAndDuration=__needsUpdateCurrentPlaybackTimeAndDuration;
 @property(nonatomic, setter=_setNeedsUpdateAVPlayer:) _Bool _needsUpdateAVPlayer; // @synthesize _needsUpdateAVPlayer=__needsUpdateAVPlayer;

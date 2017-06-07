@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)editButtonPressed;
 - (id)cellForSubitemAtIndex:(unsigned long long)arg1;
 - (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
+- (double)titleHeight;
 - (void)_updateCellIfNeededForWidth:(double)arg1;
 - (void)setCellPosition:(int)arg1;
 - (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;

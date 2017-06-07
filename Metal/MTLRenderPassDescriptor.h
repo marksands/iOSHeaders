@@ -20,6 +20,8 @@
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
 @property(nonatomic) unsigned long long renderTargetArrayLength; // @synthesize renderTargetArrayLength=_renderTargetArrayLength;
+- (unsigned long long)getSamplePositions:(CDStruct_6e3f967a *)arg1 count:(unsigned long long)arg2;
+- (void)setSamplePositions:(const CDStruct_6e3f967a *)arg1 count:(unsigned long long)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 // Remaining properties

@@ -40,6 +40,7 @@
 @property(nonatomic) _Bool forceEnableDictation;
 @property(nonatomic) _Bool acceptsDictationSearchResults;
 @property(nonatomic) _Bool acceptsEmoji;
+@property(nonatomic) _Bool acceptsPayloads;
 @property(nonatomic) _Bool hasDefaultContents;
 @property(nonatomic) _Bool contentsIsSingleValue;
 @property(nonatomic) _Bool isSingleLineDocument;
@@ -47,6 +48,8 @@
 @property(nonatomic) int textSelectionBehavior;
 @property(nonatomic) int textLoupeVisibility;
 @property(nonatomic) unsigned long long insertionPointWidth;
+@property(retain, nonatomic) UIColor *underlineColorForSpelling;
+@property(retain, nonatomic) UIColor *underlineColorForTextAlternatives;
 @property(retain, nonatomic) UIImage *selectionDragDotImage;
 @property(retain, nonatomic) UIColor *selectionHighlightColor;
 @property(retain, nonatomic) UIColor *selectionBarColor;

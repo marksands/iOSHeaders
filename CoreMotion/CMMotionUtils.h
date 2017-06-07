@@ -10,14 +10,16 @@
 {
 }
 
++ (unsigned long long)copyDataFrom:(id)arg1 to:(id)arg2;
++ (id)fileHandleForWritingToURL:(id)arg1;
 + (id)getExecutablePathFromPid:(int)arg1;
 + (_Bool)featureAvailability:(const char *)arg1;
-+ (void)setUpCMLogging;
 + (void)tccServiceMotionAccessWithBlock:(CDUnknownBlockType)arg1;
 + (void)tccServiceMotionAccessWithLabel:(id)arg1;
 + (_Bool)isMotionActivityEntitled;
 + (_Bool)sendMessageSync:(shared_ptr_bdcc6d0f)arg1 onConnection:(struct CLConnectionClient *)arg2 timeoutAfter:(double)arg3 withReplyHandler:(CDUnknownBlockType)arg4;
 + (id)sendMessageWithReplySync:(shared_ptr_bdcc6d0f)arg1;
++ (void)sendMessage:(shared_ptr_bdcc6d0f)arg1 withReply:(CDUnknownBlockType)arg2;
 + (id)logDirectory;
 
 @end

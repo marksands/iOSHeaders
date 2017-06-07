@@ -25,6 +25,13 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (id)init;
+@property(nonatomic, setter=_setWebRTCLegacyAPIEnabled:) _Bool _webRTCLegacyAPIEnabled;
+@property(nonatomic, setter=_setICECandidateFilteringEnabled:) _Bool _iceCandidateFiltertingEnabled;
+@property(nonatomic, setter=_setEnumeratingAllNetworkInterfacesEnabled:) _Bool _enumeratingAllNetworkInterfacesEnabled;
+@property(nonatomic, setter=_setMediaCaptureRequiresSecureConnection:) _Bool _mediaCaptureRequiresSecureConnection;
+@property(nonatomic, setter=_setMockCaptureDevicesEnabled:) _Bool _mockCaptureDevicesEnabled;
+@property(nonatomic, setter=_setMediaDevicesEnabled:) _Bool _mediaDevicesEnabled;
+@property(nonatomic, setter=_setLoadsImagesAutomatically:) _Bool _loadsImagesAutomatically;
 @property(nonatomic, setter=_setShouldSuppressKeyboardInputDuringProvisionalNavigation:) _Bool _shouldSuppressKeyboardInputDuringProvisionalNavigation;
 @property(nonatomic, setter=_setApplePayCapabilityDisclosureAllowed:) _Bool _applePayCapabilityDisclosureAllowed;
 - (void)_setEnabled:(_Bool)arg1 forFeature:(id)arg2;
@@ -41,6 +48,7 @@
 @property(nonatomic, setter=_setHiddenPageDOMTimerThrottlingEnabled:) _Bool _hiddenPageDOMTimerThrottlingEnabled;
 @property(nonatomic, setter=_setLogsPageMessagesToSystemConsoleEnabled:) _Bool _logsPageMessagesToSystemConsoleEnabled;
 @property(nonatomic, setter=_setDeveloperExtrasEnabled:) _Bool _developerExtrasEnabled;
+@property(nonatomic, setter=_setSubpixelAntialiasedLayerTextEnabled:) _Bool _subpixelAntialiasedLayerTextEnabled;
 @property(nonatomic, setter=_setTextAutosizingEnabled:) _Bool _textAutosizingEnabled;
 @property(nonatomic, setter=_setAnimatedImageAsyncDecodingEnabled:) _Bool _animatedImageAsyncDecodingEnabled;
 @property(nonatomic, setter=_setLargeImageAsyncDecodingEnabled:) _Bool _largeImageAsyncDecodingEnabled;
@@ -48,6 +56,7 @@
 @property(nonatomic, setter=_setDisplayListDrawingEnabled:) _Bool _displayListDrawingEnabled;
 @property(nonatomic, setter=_setAcceleratedDrawingEnabled:) _Bool _acceleratedDrawingEnabled;
 @property(nonatomic, setter=_setSimpleLineLayoutDebugBordersEnabled:) _Bool _simpleLineLayoutDebugBordersEnabled;
+@property(nonatomic, setter=_setSimpleLineLayoutEnabled:) _Bool _simpleLineLayoutEnabled;
 @property(nonatomic, setter=_setVisibleDebugOverlayRegions:) unsigned long long _visibleDebugOverlayRegions;
 @property(nonatomic, setter=_setResourceUsageOverlayVisible:) _Bool _resourceUsageOverlayVisible;
 @property(nonatomic, setter=_setTiledScrollingIndicatorVisible:) _Bool _tiledScrollingIndicatorVisible;

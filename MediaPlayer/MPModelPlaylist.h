@@ -105,6 +105,8 @@
 + (_Bool)supportsKeepLocalStatusObservation;
 + (id)requiredKeepLocalStatusObservationProperties;
 + (id)requiredStoreLibraryPersonalizationProperties;
++ (_Bool)storeItemMetadataRequestNeedsPersonalizationForIdentifiers:(id)arg1;
++ (id)storeItemMetadataRequestItemIdentifierForIdentifiers:(id)arg1;
 @property(copy, nonatomic) MPTiledArtworkRequest *tiledArtworkRequest; // @synthesize tiledArtworkRequest=_tiledArtworkRequest;
 @property(copy, nonatomic) CDUnknownBlockType editorialArtworkCatalogBlock; // @synthesize editorialArtworkCatalogBlock=_editorialArtworkCatalogBlock;
 @property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @synthesize artworkCatalogBlock=_artworkCatalogBlock;
@@ -139,6 +141,7 @@
 - (id)editorialArtworkCatalog;
 - (id)artworkCatalog;
 - (id)descriptionWithType:(long long)arg1;
+- (id)contentItemCollectionInfo;
 - (struct MPLibraryAddStatusObserverConfiguration)libraryAddStatusObserverConfiguration;
 - (long long)libraryRemovalSupportedOptions;
 - (id)newKeepLocalStatusObserverConfiguration;

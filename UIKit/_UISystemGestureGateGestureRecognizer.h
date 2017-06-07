@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSTimer *_delayTimeoutTimer;
 }
 
++ (_Bool)_shouldDefaultToTouches;
 - (id)_gateGestureTypeString;
 - (void)setEnabled:(_Bool)arg1;
 - (_Bool)canBePreventedByGestureRecognizer:(id)arg1;

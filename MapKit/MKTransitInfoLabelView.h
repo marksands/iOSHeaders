@@ -13,9 +13,9 @@
     _Bool _hasCustomShieldSize;
     _Bool _hasCustomIconSize;
     _Bool _hasCustomFont;
-    _Bool _truncateBySwitchingToTextOnly;
     _Bool _containsText;
     double _maxWidth;
+    CDUnknownBlockType _textForTruncation;
     MKMapItem *_mapItem;
     long long _shieldSize;
     long long _iconSize;
@@ -33,7 +33,7 @@
 @property(nonatomic) long long iconSize; // @synthesize iconSize=_iconSize;
 @property(nonatomic) long long shieldSize; // @synthesize shieldSize=_shieldSize;
 @property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
-@property(nonatomic) _Bool truncateBySwitchingToTextOnly; // @synthesize truncateBySwitchingToTextOnly=_truncateBySwitchingToTextOnly;
+@property(copy, nonatomic) CDUnknownBlockType textForTruncation; // @synthesize textForTruncation=_textForTruncation;
 @property(nonatomic) double maxWidth; // @synthesize maxWidth=_maxWidth;
 - (void).cxx_destruct;
 - (long long)_iconSizeForContentSizeCategory:(id)arg1;
@@ -45,7 +45,7 @@
 - (id)_imageForArtworkDataSource:(id)arg1;
 - (id)_imageForLabelItem:(id)arg1;
 - (id)_stringAttributes;
-- (id)_generateText:(_Bool)arg1 allowElipsis:(_Bool)arg2;
+- (id)_generateText;
 - (void)_setupLabelInfo;
 - (void)dealloc;
 - (id)init;

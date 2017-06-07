@@ -7,6 +7,8 @@
 #import <Foundation/NSDateInterval.h>
 
 @interface NSDateInterval (HealthKit)
++ (id)hk_dateIntervalWithStartDate:(id)arg1 endDate:(id)arg2;
 + (id)hk_dateIntervalWithStart:(double)arg1 end:(double)arg2;
+- (_Bool)hk_intersectsDateIntervalWithStartDate:(id)arg1 endDate:(id)arg2;
 @end
 

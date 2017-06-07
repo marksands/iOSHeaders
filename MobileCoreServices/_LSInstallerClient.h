@@ -14,16 +14,7 @@
 __attribute__((visibility("hidden")))
 @interface _LSInstallerClient : NSObject <LSInstallationServiceCallbackProtocol>
 {
-    struct _opaque_pthread_mutex_t {
-        long long __sig;
-        char __opaque[56];
-    } _callbacksCompleteCondMutex;
-    struct _opaque_pthread_cond_t {
-        long long __sig;
-        char __opaque[40];
-    } _callbacksCompleteCond;
     _Bool _uninstaller;
-    _Bool _allCallbacksDeleviered;
     unsigned long long _operationType;
     NSString *_operationTypeString;
     NSXPCConnection *_connection;
@@ -32,22 +23,31 @@ __attribute__((visibility("hidden")))
     NSString *_bundleID;
     NSURL *_bundleURL;
     NSDictionary *_options;
+    struct _opaque_pthread_mutex_t {
+        long long __sig;
+        char __opaque[56];
+    } _callbacksCompleteCondMutex;
+    struct _opaque_pthread_cond_t {
+        long long __sig;
+        char __opaque[40];
+    } _callbacksCompleteCond;
+    _Bool _allCallbacksDeleviered;
 }
 
 + (id)installerWithBundleID:(id)arg1 bundleURL:(id)arg2 options:(id)arg3 callbackBlock:(CDUnknownBlockType)arg4;
 + (id)unInstallerWithBundleID:(id)arg1 options:(id)arg2 callbackBlock:(CDUnknownBlockType)arg3;
 + (id)installerWithBundleID:(id)arg1 options:(id)arg2 callbackBlock:(CDUnknownBlockType)arg3;
 @property(nonatomic) _Bool allCallbacksDeleviered; // @synthesize allCallbacksDeleviered=_allCallbacksDeleviered;
-@property(nonatomic, getter=isUninstaller) _Bool uninstaller; // @synthesize uninstaller=_uninstaller;
+@property(nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) NSDictionary *options; // @synthesize options=_options;
+@property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
 @property(retain, nonatomic) NSURL *bundleURL; // @synthesize bundleURL=_bundleURL;
 @property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
-@property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(nonatomic, getter=isUninstaller) _Bool uninstaller; // @synthesize uninstaller=_uninstaller;
 @property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
-@property(readonly, nonatomic) NSString *operationTypeString; // @synthesize operationTypeString=_operationTypeString;
-- (id)installTypeString;
-@property(readonly, nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
+@property(readonly, nonatomic) NSString *operationTypeString; // @dynamic operationTypeString;
+- (void)_invalidate;
 - (void)_waitForAllCallbackMessagesToExecute;
 - (void)callbackDeliveryComplete;
 - (void)updateCallbackWithData:(id)arg1;

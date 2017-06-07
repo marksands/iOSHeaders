@@ -6,7 +6,7 @@
 
 #import <MapKit/MKCustomSeparatorTableViewCell.h>
 
-@class NSArray, NSDate, NSLayoutConstraint, NSString, NSTimeZone, UIButton, UIImageView, UIStackView, _MKUILabel;
+@class MKThemeMultiPartLabel, NSArray, NSDate, NSLayoutConstraint, NSString, NSTimeZone, UIButton, UIImageView, UIStackView, _MKUILabel;
 @protocol MKTransitDeparturesCellDelegate;
 
 @interface MKTransitDeparturesCell : MKCustomSeparatorTableViewCell
@@ -14,7 +14,7 @@
     UIImageView *_lineImageView;
     UIImageView *_incidentIconImageView;
     _MKUILabel *_primaryLabel;
-    _MKUILabel *_secondaryLabel;
+    MKThemeMultiPartLabel *_secondaryLabel;
     _MKUILabel *_tertiaryLabel;
     UIStackView *_secondaryTextStackView;
     _MKUILabel *_departureLabel;
@@ -31,6 +31,7 @@
     NSLayoutConstraint *_primaryToTopConstraint;
     NSLayoutConstraint *_departureStackViewToBottomConstraint;
     NSLayoutConstraint *_lineImageViewCenteringConstraint;
+    NSLayoutConstraint *_lineImageViewCenteringVerticalPaddingConstraint;
     NSLayoutConstraint *_primaryLabelCenteringConstraint;
     NSLayoutConstraint *_departureLabelCenteringConstraint;
     NSLayoutConstraint *_incidentIconHorizontalConstraint;
@@ -112,8 +113,7 @@
 - (void)setTertiaryText:(id)arg1;
 - (void)setSecondaryText:(id)arg1;
 - (void)setPrimaryText:(id)arg1;
-- (void)setLineImage:(id)arg1 compressed:(_Bool)arg2 center:(_Bool)arg3 centeringWidth:(double)arg4;
-- (void)_setLineImageColumnCentered:(_Bool)arg1 withImageWidth:(double)arg2 centeringWidth:(double)arg3;
+- (void)setLineImage:(id)arg1;
 - (void)_removeIncidentIcon;
 - (void)_addIncidentIcon;
 - (id)_incidentIcon;

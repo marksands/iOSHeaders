@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_subscriptions;
 }
 
+- (void).cxx_destruct;
 - (id)description;
 - (void)removeProgressForBundleID:(id)arg1;
 - (void)removeSubscriberForPublishingKey:(id)arg1 andBundleID:(id)arg2;
@@ -22,7 +23,6 @@ __attribute__((visibility("hidden")))
 - (void)addSubscriber:(id)arg1 forPublishingKey:(id)arg2 andBundleID:(id)arg3;
 - (void)setProgress:(id)arg1 forBundleID:(id)arg2;
 - (id)progressForBundleID:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

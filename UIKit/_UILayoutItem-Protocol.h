@@ -6,9 +6,19 @@
 
 #import <UIKit/NSLayoutItem-Protocol.h>
 
-@class NSISEngine, NSISVariable, NSMutableSet, NSObservation;
+@class NSISEngine, NSISVariable, NSLayoutDimension, NSLayoutXAxisAnchor, NSLayoutYAxisAnchor, NSMutableSet, NSObservation;
 
 @protocol _UILayoutItem <NSLayoutItem>
+@property(readonly, nonatomic) NSLayoutYAxisAnchor *centerYAnchor;
+@property(readonly, nonatomic) NSLayoutXAxisAnchor *centerXAnchor;
+@property(readonly, nonatomic) NSLayoutDimension *heightAnchor;
+@property(readonly, nonatomic) NSLayoutDimension *widthAnchor;
+@property(readonly, nonatomic) NSLayoutYAxisAnchor *bottomAnchor;
+@property(readonly, nonatomic) NSLayoutYAxisAnchor *topAnchor;
+@property(readonly, nonatomic) NSLayoutXAxisAnchor *rightAnchor;
+@property(readonly, nonatomic) NSLayoutXAxisAnchor *leftAnchor;
+@property(readonly, nonatomic) NSLayoutXAxisAnchor *trailingAnchor;
+@property(readonly, nonatomic) NSLayoutXAxisAnchor *leadingAnchor;
 - (NSISVariable *)_boundsHeightVariable;
 - (NSISVariable *)_boundsWidthVariable;
 - (NSISVariable *)_minYVariable;

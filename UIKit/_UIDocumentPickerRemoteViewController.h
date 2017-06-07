@@ -30,6 +30,7 @@
 - (void)_dismissWithOption:(id)arg1;
 - (void)_didSelectPicker;
 - (void)_dismissViewController;
+- (void)_didSelectURLBookmark:(id)arg1;
 - (void)_didSelectURLWrapper:(id)arg1;
 - (void)viewDidLoad;
 - (void)invalidate;

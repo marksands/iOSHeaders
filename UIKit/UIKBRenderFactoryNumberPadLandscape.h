@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)_customizeSymbolStyle:(id)arg1 secondaryStyle:(id)arg2 forKey:(id)arg3 contents:(id)arg4;
+- (struct CGPoint)specialSymbolOffset;
 - (struct CGPoint)loneZeroOffset;
 - (struct CGPoint)rightColumnLetterOffset;
 - (struct CGPoint)rightColumnNumberOffset;

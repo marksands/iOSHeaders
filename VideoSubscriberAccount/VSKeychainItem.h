@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSData *data;
 - (void)didAccessValueForKey:(id)arg1;
 - (void)willAccessValueForKey:(id)arg1;
+- (void)willChangeValueForKey:(id)arg1;
 - (id)changedValues;
 - (id)committedValueForKey:(id)arg1;
 - (id)committedValuesForKeys:(id)arg1;

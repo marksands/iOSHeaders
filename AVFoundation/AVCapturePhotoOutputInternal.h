@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVCapturePhotoSettings, AVWeakReference, NSArray, NSMutableArray;
+@class AVCapturePhotoSettings, AVWeakReference, NSArray, NSMutableArray, NSString;
 @protocol OS_dispatch_group, OS_dispatch_queue;
 
 @interface AVCapturePhotoOutputInternal : NSObject
@@ -16,8 +16,12 @@
     NSArray *availablePhotoPixelFormatTypes;
     NSArray *availablePhotoCodecTypes;
     NSArray *availableRawPhotoPixelFormatTypes;
+    NSArray *availablePhotoFileTypes;
+    NSArray *availableRawPhotoFileTypes;
     _Bool stillImageStabilizationSupported;
     _Bool dualCameraFusionSupported;
+    _Bool dualCameraDualPhotoDeliverySupported;
+    _Bool dualCameraDualPhotoDeliveryEnabled;
     NSArray *supportedHDRModes;
     NSArray *supportedFlashModes;
     _Bool highResolutionCaptureEnabled;
@@ -26,10 +30,14 @@
     _Bool livePhotoCaptureSupported;
     _Bool livePhotoCaptureEnabled;
     _Bool livePhotoAutoTrimmingEnabled;
+    NSArray *availableLivePhotoVideoCodecTypes;
     CDStruct_1b6d18a9 livePhotoMovieDuration;
     CDStruct_1b6d18a9 livePhotoMovieVideoFrameDuration;
     CDStruct_79c71658 livePhotoMovieDimensions;
     _Bool livePhotoCaptureSuspended;
+    _Bool depthDataDeliverySupported;
+    _Bool depthDataDeliveryEnabled;
+    _Bool filterRenderingEnabled;
     _Bool imageOptimizationForOfflineVideoStabilizationSupported;
     _Bool optimizesImagesForOfflineVideoStabilization;
     _Bool livePhotoMovieProcessingSuspended;
@@ -46,6 +54,7 @@
     NSMutableArray *prepareRequests;
     NSObject<OS_dispatch_queue> *beginEndIrisMovieCaptureHostTimeQueue;
     NSObject<OS_dispatch_group> *beginEndIrisMovieCaptureHostTimeDispatchGroup;
+    NSString *sourceDeviceType;
 }
 
 @end

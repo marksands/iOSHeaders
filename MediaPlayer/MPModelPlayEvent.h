@@ -34,6 +34,7 @@
 @property(copy, nonatomic) NSDate *datePlayed; // @synthesize datePlayed=_datePlayed;
 - (void).cxx_destruct;
 - (long long)itemType;
+- (id)contentItemCollectionInfo;
 
 @end
 

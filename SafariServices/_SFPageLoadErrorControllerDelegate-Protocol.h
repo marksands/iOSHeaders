@@ -6,17 +6,18 @@
 
 #import <SafariServices/NSObject-Protocol.h>
 
-@class NSArray, NSString, NSURLAuthenticationChallenge, NSURLRequest, _SFPageLoadErrorController;
+@class NSArray, NSString, NSURLRequest, UIViewController, _SFPageLoadErrorController, _SFSecIdentityPreferencesController;
 
 @protocol _SFPageLoadErrorControllerDelegate <NSObject>
+- (_SFSecIdentityPreferencesController *)pageLoadErrorControllerGetSecIdentityPreferencesController:(_SFPageLoadErrorController *)arg1;
+- (_Bool)pageLoadErrorControllerShouldPermanentlyAcceptCertificate:(_SFPageLoadErrorController *)arg1;
+- (void)pageLoadErrorController:(_SFPageLoadErrorController *)arg1 presentViewController:(UIViewController *)arg2;
+- (void)pageLoadErrorControllerClosePage:(_SFPageLoadErrorController *)arg1;
 - (void)pageLoadErrorController:(_SFPageLoadErrorController *)arg1 setAllowsSpecificHTTPSCertificate:(NSArray *)arg2 forHost:(NSString *)arg3;
 - (void)pageLoadErrorController:(_SFPageLoadErrorController *)arg1 loadFailedRequestAfterError:(NSURLRequest *)arg2;
 - (_Bool)pageLoadErrorControllerShouldHandleCertificateError:(_SFPageLoadErrorController *)arg1;
-- (void)pageLoadErrorControllerHideAlert:(_SFPageLoadErrorController *)arg1;
-- (void)pageLoadErrorControllerDidAddAlert:(_SFPageLoadErrorController *)arg1;
 
 @optional
-- (void)pageLoadErrorController:(_SFPageLoadErrorController *)arg1 didChooseOnlyAvailableIdentityForAuthenticationChallenge:(NSURLAuthenticationChallenge *)arg2;
-- (NSString *)pageLoadErrorControllerApplicationDisplayName:(_SFPageLoadErrorController *)arg1;
+- (void)pageLoadErrorControllerDidAddAlert:(_SFPageLoadErrorController *)arg1;
 @end
 

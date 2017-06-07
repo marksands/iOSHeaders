@@ -22,10 +22,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CABackdropLayer *backdropLayer; // @synthesize backdropLayer=_backdropLayer;
 - (void).cxx_destruct;
 - (void)willMoveToWindow:(id)arg1;
-- (void)backdropLayerStatisticsDidChange:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

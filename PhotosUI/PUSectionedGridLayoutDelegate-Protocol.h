@@ -13,11 +13,13 @@
 @optional
 - (NSString *)sectionedGridLayoutName:(PUSectionedGridLayout *)arg1;
 - (void)sectionedGridLayoutWillPrepareLayout:(PUSectionedGridLayout *)arg1;
+- (double)sectionedGridLayout:(PUSectionedGridLayout *)arg1 accessibilitySectionHeaderHeightForVisualSection:(long long)arg2;
 - (double)sectionedGridLayout:(PUSectionedGridLayout *)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;
 - (void)sectionedGridLayout:(PUSectionedGridLayout *)arg1 didInvalidateWithContext:(PUSectionedGridLayoutInvalidationContext *)arg2;
 - (NSIndexSet *)sectionedGridLayout:(PUSectionedGridLayout *)arg1 sectionsForVisualSection:(long long)arg2;
 - (long long)numberOfVisualSectionsForSectionedGridLayout:(PUSectionedGridLayout *)arg1;
 - (double)sectionedGridLayout:(PUSectionedGridLayout *)arg1 aspectRatioForItemAtIndexPath:(NSIndexPath *)arg2;
+- (struct UIEdgeInsets)sectionedGridLayout:(PUSectionedGridLayout *)arg1 finalContentInsetForCurrentContentInset:(struct UIEdgeInsets)arg2;
 - (_Bool)sectionedGridLayoutTransitionAutoAdjustContentOffsetEnabled:(PUSectionedGridLayout *)arg1;
 - (struct CGPoint)sectionedGridLayout:(PUSectionedGridLayout *)arg1 targetContentOffsetForProposedUpdatesContentOffset:(struct CGPoint)arg2;
 - (NSIndexPath *)sectionedGridLayoutAnchorItemForAdjustingContentOffset:(PUSectionedGridLayout *)arg1;

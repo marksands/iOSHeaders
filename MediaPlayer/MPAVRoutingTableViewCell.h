@@ -15,6 +15,7 @@
     UILabel *_routeNameLabel;
     UILabel *_subtitleTextLabel;
     UIActivityIndicatorView *_spinnerView;
+    UIImageView *_smartAudioImageView;
     UILabel *_mirroringLabel;
     UISwitch *_mirroringSwitch;
     UIView *_mirroringSeparatorView;
@@ -35,8 +36,8 @@
 @property(retain, nonatomic) MPAVRoute *route; // @synthesize route=_route;
 @property(nonatomic) __weak id <MPAVRoutingTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_updateSpinnerStyle;
 - (id)_iconImageForRoute:(id)arg1;
-- (id)_airpodsIconImageName;
 - (id)_detailTextForRoute:(id)arg1;
 - (_Bool)_shouldShowSeparateBatteryPercentagesForBatteryLevel:(id)arg1;
 - (_Bool)_shouldShowMirroringAsEnabledForRoute:(id)arg1;
@@ -46,6 +47,7 @@
 - (id)_currentDeviceRoutingIconImageName;
 - (id)_routingImageStyleName;
 - (void)setMirroringSwitchVisible:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setAccessoryType:(long long)arg1;
 - (void)setTintColor:(id)arg1;
 - (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

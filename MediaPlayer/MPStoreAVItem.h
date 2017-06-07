@@ -16,6 +16,7 @@
 @interface MPStoreAVItem : MPAVItem <AVAssetResourceLoaderDelegate, SSVSecureKeyDeliveryRequestOperationDelegate, MPRTCReportingItemSessionCreating>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
+    NSObject<OS_dispatch_queue> *_persistenceQueue;
     unsigned long long _assetQuality;
     _Bool _didDeferLeaseStart;
     _Bool _hasEverPrioritizedPlayerItem;
@@ -42,6 +43,8 @@
     NSString *_requestingBundleVersion;
     long long _equivalencySourceAdamID;
     unsigned long long _rentalID;
+    NSNumber *_privateListeningEnabled;
+    NSNumber *_siriInitiated;
 }
 
 + (unsigned long long)_currentPreferredAssetQualityForPlaybackItemMetadata:(id)arg1;
@@ -51,6 +54,8 @@
 + (_Bool)hasNominalAmountBeenPlayedForElapsedTime:(double)arg1 startTime:(double)arg2 stopTime:(double)arg3;
 + (_Bool)isPlaybackItemMetadataValidForAssetCreation:(id)arg1;
 + (_Bool)isPlaybackItemMetadataStreamingForAssetCreation:(id)arg1 returningProtectionType:(unsigned long long *)arg2;
+@property(copy, nonatomic, getter=isSiriInitiated) NSNumber *siriInitiated; // @synthesize siriInitiated=_siriInitiated;
+@property(copy, nonatomic, getter=isPrivateListeningEnabled) NSNumber *privateListeningEnabled; // @synthesize privateListeningEnabled=_privateListeningEnabled;
 @property(readonly, nonatomic) unsigned long long rentalID; // @synthesize rentalID=_rentalID;
 @property(readonly, nonatomic, getter=isRentalCheckoutRequired) _Bool rentalCheckoutRequired; // @synthesize rentalCheckoutRequired=_rentalCheckoutRequired;
 @property(nonatomic) long long equivalencySourceAdamID; // @synthesize equivalencySourceAdamID=_equivalencySourceAdamID;
@@ -111,7 +116,6 @@
 - (id)urlTimeMarkers;
 - (_Bool)useEmbeddedChapterData;
 - (long long)type;
-- (id)titlesForTime:(double)arg1;
 - (_Bool)supportsRewindAndFastForward15Seconds;
 - (_Bool)supportsLikedState;
 - (long long)storeSubscriptionAdamID;
@@ -127,7 +131,14 @@
 - (void)reevaluateType;
 - (void)prepareForRate:(float)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)prefersSeekOverSkip;
+- (_Bool)shouldShowComposer;
+- (unsigned long long)composerPersistentID;
+- (unsigned long long)genrePersistentID;
+- (unsigned long long)artistPersistentID;
+- (unsigned long long)albumArtistPersistentID;
+- (unsigned long long)albumPersistentID;
 - (unsigned long long)persistentID;
+- (unsigned long long)mediaType;
 - (void)notePlaybackFinishedByHittingEnd;
 - (id)modelGenericObject;
 - (id)mediaItem;

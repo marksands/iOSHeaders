@@ -10,18 +10,21 @@
 #import <MapKit/MKAnnotationRepresentation-Protocol.h>
 #import <MapKit/MKCustomFeatureAnnotation-Protocol.h>
 
-@class NSString, VKCustomFeature;
+@class CLLocation, NSString, VKCustomFeature;
 
 @interface MKPointAnnotation : MKShape <MKCustomFeatureAnnotation, MKAnnotationRepresentation, MKAnnotationPrivate>
 {
     struct CLLocationCoordinate2D _coordinate;
     long long _representation;
     VKCustomFeature *_customFeature;
+    CLLocation *_location;
 }
 
 @property(nonatomic) long long representation; // @synthesize representation=_representation;
+@property(retain, nonatomic) CLLocation *location; // @synthesize location=_location;
 @property(nonatomic) struct CLLocationCoordinate2D coordinate; // @synthesize coordinate=_coordinate;
 - (void).cxx_destruct;
+- (_Bool)_shouldDeselectWhenDragged;
 - (_Bool)_isPendingSelectionAnimated;
 - (void)_invalidateCachedCoordinate;
 - (void)_setHiddenForOffscreen:(_Bool)arg1;

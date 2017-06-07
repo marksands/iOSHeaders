@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HealthKit/HKQuery.h>
+#import <HealthKit/HKLegacyQuery.h>
 
 @class NSDateComponents;
 
-@interface HKCurrentActivityCacheQuery : HKQuery
+@interface HKCurrentActivityCacheQuery : HKLegacyQuery
 {
     NSDateComponents *_statisticsIntervalComponents;
     CDUnknownBlockType _updateHandler;
@@ -17,7 +17,6 @@
 + (Class)_queryServerDataObjectClass;
 @property(copy, nonatomic) CDUnknownBlockType updateHandler; // @synthesize updateHandler=_updateHandler;
 - (void).cxx_destruct;
-- (void)_queue_deliverError:(id)arg1;
 - (CDUnknownBlockType)_queue_errorHandler;
 - (_Bool)_queue_shouldStayAliveAfterInitialResults;
 - (void)_queue_validate;

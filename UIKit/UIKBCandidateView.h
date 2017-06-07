@@ -8,23 +8,22 @@
 
 #import <UIKit/UIKeyboardCandidateGridCollectionViewControllerDelegate-Protocol.h>
 
-@class NSString, TIKeyboardCandidateResultSet, UIKeyboardCandidateGridCollectionViewController, UIKeyboardCandidateSortControl, UIView;
+@class NSString, TIKeyboardCandidateResultSet, UIKeyboardCandidateGridCollectionViewController, UIKeyboardCandidateSortControl;
 
 __attribute__((visibility("hidden")))
 @interface UIKBCandidateView : UIKBKeyView <UIKeyboardCandidateGridCollectionViewControllerDelegate>
 {
-    UIView *_clippingView;
-    UIView *_topBorder;
     unsigned long long _selectedSortIndex;
     UIKeyboardCandidateGridCollectionViewController *_collectionViewController;
     UIKeyboardCandidateSortControl *_scrollViewSortControl;
-    CDStruct_961fb75c _visualStyling;
+    CDStruct_227bb23d _visualStyling;
 }
 
-@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) CDStruct_227bb23d visualStyling; // @synthesize visualStyling=_visualStyling;
 @property(retain, nonatomic) UIKeyboardCandidateSortControl *scrollViewSortControl; // @synthesize scrollViewSortControl=_scrollViewSortControl;
 @property(retain, nonatomic) UIKeyboardCandidateGridCollectionViewController *collectionViewController; // @synthesize collectionViewController=_collectionViewController;
 @property(nonatomic) unsigned long long selectedSortIndex; // @synthesize selectedSortIndex=_selectedSortIndex;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) TIKeyboardCandidateResultSet *candidateResultSet;
 - (id)headerViewForCandidateSet:(id)arg1;
 - (unsigned long long)gridCollectionViewNumberOfColumns:(id)arg1;
@@ -40,23 +39,18 @@ __attribute__((visibility("hidden")))
 - (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
 - (unsigned long long)currentIndex;
 - (id)currentCandidate;
-- (void)showPreviousRow;
-- (void)showNextRow;
-- (void)showPreviousPage;
-- (void)showNextPage;
-- (void)showPreviousCandidate;
-- (void)showNextCandidate;
+- (void)showCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (_Bool)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned long long)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(double)arg4 layout:(_Bool)arg5;
+- (_Bool)isFloatingList;
 - (_Bool)isExtendedList;
 - (_Bool)isTenKey;
 - (id)candidateList;
 - (void)setRenderConfig:(id)arg1;
 - (void)displayLayer:(id)arg1;
 - (void)updateForKeyplane:(id)arg1 key:(id)arg2;
-- (void)addSubview:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 keyplane:(id)arg2 key:(id)arg3;
 

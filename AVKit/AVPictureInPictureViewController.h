@@ -11,7 +11,6 @@
 @class AVPictureInPicturePlayerLayerView, AVPlayerController, NSString;
 @protocol AVPictureInPictureViewControllerDelegate;
 
-__attribute__((visibility("hidden")))
 @interface AVPictureInPictureViewController : UIViewController <PGPictureInPictureViewController>
 {
     id <AVPictureInPictureViewControllerDelegate> _delegate;

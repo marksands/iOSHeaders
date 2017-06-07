@@ -8,7 +8,6 @@
 
 @class UIActivityIndicatorView;
 
-__attribute__((visibility("hidden")))
 @interface PUProgressView : UIView
 {
     UIActivityIndicatorView *_spinner;

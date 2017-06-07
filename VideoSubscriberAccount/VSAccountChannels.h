@@ -25,8 +25,11 @@
 @property(copy, nonatomic) NSString *providerID; // @synthesize providerID=_providerID;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)serializationResult;
+- (id)serializationResultWithFormat:(unsigned long long)arg1;
 - (id)init;
 
 @end

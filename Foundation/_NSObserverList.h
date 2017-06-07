@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)_copyObserversOfObject:(id)arg1;
+- (void).cxx_destruct;
 - (id)description;
 - (id)debugDescription;
 - (void)dealloc;

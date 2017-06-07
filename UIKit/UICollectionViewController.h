@@ -43,7 +43,7 @@
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (_Bool)_shouldRespondToPreviewingMethods;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
-- (id)preferredFocusedItem;
+- (id)preferredFocusedView;
 @property(nonatomic) _Bool useLayoutToLayoutNavigationTransitions;
 - (void)_setUseLayoutToLayoutNavigationTransitions:(_Bool)arg1 withCheck:(_Bool)arg2;
 - (_Bool)shouldCrossFadeBottomBars;

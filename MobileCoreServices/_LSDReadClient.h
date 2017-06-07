@@ -16,10 +16,10 @@ __attribute__((visibility("hidden")))
 - (void)mapPlugInBundleIdentifiersToContainingBundleIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)mapBundleIdentifiers:(id)arg1 orMachOUUIDs:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getResourceValuesForKeys:(id)arg1 URL:(id)arg2 preferredLocalizations:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)getLocalizationDictionaryForTypeWithIdentifier:(id)arg1 UUID:(id)arg2 preferredLocalizations:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)getLocalizationDictionaryForTypeWithIdentifier:(id)arg1 unit:(unsigned int)arg2 preferredLocalizations:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)getAllUserActivityTypesAndDomainNamesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)bindDocumentProxy:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)resolveQueries:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)resolveQueries:(id)arg1 legacySPI:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getKnowledgeUUIDAndSequenceNumberWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getDiskUsage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getURLOverrideForURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

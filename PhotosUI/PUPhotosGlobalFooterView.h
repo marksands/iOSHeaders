@@ -6,62 +6,83 @@
 
 #import <UIKit/UICollectionReusableView.h>
 
-#import <PhotosUI/ICQBannerViewDelegate-Protocol.h>
+#import <PhotosUI/PUMutablePhotosGlobalFooterView-Protocol.h>
+#import <PhotosUI/UITextViewDelegate-Protocol.h>
 
-@class ICQOffer, NSString, PLSyncProgressView, PUPhotosGlobalFooterBannerView, UILabel;
+@class NSString, UILabel, UIProgressView, UITextView, UIView;
 @protocol PUPhotosGlobalFooterViewDelegate;
 
-@interface PUPhotosGlobalFooterView : UICollectionReusableView <ICQBannerViewDelegate>
+@interface PUPhotosGlobalFooterView : UICollectionReusableView <PUMutablePhotosGlobalFooterView, UITextViewDelegate>
 {
-    unsigned long long _imageCount;
-    unsigned long long _videoCount;
-    unsigned long long _otherCount;
-    unsigned long long _pendingCount;
-    int _importOperation;
     UILabel *_titleLabel;
-    UILabel *_subtitleLabel;
-    PLSyncProgressView *_syncProgressView;
-    PUPhotosGlobalFooterBannerView *_cloudBannerView;
-    _Bool _needsUpdateCloudOffer;
-    _Bool _isUpdatingCloudOffer;
-    double _referenceWidth;
+    UITextView *_subtitle1TextView;
+    UILabel *_subtitle2Label;
+    UIProgressView *_progressView;
+    double _currentHeight;
+    _Bool _isPresentingAlert;
     struct {
-        _Bool respondsToPresentPurchaseFlow;
-        _Bool respondsToDidChangeHeight;
-    } _delegateFlags;
-    _Bool _shouldShowCloudBanner;
-    _Bool __shouldHighlightSubtitle;
-    _Bool __shouldHideCloudStatus;
-    long long _style;
-    NSString *_subtitle;
+        _Bool title;
+        _Bool subtitle1;
+        _Bool subtitle2;
+        _Bool progress;
+        _Bool layout;
+    } _needToUpdate;
+    _Bool _isPerformingChanges;
+    _Bool _highlighted;
+    _Bool _paused;
+    _Bool _centerSubviewsVertically;
+    _Bool _onlyGrowsTaller;
+    NSString *_title;
+    NSString *_subtitle1;
+    NSString *_subtitle2;
+    double _progress;
+    NSString *_actionTitle;
+    NSString *_actionConfirmationAlertTitle;
+    NSString *_actionConfirmationAlertButtonTitle;
+    CDUnknownBlockType _action;
+    UIView *_accessoryView;
     id <PUPhotosGlobalFooterViewDelegate> _delegate;
-    ICQOffer *__offer;
 }
 
-@property(retain, nonatomic, setter=_setOffer:) ICQOffer *_offer; // @synthesize _offer=__offer;
-@property(nonatomic, setter=_setShouldHideCloudStatus:) _Bool _shouldHideCloudStatus; // @synthesize _shouldHideCloudStatus=__shouldHideCloudStatus;
-@property(nonatomic, setter=_setShouldHighlightSubtitle:) _Bool _shouldHighlightSubtitle; // @synthesize _shouldHighlightSubtitle=__shouldHighlightSubtitle;
 @property(nonatomic) __weak id <PUPhotosGlobalFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) _Bool shouldShowCloudBanner; // @synthesize shouldShowCloudBanner=_shouldShowCloudBanner;
-@property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) _Bool onlyGrowsTaller; // @synthesize onlyGrowsTaller=_onlyGrowsTaller;
+@property(nonatomic) _Bool centerSubviewsVertically; // @synthesize centerSubviewsVertically=_centerSubviewsVertically;
+@property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
+@property(copy, nonatomic) CDUnknownBlockType action; // @synthesize action=_action;
+@property(copy, nonatomic) NSString *actionConfirmationAlertButtonTitle; // @synthesize actionConfirmationAlertButtonTitle=_actionConfirmationAlertButtonTitle;
+@property(copy, nonatomic) NSString *actionConfirmationAlertTitle; // @synthesize actionConfirmationAlertTitle=_actionConfirmationAlertTitle;
+@property(copy, nonatomic) NSString *actionTitle; // @synthesize actionTitle=_actionTitle;
+@property(nonatomic) double progress; // @synthesize progress=_progress;
+@property(nonatomic, getter=isPaused) _Bool paused; // @synthesize paused=_paused;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
+@property(copy, nonatomic) NSString *subtitle2; // @synthesize subtitle2=_subtitle2;
+@property(copy, nonatomic) NSString *subtitle1; // @synthesize subtitle1=_subtitle1;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
-- (void)_handleCloudOfferChangedNotification:(id)arg1;
-- (void)_showPurchaseFlow;
-- (void)bannerView:(id)arg1 action:(long long)arg2 parameters:(id)arg3 dismiss:(_Bool)arg4;
+- (void)textViewDidChangeSelection:(id)arg1;
+- (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;
+- (id)_attributedStringForInputString:(id)arg1 actionTitle:(id)arg2 attributes:(id)arg3;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)layoutSubviews;
-- (void)_updateFonts;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)_updateSubviewsOrdering;
-- (void)_updateSubviews;
-- (void)_completeOfferUpdateWithOffer:(id)arg1;
-- (void)_updateCloudOfferIfNeeded;
-- (void)invalidateCloudOffer;
-- (void)setPendingCount:(unsigned long long)arg1 importOperation:(int)arg2;
-- (void)setImageCount:(unsigned long long)arg1 videoCount:(unsigned long long)arg2 otherCount:(unsigned long long)arg3;
-- (void)setSubtitle:(id)arg1 shouldHightlight:(_Bool)arg2;
-- (void)dealloc;
+- (void)_updateIfNeeded;
+- (_Bool)_needsUpdate;
+- (void)performChanges:(CDUnknownBlockType)arg1;
+- (void)_invalidateLayout;
+- (void)_invalidateProgress;
+- (void)_invalidateSubtitle2;
+- (void)_invalidateSubtitle1;
+- (void)_invalidateTitle;
+- (void)_updateLayoutIfNeeded;
+- (void)_updateProgressIfNeeded;
+- (void)_updateSubtitle2IfNeeded;
+- (void)_updateSubtitle1IfNeeded;
+- (void)_updateTitleIfNeeded;
+- (void)_updateLayout;
+- (void)_updateProgress;
+- (void)_updateSubtitle2;
+- (void)_updateSubtitle1;
+- (void)_updateTitle;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

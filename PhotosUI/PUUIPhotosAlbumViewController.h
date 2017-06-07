@@ -6,23 +6,33 @@
 
 #import <PhotosUI/PUPhotosAlbumViewController.h>
 
-@class NSArray, PUUIImagePickerControllerHelper, UIBarButtonItem;
+#import <PhotosUI/PUPhotoPickerSelectionHandler-Protocol.h>
+#import <PhotosUI/PUPhotoPickerServicesConsumer-Protocol.h>
+
+@class NSArray, NSString, PUUIImagePickerControllerHelper, UIBarButtonItem;
+@protocol PUPhotoPicker;
 
 __attribute__((visibility("hidden")))
-@interface PUUIPhotosAlbumViewController : PUPhotosAlbumViewController
+@interface PUUIPhotosAlbumViewController : PUPhotosAlbumViewController <PUPhotoPickerServicesConsumer, PUPhotoPickerSelectionHandler>
 {
     UIBarButtonItem *_imagePickerCancelButton;
     UIBarButtonItem *_imagePickerMultipleSelectionDoneButton;
-    int __albumFilter;
     PUUIImagePickerControllerHelper *__imagePickerControllerHelper;
+    int __albumFilter;
+    id <PUPhotoPicker> _photoPicker;
     NSArray *__imagePickerMediaTypes;
 }
 
 @property(nonatomic, setter=_setAlbumFilter:) int _albumFilter; // @synthesize _albumFilter=__albumFilter;
 @property(copy, nonatomic, setter=_setImagePickerMediaTypes:) NSArray *_imagePickerMediaTypes; // @synthesize _imagePickerMediaTypes=__imagePickerMediaTypes;
-@property(readonly) PUUIImagePickerControllerHelper *_imagePickerControllerHelper; // @synthesize _imagePickerControllerHelper=__imagePickerControllerHelper;
+@property(nonatomic) __weak id <PUPhotoPicker> photoPicker; // @synthesize photoPicker=_photoPicker;
 - (void).cxx_destruct;
+- (_Bool)canDragIn;
+- (_Bool)canDragOut;
+- (void)setPhotoPickerMediaTypes:(id)arg1;
+- (void)performPhotoPickerSelection;
 - (_Bool)pu_wantsNavigationBarVisible;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (_Bool)shouldShowSectionHeaders;
@@ -33,12 +43,19 @@ __attribute__((visibility("hidden")))
 - (_Bool)canNavigateToPhotoInteractively:(_Bool)arg1;
 - (void)getTitle:(out id *)arg1 prompt:(out id *)arg2 shouldHideBackButton:(out _Bool *)arg3 leftBarButtonItems:(out id *)arg4 rightBarButtonItems:(out id *)arg5;
 - (void)setAlbum:(id)arg1 existingFetchResult:(id)arg2;
+@property(readonly) PUUIImagePickerControllerHelper *_imagePickerControllerHelper;
 - (void)_handleImagePickerMultipleSelectionDone:(id)arg1;
 - (void)_handleImagePickerCancel:(id)arg1;
 - (id)filterPredicateForAlbum:(struct NSObject *)arg1;
 - (_Bool)allowsPeeking;
 - (id)init;
 - (id)initWithSpec:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
     unsigned int itemFlags;
     unsigned int containerUnit;
     unsigned int bundleUnit;
-    unsigned int containerFlags;
     unsigned int bundleClass;
     unsigned long long inoBundle;
     unsigned long long inoExec;

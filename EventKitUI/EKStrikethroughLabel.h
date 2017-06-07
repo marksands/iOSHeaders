@@ -9,8 +9,12 @@
 @interface EKStrikethroughLabel : UILabel
 {
     _Bool _drawsStrikethrough;
+    double _firstLineHeadIndent;
+    double _hyphenationFactor;
 }
 
+@property(nonatomic) double hyphenationFactor; // @synthesize hyphenationFactor=_hyphenationFactor;
+@property(nonatomic) double firstLineHeadIndent; // @synthesize firstLineHeadIndent=_firstLineHeadIndent;
 @property(nonatomic) _Bool drawsStrikethrough; // @synthesize drawsStrikethrough=_drawsStrikethrough;
 - (void)setText:(id)arg1;
 

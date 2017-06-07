@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class DOMHTMLElement, UIColor, UIDelayedAction, UIFont, UITextInteractionAssistant, UIView, UIWebDocumentView, WebFrame;
+@class DOMHTMLElement, UIColor, UIDelayedAction, UIDragInteraction, UIDropInteraction, UIFont, UITextInteractionAssistant, UIView, UIWebDocumentView, WebFrame;
 
 __attribute__((visibility("hidden")))
 @interface _UICompatibilityTextViewData : NSObject
@@ -37,6 +37,8 @@ __attribute__((visibility("hidden")))
     _Bool m_usesAttributedText;
     _Bool m_clearsOnInsertion;
     _Bool m_didFreezeTextContainerSize;
+    UIDragInteraction *m_dragInteraction;
+    UIDropInteraction *m_dropInteraction;
 }
 
 - (void).cxx_destruct;

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSLayoutConstraint, NSMutableArray, NSString, UIButton, UILabel, _UIBackdropView;
+@class NSLayoutConstraint, NSMutableArray, NSString, UIButton, UILabel, UIScrollView, _UIBackdropView;
 
 @interface _UIContentUnavailableView : UIView
 {
@@ -14,11 +14,13 @@
     NSString *_title;
     _UIBackdropView *_backdrop;
     UIView *_containerView;
+    UIScrollView *_scrollView;
     UILabel *_titleLabel;
     UILabel *_messageLabel;
     UIButton *_actionButton;
     NSLayoutConstraint *titleToMessageConstraint;
     NSLayoutConstraint *messageToButtonConstraint;
+    NSLayoutConstraint *buttonHeightConstraint;
     UIView *_fromSnapshot;
     UIView *_toSnapshot;
     struct CGSize _fromSnapshotSize;
@@ -41,6 +43,8 @@
 - (double)_buttonVerticalSpacing;
 - (double)_labelVerticalSpacing;
 - (struct CGSize)_buttonSize;
+- (id)_messageTextStyle;
+- (id)_buttonTextStyle;
 - (id)_buttonFont;
 - (double)_buttonAlpha;
 - (double)_labelAlpha;
@@ -59,6 +63,8 @@
 - (void)layoutSubviews;
 - (id)preferredFocusedView;
 - (id)_buttonBackgroundImageForStyle:(unsigned long long)arg1 controlState:(unsigned long long)arg2;
+- (void)_updateForCurrentContentSizeCategory;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 title:(id)arg2 style:(unsigned long long)arg3 includeBackdrop:(_Bool)arg4;
 - (id)initWithFrame:(struct CGRect)arg1 title:(id)arg2 style:(unsigned long long)arg3;

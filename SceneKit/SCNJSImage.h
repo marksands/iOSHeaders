@@ -6,7 +6,6 @@
 
 #import <UIKit/UIImage.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNJSImage : UIImage
 {
 }

@@ -25,6 +25,8 @@
 @property(nonatomic) __weak id <_SFDialogViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_keyboardDismissGesture:(id)arg1;
+- (void)didAppear;
+@property(nonatomic) _Bool showMessageAsTitle;
 - (void)setPrimaryActionTitle:(id)arg1 secondaryActionTitle:(id)arg2;
 - (void)setPasswordText:(id)arg1 placeholder:(id)arg2;
 - (void)setInputText:(id)arg1 placeholder:(id)arg2;

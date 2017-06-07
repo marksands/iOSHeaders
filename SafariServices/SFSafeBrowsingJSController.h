@@ -21,7 +21,6 @@ __attribute__((visibility("hidden")))
 - (id)reportAnErrorURL:(id)arg1;
 - (id)learnMoreAboutPhishingURL:(id)arg1;
 - (id)malwareDetailsURL:(id)arg1;
-- (_Bool)isRTL;
 - (id)UIString:(id)arg1;
 - (void)closePageSelected;
 - (void)goBackSelected;

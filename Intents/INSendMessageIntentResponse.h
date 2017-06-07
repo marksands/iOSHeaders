@@ -22,6 +22,8 @@
 + (long long)_codeFromType:(int)arg1 errorCode:(int)arg2 appLaunchRequested:(_Bool)arg3;
 + (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
+- (void)setPropertiesByName:(id)arg1;
+- (id)propertiesByName;
 - (id)_dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
 @property(copy, nonatomic) INMessage *sentMessage;

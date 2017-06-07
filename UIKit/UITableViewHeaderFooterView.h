@@ -8,7 +8,7 @@
 
 #import <UIKit/UITableViewSubviewReusing-Protocol.h>
 
-@class NSString, UIColor, UIImage, UILabel, UITableView, _UITableViewHeaderFooterViewLabel;
+@class NSString, UIImage, UILabel, UITableView, _UITableViewHeaderFooterViewLabel;
 @protocol UITable, UITableConstants;
 
 @interface UITableViewHeaderFooterView : UIView <UITableViewSubviewReusing>
@@ -24,8 +24,8 @@
     _UITableViewHeaderFooterViewLabel *_label;
     _UITableViewHeaderFooterViewLabel *_detailLabel;
     UIView *_contentView;
-    UIColor *_tintColor;
-    struct UIEdgeInsets _separatorInset;
+    double _leadingMarginWidth;
+    double _trailingMarginWidth;
     id <UITableConstants> _constants;
     struct {
         unsigned int isHeader:1;
@@ -57,7 +57,7 @@
 @property(nonatomic, getter=_isTopHeader, setter=_setTopHeader:) _Bool topHeader;
 @property(nonatomic, getter=_stripPadding, setter=_setStripPadding:) _Bool stripPadding;
 - (void)_tableViewDidUpdateMarginWidth;
-@property(retain, nonatomic) UIColor *tintColor;
+- (void)setTintColor:(id)arg1;
 - (void)setNeedsUpdateConstraints;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
 - (_Bool)_forwardsSystemLayoutFittingSizeToContentView:(id)arg1;
@@ -68,10 +68,15 @@
 @property(nonatomic) _Bool floating;
 @property(nonatomic) long long tableViewStyle;
 - (void)_updateLayerContents;
+- (struct UIEdgeInsets)_insetsToContentRect;
+- (struct UIEdgeInsets)_insetsToBounds;
 @property(nonatomic, getter=_rightMarginWidth, setter=_setRightMarginWidth:) double rightMarginWidth;
 @property(nonatomic, getter=_marginWidth, setter=_setMarginWidth:) double marginWidth;
 - (void)_updateContentAndBackgroundView;
+- (struct CGRect)_contentRect;
+- (struct CGRect)_contentRectForWidth:(double)arg1;
 - (struct CGRect)_backgroundRect;
+- (struct CGRect)_backgroundRectForWidth:(double)arg1;
 - (void)_setBackgroundViewColor:(id)arg1;
 @property(retain, nonatomic) UIView *backgroundView;
 - (void)_setupBackgroundView;

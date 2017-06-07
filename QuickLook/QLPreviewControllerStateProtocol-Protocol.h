@@ -6,23 +6,25 @@
 
 #import <QuickLook/NSObject-Protocol.h>
 
-@class NSData, NSURL;
+@class NSData, NSString, NSURL;
 @protocol QLPrintingProtocol;
 
 @protocol QLPreviewControllerStateProtocol <NSObject>
+- (void)updateTitle:(NSString *)arg1;
 - (void)updatePreferredContentSize:(struct CGSize)arg1;
-- (void)updatePreviewItemAtIndex:(unsigned long long)arg1 updatedContentsURL:(NSURL *)arg2 sandboxExtension:(NSData *)arg3;
+- (void)updatePreviewItemAtIndex:(unsigned long long)arg1 updatedContentsURL:(NSURL *)arg2 sandboxExtension:(NSData *)arg3 completionHandler:(void (^)(void))arg4;
 - (void)presentAlertControllerForScenario:(long long)arg1;
-- (void)expandContentOfCurrentItem;
+- (void)expandContentOfURL:(NSURL *)arg1;
 - (void)beginInteractiveTransition;
+- (void)currentPreviewItemViewControllerHasUnsavedEdits:(_Bool)arg1;
 - (void)setCanChangeCurrentPage:(_Bool)arg1;
+- (void)showShareSheet;
 - (void)openURLIfAllowed:(NSURL *)arg1;
 - (void)setPrinter:(id <QLPrintingProtocol>)arg1;
 - (void)setAccessoryViewVisible:(_Bool)arg1;
 - (void)updateKeyCommands;
 - (void)updateOverlayButtons:(_Bool)arg1;
 - (void)setToolbarCanBeVisible:(_Bool)arg1;
-- (void)setRotationEnabled:(_Bool)arg1;
 - (void)previewCollectionPrefersWhitePointAdaptivityStyle:(long long)arg1;
 - (void)previewCollectionUpdatePreviewItem:(long long)arg1;
 - (void)setFullScreen:(_Bool)arg1;

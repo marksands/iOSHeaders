@@ -6,13 +6,13 @@
 
 #import <UIKit/UIView.h>
 
-#import <PhotosUI/PUVideoScrubberControllerDelegate-Protocol.h>
+#import <PhotosUI/PXVideoScrubberControllerDelegate-Protocol.h>
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <PhotosUI/UIScrollViewDelegate-Protocol.h>
 
-@class AVPlayer, NSString, PUFilmstripView, PUPlayheadView, PUVideoScrubberController, UIImage, UIScrollView;
+@class AVPlayer, NSString, PUFilmstripView, PUPlayheadView, PXVideoScrubberController, UIImage, UIScrollView;
 
-@interface PHVideoScrubberView : UIView <PUVideoScrubberControllerDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface PHVideoScrubberView : UIView <PXVideoScrubberControllerDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
     unsigned long long _previousPlayState;
     _Bool __needsUpdateFilmStripView;
@@ -21,14 +21,14 @@
     double _estimatedDuration;
     UIImage *_placeholderThumbnail;
     PUFilmstripView *__filmStripView;
-    PUVideoScrubberController *__videoScrubberController;
+    PXVideoScrubberController *__videoScrubberController;
     UIScrollView *__scrollView;
     PUPlayheadView *__playheadView;
 }
 
 @property(retain, nonatomic, setter=_setPlayheadView:) PUPlayheadView *_playheadView; // @synthesize _playheadView=__playheadView;
 @property(retain, nonatomic, setter=_setScrollView:) UIScrollView *_scrollView; // @synthesize _scrollView=__scrollView;
-@property(retain, nonatomic, setter=_setVideoScrubberController:) PUVideoScrubberController *_videoScrubberController; // @synthesize _videoScrubberController=__videoScrubberController;
+@property(retain, nonatomic, setter=_setVideoScrubberController:) PXVideoScrubberController *_videoScrubberController; // @synthesize _videoScrubberController=__videoScrubberController;
 @property(retain, nonatomic, setter=_setFilmStripView:) PUFilmstripView *_filmStripView; // @synthesize _filmStripView=__filmStripView;
 @property(nonatomic, setter=_setNeedsUpdateVideoScrubberController:) _Bool _needsUpdateVideoScrubberController; // @synthesize _needsUpdateVideoScrubberController=__needsUpdateVideoScrubberController;
 @property(nonatomic, setter=_setNeedsUpdateFilmStripView:) _Bool _needsUpdateFilmStripView; // @synthesize _needsUpdateFilmStripView=__needsUpdateFilmStripView;
@@ -36,9 +36,6 @@
 @property(nonatomic) double estimatedDuration; // @synthesize estimatedDuration=_estimatedDuration;
 @property(retain, nonatomic) AVPlayer *player; // @synthesize player=_player;
 - (void).cxx_destruct;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)_stopObservingPlayerStatus;
-- (void)_startObservingPlayerStatus;
 - (void)videoScrubberControllerDidUpdate:(id)arg1;
 - (double)_lengthForDuration:(double)arg1;
 - (double)videoScrubberController:(id)arg1 lengthForDuration:(double)arg2;
@@ -64,8 +61,9 @@
 - (_Bool)_isUserInteractingWithScrollView;
 - (id)_currentAVAsset;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)dealloc;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain) CNFoundationUserDefaults *foundationUserDefaults; // @synthesize foundationUserDefaults=_foundationUserDefaults;
+- (void).cxx_destruct;
 - (void)setShortNameFormatPrefersNicknames:(_Bool)arg1;
 - (_Bool)shortNameFormatPrefersNicknames;
 - (void)setShortNameFormatEnabled:(_Bool)arg1;
@@ -26,7 +27,6 @@ __attribute__((visibility("hidden")))
 - (long long)newContactDisplayNameOrder;
 - (void)setDisplayNameOrder:(long long)arg1;
 - (long long)displayNameOrder;
-- (void)dealloc;
 - (id)initWithFoundationUserDefaults:(id)arg1;
 - (id)init;
 

@@ -7,7 +7,9 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (HealthKit)
+- (long long)hk_compareBuildVersionWithString:(id)arg1;
 - (_Bool)hk_isBase64;
+- (id)hk_trimWhitespaceAndNewlines;
 - (id)hk_stripLeadingTrailingWhitespace;
 - (id)hk_copyNonEmptyString;
 @end

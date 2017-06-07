@@ -6,22 +6,21 @@
 
 #import <UIKit/UIControl.h>
 
-@class NSAttributedString, UIColor, UIScrollView, _UIRefreshControlContentView;
+@class NSAttributedString, UIColor, _UIRefreshControlContentView;
+@protocol _UIRefreshControlHosting;
 
 @interface UIRefreshControl : UIControl
 {
     long long _style;
     _UIRefreshControlContentView *_contentView;
-    UIScrollView *_scrollView;
     double _refreshControlHeight;
     double _visibleHeight;
     double _snappingHeight;
     double _additionalTopInset;
     _Bool _insetsApplied;
     _Bool _adjustingInsets;
-    _Bool _automaticContentOffsetAdjustmentEnabledWhenLastIdle;
-    _Bool _automaticContentOffsetAdjustmentEnabledNeedsReset;
     struct UIEdgeInsets _appliedInsets;
+    id <_UIRefreshControlHosting> _host;
     long long _refreshControlState;
 }
 
@@ -29,6 +28,8 @@
 + (id)_defaultColor;
 @property(readonly, nonatomic) long long refreshControlState; // @synthesize refreshControlState=_refreshControlState;
 - (void).cxx_destruct;
+@property(nonatomic, getter=_host, setter=_setHost:) __weak id <_UIRefreshControlHosting> _host;
+@property(readonly, nonatomic) _Bool _hostAdjustsContentOffset;
 - (unsigned long long)_controlEventsForActionTriggered;
 - (void)_setRefreshControlState:(long long)arg1 notify:(_Bool)arg2;
 - (void)setRefreshControlState:(long long)arg1;
@@ -67,7 +68,6 @@
 - (id)_contentView;
 @property(readonly, nonatomic) long long style;
 - (void)didMoveToSuperview;
-- (void)willMoveToSuperview:(id)arg1;
 - (void)sizeToFit;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBounds:(struct CGRect)arg1;

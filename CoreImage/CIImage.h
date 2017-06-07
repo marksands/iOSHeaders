@@ -9,7 +9,7 @@
 #import <CoreImage/NSCopying-Protocol.h>
 #import <CoreImage/NSSecureCoding-Protocol.h>
 
-@class CIFilterShape, NSDictionary, NSURL;
+@class AVDepthData, CIFilterShape, NSDictionary, NSURL;
 
 @interface CIImage : NSObject <NSSecureCoding, NSCopying>
 {
@@ -45,11 +45,18 @@
 + (id)imageWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 + (id)imageWithCGImage:(struct CGImage *)arg1;
 + (id)nullImage;
++ (id)imageWithDepthData:(id)arg1;
++ (id)imageWithDepthData:(id)arg1 options:(id)arg2;
++ (id)imageWithAttributedString:(id)arg1 format:(int)arg2 options:(id)arg3;
++ (id)imageWithAttributedString:(id)arg1 format:(int)arg2;
 + (id)imageWithImageProvider:(id)arg1 size:(unsigned long long)arg2:(unsigned long long)arg3 format:(int)arg4 colorSpace:(struct CGColorSpace *)arg5 options:(id)arg6;
 + (id)imageWithImageProvider:(id)arg1 userInfo:(id)arg2 size:(struct CGSize)arg3 format:(int)arg4 flipped:(_Bool)arg5 colorSpace:(struct CGColorSpace *)arg6;
++ (id)clearImage:(struct CGRect)arg1;
 + (id)smartColorAdjustmentsForValue:(double)arg1 andStatistics:(id)arg2;
 + (id)smartToneAdjustmentsForValue:(double)arg1 localLightAutoValue:(double)arg2 andStatistics:(id)arg3;
 + (id)smartToneAdjustmentsForValue:(double)arg1 andStatistics:(id)arg2;
++ (id)imageYCC444:(id)arg1 matrix:(int)arg2 fullRange:(_Bool)arg3 colorSpace:(struct CGColorSpace *)arg4;
++ (id)imageWithYImage:(id)arg1 CrCbImage:(id)arg2 CrCbScale:(int)arg3 matrix:(int)arg4 fullRange:(_Bool)arg5 colorSpace:(struct CGColorSpace *)arg6;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
 - (struct CGRect)regionOfInterestForImage:(id)arg1 inRect:(struct CGRect)arg2;
 - (void *)_internalRepresentation;
@@ -77,19 +84,23 @@
 @property(readonly) CIFilterShape *definition;
 @property(readonly, nonatomic) struct CGRect extent;
 - (id)initWithArrayOfImages:(id)arg1 selector:(CDUnknownBlockType)arg2;
-- (id)imageBySettingProperties:(id)arg1;
 - (id)_imageBySamplingLinear;
 - (id)_imageBySamplingNearest;
+- (id)imageBySamplingLinear;
+- (id)imageBySamplingNearest;
+- (id)imageBySettingProperties:(id)arg1;
 - (id)_imageByRenderingToIntermediate;
 - (id)imageByTaggingWithColorSpace:(struct CGColorSpace *)arg1;
 - (id)imageByColorMatchingColorSpaceToWorkingSpace:(struct CGColorSpace *)arg1;
 - (id)_imageByMatchingColorSpaceToWorkingSpace:(struct CGColorSpace *)arg1;
+- (id)imageByColorMatchingWorkingSpaceToRGBorGrayColorSpace:(struct CGColorSpace *)arg1;
 - (id)imageByColorMatchingWorkingSpaceToColorSpace:(struct CGColorSpace *)arg1;
 - (id)_imageByMatchingWorkingSpaceToColorSpace:(struct CGColorSpace *)arg1;
 - (id)imageByApplyingGaussianBlurWithSigma:(double)arg1;
 - (id)_imageByApplyingBlur:(double)arg1;
 - (id)_imageByApplyingGamma:(double)arg1;
 - (id)imageBySettingAlphaOneInExtent:(struct CGRect)arg1;
+- (id)_imageByClampingAlpha;
 - (id)imageByUnpremultiplyingAlpha;
 - (id)_imageByUnpremultiplying;
 - (id)imageByPremultiplyingAlpha;
@@ -111,11 +122,13 @@
 - (id)init;
 - (id)initWithColor:(id)arg1;
 - (id)initWithColorR:(double)arg1 G:(double)arg2 B:(double)arg3 A:(double)arg4;
+- (id)initWithEmptyClearColor;
 - (id)initWithCVImageBuffer:(struct __CVBuffer *)arg1 options:(id)arg2;
 - (id)initWithCVImageBuffer:(struct __CVBuffer *)arg1;
 - (id)initWithCVPixelBuffer:(struct __CVBuffer *)arg1 options:(id)arg2;
 - (id)initWithCVPixelBuffer:(struct __CVBuffer *)arg1;
 - (id)_initWithCVImageBuffer:(struct __CVBuffer *)arg1 options:(id)arg2;
+@property(readonly, nonatomic) AVDepthData *depthData;
 @property(readonly, nonatomic) struct __CVBuffer *pixelBuffer;
 - (struct __CVBuffer *)_originalCVPixelBuffer;
 - (void)_setOriginalCVPixelBuffer:(struct __CVBuffer *)arg1;
@@ -129,6 +142,7 @@
 - (id)initWithCGLayer:(struct CGLayer *)arg1 options:(id)arg2;
 - (id)initWithCGLayer:(struct CGLayer *)arg1;
 - (id)initWithCGImageSource:(struct CGImageSource *)arg1 index:(unsigned long long)arg2 options:(id)arg3;
+- (id)initAuxiliaryWithImageSource:(struct CGImageSource *)arg1 options:(id)arg2 depth:(_Bool)arg3;
 - (id)initWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)_initNaiveWithCGImage:(struct CGImage *)arg1 options:(id)arg2;
 - (id)initWithCGImage:(struct CGImage *)arg1;
@@ -136,6 +150,11 @@
 - (struct CGImage *)_originalCGImage;
 - (void)_setOriginalCGImage:(struct CGImage *)arg1;
 - (id)_initWithIOSurface:(struct __IOSurface *)arg1 options:(id)arg2 owner:(void *)arg3;
+- (id)initWithDepthData:(id)arg1;
+- (id)initWithDepthData:(id)arg1 options:(id)arg2;
+- (id)initWithAttributedString:(id)arg1 format:(int)arg2 options:(id)arg3;
+- (id)initWithAttributedString:(id)arg1 format:(int)arg2;
+- (id)_pdfDataRepresentation;
 - (id)_initWithImageProvider:(CDUnknownBlockType)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 format:(int)arg4 colorSpace:(struct CGColorSpace *)arg5 surfaceCache:(_Bool)arg6 options:(id)arg7;
 - (id)initWithImageProvider:(CDUnknownBlockType)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 format:(int)arg4 colorSpace:(struct CGColorSpace *)arg5 options:(id)arg6;
 - (id)initWithImageProvider:(id)arg1 size:(unsigned long long)arg2:(unsigned long long)arg3 format:(int)arg4 colorSpace:(struct CGColorSpace *)arg5 options:(id)arg6;

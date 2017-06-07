@@ -26,16 +26,19 @@
         unsigned int pendingUnhighlight:1;
         unsigned int selected:1;
         unsigned int verticalAlignment:2;
-        unsigned int horizontalAlignment:2;
+        unsigned int horizontalAlignment:3;
         unsigned int wasLastHighlightSuccessful:1;
         unsigned int touchHasHighlighted:1;
     } _controlFlags;
 }
 
++ (unsigned long long)_primaryStateForState:(unsigned long long)arg1;
 + (_Bool)_allowActionsToQueue;
 - (void).cxx_destruct;
+- (_Bool)_accessibilityShouldActivateOnHUDLift;
 - (unsigned long long)_stateForFocusUpdateContext:(id)arg1;
 - (long long)_focusedSound;
+- (void)_diagnoseFocusabilityForReport:(id)arg1;
 - (_Bool)canBecomeFocused;
 - (void)_sendDelayedActions:(_Bool)arg1;
 - (void)_unhighlight;
@@ -78,6 +81,7 @@
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 @property(nonatomic, getter=isSelected) _Bool selected; // @dynamic selected;
+@property(readonly, nonatomic) long long effectiveContentHorizontalAlignment;
 @property(nonatomic) long long contentHorizontalAlignment; // @dynamic contentHorizontalAlignment;
 @property(nonatomic) long long contentVerticalAlignment; // @dynamic contentVerticalAlignment;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted; // @dynamic highlighted;

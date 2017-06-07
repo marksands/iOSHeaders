@@ -6,15 +6,20 @@
 
 #import <Foundation/NSObject.h>
 
+@class EKObjectID;
+
 __attribute__((visibility("hidden")))
 @interface EKEventOccurrenceInfo : NSObject
 {
-    CDStruct_6a127a3b _occurrenceInfo;
+    EKObjectID *_objectID;
+    double _date;
 }
 
-@property(nonatomic) CDStruct_6a127a3b occurrenceInfo; // @synthesize occurrenceInfo=_occurrenceInfo;
+@property(nonatomic) double date; // @synthesize date=_date;
+@property(retain, nonatomic) EKObjectID *objectID; // @synthesize objectID=_objectID;
+- (void).cxx_destruct;
 - (id)description;
-- (id)initWithOccurrenceInfo:(CDStruct_6a127a3b)arg1;
+- (id)initWithObjectID:(id)arg1 date:(double)arg2;
 
 @end
 

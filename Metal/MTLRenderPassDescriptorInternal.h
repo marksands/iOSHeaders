@@ -15,12 +15,18 @@ __attribute__((visibility("hidden")))
 + (id)renderPassDescriptor;
 - (const struct MTLRenderPassDescriptorPrivate *)_descriptorPrivate;
 - (_Bool)validate:(id)arg1 width:(unsigned long long *)arg2 height:(unsigned long long *)arg3;
+- (unsigned long long)getSamplePositions:(CDStruct_6e3f967a *)arg1 count:(unsigned long long)arg2;
+- (void)setSamplePositions:(const CDStruct_6e3f967a *)arg1 count:(unsigned long long)arg2;
 - (_Bool)openGLModeEnabled;
 - (void)setOpenGLModeEnabled:(_Bool)arg1;
 - (_Bool)isDitherEnabled;
 - (void)setDitherEnabled:(_Bool)arg1;
 - (_Bool)fineGrainedBackgroundVisibilityEnabled;
 - (void)setFineGrainedBackgroundVisibilityEnabled:(_Bool)arg1;
+- (unsigned long long)renderTargetHeight;
+- (void)setRenderTargetHeight:(unsigned long long)arg1;
+- (unsigned long long)renderTargetWidth;
+- (void)setRenderTargetWidth:(unsigned long long)arg1;
 - (unsigned long long)framebufferHeight;
 - (void)setFramebufferHeight:(unsigned long long)arg1;
 - (unsigned long long)framebufferWidth;

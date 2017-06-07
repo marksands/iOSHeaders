@@ -8,23 +8,27 @@
 
 #import <QuickLook/QLRemotePreviewService-Protocol.h>
 
-@class NSString;
+@class NSString, QLRemoteItemViewController;
 
 @interface QLRemotePreviewHostContext : NSExtensionContext <QLRemotePreviewService>
 {
+    QLRemoteItemViewController *_remoteItemViewController;
 }
 
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
+@property(nonatomic) __weak QLRemoteItemViewController *remoteItemViewController; // @synthesize remoteItemViewController=_remoteItemViewController;
+- (void).cxx_destruct;
 - (void)getPrinterProxyWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)loadPreviewFromPreviewItem:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)previewBecameFullScreen:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewWillDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
-- (void)previewWillFinishAppearing;
 - (void)previewWillAppear:(_Bool)arg1;
+- (void)previewControllerDidUpdatePreferredContentSize:(id)arg1;
+- (void)previewControllerDidUpdateTitle:(id)arg1;
 - (id)protocolService;
+- (id)protocolServiceWithErrorHandler:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

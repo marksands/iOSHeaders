@@ -45,6 +45,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (long long)_externalSyncObjectCode;
 - (id)_valueDescription;
 - (id)description;
 - (_Bool)_shouldNotifyOnInsert;

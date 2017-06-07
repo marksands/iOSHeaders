@@ -12,6 +12,7 @@
 @interface _LSStringLocalizer : NSObject
 {
     NSURL *_url;
+    _Bool _isMainBundle;
     NSString *_stringsFile;
     NSMutableDictionary *_stringsFileContent;
     NSMutableDictionary *_unlocalizedInfoPlistStrings;
@@ -22,19 +23,21 @@
 + (id)coreTypesLocalizer;
 + (id)frameworkBundleLocalizer;
 + (void)setPreferredLocalizationsForXCTests:(id)arg1;
++ (id)preferredLocalizationsForXCTests;
+- (void).cxx_destruct;
 - (id)debugDescription;
 - (id)localizedStringDictionaryWithString:(id)arg1 defaultValue:(id)arg2;
+- (id)localizedStringsWithStrings:(id)arg1 preferredLocalizations:(id)arg2;
 - (id)localizedStringWithString:(id)arg1 preferredLocalizations:(id)arg2;
-- (void)dealloc;
-- (id)initWithBundle:(struct __CFBundle *)arg1 stringsFile:(id)arg2;
+- (id)initWithBundleURL:(id)arg1 stringsFile:(id)arg2;
 - (id)init;
-- (id)initWithDatabase:(LSDatabase_753d25be *)arg1 pluginUnit:(unsigned int)arg2;
-- (id)initWithDatabase:(LSDatabase_753d25be *)arg1 bundleUnit:(unsigned int)arg2 delegate:(unsigned int)arg3;
+-     // Error parsing type: @28@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16I24, name: initWithDatabase:pluginUnit:
+-     // Error parsing type: @32@0:8^{LSDatabase={__CFRuntimeBase=QAQ}^{LSDBImpl}^{__CSStore}{LSSchema=I{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}I}{?=II}IIII{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}}[12{?={CSMap=I{CSMapCallbacks=^?^?^?^?^?^?}^{CSMapContext}{os_unfair_lock_s=I}I^{_CSMapHeader}^I^I}^{?}^{?}IC}]IIIIIII^{_LSSchemaCache}}}16I24I28, name: initWithDatabase:bundleUnit:delegate:
 - (id)localizedStringWithString:(id)arg1 inBundle:(struct __CFBundle *)arg2 localeCode:(id)arg3 keep:(_Bool)arg4;
 - (id)localizedStringWithString:(id)arg1 inBundle:(struct __CFBundle *)arg2 preferredLocalizations:(id)arg3 keep:(_Bool)arg4;
 - (id)stringsFileContentInBundle:(struct __CFBundle *)arg1 withLocaleCode:(id)arg2 keep:(_Bool)arg3;
 - (struct __CFBundle *)copyBundle;
-- (id)_initWithBundle:(struct __CFBundle *)arg1 stringsFile:(id)arg2;
+- (id)_initWithBundleURL:(id)arg1 stringsFile:(id)arg2;
 
 @end
 

@@ -14,10 +14,12 @@
 {
 }
 
+- (Class)canvasClass;
 - (_Bool)isUISubclass;
 - (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
 - (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) long long deviceOrientation;
 @property(nonatomic) _Bool statusBarDisabled;
 @property(nonatomic) _Bool idleModeEnabled;
 @property(nonatomic) _Bool canShowAlerts;

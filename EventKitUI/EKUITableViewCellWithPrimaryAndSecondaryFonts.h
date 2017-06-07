@@ -11,12 +11,13 @@
 }
 
 + (_Bool)allowLargestFontSizesForWidth:(double)arg1;
-+ (void)clearFontCaches;
++ (void)_clearFontCaches;
 + (id)secondaryTextLabelFont;
 + (id)constrainedPrimaryTextLabelFont;
 + (id)scalablePrimaryTextLabelFont;
 + (id)primaryTextLabelFontForWidth:(double)arg1;
 + (id)timeLabelsFont;
++ (void)initialize;
 - (struct UIEdgeInsets)layoutMargins;
 - (id)primaryTextLabelFont;
 

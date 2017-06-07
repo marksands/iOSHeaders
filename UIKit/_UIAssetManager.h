@@ -21,10 +21,8 @@
     NSBundle *_bundle;
     NSMapTable *_assetMap;
     CUIMutableCatalog *_runtimeCatalog;
-    long long onceToken_runtimeCatalog;
+    struct os_unfair_lock_s _runtimeCatalogCreationLock;
     UITraitCollection *_preferredTraitCollection;
-    _UIAssetManager *_starkAssetManager;
-    long long _starkAssetManagerOnceToken;
     _Bool _isStarkAssetManager;
     _Bool _isStandaloneAssetManager;
     struct os_unfair_lock_s _assetMapLock;
@@ -69,6 +67,7 @@
 - (void)disableCacheFlushing;
 @property(readonly, nonatomic) NSString *carFileName;
 - (id)_catalog;
+- (id)colorNamed:(id)arg1 withTraitCollection:(id)arg2;
 - (id)dataNamed:(id)arg1;
 - (id)imageNamed:(id)arg1 withTrait:(id)arg2;
 - (id)imageNamed:(id)arg1;
@@ -76,7 +75,7 @@
 - (id)imageNamed:(id)arg1 idiom:(long long)arg2 subtype:(unsigned long long)arg3;
 - (id)imageNamed:(id)arg1 scale:(double)arg2 idiom:(long long)arg3 subtype:(unsigned long long)arg4;
 - (id)imageNamed:(id)arg1 scale:(double)arg2 gamut:(long long)arg3 layoutDirection:(long long)arg4 idiom:(long long)arg5 userInterfaceStyle:(long long)arg6 subtype:(unsigned long long)arg7 cachingOptions:(unsigned long long)arg8 sizeClassPair:(CDStruct_d58201db)arg9 attachCatalogImage:(_Bool)arg10;
-- (_Bool)_starkAssetManager;
+- (id)_starkAssetManager;
 - (void)dealloc;
 - (id)initManagerWithoutCatalogWithName:(id)arg1;
 - (id)initWithURL:(id)arg1 idiom:(long long)arg2 error:(id *)arg3;

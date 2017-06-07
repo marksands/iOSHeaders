@@ -15,6 +15,7 @@
     _Bool _video;
     _Bool _relay;
     _Bool _upgrade;
+    _Bool _retry;
     _Bool _emergency;
     _Bool _voicemail;
     CXHandle *_handle;
@@ -30,6 +31,7 @@
 @property(nonatomic, setter=setTTYType:) long long ttyType; // @synthesize ttyType=_ttyType;
 @property(nonatomic, getter=isVoicemail) _Bool voicemail; // @synthesize voicemail=_voicemail;
 @property(nonatomic, getter=isEmergency) _Bool emergency; // @synthesize emergency=_emergency;
+@property(nonatomic, getter=isRetry) _Bool retry; // @synthesize retry=_retry;
 @property(nonatomic, getter=isUpgrade) _Bool upgrade; // @synthesize upgrade=_upgrade;
 @property(nonatomic, getter=isRelay) _Bool relay; // @synthesize relay=_relay;
 @property(copy, nonatomic) NSDate *dateStarted; // @synthesize dateStarted=_dateStarted;

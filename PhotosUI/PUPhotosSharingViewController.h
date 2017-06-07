@@ -45,6 +45,7 @@
     _Bool _allowAirPlayActivity;
     _Bool __viewInSyncWithModel;
     _Bool _lockScreenCamera;
+    _Bool __loopingPlaybackAllowed;
     PHFetchResult *_photoCollectionsFetchResult;
     NSPredicate *_filterPredicate;
     PUPhotoSelectionManager *_photoSelectionManager;
@@ -75,6 +76,7 @@
 
 @property(copy, nonatomic, setter=_pptSetOnDidEndScrollingBlock:) CDUnknownBlockType _pptOnDidEndScrollingBlock; // @synthesize _pptOnDidEndScrollingBlock=__pptOnDidEndScrollingBlock;
 @property(readonly, nonatomic) PXAssetBadgeManager *_badgeManager; // @synthesize _badgeManager=__badgeManager;
+@property(nonatomic, getter=_isLoopingPlaybackAllowed, setter=_setLoopingPlaybackAllowed:) _Bool _loopingPlaybackAllowed; // @synthesize _loopingPlaybackAllowed=__loopingPlaybackAllowed;
 @property(nonatomic, getter=isLockScreenCamera) _Bool lockScreenCamera; // @synthesize lockScreenCamera=_lockScreenCamera;
 @property(retain, nonatomic, setter=_setLastKnownReferenceIndexPath:) NSIndexPath *_lastKnownReferenceIndexPath; // @synthesize _lastKnownReferenceIndexPath=__lastKnownReferenceIndexPath;
 @property(retain, nonatomic, setter=_setLastKnownReferenceAsset:) PHAsset *_lastKnownReferenceAsset; // @synthesize _lastKnownReferenceAsset=__lastKnownReferenceAsset;
@@ -96,7 +98,7 @@
 @property(retain, nonatomic) PUPhotosSharingViewControllerSpec *spec; // @synthesize spec=_spec;
 @property(nonatomic) __weak id <PUPhotosSharingViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PHPerson *person; // @synthesize person=_person;
-@property(retain, nonatomic) struct __CFString *aggregateKey; // @synthesize aggregateKey=_aggregateKey;
+@property(nonatomic) struct __CFString *aggregateKey; // @synthesize aggregateKey=_aggregateKey;
 @property(copy, nonatomic) NSArray *excludedActivityTypes; // @synthesize excludedActivityTypes=_excludedActivityTypes;
 @property(nonatomic) _Bool allowAirPlayActivity; // @synthesize allowAirPlayActivity=_allowAirPlayActivity;
 @property(retain, nonatomic) PUPhotoSelectionManager *photoSelectionManager; // @synthesize photoSelectionManager=_photoSelectionManager;
@@ -195,6 +197,7 @@
 - (id)_currentSelectedAssets;
 - (id)assetsInAssetCollection:(id)arg1;
 @property(readonly, nonatomic) PHFetchResult *assetCollectionsFetchResult;
+- (void)_updateVisibleCells;
 - (id)_indexPathOfAsset:(id)arg1 sectionHint:(long long)arg2;
 - (id)_assetAtIndexPath:(id)arg1;
 - (id)_photoCollectionAtIndex:(long long)arg1;
@@ -206,8 +209,9 @@
 - (id)_indexPathOfCenterVisibleItemInCollectionView:(id)arg1;
 - (void)_pageToIndexPath:(id)arg1 animated:(_Bool)arg2;
 - (void)_updateCell:(id)arg1 forItemAtIndexPath:(id)arg2;
+- (void)_handleLoopingVideoRequestResult:(id)arg1 forCell:(id)arg2 asset:(id)arg3 tag:(long long)arg4;
 - (void)_handleLivePhotoRequestResult:(id)arg1 forCell:(id)arg2 tag:(long long)arg3;
-- (void)_updateLivePhotoForAsset:(id)arg1 cell:(id)arg2;
+- (void)_updateAdditionalContentForAsset:(id)arg1 cell:(id)arg2;
 - (void)_updatePhotoForAsset:(id)arg1 cell:(id)arg2 atIndexPath:(id)arg3;
 - (double)_horizontalOffsetInCollectionView:(id)arg1 forCenteringOnItemAtIndexPath:(id)arg2;
 - (struct CGSize)_sizeForItemAtIndexPath:(id)arg1;

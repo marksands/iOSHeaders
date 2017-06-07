@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <CloudKit/NSCopying-Protocol.h>
 #import <CloudKit/NSSecureCoding-Protocol.h>
 
 @class CKMetric;
 
-@interface CKOperationMetrics : NSObject <NSSecureCoding>
+@interface CKOperationMetrics : NSObject <NSCopying, NSSecureCoding>
 {
     CKMetric *_cloudKitMetrics;
     CKMetric *_MMCSMetrics;
@@ -20,6 +21,9 @@
 @property(retain, nonatomic) CKMetric *MMCSMetrics; // @synthesize MMCSMetrics=_MMCSMetrics;
 @property(retain, nonatomic) CKMetric *cloudKitMetrics; // @synthesize cloudKitMetrics=_cloudKitMetrics;
 - (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)unionMetrics:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (id)CKPropertiesDescription;
 - (id)initWithCoder:(id)arg1;

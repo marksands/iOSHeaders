@@ -20,6 +20,7 @@
     NSDate *_creationDate;
     CLLocation *_location;
     NSString *_uniformTypeIdentifier;
+    long long _playbackStyle;
     PHAdjustmentData *_adjustmentData;
     UIImage *_displaySizeImage;
     NSURL *_fullSizeImageURL;
@@ -35,6 +36,7 @@
 @property(copy, nonatomic) NSURL *fullSizeImageURL; // @synthesize fullSizeImageURL=_fullSizeImageURL;
 @property(retain, nonatomic) UIImage *displaySizeImage; // @synthesize displaySizeImage=_displaySizeImage;
 @property(retain, nonatomic) PHAdjustmentData *adjustmentData; // @synthesize adjustmentData=_adjustmentData;
+@property(nonatomic) long long playbackStyle; // @synthesize playbackStyle=_playbackStyle;
 @property(copy, nonatomic) NSString *uniformTypeIdentifier; // @synthesize uniformTypeIdentifier=_uniformTypeIdentifier;
 @property(copy, nonatomic) CLLocation *location; // @synthesize location=_location;
 @property(copy, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;

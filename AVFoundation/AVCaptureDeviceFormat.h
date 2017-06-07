@@ -15,14 +15,18 @@
 
 + (void)initialize;
 - (unsigned int)supportedRawPixelFormat;
-- (_Bool)isShallowDepthOfFieldEffectSupported;
+- (_Bool)isDepthSupported;
+- (_Bool)isDisparitySupported;
+- (id)optimizedPhotoFilterNames;
+- (id)optimizedVideoPreviewFilterNames;
 - (_Bool)supportsQuadraHighResolutionStillImageOutput;
 @property(readonly, nonatomic) long long autoFocusSystem;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 maxExposureDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 minExposureDuration;
 @property(readonly, nonatomic) float maxISO;
 @property(readonly, nonatomic) float minISO;
-- (id)figCaptureSourceFormat;
+- (id)figCaptureSourceDepthDataFormat;
+- (id)figCaptureSourceVideoFormat;
 - (id)AVCaptureSessionPresets;
 - (CDStruct_79c71658)previewDimensions;
 - (CDStruct_79c71658)sensorDimensions;
@@ -46,6 +50,8 @@
 - (_Bool)supportsLowLightBoost;
 - (_Bool)prefersVideoHDREnabledForSessionPreset:(id)arg1;
 - (int)supportedStabilizationMethod;
+@property(readonly, nonatomic) NSArray *unsupportedCaptureOutputClasses;
+@property(readonly, nonatomic) NSArray *supportedDepthDataFormats;
 - (_Bool)isWideColorSupported;
 @property(readonly, nonatomic) NSArray *supportedColorSpaces;
 - (_Bool)supportsHighResolutionStillImageOutput;
@@ -53,6 +59,8 @@
 - (_Bool)isVideoStabilizationModeSupported:(long long)arg1;
 @property(readonly, nonatomic, getter=isVideoHDRSupported) _Bool videoHDRSupported;
 @property(readonly, nonatomic, getter=isVideoStabilizationSupported) _Bool videoStabilizationSupported;
+@property(readonly, nonatomic) double videoMaxZoomFactorForDepthDataDelivery;
+@property(readonly, nonatomic) double videoMinZoomFactorForDepthDataDelivery;
 @property(readonly, nonatomic) double videoZoomFactorUpscaleThreshold;
 @property(readonly, nonatomic) double videoMaxZoomFactor;
 @property(readonly, nonatomic) float videoFieldOfView;
@@ -60,13 +68,13 @@
 - (CDStruct_1b6d18a9)highestSupportedVideoFrameDuration;
 - (CDStruct_1b6d18a9)lowestSupportedVideoFrameDuration;
 @property(readonly, nonatomic) NSArray *videoSupportedFrameRateRanges;
-@property(readonly, nonatomic) struct opaqueCMFormatDescription *formatDescription;
+@property(readonly, nonatomic) const struct opaqueCMFormatDescription *formatDescription;
 @property(readonly, nonatomic) NSString *mediaType;
 - (void)dealloc;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithFigCaptureSourceFormat:(id)arg1;
 - (id)description;
-- (id)_stringForFormatDescription:(struct opaqueCMFormatDescription *)arg1 frameRateRanges:(id)arg2;
+- (id)_stringForMediaType:(unsigned int)arg1 formatDescription:(struct opaqueCMFormatDescription *)arg2 frameRateRanges:(id)arg3;
 
 @end
 

@@ -52,7 +52,7 @@
 - (id)initWithEvent:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) _Bool couldBeJunk;
+@property(nonatomic) _Bool couldBeJunk; // @dynamic couldBeJunk;
 
 @end
 

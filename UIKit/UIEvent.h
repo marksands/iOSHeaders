@@ -6,25 +6,28 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSSet;
+@class NSSet, UIScreen;
 
 @interface UIEvent : NSObject
 {
     struct __GSEvent *_gsEvent;
     struct __IOHIDEvent *_hidEvent;
+    UIScreen *_cachedScreen;
     double _timestamp;
+    double __initialTouchTimestamp;
 }
 
-- (id)predictedTouchesForTouch:(id)arg1;
-- (id)coalescedTouchesForTouch:(id)arg1;
-- (id)touchesForGestureRecognizer:(id)arg1;
-- (id)touchesForView:(id)arg1;
-- (id)touchesForWindow:(id)arg1;
-@property(readonly, nonatomic) NSSet *allTouches;
-@property(readonly, nonatomic) double timestamp;
-@property(readonly, nonatomic) long long subtype;
-@property(readonly, nonatomic) long long type;
-- (void)dealloc;
+@property(readonly, nonatomic) double _initialTouchTimestamp; // @synthesize _initialTouchTimestamp=__initialTouchTimestamp;
+@property(nonatomic, setter=_setTimestamp:) double timestamp; // @synthesize timestamp=_timestamp;
+- (void).cxx_destruct;
+- (id)_gestureRecognizersForWindow:(id)arg1;
+- (double)_wheelVelocity;
+- (_Bool)isKeyDown;
+- (void)_cleanupAfterDispatch;
+- (void)_sendEventToResponder:(id)arg1;
+- (id)_windows;
+- (id)_screen;
+- (id)_init;
 - (struct CGPoint)_digitizerLocation;
 - (_Bool)_isKeyDown;
 - (long long)_modifierFlags;
@@ -40,14 +43,15 @@
 - (struct __GSEvent *)_gsEvent;
 - (void)_setGSEvent:(struct __GSEvent *)arg1;
 - (id)_initWithEvent:(struct __GSEvent *)arg1 touches:(id)arg2;
-- (id)_gestureRecognizersForWindow:(id)arg1;
-- (double)_wheelVelocity;
-- (_Bool)isKeyDown;
-- (void)_sendEventToResponder:(id)arg1;
-- (id)_windows;
-- (id)_screen;
-- (void)_setTimestamp:(double)arg1;
-- (id)_init;
+- (id)predictedTouchesForTouch:(id)arg1;
+- (id)coalescedTouchesForTouch:(id)arg1;
+- (id)touchesForGestureRecognizer:(id)arg1;
+- (id)touchesForView:(id)arg1;
+- (id)touchesForWindow:(id)arg1;
+@property(readonly, nonatomic) NSSet *allTouches;
+@property(readonly, nonatomic) long long subtype;
+@property(readonly, nonatomic) long long type;
+- (void)dealloc;
 
 @end
 

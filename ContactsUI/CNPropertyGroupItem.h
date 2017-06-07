@@ -19,6 +19,7 @@
     CNCardPropertyGroup *_group;
     NSString *_property;
     CNContact *_contact;
+    CNContactStore *_contactStore;
     id <CNPropertyGroupItemDelegate> _delegate;
     CNLabeledValue *_originalLabeledValue;
 }
@@ -34,11 +35,13 @@
 @property(nonatomic) _Bool allowsPhone; // @synthesize allowsPhone=_allowsPhone;
 @property(nonatomic) _Bool allowsIMessage; // @synthesize allowsIMessage=_allowsIMessage;
 @property(nonatomic) __weak id <CNPropertyGroupItemDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 @property(retain, nonatomic) NSString *property; // @synthesize property=_property;
 @property(readonly, nonatomic) __weak CNCardPropertyGroup *group; // @synthesize group=_group;
 @property(retain, nonatomic) CNLabeledValue *labeledValue; // @synthesize labeledValue=_labeledValue;
 - (void).cxx_destruct;
+- (_Bool)shouldCreateNewMeContactToSaveChangesTo;
 - (void)saveChangesImmediately:(_Bool)arg1;
 - (void)rejectSuggestion;
 - (void)confirmSuggestion;
@@ -70,7 +73,7 @@
 @property(readonly, nonatomic) NSString *displayLabel;
 @property(readonly, nonatomic) NSString *displayValue;
 @property(readonly, nonatomic) id normalizedValue;
-@property(readonly, nonatomic) CNContactStore *contactStore;
+- (id)contactViewCache;
 @property(readonly, nonatomic) CNMutableContact *mutableContact;
 - (int)labeledValueMultiValueIdentifierForChosenSourceContact;
 - (int)anyContactLegacyIdentifier;

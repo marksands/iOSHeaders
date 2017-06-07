@@ -44,7 +44,6 @@ __attribute__((visibility("hidden")))
 - (id)acceptMessage:(id)arg1;
 - (void)attachSizeWarningsToReply:(id)arg1 forByteCount:(unsigned long long)arg2;
 - (void)handleNoPlistFound;
-- (void)handleRootWrite;
 - (void)handleSynchronous;
 - (void)handleEUIDorEGIDMismatch;
 - (void)handleNeverCache;
@@ -66,8 +65,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasObservers;
 - (void)drainPendingChanges;
 - (void)asyncNotifyObserversOfChanges;
-- (id)copyPropertyList;
-- (id)copyPropertyListWithoutDrainingPendingChanges;
+- (id)copyPropertyListValidatingPlist:(_Bool)arg1;
+- (id)copyPropertyListWithoutDrainingPendingChangesValidatingPlist:(_Bool)arg1;
 - (void)handleDeviceUnlock;
 - (void)markNeedsToReloadFromDiskDueToFailedWrite;
 - (void)syncWriteToDisk;

@@ -21,14 +21,14 @@
     CDUnknownBlockType _privateFileLoader;
     unsigned long long _pixelWidth;
     unsigned long long _pixelHeight;
-    long long _fileSize;
+    unsigned long long _fileSize;
 }
 
 + (id)assetResourcesForAsset:(id)arg1;
 + (id)assetResourcesForLivePhoto:(id)arg1;
 + (id)assetResourcesForAsset:(id)arg1 includeDerivatives:(_Bool)arg2;
 + (id)_managedAssetWithRelationshipsPrefetchedForAsset:(id)arg1 inLibrary:(id)arg2 error:(id *)arg3;
-@property(nonatomic, setter=_setFileSize:) long long fileSize; // @synthesize fileSize=_fileSize;
+@property(nonatomic, setter=_setFileSize:) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
 @property(readonly, nonatomic, getter=isDerivative) _Bool derivative; // @synthesize derivative=_derivative;
 @property(nonatomic, getter=isLocallyAvailable, setter=_setIsLocallyAvailable:) _Bool locallyAvailable; // @synthesize locallyAvailable=_locallyAvailable;
 @property(nonatomic, setter=_setPixelHeight:) unsigned long long pixelHeight; // @synthesize pixelHeight=_pixelHeight;

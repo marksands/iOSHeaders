@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)activityViewController:(id)arg1 subjectForActivityType:(id)arg2;
 - (id)activityViewController:(id)arg1 itemForActivityType:(id)arg2;
 - (id)activityViewControllerPlaceholderItems:(id)arg1;
-- (id)itemURL;
+- (id)mainItem;
 - (id)activityViewControllerPlaceholderItem:(id)arg1;
 
 // Remaining properties

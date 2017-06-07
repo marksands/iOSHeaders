@@ -19,6 +19,7 @@
 + (id)locationWithMapItem:(id)arg1;
 + (id)_stringByStrippingControlCharactersFromString:(id)arg1;
 + (id)locationWithTitle:(id)arg1;
++ (Class)frozenClass;
 @property(retain, nonatomic) RTPredictedLocationOfInterest *predictedLOI; // @synthesize predictedLOI=_predictedLOI;
 @property(nonatomic, getter=isImprecise) _Bool imprecise; // @synthesize imprecise=_imprecise;
 - (void).cxx_destruct;
@@ -27,7 +28,6 @@
 - (void)updateFromMapItem:(id)arg1;
 - (id)geoURLString;
 - (id)calLocation;
-- (void)updatePersistentObject;
 @property(retain, nonatomic) NSString *routing;
 - (id)description;
 - (_Bool)isEqualToLocation:(id)arg1;
@@ -35,14 +35,19 @@
 @property(copy, nonatomic) NSData *mapKitHandle;
 @property(copy, nonatomic) NSString *addressBookEntityID;
 @property(nonatomic) double radius;
-@property(retain, nonatomic) CLLocation *geoLocation;
 - (id)cacheKey;
+@property(retain, nonatomic) CLLocation *geoLocation;
+- (void)_clearGeoLocationCache;
+- (void)setLongitude:(id)arg1;
+- (id)longitude;
+- (void)setLatitude:(id)arg1;
+- (id)latitude;
+- (void)setReferenceFrame:(id)arg1;
+- (id)referenceFrame;
 @property(retain, nonatomic) NSString *address;
 @property(retain, nonatomic) NSString *title;
 @property(readonly, nonatomic) _Bool hasKnownSpatialData;
 @property(readonly, nonatomic) _Bool isStructured;
-- (id)_persistentLocation;
-- (id)init;
 
 @end
 

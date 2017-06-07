@@ -6,9 +6,10 @@
 
 #import <MapKit/NSObject-Protocol.h>
 
-@class MKAnnotationContainerView, MKAnnotationView, UIControl, UIView;
+@class MKAnnotationContainerView, MKAnnotationView, NSArray, UIControl, UIView;
 
 @protocol MKAnnotationContainerViewDelegate <NSObject>
+- (_Bool)annotationContainer:(MKAnnotationContainerView *)arg1 isAnnotationView:(MKAnnotationView *)arg2 validForDisplayAtPoint:(struct CGPoint)arg3;
 - (struct CGRect)annotationContainerVisibleRect:(MKAnnotationContainerView *)arg1;
 - (struct CGPoint)convertCoordinate:(struct CLLocationCoordinate2D)arg1 toPointToView:(UIView *)arg2;
 - (struct CLLocationCoordinate2D)convertPoint:(struct CGPoint)arg1 toCoordinateFromView:(UIView *)arg2;
@@ -24,6 +25,8 @@
 - (void)annotationContainer:(MKAnnotationContainerView *)arg1 calloutPrimaryActionTriggeredForAnnotationView:(MKAnnotationView *)arg2;
 - (void)calloutDidAppearForAnnotationView:(MKAnnotationView *)arg1 inContainer:(MKAnnotationContainerView *)arg2;
 - (void)annotationContainer:(MKAnnotationContainerView *)arg1 annotationView:(MKAnnotationView *)arg2 calloutAccessoryControlTapped:(UIControl *)arg3;
+- (void)annotationContainer:(MKAnnotationContainerView *)arg1 requestRemovingClusterAnnotationView:(MKAnnotationView *)arg2;
+- (MKAnnotationView *)annotationContainer:(MKAnnotationContainerView *)arg1 requestAddingClusterForAnnotationViews:(NSArray *)arg2;
 - (_Bool)annotationContainerIsRotated:(MKAnnotationContainerView *)arg1;
 - (_Bool)annotationContainerShouldAlignToPixels:(MKAnnotationContainerView *)arg1;
 

@@ -30,6 +30,7 @@
     _Bool fIsRunningInPrimaryProcess;
     _Bool fEnableLatencyAlert;
     _Bool fEnableAudioAlert;
+    int fLatencyAlertThreshold;
 }
 
 + (id)stringForGestureState:(long long)arg1;
@@ -44,8 +45,9 @@
 - (void)onBacklightServiceUpdated:(unsigned int)arg1;
 - (void)onPowerStateUpdated:(const struct Sample *)arg1;
 - (void)onWakeUpdated:(const struct Sample *)arg1;
-- (void)onNotification:(id)arg1;
+- (void)onNotificationControl:(id)arg1;
 - (void)playAlert;
+- (void)loadPreferences;
 - (void)invokeDelegateWithState:(long long)arg1;
 - (_Bool)simulateGestureWithDelay:(double)arg1 Duration:(double)arg2;
 - (void)stopWakeGestureUpdates;

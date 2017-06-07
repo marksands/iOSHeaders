@@ -10,7 +10,7 @@
 #import <SafariServices/SFInteractiveDismissControllerDelegate-Protocol.h>
 #import <SafariServices/_SFQueueingBrowserServiceViewControllerProxyDelegate-Protocol.h>
 
-@class NSArray, NSMutableDictionary, NSString, NSURL, SFBrowserRemoteViewController, SFInteractiveDismissController, UIColor, _SFQueueingBrowserServiceViewControllerProxy, _UIAsyncInvocation, _WKActivatedElementInfo;
+@class NSArray, NSMutableDictionary, NSString, NSURL, SFBrowserRemoteViewController, SFInteractiveDismissController, SFSafariLaunchPlaceholderView, SFSafariViewControllerConfiguration, UIColor, _SFQueueingBrowserServiceViewControllerProxy, _UIAsyncInvocation, _WKActivatedElementInfo;
 @protocol SFSafariViewControllerDelegate;
 
 @interface SFSafariViewController : UIViewController <SFBrowserRemoveViewControllerDelegate, SFInteractiveDismissControllerDelegate, _SFQueueingBrowserServiceViewControllerProxyDelegate>
@@ -18,23 +18,26 @@
     SFBrowserRemoteViewController *_remoteViewController;
     _UIAsyncInvocation *_cancelViewServiceRequest;
     _Bool _hasBeenDisplayedAtLeastOnce;
-    long long _preferredStatusBarStyle;
-    _Bool _showingLinkPreview;
     NSArray *_previewActions;
     _WKActivatedElementInfo *_activatedElementInfo;
     NSArray *_customActivities;
     NSMutableDictionary *_activitiesMap;
     _Bool _swipeGestureEnabled;
     SFInteractiveDismissController *_interactiveDismissController;
+    SFSafariLaunchPlaceholderView *_launchPlaceholderView;
+    long long _displayMode;
+    SFSafariViewControllerConfiguration *_configuration;
     id <SFSafariViewControllerDelegate> _delegate;
     UIColor *_preferredBarTintColor;
     UIColor *_preferredControlTintColor;
+    long long _dismissButtonStyle;
     _SFQueueingBrowserServiceViewControllerProxy *_serviceProxy;
     NSURL *_initialURL;
 }
 
 @property(readonly, nonatomic) NSURL *initialURL; // @synthesize initialURL=_initialURL;
 @property(readonly, nonatomic) _SFQueueingBrowserServiceViewControllerProxy *serviceProxy; // @synthesize serviceProxy=_serviceProxy;
+@property(nonatomic) long long dismissButtonStyle; // @synthesize dismissButtonStyle=_dismissButtonStyle;
 @property(retain, nonatomic) UIColor *preferredControlTintColor; // @synthesize preferredControlTintColor=_preferredControlTintColor;
 @property(retain, nonatomic) UIColor *preferredBarTintColor; // @synthesize preferredBarTintColor=_preferredBarTintColor;
 @property(nonatomic) __weak id <SFSafariViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -47,29 +50,33 @@
 - (void)remoteViewController:(id)arg1 setSwipeGestureEnabled:(_Bool)arg2;
 - (void)remoteViewController:(id)arg1 executeCustomActivityProxyID:(id)arg2;
 - (void)remoteViewController:(id)arg1 didFinishInitialLoad:(_Bool)arg2;
-- (void)remoteViewController:(id)arg1 willUpdateStatusBarStyle:(long long)arg2;
-- (void)remoteViewController:(id)arg1 fetchHostAppCustomActivitiesForURL:(id)arg2 title:(id)arg3;
+- (id)_fetchExcludedActivityTypesForURL:(id)arg1 title:(id)arg2;
+- (id)_fetchCustomActivitiesForURL:(id)arg1 title:(id)arg2;
+- (void)remoteViewController:(id)arg1 fetchActivityViewControllerInfoForURL:(id)arg2 title:(id)arg3;
 - (void)remoteViewController:(id)arg1 viewServiceDidTerminateWithError:(id)arg2;
 - (void)remoteViewControllerWillDismiss:(id)arg1;
 - (void)remoteViewControllerDidLoadWebView:(id)arg1;
-- (long long)preferredStatusBarStyle;
 - (void)_connectToService;
 - (void)_removeRemoteView;
 - (void)_setEdgeSwipeDismissalEnabled:(_Bool)arg1;
 - (void)_addRemoteView;
 - (void)_forwardNotificationToViewService:(id)arg1;
+- (id)childViewControllerForStatusBarStyle;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithURL:(id)arg1;
+@property(readonly, copy, nonatomic) SFSafariViewControllerConfiguration *configuration;
 - (void)setTransitioningDelegate:(id)arg1;
 - (void)setModalPresentationStyle:(long long)arg1;
 - (id)initWithURL:(id)arg1 entersReaderIfAvailable:(_Bool)arg2;
+- (id)initWithURL:(id)arg1 configuration:(id)arg2;
 - (id)previewActionItems;
 @property(retain, nonatomic, setter=_setActivatedElementInfo:) _WKActivatedElementInfo *_activatedElementInfo;
 @property(retain, nonatomic, setter=_setPreviewActions:) NSArray *_previewActions;
+@property(nonatomic, setter=_setShowingLinkPreviewWithMinimalUI:) _Bool _showingLinkPreviewWithMinimalUI;
 @property(nonatomic, setter=_setShowingLinkPreview:) _Bool _showingLinkPreview;
 
 // Remaining properties

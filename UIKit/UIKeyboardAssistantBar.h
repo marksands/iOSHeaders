@@ -6,7 +6,7 @@
 
 #import <UIKit/_UIGroupedBar.h>
 
-@class NSLayoutConstraint, UIBarButtonItem, UIBarButtonItemGroup, UIKeyboardBIUImageGenerator, UITextInputAssistantItem;
+@class NSLayoutConstraint, UIBarButtonItem, UIBarButtonItemGroup, UIKeyboardBIUImageGenerator, UIKeyboardCandidatePocketShadow, UITextInputAssistantItem;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardAssistantBar : _UIGroupedBar
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *m_predictionWidthConstraint;
     UITextInputAssistantItem *m_defaultAssistantItem;
     UITextInputAssistantItem *m_currentAssistantItem;
+    UIKeyboardCandidatePocketShadow *m_rightBorder;
     int m_validateGuard;
     _Bool m_useLargeButton;
     _Bool m_isLandscape;
@@ -40,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hideAssistantBar; // @synthesize hideAssistantBar=_hideAssistantBar;
 - (_Bool)statisticForCalloutBarButtonSelection:(id)arg1;
 - (void)statisticForShortcutBarHideWithSwitcher;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)didMoveToWindow;
 - (void)updateBar:(_Bool)arg1;
 - (void)updateBar;
@@ -72,6 +74,8 @@ __attribute__((visibility("hidden")))
 - (double)assistantBarHeight;
 - (double)assistantBarHeightForOrientation:(long long)arg1;
 - (double)assistantBarWidth;
+- (double)deleteKeyWidth;
+- (struct CGRect)handwritingCandidateSelectionFrame;
 - (_Bool)enabled;
 - (_Bool)showSwitch;
 - (_Bool)disabledByPrediction;
@@ -80,6 +84,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)barButtonItem:(unsigned long long)arg1;
+- (id)deleteButtonItem;
 - (id)BIUGenerator;
 - (_Bool)pointInside:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 

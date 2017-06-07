@@ -24,13 +24,13 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *edgeDummyCellAttributes; // @synthesize edgeDummyCellAttributes=_edgeDummyCellAttributes;
 @property(retain, nonatomic) NSMutableArray *allAttributes; // @synthesize allAttributes=_allAttributes;
 @property(nonatomic) _Bool laysOutCandidateSeparator; // @synthesize laysOutCandidateSeparator=_laysOutCandidateSeparator;
+- (void).cxx_destruct;
 - (void)prepareLayout;
 - (struct CGSize)collectionViewContentSize;
 - (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

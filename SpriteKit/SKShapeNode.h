@@ -25,6 +25,8 @@
 + (id)shapeNodeWithEllipseInRect:(struct CGRect)arg1;
 + (id)shapeNodeWithPath:(struct CGPath *)arg1 centered:(_Bool)arg2;
 + (id)shapeNodeWithPath:(struct CGPath *)arg1;
+- (id)debugHierarchyValueForPropertyWithName:(id)arg1;
+- (id)debugHierarchyPropertyDescriptions;
 - (void)setValue:(id)arg1 forAttributeNamed:(id)arg2;
 - (id)valueForAttributeNamed:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -38,12 +38,17 @@
         _Bool respondsToScrollAssetReferenceToVisible;
         _Bool respondsToShouldDisableScroll;
     } _assetDisplayDelegateFlags;
+    struct {
+        _Bool presentationInfo;
+    } _needsUpdateFlags;
     _Bool _cachesScrubberView;
     _Bool __isEndingPresentation;
     _Bool __shouldPauseLibraryChanges;
     _Bool __needsUpdateAssetReferencesDisplayedInTilingView;
     _Bool __isPerformingNonAnimatedPush;
     PUBrowsingSession *_browsingSession;
+    UIViewController *_presentingViewController;
+    long long _transitionType;
     PXPhotosDataSource *_photosDataSource;
     id <PUOneUpPresentationHelperDelegate> _delegate;
     id <PUOneUpPresentationHelperAssetDisplayDelegate> _assetDisplayDelegate;
@@ -53,7 +58,6 @@
     long long __presentationEndTimeoutIdentifier;
     id __libraryChangePauseToken;
     CDUnknownBlockType __browsingSessionCreationBlock;
-    UIViewController *__presentingViewController;
     PUTilingView *__tilingView;
     PUTilingView *__disappearingTilingView;
     PUTilingView *__transitioningTilingView;
@@ -76,7 +80,6 @@
 @property(retain, nonatomic, setter=_setTransitioningTilingView:) PUTilingView *_transitioningTilingView; // @synthesize _transitioningTilingView=__transitioningTilingView;
 @property(nonatomic, setter=_setDisappearingTilingView:) __weak PUTilingView *_disappearingTilingView; // @synthesize _disappearingTilingView=__disappearingTilingView;
 @property(retain, nonatomic, setter=_setTilingView:) PUTilingView *_tilingView; // @synthesize _tilingView=__tilingView;
-@property(nonatomic, setter=_setPresentingViewController:) __weak UIViewController *_presentingViewController; // @synthesize _presentingViewController=__presentingViewController;
 @property(readonly, copy, nonatomic) CDUnknownBlockType _browsingSessionCreationBlock; // @synthesize _browsingSessionCreationBlock=__browsingSessionCreationBlock;
 @property(retain, nonatomic, setter=_setLibraryChangePauseToken:) id _libraryChangePauseToken; // @synthesize _libraryChangePauseToken=__libraryChangePauseToken;
 @property(nonatomic, setter=_setShouldPauseLibraryChanges:) _Bool _shouldPauseLibraryChanges; // @synthesize _shouldPauseLibraryChanges=__shouldPauseLibraryChanges;
@@ -140,6 +143,7 @@
 - (void)_updateLayout:(id)arg1;
 - (void)_updateLayout;
 - (void)_ensureRegistrationWithPresentingViewController;
+- (id)_transitionHostingView;
 - (void)_presentationEndDidTimeOut:(long long)arg1;
 - (void)_handleTileControllerAnimationEnd;
 - (_Bool)_handleInteractivePresentationWithBlock:(CDUnknownBlockType)arg1;
@@ -158,6 +162,10 @@
 - (void)presentOneUpViewControllerAnimated:(_Bool)arg1 interactiveMode:(long long)arg2;
 - (_Bool)canPresentOneUpViewControllerAnimated:(_Bool)arg1;
 - (void)_presentOneUpViewController:(id)arg1 animated:(_Bool)arg2 interactiveMode:(long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_updatePresentationInfoIfNeeded;
+- (void)_invalidatePresentationInfo;
+@property(readonly, nonatomic) long long transitionType; // @synthesize transitionType=_transitionType;
+@property(readonly, nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(readonly, nonatomic) _Bool isOneUpPresented;
 - (void)dealloc;
 - (id)initWithPhotosDataSource:(id)arg1;

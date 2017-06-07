@@ -8,7 +8,6 @@
 
 #import <PhotosUI/PUEditingExtensionHost-Protocol.h>
 
-__attribute__((visibility("hidden")))
 @interface PUEditingExtensionHostContext : NSExtensionContext <PUEditingExtensionHost>
 {
     CDUnknownBlockType _contentEditingOutputCommitHandler;

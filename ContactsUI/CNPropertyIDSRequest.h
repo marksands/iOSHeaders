@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _idQueryResultHandler;
 }
 
++ (_Bool)fakeResponseForHandle:(id)arg1;
 + (id)sharedWorkQueue;
 @property(copy, nonatomic) CDUnknownBlockType idQueryResultHandler; // @synthesize idQueryResultHandler=_idQueryResultHandler;
 @property(copy) CDUnknownBlockType requestResultBlock; // @synthesize requestResultBlock=_requestResultBlock;

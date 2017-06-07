@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/NSSecureCoding-Protocol.h>
 
@@ -12,20 +12,22 @@
 
 @interface CNChangeHistoryFetchRequest : NSObject <NSSecureCoding>
 {
-    _Bool _contactChanges;
-    _Bool _groupChanges;
+    _Bool _unifyResults;
+    _Bool _includeGroupChanges;
+    _Bool _includeChangeAnchors;
     NSString *_clientIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool groupChanges; // @synthesize groupChanges=_groupChanges;
-@property(nonatomic) _Bool contactChanges; // @synthesize contactChanges=_contactChanges;
-@property(retain, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+@property(nonatomic) _Bool includeChangeAnchors; // @synthesize includeChangeAnchors=_includeChangeAnchors;
+@property(nonatomic) _Bool includeGroupChanges; // @synthesize includeGroupChanges=_includeGroupChanges;
+@property(nonatomic) _Bool unifyResults; // @synthesize unifyResults=_unifyResults;
+@property(readonly, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)init;
+- (id)initWithClientIdentifier:(id)arg1;
 
 @end
 

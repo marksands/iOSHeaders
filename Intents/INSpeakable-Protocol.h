@@ -6,11 +6,15 @@
 
 #import <Intents/NSObject-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @protocol INSpeakable <NSObject>
-@property(readonly, nonatomic) NSString *identifier;
+@property(readonly, nonatomic) NSArray *alternativeSpeakableMatches;
+@property(readonly, nonatomic) NSString *vocabularyIdentifier;
 @property(readonly, nonatomic) NSString *pronunciationHint;
 @property(readonly, nonatomic) NSString *spokenPhrase;
+
+@optional
+@property(readonly, nonatomic) NSString *identifier;
 @end
 

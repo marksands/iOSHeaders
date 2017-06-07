@@ -6,8 +6,8 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, UIView;
-@protocol UIFocusContainer;
+@class NSArray, UIFocusSystem, UIView;
+@protocol UICoordinateSpace;
 
 @protocol _UILegacyFocusRegion <NSObject>
 - (UIView *)_focusDebugOverlayParentView;
@@ -16,11 +16,10 @@
 - (_Bool)_isTransparentFocusRegion;
 - (UIView *)_fulfillPromisedFocusRegion;
 - (_Bool)_isPromiseFocusRegion;
-- (NSArray *)_childFocusRegionsInRect:(struct CGRect)arg1;
-- (NSArray *)_childFocusRegions;
-- (id <UIFocusContainer>)_focusRegionItem;
-- (_Bool)_focusRegionCanBecomeFocused;
-- (_Bool)_focusRegionIsEligibleForFocus;
+- (NSArray *)_childFocusRegionsInRect:(struct CGRect)arg1 inCoordinateSpace:(id <UICoordinateSpace>)arg2;
+- (_Bool)canBecomeFocused;
+- (_Bool)_legacy_isEligibleForFocusInteraction;
 - (struct CGRect)_focusRegionFrame;
+- (UIFocusSystem *)_focusRegionFocusSystem;
 @end
 

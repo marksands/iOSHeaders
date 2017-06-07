@@ -7,6 +7,8 @@
 #import <UIKit/UIImage.h>
 
 @interface UIImage (CNUI)
++ (long long)userActionImageStyleForStyle:(long long)arg1;
++ (id)cnui_userActionImageForType:(id)arg1 style:(long long)arg2;
 + (id)cnui_highlightedChevronImage;
 + (id)cnui_defaultChevronImage;
 + (id)cnui_tintedImageNamed:(id)arg1 withTint:(id)arg2;

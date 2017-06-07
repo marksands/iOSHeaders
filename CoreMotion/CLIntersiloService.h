@@ -8,12 +8,12 @@
 
 #import <CoreMotion/CLIntersiloServiceProtocol-Protocol.h>
 
-@class CLIntersiloInterface, CLSilo, NSString;
+@class CLIntersiloInterface, CLIntersiloUniverse, NSString;
 
 @interface CLIntersiloService : NSObject <CLIntersiloServiceProtocol>
 {
     _Bool _valid;
-    CLSilo *_silo;
+    CLIntersiloUniverse *_universe;
     CLIntersiloInterface *_inboundInterface;
     CLIntersiloInterface *_outboundInterface;
 }
@@ -25,12 +25,12 @@
 @property(nonatomic) _Bool valid; // @synthesize valid=_valid;
 @property(readonly, nonatomic) CLIntersiloInterface *outboundInterface; // @synthesize outboundInterface=_outboundInterface;
 @property(readonly, nonatomic) CLIntersiloInterface *inboundInterface; // @synthesize inboundInterface=_inboundInterface;
-@property(readonly, nonatomic) CLSilo *silo; // @synthesize silo=_silo;
+@property(readonly, nonatomic) CLIntersiloUniverse *universe; // @synthesize universe=_universe;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *debugDescription;
 - (_Bool)isHydrated;
-- (id)initWithInboundProtocol:(id)arg1 outboundProtocol:(id)arg2 andSilo:(id)arg3;
-- (id)initInSilo:(id)arg1;
+- (void)setUniverse:(id)arg1;
+- (id)initWithInboundProtocol:(id)arg1 outboundProtocol:(id)arg2;
 - (id)init;
 
 // Remaining properties

@@ -6,20 +6,24 @@
 
 #import <EventKit/EKPersistentObject.h>
 
-@class EKPersistentCalendarItem, NSData, NSString;
-
 @interface EKPersistentEventAction : EKPersistentObject
 {
 }
 
 + (id)relations;
-@property(retain, nonatomic) EKPersistentCalendarItem *owner;
+- (void)setOwner:(id)arg1;
+- (id)owner;
 - (int)entityType;
-@property(copy, nonatomic) NSData *externalData;
-@property(copy, nonatomic) NSString *externalModTag;
-@property(copy, nonatomic) NSString *externalScheduleID;
-@property(copy, nonatomic) NSString *externalFolderID;
-@property(copy, nonatomic) NSString *externalID;
+- (void)setExternalData:(id)arg1;
+- (id)externalData;
+- (void)setExternalModTag:(id)arg1;
+- (id)externalModTag;
+- (void)setExternalScheduleID:(id)arg1;
+- (id)externalScheduleID;
+- (void)setExternalFolderID:(id)arg1;
+- (id)externalFolderID;
+- (void)setExternalID:(id)arg1;
+- (id)externalID;
 
 @end
 

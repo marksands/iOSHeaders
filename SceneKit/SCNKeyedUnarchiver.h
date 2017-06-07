@@ -6,20 +6,23 @@
 
 #import <Foundation/NSKeyedUnarchiver.h>
 
-@class NSDictionary, NSString, SCNAssetCatalog;
+@class NSDictionary, NSString, NSURL, SCNAssetCatalog;
 
 @interface SCNKeyedUnarchiver : NSKeyedUnarchiver
 {
     NSDictionary *_context;
     SCNAssetCatalog *_assetCatalog;
+    NSURL *_documentURL;
     NSString *lookUpKey;
     id lookUpFoundInstance;
 }
 
 @property(retain, nonatomic) id lookUpFoundInstance; // @synthesize lookUpFoundInstance;
 @property(retain, nonatomic) NSString *lookUpKey; // @synthesize lookUpKey;
+@property(retain, nonatomic) NSURL *documentURL; // @synthesize documentURL=_documentURL;
 @property(retain, nonatomic) SCNAssetCatalog *assetCatalog; // @synthesize assetCatalog=_assetCatalog;
 @property(retain, nonatomic) NSDictionary *context; // @synthesize context=_context;
+@property(readonly, nonatomic) NSURL *documentEnclosingURL;
 - (void)dealloc;
 
 @end

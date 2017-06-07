@@ -38,6 +38,7 @@
     _Bool __needsUpdateContentState;
     _Bool __needsUpdateAnimatingZoomEnd;
     _Bool __needsUpdateZoomAndScroll;
+    _Bool __needsUpdateScrollView;
     id <PUUserTransformViewDelegate> _delegate;
     unsigned long long _enabledInteractions;
     UIScrollView *__scrollView;
@@ -59,6 +60,7 @@
 }
 
 @property(retain, nonatomic) UIImage *debugScrollViewContentImage; // @synthesize debugScrollViewContentImage=_debugScrollViewContentImage;
+@property(nonatomic, setter=_setNeedsUpdateScrollView:) _Bool _needsUpdateScrollView; // @synthesize _needsUpdateScrollView=__needsUpdateScrollView;
 @property(nonatomic, setter=_setNeedsUpdateZoomAndScroll:) _Bool _needsUpdateZoomAndScroll; // @synthesize _needsUpdateZoomAndScroll=__needsUpdateZoomAndScroll;
 @property(nonatomic, setter=_setNumberOfNestedZoomAndScrollChanges:) long long _numberOfNestedZoomAndScrollChanges; // @synthesize _numberOfNestedZoomAndScrollChanges=__numberOfNestedZoomAndScrollChanges;
 @property(nonatomic, setter=_setPreferredMaximumZoomScale:) double _preferredMaximumZoomScale; // @synthesize _preferredMaximumZoomScale=__preferredMaximumZoomScale;
@@ -108,7 +110,7 @@
 - (id)viewForZoomingInScrollView:(id)arg1;
 - (void)_handleDisplayLink:(id)arg1;
 - (void)_updateDisplayLink;
-- (void)_updateScrollView;
+- (void)_updateScrollViewIfNeeded;
 - (void)_invalidateScrollView;
 - (struct CGPoint)_contentOffsetAdjustmentForContentInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)_contentInsetsForContentScale:(double)arg1;

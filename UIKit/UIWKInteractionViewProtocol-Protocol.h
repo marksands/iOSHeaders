@@ -9,6 +9,7 @@
 @protocol UIWKInteractionViewProtocol
 - (void)_cancelLongPressGestureRecognizer;
 - (NSArray *)webSelectionRects;
+- (_Bool)textInteractionGesture:(long long)arg1 shouldBeginAtPoint:(struct CGPoint)arg2;
 - (_Bool)pointIsInAssistedNode:(struct CGPoint)arg1;
 - (_Bool)hasSelectablePositionAtPoint:(struct CGPoint)arg1;
 - (_Bool)hasMarkedText;

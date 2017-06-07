@@ -6,54 +6,73 @@
 
 #import <Foundation/NSObject.h>
 
-@class CNContactChangesNotifier, CNContactStore, CNContactsEnvironment, CNUIAccountsFacade, CNUIContactsEnvironmentServicesProvider, CNUIFMFFacade, CNUIIDSAvailabilityProvider, CNUIMeContactMonitor, PRPersonaStore, _DECConsumer;
-@protocol CNSchedulerProvider, CNUIPRLikenessResolver, CNUIPlaceholderProviderFactory, CNUIUserActionDiscoveringEnvironment;
+@class CNContactChangesNotifier, CNContactStore, CNContactsEnvironment, CNUIAccountsFacade, CNUICoreRecentsManager, CNUIExternalComponentsFactory, CNUIFMFFacade, CNUIIDSAvailabilityProvider, CNUIMeContactMonitor, CNUISchedulerProvider, PRPersonaStore, _DECConsumer;
+@protocol CNCapabilities, CNUIDefaultUserActionFetcher, CNUILSApplicationWorkspaceFacade, CNUILikenessRendering, CNUIPRLikenessResolver, CNUIPlaceholderProviderFactory, CNUIUserActionDiscoveringEnvironment;
 
 @interface CNUIContactsEnvironment : NSObject
 {
-    long long _duetConsumer_once;
-    long long _accountsFacade_once;
-    long long _fmfFacade_once;
-    long long _personaStore_once;
-    long long _contactStore_once;
-    long long _defaultSchedulerProvider_once;
-    long long _placeholderProviderFactory_once;
-    long long _meMonitor_once;
-    long long _cachingLikenessResolver_once;
-    long long _actionDiscoveringEnvironment_once;
-    long long _idsAvailabilityProvider_once;
-    long long _contactChangesNotifier_once;
-    CNUIContactsEnvironmentServicesProvider *_servicesProvider;
     CNUIAccountsFacade *_accountsFacade;
     CNUIFMFFacade *_fmfFacade;
     PRPersonaStore *_personaStore;
-    id <CNSchedulerProvider> _defaultSchedulerProvider;
+    CNUISchedulerProvider *_defaultSchedulerProvider;
     CNContactStore *_contactStore;
     id <CNUIPlaceholderProviderFactory> _placeholderProviderFactory;
     CNUIMeContactMonitor *_meMonitor;
     id <CNUIPRLikenessResolver> _cachingLikenessResolver;
+    id <CNUILikenessRendering> _cachingLikenessRenderer;
     id <CNUIUserActionDiscoveringEnvironment> _actionDiscoveringEnvironment;
     CNUIIDSAvailabilityProvider *_idsAvailabilityProvider;
+    id <CNUILSApplicationWorkspaceFacade> _applicationWorkspace;
+    id <CNCapabilities> _capabilities;
+    id <CNUIDefaultUserActionFetcher> _defaultUserActionFetcher;
     CNContactChangesNotifier *_contactChangesNotifier;
+    CNUICoreRecentsManager *_recentsManager;
+    CNUIExternalComponentsFactory *_componentsFactory;
     CNContactsEnvironment *_cnEnvironment;
 }
 
++ (id)makeCurrentEnvironment;
 + (id)currentEnvironment;
 @property(readonly, nonatomic) CNContactsEnvironment *cnEnvironment; // @synthesize cnEnvironment=_cnEnvironment;
+@property(retain, nonatomic) CNUIExternalComponentsFactory *componentsFactory; // @synthesize componentsFactory=_componentsFactory;
+@property(retain, nonatomic) CNUICoreRecentsManager *recentsManager; // @synthesize recentsManager=_recentsManager;
 @property(retain, nonatomic) CNContactChangesNotifier *contactChangesNotifier; // @synthesize contactChangesNotifier=_contactChangesNotifier;
+@property(retain, nonatomic) id <CNUIDefaultUserActionFetcher> defaultUserActionFetcher; // @synthesize defaultUserActionFetcher=_defaultUserActionFetcher;
+@property(retain, nonatomic) id <CNCapabilities> capabilities; // @synthesize capabilities=_capabilities;
+@property(retain, nonatomic) id <CNUILSApplicationWorkspaceFacade> applicationWorkspace; // @synthesize applicationWorkspace=_applicationWorkspace;
 @property(retain, nonatomic) CNUIIDSAvailabilityProvider *idsAvailabilityProvider; // @synthesize idsAvailabilityProvider=_idsAvailabilityProvider;
 @property(retain, nonatomic) id <CNUIUserActionDiscoveringEnvironment> actionDiscoveringEnvironment; // @synthesize actionDiscoveringEnvironment=_actionDiscoveringEnvironment;
+@property(retain, nonatomic) id <CNUILikenessRendering> cachingLikenessRenderer; // @synthesize cachingLikenessRenderer=_cachingLikenessRenderer;
 @property(retain, nonatomic) id <CNUIPRLikenessResolver> cachingLikenessResolver; // @synthesize cachingLikenessResolver=_cachingLikenessResolver;
 @property(retain, nonatomic) CNUIMeContactMonitor *meMonitor; // @synthesize meMonitor=_meMonitor;
 @property(retain, nonatomic) id <CNUIPlaceholderProviderFactory> placeholderProviderFactory; // @synthesize placeholderProviderFactory=_placeholderProviderFactory;
 @property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
-@property(retain, nonatomic) id <CNSchedulerProvider> defaultSchedulerProvider; // @synthesize defaultSchedulerProvider=_defaultSchedulerProvider;
+@property(retain, nonatomic) CNUISchedulerProvider *defaultSchedulerProvider; // @synthesize defaultSchedulerProvider=_defaultSchedulerProvider;
 @property(retain, nonatomic) PRPersonaStore *personaStore; // @synthesize personaStore=_personaStore;
 @property(retain, nonatomic) CNUIFMFFacade *fmfFacade; // @synthesize fmfFacade=_fmfFacade;
 @property(retain, nonatomic) CNUIAccountsFacade *accountsFacade; // @synthesize accountsFacade=_accountsFacade;
-@property(readonly, nonatomic) CNUIContactsEnvironmentServicesProvider *servicesProvider; // @synthesize servicesProvider=_servicesProvider;
 - (void).cxx_destruct;
+- (id)nts_lazyComponentsFactory;
+- (id)nts_makeRecentsManager;
+- (id)nts_lazyRecentsManager;
+- (id)nts_makeContactChangesNotifier;
+- (id)nts_lazyContactChangesNotifier;
+- (id)nts_lazyDefaultUserActionFetcher;
+- (id)nts_lazyCapabilities;
+- (id)nts_lazyApplicationWorkspace;
+- (id)nts_lazyIDSAvailabilityProvider;
+- (id)nts_makeActionDiscoveringEnvironment;
+- (id)nts_lazyActionDiscoveringEnvironment;
+- (id)nts_lazyCachingLikenessRenderer;
+- (id)nts_makeCachingLikenessResolver;
+- (id)nts_lazyCachingLikenessResolver;
+- (id)nts_lazyPlaceholderProviderFactory;
+- (id)nts_lazyDefaultSchedulerProvider;
+- (id)nts_lazyContactStore;
+- (id)nts_lazyPersonaStore;
+- (id)nts_lazyFMFFacade;
 @property(readonly, nonatomic) _DECConsumer *duetConsumer;
+- (id)nts_lazyAccountsFacade;
 - (id)initWithContactsEnvironment:(id)arg1;
 - (id)init;
 

@@ -11,7 +11,8 @@
 __attribute__((visibility("hidden")))
 @interface SFBasicDialog : _SFDialog
 {
-    _Bool _canceledOnNavigation;
+    _Bool _canceledOnProvisionalNavigation;
+    _Bool _canceledOnCommittedNavigation;
     _Bool _completionHandlerBlocksWebProcess;
     _Bool _shouldHideWebContent;
     _Bool _showMessageAsTitle;
@@ -40,7 +41,8 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;
 @property(nonatomic) _Bool completionHandlerBlocksWebProcess; // @synthesize completionHandlerBlocksWebProcess=_completionHandlerBlocksWebProcess;
-@property(nonatomic) _Bool canceledOnNavigation; // @synthesize canceledOnNavigation=_canceledOnNavigation;
+@property(nonatomic) _Bool canceledOnCommittedNavigation; // @synthesize canceledOnCommittedNavigation=_canceledOnCommittedNavigation;
+@property(nonatomic) _Bool canceledOnProvisionalNavigation; // @synthesize canceledOnProvisionalNavigation=_canceledOnProvisionalNavigation;
 - (void).cxx_destruct;
 - (void)didCompleteWithResponse:(id)arg1;
 - (id)newViewControllerRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;

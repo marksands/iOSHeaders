@@ -6,7 +6,7 @@
 
 #import <UIKit/UITableViewController.h>
 
-@class NSString, SFBookmarkTextEntryTableViewCell;
+@class NSString, _SFBookmarkTextEntryTableViewCell;
 @protocol _SFBookmarkTextEntryTableViewControllerDelegate;
 
 @interface _SFBookmarkTextEntryTableViewController : UITableViewController
@@ -15,7 +15,7 @@
     NSString *_initialText;
     long long _autocapitalizationType;
     long long _autocorrectionType;
-    SFBookmarkTextEntryTableViewCell *_textEntryCell;
+    _SFBookmarkTextEntryTableViewCell *_textEntryCell;
 }
 
 - (void).cxx_destruct;

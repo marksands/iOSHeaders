@@ -13,6 +13,7 @@
     _Bool _explicitSong;
     _Bool _artistUploadedContent;
     _Bool _hasVideo;
+    _Bool _shouldExcludeFromShuffle;
     _Bool _shouldShowComposer;
     _Bool _libraryAdded;
     _Bool _libraryAddEligible;
@@ -82,6 +83,8 @@
 + (id)__artworkCatalogBlock__KEY;
 + (id)__MPModelPropertySongVolumeNormalization__PROPERTY;
 + (id)__volumeNormalization__KEY;
++ (id)__MPModelPropertySongShouldExcludeFromShuffle__PROPERTY;
++ (id)__shouldExcludeFromShuffle__KEY;
 + (id)__MPModelPropertySongShouldShowComposer__PROPERTY;
 + (id)__shouldShowComposer__KEY;
 + (id)__MPModelRelationshipSongLyrics__PROPERTY;
@@ -122,8 +125,9 @@
 + (id)requiredLibraryRemovalProperties;
 + (_Bool)supportsKeepLocalStatusObservation;
 + (id)requiredKeepLocalStatusObservationProperties;
-+ (id)mqf_requiredPlaybackProperties;
 + (id)requiredStoreLibraryPersonalizationProperties;
++ (_Bool)storeItemMetadataRequestNeedsPersonalizationForIdentifiers:(id)arg1;
++ (id)storeItemMetadataRequestItemIdentifierForIdentifiers:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @synthesize artworkCatalogBlock=_artworkCatalogBlock;
 @property(nonatomic) long long keepLocalManagedStatus; // @synthesize keepLocalManagedStatus=_keepLocalManagedStatus;
 @property(nonatomic) long long keepLocalEnableState; // @synthesize keepLocalEnableState=_keepLocalEnableState;
@@ -148,6 +152,7 @@
 @property(nonatomic) long long year; // @synthesize year=_year;
 @property(nonatomic) float volumeNormalization; // @synthesize volumeNormalization=_volumeNormalization;
 @property(nonatomic) _Bool shouldShowComposer; // @synthesize shouldShowComposer=_shouldShowComposer;
+@property(nonatomic) _Bool shouldExcludeFromShuffle; // @synthesize shouldExcludeFromShuffle=_shouldExcludeFromShuffle;
 @property(copy, nonatomic) NSString *copyrightText; // @synthesize copyrightText=_copyrightText;
 @property(nonatomic) long long beatsPerMinute; // @synthesize beatsPerMinute=_beatsPerMinute;
 @property(nonatomic) _Bool hasVideo; // @synthesize hasVideo=_hasVideo;
@@ -165,9 +170,6 @@
 - (struct MPLibraryAddStatusObserverConfiguration)libraryAddStatusObserverConfiguration;
 - (long long)libraryRemovalSupportedOptions;
 - (id)newKeepLocalStatusObserverConfiguration;
-- (id)mqf_playbackItemMetadataModelObject;
-- (void)mqf_configurePlaybackItemMetadata:(id)arg1;
-- (id)mqf_newPlaybackItemMetadata;
 - (id)objectWithStoreLibraryPersonalizationRelativeModelObject:(id)arg1;
 - (id)relativeModelObjectForStoreLibraryPersonalization;
 - (id)personalizationScopedPropertiesForProperties:(id)arg1;

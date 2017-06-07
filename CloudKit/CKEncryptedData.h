@@ -30,10 +30,13 @@
 @property(readonly, copy) NSString *description;
 - (id)CKPropertiesDescription;
 @property(readonly) unsigned long long hash;
+- (id)value;
 - (_Bool)isEqual:(id)arg1;
+- (id)initWithValue:(id)arg1;
 - (id)initWithEncryptedData:(id)arg1;
 - (id)initWithData:(id)arg1;
 - (id)init;
+- (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

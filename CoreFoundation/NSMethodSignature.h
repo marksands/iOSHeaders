@@ -9,13 +9,15 @@
 @interface NSMethodSignature : NSObject
 {
     void *_private;
-    void *_reserved[6];
+    void *_reserved[5];
+    unsigned long long _flags;
 }
 
 + (id)signatureWithObjCTypes:(const char *)arg1;
 - (id)debugDescription;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (_Bool)_isAllObjects;
 - (_Bool)_isHiddenStructRet;
 @property(readonly) unsigned long long methodReturnLength;
 @property(readonly) const char *methodReturnType;

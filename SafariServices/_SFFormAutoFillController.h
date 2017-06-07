@@ -24,10 +24,12 @@
 
 @property(nonatomic) _Bool metadataCorrectionsEnabled; // @synthesize metadataCorrectionsEnabled=_metadataCorrectionsEnabled;
 - (void).cxx_destruct;
+- (void)autoFillDidFinishWithUpdatedFormMetadata:(id)arg1;
 - (void)willNavigateFrame:(id)arg1 withUnsubmittedForm:(id)arg2 loadingIsDeferred:(_Bool)arg3;
 - (void)didFillGeneratedPasswordInForm:(id)arg1 inFrame:(id)arg2;
 - (void)textDidChangeInTextField:(id)arg1 inForm:(id)arg2 inFrame:(id)arg3;
 - (void)didCollectFormMetadataForPreFilling:(id)arg1 atURL:(id)arg2 ancestorFramesOfFormToPreFill:(id)arg3;
+- (void)authenticateForAutoFillOnPageLoad:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)didCollectURLsForPreFilling:(id)arg1 atURL:(id)arg2;
 - (void)willSubmitFormValues:(id)arg1 userObject:(id)arg2 submissionHandler:(CDUnknownBlockType)arg3;
 - (void)fieldFocusedWithInputSession:(id)arg1;

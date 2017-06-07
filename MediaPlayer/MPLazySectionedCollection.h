@@ -28,6 +28,8 @@
 - (void)enumerateItemsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateItemsInSectionAtIndex:(long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateSectionsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)updateCacheWithObject:(id)arg1 atIndexPath:(id)arg2;
+- (id)cachedObjectAtIndexPath:(id)arg1;
 - (id)itemAtIndexPath:(id)arg1;
 - (long long)numberOfItemsInSection:(long long)arg1;
 - (id)sectionAtIndex:(long long)arg1;

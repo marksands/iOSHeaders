@@ -8,36 +8,34 @@
 
 #import <QuickLook/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString, QLPageNumberView, QLThumbnailView;
-@protocol QLScrubViewDataSource;
+@class NSMutableArray, NSMutableDictionary, NSString, QLPageNumberView, QLThumbnailView;
+@protocol QLScrubViewDataSource, QLScrubViewDelegate;
 
 __attribute__((visibility("hidden")))
 @interface QLScrubView : UIView <UIGestureRecognizerDelegate>
 {
-    _Bool _runOnMainThread;
     _Bool _needsThumbLayout;
     double _thumbOrigin;
     double _thumbEnd;
     double _thumbHeight;
     long long _pageCount;
     long long _selectedPage;
-    NSOperationQueue *_queue;
-    NSMutableSet *_operations;
     NSMutableDictionary *_thumbViews;
     NSMutableArray *_visibleThumbIndexes;
     QLThumbnailView *_selectedThumbnailView;
     QLPageNumberView *_pageNumberLabel;
     id <QLScrubViewDataSource> _dataSource;
-    id _delegate;
+    id <QLScrubViewDelegate> _delegate;
     double _topOffset;
+    double _bottomOffset;
 }
 
 + (double)defaultWidth;
+@property(nonatomic) double bottomOffset; // @synthesize bottomOffset=_bottomOffset;
 @property(nonatomic) double topOffset; // @synthesize topOffset=_topOffset;
-@property __weak id delegate; // @synthesize delegate=_delegate;
+@property __weak id <QLScrubViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property __weak id <QLScrubViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_updateSelectedThumbnailView;
 - (void)layoutSubviews;
 - (void)_hidePageLabel;
@@ -50,16 +48,10 @@ __attribute__((visibility("hidden")))
 - (void)tapReceived:(id)arg1;
 - (void)panReceived:(id)arg1;
 - (void)_handleSwipAtLocation:(struct CGPoint)arg1;
-- (void)_notifyScrubingEnded;
 - (void)_notifyPageChanged;
-- (void)_notifyScrubingStarted;
 - (void)selectPageNumber:(long long)arg1;
 - (void)reloadThumbnails;
 - (void)_removeThumbviews;
-@property _Bool runOnMainThread;
-- (void)didReceiveMemoryWarning;
-- (void)dealloc;
-- (void)_cancelAllOperations;
 - (id)init;
 
 // Remaining properties

@@ -7,7 +7,7 @@
 #import <UIKit/UIFocusEnvironment-Protocol.h>
 
 @class NSArray;
-@protocol UIFocusEnvironment, _UIFocusRegionContainer;
+@protocol UIFocusEnvironment;
 
 @protocol _UIFocusEnvironmentPrivate <UIFocusEnvironment>
 @property(readonly, nonatomic, getter=_parentFocusEnvironment) __weak id <UIFocusEnvironment> parentFocusEnvironment;
@@ -15,7 +15,7 @@
 @optional
 @property(readonly, copy, nonatomic, getter=_linearFocusMovementSequences) NSArray *linearFocusMovementSequences;
 @property(readonly, nonatomic, getter=_preferredFocusMovementStyle) long long preferredFocusMovementStyle;
-@property(readonly, nonatomic, getter=_focusedItemRegionContainer) __weak id <_UIFocusRegionContainer> focusedItemRegionContainer;
+@property(readonly, nonatomic, getter=_isEligibleForFocusInteraction) _Bool eligibleForFocusInteraction;
 - (_Bool)_reversesLinearFocusWrapping;
 - (void)_setNeedsNonDeferredFocusUpdate;
 @end

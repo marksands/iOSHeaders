@@ -23,9 +23,11 @@
     NSString *_localizedVideoTitle;
     NSArray *_attributeNames;
     NSArray *_supportedAuthenticationSchemes;
+    NSArray *_featuredAccountProviderIdentifiers;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSArray *featuredAccountProviderIdentifiers; // @synthesize featuredAccountProviderIdentifiers=_featuredAccountProviderIdentifiers;
 @property(copy, nonatomic) NSArray *supportedAuthenticationSchemes; // @synthesize supportedAuthenticationSchemes=_supportedAuthenticationSchemes;
 @property(copy, nonatomic) NSArray *attributeNames; // @synthesize attributeNames=_attributeNames;
 @property(nonatomic) _Bool forceAuthentication; // @synthesize forceAuthentication=_forceAuthentication;

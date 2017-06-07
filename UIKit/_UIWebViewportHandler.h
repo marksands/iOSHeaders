@@ -20,14 +20,12 @@
     _Bool _heightIsDeviceHeight;
     _Bool _classicViewportMode;
     id <_UIWebViewportHandlerDelegate> _delegate;
-    struct CGSize _contentsSizeForScaling;
     struct CGRect _documentBounds;
 }
 
 @property(readonly, nonatomic, getter=isClassicViewportMode) _Bool classicViewportMode; // @synthesize classicViewportMode=_classicViewportMode;
 @property(readonly, nonatomic) unsigned int webkitDefinedConfigurationFlags; // @synthesize webkitDefinedConfigurationFlags=_webkitDefinedConfigurationFlags;
 @property(readonly, nonatomic) struct CGSize availableViewSize; // @synthesize availableViewSize=_availableViewSize;
-@property(readonly, nonatomic) struct CGSize contentsSizeForScaling; // @synthesize contentsSizeForScaling=_contentsSizeForScaling;
 @property(readonly, nonatomic) struct CGRect documentBounds; // @synthesize documentBounds=_documentBounds;
 @property(nonatomic) id <_UIWebViewportHandlerDelegate> delegate; // @synthesize delegate=_delegate;
 - (float)minimumScaleForViewSize:(struct CGSize)arg1;
@@ -41,7 +39,7 @@
 - (void)applyWebKitViewportArgumentsSize:(struct CGSize)arg1 initialScale:(float)arg2 minimumScale:(float)arg3 maximumScale:(float)arg4 allowsUserScaling:(float)arg5 allowsShrinkToFit:(float)arg6;
 - (void)_resolveViewSizeRelativeLengths;
 - (void)setAvailableViewSize:(struct CGSize)arg1 updateConfigurationSize:(_Bool)arg2;
-- (void)setDocumentBounds:(struct CGRect)arg1 contentsSizeForScaling:(struct CGSize)arg2;
+- (void)setDocumentBounds:(struct CGRect)arg1;
 - (void)update:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) struct _UIWebViewportConfiguration rawViewConfiguration;
 - (_Bool)shouldIgnoreScalingConstraints;

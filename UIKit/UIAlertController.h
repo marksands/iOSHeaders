@@ -11,7 +11,7 @@
 #import <UIKit/UIPreviewInteractionControllerDelegate-Protocol.h>
 #import <UIKit/_UIAlertControllerTextFieldViewControllerContaining-Protocol.h>
 
-@class NSArray, NSAttributedString, NSIndexSet, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject, NSPointerArray, NSSet, NSString, UIAlertAction, UIAlertControllerVisualStyle, UIGestureRecognizer, UIPopoverController, UIPreviewInteractionController, UITapGestureRecognizer, UIView, _UIAlertControllerTextFieldViewController, _UIAnimationCoordinator;
+@class NSArray, NSAttributedString, NSIndexSet, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject, NSPointerArray, NSSet, NSString, UIAlertAction, UIAlertControllerVisualStyle, UIGestureRecognizer, UIPopoverController, UIPreviewInteractionController, UITapGestureRecognizer, UIView, _UIAlertControllerShimPresenter, _UIAlertControllerTextFieldViewController, _UIAnimationCoordinator;
 @protocol UIAlertControllerCoordinatedActionPerforming, UIAlertControllerSystemProvidedPresentationDelegate, UIAlertControllerVisualStyleProviding;
 
 @interface UIAlertController : UIViewController <UIAlertControllerContaining, _UIAlertControllerTextFieldViewControllerContaining, UIPreviewInteractionControllerDelegate, UIAlertControllerVisualStyleProviding>
@@ -30,11 +30,13 @@
     _UIAlertControllerTextFieldViewController *_textFieldViewController;
     UITapGestureRecognizer *_backButtonDismissGestureRecognizer;
     id _ownedTransitioningDelegate;
-    _Bool _shouldInformViewOfAddedContentViewController;
+    _Bool _addContentViewControllerToViewHierarchyNeeded;
     _Bool _isInSupportedInterfaceOrientations;
+    long long _batchActionChangesInProgressCount;
+    _UIAlertControllerShimPresenter *_presenter;
     NSPointerArray *_actionsWithInvokedHandlers;
-    _Bool _shouldEnsureContentControllerViewIsVisibleOnAppearance;
     _Bool _hidden;
+    _Bool _springLoaded;
     _Bool __shouldFlipFrameForShimDismissal;
     _Bool __shouldAllowNilParameters;
     _Bool _hasPreservedInputViews;
@@ -52,13 +54,16 @@
     UIGestureRecognizer *_systemProvidedGestureRecognizer;
     id <UIAlertControllerCoordinatedActionPerforming> _coordinatedActionPerformingDelegate;
     UIView *__presentationSourceRepresentationView;
+    long long _titleMaximumLineCount;
+    long long _titleLineBreakMode;
 }
 
 + (id)_alertControllerContainedInViewController:(id)arg1;
 + (id)_alertControllerWithTitle:(id)arg1 message:(id)arg2;
 + (id)alertControllerWithTitle:(id)arg1 message:(id)arg2 preferredStyle:(long long)arg3;
-+ (void)_setShouldUsePresentationController:(_Bool)arg1;
 + (_Bool)_shouldUsePresentationController;
+@property(nonatomic, getter=_titleLineBreakMode, setter=_setTitleLineBreakMode:) long long titleLineBreakMode; // @synthesize titleLineBreakMode=_titleLineBreakMode;
+@property(nonatomic, getter=_titleMaximumLineCount, setter=_setTitleMaximumLineCount:) long long titleMaximumLineCount; // @synthesize titleMaximumLineCount=_titleMaximumLineCount;
 @property(retain, nonatomic, setter=_setPresentationSourceRepresentationView:) UIView *_presentationSourceRepresentationView; // @synthesize _presentationSourceRepresentationView=__presentationSourceRepresentationView;
 @property(nonatomic) __weak id <UIAlertControllerCoordinatedActionPerforming> coordinatedActionPerformingDelegate; // @synthesize coordinatedActionPerformingDelegate=_coordinatedActionPerformingDelegate;
 @property(retain, nonatomic, getter=_systemProvidedGestureRecognizer, setter=_setSystemProvidedGestureRecognizer:) UIGestureRecognizer *systemProvidedGestureRecognizer; // @synthesize systemProvidedGestureRecognizer=_systemProvidedGestureRecognizer;
@@ -74,10 +79,10 @@
 @property(retain, nonatomic) _UIAnimationCoordinator *temporaryAnimationCoordinator; // @synthesize temporaryAnimationCoordinator=_temporaryAnimationCoordinator;
 @property _Bool _shouldFlipFrameForShimDismissal; // @synthesize _shouldFlipFrameForShimDismissal=__shouldFlipFrameForShimDismissal;
 @property(retain, nonatomic) UIAlertAction *preferredAction; // @synthesize preferredAction=_preferredAction;
+- (_Bool)isSpringLoaded;
 @property(nonatomic, getter=_isHidden, setter=_setHidden:) _Bool _hidden; // @synthesize _hidden;
 @property(nonatomic, getter=_styleProvider, setter=_setStyleProvider:) __weak NSObject<UIAlertControllerVisualStyleProviding> *styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(readonly) long long _resolvedStyle; // @synthesize _resolvedStyle;
-@property(nonatomic, setter=_setShouldEnsureContentControllerViewIsVisibleOnAppearance:) _Bool _shouldEnsureContentControllerViewIsVisibleOnAppearance; // @synthesize _shouldEnsureContentControllerViewIsVisibleOnAppearance;
 @property(readonly) UIAlertAction *_cancelAction; // @synthesize _cancelAction;
 @property(readonly) NSMutableArray *_actions; // @synthesize _actions;
 - (void).cxx_destruct;
@@ -88,6 +93,7 @@
 - (void)previewInteractionController:(id)arg1 willPresentViewController:(id)arg2 forPosition:(struct CGPoint)arg3 inSourceView:(id)arg4;
 - (id)previewInteractionController:(id)arg1 viewControllerForPreviewingAtPosition:(struct CGPoint)arg2 inView:(id)arg3 presentingViewController:(id *)arg4;
 - (id)_setView:(id)arg1 forSystemProvidedPresentationWithDelegate:(id)arg2;
+- (void)setSpringLoaded:(_Bool)arg1;
 @property(nonatomic, getter=_effectAlpha, setter=_setEffectAlpha:) double effectAlpha;
 - (void)_becomeFirstResponderIfAppropriate;
 - (_Bool)_shouldBecomeFirstResponder;
@@ -144,7 +150,9 @@
 - (void)_postDidBeginSystemProvidedDismissalOfAlertController;
 - (void)_postWillBeginSystemProvidedDismissalOfAlertController;
 - (void)_performAction:(id)arg1 invokeActionBlock:(CDUnknownBlockType)arg2 dismissAndPerformActionIfNotAlreadyPerformed:(CDUnknownBlockType)arg3;
-- (void)_dismissAnimated:(_Bool)arg1 triggeringAction:(id)arg2 triggeredByPopoverDimmingView:(_Bool)arg3;
+- (void)_dismissAnimated:(_Bool)arg1 triggeringAction:(id)arg2 triggeredByPopoverDimmingView:(_Bool)arg3 dismissCompletion:(CDUnknownBlockType)arg4;
+- (void)_endNoPresentingViewControllerPresentation;
+- (void)_beginNoPresentingViewControllerPresentation;
 - (void)_dismissAnimated:(_Bool)arg1 triggeringAction:(id)arg2;
 - (void)_dismissFromPopoverDimmingView;
 - (void)_dismissWithCancelAction;
@@ -155,6 +163,7 @@
 - (void)_clearActionHandlers;
 - (void)_invokeHandlersForAction:(id)arg1;
 - (void)_dismissWithAction:(id)arg1;
+- (void)_dismissWithAction:(id)arg1 dismissCompletion:(CDUnknownBlockType)arg2;
 - (id)visualStyleForAlertControllerStyle:(long long)arg1 traitCollection:(id)arg2 descriptor:(id)arg3;
 - (_Bool)_shouldDismissOnSizeChange;
 @property(readonly) _Bool _shouldProvideDimmingView;
@@ -208,7 +217,6 @@
 - (void)_addKeyCommandForAction:(id)arg1 withInput:(id)arg2 modifierFlags:(long long)arg3;
 - (void)_action:(id)arg1 changedToKeyCommandWithInput:(id)arg2 modifierFlags:(long long)arg3;
 - (void)_addSectionDelimiter;
-@property(nonatomic, setter=_setDefaultAlertAction:) __weak UIAlertAction *_defaultAlertAction;
 - (void)_removeAllActions;
 - (void)_performBatchActionChangesWithBlock:(CDUnknownBlockType)arg1;
 - (void)_addActionWithTitle:(id)arg1 image:(id)arg2 style:(long long)arg3 handler:(CDUnknownBlockType)arg4;

@@ -4,16 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
-@class NSMutableSet, PUAirPlaySettings, PUAlbumListSettings, PUFeedSettings, PUIrisSettings, PULoggingSettings, PUMedusaSettings, PUMemoriesSettings, PUMomentsSettings, PUOneUpSettings, PUPerformanceDiagnosticsSettings, PUPhotoEditProtoSettings, PUPhotosGridSettings, PUSceneSettings, PUSlideshowSettings, PUTilingViewSettings, PUWelcomeSettings, PUWorkaroundSettings;
+@class PUAirPlaySettings, PUAlbumListSettings, PUFeedSettings, PUIrisSettings, PULoggingSettings, PUMedusaSettings, PUMemoriesSettings, PUMomentsSettings, PUOneUpSettings, PUPerformanceDiagnosticsSettings, PUPhotoEditProtoSettings, PUPhotosGridSettings, PUSceneSettings, PUSlideshowSettings, PUTilingViewSettings, PUWelcomeSettings, PUWorkaroundSettings;
 
-@interface PURootSettings : PUSettings
+@interface PURootSettings : PXSettings
 {
-    NSMutableSet *_archivedSettings;
     _Bool _enforceDisableIrisUI;
+    _Bool _forcePlacesMapDisplay;
     _Bool _allowIrisUI;
-    long long _livePhotoBadgingType;
     PUPhotosGridSettings *_photosGridSettings;
     PUPhotoEditProtoSettings *_photoEditingSettings;
     PUFeedSettings *_feedSettings;
@@ -32,7 +31,6 @@
     PUIrisSettings *_irisSettings;
     Class _orbInterfaceThemeClass;
     PUPerformanceDiagnosticsSettings *_performanceDiagnosticsSettings;
-    unsigned long long _settingsVersion;
     PULoggingSettings *_loggingSettings;
 }
 
@@ -51,9 +49,8 @@
 + (id)settingsControllerModule;
 + (id)sharedInstance;
 @property(retain, nonatomic) PULoggingSettings *loggingSettings; // @synthesize loggingSettings=_loggingSettings;
-@property(nonatomic) unsigned long long settingsVersion; // @synthesize settingsVersion=_settingsVersion;
 @property(retain, nonatomic) PUPerformanceDiagnosticsSettings *performanceDiagnosticsSettings; // @synthesize performanceDiagnosticsSettings=_performanceDiagnosticsSettings;
-@property(nonatomic) Class orbInterfaceThemeClass; // @synthesize orbInterfaceThemeClass=_orbInterfaceThemeClass;
+@property(retain, nonatomic) Class orbInterfaceThemeClass; // @synthesize orbInterfaceThemeClass=_orbInterfaceThemeClass;
 @property(retain, nonatomic) PUIrisSettings *irisSettings; // @synthesize irisSettings=_irisSettings;
 @property(retain, nonatomic) PUSceneSettings *sceneSettings; // @synthesize sceneSettings=_sceneSettings;
 @property(retain, nonatomic) PUWorkaroundSettings *workaroundSettings; // @synthesize workaroundSettings=_workaroundSettings;
@@ -62,7 +59,7 @@
 @property(retain, nonatomic) PUAlbumListSettings *albumListSettings; // @synthesize albumListSettings=_albumListSettings;
 @property(retain, nonatomic) PUSlideshowSettings *slideshowSettings; // @synthesize slideshowSettings=_slideshowSettings;
 @property(retain, nonatomic) PUAirPlaySettings *airPlaySettings; // @synthesize airPlaySettings=_airPlaySettings;
-@property(nonatomic) Class interfaceThemeClass; // @synthesize interfaceThemeClass=_interfaceThemeClass;
+@property(retain, nonatomic) Class interfaceThemeClass; // @synthesize interfaceThemeClass=_interfaceThemeClass;
 @property(retain, nonatomic) PUTilingViewSettings *tilingViewSettings; // @synthesize tilingViewSettings=_tilingViewSettings;
 @property(retain, nonatomic) PUOneUpSettings *oneUpSettings; // @synthesize oneUpSettings=_oneUpSettings;
 @property(retain, nonatomic) PUMedusaSettings *medusaSettings; // @synthesize medusaSettings=_medusaSettings;
@@ -70,8 +67,8 @@
 @property(retain, nonatomic) PUFeedSettings *feedSettings; // @synthesize feedSettings=_feedSettings;
 @property(retain, nonatomic) PUPhotoEditProtoSettings *photoEditingSettings; // @synthesize photoEditingSettings=_photoEditingSettings;
 @property(retain, nonatomic) PUPhotosGridSettings *photosGridSettings; // @synthesize photosGridSettings=_photosGridSettings;
-@property(nonatomic) long long livePhotoBadgingType; // @synthesize livePhotoBadgingType=_livePhotoBadgingType;
 @property(nonatomic) _Bool allowIrisUI; // @synthesize allowIrisUI=_allowIrisUI;
+@property(nonatomic) _Bool forcePlacesMapDisplay; // @synthesize forcePlacesMapDisplay=_forcePlacesMapDisplay;
 - (void).cxx_destruct;
 - (void)setEnforceDisableIrisUI:(_Bool)arg1;
 - (_Bool)irisUIEnabled;
@@ -79,7 +76,7 @@
 - (void)applyArchiveValue:(id)arg1 forKey:(id)arg2;
 - (void)restoreDefaultValues;
 - (void)setDefaultValues;
-- (void)save;
+- (id)parentSettings;
 
 @end
 

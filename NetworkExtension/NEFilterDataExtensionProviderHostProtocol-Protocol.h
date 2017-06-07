@@ -9,6 +9,8 @@
 @class NEFilterFlow;
 
 @protocol NEFilterDataExtensionProviderHostProtocol <NEFilterExtensionProviderHostProtocol>
+- (void)reportFlow:(NEFilterFlow *)arg1 action:(int)arg2;
+- (void)getSourceAppInfoForFlow:(NEFilterFlow *)arg1 completionHandler:(void (^)(NEFilterFlow *))arg2;
 - (void)fetchCurrentRulesForFlow:(NEFilterFlow *)arg1 completionHandler:(void (^)(NEFilterControlVerdict *))arg2;
 - (void)sendSocketContentFilterRequest;
 - (void)sendBrowserContentFilterServerRequest;

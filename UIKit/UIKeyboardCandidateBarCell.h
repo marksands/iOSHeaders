@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKBCacheableView-Protocol.h>
 
-@class NSString, UIKBThemedView, UILabel;
+@class NSString, UIKBThemedView, UILabel, UIView;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateBarCell : UICollectionViewCell <UIKBCacheableView>
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     UIKBThemedView *_themedView;
     UILabel *_label;
     UILabel *_annotationLabel;
+    UIView *_centeredBackgroundView;
     NSString *_candidateText;
     NSString *_annotationText;
 }
@@ -38,9 +39,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool beginsFirstPage; // @synthesize beginsFirstPage=_beginsFirstPage;
 @property(copy, nonatomic) NSString *annotationText; // @synthesize annotationText=_annotationText;
 @property(copy, nonatomic) NSString *candidateText; // @synthesize candidateText=_candidateText;
+@property(retain, nonatomic) UIView *centeredBackgroundView; // @synthesize centeredBackgroundView=_centeredBackgroundView;
 @property(retain, nonatomic) UILabel *annotationLabel; // @synthesize annotationLabel=_annotationLabel;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(retain, nonatomic) UIKBThemedView *themedView; // @synthesize themedView=_themedView;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) _Bool keepNonPersistent;
 @property(readonly, nonatomic) double cachedWidth;
@@ -48,6 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)displayLayer:(id)arg1;
 - (id)cacheKeysForRenderFlags:(id)arg1;
 @property(readonly, nonatomic) NSString *cacheKey;
+- (void)dimKeys:(id)arg1;
 - (void)updateIsAtLeftEdgeState;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;
@@ -57,7 +61,6 @@ __attribute__((visibility("hidden")))
 - (void)setCandidate:(id)arg1;
 - (void)prepareForReuse;
 - (void)applyLayoutAttributes:(id)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

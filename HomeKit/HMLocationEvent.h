@@ -6,12 +6,14 @@
 
 #import <HomeKit/HMEvent.h>
 
+#import <HomeKit/NSCopying-Protocol.h>
+#import <HomeKit/NSMutableCopying-Protocol.h>
 #import <HomeKit/NSSecureCoding-Protocol.h>
 #import <HomeKit/_HMLocationHandlerDelegate-Protocol.h>
 
 @class CLRegion;
 
-@interface HMLocationEvent : HMEvent <_HMLocationHandlerDelegate, NSSecureCoding>
+@interface HMLocationEvent : HMEvent <_HMLocationHandlerDelegate, NSSecureCoding, NSCopying, NSMutableCopying>
 {
     int _locationAuthorization;
     CLRegion *_region;
@@ -21,14 +23,19 @@
 + (id)createWithDictionary:(id)arg1 home:(id)arg2;
 @property(nonatomic) int locationAuthorization; // @synthesize locationAuthorization=_locationAuthorization;
 - (void).cxx_destruct;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)didUpdateAuthorization:(int)arg1;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)_handleEventUpdatedNotification:(id)arg1;
 - (id)_serializeForAdd;
+- (void)_retrieveLocationEvent;
 - (void)_updateRegion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateRegion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_configure:(id)arg1 eventTrigger:(id)arg2 clientQueue:(id)arg3 delegateCaller:(id)arg4;
+- (void)_configure:(id)arg1 clientQueue:(id)arg2 delegateCaller:(id)arg3 msgDispatcher:(id)arg4;
+- (id)initWithDict:(id)arg1 region:(id)arg2;
 - (id)initWithRegion:(id)arg1;
 @property(retain, nonatomic) CLRegion *region; // @synthesize region=_region;
 

@@ -6,8 +6,8 @@
 
 #import <Foundation/NSObject.h>
 
-@class CNPropertyGroupItem, CNPropertyIDSRequest, NSArray, NSMutableArray;
-@protocol CNPropertyBestIDSValueQueryDelegate;
+@class CNPropertyGroupItem, NSArray, NSMutableArray;
+@protocol CNCancelable, CNPropertyBestIDSValueQueryDelegate;
 
 __attribute__((visibility("hidden")))
 @interface CNPropertyBestIDSValueQuery : NSObject
@@ -15,16 +15,17 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_validIDSItems;
     id <CNPropertyBestIDSValueQueryDelegate> _delegate;
     NSArray *_propertyItems;
-    CNPropertyIDSRequest *_idsRequest;
+    id <CNCancelable> _idsLookupToken;
 }
 
-@property(retain, nonatomic) CNPropertyIDSRequest *idsRequest; // @synthesize idsRequest=_idsRequest;
+@property(retain, nonatomic) id <CNCancelable> idsLookupToken; // @synthesize idsLookupToken=_idsLookupToken;
 @property(retain, nonatomic) NSArray *propertyItems; // @synthesize propertyItems=_propertyItems;
 @property(nonatomic) __weak id <CNPropertyBestIDSValueQueryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSMutableArray *validIDSItems; // @synthesize validIDSItems=_validIDSItems;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) CNPropertyGroupItem *bestIDSProperty;
 - (void)cancel;
+- (id)initWithPropertyItems:(id)arg1 service:(id)arg2 idsAvailabilityProvider:(id)arg3 schedulerProvider:(id)arg4;
 - (id)initWithPropertyItems:(id)arg1 service:(id)arg2;
 
 @end

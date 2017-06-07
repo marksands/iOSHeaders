@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)_requiresDatabaseMappingEntitlement;
 - (void)_enumerateWithXPCConnection:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 

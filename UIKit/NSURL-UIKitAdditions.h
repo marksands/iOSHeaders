@@ -18,11 +18,7 @@
 - (id)searchResultIdentifier;
 - (id)searchResultDomain;
 - (id)radarWebURL;
-- (id)appleStoreURL;
-- (id)itmsURL;
 - (id)phobosURL;
-- (_Bool)isGoogleMapsURL;
-- (_Bool)_isGoogleMapsDomain:(id)arg1 subdomain:(id)arg2 path:(id)arg3 queryKeysAndValues:(id)arg4;
 - (void)_domain:(id *)arg1 subdomain:(id *)arg2;
 @end
 

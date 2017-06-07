@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <Accounts/ACProtobufCoding-Protocol.h>
 #import <Accounts/NSSecureCoding-Protocol.h>
 
 @class ACAccountStore, NSSet, NSString, NSURL;
 
-@interface ACAccountType : NSObject <NSSecureCoding>
+@interface ACAccountType : NSObject <NSSecureCoding, ACProtobufCoding>
 {
     NSString *_accountTypeDescription;
     NSString *_identifier;
@@ -34,7 +35,7 @@
 @property(nonatomic) _Bool supportsMultipleAccounts; // @synthesize supportsMultipleAccounts=_supportsMultipleAccounts;
 @property(nonatomic) __weak ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 - (void).cxx_destruct;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) _Bool encryptAccountProperties; // @synthesize encryptAccountProperties=_encryptAccountProperties;
 @property(readonly, nonatomic) NSSet *accessKeys; // @synthesize accessKeys=_accessKeys;
@@ -52,12 +53,20 @@
 @property(readonly, nonatomic) NSSet *supportedDataclasses; // @synthesize supportedDataclasses=_supportedDataclasses;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSString *fullDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (id)_encodeProtobufData;
+- (id)_encodeProtobuf;
+- (id)_initWithProtobufData:(id)arg1;
+- (id)_initWithProtobuf:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithManagedAccountType:(id)arg1;
 - (id)initWithManagedAccountType:(id)arg1 accountStore:(id)arg2;
 - (id)initWithIdentifier:(id)arg1 description:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

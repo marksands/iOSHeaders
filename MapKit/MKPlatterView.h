@@ -6,26 +6,28 @@
 
 #import <UIKit/UIView.h>
 
-@class UIColor, UIImage, UIImageView;
+@class NSString, UIColor, UIFont, _MKUILabel;
 
 @interface MKPlatterView : UIView
 {
-    UIImageView *_iconView;
+    _MKUILabel *_glyphLabel;
     UIView *_platterView;
     _Bool _highlighted;
-    UIImage *_image;
-    UIColor *_imageTintColor;
+    NSString *_glyph;
+    UIFont *_glyphFont;
+    UIColor *_glyphColor;
 }
 
+@property(retain, nonatomic) UIColor *glyphColor; // @synthesize glyphColor=_glyphColor;
+@property(retain, nonatomic) UIFont *glyphFont; // @synthesize glyphFont=_glyphFont;
+@property(retain, nonatomic) NSString *glyph; // @synthesize glyph=_glyph;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
-@property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
-- (void)tintColorDidChange;
 - (void)infoCardThemeChanged:(id)arg1;
-@property(retain, nonatomic) UIColor *imageTintColor; // @synthesize imageTintColor=_imageTintColor;
+- (void)updateGlyph;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

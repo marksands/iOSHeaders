@@ -6,7 +6,7 @@
 
 #import <PhotosUI/PUSectionedTilingLayout.h>
 
-@class NSIndexPath, NSMutableDictionary;
+@class NSIndexPath, NSMutableDictionary, NSNumber;
 @protocol PUScrubberTilingLayoutDelegate;
 
 __attribute__((visibility("hidden")))
@@ -22,8 +22,10 @@ __attribute__((visibility("hidden")))
     struct {
         _Bool respondsToAspectRatioForItemAtIndexPath;
         _Bool respondsToExpandedWidthForItemAtIndexPath;
+        _Bool respondsToShouldShowTimeIndicatorForExpandedItemAtIndexPath;
     } _delegateFlags;
     _Bool _onlyShowExpandedItem;
+    _Bool _showPlayheadForExpandedItem;
     _Bool _snapToExpandedItem;
     id <PUScrubberTilingLayoutDelegate> _delegate;
     double _playheadVerticalOverhang;
@@ -36,13 +38,16 @@ __attribute__((visibility("hidden")))
     double _loupeAmount;
     NSIndexPath *_expandedItemIndexPath;
     double _expandedItemPlayheadProgress;
+    NSNumber *_expandedItemSnappingProgress;
     struct CGSize _interItemSpacing;
     struct UIEdgeInsets _contentPadding;
 }
 
 @property(nonatomic) _Bool snapToExpandedItem; // @synthesize snapToExpandedItem=_snapToExpandedItem;
+@property(retain, nonatomic) NSNumber *expandedItemSnappingProgress; // @synthesize expandedItemSnappingProgress=_expandedItemSnappingProgress;
 @property(nonatomic) double expandedItemPlayheadProgress; // @synthesize expandedItemPlayheadProgress=_expandedItemPlayheadProgress;
 @property(nonatomic) double expandedItemWidth; // @synthesize expandedItemWidth=_expandedItemWidth;
+@property(nonatomic) _Bool showPlayheadForExpandedItem; // @synthesize showPlayheadForExpandedItem=_showPlayheadForExpandedItem;
 @property(nonatomic) _Bool onlyShowExpandedItem; // @synthesize onlyShowExpandedItem=_onlyShowExpandedItem;
 @property(retain, nonatomic) NSIndexPath *expandedItemIndexPath; // @synthesize expandedItemIndexPath=_expandedItemIndexPath;
 @property(nonatomic) double loupeAmount; // @synthesize loupeAmount=_loupeAmount;
@@ -67,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)visibleRectForScrollingToItemAtIndexPath:(id)arg1 scrollPosition:(long long)arg2;
 - (struct CGRect)visibleRectForScrollingToItemAtIndexPath:(id)arg1 transitionProgress:(double)arg2;
 - (float)_aspectRatioForIndexPath:(id)arg1;
+- (_Bool)_shouldShowTimeIndicatorForExpandedItemAtIndexPath:(id)arg1;
 - (struct CGRect)_rectForItemAtIndexPath:(id)arg1 withLoupeTransform:(_Bool)arg2 withExpanded:(_Bool)arg3;
 - (struct CGSize)_slitSize;
 - (double)_focusAbscissa;

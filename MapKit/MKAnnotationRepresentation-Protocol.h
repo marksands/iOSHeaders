@@ -10,6 +10,7 @@
 @protocol MKAnnotationRepresentation;
 
 @protocol MKAnnotationRepresentation <NSObject>
+- (_Bool)_shouldDeselectWhenDragged;
 - (_Bool)_isPendingSelectionAnimated;
 - (void)_invalidateCachedCoordinate;
 - (void)_setHiddenForOffscreen:(_Bool)arg1;

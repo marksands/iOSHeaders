@@ -7,6 +7,7 @@
 #import <Foundation/NSObject.h>
 
 @class AVWeakReference;
+@protocol OS_dispatch_queue;
 
 @interface AVFlashlightInternal : NSObject
 {
@@ -16,6 +17,7 @@
     _Bool overheated;
     float flashlightLevel;
     struct OpaqueFigSimpleMutex *lock;
+    NSObject<OS_dispatch_queue> *serverReconnectQueue;
 }
 
 @end

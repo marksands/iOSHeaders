@@ -21,6 +21,8 @@
 @property _Bool targetsSuperlayer;
 @property(copy) NSString *keyPath;
 @property(copy) NSArray *sourcePoints;
+@property unsigned int sourceContextId;
+@property unsigned long long sourceLayerRenderId;
 @property __weak CALayer *sourceLayer;
 - (unsigned int)_propertyFlagsForLayer:(id)arg1;
 - (struct Animation *)_copyRenderAnimationForLayer:(id)arg1;

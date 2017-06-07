@@ -20,11 +20,19 @@
     CDStruct_31142d93 fRawAcceleration;
     CDStruct_31142d93 fRawRotationRate;
     unsigned long long fMachTimestamp;
+    _Bool fUsingCompass;
+    float fGyroTemperature;
+    float fCompassTemperature;
+    CDStruct_31142d93 fRawMagneticField;
     NSString *fPhysicalDeviceUniqueID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) CDStruct_31142d93 rawMagneticField; // @synthesize rawMagneticField=fRawMagneticField;
+@property(readonly, nonatomic) float compassTemperature; // @synthesize compassTemperature=fCompassTemperature;
+@property(readonly, nonatomic) float gyroTemperature; // @synthesize gyroTemperature=fGyroTemperature;
 @property(readonly, retain, nonatomic) NSString *physicalDeviceUniqueID; // @synthesize physicalDeviceUniqueID=fPhysicalDeviceUniqueID;
+@property(readonly, nonatomic, getter=isUsingCompass) _Bool usingCompass; // @synthesize usingCompass=fUsingCompass;
 @property(readonly, nonatomic) unsigned long long machTimestamp; // @synthesize machTimestamp=fMachTimestamp;
 @property(readonly, nonatomic) CDStruct_31142d93 rawRotationRate; // @synthesize rawRotationRate=fRawRotationRate;
 @property(readonly, nonatomic) CDStruct_31142d93 rawAcceleration; // @synthesize rawAcceleration=fRawAcceleration;
@@ -40,7 +48,7 @@
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDeviceMotionLite:(CDStruct_0b056bf9)arg1 andDeviceID:(id)arg2;
+- (id)initWithDeviceMotionLite:(CDStruct_946f299f)arg1 andDeviceID:(id)arg2;
 
 @end
 

@@ -17,6 +17,7 @@
 }
 
 - (void).cxx_destruct;
+- (id)_locationsFromDatums:(id)arg1;
 - (_Bool)_validate:(id)arg1 withError:(id *)arg2;
 - (void)_discardWithHandler:(CDUnknownBlockType)arg1;
 - (void)finishSeriesWithMetadata:(id)arg1 completion:(CDUnknownBlockType)arg2;

@@ -22,7 +22,7 @@
 + (id)_deriveOutgoingMessageContentFromLibraryMessageContent:(id)arg1;
 @property(nonatomic) id <MFMessageRewriterPlaceholderResolver> placeholderResolver; // @synthesize placeholderResolver=_placeholderResolver;
 @property(readonly, nonatomic) MFOutgoingMessageContent *originalMessageContent; // @synthesize originalMessageContent=_originalMessageContent;
-- (_Bool)shouldCreateRichTextRepresentation;
+- (id)shouldCreateRichTextRepresentation;
 - (id)attachments;
 - (_Bool)hasAnyHiddenTrailingEmptyQuote;
 - (id)sendingAccountProxy;

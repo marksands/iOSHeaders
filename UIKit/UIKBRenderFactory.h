@@ -20,18 +20,20 @@
     _Bool _boldTextEnabled;
     _Bool _allowsPaddles;
     _Bool _preferStringKeycapOverImage;
+    _Bool _drawsOneHandedAffordance;
 }
 
 + (_Bool)couldUseGlyphSelectorForDisplayString:(id)arg1;
 + (id)_characterSetForGlyphSelectors;
 + (id)segmentedControlColor:(_Bool)arg1;
 + (id)cacheKeyForString:(id)arg1 withRenderFlags:(long long)arg2 renderingContext:(id)arg3;
-+ (id)lightweightFactoryForVisualStyle:(CDStruct_961fb75c)arg1 renderingContext:(id)arg2;
-+ (id)factoryForVisualStyle:(CDStruct_961fb75c)arg1 renderingContext:(id)arg2;
-+ (id)factoryForVisualStyle:(CDStruct_961fb75c)arg1 renderingContext:(id)arg2 skipLayoutSegments:(_Bool)arg3;
-+ (Class)factoryClassForVisualStyle:(CDStruct_961fb75c)arg1;
++ (id)lightweightFactoryForVisualStyle:(CDStruct_227bb23d)arg1 renderingContext:(id)arg2;
++ (id)factoryForVisualStyle:(CDStruct_227bb23d)arg1 renderingContext:(id)arg2;
++ (id)factoryForVisualStyle:(CDStruct_227bb23d)arg1 renderingContext:(id)arg2 skipLayoutSegments:(_Bool)arg3;
++ (Class)factoryClassForVisualStyle:(CDStruct_227bb23d)arg1;
 + (long long)_graphicsQuality;
 + (_Bool)_enabled;
+@property(nonatomic) _Bool drawsOneHandedAffordance; // @synthesize drawsOneHandedAffordance=_drawsOneHandedAffordance;
 @property(nonatomic) _Bool preferStringKeycapOverImage; // @synthesize preferStringKeycapOverImage=_preferStringKeycapOverImage;
 @property(nonatomic) _Bool allowsPaddles; // @synthesize allowsPaddles=_allowsPaddles;
 @property(readonly, nonatomic) _Bool boldTextEnabled; // @synthesize boldTextEnabled=_boldTextEnabled;
@@ -65,6 +67,7 @@
 - (id)displayContentsForKey:(id)arg1;
 - (id)keyImageNameWithSkinnyVariation:(id)arg1;
 - (double)skinnyKeyThreshold;
+- (id)spaceKeyGrabberHandlesImageName;
 - (id)messagesWriteboardKeyImageName;
 - (id)biuKeyImageName;
 - (id)boldKeyImageName;
@@ -86,13 +89,12 @@
 - (id)dictationKeyImageName;
 - (id)globalEmojiKeyImageName;
 - (id)globalKeyImageName;
-- (id)traitsHashStringForKey:(id)arg1 withGeometry:(id)arg2 withSymbolStyle:(id)arg3 controlOpacities:(_Bool)arg4;
+- (id)traitsHashStringForKey:(id)arg1 withGeometry:(id)arg2 withSymbolStyle:(id)arg3 controlOpacities:(_Bool)arg4 blurBlending:(_Bool)arg5;
 - (_Bool)keyIsRightToLeftSensitive:(id)arg1;
 - (id)hashStringElement;
 - (id)traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (id)backgroundTraitsForKeyplane:(id)arg1;
-- (_Bool)supportsGestureBehaviors;
 - (_Bool)supportsInputTraits:(id)arg1 forKeyplane:(id)arg2;
 - (void)setupLayoutSegments;
 - (void)lowQualityTraits:(id)arg1;

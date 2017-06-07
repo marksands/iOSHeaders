@@ -6,7 +6,6 @@
 
 #import <Foundation/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNSourceRendererRegistry : NSObject
 {
     struct __CFDictionary *_registry;

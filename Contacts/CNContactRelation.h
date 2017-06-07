@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNObjectValidation-Protocol.h>
 #import <Contacts/NSCopying-Protocol.h>
@@ -20,12 +20,12 @@
 + (_Bool)supportsSecureCoding;
 + (id)contactRelationWithName:(id)arg1;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (_Bool)isValid:(id *)arg1;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1;

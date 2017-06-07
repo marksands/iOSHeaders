@@ -13,7 +13,7 @@
 #import <PhotosUI/UITableViewDataSourcePrefetching-Protocol.h>
 #import <PhotosUI/UITableViewDelegate-Protocol.h>
 
-@class NSObject, NSString, PHCachingImageManager, PSIDatabase, PUPingTimer, PUSearchResultsDataSource, PUSuggestedSearchResultsDataSource, UIBarButtonItem, UISearchBar, UITableView, UIView;
+@class NSObject, NSString, PHCachingImageManager, PSIDatabase, PUPingTimer, PUSearchResultsDataSource, PUSuggestedSearchResultsDataSource, UIBarButtonItem, UILabel, UISearchBar, UITableView, UITableViewCell, UIView;
 @protocol OS_dispatch_semaphore, UITableViewDataSource><UITableViewDelegate;
 
 __attribute__((visibility("hidden")))
@@ -34,6 +34,9 @@ __attribute__((visibility("hidden")))
     _Bool _shouldShowKeyboard;
     NSObject<OS_dispatch_semaphore> *_searchIndexReadySemaphore;
     _Bool _debug_showMatchScores;
+    UILabel *_axDummyTitleLabel;
+    UILabel *_axDummySubtitleLabel;
+    UITableViewCell *_axDummyCell;
     _Bool _inCustomTransition;
     NSString *_searchText;
     NSString *_selectedDisplayTitle;
@@ -67,6 +70,8 @@ __attribute__((visibility("hidden")))
 - (void)tableView:(id)arg1 cancelPrefetchingForRowsAtIndexPaths:(id)arg2;
 - (void)tableView:(id)arg1 prefetchRowsAtIndexPaths:(id)arg2;
 - (id)thumbnailAssetsForIndexPaths:(id)arg1;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
@@ -90,12 +95,14 @@ __attribute__((visibility("hidden")))
 - (void)_navigateToLastYearPhotoSearchWithoutAnimation;
 - (void)_selectSearchResultAtIndexPath:(id)arg1;
 - (void)_configureCell:(id)arg1 inTableView:(id)arg2 atIndexAPath:(id)arg3;
+- (void)_getInfoForCellInTableView:(id)arg1 atIndexPath:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)_pushViewForMemoryWithUUID:(id)arg1;
 - (void)_pushGridForPhotosWithUUIDs:(id)arg1 additionalUUIDs:(id)arg2 title:(id)arg3 searchCategories:(unsigned long long)arg4 animated:(_Bool)arg5;
 - (void)_pushGridForAlbumWithUUID:(id)arg1;
 - (void)_setCurrentTableViewDataSource:(id)arg1;
 - (void)_updateForSearchTextDidChangeWithoutAnimation;
+- (id)_axDummyCell;
 - (id)_searchResultsTableView;
 - (void)_configureTableView:(id)arg1;
 - (void)_updateTableFooterViewWithProgress:(unsigned long long)arg1;

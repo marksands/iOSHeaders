@@ -6,15 +6,22 @@
 
 #import <ContactsUI/CNContactAction.h>
 
+@class CNUICoreRecentsManager, CNUIExternalComponentsFactory;
+
 __attribute__((visibility("hidden")))
 @interface CNContactDeleteContactAction : CNContactAction
 {
+    CNUIExternalComponentsFactory *_componentsFactory;
+    CNUICoreRecentsManager *_recentsManager;
 }
 
+@property(readonly, nonatomic) CNUICoreRecentsManager *recentsManager; // @synthesize recentsManager=_recentsManager;
+@property(readonly, nonatomic) CNUIExternalComponentsFactory *componentsFactory; // @synthesize componentsFactory=_componentsFactory;
+- (void).cxx_destruct;
 - (void)showDeleteFailureAlert;
 - (_Bool)deleteContact;
 - (void)performActionWithSender:(id)arg1;
-- (id)initWithContact:(id)arg1;
+- (id)initWithContact:(id)arg1 recentsManager:(id)arg2 componentsFactory:(id)arg3;
 
 @end
 

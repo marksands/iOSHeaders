@@ -49,6 +49,8 @@
 @property(readonly, copy, nonatomic) NSIndexPath *initialIndexPath; // @synthesize initialIndexPath=_initialIndexPath;
 @property(nonatomic) __weak id <PUAssetExplorerReviewScreenViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_presentConfidentialityAlertWithConfirmAction:(CDUnknownBlockType)arg1 abortAction:(CDUnknownBlockType)arg2;
+- (void)_performDoneActionSteps;
 - (void)_performDoneAction;
 - (void)_performRetakeAction;
 - (void)_performCancelAction;

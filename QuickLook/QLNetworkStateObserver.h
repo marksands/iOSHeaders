@@ -44,6 +44,8 @@ __attribute__((visibility("hidden")))
 - (void)_update;
 - (_Bool)isWifiCapable;
 - (_Bool)isConnected;
+- (void)dealloc;
+- (void)_unregisterReachability;
 - (void)stopObserving;
 - (void)startObserving;
 - (void)_updateNetworkStateWithNotifyToken:(int)arg1;

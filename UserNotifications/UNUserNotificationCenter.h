@@ -26,6 +26,9 @@
 - (void).cxx_destruct;
 - (void)didChangePendingNotificationRequests:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)didDeliverNotifications:(id)arg1 forBundleIdentifier:(id)arg2;
+- (void)setBadgeString:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)setBadgeNumber:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)getBadgeNumberWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)removeAllDeliveredNotifications;
 - (void)removeDeliveredNotificationsWithIdentifiers:(id)arg1;
 - (void)getDeliveredNotificationsWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -47,6 +50,7 @@
 - (void)addObserver:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsContentExtensions;
 - (id)initWithBundleIdentifier:(id)arg1;
+- (id)initWithBundleProxy:(id)arg1;
 - (id)init;
 
 // Remaining properties

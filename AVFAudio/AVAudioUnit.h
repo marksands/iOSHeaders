@@ -19,10 +19,12 @@
 @property(readonly, nonatomic) NSString *manufacturerName;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) struct AudioComponentDescription audioComponentDescription;
-@property(readonly, nonatomic) AUAudioUnit *AUAudioUnit;
 @property(readonly, nonatomic) struct OpaqueAudioComponentInstance *audioUnit;
 - (_Bool)loadAudioUnitPresetAtURL:(id)arg1 error:(id *)arg2;
 - (id)initWithAudioComponentDescription:(struct AudioComponentDescription)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) AUAudioUnit *AUAudioUnit; // @dynamic AUAudioUnit;
 
 @end
 

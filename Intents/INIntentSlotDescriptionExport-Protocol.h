@@ -7,9 +7,10 @@
 #import <Intents/JSExport-Protocol.h>
 #import <Intents/NSObject-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @protocol INIntentSlotDescriptionExport <NSObject, JSExport>
+@property(readonly, copy, nonatomic) NSArray *resolveSelectorStrings;
 @property(readonly, nonatomic) SEL deprecatedResolveSelector;
 @property(readonly, nonatomic) SEL resolveSelector;
 @property(readonly, nonatomic) _Bool isPrivate;

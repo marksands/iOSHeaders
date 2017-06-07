@@ -14,16 +14,20 @@
     unsigned long long _seqID;
     double _lastStartTime;
     _Bool _loopIsEnabled;
+    unsigned long long _channelCount;
 }
 
+@property(readonly) unsigned long long channelCount; // @synthesize channelCount=_channelCount;
 @property double lastStartTime; // @synthesize lastStartTime=_lastStartTime;
 @property unsigned long long seqID; // @synthesize seqID=_seqID;
 @property __weak AVHapticPlayer *player; // @synthesize player=_player;
 - (void).cxx_destruct;
+- (_Bool)activateChannelByIndex:(unsigned long long)arg1 atTime:(double)arg2 error:(id *)arg3;
 - (_Bool)stopAtTime:(double)arg1 error:(id *)arg2;
 - (_Bool)playAtTime:(double)arg1 offset:(double)arg2 error:(id *)arg3;
 - (_Bool)prepareToPlayAndReturnError:(id *)arg1;
 @property _Bool loopingEnabled;
+- (unsigned long long)getChannelCount;
 - (_Bool)setLoopingEnabled:(_Bool)arg1 error:(id *)arg2;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1 player:(id)arg2 error:(id *)arg3;

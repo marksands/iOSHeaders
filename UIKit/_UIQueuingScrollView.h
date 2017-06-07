@@ -77,6 +77,7 @@ __attribute__((visibility("hidden")))
 - (id)_viewBefore:(_Bool)arg1 view:(id)arg2;
 - (_Bool)_dataSourceProvidesViews;
 - (void)_setWrappedViewAtIndex:(long long)arg1 withView:(id)arg2;
+- (void)_handleDirectionalPageWithHorizontalVelocity:(double)arg1 verticalVelocity:(double)arg2;
 - (void)scrollRectToVisible:(struct CGRect)arg1 animated:(_Bool)arg2;
 - (unsigned long long)_abuttedPagingEdges;
 - (_Bool)_gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;

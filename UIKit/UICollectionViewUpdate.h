@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)_computeSupplementaryUpdates;
 - (void)_computeItemUpdates;
 - (void)_computeSectionUpdates;
+- (id)description;
 - (void)dealloc;
 - (id)initWithCollectionView:(id)arg1 updateItems:(id)arg2 oldModel:(id)arg3 newModel:(id)arg4 oldVisibleBounds:(struct CGRect)arg5 newVisibleBounds:(struct CGRect)arg6;
 

@@ -22,6 +22,7 @@
     CDStruct_f953fb60 _has;
 }
 
++ (id)options;
 @property(retain, nonatomic) _INPBPayloadConfirmation *PayloadConfirmation; // @synthesize PayloadConfirmation=_PayloadConfirmation;
 @property(retain, nonatomic) _INPBPayloadNeedsDisambiguation *PayloadNeedsDisambiguation; // @synthesize PayloadNeedsDisambiguation=_PayloadNeedsDisambiguation;
 @property(retain, nonatomic) _INPBPayloadNeedsValue *PayloadNeedsValue; // @synthesize PayloadNeedsValue=_PayloadNeedsValue;

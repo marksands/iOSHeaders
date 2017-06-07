@@ -23,12 +23,14 @@
     double fAvgPace;
     unsigned long long fLapCount;
     long long fStrokeType;
+    unsigned long long fSegment;
 }
 
 + (unsigned long long)maxSwimDataEntries;
 + (id)strokeTypeName:(long long)arg1;
 + (_Bool)supportsSecureCoding;
 - (id)description;
+@property(readonly, nonatomic) unsigned long long segment;
 @property(readonly, nonatomic) long long strokeType;
 @property(readonly, nonatomic) unsigned long long lapCount;
 @property(readonly, nonatomic) double avgPace;
@@ -45,7 +47,7 @@
 - (void)dealloc;
 - (id)initWithSwimEntry:(const struct CLSwimEntry *)arg1;
 - (id)initWithSessionId:(id)arg1;
-- (id)initWithRecordId:(unsigned long long)arg1 sourceId:(id)arg2 sessionId:(id)arg3 startDate:(id)arg4 endDate:(id)arg5 strokeCount:(unsigned long long)arg6 distance:(double)arg7 avgPace:(double)arg8 lapCount:(unsigned long long)arg9 strokeType:(long long)arg10;
+- (id)initWithRecordId:(unsigned long long)arg1 sourceId:(id)arg2 sessionId:(id)arg3 startDate:(id)arg4 endDate:(id)arg5 strokeCount:(unsigned long long)arg6 distance:(double)arg7 avgPace:(double)arg8 lapCount:(unsigned long long)arg9 strokeType:(long long)arg10 segment:(unsigned long long)arg11;
 - (void)convertToSwimEntry:(struct CLSwimEntry *)arg1;
 
 @end

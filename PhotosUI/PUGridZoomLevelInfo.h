@@ -77,7 +77,7 @@ __attribute__((visibility("hidden")))
 - (void)willAnimateSizeTransition;
 @property(readonly, nonatomic) long long cellFillMode;
 @property(readonly, nonatomic) struct CGSize imageRequestItemSize;
-- (void)updateLayoutMetricsForWidth:(double)arg1;
+- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
 @property(readonly, nonatomic) unsigned long long dateRangeFormatterPreset;
 @property(readonly, nonatomic) struct __CFString *aggregateLevelKey;
 @property(readonly, nonatomic) double zoomOutDuration;
@@ -86,6 +86,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) PUSectionedGridLayout *collectionViewLayout; // @synthesize collectionViewLayout=_collectionViewLayout;
 @property(readonly, nonatomic) PHCachingImageManager *cachingImageManager; // @synthesize cachingImageManager=_cachingImageManager;
 - (id)initWithZoomLevel:(unsigned long long)arg1 zoomLevelManager:(id)arg2 baseZoomLevelInfo:(id)arg3;
+- (_Bool)shouldUseDynamicLayout;
 - (void)pushPhotosDetailsViewForVisualSection:(long long)arg1 animated:(_Bool)arg2;
 - (unsigned long long)_detailViewSourceOriginWithZoomLevel:(unsigned long long)arg1;
 - (id)imageDataForAsset:(id)arg1 itemContentScale:(double)arg2 imageWidth:(int *)arg3 imageHeight:(int *)arg4 bytesPerRow:(int *)arg5 dataWidth:(int *)arg6 dataHeight:(int *)arg7 imageDataOffset:(int *)arg8;

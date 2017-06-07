@@ -21,7 +21,6 @@
 }
 
 + (_Bool)isPocketStateAvailable;
-+ (void)initialize;
 @property(nonatomic) id <CMPocketStateDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)onPocketStateUpdated:(int)arg1;
 - (void)onNotification:(id)arg1;

@@ -24,7 +24,6 @@
 - (_Bool)CKOperationShouldRun:(id *)arg1;
 - (_Bool)hasCKOperationCallbacksSet;
 - (Class)operationInfoClass;
-- (void)setLongLived:(_Bool)arg1;
 - (id)init;
 
 @end

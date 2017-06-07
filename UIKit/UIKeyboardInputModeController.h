@@ -114,6 +114,12 @@
 - (void)_setCurrentInputMode:(id)arg1 force:(_Bool)arg2;
 @property(retain) UIKeyboardInputMode *currentInputMode;
 @property(readonly, nonatomic) _Bool containsDictationSupportedInputMode;
+- (_Bool)isDictationLanguageEnabled:(id)arg1;
+@property(readonly, nonatomic) NSArray *enabledDictationLanguages;
+- (id)keyboardLanguageForDictationLanguage:(id)arg1;
+- (id)defaultDictationLanguages:(id)arg1;
+- (id)suggestedDictationLanguageForDeviceLanguage;
+@property(readonly, nonatomic) NSArray *activeDictationSupportedInputModeIdentifiers;
 @property(readonly, nonatomic) UIKeyboardInputMode *lastUsedInputModeForCurrentContext;
 @property(readonly, nonatomic) UIKeyboardInputMode *currentLinguisticInputMode;
 @property(readonly, nonatomic) UIKeyboardInputMode *currentPublicInputMode;

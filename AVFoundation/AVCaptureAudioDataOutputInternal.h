@@ -13,6 +13,7 @@
 {
     AVWeakReference *weakReference;
     AVWeakReferencingDelegateStorage *delegateStorage;
+    AVWeakReferencingDelegateStorage *delegateOverrideStorage;
     NSObject<OS_dispatch_queue> *bufferQueue;
     struct OpaqueFigSimpleMutex *remoteQueueMutex;
     void *remoteReceiverQueue;

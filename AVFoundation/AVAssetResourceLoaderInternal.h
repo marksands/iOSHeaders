@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVAssetClientURLRequestHelper, AVAssetResourceLoaderURLSessionDataDelegate, AVWeakReference, NSMutableDictionary, NSOperation, NSOperationQueue, NSURLSession;
+@class AVAssetClientURLRequestHelper, AVAssetCustomURLBridgeForNSURLSession, AVWeakReference, NSMutableDictionary, NSOperation, NSOperationQueue, NSURLSession;
 @protocol NSURLSessionDataDelegate, OS_dispatch_queue;
 
 @interface AVAssetResourceLoaderInternal : NSObject
@@ -16,6 +16,10 @@
     NSObject<OS_dispatch_queue> *stateQueue;
     AVWeakReference *weakReferenceToDelegate;
     NSObject<OS_dispatch_queue> *delegateQueue;
+    struct OpaqueFigCustomURLLoader *customURLLoader;
+    struct OpaqueFigCustomURLHandler *customURLHandler;
+    struct OpaqueFigCustomURLHandler *authHandler;
+    struct OpaqueFigCustomURLHandler *contentKeySessionCustomURLHandler;
     int loadingCancelled;
     NSMutableDictionary *pendingRequests;
     NSObject<OS_dispatch_queue> *contentInformationCachingQueue;
@@ -23,10 +27,11 @@
     _Bool preloadsEligibleContentKeys;
     long long makeResourceLoaderURLSessionSupportStuffOnlyOnce;
     NSURLSession *URLSession;
+    AVAssetCustomURLBridgeForNSURLSession *bridgeBetweenHandlerAndSession;
     NSOperation *waitForAssetURLSessionStuffOperation;
     NSOperationQueue *URLSessionOperationQueue;
     id <NSURLSessionDataDelegate> URLSessionDataDelegate;
-    AVAssetResourceLoaderURLSessionDataDelegate *shimURLSessionDataDelegate;
+    id <NSURLSessionDataDelegate> shimURLSessionDataDelegate;
 }
 
 @end

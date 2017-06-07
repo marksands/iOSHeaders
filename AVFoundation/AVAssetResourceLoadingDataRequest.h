@@ -14,6 +14,7 @@
 }
 
 - (void)respondWithData:(id)arg1;
+- (struct __CFDictionary *)_requestInfo;
 - (id)_loadingRequest;
 @property(readonly, nonatomic) long long currentOffset;
 @property(readonly, nonatomic) _Bool requestsAllDataToEndOfResource;

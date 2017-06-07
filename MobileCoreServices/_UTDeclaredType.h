@@ -6,7 +6,7 @@
 
 #import <MobileCoreServices/_UTConcreteType.h>
 
-@class NSArray, NSData, NSDictionary, NSNumber, NSObject, NSString, NSURL, NSUUID;
+@class NSArray, NSData, NSDictionary, NSNumber, NSObject, NSString, NSURL;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 {
     NSObject<OS_dispatch_queue> *_additionalInfoQueue;
     unsigned int _flags;
-    NSUUID *_uuid;
+    unsigned int _unit;
     NSNumber *_version;
     NSString *_unlocalizedDescription;
     NSString *_localizedDescription;
@@ -36,9 +36,11 @@ __attribute__((visibility("hidden")))
 - (id)parentIdentifiers;
 - (id)tagSpecification;
 - (id)version;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)_localizedDescriptionWithPreferredLocalizations:(id)arg1;
+- (id)_localizedDescriptionWithPreferredLocalizations:(id)arg1 checkingParents:(_Bool)arg2;
+- (_Bool)_isWildcard;
 - (id)referenceURL;
 - (id)_iconURL;
 - (id)_localizedDescriptionDictionary;
@@ -48,8 +50,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)isDeclared;
 - (id)declaration;
 - (id)declaringBundleURL;
-- (void)dealloc;
-- (id)initWithContext:(struct LSContext *)arg1 UTTypeID:(unsigned int)arg2 UTTypeData:(const CDStruct_b227e4e8 *)arg3;
+- (id)initWithContext:(struct LSContext *)arg1 UTTypeID:(unsigned int)arg2 UTTypeData:(const CDStruct_b8194125 *)arg3;
+- (id)_iconURLCheckingParents:(_Bool)arg1;
 - (_Bool)validateCollectionTypes;
 - (_Bool)needsWorkaroundFor22092605;
 

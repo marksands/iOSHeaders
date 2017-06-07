@@ -11,6 +11,7 @@
 
 @interface AVAssetExportSessionInternal : NSObject
 {
+    struct OpaqueFigAssetExportSession *figExportSession;
     AVWeakReference *weakReference;
     NSObject<OS_dispatch_queue> *readWriteQueue;
     struct OpaqueFigRemaker *remaker;
@@ -46,6 +47,7 @@
     long long compatibleFileTypesDispatchOncePredicate;
     NSArray *compatibleFileTypes;
     NSObject<OS_dispatch_queue> *remakerNotificationSerializationQueue;
+    _Bool preserveSyncFrames;
 }
 
 @end

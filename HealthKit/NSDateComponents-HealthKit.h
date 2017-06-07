@@ -8,6 +8,7 @@
 
 @interface NSDateComponents (HealthKit)
 + (id)hk_componentsWithDays:(long long)arg1;
++ (id)hk_oneWeek;
 + (id)hk_oneDay;
 - (id)hk_translateDateComponentsToCalendar:(id)arg1 calendarUnits:(unsigned long long)arg2;
 - (id)hk_populatedCalendarGregorianCalendarDefault;

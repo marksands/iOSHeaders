@@ -6,22 +6,39 @@
 
 #import <HealthKit/HKQuery.h>
 
-@interface HKSourceQuery : HKQuery
+#import <HealthKit/HKSourceQueryClientInterface-Protocol.h>
+
+@class NSString;
+@protocol HKQueryServerInterface;
+
+@interface HKSourceQuery : HKQuery <HKSourceQueryClientInterface>
 {
+    _Bool _hasDeliveredInitialResults;
+    id <HKQueryServerInterface> _serverProxy;
     CDUnknownBlockType _completionHandler;
     CDUnknownBlockType _updateHandler;
 }
 
++ (void)configureServerInterface:(id)arg1;
++ (void)configureClientInterface:(id)arg1;
++ (id)clientInterfaceProtocol;
 @property(copy, nonatomic) CDUnknownBlockType updateHandler; // @synthesize updateHandler=_updateHandler;
 @property(readonly, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void).cxx_destruct;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (void)_queue_validate;
-- (_Bool)_queue_shouldStayAliveAfterInitialResults;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)deliverUpdatedSources:(id)arg1 added:(id)arg2 forQuery:(id)arg3;
-- (void)deliverSources:(id)arg1 forQuery:(id)arg2;
+- (void)client_deliverUpdatedSources:(id)arg1 added:(id)arg2 forQuery:(id)arg3;
+- (void)client_deliverSources:(id)arg1 forQuery:(id)arg2;
+- (_Bool)queue_shouldDeactivateAfterInitialResults;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_validate;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)initWithSampleType:(id)arg1 samplePredicate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

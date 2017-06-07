@@ -14,6 +14,7 @@
     id _object;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
 @property(copy, nonatomic) NSString *keyPath; // @synthesize keyPath=_keyPath;
 - (id)debugDescription;

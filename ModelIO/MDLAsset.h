@@ -10,7 +10,7 @@
 #import <ModelIO/NSFastEnumeration-Protocol.h>
 
 @class MDLVertexDescriptor, NSArray, NSMapTable, NSMutableArray, NSURL;
-@protocol MDLMeshBufferAllocator, MDLObjectContainerComponent;
+@protocol MDLAssetResolver, MDLMeshBufferAllocator, MDLObjectContainerComponent;
 
 @interface MDLAsset : NSObject <NSCopying, NSFastEnumeration>
 {
@@ -19,17 +19,25 @@
     id <MDLObjectContainerComponent> _masters;
     double _startTime;
     double _endTime;
+    // Error parsing type: , name: _upAxis
     NSMapTable *_components;
     double _frameInterval;
+    id <MDLAssetResolver> _resolver;
     id <MDLMeshBufferAllocator> _bufferAllocator;
     MDLVertexDescriptor *_vertexDescriptor;
+    double __timeCodesPerSecond;
 }
 
 + (_Bool)canImportFileExtension:(id)arg1;
 + (_Bool)canExportFileExtension:(id)arg1;
 + (id)placeLightProbesWithDensity:(float)arg1 heuristic:(long long)arg2 usingIrradianceDataSource:(id)arg3;
+@property(nonatomic) double _timeCodesPerSecond; // @synthesize _timeCodesPerSecond=__timeCodesPerSecond;
 @property(readonly, retain, nonatomic) MDLVertexDescriptor *vertexDescriptor; // @synthesize vertexDescriptor=_vertexDescriptor;
 @property(readonly, retain, nonatomic) id <MDLMeshBufferAllocator> bufferAllocator; // @synthesize bufferAllocator=_bufferAllocator;
+@property(retain, nonatomic) id <MDLAssetResolver> resolver; // @synthesize resolver=_resolver;
+// Error parsing type for property upAxis:
+// Property attributes: T,N,V_upAxis
+
 @property(nonatomic) double frameInterval; // @synthesize frameInterval=_frameInterval;
 @property(retain, nonatomic) id <MDLObjectContainerComponent> masters; // @synthesize masters=_masters;
 - (void).cxx_destruct;
@@ -42,6 +50,7 @@
 - (_Bool)exportAssetToURL:(id)arg1;
 - (_Bool)exportAssetToURL:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) unsigned long long count;
+- (id)initWithURL:(id)arg1 bufferAllocator:(id)arg2 preserveIndexing:(_Bool)arg3 error:(id *)arg4;
 - (id)initWithURL:(id)arg1 vertexDescriptor:(id)arg2 bufferAllocator:(id)arg3;
 - (id)initWithURL:(id)arg1;
 - (id)initWithURL:(id)arg1 vertexDescriptor:(id)arg2 bufferAllocator:(id)arg3 preserveTopology:(_Bool)arg4 error:(id *)arg5;
@@ -54,6 +63,8 @@
 @property(nonatomic) double startTime;
 - (struct)boundingBoxAtTime:(double)arg1;
 @property(readonly, nonatomic) struct boundingBox;
+- (void)loadTextures;
+- (void)resolveTextures;
 - (void)enumerateChildObjectsOfClass:(Class)arg1 usingBlock:(CDUnknownBlockType)arg2 stopPointer:(_Bool *)arg3;
 - (id)childObjectsOfClass:(Class)arg1;
 @property(readonly, copy, nonatomic) NSArray *components;

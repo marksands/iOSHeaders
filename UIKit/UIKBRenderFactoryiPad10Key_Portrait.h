@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIKBRenderFactory10Key_Landscape.h>
+#import <UIKit/UIKBRenderFactory10Key.h>
 
 __attribute__((visibility("hidden")))
-@interface UIKBRenderFactoryiPad10Key_Portrait : UIKBRenderFactory10Key_Landscape
+@interface UIKBRenderFactoryiPad10Key_Portrait : UIKBRenderFactory10Key
 {
 }
 
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 - (id)backgroundTraitsForKeyplane:(id)arg1;
 - (unsigned long long)edgesAdjustedForTranslucentGapsForGeometry:(id)arg1 key:(id)arg2 onKeyplane:(id)arg3;
 - (struct UIEdgeInsets)topEdgeAdjustmentInsets;
+- (void)setupLayoutSegments;
 - (double)controlColumnWidthFactor;
 - (id)messagesWriteboardKeyImageName;
 - (id)muttitapReverseKeyImageName;
@@ -26,6 +27,14 @@ __attribute__((visibility("hidden")))
 - (double)keyCornerRadius;
 - (id)thinKeycapsFontName;
 - (id)lightKeycapsFontName;
+- (struct CGPoint)numberPadVBarSecondaryTextOffset;
+- (struct CGPoint)numberPadKeySecondaryTextOffset;
+- (struct CGPoint)numberPadKeyPrimaryTextOffset;
+- (double)numberPadKeyPrimarySymbolSize;
+- (struct CGPoint)abcKeyTextOffset;
+- (struct UIEdgeInsets)wideShadowPaddleInsets;
+- (struct CGPoint)dictationKeyTextOffset;
+- (struct CGPoint)globeKeyTextOffset;
 
 @end
 

@@ -21,6 +21,8 @@
 + (id)_extensionAuxiliaryVendorProtocol;
 @property __weak id <NEFilterDataExtensionProviderHostDelegate> data_delegate; // @synthesize data_delegate=_data_delegate;
 - (void).cxx_destruct;
+- (void)getSourceAppInfoForFlow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)reportFlow:(id)arg1 action:(int)arg2;
 - (void)fetchCurrentRulesForFlow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)sendSocketContentFilterRequest;
 - (void)sendBrowserContentFilterServerRequest;

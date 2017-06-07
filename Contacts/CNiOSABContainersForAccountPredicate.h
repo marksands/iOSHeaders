@@ -20,9 +20,9 @@ __attribute__((visibility("hidden")))
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) _Bool includesDisabledContainers; // @synthesize includesDisabledContainers=_includesDisabledContainers;
 @property(readonly, copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (struct __CFArray *)cn_copyContainersInAddressBook:(void *)arg1 error:(struct __CFError **)arg2;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithAccountIdentifier:(id)arg1 includingDisabledContainers:(_Bool)arg2;

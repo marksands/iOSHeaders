@@ -14,6 +14,7 @@
 {
 }
 
+- (void)reportFlow:(id)arg1 action:(int)arg2;
 - (id)handleRemediationForFlow:(id)arg1;
 - (void)handleRulesChanged;
 - (id)handleOutboundDataCompleteForFlow:(id)arg1;

@@ -9,7 +9,6 @@
 @class NSMutableSet;
 @protocol CXTransactionManagerDelegate, OS_dispatch_queue;
 
-__attribute__((visibility("hidden")))
 @interface CXTransactionManager : NSObject
 {
     id <CXTransactionManagerDelegate> _delegate;

@@ -7,6 +7,7 @@
 @class NSDate;
 
 @protocol EKEventDetailTitleCellDelegate
+- (_Bool)hidesSeparator;
 - (NSDate *)proposedTime;
 - (void)predictionWasActedOn;
 - (void)editButtonPressed;

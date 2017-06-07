@@ -26,8 +26,8 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_removeConstraints;
-- (void)_addConstraints;
 - (void)_matchInitialKeyboardFrame;
+- (void)_createConstraints;
 - (void)didMoveToWindow;
 - (void)willMoveToWindow:(id)arg1;
 - (void)_keyboardChanged:(id)arg1;

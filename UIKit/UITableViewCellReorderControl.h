@@ -13,9 +13,12 @@ __attribute__((visibility("hidden")))
 {
     UITableViewCell *_cell;
     struct CGPoint _downPoint;
+    double _focalY;
+    double _focalHeight;
 }
 
 - (void).cxx_destruct;
+- (id)_imageView;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
@@ -25,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_updateImageView;
 - (void)layoutSubviews;
+- (void)adjustLayoutForFocalRect:(struct CGRect)arg1;
 - (id)initWithTableViewCell:(id)arg1;
 - (id)grabberImage;
 

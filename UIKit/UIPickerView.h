@@ -12,7 +12,7 @@
 #import <UIKit/UITableViewDataSource-Protocol.h>
 #import <UIKit/UITableViewDelegate-Protocol.h>
 
-@class CALayer, NSMutableArray, NSString, UIColor, UIImageView, _UIFeedbackRetargetBehavior, _UIPickerViewTestParameters;
+@class CALayer, NSMutableArray, NSString, UIColor, UIImageView, UISelectionFeedbackGenerator, _UIPickerViewTestParameters;
 @protocol UIPickerViewDataSource, UIPickerViewDelegate;
 
 @interface UIPickerView : UIView <UIPickerViewScrollTesting, UIPickerTableViewContainerDelegate, UITableViewDelegate, UITableViewDataSource, NSCoding>
@@ -56,7 +56,7 @@
     _Bool _magnifierEnabled;
     _Bool _enabled;
     UIColor *_magnifierLineColor;
-    _UIFeedbackRetargetBehavior *_retargetBehavior;
+    UISelectionFeedbackGenerator *_selectionFeedbackGenerator;
 }
 
 + (void)initialize;
@@ -65,7 +65,7 @@
 + (struct CGSize)defaultSizeForTraits:(id)arg1;
 + (struct CGSize)sizeForMainScreenTraitsThatFits:(struct CGSize)arg1;
 + (struct CGSize)sizeThatFits:(struct CGSize)arg1 forTraits:(id)arg2;
-@property(retain, nonatomic, getter=_retargetBehavior, setter=_setRetargetBehavior:) _UIFeedbackRetargetBehavior *retargetBehavior; // @synthesize retargetBehavior=_retargetBehavior;
+@property(retain, nonatomic, getter=_selectionFeedbackGenerator, setter=_setRetargetGenerator:) UISelectionFeedbackGenerator *selectionFeedbackGenerator; // @synthesize selectionFeedbackGenerator=_selectionFeedbackGenerator;
 @property(nonatomic, getter=_enabled, setter=_setEnabled:) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic, getter=_magnifierLineColor, setter=_setMagnifierLineColor:) UIColor *magnifierLineColor; // @synthesize magnifierLineColor=_magnifierLineColor;
 @property(nonatomic, setter=_setMagnifierEnabled:) _Bool _magnifierEnabled; // @synthesize _magnifierEnabled;

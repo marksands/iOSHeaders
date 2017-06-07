@@ -15,10 +15,12 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)showSpinner:(_Bool)arg1;
 - (void)setAttachment:(id)arg1;
 - (id)_iconForDocumentProxy:(id)arg1;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end
 

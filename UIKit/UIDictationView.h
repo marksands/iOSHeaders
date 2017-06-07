@@ -16,11 +16,11 @@
     UIKeyboardDicationBackground *_background;
     UIButton *_endpointButton;
     UIButton *_endpointButtonLandscape;
-    UIButton *_waveTapEndpointButton;
     int _state;
     _Bool _keyboardInTransition;
     _Bool _automaticAppearanceWasEnabled;
     SUICFlamesView *_flamesView;
+    _Bool _showLanguageLabel;
     id <UIDictationViewDisplayDelegate> _displayDelegate;
 }
 
@@ -29,6 +29,7 @@
 + (id)sharedInstance;
 + (struct CGSize)viewSize;
 + (Class)dictationViewClass;
+@property(nonatomic) _Bool showLanguageLabel; // @synthesize showLanguageLabel=_showLanguageLabel;
 @property(nonatomic) id <UIDictationViewDisplayDelegate> displayDelegate; // @synthesize displayDelegate=_displayDelegate;
 - (float)audioLevelForFlamesView:(id)arg1;
 - (_Bool)visible;
@@ -44,6 +45,9 @@
 - (void)keyboardDidShow:(id)arg1;
 - (struct CGPoint)backgroundOffset;
 - (struct CGPoint)contentOffset;
+- (void)globeButtonPressed:(id)arg1 withEvent:(id)arg2 location:(struct CGPoint)arg3;
+- (void)didEndIndirectSelectionGesture;
+- (void)willBeginIndirectSelectionGesture;
 - (struct CGPoint)positionForShow;
 - (void)show;
 - (void)applicationEnteredBackground;

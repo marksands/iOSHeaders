@@ -20,7 +20,10 @@
 }
 
 + (void)deleteAllUserVocabularyFromAllAppsAsync;
++ (void)_iterateVocabularyWithSummary:(id)arg1 optionalBlock:(CDUnknownBlockType)arg2;
 + (id)savedCustomVocabularyOverviewDictionary;
++ (void)enumerateVocabularyUsingBlock:(CDUnknownBlockType)arg1;
++ (id)_latestVocabularyStringsAt:(id)arg1;
 + (id)managerForBundleID:(id)arg1 bundlePath:(id)arg2;
 + (id)appDatastoreDirectoryForAppBundleID:(id)arg1 bundlePath:(id)arg2;
 + (id)_hashOfAppPath:(id)arg1;

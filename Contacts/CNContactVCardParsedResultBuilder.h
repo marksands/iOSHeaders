@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNVCardParsedResultBuilder-Protocol.h>
 
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 + (id)labeledValuesWithValues:(id)arg1 transform:(CDUnknownBlockType)arg2 labels:(id)arg3 isPrimaries:(id)arg4;
 + (CDUnknownBlockType)contactValueTransformForVCardKey:(id)arg1;
 + (id)contactKeyForVCardKey:(id)arg1;
+- (void).cxx_destruct;
 - (long long)personFlags;
 - (_Bool)setPersonFlags:(long long)arg1;
 - (long long)personFlagsByAddingContactType:(long long)arg1 toFlags:(long long)arg2;
@@ -32,7 +33,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)canSetValueForProperty:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (id)build;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

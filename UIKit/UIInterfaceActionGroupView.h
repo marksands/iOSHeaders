@@ -10,18 +10,21 @@
 #import <UIKit/UIInterfaceActionGroupDisplayPropertyObserver-Protocol.h>
 #import <UIKit/UIInterfaceActionGroupDisplaying-Protocol.h>
 #import <UIKit/UIScrollViewDelegate-Protocol.h>
+#import <UIKit/UISpringLoadedInteractionSupporting-Protocol.h>
 #import <UIKit/_UIInterfaceActionPresenting-Protocol.h>
 
 @class NSArray, NSLayoutConstraint, NSMutableArray, NSPointerArray, NSString, UIFont, UIInterfaceActionGroup, UIInterfaceActionRepresentationView, UIInterfaceActionSelectionTrackingController, UIInterfaceActionSeparatorAttributes, UIInterfaceActionVisualStyle, UILongPressGestureRecognizer, _UIContentConstraintsLayoutGuide, _UIInterfaceActionRepresentationsSequenceView;
 @protocol UIInterfaceActionHandlerInvocationDelegate, UIInterfaceActionVisualStyleProviding, UISeparatorDisplaying;
 
-@interface UIInterfaceActionGroupView : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegatePrivate, _UIInterfaceActionPresenting, UIInterfaceActionGroupDisplayPropertyObserver, UIInterfaceActionGroupDisplaying>
+@interface UIInterfaceActionGroupView : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegatePrivate, _UIInterfaceActionPresenting, UIInterfaceActionGroupDisplayPropertyObserver, UIInterfaceActionGroupDisplaying, UISpringLoadedInteractionSupporting>
 {
     _Bool _needsUpdateTopLevelViewsArrangement;
     _Bool _needsUpdateActionSequenceViewArrangement;
     _Bool _needsInitialViewLoading;
     _Bool _isSettingVisualStyle;
     UIInterfaceActionVisualStyle *_activeTestingVisualStyle;
+    NSString *_cachedSizeCategory;
+    _Bool _springLoaded;
     _Bool _showsSeparatorAboveActions;
     _Bool _drawsBackground;
     id <UIInterfaceActionVisualStyleProviding> _visualStyleProvider;
@@ -76,6 +79,7 @@
 @property(nonatomic) long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;
 @property(nonatomic) __weak id <UIInterfaceActionHandlerInvocationDelegate> actionHandlerInvocationDelegate; // @synthesize actionHandlerInvocationDelegate=_actionHandlerInvocationDelegate;
 @property(readonly, nonatomic) UIInterfaceActionGroup *actionGroup; // @synthesize actionGroup=_actionGroup;
+@property(nonatomic, getter=isSpringLoaded) _Bool springLoaded; // @synthesize springLoaded=_springLoaded;
 @property(nonatomic) __weak id <UIInterfaceActionVisualStyleProviding> visualStyleProvider; // @synthesize visualStyleProvider=_visualStyleProvider;
 - (void).cxx_destruct;
 - (id)_alertController;
@@ -124,6 +128,8 @@
 - (void)_loadTopLevelItemsView;
 - (void)_updateRoundedCornerPositionForSubviews;
 - (void)_reloadStackViewContentsIfNeeded;
+- (_Bool)_shouldInstallContentGuideConstraints;
+- (void)_installContentGuideConstraints;
 - (id)_interfaceActionOfFocusedRepresentationView;
 - (id)_newActionGroupBackgroundView;
 - (void)_associateWeakSimultaneouslyPresentedGroupViews:(id)arg1 bidirectional:(_Bool)arg2;

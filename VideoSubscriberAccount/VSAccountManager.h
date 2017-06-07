@@ -8,7 +8,7 @@
 
 #import <VideoSubscriberAccount/VSViewServiceRequestOperationDelegate-Protocol.h>
 
-@class NSString, VSPrivacyInfoCenter, VSSecurityTask, VSViewServiceRequestCenter;
+@class NSString, VSLinkedOnOrAfterChecker, VSPrivacyInfoCenter, VSSecurityTask, VSViewServiceRequestCenter;
 @protocol VSAccountManagerDelegate;
 
 @interface VSAccountManager : NSObject <VSViewServiceRequestOperationDelegate>
@@ -17,8 +17,10 @@
     VSSecurityTask *_securityTask;
     VSPrivacyInfoCenter *_privacyInfoCenter;
     VSViewServiceRequestCenter *_requestCenter;
+    VSLinkedOnOrAfterChecker *_linkedOnOrAfterChecker;
 }
 
+@property(retain, nonatomic) VSLinkedOnOrAfterChecker *linkedOnOrAfterChecker; // @synthesize linkedOnOrAfterChecker=_linkedOnOrAfterChecker;
 @property(retain, nonatomic) VSViewServiceRequestCenter *requestCenter; // @synthesize requestCenter=_requestCenter;
 @property(retain, nonatomic) VSPrivacyInfoCenter *privacyInfoCenter; // @synthesize privacyInfoCenter=_privacyInfoCenter;
 @property(retain, nonatomic) VSSecurityTask *securityTask; // @synthesize securityTask=_securityTask;
@@ -26,8 +28,8 @@
 - (void).cxx_destruct;
 - (id)enqueueAccountMetadataRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_enqueueViewServiceRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_checkEntitlement;
 - (void)checkAccessStatusWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)viewServiceRequestOperation:(id)arg1 shouldAuthenticateAccountProviderWithIdentifier:(id)arg2;
 - (void)viewServiceRequestOperation:(id)arg1 dismissViewController:(id)arg2;
 - (void)viewServiceRequestOperation:(id)arg1 presentViewController:(id)arg2;
 - (id)init;

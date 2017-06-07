@@ -6,15 +6,18 @@
 
 #import <Foundation/NSMutableString.h>
 
+#import <Foundation/NSSecureCoding-Protocol.h>
+
 @class NSDictionary;
 
 __attribute__((visibility("hidden")))
-@interface __NSLocalizedString : NSMutableString
+@interface __NSLocalizedString : NSMutableString <NSSecureCoding>
 {
     NSMutableString *original;
     NSDictionary *config;
 }
 
++ (_Bool)supportsSecureCoding;
 - (unsigned long long)replaceOccurrencesOfString:(id)arg1 withString:(id)arg2 options:(unsigned long long)arg3 range:(struct _NSRange)arg4;
 - (void)appendCharacters:(const unsigned short *)arg1 length:(unsigned long long)arg2;
 - (void)setString:(id)arg1;
@@ -39,6 +42,10 @@ __attribute__((visibility("hidden")))
 - (id)baseString;
 - (id)formatConfiguration;
 - (id)initWithString:(id)arg1 withFormatConfiguration:(id)arg2;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (Class)classForCoder;
+- (_Bool)_allowsDirectEncoding;
 
 @end
 

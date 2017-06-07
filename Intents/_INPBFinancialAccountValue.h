@@ -8,7 +8,7 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class NSString, PBUnknownFields, _INPBDataString, _INPBValueMetadata;
+@class NSString, PBUnknownFields, _INPBBalanceAmountValue, _INPBDataString, _INPBValueMetadata;
 
 @interface _INPBFinancialAccountValue : PBCodable <NSCopying>
 {
@@ -16,7 +16,9 @@
     _INPBDataString *_accountNickname;
     NSString *_accountNumber;
     int _accountType;
+    _INPBBalanceAmountValue *_balance;
     _INPBDataString *_organizationName;
+    _INPBBalanceAmountValue *_secondaryBalance;
     _INPBValueMetadata *_valueMetadata;
     struct {
         unsigned int accountType:1;
@@ -24,6 +26,8 @@
 }
 
 + (id)options;
+@property(retain, nonatomic) _INPBBalanceAmountValue *secondaryBalance; // @synthesize secondaryBalance=_secondaryBalance;
+@property(retain, nonatomic) _INPBBalanceAmountValue *balance; // @synthesize balance=_balance;
 @property(retain, nonatomic) _INPBDataString *organizationName; // @synthesize organizationName=_organizationName;
 @property(retain, nonatomic) NSString *accountNumber; // @synthesize accountNumber=_accountNumber;
 @property(retain, nonatomic) _INPBDataString *accountNickname; // @synthesize accountNickname=_accountNickname;
@@ -38,6 +42,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasSecondaryBalance;
+@property(readonly, nonatomic) _Bool hasBalance;
 @property(readonly, nonatomic) _Bool hasOrganizationName;
 - (int)StringAsAccountType:(id)arg1;
 - (id)accountTypeAsString:(int)arg1;

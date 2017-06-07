@@ -16,6 +16,7 @@
     NSDictionary *_eventProcessing;
     NSMutableDictionary *_hints;
     _Bool _precedesUI;
+    _Bool _restartable;
     NSDictionary *_internalOptions;
     long long _policy;
     NSDictionary *_policyOptions;
@@ -25,8 +26,13 @@
     long long _eventIdentifier;
     long long _remoteViewController;
     CDUnknownBlockType _showUIBlock;
+    MechanismBase *_companion;
+    MechanismBase *_parent;
 }
 
+@property(readonly, nonatomic, getter=isRestartable) _Bool restartable; // @synthesize restartable=_restartable;
+@property(nonatomic) __weak MechanismBase *parent; // @synthesize parent=_parent;
+@property(retain, nonatomic) MechanismBase *companion; // @synthesize companion=_companion;
 @property(copy, nonatomic) CDUnknownBlockType showUIBlock; // @synthesize showUIBlock=_showUIBlock;
 @property(readonly, nonatomic) _Bool precedesUI; // @synthesize precedesUI=_precedesUI;
 @property(readonly, nonatomic) long long remoteViewController; // @synthesize remoteViewController=_remoteViewController;
@@ -38,7 +44,10 @@
 @property(readonly, nonatomic) long long policy; // @synthesize policy=_policy;
 @property(readonly, nonatomic) NSDictionary *internalOptions; // @synthesize internalOptions=_internalOptions;
 - (void).cxx_destruct;
-- (void)restart;
+- (void)subMechanismCanRestart:(id)arg1;
+- (void)prepareForRestart;
+- (void)companionStateChanged:(id)arg1 newState:(_Bool)arg2;
+- (void)restartWithEventIdentifier:(long long)arg1;
 - (id)externalizedContext;
 - (id)additionalControllerInternalInfo;
 - (void)setCredential:(id)arg1 credentialType:(long long)arg2 reply:(CDUnknownBlockType)arg3;
@@ -52,7 +61,7 @@
 @property(readonly, nonatomic, getter=isRunning) _Bool running;
 - (long long)remoteViewControllerForEventProcessing:(id)arg1;
 - (id)backgroundMechanismForEventProcessing:(id)arg1;
-- (id)findMechanismWithClass:(Class)arg1;
+- (id)findMechanismToRetryWithEventIdentifier:(long long)arg1;
 - (id)findMechanismWithEventIdentifier:(long long)arg1;
 - (id)bestEffortAvailableMechanismForPurpose:(long long)arg1 error:(id *)arg2;
 - (void)cancelAuthentication;

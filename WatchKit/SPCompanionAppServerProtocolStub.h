@@ -15,7 +15,6 @@
 }
 
 - (void)extensionWithIdentifier:(id)arg1 gotUnknownInterfaceController:(id)arg2;
-- (void)remoteInterfaceDidDeactivate:(id)arg1;
 - (void)launchCompanionAppForGizmoAppWithIdentifier:(id)arg1 withUserInfoData:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)requestTimingData:(id)arg1 timingMetaData:(id)arg2;
 - (void)fetchNotificationForNotificationID:(id)arg1 completion:(CDUnknownBlockType)arg2;

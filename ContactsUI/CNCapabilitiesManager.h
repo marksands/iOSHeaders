@@ -27,7 +27,6 @@
 - (_Bool)isPhoneAppAvailable;
 - (_Bool)isFaceTimeAudioAvailable;
 - (_Bool)isWeiboServiceAvailable;
-- (_Bool)isTwitterServiceAvailable;
 - (_Bool)hasAdditionalTextTones;
 - (void)idStatusUpdatedForDestinations:(id)arg1 service:(id)arg2;
 - (void)_startListeningToIDSIDQueryControllerIfNecessary;

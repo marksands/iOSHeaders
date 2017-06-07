@@ -10,6 +10,7 @@
 
 @interface RPPipViewController : UIViewController
 {
+    long long _cameraPosition;
     AVCaptureSession *_pipSession;
     AVCaptureDevice *_videoDevice;
     AVCaptureDeviceInput *_videoInput;
@@ -20,6 +21,7 @@
 @property(retain, nonatomic) AVCaptureDeviceInput *videoInput; // @synthesize videoInput=_videoInput;
 @property(retain, nonatomic) AVCaptureDevice *videoDevice; // @synthesize videoDevice=_videoDevice;
 @property(retain, nonatomic) AVCaptureSession *pipSession; // @synthesize pipSession=_pipSession;
+@property(nonatomic) long long cameraPosition; // @synthesize cameraPosition=_cameraPosition;
 - (void).cxx_destruct;
 - (long long)_captureVideoOrientationForUIDeviceOrientation:(long long)arg1;
 - (void)_deviceOrientationDidChange;
@@ -32,7 +34,8 @@
 - (void)stopPipSession;
 - (void)startPipSession;
 - (void)setUpPipSession;
-- (id)initWithOrientation:(long long)arg1;
+- (id)cameraWithPosition:(long long)arg1;
+- (id)initWithOrientation:(long long)arg1 position:(long long)arg2;
 
 @end
 

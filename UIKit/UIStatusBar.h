@@ -4,17 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/_UIScrollsToTopInitiatorView.h>
+#import <UIKit/UIStatusBar_Base.h>
 
 #import <UIKit/UIStatusBarServerClient-Protocol.h>
 #import <UIKit/UIStatusBarStateObserver-Protocol.h>
 
-@class NSMutableArray, NSMutableSet, NSNumber, NSString, UIColor, UILabel, UIStatusBarBackgroundView, UIStatusBarForegroundView, UIStatusBarServer, UIStatusBarStyleAnimationParameters, UIStatusBarStyleAttributes, UIStatusBarStyleRequest, UIStatusBarWindow, UIView;
-@protocol UIStatusBarCarPlayDockDataProviding, UIStatusBarStateProvider, UIStatusBarStyleDelegate, UIViewControllerTransitionCoordinator;
+@class NSMutableArray, NSMutableSet, NSNumber, NSString, UIColor, UILabel, UIStatusBarBackgroundView, UIStatusBarForegroundView, UIStatusBarStyleAnimationParameters, UIStatusBarStyleAttributes, UIStatusBarWindow, UIView;
+@protocol UIStatusBarStateProvider;
 
-@interface UIStatusBar : _UIScrollsToTopInitiatorView <UIStatusBarServerClient, UIStatusBarStateObserver>
+@interface UIStatusBar : UIStatusBar_Base <UIStatusBarServerClient, UIStatusBarStateObserver>
 {
-    UIStatusBarServer *_statusBarServer;
     id <UIStatusBarStateProvider> _inProcessProvider;
     _Bool _showsForeground;
     UIStatusBarBackgroundView *_backgroundView;
@@ -22,77 +21,49 @@
     UILabel *_doubleHeightLabel;
     UIView *_doubleHeightLabelContainer;
     NSString *_currentDoubleHeightText;
-    CDStruct_19f80fdc _currentRawData;
+    CDStruct_121c720f _currentRawData;
     NSMutableArray *_interruptedAnimationCompositeViews;
     UIStatusBarBackgroundView *_newStyleBackgroundView;
     UIStatusBarForegroundView *_newStyleForegroundView;
     UIStatusBar *_slidingStatusBar;
-    long long _requestedStyle;
-    int _styleOverrides;
     UIStatusBarStyleAttributes *_styleAttributes;
     long long _orientation;
-    _Bool _hidden;
-    _Bool _suppressesHiddenSideEffects;
-    _Bool _foreground;
-    _Bool _registered;
     _Bool _waitingOnCallbackAfterChangingStyleOverridesLocally;
     _Bool _suppressGlow;
     double _translucentBackgroundAlpha;
     _Bool _showOnlyCenterItems;
     _Bool _foregroundViewShouldIgnoreStatusBarDataDuringAnimation;
-    CDStruct_fcc70cc1 *_localDataOverrides;
     UIColor *_tintColor;
     UIColor *_lastUsedBackgroundColor;
     UIStatusBarStyleAnimationParameters *_nextTintTransition;
     NSNumber *_overrideHeight;
     NSMutableSet *_disableRasterizationReasons;
-    _Bool _persistentAnimationsEnabled;
-    _Bool _simulatesLegacyAppearance;
-    _Bool _serverUpdatesDisabled;
     _Bool _timeHidden;
-    _Bool _homeItemsDisabled;
     UIStatusBarWindow *_statusBarWindow;
-    id <UIStatusBarStyleDelegate> _styleDelegate;
-    id <UIStatusBarCarPlayDockDataProviding> _dockDataProvider;
-    id <UIViewControllerTransitionCoordinator> __transitionCoordinator;
-    UIColor *_foregroundColor;
-    long long _legibilityStyle;
 }
 
-+ (void)enumerateStatusBarStyleOverridesWithBlock:(CDUnknownBlockType)arg1;
 + (long long)deviceUserInterfaceLayoutDirection;
 + (void)_setDeviceUserInterfaceLayoutDirection:(long long)arg1;
 + (id)_styleAttributesForStatusBarStyle:(long long)arg1 legacy:(_Bool)arg2;
 + (id)_styleAttributesForRequest:(id)arg1;
 + (id)_newStyleAttributesForRequest:(id)arg1;
 + (_Bool)_isLightContentStyle:(long long)arg1;
-+ (void)setSuppressUpdateAnimations:(_Bool)arg1;
++ (double)_viewControllerAdjustmentForOrientation:(long long)arg1;
 + (void)setTintOverrideEnabled:(_Bool)arg1 withColor:(id)arg2;
 + (long long)lowBatteryLevel;
-+ (void)getData:(CDStruct_19f80fdc *)arg1 forRequestedData:(const CDStruct_19f80fdc *)arg2 withOverrides:(const CDStruct_fcc70cc1 *)arg3;
++ (void)getData:(CDStruct_121c720f *)arg1 forRequestedData:(const CDStruct_121c720f *)arg2 withOverrides:(const CDStruct_e9ade08e *)arg3;
++ (int)cornerStyleForRequestedStyle:(long long)arg1 effectiveStyle:(long long)arg2 alignment:(int)arg3;
++ (void)enumerateStatusBarStyleOverridesWithBlock:(CDUnknownBlockType)arg1;
 + (id)navBarTintColorFromStatusBarTintColor:(id)arg1;
 + (id)statusBarTintColorForNavBarTintColor:(id)arg1;
 + (id)defaultBlueTintColor;
-+ (int)cornerStyleForRequestedStyle:(long long)arg1 effectiveStyle:(long long)arg2 alignment:(int)arg3;
-+ (long long)_defaultStyleForRequestedStyle:(long long)arg1 styleOverrides:(int)arg2 simulateLegacyAppearance:(_Bool)arg3;
 + (long long)defaultStyleForRequestedStyle:(long long)arg1 styleOverrides:(int)arg2;
 + (long long)defaultStatusBarStyleWithTint:(_Bool)arg1;
 + (double)heightForStyle:(long long)arg1 orientation:(long long)arg2;
-+ (struct CGRect)_frameInSceneReferenceSpaceForStyleAttributes:(id)arg1 orientation:(long long)arg2;
-+ (struct CGRect)_frameInSceneReferenceSpaceForStyleAttributes:(id)arg1 orientation:(long long)arg2 inSceneWithReferenceSize:(struct CGSize)arg3;
-+ (struct CGRect)_frameInSceneReferenceSpaceForStyle:(long long)arg1 orientation:(long long)arg2 inSceneWithReferenceSize:(struct CGSize)arg3;
-@property(nonatomic) long long legibilityStyle; // @synthesize legibilityStyle=_legibilityStyle;
-@property(retain, nonatomic) UIColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
-@property(nonatomic) _Bool homeItemsDisabled; // @synthesize homeItemsDisabled=_homeItemsDisabled;
++ (_Bool)_shouldForwardToImplementationClassForStyle:(long long)arg1;
 @property(nonatomic, getter=isTimeHidden) _Bool timeHidden; // @synthesize timeHidden=_timeHidden;
-@property(nonatomic) __weak id <UIViewControllerTransitionCoordinator> _transitionCoordinator; // @synthesize _transitionCoordinator=__transitionCoordinator;
-@property(nonatomic) _Bool serverUpdatesDisabled; // @synthesize serverUpdatesDisabled=_serverUpdatesDisabled;
-@property(nonatomic) _Bool simulatesLegacyAppearance; // @synthesize simulatesLegacyAppearance=_simulatesLegacyAppearance;
-@property(nonatomic) _Bool persistentAnimationsEnabled; // @synthesize persistentAnimationsEnabled=_persistentAnimationsEnabled;
-@property(nonatomic) __weak id <UIStatusBarCarPlayDockDataProviding> dockDataProvider; // @synthesize dockDataProvider=_dockDataProvider;
-@property(nonatomic) __weak id <UIStatusBarStyleDelegate> styleDelegate; // @synthesize styleDelegate=_styleDelegate;
-@property(readonly, nonatomic) int styleOverrides; // @synthesize styleOverrides=_styleOverrides;
-@property(nonatomic) __weak UIStatusBarWindow *statusBarWindow; // @synthesize statusBarWindow=_statusBarWindow;
+- (void)setStatusBarWindow:(id)arg1;
+- (id)statusBarWindow;
 - (void).cxx_destruct;
 - (_Bool)_rectIntersectsTimeItem:(struct CGRect)arg1;
 - (void)_performBlockWhileIgnoringForegroundViewChanges:(CDUnknownBlockType)arg1;
@@ -100,51 +71,43 @@
 - (void)_setOverrideHeight:(double)arg1;
 - (id)_currentComposedDataForStyle:(id)arg1;
 - (id)_currentComposedData;
-- (double)_hiddenAlphaForHideAnimationParameters:(id)arg1;
-- (struct CGAffineTransform)_hiddenTransformForHideAnimationParameters:(id)arg1;
 - (_Bool)_isTransparent;
 - (id)_backgroundView;
 - (void)statusBarStateProvider:(id)arg1 didChangeDoubleHeightStatusStringForStyle:(long long)arg2;
-- (void)statusBarStateProvider:(id)arg1 didPostStatusBarData:(const CDStruct_19f80fdc *)arg2 withActions:(int)arg3;
+- (void)statusBarStateProvider:(id)arg1 didPostStatusBarData:(const CDStruct_121c720f *)arg2 withActions:(int)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveDoubleHeightStatusString:(id)arg2 forStyle:(long long)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveGlowAnimationState:(_Bool)arg2 forStyle:(long long)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveStyleOverrides:(int)arg2;
-- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_19f80fdc *)arg2 withActions:(int)arg3;
+- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_121c720f *)arg2 withActions:(int)arg3;
 - (void)_itemViewShouldEndDisablingRasterization:(id)arg1;
 - (void)_itemViewShouldBeginDisablingRasterization:(id)arg1;
 - (void)_endDisablingRasterizationForReason:(id)arg1;
 - (void)_beginDisablingRasterizationForReason:(id)arg1;
 - (void)_updateShouldRasterize;
-- (_Bool)showsContentsOnScreen;
 - (_Bool)_shouldReverseLayoutDirection;
 - (void)_didChangeFromIdiom:(long long)arg1 onScreen:(id)arg2 traverseHierarchy:(_Bool)arg3;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)_currentStyleAttributes;
 - (void)setStyleRequest:(id)arg1 animationParameters:(id)arg2;
-@property(copy, nonatomic) UIStatusBarStyleRequest *styleRequest;
+- (id)styleRequest;
 - (id)currentStyleRequestForStyle:(long long)arg1;
 - (void)setLegibilityStyle:(long long)arg1 animationParameters:(id)arg2;
-- (void)_styleOverridesDidChange:(id)arg1;
 - (void)setForegroundAlpha:(double)arg1 animationParameters:(id)arg2;
 - (void)setForegroundColor:(id)arg1 animationParameters:(id)arg2;
+- (void)setSimulatesLegacyAppearance:(_Bool)arg1;
+- (void)setPersistentAnimationsEnabled:(_Bool)arg1;
 - (void)_updatePersistentAnimationsEnabledForForegroundView:(id)arg1;
+- (void)setRegistered:(_Bool)arg1;
 - (void)_itemViewPerformButtonAction:(id)arg1;
 - (void)jiggleLockIcon;
 - (void)animateUnlock;
 - (void)setEnabledCenterItems:(id)arg1 duration:(double)arg2;
 - (void)crossfadeTime:(_Bool)arg1 duration:(double)arg2;
-- (void)_willEnterForeground:(id)arg1;
-- (void)_didEnterBackground:(id)arg1;
-- (void)_evaluateServerRegistration;
-- (void)didMoveToSuperview;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (_Bool)_shouldSeekHigherPriorityTouchTarget;
 - (_Bool)_touchShouldProduceReturnEvent;
 - (id)_styleAttributesForRequest:(id)arg1;
 - (void)setSuppressesHiddenSideEffects:(_Bool)arg1;
-- (_Bool)isHidden;
-- (void)setHidden:(_Bool)arg1;
-- (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setHidden:(_Bool)arg1 animationParameters:(id)arg2;
 - (void)_statusBarDidAnimateRotation;
 - (void)_statusBarWillAnimateRotation;
@@ -173,41 +136,30 @@
 - (void)_setDoubleHeightStatusString:(id)arg1;
 - (id)_doubleHeightStatusStringForStyle:(long long)arg1;
 - (_Bool)_shouldUseInProcessProviderDoubleHeightStatusString;
-- (void)_requestStyleAttributes:(id)arg1 animationParameters:(id)arg2 forced:(_Bool)arg3;
-- (void)_requestStyleAttributes:(id)arg1 animationParameters:(id)arg2;
-- (void)requestStyle:(long long)arg1 animationParameters:(id)arg2 forced:(_Bool)arg3;
-- (void)requestStyle:(long long)arg1 animationParameters:(id)arg2;
+- (void)_updateUIWithStyleAttributes:(id)arg1 animationParameters:(id)arg2 forced:(_Bool)arg3;
+- (void)_updateUIWithStyleAttributes:(id)arg1 animationParameters:(id)arg2;
+- (void)_requestStyle:(long long)arg1 animationParameters:(id)arg2 forced:(_Bool)arg3;
 - (void)requestStyle:(long long)arg1 animation:(int)arg2 startTime:(double)arg3 duration:(double)arg4 curve:(long long)arg5;
-- (void)requestStyle:(long long)arg1 animated:(_Bool)arg2 forced:(_Bool)arg3;
-- (void)requestStyle:(long long)arg1 animated:(_Bool)arg2;
-- (void)requestStyle:(long long)arg1;
-- (long long)styleForRequestedStyle:(long long)arg1;
 - (_Bool)isTranslucent;
 - (_Bool)isDoubleHeight;
 - (long long)currentStyle;
-- (long long)_requestedStyle;
 - (double)_standardHeight;
 - (double)heightForOrientation:(long long)arg1;
 - (struct CGRect)frameForOrientation:(long long)arg1;
-- (double)currentHeight;
-- (struct CGRect)currentFrame;
 - (double)defaultDoubleHeight;
 - (double)defaultHeight;
-- (void)setLocalDataOverrides:(CDStruct_fcc70cc1 *)arg1;
 - (void)setShowsOnlyCenterItems:(_Bool)arg1;
 - (void)setBackgroundAlpha:(double)arg1;
 - (void)setSuppressesGlow:(_Bool)arg1;
 - (void)forgetEitherSideHistory;
 - (void)noteStyleOverridesChangedLocally;
-- (void)forceUpdateStyleOverrides:(_Bool)arg1;
 - (void)forceUpdateGlowAnimation;
 - (void)forceUpdateDoubleHeightStatus;
-- (void)forceUpdateToData:(const CDStruct_19f80fdc *)arg1 animated:(_Bool)arg2;
+- (void)forceUpdateToData:(const CDStruct_121c720f *)arg1 animated:(_Bool)arg2;
 - (void)forceUpdateData:(_Bool)arg1;
+- (void)forceUpdate:(_Bool)arg1;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 showForegroundView:(_Bool)arg2;
-- (id)initWithFrame:(struct CGRect)arg1 showForegroundView:(_Bool)arg2 inProcessStateProvider:(id)arg3;
+- (id)_initWithFrame:(struct CGRect)arg1 showForegroundView:(_Bool)arg2 inProcessStateProvider:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -20,12 +20,12 @@ __attribute__((visibility("hidden")))
     _Bool _isAtBeginningDidChange;
     _Bool _isAtEndDidChange;
     _Bool _isStalledDidChange;
-    _Bool _shouldRespectMuteSwitchDidChange;
+    _Bool _alwaysRespectsMuteSwitchDidChange;
     _Bool _isPlayableDidChange;
 }
 
 @property(nonatomic, setter=_setPlayableDidChange:) _Bool isPlayableDidChange; // @synthesize isPlayableDidChange=_isPlayableDidChange;
-@property(nonatomic, setter=_setShouldRespectMuteSwitchDidChange:) _Bool shouldRespectMuteSwitchDidChange; // @synthesize shouldRespectMuteSwitchDidChange=_shouldRespectMuteSwitchDidChange;
+@property(nonatomic, setter=_setAlwaysRespectsMuteSwitchDidChange:) _Bool alwaysRespectsMuteSwitchDidChange; // @synthesize alwaysRespectsMuteSwitchDidChange=_alwaysRespectsMuteSwitchDidChange;
 @property(nonatomic, setter=_setStalledDidChange:) _Bool isStalledDidChange; // @synthesize isStalledDidChange=_isStalledDidChange;
 @property(nonatomic, setter=_setAtEndDidChange:) _Bool isAtEndDidChange; // @synthesize isAtEndDidChange=_isAtEndDidChange;
 @property(nonatomic, setter=_setAtBeginningDidChange:) _Bool isAtBeginningDidChange; // @synthesize isAtBeginningDidChange=_isAtBeginningDidChange;

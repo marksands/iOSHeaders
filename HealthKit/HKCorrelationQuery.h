@@ -6,31 +6,40 @@
 
 #import <HealthKit/HKQuery.h>
 
-@class HKCorrelationType, NSDictionary;
+#import <HealthKit/HKCorrelationQueryClientInterface-Protocol.h>
 
-@interface HKCorrelationQuery : HKQuery
+@class HKCorrelationType, NSDictionary, NSMutableArray, NSString;
+
+@interface HKCorrelationQuery : HKQuery <HKCorrelationQueryClientInterface>
 {
     NSDictionary *_samplePredicates;
+    NSMutableArray *_correlationsPendingDelivery;
     CDUnknownBlockType _completionHandler;
     NSDictionary *_filterDictionary;
-    long long _behaviorVersion;
 }
 
-+ (Class)_queryServerDataObjectClass;
-+ (_Bool)shouldApplyPredicateForObjectType:(id)arg1;
-@property(nonatomic, getter=_behaviorVersion, setter=_setBehaviorVersion:) long long behaviorVersion; // @synthesize behaviorVersion=_behaviorVersion;
++ (void)configureClientInterface:(id)arg1;
++ (id)clientInterfaceProtocol;
++ (_Bool)shouldApplyAdditionalPredicateForObjectType:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *filterDictionary; // @synthesize filterDictionary=_filterDictionary;
 @property(readonly, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
+@property(readonly, copy) NSDictionary *samplePredicates; // @synthesize samplePredicates=_samplePredicates;
 - (void).cxx_destruct;
-- (void)_queue_cleanupAfterDeactivation;
 - (id)_predicateFilterClasses;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (void)_queue_validate;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (void)deliverSampleObjects:(id)arg1 deletedObjects:(id)arg2 withAnchor:(id)arg3 forQuery:(id)arg4;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_validate;
+- (void)queue_populateConfiguration:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)client_deliverCorrelations:(id)arg1 clearPendingSamples:(_Bool)arg2 isFinalBatch:(_Bool)arg3 queryUUID:(id)arg4;
 @property(readonly, copy) HKCorrelationType *correlationType;
-@property(readonly, copy) NSDictionary *samplePredicates;
 - (id)initWithType:(id)arg1 predicate:(id)arg2 samplePredicates:(id)arg3 completion:(CDUnknownBlockType)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

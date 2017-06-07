@@ -9,7 +9,6 @@
 @class NSDate, NSObject;
 @protocol OS_dispatch_source;
 
-__attribute__((visibility("hidden")))
 @interface VSDelayOperation : VSAsyncOperation
 {
     NSObject<OS_dispatch_source> *_timerSource;

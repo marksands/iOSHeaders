@@ -21,7 +21,6 @@
 + (id)__staticAssets__KEY;
 + (id)__MPModelPropertyMediaClipPreviewArtwork__PROPERTY;
 + (id)__previewArtworkCatalogBlock__KEY;
-+ (id)mqf_requiredPlaybackProperties;
 @property(copy, nonatomic) CDUnknownBlockType previewArtworkCatalogBlock; // @synthesize previewArtworkCatalogBlock=_previewArtworkCatalogBlock;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) NSArray *staticAssets; // @synthesize staticAssets=_staticAssets;

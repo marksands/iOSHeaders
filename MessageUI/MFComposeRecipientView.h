@@ -8,15 +8,13 @@
 
 #import <MessageUI/MFComposeRecipientAtomDelegate-Protocol.h>
 #import <MessageUI/MFCorecipientsIndicatorAtomDelegate-Protocol.h>
-#import <MessageUI/MFDragDestination-Protocol.h>
-#import <MessageUI/MFDragSource-Protocol.h>
 #import <MessageUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <MessageUI/UITextFieldDelegate-Protocol.h>
 
 @class MFComposeRecipient, MFCorecipientsIndicatorAtom, MFModernComposeRecipientAtom, NSArray, NSCountedSet, NSMutableArray, NSMutableDictionary, NSString, NSTimer, UIButton, UIFont, UITapGestureRecognizer, UITextField, UIView, _MFMailRecipientTextField;
 @protocol MFComposeRecipientViewDelegate;
 
-@interface MFComposeRecipientView : MFComposeHeaderView <UITextFieldDelegate, UIGestureRecognizerDelegate, MFComposeRecipientAtomDelegate, MFDragSource, MFDragDestination, MFCorecipientsIndicatorAtomDelegate>
+@interface MFComposeRecipientView : MFComposeHeaderView <UITextFieldDelegate, UIGestureRecognizerDelegate, MFComposeRecipientAtomDelegate, MFCorecipientsIndicatorAtomDelegate>
 {
     _MFMailRecipientTextField *_textField;
     NSArray *_textFieldConstraints;
@@ -108,22 +106,6 @@
 - (void)selectComposeRecipientAtom:(id)arg1;
 - (void)keyboardInputChangedSelection:(id)arg1;
 - (_Bool)_addable;
-- (id)supportedDropTypes:(id)arg1;
-- (id)viewForDrop;
-- (void)dropItem:(id)arg1;
-- (struct CGRect)dropRect;
-- (void)dragExited:(id)arg1;
-- (void)dragUpdated:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (void)dragEntered:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (long long)_recipientIndexAtPoint:(struct CGPoint)arg1;
-- (id)viewForDragSource;
-- (void)dragCompletedForItem:(id)arg1 success:(_Bool)arg2;
-- (void)animatePlaceholderForDragFailure:(id)arg1;
-- (void)dragStartedWithItem:(id)arg1;
-- (id)viewForDraggedItem:(id)arg1 atScale:(double)arg2;
-- (struct CGRect)frameForDraggedItem:(id)arg1;
-- (id)dragInitiatedAtPoint:(struct CGPoint)arg1;
-- (_Bool)allowsDrag;
 - (void)_removeAllRecipients;
 - (void)_removeUncommentedAddress:(id)arg1;
 - (void)_addUncommentedAddress:(id)arg1;
@@ -148,7 +130,6 @@
 @property(readonly, nonatomic) long long numberOfRowsOfTextInField;
 @property(readonly, nonatomic) double offsetForRowWithTextField;
 @property(readonly, nonatomic) NSString *text;
-- (void)willMoveToSuperview:(id)arg1;
 - (void)setLabel:(id)arg1;
 @property(nonatomic) id <MFComposeRecipientViewDelegate> delegate; // @dynamic delegate;
 - (void)dealloc;

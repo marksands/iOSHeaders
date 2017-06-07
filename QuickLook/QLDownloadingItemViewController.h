@@ -6,7 +6,7 @@
 
 #import <QuickLook/QLDetailItemViewController.h>
 
-@class QLDetailItemViewControllerState, QLRoundProgressView, UIImage, UIImageView, _QLDownloadOperation;
+@class QLDetailItemViewControllerState, QLItem, QLRoundProgressView, UIImage, UIImageView;
 @protocol QLDownloadingItemViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -22,9 +22,9 @@ __attribute__((visibility("hidden")))
     QLDetailItemViewControllerState *_nonCancelableDownloadingState;
     QLDetailItemViewControllerState *_completedDownloadState;
     QLDetailItemViewControllerState *_previewLoadingState;
-    _QLDownloadOperation *_downloadOperation;
     UIImageView *_downloadImageView;
     UIImage *_cloudImage;
+    QLItem *_previewItem;
     _Bool _showsLoadingPreviewSpinner;
     id <QLDownloadingItemViewControllerDelegate> _downloadingDelegate;
 }
@@ -34,9 +34,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <QLDownloadingItemViewControllerDelegate> downloadingDelegate; // @synthesize downloadingDelegate=_downloadingDelegate;
 @property(readonly, nonatomic) QLRoundProgressView *progressView; // @synthesize progressView=_progressView;
 - (void).cxx_destruct;
-- (id)_newDownloadOperation;
+- (void)_startDownloadOperation;
 - (void)_presentConnectivityAlert;
-- (void)_resetDownloadOperationBlocks;
 - (void)_setDownloading:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_stopDownload:(_Bool)arg1;
 - (void)_startDownload:(_Bool)arg1;
@@ -45,7 +44,8 @@ __attribute__((visibility("hidden")))
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
 - (void)_updateFileSizeWithProgress:(double)arg1 animated:(_Bool)arg2;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)shouldAutoDownloadInNetworkState:(unsigned long long)arg1 downloadSize:(id)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
 - (void)viewDidLoad;
 

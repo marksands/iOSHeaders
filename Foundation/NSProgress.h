@@ -8,7 +8,7 @@
 
 #import <Foundation/NSProgressPublisher-Protocol.h>
 
-@class NSDictionary, NSLock, NSMutableDictionary, NSMutableSet, NSString;
+@class NSDictionary, NSLock, NSMutableDictionary, NSMutableSet, NSNumber, NSString, NSURL;
 
 @interface NSProgress : NSObject <NSProgressPublisher>
 {
@@ -51,6 +51,7 @@
 + (id)discreteProgressWithTotalUnitCount:(long long)arg1;
 + (id)progressWithTotalUnitCount:(long long)arg1;
 + (id)currentProgress;
+- (void).cxx_destruct;
 - (void)_setRemoteValue:(id)arg1 forKey:(id)arg2 inUserInfo:(_Bool)arg3;
 - (id)_initWithValues:(id)arg1;
 - (void)handleAcknowledgementByAppWithBundleIdentifier:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
@@ -72,6 +73,16 @@
 - (void)_publish;
 - (void)publish;
 @property(copy) NSString *kind;
+- (void)setByteCompletedCount:(id)arg1;
+- (id)byteCompletedCount;
+- (void)setByteTotalCount:(id)arg1;
+- (id)byteTotalCount;
+@property(copy) NSNumber *fileCompletedCount;
+@property(copy) NSNumber *fileTotalCount;
+@property(copy) NSURL *fileURL;
+@property(copy) NSString *fileOperationKind;
+@property(copy) NSNumber *throughput;
+@property(copy) NSNumber *estimatedTimeRemaining;
 - (id)ownedDictionaryObjectForKey:(id)arg1;
 - (id)ownedDictionaryKeyEnumerator;
 - (unsigned long long)ownedDictionaryCount;
@@ -92,7 +103,7 @@
 @property(readonly, getter=isCancelled) _Bool cancelled;
 @property(getter=isPausable) _Bool pausable;
 @property(getter=isCancellable) _Bool cancellable;
-- (_Bool)isFinished;
+@property(readonly, getter=isFinished) _Bool finished;
 @property(copy) NSString *localizedAdditionalDescription;
 @property(copy) NSString *localizedDescription;
 @property long long completedUnitCount;
@@ -107,6 +118,7 @@
 - (void)set_adoptChildUserInfo:(_Bool)arg1;
 - (_Bool)_adoptChildUserInfo;
 - (void)becomeCurrentWithPendingUnitCount:(long long)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (void)performAsCurrentWithPendingUnitCount:(long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)resignCurrent;
 - (void)_addImplicitChild:(id)arg1;
 - (void)addChild:(id)arg1 withPendingUnitCount:(long long)arg2;

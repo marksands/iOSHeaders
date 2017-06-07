@@ -6,7 +6,7 @@
 
 #import <Photos/PHAssetPropertySet.h>
 
-@class NSData, NSDate, NSSet;
+@class NSData, NSDate;
 
 @interface PHAssetSceneAnalysisProperties : PHAssetPropertySet
 {
@@ -21,7 +21,6 @@
 @property(readonly, nonatomic) NSDate *sceneAnalysisTimestamp; // @synthesize sceneAnalysisTimestamp=_sceneAnalysisTimestamp;
 @property(readonly, nonatomic) unsigned long long sceneAnalysisVersion; // @synthesize sceneAnalysisVersion=_sceneAnalysisVersion;
 - (void).cxx_destruct;
-@property(readonly, copy, nonatomic) NSSet *sceneClassifications;
 - (id)initWithFetchDictionary:(id)arg1 asset:(id)arg2 prefetched:(_Bool)arg3;
 
 @end

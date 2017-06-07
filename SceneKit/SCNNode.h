@@ -11,13 +11,14 @@
 #import <SceneKit/SCNActionable-Protocol.h>
 #import <SceneKit/SCNAnimatable-Protocol.h>
 #import <SceneKit/SCNBoundingVolume-Protocol.h>
+#import <SceneKit/UIFocusItem-Protocol.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, SCNCamera, SCNGeometry, SCNLight, SCNMorpher, SCNNodeComponent, SCNOrderedDictionary, SCNPhysicsBody, SCNPhysicsField, SCNSkinner;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSString, SCNCamera, SCNGeometry, SCNLight, SCNMorpher, SCNNodeComponent, SCNOrderedDictionary, SCNPhysicsBody, SCNPhysicsField, SCNSkinner, UIView;
 @protocol SCNNodeRendererDelegate;
 
-@interface SCNNode : NSObject <NSCopying, NSSecureCoding, SCNAnimatable, SCNActionable, SCNBoundingVolume>
+@interface SCNNode : NSObject <NSCopying, NSSecureCoding, SCNAnimatable, SCNActionable, SCNBoundingVolume, UIFocusItem>
 {
-    // Error parsing type: ^{__C3DNode={__C3DEntity={__CFRuntimeBase=Q[4C]I}^v^{__CFString}^{__CFString}^{__CFDictionary}qq}^{__C3DNode}^{__C3DNode}^{__C3DNode}{?={?=SS}I}^{?}^{__C3DGeometry}b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1QB^{__C3DTransforms}(C3DMatrix4x4=[16f][4])ff{__C3DAABB=}}, name: _node
+    // Error parsing type: ^{__C3DNode={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DNode}^{__C3DNode}^{__C3DNode}i{?=(C3DMatrix4x4=[16f][4]{?=[4]})(?=)}^(C3DMatrix4x4)BfQib1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b3{?={?=SS}I}^{?}^{__C3DGeometry}^{__C3DSkinner}f{?=}}, name: _node
     SCNNode *_parent;
     NSMutableArray *_childNodes;
     SCNNode *_presentationInstance;
@@ -32,24 +33,27 @@
     unsigned int _affineUpToDate:1;
     unsigned int _transformUpToDate:1;
     unsigned int _hasPivot:1;
-    unsigned int _usesEuler:1;
+    unsigned int _isJoint:1;
+    unsigned int _rotationRepresentation:2;
     unsigned int _movability:1;
     unsigned int _hidden:1;
     unsigned int _castsShadow:1;
     unsigned int _ignoreAnimationWhenCopying_tmp:1;
-    unsigned int _hasComponentBitmask:10;
-    struct SCNMatrix4 _transform;
+    unsigned int _focusBehavior:2;
     unsigned int _authoringEnvironmentNode:1;
-    struct SCNVector3 _position;
-    struct SCNVector4 _rotation;
-    struct SCNVector3 _scale;
+    unsigned int _hasComponentBitmask:11;
+    // Error parsing type: {?="columns"[4]}, name: _transform
+    // Error parsing type: , name: _position
+    // Error parsing type: (?="eulerAngles""axisAngle""quaternion"{?="vector"}), name: _rotation
+    // Error parsing type: , name: _scale
     float _opacity;
     unsigned long long _categoryBitMask;
-    SCNNodeComponent *_components;
-    SCNOrderedDictionary *_animations;
-    SCNOrderedDictionary *_actions;
-    struct SCNVector3 *_fixedBoundingBoxExtrema;
     long long _renderingOrder;
+    SCNNodeComponent *_components;
+    SCNOrderedDictionary *_actions;
+    SCNOrderedDictionary *_animations;
+    NSMutableDictionary *_bindings;
+    struct SCNVector3 *_fixedBoundingBoxExtrema;
     NSString *_name;
     NSMutableDictionary *_valueForKey;
     id _rendererDelegate;
@@ -63,12 +67,19 @@
 + (id)keyPathsForValuesAffectingRotation;
 + (id)keyPathsForValuesAffectingTransform;
 + (id)keyPathsForValuesAffectingPosition;
-+     // Error parsing type: @24@0:8^{__C3DNode={__C3DEntity={__CFRuntimeBase=Q[4C]I}^v^{__CFString}^{__CFString}^{__CFDictionary}qq}^{__C3DNode}^{__C3DNode}^{__C3DNode}{?={?=SS}I}^{?}^{__C3DGeometry}b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1QB^{__C3DTransforms}(C3DMatrix4x4=[16f][4])ff{__C3DAABB=}}16, name: nodeWithNodeRef:
++     // Error parsing type: @24@0:8^{__C3DNode={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DNode}^{__C3DNode}^{__C3DNode}i{?=(C3DMatrix4x4=[16f][4]{?=[4]})(?=)}^(C3DMatrix4x4)BfQib1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b3{?={?=SS}I}^{?}^{__C3DGeometry}^{__C3DSkinner}f{?=}}16, name: nodeWithNodeRef:
++ (id)_dumpNodeTree:(id)arg1 tab:(id)arg2;
 + (id)nodeWithGeometry:(id)arg1;
 + (id)node;
-+ (id)nodeWithMDLObject:(id)arg1 masterObjects:(id)arg2;
++ (id)nodeWithMDLObject:(id)arg1 masterObjects:(id)arg2 sceneNodes:(id)arg3 skinnedMeshes:(id)arg4 options:(id)arg5;
 + (id)nodeWithMDLObject:(id)arg1;
 + (id)nodeWithMDLAsset:(id)arg1;
++ (struct SCNVector3)localFront;
++ (struct SCNVector3)localRight;
++ (struct SCNVector3)localUp;
++     // Error parsing type: 16@0:8, name: simdLocalFront
++     // Error parsing type: 16@0:8, name: simdLocalRight
++     // Error parsing type: 16@0:8, name: simdLocalUp
 - (void)setAuthoringEnvironmentPresentationNode:(id)arg1;
 - (id)authoringEnvironmentPresentationNode;
 - (void)setAuthoringEnvironmentCompanionNode:(id)arg1;
@@ -82,6 +93,8 @@
 - (void)_customEncodingOfSCNNode:(id)arg1;
 - (struct SCNMatrix4)convertTransform:(struct SCNMatrix4)arg1 fromNode:(id)arg2;
 - (struct SCNMatrix4)convertTransform:(struct SCNMatrix4)arg1 toNode:(id)arg2;
+- (struct SCNVector3)convertVector:(struct SCNVector3)arg1 fromNode:(id)arg2;
+- (struct SCNVector3)convertVector:(struct SCNVector3)arg1 toNode:(id)arg2;
 - (struct SCNVector3)convertPosition:(struct SCNVector3)arg1 fromNode:(id)arg2;
 - (struct SCNVector3)convertPosition:(struct SCNVector3)arg1 toNode:(id)arg2;
 - (void)replaceObjectInAudioPlayerAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
@@ -105,6 +118,8 @@
 - (id)particleSystems;
 - (void)_removeDeadParticleSystem:(struct __C3DParticleSystem *)arg1;
 - (id)_particleSystems;
+- (void)setEntity:(id)arg1;
+- (id)entity;
 @property(retain, nonatomic) SCNPhysicsField *physicsField;
 @property(retain, nonatomic) SCNPhysicsBody *physicsBody;
 @property(copy) NSArray *constraints;
@@ -119,10 +134,21 @@
 - (void)runAction:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)runAction:(id)arg1;
 - (void)runAction:(id)arg1 forKey:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)_parentFocusEnvironment;
+@property(readonly, copy, nonatomic) NSArray *preferredFocusEnvironments;
+- (_Bool)shouldUpdateFocusInContext:(id)arg1;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)updateFocusIfNeeded;
+- (void)setNeedsFocusUpdate;
+- (_Bool)_isEligibleForFocusInteraction;
+- (_Bool)_isEligibleForFocus;
+- (_Bool)_isEffectivelyHidden;
+- (_Bool)isFocusInteractionEnabled;
+@property(readonly, nonatomic) _Bool canBecomeFocused;
+@property(nonatomic) long long focusBehavior;
 @property(nonatomic, getter=isPaused) _Bool paused;
 - (_Bool)isPausedOrPausedByInheritance;
-- (void)_setPaused:(_Bool)arg1;
-- (void)_actionsTimeJump:(double)arg1;
+- (void)_setPausedOrPausedByInheritance:(_Bool)arg1;
 - (id)_subdividedCopyWithSubdivisionLevel:(long long)arg1;
 - (id)flattenedCopy;
 - (id)flattenedClone;
@@ -151,12 +177,17 @@
 - (void)_setParent:(id)arg1;
 - (void)unbindAnimatablePath:(id)arg1;
 - (void)bindAnimatablePath:(id)arg1 toObject:(id)arg2 withKeyPath:(id)arg3 options:(id)arg4;
+- (id)_scnBindings;
 - (_Bool)isAnimationForKeyPaused:(id)arg1;
 - (void)setSpeed:(double)arg1 forAnimationKey:(id)arg2;
 - (void)removeAnimationForKey:(id)arg1 fadeOutDuration:(double)arg2;
+- (void)removeAnimationForKey:(id)arg1 blendOutDuration:(double)arg2;
 - (void)resumeAnimationForKey:(id)arg1;
 - (void)pauseAnimationForKey:(id)arg1;
-- (void)_pauseAnimation:(_Bool)arg1 forKey:(id)arg2;
+- (void)_pauseAnimation:(_Bool)arg1 forKey:(id)arg2 pausedByNode:(_Bool)arg3;
+- (id)animationPlayerForKey:(id)arg1;
+- (void)_copyAnimationsFrom:(id)arg1;
+- (id)_scnAnimationForKey:(id)arg1;
 - (id)animationForKey:(id)arg1;
 - (void)_syncObjCAnimations;
 @property(readonly) NSArray *animationKeys;
@@ -164,6 +195,7 @@
 - (void)removeAllAnimations;
 - (void)addAnimation:(id)arg1;
 - (void)addAnimation:(id)arg1 forKey:(id)arg2;
+- (void)addAnimationPlayer:(id)arg1 forKey:(id)arg2;
 - (_Bool)__removeAnimation:(id)arg1 forKey:(id)arg2;
 - (struct __C3DAnimationManager *)animationManager;
 - (const void *)__CFObject;
@@ -171,8 +203,8 @@
 - (id)valueForUndefinedKey:(id)arg1;
 - (id)valueForKeyPath:(id)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
-- (struct __C3DAnimationChannel *)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
-- (_Bool)parseSpecialKey:(id)arg1 withPath:(id)arg2 intoDestination:(id *)arg3 remainingPath:(id *)arg4;
+- (id)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
+- (_Bool)parseSpecialKey:(id)arg1 withPath:(id)arg2 intoDestination:(id *)arg3;
 - (void)renderInContext:(void *)arg1;
 @property(nonatomic) id <SCNNodeRendererDelegate> rendererDelegate;
 @property(readonly, copy) NSString *description;
@@ -183,6 +215,7 @@
 @property(retain, nonatomic) SCNSkinner *skinner;
 - (void)setGizmo:(_Bool)arg1;
 - (_Bool)isGizmo;
+- (void)setIsJoint:(_Bool)arg1;
 - (_Bool)isJoint;
 @property(retain, nonatomic) SCNLight *light;
 - (void)_setComponent:(id)arg1 withType:(long long)arg2;
@@ -195,29 +228,33 @@
 @property(nonatomic, getter=isHidden) _Bool hidden;
 @property(nonatomic) unsigned long long categoryBitMask;
 @property(nonatomic) _Bool castsShadow;
+- (void)setHittable:(_Bool)arg1;
+- (_Bool)isHittable;
 @property(nonatomic) long long movabilityHint;
 @property(nonatomic) struct SCNMatrix4 pivot;
 @property(readonly, nonatomic) struct SCNMatrix4 worldTransform;
 - (void)setWorldTransform:(struct SCNMatrix4)arg1;
+@property(nonatomic) struct SCNVector3 worldPosition;
 @property(nonatomic) struct SCNMatrix4 transform;
 @property(nonatomic) struct SCNVector4 rotation;
 @property(nonatomic) struct SCNVector3 scale;
-- (void)_setScale:(struct SCNVector3)arg1;
+- (void)_setScale: /* Error: Ran out of types for this method. */;
 @property(nonatomic) struct SCNVector3 position;
-- (void)_setPosition:(struct SCNVector3)arg1;
+- (void)_setPosition: /* Error: Ran out of types for this method. */;
 @property(nonatomic) struct SCNVector3 eulerAngles;
-- (struct SCNVector3)_euler;
+-     // Error parsing type: 16@0:8, name: _euler
 @property(nonatomic) struct SCNVector4 orientation;
-- (void)_setQuaternion:(struct SCNVector4)arg1;
+- (void)_setQuaternion:(struct)arg1;
 - (void)setQuaternion:(struct SCNVector4)arg1;
 - (struct SCNVector4)quaternion;
-- (struct SCNVector4)_quaternion;
-- (_Bool)_usesEulerRepresentation;
+@property(nonatomic) struct SCNVector4 worldOrientation;
+- (struct)_quaternion;
+- (long long)rotationRepresentation;
 - (void)_updateAffine;
 - (void)_updateTransform;
 - (void)_registerAsObserver;
 - (id)hitTestWithSegmentFromPoint:(struct SCNVector3)arg1 toPoint:(struct SCNVector3)arg2 options:(id)arg3;
--     // Error parsing type: ^{__C3DNode={__C3DEntity={__CFRuntimeBase=Q[4C]I}^v^{__CFString}^{__CFString}^{__CFDictionary}qq}^{__C3DNode}^{__C3DNode}^{__C3DNode}{?={?=SS}I}^{?}^{__C3DGeometry}b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1QB^{__C3DTransforms}(C3DMatrix4x4=[16f][4])ff{__C3DAABB=}}16@0:8, name: nodeRef
+-     // Error parsing type: ^{__C3DNode={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DNode}^{__C3DNode}^{__C3DNode}i{?=(C3DMatrix4x4=[16f][4]{?=[4]})(?=)}^(C3DMatrix4x4)BfQib1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b3{?={?=SS}I}^{?}^{__C3DGeometry}^{__C3DSkinner}f{?=}}16@0:8, name: nodeRef
 - (id)__morpher;
 - (id)__skinner;
 - (id)__geometry;
@@ -247,6 +284,7 @@
 - (id)copy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_setAttributes:(id)arg1;
+- (id)_dumpTree;
 - (void)dump;
 - (void)_dump:(id)arg1;
 - (id)scene;
@@ -262,17 +300,69 @@
 - (void)setIdentifier:(id)arg1;
 @property(copy, nonatomic) NSString *name;
 - (void)dealloc;
--     // Error parsing type: @24@0:8^{__C3DNode={__C3DEntity={__CFRuntimeBase=Q[4C]I}^v^{__CFString}^{__CFString}^{__CFDictionary}qq}^{__C3DNode}^{__C3DNode}^{__C3DNode}{?={?=SS}I}^{?}^{__C3DGeometry}b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1QB^{__C3DTransforms}(C3DMatrix4x4=[16f][4])ff{__C3DAABB=}}16, name: initWithNodeRef:
--     // Error parsing type: @24@0:8^{__C3DNode={__C3DEntity={__CFRuntimeBase=Q[4C]I}^v^{__CFString}^{__CFString}^{__CFDictionary}qq}^{__C3DNode}^{__C3DNode}^{__C3DNode}{?={?=SS}I}^{?}^{__C3DGeometry}b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1QB^{__C3DTransforms}(C3DMatrix4x4=[16f][4])ff{__C3DAABB=}}16, name: initPresentationNodeWithNodeRef:
+-     // Error parsing type: @24@0:8^{__C3DNode={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DNode}^{__C3DNode}^{__C3DNode}i{?=(C3DMatrix4x4=[16f][4]{?=[4]})(?=)}^(C3DMatrix4x4)BfQib1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b3{?={?=SS}I}^{?}^{__C3DGeometry}^{__C3DSkinner}f{?=}}16, name: initWithNodeRef:
+-     // Error parsing type: @24@0:8^{__C3DNode={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DNode}^{__C3DNode}^{__C3DNode}i{?=(C3DMatrix4x4=[16f][4]{?=[4]})(?=)}^(C3DMatrix4x4)BfQib1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b3{?={?=SS}I}^{?}^{__C3DGeometry}^{__C3DSkinner}f{?=}}16, name: initPresentationNodeWithNodeRef:
 - (id)init;
 - (void)_bakeNodes:(id)arg1 folderPath:(id)arg2 inVertex:(_Bool)arg3 bakeAO:(_Bool)arg4 quality:(float)arg5 attenuation:(float)arg6 geomSetter:(CDUnknownBlockType)arg7 terminateSetter:(CDUnknownBlockType)arg8;
+- (void)_addSkinnerWithMDLMesh:(id)arg1 sceneNodes:(id)arg2;
 - (id)_associatedMDLObject;
+- (void)rotateBy:(struct SCNVector4)arg1 aroundTarget:(struct SCNVector3)arg2;
+- (void)localRotateBy:(struct SCNVector4)arg1;
+- (void)localTranslateBy:(struct SCNVector3)arg1;
+- (void)lookAt:(struct SCNVector3)arg1 up:(struct SCNVector3)arg2 localFront:(struct SCNVector3)arg3;
+- (void)lookAt:(struct SCNVector3)arg1;
+@property(readonly, nonatomic) struct SCNVector3 worldFront;
+@property(readonly, nonatomic) struct SCNVector3 worldRight;
+@property(readonly, nonatomic) struct SCNVector3 worldUp;
+- (void)simdRotateBy:(struct)arg1 aroundTarget: /* Error: Ran out of types for this method. */;
+- (void)simdLocalRotateBy:(struct)arg1;
+- (void)simdLocalTranslateBy: /* Error: Ran out of types for this method. */;
+- (void)simdLookAt:up:localFront: /* Error: Ran out of types for this method. */;
+- (void)simdLookAt: /* Error: Ran out of types for this method. */;
+-     // Error parsing type: 16@0:8, name: simdWorldFront
+-     // Error parsing type: 16@0:8, name: simdWorldRight
+-     // Error parsing type: 16@0:8, name: simdWorldUp
+-     // Error parsing type: {?=[4]}88@0:8{?=[4]}16@80, name: simdConvertTransform:fromNode:
+-     // Error parsing type: {?=[4]}88@0:8{?=[4]}16@80, name: simdConvertTransform:toNode:
+-     // Error parsing type: 40@0:816@32, name: simdConvertVector:fromNode:
+-     // Error parsing type: 40@0:816@32, name: simdConvertVector:toNode:
+-     // Error parsing type: 40@0:816@32, name: simdConvertPosition:fromNode:
+-     // Error parsing type: 40@0:816@32, name: simdConvertPosition:toNode:
+// Error parsing type for property simdWorldTransform:
+// Property attributes: T{?=[4]},N
+
+@property(nonatomic) struct simdWorldOrientation;
+// Error parsing type for property simdWorldPosition:
+// Property attributes: T,N
+
+// Error parsing type for property simdScale:
+// Property attributes: T,N
+
+// Error parsing type for property simdEulerAngles:
+// Property attributes: T,N
+
+@property(nonatomic) struct simdOrientation;
+// Error parsing type for property simdRotation:
+// Property attributes: T,N
+
+// Error parsing type for property simdPosition:
+// Property attributes: T,N
+
+// Error parsing type for property simdTransform:
+// Property attributes: T{?=[4]},N
+
+// Error parsing type for property simdPivot:
+// Property attributes: T{?=[4]},N
+
+-     // Error parsing type: B32@0:8^16^f24, name: simdGetBoundingSphereCenter:radius:
+@property(nonatomic) long long authoringCameraType;
 - (id)debugQuickLookData;
 - (id)debugQuickLookObject;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) __weak UIView *preferredFocusedView;
 @property(readonly) Class superclass;
 
 @end

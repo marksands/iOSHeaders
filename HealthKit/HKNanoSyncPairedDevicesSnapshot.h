@@ -7,21 +7,25 @@
 #import <objc/NSObject.h>
 
 #import <HealthKit/NSCopying-Protocol.h>
+#import <HealthKit/NSSecureCoding-Protocol.h>
 
 @class HKNanoSyncPairedDeviceInfo, NSSet;
 
-@interface HKNanoSyncPairedDevicesSnapshot : NSObject <NSCopying>
+@interface HKNanoSyncPairedDevicesSnapshot : NSObject <NSCopying, NSSecureCoding>
 {
     HKNanoSyncPairedDeviceInfo *_activeDeviceInfo;
     NSSet *_allDeviceInfos;
-    unsigned long long _hash;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)deviceInfoForSourceBundleIdentifier:(id)arg1;
 @property(readonly, copy) NSSet *allDeviceInfos;
 @property(readonly) HKNanoSyncPairedDeviceInfo *activeDeviceInfo;
 - (id)initWithPairedDeviceInfos:(id)arg1;

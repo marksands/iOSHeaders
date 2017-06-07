@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
-@interface PUPhotosGridSettings : PUSettings
+@interface PUPhotosGridSettings : PXSettings
 {
     _Bool _badgeAllItemsAsFavorites;
     _Bool _displayAllItemsAsBursts;
@@ -59,6 +59,7 @@
 @property(nonatomic) double minimumSpacing; // @synthesize minimumSpacing=_minimumSpacing;
 @property(nonatomic) double defaultItemSideSize; // @synthesize defaultItemSideSize=_defaultItemSideSize;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

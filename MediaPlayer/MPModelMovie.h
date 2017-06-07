@@ -77,8 +77,9 @@
 + (id)requiredLibraryRemovalProperties;
 + (_Bool)supportsKeepLocalStatusObservation;
 + (id)requiredKeepLocalStatusObservationProperties;
-+ (id)mqf_requiredPlaybackProperties;
 + (id)requiredStoreLibraryPersonalizationProperties;
++ (_Bool)storeItemMetadataRequestNeedsPersonalizationForIdentifiers:(id)arg1;
++ (id)storeItemMetadataRequestItemIdentifierForIdentifiers:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType editorialArtworkCatalogBlock; // @synthesize editorialArtworkCatalogBlock=_editorialArtworkCatalogBlock;
 @property(copy, nonatomic) CDUnknownBlockType artworkCatalogBlock; // @synthesize artworkCatalogBlock=_artworkCatalogBlock;
 @property(nonatomic) long long keepLocalManagedStatus; // @synthesize keepLocalManagedStatus=_keepLocalManagedStatus;
@@ -105,9 +106,6 @@
 - (struct MPLibraryAddStatusObserverConfiguration)libraryAddStatusObserverConfiguration;
 - (long long)libraryRemovalSupportedOptions;
 - (id)newKeepLocalStatusObserverConfiguration;
-- (id)mqf_playbackItemMetadataModelObject;
-- (void)mqf_configurePlaybackItemMetadata:(id)arg1;
-- (id)mqf_newPlaybackItemMetadata;
 - (id)objectWithStoreLibraryPersonalizationRelativeModelObject:(id)arg1;
 - (id)relativeModelObjectForStoreLibraryPersonalization;
 - (id)personalizationScopedPropertiesForProperties:(id)arg1;

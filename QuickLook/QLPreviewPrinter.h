@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     id <QLPrintingProtocol> _printer;
 }
 
+@property(readonly) id <QLPrintingProtocol> printer; // @synthesize printer=_printer;
 - (void).cxx_destruct;
 - (void)drawPageAtIndex:(long long)arg1 inRect:(struct CGRect)arg2;
 - (void)prepareForDrawingPages:(struct _NSRange)arg1;

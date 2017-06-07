@@ -11,8 +11,8 @@
 }
 
 - (void)_searchForFocusRegionsInContext:(id)arg1;
-- (_Bool)_shouldSearchForFocusRegionsInContext:(id)arg1;
-- (_Bool)_focusRegionIsEligibleForFocus;
+- (_Bool)_isEligibleForFocusInteraction;
+- (_Bool)_legacy_isEligibleForFocusInteraction;
 - (id)init;
 
 @end

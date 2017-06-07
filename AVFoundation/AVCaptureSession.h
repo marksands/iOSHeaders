@@ -13,9 +13,6 @@
     AVCaptureSessionInternal *_internal;
 }
 
-+ (void)_finishConfiguringAutoShallowDepthOfFieldEffectEnabledForDevice:(id)arg1;
-+ (void)_beginConfiguringAutoShallowDepthOfFieldEffectEnabledForDevice:(id)arg1;
-+ (_Bool)_isAutoShallowDepthOfFieldEffectEnabledBeingConfiguredForDevice:(id)arg1;
 + (void)_finishConfiguringActiveColorSpaceForDevice:(id)arg1;
 + (void)_beginConfiguringActiveColorSpaceForDevice:(id)arg1;
 + (_Bool)_isActiveColorSpaceBeingConfiguredForDevice:(id)arg1;
@@ -24,6 +21,7 @@
 + (id)allSessionPresets;
 + (id)dotString;
 + (void)initialize;
+- (void)_updateSourceDeviceDepthDataDeliveryEnabled;
 - (void)_handleNotification:(id)arg1 payload:(id)arg2;
 - (void)_notifyMediaServerdDied;
 - (void)_handleConfigurationDidBecomeLiveNotificationWithPayload:(id)arg1;

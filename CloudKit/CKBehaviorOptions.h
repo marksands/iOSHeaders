@@ -6,23 +6,30 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary;
+@class NSMutableDictionary, NSString, NSUserDefaults;
 @protocol OS_dispatch_queue;
 
 @interface CKBehaviorOptions : NSObject
 {
+    _Bool _didReadAutomatedDeviceGroup;
     int _mcToken;
     int _ckToken;
     NSMutableDictionary *_cachedPrefs;
     NSObject<OS_dispatch_queue> *_cachedPrefsQueue;
+    NSString *_automatedDeviceGroup;
+    NSUserDefaults *_automatedDeviceGroupDefaults;
 }
 
 + (id)sharedOptions;
+@property(retain, nonatomic) NSUserDefaults *automatedDeviceGroupDefaults; // @synthesize automatedDeviceGroupDefaults=_automatedDeviceGroupDefaults;
+@property(retain, nonatomic) NSString *automatedDeviceGroup; // @synthesize automatedDeviceGroup=_automatedDeviceGroup;
+@property _Bool didReadAutomatedDeviceGroup; // @synthesize didReadAutomatedDeviceGroup=_didReadAutomatedDeviceGroup;
 @property(nonatomic) int ckToken; // @synthesize ckToken=_ckToken;
 @property(nonatomic) int mcToken; // @synthesize mcToken=_mcToken;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cachedPrefsQueue; // @synthesize cachedPrefsQueue=_cachedPrefsQueue;
 @property(retain, nonatomic) NSMutableDictionary *cachedPrefs; // @synthesize cachedPrefs=_cachedPrefs;
 - (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (double)shareAcceptorRetrievingDialogMinPeriod;
 - (double)shareAcceptorRetrievingDialogDelay;
 - (double)maxRecentProxyAge;
@@ -37,7 +44,7 @@
 - (id)vettedEmailsTestFormat;
 - (double)publicIdentitiesExpirationTimeout;
 - (double)maximumWaitAfterFetchRequest;
-- (double)maximumFetchWaitTime;
+- (double)maximumQueuedFetchWaitTime;
 - (double)maximumThrottleSeconds;
 - (int)defaultRetryAfter;
 - (_Bool)shouldDecryptRecordsBeforeSave;
@@ -53,6 +60,15 @@
 - (void)setProductName:(id)arg1;
 - (id)productName;
 - (_Bool)_buildIsOverridden;
+- (double)maxTimeIntervalSinceLastZoneishPCSKeyRoll;
+- (void)setUseEnhancedPCSEncryptionContext:(_Bool)arg1;
+- (_Bool)useEnhancedPCSEncryptionContext;
+- (void)setRollZonePCSIdentities:(_Bool)arg1;
+- (_Bool)rollZonePCSIdentities;
+- (void)setRollRecordMasterKeysOnUnshare:(_Bool)arg1;
+- (_Bool)rollRecordMasterKeysOnUnshare;
+- (void)setRollRecordPCSMasterKeys:(_Bool)arg1;
+- (_Bool)rollRecordPCSMasterKeys;
 - (_Bool)usePreauth;
 - (void)setUsePreauth:(_Bool)arg1;
 - (_Bool)useStingray;
@@ -134,8 +150,6 @@
 - (double)defaultResourceTimeout;
 - (void)setDefaultRequestTimeout:(double)arg1;
 - (double)defaultRequestTimeout;
-- (void)setServerIDExpiryTime:(int)arg1;
-- (int)serverIDExpiryTime;
 - (unsigned long long)recordCacheSizeLimit;
 - (void)setCachedRecordExpiryTime:(int)arg1;
 - (int)cachedRecordExpiryTime;

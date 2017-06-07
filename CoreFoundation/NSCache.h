@@ -16,6 +16,7 @@
     void *_reserved;
 }
 
+- (void)__apply:(CDUnknownBlockType)arg1;
 - (id)allObjects;
 - (void)setEvictsObjectsWhenApplicationEntersBackground:(_Bool)arg1;
 - (_Bool)evictsObjectsWhenApplicationEntersBackground;

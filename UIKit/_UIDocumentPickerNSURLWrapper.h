@@ -12,8 +12,8 @@
 
 @interface _UIDocumentPickerNSURLWrapper : NSObject <NSSecureCoding>
 {
-    _Bool _createSandbox;
     NSURL *_url;
+    NSURL *_promiseURL;
     NSData *_scope;
     NSData *_promiseScope;
 }
@@ -24,9 +24,9 @@
 + (id)wrapperWithURL:(id)arg1 readonly:(_Bool)arg2;
 + (id)wrapperWithURL:(id)arg1;
 + (id)wrapperWithURL:(id)arg1 createSandboxIfNoneAttached:(_Bool)arg2;
-@property(copy, nonatomic) NSData *promiseScope; // @synthesize promiseScope=_promiseScope;
-@property(copy, nonatomic) NSData *scope; // @synthesize scope=_scope;
-@property(nonatomic) _Bool createSandbox; // @synthesize createSandbox=_createSandbox;
+@property(retain) NSData *promiseScope; // @synthesize promiseScope=_promiseScope;
+@property(retain) NSData *scope; // @synthesize scope=_scope;
+@property(retain) NSURL *promiseURL; // @synthesize promiseURL=_promiseURL;
 @property(copy, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;

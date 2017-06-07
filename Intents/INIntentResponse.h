@@ -7,13 +7,14 @@
 #import <objc/NSObject.h>
 
 #import <Intents/INCacheableContainer-Protocol.h>
+#import <Intents/INGenericIntentResponse-Protocol.h>
 #import <Intents/INIntentResponseExport-Protocol.h>
 #import <Intents/NSCopying-Protocol.h>
 #import <Intents/NSSecureCoding-Protocol.h>
 
-@class NSString, NSUserActivity, _INPBGenericIntentResponse, _INPBIntentResponse;
+@class NSDictionary, NSString, NSUserActivity, _INPBGenericIntentResponse, _INPBIntentResponse;
 
-@interface INIntentResponse : NSObject <INCacheableContainer, INIntentResponseExport, NSCopying, NSSecureCoding>
+@interface INIntentResponse : NSObject <INCacheableContainer, INIntentResponseExport, INGenericIntentResponse, NSCopying, NSSecureCoding>
 {
     _INPBGenericIntentResponse *_responseMessagePBRepresentation;
     NSUserActivity *_userActivity;
@@ -29,18 +30,19 @@
 + (id)responseSuccess;
 + (int)_errorCodeFromCode:(long long)arg1;
 + (_Bool)supportsSecureCoding;
-+ (void)load;
++ (void)initialize;
 @property(readonly, nonatomic) long long code; // @synthesize code=_code;
 @property(readonly, copy, nonatomic) _INPBIntentResponse *backingStore; // @synthesize backingStore=_backingStore;
 @property(readonly, copy, nonatomic) NSUserActivity *userActivity; // @synthesize userActivity=_userActivity;
 - (void).cxx_destruct;
 - (id)_responseMessagePBRepresentation;
-- (void)setPropertiesByName:(id)arg1;
-- (id)propertiesByName;
+@property(copy, nonatomic) NSDictionary *propertiesByName;
+- (id)initWithPropertiesByName:(id)arg1;
 - (id)protoData;
 - (id)_impl;
 - (id)_dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool _shouldForwardIntentToApp;
 - (long long)_intentHandlingStatus;
 - (void)_setPayloadResponseMessageData:(id)arg1;
 - (id)_payloadResponseMessageData;

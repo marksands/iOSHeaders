@@ -6,10 +6,16 @@
 
 #import <UIKit/_UIRemoteViewController.h>
 
+@class NSUUID;
+
 @interface _MSMessageExtensionRemoteViewController : _UIRemoteViewController
 {
+    NSUUID *_requestUUID;
 }
 
+@property(retain, nonatomic) NSUUID *requestUUID; // @synthesize requestUUID=_requestUUID;
+- (void).cxx_destruct;
+- (void)viewDidLayoutSubviews;
 - (_Bool)__shouldRemoteViewControllerFenceOperations;
 
 @end

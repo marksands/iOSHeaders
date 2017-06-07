@@ -24,14 +24,12 @@ __attribute__((visibility("hidden")))
     _Bool _deferShadowToSearchBar;
     long long defaultBarMetrics;
     long long activeBarMetrics;
-    UIImage *_condensedBackgroundImage;
     NSString *_backdropViewGroupName;
 }
 
 + (long long)typicalBarPosition;
 @property(retain, nonatomic) NSString *backdropViewGroupName; // @synthesize backdropViewGroupName=_backdropViewGroupName;
 @property(nonatomic) _Bool deferShadowToSearchBar; // @synthesize deferShadowToSearchBar=_deferShadowToSearchBar;
-@property(readonly, nonatomic) UIImage *condensedBackgroundImage; // @synthesize condensedBackgroundImage=_condensedBackgroundImage;
 @property(retain, nonatomic) NSNumber *backIndicatorLeftMargin; // @synthesize backIndicatorLeftMargin;
 @property(retain, nonatomic) UIImage *backIndicatorTransitionMaskImage; // @synthesize backIndicatorTransitionMaskImage;
 @property(retain, nonatomic) UIImage *backIndicatorImage; // @synthesize backIndicatorImage;

@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
     NSNumber *inputNoiseReductionSharpnessAmount;
     NSNumber *inputNoiseReductionContrastAmount;
     NSNumber *inputNoiseReductionDetailAmount;
+    NSNumber *inputMoireAmount;
     NSString *inputDecoderVersion;
     NSNumber *inputBoostShadowAmount;
     NSNumber *inputBias;

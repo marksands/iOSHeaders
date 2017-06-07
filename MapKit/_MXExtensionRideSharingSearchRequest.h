@@ -4,34 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MapKit/_MXExtensionObject.h>
+#import <Foundation/NSObject.h>
 
-#import <MapKit/_MXExtensionRequestObject-Protocol.h>
+#import <MapKit/NSSecureCoding-Protocol.h>
 
-@class MKMapItem, NSString;
+@class MKMapItem;
 
-@interface _MXExtensionRideSharingSearchRequest : _MXExtensionObject <_MXExtensionRequestObject>
+@interface _MXExtensionRideSharingSearchRequest : NSObject <NSSecureCoding>
 {
     MKMapItem *_origin;
     MKMapItem *_destination;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (void)load;
-+ (_Bool)supportedByExtensionWithCapabilities:(id)arg1;
-+ (void)dispatchRequest:(id)arg1 toVendor:(id)arg2 completion:(CDUnknownBlockType)arg3;
-+ (id)serviceProtocol;
 @property(retain, nonatomic) MKMapItem *destination; // @synthesize destination=_destination;
 @property(retain, nonatomic) MKMapItem *origin; // @synthesize origin=_origin;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

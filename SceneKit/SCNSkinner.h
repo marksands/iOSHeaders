@@ -13,9 +13,9 @@
 @interface SCNSkinner : NSObject <NSSecureCoding>
 {
     struct __C3DSkinner *_skinner;
-    SCNNode *_skeleton;
     SCNGeometry *_baseGeometry;
     _Bool _bonesAndIndicesCompression;
+    SCNNode *_skeleton;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -44,7 +44,7 @@
 - (_Bool)_bonesAndIndicesCompression;
 - (void)setWantsCPUSkinning:(_Bool)arg1;
 - (_Bool)wantsCPUSkinning;
-@property(retain, nonatomic) SCNNode *skeleton;
+@property(nonatomic) __weak SCNNode *skeleton;
 - (void)_syncObjCModel;
 - (void)_setSkeleton:(id)arg1;
 - (struct __C3DSkinner *)skinnerRef;

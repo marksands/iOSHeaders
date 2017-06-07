@@ -15,13 +15,17 @@
     unsigned int _componentVersion;
     struct UIViewController *_cachedViewController;
     unsigned int _maximumFramesToRender;
+    long long _MIDIOutputBufferSizeHint;
+    struct RealtimeState _realtimeState;
     _Bool _renderResourcesAllocated;
     _Bool _allParameterValues;
     _Bool _shouldBypassEffect;
     _Bool _canProcessInPlace;
     _Bool _renderingOffline;
     _Bool _supportsMPE;
+    NSString *_audioUnitShortName;
     long long _virtualMIDICableCount;
+    CDUnknownBlockType _MIDIOutputEventBlock;
     NSArray *_factoryPresets;
     AUAudioUnitPreset *_currentPreset;
     double _latency;
@@ -32,14 +36,12 @@
     NSString *_contextName;
     NSArray *_channelMap;
     struct AudioComponentDescription _componentDescription;
-    struct RealtimeState _realtimeState;
 }
 
 + (id)keyPathsForValuesAffectingAllParameterValues;
 + (id)auAudioUnitForAudioUnit:(struct OpaqueAudioComponentInstance *)arg1;
 + (void)instantiateWithComponentDescription:(struct AudioComponentDescription)arg1 options:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)registerSubclass:(Class)arg1 asComponentDescription:(struct AudioComponentDescription)arg2 name:(id)arg3 version:(unsigned int)arg4;
-@property(nonatomic) struct RealtimeState realtimeState; // @synthesize realtimeState=_realtimeState;
 @property(copy, nonatomic) NSArray *channelMap; // @synthesize channelMap=_channelMap;
 @property(readonly, nonatomic) _Bool supportsMPE; // @synthesize supportsMPE=_supportsMPE;
 @property(copy, nonatomic) NSString *contextName; // @synthesize contextName=_contextName;
@@ -53,17 +55,21 @@
 @property(readonly, nonatomic) double latency; // @synthesize latency=_latency;
 @property(retain, nonatomic) AUAudioUnitPreset *currentPreset; // @synthesize currentPreset=_currentPreset;
 @property(readonly, copy, nonatomic) NSArray *factoryPresets; // @synthesize factoryPresets=_factoryPresets;
+@property(copy, nonatomic) CDUnknownBlockType MIDIOutputEventBlock; // @synthesize MIDIOutputEventBlock=_MIDIOutputEventBlock;
 @property(readonly, nonatomic) long long virtualMIDICableCount; // @synthesize virtualMIDICableCount=_virtualMIDICableCount;
 @property(readonly, nonatomic) _Bool allParameterValues; // @synthesize allParameterValues=_allParameterValues;
 @property(readonly, nonatomic) _Bool renderResourcesAllocated; // @synthesize renderResourcesAllocated=_renderResourcesAllocated;
+@property(readonly, copy, nonatomic) NSString *audioUnitShortName; // @synthesize audioUnitShortName=_audioUnitShortName;
 @property(readonly, nonatomic) struct AudioComponentDescription componentDescription; // @synthesize componentDescription=_componentDescription;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)selectViewConfiguration:(id)arg1;
+- (id)supportedViewConfigurations:(id)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
+@property(nonatomic) long long MIDIOutputBufferSizeHint;
 @property(nonatomic) unsigned int maximumFramesToRender;
-- (void)setRenderResourcesAllocated:(_Bool)arg1;
-- (_Bool)shouldChangeToFormat:(id)arg1 forBus:(id)arg2;
+@property(readonly, nonatomic) _Bool providesUserInterface;
 - (void)requestViewControllerWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)setCachedViewController:(struct UIViewController *)arg1;
 - (struct UIViewController *)cachedViewController;
@@ -81,10 +87,11 @@
 - (void)addRenderObserver:(CDUnknownFunctionPointerType)arg1 userData:(void *)arg2;
 - (void)removeRenderObserver:(long long)arg1;
 - (long long)tokenByAddingRenderObserver:(CDUnknownBlockType)arg1;
+@property(readonly, copy, nonatomic) NSArray *MIDIOutputNames;
 @property(readonly, nonatomic) CDUnknownBlockType scheduleMIDIEventBlock;
 @property(readonly, nonatomic, getter=isMusicDeviceOrEffect) _Bool musicDeviceOrEffect;
 @property(readonly, nonatomic) CDUnknownBlockType scheduleParameterBlock;
-- (CDUnknownBlockType)internalRenderBlock;
+@property(readonly, nonatomic) CDUnknownBlockType internalRenderBlock;
 @property(readonly, nonatomic) CDUnknownBlockType renderBlock;
 - (struct AUEventSchedule *)eventSchedule;
 @property(readonly, nonatomic) unsigned int componentVersion;
@@ -92,10 +99,13 @@
 @property(readonly, copy, nonatomic) NSString *audioUnitName;
 @property(readonly, copy, nonatomic) NSString *componentName;
 @property(readonly, nonatomic) struct OpaqueAudioComponent *component;
+- (void)invalidateAudioUnit;
 - (void)dealloc;
 - (id)initWithComponentDescription:(struct AudioComponentDescription)arg1 error:(id *)arg2;
 - (id)initWithComponentDescription:(struct AudioComponentDescription)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 - (id)init;
+- (void)setRenderResourcesAllocated:(_Bool)arg1;
+- (_Bool)shouldChangeToFormat:(id)arg1 forBus:(id)arg2;
 
 @end
 

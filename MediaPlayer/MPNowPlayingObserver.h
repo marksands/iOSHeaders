@@ -26,13 +26,12 @@
     MPAVController *_player;
 }
 
-@property(retain, nonatomic) MPAVController *player; // @synthesize player=_player;
+@property(nonatomic) __weak MPAVController *player; // @synthesize player=_player;
 - (void).cxx_destruct;
 - (void)_unregisterForNotificationsForPlayer:(id)arg1;
 - (void)_setNowPlayingInfo:(id)arg1 forItem:(id)arg2;
 - (_Bool)_reloadArtworkIfPossible;
 - (void)_registerForNotificationsForPlayer:(id)arg1;
-- (void)_prefetchArtworkForNextItem;
 - (void)_postNowPlayingInfoForItem:(id)arg1;
 - (void)_updateProgressForDownload:(id)arg1;
 - (id)_storeDownloadForNowPlayingItemInArray:(id)arg1;
@@ -51,7 +50,6 @@
 - (void)_playbackStateDidChangeNotification:(id)arg1;
 - (void)_playbackErrorNotification:(id)arg1;
 - (void)_mediaLibraryDisplayValuesDidChangeNotification:(id)arg1;
-- (void)_itemDidFinishLoadingNotification:(id)arg1;
 - (void)_itemDidChangeNotification:(id)arg1;
 - (void)_crossedTimeMarkerNotification:(id)arg1;
 - (void)_contentsDidChangeNotification:(id)arg1;

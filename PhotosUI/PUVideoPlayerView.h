@@ -9,7 +9,6 @@
 @class NSArray, UIImage, UIImageView, _PUVideoView;
 @protocol PUVideoPlayerViewDelegate;
 
-__attribute__((visibility("hidden")))
 @interface PUVideoPlayerView : UIView
 {
     _PUVideoView *_videoView;

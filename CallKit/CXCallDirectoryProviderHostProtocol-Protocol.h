@@ -10,7 +10,12 @@
 
 @protocol CXCallDirectoryProviderHostProtocol <NSObject>
 - (oneway void)completeRequestWithReply:(void (^)(void))arg1;
+- (oneway void)removeAllIdentificationEntriesWithReply:(void (^)(void))arg1;
+- (oneway void)removeIdentificationEntriesWithData:(CXCallDirectoryIdentificationEntryData *)arg1 reply:(void (^)(void))arg2;
 - (oneway void)addIdentificationEntriesWithData:(CXCallDirectoryIdentificationEntryData *)arg1 reply:(void (^)(void))arg2;
+- (oneway void)removeAllBlockingEntriesWithReply:(void (^)(void))arg1;
+- (oneway void)removeBlockingEntriesWithData:(CXCallDirectoryBlockingEntryData *)arg1 reply:(void (^)(void))arg2;
 - (oneway void)addBlockingEntriesWithData:(CXCallDirectoryBlockingEntryData *)arg1 reply:(void (^)(void))arg2;
+- (oneway void)isIncrementalLoadingAllowed:(void (^)(_Bool, NSError *))arg1;
 @end
 

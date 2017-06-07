@@ -10,7 +10,9 @@
 @property(nonatomic) long long indentationLevel;
 @property(nonatomic) double sectionBorderWidth;
 @property(nonatomic) struct UIEdgeInsets backgroundInset;
-@property(nonatomic) double defaultMarginWidth;
+@property(nonatomic) double indexBarExtentFromEdge;
+@property(nonatomic) double defaultTrailingCellMarginWidth;
+@property(nonatomic) double defaultLeadingCellMarginWidth;
 @property(nonatomic) _Bool layoutMarginsFollowReadableWidth;
 @property(nonatomic) int sectionLocation;
 @end

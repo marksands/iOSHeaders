@@ -13,9 +13,10 @@
     AVCaptureOutputInternal *_outputInternal;
 }
 
++ (long long)dataDroppedReasonFromSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
++ (id)availableVideoCodecTypesForSourceDevice:(id)arg1 sourceFormat:(id)arg2 outputDimensions:(CDStruct_79c71658)arg3 fileType:(id)arg4 videoCodecTypesWhiteList:(id)arg5;
 + (void)initialize;
-- (id)recommendedOutputSettingsForConnection:(id)arg1 sourceSettings:(id)arg2 fileType:(id)arg3;
-- (id)recommendedVideoOutputSettingsForConnection:(id)arg1 sourceSettings:(id)arg2 videoCodec:(id)arg3;
+- (id)recommendedOutputSettingsForConnection:(id)arg1 sourceSettings:(id)arg2 videoCodecType:(id)arg3 fileType:(id)arg4;
 - (id)_recommendedAudioOutputSettingsForConnection:(id)arg1 sourceSettings:(id)arg2 fileType:(id)arg3;
 - (id)_recommendedVideoOutputSettingsForConnection:(id)arg1 sourceSettings:(id)arg2 videoCodec:(id)arg3;
 - (void)bumpChangeSeed;
@@ -52,7 +53,7 @@
 - (void)setSession:(id)arg1;
 - (id)session;
 - (void)dealloc;
-- (id)init;
+- (id)initSubclass;
 
 @end
 

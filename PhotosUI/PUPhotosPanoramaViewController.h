@@ -18,6 +18,7 @@
 @property(retain, nonatomic) PUPhotosPanoramaViewControllerSpec *panoramaSpec; // @synthesize panoramaSpec=_panoramaSpec;
 - (void).cxx_destruct;
 - (void)_updatePhotoDecorationForCell:(id)arg1 animated:(_Bool)arg2;
+- (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)rotatePhotoViewToHorizontalIfNeeded:(id)arg1 withAsset:(id)arg2;
 - (void)updatePhotoViewContent:(id)arg1 withThumbnailImage:(id)arg2;
@@ -29,6 +30,7 @@
 - (void)configureSupplementaryView:(id)arg1 ofKind:(id)arg2 forIndexPath:(id)arg3 animated:(_Bool)arg4;
 - (_Bool)_hasScrollableContent;
 - (_Bool)wantsGlobalFooter;
+- (void)_configureCollectionViewGridLayout:(id)arg1;
 - (void)updateLayoutMetrics;
 - (_Bool)updateSpec;
 - (id)newGridLayout;

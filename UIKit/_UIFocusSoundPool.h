@@ -6,18 +6,20 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray;
+@class NSArray, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface _UIFocusSoundPool : NSObject
 {
-    unsigned int _originalID;
+    NSURL *_soundFileURL;
+    unsigned int _originalSystemSoundID;
     NSArray *_queue;
-    long long _index;
+    unsigned long long _queueIndex;
 }
 
 - (void).cxx_destruct;
-- (void)playWithVolume:(double)arg1 pan:(double)arg2;
+- (unsigned int)playableSystemSoundID;
+- (id)initWithSoundFileURL:(id)arg1;
 - (id)initWithSystemSoundID:(unsigned int)arg1;
 
 @end

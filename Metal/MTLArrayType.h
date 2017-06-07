@@ -4,20 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <Metal/MTLType.h>
 
-@interface MTLArrayType : NSObject
+@interface MTLArrayType : MTLType
 {
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)alloc;
+- (id)elementIndirectArgumentType;
 - (id)elementArrayType;
 - (id)elementStructType;
 
 // Remaining properties
 @property(readonly) unsigned long long arrayLength; // @dynamic arrayLength;
 @property(readonly) unsigned long long elementType; // @dynamic elementType;
+@property(readonly) MTLType *elementTypeDescription; // @dynamic elementTypeDescription;
 @property(readonly) unsigned long long stride; // @dynamic stride;
 
 @end

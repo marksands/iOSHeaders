@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface MTLCompileOptionsInternal : MTLCompileOptions
 {
+    _Bool _userSetLanguageVersion;
     NSDictionary *_preprocessorMacros;
     _Bool _fastMathEnabled;
     _Bool _glBufferBindPoints;
@@ -18,7 +19,6 @@ __attribute__((visibility("hidden")))
     unsigned long long _languageVersion;
 }
 
-- (void)setLanguageVersion:(unsigned long long)arg1;
 - (unsigned long long)languageVersion;
 - (void)setGlBufferBindPoints:(_Bool)arg1;
 - (_Bool)glBufferBindPoints;
@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)fastMathEnabled;
 - (id)description;
 - (id)formattedDescription:(unsigned long long)arg1;
+- (void)setLanguageVersion:(unsigned long long)arg1;
 - (void)setPreprocessorMacros:(id)arg1;
 - (id)preprocessorMacros;
 - (id)copyWithZone:(struct _NSZone *)arg1;

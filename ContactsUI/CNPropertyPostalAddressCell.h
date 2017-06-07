@@ -7,20 +7,21 @@
 #import <ContactsUI/CNPropertySimpleTransportCell.h>
 
 @class UIImageView;
+@protocol CNCancelable;
 
 __attribute__((visibility("hidden")))
 @interface CNPropertyPostalAddressCell : CNPropertySimpleTransportCell
 {
     _Bool _shouldUseMapTiles;
     UIImageView *_mapImageView;
+    id <CNCancelable> _tileGeneratorToken;
 }
 
-+ (id)defaultMapImage;
+@property(retain, nonatomic) id <CNCancelable> tileGeneratorToken; // @synthesize tileGeneratorToken=_tileGeneratorToken;
 @property(retain, nonatomic) UIImageView *mapImageView; // @synthesize mapImageView=_mapImageView;
 @property(nonatomic) _Bool shouldUseMapTiles; // @synthesize shouldUseMapTiles=_shouldUseMapTiles;
 - (void).cxx_destruct;
 - (void)tapGesture:(id)arg1;
-- (void)mapSnapshotWithPlacemark:(id)arg1;
 - (void)setMapImage:(id)arg1;
 - (id)variableConstraints;
 - (_Bool)supportsTintColorValue;

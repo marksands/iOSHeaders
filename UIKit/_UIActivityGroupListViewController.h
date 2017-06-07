@@ -8,7 +8,6 @@
 
 @class NSArray, UILabel;
 
-__attribute__((visibility("hidden")))
 @interface _UIActivityGroupListViewController : UICollectionViewController
 {
     _Bool _darkStyleOnLegacyApp;
@@ -24,14 +23,14 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool darkStyleOnLegacyApp; // @synthesize darkStyleOnLegacyApp=_darkStyleOnLegacyApp;
 @property(copy, nonatomic) NSArray *activityGroupViewControllers; // @synthesize activityGroupViewControllers=_activityGroupViewControllers;
 - (void).cxx_destruct;
-- (_Bool)isAirdropViewController:(id)arg1;
+- (_Bool)isAirDropViewController:(id)arg1;
 - (_Bool)shouldShowNoActionsPlaceholder;
 - (double)preferredContentHeightForViewController:(id)arg1;
 - (id)viewControllerForItemAtIndexPath:(id)arg1;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForFooterInSection:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
-- (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
+- (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;

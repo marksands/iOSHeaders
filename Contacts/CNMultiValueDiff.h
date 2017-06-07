@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray;
 
@@ -17,10 +17,10 @@ __attribute__((visibility("hidden")))
 + (id)diffMultiValue:(id)arg1 toMultiValue:(id)arg2;
 + (id)emptyDiff;
 @property(readonly, copy, nonatomic) NSArray *updates; // @synthesize updates=_updates;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEmpty;
 - (id)multiValueByApplyToMultiValue:(id)arg1 withIdentifierMap:(id)arg2;
-- (void)dealloc;
 - (id)initWithUpdates:(id)arg1;
 - (_Bool)applyToABPerson:(void *)arg1 propertyDescription:(id)arg2 error:(id *)arg3;
 

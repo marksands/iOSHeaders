@@ -45,15 +45,15 @@
     long long _barMetrics;
     long long _imageStyle;
     long long _tabBarSizing;
-    NSString *_backdropViewLayerGroupName;
     unsigned long long _preferredFocusHeading;
+    NSArray *_backgroundEffects;
 }
 
 + (id)_visualProviderForTabBar:(id)arg1;
 + (void)_initializeForIdiom:(long long)arg1;
 + (id)_unselectedTabTintColorForView:(id)arg1;
+@property(copy, nonatomic) NSArray *backgroundEffects; // @synthesize backgroundEffects=_backgroundEffects;
 @property(nonatomic, getter=_preferredFocusHeading, setter=_setPreferredFocusHeading:) unsigned long long preferredFocusHeading; // @synthesize preferredFocusHeading=_preferredFocusHeading;
-@property(retain, nonatomic, getter=_backdropViewLayerGroupName, setter=_setBackdropViewLayerGroupName:) NSString *backdropViewLayerGroupName; // @synthesize backdropViewLayerGroupName=_backdropViewLayerGroupName;
 @property(nonatomic) __weak UITabBarItem *selectedItem; // @synthesize selectedItem=_selectedItem;
 @property(nonatomic) __weak id <UITabBarDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, setter=_setScrollsItems:) _Bool _scrollsItems; // @synthesize _scrollsItems;
@@ -71,7 +71,6 @@
 - (void)_ensureUnfocusedItemsAreNotSelected;
 - (double)_totalDimensionForItems:(id)arg1 spacing:(double)arg2 dimension:(double)arg3 scaleFactor:(double)arg4;
 - (double)_scaleFactorForItems:(id)arg1 spacing:(double)arg2 dimension:(double)arg3 maxWidth:(double)arg4;
-- (void)_configureItems:(id)arg1;
 - (void)_configureTabBarReplacingItem:(id)arg1 withNewItem:(id)arg2 swapping:(_Bool)arg3;
 - (void)_customizeWithAvailableItems:(id)arg1;
 - (void)_customizeDoneButtonAction:(id)arg1;
@@ -100,13 +99,14 @@
 @property(nonatomic, getter=_isHiddenAwaitingFocus, setter=_setHiddenAwaitingFocus:) _Bool hiddenAwaitingFocus;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)canBecomeFocused;
-- (_Bool)_isEligibleForFocus;
+- (_Bool)_isEligibleForFocusInteraction;
 @property(nonatomic, setter=_setImageStyle:) long long _imageStyle; // @synthesize _imageStyle;
 - (id)_dividerImageForLeftButtonState:(unsigned long long)arg1 rightButtonState:(unsigned long long)arg2;
 - (void)_setDividerImage:(id)arg1 forLeftButtonState:(unsigned long long)arg2 rightButtonState:(unsigned long long)arg3;
 - (id)_shadowView;
 @property(retain, nonatomic) UIColor *selectedImageTintColor;
 @property(copy, nonatomic) UIColor *unselectedItemTintColor;
+- (id)_effectiveUnselectedLabelTintColor;
 - (id)_effectiveUnselectedTintColor;
 @property(retain, nonatomic) UIColor *barTintColor;
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
@@ -116,7 +116,7 @@
 @property(retain, nonatomic) UIImage *selectionIndicatorImage;
 @property(retain, nonatomic) UIImage *shadowImage;
 @property(retain, nonatomic) UIImage *backgroundImage;
-- (id)preferredFocusedItem;
+- (id)preferredFocusedView;
 - (void)_makeCurrentButtonFirstResponder;
 - (void)_didChangeFromIdiom:(long long)arg1 onScreen:(id)arg2 traverseHierarchy:(_Bool)arg3;
 @property(readonly, nonatomic, getter=isCustomizing) _Bool customizing;
@@ -138,6 +138,7 @@
 - (void)_sendAction:(id)arg1 withEvent:(id)arg2;
 - (void)_accessibilityButtonShapesEnabledDidChangeNotification:(id)arg1;
 - (void)_accessibilityButtonShapesParametersDidChange;
+- (id)_tabBarItemForButtonAtPoint:(struct CGPoint)arg1;
 @property(copy, nonatomic) NSArray *items;
 @property(nonatomic, getter=isLocked) _Bool locked;
 - (void)dealloc;
@@ -149,6 +150,7 @@
 - (_Bool)_subclassImplementsDrawRect;
 @property(nonatomic, setter=_setInterTabButtonSpacing:) double _interTabButtonSpacing;
 @property(nonatomic, setter=_setTabButtonWidth:) double _tabButtonWidth;
+@property(retain, nonatomic, getter=_backdropViewLayerGroupName, setter=_setBackdropViewLayerGroupName:) NSString *backdropViewLayerGroupName;
 - (id)_effectiveUnselectedTabTintColorConsideringView:(id)arg1;
 - (id)_appearanceStorage;
 @property(nonatomic) long long barStyle;
@@ -158,24 +160,20 @@
 - (double)_shadowAlpha;
 @property(retain, nonatomic, setter=_setAccessoryView:) UIView *_accessoryView;
 @property(nonatomic, setter=_setNextSelectionSlideDuration:) double _nextSelectionSlideDuration;
-- (void)_setDisableBlurTinting:(_Bool)arg1;
-- (_Bool)_disableBlurTinting;
-- (_Bool)_blurEnabled;
-- (void)_setBlurEnabled:(_Bool)arg1;
-- (_Bool)_vibrantLabels;
-- (void)_setVibrantLabels:(_Bool)arg1;
+@property(nonatomic, setter=_setDisableBlurTinting:) _Bool _disableBlurTinting;
+@property(nonatomic, setter=_setBlurEnabled:) _Bool _blurEnabled;
+@property(nonatomic, setter=_setVibrantLabels:) _Bool _vibrantLabels;
 - (void)_setLabelShadowOffset:(struct CGSize)arg1;
 - (void)_setLabelShadowColor:(id)arg1;
 - (void)_setLabelTextColor:(id)arg1 selectedTextColor:(id)arg2;
 - (void)_setLabelFont:(id)arg1;
 - (void)_setSelectionIndicatorImage:(id)arg1;
 - (void)_setBackgroundImage:(id)arg1;
-- (id)_backgroundView;
-- (void)_setBackgroundView:(id)arg1;
+@property(retain, nonatomic, setter=_setBackgroundView:) UIView *_backgroundView;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
-- (double)_autolayoutSpacingAtEdge:(int)arg1 nextToNeighbor:(id)arg2;
-- (double)_autolayoutSpacingAtEdge:(int)arg1 inContainer:(id)arg2;
-- (_Bool)_hasCustomAutolayoutNeighborSpacing;
+- (double)_defaultAutolayoutSpacing;
+- (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(long long)arg2 inContainer:(id)arg3 isGuide:(_Bool)arg4;
+- (_Bool)_hasCustomAutolayoutNeighborSpacingForAttribute:(long long *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

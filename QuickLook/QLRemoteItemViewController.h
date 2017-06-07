@@ -8,7 +8,7 @@
 
 #import <QuickLook/QLPrintingProtocol-Protocol.h>
 
-@class NSDictionary, NSExtension, NSLayoutConstraint, QLRemotePreviewHostContext, _UIRemoteViewController;
+@class NSDictionary, NSExtension, NSLayoutConstraint, QLRemotePreviewHostContext, QLRemotePreviewHostViewController;
 @protocol QLPrintingProtocol;
 
 __attribute__((visibility("hidden")))
@@ -16,8 +16,8 @@ __attribute__((visibility("hidden")))
 {
     NSExtension *_extension;
     id _request;
-    QLRemotePreviewHostContext *_serviceContext;
-    _UIRemoteViewController *_remoteViewController;
+    QLRemotePreviewHostContext *_hostContext;
+    QLRemotePreviewHostViewController *_remoteViewController;
     NSDictionary *_hostConfiguration;
     NSLayoutConstraint *_topConstraint;
     NSLayoutConstraint *_bottomConstraint;
@@ -26,22 +26,26 @@ __attribute__((visibility("hidden")))
     _Bool _fullScreen;
 }
 
++ (Class)transformerClass;
 - (void).cxx_destruct;
 - (void)pdfDataForPageAtIndex:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)prepareForDrawingPages:(struct _NSRange)arg1;
 - (void)numberOfPagesWithSize:(struct CGSize)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)previewControllerDidUpdatePreferredContentSize:(id)arg1;
+- (void)previewControllerDidUpdateTitle:(id)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (id)printer;
 - (void)dealloc;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)canPinchToDismiss;
 - (_Bool)canSwipeToDismiss;
 - (_Bool)canEnterFullScreen;
-- (void)previewBecameFullScreen:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewWillDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
-- (void)previewWillFinishAppearing;
 - (void)previewWillAppear:(_Bool)arg1;
+- (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
+- (id)init;
 
 @end
 

@@ -18,8 +18,10 @@
 #import <PhotosUI/PUOneUpPresentationHelperDelegate-Protocol.h>
 #import <PhotosUI/PUPhotoBrowserZoomTransitionDelegate-Protocol.h>
 #import <PhotosUI/PUScrollViewSpeedometerDelegate-Protocol.h>
+#import <PhotosUI/PXSettingsKeyObserver-Protocol.h>
 #import <PhotosUI/UICollectionViewDataSource-Protocol.h>
 #import <PhotosUI/UICollectionViewDelegate-Protocol.h>
+#import <PhotosUI/UICollectionViewDragSource-Protocol.h>
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <PhotosUI/UIPopoverPresentationControllerDelegate-Protocol.h>
 #import <PhotosUI/UIViewControllerPreviewingDelegate-Protocol.h>
@@ -29,7 +31,7 @@
 @class NSDictionary, NSIndexPath, NSMutableArray, NSMutableSet, NSString, PHCachingImageManager, PLCloudSharedAlbum, PLCloudSharedComment, PLManagedAlbumList, PLManagedAsset, PUAlbumStreamActivity, PUFeedAssetContainerList, PUFeedSectionInfosManager, PUFeedViewControllerRestorableState, PUFeedViewControllerSpec, PUOneUpPresentationHelper, PUPhotoBrowserOneUpPresentationAdaptor, PUPhotoPinchGestureRecognizer, PUPhotosPickerViewController, PUScrollViewSpeedometer, PXFeedDateFormatter, UIBarButtonItem, UICollectionView, UITapGestureRecognizer, _UIContentUnavailableView;
 @protocol UIViewControllerPreviewing;
 
-@interface PUFeedViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverPresentationControllerDelegate, PUFeedCollectionViewLayoutDelegate, PUFeedSectionInfosManagerDelegate, PUPhotoBrowserZoomTransitionDelegate, PUFeedImageCellDelegate, PUFeedPlayerCellDelegate, PUFeedTextCellDelegate, PUFeedInvitationCellDelegate, UIGestureRecognizerDelegate, PUAlbumStreamActivityDelegate, _UISettingsKeyObserver, PUScrollViewSpeedometerDelegate, PUOneUpPresentationHelperDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, PLCloudFeedNavigating, PLNavigableCloudFeedViewController>
+@interface PUFeedViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverPresentationControllerDelegate, PUFeedCollectionViewLayoutDelegate, PUFeedSectionInfosManagerDelegate, PUPhotoBrowserZoomTransitionDelegate, PUFeedImageCellDelegate, PUFeedPlayerCellDelegate, PUFeedTextCellDelegate, PUFeedInvitationCellDelegate, UIGestureRecognizerDelegate, PUAlbumStreamActivityDelegate, _UISettingsKeyObserver, PUScrollViewSpeedometerDelegate, PUOneUpPresentationHelperDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, PXSettingsKeyObserver, UICollectionViewDragSource, PLCloudFeedNavigating, PLNavigableCloudFeedViewController>
 {
     _Bool __flowDirectionReversed;
     _Bool __collectionViewScrolledToNewest;
@@ -85,6 +87,7 @@
     struct CGSize __targetSize;
     struct CGPoint __lastPreheatedContentOffset;
     struct CGSize __assetsAddedCachedSectionHeaderSize;
+    struct UIEdgeInsets __targetSafeAreaInsets;
 }
 
 + (void)initialize;
@@ -126,6 +129,7 @@
 @property(retain, nonatomic, setter=_setCurrentCollectionView:) UICollectionView *_currentCollectionView; // @synthesize _currentCollectionView=__currentCollectionView;
 @property(nonatomic, setter=_setTargetCollectionViewType:) long long _targetCollectionViewType; // @synthesize _targetCollectionViewType=__targetCollectionViewType;
 @property(nonatomic, setter=_setCurrentCollectionViewType:) long long _currentCollectionViewType; // @synthesize _currentCollectionViewType=__currentCollectionViewType;
+@property(nonatomic, setter=_setTargetSafeAreaInsets:) struct UIEdgeInsets _targetSafeAreaInsets; // @synthesize _targetSafeAreaInsets=__targetSafeAreaInsets;
 @property(nonatomic, setter=_setTargetSize:) struct CGSize _targetSize; // @synthesize _targetSize=__targetSize;
 @property(nonatomic, setter=_setBarsState:) long long _barsState; // @synthesize _barsState=__barsState;
 @property(retain, nonatomic, setter=_setRotationLastRestorableState:) PUFeedViewControllerRestorableState *_rotationLastRestorableState; // @synthesize _rotationLastRestorableState=__rotationLastRestorableState;
@@ -142,6 +146,11 @@
 @property(readonly, nonatomic) PUFeedSectionInfosManager *_feedSectionInfosManager; // @synthesize _feedSectionInfosManager=__feedSectionInfosManager;
 @property(readonly, nonatomic) long long contentType; // @synthesize contentType=_contentType;
 - (void).cxx_destruct;
+- (id)_collectionView:(id)arg1 itemsForAddingToDragSession:(id)arg2 atIndexPath:(id)arg3 point:(struct CGPoint)arg4;
+- (id)_collectionView:(id)arg1 itemsForBeginningDragSession:(id)arg2 atIndexPath:(id)arg3;
+- (id)_dragItemsForIndexPath:(id)arg1;
+- (void)_presentConfidentialityWarning;
+- (_Bool)_confidentialityWarningRequiredForAsset:(id)arg1;
 - (_Bool)oneUpPresentationHelperShouldLeaveContentOnSecondScreen:(id)arg1;
 - (id)oneUpPresentationHelperScrollView:(id)arg1;
 - (void)oneUpPresentationHelper:(id)arg1 didDismissOneUpViewController:(id)arg2;
@@ -214,6 +223,7 @@
 - (void)scrollViewDidScrollToTop:(id)arg1;
 - (_Bool)scrollViewShouldScrollToTop:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
+- (long long)collectionView:(id)arg1 layout:(id)arg2 configurationForSectionHeaderType:(long long)arg3;
 - (double)collectionView:(id)arg1 layout:(id)arg2 spacingBetweenSection:(long long)arg3 andHeaderForGroupID:(id)arg4;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 headerSizeForGroupID:(id)arg3 proposedSize:(struct CGSize)arg4;
 - (id)collectionView:(id)arg1 layout:(id)arg2 groupIDForSection:(long long)arg3;
@@ -314,7 +324,7 @@
 - (void)_configureTextCell:(id)arg1 forHeaderOfGroupID:(id)arg2 inCollectionView:(id)arg3;
 - (_Bool)_configureTextCell:(id)arg1 forFooterOfSection:(long long)arg2 inCollectionView:(id)arg3;
 - (void)_configureTextCell:(id)arg1 forHeaderOfSections:(id)arg2 inCollectionView:(id)arg3 animated:(_Bool)arg4;
-- (void)_getDescriptionPhrase:(out id *)arg1 streamAffordanceLabel:(out id *)arg2 actionText:(out id *)arg3 buttonType:(long long *)arg4 forSections:(id)arg5 inCollectionView:(id)arg6;
+- (void)_getDescriptionPhrase:(out id *)arg1 streamDisclosureLabel:(out id *)arg2 actionText:(out id *)arg3 buttonType:(long long *)arg4 forSections:(id)arg5 inCollectionView:(id)arg6;
 - (void)_configureInvitationCell:(id)arg1 forInvitationAtIndexPath:(id)arg2 inCollectionView:(id)arg3;
 - (void)_configureTextCell:(id)arg1 forTextAtIndexPath:(id)arg2 inCollectionView:(id)arg3;
 - (void)_configureTextCell:(id)arg1 forLikesAtIndexPath:(id)arg2 inCollectionView:(id)arg3;
@@ -339,7 +349,6 @@
 - (_Bool)_appAllowsSupressionOfAlerts;
 - (_Bool)pu_shouldActAsTabRootViewController;
 - (struct CGSize)contentSizeForViewInPopover;
-- (id)contentScrollView;
 - (_Bool)canBecomeFirstResponder;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

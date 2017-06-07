@@ -12,7 +12,7 @@
 
 @interface MPMediaLibraryView : NSObject <NSCopying>
 {
-    shared_ptr_f45adb51 _coreView;
+    shared_ptr_6af3da69 _coreView;
     MPMediaLibrary *_library;
     unsigned long long _filteringOptions;
 }
@@ -24,7 +24,7 @@
 - (shared_ptr_56e9c9de)_performCoreQuery:(shared_ptr_34add297)arg1 error:(id *)arg2;
 - (void)performCoreSearchQuery:(shared_ptr_299ddd6f)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)performCoreQuery:(shared_ptr_34add297)arg1 withCompletion:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) shared_ptr_f45adb51 mlCoreView;
+@property(readonly, nonatomic) shared_ptr_6af3da69 mlCoreView;
 - (_Bool)hasEntitiesForModelKind:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLibrary:(id)arg1 filteringOptions:(unsigned long long)arg2;

@@ -52,6 +52,7 @@
 @property(readonly, nonatomic, getter=isSelfContained) _Bool selfContained;
 @property(readonly, nonatomic, getter=isEnabled) _Bool enabled;
 @property(readonly, nonatomic) int playabilityValidationResult;
+@property(readonly, nonatomic, getter=isDecodable) _Bool decodable;
 @property(readonly, nonatomic, getter=isPlayable) _Bool playable;
 @property(readonly, nonatomic) NSArray *formatDescriptions;
 @property(readonly, nonatomic) NSString *mediaType;

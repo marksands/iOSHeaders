@@ -17,11 +17,14 @@
 @property(readonly, nonatomic) double previousMovePercent; // @synthesize previousMovePercent=_previousMovePercent;
 @property(retain, nonatomic) HKActivitySummary *activitySummary; // @synthesize activitySummary=_activitySummary;
 - (void).cxx_destruct;
+- (id)description;
 @property(readonly, nonatomic) double walkingRunningDistanceInKilometers;
 @property(readonly, nonatomic) long long stepCount;
 @property(readonly, nonatomic) double standHours;
+@property(readonly, nonatomic) double briskMinutesPercent;
 @property(readonly, nonatomic) double briskMinutes;
 @property(readonly, nonatomic) double moveCalories;
+@property(readonly, nonatomic) double standPercent;
 @property(readonly, nonatomic) double movePercent;
 @property(readonly, nonatomic) double moveGoalCalories;
 - (id)initWithActivitySummary:(id)arg1;

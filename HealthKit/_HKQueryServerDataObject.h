@@ -4,31 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HealthKit/HKQueryServerConfiguration.h>
 
-#import <HealthKit/NSSecureCoding-Protocol.h>
-
-@class HKObjectType, _HKFilter;
-
-__attribute__((visibility("hidden")))
-@interface _HKQueryServerDataObject : NSObject <NSSecureCoding>
+@interface _HKQueryServerDataObject : HKQueryServerConfiguration
 {
-    _Bool _shouldStayAliveAfterInitialResults;
-    _Bool _waitForStart;
-    int _samplesDeliveredBeforeSuspend;
-    HKObjectType *_objectType;
-    _HKFilter *_filter;
     double _collectionInterval;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) double collectionInterval; // @synthesize collectionInterval=_collectionInterval;
-@property(nonatomic) int samplesDeliveredBeforeSuspend; // @synthesize samplesDeliveredBeforeSuspend=_samplesDeliveredBeforeSuspend;
-@property(nonatomic) _Bool waitForStart; // @synthesize waitForStart=_waitForStart;
-@property(nonatomic) _Bool shouldStayAliveAfterInitialResults; // @synthesize shouldStayAliveAfterInitialResults=_shouldStayAliveAfterInitialResults;
-@property(retain, nonatomic) _HKFilter *filter; // @synthesize filter=_filter;
-@property(retain, nonatomic) HKObjectType *objectType; // @synthesize objectType=_objectType;
-- (void).cxx_destruct;
+@property(nonatomic) _Bool shouldStayAliveAfterInitialResults;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

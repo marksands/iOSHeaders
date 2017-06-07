@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 - (void)removePresentationCoordinateChangedObserver:(id)arg1;
 - (void)addPresentationCoordinateChangedObserver:(id)arg1;
 @property(retain, nonatomic) GEORouteMatch *routeMatch;
-@property(nonatomic, getter=isTracking) _Bool tracking;
+@property(nonatomic) _Bool tracking;
 - (void)setAnimatingToCoordinate:(_Bool)arg1;
 @property(nonatomic) double presentationCourse;
 @property(nonatomic) CDStruct_c3b9c2ee presentationCoordinate;

@@ -6,19 +6,26 @@
 
 #import <HealthKit/HKSeriesSample.h>
 
-@class HDCodableLocationSeries;
+@class HDCodableLocationSeries, HKWorkoutRoute;
 
 @interface HKLocationSeriesSample : HKSeriesSample
 {
+    HKWorkoutRoute *_route;
     HDCodableLocationSeries *__codableLocationSeries;
 }
 
++ (_Bool)supportsSecureCoding;
++ (id)_locationSeriesWithRoute:(id)arg1;
 + (id)_locationSeriesWithDevice:(id)arg1 metadata:(id)arg2;
 @property(retain, nonatomic, setter=_setCodableLocationSeries:) HDCodableLocationSeries *_codableLocationSeries; // @synthesize _codableLocationSeries=__codableLocationSeries;
+@property(retain, nonatomic) HKWorkoutRoute *route; // @synthesize route=_route;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)_valueDescription;
 - (id)_validateSample;
 - (id)_validateConfiguration;
+- (id)UUID;
 
 @end
 

@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) PUFilmstripWrapperView *_wrapperView; // @synthesize _wrapperView=__wrapperView;
 - (void).cxx_destruct;
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
+- (id)_currentIndicatorInfos;
 - (void)_updateFilmstripView;
 - (void)setAssetViewModel:(id)arg1;
 - (void)didChangeAnimating;

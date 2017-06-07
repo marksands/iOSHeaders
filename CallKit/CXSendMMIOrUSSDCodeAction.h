@@ -11,9 +11,11 @@
 @interface CXSendMMIOrUSSDCodeAction : CXAction
 {
     NSString *_code;
+    long long _ttyType;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long ttyType; // @synthesize ttyType=_ttyType;
 @property(copy, nonatomic) NSString *code; // @synthesize code=_code;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

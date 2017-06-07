@@ -26,7 +26,9 @@
     _Bool _scrolling;
     _Bool _imageUpdateEnabled;
     _Bool _debugHighlightEnabled;
+    _Bool _internalAdTypeCanChange;
     int _screenfuls;
+    int _slotPosition;
     int _internalAdType;
     NSString *_adResponseId;
     long long _lastErrorCode;
@@ -65,6 +67,7 @@
 @property(copy, nonatomic) NSDate *loadStartTime; // @synthesize loadStartTime=_loadStartTime;
 @property(copy, nonatomic) NSDate *adDisplayDate; // @synthesize adDisplayDate=_adDisplayDate;
 @property(copy, nonatomic) NSString *originID; // @synthesize originID=_originID;
+@property(nonatomic) _Bool internalAdTypeCanChange; // @synthesize internalAdTypeCanChange=_internalAdTypeCanChange;
 @property(nonatomic) _Bool debugHighlightEnabled; // @synthesize debugHighlightEnabled=_debugHighlightEnabled;
 @property(nonatomic) _Bool imageUpdateEnabled; // @synthesize imageUpdateEnabled=_imageUpdateEnabled;
 @property(nonatomic) _Bool scrolling; // @synthesize scrolling=_scrolling;
@@ -92,6 +95,7 @@
 @property(readonly, nonatomic) long long options; // @synthesize options=_options;
 @property(nonatomic) long long lastErrorCode; // @synthesize lastErrorCode=_lastErrorCode;
 @property(nonatomic) _Bool displayed; // @synthesize displayed=_displayed;
+@property(nonatomic) int slotPosition; // @synthesize slotPosition=_slotPosition;
 @property(nonatomic) int screenfuls; // @synthesize screenfuls=_screenfuls;
 @property(copy, nonatomic) NSString *adResponseId; // @synthesize adResponseId=_adResponseId;
 - (id)context;
@@ -102,6 +106,7 @@
 - (id)nativeMetadata;
 - (void)bannerDidDisappear;
 - (void)bannerDidAppear;
+- (void)nextContentVideoStartedPlaying;
 - (void)userDidSkipPreroll;
 - (void)playbackFailed:(id)arg1;
 - (void)playbackFinished:(id)arg1;
@@ -145,6 +150,7 @@
 - (void)serverStoryboardDidTransitionOut;
 - (void)serverBannerViewDidFailToReceiveAdWithError:(id)arg1;
 - (void)serverBannerViewDidLoad;
+- (void)_setAdPrivacyMarkPosition;
 - (void)serverBannerViewWillLoad;
 @property(readonly, nonatomic) UIViewController *presentingViewController;
 - (void)setViewSizeInPortrait:(struct CGSize)arg1 inLandscape:(struct CGSize)arg2;
@@ -174,7 +180,9 @@
 - (void)prerollDidStop;
 - (void)prerollDidStart;
 - (id)uniqueIdentifier;
+- (void)setInternalAdType:(int)arg1;
 - (void)cycleImpressionImmediately;
+- (_Bool)canReuseForContext:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)_accessibilityUserTestingElementAttributes;
 @property(readonly, nonatomic) UIView *adSpaceView;

@@ -76,6 +76,7 @@
 - (void)addressBookDidChange:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)setAddresses:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)contentSizeCategoryDidChangeNotification:(id)arg1;
 - (id)initWithLabel:(id)arg1 title:(id)arg2 addressBook:(const void *)arg3;
 - (void)dealloc;
 

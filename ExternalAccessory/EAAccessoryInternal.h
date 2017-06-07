@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSDictionary, NSMutableArray, NSString;
+@class NSArray, NSData, NSDictionary, NSLock, NSMutableArray, NSString;
 @protocol EAAccessoryDelegate;
 
 @interface EAAccessoryInternal : NSObject
@@ -22,10 +22,13 @@
     NSString *_dockType;
     NSString *_macAddress;
     NSString *_preferredApp;
+    NSData *_certSerial;
+    NSData *_certData;
     int _classType;
     NSDictionary *_audioPorts;
     unsigned int _capabilities;
     _Bool _notPresentInIAPAccessoriesArray;
+    NSLock *_locationLock;
     NSMutableArray *_sessionsList;
     NSArray *_eqNames;
     int _locationSentenceTypesMask;
@@ -37,7 +40,10 @@
     _Bool _pointOfInterestHandoffEnabled;
     _Bool _hasIPConnection;
     _Bool _isAvailableOverBonjour;
+    _Bool _createdByCoreAccessories;
     unsigned int _eqIndex;
+    NSMutableArray *_enqueuedNMEASentences;
+    NSString *_coreAccessoryPrimaryUUID;
     NSString *_bonjourName;
     CDUnknownBlockType _pairingCompletionBlock;
     CDUnknownBlockType _WiFiCredentialsCompletionBlock;
@@ -45,10 +51,13 @@
 
 @property(copy) CDUnknownBlockType WiFiCredentialsCompletionBlock; // @synthesize WiFiCredentialsCompletionBlock=_WiFiCredentialsCompletionBlock;
 @property(copy) CDUnknownBlockType pairingCompletionBlock; // @synthesize pairingCompletionBlock=_pairingCompletionBlock;
+@property _Bool createdByCoreAccessories; // @synthesize createdByCoreAccessories=_createdByCoreAccessories;
 @property(nonatomic) _Bool isAvailableOverBonjour; // @synthesize isAvailableOverBonjour=_isAvailableOverBonjour;
 @property(nonatomic) _Bool hasIPConnection; // @synthesize hasIPConnection=_hasIPConnection;
 @property(copy, nonatomic) NSString *bonjourName; // @synthesize bonjourName=_bonjourName;
 @property(nonatomic) int locationSentenceTypesMask; // @synthesize locationSentenceTypesMask=_locationSentenceTypesMask;
+@property(copy, nonatomic) NSString *coreAccessoryPrimaryUUID; // @synthesize coreAccessoryPrimaryUUID=_coreAccessoryPrimaryUUID;
+@property(nonatomic) NSMutableArray *enqueuedNMEASentences; // @synthesize enqueuedNMEASentences=_enqueuedNMEASentences;
 @property _Bool pointOfInterestHandoffEnabled; // @synthesize pointOfInterestHandoffEnabled=_pointOfInterestHandoffEnabled;
 @property(nonatomic) id <EAAccessoryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSDictionary *protocols; // @synthesize protocols=_protocols;
@@ -61,6 +70,8 @@
 @property(nonatomic) unsigned int capabilities; // @synthesize capabilities=_capabilities;
 @property(retain, nonatomic) NSDictionary *audioPorts; // @synthesize audioPorts=_audioPorts;
 @property(nonatomic) int classType; // @synthesize classType=_classType;
+@property(copy, nonatomic) NSData *certData; // @synthesize certData=_certData;
+@property(copy, nonatomic) NSData *certSerial; // @synthesize certSerial=_certSerial;
 @property(copy, nonatomic) NSString *preferredApp; // @synthesize preferredApp=_preferredApp;
 @property(copy, nonatomic) NSString *macAddress; // @synthesize macAddress=_macAddress;
 @property(copy, nonatomic) NSString *dockType; // @synthesize dockType=_dockType;

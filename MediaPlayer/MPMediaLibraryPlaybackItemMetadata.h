@@ -15,14 +15,17 @@
     _Bool _hasValidMediaItemValuesForProperties;
     MPMediaItem *_mediaItem;
     NSDictionary *_mediaItemValuesForProperties;
+    NSDictionary *_playbackKeys;
     NSObject<OS_dispatch_queue> *_writeQueue;
 }
 
 + (id)_lowQualityCachedAssetDestinationDirectory;
 + (id)_highQualityCachedAssetDestinationDirectory;
 + (id)streamingPlaybackAssetDestinationFilePathForMediaLibraryPersistentID:(long long)arg1 storeAdamID:(long long)arg2 storeSagaID:(unsigned long long)arg3 assetQuality:(unsigned long long)arg4 assetFlavor:(id)arg5 protectionType:(unsigned long long)arg6 pathExtension:(id)arg7;
+@property(retain, nonatomic, getter=_writeQueue) NSObject<OS_dispatch_queue> *writeQueue; // @synthesize writeQueue=_writeQueue;
 - (void).cxx_destruct;
 - (id)_mediaItemValuesForProperties;
+- (id)_onqueue_mediaItemValuesForProperties;
 - (void)_invalidateMediaItemProperties;
 - (id)_cachedLocalPlaybackAssetFilePathWithIntegrityCheck:(_Bool)arg1 returningAssetQuality:(unsigned long long *)arg2 protectionType:(unsigned long long *)arg3 usesPurchaseBundle:(_Bool *)arg4;
 - (void)_mediaLibraryDidChangeNotification:(id)arg1;

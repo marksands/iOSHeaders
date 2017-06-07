@@ -6,11 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class EKCalendar, EKStructuredLocation, NSArray, NSDate, NSString, NSTimeZone, NSURL, UIColor;
+@class EKCalendar, EKStructuredLocation, EKSuggestedEventInfo, NSArray, NSDate, NSString, NSTimeZone, NSURL, UIColor;
 
 @interface EKUIAutocompleteSearchResult : NSObject
 {
     _Bool _allDay;
+    _Bool _suggested;
     NSString *_title;
     NSDate *_startDate;
     NSDate *_endDate;
@@ -24,11 +25,16 @@
     NSString *_notes;
     EKCalendar *_calendar;
     UIColor *_calendarColor;
+    EKSuggestedEventInfo *_suggestionInfo;
+    NSString *_foundInBundleID;
     NSString *_uniqueID;
 }
 
 + (_Bool)_participantShouldBeUsedForAutocomplete:(id)arg1;
 @property(retain, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
+@property(retain, nonatomic) NSString *foundInBundleID; // @synthesize foundInBundleID=_foundInBundleID;
+@property(retain, nonatomic) EKSuggestedEventInfo *suggestionInfo; // @synthesize suggestionInfo=_suggestionInfo;
+@property(nonatomic, getter=isSuggested) _Bool suggested; // @synthesize suggested=_suggested;
 @property(retain, nonatomic) UIColor *calendarColor; // @synthesize calendarColor=_calendarColor;
 @property(retain, nonatomic) EKCalendar *calendar; // @synthesize calendar=_calendar;
 @property(retain, nonatomic) NSString *notes; // @synthesize notes=_notes;

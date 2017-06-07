@@ -48,7 +48,6 @@
 @property(nonatomic) __weak id <MSStickerBrowserViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) long long stickerSize; // @synthesize stickerSize=_stickerSize;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) long long stickerSizeClass;
 - (void)_stopAnimating;
 - (void)_startAnimating;
 - (void)invalidateFlowLayout;
@@ -73,8 +72,6 @@
 @property(nonatomic) struct UIEdgeInsets contentInset;
 @property(nonatomic) struct CGPoint contentOffset;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 layout:(long long)arg2;
-- (id)initWithFrame:(struct CGRect)arg1 stickerSizeClass:(long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 stickerSize:(long long)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

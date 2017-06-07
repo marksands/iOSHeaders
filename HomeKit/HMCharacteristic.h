@@ -59,6 +59,8 @@
 - (void)_updateValue:(id)arg1 updateTime:(id)arg2;
 - (void)_configure:(id)arg1 clientQueue:(id)arg2 delegateCaller:(id)arg3;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
@@ -75,7 +77,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

@@ -6,12 +6,12 @@
 
 #import <ContactsUI/NSObject-Protocol.h>
 
-@class ACAccount, CNContact, CNContactPhotoView, CNContactStore, UIViewController;
+@class CNContactPhotoView, CNContactViewCache, UIViewController;
 
 @protocol CNContactPhotoViewDelegate <NSObject>
-- (ACAccount *)displayAccountForContact:(CNContact *)arg1;
-- (CNContactStore *)contactStoreForPhotoView:(CNContactPhotoView *)arg1;
+- (CNContactViewCache *)contactViewCache;
 - (UIViewController *)viewControllerForPhotoView:(CNContactPhotoView *)arg1;
+- (void)photoViewDidSaveEditsForImageDrop:(CNContactPhotoView *)arg1;
 - (void)photoViewDidUpdate:(CNContactPhotoView *)arg1;
 @end
 

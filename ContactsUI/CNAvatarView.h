@@ -10,10 +10,10 @@
 #import <ContactsUI/CNCardTransitioning-Protocol.h>
 #import <ContactsUI/CNContactChangesObserver-Protocol.h>
 
-@class CNAvatarCardController, CNContact, CNContactStore, NSArray, NSString, PRLikeness, PRPersonaStore, UIColor, UIImage, UINavigationController;
-@protocol CNAvatarViewDelegate, CNCancelable, CNUIPRLikenessResolver;
+@class CNAvatarCardController, CNContact, CNContactStore, NSArray, NSString, PRPersonaStore, UIImage, UIImageView, UINavigationController;
+@protocol CNAvatarViewDelegate, CNCancelable, CNUILikenessRendering;
 
-@interface CNAvatarView : UIView <CNAvatarCardControllerDelegate, CNContactChangesObserver, CNCardTransitioning>
+@interface CNAvatarView : UIView <CNContactChangesObserver, CNAvatarCardControllerDelegate, CNCardTransitioning>
 {
     _Bool _showsActionsOnTap;
     _Bool _showsActionsOnForcePress;
@@ -26,6 +26,7 @@
     _Bool _asynchronousRendering;
     _Bool _allowsAnimation;
     _Bool _prohibitsPersonaFetch;
+    unsigned long long _style;
     CNContactStore *_contactStore;
     PRPersonaStore *_personaStore;
     NSArray *_contacts;
@@ -33,22 +34,18 @@
     NSString *_message;
     id <CNAvatarViewDelegate> _delegate;
     UIView *_forcePressView;
-    CNAvatarCardController *_cardController;
-    NSArray *_likenessProviders;
-    id <CNUIPRLikenessResolver> _likenessResolver;
-    id <CNCancelable> _resolverToken;
-    NSArray *_likenessViews;
+    id <CNUILikenessRendering> _imageRenderer;
+    id <CNCancelable> _rendererToken;
+    UIImageView *_imageView;
+    long long _displayedImageState;
     UINavigationController *_contactViewNavigationController;
+    CNAvatarCardController *_cardController;
     UIImage *_overrideImage;
-    PRLikeness *_overridePRLikeness;
     long long _monogrammerStyle;
 }
 
-+ (void)setLikenessProvider:(id)arg1 onPRLikenessView:(id)arg2 circular:(_Bool)arg3;
-+ (void)setLikenessProvider:(id)arg1 onImageView:(id)arg2 circular:(_Bool)arg3;
-+ (void)setLikenessProvider:(id)arg1 onView:(id)arg2 circular:(_Bool)arg3;
-+ (void)setLikenessProvider:(id)arg1 onView:(id)arg2;
-+ (Class)likenessProviderViewClassForProvider:(id)arg1;
++ (id)makeDescriptorForRequiredKeysWithThreeDTouchEnabled:(_Bool)arg1 shouldUseCachingRenderer:(_Bool)arg2;
++ (id)descriptorForRequiredKeysWithThreeDTouchEnabled:(_Bool)arg1 shouldUseCachingRenderer:(_Bool)arg2 description:(id)arg3;
 + (id)descriptorForRequiredKeysWithThreeDTouchEnabled:(_Bool)arg1;
 + (_Bool)defaultThreeDTouchSupport;
 + (id)descriptorForRequiredKeys;
@@ -58,16 +55,15 @@
 @property(nonatomic) _Bool autoUpdateContact; // @synthesize autoUpdateContact=_autoUpdateContact;
 @property(nonatomic) long long monogrammerStyle; // @synthesize monogrammerStyle=_monogrammerStyle;
 @property(nonatomic) _Bool disableCornerRadiusForAvatar; // @synthesize disableCornerRadiusForAvatar=_disableCornerRadiusForAvatar;
-@property(retain, nonatomic) PRLikeness *overridePRLikeness; // @synthesize overridePRLikeness=_overridePRLikeness;
 @property(retain, nonatomic) UIImage *overrideImage; // @synthesize overrideImage=_overrideImage;
 @property _Bool registeredContactAction; // @synthesize registeredContactAction=_registeredContactAction;
 @property _Bool registeredInNotifier; // @synthesize registeredInNotifier=_registeredInNotifier;
-@property(retain, nonatomic) UINavigationController *contactViewNavigationController; // @synthesize contactViewNavigationController=_contactViewNavigationController;
-@property(copy, nonatomic) NSArray *likenessViews; // @synthesize likenessViews=_likenessViews;
-@property(retain, nonatomic) id <CNCancelable> resolverToken; // @synthesize resolverToken=_resolverToken;
-@property(retain, nonatomic) id <CNUIPRLikenessResolver> likenessResolver; // @synthesize likenessResolver=_likenessResolver;
-@property(retain, nonatomic) NSArray *likenessProviders; // @synthesize likenessProviders=_likenessProviders;
 @property(retain, nonatomic) CNAvatarCardController *cardController; // @synthesize cardController=_cardController;
+@property(retain, nonatomic) UINavigationController *contactViewNavigationController; // @synthesize contactViewNavigationController=_contactViewNavigationController;
+@property(nonatomic) long long displayedImageState; // @synthesize displayedImageState=_displayedImageState;
+@property(copy, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
+@property(retain, nonatomic) id <CNCancelable> rendererToken; // @synthesize rendererToken=_rendererToken;
+@property(retain, nonatomic) id <CNUILikenessRendering> imageRenderer; // @synthesize imageRenderer=_imageRenderer;
 @property(nonatomic) __weak UIView *forcePressView; // @synthesize forcePressView=_forcePressView;
 @property(nonatomic) _Bool showsContactOnTap; // @synthesize showsContactOnTap=_showsContactOnTap;
 @property(nonatomic) __weak id <CNAvatarViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -77,6 +73,7 @@
 @property(nonatomic, getter=isThreeDTouchEnabled) _Bool threeDTouchEnabled; // @synthesize threeDTouchEnabled=_threeDTouchEnabled;
 @property(readonly, nonatomic) PRPersonaStore *personaStore; // @synthesize personaStore=_personaStore;
 @property(readonly, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
+@property(nonatomic) unsigned long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
 @property _Bool transitioningImageVisible;
 @property(readonly, nonatomic) struct CGRect transitioningImageFrame;
@@ -97,8 +94,6 @@
 @property(nonatomic) _Bool bypassActionValidation;
 @property(copy, nonatomic) NSArray *actionCategories;
 - (id)imageForTransitioningToFullScreen;
-@property(readonly, nonatomic) UIColor *accentColor;
-- (void)setOverridePRLikeness:(id)arg1 reload:(_Bool)arg2;
 - (void)contactDidChange;
 - (void)dismissContactViewController:(id)arg1;
 - (void)showContact:(id)arg1;
@@ -107,16 +102,18 @@
 @property(readonly, nonatomic) struct CGRect contentImageFrame;
 @property(readonly, nonatomic) UIImage *contentImage;
 - (void)setupAvatarCardControllerIfNeeded;
-- (void)_resolveContactLikenesses;
-- (void)updateLikenessViewsWithCurrentSize;
+- (void)clearImage;
+- (void)setImage:(id)arg1 state:(long long)arg2;
+- (void)_renderContactsImage;
+- (id)currentLikenessScope;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
-- (void)setupSubviews;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
-- (id)initWithLikenessResolver:(id)arg1 threeDTouchEnabled:(_Bool)arg2;
+- (id)initWithImageRenderer:(id)arg1 threeDTouchEnabled:(_Bool)arg2 style:(unsigned long long)arg3;
+- (id)initWithImageRenderer:(id)arg1 threeDTouchEnabled:(_Bool)arg2;
 - (id)initWithSettings:(id)arg1;
 - (id)initWithContactStore:(id)arg1 personaStore:(id)arg2 threeDTouchEnabled:(_Bool)arg3;
 - (id)descriptorForRequiredKeys;

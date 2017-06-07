@@ -7,24 +7,25 @@
 #import <objc/NSObject.h>
 
 @class CLSilo;
-@protocol CLIntersiloServiceProtocol;
 
 @interface CLServiceVendorHeartbeatRecord : NSObject
 {
     int _synCount;
     int _ackCount;
+    int _residentCount;
     CLSilo *_silo;
-    id <CLIntersiloServiceProtocol> _service;
+    Class _svcClass;
 }
 
 @property(readonly, nonatomic) int ackCount; // @synthesize ackCount=_ackCount;
 @property(readonly, nonatomic) int synCount; // @synthesize synCount=_synCount;
-@property(readonly, nonatomic) __weak id <CLIntersiloServiceProtocol> service; // @synthesize service=_service;
+@property(nonatomic) int residentCount; // @synthesize residentCount=_residentCount;
+@property(readonly, nonatomic) Class svcClass; // @synthesize svcClass=_svcClass;
 @property(readonly, nonatomic) CLSilo *silo; // @synthesize silo=_silo;
 - (void).cxx_destruct;
 - (void)ack;
 - (void)syn;
-- (id)initTrackingService:(id)arg1;
+- (id)initTrackingServiceClass:(Class)arg1;
 
 @end
 

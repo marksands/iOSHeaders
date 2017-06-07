@@ -9,17 +9,20 @@
 #import <SafariServices/SFServiceViewControllerProtocol-Protocol.h>
 #import <SafariServices/_SFActivityDelegate-Protocol.h>
 
-@class NSString, _SFWebViewUsageMonitor;
+@class NSDate, NSString, _SFWebViewUsageMonitor;
 
 __attribute__((visibility("hidden")))
 @interface SFBrowserServiceViewController : _SFBrowserContentViewController <_SFActivityDelegate, SFServiceViewControllerProtocol>
 {
-    CDUnknownBlockType _customActivitiesFetchCompletionHandler;
+    CDUnknownBlockType _activityViewControllerInfoFetchCompletionHandler;
     _SFWebViewUsageMonitor *_usageMonitor;
+    NSDate *_lastHostApplicationSuspendDate;
+    _Bool _isBeingUsedForLinkPreview;
 }
 
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
+@property(nonatomic) _Bool isBeingUsedForLinkPreview; // @synthesize isBeingUsedForLinkPreview=_isBeingUsedForLinkPreview;
 - (void).cxx_destruct;
 - (void)safariActivity:(id)arg1 didFinish:(_Bool)arg2;
 - (void)_closeDatabasesOnBackgroundingOrDismissal;
@@ -30,15 +33,19 @@ __attribute__((visibility("hidden")))
 - (_Bool)_redirectToHostAppWithNavigationResult:(id)arg1 options:(id)arg2;
 - (void)_notifyInitialLoadDidFinish:(_Bool)arg1;
 - (void)_updateRemoteSwipeGestureState;
-- (void)_updateStatusBarAppearance;
 - (void)_dismiss;
 - (void)didDetectUserInteractionFromHostApp;
 - (void)didDetectRemoteViewControllerViewIsHidden;
+- (void)setDismissButtonStyle:(long long)arg1;
 - (void)setIsRunningTransitionAnimation:(_Bool)arg1;
 - (void)repostNotificationInViewService:(id)arg1;
-- (void)_fetchCustomActivitiesForURL:(id)arg1 title:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)didFetchHostAppCustomActivities:(id)arg1;
-- (void)setShowingLinkPreview:(_Bool)arg1;
+- (void)_fetchActivityViewControllerInfoForURL:(id)arg1 title:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)didFetchCustomActivities:(id)arg1 excludedActivityTypes:(id)arg2;
+- (void)_getSafariDataSharingModeWithPrivacyPrompt:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_toggleSafariDataSharingModeFromToolbar:(id)arg1;
+- (id)websiteDataStoreConfiguration;
+- (_Bool)_ensureWebsiteDataStoreURL:(id)arg1 cookieStoreURL:(id)arg2;
+- (id)_webDataStoreRootURL;
 - (void)loadURL:(id)arg1;
 - (id)processPool;
 - (id)processPoolConfiguration;

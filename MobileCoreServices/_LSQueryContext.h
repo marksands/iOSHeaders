@@ -6,18 +6,25 @@
 
 #import <Foundation/NSObject.h>
 
+@protocol _LSQueryResolving;
+
 @interface _LSQueryContext : NSObject
 {
+    id _resolver;
 }
 
 + (id)defaultContext;
++ (void)setSimulateLimitedMappingForXCTests:(_Bool)arg1;
++ (_Bool)simulateLimitedMappingForXCTests;
+- (id)debugDescription;
 - (void)clearCaches;
-- (void)resolveQueries:(id)arg1 cachingStrategy:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)dealloc;
 - (id)init;
 - (id)resolveQueries:(id)arg1 cachingStrategy:(long long)arg2 error:(id *)arg3;
 - (void)enumerateResolvedResultsOfQuery:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+@property(readonly) id <_LSQueryResolving> _resolver; // @dynamic _resolver;
 - (id)_init;
-- (void)_resolveQueries:(id)arg1 cachingStrategy:(long long)arg2 synchronously:(_Bool)arg3 XPCConnection:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)_resolveQueries:(id)arg1 cachingStrategy:(long long)arg2 XPCConnection:(id)arg3 error:(id *)arg4;
 
 @end
 

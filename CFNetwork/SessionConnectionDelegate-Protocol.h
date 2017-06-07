@@ -11,6 +11,7 @@
 @protocol OS_dispatch_data;
 
 @protocol SessionConnectionDelegate <NSObject, NSCopying>
+- (void)connection:(__NSCFURLSessionConnection *)arg1 didReceiveTCPConnection:(shared_ptr_f0c1381f)arg2;
 - (void)connection:(__NSCFURLSessionConnection *)arg1 needConnectedSocketToHost:(NSString *)arg2 port:(unsigned long long)arg3 completion:(void (^)(int, struct))arg4;
 - (void)connection:(__NSCFURLSessionConnection *)arg1 didReceiveSocketInputStream:(NSInputStream *)arg2 outputStream:(id)arg3;
 - (void)connection:(__NSCFURLSessionConnection *)arg1 _conditionalRequirementsChanged:(_Bool)arg2;

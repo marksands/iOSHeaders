@@ -8,11 +8,12 @@
 
 @class NSMutableDictionary, SKScene;
 
-__attribute__((visibility("hidden")))
 @interface SCNSpriteKitEventHandler : NSObject
 {
     SKScene *_scene;
     NSMutableDictionary *_touchMap;
+    _Bool _mouseIsDown;
+    _Bool _rightMouseIsDown;
 }
 
 @property(retain, nonatomic) SKScene *scene; // @synthesize scene=_scene;

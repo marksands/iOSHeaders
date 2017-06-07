@@ -13,7 +13,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)filterForKeyPath:(id)arg1 predicateOperatorType:(unsigned long long)arg2 value:(id)arg3 dataTypes:(id)arg4;
-+ (id)_filterMatchingAppleWatchSamples:(_Bool)arg1;
++ (id)filterMatchingAppleWatchSamples:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool matchAppleWatchSamples; // @synthesize matchAppleWatchSamples=_matchAppleWatchSamples;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

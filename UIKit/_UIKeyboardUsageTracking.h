@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)countReachableKeyboardHandBiasChangeToBias:(long long)arg1;
++ (void)countKeystrokeForReachableKeyboardWithBias:(long long)arg1;
 + (void)restAndTypeTriggered;
 + (void)normalPunctuationKeyCount;
 + (void)undoKeyCount;
@@ -27,7 +29,7 @@ __attribute__((visibility("hidden")))
 + (void)keyboardGestureTwoFingerTap:(_Bool)arg1 withTapCount:(int)arg2;
 + (void)showLowercaseKeyplanePreference:(_Bool)arg1;
 + (void)showCharacterPreviewPreference:(_Bool)arg1;
-+ (void)selectedPredictiveInputCandidate:(id)arg1 isAutocorrection:(_Bool)arg2;
++ (void)selectedPredictiveInputCandidate:(id)arg1 isAutocorrection:(_Bool)arg2 index:(unsigned long long)arg3;
 + (void)keyboardGestureSelectedPredictiveInputCandidate;
 + (void)keyboardGestureSetPredictionPreference:(_Bool)arg1;
 + (void)inputSwitcherSetPredictionPreference:(_Bool)arg1;

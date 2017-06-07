@@ -5,6 +5,8 @@
 //
 
 @protocol PLDiagnosticsAgent
+- (void)captureCurrentAssetResourcesWithResultHandler:(void (^)(NSArray *))arg1;
+- (void)captureAndDumpLayerHierarchyWithResultHandler:(void (^)(NSArray *))arg1;
 - (void)captureDescriptionOfPhotoAnalysisWithResultHandler:(void (^)(NSString *))arg1;
 - (void)captureDescriptionOfCloudPhotoLibraryWithResultHandler:(void (^)(NSString *))arg1;
 - (void)captureDescriptionOfUIState:(long long)arg1 resultHandler:(void (^)(NSString *))arg2;

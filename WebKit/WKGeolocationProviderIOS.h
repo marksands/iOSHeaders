@@ -6,13 +6,11 @@
 
 #import <objc/NSObject.h>
 
-#import <WebKit/WebGeolocationCoreLocationUpdateListener-Protocol.h>
-
 __attribute__((visibility("hidden")))
-@interface WKGeolocationProviderIOS : NSObject <WebGeolocationCoreLocationUpdateListener>
+@interface WKGeolocationProviderIOS : NSObject
 {
     struct RefPtr<WebKit::WebGeolocationManagerProxy> _geolocationManager;
-    struct RetainPtr<WebGeolocationCoreLocationProvider> _coreLocationProvider;
+    struct RetainPtr<id<_WKGeolocationCoreLocationProvider>> _coreLocationProvider;
     _Bool _isWebCoreGeolocationActive;
     struct RefPtr<WebKit::WebGeolocationPosition> _lastActivePosition;
     struct Vector<GeolocationRequestData, 0, WTF::CrashOnOverflow, 16> _requestsWaitingForCoreLocationAuthorization;
@@ -20,7 +18,7 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
--     // Error parsing type: v48@0:8^{SecurityOrigin={atomic<unsigned int>=AI}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{optional<unsigned short>=B(constexpr_storage_t<unsigned short>=CS)}BBBBiBB}16^{WebFrameProxy=^^?@^{WebPageProxy}{FrameLoadState=i{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}BB{RefPtr<WebKit::WebCertificateInfo>=^{WebCertificateInfo}}{RefPtr<WebKit::WebFrameListenerProxy>=^{WebFrameListenerProxy}}Q{ContentFilterUnblockHandler={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{URL={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}b1b1b1IIIIIIIIII}{function<void (std::__1::function<void (bool)>)>={type=[24C]}^{__base<void (std::__1::function<void (bool)>)>}}{RetainPtr<WebFilterEvaluator>=^v}}}24^{GeolocationPermissionRequestProxy=^^?@^{GeolocationPermissionRequestManagerProxy}Q}32@40, name: decidePolicyForGeolocationRequestFromOrigin:frame:request:view:
+-     // Error parsing type: v48@0:8^{SecurityOrigin={atomic<unsigned int>=AI}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{optional<unsigned short>=B(constexpr_storage_t<unsigned short>=CS)}BBBBiBB}16^{WebFrameProxy=^^?@^{WebPageProxy}{FrameLoadState=i{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}BB{RefPtr<WebKit::WebCertificateInfo>=^{WebCertificateInfo}}{RefPtr<WebKit::WebFrameListenerProxy>=^{WebFrameListenerProxy}}Q{ContentFilterUnblockHandler={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}{URL={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}b1b1b1IIIIIIIIII}{function<void (std::__1::function<void (bool)>)>={type=[32C]}^{__base<void (std::__1::function<void (bool)>)>}}{RetainPtr<WebFilterEvaluator>=^v}}}24^{GeolocationPermissionRequestProxy=^^?@^{GeolocationPermissionRequestManagerProxy}Q}32@40, name: decidePolicyForGeolocationRequestFromOrigin:frame:request:view:
 - (id)initWithProcessPool:(struct WebProcessPool *)arg1;
 - (id)init;
 - (void)_setEnableHighAccuracy:(_Bool)arg1;
@@ -28,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)_startUpdating;
 - (void)resetGeolocation;
 - (void)errorOccurred:(id)arg1;
-- (void)positionChanged:(struct GeolocationPosition *)arg1;
+- (void)positionChanged:(id)arg1;
 - (void)geolocationAuthorizationDenied;
 - (void)geolocationAuthorizationGranted;
 

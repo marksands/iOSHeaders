@@ -22,10 +22,11 @@
 + (_Bool)supportsSecureCoding;
 + (id)intentDescription;
 + (id)typeName;
-+ (void)load;
++ (void)initialize;
 @property(copy, nonatomic) PBCodable *backingStore; // @synthesize backingStore=_backingStore;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (_Bool)isGenericIntent;
 @property(copy, nonatomic) NSDictionary *parametersByName;
 @property(copy, nonatomic) NSString *verb;
 @property(copy, nonatomic) NSString *domain;
@@ -42,6 +43,8 @@
 @property(readonly) unsigned long long hash;
 - (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1;
 - (void)trimDataAgainstTCCForAuditToken:(CDStruct_6ad76789)arg1 bundle:(id)arg2;
+@property(readonly, nonatomic) long long triggerMethod;
+@property(readonly, nonatomic) NSString *extensionBundleId;
 @property(readonly, nonatomic) NSString *intentId;
 @property(readonly, nonatomic) NSString *launchId;
 @property(readonly, nonatomic) NSString *utteranceString;

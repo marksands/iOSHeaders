@@ -34,8 +34,8 @@
 + (id)stringForSessionState:(long long)arg1;
 @property(nonatomic) unsigned long long maxPeers; // @synthesize maxPeers=_maxPeers;
 @property(retain, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
-@property(nonatomic) unsigned long long stateHandle; // @synthesize stateHandle=_stateHandle;
 @property(nonatomic, getter=isAWDLDisabled) _Bool AWDLDisabled; // @synthesize AWDLDisabled=_AWDLDisabled;
+@property(nonatomic) unsigned long long stateHandle; // @synthesize stateHandle=_stateHandle;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(retain, nonatomic) NSMutableDictionary *connectionPendingPeerEvents; // @synthesize connectionPendingPeerEvents=_connectionPendingPeerEvents;
 @property(retain, nonatomic) NSMutableDictionary *peerStates; // @synthesize peerStates=_peerStates;

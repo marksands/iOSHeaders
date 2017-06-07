@@ -6,10 +6,10 @@
 
 #import <PhotosUI/NSObject-Protocol.h>
 
-@class ICQUpgradeFlowManager, PUPhotosGlobalFooterView;
+@class PUPhotosGlobalFooterView, UIViewController;
 
 @protocol PUPhotosGlobalFooterViewDelegate <NSObject>
+- (void)photosGlobalFooterView:(PUPhotosGlobalFooterView *)arg1 presentViewController:(UIViewController *)arg2;
 - (void)photosGlobalFooterViewDidChangeHeight:(PUPhotosGlobalFooterView *)arg1;
-- (void)photosGlobalFooterView:(PUPhotosGlobalFooterView *)arg1 presentPurchaseFlowWithFlowManager:(ICQUpgradeFlowManager *)arg2;
 @end
 

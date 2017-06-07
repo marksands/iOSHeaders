@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
-- (id)traitsHashStringForKey:(id)arg1 withGeometry:(id)arg2 withSymbolStyle:(id)arg3 controlOpacities:(_Bool)arg4;
+- (id)traitsHashStringForKey:(id)arg1 withGeometry:(id)arg2 withSymbolStyle:(id)arg3 controlOpacities:(_Bool)arg4 blurBlending:(_Bool)arg5;
 - (_Bool)shouldClearBaseDisplayStringForVariants:(id)arg1;
 - (struct CGPoint)emojiInternationalKeyOffset;
 - (double)emojiInternationalKeySize;

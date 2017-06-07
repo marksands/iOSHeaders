@@ -6,12 +6,11 @@
 
 #import <MechanismBase/MechanismBase.h>
 
-@class MechanismUI, NSArray, NSMutableArray;
+@class NSArray, NSMutableArray;
 
 @interface MechanismKofN : MechanismBase
 {
     NSMutableArray *_runningMechanisms;
-    MechanismUI *_mechanismUI;
     _Bool _serial;
     _Bool _AND;
     _Bool _OR;
@@ -31,7 +30,6 @@
 - (id)cachedExternalizationDelegate;
 - (_Bool)requiresRemoteViewControllerUiWithEventProcessing:(id)arg1;
 - (_Bool)requiresUiWithEventProcessing:(id)arg1;
-- (id)findMechanismWithClass:(Class)arg1;
 - (id)findMechanismWithEventIdentifier:(long long)arg1;
 - (id)availabilityEventsForPurpose:(long long)arg1;
 - (id)bestEffortAvailableMechanismForPurpose:(long long)arg1 error:(id *)arg2;

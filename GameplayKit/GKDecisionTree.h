@@ -8,11 +8,13 @@
 
 #import <GameplayKit/NSSecureCoding-Protocol.h>
 
-@class GKDecisionNode, GKRandomSource;
+@class GKDecisionNode, GKRandomSource, MLGKDecisionTree;
 
 @interface GKDecisionTree : NSObject <NSSecureCoding>
 {
     struct GKCDecisionTree *_decisionTree;
+    _Bool _isInduced;
+    MLGKDecisionTree *mlkitDecisionTree;
     GKDecisionNode *_rootNode;
     GKRandomSource *_randomSource;
 }
@@ -22,7 +24,11 @@
 @property(retain, nonatomic) GKDecisionNode *rootNode; // @synthesize rootNode=_rootNode;
 - (void).cxx_destruct;
 - (id)description;
+- (id)findAccuracyWithExamples:(id)arg1 actions:(id)arg2 attributes:(id)arg3;
 - (id)findActionForAnswers:(id)arg1;
+- (id)getFlattenedTree;
+- (_Bool)exportToURL:(id)arg1 error:(id)arg2;
+- (id)initWithURL:(id)arg1 error:(id)arg2;
 - (id)initWithExamples:(id)arg1 actions:(id)arg2 attributes:(id)arg3;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;

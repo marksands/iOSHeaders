@@ -19,6 +19,7 @@
     NSString *_fontStyleOverride;
 }
 
++ (id)starRatingAndProviderAsAttributedStringForMapItem:(id)arg1 textColor:(id)arg2 font:(id)arg3 showReviewsOrTips:(_Bool)arg4 ratingStyle:(long long)arg5 theme:(id)arg6;
 + (id)starRatingAndProviderAsAttributedStringForMapItem:(id)arg1 textColor:(id)arg2 font:(id)arg3 showReviewsOrTips:(_Bool)arg4 theme:(id)arg5;
 + (id)starRatingAndProviderAsAttributedStringForMapItem:(id)arg1 textColor:(id)arg2 font:(id)arg3 showReviewsOrTips:(_Bool)arg4;
 + (id)ratingAndReviewsAsAttributedString:(double)arg1 style:(long long)arg2 font:(id)arg3 numberOfReviews:(unsigned long long)arg4 textColor:(id)arg5 theme:(id)arg6;
@@ -36,7 +37,6 @@
 - (void)_updateFonts;
 - (void)setDisplaysSourceOfReviews:(_Bool)arg1;
 - (void)_mapkit_setCalloutTextColor:(id)arg1;
-- (void)dealloc;
 - (id)initWithStyle:(long long)arg1;
 
 @end

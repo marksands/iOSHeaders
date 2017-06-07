@@ -27,6 +27,10 @@
 + (id)imageForMapItem:(id)arg1 forScale:(double)arg2 fallbackToBundleIcon:(_Bool)arg3;
 + (id)imageForMapItem:(id)arg1 forScale:(double)arg2;
 + (id)imageForTrafficIncidentType:(long long)arg1 size:(unsigned long long)arg2 forScale:(double)arg3;
++ (id)imageForTrafficCamera:(id)arg1 size:(unsigned long long)arg2 forScale:(double)arg3;
++ (id)_imageForFeatureStyleAttributes:(id)arg1 size:(unsigned long long)arg2 forScale:(double)arg3;
++ (id)_imageForFeatureStyleAttributes:(id)arg1 iconText:(id)arg2 size:(unsigned long long)arg3 forScale:(double)arg4 navMode:(_Bool)arg5;
++ (id)_imageForFeatureStyleAttributes:(id)arg1 size:(unsigned long long)arg2 forScale:(double)arg3 navMode:(_Bool)arg4;
 + (struct CGColor *)newGlyphColorForStyleAttributes:(id)arg1 forScale:(double)arg2;
 + (struct CGColor *)newHaloColorForStyleAttributes:(id)arg1 forScale:(double)arg2;
 + (struct CGColor *)newFillColorForStyleAttributes:(id)arg1 forScale:(double)arg2;

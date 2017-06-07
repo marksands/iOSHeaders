@@ -6,9 +6,10 @@
 
 #import <SafariServices/NSObject-Protocol.h>
 
-@class NSString, NSURL, _SFNavigationBar, _UIBackdropViewSettings;
+@class NSURL, UIItemProvider, _SFNavigationBar, _SFNavigationDestination, _UIBackdropViewSettings;
 
 @protocol _SFNavigationBarDelegate <NSObject>
+- (void)navigationBarReaderButtonWasLongPressed:(_SFNavigationBar *)arg1;
 - (void)navigationBarReaderAppearanceButtonWasTapped:(_SFNavigationBar *)arg1;
 - (NSURL *)navigationBarURLForSharing:(_SFNavigationBar *)arg1;
 - (void)navigationBarStopLoadingButtonWasTapped:(_SFNavigationBar *)arg1;
@@ -17,12 +18,15 @@
 - (void)navigationBarCancelButtonWasTapped:(_SFNavigationBar *)arg1;
 - (void)navigationBarReaderButtonWasTapped:(_SFNavigationBar *)arg1;
 - (void)navigationBarBackdropDidApplySettings:(_SFNavigationBar *)arg1;
-- (void)navigationBarURLWasTapped:(_SFNavigationBar *)arg1;
 - (void)compressedNavigationBarWasTapped:(_SFNavigationBar *)arg1;
 
 @optional
+- (UIItemProvider *)itemProviderForNavigationBar:(_SFNavigationBar *)arg1;
 - (void)navigationBar:(_SFNavigationBar *)arg1 backDropWillApplySettings:(_UIBackdropViewSettings *)arg2;
-- (void)navigationBar:(_SFNavigationBar *)arg1 didPasteText:(NSString *)arg2;
+- (void)navigationBar:(_SFNavigationBar *)arg1 didSelectNavigationDestination:(_SFNavigationDestination *)arg2;
+- (void)navigationBarMediaCaptureMuteButtonWasTapped:(_SFNavigationBar *)arg1;
 - (void)navigationBarDoneButtonWasTapped:(_SFNavigationBar *)arg1;
+- (void)navigationBarURLWasTapped:(_SFNavigationBar *)arg1;
+- (void)navigationBarMetricsDidChange:(_SFNavigationBar *)arg1;
 @end
 

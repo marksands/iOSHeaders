@@ -6,20 +6,17 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVCapturePhotoSettings, AVCaptureResolvedPhotoSettings, AVWeakReferencingDelegateStorage;
+@class AVCapturePhotoSettings, AVCaptureResolvedPhotoSettings, AVWeakReferencingDelegateStorage, NSArray;
 
 @interface AVCapturePhotoRequest : NSObject
 {
     AVWeakReferencingDelegateStorage *_delegateStorage;
-    _Bool _usesIOSurfaceDelegateCallbacks;
+    unsigned int _photoCallbackFlavor;
     AVCapturePhotoSettings *_unresolvedSettings;
     AVCaptureResolvedPhotoSettings *_resolvedSettings;
-    unsigned long long _expectedOriginalPhotoCount;
-    unsigned long long _expectedPhotoCount;
-    unsigned long long _expectedRawPhotoCount;
+    NSArray *_expectedPhotoManifest;
     unsigned int _firedCallbackFlags;
     unsigned long long _firedPhotoCallbacksCount;
-    unsigned long long _firedRawPhotoCallbacksCount;
     void *_previewSurface;
     struct opaqueCMSampleBuffer *_previewSampleBuffer;
 }
@@ -27,17 +24,15 @@
 + (id)requestWithDelegate:(id)arg1 settings:(id)arg2;
 @property(retain, nonatomic) struct opaqueCMSampleBuffer *previewSampleBuffer; // @synthesize previewSampleBuffer=_previewSampleBuffer;
 @property(retain, nonatomic) void *previewSurface; // @synthesize previewSurface=_previewSurface;
-@property(nonatomic) unsigned long long firedRawPhotoCallbacksCount; // @synthesize firedRawPhotoCallbacksCount=_firedRawPhotoCallbacksCount;
 @property(nonatomic) unsigned long long firedPhotoCallbacksCount; // @synthesize firedPhotoCallbacksCount=_firedPhotoCallbacksCount;
 @property(nonatomic) unsigned int firedCallbackFlags; // @synthesize firedCallbackFlags=_firedCallbackFlags;
-@property(readonly, nonatomic) unsigned long long expectedRawPhotoCount; // @synthesize expectedRawPhotoCount=_expectedRawPhotoCount;
-@property(readonly, nonatomic) unsigned long long expectedPhotoCount; // @synthesize expectedPhotoCount=_expectedPhotoCount;
-@property(readonly, nonatomic) unsigned long long expectedOriginalPhotoCount; // @synthesize expectedOriginalPhotoCount=_expectedOriginalPhotoCount;
-@property(retain, nonatomic) AVCaptureResolvedPhotoSettings *resolvedSettings; // @synthesize resolvedSettings=_resolvedSettings;
+@property(readonly, nonatomic) NSArray *expectedPhotoManifest; // @synthesize expectedPhotoManifest=_expectedPhotoManifest;
 @property(readonly) AVCapturePhotoSettings *unresolvedSettings; // @synthesize unresolvedSettings=_unresolvedSettings;
-@property(readonly, nonatomic) _Bool usesIOSurfaceDelegateCallbacks; // @synthesize usesIOSurfaceDelegateCallbacks=_usesIOSurfaceDelegateCallbacks;
+@property(readonly) unsigned int photoCallbackFlavor; // @synthesize photoCallbackFlavor=_photoCallbackFlavor;
 @property(readonly) AVWeakReferencingDelegateStorage *delegateStorage; // @synthesize delegateStorage=_delegateStorage;
-- (void)incrementExpectedOriginalPhotoCount;
+- (void)_resolveExpectedPhotoManifest;
+@property(retain, nonatomic) AVCaptureResolvedPhotoSettings *resolvedSettings;
+@property(readonly, nonatomic) unsigned long long expectedPhotoCount;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 settings:(id)arg2;
 

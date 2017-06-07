@@ -24,6 +24,8 @@
 - (void)_configure:(id)arg1 clientQueue:(id)arg2 delegateCaller:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)_acceptInviteWithPresenceAuthStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)acceptInviteWithPresenceAuthStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_acceptInviteWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)acceptInviteWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_cancelInviteWithCompletionHandler:(CDUnknownBlockType)arg1;

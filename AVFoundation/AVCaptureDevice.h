@@ -27,9 +27,14 @@
 + (id)devicesWithMediaType:(id)arg1;
 + (void)_filterConnectedDevices:(id)arg1 withDeviceTypes:(id)arg2 mediaType:(id)arg3 position:(long long)arg4;
 + (void)_filterConnectedLegacyDevices:(id)arg1;
+- (void)_setDepthDataDeliveryEnabled:(_Bool)arg1;
+- (_Bool)_isDepthDataDeliveryEnabled;
 - (void)setBravoCameraSelectionBehavior:(id)arg1;
 - (id)bravoCameraSelectionBehavior;
 - (void)_checkTCCAccess;
+- (_Bool)isHEIFSupported;
+- (_Bool)isHEVCPreferred;
+- (_Bool)isHEVCSupported;
 - (_Bool)usesQuantizationScalingMatrix_H264_Steep_16_48;
 - (int)minMacroblocksForHighProfileAbove30fps;
 - (int)minMacroblocksForHighProfileUpTo30fps;
@@ -48,26 +53,23 @@
 - (_Bool)isEyeDetectionSupported;
 - (id)supportedMetadataObjectIdentifiers;
 - (long long)shallowDepthOfFieldEffectStatus;
-- (void)setAutoShallowDepthOfFieldEffectEnabled:(_Bool)arg1;
-- (_Bool)isAutoShallowDepthOfFieldEffectEnabled;
 - (void)setAutomaticallyEnablesLowLightBoostWhenAvailable:(_Bool)arg1;
 - (_Bool)automaticallyEnablesLowLightBoostWhenAvailable;
 - (_Bool)isLowLightBoostEnabled;
 - (_Bool)isLowLightBoostSupported;
 - (_Bool)isRawStillImageCaptureSupported;
+- (_Bool)isCameraIntrinsicMatrixDeliverySupported;
 - (_Bool)isVideoStabilizationSupported;
 - (_Bool)isHDRSupported;
+- (double)maxAvailableVideoZoomFactor;
 - (double)minAvailableVideoZoomFactor;
+- (double)dualCameraSwitchOverVideoZoomFactor;
 - (void)cancelVideoZoomRamp;
 - (_Bool)isRampingVideoZoom;
 - (void)rampExponentiallyToVideoZoomFactor:(float)arg1 withDuration:(double)arg2;
 - (void)rampToVideoZoomFactor:(double)arg1 withRate:(float)arg2;
 - (void)setVideoZoomFactor:(double)arg1;
 - (double)videoZoomFactor;
-- (void)setContrast:(float)arg1;
-- (float)contrast;
-- (void)setSaturation:(float)arg1;
-- (float)saturation;
 - (_Bool)isWideColorSupported;
 - (void)setActiveColorSpace:(long long)arg1;
 - (long long)activeColorSpace;
@@ -134,7 +136,6 @@
 - (_Bool)isTorchModeSupported:(long long)arg1;
 - (float)torchLevel;
 - (_Bool)hasTorch;
-- (void)_setFlashSceneDetectionEnabled:(_Bool)arg1;
 - (_Bool)isFlashSceneDetectedForPhotoOutput;
 - (_Bool)_isFlashScene;
 - (void)setFlashMode:(long long)arg1;
@@ -161,6 +162,8 @@
 @property(nonatomic) CDStruct_1b6d18a9 activeVideoMaxFrameDuration;
 - (void)_setActiveVideoMinFrameDuration:(CDStruct_1b6d18a9)arg1;
 @property(nonatomic) CDStruct_1b6d18a9 activeVideoMinFrameDuration;
+- (void)setActiveDepthDataFormat:(id)arg1;
+- (id)activeDepthDataFormat;
 @property(retain, nonatomic) AVCaptureDeviceFormat *activeFormat;
 @property(readonly, nonatomic) NSArray *formats;
 @property(readonly, nonatomic, getter=isConnected) _Bool connected;
@@ -171,8 +174,7 @@
 - (void)_setVideoHDREnabled:(_Bool)arg1;
 - (_Bool)cachesFigCaptureSourceConfigurationChanges;
 - (void)setCachesFigCaptureSourceConfigurationChanges:(_Bool)arg1;
-- (void)_setStillImageStabilizationDetectionEnabled:(_Bool)arg1;
-- (void)_setHighDynamicRangeSceneDetectionEnabled:(_Bool)arg1;
+- (void)_setPhotoSettingsForSceneMonitoring:(id)arg1;
 - (_Bool)_isHighDynamicRangeScene;
 - (_Bool)isHighDynamicRangeScene;
 - (void)setHighDynamicRangeSceneDetectionEnabled:(_Bool)arg1;
@@ -197,7 +199,7 @@
 @property(readonly, nonatomic) NSString *uniqueID;
 - (id)description;
 - (void)dealloc;
-- (id)init;
+- (id)initSubclass;
 
 @end
 

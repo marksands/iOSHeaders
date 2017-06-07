@@ -32,6 +32,7 @@
 - (void)getPermaLinkFromLastStatusUpdate:(CDUnknownBlockType)arg1;
 - (void)showSettingsIfNeeded;
 - (void)acceptLocationUpdate:(id)arg1;
+- (void)logDidSendStatusWithText:(id)arg1 attachments:(id)arg2 locationAttached:(_Bool)arg3 fromProcessWithPID:(int)arg4;
 - (void)sendDirectMessage:(id)arg1 toUser:(id)arg2 withScreenName:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)retweetTweetWithID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sendStatus:(id)arg1 completion:(CDUnknownBlockType)arg2;

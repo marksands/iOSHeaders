@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
 __attribute__((visibility("hidden")))
-@interface PUSwipeDownSettings : PUSettings
+@interface PUSwipeDownSettings : PXSettings
 {
     _Bool _rotationOnHorizontalMotion;
     _Bool _rotationOnVerticalMotion;
@@ -50,6 +50,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double upGestureToleranceAngle; // @synthesize upGestureToleranceAngle=_upGestureToleranceAngle;
 @property(nonatomic) double downGestureToleranceAngle; // @synthesize downGestureToleranceAngle=_downGestureToleranceAngle;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

@@ -9,17 +9,17 @@
 #import <MessageUI/UITableViewDataSource-Protocol.h>
 #import <MessageUI/UITableViewDelegate-Protocol.h>
 
-@class MFMailComposeRecipientView, NSArray, NSMutableArray, NSMutableIndexSet, NSString, UITableView;
+@class MFComposeRecipientTextView, NSArray, NSMutableArray, NSMutableIndexSet, NSString, UITableView;
 
 @interface MFMailComposeCorecipientViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     UITableView *_tableView;
     NSMutableIndexSet *_selectedIndexes;
     NSMutableArray *_recipients;
-    MFMailComposeRecipientView *_recipientView;
+    MFComposeRecipientTextView *_recipientView;
 }
 
-@property(retain, nonatomic) MFMailComposeRecipientView *recipientView; // @synthesize recipientView=_recipientView;
+@property(retain, nonatomic) MFComposeRecipientTextView *recipientView; // @synthesize recipientView=_recipientView;
 @property(readonly, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 - (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;

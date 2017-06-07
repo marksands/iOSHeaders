@@ -17,8 +17,8 @@
     struct ipc_queue *_send_queue;
 }
 
-+ (_Bool)sendMessageWithType:(unsigned int)arg1 data:(struct __CFData *)arg2 forConfiguration:(struct _VPNConfigurationPrivate *)arg3;
-+ (void)deregisterConfiguration:(struct _VPNConfigurationPrivate *)arg1;
++     // Error parsing type: B36@0:8I16^{__CFData=}20^{_VPNConfigurationPrivate={__CFRuntimeBase=QAQ}^{__CFString}C^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFArray}^?{?=q^v^?^?^?}^?{?=q^v^?^?^?}@^v{ipc_queue=^{IPCMessage}^^{IPCMessage}}@{?=^{_VPNConfigurationPrivate}}}28, name: sendMessageWithType:data:forConfiguration:
++     // Error parsing type: v24@0:8^{_VPNConfigurationPrivate={__CFRuntimeBase=QAQ}^{__CFString}C^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFArray}^?{?=q^v^?^?^?}^?{?=q^v^?^?^?}@^v{ipc_queue=^{IPCMessage}^^{IPCMessage}}@{?=^{_VPNConfigurationPrivate}}}16, name: deregisterConfiguration:
 @property struct ipc_queue *send_queue; // @synthesize send_queue=_send_queue;
 @property struct __CFArray *configurations; // @synthesize configurations=_configurations;
 @property(retain) NSUUID *config_id; // @synthesize config_id=_config_id;
@@ -26,11 +26,11 @@
 @property(retain) NEIPC *primary_ipc; // @synthesize primary_ipc=_primary_ipc;
 - (id)createIPCFromEndpoint:(id)arg1;
 - (_Bool)sendMessage:(struct __CFData *)arg1 withType:(unsigned int)arg2;
-- (void)addConfiguration:(struct _VPNConfigurationPrivate *)arg1;
-- (void)removeConfiguration:(struct _VPNConfigurationPrivate *)arg1;
-- (long long)getIndexOfConfiguration:(struct _VPNConfigurationPrivate *)arg1;
+-     // Error parsing type: v24@0:8^{_VPNConfigurationPrivate={__CFRuntimeBase=QAQ}^{__CFString}C^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFArray}^?{?=q^v^?^?^?}^?{?=q^v^?^?^?}@^v{ipc_queue=^{IPCMessage}^^{IPCMessage}}@{?=^{_VPNConfigurationPrivate}}}16, name: addConfiguration:
+-     // Error parsing type: v24@0:8^{_VPNConfigurationPrivate={__CFRuntimeBase=QAQ}^{__CFString}C^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFArray}^?{?=q^v^?^?^?}^?{?=q^v^?^?^?}@^v{ipc_queue=^{IPCMessage}^^{IPCMessage}}@{?=^{_VPNConfigurationPrivate}}}16, name: removeConfiguration:
+-     // Error parsing type: q24@0:8^{_VPNConfigurationPrivate={__CFRuntimeBase=QAQ}^{__CFString}C^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFArray}^?{?=q^v^?^?^?}^?{?=q^v^?^?^?}@^v{ipc_queue=^{IPCMessage}^^{IPCMessage}}@{?=^{_VPNConfigurationPrivate}}}16, name: getIndexOfConfiguration:
 - (void)dealloc;
-- (id)initWithConfiguration:(struct _VPNConfigurationPrivate *)arg1;
+-     // Error parsing type: @24@0:8^{_VPNConfigurationPrivate={__CFRuntimeBase=QAQ}^{__CFString}C^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFRunLoopSource}^{__CFArray}^?{?=q^v^?^?^?}^?{?=q^v^?^?^?}@^v{ipc_queue=^{IPCMessage}^^{IPCMessage}}@{?=^{_VPNConfigurationPrivate}}}16, name: initWithConfiguration:
 
 @end
 

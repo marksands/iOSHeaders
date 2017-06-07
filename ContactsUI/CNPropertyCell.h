@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     id <CNPresenterDelegate> _presentingDelegate;
 }
 
++ (id)labelStringFromAppName:(id)arg1 andPropertyLabel:(id)arg2;
 @property(nonatomic) __weak id <CNPresenterDelegate> presentingDelegate; // @synthesize presentingDelegate=_presentingDelegate;
 @property(nonatomic) __weak id <CNPropertyCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) double labelWidth; // @synthesize labelWidth=_labelWidth;
@@ -41,6 +42,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool supportsTintColorValue;
 - (void)copy:(id)arg1;
 - (id)valueString;
+- (_Bool)shouldShowSuggestionOrigin;
 - (id)labelString;
 @property(readonly, nonatomic, getter=isSuggested) _Bool suggested;
 - (void)setPropertyItem:(id)arg1;

@@ -6,14 +6,14 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, UIImage, _UIFloatingContentCornerRadiusAnimatingView, _UIFloatingContentTransformView, _UIFocusAnimationConfiguration;
+@class NSMutableArray, UIImage, _UIFloatingContentCornerRadiusAnimatingScreenScaleInheritingView, _UIFloatingContentCornerRadiusAnimatingView, _UIFloatingContentTransformView, _UIFocusAnimationConfiguration;
 @protocol _UIFloatingContentViewDelegate;
 
 @interface _UIFloatingContentView : UIView
 {
     id <_UIFloatingContentViewDelegate> _floatingContentViewDelegate;
     _UIFloatingContentTransformView *_transformView;
-    _UIFloatingContentCornerRadiusAnimatingView *_containerView;
+    _UIFloatingContentCornerRadiusAnimatingScreenScaleInheritingView *_containerView;
     _UIFloatingContentCornerRadiusAnimatingView *_highlightView;
     _UIFloatingContentCornerRadiusAnimatingView *_visualEffectContainerView;
     UIView *_shadowView;
@@ -112,6 +112,7 @@
 - (void)setShadowImage:(id)arg1 stretchable:(_Bool)arg2;
 - (void)setBackgroundColor:(id)arg1 forState:(unsigned long long)arg2;
 - (id)backgroundColorForState:(unsigned long long)arg1;
+- (id)transformView;
 - (id)highlightView;
 @property(readonly, nonatomic) UIView *visualEffectContainerView;
 @property(readonly, nonatomic) UIView *contentView;

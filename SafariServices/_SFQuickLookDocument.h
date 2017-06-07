@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @class LSDocumentProxy, NSString, NSURL;
+@protocol _SFQuickLookDocumentSource;
 
 @interface _SFQuickLookDocument : NSObject
 {
@@ -20,10 +21,12 @@
     NSString *_mimeType;
     NSString *_uti;
     NSURL *_sourceURL;
+    id <_SFQuickLookDocumentSource> _documentSource;
 }
 
 @property(copy, nonatomic) NSString *savedPathWithProperExtension; // @synthesize savedPathWithProperExtension=_savedPathWithProperExtension;
 @property(retain, nonatomic) LSDocumentProxy *documentProxy; // @synthesize documentProxy=_documentProxy;
+@property(nonatomic) __weak id <_SFQuickLookDocumentSource> documentSource; // @synthesize documentSource=_documentSource;
 @property(retain, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;
 @property(copy, nonatomic) NSString *uti; // @synthesize uti=_uti;
 @property(copy, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
@@ -35,8 +38,10 @@
 - (void)addQuickLookPrintSettingsToPrintInfo:(id)arg1;
 - (void)setSavedPathWithProperExtension:(id)arg1 shouldDelete:(_Bool)arg2;
 - (void)setSavedPath:(id)arg1 shouldDelete:(_Bool)arg2;
+- (void)saveToFileIfNeeded;
 @property(readonly, copy, nonatomic) NSURL *savedURLWithProperExtension;
 @property(readonly, copy, nonatomic) NSString *localizedType;
+@property(readonly, copy, nonatomic) NSString *inferredUTI;
 - (void)_deleteSavedPathWithProperExtensionIfNecessary;
 - (void)_deleteSavedPathIfNecessary;
 - (void)dealloc;

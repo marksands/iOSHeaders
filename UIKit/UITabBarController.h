@@ -11,7 +11,7 @@
 #import <UIKit/UILayoutContainerViewDelegate-Protocol.h>
 #import <UIKit/UITabBarDelegate-Protocol.h>
 
-@class NSArray, NSMapTable, NSMutableArray, NSString, UIFocusContainerGuide, UIGestureRecognizer, UILayoutContainerView, UIMoreNavigationController, UINavigationController, UITabBar, UITapGestureRecognizer, UIView;
+@class NSArray, NSMapTable, NSMutableArray, NSString, UIFocusContainerGuide, UIGestureRecognizer, UILayoutContainerView, UILongPressGestureRecognizer, UIMoreNavigationController, UINavigationController, UITabBar, UITapGestureRecognizer, UIView;
 @protocol UITabBarControllerDelegate, UIViewControllerAnimatedTransitioning, UIViewControllerInteractiveTransitioning;
 
 @interface UITabBarController : UIViewController <UIGestureRecognizerDelegate, UILayoutContainerViewDelegate, UITabBarDelegate, NSCoding>
@@ -34,6 +34,7 @@
     UITapGestureRecognizer *_selectGestureRecognizer;
     UIGestureRecognizer *_touchDetectionGestureRecognizer;
     UIFocusContainerGuide *_contentFocusContainerGuide;
+    UILongPressGestureRecognizer *_accessibilityLongPressGestureRecognizer;
     struct {
         unsigned int isShowingMoreItem:1;
         unsigned int needsToRebuildItems:1;
@@ -76,7 +77,9 @@
 - (void)willAnimateFirstHalfOfRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willRotateToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
+- (void)_invalidateBarLayoutIfNecessary;
 - (void)_getRotationContentSettings:(CDStruct_8bdd0ba6 *)arg1;
 - (_Bool)_shouldUseOnePartRotation;
 - (id)rotatingFooterView;
@@ -139,6 +142,8 @@
 - (id)_existingMoreNavigationController;
 - (_Bool)_allowsCustomizing;
 - (_Bool)_transitionsChildViewControllers;
+- (id)childViewControllerForUserInterfaceStyle;
+- (id)childViewControllerForScreenEdgesDeferringSystemGestures;
 - (id)childViewControllerForWhitePointAdaptivityStyle;
 - (id)childViewControllerForStatusBarHidden;
 - (id)childViewControllerForStatusBarStyle;
@@ -159,10 +164,9 @@
 - (void)_rememberFocusedItem:(id)arg1 forViewController:(id)arg2;
 @property(readonly, nonatomic, getter=_rememberedFocusedItemsByViewController) NSMapTable *rememberedFocusedItemsByViewController; // @synthesize rememberedFocusedItemsByViewController=_rememberedFocusedItemsByViewController;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
-- (void)focusedViewDidChange;
 - (void)_updateOffscreenStatus:(_Bool)arg1;
 - (void)_didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (id)_overridingDestinationEnvironmentForFocusUpdateInContext:(id)arg1;
+- (id)_overridingPreferredFocusEnvironment;
 - (void)_rememberPresentingFocusedItem:(id)arg1;
 - (id)preferredFocusEnvironments;
 - (long long)_subclassPreferredFocusedViewPrioritizationType;
@@ -191,6 +195,8 @@
 - (void)purgeMemoryForReason:(int)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
+- (id)_accessibilityHUDLongPressRecognizer;
+- (void)_accessibilityLongPressChanged:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
@@ -202,8 +208,9 @@
 - (void)_layoutContainerView;
 - (void)setView:(id)arg1;
 - (void)setTabBar:(id)arg1;
-- (void)_setTabBarVisualAltitude;
 - (void)_prepareTabBar;
+- (void)_updateTabBarLayout;
+- (void)_safeAreaInsetsDidChangeForView;
 - (struct CGRect)_adjustContentViewFrameForOffscreenFocus:(struct CGRect)arg1 viewController:(id)arg2;
 - (_Bool)_shouldAdjustContentViewFrameForOffscreenFocus:(id)arg1 adjustedTabBarFrame:(struct CGRect)arg2;
 - (struct CGRect)_adjustTabBarFrameForOffscreenFocus:(struct CGRect)arg1 barPosition:(long long)arg2;

@@ -4,29 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/_UIFeedbackGeneratorUserInteractionDrivenConfiguration.h>
+#import <UIKit/_UIDragFeedbackGeneratorConfiguration.h>
 
-@class _UIFeedback;
-@protocol _UIFeedbackContinuousPlayable, _UIFeedbackDiscretePlayable;
-
-@interface _UIFeedbackDragBehaviorConfiguration : _UIFeedbackGeneratorUserInteractionDrivenConfiguration
+@interface _UIFeedbackDragBehaviorConfiguration : _UIDragFeedbackGeneratorConfiguration
 {
-    _UIFeedback<_UIFeedbackContinuousPlayable> *_interactionProgressingFeedback;
-    _UIFeedback<_UIFeedbackDiscretePlayable> *_interactionUpdatedFeedback;
-    _UIFeedback<_UIFeedbackDiscretePlayable> *_targetUpdatedFeedback;
-    double _progressingFeedbackDelay;
 }
-
-+ (id)defaultConfiguration;
-- (void).cxx_destruct;
-@property(nonatomic) double progressingFeedbackDelay; // @synthesize progressingFeedbackDelay=_progressingFeedbackDelay;
-@property(retain, nonatomic) _UIFeedback<_UIFeedbackDiscretePlayable> *targetUpdatedFeedback; // @synthesize targetUpdatedFeedback=_targetUpdatedFeedback;
-@property(retain, nonatomic) _UIFeedback<_UIFeedbackDiscretePlayable> *interactionUpdatedFeedback; // @synthesize interactionUpdatedFeedback=_interactionUpdatedFeedback;
-@property(retain, nonatomic) _UIFeedback<_UIFeedbackContinuousPlayable> *interactionProgressingFeedback; // @synthesize interactionProgressingFeedback=_interactionProgressingFeedback;
-- (id)feedbackKeyPaths;
-- (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (long long)requiredSupportLevel;
 
 @end
 

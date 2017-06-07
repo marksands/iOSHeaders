@@ -17,11 +17,15 @@
 @property(readonly, nonatomic) UIVisualEffectView *visualEffectView; // @synthesize visualEffectView=_visualEffectView;
 @property(nonatomic) long long blurStyle; // @synthesize blurStyle=_blurStyle;
 - (void).cxx_destruct;
+- (id)_preferredAnimationControllerForDismissal;
+- (id)_preferredAnimationControllerForPresentation;
+- (_Bool)_forcesPreferredAnimationControllers;
 - (void)_animateWithCoordinator:(id)arg1 isPresenting:(_Bool)arg2;
 - (void)_configureSubviews;
 - (void)dismissalTransitionWillBegin;
 - (void)presentationTransitionWillBegin;
 - (id)initWithPresentedViewController:(id)arg1 presentingViewController:(id)arg2;
+- (long long)presentationStyle;
 
 @end
 

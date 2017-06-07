@@ -22,6 +22,7 @@
     UIColor *_detachedTintColor;
 }
 
++ (id)_keyboardDeleteItem;
 @property(retain, nonatomic, getter=_detachedTintColor, setter=_setDetachedTintColor:) UIColor *detachedTintColor; // @synthesize detachedTintColor=_detachedTintColor;
 @property(copy, nonatomic, getter=_detachedBackgroundEffect, setter=_setDetachedBackgroundEffect:) UIBlurEffect *detachedBackgroundEffect; // @synthesize detachedBackgroundEffect=_detachedBackgroundEffect;
 @property(retain, nonatomic, getter=_detachedBackgroundColor, setter=_setDetachedBackgroundColor:) UIColor *detachedBackgroundColor; // @synthesize detachedBackgroundColor=_detachedBackgroundColor;

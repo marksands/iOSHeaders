@@ -20,6 +20,7 @@
 + (id)__componentsRequiredForScriptDetectionWithPhoneticDesired:(_Bool)arg1;
 + (id)_allProperties;
 + (id)_allComponents;
+- (unsigned long long)hash;
 - (_Bool)isEqualToComponents:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;

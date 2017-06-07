@@ -24,6 +24,7 @@
 @property(retain, nonatomic) _HKAchievementPredicateWorkoutEnvironment *addedWorkout; // @synthesize addedWorkout=_addedWorkout;
 @property(nonatomic) __weak id <_HKAchievementPredicateWorkoutsEnvironmentDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (double)averageCaloriesBurnedInWorkoutsFromTimeNumber:(id)arg1 toTimeNumber:(id)arg2;
 - (id)_workoutsByFilteringExcludedUUIDs:(id)arg1;
 - (id)_workoutEnvironmentsFromWorkouts:(id)arg1;
 - (id)workoutsInDateRangeStart:(id)arg1 end:(id)arg2;

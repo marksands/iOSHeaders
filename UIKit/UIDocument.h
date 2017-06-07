@@ -9,7 +9,7 @@
 #import <UIKit/NSFilePresenter-Protocol.h>
 #import <UIKit/NSProgressReporting-Protocol.h>
 
-@class NSDate, NSDocumentDifferenceSize, NSLock, NSMutableArray, NSOperationQueue, NSProgress, NSString, NSTimer, NSURL, NSUndoManager, NSUserActivity;
+@class NSDate, NSDocumentDifferenceSize, NSLock, NSMutableArray, NSOperationQueue, NSProgress, NSSet, NSString, NSTimer, NSURL, NSUndoManager, NSUserActivity;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 @interface UIDocument : NSObject <NSFilePresenter, NSProgressReporting>
@@ -59,7 +59,6 @@
 + (void)_finishWritingToURL:(id)arg1 withTemporaryDirectoryURL:(id)arg2 newContentsURL:(id)arg3 afterSuccess:(_Bool)arg4;
 + (id)_customizationOfError:(id)arg1 withDescription:(id)arg2 recoverySuggestion:(id)arg3 recoveryAttempter:(id)arg4;
 + (id)_typeForContentsOfURL:(id)arg1 error:(id *)arg2;
-+ (void)initialize;
 + (id)_fileModificationDateForURL:(id)arg1;
 @property(retain, nonatomic, getter=progress, setter=_setProgress:) NSProgress *progress; // @synthesize progress=_progress;
 @property(readonly, nonatomic) NSDocumentDifferenceSize *differenceSinceSaving; // @synthesize differenceSinceSaving=_differenceSinceSaving;
@@ -148,6 +147,7 @@
 - (void)_setEditingDisabledDueToPermissions:(_Bool)arg1;
 - (_Bool)_isEditingTemporarilyDisabled;
 - (void)_setEditingTemporarilyDisabled:(_Bool)arg1;
+- (void)_updateLastUsedDate;
 @property(copy) NSDate *fileModificationDate;
 @property(readonly, copy) NSString *fileType;
 - (void)setFileType:(id)arg1;
@@ -181,6 +181,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

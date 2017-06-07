@@ -6,7 +6,7 @@
 
 #import <WebKit/NSObject-Protocol.h>
 
-@class NSDictionary, NSString, NSURL, WKActionSheetAssistant, _WKActivatedElementInfo;
+@class NSDictionary, NSString, NSURL, UIImage, WKActionSheetAssistant, _WKActivatedElementInfo;
 
 @protocol WKActionSheetAssistantDelegate <NSObject>
 - (RetainPtr_f649c0c3)actionSheetAssistant:(WKActionSheetAssistant *)arg1 decideActionsForElement:(_WKActivatedElementInfo *)arg2 defaultActions:(RetainPtr_f649c0c3)arg3;
@@ -17,6 +17,7 @@
 - (const struct InteractionInformationAtPosition *)positionInformationForActionSheetAssistant:(WKActionSheetAssistant *)arg1;
 
 @optional
+- (void)actionSheetAssistant:(WKActionSheetAssistant *)arg1 getAlternateURLForImage:(UIImage *)arg2 completion:(void (^)(NSURL *, NSDictionary *))arg3;
 - (NSString *)selectedTextForActionSheetAssistant:(WKActionSheetAssistant *)arg1;
 - (NSDictionary *)dataDetectionContextForActionSheetAssistant:(WKActionSheetAssistant *)arg1;
 - (void)actionSheetAssistantDidStopInteraction:(WKActionSheetAssistant *)arg1;

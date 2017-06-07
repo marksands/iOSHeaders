@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isTallPopup;
 - (double)popupFontSize;
 - (struct CGPoint)popupSymbolTextOffset;
+- (struct CGPoint)variantAnnotationTextOffset;
 - (struct CGPoint)variantSymbolTextOffset;
 - (struct UIEdgeInsets)variantSymbolFrameInsets;
 - (struct UIEdgeInsets)variantPaddedFrameInsets;

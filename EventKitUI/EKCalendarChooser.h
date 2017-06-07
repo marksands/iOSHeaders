@@ -6,15 +6,20 @@
 
 #import <UIKit/UIViewController.h>
 
-@class EKCalendar, EKEventStore, EKSource, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, UIRefreshControl, UITableView, _UIAccessDeniedView;
+#import <EventKitUI/EKUIAccountRefresherDelegate-Protocol.h>
+
+@class EKCalendar, EKEventStore, EKSource, EKUIAccountRefresher, NSIndexPath, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, UIBarButtonItem, UIRefreshControl, UITableView, UIToolbar, _UIAccessDeniedView;
 @protocol EKCalendarChooserDelegate, EKStyleProvider;
 
-@interface EKCalendarChooser : UIViewController
+@interface EKCalendarChooser : UIViewController <EKUIAccountRefresherDelegate>
 {
+    EKUIAccountRefresher *_currentAccountRefresher;
+    NSMutableDictionary *_accountErrorAnalyticsState;
     _Bool _disableCalendarEditing;
     _Bool _showsDeclinedEventsSetting;
     _Bool _showDetailAccessories;
     _Bool _showDefaultCalendarExplanatoryText;
+    _Bool _showAccountStatus;
     CDStruct_a7a51b3b _flags;
     int _chooserMode;
     long long _style;
@@ -24,6 +29,8 @@
     long long _lastAuthorizationStatus;
     EKEventStore *_eventStore;
     UITableView *_tableView;
+    UIToolbar *_footerToolbar;
+    UIBarButtonItem *_showAllButton;
     NSMutableArray *_groups;
     NSMutableDictionary *_storeGroupMap;
     NSMutableDictionary *_customGroupMap;
@@ -31,26 +38,30 @@
     id <EKStyleProvider> _styleProvider;
     EKSource *_limitedToSource;
     _UIAccessDeniedView *_accessDeniedView;
-    long long _refreshCounter;
     UIRefreshControl *_refreshControl;
 }
 
 + (id)_subscribedLocalizedString;
++ (_Bool)groups:(id)arg1 differStructurallyFromGroups:(id)arg2;
++ (id)hideAllString;
++ (id)showAllString;
+@property(nonatomic) _Bool showAccountStatus; // @synthesize showAccountStatus=_showAccountStatus;
 @property(nonatomic) _Bool showDefaultCalendarExplanatoryText; // @synthesize showDefaultCalendarExplanatoryText=_showDefaultCalendarExplanatoryText;
 @property(nonatomic) _Bool showDetailAccessories; // @synthesize showDetailAccessories=_showDetailAccessories;
 @property(nonatomic) _Bool showsDeclinedEventsSetting; // @synthesize showsDeclinedEventsSetting=_showsDeclinedEventsSetting;
 @property(nonatomic) _Bool disableCalendarEditing; // @synthesize disableCalendarEditing=_disableCalendarEditing;
 @property(nonatomic) int chooserMode; // @synthesize chooserMode=_chooserMode;
 @property(retain, nonatomic) UIRefreshControl *refreshControl; // @synthesize refreshControl=_refreshControl;
-@property(nonatomic) long long refreshCounter; // @synthesize refreshCounter=_refreshCounter;
 @property(retain, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
 @property(retain, nonatomic) EKSource *limitedToSource; // @synthesize limitedToSource=_limitedToSource;
 @property(nonatomic) CDStruct_a7a51b3b flags; // @synthesize flags=_flags;
-@property(retain, nonatomic) id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
+@property(nonatomic) __weak id <EKStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(retain, nonatomic) NSIndexPath *checkedRow; // @synthesize checkedRow=_checkedRow;
 @property(retain, nonatomic) NSMutableDictionary *customGroupMap; // @synthesize customGroupMap=_customGroupMap;
 @property(retain, nonatomic) NSMutableDictionary *storeGroupMap; // @synthesize storeGroupMap=_storeGroupMap;
 @property(retain, nonatomic) NSMutableArray *groups; // @synthesize groups=_groups;
+@property(retain, nonatomic) UIBarButtonItem *showAllButton; // @synthesize showAllButton=_showAllButton;
+@property(retain, nonatomic) UIToolbar *footerToolbar; // @synthesize footerToolbar=_footerToolbar;
 @property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) EKEventStore *eventStore; // @synthesize eventStore=_eventStore;
 @property(nonatomic) long long lastAuthorizationStatus; // @synthesize lastAuthorizationStatus=_lastAuthorizationStatus;
@@ -61,13 +72,18 @@
 - (void).cxx_destruct;
 - (void)_insertStoreIntoByGroupArray:(id)arg1;
 - (void)calendarEditor:(id)arg1 didCompleteWithAction:(int)arg2;
+- (void)_sendAnalyticsEvent:(unsigned long long)arg1 forGroup:(id)arg2;
+- (void)verifyAccountForGroup:(id)arg1;
 - (double)marginForTableView:(id)arg1;
 - (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (void)_selectAllCalendarsAndStores:(_Bool)arg1;
 - (void)_selectCalendar:(id)arg1 selected:(_Bool)arg2;
 - (void)_selectGroup:(id)arg1 selected:(_Bool)arg2;
+- (void)groupShowAllTapped:(id)arg1;
 - (int)_numSelectedGroups;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)_cellIdentifierWithSubtitle:(_Bool)arg1;
@@ -75,39 +91,34 @@
 - (void)declinedEventsSwitchChanged:(id)arg1;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
-- (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
+- (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (long long)_declinedEventsSwitchSection;
 - (_Bool)_shouldShowGroupNameInSection:(long long)arg1;
 - (id)_stringForSharedCalendar:(id)arg1;
-- (_Bool)_isEllipsisCellForGroup:(id)arg1 rowIndex:(long long)arg2;
-- (_Bool)_tableShouldDisplayNewCalendarCellForGroup:(id)arg1;
-- (_Bool)_tableShouldDisplayAllCellForGroup:(id)arg1;
-- (_Bool)_tableShouldDisplayAllCalendarsSection;
+- (_Bool)_tableShouldDisplayVerifyAccountCellForGroup:(id)arg1;
+- (long long)tableSectionRow:(long long)arg1 toCalendarIndexInGroup:(long long)arg2;
+- (long long)calendarRowOffsetForGroup:(long long)arg1;
+- (long long)verifyAccountIndexForGroup:(long long)arg1;
 - (id)_indexPathForCalendar:(id)arg1 source:(id)arg2;
 @property(copy, nonatomic) NSSet *selectedCalendars;
 @property(retain, nonatomic) EKCalendar *selectedCalendar;
-- (void)_setCalendars:(id)arg1;
+- (void)_setCalendars:(id)arg1 changedObjectsHint:(id)arg2;
+- (id)_statusTextForGroup:(id)arg1;
 - (void)_populateGroupsForCalendars:(id)arg1;
-- (void)_applySelection;
+- (_Bool)_applySelection;
 - (id)_loadCalendars;
 - (id)_filterCalendars:(id)arg1;
-- (void)_syncDidEnd;
-- (void)_syncDidStart;
 - (void)_eventStoreChanged:(id)arg1;
 - (void)_restoreSelection:(id)arg1 newCalendars:(id)arg2;
 - (id)_saveSelection;
 - (id)_groupForCustomGroupType:(int)arg1;
 - (id)_groupForSource:(id)arg1;
-- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)_calendarAvailableForEditing:(id)arg1;
-- (void)_cancelMaximumTimeElapsedTimeout;
-- (void)_beginMaximumTimeElapsedTimeout;
-- (void)_cancelSyncCompletedTimeout;
-- (void)_beginSyncCompletedTimeout;
-- (void)_syncCompletedGracePeriodExpired;
-- (void)_refreshControlMaximumVisibleTimeElapsed;
+- (void)accountRefreshFinished:(id)arg1;
+- (void)_finishRefreshing;
 - (void)_pulledToRefresh:(id)arg1;
 - (void)refresh:(id)arg1;
 - (void)done:(id)arg1;
@@ -116,7 +127,6 @@
 - (void)setShowsWritableCalendarsOnly:(_Bool)arg1;
 @property(nonatomic) _Bool allowsPullToRefresh;
 @property(nonatomic) _Bool showsRefreshButton;
-- (_Bool)_canEnableRefresh;
 @property(nonatomic) _Bool showsCancelButton;
 @property(nonatomic) _Bool showsDoneButton;
 - (unsigned long long)supportedInterfaceOrientations;
@@ -126,13 +136,23 @@
 - (struct CGSize)preferredContentSize;
 - (id)_tableHeaderView;
 - (id)_viewModeTitle;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)addCalendarButtonPressed;
+- (void)setAllSelected:(_Bool)arg1;
+- (void)showAllButtonPressed;
 - (void)viewDidLoad;
+- (_Bool)hasAccountThatCanCreateCalendars;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithSelectionStyle:(long long)arg1 displayStyle:(long long)arg2 eventStore:(id)arg3;
 - (id)initWithSelectionStyle:(long long)arg1 displayStyle:(long long)arg2 entityType:(unsigned long long)arg3 eventStore:(id)arg4;
 - (id)initWithSelectionStyle:(long long)arg1 displayStyle:(long long)arg2 entityType:(unsigned long long)arg3 eventStore:(id)arg4 limitedToSource:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,7 +9,7 @@
 @class EKEventAttendeePicker, NSString;
 
 @protocol EKEventAttendeePickerDelegate <NSObject>
-- (unsigned long long)eventAttendeePicker:(EKEventAttendeePicker *)arg1 getValidationStatusForEmailAddress:(NSString *)arg2;
-- (void)eventAttendeePicker:(EKEventAttendeePicker *)arg1 cacheValidationStatus:(unsigned long long)arg2 forEmail:(NSString *)arg3;
+- (unsigned long long)eventAttendeePicker:(EKEventAttendeePicker *)arg1 getValidationStatusForAddress:(NSString *)arg2;
+- (void)eventAttendeePicker:(EKEventAttendeePicker *)arg1 cacheValidationStatus:(unsigned long long)arg2 forAddress:(NSString *)arg3;
 @end
 

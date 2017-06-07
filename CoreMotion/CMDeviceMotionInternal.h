@@ -20,12 +20,13 @@
     int fMagneticFieldCalibrationLevel;
     _Bool fDoingYawCorrection;
     _Bool fDoingBiasEstimation;
+    float fHeading;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithDeviceMotion:(CDStruct_7fb6ae47)arg1;
-- (void)setDeviceMotion:(CDStruct_7fb6ae47)arg1;
+- (id)initWithDeviceMotion:(CDStruct_981b33bd)arg1;
+- (void)setDeviceMotion:(CDStruct_981b33bd)arg1;
 
 @end
 

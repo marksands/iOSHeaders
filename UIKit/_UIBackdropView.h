@@ -21,7 +21,6 @@
     _Bool _applyingBackdropChanges;
     _Bool _applyingTransition;
     _Bool _requiresTintViews;
-    _Bool _wantsColorSettings;
     _Bool _blursBackground;
     _Bool _allowsColorSettingsSuppression;
     _Bool _autoGroup;
@@ -91,10 +90,6 @@
 + (void)adjustGraphicsQualityForAccessibilityIfNeeded:(id)arg1;
 + (void)restoreColorSettingsForRequester:(id)arg1;
 + (void)suppressColorSettingsForRequester:(id)arg1;
-+ (void)restoreColorSettingsForDidBecomeActive:(id)arg1;
-+ (void)suppressColorSettingsForWillResignActive:(id)arg1;
-+ (void)restoreColorSettingsForRunLoopModePop:(id)arg1;
-+ (void)suppressColorSettingsForRunLoopModePush:(id)arg1;
 + (id)allBackdropViews;
 @property(nonatomic) _Bool _backdropVisible; // @synthesize _backdropVisible=__backdropVisible;
 @property(nonatomic) double _saturationDeltaFactor; // @synthesize _saturationDeltaFactor=__saturationDeltaFactor;
@@ -149,7 +144,6 @@
 @property(retain, nonatomic) _UIBackdropEffectView *backdropEffectView; // @synthesize backdropEffectView=_backdropEffectView;
 @property(nonatomic) _Bool allowsColorSettingsSuppression; // @synthesize allowsColorSettingsSuppression=_allowsColorSettingsSuppression;
 @property(nonatomic) _Bool blursBackground; // @synthesize blursBackground=_blursBackground;
-@property(nonatomic) _Bool wantsColorSettings; // @synthesize wantsColorSettings=_wantsColorSettings;
 @property(nonatomic) _Bool requiresTintViews; // @synthesize requiresTintViews=_requiresTintViews;
 @property(nonatomic) _Bool applyingTransition; // @synthesize applyingTransition=_applyingTransition;
 @property(nonatomic) _Bool applyingBackdropChanges; // @synthesize applyingBackdropChanges=_applyingBackdropChanges;
@@ -172,8 +166,6 @@
 - (void)setColorOffsetFilterForSettings:(id)arg1;
 - (void)applySettingsWithBuiltInAnimation:(id)arg1;
 - (void)computeAndApplySettingsForTransition;
-- (void)computeAndApplySettings:(id)arg1;
-- (void)delayedComputeAndApplySettings;
 - (void)adjustTintImplementationIfNeeded:(id)arg1;
 - (void)ensureProperSubviewOrdering;
 - (void)addContentViewIfNeededForSettings:(id)arg1;
@@ -223,7 +215,6 @@
 - (void)willCallRenderInContextOnBackdropViewLayer;
 - (id)backdropViewLayer;
 - (void)setShouldRasterizeEffectsView:(_Bool)arg1;
-- (void)backdropLayerStatisticsDidChange:(id)arg1;
 - (void)settingsDidChange:(id)arg1;
 - (void)_setContinuousCornerRadius:(double)arg1;
 - (double)_continuousCornerRadius;

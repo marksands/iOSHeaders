@@ -16,6 +16,7 @@
     AVWeakReference *weakReference;
     AVPropertyStorage *propertyStorage;
     NSObject<OS_dispatch_queue> *figConfigurationQueue;
+    NSObject<OS_dispatch_queue> *figPlaybackItemAccessorQueue;
     NSObject<OS_dispatch_queue> *seekQueue;
     struct OpaqueFigSimpleMutex *seekIDMutex;
     struct OpaqueVTPixelBufferAttributesMediator *pixelBufferAttributeMediator;
@@ -35,12 +36,16 @@
     struct OpaqueCMTimebase *figTimebase;
     _Bool didBecomeReadyForInspectionOfTracks;
     _Bool didBecomeReadyForInspectionOfPresentationSize;
+    _Bool didBecomeReadyForInspectionOfDuration;
+    _Bool didBecomeReadyForInspectionOfMediaSelectionOptions;
     AVAsset *assetWithFigPlaybackItem;
     NSArray *trackIDsForAssetWithFigPlaybackItem;
     _Bool needTimedMetadataNotification;
     _Bool didBecomeReadyForBasicInspection;
     id <AVPlayerItemDelegate> delegate;
     AVAudioMix *audioMix;
+    long long status;
+    NSError *error;
     _Bool needToSeekAfterCreatingFigPlaybackItem;
     CDStruct_1b6d18a9 initialTime;
     unsigned int initialSetTimeFlags;
@@ -102,7 +107,7 @@
     _Bool allowProgressiveStartup;
     _Bool allowProgressiveResume;
     struct CGSize IFramePrefetchTargetDimensions;
-    struct CGSize preferredPeakPresentationSize;
+    struct CGSize preferredMaximumResolution;
     double preferredPeakBitRate;
     CDStruct_1b6d18a9 maximumTrailingBufferDuration;
     CDStruct_1b6d18a9 maximumForwardBufferDuration;
@@ -110,14 +115,10 @@
     _Bool suppressesAudioOnlyVariants;
     NSString *videoApertureMode;
     unsigned int RTCReportingFlags;
-    long long status;
-    NSError *error;
     NSArray *timedMetadata;
     NSMutableArray *handlersToCallWhenReadyForEnqueueing;
     _Bool haveInitialSamples;
     _Bool haveCPEProtector;
-    _Bool didBecomeReadyForInspectionOfMediaSelectionOptions;
-    _Bool didBecomeReadyForInspectionOfDuration;
     _Bool didInformObserversAboutAvailabilityOfTracks;
     _Bool didFireKVOForAssetForNonStreamingItem;
     _Bool usesMinimalLatencyForVideoCompositionRendering;

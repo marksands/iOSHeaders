@@ -25,11 +25,14 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_invalidateQueue;
     CDUnknownBlockType _invalidateCallback;
     const struct XURLCache *_xCache;
-    long long _xCacheOnce;
     const struct XCookieStorage *_xCookies;
-    long long _xCookiesOnce;
     const struct XCredentialStorage *_xCreds;
-    long long _xCredsOnce;
+    _Bool _xCacheInitComplete;
+    _Bool _xCookiesInitComplete;
+    _Bool _xCredsInitComplete;
+    struct mutex _xCacheStorageInitLock;
+    struct mutex _xCookieStorageInitLock;
+    struct mutex _xCredStorageInitLock;
     NSArray *_localProtocolClassesForDefaultSession;
     _Bool _isInvalid;
     NSURLSessionConfiguration *_proxyConfig;
@@ -39,6 +42,8 @@ __attribute__((visibility("hidden")))
     NSURLSession *_sessionForCacheLookups;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)_URLSession:(id)arg1 task:(id)arg2 getAuthHeadersForResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)URLSession:(id)arg1 task:(id)arg2 _conditionalRequirementsChanged:(_Bool)arg3;
 - (void)URLSession:(id)arg1 task:(id)arg2 _willSendRequestForEstablishedConnection:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -91,6 +96,7 @@ __attribute__((visibility("hidden")))
 - (void)_onqueue_flushWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_onqueue_resetStorageWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)task:(id)arg1 terminatedConnection:(id)arg2;
+- (id)AVAggregateAssetDownloadTaskForURLAsset:(id)arg1 mediaSelections:(id)arg2 assetTitle:(id)arg3 assetArtworkData:(id)arg4 options:(id)arg5;
 - (id)AVAssetDownloadTaskForURLAsset:(id)arg1 assetTitle:(id)arg2 assetArtworkData:(id)arg3 options:(id)arg4;
 - (id)AVAssetDownloadTaskForURLAsset:(id)arg1 destinationURL:(id)arg2 options:(id)arg3;
 - (id)_AVAssetDownloadTaskForURL:(id)arg1 destinationURL:(id)arg2 options:(id)arg3;

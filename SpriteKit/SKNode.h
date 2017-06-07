@@ -29,6 +29,7 @@
     _Bool _userInteractionEnabled;
     _Bool _performFullCapture;
     SKReachConstraints *_reachConstraints;
+    long long _focusBehavior;
     GKEntity *_entity;
 }
 
@@ -38,10 +39,16 @@
 @property _Bool performFullCapture; // @synthesize performFullCapture=_performFullCapture;
 @property(nonatomic) __weak GKEntity *entity; // @synthesize entity=_entity;
 @property(retain, nonatomic) NSMutableDictionary *userData; // @synthesize userData=_userData;
+@property(nonatomic) long long focusBehavior; // @synthesize focusBehavior=_focusBehavior;
 @property(copy, nonatomic) SKReachConstraints *reachConstraints; // @synthesize reachConstraints=_reachConstraints;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)debugHierarchyPropertyDescriptions;
+- (id)debugHierarchyObjectsInGroupWithID:(id)arg1 outOptions:(id *)arg2;
+- (id)debugHierarchyChildGroupingID;
+- (_Bool)_isEligibleForFocusInteraction;
 - (_Bool)_isEligibleForFocus;
+- (_Bool)_isEffectivelyHidden;
 - (id)_parentFocusEnvironment;
 @property(readonly, copy, nonatomic) NSArray *preferredFocusEnvironments;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
@@ -145,6 +152,7 @@
 @property(readonly, nonatomic) shared_ptr_11a7378b _aether;
 - (void)_removeChild:(id)arg1;
 - (void)_removeAction:(id)arg1;
+- (id)createDebugHierarchyVisualRepresentation;
 - (struct CGRect)_convertFrameToView:(id)arg1;
 - (id)_copyImageData;
 @property(readonly, nonatomic) NSArray *_allActions;
@@ -154,6 +162,7 @@
 - (_Bool)intersectsNode:(id)arg1 useAlphaTest:(_Bool)arg2;
 @property(readonly, nonatomic) struct CGSize _size;
 @property(nonatomic) struct CGPoint _anchorPoint;
+@property(readonly, nonatomic) struct CGSize _untransformedSize;
 @property(readonly, nonatomic) struct CGRect _untransformedBounds;
 @property(nonatomic) _Bool _showBounds;
 @property(retain, nonatomic) NSMutableDictionary *_info;

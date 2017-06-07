@@ -8,10 +8,11 @@
 
 #import <SafariServices/NSSecureCoding-Protocol.h>
 
-@class NSURL, SSBLookupResult;
+@class NSURL, SSBLookupResult, _SFSecurityManager;
 
 @interface _SFSecurityInfo : NSObject <NSSecureCoding>
 {
+    _SFSecurityManager *_securityManager;
     _Bool _hasWarnedUser;
     NSURL *_assessedURL;
     SSBLookupResult *_result;
@@ -28,6 +29,10 @@
 - (id)provider;
 - (_Bool)isKnownToBeUnsafe;
 - (id)description;
+- (id)_securityManager;
+- (id)_providerFromSSBProvider:(id)arg1;
+- (long long)_securityAssessmentFromServiceLookupResult:(id)arg1;
+- (id)_securityTypeDescriptionFromSecurityAssessment:(long long)arg1;
 - (id)initWithURL:(id)arg1 result:(id)arg2 hasWarnedUser:(_Bool)arg3;
 
 @end

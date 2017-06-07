@@ -23,6 +23,7 @@
     _Bool _canLoadMoreThanOnce;
     _Bool _hasLoadedFirstAd;
     int _screenfuls;
+    int _slotPosition;
     int _creativeType;
     long long _options;
     NSString *_adResponseId;
@@ -42,6 +43,7 @@
 @property(nonatomic, getter=isActionInProgress) _Bool actionInProgress; // @synthesize actionInProgress=_actionInProgress;
 @property(nonatomic) _Bool displayed; // @synthesize displayed=_displayed;
 @property(nonatomic) long long lastErrorCode; // @synthesize lastErrorCode=_lastErrorCode;
+@property(nonatomic) int slotPosition; // @synthesize slotPosition=_slotPosition;
 @property(nonatomic) int screenfuls; // @synthesize screenfuls=_screenfuls;
 @property(copy, nonatomic) NSString *adResponseId; // @synthesize adResponseId=_adResponseId;
 @property(nonatomic, getter=isLoaded) _Bool loaded; // @synthesize loaded=_loaded;

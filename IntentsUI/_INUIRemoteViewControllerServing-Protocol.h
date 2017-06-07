@@ -6,11 +6,11 @@
 
 #import <IntentsUI/NSObject-Protocol.h>
 
-@class INInteraction;
+@class INInteraction, NSSet;
 
 @protocol _INUIRemoteViewControllerServing <NSObject>
 - (void)requestDesiredSize;
 - (void)queryRepresentedPropertiesWithCompletion:(void (^)(NSArray *))arg1;
-- (void)configureWithInteraction:(INInteraction *)arg1 context:(unsigned long long)arg2 completion:(void (^)(struct CGSize))arg3;
+- (void)configureForParameters:(NSSet *)arg1 ofInteraction:(INInteraction *)arg2 context:(unsigned long long)arg3 completion:(void (^)(_Bool, NSSet *, struct CGSize, NSError *))arg4;
 @end
 

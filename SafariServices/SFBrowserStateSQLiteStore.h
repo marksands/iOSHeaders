@@ -53,6 +53,7 @@ __attribute__((visibility("hidden")))
 - (void)closeDatabase;
 - (int)_createFreshDatabaseSchema;
 - (int)_createTableForTabs;
+- (int)_createTableForTabSession;
 - (int)_migrateToSchemaVersion_3;
 - (int)_migrateToSchemaVersion_2;
 - (void)_migrateFromLegacyPlistWithPath:(id)arg1;

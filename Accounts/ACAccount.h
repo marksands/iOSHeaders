@@ -6,13 +6,14 @@
 
 #import <objc/NSObject.h>
 
+#import <Accounts/ACProtobufCoding-Protocol.h>
 #import <Accounts/NSCoding-Protocol.h>
 #import <Accounts/NSCopying-Protocol.h>
 #import <Accounts/NSSecureCoding-Protocol.h>
 
 @class ACAccountCredential, ACAccountStore, ACAccountType, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSURL;
 
-@interface ACAccount : NSObject <NSCoding, NSCopying, NSSecureCoding>
+@interface ACAccount : NSObject <ACProtobufCoding, NSCoding, NSCopying, NSSecureCoding>
 {
     ACAccountStore *_store;
     NSString *_identifier;
@@ -137,9 +138,14 @@
 @property(readonly, nonatomic, getter=isDirty) _Bool dirty;
 - (void)credentialsChanged:(id)arg1;
 - (id)fullDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+- (id)portableCopy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_encodeProtobufData;
+- (id)_encodeProtobuf;
+- (id)_initWithProtobufData:(id)arg1;
+- (id)_initWithProtobuf:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_installCredentialsChangedObserver;
 - (id)initWithCoder:(id)arg1;
@@ -148,6 +154,11 @@
 - (id)initWithManagedAccount:(id)arg1 accountStore:(id)arg2;
 - (id)initWithAccountType:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

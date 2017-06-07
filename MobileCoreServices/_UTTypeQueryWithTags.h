@@ -18,13 +18,13 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)debugDescription;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)_enumerateWithXPCConnection:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 - (id)initWithTag:(id)arg1 ofClass:(id)arg2 conformsTo:(id)arg3 limit:(long long)arg4;
 
 @end

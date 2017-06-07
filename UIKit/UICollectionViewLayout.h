@@ -50,9 +50,13 @@
 + (Class)layoutAttributesClass;
 @property(nonatomic, getter=_sublayoutType, setter=_setSublayoutType:) long long sublayoutType; // @synthesize sublayoutType=_sublayoutType;
 - (void).cxx_destruct;
+- (_Bool)flipsHorizontallyInOppositeLayoutDirection;
+- (long long)developmentLayoutDirection;
+- (id)_layoutAttributesForElementsInProjectedRect:(struct CGRect)arg1 withProjectionVector:(struct CGVector)arg2 projectionDistance:(double)arg3;
 - (struct CGPoint)_contentOffsetForScrollingToSection:(long long)arg1;
 @property(readonly, nonatomic, getter=_fastScrollingIndexBarInsets) struct UIEdgeInsets fastScrollingIndexBarInsets;
-@property(nonatomic, setter=_setWantsRightToLeftHorizontalMirroringIfNeeded:) _Bool _wantsRightToLeftHorizontalMirroringIfNeeded;
+- (void)_setWantsRightToLeftHorizontalMirroringIfNeeded:(_Bool)arg1;
+- (_Bool)_wantsRightToLeftHorizontalMirroringIfNeeded;
 - (struct UIEdgeInsets)_preferredLayoutMargins;
 - (_Bool)_shouldScrollToContentBeginningInRightToLeft;
 - (id)invalidationContextForEndingInteractiveMovementOfItemsToFinalIndexPaths:(id)arg1 previousIndexPaths:(id)arg2 movementCancelled:(_Bool)arg3;
@@ -82,6 +86,7 @@
 - (void)setEditing:(_Bool)arg1;
 - (_Bool)isEditing;
 - (_Bool)canBeEdited;
+- (struct CGPoint)_contentOffsetFromProposedContentOffset:(struct CGPoint)arg1 forScrollingToItemAtIndexPath:(id)arg2 atScrollPosition:(unsigned long long)arg3;
 - (void)_invalidateLayoutUsingContext:(id)arg1;
 - (_Bool)_supportsAdvancedTransitionAnimations;
 - (void)_setExternalObjectTable:(id)arg1 forNibLoadingOfDecorationViewOfKind:(id)arg2;
@@ -128,6 +133,7 @@
 - (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2 type:(unsigned long long)arg3;
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1;
 - (struct CGPoint)targetContentOffsetForProposedContentOffset:(struct CGPoint)arg1 withScrollingVelocity:(struct CGPoint)arg2;
+- (id)_invalidationContextForUpdatedLayoutMargins:(struct UIEdgeInsets)arg1;
 - (id)invalidationContextForPreferredLayoutAttributes:(id)arg1 withOriginalAttributes:(id)arg2;
 - (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
 - (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;

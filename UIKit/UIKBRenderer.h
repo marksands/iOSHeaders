@@ -25,13 +25,15 @@ __attribute__((visibility("hidden")))
     NSString *_cacheKey;
     UIImage *_renderedImage;
     long long _contentColorFormat;
+    long long _assetIdiom;
     struct CGSize _size;
 }
 
 + (void)clearInternalCaches;
 + (struct CGContext *)imageContextWithSize:(struct CGSize)arg1 scale:(double)arg2 colorFormat:(long long)arg3 opaque:(_Bool)arg4 invert:(_Bool)arg5;
-+ (id)rendererWithContext:(struct CGContext *)arg1 withSize:(struct CGSize)arg2 withScale:(double)arg3 opaque:(_Bool)arg4 renderFlags:(long long)arg5;
++ (id)rendererWithContext:(struct CGContext *)arg1 withSize:(struct CGSize)arg2 withScale:(double)arg3 opaque:(_Bool)arg4 renderFlags:(long long)arg5 assetIdiom:(long long)arg6;
 @property(nonatomic) _Bool disableInternalCaching; // @synthesize disableInternalCaching=_disableInternalCaching;
+@property(readonly, nonatomic) long long assetIdiom; // @synthesize assetIdiom=_assetIdiom;
 @property(nonatomic) _Bool colorDetectMode; // @synthesize colorDetectMode=_colorDetectMode;
 @property(retain, nonatomic) NSString *cacheKey; // @synthesize cacheKey=_cacheKey;
 @property(readonly, nonatomic) long long renderFlags; // @synthesize renderFlags=_renderFlags;
@@ -67,8 +69,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)loadCachedImageForHashString:(id)arg1;
 - (void)renderBackgroundTraits:(id)arg1 allowCaching:(_Bool)arg2;
 - (void)_drawLinearGradient:(id)arg1 inRect:(struct CGRect)arg2;
+- (void)renderDivotEffect:(id)arg1 withTraits:(id)arg2;
 - (void)renderShadowEffect:(id)arg1 withTraits:(id)arg2;
 - (void)renderEdgeEffect:(id)arg1 withTraits:(id)arg2;
+- (void)renderNullEffect:(id)arg1 withTraits:(id)arg2;
 @property(readonly, nonatomic) NSData *contextData;
 @property(readonly, nonatomic) UIImage *renderedImage; // @synthesize renderedImage=_renderedImage;
 @property(readonly, nonatomic) struct CGContext *context; // @synthesize context=_ctx;
@@ -82,7 +86,7 @@ __attribute__((visibility("hidden")))
 - (void)forceColorFormat:(long long)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithContext:(struct CGContext *)arg1 withSize:(struct CGSize)arg2 withScale:(double)arg3 opaque:(_Bool)arg4 renderFlags:(long long)arg5;
+- (id)initWithContext:(struct CGContext *)arg1 withSize:(struct CGSize)arg2 withScale:(double)arg3 opaque:(_Bool)arg4 renderFlags:(long long)arg5 assetIdiom:(long long)arg6;
 
 @end
 

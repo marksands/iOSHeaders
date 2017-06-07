@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSLayoutConstraint, UIToolbar, UIView, _UIToolbarConfiguration;
+@class NSLayoutConstraint, UIColor, UIToolbar, UIView, _UIToolbarConfiguration;
 
 __attribute__((visibility("hidden")))
 @interface QLToolbarController : NSObject
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     UIView *_clippingExtensionContainer;
     UIView *_accessoryViewContainer;
     _UIToolbarConfiguration *_originalToolbarConfiguration;
+    _UIToolbarConfiguration *_customToolbarConfiguration;
     double _derivedToolbarExtensionHeight;
     _Bool _accessoryViewHidden;
     _Bool _originalToolbarHidden;
@@ -32,10 +33,12 @@ __attribute__((visibility("hidden")))
     double _originalToolbarAlpha;
     double _accessoryViewAlpha;
     double _hiddenProgress;
+    UIColor *_barTintColor;
     UIView *_preferredSuperview;
 }
 
 @property(nonatomic) __weak UIView *preferredSuperview; // @synthesize preferredSuperview=_preferredSuperview;
+@property(retain, nonatomic) UIColor *barTintColor; // @synthesize barTintColor=_barTintColor;
 @property(nonatomic) double hiddenProgress; // @synthesize hiddenProgress=_hiddenProgress;
 @property(nonatomic) double accessoryViewAlpha; // @synthesize accessoryViewAlpha=_accessoryViewAlpha;
 @property(nonatomic) double originalToolbarAlpha; // @synthesize originalToolbarAlpha=_originalToolbarAlpha;

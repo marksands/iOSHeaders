@@ -23,9 +23,10 @@
 - (void)encodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (_Bool)isEqualForContact:(id)arg1 other:(id)arg2;
 - (id)init;
+- (id)CNValueFromABBytes:(char *)arg1 length:(unsigned long long)arg2;
 - (id)CNValueFromABValue:(void *)arg1;
 - (void *)ABValueFromCNValue:(id)arg1;
-- (int)abPropertyID:(int *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

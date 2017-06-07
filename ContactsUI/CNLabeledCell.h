@@ -14,12 +14,16 @@ __attribute__((visibility("hidden")))
 {
     NSDictionary *_labelTextAttributes;
     NSDictionary *_valueTextAttributes;
+    _Bool _labelViewNeedsHuggingContent;
+    _Bool _valueViewNeedsHuggingContent;
     UIImageView *_chevron;
 }
 
 + (_Bool)wantsHorizontalLayout;
 + (_Bool)wantsStandardConstraints;
 + (_Bool)wantsChevron;
+@property(nonatomic) _Bool valueViewNeedsHuggingContent; // @synthesize valueViewNeedsHuggingContent=_valueViewNeedsHuggingContent;
+@property(nonatomic) _Bool labelViewNeedsHuggingContent; // @synthesize labelViewNeedsHuggingContent=_labelViewNeedsHuggingContent;
 @property(readonly, nonatomic) UIImageView *chevron; // @synthesize chevron=_chevron;
 - (void).cxx_destruct;
 - (void)tintColorDidChange;
@@ -40,8 +44,6 @@ __attribute__((visibility("hidden")))
 - (id)constantConstraintsForStandardLayout;
 - (id)variableConstraints;
 - (id)constantConstraints;
-@property(readonly, nonatomic) double bottomBaselineConstant;
-@property(readonly, nonatomic) double topBaselineConstant;
 @property(readonly, nonatomic) double chevronWidth;
 - (double)minCellHeight;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

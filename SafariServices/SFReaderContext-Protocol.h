@@ -14,6 +14,7 @@
 - (void)setReaderTheme:(NSString *)arg1;
 - (void)setReaderLanguageTag:(NSString *)arg1;
 - (void)setReaderFont:(NSString *)arg1;
+- (void)collectReaderContentForMailWithCompletion:(void (^)(NSString *))arg1;
 - (WBSReaderFontManager *)fontManager;
 - (NSDictionary *)configuration;
 - (NSURL *)readerURL;

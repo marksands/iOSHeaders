@@ -13,6 +13,8 @@
 }
 
 + (id)sharedManager;
+- (id)activeDownloadForStoreID:(long long)arg1;
+- (id)activeDownloadForMediaItemPersistentID:(long long)arg1;
 - (_Bool)hasActiveDownloads;
 - (void)cancelDownloads:(id)arg1;
 - (void)sendKeepLocalStatusChanged:(long long)arg1 forLibraryIdentifier:(long long)arg2 entityType:(long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;

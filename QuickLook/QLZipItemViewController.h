@@ -17,11 +17,14 @@ __attribute__((visibility("hidden")))
     QLDetailItemViewControllerState *_unableToUnzipState;
 }
 
++ (_Bool)shouldBeRemoteForContentType:(id)arg1;
++ (id)supportedContentTypes;
++ (Class)transformerClass;
 - (void).cxx_destruct;
 - (void)performAction;
 - (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_updateZipInformation;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_updateZipInformationWithZipSize:(id)arg1;
 - (void)viewDidLoad;
 
 @end

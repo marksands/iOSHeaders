@@ -11,11 +11,12 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (int)analyticsTarget;
+- (id)draggableContent;
 - (Class)_labeledValueExpectedValueType;
 - (id)_valueString;
 - (id)_iconAccessibilityLabel;
 - (id)_icon;
-- (double)_baselineToBottomConstant;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

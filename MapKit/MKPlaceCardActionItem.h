@@ -6,28 +6,35 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSAttributedString, UIColor, UIImage, _MKMapItemAttribution;
+@class NSArray, NSString, UIColor, _MKMapItemAttribution;
 
 __attribute__((visibility("hidden")))
 @interface MKPlaceCardActionItem : NSObject
 {
     _Bool _enabled;
-    NSAttributedString *_displayString;
+    _Bool _selected;
+    NSString *_displayString;
     unsigned long long _type;
     NSArray *_urlStrings;
     _MKMapItemAttribution *_attribution;
+    NSString *_glyph;
+    UIColor *_glyphColor;
+    MKPlaceCardActionItem *_selectedItem;
+    id _value;
 }
 
+@property(retain, nonatomic) id value; // @synthesize value=_value;
+@property(retain, nonatomic) MKPlaceCardActionItem *selectedItem; // @synthesize selectedItem=_selectedItem;
+@property(nonatomic) _Bool selected; // @synthesize selected=_selected;
+@property(retain, nonatomic) UIColor *glyphColor; // @synthesize glyphColor=_glyphColor;
+@property(copy, nonatomic) NSString *glyph; // @synthesize glyph=_glyph;
 @property(retain, nonatomic) _MKMapItemAttribution *attribution; // @synthesize attribution=_attribution;
 @property(readonly, nonatomic) NSArray *urlStrings; // @synthesize urlStrings=_urlStrings;
-@property(readonly, nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
-@property(readonly, copy, nonatomic) NSAttributedString *displayString; // @synthesize displayString=_displayString;
+@property(readonly, copy, nonatomic) NSString *displayString; // @synthesize displayString=_displayString;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) UIColor *tintColorOverride;
-@property(readonly, nonatomic) UIImage *icon;
-- (void)_setDisplayStringByType;
-- (id)initForAttributionURLsDisplayString:(id)arg1 enabled:(_Bool)arg2 urlStrings:(id)arg3 attribution:(id)arg4 type:(unsigned long long)arg5;
+- (id)initWithType:(unsigned long long)arg1 displayString:(id)arg2 enabled:(_Bool)arg3 urlStrings:(id)arg4 attribution:(id)arg5;
 - (id)initWithType:(unsigned long long)arg1 displayString:(id)arg2 enabled:(_Bool)arg3;
 
 @end

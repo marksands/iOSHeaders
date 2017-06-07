@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)_contentStretchInPixels;
 - (long long)resizingMode;
 - (struct UIEdgeInsets)capInsets;
+- (void)_flipImageOrientationHorizontally;
 - (double)duration;
 - (id)images;
 - (void)encodeWithCoder:(id)arg1;

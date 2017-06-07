@@ -6,16 +6,18 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <EventKitUI/EKEventDetailNotesCellDelegate-Protocol.h>
 #import <EventKitUI/EKEventTitleDetailItemDelegate-Protocol.h>
 #import <EventKitUI/EKUIEventStatusButtonsViewDelegate-Protocol.h>
 #import <EventKitUI/UIAlertViewDelegate-Protocol.h>
+#import <EventKitUI/UIScrollViewDelegate-Protocol.h>
 #import <EventKitUI/UITableViewDataSource-Protocol.h>
 #import <EventKitUI/UITableViewDelegate-Protocol.h>
 
-@class EKEvent, EKEventDetailItem, EKEventEditViewController, EKUIEventStatusButtonsView, EKUIRecurrenceAlertController, NSArray, NSDictionary, NSString, SingleToolbarItemContainerView, UIScrollView, UITableView, UIView, _UIAccessDeniedView;
+@class EKCustomTitleView, EKEvent, EKEventDetailItem, EKEventEditViewController, EKEventTitleDetailItem, EKUIEventStatusButtonsView, EKUIRecurrenceAlertController, NSArray, NSDictionary, NSString, SingleToolbarItemContainerView, UIScrollView, UITableView, UIView, _UIAccessDeniedView;
 @protocol EKEventViewDelegate;
 
-@interface EKEventViewController : UIViewController <EKEventTitleDetailItemDelegate, EKUIEventStatusButtonsViewDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface EKEventViewController : UIViewController <EKEventTitleDetailItemDelegate, EKUIEventStatusButtonsViewDelegate, EKEventDetailNotesCellDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 {
     NSArray *_items;
     EKEvent *_event;
@@ -32,11 +34,12 @@
     SingleToolbarItemContainerView *_statusButtonsContainerView;
     double _statusButtonsViewCachedFontSize;
     long long _lastOrientation;
+    EKEventTitleDetailItem *_titleItem;
+    EKCustomTitleView *_customTitle;
     EKEventDetailItem *_currentEditItem;
     UITableView *_tableView;
     _Bool _didAppear;
     _Bool _countedAppearance;
-    _Bool _viewIsVisible;
     _Bool _autoPop;
     _Bool _allowsSubitems;
     _Bool _showsPreview;
@@ -64,8 +67,11 @@
     _Bool _showingBlankFooterView;
     UIViewController *_confirmationAlertPresentationSourceViewController;
     _Bool _allowsEditing;
+    _Bool _viewIsVisible;
+    _Bool _showsConferenceItem;
     _Bool _minimalMode;
     _Bool _noninteractivePlatterMode;
+    _Bool _isLargeDayView;
     int _editorShowTransition;
     int _editorHideTransition;
     id <EKEventViewDelegate> _delegate;
@@ -79,8 +85,10 @@
 @property(nonatomic) struct UIEdgeInsets layoutMargins; // @synthesize layoutMargins=_layoutMargins;
 @property(nonatomic) int editorHideTransition; // @synthesize editorHideTransition=_editorHideTransition;
 @property(nonatomic) int editorShowTransition; // @synthesize editorShowTransition=_editorShowTransition;
+@property(nonatomic) _Bool isLargeDayView; // @synthesize isLargeDayView=_isLargeDayView;
 @property(nonatomic) _Bool noninteractivePlatterMode; // @synthesize noninteractivePlatterMode=_noninteractivePlatterMode;
 @property(nonatomic) _Bool minimalMode; // @synthesize minimalMode=_minimalMode;
+@property(nonatomic) _Bool showsConferenceItem; // @synthesize showsConferenceItem=_showsConferenceItem;
 @property(nonatomic) _Bool showsDelegateMessage; // @synthesize showsDelegateMessage=_showsDelegateMessage;
 @property(nonatomic) _Bool showsDelegatorMessage; // @synthesize showsDelegatorMessage=_showsDelegatorMessage;
 @property(nonatomic) _Bool showsOutOfDateMessage; // @synthesize showsOutOfDateMessage=_showsOutOfDateMessage;
@@ -90,6 +98,7 @@
 @property(nonatomic) _Bool showsAddToCalendar; // @synthesize showsAddToCalendar=_showsAddToCalendar;
 @property(nonatomic) _Bool allowsInviteResponses; // @synthesize allowsInviteResponses=_allowsInviteResponses;
 @property(nonatomic, getter=isICSPreview) _Bool ICSPreview; // @synthesize ICSPreview=_ICSPreview;
+@property _Bool viewIsVisible; // @synthesize viewIsVisible=_viewIsVisible;
 @property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(nonatomic) __weak id <EKEventViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -105,6 +114,7 @@
 - (unsigned long long)_sectionForDetailItem:(id)arg1;
 - (id)getCurrentContext;
 - (_Bool)allowContextProvider:(id)arg1;
+- (void)scrollViewDidScroll:(id)arg1;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didUnhighlightRowAtIndexPath:(id)arg2;
@@ -185,6 +195,7 @@
 @property(retain, nonatomic) EKEvent *event;
 - (void)_reloadIfNeeded;
 - (void)setNeedsReload;
+- (void)reloadedData;
 - (void)openAttendeesDetailItem;
 - (void)_pop;
 - (_Bool)_shouldPopSelf;

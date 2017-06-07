@@ -9,7 +9,7 @@
 #import <MediaPlayer/MPQueueBehaviorManaging-Protocol.h>
 #import <MediaPlayer/NSCoding-Protocol.h>
 
-@class MPModelPlayEvent, NSData, NSMutableDictionary, NSString;
+@class MPModelPlayEvent, MPMutableBidirectionalDictionary, NSData, NSMutableDictionary, NSString;
 @protocol MPQueueFeederDelegate;
 
 @interface MPQueueFeeder : NSObject <MPQueueBehaviorManaging, NSCoding>
@@ -17,6 +17,7 @@
     long long _repeatType;
     long long _shuffleType;
     NSMutableDictionary *_nextStartTimes;
+    MPMutableBidirectionalDictionary *_exportableItemIDs;
     _Bool _requiresQueueChangeVerification;
     id <MPQueueFeederDelegate> _delegate;
     unsigned long long _state;
@@ -25,12 +26,14 @@
     NSString *_siriReferenceIdentifier;
     NSString *_playbackContextUniqueIdentifier;
     long long _activeShuffleType;
+    NSString *_uniqueIdentifier;
     MPModelPlayEvent *_modelPlayEvent;
     CDStruct_dcf4dde6 _skipLimit;
 }
 
 + (_Bool)supportsStateRestoration;
 @property(readonly, nonatomic) MPModelPlayEvent *modelPlayEvent; // @synthesize modelPlayEvent=_modelPlayEvent;
+@property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(nonatomic) long long activeShuffleType; // @synthesize activeShuffleType=_activeShuffleType;
 @property(nonatomic) long long shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(nonatomic) long long repeatType; // @synthesize repeatType=_repeatType;
@@ -67,6 +70,7 @@
 - (id)identifierAtIndex:(unsigned long long)arg1;
 - (unsigned long long)indexOfItemWithIdentifier:(id)arg1;
 - (id)itemForIdentifier:(id)arg1;
+- (id)_itemForIndex:(long long)arg1 queueIdentifier:(id)arg2;
 - (_Bool)hasItemForIndex:(unsigned long long)arg1;
 - (id)audioSessionModeForItemAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) long long realShuffleType;
@@ -74,13 +78,20 @@
 - (_Bool)hasValidItemAtIndex:(unsigned long long)arg1;
 - (id)copyRawItemAtIndex:(unsigned long long)arg1;
 - (void)applyVolumeNormalizationForItem:(id)arg1;
+- (void)generateContentIDForItem:(id)arg1;
+- (id)contentItemIDForQueueItemID:(id)arg1;
+- (id)contentItemIDAtIndex:(long long)arg1;
+- (long long)indexForItemID:(id)arg1;
+- (id)itemIDAtIndex:(long long)arg1;
+- (id)itemForItemID:(id)arg1;
+- (id)queueIdentifierForItemID:(id)arg1;
 @property(readonly, nonatomic) _Bool userCanChangeShuffleAndRepeatType;
-@property(readonly, nonatomic) _Bool trackChangesCanEndPlayback;
 - (id)preferredLanguages;
 @property(readonly, nonatomic) _Bool playerPreparesItemsForPlaybackAsynchronously;
 @property(readonly, nonatomic) long long playbackMode;
 - (long long)itemTypeForIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) Class itemClass;
+- (_Bool)canSkipToPreviousItemForItem:(id)arg1;
 @property(readonly, nonatomic) _Bool canSkipToPreviousItem;
 - (_Bool)canSkipItem:(id)arg1;
 @property(readonly, nonatomic) _Bool canSeek;
@@ -95,6 +106,7 @@
 - (_Bool)shouldReuseQueueFeederForPlaybackContext:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)init;
 - (void)restoreState:(CDUnknownBlockType)arg1;
 
 // Remaining properties

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     unsigned int _element;
 }
 
+- (void).cxx_destruct;
 - (void)setEnabled:(_Bool)arg1;
 - (_Bool)setFormat:(id)arg1 error:(id *)arg2;
 - (id)format;

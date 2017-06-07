@@ -18,8 +18,9 @@
 }
 
 + (void)viewControllerForExtension:(id)arg1 inputItems:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-+ (void)loadBroadcastActivityViewControllerWithHandler:(CDUnknownBlockType)arg1 broadcastActivitiesNotInstalledAlertTitle:(id)arg2 broadcastActivitiesNotInstalledAlertMessage:(id)arg3;
++ (void)loadBroadcastActivityViewControllerWithPreferredExtension:(id)arg1 handler:(CDUnknownBlockType)arg2 broadcastActivitiesNotInstalledAlertTitle:(id)arg3 broadcastActivitiesNotInstalledAlertMessage:(id)arg4;
 + (void)loadBroadcastActivityViewControllerWithHandler:(CDUnknownBlockType)arg1;
++ (void)loadBroadcastActivityViewControllerWithPreferredExtension:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) CDUnknownBlockType didFinishHandler; // @synthesize didFinishHandler=_didFinishHandler;
 @property(retain, nonatomic) RPBroadcastActivityHostViewController *hostViewController; // @synthesize hostViewController=_hostViewController;
 @property(retain, nonatomic) UIPopoverPresentationController *popoverPresentationControllerProxy; // @synthesize popoverPresentationControllerProxy=_popoverPresentationControllerProxy;

@@ -6,43 +6,57 @@
 
 #import <objc/NSObject.h>
 
+#import <HomeKit/HMFMessageReceiver-Protocol.h>
 #import <HomeKit/HMObjectMerge-Protocol.h>
 #import <HomeKit/NSSecureCoding-Protocol.h>
 
-@class HMDelegateCaller, HMEventTrigger, NSString, NSUUID;
+@class HMDelegateCaller, HMEventTrigger, HMFMessageDispatcher, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMEvent : NSObject <NSSecureCoding, HMObjectMerge>
+@interface HMEvent : NSObject <NSSecureCoding, HMObjectMerge, HMFMessageReceiver>
 {
-    NSUUID *_uuid;
+    _Bool _endEvent;
     HMEventTrigger *_eventTrigger;
     NSUUID *_uniqueIdentifier;
+    NSUUID *_uuid;
+    NSString *_triggerType;
+    HMFMessageDispatcher *_msgDispatcher;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMDelegateCaller *_delegateCaller;
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)sharedTriggerActivationSupportedForHome:(id)arg1;
++ (_Bool)isSupportedForHome:(id)arg1;
 @property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
-@property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
+@property(readonly, nonatomic) NSString *triggerType; // @synthesize triggerType=_triggerType;
+@property(nonatomic, getter=isEndEvent) _Bool endEvent; // @synthesize endEvent=_endEvent;
+@property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
 - (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
+- (id)_serializeForAdd;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)_configure:(id)arg1 eventTrigger:(id)arg2 clientQueue:(id)arg3 delegateCaller:(id)arg4;
-- (id)_serializeForAdd;
-- (id)init;
+- (void)_handleEventUpdatedNotification:(id)arg1;
+- (void)_registerNotificationHandlers;
+- (void)_configure:(id)arg1 clientQueue:(id)arg2 delegateCaller:(id)arg3 msgDispatcher:(id)arg4;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (void)_updateTriggerType;
+- (id)initWithDict:(id)arg1;
 - (void)_invalidate;
 @property(nonatomic) __weak HMEventTrigger *eventTrigger; // @synthesize eventTrigger=_eventTrigger;
-- (void)_setUuidAndUniqueId:(id)arg1;
-@property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+@property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

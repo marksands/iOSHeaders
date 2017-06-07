@@ -11,19 +11,18 @@
 }
 
 + (struct CGSize)bestItemSizeForAvailableWidth:(double)arg1 screenScale:(double)arg2 bestSpacing:(double *)arg3 bestInset:(double *)arg4;
-- (double)sectionHeaderHeight;
 - (_Bool)shouldPlaceSelectAllButtonInRightNavigationBar;
 - (_Bool)canDisplaySlideshowButton;
 - (_Bool)canDisplaySearchActionInNavigationBar;
 - (long long)forceLoadInitialSectionCount;
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (id)albumPickerViewControllerSpec;
 - (id)photosPickerViewControllerSpec;
 - (_Bool)canDisplayOptionsInPopover;
 - (long long)cellFillMode;
 - (int)thumbnailImageFormat;
 - (struct CGSize)baseInterItemSpacing;
-- (double)globalFooterHeight;
+- (double)globalFooterMinHeight;
 - (unsigned long long)supportedInterfaceOrientations;
 
 @end

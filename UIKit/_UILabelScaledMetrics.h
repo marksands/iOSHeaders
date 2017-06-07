@@ -15,12 +15,14 @@ __attribute__((visibility("hidden")))
     double _baselineOffset;
     double _scaledBaselineOffset;
     double _scaledLineHeight;
+    long long _measuredNumberOfLines;
     NSAttributedString *_scaledAttributedText;
     struct CGSize _targetSize;
     struct CGSize _scaledSize;
 }
 
 @property(retain, nonatomic) NSAttributedString *scaledAttributedText; // @synthesize scaledAttributedText=_scaledAttributedText;
+@property(nonatomic) long long measuredNumberOfLines; // @synthesize measuredNumberOfLines=_measuredNumberOfLines;
 @property(nonatomic) double scaledLineHeight; // @synthesize scaledLineHeight=_scaledLineHeight;
 @property(nonatomic) double scaledBaselineOffset; // @synthesize scaledBaselineOffset=_scaledBaselineOffset;
 @property(nonatomic) double baselineOffset; // @synthesize baselineOffset=_baselineOffset;

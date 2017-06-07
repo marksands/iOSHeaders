@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
-- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2 rowLimit:(long long)arg3;
+- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2 rowLimit:(long long)arg3 annotationIndex:(unsigned long long)arg4;
 - (double)skinnyKeyThreshold;
 - (id)biuKeyImageName;
 - (id)boldKeyImageName;
@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isTallPopup;
 - (double)popupFontSize;
 - (struct CGPoint)popupSymbolTextOffset;
+- (struct CGPoint)variantAnnotationTextOffset;
 - (struct CGPoint)variantSymbolTextOffset;
 - (struct UIEdgeInsets)variantSymbolFrameInsets;
 - (struct UIEdgeInsets)variantDisplayFrameInsets;

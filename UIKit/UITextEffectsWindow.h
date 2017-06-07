@@ -40,7 +40,6 @@
 - (void)_willSnapshot;
 - (_Bool)_isFullscreen;
 - (_Bool)_canActAsKeyWindowForScreen:(id)arg1;
-- (_Bool)_shouldParticipateInVirtualResizing;
 - (_Bool)_shouldTextEffectsWindowBeHostedForView:(id)arg1;
 - (_Bool)_isTextEffectsWindow;
 - (_Bool)_shouldTintStatusBar;
@@ -48,6 +47,8 @@
 - (_Bool)isInternalWindow;
 - (struct CGRect)_sceneBounds;
 - (struct CGRect)_sceneReferenceBounds;
+- (struct CGRect)actualSceneFrame;
+- (struct CGRect)actualSceneFrameForOrientation:(long long)arg1;
 - (struct CGRect)actualSceneBounds;
 - (struct CGRect)actualSceneBoundsForLandscape:(_Bool)arg1;
 - (void)_updateTransformLayer;

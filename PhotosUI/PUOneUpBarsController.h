@@ -13,12 +13,15 @@
 #import <PhotosUI/PUPhotoBrowserTitleViewControllerDelegate-Protocol.h>
 #import <PhotosUI/PUPlayPauseBarItemsControllerChangeObserver-Protocol.h>
 #import <PhotosUI/PUScrubberViewDelegate-Protocol.h>
+#import <PhotosUI/PXChangeObserver-Protocol.h>
+#import <PhotosUI/PXInfoProvider-Protocol.h>
+#import <PhotosUI/PXInfoUpdaterObserver-Protocol.h>
 #import <PhotosUI/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class NSCache, NSDictionary, NSMutableIndexSet, NSObject, NSString, PUAssetActionPerformer, PUBarButtonItemCollection, PUBrowsingSession, PUPhotoBrowserTitleViewController, PUPlayPauseBarItemsController, PUScrubberView, UITapGestureRecognizer, UIView;
-@protocol OS_dispatch_queue, PUOneUpBarsControllerDelegate;
+@class NSMutableIndexSet, NSString, PUAssetActionPerformer, PUBarButtonItemCollection, PUBrowsingSession, PUPhotoBrowserTitleViewController, PUPlayPauseBarItemsController, PUScrubberView, PXImageModulationManager, PXInfoUpdater, UITapGestureRecognizer, UIView;
+@protocol PUOneUpBarsControllerDelegate;
 
-@interface PUOneUpBarsController : PUBarsController <PUBrowsingViewModelChangeObserver, PUAssetActionPerformerDelegate, UIPopoverPresentationControllerDelegate, PUPlayPauseBarItemsControllerChangeObserver, PUOverOneUpPresentationSessionBarsDelegate, PUBarButtonItemCollectionDataSource, PUScrubberViewDelegate, PUPhotoBrowserTitleViewControllerDelegate>
+@interface PUOneUpBarsController : PUBarsController <PUBrowsingViewModelChangeObserver, PUAssetActionPerformerDelegate, UIPopoverPresentationControllerDelegate, PUPlayPauseBarItemsControllerChangeObserver, PUOverOneUpPresentationSessionBarsDelegate, PUBarButtonItemCollectionDataSource, PUScrubberViewDelegate, PUPhotoBrowserTitleViewControllerDelegate, PXInfoUpdaterObserver, PXInfoProvider, PXChangeObserver>
 {
     struct {
         _Bool respondsToDidChangeShowingPlayPauseButton;
@@ -30,6 +33,7 @@
         _Bool respondsToCanShowCommentsForAsset;
         _Bool respondsToShouldTapBeginAtLocationFromProvider;
         _Bool respondsToShouldHideToolbarWhenShowingAccessoryViewForAssetReference;
+        _Bool respondsToWillExecuteActionPerformer;
     } _delegateFlags;
     _Bool _shouldPlaceButtonsInNavigationBar;
     _Bool _shouldUseCompactTitleView;
@@ -39,11 +43,11 @@
     _Bool _shouldShowScrubber;
     _Bool _shouldShowTitleView;
     _Bool _allowTapOnTitle;
+    _Bool _allowShowingPlayPauseButton;
     _Bool _isShowingPlayPauseButton;
     _Bool __needsUpdateTitle;
     _Bool __needsUpdateCommentsTitle;
     _Bool __nextCommentsActionShouldBeginEditing;
-    _Bool __isDisplayInfoLoadingScheduled;
     _Bool __needsUpdateChromeVisibility;
     _Bool __lastChromeVisibility;
     PUBrowsingSession *_browsingSession;
@@ -53,9 +57,7 @@
     PUScrubberView *__scrubberView;
     NSString *__title;
     PUPhotoBrowserTitleViewController *__titleViewController;
-    NSDictionary *__cachedDisplayInfoForCurrentAsset;
-    NSCache *__cachedDisplayInfosByAssetReference;
-    NSObject<OS_dispatch_queue> *__displayInfoLoadingIsolationQueue;
+    PXInfoUpdater *__currentAssetDisplayInfoUpdater;
     UITapGestureRecognizer *__tapGestureRecognizer;
     long long __nextChromeVisibilityUpdateAnimationType;
     PUPlayPauseBarItemsController *__playPauseBarItemsController;
@@ -65,8 +67,10 @@
     NSMutableIndexSet *__rightNavBarButtonIdentifiers;
     PUBarButtonItemCollection *__leftNavBarButtonItemCollection;
     NSMutableIndexSet *__leftNavBarButtonIdentifiers;
+    PXImageModulationManager *_debuggingObservedImageModulationManager;
 }
 
+@property(retain, nonatomic) PXImageModulationManager *debuggingObservedImageModulationManager; // @synthesize debuggingObservedImageModulationManager=_debuggingObservedImageModulationManager;
 @property(retain, nonatomic, setter=_setLeftNavBarButtonIdentifiers:) NSMutableIndexSet *_leftNavBarButtonIdentifiers; // @synthesize _leftNavBarButtonIdentifiers=__leftNavBarButtonIdentifiers;
 @property(retain, nonatomic, setter=_setLeftNavBarButtonItemCollection:) PUBarButtonItemCollection *_leftNavBarButtonItemCollection; // @synthesize _leftNavBarButtonItemCollection=__leftNavBarButtonItemCollection;
 @property(retain, nonatomic, setter=_setRightNavBarButtonIdentifiers:) NSMutableIndexSet *_rightNavBarButtonIdentifiers; // @synthesize _rightNavBarButtonIdentifiers=__rightNavBarButtonIdentifiers;
@@ -78,10 +82,7 @@
 @property(nonatomic, setter=_setNextChromeVisibilityUpdateAnimationType:) long long _nextChromeVisibilityUpdateAnimationType; // @synthesize _nextChromeVisibilityUpdateAnimationType=__nextChromeVisibilityUpdateAnimationType;
 @property(nonatomic, setter=_setNeedsUpdateChromeVisibility:) _Bool _needsUpdateChromeVisibility; // @synthesize _needsUpdateChromeVisibility=__needsUpdateChromeVisibility;
 @property(retain, nonatomic, setter=_setTapGestureRecognizer:) UITapGestureRecognizer *_tapGestureRecognizer; // @synthesize _tapGestureRecognizer=__tapGestureRecognizer;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_displayInfoLoadingIsolationQueue; // @synthesize _displayInfoLoadingIsolationQueue=__displayInfoLoadingIsolationQueue;
-@property(nonatomic, setter=_setDisplayInfoLoadingScheduled:) _Bool _isDisplayInfoLoadingScheduled; // @synthesize _isDisplayInfoLoadingScheduled=__isDisplayInfoLoadingScheduled;
-@property(readonly, nonatomic) NSCache *_cachedDisplayInfosByAssetReference; // @synthesize _cachedDisplayInfosByAssetReference=__cachedDisplayInfosByAssetReference;
-@property(copy, nonatomic, setter=_setCachedDisplayInfoForCurrentAsset:) NSDictionary *_cachedDisplayInfoForCurrentAsset; // @synthesize _cachedDisplayInfoForCurrentAsset=__cachedDisplayInfoForCurrentAsset;
+@property(readonly, nonatomic) PXInfoUpdater *_currentAssetDisplayInfoUpdater; // @synthesize _currentAssetDisplayInfoUpdater=__currentAssetDisplayInfoUpdater;
 @property(nonatomic, setter=_setNextCommentsActionShouldBeginEditing:) _Bool _nextCommentsActionShouldBeginEditing; // @synthesize _nextCommentsActionShouldBeginEditing=__nextCommentsActionShouldBeginEditing;
 @property(nonatomic, setter=_setNeedsUpdateCommentsTitle:) _Bool _needsUpdateCommentsTitle; // @synthesize _needsUpdateCommentsTitle=__needsUpdateCommentsTitle;
 @property(readonly, nonatomic) PUPhotoBrowserTitleViewController *_titleViewController; // @synthesize _titleViewController=__titleViewController;
@@ -91,6 +92,7 @@
 @property(retain, nonatomic, setter=_setActiveActionPerformer:) PUAssetActionPerformer *_activeActionPerformer; // @synthesize _activeActionPerformer=__activeActionPerformer;
 @property(readonly, nonatomic) NSString *_scrubbingIdentifier; // @synthesize _scrubbingIdentifier=__scrubbingIdentifier;
 @property(nonatomic, setter=_setShowingPlayPauseButton:) _Bool isShowingPlayPauseButton; // @synthesize isShowingPlayPauseButton=_isShowingPlayPauseButton;
+@property(nonatomic) _Bool allowShowingPlayPauseButton; // @synthesize allowShowingPlayPauseButton=_allowShowingPlayPauseButton;
 @property(nonatomic) _Bool allowTapOnTitle; // @synthesize allowTapOnTitle=_allowTapOnTitle;
 @property(nonatomic) _Bool shouldShowTitleView; // @synthesize shouldShowTitleView=_shouldShowTitleView;
 @property(nonatomic) _Bool shouldShowScrubber; // @synthesize shouldShowScrubber=_shouldShowScrubber;
@@ -102,6 +104,9 @@
 @property(nonatomic) _Bool shouldPlaceButtonsInNavigationBar; // @synthesize shouldPlaceButtonsInNavigationBar=_shouldPlaceButtonsInNavigationBar;
 @property(retain, nonatomic) PUBrowsingSession *browsingSession; // @synthesize browsingSession=_browsingSession;
 - (void).cxx_destruct;
+- (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (id)requestInfoOfKind:(id)arg1 withResultHandler:(CDUnknownBlockType)arg2;
+- (void)infoUpdaterDidUpdate:(id)arg1;
 - (void)photoBrowserTitleViewControllerTapped:(id)arg1;
 - (_Bool)scrubberView:(id)arg1 shouldIgnoreHitTest:(struct CGPoint)arg2 withEvent:(id)arg3;
 - (void)ppt_performAction:(unsigned long long)arg1;
@@ -128,6 +133,7 @@
 - (void)_executeActionPerformer:(id)arg1;
 - (void)_performAssetExplorerReviewScreenActionType:(unsigned long long)arg1;
 - (void)_performAllPhotosAction;
+- (void)_performGroupActivityWithAssetsByAssetCollection:(id)arg1;
 - (void)_performDuplicateActivityWithAssetsByAssetCollection:(id)arg1;
 - (void)_performHideActivityWithAssetsByAssetCollection:(id)arg1;
 - (void)_performAirPlayAction;
@@ -148,8 +154,6 @@
 - (void)_updateShowingPlayPauseButton;
 - (void)_updateChromeVisibilityIfNeeded;
 - (void)_invalidateChromeVisibilityWithAnimationType:(long long)arg1;
-- (void)_didLoadDisplayInfo:(id)arg1 forAssetReference:(id)arg2;
-- (void)_loadDisplayInfoForCurrentAsset;
 - (void)_updateCommentsTitleIfNeeded;
 - (void)_invalidateCommentsTitle;
 - (void)_updateTitleIfNeeded;

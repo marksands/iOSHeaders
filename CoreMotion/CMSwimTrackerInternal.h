@@ -21,6 +21,7 @@
     double fDistanceOffset;
     unsigned long long fLapCountOffset;
     double fActiveTime;
+    unsigned long long fSegmentCountOffset;
 }
 
 - (void)_handleUpdates:(id)arg1;

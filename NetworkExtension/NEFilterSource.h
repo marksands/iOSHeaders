@@ -6,18 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableData, NSString, NSURL, NSURLRequest, NSURLResponse, NSUUID;
+@class NSMutableData, NSString, NSURL, NSURLRequest, NSURLResponse, NSUUID, NWPathEvaluator;
 @protocol OS_dispatch_queue;
 
 @interface NEFilterSource : NSObject
 {
     _Bool _registered;
     _Bool _expectRemediation;
+    unsigned int _controlUnit;
     long long _status;
     NSURL *_url;
     long long _direction;
     unsigned long long _socketIdentifier;
+    NSString *_sourceAppIdentifier;
     NSMutableData *_pendingData;
+    NWPathEvaluator *_evaluator;
     NSUUID *_flowUUID;
     unsigned long long _lastPendingDataStartIndex;
     unsigned long long _lastSendDataLength;
@@ -35,10 +38,8 @@
 }
 
 + (_Bool)filterRequired;
-+ (void)connectToAgentWithCompletionHandler:(CDUnknownBlockType)arg1;
-+ (unsigned int)filterUnit;
-+ (unsigned int)checkPolicyFilterUnit;
-+ (void)initializeGlobals;
++ (void)connectToFilterUnit:(unsigned int)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+@property unsigned int controlUnit; // @synthesize controlUnit=_controlUnit;
 @property(retain) NSURL *parentURL; // @synthesize parentURL=_parentURL;
 @property _Bool expectRemediation; // @synthesize expectRemediation=_expectRemediation;
 @property(retain) NSString *organization; // @synthesize organization=_organization;
@@ -54,11 +55,13 @@
 @property unsigned long long lastSendDataLength; // @synthesize lastSendDataLength=_lastSendDataLength;
 @property unsigned long long lastPendingDataStartIndex; // @synthesize lastPendingDataStartIndex=_lastPendingDataStartIndex;
 @property(retain) NSUUID *flowUUID; // @synthesize flowUUID=_flowUUID;
+@property(retain) NWPathEvaluator *evaluator; // @synthesize evaluator=_evaluator;
 @property(retain) NSMutableData *pendingData; // @synthesize pendingData=_pendingData;
 @property _Bool registered; // @synthesize registered=_registered;
+@property(copy) NSString *sourceAppIdentifier; // @synthesize sourceAppIdentifier=_sourceAppIdentifier;
 @property(readonly) unsigned long long socketIdentifier; // @synthesize socketIdentifier=_socketIdentifier;
 @property(readonly) long long direction; // @synthesize direction=_direction;
-@property(readonly) NSURL *url; // @synthesize url=_url;
+@property(retain) NSURL *url; // @synthesize url=_url;
 @property(readonly) long long status; // @synthesize status=_status;
 - (void).cxx_destruct;
 - (void)remediateWithDecisionHandler:(CDUnknownBlockType)arg1;

@@ -13,10 +13,11 @@
     AVContentKeyResponseInternal *_keyResponse;
 }
 
++ (id)contentKeyResponseWithClearKeyData:(id)arg1 initializationVector:(id)arg2;
 + (id)contentKeyResponseWithFairPlayStreamingKeyResponseData:(id)arg1;
-- (id)keyResponseData;
+- (id)keySystem;
 - (void)dealloc;
-- (id)initWithKeyResponseData:(id)arg1;
+- (id)initWithKeySystem:(id)arg1;
 
 @end
 

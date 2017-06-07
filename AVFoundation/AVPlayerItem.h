@@ -42,9 +42,11 @@
 + (id)playerItemWithURL:(id)arg1;
 + (_Bool)_forNonStreamingURLsFireKVOForAssetWhenReadyForInspection;
 + (_Bool)_forStreamingItemsVendAssetWithFigPlaybackItem;
++ (long long)propertyStorageCachePolicy;
 + (void)initialize;
 + (void)_uninitializeProtectedContentPlaybackSupportSession:(id)arg1;
 + (id)_initializeProtectedContentPlaybackSupportSessionAsynchronouslyForProvider:(id)arg1 withOptions:(id)arg2;
+- (void)_updatePropertyCacheAndTriggerKVOForPlayer:(id)arg1 usingKeys:(id)arg2;
 - (id)_keysAndValuesForCanPlayAndCanStepPropertiesWhenReadyToPlayWithNotificationPayload:(id)arg1;
 - (id)videoApertureMode;
 - (void)setVideoApertureMode:(id)arg1;
@@ -53,6 +55,8 @@
 - (void)setRequiresAccessLog:(_Bool)arg1;
 - (_Bool)requiresAccessLog;
 - (void)_renderingSuppressionDidChangeForOutput:(id)arg1;
+- (void)setPreferredMaximumResolution:(struct CGSize)arg1;
+- (struct CGSize)preferredMaximumResolution;
 - (void)setPreferredPeakPresentationSize:(struct CGSize)arg1;
 - (struct CGSize)preferredPeakPresentationSize;
 - (void)setMaximumBitRate:(float)arg1;
@@ -106,6 +110,12 @@
 - (void)_clearCachedMediaSelectionGroup:(id)arg1;
 - (void)_cacheMediaSelectionOption:(id)arg1 forMediaSelectionGroup:(id)arg2;
 - (void)_applyMediaSelectionOptions;
+- (void)_markAsReadyForInspectionOfMediaSelectionOptions;
+- (_Bool)_isReadyForInspectionOfMediaSelectionOptions;
+- (void)_removeMediaOptionsSelectedByClient;
+- (void)_setMediaOptionsSelectedByClient:(id)arg1 forKey:(id)arg2;
+- (id)_mediaOptionsSelectedByClientForKey:(id)arg1;
+- (id)_mediaOptionsSelectedByClient;
 - (float)volumeAdjustment;
 - (void)setVolumeAdjustment:(float)arg1;
 - (void)_quietlySetVolumeAdjustment:(float)arg1;
@@ -123,6 +133,7 @@
 - (id)loadedTimeRanges;
 - (id)_loadedTimeRanges;
 - (id)_loadedTimeRangesFromFPPlaybableTimeIntervals:(id)arg1;
+- (double)seekableTimeRangesLastModifiedTime;
 - (id)seekableTimeRanges;
 - (id)_seekableTimeRanges;
 - (id)_seekableTimeRangesFromFPSeekableTimeIntervals:(id)arg1;
@@ -298,6 +309,8 @@
 - (id)_tracksWithFPTrackIDArray:(id)arg1 fromFigPlaybackItem:(struct OpaqueFigPlaybackItem *)arg2;
 - (CDStruct_1b6d18a9)duration;
 - (CDStruct_1b6d18a9)_duration;
+- (void)_markAsReadyForInspectionOfDuration;
+- (_Bool)_isReadyForInspectionOfDuration;
 - (id)automaticallyLoadedAssetKeys;
 - (id)asset;
 - (void)_changeStatusToFailedWithError:(id)arg1;

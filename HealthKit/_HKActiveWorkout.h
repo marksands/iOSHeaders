@@ -8,7 +8,7 @@
 
 #import <HealthKit/_HKActiveWorkoutClient-Protocol.h>
 
-@class HKQuantity, NSData, NSDate, NSDictionary, NSMutableData, NSMutableDictionary, NSObject, NSString, _HKLocationSeriesStore;
+@class HKQuantity, NSData, NSDate, NSDictionary, NSMutableData, NSMutableDictionary, NSObject, NSString, NSUUID, _HKLocationSeriesStore, _HKWorkoutRouteStore;
 @protocol NSXPCProxyCreating, OS_dispatch_queue, _HKActiveWorkoutDelegate, _HKActiveWorkoutLifecycleDelegate, _HKActiveWorkoutResumeDelegate;
 
 @interface _HKActiveWorkout : HKWorkout <_HKActiveWorkoutClient>
@@ -21,11 +21,13 @@
     long long _serverState;
     HKQuantity *_lapLength;
     long long _swimmingLocation;
+    NSUUID *_fitnessMachineSessionID;
     NSDate *_lastObservedDate;
     NSMutableDictionary *_resumeDataByType;
     id <NSXPCProxyCreating> _serverProxy;
     NSMutableData *_associatedObjectUUIDData;
     _HKLocationSeriesStore *_locationStore;
+    _HKWorkoutRouteStore *_workoutRouteStore;
     _Bool _shouldUseDeviceData;
     id <_HKActiveWorkoutResumeDelegate> _resumeDelegate;
 }
@@ -42,15 +44,17 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)_restoreEvents:(id)arg1;
+- (void)_restoreWorkoutRoutes:(id)arg1;
 - (void)_restoreLocationSeriesSample:(id)arg1;
-- (void)_restoreSwimmingStrokeCount:(id)arg1;
 - (void)_restoreDistance:(id)arg1;
 - (void)_restoreBasalEnergyBurned:(id)arg1;
 - (void)_restoreActiveEnergyBurned:(id)arg1;
+- (void)_restoreFlightsClimbed:(id)arg1;
 - (void)_restoreSampleUUIDs:(id)arg1;
 - (void)_restoreState:(long long)arg1;
 - (void)_restoreResumeData:(id)arg1;
 - (id)_resumeDataByQuantityType;
+- (id)workoutRoutes;
 - (id)locationSeriesSamples;
 - (double)_durationWithEndDate:(id)arg1;
 - (double)duration;
@@ -62,6 +66,7 @@
 - (id)totalDistance;
 - (void)_setTotalEnergyBurned:(id)arg1;
 - (id)totalEnergyBurned;
+@property(retain, nonatomic) NSUUID *fitnessMachineSessionID;
 @property(nonatomic) long long swimmingLocation;
 @property(retain, nonatomic) HKQuantity *lapLength;
 @property(readonly, getter=_associatedObjectUUIDData) NSData *associatedObjectUUIDData;
@@ -82,6 +87,7 @@
 - (void)_propertyQueue_alertDelegateWorkoutDidUpdateTotalBasalEnergyBurned;
 - (void)_propertyQueue_alertDelegateWorkoutDidUpdateTotalActiveEnergyBurned;
 - (void)_propertyQueue_alertDelegateWorkoutDidUpdateTotalDistance;
+- (void)_propertyQueue_alertDelegateWorkoutDidUpdateTotalFlightsClimbed;
 - (void)_prepareForSaving;
 - (id)_inactiveCopyWithEndDate:(id)arg1;
 - (id)_inactiveCopy;
@@ -92,20 +98,30 @@
 - (void)_propertyQueue_addDistance:(id)arg1;
 - (void)_propertyQueue_addBasalEnergyBurned:(id)arg1;
 - (void)_propertyQueue_addActiveEnergyBurned:(id)arg1;
+- (void)_propertyQueue_addFlightsClimbed:(id)arg1;
+- (void)_propertyQueue_addStepCount:(id)arg1;
 - (void)_propertyQueue_updateTotalsWithQuantity:(id)arg1 quantityType:(id)arg2;
 - (void)clientRemote_receivedWorkoutEvent:(id)arg1;
 - (void)clientRemote_serverFailedWithError:(id)arg1;
 - (void)clientRemote_serverStoppedWithDate:(id)arg1;
 - (void)clientRemote_serverPausedWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)clientRemote_updateMetrics:(id)arg1;
+- (void)_propertyQueue_handleUpdatesForAverageHeartRate:(id)arg1;
+- (void)_propertyQueue_handleUpdatesForElapsedTimeQty:(id)arg1;
+- (void)_propertyQueue_handleUpdatesForPaceQty:(id)arg1 metricType:(unsigned long long)arg2;
+- (void)_propertyQueue_handleUpdatesForPowerQty:(id)arg1 metricType:(unsigned long long)arg2;
+- (void)_propertyQueue_handleUpdatesForDistanceQty:(id)arg1;
 - (void)clientRemote_updateTotalsWithQuantities:(id)arg1 resumeData:(id)arg2 UUIDs:(id)arg3;
 - (void)clientRemote_updateElevationChange:(id)arg1;
+- (void)clientRemote_updateWorkoutRoute:(id)arg1;
 - (void)clientRemote_updateLocationSeriesSample:(id)arg1;
 - (id)_propertyQueue_serverConfiguration;
 - (void)_connectionDidEncounterError:(id)arg1;
-- (void)_attachServerWithClientQueue:(id)arg1 lifecycleDelegate:(id)arg2 healthStore:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_attachServerWithClientQueue:(id)arg1 lifecycleDelegate:(id)arg2 healthStore:(id)arg3 fitnessMachineConnectionClient:(id)arg4 fitnessMachineSessionConfiguration:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)_addSegmentMarkerAtDate:(id)arg1;
 - (void)_handleWorkoutPausedWithDate:(id)arg1 userInitiated:(_Bool)arg2;
 - (void)_propertyQueue_transitionToServerState:(long long)arg1;
+- (void)_insertOrUpdateMetadata:(id)arg1;
 - (void)_nukeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)endWorkoutWithDate:(id)arg1 metadata:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)endWorkoutWithDate:(id)arg1 completion:(CDUnknownBlockType)arg2;

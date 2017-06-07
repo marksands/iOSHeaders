@@ -9,7 +9,7 @@
 #import <EventKitUI/EKDayOccurrenceViewDelegate-Protocol.h>
 #import <EventKitUI/EKUITintColorUpdateDelegate-Protocol.h>
 
-@class EKEvent, EKUIVisualEffectView, NSMutableArray, UIColor, UILabel, UIScrollView;
+@class EKDayOccurrenceView, EKEvent, EKUIVisualEffectView, NSMutableArray, UIColor, UILabel, UIScrollView;
 @protocol EKDayAllDayViewDelegate;
 
 __attribute__((visibility("hidden")))
@@ -25,10 +25,13 @@ __attribute__((visibility("hidden")))
     _Bool _showSelection;
     EKEvent *_selectedEvent;
     _Bool _usesSmallText;
+    _Bool _showBirthdayCount;
+    long long _birthdayCount;
     UIView *_dividerLineViewTop;
     UIView *_dividerLineViewBottom;
     EKUIVisualEffectView *_dividerLineSuperview;
     UIColor *_dividerLineVisualEffectColor;
+    EKDayOccurrenceView *_birthdayCountOccurrenceView;
     _Bool _showsBorderLines;
     _Bool _showsLabel;
     _Bool _hideOccurrenceBackground;
@@ -65,6 +68,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool showsSelection;
 @property(nonatomic) _Bool allowsOccurrenceSelection;
 - (id)occurrenceViews;
+@property(nonatomic) _Bool showBirthdayCountInsteadOfEvents;
+- (void)_setUpBirthdayCountViewIfNeeded;
 - (void)setOccurrences:(id)arg1;
 - (void)_configureOccurrenceViewMarginAndPadding:(id)arg1;
 - (void)configureOccurrenceViewForGestureController:(id)arg1;

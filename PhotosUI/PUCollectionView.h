@@ -8,8 +8,8 @@
 
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSIndexPath, NSString, PXUIAutoScroller, UILongPressGestureRecognizer, UIView, _UIFeedbackDragSnappingBehavior;
-@protocol PUCollectionViewReorderDelegate;
+@class NSIndexPath, NSString, PXUIAutoScroller, UILongPressGestureRecognizer, UIView, _UIDragSnappingFeedbackGenerator;
+@protocol PUCollectionViewReorderDelegate, PUCollectionViewSelectionDelegate;
 
 __attribute__((visibility("hidden")))
 @interface PUCollectionView : UICollectionView <UIGestureRecognizerDelegate>
@@ -21,11 +21,13 @@ __attribute__((visibility("hidden")))
     struct CGPoint _draggedViewCenterOffset;
     PXUIAutoScroller *_autoScroller;
     id <PUCollectionViewReorderDelegate> _reorderDelegate;
-    _UIFeedbackDragSnappingBehavior *__feedbackDragBehavior;
+    id <PUCollectionViewSelectionDelegate> _selectionDelegate;
+    _UIDragSnappingFeedbackGenerator *__feedbackDragBehavior;
 }
 
 + (id)_reuseKeyForSupplementaryViewOfKind:(id)arg1 withReuseIdentifier:(id)arg2;
-@property(readonly, nonatomic) _UIFeedbackDragSnappingBehavior *_feedbackDragBehavior; // @synthesize _feedbackDragBehavior=__feedbackDragBehavior;
+@property(readonly, nonatomic) _UIDragSnappingFeedbackGenerator *_feedbackDragBehavior; // @synthesize _feedbackDragBehavior=__feedbackDragBehavior;
+@property(nonatomic) __weak id <PUCollectionViewSelectionDelegate> selectionDelegate; // @synthesize selectionDelegate=_selectionDelegate;
 @property(nonatomic) __weak id <PUCollectionViewReorderDelegate> reorderDelegate; // @synthesize reorderDelegate=_reorderDelegate;
 - (void).cxx_destruct;
 - (void)visiblyInsertItemAtIndexPath:(id)arg1 modelUpdate:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -33,10 +35,12 @@ __attribute__((visibility("hidden")))
 - (void)_updateDragUsingIndexPathUpdateBlock:(CDUnknownBlockType)arg1;
 - (id)_reorderableLayout;
 - (void)_handleDrag:(id)arg1;
+- (id)indexPathsForSelectedItems;
 - (void)reloadData;
 - (void)moveItemAtIndexPath:(id)arg1 toIndexPath:(id)arg2;
 - (void)deleteItemsAtIndexPaths:(id)arg1;
 - (void)insertItemsAtIndexPaths:(id)arg1;
+- (void)adjustedContentInsetDidChange;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 collectionViewLayout:(id)arg2;
 

@@ -18,6 +18,7 @@
 
 + (id)_extensionAuxiliaryVendorProtocol;
 + (id)_extensionAuxiliaryHostProtocol;
+- (void)_requestHandlingOfIntent:(id)arg1;
 - (struct CGSize)hostedViewMaximumAllowedSize;
 - (struct CGSize)hostedViewMinimumAllowedSize;
 - (void)setHostedViewMinimumAllowedSize:(struct CGSize)arg1 maximumAllowedSize:(struct CGSize)arg2 completion:(CDUnknownBlockType)arg3;

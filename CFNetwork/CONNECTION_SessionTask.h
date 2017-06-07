@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableArray, NSMutableURLRequest, NSURLRequest, __NSCFURLSession;
+@class NSMutableArray, NSMutableURLRequest, NSString, NSURLRequest, __NSCFURLSession;
 
 __attribute__((visibility("hidden")))
 @interface CONNECTION_SessionTask : NSObject
@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSMutableURLRequest *_nsCurrentRequest;
     NSURLRequest *_nsOriginalRequest;
     __NSCFURLSession *_session;
+    NSString *_uniqueIdentifier;
     _Bool _is_cellular;
     Class _my_protocolForTask;
     struct __PerformanceTiming *__performanceTiming;
@@ -26,6 +27,8 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_transactionMetrics;
 }
 
+- (_Bool)_allowsQUIC;
+- (void)set_allowsQUIC:(_Bool)arg1;
 - (void)set_TCPConnectionMetadata:(id)arg1;
 - (id)_transactionMetrics;
 - (void)_prepareNewTimingDataContainer;
@@ -38,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (struct __CFDictionary *)_copyATSState;
 - (struct __CFSet *)_getAuthenticatorStatusCodes;
 - (void)_getAuthenticationHeadersForResponse:(struct _CFURLResponse *)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_setAppleIDContext:(id)arg1;
 - (_Bool)_preventsSystemHTTPProxyAuthentication;
 - (_Bool)_cacheOnly;
 - (_Bool)_shouldSkipPreferredClientCertificateLookup;
@@ -76,6 +80,7 @@ __attribute__((visibility("hidden")))
 - (id)_cfHSTS;
 - (id)_backgroundTaskTimingData;
 - (int)_cookieAcceptPolicy;
+- (_Bool)hasExtractor;
 - (id)_connectionPropertyDuet;
 - (struct __PerformanceTiming *)_performanceTiming;
 - (id)_priorityValue;
@@ -102,6 +107,7 @@ __attribute__((visibility("hidden")))
 - (struct _CFHSTSPolicy *)_copyHSTSPolicy;
 - (void)_processConnectionProperties;
 - (void)_initializeTimingDataWithSessionConfiguration:(id)arg1;
+- (id)_loggableDescription;
 - (struct __CFDictionary *)_copySocketStreamProperties;
 - (void)updateCurrentRequest:(id)arg1;
 - (struct _CFURLRequest *)_copyOriginalCFURLRequest;

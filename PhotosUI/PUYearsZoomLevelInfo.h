@@ -19,6 +19,8 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)willShowMagnifiedViewController:(id)arg1;
+- (double)sectionedGridLayout:(id)arg1 accessibilitySectionHeaderHeightForVisualSection:(long long)arg2;
+- (double)sectionedGridLayout:(id)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;
 - (id)sectionedGridLayout:(id)arg1 sectionsForVisualSection:(long long)arg2;
 - (long long)numberOfVisualSectionsForSectionedGridLayout:(id)arg1;
 - (void)modelDidChange:(id)arg1;
@@ -31,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (void)configureSectionHeaderView:(id)arg1 forVisualSection:(long long)arg2;
 - (long long)cellFillMode;
 - (struct CGSize)imageRequestItemSize;
-- (void)updateLayoutMetricsForWidth:(double)arg1;
+- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
 - (struct CGSize)thumbnailImageSize;
 - (long long)maxRowsPerSection;
 - (id)sectionHeaderElementKind;

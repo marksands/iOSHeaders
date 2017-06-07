@@ -6,9 +6,10 @@
 
 #import <ContactsUI/CNContactViewServiceProtocol-Protocol.h>
 
-@protocol CNContactViewHostProtocol;
+@protocol CNContactViewControllerPPTDelegate, CNContactViewHostProtocol;
 
 @protocol CNContactContentViewController <CNContactViewServiceProtocol>
-@property __weak id <CNContactViewHostProtocol> delegate;
+@property(nonatomic) __weak id <CNContactViewControllerPPTDelegate> pptDelegate;
+@property(nonatomic) __weak id <CNContactViewHostProtocol> delegate;
 @end
 

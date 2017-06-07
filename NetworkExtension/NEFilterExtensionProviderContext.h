@@ -16,7 +16,6 @@
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSString *_description;
-    long long _onceToken;
 }
 
 - (void).cxx_destruct;

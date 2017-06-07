@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     double _timeoutIntervalForResource;
     unsigned long long _networkServiceType;
     _Bool _allowsCellularAccess;
+    _Bool _waitsForConnectivity;
     _Bool _discretionary;
     NSString *_sharedContainerIdentifier;
     _Bool _sessionSendsLaunchEvents;
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
     long long _HTTPMaximumConnectionsPerHost;
     _Bool _shouldUseExtendedBackgroundIdleMode;
     id _protocolClasses;
+    long long _multipathServiceType;
     _Bool _requiresPowerPluggedIn;
     NSURL *_directoryForDownloadedFiles;
     NSString *_sourceApplicationBundleIdentifier;
@@ -70,11 +72,13 @@ __attribute__((visibility("hidden")))
     _Bool _allowsTCPFastOpen;
     _Bool _allowsTLSSessionTickets;
     _Bool _allowsTLSSessionResumption;
+    NSString *_tlsTrustPinningPolicyName;
     _Bool _preventsDirectWiFiAccess;
     _Bool _allowTCPIOConnectionStreamTask;
     unsigned long long _customReadBufferSize;
     double _customReadBufferTimeout;
     _Bool _preventsSystemHTTPProxyAuthentication;
+    _Bool _duetPreauthorized;
     _Bool _backgroundSession;
     NSString *_disposition;
     NSURLCredentialStorage *_phskip_credStorage;
@@ -183,6 +187,8 @@ __attribute__((visibility("hidden")))
 - (id)disposition;
 - (void)setBackgroundSession:(_Bool)arg1;
 - (_Bool)isBackgroundSession;
+- (void)set_duetPreauthorized:(_Bool)arg1;
+- (_Bool)_duetPreauthorized;
 - (void)set_preventsSystemHTTPProxyAuthentication:(_Bool)arg1;
 - (_Bool)_preventsSystemHTTPProxyAuthentication;
 - (void)set_customReadBufferTimeout:(double)arg1;
@@ -193,6 +199,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_allowTCPIOConnectionStreamTask;
 - (void)set_preventsDirectWiFiAccess:(_Bool)arg1;
 - (_Bool)_preventsDirectWiFiAccess;
+- (void)set_tlsTrustPinningPolicyName:(id)arg1;
+- (id)_tlsTrustPinningPolicyName;
 - (void)set_allowsTLSSessionResumption:(_Bool)arg1;
 - (_Bool)_allowsTLSSessionResumption;
 - (void)set_allowsTLSSessionTickets:(_Bool)arg1;
@@ -265,6 +273,8 @@ __attribute__((visibility("hidden")))
 - (id)_directoryForDownloadedFiles;
 - (void)set_requiresPowerPluggedIn:(_Bool)arg1;
 - (_Bool)_requiresPowerPluggedIn;
+- (void)setMultipathServiceType:(long long)arg1;
+- (long long)multipathServiceType;
 - (void)setProtocolClasses:(id)arg1;
 - (id)protocolClasses;
 - (void)setShouldUseExtendedBackgroundIdleMode:(_Bool)arg1;
@@ -291,6 +301,8 @@ __attribute__((visibility("hidden")))
 - (id)sharedContainerIdentifier;
 - (void)setDiscretionary:(_Bool)arg1;
 - (_Bool)isDiscretionary;
+- (void)setWaitsForConnectivity:(_Bool)arg1;
+- (_Bool)waitsForConnectivity;
 - (void)setAllowsCellularAccess:(_Bool)arg1;
 - (_Bool)allowsCellularAccess;
 - (void)setNetworkServiceType:(unsigned long long)arg1;

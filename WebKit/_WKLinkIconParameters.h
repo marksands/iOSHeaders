@@ -8,7 +8,6 @@
 
 @class NSNumber, NSString, NSURL;
 
-__attribute__((visibility("hidden")))
 @interface _WKLinkIconParameters : NSObject
 {
     struct RetainPtr<NSURL> _url;

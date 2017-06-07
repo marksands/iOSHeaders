@@ -17,6 +17,7 @@
 }
 
 + (id)keyPathsForValuesAffectingTimeRange;
++ (_Bool)expectsPropertyRevisedNotifications;
 + (id)mediaCharacteristicsForMediaTypes;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -64,6 +65,7 @@
 - (_Bool)isSelfContained;
 - (_Bool)isEnabled;
 - (int)playabilityValidationResult;
+- (_Bool)isDecodable;
 - (_Bool)isPlayable;
 - (id)formatDescriptions;
 - (id)mediaType;

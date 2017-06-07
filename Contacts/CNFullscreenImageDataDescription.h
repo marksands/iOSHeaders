@@ -24,6 +24,7 @@
 - (_Bool)setABValue:(void *)arg1 onABPerson:(void *)arg2 error:(struct __CFError **)arg3;
 - (_Bool)setCNValue:(id)arg1 onABPerson:(void *)arg2 withDependentPropertiesContext:(id)arg3 error:(id *)arg4;
 - (void *)ABValueForABPerson:(void *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSLock;
+@class _NSXPCConnectionExportInfo;
 
 __attribute__((visibility("hidden")))
 @interface _NSXPCConnectionExportedObjectTable : NSObject
 {
-    NSLock *_lock;
+    struct _opaque_pthread_mutex_t _lock;
+    _NSXPCConnectionExportInfo *_proxy1;
     struct __CFDictionary *_proxyNumberToObject;
     struct __CFDictionary *_objectToProxyNumber;
     unsigned long long _next;

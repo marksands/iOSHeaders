@@ -22,7 +22,7 @@
 - (void)userInteractionCancelled;
 - (void)userInteractionEnded;
 - (void)userInteractionStarted;
-@property(readonly, nonatomic, getter=_retargetConfiguration) _UISelectionFeedbackGeneratorConfiguration *retargetConfiguration;
+@property(readonly, nonatomic, getter=_selectionConfiguration) _UISelectionFeedbackGeneratorConfiguration *selectionConfiguration;
 
 @end
 

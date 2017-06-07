@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class CNContactStore, CNMutableMultiDictionary;
 @protocol CNScheduler;
@@ -35,7 +35,9 @@
 - (void)registerProxy:(id)arg1 identifier:(id)arg2;
 - (void)contactStoreDidChange:(id)arg1;
 - (_Bool)resourceLock_removeProxiesPassingTest:(CDUnknownBlockType)arg1 forIdentifier:(id)arg2;
+- (void)unregisterObserver:(id)arg1 forContact:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)unregisterObserver:(id)arg1 forContact:(id)arg2;
+- (void)registerObserver:(id)arg1 forContact:(id)arg2 keysToFetch:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)registerObserver:(id)arg1 forContact:(id)arg2 keysToFetch:(id)arg3;
 - (void)registerObserver:(id)arg1 forContact:(id)arg2;
 - (id)initWithContactStore:(id)arg1 downstreamScheduler:(id)arg2 schedulerProvider:(id)arg3;

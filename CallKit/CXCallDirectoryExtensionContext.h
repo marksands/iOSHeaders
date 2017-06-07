@@ -15,21 +15,32 @@
 {
     id <CXCallDirectoryExtensionContextDelegate> _delegate;
     CXCallDirectoryBlockingEntryMutableData *_pendingBlockingEntryData;
+    long long _pendingBlockingEntryChangeType;
     CXCallDirectoryIdentificationEntryMutableData *_pendingIdentificationEntryData;
+    long long _pendingIdentificationEntryChangeType;
 }
 
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
+@property(nonatomic) long long pendingIdentificationEntryChangeType; // @synthesize pendingIdentificationEntryChangeType=_pendingIdentificationEntryChangeType;
 @property(retain, nonatomic) CXCallDirectoryIdentificationEntryMutableData *pendingIdentificationEntryData; // @synthesize pendingIdentificationEntryData=_pendingIdentificationEntryData;
+@property(nonatomic) long long pendingBlockingEntryChangeType; // @synthesize pendingBlockingEntryChangeType=_pendingBlockingEntryChangeType;
 @property(retain, nonatomic) CXCallDirectoryBlockingEntryMutableData *pendingBlockingEntryData; // @synthesize pendingBlockingEntryData=_pendingBlockingEntryData;
 @property(nonatomic) __weak id <CXCallDirectoryExtensionContextDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (oneway void)requestFailedWithError:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)completeRequestWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)removeAllIdentificationEntries;
+- (void)removeIdentificationEntryWithPhoneNumber:(long long)arg1 label:(id)arg2;
 - (void)addIdentificationEntryWithNextSequentialPhoneNumber:(long long)arg1 label:(id)arg2;
+- (void)removeAllBlockingEntries;
+- (void)removeBlockingEntryWithPhoneNumber:(long long)arg1;
 - (void)addBlockingEntryWithNextSequentialPhoneNumber:(long long)arg1;
-- (void)_flushPendingIdentificationPhoneNumbersAndLabels;
+@property(readonly, nonatomic, getter=isIncremental) _Bool incremental;
+- (void)_flushPendingIdentificationEntryData;
 - (void)_flushPendingBlockingEntryData;
+- (void)appendIdentificationEntryPhoneNumber:(long long)arg1 label:(id)arg2 changeType:(long long)arg3;
+- (void)appendBlockingEntryPhoneNumber:(long long)arg1 changeType:(long long)arg2;
 - (id)_remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1 synchronous:(_Bool)arg2;
 
 // Remaining properties

@@ -25,6 +25,12 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)unpublish;
 - (void)publish;
+- (void)setFileCompletedCount:(id)arg1;
+- (void)setFileTotalCount:(id)arg1;
+- (void)setFileURL:(id)arg1;
+- (void)setFileOperationKind:(id)arg1;
+- (void)setThroughput:(id)arg1;
+- (void)setEstimatedTimeRemaining:(id)arg1;
 - (void)setKind:(id)arg1;
 - (void)setUserInfoObject:(id)arg1 forKey:(id)arg2;
 - (void)setPrioritizationHandler:(CDUnknownBlockType)arg1;

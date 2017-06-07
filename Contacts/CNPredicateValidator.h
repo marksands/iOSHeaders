@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/NSPredicateVisitor-Protocol.h>
 
@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSMutableSet *usedKeysSet; // @synthesize usedKeysSet=_usedKeysSet;
 @property(retain, nonatomic) NSSet *allowedKeysSet; // @synthesize allowedKeysSet=_allowedKeysSet;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
+- (void).cxx_destruct;
 - (void)visitPredicateOperator:(id)arg1;
 - (void)visitPredicate:(id)arg1;
 - (void)resetUsedKeys;
@@ -31,7 +32,6 @@
 - (void)visitPredicateExpression:(id)arg1;
 @property(retain, nonatomic) NSArray *allowedKeys;
 - (_Bool)validateWithError:(id *)arg1;
-- (void)dealloc;
 
 @end
 

@@ -4,28 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIWebScrollView.h>
+#import <UIKit/UIScrollView.h>
 
 @class WKScrollViewDelegateForwarder, WKWebView;
 @protocol UIScrollViewDelegate;
 
 __attribute__((visibility("hidden")))
-@interface WKScrollView : UIWebScrollView
+@interface WKScrollView : UIScrollView
 {
     struct WeakObjCPtr<id<UIScrollViewDelegate>> _externalDelegate;
     WKScrollViewDelegateForwarder *_delegateForwarder;
+    _Bool _contentInsetAdjustmentBehaviorWasExternallyOverridden;
     WKWebView<UIScrollViewDelegate> *_internalDelegate;
-    double _preferredScrollDecelerationFactor;
 }
 
-@property(readonly, nonatomic) double preferredScrollDecelerationFactor; // @synthesize preferredScrollDecelerationFactor=_preferredScrollDecelerationFactor;
 @property(nonatomic) WKWebView<UIScrollViewDelegate> *internalDelegate; // @synthesize internalDelegate=_internalDelegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)setDecelerationRate:(double)arg1;
 - (void)_setContentSizePreservingContentOffsetDuringRubberband:(struct CGSize)arg1;
 - (void)_restoreContentOffsetWithRubberbandAmount:(struct CGSize)arg1;
 - (struct CGSize)_currentTopLeftRubberbandAmount;
+- (void)_setContentInsetAdjustmentBehaviorInternal:(long long)arg1;
+- (void)_setContentInsetAdjustmentBehavior:(long long)arg1;
+@property(readonly, nonatomic) _Bool _contentInsetAdjustmentBehaviorWasExternallyOverridden;
 - (void)setContentInset:(struct UIEdgeInsets)arg1;
 - (double)_rubberBandOffsetForOffset:(double)arg1 maxOffset:(double)arg2 minOffset:(double)arg3 range:(double)arg4 outside:(_Bool *)arg5;
 - (void)dealloc;

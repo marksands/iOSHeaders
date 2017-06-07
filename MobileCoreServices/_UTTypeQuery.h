@@ -16,6 +16,8 @@
 + (id)typeQueryWithTag:(id)arg1 ofClass:(id)arg2 conformsTo:(id)arg3;
 + (id)typeQueryWithIdentifier:(id)arg1;
 + (id)typeQueryForAllDeclaredIdentifiers;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 @property(nonatomic, setter=_setResolveInactiveDeclarations:) _Bool _resolveInactiveDeclarations; // @dynamic _resolveInactiveDeclarations;
 - (id)resolve;
 

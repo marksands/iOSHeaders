@@ -11,7 +11,6 @@
 
 @class NSMutableArray, NSString;
 
-__attribute__((visibility("hidden")))
 @interface _UIBlendingHighlightView : UIView <UIInterfaceActionVisualBackgroundDisplaying, UIInterfaceActionVisualGroupBackgroundDisplaying>
 {
     NSMutableArray *_blendingViews;

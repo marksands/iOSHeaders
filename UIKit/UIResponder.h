@@ -17,9 +17,9 @@
 
 @interface UIResponder : NSObject <UITextInput_Internal, UITextInputAdditions, _UIStateRestorationContinuation, _UITouchable, UIResponderStandardEditActions>
 {
-    _Bool _hasOverrideClient;
-    _Bool _hasOverrideHost;
-    _Bool _hasInputAssistantItem;
+    unsigned int _hasOverrideClient:1;
+    unsigned int _hasOverrideHost:1;
+    unsigned int _hasInputAssistantItem:1;
 }
 
 + (void)clearTextInputContextIdentifier:(id)arg1;
@@ -32,6 +32,11 @@
 + (void)_stopDeferredTrackingObjectsWithIdentifiers;
 + (void)_startDeferredTrackingObjectsWithIdentifiers;
 + (id)objectWithRestorationIdentifierPath:(id)arg1;
+- (_Bool)canPasteItemProviders:(id)arg1;
+- (void)pasteItemProviders:(id)arg1;
+- (void)setPasteConfiguration:(id)arg1;
+- (id)pasteConfiguration;
+- (id)_effectivePasteConfiguration;
 - (_Bool)_supportsBecomeFirstResponderWhenPossible;
 - (_Bool)_canBecomeFirstResponderWhenPossible;
 - (_Bool)_becomeFirstResponderWhenPossible;
@@ -39,6 +44,7 @@
 - (id)_firstResponder;
 - (void)_setFirstResponder:(id)arg1;
 - (void)_didChangeToFirstResponder:(id)arg1;
+- (void)_willChangeToFirstResponder:(id)arg1;
 - (_Bool)_canChangeFirstResponder:(id)arg1 toResponder:(id)arg2;
 - (id)_responderSelectionImage;
 - (id)_responderSelectionContainerViewForResponder:(id)arg1;
@@ -106,8 +112,9 @@
 - (id)_currentOverrideClient;
 - (_Bool)_restoreFirstResponder;
 @property(readonly, nonatomic) NSUndoManager *undoManager;
+- (void)doesNotRecognizeSelector:(SEL)arg1;
 - (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
-- (id)_targetForAction:(SEL)arg1 withSender:(id)arg2 canPerformActionBlock:(CDUnknownBlockType)arg3;
+- (id)_targetCanPerformBlock:(CDUnknownBlockType)arg1;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (void)_clearBecomeFirstResponderWhenCapable;
 - (id)firstResponder;
@@ -121,6 +128,7 @@
 - (_Bool)_containedInAbsoluteResponderChain;
 @property(readonly, nonatomic) UIResponder *_responderForEditing;
 @property(readonly, nonatomic) UIResponder *_editingDelegate;
+- (void)_gatherKeyResponders:(id)arg1 indexOfSelf:(unsigned long long *)arg2 visibilityTest:(CDUnknownBlockType)arg3 passingTest:(CDUnknownBlockType)arg4;
 - (_Bool)_isRootForKeyResponderCycle;
 - (id)_previousKeyResponder;
 - (id)_nextKeyResponder;
@@ -189,6 +197,9 @@
 - (id)_textColorForCaretSelection;
 - (id)_clampedpositionFromPosition:(id)arg1 offset:(int)arg2;
 - (id)_findPleasingWordBoundaryFromPosition:(id)arg1;
+- (id)_intersectionOfRange:(id)arg1 andRange:(id)arg2;
+- (_Bool)_range:(id)arg1 intersectsRange:(id)arg2;
+- (_Bool)_range:(id)arg1 containsRange:(id)arg2;
 - (id)_rangeSpanningTextUnit:(long long)arg1 andPosition:(id)arg2;
 - (id)_fullRange;
 - (id)_rangeOfParagraphEnclosingPosition:(id)arg1;
@@ -198,6 +209,7 @@
 - (id)_rangeOfTextUnit:(long long)arg1 enclosingPosition:(id)arg2;
 - (id)_rangeOfText:(id)arg1 endingAtPosition:(id)arg2;
 - (void)_scrollRectToVisible:(struct CGRect)arg1 animated:(_Bool)arg2;
+- (void)_replaceDocumentWithText:(id)arg1;
 - (void)_replaceCurrentWordWithText:(id)arg1;
 - (void)_deleteForwardAndNotify:(_Bool)arg1;
 - (void)_deleteBackwardAndNotify:(_Bool)arg1;
@@ -227,6 +239,7 @@
 - (unsigned int)_characterInRelationToCaretSelection:(int)arg1;
 - (unsigned int)_characterBeforeCaretSelection;
 - (unsigned int)_characterAfterCaretSelection;
+- (id)_textRangeFromNSRange:(struct _NSRange)arg1;
 - (struct _NSRange)_nsrangeForTextRange:(id)arg1;
 - (int)_indexForTextPosition:(id)arg1;
 - (void)_selectAll;

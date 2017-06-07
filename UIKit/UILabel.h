@@ -8,11 +8,13 @@
 
 #import <UIKit/NSCoding-Protocol.h>
 #import <UIKit/UIContentSizeCategoryAdjusting-Protocol.h>
+#import <UIKit/_UILabelVisualStyleSubject-Protocol.h>
 #import <UIKit/_UIMultilineTextContentSizing-Protocol.h>
+#import <UIKit/_UIViewBaselineSpacing-Protocol.h>
 
-@class CUICatalog, CUIStyleEffectConfiguration, NSAttributedString, NSMutableDictionary, NSString, UIColor, UIFont, _UILabelScaledMetrics;
+@class CUICatalog, CUIStyleEffectConfiguration, NSAttributedString, NSMutableDictionary, NSString, UIColor, UIFont, _UILabelContent, _UILabelScaledMetrics, _UILabelVisualStyle;
 
-@interface UILabel : UIView <_UIMultilineTextContentSizing, NSCoding, UIContentSizeCategoryAdjusting>
+@interface UILabel : UIView <_UIViewBaselineSpacing, _UIMultilineTextContentSizing, _UILabelVisualStyleSubject, NSCoding, UIContentSizeCategoryAdjusting>
 {
     struct CGSize _size;
     UIColor *_highlightedColor;
@@ -24,7 +26,7 @@
     double _firstLineBaseline;
     double _previousFirstLineBaseline;
     double _minimumScaleFactor;
-    id _content;
+    _UILabelContent *_content;
     NSAttributedString *_synthesizedAttributedText;
     NSMutableDictionary *_defaultAttributes;
     NSMutableDictionary *_fallbackColorsForUserInterfaceStyle;
@@ -37,7 +39,6 @@
     CUICatalog *_cuiCatalog;
     CUIStyleEffectConfiguration *_cuiStyleEffectConfiguration;
     struct {
-        unsigned int unused1:3;
         unsigned int highlighted:1;
         unsigned int autosizeTextToFit:1;
         unsigned int autotrackTextToFit:1;
@@ -49,12 +50,10 @@
         unsigned int marqueeRunable:1;
         unsigned int marqueeRequired:1;
         unsigned int drawsLetterpress:1;
-        unsigned int unused3:1;
         unsigned int usesExplicitPreferredMaxLayoutWidth:1;
         unsigned int drawsDebugBaselines:1;
         unsigned int explicitBaselineOffset:1;
         unsigned int usesSimpleTextEffects:1;
-        unsigned int isComplexString:1;
         unsigned int isVariableLengthString:1;
         unsigned int wantsUnderlineForAccessibilityButtonShapesEnabled:1;
         unsigned int cachedIntrinsicContentSizeIsValid:1;
@@ -65,11 +64,13 @@
         unsigned int textAlignmentMirrored:1;
         unsigned int shortcutIntrinsicContentSize:1;
         unsigned int noNeedsDisplayCheckForBaselineCalculationNeeded:1;
+        unsigned int overallWritingDirectionFollowsLayoutDirection:1;
     } _textLabelFlags;
     _Bool _adjustsFontForContentSizeCategory;
     _Bool __textColorFollowsTintColor;
     double _preferredMaxLayoutWidth;
     double _multilineContextWidth;
+    _UILabelVisualStyle *__visualStyle;
 }
 
 + (struct CGSize)_legacy_adjustSizeForWebKitConstraining:(struct CGSize)arg1 withFont:(id)arg2;
@@ -81,6 +82,7 @@
 + (id)_defaultAttributes;
 + (id)defaultFont;
 + (Class)layerClass;
+@property(retain, nonatomic, setter=_setVisualStyle:) _UILabelVisualStyle *_visualStyle; // @synthesize _visualStyle=__visualStyle;
 @property(nonatomic, setter=_setTextColorFollowsTintColor:) _Bool _textColorFollowsTintColor; // @synthesize _textColorFollowsTintColor=__textColorFollowsTintColor;
 @property(nonatomic) double minimumScaleFactor; // @synthesize minimumScaleFactor=_minimumScaleFactor;
 - (void)_setMultilineContextWidth:(double)arg1;
@@ -91,6 +93,8 @@
 - (void).cxx_destruct;
 - (void)_applicationDidBecomeActiveNotification:(id)arg1;
 - (void)_applicationWillResignActiveNotification:(id)arg1;
+- (_Bool)_overallWritingDirectionFollowsLayoutDirection;
+- (void)_setOverallWritingDirectionFollowsLayoutDirection:(_Bool)arg1;
 - (_Bool)_textAlignmentMirrored;
 - (void)_setTextAlignmentMirrored:(_Bool)arg1;
 - (_Bool)_textAlignmentFollowsWritingDirection;
@@ -147,6 +151,8 @@
 - (id)_layoutDebuggingTitle;
 @property(nonatomic, setter=_setDrawsDebugBaselines:) _Bool _drawsDebugBaselines;
 @property(nonatomic) _Bool adjustsLetterSpacingToFitWidth;
+- (float)_hyphenationFactor;
+- (void)_setHyphenationFactor:(float)arg1;
 @property(nonatomic) long long lineSpacing;
 @property(nonatomic) long long numberOfLines;
 @property(nonatomic) long long lineBreakMode;
@@ -190,8 +196,8 @@
 - (long long)_contentsFormatForNonDeepDrawing;
 - (long long)_determineContentsFormat;
 - (id)_safeContent:(_Bool *)arg1;
+- (id)_materializedAttributedString;
 @property(copy, nonatomic) NSAttributedString *attributedText;
-- (void)_setAttributedText:(id)arg1 andTakeOwnership:(_Bool)arg2;
 @property(copy, nonatomic) NSString *text;
 - (void)_setText:(id)arg1;
 - (struct UIEdgeInsets)_contentInsetsFromFonts;
@@ -211,7 +217,7 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)_invalidateAsNeededForNewSize:(struct CGSize)arg1 oldSize:(struct CGSize)arg2 withLinkCheck:(_Bool)arg3;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
-- (void)_updateVariableLengthString;
+- (void)_updateVariableLengthStringIfNeeded;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonInit;
 @property(retain, nonatomic, getter=_synthesizedAttributedText, setter=_setSynthesizedAttributedText:) NSAttributedString *_synthesizedAttributedText;
@@ -220,10 +226,12 @@
 - (void)_invalidateLayout;
 - (void)_setNeedsDisplayForInvalidatedContents;
 - (void)_invalidateCachedDefaultAttributes;
+- (id)_attributedStringIsolatingStringWritingDirection:(id)arg1;
 - (id)_synthesizedTextAttributes;
-- (id)_compatibilityAttributedString;
+@property(retain, nonatomic, getter=_content, setter=_setContent:) _UILabelContent *_content;
 - (void)_setDefaultAttributes:(id)arg1;
 - (id)_defaultAttributes;
+- (id)_defaultAttributesForUpgradingString:(id)arg1;
 - (double)_preferredMaxLayoutWidth;
 - (id)_cuiStyleEffectConfiguration;
 - (void)_setCuiStyleEffectConfiguration:(id)arg1;
@@ -257,6 +265,11 @@
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
 - (_Bool)isAccessibilityElementByDefault;
 - (id)_image;
+- (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(long long)arg2 nextToNeighbor:(id)arg3 edge:(int)arg4 attribute:(long long)arg5 multiplier:(double)arg6;
+- (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(long long)arg2 inContainer:(id)arg3 isGuide:(_Bool)arg4;
+- (_Bool)_hasCustomAutolayoutNeighborSpacingForAttribute:(long long *)arg1;
+- (id)_fontInfoForBaselineSpacing;
+- (_Bool)_hasFontInfoForVerticalBaselineSpacing;
 - (_Bool)_isTextFieldCenteredLabel;
 
 // Remaining properties

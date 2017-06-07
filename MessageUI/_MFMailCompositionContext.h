@@ -6,7 +6,8 @@
 
 #import <Foundation/NSObject.h>
 
-@class MFAttachmentCompositionContext, MFComposeBodyField, MFMailMessage, MFMessageLoadingContext, NSArray, NSMutableArray, NSString;
+@class MFAttachmentCompositionContext, MFMailMessage, MFMessageLoadingContext, NSArray, NSMutableArray, NSString, UIView;
+@protocol MFComposeBodyField;
 
 @interface _MFMailCompositionContext : NSObject
 {
@@ -34,10 +35,10 @@
     int _sourceAccountManagement;
     unsigned long long _caretPosition;
     NSString *_originatingBundleID;
-    MFComposeBodyField *_bodyField;
+    UIView<MFComposeBodyField> *_bodyField;
 }
 
-@property MFComposeBodyField *bodyField; // @synthesize bodyField=_bodyField;
+@property UIView<MFComposeBodyField> *bodyField; // @synthesize bodyField=_bodyField;
 @property(nonatomic) int sourceAccountManagement; // @synthesize sourceAccountManagement=_sourceAccountManagement;
 @property(copy, nonatomic) NSString *originatingBundleID; // @synthesize originatingBundleID=_originatingBundleID;
 @property(retain, nonatomic) MFMessageLoadingContext *loadingContext; // @synthesize loadingContext=_loadingContext;
@@ -73,6 +74,7 @@
 @property(readonly, nonatomic) NSString *contextID;
 - (void)setMessageBody:(id)arg1 isHTML:(_Bool)arg2;
 - (id)messageBody;
+- (void)switchToReplyAllWithDelegate:(id)arg1;
 - (void)dealloc;
 - (id)initOutboxRestoreOfMessage:(id)arg1;
 - (id)initSendAgainDraftOfMessage:(id)arg1;

@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double edgePadding;
 @property(readonly, nonatomic) UIFont *font;
 @property(readonly, nonatomic) double fontSize;
+@property(readonly, nonatomic) _Bool positionedRelativeToTrailingEdge;
 @property(readonly, nonatomic) _Bool allowsDrawingOutsideTabBar;
 @property(readonly, nonatomic) _Bool usesExternalImage;
 

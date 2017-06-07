@@ -6,27 +6,30 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSSet, TIImageCacheClient;
+@class NSMutableSet, NSSet, TIImageCacheClient, _UIActionWhenIdle;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCache : NSObject
 {
     TIImageCacheClient *_store;
     NSSet *_layouts;
-    int _renderCountForTesting;
+    NSMutableSet *_activeRenderers;
+    _UIActionWhenIdle *_idleAction;
 }
 
 + (_Bool)enabled;
 + (id)sharedInstance;
-- (void)decrementExpectedRender;
-- (void)incrementExpectedRender;
+@property(retain, nonatomic) _UIActionWhenIdle *idleAction; // @synthesize idleAction=_idleAction;
+- (void)decrementExpectedRender:(id)arg1;
+- (void)incrementExpectedRender:(id)arg1;
 - (void)updateCacheForInputModes:(id)arg1;
 - (id)uniqueLayoutsFromInputModes:(id)arg1;
+- (void)_didIdleAndShouldWait;
+- (void)_didIdle;
 - (id)displayImagesForView:(id)arg1 fromLayout:(id)arg2 imageFlags:(id)arg3;
 - (void)drawCachedImage:(id)arg1 alpha:(double)arg2 inContext:(struct CGContext *)arg3;
 - (struct CGImage *)cachedCompositeImageForCacheKeys:(id)arg1 fromLayout:(id)arg2 opacities:(id)arg3;
 - (struct CGImage *)cachedImageForKey:(id)arg1 fromLayout:(id)arg2;
-- (void)purge;
 - (void)clearNonPersistentCache;
 - (void)commitTransaction;
 - (void)dealloc;

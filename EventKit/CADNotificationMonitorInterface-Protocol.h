@@ -4,18 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+@class CADObjectID;
+
 @protocol CADNotificationMonitorInterface
-- (void)CADEventSetInvitationStatus:(int)arg1 forEvent:(CDStruct_f683c4ba)arg2 error:(void (^)(int))arg3;
-- (void)CADInviteReplyNotification:(CDStruct_f683c4ba)arg1 setAlertedWithError:(void (^)(int))arg2;
-- (void)CADResourceChange:(CDStruct_f683c4ba)arg1 setAlertedWithError:(void (^)(int))arg2;
-- (void)CADCalendar:(CDStruct_f683c4ba)arg1 setAlertedWithError:(void (^)(int))arg2;
-- (void)CADEvent:(CDStruct_f683c4ba)arg1 setAlertedWithError:(void (^)(int))arg2;
+- (void)CADEventSetInvitationStatus:(int)arg1 forEvent:(CADObjectID *)arg2 error:(void (^)(int))arg3;
+- (void)CADInviteReplyNotification:(CADObjectID *)arg1 setAlertedWithError:(void (^)(int))arg2;
+- (void)CADResourceChange:(CADObjectID *)arg1 setAlertedWithError:(void (^)(int))arg2;
+- (void)CADCalendar:(CADObjectID *)arg1 setAlertedWithError:(void (^)(int))arg2;
+- (void)CADEvent:(CADObjectID *)arg1 setAlertedWithError:(void (^)(int))arg2;
 - (void)CADDatabaseGetInboxRepliedSectionItems:(void (^)(int, NSArray *, NSArray *))arg1;
 - (void)CADDatabaseGetReminderNotificationItems:(void (^)(int, NSArray *, NSArray *, NSArray *))arg1;
 - (void)CADDatabaseGetEventNotificationItems:(void (^)(int, NSArray *, NSArray *, NSArray *))arg1;
 - (void)CADDatabaseGetInviteReplyNotifications:(void (^)(int, NSArray *))arg1;
 - (void)CADDatabaseGetResourceChanges:(void (^)(int, NSArray *))arg1;
-- (void)CADCalendarSetClearedFromNotificationCenter:(CDStruct_f683c4ba)arg1 error:(void (^)(int))arg2;
+- (void)CADCalendarSetClearedFromNotificationCenter:(CADObjectID *)arg1 error:(void (^)(int))arg2;
 - (void)CADDatabaseGetSharedCalendarInvitationsWithReply:(void (^)(int, NSArray *))arg1;
 @end
 

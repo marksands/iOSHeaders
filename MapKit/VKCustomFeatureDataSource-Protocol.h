@@ -14,6 +14,7 @@
 - (unsigned char)sceneState;
 - (unsigned char)sceneID;
 - (void)getClusterAnnotationTextForClusterFeatureCount:(unsigned long long)arg1 text:(id *)arg2 locale:(id *)arg3;
+- (void)getClusterImageTextForClusterFeatureCount:(unsigned long long)arg1 text:(id *)arg2 locale:(id *)arg3;
 - (GEOFeatureStyleAttributes *)clusterStyleAttributes;
 - (_Bool)isClusteringEnabled;
 - (void)removeObserver:(id <VKCustomFeatureDataSourceObserver>)arg1;

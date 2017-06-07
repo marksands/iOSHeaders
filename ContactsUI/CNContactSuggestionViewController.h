@@ -6,32 +6,39 @@
 
 #import <UIKit/UITableViewController.h>
 
-@class CNPropertyCell, CNPropertySuggestionAction, NSString, SGOrigin, UIButton, UILabel;
+@class CNPropertyCell, CNPropertySuggestionAction, NSLayoutConstraint, UIButton, UILabel;
+@protocol CNContactSuggestionViewControllerDataSource;
 
 __attribute__((visibility("hidden")))
 @interface CNContactSuggestionViewController : UITableViewController
 {
     CNPropertySuggestionAction *_action;
     CNPropertyCell *_propertyCell;
-    SGOrigin *_origin;
+    id <CNContactSuggestionViewControllerDataSource> _dataSource;
     UILabel *_fromLabel;
     UILabel *_dateLabel;
     UILabel *_subjectLabel;
     UILabel *_contentLabel;
     UIButton *_addToContactButton;
     UIButton *_ignoreButton;
-    NSString *_foundInAppName;
+    NSLayoutConstraint *_addToContactLeadingMargin;
+    NSLayoutConstraint *_ignoreTrailingMargin;
+    NSLayoutConstraint *_fromLeadingMargin;
+    NSLayoutConstraint *_dateTrailingMargin;
 }
 
-+ (id)viewControllerWithOrigin:(id)arg1;
-@property(retain) NSString *foundInAppName; // @synthesize foundInAppName=_foundInAppName;
++ (id)viewControllerWithDataSource:(id)arg1;
+@property(retain, nonatomic) NSLayoutConstraint *dateTrailingMargin; // @synthesize dateTrailingMargin=_dateTrailingMargin;
+@property(retain, nonatomic) NSLayoutConstraint *fromLeadingMargin; // @synthesize fromLeadingMargin=_fromLeadingMargin;
+@property(retain, nonatomic) NSLayoutConstraint *ignoreTrailingMargin; // @synthesize ignoreTrailingMargin=_ignoreTrailingMargin;
+@property(retain, nonatomic) NSLayoutConstraint *addToContactLeadingMargin; // @synthesize addToContactLeadingMargin=_addToContactLeadingMargin;
 @property(retain, nonatomic) UIButton *ignoreButton; // @synthesize ignoreButton=_ignoreButton;
 @property(retain, nonatomic) UIButton *addToContactButton; // @synthesize addToContactButton=_addToContactButton;
 @property(retain, nonatomic) UILabel *contentLabel; // @synthesize contentLabel=_contentLabel;
 @property(retain, nonatomic) UILabel *subjectLabel; // @synthesize subjectLabel=_subjectLabel;
 @property(retain, nonatomic) UILabel *dateLabel; // @synthesize dateLabel=_dateLabel;
 @property(retain, nonatomic) UILabel *fromLabel; // @synthesize fromLabel=_fromLabel;
-@property(retain, nonatomic) SGOrigin *origin; // @synthesize origin=_origin;
+@property(retain, nonatomic) id <CNContactSuggestionViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) CNPropertyCell *propertyCell; // @synthesize propertyCell=_propertyCell;
 @property(retain, nonatomic) CNPropertySuggestionAction *action; // @synthesize action=_action;
 - (void).cxx_destruct;
@@ -44,6 +51,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (_Bool)shouldShowAddIgnoreControls;
+- (_Bool)sectionAtIndexContainsAddAndIgnoreControls:(unsigned long long)arg1;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;

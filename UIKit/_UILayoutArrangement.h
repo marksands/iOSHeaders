@@ -79,13 +79,19 @@ __attribute__((visibility("hidden")))
 - (id)init;
 - (id)initWithItems:(id)arg1;
 - (id)initWithItems:(id)arg1 onAxis:(long long)arg2;
+- (void)_setLayoutUsesCanvasMarginsWhenFilling:(_Bool)arg1 notify:(_Bool)arg2;
+- (void)_setLayoutFillsCanvas:(_Bool)arg1 notify:(_Bool)arg2;
+- (void)_setAxis:(long long)arg1 notify:(_Bool)arg2;
 @property(readonly, nonatomic) id <_UILAPropertySource> _propertySource;
-- (void)_trackChangesWithValue:(id)arg1 forKey:(id)arg2;
+- (void)_trackChangesWithConfigBlock:(CDUnknownBlockType)arg1;
 - (void)_registerAnimationRequest;
 - (void)_createUnanimatedConfigurationTargetIfNecessary;
 @property(readonly, retain, nonatomic) _UILAConfigurationHistory *_configurationHistory; // @synthesize _configurationHistory;
 - (long long)_axisForSpanningLayoutGuide;
+- (_Bool)_spanningLayoutGuideAlwaysUsesFittingConstraint;
+- (float)_spanningLayoutGuideFittingPriority;
 - (id)_identifierForSpanningLayoutGuide;
+- (_Bool)_allItemsHidden;
 - (id)_spanningLayoutGuideCreateIfNecessary;
 - (void)_createSpanningLayoutGuide;
 

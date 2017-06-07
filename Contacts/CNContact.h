@@ -4,17 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
+#import <Contacts/CNContactAugmentation-Protocol.h>
 #import <Contacts/CNObjectValidation-Protocol.h>
 #import <Contacts/CNSuggested-Protocol.h>
 #import <Contacts/NSCopying-Protocol.h>
 #import <Contacts/NSMutableCopying-Protocol.h>
 #import <Contacts/NSSecureCoding-Protocol.h>
 
-@class CNActivityAlert, NSArray, NSData, NSDate, NSDateComponents, NSDictionary, NSSet, NSString, SGRecordId;
+@class CNActivityAlert, CNContactKeyVector, NSArray, NSData, NSDate, NSDateComponents, NSDictionary, NSSet, NSString, SGRecordId;
+@protocol CNKeyDescriptor;
 
-@interface CNContact : NSObject <CNSuggested, CNObjectValidation, NSCopying, NSMutableCopying, NSSecureCoding>
+@interface CNContact : NSObject <CNSuggested, CNContactAugmentation, CNObjectValidation, NSCopying, NSMutableCopying, NSSecureCoding>
 {
     NSString *_internalIdentifier;
     int _iOSLegacyIdentifier;
@@ -71,7 +73,7 @@
     CNContact *_snapshot;
     NSArray *_linkedContacts;
     NSString *_accountIdentifier;
-    NSSet *_availableKeys;
+    CNContactKeyVector *_availableKeyDescriptor;
     NSString *_mapsData;
     NSString *_searchIndex;
     NSString *_preferredLikenessSource;
@@ -96,10 +98,14 @@
 + (id)identifierProvider;
 + (id)localizedStringForKey:(id)arg1;
 + (id)alwaysFetchedKeys;
++ (id)descriptorForRequiredKeysForSearchableItem;
 + (id)predicateForContactsInContainerWithIdentifier:(id)arg1;
 + (id)predicateForContactsMatchingName:(id)arg1;
 + (id)predicateForContactsInGroupWithIdentifier:(id)arg1;
 + (id)predicateForContactsWithIdentifiers:(id)arg1;
++ (id)predicateForMeContact;
++ (id)predicateForFaultFulfillmentForLegacyIdentifier:(unsigned int)arg1 identifier:(id)arg2;
++ (id)predicateForContactsWithNonUnifiedIdentifiers:(id)arg1;
 + (id)predicateForContactsMatchingInstantMessageAddress:(id)arg1;
 + (id)predicateForContactsMatchingSocialProfile:(id)arg1;
 + (id)predicateForLegacyIdentifier:(unsigned int)arg1;
@@ -108,6 +114,7 @@
 + (id)predicateForContactsMatchingString:(id)arg1 accountIdentifier:(id)arg2 containerIdentifier:(id)arg3 groupIdentifier:(id)arg4;
 + (id)predicateForPreferredNameInContainersWithIdentifiers:(id)arg1 groupsWithIdentifiers:(id)arg2;
 + (id)predicateForPreferredNameInRange:(struct _NSRange)arg1;
++ (id)predicateForContactsMatchingPhoneNumber:(id)arg1 prefixHint:(id)arg2;
 + (id)predicateForContactsMatchingPhoneNumber:(id)arg1;
 + (id)predicateForContactMatchingPhoneNumber:(id)arg1;
 + (id)predicateForContactMatchingMapString:(id)arg1;
@@ -120,20 +127,26 @@
 + (id)predicateForContactsWithOrganizationName:(id)arg1;
 + (id)predicateForContactsMatchingName:(id)arg1 options:(unsigned long long)arg2;
 + (id)predicateForAllContacts;
++ (int)abPropertyIDfromContactPropertyKey:(id)arg1;
++ (id)contactPropertyKeyFromABPropertyID:(int)arg1;
 + (id)contactFromPerson:(void *)arg1 keysToFetch:(id)arg2 mutable:(_Bool)arg3;
 + (id)contactFromPerson:(void *)arg1 keysToFetch:(id)arg2;
++ (int)publicABPropertyIDFromContactPropertyKey:(id)arg1;
++ (id)contactPropertyKeyFromPublicABPropertyID:(int)arg1;
++ (id)contactFromPublicABPerson:(void *)arg1 keysToFetch:(id)arg2 mutable:(_Bool)arg3;
++ (id)contactFromPublicABPerson:(void *)arg1 keysToFetch:(id)arg2;
 + (id)suggestionIDFromContactIdentifier:(id)arg1;
 + (id)contactIdentifierFromSuggestionID:(id)arg1;
 + (id)contactFromSuggestion:(id)arg1;
 + (id)predicateForSuggestionIdentifier:(unsigned long long)arg1;
 @property(readonly, nonatomic) long long displayNameOrder; // @synthesize displayNameOrder=_displayNameOrder;
-@property(readonly, copy, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(readonly, copy, nonatomic) NSString *sortingFamilyName; // @synthesize sortingFamilyName=_sortingFamilyName;
 @property(readonly, copy, nonatomic) NSString *sortingGivenName; // @synthesize sortingGivenName=_sortingGivenName;
 @property(readonly, copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(readonly, copy, nonatomic) NSDictionary *storeInfo; // @synthesize storeInfo=_storeInfo;
 @property(readonly, copy, nonatomic) NSString *storeIdentifier; // @synthesize storeIdentifier=_storeIdentifier;
 @property(readonly, copy, nonatomic) NSString *internalIdentifier; // @synthesize internalIdentifier=_internalIdentifier;
+- (void).cxx_destruct;
 - (id)linkedIdentifierMap;
 - (_Bool)isValid:(id *)arg1;
 - (_Bool)isEqualIgnoringIdentifiers:(id)arg1;
@@ -143,10 +156,11 @@
 - (_Bool)areAllPropertiesButContactIdentifierEqualToContact:(id)arg1;
 - (_Bool)areAllAvailableKeysEqualToContact:(id)arg1 ignoringIdentifiers:(_Bool)arg2;
 - (_Bool)isEqual:(id)arg1;
+- (id)shortDebugDescription;
 @property(readonly, copy) NSString *description;
 - (id)diffToSnapshotAndReturnError:(id *)arg1;
 - (_Bool)hasChanges;
-@property(readonly, copy, nonatomic) CNContact *snapshot;
+- (id)snapshot;
 @property(readonly, copy, nonatomic) NSString *phoneticCompanyName;
 @property(readonly, copy, nonatomic) NSString *phoneticFullName;
 @property(readonly, copy, nonatomic) NSString *fullName;
@@ -160,6 +174,8 @@
 - (_Bool)isUnifiedWithContactWithIdentifier:(id)arg1;
 @property(readonly, nonatomic, getter=isUnified) _Bool unified;
 @property(readonly, nonatomic) NSSet *availableKeys;
+- (id)keyVector;
+@property(readonly, nonatomic) id <CNKeyDescriptor> availableKeyDescriptor;
 - (void)assertKeysAreAvailable:(id)arg1;
 - (void)assertKeyIsAvailable:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -168,9 +184,8 @@
 - (id)copyWithSelfAsSnapshot;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)copyWithPropertyKeys:(id)arg1;
-- (id)initWithIdentifier:(id)arg1 availableKeys:(id)arg2;
+- (id)initWithIdentifier:(id)arg1 availableKeyDescriptor:(id)arg2;
 - (id)initWithIdentifier:(id)arg1;
 - (id)init;
 @property(readonly, copy, nonatomic) NSDictionary *activityAlerts;
@@ -183,6 +198,7 @@
 @property(readonly, copy, nonatomic) CNActivityAlert *callAlert;
 @property(readonly, copy, nonatomic) NSString *phonemeData;
 @property(readonly, copy, nonatomic) NSDate *modificationDate;
+@property(readonly, copy, nonatomic) NSDate *creationDate;
 @property(readonly, copy, nonatomic) NSArray *calendarURIs;
 @property(readonly, copy, nonatomic) NSArray *postalAddresses;
 @property(readonly, copy, nonatomic) NSArray *socialProfiles;
@@ -226,10 +242,17 @@
 @property(readonly, copy, nonatomic) NSString *namePrefix;
 @property(readonly, nonatomic) int iOSLegacyIdentifier;
 @property(readonly, copy, nonatomic) NSString *identifier;
+- (id)_filteredArrayForValidValues:(id)arg1;
+- (id)_searchableItem;
+- (id)searchableItemAttributeSetForUserActivity;
+- (id)searchableItemForDragging;
+- (id)searchableItemForIndexing;
 - (_Bool)overwritePerson:(void *)arg1 error:(id *)arg2;
 - (_Bool)overwritePerson:(void *)arg1;
 - (void *)detachedPersonWithError:(id *)arg1;
 - (void *)detachedPerson;
+- (_Bool)updateNewPublicABPerson:(void *)arg1 inAddressBook:(void *)arg2;
+- (_Bool)overwritePublicABPerson:(void *)arg1;
 @property(readonly, copy, nonatomic) NSArray *relatedNames;
 @property(readonly, copy) NSString *companyName;
 @property(readonly, copy) NSString *phoneticLastName;
@@ -242,6 +265,7 @@
 - (id)copyWithNoSuggestion;
 @property(readonly, nonatomic) NSString *suggestionFoundInBundleId;
 @property(readonly, nonatomic) SGRecordId *suggestionRecordId;
+@property(readonly, nonatomic, getter=isSuggestedMe) _Bool suggestedMe;
 @property(readonly, nonatomic, getter=isSuggested) _Bool suggested;
 
 // Remaining properties

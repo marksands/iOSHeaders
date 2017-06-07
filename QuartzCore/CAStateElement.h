@@ -6,17 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
 #import <QuartzCore/NSCopying-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class CALayer, NSString;
 
-@interface CAStateElement : NSObject <NSCopying, NSCoding>
+@interface CAStateElement : NSObject <NSCopying, NSSecureCoding>
 {
     CALayer *_target;
     CAStateElement *_source;
 }
 
++ (_Bool)supportsSecureCoding;
 + (void)CAMLParserStartElement:(id)arg1;
 @property(retain, nonatomic) CAStateElement *source; // @synthesize source=_source;
 @property(nonatomic) __weak CALayer *target; // @synthesize target=_target;

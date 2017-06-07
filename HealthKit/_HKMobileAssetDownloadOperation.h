@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_queue_assetStateUpdated;
 - (void)_queue_resumeAssetDownload;
+- (void)_handleDownloadProgressWithState:(id)arg1 error:(id)arg2;
 - (void)_queue_assignDownloadHandlerForAsset;
 - (void)_queue_downloadAsset;
 - (void)_queue_transitionToState:(long long)arg1;

@@ -12,8 +12,10 @@
 @interface AVFigAssetTrackInspector : AVAssetTrackInspector
 {
     struct OpaqueFigAsset *_figAsset;
-    struct OpaqueFigFormatReader *_figFormatReader;
     struct OpaqueFigAssetTrack *_figAssetTrack;
+    long long _copyFigFormatReaderOnce;
+    struct OpaqueFigFormatReader *_figFormatReader;
+    long long _copyFigTrackReaderOnce;
     struct OpaqueFigTrackReader *_figTrackReader;
     struct OpaqueFigSimpleMutex *_loadingMutex;
     NSObject<OS_dispatch_queue> *_completionHandlerQueue;
@@ -55,6 +57,8 @@
 - (long long)totalSampleDataLength;
 - (_Bool)isSelfContained;
 - (_Bool)isEnabled;
+- (int)decodabilityValidationResult;
+- (_Bool)isDecodable;
 - (int)playabilityValidationResult;
 - (_Bool)isPlayable;
 - (id)formatDescriptions;
@@ -65,6 +69,7 @@
 - (id)_loadingBatches;
 - (struct OpaqueFigSimpleMutex *)_loadingMutex;
 - (struct OpaqueFigTrackReader *)_figTrackReader;
+- (struct OpaqueFigFormatReader *)_figFormatReader;
 - (struct OpaqueFigAssetTrack *)_figAssetTrack;
 - (id)asset;
 - (void)_ensureAllDependenciesOfKeyAreLoaded:(id)arg1;

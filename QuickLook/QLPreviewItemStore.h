@@ -10,7 +10,7 @@
 #import <QuickLook/QLPreviewItemProvider-Protocol.h>
 
 @class NSPointerArray, QLDataSource;
-@protocol QLPreviewItemProvider;
+@protocol QLPreviewItemProvider, QLPreviewItemStoreDelegate;
 
 __attribute__((visibility("hidden")))
 @interface QLPreviewItemStore : NSObject <QLPreviewItemProvider, QLPreviewControllerDataSource>
@@ -19,10 +19,12 @@ __attribute__((visibility("hidden")))
     id <QLPreviewItemProvider> _itemProvider;
     QLDataSource *_internalItemProvider;
     _Bool _isArchive;
+    id <QLPreviewItemStoreDelegate> _delegate;
     struct _NSRange _possibleRange;
 }
 
 @property(readonly) _Bool isArchive; // @synthesize isArchive=_isArchive;
+@property __weak id <QLPreviewItemStoreDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) struct _NSRange possibleRange; // @synthesize possibleRange=_possibleRange;
 @property(nonatomic) __weak id <QLPreviewItemProvider> itemProvider; // @synthesize itemProvider=_itemProvider;
 - (void).cxx_destruct;
@@ -36,7 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)reloadWithNumberOfPreviewItems:(unsigned long long)arg1;
 - (void)_commonInit;
-- (id)initWithContentsOfPreviewItem:(id)arg1;
+- (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithPreviewItems:(id)arg1;
 - (id)init;
 

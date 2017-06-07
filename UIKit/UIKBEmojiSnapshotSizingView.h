@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) UIView *snapshotView; // @synthesize snapshotView=_snapshotView;
-- (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
 - (void)dealloc;
 - (id)initWithSnapshotView:(id)arg1;
 

@@ -15,13 +15,13 @@
 @interface CXCallSource : NSObject <CXProviderHostProtocol, CXProviderVendorProtocol>
 {
     _Bool _connected;
-    NSObject<OS_dispatch_queue> *_queue;
     id <CXCallSourceDelegate> _delegate;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
-@property(nonatomic) __weak id <CXCallSourceDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic, getter=isConnected) _Bool connected; // @synthesize connected=_connected;
+@property(nonatomic) __weak id <CXCallSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (oneway void)handleAudioSessionActivationStateChangedTo:(_Bool)arg1;
 - (oneway void)handleActionTimeout:(id)arg1;

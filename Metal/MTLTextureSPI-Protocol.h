@@ -12,11 +12,13 @@
 @protocol MTLTextureSPI <MTLTexture, MTLResourceSPI>
 @property(readonly) _Bool isDrawable;
 @property(readonly) unsigned long long numFaces;
+@property(readonly) _Bool isCompressed;
 @property unsigned long long swizzle;
 @property(readonly) unsigned long long rotation;
 - (id <MTLTexture>)newTextureViewWithPixelFormat:(unsigned long long)arg1 textureType:(unsigned long long)arg2 levels:(struct _NSRange)arg3 slices:(struct _NSRange)arg4 swizzle:(unsigned long long)arg5;
 
 @optional
+@property(readonly) unsigned long long uniqueIdentifier;
 - (void)generateMipmapLevel:(unsigned long long)arg1 slice:(unsigned long long)arg2;
 - (_Bool)canGenerateMipmapLevels;
 - (id <MTLTexture>)newCompressedTextureViewWithPixelFormat:(unsigned long long)arg1 textureType:(unsigned long long)arg2 level:(unsigned long long)arg3 slice:(unsigned long long)arg4;

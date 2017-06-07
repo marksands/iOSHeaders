@@ -8,7 +8,7 @@
 
 #import <Foundation/NSISConstraint-Protocol.h>
 
-@class NSLayoutAnchor, NSSet, NSString, _NSConstraintDescriptionLayoutRelationshipNode;
+@class NSLayoutAnchor, NSSet, NSString, _NSConstraintDescriptionLayoutRuleNode;
 
 @interface NSLayoutConstraint : NSObject <NSISConstraint>
 {
@@ -47,7 +47,7 @@
 - (_Bool)_nsib_isRedundantInEngine:(id)arg1;
 - (id)_layoutEngine;
 - (id)nsis_descriptionOfVariable:(id)arg1;
-- (void)_explainUnsatisfaction;
+- (id)_explainUnsatisfaction;
 - (void)_forceSatisfactionMeasuringUnsatisfactionChanges:(id *)arg1 andMutuallyExclusiveConstraints:(id *)arg2;
 - (void)_tryToActivateMeasuringUnsatisfactionChanges:(id *)arg1 andMutuallyExclusiveConstraints:(id *)arg2;
 - (id)_loweredExpression;
@@ -133,9 +133,9 @@
 @property(nonatomic, getter=_loweredConstantNeedsUpdate, setter=_setLoweredConstantNeedsUpdate:) _Bool loweredConstantNeedsUpdate;
 @property(readonly) double unsatisfaction;
 - (double)dissatisfaction;
-@property(setter=_setAssociatedRelationshipNode:) _NSConstraintDescriptionLayoutRelationshipNode *_associatedRelationshipNode;
-- (id)sourceRelationshipHierarchy;
-- (id)_ancestorRelationshipNodes;
+@property(setter=_setAssociatedRuleNode:) _NSConstraintDescriptionLayoutRuleNode *_associatedRuleNode;
+- (id)sourceRuleHierarchy;
+- (id)_ancestorRuleNodes;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

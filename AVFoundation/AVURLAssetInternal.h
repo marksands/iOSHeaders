@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVAssetCache, AVAssetClientURLRequestHelper, AVAssetInspectorLoader, AVAssetResourceLoader, AVWeakReference, NSArray, NSDictionary, NSURL;
+@class AVAssetCache, AVAssetClientURLRequestHelper, AVAssetCustomURLBridgeForNSURLProtocol, AVAssetInspectorLoader, AVAssetResourceLoader, AVWeakReference, NSArray, NSDictionary, NSURL;
 @protocol OS_dispatch_queue;
 
 @interface AVURLAssetInternal : NSObject
 {
     AVAssetInspectorLoader *loader;
     AVAssetClientURLRequestHelper *URLRequestHelper;
+    AVAssetCustomURLBridgeForNSURLProtocol *customURLBridgeForNSURLProtocol;
     NSURL *URL;
     NSArray *tracks;
     AVAssetResourceLoader *resourceLoader;

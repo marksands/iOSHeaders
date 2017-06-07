@@ -14,7 +14,9 @@
 }
 
 + (id)metadataItemWithPropertiesOfMetadataItem:(id)arg1 valueLoadingHandler:(CDUnknownBlockType)arg2;
+- (id)dataType;
 - (id)value;
+- (void)_waitForLoadingOfValueDependentKey:(id)arg1;
 - (void)loadValuesAsynchronouslyForKeys:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (long long)statusOfValueForKey:(id)arg1 error:(id *)arg2;
 - (long long)_valueStatus;

@@ -6,10 +6,13 @@
 
 #import <VideoSubscriberAccount/NSObject-Protocol.h>
 
-@class UIViewController, VSAccountManager;
+@class NSString, UIViewController, VSAccountManager;
 
 @protocol VSAccountManagerDelegate <NSObject>
 - (void)accountManager:(VSAccountManager *)arg1 dismissViewController:(UIViewController *)arg2;
 - (void)accountManager:(VSAccountManager *)arg1 presentViewController:(UIViewController *)arg2;
+
+@optional
+- (_Bool)accountManager:(VSAccountManager *)arg1 shouldAuthenticateAccountProviderWithIdentifier:(NSString *)arg2;
 @end
 

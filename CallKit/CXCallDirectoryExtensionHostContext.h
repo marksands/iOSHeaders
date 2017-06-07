@@ -22,8 +22,13 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <CXCallDirectoryProviderHostProtocol> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (oneway void)completeRequestWithReply:(CDUnknownBlockType)arg1;
+- (oneway void)removeAllIdentificationEntriesWithReply:(CDUnknownBlockType)arg1;
+- (oneway void)removeIdentificationEntriesWithData:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (oneway void)addIdentificationEntriesWithData:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (oneway void)removeAllBlockingEntriesWithReply:(CDUnknownBlockType)arg1;
+- (oneway void)removeBlockingEntriesWithData:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (oneway void)addBlockingEntriesWithData:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (oneway void)isIncrementalLoadingAllowed:(CDUnknownBlockType)arg1;
 - (void)requestFailedWithError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 

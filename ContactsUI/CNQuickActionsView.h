@@ -6,17 +6,17 @@
 
 #import <UIKit/UIView.h>
 
-#import <ContactsUI/CNContactActionsViewControllerDelegate-Protocol.h>
+#import <ContactsUI/CNContactActionsControllerDelegate-Protocol.h>
 #import <ContactsUI/CNQuickActionButtonDelegate-Protocol.h>
 #import <ContactsUI/CNQuickActionsManagerDelegate-Protocol.h>
 #import <ContactsUI/CNUIUserActionListConsumer-Protocol.h>
 #import <ContactsUI/UICollectionViewDataSource-Protocol.h>
 #import <ContactsUI/UICollectionViewDelegate-Protocol.h>
 
-@class CNContact, CNQuickAction, CNQuickActionsManager, NSArray, NSDictionary, NSString, UIAlertController, UICollectionView, UICollectionViewFlowLayout;
+@class CNContact, CNContactActionsController, CNQuickAction, CNQuickActionsManager, NSArray, NSDictionary, NSString, UIAlertController, UICollectionView, UICollectionViewFlowLayout;
 @protocol CNQuickActionsViewDelegate;
 
-@interface CNQuickActionsView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, CNQuickActionsManagerDelegate, CNQuickActionButtonDelegate, CNContactActionsViewControllerDelegate, CNUIUserActionListConsumer>
+@interface CNQuickActionsView : UIView <UICollectionViewDataSource, UICollectionViewDelegate, CNQuickActionsManagerDelegate, CNQuickActionButtonDelegate, CNContactActionsControllerDelegate, CNUIUserActionListConsumer>
 {
     _Bool _sortsWithDuet;
     _Bool _useDuetIfAvailable;
@@ -30,6 +30,7 @@
     UICollectionViewFlowLayout *_collectionLayout;
     UICollectionView *_collectionView;
     UIAlertController *_alertController;
+    CNContactActionsController *_actionsController;
     CNQuickAction *_performingAction;
     CNQuickActionsManager *_actionsManager;
     struct CGSize _cachedContentSize;
@@ -42,6 +43,7 @@
 + (_Bool)requiresConstraintBasedLayout;
 @property(retain, nonatomic) CNQuickActionsManager *actionsManager; // @synthesize actionsManager=_actionsManager;
 @property(retain, nonatomic) CNQuickAction *performingAction; // @synthesize performingAction=_performingAction;
+@property(retain, nonatomic) CNContactActionsController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) UIAlertController *alertController; // @synthesize alertController=_alertController;
 @property(nonatomic) struct CGSize cachedContentSize; // @synthesize cachedContentSize=_cachedContentSize;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
@@ -56,7 +58,7 @@
 @property(copy, nonatomic) NSArray *categories; // @synthesize categories=_categories;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 - (void).cxx_destruct;
-- (void)contactActionsViewController:(id)arg1 didSelectAction:(id)arg2;
+- (void)contactActionsController:(id)arg1 didSelectAction:(id)arg2;
 - (void)performAction:(id)arg1;
 - (void)showDisambiguationControllerWithDataSource:(id)arg1 actionType:(id)arg2 onController:(id)arg3 sourceView:(id)arg4;
 - (_Bool)quickActionButton:(id)arg1 performAction:(id)arg2;

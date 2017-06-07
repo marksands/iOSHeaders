@@ -6,16 +6,16 @@
 
 #import <Foundation/NSObject.h>
 
-@class _UIFeedbackStatesBehavior;
+@class _UIStatesFeedbackGenerator;
 
 @interface _UITapticEngine : NSObject
 {
     _Bool _feedbackActivated;
-    _UIFeedbackStatesBehavior *_feedbackBehavior;
+    _UIStatesFeedbackGenerator *_feedbackGenerator;
 }
 
 @property(nonatomic) _Bool feedbackActivated; // @synthesize feedbackActivated=_feedbackActivated;
-@property(retain, nonatomic) _UIFeedbackStatesBehavior *feedbackBehavior; // @synthesize feedbackBehavior=_feedbackBehavior;
+@property(retain, nonatomic) _UIStatesFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;
 - (void).cxx_destruct;
 - (id)_stateForFeedback:(long long)arg1;
 - (void)actuateFeedback:(long long)arg1;

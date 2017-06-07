@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
-@interface PUTilingViewSettings : PUSettings
+@interface PUTilingViewSettings : PXSettings
 {
     _Bool _useSpringAnimations;
     _Bool _useSystemSpringAnimations;
@@ -49,6 +49,7 @@
 @property(nonatomic) _Bool useSpringAnimations; // @synthesize useSpringAnimations=_useSpringAnimations;
 @property(nonatomic) double animationDragCoefficient; // @synthesize animationDragCoefficient=_animationDragCoefficient;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

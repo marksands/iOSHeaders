@@ -10,19 +10,20 @@
 
 @interface MPContentItem : NSObject
 {
-    struct _MRContentItem *_mrContentItem;
+    void *_mrContentItem;
     MPMediaItemArtwork *_artwork;
     double _artworkWidthHint;
     double _artworkHeightHint;
 }
 
++ (void)performSuppressingChangeNotifications:(CDUnknownBlockType)arg1;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isExplicitContent) _Bool explicitContent;
 @property(nonatomic, getter=isStreamingContent) _Bool streamingContent;
 - (void)_setArtworkSize:(double)arg1 height:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_applyDeferredNotification;
 - (void)_postItemChangedNotification;
-- (id)_notification;
-- (struct _MRContentItem *)_mediaRemoteContentItem;
+- (void *)_mediaRemoteContentItem;
 @property(nonatomic) float playbackProgress;
 @property(nonatomic, getter=isPlayable) _Bool playable;
 @property(nonatomic, getter=isContainer) _Bool container;
@@ -33,7 +34,7 @@
 @property(readonly, copy, nonatomic) NSString *identifier;
 - (id)description;
 - (void)dealloc;
-- (id)_initWithMediaRemoteContentItem:(struct _MRContentItem *)arg1;
+- (id)_initWithMediaRemoteContentItem:(void *)arg1;
 - (id)initWithIdentifier:(id)arg1;
 - (id)init;
 

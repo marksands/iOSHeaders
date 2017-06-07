@@ -6,16 +6,17 @@
 
 #import <Foundation/NSExtensionContext.h>
 
-#import <Messages/_MSMessageComposeHostProtocol-Protocol.h>
+#import <Messages/_MSMessageComposeHostImplProtocol-Protocol.h>
 
 @class NSString;
 @protocol _MSMessageComposeHostProtocol;
 
-@interface _MSMessageAppExtensionHostContext : NSExtensionContext <_MSMessageComposeHostProtocol>
+@interface _MSMessageAppExtensionHostContext : NSExtensionContext <_MSMessageComposeHostImplProtocol>
 {
     id <_MSMessageComposeHostProtocol> _delegate;
 }
 
++ (id)_extensionContextHostProtocolAllowedClassesForItems;
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
 @property(nonatomic) __weak id <_MSMessageComposeHostProtocol> delegate; // @synthesize delegate=_delegate;
@@ -26,9 +27,9 @@
 - (void)_dismiss;
 - (void)_requestPresentationStyleExpanded:(_Bool)arg1;
 - (void)_startDragMediaItem:(id)arg1 frameInRemoteView:(struct CGRect)arg2 fence:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_stageRichLink:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_stageMediaItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_stageAppItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_stageRichLink:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_stageMediaItem:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_stageAppItem:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

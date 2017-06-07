@@ -76,6 +76,7 @@ __attribute__((visibility("hidden")))
 - (double)_yRangingFromZeroTo:(double)arg1 forUnitY:(double)arg2;
 - (double)_unitYForViewY:(double)arg1;
 - (double)_zCoordinateForYCoordinate:(double)arg1;
+- (long long)_contentInsetAdjustmentBehavior;
 - (void)_updateContentInsets;
 - (void)_rectChangedWithNewSize:(struct CGSize)arg1 oldSize:(struct CGSize)arg2;
 - (_Bool)didSelectDisabled:(_Bool)arg1;

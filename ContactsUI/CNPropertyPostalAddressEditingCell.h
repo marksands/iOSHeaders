@@ -25,9 +25,8 @@ __attribute__((visibility("hidden")))
 - (void)setPresentingDelegate:(id)arg1;
 - (id)valueView;
 - (id)firstResponderItem;
-- (id)constantConstraints;
-- (double)rightContentMargin;
 - (double)leftValueMargin;
+- (id)variableConstraints;
 
 @end
 

@@ -8,7 +8,6 @@
 
 @class NSString, UIImage;
 
-__attribute__((visibility("hidden")))
 @interface CNActionItem : NSObject
 {
     _Bool _disabled;

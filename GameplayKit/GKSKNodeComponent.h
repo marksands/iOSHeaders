@@ -7,18 +7,19 @@
 #import <GameplayKit/GKComponent.h>
 
 #import <GameplayKit/GKAgentDelegate-Protocol.h>
+#import <GameplayKit/GKSerializedNodeContaining-Protocol.h>
 
 @class NSIndexPath, NSString, SKNode;
 
-@interface GKSKNodeComponent : GKComponent <GKAgentDelegate>
+@interface GKSKNodeComponent : GKComponent <GKSerializedNodeContaining, GKAgentDelegate>
 {
-    SKNode *_node;
     NSIndexPath *_serializableNodeIndexPath;
+    SKNode *_node;
 }
 
 + (id)componentWithNode:(id)arg1;
-@property(retain, nonatomic) NSIndexPath *serializableNodeIndexPath; // @synthesize serializableNodeIndexPath=_serializableNodeIndexPath;
 @property(retain, nonatomic) SKNode *node; // @synthesize node=_node;
+@property(retain, nonatomic) NSIndexPath *serializableNodeIndexPath; // @synthesize serializableNodeIndexPath=_serializableNodeIndexPath;
 - (void).cxx_destruct;
 - (void)agentDidUpdate:(id)arg1;
 - (void)agentWillUpdate:(id)arg1;

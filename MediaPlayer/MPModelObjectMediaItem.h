@@ -16,6 +16,8 @@
 - (void).cxx_destruct;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)_initWithPropertyValues:(id)arg1;

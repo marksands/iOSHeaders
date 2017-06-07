@@ -14,6 +14,7 @@
     NSMutableArray *captionElementLayers;
     struct OpaqueFigSimpleMutex *renderMutex;
     struct OpaqueFigReentrantMutex *layoutSublayersMutex;
+    unsigned char shouldDrawGrid;
 }
 
 @end

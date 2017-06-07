@@ -15,6 +15,9 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _loadingHandler;
 }
 
++ (_Bool)shouldBeRemoteForContentType:(id)arg1;
++ (id)supportedContentTypes;
++ (Class)transformerClass;
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
@@ -22,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)scrollView;
 - (_Bool)canEnterFullScreen;
 - (void)dealloc;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)loadView;
 
 @end

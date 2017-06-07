@@ -16,13 +16,13 @@
 
 - (void)setCNValue:(id)arg1 onContact:(id)arg2;
 - (id)CNValueForContact:(id)arg1;
-- (_Bool)isValue:(id)arg1 equivalentToValue:(id)arg2;
+- (_Bool)canUnifyValue:(id)arg1 withValue:(id)arg2;
 - (_Bool)isNonnull;
 - (void)decodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (void)encodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (_Bool)isEqualForContact:(id)arg1 other:(id)arg2;
 - (id)init;
-- (int)abPropertyID:(int *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

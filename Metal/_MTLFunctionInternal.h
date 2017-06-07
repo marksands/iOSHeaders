@@ -26,8 +26,8 @@ __attribute__((visibility("hidden")))
 - (id)filePath;
 - (void)setFilePath:(id)arg1;
 - (void)initializePrivateMetadata;
-- (id)newSpecializedFunctionWithConstants:(id)arg1 error:(id *)arg2;
-- (void)newSpecializedFunctionWithConstants:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)newSpecializedFunctionWithConstants:(id)arg1 functionCache:(id)arg2 error:(id *)arg3;
+- (void)newSpecializedFunctionWithConstants:(id)arg1 functionCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)functionConstantsDictionary;
 - (unsigned long long)bitCodeFileSize;
 - (const CDStruct_41a22ec7 *)bitCodeHash;
@@ -36,6 +36,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)needsFunctionConstantValues;
 - (void)setStageInputAttributes:(id)arg1;
 - (id)stageInputAttributes;
+- (id)arguments;
+- (void)setArguments:(id)arg1;
+- (id)returnType;
+- (void)setReturnType:(id)arg1;
 - (void)setVertexAttributes:(id)arg1;
 - (id)vertexAttributes;
 - (void)initializePublicMetadata;

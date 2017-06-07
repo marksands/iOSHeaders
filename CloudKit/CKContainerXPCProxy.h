@@ -6,18 +6,19 @@
 
 #import <objc/NSObject.h>
 
-#import <CloudKit/CKBXPCClient-Protocol.h>
+#import <CloudKit/CKXPCClient-Protocol.h>
 
 @class CKContainer, NSString;
 
 __attribute__((visibility("hidden")))
-@interface CKContainerXPCProxy : NSObject <CKBXPCClient>
+@interface CKContainerXPCProxy : NSObject <CKXPCClient>
 {
     CKContainer *_container;
 }
 
 @property(nonatomic) __weak CKContainer *container; // @synthesize container=_container;
 - (void).cxx_destruct;
+- (void)consumeSandboxExtensions:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)openFileWithOpenInfo:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleOperationCheckpoint:(id)arg1 forOperationWithID:(id)arg2;
 - (void)handleOperationCompletion:(id)arg1 forOperationWithID:(id)arg2;

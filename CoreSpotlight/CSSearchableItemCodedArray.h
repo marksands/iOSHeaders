@@ -17,9 +17,9 @@
     CDStruct_b7fac349 _obj;
 }
 
+@property(readonly, nonatomic) CDStruct_b7fac349 obj; // @synthesize obj=_obj;
 @property(retain, nonatomic) NSString *protectionClass; // @synthesize protectionClass=_protectionClass;
 @property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
-@property(readonly, nonatomic) CDStruct_b7fac349 obj; // @synthesize obj=_obj;
 @property(readonly, nonatomic) CSDecoder *itemsContent; // @synthesize itemsContent=_itemsContent;
 @property(readonly, nonatomic) CSDecoder *items; // @synthesize items=_items;
 - (void).cxx_destruct;

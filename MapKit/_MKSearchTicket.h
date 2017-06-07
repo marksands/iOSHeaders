@@ -8,7 +8,7 @@
 
 #import <MapKit/MKMapServiceSearchTicket-Protocol.h>
 
-@class GEOMapRegion, GEOMapServiceTraits, GEORelatedSearchSuggestion, NSArray, NSError, NSString;
+@class GEODirectionIntent, GEOMapRegion, GEOMapServiceTraits, GEORelatedSearchSuggestion, NSArray, NSError, NSString;
 
 __attribute__((visibility("hidden")))
 @interface _MKSearchTicket : _MKTicket <MKMapServiceSearchTicket>
@@ -20,10 +20,14 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, nonatomic) GEOMapRegion *boundingRegion;
+@property(readonly, nonatomic) NSArray *browseCategories;
 @property(readonly, nonatomic, getter=isChainResultSet) _Bool chainResultSet;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) GEORelatedSearchSuggestion *defaultRelatedSuggestion;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) GEODirectionIntent *directionIntent;
+@property(readonly, nonatomic) NSArray *displayHeaderSubstitutes;
+@property(readonly, nonatomic) unsigned int dymSuggestionVisibleTime;
 @property(readonly, nonatomic) NSError *error;
 @property(readonly, nonatomic) NSArray *exactMapItems;
 @property(readonly) unsigned long long hash;
@@ -34,6 +38,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int searchResultType;
 @property(readonly, nonatomic) NSString *sectionHeader;
 @property(readonly, nonatomic) _Bool shouldEnableRedoSearch;
+@property(readonly, nonatomic) _Bool showDymSuggestionCloseButton;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) GEOMapServiceTraits *traits;
 

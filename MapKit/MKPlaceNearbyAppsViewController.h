@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool requiresPreferredContentSizeInStackingView;
 - (void)contentSizeDidChange;
 - (void)viewDidLoad;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

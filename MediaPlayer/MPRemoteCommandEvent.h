@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) MPRemoteCommand *command; // @synthesize command=_command;
 - (void).cxx_destruct;
-- (id)playbackQueueOffset;
+- (long long)playbackQueueOffset;
 - (id)contentItemID;
 - (id)contextID;
 - (id)mediaRemoteOptions;

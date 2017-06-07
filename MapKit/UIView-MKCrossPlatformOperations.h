@@ -7,12 +7,14 @@
 #import <UIKit/UIView.h>
 
 @interface UIView (MKCrossPlatformOperations)
++ (void)_mapkit_animateFromCurrentStateWithDuration:(double)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)_mapkit_animateWithDuration:(double)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)_maps_setDoesNotTranslateAutoresizingConstraintsForViewsDictionary:(id)arg1;
 - (_Bool)_mapkit_YCoordinate:(double)arg1 liesInDirection:(long long)arg2 startingFromYCoordinate:(double)arg3;
 - (double)_mapkit_YCoordinateAtDistance:(double)arg1 inDirection:(long long)arg2 fromYCoordinate:(double)arg3;
 - (struct CGRect)_mapkit_rectWithSize:(struct CGSize)arg1 XCoordinate:(double)arg2 atDistance:(double)arg3 inDirection:(long long)arg4 fromEdge:(long long)arg5;
 - (double)_mapkit_YCoordinateAtDistance:(double)arg1 inDirection:(long long)arg2 fromEdge:(long long)arg3;
+- (id)_mapkit_constraintsPinningSubviewToBounds:(id)arg1;
 - (_Bool)_mapkit_isDescendantOfView:(id)arg1;
 - (void)_mapkit_setContentHuggingPriority:(float)arg1 forAxis:(long long)arg2;
 - (float)_mapkit_contentHuggingPriorityForAxis:(long long)arg1;

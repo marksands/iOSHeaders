@@ -23,8 +23,11 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)setBackgroundColor:(id)arg1;
 @property(retain, nonatomic) CNPropertyGroupItem *propertyItem;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)setCardGroupItem:(id)arg1;
+- (id)variableConstraints;
 - (id)constantConstraints;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)textFieldChanged:(id)arg1;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

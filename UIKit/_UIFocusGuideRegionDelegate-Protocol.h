@@ -6,12 +6,12 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, UIFocusUpdateContext, _UIFocusGuideRegion, _UIFocusMovementInfo;
+@class NSArray, UIFocusUpdateContext, _UIFocusGuideRegion, _UIFocusMovementRequest;
 
 @protocol _UIFocusGuideRegionDelegate <NSObject>
 
 @optional
 - (void)focusGuideRegion:(_UIFocusGuideRegion *)arg1 willParticipateAsDestinationRegionInFocusUpdate:(UIFocusUpdateContext *)arg2;
-- (NSArray *)focusGuideRegion:(_UIFocusGuideRegion *)arg1 preferredFocusEnvironmentsForMovement:(_UIFocusMovementInfo *)arg2;
+- (NSArray *)focusGuideRegion:(_UIFocusGuideRegion *)arg1 preferredFocusEnvironmentsForMovementRequest:(_UIFocusMovementRequest *)arg2;
 @end
 

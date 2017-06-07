@@ -13,6 +13,7 @@
     CMNatalimeterInternal *_internal;
 }
 
++ (double)computeTimeToActiveCalories:(id)arg1 user:(id)arg2 workoutType:(long long)arg3;
 + (id)computeRestingCaloriesAtRate:(unsigned long long)arg1 user:(id)arg2 duration:(double)arg3;
 + (id)maxNatalieEntries;
 + (_Bool)isNatalimeterAvailable;

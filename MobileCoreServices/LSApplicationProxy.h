@@ -18,7 +18,9 @@
     _Bool _userInitiatedUninstall;
     int _bundleModTime;
     NSArray *_plugInKitPlugins;
+    NSString *_signerOrganization;
     NSString *_companionApplicationIdentifier;
+    NSArray *_counterpartIdentifiers;
     NSDate *_registeredDate;
     NSNumber *_itemID;
     NSString *_vendorName;
@@ -26,7 +28,7 @@
     NSString *_genre;
     NSNumber *_genreID;
     NSString *_minimumSystemVersion;
-    NSString *_sdkVersion;
+    NSString *_maximumSystemVersion;
     NSString *_shortVersionString;
     NSString *_preferredArchitecture;
     _LSDiskUsage *_diskUsage;
@@ -47,21 +49,20 @@
     NSString *_watchKitVersion;
     NSString *_complicationPrincipalClass;
     NSArray *_supportedComplicationFamilies;
-    NSArray *_privateDocumentIconNames;
-    LSApplicationProxy *_privateDocumentTypeOwner;
 }
 
 + (id)iconQueue;
 + (_Bool)supportsSecureCoding;
 + (id)applicationProxyForItemID:(id)arg1;
 + (id)applicationProxyForBundleURL:(id)arg1;
++ (id)applicationProxyForSystemPlaceholder:(id)arg1;
 + (id)applicationProxyForCompanionIdentifier:(id)arg1;
 + (id)applicationProxyForIdentifier:(id)arg1 placeholder:(_Bool)arg2;
 + (id)applicationProxyForIdentifier:(id)arg1;
-+ (id)applicationProxyWithBundleUnitID:(unsigned int)arg1;
++ (id)applicationProxyForBundleType:(unsigned long long)arg1 identifier:(id)arg2 isCompanion:(_Bool)arg3 URL:(id)arg4 itemID:(id)arg5 bundleUnit:(unsigned int *)arg6;
++ (id)applicationProxyForIdentifier:(id)arg1 withContext:(struct LSContext *)arg2;
++ (id)applicationProxyWithBundleUnitID:(unsigned int)arg1 withContext:(struct LSContext *)arg2;
 @property(readonly, nonatomic) int bundleModTime; // @synthesize bundleModTime=_bundleModTime;
-@property(retain, nonatomic) LSApplicationProxy *privateDocumentTypeOwner; // @synthesize privateDocumentTypeOwner=_privateDocumentTypeOwner;
-@property(copy, nonatomic) NSArray *privateDocumentIconNames; // @synthesize privateDocumentIconNames=_privateDocumentIconNames;
 @property(nonatomic) _Bool userInitiatedUninstall; // @synthesize userInitiatedUninstall=_userInitiatedUninstall;
 @property(readonly) NSArray *supportedComplicationFamilies; // @synthesize supportedComplicationFamilies=_supportedComplicationFamilies;
 @property(readonly) NSString *complicationPrincipalClass; // @synthesize complicationPrincipalClass=_complicationPrincipalClass;
@@ -83,7 +84,7 @@
 @property(readonly, nonatomic) _LSDiskUsage *diskUsage; // @synthesize diskUsage=_diskUsage;
 @property(readonly, nonatomic) NSString *preferredArchitecture; // @synthesize preferredArchitecture=_preferredArchitecture;
 @property(readonly, nonatomic) NSString *shortVersionString; // @synthesize shortVersionString=_shortVersionString;
-@property(readonly, nonatomic) NSString *sdkVersion; // @synthesize sdkVersion=_sdkVersion;
+@property(readonly, nonatomic) NSString *maximumSystemVersion; // @synthesize maximumSystemVersion=_maximumSystemVersion;
 @property(readonly, nonatomic) NSString *minimumSystemVersion; // @synthesize minimumSystemVersion=_minimumSystemVersion;
 @property(readonly, nonatomic) NSNumber *genreID; // @synthesize genreID=_genreID;
 @property(readonly, nonatomic) NSString *genre; // @synthesize genre=_genre;
@@ -91,12 +92,13 @@
 @property(readonly, nonatomic) NSString *vendorName; // @synthesize vendorName=_vendorName;
 @property(readonly, nonatomic) NSNumber *itemID; // @synthesize itemID=_itemID;
 @property(readonly, nonatomic) NSDate *registeredDate; // @synthesize registeredDate=_registeredDate;
+@property(readonly, nonatomic) NSArray *counterpartIdentifiers; // @synthesize counterpartIdentifiers=_counterpartIdentifiers;
 @property(readonly, nonatomic) NSString *companionApplicationIdentifier; // @synthesize companionApplicationIdentifier=_companionApplicationIdentifier;
-- (id)iconStyleDomain;
+- (id)signerOrganization;
 - (id)description;
 @property(readonly, nonatomic, getter=isRemovedSystemApp) _Bool removedSystemApp;
 @property(readonly, nonatomic, getter=isRemoveableSystemApp) _Bool removeableSystemApp;
-- (_Bool)isSystemOrInternalApp;
+@property(readonly, nonatomic, getter=isDeletable) _Bool deletable;
 @property(readonly, nonatomic) _Bool gameCenterEverEnabled;
 @property(readonly, nonatomic, getter=isGameCenterEnabled) _Bool gameCenterEnabled;
 @property(readonly, nonatomic) _Bool supportsPurgeableLocalStorage;
@@ -106,30 +108,29 @@
 @property(readonly, nonatomic) _Bool hasGlance;
 @property(readonly) _Bool hasComplication;
 @property(readonly, nonatomic) _Bool hasCustomNotification;
-@property(readonly, nonatomic) _Bool isWatchKitApp;
-@property(readonly, nonatomic) _Bool isPurchasedReDownload;
-@property(readonly, nonatomic) _Bool isBetaApp;
+@property(readonly, nonatomic, getter=isWatchKitApp) _Bool watchKitApp;
+@property(readonly, nonatomic, getter=isPurchasedReDownload) _Bool purchasedReDownload;
+@property(readonly, nonatomic, getter=isBetaApp) _Bool betaApp;
 @property(readonly, nonatomic, getter=isWhitelisted) _Bool whitelisted;
-@property(readonly, nonatomic) _Bool isInstalled;
+@property(readonly, nonatomic, getter=isInstalled) _Bool installed;
 @property(readonly, nonatomic) _Bool hasSettingsBundle;
 @property(readonly, nonatomic) _Bool supportsOpenInPlace;
 @property(readonly, nonatomic) _Bool supportsExternallyPlayableContent;
 @property(readonly, nonatomic) _Bool supportsODR;
-@property(readonly, nonatomic) _Bool isLaunchProhibited;
-@property(readonly, nonatomic) _Bool isStickerProvider;
+@property(readonly, nonatomic, getter=isLaunchProhibited) _Bool launchProhibited;
 @property(readonly, nonatomic) _Bool supportsAudiobooks;
-@property(readonly, nonatomic) _Bool isRestricted;
-@property(readonly, nonatomic) _Bool isNewsstandApp;
-@property(readonly, nonatomic) _Bool isAppUpdate;
-@property(readonly, nonatomic) _Bool isPlaceholder;
-@property(readonly, nonatomic) _Bool isAdHocCodeSigned;
+@property(readonly, nonatomic, getter=isRestricted) _Bool restricted;
+@property(readonly, nonatomic, getter=isNewsstandApp) _Bool newsstandApp;
+@property(readonly, nonatomic) _Bool hasParallelPlaceholder;
+@property(readonly, nonatomic, getter=isAppUpdate) _Bool appUpdate;
+@property(readonly, nonatomic, getter=isPlaceholder) _Bool placeholder;
+@property(readonly, nonatomic, getter=isAdHocCodeSigned) _Bool adHocCodeSigned;
 - (_Bool)UPPValidated;
 - (_Bool)profileValidated;
 @property(readonly, nonatomic) _Bool fileSharingEnabled;
+@property(readonly, nonatomic) _Bool iconUsesAssetCatalog;
 @property(readonly, nonatomic) _Bool iconIsPrerendered;
-- (id)localizedNameForContext:(id)arg1;
-- (id)localizedShortName;
-- (id)localizedName;
+@property(readonly, nonatomic) _Bool supportsAlternateIconNames;
 - (id)primaryIconDataForVariant:(int)arg1;
 - (id)iconDataForVariant:(int)arg1 withOptions:(int)arg2;
 - (id)iconDataForVariant:(int)arg1;
@@ -165,7 +166,11 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)_initWithBundleUnit:(unsigned int)arg1 applicationIdentifier:(id)arg2;
+- (id)_initWithBundleUnit:(unsigned int)arg1 context:(struct LSContext *)arg2 applicationIdentifier:(id)arg3;
+- (id)localizedNameWithPreferredLocalizations:(id)arg1 useShortNameOnly:(_Bool)arg2;
+- (id)localizedNameForContext:(id)arg1 preferredLocalizations:(id)arg2;
+- (id)localizedNameForContext:(id)arg1;
+- (id)localizedNameForContext:(id)arg1 preferredLocalizations:(id)arg2 useShortNameOnly:(_Bool)arg3;
 
 @end
 

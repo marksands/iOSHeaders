@@ -10,6 +10,7 @@
 #import <CoreSpotlight/NSSecureCoding-Protocol.h>
 
 @class NSDictionary, NSSet, NSString, NSUUID;
+@protocol OS_xpc_object;
 
 @interface CSUserAction : NSObject <CSCoderEncoder, NSSecureCoding>
 {
@@ -36,9 +37,11 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) NSObject<OS_xpc_object> *xpc_dictionary;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)encodeWithCSCoder:(id)arg1;
+- (id)initWithXPCDict:(id)arg1;
 
 @end
 

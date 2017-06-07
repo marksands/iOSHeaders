@@ -14,16 +14,20 @@
 {
     PBUnknownFields *_unknownFields;
     CDStruct_95bda58d _callCapabilities;
-    int _callType;
+    CDStruct_95bda58d _callTypes;
     _INPBDateTimeRange *_dateCreated;
     _INPBIntentMetadata *_intentMetadata;
+    int _preferredCallProvider;
     _INPBContact *_recipient;
+    _Bool _unseen;
     struct {
-        unsigned int callType:1;
+        unsigned int preferredCallProvider:1;
+        unsigned int unseen:1;
     } _has;
 }
 
 + (id)options;
+@property(nonatomic) _Bool unseen; // @synthesize unseen=_unseen;
 @property(retain, nonatomic) _INPBContact *recipient; // @synthesize recipient=_recipient;
 @property(retain, nonatomic) _INPBDateTimeRange *dateCreated; // @synthesize dateCreated=_dateCreated;
 @property(retain, nonatomic) _INPBIntentMetadata *intentMetadata; // @synthesize intentMetadata=_intentMetadata;
@@ -37,6 +41,19 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasUnseen;
+- (int)StringAsPreferredCallProvider:(id)arg1;
+- (id)preferredCallProviderAsString:(int)arg1;
+@property(nonatomic) _Bool hasPreferredCallProvider;
+@property(nonatomic) int preferredCallProvider; // @synthesize preferredCallProvider=_preferredCallProvider;
+- (int)StringAsCallTypes:(id)arg1;
+- (id)callTypesAsString:(int)arg1;
+- (void)setCallTypes:(int *)arg1 count:(unsigned long long)arg2;
+- (int)callTypesAtIndex:(unsigned long long)arg1;
+- (void)addCallTypes:(int)arg1;
+- (void)clearCallTypes;
+@property(readonly, nonatomic) int *callTypes;
+@property(readonly, nonatomic) unsigned long long callTypesCount;
 - (int)StringAsCallCapabilities:(id)arg1;
 - (id)callCapabilitiesAsString:(int)arg1;
 - (void)setCallCapabilities:(int *)arg1 count:(unsigned long long)arg2;
@@ -47,10 +64,6 @@
 @property(readonly, nonatomic) unsigned long long callCapabilitiesCount;
 @property(readonly, nonatomic) _Bool hasRecipient;
 @property(readonly, nonatomic) _Bool hasDateCreated;
-- (int)StringAsCallType:(id)arg1;
-- (id)callTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasCallType;
-@property(nonatomic) int callType; // @synthesize callType=_callType;
 @property(readonly, nonatomic) _Bool hasIntentMetadata;
 - (void)dealloc;
 

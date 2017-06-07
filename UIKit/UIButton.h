@@ -7,12 +7,13 @@
 #import <UIKit/UIControl.h>
 
 #import <UIKit/NSCoding-Protocol.h>
+#import <UIKit/UIAccessibilityContentSizeCategoryImageAdjusting-Protocol.h>
 #import <UIKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <UIKit/_UIFloatingContentViewDelegate-Protocol.h>
 
 @class NSArray, NSAttributedString, NSString, UIColor, UIFont, UIImage, UIImageView, UILabel, UITapGestureRecognizer, UIView, UIVisualEffectView, _UIButtonMaskAnimationView, _UIFloatingContentView;
 
-@interface UIButton : UIControl <UIGestureRecognizerDelegate, _UIFloatingContentViewDelegate, NSCoding>
+@interface UIButton : UIControl <UIAccessibilityContentSizeCategoryImageAdjusting, UIGestureRecognizerDelegate, _UIFloatingContentViewDelegate, NSCoding>
 {
     unsigned long long _externalFlatEdge;
     struct __CFDictionary *_contentLookup;
@@ -43,12 +44,15 @@
         unsigned int visualEffectViewEnabled:1;
         unsigned int suppressAccessibilityUnderline:1;
         unsigned int requiresLayoutForPropertyChange:1;
+        unsigned int adjustsImageSizeForAccessibilityContentSizeCategory:1;
     } _buttonFlags;
     UIView *_effectiveContentView;
     _UIButtonMaskAnimationView *_maskAnimationView;
     UIView *_selectionView;
     UIFont *_lazyTitleViewFont;
     NSArray *_contentConstraints;
+    long long __imageContentMode;
+    UIColor *__plainButtonBackgroundColor;
     struct UIEdgeInsets _internalTitlePaddingInsets;
 }
 
@@ -68,11 +72,14 @@
 + (id)_selectedIndicatorImage;
 + (void)_setVisuallyHighlighted:(_Bool)arg1 forViews:(id)arg2 initialPress:(_Bool)arg3;
 + (void)_setVisuallyHighlighted:(_Bool)arg1 forViews:(id)arg2 initialPress:(_Bool)arg3 baseAlpha:(double)arg4;
++ (void)_setVisuallyHighlighted:(_Bool)arg1 forViews:(id)arg2 initialPress:(_Bool)arg3 highlightBlock:(CDUnknownBlockType)arg4;
 + (id)_defaultNormalTitleShadowColor;
 + (id)_defaultNormalTitleColor;
 + (id)buttonWithType:(long long)arg1;
 + (_Bool)_buttonTypeIsModernUI:(long long)arg1;
 + (double)_defaultNeighborSpacingForAxis:(long long)arg1;
+@property(retain, nonatomic, getter=_plainButtonBackgroundColor, setter=_setPlainButtonBackgroundColor:) UIColor *_plainButtonBackgroundColor; // @synthesize _plainButtonBackgroundColor=__plainButtonBackgroundColor;
+@property(nonatomic, setter=_setImageContentMode:) long long _imageContentMode; // @synthesize _imageContentMode=__imageContentMode;
 @property(nonatomic, setter=_setInternalTitlePaddingInsets:) struct UIEdgeInsets _internalTitlePaddingInsets; // @synthesize _internalTitlePaddingInsets;
 @property(copy, nonatomic, setter=_setContentConstraints:) NSArray *_contentConstraints; // @synthesize _contentConstraints;
 - (void).cxx_destruct;
@@ -101,6 +108,7 @@
 - (void)_setBackground:(id)arg1 forStates:(unsigned long long)arg2;
 - (void)_setImage:(id)arg1 forStates:(unsigned long long)arg2;
 - (void)_setContent:(id)arg1 forState:(unsigned long long)arg2;
+@property(nonatomic, getter=_isContentBackgroundHidden, setter=_setContentBackgroundHidden:) _Bool contentBackgroundHidden;
 - (void)_updateEffectsForImageView:(id)arg1 background:(_Bool)arg2;
 - (_Bool)_shouldDefaultToTemplatesForImageViewBackground:(_Bool)arg1;
 - (double)_drawingStrokeForState:(unsigned long long)arg1;
@@ -211,6 +219,10 @@
 - (void)_setImageColor:(id)arg1 forState:(unsigned long long)arg2;
 - (void)setTitleColor:(id)arg1 forState:(unsigned long long)arg2;
 - (void)setTitle:(id)arg1 forState:(unsigned long long)arg2;
+- (void)setNeedsLayout;
+- (void)setSpringLoaded:(_Bool)arg1;
+- (_Bool)isSpringLoaded;
+- (void)_gestureRecognizerFailed:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)setSemanticContentAttribute:(long long)arg1;
 - (struct CGRect)_clippedHighlightBounds;
@@ -246,10 +258,11 @@
 - (void)_updateMaskState;
 - (_Bool)_hasHighlightColor;
 - (double)_highlightCornerRadius;
-- (struct UIEdgeInsets)_outsetInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)_pathImageEdgeInsets;
 - (struct UIEdgeInsets)_pathTitleEdgeInsets;
 - (void)tintColorDidChange;
+- (void)pressesEnded:(id)arg1 withEvent:(id)arg2;
+- (void)pressesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;
 - (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (unsigned long long)_controlEventsForActionTriggered;
@@ -296,12 +309,16 @@
 - (struct UIEdgeInsets)_combinedContentPaddingInsets;
 - (id)_layoutDebuggingTitle;
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
+- (_Bool)_accessibilityShouldActivateOnHUDLift;
+@property(nonatomic) _Bool adjustsImageSizeForAccessibilityContentSizeCategory;
+- (double)_scaleFactorForImage;
+- (struct CGSize)_effectiveSizeForImage:(id)arg1;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
 - (unsigned long long)defaultAccessibilityTraits;
 - (_Bool)isAccessibilityElementByDefault;
-- (double)_autolayoutSpacingAtEdge:(int)arg1 nextToNeighbor:(id)arg2;
-- (double)_autolayoutSpacingAtEdge:(int)arg1 inContainer:(id)arg2;
-- (_Bool)_hasCustomAutolayoutNeighborSpacing;
+- (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(id)arg2 nextToNeighbor:(id)arg3 edge:(int)arg4 attribute:(long long)arg5 multiplier:(double)arg6;
+- (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(long long)arg2 inContainer:(id)arg3 isGuide:(_Bool)arg4;
+- (_Bool)_hasCustomAutolayoutNeighborSpacingForAttribute:(long long *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

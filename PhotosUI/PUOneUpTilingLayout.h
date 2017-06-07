@@ -17,12 +17,14 @@
     double _transitionProgress;
     struct {
         _Bool respondsToAspectRatioForItemAtIndexPath;
+        _Bool respondsToShouldScaleToFitSafeInsetsForItemAtIndexPath;
         _Bool respondsToBadgeSizeForItemAtIndexPath;
+        _Bool respondsToActionBadgeSizeForItemAtIndexPath;
         _Bool respondsToAssetExplorerReviewScreenBadgeSizeForItemAtIndexPath;
         _Bool respondsToShouldShowPlayButtonForItemAtIndexPath;
         _Bool respondsToShouldShowProgressIndicatorForItemAtIndexPath;
         _Bool respondsToShouldShowBufferingIndicatorForItemAtIndexPath;
-        _Bool respondsToShouldShowLoadingIndicatorForItemAtIndexPath;
+        _Bool respondsToLoadingIndicatorSizeForItemAtIndexPath;
         _Bool respondsToModelTileTransformForItemAtIndexPath;
         _Bool respondsToContentOffsetForItemAtIndexPath;
         _Bool respondsToShouldShowAccessoryForItemAtIndexPath;
@@ -36,6 +38,7 @@
     _Bool _useBadgeTiles;
     _Bool _useAssetExplorerReviewScreenBadgeTiles;
     _Bool _useAssetExplorerReviewScreenSelectionIndicatorTiles;
+    _Bool _canDisplayLoadingIndicators;
     _Bool _useUserTransformTiles;
     _Bool _shouldPinContentToTop;
     id <PUOneUpTilingLayoutDelegate> _delegate;
@@ -47,9 +50,9 @@
     struct CGSize _progressIndicatorSize;
     struct CGSize _assetExplorerReviewScreenProgressIndicatorSize;
     struct CGSize _bufferingIndicatorSize;
-    struct CGSize _loadingIndicatorSize;
     struct CGSize _displaySizeForInsetMatching;
     struct UIEdgeInsets _contentGuideInsets;
+    struct UIEdgeInsets _contentSafeInsets;
 }
 
 + (id)centerTileKinds;
@@ -60,7 +63,7 @@
 @property(retain, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(nonatomic) long long tileInitialContentMode; // @synthesize tileInitialContentMode=_tileInitialContentMode;
 @property(nonatomic) _Bool useUserTransformTiles; // @synthesize useUserTransformTiles=_useUserTransformTiles;
-@property(nonatomic) struct CGSize loadingIndicatorSize; // @synthesize loadingIndicatorSize=_loadingIndicatorSize;
+@property(nonatomic) _Bool canDisplayLoadingIndicators; // @synthesize canDisplayLoadingIndicators=_canDisplayLoadingIndicators;
 @property(nonatomic) struct CGSize bufferingIndicatorSize; // @synthesize bufferingIndicatorSize=_bufferingIndicatorSize;
 @property(nonatomic) struct CGSize assetExplorerReviewScreenProgressIndicatorSize; // @synthesize assetExplorerReviewScreenProgressIndicatorSize=_assetExplorerReviewScreenProgressIndicatorSize;
 @property(nonatomic) struct CGSize progressIndicatorSize; // @synthesize progressIndicatorSize=_progressIndicatorSize;
@@ -69,6 +72,7 @@
 @property(nonatomic) _Bool useAssetExplorerReviewScreenBadgeTiles; // @synthesize useAssetExplorerReviewScreenBadgeTiles=_useAssetExplorerReviewScreenBadgeTiles;
 @property(nonatomic) _Bool useBadgeTiles; // @synthesize useBadgeTiles=_useBadgeTiles;
 @property(nonatomic) _Bool useBackgroundTile; // @synthesize useBackgroundTile=_useBackgroundTile;
+@property(nonatomic) struct UIEdgeInsets contentSafeInsets; // @synthesize contentSafeInsets=_contentSafeInsets;
 @property(nonatomic) struct UIEdgeInsets contentGuideInsets; // @synthesize contentGuideInsets=_contentGuideInsets;
 @property(readonly, nonatomic) double transitionProgress; // @synthesize transitionProgress=_transitionProgress;
 @property(nonatomic) struct CGSize interpageSpacing; // @synthesize interpageSpacing=_interpageSpacing;
@@ -81,12 +85,14 @@
 - (id)_displayTileTransformForItemAtIndexPath:(id)arg1 options:(unsigned long long)arg2;
 - (struct CGRect)_untransformedRectForItemAtIndexPath:(id)arg1 pageRect:(struct CGRect)arg2;
 - (struct CGRect)_untransformedRectForItemAtIndexPath:(id)arg1;
+- (struct CGRect)_frameForTileWithSize:(struct CGSize)arg1 centeredOnItemAtIndexPath:(id)arg2;
 - (struct CGRect)_pageRectForItemAtIndexPath:(id)arg1;
 - (struct CGSize)_itemSize;
 - (_Bool)_isVideoPlacholderVisibleForItemAtIndexPath:(id)arg1;
 - (_Bool)_accessoryViewVisibilityForItemAtIndexPath:(id)arg1;
 - (struct CGPoint)_contentOffsetForItemAtIndexPath:(id)arg1;
 - (double)_minimumBottomContentInsetsForItemAtIndexPath:(id)arg1;
+- (void)invalidateLoadingIndicatorForItemAtIndexPath:(id)arg1;
 - (void)invalidateVideoPlaceholderForItemAtIndexPath:(id)arg1;
 - (void)_invalidateContentRelatedTilesWithIndexPath:(id)arg1 inContext:(id)arg2;
 - (void)invalidateContentOffsetForItemAtIndexPath:(id)arg1 withOptions:(unsigned long long)arg2;

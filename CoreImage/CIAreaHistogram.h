@@ -25,7 +25,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
 - (id)outputData;
-- (id)_outputData:(_Bool)arg1;
 - (_Bool)_inputsAreOK;
 - (struct IRect)_netExtent;
 - (void)dealloc;

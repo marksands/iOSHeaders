@@ -12,7 +12,8 @@
 
 @interface LSDocumentProxy : LSResourceProxy <NSSecureCoding>
 {
-    _Bool _sourceIsManaged;
+    CDStruct_4c969caf _managedSourceAuditToken;
+    _Bool _hasManagedSourceAuditToken;
     NSString *_containerOwnerApplicationIdentifier;
     NSURL *_URL;
     NSString *_name;
@@ -23,24 +24,29 @@
 + (_Bool)supportsSecureCoding;
 + (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3;
 + (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 sourceIsManaged:(_Bool)arg4;
++ (id)documentProxyForName:(id)arg1 type:(id)arg2 MIMEType:(id)arg3 managedSourceAuditToken:(const CDStruct_4c969caf *)arg4;
 + (id)documentProxyForURL:(id)arg1 sourceIsManaged:(_Bool)arg2;
-@property(readonly, nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
++ (id)documentProxyForURL:(id)arg1 managedSourceAuditToken:(const CDStruct_4c969caf *)arg2;
 @property(readonly, nonatomic) NSString *MIMEType; // @synthesize MIMEType=_MIMEType;
 @property(readonly, nonatomic) NSString *typeIdentifier; // @synthesize typeIdentifier=_typeIdentifier;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (id)description;
-- (id)iconStyleDomain;
 - (id)uniqueIdentifier;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)applicationsAvailableForOpeningByDraggingAndDroppingWithError:(id *)arg1;
+- (id)applicationsAvailableForOpeningFromAirDropWithError:(id *)arg1;
+- (id)applicationsAvailableForOpeningWithError:(id *)arg1;
 - (id)applicationsAvailableForOpeningWithHandlerRanks:(id)arg1 error:(id *)arg2;
+@property(readonly, nonatomic) const CDStruct_4c969caf *managedSourceAuditToken; // @dynamic managedSourceAuditToken;
+@property(readonly, nonatomic) _Bool sourceIsManaged; // @dynamic sourceIsManaged;
 @property(readonly, nonatomic) NSString *containerOwnerApplicationIdentifier; // @synthesize containerOwnerApplicationIdentifier=_containerOwnerApplicationIdentifier;
-- (_Bool)isImageOrVideo;
+@property(readonly, getter=isImageOrVideo) _Bool imageOrVideo;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 name:(id)arg2 type:(id)arg3 MIMEType:(id)arg4 sourceIsManaged:(_Bool)arg5;
-- (id)applicationsAvailableForOpeningWithTypeOwner:(_Bool)arg1 airDropStyle:(_Bool)arg2;
-- (id)boundDocumentProxy;
+- (id)initWithURL:(id)arg1 name:(id)arg2 type:(id)arg3 MIMEType:(id)arg4 managedSourceAuditToken:(const CDStruct_4c969caf *)arg5;
+- (id)applicationsAvailableForOpeningWithTypeDeclarer:(_Bool)arg1 style:(unsigned char)arg2 error:(id *)arg3;
+- (id)_boundDocumentProxy;
 
 @end
 

@@ -19,6 +19,7 @@
 }
 
 + (id)options;
+@property(retain, nonatomic) GEOMapItemStorage *mapItemStorage; // @synthesize mapItemStorage=_mapItemStorage;
 @property(retain, nonatomic) GEOPDPlace *place; // @synthesize place=_place;
 @property(retain, nonatomic) _INPBValueMetadata *valueMetadata; // @synthesize valueMetadata=_valueMetadata;
 - (void).cxx_destruct;
@@ -31,10 +32,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasMapItemStorage;
 @property(readonly, nonatomic) _Bool hasPlace;
 @property(readonly, nonatomic) _Bool hasValueMetadata;
-@property(retain, nonatomic) GEOMapItemStorage *mapItemStorage;
-@property(readonly, nonatomic) _Bool hasMapItemStorage;
 
 @end
 

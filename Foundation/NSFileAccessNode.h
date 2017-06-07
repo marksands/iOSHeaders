@@ -73,6 +73,8 @@ __attribute__((visibility("hidden")))
 - (id)itemProvider;
 - (void)forEachReactorToItemOrContainedItemPerformProcedure:(CDUnknownBlockType)arg1;
 - (void)forEachRelevantAccessClaimPerformProcedure:(CDUnknownBlockType)arg1;
+- (void)forEachRelevantAccessClaimForEvaluatingAgainstClaim:(id)arg1 performProcedure:(CDUnknownBlockType)arg2;
+- (void)_forEachRelevantAccessClaimExcludingClaimsFromSuperarbiter:(_Bool)arg1 performProcedure:(CDUnknownBlockType)arg2;
 - (void)forEachAccessClaimOnItemPerformProcedure:(CDUnknownBlockType)arg1;
 - (void)forEachDescendantPerformProcedure:(CDUnknownBlockType)arg1;
 - (id)biggestFilePackageLocation;

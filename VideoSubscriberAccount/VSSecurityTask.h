@@ -24,6 +24,7 @@
 + (id)securityTaskWithAuditToken:(CDStruct_4c969caf)arg1;
 + (id)currentSecurityTask;
 @property(readonly, copy, nonatomic) NSString *signingIdentifier;
+- (_Bool)shouldAllowAccessToSubscriberIdentifierHashModifier:(id)arg1;
 - (_Bool)shouldAllowAccessForBooleanEntitlement:(id)arg1;
 - (_Bool)getValue:(id *)arg1 forEntitlement:(id)arg2 error:(id *)arg3;
 - (struct __SecTask *)_taskRef;

@@ -9,6 +9,7 @@
 @class NSDictionary, NSNumber, NSString, _WKFrameHandle;
 
 @protocol SFReaderEventsListener <NSObject>
+- (void)readerTextWasExtracted:(NSString *)arg1;
 - (void)didPrepareReaderContentForDisplay:(NSString *)arg1;
 - (void)didPrepareReaderContentForPrinting:(_WKFrameHandle *)arg1;
 - (void)didCollectReaderContentForMail:(NSString *)arg1;

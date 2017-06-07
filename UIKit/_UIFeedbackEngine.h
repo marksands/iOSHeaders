@@ -53,8 +53,8 @@
 - (void)_cooldown;
 - (void)_prewarmEngine;
 - (void)_prewarmWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)_stopPreparingToUseFeedbacks:(id)arg1;
-- (void)_startPreparingToUseFeedbacks:(id)arg1;
+- (void)_stopWarmingFeedbacks:(id)arg1;
+- (void)_startWarmingFeedbacks:(id)arg1;
 - (_Bool)_teardownUnderlyingPlayerIfPossible;
 - (void)_activateUnderlyingPlayerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_deactivateEngineIfPossible;

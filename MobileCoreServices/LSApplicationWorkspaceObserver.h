@@ -18,6 +18,7 @@
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+- (void).cxx_destruct;
 - (void)networkUsageChanged:(_Bool)arg1;
 - (void)applicationIconDidChange:(id)arg1;
 - (void)applicationStateDidChange:(id)arg1;
@@ -35,7 +36,6 @@
 - (void)applicationInstallsDidUpdateIcon:(id)arg1;
 - (void)applicationInstallsDidChange:(id)arg1;
 - (void)applicationInstallsDidStart:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (void)encodeWithCoder:(id)arg1;

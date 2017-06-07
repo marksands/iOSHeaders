@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 - (id)format;
 - (void)propertyChanged:(id)arg1;
 - (void)setEnabled:(_Bool)arg1;

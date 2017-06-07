@@ -7,6 +7,8 @@
 #import <SceneKit/JSExport-Protocol.h>
 
 @protocol SCNTransformConstraintJSExport <JSExport>
++ (id)orientationConstraintInWorldSpace:(_Bool)arg1 withBlock:(struct SCNVector4 (^)(SCNNode *, struct SCNVector4))arg2;
++ (id)positionConstraintInWorldSpace:(_Bool)arg1 withBlock:(struct SCNVector3 (^)(SCNNode *, struct SCNVector3))arg2;
 + (id)transformConstraintInWorldSpace:(_Bool)arg1 withBlock:(struct SCNMatrix4 (^)(SCNNode *, struct SCNMatrix4))arg2;
 @end
 

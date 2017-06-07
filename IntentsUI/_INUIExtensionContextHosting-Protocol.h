@@ -6,6 +6,9 @@
 
 #import <IntentsUI/NSObject-Protocol.h>
 
+@class INIntent;
+
 @protocol _INUIExtensionContextHosting <NSObject>
+- (void)requestHandlingOfIntent:(INIntent *)arg1;
 @end
 

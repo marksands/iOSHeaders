@@ -15,11 +15,17 @@
 + (id)localDiagnosticsAgent;
 - (void)captureDescriptionOfPhotoAnalysisWithResultHandler:(CDUnknownBlockType)arg1;
 - (void)captureDescriptionOfCloudPhotoLibraryWithResultHandler:(CDUnknownBlockType)arg1;
+- (void)captureCurrentAssetResourcesWithResultHandler:(CDUnknownBlockType)arg1;
+- (void)captureAndDumpLayerHierarchyWithResultHandler:(CDUnknownBlockType)arg1;
+- (id)__currentTimestamp;
 - (id)_windowRecursiveDescription;
 - (id)_viewControllerHierarchyDescription;
 - (id)_viewModelDescription;
+- (id)_currentAssetDetailedDescription;
+- (id)_currentAssetMetadata;
 - (id)_currentAssetViewModelDescription;
 - (id)_currentAssetIdentifierDescription;
+- (id)_currentAsset;
 - (id)_descriptionOfUIState:(long long)arg1;
 - (void)captureDescriptionOfUIState:(long long)arg1 resultHandler:(CDUnknownBlockType)arg2;
 

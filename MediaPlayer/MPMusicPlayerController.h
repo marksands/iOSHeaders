@@ -15,9 +15,7 @@
     MPMusicPlayerControllerInternal *_internal;
 }
 
-+ (id)runLoopForNotifications;
 + (void)setRunLoopForNotifications:(id)arg1;
-+ (void)initialize;
 + (id)iPodMusicPlayer;
 + (id)systemMusicPlayer;
 + (id)applicationQueuePlayer;
@@ -66,15 +64,11 @@
 - (unsigned long long)currentChapterIndex;
 - (_Bool)isNowPlayingItemFromGeniusMix;
 - (unsigned long long)numberOfItems;
-- (unsigned long long)unshuffledIndexOfNowPlayingItem;
 - (unsigned long long)indexOfNowPlayingItem;
 - (void)setPlaybackSpeed:(long long)arg1;
 - (long long)playbackSpeed;
-- (void)setAllowsBackgroundVideo:(_Bool)arg1;
-- (_Bool)allowsBackgroundVideo;
-- (void)setUseCachedPlaybackState:(_Bool)arg1;
-- (void)pauseWithFadeoutDuration:(double)arg1;
 - (id)nowPlayingItemAtIndex:(unsigned long long)arg1;
+- (void)pauseWithFadeoutDuration:(double)arg1;
 - (_Bool)setQueueWithSeedItems:(id)arg1;
 - (_Bool)isGeniusAvailableForSeedItems:(id)arg1;
 - (_Bool)isGeniusAvailable;

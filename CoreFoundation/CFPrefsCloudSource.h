@@ -18,7 +18,7 @@
 - (void)setConfigurationPath:(struct __CFString *)arg1;
 - (void)setEnabled:(_Bool)arg1;
 - (_Bool)enabled;
-- (void)mergeIntoDictionary:(struct __CFDictionary *)arg1;
+- (void)mergeIntoDictionary:(struct __CFDictionary *)arg1 sourceDictionary:(struct __CFDictionary *)arg2;
 - (void)fullCloudSynchronizeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)alreadylocked_updateObservingRemoteChanges;
 - (id)createSynchronizeMessage;

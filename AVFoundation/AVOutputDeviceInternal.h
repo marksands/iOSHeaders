@@ -6,12 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVWeakReference;
+@class NSString;
+@protocol AVOutputDeviceImpl;
 
 @interface AVOutputDeviceInternal : NSObject
 {
-    struct OpaqueFigEndpoint *_figEndpoint;
-    AVWeakReference *_weakReference;
+    id <AVOutputDeviceImpl> impl;
+    NSString *name;
+    NSString *ID;
+    long long deviceType;
+    long long deviceSubType;
+    NSString *modelID;
+    unsigned long long deviceFeatures;
 }
 
 @end

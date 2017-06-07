@@ -15,8 +15,8 @@
 - (void)_dismiss;
 - (void)_requestPresentationStyleExpanded:(_Bool)arg1;
 - (void)_startDragMediaItem:(_MSMessageMediaPayload *)arg1 frameInRemoteView:(struct CGRect)arg2 fence:(BKSAnimationFenceHandle *)arg3 completionHandler:(void (^)(_Bool, NSError *))arg4;
-- (void)_stageRichLink:(MSRichLink *)arg1 completionHandler:(void (^)(NSError *))arg2;
-- (void)_stageMediaItem:(_MSMessageMediaPayload *)arg1 completionHandler:(void (^)(NSError *))arg2;
-- (void)_stageAppItem:(MSMessage *)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (void)_stageRichLink:(MSRichLink *)arg1 skipShelf:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;
+- (void)_stageMediaItem:(_MSMessageMediaPayload *)arg1 skipShelf:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;
+- (void)_stageAppItem:(MSMessage *)arg1 skipShelf:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;
 @end
 

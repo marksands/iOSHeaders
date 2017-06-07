@@ -12,15 +12,15 @@
 #import <PhotosUI/PUTilingViewScrollDelegate-Protocol.h>
 #import <PhotosUI/PUTilingViewTileSource-Protocol.h>
 #import <PhotosUI/PUTilingViewTileTransitionDelegate-Protocol.h>
-#import <PhotosUI/PUVideoScrubberControllerDelegate-Protocol.h>
+#import <PhotosUI/PXVideoScrubberControllerDelegate-Protocol.h>
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 #import <PhotosUI/UIScrollViewDelegate-Protocol.h>
 
-@class NSIndexPath, NSMutableDictionary, NSString, PUBrowsingSession, PUScrubberTilingLayout, PUTilingView, PUTouchingGestureRecognizer, PUVideoScrubberController, UIScrollView, UITapGestureRecognizer;
+@class NSIndexPath, NSMutableDictionary, NSString, PUBrowsingSession, PUScrubberTilingLayout, PUTilingView, PUTouchingGestureRecognizer, PXUISnappingController, PXVideoScrubberController, UIScrollView, UITapGestureRecognizer;
 @protocol PUScrubberViewDelegate;
 
 __attribute__((visibility("hidden")))
-@interface PUScrubberView : UIView <PUTilingViewTileSource, PUTilingViewTileTransitionDelegate, PUTilingViewScrollDelegate, UIScrollViewDelegate, PUBrowsingViewModelChangeObserver, PUScrubberTilingLayoutDelegate, PUVideoScrubberControllerDelegate, PUPlaybackTimeIndicatorTileViewControllerDelegate, UIGestureRecognizerDelegate>
+@interface PUScrubberView : UIView <PUTilingViewTileSource, PUTilingViewTileTransitionDelegate, PUTilingViewScrollDelegate, UIScrollViewDelegate, PUBrowsingViewModelChangeObserver, PUScrubberTilingLayoutDelegate, PXVideoScrubberControllerDelegate, PUPlaybackTimeIndicatorTileViewControllerDelegate, UIGestureRecognizerDelegate>
 {
     NSString *_scrubbingIdentifier;
     NSString *_contentScrubbingIdentifier;
@@ -43,13 +43,16 @@ __attribute__((visibility("hidden")))
     _Bool __useSmoothingTransitionCoordinator;
     _Bool __snapToExpandedItem;
     _Bool __isHandlingScrollViewWillEndDragging;
+    _Bool __snappingEnabled;
     PUBrowsingSession *_browsingSession;
     long long _type;
     id <PUScrubberViewDelegate> _delegate;
     PUScrubberTilingLayout *__scrubberLayout;
     PUTilingView *__tilingView;
     UITapGestureRecognizer *__tapGestureRecognizer;
-    PUVideoScrubberController *__videoScrubberController;
+    PXVideoScrubberController *__videoScrubberController;
+    long long __expandedItemType;
+    PXUISnappingController *__expandedItemSnappingController;
     NSIndexPath *__decelerationTargetIndexPath;
     double __decelerationDistance;
     long long __layoutTransitionsDisabledCount;
@@ -57,6 +60,7 @@ __attribute__((visibility("hidden")))
     struct CGPoint __decelerationTargetOffset;
 }
 
+@property(nonatomic, setter=_setSnappingEnabled:) _Bool _snappingEnabled; // @synthesize _snappingEnabled=__snappingEnabled;
 @property(nonatomic, setter=_setHandlingScrollViewWillEndDragging:) _Bool _isHandlingScrollViewWillEndDragging; // @synthesize _isHandlingScrollViewWillEndDragging=__isHandlingScrollViewWillEndDragging;
 @property(nonatomic, setter=_setScrubbingTransitionProgress:) double _scrubbingTransitionProgress; // @synthesize _scrubbingTransitionProgress=__scrubbingTransitionProgress;
 @property(nonatomic, setter=_setLayoutTransitionsDisabledCount:) long long _layoutTransitionsDisabledCount; // @synthesize _layoutTransitionsDisabledCount=__layoutTransitionsDisabledCount;
@@ -70,7 +74,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setScrollViewSettled:) _Bool _scrollViewSettled; // @synthesize _scrollViewSettled=__scrollViewSettled;
 @property(nonatomic, setter=_setScrubbingAwayFromContentEdge:) _Bool _isScrubbingAwayFromContentEdge; // @synthesize _isScrubbingAwayFromContentEdge=__isScrubbingAwayFromContentEdge;
 @property(nonatomic, setter=_setIsHandlingUserScroll:) _Bool _isHandlingUserScroll; // @synthesize _isHandlingUserScroll=__isHandlingUserScroll;
-@property(retain, nonatomic, setter=_setVideoScrubberController:) PUVideoScrubberController *_videoScrubberController; // @synthesize _videoScrubberController=__videoScrubberController;
+@property(retain, nonatomic, setter=_setExpandedItemSnappingControler:) PXUISnappingController *_expandedItemSnappingController; // @synthesize _expandedItemSnappingController=__expandedItemSnappingController;
+@property(nonatomic, setter=_setExpandedItemType:) long long _expandedItemType; // @synthesize _expandedItemType=__expandedItemType;
+@property(retain, nonatomic, setter=_setVideoScrubberController:) PXVideoScrubberController *_videoScrubberController; // @synthesize _videoScrubberController=__videoScrubberController;
 @property(readonly, nonatomic) UITapGestureRecognizer *_tapGestureRecognizer; // @synthesize _tapGestureRecognizer=__tapGestureRecognizer;
 @property(retain, nonatomic, setter=_setTilingView:) PUTilingView *_tilingView; // @synthesize _tilingView=__tilingView;
 @property(retain, nonatomic, setter=_setScrubberLayout:) PUScrubberTilingLayout *_scrubberLayout; // @synthesize _scrubberLayout=__scrubberLayout;
@@ -103,9 +109,13 @@ __attribute__((visibility("hidden")))
 - (id)tilingView:(id)arg1 tileTransitionCoordinatorForChangeFromFrame:(struct CGRect)arg2 toFrame:(struct CGRect)arg3 duration:(double)arg4;
 - (id)tilingView:(id)arg1 dataSourceConverterForTransitionFromLayout:(id)arg2 toLayout:(id)arg3;
 - (id)tilingView:(id)arg1 tileTransitionCoordinatorForTransitionFromLayout:(id)arg2 toLayout:(id)arg3 withContext:(id)arg4;
+- (_Bool)layout:(id)arg1 shouldShowTimeIndicatorForExpandedItemAtIndexPath:(id)arg2;
 - (float)layout:(id)arg1 aspectRatioForItemAtIndexPath:(id)arg2;
 - (id)tilingView:(id)arg1 tileControllerWithIndexPath:(id)arg2 kind:(id)arg3 dataSource:(id)arg4;
+- (double)_playheadProgressForIrisAssetReference:(id)arg1;
 - (double)_expandedItemWidth;
+- (void)_resetCurrentIrisScrubTime;
+- (void)_updateExpandedItemSnappingController;
 - (void)_updateScrubbingAwayFromContentEdgeBeganDragging:(_Bool)arg1;
 - (void)_updateScrubberLayoutIfNeeded;
 - (void)_invalidateScrubberLayout;
@@ -114,6 +124,8 @@ __attribute__((visibility("hidden")))
 - (id)_currentAssetsDataSource;
 @property(readonly, nonatomic) UIScrollView *scrollViewForPreviewing;
 - (double)_lengthForDuration:(double)arg1;
+- (void)_handleTapOnBrowsingIrisPlayer:(id)arg1;
+- (void)_handleTapOnBrowsingVideoPlayer:(id)arg1;
 - (void)_handleTap:(id)arg1;
 - (void)_handleUserScrollWillBegin:(_Bool)arg1;
 - (_Bool)_allowExitFromContentScrubbing;

@@ -18,11 +18,13 @@
 - (void)_updatePaymentsForMessage:(id)arg1;
 - (void)_updateDownloadsForMessage:(id)arg1;
 - (void)_setTransactionsWithReply:(id)arg1;
+- (void)_sendAppEnteredForegroundMessage;
 - (void)_sendCommand:(long long)arg1 forDownloads:(id)arg2;
 - (void)_removePaymentsForMessage:(id)arg1;
 - (void)_removeLocalTransaction:(id)arg1;
 - (void)_refreshPaymentsWithPolicy:(long long)arg1;
 - (void)_processUpdates:(id)arg1 trimUnmatched:(_Bool)arg2 sendUpdatedDownloads:(_Bool)arg3;
+- (void)_notifyObserversAboutPurchaseIntentsForProducts:(id)arg1;
 - (void)_notifyObserversRestoreTransactionsFinished;
 - (void)_notifyObserversRestoreTransactionsFailedWithError:(id)arg1;
 - (void)_notifyObserversAboutRemovals:(id)arg1;
@@ -36,6 +38,7 @@
 - (id)_copyTransactionsFromXPCArray:(id)arg1;
 - (id)_copyRemovalsFromUnmergedIndexSet:(id)arg1;
 - (id)_copyDownloadIDsForDownloads:(id)arg1;
+- (void)_sendAppStorePendingPaymentsRequestForMessage:(id)arg1;
 - (void)_completeRestoreWithMessage:(id)arg1;
 - (id)_applyDownloadChangeset:(id)arg1;
 - (void)_daemonLaunchedNotification;

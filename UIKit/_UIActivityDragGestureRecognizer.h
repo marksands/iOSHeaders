@@ -7,12 +7,12 @@
 #import <UIKit/UILongPressGestureRecognizer.h>
 
 #import <UIKit/UIAutoscrollDelegate-Protocol.h>
-#import <UIKit/_UIScrollNotification-Protocol.h>
+#import <UIKit/_UIScrollViewScrollObserver-Protocol.h>
 
 @class NSString, UIAutoscroll, UIScrollView;
 
 __attribute__((visibility("hidden")))
-@interface _UIActivityDragGestureRecognizer : UILongPressGestureRecognizer <UIAutoscrollDelegate, _UIScrollNotification>
+@interface _UIActivityDragGestureRecognizer : UILongPressGestureRecognizer <UIAutoscrollDelegate, _UIScrollViewScrollObserver>
 {
     UIScrollView *_targetScrollView;
     UIAutoscroll *_autoscroll;
@@ -26,8 +26,7 @@ __attribute__((visibility("hidden")))
 - (int)autoscrollDirectionsForPoint:(struct CGPoint)arg1 inView:(id)arg2;
 - (void)cancelAutoscroll;
 - (void)beginAutoscrollAndUpdateDirectionIfNeeded;
-- (void)_updateBackdropMaskViewsInScrollView:(id)arg1;
-- (void)_didScroll;
+- (void)_observeScrollViewDidScroll:(id)arg1;
 - (void)autoscrollWillNotStart;
 - (void)updateAutoscroll:(id)arg1;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;

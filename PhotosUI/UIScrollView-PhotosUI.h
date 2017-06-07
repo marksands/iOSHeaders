@@ -7,12 +7,13 @@
 #import <UIKit/UIScrollView.h>
 
 @interface UIScrollView (PhotosUI)
-- (void)_pu_setPageSwipeTestContext:(id)arg1;
-- (id)_pu_pageSwipeTestContext;
-- (void)_pu_endPageSwipeTest;
-- (void)_pu_incrementForPageSwipeTest;
-- (void)_pu_beginPageSwipeTestWithContext:(id)arg1;
-- (void)pu_performPageSwipeTest:(id)arg1 iterations:(long long)arg2 numberOfPages:(long long)arg3 scrollAxis:(int)arg4;
+- (void)_pu_endPageSwipeTest:(id)arg1;
+- (void)_pu_incrementForPageSwipeTest:(id)arg1 dt:(double)arg2 stop:(_Bool *)arg3;
+- (void)_pu_beginPageSwipeTest:(id)arg1;
+- (void)pu_ppt_performPageSwipeTest:(id)arg1 iterations:(long long)arg2 numberOfPages:(long long)arg3 scrollAxis:(int)arg4;
+- (void)pu_ppt_scrollToContentOffset:(struct CGPoint)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)_pu_setPPTScrollHelper:(id)arg1;
+- (id)_pu_pptScrollHelper;
 @property(readonly, nonatomic) _Bool pu_isPerformingScrollTest;
 - (void)pu_cancelScrollAnimation;
 - (void)pu_cancelScrollGesture;

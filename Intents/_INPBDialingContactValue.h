@@ -8,19 +8,15 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class PBUnknownFields, _INPBContactValue, _INPBStringValue;
+@class PBUnknownFields, _INPBContactValue;
 
 @interface _INPBDialingContactValue : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     _INPBContactValue *_dialingContact;
-    _INPBStringValue *_dialingPhoneLabel;
-    _INPBStringValue *_dialingPhoneNumber;
 }
 
 + (id)options;
-@property(retain, nonatomic) _INPBStringValue *dialingPhoneLabel; // @synthesize dialingPhoneLabel=_dialingPhoneLabel;
-@property(retain, nonatomic) _INPBStringValue *dialingPhoneNumber; // @synthesize dialingPhoneNumber=_dialingPhoneNumber;
 @property(retain, nonatomic) _INPBContactValue *dialingContact; // @synthesize dialingContact=_dialingContact;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
@@ -32,8 +28,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasDialingPhoneLabel;
-@property(readonly, nonatomic) _Bool hasDialingPhoneNumber;
 @property(readonly, nonatomic) _Bool hasDialingContact;
 
 @end

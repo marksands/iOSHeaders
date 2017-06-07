@@ -8,8 +8,7 @@
 
 @interface _UIRootWindow : UIWindow
 {
-    _Bool _mainDisplay;
-    _Bool _isExternal;
+    double _scale;
 }
 
 - (void)_noteScreenDidChangeMode:(id)arg1;
@@ -17,6 +16,7 @@
 - (void)_configureRootLayer:(id)arg1 transformLayer:(id)arg2;
 - (_Bool)_transformLayerIncludesScreenRotation;
 - (void)_configureContextOptions:(id)arg1;
+- (CDStruct_3cbf53c3)_bindingDescription;
 - (_Bool)_touchesInsideShouldHideCalloutBar;
 - (_Bool)_isConstrainedByScreenJail;
 - (_Bool)_isWindowServerHostingManaged;

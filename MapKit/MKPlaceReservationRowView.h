@@ -37,7 +37,6 @@
 - (id)_newButtonForAttribution:(_Bool)arg1;
 @property(retain, nonatomic) NSString *selectedTimeString;
 @property(nonatomic) unsigned long long selectedTimeIndex;
-- (void)dealloc;
 - (id)initWithReservationInfo:(id)arg1;
 
 @end

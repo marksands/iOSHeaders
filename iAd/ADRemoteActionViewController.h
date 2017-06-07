@@ -20,6 +20,7 @@
 @property(nonatomic) _Bool hasBeenDismissed; // @synthesize hasBeenDismissed=_hasBeenDismissed;
 @property(nonatomic) unsigned long long remoteSupportedInterfaceOrientations; // @synthesize remoteSupportedInterfaceOrientations=_remoteSupportedInterfaceOrientations;
 - (void)updateInterfaceOrientationIfNeeded;
+- (void)dealloc;
 
 @end
 

@@ -16,6 +16,7 @@
     NSSet *_properties;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)predicateWithSearchString:(id)arg1 forProperties:(id)arg2;
 @property(copy, nonatomic) NSSet *properties; // @synthesize properties=_properties;
 @property(copy, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;

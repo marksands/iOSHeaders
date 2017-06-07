@@ -12,17 +12,19 @@
 __attribute__((visibility("hidden")))
 @interface NSXPCDecoder : NSXPCCoder
 {
+    NSObject<OS_xpc_object> *_root;
     NSObject<OS_xpc_object> *_oolObjects;
     NSXPCInterface *_interface;
     SEL _replyToSelector;
     unsigned long long _genericIndex;
-    void **_decoder;
+    struct {
+        char *data;
+        unsigned long long dataLen;
+        struct __CFString *tempString;
+    } _decoder;
     NSXPCConnection *_connection;
     struct *_collections[128];
-    struct {
-        unsigned long long offset;
-        int type;
-    } _rootObject;
+    CDStruct_1b1be194 _rootObject;
     unsigned int _collectionPointer;
     id _allowedClassesList[128];
     long long _allowedClassesIndex;
@@ -45,11 +47,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)decodeBoolForKey:(id)arg1;
 - (id)_decodeArrayOfObjectsForKey:(id)arg1;
 - (id)allowedClasses;
+- (id)_decodeInvocationFromRoot;
 - (id)decodeObjectOfClasses:(id)arg1 forKey:(id)arg2;
 - (id)decodeObjectOfClass:(Class)arg1 forKey:(id)arg2;
+- (id)_decodeObjectOfClasses:(id)arg1 atObject:(CDStruct_1b1be194 *)arg2;
 - (id)decodeObjectForKey:(id)arg1;
 - (_Bool)containsValueForKey:(id)arg1;
-- (id)decodeInvocation;
 - (id)decodeObject;
 - (void)decodeValueOfObjCType:(const char *)arg1 at:(void *)arg2;
 - (void)_validateAllowedClass:(Class)arg1 forKey:(id)arg2 allowingInvocations:(_Bool)arg3;

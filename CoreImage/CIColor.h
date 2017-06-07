@@ -34,6 +34,7 @@
 + (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3;
 + (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 + (id)colorWithCGColor:(struct CGColor *)arg1;
+- (id)debugQuickLookObject;
 - (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

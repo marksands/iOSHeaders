@@ -12,7 +12,6 @@
 @class NSDictionary, NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
-__attribute__((visibility("hidden")))
 @interface _LSLazyPropertyList : NSObject <NSCopying, NSSecureCoding>
 {
     NSDictionary *_plist;
@@ -25,9 +24,10 @@ __attribute__((visibility("hidden")))
 + (id)lazyPropertyListWithLazyPropertyLists:(id)arg1;
 + (id)lazyPropertyListWithPropertyList:(id)arg1;
 + (id)lazyPropertyListWithPropertyListData:(id)arg1;
-+ (id)lazyPropertyListWithContext:(struct LSContext *)arg1 table:(unsigned int)arg2 unit:(unsigned int)arg3;
++ (id)lazyPropertyListWithContext:(struct LSContext *)arg1 unit:(unsigned int)arg2;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_queue; // @synthesize _queue;
 @property(getter=isPeeking) _Bool peeking; // @synthesize peeking=_peeking;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -37,7 +37,6 @@ __attribute__((visibility("hidden")))
 - (id)objectForPropertyListKey:(id)arg1 ofClass:(Class)arg2;
 - (id)objectsForPropertyListKeys:(id)arg1;
 @property(readonly) NSDictionary *propertyList; // @dynamic propertyList;
-- (void)dealloc;
 - (id)init;
 - (id)_filterValueFromPropertyList:(id)arg1 ofClass:(Class)arg2 valuesOfClass:(Class)arg3;
 - (id)_loadPropertyListPeeking:(_Bool)arg1 forKey:(id)arg2 block:(CDUnknownBlockType)arg3;

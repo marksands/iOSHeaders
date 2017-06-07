@@ -16,6 +16,7 @@
 @property(readonly) float ISO; // @synthesize ISO=_ISO;
 @property(readonly) CDStruct_1b6d18a9 exposureDuration; // @synthesize exposureDuration=_exposureDuration;
 - (id)description;
+- (id)debugDescription;
 - (id)_initManualExposureSettingsWithExposureDuration:(CDStruct_1b6d18a9)arg1 ISO:(float)arg2;
 
 @end

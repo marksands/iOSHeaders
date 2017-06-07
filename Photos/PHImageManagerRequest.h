@@ -32,9 +32,11 @@
     NSString *_debugFilename;
     double _creationTimeInterval;
     PLImageFormat *_bestFormatIssuedSoFar;
+    double _creationTime;
 }
 
 + (int)nextRequestID;
+@property(readonly, nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
 @property(retain, nonatomic) PLImageFormat *bestFormatIssuedSoFar; // @synthesize bestFormatIssuedSoFar=_bestFormatIssuedSoFar;
 @property(nonatomic) _Bool finalResultSubmitted; // @synthesize finalResultSubmitted=_finalResultSubmitted;
 @property(readonly, nonatomic) double creationTimeInterval; // @synthesize creationTimeInterval=_creationTimeInterval;

@@ -15,7 +15,7 @@
     _Bool _overlayFixedFrame;
     _Bool _adjustMotionForSize;
     _Bool _flatImageContainsCornerRadius;
-    _Bool _reduceShadowDepth;
+    _Bool _allowsNonOpaqueShadow;
     _Bool _boostBrightness;
     _Bool _hueShift;
     _Bool _focusCursorEnabled;
@@ -63,6 +63,7 @@
     struct CGPoint _translationOffset;
 }
 
++ (id)newAppIconConfiguration;
 + (id)newStandardConfiguration;
 @property(nonatomic) double fullBleedOffset; // @synthesize fullBleedOffset=_fullBleedOffset;
 @property(nonatomic) _Bool fullBleedCenteredGrowth; // @synthesize fullBleedCenteredGrowth=_fullBleedCenteredGrowth;
@@ -80,7 +81,7 @@
 @property(nonatomic) _Bool focusCursorEnabled; // @synthesize focusCursorEnabled=_focusCursorEnabled;
 @property(nonatomic) _Bool hueShift; // @synthesize hueShift=_hueShift;
 @property(nonatomic) _Bool boostBrightness; // @synthesize boostBrightness=_boostBrightness;
-@property(nonatomic) _Bool reduceShadowDepth; // @synthesize reduceShadowDepth=_reduceShadowDepth;
+@property(nonatomic) _Bool allowsNonOpaqueShadow; // @synthesize allowsNonOpaqueShadow=_allowsNonOpaqueShadow;
 @property(retain, nonatomic) UIImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
 @property(nonatomic) double defaultSelectedShadowVerticalOffset; // @synthesize defaultSelectedShadowVerticalOffset=_defaultSelectedShadowVerticalOffset;
 @property(nonatomic) double defaultUnfocusedShadowVerticalOffset; // @synthesize defaultUnfocusedShadowVerticalOffset=_defaultUnfocusedShadowVerticalOffset;

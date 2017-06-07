@@ -23,6 +23,7 @@
 @property(nonatomic, getter=globalTraceObjectID) unsigned long long globalTraceObjectID; // @synthesize globalTraceObjectID=_globalTraceObjectID;
 @property(copy) NSString *label; // @synthesize label=_label;
 @property(readonly, nonatomic, getter=getType) unsigned long long type;
+- (void)filterCounterRangeWithFirstBatch:(unsigned int)arg1 lastBatch:(unsigned int)arg2 filterIndex:(unsigned int)arg3;
 - (void)popDebugGroup;
 - (void)pushDebugGroup:(id)arg1;
 - (void)insertDebugSignpost:(id)arg1;

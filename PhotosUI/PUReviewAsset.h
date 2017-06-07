@@ -18,9 +18,14 @@
     _Bool _livePhotoPlaceholder;
     _Bool _canPlayPhotoIris;
     _Bool _representsBurst;
+    AVAsset *providedAVAsset;
+    AVAudioMix *providedAudioMix;
+    PHLivePhoto *providedLivePhoto;
     NSString *_identifier;
     unsigned long long _mediaType;
     unsigned long long _mediaSubtypes;
+    long long _playbackStyle;
+    long long _playbackVariation;
     unsigned long long _pixelWidth;
     unsigned long long _pixelHeight;
     CLLocation *_location;
@@ -70,9 +75,14 @@
 @property(readonly, nonatomic) CLLocation *location; // @synthesize location=_location;
 @property(readonly, nonatomic) unsigned long long pixelHeight; // @synthesize pixelHeight=_pixelHeight;
 @property(readonly, nonatomic) unsigned long long pixelWidth; // @synthesize pixelWidth=_pixelWidth;
+@property(readonly, nonatomic) long long playbackVariation; // @synthesize playbackVariation=_playbackVariation;
+@property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle=_playbackStyle;
 @property(readonly, nonatomic) unsigned long long mediaSubtypes; // @synthesize mediaSubtypes=_mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) PHLivePhoto *providedLivePhoto; // @synthesize providedLivePhoto;
+@property(readonly, nonatomic) AVAudioMix *providedAudioMix; // @synthesize providedAudioMix;
+@property(readonly, nonatomic) AVAsset *providedAVAsset; // @synthesize providedAVAsset;
 - (void).cxx_destruct;
 - (void)_removeFileAtURL:(id)arg1;
 - (void)removeAllFilesAtReferencedURLs;
@@ -95,20 +105,22 @@
 @property(readonly, nonatomic, getter=isAdjusted) _Bool adjusted;
 @property(readonly, nonatomic, getter=isHighFramerateVideo) _Bool highFramerateVideo;
 - (unsigned long long)isContentEqualTo:(id)arg1;
+@property(readonly, nonatomic) _Bool isAnimatedImage;
 @property(readonly, nonatomic) _Bool hasPhotoColorAdjustments;
+@property(readonly, nonatomic) _Bool canPlayLoopingVideo;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisVideoDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisStillDisplayTime;
 @property(readonly, nonatomic) _Bool isPhotoIrisPlaceholder;
 @property(readonly, nonatomic) _Bool isTemporaryPlaceholder;
-@property(readonly, nonatomic) unsigned long long fullsizeDataFormat;
+@property(readonly, nonatomic) NSString *uniformTypeIdentifier;
 @property(readonly, nonatomic) NSString *localizedGeoDescription;
 @property(readonly, nonatomic) NSString *uuid;
 @property(readonly, nonatomic) double aspectRatio;
 @property(readonly, nonatomic, getter=isFavorite) _Bool favorite;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithAVAsset:(id)arg1 audioMix:(id)arg2 width:(unsigned long long)arg3 height:(unsigned long long)arg4 captureDate:(id)arg5 duration:(double)arg6 previewImage:(id)arg7 videoURL:(id)arg8 adjustments:(id)arg9 identifier:(id)arg10;
-- (id)initWithLivePhoto:(id)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 captureDate:(id)arg4 metadata:(id)arg5 duration:(double)arg6 previewImage:(id)arg7 identifier:(id)arg8;
-- (id)initWithPhoto:(id)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 captureDate:(id)arg4 metadata:(id)arg5 burstIdentifier:(id)arg6 representedCount:(unsigned long long)arg7 fullsizeImageURL:(id)arg8 identifier:(id)arg9;
+- (id)initWithLivePhoto:(id)arg1 fullsizeUnadjustedImageURL:(id)arg2 fullsizeUnadjustedVideoURL:(id)arg3 assetAdjustments:(id)arg4 width:(unsigned long long)arg5 height:(unsigned long long)arg6 captureDate:(id)arg7 metadata:(id)arg8 duration:(double)arg9 previewImage:(id)arg10 identifier:(id)arg11;
+- (id)initWithPhoto:(id)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 captureDate:(id)arg4 metadata:(id)arg5 burstIdentifier:(id)arg6 representedCount:(unsigned long long)arg7 fullsizeImageURL:(id)arg8 fullsizeUnadjustedImageURL:(id)arg9 assetAdjustments:(id)arg10 identifier:(id)arg11;
 - (id)initWithReviewAsset:(id)arg1 baseImageURL:(id)arg2 renderedImageURL:(id)arg3 baseVideoURL:(id)arg4 renderedVideoURL:(id)arg5 previewImage:(id)arg6 pixelWidth:(unsigned long long)arg7 pixelHeight:(unsigned long long)arg8 assetAdjustments:(id)arg9 duration:(double)arg10;
 - (id)initWithReviewAsset:(id)arg1 baseImageURL:(id)arg2 renderedImageURL:(id)arg3 baseVideoURL:(id)arg4 renderedVideoURL:(id)arg5 pixelWidth:(unsigned long long)arg6 pixelHeight:(unsigned long long)arg7 assetAdjustments:(id)arg8 duration:(double)arg9;
 - (id)initWithReviewAsset:(id)arg1 primaryResourceURL:(id)arg2;
@@ -125,9 +137,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) AVAsset *providedAVAsset;
-@property(readonly, nonatomic) AVAudioMix *providedAudioMix;
-@property(readonly, nonatomic) PHLivePhoto *providedLivePhoto;
 @property(readonly) Class superclass;
 
 @end

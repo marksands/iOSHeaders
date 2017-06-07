@@ -6,9 +6,10 @@
 
 #import <Messages/NSObject-Protocol.h>
 
-@class MSMessage, _MSConversationState, _MSPresentationState;
+@class MSMessage, NSDictionary, NSNumber, NSString, NSValue, _MSConversationState, _MSPresentationState;
 
 @protocol _MSMessageComposeExtensionProtocol <NSObject>
+- (void)_handleTextInputPayload:(NSDictionary *)arg1 withPayloadID:(NSString *)arg2 completion:(void (^)(_Bool))arg3;
 - (void)endDisablingUserInteraction;
 - (void)beginDisablingUserInteraction;
 - (void)_hostDidBeginDeferredTeardown;
@@ -19,6 +20,8 @@
 - (void)_presentationDidChangeToPresentationState:(_MSPresentationState *)arg1;
 - (void)_presentationWillChangeToPresentationState:(_MSPresentationState *)arg1;
 - (void)_conversationDidChangeWithConversationState:(_MSConversationState *)arg1;
+- (void)_requestContentSizeThatFits:(NSValue *)arg1 presentationStyle:(NSNumber *)arg2 completionHandler:(void (^)(struct CGSize))arg3;
+- (void)_canSendMessage:(MSMessage *)arg1 conversationState:(_MSConversationState *)arg2 completion:(void (^)(_Bool, MSMessage *, NSString *))arg3;
 - (void)_resignActive;
 - (void)_becomeActiveWithConversationState:(_MSConversationState *)arg1 presentationState:(_MSPresentationState *)arg2;
 @end

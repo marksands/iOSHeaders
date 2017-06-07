@@ -14,6 +14,7 @@
 }
 
 + (id)keyPathsForValuesAffectingEstimatedOutputFileLength;
++ (_Bool)_usesFigAssetExportSession;
 + (long long)_getPassthroughExportPolicyForAssetTrack:(id)arg1 fileType:(id)arg2 asChapterTrack:(_Bool)arg3;
 + (long long)estimatedOutputFileLengthForPreset:(id)arg1 duration:(CDStruct_1b6d18a9)arg2 properties:(id)arg3;
 + (CDStruct_1b6d18a9)maximumDurationForPreset:(id)arg1 properties:(id)arg2;
@@ -64,6 +65,8 @@
 - (void)setMetadata:(id)arg1;
 - (id)metadata;
 - (long long)estimatedOutputFileLength;
+- (_Bool)preserveSyncFrames;
+- (void)setPreserveSyncFrames:(_Bool)arg1;
 - (_Bool)_canPerformFastFrameRateConversionWithPreset:(id)arg1 usingRemaker:(struct OpaqueFigRemaker *)arg2;
 - (id)videoFrameRateConversionAlgorithm;
 - (void)setVideoFrameRateConversionAlgorithm:(id)arg1;
@@ -75,7 +78,8 @@
 - (void)cancelExport;
 - (void)_createRemakerAndBeginExport;
 - (void)exportAsynchronouslyWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_validateOutputFileTypeForExport;
+- (void)AVExportSessionExportAsynchronouslyCompletionHandler;
+- (_Bool)_validateOutputFileTypeForExportWithError:(id *)arg1;
 - (_Bool)_validateSettablePropertiesReturningError:(id *)arg1;
 @property(readonly, nonatomic) float progress;
 - (void)_updateProgress;
@@ -89,7 +93,6 @@
 @property(readonly, nonatomic) NSString *presetName;
 @property(readonly, retain, nonatomic) AVAsset *asset;
 - (id)description;
-- (void)finalize;
 - (void)dealloc;
 - (id)initWithAsset:(id)arg1 presetName:(id)arg2;
 - (id)init;

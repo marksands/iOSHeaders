@@ -6,11 +6,11 @@
 
 #import <MediaPlayer/MPStoreItemLibraryImportElement.h>
 
-@class NSDictionary, SSLookupItem;
+@class ICStorePlatformMetadata, NSDictionary;
 
 @interface MPStoreItemLibraryImportLookupElement : MPStoreItemLibraryImportElement
 {
-    SSLookupItem *_storeItem;
+    ICStorePlatformMetadata *_storeItem;
     NSDictionary *_lookupDictionary;
 }
 

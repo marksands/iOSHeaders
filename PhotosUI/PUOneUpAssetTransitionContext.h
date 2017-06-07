@@ -8,7 +8,6 @@
 
 @class PUOneUpAssetTransitionInfo, UIView;
 
-__attribute__((visibility("hidden")))
 @interface PUOneUpAssetTransitionContext : NSObject
 {
     _Bool _shouldHideBackground;

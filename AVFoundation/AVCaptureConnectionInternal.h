@@ -25,6 +25,7 @@
     AVCaptureInputPort *videoInputPort;
     AVCaptureInputPort *metadataInputPort;
     AVCaptureInputPort *metadataItemInputPort;
+    AVCaptureInputPort *depthDataInputPort;
     _Bool videoMirroringSupported;
     _Bool automaticallyAdjustsVideoMirroring;
     _Bool videoMirrored;
@@ -40,6 +41,8 @@
     long long activeVideoStabilizationMode;
     _Bool hasVideoMinFrameDurationObserver;
     NSString *connectionID;
+    _Bool cameraIntrinsicMatrixDeliverySupported;
+    _Bool cameraIntrinsicMatrixDeliveryEnabled;
 }
 
 @end

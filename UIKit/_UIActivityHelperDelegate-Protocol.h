@@ -6,12 +6,13 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, NSString, UIActivity;
+@class NSArray, NSString, _UIActivityHelper, _UIActivityMatchingContext, _UIActivityMatchingResults;
 
 @protocol _UIActivityHelperDelegate <NSObject>
-- (_Bool)_shouldShowSystemActivity:(NSString *)arg1;
-- (_Bool)_shouldExcludeActivityType:(UIActivity *)arg1;
-- (void)updateActivities:(NSArray *)arg1 animated:(_Bool)arg2;
-- (NSArray *)_activityItemValues;
+- (_Bool)activityHelper:(_UIActivityHelper *)arg1 matchingWithContext:(_UIActivityMatchingContext *)arg2 shouldIncludeSystemActivityType:(NSString *)arg3;
+- (void)activityHelper:(_UIActivityHelper *)arg1 didUpdateActivityMatchingResults:(_UIActivityMatchingResults *)arg2;
+
+@optional
+- (NSArray *)activityHelper:(_UIActivityHelper *)arg1 activitiesForActivityType:(NSString *)arg2 matchingContext:(_UIActivityMatchingContext *)arg3;
 @end
 

@@ -34,7 +34,9 @@ __attribute__((visibility("hidden")))
 - (void)applicationDidResume;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidLoad;
 - (void)loadView;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)contactStoreDidChangeWithNotification:(id)arg1;
 - (void)reloadData;
 - (void)dealloc;

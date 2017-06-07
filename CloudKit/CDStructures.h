@@ -17,3 +17,10 @@ struct __va_list_tag {
     void *_field4;
 };
 
+#pragma mark Typedef'd Structures
+
+// Ambiguous groups
+typedef struct {
+    unsigned int type:1;
+} CDStruct_f953fb60;
+

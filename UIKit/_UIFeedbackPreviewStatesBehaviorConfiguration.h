@@ -4,19 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/_UIFeedbackStatesBehaviorConfiguration.h>
+#import <UIKit/_UIStatesFeedbackGeneratorPreviewConfiguration.h>
 
-@interface _UIFeedbackPreviewStatesBehaviorConfiguration : _UIFeedbackStatesBehaviorConfiguration
+@interface _UIFeedbackPreviewStatesBehaviorConfiguration : _UIStatesFeedbackGeneratorPreviewConfiguration
 {
 }
-
-+ (id)defaultConfiguration;
-+ (id)cancelState;
-+ (id)commitState;
-+ (id)previewState;
-+ (id)revealState;
-- (_Bool)defaultEnabled;
-- (long long)requiredSupportLevel;
 
 @end
 

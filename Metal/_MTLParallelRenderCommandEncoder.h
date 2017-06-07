@@ -32,6 +32,7 @@
 @property(readonly) unsigned long long globalTraceObjectID; // @synthesize globalTraceObjectID=_globalTraceObjectID;
 @property(copy) NSString *label; // @synthesize label=_label;
 @property(readonly) id <MTLDevice> device; // @synthesize device=_device;
+- (_Bool)isMemorylessRender;
 - (void)setStencilStoreAction:(unsigned long long)arg1;
 - (void)setDepthStoreAction:(unsigned long long)arg1;
 - (void)setColorStoreAction:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;

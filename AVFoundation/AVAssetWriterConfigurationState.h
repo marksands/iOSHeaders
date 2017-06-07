@@ -21,12 +21,16 @@
     struct CGAffineTransform _preferredTransform;
     float _preferredVolume;
     float _preferredRate;
+    long long _singlePassFileSize;
+    long long _singlePassMediaDataSize;
     NSArray *_inputs;
     NSArray *_inputGroups;
 }
 
 @property(copy, nonatomic) NSArray *inputGroups; // @synthesize inputGroups=_inputGroups;
 @property(copy, nonatomic) NSArray *inputs; // @synthesize inputs=_inputs;
+@property(nonatomic) long long singlePassMediaDataSize; // @synthesize singlePassMediaDataSize=_singlePassMediaDataSize;
+@property(nonatomic) long long singlePassFileSize; // @synthesize singlePassFileSize=_singlePassFileSize;
 @property(nonatomic) float preferredRate; // @synthesize preferredRate=_preferredRate;
 @property(nonatomic) float preferredVolume; // @synthesize preferredVolume=_preferredVolume;
 @property(nonatomic) struct CGAffineTransform preferredTransform; // @synthesize preferredTransform=_preferredTransform;

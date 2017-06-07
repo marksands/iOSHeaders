@@ -6,10 +6,10 @@
 
 #import <SafariServices/NSObject-Protocol.h>
 
-@class NSString, NSURL, _WKDownload;
+@class NSString, _SFDownload;
 
 @protocol _SFDownloadControllerDelegate <NSObject>
-- (void)fileDownloadDidFinish:(_WKDownload *)arg1 withPath:(NSString *)arg2 withType:(long long)arg3 withSourceURL:(NSURL *)arg4;
+- (void)fileDownloadDidFinish:(_SFDownload *)arg1;
 - (NSString *)downloadBackgroundTaskName;
 @end
 

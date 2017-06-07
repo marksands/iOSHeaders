@@ -15,6 +15,9 @@
 
 + (id)defaultActionForKey:(id)arg1;
 @property(nonatomic) _Bool preventsChangesToSublayerHierarchy; // @synthesize preventsChangesToSublayerHierarchy=_preventsChangesToSublayerHierarchy;
+- (void)setNeedsDisplay;
+- (float)getDisplayScale;
+- (id)getLayerDisplay;
 - (void)removeFromSuperlayer;
 - (void)replaceSublayer:(id)arg1 with:(id)arg2;
 - (void)insertSublayer:(id)arg1 above:(id)arg2;

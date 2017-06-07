@@ -11,11 +11,15 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)defaultProvider;
-- (id)suggestionsService;
-- (id)personaStore;
-- (id)fmfFacade;
-- (id)accountsFacade;
++ (id)suggestionsService;
++ (id)idsIDQueryControllerWrapper;
++ (id)defaultUserActionFetcher;
++ (id)capabilities;
++ (id)applicationWorkspace;
++ (id)recentsManagerWithSchedulerProvider:(id)arg1;
++ (id)personaStore;
++ (id)fmfFacade;
++ (id)accountsFacade;
 
 @end
 

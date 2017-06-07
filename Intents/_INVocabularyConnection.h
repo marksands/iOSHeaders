@@ -13,7 +13,7 @@
     NSXPCConnection *_connection;
 }
 
-+ (void)load;
++ (void)initialize;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)settingsService;

@@ -10,7 +10,7 @@
 #import <Intents/NSCopying-Protocol.h>
 #import <Intents/NSSecureCoding-Protocol.h>
 
-@class INCurrencyAmount, NSString, NSUserActivity;
+@class INCurrencyAmount, NSSet, NSString, NSUserActivity;
 
 @interface INRideCompletionStatus : NSObject <INRideCompletionStatusExport, NSCopying, NSSecureCoding>
 {
@@ -20,17 +20,22 @@
     _Bool _canceledByService;
     NSUserActivity *_completionUserActivity;
     INCurrencyAmount *_paymentAmount;
+    unsigned long long _feedbackType;
+    NSSet *_defaultTippingOptions;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)canceledMissedPickup;
 + (id)canceledByService;
 + (id)canceledByUser;
++ (id)completedWithOutstandingFeedbackType:(unsigned long long)arg1;
 + (id)completedWithOutstandingPaymentAmount:(id)arg1;
 + (id)completedWithSettledPaymentAmount:(id)arg1;
 + (id)completed;
 @property(readonly, nonatomic, getter=isCanceledByService) _Bool canceledByService; // @synthesize canceledByService=_canceledByService;
+@property(retain, nonatomic) NSSet *defaultTippingOptions; // @synthesize defaultTippingOptions=_defaultTippingOptions;
 @property(readonly, nonatomic, getter=isOutstanding) _Bool outstanding; // @synthesize outstanding=_outstanding;
+@property(readonly, nonatomic) unsigned long long feedbackType; // @synthesize feedbackType=_feedbackType;
 @property(readonly, nonatomic) INCurrencyAmount *paymentAmount; // @synthesize paymentAmount=_paymentAmount;
 @property(readonly, nonatomic, getter=isMissedPickup) _Bool missedPickup; // @synthesize missedPickup=_missedPickup;
 @property(readonly, nonatomic, getter=isCompleted) _Bool completed; // @synthesize completed=_completed;
@@ -44,7 +49,7 @@
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic, getter=isCanceled) _Bool canceled;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)_initCompleted:(_Bool)arg1 canceledByService:(_Bool)arg2 missedPickup:(_Bool)arg3 amount:(id)arg4 outstanding:(_Bool)arg5;
+- (id)_initCompleted:(_Bool)arg1 canceledByService:(_Bool)arg2 missedPickup:(_Bool)arg3 amount:(id)arg4 feedbackType:(unsigned long long)arg5 outstanding:(_Bool)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

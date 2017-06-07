@@ -18,7 +18,7 @@
 #import <MapKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <MapKit/VKMapViewDelegate-Protocol.h>
 
-@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapAnnotationManager, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIPopoverController, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, _MKCustomFeatureStore, _MKEnvironmentLabel;
+@class CLLocation, GEOMapRegion, GEOResourceManifestConfiguration, MKAnnotationContainerView, MKAnnotationView, MKAttributionLabel, MKBasicMapView, MKCompassView, MKDebugLocationConsole, MKMapAnnotationManager, MKMapCamera, MKMapGestureController, MKMapViewInternal, MKOverlayContainerView, MKScaleView, MKUserLocation, NSArray, NSDictionary, NSLayoutConstraint, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UILongPressGestureRecognizer, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIPopoverController, UIRotationGestureRecognizer, UITapGestureRecognizer, UITextView, VKLabelMarker, VKMapView, VKNavContext, VKRouteContext, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker, _MKCustomFeatureStore, _MKEnvironmentLabel;
 @protocol MKMapViewDelegate, MKMapViewDelegate><MKMapViewDelegatePrivate;
 
 @interface MKMapView : UIView <MKOverlayContainerViewDelegate, MKAnnotationContainerViewDelegate, VKMapViewDelegate, MKMapGestureControllerDelegate, MKAnnotationMarkerContainer, MKAnnotationManagerDelegate, GEOLogContextDelegate, UIGestureRecognizerDelegate, MKVariableDelayTapRecognizerDelegate, GEOResourceManifestTileGroupObserver, NSCoding>
@@ -37,7 +37,6 @@
     unsigned long long _suspendedEffectsCount;
     unsigned long long _userInteractionDisabledCount;
     unsigned long long _mapType;
-    NSTimer *_defaultLocationTimer;
     MKDebugLocationConsole *_debugLocationConsole;
     CDUnknownBlockType _debugConsoleAdditionalInfoProvider;
     _MKEnvironmentLabel *_debugCurrentEnvironmentLabel;
@@ -65,8 +64,6 @@
     VKRouteContext *_routeContext;
     VKNavContext *_navContext;
     MKMapCamera *_camera;
-    id _topLayoutGuide;
-    id _bottomLayoutGuide;
     CDUnknownBlockType _showCalloutAfterRegionChangeBlock;
     CDUnknownBlockType _selectAnnotationViewAfterRedrawBlock;
     UITextView *_vectorKitDebugView;
@@ -103,6 +100,7 @@
         unsigned int isChangingEdgeInsets:1;
         unsigned int showsAttribution:1;
         unsigned int showsAttributionBadge:1;
+        unsigned int showsVenues:1;
         unsigned int useOld2DAnnotationContainer:1;
         unsigned int rotating:1;
         unsigned int pitching:1;
@@ -155,13 +153,20 @@
     long long _originalLoopRate;
     long long _preGesturingLoopRate;
     struct UIEdgeInsets _attributionInsets;
-    double _compassDiameter;
     struct UIEdgeInsets _compassInsets;
     unsigned long long _compassInsetEdges;
+    _Bool _explicitCompassInsetEdges;
     _Bool _useBalloonCalloutsForLabels;
     _MKCustomFeatureStore *_annotationsCustomFeatureStore;
+    double _lastYaw;
+    _Bool _lastPossiblyVisible;
+    unsigned long long _cachedVenueIDWithFocus;
+    short _cachedDisplayedFloorOrdinalForVenueWithFocus;
+    double _compassVisibleRotationThreshold;
     long long _interactionMode;
     unsigned long long _currentFlyoverAnimationID;
+    long long _compassViewSize;
+    long long _compassViewStyle;
 }
 
 + (void)setRendersInBackgroundByDefault:(_Bool)arg1;
@@ -170,13 +175,14 @@
 + (unsigned long long)minZoomLevelForMapType:(unsigned long long)arg1 viewSize:(struct CGSize)arg2;
 + (CDStruct_02837cd9)_mapRectThatFitsViewBounds:(struct CGRect)arg1 mapRect:(CDStruct_02837cd9)arg2 viewInsets:(struct UIEdgeInsets)arg3 edgePadding:(struct UIEdgeInsets)arg4 minZoomLevel:(double)arg5 maxZoomLevel:(double)arg6 snapToZoomLevel:(_Bool)arg7;
 + (CDStruct_b7cb895d)_regionThatFitsMapType:(unsigned long long)arg1 viewSize:(struct CGSize)arg2 viewInsets:(struct UIEdgeInsets)arg3 edgePadding:(struct UIEdgeInsets)arg4 region:(CDStruct_b7cb895d)arg5 minZoomLevel:(double)arg6 maxZoomLevel:(double)arg7 snapToZoomLevel:(_Bool)arg8;
+@property(readonly, nonatomic) long long compassViewStyle; // @synthesize compassViewStyle=_compassViewStyle;
+@property(readonly, nonatomic) long long compassViewSize; // @synthesize compassViewSize=_compassViewSize;
 @property(nonatomic) int attributionCorner; // @synthesize attributionCorner=_attributionCorner;
 @property(nonatomic, getter=_currentFlyoverAnimationID, setter=_setCurrentFlyoverAnimationID:) unsigned long long currentFlyoverAnimationID; // @synthesize currentFlyoverAnimationID=_currentFlyoverAnimationID;
 @property(nonatomic, getter=_useBalloonCalloutsForLabels, setter=_setUseBalloonCalloutsForLabels:) _Bool useBalloonCalloutsForLabels; // @synthesize useBalloonCalloutsForLabels=_useBalloonCalloutsForLabels;
 @property(nonatomic, getter=_interactionMode, setter=_setInteractionMode:) long long interactionMode; // @synthesize interactionMode=_interactionMode;
-@property(nonatomic, getter=_compassInsetEdges, setter=_setCompassInsetEdges:) unsigned long long compassInsetEdges; // @synthesize compassInsetEdges=_compassInsetEdges;
+@property(nonatomic, getter=_compassVisibleRotationThreshold, setter=_setCompassVisibleRotationThreshold:) double compassVisibleRotationThreshold; // @synthesize compassVisibleRotationThreshold=_compassVisibleRotationThreshold;
 @property(nonatomic, getter=_compassInsets, setter=_setCompassInsets:) struct UIEdgeInsets compassInsets; // @synthesize compassInsets=_compassInsets;
-@property(nonatomic, getter=_compassDiameter, setter=_setCompassDiameter:) double compassDiameter; // @synthesize compassDiameter=_compassDiameter;
 @property(nonatomic, getter=_attributionInsets, setter=_setAttributionInsets:) struct UIEdgeInsets attributionInsets; // @synthesize attributionInsets=_attributionInsets;
 @property(nonatomic, getter=_annotationTrackingZoomStyle, setter=_setAnnotationTrackingZoomStyle:) long long annotationTrackingZoomStyle; // @synthesize annotationTrackingZoomStyle=_annotationTrackingZoomStyle;
 - (void).cxx_destruct;
@@ -205,6 +211,7 @@
 - (_Bool)annotationManager:(id)arg1 shouldAnimateDeselectionOfAnnotation:(id)arg2 forSelectionOfAnnotation:(id)arg3;
 - (void)annotationManager:(id)arg1 didSelectAnnotationRepresentation:(id)arg2;
 - (id)annotationManager:(id)arg1 representationForAnnotation:(id)arg2;
+- (void)annotationManager:(id)arg1 didRemoveAnnotationRepresentations:(id)arg2;
 - (void)annotationManager:(id)arg1 didAddAnnotationRepresentations:(id)arg2;
 - (_Bool)shouldHideOffscreenSelectedAnnotation;
 - (CDUnknownBlockType)annotationCoordinateTest;
@@ -224,12 +231,22 @@
 - (void)_performFlyoverAnimation:(id)arg1 animateToStart:(_Bool)arg2;
 - (void)_performFlyoverAnimation:(id)arg1;
 - (void)_prepareFlyoverAnimation:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setSelectedVenueComponentId:(unsigned long long)arg1;
+- (short)displayedFloorOrdinalForBuildingsInVenue:(id)arg1;
+- (void)setDisplayedFloorOrdinal:(short)arg1 forBuildingsInVenue:(id)arg2;
+- (double)zoomToFocusVenueBuilding:(id)arg1;
+- (double)zoomToFocusVenue:(id)arg1;
+@property(nonatomic, getter=_isDimmingOutsideVenueWithFocus) _Bool dimmingOutsideVenueWithFocus;
+@property(readonly, nonatomic) VKVenueBuildingFeatureMarker *venueBuildingWithFocus;
+- (id)venueWithID:(unsigned long long)arg1;
+@property(readonly, nonatomic) VKVenueFeatureMarker *venueWithFocus;
 @property(nonatomic, getter=_edgeInsets, setter=_setEdgeInsets:) struct UIEdgeInsets edgeInsets;
 - (void)_setEdgeInsets:(struct UIEdgeInsets)arg1 explicit:(_Bool)arg2;
 @property(readonly, nonatomic, getter=_edgeInsetsLayoutGuide) UILayoutGuide *edgeInsetsLayoutGuide;
 @property(nonatomic, getter=_labelEdgeInsets, setter=_setLabelEdgeInsets:) struct UIEdgeInsets labelEdgeInsets;
 - (void)updateLayoutGuides;
 - (void)_clearLayoutGuides;
+- (void)safeAreaInsetsDidChange;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setLayoutMargins:(struct UIEdgeInsets)arg1;
 - (void)layoutMarginsDidChange;
@@ -296,6 +313,8 @@
 @property(nonatomic, getter=_allowsPopoverWhenNotInWindow, setter=_setAllowsPopoverWhenNotInWindow:) _Bool allowsPopoverWhenNotInWindow;
 @property(nonatomic) _Bool _annotationViewsAreAddedImmediately;
 - (id)viewForAnnotation:(id)arg1;
+- (void)registerClass:(Class)arg1 forAnnotationViewWithReuseIdentifier:(id)arg2;
+- (id)dequeueReusableAnnotationViewWithIdentifier:(id)arg1 forAnnotation:(id)arg2;
 - (id)dequeueReusableAnnotationViewWithIdentifier:(id)arg1;
 - (void)_addViewsForAnnotations:(id)arg1;
 - (void)_replaceAnnotation:(id)arg1 withAnnotation:(id)arg2;
@@ -331,10 +350,13 @@
 - (void)annotationContainerDidDropPins:(id)arg1;
 - (void)annotationContainerWillDropPins:(id)arg1;
 - (double)annotationContainer:(id)arg1 pinDropDistanceForCoordinate:(struct CLLocationCoordinate2D)arg2 maxDistance:(double *)arg3;
+- (_Bool)annotationContainer:(id)arg1 isAnnotationView:(id)arg2 validForDisplayAtPoint:(struct CGPoint)arg3;
 - (struct CGRect)annotationContainerVisibleRect:(id)arg1;
 - (void)annotationContainerDidFinishMapsTransitionExpanding:(id)arg1;
 - (void)annotationContainerDidAnimateBubble:(id)arg1;
 - (void)annotationContainerWillAnimateBubble:(id)arg1;
+- (void)annotationContainer:(id)arg1 requestRemovingClusterAnnotationView:(id)arg2;
+- (id)annotationContainer:(id)arg1 requestAddingClusterForAnnotationViews:(id)arg2;
 - (void)annotationContainer:(id)arg1 scrollToRevealCalloutWithOffset:(struct CGPoint)arg2 annotationCoordinate:(struct CLLocationCoordinate2D)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)annotationContainerShouldAlignToPixels:(id)arg1;
 - (_Bool)annotationContainerIsRotated:(id)arg1;
@@ -358,7 +380,9 @@
 - (void)gestureControllerWillStartRotating:(id)arg1;
 - (void)gestureControllerDidStopTwoFingerLongPress:(id)arg1;
 - (void)gestureControllerWillStartTwoFingerLongPress:(id)arg1;
+- (void)gestureControllerDidStopZoomingDecelerating:(id)arg1 direction:(long long)arg2 type:(long long)arg3;
 - (void)gestureControllerDidStopZoomingDecelerating:(id)arg1 direction:(long long)arg2;
+- (void)gestureControllerDidStopZooming:(id)arg1 direction:(long long)arg2 type:(long long)arg3 willDecelerate:(_Bool)arg4;
 - (void)gestureControllerDidStopZooming:(id)arg1 direction:(long long)arg2 willDecelerate:(_Bool)arg3;
 - (void)gestureControllerWillStartZooming:(id)arg1 animated:(_Bool)arg2;
 - (void)gestureControllerDidStopPanningDecelerating:(id)arg1;
@@ -366,6 +390,9 @@
 - (void)gestureControllerWillStartPanning:(id)arg1;
 - (void)gestureControllerDidStopUserInteraction:(id)arg1;
 - (void)gestureControllerWillStartUserInteraction:(id)arg1;
+- (void)mapLayer:(id)arg1 venueWithFocusDidChange:(id)arg2 building:(id)arg3;
+- (void)mapLayerNavigationCameraDidReturnToDefaultZoom:(id)arg1;
+- (void)mapLayerNavigationCameraDidLeaveDefaultZoom:(id)arg1;
 - (void)mapLayerNavigationCameraHasStoppedPanning:(id)arg1;
 - (void)mapLayerNavigationCameraHasStartedPanning:(id)arg1;
 - (void)mapLayer:(id)arg1 flyoverModeWillChange:(int)arg2;
@@ -386,7 +413,6 @@
 - (void)mapLayerWillStartFlyoverTour:(id)arg1;
 - (void)mapLayerDidFinishInitialTrackingAnimation:(id)arg1;
 - (void)mapLayer:(id)arg1 didUpdateVerticalYawTo:(double)arg2;
-- (id)mapLayer:(id)arg1 painterForOverlay:(id)arg2;
 - (void)mapLayer:(id)arg1 selectedLabelMarkerDidChangeState:(id)arg2;
 - (void)mapLayer:(id)arg1 selectedLabelMarkerWillDisappear:(id)arg2;
 - (id)mapLayer:(id)arg1 presentationForAnnotation:(id)arg2;
@@ -401,12 +427,14 @@
 - (id)compassVisibilityAnimation;
 - (_Bool)compassVisible;
 - (void)_setCompassVisible:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)handleCompassTap:(id)arg1;
+- (void)_handleCompassTap:(id)arg1;
 - (void)_updateCompassPosition;
+- (void)_postDidUpdateYawNotification;
 - (void)_updateCompassVisibility;
 - (id)compassView;
 - (_Bool)_roomForCompass;
 @property(nonatomic) _Bool showsCompass;
+@property(readonly, nonatomic) double presentationYaw;
 @property(nonatomic, getter=isCompassEnabled) _Bool compassEnabled;
 - (void)_updateScalePosition;
 - (void)_showOrHideScaleIfNecessary:(_Bool)arg1;
@@ -442,7 +470,7 @@
 - (void)_startEffects;
 - (id)beginStoppingEffects;
 - (void)_stopEffects;
-- (void)_updateScrollContainerView:(_Bool)arg1;
+- (void)_updateScrollContainerView:(_Bool)arg1 midstream:(_Bool)arg2;
 - (void)_updateFallbackTileLoading;
 - (void)_updateScrollingAndGestures;
 - (double)_boundedZoomLevel:(double)arg1;
@@ -452,6 +480,7 @@
 @property(nonatomic, getter=_shouldSplitRouteLine, setter=_setShouldSplitRouteLine:) _Bool shouldSplitRouteLine;
 @property(nonatomic, getter=_isLocationPulseEnabled, setter=_setLocationPulseEnabled:) _Bool locationPulseEnabled;
 @property(nonatomic, getter=_userInteractionPausesLocationUpdates, setter=_setUserInteractionPausesLocationUpdates:) _Bool userInteractionPausesLocationUpdates;
+- (_Bool)_isZooming;
 - (void)_didEndZoom;
 - (void)_willStartZoom:(_Bool)arg1;
 - (void)_didChangeRegionMidstream:(_Bool)arg1;
@@ -485,6 +514,7 @@
 - (void)_updateShowHeadingIndicator;
 @property(nonatomic, getter=_alwaysShowHeadingIndicator, setter=_setAlwaysShowHeadingIndicatorIfSupported:) _Bool alwaysShowHeadingIndicator;
 @property(nonatomic, getter=_showHeadingIndicatorForStepping, setter=_setShowHeadingIndicatorForStepping:) _Bool showHeadingIndicatorForStepping;
+- (_Bool)postsMapViewInitialRenderingNotification;
 - (void)_setUserTrackingMode:(long long)arg1 animated:(_Bool)arg2 fromTrackingButton:(_Bool)arg3;
 - (void)setUserTrackingMode:(long long)arg1 animated:(_Bool)arg2;
 @property(nonatomic) long long userTrackingMode;
@@ -509,6 +539,8 @@
 - (_Bool)_canZoomIn;
 @property(readonly, nonatomic, getter=_maximumZoomLevel) double maximumZoomLevel;
 @property(readonly, nonatomic, getter=_minimumZoomLevel) double minimumZoomLevel;
+- (double)_vectorKitTileZoomLevelForMapKitZoomLevel:(double)arg1;
+- (double)_mapKitZoomLevelForVectorKitTileZoomLevel:(double)arg1;
 @property(readonly, nonatomic) double _zoomLevel;
 @property(readonly, nonatomic) double _zoomScale;
 - (long long)_roundedZoomLevel;
@@ -526,6 +558,7 @@
 - (void)_setMapDisplayStyle:(CDStruct_80aa614a)arg1;
 - (CDStruct_80aa614a)_mapDisplayStyle;
 @property(nonatomic, getter=_showsNightMode, setter=_setShowsNightMode:) _Bool showsNightMode;
+- (void)_setMapType:(unsigned long long)arg1 onInit:(_Bool)arg2 animated:(_Bool)arg3 forceSetting:(_Bool)arg4;
 - (void)_setMapType:(unsigned long long)arg1 onInit:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)_setMapType:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (_Bool)_supportsVKMapType:(long long)arg1;
@@ -534,9 +567,6 @@
 @property(readonly, nonatomic, getter=_isShowingFlyover) _Bool showingFlyover;
 - (long long)_interfaceOrientation;
 - (void)_updateHeadingOrientation;
-- (void)invalidateDefaultLocationTimer;
-- (void)set_defaultLocationTimer:(id)arg1;
-- (id)_defaultLocationTimer;
 @property(nonatomic) _Bool rendersInBackground;
 @property(readonly, nonatomic, getter=_isHandlingNonselectingTap) _Bool handlingNonselectingTap;
 @property(readonly, nonatomic, getter=_twoFingerTapGestureRecognizer) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
@@ -550,6 +580,7 @@
 @property(readonly, nonatomic, getter=_panningGestureRecognizer) UIPanGestureRecognizer *panningGestureRecognizer;
 @property(nonatomic, getter=_showsPressedLabelMarkerEffect, setter=_setShowsPressedLabelMarkerEffect:) _Bool showsPressedLabelMarkerEffect;
 - (_Bool)isShowingNoDataPlaceholders;
+@property(nonatomic, getter=_showsVenues, setter=_setShowsVenues:) _Bool showsVenues;
 @property(nonatomic) _Bool showsBuildings;
 @property(nonatomic) _Bool showsPointsOfInterest;
 @property(nonatomic, getter=_localizeLabels, setter=_setLocalizeLabels:) _Bool localizeLabels;
@@ -567,6 +598,8 @@
 - (id)mapAttributionWithStringAttributes:(id)arg1;
 - (struct CGRect)attributionFrame;
 - (void)_updateAttribution;
+@property(nonatomic, getter=_compassInsetEdges, setter=_setCompassInsetEdges:) unsigned long long compassInsetEdges;
+- (void)_setCompassViewSize:(long long)arg1 style:(long long)arg2;
 - (void)_layoutAttribution;
 @property(nonatomic) _Bool showsAttributionBadge;
 @property(nonatomic) _Bool showsAttribution;
@@ -586,6 +619,7 @@
 - (id)_initWithFrame:(struct CGRect)arg1 gestureRecognizerHostView:(id)arg2 showsAttribution:(_Bool)arg3;
 - (id)_commonInitFromIB:(_Bool)arg1 gestureRecognizerHostView:(id)arg2 showsAttribution:(_Bool)arg3;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
+@property(nonatomic, getter=_selectedFeatureID, setter=_setSelectedFeatureID:) unsigned long long selectedFeatureID;
 @property(nonatomic, getter=isScaleEnabled) _Bool scaleEnabled;
 - (void)_setShowsTraffic:(_Bool)arg1;
 - (_Bool)_showsTraffic;
@@ -647,9 +681,9 @@
 - (id)_camera;
 - (id)_selectedTransitLineIDs;
 - (void)_deselectTransitLineMarker;
-- (void)_selectTransitLineMarkerWithFeatureID:(unsigned long long)arg1;
+- (void)_selectTransitLineMarkerWithIdentifier:(id)arg1;
 - (void)_selectTransitLineMarker:(id)arg1;
-- (id)_transitLineMarkerForFeatureID:(unsigned long long)arg1;
+- (id)_transitLineMarkerForIdentifier:(id)arg1;
 @property(readonly, nonatomic, getter=_transitLineMarkersInCurrentViewport) NSArray *transitLineMarkersInCurrentViewport;
 - (id)vk_mapLayer;
 - (void)overlayContainerAddedDrawables:(id)arg1;
@@ -675,8 +709,11 @@
 @property(readonly, nonatomic, getter=_detailedDescriptionDictionaryRepresentation) NSDictionary *detailedDescriptionDictionaryRepresentation;
 @property(readonly, nonatomic, getter=_detailedDescription) NSString *detailedDescription;
 @property(readonly, nonatomic, getter=_visibleTileSets) NSArray *visibleTileSets;
+- (void)_setRouteContextAnnotationText:(id)arg1 forRoute:(id)arg2;
 - (void)_clearRouteContext;
 - (void)_setRouteContextInspectedLegIndex:(unsigned long long)arg1 inspectedStepIndex:(unsigned long long)arg2;
+- (vector_78caa0aa)_uniqueRangesForRoutes:(id)arg1;
+- (void)_setRouteContextForRoutes:(id)arg1 selectedRouteIndex:(unsigned long long)arg2;
 - (void)_setRouteContextForRoute:(id)arg1;
 @property(nonatomic) __weak id <MKMapViewDelegate> delegate; // @dynamic delegate;
 - (double)_distanceFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 fromView:(id)arg3 withPrecision:(long long)arg4;

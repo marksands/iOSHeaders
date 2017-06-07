@@ -32,12 +32,14 @@
     NSURL *_contentURL;
     NSString *_contentString;
     long long _maximumPretapRequestCount;
+    long long _adPrivacyMarkPosition;
     struct CGSize _portraitSize;
     struct CGSize _landscapeSize;
     struct CGSize _containerSize;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long adPrivacyMarkPosition; // @synthesize adPrivacyMarkPosition=_adPrivacyMarkPosition;
 @property(nonatomic) long long maximumPretapRequestCount; // @synthesize maximumPretapRequestCount=_maximumPretapRequestCount;
 @property(nonatomic) _Bool requiresMRAID; // @synthesize requiresMRAID=_requiresMRAID;
 @property(nonatomic) struct CGSize containerSize; // @synthesize containerSize=_containerSize;

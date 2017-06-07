@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
 - (id)activeControlKeyTraits;
 - (id)controlKeyTraits;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
+- (_Bool)shouldShowTopRowEdge;
+- (_Bool)shouldShowBottomRowEdge;
 - (struct CGPoint)numberPadVBarSecondaryTextOffset;
 - (struct CGPoint)numberPadKeySecondaryTextOffset;
 - (struct CGPoint)numberPadKeyPrimaryTextOffset;

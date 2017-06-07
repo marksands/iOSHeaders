@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     PUPhotoCommentEntryView *_textEntryView;
 }
 
++ (void)preferredContentSizeDidChange;
 + (double)heightForWidth:(double)arg1;
 @property(retain, nonatomic) PUPhotoCommentEntryView *textEntryView; // @synthesize textEntryView=_textEntryView;
 - (void).cxx_destruct;

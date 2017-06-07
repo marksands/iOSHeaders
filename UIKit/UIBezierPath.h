@@ -6,10 +6,10 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/NSCoding-Protocol.h>
 #import <UIKit/NSCopying-Protocol.h>
+#import <UIKit/NSSecureCoding-Protocol.h>
 
-@interface UIBezierPath : NSObject <NSCopying, NSCoding>
+@interface UIBezierPath : NSObject <NSCopying, NSSecureCoding>
 {
     struct CGPath *_path;
     double *_lineDashPattern;
@@ -43,6 +43,7 @@
 + (id)bezierPathWithOvalInRect:(struct CGRect)arg1;
 + (id)bezierPathWithRect:(struct CGRect)arg1;
 + (id)bezierPath;
++ (_Bool)supportsSecureCoding;
 + (id)shadowBezierPath:(struct CGRect)arg1 withRoundedEdges:(unsigned long long)arg2;
 @property(nonatomic) _Bool usesEvenOddFillRule; // @synthesize usesEvenOddFillRule=_usesEvenOddFillRule;
 @property(nonatomic) double flatness; // @synthesize flatness=_flatness;

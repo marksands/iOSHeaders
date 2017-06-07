@@ -22,9 +22,11 @@
     NSUUID *_UUID;
     HKQuantity *_lapLength;
     long long _swimmingLocation;
+    NSUUID *_fitnessMachineSessionID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSUUID *fitnessMachineSessionID; // @synthesize fitnessMachineSessionID=_fitnessMachineSessionID;
 @property(nonatomic) long long swimmingLocation; // @synthesize swimmingLocation=_swimmingLocation;
 @property(retain, nonatomic) HKQuantity *lapLength; // @synthesize lapLength=_lapLength;
 @property(retain, nonatomic) NSUUID *UUID; // @synthesize UUID=_UUID;

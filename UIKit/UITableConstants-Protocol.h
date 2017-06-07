@@ -14,6 +14,7 @@
 - (double)defaultMaskGradientHeightForTableView:(id <UITable>)arg1;
 - (double)defaultFocusedShadowRadiusForTableView:(id <UITable>)arg1;
 - (double)defaultFocusedHorizontalOutsetForTableView:(id <UITable>)arg1;
+- (double)defaultAlphaForDraggingCell:(UITableViewCell *)arg1 inTableView:(id <UITable>)arg2;
 - (_Bool)reorderingCellWantsShadows:(UITableViewCell *)arg1 inTableView:(id <UITable>)arg2;
 - (double)defaultAlphaForReorderingCell:(UITableViewCell *)arg1 inTableView:(id <UITable>)arg2;
 - (UIImage *)defaultReorderControlImageForCell:(UITableViewCell *)arg1 inTableView:(id <UITable>)arg2;
@@ -58,8 +59,10 @@
 - (double)defaultContentEditPaddingForCell:(UITableViewCell *)arg1 inTableView:(id <UITable>)arg2;
 - (_Bool)imageViewOffsetByLayoutMarginsForCell:(UITableViewCell *)arg1 inTableView:(id <UITable>)arg2;
 - (struct UIEdgeInsets)defaultLayoutMarginsForCell:(UITableViewCell *)arg1 inTableView:(id <UITable>)arg2;
-- (double)defaultSectionContentMarginWidthForTableView:(id <UITable>)arg1;
+- (double)defaultTrailingCellMarginWidthForTableView:(id <UITable>)arg1;
+- (double)defaultLeadingCellMarginWidthForTableView:(id <UITable>)arg1;
 - (double)defaultMarginWidthForTableView:(id <UITable>)arg1;
+- (struct UIEdgeInsets)defaultLayoutMarginsForTableView:(id <UITable>)arg1;
 - (double)defaultSectionFooterHeightForTableView:(id <UITable>)arg1;
 - (double)defaultSectionHeaderHeightForTableView:(id <UITable>)arg1;
 - (_Bool)defaultRowHeightDependsOnCellStyle;

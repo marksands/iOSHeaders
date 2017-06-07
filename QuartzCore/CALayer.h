@@ -8,17 +8,18 @@
 
 #import <QuartzCore/CAMediaTiming-Protocol.h>
 #import <QuartzCore/CAPropertyInfo-Protocol.h>
-#import <QuartzCore/NSCoding-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class CAMeshTransform, NSArray, NSDictionary, NSString;
 @protocol CALayerDelegate;
 
-@interface CALayer : NSObject <CAPropertyInfo, NSCoding, CAMediaTiming>
+@interface CALayer : NSObject <CAPropertyInfo, NSSecureCoding, CAMediaTiming>
 {
     struct _CALayerIvars _attr;
 }
 
 + (id)defaultActionForKey:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (_Bool)_hasRenderLayerSubclass;
@@ -63,6 +64,7 @@
 @property double contentsScale;
 @property _Bool contentsContainsSubtitles;
 @property _Bool cornerContentsMasksEdges;
+@property _Bool continuousCorners;
 @property struct CGRect cornerContentsCenter;
 @property struct CGRect contentsCenter;
 @property struct CGRect contentsRect;
@@ -81,7 +83,7 @@
 @property double duration;
 @property double timeOffset;
 @property double beginTime;
-@property unsigned int maskedCorners;
+@property unsigned long long maskedCorners;
 - (void)layoutSublayers;
 - (void)layoutIfNeeded;
 - (struct CGSize)preferredFrameSize;
@@ -192,6 +194,7 @@
 @property struct CGAffineTransform contentsTransform;
 @property _Bool shadowPathIsBounds;
 @property _Bool invertsShadow;
+@property _Bool flipsHorizontalAxis;
 @property _Bool sortsSublayers;
 @property _Bool needsLayoutOnGeometryChange;
 @property(getter=isFrozen) _Bool frozen;
@@ -209,6 +212,9 @@
 - (id)CAMLTypeForKey:(id)arg1;
 - (void)encodeWithCAMLWriter:(id)arg1;
 - (void)CAMLParser:(id)arg1 setValue:(id)arg2 forKey:(id)arg3;
+@property(copy) NSArray *presentationModifiers;
+- (void)removePresentationModifier:(id)arg1;
+- (void)addPresentationModifier:(id)arg1;
 - (_Bool)_defersDidBecomeVisiblePostCommit;
 - (void)layerDidBecomeVisible:(_Bool)arg1;
 - (unsigned int)_renderLayerPropertyAnimationFlags:(unsigned int)arg1;

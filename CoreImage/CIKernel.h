@@ -14,6 +14,8 @@
 }
 
 + (id)colorMatrixBiasKernel;
++ (id)kernelWithFunctionName:(id)arg1 fromMetalLibraryData:(id)arg2 outputPixelFormat:(int)arg3 error:(id *)arg4;
++ (id)kernelWithFunctionName:(id)arg1 fromMetalLibraryData:(id)arg2 error:(id *)arg3;
 + (id)kernelWithString:(id)arg1;
 + (id)kernelsWithString:(id)arg1;
 + (id)kernelsWithString:(id)arg1 messageLog:(id)arg2;
@@ -25,9 +27,10 @@
 - (void)setROISelector:(SEL)arg1;
 - (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 arguments:(id)arg3;
 - (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 arguments:(id)arg3 options:(id)arg4;
-- (int)_outputFormatUsingDictionary:(id)arg1 andKernel:(struct Kernel *)arg2;
+-     // Error parsing type: i32@0:8@16^{Kernel=^^?{atomic<unsigned int>=AI}**B^{SerialIntArray}^{SerialStringArray}^{__CFString}BBBi}24, name: _outputFormatUsingDictionary:andKernel:
 - (_Bool)_isValidOutputPixelFormat:(int)arg1;
 @property(readonly) NSString *name;
+@property(nonatomic) _Bool perservesAlpha;
 - (id)_initWithDict:(id)arg1;
 - (id)initWithString:(id)arg1;
 - (int)_outputPixelFormatFromExplicitAttributes:(id)arg1;

@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <Accounts/ACProtobufCoding-Protocol.h>
 #import <Accounts/NSSecureCoding-Protocol.h>
 
 @class ACAccount, NSDate, NSMutableDictionary, NSMutableSet, NSSet, NSString;
 
-@interface ACAccountCredential : NSObject <NSSecureCoding>
+@interface ACAccountCredential : NSObject <NSSecureCoding, ACProtobufCoding>
 {
     NSMutableDictionary *_credentialItems;
     NSString *_credentialType;
@@ -53,14 +54,23 @@
 - (void)_clearDirtyProperties;
 - (void)_markPropertyDirty:(id)arg1;
 - (void)_setOwningAccount:(id)arg1;
+- (id)_encodeProtobufData;
+- (id)_encodeProtobuf;
+- (id)_initWithProtobufData:(id)arg1;
+- (id)_initWithProtobuf:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithPassword:(id)arg1;
 - (id)initWithOAuthToken:(id)arg1 tokenSecret:(id)arg2;
 - (id)initWithOAuth2Token:(id)arg1 refreshToken:(id)arg2 expiryDate:(id)arg3;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

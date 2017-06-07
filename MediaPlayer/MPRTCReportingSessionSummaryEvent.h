@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPRTCReportingEvent.h>
 
-@class NSError, NSNumber;
+@class NSError, NSNumber, NSString;
 
 @interface MPRTCReportingSessionSummaryEvent : MPRTCReportingEvent
 {
@@ -26,8 +26,10 @@
     long long _interfaceTypeChangeCount;
     long long _startInterfaceType;
     NSNumber *_perceivedTotalStartupTime;
+    NSString *_siriSessionIdentifier;
 }
 
+@property(copy, nonatomic) NSString *siriSessionIdentifier; // @synthesize siriSessionIdentifier=_siriSessionIdentifier;
 @property(copy, nonatomic) NSNumber *perceivedTotalStartupTime; // @synthesize perceivedTotalStartupTime=_perceivedTotalStartupTime;
 @property(nonatomic) long long startInterfaceType; // @synthesize startInterfaceType=_startInterfaceType;
 @property(nonatomic) long long interfaceTypeChangeCount; // @synthesize interfaceTypeChangeCount=_interfaceTypeChangeCount;

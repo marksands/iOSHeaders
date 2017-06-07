@@ -23,7 +23,7 @@
 @property(nonatomic) double damping; // @synthesize damping=_damping;
 @property(nonatomic) double stiffness; // @synthesize stiffness=_stiffness;
 @property(nonatomic) double mass; // @synthesize mass=_mass;
-@property(readonly, nonatomic) _Bool implicitDuration; // @synthesize implicitDuration=_implicitDuration;
+@property(nonatomic) _Bool implicitDuration; // @synthesize implicitDuration=_implicitDuration;
 @property(readonly, nonatomic) double dampingRatio; // @synthesize dampingRatio=_dampingRatio;
 @property(readonly, nonatomic) struct CGVector initialVelocity; // @synthesize initialVelocity=_initialVelocity;
 @property(readonly, nonatomic) double settlingDuration;

@@ -85,11 +85,14 @@ struct CGSize {
     double height;
 };
 
-struct OpaqueFigPlaylist;
-
-struct OpaqueFigPlaylistItem;
-
 #pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned long long _field1;
+    id *_field2;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 
 typedef struct {
     double left;
@@ -130,14 +133,6 @@ typedef struct {
     CDStruct_1b6d18a9 start;
     CDStruct_1b6d18a9 duration;
 } CDStruct_e83c9415;
-
-typedef struct {
-    int _field1;
-    union {
-        struct OpaqueFigPlaylist *_field1;
-        struct OpaqueFigPlaylistItem *_field2;
-    } _field2;
-} CDStruct_2bd8379f;
 
 typedef struct {
     CDStruct_e83c9415 source;

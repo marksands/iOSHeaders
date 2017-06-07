@@ -36,6 +36,7 @@
     int fWorkoutType;
 }
 
+- (void)_queryPedometerCalibrationBinsWithHandler:(CDUnknownBlockType)arg1 forType:(long long)arg2 forRemote:(_Bool)arg3;
 - (id)_strideCalibrationDump;
 - (void)_stopWatchdogCheckins;
 - (void)_startWatchdogCheckins;

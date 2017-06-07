@@ -22,6 +22,7 @@
     PHRelationshipChangeRequestHelper *_keyFaceHelper;
 }
 
++ (_Bool)canGenerateUUIDWithoutEntitlements;
 + (void)deleteFaceGroups:(id)arg1;
 + (id)changeRequestForFaceGroup:(id)arg1;
 + (id)creationRequestForFaceGroup;
@@ -43,12 +44,10 @@
 - (void)_prepareKeyFaceHelperIfNeeded;
 - (id)_existentFaceObjectIDs;
 - (void)didMutate;
-- (id)mutations;
 @property(readonly, nonatomic) NSManagedObjectID *objectID;
 @property(readonly, nonatomic) NSString *uuid;
 @property(readonly, getter=isMutated) _Bool mutated;
 @property(readonly, getter=isNew) _Bool new;
-- (_Bool)canGenerateUUIDLocally;
 - (void)performTransactionCompletionHandlingInPhotoLibrary:(id)arg1;
 - (id)createManagedObjectForInsertIntoPhotoLibrary:(id)arg1 error:(id *)arg2;
 - (void)_prefetchFacesAndPersonRelationship:(id)arg1 inContext:(id)arg2;

@@ -10,7 +10,7 @@
 #import <PhotosUI/PUBrowsingVideoPlayerChangeObserver-Protocol.h>
 #import <PhotosUI/PUVideoPlayerViewDelegate-Protocol.h>
 
-@class AVPlayer, NSString, PUAssetViewModel, PUBrowsingVideoPlayer, PUMediaProvider, PUVideoPlayerView;
+@class ISWrappedAVPlayer, NSString, PUAssetViewModel, PUBrowsingVideoPlayer, PUMediaProvider, PUVideoPlayerView;
 @protocol PUDisplayAsset;
 
 __attribute__((visibility("hidden")))
@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
     PUVideoPlayerView *__playerView;
     id <PUDisplayAsset> _asset;
     PUBrowsingVideoPlayer *__browsingVideoPlayer;
-    AVPlayer *__player;
+    ISWrappedAVPlayer *__player;
     long long __thumbnailRequestNumber;
     CDUnknownBlockType __readyForDisplayCompletionHandler;
     struct CGSize __targetSize;
@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic, setter=_setReadyForDisplayCompletionHandler:) CDUnknownBlockType _readyForDisplayCompletionHandler; // @synthesize _readyForDisplayCompletionHandler=__readyForDisplayCompletionHandler;
 @property(nonatomic, setter=_setDisplayingFullQualityImage:) _Bool _isDisplayingFullQualityImage; // @synthesize _isDisplayingFullQualityImage=__isDisplayingFullQualityImage;
 @property(nonatomic, setter=_setThumbnailRequestNumber:) long long _thumbnailRequestNumber; // @synthesize _thumbnailRequestNumber=__thumbnailRequestNumber;
-@property(retain, nonatomic, setter=_setPlayer:) AVPlayer *_player; // @synthesize _player=__player;
+@property(retain, nonatomic, setter=_setPlayer:) ISWrappedAVPlayer *_player; // @synthesize _player=__player;
 @property(retain, nonatomic, setter=_setBrowsingVideoPlayer:) PUBrowsingVideoPlayer *_browsingVideoPlayer; // @synthesize _browsingVideoPlayer=__browsingVideoPlayer;
 @property(nonatomic, setter=_setTargetSize:) struct CGSize _targetSize; // @synthesize _targetSize=__targetSize;
 @property(nonatomic, setter=_setCurrentImageRequestID:) int _currentImageRequestID; // @synthesize _currentImageRequestID=__currentImageRequestID;

@@ -6,12 +6,16 @@
 
 #import <UIKit/UIView.h>
 
+@class ISWrappedAVPlayer;
+
 __attribute__((visibility("hidden")))
 @interface _PUVideoView : UIView
 {
+    ISWrappedAVPlayer *_player;
 }
 
 + (Class)layerClass;
+- (void).cxx_destruct;
 - (void)setPlayer:(id)arg1;
 - (id)player;
 

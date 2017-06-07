@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class GEOUserSessionEntity, NSString, _GEOMapURLParser;
+@class GEOURLExtraStorage, GEOUserSessionEntity, NSString, _GEOMapURLParser;
 
 @interface _MKURLParser : NSObject
 {
@@ -15,6 +15,7 @@
 
 + (_Bool)isValidMapURL:(id)arg1;
 - (void).cxx_destruct;
+@property(readonly) GEOURLExtraStorage *extraStorage;
 @property(readonly) _Bool tester;
 @property(readonly) long long favoritesType;
 @property(readonly, copy) NSString *lineName;

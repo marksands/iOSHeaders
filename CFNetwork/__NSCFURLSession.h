@@ -6,7 +6,7 @@
 
 #import <CFNetwork/NSURLSession.h>
 
-@class NSDictionary, NSObject, NSOperationQueue, NSString, NSURLSessionConfiguration;
+@class NSDictionary, NSMutableDictionary, NSMutableSet, NSObject, NSOperationQueue, NSString, NSURLSessionConfiguration;
 @protocol NSURLSessionDelegate, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -22,8 +22,14 @@ __attribute__((visibility("hidden")))
     NSString *_uuid;
     CDUnknownBlockType _connBlock;
     NSDictionary *_atsState;
+    NSMutableDictionary *_altSvc;
+    NSMutableSet *_h2BlacklistedHosts;
 }
 
+- (void)set_h2BlacklistedHosts:(id)arg1;
+- (id)_h2BlacklistedHosts;
+- (void)set_altSvc:(id)arg1;
+- (id)_altSvc;
 - (void)set_connBlock:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_connBlock;
 - (void)set_atsState:(id)arg1;

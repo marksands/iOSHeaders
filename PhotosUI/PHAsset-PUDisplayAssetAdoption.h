@@ -24,16 +24,17 @@
 @property(readonly, nonatomic, getter=isContentAdjustmentAllowed) _Bool contentAdjustmentAllowed;
 @property(readonly, nonatomic, getter=isAdjusted) _Bool adjusted;
 @property(readonly, nonatomic, getter=isHighFramerateVideo) _Bool highFramerateVideo;
-@property(readonly, nonatomic, getter=isLivePhoto) _Bool livePhoto;
+@property(readonly, nonatomic) _Bool isAnimatedImage;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisVideoDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisStillDisplayTime;
-@property(readonly, nonatomic) unsigned long long fullsizeDataFormat;
+@property(readonly, nonatomic, getter=isLivePhoto) _Bool livePhoto;
 - (unsigned long long)isContentEqualTo:(id)arg1;
 @property(readonly, nonatomic) _Bool isTemporaryPlaceholder;
 @property(readonly, nonatomic) NSString *localizedGeoDescription;
 
 // Remaining properties
 @property(readonly, nonatomic) double aspectRatio;
+@property(readonly, nonatomic) _Bool canPlayLoopingVideo;
 @property(readonly, nonatomic) _Bool canPlayPhotoIris;
 @property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, copy) NSString *debugDescription;
@@ -49,7 +50,10 @@
 @property(readonly, nonatomic) NSDate *modificationDate;
 @property(readonly, nonatomic) unsigned long long pixelHeight;
 @property(readonly, nonatomic) unsigned long long pixelWidth;
+@property(readonly, nonatomic) long long playbackStyle;
+@property(readonly, nonatomic) long long playbackVariation;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) NSString *uniformTypeIdentifier;
 @property(readonly, nonatomic) NSString *uuid;
 @end
 

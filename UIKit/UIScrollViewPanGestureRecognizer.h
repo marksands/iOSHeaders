@@ -6,7 +6,7 @@
 
 #import <UIKit/UIPanGestureRecognizer.h>
 
-@class UIScrollView;
+@class UIScrollView, UIScrollViewDirectionalPressGestureRecognizer;
 
 __attribute__((visibility("hidden")))
 @interface UIScrollViewPanGestureRecognizer : UIPanGestureRecognizer
@@ -21,9 +21,12 @@ __attribute__((visibility("hidden")))
     unsigned int _directionalLockEnabled:1;
     unsigned int _transfersTrackingFromParentScrollView:1;
     unsigned int _movedAfterCaughtDeceleratingScrollViewButBeganNotYetDelivered:1;
+    long long _indirectScrollingState;
     double _translationScaleFactor;
+    UIScrollViewDirectionalPressGestureRecognizer *_directionalPressGestureRecognizer;
 }
 
+@property(nonatomic) __weak UIScrollViewDirectionalPressGestureRecognizer *directionalPressGestureRecognizer; // @synthesize directionalPressGestureRecognizer=_directionalPressGestureRecognizer;
 @property(nonatomic) double translationScaleFactor; // @synthesize translationScaleFactor=_translationScaleFactor;
 @property(nonatomic) __weak UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 - (void).cxx_destruct;
@@ -47,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_shouldTransferTrackingFromParentScrollViewForCurrentOffset;
 - (_Bool)_shouldContinueToWaitToTransferTrackingFromParentScrollView;
 - (_Bool)_canTransferTrackingFromParentPagingScrollView;
+- (void)setView:(id)arg1;
 - (void)setAllowedTouchTypes:(id)arg1;
 - (void)removeTarget:(id)arg1 action:(SEL)arg2;
 - (void)setDelegate:(id)arg1;

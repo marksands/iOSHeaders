@@ -17,6 +17,7 @@
 }
 
 + (Class)resolutionResultsType;
++ (id)options;
 @property(retain, nonatomic) NSMutableArray *resolutionResults; // @synthesize resolutionResults=_resolutionResults;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;

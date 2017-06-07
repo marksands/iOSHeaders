@@ -11,10 +11,10 @@
 __attribute__((visibility("hidden")))
 @interface _UITouchForwardingRecipient : NSObject
 {
-    long long recordedPhase;
-    long long autocompletedPhase;
     UIResponder *fromResponder;
     UIResponder *responder;
+    long long recordedPhase;
+    long long autocompletedPhase;
 }
 
 @property(nonatomic) long long autocompletedPhase; // @synthesize autocompletedPhase;

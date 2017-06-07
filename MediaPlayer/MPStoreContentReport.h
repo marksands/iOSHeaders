@@ -12,22 +12,22 @@
 
 @interface MPStoreContentReport : NSObject <NSCopying>
 {
-    NSString *_userId;
-    NSString *_contentId;
+    NSString *_userID;
+    NSString *_contentID;
     long long _concernItemType;
     NSString *_commentText;
     NSString *_aucType;
+    NSString *_concernTypeID;
     NSString *_displayText;
-    NSString *_concernTypeId;
 }
 
-@property(copy, nonatomic) NSString *concernTypeId; // @synthesize concernTypeId=_concernTypeId;
 @property(copy, nonatomic) NSString *displayText; // @synthesize displayText=_displayText;
+@property(copy, nonatomic) NSString *concernTypeID; // @synthesize concernTypeID=_concernTypeID;
 @property(copy, nonatomic) NSString *aucType; // @synthesize aucType=_aucType;
 @property(copy, nonatomic) NSString *commentText; // @synthesize commentText=_commentText;
 @property(nonatomic) long long concernItemType; // @synthesize concernItemType=_concernItemType;
-@property(copy, nonatomic) NSString *contentId; // @synthesize contentId=_contentId;
-@property(copy, nonatomic) NSString *userId; // @synthesize userId=_userId;
+@property(copy, nonatomic) NSString *contentID; // @synthesize contentID=_contentID;
+@property(copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
 - (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;

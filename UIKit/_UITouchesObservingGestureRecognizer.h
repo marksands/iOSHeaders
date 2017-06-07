@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     NSSet *_touches;
 }
 
++ (_Bool)_shouldDefaultToTouches;
 @property(copy, nonatomic) NSSet *touches; // @synthesize touches=_touches;
 - (void).cxx_destruct;
 - (_Bool)_wantsPartialTouchSequences;

@@ -10,6 +10,7 @@
 {
 }
 
++ (unsigned long long)_xpcAttributes;
 - (void)_addToReadingList:(id)arg1 withTitle:(id)arg2;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;

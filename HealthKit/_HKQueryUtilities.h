@@ -12,6 +12,9 @@
 
 + (id)coalesceTotalDurations:(id)arg1 startDate:(id)arg2 intervalComponents:(id)arg3;
 + (_Bool)shouldUseDailyAverageWithDateComponents:(id)arg1 sampleType:(id)arg2;
++ (id)maximumFromQuantities:(id)arg1 unit:(id)arg2;
++ (id)minimumFromQuantities:(id)arg1 unit:(id)arg2;
++ (id)averageSumFromQuantities:(id)arg1 unit:(id)arg2;
 + (id)averageSumFromStatistics:(id)arg1 unit:(id)arg2;
 + (id)countStatisticsQueryWithSampleType:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 intervalComponents:(id)arg4 predicate:(id)arg5 completion:(CDUnknownBlockType)arg6;
 + (id)calculateCountStatisticsWithSamples:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 intervalComponents:(id)arg4;

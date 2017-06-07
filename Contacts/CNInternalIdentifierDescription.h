@@ -24,7 +24,7 @@
 - (id)init;
 - (id)CNValueFromABValue:(void *)arg1;
 - (void *)ABValueFromCNValue:(id)arg1;
-- (int)abPropertyID:(int *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

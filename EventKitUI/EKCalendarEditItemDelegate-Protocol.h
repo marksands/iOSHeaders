@@ -9,6 +9,7 @@
 @class EKCalendarEditItem, UINavigationController, UITableView;
 
 @protocol EKCalendarEditItemDelegate <NSObject>
+- (_Bool)isNewCalendar;
 - (UITableView *)tableView;
 - (UINavigationController *)owningNavigationController;
 - (int)sectionForCalendarEditItem:(EKCalendarEditItem *)arg1;

@@ -21,6 +21,7 @@
 - (void)sortRange:(struct _NSRange)arg1 options:(unsigned long long)arg2 usingComparator:(CDUnknownBlockType)arg3;
 - (void)setSet:(id)arg1;
 - (void)setOrderedSet:(id)arg1;
+- (id)sortedArrayFromRange:(struct _NSRange)arg1 options:(unsigned long long)arg2 usingComparator:(CDUnknownBlockType)arg3;
 - (void)setArray:(id)arg1;
 - (void)setObject:(id)arg1 atIndexedSubscript:(unsigned long long)arg2;
 - (void)setObject:(id)arg1 atIndex:(unsigned long long)arg2;

@@ -21,7 +21,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *dealTitle;
 - (void)_contentSizeDidChange;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

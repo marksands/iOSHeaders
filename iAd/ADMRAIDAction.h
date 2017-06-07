@@ -9,18 +9,20 @@
 #import <iAd/NSCopying-Protocol.h>
 #import <iAd/NSSecureCoding-Protocol.h>
 
-@class NSURL;
+@class NSDictionary, NSURL;
 
 @interface ADMRAIDAction : NSObject <NSSecureCoding, NSCopying>
 {
     long long _type;
     NSURL *_url;
+    NSDictionary *_calendarEventInfo;
     struct CGSize _maximumExpandedSize;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)doesURLOpenNews:(id)arg1;
 + (id)descriptionForActionType:(long long)arg1;
+@property(retain, nonatomic) NSDictionary *calendarEventInfo; // @synthesize calendarEventInfo=_calendarEventInfo;
 @property(nonatomic) struct CGSize maximumExpandedSize; // @synthesize maximumExpandedSize=_maximumExpandedSize;
 @property(copy, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(nonatomic) long long type; // @synthesize type=_type;

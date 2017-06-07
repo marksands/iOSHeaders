@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)updateSkinToneBaseKey:(id)arg1 variantUsed:(id)arg2;
 - (void)emojiUsed:(id)arg1 language:(id)arg2;
 - (void)emojiUsed:(id)arg1;
+- (_Bool)userHasSelectedSkinToneEmoji;
 - (long long)reloadCategoryForOffsetPercentage:(double)arg1 withSender:(id)arg2;
 - (void)reloadForCategory:(long long)arg1 withSender:(id)arg2;
 - (void)updateEmojiKeyManagerWithKey:(id)arg1 withKeyView:(id)arg2;

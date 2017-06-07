@@ -6,34 +6,36 @@
 
 #import <MapKit/MKPlaceSectionViewController.h>
 
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
 #import <MapKit/MKPlaceAttributionCellDelegate-Protocol.h>
 #import <MapKit/MKStackingViewControllerFixedHeightAware-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
 @class MKMapItem, MKPlaceAttributionCell, NSArray, NSAttributedString, NSString, _MKMapItemAttribution;
-@protocol MKPlaceAttributionProvider;
+@protocol _MKInfoCardAnaylticsDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceAttributionViewController : MKPlaceSectionViewController <MKPlaceAttributionCellDelegate, MKStackingViewControllerFixedHeightAware, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKPlaceAttributionViewController : MKPlaceSectionViewController <MKPlaceAttributionCellDelegate, MKStackingViewControllerFixedHeightAware, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     _Bool _resizableViewsDisabled;
     NSArray *_urlStrings;
     MKMapItem *_mapItem;
-    id <MKPlaceAttributionProvider> _attributionProvider;
     NSAttributedString *_attributionString;
     MKPlaceAttributionCell *_attributionCell;
     _MKMapItemAttribution *_attribution;
+    id <_MKInfoCardAnaylticsDelegate> _analyticsDelegate;
 }
 
+@property(nonatomic) __weak id <_MKInfoCardAnaylticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
 @property(retain, nonatomic) _MKMapItemAttribution *attribution; // @synthesize attribution=_attribution;
 @property(nonatomic) _Bool resizableViewsDisabled; // @synthesize resizableViewsDisabled=_resizableViewsDisabled;
 @property(retain) MKPlaceAttributionCell *attributionCell; // @synthesize attributionCell=_attributionCell;
 @property(copy, nonatomic) NSAttributedString *attributionString; // @synthesize attributionString=_attributionString;
-@property(nonatomic) __weak id <MKPlaceAttributionProvider> attributionProvider; // @synthesize attributionProvider=_attributionProvider;
 @property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
 @property(copy, nonatomic) NSArray *urlStrings; // @synthesize urlStrings=_urlStrings;
 - (void).cxx_destruct;
 - (void)openURL;
+- (id)infoAttributionString;
 - (void)infoCardThemeChanged:(id)arg1;
 - (double)extraHeightToReserveInLayout;
 - (void)loadView;

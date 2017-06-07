@@ -20,11 +20,13 @@
 + (_Bool)_shouldForwardViewWillTransitionToSize;
 @property(nonatomic) __weak id <EKShareePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (unsigned long long)eventAttendeePicker:(id)arg1 getValidationStatusForEmailAddress:(id)arg2;
-- (void)eventAttendeePicker:(id)arg1 cacheValidationStatus:(unsigned long long)arg2 forEmail:(id)arg3;
+- (unsigned long long)eventAttendeePicker:(id)arg1 getValidationStatusForAddress:(id)arg2;
+- (void)eventAttendeePicker:(id)arg1 cacheValidationStatus:(unsigned long long)arg2 forAddress:(id)arg3;
 - (struct CGSize)preferredContentSize;
 @property(copy, nonatomic) NSArray *sharees;
+- (id)_createRecipientFromSharee:(id)arg1;
 - (id)_recipientFromSharee:(id)arg1;
+- (id)_createShareeFromRecipient:(id)arg1;
 - (id)_shareeFromRecipient:(id)arg1;
 - (void)add;
 - (void)cancel;

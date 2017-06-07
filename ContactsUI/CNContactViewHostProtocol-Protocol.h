@@ -9,7 +9,9 @@
 @class CNContact, NSString;
 
 @protocol CNContactViewHostProtocol <NSObject>
+- (void)viewDidAppear;
 - (void)didChangePreferredContentSize:(struct CGSize)arg1;
+- (void)isPresentingEditingController:(_Bool)arg1;
 - (void)isPresentingFullscreen:(_Bool)arg1;
 - (void)didDeleteContact:(CNContact *)arg1;
 - (void)didCompleteWithContact:(CNContact *)arg1;

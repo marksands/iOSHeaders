@@ -6,40 +6,39 @@
 
 #import <objc/NSObject.h>
 
-#import <HealthKit/HKQueryClient-Protocol.h>
+#import <HealthKit/HKQueryClientInterface-Protocol.h>
 
-@class HKObjectType, HKSampleType, NSMutableArray, NSPredicate, NSString, NSUUID, _HKFilter;
-@protocol HKQueryDelegate, NSXPCProxyCreating, OS_dispatch_queue;
+@class HKHealthStore, HKObjectType, HKSampleType, NSPredicate, NSString, NSUUID, _HKFilter;
+@protocol HKQueryDelegate, HKQueryServerInterface, OS_dispatch_queue;
 
-@interface HKQuery : NSObject <HKQueryClient>
+@interface HKQuery : NSObject <HKQueryClientInterface>
 {
-    int _batchCount;
-    NSPredicate *_predicate;
-    NSObject<OS_dispatch_queue> *_activationQueue;
-    id <HKQueryDelegate> _delegate;
-    NSMutableArray *_sampleObjects;
-    NSMutableArray *_deletedObjects;
-    int _samplesDeliveredBeforeSuspend;
-    CDUnknownBlockType _activationHandler;
     _Bool _hasBeenExecuted;
-    _Bool _receivedInitialResults;
+    id <HKQueryDelegate> _delegate;
+    HKHealthStore *_strongHealthStore;
+    int _hasDeactivated;
+    _Bool _shouldSuppressDataCollection;
     HKObjectType *_objectType;
+    NSPredicate *_predicate;
+    long long _activationState;
+    NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_clientQueue;
-    id <NSXPCProxyCreating> _serverProxy;
     NSUUID *_activationUUID;
+    id <HKQueryServerInterface> _serverProxy;
     _HKFilter *_filter;
-    double _collectionInterval;
 }
 
-+ (void)_configureClientInterface:(id)arg1;
-+ (Class)_queryServerDataObjectClass;
-+ (id)_serverInterfaceProtocol;
-+ (id)_clientInterfaceProtocol;
-+ (_Bool)shouldApplyPredicateForObjectType:(id)arg1;
++ (id)_cachedInterfaceForProtocol:(id)arg1 configurationHandler:(CDUnknownBlockType)arg2;
 + (id)serverInterface;
 + (id)clientInterface;
++ (void)configureServerInterface:(id)arg1;
++ (void)configureClientInterface:(id)arg1;
++ (id)serverInterfaceProtocol;
++ (id)clientInterfaceProtocol;
++ (_Bool)shouldApplyAdditionalPredicateForObjectType:(id)arg1;
 + (id)predicateForActivitySummariesBetweenStartDateComponents:(id)arg1 endDateComponents:(id)arg2;
 + (id)predicateForActivitySummaryWithDateComponents:(id)arg1;
++ (id)predicateForWorkoutsWithOperatorType:(unsigned long long)arg1 totalFlightsClimbed:(id)arg2;
 + (id)predicateForWorkoutsWithOperatorType:(unsigned long long)arg1 totalSwimmingStrokeCount:(id)arg2;
 + (id)predicateForWorkoutsWithOperatorType:(unsigned long long)arg1 totalDistance:(id)arg2;
 + (id)predicateForWorkoutsWithOperatorType:(unsigned long long)arg1 totalEnergyBurned:(id)arg2;
@@ -47,6 +46,8 @@
 + (id)predicateForWorkoutsWithWorkoutActivityType:(unsigned long long)arg1;
 + (id)predicateForCategorySamplesWithOperatorType:(unsigned long long)arg1 value:(long long)arg2;
 + (id)predicateForQuantitySamplesWithOperatorType:(unsigned long long)arg1 quantity:(id)arg2;
++ (id)predicateForTodayForDate:(id)arg1;
++ (id)predicateForSamplesAssociatedWithSample:(id)arg1;
 + (id)predicateForObjectsFromWorkout:(id)arg1;
 + (id)predicateForObjectsWithNoCorrelation;
 + (id)predicateForObjectsWithUUIDs:(id)arg1;
@@ -62,67 +63,40 @@
 + (id)predicateForObjectsWithMetadataKey:(id)arg1 allowedValues:(id)arg2;
 + (id)predicateForObjectsWithMetadataKey:(id)arg1;
 + (id)predicateForActivityCachesBetweenStartDateComponents:(id)arg1 endDateComponents:(id)arg2;
-@property(nonatomic, getter=_collectionInterval, setter=_setCollectionInterval:) double collectionInterval; // @synthesize collectionInterval=_collectionInterval;
-@property(retain, nonatomic, getter=_filter) _HKFilter *filter; // @synthesize filter=_filter;
-@property(readonly, nonatomic, getter=_hasReceivedInitialResults) _Bool receivedInitialResults; // @synthesize receivedInitialResults=_receivedInitialResults;
+@property(readonly, nonatomic, getter=_filter) _HKFilter *filter; // @synthesize filter=_filter;
+@property(readonly, nonatomic) id <HKQueryServerInterface> serverProxy; // @synthesize serverProxy=_serverProxy;
 @property(readonly, nonatomic) NSUUID *activationUUID; // @synthesize activationUUID=_activationUUID;
-@property(retain, nonatomic) id <NSXPCProxyCreating> serverProxy; // @synthesize serverProxy=_serverProxy;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
-@property(readonly, nonatomic) _Bool hasBeenExecuted; // @synthesize hasBeenExecuted=_hasBeenExecuted;
-@property(readonly) HKObjectType *objectType; // @synthesize objectType=_objectType;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(readonly, nonatomic) long long activationState; // @synthesize activationState=_activationState;
+@property(nonatomic) _Bool shouldSuppressDataCollection; // @synthesize shouldSuppressDataCollection=_shouldSuppressDataCollection;
+@property(retain) NSPredicate *predicate; // @synthesize predicate=_predicate;
+@property(retain) HKObjectType *objectType; // @synthesize objectType=_objectType;
 - (void).cxx_destruct;
-@property(nonatomic, setter=_setBatchCount:) int batchCount;
-- (CDUnknownBlockType)_activationQueue_activationHandler;
-- (void)_setActivationHandler:(CDUnknownBlockType)arg1;
-- (int)_samplesDeliveredBeforeSuspend;
-- (void)_setSamplesDeliveredBeforeSuspend:(int)arg1;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) __weak id <HKQueryDelegate> delegate;
-@property(readonly) NSPredicate *predicate;
 @property(readonly) HKSampleType *sampleType;
-- (void)deliverCurrentActivityCache:(id)arg1 moveStatistics:(id)arg2 exerciseStatistics:(id)arg3 standHoursInfo:(id)arg4 queryUUID:(id)arg5;
-- (void)deliverActivityMoveStatistics:(id)arg1 exerciseStatistics:(id)arg2 standHoursInfo:(id)arg3 workouts:(id)arg4 forQuery:(id)arg5;
-- (void)deliverStatistics:(id)arg1 forQuery:(id)arg2;
-- (void)deliverResetStatisticsObjects:(id)arg1 forQuery:(id)arg2;
-- (void)resetStatisticsForQuery:(id)arg1;
-- (void)deliverUpdatedStatistics:(id)arg1 anchor:(id)arg2 forQuery:(id)arg3;
-- (void)deliverInitialStatisticsObjects:(id)arg1 anchor:(id)arg2 forQuery:(id)arg3;
-- (void)deliverStatisticsBatch:(id)arg1 initialDelivery:(_Bool)arg2 finalBatch:(_Bool)arg3 anchor:(id)arg4 forQuery:(id)arg5;
-- (void)deliverResetValuesByType:(id)arg1 forQuery:(id)arg2;
-- (void)deliverUpdatedValuesByType:(id)arg1 forQuery:(id)arg2;
-- (void)deliverValuesByType:(id)arg1 forQuery:(id)arg2;
-- (void)deliverUpdatedSources:(id)arg1 added:(id)arg2 forQuery:(id)arg3;
-- (void)deliverSources:(id)arg1 forQuery:(id)arg2;
-- (void)dataUpdatedInDatabaseWithAnchor:(id)arg1 query:(id)arg2;
-- (void)deliverSampleObjects:(id)arg1 deletedObjects:(id)arg2 withAnchor:(id)arg3 forQuery:(id)arg4;
-- (void)deliverResultsResetWithAnchor:(id)arg1 final:(_Bool)arg2 forQuery:(id)arg3;
-- (void)deliverError:(id)arg1 forQuery:(id)arg2;
-- (void)deliverSampleBatch:(id)arg1 deletedBatch:(id)arg2 final:(_Bool)arg3 anchor:(id)arg4 forQuery:(id)arg5;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (_Bool)_shouldStayAliveAfterInitialResults;
-- (_Bool)_queue_shouldStayAliveAfterInitialResults;
-- (void)_queue_validate;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)_queue_requestServerProxyWithUUID:(id)arg1 server:(id)arg2 handler:(CDUnknownBlockType)arg3;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (void)_queue_deactivate;
-- (void)_queue_deliverErrorAndDeactivate:(id)arg1;
-- (void)_queue_activateWithServer:(id)arg1 isReactivation:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
-- (_Bool)_requiresValidSampleType;
-- (id)_predicateFilterClasses;
-- (void)_throwInvalidArgumentExceptionIfHasBeenExecuted:(SEL)arg1;
-- (void)_client_receivedInitialResults;
-- (void)_dispatchAsyncToResourceQueue:(CDUnknownBlockType)arg1;
-- (void)_dispatchSyncToResourceQueue:(CDUnknownBlockType)arg1;
-- (void)_dispatchToClientForUUID:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)client_deliverError:(id)arg1 forQuery:(id)arg2;
+- (void)_queue_deactivateWithError:(id)arg1;
+- (void)_queue_activateWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)queue_deactivate;
 - (void)deactivate;
-- (void)reactivateWithServer:(id)arg1;
-- (void)activateWithClientQueue:(id)arg1 healthStore:(id)arg2 delegate:(id)arg3 withCompletion:(CDUnknownBlockType)arg4;
-- (id)_initWithDataType:(id)arg1 predicate:(id)arg2;
-- (id)init;
+- (void)reactivateWithHealthStore:(id)arg1;
+- (void)activateWithClientQueue:(id)arg1 healthStore:(id)arg2 delegate:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)queue_dispatchToClientForUUID:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)_throwInvalidArgumentExceptionIfHasBeenExecuted:(SEL)arg1;
+- (void)queue_populateConfiguration:(id)arg1;
+- (id)_predicateFilterClasses;
+- (_Bool)queue_shouldDeactivateAfterInitialResults;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_queryDidFinishActivation:(id)arg1 success:(_Bool)arg2 error:(id)arg3;
+- (void)queue_validate;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)_initWithObjectType:(id)arg1 predicate:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

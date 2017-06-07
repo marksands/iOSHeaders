@@ -12,6 +12,7 @@
     double fPoolLength;
 }
 
++ (id)swimWorkoutInstance:(id)arg1;
 + (id)swimLocationName:(long long)arg1;
 + (_Bool)supportsSecureCoding;
 + (_Bool)isAvailable;

@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 @interface _HKDimension : NSObject
 {
     _HKFactorization *_reduction;
-    long long _reductionToken;
+    struct os_unfair_lock_s _reductionLock;
 }
 
 + (id)dimensionFromString:(id)arg1;
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (id)_baseDimensions;
 - (id)description;
 - (id)reduction;
+- (id)init;
 
 @end
 

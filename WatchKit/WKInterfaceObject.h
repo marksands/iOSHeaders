@@ -39,6 +39,7 @@
 - (void)_setImageNamed:(id)arg1 forProperty:(id)arg2;
 - (void)_setImageData:(id)arg1 forProperty:(id)arg2;
 - (void)_setImage:(id)arg1 forProperty:(id)arg2;
+- (void)didRegisterWithRemoteInterface;
 - (void)_setupWithDescription:(id)arg1 forController:(id)arg2;
 - (id)_initWithInterfaceProperty:(id)arg1 viewControllerID:(id)arg2 propertyIndex:(long long)arg3 tableIndex:(long long)arg4 rowIndex:(long long)arg5;
 - (id)init;

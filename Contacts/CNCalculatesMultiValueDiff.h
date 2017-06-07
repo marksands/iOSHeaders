@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSMutableArray, NSMutableOrderedSet, NSOrderedSet;
 
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)diffMultiValue:(id)arg1 toMultiValue:(id)arg2;
+- (void).cxx_destruct;
 - (id)updates;
 - (void)calculateDiff;
 - (void)appendReorderUpdates;
@@ -35,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (void)setupRemovedIdentifiers;
 - (void)setupFinalIdentifiers;
 - (void)setupOriginalIdentifiers;
-- (void)dealloc;
 - (id)initWithMultiValue1:(id)arg1 multiValue2:(id)arg2;
 
 @end

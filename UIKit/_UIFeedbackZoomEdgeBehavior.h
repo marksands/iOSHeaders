@@ -4,24 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/_UIFeedbackEdgeBehavior.h>
+#import <UIKit/_UIZoomEdgeFeedbackGenerator.h>
 
-@interface _UIFeedbackZoomEdgeBehavior : _UIFeedbackEdgeBehavior
+@interface _UIFeedbackZoomEdgeBehavior : _UIZoomEdgeFeedbackGenerator
 {
-    double _minimumZoomScale;
-    double _maximumZoomScale;
-    double _minimumTemporaryZoomScale;
-    double _maximumTemporaryZoomScale;
 }
-
-+ (id)behaviorWithCoordinateSpace:(id)arg1;
-@property(nonatomic) double maximumTemporaryZoomScale; // @synthesize maximumTemporaryZoomScale=_maximumTemporaryZoomScale;
-@property(nonatomic) double minimumTemporaryZoomScale; // @synthesize minimumTemporaryZoomScale=_minimumTemporaryZoomScale;
-@property(nonatomic) double maximumZoomScale; // @synthesize maximumZoomScale=_maximumZoomScale;
-@property(nonatomic) double minimumZoomScale; // @synthesize minimumZoomScale=_minimumZoomScale;
-- (void)_zoomScaleUpdated:(double)arg1 withVelocity:(double)arg2;
-- (void)zoomScaleUpdated:(double)arg1;
-- (void)_updateMaximumValue;
 
 @end
 

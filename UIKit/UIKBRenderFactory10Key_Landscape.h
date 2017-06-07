@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (void)setupColumnLayoutSegmentsWithControlWidth:(double)arg1;
+- (double)centerColumnWidthFactor;
 - (double)controlColumnWidthFactor;
 - (struct CGPoint)numberPadVBarSecondaryTextOffset;
 - (struct CGPoint)numberPadKeySecondaryTextOffset;

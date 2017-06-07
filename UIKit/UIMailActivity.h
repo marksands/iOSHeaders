@@ -6,15 +6,16 @@
 
 #import <UIKit/UIActivity.h>
 
+#import <UIKit/UIManagedConfigurationRestrictableActivity-Protocol.h>
 #import <UIKit/UIStateRestoring-Protocol.h>
 
 @class MFMailComposeViewController, NSString;
 @protocol UIStateRestoring;
 
-@interface UIMailActivity : UIActivity <UIStateRestoring>
+@interface UIMailActivity : UIActivity <UIStateRestoring, UIManagedConfigurationRestrictableActivity>
 {
-    _Bool _keyboardVisible;
     _Bool _sourceIsManaged;
+    _Bool _keyboardVisible;
     _Bool _hasAnyAccount;
     _Bool _hasFilteredAccount;
     NSString *_subject;
@@ -24,22 +25,24 @@
 
 + (id)applicationBundleID;
 + (long long)activityCategory;
++ (unsigned long long)_xpcAttributes;
 @property(nonatomic) _Bool hasFilteredAccount; // @synthesize hasFilteredAccount=_hasFilteredAccount;
 @property(nonatomic) _Bool hasAnyAccount; // @synthesize hasAnyAccount=_hasAnyAccount;
 @property(retain, nonatomic) MFMailComposeViewController *mailComposeViewController; // @synthesize mailComposeViewController=_mailComposeViewController;
 @property(retain, nonatomic) NSString *autosaveIdentifier; // @synthesize autosaveIdentifier=_autosaveIdentifier;
-@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 @property(nonatomic) _Bool keyboardVisible; // @synthesize keyboardVisible=_keyboardVisible;
 @property(copy, nonatomic) NSString *subject; // @synthesize subject=_subject;
+@property(nonatomic) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
 - (void).cxx_destruct;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)_cleanup;
 - (void)mailComposeController:(id)arg1 didFinishWithResult:(long long)arg2 error:(id)arg3;
 - (id)activityViewController;
-- (void)_setSubject:(id)arg1;
+- (void)_setMailSubject:(id)arg1;
 - (void)prepareWithActivityItems:(id)arg1;
 - (_Bool)canPerformWithActivityItems:(id)arg1;
+- (_Bool)canPerformWithActivityItems:(id)arg1 hostApplicationBundleID:(id)arg2;
 - (void)autosaveWithHandler:(CDUnknownBlockType)arg1;
 - (_Bool)_restoreDraft;
 - (id)_stateRestorationDraftIsAvailable;
@@ -47,8 +50,7 @@
 - (void)_saveDraft:(id)arg1;
 - (id)_mailDraftRestorationURL;
 - (id)activityTitle;
-- (id)_activitySettingsImage;
-- (id)_activityImage;
+- (id)_bundleIdentifierForActivityImageCreation;
 - (id)activityType;
 - (void)dealloc;
 - (id)init;

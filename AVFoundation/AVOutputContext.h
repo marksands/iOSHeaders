@@ -8,7 +8,7 @@
 
 #import <AVFoundation/NSSecureCoding-Protocol.h>
 
-@class AVOutputContextInternal, NSString;
+@class AVFigEndpointPickerOutputContextImpl, AVOutputContextInternal, NSString;
 
 @interface AVOutputContext : NSObject <NSSecureCoding>
 {
@@ -17,33 +17,55 @@
 
 + (_Bool)outputContextExistsWithRemoteOutputDevice;
 + (void)resetOutputDeviceForAllOutputContexts;
-+ (struct OpaqueFigEndpointPicker *)copySystemVideoPicker;
 + (_Bool)supportsSecureCoding;
++ (id)outputContextForControllingOutputDeviceGroup:(id)arg1;
++ (id)outputContextForControllingOutputDeviceGroupWithID:(id)arg1;
 + (id)iTunesAudioContext;
 + (id)sharedSystemScreenContext;
 + (id)sharedSystemAudioContext;
++ (_Bool)isSystemContextAllowed;
++ (id)auxiliaryOutputContext;
++ (id)sharedAudioPresentationOutputContext;
 + (id)outputContext;
++ (id)allOutputContextImplClasses;
++ (Class)defaultOutputContextImplClass;
++ (void)initialize;
++ (id)outputContextWithEndpointPickerUUID:(id)arg1;
+- (void)outputContextImpl:(id)arg1 didExpireWithReplacement:(id)arg2;
+- (void)outputContextImpl:(id)arg1 didCloseCommunicationChannel:(id)arg2;
+- (void)outputContextImpl:(id)arg1 didReceiveData:(id)arg2 fromCommunicationChannel:(id)arg3;
+- (void)outputContextImplOutgoingCommunicationChannelDidBecomeAvailable:(id)arg1;
+- (void)setCommunicationChannelDelegate:(id)arg1;
+- (id)communicationChannelDelegate;
+- (id)outgoingCommunicationChannel;
+- (void)removeOutputDevice:(id)arg1;
+- (void)addOutputDevice:(id)arg1;
+- (void)setOutputDevices:(id)arg1;
+- (void)outputContextImplDidChangeOutputDevices:(id)arg1;
+- (id)outputDevices;
+- (void)outputContextImplDidChangeOutputDeviceGroup:(id)arg1;
+- (id)outputDeviceGroup;
+- (void)outputContextImplDidChangeGlobalOutputDeviceConfiguration:(id)arg1;
+- (void)outputContextImplDidChangeOutputDevice:(id)arg1;
+- (void)outputContextImpl:(id)arg1 didInitiateDestinationChange:(id)arg2;
+- (void)setOutputDevice:(id)arg1 options:(id)arg2;
 - (_Bool)setOutputDevice:(id)arg1 forFeatures:(unsigned long long)arg2;
+- (unsigned long long)outputDeviceFeatures;
 - (id)outputDevice;
 - (id)associatedAudioDeviceID;
 @property(readonly, nonatomic) NSString *deviceName;
 - (void)setApplicationProcessID:(int)arg1;
 - (int)applicationProcessID;
-- (id)contextUUID;
+- (id)ID;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)finalize;
+- (id)impl;
 - (void)dealloc;
-- (void)_removeFigEndpointPickerNotifications;
-- (void)_addFigEndpointPickerNotifications;
-- (void)_handlePickerServerConnectionDiedNotification;
-- (int)_configureFigEndpointPickerWithFeature:(unsigned long long)arg1 options:(id)arg2;
-- (id)_weakReference;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFeature:(unsigned long long)arg1 options:(id)arg2;
-- (id)initWithContextUUID:(id)arg1;
+- (id)initWithOutputContextImpl:(id)arg1;
 - (id)init;
+@property(readonly, nonatomic) AVFigEndpointPickerOutputContextImpl *figEndpointPickerOutputContextImpl;
 
 @end
 

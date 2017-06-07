@@ -4,15 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSDictionary;
-
 @protocol ADSOptInConnection_RPC
 - (void)_remote_getiAdIDsWithCompletionHandler:(void (^)(NSString *, NSString *, NSString *, NSString *, NSString *, NSString *, NSString *))arg1;
-- (void)handlePushNotification:(NSDictionary *)arg1;
-- (void)_remote_primeAdSheetDataStore:(void (^)(void))arg1;
-- (void)_remote_handleAccountChange:(void (^)(void))arg1;
-- (void)refreshOptInStatusRefreshingWeakToken:(_Bool)arg1 withCompletionHandler:(void (^)(long long))arg2;
-- (void)refreshOptInStatus;
-- (void)setOptInStatus:(_Bool)arg1 completionHandler:(void (^)(long long))arg2;
 @end
 

@@ -8,7 +8,7 @@
 
 #import <Intents/INSendMessageIntentExport-Protocol.h>
 
-@class INPerson, NSArray, NSString;
+@class INPerson, INSpeakableString, NSArray, NSString;
 
 @interface INSendMessageIntent : INIntent <INSendMessageIntentExport>
 {
@@ -27,16 +27,21 @@
 @property(readonly, copy, nonatomic) INPerson *sender;
 - (void)setServiceName:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *serviceName;
-- (void)setGroupName:(id)arg1;
-@property(readonly, copy, nonatomic) NSString *groupName;
+- (void)setConversationIdentifier:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *conversationIdentifier;
+- (void)setSpeakableGroupName:(id)arg1;
+@property(readonly, copy, nonatomic) INSpeakableString *speakableGroupName;
 - (void)setContent:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *content;
 - (void)setRecipients:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *recipients;
-- (id)initWithRecipients:(id)arg1 content:(id)arg2 groupName:(id)arg3 serviceName:(id)arg4 sender:(id)arg5;
+- (id)initWithRecipients:(id)arg1 content:(id)arg2 speakableGroupName:(id)arg3 conversationIdentifier:(id)arg4 serviceName:(id)arg5 sender:(id)arg6;
 - (id)_metadata;
 - (id)_typedBackingStore;
 - (id)initWithRecipients:(id)arg1 content:(id)arg2 serviceName:(id)arg3 sender:(id)arg4;
+- (void)setGroupName:(id)arg1;
+- (id)groupName;
+- (id)initWithRecipients:(id)arg1 content:(id)arg2 groupName:(id)arg3 serviceName:(id)arg4 sender:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

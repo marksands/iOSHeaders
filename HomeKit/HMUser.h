@@ -16,7 +16,6 @@
 {
     HMThreadSafeMutableArrayCollection *_pendingAccessoryInvitations;
     _Bool _currentUser;
-    _Bool _administrator;
     NSUUID *_uniqueIdentifier;
     NSString *_name;
     HMHomeAccessControl *_homeAccessControl;
@@ -40,14 +39,15 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)_unconfigure;
-- (id)initWithUserID:(id)arg1 name:(id)arg2 uuid:(id)arg3 home:(id)arg4 isAdministrator:(_Bool)arg5;
+- (id)initWithUserID:(id)arg1 name:(id)arg2 uuid:(id)arg3 home:(id)arg4 owner:(_Bool)arg5 administrator:(_Bool)arg6;
 - (id)initWithUserID:(id)arg1 name:(id)arg2 uuid:(id)arg3 home:(id)arg4;
 - (id)init;
+- (void)_updatePresenceAuthorizationStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updatePresenceAuthorizationStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)mergePendingAccessoryInvitationsWithOutgoingInvitation:(id)arg1 operations:(id)arg2;
 - (void)setPendingAccessoryInvitationsWithOutgoingInvitation:(id)arg1;
 - (id)_filterAccessoryInvitationsFromOutgoingInvitation:(id)arg1;
 - (id)pendingAccessoryInvitations;
-@property(nonatomic) _Bool administrator; // @synthesize administrator=_administrator;
 @property(nonatomic, getter=isCurrentUser) _Bool currentUser; // @synthesize currentUser=_currentUser;
 @property(nonatomic) __weak HMHome *home; // @synthesize home=_home;
 @property(copy, nonatomic) NSString *userID; // @synthesize userID=_userID;

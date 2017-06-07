@@ -6,12 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface C3DAnimationBinding : NSObject
 {
     void *_owner;
-    struct __C3DModelTarget *_source;
-    struct __C3DModelTarget *_destination;
+    // Error parsing type: ^{__C3DModelTarget={__CFRuntimeBase=QAQ}^v^vscCCB^?^?}, name: _source
+    // Error parsing type: ^{__C3DModelTarget={__CFRuntimeBase=QAQ}^v^vscCCB^?^?}, name: _destination
 }
 
 - (void)dealloc;

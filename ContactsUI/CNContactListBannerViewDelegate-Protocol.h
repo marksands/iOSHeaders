@@ -9,7 +9,6 @@
 @class CNContact, CNContactListBannerView;
 
 @protocol CNContactListBannerViewDelegate <NSObject>
-- (void)bannerViewWasSelectedToPresentPeoplePicker:(CNContactListBannerView *)arg1;
 - (void)bannerView:(CNContactListBannerView *)arg1 wasSelectedToPresentMeContact:(CNContact *)arg2;
 @end
 

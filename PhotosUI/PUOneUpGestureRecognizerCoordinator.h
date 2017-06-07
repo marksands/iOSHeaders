@@ -8,7 +8,7 @@
 
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSHashTable, NSString, PUBrowsingSession, PUDoubleTapZoomController, PUOneUpBarsController, PUTouchingGestureRecognizer;
+@class NSHashTable, NSString, PUBrowsingSession, PUDoubleTapZoomController, PULongPressDragController, PUOneUpBarsController, PUTouchingGestureRecognizer;
 @protocol PUOneUpGestureRecognizerCoordinatorDelegate;
 
 __attribute__((visibility("hidden")))
@@ -24,11 +24,13 @@ __attribute__((visibility("hidden")))
     PUBrowsingSession *_browsingSession;
     PUOneUpBarsController *_oneUpBarsController;
     PUDoubleTapZoomController *_doubleTapZoomController;
+    PULongPressDragController *_longPressDragController;
     NSHashTable *__irisGestureRecognizers;
 }
 
 @property(nonatomic, setter=_setNeedsUpdateGestureRecognizers:) _Bool _needsUpdateGestureRecognizers; // @synthesize _needsUpdateGestureRecognizers=__needsUpdateGestureRecognizers;
 @property(retain, nonatomic, setter=_setIrisGestureRecognizers:) NSHashTable *_irisGestureRecognizers; // @synthesize _irisGestureRecognizers=__irisGestureRecognizers;
+@property(retain, nonatomic) PULongPressDragController *longPressDragController; // @synthesize longPressDragController=_longPressDragController;
 @property(retain, nonatomic) PUDoubleTapZoomController *doubleTapZoomController; // @synthesize doubleTapZoomController=_doubleTapZoomController;
 @property(retain, nonatomic) PUOneUpBarsController *oneUpBarsController; // @synthesize oneUpBarsController=_oneUpBarsController;
 @property(retain, nonatomic) PUBrowsingSession *browsingSession; // @synthesize browsingSession=_browsingSession;

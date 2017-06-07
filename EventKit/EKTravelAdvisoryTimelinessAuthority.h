@@ -8,7 +8,7 @@
 
 #import <EventKit/CalActivatable-Protocol.h>
 
-@class NSDate, NSString;
+@class NSDate;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface EKTravelAdvisoryTimelinessAuthority : NSObject <CalActivatable>
@@ -43,15 +43,9 @@
 - (void)updateWithHypothesis:(id)arg1;
 - (void)deactivate;
 - (void)activate;
-@property(readonly, nonatomic) _Bool active;
+- (_Bool)active;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

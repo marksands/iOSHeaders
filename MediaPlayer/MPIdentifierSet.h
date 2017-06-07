@@ -15,10 +15,12 @@
 {
     long long _deviceLibraryPersistentID;
     long long _homeSharingLibraryID;
+    long long _syncID;
     NSString *_globalPlaylistID;
     long long _storeAdamID;
-    NSString *_pumpkinProfileID;
+    NSString *_socialProfileID;
     unsigned long long _storeCloudID;
+    NSString *_cloudUniversalLibraryID;
     NSString *_storeCloudAlbumID;
     NSString *_storeRecommendationID;
     long long _storePurchasedAdamID;
@@ -28,13 +30,16 @@
     long long _radioStationID;
     NSString *_contentItemID;
     NSString *_lyricsID;
+    NSString *_vendorID;
     NSString *_informalMediaClipID;
     NSString *_informalStaticAssetID;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)emptyIdentifierSet;
 @property(copy, nonatomic) NSString *informalStaticAssetID; // @synthesize informalStaticAssetID=_informalStaticAssetID;
 @property(copy, nonatomic) NSString *informalMediaClipID; // @synthesize informalMediaClipID=_informalMediaClipID;
+@property(copy, nonatomic) NSString *vendorID; // @synthesize vendorID=_vendorID;
 @property(copy, nonatomic) NSString *lyricsID; // @synthesize lyricsID=_lyricsID;
 @property(copy, nonatomic) NSString *contentItemID; // @synthesize contentItemID=_contentItemID;
 @property(nonatomic) long long radioStationID; // @synthesize radioStationID=_radioStationID;
@@ -44,10 +49,12 @@
 @property(nonatomic) long long storePurchasedAdamID; // @synthesize storePurchasedAdamID=_storePurchasedAdamID;
 @property(copy, nonatomic) NSString *storeRecommendationID; // @synthesize storeRecommendationID=_storeRecommendationID;
 @property(copy, nonatomic) NSString *storeCloudAlbumID; // @synthesize storeCloudAlbumID=_storeCloudAlbumID;
+@property(copy, nonatomic) NSString *cloudUniversalLibraryID; // @synthesize cloudUniversalLibraryID=_cloudUniversalLibraryID;
 @property(nonatomic) unsigned long long storeCloudID; // @synthesize storeCloudID=_storeCloudID;
-@property(copy, nonatomic) NSString *pumpkinProfileID; // @synthesize pumpkinProfileID=_pumpkinProfileID;
+@property(copy, nonatomic) NSString *socialProfileID; // @synthesize socialProfileID=_socialProfileID;
 @property(nonatomic) long long storeAdamID; // @synthesize storeAdamID=_storeAdamID;
 @property(copy, nonatomic) NSString *globalPlaylistID; // @synthesize globalPlaylistID=_globalPlaylistID;
+@property(nonatomic) long long syncID; // @synthesize syncID=_syncID;
 @property(nonatomic) long long homeSharingLibraryID; // @synthesize homeSharingLibraryID=_homeSharingLibraryID;
 @property(nonatomic) long long deviceLibraryPersistentID; // @synthesize deviceLibraryPersistentID=_deviceLibraryPersistentID;
 - (void).cxx_destruct;

@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 - (void)credStorage_getInitialCredentialDictionariesWithReply:(CDUnknownBlockType)arg1;
 - (void)backgroundSessionDidFinishAppWake:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)backgroundSessionDidStartAppWake:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)backgroundAVAssetDownloadTask:(unsigned long long)arg1 willDownloadToURL:(id)arg2;
 - (void)backgroundAVAssetDownloadTask:(unsigned long long)arg1 didResolveMediaSelectionProperyList:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)backgroundAVAssetDownloadTask:(unsigned long long)arg1 didLoadTimeRange:(id)arg2 totalTimeRangesLoaded:(id)arg3 timeRangeExpectedToLoad:(id)arg4;
 - (void)backgroundAVAssetDownloadTask:(unsigned long long)arg1 didReceiveDownloadToken:(unsigned long long)arg2;
@@ -71,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (void)backgroundTaskHasConnectionWaiting:(unsigned long long)arg1;
 - (void)backgroundTask:(unsigned long long)arg1 _willSendRequestForEstablishedConnection:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)backgroundTask:(unsigned long long)arg1 willPerformHTTPRedirection:(id)arg2 withNewRequest:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)backgroundTask:(unsigned long long)arg1 willBeginDelayedRequest:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)backgroundTask:(unsigned long long)arg1 didReceiveChallenge:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)backgroundTaskDidSuspend:(unsigned long long)arg1;
 - (void)backgroundTaskDidResume:(unsigned long long)arg1;
@@ -78,7 +80,10 @@ __attribute__((visibility("hidden")))
 - (void)_onqueue_retryDataTaskWithIdentifier:(unsigned long long)arg1;
 - (void)_onqueue_resetStorageWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_onqueue_flushWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)_onqueue_AVAggregateAssetDownloadTaskForURLAsset:(id)arg1 mediaSelections:(id)arg2 assetTitle:(id)arg3 assetArtworkData:(id)arg4 options:(id)arg5;
+- (id)AVAggregateAssetDownloadTaskForURLAsset:(id)arg1 mediaSelections:(id)arg2 assetTitle:(id)arg3 assetArtworkData:(id)arg4 options:(id)arg5;
 - (id)_onqueue_AVAssetDownloadTaskForURLAsset:(id)arg1 URL:(id)arg2 destinationURL:(id)arg3 assetTitle:(id)arg4 assetArtworkData:(id)arg5 options:(id)arg6;
+- (id)serializableAVAssetDownloadTaskOptionsFromOptions:(id)arg1;
 - (id)AVAssetDownloadTaskForURLAsset:(id)arg1 assetTitle:(id)arg2 assetArtworkData:(id)arg3 options:(id)arg4;
 - (id)AVAssetDownloadTaskForURLAsset:(id)arg1 destinationURL:(id)arg2 options:(id)arg3;
 - (id)_AVAssetDownloadTaskForURL:(id)arg1 destinationURL:(id)arg2 options:(id)arg3;

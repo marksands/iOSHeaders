@@ -31,15 +31,17 @@
 - (void)dialogView:(id)arg1 didSelectPrimaryAction:(_Bool)arg2 withInputText:(id)arg3 passwordText:(id)arg4;
 - (void)_dismissCurrentDialogWithResponse:(id)arg1;
 - (void)_dismissDialogWithAdditionalAnimations:(CDUnknownBlockType)arg1;
-- (void)_presentDialog:(id)arg1 forWebProcessID:(int)arg2 withAdditionalAnimations:(CDUnknownBlockType)arg3;
+- (long long)_presentDialog:(id)arg1 forWebProcessID:(int)arg2 withAdditionalAnimations:(CDUnknownBlockType)arg3;
 - (_Bool)_isPresentingDialog;
 - (CDStruct_fca5f1f5)_currentSlot;
 - (unsigned long long)_tabID;
 - (int)_currentWebProcessID;
+- (void)owningWebViewDidCommitNavigation;
 - (void)owningWebViewWillNavigate;
 - (void)owningWebViewWillBecomeActive;
 - (void)owningWebViewDidChangeProcessID;
 - (void)owningTabWillClose;
+- (void)presentNextDialogIfNeeded;
 - (void)cancelPresentedDialogIfNeeded;
 - (void)presentDialog:(id)arg1 animateAlongsidePresentation:(CDUnknownBlockType)arg2 dismissal:(CDUnknownBlockType)arg3;
 - (void)presentDialog:(id)arg1;

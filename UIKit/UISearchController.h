@@ -10,12 +10,12 @@
 #import <UIKit/UIViewControllerAnimatedTransitioning-Protocol.h>
 #import <UIKit/UIViewControllerPresenting-Protocol.h>
 #import <UIKit/UIViewControllerTransitioningDelegate-Protocol.h>
-#import <UIKit/_UIScrollNotification-Protocol.h>
+#import <UIKit/_UIScrollViewScrollObserver_Internal-Protocol.h>
 
-@class NSString, UISearchBar, UISystemInputViewController, UITapGestureRecognizer, UIView, _UISearchControllerDidScrollDelegate;
+@class NSString, UISearchBar, UISystemInputViewController, UITapGestureRecognizer, UIView, _UINavigationControllerPalette, _UISearchControllerDidScrollDelegate;
 @protocol UISearchControllerDelegate, UISearchResultsUpdating, UIViewControllerAnimatedTransitioning;
 
-@interface UISearchController : UIViewController <UIViewControllerPresenting, _UIScrollNotification, NSCoding, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
+@interface UISearchController : UIViewController <UIViewControllerPresenting, _UIScrollViewScrollObserver_Internal, NSCoding, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 {
     UISearchBar *_searchBar;
     int _barPresentationStyle;
@@ -34,6 +34,7 @@
     _Bool _hidesNavigationBarDuringPresentation;
     _Bool __showResultsForEmptySearch;
     UIView *_resultsControllerViewContainer;
+    _UINavigationControllerPalette *_managedPalette;
     id <UISearchResultsUpdating> _searchResultsUpdater;
     id <UISearchControllerDelegate> _delegate;
     UIViewController *_searchResultsController;
@@ -50,6 +51,7 @@
 @property(nonatomic) _Bool obscuresBackgroundDuringPresentation; // @synthesize obscuresBackgroundDuringPresentation=_obscuresBackgroundDuringPresentation;
 @property(nonatomic) __weak id <UISearchControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <UISearchResultsUpdating> searchResultsUpdater; // @synthesize searchResultsUpdater=_searchResultsUpdater;
+@property(retain, nonatomic, setter=_setManagedPalette:) _UINavigationControllerPalette *_managedPalette; // @synthesize _managedPalette;
 @property(retain, nonatomic) UIView *_resultsControllerViewContainer; // @synthesize _resultsControllerViewContainer;
 @property(readonly, nonatomic) int _barPresentationStyle; // @synthesize _barPresentationStyle;
 @property(readonly, nonatomic) UISearchBar *searchBar; // @synthesize searchBar=_searchBar;
@@ -57,8 +59,7 @@
 - (void)_navigationControllerWillShowViewController:(id)arg1;
 - (void)_endWatchingPresentingController;
 - (void)_beginWatchingPresentingController;
-- (void)_updateBackdropMaskViewsInScrollView:(id)arg1;
-- (void)_didScroll;
+- (void)_observeScrollViewDidScroll:(id)arg1;
 - (void)_watchScrollView:(id)arg1 forScrolling:(_Bool)arg2;
 - (void)_updateSearchBarMaskIfNecessary;
 - (void)_updateTableHeaderBackgroundViewInTableView:(id)arg1 amountScrolledUnder:(double)arg2;
@@ -110,7 +111,7 @@
 - (void)_didPresentFromViewController:(id)arg1;
 - (void)_willPresentFromViewController:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)willUpdateFocusToView:(id)arg1;
+- (void)_willUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 @property(readonly, nonatomic) UISystemInputViewController *_systemInputViewController;
 - (void)_updateSystemInputViewController;

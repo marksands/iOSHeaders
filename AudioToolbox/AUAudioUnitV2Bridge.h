@@ -21,6 +21,7 @@
     AUV2BridgeBusArray *_outputBusses;
     AUParameterTree *_cachedParameterTree;
     struct unique_ptr<AUAudioUnitV2Bridge_Renderer, std::__1::default_delete<AUAudioUnitV2Bridge_Renderer>> _renderer;
+    CDUnknownBlockType _MIDIOutputEventBlock;
 }
 
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
@@ -35,10 +36,13 @@
 - (void)reset;
 - (void)deallocateRenderResources;
 - (_Bool)allocateRenderResourcesAndReturnError:(id *)arg1;
+- (void)setMIDIOutputEventBlock:(CDUnknownBlockType)arg1;
+- (CDUnknownBlockType)MIDIOutputEventBlock;
 - (CDUnknownBlockType)internalRenderBlock;
 - (id)outputBusses;
 - (id)inputBusses;
 - (void)dealloc;
+- (void)invalidateAudioUnit;
 - (id)initWithAudioUnit:(struct OpaqueAudioComponentInstance *)arg1 description:(struct AudioComponentDescription)arg2;
 - (id)initWithComponentDescription:(struct AudioComponentDescription)arg1 options:(unsigned int)arg2 error:(id *)arg3;
 - (void)init2;

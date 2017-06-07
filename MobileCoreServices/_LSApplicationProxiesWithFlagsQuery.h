@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MobileCoreServices/_LSQuery.h>
+#import <MobileCoreServices/_LSBundleQuery.h>
 
 __attribute__((visibility("hidden")))
-@interface _LSApplicationProxiesWithFlagsQuery : _LSQuery
+@interface _LSApplicationProxiesWithFlagsQuery : _LSBundleQuery
 {
     unsigned int _plistFlags;
     unsigned long long _bundleFlags;
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (_Bool)_requiresDatabaseMappingEntitlement;
 - (void)_enumerateWithXPCConnection:(id)arg1 block:(CDUnknownBlockType)arg2;
 
 @end

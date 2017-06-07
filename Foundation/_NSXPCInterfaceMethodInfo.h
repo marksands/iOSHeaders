@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray;
+@class NSArray, NSMutableArray;
 
 __attribute__((visibility("hidden")))
 @interface _NSXPCInterfaceMethodInfo : NSObject
@@ -15,11 +15,15 @@ __attribute__((visibility("hidden")))
     int _replyPosition;
     NSMutableArray *_replyArguments;
     NSMutableArray *_arguments;
+    unsigned long long _version;
+    Class _returnClass;
 }
 
+@property Class returnClass; // @synthesize returnClass=_returnClass;
+@property unsigned long long version; // @synthesize version=_version;
 @property int replyPosition; // @synthesize replyPosition=_replyPosition;
-@property(retain) NSMutableArray *arguments; // @synthesize arguments=_arguments;
-@property(retain) NSMutableArray *replyArguments; // @synthesize replyArguments=_replyArguments;
+@property(retain) NSArray *arguments; // @synthesize arguments=_arguments;
+@property(retain) NSArray *replyArguments; // @synthesize replyArguments=_replyArguments;
 - (const char *)replySignature;
 - (void)setReplySignature:(id)arg1;
 - (void)dealloc;

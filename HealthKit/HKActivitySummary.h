@@ -9,7 +9,7 @@
 #import <HealthKit/NSCopying-Protocol.h>
 #import <HealthKit/NSSecureCoding-Protocol.h>
 
-@class HKQuantity, NSDate, NSDateComponents;
+@class HKQuantity, NSArray, NSDate, NSDateComponents;
 
 @interface HKActivitySummary : NSObject <NSSecureCoding, NSCopying>
 {
@@ -27,6 +27,8 @@
     HKQuantity *_pushCount;
     HKQuantity *_flightsClimbed;
     long long _wheelchairUse;
+    NSArray *_dailyEnergyBurnedStatistics;
+    NSArray *_dailyBriskMinutesStatistics;
     _Bool _dataLoading;
     NSDate *_startDate;
     NSDate *_endDate;
@@ -39,6 +41,8 @@
 + (_Bool)_validateActivitySummaryDateComponentsRange:(id)arg1 endDateComponents:(id)arg2 errorMessage:(id *)arg3;
 + (_Bool)_validateActivitySummaryDateComponents:(id)arg1 errorMessage:(id *)arg2;
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic, getter=_dailyBriskMinutesStatistics, setter=_setDailyBriskMinutesStatistics:) NSArray *dailyBriskMinutesStatistics; // @synthesize dailyBriskMinutesStatistics=_dailyBriskMinutesStatistics;
+@property(retain, nonatomic, getter=_dailyEnergyBurnedStatistics, setter=_setDailyEnergyBurnedStatistics:) NSArray *dailyEnergyBurnedStatistics; // @synthesize dailyEnergyBurnedStatistics=_dailyEnergyBurnedStatistics;
 @property(retain, nonatomic, getter=_energyBurnedGoalDate, setter=_setEnergyBurnedGoalDate:) NSDate *energyBurnedGoalDate; // @synthesize energyBurnedGoalDate=_energyBurnedGoalDate;
 @property(nonatomic, getter=_isDataLoading, setter=_setDataLoading:) _Bool dataLoading; // @synthesize dataLoading=_dataLoading;
 @property(retain, nonatomic, getter=_creationDate, setter=_setCreationDate:) NSDate *creationDate; // @synthesize creationDate=_creationDate;
@@ -65,8 +69,9 @@
 @property(retain, nonatomic) HKQuantity *appleExerciseTime;
 @property(retain, nonatomic) HKQuantity *activeEnergyBurned;
 - (void)_validateQuantityAssignment:(id)arg1 expectedUnit:(id)arg2 propertyName:(id)arg3;
+- (_Bool)_hasStandHoursGoal;
+- (_Bool)_hasExerciseGoal;
 @property(readonly, nonatomic, getter=_hasMoveGoal) _Bool hasMoveGoal;
-@property(readonly, nonatomic, getter=_deepBreathingSessionCount) HKQuantity *deepBreathingSessionCount;
 - (id)dateComponentsForCalendar:(id)arg1;
 - (void)_encodeQuantity:(id)arg1 withCoder:(id)arg2 key:(id)arg3 unit:(id)arg4;
 - (void)encodeWithCoder:(id)arg1;

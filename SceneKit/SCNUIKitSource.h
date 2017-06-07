@@ -6,7 +6,6 @@
 
 #import <SceneKit/SCNImageSource.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNUIKitSource : SCNImageSource
 {
     id _uiView;

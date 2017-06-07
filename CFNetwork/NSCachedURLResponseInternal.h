@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
     NSData *data;
     NSDictionary *userInfo;
     unsigned long long storagePolicy;
-    struct _CFCachedURLResponse *_cachedURLResponse;
+    // Error parsing type: ^{_CFCachedURLResponse={__CFRuntimeBase=QAQ}^{__CFCachedURLResponse}}, name: _cachedURLResponse
 }
 
 - (void)dealloc;

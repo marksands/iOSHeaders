@@ -6,12 +6,13 @@
 
 #import <MapKit/MKPlaceSectionViewController.h>
 
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
 @class MKMapItem, MKPlaceSectionHeaderView, NSString, _MKPlaceBusinessInfoRow;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceBusinessInfoViewController : MKPlaceSectionViewController <_MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKPlaceBusinessInfoViewController : MKPlaceSectionViewController <_MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     MKMapItem *_mapItem;
     MKPlaceSectionHeaderView *_headerView;
@@ -24,7 +25,6 @@ __attribute__((visibility("hidden")))
 - (void)_updateBusinessInfo;
 - (void)infoCardThemeChanged:(id)arg1;
 @property(retain, nonatomic) MKMapItem *mapItem;
-- (void)dealloc;
 - (void)viewDidLoad;
 
 // Remaining properties

@@ -103,6 +103,7 @@ __attribute__((visibility("hidden")))
 - (void)deferredUpdateSelectionRects;
 - (void)wilLResume:(id)arg1;
 - (void)didSuspend:(id)arg1;
+- (void)tintColorDidChange;
 - (void)updateSelectionRects;
 - (void)selectionChanged;
 - (void)installIfNecessary;

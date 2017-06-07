@@ -33,6 +33,7 @@
     UITapGestureRecognizer *_backGestureRecognizer;
     NSUUID *_currentRunningAnimationsUUID;
     _Bool _changedPresentingViewControllerDuringAdaptation;
+    _Bool _shouldContinueTouchesOnTargetViewController;
     _Bool _containerIgnoresDirectTouchEvents;
     _Bool _isCurrentStateCancelled;
     UIView *_sourceView;
@@ -52,6 +53,8 @@
     CDUnknownBlockType __transitionViewForCurrentTransition;
     CDUnknownBlockType __fromViewForCurrentTransition;
     CDUnknownBlockType __toViewForCurrentTransition;
+    CDUnknownBlockType __customFromViewForCurrentTransition;
+    CDUnknownBlockType __customToViewForCurrentTransition;
     CDUnknownBlockType __computeToEndFrameForCurrentTransition;
     CDUnknownBlockType __currentTransitionDidComplete;
     struct CGSize _preferredContentSize;
@@ -63,8 +66,11 @@
 + (struct UIEdgeInsets)_defaultBaseContentInsetsForFrame:(struct CGRect)arg1 inView:(id)arg2;
 @property(nonatomic) _Bool isCurrentStateCancelled; // @synthesize isCurrentStateCancelled=_isCurrentStateCancelled;
 @property(nonatomic, getter=_containerIgnoresDirectTouchEvents, setter=_setContainerIgnoresDirectTouchEvents:) _Bool containerIgnoresDirectTouchEvents; // @synthesize containerIgnoresDirectTouchEvents=_containerIgnoresDirectTouchEvents;
+@property(nonatomic, getter=_shouldContinueTouchesOnTargetViewController, setter=_setShouldContinueTouchesOnTargetViewController:) _Bool shouldContinueTouchesOnTargetViewController; // @synthesize shouldContinueTouchesOnTargetViewController=_shouldContinueTouchesOnTargetViewController;
 @property(copy, nonatomic) CDUnknownBlockType _currentTransitionDidComplete; // @synthesize _currentTransitionDidComplete=__currentTransitionDidComplete;
 @property(copy, nonatomic) CDUnknownBlockType _computeToEndFrameForCurrentTransition; // @synthesize _computeToEndFrameForCurrentTransition=__computeToEndFrameForCurrentTransition;
+@property(copy, nonatomic) CDUnknownBlockType _customToViewForCurrentTransition; // @synthesize _customToViewForCurrentTransition=__customToViewForCurrentTransition;
+@property(copy, nonatomic) CDUnknownBlockType _customFromViewForCurrentTransition; // @synthesize _customFromViewForCurrentTransition=__customFromViewForCurrentTransition;
 @property(copy, nonatomic) CDUnknownBlockType _toViewForCurrentTransition; // @synthesize _toViewForCurrentTransition=__toViewForCurrentTransition;
 @property(copy, nonatomic) CDUnknownBlockType _fromViewForCurrentTransition; // @synthesize _fromViewForCurrentTransition=__fromViewForCurrentTransition;
 @property(copy, nonatomic) CDUnknownBlockType _transitionViewForCurrentTransition; // @synthesize _transitionViewForCurrentTransition=__transitionViewForCurrentTransition;
@@ -100,6 +106,7 @@
 @property(readonly, copy, nonatomic) NSArray *preferredFocusEnvironments;
 - (long long)_subclassPreferredFocusedViewPrioritizationType;
 @property(readonly, nonatomic) __weak UIView *preferredFocusedView;
+- (id)_focusMapContainer;
 - (id)_parentFocusEnvironment;
 - (id)_animatorForContainmentTransition;
 - (id)_viewsParticipatingInNavigationControllerTransition;

@@ -6,18 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class UIImage;
+@class NSArray, UIImage;
 
-__attribute__((visibility("hidden")))
 @interface PUOneUpAssetTransitionInfo : NSObject
 {
     UIImage *_image;
+    NSArray *_filters;
     CDStruct_1b6d18a9 _seekTime;
 }
 
 + (id)oneUpAssetTransitionInfoWithImage:(id)arg1 andSeekTime:(CDStruct_1b6d18a9)arg2;
++ (id)oneUpAssetTransitionInfoWithImage:(id)arg1 filters:(id)arg2;
 + (id)oneUpAssetTransitionInfoWithImage:(id)arg1;
 @property(nonatomic, setter=_setSeekTime:) CDStruct_1b6d18a9 seekTime; // @synthesize seekTime=_seekTime;
+@property(copy, nonatomic, setter=_setFilters:) NSArray *filters; // @synthesize filters=_filters;
 @property(retain, nonatomic, setter=_setImage:) UIImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 - (id)init;

@@ -13,6 +13,7 @@
 
 @interface UICollectionViewTableLayoutAttributes : UICollectionViewLayoutAttributes <UICollectionViewTableSectionHeaderFooterAttributes, UICollectionViewTableAllRowAttributes>
 {
+    _Bool _separatorInsetIsRelativeToCellEdges;
     _Bool _shouldIndentWhileEditing;
     _Bool _showsReorderControl;
     _Bool _layoutMarginsFollowReadableWidth;
@@ -27,11 +28,14 @@
     UIColor *_backgroundColor;
     long long _accessoryType;
     long long _editingStyle;
-    double _defaultMarginWidth;
+    double _defaultLeadingCellMarginWidth;
+    double _defaultTrailingCellMarginWidth;
+    double _indexBarExtentFromEdge;
     double _sectionBorderWidth;
     long long _indentationLevel;
     double _maxTitleWidth;
     long long _textAlignment;
+    struct UIEdgeInsets _separatorInset;
     struct UIEdgeInsets _backgroundInset;
     struct UIEdgeInsets _margins;
 }
@@ -48,7 +52,9 @@
 @property(nonatomic) long long indentationLevel; // @synthesize indentationLevel=_indentationLevel;
 @property(nonatomic) double sectionBorderWidth; // @synthesize sectionBorderWidth=_sectionBorderWidth;
 @property(nonatomic) struct UIEdgeInsets backgroundInset; // @synthesize backgroundInset=_backgroundInset;
-@property(nonatomic) double defaultMarginWidth; // @synthesize defaultMarginWidth=_defaultMarginWidth;
+@property(nonatomic) double indexBarExtentFromEdge; // @synthesize indexBarExtentFromEdge=_indexBarExtentFromEdge;
+@property(nonatomic) double defaultTrailingCellMarginWidth; // @synthesize defaultTrailingCellMarginWidth=_defaultTrailingCellMarginWidth;
+@property(nonatomic) double defaultLeadingCellMarginWidth; // @synthesize defaultLeadingCellMarginWidth=_defaultLeadingCellMarginWidth;
 @property(nonatomic) _Bool layoutMarginsFollowReadableWidth; // @synthesize layoutMarginsFollowReadableWidth=_layoutMarginsFollowReadableWidth;
 @property(nonatomic) _Bool showsReorderControl; // @synthesize showsReorderControl=_showsReorderControl;
 @property(nonatomic) _Bool shouldIndentWhileEditing; // @synthesize shouldIndentWhileEditing=_shouldIndentWhileEditing;
@@ -58,6 +64,8 @@
 @property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(retain, nonatomic) UIVisualEffect *separatorEffect; // @synthesize separatorEffect=_separatorEffect;
 @property(copy, nonatomic) UIColor *separatorColor; // @synthesize separatorColor=_separatorColor;
+@property(nonatomic) _Bool separatorInsetIsRelativeToCellEdges; // @synthesize separatorInsetIsRelativeToCellEdges=_separatorInsetIsRelativeToCellEdges;
+@property(nonatomic) struct UIEdgeInsets separatorInset; // @synthesize separatorInset=_separatorInset;
 @property(nonatomic) long long separatorStyle; // @synthesize separatorStyle=_separatorStyle;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;

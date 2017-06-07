@@ -26,6 +26,7 @@
 }
 
 + (id)keyPathsForValuesAffectingEffectiveFilter;
++ (_Bool)isErrorPossiblyRelatedToExtraStores:(id)arg1;
 @property(copy, nonatomic) CNContact *meContact; // @synthesize meContact=_meContact;
 @property(retain, nonatomic) NSArray *keysToFetch; // @synthesize keysToFetch=_keysToFetch;
 @property(retain, nonatomic) CNContactStore *store; // @synthesize store=_store;
@@ -53,8 +54,9 @@
 - (void)contactStoreMeContactDidChange:(id)arg1;
 - (void)contactStoreDidChange:(id)arg1;
 - (_Bool)setMeContact:(id)arg1 error:(id *)arg2;
-@property(readonly, nonatomic) NSString *mainStorePreferredForNameMeContactIdentifier;
-- (id)mainStorePreferredForNameMeContactWithKeysToFetch:(id)arg1;
+- (id)preferredForNameMeContactIdentifier;
+- (id)preferredForNameMeContactWithKeysToFetch:(id)arg1;
+- (void)resetPreferredForNameMeContact;
 - (id)indexPathForContact:(id)arg1;
 - (id)completeContactFromContact:(id)arg1 fromMainStoreOnly:(_Bool)arg2 keysToFetch:(id)arg3;
 @property(readonly, nonatomic) NSArray *indexSections;
@@ -65,7 +67,6 @@
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithStore:(id)arg1;
-@property(readonly, nonatomic) NSString *meContactIdentifier;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

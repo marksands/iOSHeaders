@@ -4,10 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSString;
-
 @protocol CADTestingInterface
-- (void)CADTestingSetDatabasePath:(NSString *)arg1 reply:(void (^)(int))arg2;
-- (void)CADTestingDatabasePath:(void (^)(int, NSString *))arg1;
+- (void)CADTestingSimulateDaemonCrash;
 @end
 

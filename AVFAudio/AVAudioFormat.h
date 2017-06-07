@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <AVFAudio/NSSecureCoding-Protocol.h>
 
@@ -20,6 +20,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)settingsFromASBD:(const struct AudioStreamBasicDescription *)arg1 channelLayout:(id)arg2;
++ (id)formatWithInvalidSampleRateAndChannelCount;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;

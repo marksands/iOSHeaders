@@ -6,69 +6,62 @@
 
 #import <EventKit/EKPersistentCalendarItem.h>
 
-@class EKPersistentSuggestedEventInfo, NSArray, NSDate, NSNumber, NSString, NSURL;
-
 @interface EKPersistentEvent : EKPersistentCalendarItem
 {
-    CDStruct_6e43267c _cachedDurationUnits;
 }
 
-+ (id)generateUniqueIDWithEvent:(id)arg1 originalEvent:(id)arg2 calendar:(id)arg3;
 + (id)relations;
 + (id)defaultPropertiesToLoad;
-@property(nonatomic) _Bool firedTTL;
-@property(retain, nonatomic) EKPersistentSuggestedEventInfo *suggestedEventInfo;
-- (void)clearExceptionDatesAndUpdateDetachedOriginalDates;
-- (void)filterExceptionDates;
++ (id)eventWithRandomUUID;
+- (void)setFiredTTL:(_Bool)arg1;
+- (_Bool)firedTTL;
+- (void)setSuggestedEventInfo:(id)arg1;
+- (id)suggestedEventInfo;
+- (void)setSuggestionInfo:(id)arg1;
+- (id)suggestionInfo;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)_updateSelfFromDetachedEventIfNeededForDelete;
-- (void)deleteFromOccurrenceDateOnward:(id)arg1;
-- (_Bool)validate:(id *)arg1;
-- (void)_adjustForNewCalendar;
 - (id)description;
-@property(readonly, nonatomic, getter=isEditable) _Bool editable;
-@property(readonly, nonatomic) _Bool allowsParticipationStatusModifications;
-- (void)removeAction:(id)arg1;
-- (void)addAction:(id)arg1;
-@property(copy, nonatomic) NSArray *actions;
-- (_Bool)_hasExternalIDOrDeliverySource;
-- (_Bool)hasValidEventAction;
-- (id)committedStartDate;
-@property(copy, nonatomic) NSDate *originalStartDate;
+- (void)setConferenceURL:(id)arg1;
+- (id)conferenceURL;
+- (id)actions;
+- (void)setOriginalStartDate:(id)arg1;
+- (id)originalStartDate;
 - (id)organizer;
-@property(nonatomic) unsigned long long junkStatus;
+- (void)setDisallowProposeNewTime:(_Bool)arg1;
+- (void)setJunkStatus:(unsigned long long)arg1;
+- (unsigned long long)junkStatus;
 - (_Bool)disallowProposeNewTime;
+- (void)setCanForward:(_Bool)arg1;
 - (_Bool)canForward;
-@property(copy, nonatomic) NSString *responseComment;
-@property(nonatomic) long long travelAdvisoryBehavior;
-@property(nonatomic) long long privacyLevel;
-@property(nonatomic) long long availability;
-@property(readonly, nonatomic) unsigned int invitationChangedProperties;
-@property(nonatomic) unsigned long long invitationStatus;
-- (_Bool)responseMustApplyToAll;
-- (long long)birthdayId;
-@property(nonatomic) long long locationPredictionState;
-@property(readonly, nonatomic) long long pendingParticipationStatus;
-@property(nonatomic) long long participationStatus;
-@property(nonatomic) _Bool needsOccurrenceCacheUpdate;
-@property(nonatomic) long long status;
-@property(readonly, nonatomic, getter=isInvitation) _Bool invitation;
-@property(readonly, nonatomic, getter=isMeeting) _Bool meeting;
-@property(readonly, nonatomic, getter=isFloating) _Bool floating;
-@property(readonly, nonatomic) CDStruct_6e43267c durationUnits;
-- (_Bool)_areDurationUnitsCached;
-- (void)_invalidateCachedDurationUnits;
-- (void)primitiveValueChangedForKey:(id)arg1;
-@property(copy, nonatomic) NSDate *proposedStartDate;
-@property(copy, nonatomic) NSNumber *travelTime;
-@property(copy, nonatomic) NSDate *endDate;
-@property(readonly, nonatomic) double duration;
-@property(readonly, nonatomic) int birthdayID;
-@property(copy, nonatomic) NSURL *URL;
-@property(readonly, nonatomic) NSString *eventIdentifier;
-- (_Bool)refresh;
+- (void)setExternalTrackingStatus:(int)arg1;
+- (int)externalTrackingStatus;
+- (void)setResponseComment:(id)arg1;
+- (id)responseComment;
+- (void)setTravelAdvisoryBehavior:(long long)arg1;
+- (long long)travelAdvisoryBehavior;
+- (void)setPrivacyLevel:(long long)arg1;
+- (long long)privacyLevel;
+- (void)setAvailability:(long long)arg1;
+- (long long)availability;
+- (void)setInvitationChangedProperties:(unsigned int)arg1;
+- (unsigned int)invitationChangedProperties;
+- (void)setInvitationStatus:(unsigned long long)arg1;
+- (unsigned long long)invitationStatus;
+- (void)setLocationPredictionState:(long long)arg1;
+- (long long)locationPredictionState;
+- (void)setNeedsOccurrenceCacheUpdate:(_Bool)arg1;
+- (_Bool)needsOccurrenceCacheUpdate;
+- (void)setStatus:(long long)arg1;
+- (long long)status;
+- (void)setProposedStartDate:(id)arg1;
+- (id)proposedStartDate;
+- (void)setTravelTime:(id)arg1;
+- (id)travelTime;
+- (void)setEndDate:(id)arg1;
+- (id)endDate;
+- (void)setBirthdayID:(id)arg1;
+- (id)birthdayID;
 - (int)entityType;
-- (id)initCommon;
 
 @end
 

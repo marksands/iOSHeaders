@@ -21,6 +21,7 @@
 + (long long)natalieDataSessionFromWorkoutType:(long long)arg1;
 + (id)workoutName:(long long)arg1;
 + (_Bool)supportsSecureCoding;
++ (_Bool)isAvailable;
 - (id)description;
 @property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic) NSUUID *sessionId;

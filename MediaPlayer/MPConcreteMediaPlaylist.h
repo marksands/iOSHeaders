@@ -33,13 +33,14 @@
 - (void)removeItems:(id)arg1 atFilteredIndexes:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)addItemWithProductID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)addMediaItems:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)addItems:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)addItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)setItemsWithPersistentIDs:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)setItems:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)appendItems:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)appendItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)replaceItemsWithPersistentIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)replaceItems:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateLibraryForPlaylistEdit:(id)arg1;
 - (id)valuesForProperties:(id)arg1;
 - (id)valueForProperty:(id)arg1;
+- (void)_enumerateItemPersistentIDsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)multiverseIdentifier;
 - (unsigned long long)mediaTypes;
 - (unsigned long long)count;

@@ -21,7 +21,12 @@
 @property(copy, nonatomic) CDUnknownBlockType responseHandler; // @synthesize responseHandler=_responseHandler;
 @property(copy, nonatomic) MPModelLibraryRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
+- (id)_sectionProperties;
 - (void)_sanityCheckRequest;
+- (id)_libraryView;
+- (id)_itemProperties;
+- (void)_executeRequest;
+- (void)_executeLegacyRequest;
 - (void)execute;
 
 @end

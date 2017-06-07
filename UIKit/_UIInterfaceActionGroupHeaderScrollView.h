@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;
 - (void)updateConstraints;
-- (void)_setUsesStaticScrollBar:(_Bool)arg1;
+- (void)accessoryInsetsDidChange:(struct UIEdgeInsets)arg1;
 - (double)_contentFitCanScrollThreshold;
 - (id)initWithContentView:(id)arg1;
 

@@ -18,7 +18,7 @@
 - (CDUnknownBlockType)fromDictionaryTransform;
 - (CDUnknownBlockType)dictionaryTransform;
 - (Class)labeledValueClass;
-- (_Bool)isValue:(id)arg1 equivalentToValue:(id)arg2;
+- (_Bool)canUnifyValue:(id)arg1 withValue:(id)arg2;
 - (void)setCNValue:(id)arg1 onContact:(id)arg2;
 - (id)CNValueForContact:(id)arg1;
 - (_Bool)isNonnull;
@@ -28,7 +28,7 @@
 - (id)init;
 - (void *)ABMultiValueValueFromCNLabeledValueValue:(id)arg1;
 - (id)CNLabeledValueValueFromABMultiValueValue:(void *)arg1;
-- (int)abPropertyID:(int *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

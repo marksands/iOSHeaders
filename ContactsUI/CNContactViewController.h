@@ -9,14 +9,13 @@
 #import <ContactsUI/CNContactViewHostProtocol-Protocol.h>
 
 @class CNContact, CNContactContentViewController, CNContactFormatter, CNContactStore, CNContainer, CNGroup, CNPolicy, NSArray, NSString, UIView, _UIAccessDeniedView;
-@protocol CNContactContentViewController, CNContactViewControllerDelegate, CNContactViewControllerPrivateDelegate;
+@protocol CNContactContentViewController, CNContactViewControllerDelegate, CNContactViewControllerPPTDelegate, CNContactViewControllerPrivateDelegate;
 
 @interface CNContactViewController : UIViewController <CNContactViewHostProtocol>
 {
     void *_addressBook;
     long long _mode;
     _Bool _ignoreViewWillBePresented;
-    _Bool _allowsEditing;
     _Bool _shouldShowLinkedContacts;
     _Bool _highlightedPropertyImportant;
     _Bool _requiresSetup;
@@ -39,6 +38,7 @@
     UIViewController<CNContactContentViewController> *_viewController;
     CNPolicy *_policy;
     CNContact *_additionalContact;
+    id <CNContactViewControllerPPTDelegate> _pptDelegate;
     long long _displayMode;
     long long _editMode;
     long long _actions;
@@ -60,6 +60,7 @@
 @property(nonatomic) long long actions; // @synthesize actions=_actions;
 @property(nonatomic) long long editMode; // @synthesize editMode=_editMode;
 @property(nonatomic) long long displayMode; // @synthesize displayMode=_displayMode;
+@property(nonatomic) __weak id <CNContactViewControllerPPTDelegate> pptDelegate; // @synthesize pptDelegate=_pptDelegate;
 @property(nonatomic) _Bool showingMeContact; // @synthesize showingMeContact=_showingMeContact;
 @property(retain, nonatomic) CNContact *additionalContact; // @synthesize additionalContact=_additionalContact;
 @property(readonly, nonatomic) CNPolicy *policy; // @synthesize policy=_policy;
@@ -75,7 +76,6 @@
 @property(retain, nonatomic) CNContactContentViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
 @property(retain, nonatomic) CNContact *contentContact; // @synthesize contentContact=_contentContact;
 @property(nonatomic) _Bool shouldShowLinkedContacts; // @synthesize shouldShowLinkedContacts=_shouldShowLinkedContacts;
-@property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(copy, nonatomic) NSString *alternateName; // @synthesize alternateName=_alternateName;
 @property(retain, nonatomic) CNContainer *parentContainer; // @synthesize parentContainer=_parentContainer;
@@ -85,7 +85,9 @@
 @property(copy, nonatomic) NSArray *displayedPropertyKeys; // @synthesize displayedPropertyKeys=_displayedPropertyKeys;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 - (void).cxx_destruct;
+- (void)viewDidAppear;
 - (void)didChangePreferredContentSize:(struct CGSize)arg1;
+- (void)isPresentingEditingController:(_Bool)arg1;
 - (void)isPresentingFullscreen:(_Bool)arg1;
 - (void)didDeleteContact:(id)arg1;
 - (void)didCompleteWithContact:(id)arg1;
@@ -116,6 +118,7 @@
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)highlightPropertyWithKey:(id)arg1 identifier:(id)arg2;
 - (void)highlightPropertyWithKey:(id)arg1 identifier:(id)arg2 important:(_Bool)arg3;
+@property(nonatomic) _Bool allowsEditing;
 @property(nonatomic) _Bool allowsActions;
 - (id)_primaryPropertyStringForContact:(id)arg1;
 - (id)_contactPresentedViewController;

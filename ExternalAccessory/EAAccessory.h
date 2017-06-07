@@ -50,6 +50,7 @@
 - (void)getIAPTimeSyncInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setIAPTimeSyncParams:(id)arg1;
 - (_Bool)setNMEASentencesToFilter:(id)arg1;
+- (void)addNMEASentence:(id)arg1;
 - (_Bool)getNMEASentence:(id *)arg1;
 - (_Bool)accessoryHasNMEASentencesAvailable;
 - (_Bool)supportsCamera;
@@ -57,6 +58,7 @@
 - (void)setLocationSentenceTypesMask:(int)arg1;
 - (int)locationSentenceTypesMask;
 - (_Bool)pointOfInterestHandoffEnabled;
+- (void)setPointOfInterestHandoffEnabled:(_Bool)arg1;
 - (unsigned int)eqIndex;
 - (void)setEqIndex:(unsigned int)arg1;
 - (id)eqNames;
@@ -69,6 +71,8 @@
 - (id)preferredApp;
 - (_Bool)shouldBeHiddenFromUI;
 - (_Bool)supportsPublicIap;
+- (id)certData;
+- (id)certSerial;
 - (id)macAddress;
 - (_Bool)_internalNotPresentInIAPAccessoriesArray;
 - (unsigned int)_internalConnectionID;
@@ -84,6 +88,8 @@
 - (void)_updateAccessoryInfo:(id)arg1;
 - (id)_initWithAccessory:(id)arg1;
 - (unsigned int)accessoryCapabilities;
+- (id)coreAccessoriesPrimaryUUID;
+- (_Bool)createdByCoreAccessories;
 - (_Bool)supportsWirelessCarPlay;
 - (_Bool)supportsUSBCarPlay;
 - (_Bool)supportsOOBBTPairing;

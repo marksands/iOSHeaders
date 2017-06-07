@@ -21,17 +21,18 @@ __attribute__((visibility("hidden")))
     UIKBCandidateCollectionView *_candidatesCollectionView;
     UIKeyboardCandidatePocketShadow *_pocketShadow;
     UIKeyboardCandidatePocketShadow *_leftBorder;
-    CDStruct_961fb75c _visualStyling;
+    CDStruct_227bb23d _visualStyling;
     UIKeyboardCandidateLogButton *_logButton;
     unsigned long long _dummyCellCount;
     double _dummyCellWidth;
 }
 
++ (double)shadowYForBounds:(struct CGRect)arg1 shadowHeight:(double)arg2;
 + (Class)cellClass;
 @property(nonatomic) double dummyCellWidth; // @synthesize dummyCellWidth=_dummyCellWidth;
 @property(nonatomic) unsigned long long dummyCellCount; // @synthesize dummyCellCount=_dummyCellCount;
 @property(retain, nonatomic) UIKeyboardCandidateLogButton *logButton; // @synthesize logButton=_logButton;
-@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) CDStruct_227bb23d visualStyling; // @synthesize visualStyling=_visualStyling;
 @property(retain, nonatomic) UIKeyboardCandidatePocketShadow *leftBorder; // @synthesize leftBorder=_leftBorder;
 @property(retain, nonatomic) UIKeyboardCandidatePocketShadow *pocketShadow; // @synthesize pocketShadow=_pocketShadow;
 @property(retain, nonatomic) UIKBCandidateCollectionView *candidatesCollectionView; // @synthesize candidatesCollectionView=_candidatesCollectionView;
@@ -57,18 +58,14 @@ __attribute__((visibility("hidden")))
 - (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
 - (unsigned long long)currentIndex;
 - (id)currentCandidate;
-- (_Bool)hasPreviousPage;
-- (_Bool)hasNextPage;
-- (void)showPreviousRow;
-- (void)showNextRow;
-- (void)showPreviousPage;
+- (_Bool)hasCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (void)showNextPage;
-- (void)showPreviousCandidate;
-- (void)showNextCandidate;
+- (void)showCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (_Bool)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned long long)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(double)arg4 layout:(_Bool)arg5;
+- (_Bool)isFloatingList;
 - (_Bool)isExtendedList;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;

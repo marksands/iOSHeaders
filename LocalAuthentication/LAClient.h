@@ -10,7 +10,7 @@
 #import <LocalAuthentication/LAContextXPC-Protocol.h>
 
 @class LACachedExternalizedContext, NSData, NSError, NSMutableArray, NSXPCConnection;
-@protocol LAContextXPC, LAUIDelegate;
+@protocol LAContextXPC, LAUIDelegate, OS_dispatch_queue;
 
 @interface LAClient : NSObject <LAContextXPC, LAContextCallbackXPC>
 {
@@ -21,6 +21,7 @@
     NSMutableArray *_callInvalidationBlocks;
     _Bool _shouldRecoverConnection;
     LACachedExternalizedContext *_cachedExternalizedContext;
+    NSObject<OS_dispatch_queue> *_uncork_queue;
     id <LAUIDelegate> _uiDelegate;
 }
 
@@ -40,6 +41,8 @@
 - (void)setCredential:(id)arg1 type:(long long)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)isCredentialSet:(long long)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)setCredential:(id)arg1 forProcessedEvent:(long long)arg2 credentialType:(long long)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)resetProcessedEvent:(long long)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)retryProcessedEvent:(long long)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)failProcessedEvent:(long long)arg1 failureError:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)evaluateACL:(id)arg1 operation:(long long)arg2 options:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)evaluateACL:(id)arg1 operation:(long long)arg2 options:(id)arg3 uiDelegate:(id)arg4 reply:(CDUnknownBlockType)arg5;
@@ -48,6 +51,7 @@
 - (id)_updateOptions:(id)arg1;
 - (_Bool)_setPermanentError:(id)arg1;
 - (void)_performCallBool:(CDUnknownBlockType)arg1 finally:(CDUnknownBlockType)arg2;
+- (void)_performCallIdCore:(CDUnknownBlockType)arg1 finally:(CDUnknownBlockType)arg2;
 - (void)_performCallId:(CDUnknownBlockType)arg1 finally:(CDUnknownBlockType)arg2;
 - (void)invalidateWithMessage:(id)arg1;
 - (void)dealloc;
@@ -55,6 +59,7 @@
 - (void)_recoverConnection;
 - (void)_scheduleRecovery;
 - (id)initWithExistingContext:(id)arg1;
+- (void)connectToServerWithInterruptionHandler:(CDUnknownBlockType)arg1;
 
 @end
 

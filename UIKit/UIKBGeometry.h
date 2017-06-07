@@ -49,6 +49,7 @@
 - (struct CGRect)paddedFrameWithContainingFrame:(struct CGRect)arg1;
 - (struct CGRect)frameWithContainingFrame:(struct CGRect)arg1;
 - (struct CGRect)frame;
+- (unsigned long long)hash;
 - (id)shortDescription;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

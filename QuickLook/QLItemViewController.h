@@ -6,35 +6,46 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <QuickLook/QLPreviewingController-Protocol.h>
+#import <QuickLook/QLLocalPreviewingController-Protocol.h>
 #import <QuickLook/QLToolbarButtonAction-Protocol.h>
 
-@class NSArray, NSMutableArray, NSString, QLAppearance, QLItem, UIView;
-@protocol QLPreviewItemViewControllerDelegate;
+@class NSArray, NSMutableArray, NSString, QLAppearance, QLPreviewContext, UIView;
+@protocol QLItemViewControllerPresentingDelegate, QLPreviewItemViewControllerDelegate;
 
-@interface QLItemViewController : UIViewController <QLPreviewingController, QLToolbarButtonAction>
+@interface QLItemViewController : UIViewController <QLLocalPreviewingController, QLToolbarButtonAction>
 {
     _Bool _isLoading;
     NSMutableArray *_completionBlocks;
     _Bool _isLoaded;
     _Bool _loadingFailed;
     UIView *_accessoryView;
-    NSArray *_toolbarButtons;
     id <QLPreviewItemViewControllerDelegate> _delegate;
-    QLItem *_previewItem;
+    id _contents;
+    QLPreviewContext *_context;
     QLAppearance *_appearance;
+    id <QLItemViewControllerPresentingDelegate> _presentingDelegate;
 }
 
++ (_Bool)providesCustomPrinter;
++ (_Bool)shouldBeRemoteForContentType:(id)arg1;
++ (id)supportedContentTypes;
++ (Class)transformerClass;
 + (_Bool)shouldBeRemoteForMediaContentType:(id)arg1;
++ (id)supportedAudiovisualContentTypes;
+@property(nonatomic) __weak id <QLItemViewControllerPresentingDelegate> presentingDelegate; // @synthesize presentingDelegate=_presentingDelegate;
 @property(retain, nonatomic) QLAppearance *appearance; // @synthesize appearance=_appearance;
-@property(retain) QLItem *previewItem; // @synthesize previewItem=_previewItem;
+@property(retain) QLPreviewContext *context; // @synthesize context=_context;
+@property(retain) id contents; // @synthesize contents=_contents;
 @property _Bool loadingFailed; // @synthesize loadingFailed=_loadingFailed;
 @property _Bool isLoading; // @synthesize isLoading=_isLoading;
 @property _Bool isLoaded; // @synthesize isLoaded=_isLoaded;
 @property(nonatomic) __weak id <QLPreviewItemViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSArray *toolbarButtons; // @synthesize toolbarButtons=_toolbarButtons;
 @property(readonly, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 - (void).cxx_destruct;
+- (void)notifyDelegatesDidFailWithError:(id)arg1;
+- (void)performFirstTimeAppearanceActions:(unsigned long long)arg1;
+- (_Bool)canPerformFirstTimeAppearanceActions:(unsigned long long)arg1;
+- (void)performFirstTimeAppearanceActionsIfNeeded:(unsigned long long)arg1;
 - (id)parallaxView;
 - (void)transitionDidFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
 - (void)transitionWillFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
@@ -43,7 +54,7 @@
 - (void)_scrollScrollViewByPercentualOffset:(double)arg1;
 - (void)_scrollScrollViewWithKeyCommand:(id)arg1;
 @property(readonly, nonatomic) NSArray *registeredKeyCommands;
-- (void)buttonPressedWithIdentifier:(id)arg1;
+- (void)buttonPressedWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (_Bool)automaticallyUpdateScrollViewContentInset;
 - (_Bool)automaticallyUpdateScrollViewContentOffset;
@@ -54,9 +65,11 @@
 - (_Bool)shouldAcceptTouch:(id)arg1 ofGestureRecognizer:(id)arg2;
 - (id)_cancelTouchToken;
 - (id)scrollView;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (_Bool)canRotate;
+- (id)excludedToolbarButtonIdentifiersForTraitCollection:(id)arg1;
+- (id)toolbarButtonsForTraitCollection:(id)arg1;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)canEnterFullScreen;
+- (void)prepareForActionSheetPresentation;
 - (void)previewBecameFullScreen:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewWillDisappear:(_Bool)arg1;
@@ -65,7 +78,7 @@
 - (void)previewIsAppearingWithProgress:(double)arg1;
 - (void)previewWillAppear:(_Bool)arg1;
 - (void)performCompletionBlocksWithError:(id)arg1;
-- (void)loadPreviewItemIfNeededWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerIfNeededWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)init;
 - (void)updateScrollViewContentOffset:(_Bool)arg1 withPreviousAppearance:(id)arg2;
 - (void)updateScrollViewContentOffset;

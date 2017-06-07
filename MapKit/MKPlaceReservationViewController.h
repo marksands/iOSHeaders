@@ -6,10 +6,12 @@
 
 #import <MapKit/MKPlaceSectionViewController.h>
 
-@class MKPlaceReservationRowView, _MKPlaceReservationInfo;
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
+
+@class MKPlaceReservationRowView, NSString, _MKPlaceReservationInfo;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceReservationViewController : MKPlaceSectionViewController
+@interface MKPlaceReservationViewController : MKPlaceSectionViewController <MKModuleViewControllerProtocol>
 {
     MKPlaceReservationRowView *_reservationCell;
     _MKPlaceReservationInfo *_reservationInfo;
@@ -19,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_updateReservationInfoAnimated:(_Bool)arg1;
 - (void)viewDidLoad;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

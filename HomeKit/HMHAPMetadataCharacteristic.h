@@ -6,30 +6,17 @@
 
 #import <objc/NSObject.h>
 
-#import <HomeKit/NSSecureCoding-Protocol.h>
-
 @class NSString;
 
-@interface HMHAPMetadataCharacteristic : NSObject <NSSecureCoding>
+@interface HMHAPMetadataCharacteristic : NSObject
 {
-    NSString *_name;
-    NSString *_chrDescription;
-    NSString *_localizedDescription;
     NSString *_type;
-    NSString *_format;
-    NSString *_unit;
+    NSString *_chrDescription;
 }
 
-+ (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSString *unit; // @synthesize unit=_unit;
-@property(retain, nonatomic) NSString *format; // @synthesize format=_format;
-@property(retain, nonatomic) NSString *type; // @synthesize type=_type;
-@property(retain, nonatomic) NSString *localizedDescription; // @synthesize localizedDescription=_localizedDescription;
 @property(retain, nonatomic) NSString *chrDescription; // @synthesize chrDescription=_chrDescription;
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSString *type; // @synthesize type=_type;
 - (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 
 @end
 

@@ -41,10 +41,12 @@
 @property(retain, nonatomic, setter=_setOptionsViewController:) UIViewController *_optionsViewController; // @synthesize _optionsViewController=__optionsViewController;
 @property(nonatomic, getter=isDisplayingOptions, setter=setDisplayingOptions:) _Bool displayingOptions; // @synthesize displayingOptions=_displayingOptions;
 - (void).cxx_destruct;
+- (void)_collectionView:(id)arg1 performDropWithCoordinator:(id)arg2;
 - (void)photoStreamComposeServiceDidCancel:(id)arg1;
 - (void)photoStreamComposeService:(id)arg1 didPostComment:(id)arg2;
 - (void)controller:(id)arg1 didCancelTrimmingVideoSources:(id)arg2;
 - (void)controller:(id)arg1 didFinishTrimmingVideoSources:(id)arg2;
+- (_Bool)_areVideoSourcesStreamShareSources:(id)arg1;
 - (void)handleAddToAlbum:(id)arg1 pickedAssets:(id)arg2;
 - (void)albumStreamingOptionsViewController:(id)arg1 didCompleteWithReason:(int)arg2;
 - (id)_newOptionsViewController;
@@ -61,7 +63,7 @@
 - (void)updatePeripheralInterfaceAnimated:(_Bool)arg1;
 - (_Bool)_canDisplayOptions;
 - (_Bool)_shouldShowOptionsSwitcherInToolbar;
-- (void)configureGlobalFooterView:(id)arg1;
+- (id)globalFooterSubtitle;
 - (_Bool)wantsGlobalFooter;
 - (id)newToolbarItems;
 - (_Bool)shouldShowToolbar;

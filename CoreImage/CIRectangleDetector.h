@@ -25,22 +25,16 @@ __attribute__((visibility("hidden")))
         CDUnknownFunctionPointerType _field4;
     } *CVMLFuncs;
     float *_perMeshPtr;
-    void *_internalBuffer;
+    struct vImage_Buffer *_internalBuffer;
 }
 
 @property(retain, nonatomic) CIContext *context; // @synthesize context;
-- (id)featuresInImageFallback:(id)arg1 options:(id)arg2;
-- (id)featuresInImageVisionKit:(id)arg1 options:(id)arg2;
 - (id)featuresInImage:(id)arg1 options:(id)arg2;
 - (id)featuresInImage:(id)arg1;
 - (void)finalize;
 - (void)dealloc;
-- (void)releaseResourcesFallBack;
-- (void)releaseResourcesVisionKit;
 - (void)releaseResources;
 - (id)initWithContext:(id)arg1 options:(id)arg2;
-- (id)initWithFallbackImplementation;
-- (id)initWithVisionKitImplementation;
 
 @end
 

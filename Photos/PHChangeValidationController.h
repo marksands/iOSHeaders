@@ -6,15 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSManagedObjectContext, NSSet, NSString, PLPhotoLibrary;
+@class NSArray, NSManagedObjectContext, NSOrderedSet, NSString, PLPhotoLibrary;
 
 @interface PHChangeValidationController : NSObject
 {
     _Bool _didPrepare;
     _Bool _confirmationRequired;
-    NSSet *_insertRequests;
-    NSSet *_updateRequests;
-    NSSet *_deleteRequests;
+    NSOrderedSet *_insertRequests;
+    NSOrderedSet *_updateRequests;
+    NSOrderedSet *_deleteRequests;
     NSManagedObjectContext *_managedObjectContext;
     PLPhotoLibrary *_photoLibrary;
     NSArray *_renderedContentURLs;
@@ -38,9 +38,9 @@
 @property(readonly, nonatomic) NSArray *renderedContentURLs; // @synthesize renderedContentURLs=_renderedContentURLs;
 @property(readonly, nonatomic) PLPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 @property(readonly, nonatomic) NSManagedObjectContext *managedObjectContext; // @synthesize managedObjectContext=_managedObjectContext;
-@property(readonly, nonatomic) NSSet *deleteRequests; // @synthesize deleteRequests=_deleteRequests;
-@property(readonly, nonatomic) NSSet *updateRequests; // @synthesize updateRequests=_updateRequests;
-@property(readonly, nonatomic) NSSet *insertRequests; // @synthesize insertRequests=_insertRequests;
+@property(readonly, nonatomic) NSOrderedSet *deleteRequests; // @synthesize deleteRequests=_deleteRequests;
+@property(readonly, nonatomic) NSOrderedSet *updateRequests; // @synthesize updateRequests=_updateRequests;
+@property(readonly, nonatomic) NSOrderedSet *insertRequests; // @synthesize insertRequests=_insertRequests;
 - (void).cxx_destruct;
 - (_Bool)validateWithError:(id *)arg1;
 - (_Bool)_prepareWithError:(id *)arg1;

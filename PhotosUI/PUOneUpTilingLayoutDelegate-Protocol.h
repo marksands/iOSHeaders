@@ -19,12 +19,13 @@
 - (_Bool)layout:(PUOneUpTilingLayout *)arg1 shouldShowAccessoryForItemAtIndexPath:(NSIndexPath *)arg2;
 - (struct CGPoint)layout:(PUOneUpTilingLayout *)arg1 contentOffsetForItemAtIndexPath:(NSIndexPath *)arg2;
 - (PUModelTileTransform *)layout:(PUOneUpTilingLayout *)arg1 modelTileTransformForItemAtIndexPath:(NSIndexPath *)arg2;
-- (_Bool)layout:(PUOneUpTilingLayout *)arg1 shouldShowLoadingIndicatorForItemAtIndexPath:(NSIndexPath *)arg2;
+- (struct CGSize)layout:(PUOneUpTilingLayout *)arg1 loadingIndicatorSizeForItemAtIndexPath:(NSIndexPath *)arg2;
 - (_Bool)layout:(PUOneUpTilingLayout *)arg1 shouldShowBufferingIndicatorForItemAtIndexPath:(NSIndexPath *)arg2;
 - (_Bool)layout:(PUOneUpTilingLayout *)arg1 shouldShowProgressIndicatorForItemAtIndexPath:(NSIndexPath *)arg2;
 - (_Bool)layout:(PUOneUpTilingLayout *)arg1 shouldShowPlayButtonForItemAtIndexPath:(NSIndexPath *)arg2;
 - (struct CGSize)layout:(PUOneUpTilingLayout *)arg1 assetExplorerReviewScreenBadgeSizeForItemAtIndexPath:(NSIndexPath *)arg2;
 - (struct CGSize)layout:(PUOneUpTilingLayout *)arg1 badgeSizeForItemAtIndexPath:(NSIndexPath *)arg2;
+- (_Bool)layout:(PUOneUpTilingLayout *)arg1 shouldScaleToFitSafeInsetsForItemAtIndexPath:(NSIndexPath *)arg2;
 - (double)layout:(PUOneUpTilingLayout *)arg1 aspectRatioForItemAtIndexPath:(NSIndexPath *)arg2;
 @end
 

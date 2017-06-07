@@ -18,11 +18,11 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSString *contactIdentifier; // @synthesize contactIdentifier=_contactIdentifier;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (_Bool)includesDisabledContainers;
 - (struct __CFArray *)cn_copyContainersInAddressBook:(void *)arg1 error:(struct __CFError **)arg2;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithContactIdentifier:(id)arg1;
 - (id)initWithPredicate:(id)arg1;

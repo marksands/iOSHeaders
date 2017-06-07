@@ -23,6 +23,7 @@
 - (id)init;
 - (void *)ABValueForABPerson:(void *)arg1;
 - (_Bool)setABValue:(void *)arg1 onABPerson:(void *)arg2 error:(struct __CFError **)arg3;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

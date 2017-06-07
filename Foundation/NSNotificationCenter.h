@@ -13,6 +13,7 @@
     void *_pad[11];
 }
 
++ (id)_defaultCenterWithoutCreating;
 + (id)defaultCenter;
 - (id)debugDescription;
 - (_Bool)isEmpty;

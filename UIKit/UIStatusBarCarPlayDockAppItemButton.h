@@ -16,11 +16,15 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_heightConstraint;
     NSLayoutConstraint *_widthConstraint;
     _Bool _active;
+    _Bool _showBadge;
     NSString *_bundleIdentifier;
     UIImageView *_iconImageView;
     UIImageView *_iconHighlightImageView;
+    UIImageView *_badgeView;
 }
 
+@property(nonatomic) _Bool showBadge; // @synthesize showBadge=_showBadge;
+@property(retain, nonatomic) UIImageView *badgeView; // @synthesize badgeView=_badgeView;
 @property(retain, nonatomic) UIImageView *iconHighlightImageView; // @synthesize iconHighlightImageView=_iconHighlightImageView;
 @property(retain, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
@@ -32,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)pressesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)pressesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;
+- (void)setShowBadge:(_Bool)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) _Bool itemHasBundleIdentifier;
 - (void)setCharge:(float)arg1;
 - (float)charge;

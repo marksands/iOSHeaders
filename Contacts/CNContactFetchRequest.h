@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/NSSecureCoding-Protocol.h>
 
@@ -31,10 +31,11 @@
 @property(copy, nonatomic) NSArray *keysToFetch; // @synthesize keysToFetch=_keysToFetch;
 @property(copy, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
 @property(nonatomic) _Bool rankSort; // @synthesize rankSort=_rankSort;
+- (void).cxx_destruct;
+- (_Bool)requiresMeContactAuthorization;
 - (id)effectiveKeysToFetch;
-- (void)executeFetchWithDataMapper:(id)arg1 observer:(id)arg2;
+- (id)effectivePredicate;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithKeysToFetch:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

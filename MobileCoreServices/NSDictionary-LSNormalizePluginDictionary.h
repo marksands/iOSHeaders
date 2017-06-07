@@ -7,6 +7,6 @@
 #import <Foundation/NSDictionary.h>
 
 @interface NSDictionary (LSNormalizePluginDictionary)
-- (id)insertExtensionPointVersion:(id)arg1;
+- (id)ls_insertExtensionPointVersion:(id)arg1;
 @end
 

@@ -12,9 +12,11 @@
 {
     NSString *_text;
     NSString *_header;
+    long long _lines;
 }
 
 + (id)itemWithText:(id)arg1 andHeader:(id)arg2;
+@property(nonatomic) long long lines; // @synthesize lines=_lines;
 @property(retain, nonatomic) NSString *header; // @synthesize header=_header;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;

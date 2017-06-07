@@ -17,11 +17,11 @@ __attribute__((visibility("hidden")))
 
 @property(readonly) id value; // @synthesize value=_value;
 @property(readonly) CNPropertyDescription *property; // @synthesize property=_property;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)applyToMutableContact:(id)arg1 withIdentifierMap:(id)arg2;
-- (void)dealloc;
 - (id)initWithProperty:(id)arg1 value:(id)arg2;
 - (_Bool)applyToABPerson:(void *)arg1 withPropertiesContext:(id)arg2 error:(id *)arg3;
 

@@ -6,20 +6,21 @@
 
 #import <UIKit/UIView.h>
 
-@class NSAttributedString, UIColor, UIRefreshControl, _UIFeedbackImpactBehavior;
+@class NSAttributedString, UIColor, UIImpactFeedbackGenerator, UIRefreshControl;
 
 __attribute__((visibility("hidden")))
 @interface _UIRefreshControlContentView : UIView
 {
     UIRefreshControl *_refreshControl;
     UIColor *_tintColor;
-    _UIFeedbackImpactBehavior *_impactFeedbackBehavior;
+    UIImpactFeedbackGenerator *_impactFeedbackGenerator;
 }
 
-@property(retain, nonatomic) _UIFeedbackImpactBehavior *impactFeedbackBehavior; // @synthesize impactFeedbackBehavior=_impactFeedbackBehavior;
+@property(retain, nonatomic) UIImpactFeedbackGenerator *impactFeedbackGenerator; // @synthesize impactFeedbackGenerator=_impactFeedbackGenerator;
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(nonatomic) UIRefreshControl *refreshControl; // @synthesize refreshControl=_refreshControl;
 - (void).cxx_destruct;
+- (void)_removeAllAnimations;
 - (double)_heightAtWhichNoneOfTheInterfaceElementsAreVisibleEvenIfTheControlIsStillPartiallyOnScreen;
 - (void)didTransitionFromState:(long long)arg1 toState:(long long)arg2;
 - (void)willTransitionFromState:(long long)arg1 toState:(long long)arg2;

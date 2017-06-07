@@ -9,7 +9,7 @@
 #import <WebKit/NSCoding-Protocol.h>
 #import <WebKit/NSCopying-Protocol.h>
 
-@class NSString, WKPreferences, WKProcessPool, WKUserContentController, WKWebView, WKWebViewContentProviderRegistry, WKWebsiteDataStore, _WKVisitedLinkStore, _WKWebsiteDataStore;
+@class NSMutableDictionary, NSString, WKPreferences, WKProcessPool, WKUserContentController, WKWebView, WKWebViewContentProviderRegistry, WKWebsiteDataStore, _WKVisitedLinkStore, _WKWebsiteDataStore;
 
 @interface WKWebViewConfiguration : NSObject <NSCoding, NSCopying>
 {
@@ -22,6 +22,7 @@
     struct WeakObjCPtr<WKWebView> _alternateWebViewForNavigationGestures;
     struct RetainPtr<NSString> _groupIdentifier;
     struct LazyInitialized<WTF::RetainPtr<NSString>> _applicationNameForUserAgent;
+    struct LazyInitialized<WTF::RetainPtr<NSMutableDictionary<NSString *, id<WKURLSchemeHandler>>>> _urlSchemeHandlers;
     double _incrementalRenderingSuppressionTimeout;
     _Bool _treatsSHA1SignedCertificatesAsInsecure;
     _Bool _respectsImageOrientation;
@@ -35,6 +36,7 @@
     _Bool _allowsInlineMediaPlayback;
     _Bool _inlineMediaPlaybackRequiresPlaysInlineAttribute;
     _Bool _allowsInlineMediaPlaybackAfterFullscreen;
+    _Bool _allowsBlockSelection;
     _Bool _invisibleAutoplayNotPermitted;
     _Bool _mediaDataLoadsAutomatically;
     _Bool _attachmentElementEnabled;
@@ -66,7 +68,10 @@
 - (void).cxx_destruct;
 - (void)_validate;
 @property(nonatomic, setter=_setContentProviderRegistry:) WKWebViewContentProviderRegistry *_contentProviderRegistry;
+@property(readonly, nonatomic) NSMutableDictionary *_urlSchemeHandlers;
 @property(retain, nonatomic, setter=_setWebsiteDataStore:) _WKWebsiteDataStore *_websiteDataStore;
+- (id)urlSchemeHandlerForURLScheme:(id)arg1;
+- (void)setURLSchemeHandler:(id)arg1 forURLScheme:(id)arg2;
 @property(retain, nonatomic, setter=_setVisitedLinkStore:) _WKVisitedLinkStore *_visitedLinkStore;
 @property(copy, nonatomic) NSString *applicationNameForUserAgent;
 @property(retain, nonatomic) WKWebsiteDataStore *websiteDataStore;
@@ -90,6 +95,7 @@
 @property(nonatomic, setter=_setAttachmentElementEnabled:) _Bool _attachmentElementEnabled;
 @property(nonatomic, setter=_setMediaDataLoadsAutomatically:) _Bool _mediaDataLoadsAutomatically;
 @property(nonatomic, setter=_setInvisibleAutoplayNotPermitted:) _Bool _invisibleAutoplayNotPermitted;
+@property(nonatomic, setter=_setAllowsBlockSelection:) _Bool _allowsBlockSelection;
 @property(nonatomic, setter=_setAllowsInlineMediaPlaybackAfterFullscreen:) _Bool _allowsInlineMediaPlaybackAfterFullscreen;
 @property(nonatomic, setter=_setInlineMediaPlaybackRequiresPlaysInlineAttribute:) _Bool _inlineMediaPlaybackRequiresPlaysInlineAttribute;
 @property(nonatomic, setter=_setAlwaysRunsAtForegroundPriority:) _Bool _alwaysRunsAtForegroundPriority;

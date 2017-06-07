@@ -52,7 +52,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct UIEdgeInsets displayInsets;
 - (id)similarShape;
 - (id)iPadVariantGeometries:(unsigned long long)arg1 rowLimit:(long long)arg2;
-- (id)iPhoneVariantGeometries:(unsigned long long)arg1;
+- (id)iPhoneVariantGeometries:(unsigned long long)arg1 annotationIndex:(unsigned long long)arg2;
 - (void)applyShadowInsets:(struct UIEdgeInsets)arg1;
 - (void)applyInsets:(struct UIEdgeInsets)arg1;
 - (void)overlayWithGeometry:(id)arg1;
@@ -67,7 +67,8 @@ __attribute__((visibility("hidden")))
 - (void)applyOffset:(struct CGPoint)arg1;
 - (void)makeIntegralWithScale:(double)arg1;
 - (void)adjustToTopWithInsets:(struct UIEdgeInsets)arg1;
-- (unsigned long long)adjustForTranslucentGapsInFrameWithSize_10Key:(struct CGSize)arg1 centerX:(double)arg2 isInBottomRow:(_Bool)arg3;
+- (void)adjustForConsistentGapsWithSize:(struct CGSize)arg1 inFrame:(struct CGRect)arg2;
+- (unsigned long long)adjustForTranslucentGapsInFrameWithSize_10Key:(struct CGSize)arg1 centerX:(double)arg2 bottomEdge:(_Bool)arg3 topEdge:(_Bool)arg4;
 - (unsigned long long)adjustForTranslucentGapsWithSize:(struct CGSize)arg1 inFrame:(struct CGRect)arg2;
 
 @end

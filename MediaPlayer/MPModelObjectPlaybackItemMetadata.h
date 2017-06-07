@@ -53,7 +53,6 @@
 - (_Bool)allowsAssetCaching;
 - (void)dealloc;
 - (id)init;
-- (id)mqf_playbackItemMetadataModelObject;
 
 @end
 

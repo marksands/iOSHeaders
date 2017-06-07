@@ -6,25 +6,25 @@
 
 #import <Contacts/CNContactStore.h>
 
-@class SGSuggestionsService;
+@protocol SGSuggestionsServiceContactsProtocol;
 
 __attribute__((visibility("hidden")))
 @interface CNSuggestedContactStore : CNContactStore
 {
-    SGSuggestionsService *_suggestionService;
+    id <SGSuggestionsServiceContactsProtocol> _suggestionService;
 }
 
 + (_Bool)isSuggestionsSupported;
 + (void)initialize;
 + (id)storeIdentifier;
 + (id)storeInfoClasses;
-@property(retain, nonatomic) SGSuggestionsService *suggestionService; // @synthesize suggestionService=_suggestionService;
+@property(retain, nonatomic) id <SGSuggestionsServiceContactsProtocol> suggestionService; // @synthesize suggestionService=_suggestionService;
+- (void).cxx_destruct;
 - (_Bool)executeSaveRequest:(id)arg1 error:(id *)arg2;
 - (_Bool)_processSuggestions:(id)arg1 error:(id *)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (id)unifiedContactsMatchingPredicate:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (_Bool)enumerateContactsAndMatchInfoWithFetchRequest:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)originForSuggestion:(id)arg1 error:(id *)arg2;
-- (void)dealloc;
 - (id)requestAccessForEntityType:(long long)arg1;
 - (id)initWithSuggestionsService:(id)arg1;
 - (id)init;

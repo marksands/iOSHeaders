@@ -8,24 +8,24 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class PBUnknownFields, _INPBContactList, _INPBDateTimeRange, _INPBIntentMetadata, _INPBStringList;
+@class PBUnknownFields, _INPBContactList, _INPBDataStringList, _INPBDateTimeRange, _INPBIntentMetadata, _INPBStringList;
 
 @interface _INPBSearchForMessagesIntent : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     CDStruct_95bda58d _attributes;
     _INPBDateTimeRange *_dateTimeRange;
-    _INPBStringList *_groupName;
     _INPBStringList *_identifier;
     _INPBIntentMetadata *_intentMetadata;
     _INPBStringList *_notificationIdentifier;
     _INPBContactList *_recipient;
     _INPBStringList *_searchTerm;
     _INPBContactList *_sender;
+    _INPBDataStringList *_speakableGroupName;
 }
 
 + (id)options;
-@property(retain, nonatomic) _INPBStringList *groupName; // @synthesize groupName=_groupName;
+@property(retain, nonatomic) _INPBDataStringList *speakableGroupName; // @synthesize speakableGroupName=_speakableGroupName;
 @property(retain, nonatomic) _INPBStringList *notificationIdentifier; // @synthesize notificationIdentifier=_notificationIdentifier;
 @property(retain, nonatomic) _INPBStringList *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) _INPBDateTimeRange *dateTimeRange; // @synthesize dateTimeRange=_dateTimeRange;
@@ -43,7 +43,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasGroupName;
+@property(readonly, nonatomic) _Bool hasSpeakableGroupName;
 @property(readonly, nonatomic) _Bool hasNotificationIdentifier;
 @property(readonly, nonatomic) _Bool hasIdentifier;
 @property(readonly, nonatomic) _Bool hasDateTimeRange;

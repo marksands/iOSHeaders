@@ -10,9 +10,11 @@
 {
 }
 
-+ (void)recordRecentForContactWithEmailAddress:(id)arg1 name:(id)arg2;
-+ (struct NSObject *)recentForContactWithEmailAddress:(id)arg1 name:(id)arg2;
++ (_Bool)recordRecentForContactWithName:(id)arg1 emailAddress:(id)arg2 phoneNumber:(id)arg3;
++ (void)recordRecentWithAddress:(id)arg1 name:(id)arg2 kind:(id)arg3;
++ (struct NSObject *)recentForContactWithAddress:(id)arg1 name:(id)arg2 kind:(id)arg3;
 + (id)crRecentsDomainCalendarString;
++ (id)crAddressKindPhoneNumberString;
 + (id)crAddressKindEmailString;
 + (Class)crRecentContactsLibraryClass;
 

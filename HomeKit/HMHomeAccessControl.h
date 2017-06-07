@@ -6,25 +6,34 @@
 
 #import <objc/NSObject.h>
 
-@class HMUser;
+@class HMUser, HMUserPresenceAuthorization, HMUserPresenceCompute;
 @protocol OS_dispatch_queue;
 
 @interface HMHomeAccessControl : NSObject
 {
+    _Bool _owner;
     _Bool _administrator;
     _Bool _remoteAccessAllowed;
     HMUser *_user;
+    HMUserPresenceAuthorization *_presenceAuthStatus;
+    HMUserPresenceCompute *_presenceComputeStatus;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 - (void).cxx_destruct;
+- (void)updatePresenceAuthorizationStatus:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateRemoteAccess:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateAdministratorAccess:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-@property(nonatomic, getter=isRemoteAccessAllowed) _Bool remoteAccessAllowed; // @synthesize remoteAccessAllowed=_remoteAccessAllowed;
+- (unsigned long long)presenceComputationStatus;
+- (unsigned long long)presenceAuthorizationStatus;
+@property(retain, nonatomic) HMUserPresenceCompute *presenceComputeStatus; // @synthesize presenceComputeStatus=_presenceComputeStatus;
+@property(retain, nonatomic) HMUserPresenceAuthorization *presenceAuthStatus; // @synthesize presenceAuthStatus=_presenceAuthStatus;
+@property(getter=isRemoteAccessAllowed) _Bool remoteAccessAllowed; // @synthesize remoteAccessAllowed=_remoteAccessAllowed;
 @property(nonatomic, getter=isAdministrator) _Bool administrator; // @synthesize administrator=_administrator;
-@property(nonatomic) __weak HMUser *user; // @synthesize user=_user;
-- (id)initWithUser:(id)arg1 administratorPrivilege:(_Bool)arg2 remoteAccess:(_Bool)arg3;
+@property(getter=isOwner) _Bool owner; // @synthesize owner=_owner;
+@property __weak HMUser *user; // @synthesize user=_user;
+- (id)initWithUser:(id)arg1 owner:(_Bool)arg2 administratorPrivilege:(_Bool)arg3 remoteAccess:(_Bool)arg4 presenceAuthStatus:(id)arg5 presenceComputeStatus:(id)arg6;
 
 @end
 

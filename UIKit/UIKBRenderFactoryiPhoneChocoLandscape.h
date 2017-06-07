@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (double)_row4ControlSegmentWidthRight;
+- (double)_row4ControlSegmentWidthLeft;
 - (id)thinKeycapsFontName;
 - (id)lightKeycapsFontName;
 - (_Bool)isTallPopup;
@@ -18,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)popupSymbolTextOffset;
 - (struct CGPoint)variantSymbolTextOffset;
 - (struct UIEdgeInsets)variantSymbolFrameInsets;
+- (struct UIEdgeInsets)wideShadowPopupMenuInsets;
 - (struct CGPoint)dismissKeyOffset;
 - (struct CGPoint)realEmojiKeyOffset;
 - (struct CGPoint)moreABCKeyOffset;

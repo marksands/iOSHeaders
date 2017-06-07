@@ -28,6 +28,9 @@
 - (void)setVideoRetainedBufferCountHint:(int)arg1;
 - (int)videoRetainedBufferCountHint;
 - (_Bool)isVideoRetainedBufferCountHintSupported;
+@property(nonatomic, getter=isCameraIntrinsicMatrixDeliveryEnabled) _Bool cameraIntrinsicMatrixDeliveryEnabled;
+@property(readonly, nonatomic, getter=isCameraIntrinsicMatrixDeliverySupported) _Bool cameraIntrinsicMatrixDeliverySupported;
+- (void)_updateCameraIntrinsicMatrixDeliverySupported;
 @property(readonly, nonatomic) long long activeVideoStabilizationMode;
 @property(nonatomic) long long preferredVideoStabilizationMode;
 @property(nonatomic) _Bool enablesVideoStabilizationWhenAvailable;

@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
     unsigned long long _arrowDirections;
     _Bool _isRotating;
     _Bool _readyToPresentAfterRotation;
+    long long _currentPresentationStyle;
+    struct RetainPtr<UIViewController> _currentPresentingViewController;
     struct RetainPtr<UIViewController> _presentedViewControllerWhileRotating;
     struct RetainPtr<id<UIPopoverPresentationControllerDelegate>> _popoverPresentationControllerDelegateWhileRotating;
 }
@@ -27,9 +29,11 @@ __attribute__((visibility("hidden")))
 - (void)_didRotateAndLayout;
 - (void)updateSheetPosition;
 - (void)willRotate;
-- (void)doneWithSheet;
+- (void)doneWithSheet:(_Bool)arg1;
 - (_Bool)presentSheetFromRect:(struct CGRect)arg1;
-- (_Bool)presentSheet;
+- (struct CGRect)_presentationRectForStyle:(long long)arg1;
+- (_Bool)presentSheet:(long long)arg1;
+- (void)_cleanup;
 - (void)dealloc;
 - (id)init;
 

@@ -8,7 +8,6 @@
 
 @class CALayer;
 
-__attribute__((visibility("hidden")))
 @interface SCNLayerSource : SCNImageSource
 {
     CALayer *_layer;

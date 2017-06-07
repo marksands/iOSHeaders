@@ -39,6 +39,7 @@
 @property(readonly, nonatomic) struct CLLocationCoordinate2D rawCoordinate;
 @property(readonly, nonatomic) struct CLLocationCoordinate2D coordinate;
 @property(nonatomic) int referenceFrame;
+- (id)jsonObject;
 - (id)shortDescription;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;

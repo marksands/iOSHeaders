@@ -22,6 +22,40 @@ struct CLLocationCoordinate2D {
     double longitude;
 };
 
+struct _CLLocationManagerStateTrackerState {
+    double distanceFilter;
+    double desiredAccuracy;
+    _Bool updatingLocation;
+    _Bool requestingLocation;
+    _Bool requestingRanging;
+    _Bool updatingRanging;
+    _Bool updatingHeading;
+    double headingFilter;
+    _Bool persistentMonitoringEnabled;
+    _Bool allowsLocationPrompts;
+    _Bool allowsAlteredAccessoryLocations;
+    _Bool dynamicAccuracyReductionEnabled;
+    _Bool previousAuthorizationStatusValid;
+    int previousAuthorizationStatus;
+    long long activityType;
+    int pausesLocationUpdatesAutomatically;
+    _Bool paused;
+    _Bool allowsBackgroundLocationUpdates;
+    _Bool allowsMapCorrection;
+    _Bool batchingLocation;
+    _Bool updatingVehicleSpeed;
+    _Bool updatingVehicleHeading;
+    _Bool matchInfoEnabled;
+    _Bool courtesyPromptNeeded;
+};
+
+struct os_state_hints_s {
+    unsigned int _field1;
+    char *_field2;
+    unsigned int _field3;
+    unsigned int _field4;
+};
+
 struct ostream;
 
 struct value_ostream {
@@ -44,6 +78,13 @@ typedef struct {
     double inclination;
     int calibration;
 } CDStruct_b560b707;
+
+typedef struct {
+    double speed;
+    double timestamp;
+    double machContinuousTime;
+    double machAbsoluteTime;
+} CDStruct_6a5f25ec;
 
 typedef struct {
     int padding1;

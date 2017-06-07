@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)textFieldShouldBeginEditing:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
+- (struct CGSize)intrinsicContentSizeForCell:(id)arg1 rowWidth:(double)arg2;
 - (id)editableTextFieldForCell:(id)arg1;
 - (id)detailTextLabelForCell:(id)arg1;
 - (void)layoutSubviewsOfCell:(id)arg1;

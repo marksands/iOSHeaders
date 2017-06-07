@@ -15,6 +15,7 @@
     unsigned long long _resultsLimit;
     CDUnknownBlockType _recordZoneWithIDChangedBlock;
     CDUnknownBlockType _recordZoneWithIDWasDeletedBlock;
+    CDUnknownBlockType _recordZoneWithIDWasPurgedBlock;
     CDUnknownBlockType _changeTokenUpdatedBlock;
     CDUnknownBlockType _fetchDatabaseChangesCompletionBlock;
     CKServerChangeToken *_serverChangeToken;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
 @property(copy, nonatomic) CDUnknownBlockType fetchDatabaseChangesCompletionBlock; // @synthesize fetchDatabaseChangesCompletionBlock=_fetchDatabaseChangesCompletionBlock;
 @property(copy, nonatomic) CDUnknownBlockType changeTokenUpdatedBlock; // @synthesize changeTokenUpdatedBlock=_changeTokenUpdatedBlock;
+@property(copy, nonatomic) CDUnknownBlockType recordZoneWithIDWasPurgedBlock; // @synthesize recordZoneWithIDWasPurgedBlock=_recordZoneWithIDWasPurgedBlock;
 @property(copy, nonatomic) CDUnknownBlockType recordZoneWithIDWasDeletedBlock; // @synthesize recordZoneWithIDWasDeletedBlock=_recordZoneWithIDWasDeletedBlock;
 @property(copy, nonatomic) CDUnknownBlockType recordZoneWithIDChangedBlock; // @synthesize recordZoneWithIDChangedBlock=_recordZoneWithIDChangedBlock;
 @property(nonatomic) _Bool fetchAllChanges; // @synthesize fetchAllChanges=_fetchAllChanges;

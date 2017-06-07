@@ -37,9 +37,6 @@
 - (id)constraintLessThanOrEqualToAnchor:(id)arg1 constant:(double)arg2;
 - (id)constraintGreaterThanOrEqualToAnchor:(id)arg1 constant:(double)arg2;
 - (id)constraintEqualToAnchor:(id)arg1 constant:(double)arg2;
-- (id)constraintLessThanOrEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3;
-- (id)constraintGreaterThanOrEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3;
-- (id)constraintEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3;
 - (long long)_constraintAttribute;
 - (id)_constraintItem;
 - (_Bool)nsli_lowerIntoExpression:(id)arg1 withCoefficient:(double)arg2 forConstraint:(id)arg3;
@@ -84,22 +81,22 @@
 - (void)dealloc;
 - (id)initWithName:(id)arg1 referenceItem:(id)arg2 symbolicAttribute:(long long)arg3;
 - (id)init;
-- (id)relationshipLessThanOrEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3 priority:(float)arg4 identifier:(id)arg5;
-- (id)relationshipGreaterThanOrEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3 priority:(float)arg4 identifier:(id)arg5;
-- (id)relationshipEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3 priority:(float)arg4 identifier:(id)arg5;
-- (id)relationshipLessThanOrEqualToAnchor:(id)arg1 constant:(double)arg2 priority:(float)arg3 identifier:(id)arg4;
-- (id)relationshipGreaterThanOrEqualToAnchor:(id)arg1 constant:(double)arg2 priority:(float)arg3 identifier:(id)arg4;
-- (id)relationshipEqualToAnchor:(id)arg1 constant:(double)arg2 priority:(float)arg3 identifier:(id)arg4;
-- (id)relationshipLessThanOrEqualToAnchor:(id)arg1 constant:(double)arg2;
-- (id)relationshipGreaterThanOrEqualToAnchor:(id)arg1 constant:(double)arg2;
-- (id)relationshipEqualToAnchor:(id)arg1 constant:(double)arg2;
-- (id)relationshipLessThanOrEqualToAnchor:(id)arg1;
-- (id)relationshipGreaterThanOrEqualToAnchor:(id)arg1;
-- (id)relationshipEqualToAnchor:(id)arg1;
+- (id)ruleLessThanOrEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3 priority:(float)arg4 identifier:(id)arg5;
+- (id)ruleGreaterThanOrEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3 priority:(float)arg4 identifier:(id)arg5;
+- (id)ruleEqualToAnchor:(id)arg1 multiplier:(double)arg2 constant:(double)arg3 priority:(float)arg4 identifier:(id)arg5;
+- (id)ruleLessThanOrEqualToAnchor:(id)arg1 constant:(double)arg2 priority:(float)arg3 identifier:(id)arg4;
+- (id)ruleGreaterThanOrEqualToAnchor:(id)arg1 constant:(double)arg2 priority:(float)arg3 identifier:(id)arg4;
+- (id)ruleEqualToAnchor:(id)arg1 constant:(double)arg2 priority:(float)arg3 identifier:(id)arg4;
+- (id)ruleLessThanOrEqualToAnchor:(id)arg1 constant:(double)arg2;
+- (id)ruleGreaterThanOrEqualToAnchor:(id)arg1 constant:(double)arg2;
+- (id)ruleEqualToAnchor:(id)arg1 constant:(double)arg2;
+- (id)ruleLessThanOrEqualToAnchor:(id)arg1;
+- (id)ruleGreaterThanOrEqualToAnchor:(id)arg1;
+- (id)ruleEqualToAnchor:(id)arg1;
 - (id)observableValueInItem:(id)arg1;
 - (double)valueInItem:(id)arg1;
 - (id)_expressionForValueInItem:(id)arg1;
-- (id)relationshipsAffectingLayout;
+- (id)rulesAffectingLayout;
 
 @end
 

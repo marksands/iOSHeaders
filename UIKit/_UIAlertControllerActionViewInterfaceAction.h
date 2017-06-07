@@ -14,9 +14,11 @@ __attribute__((visibility("hidden")))
 @interface _UIAlertControllerActionViewInterfaceAction : UIInterfaceAction <UIAlertActionMutablePropertyObservering>
 {
     UIAlertAction *_underlyingAlertAction;
+    _Bool _valid;
 }
 
 + (id)actionWithAlertControllerActionView:(id)arg1;
+@property(readonly, nonatomic) _Bool valid; // @synthesize valid=_valid;
 @property(readonly, nonatomic) UIAlertAction *underlyingAlertAction; // @synthesize underlyingAlertAction=_underlyingAlertAction;
 - (void).cxx_destruct;
 - (void)_action:(id)arg1 updatedTitleTextColor:(id)arg2;
@@ -32,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (id)leadingImage;
 - (id)classificationTitle;
 - (void)dealloc;
+- (void)invalidate;
 - (void)_initializeStateFromUnderlyingAlertAction;
 
 // Remaining properties

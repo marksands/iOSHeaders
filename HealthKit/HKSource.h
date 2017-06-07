@@ -9,7 +9,7 @@
 #import <HealthKit/NSCopying-Protocol.h>
 #import <HealthKit/NSSecureCoding-Protocol.h>
 
-@class NSString;
+@class NSNumber, NSString;
 
 @interface HKSource : NSObject <NSSecureCoding, NSCopying>
 {
@@ -18,6 +18,7 @@
     _Bool _localDevice;
     NSString *_productType;
     unsigned long long _options;
+    NSNumber *_sourceID;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -28,11 +29,16 @@
 + (id)_currentSourceProductType:(_Bool)arg1;
 + (id)_sourceBundleIdentifierWithEntitlements:(id)arg1 clientBundleIdentifier:(id)arg2 isExtension:(_Bool)arg3;
 + (_Bool)_representsCurrentDeviceWithBundleIdentifier:(id)arg1;
++ (id)_connectedGymSource;
++ (id)_localDeviceSource;
 + (id)defaultSource;
+@property(retain, nonatomic, getter=_sourceID, setter=_setSourceID:) NSNumber *sourceID; // @synthesize sourceID=_sourceID;
 @property(nonatomic, getter=_options, setter=_setOptions:) unsigned long long options; // @synthesize options=_options;
 @property(retain, nonatomic, getter=_productType, setter=_setProductType:) NSString *productType; // @synthesize productType=_productType;
 @property(nonatomic, getter=_isLocalDevice, setter=_setLocalDevice:) _Bool localDevice; // @synthesize localDevice=_localDevice;
 - (void).cxx_destruct;
+- (_Bool)_isConnectedGymSource;
+- (_Bool)_isConnectedGymBundleID;
 - (_Bool)_hasFirstPartyBundleID;
 - (_Bool)_isAppleWatch;
 - (void)_setBundleIdentifier:(id)arg1;

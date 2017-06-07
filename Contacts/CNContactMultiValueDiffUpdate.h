@@ -17,9 +17,9 @@ __attribute__((visibility("hidden")))
 
 @property(readonly) CNMultiValueDiff *diff; // @synthesize diff=_diff;
 @property(readonly) CNMultiValuePropertyDescription *property; // @synthesize property=_property;
+- (void).cxx_destruct;
 - (id)description;
 - (void)applyToMutableContact:(id)arg1 withIdentifierMap:(id)arg2;
-- (void)dealloc;
 - (id)initWithProperty:(id)arg1 diff:(id)arg2;
 - (_Bool)applyToABPerson:(void *)arg1 withPropertiesContext:(id)arg2 error:(id *)arg3;
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/NSISVariableDelegate-Protocol.h>
 
-@class NSHashTable, NSISVariable, NSISVariableChangeTracker, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSThread;
+@class NSHashTable, NSISVariable, NSISVariableChangeTracker, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSThread, _NSISVariableObservable;
 @protocol NSISEngineDelegate, NSObservable;
 
 @interface NSISEngine : NSObject <NSISVariableDelegate>
@@ -22,6 +22,7 @@
     NSISVariableChangeTracker *_variableChangeTracker;
     NSObject<NSObservable> *_variableChangeTransactionSignal;
     NSMapTable *_variableObservables;
+    _NSISVariableObservable *_dirtyObservables;
     id <NSISEngineDelegate> _delegate;
     NSMapTable *_brokenConstraintPositiveErrors;
     NSMapTable *_brokenConstraintNegativeErrors;
@@ -129,6 +130,10 @@
 - (void)sendChangeNotificationForVariable:(id)arg1;
 - (_Bool)isTrackingVariableChanges;
 - (void)_noteValueOfVariable:(id)arg1 changedFrom:(double)arg2;
+- (void)_dirtyListRemoveObservable:(id)arg1;
+- (void)_dirtyListPrependObservable:(id)arg1;
+- (_Bool)_dirtyListContainsObservable:(id)arg1;
+- (void)_sendSolutionDidChange;
 - (void)pivotToMakeBodyVar:(id)arg1 newHeadOfRowWithHead:(id)arg2 andDropRow:(_Bool)arg3;
 - (void)substituteOutAllOccurencesOfBodyVar:(id)arg1 withExpression:(id)arg2;
 - (void)addExpression:(id)arg1 times:(double)arg2 toRowWithHead:(id)arg3 body:(id)arg4;

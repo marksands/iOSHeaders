@@ -6,20 +6,23 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVContentKeySession, AVWeakReference, NSData, NSError;
-@protocol NSObject;
+@class AVContentKeySession, NSData, NSError;
 
 @interface AVContentKeyRequestInternal : NSObject
 {
-    AVContentKeySession *_session;
-    id _identifier;
-    NSData *_initializationData;
-    long long _status;
-    id <NSObject> _context;
-    AVWeakReference *_assetWeakRef;
-    _Bool _providesPersistableKey;
-    struct OpaqueFigCPECryptor *_figCryptor;
-    NSError *_error;
+    AVContentKeySession *session;
+    id identifier;
+    NSData *initializationData;
+    long long status;
+    id customURLProviderContext;
+    int responseInfoSent;
+    _Bool providesPersistableKey;
+    struct OpaqueFigCPECryptor *figCryptor;
+    NSError *error;
+    struct __CFDictionary *requestInfo;
+    unsigned long long requestID;
+    struct OpaqueFigCustomURLHandler *customURLHandler;
+    int cryptorListenerAdded;
 }
 
 @end

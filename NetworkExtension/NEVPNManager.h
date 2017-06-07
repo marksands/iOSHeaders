@@ -13,6 +13,7 @@
 @interface NEVPNManager : NSObject <NEPrettyDescription>
 {
     _Bool _hasLoaded;
+    _Bool _notificationSent;
     NEVPNConnection *_connection;
     NEConfiguration *_configuration;
 }
@@ -20,6 +21,7 @@
 + (id)mapError:(id)arg1;
 + (id)sharedManager;
 + (id)loadedManagers;
+@property _Bool notificationSent; // @synthesize notificationSent=_notificationSent;
 @property _Bool hasLoaded; // @synthesize hasLoaded=_hasLoaded;
 @property(copy) NEConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(readonly) NEVPNConnection *connection; // @synthesize connection=_connection;

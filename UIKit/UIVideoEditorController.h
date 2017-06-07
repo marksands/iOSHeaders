@@ -13,11 +13,7 @@
 {
     int _previousStatusBarStyle;
     NSMutableDictionary *_properties;
-    struct {
-        unsigned int visible:1;
-        unsigned int isCleaningUp:1;
-        unsigned int didRevertStatusBar:1;
-    } _flags;
+    CDStruct_d1897728 _flags;
 }
 
 + (_Bool)canEditVideoAtPath:(id)arg1;

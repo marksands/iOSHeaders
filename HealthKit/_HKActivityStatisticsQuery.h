@@ -6,9 +6,11 @@
 
 #import <HealthKit/HKQuery.h>
 
-@class NSDate, NSDateComponents;
+#import <HealthKit/HKActivityStatisticsQueryClientInterface-Protocol.h>
 
-@interface _HKActivityStatisticsQuery : HKQuery
+@class NSDate, NSDateComponents, NSString;
+
+@interface _HKActivityStatisticsQuery : HKQuery <HKActivityStatisticsQueryClientInterface>
 {
     _Bool _deliveredInitial;
     NSDate *_startDate;
@@ -20,23 +22,27 @@
     double _updateInterval;
 }
 
-+ (Class)_queryServerDataObjectClass;
++ (void)configureClientInterface:(id)arg1;
++ (id)clientInterfaceProtocol;
 @property(nonatomic, getter=_updateInterval, setter=_setUpdateInterval:) double updateInterval; // @synthesize updateInterval=_updateInterval;
 @property(copy, nonatomic) CDUnknownBlockType initialResultsHandler; // @synthesize initialResultsHandler=_initialResultsHandler;
 @property(copy, nonatomic) CDUnknownBlockType updateHandler; // @synthesize updateHandler=_updateHandler;
 - (void).cxx_destruct;
-- (void)_queue_deliverActivityMoveStatistics:(id)arg1 exerciseStatistics:(id)arg2 standHoursInfo:(id)arg3 workoutInfo:(id)arg4 forQuery:(id)arg5;
-- (void)deliverActivityMoveStatistics:(id)arg1 exerciseStatistics:(id)arg2 standHoursInfo:(id)arg3 workouts:(id)arg4 forQuery:(id)arg5;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (void)_queue_deliverError:(id)arg1;
-- (void)_queue_validateIntervalComponents:(id)arg1;
-- (void)_queue_validateParams;
-- (void)_queue_validate;
-- (_Bool)_queue_shouldStayAliveAfterInitialResults;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (_Bool)_requiresValidSampleType;
+- (void)client_deliverActivityMoveStatistics:(id)arg1 exerciseStatistics:(id)arg2 standHoursInfo:(id)arg3 workouts:(id)arg4 query:(id)arg5;
+- (void)queue_deliverError:(id)arg1;
+- (void)_validateIntervalComponents:(id)arg1;
+- (void)queue_validate;
+- (_Bool)queue_shouldDeactivateAfterInitialResults;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)queue_populateConfiguration:(id)arg1;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2 moveIntervalComponents:(id)arg3 exerciseIntervalComponents:(id)arg4 initialResultsHandler:(CDUnknownBlockType)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

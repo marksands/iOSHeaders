@@ -9,10 +9,10 @@
 __attribute__((visibility("hidden")))
 @interface UIClassicWindow : UIWindow
 {
-    _Bool _scaleForiPads;
+    struct CGSize _sceneSizeOverride;
 }
 
-@property(nonatomic) _Bool scaleForiPads; // @synthesize scaleForiPads=_scaleForiPads;
+@property(nonatomic) struct CGSize sceneSizeOverride; // @synthesize sceneSizeOverride=_sceneSizeOverride;
 - (double)_adjustedWindowLevelFromLevel:(double)arg1;
 - (_Bool)_shouldZoom;
 - (_Bool)_isConstrainedByScreenJail;

@@ -38,6 +38,7 @@
 @property float contrast;
 @property(getter=isGrayscale) _Bool grayscale;
 - (void)setAccessibilityColorMatrix:(float *)arg1 scale:(float)arg2;
+- (void)setNits:(float)arg1;
 - (void)setColorMatrix:(float *)arg1 scale:(float)arg2 rampDuration:(double)arg3;
 @property _Bool invertsColors;
 @property struct CGSize overscanAmounts;
@@ -53,9 +54,11 @@
 @property(readonly) NSSet *clones;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromContextId:(unsigned int)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toContextId:(unsigned int)arg2;
+- (unsigned int)taskNamePortOfContextId:(unsigned int)arg1;
 - (unsigned int)taskPortOfContextId:(unsigned int)arg1;
 - (unsigned int)clientPortOfContextId:(unsigned int)arg1;
 - (unsigned int)clientPortAtPosition:(struct CGPoint)arg1;
+- (unsigned int)contextIdAtPosition:(struct CGPoint)arg1 excludingContextIds:(id)arg2;
 - (unsigned int)contextIdAtPosition:(struct CGPoint)arg1;
 @property(readonly) unsigned int rendererFlags;
 @property(readonly) NSString *uniqueId;

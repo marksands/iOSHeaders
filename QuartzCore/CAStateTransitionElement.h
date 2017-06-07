@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
 #import <QuartzCore/NSCopying-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class CAAnimation, CALayer, NSString;
 
-@interface CAStateTransitionElement : NSObject <NSCopying, NSCoding>
+@interface CAStateTransitionElement : NSObject <NSCopying, NSSecureCoding>
 {
     CALayer *_target;
     CAAnimation *_animation;
@@ -19,6 +19,7 @@
     _Bool _enabled;
 }
 
++ (_Bool)supportsSecureCoding;
 + (void)CAMLParserStartElement:(id)arg1;
 @property(getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(copy, nonatomic) NSString *key; // @synthesize key=_key;

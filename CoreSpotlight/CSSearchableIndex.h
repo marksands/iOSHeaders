@@ -6,17 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class CSIndexingQueue, NSMutableArray, NSString, NSXPCConnection;
-@protocol CSSearchableIndexDelegate, CSSearchableIndexInterface><NSXPCProxyCreating, OS_dispatch_queue;
+@class CSIndexingQueue, NSMutableArray, NSString;
+@protocol CSSearchableIndexDelegate, OS_dispatch_queue;
 
 @interface CSSearchableIndex : NSObject
 {
     CSIndexingQueue *_activityQueue;
     _Bool _batchOpen;
     int _awakeNotifyToken;
+    int _indexID;
     id <CSSearchableIndexDelegate> _indexDelegate;
-    NSXPCConnection *_connection;
-    id <CSSearchableIndexInterface><NSXPCProxyCreating> _testProxy;
     NSObject<OS_dispatch_queue> *_delegateQueue;
     NSString *_name;
     NSString *_protectionClass;
@@ -34,8 +33,11 @@
 + (void)notifyIndexDelegates;
 + (id)_requestQueueAttribute;
 + (id)defaultSearchableIndex;
++ (id)codedIdentifiers:(id)arg1;
++ (id)codedUniqueIdentifiers:(id)arg1;
 + (void)initialize;
 + (_Bool)isIndexingAvailable;
+@property(readonly, nonatomic) int indexID; // @synthesize indexID=_indexID;
 @property(nonatomic) _Bool batchOpen; // @synthesize batchOpen=_batchOpen;
 @property(nonatomic) int awakeNotifyToken; // @synthesize awakeNotifyToken=_awakeNotifyToken;
 @property(nonatomic) long long options; // @synthesize options=_options;
@@ -45,8 +47,6 @@
 @property(copy, nonatomic) NSString *protectionClass; // @synthesize protectionClass=_protectionClass;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
-@property(retain, nonatomic) id <CSSearchableIndexInterface><NSXPCProxyCreating> testProxy; // @synthesize testProxy=_testProxy;
-@property(retain, nonatomic) NSXPCConnection *connection; // @synthesize connection=_connection;
 - (void).cxx_destruct;
 - (void)deleteAllInteractionsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)deleteAllInteractionsWithBundleID:(id)arg1 protectionClass:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -68,6 +68,8 @@
 - (void)fetchLastClientStateWithProtectionClass:(id)arg1 forBundleID:(id)arg2 clientStateName:(id)arg3 options:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)fetchLastClientStateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_issueCommand:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)provideFileURLForBundle:(id)arg1 identifier:(id)arg2 type:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)provideDataForBundle:(id)arg1 identifier:(id)arg2 type:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)deleteSearchableItemsSinceDate:(id)arg1 protectionClass:(id)arg2 forBundleID:(id)arg3 options:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)deleteSearchableItemsSinceDate:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)deleteAllSearchableItemsWithProtectionClass:(id)arg1 forBundleID:(id)arg2 options:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -96,15 +98,12 @@
 - (_Bool)_supportsBatching;
 @property __weak id <CSSearchableIndexDelegate> indexDelegate; // @synthesize indexDelegate=_indexDelegate;
 - (void)_checkInWithIndexDelegate:(id)arg1 reason:(id)arg2;
+- (id)xpc_dictionary_for_command:(const char *)arg1;
 - (void)_registerAwakeNotifyToken;
 - (void)_cancelAwakeNotifyToken;
-- (id)remoteProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (void)_didInvalidateConnection;
-- (void)_didInterruptConnection;
 @property(readonly, nonatomic) CSIndexingQueue *activityQueue;
 - (void)_makeActivityQueueIfNecessary;
 - (void)dealloc;
-- (id)initWithTestingStub:(id)arg1;
 - (void)_commonInit;
 - (id)_initWithName:(id)arg1 protectionClass:(id)arg2 bundleIdentifier:(id)arg3 options:(long long)arg4;
 - (id)init;

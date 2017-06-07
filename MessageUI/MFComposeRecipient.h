@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-#import <MessageUI/MFDraggableItem-Protocol.h>
 #import <MessageUI/NSCoding-Protocol.h>
 #import <MessageUI/NSCopying-Protocol.h>
+#import <MessageUI/UIItemProviderReading-Protocol.h>
+#import <MessageUI/UIItemProviderWriting-Protocol.h>
 
 @class CNAutocompleteResult, CNContact, MFComposeRecipientOriginContext, NSArray, NSString;
 
-@interface MFComposeRecipient : NSObject <NSCopying, MFDraggableItem, NSCoding>
+@interface MFComposeRecipient : NSObject <UIItemProviderReading, UIItemProviderWriting, NSCopying, NSCoding>
 {
     void *_record;
     int _recordID;
@@ -42,6 +43,8 @@
 + (id)recipientWithRecord:(void *)arg1 recordID:(int)arg2 property:(int)arg3 identifier:(int)arg4;
 + (id)composeRecipientWithAutocompleteResult:(id)arg1;
 + (id)mf_recipientWithGALResult:(id)arg1;
++ (id)writableTypeIdentifiersForItemProvider;
++ (id)readableTypeIdentifiersForItemProvider;
 @property(readonly, nonatomic) unsigned long long kind; // @synthesize kind=_kind;
 @property(retain, nonatomic) CNAutocompleteResult *autocompleteResult; // @synthesize autocompleteResult=_autocompleteResult;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
@@ -58,8 +61,6 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)labeledValueIdentifier;
 - (id)_unformattedAddress;
-- (id)objectForDragType:(id)arg1;
-- (id)supportedDragTypes;
 - (void)setOriginContext:(id)arg1;
 @property(readonly, nonatomic) NSString *uncommentedAddress; // @dynamic uncommentedAddress;
 @property(readonly, nonatomic) NSString *placeholderName; // @dynamic placeholderName;
@@ -92,10 +93,13 @@
 - (id)initWithContact:(id)arg1 address:(id)arg2 kind:(unsigned long long)arg3;
 - (id)init;
 - (void)dealloc;
+- (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
 
 @end
 

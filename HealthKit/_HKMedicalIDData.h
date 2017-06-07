@@ -53,6 +53,7 @@
 - (void)recordFieldPresenceStatistics;
 - (_Bool)hasAnyData;
 @property(copy, nonatomic) NSDateComponents *gregorianBirthday;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

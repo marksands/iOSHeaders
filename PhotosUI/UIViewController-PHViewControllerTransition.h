@@ -13,5 +13,6 @@
 - (void)ph_loadTransitionSourcePlaceholderViewUsingFactory:(CDUnknownBlockType)arg1;
 - (_Bool)ph_isTransitionOverlayView:(id)arg1;
 - (struct CGRect)ph_rectOfInterestForTransitionInCoordinateSpace:(id)arg1;
+- (struct CGRect)ph_rectOfInterestForTransitionInCoordinateSpace:(id)arg1 withInfo:(id)arg2;
 @end
 

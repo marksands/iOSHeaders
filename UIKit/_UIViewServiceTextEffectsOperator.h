@@ -6,21 +6,22 @@
 
 #import <Foundation/NSObject.h>
 
+#import <UIKit/_UIHostedWindowDelegate-Protocol.h>
 #import <UIKit/_UIViewServiceDeputy-Protocol.h>
 #import <UIKit/_UIViewServiceDeputyRotationDelegate-Protocol.h>
 #import <UIKit/_UIViewServiceTextEffectsOperator_RemoteViewControllerInterface-Protocol.h>
 
-@class NSArray, NSString, UIWindow, _UIAsyncInvocation;
+@class NSArray, NSString, _UIAsyncInvocation, _UIHostedWindow;
 
 __attribute__((visibility("hidden")))
-@interface _UIViewServiceTextEffectsOperator : NSObject <_UIViewServiceTextEffectsOperator_RemoteViewControllerInterface, _UIViewServiceDeputy, _UIViewServiceDeputyRotationDelegate>
+@interface _UIViewServiceTextEffectsOperator : NSObject <_UIHostedWindowDelegate, _UIViewServiceTextEffectsOperator_RemoteViewControllerInterface, _UIViewServiceDeputy, _UIViewServiceDeputyRotationDelegate>
 {
     int __automatic_invalidation_retainCount;
     _Bool __automatic_invalidation_invalidated;
     id _remoteViewControllerProxy;
     _UIAsyncInvocation *_prepareForDisconnectionInvocation;
     _UIAsyncInvocation *_invalidationInvocation;
-    UIWindow *_hostedWindow;
+    _UIHostedWindow *_hostedWindow;
     struct CGPoint _windowOffset;
     struct CGSize _sceneSize;
     _Bool _canRestoreInputViews;
@@ -53,7 +54,9 @@ __attribute__((visibility("hidden")))
 - (void)_resetSceneSize;
 - (void)__setWindowOffset:(struct CGPoint)arg1;
 - (void)__createHostedTextEffectsWithReplyHandler:(CDUnknownBlockType)arg1;
-- (void)windowDidGainFirstResponder:(id)arg1;
+- (void)hostedWindow:(id)arg1 didSetResponderTargetForCalloutBar:(id)arg2;
+- (void)hostedWindow:(id)arg1 didSetFirstResponder:(id)arg2;
+- (void)makeHostWindowKey;
 - (void)dealloc;
 - (void)_invalidateUnconditionallyThen:(CDUnknownBlockType)arg1;
 - (void)_prepareForDisconnectionUnconditionallyThen:(CDUnknownBlockType)arg1;

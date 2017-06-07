@@ -25,9 +25,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long _textInputSource; // @synthesize _textInputSource=__textInputSource;
 @property(nonatomic, setter=_setPreventSelectionViewActivation:) _Bool _preventSelectionViewActivation; // @synthesize _preventSelectionViewActivation=__preventSelectionViewActivation;
 - (void).cxx_destruct;
+- (_Bool)_textShouldFillFieldEditorHeight;
 - (long long)_blurEffectStyle;
-- (id)_tvDefaultTextColor;
-- (_Bool)_labelShouldUseVibrancy;
 - (_Bool)_shouldDetermineInterfaceStyleTextColor;
 - (void)insertTextSuggestion:(id)arg1;
 - (id)textInputTraits;

@@ -15,6 +15,7 @@
     NSString *_daemonDir;
 }
 
++ (_Bool)deviceHasSEP;
 + (id)callerDisplayNameWithPid:(int)arg1 bundleId:(id *)arg2;
 + (id)_pluginDisplayNameForUUID:(id)arg1 bundleId:(id *)arg2;
 + (id)_pluginDisplayNameForPID:(int)arg1 bundleId:(id *)arg2;

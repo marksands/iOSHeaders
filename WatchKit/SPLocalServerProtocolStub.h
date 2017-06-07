@@ -43,7 +43,6 @@
 - (void)installAllApplicationsForProcessWithIdentifier:(id)arg1;
 - (void)activeComplicationsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchInstalledComplicationsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchInstalledGlancesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchInstalledApplicationsWithCompletion:(CDUnknownBlockType)arg1;
 
 // Remaining properties

@@ -37,6 +37,7 @@
 - (id)pressesForGestureRecognizer:(id)arg1;
 @property(readonly, nonatomic) NSSet *allPresses;
 - (id)_cloneEvent;
+- (void)_cleanupAfterDispatch;
 - (long long)subtype;
 - (long long)type;
 - (id)_init;

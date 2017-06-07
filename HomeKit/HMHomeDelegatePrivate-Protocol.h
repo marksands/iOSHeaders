@@ -6,11 +6,13 @@
 
 #import <HomeKit/HMHomeDelegate-Protocol.h>
 
-@class CLLocation, HMActionSet, HMHome, HMResidentDevice, HMRoom, HMServiceGroup, HMUser, NSArray;
+@class CLLocation, HMActionSet, HMHome, HMMediaSession, HMResidentDevice, HMRoom, HMServiceGroup, HMUser, NSArray;
 
 @protocol HMHomeDelegatePrivate <HMHomeDelegate>
 
 @optional
+- (void)home:(HMHome *)arg1 didRemoveMediaSession:(HMMediaSession *)arg2;
+- (void)home:(HMHome *)arg1 didAddMediaSession:(HMMediaSession *)arg2;
 - (void)home:(HMHome *)arg1 didEnableNotifications:(_Bool)arg2;
 - (void)home:(HMHome *)arg1 didUpdateAccessControlForUser:(HMUser *)arg2;
 - (void)home:(HMHome *)arg1 didUpdateLastExecutionDateForActionSet:(HMActionSet *)arg2;

@@ -74,6 +74,7 @@
 @property _Bool _disablesOutOfProcessDirectWiFiUsage; // @dynamic _disablesOutOfProcessDirectWiFiUsage;
 @property _Bool _disablesUseOfProxySession; // @dynamic _disablesUseOfProxySession;
 @property _Bool _disallowsSPDY; // @dynamic _disallowsSPDY;
+@property _Bool _duetPreauthorized; // @dynamic _duetPreauthorized;
 @property unsigned long long _forcedNetworkServiceType; // @dynamic _forcedNetworkServiceType;
 @property _Bool _forcesNewConnections; // @dynamic _forcesNewConnections;
 @property _Bool _infersDiscretionaryFromOriginatingClient; // @dynamic _infersDiscretionaryFromOriginatingClient;
@@ -111,6 +112,7 @@
 @property _Bool _supportsAVAssetDownloads; // @dynamic _supportsAVAssetDownloads;
 @property(copy) NSString *_tcpConnectionPoolName; // @dynamic _tcpConnectionPoolName;
 @property long long _timingDataOptions; // @dynamic _timingDataOptions;
+@property(copy) NSString *_tlsTrustPinningPolicyName; // @dynamic _tlsTrustPinningPolicyName;
 @property _Bool _usePipeliningHeuristics; // @dynamic _usePipeliningHeuristics;
 @property(copy) NSString *_watchAppBundleIdentifier; // @dynamic _watchAppBundleIdentifier;
 @property(copy) NSString *_watchExtensionBundleIdentifier; // @dynamic _watchExtensionBundleIdentifier;
@@ -121,6 +123,7 @@
 @property NSString *disposition; // @dynamic disposition;
 @property(copy) NSString *identifier; // @dynamic identifier;
 @property long long minimumFastLanePriority; // @dynamic minimumFastLanePriority;
+@property long long multipathServiceType; // @dynamic multipathServiceType;
 @property unsigned long long networkServiceType; // @dynamic networkServiceType;
 @property long long numFastLanes; // @dynamic numFastLanes;
 @property long long numPriorityLevels; // @dynamic numPriorityLevels;
@@ -134,6 +137,7 @@
 @property _Bool skip_download_unlink; // @dynamic skip_download_unlink;
 @property double timeoutIntervalForRequest; // @dynamic timeoutIntervalForRequest;
 @property double timeoutIntervalForResource; // @dynamic timeoutIntervalForResource;
+@property _Bool waitsForConnectivity; // @dynamic waitsForConnectivity;
 
 @end
 

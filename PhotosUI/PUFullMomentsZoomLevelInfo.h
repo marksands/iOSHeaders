@@ -19,6 +19,9 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)headerView:(id)arg1 actionButtonPressed:(id)arg2;
+- (double)sectionedGridLayout:(id)arg1 accessibilitySectionHeaderHeightForVisualSection:(long long)arg2;
+- (double)sectionedGridLayout:(id)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;
+- (void)_getDataForVisualSection:(long long)arg1 hasActionButton:(_Bool *)arg2 locations:(id *)arg3 title:(id *)arg4 startDate:(id *)arg5 endDate:(id *)arg6;
 - (struct UIEdgeInsets)_fillerViewInsetsForItemAtIndexPath:(id)arg1;
 - (void)sectionedGridLayout:(id)arg1 didFinalizePrepareTransitionIsAppearing:(_Bool)arg2;
 - (void)_prepareTransitionImageContentForCell:(id)arg1 atIndexPath:(id)arg2 appearingZoomLevelInfo:(id)arg3;
@@ -41,7 +44,7 @@ __attribute__((visibility("hidden")))
 - (id)sectionHeaderElementKind;
 - (long long)cellFillMode;
 - (struct CGSize)imageRequestItemSize;
-- (void)updateLayoutMetricsForWidth:(double)arg1;
+- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
 - (id)newCollectionViewLayout;
 - (struct __CFString *)aggregateLevelKey;
 - (id)displayTitle;

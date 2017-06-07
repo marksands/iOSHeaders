@@ -30,7 +30,7 @@
 @property(nonatomic) _Bool isFinished; // @synthesize isFinished=_isFinished;
 - (void).cxx_destruct;
 - (id)description;
-- (id)CKPropertiesDescription;
+- (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
 - (_Bool)isConcurrent;
 - (void)main;
 - (void)start;

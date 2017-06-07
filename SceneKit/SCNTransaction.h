@@ -10,9 +10,11 @@
 {
 }
 
++ (void)checkUncommittedTransactions;
 + (unsigned int)currentState;
-+ (void)postCommandWithContext:(void *)arg1 object:(id)arg2 keyPath:(id)arg3 applyBlock:(CDUnknownBlockType)arg4;
-+ (void)postCommandWithContext:(void *)arg1 object:(id)arg2 applyBlock:(CDUnknownBlockType)arg3;
++ (void)postCommandWithContext:(struct __C3DScene *)arg1 object:(id)arg2 key:(id)arg3 applyBlock:(CDUnknownBlockType)arg4;
++ (void)postCommandWithContext:(struct __C3DScene *)arg1 object:(id)arg2 keyPath:(id)arg3 applyBlock:(CDUnknownBlockType)arg4;
++ (void)postCommandWithContext:(struct __C3DScene *)arg1 object:(id)arg2 applyBlock:(CDUnknownBlockType)arg3;
 + (_Bool)immediateMode;
 + (void)setImmediateMode:(_Bool)arg1;
 + (void)setValue:(id)arg1 forKey:(id)arg2;

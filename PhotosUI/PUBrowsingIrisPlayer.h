@@ -7,49 +7,91 @@
 #import <PhotosUI/PUViewModel.h>
 
 #import <PhotosUI/ISChangeObserver-Protocol.h>
+#import <PhotosUI/PXVideoScrubberControllerTarget-Protocol.h>
 
-@class ISLivePhotoPlayer, ISWrappedAVPlayer, NSMutableSet, NSString, PHLivePhoto, PUMediaProvider;
+@class AVAsset, ISLivePhotoPlayer, ISWrappedAVPlayer, NSArray, NSMutableSet, NSString, NSValue, PHLivePhoto, PUMediaProvider;
 @protocol PUDisplayAsset;
 
 __attribute__((visibility("hidden")))
-@interface PUBrowsingIrisPlayer : PUViewModel <ISChangeObserver>
+@interface PUBrowsingIrisPlayer : PUViewModel <ISChangeObserver, PXVideoScrubberControllerTarget>
 {
     struct {
         _Bool livePhoto;
         _Bool playerContent;
         _Bool playerLoadingTarget;
+        _Bool playerItemScrubbingPhotoTime;
+        _Bool playing;
     } _isValid;
+    id _videoPeriodicObserver;
+    AVAsset *_preferredTimesAsset;
+    NSValue *_preferredTimeAutoPick;
     _Bool _hasPendingVitalityHint;
     _Bool _isLivePhotoLoadingAllowed;
     _Bool _isLivePhotoPlaybackAllowed;
+    _Bool _activated;
+    _Bool _playing;
     int __livePhotoRequestID;
+    int __currentFrameCuratorRequstID;
     ISLivePhotoPlayer *_player;
+    NSArray *_preferredTimes;
+    CDUnknownBlockType durationChangeHandler;
+    CDUnknownBlockType statusChangeHandler;
+    CDUnknownBlockType playerItemChangeHandler;
     id <PUDisplayAsset> _asset;
     PUMediaProvider *_mediaProvider;
     ISWrappedAVPlayer *_avPlayer;
     long long _loadingTarget;
+    NSArray *_currentlyDisplayedTimes;
     NSMutableSet *__livePhotoLoadingDisablingReasons;
     NSMutableSet *__livePhotoPlaybackDisablingReasons;
     long long __currentUnloadRequestId;
     PHLivePhoto *__livePhoto;
     long long __livePhotoRequestState;
+    CDUnknownBlockType __seekCompletionHandler;
+    CDStruct_1b6d18a9 _scrubbingPhotoTime;
 }
 
+@property(copy, nonatomic, setter=_setSeekCompletionHandler:) CDUnknownBlockType _seekCompletionHandler; // @synthesize _seekCompletionHandler=__seekCompletionHandler;
+@property(nonatomic, setter=_setCurrentFrameCuratorRequestID:) int _currentFrameCuratorRequstID; // @synthesize _currentFrameCuratorRequstID=__currentFrameCuratorRequstID;
 @property(nonatomic, setter=_setLivePhotoRequestID:) int _livePhotoRequestID; // @synthesize _livePhotoRequestID=__livePhotoRequestID;
 @property(nonatomic, setter=_setLivePhotoRequestState:) long long _livePhotoRequestState; // @synthesize _livePhotoRequestState=__livePhotoRequestState;
 @property(retain, nonatomic, setter=_setLivePhoto:) PHLivePhoto *_livePhoto; // @synthesize _livePhoto=__livePhoto;
 @property(nonatomic, setter=_setCurrentUnloadRequestId:) long long _currentUnloadRequestId; // @synthesize _currentUnloadRequestId=__currentUnloadRequestId;
 @property(retain, nonatomic) NSMutableSet *_livePhotoPlaybackDisablingReasons; // @synthesize _livePhotoPlaybackDisablingReasons=__livePhotoPlaybackDisablingReasons;
 @property(retain, nonatomic) NSMutableSet *_livePhotoLoadingDisablingReasons; // @synthesize _livePhotoLoadingDisablingReasons=__livePhotoLoadingDisablingReasons;
+@property(nonatomic, getter=isPlaying, setter=_setPlaying:) _Bool playing; // @synthesize playing=_playing;
+@property(copy, nonatomic, setter=_setCurrentlyDisplayedTimes:) NSArray *currentlyDisplayedTimes; // @synthesize currentlyDisplayedTimes=_currentlyDisplayedTimes;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 scrubbingPhotoTime; // @synthesize scrubbingPhotoTime=_scrubbingPhotoTime;
+@property(nonatomic, getter=isActivated) _Bool activated; // @synthesize activated=_activated;
 @property(readonly, nonatomic) _Bool isLivePhotoPlaybackAllowed; // @synthesize isLivePhotoPlaybackAllowed=_isLivePhotoPlaybackAllowed;
 @property(readonly, nonatomic) _Bool isLivePhotoLoadingAllowed; // @synthesize isLivePhotoLoadingAllowed=_isLivePhotoLoadingAllowed;
 @property(nonatomic) long long loadingTarget; // @synthesize loadingTarget=_loadingTarget;
 @property(readonly, nonatomic) _Bool hasPendingVitalityHint; // @synthesize hasPendingVitalityHint=_hasPendingVitalityHint;
-@property(readonly, nonatomic) ISWrappedAVPlayer *avPlayer; // @synthesize avPlayer=_avPlayer;
+@property(retain, nonatomic, setter=_setAvPlayer:) ISWrappedAVPlayer *avPlayer; // @synthesize avPlayer=_avPlayer;
 @property(readonly, nonatomic) PUMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 @property(retain, nonatomic) id <PUDisplayAsset> asset; // @synthesize asset=_asset;
+@property(copy, nonatomic) CDUnknownBlockType playerItemChangeHandler; // @synthesize playerItemChangeHandler;
+@property(copy, nonatomic) CDUnknownBlockType statusChangeHandler; // @synthesize statusChangeHandler;
+@property(copy, nonatomic) CDUnknownBlockType durationChangeHandler; // @synthesize durationChangeHandler;
 - (void).cxx_destruct;
+- (id)playerItem;
+- (long long)playerStatus;
+- (void)removeTimeObserver:(id)arg1;
+- (id)addPeriodicTimeObserverForInterval:(CDStruct_1b6d18a9)arg1 queue:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (float)playRate;
+- (void)cancelPendingSeeks;
+- (CDStruct_1b6d18a9)playerCurrentTime;
+- (CDStruct_1b6d18a9)currentItemDuration;
+- (void)videoScrubberController:(id)arg1 seekToTime:(CDStruct_1b6d18a9)arg2 toleranceBefore:(CDStruct_1b6d18a9)arg3 toleranceAfter:(CDStruct_1b6d18a9)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)avPlayerForVideoScrubberController:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (id)debugDetailedDescription;
+- (void)_updatePlayingIfNeeded;
+- (void)_invalidatePlaying;
+- (void)_handlePeriodicObserverWithTime:(CDStruct_1b6d18a9)arg1;
+- (void)_setAVPlayer:(id)arg1;
+- (void)_updatePlayerItemScrubbingPhotoTimeIfNeeded;
+- (void)_invalidatePlayerItemScrubbingPhotoTime;
 - (void)_updatePlayerItemLoadingTargetIfNeeded;
 - (void)_invalidatePlayerItemLoadingTarget;
 - (void)_updatePlayerContentIfNeeded;
@@ -73,6 +115,14 @@ __attribute__((visibility("hidden")))
 - (id)newViewModelChange;
 - (void)_setLivePhotoLoadingAllowed:(_Bool)arg1;
 - (void)setLivePhotoLoadingDisabled:(_Bool)arg1 forReason:(id)arg2;
+@property(readonly, copy, nonatomic) NSArray *preferredTimes; // @synthesize preferredTimes=_preferredTimes;
+- (void)_setPreferredTimes:(id)arg1 autoPickTime:(id)arg2 forVideoAsset:(id)arg3;
+- (void)_handleFrameCurationResult:(id)arg1 coverFrameTime:(id)arg2 forRequestID:(int)arg3 videoAsset:(id)arg4;
+- (void)_updatePreferredTimesWithVideoAsset:(id)arg1;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 currentVideoDuration;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 nonScrubbingPhotoTime;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 currentPhototime;
+- (void)setScrubbingPhotoTime:(CDStruct_1b6d18a9)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_setLivePhotoPlaybackAllowed:(_Bool)arg1;
 - (void)setLivePhotoPlaybackDisabled:(_Bool)arg1 forReason:(id)arg2;
 - (void)didPerformChanges;

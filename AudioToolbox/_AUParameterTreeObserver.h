@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) CDUnknownBlockType callback; // @synthesize callback=_callback;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 

@@ -14,6 +14,7 @@
     NSArray *_arguments;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void)acceptVisitor:(id)arg1 flags:(unsigned long long)arg2;
 - (id)_expressionWithSubstitutionVariables:(id)arg1;
 - (id)predicateFormat;

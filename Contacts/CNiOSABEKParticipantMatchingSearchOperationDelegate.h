@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/ABPredicateDelegate-Protocol.h>
 
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (_Bool)predicateShouldContinue:(id)arg1 afterFindingRecord:(void *)arg2;
 - (_Bool)predicateShouldContinue:(id)arg1;
 

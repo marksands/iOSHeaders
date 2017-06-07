@@ -10,20 +10,3 @@ typedef void (*CDUnknownFunctionPointerType)(void); // return type and parameter
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
-#pragma mark Named Structures
-
-struct CPSqliteConnection;
-
-struct CPSqliteStatement {
-    struct CPSqliteConnection *_field1;
-    struct sqlite3_stmt *_field2;
-    double _field3;
-};
-
-struct _NSRange {
-    unsigned long long _field1;
-    unsigned long long _field2;
-};
-
-struct sqlite3_stmt;
-

@@ -17,7 +17,6 @@
 - (id)markupStringForDisplayWithData:(id)arg1 displayStyle:(int)arg2 printableWidth:(double)arg3 allowAttachmentElement:(_Bool)arg4;
 - (id)markupStringForCompositionWithPrependedBlankLine:(_Bool)arg1 imageScale:(unsigned long long)arg2;
 - (id)filenameStrippingZipIfNeededUseApplications:(_Bool)arg1;
-- (_Bool)isDisplayableInlineWithData:(id)arg1;
 - (_Bool)isDisplayableInline;
 - (_Bool)isDisplayableInsidePlugin;
 - (_Bool)isDisplayableByWebKit;
@@ -40,6 +39,7 @@
 - (_Bool)_isContentTypeDisplayableByMobileMail;
 - (_Bool)isCalendarFile;
 - (_Bool)isRFC822;
+- (_Bool)isDisplayableSinglePagePDFFile;
 - (_Bool)isPDFFile;
 - (_Bool)isMedia;
 - (void)decompressContentsWithCompletion:(CDUnknownBlockType)arg1;

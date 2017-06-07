@@ -9,7 +9,7 @@
 #import <PhotosUI/PUAssetSharedViewModelChangeObserver-Protocol.h>
 #import <PhotosUI/PUAssetViewModelChangeObserver-Protocol.h>
 
-@class NSDate, NSMutableSet, NSString, PUAssetReference, PUAssetsDataSource, PUCachedMapTable, PUMediaProvider;
+@class NSDate, NSMutableSet, NSString, PUAssetReference, PUAssetsDataSource, PUCachedMapTable, PUMediaProvider, PXAutoloopScheduler;
 
 @interface PUBrowsingViewModel : PUViewModel <PUAssetViewModelChangeObserver, PUAssetSharedViewModelChangeObserver>
 {
@@ -36,23 +36,25 @@
     long long _browsingSpeedRegime;
     long long _lastChromeVisibilityChangeReason;
     id _lastChromeVisibilityChangeContext;
+    PUAssetReference *_trailingAssetReference;
+    PUAssetReference *_leadingAssetReference;
     long long __userNavigationDistance;
     long long __scrubbingSessionDistance;
     NSMutableSet *__animatingTransitionIdentifiers;
-    PUAssetReference *__trailingAssetReference;
-    PUAssetReference *__leadingAssetReference;
     PUMediaProvider *_mediaProvider;
+    PXAutoloopScheduler *_autoloopScheduler;
     struct CGSize _secondScreenSize;
 }
 
 + (void)initialize;
 @property(nonatomic) _Bool videoContentAllowed; // @synthesize videoContentAllowed=_videoContentAllowed;
+@property(retain, nonatomic) PXAutoloopScheduler *autoloopScheduler; // @synthesize autoloopScheduler=_autoloopScheduler;
 @property(retain, nonatomic) PUMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
-@property(retain, nonatomic, setter=_setLeadingAssetReference:) PUAssetReference *_leadingAssetReference; // @synthesize _leadingAssetReference=__leadingAssetReference;
-@property(retain, nonatomic, setter=_setTrailingAssetReference:) PUAssetReference *_trailingAssetReference; // @synthesize _trailingAssetReference=__trailingAssetReference;
 @property(retain, nonatomic, setter=_setAnimatingTransitionIdentifiers:) NSMutableSet *_animatingTransitionIdentifiers; // @synthesize _animatingTransitionIdentifiers=__animatingTransitionIdentifiers;
 @property(nonatomic, setter=_setScrubbingSessionDistance:) long long _scrubbingSessionDistance; // @synthesize _scrubbingSessionDistance=__scrubbingSessionDistance;
 @property(nonatomic, setter=_setUserNavigationDistance:) long long _userNavigationDistance; // @synthesize _userNavigationDistance=__userNavigationDistance;
+@property(retain, nonatomic, setter=_setLeadingAssetReference:) PUAssetReference *leadingAssetReference; // @synthesize leadingAssetReference=_leadingAssetReference;
+@property(retain, nonatomic, setter=_setTrailingAssetReference:) PUAssetReference *trailingAssetReference; // @synthesize trailingAssetReference=_trailingAssetReference;
 @property(nonatomic) struct CGSize secondScreenSize; // @synthesize secondScreenSize=_secondScreenSize;
 @property(nonatomic, getter=isPresentingOverOneUp) _Bool presentingOverOneUp; // @synthesize presentingOverOneUp=_presentingOverOneUp;
 @property(retain, nonatomic, setter=_setLastChromeVisibilityChangeContext:) id lastChromeVisibilityChangeContext; // @synthesize lastChromeVisibilityChangeContext=_lastChromeVisibilityChangeContext;

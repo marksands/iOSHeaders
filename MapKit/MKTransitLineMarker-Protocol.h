@@ -6,12 +6,12 @@
 
 #import <MapKit/NSObject-Protocol.h>
 
-@class NSString;
+@class MKMapItemIdentifier, NSString;
 @protocol GEOTransitArtworkDataSource;
 
 @protocol MKTransitLineMarker <NSObject>
 - (id <GEOTransitArtworkDataSource>)artwork;
 - (NSString *)labelText;
-- (unsigned long long)featureID;
+- (MKMapItemIdentifier *)mapItemIdentifier;
 @end
 

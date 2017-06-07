@@ -9,7 +9,8 @@
 #import <SafariServices/SFFormAutoFiller-Protocol.h>
 #import <SafariServices/SFInjectedJavaScriptWebProcessController-Protocol.h>
 
-@class NSString, WKWebProcessPlugInScriptWorld, _SFFormMetadataController, _WKRemoteObjectInterface;
+@class NSString, NSTimer, WKWebProcessPlugInScriptWorld, _SFFormMetadataController, _WKRemoteObjectInterface;
+@protocol _SFAutomaticBugCaptureObserver;
 
 __attribute__((visibility("hidden")))
 @interface _SFWebProcessPlugInAutoFillPageController : _SFWebProcessPlugInPageController <SFFormAutoFiller, SFInjectedJavaScriptWebProcessController>
@@ -17,6 +18,8 @@ __attribute__((visibility("hidden")))
     _WKRemoteObjectInterface *_activityControllerInterface;
     _WKRemoteObjectInterface *_autoFillerInterface;
     WKWebProcessPlugInScriptWorld *_isolatedWorld;
+    id <_SFAutomaticBugCaptureObserver> _automaticBugCaptureObserver;
+    NSTimer *_deferredLoadingWatchdogTimer;
     _SFFormMetadataController *_formMetadataController;
     unsigned long long _loadDeferringReasons;
 }
@@ -43,6 +46,8 @@ __attribute__((visibility("hidden")))
 - (void)runJavaScriptForActivity:(id)arg1 withScript:(id)arg2 object:(id)arg3 invokeMethod:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)removeLoadDeferringReasons:(unsigned long long)arg1;
 - (void)addLoadDeferringReasons:(unsigned long long)arg1;
+- (id)_automaticBugCaptureObserver;
+- (void)_invalidateDeferredLoadingWatchdogTimer;
 - (void)willDestroyBrowserContextController:(id)arg1;
 - (id)initWithPlugIn:(id)arg1 contextController:(id)arg2;
 

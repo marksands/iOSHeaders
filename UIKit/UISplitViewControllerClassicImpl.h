@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
     long long _lastNotifiedDisplayMode;
     struct CGRect _viewBoundsBeforeCollapse;
     long long _suspendedState;
+    long long _primaryEdge;
     struct {
         unsigned int invalidDelegateHiddenMasterAspectRatios:2;
         unsigned int delegateHiddenMasterAspectRatios:2;
@@ -136,7 +137,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_shouldSynthesizeSupportedOrientations;
 - (_Bool)shouldAutorotateToInterfaceOrientation:(long long)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
-- (void)willUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)_didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
 - (id)preferredFocusEnvironments;
 - (id)preferredFocusedView;
@@ -144,6 +145,7 @@ __attribute__((visibility("hidden")))
 - (void)_setUpFocusContainerGuides;
 - (double)_contentMarginForChildViewController:(id)arg1;
 - (void)_updateChildContentMargins;
+- (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (void)popoverWillAppear:(id)arg1;
 - (struct CGSize)_contentSizeForChildViewController:(id)arg1 inPopoverController:(id)arg2;
@@ -179,6 +181,8 @@ __attribute__((visibility("hidden")))
 - (id)_defaultDisplayModes;
 - (long long)displayMode;
 @property(nonatomic) long long preferredDisplayMode;
+- (_Bool)_layoutPrimaryOnRight;
+@property(nonatomic) long long primaryEdge;
 - (_Bool)_effectivePresentsWithGesture;
 @property(readonly, nonatomic) _Bool _presentsInFadingPopover;
 @property(nonatomic) float gutterWidth;

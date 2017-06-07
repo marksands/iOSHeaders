@@ -14,7 +14,6 @@
 @property(nonatomic) _Bool usesAspectItems;
 @property(nonatomic) double sectionTopPadding;
 @property(nonatomic) _Bool sectionHeadersEnabled;
-@property(nonatomic) double sectionHeaderHeight;
 @property(copy, nonatomic) NSString *sectionHeaderElementKind;
 @property(copy, nonatomic) NSSet *hiddenItemIndexPaths;
 @property(nonatomic) double globalBottomPadding;

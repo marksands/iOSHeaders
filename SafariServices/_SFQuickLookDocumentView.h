@@ -6,10 +6,12 @@
 
 #import <UIKit/UIScrollView.h>
 
-@class NSArray, NSLayoutConstraint, UIStackView, UIView, _SFQuickLookDocumentInfoView;
+#import <SafariServices/UIDragInteractionDelegate-Protocol.h>
+
+@class NSArray, NSLayoutConstraint, NSString, UIStackView, UIView, _SFQuickLookDocumentInfoView;
 @protocol _SFQuickLookDocumentViewDelegate;
 
-@interface _SFQuickLookDocumentView : UIScrollView
+@interface _SFQuickLookDocumentView : UIScrollView <UIDragInteractionDelegate>
 {
     UIView *_wrapperView;
     UIView *_contentView;
@@ -23,6 +25,8 @@
 
 @property(nonatomic) __weak id <_SFQuickLookDocumentViewDelegate> quickLookDocumentViewDelegate; // @synthesize quickLookDocumentViewDelegate=_quickLookDocumentViewDelegate;
 - (void).cxx_destruct;
+- (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
+- (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
 - (void)_actionButtonTapped:(id)arg1;
 - (void)_updatePropertiesDefinedByContentSizeCategory;
 - (void)_configureOrientationBasedConstraints:(long long)arg1;
@@ -36,6 +40,12 @@
 - (void)updateDocumentFileName:(id)arg1;
 - (void)updateActionTitles:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

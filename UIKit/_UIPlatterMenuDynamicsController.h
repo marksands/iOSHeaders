@@ -8,8 +8,8 @@
 
 #import <UIKit/_UIPlatterMenuPanningTransformerDelegate-Protocol.h>
 
-@class NSString, UIAttachmentBehavior, UICollisionBehavior, UIDynamicAnimator, UIDynamicItemBehavior, UIView, _UIDynamicItemObservingBehavior, _UIFeedbackStatesBehavior, _UIPlatterMenuPanningTransformer, _UIPlatterMenuSnapBehavior;
-@protocol _UIPlatterMenuDynamicsControllerDelegate;
+@class NSString, UIAttachmentBehavior, UICollisionBehavior, UIDynamicAnimator, UIDynamicItemBehavior, UIView, _UIDynamicItemObservingBehavior, _UIPlatterMenuPanningTransformer, _UIPlatterMenuSnapBehavior, _UIStatesFeedbackGenerator;
+@protocol UIDynamicItem, _UIPlatterMenuDynamicsControllerDelegate;
 
 __attribute__((visibility("hidden")))
 @interface _UIPlatterMenuDynamicsController : NSObject <_UIPlatterMenuPanningTransformerDelegate>
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     UIView *_containerView;
     UIView *_platterView;
     UIView *_menuView;
+    id <UIDynamicItem> _platterItem;
     _UIPlatterMenuPanningTransformer *_panningLockTransformer;
     long long _state;
     double _leadingSwipeEdgeMultiplier;
@@ -39,11 +40,11 @@ __attribute__((visibility("hidden")))
     UICollisionBehavior *_platterMenuCollisionBounds;
     _UIDynamicItemObservingBehavior *_observingBehavior;
     long long _didPresentCount;
-    _UIFeedbackStatesBehavior *_swipeFeedbackBehavior;
+    _UIStatesFeedbackGenerator *_swipeFeedbackGenerator;
     struct CGPoint _initialTouchPoint;
 }
 
-@property(retain, nonatomic) _UIFeedbackStatesBehavior *swipeFeedbackBehavior; // @synthesize swipeFeedbackBehavior=_swipeFeedbackBehavior;
+@property(retain, nonatomic) _UIStatesFeedbackGenerator *swipeFeedbackGenerator; // @synthesize swipeFeedbackGenerator=_swipeFeedbackGenerator;
 @property(nonatomic) long long didPresentCount; // @synthesize didPresentCount=_didPresentCount;
 @property(retain, nonatomic) _UIDynamicItemObservingBehavior *observingBehavior; // @synthesize observingBehavior=_observingBehavior;
 @property(retain, nonatomic) UICollisionBehavior *platterMenuCollisionBounds; // @synthesize platterMenuCollisionBounds=_platterMenuCollisionBounds;
@@ -64,6 +65,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGPoint initialTouchPoint; // @synthesize initialTouchPoint=_initialTouchPoint;
 @property(nonatomic) long long state; // @synthesize state=_state;
 @property(retain, nonatomic) _UIPlatterMenuPanningTransformer *panningLockTransformer; // @synthesize panningLockTransformer=_panningLockTransformer;
+@property(nonatomic) __weak id <UIDynamicItem> platterItem; // @synthesize platterItem=_platterItem;
 @property(nonatomic) __weak UIView *menuView; // @synthesize menuView=_menuView;
 @property(nonatomic) __weak UIView *platterView; // @synthesize platterView=_platterView;
 @property(nonatomic) __weak UIView *containerView; // @synthesize containerView=_containerView;
@@ -74,7 +76,7 @@ __attribute__((visibility("hidden")))
 - (void)_fireConfirmFeedbackIfNeededForInitialSelectionState:(_Bool)arg1 finalSelectionState:(_Bool)arg2;
 - (void)_deactivateFeedbackIfNeeded;
 - (void)_activateFeedbackIfNeeded;
-- (void)_configureFeedbackBehavior;
+- (void)_configureFeedbackGenerator;
 - (_Bool)_isPlatterInYLockedPosition;
 - (void)_updateSwipeEdgeMultipliersIfNeededForTouchPosition:(struct CGPoint)arg1;
 - (void)_positionSwipeActionViewsForCurrentPlatterViewPosition;
@@ -97,9 +99,11 @@ __attribute__((visibility("hidden")))
 - (void)panningTransformer:(id)arg1 didPanToTransformedPosition:(struct CGPoint)arg2 offsetFromPrevious:(struct CGVector)arg3 touchPosition:(struct CGPoint)arg4 velocity:(struct CGVector)arg5 didChangeAxis:(_Bool)arg6 axisLock:(int)arg7;
 - (void)panningTransformer:(id)arg1 didBeginPanToTransformedPosition:(struct CGPoint)arg2;
 - (_Bool)hasBeenPresented;
+- (void)_animateToPlatterDismissedWithDuration:(double)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_animateToPlatterPresentedWithVelocity:(struct CGVector)arg1;
 - (void)_beginInYLockedStatePresented;
 - (void)lockIntoYAxis;
+- (_Bool)platterPanned;
 - (_Bool)isSelectingSwipeAction;
 - (_Bool)isMenuPresenting;
 - (_Bool)isMenuPresented;

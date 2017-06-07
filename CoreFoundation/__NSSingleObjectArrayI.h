@@ -12,19 +12,21 @@ __attribute__((visibility("hidden")))
     id _object;
 }
 
-+ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)__new:(id)arg1:(_Bool)arg2;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
 - (id)objectEnumerator;
+- (id)lastObject;
+- (_Bool)isEqualToArray:(id)arg1;
+- (id)firstObject;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_58648341 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)getObjects:(id *)arg1 range:(struct _NSRange)arg2;
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (unsigned long long)count;
-- (void)dealloc;
-- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (_Bool)isEqualToArray:(id)arg1;
 
 @end
 

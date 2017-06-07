@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 
 // Remaining properties
-@property(nonatomic) __weak id <_UIFocusEnginePanGestureRecognizerDelegate> delegate;
+@property(nonatomic) __weak id <_UIFocusEnginePanGestureRecognizerDelegate> delegate; // @dynamic delegate;
 
 @end
 

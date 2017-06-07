@@ -61,6 +61,8 @@ __attribute__((visibility("hidden")))
 - (id)serviceIconImage;
 - (id)title;
 - (id)sheetActions;
+- (void)setSourcesToShare:(id)arg1;
+- (id)_imageFromStreamShareSource:(id)arg1;
 - (void)setAssetsToShare:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;

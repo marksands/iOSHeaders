@@ -18,12 +18,15 @@
     int _clientProcessID;
     PHFaceprint *_faceprint;
     _Bool _didSetFaceprint;
+    _Bool _shouldClearFaceCropGenerationState;
     PHChangeRequestHelper *_helper;
 }
 
++ (_Bool)canGenerateUUIDWithoutEntitlements;
 + (void)deleteFaces:(id)arg1;
 + (id)changeRequestForFace:(id)arg1;
 + (id)creationRequestForFace;
+@property(nonatomic) _Bool shouldClearFaceCropGenerationState; // @synthesize shouldClearFaceCropGenerationState=_shouldClearFaceCropGenerationState;
 @property(readonly, nonatomic) PHChangeRequestHelper *helper; // @synthesize helper=_helper;
 @property(readonly, nonatomic) int clientProcessID; // @synthesize clientProcessID=_clientProcessID;
 @property(readonly, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
@@ -31,12 +34,10 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) PHFaceprint *faceprint;
 - (void)didMutate;
-- (id)mutations;
 @property(readonly, nonatomic) NSManagedObjectID *objectID;
 @property(readonly, nonatomic) NSString *uuid;
 @property(readonly, getter=isMutated) _Bool mutated;
 @property(readonly, getter=isNew) _Bool new;
-- (_Bool)canGenerateUUIDLocally;
 - (void)performTransactionCompletionHandlingInPhotoLibrary:(id)arg1;
 - (id)createManagedObjectForInsertIntoPhotoLibrary:(id)arg1 error:(id *)arg2;
 - (_Bool)applyMutationsToManagedObject:(id)arg1 error:(id *)arg2;

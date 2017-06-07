@@ -11,7 +11,7 @@
 #import <PhotosUI/PUPhotosGridTransitioningLayout-Protocol.h>
 #import <PhotosUI/PUReorderableLayout-Protocol.h>
 
-@class NSArray, NSDictionary, NSIndexPath, NSIndexSet, NSNumber, NSPointerArray, NSSet, NSString, PULayoutAnimationsHelper, PULayoutSampledSectioning, PUSectionedGridLayoutInvalidationContext, UICollectionViewLayoutAttributes;
+@class NSArray, NSDictionary, NSIndexPath, NSIndexSet, NSMutableDictionary, NSNumber, NSPointerArray, NSSet, NSString, PULayoutAnimationsHelper, PULayoutSampledSectioning, PUSectionedGridLayoutData, PUSectionedGridLayoutInvalidationContext, UICollectionViewLayoutAttributes;
 @protocol PUCollectionViewLayoutTransitioningDelegate, PUSectionedGridLayoutDelegate;
 
 @interface PUSectionedGridLayout : UICollectionViewLayout <PUReorderableLayout, PUPhotosGridTransitioningLayout, PUCollectionViewLayoutDelegating, PUGridLayoutProtocol>
@@ -45,13 +45,18 @@
     long long _cachedFloatingHeaderInvalidationContextNewVisualSection;
     NSDictionary *_transitionSectionInfosByTransitionSection;
     NSDictionary *_transitionSectionInfosByVisualSection;
+    NSMutableDictionary *_axLargeTextSectionHeaderHeightByVisualSection;
+    PUSectionedGridLayoutData *_layoutData;
+    _Bool _isPreparingLayout;
     _Bool _delegateSupportsGroupedSections;
     _Bool _delegateSupportsAnchorItemForContentOffset;
     _Bool _delegateSupportsTargetContentOffset;
     _Bool _delegateSupportsTransitionAutoContentOffsetEnabled;
+    _Bool _delegateSupportsFinalContentInsetForCurrentContentInset;
     _Bool _delegateSupportsDidInvalidateWithContext;
     _Bool _delegateSupportsAspectRatioForItemAtIndexPath;
     _Bool _delegateSupportsSectionHeaderHeightForVisualSection;
+    _Bool _delegateSupportsAccessibilitySectionHeaderHeightForVisualSection;
     _Bool _delegateSupportsWillPrepareLayout;
     _Bool _usesRenderedStrips;
     NSIndexPath *_reorderingSourceIndexPath;
@@ -67,11 +72,11 @@
     _Bool _transitionAnchorShiftsColumns;
     _Bool _transitionZoomingOut;
     _Bool _floatingSectionHeadersEnabled;
+    _Bool _dynamicLayoutEnabled;
     _Bool _usesRenderedStripTopExtendersForTransitions;
     _Bool _usesAspectItems;
     NSSet *_hiddenItemIndexPaths;
     NSString *_sectionHeaderElementKind;
-    double _sectionHeaderHeight;
     double _sectionTopPadding;
     id <PUCollectionViewLayoutTransitioningDelegate> _transitioningDelegate;
     double _globalTopPadding;
@@ -104,6 +109,7 @@
 @property(nonatomic) double cropAmount; // @synthesize cropAmount=_cropAmount;
 @property(nonatomic) long long cropType; // @synthesize cropType=_cropType;
 @property(copy, nonatomic) NSString *renderedStripsElementKind; // @synthesize renderedStripsElementKind=_renderedStripsElementKind;
+@property(nonatomic) _Bool dynamicLayoutEnabled; // @synthesize dynamicLayoutEnabled=_dynamicLayoutEnabled;
 @property(retain, nonatomic) NSNumber *cachedDefaultGlobalFooterHeight; // @synthesize cachedDefaultGlobalFooterHeight=_cachedDefaultGlobalFooterHeight;
 @property(nonatomic) double globalFooterHeight; // @synthesize globalFooterHeight=_globalFooterHeight;
 @property(nonatomic) double globalHeaderHeight; // @synthesize globalHeaderHeight=_globalHeaderHeight;
@@ -133,7 +139,6 @@
 @property(nonatomic) __weak id <PUCollectionViewLayoutTransitioningDelegate> transitioningDelegate; // @synthesize transitioningDelegate=_transitioningDelegate;
 @property(nonatomic) double sectionTopPadding; // @synthesize sectionTopPadding=_sectionTopPadding;
 @property(nonatomic) _Bool sectionHeadersEnabled; // @synthesize sectionHeadersEnabled=_sectionHeadersEnabled;
-@property(nonatomic) double sectionHeaderHeight; // @synthesize sectionHeaderHeight=_sectionHeaderHeight;
 @property(copy, nonatomic) NSString *sectionHeaderElementKind; // @synthesize sectionHeaderElementKind=_sectionHeaderElementKind;
 @property(copy, nonatomic) NSSet *hiddenItemIndexPaths; // @synthesize hiddenItemIndexPaths=_hiddenItemIndexPaths;
 - (void).cxx_destruct;
@@ -178,11 +183,15 @@
 - (void)getVisualSectionIndex:(long long *)arg1 visualItemRange:(struct _NSRange *)arg2 forRenderStripAtIndexPath:(id)arg3;
 - (void)enumerateItemIndexPathsForVisualSection:(long long)arg1 inVisualItemRange:(struct _NSRange)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (long long)visualSectionForHeaderIndexPath:(id)arg1;
+- (long long)_nextVisualSectionForSupplementaryViewSection:(long long)arg1 forward:(_Bool)arg2;
 - (long long)numberOfItemsInRealSection:(long long)arg1 forSectioning:(id)arg2;
 - (id)realSectionsForVisualSection:(long long)arg1 forSectioning:(id)arg2;
 - (long long)numberOfRealSectionsForSectioning:(id)arg1;
 - (long long)maximumNumberOfItemsInVisualSection:(long long)arg1 withNumberOfRealItems:(long long)arg2 forSectioning:(id)arg3;
 - (long long)numberOfVisualSectionsForSectioning:(id)arg1;
+- (void)_ensureVisualSection:(long long)arg1 inData:(id)arg2;
+- (void)_ensureRect:(struct CGRect)arg1 inData:(id)arg2 outDeltaOriginY:(double *)arg3;
+- (_Bool)_ensureUpdatedLayoutData:(id)arg1 isForward:(_Bool)arg2 outDeltaOriginY:(double *)arg3;
 - (struct CGPoint)_visibleRectOriginForScrollOffset:(struct CGPoint)arg1;
 - (struct CGPoint)_currentVisibleRectOrigin;
 - (double)_sectionWidth;
@@ -191,6 +200,7 @@
 - (struct _NSRange)visualSectionsInRect:(struct CGRect)arg1;
 - (long long)_visualSectionAtPoint:(struct CGPoint)arg1;
 - (double)_heightOfSectionAtVisualIndex:(long long)arg1;
+- (double)_startYOfContentAtVisualSectionIndexWithDynamicLayout:(long long)arg1;
 - (double)_startYOfContentAtVisualSectionIndex:(long long)arg1;
 - (double)_startYOfVisualSectionAtIndex:(long long)arg1;
 - (struct CGRect)frameForSectionHeaderAtVisualSection:(long long)arg1;
@@ -205,6 +215,9 @@
 - (long long)visualIndexForItemAtGridCoordinates:(struct PUGridCoordinates)arg1;
 - (struct PUGridCoordinates)gridCoordinatesInSectionForItemAtVisualIndex:(long long)arg1;
 - (struct _NSRange)visualRowsInRect:(struct CGRect)arg1 inVisualSection:(long long)arg2 totalVisualSectionRows:(long long *)arg3;
+- (void)setIsPreparingLayout:(_Bool)arg1;
+- (double)_sectionHeaderHeightDeltaForSection:(long long)arg1;
+- (double)_delegateAccessibilitySectionHeaderHeightForSection:(long long)arg1;
 - (double)_finalSectionHeaderHeightForSection:(long long)arg1;
 - (id)_gridTransitionLayout;
 @property(readonly, nonatomic) NSIndexPath *globalFooterIndexPath;
@@ -237,6 +250,10 @@
 - (void)_invalidateFloatingHeadersLayout;
 - (void)_prepareFloatingHeadersLayoutIfNeeded;
 - (long long)_floatingHeaderVisualSectionForVisibleOrigin:(struct CGPoint)arg1;
+- (struct UIEdgeInsets)_finalContentInset;
+- (long long)lastPreparedVisualSection;
+- (long long)firstPreparedVisualSection;
+- (_Bool)_hasAccessibilityLargeText;
 - (CDUnknownBlockType)_animationForReusableView:(id)arg1 toLayoutAttributes:(id)arg2 type:(unsigned long long)arg3;
 - (void)finalizeViewTransitionToSize;
 - (id)prepareForViewTransitionToSize:(struct CGSize)arg1;

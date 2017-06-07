@@ -6,6 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
+@class NSNumber;
 @protocol OS_dispatch_queue;
 
 @interface MPPlaybackUserDefaults : NSObject
@@ -31,6 +32,8 @@
 - (long long)_calculateCurrentMusicRepeatType;
 - (int)_calculateCurrentMusicEQPreset;
 - (void)_addNotificationObserver:(CDUnknownBlockType)arg1 forUserDefaultKey:(struct __CFString *)arg2;
+@property(readonly, nonatomic) _Bool shouldUseNewQueueManagement;
+@property(copy, nonatomic, getter=isPrivateListeningEnabled) NSNumber *privateListeningEnabled;
 @property(readonly, nonatomic) unsigned long long preferredVideosAssetQualityOnWifi;
 @property(readonly, nonatomic) unsigned long long preferredVideosAssetQualityOnCellular;
 @property(readonly, nonatomic) _Bool soundCheckEnabled;

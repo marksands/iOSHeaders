@@ -8,7 +8,7 @@
 
 #import <UIKit/UITextDocumentProxy-Protocol.h>
 
-@class NSString, TIDocumentState, TIKeyboardOutput, TITextInputTraits, UITextInputMode, _UIInputViewControllerOutput, _UIInputViewControllerState;
+@class NSString, NSUUID, TIDocumentState, TIKeyboardOutput, TITextInputTraits, UITextInputMode, _UIInputViewControllerOutput, _UIInputViewControllerState;
 @protocol _UITextDocumentInterfaceDelegate;
 
 __attribute__((visibility("hidden")))
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic, getter=_controllerState) _UIInputViewControllerState *controllerState; // @synthesize controllerState=_controllerState;
 @property(nonatomic, getter=_delegate) id <_UITextDocumentInterfaceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)_setInputModeList:(long long)arg1 touchBegan:(double)arg2 fromLocation:(struct CGPoint)arg3 updatePoint:(struct CGPoint)arg4;
+- (void)_setHasDictation:(_Bool)arg1;
 - (void)_setShouldAdvanceInputMode;
 - (void)_setShouldDismiss;
 - (void)_setPrimaryLanguage:(id)arg1;
@@ -32,12 +33,17 @@ __attribute__((visibility("hidden")))
 - (void)_willPerformOutputOperation;
 - (void)_handleInputViewControllerState:(id)arg1;
 - (void)adjustTextPositionByCharacterOffset:(long long)arg1;
+@property(readonly, copy, nonatomic) NSUUID *documentIdentifier;
+@property(readonly, nonatomic) NSString *selectedText;
 @property(readonly, nonatomic) UITextInputMode *documentInputMode;
 @property(readonly, nonatomic) NSString *documentContextAfterInput;
 @property(readonly, nonatomic) NSString *documentContextBeforeInput;
 - (void)deleteBackward;
 - (void)insertText:(id)arg1;
 @property(readonly, nonatomic) _Bool hasText;
+@property(nonatomic) long long smartInsertDeleteType;
+@property(nonatomic) long long smartDashesType;
+@property(nonatomic) long long smartQuotesType;
 @property(copy, nonatomic) NSString *textContentType;
 @property(nonatomic, getter=isSecureTextEntry) _Bool secureTextEntry;
 @property(nonatomic) _Bool enablesReturnKeyAutomatically;

@@ -8,18 +8,17 @@
 
 #import <ContactsUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSArray, NSObject, NSString, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UITapGestureRecognizer;
-@protocol CNActionViewProtocol;
+@class NSArray, NSString, UIImage, UIImageView, UILabel, UILongPressGestureRecognizer, UITapGestureRecognizer;
+@protocol CNActionViewDelegate;
 
-__attribute__((visibility("hidden")))
 @interface CNActionView : UIView <UIGestureRecognizerDelegate>
 {
     _Bool _disabled;
     _Bool _highlighted;
+    id <CNActionViewDelegate> _actionDelegate;
     UIImage *_image;
     NSString *_title;
     NSString *_type;
-    NSObject<CNActionViewProtocol> *_actionDelegate;
     long long _style;
     UIView *_platterView;
     UIImageView *_imageView;
@@ -28,12 +27,14 @@ __attribute__((visibility("hidden")))
     UITapGestureRecognizer *_tapGestureRecognizer;
     UILongPressGestureRecognizer *_longPressGestureRecognizer;
     UILongPressGestureRecognizer *_highlightGestureRecognizer;
+    double _titleWidth;
 }
 
 + (void)fadeInView:(id)arg1;
 + (id)contentColorForDisabledVibrantDarkState;
 + (id)contentColorForDisabledBoldState;
 + (id)borderColorForDisabledBoldState;
+@property(nonatomic) double titleWidth; // @synthesize titleWidth=_titleWidth;
 @property(retain, nonatomic) UILongPressGestureRecognizer *highlightGestureRecognizer; // @synthesize highlightGestureRecognizer=_highlightGestureRecognizer;
 @property(retain, nonatomic) UILongPressGestureRecognizer *longPressGestureRecognizer; // @synthesize longPressGestureRecognizer=_longPressGestureRecognizer;
 @property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
@@ -44,10 +45,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(nonatomic) _Bool disabled; // @synthesize disabled=_disabled;
 @property(nonatomic) long long style; // @synthesize style=_style;
-@property(nonatomic) __weak NSObject<CNActionViewProtocol> *actionDelegate; // @synthesize actionDelegate=_actionDelegate;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
+@property(nonatomic) __weak id <CNActionViewDelegate> actionDelegate; // @synthesize actionDelegate=_actionDelegate;
 - (void).cxx_destruct;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)handleHighlightGesture:(id)arg1;

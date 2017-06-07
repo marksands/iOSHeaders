@@ -9,6 +9,7 @@
 @class _SFBrowserToolbar;
 
 @protocol _SFBrowserToolbarDataSource <NSObject>
+- (struct CGSize)browserToolbarDismissButtonSize:(_SFBrowserToolbar *)arg1;
 - (_Bool)browserToolbarCanOpenPageInSafari:(_SFBrowserToolbar *)arg1;
 - (_Bool)browserToolbarCanShowAction:(_SFBrowserToolbar *)arg1;
 - (_Bool)browserToolbarCanGoForward:(_SFBrowserToolbar *)arg1;

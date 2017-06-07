@@ -13,6 +13,7 @@
 @interface UIKeyboardInputMode : UITextInputMode <NSCopying>
 {
     _Bool isDisplayed;
+    _Bool _extensionInputModeHasDictation;
     NSString *primaryLanguage;
     NSString *languageWithRegion;
     NSString *identifier;
@@ -24,11 +25,13 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)dictationInputMode;
++ (id)autofillFallbackInputMode;
 + (id)intlInputMode;
 + (id)keyboardInputModeWithIdentifier:(id)arg1;
 + (id)hardwareLayoutFromIdentifier:(id)arg1;
 + (id)softwareLayoutFromIdentifier:(id)arg1;
 + (id)canonicalLanguageIdentifierFromIdentifier:(id)arg1;
+@property(nonatomic) _Bool extensionInputModeHasDictation; // @synthesize extensionInputModeHasDictation=_extensionInputModeHasDictation;
 @property(retain, nonatomic) NSArray *multilingualLanguages; // @synthesize multilingualLanguages=_multilingualLanguages;
 @property(nonatomic) _Bool isDisplayed; // @synthesize isDisplayed;
 @property(retain, nonatomic) NSString *hardwareLayout; // @synthesize hardwareLayout;
@@ -37,6 +40,9 @@
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier;
 @property(retain, nonatomic) NSString *languageWithRegion; // @synthesize languageWithRegion;
 @property(retain, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage;
+- (void)setLastUsedDictationLanguage;
+@property(retain, nonatomic) NSString *dictationLanguage;
+@property(readonly, nonatomic) NSString *dictationDisplayName;
 - (_Bool)isDesiredForTraits:(id)arg1;
 - (_Bool)isAllowedForTraits:(id)arg1;
 @property(readonly, nonatomic) NSString *containingBundleDisplayName;

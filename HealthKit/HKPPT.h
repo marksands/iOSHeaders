@@ -28,8 +28,8 @@
 - (_Bool)performPPTTest:(id)arg1 preflightHealthDirectory:(id)arg2 sampleTypes:(id)arg3 killHealthd:(_Bool)arg4;
 - (_Bool)performDateRangeQueryPPTTest:(id)arg1;
 - (_Bool)performLatestSummaryQueryPPTTest:(id)arg1 date:(id)arg2;
-- (_Bool)performPPTTest:(id)arg1 enumerateLocationSeriesWithDatumCount:(long long)arg2;
-- (_Bool)performPPTTest:(id)arg1 insertLocationSeriesWithDatumCount:(long long)arg2 batched:(_Bool)arg3;
+- (_Bool)performPPTTest:(id)arg1 enumerateWorkoutRouteWithDatumCount:(long long)arg2;
+- (_Bool)performPPTTest:(id)arg1 insertWorkoutRouteWithDatumCount:(long long)arg2 batched:(_Bool)arg3;
 - (_Bool)performSyntheticJournalMergePPTTest:(id)arg1 simulatedDuration:(double)arg2;
 - (_Bool)performJournalMergePPTTest:(id)arg1 healthDirectory:(id)arg2;
 - (_Bool)performPPTTest:(id)arg1 collectionQueryForType:(id)arg2 anchorDate:(id)arg3 startDate:(id)arg4 endDate:(id)arg5 dateIntervalsString:(id)arg6 separateBySource:(_Bool)arg7 average:(_Bool)arg8 minimum:(_Bool)arg9 maximum:(_Bool)arg10 sum:(_Bool)arg11;

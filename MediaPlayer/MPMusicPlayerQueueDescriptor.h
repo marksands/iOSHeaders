@@ -12,17 +12,16 @@
 
 @interface MPMusicPlayerQueueDescriptor : NSObject <NSSecureCoding>
 {
-    NSMutableDictionary *_startTimes;
     NSMutableDictionary *_endTimes;
+    NSMutableDictionary *_startTimes;
 }
 
 + (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 - (id)endTimes;
 - (id)startTimes;
-- (id)playbackContext;
-- (void)_setEndTime:(double)arg1 forIdentifier:(id)arg2;
-- (void)_setStartTime:(double)arg1 forIdentifier:(id)arg2;
+- (void)_setEndTime:(double)arg1 forIdentifiers:(id)arg2;
+- (void)_setStartTime:(double)arg1 forIdentifiers:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

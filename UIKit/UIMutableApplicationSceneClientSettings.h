@@ -8,7 +8,7 @@
 
 #import <UIKit/UIApplicationSceneClientSettings-Protocol.h>
 
-@class NSString;
+@class FBSDisplayMode, NSString;
 
 @interface UIMutableApplicationSceneClientSettings : FBSMutableSceneClientSettings <UIApplicationSceneClientSettings>
 {
@@ -20,12 +20,19 @@
 - (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
 - (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) long long userInterfaceStyle;
+@property(nonatomic) _Bool wantsExclusiveForeground;
+@property(nonatomic) unsigned long long screenEdgesDeferringSystemGestures;
+@property(nonatomic, getter=isReachabilitySupported) _Bool reachabilitySupported;
+@property(retain, nonatomic) FBSDisplayMode *requestedDisplayMode;
+@property(nonatomic) long long overscanCompensation;
 @property(nonatomic) long long whitePointAdaptivityStyle;
 @property(nonatomic) _Bool idleModeVisualEffectsEnabled;
 @property(nonatomic) long long backgroundStyle;
 @property(nonatomic) struct UIEdgeInsets primaryWindowOverlayInsets;
 @property(nonatomic) long long notificationCenterRevealMode;
 @property(nonatomic) long long controlCenterRevealMode;
+@property(nonatomic) double controlCenterAmbiguousActivationMargin;
 @property(nonatomic) unsigned long long proximityDetectionModes;
 @property(nonatomic) _Bool idleTimerDisabled;
 @property(nonatomic) unsigned long long supportedInterfaceOrientations;

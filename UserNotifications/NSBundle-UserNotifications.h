@@ -8,6 +8,5 @@
 
 @interface NSBundle (UserNotifications)
 + (id)un_safeBundleWithURL:(id)arg1;
-+ (id)un_applicationBundle;
 @end
 

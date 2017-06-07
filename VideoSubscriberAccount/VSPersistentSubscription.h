@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 
 + (id)keyPathsForValuesAffectingDerivedSubscriptionInfo;
 - (_Bool)validateTierIdentifiers:(id *)arg1 error:(id *)arg2;
+- (_Bool)validateSubscriberIdentifierHash:(id *)arg1 error:(id *)arg2;
 - (_Bool)validateExpirationDate:(id *)arg1 error:(id *)arg2;
 - (_Bool)validateModificationDate:(id *)arg1 error:(id *)arg2;
 - (_Bool)validateCreationDate:(id *)arg1 error:(id *)arg2;
@@ -23,11 +24,13 @@ __attribute__((visibility("hidden")))
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
 @property(copy, nonatomic) NSArray *tierIdentifiers; // @dynamic tierIdentifiers;
+@property(copy, nonatomic) NSString *subscriberIdentifierHash; // @dynamic subscriberIdentifierHash;
 @property(copy, nonatomic) NSDate *mostRecentSaveDate; // @dynamic mostRecentSaveDate;
 @property(copy, nonatomic) NSDate *expirationDate; // @dynamic expirationDate;
 @property(copy, nonatomic) NSDate *creationDate; // @dynamic creationDate;
 @property(copy, nonatomic) NSNumber *accessLevel; // @dynamic accessLevel;
 @property(copy, nonatomic) NSString *providedSubscriptionInfo; // @dynamic providedSubscriptionInfo;
+- (void)_deriveValuesFromProvidedInfo:(id)arg1;
 - (void)_updateDerivedSubscriptionInfo;
 - (_Bool)_validateNullableValue:(id *)arg1 forKey:(id)arg2 error:(id *)arg3;
 - (void)_setNullResettableValue:(id)arg1 forKey:(id)arg2;

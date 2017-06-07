@@ -19,12 +19,16 @@
 @property(readonly) struct Object *_apiObject;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, copy) NSString *description;
+@property(nonatomic) _Bool shouldTakeUIBackgroundAssertion;
 @property(nonatomic) _Bool alwaysRunsAtBackgroundPriority;
 @property(copy, nonatomic) NSString *CTDataConnectionServiceType;
+@property(nonatomic) _Bool shouldCaptureAudioInUIProcess;
+@property(nonatomic) _Bool allowsCellularAccess;
 @property(copy, nonatomic) NSString *sourceApplicationSecondaryIdentifier;
 @property(copy, nonatomic) NSString *sourceApplicationBundleIdentifier;
 @property(copy, nonatomic) NSArray *alwaysRevalidatedURLSchemes;
 @property(copy, nonatomic) NSArray *cachePartitionedURLSchemes;
+@property(copy, nonatomic) NSArray *additionalReadAccessAllowedURLs;
 @property(nonatomic) _Bool ignoreSynchronousMessagingTimeoutsForTesting;
 @property(nonatomic) _Bool diskCacheSpeculativeValidationEnabled;
 @property(nonatomic) long long diskCacheSizeOverride;

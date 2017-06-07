@@ -12,7 +12,7 @@
 
 - (struct CGSize)_itemSizeForWidth:(double)arg1;
 - (id)gridSpec;
-- (void)configureCollectionViewGridLayout:(id)arg1 referenceWidth:(double)arg2;
+- (void)configureCollectionViewGridLayout:(id)arg1 referenceWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (long long)cellFillMode;
 - (int)fastThumbnailImageFormat;
 - (int)thumbnailImageFormat;

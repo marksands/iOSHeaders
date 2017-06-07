@@ -6,54 +6,60 @@
 
 #import <UIKit/UIKeyboardMenuView.h>
 
-@class NSArray, NSMutableArray, UISwitch;
+@class NSArray, NSMutableArray;
 
 __attribute__((visibility("hidden")))
 @interface UIInputSwitcherView : UIKeyboardMenuView
 {
-    unsigned long long m_currentInputModeIndex;
-    _Bool m_fileReportFromSwitcher;
     NSMutableArray *m_inputModes;
-    UISwitch *m_predictiveSwitch;
-    UISwitch *m_assistantSwitch;
-    UISwitch *m_floatingSwitch;
-    NSMutableArray *m_switches;
-    long long m_numberOfInputModes;
+    NSArray *m_inputSwitcherItems;
+    _Bool m_isForDictation;
     _Bool _messagesWriteboardFromSwitcher;
+    _Bool _fileReportFromSwitcher;
+    _Bool _showsSwitches;
 }
 
 + (id)activeInstance;
 + (id)sharedInstance;
+@property(nonatomic) _Bool showsSwitches; // @synthesize showsSwitches=_showsSwitches;
+@property(nonatomic) _Bool fileReportFromSwitcher; // @synthesize fileReportFromSwitcher=_fileReportFromSwitcher;
 @property(nonatomic) _Bool messagesWriteboardFromSwitcher; // @synthesize messagesWriteboardFromSwitcher=_messagesWriteboardFromSwitcher;
-@property(nonatomic) _Bool fileReportFromSwitcher; // @synthesize fileReportFromSwitcher=m_fileReportFromSwitcher;
-@property(retain, nonatomic) NSArray *inputModes; // @synthesize inputModes=m_inputModes;
-- (id)switches;
-- (id)floatingSwitch;
-- (id)assistantSwitch;
-- (id)predictiveSwitch;
+@property(readonly, nonatomic) NSArray *inputModes; // @synthesize inputModes=m_inputModes;
+- (void)buttonPressed:(id)arg1 withEvent:(id)arg2 location:(struct CGPoint)arg3 isForDictation:(_Bool)arg4 tapAction:(CDUnknownBlockType)arg5;
+- (_Bool)_isHandBiasSwitchVisible;
 - (void)switchAction;
-- (void)didSelectItemAtIndex:(unsigned long long)arg1;
+- (void)customizeCell:(id)arg1 forItemAtIndex:(unsigned long long)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)subtitleFontForItemAtIndex:(unsigned long long)arg1;
 - (id)subtitleForItemAtIndex:(unsigned long long)arg1;
 - (id)fontForItemAtIndex:(unsigned long long)arg1;
 - (id)localizedTitleForItemAtIndex:(unsigned long long)arg1;
 - (id)titleForItemAtIndex:(unsigned long long)arg1;
 - (unsigned long long)defaultSelectedIndex;
+- (id)defaultInputMode;
+- (id)_itemWithIdentifier:(id)arg1;
 - (struct CGSize)preferredSize;
 - (unsigned long long)numberOfItems;
-- (void)show;
+- (void)willFadeForSelectionAtIndex:(unsigned long long)arg1;
+- (void)willFade;
+- (void)willShow;
+- (_Bool)shouldShow;
+- (void)showAsPopupForKey:(id)arg1 inLayout:(id)arg2;
 - (void)selectPreviousInputMode;
 - (id)previousInputMode;
 - (void)selectNextInputMode;
 - (id)nextInputMode;
-- (unsigned long long)currentSelectedRow;
+- (void)didSelectItemAtIndex:(unsigned long long)arg1;
+- (_Bool)shouldSelectItemAtIndex:(unsigned long long)arg1;
+- (void)updateSelectionWithPoint:(struct CGPoint)arg1;
 - (void)selectInputMode:(id)arg1;
 - (void)setInputMode:(id)arg1;
 - (void)selectRowForInputMode:(id)arg1;
+- (long long)_indexOfInputSwitcherItemWithIdentifier:(id)arg1;
+- (_Bool)shouldShowSelectionExtraViewForIndexPath:(id)arg1;
 - (id)selectedInputMode;
-- (void)toggleKeyboardFloatingPreference;
-- (void)toggleKeyboardAssistantPreference;
-- (void)toggleKeyboardPredictionPreference;
+- (void)_reloadInputSwitcherItems;
+- (void)reloadInputModes;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

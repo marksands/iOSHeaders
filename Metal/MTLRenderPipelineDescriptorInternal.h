@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
 - (id)vertexDescriptor;
 - (void)setVertexDescriptor:(id)arg1;
 - (void)attachVertexDescriptor:(id)arg1;
+- (id)pipelineLibrary;
+- (void)setPipelineLibrary:(id)arg1;
 - (id)fragmentFunction;
 - (void)setFragmentFunction:(id)arg1;
 - (id)vertexFunction;
@@ -34,8 +36,14 @@ __attribute__((visibility("hidden")))
 - (id)label;
 - (id)fastBlendDescriptorAtIndex:(unsigned long long)arg1;
 - (void)reset;
+- (id)fragmentBuffers;
+- (id)vertexBuffers;
 - (void)setDepthStencilWriteDisabled:(_Bool)arg1;
 - (_Bool)isDepthStencilWriteDisabled;
+- (void)setSampleCoverageInvert:(_Bool)arg1;
+- (_Bool)sampleCoverageInvert;
+- (void)setOpenGLModeEnabled:(_Bool)arg1;
+- (_Bool)openGLModeEnabled;
 - (void)setFragmentDepthCompareClampMask:(unsigned int)arg1;
 - (unsigned int)fragmentDepthCompareClampMask;
 - (void)setVertexDepthCompareClampMask:(unsigned int)arg1;
@@ -66,6 +74,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)sampleMask;
 - (void)setSampleCount:(unsigned long long)arg1;
 - (unsigned long long)sampleCount;
+@property(nonatomic) unsigned long long postVertexDumpBufferIndex;
 - (void)setTessellationOutputWindingOrder:(unsigned long long)arg1;
 - (unsigned long long)tessellationOutputWindingOrder;
 - (void)setTessellationFactorStepFunction:(unsigned long long)arg1;

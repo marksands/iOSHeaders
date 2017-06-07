@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class AUAudioUnit, NSObject;
+@class AUAudioUnit, NSObject, NSXPCConnection;
 
 #pragma mark Function Pointers and Blocks
 
@@ -13,6 +13,8 @@ typedef void (*CDUnknownFunctionPointerType)(void); // return type and parameter
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
 #pragma mark Named Structures
+
+struct APComponent;
 
 struct AUAudioUnitV2Bridge_Renderer;
 
@@ -28,20 +30,20 @@ struct AUEventSchedule {
 struct AUExtRenderingServer {
     CDUnknownFunctionPointerType *_field1;
     unsigned int _field2;
-    int _field3;
-    struct XMachPortSendRight _field4;
-    int _field5;
-    struct IOThread *_field6;
-    _Bool _field7;
+    struct XMachPortSendRight _field3;
+    int _field4;
+    struct IOThread *_field5;
+    _Bool _field6;
+    int _field7;
     int _field8;
-    int _field9;
-    struct IPCAUSharedMemory _field10;
-    struct unique_ptr<SemaphoreIOMessenger_Receiver, std::__1::default_delete<SemaphoreIOMessenger_Receiver>> _field11;
+    struct IPCAUSharedMemory _field9;
+    struct unique_ptr<SemaphoreIOMessenger_Receiver, std::__1::default_delete<SemaphoreIOMessenger_Receiver>> _field10;
+    union AURenderEvent *_field11;
     union AURenderEvent *_field12;
-    union AURenderEvent *_field13;
-    id _field14;
-    CDUnknownBlockType _field15;
-    _Bool _field16;
+    id _field13;
+    CDUnknownBlockType _field14;
+    _Bool _field15;
+    long long _field16;
     struct AUEventSchedule *_field17;
 };
 
@@ -115,6 +117,11 @@ struct AUv3RenderAdapter {
     CDUnknownBlockType _field3;
 };
 
+struct AVHapticPlayerFixedParameter {
+    unsigned long long type;
+    float value;
+};
+
 struct AddressToParameter;
 
 struct AllParameterListener;
@@ -125,6 +132,31 @@ struct AudioComponentDescription {
     unsigned int componentManufacturer;
     unsigned int componentFlags;
     unsigned int componentFlagsMask;
+};
+
+struct AudioComponentPluginScanner;
+
+struct AudioComponentRegistrarImpl {
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+    struct RegistrarService _field4;
+    struct RegistrarService _field5;
+    id _field6;
+    struct AudioComponentVector _field7;
+    struct PurgeableDataWrapper _field8;
+    struct PurgeableDataWrapper _field9;
+    struct unique_ptr<AudioComponentPluginScanner, std::__1::default_delete<AudioComponentPluginScanner>> _field10;
+    struct unique_ptr<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>, std::__1::default_delete<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>>> _field11;
+};
+
+struct AudioComponentVector {
+    shared_ptr_a99cf2ba *__begin_;
+    shared_ptr_a99cf2ba *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<APComponent>*, std::__1::allocator<std::__1::shared_ptr<APComponent>>> {
+        shared_ptr_a99cf2ba *__first_;
+    } __end_cap_;
+    _Bool mSorted;
 };
 
 struct BusPropertyObserver;
@@ -149,6 +181,12 @@ struct CASerializer {
 };
 
 struct ClientSyncCaller;
+
+struct ConnectionInfo {
+    NSXPCConnection *mConnection;
+    int mExtUsePermission;
+    int mSDKLinkVersion;
+};
 
 struct Element;
 
@@ -187,6 +225,8 @@ struct IPCAURenderingClient {
     struct HostCallbackInfo mHostCallbackInfo;
     CDUnknownBlockType mMusicalContextBlock;
     CDUnknownBlockType mTransportStateBlock;
+    CDUnknownBlockType mMIDIOutputEventBlock;
+    int mMIDIOutputBufferSizeHint;
     CDUnknownBlockType mPullInputBlock;
     int mNumInputs;
     int mNumOutputs;
@@ -208,6 +248,7 @@ struct IPCAUSharedMemory {
     struct vector<IPCAUSharedMemoryBase::Element, std::__1::allocator<IPCAUSharedMemoryBase::Element>> mElements;
     unsigned int mMaxFrames;
     _Bool mInitializing;
+    unsigned int mMIDIOutputBufferSize;
 };
 
 struct InterAppAudioAppInfo {
@@ -243,10 +284,21 @@ struct ParameterMap {
 
 struct PropertyListener;
 
+struct PurgeableDataWrapper {
+    struct function<NSData *()> _field1;
+    id _field2;
+};
+
 struct RealtimeState {
     struct CAMutex mMutex;
     struct RenderObserverList renderObserverList;
     struct AUEventSchedule eventSchedule;
+};
+
+struct RegistrarService {
+    id _field1;
+    id _field2;
+    id _field3;
 };
 
 struct RenderObserverList {
@@ -259,6 +311,8 @@ struct ScopeElementIDObj;
 struct SemaphoreIOMessenger_Receiver;
 
 struct SemaphoreIOMessenger_Sender;
+
+struct Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>;
 
 struct TAtomicStack<AURenderEventStruct> {
     struct AURenderEventStruct *mHead;
@@ -284,6 +338,10 @@ struct __CFData;
 
 struct __CFString;
 
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*> *__next_;
+};
+
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
 };
@@ -291,6 +349,21 @@ struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
 struct _opaque_pthread_mutex_t {
     long long __sig;
     char __opaque[56];
+};
+
+struct function<NSData *()> {
+    struct type _field1;
+    struct __base<NSData *()> *_field2;
+};
+
+struct function<void ()> {
+    struct type __buf_;
+    struct __base<void ()> *__f_;
+};
+
+struct function<void (AudioComponentVector &, AudioComponentVector &)> {
+    struct type __buf_;
+    struct __base<void (AudioComponentVector &, AudioComponentVector &)> *__f_;
 };
 
 struct map<unsigned int, AUProcessingBlock, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, AUProcessingBlock>>> {
@@ -333,6 +406,15 @@ struct set<AUObserverController::AddressOriginator, std::__1::less<AUObserverCon
     } _field1;
 };
 
+struct shared_ptr<APComponent> {
+    struct APComponent *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct type {
+    unsigned char __lx[32];
+};
+
 struct unique_ptr<AUAudioUnitV2Bridge_Renderer, std::__1::default_delete<AUAudioUnitV2Bridge_Renderer>> {
     struct __compressed_pair<AUAudioUnitV2Bridge_Renderer *, std::__1::default_delete<AUAudioUnitV2Bridge_Renderer>> {
         struct AUAudioUnitV2Bridge_Renderer *__first_;
@@ -358,6 +440,12 @@ struct unique_ptr<AUv3InstanceBase::AllParameterListener, std::__1::default_dele
 };
 
 struct unique_ptr<AUv3InstanceBase::ClientPropertyListener, std::__1::default_delete<AUv3InstanceBase::ClientPropertyListener>>;
+
+struct unique_ptr<AudioComponentPluginScanner, std::__1::default_delete<AudioComponentPluginScanner>> {
+    struct __compressed_pair<AudioComponentPluginScanner *, std::__1::default_delete<AudioComponentPluginScanner>> {
+        struct AudioComponentPluginScanner *_field1;
+    } _field1;
+};
 
 struct unique_ptr<CAMutex, std::__1::default_delete<CAMutex>> {
     struct __compressed_pair<CAMutex *, std::__1::default_delete<CAMutex>> {
@@ -387,6 +475,38 @@ struct unique_ptr<TestAUProcessingBlock, std::__1::default_delete<TestAUProcessi
     struct __compressed_pair<TestAUProcessingBlock *, std::__1::default_delete<TestAUProcessingBlock>> {
         struct TestAUProcessingBlock *__first_;
     } __ptr_;
+};
+
+struct unique_ptr<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>, std::__1::default_delete<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>>> {
+    struct __compressed_pair<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>*, std::__1::default_delete<applesauce::experimental::sync::Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>>>> {
+        struct Synchronized<AUExtensionScanner, std::__1::mutex, applesauce::experimental::sync::EmptyAtomicInterface<AUExtensionScanner>> *_field1;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*>> {
+                unsigned long long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unordered_map<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long), std::__1::hash<long>, std::__1::equal_to<long>, std::__1::allocator<std::__1::pair<const long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>>> {
+    struct __hash_table<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, std::__1::__unordered_map_hasher<long, std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, std::__1::hash<long>, true>, std::__1::__unordered_map_equal<long, std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, std::__1::equal_to<long>, true>, std::__1::allocator<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, void *>*> __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long, std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, std::__1::hash<long>, true>> {
+            unsigned long long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<long, std::__1::__hash_value_type<long, void (^)(unsigned int, const AudioTimeStamp *, unsigned int, long)>, std::__1::equal_to<long>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
 };
 
 struct vector<AUAudioUnit_XH_PropListener, std::__1::allocator<AUAudioUnit_XH_PropListener>> {
@@ -495,6 +615,11 @@ typedef struct {
 } CDStruct_70511ce9;
 
 // Template types
+typedef struct shared_ptr<APComponent> {
+    struct APComponent *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_a99cf2ba;
+
 typedef struct vector<AddressToParameter, std::__1::allocator<AddressToParameter>> {
     struct AddressToParameter *__begin_;
     struct AddressToParameter *__end_;

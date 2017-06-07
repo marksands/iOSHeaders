@@ -9,6 +9,8 @@
 @interface NSAttributedString (UIKitAdditions)
 - (id)_ui_glyphImageViewsScale:(double)arg1 outImageRect:(struct CGRect *)arg2 outLineRect:(struct CGRect *)arg3 outBaselineOffset:(double *)arg4;
 - (id)_ui_attributedStringWithOriginalFontAttributes;
+- (long long)_ui_resolvedWritingDirectionForUserInterfaceLayoutDirection:(long long)arg1;
+- (long long)_ui_resolvedWritingDirection;
 - (long long)_ui_resolvedTextAlignmentForUserInterfaceLayoutDirection:(long long)arg1;
 - (long long)_ui_resolvedTextAlignment;
 @end

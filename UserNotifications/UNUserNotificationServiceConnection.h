@@ -38,6 +38,9 @@
 - (void)didChangePendingNotificationRequests:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)didDeliverNotifications:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)didReceiveDeviceToken:(id)arg1 forBundleIdentifier:(id)arg2;
+- (void)setBadgeString:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)setBadgeNumber:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)getBadgeNumberForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)getAllowsRemoteNotificationsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)invalidateTokenForRemoteNotificationsForBundleIdentifier:(id)arg1;
 - (void)requestTokenForRemoteNotificationsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

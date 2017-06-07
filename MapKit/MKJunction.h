@@ -23,6 +23,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithType:(int)arg1 maneuver:(int)arg2 drivingSide:(int)arg3 elements:(struct GEOJunctionElement *)arg4 count:(unsigned long long)arg5;
+- (id)initWithJunction:(id)arg1;
 
 @end
 

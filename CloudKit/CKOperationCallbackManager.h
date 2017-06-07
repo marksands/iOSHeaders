@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary;
+@class NSMapTable, NSMutableDictionary;
 
 @interface CKOperationCallbackManager : NSObject
 {
@@ -14,8 +14,10 @@
     NSMutableDictionary *_commandCallbacks;
     NSMutableDictionary *_completionCallbacks;
     NSMutableDictionary *_checkpointCallbacks;
+    NSMapTable *_operationsByID;
 }
 
+@property(retain) NSMapTable *operationsByID; // @synthesize operationsByID=_operationsByID;
 @property(retain) NSMutableDictionary *checkpointCallbacks; // @synthesize checkpointCallbacks=_checkpointCallbacks;
 @property(retain) NSMutableDictionary *completionCallbacks; // @synthesize completionCallbacks=_completionCallbacks;
 @property(retain) NSMutableDictionary *commandCallbacks; // @synthesize commandCallbacks=_commandCallbacks;

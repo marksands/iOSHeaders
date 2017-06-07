@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
 __attribute__((visibility("hidden")))
-@interface PUAirPlaySettings : PUSettings
+@interface PUAirPlaySettings : PXSettings
 {
     _Bool _ignoreMirroredScreens;
+    _Bool _ignoreScreenRecordingScreens;
     _Bool _compensateForOverscan;
     unsigned long long _placeholderForSecondScreen;
     unsigned long long _placeholderForMirroredScreen;
@@ -17,10 +18,12 @@ __attribute__((visibility("hidden")))
     double _maximumZoomForScrollPadding;
     double _simulatedScreenContentWidth;
     double _simulatedScreenContentHeight;
+    long long _routeAvailabilityOverride;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
+@property(nonatomic) long long routeAvailabilityOverride; // @synthesize routeAvailabilityOverride=_routeAvailabilityOverride;
 @property(nonatomic) double simulatedScreenContentHeight; // @synthesize simulatedScreenContentHeight=_simulatedScreenContentHeight;
 @property(nonatomic) double simulatedScreenContentWidth; // @synthesize simulatedScreenContentWidth=_simulatedScreenContentWidth;
 @property(nonatomic) double maximumZoomForScrollPadding; // @synthesize maximumZoomForScrollPadding=_maximumZoomForScrollPadding;
@@ -28,9 +31,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long placeholderForMirroredScreen; // @synthesize placeholderForMirroredScreen=_placeholderForMirroredScreen;
 @property(nonatomic) unsigned long long placeholderForSecondScreen; // @synthesize placeholderForSecondScreen=_placeholderForSecondScreen;
 @property(nonatomic) _Bool compensateForOverscan; // @synthesize compensateForOverscan=_compensateForOverscan;
+@property(nonatomic) _Bool ignoreScreenRecordingScreens; // @synthesize ignoreScreenRecordingScreens=_ignoreScreenRecordingScreens;
 @property(nonatomic) _Bool ignoreMirroredScreens; // @synthesize ignoreMirroredScreens=_ignoreMirroredScreens;
 - (id)debugDescription;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

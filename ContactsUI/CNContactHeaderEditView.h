@@ -10,17 +10,24 @@
 #import <ContactsUI/UITableViewDataSource-Protocol.h>
 #import <ContactsUI/UITableViewDelegate-Protocol.h>
 
-@class NSArray, NSString, UITableView;
+@class NSArray, NSLayoutConstraint, NSString, UITableView;
 @protocol CNPropertyCellDelegate;
 
 @interface CNContactHeaderEditView : CNContactHeaderView <UITableViewDelegate, UITableViewDataSource, CNPropertyGroupItemDelegate>
 {
     UITableView *_editingTable;
+    _Bool _pinToReadableContentGuide;
     NSArray *_editingGroups;
     id <CNPropertyCellDelegate> _namePropertyDelegate;
+    NSLayoutConstraint *_tableToTrailingEdgeConstraint;
+    NSLayoutConstraint *_tableToTrailingReadableGuideConstraint;
 }
 
-+ (id)contactHeaderViewWithContact:(id)arg1 editingGroups:(id)arg2;
++ (id)makePhotoViewWithMonogrammerStyle:(long long)arg1 shouldAllowTakePhotoAction:(_Bool)arg2 shouldAllowImageDrops:(_Bool)arg3;
++ (id)contactHeaderViewWithContact:(id)arg1 editingGroups:(id)arg2 shouldAllowTakePhotoAction:(_Bool)arg3;
+@property(retain, nonatomic) NSLayoutConstraint *tableToTrailingReadableGuideConstraint; // @synthesize tableToTrailingReadableGuideConstraint=_tableToTrailingReadableGuideConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *tableToTrailingEdgeConstraint; // @synthesize tableToTrailingEdgeConstraint=_tableToTrailingEdgeConstraint;
+@property(nonatomic) _Bool pinToReadableContentGuide; // @synthesize pinToReadableContentGuide=_pinToReadableContentGuide;
 @property(nonatomic) __weak id <CNPropertyCellDelegate> namePropertyDelegate; // @synthesize namePropertyDelegate=_namePropertyDelegate;
 @property(retain, nonatomic) NSArray *editingGroups; // @synthesize editingGroups=_editingGroups;
 - (void).cxx_destruct;
@@ -34,13 +41,14 @@
 - (_Bool)becomeFirstResponder;
 - (void)setBackgroundColor:(id)arg1;
 - (id)selectEditingGroupAtIndex:(unsigned long long)arg1;
+- (void)saveContactPhoto;
 - (_Bool)photoIsModified;
 - (_Bool)hasPhoto;
 - (void)reloadDataPreservingChanges:(_Bool)arg1;
 - (void)updateConstraints;
 - (void)updateFontSizes;
 - (void)setEditingGroups:(id)arg1 withUpdate:(_Bool)arg2;
-- (id)initWithContact:(id)arg1 editingGroups:(id)arg2 frame:(struct CGRect)arg3;
+- (id)initWithContact:(id)arg1 editingGroups:(id)arg2 frame:(struct CGRect)arg3 shouldAllowTakePhotoAction:(_Bool)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

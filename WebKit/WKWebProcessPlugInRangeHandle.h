@@ -18,6 +18,8 @@
 + (id)rangeHandleWithJSValue:(id)arg1 inContext:(id)arg2;
 @property(readonly) struct Object *_apiObject;
 @property(readonly) struct InjectedBundleRangeHandle *_rangeHandle;
+- (id)detectDataWithTypes:(unsigned long long)arg1 context:(id)arg2;
+@property(readonly, copy, nonatomic) NSString *text;
 @property(readonly, nonatomic) WKWebProcessPlugInFrame *frame;
 - (void)dealloc;
 

@@ -53,16 +53,6 @@ struct CGSize {
     double height;
 };
 
-struct CGVector {
-    double _field1;
-    double _field2;
-};
-
-struct CLLocationCoordinate2D {
-    double latitude;
-    double longitude;
-};
-
 struct NSHashTable {
     Class _field1;
 };
@@ -123,6 +113,18 @@ struct PXAssetBadgeInfo {
     long long count;
 };
 
+struct PXCPLServiceStatus {
+    long long state;
+    long long pauseReason;
+    unsigned long long activity;
+    long long action;
+    double pendingProgress;
+    unsigned long long pendingNumberOfItems;
+    double lastSuccessfulSyncTimeIntervalSinceReferenceDate;
+    double exitTimeIntervalSinceReferenceDate;
+    unsigned long long numberOfItemsFailingToUpload;
+};
+
 struct PXSimpleIndexPath {
     unsigned long long _field1;
     long long _field2;
@@ -173,11 +175,6 @@ typedef struct {
 } CDStruct_6c514524;
 
 typedef struct {
-    double latitudeDelta;
-    double longitudeDelta;
-} CDStruct_951efa70;
-
-typedef struct {
     long long value;
     int timescale;
     unsigned int flags;
@@ -185,17 +182,7 @@ typedef struct {
 } CDStruct_1b6d18a9;
 
 typedef struct {
-    CDStruct_951efa70 _field1;
-    CDStruct_951efa70 _field2;
-} CDStruct_1f1f9651;
-
-typedef struct {
     CDStruct_1b6d18a9 start;
     CDStruct_1b6d18a9 duration;
 } CDStruct_e83c9415;
-
-typedef struct {
-    struct CLLocationCoordinate2D center;
-    CDStruct_951efa70 span;
-} CDStruct_b7cb895d;
 

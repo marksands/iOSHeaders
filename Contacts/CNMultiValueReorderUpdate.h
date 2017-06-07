@@ -15,10 +15,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, copy, nonatomic) NSOrderedSet *values; // @synthesize values=_values;
+- (void).cxx_destruct;
 - (id)description;
 - (long long)compareIndexOfIdentifier:(id)arg1 toIndexOfIdentifier:(id)arg2;
 - (void)applyToMutableMultiValue:(id)arg1 withIdentifierMap:(id)arg2;
-- (void)dealloc;
 - (id)initWithValues:(id)arg1;
 - (_Bool)applyToABPerson:(void *)arg1 abmultivalue:(void *)arg2 propertyDescription:(id)arg3 error:(id *)arg4;
 

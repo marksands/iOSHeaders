@@ -18,6 +18,7 @@
 + (_Bool)shouldGenerateDemoData;
 + (_Bool)isStoreDemoModeSet;
 + (_Bool)isGenerateDemoDataSet;
++ (_Bool)usingDemoDataDatabase;
 
 @end
 

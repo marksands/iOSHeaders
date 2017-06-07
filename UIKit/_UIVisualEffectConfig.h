@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) _UIVisualEffectLayerConfig *contentConfig; // @synthesize contentConfig=_contentConfig;
 @property(readonly, nonatomic) NSArray *layerConfigs; // @synthesize layerConfigs=_layerConfigs;
 - (void).cxx_destruct;
+- (id)description;
 - (void)enumerateLayerConfigs:(CDUnknownBlockType)arg1;
 - (void)addLayerConfig:(id)arg1;
 

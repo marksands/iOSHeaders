@@ -32,7 +32,10 @@ __attribute__((visibility("hidden")))
     unsigned char __cached_isReady;
     unsigned char __isCancelled;
     unsigned char __isBarrier;
-    int __qoses;
+    // Error parsing type: AC, name: __appliedQoS
+    // Error parsing type: AC, name: __propertyQoS
+    // Error parsing type: AC, name: __inferredQoS
+    // Error parsing type: AC, name: __promotedQoS
     struct _opaque_pthread_mutex_t __wait_mutex;
     struct _opaque_pthread_cond_t {
         long long __sig;

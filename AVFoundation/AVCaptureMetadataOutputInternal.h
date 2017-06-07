@@ -12,6 +12,7 @@
 @interface AVCaptureMetadataOutputInternal : NSObject
 {
     AVWeakReferencingDelegateStorage *delegateStorage;
+    AVWeakReferencingDelegateStorage *delegateOverrideStorage;
     NSArray *metadataObjectTypes;
     struct CGRect rectOfInterest;
     AVWeakReference *weakReference;

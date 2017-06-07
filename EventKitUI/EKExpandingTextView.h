@@ -15,11 +15,13 @@
     UILabel *_placeholderLabel;
     _Bool _allowEnclosingViewScroll;
     struct CGSize _previousIntrinsicContentSize;
+    struct CGSize _previousSizeThatFits;
 }
 
 - (void).cxx_destruct;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
 - (_Bool)_shouldScrollEnclosingScrollView;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)setContentOffset:(struct CGPoint)arg1;
 - (void)setContentSize:(struct CGSize)arg1;

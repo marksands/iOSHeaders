@@ -11,8 +11,12 @@
     _Bool _completed;
 }
 
++ (id)blockedPopupWindowDialogWithCompletionHandler:(CDUnknownBlockType)arg1;
++ (id)userMediaPermissionDialogWithHost:(id)arg1 devices:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
++ (id)downloadBlockedDialogWithFileType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)pageLoadErrorWithMessage:(id)arg1;
-+ (id)genericErrorDialogWithTitle:(id)arg1 message:(id)arg2;
++ (id)genericErrorDialogWithTitle:(id)arg1 message:(id)arg2 applicationModal:(_Bool)arg3;
++ (id)printBlockedDialogWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (id)continuePrintingDialogWithTitle:(id)arg1 message:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (id)redirectDialogWithMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)noFeedAppDialogWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -31,7 +35,8 @@
 @property(readonly, nonatomic) long long presentationStyle;
 - (void)completeWithResponse:(id)arg1;
 @property(readonly, nonatomic) _Bool completionHandlerBlocksWebProcess;
-@property(readonly, nonatomic) _Bool canceledOnNavigation;
+@property(readonly, nonatomic) _Bool canceledOnCommittedNavigation;
+@property(readonly, nonatomic) _Bool canceledOnProvisionalNavigation;
 
 @end
 

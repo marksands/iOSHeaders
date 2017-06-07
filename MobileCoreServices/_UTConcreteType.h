@@ -18,9 +18,10 @@ __attribute__((visibility("hidden")))
 + (_Bool)supportsSecureCoding;
 - (id)_pedigree;
 - (id)identifier;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)_localizedDescriptionWithPreferredLocalizations:(id)arg1;
+- (id)_localizedDescriptionWithPreferredLocalizations:(id)arg1 checkingParents:(_Bool)arg2;
 - (id)_iconURL;
 - (id)_kernelExtensionName;
 - (id)_localizedDescriptionDictionary;
@@ -38,7 +39,6 @@ __attribute__((visibility("hidden")))
 - (id)declaration;
 - (id)declaringBundleURL;
 - (id)version;
-- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 pedigree:(id)arg2;
 
 @end

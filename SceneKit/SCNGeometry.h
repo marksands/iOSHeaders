@@ -16,14 +16,17 @@
 
 @interface SCNGeometry : NSObject <SCNAnimatable, SCNBoundingVolume, SCNShadable, NSCopying, NSSecureCoding>
 {
-    struct __C3DGeometry *_geometry;
+    // Error parsing type: ^{__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}, name: _geometry
     unsigned int _isPresentationInstance:1;
     NSMutableArray *_sources;
     NSMutableArray *_elements;
+    NSArray *_sourceChannels;
     NSMutableArray *_materials;
     SCNOrderedDictionary *_animations;
+    NSMutableDictionary *_bindings;
     NSArray *_levelsOfDetail;
     unsigned long long _subdivisionLevel;
+    _Bool _subdivisionIsAdaptive;
     SCNGeometrySource *_edgeCreasesSource;
     SCNGeometryElement *_edgeCreasesElement;
     CDStruct_4c02ed10 _subdivisionSettings;
@@ -35,11 +38,13 @@
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)resolveInstanceMethod:(SEL)arg1;
++ (id)geometryWithSources:(id)arg1 elements:(id)arg2 sourceChannels:(id)arg3;
 + (id)geometryWithSources:(id)arg1 elements:(id)arg2;
 + (id)geometry;
-+ (id)geometryWithGeometryRef:(struct __C3DGeometry *)arg1;
++     // Error parsing type: @24@0:8^{__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}16, name: geometryWithGeometryRef:
 + (id)morpherWithMDLMesh:(id)arg1;
 + (id)geometryWithMDLMesh:(id)arg1;
++ (id)geometryWithMDLMesh:(id)arg1 submesh:(id)arg2;
 + (id)floorWithOptions:(id)arg1;
 + (id)torusWithRingRadius:(double)arg1 pipeRadius:(double)arg2 options:(id)arg3;
 + (id)capsuleWithRadius:(double)arg1 height:(double)arg2 options:(id)arg3;
@@ -52,17 +57,22 @@
 + (id)planeWithWidth:(double)arg1 height:(double)arg2 options:(id)arg3;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (struct __C3DGeometry *)__createCFObject;
+-     // Error parsing type: ^{__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}16@0:8, name: __createCFObject
 - (void)_customDecodingOfSCNGeometry:(id)arg1;
 - (void)_customEncodingOfSCNGeometry:(id)arg1;
 - (void)unbindAnimatablePath:(id)arg1;
 - (void)bindAnimatablePath:(id)arg1 toObject:(id)arg2 withKeyPath:(id)arg3 options:(id)arg4;
+- (id)_scnBindings;
 - (_Bool)isAnimationForKeyPaused:(id)arg1;
 - (void)setSpeed:(double)arg1 forAnimationKey:(id)arg2;
 - (void)removeAnimationForKey:(id)arg1 fadeOutDuration:(double)arg2;
+- (void)removeAnimationForKey:(id)arg1 blendOutDuration:(double)arg2;
 - (void)resumeAnimationForKey:(id)arg1;
 - (void)pauseAnimationForKey:(id)arg1;
-- (void)_pauseAnimation:(_Bool)arg1 forKey:(id)arg2;
+- (void)_pauseAnimation:(_Bool)arg1 forKey:(id)arg2 pausedByNode:(_Bool)arg3;
+- (id)animationPlayerForKey:(id)arg1;
+- (void)_copyAnimationsFrom:(id)arg1;
+- (id)_scnAnimationForKey:(id)arg1;
 - (id)animationForKey:(id)arg1;
 - (void)_syncObjCAnimations;
 @property(readonly) NSArray *animationKeys;
@@ -70,26 +80,34 @@
 - (void)removeAllAnimations;
 - (void)addAnimation:(id)arg1;
 - (void)addAnimation:(id)arg1 forKey:(id)arg2;
+- (void)addAnimationPlayer:(id)arg1 forKey:(id)arg2;
 - (_Bool)__removeAnimation:(id)arg1 forKey:(id)arg2;
 - (struct __C3DAnimationManager *)animationManager;
 - (const void *)__CFObject;
 @property(retain, nonatomic) SCNProgram *program;
 - (void)handleUnbindingOfSymbol:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)handleBindingOfSymbol:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (id)shaderModifiersArgumentsNames;
 @property(copy, nonatomic) NSDictionary *shaderModifiers;
 - (void)_setupShadableHelperIfNeeded;
-- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
+- (id)customMaterialAttributes;
+- (id)customMaterialAttributeNames;
+- (id)customMaterialProperties;
+- (id)customMaterialPropertyNames;
+- (void)_shadableSetValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
+- (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (void)_unifyNormals;
 - (struct __C3DMaterial *)materialRef;
 - (struct __C3DMaterial *)materialRefCreateIfNeeded;
 @property(retain, nonatomic) SCNGeometrySource *edgeCreasesSource;
 @property(retain, nonatomic) SCNGeometryElement *edgeCreasesElement;
+@property(nonatomic) _Bool wantsAdaptiveSubdivision;
 @property(nonatomic) unsigned long long subdivisionLevel;
 - (void)set_subdivisionSettings:(CDStruct_4c02ed10)arg1;
 - (CDStruct_4c02ed10)_subdivisionSettings;
 @property(copy, nonatomic) NSArray *levelsOfDetail;
-- (struct __C3DAnimationChannel *)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
+- (id)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
 - (_Bool)parseSpecialKey:(id)arg1 withPath:(id)arg2 intoDestination:(id *)arg3 remainingPath:(id *)arg4;
 - (void)setPrimitiveType:(long long)arg1;
 - (long long)primitiveType;
@@ -124,14 +142,17 @@
 - (void)_setAttributes:(id)arg1;
 - (id)getBoundingBox;
 - (id)getBoundingSphere;
+-     // Error parsing type: B32@0:8^16^f24, name: simdGetBoundingSphereCenter:radius:
 - (_Bool)getBoundingSphereCenter:(struct SCNVector3 *)arg1 radius:(double *)arg2;
 - (void)setBoundingBoxMin:(struct SCNVector3 *)arg1 max:(struct SCNVector3 *)arg2;
 - (_Bool)getBoundingBoxMin:(struct SCNVector3 *)arg1 max:(struct SCNVector3 *)arg2;
+- (_Bool)_hasFixedBoundingBoxExtrema;
 - (id)geometryElementAtIndex:(long long)arg1;
 @property(readonly, nonatomic) long long geometryElementCount;
 @property(readonly, nonatomic) NSArray *geometryElements;
 - (id)geometrySourceForSemantic:(id)arg1;
 - (id)geometrySourcesForSemantic:(id)arg1;
+- (id)geometrySourceChannels;
 @property(readonly, nonatomic) NSArray *geometrySources;
 - (void)_setupGeometryElements;
 - (void)_setupGeometrySources;
@@ -139,9 +160,9 @@
 - (_Bool)isPausedOrPausedByInheritance;
 - (id)presentationInstance;
 - (id)presentationGeometry;
-- (void)setGeometryRef:(struct __C3DGeometry *)arg1;
-- (void)_setGeometryRef:(struct __C3DGeometry *)arg1;
-- (struct __C3DGeometry *)geometryRef;
+-     // Error parsing type: v24@0:8^{__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}16, name: setGeometryRef:
+-     // Error parsing type: v24@0:8^{__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}16, name: _setGeometryRef:
+-     // Error parsing type: ^{__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}16@0:8, name: geometryRef
 @property(readonly, copy) NSString *description;
 - (id)geometryDescription;
 - (void)_syncObjCModel;
@@ -151,8 +172,8 @@
 @property(copy, nonatomic) NSString *name;
 - (_Bool)isPresentationInstance;
 - (void)dealloc;
-- (id)initPresentationGeometryWithGeometryRef:(struct __C3DGeometry *)arg1;
-- (id)initWithGeometryRef:(struct __C3DGeometry *)arg1;
+-     // Error parsing type: @24@0:8^{__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}16, name: initPresentationGeometryWithGeometryRef:
+-     // Error parsing type: @24@0:8^{__C3DGeometry={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DMesh}^{__C3DMaterial}^{__CFArray}^{__CFSet}^{__CFArray}^{?}b1^?{?=CB{?=BCCC}^{__C3DMeshElement}^{__C3DMeshSource}^{__C3DMesh}^v}}16, name: initWithGeometryRef:
 - (id)init;
 - (void)setValueForKey:(id)arg1 optionKey:(id)arg2 options:(id)arg3;
 - (id)_geometryByWeldingVerticesWithThreshold:(double)arg1 normalThreshold:(double)arg2;

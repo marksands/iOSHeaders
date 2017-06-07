@@ -65,6 +65,7 @@ __attribute__((visibility("hidden")))
 - (void)setupWithTitle:(id)arg1 action:(SEL)arg2 type:(int)arg3;
 - (void)setupWithTitle:(id)arg1 subtitle:(id)arg2 maxWidth:(double)arg3 action:(SEL)arg4 type:(int)arg5;
 - (void)_commonSetupWithAction:(SEL)arg1 type:(int)arg2;
+- (double)_scaleFactorForImage;
 
 @end
 

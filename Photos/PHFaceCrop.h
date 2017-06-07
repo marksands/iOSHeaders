@@ -11,6 +11,7 @@
 @interface PHFaceCrop : PHObject
 {
     short _state;
+    short _type;
     NSData *_resourceData;
 }
 
@@ -20,10 +21,10 @@
 + (id)fetchType;
 + (id)managedEntityName;
 + (id)identifierCode;
-+ (id)fetchPredicateFromComparisonPredicate:(id)arg1 options:(id)arg2;
-+ (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (id)propertiesToFetchWithHint:(unsigned long long)arg1;
+@property(readonly, nonatomic) short type; // @synthesize type=_type;
 @property(readonly, nonatomic) short state; // @synthesize state=_state;
 @property(readonly, nonatomic) NSData *resourceData; // @synthesize resourceData=_resourceData;
 - (void).cxx_destruct;

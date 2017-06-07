@@ -11,7 +11,6 @@
 }
 
 + (id)kernelWithString:(id)arg1;
-- (id)applyWithExtent:(struct CGRect)arg1 andArguments:(id)arg2;
 - (id)applyWithExtent:(struct CGRect)arg1 arguments:(id)arg2;
 - (id)applyWithExtent:(struct CGRect)arg1 arguments:(id)arg2 options:(id)arg3;
 - (id)applyWithExtent:(struct CGRect)arg1 roiCallback:(CDUnknownBlockType)arg2 arguments:(id)arg3;

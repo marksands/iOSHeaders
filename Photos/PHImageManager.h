@@ -19,6 +19,7 @@
     unsigned long long _managerID;
 }
 
++ (_Bool)_allowVideoAccessForAsset:(id)arg1 options:(id)arg2;
 + (id)defaultManager;
 + (void)initialize;
 + (struct CGSize)sizeOfBestNonFullscreenThumbnailAndContentMode:(long long *)arg1;
@@ -33,6 +34,7 @@
 - (int)requestLivePhotoForAsset:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(long long)arg3 options:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
 - (id)localOptionsFromOptions:(id)arg1;
 - (void)cancelImageRequest:(int)arg1;
+- (int)requestAnimatedImageForAsset:(id)arg1 options:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
 - (int)requestImageDataForAsset:(id)arg1 options:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
 - (int)requestImageForAsset:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(long long)arg3 options:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
 - (id)imageForAsset:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(long long)arg3 options:(id)arg4 outInfo:(id *)arg5;
@@ -46,7 +48,7 @@
 - (id)_requestAsynchronousVideoURLForAsset:(id)arg1 chainedToMasterRequest:(id)arg2 options:(id)arg3 resultHandler:(CDUnknownBlockType)arg4;
 - (id)requestAsynchronousVideoURLForAsset:(id)arg1 chainedToMasterRequest:(id)arg2 options:(id)arg3 resultHandler:(CDUnknownBlockType)arg4;
 - (id)requestAsynchronousVideoURLForAsset:(id)arg1 options:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
-- (void)_asyncFetchCloudSharedVideoComplement:(id)arg1 options:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
+- (id)_asyncFetchCloudSharedVideoForAsset:(id)arg1 options:(id)arg2 resultHandler:(CDUnknownBlockType)arg3;
 - (id)requestAsynchronousImageForAsset:(id)arg1 chainedToMasterRequest:(id)arg2 targetSize:(struct CGSize)arg3 contentMode:(long long)arg4 options:(id)arg5 resultHandler:(CDUnknownBlockType)arg6;
 - (id)requestAsynchronousImageForAsset:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(long long)arg3 options:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
 - (void)requestSynchronousImageForAsset:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(long long)arg3 options:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;

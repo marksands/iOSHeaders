@@ -43,7 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)updateConstraints;
 - (void)_notifyDidScroll;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (void)willUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)_willUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)layoutSubviews;
 - (double)_contentFitCanScrollThreshold;
 - (void)reloadDisplayedContentVisualStyle;

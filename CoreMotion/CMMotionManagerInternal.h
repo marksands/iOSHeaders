@@ -6,6 +6,8 @@
 
 #import <objc/NSObject.h>
 
+@class NSOperationQueue, NSString;
+
 @interface CMMotionManagerInternal : NSObject
 {
     double fAccelerometerUpdateInterval;
@@ -13,8 +15,17 @@
     double fDeviceMotionUpdateInterval;
     double fMagnetometerUpdateInterval;
     _Bool fShowsDeviceMovementDisplay;
+    struct unique_ptr<CLDeviceMotionLiteService, std::__1::default_delete<CLDeviceMotionLiteService>> fDeviceMotionLiteService;
+    NSOperationQueue *_fDeviceMotionLiteClientQueue;
+    CDUnknownBlockType _fDeviceMotionLiteFusedHandler;
+    NSString *_fDeviceMotionLitePhysicalDeviceID;
 }
 
+@property(retain, nonatomic) NSString *fDeviceMotionLitePhysicalDeviceID; // @synthesize fDeviceMotionLitePhysicalDeviceID=_fDeviceMotionLitePhysicalDeviceID;
+@property(copy, nonatomic) CDUnknownBlockType fDeviceMotionLiteFusedHandler; // @synthesize fDeviceMotionLiteFusedHandler=_fDeviceMotionLiteFusedHandler;
+@property(retain, nonatomic) NSOperationQueue *fDeviceMotionLiteClientQueue; // @synthesize fDeviceMotionLiteClientQueue=_fDeviceMotionLiteClientQueue;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)init;
 

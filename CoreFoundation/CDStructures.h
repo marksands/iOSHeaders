@@ -55,6 +55,18 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
+struct __cow_state_t {
+    struct os_unfair_lock_s _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    struct {
+        CDUnknownFunctionPointerType _field1;
+        CDUnknownFunctionPointerType _field2;
+        CDUnknownFunctionPointerType _field3;
+        CDUnknownFunctionPointerType _field4;
+    } _field4;
+};
+
 struct __va_list_tag {
     unsigned int _field1;
     unsigned int _field2;
@@ -91,11 +103,18 @@ struct vertex {
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long long _field1;
-    id *_field2;
-    unsigned long long *_field3;
-    unsigned long long _field4[5];
-} CDStruct_70511ce9;
+    unsigned long long used;
+    unsigned long long offset;
+    unsigned long long size;
+    id *list;
+} CDStruct_6cf6cf19;
+
+typedef struct {
+    unsigned long long state;
+    id *itemsPtr;
+    unsigned long long *mutationsPtr;
+    unsigned long long extra[5];
+} CDStruct_58648341;
 
 typedef struct {
     id *_field1;
@@ -103,6 +122,19 @@ typedef struct {
     unsigned long long _field3;
     _Bool _field4;
 } CDStruct_78c06135;
+
+typedef struct {
+    unsigned int used:58;
+    unsigned long long size;
+    id *objs;
+} CDStruct_80e5fc3d;
+
+typedef struct {
+    unsigned int used:58;
+    unsigned int kvo:1;
+    unsigned long long size;
+    id *buffer;
+} CDStruct_3efa2a53;
 
 typedef struct {
     long long _field1;

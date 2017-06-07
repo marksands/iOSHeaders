@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_delayedTouchesToSend;
     NSMutableArray *_delayedPresses;
     NSMutableArray *_delayedPressesToSend;
+    NSMutableArray *_preUpdateActions;
     _Bool _dirtyGestureRecognizersUnsorted;
     _Bool _updateExclusivity;
     UIGestureGraph *_dependencyGraph;
@@ -38,7 +39,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool _hasGesturesNeedingUpdate;
 - (void)_queueGestureRecognizerForResetIfFinished:(id)arg1;
 - (void)_queueGestureRecognizersForResetIfFinished:(id)arg1;
+- (void)_runPreUpdateActions;
+- (void)_addPreUpdateAction:(CDUnknownBlockType)arg1;
 - (void)_cancelGestureRecognizers:(id)arg1;
+- (void)_donateTouchesWhileKeepingGestures:(id)arg1 endingGestures:(id)arg2;
+- (void)_donateAllTouches;
 - (void)_deliverEvent:(id)arg1 toGestureRecognizers:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)_updateGesturesForEvent:(id)arg1 window:(id)arg2;
 - (void)_removeNodeFromGestureGraph:(id)arg1;

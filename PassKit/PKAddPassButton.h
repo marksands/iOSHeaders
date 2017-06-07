@@ -19,8 +19,11 @@
     CAFilter *_highlightFilter;
     _Bool _highlighted;
     struct CGSize _iconSize;
-    struct CGSize _singlelineSize;
-    struct CGSize _multilineSize;
+    struct CGSize _singleLineSize;
+    struct UIEdgeInsets _singleLineAlignmentInset;
+    struct CGSize _multiLineSize;
+    struct UIEdgeInsets _multiLineAlignmentInset;
+    _Bool _useLayoutMargins;
     long long _addPassButtonStyle;
 }
 
@@ -31,8 +34,12 @@
 - (void)_applyStyle;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)_createHighlightFilterIfNecessary;
-- (void)_adjustVisibleLabel;
+- (_Bool)_singleLineFitsSize:(struct CGSize)arg1;
+- (void)_adjustVisibleLabelWithBounds:(struct CGRect)arg1;
 - (void)layoutSubviews;
+- (struct CGSize)_intrinsicMultiLineSize;
+- (struct CGSize)_intrinsicSingleLineSize;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)dealloc;

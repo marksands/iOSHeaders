@@ -8,6 +8,8 @@
 
 @protocol HMSetupRemoteHost
 - (void)accessorySetupDidFinishWithError:(NSError *)arg1;
+- (void)accessorySetupDidFinishPairing;
+- (void)accessorySetupDidBeginPairing;
 - (void)accessorySetupDidLoad;
 @end
 

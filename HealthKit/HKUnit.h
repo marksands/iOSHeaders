@@ -30,6 +30,20 @@
 + (long long)massFormatterUnitFromUnit:(id)arg1;
 + (id)unitFromMassFormatterUnit:(long long)arg1;
 + (id)unitFromString:(id)arg1;
++ (id)_foundationBaseUnits;
++ (id)_countPerMinuteUnit;
++ (id)_countPerSecondUnit;
++ (id)equivalentsUnitWithMolarMass:(double)arg1 valence:(long long)arg2;
++ (id)equivalentsUnit;
++ (id)internationalUnit;
++ (id)_internationalUnitWithVolumeEquivalent;
++ (id)_internationalUnitWithVolumeEquivalent:(double)arg1;
++ (id)_internationalUnitWithMetricPrefix:(long long)arg1 volumeEquivalent:(double)arg2;
++ (id)_internationalUnitWithMassEquivalent;
++ (id)_internationalUnitWithMassEquivalent:(double)arg1;
++ (id)_internationalUnitWithMetricPrefix:(long long)arg1 massEquivalent:(double)arg2;
++ (id)titerUnit;
++ (id)perMilleUnit;
 + (id)percentUnit;
 + (id)countUnit;
 + (id)siemenUnit;
@@ -37,6 +51,8 @@
 + (id)degreeFahrenheitUnit;
 + (id)degreeCelsiusUnit;
 + (id)kelvinUnit;
++ (id)largeCalorieUnit;
++ (id)smallCalorieUnit;
 + (id)kilocalorieUnit;
 + (id)calorieUnit;
 + (id)kilojoulesUnit;
@@ -67,7 +83,7 @@
 + (id)mileUnit;
 + (id)meterUnit;
 + (id)meterUnitWithMetricPrefix:(long long)arg1;
-+ (id)_moles;
++ (id)moles;
 + (id)moleUnitWithMolarMass:(double)arg1;
 + (id)moleUnitWithMetricPrefix:(long long)arg1 molarMass:(double)arg2;
 + (id)stoneUnit;

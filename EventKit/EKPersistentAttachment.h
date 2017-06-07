@@ -6,26 +6,29 @@
 
 #import <EventKit/EKPersistentObject.h>
 
-#import <EventKit/NSCopying-Protocol.h>
-
-@class NSDictionary, NSNumber, NSString, NSURL;
-
-@interface EKPersistentAttachment : EKPersistentObject <NSCopying>
+@interface EKPersistentAttachment : EKPersistentObject
 {
 }
 
 + (id)relations;
 - (id)description;
-@property(copy, nonatomic) NSString *externalId;
-@property(copy, nonatomic) NSDictionary *XProperties;
-@property(readonly, nonatomic) NSString *UUID;
-@property(copy, nonatomic) NSNumber *fileSize;
-@property(copy, nonatomic) NSURL *localURL;
+- (void)setExternalId:(id)arg1;
+- (id)externalId;
+- (void)setXPropertiesData:(id)arg1;
+- (id)XPropertiesData;
+- (id)UUID;
+- (void)setFileSize:(id)arg1;
+- (id)fileSize;
+- (void)setLocalURL:(id)arg1;
+- (id)localURL;
 - (void)setIsBinary:(_Bool)arg1;
-@property(readonly, nonatomic) _Bool isBinary;
-@property(copy, nonatomic) NSString *fileFormat;
-@property(copy, nonatomic) NSString *fileName;
-@property(copy, nonatomic) NSURL *URL;
+- (_Bool)isBinary;
+- (void)setFileFormat:(id)arg1;
+- (id)fileFormat;
+- (void)setFileName:(id)arg1;
+- (id)fileName;
+- (void)setURL:(id)arg1;
+- (id)URL;
 - (int)entityType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

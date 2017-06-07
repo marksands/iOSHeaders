@@ -6,27 +6,30 @@
 
 #import <Foundation/NSExtensionContext.h>
 
-#import <Messages/_MSMessageComposeExtensionProtocol-Protocol.h>
+#import <Messages/_MSMessageComposeExtensionImplProtocol-Protocol.h>
 
-@class MSConversation, NSMapTable, NSString;
+@class MSConversation, NSString, UIViewController;
+@protocol _MSMessageComposeExtensionProtocol, _MSMessageComposeHostImplProtocol;
 
-@interface _MSMessageAppExtensionContext : NSExtensionContext <_MSMessageComposeExtensionProtocol>
+@interface _MSMessageAppExtensionContext : NSExtensionContext <_MSMessageComposeExtensionImplProtocol>
 {
-    MSConversation *_activeConversation;
+    id <_MSMessageComposeHostImplProtocol> _hostContext;
     unsigned long long _presentationStyle;
-    NSMapTable *_conversationsByIdentifier;
+    id <_MSMessageComposeExtensionProtocol> _containingContext;
+    MSConversation *_activeConversation;
     struct __CFRunLoopObserver *_principalObjectCreationObserver;
     struct CGRect _initialFrameOfHostView;
 }
 
-+ (id)activeExtensionContext;
++ (id)_extensionContextHostProtocolAllowedClassesForItems;
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
 @property(readonly, nonatomic) struct __CFRunLoopObserver *principalObjectCreationObserver; // @synthesize principalObjectCreationObserver=_principalObjectCreationObserver;
 @property(readonly, nonatomic) struct CGRect initialFrameOfHostView; // @synthesize initialFrameOfHostView=_initialFrameOfHostView;
-@property(readonly, nonatomic) NSMapTable *conversationsByIdentifier; // @synthesize conversationsByIdentifier=_conversationsByIdentifier;
-@property(nonatomic) unsigned long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;
 @property(retain, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
+@property(retain, nonatomic) id <_MSMessageComposeExtensionProtocol> containingContext; // @synthesize containingContext=_containingContext;
+@property(nonatomic) unsigned long long presentationStyle; // @synthesize presentationStyle=_presentationStyle;
+@property(retain, nonatomic) id <_MSMessageComposeHostImplProtocol> hostContext; // @synthesize hostContext=_hostContext;
 - (void).cxx_destruct;
 - (void)endDisablingUserInteraction;
 - (void)beginDisablingUserInteraction;
@@ -37,10 +40,11 @@
 - (void)requestPresentationStyle:(unsigned long long)arg1;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;
 - (void)startDragMediaItem:(id)arg1 frameInRemoteView:(struct CGRect)arg2 fence:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)stageRichLink:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)stageMediaItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)stageAppItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)stageRichLink:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)stageMediaItem:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)stageAppItem:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)remoteProxy;
+- (void)_handleTextInputPayload:(id)arg1 withPayloadID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_requestSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_presentationDidChangeToPresentationState:(id)arg1;
 - (void)_presentationWillChangeToPresentationState:(id)arg1;
@@ -48,11 +52,12 @@
 - (void)_didCancelSendingMessage:(id)arg1 conversationState:(id)arg2;
 - (void)_didStartSendingMessage:(id)arg1 conversationState:(id)arg2;
 - (void)_didReceiveMessage:(id)arg1 conversationState:(id)arg2;
+- (void)_canSendMessage:(id)arg1 conversationState:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_requestContentSizeThatFits:(id)arg1 presentationStyle:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resignActive;
 - (void)_becomeActiveWithConversationState:(id)arg1 presentationState:(id)arg2;
-- (id)updatedConversationForConversationState:(id)arg1;
 - (void)_handlePrincipalObjectCreated;
-- (id)viewController;
+@property(readonly, nonatomic) __weak UIViewController *viewController;
 - (void)openURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_uninstallPrincipalObjectObserverIfNeeded;
 - (void)_installPrincipalObjectObserver;

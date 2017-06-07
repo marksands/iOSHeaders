@@ -15,7 +15,7 @@
 - (id)freezeWithSelfAsSnapshot;
 - (id)freeze;
 @property(copy, nonatomic) CNContainer *snapshot; // @dynamic snapshot;
-- (void)adoptValuesFromAndSetSnaphot:(id)arg1;
+- (void)adoptValuesFromAndSetSnapshot:(id)arg1;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @dynamic enabled;
 @property(nonatomic) long long type;
 @property(copy, nonatomic) NSString *name; // @dynamic name;

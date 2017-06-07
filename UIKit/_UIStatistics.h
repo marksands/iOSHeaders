@@ -25,11 +25,11 @@ __attribute__((visibility("hidden")))
 + (id)recentsInputViewPresentationCount;
 + (id)scrollViewVerticalVelocityInteractive;
 + (id)scrollViewVerticalVelocityNoninteractive;
-+ (id)feedbackBehaviorPlayCountWithSuffix:(id)arg1;
-+ (id)feedbackBehaviorPreparationCountWithSuffix:(id)arg1;
-+ (id)feedbackBehaviorActivationTimeOutCountWithSuffix:(id)arg1;
-+ (id)feedbackBehaviorActivationDurationWithSuffix:(id)arg1;
-+ (id)feedbackBehaviorActivationCountWithSuffix:(id)arg1;
++ (id)feedbackGeneratorPlayCountWithSuffix:(id)arg1;
++ (id)feedbackGeneratorPreparationCountWithSuffix:(id)arg1;
++ (id)feedbackGeneratorActivationTimeOutCountWithSuffix:(id)arg1;
++ (id)feedbackGeneratorActivationDurationWithSuffix:(id)arg1;
++ (id)feedbackGeneratorActivationCountWithSuffix:(id)arg1;
 + (id)feedbackEngineOutOfChannelsCountWithSuffix:(id)arg1;
 + (id)feedbackEnginePrewarmDurationWithSuffix:(id)arg1;
 + (id)feedbackEnginePrewarmCountWithSuffix:(id)arg1;

@@ -31,7 +31,7 @@
 - (long long)appendSampleBuffer:(struct opaqueCMSampleBuffer *)arg1 error:(id *)arg2;
 - (void)requestMediaDataWhenReadyOnQueue:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSURL *sampleReferenceBaseURL;
-@property(nonatomic) _Bool writesMediaDataToBeginningOfFile;
+@property(copy, nonatomic) NSString *mediaDataLocation;
 @property(nonatomic) long long preferredMediaChunkSize;
 @property(nonatomic) long long preferredMediaChunkAlignment;
 @property(nonatomic) CDStruct_1b6d18a9 preferredMediaChunkDuration;

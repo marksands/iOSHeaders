@@ -41,11 +41,11 @@
 @property(readonly, nonatomic) _Bool canDisplaySearchActionInNavigationBar;
 @property(readonly, nonatomic) _Bool shouldPlaceDeleteInCenterToolbarPosition;
 @property(readonly, nonatomic) _Bool shouldPlaceSelectAllButtonInRightNavigationBar;
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 @property(readonly, nonatomic) long long cellBannerTextAlignment;
 @property(readonly, nonatomic) long long cellFillMode;
 @property(readonly, nonatomic) int thumbnailImageFormat;
-@property(readonly, nonatomic) double globalFooterHeight;
+@property(readonly, nonatomic) double globalFooterMinHeight;
 - (unsigned long long)supportedInterfaceOrientations;
 @property(readonly, nonatomic) struct CGSize contentSizeForViewInPopover;
 - (id)init;

@@ -14,8 +14,11 @@
 {
 }
 
+@property(readonly, nonatomic) struct CGSize maximumVideoResolution;
 - (id)makePropertyListForProxyWithOptions:(id)arg1;
 @property(readonly, nonatomic) id propertyListForProxy;
+@property(readonly, nonatomic, getter=_assetAnalysisMessages) NSArray *assetAnalysisMessages;
+@property(readonly, nonatomic) _Bool supportsAnalysisReporting;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 overallDurationHint;
 @property(readonly, nonatomic) _Bool containsFragments;
 @property(readonly, nonatomic) _Bool canContainFragments;

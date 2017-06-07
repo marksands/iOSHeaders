@@ -6,10 +6,12 @@
 
 #import <UIKit/UIView.h>
 
+#import <PhotosUI/CAAnimationDelegate-Protocol.h>
+
 @class NSArray, NSString, PUStackView, UILabel;
 
 __attribute__((visibility("hidden")))
-@interface PUPickerBannerView : UIView
+@interface PUPickerBannerView : UIView <CAAnimationDelegate>
 {
     _Bool __animatingStackView;
     unsigned long long _style;
@@ -44,6 +46,12 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)_frameReversedIfRightToLeft:(_Bool)arg1 frame:(struct CGRect)arg2 bounds:(struct CGRect)arg3;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

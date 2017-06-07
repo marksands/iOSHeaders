@@ -9,10 +9,10 @@
 #import <SafariServices/WBSFluidProgressStateSource-Protocol.h>
 #import <SafariServices/_WKDownloadDelegate-Protocol.h>
 
-@class NSString, NSURL, WBSFluidProgressController, WBSFluidProgressState, _WKDownload;
+@class NSString, NSURL, WBSFluidProgressController, WBSFluidProgressState, _WKDownload, _WKUserInitiatedAction;
 @protocol _SFDownloadControllerDelegate;
 
-@interface _SFDownloadController : NSObject <_WKDownloadDelegate, WBSFluidProgressStateSource>
+@interface _SFDownloadController : NSObject <WBSFluidProgressStateSource, _WKDownloadDelegate>
 {
     long long _downloadingFileType;
     _WKDownload *_fileDownload;
@@ -22,6 +22,8 @@
     unsigned long long _downloadBytesLoaded;
     NSURL *_fileDownloadSourceURL;
     _Bool _downloadHasFailed;
+    _Bool _downloadWasCanceled;
+    _WKUserInitiatedAction *_userInitiatedActionForNextDownload;
     WBSFluidProgressState *_fluidProgressState;
     double _timeLastProgressNotificationWasSent;
     id <_SFDownloadControllerDelegate> _delegate;
@@ -29,7 +31,7 @@
 }
 
 @property(retain, nonatomic) WBSFluidProgressController *fluidProgressController; // @synthesize fluidProgressController=_fluidProgressController;
-@property(nonatomic) long long downloadingFileType; // @synthesize downloadingFileType=_downloadingFileType;
+@property(readonly, nonatomic) long long downloadingFileType; // @synthesize downloadingFileType=_downloadingFileType;
 @property(nonatomic) __weak id <_SFDownloadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)hasFailedURL;
@@ -48,6 +50,7 @@
 - (void)_beginDownloadBackgroundTask:(id)arg1;
 - (void)_download:(id)arg1 didReceiveResponse:(id)arg2;
 - (void)_downloadDidStart:(id)arg1;
+- (_Bool)startDownloadWithType:(long long)arg1 userInitiatedAction:(id)arg2;
 - (void)cancel;
 
 // Remaining properties

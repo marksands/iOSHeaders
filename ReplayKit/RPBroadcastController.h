@@ -6,30 +6,32 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSString, NSURL;
+@class NSDictionary, NSString, NSURL, RPBroadcastViewController;
 @protocol RPBroadcastControllerDelegate;
 
 @interface RPBroadcastController : NSObject
 {
-    NSURL *_broadcastURL;
     NSDictionary *_serviceInfo;
     id <RPBroadcastControllerDelegate> _delegate;
     NSString *_broadcastExtensionBundleID;
+    RPBroadcastViewController *_broadcastViewController;
 }
 
+@property(readonly, nonatomic) RPBroadcastViewController *broadcastViewController; // @synthesize broadcastViewController=_broadcastViewController;
 @property(readonly, nonatomic) NSString *broadcastExtensionBundleID; // @synthesize broadcastExtensionBundleID=_broadcastExtensionBundleID;
 @property(nonatomic) __weak id <RPBroadcastControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSDictionary *serviceInfo; // @synthesize serviceInfo=_serviceInfo;
-@property(readonly, nonatomic) NSURL *broadcastURL; // @synthesize broadcastURL=_broadcastURL;
 - (void).cxx_destruct;
 - (void)finishBroadcastWithHandler:(CDUnknownBlockType)arg1;
 - (void)resumeBroadcast;
 - (void)pauseBroadcast;
 - (void)startBroadcastWithHandler:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) NSURL *broadcastURL;
 @property(readonly, nonatomic, getter=isPaused) _Bool paused;
 @property(readonly, nonatomic, getter=isBroadcasting) _Bool broadcasting;
 - (void)dealloc;
-- (id)initWithExtensionBundleID:(id)arg1 broadcastURL:(id)arg2;
+- (id)initWithCurrentSession;
+- (id)initWithExtensionBundleID:(id)arg1 broadcastURL:(id)arg2 broadcastViewController:(id)arg3;
 - (id)init;
 
 @end

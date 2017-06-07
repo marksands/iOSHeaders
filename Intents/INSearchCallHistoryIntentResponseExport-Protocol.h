@@ -7,7 +7,10 @@
 #import <Intents/JSExport-Protocol.h>
 #import <Intents/NSObject-Protocol.h>
 
+@class NSArray;
+
 @protocol INSearchCallHistoryIntentResponseExport <NSObject, JSExport>
+@property(copy, nonatomic) NSArray *callRecords;
 @property(readonly, nonatomic) long long code;
 @end
 

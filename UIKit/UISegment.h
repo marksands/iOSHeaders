@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
         unsigned int isMomentary:1;
         unsigned int wasSelected:1;
         unsigned int needsBackgroundAndContentViewUpdate:1;
+        unsigned int usesAXTextSize:1;
     } _segmentFlags;
     NSArray *_infoConstraints;
     double _requestedScaleFactor;
@@ -49,7 +50,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)useBlockyMagnificationInClassic;
 - (id)hitTest:(struct CGPoint)arg1 forEvent:(struct __GSEvent *)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)willUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (id)_preferredConfigurationForFocusAnimation:(long long)arg1 inContext:(id)arg2;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)canBecomeFocused;
@@ -96,6 +96,7 @@ __attribute__((visibility("hidden")))
 - (id)disabledTextColor;
 - (id)_attributedTextForState:(unsigned long long)arg1 selected:(_Bool)arg2;
 - (void)_updateTextColors;
+- (void)setUsesAXTextSize:(_Bool)arg1;
 - (void)setWasSelected:(_Bool)arg1;
 - (void)updateMasking;
 - (_Bool)_hasSelectedColor;

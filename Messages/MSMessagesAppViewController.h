@@ -7,22 +7,30 @@
 #import <UIKit/UIViewController.h>
 
 #import <Messages/MSConversationDelegate-Protocol.h>
-#import <Messages/MSMessagePayloadProvider-Protocol.h>
+#import <Messages/MSMessagesAppCompactOrExpandedPresentation-Protocol.h>
+#import <Messages/MSMessagesAppTranscriptPresentation-Protocol.h>
 
 @class MSConversation, NSString;
+@protocol _MSMessageComposeExtensionImplProtocol;
 
-@interface MSMessagesAppViewController : UIViewController <MSMessagePayloadProvider, MSConversationDelegate>
+@interface MSMessagesAppViewController : UIViewController <MSConversationDelegate, MSMessagesAppCompactOrExpandedPresentation, MSMessagesAppTranscriptPresentation>
 {
     _Bool _isReadyForDisplay;
     MSConversation *_activeConversation;
+    id <_MSMessageComposeExtensionImplProtocol> _appContext;
 }
 
+@property(retain, nonatomic) id <_MSMessageComposeExtensionImplProtocol> appContext; // @synthesize appContext=_appContext;
 @property(nonatomic) _Bool isReadyForDisplay; // @synthesize isReadyForDisplay=_isReadyForDisplay;
 @property(retain, nonatomic) MSConversation *activeConversation; // @synthesize activeConversation=_activeConversation;
 - (void).cxx_destruct;
+- (_Bool)_handleTextInputPayload:(id)arg1 withPayloadID:(id)arg2;
+- (void)_validateMessageForSending:(id)arg1 conversation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setReadyForDisplay;
 - (_Bool)displaysAfterAppearance;
 - (void)viewDidAppear:(_Bool)arg1;
+- (struct CGSize)_contentSizeThatFits:(struct CGSize)arg1 presentationStyle:(unsigned long long)arg2;
+- (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 - (void)updateSnapshotWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)didTransitionToPresentationStyle:(unsigned long long)arg1;
 - (void)willTransitionToPresentationStyle:(unsigned long long)arg1;

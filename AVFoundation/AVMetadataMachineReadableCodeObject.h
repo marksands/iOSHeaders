@@ -6,7 +6,7 @@
 
 #import <AVFoundation/AVMetadataObject.h>
 
-@class AVMetadataMachineReadableCodeObjectInternal, NSArray, NSString;
+@class AVMetadataMachineReadableCodeObjectInternal, CIBarcodeDescriptor, NSArray, NSString;
 
 @interface AVMetadataMachineReadableCodeObject : AVMetadataObject
 {
@@ -14,12 +14,14 @@
 }
 
 + (id)machineReadableCodeObjectWithFigEmbeddedCaptureDeviceMachineReadableCodeDictionary:(id)arg1 input:(id)arg2;
+- (id)basicDescriptor;
 @property(readonly) NSString *stringValue;
 @property(readonly) NSArray *corners;
 - (id)description;
 - (void)dealloc;
 - (id)initDerivedMetadataObjectFromMetadataObject:(id)arg1 withTransform:(struct CGAffineTransform)arg2 isVideoMirrored:(_Bool)arg3 rollAdjustment:(double)arg4;
 - (id)initWithFigEmbeddedCaptureDeviceMachineReadableCodeDictionary:(id)arg1 input:(id)arg2;
+@property(readonly) CIBarcodeDescriptor *descriptor;
 
 @end
 

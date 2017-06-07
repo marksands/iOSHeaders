@@ -6,16 +6,26 @@
 
 #import <UIKit/UITextEffectsWindow.h>
 
+#import <UIKit/_UIContextCustomBinding-Protocol.h>
+
+@class CAContext, FBSScene, FBSSceneLayer, NSString, _UIContextBinder;
+
 __attribute__((visibility("hidden")))
-@interface UIRemoteKeyboardWindow : UITextEffectsWindow
+@interface UIRemoteKeyboardWindow : UITextEffectsWindow <_UIContextCustomBinding>
 {
     _Bool _arePlaceholdersInitialised;
+    FBSSceneLayer *_externalSceneLayer;
+    FBSScene *_activeScene;
 }
 
 + (id)remoteKeyboardWindowForScreen:(id)arg1 create:(_Bool)arg2;
 - (void)dealloc;
-- (void)_detachSceneLayer;
-- (void)_attachSceneLayer;
+- (void)resetScene;
+- (void)detachBindable;
+- (_Bool)shouldDetachBindable;
+- (void)attachBindable;
+- (_Bool)shouldAttachBindable;
+- (double)_adjustedWindowLevelFromLevel:(double)arg1;
 - (_Bool)_isTextEffectsWindowNotificationOwner;
 - (struct CGAffineTransform)_viewTransformForInterfaceOrientation:(long long)arg1;
 - (void)_setRotatableClient:(id)arg1 toOrientation:(long long)arg2 updateStatusBar:(_Bool)arg3 duration:(double)arg4 force:(_Bool)arg5 isRotating:(_Bool)arg6;
@@ -25,11 +35,19 @@ __attribute__((visibility("hidden")))
 - (_Bool)_alwaysGetsContexts;
 - (_Bool)_isHostedInAnotherProcess;
 - (_Bool)_isWindowServerHostingManaged;
-- (id)_newSceneLayer;
 - (_Bool)_wantsSceneAssociation;
 - (void)invalidate;
 - (_Bool)_matchingOptions:(id)arg1;
 - (id)_initBasicWithScreen:(id)arg1 options:(id)arg2;
+
+// Remaining properties
+@property(readonly, nonatomic) CDStruct_3cbf53c3 _bindingDescription;
+@property(nonatomic, setter=_setBoundContext:) __weak CAContext *_boundContext;
+@property(nonatomic, setter=_setContextBinder:) __weak _UIContextBinder *_contextBinder;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

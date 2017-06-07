@@ -27,10 +27,12 @@
     NSDictionary *_dataCountBySource;
     HKQuantity *_sumQuantity;
     NSDictionary *_sumQuantityBySource;
+    NSDictionary *_sumQuantityBySourceID;
 }
 
 + (_Bool)supportsSecureCoding;
 + (void)_validateOptions:(unsigned long long)arg1 forDataType:(id)arg2;
+@property(retain, nonatomic) NSDictionary *sumQuantityBySourceID; // @synthesize sumQuantityBySourceID=_sumQuantityBySourceID;
 @property(retain, nonatomic) NSDictionary *sumQuantityBySource; // @synthesize sumQuantityBySource=_sumQuantityBySource;
 @property(retain, nonatomic) HKQuantity *sumQuantity; // @synthesize sumQuantity=_sumQuantity;
 @property(retain, nonatomic) NSDictionary *dataCountBySource; // @synthesize dataCountBySource=_dataCountBySource;

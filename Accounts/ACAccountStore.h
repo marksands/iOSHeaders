@@ -51,8 +51,11 @@
 - (id)tetheredSyncSourceTypeForDataclass:(id)arg1;
 - (_Bool)isTetheredSyncingEnabledForDataclass:(id)arg1;
 - (_Bool)hasAccountWithDescription:(id)arg1;
+- (_Bool)isPerformingDataclassActionsForAccount:(id)arg1 error:(id *)arg2;
 - (_Bool)isPerformingDataclassActionsForAccount:(id)arg1;
+- (id)dataclassActionsForAccountDeletion:(id)arg1 error:(id *)arg2;
 - (id)dataclassActionsForAccountDeletion:(id)arg1;
+- (id)dataclassActionsForAccountSave:(id)arg1 error:(id *)arg2;
 - (id)dataclassActionsForAccountSave:(id)arg1;
 - (id)accountIdentifiersEnabledToSyncDataclass:(id)arg1;
 - (id)accountIdentifiersEnabledForDataclass:(id)arg1;
@@ -71,7 +74,9 @@
 - (id)provisionedDataclassesForAccount:(id)arg1;
 - (id)enabledDataclassesForAccount:(id)arg1;
 - (id)childAccountsForAccount:(id)arg1 withTypeIdentifier:(id)arg2;
+- (id)childAccountsForAccount:(id)arg1 error:(id *)arg2;
 - (id)childAccountsForAccount:(id)arg1;
+- (id)parentAccountForAccount:(id)arg1 error:(id *)arg2;
 - (id)parentAccountForAccount:(id)arg1;
 - (void)removeCredentialItem:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)saveCredentialItem:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -109,10 +114,13 @@
 - (void)insertAccountType:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)accountsOnPairedDeviceWithAccountType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)accountsWithAccountType:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)accountsWithAccountType:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)accountsWithAccountType:(id)arg1;
 @property(readonly, nonatomic) __weak NSArray *accounts;
 - (void)accountTypeWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)accountTypeWithAccountTypeIdentifier:(id)arg1 error:(id *)arg2;
 - (id)accountTypeWithAccountTypeIdentifier:(id)arg1;
+- (id)accountWithIdentifier:(id)arg1 error:(id *)arg2;
 - (id)accountWithIdentifier:(id)arg1;
 - (id)_connectionFailureError;
 - (void)disconnectFromRemoteAccountStore;

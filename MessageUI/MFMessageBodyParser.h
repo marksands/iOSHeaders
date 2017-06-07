@@ -23,6 +23,7 @@
 
 + (_Bool)isLinebreakImpliedAfterTagName:(id)arg1;
 + (_Bool)isLinebreakImpliedBeforeTagName:(id)arg1;
++ (_Bool)cacheRetainsNodes;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
 - (void)getLevel:(long long *)arg1 quoteLevel:(long long *)arg2 forBodyNode:(id)arg3;
 - (unsigned long long)quoteLevelForBodyNode:(id)arg1;

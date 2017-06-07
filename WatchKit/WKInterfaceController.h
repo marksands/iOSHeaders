@@ -24,6 +24,7 @@
 + (void)_removePageControllersAtIndexes:(id)arg1;
 + (void)_movePageControllerAtIndex:(long long)arg1 toIndex:(long long)arg2;
 + (void)_insertPageControllersAtIndexes:(id)arg1 withNames:(id)arg2 contexts:(id)arg3;
++ (void)reloadRootPageControllersWithNames:(id)arg1 contexts:(id)arg2 orientation:(long long)arg3 pageIndex:(long long)arg4;
 + (void)reloadRootControllersWithNames:(id)arg1 contexts:(id)arg2;
 + (struct CGRect)screenBounds;
 + (double)screenScale;
@@ -63,6 +64,10 @@
 - (void)presentControllerWithNames:(id)arg1 contexts:(id)arg2;
 - (void)presentControllerWithName:(id)arg1 context:(id)arg2;
 - (void)becomeCurrentPage;
+- (void)interfaceOffsetDidScrollToBottom;
+- (void)interfaceOffsetDidScrollToTop;
+- (void)interfaceDidScrollToTop;
+- (void)scrollToObject:(id)arg1 atScrollPosition:(long long)arg2 animated:(_Bool)arg3;
 - (void)popToRootController;
 - (void)popController;
 - (void)pushControllerWithName:(id)arg1 context:(id)arg2;
@@ -82,6 +87,7 @@
 - (void)willActivate;
 - (id)initWithContext:(id)arg1;
 - (void)awakeWithContext:(id)arg1;
+- (void)didRegisterWithRemoteInterface;
 - (id)init;
 
 @end

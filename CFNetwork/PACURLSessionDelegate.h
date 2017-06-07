@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)URLSession:(id)arg1 task:(id)arg2 didReceiveChallenge:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)dealloc;
+- (id)initWithUsername:(id)arg1 password:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

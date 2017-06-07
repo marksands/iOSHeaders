@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/NSCopying-Protocol.h>
 #import <Contacts/NSSecureCoding-Protocol.h>
@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) SEL writeSelector; // @synthesize writeSelector=_writeSelector;
 @property(readonly, nonatomic) SEL readSelector; // @synthesize readSelector=_readSelector;
 @property(readonly, copy, nonatomic) NSString *key; // @synthesize key=_key;
+- (void).cxx_destruct;
 - (id)stringForIndexingForContact:(id)arg1;
 - (id)CNValueForContact:(id)arg1;
 - (void)setCNValue:(id)arg1 onContact:(id)arg2;
@@ -33,10 +34,11 @@
 - (void)assertValueType:(id)arg1;
 - (void)decodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (void)encodeUsingCoder:(id)arg1 contact:(id)arg2;
-- (_Bool)isValue:(id)arg1 preferredToEquivalentValue:(id)arg2;
-- (_Bool)isValue:(id)arg1 equivalentToValue:(id)arg2;
+- (_Bool)isValue:(id)arg1 preferredToUnifiedValue:(id)arg2;
+- (_Bool)canUnifyValue:(id)arg1 withValue:(id)arg2;
+- (_Bool)isValue:(id)arg1 equalToEmptyEquivalentOrValue:(id)arg2;
 - (id)valueWithResetIdentifiers:(id)arg1;
-- (id)equivalentLabelsForLabel:(id)arg1;
+- (id)unifiableLabelsForLabel:(id)arg1;
 - (_Bool)isEqualIgnoringIdentifiersForContact:(id)arg1 other:(id)arg2;
 @property(readonly, nonatomic) NSArray *equivalentLabelSets;
 @property(readonly, nonatomic) id nilValue;
@@ -45,14 +47,18 @@
 @property(readonly, nonatomic) _Bool isWritable;
 @property(readonly, nonatomic) Class valueClass;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithKey:(id)arg1 readSelector:(SEL)arg2 writeSelector:(SEL)arg3;
+- (_Bool)applyDictionary:(id)arg1 identifier:(id)arg2 legacyIdentifier:(int)arg3 label:(id)arg4 toCNMultivalueRepresentation:(id)arg5;
+- (_Bool)applyABMultivalueValueBytes:(char *)arg1 length:(unsigned long long)arg2 identifier:(id)arg3 legacyIdentifier:(int)arg4 label:(id)arg5 toCNMultivalueRepresentation:(id)arg6;
+- (id)CNMutableValueForABMultivalue;
+- (id)CNValueFromABBytes:(char *)arg1 length:(unsigned long long)arg2;
 - (void)copyFromABPerson:(void *)arg1 toContact:(id)arg2;
 - (_Bool)setCNValue:(id)arg1 onABPerson:(void *)arg2 withDependentPropertiesContext:(id)arg3 error:(id *)arg4;
 - (void *)ABValueForABPerson:(void *)arg1;
 - (_Bool)setABValue:(void *)arg1 onABPerson:(void *)arg2 error:(struct __CFError **)arg3;
+- (_Bool)supportsABLazyLoading;
 - (id)CNValueFromABValue:(void *)arg1;
 - (void *)ABValueFromCNValue:(id)arg1;
 - (_Bool)abPropertyID:(int *)arg1;

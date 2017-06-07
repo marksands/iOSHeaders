@@ -16,7 +16,6 @@
 @property(readonly, nonatomic) NSArray *indexSections;
 @property(readonly, nonatomic) NSArray *sections;
 @property(readonly, nonatomic) NSDictionary *contactMatchInfos;
-@property(readonly, nonatomic) NSString *mainStorePreferredForNameMeContactIdentifier;
 @property(readonly, nonatomic) NSArray *contacts;
 - (NSIndexPath *)indexPathForContact:(CNContact *)arg1;
 - (CNContact *)completeContactFromContact:(CNContact *)arg1 fromMainStoreOnly:(_Bool)arg2 keysToFetch:(NSArray *)arg3;

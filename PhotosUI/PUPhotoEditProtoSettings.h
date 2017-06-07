@@ -4,10 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
-__attribute__((visibility("hidden")))
-@interface PUPhotoEditProtoSettings : PUSettings
+@interface PUPhotoEditProtoSettings : PXSettings
 {
     _Bool _showLevelIndicator;
     _Bool _showResetToolButton;
@@ -18,14 +17,21 @@ __attribute__((visibility("hidden")))
     _Bool _simulateDownloadFailure;
     _Bool _previewOriginalAllowsLongPress;
     _Bool _previewOriginalTimesOut;
+    _Bool _livePhotoTrimAllowed;
+    _Bool _crossfadeDuringLivePhotoTrim;
+    long long _renderPriority;
     double _cropSideMargins;
     double _cropWheelSize;
     double _cropRecomposeDelay;
     double _previewOriginalDuration;
+    double _minimumLivePhotoTrimDuration;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
+@property(nonatomic) double minimumLivePhotoTrimDuration; // @synthesize minimumLivePhotoTrimDuration=_minimumLivePhotoTrimDuration;
+@property(nonatomic) _Bool crossfadeDuringLivePhotoTrim; // @synthesize crossfadeDuringLivePhotoTrim=_crossfadeDuringLivePhotoTrim;
+@property(nonatomic) _Bool livePhotoTrimAllowed; // @synthesize livePhotoTrimAllowed=_livePhotoTrimAllowed;
 @property(nonatomic) double previewOriginalDuration; // @synthesize previewOriginalDuration=_previewOriginalDuration;
 @property(nonatomic) _Bool previewOriginalTimesOut; // @synthesize previewOriginalTimesOut=_previewOriginalTimesOut;
 @property(nonatomic) _Bool previewOriginalAllowsLongPress; // @synthesize previewOriginalAllowsLongPress=_previewOriginalAllowsLongPress;
@@ -39,7 +45,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool allowAnyPlugin; // @synthesize allowAnyPlugin=_allowAnyPlugin;
 @property(nonatomic) _Bool showResetToolButton; // @synthesize showResetToolButton=_showResetToolButton;
 @property(nonatomic) _Bool showLevelIndicator; // @synthesize showLevelIndicator=_showLevelIndicator;
+@property(nonatomic) long long renderPriority; // @synthesize renderPriority=_renderPriority;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

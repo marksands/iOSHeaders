@@ -7,17 +7,18 @@
 #import <Foundation/NSObject.h>
 
 #import <MessageUI/MFAttachmentPasteboardRepresentation-Protocol.h>
-#import <MessageUI/NSCoding-Protocol.h>
+#import <MessageUI/NSSecureCoding-Protocol.h>
 
 @class NSData, NSString;
 
-@interface MFAttachmentPasteboardRepresentation : NSObject <NSCoding, MFAttachmentPasteboardRepresentation>
+@interface MFAttachmentPasteboardRepresentation : NSObject <NSSecureCoding, MFAttachmentPasteboardRepresentation>
 {
     NSData *_data;
     NSString *_name;
     NSString *_mimeType;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;

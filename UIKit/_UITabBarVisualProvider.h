@@ -38,8 +38,8 @@ __attribute__((visibility("hidden")))
 - (id)initWithTabBar:(id)arg1;
 - (void)_shim_updateTabBarItemView:(id)arg1;
 - (void)_shim_layoutItemsOnly;
-- (_Bool)_shim_hasBackdrop;
 - (void)_shim_setBackdropGroupName:(id)arg1;
+- (id)_shim_backdropGroupName;
 - (void)_shim_updateBackdropView;
 - (void)_shim_updateFocusHighlightVisibility;
 - (id)_shim_shadowView;

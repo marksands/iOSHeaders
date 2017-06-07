@@ -13,6 +13,7 @@
     UIViewController *_wrapperViewController;
 }
 
++ (unsigned long long)_xpcAttributes;
 @property(retain) UIViewController *wrapperViewController; // @synthesize wrapperViewController=_wrapperViewController;
 - (void).cxx_destruct;
 - (id)printInteractionControllerParentViewController:(id)arg1;

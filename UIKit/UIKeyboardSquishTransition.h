@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool useInteractiveOpacity; // @synthesize useInteractiveOpacity=_useInteractiveOpacity;
 - (id)meshTransformForKeyplane:(id)arg1 toKeyplane:(id)arg2;
 - (id)symmetricMeshTransformForKeyplane:(id)arg1;
+- (_Bool)_allowFacesToAdjoinToAdjacentFaces;
 - (id)geometriesForKeyplane:(id)arg1;
 - (id)sortedCommonVisibleKeys;
 - (void)updateOpacityAnimation:(id)arg1;

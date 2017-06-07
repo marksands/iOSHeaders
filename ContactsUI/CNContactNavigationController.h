@@ -96,8 +96,9 @@
 - (void)setShouldDisplayMeContactBanner:(_Bool)arg1;
 - (id)contactListViewController;
 @property(readonly, nonatomic) id <CNContactDataSource> dataSource;
-- (id)initWithDataSource:(id)arg1 contactFormatter:(id)arg2 applyGroupFilterFromPreferences:(_Bool)arg3 environment:(id)arg4;
-- (id)initWithDataSource:(id)arg1 environment:(id)arg2;
+- (id)initWithDataSource:(id)arg1 contactFormatter:(id)arg2 applyGroupFilterFromPreferences:(_Bool)arg3 environment:(id)arg4 allowsLargeTitles:(_Bool)arg5;
+- (id)initWithDataSource:(id)arg1 environment:(id)arg2 allowsLargeTitles:(_Bool)arg3;
+- (id)initWithDataSource:(id)arg1 allowsLargeTitles:(_Bool)arg2;
 - (id)initWithDataSource:(id)arg1;
 
 // Remaining properties

@@ -60,6 +60,8 @@
     unsigned int _coordinateAttribute;
     unsigned int _coordPercentAttribute;
     unsigned int _trigResultsAttribute;
+    unsigned int _emptyShaderAlphaUniform;
+    unsigned int _ringShaderAlphaUniform;
     unsigned int _iconSpritePositionAttribute;
     unsigned int _iconSpriteSizeAttribute;
     unsigned int _iconSpriteColorAttribute;
@@ -72,6 +74,7 @@
     int _ringGroupsPerRow;
     NSArray *_ringGroups;
     double _ringSpacing;
+    double _emptyRingAlpha;
     UIImage *_iconSpriteImage;
     unsigned long long _iconTextureRows;
     unsigned long long _iconTextureColumns;
@@ -89,6 +92,7 @@
 @property(nonatomic) unsigned long long iconTextureColumns; // @synthesize iconTextureColumns=_iconTextureColumns;
 @property(nonatomic) unsigned long long iconTextureRows; // @synthesize iconTextureRows=_iconTextureRows;
 @property(retain, nonatomic) UIImage *iconSpriteImage; // @synthesize iconSpriteImage=_iconSpriteImage;
+@property(nonatomic) double emptyRingAlpha; // @synthesize emptyRingAlpha=_emptyRingAlpha;
 @property(nonatomic) double ringSpacing; // @synthesize ringSpacing=_ringSpacing;
 @property(nonatomic) int ringGroupsPerRow; // @synthesize ringGroupsPerRow=_ringGroupsPerRow;
 @property(readonly, nonatomic) NSArray *ringGroups; // @synthesize ringGroups=_ringGroups;
@@ -99,7 +103,7 @@
 - (void)dealloc;
 - (void)_destroyBuffers;
 - (void)ringGroupDidBeginAnimations:(id)arg1;
-- (unsigned int)drawInRect:(struct CGRect)arg1;
+- (unsigned int)drawInRect:(struct CGRect)arg1 withContext:(id)arg2;
 - (void)update;
 - (void)_context_prepareForIconDraw;
 - (void)_context_prepareForRingDraw:(_Bool)arg1;
@@ -109,7 +113,6 @@
 - (void)_context_loadRingEmptyProgramIfNeeded;
 - (void)_context_loadUniformsAndAttributes;
 - (void)_context_createBuffers;
-- (void)_context_checkAndRepairFramebuffer;
 - (void)_setupIfNecessary;
 - (void)_loadIconDataForGroupAtIndex:(long long)arg1;
 - (void)_context_loadRingDataForGroupAtIndex:(long long)arg1;

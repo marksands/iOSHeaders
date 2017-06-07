@@ -16,6 +16,7 @@
     PUProgressIndicatorView *_progressIndicatorView;
     UIView *_highlightOverlayView;
     NSArray *_progressIndicatorViewConstraints;
+    _Bool _draggable;
     _Bool _selectionBadgeVisible;
     _Bool _cloudIconVisible;
     _Bool _transitionFillerViewEnabled;
@@ -25,10 +26,12 @@
     NSNumber *_progress;
     PUPhotoView *_photoContentView;
     PUPhotoView *_temporaryPhotoContentView;
+    long long _dragState;
     struct UIEdgeInsets _fillerEdgeInsets;
 }
 
 + (Class)_contentViewClass;
+@property long long dragState; // @synthesize dragState=_dragState;
 @property(nonatomic) int currentImageRequestID; // @synthesize currentImageRequestID=_currentImageRequestID;
 @property(nonatomic) _Bool transitionIsAppearing; // @synthesize transitionIsAppearing=_transitionIsAppearing;
 @property(nonatomic) struct UIEdgeInsets fillerEdgeInsets; // @synthesize fillerEdgeInsets=_fillerEdgeInsets;
@@ -38,9 +41,11 @@
 @property(retain, nonatomic) NSNumber *progress; // @synthesize progress=_progress;
 @property(nonatomic, getter=isCloudIconVisible) _Bool cloudIconVisible; // @synthesize cloudIconVisible=_cloudIconVisible;
 @property(nonatomic, getter=isSelectionBadgeVisible) _Bool selectionBadgeVisible; // @synthesize selectionBadgeVisible=_selectionBadgeVisible;
+@property(nonatomic, getter=isDraggable) _Bool draggable; // @synthesize draggable=_draggable;
 @property(readonly, nonatomic) UIView *transitionFillerView; // @synthesize transitionFillerView=_transitionFillerView;
 - (void).cxx_destruct;
 - (void)setProgress:(id)arg1 immediately:(_Bool)arg2;
+- (void)dragStateDidChange:(long long)arg1;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted; // @dynamic highlighted;
 - (void)prepareForReuse;
 - (void)applyLayoutAttributes:(id)arg1;

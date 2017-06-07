@@ -12,7 +12,7 @@
 
 @interface _UNNotificationServiceExtensionRemoteContext : _UNNotificationServiceExtensionContext <_UNNotificationServiceExtensionRemoteXPCInterface>
 {
-    long long _replyOnceToken;
+    // Error parsing type: {atomic_flag="_Value"AB}, name: _hasRepliedFlag
     UNNotificationServiceExtension *_extensionInstance;
 }
 
@@ -21,6 +21,7 @@
 - (id)_stageAttachmentsForNotificationContent:(id)arg1;
 - (void)serviceExtensionTimeWillExpire;
 - (void)didReceiveNotificationRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

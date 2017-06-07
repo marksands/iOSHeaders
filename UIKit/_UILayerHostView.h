@@ -14,9 +14,6 @@ __attribute__((visibility("hidden")))
 }
 
 + (Class)layerClass;
-- (void)_compensateForGlobalMediaTimeAdjustmentsIfNecessary;
-- (void)_snapshotAdjustedMediaTiming:(id)arg1;
-- (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (void)dealloc;
 @property(readonly, retain, nonatomic) CALayerHost *layerHost;
 @property(nonatomic) _Bool inheritsSecurity;

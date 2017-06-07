@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNChangeNotificationReceiver-Protocol.h>
 
@@ -38,8 +38,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMapTable *removalBlocks; // @synthesize removalBlocks=_removalBlocks;
 @property(nonatomic) double externalNotificationCoalescingDelay; // @synthesize externalNotificationCoalescingDelay=_externalNotificationCoalescingDelay;
 @property(nonatomic) _Bool forwardsSelfGeneratedDistributedSaveNotifications; // @synthesize forwardsSelfGeneratedDistributedSaveNotifications;
+- (void).cxx_destruct;
 - (void)waitForCurrentTasksToFinish;
-- (void)receiveNotificationName:(id)arg1 fromSender:(id)arg2 saveIdentifier:(id)arg3 userInfo:(id)arg4 calledFromNotifierQueue:(_Bool)arg5 isFromExternalProcess:(_Bool)arg6;
+- (CDUnknownBlockType)receiveNotificationName:(id)arg1 fromSender:(id)arg2 saveIdentifier:(id)arg3 userInfo:(id)arg4 calledFromNotifierQueue:(_Bool)arg5 isFromExternalProcess:(_Bool)arg6;
 - (void)receiveNotificationName:(id)arg1 fromSender:(id)arg2 saveIdentifier:(id)arg3 userInfo:(id)arg4 isFromExternalProcess:(_Bool)arg5;
 - (void)receiveExternalNotificationName:(id)arg1;
 - (void)coalesceNotificationName:(id)arg1;
@@ -47,11 +48,10 @@ __attribute__((visibility("hidden")))
 - (void)supressNotificationName:(id)arg1;
 - (void)removeAllRegisteredNotificationSources;
 - (void)forwardNotificationName:(id)arg1 asNotificationName:(id)arg2;
-- (void)postNotificationName:(id)arg1 fromSender:(id)arg2 saveIdentifier:(id)arg3 userInfo:(id)arg4 shouldForwardExternally:(_Bool)arg5 calledFromNotifierQueue:(_Bool)arg6 isFromExternalProcess:(_Bool)arg7;
+- (CDUnknownBlockType)postNotificationName:(id)arg1 fromSender:(id)arg2 saveIdentifier:(id)arg3 userInfo:(id)arg4 shouldForwardExternally:(_Bool)arg5 calledFromNotifierQueue:(_Bool)arg6 isFromExternalProcess:(_Bool)arg7;
 - (void)postNotificationName:(id)arg1 fromSender:(id)arg2 saveIdentifier:(id)arg3 isFromExternalProcess:(_Bool)arg4;
 - (void)addNotificationPoster:(CDUnknownBlockType)arg1 forNotificationName:(id)arg2;
 - (void)addListenerForNotificationName:(id)arg1 registration:(CDUnknownBlockType)arg2 removal:(CDUnknownBlockType)arg3;
-- (void)dealloc;
 - (id)initWithSchedulerProvider:(id)arg1;
 
 // Remaining properties

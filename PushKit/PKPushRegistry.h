@@ -7,15 +7,17 @@
 #import <objc/NSObject.h>
 
 #import <PushKit/PKComplicationXPCClient-Protocol.h>
+#import <PushKit/PKFileProviderXPCClient-Protocol.h>
 #import <PushKit/PKVoIPXPCClient-Protocol.h>
 
 @class NSMutableDictionary, NSSet;
 @protocol OS_dispatch_queue, PKPushRegistryDelegate;
 
-@interface PKPushRegistry : NSObject <PKVoIPXPCClient, PKComplicationXPCClient>
+@interface PKPushRegistry : NSObject <PKVoIPXPCClient, PKComplicationXPCClient, PKFileProviderXPCClient>
 {
     int _voipToken;
     int _complicationToken;
+    int _fileProviderToken;
     NSSet *_desiredPushTypes;
     id <PKPushRegistryDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;
@@ -25,6 +27,7 @@
 }
 
 + (id)_pushTypeToMachServiceName;
+@property(nonatomic) int fileProviderToken; // @synthesize fileProviderToken=_fileProviderToken;
 @property(nonatomic) int complicationToken; // @synthesize complicationToken=_complicationToken;
 @property(nonatomic) int voipToken; // @synthesize voipToken=_voipToken;
 @property(retain, nonatomic) NSMutableDictionary *pushTypeToConnection; // @synthesize pushTypeToConnection=_pushTypeToConnection;
@@ -39,11 +42,14 @@
 - (id)_createConnectionForPushType:(id)arg1;
 - (void)_unregisterForPushType:(id)arg1;
 - (void)_registerForPushType:(id)arg1;
+- (void)fileProviderRegistrationFailed;
+- (void)fileProviderPayloadReceived:(id)arg1;
+- (void)fileProviderRegistrationSucceededWithDeviceToken:(id)arg1;
 - (void)complicationRegistrationFailed;
 - (void)complicationPayloadReceived:(id)arg1;
 - (void)complicationRegistrationSucceededWithDeviceToken:(id)arg1;
 - (void)voipRegistrationFailed;
-- (void)voipPayloadReceived:(id)arg1;
+- (void)voipPayloadReceived:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)voipRegistrationSucceededWithDeviceToken:(id)arg1;
 - (void)dealloc;
 - (id)initWithQueue:(id)arg1;

@@ -8,13 +8,12 @@
 
 #import <SceneKit/NSSecureCoding-Protocol.h>
 
-@class NSMutableDictionary, SCNAuthoringEnvironment, SCNMaterialProperty, SCNNode, SCNPhysicsWorld, SCNSceneSource;
+@class NSMutableDictionary, NSURL, SCNAuthoringEnvironment, SCNMaterialProperty, SCNNode, SCNPhysicsWorld, SCNSceneSource;
 
 @interface SCNScene : NSObject <NSSecureCoding>
 {
     struct __C3DScene *_scene;
     SCNSceneSource *_sceneSource;
-    double _lastEvalTime;
     SCNPhysicsWorld *_physicsWorld;
     SCNNode *_rootNode;
     SCNNode *_layerRootNode[4];
@@ -26,12 +25,14 @@
     double _fogDensityExponent;
     id _fogColor;
     _Bool _paused;
+    NSURL *_sourceURL;
     _Bool _pausedForEditing;
     SCNAuthoringEnvironment *_authoringEnvironment;
 }
 
 + (_Bool)supportsSecureCoding;
 + (SEL)jsConstructor;
++ (id)_indexPathForNode:(id)arg1;
 + (id)supportedFileUTIsForExport;
 + (id)supportedFileUTIsForImport;
 + (_Bool)canImportFileExtension:(id)arg1;
@@ -46,6 +47,7 @@
 + (id)sceneNamed:(id)arg1 inDirectory:(id)arg2 options:(id)arg3;
 + (id)sceneNamed:(id)arg1;
 + (id)scene;
++ (id)sceneWithMDLAsset:(id)arg1 options:(id)arg2;
 + (id)sceneWithMDLAsset:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -54,6 +56,8 @@
 - (void)_customDecodingOfSCNScene:(id)arg1;
 - (void)_customEncodingOfSCNScene:(id)arg1;
 - (id)initForJavascript:(id)arg1;
+- (id)_subnodeFromIndexPath:(id)arg1;
+- (id)_nodeWithIndexPath:(id)arg1;
 - (_Bool)isPausedForEditing;
 - (void)setPausedForEditing:(_Bool)arg1;
 - (_Bool)isPausedOrPausedByInheritance;
@@ -66,8 +70,8 @@
 - (const void *)__CFObject;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
-- (struct __C3DAnimationChannel *)copyAnimationChannelForKeyPath:(id)arg1 property:(id)arg2;
-- (struct __C3DAnimationChannel *)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
+- (id)copyAnimationChannelForKeyPath:(id)arg1 property:(id)arg2;
+- (id)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
 - (void)unlock;
 - (void)lock;
 - (_Bool)writeToURL:(id)arg1 options:(id)arg2 delegate:(id)arg3 progressHandler:(CDUnknownBlockType)arg4;
@@ -87,6 +91,7 @@
 - (double)endTime;
 - (void)setStartTime:(double)arg1;
 - (double)startTime;
+- (void)_resetSceneTimeRange;
 - (id)_physicsWorldCreateIfNeeded:(_Bool)arg1;
 @property(readonly, nonatomic) SCNPhysicsWorld *physicsWorld;
 - (void)_scaleSceneBy:(double)arg1;
@@ -101,14 +106,15 @@
 - (struct __C3DScene *)sceneRef;
 - (id)_scenes;
 - (id)scene;
-- (void)setLastEvalTime:(double)arg1;
-- (double)lastEvalTime;
+- (void)_setSourceURL:(id)arg1;
 - (void)dealloc;
 - (void)setUpAxis:(struct SCNVector3)arg1;
 - (struct SCNVector3)upAxis;
 - (void)_syncObjCModel;
 - (id)initWithSceneRef:(struct __C3DScene *)arg1;
 - (id)init;
+- (id)exportAsMovieOperationWithDestinationURL:(id)arg1 size:(struct CGSize)arg2 attributes:(id)arg3 delegate:(id)arg4 didEndSelector:(SEL)arg5 userInfo:(void *)arg6;
+- (id)_exportAsMovieOperationWithDestinationURL:(id)arg1 size:(struct CGSize)arg2 attributes:(id)arg3 delegate:(id)arg4 didEndSelector:(SEL)arg5 userInfo:(void *)arg6;
 - (_Bool)writeToURL:(id)arg1 options:(id)arg2;
 - (id)debugQuickLookObjectWithPointOfView:(id)arg1;
 - (id)debugQuickLookObject;

@@ -9,16 +9,18 @@
 #import <VideoSubscriberAccount/NSCopying-Protocol.h>
 #import <VideoSubscriberAccount/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, NSString;
+@class NSDictionary, NSString, VSAuditToken;
 
 @interface VSStoreRequest : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_methodName;
     NSString *_bagKey;
     NSDictionary *_parameters;
+    VSAuditToken *_auditToken;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(copy, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
 @property(copy, nonatomic) NSString *bagKey; // @synthesize bagKey=_bagKey;
 @property(copy, nonatomic) NSString *methodName; // @synthesize methodName=_methodName;

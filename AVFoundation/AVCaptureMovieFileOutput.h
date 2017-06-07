@@ -15,6 +15,7 @@
 
 + (_Bool)consolidateMovieFragmentsInFile:(id)arg1 error:(id *)arg2;
 + (_Bool)updateMovieMetadataInFile:(id)arg1 withMetadata:(id)arg2 error:(id *)arg3;
++ (id)new;
 + (long long)nextMovieFileSettingsID;
 + (void)initialize;
 - (void)_updateAvailableVideoCodecTypesForSourceDevice:(id)arg1;

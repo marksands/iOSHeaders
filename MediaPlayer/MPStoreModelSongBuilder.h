@@ -32,6 +32,7 @@
         unsigned int libraryAdded:1;
         unsigned int libraryAddEligible:1;
         unsigned int shouldShowComposer:1;
+        unsigned int shouldExcludeFromShuffle:1;
         unsigned int volumeNormalization:1;
         unsigned int year:1;
         unsigned int userRating:1;
@@ -39,24 +40,12 @@
         unsigned int classicalMovement:1;
         unsigned int classicalMovementCount:1;
         unsigned int classicalMovementNumber:1;
-        struct {
-            unsigned int identifiers:1;
-            unsigned int title:1;
-            unsigned int releaseDate:1;
-            unsigned int year:1;
-            unsigned int artist:1;
-        } album;
+        CDStruct_0f043e9e album;
         CDStruct_63a3d127 artist;
         CDStruct_63a3d127 composer;
         CDStruct_63a3d127 genre;
-        struct {
-            unsigned int identifiers:1;
-        } homeSharingAsset;
-        struct {
-            unsigned int identifiers:1;
-            unsigned int text:1;
-            unsigned int hasStoreLyrics:1;
-        } lyrics;
+        CDStruct_f9384266 homeSharingAsset;
+        CDStruct_99cfb959 lyrics;
     } _requestedSongProperties;
 }
 

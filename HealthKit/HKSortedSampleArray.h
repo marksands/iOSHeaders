@@ -19,6 +19,7 @@
 
 @property(retain, nonatomic) NSSortDescriptor *sortDescriptor; // @synthesize sortDescriptor=_sortDescriptor;
 - (void).cxx_destruct;
+- (id)description;
 - (id)reverseSampleEnumerator;
 - (id)sampleEnumerator;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;

@@ -14,6 +14,7 @@
     NSObject<OS_dispatch_queue> *_storageAccessWorkQueue;
     NSMutableDictionary *_propertyStorage;
     NSArray *_keysRequiringExplicitPerThreadSignal;
+    long long _cachePolicy;
 }
 
 - (void)didAccessKVOForAllKeys;
@@ -26,7 +27,7 @@
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (void)finalize;
 - (void)dealloc;
-- (id)initWithKeysRequiringExplicitPerThreadSignal:(id)arg1;
+- (id)initWithCachePolicy:(long long)arg1 keysRequiringExplicitPerThreadSignal:(id)arg2;
 - (id)init;
 
 @end

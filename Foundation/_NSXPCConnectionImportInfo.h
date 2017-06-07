@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSLock;
+@class NSLock, NSMutableDictionary;
 
 __attribute__((visibility("hidden")))
 @interface _NSXPCConnectionImportInfo : NSObject
@@ -14,8 +14,10 @@ __attribute__((visibility("hidden")))
     unsigned long long _generationCount;
     NSLock *_lock;
     struct __CFDictionary *_proxyNumberToCount;
+    NSMutableDictionary *_remoteSideEntitlementCache;
 }
 
+- (id)_valueForEntitlement:(id)arg1 auditToken:(CDStruct_6ad76789)arg2;
 - (_Bool)removeProxy:(id)arg1;
 - (void)addProxy:(id)arg1;
 - (void)dealloc;

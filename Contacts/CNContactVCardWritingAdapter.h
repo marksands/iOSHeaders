@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNVCardPerson-Protocol.h>
 
@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 + (id)descriptorForAllSupportedKeys;
 + (id)adapterWithContact:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly) NSArray *unknownProperties;
 @property(readonly) NSString *preferredApplePersonaIdentifier;
 @property(readonly) NSString *preferredLikenessSource;
@@ -36,7 +37,6 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSDictionary *largeImageCropRects;
 @property(readonly) NSDictionary *imageCropRects;
 @property(readonly) NSArray *imageReferences;
-- (id)jpegImageDataOfAllowableKinds:(id)arg1 maximumLength:(unsigned long long)arg2 cropRects:(id *)arg3;
 - (id)vCardPropertyItemsForProperty:(id)arg1 valueTransform:(CDUnknownBlockType)arg2;
 - (id)vCardPropertyItemsForProperty:(id)arg1;
 @property(readonly) NSDictionary *activityAlerts;
@@ -67,7 +67,6 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSString *middleName;
 @property(readonly) NSString *lastName;
 @property(readonly) NSString *firstName;
-- (void)dealloc;
 - (id)initWithContact:(id)arg1;
 
 // Remaining properties

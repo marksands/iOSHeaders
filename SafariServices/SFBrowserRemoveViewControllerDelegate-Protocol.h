@@ -12,10 +12,9 @@
 - (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 hostApplicationOpenURL:(NSURL *)arg2;
 - (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 setSwipeGestureEnabled:(_Bool)arg2;
 - (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 executeCustomActivityProxyID:(NSNumber *)arg2;
-- (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 fetchHostAppCustomActivitiesForURL:(NSURL *)arg2 title:(NSString *)arg3;
+- (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 fetchActivityViewControllerInfoForURL:(NSURL *)arg2 title:(NSString *)arg3;
 - (void)remoteViewControllerDidLoadWebView:(SFBrowserRemoteViewController *)arg1;
 - (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 didFinishInitialLoad:(_Bool)arg2;
-- (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 willUpdateStatusBarStyle:(long long)arg2;
 - (void)remoteViewController:(SFBrowserRemoteViewController *)arg1 viewServiceDidTerminateWithError:(NSError *)arg2;
 - (void)remoteViewControllerWillDismiss:(SFBrowserRemoteViewController *)arg1;
 @end

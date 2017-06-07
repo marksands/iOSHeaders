@@ -19,6 +19,9 @@
 @property(readonly) struct Object *_apiObject;
 - (void)removeScriptMessageHandlerForName:(id)arg1;
 - (void)addScriptMessageHandler:(id)arg1 name:(id)arg2;
+- (void)removeAllContentRuleLists;
+- (void)removeContentRuleList:(id)arg1;
+- (void)addContentRuleList:(id)arg1;
 - (void)removeAllUserScripts;
 - (void)addUserScript:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *userScripts;

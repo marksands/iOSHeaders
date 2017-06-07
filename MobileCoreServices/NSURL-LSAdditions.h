@@ -7,6 +7,8 @@
 #import <Foundation/NSURL.h>
 
 @interface NSURL (LSAdditions)
++ (id)LS_iCloudFamilyURLWithComponents:(id)arg1;
++ (id)ls_bizURL:(id)arg1;
 - (id)iCloudSharingURL_noFragment;
 - (id)iCloudSharingURL;
 - (id)keynoteLiveURL_noFragment;
@@ -19,7 +21,7 @@
 - (id)mapsURL;
 - (id)iWorkDocumentName;
 - (id)iWorkApplicationName;
-- (_Bool)isiWorkURL;
+@property(readonly, getter=isiWorkURL) _Bool iWorkURL;
 - (_Bool)conformsToOverridePatternWithKey:(id)arg1;
 - (id)LS_nooverride:(id)arg1;
 - (_Bool)LS_pathHasCaseInsensitivePrefix:(id)arg1;

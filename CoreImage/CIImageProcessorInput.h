@@ -13,13 +13,12 @@
 __attribute__((visibility("hidden")))
 @interface CIImageProcessorInput : CIImageProcessorInOut <CIImageProcessorInput>
 {
-    _Bool _forCPU;
 }
 
 @property(readonly, nonatomic) id <MTLTexture> metalTexture;
 @property(readonly, nonatomic) const void *baseAddress;
 - (void)dealloc;
-- (id)initWithSurface:(struct __IOSurface *)arg1 texture:(struct Texture)arg2 bounds:(struct CGRect)arg3 context:(struct Context *)arg4 forCPU:(_Bool)arg5;
+-     // Error parsing type: @76@0:8^{__IOSurface=}16{Texture=(?={?=II}^v)}24B32{CGRect={CGPoint=dd}{CGSize=dd}}36^{Context=^^?{atomic<unsigned int>=AI}^{CGColorSpace}^{CGColorSpace}iBBBB^{CGContext}fB{CGRect={CGPoint=dd}{CGSize=dd}}{CGAffineTransform=dddddd}IQQiB[1024{TreeCacheElement=Q^{Kernel}}]Q^{ObjectCache<CI::Node>}^{ObjectCache<CI::Node>}dd@^{RenderTask}B@@}68, name: initWithSurface:texture:allowSRGB:bounds:context:
 
 // Remaining properties
 @property(readonly, nonatomic) unsigned long long bytesPerRow;

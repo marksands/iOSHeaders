@@ -6,25 +6,26 @@
 
 #import <Foundation/NSObject.h>
 
-@class CNContactStore, CNSchedulerProvider, CNUIMeContactMonitor, PRPersonaStore;
+@protocol CNSchedulerProvider, CNUILikenessRendering, CNUIPRLikenessResolver;
 
 @interface CNAvatarImageRendererSettings : NSObject
 {
-    CNContactStore *_contactStore;
-    PRPersonaStore *_personaStore;
-    CNUIMeContactMonitor *_meMonitor;
-    CNSchedulerProvider *_schedulerProvider;
+    unsigned long long _style;
+    id <CNSchedulerProvider> _schedulerProvider;
+    id <CNUIPRLikenessResolver> _likenessResolver;
+    id <CNUILikenessRendering> _likenessRenderer;
 }
 
++ (id)settingsWithContactStore:(id)arg1 personaStore:(id)arg2 schedulerProvider:(id)arg3;
 + (id)settingsWithContactStore:(id)arg1 personaStore:(id)arg2;
 + (id)settingsWithContactStore:(id)arg1;
 + (id)defaultSettings;
-@property(retain, nonatomic) CNSchedulerProvider *schedulerProvider; // @synthesize schedulerProvider=_schedulerProvider;
-@property(retain, nonatomic) CNUIMeContactMonitor *meMonitor; // @synthesize meMonitor=_meMonitor;
-@property(retain, nonatomic) PRPersonaStore *personaStore; // @synthesize personaStore=_personaStore;
-@property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
+@property(readonly, nonatomic) id <CNUILikenessRendering> likenessRenderer; // @synthesize likenessRenderer=_likenessRenderer;
+@property(readonly, nonatomic) id <CNUIPRLikenessResolver> likenessResolver; // @synthesize likenessResolver=_likenessResolver;
+@property(readonly, nonatomic) id <CNSchedulerProvider> schedulerProvider; // @synthesize schedulerProvider=_schedulerProvider;
+@property(nonatomic) unsigned long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
-- (id)initWithContactStore:(id)arg1 personaStore:(id)arg2;
+- (id)initWithLikenessResolver:(id)arg1 likenessRenderer:(id)arg2 schedulerProvider:(id)arg3;
 
 @end
 

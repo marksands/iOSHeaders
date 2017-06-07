@@ -6,11 +6,13 @@
 
 #import <UIKit/UIInputView.h>
 
-@class UIImageView, UIKeyboardCandidateBar, UIKeyboardCandidateGrid, UIKeyboardCandidateSortControl, UIKeyboardCandidateSplitKeyboardToggleButton, UIKeyboardCandidateUnsplitKeyboardToggleButton, UIView;
+#import <UIKit/UIKeyboardCandidateDisplay-Protocol.h>
+
+@class NSString, UIImageView, UIKeyboardCandidateBar, UIKeyboardCandidateGrid, UIKeyboardCandidateSortControl, UIKeyboardCandidateSplitKeyboardToggleButton, UIKeyboardCandidateUnsplitKeyboardToggleButton, UIView;
 @protocol UIKeyboardCandidateList;
 
 __attribute__((visibility("hidden")))
-@interface UIKeyboardCandidateView : UIInputView
+@interface UIKeyboardCandidateView : UIInputView <UIKeyboardCandidateDisplay>
 {
     UIKeyboardCandidateBar *_bar;
     UIKeyboardCandidateSortControl *_sortControl;
@@ -29,14 +31,10 @@ __attribute__((visibility("hidden")))
 }
 
 + (double)defaultExtendedControlHeight;
-+ (id)activeCandidateList;
-+ (void)setActiveCandidateView:(id)arg1;
-+ (id)activeCandidateView;
-+ (id)sharedInstanceForInlineView:(_Bool)arg1;
-+ (id)sharedInstanceForInlineView;
-+ (id)sharedInstance;
 @property(retain, nonatomic) UIView<UIKeyboardCandidateList> *inlineView; // @synthesize inlineView=_inlineView;
+- (void).cxx_destruct;
 - (_Bool)_needsBackdrop;
+- (void)dimKeys:(id)arg1;
 - (double)extendedViewAnimationDuration;
 - (void)setCandidatesToExtendedViewFromCollapsedView:(id)arg1;
 - (unsigned long long)_numberOfColumns:(_Bool)arg1;
@@ -58,8 +56,13 @@ __attribute__((visibility("hidden")))
 - (_Bool)isSplit;
 - (_Bool)isExtended;
 - (void)updatePageControlStatus;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

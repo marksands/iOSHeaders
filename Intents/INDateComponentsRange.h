@@ -10,12 +10,13 @@
 #import <Intents/NSCopying-Protocol.h>
 #import <Intents/NSSecureCoding-Protocol.h>
 
-@class NSDate, NSDateComponents, NSDateInterval, NSString;
+@class INRecurrenceRule, NSDate, NSDateComponents, NSDateInterval, NSString;
 
 @interface INDateComponentsRange : NSObject <INDateComponentsRangeExport, NSCopying, NSSecureCoding>
 {
     NSDateComponents *_startDateComponents;
     NSDateComponents *_endDateComponents;
+    INRecurrenceRule *_recurrenceRule;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -33,8 +34,10 @@
 - (id)initWithDate:(id)arg1 onCalendar:(id)arg2 inTimeZone:(id)arg3;
 - (id)initWithDateInterval:(id)arg1 onCalendar:(id)arg2 inTimeZone:(id)arg3;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2 onCalendar:(id)arg3 inTimeZone:(id)arg4;
+@property(readonly, copy, nonatomic) INRecurrenceRule *recurrenceRule; // @synthesize recurrenceRule=_recurrenceRule;
 @property(readonly, copy, nonatomic) NSDateComponents *endDateComponents; // @synthesize endDateComponents=_endDateComponents;
 @property(readonly, copy, nonatomic) NSDateComponents *startDateComponents; // @synthesize startDateComponents=_startDateComponents;
+- (id)initWithStartDateComponents:(id)arg1 endDateComponents:(id)arg2 recurrenceRule:(id)arg3;
 - (id)initWithStartDateComponents:(id)arg1 endDateComponents:(id)arg2;
 
 // Remaining properties

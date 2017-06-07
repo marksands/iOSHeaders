@@ -6,12 +6,13 @@
 
 #import <EventKitUI/EKEventDetailItem.h>
 
-@class EKEventDetailAttendeesCell, NSArray, NSMutableDictionary;
+@class EKEventDetailAttendeesCell, NSArray, NSMutableDictionary, UITableViewCell;
 
 __attribute__((visibility("hidden")))
 @interface EKEventAttendeesDetailItem : EKEventDetailItem
 {
     NSMutableDictionary *_attendeesCells;
+    UITableViewCell *_titleCell;
     EKEventDetailAttendeesCell *_cell;
     long long _status;
     NSArray *_attendees;
@@ -21,6 +22,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long status; // @synthesize status=_status;
 - (void).cxx_destruct;
 - (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2;
+- (_Bool)hasDetailViewControllerAtIndex:(unsigned long long)arg1;
 - (id)cellForSubitemAtIndex:(unsigned long long)arg1;
 - (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;
 - (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned long long)arg2;

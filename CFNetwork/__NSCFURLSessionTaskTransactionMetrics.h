@@ -8,7 +8,7 @@
 
 #import <CFNetwork/NSSecureCoding-Protocol.h>
 
-@class NSDate, NSString, NSURLRequest, NSURLResponse;
+@class NSDate, NSString, NSURLRequest, NSURLResponse, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface __NSCFURLSessionTaskTransactionMetrics : NSURLSessionTaskTransactionMetrics <NSSecureCoding>
@@ -33,13 +33,29 @@ __attribute__((visibility("hidden")))
     _Bool __secureConnection;
     _Bool __localCache;
     _Bool __serverPush;
+    _Bool __connectionRace;
     _Bool __cellular;
     unsigned int __redirected;
     NSString *__localAddressAndPort;
     NSString *__remoteAddressAndPort;
+    NSUUID *__connectionIdentifier;
+    long long __requestHeaderBytesSent;
+    long long __responseHeaderBytesReceived;
+    long long __responseBodyBytesReceived;
+    long long __responseBodyBytesDecoded;
 }
 
 + (_Bool)supportsSecureCoding;
+- (void)set_responseBodyBytesDecoded:(long long)arg1;
+- (long long)_responseBodyBytesDecoded;
+- (void)set_responseBodyBytesReceived:(long long)arg1;
+- (long long)_responseBodyBytesReceived;
+- (void)set_responseHeaderBytesReceived:(long long)arg1;
+- (long long)_responseHeaderBytesReceived;
+- (void)set_requestHeaderBytesSent:(long long)arg1;
+- (long long)_requestHeaderBytesSent;
+- (void)set_connectionIdentifier:(id)arg1;
+- (id)_connectionIdentifier;
 - (void)set_remoteAddressAndPort:(id)arg1;
 - (id)_remoteAddressAndPort;
 - (void)set_localAddressAndPort:(id)arg1;
@@ -48,6 +64,8 @@ __attribute__((visibility("hidden")))
 - (unsigned int)_redirected;
 - (void)set_cellular:(_Bool)arg1;
 - (_Bool)_cellular;
+- (void)set_connectionRace:(_Bool)arg1;
+- (_Bool)_connectionRace;
 - (void)set_serverPush:(_Bool)arg1;
 - (_Bool)_serverPush;
 - (void)set_localCache:(_Bool)arg1;

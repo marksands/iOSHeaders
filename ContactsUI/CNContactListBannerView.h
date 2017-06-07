@@ -6,11 +6,13 @@
 
 #import <UIKit/UIView.h>
 
-@class CNContact, CNContactFormatter, NSArray, NSLayoutConstraint, UIGestureRecognizer, UILabel;
+#import <ContactsUI/UIDragInteractionDelegate-Protocol.h>
+
+@class CNContact, CNContactFormatter, NSArray, NSLayoutConstraint, NSString, UIDragInteraction, UIGestureRecognizer, UILabel;
 @protocol CNContactListBannerViewDelegate;
 
 __attribute__((visibility("hidden")))
-@interface CNContactListBannerView : UIView
+@interface CNContactListBannerView : UIView <UIDragInteractionDelegate>
 {
     id <CNContactListBannerViewDelegate> _delegate;
     UIView *_bottomSeparator;
@@ -23,19 +25,17 @@ __attribute__((visibility("hidden")))
     UIView *_footnoteContainer;
     UILabel *_footnoteLabel;
     UILabel *_footnoteValueLabel;
-    NSLayoutConstraint *_titleToPhotoVerticalConstraint;
     NSLayoutConstraint *_footnoteTitleToTitleVerticalConstraint;
-    NSLayoutConstraint *_footnoteTitleToBottomVerticalConstraint;
     NSLayoutConstraint *_footnoteTitleToValueHorizontalSpaceConstraint;
     NSArray *_constraintsPendingActivation;
+    UIDragInteraction *_dragInteraction;
 }
 
 + (id)descriptorForRequiredKeys;
+@property(retain, nonatomic) UIDragInteraction *dragInteraction; // @synthesize dragInteraction=_dragInteraction;
 @property(retain, nonatomic) NSArray *constraintsPendingActivation; // @synthesize constraintsPendingActivation=_constraintsPendingActivation;
 @property(retain, nonatomic) NSLayoutConstraint *footnoteTitleToValueHorizontalSpaceConstraint; // @synthesize footnoteTitleToValueHorizontalSpaceConstraint=_footnoteTitleToValueHorizontalSpaceConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *footnoteTitleToBottomVerticalConstraint; // @synthesize footnoteTitleToBottomVerticalConstraint=_footnoteTitleToBottomVerticalConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *footnoteTitleToTitleVerticalConstraint; // @synthesize footnoteTitleToTitleVerticalConstraint=_footnoteTitleToTitleVerticalConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *titleToPhotoVerticalConstraint; // @synthesize titleToPhotoVerticalConstraint=_titleToPhotoVerticalConstraint;
 @property(readonly, nonatomic) UILabel *footnoteValueLabel; // @synthesize footnoteValueLabel=_footnoteValueLabel;
 @property(readonly, nonatomic) UILabel *footnoteLabel; // @synthesize footnoteLabel=_footnoteLabel;
 @property(readonly, nonatomic) UIView *footnoteContainer; // @synthesize footnoteContainer=_footnoteContainer;
@@ -55,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)canBecomeFirstResponder;
 - (void)copy:(id)arg1;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
 - (void)setMeContact:(id)arg1 footnoteTitle:(id)arg2 footnoteValue:(id)arg3;
 - (id)footnoteTextColor;
 - (id)footnoteFont;
@@ -64,6 +65,12 @@ __attribute__((visibility("hidden")))
 - (void)activatePendingConstraints;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

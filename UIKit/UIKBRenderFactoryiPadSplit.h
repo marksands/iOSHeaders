@@ -13,14 +13,13 @@ __attribute__((visibility("hidden")))
 
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (void)_customizeSymbolStyle:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
-- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2 rowLimit:(long long)arg3;
+- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2 rowLimit:(long long)arg3 annotationIndex:(unsigned long long)arg4;
 - (void)_customizeGeometry:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
 - (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderingContext:(id)arg3 keycapsFontName:(id)arg4;
 - (double)keyInsetBottom;
 - (double)symbolFrameInset;
 - (double)defaultPathWeight;
 - (id)backgroundTraitsForKeyplane:(id)arg1;
-- (_Bool)supportsGestureBehaviors;
 - (_Bool)supportsInputTraits:(id)arg1 forKeyplane:(id)arg2;
 - (double)skinnyKeyThreshold;
 - (id)shiftLockImageName;
@@ -38,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)shiftKeyOffset;
 - (struct CGPoint)deleteKeyOffset;
 - (struct CGPoint)dismissKeyOffset;
+- (struct CGPoint)internationalKeyOffset;
 
 @end
 

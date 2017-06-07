@@ -10,10 +10,14 @@ __attribute__((visibility("hidden")))
 @interface _PUSettingsController : PTSettingsController
 {
     CDUnknownBlockType _onViewDidDisappearBlock;
+    CDUnknownBlockType _dismissButtonFactory;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType dismissButtonFactory; // @synthesize dismissButtonFactory=_dismissButtonFactory;
 @property(copy, nonatomic) CDUnknownBlockType onViewDidDisappearBlock; // @synthesize onViewDidDisappearBlock=_onViewDidDisappearBlock;
 - (void).cxx_destruct;
+- (void)_updateDismissButtonOfViewController:(id)arg1;
+- (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)callOnViewDidDisappearBlock;
 - (void)viewDidDisappear:(_Bool)arg1;
 

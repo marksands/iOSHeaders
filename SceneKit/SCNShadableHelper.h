@@ -8,14 +8,14 @@
 
 #import <SceneKit/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, SCNProgram;
+@class NSArray, NSDictionary, NSMutableArray, SCNProgram;
 
-__attribute__((visibility("hidden")))
 @interface SCNShadableHelper : NSObject <NSSecureCoding>
 {
     id _owner;
     SCNProgram *_program;
     NSDictionary *_shaderModifiers;
+    NSMutableArray *_argumentsNames;
     NSDictionary *_symbolToBinder;
     NSDictionary *_symbolToUnbinder;
 }
@@ -47,8 +47,10 @@ __attribute__((visibility("hidden")))
 - (void)_startObservingProgram;
 @property(readonly, nonatomic) id owner;
 - (void)dealloc;
+@property(readonly, nonatomic) NSArray *shaderModifiersArgumentsNames;
 - (void)ownerWillDie;
 - (id)initWithOwner:(id)arg1;
+- (void)_commonInit;
 
 @end
 

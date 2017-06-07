@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSData, NSHashTable, PUImageRequesterChange, PUMediaProvider, UIImage;
+@class NSArray, NSData, NSHashTable, PUImageRequesterChange, PUMediaProvider, UIImage;
 @protocol PUDisplayAsset;
 
 __attribute__((visibility("hidden")))
 @interface PUImageRequester : NSObject
 {
-    _Bool _useFullsizeImageData;
     _Bool _networkAccessAllowed;
     _Bool _imageIsFullQuality;
     _Bool _imageIsPlaceholder;
@@ -20,10 +19,11 @@ __attribute__((visibility("hidden")))
     _Bool __hasRequestedFullsizeImageData;
     _Bool __hasCurrentIncompleteRequest;
     _Bool __shouldUpdateImageOnCurrentRequestCompletion;
-    int __currentFullsizeJPEGRequestID;
+    int __currentFullsizeImageDataRequestID;
     int __currentImageRequestID;
     PUMediaProvider *_mediaProvider;
     id <PUDisplayAsset> _asset;
+    NSArray *_requestFullSizeImageDataUTTypes;
     UIImage *_image;
     NSData *_fullsizeImageData;
     NSHashTable *__observers;
@@ -37,8 +37,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setCurrentImageRequestID:) int _currentImageRequestID; // @synthesize _currentImageRequestID=__currentImageRequestID;
 @property(nonatomic, setter=_setLastRequestedImageSize:) struct CGSize _lastRequestedImageSize; // @synthesize _lastRequestedImageSize=__lastRequestedImageSize;
 @property(nonatomic, setter=_setCurrentIncompleteRequest:) _Bool _hasCurrentIncompleteRequest; // @synthesize _hasCurrentIncompleteRequest=__hasCurrentIncompleteRequest;
-@property(nonatomic, setter=_setCurrentFullsizeJPEGRequestID:) int _currentFullsizeJPEGRequestID; // @synthesize _currentFullsizeJPEGRequestID=__currentFullsizeJPEGRequestID;
-@property(nonatomic, setter=_setHasRequestedFullsizeJPEG:) _Bool _hasRequestedFullsizeImageData; // @synthesize _hasRequestedFullsizeImageData=__hasRequestedFullsizeImageData;
+@property(nonatomic, setter=_setCurrentFullsizeImageDataRequestID:) int _currentFullsizeImageDataRequestID; // @synthesize _currentFullsizeImageDataRequestID=__currentFullsizeImageDataRequestID;
+@property(nonatomic, setter=_setHasRequestedFullsizeImageData:) _Bool _hasRequestedFullsizeImageData; // @synthesize _hasRequestedFullsizeImageData=__hasRequestedFullsizeImageData;
 @property(nonatomic, setter=_setNeedsUpdate:) _Bool _needsUpdate; // @synthesize _needsUpdate=__needsUpdate;
 @property(retain, nonatomic, setter=_setCurrentChange:) PUImageRequesterChange *_currentChange; // @synthesize _currentChange=__currentChange;
 @property(nonatomic, setter=_setChangeCount:) long long _changeCount; // @synthesize _changeCount=__changeCount;
@@ -48,12 +48,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setImageIsFullQuality:) _Bool imageIsFullQuality; // @synthesize imageIsFullQuality=_imageIsFullQuality;
 @property(retain, nonatomic, setter=_setImage:) UIImage *image; // @synthesize image=_image;
 @property(nonatomic, getter=isNetworkAccessAllowed) _Bool networkAccessAllowed; // @synthesize networkAccessAllowed=_networkAccessAllowed;
-@property(nonatomic) _Bool useFullsizeImageData; // @synthesize useFullsizeImageData=_useFullsizeImageData;
+@property(retain, nonatomic) NSArray *requestFullSizeImageDataUTTypes; // @synthesize requestFullSizeImageDataUTTypes=_requestFullSizeImageDataUTTypes;
 @property(nonatomic) struct CGSize targetSize; // @synthesize targetSize=_targetSize;
 @property(readonly, nonatomic) id <PUDisplayAsset> asset; // @synthesize asset=_asset;
 @property(readonly, nonatomic) PUMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 - (void).cxx_destruct;
-- (void)_handleResultOfFullsizeJPEGDataRequestWithID:(int)arg1 imageData:(id)arg2 dataUTI:(id)arg3 orientation:(long long)arg4 info:(id)arg5;
+- (void)_handleResultOfFullsizeImageDataRequestWithID:(int)arg1 imageData:(id)arg2 dataUTI:(id)arg3 orientation:(long long)arg4 info:(id)arg5;
 - (void)_handleResultOfImageRequestWithID:(int)arg1 image:(id)arg2 info:(id)arg3;
 - (void)cancelAllImageRequests;
 - (void)_update;

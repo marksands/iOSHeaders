@@ -20,13 +20,16 @@
     _Bool _selectsWhenTracking;
     _Bool _explicitlyEnabled;
     _Bool _internallyEnabled;
+    _Bool _applyDefaultImageIfNeeded;
     _Bool _inMiniBar;
 }
 
 + (Class)_activityIndicatorClass;
-+ (id)buttonWithMapView:(id)arg1;
++ (id)buttonWithUserTrackingView:(id)arg1 withType:(long long)arg2 applyDefaultImageIfNeeded:(_Bool)arg3;
 + (id)buttonWithUserTrackingView:(id)arg1 withType:(long long)arg2;
 + (id)buttonWithUserTrackingView:(id)arg1;
++ (id)buttonWithMapView:(id)arg1 applyDefaultImageIfNeeded:(_Bool)arg2;
++ (id)buttonWithMapView:(id)arg1;
 @property(readonly, nonatomic) _Bool inMiniBar; // @synthesize inMiniBar=_inMiniBar;
 @property(nonatomic, getter=_selectsWhenTracking, setter=_setSelectsWhenTracking:) _Bool selectsWhenTracking; // @synthesize selectsWhenTracking=_selectsWhenTracking;
 @property(readonly, nonatomic) _MKUserTrackingButtonController *controller; // @synthesize controller=_controller;
@@ -52,8 +55,8 @@
 - (id)_imageForUserTrackingMode:(long long)arg1 controlState:(unsigned long long)arg2;
 - (id)_defaultImageForUserTrackingMode:(long long)arg1 controlState:(unsigned long long)arg2;
 - (id)_imageForState:(long long)arg1 controlState:(unsigned long long)arg2;
-@property(retain, nonatomic) id <MKUserTrackingView> userTrackingView;
-@property(retain, nonatomic) MKMapView *mapView;
+@property(nonatomic) __weak id <MKUserTrackingView> userTrackingView;
+@property(nonatomic) __weak MKMapView *mapView;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

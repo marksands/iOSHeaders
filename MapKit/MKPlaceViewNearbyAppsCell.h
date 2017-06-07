@@ -44,7 +44,6 @@ __attribute__((visibility("hidden")))
 - (void)refreshMarginConstraints;
 - (void)layoutMarginsDidChange;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
-- (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 // Remaining properties

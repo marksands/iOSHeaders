@@ -6,16 +6,20 @@
 
 #import <AVFoundation/AVCaptureOutput.h>
 
-@class AVCaptureVideoDataOutputInternal, NSArray, NSDictionary, NSObject;
+#import <AVFoundation/AVCaptureDataOutputDelegateOverride-Protocol.h>
+
+@class AVCaptureVideoDataOutputInternal, NSArray, NSDictionary, NSObject, NSString;
 @protocol AVCaptureVideoDataOutputSampleBufferDelegate, OS_dispatch_queue;
 
-@interface AVCaptureVideoDataOutput : AVCaptureOutput
+@interface AVCaptureVideoDataOutput : AVCaptureOutput <AVCaptureDataOutputDelegateOverride>
 {
     AVCaptureVideoDataOutputInternal *_internal;
 }
 
 + (id)supportedVideoSettingsKeys;
++ (id)new;
 + (void)initialize;
+- (void)setDelegateOverride:(id)arg1 delegateOverrideCallbackQueue:(id)arg2;
 - (unsigned int)requiredOutputFormatForConnection:(id)arg1;
 - (_Bool)hasRequiredOutputFormatForConnection:(id)arg1;
 - (_Bool)appliesMirroringWithPhysicalFlipForConnection:(id)arg1;
@@ -28,6 +32,8 @@
 @property(nonatomic) _Bool alwaysDiscardsLateVideoFrames;
 @property(nonatomic) CDStruct_1b6d18a9 minFrameDuration;
 - (void)_setMinFrameDuration:(CDStruct_1b6d18a9)arg1;
+- (id)recommendedVideoSettingsForVideoCodecType:(id)arg1 assetWriterOutputFileType:(id)arg2;
+- (id)availableVideoCodecTypesForAssetWriterWithOutputFileType:(id)arg1;
 - (id)recommendedVideoSettingsForAssetWriterWithOutputFileType:(id)arg1;
 - (id)supportedAssetWriterOutputFileTypes;
 @property(copy, nonatomic) NSDictionary *videoSettings;
@@ -42,6 +48,12 @@
 - (void)setSampleBufferDelegate:(id)arg1 queue:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

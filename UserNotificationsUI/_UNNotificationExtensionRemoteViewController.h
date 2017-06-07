@@ -14,7 +14,7 @@
 
 @interface _UNNotificationExtensionRemoteViewController : UIViewController <_UNNotificationContentExtensionLegacyDelegate, _UNNotificationExtensionRemoteInterface>
 {
-    long long _invalidationOnceToken;
+    // Error parsing type: {atomic_flag="_Value"AB}, name: _invalidationOnceFlag
     _Bool _didCheckActionResponseDelegate;
     UIViewController<UNNotificationContentExtension> *_extensionViewController;
     id <_UNNotificationExtensionHostInterface> _hostService;

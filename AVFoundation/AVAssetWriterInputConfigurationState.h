@@ -32,12 +32,12 @@
     CDStruct_1b6d18a9 _chunkDuration;
     long long _chunkAlignment;
     long long _chunkSize;
-    _Bool _writesMediaDataToBeginningOfFile;
+    NSString *_mediaDataLocation;
     NSURL *_sampleReferenceBaseURL;
 }
 
 @property(copy, nonatomic) NSURL *sampleReferenceBaseURL; // @synthesize sampleReferenceBaseURL=_sampleReferenceBaseURL;
-@property(nonatomic) _Bool writesMediaDataToBeginningOfFile; // @synthesize writesMediaDataToBeginningOfFile=_writesMediaDataToBeginningOfFile;
+@property(copy, nonatomic) NSString *mediaDataLocation; // @synthesize mediaDataLocation=_mediaDataLocation;
 @property(nonatomic) long long preferredMediaChunkSize; // @synthesize preferredMediaChunkSize=_chunkSize;
 @property(nonatomic) long long preferredMediaChunkAlignment; // @synthesize preferredMediaChunkAlignment=_chunkAlignment;
 @property(nonatomic) CDStruct_1b6d18a9 preferredMediaChunkDuration; // @synthesize preferredMediaChunkDuration=_chunkDuration;

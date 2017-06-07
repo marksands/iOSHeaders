@@ -11,7 +11,7 @@
 #import <UIKit/UITextInputAdditions-Protocol.h>
 #import <UIKit/UITextInput_Internal-Protocol.h>
 
-@class NSArray, NSDictionary, NSHashTable, NSLayoutManager, NSSet, NSString, UIResponder, UITextChecker, UITextInputTraits, UITextPosition, UITextRange, UIView, _UIDictationAttachment, _UITextInputControllerTokenizer, _UITextKitTextRange, _UITextServiceSession, _UITextUndoManager, _UITextUndoOperationTyping;
+@class NSArray, NSDictionary, NSHashTable, NSLayoutManager, NSSet, NSString, UIResponder, UITextChecker, UITextInputTraits, UITextPasteController, UITextPosition, UITextRange, UIView, _UIDictationAttachment, _UITextInputControllerTokenizer, _UITextKitTextRange, _UITextServiceSession, _UITextUndoManager, _UITextUndoOperationTyping;
 @protocol UITextInput, UITextInputControllerDelegate, UITextInputDelegate, UITextInputPrivate, UITextInputTokenizer;
 
 @interface UITextInputController : NSObject <UITextInput_Internal, UITextInput, UITextInputAdditions, UIResponderStandardEditActions>
@@ -19,6 +19,7 @@
     id <UITextInputDelegate> _inputDelegate;
     _UITextKitTextRange *_selectedTextRange;
     _UITextInputControllerTokenizer *_tokenizer;
+    UITextPasteController *_pasteController;
     NSLayoutManager *_layoutManager;
     NSHashTable *_observedScrollViews;
     _UITextServiceSession *_definitionSession;
@@ -94,6 +95,10 @@
 - (void)select:(id)arg1;
 - (void)decreaseSize:(id)arg1;
 - (void)increaseSize:(id)arg1;
+- (void)_pasteRawAttributedString:(id)arg1 asRichText:(_Bool)arg2;
+- (void)_pasteAttributedString:(id)arg1 pasteAsRichText:(_Bool)arg2;
+- (id)_attributedStringForInsertionOfAttributedString:(id)arg1;
+- (void)pasteItemProviders:(id)arg1;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;
@@ -140,6 +145,7 @@
 - (void)setBaseWritingDirection:(long long)arg1 forRange:(id)arg2;
 - (long long)baseWritingDirectionForPosition:(id)arg1 inDirection:(long long)arg2;
 @property(readonly, nonatomic) id <UITextInputTokenizer> tokenizer;
+- (void)_updateEmptyStringAttributes;
 - (void)_invalidateEmptyStringAttributes;
 - (void)_invalidateTypingAttributes;
 - (void)_addToTypingAttributes:(id)arg1 value:(id)arg2;
@@ -187,8 +193,10 @@
 - (void)checkSpellingForWordInRange:(id)arg1;
 - (void)preheatTextChecker;
 - (id)textChecker;
+- (void)checkSmartPunctuationForWordInRange:(id)arg1;
 - (void)deleteBackward;
 - (void)didEndEditing;
+- (void)_updateRangeForSmartDelete;
 - (struct _NSRange)_rangeForBackwardsDelete;
 - (void)_registerUndoOperationForReplacementWithActionName:(id)arg1 replacementText:(id)arg2;
 - (_Bool)_hasDictationPlaceholder;
@@ -217,6 +225,7 @@
 - (id)_firstTextView;
 - (void)_selectionGeometryChanged;
 - (void)_textStorageDidProcessEditing:(id)arg1;
+- (void)_updatePasteController;
 - (void)_updateFirstTextView;
 - (_Bool)_shouldConsiderTextViewForGeometry:(id)arg1;
 - (void)_textContainerDidChangeView:(id)arg1;
@@ -264,6 +273,9 @@
 - (id)_textColorForCaretSelection;
 - (id)_clampedpositionFromPosition:(id)arg1 offset:(int)arg2;
 - (id)_findPleasingWordBoundaryFromPosition:(id)arg1;
+- (id)_intersectionOfRange:(id)arg1 andRange:(id)arg2;
+- (_Bool)_range:(id)arg1 intersectsRange:(id)arg2;
+- (_Bool)_range:(id)arg1 containsRange:(id)arg2;
 - (id)_rangeSpanningTextUnit:(long long)arg1 andPosition:(id)arg2;
 - (id)_fullRange;
 - (id)_rangeOfParagraphEnclosingPosition:(id)arg1;
@@ -273,6 +285,7 @@
 - (id)_rangeOfTextUnit:(long long)arg1 enclosingPosition:(id)arg2;
 - (id)_rangeOfText:(id)arg1 endingAtPosition:(id)arg2;
 - (void)_scrollRectToVisible:(struct CGRect)arg1 animated:(_Bool)arg2;
+- (void)_replaceDocumentWithText:(id)arg1;
 - (void)_replaceCurrentWordWithText:(id)arg1;
 - (void)_deleteForwardAndNotify:(_Bool)arg1;
 - (void)_deleteBackwardAndNotify:(_Bool)arg1;
@@ -302,6 +315,7 @@
 - (unsigned int)_characterInRelationToCaretSelection:(int)arg1;
 - (unsigned int)_characterBeforeCaretSelection;
 - (unsigned int)_characterAfterCaretSelection;
+- (id)_textRangeFromNSRange:(struct _NSRange)arg1;
 - (struct _NSRange)_nsrangeForTextRange:(id)arg1;
 - (int)_indexForTextPosition:(id)arg1;
 - (void)_selectAll;
@@ -323,6 +337,9 @@
 @property(nonatomic) long long keyboardType;
 @property(nonatomic) long long returnKeyType;
 @property(nonatomic, getter=isSecureTextEntry) _Bool secureTextEntry;
+@property(nonatomic) long long smartDashesType;
+@property(nonatomic) long long smartInsertDeleteType;
+@property(nonatomic) long long smartQuotesType;
 @property(nonatomic) long long spellCheckingType;
 @property(readonly) Class superclass;
 @property(copy, nonatomic) NSString *textContentType;

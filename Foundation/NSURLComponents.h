@@ -17,6 +17,7 @@
 + (id)componentsWithString:(id)arg1;
 + (id)componentsWithURL:(id)arg1 resolvingAgainstBaseURL:(_Bool)arg2;
 + (id)allocWithZone:(struct _NSZone *)arg1;
+@property(copy) NSArray *percentEncodedQueryItems;
 @property(copy) NSArray *queryItems;
 @property(readonly) struct _NSRange rangeOfFragment;
 @property(readonly) struct _NSRange rangeOfQuery;

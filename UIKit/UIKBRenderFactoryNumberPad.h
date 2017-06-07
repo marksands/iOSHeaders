@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 - (void)setupLayoutSegments;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (void)_customizeSymbolStyle:(id)arg1 secondaryStyle:(id)arg2 forKey:(id)arg3 contents:(id)arg4;
+- (struct CGPoint)specialSymbolOffset;
 - (struct CGPoint)loneZeroOffset;
 - (struct CGPoint)rightColumnLetterOffset;
 - (struct CGPoint)rightColumnNumberOffset;

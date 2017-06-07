@@ -32,6 +32,8 @@
     double *_visiblePinnedStackHeightAbove;
     double *_visiblePinnedStackHeightBelow;
     EKDayViewContentGeometryDelegate *_geometryDelegate;
+    NSMutableArray *_reusableViews;
+    _Bool _dataLoaded;
     _Bool _offscreenOccurrencePinningEnabled;
     _Bool _allowsOccurrenceSelection;
     _Bool _eventsFillGrid;
@@ -83,6 +85,12 @@
 - (void)_adjustViewsForPinning;
 - (_Bool)_doOffscreenOccurrences;
 - (void)setOccurrences:(id)arg1;
+- (void)loadAndLayoutOccurrences:(id)arg1;
+- (void)loadOccurrences:(id)arg1;
+- (void)prepareForReuse;
+- (void)applyContentItem:(id)arg1 toView:(id)arg2;
+- (void)applyLoadedOccurrencesWithBatching:(_Bool)arg1 animated:(_Bool)arg2 reverse:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)applyLoadedOccurrenceBatchStartingAtIndex:(long long)arg1 batchSize:(long long)arg2 fromArray:(id)arg3 animated:(_Bool)arg4 reverse:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)_configureOccurrenceViewMarginAndPadding:(id)arg1;
 - (void)configureOccurrenceViewForGestureController:(id)arg1;
 - (id)lastDisplayedSecond;
@@ -112,6 +120,8 @@
 @property(nonatomic) _Bool showsLeftBorder;
 @property(retain, nonatomic, setter=selectEvent:) EKEvent *selectedEvent;
 - (_Bool)containsEvent:(id)arg1;
+- (id)allItems;
+- (id)itemsByDay;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setOrientation:(long long)arg1;
 - (void)dealloc;

@@ -212,12 +212,13 @@ struct Context {
     unsigned int _field13;
     unsigned int _field14;
     unsigned int _field15;
-    struct ObjectCache *_field16;
-    id _field17;
-    unsigned int _field18;
-    float _field19;
-    struct Commit *_field20;
-    struct Generic _field21;
+    unsigned int _field16;
+    struct ObjectCache *_field17;
+    id _field18;
+    unsigned int _field19;
+    float _field20;
+    struct Commit *_field21;
+    struct Generic _field22;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -238,6 +239,8 @@ struct Data {
     unsigned int :4;
     unsigned int :4;
     unsigned int :4;
+    unsigned int :1;
+    unsigned int :1;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -290,6 +293,7 @@ struct Display {
     double _field19;
     unsigned int _field20;
     struct DisplayShmemInfo _field21;
+    unsigned int _field22;
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
@@ -396,7 +400,7 @@ struct Mode {
             unsigned int height:16;
             unsigned int refresh_rate:24;
             unsigned int is_virtual:1;
-            unsigned int pixel_format:2;
+            unsigned int pixel_format:4;
             unsigned int color_range:2;
         } s;
         unsigned long long uint64;
@@ -509,6 +513,7 @@ struct Server {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :1;
 };
 
 struct Shape;
@@ -590,6 +595,7 @@ struct Vector;
 
 struct Weak<const void *> {
     id _field1;
+    _Bool _field2;
 };
 
 struct Weak<id> {

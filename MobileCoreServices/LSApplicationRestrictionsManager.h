@@ -21,14 +21,12 @@ __attribute__((visibility("hidden")))
 - (id)allowedOpenInAppBundleIDsAfterApplyingFilterToAppBundleIDs:(id)arg1 originatingAppBundleID:(id)arg2 originatingAccountIsManaged:(_Bool)arg3;
 - (_Bool)isApplicationRestricted:(id)arg1 checkFeatureRestrictions:(_Bool)arg2;
 - (_Bool)isAppExtensionRestricted:(id)arg1;
+- (_Bool)isApplicationRestricted:(id)arg1 checkFlags:(unsigned long long)arg2;
 - (_Bool)isApplicationRestricted:(id)arg1;
-- (_Bool)isApplicationRemoved:(id)arg1;
 - (void)effectiveSettingsChanged;
-- (void)removedSystemAppsChanged;
 - (_Bool)setApplication:(id)arg1 removed:(_Bool)arg2;
 - (_Bool)isRatingAllowed:(id)arg1;
 @property(readonly) NSSet *whitelistedBundleIDs;
-@property(readonly) NSSet *removedSystemApplications;
 @property(readonly) NSSet *blacklistedBundleIDs;
 @property(readonly, getter=isWhitelistEnabled) _Bool whitelistEnabled;
 @property(readonly, getter=isOpenInRestrictionInEffect) _Bool openInRestrictionInEffect;

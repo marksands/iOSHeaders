@@ -6,7 +6,6 @@
 
 #import <UIKit/UIView.h>
 
-__attribute__((visibility("hidden")))
 @interface AVTouchIgnoringView : UIView
 {
 }

@@ -46,6 +46,7 @@
 - (void)setContentVisible:(_Bool)arg1;
 - (void)setSourceAccountManagement:(int)arg1;
 - (void)setShowKeyboardImmediately:(_Bool)arg1;
+- (void)setPreferredSendingEmailAddress:(id)arg1;
 - (void)setBccRecipients:(id)arg1;
 - (void)setCcRecipients:(id)arg1;
 - (void)setToRecipients:(id)arg1;

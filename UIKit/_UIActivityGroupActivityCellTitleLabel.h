@@ -11,6 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1 sizeCategory:(id)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)updateFontWithSizeCategory:(id)arg1;
 - (void)setText:(id)arg1;
 
 @end

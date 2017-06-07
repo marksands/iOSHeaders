@@ -12,9 +12,8 @@
 - (void)willOpenURLInHostApplication:(NSURL *)arg1;
 - (void)setRemoteSwipeGestureEnabled:(_Bool)arg1;
 - (void)executeCustomActivityProxyID:(NSNumber *)arg1;
-- (void)fetchHostAppCustomActivitiesForURL:(NSURL *)arg1 title:(NSString *)arg2;
+- (void)fetchActivityViewControllerInfoForURL:(NSURL *)arg1 title:(NSString *)arg2;
 - (void)didFinishInitialLoad:(_Bool)arg1;
-- (void)willUpdateStatusBarStyle:(NSNumber *)arg1;
 - (void)willDismissServiceViewController;
 - (void)didLoadWebView;
 @end

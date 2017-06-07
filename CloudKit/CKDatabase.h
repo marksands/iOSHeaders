@@ -16,13 +16,14 @@
 }
 
 @property(readonly, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-@property(nonatomic) long long scope; // @synthesize scope=_scope;
+@property(readonly, nonatomic) long long scope; // @synthesize scope=_scope;
 @property(nonatomic) __weak CKContainer *container; // @synthesize container=_container;
 - (void).cxx_destruct;
 - (id)CKStatusReportArray;
 - (void)clearCacheEntriesForZone:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)clearCacheEntriesForRecord:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)clearCachesWithOptions:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)getCorruptRecordsForAllZonesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getPCSDiagnosticsForZonesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)clearAuthTokensForRecordWithID:(id)arg1;
 - (void)clearRecordCache;

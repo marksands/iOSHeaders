@@ -14,13 +14,11 @@
     _UIBackdropViewSettings *_customBackdropSettings;
     UIView *_separator;
     _Bool _usesDarkTheme;
-    _Bool _usesContainedAppearance;
     long long _placement;
     unsigned long long _tintStyle;
 }
 
 + (double)defaultHeight;
-@property(nonatomic) _Bool usesContainedAppearance; // @synthesize usesContainedAppearance=_usesContainedAppearance;
 @property(nonatomic) unsigned long long tintStyle; // @synthesize tintStyle=_tintStyle;
 @property(readonly, nonatomic) long long placement; // @synthesize placement=_placement;
 - (void).cxx_destruct;

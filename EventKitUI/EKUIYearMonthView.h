@@ -18,18 +18,23 @@
     NSSet *_firstOfOverlayMonthIndices;
     NSSet *_firstOfOverlayYearIndices;
     NSCalendar *_calendar;
+    _Bool _computeCircleFrameWithoutAdjustments;
     EKCalendarDate *_calendarDate;
     EKUIOverlayCalendarSignificantDatesProvider *_overlaySignificantDatesProvider;
+    double _circleSizeForDoubleDigit;
 }
 
 + (id)_defaultTextColor;
 + (double)heightForInterfaceOrientation:(long long)arg1;
+@property(readonly, nonatomic) _Bool computeCircleFrameWithoutAdjustments; // @synthesize computeCircleFrameWithoutAdjustments=_computeCircleFrameWithoutAdjustments;
+@property(readonly, nonatomic) double circleSizeForDoubleDigit; // @synthesize circleSizeForDoubleDigit=_circleSizeForDoubleDigit;
 @property(retain, nonatomic) EKUIOverlayCalendarSignificantDatesProvider *overlaySignificantDatesProvider; // @synthesize overlaySignificantDatesProvider=_overlaySignificantDatesProvider;
 @property(retain, nonatomic) EKCalendarDate *calendarDate; // @synthesize calendarDate=_calendarDate;
 - (void).cxx_destruct;
 - (id)_imageForDayNumber:(id)arg1 size:(struct CGSize)arg2 underlineThickness:(double)arg3;
 - (id)_weekDayInitialsImage;
 - (id)_imageForMonthName:(id)arg1;
+- (_Bool)isCurrentMonth;
 - (void)_updateToday;
 - (void)overlaySignificantDatesChangedInRange:(id)arg1;
 - (void)_updateFirstOfMonthAndYearIndices;
@@ -51,7 +56,8 @@
 @property(readonly, nonatomic) double xSpacing;
 @property(readonly, nonatomic) double daysYAdjustTop;
 @property(readonly, nonatomic) double daysXAdjustLeft;
-@property(readonly, nonatomic) double circleSizeForDoubleDigit;
+- (struct CGSize)roundedRectSizeForDayNumberString:(id)arg1;
+@property(readonly, nonatomic) double roundedRectCornerRadius;
 @property(readonly, nonatomic) double circleSize;
 @property(readonly, nonatomic) double todayTextSize;
 @property(readonly, nonatomic) double dayTextSize;
@@ -67,6 +73,7 @@
 @property(readonly, nonatomic) double yInset;
 @property(readonly, nonatomic) double xInset;
 - (void)localeChanged;
+- (_Bool)_shouldUseRoundedRectInsteadOfCircle;
 - (id)monthString;
 @property(readonly, nonatomic) long long daysInWeek;
 @property(readonly, nonatomic) NSCalendar *calendar;

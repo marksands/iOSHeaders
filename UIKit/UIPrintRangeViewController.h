@@ -11,7 +11,7 @@
 #import <UIKit/UITableViewDataSource-Protocol.h>
 #import <UIKit/UITableViewDelegate-Protocol.h>
 
-@class NSArray, NSString, UIPickerView, UIPrintPanelViewController, UITableView;
+@class NSArray, NSString, UIPickerView, UIPrintPanelViewController, UITableView, UIView;
 
 __attribute__((visibility("hidden")))
 @interface UIPrintRangeViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     UIPickerView *_toPicker;
     UITableView *_tableView;
     double _pickerWidth;
+    UIView *_footerPickerView;
 }
 
 - (void).cxx_destruct;
@@ -33,8 +34,11 @@ __attribute__((visibility("hidden")))
 - (id)pickerView:(id)arg1 titleForRow:(long long)arg2 forComponent:(long long)arg3;
 - (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
 - (long long)numberOfComponentsInPickerView:(id)arg1;
+- (void)reloadTableView;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (unsigned long long)supportedInterfaceOrientations;

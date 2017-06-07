@@ -8,14 +8,14 @@
 
 #import <MapKit/MKLocationManagerObserver-Protocol.h>
 
-@class MKLocationManager, MKMapItem, MKSearchFoundationBusinessHoursAndDistanceRichText, MKSearchFoundationBusinessReviewRichText, MKSearchFoundationRichText, NSArray, NSBundle, NSData, NSMutableArray, NSString, SFActionItem, SFImage, SFText;
+@class MKLocationManager, MKMapItem, MKSearchFoundationBusinessHoursAndDistanceRichText, MKSearchFoundationRichText, NSArray, NSBundle, NSData, NSMutableArray, NSString, SFActionItem, SFImage, SFText;
 
 @interface MKSearchFoundationResult : SFSearchResult <MKLocationManagerObserver>
 {
     _Bool _optionSmallerScreen;
     NSData *_mapsData;
     MKMapItem *_mapItem;
-    MKSearchFoundationBusinessReviewRichText *_secondLineDisplayedText;
+    MKSearchFoundationRichText *_secondLineDisplayedText;
     NSArray *_descriptions;
     MKSearchFoundationRichText *_thirdLineDisplayedText;
     unsigned long long _iconSize;
@@ -50,7 +50,7 @@
 @property(retain, nonatomic) MKSearchFoundationRichText *thirdLineDisplayedText; // @synthesize thirdLineDisplayedText=_thirdLineDisplayedText;
 - (void)setDescriptions:(id)arg1;
 - (id)descriptions;
-@property(retain, nonatomic) MKSearchFoundationBusinessReviewRichText *secondLineDisplayedText; // @synthesize secondLineDisplayedText=_secondLineDisplayedText;
+@property(retain, nonatomic) MKSearchFoundationRichText *secondLineDisplayedText; // @synthesize secondLineDisplayedText=_secondLineDisplayedText;
 @property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
 @property(retain, nonatomic) NSData *mapsData; // @synthesize mapsData=_mapsData;
 - (void).cxx_destruct;
@@ -65,6 +65,9 @@
 - (void)_locationApprovalDidChange;
 - (_Bool)_isSmallerScreen;
 - (id)_businessHoursAndDistance;
+- (id)_brandURL;
+- (id)_localizedMessageBusinessHours;
+- (id)_businessCategory;
 - (id)_businessAddress;
 - (id)_businessPriceAndReviewText;
 - (id)_defaultRichTextItems;

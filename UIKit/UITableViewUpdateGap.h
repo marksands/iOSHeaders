@@ -11,20 +11,20 @@
 __attribute__((visibility("hidden")))
 @interface UITableViewUpdateGap : NSObject
 {
-    UIUpdateItem *_firstUpdateItem;
-    UIUpdateItem *_lastUpdateItem;
     NSMutableArray *_deleteItems;
     NSMutableArray *_insertItems;
     struct {
         unsigned int hasAutomaticAnimationItems:1;
     } _gapFlags;
+    UIUpdateItem *_firstUpdateItem;
+    UIUpdateItem *_lastUpdateItem;
 }
 
 + (id)gapWithUpdateItem:(id)arg1;
-@property(readonly, nonatomic) NSArray *insertItems; // @synthesize insertItems=_insertItems;
-@property(readonly, nonatomic) NSArray *deleteItems; // @synthesize deleteItems=_deleteItems;
 @property(retain, nonatomic) UIUpdateItem *lastUpdateItem; // @synthesize lastUpdateItem=_lastUpdateItem;
 @property(retain, nonatomic) UIUpdateItem *firstUpdateItem; // @synthesize firstUpdateItem=_firstUpdateItem;
+@property(readonly, nonatomic) NSArray *insertItems; // @synthesize insertItems=_insertItems;
+@property(readonly, nonatomic) NSArray *deleteItems; // @synthesize deleteItems=_deleteItems;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool hasAutomaticAnimationItems;
 @property(readonly, nonatomic) _Bool isSectionBasedGap;

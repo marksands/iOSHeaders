@@ -7,6 +7,8 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (CKUtilsAdditions)
+- (id)CKBase64DecodedString;
+- (id)CKBase64EncodedURLSafeString;
 - (id)CKNilIfLengthZero;
 - (id)CKSanitizedPath;
 - (id)CKSHA256;

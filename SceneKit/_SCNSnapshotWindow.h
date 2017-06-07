@@ -6,7 +6,6 @@
 
 #import <UIKit/UIWindow.h>
 
-__attribute__((visibility("hidden")))
 @interface _SCNSnapshotWindow : UIWindow
 {
 }
@@ -15,7 +14,6 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)_warpPoint:(struct CGPoint)arg1 outOfBounds:(_Bool *)arg2;
 - (id)_hitTest:(struct CGPoint)arg1 withEvent:(id)arg2 windowServerHitTestWindow:(id)arg3;
 - (id)scnView;
-- (double)windowLevelForEventHandling;
 - (_Bool)_canBecomeKeyWindow;
 - (void)_setFirstResponder:(id)arg1;
 - (_Bool)_isSettingFirstResponder;

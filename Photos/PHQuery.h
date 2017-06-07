@@ -36,7 +36,6 @@
     NSMutableSet *_filteringOids;
     NSMutableSet *_filteringObjectKeyPaths;
     NSMutableDictionary *_filteringRelationshipsIndexValueByBaseEntityName;
-    _Bool __includesTrashedObjects;
     _Bool __includesCameraRoll;
     PHFetchOptions *_fetchOptions;
     NSString *_fetchType;
@@ -46,7 +45,10 @@
 
 + (id)queryForFaceCropsWithLocalIdentifiers:(id)arg1 options:(id)arg2;
 + (id)queryForFaceCropsWithOptions:(id)arg1;
++ (id)queryForInvalidMergeCandidatePersonsForPerson:(id)arg1 options:(id)arg2;
++ (id)queryForMergeCandidatePersonsForPerson:(id)arg1 options:(id)arg2;
 + (id)queryForAssociatedPersonForFaceGroup:(id)arg1 withOptions:(id)arg2;
++ (id)queryForEmptyFaceGroupsWithOptions:(id)arg1;
 + (id)queryForFaceGroupsWithFace:(id)arg1 options:(id)arg2;
 + (id)queryForFaceGroupsWithLocalIdentifiers:(id)arg1 options:(id)arg2;
 + (id)queryForFaceGroupsForPerson:(id)arg1 options:(id)arg2;
@@ -64,6 +66,7 @@
 + (id)queryForPersonsWithType:(long long)arg1 options:(id)arg2;
 + (id)queryForPersonsWithOptions:(id)arg1;
 + (id)queryForKeyFaceOnPerson:(id)arg1 options:(id)arg2;
++ (id)queryForFacesForPersonsAssociatedWithFaceGroupsContainingFacesWithClusterSequenceNumbers:(id)arg1 options:(id)arg2;
 + (id)queryForRejectedFacesOnPerson:(id)arg1 options:(id)arg2;
 + (id)queryForFacesOnFaceCrop:(id)arg1 options:(id)arg2;
 + (id)queryForFacesOnAssetWithFace:(id)arg1 options:(id)arg2;
@@ -105,6 +108,7 @@
 + (id)queryForAssetsWithOptions:(id)arg1;
 + (id)queryForAssetsWithCloudIdentifiers:(id)arg1 options:(id)arg2;
 + (id)queryForAssetsWithLocalIdentifiers:(id)arg1 options:(id)arg2;
++ (id)_defaultFetchOptionsForIdentifiedAssetsQuery;
 + (id)queryForType:(id)arg1 withIdentifiers:(id)arg2 local:(_Bool)arg3;
 + (id)queryForAssetsWithMediaType:(long long)arg1 options:(id)arg2;
 + (id)queryForMovieCuratedAssetsInMemory:(id)arg1 options:(id)arg2;
@@ -112,6 +116,7 @@
 + (id)queryForAssetsInBoundingBoxWithTopLeftLocation:(id)arg1 bottomRightLocation:(id)arg2 options:(id)arg3;
 + (id)queryForRepresentativeAssetsInMemory:(id)arg1 options:(id)arg2;
 + (id)queryForKeyAssetInMemory:(id)arg1 options:(id)arg2;
++ (id)queryForExtendedCuratedAssetsInMemory:(id)arg1 options:(id)arg2;
 + (id)queryForCuratedAssetsInMemory:(id)arg1 options:(id)arg2;
 + (id)_fetchOptionsForFetchingAssetsFromAssetCollection:(id)arg1 options:(id)arg2;
 + (id)combinedFetchRequestForQueries:(id)arg1;
@@ -127,7 +132,6 @@
 @property(readonly) NSPredicate *basePredicate; // @synthesize basePredicate=_basePredicate;
 @property(readonly) NSString *fetchType; // @synthesize fetchType=_fetchType;
 @property(nonatomic, setter=_setIncludesCameraRoll:) _Bool _includesCameraRoll; // @synthesize _includesCameraRoll=__includesCameraRoll;
-@property(nonatomic, setter=_setIncludesTrashedObjects:) _Bool _includesTrashedObjects; // @synthesize _includesTrashedObjects=__includesTrashedObjects;
 @property(copy, nonatomic) PHFetchOptions *fetchOptions; // @synthesize fetchOptions=_fetchOptions;
 - (void).cxx_destruct;
 - (id)description;

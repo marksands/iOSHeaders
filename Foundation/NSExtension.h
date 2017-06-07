@@ -74,6 +74,7 @@
 - (void)_hostWillResignActiveNote:(id)arg1;
 - (void)_hostDidEnterBackgroundNote:(id)arg1;
 - (void)_hostWillEnterForegroundNote:(id)arg1;
+- (void)_dropAssertion;
 - (void)_kill:(int)arg1;
 - (void)_safelyEndUsingWithProcessAssertion:(id)arg1 continuation:(CDUnknownBlockType)arg2;
 - (void)_safelyEndUsing:(CDUnknownBlockType)arg1;

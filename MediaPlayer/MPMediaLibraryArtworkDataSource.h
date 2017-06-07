@@ -35,6 +35,7 @@
 - (void)_resizeOriginalArtworkForArtworkCatalog:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)loadRepresentationForArtworkCatalog:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)isRepresentation:(id)arg1 bestRepresentationForArtworkCatalog:(id)arg2;
+- (id)_existingRepresentationForArtworkCatalog:(id)arg1 fromCacheOnly:(_Bool)arg2;
 - (id)existingRepresentationForArtworkCatalog:(id)arg1;
 - (_Bool)areRepresentationsAvailableForCatalog:(id)arg1;
 - (id)init;

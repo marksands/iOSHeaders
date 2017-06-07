@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     CDStruct_b3b3fc87 representedObjectCallbacks;
     long long representedObjectProtection;
     _Bool htmlErrorDisabled;
+    _Bool _shouldRemoveURLAfterGeneration;
     id _delegate;
 }
 
@@ -44,6 +45,7 @@ __attribute__((visibility("hidden")))
 + (id)safeURLScheme;
 + (void)unregisterPreview:(id)arg1;
 + (void)registerPreview:(id)arg1;
+@property(nonatomic) _Bool shouldRemoveURLAfterGeneration; // @synthesize shouldRemoveURLAfterGeneration=_shouldRemoveURLAfterGeneration;
 @property(nonatomic) _Bool progressive; // @synthesize progressive=_progressive;
 @property(retain, nonatomic) NSString *password; // @synthesize password=_password;
 @property(retain, nonatomic) NSString *uti; // @synthesize uti=_uti;

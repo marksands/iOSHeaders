@@ -20,6 +20,7 @@
 + (id)_entitlementsWithSecTask:(struct __SecTask *)arg1 valueOverrides:(id)arg2 error:(id *)arg3;
 + (id)entitlementsWithConnection:(id)arg1 error:(id *)arg2;
 + (void)_setEntitlementsForCurrentTask:(id)arg1;
++ (id)_containerAppExtensionEntitlementsForCurrentTask;
 + (id)entitlementsForCurrentTaskWithError:(id *)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *entitlementValues; // @synthesize entitlementValues=_entitlementValues;
 - (void).cxx_destruct;

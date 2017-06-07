@@ -4,24 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <QuickLook/QLScrollableContentItemViewController.h>
+#import <QuickLook/QLMediaItemBaseViewController.h>
 
-#import <QuickLook/QLToolbarButtonAction-Protocol.h>
-
-@class AVAsset, AVPlayer, AVPlayerLayer, NSError, NSLayoutConstraint, NSMutableDictionary, NSObject, NSString, NSTimer, UILabel, UIScrollView, UIView;
+@class NSLayoutConstraint, NSMutableDictionary, NSTimer, UILabel, UIScrollView, UIView;
 
 __attribute__((visibility("hidden")))
-@interface QLMediaItemViewController : QLScrollableContentItemViewController <QLToolbarButtonAction>
+@interface QLMediaItemViewController : QLMediaItemBaseViewController
 {
-    _Bool _playing;
-    _Bool _isFullScreen;
-    _Bool _isVisible;
-    _Bool _mediaWasPausedOnResignActive;
-    NSObject *_playbackTimeObserver;
-    CDUnknownBlockType _previewItemLoadingBlock;
-    AVAsset *_mediaAsset;
     NSMutableDictionary *_playingInfo;
-    struct CGSize _imageSize;
     UIView *_timeLabelBackground;
     UILabel *_timeLabel;
     UIScrollView *_scrubberScrollView;
@@ -29,38 +19,14 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_timeLabelConstraintY;
     NSTimer *_playbackTimeHiddenTimer;
     long long _playbackTimeFormat;
-    _Bool _playable;
-    _Bool _visualTracksEnabled;
-    AVPlayer *_player;
-    UIView *_playerView;
-    AVPlayerLayer *_playerLayer;
-    NSError *_error;
-    double _elapsedTime;
-    double _remainingTime;
-    long long _playingStatus;
-    double _mediaVolume;
-    double _mediaDuration;
 }
 
-@property(nonatomic) double mediaDuration; // @synthesize mediaDuration=_mediaDuration;
-@property(readonly, nonatomic) double mediaVolume; // @synthesize mediaVolume=_mediaVolume;
-@property(readonly, nonatomic) _Bool visualTracksEnabled; // @synthesize visualTracksEnabled=_visualTracksEnabled;
-@property(readonly, nonatomic) _Bool playable; // @synthesize playable=_playable;
-@property(readonly, nonatomic) long long playingStatus; // @synthesize playingStatus=_playingStatus;
-@property(nonatomic) double remainingTime; // @synthesize remainingTime=_remainingTime;
-@property(nonatomic) double elapsedTime; // @synthesize elapsedTime=_elapsedTime;
-@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
-@property(readonly, nonatomic) AVPlayerLayer *playerLayer; // @synthesize playerLayer=_playerLayer;
-@property(readonly, nonatomic) UIView *playerView; // @synthesize playerView=_playerView;
-@property(readonly, nonatomic) AVPlayer *player; // @synthesize player=_player;
 - (void).cxx_destruct;
-- (void)_updateCommandCencerPlayingInfoWithCurrentPlaybackTimeInformation;
+- (void)_updateCommandCenterPlayingInfoWithCurrentPlaybackTimeInformation;
 - (void)userScrubbedInControlCenter:(id)arg1;
 - (void)_unregisterForCommandCenterHandlers;
 - (void)_registerForCommandCenterHandlers;
 - (id)_playingInfoWithPlaybackDuration:(double)arg1 elapsedTime:(double)arg2;
-- (void)buttonPressedWithIdentifier:(id)arg1;
-- (id)registeredKeyCommands;
 - (id)stringFromTimeInterval:(double)arg1;
 - (id)labelTextWithFormat:(long long)arg1 elapsedInterval:(double)arg2 remainingInterval:(double)arg3;
 - (void)hideTimeLabelAnimated:(_Bool)arg1;
@@ -73,24 +39,8 @@ __attribute__((visibility("hidden")))
 - (void)setUpTimeLabelIfNeeded;
 - (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
 - (id)timeLabelScrollView;
-- (void)didChangePlayingStatus;
 - (void)observePlayingTime:(CDStruct_198678f7)arg1;
-- (void)didReachEndOfMedia;
-- (void)hostApplicationDidBecomeActive;
 - (void)hostApplicationDidEnterBackground:(id)arg1;
-- (void)setMediaVolume:(double)arg1;
-@property(nonatomic) double currentPlaybackHeadPosition;
-- (void)resetToBeginning;
-- (void)togglePlayback;
-- (void)stop;
-- (void)pause;
-- (void)play;
-@property(readonly, nonatomic) _Bool endOfMediaReached;
-- (struct CGSize)imageSize;
-- (id)toolbarButtons;
-- (void)_updatePlayingStatus;
-- (void)_updateExternalPlayback;
-- (void)playerItemDidReachEnd:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (void)transitionDidFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
@@ -99,14 +49,6 @@ __attribute__((visibility("hidden")))
 - (void)previewWillDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
 - (void)previewIsAppearingWithProgress:(double)arg1;
-- (void)previewWillAppear:(_Bool)arg1;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

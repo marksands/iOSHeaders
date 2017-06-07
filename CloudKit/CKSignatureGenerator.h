@@ -12,6 +12,7 @@
     void *_generator;
 }
 
++ (_Bool)isValidV2Signature:(id)arg1;
 + (_Bool)isValidSignature:(id)arg1;
 + (id)signatureWithFileDescriptor:(int)arg1 error:(id *)arg2;
 @property(nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;

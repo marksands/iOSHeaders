@@ -9,7 +9,7 @@
 #import <EventKitUI/EKCellShortener-Protocol.h>
 #import <EventKitUI/EKTimeZoneViewControllerDelegate-Protocol.h>
 
-@class NSDateComponents, NSString, NSTimeZone, PreferencesTwoPartValueCell, UIDatePicker, UITableViewCell;
+@class NSDate, NSDateComponents, NSString, NSTimeZone, PreferencesTwoPartValueCell, UIDatePicker, UITableViewCell;
 @protocol EKEventDateEditItemDelegate;
 
 __attribute__((visibility("hidden")))
@@ -37,11 +37,13 @@ __attribute__((visibility("hidden")))
     _Bool _pushingTZController;
     _Bool _showsAllDay;
     _Bool _proposedTime;
+    NSDate *_pendingProposedTime;
     id <EKEventDateEditItemDelegate> _eventDateEditItemDelegate;
 }
 
 + (id)_timeZoneLocalizedString;
 @property(nonatomic) __weak id <EKEventDateEditItemDelegate> eventDateEditItemDelegate; // @synthesize eventDateEditItemDelegate=_eventDateEditItemDelegate;
+@property(retain, nonatomic) NSDate *pendingProposedTime; // @synthesize pendingProposedTime=_pendingProposedTime;
 @property(nonatomic) _Bool proposedTime; // @synthesize proposedTime=_proposedTime;
 @property(nonatomic) _Bool showsAllDay; // @synthesize showsAllDay=_showsAllDay;
 - (void).cxx_destruct;

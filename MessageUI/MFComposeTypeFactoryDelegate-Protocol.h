@@ -6,10 +6,11 @@
 
 #import <MessageUI/NSObject-Protocol.h>
 
-@class MFComposeBodyField, MFMailAccountProxy, MFMailAccountProxyGenerator, MFMutableMessageHeaders, NSArray, NSString;
+@class MFFuture, MFMailAccountProxy, MFMailAccountProxyGenerator, MFMutableMessageHeaders, NSArray, NSString, UIView;
+@protocol MFComposeBodyField;
 
 @protocol MFComposeTypeFactoryDelegate <NSObject>
-- (_Bool)shouldCreateRichTextRepresentation;
+- (MFFuture *)shouldCreateRichTextRepresentation;
 - (NSArray *)attachments;
 - (_Bool)hasAnyHiddenTrailingEmptyQuote;
 - (MFMailAccountProxy *)sendingAccountProxy;
@@ -25,7 +26,7 @@
 - (void)setCcRecipients:(NSArray *)arg1;
 - (NSArray *)toRecipients;
 - (void)setToRecipients:(NSArray *)arg1;
-- (MFComposeBodyField *)bodyField;
+- (UIView<MFComposeBodyField> *)bodyField;
 - (MFMailAccountProxyGenerator *)accountProxyGenerator;
 
 @optional

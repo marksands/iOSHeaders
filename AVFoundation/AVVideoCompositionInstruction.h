@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) int passthroughTrackID;
 - (void)finalize;
 - (void)dealloc;
+- (id)_deepCopy;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;

@@ -26,7 +26,7 @@
 - (void)register:(byref id)arg1 forNotification:(int)arg2 registrationInfo:(id)arg3;
 - (void)invalidate;
 - (void)setAdaptedNotifier:(struct CLNotifierBase *)arg1;
-- (id)initInSilo:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *description;

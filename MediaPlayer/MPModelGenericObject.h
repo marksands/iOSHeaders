@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPModelObject.h>
 
-@class MPModelAlbum, MPModelArtist, MPModelMediaClip, MPModelMovie, MPModelPlaylist, MPModelPlaylistEntry, MPModelSong, MPModelTVEpisode, MPModelTVSeason, MPModelTVShow;
+@class MPModelAlbum, MPModelArtist, MPModelMediaClip, MPModelMovie, MPModelPlaylist, MPModelPlaylistEntry, MPModelPodcast, MPModelPodcastEpisode, MPModelRadioStation, MPModelSong, MPModelTVEpisode, MPModelTVSeason, MPModelTVShow;
 
 @interface MPModelGenericObject : MPModelObject
 {
@@ -20,8 +20,17 @@
     MPModelTVSeason *_season;
     MPModelTVShow *_show;
     MPModelMovie *_movie;
+    MPModelPodcast *_podcast;
+    MPModelPodcastEpisode *_podcastEpisode;
+    MPModelRadioStation *_radioStation;
 }
 
++ (id)__MPModelRelationshipGenericRadioStation__PROPERTY;
++ (id)__radioStation__KEY;
++ (id)__MPModelRelationshipGenericPodcastEpisode__PROPERTY;
++ (id)__podcastEpisode__KEY;
++ (id)__MPModelRelationshipGenericPodcast__PROPERTY;
++ (id)__podcast__KEY;
 + (id)__MPModelRelationshipGenericMediaClip__PROPERTY;
 + (id)__mediaClip__KEY;
 + (id)__MPModelRelationshipGenericMovie__PROPERTY;
@@ -43,8 +52,10 @@
 + (id)__MPModelRelationshipGenericSong__PROPERTY;
 + (id)__song__KEY;
 + (id)kindWithRelationshipKinds:(id)arg1;
-+ (id)mqf_requiredPlaybackProperties;
 + (id)requiredStoreLibraryPersonalizationProperties;
+@property(retain, nonatomic) MPModelRadioStation *radioStation; // @synthesize radioStation=_radioStation;
+@property(retain, nonatomic) MPModelPodcastEpisode *podcastEpisode; // @synthesize podcastEpisode=_podcastEpisode;
+@property(retain, nonatomic) MPModelPodcast *podcast; // @synthesize podcast=_podcast;
 @property(retain, nonatomic) MPModelMovie *movie; // @synthesize movie=_movie;
 @property(retain, nonatomic) MPModelTVShow *show; // @synthesize show=_show;
 @property(retain, nonatomic) MPModelTVSeason *season; // @synthesize season=_season;
@@ -57,12 +68,15 @@
 @property(retain, nonatomic) MPModelSong *song; // @synthesize song=_song;
 - (void).cxx_destruct;
 - (long long)type;
+- (id)flattenedGenericObject;
+- (id)anyObject;
 - (id)identifiers;
 - (id)mediaItemPropertyValues;
-- (id)mqf_playbackItemMetadataModelObject;
 - (id)objectWithStoreLibraryPersonalizationRelativeModelObject:(id)arg1;
 - (id)relativeModelObjectForStoreLibraryPersonalization;
 - (id)personalizationScopedPropertiesForProperties:(id)arg1;
+- (_Bool)storeItemMetadataRequestNeedsPersonalization;
+- (id)storeItemMetadataRequestItemIdentifier;
 
 @end
 

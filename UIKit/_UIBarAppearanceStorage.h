@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
 
 + (long long)typicalBarPosition;
 - (void).cxx_destruct;
+- (id)allBackgroundImages;
+- (void)setAllBackgroundImages:(id)arg1;
 - (_Bool)hasAnyCustomBackgroundImage;
 - (id)backgroundImageForBarPosition:(long long)arg1 barMetrics:(long long)arg2;
 - (void)setBackgroundImage:(id)arg1 forBarPosition:(long long)arg2 barMetrics:(long long)arg3;

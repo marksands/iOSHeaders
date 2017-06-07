@@ -43,7 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)_reloadStackViewArrangement;
 - (long long)_dimensionAttributeToConstrainEqual;
 - (void)_reloadContentDistributionConstraintsForArrangedContentViews;
-- (struct CGSize)_systemLayoutSizeFittingStackView;
+- (struct CGSize)_systemLayoutSizeFittingStackView:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
@@ -56,7 +56,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateLayoutWithStackFrameForActionSequenceEdgeInsets;
 - (void)reloadDisplayedContentVisualStyle;
 - (double)fittingWidthForLayoutAxis:(long long)arg1;
-- (void)_updateActionRepresentationViewsOnlyKeepVisibleContentInHierarchySetting;
+- (void)_updateActionRepresentationViewsCanRemoveContentFromHierarchyWhenNotVisibleSetting;
 - (id)initWithVisualStyle:(id)arg1;
 
 @end

@@ -20,7 +20,7 @@
 - (void)encodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (_Bool)isEqualForContact:(id)arg1 other:(id)arg2;
 - (id)init;
-- (int)abPropertyID:(int *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

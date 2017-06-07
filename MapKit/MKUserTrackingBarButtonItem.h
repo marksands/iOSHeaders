@@ -24,6 +24,7 @@
     UIImage *_trackingNoneImage;
     UIImage *_trackingFollowImage;
     UIImage *_trackingFollowWithHeadingImage;
+    MKMapView *_mapView;
     UIToolbar *_toolbar;
     UINavigationBar *_navigationBar;
     UIView *_associatedView;

@@ -13,6 +13,7 @@
     AVMutableCompositionTrackInternal *_mutablePriv;
 }
 
++ (_Bool)expectsPropertyRevisedNotifications;
 - (void)setMetadata:(id)arg1;
 - (void)removeTrackAssociationToTrack:(id)arg1 type:(id)arg2;
 - (void)addTrackAssociationToTrack:(id)arg1 type:(id)arg2;

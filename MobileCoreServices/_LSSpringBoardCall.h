@@ -15,14 +15,12 @@ __attribute__((visibility("hidden")))
 {
     NSString *_schemeIfNotFileURL;
     _Bool _callCompletionHandlerWhenFullyComplete;
-    _Bool _promptForSchemeApprovalIfNeeded;
     NSDictionary *_launchOptions;
     NSString *_applicationIdentifier;
     NSXPCConnection *_clientXPCConnection;
 }
 
 + (id)springBoardQueue;
-@property _Bool promptForSchemeApprovalIfNeeded; // @synthesize promptForSchemeApprovalIfNeeded=_promptForSchemeApprovalIfNeeded;
 @property _Bool callCompletionHandlerWhenFullyComplete; // @synthesize callCompletionHandlerWhenFullyComplete=_callCompletionHandlerWhenFullyComplete;
 @property(retain) NSXPCConnection *clientXPCConnection; // @synthesize clientXPCConnection=_clientXPCConnection;
 @property(copy) NSString *applicationIdentifier; // @synthesize applicationIdentifier=_applicationIdentifier;

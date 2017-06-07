@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (_Bool)isProxy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) id placeholderItem; // @dynamic placeholderItem;
 - (id)initWithPlaceholderItem:(id)arg1;
 
 @end

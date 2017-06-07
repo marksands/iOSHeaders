@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
-@interface CAMediaTimingFunction : NSObject <NSCoding>
+@interface CAMediaTimingFunction : NSObject <NSSecureCoding>
 {
     struct CAMediaTimingFunctionPrivate *_priv;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)functionWithName:(id)arg1;
 + (id)functionWithControlPoints:(float)arg1:(float)arg2:(float)arg3:(float)arg4;
 + (void)CAMLParserEndElement:(id)arg1 content:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSDictionary, NSString;
+@class CIBarcodeDescriptor, NSArray, NSDictionary, NSString;
 
 @interface AVMetadataMachineReadableCodeObjectInternal : NSObject
 {
@@ -14,8 +14,10 @@
     NSArray *corners;
     NSString *stringValue;
     NSDictionary *basicDescriptor;
+    CIBarcodeDescriptor *descriptor;
 }
 
+@property(retain) CIBarcodeDescriptor *descriptor; // @synthesize descriptor;
 @property _Bool decoded; // @synthesize decoded;
 @property(retain) NSDictionary *basicDescriptor; // @synthesize basicDescriptor;
 @property(retain) NSString *stringValue; // @synthesize stringValue;

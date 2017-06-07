@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
     NSArray *_contacts;
     id <CNQuickActionsManagerDelegate> _delegate;
     NSArray *_categories;
-    long long _mode;
     unsigned long long _desiredNumberOfActions;
     NSMutableArray *_updateBlocks;
     NSDictionary *_groups;
@@ -45,7 +44,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool useDuetIfAvailable; // @synthesize useDuetIfAvailable=_useDuetIfAvailable;
 @property(nonatomic) _Bool bypassActionValidation; // @synthesize bypassActionValidation=_bypassActionValidation;
 @property(nonatomic) unsigned long long desiredNumberOfActions; // @synthesize desiredNumberOfActions=_desiredNumberOfActions;
-@property(nonatomic) long long mode; // @synthesize mode=_mode;
 @property(copy, nonatomic) NSArray *categories; // @synthesize categories=_categories;
 @property(nonatomic) __weak id <CNQuickActionsManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *contacts; // @synthesize contacts=_contacts;

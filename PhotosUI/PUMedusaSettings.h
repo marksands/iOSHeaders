@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
 __attribute__((visibility("hidden")))
-@interface PUMedusaSettings : PUSettings
+@interface PUMedusaSettings : PXSettings
 {
     double __desiredWidth;
     double __widthDelay;
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double _testStartDelay; // @synthesize _testStartDelay=__testStartDelay;
 @property(nonatomic) double _widthDelay; // @synthesize _widthDelay=__widthDelay;
 @property(nonatomic) double _desiredWidth; // @synthesize _desiredWidth=__desiredWidth;
+- (id)parentSettings;
 
 @end
 

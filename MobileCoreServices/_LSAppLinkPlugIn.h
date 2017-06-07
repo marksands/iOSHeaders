@@ -6,21 +6,21 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSError, NSURLComponents, NSXPCConnection;
+@class NSURLComponents, NSXPCConnection;
 
 @interface _LSAppLinkPlugIn : NSObject
 {
     NSURLComponents *_URLComponents;
+    unsigned long long _limit;
     NSXPCConnection *_XPCConnection;
-    NSError *_previousPlugInError;
 }
 
 + (_Bool)canHandleURLComponents:(id)arg1;
 + (Class)plugInClasses;
-@property(retain) NSError *previousPlugInError; // @synthesize previousPlugInError=_previousPlugInError;
 @property(retain) NSXPCConnection *XPCConnection; // @synthesize XPCConnection=_XPCConnection;
+@property unsigned long long limit; // @synthesize limit=_limit;
 @property(retain) NSURLComponents *URLComponents; // @synthesize URLComponents=_URLComponents;
-- (void)getAppLinkWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)getAppLinksWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 
 @end

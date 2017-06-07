@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 + (id)reuseIdentifier;
 + (id)collectionViewKind;
 @property(retain, nonatomic) UIButton *arrowButton; // @synthesize arrowButton=_arrowButton;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)prepareForReuse;
 - (void)updateArrow;

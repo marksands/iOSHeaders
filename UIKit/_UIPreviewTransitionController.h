@@ -10,7 +10,7 @@
 #import <UIKit/UIInteractionProgressObserver-Protocol.h>
 #import <UIKit/UIViewControllerAnimatedTransitioning-Protocol.h>
 
-@class NSDictionary, NSMutableDictionary, NSString, UIInteractionProgress, _UIFeedbackStatesBehavior;
+@class NSDictionary, NSMutableDictionary, NSString, UIInteractionProgress, _UIStatesFeedbackGenerator;
 @protocol UIViewControllerContextTransitioning;
 
 __attribute__((visibility("hidden")))
@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     UIInteractionProgress *_interactionProgress;
     unsigned long long _targetPresentationPhase;
     NSDictionary *_viewsParticipatingInCommitTransition;
-    _UIFeedbackStatesBehavior *_feedbackBehavior;
+    _UIStatesFeedbackGenerator *_feedbackGenerator;
     NSMutableDictionary *_animationsByPresentationPhase;
     id <UIViewControllerContextTransitioning> _transitionContext;
 }
@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 + (id)performCommitTransitionWithDelegate:(id)arg1 forViewController:(id)arg2 previewViewController:(id)arg3 previewInteractionController:(id)arg4 completion:(CDUnknownBlockType)arg5;
 @property(nonatomic) __weak id <UIViewControllerContextTransitioning> transitionContext; // @synthesize transitionContext=_transitionContext;
 @property(retain, nonatomic) NSMutableDictionary *animationsByPresentationPhase; // @synthesize animationsByPresentationPhase=_animationsByPresentationPhase;
-@property(retain, nonatomic) _UIFeedbackStatesBehavior *feedbackBehavior; // @synthesize feedbackBehavior=_feedbackBehavior;
+@property(retain, nonatomic) _UIStatesFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;
 @property(retain, nonatomic) NSDictionary *viewsParticipatingInCommitTransition; // @synthesize viewsParticipatingInCommitTransition=_viewsParticipatingInCommitTransition;
 @property(nonatomic) unsigned long long targetPresentationPhase; // @synthesize targetPresentationPhase=_targetPresentationPhase;
 @property(retain, nonatomic) UIInteractionProgress *interactionProgress; // @synthesize interactionProgress=_interactionProgress;

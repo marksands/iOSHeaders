@@ -11,7 +11,7 @@
 @interface _UIFocusSwipeTest : _UIFocusTest
 {
     unsigned long long _eventCount;
-    struct {
+    const struct {
         double _field1;
         long long _field2;
         double _field3;

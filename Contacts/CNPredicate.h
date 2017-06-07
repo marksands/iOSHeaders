@@ -6,11 +6,12 @@
 
 #import <Foundation/NSPredicate.h>
 
+#import <Contacts/CNDonatedContactsPredicate-Protocol.h>
 #import <Contacts/NSCopying-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
-@interface CNPredicate : NSPredicate <NSCopying>
+@interface CNPredicate : NSPredicate <CNDonatedContactsPredicate, NSCopying>
 {
     NSPredicate *_cn_predicate;
     _Bool _augmentMainStoreResults;
@@ -20,6 +21,7 @@
 + (id)_convertSuggestions:(id)arg1 withSortOrder:(long long)arg2 mutableObjects:(_Bool)arg3;
 @property(nonatomic) _Bool augmentMainStoreResults; // @synthesize augmentMainStoreResults=_augmentMainStoreResults;
 @property(retain, nonatomic) NSArray *mainStoreContactIdentifiers; // @synthesize mainStoreContactIdentifiers=_mainStoreContactIdentifiers;
+- (void).cxx_destruct;
 - (void)mainStoreDidFetchContacts:(id)arg1 unifiedFetch:(_Bool)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)cn_predicate;
@@ -27,12 +29,18 @@
 - (_Bool)evaluateWithObject:(id)arg1 substitutionVariables:(id)arg2;
 - (_Bool)evaluateWithObject:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithPredicate:(id)arg1;
 - (id)init;
 - (id)suggestedContactsWithSortOrder:(long long)arg1 keysToFetch:(id)arg2 mutableObjects:(_Bool)arg3 service:(id)arg4 error:(id *)arg5;
 - (void)_convertContactMatches:(id)arg1 withService:(id)arg2 intoSuggestions:(id)arg3;
+- (id)contactsFromDonationStore:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

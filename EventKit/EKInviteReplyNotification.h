@@ -6,13 +6,16 @@
 
 #import <EventKit/EKObject.h>
 
-@class EKCalendar, NSDate, NSString;
+@class EKCalendar, NSDate, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface EKInviteReplyNotification : EKObject
 {
 }
 
++ (id)knownRelationshipSingleValueKeys;
++ (Class)frozenClass;
+@property(readonly, nonatomic) EKCalendar *inviteReplyCalendar;
 @property(readonly, nonatomic) EKCalendar *calendar;
 - (void)clearAlertedStatus;
 @property(readonly, nonatomic) _Bool alerted;
@@ -20,11 +23,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long status;
 @property(readonly, nonatomic) NSString *shareeLastName;
 @property(readonly, nonatomic) NSString *shareeFirstName;
-@property(readonly, nonatomic) NSString *shareeAddress;
+@property(readonly, nonatomic) NSURL *shareeURL;
+@property(readonly, nonatomic) NSString *shareePhoneNumber;
+@property(readonly, nonatomic) NSString *shareeEmailAddress;
+- (id)shareeAddressURL;
 @property(readonly, nonatomic) NSString *shareeDisplayName;
 @property(readonly, nonatomic) NSString *calendarName;
-- (id)_persistentInviteReplyNotification;
-- (id)lazyLoadRelationForKey:(id)arg1;
 
 @end
 

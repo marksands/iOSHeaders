@@ -12,7 +12,6 @@
 __attribute__((visibility("hidden")))
 @interface _NSActivityAssertion : NSObject
 {
-    long long _ended;
     unsigned long long _options;
     NSString *_reason;
     unsigned int _systemSleepAssertionID;
@@ -22,6 +21,8 @@ __attribute__((visibility("hidden")))
     id <NSObject> _xpcBoost;
     BKSProcessAssertion *_processAssertion;
     CDUnknownBlockType _expirationHandler;
+    struct os_unfair_lock_s _lock;
+    // Error parsing type: AB, name: _ended
 }
 
 + (void)_performExpiringActivityWithReason:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;

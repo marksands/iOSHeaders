@@ -8,22 +8,24 @@
 
 #import <UIKit/UIFocusEnvironment-Protocol.h>
 #import <UIKit/UIInterfaceActionDisplayPropertyObserver-Protocol.h>
+#import <UIKit/UISpringLoadedInteractionSupporting-Protocol.h>
 
-@class NSArray, NSLayoutConstraint, NSString, UIInterfaceAction, UIInterfaceActionVisualStyle;
+@class NSArray, NSLayoutConstraint, NSString, UIInterfaceAction, UIInterfaceActionVisualStyle, UISpringLoadedInteraction;
 @protocol UIInterfaceActionVisualBackgroundDisplaying;
 
 __attribute__((visibility("hidden")))
-@interface UIInterfaceActionRepresentationView : UIView <UIFocusEnvironment, UIInterfaceActionDisplayPropertyObserver>
+@interface UIInterfaceActionRepresentationView : UIView <UIFocusEnvironment, UISpringLoadedInteractionSupporting, UIInterfaceActionDisplayPropertyObserver>
 {
-    _Bool _showingAsPressed;
     _Bool _hasLoadedBackgroundView;
     _Bool _canKeepContentsInHierarchy;
     _Bool _hasLoadedContentFirstTime;
-    _Bool _enforcedOnlyKeepVisibleContentInHierarchy;
-    _Bool _enforcedOnlyKeepVisibleContentInHierarchyValue;
+    _Bool _enforcedCanRemoveContentFromHierarchyWhenNotVisible;
+    _Bool _enforcedCanRemoveContentFromHierarchyWhenNotVisibleValue;
     _Bool _contentsInsertedIntoViewHierarchy;
+    _Bool _ownsActionContent;
     _Bool _highlighted;
-    _Bool _onlyKeepVisibleContentInHierarchy;
+    _Bool _pressed;
+    _Bool _canRemoveContentFromHierarchyWhenNotVisible;
     UIInterfaceAction *_action;
     unsigned long long _visualCornerPosition;
     id _actionViewStateContext;
@@ -32,19 +34,23 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_minimumHeightConstraint;
     NSArray *_viewsToDisappearWhenHighlighted;
     NSString *_sectionID;
+    UISpringLoadedInteraction *_interactionForSpringLoading;
 }
 
+@property(retain, nonatomic) UISpringLoadedInteraction *interactionForSpringLoading; // @synthesize interactionForSpringLoading=_interactionForSpringLoading;
 @property(retain, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
-@property(nonatomic) _Bool onlyKeepVisibleContentInHierarchy; // @synthesize onlyKeepVisibleContentInHierarchy=_onlyKeepVisibleContentInHierarchy;
+@property(nonatomic) _Bool canRemoveContentFromHierarchyWhenNotVisible; // @synthesize canRemoveContentFromHierarchyWhenNotVisible=_canRemoveContentFromHierarchyWhenNotVisible;
 @property(retain, nonatomic) NSArray *viewsToDisappearWhenHighlighted; // @synthesize viewsToDisappearWhenHighlighted=_viewsToDisappearWhenHighlighted;
 @property(readonly, nonatomic) NSLayoutConstraint *minimumHeightConstraint; // @synthesize minimumHeightConstraint=_minimumHeightConstraint;
 @property(readonly, nonatomic) NSLayoutConstraint *minimumWidthConstraint; // @synthesize minimumWidthConstraint=_minimumWidthConstraint;
 @property(readonly, nonatomic) UIView<UIInterfaceActionVisualBackgroundDisplaying> *backgroundHighlightView; // @synthesize backgroundHighlightView=_backgroundHighlightView;
 @property(retain, nonatomic) id actionViewStateContext; // @synthesize actionViewStateContext=_actionViewStateContext;
+@property(nonatomic, getter=isPressed) _Bool pressed; // @synthesize pressed=_pressed;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
-@property(nonatomic) _Bool contentsInsertedIntoViewHierarchy; // @synthesize contentsInsertedIntoViewHierarchy=_contentsInsertedIntoViewHierarchy;
 @property(nonatomic) unsigned long long visualCornerPosition; // @synthesize visualCornerPosition=_visualCornerPosition;
+@property(nonatomic) _Bool ownsActionContent; // @synthesize ownsActionContent=_ownsActionContent;
 @property(readonly, nonatomic) UIInterfaceAction *action; // @synthesize action=_action;
+@property(nonatomic, setter=_setContentsInsertedIntoViewHierarchy:) _Bool _contentsInsertedIntoViewHierarchy; // @synthesize _contentsInsertedIntoViewHierarchy;
 - (void).cxx_destruct;
 - (id)_actionViewState;
 - (void)_clearBackgroundPressedState;
@@ -63,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)_applyVisualStyleToLayoutMargins;
 - (void)_initializeHorizontalMarginsForAction;
 - (void)_setHorizontalMargins:(struct UIEdgeInsets)arg1 preservesSuperviewLayoutMargins:(_Bool)arg2;
+- (_Bool)_fittingContentViewHasItsOwnActiveMinimumSizeConstraintsWithSize:(struct CGSize)arg1;
 - (void)_applyVisualStyleToMinimumSizeConstraints;
 - (void)_applyVisualStyle;
 - (void)_didScroll;
@@ -76,7 +83,7 @@ __attribute__((visibility("hidden")))
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)canBecomeFocused;
 - (_Bool)_showsFocusForFocusedView:(id)arg1;
-- (_Bool)_fittingContentSizingViewIsAlertControllerRepresentation;
+@property(nonatomic, getter=isSpringLoaded) _Bool springLoaded; // @dynamic springLoaded;
 - (struct CGRect)_fittingContentSizingViewFrameInBounds:(struct CGRect)arg1;
 - (struct CGSize)_fittingContentSizeWithFittingViewSize:(struct CGSize)arg1;
 - (struct UIEdgeInsets)_fittingContentSizingViewMargins;
@@ -93,7 +100,7 @@ __attribute__((visibility("hidden")))
 - (void)updateConstraints;
 - (void)interfaceAction:(id)arg1 reloadDisplayedContentVisualStyle:(id)arg2;
 - (void)interfaceAction:(id)arg1 reloadDisplayedContentActionProperties:(id)arg2;
-- (void)_enforceActionRepresentationViewsOnlyKeepVisibleContentInHierarchy:(_Bool)arg1;
+- (void)_enforceActionRepresentationViewsCanRemoveContentFromHierarchyWhenNotVisible:(_Bool)arg1;
 - (_Bool)hasLayoutHeightConstraintsIdenticalToRepresentationView:(id)arg1;
 @property(readonly, nonatomic) UIInterfaceActionVisualStyle *visualStyle;
 - (void)invokeInterfaceAction;

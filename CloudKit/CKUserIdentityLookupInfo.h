@@ -17,7 +17,6 @@
     NSString *_emailAddress;
     NSString *_phoneNumber;
     CKRecordID *_userRecordID;
-    NSString *_dsid;
     NSData *_encryptedPersonalInfo;
 }
 
@@ -26,7 +25,6 @@
 + (id)lookupInfosWithEmails:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSData *encryptedPersonalInfo; // @synthesize encryptedPersonalInfo=_encryptedPersonalInfo;
-@property(retain, nonatomic) NSString *dsid; // @synthesize dsid=_dsid;
 @property(nonatomic) _Bool shouldReportMissingIdentity; // @synthesize shouldReportMissingIdentity=_shouldReportMissingIdentity;
 @property(copy, nonatomic) CKRecordID *userRecordID; // @synthesize userRecordID=_userRecordID;
 @property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;

@@ -21,7 +21,9 @@
 
 + (_Bool)styleSupportsFallBackToFullNameStyle:(long long)arg1;
 + (id)delimiterForContact:(id)arg1;
++ (id)descriptorForRequiredKeysForDelimiter;
 + (long long)nameOrderForContact:(id)arg1;
++ (id)descriptorForRequiredKeysForNameOrder;
 + (id)descriptorForRequiredKeysForStyle:(long long)arg1;
 + (id)attributedStringFromContact:(id)arg1 style:(long long)arg2 defaultAttributes:(id)arg3;
 + (id)stringFromContact:(id)arg1 style:(long long)arg2;
@@ -31,7 +33,7 @@
 @property(nonatomic) _Bool ignoresNickname; // @synthesize ignoresNickname=_ignoresNickname;
 @property(nonatomic) _Bool ignoresOrganization; // @synthesize ignoresOrganization=_ignoresOrganization;
 @property(nonatomic) long long style; // @synthesize style=_style;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (_Bool)getObjectValue:(out id *)arg1 forString:(id)arg2 errorDescription:(out id *)arg3;
 - (id)attributedStringForObjectValue:(id)arg1 withDefaultAttributes:(id)arg2;
 - (id)stringForObjectValue:(id)arg1;

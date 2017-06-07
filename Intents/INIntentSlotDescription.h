@@ -9,7 +9,7 @@
 #import <Intents/INIntentSlotDescriptionExport-Protocol.h>
 #import <Intents/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface INIntentSlotDescription : NSObject <INIntentSlotDescriptionExport, NSCopying>
 {
@@ -21,12 +21,10 @@
     NSString *_dataPropertyName;
     long long _valueType;
     long long _valueStyle;
-    SEL _resolveSelector;
-    SEL _deprecatedResolveSelector;
+    NSArray *_resolveSelectorStrings;
 }
 
-@property(readonly, nonatomic) SEL deprecatedResolveSelector; // @synthesize deprecatedResolveSelector=_deprecatedResolveSelector;
-@property(readonly, nonatomic) SEL resolveSelector; // @synthesize resolveSelector=_resolveSelector;
+@property(readonly, copy, nonatomic) NSArray *resolveSelectorStrings; // @synthesize resolveSelectorStrings=_resolveSelectorStrings;
 @property(readonly, nonatomic) _Bool isPrivate; // @synthesize isPrivate=_isPrivate;
 @property(readonly, nonatomic) _Bool isExtended; // @synthesize isExtended=_isExtended;
 @property(readonly, nonatomic) long long valueStyle; // @synthesize valueStyle=_valueStyle;
@@ -39,8 +37,11 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) SEL deprecatedResolveSelector;
+@property(readonly, nonatomic) SEL resolveSelector;
 - (id)initWithName:(id)arg1 tag:(unsigned long long)arg2 facadePropertyName:(id)arg3 dataPropertyName:(id)arg4 valueType:(long long)arg5 valueStyle:(long long)arg6 isExtended:(_Bool)arg7 isPrivate:(_Bool)arg8 resolveSelector:(SEL)arg9;
 - (id)initWithName:(id)arg1 tag:(unsigned long long)arg2 facadePropertyName:(id)arg3 dataPropertyName:(id)arg4 valueType:(long long)arg5 valueStyle:(long long)arg6 isExtended:(_Bool)arg7 isPrivate:(_Bool)arg8 resolveSelector:(SEL)arg9 deprecatedResolveSelector:(SEL)arg10;
+- (id)initWithName:(id)arg1 tag:(unsigned long long)arg2 facadePropertyName:(id)arg3 dataPropertyName:(id)arg4 valueType:(long long)arg5 valueStyle:(long long)arg6 isExtended:(_Bool)arg7 isPrivate:(_Bool)arg8 resolveSelectors:(SEL)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

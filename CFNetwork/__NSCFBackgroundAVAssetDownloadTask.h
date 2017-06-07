@@ -6,7 +6,7 @@
 
 #import <CFNetwork/__NSCFBackgroundSessionTask.h>
 
-@class AVURLAsset, NSArray, NSData, NSDictionary, NSString, NSURL;
+@class AVMediaSelection, AVURLAsset, NSArray, NSData, NSDictionary, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface __NSCFBackgroundAVAssetDownloadTask : __NSCFBackgroundSessionTask
@@ -21,8 +21,10 @@ __attribute__((visibility("hidden")))
     AVURLAsset *_URLAsset;
     NSDictionary *_options;
     NSArray *_loadedTimeRanges;
+    AVMediaSelection *_resolvedMediaSelection;
 }
 
+@property(copy) AVMediaSelection *resolvedMediaSelection; // @synthesize resolvedMediaSelection=_resolvedMediaSelection;
 @property(copy) NSArray *loadedTimeRanges; // @synthesize loadedTimeRanges=_loadedTimeRanges;
 @property(copy) NSDictionary *options; // @synthesize options=_options;
 @property(retain) AVURLAsset *URLAsset; // @synthesize URLAsset=_URLAsset;
@@ -37,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (id)originalRequest;
 - (_Bool)isKindOfClass:(Class)arg1;
 - (void)_onqueue_didFinishWithError:(id)arg1;
+- (void)_onqueue_willDownloadToURL:(id)arg1;
 - (void)_onqueue_didFinishDownloadingToURL:(id)arg1;
 - (void)_onqueue_didResolveMediaSelectionPropertyList:(id)arg1;
 - (void)_onqueue_didLoadTimeRange:(id)arg1 totalTimeRangesLoaded:(id)arg2 timeRangeExpectedToLoad:(id)arg3;

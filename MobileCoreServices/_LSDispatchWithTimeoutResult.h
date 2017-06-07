@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(retain) id result; // @synthesize result=_result;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

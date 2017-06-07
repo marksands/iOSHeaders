@@ -9,22 +9,25 @@
 #import <HealthKit/NSCopying-Protocol.h>
 #import <HealthKit/NSSecureCoding-Protocol.h>
 
-@class NSDate, NSDictionary;
+@class NSDate, NSDateInterval, NSDictionary;
 
 @interface HKWorkoutEvent : NSObject <NSSecureCoding, NSCopying>
 {
     long long _type;
-    NSDate *_date;
+    NSDateInterval *_dateInterval;
     NSDictionary *_metadata;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)workoutEventWithType:(long long)arg1 dateInterval:(id)arg2 metadata:(id)arg3;
 + (id)workoutEventWithType:(long long)arg1 date:(id)arg2 metadata:(id)arg3;
 + (id)workoutEventWithType:(long long)arg1 date:(id)arg2;
 + (id)_workoutEventWithInternalEvent:(id)arg1;
++ (id)_workoutEventWithType:(long long)arg1 dateInterval:(id)arg2 metadata:(id)arg3;
 + (id)_workoutEventWithType:(long long)arg1 date:(id)arg2 metadata:(id)arg3;
-+ (id)_newWorkoutEventWithType:(long long)arg1 date:(id)arg2 metadata:(id)arg3;
++ (id)_newWorkoutEventWithType:(long long)arg1 dateInterval:(id)arg2 metadata:(id)arg3;
 @property(readonly, copy) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(readonly, copy) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
 - (void).cxx_destruct;
 - (id)awakeAfterUsingCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

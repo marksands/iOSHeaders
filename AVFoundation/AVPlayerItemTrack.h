@@ -17,6 +17,9 @@
 - (void)_respondToFigPlaybackItemBecomingReadyForInpection;
 - (void)_attachToFigPlaybackItemOfPlayerItem:(id)arg1;
 - (void)_transferCachedValuesToFig;
+- (void)_transferActiveHapticChannelIndexToFig;
+- (long long)activeHapticChannelIndex;
+- (void)setActiveHapticChannelIndex:(long long)arg1;
 - (void)setDisableColorMatching:(_Bool)arg1;
 - (void)_transferDisableColorMatchingToFig;
 - (_Bool)disableColorMatching;

@@ -14,7 +14,7 @@
     struct OpaqueJSContext *m_context;
     JSWrapperMap *m_wrapperMap;
     struct Strong<JSC::JSObject> m_exception;
-    CDUnknownBlockType exceptionHandler;
+    CDUnknownBlockType _exceptionHandler;
 }
 
 + (id)currentArguments;
@@ -22,7 +22,7 @@
 + (id)currentThis;
 + (id)currentContext;
 + (id)contextWithJSGlobalContextRef:(struct OpaqueJSContext *)arg1;
-@property(copy) CDUnknownBlockType exceptionHandler; // @synthesize exceptionHandler;
+@property(copy) CDUnknownBlockType exceptionHandler; // @synthesize exceptionHandler=_exceptionHandler;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)_setDebuggerRunLoop:(struct __CFRunLoop *)arg1;

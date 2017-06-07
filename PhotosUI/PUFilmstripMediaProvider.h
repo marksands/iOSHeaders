@@ -6,13 +6,16 @@
 
 #import <PhotosUI/PUMediaProvider.h>
 
-@class AVAsset, AVAssetImageGenerator, NSCache, NSMutableArray, NSMutableDictionary, UIImage;
+@class AVAsset, AVAssetImageGenerator, AVVideoComposition, NSCache, NSMutableArray, NSMutableDictionary, NSObject, UIImage;
+@protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface PUFilmstripMediaProvider : PUMediaProvider
 {
+    NSObject<OS_dispatch_queue> *_generationQueue;
     _Bool _deliversImagesInOrder;
     AVAsset *_asset;
+    AVVideoComposition *_videoComposition;
     double _timeTolerance;
     UIImage *_placeholderImage;
     AVAssetImageGenerator *__imageGenerator;
@@ -32,19 +35,20 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
 @property(nonatomic) _Bool deliversImagesInOrder; // @synthesize deliversImagesInOrder=_deliversImagesInOrder;
 @property(nonatomic) double timeTolerance; // @synthesize timeTolerance=_timeTolerance;
+@property(readonly, nonatomic) AVVideoComposition *videoComposition; // @synthesize videoComposition=_videoComposition;
 @property(readonly, nonatomic) AVAsset *asset; // @synthesize asset=_asset;
 - (void).cxx_destruct;
 - (void)_deliverPlaceholderImage;
 - (void)_deliverResult:(id)arg1;
 - (void)_deliverPendingResults;
-- (void)_didGenerateImage:(struct CGImage *)arg1 generatorResult:(long long)arg2 error:(id)arg3 requestedTime:(CDStruct_1b6d18a9)arg4 actualTime:(CDStruct_1b6d18a9)arg5 forResult:(id)arg6;
+- (void)_didGenerateImage:(struct CGImage *)arg1 error:(id)arg2 requestedTime:(CDStruct_1b6d18a9)arg3 actualTime:(CDStruct_1b6d18a9)arg4 forResult:(id)arg5;
 - (void)_generateImageForResult:(id)arg1;
 - (void)dealloc;
 - (void)cancelAllRequests;
 - (void)cancelImageRequest:(int)arg1;
 - (int)requestImageForAsset:(id)arg1 targetSize:(struct CGSize)arg2 contentMode:(long long)arg3 options:(id)arg4 resultHandler:(CDUnknownBlockType)arg5;
 - (id)init;
-- (id)initWithAVAsset:(id)arg1;
+- (id)initWithAVAsset:(id)arg1 videoComposition:(id)arg2;
 
 @end
 

@@ -14,9 +14,9 @@
 {
 }
 
+- (_Bool)setManualRenderingInputPCMFormat:(id)arg1 inputBlock:(CDUnknownBlockType)arg2;
 - (float)rate;
 - (void)setRate:(float)arg1;
-- (id)initWithIOUnit:(struct AVAudioIOUnit *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

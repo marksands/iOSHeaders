@@ -22,11 +22,9 @@
     NSString *_mediaType;
     NSString *_imageTitle;
     NSString *_imageSubtitle;
-    long long _tapAction;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) long long tapAction; // @synthesize tapAction=_tapAction;
 @property(copy, nonatomic) NSString *imageSubtitle; // @synthesize imageSubtitle=_imageSubtitle;
 @property(copy, nonatomic) NSString *imageTitle; // @synthesize imageTitle=_imageTitle;
 @property(retain, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;

@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)_playVitalityHintIfNeeded;
 - (void)_handleBrowsingIrisPlayer:(id)arg1 didChange:(id)arg2;
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
+- (id)generateAssetTransitionInfo;
 - (void)ppt_playLivePhotoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_updatePlayerViewInteractivePlaybackAllowed;
 - (void)_assetFocusValueDidChange;

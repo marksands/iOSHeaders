@@ -18,8 +18,8 @@
 #import <UIKit/_UITraitEnvironmentInternal-Protocol.h>
 #import <UIKit/_UIViewServiceDeputy-Protocol.h>
 
-@class NSArray, NSBundle, NSDictionary, NSExtensionContext, NSLayoutConstraint, NSMapTable, NSMutableArray, NSString, UIBarButtonItem, UIDropShadowView, UILayoutContainerView, UIMultiColumnViewController, UINavigationController, UINavigationItem, UIPopoverController, UIPresentationController, UIScrollView, UISearchDisplayController, UISplitViewController, UIStoryboard, UIStoryboardSegue, UITabBarController, UITabBarItem, UITraitCollection, UITransitionView, UIView, UIWindow, _UIActionSheetPresentationController;
-@protocol UIFocusContainer, UIFocusEnvironment, UIFocusItem, UILayoutSupport><_UILayoutItem, UIViewControllerTransitioningDelegate, _UIFocusRegionContainer, _UIViewControllerContentViewEmbedding;
+@class NSArray, NSBundle, NSDictionary, NSExtensionContext, NSLayoutConstraint, NSMapTable, NSMutableArray, NSString, NSUUID, UIAccessibilityHUDView, UIBarButtonItem, UIDropShadowView, UILayoutContainerView, UIMultiColumnViewController, UINavigationContentAdjustments, UINavigationController, UINavigationItem, UIPopoverController, UIPresentationController, UIScrollView, UISearchDisplayController, UISplitViewController, UIStoryboard, UIStoryboardSegue, UITabBarController, UITabBarItem, UITraitCollection, UITransitionView, UIView, UIWindow, _UIActionSheetPresentationController;
+@protocol UIFocusEnvironment, UIFocusItem, UILayoutSupport><_UILayoutItem, UIViewControllerTransitioningDelegate, _UIFocusRegionContainer, _UIViewControllerContentViewEmbedding;
 
 @interface UIViewController : UIResponder <_UIViewServiceDeputy, NSExtensionRequestHandling, UIViewControllerPresenting, _UITraitEnvironmentInternal, _UIContentContainerInternal, _UIFocusEnvironmentInternal, NSCoding, UIAppearanceContainer, UITraitEnvironment, UIContentContainer, UIFocusEnvironment>
 {
@@ -60,7 +60,7 @@
     long long _explicitAppearanceTransitionLevel;
     NSArray *_interfaceBuilderKeyCommands;
     NSArray *_addedKeyCommands;
-    NSMapTable *_overrideTraitCollections;
+    NSMapTable *_overrideTraitCollectionsForChildren;
     NSMutableArray *_previewSourceViews;
     struct {
         unsigned int appearState:2;
@@ -115,6 +115,7 @@
         unsigned int overridesTraitCollectionDidChange:1;
         unsigned int restoresFocusAfterTransition:1;
         unsigned int freezeTraitsOnCounterRotationForPresentation:1;
+        unsigned int viewRespectsSystemMinimumLayoutMargins:1;
     } _viewControllerFlags;
     long long _retainCount;
     _Bool _ignoreAppSupportedOrientations;
@@ -122,9 +123,10 @@
     NSString *_storyboardIdentifier;
     id <UIViewControllerTransitioningDelegate> _transitioningDelegate;
     UITraitCollection *_frozenTraitCollection;
+    UITraitCollection *_overrideTraitCollection;
+    UIAccessibilityHUDView *_accessibilityHUD;
     _Bool overrideUseCustomPresentation;
     _Bool _modalPresentationCapturesStatusBarAppearance;
-    _Bool _disablesAutomaticKeyboardDismissal;
     _Bool _ignoresParentMargins;
     NSMutableArray *_childViewControllers;
     double _customNavigationInteractiveTransitionDuration;
@@ -132,8 +134,9 @@
     UITransitionView *_customTransitioningView;
     UITraitCollection *_lastNotifiedTraitCollection;
     UIPresentationController *_presentationController;
-    id <UIFocusContainer> _preferredFocusedItem;
     double _navigationControllerContentOffsetAdjustment;
+    double _leftContentMargin;
+    double _rightContentMargin;
     double _contentMargin;
     id <UILayoutSupport><_UILayoutItem> _topLayoutGuide;
     id <UILayoutSupport><_UILayoutItem> _bottomLayoutGuide;
@@ -143,10 +146,13 @@
     UIStoryboardSegue *_segueResponsibleForModalPresentation;
     UIViewController *_sourceViewControllerIfPresentedViaPopoverSegue;
     UIViewController *_modalSourceViewController;
+    UIWindow *_expectedWindow;
     UIViewController *_presentedStatusBarViewController;
+    UIViewController *_presentedUserInterfaceStyleViewController;
     unsigned long long _edgesForExtendedLayout;
     UIViewController *__childControllerToIgnoreWhileLookingForTransitionCoordinator;
     id <UIFocusItem> _presentingFocusedItem;
+    UINavigationContentAdjustments *_navigationInsetAdjustment;
     NSArray *_storyboardPreviewSegueTemplates;
     NSArray *_storyboardCommitSegueTemplates;
     NSArray *_storyboardPreviewingRegistrants;
@@ -155,13 +161,16 @@
     id <_UIViewControllerContentViewEmbedding> __embeddedDelegate;
     UIPresentationController *_originalPresentationController;
     UIPresentationController *_temporaryPresentationController;
+    UIView *_preferredFocusedItem;
     struct CGSize _preferredContentSize;
     CDStruct_d58201db _presentationSizeClassPair;
-    struct UIEdgeInsets _navigationControllerContentInsetAdjustment;
+    struct UIEdgeInsets _additionalSafeAreaInsets;
     struct UIEdgeInsets _contentOverlayInsets;
+    struct NSDirectionalEdgeInsets _systemMinimumLayoutMargins;
     struct CGRect __embeddedViewFrame;
 }
 
++ (id)_currentScreenEdgesDeferringSystemGesturesViewController;
 + (id)_currentWhitePointAdaptivityStyleViewController;
 + (id)_currentStatusBarHiddenViewController;
 + (id)_currentStatusBarStyleViewController;
@@ -183,6 +192,7 @@
 + (_Bool)_isViewSizeFullScreen:(id)arg1 inWindow:(id)arg2;
 + (_Bool)_isViewSizeFullScreen:(id)arg1 inWindow:(id)arg2 ignoreInWindowCheck:(_Bool)arg3;
 + (_Bool)_doesOverrideLegacyFullScreenLayout;
++ (id)_safeAreaInsetsTrace;
 + (id)_printHierarchy;
 + (id)_allDescriptions;
 + (void)_traverseViewControllerHierarchy:(CDUnknownBlockType)arg1;
@@ -195,6 +205,7 @@
 + (_Bool)_shouldUseLegacyUnwindDestinationSearch;
 + (int)_keyboardDirectionForTransition:(int)arg1;
 + (id)existingNibNameMatchingClassName:(id)arg1 bundle:(id)arg2;
++ (id)_currentUserInterfaceStyleViewController;
 + (id)_traitCollectionWithParentTraitCollection:(id)arg1 overrideTraitCollection:(id)arg2;
 + (_Bool)_preventsAppearanceProxyCustomization;
 + (_Bool)_synthesizeSupportedInterfaceOrientationsFromShouldAutorotateToInterfaceOrientation;
@@ -217,7 +228,9 @@
 + (_Bool)_isSecureForRemoteViewService;
 + (id)XPCInterface;
 + (_Bool)_initializedByViewServices;
+@property(copy, nonatomic) UITraitCollection *overrideTraitCollection; // @synthesize overrideTraitCollection=_overrideTraitCollection;
 @property(nonatomic) _Bool ignoresParentMargins; // @synthesize ignoresParentMargins=_ignoresParentMargins;
+@property(nonatomic) __weak UIView *preferredFocusedItem; // @synthesize preferredFocusedItem=_preferredFocusedItem;
 @property(retain, nonatomic, getter=_temporaryPresentationController, setter=_setTemporaryPresentationController:) UIPresentationController *temporaryPresentationController; // @synthesize temporaryPresentationController=_temporaryPresentationController;
 @property(retain, nonatomic, getter=_originalPresentationController, setter=_setOriginalPresentationController:) UIPresentationController *originalPresentationController; // @synthesize originalPresentationController=_originalPresentationController;
 @property(nonatomic, getter=_presentationSizeClassPair, setter=_setPresentationSizeClassPair:) CDStruct_d58201db presentationSizeClassPair; // @synthesize presentationSizeClassPair=_presentationSizeClassPair;
@@ -228,17 +241,19 @@
 @property(readonly, nonatomic) NSArray *storyboardPreviewingRegistrants; // @synthesize storyboardPreviewingRegistrants=_storyboardPreviewingRegistrants;
 @property(readonly, nonatomic) NSArray *storyboardCommitSegueTemplates; // @synthesize storyboardCommitSegueTemplates=_storyboardCommitSegueTemplates;
 @property(readonly, nonatomic) NSArray *storyboardPreviewSegueTemplates; // @synthesize storyboardPreviewSegueTemplates=_storyboardPreviewSegueTemplates;
+@property(retain, nonatomic) UINavigationContentAdjustments *navigationInsetAdjustment; // @synthesize navigationInsetAdjustment=_navigationInsetAdjustment;
 @property(nonatomic, getter=_presentingFocusedItem, setter=_setPresentingFocusedItem:) __weak id <UIFocusItem> presentingFocusedItem; // @synthesize presentingFocusedItem=_presentingFocusedItem;
 @property(retain, nonatomic, setter=_setChildControllerToIgnoreWhileLookingForTransitionCoordinator:) UIViewController *_childControllerToIgnoreWhileLookingForTransitionCoordinator; // @synthesize _childControllerToIgnoreWhileLookingForTransitionCoordinator=__childControllerToIgnoreWhileLookingForTransitionCoordinator;
 @property(nonatomic) unsigned long long edgesForExtendedLayout; // @synthesize edgesForExtendedLayout=_edgesForExtendedLayout;
-@property(nonatomic) _Bool disablesAutomaticKeyboardDismissal; // @synthesize disablesAutomaticKeyboardDismissal=_disablesAutomaticKeyboardDismissal;
 @property(nonatomic) _Bool modalPresentationCapturesStatusBarAppearance; // @synthesize modalPresentationCapturesStatusBarAppearance=_modalPresentationCapturesStatusBarAppearance;
+@property(retain, nonatomic, setter=_setPresentedUserInterfaceStyleViewController:) UIViewController *_presentedUserInterfaceStyleViewController; // @synthesize _presentedUserInterfaceStyleViewController;
 @property(retain, nonatomic, setter=_setPresentedStatusBarViewController:) UIViewController *_presentedStatusBarViewController; // @synthesize _presentedStatusBarViewController;
 @property(nonatomic, getter=_overrideUseCustomPresentation, setter=_setOverrideUseCustomPresentation:) _Bool overrideUseCustomPresentation; // @synthesize overrideUseCustomPresentation;
 @property(nonatomic) long long modalPresentationStyle; // @synthesize modalPresentationStyle=_modalPresentationStyle;
 @property(nonatomic) long long modalTransitionStyle; // @synthesize modalTransitionStyle=_modalTransitionStyle;
 @property(nonatomic) __weak UIViewController *parentModalViewController; // @synthesize parentModalViewController=_parentModalViewController;
 @property(retain, nonatomic) UIDropShadowView *dropShadowView; // @synthesize dropShadowView=_dropShadowView;
+@property(retain, nonatomic, setter=_setExpectedWindow:) UIWindow *_expectedWindow; // @synthesize _expectedWindow;
 @property(nonatomic, setter=_setModalSourceViewController:) UIViewController *_modalSourceViewController; // @synthesize _modalSourceViewController;
 @property(nonatomic, setter=_setSourceViewControllerIfPresentedViaPopoverSegue:) UIViewController *_sourceViewControllerIfPresentedViaPopoverSegue; // @synthesize _sourceViewControllerIfPresentedViaPopoverSegue;
 @property(retain, nonatomic, setter=_setSegueResponsibleForModalPresentation:) UIStoryboardSegue *_segueResponsibleForModalPresentation; // @synthesize _segueResponsibleForModalPresentation;
@@ -249,41 +264,33 @@
 @property(copy, nonatomic) NSString *nibName; // @synthesize nibName=_nibName;
 @property(readonly, retain, nonatomic) NSLayoutConstraint *_bottomBarInsetGuideConstraint; // @synthesize _bottomBarInsetGuideConstraint;
 @property(readonly, retain, nonatomic) NSLayoutConstraint *_topBarInsetGuideConstraint; // @synthesize _topBarInsetGuideConstraint;
+@property(readonly, nonatomic) struct NSDirectionalEdgeInsets systemMinimumLayoutMargins; // @synthesize systemMinimumLayoutMargins=_systemMinimumLayoutMargins;
 @property(nonatomic, setter=_setContentMargin:) double _contentMargin; // @synthesize _contentMargin;
+@property(nonatomic, setter=_setRightContentMargin:) double _rightContentMargin; // @synthesize _rightContentMargin;
+@property(nonatomic, setter=_setLeftContentMargin:) double _leftContentMargin; // @synthesize _leftContentMargin;
 @property(nonatomic, setter=_setContentOverlayInsets:) struct UIEdgeInsets _contentOverlayInsets; // @synthesize _contentOverlayInsets;
+@property(nonatomic) struct UIEdgeInsets additionalSafeAreaInsets; // @synthesize additionalSafeAreaInsets=_additionalSafeAreaInsets;
 @property(nonatomic, setter=_setNavigationControllerContentOffsetAdjustment:) double _navigationControllerContentOffsetAdjustment; // @synthesize _navigationControllerContentOffsetAdjustment;
 @property(retain, nonatomic, setter=_setPresentationController:) UIPresentationController *_presentationController; // @synthesize _presentationController;
 @property(retain, nonatomic, setter=_setLastNotifiedTraitCollection:) UITraitCollection *_lastNotifiedTraitCollection; // @synthesize _lastNotifiedTraitCollection;
-@property(nonatomic, setter=_setNavigationControllerContentInsetAdjustment:) struct UIEdgeInsets _navigationControllerContentInsetAdjustment; // @synthesize _navigationControllerContentInsetAdjustment;
 @property(retain, nonatomic) UITransitionView *customTransitioningView; // @synthesize customTransitioningView=_customTransitioningView;
 @property(nonatomic) double customNavigationInteractiveTransitionPercentComplete; // @synthesize customNavigationInteractiveTransitionPercentComplete=_customNavigationInteractiveTransitionPercentComplete;
 @property(nonatomic) double customNavigationInteractiveTransitionDuration; // @synthesize customNavigationInteractiveTransitionDuration=_customNavigationInteractiveTransitionDuration;
 @property(retain, nonatomic) NSMutableArray *mutableChildViewControllers; // @synthesize mutableChildViewControllers=_childViewControllers;
 - (void).cxx_destruct;
-- (void)focusedViewDidChange;
-- (void)focusedViewWillChange;
-- (void)updatePreferredFocusedItemIfNeeded;
-- (void)setNeedsPreferredFocusedItemUpdate;
 - (void)_setNeedsNonDeferredFocusUpdate;
-- (_Bool)isAncestorOfItem:(id)arg1;
-- (id)focusedView;
-@property(nonatomic) id <UIFocusContainer> preferredFocusedItem; // @synthesize preferredFocusedItem=_preferredFocusedItem;
-- (_Bool)shouldChangeFocusedItem:(id)arg1 heading:(unsigned long long)arg2;
-- (_Bool)shouldChangeFocusedItem:(id)arg1;
-- (void)didUpdateFocusFromView:(id)arg1;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)_didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (void)willUpdateFocusToView:(id)arg1;
-- (void)willUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (_Bool)shouldUpdateFocusFromView:(id)arg1 toView:(id)arg2 heading:(unsigned long long)arg3;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
 - (void)updateFocusIfNeeded;
 - (void)setNeedsFocusUpdate;
 @property(readonly, copy, nonatomic) NSArray *preferredFocusEnvironments;
 @property(nonatomic) __weak UIView *preferredFocusedView;
+@property(readonly, nonatomic, getter=_focusMapContainer) __weak id <_UIFocusRegionContainer> focusMapContainer;
 @property(readonly, nonatomic, getter=_parentFocusEnvironment) __weak id <UIFocusEnvironment> parentFocusEnvironment;
-- (id)_overridingDestinationEnvironmentForFocusUpdateInContext:(id)arg1;
+- (id)_overridingPreferredFocusEnvironment;
 - (void)_rememberPresentingFocusedItem:(id)arg1;
+- (_Bool)_canRestoreFocusAfterTransitionToItem:(id)arg1;
 - (_Bool)_restoresFocusAfterTransitionByDefault;
 @property(nonatomic) _Bool restoresFocusAfterTransition;
 @property(readonly, nonatomic) CDStruct_d58201db __sizeClassPair;
@@ -315,6 +322,10 @@
 - (void)_setSearchDisplayController:(id)arg1 retain:(_Bool)arg2;
 - (id)defaultPNGName;
 - (id)_screen;
+- (id)childViewControllerForScreenEdgesDeferringSystemGestures;
+- (void)setNeedsUpdateOfScreenEdgesDeferringSystemGestures;
+- (id)_effectiveScreenEdgesDeferringSystemGesturesViewController;
+- (unsigned long long)preferredScreenEdgesDeferringSystemGestures;
 - (id)_childViewControllerForWhitePointAdaptivityStyle;
 - (void)_setNeedsScreenWhitePointAdaptivityStyleUpdate;
 - (void)setNeedsWhitePointAdaptivityStyleUpdate;
@@ -326,6 +337,8 @@
 - (id)_preferredStatusBarStyleAnimationParameters;
 @property(readonly, nonatomic) long long preferredStatusBarUpdateAnimation;
 @property(readonly, nonatomic) _Bool prefersStatusBarHidden;
+- (int)_preferredStatusBarVisibility;
+- (int)_defaultViewControllerStatusBarVisibilityBehavior;
 @property(readonly, nonatomic) long long preferredStatusBarStyle;
 - (long long)_preferredWhitePointAdaptivityStyle;
 - (long long)preferredWhitePointAdaptivityStyle;
@@ -418,7 +431,7 @@
 - (void)unregisterPreviewSourceView:(id)arg1;
 - (void)registerPreviewSourceView:(id)arg1 previewingDelegate:(id)arg2;
 - (void)unregisterPreviewing:(id)arg1;
-- (id)registerForPreviewingWithSourceView:(id)arg1;
+- (id)_registerForPreviewingWithDelegate:(id)arg1 sourceView:(id)arg2 implementation:(long long)arg3;
 - (void)unregisterForPreviewingWithContext:(id)arg1;
 - (id)registerForPreviewingWithDelegate:(id)arg1 sourceView:(id)arg2;
 - (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
@@ -433,6 +446,8 @@
 - (double)durationForTransition:(int)arg1;
 - (id)_backgroundColorForModalFormSheet;
 - (_Bool)_shouldIgnoreTouchesForModalFormSheet;
+@property(readonly, nonatomic) _Bool disablesAutomaticKeyboardDismissal;
+- (void)setDisablesAutomaticKeyboardDismissal:(_Bool)arg1;
 - (_Bool)_shouldAutoPinInputViewsForModalFormSheet;
 @property(nonatomic) _Bool disableRootPromotion;
 - (void)_setDisallowMixedOrientationPresentations:(_Bool)arg1;
@@ -451,6 +466,7 @@
 - (_Bool)_isInContextOfPresentationControllerOfClass:(Class)arg1 effective:(_Bool)arg2;
 - (id)_existingPresentationControllerImmediate:(_Bool)arg1 effective:(_Bool)arg2;
 - (id)popoverPresentationController:(_Bool)arg1;
+- (void)_clearCachedPopoverContentSize;
 - (_Bool)_modalPresentationStyleRequiresTemporaryPopoverPresentationController:(long long)arg1;
 - (id)presentationController;
 - (void)_didCancelDismissTransition:(id)arg1;
@@ -488,7 +504,6 @@
 - (_Bool)_shouldAdaptWhenRotated;
 - (void)_presentViewController:(id)arg1 modalSourceViewController:(id)arg2 presentationController:(id)arg3 animationController:(id)arg4 interactionController:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)_transitionToNavigationViewController:(id)arg1 withWrapper:(CDUnknownBlockType)arg2;
-- (void)_commitPreviewTransitionAsDetailOfSplitViewController:(id)arg1 withDelegate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_transitionToViewController:(id)arg1 whilePerforming:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)transitionCoordinator;
 - (id)_transitionCoordinator;
@@ -570,8 +585,9 @@
 - (_Bool)_shouldLoadInputAccessoryViewsOnAppearance;
 - (void)_unloadHierarchyInputAccessoryViewIfNecessary;
 - (void)_loadHierarchyInputAccessoryViewIfNecessary;
+- (id)_safeAreaInsetsTrace;
 - (id)_printHierarchy;
-- (id)_descriptionForPrintingHierarchy;
+- (id)_descriptionForPrintingHierarchyIncludingInsets:(_Bool)arg1;
 - (id)_descriptionWithChildren:(int)arg1;
 - (void)_traverseViewControllerHierarchyFromLevel:(long long)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)_description;
@@ -680,11 +696,12 @@
 - (id)contentScrollView;
 - (void)_clearRecordedContentScrollView;
 - (void)_recordContentScrollView;
+- (void)_viewSubtreeDidGainScrollView:(id)arg1 enclosingViewController:(id)arg2;
 - (id)_modalPreservedFirstResponder;
 - (id)_existingView;
 @property(readonly, nonatomic, getter=isViewLoaded) _Bool viewLoaded;
 @property(retain, nonatomic) UIView *view;
-- (void)_cleanupLayoutGuides;
+- (void)_cleanupTopAndBottomLayoutGuides;
 - (void)_setSharedView:(id)arg1;
 - (void)loadViewIfRequired;
 @property(readonly, nonatomic) UIView *viewIfLoaded;
@@ -702,6 +719,12 @@
 - (struct CGRect)_defaultInitialViewFrame;
 - (void)_loadViewFromNibNamed:(id)arg1 bundle:(id)arg2;
 - (void)_inferLayoutGuidesFromSubviews;
+- (id)_effectiveUserInterfaceStyleViewController;
+- (void)setNeedsUserInterfaceAppearanceUpdate;
+- (void)_setNeedsUserInterfaceAppearanceUpdate;
+@property(readonly, nonatomic) UIViewController *childViewControllerForUserInterfaceStyle;
+- (id)_childViewControllerForUserInterfaceStyle;
+@property(readonly, nonatomic) long long preferredUserInterfaceStyle;
 - (void)_updateTraitsIfNecessary;
 - (void)_traitCollectionDidChange:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
@@ -776,6 +799,10 @@
 @property(readonly, nonatomic) _Bool _monitorsSystemLayoutFittingSize;
 @property(readonly, retain, nonatomic) id <UILayoutSupport><_UILayoutItem> bottomLayoutGuide; // @synthesize bottomLayoutGuide=_bottomLayoutGuide;
 @property(readonly, retain, nonatomic) id <UILayoutSupport><_UILayoutItem> topLayoutGuide; // @synthesize topLayoutGuide=_topLayoutGuide;
+- (id)safeAreaLayoutGuide;
+@property(readonly, nonatomic) struct UIEdgeInsets _viewSafeAreaInsetsFromScene;
+- (struct UIEdgeInsets)_sceneSafeAreaInsetsOverlap;
+- (struct UIEdgeInsets)_devicePeripheryInsets;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (_Bool)_useViewBasedTopAndBottomLayoutGuides;
 - (struct UIEdgeInsets)_cumulativeOverlayInsetsForViewControllerHierarchy;
@@ -784,10 +811,26 @@
 - (struct UIEdgeInsets)_avoidanceInsets;
 - (double)_contentMarginForChildViewController:(id)arg1;
 - (void)_updateChildContentMargins;
+- (void)viewLayoutMarginsDidChange;
+- (struct UIEdgeInsets)_minimumLayoutMarginsForView;
+- (_Bool)viewRespectsSystemMinimumLayoutMargins;
+- (void)setViewRespectsSystemMinimumLayoutMargins:(_Bool)arg1;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
+- (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
+- (_Bool)__updateContentOverlayInsetsFromParentViewController:(id)arg1 viewRectInParentBounds:(struct CGRect)arg2;
+- (void)__updateContentOverlayInsetsToPresentationControllerBaseInsets;
 - (void)_updateContentOverlayInsetsFromParentIfNecessary;
+- (void)_updateContentOverlayInsetsFromParentForNavigationTransitionWithFinalRectInParent:(struct CGRect)arg1;
+- (void)_updateContentOverlayInsetsValidationWithOldInsets:(struct UIEdgeInsets)arg1;
 - (void)_updateContentOverlayInsetsForSelfAndChildren;
+@property(readonly, nonatomic) _Bool _navControllerIsLayingOutTopViewController;
+- (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1 andLeftMargin:(double)arg2 rightMargin:(double)arg3;
+- (void)viewSafeAreaInsetsDidChange;
+- (void)_safeAreaInsetsDidChangeForView;
+- (void)_updateSafeAreaInsets;
 - (void)_primitiveSetNavigationControllerContentOffsetAdjustment:(double)arg1;
+- (void)_initializeNavigationContentInsetAdjustmentForContentScrollViewIfNecessary;
+@property(nonatomic, setter=_setNavigationControllerContentInsetAdjustment:) struct UIEdgeInsets _navigationControllerContentInsetAdjustment; // @dynamic _navigationControllerContentInsetAdjustment;
 - (void)_primitiveSetNavigationControllerContentInsetAdjustment:(struct UIEdgeInsets)arg1;
 - (id)_presentationControllerClassName;
 - (id)moreListTableCell;
@@ -879,6 +922,8 @@
 - (void)_collapseSecondaryViewController:(id)arg1 forSplitViewController:(id)arg2 withTransitionCoordinator:(id)arg3;
 - (void)_splitViewControllerWillCollapseOntoPrimaryViewController:(id)arg1;
 - (id)_navigationBarForDragAffordance;
+- (void)_dismissAccessibilityHUD;
+- (void)_showAccessibilityHUDItem:(id)arg1;
 - (void)_containingAlertControllerDidChangeVisualStyle:(id)arg1;
 - (id)_visualStyleOfContainingAlertController;
 - (long long)_imagePickerStatusBarStyle;
@@ -907,8 +952,9 @@
 - (id)invalidate;
 - (void)_stateRestorationDidFinish:(_Bool)arg1;
 - (void)beginRequestWithExtensionContext:(id)arg1;
-@property(retain, nonatomic, setter=_setExtensionContext:) NSExtensionContext *extensionContext; // @dynamic extensionContext;
-- (id)_extensionContext;
+@property(readonly, nonatomic) NSExtensionContext *extensionContext; // @dynamic extensionContext;
+- (id)_extensionContextUUID;
+@property(retain, nonatomic, setter=_setExtensionContextUUID:) NSUUID *extensionContextUUID; // @dynamic extensionContextUUID;
 @property(readonly, nonatomic) UIMultiColumnViewController *_multiColumnViewController;
 - (id)autorelease;
 - (_Bool)_isDeallocating;
@@ -921,7 +967,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic, getter=_focusedItemRegionContainer) __weak id <_UIFocusRegionContainer> focusedItemRegionContainer;
+@property(readonly, nonatomic, getter=_isEligibleForFocusInteraction) _Bool eligibleForFocusInteraction;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy, nonatomic, getter=_linearFocusMovementSequences) NSArray *linearFocusMovementSequences;
 @property(readonly, nonatomic, getter=_preferredFocusMovementStyle) long long preferredFocusMovementStyle;

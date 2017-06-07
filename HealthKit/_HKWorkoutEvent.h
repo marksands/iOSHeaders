@@ -8,13 +8,13 @@
 
 #import <HealthKit/NSSecureCoding-Protocol.h>
 
-@class NSDate, NSDictionary, NSError, NSUUID;
+@class NSDateInterval, NSDictionary, NSError, NSUUID;
 
 @interface _HKWorkoutEvent : NSObject <NSSecureCoding>
 {
     NSUUID *_sessionId;
     long long _eventType;
-    NSDate *_date;
+    NSDateInterval *_dateInterval;
     NSError *_error;
     NSDictionary *_metadata;
 }
@@ -22,7 +22,7 @@
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
-@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(readonly, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
 @property(readonly, nonatomic) long long eventType; // @synthesize eventType=_eventType;
 @property(readonly, nonatomic) NSUUID *sessionId; // @synthesize sessionId=_sessionId;
 - (void).cxx_destruct;
@@ -30,7 +30,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (id)initWithSessionId:(id)arg1 error:(id)arg2;
-- (id)initWithEventType:(long long)arg1 sessionId:(id)arg2 date:(id)arg3 metadata:(id)arg4;
+- (id)initWithEventType:(long long)arg1 sessionId:(id)arg2 dateInterval:(id)arg3 metadata:(id)arg4;
 
 @end
 

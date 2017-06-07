@@ -23,8 +23,10 @@ __attribute__((visibility("hidden")))
     NSMapTable *_legendStringWidthCache;
     NSMutableDictionary *_legendStringForDistanceStringCache;
     NSNumberFormatter *_floatNumberFormatter;
+    _Bool _RTL;
 }
 
+@property(nonatomic, getter=isRTL) _Bool RTL; // @synthesize RTL=_RTL;
 @property(retain, nonatomic) NSNumberFormatter *floatNumberFormatter; // @synthesize floatNumberFormatter=_floatNumberFormatter;
 @property(retain, nonatomic) NSString *legendBaseString; // @synthesize legendBaseString=_legendBaseString;
 @property(copy, nonatomic) NSString *unpaddedUnitsString; // @synthesize unpaddedUnitsString=_unpaddedUnitsString;

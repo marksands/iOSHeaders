@@ -10,9 +10,13 @@ __attribute__((visibility("hidden")))
 @interface PUAssetSharedViewModelChange : PUViewModelChange
 {
     _Bool _loadingStatusChanged;
+    _Bool _saveProgressChanged;
+    _Bool _saveStateChanged;
 }
 
-@property(nonatomic, setter=_setLoadingStatusChanged:) _Bool loadingStatusChanged; // @synthesize loadingStatusChanged=_loadingStatusChanged;
+@property(nonatomic) _Bool saveStateChanged; // @synthesize saveStateChanged=_saveStateChanged;
+@property(nonatomic) _Bool saveProgressChanged; // @synthesize saveProgressChanged=_saveProgressChanged;
+@property(nonatomic) _Bool loadingStatusChanged; // @synthesize loadingStatusChanged=_loadingStatusChanged;
 - (_Bool)hasChanges;
 
 @end

@@ -8,12 +8,12 @@
 
 @protocol _MKPlaceItem
 @property(readonly, nonatomic) unsigned long long options;
+@property(readonly, nonatomic) _Bool hasContactOnly;
 @property(readonly, nonatomic) _Bool isContactPersisted;
 @property(readonly, nonatomic) CNContact *contact;
 @property(readonly, nonatomic) EKCalendarItem *calendarItem;
 @property(readonly, nonatomic) _Bool isIntermediateMapItem;
 @property(readonly, nonatomic) MKMapItem *mapItem;
 @property(readonly, nonatomic) NSString *name;
-- (void)setIsSuggestedFavorite:(_Bool)arg1;
 @end
 

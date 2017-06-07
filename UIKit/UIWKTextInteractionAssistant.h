@@ -19,14 +19,12 @@
     _UITextServiceSession *_lookupSession;
     UITextChecker *_textChecker;
     unsigned long long _options;
-    struct CGRect _caretBeforeTap;
     NSString *_wordBeforeTap;
-    UITapGestureRecognizer *_singleTapGesture;
-    UILongPressGestureRecognizer *_loupeGesture;
+    struct CGRect _caretBeforeTap;
 }
 
-@property(readonly, nonatomic) UILongPressGestureRecognizer *loupeGesture; // @synthesize loupeGesture=_loupeGesture;
-@property(readonly, nonatomic) UITapGestureRecognizer *singleTapGesture; // @synthesize singleTapGesture=_singleTapGesture;
+@property(nonatomic) struct CGRect caretBeforeTap; // @synthesize caretBeforeTap=_caretBeforeTap;
+@property(retain, nonatomic) NSString *wordBeforeTap; // @synthesize wordBeforeTap=_wordBeforeTap;
 - (void)lookup:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)lookup:(id)arg1 withRange:(struct _NSRange)arg2 fromRect:(struct CGRect)arg3;
 - (void)showShareSheetFor:(id)arg1 fromRect:(struct CGRect)arg2;
@@ -36,20 +34,13 @@
 - (void)showTextStyleOptions;
 - (void)selectAll:(id)arg1;
 - (void)selectWord;
-- (void)twoFingerRangedSelectGesture:(id)arg1;
-- (void)legacyTwoFingerSingleTap:(id)arg1;
-- (void)oneFingerTripleTap:(id)arg1;
 - (void)rangeSelectionCanceled;
 - (void)rangeSelectionMoved:(struct CGPoint)arg1 withTouchPoint:(struct CGPoint)arg2;
 - (void)rangeSelectionEnded:(struct CGPoint)arg1;
 - (void)rangeSelectionStarted:(struct CGPoint)arg1;
 - (void)updateWithMagnifierTerminalPoint:(_Bool)arg1;
 - (void)updateSelectionWithPoint:(struct CGPoint)arg1;
-- (void)oneFingerDoubleTap:(id)arg1;
-- (void)tapAndAHalf:(id)arg1;
-- (void)selectWithTapGestureAt:(struct CGPoint)arg1 withGesture:(long long)arg2 withState:(long long)arg3;
 - (void)loupeGestureWithState:(long long)arg1 atGesturePoint:(CDUnknownBlockType)arg2 shouldCancel:(_Bool *)arg3;
-- (void)oneFingerTap:(id)arg1;
 - (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2 withFlags:(long long)arg3;
 - (void)selectionChangedWithTouchAt:(struct CGPoint)arg1 withSelectionTouch:(long long)arg2;
 - (void)selectionChangedWithGestureAt:(struct CGPoint)arg1 withGesture:(long long)arg2 withState:(long long)arg3 withFlags:(long long)arg4;
@@ -70,8 +61,9 @@
 - (_Bool)containerAllowsSelection;
 - (_Bool)containerIsPlainStyleAtom;
 - (_Bool)containerIsAtom;
-- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
-- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (_Bool)overrideGestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)overrideGestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (Class)selectionClusterClass;
 - (void)dealloc;
 - (id)initWithView:(id)arg1;
 
@@ -79,6 +71,8 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) UILongPressGestureRecognizer *loupeGesture; // @dynamic loupeGesture;
+@property(readonly, nonatomic) UITapGestureRecognizer *singleTapGesture; // @dynamic singleTapGesture;
 @property(readonly) Class superclass;
 
 @end

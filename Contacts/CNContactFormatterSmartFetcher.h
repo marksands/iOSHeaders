@@ -22,6 +22,8 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSSet *mandatoryNameProperties; // @synthesize mandatoryNameProperties=_mandatoryNameProperties;
 @property(nonatomic) _Bool ignoresOrganization; // @synthesize ignoresOrganization=_ignoresOrganization;
 @property(nonatomic) _Bool ignoresNickname; // @synthesize ignoresNickname=_ignoresNickname;
+- (void).cxx_destruct;
+- (id)_cn_optionalKeys;
 - (id)_cn_requiredKeys;
 - (void)_cn_executeGetterForRepresentedKeys:(CDUnknownBlockType)arg1;
 - (void)setupNameKeys;
@@ -30,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

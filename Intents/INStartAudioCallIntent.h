@@ -27,11 +27,13 @@
 - (void)setContacts:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *contacts;
 @property(nonatomic) long long preferredCallProvider;
-@property(nonatomic) long long destinationType;
+- (void)setDestinationType:(long long)arg1;
+@property(readonly, nonatomic) long long destinationType;
 @property(nonatomic) long long audioRoute;
-- (id)initWithContacts:(id)arg1;
+- (id)initWithDestinationType:(long long)arg1 contacts:(id)arg2;
 - (id)_metadata;
 - (id)_typedBackingStore;
+- (id)initWithContacts:(id)arg1;
 - (void)setUseSpeaker:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool useSpeaker;
 

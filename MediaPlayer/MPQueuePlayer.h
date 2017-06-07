@@ -33,10 +33,10 @@
     _Bool _outputObscuredDueToInsufficientExternalProtection;
     unsigned long long _usesAudioOnlyModeForExternalPlaybackRevisionID;
     unsigned long long _usesExternalPlaybackWhileExternalScreenIsActiveRevisionID;
-    float _playerRate;
+    float _rawRate;
 }
 
-@property(readonly, nonatomic) float playerRate; // @synthesize playerRate=_playerRate;
+@property(readonly, nonatomic) float rawRate; // @synthesize rawRate=_rawRate;
 @property(nonatomic) long long defaultItemEQPresetType; // @synthesize defaultItemEQPresetType=_defaultItemEQPresetType;
 @property(copy, nonatomic) CDUnknownBlockType playbackQueueCommitHandler; // @synthesize playbackQueueCommitHandler=_playbackQueueCommitHandler;
 - (void).cxx_destruct;
@@ -53,7 +53,7 @@
 @property(nonatomic) _Bool disallowsAMRAudio;
 - (void)_setClientName:(id)arg1;
 - (void)_setCALayerDestinationIsTVOut:(_Bool)arg1;
-- (_Bool)_resumePlayback:(double)arg1 error:(id *)arg2;
+- (_Bool)_resumePlayback:(double)arg1;
 - (void)_currentItemDidChangeNotification:(id)arg1;
 - (_Bool)_CALayerDestinationIsTVOut;
 @property(readonly, nonatomic) _Bool outputObscuredDueToInsufficientExternalProtection;
@@ -72,7 +72,6 @@
 - (void)seekToTime:(CDStruct_1b6d18a9)arg1 toleranceBefore:(CDStruct_1b6d18a9)arg2 toleranceAfter:(CDStruct_1b6d18a9)arg3;
 - (void)seekToTime:(CDStruct_1b6d18a9)arg1;
 - (void)setCurrentPlaybackQueueTransactionDisplayTime:(CDStruct_1b6d18a9)arg1;
-@property(nonatomic, getter=isClosedCaptionDisplayEnabled) _Bool closedCaptionDisplayEnabled;
 - (void)removeTimeObserver:(id)arg1;
 - (void)removeAllItems;
 - (void)removeItem:(id)arg1;

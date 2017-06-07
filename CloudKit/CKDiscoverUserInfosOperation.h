@@ -31,7 +31,6 @@
 - (void)fillFromOperationInfo:(id)arg1;
 - (void)fillOutOperationInfo:(id)arg1;
 - (Class)operationInfoClass;
-- (void)setLongLived:(_Bool)arg1;
 - (id)initWithEmailAddresses:(id)arg1 userRecordIDs:(id)arg2;
 - (id)init;
 

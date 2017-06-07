@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     UIImageView *_highlightedImageView;
 }
 
-+ (struct CGSize)preferredSizeForTitleLabelText:(id)arg1 screenScale:(double)arg2;
++ (struct CGSize)preferredSizeForSheetWidth:(double)arg1 sizeCategory:(id)arg2 titleLabelText:(id)arg3 screenScale:(double)arg4;
 @property(retain, nonatomic) UIImageView *highlightedImageView; // @synthesize highlightedImageView=_highlightedImageView;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) _UIActivityGroupActivityCellTitleLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (void)initHighlightedImageViewIfNeeded;
 - (void)updateHighlightedImageViewIfNeeded;
 - (void)setHighlighted:(_Bool)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)prepareForReuse;

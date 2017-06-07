@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNObjectValidation-Protocol.h>
 #import <Contacts/NSSecureCoding-Protocol.h>
@@ -34,15 +34,16 @@
     NSMutableDictionary *_parentRecordsByIdentifier;
     _Bool _unsafeApplyChangesOnly;
     NSString *_saveRequestIdentifier;
-    NSString *_clientIdentifier;
+    NSString *_changeHistoryClientIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+@property(copy, nonatomic) NSString *changeHistoryClientIdentifier; // @synthesize changeHistoryClientIdentifier=_changeHistoryClientIdentifier;
 @property(readonly, copy, nonatomic) NSDictionary *deletedContactsByIdentifier; // @synthesize deletedContactsByIdentifier=_deletedContactsByIdentifier;
 @property(readonly, copy, nonatomic) NSString *saveRequestIdentifier; // @synthesize saveRequestIdentifier=_saveRequestIdentifier;
 @property(readonly, copy, nonatomic) NSArray *addedAccounts; // @synthesize addedAccounts=_addedAccounts;
 @property(nonatomic) _Bool unsafeApplyChangesOnly; // @synthesize unsafeApplyChangesOnly=_unsafeApplyChangesOnly;
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSArray *allAccountIdentifierStrings;
 - (id)allAccountIdentifiers;
 - (id)allContainerIdentifierStrings:(_Bool *)arg1;
@@ -100,7 +101,6 @@
 - (void)queueUpdatedObject:(id)arg1 intoArray:(id)arg2;
 - (void)_insertContact:(id)arg1 intoDictionary:(id)arg2 complementDictionary:(id)arg3;
 @property(readonly, copy, nonatomic) NSString *storeIdentifier;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

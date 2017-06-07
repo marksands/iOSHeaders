@@ -22,7 +22,6 @@
 + (id)keyPathsForValuesAffectingPlayerLayer;
 + (Class)layerClass;
 - (void).cxx_destruct;
-- (_Bool)_isPlayingOnSecondScreen;
 - (void)didMoveToWindow;
 - (void)stopRoutingVideoToPictureInPicturePlayerLayerView;
 - (void)startRoutingVideoToPictureInPicturePlayerLayerView;

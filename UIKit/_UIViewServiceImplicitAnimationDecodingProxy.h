@@ -15,11 +15,12 @@ __attribute__((visibility("hidden")))
 {
     SEL _implicitAnimationSelector;
     _UIViewAnimationAttributes *_animationAttributes;
+    _Bool _animationsEnabled;
 }
 
 + (id)proxyDecodingAnimationsForTarget:(id)arg1;
 - (void).cxx_destruct;
-- (void)__animateNextInvocationOfSelector:(id)arg1 withAnimationAttributes:(id)arg2;
+- (void)__animateNextInvocationOfSelector:(id)arg1 withAnimationAttributes:(id)arg2 animationsEnabled:(_Bool)arg3;
 - (void)forwardInvocation:(id)arg1;
 
 // Remaining properties

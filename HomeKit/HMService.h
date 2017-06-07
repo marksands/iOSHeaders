@@ -33,12 +33,14 @@
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
     HMDelegateCaller *_delegateCaller;
+    NSUUID *_uuid;
 }
 
 + (id)__localizedDescriptionForServiceType:(id)arg1;
 + (id)localizedDescriptionForServiceType:(id)arg1;
 + (id)_serviceTypeAsString:(id)arg1;
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;

@@ -6,19 +6,14 @@
 
 #import <UIKit/UIBlurEffect.h>
 
-@class UIColor;
-
 __attribute__((visibility("hidden")))
 @interface _UIPopoverBackgroundVisualEffect : UIBlurEffect
 {
     _Bool _tintColorIsTranslucent;
-    UIColor *_tintColor;
 }
 
 + (id)effectWithStyle:(long long)arg1 tint:(id)arg2;
 @property(readonly, nonatomic) _Bool tintColorIsTranslucent; // @synthesize tintColorIsTranslucent=_tintColorIsTranslucent;
-@property(readonly, copy, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
-- (void).cxx_destruct;
 - (id)effectSettings;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

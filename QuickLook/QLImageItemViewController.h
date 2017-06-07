@@ -17,19 +17,20 @@ __attribute__((visibility("hidden")))
     QLAnimatedImage *_animatedImage;
     double _initialTimeStamp;
     double _currentPlaybackTime;
-    long long _loadingIndex;
     struct CGSize _imageSize;
     _Bool _imageIsAnimated;
 }
 
++ (_Bool)shouldBeRemoteForContentType:(id)arg1;
++ (id)supportedContentTypes;
++ (Class)transformerClass;
 - (void).cxx_destruct;
 - (void)animationTimerFired:(double)arg1;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (struct CGSize)imageSize;
-- (void)dealloc;
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

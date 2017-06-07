@@ -22,7 +22,6 @@
 @property(readonly, nonatomic) NSDateComponents *statisticsInterval; // @synthesize statisticsInterval=_statisticsInterval;
 @property(readonly, nonatomic) NSDate *anchorDate; // @synthesize anchorDate=_anchorDate;
 - (void).cxx_destruct;
-- (id)_statisticsPeriodsFromDate:(id)arg1 toDate:(id)arg2;
 - (id)_statisticsPeriodAndIndex:(long long *)arg1 forDate:(id)arg2;
 - (void)_enumerateStatisticsIndexesFromDate:(id)arg1 toDate:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (void)_timePeriodForStatisticsAtIndex:(long long)arg1 startDate:(id *)arg2 endDate:(id *)arg3;

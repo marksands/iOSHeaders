@@ -11,8 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (double)centerColumnWidthFactor;
 - (double)controlColumnWidthFactor;
-- (void)setupColumnLayoutSegmentsWithControlWidth:(double)arg1;
 
 @end
 

@@ -6,9 +6,11 @@
 
 #import <UIKit/UIBarItem.h>
 
+#import <UIKit/UISpringLoadedInteractionSupporting-Protocol.h>
+
 @class NSString, UIColor, UIImage, UITabBarButton, _UITabBarItemAppearanceStorage;
 
-@interface UITabBarItem : UIBarItem
+@interface UITabBarItem : UIBarItem <UISpringLoadedInteractionSupporting>
 {
     NSString *_title;
     SEL _action;
@@ -18,6 +20,10 @@
     UIImage *_selectedImage;
     UIImage *_unselectedImage;
     struct UIEdgeInsets _imageInsets;
+    UIImage *_landscapeTemplateImage;
+    UIImage *_landscapeSelectedTemplateImage;
+    UIImage *_landscapeSelectedImage;
+    struct UIEdgeInsets _landscapeImageInsets;
     NSString *_badgeValue;
     UITabBarButton *_view;
     _UITabBarItemAppearanceStorage *_appearanceStorage;
@@ -29,6 +35,7 @@
         unsigned int customSelectedImage:1;
         unsigned int customUnselectedImage:1;
     } _tabBarItemFlags;
+    _Bool _springLoaded;
     long long __barMetrics;
     long long __imageStyle;
     UIColor *__tintColor;
@@ -46,6 +53,8 @@
 - (void)_setTitleTextAttributeValue:(id)arg1 forAttributeKey:(id)arg2 state:(unsigned long long)arg3;
 - (id)_updateImageWithTintColor:(id)arg1 isSelected:(_Bool)arg2 getImageOffset:(struct UIOffset *)arg3;
 - (void)_updateButtonForTintColor:(id)arg1 selected:(_Bool)arg2;
+- (id)_internalLandscapeTemplateImage;
+- (void)_setInternalLandscapeTemplateImage:(id)arg1;
 - (id)_internalTemplateImage;
 - (void)_setInternalTemplateImage:(id)arg1;
 - (id)_internalTitle;
@@ -74,9 +83,21 @@
 - (id)finishedUnselectedImage;
 - (id)finishedSelectedImage;
 - (void)setFinishedSelectedImage:(id)arg1 withFinishedUnselectedImage:(id)arg2;
+- (void)setLandscapeSelectedImagePhone:(id)arg1;
+- (id)landscapeSelectedImagePhone;
 @property(retain, nonatomic) UIImage *selectedImage;
+- (void)setLargeContentSizeImageInsets:(struct UIEdgeInsets)arg1;
+- (struct UIEdgeInsets)largeContentSizeImageInsets;
+- (void)setLargeContentSizeImage:(id)arg1;
+- (id)largeContentSizeImage;
+- (id)_internalLargeContentSizeImage;
+- (id)_internalLandscapeTemplateImages;
+- (struct UIEdgeInsets)landscapeImagePhoneInsets;
+- (void)setLandscapeImagePhoneInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)imageInsets;
 - (void)setImageInsets:(struct UIEdgeInsets)arg1;
+- (id)landscapeImagePhone;
+- (void)setLandscapeImagePhone:(id)arg1;
 - (id)image;
 - (void)setImage:(id)arg1;
 - (id)title;
@@ -94,6 +115,13 @@
 - (void)_updateViewBadge;
 - (void)_showSelectedIndicator:(_Bool)arg1 changeSelection:(_Bool)arg2;
 @property(nonatomic, getter=_isSelected, setter=_setSelected:) _Bool _selected;
+@property(nonatomic, getter=isSpringLoaded) _Bool springLoaded;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

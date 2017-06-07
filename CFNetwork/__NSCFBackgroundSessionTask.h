@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)_onqueue_adjustLoadingPoolPriority;
 - (void)_onqueue_adjustPoolPriority;
 - (void)_onqueue_resume;
+- (id)_onqueue_additionalBackgroundProperties;
 - (void)_onqueue_cancel;
 - (void)_onqueue_suspend;
 - (void)_onqueue_didSendBodyBytes:(long long)arg1 totalBytesSent:(long long)arg2 totalBytesExpectedToSend:(long long)arg3;

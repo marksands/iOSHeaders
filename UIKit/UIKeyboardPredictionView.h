@@ -19,8 +19,13 @@ __attribute__((visibility("hidden")))
     NSMutableArray *m_oneTextCells;
     NSMutableArray *m_emojiCells;
     NSMutableArray *m_textAndEmojiCells;
+    NSMutableArray *m_safariCredentialThreeExtraTextCells;
+    NSMutableArray *m_safariCredentialTwoExtraTextCells;
+    NSMutableArray *m_safariCredentialOneExtraTextCells;
+    NSMutableArray *m_safariCredentialZeroExtraTextCells;
     UIKeyboardPredictionCell *m_lastCell;
     unsigned long long m_activeIndex;
+    long long m_pendingAutofillCandidateIndex;
     double m_width;
     _Bool m_lightKeyboard;
     NSString *m_openQuote;
@@ -51,6 +56,7 @@ __attribute__((visibility("hidden")))
     long long _lastTextSuggestionUpdateOrientation;
 }
 
++ (id)cellWidthOptions;
 + (id)resultCountToSingleCellWidth;
 + (id)activeInstance;
 + (id)sharedInstance;
@@ -58,6 +64,7 @@ __attribute__((visibility("hidden")))
 + (double)predictionViewWidthForOrientation:(long long)arg1;
 + (double)predictionViewHeightPaddingForOrientation:(long long)arg1;
 + (double)predictionViewHeightForState:(int)arg1 orientation:(long long)arg2;
++ (unsigned long long)maxNumberOfAutofillCandidate;
 + (unsigned long long)numberOfCandidates;
 @property(nonatomic) long long lastTextSuggestionUpdateOrientation; // @synthesize lastTextSuggestionUpdateOrientation=_lastTextSuggestionUpdateOrientation;
 @property(retain, nonatomic) NSDate *lastTextSuggestionUpdateDate; // @synthesize lastTextSuggestionUpdateDate=_lastTextSuggestionUpdateDate;
@@ -95,6 +102,8 @@ __attribute__((visibility("hidden")))
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)delayActivateCellForPrediction:(id)arg1;
 - (void)commitPrediction:(id)arg1;
+- (void)_commitPrediction:(id)arg1;
+- (_Bool)shouldAuthCommitPrediction;
 - (void)acceptPredictiveInput:(id)arg1;
 - (id)autocorrection;
 - (unsigned long long)indexForPoint:(struct CGPoint)arg1;
@@ -102,6 +111,7 @@ __attribute__((visibility("hidden")))
 - (void)setTouchedCellState:(int)arg1;
 - (void)updateBackgroundWithRenderConfig:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
+- (void)setFrameForCells;
 - (void)setFrameForCells:(id)arg1 start:(double)arg2 width:(double)arg3 height:(double)arg4;
 - (void)dealloc;
 - (void)releaseMessage;
@@ -111,6 +121,7 @@ __attribute__((visibility("hidden")))
 - (void)suspend;
 - (int)messageCount;
 - (int)maxMessageCount;
+- (void)contentSizeDidChange:(id)arg1;
 - (void)inputModeDidChange;
 - (void)dimKeys:(id)arg1;
 - (int)stateForCurrentPreferences;

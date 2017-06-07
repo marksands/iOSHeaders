@@ -6,13 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
 #import <QuartzCore/NSCopying-Protocol.h>
 #import <QuartzCore/NSMutableCopying-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface CAMeshTransform : NSObject <NSCoding, NSCopying, NSMutableCopying>
+@interface CAMeshTransform : NSObject <NSSecureCoding, NSCopying, NSMutableCopying>
 {
     void *_impl;
     unsigned long long _normalization;
@@ -21,6 +21,7 @@
 
 + (void)CAMLParserEndElement:(id)arg1 content:(id)arg2;
 + (void)CAMLParserStartElement:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (id)meshTransformWithVertexCount:(unsigned long long)arg1 vertices:(const struct CAMeshVertex *)arg2 faceCount:(unsigned long long)arg3 faces:(const struct CAMeshFace *)arg4 depthNormalization:(id)arg5;
 - (id)meshTransformForLayer:(id)arg1;
 - (double)CA_distanceToValue:(id)arg1;

@@ -22,6 +22,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)_enumerateItemPersistentIDsUsingBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)count;
 - (id)representativeItem;
 - (id)items;

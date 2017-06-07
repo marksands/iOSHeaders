@@ -9,11 +9,12 @@
 #import <UIKit/UIGestureRecognizerDelegatePrivate-Protocol.h>
 #import <UIKit/UIInterfaceActionHandlerInvocationDelegate-Protocol.h>
 #import <UIKit/UIScrollViewDelegate-Protocol.h>
+#import <UIKit/UISpringLoadedInteractionSupporting-Protocol.h>
 
 @class NSArray, NSLayoutConstraint, NSMutableArray, NSString, UIAlertAction, UIAlertController, UIAlertControllerVisualStyle, UILabel, _UIAlertControllerActionViewMetrics, _UIAlertControllerInterfaceActionGroupView, _UIKeyboardLayoutAlignmentView;
 
 __attribute__((visibility("hidden")))
-@interface _UIAlertControllerView : UIView <UIInterfaceActionHandlerInvocationDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegatePrivate>
+@interface _UIAlertControllerView : UIView <UIInterfaceActionHandlerInvocationDelegate, UIScrollViewDelegate, UISpringLoadedInteractionSupporting, UIGestureRecognizerDelegatePrivate>
 {
     UIAlertController *_alertController;
     UIAlertControllerVisualStyle *_visualStyle;
@@ -49,8 +50,9 @@ __attribute__((visibility("hidden")))
     _Bool _hasCachedLargestActionDimension;
     struct CGSize _largestActionDimension;
     UIAlertAction *_effectivePreferredAction;
-    long long _coalescingActionsChangedCount;
+    long long _batchActionChangesInProgressCount;
     _Bool _needsActionsChangedHandling;
+    _Bool _springLoaded;
     _Bool _actionsReversed;
     _Bool _presentationContextPrefersCancelActionShown;
     _UIAlertControllerActionViewMetrics *_actionViewMetrics;
@@ -135,16 +137,18 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=_layoutSize, setter=_setLayoutSize:) struct CGSize layoutSize; // @synthesize layoutSize=_layoutSize;
 @property(nonatomic, getter=_actionsReversed, setter=_setActionsReversed:) _Bool actionsReversed; // @synthesize actionsReversed=_actionsReversed;
 @property(retain, nonatomic) _UIAlertControllerActionViewMetrics *actionViewMetrics; // @synthesize actionViewMetrics=_actionViewMetrics;
+@property(nonatomic, getter=isSpringLoaded) _Bool springLoaded; // @synthesize springLoaded=_springLoaded;
 @property(readonly) UIView *_dimmingView; // @synthesize _dimmingView;
 @property(readonly) UIView *_contentView; // @synthesize _contentView;
 - (void).cxx_destruct;
 - (_Bool)_forceLayoutEngineSolutionInRationalEdges;
-- (_Bool)shouldChangeFocusedItem:(id)arg1 heading:(unsigned long long)arg2;
+- (_Bool)shouldUpdateFocusInContext:(id)arg1;
 - (id)preferredFocusedView;
 - (long long)tintAdjustmentMode;
 - (void)setTintAdjustmentMode:(long long)arg1;
 - (void)configureForDismissAlongsideTransitionCoordinator:(id)arg1;
 - (void)configureForPresentAlongsideTransitionCoordinator:(id)arg1;
+- (void)_disableAllowGroupOpacitiyIfNecessaryAlongsideTransitionCoordinator:(id)arg1;
 @property(nonatomic) double effectAlpha;
 - (void)didMoveToWindow;
 - (void)didMoveToSuperview;
@@ -153,8 +157,8 @@ __attribute__((visibility("hidden")))
 - (void)_recomputeActionMetrics;
 - (void)_sizeOfTextFieldViewControllerChanged;
 - (void)_sizeOfContentViewControllerChanged;
-- (void)_removeContentViewController;
-- (void)_didAddContentViewController;
+- (void)_removeContentViewControllerViewFromHierarchy;
+- (void)_addContentViewControllerToViewHierarchy;
 @property _Bool alignsToKeyboard;
 @property _Bool shouldHaveBackdropView;
 @property _Bool cancelActionIsDiscrete;
@@ -192,10 +196,11 @@ __attribute__((visibility("hidden")))
 - (void)_contentSizeChanged;
 - (void)_updateTintColor;
 - (void)_updateConstraintConstants;
+- (void)_updateActionViewHeight;
 - (void)_updateActionViewVisualStyle:(id)arg1;
 - (void)_updateContentView;
 - (void)_updateInsets;
-- (void)_updateLabelMaximumLines;
+- (void)_updateLabelProperties;
 - (void)_updateLabelTextColor;
 - (void)_updateLabelFontSizes;
 - (void)_updateMessageLabelFontSize;
@@ -230,7 +235,9 @@ __attribute__((visibility("hidden")))
 - (void)_reloadInterfaceActionsGroupViewPreferredAction;
 - (void)_reloadInterfaceActionViewRepresentations;
 - (id)_interfaceActionForAlertAction:(id)arg1 inActionGroupView:(id)arg2;
+- (id)_interfaceActionRepresentationForAlertAlertAction:(id)arg1;
 - (void)_textFieldsChanged;
+- (void)_associateActionsWithActionViews;
 - (void)_actionsChanged;
 - (void)_performBatchActionChangesWithBlock:(CDUnknownBlockType)arg1;
 - (void)_propertiesChanged;

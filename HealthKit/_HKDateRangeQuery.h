@@ -6,19 +6,31 @@
 
 #import <HealthKit/HKQuery.h>
 
-@interface _HKDateRangeQuery : HKQuery
+#import <HealthKit/HKDateRangeQueryClientInterface-Protocol.h>
+
+@class NSString;
+
+@interface _HKDateRangeQuery : HKQuery <HKDateRangeQueryClientInterface>
 {
     CDUnknownBlockType _handler;
 }
 
++ (void)configureClientInterface:(id)arg1;
++ (id)clientInterfaceProtocol;
 - (void).cxx_destruct;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (_Bool)_queue_shouldStayAliveAfterInitialResults;
-- (void)_queue_validate;
-- (void)_queue_cleanupAfterDeactivation;
-- (_Bool)_requiresValidSampleType;
-- (void)deliverDateRangeDictionary:(struct NSDictionary *)arg1 forQuery:(id)arg2;
+- (void)queue_deliverError:(id)arg1;
+- (_Bool)queue_shouldDeactivateAfterInitialResults;
+- (void)queue_validate;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)client_deliverDateRangeDictionary:(struct NSDictionary *)arg1 forQuery:(id)arg2;
 - (id)initWithHandler:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

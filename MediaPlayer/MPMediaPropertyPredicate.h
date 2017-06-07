@@ -19,6 +19,7 @@
 
 + (id)predicateWithValue:(id)arg1 forProperty:(id)arg2 comparisonType:(long long)arg3;
 + (id)predicateWithValue:(id)arg1 forProperty:(id)arg2;
++ (_Bool)supportsSecureCoding;
 - (void).cxx_destruct;
 @property(nonatomic) long long comparisonType;
 @property(copy, nonatomic) id value;

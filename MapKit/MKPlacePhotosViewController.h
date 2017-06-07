@@ -6,48 +6,65 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
+#import <MapKit/MKPlaceAttributionCellDelegate-Protocol.h>
 #import <MapKit/MKPlacePhotosViewDelegate-Protocol.h>
+#import <MapKit/UIScrollViewDelegate-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
-@class MKMapItem, NSArray, NSString, _MKPlaceViewController;
-@protocol MKPlaceCardPhotosControllerDelegate;
+@class MKMapItem, MKPhotoSmallAttributionView, MKPlaceAttributionCell, NSArray, NSLayoutConstraint, NSString, UIScrollView, UIView, _MKPlaceViewController;
+@protocol MKPlaceCardPhotosControllerDelegate><MKPlaceCardActionControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKPlacePhotosViewController : UIViewController <MKPlacePhotosViewDelegate, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKPlacePhotosViewController : UIViewController <MKPlaceAttributionCellDelegate, MKPlacePhotosViewDelegate, UIScrollViewDelegate, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     NSArray *_photoViews;
-    _Bool _constraintsAdded;
-    _Bool _canUseInlineViewer;
+    UIScrollView *_photosContainerScrollView;
+    UIView *_photosContainer;
+    MKPhotoSmallAttributionView *_photosSmallAttributionsView;
+    _Bool _canUseFullscreenViewer;
+    _Bool _canUseGallery;
+    _Bool _photoLoaded;
+    _Bool _isRTL;
     unsigned long long _photosCount;
-    unsigned long long _mode;
     MKMapItem *_mapItem;
-    id <MKPlaceCardPhotosControllerDelegate> _photosControllerDelegate;
+    NSLayoutConstraint *_heightConstraint;
+    NSArray *_photos;
+    unsigned long long _mode;
+    unsigned long long _originalMode;
+    MKPlaceAttributionCell *_attributionCell;
     _MKPlaceViewController *_owner;
+    id <MKPlaceCardPhotosControllerDelegate><MKPlaceCardActionControllerDelegate> _photosControllerDelegate;
 }
 
+@property(nonatomic) __weak id <MKPlaceCardPhotosControllerDelegate><MKPlaceCardActionControllerDelegate> photosControllerDelegate; // @synthesize photosControllerDelegate=_photosControllerDelegate;
 @property(nonatomic) __weak _MKPlaceViewController *owner; // @synthesize owner=_owner;
-@property(nonatomic) __weak id <MKPlaceCardPhotosControllerDelegate> photosControllerDelegate; // @synthesize photosControllerDelegate=_photosControllerDelegate;
-@property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
-@property(readonly, nonatomic) unsigned long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
 - (id)infoCardChildPossibleActions;
 - (id)placePhotoViewerGetDelegatesMapItem;
 - (void)placePhotoViewerWillClose:(id)arg1 photo:(id)arg2 onIndex:(unsigned long long)arg3;
 - (void)placePhotoViewerAttributionTappedForPhotoAtIndex:(unsigned long long)arg1 photo:(id)arg2;
 - (id)placePhotoViewerViewForPhotoAtIndex:(unsigned long long)arg1;
-- (void)_callPhotoDelegateForPhotoAt:(unsigned long long)arg1 fromLicense:(_Bool)arg2;
+- (void)_callPhotoDelegateForPhotoAt:(unsigned long long)arg1;
 - (void)_photoTappedAtIndex:(unsigned long long)arg1;
 - (void)_photoSelected:(id)arg1;
-- (void)_reloadPhotos;
-- (void)updateViewConstraints;
+- (void)_loadPhotos;
+- (void)_cancelLoadPhotos;
 - (void)_updatePhotoBackgroundColor:(id)arg1;
 - (void)infoCardThemeChanged:(id)arg1;
-- (void)_createPhotoViews;
-- (id)photos;
+- (void)updateAttributionPositionWithOffset:(double)arg1;
+- (void)scrollViewDidScroll:(id)arg1;
+- (void)viewDidLayoutSubviews;
+- (struct CGSize)sizeForIndex:(unsigned long long)arg1;
+- (void)layoutImages;
+- (void)_createImageViews;
+- (void)openURL;
+- (id)attributionString;
+- (void)addAttributionCell;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (void)loadView;
-- (id)initWithLayoutMode:(unsigned long long)arg1;
+- (id)initWithMapItem:(id)arg1 mode:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -18,8 +18,9 @@
 }
 
 + (id)sortedAvatarListFromParticipants:(id)arg1;
++ (id)contactForAddress:(id)arg1 fullName:(id)arg2 firstName:(id)arg3 lastName:(id)arg4;
++ (id)contactForPhoneNumber:(id)arg1 fullName:(id)arg2 firstName:(id)arg3 lastName:(id)arg4;
 + (id)contactForEmailAddress:(id)arg1 fullName:(id)arg2 firstName:(id)arg3 lastName:(id)arg4;
-+ (id)sharedContactStore;
 + (id)_createAvatarView;
 @property unsigned long long options; // @synthesize options=_options;
 @property unsigned long long labelPlacement; // @synthesize labelPlacement=_labelPlacement;
@@ -29,7 +30,7 @@
 - (void).cxx_destruct;
 - (void)updateWithContacts:(id)arg1;
 - (void)updateWithParticpant:(id)arg1;
-- (void)updateWithEmail:(id)arg1 fullName:(id)arg2 firstName:(id)arg3 lastName:(id)arg4;
+- (void)updateWithAddress:(id)arg1 fullName:(id)arg2 firstName:(id)arg3 lastName:(id)arg4;
 - (void)updateLabel;
 @property(retain) CNContact *contact;
 - (void)setup;

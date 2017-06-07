@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)layoutForBarButtonItem:(id)arg1;
 - (void)_updateGroupSizing;
 - (id)initWithLayoutMetrics:(id)arg1 barButtonItemGroup:(id)arg2;
+- (_Bool)shouldHoriziontallyCenterView:(id)arg1;
 - (id)initWithLayoutMetrics:(id)arg1;
 
 @end

@@ -12,8 +12,12 @@
 
 + (id)applyWithExtent:(struct CGRect)arg1 inputs:(id)arg2 arguments:(id)arg3 error:(id *)arg4;
 + (unsigned long long)_digestForArgs:(id)arg1;
++ (_Bool)skipFormatChecks;
 + (_Bool)synchronizeInputs;
++ (_Bool)outputIsOpaque;
++ (_Bool)allowSRGBTranferFuntionOnOutput;
 + (int)outputFormat;
++ (_Bool)allowSRGBTranferFuntionOnInputAtIndex:(int)arg1;
 + (int)formatForInputAtIndex:(int)arg1;
 + (struct CGRect)roiForInput:(int)arg1 arguments:(id)arg2 outputRect:(struct CGRect)arg3;
 + (_Bool)processWithInputs:(id)arg1 arguments:(id)arg2 output:(id)arg3 error:(id *)arg4;

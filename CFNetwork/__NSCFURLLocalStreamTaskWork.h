@@ -6,12 +6,15 @@
 
 #import <Foundation/NSObject.h>
 
+@class NSError;
+
 __attribute__((visibility("hidden")))
 @interface __NSCFURLLocalStreamTaskWork : NSObject
 {
     const char *_static_description;
     double _timeout;
     double _timeoutTime;
+    NSError *_recvdError;
 }
 
 - (id)description;

@@ -64,6 +64,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(setter=nsli_setPiercingToken:) unsigned long long nsli_piercingToken;
 @property(readonly) Class superclass;
 
 @end

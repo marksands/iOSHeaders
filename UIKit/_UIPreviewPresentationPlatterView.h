@@ -16,13 +16,17 @@ __attribute__((visibility("hidden")))
     _UIPreviewPresentationEffectView *_contentEffectView;
     _UIPreviewPresentationEffectView *_contentClipView;
     UIView *_contentTransformView;
+    UIView *_contentShadowView;
     struct CGSize _contentSize;
+    struct CGSize _contentClippingSize;
 }
 
+@property(retain, nonatomic) UIView *contentShadowView; // @synthesize contentShadowView=_contentShadowView;
 @property(retain, nonatomic) UIView *contentTransformView; // @synthesize contentTransformView=_contentTransformView;
 @property(retain, nonatomic) _UIPreviewPresentationEffectView *contentClipView; // @synthesize contentClipView=_contentClipView;
 @property(retain, nonatomic) _UIPreviewPresentationEffectView *contentEffectView; // @synthesize contentEffectView=_contentEffectView;
 @property(nonatomic, getter=isDropShadowEnabled) _Bool dropShadowEnabled; // @synthesize dropShadowEnabled=_dropShadowEnabled;
+@property(nonatomic) struct CGSize contentClippingSize; // @synthesize contentClippingSize=_contentClippingSize;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;

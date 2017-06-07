@@ -19,6 +19,8 @@
 - (void)addInput:(id)arg1;
 - (_Bool)canAddInput:(id)arg1;
 - (_Bool)_canAddInput:(id)arg1 exceptionReason:(id *)arg2;
+- (void)setSinglePassMediaDataSize:(long long)arg1;
+- (void)setSinglePassFileSize:(long long)arg1;
 - (void)setPreferredRate:(float)arg1;
 - (void)setPreferredVolume:(float)arg1;
 - (void)setPreferredTransform:(struct CGAffineTransform)arg1;

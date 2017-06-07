@@ -16,26 +16,33 @@
 {
     NSString *_bundleIdentifier;
     NSMutableDictionary *_usage;
+    id _validationToken;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)_serverQueue;
 + (id)ODRUsageForBundleIdentifier:(id)arg1 error:(id *)arg2;
 + (id)ODRConnection;
-+ (id)dynamicUsageForBundleIdentifier:(id)arg1 error:(id *)arg2;
++ (id)usageFromMobileInstallationForBundleIdentifier:(id)arg1 error:(id *)arg2;
++ (id)mobileInstallationQueue;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)debugDescription;
+- (void)removeAllCachedUsageValues;
+@property(readonly, nonatomic) NSNumber *sharedUsage; // @dynamic sharedUsage;
 @property(readonly, nonatomic) NSNumber *onDemandResourcesUsage; // @dynamic onDemandResourcesUsage;
 @property(readonly, nonatomic) NSNumber *dynamicUsage; // @dynamic dynamicUsage;
 @property(readonly, nonatomic) NSNumber *staticUsage; // @dynamic staticUsage;
-- (void)dealloc;
 - (id)init;
 - (_Bool)_fetchWithXPCConnection:(id)arg1 error:(id *)arg2;
-- (id)_initWithBundleIdentifier:(id)arg1 alreadyKnownUsage:(id)arg2;
+- (id)_initWithBundleIdentifier:(id)arg1 alreadyKnownUsage:(id)arg2 validationToken:(id)arg3;
 - (_Bool)fetchClientSideWithError:(id *)arg1;
-- (_Bool)fetchServerSideWithError:(id *)arg1;
+- (_Bool)fetchServerSideWithConnection:(id)arg1 error:(id *)arg2;
+- (_Bool)_isValidWithConnection:(id)arg1;
+- (id)_validationTokenPayload;
 
 @end
 

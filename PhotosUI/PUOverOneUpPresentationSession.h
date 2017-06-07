@@ -58,7 +58,7 @@
 - (void).cxx_destruct;
 - (void)ppt_presentPhotoEditor;
 - (void)ppt_cancelActivity;
-- (void)ppt_shareUsing:(id)arg1;
+- (void)ppt_shareUsingActivityOfType:(id)arg1;
 - (void)ppt_dismissShareSheetWithCompletion:(CDUnknownBlockType)arg1;
 - (void)ppt_tapNextButton:(CDUnknownBlockType)arg1;
 - (void)ppt_presentShareSheetWithCompletion:(CDUnknownBlockType)arg1;

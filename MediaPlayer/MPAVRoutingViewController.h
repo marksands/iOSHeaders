@@ -34,6 +34,8 @@
     _Bool _hasCachedAirPlayDebugButtonStatus;
     _Bool _needsDisplayedRoutesUpdate;
     _Bool _suspendedDiscoveryModeDueToApplicationState;
+    _Bool _shouldAutomaticallyUpdateRoutesList;
+    _Bool _shouldPickRouteOnSelection;
     unsigned long long _updatesSincePresentation;
     long long _discoveryModeBeforeEnteringBackground;
     unsigned long long _style;
@@ -75,8 +77,11 @@
 - (void)_registerNotifications;
 - (void)_applicationWillEnterForegroundNotification:(id)arg1;
 - (void)_applicationDidEnterBackgroundNotification:(id)arg1;
-- (void)_serviceWillPresentAuthenticationPromptNotification:(id)arg1;
 - (double)_tableViewHeightAccordingToDataSource;
+- (void)_setShouldPickRouteOnSelection:(_Bool)arg1;
+- (_Bool)_shouldPickRouteOnSelection;
+- (void)_setShouldAutomaticallyUpdateRoutesList:(_Bool)arg1;
+- (_Bool)_shouldAutomaticallyUpdateRoutesList;
 - (void)_setTableCellsContentColor:(id)arg1;
 - (void)_setTableCellsBackgroundColor:(id)arg1;
 - (id)_tableCellsContentColor;
@@ -103,8 +108,10 @@
 - (void)viewDidLoad;
 @property(nonatomic) _Bool allowMirroring;
 - (void)dealloc;
+- (id)initWithStyle:(unsigned long long)arg1 routingController:(id)arg2;
 - (id)initWithStyle:(unsigned long long)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)_initWithStyle:(unsigned long long)arg1 routingController:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

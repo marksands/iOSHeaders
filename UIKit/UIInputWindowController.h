@@ -14,7 +14,7 @@
 #import <UIKit/_UIRemoteKeyboardViewSource-Protocol.h>
 #import <UIKit/_UITextEffectsSceneObserver-Protocol.h>
 
-@class NSArray, NSDate, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSString, UIInputViewController, UIInputViewPlacementTransition, UIInputViewSet, UIInputViewSetNotificationInfo, UIInputViewSetPlacement, UIKBInputBackdropView, UIView;
+@class NSArray, NSDate, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSString, UIInputViewController, UIInputViewPlacementTransition, UIInputViewSet, UIInputViewSetNotificationInfo, UIInputViewSetPlacement, UIKBInputBackdropView, UIScrollToDismissSupport, UISplitKeyboardSupport, UIView;
 @protocol UIInputViewSetPlacementApplicator, _UIRemoteKeyboardControllerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -32,13 +32,19 @@ __attribute__((visibility("hidden")))
     _Bool _disablePlacementChanges;
     _Bool _suppressUpdateVisibilityConstraints;
     CDUnknownBlockType _pendingTransitionActivity;
+    UISplitKeyboardSupport *_cachedSplitKeyboardController;
+    UIScrollToDismissSupport *_cachedScrollDismissController;
     NSArray *_rootViewConstraints;
+    NSLayoutConstraint *_emptyHeightConstraint;
     NSMutableDictionary *_inputViewEdgeConstraints;
     NSMutableDictionary *_accessoryViewEdgeConstraints;
     NSMutableDictionary *_assistantViewEdgeConstraints;
     NSMutableDictionary *_inputBackdropViewEdgeConstraints;
+    NSMutableDictionary *_inputBackdropBackgroundViewEdgeConstraints;
     NSMutableDictionary *_assistantBackdropViewEdgeConstraints;
     NSMutableDictionary *_accessoryBackdropViewEdgeConstraints;
+    NSMutableDictionary *_inputDockViewEdgeConstraints;
+    double _backdropHeightDelta;
     UIView *_preRotationSnapshot;
     struct CGSize _preRotationInputViewSize;
     struct CGSize _preRotationInputAssistantViewSize;
@@ -62,6 +68,7 @@ __attribute__((visibility("hidden")))
     UIInputViewController *_inputViewController;
     UIInputViewController *_inputAssistantViewController;
     UIInputViewController *_inputAccessoryViewController;
+    UIView *_inputBackdropBackgroundView;
     UIKBInputBackdropView *_inputBackdropView;
     UIKBInputBackdropView *_inputAssistantBackdropView;
     UIKBInputBackdropView *_inputAccessoryBackdropView;
@@ -93,6 +100,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic, setter=setInputAccessoryBackdropView:) UIKBInputBackdropView *_inputAccessoryBackdropView; // @synthesize _inputAccessoryBackdropView;
 @property(retain, nonatomic, setter=setInputAssistantBackdropView:) UIKBInputBackdropView *_inputAssistantBackdropView; // @synthesize _inputAssistantBackdropView;
 @property(retain, nonatomic, setter=setInputBackdropView:) UIKBInputBackdropView *_inputBackdropView; // @synthesize _inputBackdropView;
+@property(readonly, nonatomic) UIView *_inputBackdropBackgroundView; // @synthesize _inputBackdropBackgroundView;
 @property(retain, nonatomic) UIInputViewController *_inputAccessoryViewController; // @synthesize _inputAccessoryViewController;
 @property(retain, nonatomic) UIInputViewController *_inputAssistantViewController; // @synthesize _inputAssistantViewController;
 @property(retain, nonatomic) UIInputViewController *_inputViewController; // @synthesize _inputViewController;
@@ -109,6 +117,7 @@ __attribute__((visibility("hidden")))
 - (void)keyboardHeightChangeDone;
 - (void)prepareKeyboardHeightChangeWithDelta:(double)arg1 duration:(double)arg2;
 - (void)extendKeyboardBackdropHeight:(double)arg1 withDuration:(double)arg2;
+- (void)resetBackdropHeight;
 - (void)animateAccessoryViewVisibility:(_Bool)arg1 withDuration:(double)arg2;
 - (_Bool)isSplitting;
 - (_Bool)isTranslating;
@@ -119,7 +128,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)isOnScreen;
 - (_Bool)inputViewSetContainsView:(id)arg1;
 - (struct CGRect)visibleInputViewFrame;
+- (struct CGRect)_visibleInputViewFrame;
 - (struct CGRect)visibleFrame;
+- (struct CGRect)_visibleFrame;
 - (id)screenSnapshotOfView:(id)arg1;
 - (id)inputViewSnapshotOfView:(id)arg1 afterScreenUpdates:(_Bool)arg2;
 - (void)setInputView:(id)arg1 accessoryView:(id)arg2 assistantView:(id)arg3;
@@ -148,7 +159,7 @@ __attribute__((visibility("hidden")))
 - (void)initializeTranslateGestureRecognizerIfNecessary;
 - (int)_clipCornersOfView:(id)arg1;
 - (void)_updateBackdropViews;
-- (id)splitKeyboardController;
+- (void)configureSplitKeyboardController:(_Bool)arg1;
 - (void)resetVerticalConstraint;
 - (void)placementNeedsUpdate:(id)arg1;
 @property(readonly) long long inputViewBackdropStyle;
@@ -166,7 +177,7 @@ __attribute__((visibility("hidden")))
 - (void)clearInteractiveTransitionStateIfNecessary;
 - (void)fillInNotificationInfo:(id)arg1 forDismissMode:(unsigned long long)arg2;
 - (void)finishScrollViewTransition;
-- (id)scrollDismissController;
+- (void)configureScrollDismissController:(_Bool)arg1;
 - (void)setInputViewsHidden:(_Bool)arg1;
 - (void)updateToPlacement:(id)arg1 withNormalAnimationsAndNotifications:(_Bool)arg2;
 - (struct CGRect)transitioningFrame;
@@ -198,15 +209,19 @@ __attribute__((visibility("hidden")))
 - (void)hostAppSceneBoundsChanged;
 - (void)updateVisibilityConstraintsForPlacement:(id)arg1;
 - (void)updateViewConstraints;
+- (void)clearInputViewEdgeConstraints;
 - (void)viewWillMoveToWindow:(id)arg1;
 - (void)updateConstraintInsets;
+- (void)updateViewSizingConstraints:(id)arg1;
 - (void)updateViewSizingConstraints;
 - (void)_presentViewController:(id)arg1 modalSourceViewController:(id)arg2 presentationController:(id)arg3 animationController:(id)arg4 interactionController:(id)arg5 completion:(CDUnknownBlockType)arg6;
-- (void)clearViewSizingConstraints:(unsigned long long)arg1;
+- (void)disableViewSizingConstraints:(unsigned long long)arg1 forNewView:(id)arg2;
 - (struct UIEdgeInsets)_aligningInsetsForChildInputViewController:(id)arg1 includeSceneBounds:(_Bool)arg2;
+- (struct UIEdgeInsets)_inputViewPadding;
 - (_Bool)isViewLandscape;
 - (_Bool)_subviewUsesClassicLayout:(id)arg1;
-- (void)rebuildConstraints:(id)arg1 forView:(id)arg2 toMatchView:(id)arg3;
+- (void)rebuildConstraints:(id)arg1 forView:(id)arg2 toMatchView:(id)arg3 tracker:(id)arg4;
+- (id)_updateOrCreateConstraintInDict:(id)arg1 key:(id)arg2 fromView:(id)arg3 toView:(id)arg4 tracker:(id)arg5 creator:(CDUnknownBlockType)arg6;
 - (id)viewMatchingConstraintForAttribute:(long long)arg1 primaryView:(id)arg2 secondaryView:(id)arg3;
 - (void)ignoreLayoutNotifications:(CDUnknownBlockType)arg1;
 - (struct CGRect)_boundsForOrientation:(long long)arg1;

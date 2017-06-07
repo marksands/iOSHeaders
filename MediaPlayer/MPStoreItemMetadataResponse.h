@@ -8,7 +8,7 @@
 
 #import <MediaPlayer/NSCopying-Protocol.h>
 
-@class NSArray, NSMutableDictionary;
+@class NSArray, NSDate, NSMutableDictionary;
 
 @interface MPStoreItemMetadataResponse : NSObject <NSCopying>
 {
@@ -21,6 +21,8 @@
 - (void)setStoreItemMetadata:(id)arg1 forItemIdentifier:(id)arg2;
 - (id)storeItemMetadataForItemIdentifier:(id)arg1 returningIsFinalMetadata:(_Bool *)arg2;
 - (id)storeItemMetadataForItemIdentifier:(id)arg1;
+@property(readonly, nonatomic, getter=isExpired) _Bool expired;
+@property(readonly, copy, nonatomic) NSDate *earliestExpirationDate;
 @property(readonly, copy, nonatomic) NSArray *itemIdentifiers;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

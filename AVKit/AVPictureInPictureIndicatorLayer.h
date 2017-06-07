@@ -8,21 +8,20 @@
 
 @class CATextLayer, NSAttributedString;
 
-__attribute__((visibility("hidden")))
 @interface AVPictureInPictureIndicatorLayer : CALayer
 {
     NSAttributedString *_attributedText;
-    CALayer *_containerLayer;
-    struct CGRect _containerLayerUncompressedBounds;
+    struct CGSize _imageSize;
+    struct UIEdgeInsets _languageAwareOutsets;
+    double _lineHeight;
+    double _baselineOffset;
     CATextLayer *_textLayer;
-    struct CGPoint _textLayerUncompressedPosition;
-    struct CGRect _textLayerUncompressedBounds;
     CALayer *_imageLayer;
 }
 
 - (void).cxx_destruct;
+- (struct CGRect)textBoundingRectWhenDrawnInRect:(struct CGRect)arg1;
 - (void)layoutSublayers;
-- (struct CGRect)_textBoundsForSize:(struct CGSize)arg1;
 - (id)init;
 - (id)initWithTraitCollection:(id)arg1 opaque:(_Bool)arg2;
 

@@ -10,7 +10,7 @@
 #import <CallKit/NSCopying-Protocol.h>
 #import <CallKit/NSSecureCoding-Protocol.h>
 
-@class CXHandle, CXHandoffContext, NSDictionary, NSString, NSUUID;
+@class CXHandle, CXHandoffContext, NSDictionary, NSSet, NSString, NSUUID;
 
 @interface CXCallUpdate : NSObject <NSSecureCoding, CXCopying, NSCopying>
 {
@@ -23,7 +23,10 @@
     _Bool _usingBaseband;
     _Bool _blocked;
     _Bool _mayRequireBreakBeforeMake;
+    _Bool _supportsTTYWithVoice;
     _Bool _requiresInCallSounds;
+    _Bool _prefersExclusiveAccessToCellularNetwork;
+    _Bool _remoteUplinkMuted;
     _Bool _supportsUnambiguousMultiPartyState;
     _Bool _supportsAddCall;
     _Bool _supportsSendingToVoicemail;
@@ -38,6 +41,8 @@
     long long _audioInterruptionProvider;
     long long _audioInterruptionOperationMode;
     NSString *_crossDeviceIdentifier;
+    NSSet *_remoteParticipantHandles;
+    NSSet *_activeRemoteParticipantHandles;
     CXHandoffContext *_handoffContext;
     NSDictionary *_context;
     long long _videoStreamToken;
@@ -49,8 +54,12 @@
 @property(nonatomic) _Bool supportsSendingToVoicemail; // @synthesize supportsSendingToVoicemail=_supportsSendingToVoicemail;
 @property(nonatomic) _Bool supportsAddCall; // @synthesize supportsAddCall=_supportsAddCall;
 @property(nonatomic) _Bool supportsUnambiguousMultiPartyState; // @synthesize supportsUnambiguousMultiPartyState=_supportsUnambiguousMultiPartyState;
+@property(nonatomic, getter=isRemoteUplinkMuted) _Bool remoteUplinkMuted; // @synthesize remoteUplinkMuted=_remoteUplinkMuted;
+@property(nonatomic) _Bool prefersExclusiveAccessToCellularNetwork; // @synthesize prefersExclusiveAccessToCellularNetwork=_prefersExclusiveAccessToCellularNetwork;
 @property(copy, nonatomic) NSDictionary *context; // @synthesize context=_context;
 @property(retain, nonatomic) CXHandoffContext *handoffContext; // @synthesize handoffContext=_handoffContext;
+@property(copy, nonatomic) NSSet *activeRemoteParticipantHandles; // @synthesize activeRemoteParticipantHandles=_activeRemoteParticipantHandles;
+@property(copy, nonatomic) NSSet *remoteParticipantHandles; // @synthesize remoteParticipantHandles=_remoteParticipantHandles;
 @property(copy, nonatomic) NSString *crossDeviceIdentifier; // @synthesize crossDeviceIdentifier=_crossDeviceIdentifier;
 @property(nonatomic) long long audioInterruptionOperationMode; // @synthesize audioInterruptionOperationMode=_audioInterruptionOperationMode;
 @property(nonatomic) long long audioInterruptionProvider; // @synthesize audioInterruptionProvider=_audioInterruptionProvider;
@@ -58,8 +67,9 @@
 @property(copy, nonatomic) NSString *audioCategory; // @synthesize audioCategory=_audioCategory;
 @property(nonatomic) long long inCallSoundRegion; // @synthesize inCallSoundRegion=_inCallSoundRegion;
 @property(nonatomic) _Bool requiresInCallSounds; // @synthesize requiresInCallSounds=_requiresInCallSounds;
-@property(nonatomic) _Bool mayRequireBreakBeforeMake; // @synthesize mayRequireBreakBeforeMake=_mayRequireBreakBeforeMake;
+@property(nonatomic) _Bool supportsTTYWithVoice; // @synthesize supportsTTYWithVoice=_supportsTTYWithVoice;
 @property(nonatomic, setter=setTTYType:) long long ttyType; // @synthesize ttyType=_ttyType;
+@property(nonatomic) _Bool mayRequireBreakBeforeMake; // @synthesize mayRequireBreakBeforeMake=_mayRequireBreakBeforeMake;
 @property(nonatomic, getter=isBlocked) _Bool blocked; // @synthesize blocked=_blocked;
 @property(nonatomic, getter=isUsingBaseband) _Bool usingBaseband; // @synthesize usingBaseband=_usingBaseband;
 @property(nonatomic, getter=isEmergency) _Bool emergency; // @synthesize emergency=_emergency;
@@ -82,7 +92,6 @@
 - (void)updateSanitizedCopy:(id)arg1 withZone:(struct _NSZone *)arg2;
 - (void)updateWithUpdate:(id)arg1;
 @property(readonly, copy) NSString *description;
-@property(copy, nonatomic) NSString *callerNameFromNetwork;
 - (id)init;
 
 // Remaining properties

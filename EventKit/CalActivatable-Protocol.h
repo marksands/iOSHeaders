@@ -4,10 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <EventKit/NSObject-Protocol.h>
-
-@protocol CalActivatable <NSObject>
-@property(readonly, nonatomic) _Bool active;
+@protocol CalActivatable
 - (void)deactivate;
 - (void)activate;
 @end

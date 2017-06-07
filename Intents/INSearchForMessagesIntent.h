@@ -23,9 +23,9 @@
 - (void)_redactForMissingPrivacyEntitlementOptions:(unsigned long long)arg1;
 - (id)_dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) long long groupNamesOperator;
-- (void)setGroupNames:(id)arg1;
-@property(readonly, copy, nonatomic) NSArray *groupNames;
+@property(readonly, nonatomic) long long speakableGroupNamesOperator;
+- (void)setSpeakableGroupNames:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *speakableGroupNames;
 @property(readonly, nonatomic) long long notificationIdentifiersOperator;
 - (void)setNotificationIdentifiers:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *notificationIdentifiers;
@@ -45,7 +45,7 @@
 @property(readonly, nonatomic) long long recipientsOperator;
 - (void)setRecipients:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *recipients;
-- (id)initWithRecipients:(id)arg1 senders:(id)arg2 searchTerms:(id)arg3 attributes:(unsigned long long)arg4 dateTimeRange:(id)arg5 identifiers:(id)arg6 notificationIdentifiers:(id)arg7 groupNames:(id)arg8;
+- (id)initWithRecipients:(id)arg1 senders:(id)arg2 searchTerms:(id)arg3 attributes:(unsigned long long)arg4 dateTimeRange:(id)arg5 identifiers:(id)arg6 notificationIdentifiers:(id)arg7 speakableGroupNames:(id)arg8;
 - (id)_metadata;
 - (id)_typedBackingStore;
 - (id)attributeSet;
@@ -55,6 +55,10 @@
 - (id)contents;
 - (id)initWithRecipients:(id)arg1 senders:(id)arg2 contents:(id)arg3 attributes:(unsigned long long)arg4 dateTimeRange:(id)arg5 identifiers:(id)arg6 notificationIdentifiers:(id)arg7;
 - (id)initWithRecipients:(id)arg1 senders:(id)arg2 contents:(id)arg3 attributes:(unsigned long long)arg4 dateTimeRange:(id)arg5 identifiers:(id)arg6;
+- (long long)groupNamesOperator;
+- (void)setGroupNames:(id)arg1;
+- (id)groupNames;
+- (id)initWithRecipients:(id)arg1 senders:(id)arg2 searchTerms:(id)arg3 attributes:(unsigned long long)arg4 dateTimeRange:(id)arg5 identifiers:(id)arg6 notificationIdentifiers:(id)arg7 groupNames:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

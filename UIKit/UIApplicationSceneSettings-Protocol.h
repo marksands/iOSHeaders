@@ -9,6 +9,7 @@
 @class NSNumber;
 
 @protocol UIApplicationSceneSettings <NSObject>
+@property(readonly, nonatomic) long long deviceOrientation;
 @property(readonly, nonatomic) _Bool statusBarDisabled;
 @property(readonly, nonatomic) _Bool idleModeEnabled;
 @property(readonly, nonatomic) _Bool canShowAlerts;

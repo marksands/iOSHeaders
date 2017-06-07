@@ -6,16 +6,16 @@
 
 #import <UIKit/UIView.h>
 
-#import <ContactsUI/CNActionViewProtocol-Protocol.h>
+#import <ContactsUI/CNActionViewDelegate-Protocol.h>
 
-@class CNUIContainerStackView, NSArray, NSMutableDictionary, NSObject;
+@class CNUIContainerStackView, NSArray, NSMutableDictionary, NSObject, NSString;
 @protocol CNActionsViewProtocol;
 
-__attribute__((visibility("hidden")))
-@interface CNActionsView : UIView <CNActionViewProtocol>
+@interface CNActionsView : UIView <CNActionViewDelegate>
 {
-    NSArray *_sortedActionTypes;
+    _Bool _shouldCompressLabelsToFitSize;
     NSObject<CNActionsViewProtocol> *_actionsDelegate;
+    NSArray *_sortedActionTypes;
     double _spacing;
     long long _style;
     CNUIContainerStackView *_stackView;
@@ -26,19 +26,30 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableDictionary *actionViewsByType; // @synthesize actionViewsByType=_actionViewsByType;
 @property(retain, nonatomic) NSMutableDictionary *actionItemsByType; // @synthesize actionItemsByType=_actionItemsByType;
 @property(retain, nonatomic) CNUIContainerStackView *stackView; // @synthesize stackView=_stackView;
+@property(nonatomic) _Bool shouldCompressLabelsToFitSize; // @synthesize shouldCompressLabelsToFitSize=_shouldCompressLabelsToFitSize;
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) double spacing; // @synthesize spacing=_spacing;
-@property(nonatomic) __weak NSObject<CNActionsViewProtocol> *actionsDelegate; // @synthesize actionsDelegate=_actionsDelegate;
 @property(copy, nonatomic) NSArray *sortedActionTypes; // @synthesize sortedActionTypes=_sortedActionTypes;
+@property(nonatomic) __weak NSObject<CNActionsViewProtocol> *actionsDelegate; // @synthesize actionsDelegate=_actionsDelegate;
 - (void).cxx_destruct;
 - (void)didPressActionView:(id)arg1 longPress:(_Bool)arg2;
 - (struct CGSize)intrinsicContentSize;
+- (_Bool)shouldCalculateUpdatedTitleWidth;
+- (void)layoutSubviews;
 - (void)didMoveToWindow;
 - (void)resetActions;
+- (void)updateActionItem:(id)arg1;
+- (void)removeActionItem:(id)arg1;
 - (void)addActionItem:(id)arg1;
 - (id)actionViewForType:(id)arg1;
 - (unsigned long long)insertionIndexForType:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

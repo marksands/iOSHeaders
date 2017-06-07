@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)supportsSecureCoding;
 + (id)propertyWithKey:(id)arg1 scope:(unsigned int)arg2 element:(unsigned int)arg3;
 + (id)propertyWithKey:(id)arg1;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

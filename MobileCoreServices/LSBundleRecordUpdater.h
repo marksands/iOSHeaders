@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <MobileCoreServices/LSRecordBuilder.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface LSBundleRecordUpdater : NSObject
+@interface LSBundleRecordUpdater : LSRecordBuilder
 {
     struct LSContext _context;
     _Bool _hasContext;

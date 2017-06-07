@@ -4,15 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class AVAudioInputNode, AVAudioMixerNode, AVAudioOutputNode;
+@class AVAudioFormat, AVAudioInputNode, AVAudioMixerNode, AVAudioOutputNode;
 
 @interface AVAudioEngine : NSObject
 {
     void *_impl;
 }
 
+- (long long)renderOffline:(unsigned int)arg1 toBuffer:(id)arg2 error:(id *)arg3;
+@property(readonly, nonatomic) CDUnknownBlockType manualRenderingBlock;
+- (void)disableManualRenderingMode;
+- (_Bool)enableManualRenderingMode:(long long)arg1 format:(id)arg2 maximumFrameCount:(unsigned int)arg3 error:(id *)arg4;
+@property(readonly, nonatomic) long long manualRenderingSampleTime;
+@property(readonly, nonatomic) unsigned int manualRenderingMaximumFrameCount;
+@property(readonly, nonatomic) AVAudioFormat *manualRenderingFormat;
+@property(readonly, nonatomic) long long manualRenderingMode;
+@property(readonly, nonatomic) _Bool isInManualRenderingMode;
+@property(nonatomic, getter=isAutoShutdownEnabled) _Bool autoShutdownEnabled;
 @property(readonly, nonatomic, getter=isRunning) _Bool running;
 - (struct AVAudioEngineImpl *)implementation;
 @property(nonatomic) struct OpaqueMusicSequence *musicSequence;

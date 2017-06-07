@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (_Bool)_actionTypeIsSimple:(unsigned long long)arg1;
 - (id)_photoKitAssetsDataSource;
+- (id)actionPerformerForDuplicatingAssetsByAssetCollection:(id)arg1 withNewStillImageTime:(CDStruct_1b6d18a9)arg2;
 - (id)actionPerformerForSettingFavoriteTo:(_Bool)arg1 onAssetsByAssetCollection:(id)arg2;
 - (id)actionPerformerForSimpleActionType:(unsigned long long)arg1 onAssetsByAssetCollection:(id)arg2;
 - (unsigned long long)preferredTrashActionTypeOnAssetsByAssetCollection:(id)arg1;

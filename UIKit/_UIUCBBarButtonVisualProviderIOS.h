@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 
 + (id)_defaultTitleAttributes;
 - (void).cxx_destruct;
-- (void)configureButton:(id)arg1 fromBarItem:(id)arg2;
+- (void)configureButton:(id)arg1 withAppearanceDelegate:(id)arg2 fromBarItem:(id)arg3;
 - (void)_configureImageOrTitleFromBarItem:(id)arg1;
 - (id)_defaultTitleAttributes;
 - (id)_newButton;

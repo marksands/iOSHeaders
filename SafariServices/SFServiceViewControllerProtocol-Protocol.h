@@ -6,18 +6,20 @@
 
 #import <SafariServices/NSObject-Protocol.h>
 
-@class NSArray, NSString, NSURL, UIColor;
+@class NSArray, NSString, NSURL, SFSafariViewControllerConfiguration, UIColor;
 
 @protocol SFServiceViewControllerProtocol <NSObject>
+- (void)setIsBeingUsedForLinkPreview:(_Bool)arg1;
 - (void)didDetectUserInteractionFromHostApp;
 - (void)didDetectRemoteViewControllerViewIsHidden;
 - (void)setIsRunningTransitionAnimation:(_Bool)arg1;
-- (void)didFetchHostAppCustomActivities:(NSArray *)arg1;
+- (void)didFetchCustomActivities:(NSArray *)arg1 excludedActivityTypes:(NSArray *)arg2;
 - (void)repostNotificationInViewService:(NSString *)arg1;
+- (void)setConfiguration:(SFSafariViewControllerConfiguration *)arg1;
+- (void)setDismissButtonStyle:(long long)arg1;
 - (void)setPreferredControlTintColor:(UIColor *)arg1;
 - (void)setPreferredBarTintColor:(UIColor *)arg1;
-- (void)setShowingLinkPreview:(_Bool)arg1;
-- (void)setEntersReaderIfAvailable:(_Bool)arg1;
+- (void)setDisplayMode:(long long)arg1;
 - (void)loadURL:(NSURL *)arg1;
 @end
 

@@ -12,6 +12,6 @@
 - (void)handleMessage:(NSObject<OS_xpc_object> *)arg1 withOuterMessage:(NSObject<OS_xpc_object> *)arg2;
 - (void)handleDisposeWithCompletionHandler:(void (^)(void))arg1;
 - (void)handleInitWithCompletionHandler:(void (^)(_Bool))arg1;
-- (id)initWithSession:(NEAgentSession *)arg1 pluginType:(NSString *)arg2 primaryPluginType:(NSString *)arg3 pluginBundle:(struct __CFBundle *)arg4;
+- (id)initWithSession:(NEAgentSession *)arg1 pluginType:(NSString *)arg2 primaryPluginType:(NSString *)arg3 pluginBundle:(struct __CFBundle *)arg4 applicationPath:(NSString *)arg5;
 @end
 

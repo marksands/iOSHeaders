@@ -18,6 +18,8 @@
         unsigned int pinned:1;
         unsigned int pinningBarShadowIsHidden:1;
         unsigned int paletteShadowIsHidden:1;
+        unsigned int shouldHideWhenScrolling:1;
+        unsigned int pinningBarShadowWasHidden:1;
     } _paletteFlags;
     _Bool __paletteOverridesPinningBar;
     _Bool _visibleWhenPinningBarIsHidden;
@@ -28,10 +30,14 @@
     id __pinningBar;
     NSArray *__constraints;
     NSArray *__backgroundConstraints;
+    double __heightWhenUnscrolled;
+    long long __visibilityState;
     struct CGSize __size;
     struct UIEdgeInsets _preferredContentInsets;
 }
 
+@property(nonatomic, setter=_setVisibilityState:) long long _visibilityState; // @synthesize _visibilityState=__visibilityState;
+@property(nonatomic, setter=_setHeightWhenUnscrolled:) double _heightWhenUnscrolled; // @synthesize _heightWhenUnscrolled=__heightWhenUnscrolled;
 @property(nonatomic, getter=_isPalettePinningBarHidden, setter=_setPalettePinningBarHidden:) _Bool _palettePinningBarHidden; // @synthesize _palettePinningBarHidden=__palettePinningBarHidden;
 @property(retain, nonatomic, setter=_setBackgroundConstraints:) NSArray *_backgroundConstraints; // @synthesize _backgroundConstraints=__backgroundConstraints;
 @property(nonatomic, setter=_setSize:) struct CGSize _size; // @synthesize _size=__size;
@@ -48,6 +54,8 @@
 - (void)didMoveToSuperview;
 @property(retain, nonatomic, setter=_setBackgroundView:) UIView *_backgroundView;
 - (void)_setupBackgroundViewIfNecessary;
+- (void)_resetVisibilityStateIfNecessary;
+@property(nonatomic, setter=_setShouldHideWhenScrolling:) _Bool _shouldHideWhenScrolling;
 - (void)_resetHeightConstraintConstant;
 - (void)_setLeftConstraintConstant:(double)arg1;
 - (void)_setTopConstraintConstant:(double)arg1;
@@ -64,6 +72,7 @@
 - (void)_setAttached:(_Bool)arg1 didComplete:(_Bool)arg2;
 @property(nonatomic) _Bool paletteShadowIsHidden;
 - (void)_updateBackgroundView;
+@property(nonatomic) _Bool pinningBarShadowWasHidden;
 @property(nonatomic) _Bool pinningBarShadowIsHidden;
 @property(nonatomic, setter=_setRestartPaletteTransitionIfNecessary:) _Bool _restartPaletteTransitionIfNecessary;
 @property(readonly, nonatomic, getter=_attachmentIsChanging) _Bool _attachmentIsChanging;

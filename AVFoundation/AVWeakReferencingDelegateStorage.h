@@ -22,7 +22,7 @@
 - (void)invokeDelegateCallbackWithBlock:(CDUnknownBlockType)arg1;
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
 - (void)getRetainedDelegate:(id *)arg1 retainedDelegateQueue:(id *)arg2;
-- (void)_setDelegate:(id)arg1;
+- (void)_setDelegateViaWeakReference:(id)arg1;
 - (id)_delegate;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
 @property(readonly, nonatomic) id delegate;

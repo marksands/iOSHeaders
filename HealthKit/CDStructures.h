@@ -10,9 +10,18 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct HDStatisticsCalculator<double> {
+    double _min;
+    double _max;
+    double _mean;
+    long long _count;
+};
+
 struct NSDictionary {
     Class _field1;
 };
+
+struct _HDValueAndTime;
 
 struct _NSRange {
     unsigned long long location;
@@ -85,6 +94,14 @@ struct os_unfair_lock_s {
     unsigned int _os_unfair_lock_opaque;
 };
 
+struct vector<_HDValueAndTime, std::__1::allocator<_HDValueAndTime>> {
+    struct _HDValueAndTime *_field1;
+    struct _HDValueAndTime *_field2;
+    struct __compressed_pair<_HDValueAndTime *, std::__1::allocator<_HDValueAndTime>> {
+        struct _HDValueAndTime *_field1;
+    } _field3;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -100,7 +117,8 @@ typedef struct {
     char *_field3;
     double _field4;
     double _field5;
-} CDStruct_875ffba5;
+    _Bool _field6;
+} CDStruct_bafa805a;
 
 typedef struct {
     char *_field1;
@@ -118,4 +136,19 @@ typedef struct {
     char *_field5;
     char *_field6;
 } CDStruct_6b208136;
+
+typedef struct {
+    long long majorVersion;
+    long long minorVersion;
+    long long patchVersion;
+} CDStruct_f6aba300;
+
+// Template types
+typedef struct vector<_HDValueAndTime, std::__1::allocator<_HDValueAndTime>> {
+    struct _HDValueAndTime *_field1;
+    struct _HDValueAndTime *_field2;
+    struct __compressed_pair<_HDValueAndTime *, std::__1::allocator<_HDValueAndTime>> {
+        struct _HDValueAndTime *_field1;
+    } _field3;
+} vector_b70ce118;
 

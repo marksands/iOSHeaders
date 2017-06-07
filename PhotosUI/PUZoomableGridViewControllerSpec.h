@@ -14,11 +14,8 @@ __attribute__((visibility("hidden")))
     _Bool _canDisplayMultipleRightBarButtonItems;
     double _magnifiedYOffset;
     long long _fullMomentsSectionHeaderStyle;
-    double _fullMomentsSectionHeaderHeight;
     long long _collectionsSectionHeaderStyle;
-    double _collectionsSectionHeaderHeight;
     long long _yearsSectionHeaderStyle;
-    double _yearsSectionHeaderHeight;
     PUPhotosGridViewControllerSpec *_gridSpec;
     struct CGSize _magnifiedImageSize;
     struct CGSize _fullMomentsLevelThumbnailSize;
@@ -32,15 +29,12 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic, setter=_setGridSpec:) PUPhotosGridViewControllerSpec *gridSpec; // @synthesize gridSpec=_gridSpec;
-@property(readonly, nonatomic) double yearsSectionHeaderHeight; // @synthesize yearsSectionHeaderHeight=_yearsSectionHeaderHeight;
 @property(readonly, nonatomic) long long yearsSectionHeaderStyle; // @synthesize yearsSectionHeaderStyle=_yearsSectionHeaderStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets yearsLevelSectionHeaderHighlightInset; // @synthesize yearsLevelSectionHeaderHighlightInset=_yearsLevelSectionHeaderHighlightInset;
 @property(readonly, nonatomic) struct UIEdgeInsets yearsLevelSectionHeaderContentInset; // @synthesize yearsLevelSectionHeaderContentInset=_yearsLevelSectionHeaderContentInset;
-@property(readonly, nonatomic) double collectionsSectionHeaderHeight; // @synthesize collectionsSectionHeaderHeight=_collectionsSectionHeaderHeight;
 @property(readonly, nonatomic) long long collectionsSectionHeaderStyle; // @synthesize collectionsSectionHeaderStyle=_collectionsSectionHeaderStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets collectionsLevelSectionHeaderHighlightInset; // @synthesize collectionsLevelSectionHeaderHighlightInset=_collectionsLevelSectionHeaderHighlightInset;
 @property(readonly, nonatomic) struct UIEdgeInsets collectionsLevelSectionHeaderContentInset; // @synthesize collectionsLevelSectionHeaderContentInset=_collectionsLevelSectionHeaderContentInset;
-@property(readonly, nonatomic) double fullMomentsSectionHeaderHeight; // @synthesize fullMomentsSectionHeaderHeight=_fullMomentsSectionHeaderHeight;
 @property(readonly, nonatomic) long long fullMomentsSectionHeaderStyle; // @synthesize fullMomentsSectionHeaderStyle=_fullMomentsSectionHeaderStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderHighlightInset; // @synthesize fullMomentsLevelSectionHeaderHighlightInset=_fullMomentsLevelSectionHeaderHighlightInset;
 @property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderContentInset; // @synthesize fullMomentsLevelSectionHeaderContentInset=_fullMomentsLevelSectionHeaderContentInset;
@@ -50,18 +44,18 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGSize magnifiedImageSize; // @synthesize magnifiedImageSize=_magnifiedImageSize;
 @property(readonly, nonatomic) _Bool canDisplayMultipleRightBarButtonItems; // @synthesize canDisplayMultipleRightBarButtonItems=_canDisplayMultipleRightBarButtonItems;
 - (void).cxx_destruct;
-- (id)mapViewControllerSpec;
+- (_Bool)dynamicLayoutEnabled;
 @property(readonly, nonatomic) struct CGSize yearsLevelThumbnailSize;
 @property(readonly, nonatomic) long long yearsLevelCellFillMode;
-- (void)configureYearsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+- (void)configureYearsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 @property(readonly, nonatomic) struct CGSize collectionsLevelThumbnailSize;
 @property(readonly, nonatomic) long long collectionsLevelCellFillMode;
 @property(readonly, nonatomic) unsigned long long yearsSectionHeaderBackgroundStyle;
 @property(readonly, nonatomic) unsigned long long collectionsSectionHeaderBackgroundStyle;
 @property(readonly, nonatomic) unsigned long long fullMomentsSectionHeaderBackgroundStyle;
-- (void)configureCollectionsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+- (void)configureCollectionsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 @property(readonly, nonatomic) long long fullMomentsLevelCellFillMode;
-- (void)configureFullMomentsLevelGridLayout:(id)arg1 forWidth:(double)arg2;
+- (void)configureFullMomentsLevelGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (id)newGridSpec;
 - (_Bool)isEqual:(id)arg1;
 - (id)init;

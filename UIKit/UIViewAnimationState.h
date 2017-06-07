@@ -38,11 +38,11 @@ __attribute__((visibility("hidden")))
     unsigned int _cacheTransition:1;
     unsigned int _autoreverses:1;
     unsigned int _roundsToInteger:1;
-    unsigned int _preventsAdditive:1;
     unsigned int _layoutSubviews:1;
     unsigned int _hasOuterAnimator:1;
     unsigned int _hasOuterTrackingAnimator:1;
     unsigned int _disallowCaptureWithinPropertyAnimator:1;
+    unsigned int _completionCallbacksDisabledOnPop:1;
     NSMutableArray *_trackedAnimations;
     NSUUID *_uuid;
     id <_UIBasicAnimationFactory> _animationFactory;
@@ -55,6 +55,8 @@ __attribute__((visibility("hidden")))
     _Bool _animationDidStopForced;
     _Bool _allowUserInteractionToCutOffEndOfAnimation;
     _Bool _allowsHitTesting;
+    _Bool _belongsToTrackingAnimator;
+    _Bool _disallowInheritance;
     UIViewAnimationState *_retainedSelf;
     NSMutableArray *_viewsPendingConstraintBasedAnimation;
     UIViewPropertyAnimator *_propertyAnimator;
@@ -70,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (id)_defaultAnimationForKey:(id)arg1;
 - (void)_trackAnimation:(id)arg1 withAnimationKey:(id)arg2 forKeyPath:(id)arg3 inLayer:(id)arg4;
 - (void)_trackAnimation:(id)arg1 nonAdditiveAnimation:(id)arg2 withAnimationKey:(id)arg3 forKeyPath:(id)arg4 inLayer:(id)arg5;
+- (_Bool)_isTrackingEnabled;
 - (void)_trackObject:(id)arg1 withAnimationPropertyName:(id)arg2 inLayer:(id)arg3;
 - (void)_addAnimationStateForTracking:(id)arg1;
 - (id)_trackedAnimations;
@@ -81,7 +84,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)_allowsUserInteractionToCutOffEndOfAnimation;
 @property(readonly, nonatomic) _Bool _allowsUserInteraction;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
-- (void)sendDelegateDidStopManually;
+- (void)_animationDidStopWithNilAnimationFinished:(_Bool)arg1;
+- (void)sendDelegateDidStopManually:(_Bool)arg1;
 - (void)sendDelegateAnimationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)animationDidStart:(id)arg1;
 - (void)setAnimationAttributes:(id)arg1 correctZeroDuration:(_Bool)arg2 skipDelegateAssignment:(_Bool)arg3 customCurve:(id)arg4;
@@ -95,8 +99,10 @@ __attribute__((visibility("hidden")))
 - (void)setupCustomTimingCurve;
 - (void)_runConstraintBasedLayoutAnimations;
 - (void)pop;
+- (_Bool)_addPendingKeyframeValue:(id)arg1 forKey:(id)arg2 view:(id)arg3;
 - (void)setupWithDuration:(double)arg1 delay:(double)arg2 view:(id)arg3 options:(unsigned long long)arg4 factory:(id)arg5 parentState:(id)arg6 start:(CDUnknownBlockType)arg7 completion:(CDUnknownBlockType)arg8;
 - (id)_outerPropertyAnimator:(_Bool)arg1;
+- (double)_elapsedTimeForCanonicallyTrackedAnimation;
 - (double)_canonicalTrackedUnpacedFractionComplete;
 - (double)_unpacedFractionCompleteForAnimation:(id)arg1 inLayer:(id)arg2 duration:(double)arg3;
 - (id)_canonicalTrackedLayerAnimationInLayer:(id *)arg1;
@@ -106,7 +112,13 @@ __attribute__((visibility("hidden")))
 - (id)animationForLayer:(id)arg1 forKey:(id)arg2 forView:(id)arg3;
 - (_Bool)_shouldStartFromCurrentStateForLayer:(id)arg1 key:(id)arg2 forView:(id)arg3;
 - (void)configureAnimation:(id)arg1 forLayer:(id)arg2 forKey:(id)arg3;
+- (_Bool)_isKeyframeAnimation;
 - (id)init;
+- (void)_decrementDidEndCount;
+- (void)_incrementDidEndCount;
+- (void)_transferAnimationToTrackingAnimator:(id)arg1;
+- (int)_didEndCount;
+- (void)_performWithCompletionCallbacksDisabledOnPop:(CDUnknownBlockType)arg1;
 - (void)pushWithViewAnimationID:(id)arg1 context:(void *)arg2;
 - (void)_prepareForViewAnimationAfterPush;
 

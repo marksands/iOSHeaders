@@ -6,7 +6,6 @@
 
 #import <SceneKit/SCNImageSource.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNDelegateSource : SCNImageSource
 {
     id _delegate;

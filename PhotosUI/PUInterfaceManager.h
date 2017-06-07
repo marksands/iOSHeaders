@@ -12,6 +12,7 @@
 
 + (void)endUsingOrbTheme;
 + (void)beginUsingOrbTheme;
++ (_Bool)shouldUseAccessibilityLargeTextLayoutWithTraitCollecton:(id)arg1;
 + (_Bool)shouldUsePhoneLayoutWithTraitCollection:(id)arg1;
 + (void)_handleInteractionDisablingTimeout;
 + (void)_handleInteractionDisablingTimeoutForOverOneUpTransition;

@@ -9,12 +9,13 @@
 #import <UIKit/UIViewControllerAnimatedTransitioningEx-Protocol.h>
 #import <UIKit/_UIBasicAnimationFactory-Protocol.h>
 
-@class NSString, NSUUID, UIView, _UINavigationInteractiveTransitionBase, _UIParallaxDimmingView;
+@class NSString, NSUUID, UIColor, UIView, _UINavigationInteractiveTransitionBase, _UIParallaxDimmingView;
 @protocol UIViewControllerContextTransitioning;
 
 @interface _UINavigationParallaxTransition : NSObject <_UIBasicAnimationFactory, UIViewControllerAnimatedTransitioningEx>
 {
     NSUUID *_currentRunningAnimationsUUID;
+    NSUUID *_currentTrackingAnimatorsAnimationsUUID;
     _Bool _interactionAborted;
     _Bool _clipUnderlapWhileTransitioning;
     _Bool __shouldReverseLayoutDirection;
@@ -28,8 +29,12 @@
     UIView *_clipUnderView;
     long long _transitionStyle;
     double _transitionGap;
+    UIColor *_overrideDimmingColor;
 }
 
++ (double)defaultSlidingTransitionDuration;
++ (void)setDefaultSlidingTransitionDuration:(double)arg1;
+@property(retain, nonatomic) UIColor *overrideDimmingColor; // @synthesize overrideDimmingColor=_overrideDimmingColor;
 @property(nonatomic, setter=_setShouldReverseLayoutDirection:) _Bool _shouldReverseLayoutDirection; // @synthesize _shouldReverseLayoutDirection=__shouldReverseLayoutDirection;
 @property(nonatomic) double transitionGap; // @synthesize transitionGap=_transitionGap;
 @property(nonatomic) long long transitionStyle; // @synthesize transitionStyle=_transitionStyle;

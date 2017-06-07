@@ -33,6 +33,8 @@
 - (_Bool)_canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2 sourceFormat:(struct opaqueCMFormatDescription *)arg3 exceptionReason:(id *)arg4;
 @property(readonly, nonatomic) NSArray *inputGroups;
 @property(readonly, nonatomic) NSArray *inputs;
+@property(nonatomic) long long singlePassMediaDataSize;
+@property(nonatomic) long long singlePassFileSize;
 @property(nonatomic) float preferredRate;
 @property(nonatomic) float preferredVolume;
 @property(nonatomic) struct CGAffineTransform preferredTransform;

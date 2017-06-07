@@ -16,6 +16,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, copy, nonatomic) NSDictionary *lookupDictionary; // @synthesize lookupDictionary=_lookupDictionary;
 - (void).cxx_destruct;
 - (id)actionTextForType:(id)arg1;
 @property(readonly, copy, nonatomic) NSNumber *price;

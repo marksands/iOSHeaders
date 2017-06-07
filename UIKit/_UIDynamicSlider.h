@@ -6,44 +6,11 @@
 
 #import <UIKit/UISlider.h>
 
-#import <UIKit/UICollisionBehaviorDelegate-Protocol.h>
-#import <UIKit/UIDynamicAnimatorDelegate-Protocol.h>
-
-@class CADisplayLink, NSString, UIGravityBehavior, UIView, _UIDynamicSliderAnimator;
-
-@interface _UIDynamicSlider : UISlider <UIDynamicAnimatorDelegate, UICollisionBehaviorDelegate>
+@interface _UIDynamicSlider : UISlider
 {
-    double _thumbVelocity;
-    struct CGPoint _thumbPreviousPoint;
-    double _thumbPreviousTime;
-    UIView *_thumbDynamicsView;
-    _UIDynamicSliderAnimator *_animator;
-    CADisplayLink *_displayLink;
-    struct CGPoint _mostRecentThumbLocation;
-    UIGravityBehavior *_gravityBehavior;
 }
 
-- (void).cxx_destruct;
-- (_Bool)cancelTouchTracking;
-- (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (void)dynamicAnimatorDidPause:(id)arg1;
-- (void)collisionBehavior:(id)arg1 beganContactForItem:(id)arg2 withBoundaryIdentifier:(id)arg3 atPoint:(struct CGPoint)arg4;
-- (void)_handleDynamicsStep;
-- (void)_endDynamicsTrackingWithAnimation;
-- (void)_updateDynamicsTracking:(id)arg1;
-- (void)_calculateDynamicsVelocityOnDisplayLink:(id)arg1;
-- (void)_initializeDynamicsTracking:(id)arg1;
-- (void)_cleanupDynamicsAnimation;
-- (void)_stopDynamicsTracking;
 - (void)_clearDynamics;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

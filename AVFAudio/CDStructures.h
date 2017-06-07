@@ -10,10 +10,14 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct AUInterfaceIOV3;
+
 struct AUPreset {
     int _field1;
     struct __CFString *_field2;
 };
+
+struct AVAEBlock<AVAudioEngineManualRenderingStatus (^)(unsigned int, AudioBufferList *, int *)>;
 
 struct AVAudio3DAngularOrientation {
     float _field1;
@@ -55,45 +59,15 @@ struct AVAudioEngineImpl {
     struct AVAudioIOUnit *_field9;
     id _field10;
     int _field11;
-    int _field12;
-    _Bool _field13;
-};
-
-struct AVAudioEnvironmentNodeImpl {
-    CDUnknownFunctionPointerType *_field1;
-    struct AVAudioEngineImpl *_field2;
-    struct AVAudioNodeTap *_field3;
-    id _field4;
-    struct vector<bool, std::__1::allocator<bool>> _field5;
-    _Bool _field6;
-    struct AVAudioMixingImpl *_field7;
-    struct map<std::__1::pair<AVAudioNode *, unsigned int>, AVAudioMixingDestination *, std::__1::less<std::__1::pair<AVAudioNode *, unsigned int>>, std::__1::allocator<std::__1::pair<const std::__1::pair<AVAudioNode *, unsigned int>, AVAudioMixingDestination *>>> *_field8;
-    struct Node_AUSpec _field9;
-    int _field10;
-    float _field11;
-    struct AVAudio3DPoint _field12;
-    struct AVAudio3DVectorOrientation _field13;
-    struct AVAudio3DAngularOrientation _field14;
-    struct map<AVAudio3DMixingImpl *, unsigned int, std::__1::less<AVAudio3DMixingImpl *>, std::__1::allocator<std::__1::pair<AVAudio3DMixingImpl *const, unsigned int>>> _field15;
-    id _field16;
-    unsigned int _field17;
-    float _field18;
-    float _field19;
-    float _field20;
-    id _field21;
-    id _field22;
-    _Bool _field23;
-    float _field24;
-    float _field25;
-    float _field26;
-    float _field27;
+    _Bool _field12;
+    struct unique_ptr<AVAEBlock<AVAudioEngineManualRenderingStatus (^)(unsigned int, AudioBufferList *, int *)>, std::__1::default_delete<AVAEBlock<AVAudioEngineManualRenderingStatus (^)(unsigned int, AudioBufferList *, int *)>>> _field13;
 };
 
 struct AVAudioIOUnit {
     CDUnknownFunctionPointerType *_field1;
     id _field2;
     struct AVAudioEngineImpl *_field3;
-    struct OpaqueAudioComponentInstance *_field4;
+    struct unique_ptr<AUInterfaceIOV3, std::__1::default_delete<AUInterfaceIOV3>> _field4;
     id _field5;
     id _field6;
 };
@@ -110,19 +84,6 @@ struct AVAudioMixingImpl {
     float _field9;
 };
 
-struct AVAudioNodeImplBase {
-    CDUnknownFunctionPointerType *_field1;
-    struct AVAudioEngineImpl *_field2;
-    struct AVAudioNodeTap *_field3;
-    id _field4;
-    struct vector<bool, std::__1::allocator<bool>> _field5;
-    _Bool _field6;
-    struct AVAudioMixingImpl *_field7;
-    struct map<std::__1::pair<AVAudioNode *, unsigned int>, AVAudioMixingDestination *, std::__1::less<std::__1::pair<AVAudioNode *, unsigned int>>, std::__1::allocator<std::__1::pair<const std::__1::pair<AVAudioNode *, unsigned int>, AVAudioMixingDestination *>>> *_field8;
-};
-
-struct AVAudioNodeTap;
-
 struct AVAudioPlayerCpp {
     struct __CFData *_field1;
     struct __CFURL *_field2;
@@ -136,64 +97,66 @@ struct AVAudioPlayerCpp {
     struct AudioFormatListItem *_field10;
     unsigned int _field11;
     struct OpaqueAudioFileID *_field12;
-    struct OpaqueAudioQueue *_field13;
-    long long _field14;
+    unsigned int _field13;
+    struct OpaqueAudioQueue *_field14;
     long long _field15;
     long long _field16;
-    double _field17;
+    long long _field17;
     double _field18;
     double _field19;
     double _field20;
-    unsigned int _field21;
-    double _field22;
-    int _field23;
-    struct AudioFilePacketTableInfo _field24;
-    int _field25;
+    double _field21;
+    unsigned int _field22;
+    double _field23;
+    int _field24;
+    struct AudioFilePacketTableInfo _field25;
     int _field26;
     int _field27;
-    _Bool _field28;
+    int _field28;
     _Bool _field29;
     _Bool _field30;
     _Bool _field31;
-    unsigned int _field32;
-    _Bool _field33;
+    _Bool _field32;
+    unsigned int _field33;
     _Bool _field34;
     _Bool _field35;
     _Bool _field36;
-    double _field37;
+    _Bool _field37;
     double _field38;
     double _field39;
     double _field40;
     double _field41;
     double _field42;
-    unsigned int _field43;
-    struct AudioQueueLevelMeterState *_field44;
-    struct AudioQueueBuffer *_field45[3];
-    struct AudioQueueBuffer *_field46;
-    int _field47;
-    _Bool _field48;
-    _Bool _field49;
+    double _field43;
+    struct __CFString *_field44;
+    unsigned int _field45;
+    struct AudioQueueLevelMeterState *_field46;
+    struct AudioQueueBuffer *_field47[3];
+    struct AudioQueueBuffer *_field48;
+    int _field49;
     _Bool _field50;
     _Bool _field51;
     _Bool _field52;
-    struct AudioQueueBuffer *_field53;
+    _Bool _field53;
     _Bool _field54;
-    unsigned long long _field55;
-    unsigned int _field56;
-    _Bool _field57;
-    _Bool _field58;
+    struct AudioQueueBuffer *_field55;
+    _Bool _field56;
+    unsigned long long _field57;
+    unsigned int _field58;
     _Bool _field59;
     _Bool _field60;
-    long long _field61;
-    int _field62;
-    unsigned int _field63;
-    unsigned int _field64;
-    void *_field65;
-    CDUnknownFunctionPointerType _field66;
-    unsigned int _field67;
-    id _field68;
+    _Bool _field61;
+    _Bool _field62;
+    long long _field63;
+    int _field64;
+    unsigned int _field65;
+    unsigned int _field66;
+    void *_field67;
+    CDUnknownFunctionPointerType _field68;
     unsigned int _field69;
-    struct TEMP_AudioQueueChannelAssignment *_field70;
+    id _field70;
+    unsigned int _field71;
+    struct TEMP_AudioQueueChannelAssignment *_field72;
 };
 
 struct AVAudioSequencerImpl {
@@ -226,6 +189,7 @@ struct AVAudioSessionImpl {
     unsigned int _field18;
     unsigned int _field19;
     int _field20;
+    unsigned long long _field21;
 };
 
 struct AVAudioUnitComponentManagerImpl {
@@ -475,20 +439,24 @@ struct ControllerImpl {
     _Bool _field96;
     _Bool _field97;
     struct CAStreamBasicDescription _field98;
-    int _field99;
-    _Bool _field100;
-    unsigned int _field101;
-    long long _field102;
-    id _field103;
-    struct MyMutex *_field104[4];
-    int _field105;
-    int _field106;
+    id _field99;
+    id _field100;
+    int _field101;
+    _Bool _field102;
+    unsigned int _field103;
+    long long _field104;
+    id _field105;
+    struct MyMutex *_field106[4];
     int _field107;
-    unsigned long long _field108;
-    _Bool _field109;
-    int _field110;
-    int _field111;
-    struct ZeroRunLog _field112[75];
+    int _field108;
+    int _field109;
+    unsigned long long _field110;
+    _Bool _field111;
+    int _field112;
+    int _field113;
+    struct ZeroRunLog _field114[75];
+    _Bool _field115;
+    _Bool _field116;
 };
 
 struct DataSourceDescriptionImpl {
@@ -596,11 +564,6 @@ struct MyAudioQueueBuffer {
 
 struct MyMutex;
 
-struct Node_AUSpec {
-    struct AudioComponentDescription _field1;
-    struct OpaqueAudioComponentInstance *_field2;
-};
-
 struct OpaqueAUGraph;
 
 struct OpaqueAudioComponentInstance;
@@ -664,6 +627,8 @@ struct _AVBeatRange {
 struct __CFArray;
 
 struct __CFDictionary;
+
+struct __CFString;
 
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *_field1;
@@ -729,18 +694,6 @@ struct locale {
     struct __imp *_field1;
 };
 
-struct map<AVAudio3DMixingImpl *, unsigned int, std::__1::less<AVAudio3DMixingImpl *>, std::__1::allocator<std::__1::pair<AVAudio3DMixingImpl *const, unsigned int>>> {
-    struct __tree<std::__1::__value_type<AVAudio3DMixingImpl *, unsigned int>, std::__1::__map_value_compare<AVAudio3DMixingImpl *, std::__1::__value_type<AVAudio3DMixingImpl *, unsigned int>, std::__1::less<AVAudio3DMixingImpl *>, true>, std::__1::allocator<std::__1::__value_type<AVAudio3DMixingImpl *, unsigned int>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<AVAudio3DMixingImpl *, unsigned int>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<AVAudio3DMixingImpl *, std::__1::__value_type<AVAudio3DMixingImpl *, unsigned int>, std::__1::less<AVAudio3DMixingImpl *>, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
 struct map<AVVoiceAlertType, AudioQueueBuffer *, std::__1::less<AVVoiceAlertType>, std::__1::allocator<std::__1::pair<const AVVoiceAlertType, AudioQueueBuffer *>>> {
     struct __tree<std::__1::__value_type<AVVoiceAlertType, AudioQueueBuffer *>, std::__1::__map_value_compare<AVVoiceAlertType, std::__1::__value_type<AVVoiceAlertType, AudioQueueBuffer *>, std::__1::less<AVVoiceAlertType>, true>, std::__1::allocator<std::__1::__value_type<AVVoiceAlertType, AudioQueueBuffer *>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -765,7 +718,17 @@ struct map<AVVoiceAlertType, NSURL *, std::__1::less<AVVoiceAlertType>, std::__1
     } _field1;
 };
 
-struct map<std::__1::pair<AVAudioNode *, unsigned int>, AVAudioMixingDestination *, std::__1::less<std::__1::pair<AVAudioNode *, unsigned int>>, std::__1::allocator<std::__1::pair<const std::__1::pair<AVAudioNode *, unsigned int>, AVAudioMixingDestination *>>>;
+struct unique_ptr<AUInterfaceIOV3, std::__1::default_delete<AUInterfaceIOV3>> {
+    struct __compressed_pair<AUInterfaceIOV3 *, std::__1::default_delete<AUInterfaceIOV3>> {
+        struct AUInterfaceIOV3 *_field1;
+    } _field1;
+};
+
+struct unique_ptr<AVAEBlock<AVAudioEngineManualRenderingStatus (^)(unsigned int, AudioBufferList *, int *)>, std::__1::default_delete<AVAEBlock<AVAudioEngineManualRenderingStatus (^)(unsigned int, AudioBufferList *, int *)>>> {
+    struct __compressed_pair<AVAEBlock<AVAudioEngineManualRenderingStatus (^)(unsigned int, AudioBufferList *, int *)>*, std::__1::default_delete<AVAEBlock<AVAudioEngineManualRenderingStatus (^)(unsigned int, AudioBufferList *, int *)>>> {
+        struct AVAEBlock<AVAudioEngineManualRenderingStatus (^)(unsigned int, AudioBufferList *, int *)> *_field1;
+    } _field1;
+};
 
 struct unique_ptr<EndpointVAD3FileSaver, std::__1::default_delete<EndpointVAD3FileSaver>> {
     struct __compressed_pair<EndpointVAD3FileSaver *, std::__1::default_delete<EndpointVAD3FileSaver>> {
@@ -774,14 +737,6 @@ struct unique_ptr<EndpointVAD3FileSaver, std::__1::default_delete<EndpointVAD3Fi
 };
 
 struct vector<AVVADState, std::__1::allocator<AVVADState>>;
-
-struct vector<bool, std::__1::allocator<bool>> {
-    unsigned long long *_field1;
-    unsigned long long _field2;
-    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned long>> {
-        unsigned long long _field1;
-    } _field3;
-};
 
 struct vector<double, std::__1::allocator<double>> {
     double *_field1;

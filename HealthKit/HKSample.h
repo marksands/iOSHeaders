@@ -30,7 +30,9 @@
 @property(readonly) NSDate *startDate;
 @property(readonly) HKSampleType *sampleType;
 - (void)_setSampleType:(id)arg1;
+- (long long)_externalSyncObjectCode;
 - (id)_validateConfiguration;
+- (id)_init;
 - (void)_enumerateTimePeriodsWithBlock:(CDUnknownBlockType)arg1;
 
 @end

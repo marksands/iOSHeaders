@@ -25,9 +25,11 @@
     unsigned int _isDisplayStringFromAddressBook:1;
     void *_addressBook;
     NSString *_addressIdentifier;
+    double _firstLineIndent;
 }
 
 + (id)copyDisplayStringForAddress:(id)arg1 usingAddressBook:(void *)arg2 useAbbreviatedName:(_Bool)arg3;
+@property(nonatomic) double firstLineIndent; // @synthesize firstLineIndent=_firstLineIndent;
 - (id)viewForLastBaselineLayout;
 - (void)performBuildInAnimationFromTextColor:(id)arg1 withDuration:(double)arg2;
 - (void)setOpaque:(_Bool)arg1;
@@ -64,6 +66,7 @@
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
+@property(readonly, nonatomic) long long numberOfLines;
 - (id)initWithAddress:(id)arg1 presentationOptions:(unsigned long long)arg2 isPhoneNumber:(_Bool)arg3 maxWidth:(double)arg4 addressBook:(void *)arg5;
 
 // Remaining properties

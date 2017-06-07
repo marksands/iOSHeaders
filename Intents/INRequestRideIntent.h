@@ -38,7 +38,6 @@
 - (id)initWithPickupLocation:(id)arg1 dropOffLocation:(id)arg2 rideOptionName:(id)arg3 partySize:(id)arg4 paymentMethod:(id)arg5 scheduledPickupTime:(id)arg6;
 - (id)_metadata;
 - (id)_typedBackingStore;
-@property(readonly, nonatomic) INDateComponentsRange *pickupTime;
 - (id)initWithPickupLocation:(id)arg1 dropOffLocation:(id)arg2 rideOptionName:(id)arg3 partySize:(id)arg4 paymentMethod:(id)arg5;
 
 // Remaining properties

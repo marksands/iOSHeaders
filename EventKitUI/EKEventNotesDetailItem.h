@@ -7,6 +7,7 @@
 #import <EventKitUI/EKEventDetailItem.h>
 
 @class UITableViewCell, UITextView;
+@protocol EKEventDetailNotesCellDelegate;
 
 __attribute__((visibility("hidden")))
 @interface EKEventNotesDetailItem : EKEventDetailItem
@@ -15,8 +16,10 @@ __attribute__((visibility("hidden")))
     UITableViewCell *_moreButtonCell;
     UITextView *_notesView;
     _Bool _cellNeedsUpdate;
+    id <EKEventDetailNotesCellDelegate> _noteDelegate;
 }
 
+@property(retain) id <EKEventDetailNotesCellDelegate> noteDelegate; // @synthesize noteDelegate=_noteDelegate;
 - (void).cxx_destruct;
 - (unsigned long long)maximumNumberOfSubItems;
 - (_Bool)requiresLayoutForSubitemCount;

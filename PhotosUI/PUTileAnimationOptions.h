@@ -6,9 +6,12 @@
 
 #import <objc/NSObject.h>
 
+@protocol OS_dispatch_group;
+
 __attribute__((visibility("hidden")))
 @interface PUTileAnimationOptions : NSObject
 {
+    _Bool _shouldFadeOutSnapshotAfterCompletionGroup;
     _Bool _synchronizedWithTransition;
     long long _kind;
     double _delay;
@@ -18,10 +21,13 @@ __attribute__((visibility("hidden")))
     double _springStiffness;
     long long _springNumberOfOscillations;
     CDUnknownBlockType _customViewAnimatorBlock;
+    NSObject<OS_dispatch_group> *_completionGroup;
     struct PUDisplayVelocity _initialVelocity;
 }
 
 @property(nonatomic, getter=isSynchronizedWithTransition) _Bool synchronizedWithTransition; // @synthesize synchronizedWithTransition=_synchronizedWithTransition;
+@property(nonatomic) _Bool shouldFadeOutSnapshotAfterCompletionGroup; // @synthesize shouldFadeOutSnapshotAfterCompletionGroup=_shouldFadeOutSnapshotAfterCompletionGroup;
+@property(retain, nonatomic) NSObject<OS_dispatch_group> *completionGroup; // @synthesize completionGroup=_completionGroup;
 @property(copy, nonatomic) CDUnknownBlockType customViewAnimatorBlock; // @synthesize customViewAnimatorBlock=_customViewAnimatorBlock;
 @property(nonatomic) struct PUDisplayVelocity initialVelocity; // @synthesize initialVelocity=_initialVelocity;
 @property(nonatomic) long long springNumberOfOscillations; // @synthesize springNumberOfOscillations=_springNumberOfOscillations;

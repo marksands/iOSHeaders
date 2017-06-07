@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (id)defaultTitleColorForUserInterfaceStyle:(long long)arg1 barStyle:(long long)arg2;
 - (id)buttonFontForStyle:(long long)arg1;
 - (struct UIEdgeInsets)buttonContentEdgeInsets;
 - (double)topMargin;
@@ -20,6 +21,9 @@ __attribute__((visibility("hidden")))
 - (double)interItemSpace;
 - (double)barHeight;
 - (double)buttonHeight;
+- (id)defaultTitleFont;
+- (double)buttonFontSize;
+- (double)headingFontSize;
 - (id)timingFunctionForAnimationInView:(id)arg1 withKeyPath:(id)arg2 isInteractive:(_Bool)arg3;
 
 @end

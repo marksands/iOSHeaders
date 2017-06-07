@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)_layoutContentUnavailableView;
 - (void)setContentEdgeInsets:(struct UIEdgeInsets)arg1;
 - (void)setEmpty:(_Bool)arg1;
+- (id)initWithContext:(id)arg1 configuration:(id)arg2;
 - (id)initWithContext:(id)arg1 options:(unsigned long long)arg2;
 
 // Remaining properties

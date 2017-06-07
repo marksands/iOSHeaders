@@ -15,9 +15,12 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_bottomConstraint;
 }
 
++ (_Bool)shouldBeRemoteForContentType:(id)arg1;
++ (id)supportedContentTypes;
++ (Class)transformerClass;
 - (void).cxx_destruct;
 - (_Bool)shouldAcceptTouch:(id)arg1 ofGestureRecognizer:(id)arg2;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)canSwipeToDismiss;
 - (_Bool)canEnterFullScreen;

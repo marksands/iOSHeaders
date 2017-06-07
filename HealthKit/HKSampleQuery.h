@@ -6,27 +6,38 @@
 
 #import <HealthKit/HKQuery.h>
 
-@class NSArray;
+#import <HealthKit/HKSampleQueryClientInterface-Protocol.h>
 
-@interface HKSampleQuery : HKQuery
+@class NSArray, NSMutableArray, NSString;
+
+@interface HKSampleQuery : HKQuery <HKSampleQueryClientInterface>
 {
     unsigned long long _limit;
     NSArray *_sortDescriptors;
+    NSMutableArray *_samplesPendingDelivery;
     CDUnknownBlockType _resultHandler;
 }
 
-+ (Class)_queryServerDataObjectClass;
++ (void)configureClientInterface:(id)arg1;
++ (id)clientInterfaceProtocol;
 @property(readonly, nonatomic) CDUnknownBlockType resultHandler; // @synthesize resultHandler=_resultHandler;
 - (void).cxx_destruct;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)_queue_validate;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (void)deliverSampleObjects:(id)arg1 deletedObjects:(id)arg2 withAnchor:(id)arg3 forQuery:(id)arg4;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_validate;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_populateConfiguration:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)client_deliverSamples:(id)arg1 clearPendingSamples:(_Bool)arg2 isFinalBatch:(_Bool)arg3 queryUUID:(id)arg4;
 - (_Bool)_prepareSamplesForDelivery:(id)arg1 error:(id *)arg2;
 @property(readonly, copy) NSArray *sortDescriptors;
 @property(readonly) unsigned long long limit;
 - (id)initWithSampleType:(id)arg1 predicate:(id)arg2 limit:(unsigned long long)arg3 sortDescriptors:(id)arg4 resultsHandler:(CDUnknownBlockType)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,5 +8,6 @@
 
 @interface NSMutableArray (HealthKit)
 - (void)hk_removeObjectsPassingTest:(CDUnknownBlockType)arg1;
+- (id)hk_dequeue;
 @end
 

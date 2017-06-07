@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (id)backgroundTraitsForKeyplane:(id)arg1;
 - (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderingContext:(id)arg3 keycapsFontName:(id)arg4;
+- (id)messagesWriteboardKeyImageName;
 - (struct CGPoint)emojiInternationalKeyOffset;
 - (double)emojiInternationalKeySize;
 - (struct CGPoint)emojiPopupTextOffset;

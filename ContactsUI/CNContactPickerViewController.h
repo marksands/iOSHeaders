@@ -69,6 +69,8 @@
 - (void)_setViewController:(id)arg1;
 - (void)_endDelayingPresentation;
 - (_Bool)_isDelayingPresentation;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)_viewWillBePresented;
 - (void)invalidateSelectionAnimated:(_Bool)arg1;
 - (void)scrollToClosestContactMatching:(id)arg1;

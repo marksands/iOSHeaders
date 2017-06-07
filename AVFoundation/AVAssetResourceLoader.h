@@ -8,22 +8,33 @@
 
 #import <AVFoundation/NSURLAuthenticationChallengeSender-Protocol.h>
 
-@class AVAssetResourceLoaderInternal, NSString;
-@protocol AVAssetResourceLoaderDelegate, OS_dispatch_queue;
+@class AVAssetResourceLoaderInternal, NSOperationQueue, NSString, NSURLSession;
+@protocol AVAssetResourceLoaderDelegate, NSURLSessionDataDelegate, OS_dispatch_queue;
 
 @interface AVAssetResourceLoader : NSObject <NSURLAuthenticationChallengeSender>
 {
     AVAssetResourceLoaderInternal *_resourceLoader;
 }
 
+- (struct OpaqueFigCustomURLHandler *)_contentKeySessionCustomURLHandler;
+- (void)_setContentKeySessionCustomURLHandler:(struct OpaqueFigCustomURLHandler *)arg1;
+- (void)_handleRequest:(struct __CFDictionary *)arg1 requestID:(unsigned long long)arg2 willHandleRequest:(_Bool *)arg3;
 - (void)_noteFinishingOfRequest:(id)arg1;
+- (void)_poseAuthenticationChallengeWithRequestInfo:(struct __CFDictionary *)arg1 requestID:(unsigned long long)arg2 challenge:(id)arg3;
 - (void)_poseAuthenticationChallengeWithKey:(id)arg1 data:(id)arg2 requestDictionary:(id)arg3 fallbackHandler:(CDUnknownBlockType)arg4;
+- (void)_poseAuthenticationChallengeWithKey:(id)arg1 challenge:(id)arg2 fallbackHandler:(CDUnknownBlockType)arg3;
+- (void)_issueLoadingRequestWithKey:(id)arg1 loadingRequest:(id)arg2 isRenewalRequest:(_Bool)arg3 fallbackHandler:(CDUnknownBlockType)arg4;
 - (void)_issueLoadingRequestWithKey:(id)arg1 requestDictionary:(id)arg2 fallbackHandler:(CDUnknownBlockType)arg3;
+- (void)_cancelRequest:(struct __CFDictionary *)arg1 requestID:(unsigned long long)arg2;
 - (void)_cancelRequestWithKey:(id)arg1 requestDictionary:(id)arg2 fallbackHandler:(CDUnknownBlockType)arg3;
+- (void)_cancelRequestWithKey:(id)arg1 fallbackHandler:(CDUnknownBlockType)arg2;
 - (void)_performDelegateSelector:(SEL)arg1 withObject:(id)arg2 representingNewRequest:(_Bool)arg3 key:(id)arg4 fallbackHandler:(CDUnknownBlockType)arg5;
 - (void)_performDelegateCallbackSynchronouslyIfCurrentDelegateQueueIsQueue:(id)arg1 delegateCallbackBlock:(CDUnknownBlockType)arg2;
 - (void)cancelLoading;
 - (id)asset;
+- (struct OpaqueFigCustomURLLoader *)_customURLLoader;
+- (struct OpaqueFigCustomURLHandler *)_customURLHandler;
+- (struct OpaqueFigCustomURLHandler *)_authHandler;
 - (id)URLRequestHelper;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
 @property(readonly, nonatomic) __weak id <AVAssetResourceLoaderDelegate> delegate;
@@ -43,6 +54,12 @@
 - (void)useCredential:(id)arg1 forAuthenticationChallenge:(id)arg2;
 - (id)cachedContentInformationForURL:(id)arg1;
 - (void)cacheContentInformation:(id)arg1 forURL:(id)arg2;
+- (id)customURLBridge;
+- (void)setCustomURLBridge:(id)arg1;
+@property(retain, nonatomic) NSURLSession *URLSession;
+@property(readonly, nonatomic) NSOperationQueue *URLSessionDataDelegateQueue;
+@property(readonly, nonatomic) id <NSURLSessionDataDelegate> URLSessionDataDelegate;
+- (void)_makeURLSessionSupportGooIfNecessary;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

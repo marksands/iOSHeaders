@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
 @class NSMutableDictionary;
 
-@interface PULoggingSettings : PUSettings
+@interface PULoggingSettings : PXSettings
 {
     unsigned char _isLogEverythingEnabled;
     unsigned char _isLogAsNSLogEnabled;
@@ -36,6 +36,7 @@
 - (void)addLevel:(long long)arg1 forGlobalDomain:(id)arg2;
 - (void)setDefaultLoggingValues;
 - (void)updateLevelsMatching:(id)arg1 toLevel:(long long)arg2;
+- (id)parentSettings;
 
 @end
 

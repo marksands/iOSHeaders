@@ -23,7 +23,6 @@
     _Bool _running;
     _Bool _finishing;
     _Bool _cancelled;
-    _Bool _powerAvailable;
     long long _taskHint;
     NSError *_error;
     NSString *_requestIdentifier;
@@ -31,7 +30,6 @@
 
 + (id)recognizedResultFromPackage:(id)arg1;
 + (id)transcriptionsWithTokens:(id)arg1;
-@property(readonly, nonatomic, getter=isPowerAvailable) _Bool powerAvailable; // @synthesize powerAvailable=_powerAvailable;
 @property(readonly, copy, nonatomic) NSString *requestIdentifier; // @synthesize requestIdentifier=_requestIdentifier;
 @property(readonly, copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic, getter=isCancelled) _Bool cancelled; // @synthesize cancelled=_cancelled;
@@ -46,8 +44,8 @@
 - (void)dictationConnectionSpeechRecordingDidCancel:(id)arg1;
 - (void)dictationConnectionSpeechRecordingDidEnd:(id)arg1;
 - (void)dictationConnectionSpeechRecordingDidBegin:(id)arg1;
-@property(readonly, nonatomic) float averagePower;
-@property(readonly, nonatomic) float peakPower;
+- (float)averagePower;
+- (float)peakPower;
 - (void)cancel;
 - (void)finish;
 @property(readonly, nonatomic) long long state;

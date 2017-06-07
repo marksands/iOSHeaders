@@ -6,21 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
-#import <EventKitUI/ABSearchOperationDelegate-Protocol.h>
 #import <EventKitUI/CLLocationManagerDelegate-Protocol.h>
 #import <EventKitUI/MKSearchCompleterDelegate-Protocol.h>
 
-@class ABSearchOperation, CLGeocoder, CLInUseAssertion, CLLocationManager, EKEventStore, EKOccurrenceCacheLocationSearch, EKStructuredLocation, EKUILocationSearchABSearchMatchProcessor, MKLocalSearch, MKLocalSearchCompleter, NSArray, NSCharacterSet, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString;
-@protocol EKUILocationSearchModelDelegate, GEOMapServiceCompletionTicket, OS_dispatch_queue;
+@class CLGeocoder, CLInUseAssertion, CLLocationManager, CNAutocompleteStore, EKEventStore, EKOccurrenceCacheLocationSearch, EKStructuredLocation, MKLocalSearch, MKLocalSearchCompleter, NSArray, NSCharacterSet, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString;
+@protocol CNCancelable, EKUILocationSearchModelDelegate, GEOMapServiceCompletionTicket, OS_dispatch_queue;
 
-@interface EKUILocationSearchModel : NSObject <CLLocationManagerDelegate, MKSearchCompleterDelegate, ABSearchOperationDelegate>
+@interface EKUILocationSearchModel : NSObject <CLLocationManagerDelegate, MKSearchCompleterDelegate>
 {
     CLLocationManager *_locationManager;
     CLInUseAssertion *_locationAssertion;
     MKLocalSearchCompleter *_completer;
     EKStructuredLocation *_currentLocation;
-    NSOperationQueue *_abSearchQueue;
-    ABSearchOperation *_abSearchOperation;
     CLGeocoder *_geocoder;
     MKLocalSearch *_localSearch;
     NSObject<OS_dispatch_queue> *_recentsQueue;
@@ -36,7 +33,8 @@
     NSMutableArray *_frequentsSearchResults;
     NSMutableArray *_eventsSearchResults;
     NSMutableArray *_contactsSearchResults;
-    EKUILocationSearchABSearchMatchProcessor *_abSearchMatchProcessor;
+    CNAutocompleteStore *_contactAutocompleteStore;
+    id <CNCancelable> _currentFetch;
     NSArray *_mapCompletionSearchResults;
     id <EKUILocationSearchModelDelegate> _delegate;
 }
@@ -62,7 +60,8 @@
 - (void)updateEventLocations:(id)arg1;
 - (void)searchFrequentLocations:(id)arg1;
 - (void)updateRecents:(id)arg1;
-- (void)searchOperation:(id)arg1 didFindMatches:(id)arg2 moreComing:(_Bool)arg3;
+- (void)autocompleteFetch:(id)arg1 didFailWithError:(id)arg2;
+- (void)autocompleteFetch:(id)arg1 didReceiveResults:(id)arg2;
 - (void)completerDidUpdateResults:(id)arg1 finished:(_Bool)arg2;
 - (void)dedupeResults;
 - (void)beginSearchForTerm:(id)arg1;

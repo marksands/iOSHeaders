@@ -6,9 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSData, NSDictionary, NSOperationQueue, NSURL;
+#import <SceneKit/NSKeyedUnarchiverDelegate-Protocol.h>
 
-@interface SCNSceneSource : NSObject
+@class NSData, NSDictionary, NSOperationQueue, NSString, NSURL;
+
+@interface SCNSceneSource : NSObject <NSKeyedUnarchiverDelegate>
 {
     struct __C3DSceneSource *_sceneSource;
     struct __C3DScene *_lastLoadedScene;
@@ -26,6 +28,7 @@
 + (void)_cacheSceneSource:(id)arg1 forURL:(id)arg2 options:(id)arg3;
 + (id)_cachedSceneSourceForURL:(id)arg1 options:(id)arg2;
 + (_Bool)_shouldCacheWithOptions:(id)arg1;
+- (Class)unarchiver:(id)arg1 cannotDecodeObjectOfClassName:(id)arg2 originalClasses:(id)arg3;
 - (id)performConsistencyCheck;
 - (_Bool)canExportToColladaWithNoDataLoss;
 - (long long)sourceStatus;
@@ -47,7 +50,7 @@
 - (struct __C3DScene *)_createSceneRefWithOptions:(id)arg1 statusHandler:(CDUnknownBlockType)arg2;
 - (id)sceneAtIndex:(unsigned long long)arg1 options:(id)arg2 error:(id *)arg3;
 - (id)sceneAtIndex:(unsigned long long)arg1 options:(id)arg2;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (long long)sceneCount;
 - (long long)countOfScenes;
 @property(readonly) NSData *data;
@@ -58,6 +61,11 @@
 - (id)initWithData:(id)arg1 options:(id)arg2;
 - (id)debugQuickLookData;
 - (id)debugQuickLookObject;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

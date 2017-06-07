@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     UIImageView *_shieldImageView;
     _MKUILabel *_systemLabel;
+    NSLayoutConstraint *_imageToLabelConstraint;
     NSLayoutConstraint *_systemLabelToTopConstraint;
 }
 

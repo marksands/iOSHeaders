@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
     unsigned long long _pixelWidth;
     unsigned long long _pixelHeight;
     _Bool __isSourceTimeAccurate;
+    long long playbackStyle;
+    long long playbackVariation;
     double _sourceTime;
     AVAsset *__asset;
     double __normalizedTime;
@@ -29,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqual:(id)arg1;
 - (long long)compare:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) unsigned long long fullsizeDataFormat;
+@property(readonly, nonatomic) NSString *uniformTypeIdentifier;
 @property(readonly, nonatomic) _Bool hasPhotoColorAdjustments;
 @property(readonly, nonatomic) _Bool isTemporaryPlaceholder;
 @property(readonly, nonatomic) NSString *localizedGeoDescription;
@@ -38,12 +40,18 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *uuid;
 @property(readonly, nonatomic) NSDate *modificationDate;
 @property(readonly, nonatomic) NSDate *creationDate;
+@property(readonly, nonatomic) _Bool isAnimatedImage;
 @property(readonly, nonatomic, getter=isFavorite) _Bool favorite;
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisVideoDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisStillDisplayTime;
+@property(readonly, nonatomic) _Bool canPlayLoopingVideo;
 @property(readonly, nonatomic) _Bool isPhotoIrisPlaceholder;
 @property(readonly, nonatomic) _Bool canPlayPhotoIris;
+@property(readonly, nonatomic, getter=isLivePhoto) _Bool livePhoto;
+@property(readonly, nonatomic) long long playbackVariation; // @synthesize playbackVariation;
+@property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle;
+@property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType;
 @property(readonly, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) unsigned long long pixelHeight;

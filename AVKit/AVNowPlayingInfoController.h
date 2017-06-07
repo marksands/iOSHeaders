@@ -8,7 +8,6 @@
 
 @class AVPlayerController, NSUUID;
 
-__attribute__((visibility("hidden")))
 @interface AVNowPlayingInfoController : NSObject
 {
     AVPlayerController *_playerController;
@@ -17,8 +16,10 @@ __attribute__((visibility("hidden")))
     _Bool _enabled;
     NSUUID *_identifier;
     _Bool _shouldOwnNowPlayingInfo;
+    _Bool _requiresLinearPlayback;
 }
 
+@property(nonatomic) _Bool requiresLinearPlayback; // @synthesize requiresLinearPlayback=_requiresLinearPlayback;
 - (void).cxx_destruct;
 - (long long)_handleRemoteCommandEvent:(id)arg1;
 - (void)_updateRegisteredRemoteCommandEnabledStatesWithPlayerController:(id)arg1;

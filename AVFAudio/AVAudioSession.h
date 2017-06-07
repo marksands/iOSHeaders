@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class AVAudioSessionPortDescription, AVAudioSessionRouteDescription, NSArray, NSString;
 
@@ -66,10 +66,14 @@
 - (double)speechDetectionDeviceSampleRate;
 - (unsigned long long)sessionType;
 - (unsigned int)opaqueSessionID;
+- (id)audioClockDevice;
+- (_Bool)setAudioClockDevice:(id)arg1 error:(id *)arg2;
 @property(readonly) AVAudioSessionRouteDescription *currentRoute;
 @property(readonly) AVAudioSessionPortDescription *preferredInput;
 - (_Bool)setPreferredInput:(id)arg1 error:(id *)arg2;
 - (_Bool)overrideOutputAudioPort:(unsigned long long)arg1 error:(id *)arg2;
+- (_Bool)setRoutingContextUID:(id)arg1 error:(id *)arg2;
+- (_Bool)privateSetRouteSharingPolicy:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)setMode:(id)arg1 error:(id *)arg2;
 @property(readonly) NSString *mode;
 @property(readonly) NSArray *availableModes;
@@ -104,6 +108,7 @@
 - (float)inputGain;
 - (_Bool)fixHardwareFormatToMultiChannel:(_Bool)arg1 error:(id *)arg2;
 - (_Bool)isHardwareFormatFixedToMultiChannel;
+- (_Bool)setAudioHardwareControlFlags:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)setBypassRingerSwitchPolicy:(_Bool)arg1 error:(id *)arg2;
 - (void)setAllowAllBuiltInDataSources:(_Bool)arg1;
 - (_Bool)allowAllBuiltInDataSources;
@@ -132,24 +137,26 @@
 - (_Bool)deactivateAndSetInterruptionPriority:(long long)arg1 error:(id *)arg2;
 - (_Bool)setActive:(_Bool)arg1 withOptions:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)setActive:(_Bool)arg1 error:(id *)arg2;
+- (_Bool)setCategory:(id)arg1 mode:(id)arg2 routeSharingPolicy:(unsigned long long)arg3 options:(unsigned long long)arg4 error:(id *)arg5;
 - (_Bool)setCategory:(id)arg1 mode:(id)arg2 options:(unsigned long long)arg3 error:(id *)arg4;
 - (_Bool)setCategory:(id)arg1 withOptions:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)privateSetOptions:(unsigned long long)arg1 forCategory:(id)arg2 error:(id *)arg3;
 - (_Bool)setCategory:(id)arg1 error:(id *)arg2;
 @property(readonly) NSArray *availableCategories;
+@property(readonly) unsigned long long routeSharingPolicy;
 @property(readonly) unsigned long long categoryOptions;
 @property(readonly) NSString *category;
 - (id)privateConfigureRouteDescription:(id)arg1;
 - (void)dealloc;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned long long)retainCount;
-- (id)retain;
-- (_Bool)isPrimary;
 - (id)initAuxiliarySession;
 - (id)initWithSessionID:(unsigned int)arg1;
 - (id)initWithSessionType:(unsigned int)arg1;
 - (id)init;
+- (id)autorelease;
+- (oneway void)release;
+- (unsigned long long)retainCount;
+- (id)retain;
+@property(readonly) _Bool isPrimary;
 
 @end
 

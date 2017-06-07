@@ -15,6 +15,8 @@
     id _reserved1;
 }
 
++ (id)_testEncodeAndDecodeObject:(id)arg1 allowedClass:(Class)arg2;
++ (id)_testEncodeAndDecodeObject:(id)arg1 allowedClasses:(id)arg2;
 @property(retain) id <NSObject> userInfo; // @synthesize userInfo=_userInfo;
 - (void)dealloc;
 - (id)init;

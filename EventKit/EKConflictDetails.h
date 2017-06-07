@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
     CalDateRange *_conflictPeriodForSeries;
 }
 
-+ (id)calendarsToScanForConflictsForEvent:(id)arg1;
++ (id)calendarIdentifiersToScanForConflictsForEvent:(id)arg1;
 + (double)_maxRangeLengthForRule:(id)arg1;
 + (id)_dateRangeToScanForConflictsForEvent:(id)arg1 dateForNow:(id)arg2;
 + (id)dateRangeToScanForConflictsForEvent:(id)arg1;

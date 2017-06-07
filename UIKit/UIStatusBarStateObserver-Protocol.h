@@ -9,7 +9,7 @@
 @protocol UIStatusBarStateProvider;
 
 @protocol UIStatusBarStateObserver <NSObject>
-- (void)statusBarStateProvider:(id <UIStatusBarStateProvider>)arg1 didPostStatusBarData:(const CDStruct_19f80fdc *)arg2 withActions:(int)arg3;
+- (void)statusBarStateProvider:(id <UIStatusBarStateProvider>)arg1 didPostStatusBarData:(const CDStruct_121c720f *)arg2 withActions:(int)arg3;
 
 @optional
 - (void)statusBarStateProvider:(id <UIStatusBarStateProvider>)arg1 didChangeDoubleHeightStatusStringForStyle:(long long)arg2;

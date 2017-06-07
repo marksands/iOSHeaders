@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)alreadylocked_clearCache;
 - (void)sendRequestNewDataMessage:(id)arg1 toConnection:(id)arg2 retryCount:(int)arg3 error:(_Bool *)arg4;
 - (void)handleReply:(id)arg1 toRequestNewDataMessage:(id)arg2 onConnection:(id)arg3 retryCount:(int)arg4 error:(_Bool *)arg5;
+- (void)requestPlistValidation;
 - (id)createRequestNewContentMessageForDaemon:(int)arg1;
 - (_Bool)alreadylocked_requestNewData;
 - (long long)sendMessageSettingValue:(void *)arg1 forKey:(struct __CFString *)arg2;
@@ -57,7 +58,6 @@ __attribute__((visibility("hidden")))
 - (struct __CFDictionary *)alreadylocked_copyDictionary;
 - (struct __CFArray *)alreadylocked_copyKeyList;
 - (void *)copyValueForKey:(struct __CFString *)arg1;
-- (void)mergeIntoDictionary:(struct __CFDictionary *)arg1;
 - (void *)alreadylocked_copyValueForKey:(struct __CFString *)arg1;
 - (void)setDaemonCacheEnabled:(_Bool)arg1;
 - (void)setAccessRestricted:(_Bool)arg1;

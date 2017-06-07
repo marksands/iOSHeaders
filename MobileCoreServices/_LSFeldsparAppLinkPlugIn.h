@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)canHandleURLComponents:(id)arg1;
-- (void)getAppLinkWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)getAppLinksWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)init;
 
 @end

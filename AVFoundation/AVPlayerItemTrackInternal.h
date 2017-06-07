@@ -22,6 +22,8 @@
     _Bool enabledWasSet;
     _Bool disableColorMatching;
     _Bool disableColorMatchingWasSet;
+    long long activeHapticChannelIndex;
+    _Bool activeHapticChannelIndexWasSet;
 }
 
 @end

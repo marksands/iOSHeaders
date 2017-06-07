@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)_isSystemWindow;
+- (_Bool)_alwaysGetsContexts;
 - (_Bool)_shouldZoom;
 - (_Bool)_isConstrainedByScreenJail;
 - (void)_updateTransformLayerForClassicPresentation;

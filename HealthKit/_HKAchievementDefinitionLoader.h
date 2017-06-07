@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, _HKMobileAssetDownloadManager;
+@class NSArray, NSDictionary, NSMutableArray, _HKMobileAssetDownloadManager;
 @protocol OS_dispatch_queue;
 
 @interface _HKAchievementDefinitionLoader : NSObject
@@ -14,12 +14,16 @@
     NSObject<OS_dispatch_queue> *_queue;
     int _externalDefinitionsChangedNotificationCount;
     _HKMobileAssetDownloadManager *_assetDownloadManager;
+    NSArray *_allDefinitions;
     NSDictionary *_allDefinitionsByIdentifier;
     NSDictionary *_builtinDefinitionsByIdentifier;
     NSDictionary *_remoteDefinitionsByIdentifier;
+    NSDictionary *_dynamicDefinitionsByIdentifier;
     NSDictionary *_injectedTestDefinitionsByIdentifier;
     NSDictionary *_resourcesPathURLsByIdentifier;
     NSDictionary *_stickersPathURLsByIdentifier;
+    _Bool _didCompleteInitialLoad;
+    NSMutableArray *_blocksToRunAfterInitialization;
 }
 
 + (id)_definitionIdentifiersFromAssets:(id)arg1;
@@ -34,9 +38,15 @@
 + (id)serverURLWithError:(id *)arg1;
 + (void)setServerURL:(id)arg1;
 + (id)_findAchievementAssetsToDownload:(id *)arg1 remove:(id *)arg2 installed:(id *)arg3 amongAssets:(id)arg4 definitions:(id)arg5 withFilterBlock:(CDUnknownBlockType)arg6;
++ (id)_dynamicDefinitionLoader;
++ (void)setDynamicAchievementDefinitionLoader:(id)arg1;
 + (void)initialize;
 + (id)sharedLoader;
++ (id)_perMonthDefinitionIdentifiers;
++ (id)_suppressedDefinitionIdentifiers;
++ (id)_perWorkoutTypeDefinitionIdentifiers;
 - (void).cxx_destruct;
+- (id)allAchievementDefinitions;
 - (id)_achievementDefinitionsByIdentifier;
 - (void)_achievementAssetsDidChangeWithAssets:(id)arg1 postDarwinNotification:(_Bool)arg2;
 - (id)_allAchievementStickersPredicate;
@@ -50,6 +60,10 @@
 - (void)_queue_updateStickerAvailabilityWithInstalledAssets:(id)arg1 downloadedAssets:(id)arg2 removedAssets:(id)arg3 usingFilter:(id)arg4;
 - (void)updateAchievementStickersAssetsRemovingExpired:(_Bool)arg1 withFilter:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updateAchievementResourcesAssetsRemovingExpired:(_Bool)arg1 withFilter:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)runBlockAfterInitialization:(CDUnknownBlockType)arg1;
+- (void)_updateDynamicAchievementDefinitions;
+- (void)_queue_rebuildAllDefinitionsByIdentifierDictionary;
+- (void)_dynamicAchievementDefinitionsChangedExternally;
 - (void)updateDefinitionsAssetWithCompletion:(CDUnknownBlockType)arg1;
 - (id)stickersBundleForIdentifier:(id)arg1;
 - (id)resourcesBundleForIdentifier:(id)arg1;
@@ -59,8 +73,8 @@
 - (_Bool)_queue_isDefinitionWithIdentifierRemotelyDefined:(id)arg1;
 - (_Bool)isDefinitionWithIdentifierRemotelyDefined:(id)arg1;
 - (id)achievementDefinitionForIdentifier:(id)arg1;
+- (id)dynamicDefinitions;
 - (id)allAchievementDefinitionIdentifiers;
-- (id)allAchievementDefinitions;
 - (void)_queue_clearCaches;
 - (void)_clearCaches;
 - (void)_achievementDefinitionsChangedExternally;

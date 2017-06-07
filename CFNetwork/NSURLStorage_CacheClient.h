@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (void)deleteResponseForRequestWithKey:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)addCachedResponseWithDictionary:(id)arg1 key:(id)arg2;
 - (_Bool)createStorageTaskManagerForPath:(id)arg1 maxSize:(long long)arg2 extension:(id)arg3;
+- (void)performSchemaCheckAndUpdate;
 - (void)setMaxSize:(long long)arg1;
 - (_Bool)ensureNetworkStorageDaemonConnection;
 - (id)getPath;

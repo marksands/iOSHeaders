@@ -10,7 +10,10 @@
 
 @interface WKInterfaceDevice : NSObject
 {
+    _Bool _batteryMonitoringEnabled;
+    float _batteryLevel;
     double _screenScale;
+    long long _batteryState;
     NSString *_preferredContentSizeCategory;
     long long _layoutDirection;
     long long _wristLocation;
@@ -33,6 +36,9 @@
 @property(readonly, nonatomic) long long wristLocation; // @synthesize wristLocation=_wristLocation;
 @property(readonly, nonatomic) long long layoutDirection; // @synthesize layoutDirection=_layoutDirection;
 @property(copy, nonatomic) NSString *preferredContentSizeCategory; // @synthesize preferredContentSizeCategory=_preferredContentSizeCategory;
+@property(readonly, nonatomic) long long batteryState; // @synthesize batteryState=_batteryState;
+@property(readonly, nonatomic) float batteryLevel; // @synthesize batteryLevel=_batteryLevel;
+@property(nonatomic, getter=isBatteryMonitoringEnabled) _Bool batteryMonitoringEnabled; // @synthesize batteryMonitoringEnabled=_batteryMonitoringEnabled;
 @property(nonatomic) double screenScale; // @synthesize screenScale=_screenScale;
 @property(nonatomic) struct CGRect screenBounds; // @synthesize screenBounds=_screenBounds;
 - (void).cxx_destruct;

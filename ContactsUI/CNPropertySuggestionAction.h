@@ -20,7 +20,10 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)reject;
 - (void)confirm;
+- (_Bool)_confirmOrRejectDonation:(_Bool)arg1;
+- (_Bool)_confirmOrRejectSuggestion:(_Bool)arg1;
 - (_Bool)_confirmOrReject:(_Bool)arg1;
+- (id)dataSourceWithPropertyItem:(id)arg1;
 - (void)performActionForItem:(id)arg1 sender:(id)arg2;
 
 @end

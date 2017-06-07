@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)dispatchQueue;
 + (id)XPCInterface;
 + (Class)clientClass;
 + (unsigned short)connectionType;

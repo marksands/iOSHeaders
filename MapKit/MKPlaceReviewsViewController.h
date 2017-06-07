@@ -6,14 +6,14 @@
 
 #import <MapKit/MKPlaceSectionViewController.h>
 
-#import <MapKit/MKPlaceAttributionProvider-Protocol.h>
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
-@class ABMonogrammer, MKMapItem, NSArray, NSMutableArray, NSMutableDictionary, NSString, _MKPlaceViewController;
-@protocol MKPlaceCardReviewsControllerDelegate;
+@class CNMonogrammer, MKMapItem, NSArray, NSMutableArray, NSMutableDictionary, NSString, _MKPlaceViewController;
+@protocol MKPlaceCardReviewsControllerDelegate><MKPlaceCardActionControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceReviewsViewController : MKPlaceSectionViewController <MKPlaceAttributionProvider, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKPlaceReviewsViewController : MKPlaceSectionViewController <_MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     NSMutableDictionary *_cachedMaskedImages;
     _Bool _hasAttribution;
@@ -21,9 +21,9 @@ __attribute__((visibility("hidden")))
     _Bool _showMoreReviewsButton;
     MKMapItem *_mapItem;
     NSArray *_userSnippets;
-    id <MKPlaceCardReviewsControllerDelegate> _reviewsControllerDelegate;
+    id <MKPlaceCardReviewsControllerDelegate><MKPlaceCardActionControllerDelegate> _reviewsControllerDelegate;
     _MKPlaceViewController *_owner;
-    ABMonogrammer *_monogrammer;
+    CNMonogrammer *_monogrammer;
     NSMutableArray *_viewDidAppearBlocks;
     NSMutableArray *_cells;
 }
@@ -34,13 +34,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool showMoreReviewsButton; // @synthesize showMoreReviewsButton=_showMoreReviewsButton;
 @property(nonatomic) _Bool showCheckInAndWriteReviewButtons; // @synthesize showCheckInAndWriteReviewButtons=_showCheckInAndWriteReviewButtons;
 @property(nonatomic) _Bool hasAttribution; // @synthesize hasAttribution=_hasAttribution;
-@property(nonatomic) __weak id <MKPlaceCardReviewsControllerDelegate> reviewsControllerDelegate; // @synthesize reviewsControllerDelegate=_reviewsControllerDelegate;
+@property(nonatomic) __weak id <MKPlaceCardReviewsControllerDelegate><MKPlaceCardActionControllerDelegate> reviewsControllerDelegate; // @synthesize reviewsControllerDelegate=_reviewsControllerDelegate;
 @property(retain, nonatomic) NSArray *userSnippets; // @synthesize userSnippets=_userSnippets;
 @property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
 - (void).cxx_destruct;
 - (id)infoCardChildPossibleActions;
-- (void)attributionLinkWasClicked:(id)arg1;
-- (id)getAttributionDisplayString;
 - (void)sectionView:(id)arg1 didSelectRow:(id)arg2 atIndex:(unsigned long long)arg3;
 - (id)_sectionViewForRow:(unsigned long long)arg1;
 - (void)_showReview:(id)arg1 index:(unsigned long long)arg2;
@@ -48,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (id)reviewAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long reviewsCount;
 - (void)loadCells;
-@property(readonly, nonatomic) ABMonogrammer *monogrammer; // @synthesize monogrammer=_monogrammer;
+@property(readonly, nonatomic) CNMonogrammer *monogrammer; // @synthesize monogrammer=_monogrammer;
 - (void)_performWhenViewHasAppeared:(CDUnknownBlockType)arg1;
 - (void)_updateAttribution;
 - (void)viewDidAppear:(_Bool)arg1;

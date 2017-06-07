@@ -21,7 +21,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)sanitizedCopyWithZone:(struct _NSZone *)arg1;
 - (void)updateSanitizedCopy:(id)arg1 withZone:(struct _NSZone *)arg2;
-- (void)fulfillWithResponse:(id)arg1;
 - (id)customDescription;
 - (id)init;
 - (id)initWithCallUUID:(id)arg1;

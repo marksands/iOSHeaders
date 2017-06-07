@@ -6,22 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSXPCConnection;
-
 __attribute__((visibility("hidden")))
 @interface _LSInstallationManager : NSObject
 {
-    NSXPCConnection *_connection;
 }
 
-+ (id)manager;
-@property(readonly) NSXPCConnection *connection; // @synthesize connection=_connection;
-- (_Bool)install:(id)arg1 withError:(id *)arg2;
-- (_Bool)uninstall:(id)arg1 withError:(id *)arg2;
-- (_Bool)restoreSystemApplicationWithBundleIdentifier:(id)arg1;
-- (_Bool)removeSystemApplicationWithBundleIdentifier:(id)arg1;
-- (void)dealloc;
-- (id)init;
++ (id)sharedInstance;
+- (void)install:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)uninstall:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 
 @end
 

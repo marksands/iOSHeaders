@@ -16,7 +16,8 @@
     NSString *_title;
     NSString *_name;
     NSString *_emailAddress;
-    NSURL *_URI;
+    NSString *_phoneNumber;
+    NSURL *_URL;
     EKObjectID *_objectID;
     struct CGColor *_dotColor;
     _Bool _hiddenFromNotificationCenter;
@@ -33,7 +34,8 @@
 @property(nonatomic) _Bool hiddenFromNotificationCenter; // @synthesize hiddenFromNotificationCenter=_hiddenFromNotificationCenter;
 @property(nonatomic) struct CGColor *dotColor; // @synthesize dotColor=_dotColor;
 @property(retain, nonatomic) EKObjectID *objectID; // @synthesize objectID=_objectID;
-@property(retain, nonatomic) NSURL *URI; // @synthesize URI=_URI;
+@property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(retain, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(retain, nonatomic) NSString *emailAddress; // @synthesize emailAddress=_emailAddress;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;

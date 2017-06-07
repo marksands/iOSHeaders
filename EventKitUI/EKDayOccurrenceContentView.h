@@ -27,11 +27,11 @@
     unsigned long long _fontCompressionDegree;
     UIFont *_cachedPrimaryFont;
     double _cachedLineHeight;
-    double _minimumCachedLineHeight;
     UIFont *_cachedSecondaryFont;
     double _cachedSecondaryLineHeight;
     _Bool _facebook;
     _Bool _birthday;
+    _Bool _invalidatedContentString;
     _Bool _allDay;
     _Bool _cancelled;
     _Bool _tentative;
@@ -46,7 +46,12 @@
     NSString *_time;
 }
 
++ (double)_minimumPrimaryFontLineHeightUsingSmallText:(_Bool)arg1;
 + (void)_getLanguageAwareOutsets;
++ (double)minNaturalTextHeightForEvent:(id)arg1 usingSmallText:(_Bool)arg2;
++ (_Bool)shouldShowTimeStringForOccurrence:(id)arg1;
++ (double)minimumNaturalHeightForPrimaryTextUsingSmallText:(_Bool)arg1;
++ (double)attributedStringMinimumLineHeightUsingSmallText:(_Bool)arg1;
 + (id)defaultSecondaryTextFont;
 + (id)defaultSmallPrimaryTextFont;
 + (id)defaultPrimaryTextFont;
@@ -74,7 +79,6 @@
 - (id)_statusTextFont;
 - (id)_secondaryTextFont;
 - (double)_secondaryFontLineHeight;
-- (double)_minimumPrimaryFontLineHeight;
 - (double)_primaryFontLineHeight;
 - (id)_primaryTextFont;
 @property(retain, nonatomic) UIColor *textBackgroundColor;
@@ -93,11 +97,9 @@
 - (double)bottomTextOutset;
 - (double)topTextOutset;
 - (double)minimumNaturalHeightAllText;
-- (double)minimumNaturalHeightForPrimaryText;
 - (id)attributedContentString;
 - (id)attributedContentStringUnconstrained:(_Bool)arg1;
 - (double)_attributedStringMinimumLineHeightBasedOnCurrentFontMetrics;
-- (double)attributedStringMinimumLineHeight;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
 - (id)stringDrawingContext;

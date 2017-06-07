@@ -8,20 +8,18 @@
 
 #import <MediaPlayer/MPRemoteCommandDelegate_Internal-Protocol.h>
 
-@class MPAdvanceRepeatModeCommand, MPAdvanceShuffleModeCommand, MPChangePlaybackPositionCommand, MPChangePlaybackProgressCommand, MPChangePlaybackRateCommand, MPChangeRepeatModeCommand, MPChangeShuffleModeCommand, MPFeedbackCommand, MPInsertIntoPlaybackQueueCommand, MPPurchaseCommand, MPRatingCommand, MPRemoteCommand, MPRemoteControlOrigin, MPReorderQueueCommand, MPSetPlaybackQueueCommand, MPSkipIntervalCommand, NSArray, NSBundle, NSMutableArray, NSString;
+@class MPAdvanceRepeatModeCommand, MPAdvanceShuffleModeCommand, MPChangePlaybackPositionCommand, MPChangePlaybackProgressCommand, MPChangePlaybackRateCommand, MPChangeRepeatModeCommand, MPChangeShuffleModeCommand, MPFeedbackCommand, MPInsertIntoPlaybackQueueCommand, MPPurchaseCommand, MPRatingCommand, MPRemoteCommand, MPReorderQueueCommand, MPSetPlaybackQueueCommand, MPSkipIntervalCommand, NSArray, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MPRemoteCommandCenter : NSObject <MPRemoteCommandDelegate_Internal>
 {
-    MPRemoteControlOrigin *_origin;
-    NSBundle *_bundle;
-    _Bool _observing;
     NSMutableArray *_activeCommands;
     NSObject<OS_dispatch_queue> *_serialQueue;
     void *_mediaRemoteCommandHandler;
     _Bool _scheduledSupportedCommandsChangedNotification;
     _Bool _canBeNowPlayingApplication;
     _Bool _handlingPlaybackQueueCommands;
+    void *_playerPath;
     MPRemoteCommand *_pauseCommand;
     MPRemoteCommand *_playCommand;
     MPRemoteCommand *_stopCommand;
@@ -59,9 +57,12 @@
     MPFeedbackCommand *_addNowPlayingItemToLibraryCommand;
     MPFeedbackCommand *_addItemToLibraryCommand;
     MPChangePlaybackProgressCommand *_changePlaybackProgressCommand;
+    NSString *_playerID;
 }
 
++ (id)commandCenterForPlayerID:(id)arg1;
 + (id)sharedCommandCenter;
+@property(readonly, copy, nonatomic) NSString *playerID; // @synthesize playerID=_playerID;
 - (void).cxx_destruct;
 - (long long)_handlePlayItemCommand:(id)arg1;
 - (long long)_handleRemoveCommand:(id)arg1;
@@ -117,10 +118,10 @@
 - (void)startMediaRemoteSync;
 - (void)_pushMediaRemoteCommand:(unsigned int)arg1 withOptions:(struct __CFDictionary *)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_pushMediaRemoteCommand:(unsigned int)arg1 withOptions:(struct __CFDictionary *)arg2;
-- (struct __CFArray *)_copySupportedCommands;
+- (const struct __CFArray *)_copySupportedCommands;
 - (void)remoteCommandDidMutatePropagatableProperty:(id)arg1;
 - (void)dealloc;
-- (id)initWithOrigin:(id)arg1 bundle:(id)arg2;
+- (id)initWithPlayerID:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

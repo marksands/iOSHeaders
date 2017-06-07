@@ -33,7 +33,13 @@
 - (void)addObject:(id)arg1;
 - (void)removeObjectsInArray:(id)arg1;
 - (void)removeObject:(id)arg1;
+- (void)replaceObject:(id)arg1;
 - (id)initWithArray:(id)arg1;
+- (id)firstItemWithCharacteristicType:(id)arg1;
+- (id)firstItemWithInstanceID:(id)arg1;
+- (id)firstItemWithUniqueIdentifier:(id)arg1;
+- (id)firstItemWithUUID:(id)arg1;
+- (id)firstItemWithName:(id)arg1;
 
 @end
 

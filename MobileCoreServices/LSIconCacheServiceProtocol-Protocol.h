@@ -6,14 +6,13 @@
 
 #import <MobileCoreServices/NSObject-Protocol.h>
 
-@class NSArray, NSDictionary, NSString, NSURL;
+@class NSDictionary, NSString, NSURL;
 
 @protocol LSIconCacheServiceProtocol <NSObject>
-- (void)setAlternateIconName:(NSString *)arg1 forIdentifier:(NSString *)arg2 reply:(void (^)(_Bool, NSError *))arg3;
+- (void)setAlternateIconName:(NSString *)arg1 forIdentifier:(NSString *)arg2 iconsDictionary:(NSDictionary *)arg3 reply:(void (^)(_Bool, NSError *))arg4;
 - (void)getAlternateIconNameForIdentifier:(NSString *)arg1 reply:(void (^)(NSString *, NSError *))arg2;
 - (void)copyIconBitmapCacheConfigurationWithReply:(void (^)(NSURL *, NSString *, NSString *))arg1;
-- (void)invalidateItemsForBundeID:(NSString *)arg1 reply:(void (^)(_Bool))arg2;
+- (void)clearCachedItemsForBundeID:(NSString *)arg1 validateIconName:(_Bool)arg2 withDictionary:(NSDictionary *)arg3;
 - (void)getIconBitmapDataWithResourceDirectoryURL:(NSURL *)arg1 boundContainerURL:(NSURL *)arg2 dataContainerURL:(NSURL *)arg3 bundleIdentifier:(NSString *)arg4 iconsDictionary:(NSDictionary *)arg5 preferredIconName:(NSString *)arg6 cacheFileName:(NSString *)arg7 variant:(int)arg8 options:(int)arg9 reply:(void (^)(_Bool, NSData *))arg10;
-- (void)getIconBitmapDataWithResourceDirectoryURL:(NSURL *)arg1 bundleIdentifier:(NSString *)arg2 roleIdentifier:(NSString *)arg3 iconFiles:(NSArray *)arg4 variant:(int)arg5 options:(int)arg6 reply:(void (^)(_Bool, NSData *))arg7;
 @end
 

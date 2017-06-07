@@ -8,15 +8,19 @@
 
 #import <Metal/MTLRenderPipelineState-Protocol.h>
 
-@class NSString;
+@class MTLIndirectArgumentBufferEmulationData, NSString;
 @protocol MTLDevice;
 
 @interface _MTLRenderPipelineState : NSObject <MTLRenderPipelineState>
 {
     NSString *_label;
     id <MTLDevice> _device;
+    MTLIndirectArgumentBufferEmulationData *_vertexIABEmulationData;
+    MTLIndirectArgumentBufferEmulationData *_fragmentIABEmulationData;
 }
 
+@property(retain, nonatomic) MTLIndirectArgumentBufferEmulationData *fragmentIABEmulationData; // @synthesize fragmentIABEmulationData=_fragmentIABEmulationData;
+@property(retain, nonatomic) MTLIndirectArgumentBufferEmulationData *vertexIABEmulationData; // @synthesize vertexIABEmulationData=_vertexIABEmulationData;
 @property(readonly) id <MTLDevice> device; // @synthesize device=_device;
 @property(readonly) NSString *label; // @synthesize label=_label;
 - (void)dealloc;

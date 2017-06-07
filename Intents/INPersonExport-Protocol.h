@@ -11,6 +11,7 @@
 
 @protocol INPersonExport <NSObject, JSExport>
 @property(copy, nonatomic) NSArray *alternatives;
+@property(nonatomic) _Bool isMe;
 @property(nonatomic) long long suggestionType;
 @property(copy, nonatomic) NSArray *aliases;
 @property(copy, nonatomic) NSString *customIdentifier;

@@ -9,6 +9,7 @@
 @class NEFilterFlow;
 
 @protocol NEFilterControlExtensionProviderProtocol <NEFilterExtensionProviderProtocol>
+- (void)handleReportForFlow:(NEFilterFlow *)arg1 action:(int)arg2;
 - (void)handleNewFlow:(NEFilterFlow *)arg1 completionHandler:(void (^)(NEFilterControlVerdict *))arg2;
 @end
 

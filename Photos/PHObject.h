@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <Photos/NSCopying-Protocol.h>
+#import <Photos/PLLocalUUIDConverter-Protocol.h>
 
 @class NSManagedObjectID, NSString, PHPhotoLibrary;
 
-@interface PHObject : NSObject <NSCopying>
+@interface PHObject : NSObject <PLLocalUUIDConverter, NSCopying>
 {
     _Bool _deleted;
     NSString *_uuid;
@@ -21,16 +22,18 @@
 
 + (id)authorizationAwareFetchResultWithOptions:(id)arg1 fetchBlock:(CDUnknownBlockType)arg2;
 + (id)fetchPredicateFromComparisonPredicate:(id)arg1 options:(id)arg2;
++ (id)localIdentifierExpressionForFetchRequests;
 + (id)identifierCodeFromLocalIdentifier:(id)arg1;
 + (id)uuidFromLocalIdentifier:(id)arg1;
 + (id)localIdentifierWithUUID:(id)arg1;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (id)identifierCode;
 + (_Bool)managedObjectSupportsMontage;
 + (_Bool)managedObjectSupportsSavedAssetType;
-+ (_Bool)managedObjectSupportsFaceCropGeneration;
-+ (_Bool)managedObjectSupportsFaceVisibility;
++ (_Bool)managedObjectSupportsFaceState;
 + (_Bool)managedObjectSupportsBursts;
++ (_Bool)managedObjectSupportsKeyFaces;
 + (_Bool)managedObjectSupportsPersonFilters;
 + (_Bool)managedObjectSupportsRejectedState;
 + (_Bool)managedObjectSupportsPendingState;
@@ -53,9 +56,9 @@
 @property(readonly) NSString *uuid; // @synthesize uuid=_uuid;
 @property(readonly, getter=isDeleted) _Bool deleted; // @synthesize deleted=_deleted;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(readonly, getter=isTransient) _Bool transient;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) id identifier;
 - (Class)changeRequestClass;
@@ -64,6 +67,10 @@
 @property(readonly, copy, nonatomic) NSString *localIdentifier;
 - (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned long long)arg2 photoLibrary:(id)arg3;
 - (_Bool)hasLoadedPropertySet:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

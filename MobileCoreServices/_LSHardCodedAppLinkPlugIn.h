@@ -12,8 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)hardCodedTable;
-- (void)getAppLinkWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)init;
+- (void)getAppLinksWithCompletionHandler:(CDUnknownBlockType)arg1;
 
 @end
 

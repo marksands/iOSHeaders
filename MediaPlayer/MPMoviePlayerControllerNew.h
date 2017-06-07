@@ -120,7 +120,6 @@
 - (void)_setCurrentPlaybackTime:(double)arg1 timeOption:(long long)arg2;
 - (void)_setControlsHidden:(_Bool)arg1;
 - (void)_setControlsHidden:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)_setAudioSessionModeOverride:(id)arg1;
 - (void)_setAdditionalButtons:(long long)arg1;
 - (double)_seekableStartTime;
 - (double)_seekableEndTime;
@@ -137,7 +136,6 @@
 - (_Bool)disallowsAMRAudio;
 - (id)_delegate;
 - (id)_currentItem;
-- (id)_audioSessionModeOverride;
 - (_Bool)_areControlsHidden;
 - (id)_advertisementView;
 - (long long)_additionalButtons;

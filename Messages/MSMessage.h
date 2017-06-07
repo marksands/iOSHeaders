@@ -9,13 +9,14 @@
 #import <Messages/NSCopying-Protocol.h>
 #import <Messages/NSSecureCoding-Protocol.h>
 
-@class MSMessageLayout, MSSession, NSError, NSString, NSURL, NSUUID, UIImage;
-@protocol MSBalloonLayout;
+@class MSMessageLayout, MSSession, NSData, NSError, NSString, NSURL, NSUUID;
 
 @interface MSMessage : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _pending;
     _Bool _shouldExpire;
     _Bool _isFromMe;
+    _Bool _requiresValidation;
     MSSession *_session;
     NSUUID *_senderParticipantIdentifier;
     MSMessageLayout *_layout;
@@ -23,7 +24,7 @@
     NSString *_accessibilityLabel;
     NSString *_summaryText;
     NSError *_error;
-    NSString *_text;
+    NSData *__data;
     NSString *_statusText;
     NSString *_breadcrumbText;
 }
@@ -31,8 +32,9 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *breadcrumbText; // @synthesize breadcrumbText=_breadcrumbText;
 @property(copy, nonatomic) NSString *statusText; // @synthesize statusText=_statusText;
-@property(copy, nonatomic) NSString *text; // @synthesize text=_text;
+@property(nonatomic) _Bool requiresValidation; // @synthesize requiresValidation=_requiresValidation;
 @property(nonatomic) _Bool isFromMe; // @synthesize isFromMe=_isFromMe;
+@property(copy, nonatomic) NSData *_data; // @synthesize _data=__data;
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(copy, nonatomic) NSString *summaryText; // @synthesize summaryText=_summaryText;
 @property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
@@ -40,21 +42,18 @@
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(copy, nonatomic) MSMessageLayout *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) NSUUID *senderParticipantIdentifier; // @synthesize senderParticipantIdentifier=_senderParticipantIdentifier;
+@property(nonatomic, getter=isPending) _Bool pending; // @synthesize pending=_pending;
 @property(readonly, nonatomic) MSSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
+- (void)_mergeSanitizedDataFromMessage:(id)arg1;
 - (void)sanitize;
 - (id)sanitizedCopy;
-@property(copy, nonatomic) id <MSBalloonLayout> balloonLayout;
-@property(copy, nonatomic) NSURL *mediaURL;
-@property(retain, nonatomic) UIImage *image;
-@property(readonly, copy, nonatomic) NSUUID *identifier;
 - (id)init;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithIdentifier:(id)arg1;
 - (id)initWithSession:(id)arg1;
 
 @end

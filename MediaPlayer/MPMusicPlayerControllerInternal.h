@@ -26,7 +26,6 @@
     unsigned int _useApplicationSpecificQueue:1;
     unsigned int _useCachedPlaybackState:1;
     unsigned int _cachedPlaybackStateIsValid:1;
-    unsigned int _allowsBackgroundVideo:1;
     unsigned int _wantsQueueModificationsDisabled:1;
     CDUnknownBlockType _prepareToPlayCompletionHandler;
 }

@@ -6,146 +6,66 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <AddressBookUI/AFContextProvider-Protocol.h>
+#import <AddressBookUI/CNContactViewControllerPrivateDelegate-Protocol.h>
 #import <AddressBookUI/UIViewControllerRestoration-Protocol.h>
 
-@class ABContactViewController, ABPersonTableViewActionsDelegate, ABPersonTableViewDataSource, ABPersonTableViewSharingDelegate, ABPersonViewControllerHelper, ABUIPerson, AFContextManager, NSArray, NSString, NSTimer, UIFont, UIImage, UIView;
-@protocol ABPersonEditDelegate, ABPersonViewControllerDelegate, ABStyleProvider;
+@class CNContactStore, CNContactViewController, NSArray, NSString;
+@protocol ABPersonViewControllerDelegate;
 
-@interface ABPersonViewController : UIViewController <AFContextProvider, UIViewControllerRestoration>
+@interface ABPersonViewController : UIViewController <CNContactViewControllerPrivateDelegate, UIViewControllerRestoration>
 {
+    _Bool _allowsEditing;
+    _Bool _allowsActions;
+    _Bool _shouldShowLinkedPeople;
+    _Bool _highlightedImportant;
+    int _style;
+    int _highlightedProperty;
+    int _highlightedMultiValueIdentifier;
+    const void *_addressBook;
+    const void *_displayedPerson;
     id <ABPersonViewControllerDelegate> _personViewDelegate;
-    id _helper;
-    id _internal;
-    _Bool _internal2;
-    NSTimer *_editAnimationTimer;
-    _Bool _allowsContactBlocking;
-    ABPersonTableViewDataSource *_dataSource;
-    ABPersonTableViewActionsDelegate *_actionsDelegate;
-    ABPersonTableViewSharingDelegate *_sharingDelegate;
-    ABContactViewController *_contactViewController;
+    NSArray *_displayedProperties;
+    CNContactViewController *_cnContactViewController;
 }
 
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
-@property(retain, nonatomic) ABContactViewController *contactViewController; // @synthesize contactViewController=_contactViewController;
-@property(nonatomic) _Bool allowsContactBlocking; // @synthesize allowsContactBlocking=_allowsContactBlocking;
-@property(readonly, nonatomic) ABPersonTableViewSharingDelegate *sharingDelegate; // @synthesize sharingDelegate=_sharingDelegate;
-@property(readonly, nonatomic) ABPersonTableViewActionsDelegate *actionsDelegate; // @synthesize actionsDelegate=_actionsDelegate;
-@property(readonly, nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
-- (double)ab_heightToFitForViewInPopoverView;
+@property(retain, nonatomic) CNContactViewController *cnContactViewController; // @synthesize cnContactViewController=_cnContactViewController;
+@property(nonatomic) _Bool highlightedImportant; // @synthesize highlightedImportant=_highlightedImportant;
+@property(nonatomic) int highlightedMultiValueIdentifier; // @synthesize highlightedMultiValueIdentifier=_highlightedMultiValueIdentifier;
+@property(nonatomic) int highlightedProperty; // @synthesize highlightedProperty=_highlightedProperty;
+@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) _Bool shouldShowLinkedPeople; // @synthesize shouldShowLinkedPeople=_shouldShowLinkedPeople;
+@property(nonatomic) _Bool allowsActions; // @synthesize allowsActions=_allowsActions;
+@property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
+@property(copy, nonatomic) NSArray *displayedProperties; // @synthesize displayedProperties=_displayedProperties;
+@property(nonatomic) id <ABPersonViewControllerDelegate> personViewDelegate; // @synthesize personViewDelegate=_personViewDelegate;
+- (void)reloadContactViewController;
 - (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2 person:(void *)arg3 important:(_Bool)arg4;
 - (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2 person:(void *)arg3;
 - (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2 important:(_Bool)arg3;
-- (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2;
-@property(copy, nonatomic) NSArray *displayedProperties;
-@property(retain, nonatomic) id <ABStyleProvider> styleProvider;
-@property(nonatomic) _Bool badgeEmailPropertiesForMailVIP;
-- (void)shareContactByEmail:(id)arg1;
-@property(copy, nonatomic) CDUnknownBlockType willWeiboLocationCallback;
-@property(copy, nonatomic) CDUnknownBlockType willTweetLocationCallback;
-@property(retain, nonatomic) UIImage *shareLocationSnapshotImage;
-@property(copy, nonatomic) NSString *shareLocationURL;
-@property(copy, nonatomic) NSString *shareMessageSubject;
-@property(copy, nonatomic) NSString *shareMessageBody;
-@property(nonatomic) _Bool shareMessageBodyIsHTML;
-- (_Bool)makeFirstFieldBecomeFirstResponder;
-- (_Bool)_updateAllDataForExternalChange;
-- (void)_updateTableDataForExternalChange;
-- (_Bool)_updatePeopleDataForExternalChange;
-- (void)addressBookChangedLocally:(struct __CFDictionary *)arg1;
-- (void)setAttribution:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
-@property(copy, nonatomic) NSString *attribution;
-@property(retain, nonatomic) UIView *customFooterView;
-@property(retain, nonatomic) UIView *customHeaderView;
-@property(nonatomic) _Bool shouldAlignPersonHeaderViewToImage;
-@property(retain, nonatomic) UIView *personHeaderView;
-@property(readonly, nonatomic) UIView *tableHeaderView;
-- (void)setCardContentProvider:(id)arg1;
-@property(retain, nonatomic) UIView *customMessageView;
-@property(retain, nonatomic) UIFont *messageDetailFont;
-@property(copy, nonatomic) NSString *messageDetail;
-@property(retain, nonatomic) UIFont *messageFont;
-@property(copy, nonatomic) NSString *message;
-@property(retain, nonatomic) ABUIPerson *displayedUIPerson;
-@property(nonatomic) const void *displayedPerson;
-@property(nonatomic) const void *addressBook;
-@property(nonatomic) _Bool allowsSettingAsPreferredCardForName;
-@property(nonatomic) _Bool allowsConferencing;
-@property(nonatomic) _Bool allowsVibrations;
-@property(nonatomic) _Bool allowsSounds;
-@property(nonatomic) _Bool allowsCancel;
-@property(nonatomic) _Bool allowsAddToFavorites;
-@property(nonatomic) _Bool allowsSharing;
-@property(nonatomic) _Bool allowsActions;
-@property(nonatomic) _Bool allowsEditing;
-@property(nonatomic) _Bool allowsDeletion;
-@property(nonatomic) id <ABPersonEditDelegate> editDelegate;
-- (void)forceUseLinkedInfos:(id)arg1 currentIndexInLinkedInfos:(long long)arg2;
-- (_Bool)manuallyLinkPerson:(id)arg1;
-- (void)setShouldShowLinkingUIOnCard:(_Bool)arg1;
-- (_Bool)shouldShowLinkingUIOnCard;
-@property(nonatomic) _Bool appearsInLinkingPeoplePicker;
-@property(nonatomic) _Bool shouldShowLinkedPeople;
-- (void)updateRecord;
-@property(readonly, nonatomic) AFContextManager *contextManager;
-- (id)getCurrentContext;
-- (_Bool)allowContextProvider:(id)arg1;
-- (void)helper:(id)arg1 didToggleEditingWhileInViewMode:(_Bool)arg2;
-- (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 willBeginEditingRowAtIndexPath:(id)arg2;
-- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)setEditing:(_Bool)arg1 saveChanges:(_Bool)arg2 animated:(_Bool)arg3;
-- (void)_editAnimationTimerFired:(id)arg1;
-- (int)abViewControllerType;
-- (void)applicationDidResume;
-- (void)applicationWillSuspend;
-- (void)viewWillDisappear:(_Bool)arg1;
-- (void)saveChanges;
-- (_Bool)canHandleSnapbackIdentifier:(id)arg1 animated:(_Bool)arg2;
-- (void)viewDidDisappear:(_Bool)arg1;
+- (void)contactViewController:(id)arg1 didCompleteWithContact:(id)arg2;
+- (_Bool)contactViewController:(id)arg1 shouldPerformDefaultActionForContactProperty:(id)arg2;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
-- (void)viewDidLoad;
-- (void)loadView;
-- (void)cancelEditing:(_Bool)arg1;
-- (void)editCancel:(id)arg1;
-- (void)updateNavigationButtons;
-- (void)updateNavigationButtonsAnimated:(_Bool)arg1;
-- (void)pickerCancel:(id)arg1;
-- (void)_getRotationContentSettings:(CDStruct_e950349b *)arg1;
-- (_Bool)supportedInterfaceOrientation:(long long)arg1;
-- (_Bool)_allowsAutorotation;
-@property(nonatomic) _Bool observesExternalChanges;
-- (void)_handleLocalChange:(struct __CFDictionary *)arg1;
-- (_Bool)handleExternalChange;
-- (void)stopDelayingChangeNotificationsAndDeliverNow:(_Bool)arg1;
-- (void)startDelayingChangeNotifications;
-- (_Bool)isDelayingChangeNotifications;
-- (void)helperDidReloadAfterChangingDisplayedPeople:(id)arg1;
-@property(nonatomic) id <ABPersonViewControllerDelegate> personViewDelegate;
-- (_Bool)isReadonly;
-- (void)peoplePickerLinkButtonTapped;
-- (void)updateTitle;
-- (void)decodeRestorableStateWithCoder:(id)arg1;
+- (struct CGSize)preferredContentSize;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
+- (void)loadView;
+- (void)setHighlightedItemForProperty:(int)arg1 withIdentifier:(int)arg2;
+@property(nonatomic) const void *displayedPerson; // @synthesize displayedPerson=_displayedPerson;
+@property(readonly, nonatomic) CNContactStore *contactStore;
+@property(nonatomic) const void *addressBook; // @synthesize addressBook=_addressBook;
 - (void)dealloc;
-- (void)_removeContextProviderOnMainThread;
-- (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) ABPersonViewControllerHelper *helper;
 - (id)initWithAddressBook:(void *)arg1;
 - (id)initWithStyle:(int)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2 addressBook:(void *)arg3;
-- (void)applicationWillTerminate:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2 addressBook:(void *)arg3 style:(int)arg4;
 - (id)init;
-- (void)setCustomAppearanceProvider:(id)arg1;
-- (void)addActionWithTitle:(id)arg1 content:(id)arg2 target:(id)arg3 selector:(SEL)arg4 forProperty:(int)arg5 withActionGrouping:(long long)arg6 ordering:(long long)arg7;
-- (id)newActionButton;
-- (void)setActionShouldPickHighlightedItem:(_Bool)arg1;
-- (void)removeActionWithSelector:(SEL)arg1 target:(id)arg2 forProperty:(int)arg3 withActionGrouping:(long long)arg4 ordering:(long long)arg5;
-- (void)addActionWithTitle:(id)arg1 target:(id)arg2 selector:(SEL)arg3 forProperty:(int)arg4 withActionGrouping:(long long)arg5 ordering:(long long)arg6;
-- (void)addActionWithTitle:(id)arg1 shortTitle:(id)arg2 target:(id)arg3 selector:(SEL)arg4 forProperty:(int)arg5 withActionGrouping:(long long)arg6 ordering:(long long)arg7;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

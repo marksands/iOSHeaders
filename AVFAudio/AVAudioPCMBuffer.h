@@ -6,10 +6,16 @@
 
 #import <AVFAudio/AVAudioBuffer.h>
 
+@class NSArray;
+
 @interface AVAudioPCMBuffer : AVAudioBuffer
 {
 }
 
+- (float)calculatePower:(unsigned long long)arg1 forFloatData:(float *)arg2 stride:(long long)arg3 frameLength:(unsigned int)arg4;
+- (id)calculatePower:(unsigned long long)arg1;
+@property(readonly, nonatomic) NSArray *peakPowerPerChannel;
+@property(readonly, nonatomic) NSArray *averagePowerPerChannel;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) short **int16ChannelData;

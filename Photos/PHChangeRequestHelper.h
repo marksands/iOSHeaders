@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSManagedObjectID, NSMutableDictionary, NSString;
+@class NSManagedObjectID, NSMutableDictionary, NSMutableSet, NSString;
 
 @interface PHChangeRequestHelper : NSObject
 {
@@ -14,6 +14,7 @@
     _Bool _isNew;
     _Bool _didRequestUUID;
     NSMutableDictionary *_mutations;
+    NSMutableSet *_nilMutations;
     id _changeRequest;
     NSString *_uuid;
     NSString *_uuidSaveToken;
@@ -26,6 +27,7 @@
 @property(readonly, nonatomic) NSString *uuidSaveToken; // @synthesize uuidSaveToken=_uuidSaveToken;
 @property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(nonatomic) __weak id changeRequest; // @synthesize changeRequest=_changeRequest;
+@property(readonly, nonatomic) NSMutableSet *nilMutations; // @synthesize nilMutations=_nilMutations;
 @property(readonly, nonatomic) NSMutableDictionary *mutations; // @synthesize mutations=_mutations;
 - (void).cxx_destruct;
 - (id)description;
@@ -37,9 +39,11 @@
 @property(nonatomic, getter=isNew) _Bool new;
 @property(nonatomic, getter=isMutated) _Bool mutated;
 - (void)didMutate;
-- (void)generateUUIDIfNecessary;
+- (_Bool)_validateOrGenerateUUIDWithClientEntitled:(_Bool)arg1 changeRequest:(id)arg2;
+- (void)_generateUUIDIfNecessary;
+- (id)placeholderForCreatedObjectWithClass:(Class)arg1 changeRequest:(id)arg2;
 - (id)init;
-- (id)initWithXPCDict:(id)arg1 changeRequest:(id)arg2;
+- (id)initWithXPCDict:(id)arg1 changeRequest:(id)arg2 clientEntitlements:(id)arg3;
 - (id)initForNewObjectWithUUID:(id)arg1 changeRequest:(id)arg2;
 - (id)initForNewObjectWithChangeRequest:(id)arg1;
 - (id)initWithUUID:(id)arg1 objectID:(id)arg2 changeRequest:(id)arg3;

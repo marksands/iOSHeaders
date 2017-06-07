@@ -14,12 +14,12 @@
 
 + (id)relations;
 + (id)suggestedEventInfoWithOpaqueKey:(id)arg1 uniqueKey:(id)arg2;
-@property(nonatomic) EKPersistentEvent *owner;
-@property(copy, nonatomic) NSDate *timestamp;
-@property(nonatomic) _Bool changesAcknowledged;
-@property(nonatomic) unsigned long long changedFields;
-@property(copy, nonatomic) NSString *uniqueKey;
-@property(copy, nonatomic) NSString *opaqueKey;
+@property(nonatomic) EKPersistentEvent *owner; // @dynamic owner;
+@property(copy, nonatomic) NSDate *timestamp; // @dynamic timestamp;
+@property(nonatomic) _Bool changesAcknowledged; // @dynamic changesAcknowledged;
+@property(nonatomic) unsigned long long changedFields; // @dynamic changedFields;
+@property(copy, nonatomic) NSString *uniqueKey; // @dynamic uniqueKey;
+@property(copy, nonatomic) NSString *opaqueKey; // @dynamic opaqueKey;
 - (int)entityType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

@@ -6,9 +6,11 @@
 
 #import <AudioToolbox/_AURemoteParameterSynchronization-Protocol.h>
 
-@class AUAudioUnitProperty, AVAudioFormat, CAXPCObject, NSData, NSString;
+@class AUAudioUnitProperty, AUAudioUnitViewConfiguration, AVAudioFormat, CAXPCObject, NSArray, NSData, NSString;
 
 @protocol AUAudioUnitXPCProtocol <_AURemoteParameterSynchronization>
+- (void)selectViewConfiguration:(AUAudioUnitViewConfiguration *)arg1;
+- (void)supportedViewConfigurations:(NSArray *)arg1 reply:(void (^)(NSIndexSet *))arg2;
 - (void)parametersForOverviewWithCount:(long long)arg1 reply:(void (^)(NSArray *))arg2;
 - (void)parameterNode:(NSString *)arg1 displayNameWithLength:(long long)arg2 reply:(void (^)(NSString *))arg3;
 - (void)parameterValueFromString:(NSString *)arg1 address:(unsigned long long)arg2 reply:(void (^)(float))arg3;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVPlayerItem, AVWeakReference, NSError;
+@class AVWeakReference, NSError;
 
 @interface AVPlayerConnection : NSObject
 {
@@ -14,7 +14,6 @@
     AVWeakReference *_playerItemReference;
     long long _status;
     NSError *_error;
-    AVPlayerItem *_previousPlayerItem;
 }
 
 - (id)error;

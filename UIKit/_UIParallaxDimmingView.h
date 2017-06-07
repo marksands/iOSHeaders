@@ -17,9 +17,6 @@ __attribute__((visibility("hidden")))
     UIView *_addingSubview;
 }
 
-+ (id)newDimmingViewWrappingView:(id)arg1 withLeftBorder:(double)arg2 shouldReverseLayoutDirection:(_Bool)arg3;
-+ (id)newDimmingViewWrappingView:(id)arg1 withLeftBorder:(double)arg2;
-+ (id)newDimmingViewWithFrame:(struct CGRect)arg1;
 @property(retain, nonatomic) UIView *addingSubview; // @synthesize addingSubview=_addingSubview;
 @property(nonatomic) _Bool backgroundIsDimmed; // @synthesize backgroundIsDimmed=_backgroundIsDimmed;
 @property(retain, nonatomic) UIColor *dimmingColor; // @synthesize dimmingColor=_dimmingColor;
@@ -29,8 +26,8 @@ __attribute__((visibility("hidden")))
 - (void)didMoveToWindow;
 - (void)_updateLeftEdgeFade:(_Bool)arg1;
 - (id)initViewWrappingView:(id)arg1 withLeftBorder:(double)arg2 shouldReverseLayoutDirection:(_Bool)arg3;
-- (id)initViewWrappingView:(id)arg1 withLeftBorder:(double)arg2;
 - (id)defaultBorderColor;
+- (id)initWithFrame:(struct CGRect)arg1 overrideDimmingColor:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

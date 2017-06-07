@@ -9,6 +9,7 @@
 @class NSIndexPath, NSIndexSet, PUFeedCollectionViewLayout, UICollectionView;
 
 @protocol PUFeedCollectionViewLayoutDelegate <UICollectionViewDelegate>
+- (long long)collectionView:(UICollectionView *)arg1 layout:(PUFeedCollectionViewLayout *)arg2 configurationForSectionHeaderType:(long long)arg3;
 - (double)collectionView:(UICollectionView *)arg1 layout:(PUFeedCollectionViewLayout *)arg2 spacingBetweenSection:(long long)arg3 andHeaderForGroupID:(id)arg4;
 - (struct CGSize)collectionView:(UICollectionView *)arg1 layout:(PUFeedCollectionViewLayout *)arg2 headerSizeForGroupID:(id)arg3 proposedSize:(struct CGSize)arg4;
 - (id)collectionView:(UICollectionView *)arg1 layout:(PUFeedCollectionViewLayout *)arg2 groupIDForSection:(long long)arg3;

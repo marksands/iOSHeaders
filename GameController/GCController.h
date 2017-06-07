@@ -30,6 +30,7 @@
 + (void)__open__;
 + (void)handleUIEvent:(id)arg1;
 @property(retain, nonatomic) NSString *physicalDeviceUniqueID;
+@property(nonatomic) _Bool physicalDeviceUsesCompass;
 @property(readonly, nonatomic) unsigned int service;
 @property(retain, nonatomic) id <GCNamedProfile> profile;
 @property(readonly, retain, nonatomic) GCMotion *motion;

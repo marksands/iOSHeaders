@@ -25,6 +25,7 @@
 + (id)collectionWithItems:(id)arg1;
 + (id)artworkCatalogCachePropertiesForGroupingType:(long long)arg1;
 - (void).cxx_destruct;
+- (void)_enumerateItemPersistentIDsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)setValue:(id)arg1 forProperty:(id)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (_Bool)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)multiverseIdentifier;

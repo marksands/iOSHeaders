@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 + (double)extendedHeight;
 + (double)defaultExtendedControlHeight;
+- (void).cxx_destruct;
 - (void)didEndSplitTransition;
 - (void)candidateBarDidScroll:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;

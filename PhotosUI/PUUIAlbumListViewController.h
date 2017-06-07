@@ -6,21 +6,28 @@
 
 #import <PhotosUI/PUAlbumListViewController.h>
 
-@class NSArray, UIBarButtonItem;
+#import <PhotosUI/PUPhotoPickerServicesConsumer-Protocol.h>
+
+@class NSArray, NSString, PUUIImagePickerControllerHelper, UIBarButtonItem;
+@protocol PUPhotoPicker;
 
 __attribute__((visibility("hidden")))
-@interface PUUIAlbumListViewController : PUAlbumListViewController
+@interface PUUIAlbumListViewController : PUAlbumListViewController <PUPhotoPickerServicesConsumer>
 {
     UIBarButtonItem *_imagePickerCancelButton;
     _Bool _collectionsFetchResultIsValid;
+    PUUIImagePickerControllerHelper *__imagePickerControllerHelper;
+    id <PUPhotoPicker> _photoPicker;
     NSArray *__imagePickerMediaTypes;
     unsigned long long __imagePickerAssetTypes;
 }
 
 @property(nonatomic, setter=_setImagePickerAssetTypes:) unsigned long long _imagePickerAssetTypes; // @synthesize _imagePickerAssetTypes=__imagePickerAssetTypes;
 @property(copy, nonatomic, setter=_setImagePickerMediaTypes:) NSArray *_imagePickerMediaTypes; // @synthesize _imagePickerMediaTypes=__imagePickerMediaTypes;
+@property(nonatomic) __weak id <PUPhotoPicker> photoPicker; // @synthesize photoPicker=_photoPicker;
 - (void).cxx_destruct;
 - (_Bool)pu_wantsNavigationBarVisible;
+- (void)setPhotoPickerMediaTypes:(id)arg1;
 - (long long)filteringAssetTypes;
 - (id)assetsFilterPredicate;
 - (_Bool)shouldHideEmptyCollections;
@@ -31,12 +38,21 @@ __attribute__((visibility("hidden")))
 - (id)newGridViewControllerForAllPhotos;
 - (id)newGridViewControllerForFolder:(id)arg1;
 - (void)_handleImagePickerCancel:(id)arg1;
+- (id)_imagePickerControllerHelper;
 - (void)_updateCollectionsFetchResultIfNeeded;
 - (void)_invalidateCollectionsFetchResult;
 - (unsigned long long)supportedInterfaceOrientations;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidLoad;
 - (void)loadView;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -4,11 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CoreMotion/CLNotifierServiceProtocol-Protocol.h>
+#import <CoreMotion/CLNotifierServiceClientProtocol-Protocol.h>
 
-@protocol CLCompassDatabaseClientProtocol <CLNotifierServiceProtocol>
-- (_Bool)syncgetDoSync:(void (^)(struct CLCompassDatabaseClient *))arg1;
-- (void)doAsync:(void (^)(struct CLCompassDatabaseClient *))arg1 withReply:(void (^)(void))arg2;
-- (void)doAsync:(void (^)(struct CLCompassDatabaseClient *))arg1;
+@protocol CLCompassDatabaseClientProtocol <CLNotifierServiceClientProtocol>
 @end
 

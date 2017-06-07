@@ -14,6 +14,9 @@
 @property(nonatomic) _Bool automaticMinimizationEnabled;
 @property(nonatomic) _Bool predictionEnabled;
 @property(copy, nonatomic) NSArray *inputModeSelectionSequence;
+- (void)updateLastUsedDictationLanguages:(NSDictionary *)arg1;
+- (void)updateEnabledDictationLanguages:(NSDictionary *)arg1;
+- (void)updateDidPerformFirstReachableKeyboardInteraction;
 - (void)updateKeyboardHandBias:(NSString *)arg1;
 - (void)updateKeyboardIsFloating:(_Bool)arg1;
 - (void)updateKeyboardIsSplit:(_Bool)arg1 locked:(_Bool)arg2;

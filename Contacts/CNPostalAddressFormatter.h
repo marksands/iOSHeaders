@@ -11,6 +11,13 @@
     long long _style;
 }
 
++ (id)supportedCountries;
++ (id)localizedStringForPostalAddressString:(id)arg1;
++ (id)fieldLabelMapWithPlist:(id)arg1;
++ (id)fieldArrangementWithString:(id)arg1;
++ (id)specificationWithAddressFormatPlist:(id)arg1;
++ (id)localizedCountryNameForISOCountryCode:(id)arg1;
++ (id)specificationForCountry:(id)arg1;
 + (id)singleLineStringFromPostalAddress:(id)arg1 addCountryName:(_Bool)arg2;
 + (id)addressValueForFormatKey:(id)arg1 postalAddress:(id)arg2;
 + (id)postalAddressPropertyKeyForFormatPropertyKey:(id)arg1;

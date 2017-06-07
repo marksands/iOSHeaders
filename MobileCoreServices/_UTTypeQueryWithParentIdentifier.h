@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)debugDescription;
@@ -22,7 +23,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqual:(id)arg1;
 - (void)_enumerateWithXPCConnection:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)_canResolveLocallyWithoutMappingDatabase;
-- (void)dealloc;
 - (id)initWithParentIdentifier:(id)arg1;
 - (_Bool)canIdentifierHaveChildren;
 

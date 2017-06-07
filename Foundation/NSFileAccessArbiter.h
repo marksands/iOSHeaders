@@ -35,6 +35,8 @@
 - (oneway void)writerWithPurposeID:(id)arg1 didVersionChangeOfKind:(id)arg2 toItemAtURL:(id)arg3 withClientID:(id)arg4 name:(id)arg5;
 - (oneway void)writerWithPurposeID:(id)arg1 didChangeItemAtURL:(id)arg2;
 - (oneway void)writerWithPurposeID:(id)arg1 didMakeItemDisappearAtURL:(id)arg2;
+- (oneway void)writerWithPurposeID:(id)arg1 didChangeUbiquityAttributes:(id)arg2 ofItemAtURL:(id)arg3;
+- (oneway void)writerWithPurposeID:(id)arg1 didChangeSharingOfItemAtURL:(id)arg2;
 - (oneway void)writerWithPurposeID:(id)arg1 didChangeUbiquityOfItemAtURL:(id)arg2;
 - (oneway void)writerWithPurposeID:(id)arg1 didReconnectItemAtURL:(id)arg2;
 - (oneway void)writerWithPurposeID:(id)arg1 didDisconnectItemAtURL:(id)arg2;
@@ -44,6 +46,7 @@
 - (oneway void)revokeAccessClaimForID:(id)arg1;
 - (void)_registerForDebugInfoRequests;
 - (void)getDebugInformationIncludingEverything:(_Bool)arg1 withString:(id)arg2 fromPid:(int)arg3 thenContinue:(CDUnknownBlockType)arg4;
+- (void)getItemHasPresentersAtURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleCanceledClient:(id)arg1;
 - (void)performBarrierWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)provideSubarbiterDebugInfoIncludingEverything:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -53,7 +56,7 @@
 - (oneway void)removeProviderWithID:(id)arg1 uniqueID:(id)arg2;
 - (void)addProvider:(id)arg1 withID:(id)arg2 uniqueID:(id)arg3 forProvidedItemsURL:(id)arg4 options:(unsigned long long)arg5 withServer:(id)arg6 reply:(CDUnknownBlockType)arg7;
 - (oneway void)removePresenterWithID:(id)arg1;
-- (void)addPresenter:(id)arg1 withID:(id)arg2 fileURL:(id)arg3 lastPresentedItemEventIdentifier:(id)arg4 options:(unsigned long long)arg5 responses:(unsigned long long)arg6;
+- (void)addPresenter:(id)arg1 withID:(id)arg2 fileURL:(id)arg3 lastPresentedItemEventIdentifier:(id)arg4 ubiquityAttributes:(id)arg5 options:(unsigned long long)arg6 responses:(unsigned long long)arg7;
 - (void)grantSubarbitrationClaim:(id)arg1 withServer:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)grantAccessClaim:(id)arg1 withReply:(CDUnknownBlockType)arg2;
 - (void)_enumerateSubarbitersUsingBlock:(CDUnknownBlockType)arg1;

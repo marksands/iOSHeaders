@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (long long)_alertControllerStackCount;
 - (_Bool)_alertControllerShouldBeTrackedInStack:(id)arg1;
-- (void)_displayedAlertControllersChanged;
 - (void)_didHideAlertController:(id)arg1;
 - (void)_willHideAlertController:(id)arg1;
 - (void)_willShowAlertController:(id)arg1;

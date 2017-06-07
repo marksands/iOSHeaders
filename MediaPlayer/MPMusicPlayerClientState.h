@@ -10,7 +10,6 @@
 
 @interface MPMusicPlayerClientState : NSObject
 {
-    _Bool _allowsBackgroundVideo;
     int _backgroundPlaybackAccess;
     MPMediaItem *_firstItem;
     MPMediaPlaylist *_geniusMixPlaylist;
@@ -45,7 +44,6 @@
 @property(retain, nonatomic) MPMediaPlaylist *geniusMixPlaylist; // @synthesize geniusMixPlaylist=_geniusMixPlaylist;
 @property(retain, nonatomic) MPMediaItem *firstItem; // @synthesize firstItem=_firstItem;
 @property(nonatomic) int backgroundPlaybackAccess; // @synthesize backgroundPlaybackAccess=_backgroundPlaybackAccess;
-@property(nonatomic) _Bool allowsBackgroundVideo; // @synthesize allowsBackgroundVideo=_allowsBackgroundVideo;
 - (void).cxx_destruct;
 
 @end

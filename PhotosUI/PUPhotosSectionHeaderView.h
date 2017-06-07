@@ -26,7 +26,6 @@
     _UIBackdropView *_backdropView;
     _Bool _usingBackgroundBlur;
     UIView *_highlightView;
-    _Bool _generateDefaultTitleFromDates;
     _Bool _useYearOnlyForDefaultTitle;
     _Bool _showsActionButton;
     _Bool _allowsPhotosDetailsInteraction;
@@ -44,9 +43,7 @@
     struct UIEdgeInsets _highlightInsets;
 }
 
-+ (double)sectionHeaderHeightForHeaderStyle:(long long)arg1;
-+ (void)_updateLabelGlobalCachedSizes;
-+ (void)initialize;
++ (_Bool)_hasAccessibilityLargeText;
 @property(nonatomic) _Bool allowsPhotosDetailsInteraction; // @synthesize allowsPhotosDetailsInteraction=_allowsPhotosDetailsInteraction;
 @property(copy, nonatomic) NSString *actionButtonTitle; // @synthesize actionButtonTitle=_actionButtonTitle;
 @property(nonatomic) _Bool showsActionButton; // @synthesize showsActionButton=_showsActionButton;
@@ -70,9 +67,7 @@
 - (struct CGSize)_preferredSizeForLabel:(id)arg1;
 - (void)prepareForReuse;
 - (void)didEndDisplaying;
-- (void)_layoutSubviewsStyleFullDetail;
-- (void)_layoutSubviewsStyleOnelineDetail;
-- (void)_layoutSubviewsStyleOnelineMinimal;
+- (void)_layoutSubviewsForCurentStyle;
 - (void)layoutSubviews;
 - (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
@@ -97,10 +92,9 @@
 - (void)didTransitionFromLayout:(id)arg1 toLayout:(id)arg2;
 - (void)willTransitionFromLayout:(id)arg1 toLayout:(id)arg2;
 - (void)applyLayoutAttributes:(id)arg1;
+- (void)_updateLabelsForTextStyle;
 - (void)setSectionStartDate:(id)arg1 endDate:(id)arg2;
-@property(readonly, nonatomic) _Bool useYearOnlyForDefaultTitle;
-@property(readonly, nonatomic) _Bool generateDefaultTitleFromDates;
-- (void)setGenerateDefaultTitleFromDates:(_Bool)arg1 yearOnly:(_Bool)arg2;
+@property(nonatomic) _Bool useYearOnlyForDefaultTitle;
 - (void)performBatchUpdateOfDateDependentPropertiesWithBlock:(CDUnknownBlockType)arg1;
 - (_Bool)_usingDateAsTitle;
 @property(readonly, nonatomic) NSString *synthesizedSectionTitle;

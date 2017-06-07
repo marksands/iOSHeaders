@@ -18,9 +18,10 @@
     NSMutableArray *subtrees;
     NSMutableDictionary *cache;
     NSString *layoutTag;
+    NSString *effectiveLayoutTag;
 }
 
-+ (long long)extraIdiomForVisualStyling:(CDStruct_961fb75c)arg1 width:(double)arg2;
++ (long long)extraIdiomForVisualStyling:(CDStruct_227bb23d)arg1 width:(double)arg2;
 + (id)keyboard;
 + (id)key;
 + (id)shapesForControlKeyShapes:(id)arg1 options:(int)arg2;
@@ -30,6 +31,7 @@
 + (id)treeOfType:(int)arg1;
 + (id)uniqueName;
 + (_Bool)typeIsPersistent:(int)arg1;
+@property(retain, nonatomic) NSString *effectiveLayoutTag; // @synthesize effectiveLayoutTag;
 @property(retain, nonatomic) NSString *layoutTag; // @synthesize layoutTag;
 @property(retain, nonatomic) NSMutableDictionary *cache; // @synthesize cache;
 @property(retain, nonatomic) NSMutableArray *subtrees; // @synthesize subtrees;
@@ -41,6 +43,7 @@
 - (id)cacheSecondaryDisplayString;
 - (id)cacheDisplayString;
 - (_Bool)shouldCacheKey;
+- (void)setLayoutTag:(id)arg1 passingKeyTest:(CDUnknownBlockType)arg2;
 - (_Bool)hasLayoutTag:(id)arg1;
 - (id)variantDisplayString;
 - (void)orderVariantKeys:(_Bool)arg1;
@@ -123,7 +126,10 @@
 - (id)keySet;
 - (void)updateMoreAndInternationalKeysWithOptions:(int)arg1;
 - (void)centerKeys:(id)arg1 inRect:(struct CGRect)arg2 scale:(double)arg3;
-- (void)addMessagesWriteboardKey;
+- (_Bool)addMessagesWriteboardKey;
+- (void)addWriteboardKeyToCachedKeyListWithShape:(id)arg1 rendering:(int)arg2;
+- (_Bool)addMessagesWriteboardKeyIfNoDismissKey;
+- (_Bool)addMessagesWriteboardKeyIfDismissKey;
 - (id)shapeFromFrame:(struct CGRect)arg1 leftPadding:(double)arg2 rightPadding:(double)arg3;
 - (id)keysetCanContainWriteboardKey;
 - (void)clearManualAddedKey;
@@ -138,19 +144,22 @@
 - (_Bool)supportsType:(long long)arg1;
 - (id)autolocalizedKeyCacheIterator;
 - (int)dragThreshold;
-- (long long)handBias;
 - (double)primaryKeylayoutOffset;
 - (double)primaryKeylayoutWidthRatio;
 - (_Bool)isSplit;
+- (void)cacheNativeIdiomIfNecessary;
+- (long long)nativeIdiom;
 - (void)setIsGenerated:(_Bool)arg1;
 - (_Bool)isGenerated;
 - (_Bool)isLetters;
+- (_Bool)looksExactlyLikeShiftAlternate;
 - (_Bool)looksLikeShiftAlternate;
 - (_Bool)usesKeyCharging;
 - (_Bool)usesAdaptiveKeys;
 - (_Bool)isShiftKeyPlaneChooser;
 - (_Bool)noLanguageIndicator;
 - (_Bool)notUseCandidateSelection;
+- (_Bool)shouldSuppressDragRetest;
 - (_Bool)shouldSkipCandidateSelectionForVariants;
 - (_Bool)shouldSkipCandidateSelection;
 - (_Bool)diacriticForwardCompose;
@@ -183,11 +192,12 @@
 - (id)firstKeyplaneSwitchKey;
 - (id)firstCachedKeyWithName:(id)arg1;
 - (id)cachedKeysByKeyName:(id)arg1;
-- (void)setVisualStyling:(CDStruct_961fb75c)arg1;
-- (CDStruct_961fb75c)visualStyling;
-- (CDStruct_961fb75c)stylingFromVisualStyle;
+- (void)setVisualStyling:(CDStruct_227bb23d)arg1;
+- (CDStruct_227bb23d)visualStyling;
+- (CDStruct_227bb23d)stylingFromVisualStyle;
 - (void)setVisualStyle:(int)arg1;
 - (int)visualStyle;
+- (struct CGRect)keyUnionFrame;
 - (struct CGPoint)navigationPointOfKey;
 - (void)setPaddedFrame:(struct CGRect)arg1;
 - (struct CGRect)paddedFrame;
@@ -200,6 +210,7 @@
 - (id)shape;
 - (_Bool)subtreesAreOrdered;
 - (_Bool)isLeafType;
+- (void)elaborateLayoutWithSize:(struct CGSize)arg1 scale:(double)arg2 origin:(struct CGPoint)arg3;
 - (void)elaborateLayoutWithSize:(struct CGSize)arg1 scale:(double)arg2;
 - (long long)_keyCountOnNamedRow:(id)arg1;
 - (void)zipAttributes;

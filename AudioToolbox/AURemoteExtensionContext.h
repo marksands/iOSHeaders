@@ -29,6 +29,8 @@
 + (id)_extensionAuxiliaryVendorProtocol;
 + (id)_extensionAuxiliaryHostProtocol;
 @property(nonatomic) AUAudioUnitViewService *viewService; // @synthesize viewService=_viewService;
+- (void)selectViewConfiguration:(id)arg1;
+- (void)supportedViewConfigurations:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)_fetchAndClearPendingChangedProperties;
 - (void)parameterNode:(id)arg1 displayNameWithLength:(long long)arg2 reply:(CDUnknownBlockType)arg3;

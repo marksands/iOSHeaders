@@ -11,7 +11,7 @@
 #import <ContactsUI/UITableViewDataSource-Protocol.h>
 #import <ContactsUI/UITableViewDelegate-Protocol.h>
 
-@class CNAvatarCardActionsTableView, CNQuickActionsManager, NSArray, NSIndexPath, NSString, UIGestureRecognizer, _UIFeedbackRetargetBehavior;
+@class CNAvatarCardActionsTableView, CNQuickActionsManager, NSArray, NSIndexPath, NSString, UIGestureRecognizer, UISelectionFeedbackGenerator;
 @protocol CNAvatarCardActionsViewDelegate;
 
 __attribute__((visibility("hidden")))
@@ -30,14 +30,13 @@ __attribute__((visibility("hidden")))
     NSIndexPath *_highlightedIndexPath;
     UIGestureRecognizer *_rolloverGestureRecognizer;
     UIGestureRecognizer *_selectionGestureRecognizer;
-    _UIFeedbackRetargetBehavior *_retargetBehavior;
+    UISelectionFeedbackGenerator *_retargetBehavior;
     struct CGPoint _initialLocation;
     struct CGRect _actionsImageFrame;
 }
 
 + (_Bool)requiresConstraintBasedLayout;
-+ (_Bool)performActionsOnDeepPress;
-@property(retain, nonatomic) _UIFeedbackRetargetBehavior *retargetBehavior; // @synthesize retargetBehavior=_retargetBehavior;
+@property(retain, nonatomic) UISelectionFeedbackGenerator *retargetBehavior; // @synthesize retargetBehavior=_retargetBehavior;
 @property(nonatomic) struct CGPoint initialLocation; // @synthesize initialLocation=_initialLocation;
 @property(retain, nonatomic) UIGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
 @property(retain, nonatomic) UIGestureRecognizer *rolloverGestureRecognizer; // @synthesize rolloverGestureRecognizer=_rolloverGestureRecognizer;

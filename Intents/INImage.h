@@ -20,13 +20,16 @@
     NSURL *_uri;
     NSString *_name;
     NSString *_bundlePath;
+    CDStruct_8caa76fc _imageSize;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)imageNamed:(id)arg1;
 + (id)imageWithImageData:(id)arg1;
++ (id)imageWithURL:(id)arg1 desiredWidth:(double)arg2 height:(double)arg3;
 + (id)imageWithURL:(id)arg1;
 + (void)buildFromCachePayload:(id)arg1 identifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
+@property(nonatomic, setter=_setImageSize:) CDStruct_8caa76fc _imageSize; // @synthesize _imageSize;
 @property(copy, nonatomic, setter=_setBundlePath:) NSString *_bundlePath; // @synthesize _bundlePath;
 @property(copy, nonatomic, setter=_setName:) NSString *_name; // @synthesize _name;
 @property(copy, nonatomic, setter=_setUri:) NSURL *_uri; // @synthesize _uri;
@@ -36,6 +39,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_initWithData:(id)arg1;
 - (id)_init;
 - (id)_initWithIdentifier:(id)arg1;
 - (id)init;

@@ -13,6 +13,7 @@
 {
     AVWeakReference *weakReference;
     AVWeakReferencingDelegateStorage *delegateStorage;
+    AVWeakReferencingDelegateStorage *delegateOverrideStorage;
     NSDictionary *videoSettings;
     CDStruct_1b6d18a9 deprecatedMinFrameDuration;
     _Bool alwaysDiscardsLateVideoFrames;

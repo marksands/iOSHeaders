@@ -6,13 +6,17 @@
 
 #import <PhotosUI/PUPhotosGridViewController.h>
 
-#import <PhotosUI/PLCPLStatusDelegate-Protocol.h>
+#import <PhotosUI/PUCloudQuotaControllerDelegate-Protocol.h>
 #import <PhotosUI/PUMagnfiedViewControllerDelegate-Protocol.h>
+#import <PhotosUI/PXCPLServiceUIDelegate-Protocol.h>
 
-@class NSArray, NSIndexPath, NSString, NSTimer, PLCPLStatus, PUGridMagnifiedImageViewController, PUGridPinchGestureRecognizer, PUGridZoomLevelInfo, PUMomentsZoomLevelManager, PUZoomableGridTransition, PUZoomableGridViewControllerSpec, UITapGestureRecognizer;
+@class NSArray, NSIndexPath, NSString, PUCloudQuotaController, PUGridMagnifiedImageViewController, PUGridPinchGestureRecognizer, PUGridZoomLevelInfo, PUMomentsZoomLevelManager, PUZoomableGridTransition, PUZoomableGridViewControllerSpec, PXCPLServiceUI, UITapGestureRecognizer;
 
-@interface PUZoomableGridViewController : PUPhotosGridViewController <PLCPLStatusDelegate, PUMagnfiedViewControllerDelegate>
+@interface PUZoomableGridViewController : PUPhotosGridViewController <PXCPLServiceUIDelegate, PUCloudQuotaControllerDelegate, PUMagnfiedViewControllerDelegate>
 {
+    _Bool _isDisplayingGlobalFooterView;
+    PXCPLServiceUI *_cplServiceUI;
+    PUCloudQuotaController *_cloudQuotaController;
     _Bool __hasAppearedOnce;
     NSArray *__syncProgressAlbums;
     PUMomentsZoomLevelManager *_zoomLevelManager;
@@ -26,16 +30,14 @@
     PUGridPinchGestureRecognizer *__gridPinchGestureRecognizer;
     PUGridMagnifiedImageViewController *_magnifiedImageViewController;
     double __lastUpdateWidth;
-    PLCPLStatus *__cplStatus;
-    NSTimer *__cplStatusUpdateTimer;
     unsigned long long __magnifierState;
+    NSIndexPath *__dynamicLayoutTransitionAnchorIndexPath;
     struct CGPoint __frozeMagnifierAtPosition;
 }
 
+@property(retain, nonatomic, setter=_setDynamicLayoutTransitionAnchorIndexPath:) NSIndexPath *_dynamicLayoutTransitionAnchorIndexPath; // @synthesize _dynamicLayoutTransitionAnchorIndexPath=__dynamicLayoutTransitionAnchorIndexPath;
 @property(nonatomic, setter=_setFrozeMagnifierAtPosition:) struct CGPoint _frozeMagnifierAtPosition; // @synthesize _frozeMagnifierAtPosition=__frozeMagnifierAtPosition;
 @property(nonatomic, setter=_setMagnifierState:) unsigned long long _magnifierState; // @synthesize _magnifierState=__magnifierState;
-@property(nonatomic) NSTimer *_cplStatusUpdateTimer; // @synthesize _cplStatusUpdateTimer=__cplStatusUpdateTimer;
-@property(retain, nonatomic, setter=_setCplStatus:) PLCPLStatus *_cplStatus; // @synthesize _cplStatus=__cplStatus;
 @property(nonatomic, setter=_setHasAppearedOnce:) _Bool _hasAppearedOnce; // @synthesize _hasAppearedOnce=__hasAppearedOnce;
 @property(nonatomic, setter=_setLastUpdateWidth:) double _lastUpdateWidth; // @synthesize _lastUpdateWidth=__lastUpdateWidth;
 @property(retain, nonatomic, setter=_setMagnifiedImageViewController:) PUGridMagnifiedImageViewController *magnifiedImageViewController; // @synthesize magnifiedImageViewController=_magnifiedImageViewController;
@@ -49,7 +51,7 @@
 @property(readonly, nonatomic) unsigned long long zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(readonly, nonatomic) PUMomentsZoomLevelManager *zoomLevelManager; // @synthesize zoomLevelManager=_zoomLevelManager;
 - (void).cxx_destruct;
-- (void)cplStatusDidChange:(id)arg1;
+- (_Bool)canDragIn;
 - (id)imageWithSize:(struct CGSize)arg1 forIndexPath:(id)arg2;
 - (_Bool)zoomTransition:(id)arg1 getFrame:(struct CGRect *)arg2 contentMode:(long long *)arg3 cropInsets:(struct UIEdgeInsets *)arg4 forPhotoToken:(id)arg5 operation:(long long)arg6;
 - (void)navigateToLowerZoomLevelWithReferenceItemPath:(id)arg1;
@@ -67,20 +69,25 @@
 - (void)_handleGridPinchGestureRecognizer:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
+- (_Bool)serviceUI:(id)arg1 performAction:(long long)arg2;
+- (void)serviceUI:(id)arg1 progressDidChange:(double)arg2;
+- (void)serviceUI:(id)arg1 statusDidChange:(id)arg2;
 - (void)collectionView:(id)arg1 didEndDisplayingSupplementaryView:(id)arg2 forElementOfKind:(id)arg3 atIndexPath:(id)arg4;
+- (void)_didEndDisplayingGlobalFooterView;
+- (void)collectionView:(id)arg1 willDisplaySupplementaryView:(id)arg2 forElementKind:(id)arg3 atIndexPath:(id)arg4;
 - (_Bool)_collectionView:(id)arg1 shouldApplyTransitionContentOffset:(struct CGPoint)arg2 contentSize:(struct CGSize)arg3;
 - (id)_indexPathOfReferenceItemForLayoutTransitionInCollectionView:(id)arg1;
 - (id)collectionView:(id)arg1 transitionLayoutForOldLayout:(id)arg2 newLayout:(id)arg3;
 - (_Bool)scrollViewShouldScrollToTop:(id)arg1;
-- (void)_cplStatusUpdateTimerFired:(id)arg1;
-- (void)_stopCPLStatusUpdateTimer;
-- (void)_startCPLStatusUpdateTimer;
 - (_Bool)allowSlideshowButton;
 - (_Bool)collectionViewPointInSectionHeader:(struct CGPoint)arg1;
 - (void)_invalidateSyncProgressAlbums;
 @property(readonly, nonatomic) NSArray *_syncProgressAlbums; // @synthesize _syncProgressAlbums=__syncProgressAlbums;
 - (void)configureGlobalFooterView:(id)arg1;
 - (_Bool)wantsGlobalFooter;
+- (void)_globalFooterDidChange;
+- (id)presentingViewControllerForCloudQuotaController:(id)arg1;
+- (void)cloudQuotaController:(id)arg1 presentBannerView:(id)arg2;
 - (_Bool)shouldPreventRevealInMomentAction;
 - (void)getEmptyPlaceholderViewTitle:(id *)arg1 message:(id *)arg2;
 - (double)cellAspectRatioHint;

@@ -9,24 +9,29 @@
 #import <QuickLook/QLRemotePreviewHost-Protocol.h>
 
 @class NSString, UIViewController;
-@protocol QLPreviewingController;
+@protocol QLPreviewingController_Private;
 
 @interface QLRemotePreviewServiceContext : NSExtensionContext <QLRemotePreviewHost>
 {
-    UIViewController<QLPreviewingController> *_previewViewController;
+    UIViewController<QLPreviewingController_Private> *_previewViewController;
+    _Bool _isObservingPreviewController;
 }
 
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
 - (void).cxx_destruct;
-- (void)loadPreviewFromPreviewItem:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)dealloc;
+- (void)_stopObservingPreviewControllerAttributeChanges;
+- (void)_startObservingPreviewControllerAttributeChanges;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getPrinterProxyWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)previewBecameFullScreen:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewWillDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
-- (void)previewWillFinishAppearing;
 - (void)previewWillAppear:(_Bool)arg1;
+- (void)previewControllerDidUpdatePreferredContentSize:(id)arg1;
+- (void)previewControllerDidUpdateTitle:(id)arg1;
 - (id)protocolHost;
 
 // Remaining properties

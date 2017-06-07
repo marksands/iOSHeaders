@@ -14,6 +14,7 @@
 + (id)writeRequestWithCharacteristic:(id)arg1 value:(id)arg2;
 @property(readonly, nonatomic) id value; // @synthesize value=_value;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithCharacteristic:(id)arg1 value:(id)arg2;
 

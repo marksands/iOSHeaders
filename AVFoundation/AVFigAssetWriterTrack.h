@@ -31,7 +31,7 @@
 - (int)_attachToFigAssetWriterUsingFormatSpecification:(id)arg1 sourcePixelBufferAttributes:(id)arg2 multiPass:(_Bool)arg3 error:(id *)arg4;
 - (void)setFormatDescriptions:(id)arg1;
 - (void)setSampleReferenceBaseURL:(id)arg1;
-- (void)setWritesMediaDataToBeginningOfFile:(_Bool)arg1;
+- (void)setMediaDataLocation:(id)arg1;
 - (void)setPreferredChunkSize:(long long)arg1;
 - (void)setPreferredChunkAlignment:(long long)arg1;
 - (void)setPreferredChunkDuration:(CDStruct_1b6d18a9)arg1;

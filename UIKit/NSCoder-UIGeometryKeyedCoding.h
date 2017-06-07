@@ -8,6 +8,7 @@
 
 @interface NSCoder (UIGeometryKeyedCoding)
 - (struct UIOffset)decodeUIOffsetForKey:(id)arg1;
+- (struct NSDirectionalEdgeInsets)decodeDirectionalEdgeInsetsForKey:(id)arg1;
 - (struct UIEdgeInsets)decodeUIEdgeInsetsForKey:(id)arg1;
 - (struct CGAffineTransform)decodeCGAffineTransformForKey:(id)arg1;
 - (struct CGRect)decodeCGRectForKey:(id)arg1;
@@ -15,6 +16,7 @@
 - (struct CGVector)decodeCGVectorForKey:(id)arg1;
 - (struct CGPoint)decodeCGPointForKey:(id)arg1;
 - (void)encodeUIOffset:(struct UIOffset)arg1 forKey:(id)arg2;
+- (void)encodeDirectionalEdgeInsets:(struct NSDirectionalEdgeInsets)arg1 forKey:(id)arg2;
 - (void)encodeUIEdgeInsets:(struct UIEdgeInsets)arg1 forKey:(id)arg2;
 - (void)encodeCGAffineTransform:(struct CGAffineTransform)arg1 forKey:(id)arg2;
 - (void)encodeCGRect:(struct CGRect)arg1 forKey:(id)arg2;

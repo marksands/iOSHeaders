@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) long long fullMomentsSectionHeaderStyle; // @synthesize fullMomentsSectionHeaderStyle=_fullMomentsSectionHeaderStyle;
-- (double)fullMomentsSectionHeaderHeight;
 @property(readonly, nonatomic) unsigned long long fullMomentsSectionHeaderBackgroundStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderHighlightInset;
 @property(readonly, nonatomic) struct UIEdgeInsets fullMomentsLevelSectionHeaderContentInset;

@@ -26,6 +26,8 @@
     UIVisualEffectView *_effectView;
     NSProgress *_observedProgress;
     NSObservation *_progressObservation;
+    UIView *_shadowView;
+    double _currentCornerRadius;
     UIImage *_trackImage;
     UIImage *_progressImage;
 }
@@ -54,6 +56,11 @@
 - (void)_setProgress:(float)arg1;
 - (void)tintColorDidChange;
 - (void)layoutSubviews;
+- (double)_shadowOpacityForUserInterfaceStyle:(long long)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)_layoutShadow;
+- (void)_setupShadow;
+- (void)_updateCornerRadiusWithSize:(struct CGSize)arg1;
 - (void)_setupProgressViewCommon;
 - (void)_updateImages;
 - (unsigned long long)_roundedCornersForProgressForCurrentStyle;

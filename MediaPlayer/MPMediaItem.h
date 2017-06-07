@@ -90,6 +90,7 @@
 @property(readonly, nonatomic) NSArray *chapters;
 - (id)multiverseIdentifier;
 - (void)clearLocationProperties;
+- (void)populateLocationPropertiesWithPath:(id)arg1 assetProtectionType:(long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)populateLocationPropertiesWithPath:(id)arg1 assetProtectionType:(long long)arg2;
 - (void)populateLocationPropertiesWithPath:(id)arg1;
 - (_Bool)existsInLibrary;

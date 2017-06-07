@@ -41,7 +41,6 @@
 + (id)pictureInPictureButtonStopImageCompatibleWithTraitCollection:(id)arg1;
 + (id)pictureInPictureButtonStartImageCompatibleWithTraitCollection:(id)arg1;
 + (_Bool)isPictureInPictureSupported;
-+ (void)initialize;
 @property(nonatomic) _Bool allowsPictureInPicturePlayback; // @synthesize allowsPictureInPicturePlayback=_allowsPictureInPicturePlayback;
 - (void).cxx_destruct;
 - (void)pictureInPictureProxyPictureInPictureInterruptionEnded:(id)arg1;

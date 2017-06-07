@@ -6,6 +6,10 @@
 
 #import <QuickLook/NSObject-Protocol.h>
 
+@class NSString, NSValue;
+
 @protocol QLRemotePreviewHost <NSObject>
+- (void)previewControllerDidUpdatePreferredContentSize:(NSValue *)arg1;
+- (void)previewControllerDidUpdateTitle:(NSString *)arg1;
 @end
 

@@ -12,7 +12,6 @@
 @interface CNContactView : CNMaskingTableView
 {
     _Bool _cellsLayoutCachingEnabled;
-    _Bool _shouldUseExpandedContentStyle;
     _Bool _shouldUseMapTiles;
     _Bool _needsUpdateVisibleCells;
     UIView *_customHeaderView;
@@ -23,7 +22,6 @@
     NSDictionary *_valueTextAttributes;
     NSDictionary *_actionTextAttributes;
     struct CGSize _oldSize;
-    struct UIEdgeInsets _contentMargins;
 }
 
 + (_Bool)isFixedValueProperty:(id)arg1;
@@ -47,14 +45,12 @@
 + (id)cellIdentifierForActions;
 @property(nonatomic) _Bool needsUpdateVisibleCells; // @synthesize needsUpdateVisibleCells=_needsUpdateVisibleCells;
 @property(nonatomic) struct CGSize oldSize; // @synthesize oldSize=_oldSize;
-@property(nonatomic) struct UIEdgeInsets contentMargins; // @synthesize contentMargins=_contentMargins;
 @property(copy, nonatomic) NSDictionary *actionTextAttributes; // @synthesize actionTextAttributes=_actionTextAttributes;
 @property(copy, nonatomic) NSDictionary *valueTextAttributes; // @synthesize valueTextAttributes=_valueTextAttributes;
 @property(copy, nonatomic) NSDictionary *labelTextAttributes; // @synthesize labelTextAttributes=_labelTextAttributes;
 @property(retain, nonatomic) UIColor *selectedCellBackgroundColor; // @synthesize selectedCellBackgroundColor=_selectedCellBackgroundColor;
 @property(retain, nonatomic) UIColor *sectionBackgroundColor; // @synthesize sectionBackgroundColor=_sectionBackgroundColor;
 @property(nonatomic) _Bool shouldUseMapTiles; // @synthesize shouldUseMapTiles=_shouldUseMapTiles;
-@property(nonatomic) _Bool shouldUseExpandedContentStyle; // @synthesize shouldUseExpandedContentStyle=_shouldUseExpandedContentStyle;
 @property(nonatomic, getter=isCellsLayoutCachingEnabled) _Bool cellsLayoutCachingEnabled; // @synthesize cellsLayoutCachingEnabled=_cellsLayoutCachingEnabled;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 @property(retain, nonatomic) UIView *customHeaderView; // @synthesize customHeaderView=_customHeaderView;
@@ -72,6 +68,7 @@
 - (void)registerContactCellClass:(Class)arg1;
 @property(readonly, nonatomic) CNContactHeaderView *defaultHeaderView;
 - (void)_cnui_applyContactStyle;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 contact:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2 contact:(id)arg3;
 

@@ -26,7 +26,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool asyncShouldPerformResponse; // @synthesize asyncShouldPerformResponse=_asyncShouldPerformResponse;
 - (void).cxx_destruct;
 - (void)asyncShouldPerformDefaultActionForContact:(id)arg1 propertyKey:(id)arg2 propertyIdentifier:(id)arg3;
+- (void)viewDidAppear;
 - (void)didChangePreferredContentSize:(struct CGSize)arg1;
+- (void)isPresentingEditingController:(_Bool)arg1;
 - (void)isPresentingFullscreen:(_Bool)arg1;
 - (void)didDeleteContact:(id)arg1;
 - (void)didCompleteWithContact:(id)arg1;

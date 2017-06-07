@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <PhotosUI/_UISettingsKeyObserver-Protocol.h>
+#import <PhotosUI/PXSettingsKeyObserver-Protocol.h>
 
 @class NSString, UIScreen, UIViewController, UIWindow;
 
 __attribute__((visibility("hidden")))
-@interface PUAirPlayScreen : NSObject <_UISettingsKeyObserver>
+@interface PUAirPlayScreen : NSObject <PXSettingsKeyObserver>
 {
     UIScreen *_screen;
     NSString *_identifier;

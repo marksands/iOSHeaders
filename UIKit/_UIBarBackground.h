@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSString, UIColor, UIImage, UIImageView, UIVisualEffect, UIVisualEffectView;
+@class NSArray, NSString, UIColor, UIImage, UIImageView, UIVisualEffectView;
 
 __attribute__((visibility("hidden")))
 @interface _UIBarBackground : UIView
@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     long long _translucence;
     UIImage *_backgroundImage;
     UIColor *_backgroundTintColor;
-    UIVisualEffect *_backgroundEffect;
+    NSArray *_backgroundEffects;
     UIImage *_shadowImage;
     UIColor *_shadowColor;
     double _shadowHeight;
@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)configureWithoutShadow;
 - (void)configureColoredShadow:(id)arg1 pixelHeight:(double)arg2 topShadow:(_Bool)arg3;
 - (void)configureShadowImage:(id)arg1 topShadow:(_Bool)arg2;
+- (void)configureWithEffects:(id)arg1;
 - (void)configureAsTransperant;
 - (void)configureImage:(id)arg1 forceOpaque:(_Bool)arg2 barStyle:(long long)arg3;
 - (void)configureImage:(id)arg1 forceOpaque:(_Bool)arg2 backgroundTintColor:(id)arg3;
@@ -47,10 +48,8 @@ __attribute__((visibility("hidden")))
 - (void)configureEffectForStyle:(long long)arg1 backgroundTintColor:(id)arg2 forceOpaque:(_Bool)arg3;
 - (id)_blurWithStyle:(long long)arg1 tint:(id)arg2;
 - (id)_colorForStyle:(long long)arg1;
-@property(readonly, nonatomic) UIImage *legacy_backgroundImage;
 @property(readonly, nonatomic) UIImageView *shim_shadowView;
 @property(readonly, nonatomic) UIImage *shim_shadowImage;
-@property(readonly, nonatomic) _Bool shouldUseBlendModeForBackgrounds;
 @property(readonly, nonatomic) _Bool hasBackgroundEffect;
 @property(nonatomic) _Bool disableBlur;
 @property(copy, nonatomic) NSString *groupName;

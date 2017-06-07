@@ -8,6 +8,6 @@
 
 @protocol HKExtendedClientInterface <NSObject>
 - (void)clientRemote_achievementDefinitionUnviewedCountChanged;
-- (void)clientRemote_achievementsWereAdded;
+- (void)clientRemote_achievementsWereAddedOrRemoved;
 @end
 

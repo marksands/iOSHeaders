@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)_keyCommandInputForCancelAction;
+- (long long)_effectStyle;
 - (id)preferredActionForActions:(id)arg1 suggestedPreferredAction:(id)arg2;
 - (_Bool)placementAvoidsKeyboard;
 - (double)textFieldHorizontalMargin;

@@ -19,6 +19,7 @@
     CKRecordZoneID *_zoneID;
 }
 
++ (_Bool)isValidRecordName:(id)arg1 outError:(id *)arg2;
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) CKRecordZoneID *zoneID; // @synthesize zoneID=_zoneID;
 @property(retain, nonatomic) NSString *recordName; // @synthesize recordName=_recordName;

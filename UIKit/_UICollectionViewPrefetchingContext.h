@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableOrderedSet *items; // @synthesize items=_items;
 @property(retain, nonatomic) NSArray *remainingIndexPaths; // @synthesize remainingIndexPaths=_remainingIndexPaths;
 - (void).cxx_destruct;
+- (id)_items;
 - (void)_invalidateRemainingIndexPaths;
 - (id)popNextItem;
 - (id)peekNextItem;

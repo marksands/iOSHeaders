@@ -6,14 +6,13 @@
 
 #import <ContactsUI/CNLabeledCell.h>
 
-#import <ContactsUI/CNActionViewProtocol-Protocol.h>
-#import <ContactsUI/CNUIUserActionListConsumer-Protocol.h>
+#import <ContactsUI/CNActionViewDelegate-Protocol.h>
 
 @class CNActionView, CNUIUserActionListDataSource, NSString, UILabel;
 @protocol CNPropertyCellDelegate;
 
 __attribute__((visibility("hidden")))
-@interface CNFaceTimeCell : CNLabeledCell <CNUIUserActionListConsumer, CNActionViewProtocol>
+@interface CNFaceTimeCell : CNLabeledCell <CNActionViewDelegate>
 {
     _Bool _isFaceTimeAudioAvailable;
     CNUIUserActionListDataSource *_actionsDataSource;

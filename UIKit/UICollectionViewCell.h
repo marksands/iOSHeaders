@@ -27,13 +27,16 @@
         unsigned int clearSelectionWhenMenuDisappears:1;
         unsigned int waitingForSelectionAnimationHalfwayPoint:1;
     } _collectionCellFlags;
+    long long _dragState;
     _Bool _selected;
     _Bool _highlighted;
     _Bool _isLayoutEngineSuspended;
+    _Bool _dragging;
     long long _focusStyle;
 }
 
 + (Class)_contentViewClass;
+@property(nonatomic, getter=isDragging) _Bool dragging; // @synthesize dragging=_dragging;
 @property(nonatomic, getter=_focusStyle, setter=_setFocusStyle:) long long focusStyle; // @synthesize focusStyle=_focusStyle;
 @property(nonatomic, getter=_isLayoutEngineSuspended, setter=_setLayoutEngineSuspended:) _Bool _layoutEngineSuspended; // @synthesize _layoutEngineSuspended=_isLayoutEngineSuspended;
 @property(retain, nonatomic) UIView *selectedBackgroundView; // @synthesize selectedBackgroundView=_selectedBackgroundView;
@@ -68,6 +71,10 @@
 - (_Bool)_shouldSaveOpaqueStateForView:(id)arg1;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
 - (void)_setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_setLayoutAttributes:(id)arg1;
+- (void)_updateGhostedAppearance;
+- (void)dragStateDidChange:(long long)arg1;
+@property(nonatomic, getter=_dragState, setter=_setDragState:) long long _dragState;
 @property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_selected;
 - (void)_setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_teardownHighlightingSupportIfReady;

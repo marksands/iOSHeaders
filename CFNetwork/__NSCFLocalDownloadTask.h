@@ -49,6 +49,8 @@ __attribute__((visibility("hidden")))
 - (void)_private_fileCompletion;
 - (void)_private_errorCompletion;
 - (id)createResumeInformation:(id)arg1;
+- (void)suspendExtractor;
+- (void)terminateExtractorWithError:(id)arg1;
 - (void)writeAndResume;
 - (void)_onqueue_willCacheResponse:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_private_posixError:(int)arg1;

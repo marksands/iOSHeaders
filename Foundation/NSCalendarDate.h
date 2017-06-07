@@ -19,6 +19,7 @@
 
 + (id)dateWithString:(id)arg1 calendarFormat:(id)arg2 locale:(id)arg3;
 + (id)dateWithString:(id)arg1 calendarFormat:(id)arg2;
++ (_Bool)supportsSecureCoding;
 + (id)dateWithYear:(long long)arg1 month:(unsigned long long)arg2 day:(unsigned long long)arg3 hour:(unsigned long long)arg4 minute:(unsigned long long)arg5 second:(unsigned long long)arg6 timeZone:(id)arg7;
 + (id)calendarDate;
 + (id)distantPast;

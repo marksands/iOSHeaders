@@ -16,7 +16,7 @@
 @property __weak id <CalendarPublishingActivityDelegate> activityDelegate; // @synthesize activityDelegate=_activityDelegate;
 - (void).cxx_destruct;
 - (void)_prepareActivity:(id)arg1;
-- (_Bool)_shouldShowSystemActivity:(id)arg1;
+- (_Bool)_shouldShowSystemActivityType:(id)arg1;
 
 @end
 

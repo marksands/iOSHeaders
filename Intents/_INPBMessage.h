@@ -8,23 +8,37 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString, PBUnknownFields, _INPBContact, _INPBDateTime;
+@class NSMutableArray, NSString, PBUnknownFields, _INPBContact, _INPBDataString, _INPBDateTime, _INPBInteger;
 
 @interface _INPBMessage : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     CDStruct_95bda58d _attributes;
     NSString *_content;
+    NSString *_conversationIdentifier;
+    _INPBDateTime *_dateLastMessageRead;
     _INPBDateTime *_dateSent;
-    NSString *_groupName;
+    int _effect;
     NSString *_identifier;
+    _INPBInteger *_numberOfAttachments;
     NSMutableArray *_recipients;
+    _INPBMessage *_referencedMessage;
     _INPBContact *_sender;
+    _INPBDataString *_speakableGroupName;
+    int _type;
+    struct {
+        unsigned int effect:1;
+        unsigned int type:1;
+    } _has;
 }
 
 + (Class)recipientType;
 + (id)options;
-@property(retain, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
+@property(retain, nonatomic) _INPBDateTime *dateLastMessageRead; // @synthesize dateLastMessageRead=_dateLastMessageRead;
+@property(retain, nonatomic) _INPBInteger *numberOfAttachments; // @synthesize numberOfAttachments=_numberOfAttachments;
+@property(retain, nonatomic) _INPBMessage *referencedMessage; // @synthesize referencedMessage=_referencedMessage;
+@property(retain, nonatomic) _INPBDataString *speakableGroupName; // @synthesize speakableGroupName=_speakableGroupName;
+@property(retain, nonatomic) NSString *conversationIdentifier; // @synthesize conversationIdentifier=_conversationIdentifier;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) _INPBDateTime *dateSent; // @synthesize dateSent=_dateSent;
 @property(retain, nonatomic) NSString *content; // @synthesize content=_content;
@@ -40,7 +54,19 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasGroupName;
+@property(readonly, nonatomic) _Bool hasDateLastMessageRead;
+@property(readonly, nonatomic) _Bool hasNumberOfAttachments;
+- (int)StringAsEffect:(id)arg1;
+- (id)effectAsString:(int)arg1;
+@property(nonatomic) _Bool hasEffect;
+@property(nonatomic) int effect; // @synthesize effect=_effect;
+@property(readonly, nonatomic) _Bool hasReferencedMessage;
+- (int)StringAsType:(id)arg1;
+- (id)typeAsString:(int)arg1;
+@property(nonatomic) _Bool hasType;
+@property(nonatomic) int type; // @synthesize type=_type;
+@property(readonly, nonatomic) _Bool hasSpeakableGroupName;
+@property(readonly, nonatomic) _Bool hasConversationIdentifier;
 @property(readonly, nonatomic) _Bool hasIdentifier;
 @property(readonly, nonatomic) _Bool hasDateSent;
 - (int)StringAsAttributes:(id)arg1;

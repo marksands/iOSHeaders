@@ -39,6 +39,7 @@
 + (void)_modifyCurrentEvent:(id)arg1 withAutocompleteResult:(id)arg2;
 + (void)_applyTimeToAutocompleteResults:(id)arg1 usingCurrentStartDate:(id)arg2 currentEndDate:(id)arg3 timeImplicitlySet:(_Bool)arg4;
 + (id)_now;
++ (id)defaultTitleForCalendarItem;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) _Bool showAttachments; // @synthesize showAttachments=_showAttachments;
 - (void).cxx_destruct;
@@ -67,7 +68,6 @@
 - (id)defaultAlertTitle;
 - (void)setupDeleteButton;
 - (id)_nameForDeleteButton;
-- (id)defaultTitleForCalendarItem;
 - (id)preferredTitle;
 - (_Bool)saveCalendarItemWithSpan:(long long)arg1 error:(id *)arg2;
 - (id)_orderedEditItems;

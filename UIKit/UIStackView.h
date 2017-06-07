@@ -40,13 +40,14 @@
 - (void)setOpaque:(_Bool)arg1;
 - (id)_mutableLayoutArrangements;
 - (_Bool)_hasLayoutArrangements;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(nonatomic, getter=isBaselineRelativeArrangement) _Bool baselineRelativeArrangement;
 @property(nonatomic) long long alignment;
 @property(nonatomic) long long distribution;
 @property(nonatomic) double spacing;
+- (double)customSpacingAfterView:(id)arg1;
+- (void)setCustomSpacing:(double)arg1 afterView:(id)arg2;
 @property(nonatomic) long long axis;
 @property(readonly, copy, nonatomic) NSArray *arrangedSubviews;
 - (void)setArrangedSubviews:(id)arg1;

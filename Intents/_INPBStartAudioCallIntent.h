@@ -41,6 +41,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsTtyType:(id)arg1;
+- (id)ttyTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasTtyType;
+@property(nonatomic) int ttyType; // @synthesize ttyType=_ttyType;
 - (id)contactAtIndex:(unsigned long long)arg1;
 - (unsigned long long)contactsCount;
 - (void)addContact:(id)arg1;
@@ -58,10 +62,6 @@
 @property(nonatomic) _Bool hasAudioRoute;
 @property(nonatomic) int audioRoute; // @synthesize audioRoute=_audioRoute;
 @property(readonly, nonatomic) _Bool hasIntentMetadata;
-- (int)StringAsTtyType:(id)arg1;
-- (id)ttyTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasTtyType;
-@property(nonatomic) int ttyType;
 
 @end
 

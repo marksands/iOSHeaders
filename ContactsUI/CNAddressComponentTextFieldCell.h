@@ -27,8 +27,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *textFields;
 - (id)currentConstraintsForMetrics:(id)arg1;
 - (void)updateConstraints;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (id)addTextField;
-- (void)dealloc;
 - (void)prepareForReuse;
 - (void)setupTextFields;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

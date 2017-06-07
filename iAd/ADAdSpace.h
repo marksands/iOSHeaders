@@ -10,7 +10,7 @@
 #import <iAd/ADPrivacyViewControllerInternalDelegate-Protocol.h>
 #import <iAd/ADWebViewActionViewControllerDelegate-Protocol.h>
 
-@class ADAdActionPublicAttributes, ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, ADCreativeController, ADPrivacyViewController, ADRemoteActionViewController, ADWebViewActionViewController, NSSet, NSString, NSURL, _UIAsyncInvocation;
+@class ADAdActionPublicAttributes, ADAdImpressionPublicAttributes, ADAdSpaceConfiguration, ADCreativeController, ADPrivacyViewController, ADRemoteActionViewController, ADWebViewActionViewController, NSMutableSet, NSString, NSURL, _UIAsyncInvocation;
 @protocol ADAdRecipient;
 
 @interface ADAdSpace : NSObject <ADPrivacyViewControllerInternalDelegate, ADWebViewActionViewControllerDelegate, ADCreativeControllerDelegate>
@@ -32,7 +32,7 @@
     NSURL *_serverURL;
     NSString *_advertisingSection;
     NSString *_authenticationUserName;
-    NSSet *_context;
+    NSMutableSet *_context;
     ADAdImpressionPublicAttributes *_currentAdImpressionPublicAttributes;
     ADAdActionPublicAttributes *_currentActionPublicAttributes;
     long long _visibility;
@@ -45,6 +45,7 @@
     struct CGRect _selectedAdFrame;
 }
 
++ (id)ADIdentifierNameForCreativeType:(int)arg1;
 @property(retain, nonatomic) ADPrivacyViewController *privacyViewController; // @synthesize privacyViewController=_privacyViewController;
 @property(nonatomic) _Bool shouldTearDownCreativeControllerAfterDismissingRemoteActionViewController; // @synthesize shouldTearDownCreativeControllerAfterDismissingRemoteActionViewController=_shouldTearDownCreativeControllerAfterDismissingRemoteActionViewController;
 @property(nonatomic) _Bool fastVisibilityContextIsFeed; // @synthesize fastVisibilityContextIsFeed=_fastVisibilityContextIsFeed;
@@ -67,13 +68,14 @@
 @property(retain, nonatomic) ADAdActionPublicAttributes *currentActionPublicAttributes; // @synthesize currentActionPublicAttributes=_currentActionPublicAttributes;
 @property(retain, nonatomic) ADAdImpressionPublicAttributes *currentAdImpressionPublicAttributes; // @synthesize currentAdImpressionPublicAttributes=_currentAdImpressionPublicAttributes;
 @property(nonatomic) _Bool requiresFastVisibiltyTestOnly; // @synthesize requiresFastVisibiltyTestOnly=_requiresFastVisibiltyTestOnly;
-@property(copy, nonatomic) NSSet *context; // @synthesize context=_context;
+@property(copy, nonatomic) NSMutableSet *context; // @synthesize context=_context;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;
 @property(copy, nonatomic) NSURL *serverURL; // @synthesize serverURL=_serverURL;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)creativeControllerViewDidRequestOpenURL:(id)arg1 withTapLocation:(struct CGPoint)arg2;
 - (void)creativeControllerViewDidRequestExpandURL:(id)arg1 withMaximumSize:(struct CGSize)arg2 withTapLocation:(struct CGPoint)arg3;
+- (void)creativeControllerViewDidRequestCreateCalendarEvent:(id)arg1 withTapLocation:(struct CGPoint)arg2;
 - (void)creativeControllerViewDidRequestCloseWithTapLocation:(struct CGPoint)arg1;
 - (void)webViewActionViewControllerHomeButtonWasTapped:(id)arg1;
 - (void)safariViewControllerDidFinish:(id)arg1;
@@ -106,12 +108,15 @@
 - (void)determineActionForTapAtLocation:(struct CGPoint)arg1 inFrame:(struct CGRect)arg2 withMRAIDAction:(id)arg3 completeHandler:(CDUnknownBlockType)arg4;
 - (void)stopVisibilityMonitoring;
 - (void)startVisibilityMonitoring;
+- (void)internalAdTypeDidChange;
+- (id)_updateIdentifier;
 - (_Bool)_contextForFeldsparClientIsFeed:(id)arg1;
 - (void)updateCreativeControllerVisibility;
 - (void)updateVisibility;
 - (void)_presentPrivacyViewController;
 - (void)uninstallCreativeView;
 - (void)installCreativeView;
+- (_Bool)canReuseForContext:(id)arg1;
 - (void)_clientApplicationDidBecomeActive;
 - (void)_clientApplicationDidEnterBackground;
 - (void)_remote_close;
@@ -120,6 +125,7 @@
 - (void)_closeConnectionIfNecessary;
 @property(readonly, nonatomic) id <ADAdRecipient> recipient;
 - (void)_requestAdFromAdSheet;
+- (void)_setContextInfo:(id)arg1;
 @property(readonly, nonatomic) ADAdSpaceConfiguration *configuration;
 @property(readonly, nonatomic) NSString *connectionAssertionIdentifier;
 @property(readonly, copy) NSString *description;

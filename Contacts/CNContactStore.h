@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class CNiOSAddressBook, CNiOSAddressBookDataMapper;
 
@@ -25,10 +25,12 @@
 + (void)initialize;
 + (_Bool)eraseAllDataAtURL:(id)arg1 error:(id *)arg2;
 + (_Bool)eraseAllDataAtLocationWithName:(id)arg1 error:(id *)arg2;
-- (_Bool)clearChangeHistoryForClient:(id)arg1 toSequenceNumber:(long long)arg2 error:(id *)arg3;
++ (id)contactStoreForPublicAddressBook:(void *)arg1;
++ (id)_contactStoreForPublicAddressBook:(void *)arg1;
+- (_Bool)clearChangeHistoryForClientIdentifier:(id)arg1 toChangeAnchor:(id)arg2 error:(id *)arg3;
 - (id)changeHistoryWithFetchRequest:(id)arg1 error:(id *)arg2;
-- (_Bool)unregisterClientForChangeHistory:(id)arg1 error:(id *)arg2;
-- (_Bool)registerClientForChangeHistory:(id)arg1 error:(id *)arg2;
+- (_Bool)unregisterChangeHistoryClientIdentifier:(id)arg1 error:(id *)arg2;
+- (_Bool)registerChangeHistoryClientIdentifier:(id)arg1 error:(id *)arg2;
 - (id)contactIdentifierWithMatchingDictionary:(id)arg1;
 - (id)contactWithMatchingDictionary:(id)arg1 keysToFetch:(id)arg2;
 - (id)matchingDictionaryForContact:(id)arg1;
@@ -52,8 +54,8 @@
 - (id)membersOfGroupWithIdentifier:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (id)groupWithIdentifier:(id)arg1 error:(id *)arg2;
 - (id)groupsMatchingPredicate:(id)arg1 error:(id *)arg2;
-- (id)contactIdentifiersForFetchRequest:(id)arg1 error:(id *)arg2;
 - (_Bool)enumerateContactsAndMatchInfoWithFetchRequest:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (_Bool)enumerateNonUnifiedContactsWithFetchRequest:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (_Bool)enumerateContactsWithFetchRequest:(id)arg1 error:(id *)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)unifiedContactsMatchingPredicate:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (_Bool)setBestMeIfNeededForGivenName:(id)arg1 familyName:(id)arg2 email:(id)arg3 error:(id *)arg4;
@@ -63,6 +65,7 @@
 - (id)unifiedMeContactMatchingEmailAddresses:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (id)_crossPlatformUnifiedMeContactWithKeysToFetch:(id)arg1 error:(id *)arg2;
 - (id)_ios_meContactWithKeysToFetch:(id)arg1 error:(id *)arg2;
+- (id)_unifiedMeContactWithKeysToFetch:(id)arg1 error:(id *)arg2;
 - (id)unifiedMeContactWithKeysToFetch:(id)arg1 error:(id *)arg2;
 - (id)_ios_meContactIdentifierWithError:(id *)arg1;
 - (id)meContactIdentifierWithError:(id *)arg1;
@@ -72,12 +75,14 @@
 - (id)initWithEnvironment:(id)arg1 options:(unsigned long long)arg2;
 - (id)initWithEnvironment:(id)arg1;
 - (id)init;
+- (id)synchronousRemoteObjectProxyForContactsXPCService;
+- (void)reindexSearchableItemsWithIdentifiers:(id)arg1;
 @property(readonly, nonatomic) CNiOSAddressBook *addressBook;
 @property(readonly, nonatomic) CNiOSAddressBookDataMapper *iOSMapper;
 @property(readonly, nonatomic) _Bool hasMultipleGroupsOrAccounts;
-- (id)initWithAddressBook:(void *)arg1;
 - (_Bool)setDefaultContainer:(id)arg1 forAccount:(id)arg2 error:(id *)arg3;
-- (id)initWithDataLocationName:(id)arg1;
+- (id)labeledValueFromMultiValueIdentifier:(int)arg1 contact:(id)arg2 key:(id)arg3;
+- (int)multiValueIdentifierFromLabeledValue:(id)arg1;
 - (void *)personFromContact:(id)arg1;
 - (id)contactIdentifierFromPersonID:(int)arg1;
 - (id)contactFromPersonID:(int)arg1 keysToFetch:(id)arg2;
@@ -87,9 +92,17 @@
 - (id)contactFromPersonID:(int)arg1;
 - (id)contactFromPerson:(void *)arg1 mutable:(_Bool)arg2;
 - (id)contactFromPerson:(void *)arg1;
+- (id)labeledValueFromPublicMultiValueIdentifier:(int)arg1 contact:(id)arg2 key:(id)arg3;
+- (int)publicMultiValueIdentifierFromLabeledValue:(id)arg1;
+- (void *)publicABPersonFromContact:(id)arg1 publicAddressBook:(const void **)arg2;
+- (id)contactFromPublicABPerson:(void *)arg1 keysToFetch:(id)arg2;
 - (id)contactsMatchingPropertiesOfContact:(id)arg1 unifyResults:(_Bool)arg2 keysToFetch:(id)arg3 error:(id *)arg4;
 - (id)_executeFetchRequestsWithInfos:(id)arg1 unifyResults:(_Bool)arg2 keysToFetch:(id)arg3 error:(id *)arg4;
 - (id)_fetchRequestInfosForEmailOrPhoneForContact:(id)arg1;
+- (id)_labeledValueFromPublicMultiValueIdentifier:(int)arg1 contact:(id)arg2 key:(id)arg3;
+- (int)_publicMultiValueIdentifierFromLabeledValue:(id)arg1;
+- (void *)_publicABPersonFromContact:(id)arg1 publicAddressBook:(const void **)arg2;
+- (id)_contactFromPublicABPerson:(void *)arg1 keysToFetch:(id)arg2;
 - (id)originForSuggestion:(id)arg1 error:(id *)arg2;
 
 @end

@@ -29,6 +29,7 @@
     long long _locationStatus;
     _Bool _rejectionReasonCell;
     _Bool _hasMapItemLaunchOptionFromTimeToLeaveNotification;
+    _Bool _showingInlineDayView;
     NSObject<EKEventDetailTitleCellDelegate> *_delegate;
 }
 
@@ -40,6 +41,7 @@
 + (void)_invalidateCachedFonts;
 + (id)_mapsURLForLocationOnEvent:(id)arg1 hasMapItemLaunchOptionFromTimeToLeaveNotification:(_Bool)arg2;
 + (void)_registerForInvalidation;
+@property(nonatomic) _Bool showingInlineDayView; // @synthesize showingInlineDayView=_showingInlineDayView;
 @property(nonatomic) _Bool hasMapItemLaunchOptionFromTimeToLeaveNotification; // @synthesize hasMapItemLaunchOptionFromTimeToLeaveNotification=_hasMapItemLaunchOptionFromTimeToLeaveNotification;
 @property(nonatomic) __weak NSObject<EKEventDetailTitleCellDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -48,6 +50,7 @@
 - (void)eventDetailPredictedLocationCellAcceptedPrediction:(id)arg1 disambiguatedLocation:(id)arg2;
 - (void)_promptForSpanWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;
+- (double)titleHeight;
 - (id)_predictedLocationView;
 - (id)_editButton;
 - (id)_statusView;
@@ -55,7 +58,6 @@
 - (id)_travelTimeView;
 - (id)_dateTimeViewForLine:(unsigned long long)arg1;
 - (id)_locationView;
-- (id)_locationStatusView;
 - (id)_titleView;
 - (void)editButtonTapped;
 - (_Bool)update;

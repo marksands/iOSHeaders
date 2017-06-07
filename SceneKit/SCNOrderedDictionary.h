@@ -8,7 +8,6 @@
 
 @class NSMutableArray, NSMutableDictionary;
 
-__attribute__((visibility("hidden")))
 @interface SCNOrderedDictionary : NSObject
 {
     NSMutableArray *_keys;
@@ -25,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (id)allKeys;
 - (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
+- (id)objectAtIndex:(long long)arg1;
 - (id)objectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)valueForKey:(id)arg1;

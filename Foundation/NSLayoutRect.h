@@ -55,8 +55,8 @@
 - (id)initWithLeadingAnchor:(id)arg1 topAnchor:(id)arg2 widthAnchor:(id)arg3 heightAnchor:(id)arg4;
 - (_Bool)nsli_isLegalConstraintItem;
 - (id)nsli_superitem;
-- (id)relationshipContainingLayoutRect:(id)arg1;
-- (id)relationshipEqualToLayoutRect:(id)arg1;
+- (id)ruleContainingLayoutRect:(id)arg1;
+- (id)ruleEqualToLayoutRect:(id)arg1;
 - (id)observableValueInItem:(id)arg1;
 - (struct CGRect)valueInItem:(id)arg1;
 - (id)layoutRectWithName:(id)arg1;

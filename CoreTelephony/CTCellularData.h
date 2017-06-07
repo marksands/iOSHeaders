@@ -8,7 +8,7 @@
 
 @interface CTCellularData : NSObject
 {
-    struct cellular_usage_policy_client_s *_cuPolicyClient;
+    struct network_usage_policy_client_s *_cuPolicyClient;
     struct queue _cuPolicyClientQueue;
     unsigned long long _restrictedState;
     CDUnknownBlockType _cellularDataRestrictionDidUpdateNotifier;

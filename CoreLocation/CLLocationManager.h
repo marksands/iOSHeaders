@@ -82,6 +82,7 @@
 - (void)onClientEventRegionSetupCompleted:(id)arg1;
 - (void)onClientEventRegionResponseDelayed:(id)arg1;
 - (void)onClientEventPeerRangingError:(id)arg1;
+- (void)onClientEventPeerRangingRequestProcessed:(id)arg1;
 - (void)onClientEventPeerRanging:(id)arg1;
 - (void)onClientEventRangingError:(id)arg1;
 - (void)onClientEventRanging:(id)arg1;
@@ -118,6 +119,7 @@
 - (void)startMonitoringForRegion:(id)arg1;
 - (void)startMonitoringForRegion:(id)arg1 desiredAccuracy:(double)arg2;
 - (void)stopMonitoringSignificantLocationChanges;
+- (void)_startMonitoringSignificantLocationChangesOfDistance:(double)arg1 withPowerBudget:(int)arg2;
 - (void)startMonitoringSignificantLocationChanges;
 - (void)stopTechStatusUpdates;
 - (void)startTechStatusUpdates;
@@ -141,7 +143,6 @@
 @property(copy, nonatomic) NSString *purpose;
 @property(nonatomic) _Bool privateMode;
 @property(readonly, nonatomic) struct __CLClient *internalClient;
-@property(readonly, nonatomic) double bestAccuracy;
 @property(nonatomic) _Bool supportInfo;
 @property(readonly, nonatomic) double expectedGpsUpdateInterval;
 @property(readonly, nonatomic) _Bool locationServicesApproved;
@@ -163,10 +164,12 @@
 - (void)stopUpdatingVehicleSpeed;
 - (void)startUpdatingVehicleSpeed;
 @property(nonatomic, getter=isMatchInfoEnabled) _Bool matchInfoEnabled;
+- (void)_startLeechingVisits;
 - (void)stopMonitoringVisits;
 - (void)startMonitoringVisits;
 - (void)requestCurrentMicroLocation;
 - (void)stopUpdatingMicroLocation;
+- (void)startUpdatingMicroLocationForLocationOfInterest:(id)arg1;
 - (void)startUpdatingMicroLocation;
 
 @end

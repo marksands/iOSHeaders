@@ -8,6 +8,8 @@
 
 @protocol LAContextEventFeedbackProt
 - (void)setCredential:(NSData *)arg1 forProcessedEvent:(long long)arg2 credentialType:(long long)arg3 reply:(void (^)(_Bool, NSError *))arg4;
+- (void)resetProcessedEvent:(long long)arg1 reply:(void (^)(_Bool, NSError *))arg2;
+- (void)retryProcessedEvent:(long long)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)failProcessedEvent:(long long)arg1 failureError:(NSError *)arg2 reply:(void (^)(_Bool, NSError *))arg3;
 @end
 

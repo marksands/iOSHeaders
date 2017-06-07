@@ -44,6 +44,9 @@
 - (void)_deleteToEndOfLine;
 - (void)_deleteToStartOfLine;
 - (void)_deleteByWord;
+- (UITextRange *)_intersectionOfRange:(UITextRange *)arg1 andRange:(UITextRange *)arg2;
+- (_Bool)_range:(UITextRange *)arg1 intersectsRange:(UITextRange *)arg2;
+- (_Bool)_range:(UITextRange *)arg1 containsRange:(UITextRange *)arg2;
 - (UITextPosition *)_findPleasingWordBoundaryFromPosition:(UITextPosition *)arg1;
 - (UITextRange *)_rangeSpanningTextUnit:(long long)arg1 andPosition:(UITextPosition *)arg2;
 - (UITextRange *)_fullRange;
@@ -56,6 +59,7 @@
 - (UITextPosition *)_positionAtStartOfWords:(unsigned long long)arg1 beforePosition:(UITextPosition *)arg2;
 - (UITextPosition *)_positionFromPosition:(UITextPosition *)arg1 pastTextUnit:(long long)arg2 inDirection:(long long)arg3;
 - (UITextPosition *)_positionWithinRange:(UITextRange *)arg1 farthestInDirection:(long long)arg2;
+- (void)_replaceDocumentWithText:(NSString *)arg1;
 - (void)_replaceCurrentWordWithText:(NSString *)arg1;
 - (void)_setCaretSelectionAtEndOfSelection;
 - (void)_expandSelectionToStartOfWordsBeforeCaretSelection:(int)arg1;
@@ -76,6 +80,7 @@
 - (unsigned int)_characterBeforeCaretSelection;
 - (unsigned int)_characterAfterCaretSelection;
 - (NSString *)_fullText;
+- (UITextRange *)_textRangeFromNSRange:(struct _NSRange)arg1;
 - (struct _NSRange)_nsrangeForTextRange:(UITextRange *)arg1;
 - (int)_indexForTextPosition:(UITextPosition *)arg1;
 

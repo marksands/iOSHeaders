@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)_kernel_source;
++ (id)_kernel;
 - (struct CGRect)_extentForInputExtent:(struct CGRect)arg1 backgroundExtent:(struct CGRect)arg2;
 
 @end

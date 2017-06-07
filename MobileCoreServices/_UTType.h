@@ -17,10 +17,11 @@
 
 + (struct __CFArray *)_copyIdentifiersWithQuery:(id)arg1;
 + (_Bool)_isDeclaration:(id)arg1 equalToDeclaration:(id)arg2;
-+ (id)_localizationDictionaryForTypeWithIdentifier:(id)arg1 UUID:(id)arg2 preferredLocalizations:(id)arg3;
++ (id)_localizationDictionaryForTypeWithIdentifier:(id)arg1 unit:(unsigned int)arg2 preferredLocalizations:(id)arg3;
 - (id)debugDescription;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (void)_enumerateParentTypesWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSURL *_iconURL; // @dynamic _iconURL;
 @property(readonly, nonatomic) NSSet *_pedigree; // @dynamic _pedigree;
 @property(readonly, nonatomic) NSString *_kernelExtensionName; // @dynamic _kernelExtensionName;
@@ -41,7 +42,8 @@
 @property(readonly, nonatomic) NSString *localizedDescription; // @dynamic localizedDescription;
 @property(readonly, nonatomic) NSNumber *version; // @dynamic version;
 @property(readonly, nonatomic) NSString *identifier; // @dynamic identifier;
-- (id)_localizedDescriptionWithPreferredLocalizations:(id)arg1;
+@property(readonly, nonatomic, getter=_isWildcard) _Bool _wildcard;
+- (id)_localizedDescriptionWithPreferredLocalizations:(id)arg1 checkingParents:(_Bool)arg2;
 
 @end
 

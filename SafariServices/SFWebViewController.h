@@ -12,13 +12,14 @@
 #import <SafariServices/_SFDialogControllerDelegate-Protocol.h>
 #import <SafariServices/_SFDialogPresenting-Protocol.h>
 #import <SafariServices/_SFDialogViewControllerPresenting-Protocol.h>
+#import <SafariServices/_SFWebViewDelegate-Protocol.h>
 #import <SafariServices/_WKInputDelegate-Protocol.h>
 
 @class NSString, WKWebView, WKWebViewConfiguration, _SFDialogController, _SFFormAutoFillController;
 @protocol SFWebViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface SFWebViewController : UIViewController <SFFormAutoFillControllerDelegate, WKNavigationDelegatePrivate, WKUIDelegatePrivate, _SFDialogControllerDelegate, _SFDialogViewControllerPresenting, _WKInputDelegate, _SFDialogPresenting>
+@interface SFWebViewController : UIViewController <SFFormAutoFillControllerDelegate, WKNavigationDelegatePrivate, WKUIDelegatePrivate, _SFDialogControllerDelegate, _SFDialogViewControllerPresenting, _SFWebViewDelegate, _WKInputDelegate, _SFDialogPresenting>
 {
     _SFFormAutoFillController *_autoFillController;
     _SFDialogController *_dialogController;
@@ -36,18 +37,21 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isLoading) _Bool loading; // @synthesize loading=_loading;
 @property(nonatomic) __weak id <SFWebViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)sfWebViewDidChangeSafeAreaInsets:(id)arg1;
 - (void)dialogController:(id)arg1 dismissViewController:(id)arg2 withAdditionalAnimations:(CDUnknownBlockType)arg3;
 - (void)dialogController:(id)arg1 presentViewController:(id)arg2 withAdditionalAnimations:(CDUnknownBlockType)arg3;
 - (void)presentDialog:(id)arg1 sender:(id)arg2;
-- (void)dialogController:(id)arg1 didDismissDialog:(id)arg2;
 - (void)dialogController:(id)arg1 willPresentDialog:(id)arg2;
-- (_Bool)dialogController:(id)arg1 shouldSuppressDialog:(id)arg2;
+- (long long)dialogController:(id)arg1 presentationPolicyForDialog:(id)arg2;
+- (void)_webView:(id)arg1 requestGeolocationAuthorizationForURL:(id)arg2 frame:(id)arg3 decisionHandler:(CDUnknownBlockType)arg4;
+- (void)_webView:(id)arg1 printFrame:(id)arg2;
 - (void)_webView:(id)arg1 commitPreviewedViewController:(id)arg2;
 - (id)_webView:(id)arg1 previewViewControllerForURL:(id)arg2 defaultActions:(id)arg3 elementInfo:(id)arg4;
 - (id)_actionsForElement:(id)arg1 defaultActions:(id)arg2 isPreviewing:(_Bool)arg3;
 - (id)_webView:(id)arg1 actionsForElement:(id)arg2 defaultActions:(id)arg3;
 - (_Bool)_webView:(id)arg1 shouldIncludeAppLinkActionsForElement:(id)arg2;
-- (id)webView:(id)arg1 createWebViewWithConfiguration:(id)arg2 forNavigationAction:(id)arg3 windowFeatures:(id)arg4;
+- (void)_webView:(id)arg1 createWebViewWithConfiguration:(id)arg2 forNavigationAction:(id)arg3 windowFeatures:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)webViewDidClose:(id)arg1;
 - (void)webView:(id)arg1 runJavaScriptTextInputPanelWithPrompt:(id)arg2 defaultText:(id)arg3 initiatedByFrame:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)webView:(id)arg1 runJavaScriptConfirmPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)webView:(id)arg1 runJavaScriptAlertPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

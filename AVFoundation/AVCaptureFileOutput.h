@@ -29,7 +29,7 @@
 @property(readonly, nonatomic, getter=isRecording) _Bool recording;
 @property(readonly, nonatomic) NSURL *outputFileURL;
 - (void)dealloc;
-- (id)init;
+- (id)initSubclass;
 
 @end
 

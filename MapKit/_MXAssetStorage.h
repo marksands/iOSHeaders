@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
 @interface _MXAssetStorage : NSObject
 {
     NSObject<OS_dispatch_queue> *_lock;
-    NSMutableDictionary *_proxyObjects;
     NSMutableDictionary *_storage;
     NSMutableSet *_loadingKeys;
     NSMutableDictionary *_fetchBlocks;
@@ -23,8 +22,6 @@ __attribute__((visibility("hidden")))
 - (void)fetchAssetForKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setAsset:(id)arg1 forKey:(id)arg2;
 - (void)loadAssetForKey:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
-- (id)proxyObjectForKey:(id)arg1;
-- (void)setProxyObject:(id)arg1 forKey:(id)arg2;
 - (id)init;
 
 @end

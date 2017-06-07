@@ -10,7 +10,6 @@
 
 @class NSString, NSURL;
 
-__attribute__((visibility("hidden")))
 @interface PUEditingFullSizeImagePayload : NSObject <NSSecureCoding>
 {
     NSURL *_url;

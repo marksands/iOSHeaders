@@ -8,12 +8,12 @@
 
 #import <MapKit/VKPuckAnimatorTarget-Protocol.h>
 
-@class CALayer, CLLocation, NSString, VKAnnotationMarker;
+@class CALayer, CLLocation, NSString, VKNavigationPuck;
 @protocol MKUserLocationHeadingIndicator;
 
 @interface MKUserLocationView : MKAnnotationView <VKPuckAnimatorTarget>
 {
-    VKAnnotationMarker *_marker;
+    VKNavigationPuck *_navigationPuckMarker;
     long long _zoomDirection;
     CALayer *_pulseLayer;
     CALayer *_accuracyLayer;
@@ -64,7 +64,8 @@
 - (void)setZoomDirection:(long long)arg1 deltaScale:(double)arg2;
 - (void)_setPresentationCoordinate:(struct CLLocationCoordinate2D)arg1;
 - (void)_setAnimatingToCoordinate:(_Bool)arg1;
-- (id)_vkMarker;
+- (id)_vkNavigationPuckMarker;
+- (void)_setVKNavigationPuckMarker:(id)arg1;
 - (void)_updateLayers;
 - (void)locationManagerFailedToUpdateLocation;
 - (void)updateStateFromLocation:(id)arg1 duration:(double)arg2;

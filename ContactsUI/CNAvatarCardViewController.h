@@ -8,45 +8,45 @@
 
 #import <ContactsUI/CNAvatarCardActionsViewDelegate-Protocol.h>
 #import <ContactsUI/CNCardTransitioning-Protocol.h>
-#import <ContactsUI/CNContactActionsViewControllerDelegate-Protocol.h>
+#import <ContactsUI/CNContactActionsControllerDelegate-Protocol.h>
 #import <ContactsUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CNAvatarCardActionsView, CNAvatarCardController, CNContactActionsViewController, NSArray, NSLayoutConstraint, NSString, UIImage, UIView;
-@protocol CNAvatarCardActionList, CNAvatarCardViewControllerDelegate;
+@class CNAvatarCardActionsView, CNAvatarCardController, CNContactActionsController, NSArray, NSLayoutConstraint, NSString, UIImage, UIView;
+@protocol CNAvatarCardActionListController, CNAvatarCardActionListOrbSupport, CNAvatarCardViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface CNAvatarCardViewController : UIViewController <CNAvatarCardActionsViewDelegate, CNContactActionsViewControllerDelegate, CNCardTransitioning, UIGestureRecognizerDelegate>
+@interface CNAvatarCardViewController : UIViewController <CNAvatarCardActionsViewDelegate, CNContactActionsControllerDelegate, CNCardTransitioning, UIGestureRecognizerDelegate>
 {
     _Bool _visible;
-    _Bool _hasBackgroundColor;
     _Bool _hasHeader;
     _Bool _headerOnTop;
     CNAvatarCardController *_cardController;
     id <CNAvatarCardViewControllerDelegate> _delegate;
     UIView *_sourceView;
-    UIView *_headerContainerView;
     CNAvatarCardActionsView *_legacyContactActionsView;
-    CNContactActionsViewController *_actionsViewController;
+    CNContactActionsController *_actionsController;
     NSLayoutConstraint *_actionsViewControllerHeightConstraint;
     UIView *_effectView;
     NSArray *_verticalConstraints;
+    UIView *_headerContainerView;
+    UIView *_actionsListView;
 }
 
+@property(retain, nonatomic) UIView *actionsListView; // @synthesize actionsListView=_actionsListView;
+@property(retain, nonatomic) UIView *headerContainerView; // @synthesize headerContainerView=_headerContainerView;
 @property(retain, nonatomic) NSArray *verticalConstraints; // @synthesize verticalConstraints=_verticalConstraints;
 @property(retain, nonatomic) UIView *effectView; // @synthesize effectView=_effectView;
 @property(retain, nonatomic) NSLayoutConstraint *actionsViewControllerHeightConstraint; // @synthesize actionsViewControllerHeightConstraint=_actionsViewControllerHeightConstraint;
-@property(retain, nonatomic) CNContactActionsViewController *actionsViewController; // @synthesize actionsViewController=_actionsViewController;
+@property(retain, nonatomic) CNContactActionsController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) CNAvatarCardActionsView *legacyContactActionsView; // @synthesize legacyContactActionsView=_legacyContactActionsView;
-@property(retain, nonatomic) UIView *headerContainerView; // @synthesize headerContainerView=_headerContainerView;
 @property(retain, nonatomic) UIView *sourceView; // @synthesize sourceView=_sourceView;
 @property(nonatomic) _Bool headerOnTop; // @synthesize headerOnTop=_headerOnTop;
 @property(nonatomic) _Bool hasHeader; // @synthesize hasHeader=_hasHeader;
-@property(nonatomic) _Bool hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 @property(nonatomic, getter=isVisible) _Bool visible; // @synthesize visible=_visible;
 @property(nonatomic) __weak id <CNAvatarCardViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak CNAvatarCardController *cardController; // @synthesize cardController=_cardController;
 - (void).cxx_destruct;
-- (void)contactActionsViewController:(id)arg1 didSelectAction:(id)arg2;
+- (void)contactActionsController:(id)arg1 didSelectAction:(id)arg2;
 @property _Bool transitioningImageVisible;
 @property(readonly, nonatomic) struct CGRect transitioningImageFrame;
 @property(readonly, nonatomic) UIImage *transitioningImage;
@@ -69,7 +69,8 @@ __attribute__((visibility("hidden")))
 - (void)updateActionsControllerHeightConstraint;
 - (void)didAddActionsViewToHierarchy;
 - (void)willAddActionsViewToHierarchy;
-@property(readonly, nonatomic) id <CNAvatarCardActionList> actionList;
+@property(readonly, nonatomic) id <CNAvatarCardActionListController> actionListController;
+@property(readonly, nonatomic) id <CNAvatarCardActionListOrbSupport> actionListViewController;
 - (id)actionsView;
 @property(nonatomic) _Bool bypassActionValidation;
 @property(copy, nonatomic) NSArray *actionCategories;

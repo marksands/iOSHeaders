@@ -6,10 +6,12 @@
 
 #import <UIKit/UIControl.h>
 
-@class NSMutableDictionary, UIColor, UIImage, UIImageView, UITabBar, UITabBarButtonLabel, UITabBarSwappableImageView, UIVisualEffectView, _UIBadgeView;
+#import <UIKit/UISpringLoadedInteractionSupporting-Protocol.h>
+
+@class NSMutableDictionary, NSString, UIColor, UIImage, UIImageView, UITabBar, UITabBarButtonLabel, UITabBarSwappableImageView, UIVisualEffectView, _UIBadgeView;
 
 __attribute__((visibility("hidden")))
-@interface UITabBarButton : UIControl
+@interface UITabBarButton : UIControl <UISpringLoadedInteractionSupporting>
 {
     struct CGRect _hitRect;
     UITabBarSwappableImageView *_info;
@@ -19,14 +21,17 @@ __attribute__((visibility("hidden")))
     UIImageView *_selectedIndicator;
     _Bool _selected;
     struct UIEdgeInsets _infoInsets;
+    struct UIEdgeInsets _infoLandscapeInsets;
     struct UIOffset _selectedInfoOffset;
     struct UIOffset _infoOffset;
     UIImage *_customSelectedIndicatorImage;
     struct UIOffset _labelOffset;
     NSMutableDictionary *_buttonTintColorsForState;
     NSMutableDictionary *_contentTintColorsForState;
+    UIColor *_defaultUnselectedLabelTintColor;
     UIColor *_badgeColor;
     NSMutableDictionary *_badgeTextAttributesForState;
+    _Bool _horizontalLayout;
     _Bool _showsHighlightedState;
     _Bool _centerAllContents;
     Class _appearanceGuideClass;
@@ -37,8 +42,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak UITabBar *tabBar; // @synthesize tabBar=_tabBar;
 @property(retain, nonatomic, setter=_setAppearanceGuideClass:) Class _appearanceGuideClass; // @synthesize _appearanceGuideClass;
 @property(nonatomic, setter=_setCenterAllContents:) _Bool _centerAllContents; // @synthesize _centerAllContents;
+@property(nonatomic, setter=_setHorizontalLayout:) _Bool _horizontalLayout; // @synthesize _horizontalLayout;
 @property(nonatomic, setter=_setShowsHighlightedState:) _Bool _showsHighlightedState; // @synthesize _showsHighlightedState;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) UIColor *_defaultUnselectedLabelTintColor;
 - (id)_contentTintColorForState:(unsigned long long)arg1;
 - (void)_setContentTintColor:(id)arg1 forState:(unsigned long long)arg2;
 - (id)_buttonTintColorForState:(unsigned long long)arg1;
@@ -54,11 +61,11 @@ __attribute__((visibility("hidden")))
 - (void)_setBadgeColor:(id)arg1;
 - (void)_UIAppearance_setBadgeColor:(id)arg1;
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;
-- (struct CGSize)_sensitivitySize;
-- (struct CGRect)_responderSelectionRectForCoordinateSpace:(id)arg1;
+- (long long)_focusTouchSensitivityStyle;
+- (struct CGRect)_responderSelectionRect;
 - (struct CGRect)_responderSelectionRectForWindow:(id)arg1;
 - (id)_tabBar;
-- (struct CGRect)_focusRegionFrameInScreen:(id)arg1;
+- (struct CGRect)_defaultFocusRegionFrame;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)_sendFocusAction;
@@ -67,6 +74,7 @@ __attribute__((visibility("hidden")))
 - (void)_setCustomSelectedIndicatorImage:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (struct CGSize)_horizontalLayout_sizeThatFits:(struct CGSize)arg1;
 - (void)_appleTV_layoutSubviews;
 - (struct CGSize)_appleTV_sizeThatFits:(struct CGSize)arg1;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
@@ -96,7 +104,15 @@ __attribute__((visibility("hidden")))
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)setSemanticContentAttribute:(long long)arg1;
 - (id)initWithImage:(id)arg1 selectedImage:(id)arg2 label:(id)arg3 withInsets:(struct UIEdgeInsets)arg4 tabBar:(id)arg5;
+- (id)initWithImage:(id)arg1 landscapeImage:(id)arg2 selectedImage:(id)arg3 landscapeSelectedImage:(id)arg4 label:(id)arg5 withInsets:(struct UIEdgeInsets)arg6 landscapeInsets:(struct UIEdgeInsets)arg7 tabBar:(id)arg8;
 - (id)_selectedIndicatorView;
+@property(nonatomic, getter=isSpringLoaded) _Bool springLoaded;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

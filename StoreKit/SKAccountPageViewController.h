@@ -17,6 +17,7 @@
     CDUnknownBlockType _prepareBlock;
     SKRemoteAccountPageViewController *_remoteViewController;
     SKInvocationQueueProxy<SKUIServiceAccountPageViewController> *_serviceProxy;
+    _Bool _isRemoteViewControllerReady;
 }
 
 @property(nonatomic) id <SKAccountPageViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -24,6 +25,7 @@
 - (void)_addRemoteView;
 - (void)_dismissViewController;
 - (void)_didPrepareWithResult:(_Bool)arg1 error:(id)arg2;
+- (void)willMoveToParentViewController:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (void)prepareWithCompletionBlock:(CDUnknownBlockType)arg1;

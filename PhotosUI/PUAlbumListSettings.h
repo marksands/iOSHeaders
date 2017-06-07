@@ -4,22 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
 __attribute__((visibility("hidden")))
-@interface PUAlbumListSettings : PUSettings
+@interface PUAlbumListSettings : PXSettings
 {
     _Bool _allowPlacesAlbum;
     _Bool _allowPeopleAlbum;
     _Bool _allowScenesAlbum;
+    _Bool _allowMemoriesAlbum;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
+@property(nonatomic) _Bool allowMemoriesAlbum; // @synthesize allowMemoriesAlbum=_allowMemoriesAlbum;
 @property(nonatomic) _Bool allowScenesAlbum; // @synthesize allowScenesAlbum=_allowScenesAlbum;
 @property(nonatomic) _Bool allowPeopleAlbum; // @synthesize allowPeopleAlbum=_allowPeopleAlbum;
 @property(nonatomic) _Bool allowPlacesAlbum; // @synthesize allowPlacesAlbum=_allowPlacesAlbum;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

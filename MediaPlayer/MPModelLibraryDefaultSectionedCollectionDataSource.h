@@ -18,9 +18,9 @@
     shared_ptr_274c5e8b _itemQueryResults;
 }
 
-@property(readonly, nonatomic) MPModelLibraryRequest *request; // @synthesize request=_request;
 @property(readonly, nonatomic) shared_ptr_274c5e8b itemQueryResults; // @synthesize itemQueryResults=_itemQueryResults;
 @property(readonly, nonatomic) shared_ptr_8b9a1f72 itemIdentifierQueryResults; // @synthesize itemIdentifierQueryResults=_itemIdentifierQueryResults;
+@property(readonly, nonatomic) MPModelLibraryRequest *request; // @synthesize request=_request;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (_Bool)_usesSections;

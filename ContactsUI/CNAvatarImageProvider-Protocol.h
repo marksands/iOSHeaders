@@ -9,6 +9,7 @@
 @class UIImage;
 
 @protocol CNAvatarImageProvider <NSObject>
+- (UIImage *)imageForSize:(struct CGSize)arg1 scale:(double)arg2 style:(unsigned long long)arg3;
 - (UIImage *)imageForSize:(struct CGSize)arg1 scale:(double)arg2;
 @end
 

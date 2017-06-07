@@ -17,6 +17,10 @@
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (_Bool)isPreferenceKeyLockedDown:(id)arg1;
+- (void)setLastUsedDictationLanguages:(id)arg1;
+- (void)setEnabledDictationLanguages:(id)arg1;
+- (void)performedFirstReachableKeyboardInteraction;
+- (_Bool)isFirstReachableKeyboardInteraction;
 @property long long handBias;
 - (_Bool)spaceConfirmationEnabled;
 - (double)rivenSizeFactor:(double)arg1;

@@ -10,7 +10,7 @@
 #import <UIKit/UISwitchControl-Protocol.h>
 #import <UIKit/UISwitchVisualElementProvider-Protocol.h>
 
-@class NSString, UIColor, UIImage, UISwitchVisualElement, _UIFeedbackImpactBehavior;
+@class NSString, UIColor, UIImage, UIImpactFeedbackGenerator, UISwitchVisualElement;
 
 @interface UISwitch : UIControl <UISwitchControl, UISwitchVisualElementProvider, NSCoding>
 {
@@ -35,7 +35,7 @@
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(retain, nonatomic) UIColor *onTintColor; // @synthesize onTintColor=_onTintColor;
 - (void).cxx_destruct;
-@property(retain, nonatomic, getter=_impactFeedbackBehavior, setter=_setImpactFeedbackBehavior:) _UIFeedbackImpactBehavior *impactFeedbackBehavior;
+@property(retain, nonatomic, getter=_impactFeedbackGenerator, setter=_setImpactFeedbackGenerator:) UIImpactFeedbackGenerator *impactFeedbackGenerator;
 - (void)_showingOnOffLabelChanged;
 - (_Bool)_shouldShowOnOffLabels;
 - (void)setOn:(_Bool)arg1 animated:(_Bool)arg2 notifyingVisualElement:(_Bool)arg3;

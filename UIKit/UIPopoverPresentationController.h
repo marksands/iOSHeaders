@@ -24,6 +24,7 @@
     unsigned long long _currentArrowDirection;
     long long _popoverBackgroundStyle;
     UIColor *_backgroundColor;
+    UIColor *_arrowBackgroundColor;
     _UIPopoverLayoutInfo *_preferredLayoutInfo;
     Class _popoverBackgroundViewClass;
     struct CGSize _popoverContentSize;
@@ -172,8 +173,9 @@
 - (void)_postludeForDismissal;
 - (CDUnknownBlockType)_completionBlockForDismissalWhenNotifyingDelegate:(_Bool)arg1;
 - (void)_setContentViewController:(id)arg1 backgroundStyle:(long long)arg2 animated:(_Bool)arg3;
-- (long long)_popoverBackgroundStyle;
-- (void)_setPopoverBackgroundStyle:(long long)arg1;
+@property(nonatomic, setter=_setPopoverBackgroundStyle:) long long _popoverBackgroundStyle;
+- (void)setArrowBackgroundColor:(id)arg1;
+- (id)arrowBackgroundColor;
 - (_Bool)_manuallyHandlesContentViewControllerAppearanceCalls;
 - (long long)_popoverControllerStyle;
 - (void)_performHierarchyCheckOnViewController:(id)arg1;
@@ -205,6 +207,7 @@
 @property(nonatomic) _Bool canOverlapSourceViewRect;
 - (void)setPopoverContentSize:(struct CGSize)arg1 animated:(_Bool)arg2;
 - (void)setPopoverContentSize:(struct CGSize)arg1;
+- (void)_clearCachedPopoverContentSize;
 - (struct CGSize)popoverContentSize;
 - (void)_setPopoverFrame:(struct CGRect)arg1 animated:(_Bool)arg2 coordinator:(id)arg3;
 - (void)setPopoverFrame:(struct CGRect)arg1 animated:(_Bool)arg2;

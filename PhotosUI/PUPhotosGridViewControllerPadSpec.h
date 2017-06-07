@@ -11,13 +11,12 @@
 }
 
 - (long long)sectionHeaderStyle;
-- (double)sectionHeaderHeight;
 - (_Bool)wantsCustomNavigationTransition;
 - (_Bool)wantsBackButtonTitleForPhotoBrowser;
 - (double)maxSearchBarWidth;
 - (_Bool)canDisplaySearchActionInNavigationBar;
 - (_Bool)shouldPlaceDeleteInCenterToolbarPosition;
-- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2;
+- (void)configureCollectionViewGridLayout:(id)arg1 forWidth:(double)arg2 safeAreaInsets:(struct UIEdgeInsets)arg3;
 - (id)albumPickerViewControllerSpec;
 - (id)photosPickerViewControllerSpec;
 - (_Bool)shouldPlaceSelectAllButtonInRightNavigationBar;
@@ -29,7 +28,7 @@
 - (long long)cellFillMode;
 - (int)thumbnailImageFormat;
 - (struct CGSize)baseInterItemSpacing;
-- (double)globalFooterHeight;
+- (double)globalFooterMinHeight;
 - (unsigned long long)supportedInterfaceOrientations;
 
 @end

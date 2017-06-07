@@ -6,25 +6,34 @@
 
 #import <HealthKit/HKQuery.h>
 
-@class NSDictionary;
+#import <HealthKit/HKCurrentActivitySummaryQueryClientInterface-Protocol.h>
 
-@interface _HKCurrentActivitySummaryQuery : HKQuery
+@class NSDictionary, NSString;
+
+@interface _HKCurrentActivitySummaryQuery : HKQuery <HKCurrentActivitySummaryQueryClientInterface>
 {
     CDUnknownBlockType _updateHandler;
     NSDictionary *_collectionIntervals;
 }
 
-+ (Class)_queryServerDataObjectClass;
++ (void)configureClientInterface:(id)arg1;
++ (id)clientInterfaceProtocol;
 @property(copy, nonatomic, getter=_collectionIntervals, setter=_setCollectionIntervals:) NSDictionary *collectionIntervals; // @synthesize collectionIntervals=_collectionIntervals;
 - (void).cxx_destruct;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (_Bool)_queue_shouldStayAliveAfterInitialResults;
-- (_Bool)_requiresValidSampleType;
-- (void)_queue_validate;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)deliverActivitySummaries:(id)arg1 queryUUID:(id)arg2;
+- (void)queue_deliverError:(id)arg1;
+- (_Bool)queue_shouldDeactivateAfterInitialResults;
+- (void)queue_validate;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)queue_populateConfiguration:(id)arg1;
+- (void)client_deliverActivitySummaries:(id)arg1 queryUUID:(id)arg2;
 - (id)initWithUpdateHandler:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

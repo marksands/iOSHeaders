@@ -20,7 +20,10 @@ __attribute__((visibility("hidden")))
     UIPrintPageRenderer *_pageRenderer;
 }
 
-+ (void)stringFromPreviewItem:(id)arg1 withAttributes:(id *)arg2 error:(id *)arg3 completionBlock:(CDUnknownBlockType)arg4;
++ (_Bool)shouldBeRemoteForContentType:(id)arg1;
++ (_Bool)providesCustomPrinter;
++ (id)supportedContentTypes;
++ (Class)transformerClass;
 - (void).cxx_destruct;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (void)pdfDataForPageAtIndex:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -37,8 +40,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)canPinchToDismiss;
 - (_Bool)canSwipeToDismiss;
 - (id)printer;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)loadView;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

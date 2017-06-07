@@ -35,6 +35,8 @@
 - (void).cxx_destruct;
 - (void)_presentAsTopmostViewController;
 - (void)accessorySetupDidFinishWithError:(id)arg1;
+- (void)accessorySetupDidFinishPairing;
+- (void)accessorySetupDidBeginPairing;
 - (void)accessorySetupDidLoad;
 - (void)_finishSetupWithError:(id)arg1;
 - (void)_configureAndAddRemoteViewController;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVWeakReference, NSMutableArray, NSSet;
+@class AVWeakReference, NSMutableArray, NSMutableDictionary, NSSet;
 
 @interface AVOfflineVideoStabilizer : NSObject
 {
@@ -17,6 +17,7 @@
     _Bool _clientMarkedEndOfVideoData;
     long long _videoOutputFrameNumber;
     struct opaqueCMFormatDescription *_cachedVideoFormatDescription;
+    NSMutableDictionary *_cachedInputBufferAttributes;
     NSMutableArray *_outputSampleBuffers;
     _Bool _clientMarkedEndOfMetadata;
     long long _metadataOutputFrameNumber;

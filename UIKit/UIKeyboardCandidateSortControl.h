@@ -6,20 +6,23 @@
 
 #import <UIKit/UIView.h>
 
-@class UIKBThemedView, UIKeyboardCandidateBarSegmentControl, UISegmentedControl;
+@class UIKBThemedView, UISegmentedControl;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateSortControl : UIView
 {
-    UIKeyboardCandidateBarSegmentControl *_segmentedControl;
     int _candidatesVisualStyle;
     _Bool _legacyAlertAppearance;
+    UISegmentedControl *_segmentedControl;
+    double _additionalPadding;
     UIKBThemedView *_themedView;
 }
 
 + (_Bool)_preventsAppearanceProxyCustomization;
 @property(retain, nonatomic) UIKBThemedView *themedView; // @synthesize themedView=_themedView;
+@property(nonatomic) double additionalPadding; // @synthesize additionalPadding=_additionalPadding;
 @property(readonly) UISegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
+- (void).cxx_destruct;
 - (void)setSortControlTitles:(id)arg1;
 @property(readonly) _Bool shouldShowTitles;
 - (_Bool)needsToUpdateSortControlForTitles:(id)arg1;
@@ -27,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (void)selectPreviousSegment;
 - (void)layoutSubviews;
 - (void)_setRenderConfig:(id)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 candidatesVisualStyle:(int)arg2 legacyAlertAppearance:(_Bool)arg3;
 - (void)updateTitleTextAttributes;
 - (void)addSegmentedControlWithFrame:(struct CGRect)arg1;

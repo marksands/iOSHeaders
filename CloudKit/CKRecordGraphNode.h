@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) CKRecord *record; // @synthesize record=_record;
-@property(readonly, copy, nonatomic) NSMutableSet *indegrees; // @synthesize indegrees=_indegrees;
-@property(copy, nonatomic) NSMutableSet *edges; // @synthesize edges=_edges;
+@property(readonly, nonatomic) NSMutableSet *indegrees; // @synthesize indegrees=_indegrees;
+@property(retain, nonatomic) NSMutableSet *edges; // @synthesize edges=_edges;
 - (void).cxx_destruct;
 - (id)description;
 - (id)CKPropertiesDescription;

@@ -25,8 +25,10 @@
     unsigned int _replaceMessage;
     NSString *_countryCode;
     NSUUID *_uuid;
+    _Bool _bypassSupportedMessageModesCheck;
 }
 
+@property(nonatomic) _Bool bypassSupportedMessageModesCheck; // @synthesize bypassSupportedMessageModesCheck=_bypassSupportedMessageModesCheck;
 @property(retain, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uuid;
 @property(readonly, copy, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(readonly) unsigned int replaceMessage; // @synthesize replaceMessage=_replaceMessage;

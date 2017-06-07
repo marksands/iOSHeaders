@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 + (double)_scaledDistanceCalculatedFromTopFromBaseline:(double)arg1;
 + (id)_bodyFontAtDefaultSize;
 - (void).cxx_destruct;
+- (double)detailsRightInset;
 - (double)detailsLeftInset;
 - (_Bool)needsLayoutForWidth:(double)arg1 position:(int)arg2;
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;

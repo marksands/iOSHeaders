@@ -9,14 +9,23 @@
 @class UIColor, UIFont;
 
 @protocol MKInfoCardTheme <NSObject>
+@property(readonly, nonatomic) UIFont *rowGlyphButtonFont;
+@property(readonly, nonatomic) UIFont *rowButtonFont;
 @property(readonly, nonatomic) UIFont *smallAttributionFont;
 @property(readonly, nonatomic) UIFont *attributionFont;
+@property(readonly, nonatomic) UIFont *sectionHeaderButtonFont;
 @property(readonly, nonatomic) UIFont *sectionHeaderFont;
 @property(readonly, nonatomic) UIFont *mediumBodyFont;
 @property(readonly, nonatomic) UIFont *boldBodyFont;
 @property(readonly, nonatomic) UIFont *bodyFont;
 @property(readonly, nonatomic) UIFont *titleFont;
 @property(readonly, nonatomic) UIFont *largeTitleFont;
+@property(readonly, nonatomic) UIFont *largeTitleFontStatic;
+@property(readonly, nonatomic) UIColor *normalActionRowBackgroundPressedColor;
+@property(readonly, nonatomic) UIColor *normalActionRowBackgroundColor;
+@property(readonly, nonatomic) UIColor *disabledActionRowBackgroundColor;
+@property(readonly, nonatomic) UIColor *disabledActionRowTextColor;
+@property(readonly, nonatomic) UIColor *highlightedActionRowTextColor;
 @property(readonly, nonatomic) UIColor *highlightedRowColor;
 @property(readonly, nonatomic) UIColor *selectedRowColor;
 @property(readonly, nonatomic) UIColor *rowColor;

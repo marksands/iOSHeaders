@@ -9,10 +9,12 @@
 #import <Intents/NSCopying-Protocol.h>
 #import <Intents/NSSecureCoding-Protocol.h>
 
-@class INIntent, INIntentResponse, NSDate, NSDateInterval, NSString;
+@class INIntent, INIntentResponse, NSDate, NSDateInterval, NSString, SAUISnippet;
 
 @interface INInteraction : NSObject <NSSecureCoding, NSCopying>
 {
+    _Bool _donatedBySiri;
+    SAUISnippet *_snippet;
     INIntent *_intent;
     INIntentResponse *_intentResponse;
     long long _intentHandlingStatus;
@@ -26,7 +28,7 @@
 + (void)deleteInteractionsWithIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)deleteAllInteractionsWithCompletion:(CDUnknownBlockType)arg1;
 + (_Bool)supportsSecureCoding;
-+ (void)load;
++ (void)initialize;
 @property(copy, nonatomic) NSString *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSDateInterval *dateInterval; // @synthesize dateInterval=_dateInterval;
@@ -34,7 +36,10 @@
 @property(nonatomic) long long intentHandlingStatus; // @synthesize intentHandlingStatus=_intentHandlingStatus;
 @property(readonly, copy, nonatomic) INIntentResponse *intentResponse; // @synthesize intentResponse=_intentResponse;
 @property(readonly, copy, nonatomic) INIntent *intent; // @synthesize intent=_intent;
+@property(readonly, nonatomic) _Bool _donatedBySiri; // @synthesize _donatedBySiri;
+@property(retain, nonatomic, setter=_setSnippet:) SAUISnippet *_snippet; // @synthesize _snippet;
 - (void).cxx_destruct;
+- (id)parameterValueForParameter:(id)arg1;
 - (id)_dictionaryRepresentation;
 - (id)description;
 - (unsigned long long)hash;
@@ -42,6 +47,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_donateInteractionWithBundleId:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)donateInteractionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_setDonatedBySiri:(_Bool)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIntent:(id)arg1 response:(id)arg2;

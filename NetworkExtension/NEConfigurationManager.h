@@ -30,7 +30,6 @@
     long long _generation;
     NSData *_SCPreferencesSignature;
     NSUUID *_userUUID;
-    NSString *_configFile;
     id <NEConfigurationManagerDelegate> _delegate;
     long long _configurationChangeSource;
 }
@@ -43,7 +42,6 @@
 + (id)sharedManager;
 @property long long configurationChangeSource; // @synthesize configurationChangeSource=_configurationChangeSource;
 @property(retain) id <NEConfigurationManagerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSString *configFile; // @synthesize configFile=_configFile;
 @property(readonly) NSUUID *userUUID; // @synthesize userUUID=_userUUID;
 @property _Bool hasVPNAPIEntitlement; // @synthesize hasVPNAPIEntitlement=_hasVPNAPIEntitlement;
 @property _Bool isNEHelper; // @synthesize isNEHelper=_isNEHelper;

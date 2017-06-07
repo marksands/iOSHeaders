@@ -6,22 +6,25 @@
 
 #import <UIKit/UITable-Protocol.h>
 
-@class NSArray, NSString, UITableViewCell, UITouch, UIView, _UITableViewCellActionButton;
+@class NSArray, NSIndexPath, NSString, UITableViewCell, UITouch, UIView, _UITableViewCellActionButton;
 
 @protocol UITable_UITableViewCellDelegate <UITable>
 @property(readonly, nonatomic, getter=_isEditingForSwipeDeletion) _Bool editingForSwipeDeletion;
 @property(retain, nonatomic, getter=_swipeToDeleteCell, setter=_setSwipeToDeleteCell:) UITableViewCell *swipeToDeleteCell;
+@property(readonly, nonatomic, getter=_usesModernSwipeActions) _Bool usesModernSwipeActions;
 @property(readonly, nonatomic, getter=_swipeActionButtons) NSArray *swipeActionButtons;
 @property(readonly, nonatomic, getter=_wasEditing) _Bool wasEditing;
 @property(readonly, nonatomic, getter=_isInModalViewController) _Bool inModalViewController;
 @property(readonly, nonatomic, getter=_popoverControllerStyle) long long popoverControllerStyle;
 @property(readonly, nonatomic, getter=_rawSeparatorInset) struct UIEdgeInsets rawSeparatorInset;
 @property(readonly, nonatomic, getter=_rowSpacing) double rowSpacing;
+- (_Bool)_shouldDrawThickSeparators;
 - (void)_userSelectCell:(UITableViewCell *)arg1;
 - (void)_accessoryButtonAction:(UIView *)arg1;
 - (void)_updateCell:(UITableViewCell *)arg1 withValue:(NSString *)arg2;
 - (void)_highlightCell:(UITableViewCell *)arg1 animated:(_Bool)arg2 scrollPosition:(long long)arg3 highlight:(_Bool)arg4;
 - (void)_animateDeletionOfRowWithCell:(UITableViewCell *)arg1;
+- (void)_animateDeletionOfRowAtIndexPath:(NSIndexPath *)arg1;
 - (NSString *)_titleForDeleteConfirmationButton:(UITableViewCell *)arg1;
 - (void)_removeWasCanceledForCell:(UITableViewCell *)arg1;
 - (void)_finishedRemovingRemovalButtonForTableCell:(UITableViewCell *)arg1;
@@ -29,6 +32,7 @@
 - (void)_endReorderingForCell:(UITableViewCell *)arg1 wasCancelled:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)_draggingReorderingCell:(UITableViewCell *)arg1 yDelta:(double)arg2 touch:(UITouch *)arg3;
 - (void)_beginReorderingForCell:(UITableViewCell *)arg1 touch:(UITouch *)arg2;
+- (_Bool)_isReorderControlActiveForCell:(UITableViewCell *)arg1;
 - (_Bool)_isCellReorderable:(UITableViewCell *)arg1;
 - (UIView *)_reorderingCell;
 - (double)_deleteConfirmationHorizontalVelocity;
@@ -42,6 +46,7 @@
 - (void)_actionButton:(_UITableViewCellActionButton *)arg1 pushedInCell:(UITableViewCell *)arg2;
 - (void)_swipeAccessoryButtonPushedInCell:(UITableViewCell *)arg1;
 - (void)_setSwipeToDeleteCell:(UITableViewCell *)arg1 installGobbler:(_Bool)arg2;
+- (void)_swipeToDeleteCell:(UITableViewCell *)arg1;
 - (struct CGRect)_calloutTargetRectForCell:(UITableViewCell *)arg1;
 - (void)_performAction:(SEL)arg1 forCell:(UITableViewCell *)arg2 sender:(id)arg3;
 - (_Bool)_canPerformAction:(SEL)arg1 forCell:(UITableViewCell *)arg2 sender:(id)arg3;

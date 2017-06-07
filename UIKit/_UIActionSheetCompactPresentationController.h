@@ -6,39 +6,47 @@
 
 #import <UIKit/UIPresentationController.h>
 
-@class NSString, UILongPressGestureRecognizer, UIView, _UIAnimationCoordinator, _UIDimmingKnockoutBackdropView;
+@class NSString, UILongPressGestureRecognizer, UITapGestureRecognizer, UIView, _UIAnimationCoordinator, _UIDimmingKnockoutBackdropView;
 @protocol UIActionSheetPresentationControllerDismissActionView, UIActionSheetPresentationControllerVisualStyle, _UIActionSheetCompactPresentationControllerDelegate;
 
 __attribute__((visibility("hidden")))
 @interface _UIActionSheetCompactPresentationController : UIPresentationController
 {
+    _Bool _avoidsKeyboardDisabled;
     _Bool _shouldAdoptPresentedAppearance;
-    _Bool _isSizeTransitionInProgress;
+    _Bool _hasPendingAnimatedLayout;
     id <_UIActionSheetCompactPresentationControllerDelegate> _actionSheetDelegate;
     UIView<UIActionSheetPresentationControllerDismissActionView> *_dismissActionView;
     UILongPressGestureRecognizer *_dismissActionViewGestureRecognizer;
+    UITapGestureRecognizer *_dimmingViewDismissTapGestureRecognizer;
     UIView *_dimmingView;
     _UIDimmingKnockoutBackdropView *_backdropView;
     _UIAnimationCoordinator *_animationCoordinator;
     id <UIActionSheetPresentationControllerVisualStyle> _visualStyle;
+    double _pseudoAlertPreferredTop;
 }
 
+@property(nonatomic) _Bool hasPendingAnimatedLayout; // @synthesize hasPendingAnimatedLayout=_hasPendingAnimatedLayout;
+@property(nonatomic) double pseudoAlertPreferredTop; // @synthesize pseudoAlertPreferredTop=_pseudoAlertPreferredTop;
 @property(retain, nonatomic) id <UIActionSheetPresentationControllerVisualStyle> visualStyle; // @synthesize visualStyle=_visualStyle;
-@property(nonatomic) _Bool isSizeTransitionInProgress; // @synthesize isSizeTransitionInProgress=_isSizeTransitionInProgress;
 @property(retain, nonatomic) _UIAnimationCoordinator *animationCoordinator; // @synthesize animationCoordinator=_animationCoordinator;
 @property(retain, nonatomic) _UIDimmingKnockoutBackdropView *backdropView; // @synthesize backdropView=_backdropView;
 @property(retain, nonatomic) UIView *dimmingView; // @synthesize dimmingView=_dimmingView;
+@property(retain, nonatomic) UITapGestureRecognizer *dimmingViewDismissTapGestureRecognizer; // @synthesize dimmingViewDismissTapGestureRecognizer=_dimmingViewDismissTapGestureRecognizer;
 @property(retain, nonatomic) UILongPressGestureRecognizer *dismissActionViewGestureRecognizer; // @synthesize dismissActionViewGestureRecognizer=_dismissActionViewGestureRecognizer;
 @property(retain, nonatomic) UIView<UIActionSheetPresentationControllerDismissActionView> *dismissActionView; // @synthesize dismissActionView=_dismissActionView;
 @property(nonatomic) _Bool shouldAdoptPresentedAppearance; // @synthesize shouldAdoptPresentedAppearance=_shouldAdoptPresentedAppearance;
 @property(nonatomic) __weak id <_UIActionSheetCompactPresentationControllerDelegate> actionSheetDelegate; // @synthesize actionSheetDelegate=_actionSheetDelegate;
+@property(nonatomic) _Bool avoidsKeyboardDisabled; // @synthesize avoidsKeyboardDisabled=_avoidsKeyboardDisabled;
 - (void).cxx_destruct;
 - (double)_resizeAnimationDuration;
 - (struct CGSize)_minimumSizeForDismissButton;
-- (CDStruct_92d81df2)_currentLayoutGeometry;
+- (CDStruct_758ece87)_currentLayoutGeometry;
 - (void)_handleDismiss:(id)arg1;
 - (void)_dismiss;
 @property(nonatomic) _Bool dismissActionUsesShorterHeightWhenCompactVertically;
+- (void)endPseudoAlertPresentationMode;
+- (void)beginPseudoAlertPresentationMode;
 @property(copy, nonatomic) NSString *dismissActionTitle;
 - (void)_updateForKeyboardStartFrame:(struct CGRect)arg1 endFrame:(struct CGRect)arg2 duration:(double)arg3 curve:(long long)arg4;
 - (void)_keyboardChanged:(id)arg1;
@@ -52,7 +60,9 @@ __attribute__((visibility("hidden")))
 - (void)_applyVisualAffordancesToViews;
 - (void)_layoutViews;
 - (struct CGRect)frameOfPresentedViewInContainerView;
+- (void)_transitionToPresentationController:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (struct UIEdgeInsets)_baseContentInsets;
 - (_Bool)_shouldOccludeDuringPresentation;
 - (_Bool)_shouldPresentedViewControllerControlStatusBarAppearance;
 - (_Bool)shouldPresentInFullscreen;

@@ -6,12 +6,13 @@
 
 #import <ContactsUI/NSObject-Protocol.h>
 
-@class ACAccount, CNContact, CNContactHeaderView, CNContactStore, UIViewController;
+@class CNContactHeaderView, CNContactViewCache, UIViewController;
 
 @protocol CNContactHeaderViewDelegate <NSObject>
-- (ACAccount *)displayAccountForContact:(CNContact *)arg1;
-- (CNContactStore *)contactStoreForHeaderView:(CNContactHeaderView *)arg1;
+- (CNContactViewCache *)contactViewCache;
 - (UIViewController *)viewControllerForHeaderView:(CNContactHeaderView *)arg1;
+- (void)headerPhotoDidSaveEditsForImageDrop;
+- (void)headerViewDidUpdateLabelSizes;
 - (void)headerPhotoDidUpdate;
 @end
 

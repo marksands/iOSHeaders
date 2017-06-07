@@ -9,5 +9,6 @@
 @interface NSExtensionContext (RPBroadcastExtension)
 - (void)loadBroadcastingApplicationInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)completeRequestWithBroadcastURL:(id)arg1 broadcastConfiguration:(id)arg2 setupInfo:(id)arg3;
+- (void)completeRequestWithBroadcastURL:(id)arg1 setupInfo:(id)arg2;
 @end
 

@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldDisplayProgressIndicators;
     _Bool _shouldAutoplayOnAppear;
     _Bool _shouldDisplayBufferingIndicators;
-    _Bool _shouldDisplayLoadingIndicators;
+    _Bool _canDisplayLoadingIndicators;
     _Bool _shouldDisplayEmptyPlaceholder;
     _Bool _shouldUseCompactCommentsTitle;
     _Bool _shouldPinContentToTop;
@@ -34,18 +34,16 @@ __attribute__((visibility("hidden")))
     long long _tileInitialContentMode;
     struct CGSize _progressIndicatorSize;
     struct CGSize _bufferingIndicatorSize;
-    struct CGSize _loadingIndicatorSize;
 }
 
 @property(nonatomic, setter=_setShouldPinContentToTop:) _Bool shouldPinContentToTop; // @synthesize shouldPinContentToTop=_shouldPinContentToTop;
 @property(nonatomic, setter=_setTileInitialContentMode:) long long tileInitialContentMode; // @synthesize tileInitialContentMode=_tileInitialContentMode;
 @property(nonatomic, setter=_setShouldUseCompactCommentsTitle:) _Bool shouldUseCompactCommentsTitle; // @synthesize shouldUseCompactCommentsTitle=_shouldUseCompactCommentsTitle;
-@property(nonatomic, setter=_setLoadingIndicatorSize:) struct CGSize loadingIndicatorSize; // @synthesize loadingIndicatorSize=_loadingIndicatorSize;
 @property(nonatomic, setter=_setBufferingIndicatorSize:) struct CGSize bufferingIndicatorSize; // @synthesize bufferingIndicatorSize=_bufferingIndicatorSize;
 @property(nonatomic, setter=_setProgressIndicatorSize:) struct CGSize progressIndicatorSize; // @synthesize progressIndicatorSize=_progressIndicatorSize;
 @property(retain, nonatomic, setter=_setBackgroundColorOverride:) UIColor *backgroundColorOverride; // @synthesize backgroundColorOverride=_backgroundColorOverride;
 @property(nonatomic, setter=_setShouldDisplayEmptyPlaceholder:) _Bool shouldDisplayEmptyPlaceholder; // @synthesize shouldDisplayEmptyPlaceholder=_shouldDisplayEmptyPlaceholder;
-@property(nonatomic, setter=_setShouldDisplayLoadingIndicators:) _Bool shouldDisplayLoadingIndicators; // @synthesize shouldDisplayLoadingIndicators=_shouldDisplayLoadingIndicators;
+@property(nonatomic, setter=_setCanDisplayLoadingIndicators:) _Bool canDisplayLoadingIndicators; // @synthesize canDisplayLoadingIndicators=_canDisplayLoadingIndicators;
 @property(nonatomic, setter=_setShouldDisplayBufferingIndicators:) _Bool shouldDisplayBufferingIndicators; // @synthesize shouldDisplayBufferingIndicators=_shouldDisplayBufferingIndicators;
 @property(nonatomic, setter=_setShouldAutoplayOnAppear:) _Bool shouldAutoplayOnAppear; // @synthesize shouldAutoplayOnAppear=_shouldAutoplayOnAppear;
 @property(nonatomic, setter=_setShouldDisplayProgressIndicators:) _Bool shouldDisplayProgressIndicators; // @synthesize shouldDisplayProgressIndicators=_shouldDisplayProgressIndicators;

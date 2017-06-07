@@ -20,6 +20,7 @@
     CDStruct_f953fb60 _has;
 }
 
++ (id)options;
 @property(retain, nonatomic) _INPBUserActivity *userActivity; // @synthesize userActivity=_userActivity;
 @property(retain, nonatomic) _INPBIntentResponsePayloadFailure *PayloadFailure; // @synthesize PayloadFailure=_PayloadFailure;
 @property(retain, nonatomic) _INPBIntentResponsePayloadSuccess *PayloadSuccess; // @synthesize PayloadSuccess=_PayloadSuccess;

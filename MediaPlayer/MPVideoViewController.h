@@ -8,12 +8,11 @@
 
 #import <MediaPlayer/MPSwipableViewDelegate-Protocol.h>
 #import <MediaPlayer/MPVideoControllerProtocol-Protocol.h>
-#import <MediaPlayer/UIModalViewDelegate-Protocol.h>
 
 @class MPAVController, MPAVItem, MPSwipableView, MPTVOutWindow, MPVideoBackgroundView, MPVideoView, NSString, UIActivityIndicatorView, UIAlertController, UIColor, UIImage, UIView, _UIHostedWindow;
 @protocol MPVideoOverlay;
 
-@interface MPVideoViewController : MPViewController <MPVideoControllerProtocol, MPSwipableViewDelegate, UIModalViewDelegate>
+@interface MPVideoViewController : MPViewController <MPVideoControllerProtocol, MPSwipableViewDelegate>
 {
     MPVideoBackgroundView *_backgroundView;
     MPSwipableView *_backstopView;

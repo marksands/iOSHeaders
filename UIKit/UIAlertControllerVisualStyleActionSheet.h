@@ -11,14 +11,13 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)positionContentsOfAlertController:(id)arg1 alertContentView:(id)arg2 availableSpaceView:(id)arg3 visualStyle:(id)arg4 updatableConstraints:(id)arg5;
 + (long long)interfaceActionPresentationStyle;
 - (_Bool)placementAvoidsKeyboard;
 - (_Bool)hideCancelAction:(id)arg1 inAlertController:(id)arg2;
 - (long long)permittedActionLayoutDirection;
 - (void)animateAlertControllerView:(id)arg1 ofAlertController:(id)arg2 forPresentation:(_Bool)arg3 inContainerView:(id)arg4 descendantOfContainerView:(id)arg5 duration:(double)arg6 completionBlock:(CDUnknownBlockType)arg7;
 - (double)transitionDurationForPresentation:(_Bool)arg1 ofAlertController:(id)arg2;
-- (id)defaultActionBackgroundColorWhenSeparate;
-- (void)positionAlertControllerView:(id)arg1 ofAlertController:(id)arg2 inAvailableSpaceView:(id)arg3;
 - (struct UIEdgeInsets)contentInsets;
 - (double)maximumWidth;
 - (double)marginBelowLastLabelLastBaseline;
@@ -28,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)messageLabelFont;
 - (double)marginBelowTitleLabelLastBaseline;
 - (double)marginAboveTitleLabelFirstBaseline;
+- (double)_spacingBetweenDismissButtonAndContent;
 - (id)titleLabelColor;
 - (id)titleLabelFont;
 

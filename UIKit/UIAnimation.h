@@ -23,6 +23,12 @@
 }
 
 - (void).cxx_destruct;
+- (void)markStop;
+- (void)markStart:(double)arg1;
+- (float)fractionForTime:(double)arg1;
+- (void)setDuration:(double)arg1;
+- (int)type;
+- (int)state;
 - (float)progressForFraction:(float)arg1;
 - (void)setProgress:(float)arg1;
 - (void)setAnimationCurve:(int)arg1;
@@ -37,12 +43,6 @@
 - (id)target;
 - (void)stopAnimation;
 - (id)initWithTarget:(id)arg1;
-- (void)markStop;
-- (void)markStart:(double)arg1;
-- (float)fractionForTime:(double)arg1;
-- (void)setDuration:(double)arg1;
-- (int)type;
-- (int)state;
 
 @end
 

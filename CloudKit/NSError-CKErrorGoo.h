@@ -8,6 +8,7 @@
 
 @interface NSError (CKErrorGoo)
 - (_Bool)CKIsNotFoundError;
+- (id)CKClientSuitableUnderlyingError;
 - (id)CKClientSuitableError;
 @end
 

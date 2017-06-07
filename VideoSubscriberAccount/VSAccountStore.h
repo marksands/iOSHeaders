@@ -9,13 +9,16 @@
 #import <VideoSubscriberAccount/MCProfileConnectionObserver-Protocol.h>
 #import <VideoSubscriberAccount/VSRemoteNotifierDelegate-Protocol.h>
 
-@class MCProfileConnection, NSArray, NSString, VSKeychainEditingContext, VSRemoteNotifier;
+@class MCProfileConnection, NSArray, NSOperationQueue, NSString, NSUndoManager, VSAccount, VSKeychainEditingContext, VSRemoteNotifier;
 
 @interface VSAccountStore : NSObject <MCProfileConnectionObserver, VSRemoteNotifierDelegate>
 {
     _Bool _accountModificationAllowed;
+    _Bool _needsUpdateCachedFirstAccount;
+    VSAccount *_cachedFirstAccount;
     MCProfileConnection *_profileConnection;
     VSKeychainEditingContext *_keychainEditingContext;
+    NSOperationQueue *_keychainQueue;
     id _changeObserver;
     VSRemoteNotifier *_remoteNotifier;
 }
@@ -23,14 +26,23 @@
 + (Class)accountClass;
 @property(retain, nonatomic) VSRemoteNotifier *remoteNotifier; // @synthesize remoteNotifier=_remoteNotifier;
 @property(nonatomic) __weak id changeObserver; // @synthesize changeObserver=_changeObserver;
+@property(retain, nonatomic) NSOperationQueue *keychainQueue; // @synthesize keychainQueue=_keychainQueue;
 @property(retain, nonatomic) VSKeychainEditingContext *keychainEditingContext; // @synthesize keychainEditingContext=_keychainEditingContext;
 @property(retain, nonatomic) MCProfileConnection *profileConnection; // @synthesize profileConnection=_profileConnection;
+@property _Bool needsUpdateCachedFirstAccount; // @synthesize needsUpdateCachedFirstAccount=_needsUpdateCachedFirstAccount;
+@property(retain) VSAccount *cachedFirstAccount; // @synthesize cachedFirstAccount=_cachedFirstAccount;
 @property(nonatomic, getter=isAcountModificationAllowed) _Bool accountModificationAllowed; // @synthesize accountModificationAllowed=_accountModificationAllowed;
 - (void).cxx_destruct;
-- (void)removeAccount:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)saveAccount:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)removeAccounts:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)saveAccounts:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)_insertAccount:(id)arg1 inContext:(id)arg2;
+- (void)fetchAccountsWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSArray *accounts;
 - (id)firstAccount;
+- (void)_updateCachedFirstAccount;
+- (id)firstAccountIfLoaded;
+- (_Bool)isFirstAccountLoaded;
+@property(retain, nonatomic) NSUndoManager *undoManager;
 - (void)_updateAccountModificationAllowed;
 - (id)_keychainItemsWithLimit:(unsigned long long)arg1;
 - (id)_accountForKeychainItem:(id)arg1;

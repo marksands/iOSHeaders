@@ -15,19 +15,18 @@
 @interface CNContactHeaderView : UIView <CNContactPhotoViewDelegate, CNUIReusableView>
 {
     _Bool _needsReload;
-    _Bool _shouldUseExpandedContentStyle;
     _Bool _alwaysShowsMonogram;
     _Bool _visibleToScrollViews;
     NSDictionary *_nameTextAttributes;
-    id <CNPresenterDelegate> _delegate;
-    id <CNContactHeaderViewDelegate> _headerDelegate;
+    id <CNPresenterDelegate> _presenterDelegate;
+    id <CNContactHeaderViewDelegate> _delegate;
     UILabel *_nameLabel;
     NSArray *_activatedConstraints;
     NSArray *_contacts;
     CNContactPhotoView *_photoView;
-    struct UIEdgeInsets _contentMargins;
 }
 
++ (id)makePhotoViewWithMonogrammerStyle:(long long)arg1 shouldAllowTakePhotoAction:(_Bool)arg2 shouldAllowImageDrops:(_Bool)arg3;
 + (_Bool)requiresConstraintBasedLayout;
 + (id)descriptorForRequiredKeysIncludingAvatarViewDescriptors:(_Bool)arg1;
 + (id)descriptorForRequiredKeys;
@@ -37,20 +36,16 @@
 @property(retain, nonatomic) NSArray *contacts; // @synthesize contacts=_contacts;
 @property(retain, nonatomic) NSArray *activatedConstraints; // @synthesize activatedConstraints=_activatedConstraints;
 @property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
-@property(nonatomic) _Bool shouldUseExpandedContentStyle; // @synthesize shouldUseExpandedContentStyle=_shouldUseExpandedContentStyle;
-@property(nonatomic) __weak id <CNContactHeaderViewDelegate> headerDelegate; // @synthesize headerDelegate=_headerDelegate;
-@property(nonatomic) __weak id <CNPresenterDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CNContactHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CNPresenterDelegate> presenterDelegate; // @synthesize presenterDelegate=_presenterDelegate;
 @property(copy, nonatomic) NSDictionary *nameTextAttributes; // @synthesize nameTextAttributes=_nameTextAttributes;
-@property(nonatomic) struct UIEdgeInsets contentMargins; // @synthesize contentMargins=_contentMargins;
 - (void).cxx_destruct;
 - (void)prepareForReuse;
-- (id)displayAccountForContact:(id)arg1;
-- (id)contactStoreForPhotoView:(id)arg1;
+- (id)contactViewCache;
 - (id)viewControllerForPhotoView:(id)arg1;
+- (void)photoViewDidSaveEditsForImageDrop:(id)arg1;
 - (void)photoViewDidUpdate:(id)arg1;
 - (_Bool)canBecomeFirstResponder;
-- (_Bool)shouldOffsetPhotoView;
-- (void)saveContactPhoto;
 - (void)reloadDataPreservingChanges:(_Bool)arg1;
 - (void)reloadDataIfNeeded;
 - (void)setNeedsReload;
@@ -59,7 +54,7 @@
 - (void)updateWithNewContact:(id)arg1;
 - (void)updateConstraints;
 - (void)dealloc;
-- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 monogrammerStyle:(long long)arg3;
+- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 monogrammerStyle:(long long)arg3 shouldAllowTakePhotoAction:(_Bool)arg4 shouldAllowImageDrops:(_Bool)arg5;
 - (id)descriptorForRequiredKeys;
 
 // Remaining properties

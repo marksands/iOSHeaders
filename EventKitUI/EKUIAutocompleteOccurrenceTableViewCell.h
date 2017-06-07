@@ -16,6 +16,7 @@
     UILabel *_timeTextLabelWithThisTimeZone;
     UILabel *_timeTextLabelWithResultTimeZone;
     UILabel *_inviteesTextLabel;
+    UILabel *_foundInTextLabel;
     NSArray *_secondaryLabels;
     UIColor *_eventCalendarColor;
     NSString *_eventTitle;
@@ -23,6 +24,7 @@
     NSString *_eventTimeWithThisTimeZone;
     NSString *_eventTimeWithResultTimeZone;
     NSString *_eventInvitees;
+    NSString *_eventFoundIn;
     NSArray *_ekUIAutocompleteOccurrenceTableViewCellConstraints;
 }
 
@@ -30,7 +32,9 @@
 + (id)_inviteeStringForResult:(id)arg1;
 + (id)_timeStringForResult:(id)arg1 usingTimeZone:(id)arg2;
 + (_Bool)_shouldShowOtherTimeZoneForResult:(id)arg1;
++ (id)_foundInStringForResult:(id)arg1;
 + (id)_locationStringForResult:(id)arg1;
++ (id)_titleStringForResult:(id)arg1;
 + (id)secondaryTextColor;
 + (id)primaryTextColor;
 + (id)secondaryTextLabelFont;

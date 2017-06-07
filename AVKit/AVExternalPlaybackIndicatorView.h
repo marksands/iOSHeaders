@@ -6,16 +6,15 @@
 
 #import <UIKit/UIView.h>
 
-@class UIImage, UIImageView, UILabel;
+@class UIImageView, UILabel, UIStackView;
 
-__attribute__((visibility("hidden")))
 @interface AVExternalPlaybackIndicatorView : UIView
 {
-    UIImage *_externalPlaybackIndicatorImageLarge;
-    UIImage *_externalPlaybackIndicatorImageSmall;
     UIImageView *_imageView;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
+    UIStackView *_containerView;
+    UIStackView *_textLabelsContainer;
 }
 
 - (void).cxx_destruct;

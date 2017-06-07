@@ -8,7 +8,7 @@
 
 #import <Photos/PHBatchFetchingArrayDataSource-Protocol.h>
 
-@class NSHashTable, NSMutableDictionary, NSMutableSet, NSString, PLPhotoLibrary;
+@class NSHashTable, NSMutableDictionary, NSMutableOrderedSet, NSString, PHVariationCacheManager, PLPhotoLibrary;
 @protocol OS_dispatch_queue, PLPhotoAnalysisServiceTaxonomyResolver;
 
 @interface PHPhotoLibrary : NSObject <PHBatchFetchingArrayDataSource>
@@ -16,16 +16,18 @@
     _Bool _unknownMergeEvent;
     _Bool _isChangeProcessingPending;
     _Bool _clearsOIDCacheAfterFetchResultDealloc;
+    PHVariationCacheManager *_variationCacheManager;
     NSObject<OS_dispatch_queue> *_queue;
     PLPhotoLibrary *_photoLibrary;
     PLPhotoLibrary *_changeHandlingPhotoLibrary;
     PLPhotoLibrary *_mainQueuePhotoLibrary;
     PLPhotoLibrary *_backgroundQueuePhotoLibrary;
     PLPhotoLibrary *_backgroundQueueObjectFetchingPhotoLibrary;
+    PLPhotoLibrary *_transactionPhotoLibrary;
     NSObject<OS_dispatch_queue> *_transactionQueue;
-    NSMutableSet *_inserts;
-    NSMutableSet *_updates;
-    NSMutableSet *_deletes;
+    NSMutableOrderedSet *_insertRequests;
+    NSMutableOrderedSet *_updateRequests;
+    NSMutableOrderedSet *_deleteRequests;
     NSMutableDictionary *_saveTokensToKnownUUIDs;
     NSMutableDictionary *_changeRequests;
     NSHashTable *_fetchResults;
@@ -50,6 +52,8 @@
 + (void)requestAuthorization:(CDUnknownBlockType)arg1;
 + (long long)authorizationStatus;
 + (id)sharedPhotoLibrary;
++ (id)_descriptionOfEntitiesInChangeRequests:(id)arg1;
++ (_Bool)shouldDisplayMergeCandidates:(id)arg1 forPerson:(id)arg2;
 @property(nonatomic) _Bool clearsOIDCacheAfterFetchResultDealloc; // @synthesize clearsOIDCacheAfterFetchResultDealloc=_clearsOIDCacheAfterFetchResultDealloc;
 @property(nonatomic) double lastChangeProcessingStarted; // @synthesize lastChangeProcessingStarted=_lastChangeProcessingStarted;
 @property(nonatomic) _Bool isChangeProcessingPending; // @synthesize isChangeProcessingPending=_isChangeProcessingPending;
@@ -60,10 +64,11 @@
 @property(retain, nonatomic) NSHashTable *fetchResults; // @synthesize fetchResults=_fetchResults;
 @property(retain, nonatomic) NSMutableDictionary *changeRequests; // @synthesize changeRequests=_changeRequests;
 @property(retain, nonatomic) NSMutableDictionary *saveTokensToKnownUUIDs; // @synthesize saveTokensToKnownUUIDs=_saveTokensToKnownUUIDs;
-@property(retain, nonatomic) NSMutableSet *deletes; // @synthesize deletes=_deletes;
-@property(retain, nonatomic) NSMutableSet *updates; // @synthesize updates=_updates;
-@property(retain, nonatomic) NSMutableSet *inserts; // @synthesize inserts=_inserts;
+@property(retain, nonatomic) NSMutableOrderedSet *deleteRequests; // @synthesize deleteRequests=_deleteRequests;
+@property(retain, nonatomic) NSMutableOrderedSet *updateRequests; // @synthesize updateRequests=_updateRequests;
+@property(retain, nonatomic) NSMutableOrderedSet *insertRequests; // @synthesize insertRequests=_insertRequests;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *transactionQueue; // @synthesize transactionQueue=_transactionQueue;
+@property(retain, nonatomic) PLPhotoLibrary *transactionPhotoLibrary; // @synthesize transactionPhotoLibrary=_transactionPhotoLibrary;
 @property(retain, nonatomic) PLPhotoLibrary *backgroundQueueObjectFetchingPhotoLibrary; // @synthesize backgroundQueueObjectFetchingPhotoLibrary=_backgroundQueueObjectFetchingPhotoLibrary;
 @property(retain, nonatomic) PLPhotoLibrary *backgroundQueuePhotoLibrary; // @synthesize backgroundQueuePhotoLibrary=_backgroundQueuePhotoLibrary;
 @property(retain, nonatomic) PLPhotoLibrary *mainQueuePhotoLibrary; // @synthesize mainQueuePhotoLibrary=_mainQueuePhotoLibrary;
@@ -74,7 +79,6 @@
 - (void)_processPendingChanges;
 - (void)handleMergeNotification:(id)arg1;
 - (id)transactionPLPhotoLibrary;
-- (id)transactionContext;
 - (id)fetchUpdatedObject:(id)arg1;
 - (id)fetchPHObjectsForUUIDs:(id)arg1 entityName:(id)arg2;
 - (id)fetchPHObjectsForOIDs:(id)arg1 propertyHint:(unsigned long long)arg2 includeTrash:(_Bool)arg3;
@@ -107,6 +111,7 @@
 - (void)unregisterFetchResult:(id)arg1;
 - (void)registerFetchResult:(id)arg1;
 - (id)objectFetchingManagedObjectContextForObject:(id)arg1 propertySet:(id)arg2;
+@property(readonly, nonatomic) PHVariationCacheManager *variationCacheManager; // @synthesize variationCacheManager=_variationCacheManager;
 - (id)objectFetchingContextForCurrentQueueQoS;
 - (id)photoLibraryForCurrentQueueQoS;
 - (id)managedObjectContextForCurrentQueueQoS;
@@ -114,6 +119,7 @@
 - (id)managedObjectContext;
 - (id)initSharedLibrary;
 - (id)init;
+- (id)_descriptionOfChanges;
 - (id)pl_syncProgressAlbums;
 @property(retain, nonatomic) id <PLPhotoAnalysisServiceTaxonomyResolver> taxonomyResolver;
 - (void)requestPermissionToDownloadFaceResourcesOfCount:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -122,14 +128,17 @@
 - (id)bfa_photoLibrary;
 - (id)bfa_tombstoneObjectForOID:(id)arg1 uuid:(id)arg2 propertyHint:(unsigned long long)arg3;
 - (id)bfa_fetchObjectsForOIDs:(id)arg1 propertyHint:(unsigned long long)arg2;
+- (_Bool)isFaceProcessingFinished;
 - (id)faceClusterSequenceNumbersOfKeyFacesInAlgorithmicFaceGroupsForPerson:(id)arg1 verifiedClusterSequenceNumbers:(id)arg2;
-- (id)faceSuggestionsForFaceClusterSequenceNumbers:(id)arg1 excludeFaceLocalIdentifers:(id)arg2;
-- (_Bool)scheduleFaceProcessingOnAssetsWithLocalIdentifiers:(id)arg1 error:(id *)arg2;
+- (id)suggestionsForPersonLocalIdentifier:(id)arg1 clusterSequenceNumbers:(id)arg2 excludePersonLocalIdentifers:(id)arg3;
+- (void)personPromotionProcessingStatusForUserInterface:(CDUnknownBlockType)arg1;
 - (void)faceProcessingStatusForUserInterface:(CDUnknownBlockType)arg1;
+- (id)suggestedMePersonIdentifierWithError:(id *)arg1;
 - (id)assetIdentifiersForPersonIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)socialGroupsForPersonIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)allSocialGroupsForPersonIdentifier:(id)arg1 error:(id *)arg2;
 - (id)sortedArrayOfPersonIdentifiers:(id)arg1 error:(id *)arg2;
+- (void)simulateMemoriesNotificationWithOptions:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)generateMemoriesRelatedDiagnosticsLogsWithReply:(CDUnknownBlockType)arg1;
 - (void)requestGraphReadyNotificationWithCoalescingIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestGraphRebuildProgressWithCompletion:(CDUnknownBlockType)arg1;
@@ -139,8 +148,8 @@
 - (id)exportGraphForPurpose:(id)arg1 error:(id *)arg2;
 - (id)graphStatisticsDescription:(id *)arg1;
 - (id)graphStatusDescription:(id *)arg1;
-- (id)relatedDebugInformationBetweenMomentForLocalIdentifier:(id)arg1 andRelatedMomentForLocalIdentifier:(id)arg2 precision:(unsigned long long)arg3 relatedType:(unsigned long long)arg4 error:(id *)arg5;
-- (id)relatedDebugInformationBetweenAssetForLocalIdentifier:(id)arg1 andRelatedMomentForLocalIdentifier:(id)arg2 precision:(unsigned long long)arg3 relatedType:(unsigned long long)arg4 error:(id *)arg5;
+- (id)relatedDebugInformationBetweenReferenceAssetCollectionForLocalIdentifier:(id)arg1 andRelatedAssetCollectionForLocalIdentifier:(id)arg2 options:(id)arg3 precision:(unsigned long long)arg4 relatedType:(unsigned long long)arg5 error:(id *)arg6;
+- (id)relatedDebugInformationBetweenAssetForLocalIdentifier:(id)arg1 andRelatedAssetCollectionForLocalIdentifier:(id)arg2 options:(id)arg3 precision:(unsigned long long)arg4 relatedType:(unsigned long long)arg5 error:(id *)arg6;
 - (id)curationDebugInformationForAssetLocalIdentifier:(id)arg1 precision:(unsigned long long)arg2 error:(id *)arg3;
 - (id)memoryDebugInformationForMemoryWithLocalIdentifier:(id)arg1 precision:(unsigned long long)arg2 error:(id *)arg3;
 - (void)cancelOperationsWithIdentifiers:(id)arg1 reply:(CDUnknownBlockType)arg2;

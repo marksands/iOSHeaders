@@ -10,21 +10,21 @@
 
 @interface EKCalendarResourceChangeNotification : EKCalendarNotification
 {
-    NSString *_location;
-    NSString *_calendarName;
-    NSDate *_startDate;
-    NSDate *_endDate;
     _Bool _allDay;
-    NSString *_eventID;
-    unsigned int _changeType;
     _Bool _dateChanged;
     _Bool _timeChanged;
     _Bool _locationChanged;
     _Bool _titleChanged;
+    unsigned int _changeType;
+    NSString *_location;
+    NSString *_calendarName;
+    NSDate *_startDate;
+    NSDate *_startDateForNextOccurrence;
+    NSDate *_endDate;
+    NSString *_eventID;
     NSNumber *_createCount;
     NSNumber *_updateCount;
     NSNumber *_deleteCount;
-    NSDate *_startDateForNextOccurrence;
 }
 
 @property(retain, nonatomic) NSNumber *deleteCount; // @synthesize deleteCount=_deleteCount;

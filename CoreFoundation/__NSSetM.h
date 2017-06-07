@@ -9,27 +9,27 @@
 __attribute__((visibility("hidden")))
 @interface __NSSetM : NSMutableSet
 {
-    unsigned int _used:58;
-    unsigned long long _size;
-    unsigned long long _mutations;
-    id *_objs;
+    CDStruct_80e5fc3d storage;
+    unsigned long long mutations;
+    struct __cow_state_t *cow;
 }
 
-+ (void)initialize;
 + (id)allocWithZone:(struct _NSZone *)arg1;
-+ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)__new:(const id *)arg1:(unsigned long long)arg2:(_Bool)arg3;
-- (double)clumpingInterestingThreshold;
-- (double)clumpingFactor;
++ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (void)initialize;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (void)removeAllObjects;
 - (void)removeObject:(id)arg1;
+- (void)removeAllObjects;
+- (void)getObjects:(id *)arg1 count:(unsigned long long)arg2;
+- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_58648341 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
+- (double)clumpingInterestingThreshold;
+- (double)clumpingFactor;
 - (void)addObject:(id)arg1;
 - (void)_mutate;
-- (void)enumerateObjectsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
-- (void)getObjects:(id *)arg1 count:(unsigned long long)arg2;
 - (id)objectEnumerator;
 - (id)member:(id)arg1;
 - (unsigned long long)count;

@@ -37,7 +37,6 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
-- (void)_handleBridgeStatusNotification:(id)arg1;
 - (void)_handleNewAccessoriesRemoved:(id)arg1;
 - (void)_handleNewAccessoriesFound:(id)arg1;
 - (void)_registerNotificationHandlers;

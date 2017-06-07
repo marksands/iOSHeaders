@@ -22,6 +22,11 @@
 @property(readonly, nonatomic) _Bool stationary;
 @property(readonly, nonatomic) _Bool unknown;
 @property(readonly, nonatomic) NSDate *startDate;
+@property(readonly, nonatomic, getter=isVehicleBTHint) _Bool vehicleBTHint;
+@property(readonly, nonatomic, getter=isVehicleMotionHint) _Bool vehicleMotionHint;
+@property(readonly, nonatomic, getter=isVehicleBasebandHint) _Bool vehicleBasebandHint;
+@property(readonly, nonatomic, getter=isVehicleGpsHint) _Bool vehicleGpsHint;
+@property(readonly, nonatomic, getter=isVehicleWifiHint) _Bool vehicleWifiHint;
 @property(readonly, nonatomic, getter=isVehicleConnected) _Bool vehicleConnected;
 @property(readonly, nonatomic) long long confidence;
 - (void)encodeWithCoder:(id)arg1;

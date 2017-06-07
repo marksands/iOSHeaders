@@ -17,6 +17,8 @@
 }
 
 + (id)_matchDictionary;
++ (id)knownPluginReverseMapping;
++ (id)knownPluginMapping;
 @property(retain, nonatomic) NSDictionary *extensionsByBundleId; // @synthesize extensionsByBundleId=_extensionsByBundleId;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) id matchingContext; // @synthesize matchingContext=_matchingContext;

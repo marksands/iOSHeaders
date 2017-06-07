@@ -25,10 +25,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *gradientColors; // @synthesize gradientColors=m_gradientColors;
 @property(nonatomic) double pointerOffset; // @synthesize pointerOffset=m_pointerOffset;
 @property(nonatomic) int mode; // @synthesize mode=m_mode;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

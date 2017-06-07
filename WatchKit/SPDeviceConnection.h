@@ -74,9 +74,6 @@
 - (void)fetchInstalledComplicationsForPairedDevice:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchInstalledComplicationsWithErrorCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchInstalledComplicationsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchInstalledGlancesForPairedDevice:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)fetchInstalledGlancesWithErrorCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchInstalledGlancesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchInstalledCompatibleApplicationsWithDevice:(id)arg1 withErrorCompletion:(CDUnknownBlockType)arg2;
 - (void)fetchInstalledCompatibleApplicationsWithDevice:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)fetchInstalledApplicationsForPairedDevice:(id)arg1 completion:(CDUnknownBlockType)arg2;

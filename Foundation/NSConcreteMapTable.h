@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     unsigned long long keyOptions;
     unsigned long long valueOptions;
     unsigned long long mutations;
-    int growLock;
+    struct os_unfair_lock_s growLock;
     _Bool shouldRehash;
 }
 

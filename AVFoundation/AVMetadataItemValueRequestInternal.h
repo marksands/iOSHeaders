@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVWeakReference, NSError;
+@class AVWeakReference, NSError, NSString;
 @protocol NSObject><NSCopying;
 
 @interface AVMetadataItemValueRequestInternal : NSObject
 {
     AVWeakReference *weakReferenceToMetadataItem;
     id <NSObject><NSCopying> value;
+    NSString *dataType;
     NSError *error;
 }
 

@@ -41,7 +41,7 @@
 - (id)_serverWithErrorHandler:(CDUnknownBlockType)arg1;
 - (void)_attachServerWithClientQueue:(id)arg1 healthStore:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)endSessionWithEndReason:(long long)arg1;
-- (void)startScoringSession;
+- (void)startGuiding;
 - (void)startSessionWithStartDate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_lifecycleDelegate;
 - (id)description;

@@ -7,6 +7,7 @@
 #import <MobileCoreServices/LSPlugInKitProxy.h>
 
 @interface LSPlugInKitProxy (UserNotifications)
-- (id)_un_applicationBundleURL;
+- (id)un_applicationBundleURL;
+- (id)un_applicationBundleIdentifier;
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <AVFAudio/NSCopying-Protocol.h>
 #import <AVFAudio/NSSecureCoding-Protocol.h>
@@ -35,8 +35,8 @@
 @property(retain, nonatomic) NSAttributedString *attributedSpeechString; // @synthesize attributedSpeechString=_attributedSpeechString;
 @property(retain, nonatomic) NSString *speechString; // @synthesize speechString=_speechString;
 @property(retain, nonatomic) AVSpeechSynthesisVoice *voice; // @synthesize voice=_voice;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithAttributedString:(id)arg1;

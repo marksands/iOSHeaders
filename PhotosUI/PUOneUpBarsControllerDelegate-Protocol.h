@@ -6,12 +6,13 @@
 
 #import <PhotosUI/PUBarsControllerDelegate-Protocol.h>
 
-@class PUAssetReference, PUOneUpBarsController;
+@class PUAssetActionPerformer, PUAssetReference, PUOneUpBarsController;
 @protocol PUDisplayAsset, PUDisplayLocationProvider;
 
 @protocol PUOneUpBarsControllerDelegate <PUBarsControllerDelegate>
 
 @optional
+- (void)oneUpBarsController:(PUOneUpBarsController *)arg1 willExecuteActionPerformer:(PUAssetActionPerformer *)arg2;
 - (_Bool)oneUpBarsController:(PUOneUpBarsController *)arg1 shouldHideToolbarWhenShowingAccessoryViewForAssetReference:(PUAssetReference *)arg2;
 - (_Bool)oneUpBarsController:(PUOneUpBarsController *)arg1 shouldTapBeginAtLocationFromProvider:(id <PUDisplayLocationProvider>)arg2;
 - (_Bool)oneUpBarsController:(PUOneUpBarsController *)arg1 canShowCommentsForAsset:(id <PUDisplayAsset>)arg2;

@@ -9,7 +9,7 @@
 #import <UIKit/UIFocusedInterfaceActionPressDelegate-Protocol.h>
 #import <UIKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSArray, NSMutableSet, NSPointerArray, NSString, UIGestureRecognizer, UILongPressGestureRecognizer, UIScrollView, UIView, _UIFeedbackRetargetBehavior, _UIInterfaceActionSelectByPressGestureRecognizer;
+@class NSArray, NSMutableSet, NSPointerArray, NSString, UIGestureRecognizer, UILongPressGestureRecognizer, UIScrollView, UISelectionFeedbackGenerator, UIView, _UIInterfaceActionSelectByPressGestureRecognizer;
 
 __attribute__((visibility("hidden")))
 @interface UIInterfaceActionSelectionTrackingController : NSObject <UIGestureRecognizerDelegate, UIFocusedInterfaceActionPressDelegate>
@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
     UIGestureRecognizer *_systemProvidedGestureRecognizer;
     NSMutableSet *_viewsRequiringSelectionGestureDisabling;
     _UIInterfaceActionSelectByPressGestureRecognizer *_selectByPressGestureRecognizer;
-    _UIFeedbackRetargetBehavior *_selectionRetargetFeedbackBehavior;
+    UISelectionFeedbackGenerator *_selectionRetargetFeedbackGenerator;
     NSPointerArray *_weakCooperatingSelectionTrackingControllers;
     id _scrollViewWillBeginDraggingNotificationToken;
     id _scrollViewDidEndDraggingNotificationToken;
@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id scrollViewDidEndDraggingNotificationToken; // @synthesize scrollViewDidEndDraggingNotificationToken=_scrollViewDidEndDraggingNotificationToken;
 @property(retain, nonatomic) id scrollViewWillBeginDraggingNotificationToken; // @synthesize scrollViewWillBeginDraggingNotificationToken=_scrollViewWillBeginDraggingNotificationToken;
 @property(retain, nonatomic) NSPointerArray *weakCooperatingSelectionTrackingControllers; // @synthesize weakCooperatingSelectionTrackingControllers=_weakCooperatingSelectionTrackingControllers;
-@property(retain, nonatomic) _UIFeedbackRetargetBehavior *selectionRetargetFeedbackBehavior; // @synthesize selectionRetargetFeedbackBehavior=_selectionRetargetFeedbackBehavior;
+@property(retain, nonatomic) UISelectionFeedbackGenerator *selectionRetargetFeedbackGenerator; // @synthesize selectionRetargetFeedbackGenerator=_selectionRetargetFeedbackGenerator;
 @property(retain, nonatomic) _UIInterfaceActionSelectByPressGestureRecognizer *selectByPressGestureRecognizer; // @synthesize selectByPressGestureRecognizer=_selectByPressGestureRecognizer;
 @property(readonly, nonatomic) NSMutableSet *viewsRequiringSelectionGestureDisabling; // @synthesize viewsRequiringSelectionGestureDisabling=_viewsRequiringSelectionGestureDisabling;
 @property(readonly, nonatomic) UIGestureRecognizer *systemProvidedGestureRecognizer; // @synthesize systemProvidedGestureRecognizer=_systemProvidedGestureRecognizer;

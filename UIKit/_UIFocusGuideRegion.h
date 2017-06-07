@@ -19,12 +19,13 @@
 - (_Bool)_shouldDrawDebugQuickLookImageWithInfo:(id)arg1;
 - (long long)_visualRepresentationPatternType;
 - (id)_visualRepresentationColor;
-- (id)_delegatePreferredFocusEnvironmentsForMovement:(id)arg1;
+- (id)_debugAssociatedObject;
+- (id)_delegatePreferredFocusEnvironmentsForMovementRequest:(id)arg1;
 - (void)_willParticipateAsDestinationRegionInFocusUpdate:(id)arg1;
 - (long long)_preferredDistanceComparisonType;
 - (unsigned long long)_focusableBoundaries;
-- (id)_fallbackFocusItemForMovement:(id)arg1 inFocusMap:(id)arg2;
-- (id)_destinationItemForFocusMovement:(id)arg1 inMap:(id)arg2;
+- (id)_fallbackFocusItemForMovementRequest:(id)arg1 inFocusMap:(id)arg2;
+- (id)_nextFocusedItemForFocusMovementRequest:(id)arg1 inMap:(id)arg2;
 - (_Bool)_canOccludeRegionsBelow;
 - (_Bool)_isEnabledForFocusedRegion:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

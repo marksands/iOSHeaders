@@ -6,12 +6,14 @@
 
 #import <MapKit/NSObject-Protocol.h>
 
-@class MKPlaceCardActionsViewController;
+@class MKPlaceActionManager, MKPlaceCardActionsViewController, UIView;
 
 @protocol MKPlaceCardActionControllerDelegate <NSObject>
 - (void)placeCardActionControllerDidSelectReportAProblem:(MKPlaceCardActionsViewController *)arg1;
+- (void)placeActionManager:(MKPlaceActionManager *)arg1 didSelectShareFromView:(UIView *)arg2;
 
 @optional
+- (void)placeCardActionControllerDidSelectionOpenBrandCard:(MKPlaceCardActionsViewController *)arg1;
 - (void)placeCardActionControllerDidSelectionOpenInPinpoint:(MKPlaceCardActionsViewController *)arg1;
 - (void)placeCardActionControllerDidSelectOpenInSkyline:(MKPlaceCardActionsViewController *)arg1;
 - (void)placeCardActionControllerDidSelectSimulateLocation:(MKPlaceCardActionsViewController *)arg1;

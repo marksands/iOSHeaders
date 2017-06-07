@@ -8,7 +8,6 @@
 
 @class SCNNode;
 
-__attribute__((visibility("hidden")))
 @interface SCNManipulableItem : NSObject
 {
     double _screenSize;

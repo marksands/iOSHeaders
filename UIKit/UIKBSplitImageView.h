@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface UIKBSplitImageView : UIView
 {
+    _Bool _canStretchAsFullWidth;
     UIImageView *_fullView;
     UIImageView *_splitLeft;
     UIImageView *_splitRight;
@@ -26,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (void)prepareForDisplay:(_Bool)arg1;
 - (_Bool)_shouldInheritScreenScaleAsContentScaleFactor;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 canStretchAsFullWidth:(_Bool)arg2;
 
 @end
 

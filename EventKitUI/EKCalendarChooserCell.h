@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <EventKitUI/EKUIConstrainedFontsTableViewCell.h>
+#import <EventKitUI/EKUITableViewCell.h>
 
-@class UIImage, UIImageView;
+@class NSString, NSTextAttachment, UIColor, UIImage, UIImageView;
 
-@interface EKCalendarChooserCell : EKUIConstrainedFontsTableViewCell
+@interface EKCalendarChooserCell : EKUITableViewCell
 {
     _Bool _showCheckmarksOnLeft;
     _Bool _checked;
@@ -18,20 +18,31 @@
     UIImage *_colorDotHighlighted;
     UIImageView *_colorDotView;
     UIImageView *_checkmarkView;
+    UIColor *_checkMarkColor;
+    NSTextAttachment *_colorDotAttachment;
+    _Bool _multiSelectStyle;
+    NSString *_textLabelText;
+    UIColor *_originalTintColor;
 }
 
+@property(retain, nonatomic) UIColor *originalTintColor; // @synthesize originalTintColor=_originalTintColor;
+@property(retain, nonatomic) NSString *textLabelText; // @synthesize textLabelText=_textLabelText;
 @property(nonatomic) _Bool showsColorDot; // @synthesize showsColorDot=_showsColorDot;
 @property(nonatomic) _Bool shouldAnimate; // @synthesize shouldAnimate=_shouldAnimate;
 @property(nonatomic) _Bool checked; // @synthesize checked=_checked;
 @property(nonatomic) _Bool showCheckmarksOnLeft; // @synthesize showCheckmarksOnLeft=_showCheckmarksOnLeft;
+@property(nonatomic) _Bool multiSelectStyle; // @synthesize multiSelectStyle=_multiSelectStyle;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (double)textLeftIndent;
+- (double)textLeadingIndent;
 - (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setColorDotHighlightedImage:(id)arg1;
+- (void)setCheckmarkColor:(id)arg1;
 - (void)setColorDotImage:(id)arg1;
-- (void)setShowCheckmarksOnLeft:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)_updateTextLabelTextWithColorDot;
+- (void)setAccessoryType:(long long)arg1;
 - (void)prepareForReuse;
+- (id)_multiselectBackgroundColor;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 - (void)setContentAlpha:(double)arg1;
 

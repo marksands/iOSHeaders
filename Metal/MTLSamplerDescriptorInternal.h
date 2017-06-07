@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface MTLSamplerDescriptorInternal : MTLSamplerDescriptor
 {
-    struct MTLSamplerDescriptorPrivate *_private;
+    struct MTLSamplerDescriptorPrivate _private;
 }
 
 - (const struct MTLSamplerDescriptorPrivate *)descriptorPrivate;

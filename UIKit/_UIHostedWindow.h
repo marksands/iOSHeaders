@@ -7,28 +7,32 @@
 #import <UIKit/UIWindow.h>
 
 @class UIColor, UITraitCollection, _UIHostedWindowHostingHandle;
+@protocol _UIHostedWindowDelegate;
 
 @interface _UIHostedWindow : UIWindow
 {
     _Bool _wantsTraitPropagation;
     _Bool __hostViewUnderlapsStatusBar;
     long long _hostTintAdjustmentMode;
-    UITraitCollection *_hostTraitCollection;
     UIColor *__hostTintColor;
+    UITraitCollection *_hostTraitCollection;
+    id <_UIHostedWindowDelegate> __hostedWindowDelegate;
 }
 
-@property(retain, nonatomic, setter=_setHostTintColor:) UIColor *_hostTintColor; // @synthesize _hostTintColor=__hostTintColor;
+@property(nonatomic) __weak id <_UIHostedWindowDelegate> _hostedWindowDelegate; // @synthesize _hostedWindowDelegate=__hostedWindowDelegate;
 - (void)__setHostViewUnderlapsStatusBar:(_Bool)arg1;
 - (_Bool)__hostViewUnderlapsStatusBar;
 @property(nonatomic, setter=_setWantsTraitPropagation:) _Bool _wantsTraitPropagation; // @synthesize _wantsTraitPropagation;
 @property(retain, nonatomic, setter=_setHostTraitCollection:) UITraitCollection *_hostTraitCollection; // @synthesize _hostTraitCollection;
+@property(retain, nonatomic, setter=_setHostTintColor:) UIColor *_hostTintColor; // @synthesize _hostTintColor=__hostTintColor;
 @property(nonatomic, setter=_setHostTintAdjustmentMode:) long long _hostTintAdjustmentMode; // @synthesize _hostTintAdjustmentMode;
 - (void).cxx_destruct;
-- (_Bool)_presentActionSheet:(id)arg1 inView:(id)arg2 fromYCoordinate:(double)arg3;
-- (id)_traitCollectionForSize:(struct CGSize)arg1 screenCollection:(id)arg2 virtualHorizontalSizeClass:(long long)arg3 virtualVerticalSizeClass:(long long)arg4;
+- (id)_traitCollectionForSize:(struct CGSize)arg1 screenCollection:(id)arg2;
 - (void)_updateWindowTraitsAndNotify:(_Bool)arg1;
 - (_Bool)_shouldPropagateTraitCollectionChanges;
 - (_Bool)_allowsLinkPreviewInteractionInViewServices;
+- (void)didSetResponderTargetForCalloutBar:(id)arg1;
+- (void)_setFirstResponder:(id)arg1;
 - (void)setScreen:(id)arg1;
 - (void)_configureContextOptions:(id)arg1;
 - (long long)_defaultTintAdjustmentMode;

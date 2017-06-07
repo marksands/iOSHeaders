@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDate, NSString, NSURLRequest, NSURLResponse;
+@class NSDate, NSString, NSURLRequest, NSURLResponse, NSUUID;
 
 @interface NSURLSessionTaskTransactionMetrics : NSObject
 {
@@ -19,10 +19,16 @@
 
 // Remaining properties
 @property _Bool _cellular; // @dynamic _cellular;
+@property(copy) NSUUID *_connectionIdentifier; // @dynamic _connectionIdentifier;
+@property _Bool _connectionRace; // @dynamic _connectionRace;
 @property(copy) NSString *_localAddressAndPort; // @dynamic _localAddressAndPort;
 @property _Bool _localCache; // @dynamic _localCache;
 @property unsigned int _redirected; // @dynamic _redirected;
 @property(copy) NSString *_remoteAddressAndPort; // @dynamic _remoteAddressAndPort;
+@property long long _requestHeaderBytesSent; // @dynamic _requestHeaderBytesSent;
+@property long long _responseBodyBytesDecoded; // @dynamic _responseBodyBytesDecoded;
+@property long long _responseBodyBytesReceived; // @dynamic _responseBodyBytesReceived;
+@property long long _responseHeaderBytesReceived; // @dynamic _responseHeaderBytesReceived;
 @property _Bool _secureConnection; // @dynamic _secureConnection;
 @property _Bool _serverPush; // @dynamic _serverPush;
 @property(copy) NSDate *connectEndDate; // @dynamic connectEndDate;

@@ -27,6 +27,7 @@
     UIColor *_notesTextColor;
     UIColor *_backgroundColor;
     long long _separatorBackdropOverlayBlendMode;
+    UIColor *_searchBarBackgroundColor;
     UIColor *_transportBackgroundColor;
     UIColor *_transportBorderColor;
     UIColor *_transportBoldBackgroundColor;
@@ -40,6 +41,7 @@
     UIColor *_selectedCellBackgroundColor;
     long long _barStyle;
     long long _keyboardAppearance;
+    long long _modalTransitionStyle;
     long long _topActionsViewStyle;
     long long _inlineActionsViewStyle;
 }
@@ -56,6 +58,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) long long inlineActionsViewStyle; // @synthesize inlineActionsViewStyle=_inlineActionsViewStyle;
 @property(nonatomic) long long topActionsViewStyle; // @synthesize topActionsViewStyle=_topActionsViewStyle;
+@property(nonatomic) long long modalTransitionStyle; // @synthesize modalTransitionStyle=_modalTransitionStyle;
 @property(nonatomic) _Bool blurSupported; // @synthesize blurSupported=_blurSupported;
 @property(nonatomic) _Bool shouldPresentInCurrentContext; // @synthesize shouldPresentInCurrentContext=_shouldPresentInCurrentContext;
 @property(nonatomic) long long keyboardAppearance; // @synthesize keyboardAppearance=_keyboardAppearance;
@@ -72,6 +75,7 @@
 @property(retain, nonatomic) UIColor *transportBoldBackgroundColor; // @synthesize transportBoldBackgroundColor=_transportBoldBackgroundColor;
 @property(retain, nonatomic) UIColor *transportBorderColor; // @synthesize transportBorderColor=_transportBorderColor;
 @property(retain, nonatomic) UIColor *transportBackgroundColor; // @synthesize transportBackgroundColor=_transportBackgroundColor;
+@property(retain, nonatomic) UIColor *searchBarBackgroundColor; // @synthesize searchBarBackgroundColor=_searchBarBackgroundColor;
 @property(nonatomic) long long separatorBackdropOverlayBlendMode; // @synthesize separatorBackdropOverlayBlendMode=_separatorBackdropOverlayBlendMode;
 @property(nonatomic) _Bool usesOpaqueBackground; // @synthesize usesOpaqueBackground=_usesOpaqueBackground;
 @property(retain, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;

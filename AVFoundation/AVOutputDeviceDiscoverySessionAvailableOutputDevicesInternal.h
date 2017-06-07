@@ -6,11 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSMutableArray;
+@class NSMutableArray;
+@protocol AVOutputDeviceDiscoverySessionAvailableOutputDevicesImpl;
 
 @interface AVOutputDeviceDiscoverySessionAvailableOutputDevicesInternal : NSObject
 {
-    NSArray *_figEndpoints;
+    id <AVOutputDeviceDiscoverySessionAvailableOutputDevicesImpl> impl;
     NSMutableArray *_recentlyUsedDevices;
     NSMutableArray *_otherDevices;
 }

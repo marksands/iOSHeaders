@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     UIImage *_displayedImage;
     UIImage *_displayedHighlightedImage;
     CIContext *_CIContext;
+    _Bool _adjustsImageSizeForAccessibilityContentSizeCategory;
 }
 
 - (void).cxx_destruct;

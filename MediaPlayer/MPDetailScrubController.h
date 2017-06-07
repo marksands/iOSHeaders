@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class UIControl, _UIFeedbackRetargetBehavior;
+@class UIControl, UISelectionFeedbackGenerator;
 @protocol MPDetailScrubControllerDelegate, MPDetailedScrubbing;
 
 @interface MPDetailScrubController : NSObject
@@ -18,7 +18,7 @@
     struct CGPoint _beginLocationInView;
     struct CGPoint _lastCommittedLocationInView;
     float _currentValue;
-    _UIFeedbackRetargetBehavior *_feedbackBehavior;
+    UISelectionFeedbackGenerator *_feedbackGenerator;
     _Bool _detailedScrubbingEnabled;
     _Bool _isTracking;
     UIControl<MPDetailedScrubbing> *_scrubbingControl;

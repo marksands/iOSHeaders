@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSDate *time; // @synthesize time=_time;
 - (void).cxx_destruct;
 - (void)updateTimeToNow;
-- (_Bool)isSampleDistinctEnoughFromTouchLocation:(struct CGPoint)arg1;
+- (_Bool)isSampleDistinctEnoughFromTouchLocation:(struct CGPoint)arg1 minimumRequiredMovement:(double)arg2;
 - (id)description;
 
 @end

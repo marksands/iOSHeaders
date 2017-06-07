@@ -8,7 +8,7 @@
 
 #import <UIKit/NSCopying-Protocol.h>
 
-@class NSMutableIndexSet, UITableViewRowData;
+@class UITableViewRowData;
 
 __attribute__((visibility("hidden")))
 @interface UISectionRowData : NSObject <NSCopying>
@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
     unsigned long long _numRows;
     unsigned long long _arrayLength;
     float *_rowHeights;
-    NSMutableIndexSet *_forcedNegativeRows;
     double *_rowOffsets;
     _Bool _estimatesHeights;
     double _sectionHeight;
@@ -35,7 +34,6 @@ __attribute__((visibility("hidden")))
     long long _sectionRowOffset;
 }
 
-- (void).cxx_destruct;
 - (double)defaultSectionFooterHeight;
 - (double)defaultSectionHeaderHeight;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -43,7 +41,7 @@ __attribute__((visibility("hidden")))
 - (long long)_rowForPoint:(struct CGPoint)arg1 beginningWithRow:(long long)arg2 numberOfRows:(long long)arg3 extraHitSpaceBetweenRows:(double)arg4;
 - (int)sectionLocationForReorderedRow:(long long)arg1;
 - (int)sectionLocationForRow:(long long)arg1;
-- (double)offsetForRow:(long long)arg1;
+- (double)offsetForRow:(long long)arg1 adjustedForGap:(_Bool)arg2;
 - (double)_offsetForFirstRow;
 - (void)deleteRowAtIndex:(long long)arg1;
 - (void)insertRowAtIndex:(long long)arg1 inSection:(long long)arg2 rowHeight:(double)arg3 tableViewRowData:(id)arg4;

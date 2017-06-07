@@ -6,23 +6,29 @@
 
 #import <Foundation/NSObject.h>
 
+@class NSArray;
+
 @interface AVCaptureResolvedPhotoSettingsInternal : NSObject
 {
     long long uniqueID;
     CDStruct_79c71658 photoDimensions;
     CDStruct_79c71658 rawPhotoDimensions;
     CDStruct_79c71658 previewDimensions;
+    CDStruct_79c71658 embeddedThumbnailDimensions;
     _Bool livePhotoMovieEnabled;
     CDStruct_79c71658 livePhotoMovieDimensions;
     _Bool turboModeEnabled;
     _Bool flashEnabled;
     _Bool HDREnabled;
-    _Bool shallowDepthOfFieldEffectEnabled;
-    _Bool originalPhotoDeliveryEnabled;
+    _Bool adjustedPhotoFiltersEnabled;
+    _Bool EV0PhotoDeliveryEnabled;
     _Bool stillImageStabilizationEnabled;
     _Bool dualCameraFusionEnabled;
     _Bool squareCropEnabled;
+    NSArray *photoManifest;
 }
+
+- (void)dealloc;
 
 @end
 

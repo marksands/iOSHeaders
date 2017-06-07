@@ -45,7 +45,7 @@
 @property float emitterDuration;
 @property(copy) NSArray *emitterBehaviors;
 @property(copy) NSArray *emitterRects;
-@property struct CGPath *emitterPath;
+@property const struct CGPath *emitterPath;
 
 @end
 

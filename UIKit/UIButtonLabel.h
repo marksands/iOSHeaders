@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)_initWithFrame:(struct CGRect)arg1 button:(id)arg2;
 - (void)_setWantsAutolayout;
 - (void)_updateTextColorWithFallbackColorIfNeeded;
+- (double)_paddingForBaselineSpacingFromEdge:(int)arg1 toNeighborEdge:(int)arg2;
 
 @end
 

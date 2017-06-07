@@ -26,6 +26,8 @@
     long long _certificateType;
     NEVPNIKEv2SecurityAssociationParameters *_IKESecurityAssociationParameters;
     NEVPNIKEv2SecurityAssociationParameters *_childSecurityAssociationParameters;
+    long long _minimumTLSVersion;
+    long long _maximumTLSVersion;
     NSString *_pluginType;
     NSArray *_IKESecurityAssociationParametersArray;
     NSArray *_childSecurityAssociationParametersArray;
@@ -41,6 +43,8 @@
 @property(retain) NSArray *IKESecurityAssociationParametersArray; // @synthesize IKESecurityAssociationParametersArray=_IKESecurityAssociationParametersArray;
 @property(readonly) NSString *pluginType; // @synthesize pluginType=_pluginType;
 @property _Bool wakeForRekey; // @synthesize wakeForRekey=_wakeForRekey;
+@property long long maximumTLSVersion; // @synthesize maximumTLSVersion=_maximumTLSVersion;
+@property long long minimumTLSVersion; // @synthesize minimumTLSVersion=_minimumTLSVersion;
 @property _Bool strictRevocationCheck; // @synthesize strictRevocationCheck=_strictRevocationCheck;
 @property _Bool enableRevocationCheck; // @synthesize enableRevocationCheck=_enableRevocationCheck;
 @property _Bool enablePFS; // @synthesize enablePFS=_enablePFS;

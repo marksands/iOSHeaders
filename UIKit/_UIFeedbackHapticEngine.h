@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)_resetChannelIndexes;
 - (void)_startRunningFeedbackPlayerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_initializeFeedbackPlayerWithCompletion:(CDUnknownBlockType)arg1;
+- (id)_createFeedbackPlayer;
 - (void)_activateUnderlyingPlayerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_restartFeedbackPlayerAfterFailure:(id)arg1;
 - (void)_feedbackPlayerDidFail:(id)arg1;

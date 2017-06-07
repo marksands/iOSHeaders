@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool _highlighted;
     UIView *_labelContainerView;
     UILabel *_label;
+    NSLayoutConstraint *_axLabelContainerWidthConstraint;
     NSLayoutConstraint *_labelContainerLeadingConstraint;
     NSLayoutConstraint *_labelContainerTrailingConstraint;
     NSLayoutConstraint *_labelContainerCenterXConstraint;
@@ -43,6 +44,7 @@ __attribute__((visibility("hidden")))
     UIAlertControllerVisualStyle *_visualStyle;
     _UIAlertControllerActionViewMetrics *_metrics;
     _Bool _hasDescriptiveText;
+    double _axEnforcedWidth;
     UIAlertController *_alertController;
 }
 
@@ -59,8 +61,7 @@ __attribute__((visibility("hidden")))
 - (void)_action:(id)arg1 changedToEnabled:(_Bool)arg2;
 - (void)_action:(id)arg1 changedToTitleTextAlignment:(long long)arg2;
 - (void)_action:(id)arg1 changedToTitle:(id)arg2;
-- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (_Bool)canBecomeFocused;
+- (_Bool)hasActiveMinimumSizeConstraintsWithSize:(struct CGSize)arg1;
 - (_Bool)hasLayoutHeightConstraintsIdenticalToInterfaceActionCustomView:(id)arg1;
 - (id)_interfaceActionViewState;
 - (void)_contentSizeChanged;
@@ -76,7 +77,8 @@ __attribute__((visibility("hidden")))
 - (void)_updateTextAlignmentForHavingDescriptiveText:(_Bool)arg1 titleTextAlignment:(long long)arg2;
 - (void)_updateImageMargins;
 - (void)_updateMinimumHeight;
-- (void)_removeContentViewControllerView;
+- (void)updateHeightUsingAXEnforcedWidth:(double)arg1;
+- (void)_removeContentViewControllerContainerViewSubviews;
 - (void)_loadContentViewControllerContainerViewIfNecessary;
 - (void)_loadContentViewControllerView;
 - (void)_buildContentViewControllerContainerConstraints;

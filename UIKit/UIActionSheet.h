@@ -43,7 +43,6 @@
 - (id)addButtonWithTitle:(id)arg1 label:(id)arg2;
 - (id)_contentView;
 - (void)_setContentView:(id)arg1;
-- (_Bool)_isSBAlert;
 - (id)_attributedTitleString;
 - (void)_setAttributedTitleString:(id)arg1;
 - (void)setSelectedButtonGlyphHighlightedImage:(id)arg1;

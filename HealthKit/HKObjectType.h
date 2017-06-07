@@ -16,6 +16,7 @@
     NSString *_identifier;
     long long _code;
     Class _dataObjectClass;
+    HKObjectType *_parentType;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -45,9 +46,11 @@
 + (id)_allCategoryTypes;
 + (id)_allTypesOfClass:(Class)arg1;
 + (id)_allDataTypeIdentifiers;
++ (id)objectTypeForWorkoutMetric:(unsigned long long)arg1;
 + (_Bool)_allowAuthorizationForSharing:(_Bool)arg1 types:(id)arg2 entitlements:(id)arg3 disallowedTypes:(id)arg4;
 + (_Bool)_allowAuthorizationForReadingWithTypes:(id)arg1 entitlements:(id)arg2 disallowedTypes:(id)arg3;
 + (_Bool)_allowAuthorizationForSharingWithTypes:(id)arg1 entitlements:(id)arg2 disallowedTypes:(id)arg3;
+@property(retain, nonatomic) HKObjectType *parentType; // @synthesize parentType=_parentType;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -62,6 +65,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithDefinition:(CDStruct_6b208136 *)arg1;
 - (id)init;
+- (id)hk_localizedNameForLocale:(id)arg1;
+- (id)hk_localizedName;
+- (id)_hk_localizedNameKey;
 - (_Bool)_allowAuthorizationForReadingWithEntitlements:(id)arg1;
 - (_Bool)_allowAuthorizationForSharingWithEntitlements:(id)arg1;
 

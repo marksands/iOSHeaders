@@ -21,9 +21,8 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_HUDOutlineViewWidthConstraint;
     NSLayoutConstraint *_HUDOutlineViewHeightConstraint;
     UIBlurEffect *_blurEffect;
-    UIVisualEffectView *_backdropView;
     UIVibrancyEffect *_vibrancyEffect;
-    UIVisualEffectView *_vibrancyView;
+    UIVisualEffectView *_backdropView;
     UICollectionViewFlowLayout *_flowLayout;
     UICollectionView *_collectionView;
     NSLayoutConstraint *_collectionViewTopConstraint;

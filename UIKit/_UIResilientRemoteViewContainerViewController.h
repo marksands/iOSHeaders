@@ -38,6 +38,7 @@
 - (void)delayDisplayOfRemoteController;
 - (void)_displayRemoteViewController;
 - (id)initWithExtension:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (struct CGRect)_defaultInitialViewFrame;
 
 @end
 

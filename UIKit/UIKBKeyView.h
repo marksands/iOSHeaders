@@ -60,6 +60,7 @@ __attribute__((visibility("hidden")))
 - (void)_populateLayer:(id)arg1 withContents:(id)arg2;
 - (long long)imageOrientationForLayer:(id)arg1;
 - (id)layerForRenderFlags:(long long)arg1;
+- (void)removeFromSuperview;
 - (void)prepareForDisplay;
 - (_Bool)requiresSublayers;
 - (_Bool)_shouldUpdateLayers;

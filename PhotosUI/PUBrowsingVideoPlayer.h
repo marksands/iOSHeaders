@@ -6,18 +6,19 @@
 
 #import <PhotosUI/PUViewModel.h>
 
-#import <PhotosUI/PUAVPlayerDelegate-Protocol.h>
+#import <PhotosUI/ISChangeObserver-Protocol.h>
+#import <PhotosUI/ISWrappedAVPlayerDelegate-Protocol.h>
 
-@class AVAudioSession, AVPlayer, AVPlayerItem, NSDate, NSError, NSHashTable, NSMutableSet, NSObject, NSString, NSTimer, PUBrowsingVideoPlayerChange, PUMediaProvider;
+@class AVAudioSession, AVPlayerItem, ISWrappedAVPlayer, NSDate, NSError, NSHashTable, NSMutableSet, NSObject, NSString, NSTimer, PUBrowsingVideoPlayerChange, PUMediaProvider;
 @protocol OS_dispatch_queue, PUDisplayAsset;
 
 __attribute__((visibility("hidden")))
-@interface PUBrowsingVideoPlayer : PUViewModel <PUAVPlayerDelegate>
+@interface PUBrowsingVideoPlayer : PUViewModel <ISChangeObserver, ISWrappedAVPlayerDelegate>
 {
     NSObject<OS_dispatch_queue> *_audioSessionQueue;
     _Bool _isPlayingAllowed;
     _Bool _isStalled;
-    _Bool _shouldRespectMuteSwitch;
+    _Bool _alwaysRespectsMuteSwitch;
     _Bool _isPlayable;
     _Bool _isPlayerLoadingAllowed;
     _Bool _isAtBeginning;
@@ -41,7 +42,7 @@ __attribute__((visibility("hidden")))
     PUMediaProvider *_mediaProvider;
     long long _desiredPlayState;
     long long _playState;
-    AVPlayer *_avPlayer;
+    ISWrappedAVPlayer *_avPlayer;
     AVPlayerItem *_playerItem;
     NSError *_error;
     NSMutableSet *__playerLoadingDisablingReasons;
@@ -91,10 +92,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=setDesiredSeekTime:) CDStruct_1b6d18a9 desiredSeekTime; // @synthesize desiredSeekTime=_desiredSeekTime;
 @property(nonatomic, setter=_setAtEnd:) _Bool isAtEnd; // @synthesize isAtEnd=_isAtEnd;
 @property(nonatomic, setter=_setAtBeginning:) _Bool isAtBeginning; // @synthesize isAtBeginning=_isAtBeginning;
-@property(retain, nonatomic, setter=_setAVPlayer:) AVPlayer *avPlayer; // @synthesize avPlayer=_avPlayer;
+@property(retain, nonatomic, setter=_setAVPlayer:) ISWrappedAVPlayer *avPlayer; // @synthesize avPlayer=_avPlayer;
 @property(nonatomic, setter=_setPlayerLoadingAllowed:) _Bool isPlayerLoadingAllowed; // @synthesize isPlayerLoadingAllowed=_isPlayerLoadingAllowed;
 @property(nonatomic, setter=_setPlayable:) _Bool isPlayable; // @synthesize isPlayable=_isPlayable;
-@property(nonatomic) _Bool shouldRespectMuteSwitch; // @synthesize shouldRespectMuteSwitch=_shouldRespectMuteSwitch;
+@property(nonatomic) _Bool alwaysRespectsMuteSwitch; // @synthesize alwaysRespectsMuteSwitch=_alwaysRespectsMuteSwitch;
 @property(nonatomic, setter=_setStalled:) _Bool isStalled; // @synthesize isStalled=_isStalled;
 @property(nonatomic, setter=_setPlayState:) long long playState; // @synthesize playState=_playState;
 @property(nonatomic, setter=_setPlayingAllowed:) _Bool isPlayingAllowed; // @synthesize isPlayingAllowed=_isPlayingAllowed;
@@ -106,7 +107,6 @@ __attribute__((visibility("hidden")))
 - (id)debugDetailedDescription;
 - (id)_playbackStateDescription;
 - (void)_logPlaybackState;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_updateAtBeginningOrEnd;
 - (void)_invalidateAtBeginningOrEnd;
 - (void)_updateAVPlayer;
@@ -128,18 +128,18 @@ __attribute__((visibility("hidden")))
 - (void)_setNeedsUpdate;
 - (_Bool)_needsUpdate;
 - (void)_updateIfNeeded;
+- (void)_handleDidBecomeActiveNotification:(id)arg1;
 - (void)_handleWillResignActiveNotification:(id)arg1;
 - (void)avPlayerDidDeallocate;
-- (void)avPlayerStatusDidChange:(id)arg1;
+- (void)avPlayer:(id)arg1 itemDidPlayToEnd:(id)arg2;
+- (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (_Bool)_isAVPlayerPlayStateOutOfSync;
 - (void)unregisterTimeObserver:(id)arg1;
 - (void)registerTimeObserver:(id)arg1;
 - (void)_updateDuration;
 @property(nonatomic, setter=_setCurrentTime:) CDStruct_1b6d18a9 currentTime; // @synthesize currentTime=_currentTime;
 - (void)_dequeueAllOnPlayerLoadedBlocksIfApplicable;
 - (void)_enqueueOnPlayerLoadedBlock:(CDUnknownBlockType)arg1;
-- (void)_playerItemDidPlayToEndTime:(id)arg1;
-- (void)_stopObservingPlayerItem;
-- (void)_startObservingPlayerItem;
 - (void)_handleShouldReloadAssetMediaNotification:(id)arg1;
 - (void)unregisterChangeObserver:(id)arg1;
 - (void)registerChangeObserver:(id)arg1;

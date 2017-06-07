@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIFoundation/UIFont.h>
+#import "UIFont.h"
 
 @interface UIFont (SecuredTextField)
 + (id)_ui_bulletFontForFont:(id)arg1;

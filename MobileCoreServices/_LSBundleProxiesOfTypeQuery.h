@@ -4,25 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MobileCoreServices/_LSQuery.h>
+#import <MobileCoreServices/_LSBundleQuery.h>
 
 __attribute__((visibility("hidden")))
-@interface _LSBundleProxiesOfTypeQuery : _LSQuery
+@interface _LSBundleProxiesOfTypeQuery : _LSBundleQuery
 {
-    _Bool _legacySPI;
     unsigned long long _type;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)queryWithType:(unsigned long long)arg1 legacySPI:(_Bool)arg2;
-@property(readonly, nonatomic) _Bool legacySPI; // @synthesize legacySPI=_legacySPI;
++ (id)queryWithType:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (_Bool)_requiresDatabaseMappingEntitlement;
 - (void)_enumerateWithXPCConnection:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (_Bool)bundleUnitMeetsRequirements:(unsigned int)arg1 bundleData:(const struct LSBundleData *)arg2 context:(struct LSContext *)arg3 hiddenSystemAppIdentifiers:(id)arg4;
+- (_Bool)bundleUnitMeetsRequirements:(unsigned int)arg1 bundleData:(const struct LSBundleData *)arg2 context:(struct LSContext *)arg3;
 
 @end
 

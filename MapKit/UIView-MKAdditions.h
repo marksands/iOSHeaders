@@ -10,5 +10,8 @@
 + (id)_mapkit_currentAnimationTimingFunction;
 + (_Bool)_mapkit_shouldAdoptImplicitAnimationParameters;
 - (void)_mapkit_insertSubview:(id)arg1 atIndex:(long long)arg2;
+
+// Remaining properties
+@property(readonly, nonatomic) double _currentScreenScale; // @dynamic _currentScreenScale;
 @end
 

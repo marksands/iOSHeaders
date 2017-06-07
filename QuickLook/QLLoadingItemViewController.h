@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (void)setDelegate:(id)arg1;
 - (void)_updateLoadingLabel;
 - (void)previewBecameFullScreen:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)canPinchToDismiss;
 - (_Bool)canSwipeToDismiss;
 - (_Bool)canEnterFullScreen;

@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     UIDelayedAction *ignoreTouch;
 }
 
++ (_Bool)_shouldDefaultToTouches;
 @property(retain, nonatomic) UIDelayedAction *ignoreTouch; // @synthesize ignoreTouch;
 @property(nonatomic) SEL checkCanBeginDrag; // @synthesize checkCanBeginDrag=_checkCanBeginDrag;
 @property(nonatomic) _Bool canBeginDrag; // @synthesize canBeginDrag=_canBeginDrag;

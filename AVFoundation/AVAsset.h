@@ -16,10 +16,13 @@
     AVAssetInternal *_asset;
 }
 
++ (_Bool)expectsPropertyRevisedNotifications;
 + (id)assetWithData:(id)arg1 contentType:(id)arg2 options:(id)arg3;
 + (id)assetWithURL:(id)arg1 figPlaybackItem:(struct OpaqueFigPlaybackItem *)arg2 trackIDs:(id)arg3 dynamicBehavior:(_Bool)arg4;
 + (id)assetWithURL:(id)arg1;
 + (id)assetProxyWithPropertyList:(id)arg1;
+- (id)_assetAnalysisMessages;
+- (_Bool)supportsAnalysisReporting;
 - (id)_URLSessionDataDelegate;
 - (id)_URLSessionOperationQueue;
 - (id)_resourceLoaderURLSession;
@@ -51,6 +54,7 @@
 - (id)lyrics;
 - (id)creationDate;
 - (id)trackReferences;
+- (id)allMediaSelections;
 - (id)preferredMediaSelection;
 - (id)mediaSelectionGroupForPropertyList:(id)arg1 mediaSelectionOption:(id *)arg2;
 - (id)mediaSelectionGroupForMediaCharacteristic:(id)arg1;
@@ -65,6 +69,7 @@
 - (_Bool)providesPreciseDurationAndTiming;
 - (int)naturalTimeScale;
 @property(readonly, nonatomic) struct CGSize naturalSize;
+- (struct CGSize)maximumVideoResolution;
 @property(readonly, nonatomic) struct CGAffineTransform preferredTransform;
 - (float)preferredSoundCheckVolumeNormalization;
 @property(readonly, nonatomic) float preferredVolume;
@@ -118,6 +123,7 @@
 - (_Bool)_containsAtLeastOnePlayableVideoTrack;
 - (_Bool)_containsAtLeastOnePlayableAudioTrack;
 - (id)_chapterTracks;
+@property(readonly, nonatomic) long long moovAtomSize;
 - (int)unusedTrackID;
 
 @end

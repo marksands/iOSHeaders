@@ -6,19 +6,24 @@
 
 #import <MediaPlayer/MPRemoteCommandEvent.h>
 
-@class MPRemotePlaybackQueue, NSArray;
+@class MPRemotePlaybackQueue, NSArray, NSString;
 
 @interface MPInsertIntoPlaybackQueueCommandEvent : MPRemoteCommandEvent
 {
     NSArray *_supportedInsertionPositions;
     long long _insertionPosition;
     MPRemotePlaybackQueue *_playbackQueue;
+    NSString *_insertAfterContentItemID;
+    long long _destinationOffset;
 }
 
+@property(readonly, nonatomic) long long destinationOffset; // @synthesize destinationOffset=_destinationOffset;
+@property(readonly, nonatomic) NSString *insertAfterContentItemID; // @synthesize insertAfterContentItemID=_insertAfterContentItemID;
 @property(readonly, nonatomic) MPRemotePlaybackQueue *playbackQueue; // @synthesize playbackQueue=_playbackQueue;
 @property(readonly, nonatomic) long long insertionPosition; // @synthesize insertionPosition=_insertionPosition;
 @property(copy, nonatomic) NSArray *supportedInsertionPositions; // @synthesize supportedInsertionPositions=_supportedInsertionPositions;
 - (void).cxx_destruct;
+- (id)initWithCommand:(id)arg1 playbackQueue:(id)arg2 options:(id)arg3;
 - (id)initWithCommand:(id)arg1 mediaRemoteType:(unsigned int)arg2 options:(id)arg3;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <PhotosUI/PUViewModelChange.h>
 
-@class PUBrowsingIrisPlayerChange, PUBrowsingVideoPlayerChange;
+@class PUBrowsingAnimatedImagePlayerChange, PUBrowsingIrisPlayerChange, PUBrowsingVideoPlayerChange;
 
 @interface PUAssetViewModelChange : PUViewModelChange
 {
@@ -16,28 +16,32 @@
     _Bool _isInFocusChanged;
     _Bool _focusValueChanged;
     _Bool _loadingStatusChanged;
+    _Bool _saveProgressChanged;
+    _Bool _saveStateChanged;
     _Bool _forceBadgesVisibleChanged;
     _Bool _badgeInfoChanged;
-    _Bool _wantsIrisBadgeVisibleChanged;
+    _Bool _isUpdatingDisplayedContentChanged;
     _Bool _isFavoriteChanged;
     _Bool _accessoryViewVisibilityChanged;
     _Bool _contentOffsetChanged;
     _Bool _isInEditModeChanged;
-    _Bool _badgeInfoPromiseChanged;
     PUBrowsingVideoPlayerChange *_videoPlayerChange;
     PUBrowsingIrisPlayerChange *_irisPlayerChange;
+    PUBrowsingAnimatedImagePlayerChange *_animatedImageChange;
 }
 
-@property(nonatomic, setter=_setBadgeInfoPromiseChanged:) _Bool badgeInfoPromiseChanged; // @synthesize badgeInfoPromiseChanged=_badgeInfoPromiseChanged;
 @property(nonatomic, setter=_setIsInEditModeChanged:) _Bool isInEditModeChanged; // @synthesize isInEditModeChanged=_isInEditModeChanged;
 @property(nonatomic, setter=_setContentOffsetChanged:) _Bool contentOffsetChanged; // @synthesize contentOffsetChanged=_contentOffsetChanged;
 @property(nonatomic, setter=_setAccessoryViewVisibilityChanged:) _Bool accessoryViewVisibilityChanged; // @synthesize accessoryViewVisibilityChanged=_accessoryViewVisibilityChanged;
 @property(nonatomic, setter=_setIsFavoriteChanged:) _Bool isFavoriteChanged; // @synthesize isFavoriteChanged=_isFavoriteChanged;
-@property(nonatomic, setter=_setWantsIrisBadgeVisibleChanged:) _Bool wantsIrisBadgeVisibleChanged; // @synthesize wantsIrisBadgeVisibleChanged=_wantsIrisBadgeVisibleChanged;
-@property(readonly, nonatomic) _Bool badgeInfoChanged; // @synthesize badgeInfoChanged=_badgeInfoChanged;
+@property(nonatomic, setter=_setIsUpdatingDisplayedContentChanged:) _Bool isUpdatingDisplayedContentChanged; // @synthesize isUpdatingDisplayedContentChanged=_isUpdatingDisplayedContentChanged;
+@property(retain, nonatomic, setter=_setAnimatedImageChange:) PUBrowsingAnimatedImagePlayerChange *animatedImageChange; // @synthesize animatedImageChange=_animatedImageChange;
+@property(nonatomic, setter=_setBadgeInfoChanged:) _Bool badgeInfoChanged; // @synthesize badgeInfoChanged=_badgeInfoChanged;
 @property(retain, nonatomic, setter=_setIrisPlayerChange:) PUBrowsingIrisPlayerChange *irisPlayerChange; // @synthesize irisPlayerChange=_irisPlayerChange;
 @property(nonatomic, setter=_setForceBadgesVisibleChanged:) _Bool forceBadgesVisibleChanged; // @synthesize forceBadgesVisibleChanged=_forceBadgesVisibleChanged;
 @property(retain, nonatomic, setter=_setVideoPlayerChange:) PUBrowsingVideoPlayerChange *videoPlayerChange; // @synthesize videoPlayerChange=_videoPlayerChange;
+@property(nonatomic, setter=_setSaveStateChanged:) _Bool saveStateChanged; // @synthesize saveStateChanged=_saveStateChanged;
+@property(nonatomic, setter=_setSaveProgressChanged:) _Bool saveProgressChanged; // @synthesize saveProgressChanged=_saveProgressChanged;
 @property(nonatomic, setter=_setLoadingStatusChanged:) _Bool loadingStatusChanged; // @synthesize loadingStatusChanged=_loadingStatusChanged;
 @property(nonatomic, setter=_setFocusValueChanged:) _Bool focusValueChanged; // @synthesize focusValueChanged=_focusValueChanged;
 @property(nonatomic, setter=_setInFocusChanged:) _Bool isInFocusChanged; // @synthesize isInFocusChanged=_isInFocusChanged;

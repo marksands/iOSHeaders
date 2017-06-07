@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/NSSecureCoding-Protocol.h>
 
@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy, nonatomic) NSString *linkIdentifier; // @synthesize linkIdentifier=_linkIdentifier;
 @property(readonly, nonatomic) long long kind; // @synthesize kind=_kind;
 @property(readonly, copy, nonatomic) NSArray *contacts; // @synthesize contacts=_contacts;
-- (void)dealloc;
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSArray *contactIdentifiers;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)predictedTouchesForObservedTouches:(id)arg1 scale:(double)arg2;
+- (id)predictedTouchesForObservedTouches:(id)arg1 lastTouch:(id)arg2 scale:(double)arg3;
 
 @end
 

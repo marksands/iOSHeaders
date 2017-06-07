@@ -42,6 +42,7 @@
 - (struct CGPoint)_centroidInView:(id)arg1;
 - (void)_updateLiftOffState;
 - (_Bool)shouldResetRangeForVelocity:(struct CGPoint)arg1 previousVelocity:(struct CGPoint)arg2;
+- (void)touchesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;

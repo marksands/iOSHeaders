@@ -14,14 +14,16 @@
 {
 }
 
-- (_Bool)isWritable;
+- (void)setCNValue:(id)arg1 onContact:(id)arg2;
 - (id)CNValueForContact:(id)arg1;
 - (Class)valueClass;
 - (void)decodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (void)encodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (_Bool)isEqualForContact:(id)arg1 other:(id)arg2;
 - (id)init;
-- (int)abPropertyID:(int *)arg1;
+- (id)CNValueFromABBytes:(char *)arg1 length:(unsigned long long)arg2;
+- (_Bool)setABValue:(void *)arg1 onABPerson:(void *)arg2 error:(struct __CFError **)arg3;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

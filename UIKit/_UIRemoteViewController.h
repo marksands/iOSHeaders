@@ -6,12 +6,11 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <UIKit/UIActionSheetDelegate-Protocol.h>
 #import <UIKit/_UIRemoteViewController_ViewControllerOperatorInterface-Protocol.h>
 
-@class BKSTouchDeliveryPolicyAssertion, NSArray, NSError, NSString, UIActionSheet, UIAlertView, UIDimmingView, UIView, _UIAsyncInvocation, _UIRemoteView, _UIRemoteViewService, _UISizeTrackingView, _UITextEffectsRemoteView, _UITextServiceSession, _UIViewServiceInterface;
+@class BKSTouchDeliveryPolicyAssertion, FBSDisplayIdentity, NSArray, NSError, NSString, UIAlertView, UIDimmingView, UIView, _UIAsyncInvocation, _UIRemoteView, _UIRemoteViewService, _UISizeTrackingView, _UITextEffectsRemoteView, _UITextServiceSession, _UIViewServiceInterface;
 
-@interface _UIRemoteViewController : UIViewController <_UIRemoteViewController_ViewControllerOperatorInterface, UIActionSheetDelegate>
+@interface _UIRemoteViewController : UIViewController <_UIRemoteViewController_ViewControllerOperatorInterface>
 {
     int __automatic_invalidation_retainCount;
     _Bool __automatic_invalidation_invalidated;
@@ -35,20 +34,20 @@
     _UITextEffectsRemoteView *_remoteKeyboardRemoteView;
     UIView *_fullScreenTextEffectsSnapshotView;
     _Bool _snapshotTextEffectsAfterRotation;
-    unsigned int _serviceScreenDisplayID;
+    FBSDisplayIdentity *_serviceScreenDisplayIdentity;
     _UIAsyncInvocation *_terminationInvocation;
     struct os_unfair_lock_s _terminationErrorLock;
     NSError *_terminationError;
-    UIActionSheet *_hostedActionSheet;
     _UITextServiceSession *_textServiceSession;
     UIDimmingView *_hostedDimmingView;
     UIView *_touchGrabbingView;
     long long _preferredStatusBarStyle;
-    long long _prefersStatusBarHidden;
+    int _preferredStatusBarVisibility;
     long long _preferredStatusBarUpdateAnimation;
     _Bool _isFocusDeferred;
     NSString *_deferredDisplayUUID;
     unsigned int _deferredContextID;
+    _Bool _focusWasDeferredBeforeDeactivation;
     NSArray *_allowedNotifications;
     NSArray *_sizeTrackingConstraints;
     _Bool _sizeTrackingViewShouldTranslateAutoResizeMaskIntoConstraints;
@@ -61,6 +60,7 @@
     long long _redoButtonIndex;
     long long _proxiedEditAlertToken;
     long long _preferredAdaptivityStyle;
+    unsigned long long _preferredScreenEdgesDeferringSystemGestures;
     _Bool _isUnderlappingStatusBar;
     _Bool __shouldUpdateRemoteTextEffectsWindow;
     _Bool _isUpdatingSize;
@@ -120,11 +120,13 @@
 - (void)__setSupportedInterfaceOrientations:(id)arg1;
 - (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_traitCollectionDidChange:(id)arg1;
+- (void)__viewServiceDidUpdatePreferredScreenEdgesDeferringSystemGestures:(long long)arg1;
+- (unsigned long long)preferredScreenEdgesDeferringSystemGestures;
 - (void)__viewServiceDidUpdatePreferredWhitePointAdaptationStyle:(long long)arg1 animationSettings:(id)arg2;
-- (void)__viewServiceDidUpdatePreferredStatusBarStyle:(long long)arg1 hidden:(long long)arg2 updateAnimation:(long long)arg3;
+- (void)__viewServiceDidUpdatePreferredStatusBarStyle:(long long)arg1 preferredStatusBarVisibility:(int)arg2 updateAnimation:(long long)arg3 currentAnimationSettings:(id)arg4;
 - (long long)preferredStatusBarUpdateAnimation;
 - (long long)preferredWhitePointAdaptivityStyle;
-- (_Bool)prefersStatusBarHidden;
+- (int)_preferredStatusBarVisibility;
 - (long long)preferredStatusBarStyle;
 - (_Bool)_requiresKeyboardWindowWhenFirstResponder;
 - (void)_didResignContentViewControllerOfPopover:(id)arg1;
@@ -153,11 +155,9 @@
 - (void)__updateDeferralPropertiesForScreen:(id)arg1;
 - (void)_screenIDChanged:(id)arg1;
 - (void)_screenDidDisconnect:(id)arg1;
+- (void)_screenDidUpdate:(id)arg1;
 - (void)_screenDidConnect:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)actionSheet:(id)arg1 clickedButtonAtIndex:(long long)arg2;
-- (void)__dismissActionSheetWithClickedButtonIndex:(long long)arg1 animated:(_Bool)arg2;
-- (void)__presentActionSheetFromYCoordinate:(double)arg1 withTitle:(id)arg2 buttonTitles:(id)arg3 cancelButtonIndex:(long long)arg4 destructiveButtonIndex:(long long)arg5 style:(long long)arg6;
 - (void)_firstResponderDidChange:(id)arg1;
 - (_Bool)canBecomeFirstResponder;
 - (_Bool)_serviceHasScrollToTopView;
@@ -168,7 +168,7 @@
 - (void)_terminateUnconditionallyThen:(CDUnknownBlockType)arg1;
 - (id)disconnect;
 - (id)_terminateWithError:(id)arg1;
-- (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
+- (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1 andLeftMargin:(double)arg2 rightMargin:(double)arg3;
 - (void)_updateTouchGrabbingView;
 - (void)_applicationDidAddDeactivationReason:(id)arg1;
 - (void)_applicationWillDeactivate:(id)arg1;
@@ -210,12 +210,6 @@
 - (oneway void)release;
 - (id)retain;
 - (int)__automatic_invalidation_logic;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

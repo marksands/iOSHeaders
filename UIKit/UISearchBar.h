@@ -94,13 +94,14 @@
 - (long long)_barMetricsForOrientation:(long long)arg1;
 - (void)setSearchFieldLeftViewMode:(long long)arg1;
 - (long long)searchFieldLeftViewMode;
+- (void)_updateInsetsForCurrentContainerViewAndBarPosition;
 - (void)_updateInsetsForTableView:(id)arg1;
 - (void)tappedSearchBar:(id)arg1;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_updatePlaceholderColor;
 - (void)_allowCursorToAppear:(_Bool)arg1;
 - (id)_textColor;
-- (id)_glyphAndTextColor:(_Bool)arg1;
+- (id)_colorForComponent:(unsigned long long)arg1 disabled:(_Bool)arg2;
 - (_Bool)_hasDarkUIAppearance;
 - (_Bool)centerPlaceholder;
 - (void)setCenterPlaceholder:(_Bool)arg1;
@@ -156,6 +157,7 @@
 @property(nonatomic) long long selectedScopeButtonIndex;
 @property(copy, nonatomic) NSArray *scopeButtonTitles;
 - (void)_setUpScopeBar;
+- (void)_updateScopeBarFrame;
 - (void)_updateScopeBarBackground;
 - (struct UIEdgeInsets)_scopeBarInsets;
 - (_Bool)_scopeBarIsVisible;
@@ -167,6 +169,7 @@
 - (void)_setShadowVisibleIfNecessary:(_Bool)arg1;
 - (id)_navigationBarForShadow;
 - (void)layoutSubviews;
+- (void)_getScopeBarHeight:(double *)arg1 containerHeight:(double *)arg2;
 - (double)_scopeBarHeight;
 - (void)sendSubviewToBack:(id)arg1;
 - (void)bringSubviewToFront:(id)arg1;
@@ -249,7 +252,7 @@
 - (void)_updateBackgroundToBackdropStyle:(long long)arg1;
 - (id)_scopeBarContainerView;
 - (id)_scopeBarBackgroundView;
-- (id)_backgroundBlurEffectForPresentation;
+- (id)_presentationBackgroundBlurEffectForTraitCollection:(id)arg1;
 - (long long)_textInputSource;
 - (id)_backgroundView;
 - (void)_setEnabled:(_Bool)arg1 animated:(_Bool)arg2;
@@ -291,15 +294,16 @@
 - (void)setPretendsIsInBar:(_Bool)arg1;
 - (_Bool)pretendsIsInBar;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
-- (double)_autolayoutSpacingAtEdge:(int)arg1 nextToNeighbor:(id)arg2;
-- (double)_autolayoutSpacingAtEdge:(int)arg1 inContainer:(id)arg2;
-- (_Bool)_hasCustomAutolayoutNeighborSpacing;
+- (double)_defaultAutolayoutSpacing;
+- (double)_autolayoutSpacingAtEdge:(int)arg1 forAttribute:(long long)arg2 inContainer:(id)arg3 isGuide:(_Bool)arg4;
+- (_Bool)_hasCustomAutolayoutNeighborSpacingForAttribute:(long long *)arg1;
 
 // Remaining properties
 @property(copy, nonatomic) NSIndexSet *PINEntrySeparatorIndexes;
 @property(nonatomic) _Bool acceptsDictationSearchResults;
 @property(nonatomic) _Bool acceptsEmoji;
 @property(nonatomic) _Bool acceptsFloatingKeyboard;
+@property(nonatomic) _Bool acceptsPayloads;
 @property(nonatomic) _Bool acceptsSplitKeyboard;
 @property(nonatomic) long long autocapitalizationType; // @dynamic autocapitalizationType;
 @property(copy, nonatomic) NSString *autocorrectionContext;
@@ -338,15 +342,20 @@
 @property(retain, nonatomic) UIImage *selectionDragDotImage;
 @property(retain, nonatomic) UIColor *selectionHighlightColor;
 @property(nonatomic) int shortcutConversionType;
+@property(nonatomic) long long smartDashesType; // @dynamic smartDashesType;
+@property(nonatomic) long long smartInsertDeleteType; // @dynamic smartInsertDeleteType;
+@property(nonatomic) long long smartQuotesType; // @dynamic smartQuotesType;
 @property(nonatomic) long long spellCheckingType; // @dynamic spellCheckingType;
 @property(readonly) Class superclass;
 @property(nonatomic) _Bool suppressReturnKeyStyling;
-@property(copy, nonatomic) NSString *textContentType;
+@property(copy, nonatomic) NSString *textContentType; // @dynamic textContentType;
 @property(nonatomic) int textLoupeVisibility;
 @property(nonatomic) long long textScriptType;
 @property(nonatomic) int textSelectionBehavior;
 @property(nonatomic) id textSuggestionDelegate;
 @property(nonatomic) struct __CFCharacterSet *textTrimmingSet;
+@property(retain, nonatomic) UIColor *underlineColorForSpelling;
+@property(retain, nonatomic) UIColor *underlineColorForTextAlternatives;
 @property(nonatomic) _Bool useInterfaceLanguageForLocalization;
 @property(nonatomic) struct _NSRange validTextRange;
 

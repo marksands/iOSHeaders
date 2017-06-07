@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDictionary, NSString, _SFSearchRequest;
+@class NSArray, NSDictionary, NSString, NSURL, _SFSearchRequest;
 
 @interface SFSpeechRecognitionRequest : NSObject
 {
@@ -16,6 +16,8 @@
     double _maxiumRecognitionDuration;
     _SFSearchRequest *_searchRequest;
     NSDictionary *_voiceTriggerEventInfo;
+    NSDictionary *_recognitionOverrides;
+    NSURL *_modelOverrideURL;
     long long _taskHint;
     NSArray *_contextualStrings;
     NSString *_interactionIdentifier;
@@ -26,6 +28,8 @@
 @property(copy, nonatomic) NSArray *contextualStrings; // @synthesize contextualStrings=_contextualStrings;
 @property(nonatomic) _Bool shouldReportPartialResults; // @synthesize shouldReportPartialResults=_shouldReportPartialResults;
 @property(nonatomic) long long taskHint; // @synthesize taskHint=_taskHint;
+@property(retain, nonatomic, getter=_modelOverrideURL, setter=_setModelOverrideURL:) NSURL *_modelOverrideURL; // @synthesize _modelOverrideURL;
+@property(retain, nonatomic, getter=_recognitionOverrides, setter=_setRecognitionOverrides:) NSDictionary *_recognitionOverrides; // @synthesize _recognitionOverrides;
 @property(retain, nonatomic, getter=_voiceTriggerEventInfo, setter=_setVoiceTriggerEventInfo:) NSDictionary *_voiceTriggerEventInfo; // @synthesize _voiceTriggerEventInfo;
 @property(retain, nonatomic, getter=_searchRequest, setter=_setSearchRequest:) _SFSearchRequest *_searchRequest; // @synthesize _searchRequest;
 @property(nonatomic, getter=_forceOfflineRecognition, setter=_setForceOfflineRecognition:) _Bool _forceOfflineRecognition; // @synthesize _forceOfflineRecognition;

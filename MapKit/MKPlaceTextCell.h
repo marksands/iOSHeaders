@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *text;
 - (void)_contentSizeDidChange;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -31,15 +31,11 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) _MXExtensionDispatchCenter *dispatchCenter; // @synthesize dispatchCenter=_dispatchCenter;
 @property(retain, nonatomic) _MXExtensionMatchingMerger *merger; // @synthesize merger=_merger;
 - (void).cxx_destruct;
-- (void)_loadImage:(id)arg1 extension:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)imageForKey:(id)arg1 extension:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_extensionContextHost:(id)arg1 wantsToCacheObject:(id)arg2;
-- (void)extensionContextHost:(id)arg1 wantsToCacheObject:(id)arg2;
-- (void)extensionContextHost:(id)arg1 wantsToCacheImage:(id)arg2;
+- (void)loadImageForKey:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)imageForKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_disableExtension:(id)arg1 error:(id *)arg2;
 - (_Bool)_enableExtension:(id)arg1 error:(id *)arg2;
-- (void)_beginExtensionServiceWithExtension:(id)arg1 inputItems:(id)arg2 remoteViewControllerInstantiationCompletion:(CDUnknownBlockType)arg3 serviceCompletion:(CDUnknownBlockType)arg4;
-- (void)_beginExtensionServiceWithExtension:(id)arg1 inputItems:(id)arg2 beginCompletion:(CDUnknownBlockType)arg3 serviceCompletion:(CDUnknownBlockType)arg4;
 - (id)siblingExtensionsWithContainingAppIdentifer:(id)arg1;
 - (id)_extensionWithIdentifier:(id)arg1;
 - (id)_currentExtensions;

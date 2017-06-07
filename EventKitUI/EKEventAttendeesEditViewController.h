@@ -8,7 +8,6 @@
 
 @class EKEvent, EKEventAttendeePicker, NSArray;
 
-__attribute__((visibility("hidden")))
 @interface EKEventAttendeesEditViewController : EKEditItemViewController
 {
     EKEventAttendeePicker *_picker;
@@ -25,14 +24,16 @@ __attribute__((visibility("hidden")))
 - (_Bool)editItemShouldBeAskedForInjectableViewController;
 - (_Bool)presentModally;
 @property(copy, nonatomic) NSArray *attendees;
+- (id)_createRecipientFromAttendee:(id)arg1;
 - (id)_recipientFromAttendee:(id)arg1;
+- (id)_createAttendeeFromRecipient:(id)arg1;
 - (id)_attendeeFromRecipient:(id)arg1;
 - (_Bool)validateAllowingAlert:(_Bool)arg1;
 - (id)_firstInvalidRecipientAddress;
 - (void)viewDidLoad;
-- (void)setSearchAccountID:(id)arg1;
 - (void)_doneTapped:(id)arg1;
 - (void)_cancelTapped:(id)arg1;
+- (void)setSearchAccountID:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 event:(id)arg2 overriddenEventStartDate:(id)arg3 overriddenEventEndDate:(id)arg4;
 
 @end

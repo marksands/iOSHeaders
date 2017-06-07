@@ -76,7 +76,7 @@ __attribute__((visibility("hidden")))
 - (void)_setupAnimationStructures;
 - (void)_computeRowUpdates;
 - (void)_computeSectionUpdates;
-- (void)_faultInRealHeightsOfNeededCells;
+- (void)_faultInRealHeightsOfNeededElements;
 - (struct _NSRange)_visibleRowRangePlusAdjoining;
 - (void)_computeVisibleBounds;
 - (_Bool)_isReloadSectionUpdate;

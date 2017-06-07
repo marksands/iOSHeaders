@@ -21,6 +21,7 @@
     PHRelationshipChangeRequestHelper *_collectionsHelper;
 }
 
++ (_Bool)canGenerateUUIDWithoutEntitlements;
 + (void)deleteCollectionLists:(id)arg1;
 + (id)creationRequestForCollectionListWithTitle:(id)arg1;
 + (id)changeRequestForCollectionList:(id)arg1 childCollections:(id)arg2;
@@ -34,7 +35,6 @@
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)didMutate;
-- (id)mutations;
 @property(readonly, nonatomic) NSManagedObjectID *objectID;
 @property(readonly, nonatomic) NSString *uuid;
 @property(readonly, getter=isMutated) _Bool mutated;
@@ -42,7 +42,6 @@
 - (_Bool)applyMutationsToManagedObject:(id)arg1 error:(id *)arg2;
 - (_Bool)validateMutationsToManagedObject:(id)arg1 error:(id *)arg2;
 - (_Bool)allowMutationToManagedObject:(id)arg1 propertyKey:(id)arg2 error:(id *)arg3;
-- (_Bool)canGenerateUUIDLocally;
 - (void)performTransactionCompletionHandlingInPhotoLibrary:(id)arg1;
 - (id)createManagedObjectForInsertIntoPhotoLibrary:(id)arg1 error:(id *)arg2;
 - (_Bool)validateInsertIntoPhotoLibrary:(id)arg1 error:(id *)arg2;

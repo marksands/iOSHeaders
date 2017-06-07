@@ -8,8 +8,12 @@
 
 @interface TodayCirclePulseBackground : UIView
 {
+    _Bool _usesRoundedRectInsteadOfCircle;
+    double _roundedRectCornerRadius;
 }
 
+@property(nonatomic) double roundedRectCornerRadius; // @synthesize roundedRectCornerRadius=_roundedRectCornerRadius;
+@property(nonatomic) _Bool usesRoundedRectInsteadOfCircle; // @synthesize usesRoundedRectInsteadOfCircle=_usesRoundedRectInsteadOfCircle;
 - (void)drawRect:(struct CGRect)arg1;
 
 @end

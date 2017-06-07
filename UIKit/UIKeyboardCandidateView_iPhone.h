@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (double)defaultExtendedControlHeight;
+- (void).cxx_destruct;
 - (void)_handleKeyboardShowOrHide:(id)arg1;
 - (void)handleTap;
 - (void)scrollViewWillBeginDragging:(id)arg1;

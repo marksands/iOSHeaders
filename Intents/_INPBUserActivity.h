@@ -19,6 +19,7 @@
 }
 
 + (id)options;
+@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSString *uri; // @synthesize uri=_uri;
 - (void).cxx_destruct;
@@ -31,10 +32,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasData;
 @property(readonly, nonatomic) _Bool hasTitle;
 @property(readonly, nonatomic) _Bool hasUri;
-@property(retain, nonatomic) NSData *data;
-@property(readonly, nonatomic) _Bool hasData;
 
 @end
 

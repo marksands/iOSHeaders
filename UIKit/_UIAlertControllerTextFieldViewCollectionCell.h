@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (id)preferredFocusedView;
-- (void)focusedViewDidChange;
 - (void)_selectButton:(id)arg1;
 - (id)preferredLayoutAttributesFittingAttributes:(id)arg1;
 - (void)prepareForReuse;

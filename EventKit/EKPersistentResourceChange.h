@@ -6,8 +6,6 @@
 
 #import <EventKit/EKPersistentObject.h>
 
-@class EKPersistentCalendar, EKPersistentCalendarItem, NSDate, NSNumber, NSString, NSURL;
-
 __attribute__((visibility("hidden")))
 @interface EKPersistentResourceChange : EKPersistentObject
 {
@@ -15,21 +13,22 @@ __attribute__((visibility("hidden")))
 
 + (id)relations;
 + (id)defaultPropertiesToLoad;
-@property(readonly, nonatomic) unsigned int publicStatus;
-@property(readonly, nonatomic) _Bool alerted;
-@property(readonly, nonatomic) NSString *deletedTitle;
-@property(readonly, nonatomic) unsigned int changedProperties;
-@property(readonly, nonatomic) NSNumber *deleteCount;
-@property(readonly, nonatomic) NSNumber *updateCount;
-@property(readonly, nonatomic) NSNumber *createCount;
-@property(readonly, copy, nonatomic) NSDate *timestamp;
-@property(readonly, nonatomic) unsigned int changeType;
-@property(readonly, copy, nonatomic) NSString *changedByLastName;
-@property(readonly, copy, nonatomic) NSString *changedByFirstName;
-@property(readonly, copy, nonatomic) NSURL *changedByAddress;
-@property(readonly, copy, nonatomic) NSString *changedByDisplayName;
-@property(readonly, retain, nonatomic) EKPersistentCalendarItem *calendarItem;
-@property(readonly, retain, nonatomic) EKPersistentCalendar *calendar;
+- (unsigned int)publicStatus;
+- (_Bool)alerted;
+- (id)deletedTitle;
+- (unsigned int)changedProperties;
+- (id)deleteCount;
+- (id)updateCount;
+- (id)createCount;
+- (id)timestamp;
+- (unsigned int)changeType;
+- (id)changedByLastName;
+- (id)changedByFirstName;
+- (id)changedByAddress;
+- (id)changedByDisplayName;
+- (id)calendarItem;
+- (id)calendar;
+- (int)entityType;
 
 @end
 

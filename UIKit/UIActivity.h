@@ -6,20 +6,46 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSExtension, NSString, UIImage, UIViewController;
+#import <UIKit/UIActivityExtensionItemDataProviding-Protocol.h>
+#import <UIKit/UIActivityExtensionItemDataReceiving-Protocol.h>
 
-@interface UIActivity : NSObject
+@class NSExtension, NSString, NSUUID, UIImage, UIViewController;
+
+@interface UIActivity : NSObject <UIActivityExtensionItemDataProviding, UIActivityExtensionItemDataReceiving>
 {
     long long _defaultPriority;
     CDUnknownBlockType _activityCompletionWithItemsHandler;
+    CDUnknownBlockType _didFinishPerformingActivityHandler;
+    unsigned long long _indexInApplicationDefinedActivities;
+    NSUUID *_activityUUID;
 }
 
-+ (long long)activityCategory;
-+ (id)_activityFunctionImage:(id)arg1;
++ (Class)classForPreparingExtensionItemData;
++ (id)preparedActivityExtensionItemDataForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
++ (id)_activityExtensionItemsForActivityItemValues:(id)arg1 extensionItemDataRequest:(id)arg2;
 + (id)_activitySettingsImageForApplication:(id)arg1;
-+ (id)_activityImageForApplication:(id)arg1;
++ (unsigned long long)_xpcAttributes;
++ (long long)activityCategory;
++ (id)_activityImageForApplicationBundleIdentifier:(id)arg1;
++ (id)_activityImageForActionRepresentationImage:(id)arg1;
+@property(readonly, nonatomic) NSUUID *activityUUID; // @synthesize activityUUID=_activityUUID;
+@property(nonatomic) unsigned long long indexInApplicationDefinedActivities; // @synthesize indexInApplicationDefinedActivities=_indexInApplicationDefinedActivities;
+@property(copy, nonatomic) CDUnknownBlockType didFinishPerformingActivityHandler; // @synthesize didFinishPerformingActivityHandler=_didFinishPerformingActivityHandler;
 @property(copy, nonatomic) CDUnknownBlockType activityCompletionWithItemsHandler; // @synthesize activityCompletionWithItemsHandler=_activityCompletionWithItemsHandler;
 - (void).cxx_destruct;
+- (void)prepareWithActivityExtensionItemData:(id)arg1;
+- (_Bool)_wantsAttachmentURLItemData;
+- (_Bool)_wantsThumbnailItemData;
+- (_Bool)_activitySupportsPromiseURLs;
+- (void)_willPresentAsFormSheet;
+- (_Bool)_canBeExcludeWhenMatchingWithContext:(id)arg1;
+- (void)_setActivityCompletionWithItemsHandler:(CDUnknownBlockType)arg1;
+- (void)activityDidFinish:(_Bool)arg1 items:(id)arg2 error:(id)arg3;
+- (id)_attachmentNameForActivityItem:(id)arg1;
+- (id)_thumbnailImageForActivityItem:(id)arg1;
+- (id)_dataTypeIdentifierForActivityItem:(id)arg1;
+- (id)_subjectForActivityItem:(id)arg1;
+- (long long)_defaultSortGroup;
 - (void)activityDidFinish:(_Bool)arg1;
 - (void)performActivity;
 @property(readonly, nonatomic) UIViewController *activityViewController;
@@ -28,28 +54,27 @@
 @property(readonly, nonatomic) UIImage *activityImage;
 @property(readonly, nonatomic) NSString *activityTitle;
 @property(readonly, nonatomic) NSString *activityType;
+- (id)init;
+- (_Bool)_isExecutedInProcess;
 - (void)_injectedJavaScriptResult:(id)arg1;
-@property(readonly, nonatomic) NSExtension *applicationExtension;
-- (_Bool)_activitySupportsPromiseURLs;
-- (_Bool)_canBeExcludedByActivityViewController:(id)arg1;
-- (void)activityDidFinish:(_Bool)arg1 items:(id)arg2 error:(id)arg3;
-- (id)_attachmentNameForActivityItem:(id)arg1;
-- (id)_thumbnailImageForActivityItem:(id)arg1;
-- (id)_dataTypeIdentifierForActivityItem:(id)arg1;
-- (id)_subjectForActivityItem:(id)arg1;
+- (id)_encodableActivitySettingsImageConfiguration;
+- (id)_encodableActivityImageConfiguration;
 - (struct CGSize)_thumbnailSize;
-- (void)_setSubject:(id)arg1;
 - (_Bool)_dismissActivityFromViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)_presentActivityOnViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_cleanup;
-- (void)_willPresentAsFormSheet;
 - (id)_embeddedActivityViewController;
-- (void)_setActivityCompletionWithItemsHandler:(CDUnknownBlockType)arg1;
 - (id)_beforeActivity;
 - (id)_activitySettingsImage;
-- (id)activitySettingsImage;
 - (id)_activityImage;
-- (_Bool)_canPerformWithSuppliedActivityItems:(id)arg1;
+- (id)_bundleIdentifierForActivityImageCreation;
+@property(readonly, nonatomic) NSExtension *applicationExtension;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

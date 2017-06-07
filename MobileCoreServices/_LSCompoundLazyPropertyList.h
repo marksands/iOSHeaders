@@ -15,11 +15,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (_Bool)_getValue:(id *)arg1 forPropertyListKey:(id)arg2;
 - (id)_loadPropertyListPeeking:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithLazyPropertyLists:(id)arg1;
 
 @end

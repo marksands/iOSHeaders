@@ -6,7 +6,6 @@
 
 #import <UIKit/UIView.h>
 
-#import <WebKit/UIDocumentPasswordViewDelegate-Protocol.h>
 #import <WebKit/UIPDFAnnotationControllerDelegate-Protocol.h>
 #import <WebKit/UIPDFPageViewDelegate-Protocol.h>
 #import <WebKit/WKActionSheetAssistantDelegate-Protocol.h>
@@ -17,13 +16,12 @@
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
-@interface WKPDFView : UIView <_WKWebViewPrintProvider, WKWebViewContentProvider, UIPDFPageViewDelegate, UIPDFAnnotationControllerDelegate, WKActionSheetAssistantDelegate, UIDocumentPasswordViewDelegate>
+@interface WKPDFView : UIView <_WKWebViewPrintProvider, WKWebViewContentProvider, UIPDFPageViewDelegate, UIPDFAnnotationControllerDelegate, WKActionSheetAssistantDelegate>
 {
     struct RetainPtr<CGPDFDocument *> _cgPDFDocument;
     struct RetainPtr<UIPDFDocument> _pdfDocument;
     struct RetainPtr<NSString> _suggestedFilename;
     struct RetainPtr<WKPDFPageNumberIndicator> _pageNumberIndicator;
-    struct RetainPtr<UIDocumentPasswordView> _passwordView;
     struct Vector<PDFPageInfo, 0, WTF::CrashOnOverflow, 16> _pages;
     unsigned int _centerPageNumber;
     struct CGSize _minimumSize;
@@ -60,15 +58,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isBackground;
 - (void)didMoveToWindow;
 - (void)willMoveToWindow:(id)arg1;
-- (_Bool)_tryToUnlockWithPassword:(id)arg1;
-- (void)_didFailToUnlock;
-- (void)didEndEditingPassword:(id)arg1 inView:(id)arg2;
-- (void)didBeginEditingPassword:(id)arg1 inView:(id)arg2;
-- (void)userDidEnterPassword:(id)arg1 forPasswordView:(id)arg2;
-- (void)_hidePasswordEntryField;
 - (void)_showPasswordEntryField;
-- (void)_keyboardDidShow:(id)arg1;
-- (void)_updatePasswordEntryField;
 - (RetainPtr_f649c0c3)actionSheetAssistant:(id)arg1 decideActionsForElement:(id)arg2 defaultActions:(RetainPtr_f649c0c3)arg3;
 - (_Bool)actionSheetAssistant:(id)arg1 shouldIncludeAppLinkActionsForElement:(id)arg2;
 - (void)actionSheetAssistant:(id)arg1 shareElementWithURL:(id)arg2 rect:(struct CGRect)arg3;

@@ -6,17 +6,18 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <UIKit/_UIFocusMovementActionForwarding-Protocol.h>
 #import <UIKit/_UIHostedTextServiceSessionDelegate-Protocol.h>
 #import <UIKit/_UIViewServiceDeputy-Protocol.h>
 #import <UIKit/_UIViewServiceDeputyRotationSource-Protocol.h>
 #import <UIKit/_UIViewServiceDummyPopoverControllerDelegate-Protocol.h>
 #import <UIKit/_UIViewServiceViewControllerOperator_RemoteViewControllerInterface-Protocol.h>
 
-@class NSArray, NSMutableArray, NSString, NSUndoManager, UIActionSheet, UIPopoverController, _UIAsyncInvocation, _UIHostedTextServiceSession, _UIHostedWindow, _UIViewControllerOneToOneTransitionContext, _UIViewServiceDummyPopoverController;
+@class NSArray, NSMutableArray, NSString, NSUndoManager, UIPopoverController, _UIAsyncInvocation, _UIHostedTextServiceSession, _UIHostedWindow, _UIViewControllerOneToOneTransitionContext, _UIViewServiceDummyPopoverController;
 @protocol _UIViewServiceViewControllerOperatorDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _UIViewServiceViewControllerOperator : UIViewController <_UIViewServiceViewControllerOperator_RemoteViewControllerInterface, _UIHostedTextServiceSessionDelegate, _UIViewServiceDummyPopoverControllerDelegate, _UIViewServiceDeputy, _UIViewServiceDeputyRotationSource>
+@interface _UIViewServiceViewControllerOperator : UIViewController <_UIViewServiceViewControllerOperator_RemoteViewControllerInterface, _UIHostedTextServiceSessionDelegate, _UIViewServiceDummyPopoverControllerDelegate, _UIFocusMovementActionForwarding, _UIViewServiceDeputy, _UIViewServiceDeputyRotationSource>
 {
     int __automatic_invalidation_retainCount;
     _Bool __automatic_invalidation_invalidated;
@@ -26,12 +27,11 @@ __attribute__((visibility("hidden")))
     CDStruct_4c969caf _hostAuditToken;
     id _remoteViewControllerProxyToOperator;
     id _remoteViewControllerProxyToViewController;
-    NSArray *_plugInScenes;
+    NSArray *_pluginDisplayConfigurations;
     UIViewController *_localViewController;
     NSString *_presentationControllerClassName;
     _UIHostedWindow *_hostedWindow;
     _Bool _disableAutomaticKeyboardBehavior;
-    UIActionSheet *_hostedActionSheet;
     _Bool _serviceInPopover;
     long long _hostStatusBarOrientation;
     double _hostStatusBarHeight;
@@ -45,6 +45,8 @@ __attribute__((visibility("hidden")))
     unsigned long long _supportedOrientations;
     _Bool _canShowTextServices;
     struct UIEdgeInsets _localViewControllerRequestedInsets;
+    double _localViewControllerRequestedLeftMargin;
+    double _localViewControllerRequestedRightMargin;
     _UIViewControllerOneToOneTransitionContext *_viewControllerTransitioningContext;
     long long _editAlertToken;
     NSUndoManager *_editAlertUndoManager;
@@ -65,7 +67,7 @@ __attribute__((visibility("hidden")))
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;
 - (_Bool)_forwardPresses:(id)arg1 withEvent:(id)arg2 canceled:(_Bool)arg3;
 - (id)_dataFromPressesEvent:(id)arg1;
-- (void)_sendFocusMovementAction:(id)arg1;
+- (void)_forwardFocusMovementAction:(id)arg1;
 - (id)preferredFocusEnvironments;
 - (void)viewWillMoveToWindow:(id)arg1;
 - (void)__restoreStateForSession:(id)arg1 restorationAnchor:(id)arg2;
@@ -83,6 +85,8 @@ __attribute__((visibility("hidden")))
 - (id)_showServiceForText:(id)arg1 type:(long long)arg2 fromRect:(struct CGRect)arg3 inView:(id)arg4;
 - (_Bool)_canShowTextServices;
 - (id)_inputViewsKey;
+- (void)setNeedsUpdateOfScreenEdgesDeferringSystemGestures;
+- (id)childViewControllerForScreenEdgesDeferringSystemGestures;
 - (void)setNeedsWhitePointAdaptivityStyleUpdate;
 - (id)childViewControllerForWhitePointAdaptivityStyle;
 - (void)setNeedsStatusBarAppearanceUpdate;
@@ -90,8 +94,9 @@ __attribute__((visibility("hidden")))
 - (id)childViewControllerForStatusBarStyle;
 - (id)_presentationControllerClassName;
 - (void)__hostDidSetPresentationControllerClassName:(id)arg1;
+- (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
-- (void)__hostDidSetContentOverlayInsets:(struct UIEdgeInsets)arg1;
+- (void)__hostDidSetContentOverlayInsets:(struct UIEdgeInsets)arg1 andLeftMargin:(double)arg2 rightMargin:(double)arg3;
 - (void)__hostDisablesAutomaticKeyboardBehavior:(_Bool)arg1;
 - (void)__hostDidPromoteFirstResponder;
 - (void)__setContentSize:(struct CGSize)arg1;
@@ -108,11 +113,14 @@ __attribute__((visibility("hidden")))
 - (id)_viewControllersForRotationCallbacks;
 - (void)__hostDidChangeStatusBarHeight:(double)arg1;
 - (void)__hostDidChangeStatusBarOrientationToInterfaceOrientation:(long long)arg1;
+- (void)__hostDidBecomeActive;
+- (void)__hostWillResignActive;
 - (void)__hostWillEnterForeground;
 - (void)__hostDidEnterBackground;
 - (void)__setServiceInPopover:(_Bool)arg1;
-- (void)__hostViewDidMoveToScreenWithIntegerDisplayID:(unsigned int)arg1 newHostingHandleReplyHandler:(CDUnknownBlockType)arg2;
-- (void)__hostDidDetachDisplayWithIntegerDisplayID:(unsigned int)arg1;
+- (void)__hostViewDidMoveToScreenWithFBSDisplayIdentity:(id)arg1 newHostingHandleReplyHandler:(CDUnknownBlockType)arg2;
+- (void)__hostDidDetachDisplay:(id)arg1;
+- (void)__hostDidUpdateDisplay:(id)arg1;
 - (void)__hostDidAttachDisplay:(id)arg1;
 - (void)__hostViewDidDisappear:(_Bool)arg1;
 - (void)__hostViewWillDisappear:(_Bool)arg1;
@@ -137,13 +145,6 @@ __attribute__((visibility("hidden")))
 - (void)_popoverWillPresent:(id)arg1;
 - (void)_viewServiceIsDisplayingPopoverController:(id)arg1;
 - (void)__prepareForDisconnectionWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)__hostedActionSheetDidDismissWithClickedButtonIndex:(long long)arg1;
-- (void)__hostedActionSheetClickedButtonAtIndex:(long long)arg1;
-- (void)__hostedActionSheetDidPresent;
-- (void)_dismissActionSheet:(id)arg1 withClickedButtonIndex:(long long)arg2 animated:(_Bool)arg3;
-- (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
-- (_Bool)_presentActionSheet:(id)arg1 asPopoverFromBarButtonItem:(id)arg2 orFromRect:(struct CGRect)arg3 inView:(id)arg4 withPreferredArrowDirections:(unsigned long long)arg5 passthroughViews:(id)arg6 backgroundStyle:(long long)arg7 animated:(_Bool)arg8;
-- (_Bool)_presentActionSheet:(id)arg1 inView:(id)arg2 fromYCoordinate:(double)arg3;
 - (void)_firstResponderDidChange:(id)arg1;
 - (_Bool)becomeFirstResponder;
 - (void)__hostWillTransitionToTraitCollection:(id)arg1 withContextDescription:(id)arg2 deferIfAnimated:(_Bool)arg3;

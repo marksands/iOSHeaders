@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (double)sectionedGridLayout:(id)arg1 accessibilitySectionHeaderHeightForVisualSection:(long long)arg2;
+- (double)sectionedGridLayout:(id)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;
 - (id)sectionedGridLayout:(id)arg1 sectionsForVisualSection:(long long)arg2;
 - (long long)numberOfVisualSectionsForSectionedGridLayout:(id)arg1;
 - (void)modelDidChange:(id)arg1;
@@ -28,9 +30,10 @@ __attribute__((visibility("hidden")))
 - (id)assetsToDisplayInMapForVisualSection:(long long)arg1;
 - (void)getPhotosDataSource:(id *)arg1 displayTitleInfo:(id *)arg2 forDetailsForVisualSection:(long long)arg3;
 - (void)configureSectionHeaderView:(id)arg1 forVisualSection:(long long)arg2;
+- (void)_getDataForVisualSection:(long long)arg1 title:(id *)arg2 locations:(id *)arg3 startDate:(id *)arg4 endDate:(id *)arg5;
 - (long long)cellFillMode;
 - (struct CGSize)imageRequestItemSize;
-- (void)updateLayoutMetricsForWidth:(double)arg1;
+- (void)updateLayoutMetricsForWidth:(double)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
 - (struct CGSize)thumbnailImageSize;
 - (long long)maxRowsPerSection;
 - (id)sectionHeaderElementKind;

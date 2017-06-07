@@ -6,17 +6,33 @@
 
 #import <UIKit/UIViewController.h>
 
-__attribute__((visibility("hidden")))
+@class UIView;
+@protocol AVFullScreenViewControllerDelegate;
+
 @interface AVFullScreenViewController : UIViewController
 {
+    _Bool _canChangeStatusBarHidden;
+    UIView *_presentationBackgroundView;
+    id <AVFullScreenViewControllerDelegate> _delegate;
+    UIView *_contentView;
 }
 
+@property(nonatomic) __weak UIView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic) _Bool canChangeStatusBarHidden; // @synthesize canChangeStatusBarHidden=_canChangeStatusBarHidden;
+@property(nonatomic) __weak id <AVFullScreenViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) UIView *presentationBackgroundView; // @synthesize presentationBackgroundView=_presentationBackgroundView;
+- (void).cxx_destruct;
 - (long long)preferredWhitePointAdaptivityStyle;
+- (long long)preferredStatusBarStyle;
 - (_Bool)prefersStatusBarHidden;
 - (_Bool)modalPresentationCapturesStatusBarAppearance;
-- (void)viewDidLoad;
+- (void)viewDidAppear:(_Bool)arg1;
+- (id)targetForAction:(SEL)arg1 withSender:(id)arg2;
+- (id)keyCommands;
+- (void)fullScreenPresentationDidEnd:(_Bool)arg1;
+- (void)fullScreenPresentationWillBegin;
 - (void)dealloc;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithDelegate:(id)arg1 presentingViewController:(id)arg2 sourceView:(id)arg3;
 
 @end
 

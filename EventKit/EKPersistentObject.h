@@ -6,28 +6,32 @@
 
 #import <Foundation/NSObject.h>
 
-@class EKEventStore, NSMapTable, NSMutableDictionary, NSMutableSet;
+#import <EventKit/EKFrozenMeltedPair-Protocol.h>
+#import <EventKit/EKProtocolObject-Protocol.h>
 
-@interface EKPersistentObject : NSObject
+@class EKEventStore, EKObjectID, NSDictionary, NSMapTable, NSMutableDictionary, NSMutableSet, NSString;
+
+@interface EKPersistentObject : NSObject <EKProtocolObject, EKFrozenMeltedPair>
 {
-    struct _opaque_pthread_mutex_t {
-        long long __sig;
-        char __opaque[56];
-    } _lock;
+    struct _opaque_pthread_mutex_t _lock;
     EKEventStore *_eventStore;
-    id _objectID;
+    EKObjectID *_objectID;
     NSMutableSet *_dirtyProperties;
     unsigned int _flags;
     NSMapTable *_loadedProperties;
     NSMutableDictionary *_committedProperties;
 }
 
++ (_Bool)_shouldRetainPropertyForKey:(id)arg1;
++ (id)_relationForKey:(id)arg1;
++ (Class)meltedClass;
++ (Class)frozenClass;
++ (id)propertiesUnavailableForPartialObjects;
 + (id)relations;
 + (id)defaultPropertiesToLoad;
 @property(retain, nonatomic) NSMutableDictionary *committedProperties; // @synthesize committedProperties=_committedProperties;
 - (void).cxx_destruct;
 - (id)dump;
-- (void)faultPropertiesWithNames:(id)arg1;
 - (void)_loadDefaultPropertiesIfNeeded;
 - (void)_takeValuesForDefaultProperties:(id)arg1 inSet:(id)arg2;
 - (void)takeValuesForDefaultProperties:(id)arg1 inSet:(id)arg2;
@@ -52,7 +56,6 @@
 - (int)primitiveIntValueForKey:(id)arg1;
 - (void)primitiveSetNumberValue:(id)arg1 forKey:(id)arg2;
 - (id)primitiveNumberValueForKey:(id)arg1;
-- (void)primitiveValueChangedForKey:(id)arg1;
 - (void)_primitiveSetValue:(id)arg1 forKey:(id)arg2 daemonSetter:(CDUnknownBlockType)arg3;
 - (id)_primitiveValueForKey:(id)arg1 loader:(CDUnknownBlockType)arg2;
 - (void)primitiveSetRelationValue:(id)arg1 forKey:(id)arg2;
@@ -68,8 +71,6 @@
 - (void)_fastpathSetProperty:(id)arg1 forKey:(id)arg2 isRelation:(_Bool)arg3;
 - (void)_createLoadedPropertiesIfNeeded;
 - (id)_propertyForKey:(id)arg1;
-- (_Bool)_shouldRetainPropertyForKey:(id)arg1;
-- (id)_relationForKey:(id)arg1;
 - (_Bool)_areDefaultPropertiesLoaded;
 - (void)_setDefaultPropertiesLoaded:(_Bool)arg1;
 - (_Bool)_isPendingDelete;
@@ -82,7 +83,6 @@
 - (void)reset;
 - (void)saved;
 - (_Bool)pushDirtyProperties:(id *)arg1;
-- (_Bool)validate:(id *)arg1;
 - (_Bool)isPropertyLoaded:(id)arg1;
 - (void)_addDirtyProperty:(id)arg1;
 - (id)dirtyProperties;
@@ -92,17 +92,36 @@
 - (id)_loadedPropertyKeys;
 - (void)changed;
 - (_Bool)isDirty;
-- (_Bool)isNew;
+- (_Bool)_isNew;
 - (_Bool)existsInStore;
 - (void)_setObjectID:(id)arg1;
 - (id)objectID;
 - (void)_setEventStore:(id)arg1;
 @property(readonly, nonatomic) EKEventStore *eventStore;
 @property(readonly, nonatomic) int entityType;
+- (_Bool)isEqual:(id)arg1 ignoringProperties:(id)arg2;
+- (_Bool)isCompletelyEqual:(id)arg1;
+- (id)meltedObjectInStore:(id)arg1;
+- (struct EKPersistentObject *)frozenObject;
+- (id)existingMeltedObject;
+- (id)changeSet;
+@property(readonly, nonatomic) NSString *uniqueIdentifier;
+- (id)initWithObject:(id)arg1;
+- (_Bool)isPropertyUnavailable:(id)arg1;
+- (_Bool)isNew;
+@property(readonly, nonatomic) _Bool isFrozen;
+@property(readonly, nonatomic) NSDictionary *preFrozenRelationshipObjects;
+@property(readonly, nonatomic) _Bool isPartialObject;
+@property(readonly, nonatomic) _Bool canBeConvertedToFullObject;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;
-- (id)initCommon;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

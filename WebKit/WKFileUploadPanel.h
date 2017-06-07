@@ -36,7 +36,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <WKFileUploadPanelDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)_displayStringForPhotos:(unsigned long long)arg1 videos:(unsigned long long)arg2;
 - (void)_uploadItemFromMediaInfo:(id)arg1 successBlock:(CDUnknownBlockType)arg2 failureBlock:(CDUnknownBlockType)arg3;
 - (void)_uploadItemForImage:(id)arg1 withAssetURL:(id)arg2 successBlock:(CDUnknownBlockType)arg3 failureBlock:(CDUnknownBlockType)arg4;
 - (void)_uploadItemForJPEGRepresentationOfImage:(id)arg1 successBlock:(CDUnknownBlockType)arg2 failureBlock:(CDUnknownBlockType)arg3;
@@ -54,7 +53,7 @@ __attribute__((visibility("hidden")))
 - (void)popoverControllerDidDismissPopover:(id)arg1;
 - (void)_presentFullscreenViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)_presentPopoverWithContentViewController:(id)arg1 animated:(_Bool)arg2;
-- (void)_presentForCurrentInterfaceIdiom:(id)arg1;
+- (void)_presentMenuOptionForCurrentInterfaceIdiom:(id)arg1;
 - (void)_showPhotoPickerWithSourceType:(long long)arg1;
 - (_Bool)_shouldMediaCaptureOpenMediaDevice;
 - (void)_adjustMediaCaptureType;

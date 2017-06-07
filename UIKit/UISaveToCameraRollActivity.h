@@ -13,6 +13,7 @@
     long long _videoCount;
 }
 
++ (unsigned long long)_xpcAttributes;
 @property(nonatomic) long long videoCount; // @synthesize videoCount=_videoCount;
 @property(nonatomic) long long livePhotoCount; // @synthesize livePhotoCount=_livePhotoCount;
 @property(nonatomic) long long imageCount; // @synthesize imageCount=_imageCount;

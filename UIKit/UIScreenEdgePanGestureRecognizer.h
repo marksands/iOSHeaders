@@ -18,6 +18,11 @@
 + (_Bool)_shouldSupportStylusTouches;
 + (_Bool)_shouldDefaultToTouches;
 - (void).cxx_destruct;
+- (unsigned long long)touchedEdges;
+- (void)setRecognizeAlongEdge:(_Bool)arg1;
+- (_Bool)recognizeAlongEdge;
+- (void)setRecognizeImmediatelyFromEdgeLocked:(_Bool)arg1;
+- (_Bool)recognizeImmediatelyFromEdgeLocked;
 - (void)_setHysteresis:(double)arg1;
 - (void)_setEdgeRegionSize:(double)arg1;
 - (double)_edgeRegionSize;

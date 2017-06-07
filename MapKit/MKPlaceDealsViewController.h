@@ -6,6 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
 #import <MapKit/MKStackingViewControllerFixedHeightAware-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
@@ -13,7 +14,7 @@
 @protocol MKMapItemVendorDeal, MKPlaceDealsViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceDealsViewController : UIViewController <MKStackingViewControllerFixedHeightAware, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKPlaceDealsViewController : UIViewController <MKStackingViewControllerFixedHeightAware, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     _MKPlaceDealView *_dealView;
     NSLayoutConstraint *_collapsedConstraint;
@@ -26,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id <MKMapItemVendorDeal> deal; // @synthesize deal=_deal;
 @property(nonatomic) __weak id <MKPlaceDealsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)infoCardChildPossibleActions;
 - (void)_dealSelected:(id)arg1;
 - (void)updateViewConstraints;
 - (double)extraHeightToReserveInLayout;

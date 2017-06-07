@@ -6,17 +6,18 @@
 
 #import <UIKit/UIPopoverBackgroundView.h>
 
-@class UIColor, UIView, _UIPopoverBackgroundVisualEffectView, _UIVisualEffectCaptureView;
+@class UIColor, UIView, UIVisualEffectView;
 
 __attribute__((visibility("hidden")))
 @interface _UIPopoverStandardChromeView : UIPopoverBackgroundView
 {
+    UIView *_arrowBackgroundView;
     UIView *_arrowView;
     UIView *_leftCapView;
     UIView *_rightCapView;
-    _UIVisualEffectCaptureView *_blurViewCapture;
-    _UIPopoverBackgroundVisualEffectView *_blurView;
+    UIVisualEffectView *_blurView;
     UIColor *_popoverBackgroundColor;
+    UIColor *_arrowBackgroundColor;
     _Bool _popoverBackgroundColorIsOpaque;
     double _arrowOffset;
     unsigned long long _arrowDirection;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)setArrowVisible:(_Bool)arg1 animated:(_Bool)arg2;
 @property(nonatomic, getter=isArrowVisible) _Bool arrowVisible;
 @property(readonly, nonatomic) UIColor *contentBlendingColor;
+@property(copy, nonatomic) UIColor *arrowBackgroundColor;
 @property(copy, nonatomic) UIColor *popoverBackgroundColor;
 - (void)setBackgroundStyle:(long long)arg1 animated:(_Bool)arg2;
 @property(nonatomic) long long backgroundStyle;

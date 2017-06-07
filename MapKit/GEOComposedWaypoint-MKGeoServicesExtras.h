@@ -7,6 +7,6 @@
 #import <GeoServices/GEOComposedWaypoint.h>
 
 @interface GEOComposedWaypoint (MKGeoServicesExtras)
-+ (void)composedWaypointForMapItem:(id)arg1 forQuickETA:(_Bool)arg2 traits:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 networkActivityHandler:(CDUnknownBlockType)arg5;
++ (void)composedWaypointForMapItem:(id)arg1 useAsLocation:(_Bool)arg2 forQuickETA:(_Bool)arg3 traits:(id)arg4 completionHandler:(CDUnknownBlockType)arg5 networkActivityHandler:(CDUnknownBlockType)arg6;
 @end
 

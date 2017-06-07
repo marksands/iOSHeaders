@@ -18,7 +18,6 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)_contentSizeCategoryDidChange;
-- (void)dealloc;
 - (void)tintColorDidChange;
 - (void)_updateConstraintValues;
 - (id)_moreString;

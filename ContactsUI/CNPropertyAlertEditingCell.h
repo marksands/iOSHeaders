@@ -12,7 +12,8 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)wantsHorizontalLayout;
-- (id)constantConstraints;
+- (id)variableConstraints;
+- (_Bool)shouldIndentWhileEditing;
 - (double)minCellHeight;
 
 @end

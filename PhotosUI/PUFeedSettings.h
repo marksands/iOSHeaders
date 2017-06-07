@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
-@interface PUFeedSettings : PUSettings
+@interface PUFeedSettings : PXSettings
 {
     _Bool _useJPEGImageFormats;
     _Bool _shouldUseJPEGFastFormatForMediumTiles;
@@ -78,6 +78,7 @@
 @property(nonatomic) double smallTileSizeTolerance; // @synthesize smallTileSizeTolerance=_smallTileSizeTolerance;
 @property(nonatomic) _Bool useJPEGImageFormats; // @synthesize useJPEGImageFormats=_useJPEGImageFormats;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

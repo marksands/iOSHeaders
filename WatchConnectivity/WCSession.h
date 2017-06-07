@@ -13,6 +13,7 @@
 
 @interface WCSession : NSObject <WCXPCManagerDelegate>
 {
+    _Bool _reachableForced;
     _Bool _hasContentPending;
     _Bool _iOSDeviceNeedsUnlockAfterRebootForReachability;
     _Bool _paired;

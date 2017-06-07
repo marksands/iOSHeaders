@@ -6,21 +6,25 @@
 
 #import <MapKit/MKStackingViewController.h>
 
+#import <MapKit/MKETAProviderDelegate-Protocol.h>
 #import <MapKit/MKNearestStationViewControllerDelegate-Protocol.h>
 #import <MapKit/MKPlaceCardActionControllerDelegate-Protocol.h>
 #import <MapKit/MKPlaceCardEncyclopedicControllerDelegate-Protocol.h>
 #import <MapKit/MKPlaceCardHeaderViewControllerDelegate-Protocol.h>
+#import <MapKit/MKPlaceHeaderButtonsViewControllerDelegate-Protocol.h>
 #import <MapKit/MKStackingViewControllerDelegate-Protocol.h>
 #import <MapKit/MKTransitLineIncidentsViewControllerDelegate-Protocol.h>
 #import <MapKit/_MKInfoCardAnaylticsDelegate-Protocol.h>
 #import <MapKit/_MKInfoCardController-Protocol.h>
 
-@class GEOAutomobileOptions, GEOTransitOptions, MKInfoCardLoadingView, MKMapItem, MKNearestStationViewController, MKPlaceCardActionItem, MKPlaceCardActionsViewController, MKPlaceCardHeaderViewController, NSMutableArray, NSNumber, NSString;
+@class GEOAutomobileOptions, GEOTransitOptions, MKETAProvider, MKInfoCardLoadingView, MKMapItem, MKNearestStationViewController, MKPlaceActionManager, MKPlaceCardActionItem, MKPlaceCardActionsViewController, MKPlaceCardHeaderViewController, MKPlaceHeaderButtonsViewController, NSNumber, NSString;
 @protocol GEOTransitLineItem, MKLocationManagerOperation, MKMapServiceTicket, MKTransitLineItemViewControllerDelegate, UIScrollViewDelegate;
 
-@interface MKTransitLineItemViewController : MKStackingViewController <MKStackingViewControllerDelegate, MKPlaceCardActionControllerDelegate, MKPlaceCardEncyclopedicControllerDelegate, MKPlaceCardHeaderViewControllerDelegate, MKNearestStationViewControllerDelegate, MKTransitLineIncidentsViewControllerDelegate, _MKInfoCardController, _MKInfoCardAnaylticsDelegate>
+@interface MKTransitLineItemViewController : MKStackingViewController <MKStackingViewControllerDelegate, MKPlaceCardEncyclopedicControllerDelegate, MKPlaceCardHeaderViewControllerDelegate, MKETAProviderDelegate, MKPlaceHeaderButtonsViewControllerDelegate, MKNearestStationViewControllerDelegate, MKTransitLineIncidentsViewControllerDelegate, _MKInfoCardController, _MKInfoCardAnaylticsDelegate, MKPlaceCardActionControllerDelegate>
 {
     MKPlaceCardHeaderViewController *_headerViewController;
+    MKPlaceHeaderButtonsViewController *_buttonsHeaderController;
+    MKETAProvider *_etaProvider;
     MKInfoCardLoadingView *_loadingView;
     MKNearestStationViewController *_nearestStationViewController;
     id <MKLocationManagerOperation> _locationOperation;
@@ -28,8 +32,8 @@
     MKMapItem *_nearestStation;
     unsigned long long _lastRequestedNearestID;
     NSString *_lastNearestRequestErrorMessage;
+    MKPlaceActionManager *_actionManager;
     MKPlaceCardActionsViewController *_actionsViewController;
-    NSMutableArray *_placeActionItemsArray;
     _Bool _loading;
     id <GEOTransitLineItem> _transitLineItem;
     id <MKTransitLineItemViewControllerDelegate> _delegate;
@@ -57,17 +61,13 @@
 - (void)infoCardAnalyticsDidSelectAction:(int)arg1 target:(int)arg2 eventValue:(id)arg3 feedbackDelegateSelector:(int)arg4;
 - (void)infoCardAnalyticsDidSelectAction:(int)arg1 eventValue:(id)arg2 feedbackDelegateSelector:(int)arg3;
 - (void)placeCardEncyclopedicControllerDidSelectShowArticle:(id)arg1;
+- (void)placeActionManager:(id)arg1 didSelectShareFromView:(id)arg2;
 - (void)placeCardActionControllerDidSelectRemoveFromFavorites:(id)arg1;
 - (void)placeCardActionControllerDidSelectAddToFavorites:(id)arg1;
 - (void)placeCardActionControllerDidSelectReportAProblem:(id)arg1;
-- (int)mapTypeForPlaceCardHeaderViewController:(id)arg1;
+- (int)mapTypeForETAProvider:(id)arg1;
+- (void)placeHeaderButtonsViewController:(id)arg1 didSelectPrimaryType:(unsigned long long)arg2 withView:(id)arg3;
 - (double)placeCardHeaderViewControllerTrailingConstantForTitle:(id)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectRidesharingButton:(id)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectOpenContactButton:(id)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectShareLocationButton:(id)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectRerouteButton:(id)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectDirectionsButton:(id)arg1 withTransportTypePreference:(id)arg2;
-- (void)placeCardheaderHeaderViewControllerDidSelectActionButton:(id)arg1;
 - (double)stackingViewController:(id)arg1 heightForSeparatorBetweenUpperViewController:(id)arg2 andLowerViewController:(id)arg3;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewWillBeginDragging:(id)arg1;

@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
     UILabel *_licenseLabel;
     UILabel *_authorLabel;
     NSLayoutConstraint *_statusBarHeightConstraint;
-    NSLayoutConstraint *_navBarHeightConstraint;
     int _actualPage;
     UINavigationItem *_navItem;
     unsigned long long _textDisplayedForPage;
@@ -65,7 +64,6 @@ __attribute__((visibility("hidden")))
 - (void)contentSizeDidChange;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithPhotos:(id)arg1;
 
 // Remaining properties

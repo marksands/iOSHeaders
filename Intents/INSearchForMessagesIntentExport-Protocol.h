@@ -10,7 +10,7 @@
 @class INDateComponentsRange, NSArray;
 
 @protocol INSearchForMessagesIntentExport <NSObject, JSExport>
-@property(copy, nonatomic) NSArray *groupNames;
+@property(copy, nonatomic) NSArray *speakableGroupNames;
 @property(copy, nonatomic) NSArray *notificationIdentifiers;
 @property(copy, nonatomic) NSArray *identifiers;
 @property(copy, nonatomic) INDateComponentsRange *dateTimeRange;

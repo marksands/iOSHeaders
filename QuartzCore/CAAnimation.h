@@ -9,14 +9,14 @@
 #import <QuartzCore/CAAction-Protocol.h>
 #import <QuartzCore/CAMediaTiming-Protocol.h>
 #import <QuartzCore/CAPropertyInfo-Protocol.h>
-#import <QuartzCore/NSCoding-Protocol.h>
 #import <QuartzCore/NSCopying-Protocol.h>
 #import <QuartzCore/NSMutableCopying-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class CAMediaTimingFunction, CAStateControllerTransition, NSString;
 @protocol CAAnimationDelegate;
 
-@interface CAAnimation : NSObject <NSMutableCopying, CAPropertyInfo, NSCoding, NSCopying, CAMediaTiming, CAAction>
+@interface CAAnimation : NSObject <NSMutableCopying, CAPropertyInfo, NSSecureCoding, NSCopying, CAMediaTiming, CAAction>
 {
     void *_attr;
     unsigned int _flags;
@@ -24,6 +24,7 @@
 
 + (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (_Bool)CA_encodesPropertyConditionally:(unsigned int)arg1 type:(int)arg2;
 + (id)animation;
 + (id)defaultValueForKey:(id)arg1;

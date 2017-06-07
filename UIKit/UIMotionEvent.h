@@ -6,12 +6,12 @@
 
 #import <UIKit/UIEvent.h>
 
-@class NSTimer;
+@class BKSAccelerometer, NSTimer;
 
 __attribute__((visibility("hidden")))
 @interface UIMotionEvent : UIEvent
 {
-    id _motionAccelerometer;
+    BKSAccelerometer *_motionAccelerometer;
     long long _subtype;
     int _shakeState;
     long long _stateMachineState;

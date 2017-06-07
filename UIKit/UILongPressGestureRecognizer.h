@@ -59,6 +59,7 @@
 - (void)pressesChanged:(id)arg1 withEvent:(id)arg2;
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;
 @property(nonatomic, setter=_setButtonType:) long long _buttonType; // @synthesize _buttonType;
+- (void)_setTranslation:(struct CGPoint)arg1 inView:(id)arg2;
 - (struct CGPoint)_translationInView:(id)arg1;
 @property(readonly, nonatomic) struct CGPoint startPoint;
 - (struct CGPoint)_startPointInView:(id)arg1;

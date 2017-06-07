@@ -7,15 +7,14 @@
 #import <MessageUI/MFComposeHeaderView.h>
 
 #import <MessageUI/MFComposeRecipientAtomDelegate-Protocol.h>
-#import <MessageUI/MFMultiDragDestination-Protocol.h>
-#import <MessageUI/MFMultiDragSource-Protocol.h>
+#import <MessageUI/MFRecipientDraggingDelegate-Protocol.h>
 #import <MessageUI/NSLayoutManagerDelegate-Protocol.h>
 #import <MessageUI/UITextViewDelegate-Protocol.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, NSTimer, NSUndoManager, UIButton, UIColor, UIFont, UITextView, UIView, _MFAtomTextAttachment, _MFAtomTextView;
-@protocol MFComposeRecipientTextViewDelegate, MFDraggableItem;
+@class MFDragSource, MFDropTarget, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSTimer, NSUndoManager, UIButton, UIColor, UIFont, UITextView, UIView, _MFAtomTextAttachment, _MFAtomTextView;
+@protocol MFComposeRecipientTextViewDelegate;
 
-@interface MFComposeRecipientTextView : MFComposeHeaderView <UITextViewDelegate, NSLayoutManagerDelegate, MFMultiDragSource, MFMultiDragDestination, MFComposeRecipientAtomDelegate>
+@interface MFComposeRecipientTextView : MFComposeHeaderView <UITextViewDelegate, NSLayoutManagerDelegate, MFComposeRecipientAtomDelegate, MFRecipientDraggingDelegate>
 {
     _MFAtomTextView *_textView;
     UITextView *_inactiveTextView;
@@ -24,9 +23,9 @@
     NSMutableArray *_atomViews;
     NSMutableDictionary *_atomPresentationOptionsByRecipient;
     NSMutableDictionary *_atomLayoutOptionsByRecipient;
+    MFDragSource *_dragSource;
+    MFDropTarget *_dropTarget;
     long long _atomViewAnimationDepth;
-    struct _NSRange _dragSourceRange;
-    id <MFDraggableItem> _pivotItem;
     _Bool _parentIsClosing;
     _Bool _textViewExclusionPathsAreValid;
     _Bool _isTextFieldCollapsed;
@@ -38,7 +37,6 @@
     NSMutableArray *_recipientsBeingRemoved;
     NSUndoManager *_undoManager;
     _Bool _editable;
-    _Bool _allowsDragAndDrop;
     _Bool _separatorHidden;
     _Bool _expanded;
     _Bool _didIgnoreFirstResponderResign;
@@ -57,7 +55,6 @@
 @property(readonly, nonatomic) _Bool didIgnoreFirstResponderResign; // @synthesize didIgnoreFirstResponderResign=_didIgnoreFirstResponderResign;
 @property(nonatomic) _Bool expanded; // @synthesize expanded=_expanded;
 @property(nonatomic, getter=isSeparatorHidden) _Bool separatorHidden; // @synthesize separatorHidden=_separatorHidden;
-@property(nonatomic) _Bool allowsDragAndDrop; // @synthesize allowsDragAndDrop=_allowsDragAndDrop;
 @property(nonatomic) _Bool editable; // @synthesize editable=_editable;
 @property(nonatomic) _Bool indicatesUnsafeRecipientsWhenCollapsed; // @synthesize indicatesUnsafeRecipientsWhenCollapsed=_indicatesUnsafeRecipientsWhenCollapsed;
 @property(readonly, nonatomic) UIView *atomContainerView; // @synthesize atomContainerView=_atomContainerView;
@@ -66,25 +63,15 @@
 - (void)composeRecipientAtomShowPersonCard:(id)arg1;
 - (void)deselectComposeRecipientAtom:(id)arg1;
 - (void)selectComposeRecipientAtom:(id)arg1;
-- (id)supportedDropTypes:(id)arg1;
-- (struct CGRect)frameForDroppedItem:(id)arg1;
-- (id)destinationViewForDrop;
 - (void)dropItems:(id)arg1;
-- (void)willDropItems:(id)arg1;
-- (void)dragExitedWithItems:(id)arg1;
-- (void)dragMovedToPoint:(struct CGPoint)arg1 withItems:(id)arg2;
-- (void)dragEnteredAtPoint:(struct CGPoint)arg1 withItems:(id)arg2;
-- (id)viewForDragSource;
-- (void)dragCompletedWithItems:(id)arg1 success:(_Bool)arg2;
-- (void)animatePlaceholderForDragFailureWithItems:(id)arg1;
-- (void)dragStartedWithItems:(id)arg1;
+- (void)dragExited;
+- (void)dragMovedToPoint:(struct CGPoint)arg1;
+- (void)dragEnteredAtPoint:(struct CGPoint)arg1;
+- (struct CGRect)frameForDroppedItem:(id)arg1;
 - (id)viewForDraggedItem:(id)arg1 atScale:(double)arg2;
-- (struct CGRect)frameForDraggedItem:(id)arg1 isPivotView:(out _Bool *)arg2;
-- (id)itemsForDragAtPoint:(struct CGPoint)arg1;
-- (_Bool)shouldCollapseMultipleItems;
-- (_Bool)allowsDrag;
+- (struct CGRect)frameForDraggedItem:(id)arg1;
 - (struct _NSRange)_placeholderAttachmentRange;
-- (id)_placeholderAttachmentForRecipient:(id)arg1;
+- (id)_placeholderAttachmentWithStaticWidth;
 - (void)_notifyDelegateOfSizeChange;
 - (void)_notifyDelegateOfNewSize:(struct CGSize)arg1;
 - (_Bool)_delegateRespondsToSizeChange;
@@ -95,6 +82,9 @@
 - (void)textViewDidChange:(id)arg1;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (_Bool)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (void)setCursorForInsertionAtPoint:(struct CGPoint)arg1;
+- (unsigned long long)indexOfRecipientForInsertionAtPoint:(struct CGPoint)arg1;
+- (id)selectedAtoms;
 - (id)atomViewsInRange:(struct _NSRange)arg1;
 - (id)atomViewForRecipient:(id)arg1;
 - (void)_removeAddressAtomSubview:(id)arg1;
@@ -164,11 +154,11 @@
 - (void)_removeAllRecipients;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
-- (void)willMoveToSuperview:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)refreshPreferredContentSize;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 dragDropDelegate:(id)arg2;
 - (void)dealloc;
 
 // Remaining properties

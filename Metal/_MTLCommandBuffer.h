@@ -66,6 +66,8 @@
 @property(readonly) _Bool synchronousDebugMode; // @synthesize synchronousDebugMode=_synchronousDebugMode;
 @property(readonly) _Bool retainedReferences; // @synthesize retainedReferences=_retainedReferences;
 @property(copy) NSString *label; // @synthesize label=_label;
+- (void)popDebugGroup;
+- (void)pushDebugGroup:(id)arg1;
 @property(readonly, nonatomic) double GPUEndTime;
 @property(readonly, nonatomic) double GPUStartTime;
 @property(readonly, nonatomic) double kernelEndTime;

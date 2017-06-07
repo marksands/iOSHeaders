@@ -31,6 +31,7 @@
 - (void).cxx_destruct;
 - (unsigned char)sceneState;
 - (void)getClusterAnnotationTextForClusterFeatureCount:(unsigned long long)arg1 text:(id *)arg2 locale:(id *)arg3;
+- (void)getClusterImageTextForClusterFeatureCount:(unsigned long long)arg1 text:(id *)arg2 locale:(id *)arg3;
 - (id)annotationsInMapRect:(CDStruct_02837cd9)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

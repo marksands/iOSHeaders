@@ -32,6 +32,8 @@
 + (id)tileMapNodeWithTileSet:(id)arg1 columns:(unsigned long long)arg2 rows:(unsigned long long)arg3 tileSize:(struct CGSize)arg4;
 @property(retain, nonatomic) NSString *tileSetName; // @synthesize tileSetName=_tileSetName;
 - (void).cxx_destruct;
+- (id)debugHierarchyValueForPropertyWithName:(id)arg1;
+- (id)debugHierarchyPropertyDescriptions;
 - (void)setValue:(id)arg1 forAttributeNamed:(id)arg2;
 - (id)valueForAttributeNamed:(id)arg1;
 - (void)forceRedraw;

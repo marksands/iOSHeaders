@@ -6,15 +6,19 @@
 
 #import <AVFoundation/AVCaptureOutput.h>
 
-@class AVCaptureAudioDataOutputInternal, NSObject;
+#import <AVFoundation/AVCaptureDataOutputDelegateOverride-Protocol.h>
+
+@class AVCaptureAudioDataOutputInternal, NSObject, NSString;
 @protocol AVCaptureAudioDataOutputSampleBufferDelegate, OS_dispatch_queue;
 
-@interface AVCaptureAudioDataOutput : AVCaptureOutput
+@interface AVCaptureAudioDataOutput : AVCaptureOutput <AVCaptureDataOutputDelegateOverride>
 {
     AVCaptureAudioDataOutputInternal *_internal;
 }
 
++ (id)new;
 + (void)initialize;
+- (void)setDelegateOverride:(id)arg1 delegateOverrideCallbackQueue:(id)arg2;
 - (_Bool)canAddConnectionForMediaType:(id)arg1;
 - (id)connectionMediaTypes;
 - (id)recommendedAudioSettingsForAssetWriterWithOutputFileType:(id)arg1;
@@ -24,6 +28,12 @@
 - (void)setSampleBufferDelegate:(id)arg1 queue:(id)arg2;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

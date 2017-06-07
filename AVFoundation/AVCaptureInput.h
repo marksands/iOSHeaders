@@ -24,7 +24,7 @@
 - (id)session;
 @property(readonly, nonatomic) NSArray *ports;
 - (void)dealloc;
-- (id)init;
+- (id)initSubclass;
 
 @end
 

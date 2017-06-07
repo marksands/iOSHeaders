@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     unsigned int _index;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void)encodeWithCAMLWriter:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (Class)classForCoder;

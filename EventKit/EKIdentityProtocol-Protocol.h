@@ -9,13 +9,14 @@
 @class NSPredicate, NSString, NSURL;
 
 @protocol EKIdentityProtocol <NSObject>
+- (NSURL *)URL;
 - (NSString *)lastName;
 - (NSString *)firstName;
+- (NSString *)phoneNumber;
 - (NSString *)emailAddress;
 - (NSString *)name;
 
 @optional
 - (NSPredicate *)contactPredicate;
-- (NSURL *)URL;
 @end
 

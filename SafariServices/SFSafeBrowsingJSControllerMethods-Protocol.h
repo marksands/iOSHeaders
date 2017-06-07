@@ -13,7 +13,6 @@
 - (NSString *)reportAnErrorURL:(NSString *)arg1;
 - (NSString *)learnMoreAboutPhishingURL:(NSString *)arg1;
 - (NSString *)malwareDetailsURL:(NSString *)arg1;
-- (_Bool)isRTL;
 - (NSString *)UIString:(NSString *)arg1;
 - (void)closePageSelected;
 - (void)goBackSelected;

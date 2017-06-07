@@ -8,7 +8,7 @@
 
 @protocol MDSearchQueryResultProcessor
 - (void)didFinishWithError:(NSError *)arg1;
-- (void)didReturnResultsData:(NSData *)arg1 protectionClass:(NSString *)arg2 completionHandler:(void (^)(void))arg3;
+- (void)didReturnResults:(long long)arg1 resultsData:(NSData *)arg2 oidData:(NSData *)arg3 protectionClass:(NSString *)arg4 completionHandler:(void (^)(void))arg5;
 - (void)didResolveFriendlyAttributeNames:(NSArray *)arg1;
 @end
 

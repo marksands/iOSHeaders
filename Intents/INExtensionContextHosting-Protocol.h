@@ -9,6 +9,7 @@
 @class INImage;
 
 @protocol INExtensionContextHosting <NSObject>
+- (void)extensionContextVendorFetchSizeForImage:(INImage *)arg1 reply:(void (^)(struct, NSError *))arg2;
 - (void)extensionContextVendorWantsToCacheImage:(INImage *)arg1;
 @end
 

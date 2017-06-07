@@ -24,6 +24,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CNCardActionGroupItem *actionGroupItem;
 - (void)setCardGroupItem:(id)arg1;
 - (void)setLabelTextAttributes:(id)arg1;
+- (_Bool)shouldIndentWhileEditing;
+- (id)rightMostView;
 - (_Bool)shouldPerformDefaultAction;
 - (double)minCellHeight;
 - (id)labelView;

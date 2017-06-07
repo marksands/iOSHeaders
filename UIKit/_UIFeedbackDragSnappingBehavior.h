@@ -4,23 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/_UIFeedbackDragBehavior.h>
+#import <UIKit/_UIDragSnappingFeedbackGenerator.h>
 
-@class _UIFeedbackDragSnappingBehaviorConfiguration;
-
-@interface _UIFeedbackDragSnappingBehavior : _UIFeedbackDragBehavior
+@interface _UIFeedbackDragSnappingBehavior : _UIDragSnappingFeedbackGenerator
 {
 }
 
-+ (Class)_configurationClass;
-- (void)_stopLanding;
-- (void)_startLanding;
-- (void)objectSnapped;
-- (void)draggedObjectLanded;
-- (void)draggedObjectLifted;
-- (void)userInteractionEnded;
-- (void)userInteractionStarted;
-@property(readonly, nonatomic, getter=_dragSnappingConfiguration) _UIFeedbackDragSnappingBehaviorConfiguration *dragSnappingConfiguration;
++ (id)retargetBehaviorWithStyle:(long long)arg1 coordinateSpace:(id)arg2;
++ (id)dragBehaviorWithCoordinateSpace:(id)arg1 configuration:(id)arg2;
++ (id)dragBehaviorWithStyle:(long long)arg1 coordinateSpace:(id)arg2;
+- (void)snappedToFinalPosition;
+- (void)targetUpdated;
 
 @end
 

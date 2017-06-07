@@ -44,6 +44,7 @@
 - (void)_updateLoadStatus:(id)arg1;
 - (void)_loadBackgroundImageFromString:(id)arg1;
 - (void)playVideo;
+- (_Bool)shouldTestVisibilityAtPoint:(struct CGPoint)arg1;
 - (void)loadContentsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;

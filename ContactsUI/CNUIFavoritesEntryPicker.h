@@ -6,24 +6,26 @@
 
 #import <Foundation/NSObject.h>
 
-#import <ContactsUI/CNContactActionsViewControllerDelegate-Protocol.h>
+#import <ContactsUI/CNContactActionsControllerDelegate-Protocol.h>
 
-@class CNContact, NSString, UIAlertController;
+@class CNContact, CNContactActionsController, NSString, UIAlertController;
 @protocol CNUIFavoritesEntryPickerDelegate;
 
-@interface CNUIFavoritesEntryPicker : NSObject <CNContactActionsViewControllerDelegate>
+@interface CNUIFavoritesEntryPicker : NSObject <CNContactActionsControllerDelegate>
 {
     id <CNUIFavoritesEntryPickerDelegate> _delegate;
     CNContact *_contact;
     UIAlertController *_alertController;
+    CNContactActionsController *_actionsController;
 }
 
 + (id)descriptorForRequiredKeys;
+@property(retain, nonatomic) CNContactActionsController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) UIAlertController *alertController; // @synthesize alertController=_alertController;
 @property(readonly, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 @property(nonatomic) __weak id <CNUIFavoritesEntryPickerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)contactActionsViewController:(id)arg1 didSelectAction:(id)arg2;
+- (void)contactActionsController:(id)arg1 didSelectAction:(id)arg2;
 - (id)viewController;
 - (id)initWithContact:(id)arg1;
 

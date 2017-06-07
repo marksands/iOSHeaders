@@ -6,9 +6,12 @@
 
 #import <MapKit/MKAnnotation-Protocol.h>
 
+@class CLLocation;
+
 @protocol MKAnnotationPrivate <MKAnnotation>
 
 @optional
+@property(retain, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) long long representation;
 @end
 

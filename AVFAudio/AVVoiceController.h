@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class AVAudioFormat, NSDictionary, NSString;
-@protocol AVVoiceControllerPlaybackDelegate, AVVoiceControllerRecordDelegate, Endpointer;
+@class AVAudioFormat, NSDictionary, NSString, NSXPCConnection;
+@protocol AVVoiceControllerPlaybackDelegate, AVVoiceControllerRecordDelegate, AVVoiceControllerVoiceTriggerDelegate, Endpointer;
 
 @interface AVVoiceController : NSObject
 {
@@ -16,6 +16,7 @@
 }
 
 @property(readonly) unsigned long long alertStartTime; // @synthesize alertStartTime=_alertStartTime;
+@property(readonly) NSDictionary *metrics;
 @property(getter=isStopOnEndpointEnabled) _Bool stopOnEndpointEnabled;
 - (float)averagePowerForChannel:(unsigned long long)arg1;
 - (float)peakPowerForChannel:(unsigned long long)arg1;
@@ -48,6 +49,7 @@
 - (_Bool)startRecordingAtTime:(unsigned long long)arg1 error:(id *)arg2;
 - (_Bool)startRecording:(id *)arg1;
 - (_Bool)startRecording;
+- (void)setupAlertBehavior:(id)arg1;
 - (int)doStartRecordingAtTime:(unsigned long long)arg1 behavior:(id)arg2;
 - (_Bool)playRecordStartingAlertAndResetEndpointer;
 - (void)resetEndpointer;
@@ -55,6 +57,7 @@
 - (_Bool)setAlertSoundFromURL:(id)arg1 forType:(int)arg2;
 - (_Bool)prepareRecordWithSettings:(id)arg1 error:(id *)arg2;
 - (_Bool)setCurrentContext:(id)arg1 error:(id *)arg2;
+- (_Bool)IsDeviceAvailableInLocalRoute:(id)arg1 error:(id *)arg2;
 - (_Bool)willAcceptContext:(id)arg1;
 - (void)releaseAudioSession:(unsigned long long)arg1;
 - (void)releaseAudioSession;
@@ -87,6 +90,12 @@
 - (void)removeSessionNotifications;
 - (void)setSessionNotifications;
 - (struct ControllerImpl *)impl;
+- (void)updateVoiceTriggerConfiguration:(id)arg1;
+- (void)enableVoiceTriggerListening:(_Bool)arg1;
+@property(readonly, retain) NSXPCConnection *voiceTriggerServerConnection; // @dynamic voiceTriggerServerConnection;
+@property id <AVVoiceControllerVoiceTriggerDelegate> voiceTriggerDelegate;
+@property(readonly) unsigned long long voiceTriggerPastDataFramesAvailable;
+@property(setter=setDuckOthersOption:) _Bool duckOthersOption;
 @property(readonly) AVAudioFormat *pcmRecordBufferFormat;
 @property(getter=isSynchronousCallbackEnabled) _Bool synchronousCallbackEnabled;
 @property(getter=isStopOnBargeInEnabled) _Bool stopOnBargeInEnabled;
@@ -95,6 +104,8 @@
 @property(readonly) unsigned long long lastRecordStartTime;
 @property(readonly, copy) NSString *playbackRoute;
 @property(readonly, copy) NSString *recordRoute;
+- (void)sendRemoteConnectionMessage:(id)arg1;
+- (void)voiceTriggerNotification:(id)arg1;
 
 @end
 

@@ -20,6 +20,8 @@
 @property(readonly) _Bool retainedReferences;
 @property(readonly) id <MTLCommandQueue> commandQueue;
 @property(readonly) id <MTLDevice> device;
+- (void)popDebugGroup;
+- (void)pushDebugGroup:(NSString *)arg1;
 - (id <MTLParallelRenderCommandEncoder>)parallelRenderCommandEncoderWithDescriptor:(MTLRenderPassDescriptor *)arg1;
 - (id <MTLComputeCommandEncoder>)computeCommandEncoder;
 - (id <MTLRenderCommandEncoder>)renderCommandEncoderWithDescriptor:(MTLRenderPassDescriptor *)arg1;

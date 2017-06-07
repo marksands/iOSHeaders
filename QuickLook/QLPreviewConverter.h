@@ -6,12 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSString, NSURLRequest, NSURLResponse, QLPreviewParts;
+@class NSDictionary, NSString, NSURL, NSURLRequest, NSURLResponse, QLPreviewParts;
+@protocol OS_dispatch_io;
 
 @interface QLPreviewConverter : NSObject
 {
     QLPreviewParts *_previewParts;
     NSDictionary *_options;
+    NSObject<OS_dispatch_io> *_io_write;
+    NSURL *_tmpFileURL;
+    long long _totalWrittenBytes;
+    _Bool _dataPhaseFinished;
+    _Bool _dataGatheringSucceeded;
 }
 
 + (_Bool)isSafeRequest:(id)arg1;
@@ -29,10 +35,20 @@
 + (id)_rtfUTIs;
 + (id)_iWorkUTIs;
 + (id)_officeUTIs;
++ (id)convertibleUTIs;
++ (id)_spreadSheetMIMETypes;
++ (id)_csvMIMETypes;
++ (id)_rtfMIMETypes;
++ (id)_iWorkMIMETypes;
++ (id)_officeMIMETypes;
++ (id)convertibleMIMETypes;
 - (void).cxx_destruct;
 - (_Bool)htmlErrorDisabled;
 - (void)setHtmlErrorDisabled:(_Bool)arg1;
 - (void)finishedAppendingData;
+- (void)_writeDataArrayIntoStream:(id)arg1;
+- (void)_closeIOCahnnel;
+- (void)_createDispatchIOChannel;
 - (void)appendDataArray:(id)arg1;
 - (void)appendData:(id)arg1;
 - (id)safeRequestForRequest:(id)arg1;

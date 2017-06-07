@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <EventKitUI/EKUIConstrainedFontsTableViewCell.h>
+#import <EventKitUI/EKUITableViewCell.h>
 
 @class NSString, UITextView;
 
-@interface CalendarNotesCell : EKUIConstrainedFontsTableViewCell
+@interface CalendarNotesCell : EKUITableViewCell
 {
     UITextView *_textView;
     NSString *_text;

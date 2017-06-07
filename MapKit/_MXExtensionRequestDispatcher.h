@@ -6,24 +6,22 @@
 
 #import <Foundation/NSObject.h>
 
-#import <MapKit/NSExtensionRequestHandling-Protocol.h>
+#import <MapKit/NSSecureCoding-Protocol.h>
+#import <MapKit/_MXExtensionRequestDispatching-Protocol.h>
+#import <MapKit/_MXExtensionStreamingRequestDispatching-Protocol.h>
 
 @class NSString;
-@protocol _MXExtensionServiceVendor;
 
-__attribute__((visibility("hidden")))
-@interface _MXExtensionRequestDispatcher : NSObject <NSExtensionRequestHandling>
+@interface _MXExtensionRequestDispatcher : NSObject <NSSecureCoding, _MXExtensionRequestDispatching, _MXExtensionStreamingRequestDispatching>
 {
-    id <_MXExtensionServiceVendor> _vendor;
 }
 
-@property(nonatomic) __weak id <_MXExtensionServiceVendor> vendor; // @synthesize vendor=_vendor;
-- (void).cxx_destruct;
-- (void)_handleRequestObject:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_handleRequestWithExtensionItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)beginRequestWithExtensionContext:(id)arg1;
-- (id)initWithServiceVendor:(id)arg1;
-- (id)init;
++ (_Bool)supportsSecureCoding;
+- (void)stopSendingUpdatesForRequest:(id)arg1 vendor:(id)arg2;
+- (void)startSendingUpdatesForRequest:(id)arg1 vendor:(id)arg2 toObserver:(id)arg3;
+- (void)dispatchRequest:(id)arg1 vendor:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

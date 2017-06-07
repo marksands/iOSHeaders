@@ -6,21 +6,22 @@
 
 #import <UIKit/UIView.h>
 
-@class UIKeyboardMenuView, UITableView, UITableViewCell;
-
 __attribute__((visibility("hidden")))
 @interface UIInputSwitcherTableCellBackgroundView : UIView
 {
-    UITableView *_tableView;
-    UITableViewCell *_cell;
-    UIKeyboardMenuView *_menu;
+    _Bool _selected;
+    _Bool _drawsOpaque;
+    _Bool _drawsBorder;
+    _Bool _usesDarkTheme;
+    int _roundedCorners;
 }
 
-@property(nonatomic) UIKeyboardMenuView *menu; // @synthesize menu=_menu;
-@property(nonatomic) UITableViewCell *cell; // @synthesize cell=_cell;
-@property(nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
+@property(nonatomic) int roundedCorners; // @synthesize roundedCorners=_roundedCorners;
+@property(nonatomic) _Bool usesDarkTheme; // @synthesize usesDarkTheme=_usesDarkTheme;
+@property(nonatomic) _Bool drawsBorder; // @synthesize drawsBorder=_drawsBorder;
+@property(nonatomic) _Bool drawsOpaque; // @synthesize drawsOpaque=_drawsOpaque;
+@property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_selected;
 - (void)drawRect:(struct CGRect)arg1;
-- (id)initWithTableView:(id)arg1 cell:(id)arg2;
 
 @end
 

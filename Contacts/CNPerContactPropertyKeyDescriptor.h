@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNKeyDescriptor-Protocol.h>
 #import <Contacts/CNKeyDescriptor_Private-Protocol.h>
@@ -18,8 +18,9 @@
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSMutableDictionary *propertiesByIdentifier; // @synthesize propertiesByIdentifier=_propertiesByIdentifier;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_cn_optionalKeys;
 - (id)_cn_requiredKeys;
 - (void)_cn_executeGetterForRepresentedKeys:(CDUnknownBlockType)arg1;
 - (void)setKeysToFetch:(id)arg1 forContactIdentifier:(id)arg2;

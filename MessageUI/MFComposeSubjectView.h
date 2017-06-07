@@ -36,6 +36,7 @@
 - (id)text;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(_Bool)arg3;
 - (void)layoutSubviews;
+- (id)_textContainerExclusionPathsWithNotifyButton:(_Bool)arg1;
 - (void)_updateTextContainerInsets;
 - (void)refreshPreferredContentSize;
 - (void)textViewDidBeginEditing:(id)arg1;

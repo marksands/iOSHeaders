@@ -6,12 +6,13 @@
 
 #import <Contacts/NSObject-Protocol.h>
 
-@class NSArray, SGSuggestionsService;
+@class NSArray;
+@protocol SGSuggestionsServiceContactsProtocol;
 
 @protocol CNSuggestedContactPredicate <NSObject>
 
 @optional
-- (NSArray *)sgContactMatchesWithSortOrder:(long long)arg1 mutableObjects:(_Bool)arg2 service:(SGSuggestionsService *)arg3 error:(id *)arg4;
-- (NSArray *)suggestionsWithSortOrder:(long long)arg1 mutableObjects:(_Bool)arg2 service:(SGSuggestionsService *)arg3 error:(id *)arg4;
+- (NSArray *)sgContactMatchesWithSortOrder:(long long)arg1 mutableObjects:(_Bool)arg2 service:(id <SGSuggestionsServiceContactsProtocol>)arg3 error:(id *)arg4;
+- (NSArray *)suggestionsWithSortOrder:(long long)arg1 mutableObjects:(_Bool)arg2 service:(id <SGSuggestionsServiceContactsProtocol>)arg3 error:(id *)arg4;
 @end
 

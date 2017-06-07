@@ -47,7 +47,6 @@
     double _saturationDeltaFactor;
     double _filterMaskAlpha;
     UIImage *_filterMaskImage;
-    double _extendedRangeClamp;
     UIColor *_legibleColor;
     UIColor *_combinedTintColor;
     double _scale;
@@ -90,7 +89,6 @@
 @property(nonatomic) double statisticsInterval; // @synthesize statisticsInterval=_statisticsInterval;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(retain, nonatomic) UIColor *legibleColor; // @synthesize legibleColor=_legibleColor;
-@property(nonatomic) double extendedRangeClamp; // @synthesize extendedRangeClamp=_extendedRangeClamp;
 @property(retain, nonatomic) UIImage *filterMaskImage; // @synthesize filterMaskImage=_filterMaskImage;
 @property(nonatomic) double filterMaskAlpha; // @synthesize filterMaskAlpha=_filterMaskAlpha;
 @property(nonatomic) double saturationDeltaFactor; // @synthesize saturationDeltaFactor=_saturationDeltaFactor;

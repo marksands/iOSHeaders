@@ -9,6 +9,8 @@
 @class NSArray;
 
 @interface NSObject (UIAccessibilityContainer)
+@property(nonatomic) long long accessibilityContainerType;
+- (id)storedAccessibilityContainerType;
 @property(retain, nonatomic) NSArray *accessibilityElements;
 - (long long)indexOfAccessibilityElement:(id)arg1;
 - (id)accessibilityElementAtIndex:(long long)arg1;

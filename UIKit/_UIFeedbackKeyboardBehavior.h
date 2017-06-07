@@ -4,26 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIFeedbackGenerator.h>
+#import <UIKit/_UIKeyboardFeedbackGenerator.h>
 
-@class _UIFeedbackKeyboardBehaviorConfiguration;
-
-@interface _UIFeedbackKeyboardBehavior : UIFeedbackGenerator
+@interface _UIFeedbackKeyboardBehavior : _UIKeyboardFeedbackGenerator
 {
-    double _lastTypedKeyTimestamp;
 }
 
-+ (Class)_configurationClass;
-@property(nonatomic, getter=_lastTypedKeyTimestamp, setter=_setLastTypedKeyTimestamp:) double lastTypedKeyTimestamp; // @synthesize lastTypedKeyTimestamp=_lastTypedKeyTimestamp;
-- (id)_stats_key;
-- (double)_autoDeactivationTimeout;
-- (void)_playFeedbackForActionType:(long long)arg1 withCustomization:(CDUnknownBlockType)arg2;
-- (id)_feedbackWithUpdatedVolume:(id)arg1;
-- (float)scaleVolumeSlow:(float)arg1 fast:(float)arg2 timeSpan:(double)arg3;
-- (void)actionOccurred:(long long)arg1;
 - (void)userTypedOnKeyWithType:(long long)arg1;
-- (void)_activated;
-@property(readonly, nonatomic, getter=_keyboardConfiguration) _UIFeedbackKeyboardBehaviorConfiguration *keyboardConfiguration;
 
 @end
 

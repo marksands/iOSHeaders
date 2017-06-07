@@ -4,30 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/_UIFeedbackGeneratorConfiguration.h>
+#import <UIKit/_UIKeyboardFeedbackGeneratorConfiguration.h>
 
-@class NSDictionary;
-
-@interface _UIFeedbackKeyboardBehaviorConfiguration : _UIFeedbackGeneratorConfiguration
+@interface _UIFeedbackKeyboardBehaviorConfiguration : _UIKeyboardFeedbackGeneratorConfiguration
 {
-    NSDictionary *_feedbacks;
-    double _slowTypingTime;
-    double _fastTypingTime;
-    double _fastTypingVolumeMultiplier;
 }
-
-+ (id)defaultConfiguration;
-@property(nonatomic) double fastTypingVolumeMultiplier; // @synthesize fastTypingVolumeMultiplier=_fastTypingVolumeMultiplier;
-@property(nonatomic) double fastTypingTime; // @synthesize fastTypingTime=_fastTypingTime;
-@property(nonatomic) double slowTypingTime; // @synthesize slowTypingTime=_slowTypingTime;
-- (void).cxx_destruct;
-@property(retain, nonatomic) NSDictionary *feedbacks; // @synthesize feedbacks=_feedbacks;
-- (_Bool)defaultEnabled;
-- (id)feedbackKeyPaths;
-- (_Bool)_hasMutableFeedbackKeyPaths;
-- (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (long long)requiredSupportLevel;
 
 @end
 

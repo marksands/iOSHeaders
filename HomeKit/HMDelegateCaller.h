@@ -15,6 +15,7 @@
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
+- (void)callCompletion:(CDUnknownBlockType)arg1 error:(id)arg2 proxiedDevice:(id)arg3;
 - (void)callCompletion:(CDUnknownBlockType)arg1 error:(id)arg2 snapshot:(id)arg3;
 - (void)callCompletion:(CDUnknownBlockType)arg1 user:(id)arg2 error:(id)arg3;
 - (void)callCompletion:(CDUnknownBlockType)arg1 invitations:(id)arg2 error:(id)arg3;

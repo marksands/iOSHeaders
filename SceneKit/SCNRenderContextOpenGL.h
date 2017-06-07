@@ -6,7 +6,6 @@
 
 #import <SceneKit/SCNRenderContextImp.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNRenderContextOpenGL : SCNRenderContextImp
 {
 }

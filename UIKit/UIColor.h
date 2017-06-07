@@ -7,11 +7,15 @@
 #import <Foundation/NSObject.h>
 
 #import <UIKit/NSCopying-Protocol.h>
+#import <UIKit/NSItemProviderReading-Protocol.h>
+#import <UIKit/NSItemProviderWriting-Protocol.h>
 #import <UIKit/NSSecureCoding-Protocol.h>
+#import <UIKit/UIItemProviderReading-Protocol.h>
+#import <UIKit/UIItemProviderWriting-Protocol.h>
 
-@class CIColor, NSString;
+@class CIColor, NSArray, NSString;
 
-@interface UIColor : NSObject <NSSecureCoding, NSCopying>
+@interface UIColor : NSObject <NSItemProviderReading, NSItemProviderWriting, UIItemProviderReading, UIItemProviderWriting, NSSecureCoding, NSCopying>
 {
     NSString *_systemColorName;
     NSString *_cachedStyleString;
@@ -60,6 +64,7 @@
 + (id)blackColor;
 + (id)classFallbacksForKeyedArchiver;
 + (_Bool)supportsSecureCoding;
++ (id)_accessibilityDarkenedColorForColor:(id)arg1;
 + (id)_composedColorFromSourceColor:(id)arg1 destinationColor:(id)arg2 tintColor:(id)arg3 alpha:(double)arg4;
 + (id)_systemColorForColor:(id)arg1 withName:(id)arg2;
 + (id)_systemColorWithName:(id)arg1;
@@ -143,6 +148,11 @@
 + (id)_barHairlineShadowColor;
 + (id)_systemDestructiveTintColor;
 + (id)_systemInteractionTintColor;
++ (id)colorNamed:(id)arg1 inBundle:(id)arg2 compatibleWithTraitCollection:(id)arg3;
++ (id)colorNamed:(id)arg1;
++ (id)writableTypeIdentifiersForItemProvider;
++ (id)readableTypeIdentifiersForItemProvider;
++ (id)newObjectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 options:(id)arg3 error:(id *)arg4;
 - (void).cxx_destruct;
 - (id)_colorBlendedWithColors:(id)arg1;
 - (id)_colorBlendedWithColor:(id)arg1;
@@ -162,7 +172,7 @@
 - (_Bool)getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 alpha:(double *)arg4;
 - (_Bool)getHue:(double *)arg1 saturation:(double *)arg2 brightness:(double *)arg3 alpha:(double *)arg4;
 - (_Bool)getWhite:(double *)arg1 alpha:(double *)arg2;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) CIColor *CIColor;
@@ -181,7 +191,16 @@
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)initWithHue:(double)arg1 saturation:(double)arg2 brightness:(double)arg3 alpha:(double)arg4;
 - (id)initWithWhite:(double)arg1 alpha:(double)arg2;
-- (id)ui_highlightedColor;
+- (id)_ui_swipeActionHighlightedColor;
+- (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
+- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
+- (void)registerLoadHandlersToItemProvider:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

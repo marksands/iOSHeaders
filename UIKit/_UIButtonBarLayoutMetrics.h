@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 @interface _UIButtonBarLayoutMetrics : NSObject <_UIButtonBarLayoutMetricsData, NSCopying>
 {
     _Bool _locked;
+    _Bool _createsPopoverLayoutGuides;
     NSLayoutDimension *_verticalSizeGuide;
     NSLayoutDimension *_minimumSpaceGuide;
     NSLayoutDimension *_flexibleSpaceGuide;
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
     NSLayoutDimension *_groupSpacingGuide;
 }
 
+@property(nonatomic) _Bool createsPopoverLayoutGuides; // @synthesize createsPopoverLayoutGuides=_createsPopoverLayoutGuides;
 @property(retain, nonatomic) NSLayoutDimension *groupSpacingGuide; // @synthesize groupSpacingGuide=_groupSpacingGuide;
 @property(retain, nonatomic) NSLayoutDimension *groupSizeGuide; // @synthesize groupSizeGuide=_groupSizeGuide;
 @property(retain, nonatomic) NSLayoutYAxisAnchor *popoverGuideTopAnchor; // @synthesize popoverGuideTopAnchor=_popoverGuideTopAnchor;

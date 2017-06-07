@@ -10,6 +10,7 @@
 
 @interface MPModelPlaybackContext : MPPlaybackContext
 {
+    id _playbackRequestEnvironment;
     MPModelRequest *_request;
     MPIdentifierSet *_startItemIdentifiers;
     NSDictionary *_startTimeModifications;
@@ -24,9 +25,9 @@
 @property(copy, nonatomic) NSDictionary *startTimeModifications; // @synthesize startTimeModifications=_startTimeModifications;
 @property(copy, nonatomic) MPIdentifierSet *startItemIdentifiers; // @synthesize startItemIdentifiers=_startItemIdentifiers;
 @property(copy, nonatomic) MPModelRequest *request; // @synthesize request=_request;
+@property(copy, nonatomic) id playbackRequestEnvironment; // @synthesize playbackRequestEnvironment=_playbackRequestEnvironment;
 - (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     struct UIEdgeInsets _chromeBuffer;
 }
 
++ (struct CGPoint)computeOffsetForOffset:(struct CGPoint)arg1 withSize:(struct CGSize)arg2 chromeBuffer:(struct UIEdgeInsets)arg3 onScreenSize:(struct CGSize)arg4;
 + (id)placementWithUndockedOffset:(struct CGPoint)arg1 chromeBuffer:(struct UIEdgeInsets)arg2;
 + (_Bool)supportsSecureCoding;
 + (id)infoWithPoint:(struct CGPoint)arg1;

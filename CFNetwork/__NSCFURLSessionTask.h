@@ -6,8 +6,8 @@
 
 #import <CFNetwork/NSURLSessionTask.h>
 
-@class NSArray, NSData, NSDictionary, NSError, NSMutableArray, NSObject, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionConfiguration, NSURLSessionTaskDependency, NSURLSessionTaskDependencyTree, NSURLSessionTaskHTTPAuthenticator;
-@protocol OS_dispatch_queue;
+@class NSArray, NSData, NSDate, NSDictionary, NSError, NSMutableArray, NSObject, NSProgress, NSString, NSURL, NSURLRequest, NSURLResponse, NSURLSession, NSURLSessionConfiguration, NSURLSessionTaskDependency, NSURLSessionTaskDependencyTree, NSURLSessionTaskHTTPAuthenticator;
+@protocol NSURLSessionAppleIDContext, OS_dispatch_queue, SZExtractor;
 
 __attribute__((visibility("hidden")))
 @interface __NSCFURLSessionTask : NSURLSessionTask
@@ -17,6 +17,9 @@ __attribute__((visibility("hidden")))
     NSURLRequest *_originalRequest;
     NSURLRequest *_currentRequest;
     NSURLResponse *_response;
+    NSDate *_earliestBeginDate;
+    long long _countOfBytesClientExpectsToSend;
+    long long _countOfBytesClientExpectsToReceive;
     long long _countOfBytesReceived;
     long long _countOfBytesSent;
     long long _countOfBytesExpectedToSend;
@@ -46,6 +49,7 @@ __attribute__((visibility("hidden")))
     struct OpaqueCFHTTPCookieStorage *_cfCookies;
     int _cachePolicy;
     double _timeoutInterval;
+    double _timeoutIntervalForResource;
     NSDictionary *_proxySettings;
     NSDictionary *_sslSettings;
     _Bool _shouldPipelineHTTP;
@@ -84,9 +88,39 @@ __attribute__((visibility("hidden")))
     NSString *_pathToDownloadTaskFile;
     NSMutableArray *_transactionMetrics;
     NSDictionary *_trailers;
+    _Bool _allowsQUIC;
+    id <SZExtractor> _extractor;
+    _Bool _extractorFinishedDecoding;
+    id <NSURLSessionAppleIDContext> _appleIDContext;
+    _Bool _authenticatorConfiguredViaTaskProperty;
+    NSProgress *_progress;
+    NSProgress *_uploadProgress;
+    NSProgress *_downloadProgress;
+    _Bool _undeterminedUploadProgressState;
+    _Bool _undeterminedDownloadProgressState;
+    _Bool _isInUpload;
+    _Bool _progressReportingFinished;
+    NSURL *_publishingURL;
+    NSURL *_backgroundPublishingURL;
+    _Bool _extractorPreparedForExtraction;
 }
 
 + (_Bool)supportsSecureCoding;
+- (void)set_backgroundPublishingURL:(id)arg1;
+- (id)_backgroundPublishingURL;
+- (void)set_publishingURL:(id)arg1;
+- (id)_publishingURL;
+- (void)set_authenticatorConfiguredViaTaskProperty:(_Bool)arg1;
+- (_Bool)_authenticatorConfiguredViaTaskProperty;
+- (id)_appleIDContext;
+- (void)set_extractorPreparedForExtraction:(_Bool)arg1;
+- (_Bool)_extractorPreparedForExtraction;
+- (void)set_extractorFinishedDecoding:(_Bool)arg1;
+- (_Bool)_extractorFinishedDecoding;
+- (void)set_extractor:(id)arg1;
+- (id)_extractor;
+- (void)set_allowsQUIC:(_Bool)arg1;
+- (_Bool)_allowsQUIC;
 - (void)set_trailers:(id)arg1;
 - (id)_trailers;
 - (void)set_TCPConnectionMetadata:(id)arg1;
@@ -141,6 +175,8 @@ __attribute__((visibility("hidden")))
 - (id)_sslSettings;
 - (void)set_proxySettings:(id)arg1;
 - (id)_proxySettings;
+- (void)set_timeoutIntervalForResource:(double)arg1;
+- (double)_timeoutIntervalForResource;
 - (void)set_timeoutInterval:(double)arg1;
 - (double)_timeoutInterval;
 - (void)set_cachePolicy:(int)arg1;
@@ -189,6 +225,12 @@ __attribute__((visibility("hidden")))
 - (long long)countOfBytesSent;
 - (void)setCountOfBytesReceived:(long long)arg1;
 - (long long)countOfBytesReceived;
+- (void)setCountOfBytesClientExpectsToReceive:(long long)arg1;
+- (long long)countOfBytesClientExpectsToReceive;
+- (void)setCountOfBytesClientExpectsToSend:(long long)arg1;
+- (long long)countOfBytesClientExpectsToSend;
+- (void)setEarliestBeginDate:(id)arg1;
+- (id)earliestBeginDate;
 - (void)setResponse:(id)arg1;
 - (id)response;
 - (void)setCurrentRequest:(id)arg1;
@@ -199,6 +241,10 @@ __attribute__((visibility("hidden")))
 - (id)taskDescription;
 - (void)setTaskIdentifier:(unsigned long long)arg1;
 - (unsigned long long)taskIdentifier;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_finishProgressReporting;
+- (void)_completeUploadProgress;
+- (id)progress;
 - (id)_transactionMetrics;
 - (void)_prepareNewTimingDataContainer;
 - (id)_dependencyInfo;
@@ -207,7 +253,10 @@ __attribute__((visibility("hidden")))
 - (void)set_shouldReportTimingDataToAWD:(_Bool)arg1;
 - (void)_getAuthenticationHeadersForResponse:(struct _CFURLResponse *)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (struct __CFSet *)_getAuthenticatorStatusCodes;
-- (void)initializeHTTPAuthenticatorWithSessionConfiguration:(id)arg1;
+- (void)initializeHTTPAuthenticatorWithAppleIDContext:(id)arg1 statusCodes:(id)arg2;
+- (void)_setAppleIDContext:(id)arg1;
+- (id)getExtractor;
+- (_Bool)hasExtractor;
 - (struct __CFDictionary *)_copyATSState;
 - (id)currentRequest_mainDocumentURL;
 - (id)currentRequest_URL;

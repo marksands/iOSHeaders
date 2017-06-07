@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNObjectValidation-Protocol.h>
 #import <Contacts/NSCopying-Protocol.h>
@@ -29,7 +29,9 @@
 + (_Bool)supportsSecureCoding;
 + (id)postalAddressWithDictionaryRepresentation:(id)arg1;
 + (id)localizedStringForKey:(id)arg1;
++ (id)postalAddressWithAddressBookDictionaryRepresentation:(id)arg1;
 @property(copy, nonatomic) NSString *formattedAddress; // @synthesize formattedAddress=_formattedAddress;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *ISOCountryCode; // @synthesize ISOCountryCode=_ISOCountryCode;
 @property(copy, nonatomic) NSString *country; // @synthesize country=_country;
 @property(copy, nonatomic) NSString *postalCode; // @synthesize postalCode=_postalCode;
@@ -46,9 +48,9 @@
 - (id)initWithCoder:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithPostalAddress:(id)arg1;
 - (id)dictionaryRepresentation;
+- (id)addressBookDictionaryRepresentation;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -7,12 +7,13 @@
 #import <UIKit/UIView.h>
 
 #import <UIKit/NSUITextViewCommonMethods-Protocol.h>
+#import <UIKit/_UITextTiledLayerDelegate-Protocol.h>
 
-@class NSDictionary, NSLayoutManager, NSString, NSTextContainer, NSTextStorage;
+@class NSArray, NSDictionary, NSLayoutManager, NSMutableSet, NSString, NSTextContainer, NSTextStorage;
 @protocol _UITextContainerViewDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _UITextContainerView : UIView <NSUITextViewCommonMethods>
+@interface _UITextContainerView : UIView <NSUITextViewCommonMethods, _UITextTiledLayerDelegate>
 {
     struct UIEdgeInsets _textContainerInset;
     struct CGPoint _textContainerOrigin;
@@ -21,6 +22,7 @@ __attribute__((visibility("hidden")))
     NSTextContainer *_textContainer;
     NSDictionary *_linkTextAttributes;
     unsigned long long _invalidationSeqNo;
+    long long _invalidationSeqClipsToBounds;
     struct {
         unsigned int textContainerOriginInvalid:1;
         unsigned int verticalLayout:2;
@@ -28,6 +30,8 @@ __attribute__((visibility("hidden")))
         unsigned int verticallyResizable:1;
         unsigned int freezeTextContainerSize:1;
     } _tcvFlags;
+    NSMutableSet *_ghostedRanges;
+    NSArray *_ghostedRectangles;
     id <_UITextContainerViewDelegate> _delegate;
 }
 
@@ -37,6 +41,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <_UITextContainerViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak NSTextContainer *textContainer; // @synthesize textContainer=_textContainer;
 - (void).cxx_destruct;
+- (id)boundingRectanglesForGhostedTextInRect:(struct CGRect)arg1;
+- (void)removeAllGhostedRanges;
+- (void)addGhostedRange:(struct _NSRange)arg1;
 @property(nonatomic) double maxTileHeight;
 @property(nonatomic) _Bool usesTiledViews;
 - (struct CGRect)visibleRect;
@@ -60,6 +67,7 @@ __attribute__((visibility("hidden")))
 - (void)setConstrainedFrameSize:(struct CGSize)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
+- (void)setNeedsLayout;
 - (void)_setFrameOrBounds:(struct CGRect)arg1 oldRect:(struct CGRect)arg2 settingAction:(CDUnknownBlockType)arg3;
 - (void)_ensureMinAndMaxSizesConsistentWithBounds;
 - (void)invalidateTextContainerOrigin;
@@ -71,9 +79,9 @@ __attribute__((visibility("hidden")))
 - (id)linkTextAttributes;
 @property(readonly, nonatomic) NSTextStorage *textStorage;
 @property(readonly, nonatomic) NSLayoutManager *layoutManager;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2 delegate:(id)arg3;
+- (id)layer;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

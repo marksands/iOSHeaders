@@ -7,11 +7,12 @@
 #import <UIKit/UIBarItem.h>
 
 #import <UIKit/NSCoding-Protocol.h>
+#import <UIKit/UISpringLoadedInteractionSupporting-Protocol.h>
 
-@class NSDictionary, NSSet, NSString, UIBarButtonItemGroup, UIColor, UIImage, UILayoutGuide, UINavigationItem, UIToolbarButton, UIView;
+@class NSArray, NSDictionary, NSSet, NSString, UIBarButtonItemGroup, UIColor, UIImage, UILayoutGuide, UINavigationItem, UIToolbarButton, UIView;
 @protocol _UIBarButtonItemViewOwner;
 
-@interface UIBarButtonItem : UIBarItem <NSCoding>
+@interface UIBarButtonItem : UIBarItem <UISpringLoadedInteractionSupporting, NSCoding>
 {
     NSString *_title;
     NSSet *_possibleTitles;
@@ -35,7 +36,12 @@
         unsigned int selected:1;
         unsigned int imageHasEffects:1;
         unsigned int actsAsFakeBackButton:1;
+        unsigned int springLoaded:1;
+        unsigned int showsChevron:1;
+        unsigned int wantsThreeUp:1;
     } _barButtonItemFlags;
+    NSArray *_gestureRecognizers;
+    NSArray *_interactions;
     _Bool _flexible;
     _Bool __showsBackButtonIndicator;
     _Bool __hidden;
@@ -113,6 +119,11 @@
 - (void)_executeValidationHandler;
 - (void)_setButtonGroup:(id)arg1 isRepresentative:(_Bool)arg2;
 @property(nonatomic) double width;
+- (void)setLargeContentSizeImageInsets:(struct UIEdgeInsets)arg1;
+- (id)_internalLargeContentSizeImage;
+- (struct UIEdgeInsets)largeContentSizeImageInsets;
+- (void)setLargeContentSizeImage:(id)arg1;
+- (id)largeContentSizeImage;
 - (struct UIEdgeInsets)imageInsets;
 - (void)setImageInsets:(struct UIEdgeInsets)arg1;
 - (struct UIEdgeInsets)landscapeImagePhoneInsets;
@@ -137,6 +148,9 @@
 - (void)_connectInterfaceBuilderEventConnection:(id)arg1;
 - (double)_width;
 - (void)_setWidth:(double)arg1;
+- (void)_setInteractions:(id)arg1;
+- (id)_interactions;
+@property(retain, nonatomic, setter=_setGestureRecognizers:) NSArray *_gestureRecognizers;
 - (id)createViewForToolbar:(id)arg1;
 - (id)createViewForNavigationItem:(id)arg1;
 - (void)_setEnclosingBar:(id)arg1 onItem:(id)arg2;
@@ -145,12 +159,17 @@
 - (_Bool)_shouldBezelSystemButtonImage;
 @property(nonatomic, setter=_setImageHasEffects:) _Bool _imageHasEffects;
 @property(readonly, nonatomic) UIToolbarButton *_toolbarButton;
-@property(nonatomic, getter=_miniImageInsets, setter=_setMiniImageInsets:) struct UIEdgeInsets miniImageInsets;
-@property(retain, nonatomic, getter=_miniImage, setter=_setMiniImage:) UIImage *miniImage;
+- (void)_setMiniImageInsets:(struct UIEdgeInsets)arg1;
+- (struct UIEdgeInsets)_miniImageInsets;
+- (void)_setMiniImage:(id)arg1;
+- (id)_miniImage;
+- (void)_setWantsThreeUp:(_Bool)arg1;
+- (_Bool)_wantsThreeUp;
+@property(nonatomic, getter=isSpringLoaded) _Bool springLoaded;
+- (void)_setShowsChevron:(_Bool)arg1;
+- (_Bool)_showsChevron;
 - (void)_setActsAsFakeBackButton:(_Bool)arg1;
 - (_Bool)_actsAsFakeBackButton;
-- (id)_resolveSystemTitle;
-- (_Bool)_resolveSystemImage:(id *)arg1 metrics:(long long)arg2 position:(long long)arg3 type:(long long)arg4;
 - (id)_imageForState:(unsigned long long)arg1 metrics:(long long)arg2 position:(long long)arg3 type:(long long)arg4;
 - (_Bool)hasImage;
 - (_Bool)hasTitle;
@@ -164,13 +183,20 @@
 - (void)setView:(id)arg1;
 - (id)nextResponder;
 - (id)window;
+- (_Bool)isEqual:(id)arg1;
 - (void)_updateView;
-- (void)_getToolbarEdgeInsets:(struct UIEdgeInsets *)arg1 imageInsets:(struct UIEdgeInsets *)arg2 glowInsets:(struct UIEdgeInsets *)arg3 forBarStyle:(long long)arg4 landscape:(_Bool)arg5 alwaysBordered:(_Bool)arg6;
+- (void)_getToolbarSystemItemEdgeInsetsWithImageInsets:(struct UIEdgeInsets *)arg1 forBarStyle:(long long)arg2 landscape:(_Bool)arg3 alwaysBordered:(_Bool)arg4;
 - (double)_rightImagePaddingForEdgeMarginInNavBar;
 - (double)_leftImagePaddingForEdgeMarginInNavBar;
 - (_Bool)_isImageBarButtonItem;
 - (void)_getNavBarEdgeSizeAdjust:(struct CGSize *)arg1 imageInsets:(struct UIEdgeInsets *)arg2 landscape:(_Bool)arg3;
 - (void)_getSystemItemStyle:(long long *)arg1 title:(id *)arg2 image:(id *)arg3 selectedImage:(id *)arg4 action:(SEL *)arg5 forBarStyle:(long long)arg6 landscape:(_Bool)arg7 alwaysBordered:(_Bool)arg8;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

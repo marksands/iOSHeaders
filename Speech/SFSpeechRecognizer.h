@@ -7,14 +7,16 @@
 #import <objc/NSObject.h>
 
 #import <Speech/AFDictationDelegate-Protocol.h>
+#import <Speech/CXCallObserverDelegate-Protocol.h>
 
-@class AFDictationConnection, NSLocale, NSOperationQueue, NSString;
+@class AFDictationConnection, CXCallObserver, NSLocale, NSOperationQueue, NSString;
 @protocol NSObject, SFSpeechRecognizerDelegate;
 
-@interface SFSpeechRecognizer : NSObject <AFDictationDelegate>
+@interface SFSpeechRecognizer : NSObject <CXCallObserverDelegate, AFDictationDelegate>
 {
     AFDictationConnection *_dictationConnection;
     NSString *_languageCode;
+    CXCallObserver *_callObserver;
     id <NSObject> _facetimeObserver;
     id <NSObject> _foregroundObserver;
     id <NSObject> _preferencesObserver;
@@ -36,16 +38,14 @@
 - (void).cxx_destruct;
 - (void)_informDelegateOfPreferencesChange;
 - (void)_informDelegateOfAvailabilityChange;
+- (void)callObserver:(id)arg1 callChanged:(id)arg2;
 - (void)dictationConnnectionDidChangeAvailability:(id)arg1;
 - (void)_sendEngagementFeedback:(long long)arg1 requestIdentifier:(id)arg2;
 - (id)recognitionTaskWithRequest:(id)arg1 delegate:(id)arg2;
 - (id)recognitionTaskWithRequest:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;
-- (id)_recognitionTaskWithResultHandler:(CDUnknownBlockType)arg1;
-- (void)prepareWithRequest:(id)arg1;
 - (_Bool)_isInternalTaskHint:(long long)arg1;
 - (void)_requestOfflineDictationSupportWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=_isAvailableForForcedOfflineRecognition) _Bool _availableForForcedOfflineRecognition;
-@property(readonly, nonatomic, getter=isAvailableForRecordingRecognition) _Bool availableForRecordingRecognition;
 @property(readonly, nonatomic, getter=isAvailable) _Bool available;
 - (void)dealloc;
 - (id)initWithLocale:(id)arg1;

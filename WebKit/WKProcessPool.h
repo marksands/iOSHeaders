@@ -10,7 +10,7 @@
 #import <WebKit/WKObject-Protocol.h>
 
 @class NSString, WKGeolocationProviderIOS, _WKProcessPoolConfiguration;
-@protocol _WKAutomationDelegate, _WKDownloadDelegate;
+@protocol _WKAutomationDelegate, _WKDownloadDelegate, _WKGeolocationCoreLocationProvider;
 
 @interface WKProcessPool : NSObject <WKObject, NSCoding>
 {
@@ -19,6 +19,7 @@
     struct WeakObjCPtr<id<_WKDownloadDelegate>> _downloadDelegate;
     struct RetainPtr<_WKAutomationSession> _automationSession;
     struct RetainPtr<WKGeolocationProviderIOS> _geolocationProvider;
+    struct RetainPtr<id<_WKGeolocationCoreLocationProvider>> _coreLocationProvider;
 }
 
 + (void)_forceGameControllerFramework;
@@ -36,7 +37,10 @@
 - (void)dealloc;
 - (id)init;
 - (id)_initWithConfiguration:(id)arg1;
+@property(nonatomic, setter=_setCoreLocationProvider:) id <_WKGeolocationCoreLocationProvider> _coreLocationProvider;
 @property(nonatomic, getter=_isCookieStoragePartitioningEnabled, setter=_setCookieStoragePartitioningEnabled:) _Bool _cookieStoragePartitioningEnabled;
+- (unsigned long long)_webProcessCount;
+- (void)_syncNetworkProcessCookies;
 - (void)_terminateDatabaseProcess;
 - (void)_setAutomationSession:(id)arg1;
 - (void)_automationCapabilitiesDidChange;

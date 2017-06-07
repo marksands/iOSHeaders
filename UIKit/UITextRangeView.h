@@ -109,6 +109,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGPoint activeTouchPoint;
 - (void)setMagnifierOrientation;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (struct CGRect)_endEdgeHitRect;
+- (struct CGRect)_startEdgeHitRect;
 - (void)removeFromSuperview;
 - (id)initWithFrame:(struct CGRect)arg1 selectionView:(id)arg2;
 

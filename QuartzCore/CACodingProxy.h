@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 __attribute__((visibility("hidden")))
-@interface CACodingProxy : NSObject <NSCoding>
+@interface CACodingProxy : NSObject <NSSecureCoding>
 {
 }
 
++ (_Bool)supportsSecureCoding;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)decodedObject;

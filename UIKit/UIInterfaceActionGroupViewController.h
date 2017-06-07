@@ -8,18 +8,21 @@
 
 #import <UIKit/UIInterfaceActionGroupDisplaying-Protocol.h>
 #import <UIKit/UIInterfaceActionHandlerInvocationDelegate-Protocol.h>
+#import <UIKit/UISpringLoadedInteractionSupporting-Protocol.h>
 
 @class NSString, UIInterfaceActionGroup, UIInterfaceActionGroupView, UIInterfaceActionVisualStyle;
 @protocol UIInterfaceActionVisualStyleProviding;
 
-@interface UIInterfaceActionGroupViewController : UIViewController <UIInterfaceActionHandlerInvocationDelegate, UIInterfaceActionGroupDisplaying>
+@interface UIInterfaceActionGroupViewController : UIViewController <UIInterfaceActionHandlerInvocationDelegate, UIInterfaceActionGroupDisplaying, UISpringLoadedInteractionSupporting>
 {
+    _Bool _springLoaded;
     id <UIInterfaceActionVisualStyleProviding> _visualStyleProvider;
     UIInterfaceActionGroupView *_actionGroupView;
     UIInterfaceActionGroup *_actionGroup;
 }
 
 @property(readonly, copy, nonatomic) UIInterfaceActionGroup *actionGroup; // @synthesize actionGroup=_actionGroup;
+@property(nonatomic, getter=isSpringLoaded) _Bool springLoaded; // @synthesize springLoaded=_springLoaded;
 - (void).cxx_destruct;
 - (void)interfaceAction:(id)arg1 invokeActionHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)viewWillDisappear:(_Bool)arg1;

@@ -25,6 +25,8 @@
 
 @property(nonatomic) unsigned long long particleRenderOrder; // @synthesize particleRenderOrder=_particleRenderOrder;
 - (void).cxx_destruct;
+- (id)debugHierarchyValueForPropertyWithName:(id)arg1;
+- (id)debugHierarchyPropertyDescriptions;
 - (void)setValue:(id)arg1 forAttributeNamed:(id)arg2;
 - (id)valueForAttributeNamed:(id)arg1;
 - (void)dealloc;

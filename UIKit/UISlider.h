@@ -8,7 +8,7 @@
 
 #import <UIKit/NSCoding-Protocol.h>
 
-@class NSArray, UIColor, UIImage, UIImageView, UIView, _UIFeedbackEdgeBehavior, _UIFeedbackModulationBehavior;
+@class NSArray, UIColor, UIImage, UIImageView, UIView, _UIEdgeFeedbackGenerator, _UIModulationFeedbackGenerator;
 
 @interface UISlider : UIControl <NSCoding>
 {
@@ -43,9 +43,8 @@
     _Bool _trackIsArtworkBased;
     _Bool _thumbIsArtworkBased;
     _Bool _maxColorIsValid;
-    _Bool _animatingWithDynamics;
-    _UIFeedbackEdgeBehavior *_edgeFeedbackBehavior;
-    _UIFeedbackModulationBehavior *_modulationFeedbackBehavior;
+    _UIEdgeFeedbackGenerator *_edgeFeedbackGenerator;
+    _UIModulationFeedbackGenerator *_modulationFeedbackGenerator;
     UIImageView *_innerThumbView;
 }
 
@@ -114,9 +113,10 @@
 - (id)createThumbViewNeue;
 - (void)encodeWithCoder:(id)arg1;
 - (void)_populateArchivedSubviews:(id)arg1;
+@property(retain, nonatomic, getter=_edgeFeedbackBehavior, setter=_setEdgeFeedbackBehavior:) _UIEdgeFeedbackGenerator *edgeFeedbackBehavior;
 - (void)_setupFeedback;
-@property(retain, nonatomic, getter=_modulationFeedbackBehavior, setter=_setModulationFeedbackBehavior:) _UIFeedbackModulationBehavior *modulationFeedbackBehavior;
-@property(retain, nonatomic, getter=_edgeFeedbackBehavior, setter=_setEdgeFeedbackBehavior:) _UIFeedbackEdgeBehavior *edgeFeedbackBehavior;
+@property(retain, nonatomic, getter=_modulationFeedbackGenerator, setter=_setModulationFeedbackGenerator:) _UIModulationFeedbackGenerator *modulationFeedbackGenerator;
+@property(retain, nonatomic, getter=_edgeFeedbackGenerator, setter=_setEdgeFeedbackGenerator:) _UIEdgeFeedbackGenerator *edgeFeedbackGenerator;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;

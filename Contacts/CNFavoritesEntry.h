@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNContactChangesObserver-Protocol.h>
 
@@ -40,6 +40,7 @@
 + (id)descriptorsForRequiredKeysForPropertyKey:(id)arg1;
 + (id)contactFormatter;
 + (id)sharedContactStore;
++ (void)initialize;
 @property(nonatomic) int abIdentifier; // @synthesize abIdentifier=_abIdentifier;
 @property(nonatomic) int abUid; // @synthesize abUid=_abUid;
 @property(copy, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;

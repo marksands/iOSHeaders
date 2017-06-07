@@ -9,6 +9,7 @@
 @class UIView, _UIQueuingScrollView;
 
 @protocol _UIQueuingScrollViewDelegate <NSObject>
+- (void)queuingScrollView:(_UIQueuingScrollView *)arg1 attemptToPageInDirection:(long long)arg2;
 - (_Bool)queuingScrollViewShouldLayoutSubviews:(_UIQueuingScrollView *)arg1;
 - (void)queuingScrollViewDidFinishScrolling:(_UIQueuingScrollView *)arg1;
 - (void)queuingScrollView:(_UIQueuingScrollView *)arg1 didBailoutOfScrollAndRevealedView:(UIView *)arg2;

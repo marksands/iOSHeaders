@@ -18,14 +18,19 @@
     NSArray *_tierIdentifiers;
     NSDate *_creationDate;
     NSDate *_modificationDate;
-    NSString *_subscriptionInfo;
+    NSString *_derivedSubscriptionInfo;
+    NSString *_providedSubscriptionInfo;
     VSSubscriptionSource *_source;
+    NSString *_subscriberIdentifierHash;
 }
 
 + (id)keyPathsForValuesAffectingVersionHash;
++ (id)keyPathsForValuesAffectingSubscriptionInfo;
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *subscriberIdentifierHash; // @synthesize subscriberIdentifierHash=_subscriberIdentifierHash;
 @property(copy, nonatomic) VSSubscriptionSource *source; // @synthesize source=_source;
-@property(copy, nonatomic) NSString *subscriptionInfo; // @synthesize subscriptionInfo=_subscriptionInfo;
+@property(copy, nonatomic) NSString *providedSubscriptionInfo; // @synthesize providedSubscriptionInfo=_providedSubscriptionInfo;
+@property(copy, nonatomic) NSString *derivedSubscriptionInfo; // @synthesize derivedSubscriptionInfo=_derivedSubscriptionInfo;
 @property(copy, nonatomic) NSDate *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(copy, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(copy, nonatomic) NSArray *tierIdentifiers; // @synthesize tierIdentifiers=_tierIdentifiers;
@@ -35,6 +40,7 @@
 @property(readonly, copy, nonatomic) NSData *versionHash;
 - (void)_updateHash:(id)arg1 withValueForProperty:(id)arg2;
 - (void)setNilValueForKey:(id)arg1;
+@property(copy, nonatomic) NSString *subscriptionInfo;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

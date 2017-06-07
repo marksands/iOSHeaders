@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (void)pressesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;
 - (_Bool)_shouldHandlePressEvent:(id)arg1;
-- (void)focusedViewDidChange;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)wantsImageShadow;
 - (_Bool)wantsMaskingWhileAnimatingDisabled;
 - (void)setSelected:(_Bool)arg1;

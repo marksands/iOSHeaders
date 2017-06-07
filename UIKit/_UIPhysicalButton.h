@@ -22,6 +22,6 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
-@property(readonly, retain, nonatomic) UIWindow *window;
+@property(readonly, nonatomic) UIWindow *window;
 @end
 

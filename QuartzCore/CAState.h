@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
 #import <QuartzCore/NSCopying-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSMutableArray, NSString;
 
-@interface CAState : NSObject <NSCoding, NSCopying>
+@interface CAState : NSObject <NSSecureCoding, NSCopying>
 {
     NSString *_name;
     NSString *_basedOn;
@@ -23,6 +23,7 @@
     _Bool _initial;
 }
 
++ (_Bool)supportsSecureCoding;
 + (void)CAMLParserStartElement:(id)arg1;
 @property(getter=isInitial) _Bool initial; // @synthesize initial=_initial;
 @property(nonatomic, getter=isLocked) _Bool locked; // @synthesize locked=_locked;

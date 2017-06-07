@@ -22,6 +22,7 @@
 }
 
 + (id)options;
+@property(retain, nonatomic) NSString *identificationHint; // @synthesize identificationHint=_identificationHint;
 @property(retain, nonatomic) _INPBImageValue *icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) _INPBValueMetadata *valueMetadata; // @synthesize valueMetadata=_valueMetadata;
@@ -35,6 +36,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasIdentificationHint;
 @property(readonly, nonatomic) _Bool hasIcon;
 @property(readonly, nonatomic) _Bool hasName;
 - (int)StringAsType:(id)arg1;
@@ -42,8 +44,6 @@
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) _Bool hasValueMetadata;
-@property(retain, nonatomic) NSString *identificationHint;
-@property(readonly, nonatomic) _Bool hasIdentificationHint;
 
 @end
 

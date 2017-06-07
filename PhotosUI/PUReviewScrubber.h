@@ -10,7 +10,7 @@
 #import <PhotosUI/UICollectionViewDelegate-Protocol.h>
 #import <PhotosUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSIndexPath, NSString, PUHorizontalCollectionViewLayout, UICollectionView, UIImageView, UITapGestureRecognizer, _UIBackdropView, _UIFeedbackImpactBehavior;
+@class NSIndexPath, NSString, PUHorizontalCollectionViewLayout, UICollectionView, UIImageView, UIImpactFeedbackGenerator, UITapGestureRecognizer, _UIBackdropView;
 @protocol PUReviewScrubberDataSource, PUReviewScrubberDelegate;
 
 __attribute__((visibility("hidden")))
@@ -28,12 +28,12 @@ __attribute__((visibility("hidden")))
     PUHorizontalCollectionViewLayout *__collectionViewLayout;
     UICollectionView *__collectionView;
     UITapGestureRecognizer *__tapGestureRecognizer;
-    _UIFeedbackImpactBehavior *__impactFeedbackBehavior;
+    UIImpactFeedbackGenerator *__impactFeedbackBehavior;
     NSIndexPath *__indexPathForPreviousFeedbackQuery;
 }
 
 @property(retain, nonatomic, setter=_setIndexPathForPreviousFeedbackQuery:) NSIndexPath *_indexPathForPreviousFeedbackQuery; // @synthesize _indexPathForPreviousFeedbackQuery=__indexPathForPreviousFeedbackQuery;
-@property(readonly, nonatomic) _UIFeedbackImpactBehavior *_impactFeedbackBehavior; // @synthesize _impactFeedbackBehavior=__impactFeedbackBehavior;
+@property(readonly, nonatomic) UIImpactFeedbackGenerator *_impactFeedbackBehavior; // @synthesize _impactFeedbackBehavior=__impactFeedbackBehavior;
 @property(readonly, nonatomic) UITapGestureRecognizer *_tapGestureRecognizer; // @synthesize _tapGestureRecognizer=__tapGestureRecognizer;
 @property(readonly, nonatomic) _Bool _performingInteractiveUpdate; // @synthesize _performingInteractiveUpdate=__performingInteractiveUpdate;
 @property(readonly, nonatomic) _Bool _ignoreScrollViewDidScrollUpdate; // @synthesize _ignoreScrollViewDidScrollUpdate=__ignoreScrollViewDidScrollUpdate;
@@ -78,6 +78,7 @@ __attribute__((visibility("hidden")))
 - (void)reloadData;
 - (void)setSelectedIndex:(long long)arg1 animated:(_Bool)arg2;
 - (_Bool)isMinibar;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)dealloc;

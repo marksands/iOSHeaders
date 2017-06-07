@@ -11,6 +11,7 @@
 @protocol WKNavigationDelegatePrivate <WKNavigationDelegate>
 
 @optional
+- (void)_webViewDidRequestPasswordForQuickLookDocument:(WKWebView *)arg1;
 - (void)_webView:(WKWebView *)arg1 didFinishLoadForQuickLookDocumentInMainFrame:(NSData *)arg2;
 - (void)_webView:(WKWebView *)arg1 didStartLoadForQuickLookDocumentInMainFrameWithFileName:(NSString *)arg2 uti:(NSString *)arg3;
 - (void)_webView:(WKWebView *)arg1 decidePolicyForNavigationAction:(WKNavigationAction *)arg2 decisionHandler:(void (^)(long long, _WKWebsitePolicies *))arg3;

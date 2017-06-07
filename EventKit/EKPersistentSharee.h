@@ -6,36 +6,34 @@
 
 #import <EventKit/EKPersistentObject.h>
 
-#import <EventKit/NSCopying-Protocol.h>
-
-@class NSString;
-
-@interface EKPersistentSharee : EKPersistentObject <NSCopying>
+@interface EKPersistentSharee : EKPersistentObject
 {
 }
 
-+ (id)shareeWithEmailAddress:(id)arg1 name:(id)arg2;
-+ (id)shareeWithName:(id)arg1 emailAddress:(id)arg2 externalID:(id)arg3;
 + (id)relations;
 + (id)defaultPropertiesToLoad;
 - (id)description;
 - (id)owner;
 - (void)setOwner:(id)arg1;
-@property(nonatomic) unsigned long long shareeAccessLevel;
-@property(nonatomic) unsigned long long shareeStatus;
-@property(copy, nonatomic) NSString *externalID;
-@property(copy, nonatomic) NSString *lastName;
-@property(copy, nonatomic) NSString *firstName;
-@property(copy, nonatomic) NSString *emailAddress;
-@property(copy, nonatomic) NSString *address;
-@property(copy, nonatomic) NSString *displayName;
-@property(readonly, nonatomic) NSString *UUID;
+- (void)setShareeAccessLevel:(int)arg1;
+- (int)shareeAccessLevel;
+- (void)setShareeStatus:(int)arg1;
+- (int)shareeStatus;
+- (void)setExternalID:(id)arg1;
+- (id)externalID;
+- (void)setLastName:(id)arg1;
+- (id)lastName;
+- (void)setFirstName:(id)arg1;
+- (id)firstName;
+- (void)setAddress:(id)arg1;
+- (id)address;
+- (void)setDisplayName:(id)arg1;
+- (id)displayName;
+- (void)setUUID:(id)arg1;
+- (id)UUID;
 - (unsigned long long)hash;
 - (int)entityType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithName:(id)arg1 emailAddress:(id)arg2 externalID:(id)arg3;
-- (id)initWithEmailAddress:(id)arg1 name:(id)arg2;
-- (id)init;
 
 @end
 

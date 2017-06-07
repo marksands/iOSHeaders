@@ -10,17 +10,14 @@
 {
 }
 
-+ (_Bool)_tencentWeiboAttachmentsContainURL:(id)arg1;
-+ (_Bool)_tencentWeiboAttachmentsContainImage:(id)arg1;
-+ (_Bool)_weiboAttachmentsContainURL:(id)arg1;
-+ (_Bool)_weiboAttachmentsContainImage:(id)arg1;
-+ (_Bool)_twitterAttachmentsContainURL:(id)arg1;
-+ (_Bool)_twitterAttachmentsContainImage:(id)arg1;
++ (_Bool)_attachmentsContainURL:(id)arg1;
++ (_Bool)_attachmentsContainImage:(id)arg1;
 + (id)_logIdentifierForPID:(int)arg1;
 + (void)logVimeoAppInstallChoice:(_Bool)arg1;
 + (void)logFlickrAppInstallChoice:(_Bool)arg1;
 + (void)logTencentWeiboAppInstallChoice:(_Bool)arg1;
 + (void)logWeiboAppInstallChoice:(_Bool)arg1;
++ (void)logPostWithServiceNameKey:(id)arg1 text:(id)arg2 attachments:(id)arg3 locationAttached:(_Bool)arg4 fromProcessWithPID:(int)arg5;
 + (void)logTencentWeiboWithText:(id)arg1 attachments:(id)arg2 locationAttached:(_Bool)arg3 fromProcessWithPID:(int)arg4;
 + (void)logWeiboWithText:(id)arg1 attachments:(id)arg2 locationAttached:(_Bool)arg3 fromProcessWithPID:(int)arg4;
 + (void)logTwitterAppInstallChoice:(_Bool)arg1;

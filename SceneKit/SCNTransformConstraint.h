@@ -10,10 +10,14 @@
 {
 }
 
++ (id)orientationConstraintInWorldSpace:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
++ (id)positionConstraintInWorldSpace:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
 + (id)transformConstraintInWorldSpace:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initInWorld:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (id)initOrientationInWorldSpace:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (id)initPositionInWorld:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (id)initTransformInWorld:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;
 
 @end
 

@@ -8,6 +8,8 @@
 
 @interface NSUserDefaults (SafariServicesExtras)
 + (id)_sf_safariDefaults;
+- (void)_sf_setShouldAutomaticallyDownloadReadingListItems:(_Bool)arg1;
+- (_Bool)_sf_shouldAutomaticallyDownloadReadingListItems;
 - (_Bool)_sf_warnAboutFraudulentWebsites;
 - (_Bool)_sf_javaScriptCanOpenWindowsAutomatically;
 - (_Bool)_sf_javaScriptEnabled;

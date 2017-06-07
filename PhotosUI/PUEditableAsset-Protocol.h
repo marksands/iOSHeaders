@@ -22,7 +22,6 @@
 @property(readonly, nonatomic, getter=isContentAdjustmentAllowed) _Bool contentAdjustmentAllowed;
 @property(readonly, nonatomic, getter=isAdjusted) _Bool adjusted;
 @property(readonly, nonatomic, getter=isHighFramerateVideo) _Bool highFramerateVideo;
-@property(readonly, nonatomic, getter=isLivePhoto) _Bool livePhoto;
 @property(readonly, nonatomic) unsigned long long mediaSubtypes;
 - (void)cancelContentEditingInputRequest:(unsigned long long)arg1;
 - (unsigned long long)requestContentEditingInputWithOptions:(PHContentEditingInputRequestOptions *)arg1 completionHandler:(void (^)(PHContentEditingInput *, NSDictionary *))arg2;

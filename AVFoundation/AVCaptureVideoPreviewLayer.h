@@ -17,6 +17,9 @@
 + (id)layerWithSession:(id)arg1;
 + (void)initialize;
 - (void)_handleNotification:(id)arg1 payload:(id)arg2;
+- (_Bool)_setVideoPreviewFilters:(id)arg1 checkForExceptionalInput:(_Bool)arg2 exceptionReason:(id *)arg3;
+- (_Bool)_filtersAreOptimized:(id)arg1 exceptionReason:(id *)arg2;
+- (void)_updateDepthDataDeliverySupported;
 - (void)_updatePreviewTransforms;
 - (void)_updateCaptureDeviceTransform;
 - (void)_setSensorAndEstimatedPreviewSizes;
@@ -26,7 +29,6 @@
 - (id)_input;
 - (struct CGPoint)pointForCaptureDevicePointOfInterest:(struct CGPoint)arg1;
 - (struct CGPoint)captureDevicePointOfInterestForPoint:(struct CGPoint)arg1;
-- (id)liveConnections;
 - (void)setSinkID:(id)arg1;
 - (id)sinkID;
 - (void)detachFromFigCaptureSession:(struct OpaqueFigCaptureSession *)arg1;
@@ -37,9 +39,17 @@
 - (void)removeConnection:(id)arg1;
 - (id)addConnection:(id)arg1 error:(id *)arg2;
 - (id)connectionMediaTypes;
-- (id)connections;
-- (id)activeConnections;
 - (void)layerDidBecomeVisible:(_Bool)arg1;
+- (unsigned int)imageQueueSlot;
+- (void)setUnoptimizedFilterRenderingEnabled:(_Bool)arg1;
+- (_Bool)isUnoptimizedFilterRenderingEnabled;
+- (void)setVideoPreviewFilters:(id)arg1;
+- (id)videoPreviewFilters;
+- (void)setFilterRenderingEnabled:(_Bool)arg1;
+- (_Bool)isFilterRenderingEnabled;
+- (void)setDepthDataDeliveryEnabled:(_Bool)arg1;
+- (_Bool)isDepthDataDeliveryEnabled;
+- (_Bool)isDepthDataDeliverySupported;
 - (void)setChromaNoiseReductionEnabled:(_Bool)arg1;
 - (_Bool)isChromaNoiseReductionEnabled;
 - (_Bool)isChromaNoiseReductionSupported;

@@ -43,6 +43,7 @@
     UITapGestureRecognizer *_doubleTapGestureRecognizer;
     _Bool _allowsOccurrenceSelection;
     _Bool _alignsMidnightToTop;
+    _Bool _showOnlyAllDayArea;
     _Bool _isNowVisible;
     _Bool _scrollEventsInToViewIgnoresVisibility;
     _Bool _shouldEverShowTimeIndicators;
@@ -56,16 +57,13 @@
     NSCalendar *_calendar;
     double _additionalLeftPadding;
     double _topYBoundaryForOccurrenceText;
-    double _verticalContentInset;
+    double _topContentInset;
+    double _bottomContentInset;
     double _todayScrollSecondBuffer;
     double _scrollAnimationDurationOverride;
     double _hourScale;
-    double _topContentInset;
-    double _bottomContentInset;
 }
 
-@property(nonatomic) double bottomContentInset; // @synthesize bottomContentInset=_bottomContentInset;
-@property(nonatomic) double topContentInset; // @synthesize topContentInset=_topContentInset;
 @property(nonatomic) double hourScale; // @synthesize hourScale=_hourScale;
 @property(nonatomic) double scrollAnimationDurationOverride; // @synthesize scrollAnimationDurationOverride=_scrollAnimationDurationOverride;
 @property(nonatomic) double todayScrollSecondBuffer; // @synthesize todayScrollSecondBuffer=_todayScrollSecondBuffer;
@@ -76,9 +74,11 @@
 @property(nonatomic) _Bool shouldEverShowTimeIndicators; // @synthesize shouldEverShowTimeIndicators=_shouldEverShowTimeIndicators;
 @property(nonatomic) _Bool scrollEventsInToViewIgnoresVisibility; // @synthesize scrollEventsInToViewIgnoresVisibility=_scrollEventsInToViewIgnoresVisibility;
 @property(nonatomic) _Bool isNowVisible; // @synthesize isNowVisible=_isNowVisible;
-@property(nonatomic) double verticalContentInset; // @synthesize verticalContentInset=_verticalContentInset;
+@property(nonatomic) double bottomContentInset; // @synthesize bottomContentInset=_bottomContentInset;
+@property(nonatomic) double topContentInset; // @synthesize topContentInset=_topContentInset;
 @property(nonatomic) double topYBoundaryForOccurrenceText; // @synthesize topYBoundaryForOccurrenceText=_topYBoundaryForOccurrenceText;
 @property(nonatomic) double additionalLeftPadding; // @synthesize additionalLeftPadding=_additionalLeftPadding;
+@property(nonatomic) _Bool showOnlyAllDayArea; // @synthesize showOnlyAllDayArea=_showOnlyAllDayArea;
 @property(nonatomic) _Bool alignsMidnightToTop; // @synthesize alignsMidnightToTop=_alignsMidnightToTop;
 @property(nonatomic) _Bool allowsOccurrenceSelection; // @synthesize allowsOccurrenceSelection=_allowsOccurrenceSelection;
 @property(readonly, nonatomic) double dayEnd; // @synthesize dayEnd=_dayEnd;

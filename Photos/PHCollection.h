@@ -21,8 +21,7 @@
 + (id)fetchMomentsForAssetsWithLocalIdentifiers:(id)arg1 options:(id)arg2;
 + (id)fetchTopLevelUserCollectionsWithOptions:(id)arg1;
 + (id)fetchCollectionsInCollectionList:(id)arg1 options:(id)arg2;
-+ (id)fetchPredicateFromComparisonPredicate:(id)arg1 options:(id)arg2;
-+ (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (_Bool)managedObjectSupportsTrashedState;
 + (id)fetchType;
@@ -37,6 +36,8 @@
 - (id)description;
 - (unsigned long long)collectionFixedOrderPriority;
 - (_Bool)collectionHasFixedOrder;
+@property(readonly, nonatomic) _Bool hasLocationInfo;
+@property(readonly, nonatomic) _Bool hasLocalizedTitle;
 @property(readonly, nonatomic) NSString *localizedTitle;
 - (_Bool)canPerformEditOperation:(long long)arg1;
 @property(readonly, nonatomic) _Bool canContainCollections;

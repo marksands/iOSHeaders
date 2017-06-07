@@ -7,44 +7,42 @@
 #import <objc/NSObject.h>
 
 #import <HomeKit/HMFMessageReceiver-Protocol.h>
+#import <HomeKit/HMObjectMerge-Protocol.h>
 #import <HomeKit/NSSecureCoding-Protocol.h>
 
-@class HMAccessory, HMDelegateCaller, HMFMessageDispatcher, HMHome, NSArray, NSString, NSUUID;
+@class HMAccessory, HMHome, NSArray, NSString, NSUUID, _HMContext;
 @protocol OS_dispatch_queue;
 
-@interface _HMAccessoryProfile : NSObject <HMFMessageReceiver, NSSecureCoding>
+@interface _HMAccessoryProfile : NSObject <HMObjectMerge, HMFMessageReceiver, NSSecureCoding>
 {
     NSUUID *_uniqueIdentifier;
-    HMFMessageDispatcher *_msgDispatcher;
-    NSObject<OS_dispatch_queue> *_clientQueue;
-    HMDelegateCaller *_delegateCaller;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
+    _HMContext *_context;
     NSUUID *_profileUniqueIdentifier;
     NSArray *_services;
     HMAccessory *_accessory;
     HMHome *_home;
-    NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) __weak HMHome *home; // @synthesize home=_home;
 @property(readonly, nonatomic) __weak HMAccessory *accessory; // @synthesize accessory=_accessory;
 @property(readonly, nonatomic) NSArray *services; // @synthesize services=_services;
 @property(readonly, copy, nonatomic) NSUUID *profileUniqueIdentifier; // @synthesize profileUniqueIdentifier=_profileUniqueIdentifier;
-@property(retain, nonatomic) HMDelegateCaller *delegateCaller; // @synthesize delegateCaller=_delegateCaller;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
-@property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
+@property(retain, nonatomic) _HMContext *context; // @synthesize context=_context;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-@property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
+@property(readonly, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (_Bool)_mergeWithNewObject:(id)arg1 operations:(id)arg2;
 - (void)_registerNotificationHandlers;
 @property(readonly, copy) NSString *description;
-- (void)configureWithAccessory:(id)arg1 clientQueue:(id)arg2 delegateCaller:(id)arg3 msgDispatcher:(id)arg4 home:(id)arg5;
+- (void)configureWithAccessory:(id)arg1 home:(id)arg2 context:(id)arg3;
 - (id)init;
 
 // Remaining properties

@@ -14,15 +14,15 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_mapTable;
 }
 
++ (id)generateKeyForObject:(id)arg1 andProperty:(id)arg2;
 + (id)compoundObjectMap;
-@property(retain, nonatomic) NSMutableDictionary *mapTable; // @synthesize mapTable=_mapTable;
 - (void).cxx_destruct;
+- (void)performWithEach:(CDUnknownBlockType)arg1;
 - (void)removeAllMappings;
 - (void)setValue:(id)arg1 forObject:(id)arg2 andProperty:(id)arg3;
 - (id)valueForObject:(id)arg1 andProperty:(id)arg2;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
-- (id)generateKeyForObject:(id)arg1 andProperty:(id)arg2;
 - (id)init;
 
 @end

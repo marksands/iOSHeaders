@@ -15,9 +15,13 @@
 
 + (id)shared;
 - (void).cxx_destruct;
+@property(nonatomic) _Bool alertInviteeDeclines;
+@property(nonatomic) _Bool showDeclinedEvents;
 @property(retain, nonatomic) NSArray *selectedCalendarIdentifiers;
 @property(retain, nonatomic) NSArray *deselectedCalendarSyncHashes;
 @property(retain, nonatomic) NSArray *deselectedCalendarIdentifiers;
+- (long long)_acknowledgedPreferenceVersion;
+@property(readonly, nonatomic) _Bool privacyPaneHasBeenAcknowledgedFallback;
 @property(nonatomic) _Bool privacyPaneHasBeenAcknowledged;
 @property(nonatomic) _Bool remindMeAboutThisInCalendarWidgetEnabled;
 @property(nonatomic) _Bool alwaysSetArrivedAndSettledForReminders;

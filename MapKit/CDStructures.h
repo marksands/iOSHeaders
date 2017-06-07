@@ -71,6 +71,8 @@ struct GEOJunctionElement {
     } _field4;
 };
 
+struct PolylineCoordinateRange;
+
 struct UIEdgeInsets {
     double top;
     double left;
@@ -115,13 +117,9 @@ struct _GEOTileKey {
     unsigned char reserved2[4];
 };
 
-struct _MKUILabel {
-    Class _field1;
-};
-
 struct _NSRange {
-    unsigned long long _field1;
-    unsigned long long _field2;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::__list_iterator<geo::detail::_CacheItem<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, NSDictionary *, _value_ptr>, void *>>, void *>*> {
@@ -195,6 +193,14 @@ struct unordered_map<geo::_retain_ptr<_MKPinAnnotationViewImageCacheKey *, geo::
     } __table_;
 };
 
+struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> {
+    struct PolylineCoordinateRange *_field1;
+    struct PolylineCoordinateRange *_field2;
+    struct __compressed_pair<URS::PolylineCoordinateRange *, std::__1::allocator<URS::PolylineCoordinateRange>> {
+        struct PolylineCoordinateRange *_field1;
+    } _field3;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -215,6 +221,13 @@ typedef struct {
     unsigned int _field3;
     unsigned int _field4;
 } CDStruct_7523a67d;
+
+typedef struct {
+    unsigned long long _field1;
+    id *_field2;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
 
 typedef struct {
     long long x;
@@ -302,4 +315,12 @@ typedef struct {
     double width;
     double height;
 } CDStruct_8caa76fc;
+
+typedef struct vector<URS::PolylineCoordinateRange, std::__1::allocator<URS::PolylineCoordinateRange>> {
+    struct PolylineCoordinateRange *_field1;
+    struct PolylineCoordinateRange *_field2;
+    struct __compressed_pair<URS::PolylineCoordinateRange *, std::__1::allocator<URS::PolylineCoordinateRange>> {
+        struct PolylineCoordinateRange *_field1;
+    } _field3;
+} vector_78caa0aa;
 

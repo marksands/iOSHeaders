@@ -12,6 +12,8 @@ __attribute__((visibility("hidden")))
 @interface VSDemoProvider : NSObject
 {
     _Bool _prohibited;
+    _Bool _featured;
+    NSString *_displayName;
     NSString *_appIdentifier;
     NSURL *_appStoreRoomURL;
     NSString *_providerIdentifier;
@@ -28,15 +30,17 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VSDemoProviderServer *server; // @synthesize server=_server;
 @property(copy, nonatomic) NSArray *authProtocols; // @synthesize authProtocols=_authProtocols;
 @property(copy, nonatomic) NSArray *authTemplates; // @synthesize authTemplates=_authTemplates;
+@property(nonatomic, getter=isFeatured) _Bool featured; // @synthesize featured=_featured;
 @property(nonatomic, getter=isProhibited) _Bool prohibited; // @synthesize prohibited=_prohibited;
 @property(copy, nonatomic) NSString *vendorIdentifier; // @synthesize vendorIdentifier=_vendorIdentifier;
 @property(copy, nonatomic) NSString *providerIdentifier; // @synthesize providerIdentifier=_providerIdentifier;
 @property(copy, nonatomic) NSURL *appStoreRoomURL; // @synthesize appStoreRoomURL=_appStoreRoomURL;
 @property(copy, nonatomic) NSString *appIdentifier; // @synthesize appIdentifier=_appIdentifier;
+@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSString *displayName;
 @property(readonly, copy, nonatomic) NSURL *authURL;
 - (id)init;
+- (id)initWithCookieServer:(id)arg1 demoServer:(id)arg2;
 
 @end
 

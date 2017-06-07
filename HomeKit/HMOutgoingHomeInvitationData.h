@@ -23,7 +23,7 @@
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithInviteeUserID:(id)arg1 inviteeName:(id)arg2 invitationState:(long long)arg3 expiryDate:(id)arg4;
+- (id)initWithUUID:(id)arg1 inviteeUserID:(id)arg2 inviteeName:(id)arg3 invitationState:(long long)arg4 expiryDate:(id)arg5;
 
 @end
 

@@ -11,6 +11,7 @@
 @protocol PUOneUpAccessoryViewControllersManagerDelegate <NSObject>
 
 @optional
+- (_Bool)oneUpAccessoryViewControllersManagerRequestAccessoryDismissal:(PUOneUpAccessoryViewControllersManager *)arg1;
 - (_Bool)oneUpAccessoryViewControllersManager:(PUOneUpAccessoryViewControllersManager *)arg1 preventRevealInMomentActionForAssetReference:(PUAssetReference *)arg2;
 @end
 

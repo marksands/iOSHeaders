@@ -6,7 +6,7 @@
 
 #import <Foundation/NSFileReactorProxy.h>
 
-@class NSFileAccessProcessManager, NSFilePresenterXPCMessenger, NSFileWatcher, NSMutableArray, NSObject;
+@class NSFileAccessProcessManager, NSFilePresenterXPCMessenger, NSFileWatcher, NSMutableArray, NSObject, NSSet;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     id _currentWriterPurposeID;
     NSMutableArray *_previousWriterPurposeIDs;
     NSFileAccessProcessManager *_processManager;
+    NSSet *_observedUbiquityAttributes;
     unsigned long long _filePresenterResponses;
     _Bool _didObserveMovingByWriter;
     _Bool _didObserveVersionChangingByWriter;
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 
 + (id)urlWithItemURL:(id)arg1 subitemPath:(id)arg2;
 @property(nonatomic) unsigned long long filePresenterResponses; // @synthesize filePresenterResponses=_filePresenterResponses;
+@property(copy) NSSet *observedUbiquityAttributes; // @synthesize observedUbiquityAttributes=_observedUbiquityAttributes;
 @property _Bool usesMainThreadDuringReliquishing; // @synthesize usesMainThreadDuringReliquishing=_usesMainThreadDuringRelinquishing;
 @property _Bool inSubarbiter; // @synthesize inSubarbiter=_inSubarbiter;
 - (void)localFileWasEvicted;
@@ -38,9 +40,12 @@ __attribute__((visibility("hidden")))
 @property(readonly) _Bool disconnected;
 - (void)disconnect;
 - (void)forwardRelinquishmentForWritingClaim:(_Bool)arg1 withID:(id)arg2 purposeID:(id)arg3 subitemURL:(id)arg4 options:(unsigned long long)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)observePresenterChange:(_Bool)arg1 atSubitemURL:(id)arg2;
 - (void)observeVersionChangeOfKind:(id)arg1 withClientID:(id)arg2 name:(id)arg3 subitemPath:(id)arg4;
 - (void)observeChangeAtSubitemPath:(id)arg1;
 - (void)observeDisappearanceAtSubitemPath:(id)arg1;
+- (void)observeChangeOfUbiquityAttributes:(id)arg1;
+- (void)observeSharingChangeAtSubitemPath:(id)arg1 withPhysicalURL:(id)arg2;
 - (void)observeUbiquityChangeAtSubitemPath:(id)arg1 withPhysicalURL:(id)arg2;
 - (void)observeReconnectionByWriterWithPurposeID:(id)arg1;
 - (void)observeDisconnectionByWriterWithPurposeID:(id)arg1;

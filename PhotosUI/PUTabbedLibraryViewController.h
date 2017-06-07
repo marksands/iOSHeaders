@@ -24,6 +24,7 @@
     NSMutableDictionary *_filteredAlbumListsByContentMode;
     PUMomentsZoomLevelManager *_zoomLevelManager;
     NSMutableIndexSet *_everDisplayedContentModes;
+    _Bool _shouldNavigateToAllPhotosAlbum;
     PUImportViewController *_importViewController;
     NSArray *_excludedContentModes;
 }
@@ -31,6 +32,7 @@
 + (_Bool)_shouldForwardViewWillTransitionToSize;
 + (void)initialize;
 @property(copy, nonatomic) NSArray *excludedContentModes; // @synthesize excludedContentModes=_excludedContentModes;
+@property(nonatomic) _Bool shouldNavigateToAllPhotosAlbum; // @synthesize shouldNavigateToAllPhotosAlbum=_shouldNavigateToAllPhotosAlbum;
 @property(retain, nonatomic) PUImportViewController *importViewController; // @synthesize importViewController=_importViewController;
 @property(retain, nonatomic) PUSessionInfo *sessionInfo; // @synthesize sessionInfo=_sessionInfo;
 - (void).cxx_destruct;
@@ -99,6 +101,7 @@
 - (id)_newNavigationControllerWithRootController:(id)arg1;
 - (id)_existingNavigationControllerForContentMode:(int)arg1;
 - (void)setSelectedViewController:(id)arg1;
+- (int)contentModeForTabIdentifier:(unsigned long long)arg1;
 - (unsigned long long)tabIdentifierForContentMode:(int)arg1;
 @property(nonatomic) int selectedContentMode;
 - (_Bool)shouldShowTabForContentMode:(int)arg1;

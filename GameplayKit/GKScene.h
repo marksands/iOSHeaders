@@ -20,6 +20,8 @@
 }
 
 + (id)sceneWithFileNamed:(id)arg1;
++ (id)sceneWithFileNamed:(id)arg1 rootNode:(id)arg2;
++ (id)_sceneWithFileNamed:(id)arg1 rootNode:(id)arg2;
 @property(retain, nonatomic) id <GKSceneRootNodeType> rootNode; // @synthesize rootNode=_rootNode;
 @property(readonly, nonatomic) NSDictionary *graphs; // @synthesize graphs=_graphs;
 @property(readonly, nonatomic) NSArray *entities; // @synthesize entities=_entities;

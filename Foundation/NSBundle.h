@@ -95,6 +95,7 @@
 - (id)URLForResource:(id)arg1 withExtension:(id)arg2 subdirectory:(id)arg3 localization:(id)arg4;
 - (id)pathForResource:(id)arg1 ofType:(id)arg2 inDirectory:(id)arg3 forLocalization:(id)arg4;
 - (id)findBundleResourceURLsCallingMethod:(SEL)arg1 passingTest:(CDUnknownBlockType)arg2;
+- (struct __CFBundle *)_cfBundleIfPresent;
 - (struct __CFBundle *)_cfBundle;
 - (double)preservationPriorityForTag:(id)arg1;
 - (void)setPreservationPriority:(double)arg1 forTag:(id)arg2;

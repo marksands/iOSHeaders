@@ -52,7 +52,7 @@ __attribute__((visibility("hidden")))
 - (void)fetchRemainingUUIDs:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSString *displaySubtitle;
 @property(readonly, copy) NSString *displayTitle;
-- (id)displayTitleWithDefaultAttributes:(id)arg1 highlightedAttributes:(id)arg2 selectedDisplayTitle:(id *)arg3;
+- (id)displayTitleWithDefaultAttributes:(id)arg1 dimmedAttributes:(id)arg2 selectedDisplayTitle:(id *)arg3;
 - (_Bool)isFinished;
 @property(readonly) double score;
 @property(readonly, nonatomic) NSArray *searchTokens;

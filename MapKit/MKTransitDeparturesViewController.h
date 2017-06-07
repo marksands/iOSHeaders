@@ -7,15 +7,17 @@
 #import <MapKit/_MKTableViewController.h>
 
 #import <MapKit/MKDynamicTransitUIContainer-Protocol.h>
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
+#import <MapKit/MKStackingViewControllerPreferredSizeUse-Protocol.h>
 #import <MapKit/MKTransitDeparturesCellDelegate-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 #import <MapKit/_MKTransitConnectionCellDelegate-Protocol.h>
 
-@class MKMapItem, MKTransitItemIncidentsController, NSDate, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
+@class MKArtworkDataSourceCache, MKMapItem, MKTransitItemIncidentsController, NSDate, NSMapTable, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 @protocol MKTransitDepaturesViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKTransitDeparturesViewController : _MKTableViewController <_MKTransitConnectionCellDelegate, MKTransitDeparturesCellDelegate, MKDynamicTransitUIContainer, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKTransitDeparturesViewController : _MKTableViewController <_MKTransitConnectionCellDelegate, MKTransitDeparturesCellDelegate, MKDynamicTransitUIContainer, MKStackingViewControllerPreferredSizeUse, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     NSMutableDictionary *_sectionControllers;
     NSMutableSet *_pagedSectionIdentifiers;
@@ -39,6 +41,7 @@ __attribute__((visibility("hidden")))
     _Bool _showDisambiguation;
     _Bool _allowsTransitLineSelection;
     _Bool _isInSiri;
+    MKArtworkDataSourceCache *_artworkCache;
     MKMapItem *_mapItem;
     NSDate *_departureCutoffDate;
     NSDate *_lastCutoffDateWithValidSchedule;
@@ -89,8 +92,6 @@ __attribute__((visibility("hidden")))
 - (void)_localeDidChange;
 - (double)_maxImageWidthForSection:(long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (double)_maxImageWidthForSection:(long long)arg1;
-- (double)_columnCenteringImageWidthForSection:(long long)arg1;
-- (_Bool)_isImageCandidateForColumnCentering:(id)arg1 source:(id)arg2;
 - (id)_imageForLine:(id)arg1 inSection:(long long)arg2;
 - (id)_imageForLine:(id)arg1 size:(long long)arg2;
 - (long long)_lineImageSizeForSection:(long long)arg1;
@@ -98,6 +99,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_isCompressedWithTraits:(id)arg1;
 - (id)_imageWithArtworkDataSource:(id)arg1;
 - (id)_smallerImageWithArtworkDataSource:(id)arg1;
+@property(readonly, nonatomic) MKArtworkDataSourceCache *artworkCache; // @synthesize artworkCache=_artworkCache;
 - (id)_viewForFooterInSection:(long long)arg1;
 - (id)_viewForHeaderInSection:(long long)arg1;
 - (void)incidentButtonSelectedInDeparturesCell:(id)arg1;
@@ -150,6 +152,8 @@ __attribute__((visibility("hidden")))
 - (void)_updateDepartureCutoffDate;
 - (double)_heightForFooterInSection:(long long)arg1;
 - (void)transitUIReferenceTimeUpdated:(id)arg1;
+- (void)viewDidLayoutSubviews;
+@property(readonly, nonatomic) _Bool requiresPreferredContentSizeInStackingView;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;

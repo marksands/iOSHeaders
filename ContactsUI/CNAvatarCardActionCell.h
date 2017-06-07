@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
     _Bool _transitioning;
     CNQuickAction *_action;
     long long _context;
-    long long _mode;
     UIImageView *_actionImageView;
     CNAvatarCardHighlightView *_defaultHighlightView;
     CNAvatarCardHighlightView *_moreHighlightView;
@@ -40,9 +39,8 @@ __attribute__((visibility("hidden")))
     double _lastScrollDirectionTimestamp;
 }
 
-+ (id)animatingCell;
 + (id)cellNibForContacts;
-+ (id)cellNibForMode:(long long)arg1;
++ (id)cellNibForActions;
 @property(nonatomic) _Bool transitioning; // @synthesize transitioning=_transitioning;
 @property(nonatomic) _Bool gestureActivated; // @synthesize gestureActivated=_gestureActivated;
 @property(nonatomic) double lastScrollDirectionTimestamp; // @synthesize lastScrollDirectionTimestamp=_lastScrollDirectionTimestamp;
@@ -65,13 +63,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImageView *actionImageView; // @synthesize actionImageView=_actionImageView;
 @property(nonatomic) _Bool moreHighlighted; // @synthesize moreHighlighted=_moreHighlighted;
 @property(nonatomic) _Bool swipped; // @synthesize swipped=_swipped;
-@property(nonatomic) long long mode; // @synthesize mode=_mode;
 @property(nonatomic) long long context; // @synthesize context=_context;
 @property(retain, nonatomic) CNQuickAction *action; // @synthesize action=_action;
 - (void).cxx_destruct;
 - (void)trackHighlight:(id)arg1;
-- (void)_animateActions:(id)arg1 fromIndex:(unsigned long long)arg2 withDelta:(long long)arg3 scrollDirection:(unsigned long long)arg4;
-- (void)trackSwipe:(id)arg1;
 - (void)stopTrackingWithGestureRecognizer:(id)arg1;
 - (void)startTrackingWithGestureRecognizer:(id)arg1;
 - (void)reloadData;

@@ -16,7 +16,7 @@
 - (_Bool)canAddTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2;
 - (_Bool)_canAddTrackAssociationWithTrackOfInput:(id)arg1 type:(id)arg2 exceptionReason:(id *)arg3;
 - (void)setSampleReferenceBaseURL:(id)arg1;
-- (void)setWritesMediaDataToBeginningOfFile:(_Bool)arg1;
+- (void)setMediaDataLocation:(id)arg1;
 - (void)setPreferredMediaChunkSize:(long long)arg1;
 - (void)setPreferredMediaChunkAlignment:(long long)arg1;
 - (void)setPreferredMediaChunkDuration:(CDStruct_1b6d18a9)arg1;

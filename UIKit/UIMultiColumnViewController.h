@@ -55,6 +55,7 @@
 - (void)_updateLayoutForStatusBarAndInterfaceOrientation;
 - (id)_splitViewControllerImageForDisplayModeButtonToShowLeading:(id)arg1;
 - (void)_splitViewControllerDidUpdate:(id)arg1;
+- (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (void)_navigationControllerChangedViewControllers:(id)arg1;
 - (id)_navigationBarForDragAffordance;

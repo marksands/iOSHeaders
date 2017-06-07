@@ -8,18 +8,21 @@
 
 #import <Intents/INExtensionContextHosting-Protocol.h>
 
-@class NSString;
+@class NSBundle, NSString;
 @protocol INExtensionContextHostDelegate;
 
 @interface INExtensionContextHost : NSExtensionContext <INExtensionContextHosting>
 {
     id <INExtensionContextHostDelegate> _delegate;
+    NSBundle *_extensionBundle;
 }
 
 + (id)_extensionAuxiliaryVendorProtocol;
 + (id)_extensionAuxiliaryHostProtocol;
+@property(retain, nonatomic) NSBundle *extensionBundle; // @synthesize extensionBundle=_extensionBundle;
 @property(nonatomic) __weak id <INExtensionContextHostDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)extensionContextVendorFetchSizeForImage:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)extensionContextVendorWantsToCacheImage:(id)arg1;
 
 // Remaining properties

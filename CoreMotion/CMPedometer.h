@@ -20,6 +20,10 @@
 + (_Bool)isDistanceAvailable;
 + (_Bool)isStepCountingAvailable;
 @property(readonly, nonatomic) CMPedometerProxy *pedometerProxy; // @synthesize pedometerProxy=_pedometerProxy;
+- (void)queryRemoteStepCadenceToStrideLengthBinsWithHandler:(CDUnknownBlockType)arg1;
+- (void)queryStepCadenceToStrideLengthBinsWithHandler:(CDUnknownBlockType)arg1;
+- (void)queryRemoteRawSpeedToKValueBinsWithHandler:(CDUnknownBlockType)arg1;
+- (void)queryRawSpeedToKValueBinsWithHandler:(CDUnknownBlockType)arg1;
 - (_Bool)sendStrideCalibrationHistoryToFile:(id)arg1;
 - (void)stopPedometerEventUpdates;
 - (void)startPedometerEventUpdatesWithHandler:(CDUnknownBlockType)arg1;

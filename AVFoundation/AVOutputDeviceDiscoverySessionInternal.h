@@ -6,16 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVWeakReference;
-@protocol OS_dispatch_queue;
+@protocol AVOutputDeviceDiscoverySessionImpl, OS_dispatch_queue;
 
 @interface AVOutputDeviceDiscoverySessionInternal : NSObject
 {
-    AVWeakReference *weakReference;
-    NSObject<OS_dispatch_queue> *pickerQueue;
-    struct OpaqueFigEndpointPicker *endpointPicker;
+    NSObject<OS_dispatch_queue> *ivarAccessQueue;
+    id <AVOutputDeviceDiscoverySessionImpl> impl;
     long long discoveryMode;
-    unsigned long long features;
 }
 
 @end

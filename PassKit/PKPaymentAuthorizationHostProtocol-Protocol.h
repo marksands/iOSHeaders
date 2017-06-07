@@ -6,12 +6,13 @@
 
 #import <PassKit/NSObject-Protocol.h>
 
-@class CNContact, NSError, PKPayment, PKPaymentMethod, PKServiceProviderPurchase, PKShippingMethod;
+@class CNContact, NSError, PKAuthorizedPeerPaymentQuote, PKPayment, PKPaymentMethod, PKServiceProviderPurchase, PKShippingMethod;
 
 @protocol PKPaymentAuthorizationHostProtocol <NSObject>
 - (void)authorizationDidSelectPaymentMethod:(PKPaymentMethod *)arg1;
 - (void)authorizationDidSelectShippingAddress:(CNContact *)arg1;
 - (void)authorizationDidSelectShippingMethod:(PKShippingMethod *)arg1;
+- (void)authorizationDidAuthorizePeerPaymentQuote:(PKAuthorizedPeerPaymentQuote *)arg1;
 - (void)authorizationDidAuthorizePurchase:(PKServiceProviderPurchase *)arg1;
 - (void)authorizationDidAuthorizePayment:(PKPayment *)arg1;
 - (void)authorizationDidFinishWithError:(NSError *)arg1;

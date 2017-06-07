@@ -16,8 +16,8 @@
 
 - (CDUnknownBlockType)fromPlistTransform;
 - (_Bool)isValidValue:(id)arg1 error:(id *)arg2;
-- (_Bool)isValue:(id)arg1 preferredToEquivalentValue:(id)arg2;
-- (_Bool)isValue:(id)arg1 equivalentToValue:(id)arg2;
+- (_Bool)isValue:(id)arg1 preferredToUnifiedValue:(id)arg2;
+- (_Bool)canUnifyValue:(id)arg1 withValue:(id)arg2;
 - (Class)valueClass;
 - (void)setCNValue:(id)arg1 onContact:(id)arg2;
 - (id)CNValueForContact:(id)arg1;
@@ -25,9 +25,10 @@
 - (void)encodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (_Bool)isEqualForContact:(id)arg1 other:(id)arg2;
 - (id)init;
+- (id)CNValueFromABBytes:(char *)arg1 length:(unsigned long long)arg2;
 - (id)CNValueFromABValue:(void *)arg1;
 - (void *)ABValueFromCNValue:(id)arg1;
-- (int)abPropertyID:(int *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

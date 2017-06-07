@@ -13,8 +13,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)uninstallApplication:(id)arg1 withOptions:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)installApplication:(id)arg1 atURL:(id)arg2 withOptions:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)uninstallApplication:(id)arg1 withOptions:(id)arg2 uninstallType:(unsigned long long)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)installApplication:(id)arg1 atURL:(id)arg2 withOptions:(id)arg3 installType:(unsigned long long)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)synchronizeWithMobileInstallation;
 - (void)updateRecordForApp:(id)arg1 withSINF:(id)arg2 iTunesMetadata:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)clientHasMIEntitlement:(id)arg1;
@@ -25,11 +25,15 @@ __attribute__((visibility("hidden")))
 - (void)removeHandlerForContentType:(id)arg1 roles:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setHandlerOptions:(unsigned int)arg1 forContentType:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setHandler:(id)arg1 version:(unsigned long long)arg2 roles:(unsigned int)arg3 forContentType:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)unregisterExtensionPoint:(id)arg1 withVersion:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)registerExtensionPoint:(id)arg1 withInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateContainerUnit:(unsigned int)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)registerContainerURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)unregisterBundleUnit:(unsigned int)arg1 options:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)registerItemInfo:(id)arg1 alias:(id)arg2 diskImageAlias:(id)arg3 bundleURL:(id)arg4 installationPlist:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)setDatabaseIsSeeded:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)willHandleInvocation:(id)arg1 isReply:(_Bool)arg2;
+- (_Bool)canRegisterWithOptions:(unsigned int)arg1;
 
 @end
 

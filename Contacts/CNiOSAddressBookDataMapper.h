@@ -4,24 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNDataMapper-Protocol.h>
 
-@class CNiOSAddressBook, NSString;
+@class CNContactsEnvironment, CNiOSAddressBook, NSString;
+@protocol CNContactsLogger;
 
-__attribute__((visibility("hidden")))
 @interface CNiOSAddressBookDataMapper : NSObject <CNDataMapper>
 {
     CNiOSAddressBook *_addressBook;
+    CNContactsEnvironment *_environment;
+    id <CNContactsLogger> _logger;
 }
 
++ (id)contactBuffersDecoderForFetchRequest:(id)arg1;
 + (void)initialize;
+@property(readonly, nonatomic) id <CNContactsLogger> logger; // @synthesize logger=_logger;
+@property(readonly, nonatomic) CNContactsEnvironment *environment; // @synthesize environment=_environment;
 @property(readonly, nonatomic) CNiOSAddressBook *addressBook; // @synthesize addressBook=_addressBook;
-- (_Bool)clearChangeHistoryForClient:(id)arg1 toSequenceNumber:(long long)arg2 error:(id *)arg3;
+- (void).cxx_destruct;
+- (_Bool)clearChangeHistoryForClientIdentifier:(id)arg1 toChangeAnchor:(id)arg2 error:(id *)arg3;
 - (id)changeHistoryWithFetchRequest:(id)arg1 error:(id *)arg2;
-- (_Bool)unregisterClientForChangeHistory:(id)arg1 error:(id *)arg2;
-- (_Bool)registerClientForChangeHistory:(id)arg1 error:(id *)arg2;
+- (_Bool)unregisterChangeHistoryClientIdentifier:(id)arg1 error:(id *)arg2;
+- (_Bool)registerChangeHistoryClientIdentifier:(id)arg1 error:(id *)arg2;
 - (id)contactIdentifierWithMatchingDictionary:(id)arg1;
 - (id)matchingDictionaryForContact:(id)arg1;
 - (id)descriptorForRequiredKeysForMatchingDictionary;
@@ -30,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (id)batchEnumeratorForFetchRequest:(id)arg1;
 - (id)executeFetchRequest:(id)arg1 progressiveResults:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)subgroupsOfGroupWithIdentifier:(id)arg1 error:(id *)arg2;
-- (id)membersOfGroupWithIdentifier:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (id)groupsWithIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)groupsMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (id)accountsMatchingPredicate:(id)arg1 error:(id *)arg2;
@@ -63,16 +68,19 @@ __attribute__((visibility("hidden")))
 - (_Bool)setBestMeIfNeededForGivenName:(id)arg1 familyName:(id)arg2 email:(id)arg3 error:(id *)arg4;
 - (_Bool)setMeContact:(id)arg1 forContainer:(id)arg2 error:(id *)arg3;
 - (_Bool)setMeContact:(id)arg1 error:(id *)arg2;
-- (id)contactsWithIdentifiers:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
+- (id)encodedContactsCursorForFetchRequest:(id)arg1 error:(id *)arg2;
+- (_Bool)fetchEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
+- (_Bool)fetchAndDecodeEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
+- (_Bool)fetchContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
 - (id)contactsForFetchRequest:(id)arg1 matchInfos:(id *)arg2 error:(id *)arg3;
 - (id)contactsForFetchRequest:(id)arg1 error:(id *)arg2;
 - (id)unifiedContactCountWithError:(id *)arg1;
 - (id)identifierWithError:(id *)arg1;
 - (_Bool)requestAccessForEntityType:(long long)arg1 error:(id *)arg2;
 - (void)requestAccessForEntityType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)dealloc;
-- (id)initWithAddressBook:(id)arg1;
+- (id)initWithContactsEnvironment:(id)arg1 addressBook:(id)arg2;
 - (id)initWithContactsEnvironment:(id)arg1;
+- (id)initWithAddressBook:(id)arg1;
 - (id)init;
 
 // Remaining properties

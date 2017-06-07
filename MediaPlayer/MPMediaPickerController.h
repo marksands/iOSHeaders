@@ -17,6 +17,7 @@
     _Bool _allowsPickingMultipleItems;
     _Bool _showsCloudItems;
     _Bool _showsItemsWithProtectedAssets;
+    _Bool _picksSingleCollectionEntity;
     unsigned long long _mediaTypes;
     id <MPMediaPickerControllerDelegate> _delegate;
     NSString *_prompt;
@@ -36,6 +37,8 @@
 - (void)_pickerDidCancel;
 - (_Bool)_hasAddedRemoteView;
 - (void)_addRemoteView;
+- (void)setPicksSingleCollectionEntity:(_Bool)arg1;
+- (_Bool)picksSingleCollectionEntity;
 @property(nonatomic) _Bool showsItemsWithProtectedAssets;
 @property(nonatomic) _Bool showsCloudItems;
 @property(nonatomic) _Bool allowsPickingMultipleItems;

@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=_date) NSDate *date;
 @property(readonly, nonatomic, getter=_geoMapItemTIp) GEOMapItemTip *geoMapItemTip;
 @property(readonly, nonatomic, getter=_reviewerImageURL) NSURL *reviewerImageURL;
+@property(readonly, nonatomic, getter=_localizedSnippetLocale) NSString *localizedSnippetLocale;
 @property(readonly, nonatomic, getter=_localizedSnippet) NSString *localizedSnippet;
 @property(readonly, nonatomic, getter=_reviewerName) NSString *reviewerName;
 @property(readonly, nonatomic, getter=_geoReview) id <GEOMapItemReview> geoReview;

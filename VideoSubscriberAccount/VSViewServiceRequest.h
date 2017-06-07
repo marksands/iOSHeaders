@@ -16,18 +16,23 @@ __attribute__((visibility("hidden")))
 {
     _Bool _allowsPrivacyUI;
     _Bool _requiresPrivacyUI;
+    _Bool _canVetoAuthentication;
+    _Bool _shouldInferFeaturedProviders;
     VSAccountMetadataRequest *_accountMetadataRequest;
     VSOptional *_requestingAppDisplayName;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) VSOptional *requestingAppDisplayName; // @synthesize requestingAppDisplayName=_requestingAppDisplayName;
+@property(nonatomic) _Bool shouldInferFeaturedProviders; // @synthesize shouldInferFeaturedProviders=_shouldInferFeaturedProviders;
 @property(copy, nonatomic) VSAccountMetadataRequest *accountMetadataRequest; // @synthesize accountMetadataRequest=_accountMetadataRequest;
+@property(nonatomic) _Bool canVetoAuthentication; // @synthesize canVetoAuthentication=_canVetoAuthentication;
 @property(nonatomic) _Bool requiresPrivacyUI; // @synthesize requiresPrivacyUI=_requiresPrivacyUI;
 @property(nonatomic) _Bool allowsPrivacyUI; // @synthesize allowsPrivacyUI=_allowsPrivacyUI;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSString *localizedVideoTitle;
 @property(readonly, copy, nonatomic) NSArray *supportedAccountProviderAuthenticationSchemes;
+@property(readonly, copy, nonatomic) NSArray *featuredIdentityProviderIdentifiers;
 @property(readonly, copy, nonatomic) NSArray *supportedIdentityProviderIdentifiers;
 @property(readonly, nonatomic) _Bool allowsAuthenticationUI;
 - (id)description;

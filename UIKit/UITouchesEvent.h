@@ -6,12 +6,13 @@
 
 #import <UIKit/UIEvent.h>
 
-@class NSMapTable, NSMutableSet, _UITouchPredictionManager;
+@class NSMapTable, NSMutableSet, NSSet, _UITouchPredictionManager;
 
 __attribute__((visibility("hidden")))
 @interface UITouchesEvent : UIEvent
 {
-    NSMutableSet *_touches;
+    NSMutableSet *_allTouchesMutable;
+    NSSet *_allTouchesImmutableCached;
     struct __CFDictionary *_keyedTouches;
     struct __CFDictionary *_keyedTouchesByWindow;
     struct __CFDictionary *_gestureRecognizersByWindow;
@@ -37,7 +38,6 @@ __attribute__((visibility("hidden")))
 - (id)_windowsAwaitingLatentSystemGestureNotificationDeliveredToEventWindow:(id)arg1;
 - (void)_windowNoLongerAwaitingSystemGestureNotification:(id)arg1;
 - (void)_addWindowAwaitingLatentSystemGestureNotification:(id)arg1 deliveredToEventWindow:(id)arg2;
-@property(readonly, nonatomic) unsigned int _windowServerHitTestContextId;
 @property(readonly, nonatomic) double _initialTouchTimestamp;
 - (id)description;
 - (id)_cloneEvent;

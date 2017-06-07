@@ -8,20 +8,21 @@
 
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
-@class MKPlaceCardHeaderViewController, NSString;
+@class NSString;
+@protocol _MKPlaceActionButtonControllerProtocol;
 
 @interface _MKPlaceActionButtonController : NSObject <_MKInfoCardChildViewControllerAnalyticsDelegate>
 {
-    MKPlaceCardHeaderViewController *_headerViewController;
     int _analyticsAction;
     NSString *_buttonTitle;
     NSString *_buttonSubTitle;
     CDUnknownBlockType _buttonSelectedBlock;
+    id <_MKPlaceActionButtonControllerProtocol> _delegate;
 }
 
 + (id)actionButtonControllerWithTitle:(id)arg1 subTitle:(id)arg2 selectedBlock:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) int analyticsAction; // @synthesize analyticsAction=_analyticsAction;
-@property(nonatomic) __weak MKPlaceCardHeaderViewController *headerViewController; // @synthesize headerViewController=_headerViewController;
+@property(nonatomic) __weak id <_MKPlaceActionButtonControllerProtocol> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) CDUnknownBlockType buttonSelectedBlock; // @synthesize buttonSelectedBlock=_buttonSelectedBlock;
 @property(readonly, nonatomic) NSString *buttonSubTitle; // @synthesize buttonSubTitle=_buttonSubTitle;
 @property(readonly, nonatomic) NSString *buttonTitle; // @synthesize buttonTitle=_buttonTitle;

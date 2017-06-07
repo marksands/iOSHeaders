@@ -6,71 +6,49 @@
 
 #import <UIKit/UIViewController.h>
 
-@class ABContactViewController, ABContactsFilter, ABPersonTableViewDataSource, ABPersonViewControllerHelper, CNContact, _UIAccessDeniedView;
-@protocol ABNewPersonViewControllerDelegate, ABStyleProvider, CNPresenterDelegate;
+#import <AddressBookUI/CNContactViewControllerPrivateDelegate-Protocol.h>
 
-@interface ABNewPersonViewController : UIViewController
+@class CNContact, CNContactViewController, NSString;
+@protocol ABNewPersonViewControllerDelegate;
+
+@interface ABNewPersonViewController : UIViewController <CNContactViewControllerPrivateDelegate>
 {
+    void *_addressBook;
+    void *_displayedPerson;
     id <ABNewPersonViewControllerDelegate> _newPersonViewDelegate;
-    id _parentGroup;
-    id _helper;
-    void *_recordForNewPerson;
-    _Bool _isRealViewLoaded;
-    ABPersonTableViewDataSource *_dataSource;
-    _UIAccessDeniedView *_accessDeniedView;
-    ABContactViewController *_contactViewController;
-    id <CNPresenterDelegate> _presentingDelegate;
+    const void *_parentGroup;
+    CNContactViewController *_cnContactViewController;
     void *_parentSource;
     CNContact *_mergeContact;
 }
 
 @property(retain, nonatomic) CNContact *mergeContact; // @synthesize mergeContact=_mergeContact;
 @property(nonatomic) void *parentSource; // @synthesize parentSource=_parentSource;
-@property(nonatomic) id <CNPresenterDelegate> presentingDelegate; // @synthesize presentingDelegate=_presentingDelegate;
-@property(readonly, nonatomic) ABContactViewController *contactViewController; // @synthesize contactViewController=_contactViewController;
-@property(nonatomic) _Bool isRealViewLoaded; // @synthesize isRealViewLoaded=_isRealViewLoaded;
-@property(readonly, nonatomic) ABPersonTableViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
-@property(retain, nonatomic) ABContactsFilter *parentContactsFilter; // @synthesize parentContactsFilter=_parentGroup;
-- (void)accessChanged;
-- (int)abViewControllerType;
-- (void)applicationDidResume;
-- (void)applicationWillTerminate:(id)arg1;
-- (void)applicationWillSuspend;
-- (void)viewWillDisappear:(_Bool)arg1;
-- (void)viewDidAppear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
-- (void)_getRotationContentSettings:(CDStruct_e950349b *)arg1;
-- (_Bool)supportedInterfaceOrientation:(long long)arg1;
-- (_Bool)_allowsAutorotation;
-- (void)loadView;
-@property(readonly, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
-- (void)updateNavigationButtons;
-- (void *)recordForNewPerson;
-- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)viewDidLoad;
-- (double)ab_heightToFitForViewInPopoverView;
+@property(retain, nonatomic) CNContactViewController *cnContactViewController; // @synthesize cnContactViewController=_cnContactViewController;
+@property(nonatomic) const void *parentGroup; // @synthesize parentGroup=_parentGroup;
 - (void)save:(id)arg1;
-- (void)attemptSaveAndTellDelegate:(_Bool)arg1;
-- (void)cancel:(id)arg1;
-- (void)saveAndTellDelegate:(_Bool)arg1;
-- (void)savePerson:(id)arg1;
-- (void)decodeRestorableStateWithCoder:(id)arg1;
-- (void)encodeRestorableStateWithCoder:(id)arg1;
-@property(nonatomic) _Bool savesNewContactOnSuspend;
+- (_Bool)savesNewContactOnSuspend;
+- (void)setSavesNewContactOnSuspend:(_Bool)arg1;
 @property(nonatomic) _Bool showsCancelButton;
-@property(nonatomic) const void *parentGroup;
-- (void)setDisplayedUIPerson:(id)arg1;
-- (id)displayedUIPerson;
+- (void)loadContactViewController;
+- (void)contactViewController:(id)arg1 didCompleteWithContact:(id)arg2;
+- (void)viewDidAppear:(_Bool)arg1;
+- (struct CGSize)preferredContentSize;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)loadView;
 @property(nonatomic) const void *displayedPerson;
-@property(retain, nonatomic) id <ABStyleProvider> styleProvider;
 @property(nonatomic) const void *addressBook;
 @property(nonatomic) id <ABNewPersonViewControllerDelegate> newPersonViewDelegate;
 - (void)dealloc;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithStyle:(int)arg1;
 - (id)init;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2 style:(int)arg3;
-@property(readonly, nonatomic) ABPersonViewControllerHelper *helper; // @synthesize helper=_helper;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

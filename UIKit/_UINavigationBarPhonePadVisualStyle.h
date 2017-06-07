@@ -9,9 +9,25 @@
 __attribute__((visibility("hidden")))
 @interface _UINavigationBarPhonePadVisualStyle : _UINavigationBarVisualStyle
 {
+    _Bool _legacyUI;
 }
 
-- (double)leftEdgeMargin;
+- (double)_legacyButtonImagePadding;
+- (id)_legacyButtonFontForStyle:(long long)arg1;
+- (double)_legacyButtonFontSize;
+- (double)_legacyRightTitleMargin;
+- (double)_legacyLeftTitleMargin;
+- (double)_legacyLeftEdgeMargin;
+- (double)buttonImagePadding;
+- (double)minBackTextWidth;
+- (double)maxBackButtonProportion;
+- (double)interBlockSpace;
+- (double)rightTitleMargin;
+- (id)buttonFontForStyle:(long long)arg1;
+- (double)leftTitleMargin;
+- (double)buttonFontSize;
+- (double)headingFontSize;
+- (double)backButtonAnimationClippingPadding;
 - (long long)navigationBar:(id)arg1 metricsForOrientation:(long long)arg2 hasPrompt:(_Bool)arg3;
 - (double)backIndicatorBottomMargin;
 - (double)navigationItemBaselineOffset;
@@ -21,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (double)barPromptHeight;
 - (double)barHeight;
 - (double)buttonHeight;
+- (id)initWithIdiom:(long long)arg1;
 
 @end
 

@@ -15,10 +15,10 @@ __attribute__((visibility("hidden")))
     _Bool _cellNeedsUpdate;
 }
 
++ (_Bool)eventShowsProposeTime:(id)arg1;
 - (void).cxx_destruct;
 - (id)detailViewControllerWithFrame:(struct CGRect)arg1 forSubitemAtIndex:(unsigned long long)arg2;
 - (id)cellForSubitemAtIndex:(unsigned long long)arg1;
-- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
 - (void)_updateCellIfNeededForWidth:(double)arg1;
 - (void)setCellPosition:(int)arg1;
 - (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;

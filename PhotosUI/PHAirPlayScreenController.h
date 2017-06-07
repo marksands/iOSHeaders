@@ -51,6 +51,7 @@
 - (void)registerRouteObserver:(id)arg1;
 - (void)unregisterContentProvider:(id)arg1;
 - (void)registerContentProvider:(id)arg1;
+- (_Bool)_shouldIgnoreScreen:(id)arg1;
 - (id)_findAvailableScreen;
 - (void)_updateScreenContentAnimated:(_Bool)arg1;
 - (void)_cacheDisplayedContentIfNeededForUnregisteringProvider:(id)arg1;

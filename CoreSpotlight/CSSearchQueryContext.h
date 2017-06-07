@@ -13,9 +13,8 @@
 
 @interface CSSearchQueryContext : NSObject <NSSecureCoding, NSCopying>
 {
-    _Bool _grouped;
-    _Bool _internal;
-    _Bool _lowPriority;
+    unsigned char _flags;
+    int _rankingType;
     NSString *_clientBundleID;
     NSArray *_fetchAttributes;
     NSArray *_protectionClasses;
@@ -25,20 +24,25 @@
     NSString *_keyboardLanguage;
     NSArray *_markedTextArray;
     NSArray *_disableBundles;
+    NSString *_userQuery;
     NSString *_filterQuery;
     long long _strongRankingQueryCount;
     long long _maxCount;
     long long _queryID;
+    NSString *_completionString;
+    NSArray *_completionAttributes;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool lowPriority; // @synthesize lowPriority=_lowPriority;
-@property(nonatomic) _Bool internal; // @synthesize internal=_internal;
-@property(nonatomic) _Bool grouped; // @synthesize grouped=_grouped;
+@property(nonatomic) unsigned char flags; // @synthesize flags=_flags;
+@property(retain, nonatomic) NSArray *completionAttributes; // @synthesize completionAttributes=_completionAttributes;
+@property(retain, nonatomic) NSString *completionString; // @synthesize completionString=_completionString;
 @property(nonatomic) long long queryID; // @synthesize queryID=_queryID;
 @property(nonatomic) long long maxCount; // @synthesize maxCount=_maxCount;
 @property(nonatomic) long long strongRankingQueryCount; // @synthesize strongRankingQueryCount=_strongRankingQueryCount;
 @property(retain, nonatomic) NSString *filterQuery; // @synthesize filterQuery=_filterQuery;
+@property(nonatomic) int rankingType; // @synthesize rankingType=_rankingType;
+@property(retain, nonatomic) NSString *userQuery; // @synthesize userQuery=_userQuery;
 @property(retain, nonatomic) NSArray *disableBundles; // @synthesize disableBundles=_disableBundles;
 @property(retain, nonatomic) NSArray *markedTextArray; // @synthesize markedTextArray=_markedTextArray;
 @property(retain, nonatomic) NSString *keyboardLanguage; // @synthesize keyboardLanguage=_keyboardLanguage;
@@ -54,6 +58,14 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithXPCDictionary:(id)arg1;
+- (id)xpc_dictionary;
+@property(nonatomic) _Bool lowPriority;
+@property(nonatomic) _Bool attribute;
+@property(nonatomic) _Bool counting;
+@property(nonatomic) _Bool live;
+@property(nonatomic) _Bool grouped;
+@property(nonatomic) _Bool internal;
 - (id)init;
 
 @end

@@ -10,6 +10,7 @@
 {
 }
 
++ (unsigned long long)_xpcAttributes;
 - (id)pasteboard;
 - (void)performActivity;
 - (void)prepareWithActivityItems:(id)arg1;

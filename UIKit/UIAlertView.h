@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSMutableArray, NSString, UIAlertController, UIViewController, _UIAlertControllerShimPresenter;
+@class NSMutableArray, NSString, UIAlertController, _UIAlertControllerShimPresenter;
 
 @interface UIAlertView : UIView
 {
@@ -29,7 +29,6 @@
     _Bool _dismissingAlertController;
     _Bool __currentlyRunningModal;
     id _delegate;
-    UIViewController *_externalViewControllerForPresentation;
 }
 
 + (_Bool)_isAlertControllerShimClass;
@@ -41,14 +40,12 @@
 + (id)_alertViewForWindow:(id)arg1;
 + (id)_alertViewForSessionWithRemoteViewController:(id)arg1;
 + (id)_remoteAlertViewWithBlock:(CDUnknownBlockType)arg1;
-@property(retain, nonatomic, getter=_externalViewControllerForPresentation, setter=_setExternalViewControllerForPresentation:) UIViewController *externalViewControllerForPresentation; // @synthesize externalViewControllerForPresentation=_externalViewControllerForPresentation;
 @property(nonatomic, setter=_setCurrentlyRunningModal:) _Bool _currentlyRunningModal; // @synthesize _currentlyRunningModal=__currentlyRunningModal;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_alertController;
 - (void)_showByReplacingPreviousAlertAnimated:(_Bool)arg1;
 - (void)_useLegacyUI:(_Bool)arg1;
-- (_Bool)_isSBAlert;
 - (void)_updateFrameForDisplay;
 - (void)_prepareToBeReplaced;
 - (id)keyboard;
@@ -71,8 +68,6 @@
 - (void)setDimsBackground:(_Bool)arg1;
 - (_Bool)forceHorizontalButtonsLayout;
 - (void)setForceHorizontalButtonsLayout:(_Bool)arg1;
-- (int)alertSheetStyle;
-- (void)setAlertSheetStyle:(int)arg1;
 - (long long)numberOfRows;
 - (void)setNumberOfRows:(long long)arg1;
 - (struct CGSize)backgroundSize;
@@ -85,7 +80,8 @@
 - (id)_titleLabel;
 - (_Bool)_canShowAlerts;
 - (_Bool)_isAnimating;
-@property(nonatomic) _Bool showsOverSpringBoardAlerts;
+- (_Bool)showsOverSpringBoardAlerts;
+- (void)setShowsOverSpringBoardAlerts:(_Bool)arg1;
 - (id)tableView;
 - (_Bool)tableShouldShowMinimumContent;
 - (void)setTableShouldShowMinimumContent:(_Bool)arg1;
@@ -109,17 +105,15 @@
 - (void)_showAnimated:(_Bool)arg1;
 - (void)_performPopup:(_Bool)arg1;
 - (void)presentSheetFromButtonBar:(id)arg1;
-- (void)_presentSheetStartingFromYCoordinate:(double)arg1;
-- (void)showWithAnimationType:(int)arg1;
 - (void)presentSheetToAboveView:(id)arg1;
 - (void)presentSheetInView:(id)arg1;
 - (void)presentSheetFromAboveView:(id)arg1;
 - (void)presentSheetFromBehindView:(id)arg1;
 - (void)_presentSheetFromView:(id)arg1 above:(_Bool)arg2;
 - (void)popupAlertAnimated:(_Bool)arg1;
-- (void)popupAlertAnimated:(_Bool)arg1 animationType:(int)arg2;
 - (void)popupAlertAnimated:(_Bool)arg1 atOffset:(double)arg2;
-@property(nonatomic) _Bool groupsTextFields;
+- (_Bool)groupsTextFields;
+- (void)setGroupsTextFields:(_Bool)arg1;
 - (void)_setTextFieldsHidden:(_Bool)arg1;
 - (id)textFieldAtIndex:(long long)arg1;
 - (id)textField;
@@ -149,7 +143,6 @@
 - (long long)addButtonWithTitle:(id)arg1;
 - (id)addButtonWithTitle:(id)arg1 buttonClass:(Class)arg2;
 - (id)addButtonWithTitle:(id)arg1 label:(id)arg2;
-- (id)_addButtonWithTitle:(id)arg1 label:(id)arg2 buttonClass:(Class)arg3;
 - (id)_addButtonWithTitle:(id)arg1;
 - (id)_addButtonWithTitleText:(id)arg1;
 - (void)_endRunningModallyIfNecessary;

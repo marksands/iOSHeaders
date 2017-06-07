@@ -6,44 +6,61 @@
 
 #import <UIKit/UISlider.h>
 
-@class AVLoadedTimeRangesView, AVRateBubbleView, NSArray, NSString, UIImageView, _UIFeedbackRetargetBehavior;
+@class NSArray, NSString, UIImageView, UISelectionFeedbackGenerator, UIView;
 
-__attribute__((visibility("hidden")))
 @interface AVScrubber : UISlider
 {
-    NSArray *_loadedTimeRanges;
-    AVLoadedTimeRangesView *_loadedTimeRangesMaxTrackView;
-    long long _scrubbingSpeed;
-    UIImageView *_thumbView;
-    double _touchLocationOffsetFromThumbViewCenter;
-    double _beginTouchLocationInViewY;
-    AVRateBubbleView *_rateBubbleView;
-    _UIFeedbackRetargetBehavior *_feedbackBehavior;
+    struct CGPoint _previousTouchLocationInView;
+    UISelectionFeedbackGenerator *_feedbackBehavior;
+    _Bool _shouldRecoverFromPrecisionScrubbingIfNeeded;
+    _Bool _collapsed;
+    _Bool _included;
+    _Bool _hasAlternateAppearance;
+    _Bool _hasFullScreenAppearance;
+    float _estimatedFrameRate;
     float _rate;
-    double _width;
+    NSArray *_loadedTimeRanges;
+    long long _scrubbingSpeed;
+    double _resolution;
+    UIView *_loadedTrackOverlayView;
+    UIView *_completedTrackOverlayView;
+    UIImageView *_currentThumbView;
+    struct CGSize _extrinsicContentSize;
+    struct UIEdgeInsets _hitRectInsets;
 }
 
 + (id)keyPathsForValuesAffectingLocalizedScrubbingSpeedName;
-+ (id)keyPathsForValuesAffectingPreciseScrubbingFeasible;
+@property(nonatomic) _Bool hasFullScreenAppearance; // @synthesize hasFullScreenAppearance=_hasFullScreenAppearance;
+@property(nonatomic) _Bool hasAlternateAppearance; // @synthesize hasAlternateAppearance=_hasAlternateAppearance;
+@property(nonatomic, getter=isIncluded) _Bool included; // @synthesize included=_included;
+@property(nonatomic, getter=isCollapsed) _Bool collapsed; // @synthesize collapsed=_collapsed;
+@property(nonatomic) struct CGSize extrinsicContentSize; // @synthesize extrinsicContentSize=_extrinsicContentSize;
+@property(nonatomic) __weak UIImageView *currentThumbView; // @synthesize currentThumbView=_currentThumbView;
+@property(readonly, nonatomic) UIView *completedTrackOverlayView; // @synthesize completedTrackOverlayView=_completedTrackOverlayView;
+@property(readonly, nonatomic) UIView *loadedTrackOverlayView; // @synthesize loadedTrackOverlayView=_loadedTrackOverlayView;
+@property(nonatomic) _Bool shouldRecoverFromPrecisionScrubbingIfNeeded; // @synthesize shouldRecoverFromPrecisionScrubbingIfNeeded=_shouldRecoverFromPrecisionScrubbingIfNeeded;
 @property(nonatomic) float rate; // @synthesize rate=_rate;
-@property(nonatomic) double width; // @synthesize width=_width;
+@property(nonatomic) struct UIEdgeInsets hitRectInsets; // @synthesize hitRectInsets=_hitRectInsets;
+@property(nonatomic) double resolution; // @synthesize resolution=_resolution;
+@property(nonatomic) float estimatedFrameRate; // @synthesize estimatedFrameRate=_estimatedFrameRate;
+@property(nonatomic) long long scrubbingSpeed; // @synthesize scrubbingSpeed=_scrubbingSpeed;
+@property(copy, nonatomic) NSArray *loadedTimeRanges; // @synthesize loadedTimeRanges=_loadedTimeRanges;
 - (void).cxx_destruct;
-- (id)_feedbackBehavior;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (struct CGRect)hitRect;
 - (void)layoutSubviews;
-- (void)setBounds:(struct CGRect)arg1;
-- (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)beginTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
-- (void)_layoutSubviewsForBoundsChange:(_Bool)arg1;
-- (void)_initSubviews;
+- (void)setEnabled:(_Bool)arg1;
 - (id)createThumbView;
-@property(nonatomic) long long scrubbingSpeed;
+- (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
+- (struct CGRect)thumbRectForBounds:(struct CGRect)arg1 trackRect:(struct CGRect)arg2 value:(float)arg3;
+- (struct CGRect)maximumValueImageRectForBounds:(struct CGRect)arg1;
+- (struct CGRect)minimumValueImageRectForBounds:(struct CGRect)arg1;
+@property(readonly, nonatomic, getter=isCollapsedOrExcluded) _Bool collapsedOrExcluded;
 @property(readonly, nonatomic) NSString *localizedScrubbingSpeedName;
-@property(readonly, nonatomic, getter=isPreciseScrubbingFeasible) _Bool preciseScrubbingFeasible;
-@property(retain, nonatomic) NSArray *loadedTimeRanges;
-- (void)dealloc;
+- (float)clampedEstimatedFrameRate;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

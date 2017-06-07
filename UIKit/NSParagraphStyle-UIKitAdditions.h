@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIFoundation/NSParagraphStyle.h>
+#import "NSParagraphStyle.h"
 
 @interface NSParagraphStyle (UIKitAdditions)
+- (long long)_ui_resolvedWritingDirectionForUserInterfaceLayoutDirection:(long long)arg1;
+- (long long)_ui_resolvedWritingDirection;
 - (long long)_ui_resolvedTextAlignmentForUserInterfaceLayoutDirection:(long long)arg1;
 - (long long)_ui_resolvedTextAlignment;
 @end

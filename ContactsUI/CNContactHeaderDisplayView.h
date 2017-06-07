@@ -13,7 +13,6 @@
 @interface CNContactHeaderDisplayView : CNContactHeaderView <CNUIReusableView>
 {
     NSDictionary *_taglineTextAttributes;
-    _Bool _centersPhotoAndLabels;
     CNContactFormatter *_contactFormatter;
     NSString *_alternateName;
     NSString *_message;
@@ -21,27 +20,32 @@
     double _maxHeight;
     UIView *_personHeaderView;
     UILabel *_taglineLabel;
+    double _lastViewHeight;
     double _lastViewWidth;
     NSLayoutConstraint *_photoTopConstraint;
     NSLayoutConstraint *_photoHeightConstraint;
-    NSLayoutConstraint *_nameWidthConstraint;
     NSLayoutConstraint *_avatarNameSpacingConstraint;
+    NSLayoutConstraint *_nameHeightConstraint;
+    NSLayoutConstraint *_taglineHeightConstraint;
     struct CGSize _maxNameSize;
 }
 
++ (id)contactHeaderViewWithContact:(id)arg1 allowsPhotoDrops:(_Bool)arg2;
 + (id)contactHeaderViewWithContact:(id)arg1;
++ (id)makePhotoViewWithMonogrammerStyle:(long long)arg1 shouldAllowTakePhotoAction:(_Bool)arg2 shouldAllowImageDrops:(_Bool)arg3;
 + (id)descriptorForRequiredKeysForContactFormatter:(id)arg1 includingAvatarViewDescriptors:(_Bool)arg2;
+@property(retain) NSLayoutConstraint *taglineHeightConstraint; // @synthesize taglineHeightConstraint=_taglineHeightConstraint;
+@property(retain) NSLayoutConstraint *nameHeightConstraint; // @synthesize nameHeightConstraint=_nameHeightConstraint;
 @property(retain) NSLayoutConstraint *avatarNameSpacingConstraint; // @synthesize avatarNameSpacingConstraint=_avatarNameSpacingConstraint;
-@property(retain) NSLayoutConstraint *nameWidthConstraint; // @synthesize nameWidthConstraint=_nameWidthConstraint;
 @property(retain) NSLayoutConstraint *photoHeightConstraint; // @synthesize photoHeightConstraint=_photoHeightConstraint;
 @property(retain) NSLayoutConstraint *photoTopConstraint; // @synthesize photoTopConstraint=_photoTopConstraint;
 @property(nonatomic) double lastViewWidth; // @synthesize lastViewWidth=_lastViewWidth;
+@property(nonatomic) double lastViewHeight; // @synthesize lastViewHeight=_lastViewHeight;
 @property(nonatomic) struct CGSize maxNameSize; // @synthesize maxNameSize=_maxNameSize;
 @property(retain) UILabel *taglineLabel; // @synthesize taglineLabel=_taglineLabel;
 @property(retain, nonatomic) UIView *personHeaderView; // @synthesize personHeaderView=_personHeaderView;
 @property(nonatomic) double maxHeight; // @synthesize maxHeight=_maxHeight;
 @property(nonatomic) double minHeight; // @synthesize minHeight=_minHeight;
-@property(nonatomic) _Bool centersPhotoAndLabels; // @synthesize centersPhotoAndLabels=_centersPhotoAndLabels;
 @property(retain, nonatomic) NSString *message; // @synthesize message=_message;
 @property(retain, nonatomic) NSString *alternateName; // @synthesize alternateName=_alternateName;
 @property(retain, nonatomic) CNContactFormatter *contactFormatter; // @synthesize contactFormatter=_contactFormatter;
@@ -63,8 +67,10 @@
 - (void)updateConstraints;
 - (void)updateFontSizes;
 - (void)tintColorDidChange;
-- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 monogrammerStyle:(long long)arg3;
+@property(nonatomic) unsigned long long avatarStyle;
+- (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2 monogrammerStyle:(long long)arg3 shouldAllowImageDrops:(_Bool)arg4;
 - (id)initWithContact:(id)arg1 frame:(struct CGRect)arg2;
+@property(readonly, nonatomic) double photoMinTopMargin;
 @property(readonly, nonatomic) double photoLabelSpacing;
 - (id)descriptorForRequiredKeys;
 

@@ -6,19 +6,34 @@
 
 #import <MapKit/MKAnnotationContainerView.h>
 
+@class NSMutableDictionary, NSMutableSet;
+
 __attribute__((visibility("hidden")))
 @interface MKNewAnnotationContainerView : MKAnnotationContainerView
 {
     _Bool _suppress;
+    _Bool _isUpdating;
+    double _lastUpdate;
+    NSMutableDictionary *_clusterableAnnotationViews;
+    NSMutableSet *_collidableAnnotationViews;
+    NSMutableDictionary *_collidingAnnotationViews;
+    NSMutableDictionary *_existingClusterAnnotationViews;
 }
 
+- (void).cxx_destruct;
 - (void)setAnnotationViewsRotationRadians:(double)arg1 animation:(id)arg2;
 - (void)_updateAddedAnnotationRotation:(id)arg1;
-- (void)_updateAnnotationViewPerspective;
+- (void)_updateAnnotationViewPerspectiveMidsteam:(_Bool)arg1;
+- (void)_updateCollidableAnnotationViews;
+- (void)_updateClusterableAnnotationViews:(id)arg1 withID:(id)arg2;
+- (id)_existingClusterViewsForClusterID:(id)arg1;
 - (void)_updateAnnotationViewPositions;
 - (void)stopSuppressingUpdates;
 - (void)suppressUpdates;
+- (void)_updateAnnotationViews:(id)arg1;
 - (void)_updateAnnotationView:(id)arg1;
+- (void)removeAnnotationView:(id)arg1;
+- (void)addAnnotationView:(id)arg1 allowAnimation:(_Bool)arg2;
 
 @end
 

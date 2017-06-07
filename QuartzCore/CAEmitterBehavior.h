@@ -6,11 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface CAEmitterBehavior : NSObject <NSCoding>
+@interface CAEmitterBehavior : NSObject <NSSecureCoding>
 {
     unsigned int _type;
     NSString *_name;
@@ -20,6 +20,7 @@
 }
 
 + (void)CAMLParserStartElement:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)behaviorWithType:(id)arg1;
 + (id)behaviorTypes;

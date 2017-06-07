@@ -13,13 +13,13 @@
     NSData *_approximateLocationData;
     NSData *_reverseLocationData;
     _Bool _reverseLocationDataIsValid;
+    _Bool _reverseLocationDataContainsLocation;
     short _generationType;
     NSDate *_representativeDate;
     NSDate *_modificationDate;
 }
 
-+ (id)fetchPredicateFromComparisonPredicate:(id)arg1 options:(id)arg2;
-+ (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (id)identifierCode;
 + (_Bool)managedObjectSupportsTrashedState;
@@ -32,6 +32,8 @@
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)collectionHasFixedOrder;
+- (_Bool)hasLocationInfo;
+- (_Bool)hasLocalizedTitle;
 - (id)localizedLocationNames;
 - (id)localizedTitle;
 - (void)_decodeTitlesIfNeeded;

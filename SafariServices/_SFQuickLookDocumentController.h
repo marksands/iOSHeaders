@@ -20,6 +20,7 @@
 
 @property(readonly, nonatomic) UIView *documentView; // @synthesize documentView=_documentView;
 - (void).cxx_destruct;
+- (id)itemProviderForQuickLookDocumentView:(id)arg1;
 - (void)quickLookDocumentView:(id)arg1 didSelectActionAtIndex:(long long)arg2;
 - (id)_actionTitleForType:(long long)arg1 withActionCount:(unsigned long long)arg2;
 - (id)_supportedApplications;

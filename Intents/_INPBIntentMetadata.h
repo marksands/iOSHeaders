@@ -15,16 +15,21 @@
     PBUnknownFields *_unknownFields;
     CDStruct_95bda58d _RequiredEntitlements;
     NSString *_LaunchId;
+    NSString *_SystemExtensionBundleId;
     NSString *_intentId;
+    int _triggerMethod;
     _INPBString *_userUtterance;
     _Bool _backgroundLaunch;
     _Bool _confirmed;
     struct {
+        unsigned int triggerMethod:1;
         unsigned int backgroundLaunch:1;
         unsigned int confirmed:1;
     } _has;
 }
 
++ (id)options;
+@property(retain, nonatomic) NSString *SystemExtensionBundleId; // @synthesize SystemExtensionBundleId=_SystemExtensionBundleId;
 @property(retain, nonatomic) NSString *intentId; // @synthesize intentId=_intentId;
 @property(nonatomic) _Bool confirmed; // @synthesize confirmed=_confirmed;
 @property(nonatomic) _Bool backgroundLaunch; // @synthesize backgroundLaunch=_backgroundLaunch;
@@ -48,6 +53,11 @@
 - (void)clearRequiredEntitlements;
 @property(readonly, nonatomic) int *RequiredEntitlements;
 @property(readonly, nonatomic) unsigned long long RequiredEntitlementsCount;
+@property(readonly, nonatomic) _Bool hasSystemExtensionBundleId;
+- (int)StringAsTriggerMethod:(id)arg1;
+- (id)triggerMethodAsString:(int)arg1;
+@property(nonatomic) _Bool hasTriggerMethod;
+@property(nonatomic) int triggerMethod; // @synthesize triggerMethod=_triggerMethod;
 @property(readonly, nonatomic) _Bool hasIntentId;
 @property(nonatomic) _Bool hasConfirmed;
 @property(nonatomic) _Bool hasBackgroundLaunch;

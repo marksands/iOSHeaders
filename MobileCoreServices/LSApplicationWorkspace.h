@@ -6,25 +6,28 @@
 
 #import <Foundation/NSObject.h>
 
-@class LSApplicationWorkspaceRemoteObserver, LSInstallProgressDelegate, LSInstallProgressList, NSMutableDictionary, NSXPCConnection;
+@class LSApplicationWorkspaceRemoteObserver, LSInstallProgressList, NSMutableDictionary, NSXPCConnection;
+@protocol LSInstallProgressProtocol;
 
 @interface LSApplicationWorkspace : NSObject
 {
-    _Bool _enhancedAppValidationEnabled;
     LSApplicationWorkspaceRemoteObserver *_remoteObserver;
     NSMutableDictionary *_createdInstallProgresses;
     LSInstallProgressList *_observedInstallProgresses;
-    LSInstallProgressDelegate *_delegateProxy;
+    id <LSInstallProgressProtocol> _observerProxy;
     NSXPCConnection *_connection;
 }
 
 + (id)activeManagedConfigurationRestrictionUUIDs;
 + (id)defaultWorkspace;
++ (id)progressQueue;
 + (id)callbackQueue;
 @property(readonly) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(readonly) LSInstallProgressList *observedInstallProgresses; // @synthesize observedInstallProgresses=_observedInstallProgresses;
 @property(readonly) NSMutableDictionary *createdInstallProgresses; // @synthesize createdInstallProgresses=_createdInstallProgresses;
-- (void)_LSSendApplicationIconDidChangeForBundleID:(id)arg1;
+- (void)ls_resetTestingDatabase;
+- (_Bool)ls_injectUTTypeWithDeclaration:(id)arg1 inDatabase:(void *)arg2 error:(id *)arg3;
+- (void *)ls_testWithCleanDatabaseWithError:(id *)arg1;
 - (void)_LSClearSchemaCaches;
 - (void)_LSFailedToOpenURL:(id)arg1 withBundle:(id)arg2;
 - (_Bool)_LSPrivateDatabaseNeedsRebuild;
@@ -33,7 +36,6 @@
 - (void)clearCreatedProgressForBundleID:(id)arg1;
 - (_Bool)installPhaseFinishedForProgress:(id)arg1;
 - (id)installProgressForApplication:(id)arg1 withPhase:(unsigned long long)arg2;
-- (void)removeInstallProgressForBundleID:(id)arg1;
 - (id)installProgressForBundleID:(id)arg1 makeSynchronous:(unsigned char)arg2;
 - (void)removeDeviceIdentifierForVendorName:(id)arg1 bundleIdentifier:(id)arg2;
 - (id)createDeviceIdentifierWithVendorName:(id)arg1 bundleIdentifier:(id)arg2;
@@ -51,18 +53,16 @@
 - (_Bool)registerApplication:(id)arg1;
 - (_Bool)registerApplicationDictionary:(id)arg1;
 - (_Bool)registerApplicationDictionary:(id)arg1 withObserverNotification:(int)arg2;
-- (_Bool)uninstallSystemApplication:(id)arg1 withOptions:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (_Bool)restoreSystemApplication:(id)arg1;
 - (_Bool)uninstallApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (_Bool)uninstallApplication:(id)arg1 withOptions:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (_Bool)uninstallApplication:(id)arg1 withOptions:(id)arg2;
 - (_Bool)downgradeApplicationToPlaceholder:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
 - (_Bool)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3 usingBlock:(CDUnknownBlockType)arg4;
-- (void)sendNotificationForApp:(id)arg1 withExtensions:(id)arg2 OperationType:(unsigned long long)arg3 success:(_Bool)arg4;
+- (void)placeholderInstalledForIdentifier:(id)arg1 operationType:(unsigned long long)arg2;
+- (_Bool)registerBundleWithInfo:(id)arg1 options:(id)arg2 type:(unsigned long long)arg3 progress:(id)arg4;
 - (_Bool)installApplication:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
 - (_Bool)installApplication:(id)arg1 withOptions:(id)arg2;
-- (void)sendUninstallNotificationForApp:(id)arg1 withPlugins:(id)arg2;
-- (void)sendInstallNotificationForApp:(id)arg1 withPlugins:(id)arg2;
 - (_Bool)getClaimedActivityTypes:(id *)arg1 domains:(id *)arg2;
 - (id)machOUUIDsForBundleIdentifiers:(id)arg1 error:(id *)arg2;
 - (id)bundleIdentifiersForMachOUUIDs:(id)arg1 error:(id *)arg2;
@@ -90,7 +90,6 @@
 - (_Bool)openURL:(id)arg1 withOptions:(id)arg2 error:(id *)arg3;
 - (_Bool)openURL:(id)arg1 withOptions:(id)arg2;
 - (_Bool)openApplicationWithBundleID:(id)arg1;
-- (id)applicationsAvailableForOpeningDocument:(id)arg1;
 - (id)applicationForUserActivityDomainName:(id)arg1;
 - (id)applicationForUserActivityType:(id)arg1;
 - (id)applicationsForUserActivityType:(id)arg1;
@@ -102,13 +101,14 @@
 - (id)applicationProxiesWithPlistFlags:(unsigned int)arg1 bundleFlags:(unsigned long long)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-@property(readonly) LSInstallProgressDelegate *delegateProxy; // @synthesize delegateProxy=_delegateProxy;
+- (id)syncObserverProxy;
+@property(readonly) id <LSInstallProgressProtocol> observerProxy; // @synthesize observerProxy=_observerProxy;
 @property(readonly) LSApplicationWorkspaceRemoteObserver *remoteObserver; // @synthesize remoteObserver=_remoteObserver;
 - (_Bool)establishConnection;
 - (void)getKnowledgeUUID:(id *)arg1 andSequenceNumber:(id *)arg2;
-- (_Bool)enhancedAppLoggingEnabled;
 - (void)dealloc;
 - (id)init;
+- (id)applicationsAvailableForOpeningDocument:(id)arg1;
 - (id)allApplications;
 - (id)unrestrictedApplications;
 - (id)placeholderApplications;
@@ -126,7 +126,6 @@
 - (id)applicationsAvailableForOpeningURL:(id)arg1;
 - (id)privateURLSchemes;
 - (id)publicURLSchemes;
-- (id)URLSchemesOfType:(long long)arg1;
 - (id)applicationsAvailableForHandlingURLScheme:(id)arg1;
 - (id)applicationForOpeningResource:(id)arg1;
 

@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UILabel *sourceLabel; // @synthesize sourceLabel=_sourceLabel;
 @property(nonatomic) __weak id <CNPropertyCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)updateConstraints;
 - (void)setCardGroupItem:(id)arg1;
 - (void)performDefaultAction;
 - (_Bool)shouldPerformDefaultAction;

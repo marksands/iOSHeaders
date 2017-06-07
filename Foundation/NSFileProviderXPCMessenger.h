@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 
 - (void)collectDebuggingInformationWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (oneway void)observeEndOfWriteAtURL:(id)arg1 forClaimWithID:(id)arg2 fromProcessWithIdentifier:(int)arg3;
-- (oneway void)observePresentationChangeOfKind:(id)arg1 forPresenterWithID:(id)arg2 fromProcessWithIdentifier:(int)arg3 url:(id)arg4 newURL:(id)arg5;
+- (oneway void)observePresentationChangeOfKind:(id)arg1 forPresenterWithID:(id)arg2 fromProcessWithIdentifier:(int)arg3 observedUbiquityAttributes:(id)arg4 url:(id)arg5 newURL:(id)arg6;
 - (void)providePhysicalItemForURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (oneway void)cancelProvidingItemAtURL:(id)arg1 forClaimWithID:(id)arg2;
 - (void)provideItemAtURL:(id)arg1 forClaimWithID:(id)arg2 madeByClientWithProcessIdentifier:(int)arg3 options:(unsigned long long)arg4 completionHandler:(CDUnknownBlockType)arg5;

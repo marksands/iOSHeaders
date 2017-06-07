@@ -6,7 +6,7 @@
 
 #import <QuickLook/QLItemViewController.h>
 
-@class NSMutableDictionary, UITextView;
+@class NSLayoutConstraint, NSMutableDictionary, UITextView;
 
 __attribute__((visibility("hidden")))
 @interface QLDebugItemViewController : QLItemViewController
@@ -14,6 +14,8 @@ __attribute__((visibility("hidden")))
     _Bool _constraintsSetUp;
     UITextView *_logTextView;
     NSMutableDictionary *_selectorToCount;
+    NSLayoutConstraint *_topConstraint;
+    NSLayoutConstraint *_bottomConstraint;
 }
 
 - (void).cxx_destruct;
@@ -30,8 +32,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)canEnterFullScreen;
 - (_Bool)canPinchToDismiss;
 - (_Bool)canSwipeToDismiss;
-- (void)setAppearance:(id)arg1;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end
 

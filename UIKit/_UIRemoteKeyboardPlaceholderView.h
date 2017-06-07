@@ -16,8 +16,10 @@ __attribute__((visibility("hidden")))
 {
     UIView *_mirroredView;
     struct CGSize _fixedSize;
+    CDUnknownBlockType _sizeBlock;
 }
 
++ (id)placeholderWithSizer:(CDUnknownBlockType)arg1;
 + (id)placeholderWithWidth:(double)arg1 height:(double)arg2;
 + (id)placeholderForView:(id)arg1;
 @property(readonly, copy) NSString *description;

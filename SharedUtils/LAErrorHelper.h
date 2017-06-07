@@ -21,6 +21,7 @@
 + (id)errorWithCode:(long long)arg1 userInfo:(id)arg2;
 + (id)errorWithCode:(long long)arg1 message:(id)arg2 moreInfo:(id)arg3;
 + (id)errorWithCode:(long long)arg1 subcode:(long long)arg2 message:(id)arg3;
++ (id)errorWithCode:(long long)arg1 message:(id)arg2 suberror:(id)arg3;
 + (id)errorWithCode:(long long)arg1 message:(id)arg2;
 + (id)errorWithCode:(long long)arg1;
 

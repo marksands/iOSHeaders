@@ -8,9 +8,12 @@
 
 #import <QuickLook/UIDocumentPasswordViewDelegate-Protocol.h>
 
+@class QLPreviewContext;
+
 __attribute__((visibility("hidden")))
 @interface QLPasswordItemViewController : QLItemViewController <UIDocumentPasswordViewDelegate>
 {
+    QLPreviewContext *_context;
     CDUnknownBlockType _completionBlock;
 }
 
@@ -19,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)invalidate;
 - (void)previewWillDisappear:(_Bool)arg1;
 - (void)previewDidAppear:(_Bool)arg1;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)passwordView;
 - (void)loadView;
 - (_Bool)canPinchToDismiss;

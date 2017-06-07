@@ -11,6 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface CFPrefsSearchListSource : CFPrefsSource
 {
+    struct __CFDictionary *_keysToSources;
     struct __CFString *_identifier;
     struct __CFArray *_sourceList;
     struct __CFSet *_cloudKeys;
@@ -19,9 +20,11 @@ __attribute__((visibility("hidden")))
     CFPrefsCloudSource *_cloudSetTarget;
     struct _opaque_pthread_mutex_t *_searchListLock;
     _Bool initialized;
+    // Error parsing type: AB, name: completedInitialLoad
 }
 
 - (void)dealloc;
+- (struct __CFString *)copyOSLogDescription;
 - (id)description;
 - (void)setCloudEnabled:(_Bool)arg1 forKey:(struct __CFString *)arg2;
 - (void)setCloudEnabled:(_Bool)arg1 forKeyPrefix:(struct __CFString *)arg2;

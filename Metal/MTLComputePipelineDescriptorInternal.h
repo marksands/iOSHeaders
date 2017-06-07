@@ -9,16 +9,21 @@
 __attribute__((visibility("hidden")))
 @interface MTLComputePipelineDescriptorInternal : MTLComputePipelineDescriptor
 {
-    struct MTLComputePipelineDescriptorPrivate *_private;
+    struct MTLComputePipelineDescriptorPrivate _private;
 }
 
 - (id)newSerializedComputeData;
 - (void)validateWithDevice:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)buffers;
 - (const struct MTLComputePipelineDescriptorPrivate *)_descriptorPrivate;
 - (_Bool)threadGroupSizeIsMultipleOfThreadExecutionWidth;
 - (void)setThreadGroupSizeIsMultipleOfThreadExecutionWidth:(_Bool)arg1;
+- (id)pipelineLibrary;
+- (void)setPipelineLibrary:(id)arg1;
+- (id)driverCompilerOptions;
+- (void)setDriverCompilerOptions:(id)arg1;
 - (id)stageInputDescriptor;
 - (void)setStageInputDescriptor:(id)arg1;
 - (id)computeFunction;

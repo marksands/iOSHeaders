@@ -23,6 +23,7 @@
     struct _UIWebTouchEvent _lastTouchEvent;
 }
 
++ (_Bool)_shouldDefaultToTouches;
 + (void)initialize;
 @property(readonly, nonatomic, getter=isDispatchingTouchEvents) _Bool dispatchingTouchEvents; // @synthesize dispatchingTouchEvents=_dispatchingTouchEvents;
 @property(nonatomic, getter=isDefaultPrevented) _Bool defaultPrevented; // @synthesize defaultPrevented=_defaultPrevented;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class MKQuadTrie, NSArray, NSMapTable, NSMutableSet, NSTimer;
+@class MKQuadTrie, NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSTimer;
 @protocol MKAnnotation, MKAnnotationManagerDelegate, MKAnnotationMarkerContainer, MKAnnotationRepresentation;
 
 __attribute__((visibility("hidden")))
@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
     NSMapTable *_annotationsToRepresentations;
     NSMutableSet *_annotationRepresentations;
     NSMapTable *_reusableAnnotationRepresentations;
+    NSMutableSet *_pendingRemovalAnnotationRepresentations;
+    NSMutableDictionary *_registeredIdentifierToRepresentationClasses;
     NSMutableSet *_managedAnnotations;
     NSMutableSet *_managedAnnotationsObservingCoordinate;
     _Bool _isChangingCoordinate;
@@ -47,7 +49,6 @@ __attribute__((visibility("hidden")))
 - (id)newInternalAnnotationRepresentationForInternalAnnotation:(id)arg1;
 - (_Bool)internalAnnotationAllowsCustomRepresentation:(id)arg1;
 - (_Bool)annotationIsInternal:(id)arg1;
-- (id)newDefaultAnnotationRepresentationForAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (id)representationForAnnotation:(id)arg1;
 @property(readonly, nonatomic) __weak id <MKAnnotationRepresentation> selectedAnnotationRepresentation;
 - (void)deselectAnnotation:(id)arg1 animated:(_Bool)arg2;
@@ -60,6 +61,7 @@ __attribute__((visibility("hidden")))
 - (void)showAnnotationsInMapRect:(CDStruct_02837cd9)arg1;
 - (id)annotationsInMapRect:(CDStruct_02837cd9)arg1;
 - (_Bool)containsAnnotation:(id)arg1;
+- (void)registerClass:(Class)arg1 forRepresentationReuseIdentifier:(id)arg2;
 - (id)dequeueReusableAnnotationRepresentationWithIdentifier:(id)arg1;
 - (void)removeRepresentationForManagedAnnotation:(id)arg1;
 - (id)addRepresentationForManagedAnnotation:(id)arg1 notifyDelegate:(_Bool)arg2;

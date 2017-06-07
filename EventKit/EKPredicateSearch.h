@@ -27,9 +27,11 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)disconnect;
 - (void)cancel;
+- (id)runSynchronously;
 - (id)startWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_startActualWithCompletion:(CDUnknownBlockType)arg1;
-- (id)_startOSActivity;
+- (void)_startActualWithCompletion:(CDUnknownBlockType)arg1 synchronous:(_Bool)arg2;
+- (void)_startActivityWithCompletion:(CDUnknownBlockType)arg1 synchronous:(_Bool)arg2;
+- (id)_createOSActivity;
 - (void)terminate;
 - (id)initWithEntityClass:(Class)arg1 predicate:(id)arg2 store:(id)arg3;
 

@@ -13,6 +13,7 @@
 
 + (void)dummySelector:(id)arg1;
 + (void)initialize;
++ (_Bool)isAvailable;
 - (void)updateAggregateDictionaryPrivate;
 - (id)stringForOrientation:(int)arg1;
 - (_Bool)orientationNotificationsDisabled;

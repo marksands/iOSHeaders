@@ -8,7 +8,7 @@
 
 #import <WebKit/UIScrollViewDelegate-Protocol.h>
 
-@class NSArray, NSData, NSNumber, NSString, NSURL, UIScrollView, WKBackForwardList, WKBrowsingContextHandle, WKWebViewConfiguration, WKWebViewContentProviderRegistry, _WKSessionState, _WKWebViewPrintFormatter;
+@class NSArray, NSData, NSNumber, NSString, NSURL, UIScrollView, WKBackForwardList, WKBrowsingContextHandle, WKPasswordView, WKWebViewConfiguration, WKWebViewContentProviderRegistry, _WKSessionState, _WKWebViewPrintFormatter;
 @protocol WKHistoryDelegatePrivate, WKNavigationDelegate, WKUIDelegate, _WKDiagnosticLoggingDelegate, _WKFindDelegate, _WKFullscreenDelegate, _WKIconLoadingDelegate, _WKInputDelegate, _WKWebViewPrintProvider;
 
 @interface WKWebView : UIView <UIScrollViewDelegate>
@@ -38,6 +38,8 @@
     struct UIEdgeInsets _obscuredInsets;
     _Bool _haveSetObscuredInsets;
     _Bool _isChangingObscuredInsetsInteractively;
+    struct UIEdgeInsets _unobscuredSafeAreaInsets;
+    _Bool _haveSetUnobscuredSafeAreaInsets;
     long long _interfaceOrientationOverride;
     _Bool _overridesInterfaceOrientation;
     _Bool _allowsViewportShrinkToFit;
@@ -51,12 +53,10 @@
     double _lastAdjustmentForScroller;
     struct optional<CGRect> _frozenVisibleContentRect;
     struct optional<CGRect> _frozenUnobscuredContentRect;
-    _Bool _needsToRestoreScrollPosition;
     _Bool _commitDidRestoreScrollPosition;
-    struct FloatPoint _scrollOffsetToRestore;
-    struct FloatSize _obscuredInsetWhenSaved;
-    _Bool _needsToRestoreUnobscuredCenter;
-    struct FloatPoint _unobscuredCenterToRestore;
+    optional_c1d3839d _scrollOffsetToRestore;
+    BoxExtent_b0036987 _obscuredInsetsWhenSaved;
+    optional_c1d3839d _unobscuredCenterToRestore;
     unsigned long long _firstTransactionIDAfterPageRestore;
     double _scaleToRestore;
     struct unique_ptr<WebKit::ViewGestureController, std::__1::default_delete<WebKit::ViewGestureController>> _gestureController;
@@ -73,10 +73,21 @@
     int _activeAnimatedResizeCount;
     struct Vector<std::__1::function<void ()>, 0, WTF::CrashOnOverflow, 16> _snapshotsDeferredDuringResize;
     struct RetainPtr<NSMutableArray> _stableStatePresentationUpdateCallbacks;
+    struct RetainPtr<WKPasswordView> _passwordView;
+    _Bool _hasScheduledVisibleRectUpdate;
+    _Bool _visibleContentRectUpdateScheduledFromScrollViewInStableState;
+    struct Vector<WTF::BlockPtr<void ()>, 0, WTF::CrashOnOverflow, 16> _visibleContentRectUpdateCallbacks;
 }
 
++ (_Bool)handlesURLScheme:(id)arg1;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)urlSchemeHandlerForURLScheme:(id)arg1;
+- (void)_didChangeAvoidsUnsafeArea:(_Bool)arg1;
+- (void)_updateScrollViewInsetAdjustmentBehavior;
+@property(readonly, nonatomic) WKPasswordView *_passwordView;
+- (void)_hidePasswordView;
+- (void)_showPasswordViewWithDocumentName:(id)arg1 passwordHandler:(CDUnknownBlockType)arg2;
 - (void)_navigationGestureDidEnd;
 - (void)_navigationGestureDidBegin;
 - (_Bool)_isNavigationSwipeGestureRecognizer:(id)arg1;
@@ -95,10 +106,13 @@
 - (void)_didSameDocumentNavigationForMainFrame:(int)arg1;
 - (void)_didFailLoadForMainFrame;
 - (void)_didFinishLoadForMainFrame;
-- (void)_updateContentRectsWithState:(_Bool)arg1;
-- (struct CGRect)_contentBoundsExtendedForRubberbandingWithScale:(double)arg1;
-- (void)_updateVisibleContentRectAfterScrollInView:(id)arg1;
 - (void)_updateVisibleContentRects;
+- (struct CGRect)_contentBoundsExtendedForRubberbandingWithScale:(double)arg1;
+- (void)_scheduleVisibleContentRectUpdateAfterScrollInView:(id)arg1;
+- (void)_addUpdateVisibleContentRectPreCommitHandler;
+- (_Bool)_scrollViewIsInStableState:(id)arg1;
+- (void)_scheduleVisibleContentRectUpdate;
+- (void)safeAreaInsetsDidChange;
 - (_Bool)_scrollViewIsRubberBanding;
 - (struct CGRect)_contentRectForUserInteraction;
 - (void)_frameOrBoundsChanged;
@@ -136,8 +150,8 @@
 - (void)_zoomToRect:(struct FloatRect)arg1 atScale:(double)arg2 origin:(struct FloatPoint)arg3 animated:(_Bool)arg4;
 - (void)_zoomToPoint:(struct FloatPoint)arg1 atScale:(double)arg2 animated:(_Bool)arg3;
 - (PassRefPtr_d1f98d0a)_takeViewSnapshot;
-- (void)_restorePageStateToUnobscuredCenter:(struct FloatPoint)arg1 scale:(double)arg2;
-- (void)_restorePageScrollPosition:(struct FloatPoint)arg1 scrollOrigin:(struct FloatPoint)arg2 previousObscuredInset:(struct FloatSize)arg3 scale:(double)arg4;
+- (void)_restorePageStateToUnobscuredCenter:(optional_c1d3839d)arg1 scale:(double)arg2;
+- (void)_restorePageScrollPosition:(optional_c1d3839d)arg1 scrollOrigin:(struct FloatPoint)arg2 previousObscuredInset:(BoxExtent_b0036987)arg3 scale:(double)arg4;
 - (void)_couldNotRestorePageState;
 - (void)_dynamicViewportUpdateChangedTargetToScale:(double)arg1 position:(struct CGPoint)arg2 nextValidLayerTreeTransactionID:(unsigned long long)arg3;
 - (void)_layerTreeCommitComplete;
@@ -145,6 +159,7 @@
 - (struct FloatRect)visibleRectInViewCoordinates;
 - (void)_didCommitLoadForMainFrame;
 - (void)_processDidExit;
+- (struct UIEdgeInsets)_computedUnobscuredSafeAreaInset;
 @property(readonly, nonatomic) struct UIEdgeInsets _computedContentInset;
 - (struct CGPoint)_adjustedContentOffset:(struct CGPoint)arg1;
 - (void)_updateScrollViewBackground;
@@ -152,9 +167,30 @@
 - (void)_willInvokeUIScrollViewDelegateCallback;
 - (void)_didFinishLoadingDataForCustomContentProviderWithSuggestedFilename:(const struct String *)arg1 data:(id)arg2;
 - (void)_setHasCustomContentView:(_Bool)arg1 loadedMIMEType:(const struct String *)arg2;
+@property(readonly, nonatomic) _Bool _allowsBlockSelection;
 @property(readonly, nonatomic) long long _selectionGranularity;
 @property(readonly, nonatomic) WKWebViewContentProviderRegistry *_contentProviderRegistry;
 - (id)_currentContentView;
+- (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (void)toggleUnderline:(id)arg1;
+- (void)toggleItalics:(id)arg1;
+- (void)toggleBoldface:(id)arg1;
+- (void)selectAll:(id)arg1;
+- (void)select:(id)arg1;
+- (void)replace:(id)arg1;
+- (void)paste:(id)arg1;
+- (void)cut:(id)arg1;
+- (void)copy:(id)arg1;
+- (void)_transliterateChinese:(id)arg1;
+- (void)_showTextStyleOptions:(id)arg1;
+- (void)_share:(id)arg1;
+- (void)_reanalyze:(id)arg1;
+- (void)_promptForReplace:(id)arg1;
+- (void)_lookup:(id)arg1;
+- (void)_define:(id)arg1;
+- (void)_arrowKey:(id)arg1;
+- (void)_addShortcut:(id)arg1;
+- (_Bool)resignFirstResponder;
 - (_Bool)canBecomeFirstResponder;
 - (_Bool)becomeFirstResponder;
 - (id)browsingContextController;
@@ -163,9 +199,11 @@
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic) _Bool _isBackground;
+- (void)_populateArchivedSubviews:(id)arg1;
 @property(nonatomic) _Bool allowsLinkPreview;
 - (struct OpaqueWKPage *)_pageForTesting;
 @property(copy, nonatomic) NSString *customUserAgent;
+- (void)takeSnapshotWithConfiguration:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)evaluateJavaScript:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)stopLoading;
 - (id)reloadFromOrigin;
@@ -220,10 +258,13 @@
 - (void)_setMaximumUnobscuredSizeOverride:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGSize _maximumUnobscuredSizeOverride;
 @property(nonatomic, setter=_setInterfaceOrientationOverride:) long long _interfaceOrientationOverride;
+@property(nonatomic, setter=_setUnobscuredSafeAreaInsets:) struct UIEdgeInsets _unobscuredSafeAreaInsets;
 @property(nonatomic, setter=_setObscuredInsets:) struct UIEdgeInsets _obscuredInsets;
 - (void)_setMinimumLayoutSizeOverride:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGSize _minimumLayoutSizeOverride;
-- (void)_stopMediaCapture;
+- (void)_setPageMuted:(long long)arg1;
+@property(nonatomic, setter=_setMediaCaptureEnabled:) _Bool _mediaCaptureEnabled;
+- (void)_muteMediaCapture;
 @property(readonly, nonatomic) _Bool _isInFullscreen;
 @property(nonatomic, setter=_setFullscreenDelegate:) id <_WKFullscreenDelegate> _fullscreenDelegate;
 @property(readonly, nonatomic) _Bool _webProcessIsResponsive;
@@ -233,6 +274,7 @@
 @property(nonatomic, setter=_setViewScale:) double _viewScale;
 @property(nonatomic, setter=_setFixedLayoutSize:) struct CGSize _fixedLayoutSize;
 @property(nonatomic, setter=_setLayoutMode:) unsigned long long _layoutMode;
+@property(readonly, nonatomic) _Bool _safeAreaShouldAffectObscuredInsets;
 @property(readonly, nonatomic, getter=_isShowingNavigationGestureSnapshot) _Bool _showingNavigationGestureSnapshot;
 @property(readonly, nonatomic, getter=_isDisplayingStandaloneMediaDocument) _Bool _displayingStandaloneMediaDocument;
 @property(readonly, nonatomic, getter=_isDisplayingStandaloneImageDocument) _Bool _displayingStandaloneImageDocument;
@@ -252,6 +294,7 @@
 @property(nonatomic, setter=_setPageLength:) double _pageLength;
 @property(nonatomic, setter=_setPaginationBehavesLikeColumns:) _Bool _paginationBehavesLikeColumns;
 @property(nonatomic, setter=_setPaginationMode:) long long _paginationMode;
+- (void)_getContentsAsStringWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_getWebArchiveDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_getMainResourceDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(nonatomic, setter=_setObservedRenderingProgressEvents:) unsigned long long _observedRenderingProgressEvents;
@@ -259,6 +302,7 @@
 @property(nonatomic, setter=_setAddsVisitedLinks:) _Bool _addsVisitedLinks;
 @property(copy, nonatomic, setter=_setRemoteInspectionNameOverride:) NSString *_remoteInspectionNameOverride;
 @property(nonatomic, setter=_setAllowsRemoteInspection:) _Bool _allowsRemoteInspection;
+- (void)_updateWebsitePolicies:(id)arg1;
 - (void)_close;
 - (id)_restoreSessionState:(id)arg1 andNavigate:(_Bool)arg2;
 - (void)_restoreFromSessionStateData:(id)arg1;
@@ -266,11 +310,14 @@
 @property(readonly, nonatomic) _WKSessionState *_sessionState;
 @property(readonly, nonatomic) NSData *_sessionStateData;
 - (void)_didRelaunchProcess;
+- (void)_accessibilityDidGetSpeakSelectionContent:(id)arg1;
+- (void)_accessibilityRetrieveSpeakSelectionContent;
 - (id)_dataDetectionResults;
 - (id)_snapshotLayerContentsForBackForwardListItem:(id)arg1;
 - (void)_becomeFirstResponderWithSelectionMovingForward:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (CDUnknownBlockType)_retainActiveFocusedState;
 - (void)_killWebContentProcessAndResetState;
+- (id)_reloadExpiredOnly;
 - (id)_reloadWithoutContentBlockers;
 - (void)_killWebContentProcess;
 @property(readonly, nonatomic) int _webProcessIdentifier;
@@ -288,13 +335,23 @@
 @property(readonly, nonatomic) WKBrowsingContextHandle *_handle;
 @property(readonly, nonatomic) id _remoteObjectRegistry;
 @property(nonatomic, getter=_isEditable, setter=_setEditable:) _Bool _editable;
+- (void)_simulatePrepareForDataInteractionSession:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)_simulatedItemsForSession:(id)arg1;
+- (void)_simulateWillBeginDataInteractionWithSession:(id)arg1;
+- (void)_simulateDataInteractionSessionDidEnd:(id)arg1;
+- (void)_simulateDataInteractionEnded:(id)arg1;
+- (void)_simulateDataInteractionPerformOperation:(id)arg1;
+- (_Bool)_simulateDataInteractionUpdated:(id)arg1;
+- (void)_simulateDataInteractionEntered:(id)arg1;
 - (void)_disableBackForwardSnapshotVolatilityForTesting;
+- (void)_doAfterNextVisibleContentRectUpdate:(CDUnknownBlockType)arg1;
 - (void)_doAfterNextPresentationUpdateWithoutWaitingForPainting:(CDUnknownBlockType)arg1;
 - (void)_doAfterNextPresentationUpdate:(CDUnknownBlockType)arg1;
 - (double)_pageScale;
 - (void)_setPageScale:(double)arg1 withOrigin:(struct CGPoint)arg2;
 - (void)_handleActiveNowPlayingSessionInfoResponse:(_Bool)arg1 title:(id)arg2 duration:(double)arg3 elapsedTime:(double)arg4;
 - (void)_requestActiveNowPlayingSessionInfo;
+- (id)_propertiesOfLayerWithID:(unsigned long long)arg1;
 - (void)_firePresentationUpdateForPendingStableStatePresentationCallbacks;
 - (void)_doAfterNextStablePresentationUpdate:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSNumber *_stableStateOverride;
@@ -313,6 +370,8 @@
 - (struct CGPoint)_convertPointFromViewToContents:(struct CGPoint)arg1;
 - (struct CGPoint)_convertPointFromContentsToView:(struct CGPoint)arg1;
 @property(readonly, nonatomic) struct CGRect _contentVisibleRect;
+- (void)requestDraggableElementAtPosition:(struct CGPoint)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)draggableElementAtPosition:(struct CGPoint)arg1;
 - (id)_contentsOfUserInterfaceItem:(id)arg1;
 @property(readonly, nonatomic) id <_WKWebViewPrintProvider> _printProvider;
 - (Class)_printFormatterClass;

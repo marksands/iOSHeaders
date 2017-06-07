@@ -10,30 +10,31 @@
 
 @interface EKPersistentSource : EKPersistentObject
 {
-    CDBSourceConstraints *_constraints;
 }
 
-+ (long long)_calEventPrivacyLevelToEKPrivacyLevel:(int)arg1;
-+ (int)_ekPrivacyLevelToCalEventPrivacyLevel:(long long)arg1;
 + (id)relations;
 + (id)defaultPropertiesToLoad;
-- (void).cxx_destruct;
-@property(readonly, nonatomic) CDBSourceConstraints *constraints; // @synthesize constraints=_constraints;
-- (void)reset;
-- (_Bool)refresh;
 - (id)description;
-@property(nonatomic) _Bool onlyCreatorCanModify;
-@property(nonatomic, getter=isEnabled) _Bool enabled;
-@property(copy, nonatomic) NSString *externalModificationTag;
-@property(copy, nonatomic) NSString *externalID;
+- (void)setLastSyncError:(unsigned long long)arg1;
+- (unsigned long long)lastSyncError;
+- (void)setLastSyncEndDate:(id)arg1;
+- (id)lastSyncEndDate;
+- (void)setLastSyncStartDate:(id)arg1;
+- (id)lastSyncStartDate;
+- (void)setFlags:(int)arg1;
+- (int)flags;
+@property(nonatomic) _Bool onlyCreatorCanModify; // @dynamic onlyCreatorCanModify;
+@property(nonatomic) _Bool disabled; // @dynamic disabled;
+@property(copy, nonatomic) NSString *externalModificationTag; // @dynamic externalModificationTag;
+@property(copy, nonatomic) NSString *externalID; // @dynamic externalID;
 @property(retain, nonatomic) NSString *UUID;
-@property(copy, nonatomic) NSNumber *defaultAlarmOffset;
-@property(copy, nonatomic) NSString *title;
-@property(nonatomic) long long strictestEventPrivateValue;
-@property(nonatomic) long long preferredEventPrivateValue;
-@property(nonatomic) long long sourceType;
+@property(copy, nonatomic) NSNumber *defaultAlarmOffset; // @dynamic defaultAlarmOffset;
+@property(copy, nonatomic) NSString *title; // @dynamic title;
+@property(nonatomic) int strictestEventPrivateValue; // @dynamic strictestEventPrivateValue;
+@property(nonatomic) int preferredEventPrivateValue; // @dynamic preferredEventPrivateValue;
+@property(nonatomic) long long sourceType; // @dynamic sourceType;
 - (int)entityType;
-- (id)init;
+@property(readonly, nonatomic) CDBSourceConstraints *constraints;
 
 @end
 

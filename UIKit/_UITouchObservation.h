@@ -6,17 +6,21 @@
 
 #import <Foundation/NSObject.h>
 
-@class UITouch;
-
 __attribute__((visibility("hidden")))
 @interface _UITouchObservation : NSObject
 {
-    UITouch *_observedTouches[8];
+    struct {
+        int phase;
+        struct CGPoint position;
+        double timestamp;
+        double azimuth;
+        double altitude;
+        double pressure;
+    } _observedTouches[8];
     unsigned long long _observedTouchCount;
     unsigned long long _observedTouchOffset;
 }
 
-- (void).cxx_destruct;
 - (void)enumerateTouchesWithBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)touchCount;
 - (void)reset;

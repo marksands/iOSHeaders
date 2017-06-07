@@ -22,12 +22,12 @@ __attribute__((visibility("hidden")))
 - (void)textViewEditingDidEnd:(id)arg1;
 - (void)textViewChanged:(id)arg1;
 - (void)setValueTextAttributes:(id)arg1;
-- (double)bottomBaselineConstant;
 - (void)performDefaultAction;
 - (_Bool)shouldPerformDefaultAction;
 - (void)setLabelTextAttributes:(id)arg1;
 - (id)valueView;
 - (id)labelView;
+- (_Bool)shouldIndentWhileEditing;
 - (_Bool)supportsTintColorValue;
 - (void)setProperty:(id)arg1;
 - (void)dealloc;

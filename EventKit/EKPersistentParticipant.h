@@ -6,29 +6,35 @@
 
 #import <EventKit/EKPersistentObject.h>
 
-#import <EventKit/NSCopying-Protocol.h>
-
-@class NSDate, NSString, NSURL;
-
-@interface EKPersistentParticipant : EKPersistentObject <NSCopying>
+@interface EKPersistentParticipant : EKPersistentObject
 {
 }
 
 + (id)defaultPropertiesToLoad;
-@property(nonatomic) int proposedStartDateStatus;
-@property(readonly, nonatomic) NSString *invitedBy;
-@property(copy, nonatomic) NSDate *proposedStartDate;
+- (void)setProposedStartDateStatus:(int)arg1;
+- (int)proposedStartDateStatus;
+- (id)invitedBy;
+- (void)setProposedStartDate:(id)arg1;
+- (id)proposedStartDate;
 - (id)owner;
-@property(copy, nonatomic) NSString *comment;
-@property(copy, nonatomic) NSURL *address;
-@property(copy, nonatomic) NSString *lastName;
-@property(copy, nonatomic) NSString *firstName;
-@property(copy, nonatomic) NSString *emailAddress;
-@property(copy, nonatomic) NSString *displayName;
-@property(readonly, nonatomic) NSString *UUID;
+- (void)setComment:(id)arg1;
+- (id)comment;
+- (void)setAddress:(id)arg1;
+- (id)address;
+- (void)setLastName:(id)arg1;
+- (id)lastName;
+- (void)setFirstName:(id)arg1;
+- (id)firstName;
+- (void)setPhoneNumber:(id)arg1;
+- (id)phoneNumber;
+- (void)setEmailAddress:(id)arg1;
+- (id)emailAddress;
+- (void)setDisplayName:(id)arg1;
+- (id)displayName;
+- (void)setUUID:(id)arg1;
+- (id)UUID;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)init;
 
 @end
 

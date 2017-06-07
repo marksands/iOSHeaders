@@ -20,6 +20,7 @@
 @property(copy) NSDictionary *URLAppendStringMap;
 @property(copy) NSDictionary *remediationMap;
 - (void)notifyRulesChanged;
+- (void)handleReportForFlow:(id)arg1 action:(int)arg2;
 - (void)handleRemediationForFlow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleNewFlow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 

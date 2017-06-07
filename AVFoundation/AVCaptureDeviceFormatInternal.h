@@ -14,6 +14,7 @@
     NSArray *videoSupportedFrameRateRanges;
     CDStruct_1b6d18a9 defaultActiveMinFrameDuration;
     CDStruct_1b6d18a9 defaultActiveMaxFrameDuration;
+    NSArray *supportedDepthDataFormats;
 }
 
 @end

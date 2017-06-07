@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)executionDidBegin;
+- (_Bool)viewServiceHostViewController:(id)arg1 shouldAuthenticateAccountProviderWithIdentifier:(id)arg2;
 - (void)viewServiceHostViewController:(id)arg1 didCancelRequest:(id)arg2;
 - (void)viewServiceHostViewController:(id)arg1 didChooseAdditionalProvidersForRequest:(id)arg2;
 - (void)viewServiceHostViewController:(id)arg1 request:(id)arg2 didFailWithError:(id)arg3;

@@ -75,11 +75,10 @@
 - (_Bool)isImporting;
 - (_Bool)isBusy;
 @property(readonly, nonatomic) int _thumbnailImageFormat; // @synthesize _thumbnailImageFormat=__thumbnailImageFormat;
-- (id)textBadgeStringForImageAtIndex:(long long)arg1;
+- (id)_placeholderExtenstionForItem:(id)arg1;
 - (id)_placeholderForItem:(id)arg1;
 - (id)_newGenericImageForItemWithExtension:(id)arg1 size:(struct CGSize)arg2;
 @property(readonly, nonatomic) UIImage *_missingThumbnailPlaceholder; // @synthesize _missingThumbnailPlaceholder=__missingThumbnailPlaceholder;
-- (id)_textBadgeStringForCameraItem:(id)arg1;
 - (void)importer:(id)arg1 didCompleteRemovalOfItems:(id)arg2;
 - (void)importer:(id)arg1 didRemoveImportItems:(id)arg2 atIndexes:(id)arg3;
 - (void)importer:(id)arg1 didCompleteImportForItems:(id)arg2;

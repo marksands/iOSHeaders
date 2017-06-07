@@ -178,6 +178,7 @@
 - (void)geniusItemsForSeedItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setValues:(id)arg1 forProperties:(id)arg2 forItemPersistentIDs:(id)arg3;
 - (void)clearLocationPropertiesOfItem:(id)arg1;
+- (void)populateLocationPropertiesOfItem:(id)arg1 withPath:(id)arg2 assetProtectionType:(long long)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)populateLocationPropertiesOfItem:(id)arg1 withPath:(id)arg2 assetProtectionType:(long long)arg3;
 - (void)downloadAsset:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)removePlaylist:(id)arg1;
@@ -230,8 +231,6 @@
 - (_Bool)hasGeniusMixes;
 - (_Bool)hasMedia;
 - (_Bool)hasMediaOfType:(unsigned long long)arg1;
-- (_Bool)libraryHasBeenModifiedWithToken:(id)arg1;
-- (id)modificationToken;
 - (id)databasePath;
 - (id)uniqueIdentifier;
 @property(nonatomic) long long removalReason;
@@ -267,7 +266,7 @@
 - (id)description;
 - (void)dealloc;
 - (id)init;
-@property(readonly, nonatomic) shared_ptr_2d06daf8 _MediaLibrary_coreLibrary;
+@property(readonly, nonatomic) shared_ptr_0f3dbfb3 _MediaLibrary_coreLibrary;
 @property(readonly, nonatomic) NSURL *protectedContentSupportStorageURL;
 - (void)enumerateEntityChangesAfterSyncAnchor:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateEntityChangesAfterSyncAnchor:(id)arg1 maximumRevisionType:(int)arg2 usingBlock:(CDUnknownBlockType)arg3;

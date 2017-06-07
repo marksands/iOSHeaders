@@ -6,7 +6,6 @@
 
 #import <objc/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface PUViewControllerSpecChange : NSObject
 {
     _Bool _traitCollectionChanged;

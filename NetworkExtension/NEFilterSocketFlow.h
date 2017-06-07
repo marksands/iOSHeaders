@@ -20,15 +20,13 @@
     int _socketFamily;
     int _socketType;
     int _socketProtocol;
-    int _pid;
-    int _epid;
     NWEndpoint *_remoteEndpoint;
     NWEndpoint *_localEndpoint;
+    unsigned long long _socketID;
 }
 
 + (_Bool)supportsSecureCoding;
-@property int epid; // @synthesize epid=_epid;
-@property int pid; // @synthesize pid=_pid;
+@property unsigned long long socketID; // @synthesize socketID=_socketID;
 @property int socketProtocol; // @synthesize socketProtocol=_socketProtocol;
 @property int socketType; // @synthesize socketType=_socketType;
 @property int socketFamily; // @synthesize socketFamily=_socketFamily;
@@ -36,12 +34,18 @@
 @property(copy) NWEndpoint *remoteEndpoint; // @synthesize remoteEndpoint=_remoteEndpoint;
 - (void).cxx_destruct;
 - (id)description;
+- (_Bool)getCachedSourceAppInfo;
+- (void)cacheSourceAppInfo;
 - (void)lastLocalAddress:(struct sockaddr *)arg1;
 - (void)lastRemoteAddress:(struct sockaddr *)arg1;
+- (unsigned char (*)[16])euuid;
+- (unsigned char (*)[16])uuid;
+- (void)setEffectiveProcUUID:(unsigned char [16])arg1;
+- (void)setProcUUID:(unsigned char [16])arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithSocketFamily:(int)arg1 socketType:(int)arg2 socketProtocol:(int)arg3 pid:(int)arg4 epid:(int)arg5 uuid:(unsigned char [16])arg6 euuid:(unsigned char [16])arg7;
+- (id)initWithSocketFamily:(int)arg1 socketType:(int)arg2 socketProtocol:(int)arg3 pid:(int)arg4 epid:(int)arg5 uuid:(unsigned char [16])arg6 euuid:(unsigned char [16])arg7 socketID:(unsigned long long)arg8;
 
 @end
 

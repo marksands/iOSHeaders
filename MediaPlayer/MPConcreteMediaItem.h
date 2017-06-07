@@ -7,13 +7,12 @@
 #import <MediaPlayer/MPMediaItem.h>
 
 #import <MediaPlayer/MPCacheableConcreteMediaEntity-Protocol.h>
-#import <MediaPlayer/MPMediaItemArrayPIDEncodableItem-Protocol.h>
 #import <MediaPlayer/NSCoding-Protocol.h>
 #import <MediaPlayer/NSCopying-Protocol.h>
 
-@class MPConcreteMediaEntityPropertiesCache, MPMediaLibrary, NSString;
+@class MPConcreteMediaEntityPropertiesCache, MPMediaLibrary;
 
-@interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying, MPMediaItemArrayPIDEncodableItem, MPCacheableConcreteMediaEntity>
+@interface MPConcreteMediaItem : MPMediaItem <NSCoding, NSCopying, MPCacheableConcreteMediaEntity>
 {
     MPMediaLibrary *_library;
     unsigned long long _persistentID;
@@ -48,7 +47,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, copy) NSString *description;
+- (id)description;
 - (void)invalidateCachedProperties;
 @property(readonly, retain, nonatomic) MPConcreteMediaEntityPropertiesCache *cachedPropertyValues;
 - (void)dealloc;
@@ -56,11 +55,6 @@
 - (id)initWithPersistentID:(unsigned long long)arg1 library:(id)arg2;
 - (id)initWithPersistentID:(unsigned long long)arg1;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

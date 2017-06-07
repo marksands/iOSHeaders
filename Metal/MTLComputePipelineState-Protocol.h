@@ -6,11 +6,13 @@
 
 #import <Metal/NSObject-Protocol.h>
 
+@class NSString;
 @protocol MTLDevice;
 
 @protocol MTLComputePipelineState <NSObject>
 @property(readonly) unsigned long long threadExecutionWidth;
 @property(readonly) unsigned long long maxTotalThreadsPerThreadgroup;
 @property(readonly) id <MTLDevice> device;
+@property(readonly) NSString *label;
 @end
 

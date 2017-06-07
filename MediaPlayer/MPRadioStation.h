@@ -9,19 +9,22 @@
 #import <MediaPlayer/NSCopying-Protocol.h>
 #import <MediaPlayer/NSSecureCoding-Protocol.h>
 
-@class NSString, RadioStation;
+@class NSString;
 
 @interface MPRadioStation : NSObject <NSCopying, NSSecureCoding>
 {
-    RadioStation *_station;
+    long long _uniqueIdentifier;
+    NSString *_localizedName;
+    NSString *_localizedDescription;
+    NSString *_stationStringID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *stationStringID; // @synthesize stationStringID=_stationStringID;
+@property(copy, nonatomic) NSString *localizedDescription; // @synthesize localizedDescription=_localizedDescription;
+@property(copy, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
+@property(nonatomic) long long uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 - (void).cxx_destruct;
-@property(readonly, nonatomic, getter=_station) RadioStation *_station;
-@property(readonly, nonatomic) long long uniqueIdentifier;
-@property(readonly, nonatomic) NSString *localizedName;
-@property(readonly, nonatomic) NSString *localizedDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

@@ -16,8 +16,7 @@
 @interface ADSession : NSObject <ADSession_RPC, ADAdSheetProxyDelegate, ADAdSheetConnectionDelegate>
 {
     _Bool _applicationCanReceiveBackgroundAds;
-    _Bool _canUpdateFrequencyCap;
-    _Bool _canUpdateToroClickData;
+    _Bool _appExtensionCanReceiveAds;
     int _classicUnavailableToken;
     NSMutableArray *_adSpaces;
     ADAdSheetConnection *_connection;
@@ -25,25 +24,13 @@
 }
 
 + (id)sharedInstance;
-@property _Bool canUpdateToroClickData; // @synthesize canUpdateToroClickData=_canUpdateToroClickData;
-@property _Bool canUpdateFrequencyCap; // @synthesize canUpdateFrequencyCap=_canUpdateFrequencyCap;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) ADAdSheetConnection *connection; // @synthesize connection=_connection;
 @property(nonatomic) int classicUnavailableToken; // @synthesize classicUnavailableToken=_classicUnavailableToken;
 @property(retain, nonatomic) NSMutableArray *adSpaces; // @synthesize adSpaces=_adSpaces;
+@property(nonatomic) _Bool appExtensionCanReceiveAds; // @synthesize appExtensionCanReceiveAds=_appExtensionCanReceiveAds;
 @property(nonatomic) _Bool applicationCanReceiveBackgroundAds; // @synthesize applicationCanReceiveBackgroundAds=_applicationCanReceiveBackgroundAds;
 - (void)_appDidBecomeActive;
-- (void)updateDPIDWithAction:(unsigned long long)arg1;
-- (void)requestTrendingSearchURL:(CDUnknownBlockType)arg1;
-- (void)requestSponsoredSearchURL:(CDUnknownBlockType)arg1;
-- (void)requestTrendingSearchData:(CDUnknownBlockType)arg1;
-- (void)requestSponsoredSearchDataAndRequestID:(CDUnknownBlockType)arg1;
-- (void)requestSponsoredSearchData:(CDUnknownBlockType)arg1;
-- (void)updateToroClickData:(id)arg1;
-- (void)updateTrendingFrequencyCapData:(id)arg1;
-- (void)updateSponsoredFrequencyCapData:(id)arg1;
-- (void)refreshTargetingData;
-- (void)requestUserTargetingIdentifier:(CDUnknownBlockType)arg1;
 - (void)prepareForAdRequests;
 - (void)segmentDataForSignedInUserWithBlock:(CDUnknownBlockType)arg1;
 - (void)addClientToSegments:(id)arg1 replaceExisting:(_Bool)arg2;

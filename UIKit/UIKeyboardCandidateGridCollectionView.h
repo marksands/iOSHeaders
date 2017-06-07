@@ -6,22 +6,21 @@
 
 #import <UIKit/UIKBCandidateCollectionView.h>
 
-@class NSArray, UIKeyboardCandidateGridCollectionViewController, UITableViewIndex, UIView;
+@class NSArray, UIKeyboardCandidateGridCollectionViewController, UITableViewIndex;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateGridCollectionView : UIKBCandidateCollectionView
 {
     double _indexMaximumHeight;
+    UITableViewIndex *_index;
     UIKeyboardCandidateGridCollectionViewController *_parentViewController;
     double _previousGroupBarStartingY;
-    UITableViewIndex *_index;
-    UIView *_headerView;
 }
 
-@property(retain, nonatomic) UIView *headerView; // @synthesize headerView=_headerView;
-@property(readonly, nonatomic) UITableViewIndex *index; // @synthesize index=_index;
 @property(nonatomic) double previousGroupBarStartingY; // @synthesize previousGroupBarStartingY=_previousGroupBarStartingY;
-@property(nonatomic) UIKeyboardCandidateGridCollectionViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
+@property(nonatomic) __weak UIKeyboardCandidateGridCollectionViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
+@property(readonly, nonatomic) UITableViewIndex *index; // @synthesize index=_index;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *indexTitles;
 - (void)keyboardWillShowNotification:(id)arg1;
 - (void)keyboardDidHideNotification:(id)arg1;

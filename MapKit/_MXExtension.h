@@ -14,29 +14,19 @@
     _MXExtensionProvider *_provider;
 }
 
-+ (id)_MXExtensionServiceIntentLackOfCapabilityError;
-+ (id)_serialQueue;
 @property(nonatomic) __weak _MXExtensionProvider *provider; // @synthesize provider=_provider;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (id)icon;
-- (id)_iconWithformat:(int)arg1;
+- (id)_iconWithFormat:(int)arg1;
 - (id)_iconForTableUI;
 - (id)_containingAppIdentifer;
 - (id)siblingExtensions;
 - (_Bool)_isIntentExtension;
 - (_Bool)_isMapsExtension;
 - (_Bool)_setEnabled:(_Bool)arg1 error:(id *)arg2;
-- (void)startRemoteViewControllerExtensionServiceWithInputItems:(id)arg1 begin:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)startExtensionServiceWithInputItems:(id)arg1 begin:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)startExtensionServiceWithVendorContextConnectionDidStart:(CDUnknownBlockType)arg1 vendorContextConnectionDidComplete:(CDUnknownBlockType)arg2;
-- (_Bool)canSupportIntentClass:(Class)arg1;
-- (_Bool)canSupportIntent:(id)arg1;
-- (void)resolveIntentSlot:(id)arg1 forIntent:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)confirmationResponseForIntent:(id)arg1 expectResponseClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)handleIntent:(id)arg1 expectResponseClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSExtension *extension;
-@property(readonly, nonatomic) NSString *displayName;
+@property(readonly, copy, nonatomic) NSString *containingAppDisplayName;
+@property(readonly, copy, nonatomic) NSString *displayName;
 - (id)description;
 @property(readonly, copy, nonatomic) NSSet *capabilities;
 @property(readonly, nonatomic) unsigned long long type;
@@ -46,8 +36,20 @@
 @property(readonly, copy, nonatomic) NSString *extensionPointIdentifier;
 - (id)initWithExtensionIdentifier:(id)arg1 extensionProvider:(id)arg2;
 - (void)startRideSharingSearchRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (_Bool)supportsRequest:(id)arg1;
-- (void)startExtensionServiceWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)handleRequest:(id)arg1 requestDispatcher:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)startSendingUpdatesForRequest:(id)arg1 requestDispatcher:(id)arg2 toObserver:(id)arg3;
+- (void)startExtensionServiceWithInputItems:(id)arg1 begin:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)canSupportIntentClass:(Class)arg1;
+- (_Bool)canSupportIntent:(id)arg1;
+- (id)_loadImage:(id)arg1;
+- (void)_extensionContextHost:(id)arg1 wantsToCacheObject:(id)arg2;
+- (void)extensionContextHost:(id)arg1 wantsToCacheObject:(id)arg2;
+- (void)extensionContextHost:(id)arg1 wantsToCacheImage:(id)arg2;
+- (id)startSendingUpdatesForIntent:(id)arg1 toObserver:(id)arg2;
+- (id)handleIntent:(id)arg1 expectResponseClass:(Class)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (id)confirmIntent:(id)arg1 expectResponseClass:(Class)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (id)resolveIntentSlot:(id)arg1 forIntent:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)handleIntent:(id)arg1 expectResponseClass:(Class)arg2 completion:(CDUnknownBlockType)arg3;
 
 @end
 

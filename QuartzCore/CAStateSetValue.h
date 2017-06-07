@@ -14,6 +14,7 @@
     id _value;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *keyPath; // @synthesize keyPath=_keyPath;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

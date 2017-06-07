@@ -19,6 +19,7 @@
 + (unsigned long long)imageScaleFromUserDefaults;
 + (void)addAttachment:(id)arg1 prepend:(_Bool)arg2 withCompositionModel:(id)arg3 delegate:(id)arg4;
 + (void)_setupForNewMessageWithModel:(id)arg1 delegate:(id)arg2;
++ (void)setupSwitchToReplyAllWithModel:(id)arg1 delegate:(id)arg2;
 + (void)_setupForReplyAllWithModel:(id)arg1 delegate:(id)arg2;
 + (void)_setupForForwardWithModel:(id)arg1 delegate:(id)arg2;
 + (void)_setupForReplyWithModel:(id)arg1 delegate:(id)arg2;
@@ -32,7 +33,6 @@
 + (id)_markupForInlineAttachment:(id)arg1 willBeIncluded:(_Bool)arg2 prependBlankLine:(_Bool)arg3 delegate:(id)arg4;
 + (id)_markupStringForExcludedInlineAttachmentWithFilename:(id)arg1;
 + (void)_prependQuotedMarkup:(id)arg1 shouldIndent:(_Bool)arg2 toBodyField:(id)arg3;
-+ (void)_prependPreamble:(id)arg1 toBodyField:(id)arg2;
 
 @end
 

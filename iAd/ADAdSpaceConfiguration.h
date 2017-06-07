@@ -19,9 +19,11 @@
     NSString *_advertisingSection;
     NSString *_authenticationUserName;
     NSSet *_context;
+    NSString *_adSpaceContextJSON;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *adSpaceContextJSON; // @synthesize adSpaceContextJSON=_adSpaceContextJSON;
 @property(copy, nonatomic) NSSet *context; // @synthesize context=_context;
 @property(copy, nonatomic) NSString *authenticationUserName; // @synthesize authenticationUserName=_authenticationUserName;
 @property(copy, nonatomic) NSString *advertisingSection; // @synthesize advertisingSection=_advertisingSection;

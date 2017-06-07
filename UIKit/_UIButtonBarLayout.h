@@ -28,11 +28,13 @@ __attribute__((visibility("hidden")))
 - (void)addLayoutViews:(id)arg1 layoutGuides:(id)arg2 constraintsToActivate:(id)arg3 constraintsToDeactivate:(id)arg4;
 - (_Bool)compact;
 - (void)configure;
+- (id)_metricsData;
 - (id)_item;
 - (_Bool)_isGroup;
 - (_Bool)_isSpace;
 - (void)_configure;
 - (_Bool)_shouldBeDirty;
+- (_Bool)shouldHoriziontallyCenterView:(id)arg1;
 - (id)initWithLayoutMetrics:(id)arg1;
 - (id)init;
 

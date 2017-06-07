@@ -10,7 +10,7 @@
 #import <QuickLook/UIPageViewControllerDelegate-Protocol.h>
 #import <QuickLook/UIScrollViewDelegate-Protocol.h>
 
-@class NSMapTable, NSString, UIScrollView, UIViewController, _QLDelegateProxy;
+@class NSMapTable, NSString, QLDelegateProxy, UIScrollView, UIViewController;
 @protocol QLPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate;
 
 __attribute__((visibility("hidden")))
@@ -21,8 +21,8 @@ __attribute__((visibility("hidden")))
     struct CGPoint _scrollingStartOffset;
     id <UIPageViewControllerDelegate> _definedDelegate;
     UIScrollView *_scrollView;
-    _QLDelegateProxy *_scrollViewDelegateProxy;
-    _QLDelegateProxy *_pageViewControllerDelegateProxy;
+    QLDelegateProxy *_scrollViewDelegateProxy;
+    QLDelegateProxy *_pageViewControllerDelegateProxy;
     double _interPageSpacing;
     long long _currentPageIndexForAppliedParallaxEffect;
     _Bool _pageClipsToBounds[3];

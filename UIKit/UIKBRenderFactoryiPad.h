@@ -16,13 +16,11 @@ __attribute__((visibility("hidden")))
 - (double)_row4ControlSegmentWidthRight;
 - (double)_row4ControlSegmentWidthLeft;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
-- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2 rowLimit:(long long)arg3;
+- (id)variantGeometriesForGeometry:(id)arg1 variantCount:(unsigned long long)arg2 rowLimit:(long long)arg3 annotationIndex:(unsigned long long)arg4;
 - (long long)rowLimitForKey:(id)arg1;
 - (double)defaultVariantSizeThreshold;
 - (struct CGSize)defaultVariantGeometrySize;
 - (void)_customizePopupTraits:(id)arg1 forKey:(id)arg2 onKeyplane:(id)arg3;
-- (struct UIEdgeInsets)variantSymbolFrameInsets;
-- (struct UIEdgeInsets)variantDisplayFrameInsets;
 - (_Bool)shouldClearBaseDisplayStringForVariants:(id)arg1;
 - (void)_customizeSymbolStyle:(id)arg1 forKey:(id)arg2 contents:(id)arg3;
 - (id)lowQualityLayeredBackgroundColorName;
@@ -53,8 +51,11 @@ __attribute__((visibility("hidden")))
 - (id)displayContentsForKey:(id)arg1;
 - (struct CGRect)insetFrame:(struct CGRect)arg1 forKey:(id)arg2;
 - (double)cornerRadiusForKey:(id)arg1;
-- (_Bool)supportsGestureBehaviors;
 - (_Bool)supportsInputTraits:(id)arg1 forKeyplane:(id)arg2;
+- (struct UIEdgeInsets)variantSymbolFrameInsets;
+- (struct UIEdgeInsets)variantDisplayFrameInsets;
+- (struct UIEdgeInsets)variantPaddedFrameInsets;
+- (struct UIEdgeInsets)wideShadowPaddleInsets;
 - (_Bool)iPadFudgeLayout;
 - (double)predictiveKeyCornerRadius;
 - (double)skinnyKeyThreshold;

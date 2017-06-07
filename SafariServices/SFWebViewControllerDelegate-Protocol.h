@@ -6,11 +6,12 @@
 
 #import <SafariServices/NSObject-Protocol.h>
 
-@class NSArray, NSError, NSURL, NSURLAuthenticationChallenge, SFWebViewController, UIViewController, WKBackForwardListItem, WKNavigation, WKNavigationAction, WKWebView, WKWebViewConfiguration, _SFDialog, _WKActivatedElementInfo;
+@class NSArray, NSError, NSURL, NSURLAuthenticationChallenge, SFWebViewController, UIViewController, WKBackForwardListItem, WKNavigation, WKNavigationAction, WKNavigationResponse, WKWebView, WKWebViewConfiguration, _WKActivatedElementInfo, _WKFrameHandle;
 
 @protocol SFWebViewControllerDelegate <NSObject>
+- (void)webViewControllerDidChangeSafeAreaInsets:(SFWebViewController *)arg1;
+- (void)webViewController:(SFWebViewController *)arg1 printFrame:(_WKFrameHandle *)arg2;
 - (UIViewController *)presentingViewControllerForWebViewController:(SFWebViewController *)arg1;
-- (void)webViewController:(SFWebViewController *)arg1 didDismissDialog:(_SFDialog *)arg2;
 - (void)webViewControllerWillPresentJavaScriptDialog:(SFWebViewController *)arg1;
 - (void)webViewController:(SFWebViewController *)arg1 didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)arg2 completionHandler:(void (^)(long long, NSURLCredential *))arg3;
 - (void)webViewControllerDidChangeHasOnlySecureContent:(SFWebViewController *)arg1;
@@ -19,12 +20,13 @@
 - (void)webViewControllerWebProcessDidBecomeUnresponsive:(SFWebViewController *)arg1;
 - (void)webViewControllerWebProcessDidBecomeResponsive:(SFWebViewController *)arg1;
 - (void)webViewControllerWebProcessDidCrash:(SFWebViewController *)arg1;
-- (void)webViewController:(SFWebViewController *)arg1 setDownloadingFileType:(long long)arg2;
-- (WKWebView *)webViewController:(SFWebViewController *)arg1 createWebViewWithConfiguration:(WKWebViewConfiguration *)arg2 forNavigationAction:(WKNavigationAction *)arg3;
+- (void)webViewController:(SFWebViewController *)arg1 webViewDidClose:(WKWebView *)arg2;
+- (void)webViewController:(SFWebViewController *)arg1 createWebViewWithConfiguration:(WKWebViewConfiguration *)arg2 forNavigationAction:(WKNavigationAction *)arg3 completionHandler:(void (^)(WKWebView *))arg4;
 - (void)webViewController:(SFWebViewController *)arg1 didEndNavigationGestureToBackForwardListItem:(WKBackForwardListItem *)arg2;
 - (void)webViewController:(SFWebViewController *)arg1 didSameDocumentNavigation:(WKNavigation *)arg2 ofType:(long long)arg3;
 - (void)webViewControllerDidChangeURL:(SFWebViewController *)arg1;
 - (void)webViewController:(SFWebViewController *)arg1 didFailProvisionalNavigation:(WKNavigation *)arg2 withError:(NSError *)arg3;
+- (void)webViewController:(SFWebViewController *)arg1 decidePolicyForNavigationResponse:(WKNavigationResponse *)arg2 decisionHandler:(void (^)(long long))arg3;
 - (void)webViewController:(SFWebViewController *)arg1 decidePolicyForNavigationAction:(WKNavigationAction *)arg2 decisionHandler:(void (^)(long long))arg3;
 - (void)webViewControllerDidFirstVisuallyNonEmptyLayout:(SFWebViewController *)arg1;
 - (void)webViewController:(SFWebViewController *)arg1 didFailNavigation:(WKNavigation *)arg2 withError:(NSError *)arg3;

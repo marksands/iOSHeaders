@@ -25,11 +25,8 @@ __attribute__((visibility("hidden")))
 - (id)_keywordForSceneIdentifier:(id)arg1;
 - (id)_assetResourceForAsset:(id)arg1;
 - (id)_assetResourcesForAssets:(id)arg1;
-- (id)_archiveAssets:(id)arg1 destinationDirectory:(id)arg2 filename:(id)arg3;
-- (id)_tempDirectoryURL;
-- (id)_radarURLWithTitle:(id)arg1 description:(id)arg2 attachmentPaths:(id)arg3 includeSysDiagnose:(_Bool)arg4;
+- (id)_assetPathsForAssets:(id)arg1;
 - (void)_fileRadarWithIncorrectAssets:(id)arg1;
-- (void)_presentTermsAndConditions:(CDUnknownBlockType)arg1;
 - (void)_tappedFileRadarButton:(id)arg1;
 - (void)configureGridCell:(id)arg1 forItemAtIndexPath:(id)arg2;
 - (_Bool)allowSlideshowButton;

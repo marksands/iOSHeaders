@@ -11,6 +11,7 @@
     _Bool _networkAccessAllowed;
     _Bool _streamingAllowed;
     _Bool _videoComplementAllowed;
+    _Bool _allowMediumHighQuality;
     _Bool _restrictToPlayableOnCurrentDevice;
     long long _version;
     long long _deliveryMode;
@@ -22,6 +23,7 @@
 @property(nonatomic) _Bool restrictToPlayableOnCurrentDevice; // @synthesize restrictToPlayableOnCurrentDevice=_restrictToPlayableOnCurrentDevice;
 @property(nonatomic) long long contentMode; // @synthesize contentMode=_contentMode;
 @property(nonatomic) struct CGSize targetSize; // @synthesize targetSize=_targetSize;
+@property(nonatomic, getter=isMediumHighQualityAllowed) _Bool allowMediumHighQuality; // @synthesize allowMediumHighQuality=_allowMediumHighQuality;
 @property(nonatomic, getter=isVideoComplementAllowed) _Bool videoComplementAllowed; // @synthesize videoComplementAllowed=_videoComplementAllowed;
 @property(nonatomic, getter=isStreamingAllowed) _Bool streamingAllowed; // @synthesize streamingAllowed=_streamingAllowed;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;

@@ -54,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (id)pasteboardTypes;
 - (void)addItems:(id)arg1;
 - (void)_setItemsAndSave:(id)arg1 options:(id)arg2;
+- (void)_setItemsAndSave:(id)arg1 options:(id)arg2 coerceStringsToURLs:(_Bool)arg3;
 - (void)setItems:(id)arg1 options:(id)arg2;
 - (void)setItems:(id)arg1;
 - (id)items;
@@ -63,12 +64,25 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsPasteboardTypes:(id)arg1 inItemSet:(id)arg2;
 - (id)pasteboardTypesForItemSet:(id)arg1;
 - (long long)numberOfItems;
+- (_Bool)canInstantiateObjectsOfClass:(Class)arg1;
+- (id)itemProvidersForInstantiatingObjectsOfClass:(Class)arg1;
+- (id)itemProviders;
+- (id)availableTypes;
+- (void)setObjects:(id)arg1 localOnly:(_Bool)arg2 expirationDate:(id)arg3;
+- (void)setObjects:(id)arg1;
+- (void)setObjects:(id)arg1 options:(id)arg2;
+- (void)setItemProviders:(id)arg1 localOnly:(_Bool)arg2 expirationDate:(id)arg3;
+- (void)setItemProviders:(id)arg1 options:(id)arg2;
+- (void)setItemProviders:(id)arg1;
 - (long long)changeCount;
 - (void)_setPersistent:(_Bool)arg1;
+- (_Bool)_pasteboardCacheQueue_setPersistent:(_Bool)arg1 currentNotificationState:(unsigned long long)arg2 outNewNotificationState:(unsigned long long *)arg3;
 - (void)setPersistent:(_Bool)arg1;
+- (_Bool)_pasteboardCacheQueue_isPersistent;
 - (_Bool)isPersistent;
 - (id)_initWithName:(id)arg1;
 - (void)_saveItemCollection:(id)arg1;
+- (_Bool)_pasteboardCacheQueue_saveItemCollection:(id)arg1 currentNotificationState:(unsigned long long)arg2 outNewNotificationState:(unsigned long long *)arg3;
 
 @end
 

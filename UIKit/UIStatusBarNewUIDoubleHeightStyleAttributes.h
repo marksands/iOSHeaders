@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 - (_Bool)isDoubleHeight;
 - (double)heightForMetrics:(long long)arg1;
+- (_Bool)shouldProduceReturnEvent;
 - (id)initWithRequest:(id)arg1 backgroundColor:(id)arg2 foregroundColor:(id)arg3 hasBusyBackground:(_Bool)arg4;
 
 @end

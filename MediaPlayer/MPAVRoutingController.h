@@ -6,11 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class MPAVRoute, NSArray, NSMutableArray, NSString;
-@protocol MPAVRoutingControllerDelegate;
+@class MPAVRoute, MPAVRoutingDataSource, NSArray, NSMutableArray, NSString;
+@protocol MPAVRoutingControllerDelegate, OS_dispatch_queue;
 
 @interface MPAVRoutingController : NSObject
 {
+    NSObject<OS_dispatch_queue> *_serialQueue;
     NSArray *_cachedRoutes;
     MPAVRoute *_cachedPickedRoute;
     MPAVRoute *_legacyCachedRoute;
@@ -19,31 +20,38 @@
     long long _externalScreenType;
     _Bool _hasExternalScreenType;
     _Bool _scheduledSendDelegateRoutesChanged;
-    _Bool _pickedRouteHasVolumeControl;
-    _Bool _hasVolumeControlInfoForPickedRoute;
+    unsigned long long _volumeControlStateForPickedRoute;
     int _deviceAvailabilityNotifyToken;
     _Bool _deviceAvailabilityOverrideState;
     id <MPAVRoutingControllerDelegate> _delegate;
+    MPAVRoutingDataSource *_dataSource;
     NSString *_name;
     long long _discoveryMode;
     NSString *_category;
+    long long _routeTypes;
     MPAVRoute *_pendingPickedRoute;
 }
 
 @property(readonly, nonatomic) MPAVRoute *pendingPickedRoute; // @synthesize pendingPickedRoute=_pendingPickedRoute;
+@property(nonatomic) long long routeTypes; // @synthesize routeTypes=_routeTypes;
 @property(copy, nonatomic) NSString *category; // @synthesize category=_category;
 @property(nonatomic) long long discoveryMode; // @synthesize discoveryMode=_discoveryMode;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) MPAVRoutingDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <MPAVRoutingControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)_deviceAvailabilityOverrideState;
+- (unsigned long long)_volumeControlStateForPickedRoute;
+- (long long)_externalScreenType:(_Bool *)arg1;
 - (void)_scheduleSendDelegateRoutesChanged;
 - (void)_updateCachedRoutes;
+- (void)_onQueueSetExternalScreenType:(long long)arg1;
 - (void)_setExternalScreenType:(long long)arg1;
-- (id)_parseAVRouteDescriptions:(id)arg1;
 - (id)_pickedRouteInArray:(id)arg1;
 - (void)_unregisterNotifications;
 - (void)_registerNotifications;
 - (void)logCurrentRoutes;
+- (void)_onQueueClearCachedRoutes;
 - (void)clearCachedRoutes;
 - (void)_mediaServerDiedNotification:(id)arg1;
 - (void)_externalScreenTypeDidChangeNotification:(id)arg1;
@@ -74,6 +82,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithName:(id)arg1;
+- (id)initWithDataSource:(id)arg1 name:(id)arg2;
 
 @end
 

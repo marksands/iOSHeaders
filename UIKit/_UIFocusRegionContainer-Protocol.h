@@ -4,16 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/NSObject-Protocol.h>
+#import <UIKit/_UIFocusEnvironmentPrivate-Protocol.h>
 
-@class UIScreen, _UIFocusedItemRegion;
-@protocol UIFocusItem, _UIFocusRegionSearchContext;
+@class _UIFocusRegion;
+@protocol UICoordinateSpace, UIFocusItem, _UIFocusRegionSearchContext;
 
-@protocol _UIFocusRegionContainer <NSObject>
+@protocol _UIFocusRegionContainer <_UIFocusEnvironmentPrivate>
+- (_UIFocusRegion *)_regionForFocusedItem:(id <UIFocusItem>)arg1 inCoordinateSpace:(id <UICoordinateSpace>)arg2;
 - (void)_searchForFocusRegionsInContext:(id <_UIFocusRegionSearchContext>)arg1;
-- (_Bool)_shouldSearchForFocusRegionsInContext:(id <_UIFocusRegionSearchContext>)arg1;
-
-@optional
-- (_UIFocusedItemRegion *)_regionForFocusedItem:(id <UIFocusItem>)arg1 inScreen:(UIScreen *)arg2;
+- (id <UICoordinateSpace>)_preferredFocusRegionCoordinateSpace;
 @end
 

@@ -11,7 +11,7 @@
 #import <NetworkExtension/NSCopying-Protocol.h>
 #import <NetworkExtension/NSSecureCoding-Protocol.h>
 
-@class NEAOVPN, NEContentFilter, NEPathController, NEProfileIngestionPayloadInfo, NEVPN, NEVPNApp, NSString, NSUUID;
+@class NEAOVPN, NEContentFilter, NEDNSProxy, NEPathController, NEProfileIngestionPayloadInfo, NEVPN, NEVPNApp, NSString, NSUUID;
 
 @interface NEConfiguration : NSObject <NEProfilePayloadHandlerDelegate, NEConfigurationValidating, NSSecureCoding, NSCopying>
 {
@@ -28,6 +28,7 @@
     NEContentFilter *_contentFilter;
     NEProfileIngestionPayloadInfo *_payloadInfo;
     NEPathController *_pathController;
+    NEDNSProxy *_dnsProxy;
 }
 
 + (id)configurationWithProfilePayload:(id)arg1;
@@ -38,6 +39,7 @@
 + (_Bool)setConfiguration:(struct __CFDictionary *)arg1 forProtocol:(struct __CFString *)arg2 inService:(struct __SCNetworkService *)arg3;
 + (_Bool)removeSCServiceWithIdentifier:(id)arg1 fromPreferences:(struct __SCPreferences *)arg2;
 + (_Bool)SCServiceWithIdentifier:(id)arg1 existsInPreferences:(struct __SCPreferences *)arg2;
+@property(copy) NEDNSProxy *dnsProxy; // @synthesize dnsProxy=_dnsProxy;
 @property(copy) NEPathController *pathController; // @synthesize pathController=_pathController;
 @property(copy) NEProfileIngestionPayloadInfo *payloadInfo; // @synthesize payloadInfo=_payloadInfo;
 @property(copy) NEContentFilter *contentFilter; // @synthesize contentFilter=_contentFilter;
@@ -75,6 +77,7 @@
 - (id)initWithName:(id)arg1 grade:(long long)arg2;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)initWithDNSProxyPayload:(id)arg1 configurationName:(id)arg2 grade:(long long)arg3;
 - (id)initWithPathControllerPayload:(id)arg1 configurationName:(id)arg2 grade:(long long)arg3;
 - (_Bool)setAppLayerVPNUUID:(id)arg1 andSafariDomains:(id)arg2;
 - (_Bool)setAppLayerVPNRuleSettings:(id)arg1 withAppIdentifier:(id)arg2;

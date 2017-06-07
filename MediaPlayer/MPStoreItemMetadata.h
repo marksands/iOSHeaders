@@ -15,6 +15,7 @@
 {
     NSDictionary *_downloadAssetDictionary;
     NSDictionary *_downloadMetadataDictionary;
+    NSDate *_expirationDate;
     _Bool _hasOverrideChildStorePlatformDictionaries;
     NSArray *_overrideChildStorePlatformDictionaries;
     NSDictionary *_storePlatformDictionary;
@@ -45,7 +46,9 @@
 - (id)artworkRequestTokenForUberArtworkKind:(id)arg1;
 - (id)artworkRequestTokenForScreenshotArtwork;
 - (id)artworkRequestTokenForEditorialArtworkKind:(id)arg1;
-@property(readonly, copy, nonatomic) NSString *nameForDisplay;
+@property(readonly, nonatomic, getter=isVerifiedPerson) _Bool verifiedPerson;
+@property(readonly, nonatomic, getter=isPrivatePerson) _Bool privatePerson;
+@property(readonly, copy, nonatomic) NSString *nameRaw;
 @property(readonly, copy, nonatomic) NSString *handle;
 @property(readonly, copy, nonatomic) NSString *workName;
 @property(readonly, copy, nonatomic) NSString *videoSubtype;
@@ -56,8 +59,9 @@
 @property(readonly, nonatomic) long long episodeCount;
 @property(readonly, nonatomic) long long trackNumber;
 @property(readonly, nonatomic) long long trackCount;
-@property(readonly, copy, nonatomic) id pumpkinProfileID;
+@property(readonly, copy, nonatomic) id socialProfileID;
 @property(readonly, copy, nonatomic) id storeID;
+@property(readonly, copy, nonatomic) NSString *cloudUniversalLibraryID;
 @property(readonly, nonatomic) _Bool showComposer;
 @property(readonly, copy, nonatomic) NSNumber *shouldBookmarkPlayPosition;
 @property(readonly, copy, nonatomic) NSString *shortName;
@@ -74,6 +78,7 @@
 @property(readonly, nonatomic) long long movementCount;
 @property(readonly, nonatomic) MPStoreArtworkRequestToken *latestAlbumArtworkRequestToken;
 @property(readonly, copy, nonatomic) NSString *iTunesBrandType;
+@property(readonly, copy, nonatomic) NSString *playlistType;
 @property(readonly, copy, nonatomic) NSString *itemKind;
 @property(readonly, nonatomic) _Bool isPreorder;
 - (_Bool)isMasteredForITunes;
@@ -86,6 +91,8 @@
 @property(readonly, nonatomic) _Bool hasArtistBiography;
 @property(readonly, copy, nonatomic) NSDictionary *effectiveStorePlatformDictionary;
 @property(readonly, copy, nonatomic) NSString *shortEditorNotes;
+@property(readonly, nonatomic, getter=isExpired) _Bool expired;
+@property(readonly, copy, nonatomic) NSDate *expirationDate;
 @property(readonly, copy, nonatomic) NSString *editorNotes;
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic) long long discNumber;
@@ -109,9 +116,13 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
+- (id)initWithStorePlatformDictionary:(id)arg1 parentStoreItemMetadata:(id)arg2 expirationDate:(id)arg3;
 - (id)initWithStorePlatformDictionary:(id)arg1 parentStoreItemMetadata:(id)arg2;
+- (id)initWithStorePlatformDictionary:(id)arg1 expirationDate:(id)arg2;
 - (id)initWithStorePlatformDictionary:(id)arg1;
 - (id)initWithDownloadAssetDictionary:(id)arg1;
+- (_Bool)hasMetadataForRequestReason:(unsigned long long)arg1;
+@property(readonly, copy, nonatomic) NSString *cacheableItemIdentifier;
 
 @end
 

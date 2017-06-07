@@ -24,18 +24,19 @@ struct BasicMutex {
     struct MutexInfo *_field2;
 };
 
-struct CLCompassDatabaseClient {
+struct CLCompassDatabase {
     CDUnknownFunctionPointerType *_field1;
     struct BasicMutex _field2;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field3;
     id _field4;
     id _field5;
-    struct map<int, CLNotifier<CLCompassDatabase_Type::Notification, CLCompassDatabase_Type::NotificationData, char, char>::Notification, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLCompassDatabase_Type::Notification, CLCompassDatabase_Type::NotificationData, char, char>::Notification>>> _field6;
-    struct map<int, CLNotifier<CLCompassDatabase_Type::Notification, CLCompassDatabase_Type::NotificationData, char, char>::ClientNotifications, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLCompassDatabase_Type::Notification, CLCompassDatabase_Type::NotificationData, char, char>::ClientNotifications>>> _field7;
-    int _field8;
-    _Bool _field9;
-    struct BasicMutex _field10;
-    int _field11;
+    id _field6;
+    struct map<int, CLNotifier<CLCompassDatabase_Type::Notification, CLCompassDatabase_Type::NotificationData, char, char>::Notification, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLCompassDatabase_Type::Notification, CLCompassDatabase_Type::NotificationData, char, char>::Notification>>> _field7;
+    struct map<int, CLNotifier<CLCompassDatabase_Type::Notification, CLCompassDatabase_Type::NotificationData, char, char>::ClientNotifications, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLCompassDatabase_Type::Notification, CLCompassDatabase_Type::NotificationData, char, char>::ClientNotifications>>> _field8;
+    int _field9;
+    _Bool _field10;
+    struct BasicMutex _field11;
+    int _field12;
 };
 
 struct CLConnection;
@@ -59,32 +60,46 @@ struct CLConnectionClient {
 
 struct CLConnectionMessage;
 
-struct CLGeomagneticModelProviderClient {
+struct CLDeviceMotionLiteService;
+
+struct CLFunctionalCapacityEntry {
+    unsigned long long _field1;
+    unsigned char _field2[16];
+    double _field3;
+    double _field4;
+    int _field5;
+    double _field6;
+    double _field7;
+    double _field8;
+    double _field9;
+};
+
+struct CLGeomagneticModelProvider {
     CDUnknownFunctionPointerType *_field1;
     struct BasicMutex _field2;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field3;
     id _field4;
     id _field5;
-    struct map<int, CLNotifier<CLGeomagneticModelProvider_Type::Notification, CLGeomagneticModelProvider_Type::NotificationData, char, char>::Notification, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLGeomagneticModelProvider_Type::Notification, CLGeomagneticModelProvider_Type::NotificationData, char, char>::Notification>>> _field6;
-    struct map<int, CLNotifier<CLGeomagneticModelProvider_Type::Notification, CLGeomagneticModelProvider_Type::NotificationData, char, char>::ClientNotifications, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLGeomagneticModelProvider_Type::Notification, CLGeomagneticModelProvider_Type::NotificationData, char, char>::ClientNotifications>>> _field7;
-    int _field8;
-    _Bool _field9;
-    struct CLConnectionClient *_field10;
-    id _field11;
+    id _field6;
+    struct map<int, CLNotifier<CLGeomagneticModelProvider_Type::Notification, CLGeomagneticModelProvider_Type::NotificationData, char, char>::Notification, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLGeomagneticModelProvider_Type::Notification, CLGeomagneticModelProvider_Type::NotificationData, char, char>::Notification>>> _field7;
+    struct map<int, CLNotifier<CLGeomagneticModelProvider_Type::Notification, CLGeomagneticModelProvider_Type::NotificationData, char, char>::ClientNotifications, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLGeomagneticModelProvider_Type::Notification, CLGeomagneticModelProvider_Type::NotificationData, char, char>::ClientNotifications>>> _field8;
+    int _field9;
+    _Bool _field10;
 };
 
 struct CLGestureReport;
 
-struct CLGyroCalibrationDatabaseRemote {
+struct CLGyroCalibrationDatabase {
     CDUnknownFunctionPointerType *_field1;
     struct BasicMutex _field2;
     struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> _field3;
     id _field4;
     id _field5;
-    struct map<int, CLNotifier<CLGyroCalibrationDatabase_Type::Notification, CLGyroCalibrationDatabase_Type::NotificationData, char, char>::Notification, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLGyroCalibrationDatabase_Type::Notification, CLGyroCalibrationDatabase_Type::NotificationData, char, char>::Notification>>> _field6;
-    struct map<int, CLNotifier<CLGyroCalibrationDatabase_Type::Notification, CLGyroCalibrationDatabase_Type::NotificationData, char, char>::ClientNotifications, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLGyroCalibrationDatabase_Type::Notification, CLGyroCalibrationDatabase_Type::NotificationData, char, char>::ClientNotifications>>> _field7;
-    int _field8;
-    _Bool _field9;
+    id _field6;
+    struct map<int, CLNotifier<CLGyroCalibrationDatabase_Type::Notification, CLGyroCalibrationDatabase_Type::NotificationData, char, char>::Notification, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLGyroCalibrationDatabase_Type::Notification, CLGyroCalibrationDatabase_Type::NotificationData, char, char>::Notification>>> _field7;
+    struct map<int, CLNotifier<CLGyroCalibrationDatabase_Type::Notification, CLGyroCalibrationDatabase_Type::NotificationData, char, char>::ClientNotifications, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, CLNotifier<CLGyroCalibrationDatabase_Type::Notification, CLGyroCalibrationDatabase_Type::NotificationData, char, char>::ClientNotifications>>> _field8;
+    int _field9;
+    _Bool _field10;
 };
 
 struct CLMotionActivity {
@@ -101,6 +116,13 @@ struct CLMotionActivity {
     double startTime;
     int rawType;
     int rawConfidence;
+    struct {
+        unsigned int motionHint:1;
+        unsigned int gpsHint:1;
+        unsigned int basebandHint:1;
+        unsigned int wifiHint:1;
+        unsigned int btHint:1;
+    } vehicularFlags;
 };
 
 struct CLNameValuePair {
@@ -141,6 +163,14 @@ struct CLSignificantElevation {
     unsigned int _field6;
 };
 
+struct CLSpringTrackerEntry {
+    unsigned long long _field1;
+    unsigned char _field2[16];
+    unsigned char _field3[16];
+    double _field4;
+    long long _field5;
+};
+
 struct CLSwimEntry {
     unsigned long long _field1;
     unsigned char _field2[16];
@@ -158,6 +188,7 @@ struct CLSwimEntry {
     float _field14;
     float _field15;
     float _field16;
+    int _field17;
 };
 
 struct CMAccel100 {
@@ -200,6 +231,23 @@ struct GyroUnpacker {
 };
 
 struct MutexInfo;
+
+struct _CLFitnessMachineData {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    long long _field6;
+    long long _field7;
+    long long _field8;
+    double _field9;
+    double _field10;
+    double _field11;
+    double _field12;
+    double _field13;
+    double _field14;
+};
 
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
     struct __tree_node_base<void *> *__left_;
@@ -351,6 +399,12 @@ struct shared_ptr<CLConnectionMessage> {
     struct __shared_weak_count *_field2;
 };
 
+struct unique_ptr<CLDeviceMotionLiteService, std::__1::default_delete<CLDeviceMotionLiteService>> {
+    struct __compressed_pair<CLDeviceMotionLiteService *, std::__1::default_delete<CLDeviceMotionLiteService>> {
+        struct CLDeviceMotionLiteService *__first_;
+    } __ptr_;
+};
+
 struct unique_ptr<CMWakeGestureVisitor, std::__1::default_delete<CMWakeGestureVisitor>> {
     struct __compressed_pair<CMWakeGestureVisitor *, std::__1::default_delete<CMWakeGestureVisitor>> {
         struct CMWakeGestureVisitor *__first_;
@@ -364,6 +418,11 @@ struct value_ostream {
 
 #if 0
 // Names with conflicting types:
+typedef struct {
+    unsigned char _field1;
+    double _field2;
+} Sample_9e52e243;
+
 typedef struct {
     double timestamp;
     int orientation;
@@ -434,7 +493,8 @@ typedef struct {
     _Bool _field6;
     _Bool _field7;
     _Bool _field8;
-} CDStruct_7fb6ae47;
+    float _field9;
+} CDStruct_981b33bd;
 
 typedef struct {
     CDStruct_bf7dff04 _field1;
@@ -443,12 +503,32 @@ typedef struct {
     CDStruct_03942939 _field4;
     CDStruct_03942939 _field5;
     unsigned long long _field6;
-} CDStruct_0b056bf9;
+    _Bool _field7;
+    float _field8;
+    float _field9;
+    CDStruct_03942939 _field10;
+    unsigned char _field11[3];
+} CDStruct_946f299f;
 
 typedef struct {
     CDStruct_31142d93 _field1;
     int _field2;
 } CDStruct_27fd20ed;
+
+typedef struct {
+    int _field1;
+    double _field2;
+    union {
+        struct {
+            CDStruct_03942939 _field1;
+            CDStruct_03942939 _field2;
+        } _field1;
+        struct {
+            _Bool _field1;
+            char _field2[241];
+        } _field2;
+    } _field3;
+} CDStruct_abbda507;
 
 // Template types
 typedef struct shared_ptr<CLConnectionMessage> {

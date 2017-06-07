@@ -18,7 +18,7 @@
 - (id)providerSnippetLogoImageForScale:(double)arg1;
 - (id)providerLogoImageForScale:(double)arg1;
 - (id)providerImageAtPath:(id)arg1 scale:(double)arg2 isTemplate:(_Bool)arg3;
-@property(readonly, nonatomic) _Bool shouldOpenAppStore;
+@property(readonly, nonatomic) _Bool shouldOpenInAppStore;
 @property(readonly, nonatomic) NSArray *attributionApps;
 @property(readonly, nonatomic) NSArray *attributionURLs;
 @property(readonly, nonatomic) NSString *providerName;

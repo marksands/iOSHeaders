@@ -9,7 +9,7 @@
 #import <CoreSpotlight/NSCopying-Protocol.h>
 #import <CoreSpotlight/NSSecureCoding-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface CSIndexJob : NSObject <NSSecureCoding, NSCopying>
 {
@@ -18,9 +18,13 @@
     NSArray *_identifiersToReindex;
     NSArray *_bundleIDs;
     NSArray *_excludedBundleIDs;
+    NSString *_providerIdentifier;
+    NSString *_providerType;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSString *providerType; // @synthesize providerType=_providerType;
+@property(retain, nonatomic) NSString *providerIdentifier; // @synthesize providerIdentifier=_providerIdentifier;
 @property(retain, nonatomic) NSArray *excludedBundleIDs; // @synthesize excludedBundleIDs=_excludedBundleIDs;
 @property(retain, nonatomic) NSArray *bundleIDs; // @synthesize bundleIDs=_bundleIDs;
 @property(retain, nonatomic) NSArray *identifiersToReindex; // @synthesize identifiersToReindex=_identifiersToReindex;
@@ -31,6 +35,8 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)xpc_dictionary;
+- (id)initWithXPCDict:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithJobType:(long long)arg1;

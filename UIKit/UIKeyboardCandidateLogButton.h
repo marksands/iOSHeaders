@@ -9,13 +9,13 @@
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateLogButton : UIButton
 {
-    CDStruct_961fb75c _visualStyling;
+    CDStruct_227bb23d _visualStyling;
 }
 
-@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) CDStruct_227bb23d visualStyling; // @synthesize visualStyling=_visualStyling;
 - (void)log;
 - (void)updateLabelColor;
-- (id)initWithFrame:(struct CGRect)arg1 visualStyling:(CDStruct_961fb75c)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 visualStyling:(CDStruct_227bb23d)arg2;
 
 @end
 

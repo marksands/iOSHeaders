@@ -12,12 +12,22 @@
 {
 }
 
++ (id)_pasteboardWithUniqueName;
++ (id)_pasteboardWithName:(id)arg1 create:(_Bool)arg2;
 + (void)removePasteboardWithName:(id)arg1;
 + (id)pasteboardWithUniqueName;
 + (id)pasteboardWithName:(id)arg1 create:(_Bool)arg2;
 + (id)generalPasteboard;
-+ (id)_pasteboardWithUniqueName;
-+ (id)_pasteboardWithName:(id)arg1 create:(_Bool)arg2;
+- (_Bool)canInstantiateObjectsOfClass:(Class)arg1;
+- (id)itemProvidersForInstantiatingObjectsOfClass:(Class)arg1;
+@property(copy, nonatomic) NSArray *itemProviders;
+@property(readonly, copy, nonatomic) NSArray *availableTypes;
+- (void)setObjects:(id)arg1 localOnly:(_Bool)arg2 expirationDate:(id)arg3;
+- (void)setObjects:(id)arg1;
+- (void)setObjects:(id)arg1 options:(id)arg2;
+- (void)setItemProviders:(id)arg1 localOnly:(_Bool)arg2 expirationDate:(id)arg3;
+- (void)setItemProviders:(id)arg1 options:(id)arg2;
+- (_Bool)_hasStrings;
 @property(readonly, nonatomic) _Bool hasColors;
 @property(readonly, nonatomic) _Bool hasImages;
 @property(readonly, nonatomic) _Bool hasURLs;
@@ -50,7 +60,6 @@
 @property(readonly, nonatomic, getter=isPersistent) _Bool persistent;
 - (void)setName:(id)arg1;
 @property(readonly, nonatomic) NSString *name;
-- (_Bool)_hasStrings;
 
 @end
 

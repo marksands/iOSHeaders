@@ -13,15 +13,19 @@ __attribute__((visibility("hidden")))
 {
     UIImage *_value;
     UIImage *_alternate;
+    UIImage *_landscapeValue;
+    UIImage *_landscapeAlternate;
     _Bool _showAlternate;
+    _Bool _showLandscape;
 }
 
 - (void).cxx_destruct;
+- (void)setLandscape:(_Bool)arg1;
 - (void)setImage:(id)arg1;
 - (void)setAlternateImage:(id)arg1;
 - (void)showAlternateImage:(_Bool)arg1;
 - (void)setCurrentImage;
-- (id)initWithImage:(id)arg1 alternateImage:(id)arg2;
+- (id)initWithImage:(id)arg1 alternateImage:(id)arg2 landscapeImage:(id)arg3 landscapeAlternateImage:(id)arg4;
 
 @end
 

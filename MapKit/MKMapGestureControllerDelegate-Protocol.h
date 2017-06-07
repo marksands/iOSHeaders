@@ -20,7 +20,9 @@
 - (void)gestureControllerWillStartRotating:(MKMapGestureController *)arg1;
 - (void)gestureControllerDidStopTwoFingerLongPress:(MKMapGestureController *)arg1;
 - (void)gestureControllerWillStartTwoFingerLongPress:(MKMapGestureController *)arg1;
+- (void)gestureControllerDidStopZoomingDecelerating:(MKMapGestureController *)arg1 direction:(long long)arg2 type:(long long)arg3;
 - (void)gestureControllerDidStopZoomingDecelerating:(MKMapGestureController *)arg1 direction:(long long)arg2;
+- (void)gestureControllerDidStopZooming:(MKMapGestureController *)arg1 direction:(long long)arg2 type:(long long)arg3 willDecelerate:(_Bool)arg4;
 - (void)gestureControllerDidStopZooming:(MKMapGestureController *)arg1 direction:(long long)arg2 willDecelerate:(_Bool)arg3;
 - (void)gestureControllerWillStartZooming:(MKMapGestureController *)arg1 animated:(_Bool)arg2;
 - (void)gestureControllerDidStopPanningDecelerating:(MKMapGestureController *)arg1;

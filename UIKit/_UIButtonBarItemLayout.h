@@ -34,9 +34,11 @@ __attribute__((visibility("hidden")))
 - (void)_addLayoutGuides:(id)arg1;
 - (void)_addLayoutViews:(id)arg1;
 - (void)_configure;
+- (void)_updateItemViewSizing;
 - (_Bool)_shouldBeDirty;
 - (id)_item;
 - (double)minimumLayoutWidthGivenMinimumSpaceWidth:(double)arg1;
+- (_Bool)shouldHoriziontallyCenterView:(id)arg1;
 - (void)_updateItemView;
 - (id)initWithLayoutMetrics:(id)arg1 barButtonItem:(id)arg2;
 - (id)initWithLayoutMetrics:(id)arg1;

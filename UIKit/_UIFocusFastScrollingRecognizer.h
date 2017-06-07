@@ -6,11 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMapTable, NSTimer, UIScrollView, _UIFocusEnginePanGestureRecognizer, _UIFocusFastScrollingTouchSequence;
+#import <UIKit/_UIFocusEnginePanGestureTouchObserver-Protocol.h>
+
+@class NSMapTable, NSString, NSTimer, UIScrollView, _UIFocusEnginePanGestureRecognizer, _UIFocusFastScrollingTouchSequence;
 @protocol _UIFocusFastScrollingRecognizerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _UIFocusFastScrollingRecognizer : NSObject
+@interface _UIFocusFastScrollingRecognizer : NSObject <_UIFocusEnginePanGestureTouchObserver>
 {
     _UIFocusEnginePanGestureRecognizer *_panGesture;
     _UIFocusFastScrollingTouchSequence *_currentTouch;
@@ -46,9 +48,15 @@ __attribute__((visibility("hidden")))
 - (void)_handlePanGesture:(id)arg1;
 - (void)joystickMovementWithHeading:(unsigned long long)arg1 didRepeat:(unsigned long long)arg2;
 - (void)directionalPressWithHeading:(unsigned long long)arg1 didRepeat:(unsigned long long)arg2;
-- (void)focusDidUpdateWithContext:(id)arg1;
+- (void)_focusDidUpate:(id)arg1;
 - (void)dealloc;
 - (id)initWithPanGesture:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

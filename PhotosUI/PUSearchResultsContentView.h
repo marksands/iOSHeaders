@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSAttributedString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (void)_preferredContentSizeChanged:(id)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)_updateAuxSubtitleLabel;
 - (void)_updateSubtitleLabel;

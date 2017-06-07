@@ -17,10 +17,10 @@ __attribute__((visibility("hidden")))
     int _saveFlag;
 }
 
-+ (id)queryForURLSchemesOfType:(long long)arg1;
-+ (id)queryForApplicationsAvailableForOpeningURL:(id)arg1 legacySPI:(_Bool)arg2;
++ (id)queryForApplicationsAvailableForOpeningURL:(id)arg1;
 + (id)sharedManager;
 - (void)resetSchemeQueryLimitForApplicationWithIdentifier:(id)arg1;
+- (long long)schemeTypeOfScheme:(id)arg1;
 - (_Bool)canOpenURL:(id)arg1 publicSchemes:(_Bool)arg2 privateSchemes:(_Bool)arg3 XPCConnection:(id)arg4 error:(id *)arg5;
 - (void)dealloc;
 - (id)init;

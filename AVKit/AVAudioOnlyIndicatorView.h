@@ -8,7 +8,6 @@
 
 @class UIImageView;
 
-__attribute__((visibility("hidden")))
 @interface AVAudioOnlyIndicatorView : UIView
 {
     UIImageView *_imageView;

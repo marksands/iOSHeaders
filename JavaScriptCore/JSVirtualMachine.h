@@ -19,7 +19,6 @@
 
 + (id)virtualMachineWithContextGroupRef:(struct OpaqueJSContextGroup *)arg1;
 - (id).cxx_construct;
-- (void)enableSigillCrashAnalyzer;
 - (void)removeManagedReference:(id)arg1 withOwner:(id)arg2;
 - (void)addManagedReference:(id)arg1 withOwner:(id)arg2;
 - (void)addExternalRememberedObject:(id)arg1;

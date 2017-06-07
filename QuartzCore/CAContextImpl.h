@@ -37,6 +37,8 @@ __attribute__((visibility("hidden")))
 - (id)contentsFormat;
 - (void)setColorMatchUntaggedContent:(_Bool)arg1;
 - (_Bool)colorMatchUntaggedContent;
+- (void)setCommitPriority:(unsigned int)arg1;
+- (unsigned int)commitPriority;
 - (void)setColorSpace:(struct CGColorSpace *)arg1;
 - (struct CGColorSpace *)colorSpace;
 - (unsigned int)contextId;

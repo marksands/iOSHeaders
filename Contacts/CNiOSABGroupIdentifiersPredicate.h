@@ -19,10 +19,10 @@ __attribute__((visibility("hidden")))
 + (id)descriptionOfIdentifiers:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSArray *identifiers; // @synthesize identifiers=_identifiers;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (struct __CFArray *)cn_copyGroupsInAddressBook:(void *)arg1 error:(struct __CFError **)arg2;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithIdentifiers:(id)arg1;
 

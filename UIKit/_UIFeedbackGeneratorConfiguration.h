@@ -13,7 +13,7 @@
 @interface _UIFeedbackGeneratorConfiguration : NSObject <NSCopying>
 {
     _Bool _settingsEnabled;
-    _Bool _prepared;
+    _Bool _setup;
     _Bool _enabled;
     CDUnknownBlockType _preparationBlock;
     Class _clientClass;
@@ -28,7 +28,7 @@
 + (id)defaultConfiguration;
 @property(copy, nonatomic) NSString *_stats_key; // @synthesize _stats_key=__stats_key;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
-@property(nonatomic, getter=isPrepared) _Bool prepared; // @synthesize prepared=_prepared;
+@property(nonatomic, getter=isSetup) _Bool setup; // @synthesize setup=_setup;
 @property(nonatomic) _Bool settingsEnabled; // @synthesize settingsEnabled=_settingsEnabled;
 @property(nonatomic) long long outputMode; // @synthesize outputMode=_outputMode;
 @property(nonatomic) long long activationStyle; // @synthesize activationStyle=_activationStyle;
@@ -38,7 +38,7 @@
 - (void).cxx_destruct;
 - (void)_preferencesUpdated:(id)arg1;
 - (void)_updateEnabled;
-- (_Bool)_prepareRegardlessOfPreferences:(_Bool)arg1;
+- (_Bool)_setupRegardlessOfPreferences:(_Bool)arg1;
 - (_Bool)_shouldEnable;
 @property(readonly, nonatomic) _Bool defaultEnabled;
 @property(readonly, nonatomic) NSSet *usedFeedbacks;

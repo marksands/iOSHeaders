@@ -11,7 +11,7 @@
 #import <UIKit/_UIBarButtonItemViewOwner-Protocol.h>
 
 @class NSArray, NSLayoutConstraint, NSMapTable, NSMutableArray, NSString, UIBarButtonItem, UILayoutGuide, UIView, _UIButtonBarButtonVisualProvider, _UIButtonBarLayoutMetrics, _UIButtonBarStackView;
-@protocol _UIButtonBarDelegate;
+@protocol _UIButtonBarAppearanceDelegate, _UIButtonBarDelegate;
 
 @interface _UIButtonBar : NSObject <_UIBarButtonItemViewOwner, _UIBarButtonItemGroupOwner, NSCoding>
 {
@@ -21,6 +21,8 @@
     NSLayoutConstraint *_minimumInterItemSpaceConstraint;
     UILayoutGuide *_minimumInterGroupSpaceLayoutGuide;
     NSLayoutConstraint *_minimumInterGroupSpaceConstraint;
+    UIView *_centeredView;
+    NSLayoutConstraint *_centeringConstraint;
     _UIButtonBarLayoutMetrics *_layoutMetrics;
     NSMutableArray *_groupLayouts;
     NSMutableArray *_effectiveLayout;
@@ -37,10 +39,12 @@
     _UIButtonBarButtonVisualProvider *_visualProvider;
     double _minimumInterGroupSpace;
     CDUnknownBlockType _defaultActionFilter;
+    id <_UIButtonBarAppearanceDelegate> __appearanceDelegate;
 }
 
 + (float)optionalConstraintsPriority;
 @property(nonatomic, getter=_compact, setter=_setCompact:) _Bool compact; // @synthesize compact=_compact;
+@property(nonatomic) __weak id <_UIButtonBarAppearanceDelegate> _appearanceDelegate; // @synthesize _appearanceDelegate=__appearanceDelegate;
 @property(copy, nonatomic) CDUnknownBlockType defaultActionFilter; // @synthesize defaultActionFilter=_defaultActionFilter;
 @property(nonatomic, getter=_minimumInterGroupSpace, setter=_setMinimumInterGroupSpace:) double minimumInterGroupSpace; // @synthesize minimumInterGroupSpace=_minimumInterGroupSpace;
 @property(nonatomic, getter=_itemsInGroupUseSameSize, setter=_setItemsInGroupUseSameSize:) _Bool itemsInGroupUseSameSize; // @synthesize itemsInGroupUseSameSize=_itemsInGroupUseSameSize;
@@ -60,6 +64,7 @@
 - (void)_itemDidChangeWidth:(id)arg1;
 - (void)_itemStandardViewNeedsUpdate:(id)arg1;
 - (void)_itemCustomViewDidChange:(id)arg1 fromView:(id)arg2;
+- (void)_appearanceChanged;
 - (void)_validateAllItems;
 - (void)_reloadBarButtonGroups;
 @property(readonly, nonatomic) UIBarButtonItem *ultimateFallbackItem;
@@ -71,6 +76,7 @@
 - (void)_setNeedsVisualUpdate;
 - (id)_layoutForGroup:(id)arg1;
 - (id)_targetActionForBarButtonItem:(id)arg1;
+@property(nonatomic) _Bool createsPopoverLayoutGuides;
 - (void)_updateToFitInWidth:(double)arg1;
 - (double)_estimatedWidth;
 @property(readonly, nonatomic, getter=_layoutWidth) double layoutWidth;

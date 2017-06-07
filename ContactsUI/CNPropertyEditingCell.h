@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
     CNRepeatingGradientSeparatorView *_vseparator;
 }
 
-+ (id)keyPathsForValuesAffectingEffectiveLabelWidth;
 + (_Bool)wantsStandardConstraints;
 + (_Bool)wantsChevron;
 @property(retain, nonatomic) CNRepeatingGradientSeparatorView *vseparator; // @synthesize vseparator=_vseparator;
@@ -25,10 +24,12 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)picker:(id)arg1 didPickItem:(id)arg2;
 - (void)pickerDidCancel:(id)arg1;
+- (id)variableConstraints;
 - (id)constantConstraints;
+- (void)setVseparatorHidden:(_Bool)arg1;
 - (double)effectiveLabelWidth;
 - (double)minCellHeight;
-@property(readonly, nonatomic) double leftValueMargin;
+- (double)leftValueMargin;
 - (id)valueString;
 - (void)setValueTextAttributes:(id)arg1;
 - (void)updateWithPropertyItem:(id)arg1;

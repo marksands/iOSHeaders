@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface _UIRemoteViewControllerConnectionInfo : NSObject
 {
-    _Bool _prefersStatusBarHidden;
+    int _preferredStatusBarVisibility;
     _UIViewServiceInterface *_interface;
     id _viewControllerOperatorProxy;
     id _serviceViewControllerProxy;
@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 @property(retain) _UIHostedWindowHostingHandle *textEffectsWindowAboveStatusBarHostingHandle; // @synthesize textEffectsWindowAboveStatusBarHostingHandle=_textEffectsWindowAboveStatusBarHostingHandle;
 @property(retain) _UIHostedWindowHostingHandle *textEffectsWindowHostingHandle; // @synthesize textEffectsWindowHostingHandle=_textEffectsWindowHostingHandle;
 @property(retain) _UIHostedWindowHostingHandle *hostedWindowHostingHandle; // @synthesize hostedWindowHostingHandle=_hostedWindowHostingHandle;
-@property _Bool prefersStatusBarHidden; // @synthesize prefersStatusBarHidden=_prefersStatusBarHidden;
+@property int preferredStatusBarVisibility; // @synthesize preferredStatusBarVisibility=_preferredStatusBarVisibility;
 @property long long preferredStatusBarStyle; // @synthesize preferredStatusBarStyle=_preferredStatusBarStyle;
 @property(retain) BSMachPortSendRight *serviceAccessibilityServerPortWrapper; // @synthesize serviceAccessibilityServerPortWrapper=_serviceAccessibilityServerPortWrapper;
 @property(retain) NSArray *serviceViewControllerSupportedInterfaceOrientations; // @synthesize serviceViewControllerSupportedInterfaceOrientations=_serviceViewControllerSupportedInterfaceOrientations;

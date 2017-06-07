@@ -11,7 +11,7 @@
 #import <MessageUI/UITableViewDataSource-Protocol.h>
 #import <MessageUI/UITableViewDelegate-Protocol.h>
 
-@class MFAttachment, MFFromAddressTableView, MFMailAccountProxy, MFMailPopoverManager, NSArray, NSString, UIPickerView, UIViewController, _MFMailCompositionContext;
+@class MFAttachment, MFFromAddressTableView, MFMailAccountProxy, MFMailComposeView, MFMailPopoverManager, NSArray, NSString, UIPickerView, UIViewController, _MFMailCompositionContext;
 
 @protocol MFMailComposeViewDelegate <UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource, UIDocumentPickerDelegate, UIPopoverPresentationControllerDelegate, MFMailMarkupDelegate>
 - (void)markupAttachment:(MFAttachment *)arg1;
@@ -21,6 +21,7 @@
 - (void)didInsertAttachment:(MFAttachment *)arg1;
 - (_MFMailCompositionContext *)compositionContext;
 - (MFMailPopoverManager *)popoverManager;
+- (void)insertDrawing;
 - (void)importDocument;
 - (void)showPhotoPickerWithSourceType:(long long)arg1 fromSource:(id)arg2;
 - (void)insertPhotoOrVideo;
@@ -42,6 +43,7 @@
 - (void)selectCurrentEntryForFromAddressPickerView:(UIPickerView *)arg1;
 
 @optional
+- (void)composeViewBodyTextChanged:(MFMailComposeView *)arg1;
 - (void)composeBodyFieldDidFinishLoad;
 @end
 

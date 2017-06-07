@@ -9,7 +9,9 @@
 @class CAAnimation, NSArray, NSString;
 
 @protocol SCNConstraintJSExport <JSExport>
+@property(nonatomic, getter=isIncremental) _Bool incremental;
 @property(nonatomic) double influenceFactor;
+@property(nonatomic, getter=isEnabled) _Bool enabled;
 - (id)valueForKeyPath:(NSString *)arg1;
 - (id)valueForKey:(NSString *)arg1;
 - (void)setValue:(id)arg1 forKey:(NSString *)arg2;

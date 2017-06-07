@@ -6,9 +6,10 @@
 
 #import <VideoSubscriberAccount/NSObject-Protocol.h>
 
-@class UIViewController, VSViewServiceRequestOperation;
+@class NSString, UIViewController, VSViewServiceRequestOperation;
 
 @protocol VSViewServiceRequestOperationDelegate <NSObject>
+- (_Bool)viewServiceRequestOperation:(VSViewServiceRequestOperation *)arg1 shouldAuthenticateAccountProviderWithIdentifier:(NSString *)arg2;
 - (void)viewServiceRequestOperation:(VSViewServiceRequestOperation *)arg1 dismissViewController:(UIViewController *)arg2;
 - (void)viewServiceRequestOperation:(VSViewServiceRequestOperation *)arg1 presentViewController:(UIViewController *)arg2;
 @end

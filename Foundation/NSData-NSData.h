@@ -8,7 +8,10 @@
 
 @interface NSData (NSData)
 + (_Bool)_base64DecodingAlwaysSucceedsForOptions:(unsigned long long)arg1;
++ (id)_newZeroingDataWithBytesNoCopy:(void *)arg1 length:(unsigned long long)arg2 deallocator:(CDUnknownBlockType)arg3;
++ (id)_newZeroingDataWithBytes:(const void *)arg1 length:(unsigned long long)arg2;
 + (id)dataWithData:(id)arg1;
++ (id)dataWithContentsOfURL:(id)arg1 options:(unsigned long long)arg2 maxLength:(unsigned long long)arg3 error:(id *)arg4;
 + (id)dataWithContentsOfURL:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 + (id)dataWithContentsOfFile:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 + (id)dataWithContentsOfMappedFile:(id)arg1;
@@ -19,6 +22,7 @@
 + (id)dataWithBytes:(const void *)arg1 length:(unsigned long long)arg2;
 + (id)data;
 + (id)allocWithZone:(struct _NSZone *)arg1;
+- (_Bool)_providesConcreteBacking;
 - (id)base64Encoding;
 - (id)initWithBase64Encoding:(id)arg1;
 - (id)base64EncodedDataWithOptions:(unsigned long long)arg1;
@@ -37,6 +41,8 @@
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithContentsOfURL:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)initWithContentsOfFile:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
+- (id)initWithContentsOfURL:(id)arg1 options:(unsigned long long)arg2 maxLength:(unsigned long long)arg3 error:(id *)arg4;
+- (id)initWithContentsOfFile:(id)arg1 options:(unsigned long long)arg2 maxLength:(unsigned long long)arg3 error:(id *)arg4;
 - (id)initWithContentsOfFile:(id)arg1;
 - (id)initWithBytes:(void *)arg1 length:(unsigned long long)arg2 copy:(_Bool)arg3 deallocator:(CDUnknownBlockType)arg4;
 - (id)initWithBytesNoCopy:(void *)arg1 length:(unsigned long long)arg2 deallocator:(CDUnknownBlockType)arg3;

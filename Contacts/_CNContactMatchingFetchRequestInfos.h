@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSPredicate;
 
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)fetchRequestInfoForPredicate:(id)arg1 properties:(id)arg2;
 @property(retain, nonatomic) NSArray *properties; // @synthesize properties=_properties;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

@@ -7,6 +7,10 @@
 #import <UIKit/NSObject-Protocol.h>
 
 @protocol UIKBEmojiHitTestResponder <NSObject>
+- (void)finishSliderBehaviorFeedback;
+- (void)provideSliderBehaviorFeedback;
+- (void)prepareSliderBehaviorFeedback;
+- (_Bool)isTrackpadMode;
 - (void)deactivateActiveKey;
 @end
 

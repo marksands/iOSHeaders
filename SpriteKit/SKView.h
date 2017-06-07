@@ -74,8 +74,11 @@
 @property(nonatomic) __weak NSObject<SKViewDelegate> *delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (id)debugHierarchyPropertyDescriptions;
+- (id)debugHierarchyObjectsInGroupWithID:(id)arg1 outOptions:(id *)arg2;
+- (id)debugHierarchyAdditionalGroupingIDs;
 - (long long)_preferredFocusMovementStyle;
-- (id)_regionForFocusedItem:(id)arg1 inScreen:(id)arg2;
+- (id)_regionForFocusedItem:(id)arg1 inCoordinateSpace:(id)arg2;
 - (id)_focusedItemRegionContainer;
 - (void)_searchForFocusRegionsInContext:(id)arg1;
 - (id)_getPerformanceStats;
@@ -146,7 +149,6 @@
 - (void)_renderToIOSurfaceID:(unsigned int)arg1 scaleFactor:(float)arg2 asynchronous:(_Bool)arg3 preRender:(CDUnknownBlockType)arg4 postRender:(CDUnknownBlockType)arg5;
 - (void)_renderSynchronouslyForTime:(double)arg1 preRender:(CDUnknownBlockType)arg2 postRender:(CDUnknownBlockType)arg3;
 - (void)_vsyncRenderForTime:(double)arg1 preRender:(CDUnknownBlockType)arg2 postRender:(CDUnknownBlockType)arg3;
-- (_Bool)_isDrawableAvailable;
 - (_Bool)_shouldRenderForTime:(double)arg1;
 - (void)renderForTime:(double)arg1 shouldBlock:(_Bool)arg2;
 - (void)CBApplicationDidBecomeActive;

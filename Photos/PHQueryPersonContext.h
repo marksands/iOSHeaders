@@ -21,6 +21,11 @@
 - (id)personContextAdditionalPredicate;
 - (id)personContextPeopleHomePredicate;
 - (id)personContextNonePredicates;
+- (id)_notHiddenTypePredicate;
+- (id)_faceCountPredicateWithMinimum:(unsigned long long)arg1;
+- (id)_notVerifiedPredicate;
+- (id)_verifiedVisiblePredicate;
+- (id)_verifiedPredicate;
 - (id)subpredicates;
 - (id)initWithFetchOptions:(id)arg1;
 

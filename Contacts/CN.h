@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface CN : NSObject
 {
@@ -24,7 +24,9 @@
 + (id)identifierMapForUnifiedContact:(id)arg1 backingContacts:(id)arg2;
 + (id)unifyContactMatchInfos:(id)arg1 linkedContacts:(id)arg2;
 + (id)unifyMultivalues:(id)arg1 forProperty:(id)arg2;
-+ (id)unifyContacts:(id)arg1 includingMainStoreContacts:(_Bool)arg2;
++ (id)_unifyContacts:(id)arg1 includingMainStoreContacts:(_Bool)arg2;
++ (id)contactUnifyingContacts:(id)arg1 includingMainStoreContacts:(_Bool)arg2;
++ (id)mutableContactUnifyingContacts:(id)arg1 includingMainStoreContacts:(_Bool)arg2;
 + (unsigned long long)indexOfPreferredContactsForUnifying:(id)arg1 includingMainStoreContacts:(_Bool)arg2;
 + (Class)defaultDataMapperClass;
 + (id)mapsDataDescription;
@@ -53,6 +55,7 @@
 + (id)imageDataDescription;
 + (id)noteDescription;
 + (id)modificationDateDescription;
++ (id)creationDateDescription;
 + (id)nonGregorianBirthdayDescription;
 + (id)birthdayDescription;
 + (id)jobTitleDescription;
@@ -109,6 +112,7 @@
 + (_Bool)areValidKeyPaths:(id)arg1 forObject:(id)arg2 expectedClasses:(id)arg3 allowNil:(id)arg4 error:(id *)arg5;
 + (id)joinNonEmptyContactProperties:(id)arg1 onContact:(id)arg2 withDelimiter:(id)arg3;
 + (id)joinNonEmptyContactProperties:(id)arg1 onContact:(id)arg2;
++ (id)keyVectorForAllUsedKeysForInternationalSupport;
 + (id)requiredPropertiesForPhoneticNameScriptDetection;
 + (id)requiredPropertiesForNameScriptDetection;
 + (_Bool)isEmptyNameContact:(id)arg1 phonetic:(_Bool)arg2 includingPrefixAndSuffix:(_Bool)arg3;

@@ -36,6 +36,7 @@
 - (void)currentAttachmentLimitWithHandler:(CDUnknownBlockType)arg1;
 - (id)_addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
 - (id)_addAttachmentWithFileURL:(id)arg1 mimeType:(id)arg2;
+- (void)setPreferredSendingEmailAddress:(id)arg1;
 - (void)addAttachmentData:(id)arg1 mimeType:(id)arg2 fileName:(id)arg3;
 - (void)setMessageBody:(id)arg1 isHTML:(_Bool)arg2;
 - (void)setBccRecipients:(id)arg1;

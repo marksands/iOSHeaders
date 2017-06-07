@@ -6,18 +6,24 @@
 
 #import <QuickLook/QLItemAggregatedViewController.h>
 
-@class QLItem, QLPasswordItemViewController;
+@class QLItem, QLPasswordItemViewController, QLWKWebItemViewController;
 
 __attribute__((visibility("hidden")))
 @interface QLProtectedItemViewController : QLItemAggregatedViewController
 {
     QLItem *_previewItem;
     QLPasswordItemViewController *_passwordItemViewController;
+    QLWKWebItemViewController *_webViewController;
 }
 
++ (_Bool)shouldBeRemoteForContentType:(id)arg1;
++ (id)supportedContentTypes;
++ (Class)transformerClass;
+@property(retain) QLWKWebItemViewController *webViewController; // @synthesize webViewController=_webViewController;
+@property(retain) QLPasswordItemViewController *passwordItemViewController; // @synthesize passwordItemViewController=_passwordItemViewController;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end
 

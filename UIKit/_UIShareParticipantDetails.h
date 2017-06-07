@@ -8,16 +8,17 @@
 
 #import <UIKit/NSSecureCoding-Protocol.h>
 
-@class NSString;
+@class NSString, UIColor;
 
-__attribute__((visibility("hidden")))
 @interface _UIShareParticipantDetails : NSObject <NSSecureCoding>
 {
     NSString *_participantID;
     NSString *_detailText;
+    UIColor *_participantColor;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy) UIColor *participantColor; // @synthesize participantColor=_participantColor;
 @property(copy) NSString *detailText; // @synthesize detailText=_detailText;
 @property(copy) NSString *participantID; // @synthesize participantID=_participantID;
 - (void).cxx_destruct;

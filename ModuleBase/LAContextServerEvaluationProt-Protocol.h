@@ -8,7 +8,8 @@
 @protocol LAOriginatorProt, LAUIDelegate;
 
 @protocol LAContextServerEvaluationProt
-- (void)resetWithOriginator:(id <LAOriginatorProt>)arg1 reply:(void (^)(_Bool, NSError *))arg2;
+- (void)resetEvent:(long long)arg1 originator:(id <LAOriginatorProt>)arg2 reply:(void (^)(_Bool, NSError *))arg3;
+- (void)retryEvent:(long long)arg1 originator:(id <LAOriginatorProt>)arg2 reply:(void (^)(_Bool, NSError *))arg3;
 - (void)checkCredentialSatisfied:(long long)arg1 policy:(long long)arg2 reply:(void (^)(_Bool, NSError *))arg3;
 - (void)setCredential:(NSData *)arg1 type:(long long)arg2 originator:(id <LAOriginatorProt>)arg3 reply:(void (^)(_Bool, NSError *))arg4;
 - (void)isCredentialSet:(long long)arg1 originator:(id <LAOriginatorProt>)arg2 reply:(void (^)(_Bool, NSError *))arg3;

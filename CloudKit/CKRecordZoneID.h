@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) NSString *ownerName; // @synthesize ownerName=_ownerName;
 @property(readonly, nonatomic) NSString *zoneName; // @synthesize zoneName=_zoneName;
 - (void).cxx_destruct;
+- (_Bool)isDefaultRecordZoneID;
 - (long long)compareToRecordZoneID:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

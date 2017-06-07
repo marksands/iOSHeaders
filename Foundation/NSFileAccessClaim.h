@@ -8,7 +8,7 @@
 
 #import <Foundation/NSSecureCoding-Protocol.h>
 
-@class NSError, NSFileAccessProcessManager, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSString, NSXPCConnection;
+@class NSCountedSet, NSError, NSFileAccessProcessManager, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet, NSMutableSet, NSString, NSXPCConnection;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 __attribute__((visibility("hidden")))
@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
     NSError *_claimerError;
     NSMutableOrderedSet *_pendingClaims;
     NSMutableSet *_blockingClaims;
-    NSMutableSet *_blockingReactorIDs;
+    NSCountedSet *_blockingReactorIDs;
     NSMutableArray *_providerCancellationProcedures;
     NSMutableDictionary *_reacquisitionProceduresByPresenterID;
     NSMutableArray *_revocationProcedures;
@@ -94,6 +94,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)cameFromSuperarbiter;
 - (void)setCameFromSuperarbiter;
 - (void)acceptClaimFromClient:(id)arg1 arbiterQueue:(id)arg2 grantHandler:(CDUnknownBlockType)arg3;
+- (void)prepareClaimForGrantingWithArbiterQueue:(id)arg1;
 - (void)forwardUsingConnection:(id)arg1 crashHandler:(CDUnknownBlockType)arg2;
 - (int)clientProcessIdentifier;
 - (id)purposeID;

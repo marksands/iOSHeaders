@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)query;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (_Bool)_requiresDatabaseMappingEntitlement;
 - (void)_enumerateWithXPCConnection:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 

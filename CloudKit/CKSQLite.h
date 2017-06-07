@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @class NSDateFormatter, NSMutableDictionary, NSString;
+@protocol CKSQLiteDelegate;
 
 @interface CKSQLite : NSObject
 {
@@ -20,6 +21,7 @@
     NSString *_schemaVersion;
     NSString *_objectClassPrefix;
     long long _synchronousMode;
+    id <CKSQLiteDelegate> _delegate;
     struct sqlite3 *_db;
     unsigned long long _openCount;
     NSMutableDictionary *_statementsBySQL;
@@ -31,6 +33,7 @@
 @property(nonatomic) _Bool corrupt; // @synthesize corrupt=_corrupt;
 @property(nonatomic) unsigned long long openCount; // @synthesize openCount=_openCount;
 @property(nonatomic) struct sqlite3 *db; // @synthesize db=_db;
+@property(retain, nonatomic) id <CKSQLiteDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool traced; // @synthesize traced=_traced;
 @property(nonatomic) _Bool shouldVacuum; // @synthesize shouldVacuum=_shouldVacuum;
 @property(readonly, nonatomic) _Bool hasMigrated; // @synthesize hasMigrated=_hasMigrated;

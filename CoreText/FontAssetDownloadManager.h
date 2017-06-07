@@ -16,17 +16,17 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType fProgressCallbackBlock;
     NSMutableDictionary *fProgressParams;
     NSMutableDictionary *fDownloadOptions;
+    NSMutableDictionary *fAssetToDescriptors;
 }
 
-+ (id)availableFontAttributesArray;
-+ (id)displayNameForCurrentUser:(id)arg1;
++ (id)availableFontAttributesArrayMatchingRequests:(id)arg1 options:(unsigned long long)arg2;
 + (id)enabledKeyboardLanguages;
 + (Class)getASAssetQueryClass;
 + (_Bool)activateFontsFromAssetURL:(id)arg1;
 + (unsigned long long)calculateDownloadSize:(id)arg1;
 + (_Bool)shouldRetryWithServer;
 + (_Bool)shouldTryServer;
-+ (id)extractMatchingAssetsForDescriptor:(struct __CTFontDescriptor *)arg1 from:(id)arg2 withFailInfo:(_Bool *)arg3 andFontFilePaths:(id)arg4;
++ (_Bool)fontInfo:(id)arg1 matchDescriptor:(struct __CTFontDescriptor *)arg2;
 + (id)availableMobileAssets:(_Bool)arg1 error:(id *)arg2;
 + (_Bool)shouldIgnoreFontAsset:(id)arg1;
 - (id).cxx_construct;
@@ -34,11 +34,11 @@ __attribute__((visibility("hidden")))
 - (id)preciousFontLanguages;
 - (void)setGarbageCollectionBehaviorForAsset:(id)arg1;
 - (id)doFinalMatching;
-- (_Bool)executeDownloadingFontAssets:(id)arg1 forDescriptors:(id)arg2 andFontFilePaths:(id)arg3;
+- (_Bool)executeDownloadingFontAssets:(id)arg1;
 - (_Bool)downloadAllowed;
 - (_Bool)assetStalled:(id)arg1;
-- (id)mobileAssetsForUnmatched:(id)arg1 andFontFilePaths:(id)arg2;
-- (id)getUnmatchedDescriptors;
+- (id)mobileAssetsForUnmatched:(id)arg1;
+- (id)unmatchedDescriptors;
 - (void)downloadFontAssets;
 - (void)setProgressParam:(id)arg1 forKey:(id)arg2;
 - (_Bool)callProgressCallback:(unsigned int)arg1;

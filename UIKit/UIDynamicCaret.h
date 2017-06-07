@@ -37,14 +37,10 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)currentIndex;
 - (id)currentCandidate;
 - (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
-- (void)showPreviousRow;
-- (void)showNextRow;
-- (void)showPreviousPage;
-- (void)showNextPage;
-- (void)showPreviousCandidate;
-- (void)showNextCandidate;
+- (void)showCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (_Bool)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned long long)arg1;
+- (_Bool)isFloatingList;
 - (_Bool)isExtendedList;
 - (_Bool)hasCandidates;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;

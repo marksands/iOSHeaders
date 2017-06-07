@@ -46,7 +46,6 @@ __attribute__((visibility("hidden")))
 - (id)baseDateComponents;
 - (void)_takeBaseDateComponentsFromDate:(id)arg1;
 - (void)_resetBaseDateComponentsIfNecessaryFromDate:(id)arg1;
-- (void)_updateSelectedDateComponentsWithNewValueInComponent:(long long)arg1 usingSelectionBarValue:(_Bool)arg2;
 - (void)loadDate:(id)arg1 animated:(_Bool)arg2;
 - (unsigned long long *)elements;
 - (long long)displayedCalendarUnits;

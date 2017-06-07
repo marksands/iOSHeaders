@@ -8,7 +8,7 @@
 
 #import <ContactsUI/CNContactDataSource-Protocol.h>
 
-@class CNContactDataSourceSafeDelegate, CNContactFilter, CNContactFormatter, CNContactStore, CNContactStoreFilter, CNManualObservable, NSArray, NSDictionary, NSMutableArray, NSString;
+@class CNContactDataSourceSafeDelegate, CNContactFilter, CNContactFormatter, CNContactStore, CNContactStoreFilter, CNPublishingSubject, NSArray, NSDictionary, NSMutableArray, NSString;
 @protocol CNCancelable, CNContactDataSourceDelegate, CNSchedulerProvider;
 
 __attribute__((visibility("hidden")))
@@ -21,12 +21,12 @@ __attribute__((visibility("hidden")))
     NSArray *_allKeysToFetchForTransientContacts;
     id <CNCancelable> _searchCancelationToken;
     id <CNSchedulerProvider> _reloadSchedulerProvider;
-    CNManualObservable *_reloadStream;
+    CNPublishingSubject *_reloadStream;
     NSMutableArray *_resultingContacts;
 }
 
 @property(retain, nonatomic) NSMutableArray *resultingContacts; // @synthesize resultingContacts=_resultingContacts;
-@property(retain, nonatomic) CNManualObservable *reloadStream; // @synthesize reloadStream=_reloadStream;
+@property(retain, nonatomic) CNPublishingSubject *reloadStream; // @synthesize reloadStream=_reloadStream;
 @property(retain, nonatomic) id <CNSchedulerProvider> reloadSchedulerProvider; // @synthesize reloadSchedulerProvider=_reloadSchedulerProvider;
 @property(retain, nonatomic) id <CNCancelable> searchCancelationToken; // @synthesize searchCancelationToken=_searchCancelationToken;
 @property(retain, nonatomic) NSArray *allKeysToFetchForTransientContacts; // @synthesize allKeysToFetchForTransientContacts=_allKeysToFetchForTransientContacts;
@@ -47,7 +47,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *indexSections;
 @property(readonly, nonatomic) NSArray *sections;
 @property(readonly, nonatomic) NSDictionary *contactMatchInfos;
-@property(readonly, nonatomic) NSString *mainStorePreferredForNameMeContactIdentifier;
+- (id)preferredForNameMeContactIdentifier;
 @property(readonly, nonatomic) NSArray *contacts;
 @property(nonatomic) __weak id <CNContactDataSourceDelegate> delegate;
 @property(readonly, nonatomic) _Bool shouldReturnToAccountsAndGroupsViewAfterSearchIsCanceled;

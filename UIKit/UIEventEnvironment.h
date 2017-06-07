@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableArray, NSMutableDictionary, UIApplication, UIPhysicalKeyboardEvent, UIPressesEvent, UITouch, UITouchesEvent, UIWheelEvent, _UIGameControllerEvent;
+@class NSCountedSet, NSMutableArray, NSMutableDictionary, NSMutableSet, UIApplication, UIPhysicalKeyboardEvent, UIPressesEvent, UITouch, UITouchesEvent, UIWheelEvent, _UIGameControllerEvent;
 
 __attribute__((visibility("hidden")))
 @interface UIEventEnvironment : NSObject
@@ -18,16 +18,18 @@ __attribute__((visibility("hidden")))
     UIWheelEvent *_wheelEvent;
     _UIGameControllerEvent *_gameControllerEvent;
     UIPhysicalKeyboardEvent *_physicalKeyboardEvent;
+    NSMutableDictionary *_dragEventsBySessionID;
+    NSCountedSet *_contextIDsForAdditionalDragEvents;
+    NSMutableDictionary *_dragEventsByContextID;
     _Bool _isSystemApplication;
     UITouch *_currentTouch;
-    double _externalTouchScaleFactor;
     long long _currentNudgePressType;
     NSMutableDictionary *_pressesMap;
+    NSMutableSet *_exclusiveTouchWindows;
     double _commitTimeForTouchEvents;
+    NSMutableArray *_afterNewTouchDownActions;
     _Bool _hasSeenAnyStylusEvents;
-    _Bool _shouldRoundTouchLocation;
     long long _disableTouchCoalescingCount;
-    _Bool _didDelayedInit;
     NSMutableDictionary *_estimatedTouchRecordsByContextIDAndEstimationIndex;
     NSMutableArray *_estimatedTouchRecordsInIncomingOrder;
 }
@@ -45,6 +47,13 @@ __attribute__((visibility("hidden")))
 - (void)_disableTouchCoalescingWithCount:(long long)arg1;
 - (_Bool)_isTouchCoalescingDisabled;
 - (void)_enqueueHIDEvent:(struct __IOHIDEvent *)arg1;
+- (id)_dragEvents;
+- (void)_removeDragEvent:(id)arg1;
+- (void)_unregisterContextIDsForAdditionalDragEvents:(id)arg1;
+- (void)_registerContextIDsForAdditionalDragEvents:(id)arg1;
+- (id)_dragEventForHIDEvent:(struct __IOHIDEvent *)arg1;
+- (void)_performAfterNewTouchDownActions;
+- (void)_addAfterNewTouchDownAction:(CDUnknownBlockType)arg1;
 - (_Bool)eventWantsLowLatency:(id)arg1;
 - (id)UIKitEventForHIDEvent:(struct __IOHIDEvent *)arg1;
 - (id)initWithApplication:(id)arg1;

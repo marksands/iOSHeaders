@@ -44,6 +44,7 @@
 - (id)indexPathForItemWithIdentifiersIntersectingSet:(id)arg1;
 - (id)identifiersForSectionAtIndex:(long long)arg1;
 - (id)identifiersForItemAtIndexPath:(id)arg1;
+- (void)enumerateItemIdentifiersInSectionAtIndex:(long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateSectionIdentifiersUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateItemIdentifiersUsingBlock:(CDUnknownBlockType)arg1;
 

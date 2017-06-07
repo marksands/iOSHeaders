@@ -21,7 +21,8 @@
     NSString *_firstName;
     NSString *_lastName;
     NSString *_emailAddress;
-    NSURL *_url;
+    NSString *_phoneNumber;
+    NSURL *_URL;
     long long _participantStatus;
     NSString *_comment;
     NSDate *_proposedStartDate;
@@ -35,7 +36,8 @@
 @property(readonly, nonatomic) _Bool proposedStartDateChanged; // @synthesize proposedStartDateChanged=_proposedStartDateChanged;
 @property(readonly, nonatomic) _Bool commentChanged; // @synthesize commentChanged=_commentChanged;
 @property(readonly, nonatomic) _Bool statusChanged; // @synthesize statusChanged=_statusChanged;
-@property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(readonly, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(readonly, nonatomic) NSString *emailAddress; // @synthesize emailAddress=_emailAddress;
 @property(readonly, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(readonly, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;

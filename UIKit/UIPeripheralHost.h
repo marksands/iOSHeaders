@@ -10,7 +10,7 @@
 #import <UIKit/UIKeyboardKeyplaneTransitionDelegate-Protocol.h>
 #import <UIKit/UIScrollViewIntersectionDelegate-Protocol.h>
 
-@class CADisplayLink, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, UIInputViewPostPinningReloadState, UIInputViewSet, UIInputViewTransition, UIKeyboardAutomatic, UIKeyboardRotationState, UIPanGestureRecognizer, UIPeripheralHostState, UIPeripheralHostView, UIResponder, UIScrollView, UITextEffectsWindow, UITextInputMode, UIView;
+@class CADisplayLink, NSDate, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, UIInputViewPostPinningReloadState, UIInputViewSet, UIInputViewTransition, UIKeyboardAutomatic, UIKeyboardRotationState, UIPanGestureRecognizer, UIPeripheralHostState, UIPeripheralHostView, UIResponder, UIScrollView, UITextEffectsWindow, UITextInputMode, UIView;
 
 @interface UIPeripheralHost : NSObject <UIScrollViewIntersectionDelegate, UIKeyboardKeyplaneTransitionDelegate, UIGestureRecognizerDelegate>
 {
@@ -22,6 +22,7 @@
     _Bool _automaticKeyboardAnimatingOut;
     int _automaticKeyboardState;
     int _ignoringReloadInputViews;
+    int _ignoredReloads;
     _Bool _suppresingNotifications;
     _Bool _useHideNotificationsWhenNotVisible;
     _Bool _reloadInputViewsForcedIsAllowed;
@@ -39,7 +40,7 @@
     struct CGAffineTransform _initialTransform;
     struct CGPoint _velocity;
     NSMutableArray *_dropShadowViews;
-    double __transitionStartTime;
+    NSDate *__transitionStartTime;
     int _shadowStyle;
     _Bool _wasBackgroundSplit;
     struct CGRect _previousShadowFrameLeft;
@@ -89,6 +90,7 @@
     int _deactivationCount;
     _Bool _dontNeedAssistantBar;
     CDUnknownBlockType _deferredTransitionTask;
+    double _lastKeyplaneResize;
     UIInputViewSet *_transientInputViewSet;
     UITextInputMode *_documentInputMode;
 }
@@ -100,7 +102,6 @@
 + (id)endPlacementForInputViewSet:(id)arg1;
 + (id)passthroughViews;
 + (double)gridViewRubberBandValueForValue:(double)arg1 target:(double)arg2 timeInterval:(double)arg3 velocity:(double *)arg4;
-+ (void)setFloating:(_Bool)arg1 onCompletion:(CDUnknownBlockType)arg2;
 + (struct CGPoint)defaultUndockedOffset;
 + (struct CGRect)visiblePeripheralFrame;
 + (struct CGRect)visibleInputViewFrame;
@@ -111,6 +112,7 @@
 @property(retain, nonatomic) UIResponder *selfHostingTrigger; // @synthesize selfHostingTrigger=_selfHostingTrigger;
 @property(retain, nonatomic) UIInputViewSet *_transientInputViews; // @synthesize _transientInputViews=_transientInputViewSet;
 @property(retain, nonatomic) UIInputViewSet *_inputViews; // @synthesize _inputViews=_inputViewSet;
+@property(nonatomic) double lastKeyplaneResize; // @synthesize lastKeyplaneResize=_lastKeyplaneResize;
 @property(nonatomic) _Bool animationFencingEnabled; // @synthesize animationFencingEnabled=_animationFencingEnabled;
 @property(retain, nonatomic) UIInputViewTransition *currentTransition; // @synthesize currentTransition=_currentTransition;
 @property(retain, nonatomic) UIResponder *responder; // @synthesize responder=_responder;
@@ -186,6 +188,7 @@
 - (void)manualKeyboardWillBeOrderedIn:(id)arg1;
 - (_Bool)isOffScreen;
 - (_Bool)isOnScreen;
+- (void)setKeyboardFencingEnabled:(_Bool)arg1;
 @property(nonatomic) int currentState; // @synthesize currentState=_automaticKeyboardState;
 - (void)setKeyboardOnScreenNotifyKey:(_Bool)arg1;
 - (id)retain;
@@ -249,6 +252,7 @@
 - (void)performWithAllowingNilResponderReload:(CDUnknownBlockType)arg1;
 - (void)_endPersistingInputAccessoryViewWithId:(id)arg1;
 - (void)_beginPersistingInputAccessoryViewForResponder:(id)arg1 withId:(id)arg2;
+- (void)removePreservedInputViewSetForInputView:(id)arg1;
 - (void)_clearPreservedInputViewsWithRestorableResponder:(id)arg1;
 - (void)_clearPreservedInputViewsWithId:(id)arg1 clearKeyboard:(_Bool)arg2;
 - (_Bool)_restoreInputViewsWithId:(id)arg1 animated:(_Bool)arg2;
@@ -316,10 +320,10 @@
 - (double)minimumOffsetForBuffer:(double)arg1;
 - (struct CGRect)visiblePeripheralFrame:(_Bool)arg1;
 @property(readonly, nonatomic, getter=_isIgnoringReloadInputViews) _Bool ignoringReloadInputViews;
-- (void)_endIgnoringReloadInputViews;
+- (int)_endIgnoringReloadInputViews;
 - (void)_beginIgnoringReloadInputViews;
 @property(nonatomic) _Bool automaticAppearanceInternalEnabled;
-@property(nonatomic) double _transitionStartTime;
+@property(retain, nonatomic) NSDate *_transitionStartTime;
 @property(readonly, nonatomic) NSMutableArray *dropShadowViews;
 @property(readonly, nonatomic) UIView *view;
 - (void)_inputModeChangedWhileContextTracked;

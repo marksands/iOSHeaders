@@ -42,7 +42,9 @@
 - (_Bool)isStreamedVideo;
 - (_Bool)isPartOfBurst;
 - (_Bool)isRAW;
+- (_Bool)isPrimaryImageFormat;
 - (_Bool)isJPEG;
+- (_Bool)isLoopingVideo;
 - (_Bool)isVideo;
 - (NSString *)uniformTypeIdentifier;
 - (NSManagedObjectID *)objectID;

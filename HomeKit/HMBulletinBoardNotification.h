@@ -11,12 +11,13 @@
 #import <HomeKit/HMObjectMerge-Protocol.h>
 #import <HomeKit/NSSecureCoding-Protocol.h>
 
-@class HMBulletinBoardNotificationServiceGroup, HMDelegateCaller, HMFMessageDispatcher, HMService, NSString, NSUUID;
+@class HMBulletinBoardNotificationServiceGroup, HMDelegateCaller, HMFMessageDispatcher, HMService, NSPredicate, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMBulletinBoardNotification : NSObject <NSSecureCoding, HMObjectMerge, HMFMessageReceiver, HMFLogging>
 {
     _Bool _enabled;
+    NSPredicate *_condition;
     HMBulletinBoardNotificationServiceGroup *_notificationServiceGroup;
     NSUUID *_uniqueIdentifier;
     NSUUID *_targetUUID;
@@ -41,7 +42,8 @@
 - (void)_commitWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)commitWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) HMBulletinBoardNotificationServiceGroup *notificationServiceGroup; // @synthesize notificationServiceGroup=_notificationServiceGroup;
-- (void)_callEnabledUpdateDelegate;
+- (void)_callBulletinBoardNotificationUpdatedDelegate;
+@property(retain, nonatomic) NSPredicate *condition; // @synthesize condition=_condition;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 - (void)_configureClientQueue:(id)arg1 delegateCaller:(id)arg2 msgDispatcher:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;

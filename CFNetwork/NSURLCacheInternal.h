@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     NSString *diskPath;
     unsigned long long currentMemoryUsage;
     unsigned long long currentDiskUsage;
-    struct _CFURLCache *_cacheRef;
+    // Error parsing type: ^{_CFURLCache={__CFRuntimeBase=QAQ}{shared_ptr<__CFURLCache>=^{__CFURLCache}^{__shared_weak_count}}}, name: _cacheRef
 }
 
 - (void)finalize;

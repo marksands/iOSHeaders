@@ -6,22 +6,17 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDictionary;
-
 @interface EKUIEventActionHandler : NSObject
 {
-    NSDictionary *_serializedEventSnapshot;
 }
 
 + (id)sharedInstance;
-@property(retain, nonatomic) NSDictionary *serializedEventSnapshot; // @synthesize serializedEventSnapshot=_serializedEventSnapshot;
-- (void).cxx_destruct;
-- (void)_recordSignalWithAction:(unsigned long long)arg1 onEvent:(id)arg2;
-- (void)_shouldRecordSignalWithCompletion:(CDUnknownBlockType)arg1;
-- (unsigned long long)_actionWithName:(id)arg1;
-- (void)handleAction:(id)arg1;
-- (void)unsetEventBeingEdited:(id)arg1;
-- (void)setEventBeingEdited:(id)arg1;
+- (void)donateInteractionForAction:(id)arg1 onEvent:(id)arg2;
+- (id)_intentForAction:(id)arg1 onEvent:(id)arg2;
+- (void)removeInteractionsForCalendar:(id)arg1;
+- (void)handleEventDeletion:(id)arg1;
+- (void)handleEventUpdate:(id)arg1;
+- (void)handleEventCreation:(id)arg1;
 
 @end
 

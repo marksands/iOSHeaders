@@ -20,6 +20,7 @@
 + (id)placeItemWithMapItem:(id)arg1 options:(unsigned long long)arg2 isIntermediateMapItem:(_Bool)arg3;
 + (id)placeItemWithMapItem:(id)arg1 options:(unsigned long long)arg2;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool hasContactOnly;
 @property(readonly, nonatomic) _Bool isIntermediateMapItem;
 - (void)setIsSuggestedFavorite:(_Bool)arg1;
 @property(readonly, nonatomic) unsigned long long options;

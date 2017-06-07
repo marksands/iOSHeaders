@@ -14,6 +14,7 @@
     NSNumberFormatter *_numberFormatter;
 }
 
++ (id)eventDescriptionForDrag:(id)arg1;
 - (void).cxx_destruct;
 - (_Bool)_startTimeRequiresSingularForEvent:(id)arg1 withTimeString:(id)arg2;
 - (id)_adjustedMinutesTillEventStarts:(id)arg1;

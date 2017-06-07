@@ -16,10 +16,12 @@
     long long _dayOfMonth;
     long long _month;
     long long _year;
+    int _dayOfWeek;
     struct {
         unsigned int dayOfMonth:1;
         unsigned int month:1;
         unsigned int year:1;
+        unsigned int dayOfWeek:1;
     } _has;
 }
 
@@ -37,6 +39,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsDayOfWeek:(id)arg1;
+- (id)dayOfWeekAsString:(int)arg1;
+@property(nonatomic) _Bool hasDayOfWeek;
+@property(nonatomic) int dayOfWeek; // @synthesize dayOfWeek=_dayOfWeek;
 @property(nonatomic) _Bool hasDayOfMonth;
 @property(nonatomic) _Bool hasMonth;
 @property(nonatomic) _Bool hasYear;

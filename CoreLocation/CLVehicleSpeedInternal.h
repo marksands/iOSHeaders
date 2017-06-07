@@ -10,14 +10,11 @@
 
 @interface CLVehicleSpeedInternal : NSObject <NSCopying>
 {
-    struct {
-        double speed;
-        double timestamp;
-    } fSpeed;
+    CDStruct_6a5f25ec fSpeed;
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithClientVehicleSpeed:(CDStruct_c3b9c2ee)arg1;
+- (id)initWithClientVehicleSpeed:(CDStruct_6a5f25ec)arg1;
 
 @end
 

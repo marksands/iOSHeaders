@@ -24,14 +24,13 @@
 @property(readonly, nonatomic) struct OpaqueCMClock *clock;
 @property(nonatomic, getter=isEnabled) _Bool enabled;
 - (void)_setFormatDescription:(struct opaqueCMFormatDescription *)arg1;
-@property(readonly, nonatomic) struct opaqueCMFormatDescription *formatDescription;
+@property(readonly, nonatomic) const struct opaqueCMFormatDescription *formatDescription;
 @property(readonly, nonatomic) NSString *mediaType;
 @property(readonly, nonatomic) AVCaptureInput *input;
 - (id)description;
 - (void)setOwner:(id)arg1;
 - (void)dealloc;
 - (id)initWithInput:(id)arg1 mediaType:(id)arg2 formatDescription:(struct opaqueCMFormatDescription *)arg3 enabled:(_Bool)arg4;
-- (id)init;
 
 @end
 

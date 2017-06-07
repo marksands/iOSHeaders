@@ -25,14 +25,14 @@
     _Bool _isFontScaleInvalid;
     _Bool _wantsBlendModeForAccessibilityBackgrounds;
     _Bool __barItemHidden;
-    double _minimumWidth;
-    double _maximumWidth;
     long long _buttonItemStyle;
     NSDictionary *_stylesForSizingTitles;
     double _fontScaleAdjustment;
     UIColor *_accessibilityBackgroundTintColor;
     Class _appearanceGuideClass;
     UIView *__enclosingBar;
+    double _minimumWidth;
+    double _maximumWidth;
     struct UIEdgeInsets __additionalSelectionInsets;
 }
 
@@ -41,7 +41,11 @@
 @property(nonatomic, setter=_setBarItemHidden:) _Bool _barItemHidden; // @synthesize _barItemHidden=__barItemHidden;
 @property(nonatomic) __weak UIBarButtonItem *originatingButtonItem; // @synthesize originatingButtonItem=_originatingButtonItem;
 @property(nonatomic) __weak UINavigationItem *originatingNavigationItem; // @synthesize originatingNavigationItem=_originatingNavigationItem;
+@property(nonatomic) double maximumWidth; // @synthesize maximumWidth=_maximumWidth;
+@property(nonatomic) double minimumWidth; // @synthesize minimumWidth=_minimumWidth;
 @property(nonatomic, setter=_setEnclosingBar:) __weak UIView *_enclosingBar; // @synthesize _enclosingBar=__enclosingBar;
+@property(nonatomic) int style; // @synthesize style=_style;
+@property(nonatomic) long long barStyle; // @synthesize barStyle=_barStyle;
 @property(nonatomic, setter=_setAdditionalSelectionInsets:) struct UIEdgeInsets _additionalSelectionInsets; // @synthesize _additionalSelectionInsets=__additionalSelectionInsets;
 @property(retain, nonatomic, setter=_setAppearanceGuideClass:) Class _appearanceGuideClass; // @synthesize _appearanceGuideClass;
 @property(retain, nonatomic, setter=_setAccessibilityBackgroundTintColor:) UIColor *_accessibilityBackgroundTintColor; // @synthesize _accessibilityBackgroundTintColor;
@@ -51,11 +55,8 @@
 @property(nonatomic, setter=_setCreatedByBarButtonItem:) _Bool _createdByBarButtonItem; // @synthesize _createdByBarButtonItem;
 @property(copy, nonatomic, setter=_setStylesForSizingTitles:) NSDictionary *_stylesForSizingTitles; // @synthesize _stylesForSizingTitles;
 @property(nonatomic, setter=_setButtonItemStyle:) long long _buttonItemStyle; // @synthesize _buttonItemStyle;
-@property(nonatomic) double maximumWidth; // @synthesize maximumWidth=_maximumWidth;
-@property(nonatomic) double minimumWidth; // @synthesize minimumWidth=_minimumWidth;
-@property(nonatomic) long long barStyle; // @synthesize barStyle=_barStyle;
-@property(nonatomic) int style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (void)_uinavigationbar_prepareToAppearInNavigationItem:(id)arg1 onLeft:(_Bool)arg2;
 - (id)_externalUnfocusedBorderColor;
 - (_Bool)_isExternalRoundedRectButton;
 - (_Bool)canBecomeFocused;
@@ -81,8 +82,7 @@
 - (id)_titleTextAttributesForState:(unsigned long long)arg1;
 - (void)_setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
 - (void)_UIAppearance_setTitleTextAttributes:(id)arg1 forState:(unsigned long long)arg2;
-- (id)_tintColor;
-- (void)_setTintColor:(id)arg1;
+@property(retain, nonatomic, setter=_setTintColor:) UIColor *_tintColor;
 - (void)_UIAppearance_setTintColor:(id)arg1;
 - (id)_backgroundImageForState:(unsigned long long)arg1 barMetrics:(long long)arg2;
 - (void)_setBackgroundImage:(id)arg1 forState:(unsigned long long)arg2 barMetrics:(long long)arg3;
@@ -142,7 +142,6 @@
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 - (_Bool)_isCarPlaySystemTypeButton;
 - (long long)buttonType;
-- (void)_prepareToAppearInNavigationItem:(id)arg1 onLeft:(_Bool)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;

@@ -45,6 +45,8 @@
 - (_Bool)requiresFrameReordering;
 - (CDStruct_e83c9415)timeRange;
 - (long long)totalSampleDataLength;
+- (int)decodabilityValidationResult;
+- (_Bool)isDecodable;
 - (int)playabilityValidationResult;
 - (_Bool)isPlayable;
 - (_Bool)isSelfContained;

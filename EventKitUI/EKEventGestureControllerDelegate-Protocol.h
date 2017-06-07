@@ -38,6 +38,7 @@
 - (struct CGRect)marginFrameForEventGestureController:(EKEventGestureController *)arg1;
 - (double)eventGestureController:(EKEventGestureController *)arg1 convertXForMargin:(double)arg2;
 - (_Bool)eventGestureControllerShouldAllowLongPress:(EKEventGestureController *)arg1;
+- (void)cleanUpAfterGestureFailureForEventGestureController:(EKEventGestureController *)arg1;
 - (_Bool)hasCorrectParentForDraggingView:(UIView *)arg1 isAllDay:(_Bool)arg2;
 - (_Bool)moreThanOneDayVisibleForEventGestureController:(EKEventGestureController *)arg1;
 - (double)computeXDragOffsetForEventGestureController:(EKEventGestureController *)arg1 currentX:(double)arg2 startX:(double)arg3;

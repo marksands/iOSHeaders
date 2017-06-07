@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
-- (struct CGSize)intrinsicContentSize;
 - (id)initWithCoder:(id)arg1;
 
 @end

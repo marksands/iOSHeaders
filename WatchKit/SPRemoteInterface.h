@@ -8,7 +8,7 @@
 
 #import <WatchKit/SPRemoteInterfaceProtocol-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
+@class NSBundle, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 @protocol OS_dispatch_queue, SPRemoteInterfaceDataDelegateProtocol;
 
 @interface SPRemoteInterface : NSObject <SPRemoteInterfaceProtocol>
@@ -28,6 +28,7 @@
     CDUnknownBlockType _mediaPlayerControllerCompletion;
     CDUnknownBlockType _audioRecorderControllerCompletion;
     NSMutableArray *_openParentRequests;
+    NSBundle *_extensionBundle;
     CDUnknownBlockType _addPassesCompletion;
 }
 
@@ -53,14 +54,13 @@
 + (void)removePageControllerAtIndexes:(id)arg1;
 + (void)movePageControllerAtIndex:(long long)arg1 toIndex:(long long)arg2;
 + (void)insertPageControllerAtIndexes:(id)arg1 withNames:(id)arg2 contexts:(id)arg3;
++ (void)reloadRootPageControllersWithNames:(id)arg1 contexts:(id)arg2 orientation:(long long)arg3 pageIndex:(long long)arg4;
 + (void)reloadRootControllersWithNames:(id)arg1 contexts:(id)arg2;
 + (void)controllerPopToRoot:(id)arg1;
 + (void)controllerPop:(id)arg1;
 + (void)controller:(id)arg1 pushInterfaceController:(id)arg2 context:(id)arg3;
 + (void)_logDuplicate:(id)arg1 controller:(id)arg2 key:(id)arg3 property:(id)arg4 value:(id)arg5;
 + (void)setController:(id)arg1 key:(id)arg2 property:(id)arg3 value:(id)arg4;
-+ (_Bool)allowUIUpdate:(id)arg1 isSetValue:(_Bool)arg2;
-+ (_Bool)allowUIUpdate:(id)arg1;
 + (void)setControllerInactive:(id)arg1;
 + (void)setControllerActive:(id)arg1;
 + (void)clearStorageForController:(id)arg1;
@@ -70,8 +70,11 @@
 + (void)_updateAccessibility;
 + (id)cacheIdentifier;
 + (id)_remoteIdentifier;
++ (id)startRemoteInterfaceWithBundle:(id)arg1;
 + (id)startRemoteInterface;
++ (id)sharedRemoteInterface;
 @property(copy, nonatomic) CDUnknownBlockType addPassesCompletion; // @synthesize addPassesCompletion=_addPassesCompletion;
+@property(retain, nonatomic) NSBundle *extensionBundle; // @synthesize extensionBundle=_extensionBundle;
 @property(retain, nonatomic) NSMutableArray *openParentRequests; // @synthesize openParentRequests=_openParentRequests;
 @property(copy, nonatomic) CDUnknownBlockType audioRecorderControllerCompletion; // @synthesize audioRecorderControllerCompletion=_audioRecorderControllerCompletion;
 @property(copy, nonatomic) CDUnknownBlockType mediaPlayerControllerCompletion; // @synthesize mediaPlayerControllerCompletion=_mediaPlayerControllerCompletion;
@@ -98,7 +101,7 @@
 - (void)dataInterfaceWillResignActive:(id)arg1;
 - (void)dataInterfaceDidBecomeActive:(id)arg1;
 - (void)applicationIsStillActive;
-- (void)applicationHandleWatchTaskKeys:(id)arg1 returnToPrimaryUI:(_Bool)arg2 visibleVCID:(id)arg3 clientIdentifier:(id)arg4;
+- (void)applicationHandleWatchTaskKeys:(id)arg1 reasonForSnapshot:(unsigned long long)arg2 visibleVCID:(id)arg3 barTaskUUID:(id)arg4 clientIdentifier:(id)arg5;
 - (void)performAfterApplicationDidFinishLaunching:(CDUnknownBlockType)arg1;
 - (void)finishActivatingVCWithID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)applicationDidReceiveNotification:(id)arg1 clientIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
@@ -146,7 +149,7 @@
 - (void)removePageControllerAtIndexes:(id)arg1;
 - (void)movePageControllerAtIndex:(long long)arg1 toIndex:(long long)arg2;
 - (void)insertPageControllerAtIndexes:(id)arg1 withNames:(id)arg2 initializationContextIDs:(id)arg3;
-- (void)reloadRootControllersWithNames:(id)arg1 initializationContextIDs:(id)arg2;
+- (void)reloadRootControllersWithNames:(id)arg1 initializationContextIDs:(id)arg2 pageIndex:(long long)arg3 verticalPaging:(_Bool)arg4;
 - (void)controllerPopToRoot:(id)arg1;
 - (void)controllerPop:(id)arg1;
 - (void)controller:(id)arg1 pushInterfaceController:(id)arg2 initializationContextID:(id)arg3;
@@ -166,16 +169,17 @@
 - (void)_saveSendTimeAndSize:(unsigned long long)arg1;
 - (void)extensionDidEndNotificationUICreation;
 - (void)extensionDidBeginNotificationUICreation;
+- (void)_performAfterSendSetViewControllers:(CDUnknownBlockType)arg1;
 - (void)sendSetViewController:(id)arg1 values:(id)arg2 clientIdentifiers:(id)arg3;
 - (void)sendSetViewController:(id)arg1 key:(id)arg2 property:(id)arg3 value:(id)arg4 clientIdentifiers:(id)arg5;
 - (void)sendPlist:(id)arg1 clientIdentifiers:(id)arg2;
 - (void)sendData:(id)arg1 clientIdentifiers:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)sendData:(id)arg1 clientIdentifiers:(id)arg2;
-- (void)_callDidDeactivate;
+- (id)_host;
 - (id)_setupSignal:(int)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)_setupSignalHandlers;
 - (void)dealloc;
-- (id)init;
+- (id)initWithBundle:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -16,15 +16,12 @@ __attribute__((visibility("hidden")))
 + (id)sharedInstance;
 @property(nonatomic) _Bool didLongForcePress; // @synthesize didLongForcePress=_didLongForcePress;
 @property(nonatomic) _Bool delayForceMagnify; // @synthesize delayForceMagnify=_delayForceMagnify;
-- (void)oneFingerForcePress:(id)arg1;
-- (void)oneFingerForcePan:(id)arg1;
-- (void)transitionFromBlockMagnifyToBlockSelectWithLocation:(struct CGPoint)arg1 viaDrag:(_Bool)arg2;
 - (_Bool)allowOneFingerDeepPress;
 - (_Bool)oneFingerForcePressShouldCancelTouchesInView;
 - (_Bool)oneFingerForcePressShouldFailWithoutForce;
 - (double)oneFingerForcePressMinimumDuration;
 - (void)_cleanupDeadGesturesIfNecessary;
-- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (Class)gestureCluster;
 
 @end
 

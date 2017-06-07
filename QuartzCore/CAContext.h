@@ -37,6 +37,7 @@
 // Remaining properties
 @property _Bool colorMatchUntaggedContent; // @dynamic colorMatchUntaggedContent;
 @property struct CGColorSpace *colorSpace; // @dynamic colorSpace;
+@property unsigned int commitPriority; // @dynamic commitPriority;
 @property(copy) NSString *contentsFormat; // @dynamic contentsFormat;
 @property(readonly) unsigned int contextId; // @dynamic contextId;
 @property(retain) CALayer *layer; // @dynamic layer;

@@ -13,10 +13,16 @@
 __attribute__((visibility("hidden")))
 @interface CNiOSABContactIdentifiersPredicate : CNContactsWithIdentifiersPredicate <CNiOSContactPredicate>
 {
+    _Bool _ignoreUnifiedIdentifiers;
 }
 
-- (struct __CFArray *)cn_copyPeopleInAddressBook:(void *)arg1 withSortOrder:(unsigned int)arg2 matchInfos:(id *)arg3 options:(unsigned long long)arg4 error:(struct __CFError **)arg5;
+@property(readonly) _Bool ignoreUnifiedIdentifiers; // @synthesize ignoreUnifiedIdentifiers=_ignoreUnifiedIdentifiers;
+- (id)cn_cursorForEncodedPeopleFromAddressBook:(void *)arg1 fetchRequest:(id)arg2 environment:(id)arg3 error:(id *)arg4;
+- (struct __CFArray *)cn_copyPeopleInAddressBook:(void *)arg1 fetchRequest:(id)arg2 matchInfos:(id *)arg3 environment:(id)arg4 error:(struct __CFError **)arg5;
+- (_Bool)cn_supportsEncodedFetching;
+- (_Bool)cn_supportsNativeBatchFetch;
 - (_Bool)cn_supportsNativeSorting;
+- (id)initWithIdentifiers:(id)arg1 ignoreUnifiedIdentifiers:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

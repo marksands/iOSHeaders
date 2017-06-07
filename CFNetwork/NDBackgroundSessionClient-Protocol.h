@@ -18,6 +18,7 @@
 - (void)credStorage_getInitialCredentialDictionariesWithReply:(void (^)(NSDictionary *, NSDictionary *))arg1;
 - (void)backgroundSessionDidFinishAppWake:(NSString *)arg1 reply:(void (^)(void))arg2;
 - (void)backgroundSessionDidStartAppWake:(NSString *)arg1 reply:(void (^)(void))arg2;
+- (void)backgroundAVAssetDownloadTask:(unsigned long long)arg1 willDownloadToURL:(NSURL *)arg2;
 - (void)backgroundAVAssetDownloadTask:(unsigned long long)arg1 didResolveMediaSelectionProperyList:(id)arg2 reply:(void (^)(void))arg3;
 - (void)backgroundAVAssetDownloadTask:(unsigned long long)arg1 didLoadTimeRange:(NSValue *)arg2 totalTimeRangesLoaded:(NSArray *)arg3 timeRangeExpectedToLoad:(NSValue *)arg4;
 - (void)backgroundAVAssetDownloadTask:(unsigned long long)arg1 didReceiveDownloadToken:(unsigned long long)arg2;
@@ -41,6 +42,7 @@
 - (void)backgroundTaskHasConnectionWaiting:(unsigned long long)arg1;
 - (void)backgroundTask:(unsigned long long)arg1 _willSendRequestForEstablishedConnection:(NSURLRequest *)arg2 reply:(void (^)(NSURLRequest *, NSFileHandle *))arg3;
 - (void)backgroundTask:(unsigned long long)arg1 willPerformHTTPRedirection:(NSHTTPURLResponse *)arg2 withNewRequest:(NSURLRequest *)arg3 reply:(void (^)(NSURLRequest *))arg4;
+- (void)backgroundTask:(unsigned long long)arg1 willBeginDelayedRequest:(NSURLRequest *)arg2 reply:(void (^)(long long, NSURLRequest *))arg3;
 - (void)backgroundTask:(unsigned long long)arg1 didReceiveChallenge:(NSURLAuthenticationChallenge *)arg2 reply:(void (^)(long long, NSURLCredential *))arg3;
 - (void)backgroundTaskDidSuspend:(unsigned long long)arg1;
 - (void)backgroundTaskDidResume:(unsigned long long)arg1;

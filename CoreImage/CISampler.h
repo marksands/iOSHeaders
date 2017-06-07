@@ -20,7 +20,7 @@
 + (id)samplerWithImage:(id)arg1;
 - (id)debugDescription;
 - (id)description;
-- (void *)colorSpace;
+- (const void *)colorSpace;
 - (id)wrapMode;
 @property(readonly) struct CGRect extent;
 - (id)opaqueShape;

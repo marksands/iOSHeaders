@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     void *_bytes;
 }
 
+- (_Bool)_providesConcreteBacking;
 - (void)dealloc;
 - (id)initWithBytes:(void *)arg1 length:(unsigned long long)arg2 copy:(_Bool)arg3 deallocator:(CDUnknownBlockType)arg4;
 - (id)initWithCapacity:(unsigned long long)arg1;

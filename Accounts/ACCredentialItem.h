@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <Accounts/ACProtobufCoding-Protocol.h>
 #import <Accounts/NSSecureCoding-Protocol.h>
 
 @class ACAccountStore, NSDate, NSMutableSet, NSSet, NSString, NSURL;
 
-@interface ACCredentialItem : NSObject <NSSecureCoding>
+@interface ACCredentialItem : NSObject <NSSecureCoding, ACProtobufCoding>
 {
     NSString *_accountIdentifier;
     NSDate *_expirationDate;
@@ -40,12 +41,21 @@
 @property(readonly, nonatomic) NSString *accountIdentifier;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)fullDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (id)_encodeProtobufData;
+- (id)_encodeProtobuf;
+- (id)_initWithProtobufData:(id)arg1;
+- (id)_initWithProtobuf:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithAccountIdentifier:(id)arg1 serviceName:(id)arg2;
 - (id)initWithManagedCredentialItem:(id)arg1;
 - (id)initWithManagedCredentialItem:(id)arg1 accountStore:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

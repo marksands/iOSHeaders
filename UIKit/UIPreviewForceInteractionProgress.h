@@ -39,6 +39,7 @@
 - (id)_initWithObservable:(id)arg1 targetState:(long long)arg2 minimumRequiredState:(long long)arg3 useLinearClassifier:(_Bool)arg4;
 - (id)_initWithObservable:(id)arg1 targetState:(long long)arg2 minimumRequiredState:(long long)arg3;
 - (id)_initWithView:(id)arg1 targetState:(long long)arg2 minimumRequiredState:(long long)arg3 useLinearClassifier:(_Bool)arg4;
+- (void)_setGestureBeginObservable:(id)arg1;
 - (id)initWithGestureRecognizer:(id)arg1 minimumRequiredState:(long long)arg2;
 - (id)initWithGestureRecognizer:(id)arg1;
 - (id)initWithView:(id)arg1 targetState:(long long)arg2 minimumRequiredState:(long long)arg3;

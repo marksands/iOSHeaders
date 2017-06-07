@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (id)badgeImageToDisplayInView:(id)arg1;
 - (id)imageToDisplayInView:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqualToTransitArtworkViewMode:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithArtwork:(id)arg1 shieldSize:(long long)arg2 artworkCache:(id)arg3;
@@ -32,7 +33,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

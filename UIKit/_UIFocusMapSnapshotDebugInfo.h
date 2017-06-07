@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 
 + (id)_summaryImageForDebugInfoArray:(id)arg1 forFocusMovementWithInfo:(id)arg2 scaleFactor:(double)arg3;
 @property(readonly, nonatomic) __weak _UIFocusMapSearchInfo *focusMapSearchInfo; // @synthesize focusMapSearchInfo=_focusMapSearchInfo;
-@property(readonly, copy, nonatomic) _UIFocusMapSnapshot *snapshot; // @synthesize snapshot=_snapshot;
+@property(readonly, nonatomic) _UIFocusMapSnapshot *snapshot; // @synthesize snapshot=_snapshot;
 - (void).cxx_destruct;
 - (id)_drawImage;
 - (struct CGRect)_rectContainingAllFocusRegions;

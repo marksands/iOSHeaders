@@ -17,6 +17,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)new;
 @property(readonly, copy) NSString *symbol; // @synthesize symbol=_symbol;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -25,6 +26,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithSymbol:(id)arg1;
+- (id)init;
 
 @end
 

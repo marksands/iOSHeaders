@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     struct unique_ptr<ClientSyncCaller, std::__1::default_delete<ClientSyncCaller>> _syncCaller;
     struct HapticSharedMemory _sharedBuffer;
     unsigned long long _uniqueID;
+    int _serverTimeout;
     _Bool _prewarmed;
     _Bool _running;
     _Bool _connected;
@@ -41,21 +42,24 @@ __attribute__((visibility("hidden")))
 - (void)handleConnectionError;
 - (void)handleHapticServerCrash;
 - (_Bool)setNumberOfChannels:(unsigned long long)arg1 error:(id *)arg2;
+- (_Bool)setPlayerBehavior:(unsigned long long)arg1 error:(id *)arg2;
 - (void)setChannelKeys:(id)arg1;
 - (void)disconnect;
 - (_Bool)setupConnectionAndReturnError:(id *)arg1;
 - (void)doInit;
 - (void)releaseResources;
 - (_Bool)detachHapticSequence:(unsigned long long)arg1 atTime:(double)arg2;
+- (_Bool)setSequenceParameter:(unsigned long long)arg1 atTime:(double)arg2 value:(float)arg3 sequenceID:(unsigned long long)arg4 channel:(unsigned long long)arg5;
 - (_Bool)stopHapticSequence:(unsigned long long)arg1 atTime:(double)arg2;
 - (_Bool)startHapticSequence:(unsigned long long)arg1 atTime:(double)arg2 withOffset:(double)arg3;
 - (_Bool)enableSequenceLooping:(unsigned long long)arg1 enable:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)prepareHapticSequence:(unsigned long long)arg1 error:(id *)arg2;
+- (_Bool)loadHapticPattern:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (_Bool)loadHapticSequence:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (_Bool)setParameter:(unsigned long long)arg1 atTime:(double)arg2 value:(float)arg3 channel:(unsigned long long)arg4;
 - (_Bool)clearEventsFromTime:(double)arg1 channel:(unsigned long long)arg2;
 - (_Bool)stopEventWithToken:(unsigned long long)arg1 atTime:(double)arg2 channel:(unsigned long long)arg3;
-- (_Bool)sendEvents:(id)arg1 atTime:(double)arg2 channel:(unsigned long long)arg3 error:(id *)arg4;
+- (_Bool)sendEvents:(id)arg1 atTime:(double)arg2 channel:(unsigned long long)arg3 outToken:(unsigned long long *)arg4 error:(id *)arg5;
 - (_Bool)startEventAndReturnToken:(unsigned long long)arg1 type:(unsigned long long)arg2 atTime:(double)arg3 channel:(unsigned long long)arg4 eventToken:(unsigned long long *)arg5;
 - (_Bool)setChannelEventBehavior:(unsigned long long)arg1 channel:(unsigned long long)arg2;
 - (_Bool)finish:(CDUnknownBlockType)arg1;
@@ -63,8 +67,9 @@ __attribute__((visibility("hidden")))
 - (void)startRunning:(CDUnknownBlockType)arg1;
 - (void)stopPrewarm;
 - (void)prewarm:(CDUnknownBlockType)arg1;
-- (_Bool)loadHapticPreset:(id)arg1 error:(id *)arg2;
+- (_Bool)loadHapticEvent:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)allocateResources:(CDUnknownBlockType)arg1;
+@property(readonly) double hapticLatency;
 - (void)dealloc;
 - (id)initAndReturnError:(id *)arg1;
 

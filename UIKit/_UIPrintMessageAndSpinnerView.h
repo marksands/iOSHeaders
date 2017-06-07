@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool spinSpinner;
 @property(retain, nonatomic) NSString *messageText;
 - (void)updateConstraints;
+- (void)updateFont;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

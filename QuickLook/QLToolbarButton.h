@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     SEL _action;
     _Bool _forceToNavBar;
     _Bool _selected;
+    _Bool _enabled;
     NSString *_identifier;
     UIImage *_image;
     long long _systemItem;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)supportsSecureCoding;
+@property _Bool enabled; // @synthesize enabled=_enabled;
 @property _Bool selected; // @synthesize selected=_selected;
 @property _Bool forceToNavBar; // @synthesize forceToNavBar=_forceToNavBar;
 @property unsigned long long placement; // @synthesize placement=_placement;

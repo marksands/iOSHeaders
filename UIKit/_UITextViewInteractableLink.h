@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 - (void)actionDidFinish:(id)arg1;
 - (void)action:(id)arg1 didDismissAlertController:(id)arg2;
 - (void)_dataDetectorAction:(id)arg1;
+- (void)_performLinkInteractionBlockAfterUnlockingDeviceOnly:(CDUnknownBlockType)arg1;
 - (void)_linkInteractionShareLink;
 - (void)_linkInteractionCopyLink;
 - (_Bool)_isMobileSafariRestricted;

@@ -44,9 +44,11 @@
 - (id)init;
 - (void)_updateWithSearchableItem:(id)arg1;
 - (id)filteredSpotlightAttributes;
+- (void)_standardizeMarkAs:(id)arg1;
 - (void)_standardizeHTML:(id)arg1;
 - (void)_standardizeDeprecatedProperties:(id)arg1;
-- (void)_populateMissingPeopleWithNames:(id)arg1 emailAddresses:(id)arg2 itemPersons:(id)arg3 personDictionary:(id)arg4 contactProperties:(id)arg5 nameKey:(id)arg6 emailKey:(id)arg7 contactIdentifierKey:(id)arg8 personKey:(id)arg9 attributeSet:(id)arg10;
+- (void)_populateMissingPeopleWithNames:(id)arg1 emailAddresses:(id)arg2 allItemPersons:(id)arg3 primaryItemPersons:(id)arg4 additionalItemPersons:(id)arg5 hiddenAdditionalItemPersons:(id)arg6 personDictionary:(id)arg7 contactProperties:(id)arg8 nameKey:(id)arg9 emailKey:(id)arg10 contactIdentifierKey:(id)arg11 personKey:(id)arg12 attributeSet:(id)arg13;
+- (void)breakOutPersonInformationInSet:(id)arg1 withName:(id)arg2 emails:(id)arg3 contactIdentifiers:(id)arg4 nameKey:(id)arg5 emailKey:(id)arg6 contactIdentifierKey:(id)arg7 emailAddressKey:(id)arg8 attributeSet:(id)arg9;
 - (void)_fixBrokenAuthorNames:(id)arg1;
 - (void)_standardizePeople:(id)arg1;
 - (void)standardizeAttributes;

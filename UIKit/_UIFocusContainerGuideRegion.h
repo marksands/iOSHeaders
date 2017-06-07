@@ -19,7 +19,7 @@
 - (_Bool)_shouldDrawDebugQuickLookImageWithInfo:(id)arg1;
 - (id)_visualRepresentationColor;
 - (unsigned long long)_focusableBoundaries;
-- (id)_fallbackFocusItemForMovement:(id)arg1 inFocusMap:(id)arg2;
+- (id)_fallbackFocusItemForMovementRequest:(id)arg1 inFocusMap:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

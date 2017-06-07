@@ -19,7 +19,8 @@ __attribute__((visibility("hidden")))
     id <EKIdentityProtocol> _organizerOverride;
 }
 
-+ (double)detailsCellDefaultHeight;
++ (id)_organizerFont;
++ (id)_titleFont;
 - (void).cxx_destruct;
 - (id)_organizerView;
 - (id)_organizerLabel;

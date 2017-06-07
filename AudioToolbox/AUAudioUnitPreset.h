@@ -19,6 +19,7 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) long long number; // @synthesize number=_number;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

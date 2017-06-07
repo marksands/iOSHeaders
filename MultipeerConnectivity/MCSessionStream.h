@@ -11,6 +11,7 @@
 
 @interface MCSessionStream : NSObject
 {
+    NSObject<OS_dispatch_source> *_source;
     _Bool _sourceSuspended;
     _Bool _progressUnbounded;
     unsigned int _streamID;
@@ -18,7 +19,6 @@
     int _fd;
     MCPeerID *_peerID;
     NSString *_name;
-    NSObject<OS_dispatch_source> *_source;
     NSMutableData *_incomingBuffer;
     NSURL *_url;
     NSProgress *_progress;

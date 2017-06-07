@@ -18,7 +18,7 @@
 - (_Bool)shouldUseCollageForCloudFeedPlaceholder;
 - (_Bool)showsDeleteButtonOnCellContentView;
 - (double)sectionFooterHeight;
-- (struct UIEdgeInsets)sectionInsetsForLayoutReferenceSize:(struct CGSize)arg1;
+- (struct UIEdgeInsets)sectionInsetsForLayoutReferenceSize:(struct CGSize)arg1 safeAreaInsets:(struct UIEdgeInsets)arg2;
 - (double)sectionHeaderHeight;
 - (struct CGSize)cellSizeForBounds:(struct CGRect)arg1;
 - (long long)cellContentViewLayout;

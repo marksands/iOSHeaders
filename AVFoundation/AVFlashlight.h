@@ -15,6 +15,7 @@
 
 + (_Bool)hasFlashlight;
 + (void)initialize;
+- (void)_reconnectToServer;
 - (void)_handleNotification:(id)arg1 payload:(id)arg2;
 @property(readonly, nonatomic) float flashlightLevel;
 - (_Bool)setFlashlightLevel:(float)arg1 withError:(id *)arg2;

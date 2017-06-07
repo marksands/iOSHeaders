@@ -6,11 +6,7 @@
 
 #import <EventKit/EKPersistentObject.h>
 
-#import <EventKit/NSCopying-Protocol.h>
-
-@class NSData, NSNumber, NSString;
-
-@interface EKPersistentLocation : EKPersistentObject <NSCopying>
+@interface EKPersistentLocation : EKPersistentObject
 {
 }
 
@@ -22,18 +18,27 @@
 - (void)setAlarmOwner:(id)arg1;
 - (id)calendarItemOwner;
 - (void)setCalendarItemOwner:(id)arg1;
-@property(copy, nonatomic) NSString *derivedFrom;
-@property(copy, nonatomic) NSString *routing;
-@property(copy, nonatomic) NSData *mapKitHandle;
-@property(copy, nonatomic) NSString *addressBookEntityID;
-@property(copy, nonatomic) NSNumber *radius;
-@property(copy, nonatomic) NSNumber *referenceFrame;
-@property(copy, nonatomic) NSNumber *longitude;
-@property(copy, nonatomic) NSNumber *latitude;
-@property(copy, nonatomic) NSString *address;
-@property(copy, nonatomic) NSString *title;
+- (void)setDerivedFrom:(id)arg1;
+- (id)derivedFrom;
+- (void)setRouting:(id)arg1;
+- (id)routing;
+- (void)setMapKitHandle:(id)arg1;
+- (id)mapKitHandle;
+- (void)setAddressBookEntityID:(id)arg1;
+- (id)addressBookEntityID;
+- (void)setRadius:(id)arg1;
+- (id)radius;
+- (void)setReferenceFrame:(id)arg1;
+- (id)referenceFrame;
+- (void)setLongitude:(id)arg1;
+- (id)longitude;
+- (void)setLatitude:(id)arg1;
+- (id)latitude;
+- (void)setAddress:(id)arg1;
+- (id)address;
+- (void)setTitle:(id)arg1;
+- (id)title;
 - (int)entityType;
-- (id)init;
 
 @end
 

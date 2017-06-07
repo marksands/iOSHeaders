@@ -35,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)_hasStaleConfiguration;
 - (id)_alignmentPropertySource;
 - (id)_alignmentConfigurationHistory;
-- (void)_trackChangesWithValue:(id)arg1 forKey:(id)arg2;
 - (_Bool)_canvasConnectionConstraintsNeedUpdatePass;
 - (_Bool)_usesCenteringConnectionConstraint;
 - (long long)_layoutRelationForCanvasConnectionForAttribute:(long long)arg1;
@@ -44,17 +43,17 @@ __attribute__((visibility("hidden")))
 - (long long)_axisForSpanningLayoutGuide;
 - (id)_identifierForSpanningLayoutGuide;
 - (unsigned long long)_indexOfItemForLocationAttribute:(long long)arg1;
+@property(nonatomic) _Bool layoutUsesCanvasMarginsWhenFilling;
+@property(nonatomic) _Bool layoutFillsCanvas;
+@property(nonatomic) long long axis;
 - (id)initWithItems:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSSet *_newlyHiddenItems;
 @property(readonly, nonatomic) NSSet *_newlyUnhiddenItems;
-@property(nonatomic) long long axis;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(nonatomic) _Bool layoutFillsCanvas;
-@property(nonatomic) _Bool layoutUsesCanvasMarginsWhenFilling;
 @property(readonly) Class superclass;
 
 @end

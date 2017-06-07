@@ -6,11 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSData;
+@class NSString;
 
 @interface AVContentKeyResponseInternal : NSObject
 {
-    NSData *_keyResponseData;
+    NSString *_keySystem;
 }
 
 @end

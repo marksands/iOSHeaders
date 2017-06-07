@@ -17,6 +17,7 @@
 }
 
 + (void)initialize;
+- (void)postURLSessionSetUpDidCompleteNotificationIfAppropriate;
 - (id)_URLSessionDataDelegate;
 - (id)_URLSessionOperationQueue;
 - (id)_createAVErrorForError:(id)arg1 andFigErrorCode:(int)arg2;

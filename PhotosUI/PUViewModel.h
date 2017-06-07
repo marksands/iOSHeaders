@@ -33,6 +33,7 @@
 - (void)willPublishChanges;
 - (void)didPerformChanges;
 - (void)performChanges:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) PUViewModelChange *currentChangeIfExists;
 @property(readonly, nonatomic) PUViewModelChange *currentChange;
 - (void)assertInsideChangesBlock;
 - (id)newViewModelChange;

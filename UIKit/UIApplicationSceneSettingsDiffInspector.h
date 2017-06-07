@@ -11,6 +11,8 @@
 }
 
 - (void)_observeOtherSetting:(unsigned long long)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)observeuserInterfaceStyleWithBlock:(CDUnknownBlockType)arg1;
+- (void)observeDeviceOrientationWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeUserInterfaceStyleWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeIdleModeEnabledWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeCanShowAlertsWithBlock:(CDUnknownBlockType)arg1;

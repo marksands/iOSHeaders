@@ -20,9 +20,9 @@ __attribute__((visibility("hidden")))
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSString *contactIdentifier; // @synthesize contactIdentifier=_contactIdentifier;
 @property(readonly, copy, nonatomic) CNContact *contact; // @synthesize contact=_contact;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithContactIdentifier:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithContact:(id)arg1;

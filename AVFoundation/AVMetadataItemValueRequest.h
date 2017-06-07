@@ -16,7 +16,9 @@
 + (id)metadataItemValueRequestWithMetadataItem:(id)arg1;
 - (void)respondWithError:(id)arg1;
 - (void)respondWithValue:(id)arg1;
+- (void)respondWithValue:(id)arg1 dataType:(id)arg2;
 - (id)error;
+- (id)dataType;
 - (id)value;
 @property(readonly) __weak AVMetadataItem *metadataItem;
 - (void)finalize;

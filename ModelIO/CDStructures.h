@@ -38,6 +38,14 @@ struct CGColor;
 
 struct Detail;
 
+struct GfMatrix4d {
+    struct GfMatrixData<double, 4, 4> _field1;
+};
+
+struct GfMatrixData<double, 4, 4> {
+    double _field1[16];
+};
+
 struct IESData {
     int _field1;
     int _field2;
@@ -64,6 +72,20 @@ struct MortonCode {
 };
 
 struct Octree;
+
+struct ParsedUsdMesh {
+    _Bool _field1;
+    _Bool _field2;
+    struct VtArray<GfVec3f> _field3;
+    struct vector<mdlio_usd::UsdAttr, std::__1::allocator<mdlio_usd::UsdAttr>> _field4;
+    struct mesh_topology _field5;
+    struct UsdPrim _field6;
+    id _field7;
+    struct VtArray<unsigned int> _field8;
+    struct VtArray<float> _field9;
+    struct VtArray<GfMatrix4d> _field10;
+    struct GfMatrix4d _field11;
+};
 
 struct PhysicallyPlausibleDistribution {
     CDUnknownFunctionPointerType *_field1;
@@ -115,15 +137,85 @@ struct SkyDescriptor {
     float _field15;
     float _field16;
     float _field17;
-    struct Detail *_field18;
-    unsigned int _field19;
+    float _field18;
+    struct Detail *_field19;
     unsigned int _field20;
-    float _field21;
+    unsigned int _field21;
     float _field22;
     float _field23;
     float _field24;
-    void *_field25;
+    float _field25;
+    void *_field26;
 };
+
+struct TfPointerAndBits<const TfToken::_Rep> {
+    struct _Rep *_field1;
+};
+
+struct TfPointerAndBits<const VtValue::_TypeInfo> {
+    struct _TypeInfo *_field1;
+};
+
+struct TfToken {
+    struct TfPointerAndBits<const TfToken::_Rep> _field1;
+};
+
+struct TimeSampledVtValue;
+
+struct UsdAttr;
+
+struct UsdAttribute {
+    int _field1;
+    struct Usd_PrimDataHandle _field2;
+    struct TfToken _field3;
+};
+
+struct UsdPrim {
+    int _field1;
+    struct Usd_PrimDataHandle _field2;
+    struct TfToken _field3;
+};
+
+struct UsdTimeCode {
+    double _field1;
+};
+
+struct Usd_PrimData;
+
+struct Usd_PrimDataHandle {
+    struct intrusive_ptr<const Usd_PrimData> _field1;
+};
+
+struct VtArray<GfMatrix4d> {
+    struct intrusive_ptr<VtArray<GfMatrix4d>::_Data> _field1;
+};
+
+struct VtArray<GfVec3f> {
+    struct intrusive_ptr<VtArray<GfVec3f>::_Data> _field1;
+};
+
+struct VtArray<float> {
+    struct intrusive_ptr<VtArray<float>::_Data> _field1;
+};
+
+struct VtArray<int> {
+    struct intrusive_ptr<VtArray<int>::_Data> _field1;
+};
+
+struct VtArray<unsigned int> {
+    struct intrusive_ptr<VtArray<unsigned int>::_Data> _field1;
+};
+
+struct VtValue {
+    struct aligned_storage_imp<8, 8> _field1;
+    struct TfPointerAndBits<const VtValue::_TypeInfo> _field2;
+};
+
+struct _Data;
+
+struct _Rep;
+
+struct _TypeInfo;
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, int>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, int>, void *>*> *__next_;
@@ -155,6 +247,46 @@ struct __sFILE {
 struct __sbuf {
     char *_field1;
     int _field2;
+};
+
+struct a8;
+
+struct aligned_storage_imp<8, 8> {
+    union data_t _field1;
+};
+
+struct intrusive_ptr<VtArray<GfMatrix4d>::_Data> {
+    struct _Data *_field1;
+};
+
+struct intrusive_ptr<VtArray<GfVec3f>::_Data> {
+    struct _Data *_field1;
+};
+
+struct intrusive_ptr<VtArray<float>::_Data> {
+    struct _Data *_field1;
+};
+
+struct intrusive_ptr<VtArray<int>::_Data> {
+    struct _Data *_field1;
+};
+
+struct intrusive_ptr<VtArray<unsigned int>::_Data> {
+    struct _Data *_field1;
+};
+
+struct intrusive_ptr<const Usd_PrimData> {
+    struct Usd_PrimData *_field1;
+};
+
+struct mesh_topology {
+    struct VtArray<int> _field1;
+    struct VtArray<int> _field2;
+    struct VtArray<int> _field3;
+    struct VtArray<float> _field4;
+    struct VtArray<int> _field5;
+    struct VtArray<int> _field6;
+    struct VtArray<float> _field7;
 };
 
 struct mutex {
@@ -208,6 +340,14 @@ struct unordered_map<unsigned long long, int, std::__1::hash<unsigned long long>
     } __table_;
 };
 
+struct vector<(anonymous namespace)::TimeSampledVtValue, std::__1::allocator<(anonymous namespace)::TimeSampledVtValue>> {
+    struct TimeSampledVtValue *__begin_;
+    struct TimeSampledVtValue *__end_;
+    struct __compressed_pair<(anonymous namespace)::TimeSampledVtValue *, std::__1::allocator<(anonymous namespace)::TimeSampledVtValue>> {
+        struct TimeSampledVtValue *__first_;
+    } __end_cap_;
+};
+
 struct vector<MDLLight *, std::__1::allocator<MDLLight *>> {
     id *__begin_;
     id *__end_;
@@ -237,6 +377,14 @@ struct vector<int, std::__1::allocator<int>> {
     int *_field2;
     struct __compressed_pair<int *, std::__1::allocator<int>> {
         int *_field1;
+    } _field3;
+};
+
+struct vector<mdlio_usd::UsdAttr, std::__1::allocator<mdlio_usd::UsdAttr>> {
+    struct UsdAttr *_field1;
+    struct UsdAttr *_field2;
+    struct __compressed_pair<mdlio_usd::UsdAttr *, std::__1::allocator<mdlio_usd::UsdAttr>> {
+        struct UsdAttr *_field1;
     } _field3;
 };
 
@@ -273,4 +421,11 @@ typedef struct vector<int, std::__1::allocator<int>> {
         int *_field1;
     } _field3;
 } vector_3203cf93;
+
+#pragma mark Named Unions
+
+union data_t {
+    char _field1[8];
+    struct a8 _field2;
+};
 

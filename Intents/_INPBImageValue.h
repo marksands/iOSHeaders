@@ -13,11 +13,19 @@
 @interface _INPBImageValue : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    double _height;
+    double _width;
     NSString *_uri;
     _INPBValueMetadata *_valueMetadata;
+    struct {
+        unsigned int height:1;
+        unsigned int width:1;
+    } _has;
 }
 
 + (id)options;
+@property(nonatomic) double height; // @synthesize height=_height;
+@property(nonatomic) double width; // @synthesize width=_width;
 @property(retain, nonatomic) NSString *uri; // @synthesize uri=_uri;
 @property(retain, nonatomic) _INPBValueMetadata *valueMetadata; // @synthesize valueMetadata=_valueMetadata;
 - (void).cxx_destruct;
@@ -30,6 +38,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasHeight;
+@property(nonatomic) _Bool hasWidth;
 @property(readonly, nonatomic) _Bool hasUri;
 @property(readonly, nonatomic) _Bool hasValueMetadata;
 

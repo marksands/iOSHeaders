@@ -19,10 +19,12 @@
 + (id)currentExternalDevice;
 - (struct OpaqueFigEndpoint *)figEndpoint;
 - (void)_triggerFakeNotificationNamed:(id)arg1 withPayload:(id)arg2;
+- (void)sendCommand:(id)arg1 withParameters:(id)arg2;
 - (void)takeScreenForConnection;
 - (void)takeScreenForClient:(id)arg1 reason:(id)arg2;
 - (id)borrowScreenForClient:(id)arg1 reason:(id)arg2;
 - (id)requestTurnByTurnNavigationOwnership;
+- (void)requestCarUIForURL:(id)arg1 withUUID:(id)arg2;
 - (void)requestCarUIForURL:(id)arg1;
 - (void)requestCarUI;
 @property(readonly, nonatomic) NSData *MFiCertificateSerialNumber;
@@ -57,7 +59,6 @@
 - (void)dealloc;
 - (id)_weakReference;
 - (id)initWithFigEndpoint:(struct OpaqueFigEndpoint *)arg1;
-- (id)initWithCurrentCarPlayExternalDevice;
 - (id)init;
 
 @end

@@ -7,11 +7,12 @@
 #import <PhotosUI/PUTileViewController.h>
 
 #import <PhotosUI/PUAssetViewModelChangeObserver-Protocol.h>
+#import <PhotosUI/PXUIAssetBadgeViewDelegate-Protocol.h>
 
 @class NSString, PUAssetViewModel, PXUIAssetBadgeView;
 
 __attribute__((visibility("hidden")))
-@interface PUBadgeTileViewController : PUTileViewController <PUAssetViewModelChangeObserver>
+@interface PUBadgeTileViewController : PUTileViewController <PUAssetViewModelChangeObserver, PXUIAssetBadgeViewDelegate>
 {
     _Bool __needsUpdateBadgeInfo;
     _Bool __needsUpdateBadgeView;
@@ -22,9 +23,8 @@ __attribute__((visibility("hidden")))
     struct PXAssetBadgeInfo __badgeInfo;
 }
 
-+ (void)_configureBadgeView:(id)arg1 withBadgeInfo:(struct PXAssetBadgeInfo)arg2 isOverContent:(_Bool)arg3 hideLivePhotoBadge:(_Bool)arg4 animated:(_Bool)arg5;
++ (void)_configureBadgeView:(id)arg1 withBadgeInfo:(struct PXAssetBadgeInfo)arg2 isOverContent:(_Bool)arg3 editableContent:(_Bool)arg4 animated:(_Bool)arg5;
 + (struct CGSize)_badgeTileSizeForBadgeInfo:(struct PXAssetBadgeInfo)arg1;
-+ (struct PXAssetBadgeInfo)_badgeInfoForAssetViewModel:(id)arg1;
 + (struct CGSize)badgeTileSizeForAssetViewModel:(id)arg1;
 @property(nonatomic, setter=_setShouldAnimateNextBadgeViewUpdate:) _Bool _shouldAnimateNextBadgeViewUpdate; // @synthesize _shouldAnimateNextBadgeViewUpdate=__shouldAnimateNextBadgeViewUpdate;
 @property(nonatomic, setter=_setOverContent:) _Bool _isOverContent; // @synthesize _isOverContent=__isOverContent;
@@ -35,6 +35,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) PUAssetViewModel *assetViewModel; // @synthesize assetViewModel=_assetViewModel;
 - (void).cxx_destruct;
 - (void)viewModel:(id)arg1 didChange:(id)arg2;
+- (void)_updateBadge;
+- (void)assetBadgeView:(id)arg1 userDidSelectBadges:(unsigned long long)arg2;
 - (void)_updateBadgeViewIfNeeded;
 - (void)_invalidateBadgeView;
 - (void)_updateBadgeInfoIfNeeded;

@@ -8,27 +8,26 @@
 
 @class NSMutableIndexSet, NSOrderedSet, SCNAuthoringEnvironment, SCNNode;
 
-__attribute__((visibility("hidden")))
 @interface SCNManipulator : NSObject
 {
     SCNAuthoringEnvironment *_authoringEnvironment;
     NSOrderedSet *_targets;
-    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]), name: _xAxisToZAxisTransform
-    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]), name: _yAxisToZAxisTransform
-    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]), name: _xyPlaneToYZPlaneTransform
-    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]), name: _xyPlaneToXZPlaneTransform
-    // Error parsing type: (?="axisMove"{?="selectedAxis"S"originalPosition""axisDirection""mouseDeltaVector"}"planeMove"{?="selectedPlane"S"originalPosition""planeNormal""pointInPlane""mouseDeltaVector"}"axisRotate"{?="selectedAxis"S"originalMouseLocation"{CGPoint="x"d"y"d}"rotationSign"f"originalRotation"{__C3DQuaternion="x"f"y"f"z"f"s"f}}), name: _actionData
+    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _xAxisToZAxisTransform
+    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _yAxisToZAxisTransform
+    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _xyPlaneToYZPlaneTransform
+    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _xyPlaneToXZPlaneTransform
+    // Error parsing type: (?="axisMove"{?="selectedAxis"S"originalPosition""axisDirection""mouseDeltaVector"}"planeMove"{?="selectedPlane"S"originalPosition""planeNormal""pointInPlane""mouseDeltaVector"}"axisRotate"{?="selectedAxis"S"originalMouseLocation"{CGPoint="x"d"y"d}"rotationSign"f"originalRotation"}), name: _actionData
     _Bool _isMouseDown;
     _Bool _readonly;
     unsigned short _action;
     struct {
         void *positions;
-        struct __C3DQuaternion *orientations;
+        void *orientations;
         struct SCNMatrix4 *originalLocalMatrix;
     } _originalData;
     unsigned int _originalDataCount;
-    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]), name: _worldInitialMatrix
-    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]), name: _worldMatrix
+    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _worldInitialMatrix
+    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _worldMatrix
     long long _snapToAlignCount;
     CDStruct_62d14fc2 *_snapToAlignOnX;
     CDStruct_62d14fc2 *_snapToAlignOnY;
@@ -51,8 +50,8 @@ __attribute__((visibility("hidden")))
 - (void)prepareSnapToAlignDataIfNeeded;
 - (void)prepareSnapToAlignData;
 - (void)_prepareSnapToAlignData:(unsigned short)arg1 minOffset:maxOffset: /* Error: Ran out of types for this method. */;
-- (const CDStruct_62d14fc2 *)snapInfoAtIndex:(unsigned long long)arg1 axis:(long long)arg2;
-- (id)snapGuideIndexesOnAxis:(long long)arg1;
+- (const CDStruct_62d14fc2 *)snapInfoAtIndex:(unsigned long long)arg1 axis:(unsigned long long)arg2;
+- (id)snapGuideIndexesOnAxis:(unsigned long long)arg1;
 - (void)_updateCloneStateWithEvent:(CDStruct_edec59f9)arg1;
 - (id)setupClones;
 - (void)validateClones;
@@ -66,9 +65,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)_applyWithEvent:(CDStruct_edec59f9)arg1;
 - (void)_deleteOriginalData;
 - (void)_saveOriginalData;
-- (void)updateItemsRotation:(struct __C3DQuaternion)arg1;
+- (void)updateItemsRotation: /* Error: Ran out of types for this method. */;
 - (void)updateItemsPosition;
 - (_Bool)mouseMoved:(CDStruct_edec59f9)arg1;
+- (void)_updateActionWithEvent:(CDStruct_edec59f9)arg1;
 - (void)draw;
 - (_Bool)isDragging;
 - (long long)effectiveEditingSpace;

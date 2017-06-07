@@ -13,6 +13,13 @@
     AVContentKeyRequestInternal *_contentKeyRequest;
 }
 
+- (void)removeFigCryptorListeners;
+- (void)addFigCryptorListeners;
+- (void)_sendFinishLoadingToCustomURLHandlerWithError:(id)arg1;
+- (void)_sendFinishLoadingToCustomURLHandler;
+- (void)_sendDataToCustomURLHandler:(id)arg1;
+- (void)_ensureResponseInfoSentToCustomURLHandler;
+- (void)_sendResponseInfoToCustomURLHandler;
 - (void)respondByRequestingPersistableContentKeyRequest;
 - (void)renewExpiringContentKeyResponseData;
 - (void)processContentKeyResponseError:(id)arg1;
@@ -20,9 +27,11 @@
 - (void)processContentKeyResponseData:(id)arg1;
 - (void)makeStreamingContentKeyRequestDataForApp:(id)arg1 contentIdentifier:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)contentKeyRequestDataForApp:(id)arg1 contentIdentifier:(id)arg2 options:(id)arg3 error:(id *)arg4;
+- (struct OpaqueFigCPECryptor *)_setCryptorWithFormatDescription:(struct opaqueCMFormatDescription *)arg1 error:(id *)arg2;
 - (void)_handleKeyResponseError:(int)arg1;
-- (id)_asset;
-- (struct OpaqueFigCPECryptor *)_figCryptor;
+- (id)_getRetryReasonForError:(int)arg1;
+- (void)_handleUpdateToPersistentKey:(id)arg1;
+- (struct OpaqueFigCPECryptor *)figCryptor;
 @property(readonly) _Bool canProvidePersistableContentKey;
 - (void)_setError:(id)arg1;
 @property(readonly) NSError *error;
@@ -32,8 +41,11 @@
 @property(readonly) long long status;
 @property(readonly, nonatomic) NSData *initializationData;
 @property(readonly) id identifier;
+- (id)_keySystem;
 - (void)dealloc;
-- (id)initWithContentKeySession:(id)arg1 identifier:(id)arg2 initializationData:(id)arg3 providesPersistableKey:(_Bool)arg4 context:(id)arg5 asset:(id)arg6;
+- (id)initWithContentKeySession:(id)arg1 customURLHandler:(struct OpaqueFigCustomURLHandler *)arg2 identifier:(id)arg3 requestInfo:(struct __CFDictionary *)arg4 requestID:(unsigned long long)arg5 providesPersistableKey:(_Bool)arg6;
+- (id)initWithContentKeySession:(id)arg1 customURLProviderContext:(id)arg2 identifier:(id)arg3 initializationData:(id)arg4 providesPersistableKey:(_Bool)arg5;
+- (id)initWithContentKeySession:(id)arg1 identifier:(id)arg2 initializationData:(id)arg3 providesPersistableKey:(_Bool)arg4;
 
 @end
 

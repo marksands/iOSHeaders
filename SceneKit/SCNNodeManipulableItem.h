@@ -6,7 +6,6 @@
 
 #import <SceneKit/SCNManipulableItem.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNNodeManipulableItem : SCNManipulableItem
 {
 }

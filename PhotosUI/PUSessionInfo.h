@@ -26,8 +26,10 @@
     NSString *_localizedPrompt;
     long long _promptLocation;
     CDUnknownBlockType _bannerGenerator;
+    unsigned long long _selectionLimit;
 }
 
+@property(nonatomic) unsigned long long selectionLimit; // @synthesize selectionLimit=_selectionLimit;
 @property(copy, nonatomic) CDUnknownBlockType bannerGenerator; // @synthesize bannerGenerator=_bannerGenerator;
 @property(nonatomic) long long promptLocation; // @synthesize promptLocation=_promptLocation;
 @property(copy, nonatomic) NSString *localizedPrompt; // @synthesize localizedPrompt=_localizedPrompt;

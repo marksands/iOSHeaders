@@ -4,14 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
-
-#import <PhotosUI/UIAlertViewDelegate-Protocol.h>
-
-@class NSString;
+#import <PhotosUICore/PXSettings.h>
 
 __attribute__((visibility("hidden")))
-@interface PUMomentsSettings : PUSettings <UIAlertViewDelegate>
+@interface PUMomentsSettings : PXSettings
 {
     _Bool _allowCollectionInfluence;
     unsigned long long _order;
@@ -29,15 +25,9 @@ __attribute__((visibility("hidden")))
 + (id)sharedInstance;
 @property(nonatomic) _Bool allowCollectionInfluence; // @synthesize allowCollectionInfluence=_allowCollectionInfluence;
 @property(nonatomic) unsigned long long order; // @synthesize order=_order;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)setDefaultValues;
 - (void)performPostSaveActions;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)parentSettings;
 
 @end
 

@@ -7,17 +7,18 @@
 #import <UIKit/UIViewController.h>
 
 #import <ContactsUI/CNActionsViewProtocol-Protocol.h>
-#import <ContactsUI/CNContactActionsViewControllerDelegate-Protocol.h>
+#import <ContactsUI/CNContactActionsControllerDelegate-Protocol.h>
 #import <ContactsUI/CNUIObjectViewController-Protocol.h>
 #import <ContactsUI/CNUIUserActionListConsumer-Protocol.h>
 
-@class CNActionsView, CNContact, CNUIUserActionListDataSource, NSArray, NSDictionary, NSString, UIView;
+@class CNActionsView, CNContact, CNContactActionsController, CNUIUserActionListDataSource, NSArray, NSDictionary, NSString, UIView;
 @protocol CNContactInlineActionsViewControllerDelegate, CNCustomPresentation, CNSchedulerProvider, CNUIObjectViewControllerDelegate;
 
-@interface CNContactInlineActionsViewController : UIViewController <CNActionsViewProtocol, CNUIUserActionListConsumer, CNContactActionsViewControllerDelegate, CNUIObjectViewController>
+@interface CNContactInlineActionsViewController : UIViewController <CNActionsViewProtocol, CNUIUserActionListConsumer, CNContactActionsControllerDelegate, CNUIObjectViewController>
 {
     _Bool _displaysUnavailableActionTypes;
     _Bool _displaysTitles;
+    _Bool _shouldCompressLabelsToFitSize;
     id <CNUIObjectViewControllerDelegate> objectViewControllerDelegate;
     CNContact *_contact;
     NSArray *_supportedActionTypes;
@@ -30,11 +31,13 @@
     NSDictionary *_defaultActionPerType;
     id <CNCustomPresentation> _actionsControllerPresentation;
     id <CNSchedulerProvider> _schedulerProvider;
+    CNContactActionsController *_actionsController;
     CNUIUserActionListDataSource *_actionListDataSource;
 }
 
 + (id)descriptorForRequiredKeys;
 @property(retain, nonatomic) CNUIUserActionListDataSource *actionListDataSource; // @synthesize actionListDataSource=_actionListDataSource;
+@property(retain, nonatomic) CNContactActionsController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) id <CNSchedulerProvider> schedulerProvider; // @synthesize schedulerProvider=_schedulerProvider;
 @property(retain, nonatomic) id <CNCustomPresentation> actionsControllerPresentation; // @synthesize actionsControllerPresentation=_actionsControllerPresentation;
 @property(copy, nonatomic) NSDictionary *defaultActionPerType; // @synthesize defaultActionPerType=_defaultActionPerType;
@@ -42,6 +45,7 @@
 @property(nonatomic) __weak CNActionsView *actionsView; // @synthesize actionsView=_actionsView;
 @property(copy, nonatomic) NSArray *actionItems; // @synthesize actionItems=_actionItems;
 @property(nonatomic) __weak id <CNContactInlineActionsViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool shouldCompressLabelsToFitSize; // @synthesize shouldCompressLabelsToFitSize=_shouldCompressLabelsToFitSize;
 @property(nonatomic) long long viewStyle; // @synthesize viewStyle=_viewStyle;
 @property(nonatomic) double actionTypesInterspace; // @synthesize actionTypesInterspace=_actionTypesInterspace;
 @property(copy, nonatomic) NSArray *supportedActionTypes; // @synthesize supportedActionTypes=_supportedActionTypes;
@@ -52,18 +56,24 @@
 - (void).cxx_destruct;
 - (void)showDisambiguationFromSourceView:(id)arg1 actionType:(id)arg2;
 - (void)performAction:(id)arg1;
-- (void)contactActionsViewController:(id)arg1 didSelectAction:(id)arg2;
+- (void)contactActionsController:(id)arg1 didSelectAction:(id)arg2;
 - (void)didSelectAction:(id)arg1 withSourceView:(id)arg2 longPress:(_Bool)arg3;
 - (void)reset;
-- (id)actionItemForType:(id)arg1 defaultAction:(id)arg2;
+- (id)existingActionItemForType:(id)arg1;
+- (void)updateActionItem:(id)arg1 withDefaultAction:(id)arg2;
+- (id)makeActionItemForType:(id)arg1;
+- (void)removeActionForType:(id)arg1;
+- (void)displayActionForType:(id)arg1 withDefaultAction:(id)arg2 enabled:(_Bool)arg3;
 - (void)processModels:(id)arg1;
 - (void)discoverAvailableActionTypes;
 - (id)allModelsObservable;
-- (void)displayAllSupportedTypesDisabled;
+- (void)updateVisibleActionItems:(id)arg1;
 - (void)displayAdditionalActionItems:(id)arg1;
+- (void)removeVisibleActionItems:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 @property(readonly, nonatomic) double throttleDelay;
+- (void)displayAllSupportedTypesDisabled;
 - (void)dealloc;
 - (id)initWithActionListDataSource:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

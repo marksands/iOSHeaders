@@ -35,6 +35,9 @@
 - (_Bool)canApplyOutputSettings:(id)arg1 forMediaType:(id)arg2;
 - (id)inputGroups;
 @property(readonly, nonatomic) NSArray *inputs;
+- (void)setWritesSinglePassUsingPredeterminedFileSize:(long long)arg1 mediaDataSize:(long long)arg2;
+- (long long)singlePassMediaDataSize;
+- (long long)singlePassFileSize;
 - (void)setPreferredRate:(float)arg1;
 - (float)preferredRate;
 - (void)setPreferredVolume:(float)arg1;

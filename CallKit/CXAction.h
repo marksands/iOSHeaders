@@ -39,7 +39,6 @@
 - (void)updateSanitizedCopy:(id)arg1 withZone:(struct _NSZone *)arg2;
 - (void)updateAsFailedWithReason:(long long)arg1;
 - (void)updateAsFulfilled;
-- (void)failWithError:(id)arg1;
 - (void)fail;
 - (void)fulfill;
 @property(readonly, nonatomic, getter=isComplete) _Bool complete;

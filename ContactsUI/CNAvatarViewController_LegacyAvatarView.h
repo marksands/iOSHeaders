@@ -9,7 +9,7 @@
 #import <ContactsUI/CNAvatarViewDelegate-Protocol.h>
 
 @class CNAvatarView, CNContactStore, NSArray, NSString, PRPersonaStore;
-@protocol CNUIPRLikenessResolver;
+@protocol CNUILikenessRendering;
 
 __attribute__((visibility("hidden")))
 @interface CNAvatarViewController_LegacyAvatarView : CNAvatarViewController <CNAvatarViewDelegate>
@@ -18,12 +18,14 @@ __attribute__((visibility("hidden")))
     NSArray *_contacts;
     CNContactStore *_contactStore;
     PRPersonaStore *_personaStore;
-    id <CNUIPRLikenessResolver> _likenessResolver;
+    id <CNUILikenessRendering> _imageRenderer;
+    unsigned long long _style;
     CNAvatarView *_avatarView;
 }
 
 @property(nonatomic) __weak CNAvatarView *avatarView; // @synthesize avatarView=_avatarView;
-@property(readonly, nonatomic) id <CNUIPRLikenessResolver> likenessResolver; // @synthesize likenessResolver=_likenessResolver;
+@property(nonatomic) unsigned long long style; // @synthesize style=_style;
+@property(readonly, nonatomic) id <CNUILikenessRendering> imageRenderer; // @synthesize imageRenderer=_imageRenderer;
 @property(nonatomic, getter=isThreeDTouchEnabled) _Bool threeDTouchEnabled; // @synthesize threeDTouchEnabled=_threeDTouchEnabled;
 @property(readonly, nonatomic) PRPersonaStore *personaStore; // @synthesize personaStore=_personaStore;
 @property(readonly, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;

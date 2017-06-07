@@ -6,9 +6,11 @@
 
 #import <HealthKit/HKQuery.h>
 
-@class NSArray;
+#import <HealthKit/HKDocumentQueryClientInterface-Protocol.h>
 
-@interface HKDocumentQuery : HKQuery
+@class NSArray, NSString;
+
+@interface HKDocumentQuery : HKQuery <HKDocumentQueryClientInterface>
 {
     _Bool _includeDocumentData;
     unsigned long long _limit;
@@ -16,18 +18,25 @@
     CDUnknownBlockType _resultsHandler;
 }
 
-+ (Class)_queryServerDataObjectClass;
++ (id)clientInterfaceProtocol;
 @property(copy, nonatomic) CDUnknownBlockType resultsHandler; // @synthesize resultsHandler=_resultsHandler;
 @property(readonly) _Bool includeDocumentData; // @synthesize includeDocumentData=_includeDocumentData;
 @property(readonly, copy) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
 @property(readonly) unsigned long long limit; // @synthesize limit=_limit;
 - (void).cxx_destruct;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)_queue_validate;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (void)deliverSample:(id)arg1 forQuery:(id)arg2;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_validate;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)queue_populateConfiguration:(id)arg1;
+- (void)client_deliverDocument:(id)arg1 query:(id)arg2;
 - (id)initWithDocumentType:(id)arg1 predicate:(id)arg2 limit:(unsigned long long)arg3 sortDescriptors:(id)arg4 includeDocumentData:(_Bool)arg5 resultsHandler:(CDUnknownBlockType)arg6;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

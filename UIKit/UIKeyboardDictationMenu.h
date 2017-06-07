@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (void)fadeWithDelay:(double)arg1;
 - (void)fade;
 - (void)cleanupForFadeOrHide;
-- (void)show;
+- (void)willShow;
 - (void)performShowAnimation;
 - (_Bool)centerPopUpOverKey;
 - (_Bool)usesTable;

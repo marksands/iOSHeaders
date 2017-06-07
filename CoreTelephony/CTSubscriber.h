@@ -10,7 +10,7 @@
 
 @interface CTSubscriber : NSObject
 {
-    struct __CTServerConnection *_server;
+    // Error parsing type: ^{__CTServerConnection={__CFRuntimeBase=QAQ}^{dispatch_queue_s}^{CTServerState}CCI^{_xpc_connection_s}CC}, name: _server
     struct vector<dispatch::block<void (^)(NSDictionary *)>, std::__1::allocator<dispatch::block<void (^)(NSDictionary *)>>> _authCallbacks;
 }
 

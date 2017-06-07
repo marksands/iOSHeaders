@@ -60,6 +60,7 @@
 - (void)handleStop:(id)arg1;
 - (void)handleStart:(id)arg1;
 - (void)handleInitMessage:(id)arg1;
+- (void)handleOpenChannel:(id)arg1;
 - (void)handleAddClientMessage:(id)arg1;
 - (void)acceptNewClientConnection:(id)arg1;
 - (void)handleClientMessage:(id)arg1 forConnection:(id)arg2;
@@ -72,7 +73,7 @@
 - (void)handleDisposeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)handleInitWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)cleanup;
-- (id)initWithSession:(id)arg1 pluginType:(id)arg2 primaryPluginType:(id)arg3 pluginBundle:(struct __CFBundle *)arg4;
+- (id)initWithSession:(id)arg1 pluginType:(id)arg2 primaryPluginType:(id)arg3 pluginBundle:(struct __CFBundle *)arg4 applicationPath:(id)arg5;
 
 @end
 

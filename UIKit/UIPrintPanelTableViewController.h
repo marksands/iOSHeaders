@@ -8,7 +8,7 @@
 
 #import <UIKit/UITextFieldDelegate-Protocol.h>
 
-@class NSString, UIPrintPanelViewController, UIPrintPreviewViewController, UIPrinterBrowserViewController;
+@class NSString, UIPrintPanelViewController, UIPrintPreviewViewController, UIPrinterBrowserViewController, _UIPrintMessageAndSpinnerView;
 
 __attribute__((visibility("hidden")))
 @interface UIPrintPanelTableViewController : UITableViewController <UITextFieldDelegate>
@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
     UIPrintPreviewViewController *_printPreviewViewController;
     long long _previousPageIndexInCenterOfPreview;
     UIPrinterBrowserViewController *_browserController;
+    _UIPrintMessageAndSpinnerView *_messageAndSpinner;
 }
 
 - (void).cxx_destruct;

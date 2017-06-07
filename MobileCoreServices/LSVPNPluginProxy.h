@@ -13,10 +13,11 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)VPNPluginProxyForIdentifier:(id)arg1 withContext:(struct LSContext *)arg2;
 + (id)VPNPluginProxyForIdentifier:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)_initWithBundleIdentifier:(id)arg1;
+- (id)_initWithBundleIdentifier:(id)arg1 withContext:(struct LSContext *)arg2;
 
 @end
 

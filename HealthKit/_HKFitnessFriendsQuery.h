@@ -6,19 +6,12 @@
 
 #import <HealthKit/HKQuery.h>
 
+__attribute__((visibility("hidden")))
 @interface _HKFitnessFriendsQuery : HKQuery
 {
-    CDUnknownBlockType _updateHandler;
 }
 
-- (void).cxx_destruct;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (_Bool)_queue_shouldStayAliveAfterInitialResults;
-- (_Bool)_requiresValidSampleType;
-- (void)_queue_validate;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)deliverFitnessFriends:(id)arg1 queryUUID:(id)arg2;
-- (id)initWithUpdateHandler:(CDUnknownBlockType)arg1;
++ (id)clientInterfaceProtocol;
 
 @end
 

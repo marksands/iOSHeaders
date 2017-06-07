@@ -6,7 +6,10 @@
 
 #import <VectorKit/VKLabelMarker.h>
 
+@class MKMapItemIdentifier;
+
 @interface VKLabelMarker (MapKitExtras)
 - (id)_annotationTitle;
+@property(readonly, nonatomic) MKMapItemIdentifier *identifier;
 @end
 

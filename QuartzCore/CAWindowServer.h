@@ -21,6 +21,7 @@
 + (id)context;
 @property(getter=isMirroringEnabled) _Bool mirroringEnabled; // @synthesize mirroringEnabled=_mirroringEnabled;
 - (unsigned int)contextIdHostingContextId:(unsigned int)arg1;
+- (unsigned int)taskNamePortOfContextId:(unsigned int)arg1;
 - (unsigned int)taskPortOfContextId:(unsigned int)arg1;
 - (unsigned int)clientPortOfContextId:(unsigned int)arg1;
 - (id)description;

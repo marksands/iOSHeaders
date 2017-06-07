@@ -23,11 +23,10 @@ __attribute__((visibility("hidden")))
     _Bool _shouldAutoplayOnAppearChanged;
     _Bool _shouldDisplayEmptyPlaceholderChanged;
     _Bool _shouldDisplayBufferingIndicatorsChanged;
-    _Bool _shouldDisplayLoadingIndicatorsChanged;
+    _Bool _canDisplayLoadingIndicatorsChanged;
     _Bool _backgroundColorOverrideChanged;
     _Bool _progressIndicatorSizeChanged;
     _Bool _bufferingIndicatorSizeChanged;
-    _Bool _loadingIndicatorSizeChanged;
     _Bool _shouldUseCompactCommentsTitleChanged;
     _Bool _tileInitialContentModeChanged;
     _Bool _shouldPinContentToTopChanged;
@@ -36,11 +35,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setShouldPinContentToTopChanged:) _Bool shouldPinContentToTopChanged; // @synthesize shouldPinContentToTopChanged=_shouldPinContentToTopChanged;
 @property(nonatomic, setter=_setTileInitialContentModeChanged:) _Bool tileInitialContentModeChanged; // @synthesize tileInitialContentModeChanged=_tileInitialContentModeChanged;
 @property(nonatomic, setter=_setShouldUseCompactCommentsTitleChanged:) _Bool shouldUseCompactCommentsTitleChanged; // @synthesize shouldUseCompactCommentsTitleChanged=_shouldUseCompactCommentsTitleChanged;
-@property(nonatomic, setter=_setLoadingIndicatorSizeChanged:) _Bool loadingIndicatorSizeChanged; // @synthesize loadingIndicatorSizeChanged=_loadingIndicatorSizeChanged;
 @property(nonatomic, setter=_setBufferingIndicatorSizeChanged:) _Bool bufferingIndicatorSizeChanged; // @synthesize bufferingIndicatorSizeChanged=_bufferingIndicatorSizeChanged;
 @property(nonatomic, setter=_setProgressIndicatorSizeChanged:) _Bool progressIndicatorSizeChanged; // @synthesize progressIndicatorSizeChanged=_progressIndicatorSizeChanged;
 @property(nonatomic, setter=_setBackgroundColorOverrideChanged:) _Bool backgroundColorOverrideChanged; // @synthesize backgroundColorOverrideChanged=_backgroundColorOverrideChanged;
-@property(nonatomic, setter=_setShouldDisplayLoadingIndicatorsChanged:) _Bool shouldDisplayLoadingIndicatorsChanged; // @synthesize shouldDisplayLoadingIndicatorsChanged=_shouldDisplayLoadingIndicatorsChanged;
+@property(nonatomic, setter=_setCanDisplayLoadingIndicatorsChanged:) _Bool canDisplayLoadingIndicatorsChanged; // @synthesize canDisplayLoadingIndicatorsChanged=_canDisplayLoadingIndicatorsChanged;
 @property(nonatomic, setter=_setShouldDisplayBufferingIndicatorsChanged:) _Bool shouldDisplayBufferingIndicatorsChanged; // @synthesize shouldDisplayBufferingIndicatorsChanged=_shouldDisplayBufferingIndicatorsChanged;
 @property(nonatomic, setter=_setShouldDisplayEmptyPlaceholderChanged:) _Bool shouldDisplayEmptyPlaceholderChanged; // @synthesize shouldDisplayEmptyPlaceholderChanged=_shouldDisplayEmptyPlaceholderChanged;
 @property(nonatomic, setter=_setShouldAutoplayOnAppearChanged:) _Bool shouldAutoplayOnAppearChanged; // @synthesize shouldAutoplayOnAppearChanged=_shouldAutoplayOnAppearChanged;

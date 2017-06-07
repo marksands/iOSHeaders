@@ -34,7 +34,6 @@
 - (_Bool)allowsInitiatingPlayWhileDownload;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)mqf_playbackItemMetadataModelObject;
 
 @end
 

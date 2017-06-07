@@ -21,10 +21,13 @@
     unsigned int _service;
     unsigned long long _deviceHash;
     NSObject<OS_dispatch_queue> *_handlerQueue;
+    _Bool physicalDeviceUsesCompass;
     NSString *physicalDeviceUniqueID;
 }
 
 + (_Bool)supportsSecureCoding;
+- (void)setPhysicalDeviceUsesCompass:(_Bool)arg1;
+- (_Bool)physicalDeviceUsesCompass;
 - (void)setPhysicalDeviceUniqueID:(id)arg1;
 - (id)physicalDeviceUniqueID;
 - (unsigned int)service;

@@ -6,13 +6,20 @@
 
 #import <objc/NSObject.h>
 
+@protocol OS_dispatch_group;
+
 __attribute__((visibility("hidden")))
 @interface PUTilingLayoutTransitionContext : NSObject
 {
     _Bool _isCancelingTransition;
+    _Bool _isUpdatingDisplayedContent;
+    NSObject<OS_dispatch_group> *_displayedContentUpdateGroup;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_group> *displayedContentUpdateGroup; // @synthesize displayedContentUpdateGroup=_displayedContentUpdateGroup;
+@property(nonatomic) _Bool isUpdatingDisplayedContent; // @synthesize isUpdatingDisplayedContent=_isUpdatingDisplayedContent;
 @property(nonatomic, setter=setCancelingTransition:) _Bool isCancelingTransition; // @synthesize isCancelingTransition=_isCancelingTransition;
+- (void).cxx_destruct;
 
 @end
 

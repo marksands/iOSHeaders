@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNSuggested-Protocol.h>
 #import <Contacts/NSCopying-Protocol.h>
@@ -45,6 +45,7 @@
 @property(readonly) CNLabelValuePair *labelValuePair; // @synthesize labelValuePair=_labelValuePair;
 @property(nonatomic) int iOSLegacyIdentifier; // @synthesize iOSLegacyIdentifier=_iOSLegacyIdentifier;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqualIgnoringIdentifiers:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
@@ -53,15 +54,16 @@
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)addStoreInfo:(id)arg1;
 - (id)labeledValueBySettingLabel:(id)arg1 value:(id)arg2;
 - (id)labeledValueBySettingValue:(id)arg1;
 - (id)labeledValueBySettingLabel:(id)arg1;
 @property(readonly, copy, nonatomic) id <NSCopying><NSSecureCoding> value;
 @property(readonly, copy, nonatomic) NSString *label;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 label:(id)arg2 value:(id)arg3;
 - (id)initWithLabel:(id)arg1 value:(id)arg2;
+- (id)valueOrigin;
 @property(readonly, nonatomic) NSString *suggestionFoundInBundleId;
 @property(readonly, nonatomic) SGRecordId *suggestionRecordId;
 @property(readonly, nonatomic, getter=isSuggested) _Bool suggested;

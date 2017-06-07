@@ -10,7 +10,7 @@
 {
 }
 
-- (id)init;
+- (id)initSubclass;
 
 @end
 

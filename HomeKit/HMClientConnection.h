@@ -19,6 +19,9 @@
     NSUUID *_uuid;
 }
 
++ (_Bool)areAnyAccessoriesConfigured;
++ (id)siriHomeIdentifier;
++ (_Bool)areHomesConfigured;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(retain, nonatomic) HMXpcClient *xpcClient; // @synthesize xpcClient=_xpcClient;

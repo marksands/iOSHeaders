@@ -21,7 +21,6 @@ __attribute__((visibility("hidden")))
 - (id)parentViewControllerForAttachmentCellController:(id)arg1;
 - (void)eventViewController:(id)arg1 didSelectSubitem:(unsigned long long)arg2;
 - (unsigned long long)numberOfSubitems;
-- (double)defaultCellHeightForSubitemAtIndex:(unsigned long long)arg1 forWidth:(double)arg2;
 - (_Bool)hasDetailViewControllerAtIndex:(unsigned long long)arg1;
 - (id)cellForSubitemAtIndex:(unsigned long long)arg1;
 - (_Bool)configureWithCalendar:(id)arg1 preview:(_Bool)arg2;

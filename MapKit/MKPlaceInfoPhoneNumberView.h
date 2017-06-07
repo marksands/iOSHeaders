@@ -17,10 +17,13 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool optsOutOfAds; // @synthesize optsOutOfAds=_optsOutOfAds;
 - (void).cxx_destruct;
+- (int)analyticsTarget;
+- (id)draggableContent;
 - (Class)_labeledValueExpectedValueType;
 - (id)_valueString;
 - (id)_iconAccessibilityLabel;
 - (id)_icon;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

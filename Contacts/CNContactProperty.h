@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/NSCopying-Protocol.h>
 #import <Contacts/NSSecureCoding-Protocol.h>
@@ -24,6 +24,7 @@
 @property(retain, nonatomic) CNContact *internalContact; // @synthesize internalContact=_internalContact;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) NSString *key; // @synthesize key=_key;
+- (void).cxx_destruct;
 - (int)multiValueIdentifier;
 - (id)primitiveValue;
 - (_Bool)isMultiValueProperty;
@@ -39,7 +40,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 
 @end
 

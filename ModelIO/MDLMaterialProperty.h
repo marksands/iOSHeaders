@@ -25,15 +25,13 @@
     MDLMaterialProperty *_overrider;
     MDLMaterialProperty *_overridee;
     unsigned long long _type;
-    NSURL *_URLValue;
     // Error parsing type: {?="columns"[4]}, name: _matrix4x4
 }
 
 // Error parsing type for property matrix4x4:
 // Property attributes: T{?=[4]},N,V_matrix4x4
 
-@property(copy, nonatomic) NSURL *URLValue; // @synthesize URLValue=_URLValue;
-@property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
 - (void).cxx_destruct;
 -     // Error parsing type: v80@0:8{?=[4]}16, name: setMatrix4x4Value:
 // Error parsing type for property float4Value:
@@ -48,7 +46,7 @@
 @property(nonatomic) float luminance;
 @property(nonatomic) float floatValue;
 @property(retain, nonatomic) MDLTextureSampler *textureSamplerValue;
-- (void)setUrl:(id)arg1;
+@property(copy, nonatomic) NSURL *URLValue;
 @property(copy, nonatomic) NSString *stringValue;
 @property(nonatomic) struct CGColor *color;
 - (void)setProperties:(id)arg1;
@@ -67,6 +65,7 @@
 @property(nonatomic) unsigned long long semantic;
 @property(copy, nonatomic) NSString *name;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)clear;
 
 @end
 

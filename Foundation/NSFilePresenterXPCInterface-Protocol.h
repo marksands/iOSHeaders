@@ -6,12 +6,15 @@
 
 #import <Foundation/NSFileCoordinationDebugInfoXPCInteface-Protocol.h>
 
-@class NSString, NSURLPromisePair;
+@class NSSet, NSString, NSURLPromisePair;
 
 @protocol NSFilePresenterXPCInterface <NSFileCoordinationDebugInfoXPCInteface>
 - (oneway void)logSuspensionWarning;
 - (oneway void)updateLastEventID:(unsigned long long)arg1;
+- (oneway void)observePresenterChange:(_Bool)arg1 forSubitemAtURL:(NSURLPromisePair *)arg2;
 - (oneway void)observeVersionChangeOfKind:(NSString *)arg1 toItemAtURL:(NSURLPromisePair *)arg2 withClientID:(NSString *)arg3 name:(NSString *)arg4;
+- (oneway void)observeChangeOfUbiquityAttributes:(NSSet *)arg1;
+- (oneway void)observeSharingChangeWithSubitemURL:(NSURLPromisePair *)arg1;
 - (oneway void)observeUbiquityChangeWithSubitemURL:(NSURLPromisePair *)arg1;
 - (oneway void)observeReconnection;
 - (oneway void)observeDisconnection;

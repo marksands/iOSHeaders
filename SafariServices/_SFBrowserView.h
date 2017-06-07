@@ -10,6 +10,7 @@
 
 @interface _SFBrowserView : UIView
 {
+    _Bool _contentReadyForDisplay;
     _Bool _shouldUseScrollToTopView;
     _Bool _hasReceivedTouchEvents;
     UIView *_contentContainerView;
@@ -20,6 +21,7 @@
     WKWebView *_currentWebView;
     unsigned long long _navigationBarBehavior;
     _SFLinkPreviewHeader *_previewHeader;
+    UIView *_statusBarBackgroundView;
     UIView *_scrollToTopView;
     _SFCrashBanner *_crashBanner;
     double _crashBannerOffset;
@@ -30,6 +32,7 @@
 @property(retain, nonatomic) _SFCrashBanner *crashBanner; // @synthesize crashBanner=_crashBanner;
 @property(nonatomic) _Bool shouldUseScrollToTopView; // @synthesize shouldUseScrollToTopView=_shouldUseScrollToTopView;
 @property(readonly, nonatomic) UIView *scrollToTopView; // @synthesize scrollToTopView=_scrollToTopView;
+@property(retain, nonatomic) UIView *statusBarBackgroundView; // @synthesize statusBarBackgroundView=_statusBarBackgroundView;
 @property(retain, nonatomic) _SFLinkPreviewHeader *previewHeader; // @synthesize previewHeader=_previewHeader;
 @property(nonatomic) unsigned long long navigationBarBehavior; // @synthesize navigationBarBehavior=_navigationBarBehavior;
 @property(readonly, nonatomic) __weak WKWebView *currentWebView; // @synthesize currentWebView=_currentWebView;
@@ -43,8 +46,10 @@
 - (void)updatePreviewHeader;
 - (void)addWebView:(id)arg1;
 @property(readonly, nonatomic) double navigationBarOffset;
+- (void)updateDismissButtonStyle:(long long)arg1;
 - (void)updateNavigationBarTintColor:(id)arg1;
 - (void)updateToolbarTintColor:(id)arg1;
+- (void)setContentReadyForDisplay;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 

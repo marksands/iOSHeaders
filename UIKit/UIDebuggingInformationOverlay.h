@@ -37,7 +37,6 @@ __attribute__((visibility("hidden")))
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)toggleFullscreen;
 - (void)toggleVisibility;
-- (void)_handleActivationGesture:(id)arg1;
 @property(readonly, nonatomic) UIDebuggingInformationOverlayViewController *overlayViewController;
 - (id)init;
 

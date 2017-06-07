@@ -135,6 +135,7 @@
 - (void)_relayoutDays;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
+- (void)cleanUpAfterGestureFailureForEventGestureController:(id)arg1;
 - (_Bool)_shouldEndGestureEditingOnTap;
 - (_Bool)eventEditorPopoverActiveWhileDraggingForEventGestureController:(id)arg1;
 - (void)externallyEndedGestureDragging;

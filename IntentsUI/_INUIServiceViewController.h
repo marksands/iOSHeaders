@@ -25,7 +25,7 @@
 - (struct CGSize)_constrainedSizeForDesiredSize:(struct CGSize)arg1;
 - (void)requestDesiredSize;
 - (void)queryRepresentedPropertiesWithCompletion:(CDUnknownBlockType)arg1;
-- (void)configureWithInteraction:(id)arg1 context:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)configureForParameters:(id)arg1 ofInteraction:(id)arg2 context:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)_errorHandlingRemoteViewControllerProxy;
 - (void)viewWillLayoutSubviews;
 - (void)addChildViewController:(id)arg1;

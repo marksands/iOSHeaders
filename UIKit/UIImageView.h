@@ -6,9 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, UIColor, UIImage, UILayoutGuide, UITraitCollection, _UIStackedImageContainerView;
+#import <UIKit/UIAccessibilityContentSizeCategoryImageAdjusting-Protocol.h>
 
-@interface UIImageView : UIView
+@class NSArray, NSString, UIColor, UIImage, UILayoutGuide, UITraitCollection, _UIStackedImageContainerView;
+
+@interface UIImageView : UIView <UIAccessibilityContentSizeCategoryImageAdjusting>
 {
     id _storage;
     struct UIEdgeInsets _cachedEdgeInsetsForEffects;
@@ -29,6 +31,9 @@
 - (void).cxx_destruct;
 - (void)_updateLayeredImageIsFocusedWithFocusedView:(id)arg1 focusAnimationCoordinator:(id)arg2;
 @property(nonatomic, setter=_setLayeredImageCornerRadius:) double _layeredImageCornerRadius;
+@property(readonly, nonatomic) UIView *overlayContentView;
+- (void)_setOverlayContentView:(id)arg1;
+- (id)_existingOverlayView;
 @property(readonly, nonatomic) _UIStackedImageContainerView *_layeredImageContainer;
 - (void)_setLayeredImageContainer:(id)arg1;
 - (void)_ancestorWillUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
@@ -50,12 +55,13 @@
 - (struct CGImage *)imageRef;
 - (void)setCGImageRef:(struct CGImage *)arg1;
 @property(nonatomic) int drawMode;
-- (void)_drawImageEffectsForImage:(id)arg1 inRect:(struct CGRect)arg2;
-- (_Bool)_getDrawModeCompositeOperation:(int *)arg1 color:(id *)arg2 andAlpha:(double *)arg3;
+- (void)_drawImageEffectsForImage:(id)arg1 inRect:(struct CGRect)arg2 suppressColor:(_Bool)arg3;
+- (_Bool)_getDrawModeCompositeOperation:(int *)arg1 whiteComponent:(double *)arg2 drawingAlpha:(double *)arg3;
 - (_Bool)_needsImageEffectsForImage:(id)arg1 suppressColorizing:(_Bool)arg2;
 - (_Bool)_needsImageEffectsForImage:(id)arg1;
 - (void)tintColorDidChange;
 - (id)_effectiveTintColorWithImage:(id)arg1;
+- (id)_contentsMultiplyColorForEffectiveTintColor:(id)arg1;
 @property(nonatomic, setter=_setMasksTemplateImages:) _Bool _masksTemplateImages;
 - (void)_didMoveFromWindow:(id)arg1 toWindow:(id)arg2;
 @property(nonatomic, setter=_setTemplateImageRenderingEffects:) unsigned long long _templateImageRenderingEffects;
@@ -86,6 +92,7 @@
 - (struct CGSize)_intrinsicSizeWithinSize:(struct CGSize)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setBounds:(struct CGRect)arg1;
+- (void)setContentScaleFactor:(double)arg1;
 - (void)_setViewGeometry:(struct CGRect)arg1 forMetric:(int)arg2;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted;
 @property(retain, nonatomic) UIImage *highlightedImage;
@@ -103,6 +110,7 @@
 - (_Bool)useBlockyMagnificationInClassic;
 - (void)decodeRestorableStateWithCoder:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
+@property(nonatomic) _Bool adjustsImageSizeForAccessibilityContentSizeCategory;
 - (_Bool)isElementAccessibilityExposedToInterfaceBuilder;
 - (unsigned long long)defaultAccessibilityTraits;
 - (_Bool)isAccessibilityElementByDefault;
@@ -113,6 +121,10 @@
 - (_Bool)_recomputePretilingState;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
 @property(nonatomic, getter=isUserInteractionEnabled) _Bool userInteractionEnabled; // @dynamic userInteractionEnabled;
 

@@ -10,6 +10,7 @@
 
 @protocol SCNGeometryJSExport <JSExport>
 + (id)geometryWithMDLMesh:(MDLMesh *)arg1;
++ (id)geometryWithSources:(NSArray *)arg1 elements:(NSArray *)arg2 sourceChannels:(NSArray *)arg3;
 + (id)geometryWithSources:(NSArray *)arg1 elements:(NSArray *)arg2;
 + (id)geometry;
 @property(retain, nonatomic) SCNGeometrySource *edgeCreasesSource;
@@ -18,6 +19,7 @@
 @property(copy, nonatomic) NSArray *levelsOfDetail;
 @property(readonly, nonatomic) long long geometryElementCount;
 @property(readonly, nonatomic) NSArray *geometryElements;
+@property(readonly, nonatomic) NSArray *geometrySourceChannels;
 @property(readonly, nonatomic) NSArray *geometrySources;
 @property(retain, nonatomic) SCNMaterial *firstMaterial;
 @property(copy, nonatomic) NSArray *materials;

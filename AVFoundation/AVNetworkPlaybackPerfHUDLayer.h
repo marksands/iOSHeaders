@@ -35,6 +35,7 @@
 - (id)getTrackFormatDesc:(id)arg1;
 - (void)currentItemTracksChanged;
 - (void)currentItemChanged;
+- (float)getScaleFactorForDisplaySize:(struct CGSize)arg1;
 - (void)setPlayer:(id)arg1;
 - (void)dealloc;
 - (void)startDispatchTimer;

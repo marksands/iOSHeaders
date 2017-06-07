@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/_UIScrollNotification-Protocol.h>
+#import <UIKit/_UIScrollViewScrollObserver_Internal-Protocol.h>
 
 @class NSArray, NSString, UIButton, UIColor, UILabel, UINavigationItem, UIPopoverController, UIScrollView, UISearchBar, UISearchDisplayControllerContainerView, UITableView, UIView, UIViewController, _UINavigationControllerPalette, _UISearchControllerDidScrollDelegate;
 @protocol UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate;
 
-@interface UISearchDisplayController : NSObject <_UIScrollNotification>
+@interface UISearchDisplayController : NSObject <_UIScrollViewScrollObserver_Internal>
 {
     UIViewController *_viewController;
     UITableView *_tableView;
@@ -91,8 +91,7 @@
 - (_Bool)_showsResultsForEmptyField;
 - (void)_setShowsResultsForEmptyField:(_Bool)arg1;
 - (_Bool)_searchBarShouldScrollToVisible:(id)arg1;
-- (void)_updateBackdropMaskViewsInScrollView:(id)arg1;
-- (void)_didScroll;
+- (void)_observeScrollViewDidScroll:(id)arg1;
 - (void)_updateSearchBarMaskIfNecessary;
 - (void)_updateTableHeaderBackgroundViewInTableView:(id)arg1 amountScrolledUnder:(double)arg2;
 - (void)_watchContainingTableViewForScrolling:(_Bool)arg1;

@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _suspendCount;
     CDUnknownBlockType _async_initialization;
     NSObject<OS_dispatch_source> *_resourceTimeout;
+    _Bool _didIssueWaitingForConnectivity;
     _Bool _didIssueDidFinish;
     _Bool _suspendedForDisposition;
     NSNumber *_connectedSocket;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_willSendRequestTimer;
     NSInputStream *_socketReadStreamForUpgrade;
     NSOutputStream *_socketWriteStreamForUpgrade;
+    shared_ptr_f0c1381f _connectionForUpgrade;
     NSOperationQueue *_connectionWorkQueue;
     int _connectionWorkQueueSuspensionCount;
     _Bool _didCheckMixedReplace;
@@ -45,6 +47,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property _Bool didIssueDidFinish; // @synthesize didIssueDidFinish=_didIssueDidFinish;
+@property _Bool didIssueWaitingForConnectivity; // @synthesize didIssueWaitingForConnectivity=_didIssueWaitingForConnectivity;
 @property(copy) CDUnknownBlockType async_initialization; // @synthesize async_initialization=_async_initialization;
 @property unsigned long long suspendCount; // @synthesize suspendCount=_suspendCount;
 @property(retain) __NSURLSessionLocal *localSession; // @synthesize localSession=_localSession;
@@ -53,7 +56,10 @@ __attribute__((visibility("hidden")))
 @property(copy) CDUnknownBlockType dataTaskCompletion; // @synthesize dataTaskCompletion=_dataTaskCompletion;
 @property(retain) NSURL *uploadFile; // @synthesize uploadFile=_uploadFile;
 @property(retain) __NSCFURLSessionConnection *cfConn; // @synthesize cfConn=_cfConn;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)connection:(id)arg1 needConnectedSocketToHost:(id)arg2 port:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)connection:(id)arg1 didReceiveTCPConnection:(shared_ptr_f0c1381f)arg2;
 - (void)connection:(id)arg1 didReceiveSocketInputStream:(id)arg2 outputStream:(id)arg3;
 - (void)connection:(id)arg1 _conditionalRequirementsChanged:(_Bool)arg2;
 - (void)connection:(id)arg1 waitingWithReason:(long long)arg2;

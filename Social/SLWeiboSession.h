@@ -34,6 +34,7 @@
 - (void)acceptLocationUpdate:(id)arg1;
 - (void)getPermaLinkFromLastStatusUpdate:(CDUnknownBlockType)arg1;
 - (void)showSettingsIfNeeded;
+- (void)logDidSendStatusWithText:(id)arg1 attachments:(id)arg2 locationAttached:(_Bool)arg3 fromProcessWithPID:(int)arg4;
 - (void)sendStatus:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setGeotagAccountSetting:(_Bool)arg1;
 - (void)fetchGeotagStatus:(CDUnknownBlockType)arg1;

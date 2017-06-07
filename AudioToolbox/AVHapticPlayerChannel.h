@@ -23,6 +23,7 @@
 - (_Bool)clearEvents:(double)arg1 error:(id *)arg2;
 - (_Bool)stopEvent:(unsigned long long)arg1 atTime:(double)arg2 error:(id *)arg3;
 - (_Bool)sendEvents:(id)arg1 atTime:(double)arg2 error:(id *)arg3;
+- (_Bool)startEvent:(unsigned long long)arg1 atTime:(double)arg2 parameters:(const struct AVHapticPlayerFixedParameter *)arg3 count:(long long)arg4 token:(unsigned long long *)arg5 error:(id *)arg6;
 - (_Bool)startEvent:(unsigned long long)arg1 atTime:(double)arg2 token:(unsigned long long *)arg3 error:(id *)arg4;
 @property unsigned long long eventBehavior;
 - (void)invalidate;

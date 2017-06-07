@@ -30,6 +30,7 @@
 - (Class)_CNContactClass;
 - (Class)_CNContactStoreClass;
 - (id)CNLabelWork;
+- (id)CNContactPhoneNumbersKey;
 - (id)CNContactEmailAddressesKey;
 
 // Remaining properties

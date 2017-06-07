@@ -56,6 +56,8 @@ struct GKCDecisionNode {
     id _field3;
     id _field4;
     id _field5;
+    id _field6;
+    id _field7;
 };
 
 struct GKCDecisionTree {

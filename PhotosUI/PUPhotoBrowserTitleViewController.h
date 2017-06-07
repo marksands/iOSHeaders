@@ -34,7 +34,6 @@ __attribute__((visibility("hidden")))
     NSString *__timeDescription;
     NSString *__playClockDescription;
     UITapGestureRecognizer *__tapGestureRecognizer;
-    struct PXAssetBadgeInfo _badgeInfo;
     CDStruct_1b6d18a9 _currentPlaybackTime;
     CDStruct_1b6d18a9 _playbackDuration;
 }
@@ -54,7 +53,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, setter=_setPerformingChanges:) _Bool _isPerformingChanges; // @synthesize _isPerformingChanges=__isPerformingChanges;
 @property(nonatomic) CDStruct_1b6d18a9 playbackDuration; // @synthesize playbackDuration=_playbackDuration;
 @property(nonatomic) CDStruct_1b6d18a9 currentPlaybackTime; // @synthesize currentPlaybackTime=_currentPlaybackTime;
-@property(nonatomic) struct PXAssetBadgeInfo badgeInfo; // @synthesize badgeInfo=_badgeInfo;
 @property(retain, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) NSString *geoDescription; // @synthesize geoDescription=_geoDescription;
 @property(nonatomic, getter=isUsingCompactTitleView) _Bool usingCompactTitleView; // @synthesize usingCompactTitleView=_usingCompactTitleView;

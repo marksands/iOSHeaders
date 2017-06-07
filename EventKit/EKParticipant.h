@@ -13,25 +13,27 @@
 
 @interface EKParticipant : EKObject <EKIdentityProtocol, NSCopying>
 {
-    NSString *_email;
-    NSString *_inviterNameString;
     EKCalendarItem *_owner;
 }
 
-+ (void *)findABPersonByURL:(id)arg1 inAddressBook:(void *)arg2;
++ (id)participantWithName:(id)arg1 emailAddress:(id)arg2 phoneNumber:(id)arg3 url:(id)arg4;
++ (id)participantWithName:(id)arg1 url:(id)arg2;
 @property(readonly, nonatomic) EKCalendarItem *owner; // @synthesize owner=_owner;
-@property(copy, nonatomic) NSString *inviterNameString; // @synthesize inviterNameString=_inviterNameString;
-@property(copy, nonatomic) NSString *email; // @synthesize email=_email;
 - (void).cxx_destruct;
 - (id)setInviterNameString;
+@property(copy, nonatomic) NSString *inviterNameString; // @dynamic inviterNameString;
+- (id)invitedBy;
 @property(nonatomic) int proposedStartDateStatus;
 - (void)setProposedStartDate:(id)arg1 forEvent:(id)arg2;
 - (id)proposedStartDateForEvent:(id)arg1;
+- (void)setProposedStartDate:(id)arg1;
+- (id)proposedStartDate;
 - (_Bool)isLocationRoom;
 - (const void *)ABRecordWithAddressBook:(void *)arg1;
 @property(readonly, nonatomic) NSPredicate *contactPredicate;
 - (id)nameComponents;
 - (_Bool)isEqualToParticipant:(id)arg1;
+- (void)setURL:(id)arg1;
 @property(readonly, nonatomic) NSURL *URL;
 @property(readonly, nonatomic, getter=isCurrentUser) _Bool currentUser;
 @property(copy, nonatomic) NSString *comment;
@@ -40,13 +42,14 @@
 @property(readonly, nonatomic) long long participantType;
 @property(copy, nonatomic) NSString *lastName;
 @property(copy, nonatomic) NSString *firstName;
-@property(copy, nonatomic) NSURL *addressURL;
+@property(copy, nonatomic) NSString *phoneNumber;
 @property(copy, nonatomic) NSString *emailAddress;
 - (void)setDisplayName:(id)arg1;
 @property(readonly, nonatomic) NSString *name;
+- (void)setUUID:(id)arg1;
 @property(readonly, nonatomic) NSString *UUID;
-- (id)_persistentItem;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithName:(id)arg1 emailAddress:(id)arg2 phoneNumber:(id)arg3 url:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

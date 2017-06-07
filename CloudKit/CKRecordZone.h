@@ -9,10 +9,12 @@
 #import <CloudKit/NSCopying-Protocol.h>
 #import <CloudKit/NSSecureCoding-Protocol.h>
 
-@class CKContainerID, CKRecordZoneID, CKServerChangeToken, NSData, NSString;
+@class CKContainerID, CKEncryptedDate, CKRecordZoneID, CKServerChangeToken, NSData, NSString;
 
 @interface CKRecordZone : NSObject <NSSecureCoding, NSCopying>
 {
+    _Bool _needsZoneishPCSRolled;
+    _Bool _serializeProtectionData;
     int _deviceCount;
     CKRecordZoneID *_zoneID;
     unsigned long long _capabilities;
@@ -21,6 +23,10 @@
     NSData *_clientChangeToken;
     NSData *_protectionData;
     NSString *_protectionEtag;
+    NSData *_zoneishProtectionData;
+    CKEncryptedDate *_encryptedLastZoneishPCSRollDate;
+    NSData *_pcsKeyID;
+    NSData *_zoneishKeyID;
     NSString *_previousProtectionEtag;
     long long _assetQuotaUsage;
     long long _metadataQuotaUsage;
@@ -28,9 +34,15 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)defaultRecordZone;
+@property(nonatomic) _Bool serializeProtectionData; // @synthesize serializeProtectionData=_serializeProtectionData;
 @property(nonatomic) long long metadataQuotaUsage; // @synthesize metadataQuotaUsage=_metadataQuotaUsage;
 @property(nonatomic) long long assetQuotaUsage; // @synthesize assetQuotaUsage=_assetQuotaUsage;
 @property(retain, nonatomic) NSString *previousProtectionEtag; // @synthesize previousProtectionEtag=_previousProtectionEtag;
+@property(retain, nonatomic) NSData *zoneishKeyID; // @synthesize zoneishKeyID=_zoneishKeyID;
+@property(retain, nonatomic) NSData *pcsKeyID; // @synthesize pcsKeyID=_pcsKeyID;
+@property(retain, nonatomic) CKEncryptedDate *encryptedLastZoneishPCSRollDate; // @synthesize encryptedLastZoneishPCSRollDate=_encryptedLastZoneishPCSRollDate;
+@property(nonatomic) _Bool needsZoneishPCSRolled; // @synthesize needsZoneishPCSRolled=_needsZoneishPCSRolled;
+@property(retain, nonatomic) NSData *zoneishProtectionData; // @synthesize zoneishProtectionData=_zoneishProtectionData;
 @property(retain, nonatomic) NSString *protectionEtag; // @synthesize protectionEtag=_protectionEtag;
 @property(retain, nonatomic) NSData *protectionData; // @synthesize protectionData=_protectionData;
 @property(retain, nonatomic) NSData *clientChangeToken; // @synthesize clientChangeToken=_clientChangeToken;

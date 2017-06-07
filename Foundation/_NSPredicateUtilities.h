@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)_isReservedWordInParser:(id)arg1;
 + (id)inverseOrderKey:(id)arg1;
 + (id)distinct:(id)arg1;
++ (id)indexed:(id)arg1 by:(id)arg2;
 + (id)noindex:(id)arg1;
 + (id)onesComplement:(id)arg1;
 + (id)rightshift:(id)arg1 by:(id)arg2;

@@ -14,6 +14,7 @@
 + (id)autoExposureSettingsWithExposureTargetBias:(float)arg1;
 @property(readonly) float exposureTargetBias; // @synthesize exposureTargetBias=_exposureTargetBias;
 - (id)description;
+- (id)debugDescription;
 - (id)_initAutoExposureSettingsWithExposureTargetBias:(float)arg1;
 
 @end

@@ -4,23 +4,31 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <Contacts/CNDataMapper-Protocol.h>
 
 @class NSString, NSXPCConnection;
+@protocol CNContactsLogger, CNXPCDataMapperService;
 
 @interface CNXPCDataMapper : NSObject <CNDataMapper>
 {
     NSXPCConnection *_connection;
+    id <CNContactsLogger> _logger;
+    id <CNXPCDataMapperService> _serviceProxy;
 }
 
-+ (void)configureInterface:(id)arg1;
++ (id)serviceProtocolInterface;
++ (id)contactBuffersDecoderForFetchRequest:(id)arg1;
+@property(retain, nonatomic) id <CNXPCDataMapperService> serviceProxy; // @synthesize serviceProxy=_serviceProxy;
+@property(retain, nonatomic) id <CNContactsLogger> logger; // @synthesize logger=_logger;
 @property(retain) NSXPCConnection *connection; // @synthesize connection=_connection;
-- (_Bool)clearChangeHistoryForClient:(id)arg1 toSequenceNumber:(long long)arg2 error:(id *)arg3;
+- (void).cxx_destruct;
+- (_Bool)reindexSearchableItemsWithIdentifiers:(id)arg1 error:(id *)arg2;
+- (_Bool)clearChangeHistoryForClientIdentifier:(id)arg1 toChangeAnchor:(id)arg2 error:(id *)arg3;
 - (id)changeHistoryWithFetchRequest:(id)arg1 error:(id *)arg2;
-- (_Bool)unregisterClientForChangeHistory:(id)arg1 error:(id *)arg2;
-- (_Bool)registerClientForChangeHistory:(id)arg1 error:(id *)arg2;
+- (_Bool)unregisterChangeHistoryClientIdentifier:(id)arg1 error:(id *)arg2;
+- (_Bool)registerChangeHistoryClientIdentifier:(id)arg1 error:(id *)arg2;
 - (id)userActivityUserInfoForContact:(id)arg1;
 - (id)contactWithUserActivityUserInfo:(id)arg1 keysToFetch:(id)arg2;
 - (_Bool)setBestMeIfNeededForGivenName:(id)arg1 familyName:(id)arg2 email:(id)arg3 error:(id *)arg4;
@@ -28,7 +36,6 @@
 - (_Bool)setMeContact:(id)arg1 error:(id *)arg2;
 - (id)defaultContainerIdentifier;
 - (id)subgroupsOfGroupWithIdentifier:(id)arg1 error:(id *)arg2;
-- (id)membersOfGroupWithIdentifier:(id)arg1 keysToFetch:(id)arg2 error:(id *)arg3;
 - (id)groupsMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (id)accountsMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (id)policyForContainerWithIdentifier:(id)arg1 error:(id *)arg2;
@@ -39,6 +46,9 @@
 - (_Bool)executeSaveRequest:(id)arg1 error:(id *)arg2;
 - (id)meContactIdentifierWithError:(id *)arg1;
 - (id)identifierWithError:(id *)arg1;
+- (_Bool)fetchEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
+- (_Bool)fetchAndDecodeEncodedContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
+- (_Bool)fetchContactsForFetchRequest:(id)arg1 error:(id *)arg2 batchHandler:(CDUnknownBlockType)arg3;
 - (id)contactsForFetchRequest:(id)arg1 matchInfos:(id *)arg2 error:(id *)arg3;
 - (id)contactsForFetchRequest:(id)arg1 error:(id *)arg2;
 - (id)unifiedContactCountWithError:(id *)arg1;
@@ -50,6 +60,7 @@
 - (void)requestAccessForEntityType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
+- (id)initWithContactsEnvironment:(id)arg1 connection:(id)arg2;
 - (id)initWithContactsEnvironment:(id)arg1;
 
 // Remaining properties

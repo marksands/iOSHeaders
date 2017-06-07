@@ -23,6 +23,7 @@
     id <OccurrenceCacheDataSourceProtocol> _occurrenceCacheDataSource;
     id <OccurrenceCacheDataSourceProtocol> _occurrenceCacheFilteredDataSource;
     long long _cachedFakeTodayIndex;
+    long long _displayableAccountErrorsCount;
     NSSet *_selectedCalendars;
     NSString *_searchString;
     NSCalendar *_calendar;
@@ -58,7 +59,9 @@
 - (void)_occurrenceCacheChanged;
 - (void)_eventStoreChanged:(id)arg1;
 - (void)calendarEventLoader:(id)arg1 occurrencesDidUpdateBetweenStart:(double)arg2 end:(double)arg3;
-- (void)_processReloadForCacheOnly:(_Bool)arg1 includingCalendars:(_Bool)arg2 checkCalendarsValid:(_Bool)arg3;
+- (long long)countSourcesWithErrors;
+@property(readonly, nonatomic) long long displayableAccountErrorsCount;
+- (void)_processReloadForCacheOnly:(_Bool)arg1 includingCalendars:(_Bool)arg2 checkCalendarsValid:(_Bool)arg3 checkSources:(_Bool)arg4;
 - (void)_invalidateOccurrenceCacheDataSources;
 - (void)_invalidateCachedOccurrences;
 - (void)_createOccurrenceCacheDataSources;
@@ -96,8 +99,8 @@
 - (id)occurrencesForStartDay:(id)arg1 endDay:(id)arg2 preSorted:(_Bool)arg3 waitForLoad:(_Bool)arg4;
 - (void)addOccurrenceAwaitingRefresh:(id)arg1;
 @property(readonly, nonatomic) EKCalendarDate *selectedDay;
-- (void)refreshCalendarDataIfNeeded:(_Bool)arg1;
-- (void)refreshAccountListIfNeeded:(_Bool)arg1;
+- (id)refreshCalendarDataIfNeeded:(_Bool)arg1;
+- (id)refreshAccountListIfNeeded:(_Bool)arg1;
 - (id)defaultCalendarForNewEvents;
 - (_Bool)isCalendarVisibleWithID:(id)arg1;
 - (void)ensureCalendarVisibleWithId:(id)arg1;

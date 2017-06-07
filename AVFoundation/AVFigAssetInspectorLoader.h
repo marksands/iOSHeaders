@@ -6,16 +6,13 @@
 
 #import <AVFoundation/AVAssetInspectorLoader.h>
 
-@class AVAssetInspector, AVWeakReference, NSDictionary, NSMutableArray, NSObject, NSURL;
+@class AVAssetInspector, AVWeakReference, NSMutableArray, NSObject, NSURL;
 @protocol OS_dispatch_queue;
 
 @interface AVFigAssetInspectorLoader : AVAssetInspectorLoader
 {
     struct OpaqueFigAsset *_figAsset;
     int _figAssetCreationStatus;
-    unsigned long long _figAssetCreationFlags;
-    NSDictionary *_figAssetCreationOptions;
-    long long _figAssetOnce;
     AVWeakReference *_weakReferenceToAsset;
     AVAssetInspector *_assetInspector;
     long long _assetInspectorOnce;
@@ -24,7 +21,7 @@
     NSMutableArray *_loadingBatches;
     _Bool _loadingCanceled;
     _Bool _registeredForFigAssetNotifications;
-    _Bool _shouldRespondToFigAssetPropertyLoading;
+    _Bool _shouldRespondToFigAssetURLSessionPropertyLoading;
     _Bool _isRespondingToFigAssetPropertyLoading;
     _Bool _URLSessionOperationQueueAvailable;
     _Bool _URLSessionDataDelegateAvailable;
@@ -41,7 +38,7 @@
 - (id)_URLSessionOperationQueue;
 - (void)_setURLSessionDataDelegateAvailable:(_Bool)arg1;
 - (void)_setURLSessionOperationQueueAvailable:(_Bool)arg1;
-- (void)_postURLSessionSetUpDidCompleteNotificationIfAppropriate;
+- (void)postURLSessionSetUpDidCompleteNotificationIfAppropriate;
 - (void)_postDidFailToCompleteURLSessionSetUpNotificationIfAppropriate;
 - (void)_setIsAssociatedWithFragmentMinder:(_Bool)arg1;
 - (_Bool)isAssociatedWithFragmentMinder;

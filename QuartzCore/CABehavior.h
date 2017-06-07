@@ -6,13 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
 #import <QuartzCore/NSCopying-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class NSDictionary, NSString;
 @protocol CABehaviorDelegate;
 
-@interface CABehavior : NSObject <NSCoding, NSCopying>
+@interface CABehavior : NSObject <NSSecureCoding, NSCopying>
 {
     void *_attr;
     unsigned int _refcount;
@@ -25,6 +25,7 @@
 + (void)CAMLParserStartElement:(id)arg1;
 + (_Bool)CA_automaticallyNotifiesObservers:(Class)arg1;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (id)defaultValueForKey:(id)arg1;
 + (id)behavior;
 @property(copy) NSDictionary *style;

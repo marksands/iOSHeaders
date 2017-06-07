@@ -4,18 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MapKit/_MXExtensionObject.h>
+#import <Foundation/NSObject.h>
+
+#import <MapKit/NSSecureCoding-Protocol.h>
 
 @class NSSet;
 
-@interface _MXExtensionBaseMapResponse : _MXExtensionObject
+@interface _MXExtensionBaseMapResponse : NSObject <NSSecureCoding>
 {
     NSSet *_namedImages;
     NSSet *_features;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (void)load;
 @property(copy, nonatomic) NSSet *features; // @synthesize features=_features;
 @property(copy, nonatomic) NSSet *namedImages; // @synthesize namedImages=_namedImages;
 - (void).cxx_destruct;

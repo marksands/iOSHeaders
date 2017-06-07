@@ -22,6 +22,7 @@
 - (void)hostViewControlerTransitionToState:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)setLoadingString:(id)arg1;
 - (void)setAllowInteractiveTransitions:(_Bool)arg1;
+- (void)notifyFirstTimeAppearanceWithActions:(unsigned long long)arg1;
 - (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
 - (void)tearDownTransition:(_Bool)arg1;
 - (void)startTransitionWithSourceViewProvider:(id)arg1 transitionController:(id)arg2 presenting:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -29,8 +30,9 @@
 - (void)updateTransitionWithProgress:(double)arg1;
 - (void)keyCommandWasPerformed:(id)arg1;
 - (void)keyCommandsWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)toolbarButtonPressedWithIdentifier:(id)arg1;
-- (void)toolbarButtonsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)prepareForActionSheetPresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)toolbarButtonPressedWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)toolbarButtonsForTraitCollection:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)hostApplicationDidBecomeActive;
 - (void)hostApplicationDidEnterBackground:(_Bool)arg1;
 - (void)setCurrentPreviewItemIndex:(long long)arg1 animated:(_Bool)arg2;

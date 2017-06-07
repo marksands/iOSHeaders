@@ -44,13 +44,15 @@ __attribute__((visibility("hidden")))
     UIView *__leadingBorderView;
     UIView *__trailingBorderView;
     UIView *__sourceSnapshotView;
+    UIView *__destinationSnapshotView;
     struct CGSize __lastViewSize;
 }
 
 @property(nonatomic, setter=_setChangingViewControllerParentage:) _Bool _changingViewControllerParentage; // @synthesize _changingViewControllerParentage=__changingViewControllerParentage;
 @property(nonatomic, setter=_setNeedsFirstTimeUpdateForTraitCollection:) _Bool _needsFirstTimeUpdateForTraitCollection; // @synthesize _needsFirstTimeUpdateForTraitCollection=__needsFirstTimeUpdateForTraitCollection;
 @property(nonatomic, setter=_setHasUpdatedForTraitCollection:) _Bool _hasUpdatedForTraitCollection; // @synthesize _hasUpdatedForTraitCollection=__hasUpdatedForTraitCollection;
-@property(retain, nonatomic, setter=_setSnapshotView:) UIView *_sourceSnapshotView; // @synthesize _sourceSnapshotView=__sourceSnapshotView;
+@property(retain, nonatomic, setter=_setDestinationSnapshotView:) UIView *_destinationSnapshotView; // @synthesize _destinationSnapshotView=__destinationSnapshotView;
+@property(retain, nonatomic, setter=_setSourceSnapshotView:) UIView *_sourceSnapshotView; // @synthesize _sourceSnapshotView=__sourceSnapshotView;
 @property(retain, nonatomic, setter=_setTrailingBorderView:) UIView *_trailingBorderView; // @synthesize _trailingBorderView=__trailingBorderView;
 @property(retain, nonatomic, setter=_setLeadingBorderView:) UIView *_leadingBorderView; // @synthesize _leadingBorderView=__leadingBorderView;
 @property(retain, nonatomic, setter=_setGestureRecognizer:) UILongPressGestureRecognizer *_gestureRecognizer; // @synthesize _gestureRecognizer=__gestureRecognizer;

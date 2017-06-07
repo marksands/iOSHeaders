@@ -14,11 +14,11 @@
 @interface CXLabeledHandle : NSObject <NSCopying, NSSecureCoding>
 {
     CXHandle *_handle;
-    NSString *_localizedLabel;
+    NSString *_label;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSString *localizedLabel; // @synthesize localizedLabel=_localizedLabel;
+@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(retain, nonatomic) CXHandle *handle; // @synthesize handle=_handle;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
@@ -29,7 +29,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)init;
-- (id)initWithHandle:(id)arg1 localizedLabel:(id)arg2;
+- (id)initWithHandle:(id)arg1 label:(id)arg2;
 
 @end
 

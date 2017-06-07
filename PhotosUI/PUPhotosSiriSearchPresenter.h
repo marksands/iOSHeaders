@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import <PhotosUI/PHPhotoLibraryChangeObserver-Protocol.h>
 #import <PhotosUI/PUSearchResultsDataSourceChangeObserver-Protocol.h>
 
-@class NSString, PSIDatabase, PUNavigationController, PUPhotosGridViewControllerSpec, PUPingTimer, PUSearchGridDataSource, PUSearchGridViewController, PUSearchResultsDataSource, UIViewController;
+@class NSString, PHFetchResult, PSIDatabase, PUNavigationController, PUPhotosGridViewControllerSpec, PUPingTimer, PUSearchGridDataSource, PUSearchGridViewController, PUSearchResultsDataSource, UIViewController;
 @protocol OS_dispatch_semaphore;
 
-@interface PUPhotosSiriSearchPresenter : NSObject <PUSearchResultsDataSourceChangeObserver>
+@interface PUPhotosSiriSearchPresenter : NSObject <PUSearchResultsDataSourceChangeObserver, PHPhotoLibraryChangeObserver>
 {
     double _searchStartTime;
     _Bool _presenting;
@@ -27,13 +28,16 @@
     PUSearchResultsDataSource *__searchResultsDataSource;
     PSIDatabase *__searchIndex;
     PUPingTimer *__searchResultsPingTimer;
+    PHFetchResult *_albumFetchResult;
+    PHFetchResult *_smartAlbumFetchResult;
 }
 
 + (void)syncSiriIntentDataSoon;
-+ (void)_photolibraryDidChange:(id)arg1;
 + (void)searchWithSiriSearch:(id)arg1;
 + (void)showSiriForForeground;
 + (void)registerForSiriIntentsForViewController:(id)arg1;
+@property(retain, nonatomic) PHFetchResult *smartAlbumFetchResult; // @synthesize smartAlbumFetchResult=_smartAlbumFetchResult;
+@property(retain, nonatomic) PHFetchResult *albumFetchResult; // @synthesize albumFetchResult=_albumFetchResult;
 @property(nonatomic) _Bool first; // @synthesize first=_first;
 @property(nonatomic) _Bool presenting; // @synthesize presenting=_presenting;
 @property(retain, nonatomic) PUPingTimer *_searchResultsPingTimer; // @synthesize _searchResultsPingTimer=__searchResultsPingTimer;
@@ -50,6 +54,7 @@
 - (void).cxx_destruct;
 - (void)registerForIntents;
 - (void)synchImportantThingsToSiri;
+- (void)photoLibraryDidChange:(id)arg1;
 - (void)synchAlbumNamesToSiriForIntentNaturalLanguageAndSpeechAssist;
 - (void)searchWithSiriInternal:(id)arg1;
 - (void)_mergeSearchResults;
@@ -66,6 +71,7 @@
 - (void)presentRecentSiriSearch;
 - (void)_pushGridForPhotosWithUUIDs:(id)arg1 additionalUUIDs:(id)arg2 intent:(id)arg3 title:(id)arg4 searchCategories:(unsigned long long)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)_searchResultsViewControllerDidFinish:(id)arg1;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

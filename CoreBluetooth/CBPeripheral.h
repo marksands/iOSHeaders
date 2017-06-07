@@ -6,12 +6,11 @@
 
 #import <CoreBluetooth/CBPeer.h>
 
-@class CBCentralManager, NSArray, NSMutableDictionary, NSNumber, NSString;
+@class NSArray, NSHashTable, NSMutableDictionary, NSNumber, NSString;
 @protocol CBPeripheralDelegate;
 
 @interface CBPeripheral : CBPeer
 {
-    CBCentralManager *_centralManager;
     struct {
         unsigned int didUpdateName:1;
         unsigned int didModifyServices:1;
@@ -27,17 +26,24 @@
         unsigned int didUpdateDescriptorValue:1;
         unsigned int didWriteDescriptorValue:1;
         unsigned int didReceiveTimeSync:1;
+        unsigned int didOpenL2CAPChannel:1;
     } _delegateFlags;
     NSMutableDictionary *_attributes;
+    _Bool _canSendWriteWithoutResponse;
     _Bool _isConnectedToSystem;
+    unsigned int _writesPending;
     id <CBPeripheralDelegate> _delegate;
     NSString *_name;
     NSNumber *_RSSI;
     long long _state;
     NSArray *_services;
+    NSHashTable *_l2capChannels;
 }
 
+@property(readonly, retain, nonatomic) NSHashTable *l2capChannels; // @synthesize l2capChannels=_l2capChannels;
 @property(readonly, nonatomic) _Bool isConnectedToSystem; // @synthesize isConnectedToSystem=_isConnectedToSystem;
+@property unsigned int writesPending; // @synthesize writesPending=_writesPending;
+@property _Bool canSendWriteWithoutResponse; // @synthesize canSendWriteWithoutResponse=_canSendWriteWithoutResponse;
 @property(retain) NSArray *services; // @synthesize services=_services;
 @property long long state; // @synthesize state=_state;
 @property(retain) NSNumber *RSSI; // @synthesize RSSI=_RSSI;
@@ -56,11 +62,16 @@
 - (void)handleCharacteristicEvent:(id)arg1 characteristicSelector:(SEL)arg2 delegateSelector:(SEL)arg3 delegateFlag:(_Bool)arg4;
 - (void)handleServiceEvent:(id)arg1 serviceSelector:(SEL)arg2 delegateSelector:(SEL)arg3 delegateFlag:(_Bool)arg4;
 - (void)handleAttributeEvent:(id)arg1 args:(id)arg2 attributeSelector:(SEL)arg3 delegateSelector:(SEL)arg4 delegateFlag:(_Bool)arg5;
+- (void)handleL2CAPChannelClosed:(id)arg1;
+- (void)handleL2CAPChannelOpened:(id)arg1;
 - (void)handleServicesDiscovered:(id)arg1;
 - (void)handleTimeSyncResponse:(id)arg1;
 - (void)handleRSSIUpdated:(id)arg1;
 - (void)handleServicesChanged:(id)arg1;
 - (void)handleNameUpdated:(id)arg1;
+- (void)removeAllL2CAPChannels;
+- (id)l2capChannelForPeer:(id)arg1 withPsm:(unsigned short)arg2;
+- (void)openL2CAPChannel:(unsigned short)arg1;
 - (void)getTimeSyncData;
 - (_Bool)hasTag:(id)arg1;
 - (void)untag:(id)arg1;
@@ -71,12 +82,14 @@
 - (void)setNotifyValue:(_Bool)arg1 forCharacteristic:(id)arg2;
 - (void)setBroadcastValue:(_Bool)arg1 forCharacteristic:(id)arg2;
 - (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 type:(long long)arg3;
+- (void)isReadyForUpdates;
 - (unsigned long long)maximumWriteValueLengthForType:(long long)arg1;
 - (void)readValueForCharacteristic:(id)arg1;
 - (void)discoverCharacteristics:(id)arg1 forService:(id)arg2;
 - (void)discoverIncludedServices:(id)arg1 forService:(id)arg2;
 - (void)discoverServices:(id)arg1;
 - (void)readRSSI;
+- (_Bool)isConnected;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setOrphan;
 - (void)handleConnectionStateUpdated:(_Bool)arg1;

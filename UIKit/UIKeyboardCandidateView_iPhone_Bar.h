@@ -6,16 +6,19 @@
 
 #import <UIKit/UIKeyboardCandidateView_iPhone.h>
 
+@class UIView;
+
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateView_iPhone_Bar : UIKeyboardCandidateView_iPhone
 {
+    UIView *_separatorInLieuOfSortControl;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (struct CGSize)_defaultSize;
 - (void)setCandidateViewExtended:(_Bool)arg1;
 - (unsigned long long)_numberOfColumns:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

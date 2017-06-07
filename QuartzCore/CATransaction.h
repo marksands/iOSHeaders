@@ -33,6 +33,8 @@
 + (double)inputTime;
 + (void)setDisableRunLoopObserverCommits:(_Bool)arg1;
 + (_Bool)disableRunLoopObserverCommits;
++ (void)setEarliestAutomaticCommitTime:(double)arg1;
++ (double)earliestAutomaticCommitTime;
 + (void)setCommitTime:(double)arg1;
 + (double)commitTime;
 + (void)setAnimatesFromModelValues:(_Bool)arg1;
@@ -42,6 +44,7 @@
 + (void)activateBackground:(_Bool)arg1;
 + (void)activate;
 + (void)setPresentationHandler:(CDUnknownBlockType)arg1 queue:(id)arg2;
++ (int)currentPhase;
 + (void)addCommitHandler:(CDUnknownBlockType)arg1 forPhase:(int)arg2;
 + (void)setCommitHandler:(CDUnknownBlockType)arg1;
 + (CDUnknownBlockType)animator;

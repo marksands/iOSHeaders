@@ -13,16 +13,18 @@
     AVOutputDeviceDiscoverySessionInternal *_outputDeviceDiscoverySession;
 }
 
++ (Class)defaultOutputDeviceDiscoverySessionImplClass;
++ (void)initialize;
+- (void)outputDeviceDiscoverySessionImpl:(id)arg1 didExpireWithReplacement:(id)arg2;
+- (void)outputDeviceDiscoverySessionImplDidChangeAvailableOutputDevices:(id)arg1;
 @property(readonly, nonatomic) _Bool devicePresenceDetected;
+@property(readonly, nonatomic) NSArray *availableOutputDeviceGroups;
 @property(readonly, nonatomic) AVOutputDeviceDiscoverySessionAvailableOutputDevices *availableOutputDevicesObject;
 @property(readonly, nonatomic) NSArray *availableOutputDevices;
 @property(nonatomic) long long discoveryMode;
-- (void)finalize;
+- (id)impl;
 - (void)dealloc;
-- (void)_handlePickerServerConnectionDiedNotification;
-- (void)_removeFigEndpointPickerNotifications;
-- (void)_addFigEndpointPickerNotifications;
-- (int)_configureFigEndpointPickerWithFeature:(unsigned long long)arg1;
+- (id)initWithOutputDeviceDiscoverySessionImpl:(id)arg1;
 - (id)initWithDeviceFeatures:(unsigned long long)arg1;
 - (id)init;
 

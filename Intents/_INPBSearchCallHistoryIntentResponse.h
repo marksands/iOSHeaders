@@ -8,14 +8,17 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class PBUnknownFields;
+@class NSMutableArray, PBUnknownFields;
 
 @interface _INPBSearchCallHistoryIntentResponse : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    NSMutableArray *_callRecords;
 }
 
++ (Class)callRecordsType;
 + (id)options;
+@property(retain, nonatomic) NSMutableArray *callRecords; // @synthesize callRecords=_callRecords;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
@@ -26,6 +29,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)callRecordsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)callRecordsCount;
+- (void)addCallRecords:(id)arg1;
+- (void)clearCallRecords;
 
 @end
 

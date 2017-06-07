@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
     UIView *_seed;
     _Bool _hasFinishedRevealing;
     UILabel *_textLabel;
-    _Bool _scrollViewVerticalFeedbackBehaviorEnabled;
+    _Bool _scrollViewVerticalFeedbackGeneratorEnabled;
     _Bool _areAnimationsValid;
     double _currentPopStiffness;
     double _impactIntensity;
@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (double)maximumSnappingHeight;
-- (double)_effectiveScrollViewHeight;
+- (double)_maximumSnappingHeightScalingForScrollViewHeight;
 - (double)_heightAtWhichNoneOfTheInterfaceElementsAreVisibleEvenIfTheControlIsStillPartiallyOnScreen;
 - (double)_currentTimeOffset;
 - (void)_updateTimeOffsetOfRelevantLayers;
@@ -55,6 +55,7 @@ __attribute__((visibility("hidden")))
 - (void)_setBloomedAppearance;
 - (void)_setSpunAppearance;
 - (void)_cleanUpAfterRevealing;
+- (void)_removeAllAnimations;
 - (void)_tickDueToProgrammaticRefresh;
 - (void)didTransitionFromState:(long long)arg1 toState:(long long)arg2;
 - (void)willTransitionFromState:(long long)arg1 toState:(long long)arg2;

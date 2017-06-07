@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long buttonBehavior; // @synthesize buttonBehavior=_buttonBehavior;
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(nonatomic) long long state; // @synthesize state=_state;
-@property(retain, nonatomic) id <MKUserTrackingView> userTrackingView; // @synthesize userTrackingView=_userTrackingView;
+@property(nonatomic) __weak id <MKUserTrackingView> userTrackingView; // @synthesize userTrackingView=_userTrackingView;
 - (void).cxx_destruct;
 - (void)_updateLoading;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;

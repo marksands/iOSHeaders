@@ -57,6 +57,7 @@
 + (void)_calculateWidthForOrientation:(long long)arg1 excludeCurrentTime:(_Bool)arg2;
 + (double)_noonLocalizedWidthForOrientation:(long long)arg1;
 + (id)_noonLocalizedString;
++ (id)_hourFontForOrientation:(long long)arg1;
 + (id)_boldFontForOrientation:(long long)arg1;
 + (id)_normalFontForOrientation:(long long)arg1;
 + (double)_dynamicFontSizeForOrientation:(long long)arg1;

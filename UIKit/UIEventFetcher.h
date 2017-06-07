@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CADisplayLink, NSMutableArray;
+@class CADisplayLink, NSMutableArray, NSMutableDictionary;
 @protocol UIEventFetcherSink;
 
 __attribute__((visibility("hidden")))
@@ -28,8 +28,14 @@ __attribute__((visibility("hidden")))
     _Bool _shouldSignalOnDisplayLink;
     id <UIEventFetcherSink> _eventFetcherSink;
     double _commitTimeForTouchEvents;
+    NSMutableDictionary *_latestMoveDragEventsBySessionID;
+    double _latestMoveDragEventTimestamp;
+    double _latestMoveDragEventResendTimestamp;
 }
 
+@property(nonatomic) double latestMoveDragEventResendTimestamp; // @synthesize latestMoveDragEventResendTimestamp=_latestMoveDragEventResendTimestamp;
+@property(nonatomic) double latestMoveDragEventTimestamp; // @synthesize latestMoveDragEventTimestamp=_latestMoveDragEventTimestamp;
+@property(retain, nonatomic) NSMutableDictionary *latestMoveDragEventsBySessionID; // @synthesize latestMoveDragEventsBySessionID=_latestMoveDragEventsBySessionID;
 @property(nonatomic) double commitTimeForTouchEvents; // @synthesize commitTimeForTouchEvents=_commitTimeForTouchEvents;
 @property(nonatomic) _Bool shouldSignalOnDisplayLink; // @synthesize shouldSignalOnDisplayLink=_shouldSignalOnDisplayLink;
 @property(retain, nonatomic) id <UIEventFetcherSink> eventFetcherSink; // @synthesize eventFetcherSink=_eventFetcherSink;

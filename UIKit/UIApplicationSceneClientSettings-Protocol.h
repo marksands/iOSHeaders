@@ -6,15 +6,21 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSString;
+@class FBSDisplayMode, NSString;
 
 @protocol UIApplicationSceneClientSettings <NSObject>
+@property(readonly, nonatomic) _Bool wantsExclusiveForeground;
+@property(readonly, nonatomic) unsigned long long screenEdgesDeferringSystemGestures;
+@property(readonly, nonatomic, getter=isReachabilitySupported) _Bool reachabilitySupported;
+@property(readonly, nonatomic) FBSDisplayMode *requestedDisplayMode;
+@property(readonly, nonatomic) long long overscanCompensation;
 @property(readonly, nonatomic) long long whitePointAdaptivityStyle;
 @property(readonly, nonatomic) _Bool idleModeVisualEffectsEnabled;
 @property(readonly, nonatomic) long long backgroundStyle;
 @property(readonly, nonatomic) struct UIEdgeInsets primaryWindowOverlayInsets;
 @property(readonly, nonatomic) long long notificationCenterRevealMode;
 @property(readonly, nonatomic) long long controlCenterRevealMode;
+@property(readonly, nonatomic) double controlCenterAmbiguousActivationMargin;
 @property(readonly, nonatomic) unsigned long long proximityDetectionModes;
 @property(readonly, nonatomic) _Bool idleTimerDisabled;
 @property(readonly, nonatomic) unsigned long long supportedInterfaceOrientations;
@@ -24,6 +30,7 @@
 @property(readonly, nonatomic) long long compatibilityMode;
 @property(readonly, nonatomic) double defaultPNGExpirationTime;
 @property(readonly, copy, nonatomic) NSString *defaultPNGName;
+@property(readonly, nonatomic) long long userInterfaceStyle;
 @property(readonly, nonatomic) _Bool defaultStatusBarHidden;
 @property(readonly, nonatomic) long long defaultStatusBarStyle;
 @property(readonly, nonatomic) unsigned int statusBarContextID;

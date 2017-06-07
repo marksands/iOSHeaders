@@ -52,6 +52,8 @@
 @property(readonly, nonatomic, getter=_pixelBufferPool) struct __CVPixelBufferPool *pixelBufferPool;
 - (void)setSampleReferenceBaseURL:(id)arg1;
 - (id)sampleReferenceBaseURL;
+- (void)setMediaDataLocation:(id)arg1;
+- (id)mediaDataLocation;
 - (void)setWritesMediaDataToBeginningOfFile:(_Bool)arg1;
 - (_Bool)writesMediaDataToBeginningOfFile;
 - (void)setPreferredMediaChunkSize:(long long)arg1;

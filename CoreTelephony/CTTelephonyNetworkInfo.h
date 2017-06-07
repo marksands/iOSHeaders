@@ -11,7 +11,7 @@
 @interface CTTelephonyNetworkInfo : NSObject
 {
     struct queue _queue;
-    struct __CTServerConnection *server_connection;
+    // Error parsing type: ^{__CTServerConnection={__CFRuntimeBase=QAQ}^{dispatch_queue_s}^{CTServerState}CCI^{_xpc_connection_s}CC}, name: server_connection
     NSLock *server_lock;
     CDUnknownBlockType _subscriberCellularProviderDidUpdateNotifier;
     _Bool _monitoringCellId;

@@ -21,6 +21,7 @@
 @property _Bool allowsVirtualModes; // @synthesize allowsVirtualModes=_allowsVirtualModes;
 - (id)description;
 @property(readonly) _Bool supportsExtendedColors;
+@property(readonly) NSString *nativeOrientation;
 @property(readonly, getter=isCloningSupported) _Bool cloningSupported;
 @property(readonly, getter=isCloned) _Bool cloned;
 @property(copy, nonatomic) NSString *overscanAdjustment;

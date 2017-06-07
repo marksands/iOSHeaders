@@ -6,16 +6,9 @@
 
 #import <MapKit/NSObject-Protocol.h>
 
-@class MKPlaceCardHeaderViewController, NSNumber;
+@class MKPlaceCardHeaderViewController;
 
 @protocol MKPlaceCardHeaderViewControllerDelegate <NSObject>
-- (int)mapTypeForPlaceCardHeaderViewController:(MKPlaceCardHeaderViewController *)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectRidesharingButton:(MKPlaceCardHeaderViewController *)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectShareLocationButton:(MKPlaceCardHeaderViewController *)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectRerouteButton:(MKPlaceCardHeaderViewController *)arg1;
-- (void)placeCardheaderHeaderViewControllerDidSelectDirectionsButton:(MKPlaceCardHeaderViewController *)arg1 withTransportTypePreference:(NSNumber *)arg2;
-
-@optional
 - (double)placeCardHeaderViewControllerTrailingConstantForTitle:(MKPlaceCardHeaderViewController *)arg1;
 @end
 

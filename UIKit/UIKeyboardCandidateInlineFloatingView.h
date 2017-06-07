@@ -18,24 +18,25 @@ __attribute__((visibility("hidden")))
 {
     _Bool _reducedWidth;
     int _position;
+    UIKeyboardCandidateGridCollectionViewController *_collectionViewController;
+    UIKeyboardCandidateSortControl *_sortSelectionBar;
     TIKeyboardCandidateResultSet *_candidateSet;
     NSString *_inlineText;
     double _maxX;
-    UIKeyboardCandidateGridCollectionViewController *_collectionViewController;
     id <UIKeyboardCandidateListDelegate> _candidateListDelegate;
-    UIKeyboardCandidateSortControl *_sortSelectionBar;
     struct CGRect _inlineRect;
     struct CGRect _previousCollapsedFrame;
 }
 
 @property(nonatomic) struct CGRect previousCollapsedFrame; // @synthesize previousCollapsedFrame=_previousCollapsedFrame;
 @property(nonatomic) int position; // @synthesize position=_position;
-@property(nonatomic) id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
+@property(nonatomic) __weak id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
 @property(readonly, nonatomic, getter=isReducedWidth) _Bool reducedWidth; // @synthesize reducedWidth=_reducedWidth;
 @property(nonatomic) double maxX; // @synthesize maxX=_maxX;
 @property(nonatomic) struct CGRect inlineRect; // @synthesize inlineRect=_inlineRect;
 @property(copy, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
 @property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateSet; // @synthesize candidateSet=_candidateSet;
+- (void).cxx_destruct;
 - (id)_inheritedRenderConfig;
 @property(readonly, nonatomic) UIKeyboardCandidateSortControl *sortSelectionBar; // @synthesize sortSelectionBar=_sortSelectionBar;
 @property(readonly, nonatomic) UIKeyboardCandidateGridCollectionViewController *collectionViewController; // @synthesize collectionViewController=_collectionViewController;
@@ -56,12 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
 - (unsigned long long)currentIndex;
 - (id)currentCandidate;
-- (void)showPreviousRow;
-- (void)showNextRow;
-- (void)showPreviousPage;
-- (void)showNextPage;
-- (void)showPreviousCandidate;
-- (void)showNextCandidate;
+- (void)showCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (void)showCandidateAtIndex:(unsigned long long)arg1;
 - (_Bool)showCandidate:(id)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
@@ -75,6 +71,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isAcceptableFrame:(struct CGRect)arg1 afterScrollBy:(double)arg2;
 - (struct CGRect)adjustedInlineRectFromInlineText:(id)arg1 inlineRect:(struct CGRect)arg2;
 - (struct CGRect)convertFromInputDelegateRect:(struct CGRect)arg1;
+- (_Bool)isFloatingList;
 - (_Bool)isExtendedList;
 - (void)expand;
 - (struct CGSize)size;

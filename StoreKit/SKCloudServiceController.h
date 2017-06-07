@@ -22,7 +22,9 @@
 - (void)_playbackCapabilitiesDidChangeNotification;
 - (void)_storefrontDidChangeNotification;
 - (void)_accountStoreDidChangeNotification;
+- (void)requestStorefrontCountryCodeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)requestPersonalizationTokenForClientToken:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)requestUserTokenForDeveloperToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)requestCapabilitiesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)requestStorefrontIdentifierWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;

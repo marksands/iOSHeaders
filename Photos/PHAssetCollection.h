@@ -65,7 +65,6 @@
 + (id)transientAssetCollectionWithAssetFetchResult:(id)arg1 title:(id)arg2 subtitle:(id)arg3 titleFontName:(id)arg4;
 + (id)transientAssetCollectionWithAssetFetchResult:(id)arg1 title:(id)arg2;
 + (id)transientAssetCollectionWithAssets:(id)arg1 title:(id)arg2;
-+ (id)fetchPredicateFromComparisonPredicate:(id)arg1 options:(id)arg2;
 + (id)fetchMomentsBackingMemory:(id)arg1 options:(id)arg2;
 + (id)fetchMomentsWithOptions:(id)arg1;
 + (id)fetchMomentsInMomentList:(id)arg1 options:(id)arg2;
@@ -78,7 +77,7 @@
 + (id)fetchAssetCollectionsWithType:(long long)arg1 localIdentifiers:(id)arg2 options:(id)arg3;
 + (id)fetchAssetCollectionsContainingAssets:(id)arg1 withType:(long long)arg2 options:(id)arg3;
 + (id)fetchAssetCollectionsContainingAsset:(id)arg1 withType:(long long)arg2 options:(id)arg3;
-+ (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (id)identifierCode;
 + (_Bool)managedObjectSupportsTrashedState;
@@ -135,6 +134,7 @@
 - (id)initTransientWithAssets:(id)arg1 orFetchResult:(id)arg2 title:(id)arg3 identifier:(id)arg4 albumKind:(int)arg5 subtype:(long long)arg6;
 - (id)initTransientWithAssets:(id)arg1 orFetchResult:(id)arg2 title:(id)arg3 identifier:(id)arg4 albumKind:(int)arg5;
 - (id)initTransientWithAssets:(id)arg1 orFetchResult:(id)arg2 title:(id)arg3 identifier:(id)arg4;
+- (_Bool)hasLocationInfo;
 @property(readonly, nonatomic) _Bool keyAssetsAtEnd;
 @property(readonly, nonatomic) _Bool canContainCustomKeyAssets;
 @property(readonly, nonatomic) _Bool canShowComments;

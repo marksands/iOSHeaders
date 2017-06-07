@@ -9,10 +9,12 @@
 #import <PhotosUI/PUAssetActionManagerDelegate-Protocol.h>
 #import <PhotosUI/PUAssetsDataSourceManagerDelegate-Protocol.h>
 #import <PhotosUI/PULoadingStatusManagerDelegate-Protocol.h>
+#import <PhotosUI/PXAssetEditOperationManagerObserver-Protocol.h>
+#import <PhotosUI/PXAutoloopSchedulerDelegate-Protocol.h>
 
-@class NSString, PUAssetActionManager, PUAssetsDataSourceManager, PUBrowsingViewModel, PUContentTileProvider, PULoadingStatusManager, PUMediaProvider, PUTileAnimator, PXPhotosDetailsContext;
+@class NSString, PUAssetActionManager, PUAssetsDataSourceManager, PUBrowsingViewModel, PUContentTileProvider, PULoadingStatusManager, PUMediaProvider, PUTileAnimator, PXAssetEditOperationManager, PXPhotosDetailsContext;
 
-@interface PUBrowsingSession : NSObject <PUAssetsDataSourceManagerDelegate, PUAssetActionManagerDelegate, PULoadingStatusManagerDelegate>
+@interface PUBrowsingSession : NSObject <PUAssetsDataSourceManagerDelegate, PUAssetActionManagerDelegate, PULoadingStatusManagerDelegate, PXAssetEditOperationManagerObserver, PXAutoloopSchedulerDelegate>
 {
     _Bool _active;
     PUAssetsDataSourceManager *_dataSourceManager;
@@ -22,10 +24,12 @@
     PUContentTileProvider *_contentTileProvider;
     PULoadingStatusManager *_loadingStatusManager;
     PXPhotosDetailsContext *_photosDetailsContext;
+    PXAssetEditOperationManager *_editOperationManager;
     PUTileAnimator *_tileAnimator;
 }
 
 @property(retain, nonatomic) PUTileAnimator *tileAnimator; // @synthesize tileAnimator=_tileAnimator;
+@property(readonly, nonatomic) PXAssetEditOperationManager *editOperationManager; // @synthesize editOperationManager=_editOperationManager;
 @property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(readonly, nonatomic) PXPhotosDetailsContext *photosDetailsContext; // @synthesize photosDetailsContext=_photosDetailsContext;
 @property(readonly, nonatomic) PULoadingStatusManager *loadingStatusManager; // @synthesize loadingStatusManager=_loadingStatusManager;
@@ -35,7 +39,10 @@
 @property(retain, nonatomic) PUMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 @property(readonly, nonatomic) PUAssetsDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 - (void).cxx_destruct;
+- (id)assetUUIDToFavorizeForAutoloopScheduler:(id)arg1;
 - (void)configureTilingView:(id)arg1;
+- (void)assetEditOperationManager:(id)arg1 didChangeEditOperationStatusForAsset:(id)arg2 context:(void *)arg3;
+- (void)assetEditOperationManager:(id)arg1 didChangeEditOperationsPerformedOnAsset:(id)arg2 context:(void *)arg3;
 - (void)loadingStatusManager:(id)arg1 didUpdateLoadingStatus:(id)arg2 forItem:(id)arg3;
 - (id)assetActionManagerCurrentAssetsDataSource:(id)arg1;
 - (id)assetsDataSourceManagerInterestingAssetReferences:(id)arg1;

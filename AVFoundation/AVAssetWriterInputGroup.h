@@ -15,6 +15,7 @@
 
 + (id)assetWriterInputGroupWithInputs:(id)arg1 provisionalInputs:(id)arg2 defaultInput:(id)arg3;
 + (id)assetWriterInputGroupWithInputs:(id)arg1 defaultInput:(id)arg2;
+- (id)mediaSelectionOptionWithPropertyList:(id)arg1;
 @property(readonly, nonatomic) NSArray *provisionalInputs;
 - (id)initWithInputs:(id)arg1 provisionalInputs:(id)arg2 defaultInput:(id)arg3;
 - (id)options;

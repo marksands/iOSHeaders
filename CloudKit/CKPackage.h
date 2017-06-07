@@ -41,6 +41,7 @@
 + (void)gcPackagesInDirectory:(id)arg1 dbInUseBlock:(CDUnknownBlockType)arg2;
 + (_Bool)supportsSecureCoding;
 + (void)destroyClientPackageWithDatabaseBasePath:(id)arg1 UUID:(id)arg2;
++ (id)_createPackageDBWithPath:(id)arg1;
 + (id)clientPackageDatabaseDirectory;
 + (id)_packageDatabasePathWithBasePath:(id)arg1 UUID:(id)arg2 state:(long long)arg3;
 + (id)_packageDatabaseDirectoryWithBasePath:(id)arg1 state:(long long)arg2;

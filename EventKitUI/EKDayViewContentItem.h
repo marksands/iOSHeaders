@@ -12,7 +12,14 @@
 
 @interface EKDayViewContentItem : NSObject <CUIKSingleDayTimelineViewItem>
 {
+    struct CGRect _stagedFrame;
     struct CGRect _unPinnedViewFrame;
+    double _visibleHeight;
+    _Bool _visibleHeightLocked;
+    double _travelTimeHeight;
+    _Bool _usesSmallText;
+    _Bool _isProposedTime;
+    EKEvent *_event;
     unsigned long long _eventIndex;
     EKDayOccurrenceView *_view;
     EKCalendarDate *_startDate;
@@ -30,6 +37,9 @@
 @property(copy, nonatomic) EKCalendarDate *startDate; // @synthesize startDate=_startDate;
 @property(retain, nonatomic) EKDayOccurrenceView *view; // @synthesize view=_view;
 @property(readonly, nonatomic) unsigned long long eventIndex; // @synthesize eventIndex=_eventIndex;
+@property(nonatomic) _Bool isProposedTime; // @synthesize isProposedTime=_isProposedTime;
+@property(nonatomic) _Bool usesSmallText; // @synthesize usesSmallText=_usesSmallText;
+@property(retain, nonatomic) EKEvent *event; // @synthesize event=_event;
 - (void).cxx_destruct;
 - (void)setTravelTimeHeight:(double)arg1;
 - (void)setVisibleHeight:(double)arg1;
@@ -38,12 +48,12 @@
 - (void)setStagedFrame:(struct CGRect)arg1;
 - (struct CGRect)stagedFrame;
 @property(readonly, nonatomic) _Bool hideTravelTime;
-@property(readonly, nonatomic) EKEvent *event;
 @property(readonly, nonatomic) double viewMaxNaturalTextHeight;
 @property(readonly, nonatomic) double enoughHeightForOneLine;
 @property(readonly, nonatomic) NSDate *end;
 @property(readonly, nonatomic) NSDate *start;
 @property(readonly, nonatomic) NSDate *startWithTravelTime;
+- (void)resetVisibleHeight;
 - (_Bool)isPinned;
 @property(readonly, copy, nonatomic) EKCalendarDate *startDateIncludingTravelTime;
 @property(readonly, copy) NSString *description;

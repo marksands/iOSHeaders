@@ -8,11 +8,14 @@
 
 @interface NSDictionary (NSDictionary)
 + (id)newWithContentsOf:(id)arg1 immutable:(_Bool)arg2;
++ (id)dictionaryWithContentsOfURL:(id)arg1 error:(id *)arg2;
 + (id)dictionaryWithContentsOfURL:(id)arg1;
 + (id)dictionaryWithContentsOfFile:(id)arg1;
 + (_Bool)supportsSecureCoding;
+- (id)initWithContentsOfURL:(id)arg1 error:(id *)arg2;
 - (id)initWithContentsOfURL:(id)arg1;
 - (id)initWithContentsOfFile:(id)arg1;
+- (_Bool)writeToURL:(id)arg1 error:(id *)arg2;
 - (_Bool)writeToURL:(id)arg1 atomically:(_Bool)arg2;
 - (_Bool)writeToFile:(id)arg1 atomically:(_Bool)arg2;
 - (id)_stringToWrite;

@@ -6,25 +6,22 @@
 
 #import <PhotosUI/PUTileViewController.h>
 
-@class PUAssetViewModel, PUProgressIndicatorView;
+@class PUProgressIndicatorView;
 
 __attribute__((visibility("hidden")))
 @interface PULoadingIndicatorTileViewController : PUTileViewController
 {
-    _Bool __shouldShowIndeterminateActivityIndicator;
-    PUAssetViewModel *_assetViewModel;
-    PUProgressIndicatorView *__indicatorView;
+    long long _style;
+    PUProgressIndicatorView *_indicatorView;
 }
 
-+ (id)_createIndicatorView;
-+ (struct CGSize)loadingIndicatorTileSize;
-+ (_Bool)canShowLoadingIndicatorTileForAsset:(id)arg1;
-@property(retain, nonatomic, setter=_setIndicatorView:) PUProgressIndicatorView *_indicatorView; // @synthesize _indicatorView=__indicatorView;
-@property(nonatomic, setter=_setShouldShowIndeterminateActivityIndicator:) _Bool _shouldShowIndeterminateActivityIndicator; // @synthesize _shouldShowIndeterminateActivityIndicator=__shouldShowIndeterminateActivityIndicator;
-@property(retain, nonatomic) PUAssetViewModel *assetViewModel; // @synthesize assetViewModel=_assetViewModel;
++ (void)_destroyIndicatorView:(id)arg1;
++ (id)_createIndicatorViewForStyle:(long long)arg1;
++ (struct CGSize)loadingIndicatorTileSizeForStyle:(long long)arg1;
+@property(retain, nonatomic) PUProgressIndicatorView *indicatorView; // @synthesize indicatorView=_indicatorView;
+@property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
-- (void)_updateIndicator;
-- (void)_setShouldShowIndeterminateActivityIndicator:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setStyle:(long long)arg1 animated:(_Bool)arg2;
 - (void)becomeReusable;
 
 @end

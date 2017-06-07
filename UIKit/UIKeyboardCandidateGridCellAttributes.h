@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool _emphasizedAppearance;
     int _candidatesVisualStyle;
     NSIndexPath *_candidateIndexPath;
-    CDStruct_961fb75c _visualStyling;
+    CDStruct_227bb23d _visualStyling;
     unsigned long long _candidateNumber;
     unsigned long long _rowIndex;
     unsigned long long _edges;
@@ -37,13 +37,13 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool groupHeader; // @synthesize groupHeader=_groupHeader;
 @property(nonatomic) _Bool dummy; // @synthesize dummy=_dummy;
 @property(nonatomic) int candidatesVisualStyle; // @synthesize candidatesVisualStyle=_candidatesVisualStyle;
-@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) CDStruct_227bb23d visualStyling; // @synthesize visualStyling=_visualStyling;
 @property(retain, nonatomic) NSIndexPath *candidateIndexPath; // @synthesize candidateIndexPath=_candidateIndexPath;
+- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)representedElementCategory;
-- (void)dealloc;
 - (id)init;
 
 @end

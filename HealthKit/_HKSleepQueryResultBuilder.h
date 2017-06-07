@@ -13,6 +13,7 @@
     NSDateInterval *_resultInterval;
     NSArray *_sourceOrder;
     NSMutableDictionary *_samplesByCategoryValue;
+    NSMutableDictionary *_samplesBySource;
 }
 
 - (void).cxx_destruct;
@@ -20,6 +21,7 @@
 - (id)_createDateIntervalsFromSamples:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
 - (id)_organizeSamplesBySource:(id)arg1;
 - (void)addSleepSamples:(id)arg1;
+- (id)_categorySampleBufferForSource:(id)arg1;
 - (id)_categorySampleBufferForCategoryValue:(long long)arg1;
 - (id)initWithResultInterval:(id)arg1 sourceOrder:(id)arg2;
 

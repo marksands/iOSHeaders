@@ -7,6 +7,7 @@
 @class NSArray, NSData, NSDate, NSDictionary, NSString;
 
 @protocol NetworkStorageXPCProtocol
+- (void)performSchemaCheckAndUpdate;
 - (void)setMinSizeForVMCachedResource:(long long)arg1;
 - (void)currentDiskUsageWithCompletionHandler:(void (^)(long long))arg1;
 - (void)setMaxSize:(long long)arg1;

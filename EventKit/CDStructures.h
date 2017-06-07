@@ -14,6 +14,19 @@ struct NSObject {
     Class _field1;
 };
 
+struct _opaque_pthread_mutex_t {
+    long long __sig;
+    char __opaque[56];
+};
+
+#if 0
+// Names with conflicting types:
+typedef struct {
+    Class _field1;
+} EKPersistentObject_556b3b22;
+
+#endif
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -26,18 +39,13 @@ typedef struct {
 } CDStruct_79f9e052;
 
 typedef struct {
-    int years;
-    int months;
-    int days;
-    int hours;
-    int minutes;
-    double seconds;
-} CDStruct_6e43267c;
-
-typedef struct {
-    int entityType;
-    int entityID;
-} CDStruct_f683c4ba;
+    int _field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    int _field5;
+    double _field6;
+} CDStruct_deff9ab7;
 
 typedef struct {
     long long _field1;
@@ -53,9 +61,4 @@ typedef struct {
     long long _field6;
     long long _field7;
 } CDStruct_f9502b4c;
-
-typedef struct {
-    CDStruct_f683c4ba objectID;
-    double date;
-} CDStruct_6a127a3b;
 

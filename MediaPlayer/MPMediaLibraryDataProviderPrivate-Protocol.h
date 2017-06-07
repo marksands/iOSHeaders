@@ -37,6 +37,7 @@
 - (void)updateEntitesToCurrentRevision;
 - (_Bool)supportsEntityChangeTrackingForMediaEntityType:(long long)arg1 collectionGroupingType:(long long)arg2 dataProviderClass:(out Class *)arg3;
 - (void)clearLocationPropertiesOfItemWithIdentifier:(long long)arg1;
+- (void)populateLocationPropertiesOfItemWithIdentifier:(long long)arg1 withPath:(NSString *)arg2 assetProtectionType:(long long)arg3 completionBlock:(void (^)(_Bool, NSError *))arg4;
 - (void)populateLocationPropertiesOfItemWithIdentifier:(long long)arg1 withPath:(NSString *)arg2 assetProtectionType:(long long)arg3;
 - (void)geniusItemsForSeedItem:(MPMediaItem *)arg1 completion:(void (^)(NSArray *))arg2;
 - (void)releaseGeniusClusterPlaylist:(void *)arg1;

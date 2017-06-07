@@ -7,6 +7,7 @@
 #import <MapKit/_MKTableViewController.h>
 
 #import <MapKit/GEOResourceManifestTileGroupObserver-Protocol.h>
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
 #import <MapKit/MKStackingViewControllerPreferredSizeUse-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
@@ -14,7 +15,7 @@
 @protocol GEOTransitLineItem, MKTransitAttributionViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKTransitAttributionViewController : _MKTableViewController <GEOResourceManifestTileGroupObserver, MKStackingViewControllerPreferredSizeUse, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKTransitAttributionViewController : _MKTableViewController <GEOResourceManifestTileGroupObserver, MKStackingViewControllerPreferredSizeUse, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     _Bool _isAttributionURLAvailable;
     MKMapItem *_mapItem;

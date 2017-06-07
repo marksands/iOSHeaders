@@ -6,23 +6,24 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSIndexPath, UITableViewUpdateGap;
+@class NSIndexPath, UICollectionViewUpdateItem, UITableViewUpdateGap;
 
 __attribute__((visibility("hidden")))
 @interface UIUpdateItem : NSObject
 {
+    UICollectionViewUpdateItem *_collectionViewUpdateItem;
+    _Bool _headerFooterOnly;
+    _Bool _skipAnimation;
     int _action;
     NSIndexPath *_indexPath;
     long long _animation;
     double _offset;
-    _Bool _headerFooterOnly;
-    _Bool _skipAnimation;
     UITableViewUpdateGap *_gap;
 }
 
+@property(nonatomic) __weak UITableViewUpdateGap *gap; // @synthesize gap=_gap;
 @property(nonatomic) _Bool skipAnimation; // @synthesize skipAnimation=_skipAnimation;
 @property(nonatomic) _Bool headerFooterOnly; // @synthesize headerFooterOnly=_headerFooterOnly;
-@property(nonatomic) __weak UITableViewUpdateGap *gap; // @synthesize gap=_gap;
 @property(nonatomic) double offset; // @synthesize offset=_offset;
 @property(nonatomic) long long animation; // @synthesize animation=_animation;
 @property(readonly, nonatomic) NSIndexPath *indexPath; // @synthesize indexPath=_indexPath;
@@ -32,6 +33,7 @@ __attribute__((visibility("hidden")))
 - (long long)compareIndexPaths:(id)arg1;
 - (_Bool)isSectionOperation;
 - (id)_actionDescription;
+@property(readonly, nonatomic) UICollectionViewUpdateItem *collectionViewUpdateItem;
 - (id)initWithAction:(int)arg1 forIndexPath:(id)arg2 animation:(long long)arg3;
 
 @end

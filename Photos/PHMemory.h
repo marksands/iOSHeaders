@@ -6,29 +6,40 @@
 
 #import <Photos/PHAssetCollection.h>
 
-@class NSData, NSDate, NSDictionary, NSSet, NSString;
+@class NSArray, NSData, NSDate, NSDictionary, NSSet, NSString, PHMemoryFeature;
 
 @interface PHMemory : PHAssetCollection
 {
+    NSString *_title;
     NSString *_localizedSubtitle;
+    NSData *_photosGraphData;
+    long long _photosGraphVersion;
+    NSDictionary *_transientMemoryProperties;
     NSDate *_creationDate;
     long long _category;
     long long _subcategory;
+    unsigned long long _notificationState;
     _Bool _rejected;
     _Bool _favorite;
     _Bool _pending;
     _Bool _userCreated;
     NSDictionary *_movieAssetState;
     NSData *_movieData;
-    NSData *_photosGraphData;
-    long long _photosGraphVersion;
     double _score;
     NSDate *_lastViewedDate;
     NSDate *_lastMoviePlayedDate;
     NSString *_titleFontName;
     NSData *_assetListPredicate;
+    PHMemoryFeature *_blacklistedFeature;
+    long long _syncedPlayCount;
+    long long _syncedShareCount;
+    long long _syncedViewCount;
+    long long _pendingPlayCount;
+    long long _pendingShareCount;
+    long long _pendingViewCount;
     _Bool _didLoadTitleCategory;
     long long _titleCategory;
+    NSDictionary *_photosGraphProperties;
 }
 
 + (id)stringForSubcategory:(long long)arg1;
@@ -36,8 +47,7 @@
 + (id)assetListPredicateFromQueryHintObjects:(id)arg1;
 + (id)titleFontNameFromMovieData:(id)arg1;
 + (id)movieDataWithTitleFontName:(id)arg1;
-+ (id)fetchPredicateFromComparisonPredicate:(id)arg1 options:(id)arg2;
-+ (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (id)identifierCode;
 + (_Bool)managedObjectSupportsRejectedState;
@@ -47,6 +57,11 @@
 + (id)managedEntityName;
 + (id)propertiesToFetchWithHint:(unsigned long long)arg1;
 + (void)generateMemoriesWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (id)memoryTreeLevelWithOptions:(id)arg1;
++ (id)fetchTransientMemoriesWithOptions:(id)arg1;
++ (id)_fetchOptionsForTransientMemoryAssetsWithOptions:(id)arg1;
++ (id)transientMemoryWithDictionary:(id)arg1;
+@property(readonly, nonatomic) PHMemoryFeature *blacklistedFeature; // @synthesize blacklistedFeature=_blacklistedFeature;
 @property(readonly, nonatomic) NSData *assetListPredicate; // @synthesize assetListPredicate=_assetListPredicate;
 @property(readonly, nonatomic) NSDate *lastMoviePlayedDate; // @synthesize lastMoviePlayedDate=_lastMoviePlayedDate;
 @property(readonly, nonatomic) NSDate *lastViewedDate; // @synthesize lastViewedDate=_lastViewedDate;
@@ -58,15 +73,29 @@
 @property(readonly, nonatomic, getter=isPending) _Bool pending; // @synthesize pending=_pending;
 @property(readonly, nonatomic, getter=isFavorite) _Bool favorite; // @synthesize favorite=_favorite;
 @property(readonly, nonatomic, getter=isRejected) _Bool rejected; // @synthesize rejected=_rejected;
+@property(readonly, nonatomic) unsigned long long notificationState; // @synthesize notificationState=_notificationState;
 @property(readonly, nonatomic) long long subcategory; // @synthesize subcategory=_subcategory;
 @property(readonly, nonatomic) long long category; // @synthesize category=_category;
 - (void).cxx_destruct;
+- (id)_photosGraphProperties;
+@property(readonly, nonatomic) _Bool isGreat;
+@property(readonly, nonatomic) _Bool isStellar;
+@property(readonly, nonatomic) _Bool isMustSee;
+- (id)moodKeywords;
+- (unsigned long long)suggestedMood;
 - (id)description;
+- (id)_extendedCuratedAssetIDs;
+- (id)_curatedAssetIDs;
 - (id)_representativeAndCuratedAssetIDs;
 - (id)predicateForAllMomentsFromRepresentativeAssets;
 - (id)predicateForAllAssets;
 - (unsigned long long)titleFontNameHash;
 - (id)titleFontName;
+@property(readonly, nonatomic) long long viewCount;
+@property(readonly, nonatomic) long long shareCount;
+@property(readonly, nonatomic) long long playCount;
+- (_Bool)hasBlacklistableFeature;
+@property(readonly, nonatomic) NSArray *blacklistableFeatures;
 @property(readonly, nonatomic) _Bool isContiguous;
 @property(readonly, nonatomic) NSSet *featuredPeopleIdentifiers;
 - (_Bool)collectionHasFixedOrder;
@@ -80,6 +109,14 @@
 - (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned long long)arg2 photoLibrary:(id)arg3;
 - (Class)changeRequestClass;
 - (id)movieStateDataForAsset:(id)arg1;
+- (id)transientMemoryStartDate;
+- (id)rejectionCause;
+- (_Bool)isTransient;
+- (id)query;
+- (id)queryForKeyAssetWithOptions:(id)arg1;
+- (id)queryForCuratedAssetsWithOptions:(id)arg1;
+- (id)queryForExtendedCuratedAssetsWithOptions:(id)arg1;
+- (void)setupTransientMemory;
 
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDictionary;
 
@@ -19,9 +19,9 @@ __attribute__((visibility("hidden")))
 + (id)vCardToCNInstantMessageConstantsMapping;
 + (id)CNToVCardInstantMessageConstantsMapping;
 @property(retain, nonatomic) NSDictionary *mapping; // @synthesize mapping=_mapping;
+- (void).cxx_destruct;
 - (id)mappedConstant:(id)arg1;
 - (id)invertedMapping;
-- (void)dealloc;
 - (id)initWithMapping:(id)arg1;
 
 @end

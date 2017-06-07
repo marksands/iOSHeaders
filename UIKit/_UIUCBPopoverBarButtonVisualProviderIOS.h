@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIColor *selectionBackgroundTintColor; // @synthesize selectionBackgroundTintColor=_selectionBackgroundTintColor;
 - (void).cxx_destruct;
 - (void)updateButton:(id)arg1 forSelectedState:(_Bool)arg2;
-- (void)configureButton:(id)arg1 fromBarItem:(id)arg2;
+- (void)configureButton:(id)arg1 withAppearanceDelegate:(id)arg2 fromBarItem:(id)arg3;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;

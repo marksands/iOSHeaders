@@ -8,7 +8,6 @@
 
 @class CALayer;
 
-__attribute__((visibility("hidden")))
 @interface SCNTextureLayerSource : SCNTextureOffscreenRenderingSource
 {
     CALayer *_layer;
@@ -17,13 +16,16 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) CALayer *layer; // @synthesize layer=_layer;
-- (struct __C3DTexture *)_textureWithEngineContext:(struct __C3DEngineContext *)arg1 textureSampler:(struct __C3DTextureSampler *)arg2 nextFrameTime:(double *)arg3;
-- (struct __C3DTexture *)textureWithEngineContext:(struct __C3DEngineContext *)arg1 textureSampler:(struct __C3DTextureSampler *)arg2 nextFrameTime:(double *)arg3;
+-     // Error parsing type: ^{__C3DTexture=}40@0:8^{__C3DEngineContext=}16^{__C3DTextureSampler={__CFRuntimeBase=QAQ}iiiiii{C3DColor4=(?=[4f]{?=ffff})}fCiQ}24^d32, name: _textureWithEngineContext:textureSampler:nextFrameTime:
+-     // Error parsing type: ^{__C3DTexture=}40@0:8^{__C3DEngineContext=}16^{__C3DTextureSampler={__CFRuntimeBase=QAQ}iiiiii{C3DColor4=(?=[4f]{?=ffff})}fCiQ}24^d32, name: textureWithEngineContext:textureSampler:nextFrameTime:
+- (double)layerContentsScaleFactor;
 - (struct CGSize)layerSizeInPixels;
-- (void)cleanup:(struct __C3DRendererContext *)arg1;
-- (double)__updateTextureWithLayer:(id)arg1 engineContext:(struct __C3DEngineContext *)arg2 sampler:(struct __C3DTextureSampler *)arg3;
+-     // Error parsing type: v24@0:8^{__C3DRendererContext={__CFRuntimeBase=QAQ}iIIIIfI^{__C3DTexture}^{__C3DStack}^vBBBBBB^{__CFDictionary}I^{__CFDictionary}^{__CFDictionary}^{__CFDictionary}{C3DColor4=(?=[4f]{?=ffff})}^vq^{__C3DFXProgramObject}{__C3DEngineStats=IIIIIIIIIIIIIIIIIIIIIIIIddddddddddddddIIIIIIIIIIIIIIIIddd[60d]Idd}{Cache=[8I]Ii^{__C3DBlendStates}I^{__C3DRasterizerStates}^{__C3DMesh}^{__C3DMeshElement}IIiI^vii}{?=[2I][5i][12{?=iII}][12I]^?^?^?^?^?^?^?^?^?}[2{VolatileObject=^{__C3DArray}II^{__CFArray}}]^{__C3DArray}I^{__CFDictionary}}16, name: cleanup:
+-     // Error parsing type: d40@0:8@16^{__C3DEngineContext=}24^{__C3DTextureSampler={__CFRuntimeBase=QAQ}iiiiii{C3DColor4=(?=[4f]{?=ffff})}fCiQ}32, name: __updateTextureWithLayer:engineContext:sampler:
 - (double)__renderLayer:(id)arg1 withCARenderer:(id)arg2 engineContext:(struct __C3DEngineContext *)arg3 viewport:(double)arg4 atTime:(_Bool)arg5 forceUpdate:(_Bool *)arg6 didUpdate: /* Error: Ran out of types for this method. */;
-- (void)renderWithEngineContext:(struct __C3DEngineContext *)arg1 nextFrameTime:(double *)arg2;
+- (float)clearValue;
+- (id)layerToFocusForRenderedLayer:(id)arg1;
+-     // Error parsing type: v40@0:8^{__C3DEngineContext=}16^{__C3DTextureSampler={__CFRuntimeBase=QAQ}iiiiii{C3DColor4=(?=[4f]{?=ffff})}fCiQ}24^d32, name: renderWithEngineContext:textureSampler:nextFrameTime:
 - (_Bool)prefersGL3;
 - (_Bool)supportsMetal;
 - (void)dealloc;

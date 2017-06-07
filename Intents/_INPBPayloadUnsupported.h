@@ -15,8 +15,16 @@
     PBUnknownFields *_unknownFields;
     NSMutableArray *_conflictingParameters;
     int _reason;
+    int _requestPaymentIntentCurrencyAmountUnsupportedReason;
+    int _requestPaymentIntentPayerUnsupportedReason;
+    int _sendPaymentIntentCurrencyAmountUnsupportedReason;
+    int _sendPaymentIntentPayeeUnsupportedReason;
     struct {
         unsigned int reason:1;
+        unsigned int requestPaymentIntentCurrencyAmountUnsupportedReason:1;
+        unsigned int requestPaymentIntentPayerUnsupportedReason:1;
+        unsigned int sendPaymentIntentCurrencyAmountUnsupportedReason:1;
+        unsigned int sendPaymentIntentPayeeUnsupportedReason:1;
     } _has;
 }
 
@@ -41,6 +49,22 @@
 - (id)reasonAsString:(int)arg1;
 @property(nonatomic) _Bool hasReason;
 @property(nonatomic) int reason; // @synthesize reason=_reason;
+- (int)StringAsSendPaymentIntentPayeeUnsupportedReason:(id)arg1;
+- (id)sendPaymentIntentPayeeUnsupportedReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasSendPaymentIntentPayeeUnsupportedReason;
+@property(nonatomic) int sendPaymentIntentPayeeUnsupportedReason;
+- (int)StringAsSendPaymentIntentCurrencyAmountUnsupportedReason:(id)arg1;
+- (id)sendPaymentIntentCurrencyAmountUnsupportedReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasSendPaymentIntentCurrencyAmountUnsupportedReason;
+@property(nonatomic) int sendPaymentIntentCurrencyAmountUnsupportedReason;
+- (int)StringAsRequestPaymentIntentPayerUnsupportedReason:(id)arg1;
+- (id)requestPaymentIntentPayerUnsupportedReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasRequestPaymentIntentPayerUnsupportedReason;
+@property(nonatomic) int requestPaymentIntentPayerUnsupportedReason;
+- (int)StringAsRequestPaymentIntentCurrencyAmountUnsupportedReason:(id)arg1;
+- (id)requestPaymentIntentCurrencyAmountUnsupportedReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasRequestPaymentIntentCurrencyAmountUnsupportedReason;
+@property(nonatomic) int requestPaymentIntentCurrencyAmountUnsupportedReason;
 
 @end
 

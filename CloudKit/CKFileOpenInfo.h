@@ -8,7 +8,7 @@
 
 #import <CloudKit/NSSecureCoding-Protocol.h>
 
-@class NSNumber, NSString;
+@class NSFileHandle, NSNumber, NSString;
 
 @interface CKFileOpenInfo : NSObject <NSSecureCoding>
 {
@@ -18,9 +18,11 @@
     NSNumber *_deviceID;
     NSNumber *_fileID;
     NSNumber *_generationID;
+    NSFileHandle *_clientOpenedFileHandle;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSFileHandle *clientOpenedFileHandle; // @synthesize clientOpenedFileHandle=_clientOpenedFileHandle;
 @property(nonatomic) _Bool shouldReadRawEncryptedData; // @synthesize shouldReadRawEncryptedData=_shouldReadRawEncryptedData;
 @property(retain, nonatomic) NSNumber *generationID; // @synthesize generationID=_generationID;
 @property(retain, nonatomic) NSNumber *fileID; // @synthesize fileID=_fileID;

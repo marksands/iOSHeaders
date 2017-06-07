@@ -18,6 +18,7 @@
         unsigned int didFailToConnectPeripheral:1;
         unsigned int didDisconnectPeripheral:1;
         unsigned int didUpdatePeripheralConnectionState:1;
+        unsigned int didLosePeripheral:1;
         unsigned int didLoseZone:1;
         unsigned int didUpdateConnectionParameters:1;
     } _delegateFlags;
@@ -33,13 +34,18 @@
 - (void)handleMsg:(unsigned short)arg1 args:(id)arg2;
 - (_Bool)isMsgAllowedAlways:(unsigned short)arg1;
 - (_Bool)isMsgAllowedWhenOff:(unsigned short)arg1;
+- (void)handleReadyForUpdates:(id)arg1;
 - (void)handleConnectionParametersUpdated:(id)arg1;
 - (void)handleZoneLost:(id)arg1;
+- (void)handlePeripheralTrackingUpdated:(id)arg1;
 - (void)handlePeripheralConnectionStateUpdated:(id)arg1;
 - (void)handlePeripheralDisconnectionCompleted:(id)arg1;
 - (void)handlePeripheralConnectionCompleted:(id)arg1;
 - (void)handlePeripheralDiscovered:(id)arg1;
 - (void)handleRestoringState:(id)arg1;
+- (void)enablePrivateModeForPeripheral:(id)arg1 forDuration:(unsigned short)arg2;
+- (void)stopTrackingPeripheral:(id)arg1 options:(id)arg2;
+- (void)startTrackingPeripheral:(id)arg1 options:(id)arg2;
 - (void)setDesiredConnectionLatency:(long long)arg1 forPeripheral:(id)arg2;
 - (void)cancelPeripheralConnection:(id)arg1 force:(_Bool)arg2;
 - (void)cancelPeripheralConnection:(id)arg1;
@@ -48,7 +54,10 @@
 - (void)scanForPeripheralsWithServices:(id)arg1 options:(id)arg2;
 - (id)retrieveConnectedPeripheralsWithServices:(id)arg1 allowAll:(_Bool)arg2;
 - (id)retrieveConnectedPeripheralsWithServices:(id)arg1;
+- (void)retrieveConnectedPeripherals;
+- (id)retrieveState;
 - (id)retrievePeripheralsWithIdentifiers:(id)arg1;
+- (void)retrievePeripherals:(id)arg1;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2 options:(id)arg3;
 - (id)initWithDelegate:(id)arg1 queue:(id)arg2;
 - (id)init;

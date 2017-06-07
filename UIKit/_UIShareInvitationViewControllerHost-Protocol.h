@@ -9,6 +9,8 @@
 @class CKShare, NSError;
 
 @protocol _UIShareInvitationViewControllerHost <NSObject>
+- (void)_cloudSharingControllerDidModifyPrimarySwitch:(_Bool)arg1;
+- (void)_cloudSharingControllerDidModifySecondarySwitch:(_Bool)arg1;
 - (void)_requestContentSize:(struct CGSize)arg1;
 - (void)_requestSavedShareWithCompletion:(void (^)(CKShare *, CKContainerID *))arg1;
 - (void)_performHeaderActionWithCompletion:(void (^)(void))arg1;

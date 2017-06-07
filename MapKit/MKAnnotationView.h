@@ -9,7 +9,7 @@
 #import <MapKit/MKAnnotationRepresentation-Protocol.h>
 #import <MapKit/MKLocatableObject-Protocol.h>
 
-@class GEORouteMatch, MKAnnotationManager, MKUserLocationAnnotationViewProxy, NSString, UICalloutView, UIColor, UIImage, VKAnchorWrapper, _MKAnnotationViewAnchor;
+@class CALayer, GEORouteMatch, MKAnnotationManager, MKUserLocationAnnotationViewProxy, NSMutableArray, NSString, UICalloutView, UIColor, UIImage, VKAnchorWrapper, _MKAnnotationViewAnchor, _MKAnnotationViewCustomFeatureAnnotation;
 @protocol MKAnnotation;
 
 @interface MKAnnotationView : UIView <MKAnnotationRepresentation, MKLocatableObject>
@@ -25,20 +25,26 @@
     MKUserLocationAnnotationViewProxy *_userLocationProxy;
     double _rotationRadians;
     _MKAnnotationViewAnchor *_anchor;
+    struct CGRect _collisionFrame;
     GEORouteMatch *_routeMatch;
     double _mapRotationRadians;
-    _Bool _explicitlyHidden;
-    _Bool _hiddenForOffscreen;
-    _Bool _hiddenForInvalidPoint;
+    unsigned long long _hiddenReasons;
+    NSMutableArray *_hiddenCompletionBlocks;
+    double _realAlpha;
+    struct CGPoint _realOffset;
     double _mapPitchRadians;
     CDStruct_80aa614a _mapDisplayStyle;
+    CALayer *_imageLayer;
     MKAnnotationManager *_annotationManager;
     id <MKAnnotation> _annotation;
     UICalloutView *_calloutView;
     UIView *_leftCalloutAccessoryView;
     UIView *_rightCalloutAccessoryView;
     UIView *_detailCalloutAccessoryView;
+    float _displayPriority;
+    long long _collisionMode;
     NSString *_reuseIdentifier;
+    MKAnnotationView *_clusterAnnotationView;
     UIImage *_image;
     unsigned long long _mapType;
     unsigned long long _zIndex;
@@ -57,19 +63,25 @@
         unsigned int draggable:1;
         unsigned int useBalloonCallouts:1;
     } _flags;
+    _MKAnnotationViewCustomFeatureAnnotation *_customFeatureAnnotation;
     double _direction;
+    NSString *_clusteringIdentifier;
     struct CGPoint _leftCalloutOffset;
     struct CGPoint _rightCalloutOffset;
 }
 
 + (_Bool)_followsTerrain;
 + (id)_disclosureCalloutButton;
++ (float)_defaultDisplayPriority;
 + (unsigned long long)_selectedZIndex;
 + (unsigned long long)_zIndex;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)currentLocationTitle;
+@property(nonatomic) long long collisionMode; // @synthesize collisionMode=_collisionMode;
+@property(readonly, nonatomic) __weak MKAnnotationView *clusterAnnotationView; // @synthesize clusterAnnotationView=_clusterAnnotationView;
+@property(copy, nonatomic) NSString *clusteringIdentifier; // @synthesize clusteringIdentifier=_clusteringIdentifier;
+@property(nonatomic) float displayPriority; // @synthesize displayPriority=_displayPriority;
 @property(nonatomic, getter=_isPendingSelectionAnimated, setter=_setPendingSelectionAnimated:) _Bool pendingSelectionAnimated; // @synthesize pendingSelectionAnimated=_pendingSelectionAnimated;
-@property(nonatomic, getter=_isHiddenForInvalidPoint, setter=_setHiddenForInvalidPoint:) _Bool hiddenForInvalidPoint; // @synthesize hiddenForInvalidPoint=_hiddenForInvalidPoint;
 @property(nonatomic, getter=_mapDisplayStyle, setter=_setMapDisplayStyle:) CDStruct_80aa614a mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(nonatomic, getter=_mapPitchRadians, setter=_setMapPitchRadians:) double mapPitchRadians; // @synthesize mapPitchRadians=_mapPitchRadians;
 @property(nonatomic, getter=_mapRotationRadians, setter=_setMapRotationRadians:) double mapRotationRadians; // @synthesize mapRotationRadians=_mapRotationRadians;
@@ -79,6 +91,7 @@
 @property(retain, nonatomic) UIView *leftCalloutAccessoryView; // @synthesize leftCalloutAccessoryView=_leftCalloutAccessoryView;
 @property(nonatomic) struct CGPoint rightCalloutOffset; // @synthesize rightCalloutOffset=_rightCalloutOffset;
 @property(nonatomic) struct CGPoint leftCalloutOffset; // @synthesize leftCalloutOffset=_leftCalloutOffset;
+@property(readonly, nonatomic, getter=_collisionFrame) struct CGRect collisionFrame; // @synthesize collisionFrame=_collisionFrame;
 @property(copy, nonatomic) CDUnknownBlockType _calloutHitTest; // @synthesize _calloutHitTest;
 @property(nonatomic, getter=_isTracking, setter=_setTracking:) _Bool _tracking; // @synthesize _tracking;
 @property(nonatomic, getter=_isAnimatingToCoordinate, setter=_setAnimatingToCoordinate:) _Bool _animatingToCoordinate; // @synthesize _animatingToCoordinate;
@@ -87,11 +100,14 @@
 @property(nonatomic, setter=_setAnnotationManager:) __weak MKAnnotationManager *_annotationManager; // @synthesize _annotationManager;
 @property(nonatomic, setter=_setDirection:) double _direction; // @synthesize _direction;
 - (void).cxx_destruct;
+- (struct UIEdgeInsets)alignmentRectInsets;
+- (_Bool)isCollidingWithAnnotationView:(id)arg1 previouslyCollided:(_Bool)arg2;
 @property(readonly, nonatomic, getter=_balloonContentView) UIView *balloonContentView;
 @property(readonly, nonatomic, getter=_balloonImage) UIImage *balloonImage;
 @property(readonly, nonatomic, getter=_balloonInnerStrokeColor) UIColor *balloonInnerStrokeColor;
 @property(readonly, nonatomic, getter=_balloonStrokeColor) UIColor *balloonStrokeColor;
 @property(readonly, nonatomic, getter=_balloonTintColor) UIColor *balloonTintColor;
+- (id)_customFeatureAnnotation;
 - (void)_didHideBalloonCalloutView:(id)arg1;
 - (void)_addBalloonCalloutView:(id)arg1;
 - (_Bool)_balloonCalloutShouldOriginateFromSmallSize:(double *)arg1;
@@ -100,7 +116,8 @@
 - (void)_didUpdatePosition;
 - (void)_updateFromMap;
 - (double)_pointsForDistance:(double)arg1;
-- (id)_vkMarker;
+- (id)_vkNavigationPuckMarker;
+- (void)_setVKNavigationPuckMarker:(id)arg1;
 - (id)_containerView;
 - (_Bool)_canChangeOrientation;
 - (unsigned long long)_orientationCount;
@@ -110,10 +127,22 @@
 - (void)_userTrackingModeDidChange:(id)arg1;
 - (void)_enableRotationForHeadingMode:(double)arg1;
 - (id)_annotationContainer;
-- (void)setHidden:(_Bool)arg1;
+- (struct CGPoint)_offsetToAnnotationView:(id)arg1;
+- (void)_setPositionOffset:(struct CGPoint)arg1 animated:(_Bool)arg2;
+- (void)_setHidden:(_Bool)arg1 forReason:(unsigned long long)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_setHidden:(_Bool)arg1 forReason:(unsigned long long)arg2 animated:(_Bool)arg3;
+- (void)_performOffsetAnimation;
+- (void)_performHideAnimation;
+- (_Bool)_isHiddenForReason:(unsigned long long)arg1;
+- (double)alpha;
+- (void)setAlpha:(double)arg1;
 - (void)_setHiddenForOffscreen:(_Bool)arg1;
+- (_Bool)isHidden;
+- (void)setHidden:(_Bool)arg1;
+- (void)didMoveToSuperview;
 - (void)_resetZIndexNotify:(_Bool)arg1;
 - (void)_resetZIndex;
+- (unsigned long long)_effectiveZIndex;
 - (void)_setZIndex:(unsigned long long)arg1;
 - (void)_setZIndex:(unsigned long long)arg1 notify:(_Bool)arg2;
 - (unsigned long long)_zIndex;
@@ -134,11 +163,13 @@
 - (struct CGRect)_mapkit_visibleRect;
 @property(readonly, nonatomic) MKUserLocationAnnotationViewProxy *_userLocationProxy;
 @property(readonly, nonatomic) VKAnchorWrapper *anchor;
+- (_Bool)_shouldDeselectWhenDragged;
 - (void)_invalidateCachedCoordinate;
 @property(nonatomic, setter=_setPresentationCoordinate:) struct CLLocationCoordinate2D _presentationCoordinate; // @synthesize _presentationCoordinate;
 @property(readonly, nonatomic) struct CLLocationCoordinate2D coordinate;
 @property(nonatomic) struct CGPoint calloutOffset;
 @property(nonatomic) struct CGPoint centerOffset;
+- (void)_didDragWithVelocity:(struct CGPoint)arg1;
 - (struct CGPoint)_draggingDropOffset;
 @property(nonatomic) _Bool canShowCallout;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
@@ -160,6 +191,14 @@
 - (void)commonInit;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
+- (long long)compareForCollision:(id)arg1;
+- (long long)compareForClustering:(id)arg1;
+- (void)setClusterAnnotationView:(id)arg1;
+- (void)_updateAnchorPosition:(struct CGPoint)arg1 alignToPixels:(_Bool)arg2;
+- (void)configureCustomFeature:(id)arg1;
+- (void)invalidateCustomFeatureForced:(_Bool)arg1;
+- (_Bool)isProvidingCustomFeature;
+- (id)customFeatureAnnotation;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

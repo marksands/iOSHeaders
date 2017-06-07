@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
-@interface PUPerformanceDiagnosticsSettings : PUSettings
+@interface PUPerformanceDiagnosticsSettings : PXSettings
 {
     _Bool _shouldTracePerformance;
     double _scrollTestRampUpDuration;
@@ -21,6 +21,7 @@
 @property(nonatomic) double scrollTestRampUpDuration; // @synthesize scrollTestRampUpDuration=_scrollTestRampUpDuration;
 @property(nonatomic) _Bool shouldTracePerformance; // @synthesize shouldTracePerformance=_shouldTracePerformance;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

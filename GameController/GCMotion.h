@@ -14,11 +14,16 @@
     CDStruct_31142d93 _prevGravity;
     CDStruct_31142d93 _userAcceleration;
     struct GCQuaternion _attitude;
+    struct GCQuaternion _prevAttitude;
+    CDStruct_27cd59c8 _eulerAngles;
+    CDStruct_27cd59c8 _prevEulerAngles;
     CDStruct_31142d93 _rotationRate;
     float _tip;
     float _tilt;
     CMMotionManager *_motionMgr;
+    _Bool _linkedOnOrAfterCompassFeature;
     _Bool _motionLite;
+    _Bool _compassEnabled;
     CDUnknownBlockType _valueChangedHandler;
     CDUnknownBlockType _internalValueChangedHandler;
     _Bool _emulatedMotionEnabled;
@@ -28,10 +33,10 @@
 
 @property(readonly, nonatomic) __weak GCController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
-- (void)_setRotationRate:(CDStruct_31142d93)arg1;
+- (void)_setRotationRate:(CDStruct_39925896)arg1;
 - (void)_setAttitude:(struct GCQuaternion)arg1;
-- (void)_setUserAcceleration:(CDStruct_31142d93)arg1;
-- (void)_setGravity:(CDStruct_31142d93)arg1;
+- (void)_setUserAcceleration:(CDStruct_39925896)arg1;
+- (void)_setGravity:(CDStruct_39925896)arg1;
 - (_Bool)_isUpdatingDeviceMotion;
 - (void)_pauseMotionUpdates:(_Bool)arg1;
 - (void)_stopDeviceMotionUpdates;
@@ -42,10 +47,12 @@
 @property(copy, nonatomic) CDUnknownBlockType valueChangedHandler;
 - (float)_tilt;
 - (float)_tip;
-@property(readonly, nonatomic) CDStruct_31142d93 rotationRate; // @synthesize rotationRate=_rotationRate;
+@property(readonly, nonatomic) CDStruct_39925896 rotationRate; // @synthesize rotationRate=_rotationRate;
 @property(readonly, nonatomic) struct GCQuaternion attitude; // @synthesize attitude=_attitude;
-@property(readonly, nonatomic) CDStruct_31142d93 userAcceleration; // @synthesize userAcceleration=_userAcceleration;
-@property(readonly, nonatomic) CDStruct_31142d93 gravity; // @synthesize gravity=_gravity;
+@property(readonly, nonatomic) _Bool hasAttitudeAndRotationRate;
+- (void)_setCompassEnabled:(_Bool)arg1;
+@property(readonly, nonatomic) CDStruct_39925896 userAcceleration; // @synthesize userAcceleration=_userAcceleration;
+@property(readonly, nonatomic) CDStruct_39925896 gravity; // @synthesize gravity=_gravity;
 - (void)_setMotionLite:(_Bool)arg1;
 - (id)initWithController:(id)arg1;
 

@@ -10,7 +10,7 @@
 #import <MediaPlayer/MPVideoOverlay-Protocol.h>
 #import <MediaPlayer/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class MPAVController, MPAVItem, MPAudioAndSubtitlesController, MPDetailSlider, MPKnockoutButton, MPVolumeSlider, NSArray, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UILabel, UINavigationBar, UIStatusBar, UIViewController, _UIBackdropView;
+@class MPAVController, MPAVItem, MPAudioAndSubtitlesController, MPDetailSlider, MPKnockoutButton, MPVideoView, MPVolumeSlider, NSArray, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UILabel, UINavigationBar, UIStatusBar, UIViewController, _UIBackdropView;
 @protocol MPVideoControllerProtocol, MPVideoOverlayDelegate;
 
 @interface MPVideoPlaybackOverlayView : UIView <UIPopoverPresentationControllerDelegate, MPVideoOverlay, MPDetailSliderDelegate>
@@ -69,8 +69,12 @@
     UIViewController *_viewControllerForModalPresentationOrientation;
     _UIBackdropView *_topBarBackdropView;
     _UIBackdropView *_bottomBarBackdropView;
+    long long _overrideType;
+    MPVideoView *_videoView;
 }
 
+@property(nonatomic) __weak MPVideoView *videoView; // @synthesize videoView=_videoView;
+@property(nonatomic, setter=_setOverrideType:) long long overrideType; // @synthesize overrideType=_overrideType;
 @property(readonly, nonatomic) _UIBackdropView *bottomBarBackdropView; // @synthesize bottomBarBackdropView=_bottomBarBackdropView;
 @property(readonly, nonatomic) _UIBackdropView *topBarBackdropView; // @synthesize topBarBackdropView=_topBarBackdropView;
 @property(nonatomic) __weak UIViewController *viewControllerForModalPresentationOrientation; // @synthesize viewControllerForModalPresentationOrientation=_viewControllerForModalPresentationOrientation;
@@ -102,6 +106,8 @@
 - (void)_unregisterForPlayerNotifications:(id)arg1;
 - (void)_unregisterForItemNotifications:(id)arg1;
 - (void)_startSeeking;
+- (void)_setScrubberValue:(double)arg1;
+- (void)_setScrubberDuration:(double)arg1;
 - (void)_notifyDelegateOfUserEventEnd:(unsigned long long)arg1;
 - (void)_notifyDelegateOfUserEventCancel:(unsigned long long)arg1;
 - (void)_notifyDelegateOfUserEventBegin:(unsigned long long)arg1;
@@ -152,6 +158,7 @@
 - (void)detailSlider:(id)arg1 didChangeScrubSpeed:(long long)arg2;
 - (void)stopTicking;
 - (void)startTicking;
+@property(readonly, nonatomic) UIView *contentView;
 - (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2 animateAlongside:(CDUnknownBlockType)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2;

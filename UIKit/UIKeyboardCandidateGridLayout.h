@@ -23,10 +23,11 @@ __attribute__((visibility("hidden")))
     int _candidatesVisualStyle;
     NSArray *_candidateGroups;
     unsigned long long _columnsCount;
-    CDStruct_961fb75c _visualStyling;
+    CDStruct_227bb23d _visualStyling;
     double _headerViewHeight;
     NSSet *_emphasizedCandidates;
     NSMutableArray *_cellAttributes;
+    NSMutableArray *_dummyAttributes;
     NSMutableDictionary *_supplementaryAttributes;
 }
 
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
 + (Class)layoutAttributesClass;
 + (id)layout;
 @property(retain, nonatomic) NSMutableDictionary *supplementaryAttributes; // @synthesize supplementaryAttributes=_supplementaryAttributes;
+@property(retain, nonatomic) NSMutableArray *dummyAttributes; // @synthesize dummyAttributes=_dummyAttributes;
 @property(retain, nonatomic) NSMutableArray *cellAttributes; // @synthesize cellAttributes=_cellAttributes;
 @property(nonatomic) _Bool needsLayout; // @synthesize needsLayout=_needsLayout;
 @property(nonatomic) _Bool forceJustifiedAlignment; // @synthesize forceJustifiedAlignment=_forceJustifiedAlignment;
@@ -46,9 +48,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool needsPaddingForIndexScrubber; // @synthesize needsPaddingForIndexScrubber=_needsPaddingForIndexScrubber;
 @property(nonatomic) _Bool expanded; // @synthesize expanded=_expanded;
 @property(nonatomic) int candidatesVisualStyle; // @synthesize candidatesVisualStyle=_candidatesVisualStyle;
-@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) CDStruct_227bb23d visualStyling; // @synthesize visualStyling=_visualStyling;
 @property(nonatomic) unsigned long long columnsCount; // @synthesize columnsCount=_columnsCount;
 @property(retain, nonatomic) NSArray *candidateGroups; // @synthesize candidateGroups=_candidateGroups;
+- (void).cxx_destruct;
 - (_Bool)shouldShowGroupHeaderForGroup:(id)arg1;
 - (id)previousCandidateIndexPathFromIndexPath:(id)arg1;
 - (id)nextCandidateIndexPathFromIndexPath:(id)arg1;
@@ -68,7 +71,6 @@ __attribute__((visibility("hidden")))
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (void)invalidateLayout;
 - (_Bool)shouldInvalidateLayoutForBoundsChange:(struct CGRect)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

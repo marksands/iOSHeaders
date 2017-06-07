@@ -13,23 +13,24 @@
     AVCapturePhotoBracketSettingsInternal *_bracketSettingsInternal;
 }
 
++ (id)photoBracketSettingsWithRawPixelFormatType:(unsigned int)arg1 rawFileType:(id)arg2 processedFormat:(id)arg3 processedFileType:(id)arg4 bracketedSettings:(id)arg5;
 + (id)photoBracketSettingsWithRawPixelFormatType:(unsigned int)arg1 processedFormat:(id)arg2 bracketedSettings:(id)arg3;
 - (void)setLivePhotoMovieMetadataForOriginalPhoto:(id)arg1;
 - (void)setLivePhotoMovieMetadata:(id)arg1;
 - (void)setLivePhotoMovieFileURLForOriginalPhoto:(id)arg1;
 - (void)setLivePhotoMovieFileURL:(id)arg1;
-- (void)setAutoBravoImageFusionEnabled:(_Bool)arg1;
 - (void)setAutoDualCameraFusionEnabled:(_Bool)arg1;
 - (void)setAutoStillImageStabilizationEnabled:(_Bool)arg1;
-- (void)setOriginalPhotoDeliveryEnabled:(_Bool)arg1;
+- (void)setEV0PhotoDeliveryEnabled:(_Bool)arg1;
 - (void)setHDRMode:(long long)arg1;
 - (void)setFlashMode:(long long)arg1;
 @property(nonatomic, getter=isLensStabilizationEnabled) _Bool lensStabilizationEnabled;
 @property(readonly, nonatomic) NSArray *bracketedSettings;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
+- (id)debugDescription;
 - (void)dealloc;
-- (id)_initWithFormat:(id)arg1 rawPixelFormatType:(unsigned int)arg2 bracketedSettings:(id)arg3 uniqueID:(long long)arg4 exceptionReason:(id *)arg5;
+- (id)_initWithFormat:(id)arg1 processedFileType:(id)arg2 rawPixelFormatType:(unsigned int)arg3 rawFileType:(id)arg4 bracketedSettings:(id)arg5 uniqueID:(long long)arg6 exceptionReason:(id *)arg7;
 
 @end
 

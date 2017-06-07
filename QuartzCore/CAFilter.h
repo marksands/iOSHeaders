@@ -6,13 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-#import <QuartzCore/NSCoding-Protocol.h>
 #import <QuartzCore/NSCopying-Protocol.h>
 #import <QuartzCore/NSMutableCopying-Protocol.h>
+#import <QuartzCore/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface CAFilter : NSObject <NSCopying, NSMutableCopying, NSCoding>
+@interface CAFilter : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
     unsigned int _type;
     NSString *_name;
@@ -22,6 +22,7 @@
 }
 
 + (void)CAMLParserStartElement:(id)arg1;
++ (_Bool)supportsSecureCoding;
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (id)filterWithName:(id)arg1;
 + (id)filterWithType:(id)arg1;

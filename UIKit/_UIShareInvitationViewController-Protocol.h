@@ -6,12 +6,16 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class CKContainerID, CKShare, NSArray, NSData, NSString, UIColor, UIImage, UITraitCollection, _UIDocumentPickerNSURLWrapper;
+@class CKContainerID, CKShare, NSData, NSDictionary, NSString, UIColor, UIImage, UITraitCollection, _UIDocumentPickerNSURLWrapper;
 
 @protocol _UIShareInvitationViewController <NSObject>
+- (void)_setSecondaryAuxiliarySwitchState:(_Bool)arg1;
+- (void)_setSecondaryAuxiliarySwitchTitle:(NSString *)arg1;
+- (void)_setPrimaryAuxiliarySwitchState:(_Bool)arg1;
+- (void)_setPrimaryAuxiliarySwitchTitle:(NSString *)arg1;
 - (void)_setOverrideTraitCollection:(UITraitCollection *)arg1;
 - (void)_setLegacyAppearance:(_Bool)arg1;
-- (void)_setParticipantDetails:(NSArray *)arg1;
+- (void)_setParticipantDetails:(NSDictionary *)arg1;
 - (void)_setShowAddPeople:(_Bool)arg1;
 - (void)_setThumbnail:(UIImage *)arg1;
 - (void)_setCollaborationUIEnabled:(_Bool)arg1;

@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
 @interface UIInterfaceActionViewState : UIInterfaceActionVisualStyleViewState <NSCopying>
 {
     _Bool _isHighlighted;
+    _Bool _isPressed;
     _Bool _isFocused;
     _Bool _isPreferred;
     UIInterfaceAction *_action;
@@ -27,11 +28,13 @@ __attribute__((visibility("hidden")))
 + (id)viewStateForAlertControllerActionView:(id)arg1;
 + (id)viewStateForActionRepresentationViewDescendantView:(id)arg1 action:(id)arg2;
 + (id)viewStateForActionRepresentationView:(id)arg1 action:(id)arg2;
++ (id)_nullViewStateForActionType:(long long)arg1;
 @property(readonly, nonatomic) UIColor *legacyPresentationTintColor; // @synthesize legacyPresentationTintColor=_legacyPresentationTintColor;
 @property(readonly, nonatomic) unsigned long long visualCornerPosition; // @synthesize visualCornerPosition=_visualCornerPosition;
 @property(readonly, nonatomic) id actionViewStateContext; // @synthesize actionViewStateContext=_actionViewStateContext;
 @property(readonly, nonatomic) _Bool isPreferred; // @synthesize isPreferred=_isPreferred;
 @property(readonly, nonatomic) _Bool isFocused; // @synthesize isFocused=_isFocused;
+@property(readonly, nonatomic) _Bool isPressed; // @synthesize isPressed=_isPressed;
 @property(readonly, nonatomic) _Bool isHighlighted; // @synthesize isHighlighted=_isHighlighted;
 @property(readonly, nonatomic) UIInterfaceAction *action; // @synthesize action=_action;
 - (void).cxx_destruct;
@@ -44,7 +47,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithPropertiesFromActionRepresentationView:(id)arg1 groupView:(id)arg2 action:(id)arg3;
-- (id)init;
 
 @end
 

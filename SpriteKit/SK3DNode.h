@@ -19,6 +19,7 @@
 -     // Error parsing type: 32@0:816, name: projectPoint:
 - (id)hitTest:(struct CGPoint)arg1 options:(id)arg2;
 @property(retain, nonatomic) SCNScene *scnScene;
+- (void)_scnSceneDidUpdate:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property struct CGSize viewportSize;
 - (void)encodeWithCoder:(id)arg1;

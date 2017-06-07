@@ -11,10 +11,14 @@
 __attribute__((visibility("hidden")))
 @interface MTLStructTypeInternal : MTLStructType
 {
+    unsigned long long _dataType;
     NSDictionary *_dictionary;
     NSArray *_members;
+    _Bool _isIndirectArgumentBuffer;
 }
 
+@property _Bool isIndirectArgumentBuffer; // @synthesize isIndirectArgumentBuffer=_isIndirectArgumentBuffer;
+- (unsigned long long)dataType;
 - (id)members;
 - (id)description;
 - (id)formattedDescription:(unsigned long long)arg1;

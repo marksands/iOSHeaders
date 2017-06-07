@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     double _pathMajorRadius;
     unsigned long long _pathIndex;
     NSUUID *_touchUUID;
+    unsigned long long _tapCount;
     struct CGPoint _locationInWindow;
 }
 
@@ -29,6 +30,7 @@ __attribute__((visibility("hidden")))
 + (id)touchesForTouchUUIDs:(id)arg1;
 + (id)touchForTouchUUID:(id)arg1;
 + (id)touchUUIDForTouch:(id)arg1;
+@property(readonly, nonatomic) unsigned long long tapCount; // @synthesize tapCount=_tapCount;
 @property(readonly, nonatomic) NSUUID *touchUUID; // @synthesize touchUUID=_touchUUID;
 @property(readonly, nonatomic) unsigned long long pathIndex; // @synthesize pathIndex=_pathIndex;
 @property(readonly, nonatomic) double pathMajorRadius; // @synthesize pathMajorRadius=_pathMajorRadius;

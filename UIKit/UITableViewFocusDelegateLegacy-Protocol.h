@@ -7,13 +7,11 @@
 #import <UIKit/UITableViewDelegate-Protocol.h>
 
 @class NSIndexPath, UITableView, UIView;
-@protocol UIFocusContainer;
 
 @protocol UITableViewFocusDelegateLegacy <UITableViewDelegate>
 
 @optional
 - (NSIndexPath *)indexPathForPreferredFocusedItemForTableView:(UITableView *)arg1;
-- (_Bool)tableView:(UITableView *)arg1 shouldChangeFocusedItem:(id <UIFocusContainer>)arg2 fromRowAtIndexPath:(NSIndexPath *)arg3;
 - (_Bool)tableView:(UITableView *)arg1 shouldUpdateFocusFromRowAtIndexPath:(NSIndexPath *)arg2 toView:(UIView *)arg3 heading:(unsigned long long)arg4;
 - (void)tableView:(UITableView *)arg1 didUnfocusRowAtIndexPath:(NSIndexPath *)arg2;
 - (void)tableView:(UITableView *)arg1 didFocusRowAtIndexPath:(NSIndexPath *)arg2;

@@ -12,15 +12,16 @@ __attribute__((visibility("hidden")))
 @interface UIAlertControllerVisualStyle : NSObject
 {
     UIAlertControllerDescriptor *_descriptor;
-    UITraitCollection *_traitCollection;
     long long _forcedInterfaceIdiom;
     UIInterfaceActionVisualStyle *_interfaceActionVisualStyle;
+    UITraitCollection *_traitCollection;
 }
 
++ (void)positionContentsOfAlertController:(id)arg1 alertContentView:(id)arg2 availableSpaceView:(id)arg3 visualStyle:(id)arg4 updatableConstraints:(id)arg5;
 + (long long)interfaceActionPresentationStyle;
+@property(retain, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(readonly, nonatomic) UIInterfaceActionVisualStyle *interfaceActionVisualStyle; // @synthesize interfaceActionVisualStyle=_interfaceActionVisualStyle;
 @property(nonatomic) long long forcedInterfaceIdiom; // @synthesize forcedInterfaceIdiom=_forcedInterfaceIdiom;
-@property(retain, nonatomic) UITraitCollection *traitCollection; // @synthesize traitCollection=_traitCollection;
 @property(retain, nonatomic) UIAlertControllerDescriptor *descriptor; // @synthesize descriptor=_descriptor;
 - (void).cxx_destruct;
 - (id)_keyCommandInputForCancelAction;
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)configureAttributesForImageView:(id)arg1 imageProperty:(id)arg2 actionViewState:(id)arg3;
 - (void)configureAttributesForTitleLabel:(id)arg1 classificationLabel:(id)arg2 actionViewState:(id)arg3;
 - (struct UIEdgeInsets)actionImageMarginForAction;
+- (double)contentVerticalMargin;
 - (double)contentHorizontalMargin;
 - (struct CGSize)minimumActionContentSize;
 - (id)preferredActionFont;
@@ -56,7 +58,6 @@ __attribute__((visibility("hidden")))
 - (long long)permittedActionLayoutDirection;
 - (id)defaultActionFont;
 - (id)textFieldContainingViewWithTextField:(id)arg1;
-- (void)positionAlertControllerView:(id)arg1 ofAlertController:(id)arg2 inAvailableSpaceView:(id)arg3;
 - (struct UIEdgeInsets)contentInsets;
 - (double)maximumHeightForDisplayOnScreen:(id)arg1;
 - (double)maximumWidthForTitleAndMessageContentView;
@@ -68,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (long long)maximumNumberOfLinesInMessageLabel;
 - (double)marginBelowMessageLabelLastBaseline;
 - (double)marginAboveMessageLabelFirstBaseline;
+- (double)_spacingBetweenDismissButtonAndContent;
 - (double)_marginAboveDetailMessageFirstBaseline;
 - (id)_detailMessageFont;
 - (id)messageLabelColor;

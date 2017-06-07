@@ -6,13 +6,14 @@
 
 #import <MapKit/MKPlaceSectionViewController.h>
 
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
 @class MKPlaceTextBlockCell, NSMutableArray, NSString;
 @protocol GEOEncyclopedicInfo, MKPlaceCardEncyclopedicControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceEncyclopedicViewController : MKPlaceSectionViewController <_MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKPlaceEncyclopedicViewController : MKPlaceSectionViewController <_MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
     _Bool _textBlockExpanded;
     MKPlaceTextBlockCell *_textCell;

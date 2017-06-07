@@ -6,10 +6,11 @@
 
 #import <MediaPlayer/MPRemotePlaybackQueue.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface MPGenericTracklistPlaybackQueue : MPRemotePlaybackQueue
 {
+    NSString *_firstTrackIdentifier;
     NSArray *_trackIdentifiers;
     long long _shuffleType;
     long long _repeatType;
@@ -18,6 +19,7 @@
 @property(readonly, nonatomic) long long repeatType; // @synthesize repeatType=_repeatType;
 @property(readonly, nonatomic) long long shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(readonly, nonatomic) NSArray *trackIdentifiers; // @synthesize trackIdentifiers=_trackIdentifiers;
+@property(readonly, nonatomic) NSString *firstTrackIdentifier; // @synthesize firstTrackIdentifier=_firstTrackIdentifier;
 - (void).cxx_destruct;
 - (_Bool)verifyWithError:(id *)arg1;
 - (id)description;

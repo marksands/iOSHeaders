@@ -6,52 +6,49 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <UIKit/_UIDocumentPickerRemoteViewControllerContaining-Protocol.h>
+#import <UIKit/UIDocumentBrowserViewControllerPrivateDelegate-Protocol.h>
 
-@class NSMutableArray, NSURL, _UIDocumentPickerRemoteViewController, _UIRemoteViewService, _UIResilientRemoteViewContainerViewController;
+@class NSString, NSURL;
 @protocol UIDocumentPickerDelegate;
 
-@interface UIDocumentPickerViewController : UIViewController <_UIDocumentPickerRemoteViewControllerContaining>
+@interface UIDocumentPickerViewController : UIViewController <UIDocumentBrowserViewControllerPrivateDelegate>
 {
     id <UIDocumentPickerDelegate> _weak_delegate;
     _Bool _ignoreApplicationEntitlementForImport;
+    _Bool _allowsMultipleSelection;
     _Bool _sourceIsManaged;
     id <UIDocumentPickerDelegate> _delegate;
     unsigned long long _documentPickerMode;
-    _UIResilientRemoteViewContainerViewController *_childViewController;
-    _UIRemoteViewService *_remoteViewService;
+    UIViewController *_childViewController;
     NSURL *_uploadURL;
-    NSMutableArray *_stitchingTokens;
 }
 
-+ (void)_checkContentTypes:(id)arg1;
 @property(nonatomic, getter=_sourceIsManaged, setter=_setSourceIsManaged:) _Bool sourceIsManaged; // @synthesize sourceIsManaged=_sourceIsManaged;
-@property(retain, nonatomic) NSMutableArray *stitchingTokens; // @synthesize stitchingTokens=_stitchingTokens;
 @property(copy, nonatomic) NSURL *uploadURL; // @synthesize uploadURL=_uploadURL;
-@property(retain, nonatomic) _UIRemoteViewService *remoteViewService; // @synthesize remoteViewService=_remoteViewService;
-@property(retain, nonatomic, getter=_childViewController, setter=_setChildViewController:) _UIResilientRemoteViewContainerViewController *childViewController; // @synthesize childViewController=_childViewController;
+@property(retain, nonatomic, getter=_childViewController, setter=_setChildViewController:) UIViewController *childViewController; // @synthesize childViewController=_childViewController;
+@property(nonatomic) _Bool allowsMultipleSelection; // @synthesize allowsMultipleSelection=_allowsMultipleSelection;
 @property(nonatomic) unsigned long long documentPickerMode; // @synthesize documentPickerMode=_documentPickerMode;
 @property(nonatomic) __weak id <UIDocumentPickerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=_ignoreApplicationEntitlementForImport, setter=_setIgnoreApplicationEntitlementForImport:) _Bool _ignoreApplicationEntitlementForImport; // @synthesize _ignoreApplicationEntitlementForImport;
 - (void).cxx_destruct;
-- (id)_initWithViewController:(id)arg1 inMode:(unsigned long long)arg2 uploadURLOrNil:(id)arg3;
-- (void)_finishStitching;
-- (void)_prepareForDeletionIfNecessary;
-- (id)initWithURL:(id)arg1 inMode:(unsigned long long)arg2;
-- (id)initWithDocumentTypes:(id)arg1 inMode:(unsigned long long)arg2;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)_stitchFileCreationAtURL:(id)arg1;
-- (void)_displayLocationsMenuFromRect:(struct CGRect)arg1;
-- (void)_dismissWithOption:(id)arg1;
-- (void)_didSelectPicker;
-- (void)_didSelectURL:(id)arg1;
-- (void)_callDelegateWithSelectedURLAndDismiss:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_dismissViewController;
-@property(readonly, retain, nonatomic, getter=_remoteViewController) _UIDocumentPickerRemoteViewController *remoteViewController;
+- (void)_didTapCancel;
+- (void)_callDelegateWithSelectedURLsAndDismiss:(id)arg1;
+- (void)_tellDelegateDocumentPickerWasCancelled;
 - (void)dealloc;
+- (void)_commonInitWithDocumentTypes:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)documentBrowser:(id)arg1 didPickDocumentURLs:(id)arg2;
+- (id)_initWithViewController:(id)arg1 inMode:(unsigned long long)arg2 uploadURLOrNil:(id)arg3;
 - (id)_initIgnoringApplicationEntitlementForImportOfTypes:(id)arg1;
-- (void)_commonInitWithCompletion:(CDUnknownBlockType)arg1;
+- (id)initWithURL:(id)arg1 inMode:(unsigned long long)arg2;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithDocumentTypes:(id)arg1 inMode:(unsigned long long)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

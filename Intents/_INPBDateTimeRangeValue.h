@@ -8,7 +8,7 @@
 
 #import <Intents/NSCopying-Protocol.h>
 
-@class PBUnknownFields, _INPBDateTime, _INPBValueMetadata;
+@class PBUnknownFields, _INPBDateTime, _INPBRecurrenceValue, _INPBValueMetadata;
 
 @interface _INPBDateTimeRangeValue : PBCodable <NSCopying>
 {
@@ -16,6 +16,7 @@
     long long _endCalendar;
     long long _startCalendar;
     _INPBDateTime *_endDateTime;
+    _INPBRecurrenceValue *_recurrence;
     _INPBDateTime *_startDateTime;
     _INPBValueMetadata *_valueMetadata;
     struct {
@@ -25,6 +26,7 @@
 }
 
 + (id)options;
+@property(retain, nonatomic) _INPBRecurrenceValue *recurrence; // @synthesize recurrence=_recurrence;
 @property(retain, nonatomic) _INPBDateTime *endDateTime; // @synthesize endDateTime=_endDateTime;
 @property(retain, nonatomic) _INPBDateTime *startDateTime; // @synthesize startDateTime=_startDateTime;
 @property(nonatomic) long long endCalendar; // @synthesize endCalendar=_endCalendar;
@@ -40,6 +42,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasRecurrence;
 @property(readonly, nonatomic) _Bool hasEndDateTime;
 @property(readonly, nonatomic) _Bool hasStartDateTime;
 @property(nonatomic) _Bool hasEndCalendar;

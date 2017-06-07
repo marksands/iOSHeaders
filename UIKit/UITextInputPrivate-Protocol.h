@@ -8,7 +8,7 @@
 #import <UIKit/UITextInputTokenizer-Protocol.h>
 #import <UIKit/UITextInputTraits_Private-Protocol.h>
 
-@class NSArray, NSAttributedString, NSString, UIColor, UIFont, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSuggestion, UIView, WebEvent;
+@class NSArray, NSAttributedString, NSString, UIColor, UIDictationSerializableResults, UIFont, UITextInputTraits, UITextInteractionAssistant, UITextPosition, UITextRange, UITextSuggestion, UIView, WebEvent;
 @protocol UISelectionInteractionAssistant, UITextInputSuggestionDelegate;
 
 @protocol UITextInputPrivate <UITextInput, UITextInputTokenizer, UITextInputTraits_Private>
@@ -38,7 +38,7 @@
 - (void)insertTextSuggestion:(UITextSuggestion *)arg1;
 - (UITextRange *)rangeWithTextAlternatives:(id *)arg1 atPosition:(UITextPosition *)arg2;
 - (NSArray *)metadataDictionariesForDictationResults;
-- (void)insertDictationResult:(NSArray *)arg1 withCorrectionIdentifier:(id)arg2;
+- (void)insertDictationResult:(UIDictationSerializableResults *)arg1 withCorrectionIdentifier:(id)arg2;
 - (void)streamingDictationDidEnd;
 - (void)streamingDictationDidBegin;
 - (struct CGRect)visibleRect;

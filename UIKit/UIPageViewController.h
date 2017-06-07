@@ -10,7 +10,7 @@
 #import <UIKit/_UIQueuingScrollViewDataSource-Protocol.h>
 #import <UIKit/_UIQueuingScrollViewDelegate-Protocol.h>
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, UIPanGestureRecognizer, UITapGestureRecognizer, _UIPageCurl, _UIPageViewControllerContentView, _UIQueuingScrollView;
+@class NSArray, NSDictionary, NSHashTable, NSMutableArray, NSMutableDictionary, NSString, UIPanGestureRecognizer, UITapGestureRecognizer, _UIPageCurl, _UIPageViewControllerContentView, _UIQueuingScrollView;
 @protocol UIPageViewControllerDataSource, UIPageViewControllerDelegate;
 
 @interface UIPageViewController : UIViewController <UIGestureRecognizerDelegate, _UIQueuingScrollViewDelegate, _UIQueuingScrollViewDataSource>
@@ -26,8 +26,6 @@
     _UIPageCurl *_pageCurl;
     UIPanGestureRecognizer *_panGestureRecognizer;
     UITapGestureRecognizer *_tapGestureRecognizer;
-    UITapGestureRecognizer *_forwardTapGestureRecognizer;
-    UITapGestureRecognizer *_reverseTapGestureRecognizer;
     _Bool _stashingViewControllersForRotation;
     NSArray *_viewControllersStashedForRotation;
     _Bool _interfaceRotating;
@@ -40,7 +38,7 @@
     struct CGRect *_tapRegions;
     double _pageSpacing;
     NSMutableDictionary *_cachedViewControllersForCurl;
-    NSMutableArray *_cachedViewControllersForScroll;
+    NSHashTable *_cachedViewControllersForScroll;
     NSDictionary *_incomingAndOutgoingViewControllersForManualTransition;
     long long _lastKnownNavigationDirection;
     long long _disableAutorotationCount;
@@ -74,6 +72,7 @@
 - (void).cxx_destruct;
 - (void)_pageControlValueChanged:(id)arg1;
 - (_Bool)queuingScrollViewShouldLayoutSubviews:(id)arg1;
+- (void)queuingScrollView:(id)arg1 attemptToPageInDirection:(long long)arg2;
 - (void)queuingScrollView:(id)arg1 didFlushView:(id)arg2 animated:(_Bool)arg3;
 - (void)_flushViewController:(id)arg1 animated:(_Bool)arg2;
 - (id)queuingScrollView:(id)arg1 viewAfterView:(id)arg2;
@@ -86,8 +85,6 @@
 - (void)queuingScrollView:(id)arg1 willManuallyScroll:(_Bool)arg2 toRevealView:(id)arg3 concealView:(id)arg4 animated:(_Bool)arg5;
 - (void)_updatePageControlViaDataSourceIfNecessary;
 - (void)_handlePagingInDirection:(long long)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_handleReverseTapGesture:(id)arg1;
-- (void)_handleForwardTapGesture:(id)arg1;
 - (void)_handleTapGesture:(id)arg1;
 - (void)_handlePanGesture:(id)arg1;
 - (_Bool)_shouldCompleteManualCurlWithSuggestedVelocity:(double *)arg1;
@@ -144,6 +141,7 @@
 - (void)_child:(id)arg1 beginAppearanceTransitionIfPossible:(_Bool)arg2 animated:(_Bool)arg3;
 - (_Bool)_child:(id)arg1 canBeginAppearanceTransition:(_Bool)arg2;
 - (void)_child:(id)arg1 beginAppearanceTransition:(_Bool)arg2 animated:(_Bool)arg3;
+- (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (_Bool)shouldAutomaticallyForwardRotationMethods;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <PhotosUI/ABPeoplePickerNavigationControllerDelegate-Protocol.h>
+#import <PhotosUI/CNContactPickerDelegate-Protocol.h>
 #import <PhotosUI/IDSBatchIDQueryControllerDelegate-Protocol.h>
 #import <PhotosUI/MFComposeRecipientViewDelegate-Protocol.h>
 #import <PhotosUI/MFContactsSearchConsumer-Protocol.h>
@@ -14,9 +14,9 @@
 #import <PhotosUI/UITableViewDataSource-Protocol.h>
 #import <PhotosUI/UITableViewDelegate-Protocol.h>
 
-@class ABPeoplePickerNavigationController, IDSBatchIDQueryController, MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSMutableSet, NSNumber, NSString, UIScrollView, UITableView;
+@class CNContactPickerViewController, IDSBatchIDQueryController, MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, NSArray, NSMutableSet, NSNumber, NSString, UIScrollView, UITableView;
 
-@interface PUPhotoStreamRecipientViewController : UIViewController <MFContactsSearchConsumer, UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, UIPopoverPresentationControllerDelegate, MFComposeRecipientViewDelegate, IDSBatchIDQueryControllerDelegate>
+@interface PUPhotoStreamRecipientViewController : UIViewController <MFContactsSearchConsumer, UITableViewDataSource, UITableViewDelegate, CNContactPickerDelegate, UIPopoverPresentationControllerDelegate, MFComposeRecipientViewDelegate, IDSBatchIDQueryControllerDelegate>
 {
     UITableView *_searchResultsTable;
     MFComposeRecipientView *_recipientView;
@@ -29,8 +29,8 @@
     IDSBatchIDQueryController *_idsBatchIDQueryController;
     NSMutableSet *_validPhoneNumbers;
     _Bool _wasFirstResponder;
-    _Bool _showingPeoplePicker;
-    ABPeoplePickerNavigationController *_peoplePickerPresentedController;
+    _Bool _showingContactPicker;
+    CNContactPickerViewController *_contactPickerPresentedController;
     struct CGSize _recipientViewSize;
     double _lastHeight;
     id _delegate;
@@ -43,11 +43,11 @@
 - (void).cxx_destruct;
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)prepareForPopoverPresentation:(id)arg1;
-- (void)_dismissPeoplePicker;
-- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
-- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
-- (_Bool)shouldShowCardForPerson:(void *)arg1 peoplePicker:(id)arg2;
+- (void)_dismissContactPicker;
+- (void)contactPicker:(id)arg1 didSelectContactProperty:(id)arg2;
+- (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
+- (void)contactPickerDidCancel:(id)arg1;
+- (void)_addRecipientFromSelectedContactProperty:(id)arg1;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

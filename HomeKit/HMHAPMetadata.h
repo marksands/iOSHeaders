@@ -6,41 +6,32 @@
 
 #import <objc/NSObject.h>
 
-#import <HomeKit/NSSecureCoding-Protocol.h>
+#import <HomeKit/HMProtoBufMerge-Protocol.h>
 
-@class NSArray, NSDictionary, NSNumber;
+@class NSDictionary, NSNumber, NSString;
 
-@interface HMHAPMetadata : NSObject <NSSecureCoding>
+@interface HMHAPMetadata : NSObject <HMProtoBufMerge>
 {
     NSNumber *_version;
-    NSArray *_hapValueUnits;
-    NSArray *_hapCharacteristics;
-    NSArray *_hapServices;
-    NSDictionary *_assistantServices;
-    NSArray *_assistantCharacteristics;
-    NSDictionary *_assistantUnits;
-    NSArray *_accessoryCategories;
+    NSDictionary *_hapChrMap;
+    NSDictionary *_hapSvcMap;
 }
 
-+ (_Bool)supportsSecureCoding;
-+ (void)setSharedInstance:(id)arg1;
 + (id)getSharedInstance;
-@property(retain, nonatomic) NSArray *accessoryCategories; // @synthesize accessoryCategories=_accessoryCategories;
-@property(retain, nonatomic) NSDictionary *assistantUnits; // @synthesize assistantUnits=_assistantUnits;
-@property(retain, nonatomic) NSArray *assistantCharacteristics; // @synthesize assistantCharacteristics=_assistantCharacteristics;
-@property(retain, nonatomic) NSDictionary *assistantServices; // @synthesize assistantServices=_assistantServices;
-@property(retain, nonatomic) NSArray *hapServices; // @synthesize hapServices=_hapServices;
-@property(retain, nonatomic) NSArray *hapCharacteristics; // @synthesize hapCharacteristics=_hapCharacteristics;
-@property(retain, nonatomic) NSArray *hapValueUnits; // @synthesize hapValueUnits=_hapValueUnits;
+@property(retain, nonatomic) NSDictionary *hapSvcMap; // @synthesize hapSvcMap=_hapSvcMap;
+@property(retain, nonatomic) NSDictionary *hapChrMap; // @synthesize hapChrMap=_hapChrMap;
 @property(retain, nonatomic) NSNumber *version; // @synthesize version=_version;
 - (void).cxx_destruct;
 - (_Bool)shouldNotCacheCharacteristicOfType:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)characteristicTypeLocalizedDescription:(id)arg1;
+- (_Bool)applyProtoBufData:(id)arg1 callbackOperations:(id)arg2;
 - (id)characteristicTypeDescription:(id)arg1;
-- (id)serviceTypeLocalizedDescription:(id)arg1;
 - (id)serviceTypeDescription:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

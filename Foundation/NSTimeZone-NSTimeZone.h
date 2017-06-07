@@ -7,6 +7,7 @@
 #import <Foundation/NSTimeZone.h>
 
 @interface NSTimeZone (NSTimeZone)
++ (_Bool)supportsSecureCoding;
 - (Class)classForCoder;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

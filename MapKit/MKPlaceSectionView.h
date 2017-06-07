@@ -6,20 +6,23 @@
 
 #import <MapKit/_MKStackView.h>
 
-@class MKPlaceSectionItemView, NSArray;
+@class MKPlaceSectionItemView, MKViewWithHairline, NSArray;
 @protocol MKPlaceSectionViewDelegate;
 
 __attribute__((visibility("hidden")))
 @interface MKPlaceSectionView : _MKStackView
 {
     unsigned long long _trackingSelectForRow;
+    MKViewWithHairline *_hairLineView;
     _Bool _highlightsTouches;
+    _Bool _showsBottomHairline;
     id <MKPlaceSectionViewDelegate> _delegate;
     MKPlaceSectionItemView *_headerView;
     NSArray *_rowViews;
     MKPlaceSectionItemView *_footerView;
 }
 
+@property(nonatomic) _Bool showsBottomHairline; // @synthesize showsBottomHairline=_showsBottomHairline;
 @property(retain, nonatomic) MKPlaceSectionItemView *footerView; // @synthesize footerView=_footerView;
 @property(nonatomic) _Bool highlightsTouches; // @synthesize highlightsTouches=_highlightsTouches;
 @property(copy, nonatomic) NSArray *rowViews; // @synthesize rowViews=_rowViews;
@@ -38,6 +41,10 @@ __attribute__((visibility("hidden")))
 - (void)_tappedRow:(id)arg1 at:(unsigned long long)arg2;
 - (id)rowAt:(struct CGPoint)arg1;
 - (unsigned long long)indexOfRowAt:(struct CGPoint)arg1;
+- (void)_updateHairlineInsets;
+- (void)infoCardThemeChanged:(id)arg1;
+- (void)layoutMarginsDidChange;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

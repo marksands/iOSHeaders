@@ -93,7 +93,7 @@ struct _NSRange {
 };
 
 struct _NSRefCountedRunArray {
-    void *_field1;
+    struct os_unfair_lock_s _field1;
     unsigned long long _field2;
     unsigned long long _field3;
     unsigned int _field4;
@@ -112,27 +112,6 @@ struct _NSSimpleAttributeDictionaryElement {
     unsigned long long hash;
     id key;
     id value;
-};
-
-struct _URIParseInfo {
-    unsigned long long userinfoNameOffset;
-    unsigned long long userinfoPasswordOffset;
-    unsigned long long hostOffset;
-    unsigned long long portOffset;
-    unsigned long long pathOffset;
-    unsigned long long paramOffset;
-    unsigned long long queryOffset;
-    unsigned long long fragmentOffset;
-    unsigned long long endOffset;
-    unsigned int schemeExists:1;
-    unsigned int authorityExists:1;
-    unsigned int userinfoNameExists:1;
-    unsigned int userinfoPasswordExists:1;
-    unsigned int hostExists:1;
-    unsigned int portExists:1;
-    unsigned int paramExists:1;
-    unsigned int queryExists:1;
-    unsigned int fragmentExists:1;
 };
 
 struct __va_list_tag {
@@ -382,6 +361,10 @@ struct objc_method_description {
     char *_field2;
 };
 
+struct os_unfair_lock_s {
+    unsigned int _os_unfair_lock_opaque;
+};
+
 struct sockaddr;
 
 struct stat {
@@ -480,6 +463,11 @@ typedef struct {
     unsigned long long *_field3;
     unsigned long long _field4[5];
 } CDStruct_70511ce9;
+
+typedef struct {
+    unsigned long long offset;
+    int type;
+} CDStruct_1b1be194;
 
 typedef struct {
     unsigned int _field1[8];

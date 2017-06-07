@@ -23,9 +23,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <CNQuickContactActionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) CNContactAction *contactAction; // @synthesize contactAction=_contactAction;
 - (void).cxx_destruct;
+- (id)contactViewCache;
 - (void)actionWasCanceled:(id)arg1;
 - (void)actionDidFinish:(id)arg1;
-- (id)storeForAction:(id)arg1;
 - (void)action:(id)arg1 pushViewController:(id)arg2 sender:(id)arg3;
 - (void)action:(id)arg1 prepareChildContactViewController:(id)arg2 sender:(id)arg3;
 - (void)action:(id)arg1 dismissViewController:(id)arg2 sender:(id)arg3;

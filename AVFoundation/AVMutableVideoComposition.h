@@ -21,6 +21,7 @@
 @property(copy, nonatomic) NSArray *instructions;
 @property(nonatomic) float renderScale;
 @property(nonatomic) struct CGSize renderSize;
+@property(nonatomic) int sourceTrackIDForFrameTiming;
 @property(nonatomic) CDStruct_1b6d18a9 frameDuration;
 @property(retain, nonatomic) Class customVideoCompositorClass;
 - (void)setBuiltInCompositorName:(id)arg1;
@@ -31,7 +32,6 @@
 - (id)colorYCbCrMatrix;
 - (void)setColorPrimaries:(id)arg1;
 - (id)colorPrimaries;
-@property(nonatomic) int sourceTrackIDForFrameTiming;
 
 @end
 

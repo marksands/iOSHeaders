@@ -62,6 +62,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)initTransientWithCollections:(id)arg1 orQuery:(id)arg2 title:(id)arg3 identifier:(id)arg4;
+- (_Bool)hasLocationInfo;
 @property(readonly, nonatomic) _Bool keyCollectionsAtEnd;
 - (unsigned long long)collectionFixedOrderPriority;
 - (_Bool)collectionHasFixedOrder;

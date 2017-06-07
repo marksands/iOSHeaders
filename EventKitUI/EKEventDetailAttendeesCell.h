@@ -6,24 +6,30 @@
 
 #import <EventKitUI/EKEventDetailCell.h>
 
-@class UIView, UIViewController;
-@protocol EKEventDetailAttendeesList;
+@class EKEventDetailAttendeesListView, NSLayoutConstraint, UIImageView, UILabel, UIViewController;
 
 __attribute__((visibility("hidden")))
 @interface EKEventDetailAttendeesCell : EKEventDetailCell
 {
-    UIView<EKEventDetailAttendeesList> *_attendeesListView;
-    _Bool _useFaces;
+    UILabel *_titleLabel;
+    UILabel *_countLabel;
+    UIImageView *_disclosure;
+    NSLayoutConstraint *_listHeight;
+    EKEventDetailAttendeesListView *_attendeesListView;
     UIViewController *_viewController;
 }
 
-@property _Bool useFaces; // @synthesize useFaces=_useFaces;
++ (_Bool)requiresConstraintBasedLayout;
 @property __weak UIViewController *viewController; // @synthesize viewController=_viewController;
 - (void).cxx_destruct;
 - (void)layoutForWidth:(double)arg1 position:(int)arg2;
 - (id)_attendeesListView;
 - (void)setAttendees:(id)arg1;
 - (_Bool)update;
+- (double)displayHeight;
+- (double)footerInset;
+- (double)listToTitle;
+- (double)headerInset;
 - (id)initWithEvent:(id)arg1 editable:(_Bool)arg2;
 
 @end

@@ -6,15 +6,26 @@
 
 #import <objc/NSObject.h>
 
-__attribute__((visibility("hidden")))
+@class QLExtensionManagerCache;
+
 @interface QLExtensionManager : NSObject
 {
+    QLExtensionManagerCache *_thumbnailExtensionCache;
+    QLExtensionManagerCache *_previewExtensionCache;
 }
 
 + (id)sharedManager;
-- (id)extensionForPreviewItem:(id)arg1;
-- (void)remoteViewControllerForPreviewItem:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (_Bool)existExtensionForPreviewItem:(id)arg1;
+@property(retain, nonatomic) QLExtensionManagerCache *previewExtensionCache; // @synthesize previewExtensionCache=_previewExtensionCache;
+@property(retain, nonatomic) QLExtensionManagerCache *thumbnailExtensionCache; // @synthesize thumbnailExtensionCache=_thumbnailExtensionCache;
+- (void).cxx_destruct;
+- (void)_addQueryAttributesToExtensionQuery:(id)arg1 withContentType:(id)arg2 appBundleIdentifier:(id)arg3 extensionType:(unsigned long long)arg4 generationType:(unsigned long long)arg5;
+- (id)_extensionPointNameForExtensionType:(unsigned long long)arg1;
+- (id)extensionForContentType:(id)arg1 applicationBundleIdentifier:(id)arg2 extensionType:(unsigned long long)arg3 generationType:(unsigned long long)arg4;
+- (void)extensionContextForContentType:(id)arg1 appBundleIdentifier:(id)arg2 extensionType:(unsigned long long)arg3 generationType:(unsigned long long)arg4 withCompletionHandler:(CDUnknownBlockType)arg5;
+- (_Bool)existsExtensionForContentType:(id)arg1 applicationBundleIdentifier:(id)arg2 extensionType:(unsigned long long)arg3 generationType:(unsigned long long)arg4;
+- (id)_cacheForExtensionType:(unsigned long long)arg1;
+- (void)_setupCache;
+- (void)remoteViewControllerForContentType:(id)arg1 applicationBundleIdentifier:(id)arg2 extensionType:(unsigned long long)arg3 generatonType:(unsigned long long)arg4 withCompletionHandler:(CDUnknownBlockType)arg5;
 
 @end
 

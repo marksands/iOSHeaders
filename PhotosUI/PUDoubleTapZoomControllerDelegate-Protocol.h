@@ -6,12 +6,13 @@
 
 #import <PhotosUI/NSObject-Protocol.h>
 
-@class PUDoubleTapZoomController, PUTilingView, UIGestureRecognizer, UIView;
+@class PUDoubleTapZoomController, PUOneUpDragController, PUTilingView, UIGestureRecognizer, UIView;
 @protocol PUDisplayLocationProvider, UIGestureRecognizerDelegate;
 
 @protocol PUDoubleTapZoomControllerDelegate <NSObject>
 
 @optional
+- (PUOneUpDragController *)oneUpDragControllerForDoubleTapZoomController:(PUDoubleTapZoomController *)arg1;
 - (_Bool)doubleTapZoomController:(PUDoubleTapZoomController *)arg1 canDoubleTapBeginAtLocationFromProvider:(id <PUDisplayLocationProvider>)arg2;
 - (id <UIGestureRecognizerDelegate>)doubleTapZoomController:(PUDoubleTapZoomController *)arg1 delegateForGestureRecognizer:(UIGestureRecognizer *)arg2;
 - (PUTilingView *)doubleTapZoomControllerTilingView:(PUDoubleTapZoomController *)arg1;

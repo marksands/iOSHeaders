@@ -8,8 +8,10 @@
 
 @interface _HKCFGExpression : NSObject
 {
+    _Bool _isPrivate;
 }
 
+@property(nonatomic) _Bool isPrivate; // @synthesize isPrivate=_isPrivate;
 - (unsigned long long)_minimumLength;
 - (id)_label;
 - (void)_tryNodesWithContext:(id)arg1 solutionTest:(CDUnknownBlockType)arg2;

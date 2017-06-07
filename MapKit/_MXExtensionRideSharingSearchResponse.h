@@ -4,17 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MapKit/_MXExtensionObject.h>
+#import <Foundation/NSObject.h>
+
+#import <MapKit/NSSecureCoding-Protocol.h>
 
 @class NSArray;
 
-@interface _MXExtensionRideSharingSearchResponse : _MXExtensionObject
+@interface _MXExtensionRideSharingSearchResponse : NSObject <NSSecureCoding>
 {
     NSArray *_rides;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (void)load;
 @property(retain, nonatomic) NSArray *rides; // @synthesize rides=_rides;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

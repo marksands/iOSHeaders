@@ -29,12 +29,13 @@
 - (_Bool)_shouldSynthesizeSupportedOrientations;
 - (double)_contentMarginForChildViewController:(id)arg1;
 - (void)_updateChildContentMargins;
+- (void)_marginInfoForChild:(id)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(id)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (_Bool)_optsOutOfPopoverControllerHierarchyCheck;
 - (_Bool)_shouldPersistViewWhenCoding;
 - (struct CGRect)_frameForChildContentContainer:(id)arg1;
-- (void)_super_willUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (void)willUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)_super_didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)_didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)purgeMemoryForReason:(int)arg1;
 - (void)unloadViewForced:(_Bool)arg1;
 - (void)_super_removeChildViewController:(id)arg1;
@@ -87,6 +88,7 @@
 @property(nonatomic) _Bool hidesMasterViewInPortrait;
 @property(nonatomic) float gutterWidth;
 @property(nonatomic) float masterColumnWidth;
+@property(nonatomic) long long primaryEdge;
 - (void)showDetailViewController:(id)arg1 sender:(id)arg2;
 - (void)showViewController:(id)arg1 sender:(id)arg2;
 @property(readonly, nonatomic) double primaryColumnWidth;

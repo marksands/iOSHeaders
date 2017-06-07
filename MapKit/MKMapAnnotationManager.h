@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
 - (void)cleanUpAnnotationRepresentationForRemoval:(id)arg1;
 - (void)configureAnnotationRepresentation:(id)arg1 forAnnotation:(id)arg2;
 - (void)configureDefaultAnnotationRepresentation:(id)arg1 forAnnotation:(id)arg2;
-- (id)newDefaultAnnotationRepresentationForAnnotation:(id)arg1 reuseIdentifier:(id)arg2;
 - (id)_defaultUserLocationAnnotationView:(id)arg1;
 
 @end

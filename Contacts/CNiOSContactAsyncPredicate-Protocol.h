@@ -6,9 +6,10 @@
 
 #import <Contacts/CNiOSContactPredicate-Protocol.h>
 
+@class CNContactsEnvironment, CNiOSPersonFetchRequest;
 @protocol CNCancelable;
 
 @protocol CNiOSContactAsyncPredicate <CNiOSContactPredicate>
-- (id <CNCancelable>)cn_fetchPeopleInAddressBook:(void *)arg1 withSortOrder:(unsigned int)arg2 options:(unsigned long long)arg3 progressiveResults:(void (^)(NSArray *, NSDictionary *))arg4 completion:(void (^)(NSError *))arg5;
+- (id <CNCancelable>)cn_fetchPeopleInAddressBook:(void *)arg1 fetchRequest:(CNiOSPersonFetchRequest *)arg2 progressiveResults:(void (^)(NSArray *, NSDictionary *))arg3 completion:(void (^)(NSError *))arg4 environment:(CNContactsEnvironment *)arg5;
 @end
 

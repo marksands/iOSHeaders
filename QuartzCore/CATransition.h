@@ -12,7 +12,8 @@
 {
 }
 
-@property(retain) id filter;
+- (void)setFilter:(id)arg1;
+- (id)filter;
 @property float endProgress;
 @property float startProgress;
 @property(copy) NSString *subtype;

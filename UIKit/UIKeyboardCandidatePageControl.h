@@ -16,12 +16,12 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)imageWithColor:(id)arg1 size:(struct CGSize)arg2;
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (void)updatePageControlWithStatus:(_Bool)arg1 rightControlButtonEnabled:(_Bool)arg2;
 - (void)_changePage:(id)arg1;
 - (void)setUseVerticalArrows:(_Bool)arg1;
 - (void)_setRenderConfig:(id)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -6,7 +6,6 @@
 
 #import <UIKit/UIGestureRecognizer.h>
 
-__attribute__((visibility("hidden")))
 @interface PUTouchingGestureRecognizer : UIGestureRecognizer
 {
     unsigned long long __touchCount;

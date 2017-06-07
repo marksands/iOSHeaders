@@ -22,6 +22,7 @@ struct CXCallUpdateHasSet {
     unsigned int usingBaseband:1;
     unsigned int blocked:1;
     unsigned int ttyType:1;
+    unsigned int supportsTTYWithVoice:1;
     unsigned int mayRequireBreakBeforeMake:1;
     unsigned int hasVideo:1;
     unsigned int audioCategory:1;
@@ -39,7 +40,11 @@ struct CXCallUpdateHasSet {
     unsigned int supportsSendingToVoicemail:1;
     unsigned int videoStreamToken:1;
     unsigned int crossDeviceIdentifier:1;
+    unsigned int remoteParticipantHandles:1;
+    unsigned int activeRemoteParticipantHandles:1;
     unsigned int handoffContext:1;
     unsigned int context:1;
+    unsigned int prefersExclusiveAccessToCellularNetwork:1;
+    unsigned int remoteUplinkMuted:1;
 };
 

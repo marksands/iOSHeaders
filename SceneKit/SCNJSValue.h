@@ -6,7 +6,6 @@
 
 #import <Foundation/NSValue.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNJSValue : NSValue
 {
 }

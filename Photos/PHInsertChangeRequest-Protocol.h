@@ -9,9 +9,9 @@
 @class NSManagedObject, PLPhotoLibrary;
 
 @protocol PHInsertChangeRequest <PHChangeRequest>
++ (_Bool)canGenerateUUIDWithoutEntitlements;
 @property(readonly, getter=isNew) _Bool new;
 - (void)performTransactionCompletionHandlingInPhotoLibrary:(PLPhotoLibrary *)arg1;
-- (_Bool)canGenerateUUIDLocally;
 - (NSManagedObject *)createManagedObjectForInsertIntoPhotoLibrary:(PLPhotoLibrary *)arg1 error:(id *)arg2;
 - (_Bool)validateInsertIntoPhotoLibrary:(PLPhotoLibrary *)arg1 error:(id *)arg2;
 - (id)initForNewObject;

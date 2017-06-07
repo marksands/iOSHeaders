@@ -12,7 +12,7 @@
 {
     SCNNode *_freeViewCameraNode;
     struct CGPoint _initialPoint;
-    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]), name: _initialMatrix
+    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _initialMatrix
     float _initialZoom;
     float _originalFovX;
     float _originalFovY;
@@ -22,15 +22,16 @@
     int _lastGestureFingerCount;
     _Bool _isDraggingWithOneFinger;
     float _roll;
-    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]), name: _initialMatrixForRoll
+    // Error parsing type: (C3DMatrix4x4="components"[16f]"m"[4]"simd"{?="columns"[4]}), name: _initialMatrixForRoll
     UIGestureRecognizer *_pressGesture;
     UIGestureRecognizer *_tapGesture;
     UIGestureRecognizer *_pinchGesture;
     UIGestureRecognizer *_panGesture;
     UIGestureRecognizer *_rotateGesture;
-    long long _stickyAxis;
+    unsigned long long _stickyAxis;
     // Error parsing type: {C3DSphere="vector"}, name: _viewedObjectSphere
     unsigned int _isViewedObjectSphereComputed:1;
+    struct os_unfair_lock_s _stateLock;
     unsigned int _hasAutomaticCameraTarget:1;
     unsigned int _automaticCameraTargetUpToDate:1;
     unsigned int _inertia:1;
@@ -67,7 +68,7 @@
 - (id)gestureRecognizers;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_translateTo:(struct CGPoint)arg1;
-- (void)_rotateWithDrag:(struct CGPoint)arg1 mode:(long long)arg2 stickyAxis:(long long)arg3;
+- (void)_rotateWithDrag:(struct CGPoint)arg1 mode:(long long)arg2 stickyAxis:(unsigned long long)arg3;
 - (void)clearRoll;
 - (void)_beginTranslateAtLocation:(struct CGPoint)arg1;
 -     // Error parsing type: 16@0:8, name: frontVector
@@ -76,10 +77,12 @@
 - (void)_startBrowsingIfNeeded:(struct CGPoint)arg1;
 - (void)endDraggingWithVelocity:(struct CGPoint)arg1;
 - (_Bool)wantsRedraw;
-- (void)viewWillDraw;
+- (_Bool)_3DConnexionIsPressed;
+- (_Bool)_isInertiaRunning;
+- (void)_setInertiaRunning:(_Bool)arg1;
+- (void)viewWillDrawAtTime:(double)arg1;
 - (void)rotateWithVector:(long long)arg1 mode: /* Error: Ran out of types for this method. */;
 - (void)_onInertiaTimer;
-- (void)_stopInertiaIfNeeded;
 - (void)cameraDidChange;
 - (void)cameraWillChange;
 - (void)sceneDidChange;
@@ -103,7 +106,7 @@
 - (void)_resetFreeViewCamera;
 - (void)activateFreeCamera;
 - (void)setEnableFreeCamera:(_Bool)arg1;
-@property long long stickyAxis;
+@property unsigned long long stickyAxis;
 - (void)focusNode:(id)arg1;
 - (id)freeCamera;
 @property struct SCNVector3 cameraTarget;

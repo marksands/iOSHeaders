@@ -37,7 +37,6 @@
 + (id)requiredLibraryRemovalProperties;
 + (_Bool)supportsKeepLocalStatusObservation;
 + (id)requiredKeepLocalStatusObservationProperties;
-+ (id)mqf_requiredPlaybackProperties;
 + (id)requiredStoreLibraryPersonalizationProperties;
 @property(retain, nonatomic) MPArtworkCatalog *_artworkCatalog; // @synthesize _artworkCatalog=__artworkCatalog;
 @property(retain, nonatomic) MPModelMovie *movie; // @synthesize movie=_movie;
@@ -46,16 +45,16 @@
 @property(retain, nonatomic) MPModelPlaylist *playlist; // @synthesize playlist=_playlist;
 @property(nonatomic) long long position; // @synthesize position=_position;
 - (void).cxx_destruct;
+- (long long)type;
 - (id)mediaItemPropertyValues;
 - (struct MPLibraryAddStatusObserverConfiguration)libraryAddStatusObserverConfiguration;
 - (long long)libraryRemovalSupportedOptions;
 - (id)newKeepLocalStatusObserverConfiguration;
-- (id)mqf_playbackItemMetadataModelObject;
-- (void)mqf_configurePlaybackItemMetadata:(id)arg1;
-- (id)mqf_newPlaybackItemMetadata;
 - (id)objectWithStoreLibraryPersonalizationRelativeModelObject:(id)arg1;
 - (id)relativeModelObjectForStoreLibraryPersonalization;
 - (id)personalizationScopedPropertiesForProperties:(id)arg1;
+- (_Bool)storeItemMetadataRequestNeedsPersonalization;
+- (id)storeItemMetadataRequestItemIdentifier;
 
 @end
 

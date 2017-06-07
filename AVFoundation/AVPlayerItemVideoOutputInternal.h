@@ -23,6 +23,8 @@
     double advanceWakeUpInterval;
     _Bool advanceWakeUpIntervalIsValid;
     CDStruct_1b6d18a9 wakeUpImageTime;
+    _Bool immediateWakeUp;
+    long long clientStateOnRequestedMediaDataChangeNotification;
     _Bool suppressesPlayerRendering;
     _Bool shouldTagBuffersWithInfo;
     AVVideoOutputSettings *videoSettings;

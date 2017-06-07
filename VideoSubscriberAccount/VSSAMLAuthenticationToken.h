@@ -17,6 +17,8 @@
 
 @property(copy, nonatomic) NSData *serializedData; // @synthesize serializedData=_serializedData;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 @property(copy, nonatomic) NSString *body;
 - (_Bool)isOpaque;
 - (_Bool)isValid;
@@ -26,7 +28,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

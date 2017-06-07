@@ -15,6 +15,7 @@
 
 + (id)allocWithZone:(struct _NSZone *)arg1;
 - (void).cxx_destruct;
+- (_Bool)supportsDpadTaps;
 - (id)initWithController:(id)arg1 snapshotData:(id)arg2;
 - (id)initWithSnapshotData:(id)arg1;
 - (id)init;

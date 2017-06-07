@@ -10,29 +10,9 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct CTServerState;
-
-struct __CTServerConnection {
-    struct __CFRuntimeBase {
-        unsigned long long _field1;
-        unsigned char _field2[4];
-        unsigned int _field3;
-    } _field1;
-    struct dispatch_queue_s *_field2;
-    struct CTServerState *_field3;
-    unsigned char _field4;
-    unsigned char _field5;
-    unsigned int _field6;
-    struct _xpc_connection_s *_field7;
-    unsigned char _field8;
-    unsigned char _field9;
-};
-
 struct block<void (^)(NSDictionary *)>;
 
 struct dispatch_object_s;
-
-struct dispatch_queue_s;
 
 struct object {
     struct dispatch_object_s *fObj;

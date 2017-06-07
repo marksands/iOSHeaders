@@ -8,7 +8,7 @@
 
 #import <HealthKit/NSCopying-Protocol.h>
 
-@class HKQuantity, NSDate, NSDateComponents;
+@class HKQuantity, NSArray, NSDate, NSDateComponents;
 
 @interface HKActivityCache : HKSample <NSCopying>
 {
@@ -25,16 +25,8 @@
     NSDate *_energyBurnedGoalDate;
     HKQuantity *_walkingAndRunningDistance;
     long long _flightsClimbed;
-    long long _activeEnergyBurnedAnchor;
-    long long _activeHoursAnchor;
-    long long _briskMinutesAnchor;
-    long long _energyBurnedGoalAnchor;
-    long long _stepCountAnchor;
-    long long _walkingAndRunningDistanceAnchor;
-    long long _pushCountAnchor;
-    long long _flightsClimbedAnchor;
-    long long _workoutAnchor;
-    long long _deepBreathingSessionAnchor;
+    NSArray *_dailyEnergyBurnedStatistics;
+    NSArray *_dailyBriskMinutesStatistics;
     unsigned long long _knownFields;
 }
 
@@ -51,20 +43,10 @@
 - (double)_energyBurnedInKilocalories;
 - (void)reset;
 @property(setter=_setKnownFields:) unsigned long long knownFields;
-- (void)_setCategoryAnchor:(long long)arg1;
-- (void)_setQuantityAnchor:(long long)arg1;
-- (long long)_minCategoryAnchor;
-- (long long)_minQuantityAnchor;
-@property(setter=_setDeepBreathingSessionAnchor:) long long deepBreathingSessionAnchor;
-@property(setter=_setWorkoutAnchor:) long long workoutAnchor;
-@property(setter=_setFlightsClimbedAnchor:) long long flightsClimbedAnchor;
-@property(setter=_setPushCountAnchor:) long long pushCountAnchor;
-@property(setter=_setWalkingAndRunningDistanceAnchor:) long long walkingAndRunningDistanceAnchor;
-@property(setter=_setStepCountAnchor:) long long stepCountAnchor;
-@property(setter=_setEnergyBurnedGoalAnchor:) long long energyBurnedGoalAnchor;
-@property(setter=_setBriskMinutesAnchor:) long long briskMinutesAnchor;
-@property(setter=_setActiveHoursAnchor:) long long activeHoursAnchor;
-@property(setter=_setActiveEnergyBurnedAnchor:) long long activeEnergyBurnedAnchor;
+@property(retain, setter=_setDailyBriskMinutesStatistics:) NSArray *dailyBriskMinutesStatistics;
+@property(readonly) _Bool hasDailyBriskMinutesStatistics;
+@property(retain, setter=_setDailyEnergyBurnedStatistics:) NSArray *dailyEnergyBurnedStatistics;
+@property(readonly) _Bool hasDailyEnergyBurnedStatistics;
 @property(readonly) _Bool hasFlightsClimbed;
 @property(setter=_setFlightsClimbed:) long long flightsClimbed;
 @property(readonly) _Bool hasWalkingAndRunningDistance;

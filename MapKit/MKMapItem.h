@@ -7,15 +7,19 @@
 #import <Foundation/NSObject.h>
 
 #import <MapKit/GEOURLSerializable-Protocol.h>
+#import <MapKit/NSItemProviderReading-Protocol.h>
+#import <MapKit/NSItemProviderWriting-Protocol.h>
+#import <MapKit/NSSecureCoding-Protocol.h>
 
-@class GEOAddress, GEOFeatureStyleAttributes, GEOMapItemDetourInfo, GEOMapRegion, GEOPDBusinessClaim, GEOPDFlyover, GEOPlace, MKMapItemMetadata, MKPlacemark, NSArray, NSData, NSNumber, NSNumberFormatter, NSString, NSTimeZone, NSURL, _MKMapItemPhotosAttribution, _MKMapItemPlaceAttribution, _MKMapItemReviewsAttribution, _MKPlaceReservationInfo;
-@protocol GEOEncyclopedicInfo, GEOMapItem, GEOMapItemPrivate, GEOMapItemTransitInfo, GEOTransitAttribution, NSObject;
+@class GEOAddress, GEOFeatureStyleAttributes, GEOMapItemDetourInfo, GEOMapRegion, GEOPDBusinessClaim, GEOPDFlyover, GEOPlace, MKMapItemIdentifier, MKMapItemMetadata, MKPlacemark, NSArray, NSData, NSNumber, NSNumberFormatter, NSString, NSTimeZone, NSURL, _MKMapItemPhotosAttribution, _MKMapItemPlaceAttribution, _MKMapItemReviewsAttribution, _MKPlaceReservationInfo;
+@protocol GEOEncyclopedicInfo, GEOMapItem, GEOMapItemPrivate, GEOMapItemTransitInfo, GEOMapItemVenueInfo, GEOTransitAttribution, NSObject;
 
-@interface MKMapItem : NSObject <GEOURLSerializable>
+@interface MKMapItem : NSObject <NSSecureCoding, NSItemProviderReading, NSItemProviderWriting, GEOURLSerializable>
 {
     _Bool _isCurrentLocation;
     _Bool _isPlaceHolder;
     id <GEOMapItem> _geoMapItem;
+    MKMapItemIdentifier *_identifier;
     _Bool _isTransitInfoUpdated;
     id <GEOMapItemTransitInfo> _updatedTransitInfo;
     id <GEOMapItemTransitInfo> _defaultTransitInfo;
@@ -31,7 +35,7 @@
     NSString *_shortAddress;
     NSString *_firstLocalizedCategoryName;
     NSNumberFormatter *_numberFormatterForAdamId;
-    _Bool _isTransitItem;
+    _Bool _isMapItemTypeTransit;
     MKMapItemMetadata *_metadata;
     GEOPlace *_place;
     _MKPlaceReservationInfo *_reservationInfo;
@@ -41,6 +45,7 @@
 + (id)_urlForMapItemHandles:(id)arg1 options:(id)arg2;
 + (id)urlForMapItems:(id)arg1 options:(id)arg2;
 + (id)urlForMapItem:(id)arg1 options:(id)arg2;
++ (id)_mapItemBackedByURL:(id)arg1;
 + (id)mapItemsFromURL:(id)arg1 options:(id *)arg2;
 + (id)launchOptionsFromURL:(id)arg1;
 + (id)_launchOptionsFromResourceOptionsDictionary:(id)arg1;
@@ -58,19 +63,26 @@
 + (_Bool)_openHandleInMaps:(id)arg1 withLaunchOptions:(id)arg2;
 + (void)openMapsWithItems:(id)arg1 launchOptions:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (_Bool)openMapsWithItems:(id)arg1 launchOptions:(id)arg2;
++ (id)_localizedNextOpeningDayOftheWeekFormatter;
++ (id)_localizedNextOpeningHoursFormatter;
 + (id)mapItemForCurrentLocation;
 + (void)_mapItemsWithSerializedPlaceDataResponse:(id)arg1 handler:(CDUnknownBlockType)arg2;
 + (id)mapItemWithSerializedPlaceData:(id)arg1 serializedDetourInfo:(id)arg2 currentLocation:(_Bool)arg3;
 + (id)mapItemWithSerializedPlaceData:(id)arg1;
 + (id)_itemWithContact:(id)arg1 geoMapItem:(id)arg2;
-+ (id)_itemWithAddressBookRef:(void *)arg1 geoMapItem:(id)arg2;
 + (id)_itemWithGeoMapItem:(id)arg1;
 + (id)_mapItemWithWithLocation:(id)arg1 addressDictionary:(id)arg2 name:(id)arg3 businessURL:(id)arg4 phoneNumber:(id)arg5 sessionID:(id)arg6 muid:(unsigned long long)arg7 attributionID:(id)arg8 sampleSizeForUserRatingScore:(unsigned int)arg9 normalizedUserRatingScore:(float)arg10;
++ (_Bool)supportsSecureCoding;
++ (id)newObjectWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 options:(id)arg3 error:(id *)arg4;
++ (id)readableTypeIdentifiersForItemProvider;
++ (id)writableTypeIdentifiersForItemProvider;
++ (id)ticketForMapsDataString:(id)arg1 name:(id)arg2;
 + (void)_fillOutRequest:(id)arg1 withMapsDataString:(id)arg2;
 + (id)contactsAddressKeysForGeoAddressKeys;
 + (id)contactsAddressDictionaryFromGeoAddressDictionary:(id)arg1;
++ (id)_mapItemFromVCardRepresentation:(id)arg1 error:(id *)arg2;
 @property(retain, nonatomic) _MKPlaceReservationInfo *reservationInfo; // @synthesize reservationInfo=_reservationInfo;
-@property(nonatomic, getter=_isTransitItem) _Bool isTransitItem; // @synthesize isTransitItem=_isTransitItem;
+@property(nonatomic, getter=_isMapItemTypeTransit) _Bool isMapItemTypeTransit; // @synthesize isMapItemTypeTransit=_isMapItemTypeTransit;
 @property(readonly, nonatomic, getter=_reviewsAttribution) _MKMapItemReviewsAttribution *reviewsAttribution; // @synthesize reviewsAttribution=_reviewsAttribution;
 @property(readonly, nonatomic, getter=_photosAttribution) _MKMapItemPhotosAttribution *photosAttribution; // @synthesize photosAttribution=_photosAttribution;
 @property(readonly, nonatomic, getter=_attribution) _MKMapItemPlaceAttribution *attribution; // @synthesize attribution=_attribution;
@@ -87,6 +99,15 @@
 @property(readonly, nonatomic) NSString *reviewsProviderDisplayName;
 @property(readonly, nonatomic, getter=_tips) NSArray *tips;
 @property(readonly, nonatomic, getter=_reviews) NSArray *reviews;
+@property(readonly, nonatomic, getter=_quickLinks) NSArray *quickLinks;
+@property(readonly, nonatomic, getter=_messageURLString) NSString *messageURLString;
+@property(readonly, nonatomic, getter=_messageID) NSString *messageID;
+@property(readonly, nonatomic, getter=_isStandAloneBrand) _Bool isStandAloneBrand;
+@property(readonly, nonatomic, getter=_isMapItemTypeBrand) _Bool isMapItemTypeBrand;
+@property(readonly, nonatomic, getter=_isMapItemTypeAddress) _Bool isMapItemTypeAddress;
+@property(readonly, nonatomic, getter=_isMapItemTypeSettlement) _Bool isMapItemTypeSettlement;
+@property(readonly, nonatomic, getter=_isMapItemTypeBusiness) _Bool isMapItemTypeBusiness;
+@property(readonly, nonatomic, getter=_isMapItemTypeUnknown) _Bool isMapItemTypeUnknown;
 @property(readonly, nonatomic, getter=_customIconID) unsigned long long customIconID;
 @property(readonly, nonatomic, getter=_styleAttributes) GEOFeatureStyleAttributes *styleAttributes;
 - (id)_attributionFor:(id)arg1 sourceStringFormat:(id)arg2 moreSourceStringFormat:(id)arg3 imageTintColor:(id)arg4;
@@ -98,6 +119,7 @@
 @property(readonly, nonatomic, getter=_needsAttribution) _Bool needsAttribution;
 @property(readonly, nonatomic, getter=_alternativeAppAdamIds) NSArray *alternativeAppAdamIds;
 @property(readonly, nonatomic, getter=_preferedAppAdamID) NSNumber *preferedAppAdamID;
+- (id)venueLabelWithContext:(unsigned long long)arg1;
 - (id)_addressFormattedAsAddressDictionary;
 - (id)_addressFormattedAsTitlesForMapRect:(CDStruct_02837cd9)arg1;
 - (id)_addressFormattedAsWeatherDisplayName;
@@ -108,8 +130,11 @@
 - (id)_postalAddressFromMeCardUsingAddressIdentifier:(id)arg1;
 - (id)_addressFormattedAsCity;
 - (id)_addressOrNil:(id)arg1;
+- (id)_bestBrandIconURLForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
 - (_Bool)_canGetDirections;
-- (id)_activityURL:(_Bool)arg1;
+- (id)_urlExtraStorage;
+- (id)_activityURLUsingWebPlaceCard:(_Bool)arg1;
+- (id)_activityURL;
 - (id)_weatherDisplayName;
 - (id)_fullAddressWithMultiline:(_Bool)arg1;
 - (_Bool)_isEquivalentURLRepresentationTo:(id)arg1;
@@ -129,9 +154,14 @@
 @property(readonly, nonatomic, getter=_disambiguationName) NSString *disambiguationName;
 @property(readonly, nonatomic, getter=_encyclopedicInfo) id <GEOEncyclopedicInfo> encyclopedicInfo;
 @property(readonly, nonatomic, getter=_hasEncyclopedicInfo) _Bool hasEncyclopedicInfo;
+@property(readonly, nonatomic, getter=_localizedResponseTime) NSString *localizedResponseTime;
+@property(readonly, nonatomic, getter=_messageBusinessHours) NSArray *messageBusinessHours;
+- (id)_localizedNextOpeningStringShort:(_Bool)arg1;
+@property(readonly, nonatomic, getter=_localizedMessageBusinessOperatingHours) NSString *localizedMessageBusinessOperatingHours;
 @property(readonly, nonatomic, getter=_localizedOperatingHours) NSString *localizedOperatingHours;
 @property(readonly, nonatomic, getter=_hasLocalizedOperatingHours) _Bool hasLocalizedOperatingHours;
 @property(readonly, nonatomic, getter=_hasOperatingHours) _Bool hasOperatingHours;
+@property(readonly, nonatomic, getter=_responseStatusIsIncomplete) _Bool responseStatusIncomplete;
 @property(readonly, nonatomic, getter=_hasResolvablePartialInformation) _Bool hasResolvablePartialInformation;
 @property(readonly, nonatomic, getter=_acceptsApplePay) _Bool acceptsApplePay;
 @property(readonly, nonatomic, getter=_hasAcceptsApplePayAmenity) _Bool hasAcceptsApplePayAmenity;
@@ -150,12 +180,19 @@
 @property(readonly, nonatomic, getter=_priceRangeString) NSString *priceRangeString;
 @property(readonly, nonatomic, getter=_hasPriceRange) _Bool hasPriceRange;
 @property(readonly, nonatomic, getter=_normalizedUserRatingScore) float normalizedUserRatingScore;
+@property(readonly, nonatomic, getter=_priceDescription) NSString *priceDescription;
+@property(readonly, nonatomic, getter=_hasPriceDescription) _Bool hasPriceDescription;
 @property(readonly, nonatomic, getter=_sampleSizeForUserRatingScore) unsigned int sampleSizeForUserRatingScore;
 @property(readonly, nonatomic, getter=_hasUserRatingScore) _Bool hasUserRatingScore;
 @property(readonly, nonatomic, getter=_resultProviderID) int resultProviderID;
 @property(readonly, nonatomic, getter=_hasResultProviderID) _Bool hasResultProviderID;
 @property(readonly, nonatomic, getter=_muid) unsigned long long muid;
 @property(readonly, nonatomic, getter=_hasMUID) _Bool hasMUID;
+@property(readonly, nonatomic, getter=_identifier) MKMapItemIdentifier *identifier;
+@property(readonly, nonatomic, getter=_venueInfo) id <GEOMapItemVenueInfo> venueInfo;
+@property(readonly, nonatomic, getter=_venueCategoryBrowseType) long long venueCategoryBrowseType;
+@property(readonly, nonatomic, getter=_venueFeatureType) long long venueFeatureType;
+@property(readonly, nonatomic, getter=_hasVenueFeatureType) _Bool hasVenueFeatureType;
 @property(readonly, nonatomic, getter=_flyoverAnnouncementMessage) NSString *flyoverAnnouncementMessage;
 @property(readonly, nonatomic, getter=_flyover) GEOPDFlyover *flyover;
 @property(readonly, nonatomic, getter=_hasFlyover) _Bool hasFlyover;
@@ -167,6 +204,10 @@
 @property(readonly, nonatomic, getter=_hasTransitDisplayName) _Bool hasTransitDisplayName;
 @property(readonly, nonatomic, getter=_hasTransit) _Bool hasTransit;
 @property(readonly, nonatomic, getter=_geoFenceMapRegion) GEOMapRegion *geoFenceMapRegion;
+@property(readonly, nonatomic, getter=_displayMaxZoom) float displayMaxZoom;
+@property(readonly, nonatomic, getter=_hasDisplayMaxZoom) _Bool hasDisplayMaxZoom;
+@property(readonly, nonatomic, getter=_displayMinZoom) float displayMinZoom;
+@property(readonly, nonatomic, getter=_hasDisplayMinZoom) _Bool hasDisplayMinZoom;
 @property(readonly, nonatomic, getter=_displayMapRegion) GEOMapRegion *displayMapRegion;
 @property(readonly, nonatomic, getter=_coordinate) struct CLLocationCoordinate2D coordinate;
 @property(readonly, nonatomic) NSString *yelpID;
@@ -190,6 +231,7 @@
 - (id)initWithPlace:(id)arg1;
 - (id)initWithGeoMapItem:(id)arg1 isPlaceHolderPlace:(_Bool)arg2;
 - (id)initWithGeoMapItemAsCurrentLocation:(id)arg1;
+- (void)_launchActivityForBrandItem;
 - (id)thumbnailWithSize:(struct CGSize)arg1 annotationView:(id)arg2;
 - (id)sharingURL;
 - (_Bool)_isBusinessClosed;
@@ -199,7 +241,13 @@
 @property(readonly, nonatomic) NSString *formattedNumberOfReviews;
 - (id)_reviewForIdentifier:(id)arg1;
 - (void)updateTransitInfoWithMapItem:(id)arg1;
+- (id)_localizedBusinessHoursWithOpeningHoursOptions:(unsigned long long)arg1 andOperationsHours:(id)arg2;
+- (id)_localizedMessageBusinessHoursWithCurrentOpeningHoursOptions;
 - (id)_localizedBusinessHoursWithCurrentOpeningHoursOptions;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
+- (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)_restaurantLink_overridenBundleIDsForVendorIDs;
 - (id)_restaurantLink_firstProviderDisplayName;
 - (id)_restaurantLink_firstProviderPlaceIdentifier;
@@ -208,16 +256,20 @@
 - (unsigned long long)_restaurantExtensionModeForFirstProvider;
 - (_Bool)_restaurantLink_hasFeatureType:(unsigned long long)arg1;
 - (_Bool)_hasRestaurantExtensionInfo;
+- (id)_htmlRepresentation;
 @property(readonly, getter=_hasDisplayableAmenities) _Bool hasDisplayableAmenities;
 - (id)_mapsDataString;
 - (id)_initWithLabelMarker:(id)arg1;
 - (id)_placeCardContact;
 @property(readonly, getter=_isEmptyContactMapItem) _Bool isEmptyContactMapItem;
 - (id)initWithContact:(id)arg1;
+- (id)_vCardFilename;
+- (id)_vCardRepresentation;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
 
 @end
 

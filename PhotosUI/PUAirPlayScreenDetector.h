@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)_tearDownScreenNotifications;
 - (void)_setUpScreenNotifications;
 - (void)_scanForAvailableScreensIfNeeded;
+- (_Bool)shouldIgnoreScreen:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableScreens;
 - (void)dealloc;
 - (id)init;

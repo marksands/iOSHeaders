@@ -11,29 +11,18 @@
 __attribute__((visibility("hidden")))
 @interface UIKBBackdropView : _UIBackdropView
 {
-    _Bool _primaryBackdrop;
     NSMutableArray *_secondaryBackdrops;
-    _Bool _hasUpdatedFrame;
     UIImage *_imageForCorners;
 }
 
-+ (void)overlayRelevantSettings:(id)arg1 ontoSettings:(id)arg2;
-+ (void)_updatedSecondaryBackdropsWithSettings:(id)arg1;
-+ (void)_unregisterSecondaryBackdropView:(id)arg1;
-+ (void)_registerSecondaryBackdropView:(id)arg1;
-+ (id)triggerNotificationNames;
-+ (id)unconditionalTriggerNotificationNames;
 @property(retain, nonatomic) UIImage *imageForCorners; // @synthesize imageForCorners=_imageForCorners;
-@property(readonly, nonatomic) _Bool _hasUpdatedFrame; // @synthesize _hasUpdatedFrame;
 - (void)didCallRenderInContextOnBackdropViewLayer;
 - (void)willCallRenderInContextOnBackdropViewLayer;
-- (void)layoutSubviews;
+- (void)_applyCornerRadiusToSubviews;
 - (void)_setRenderConfig:(id)arg1;
-- (void)applySettings:(id)arg1;
-- (void)triggerUpdate:(id)arg1;
-- (void)transitionToStyle:(long long)arg1;
 - (int)textEffectsVisibilityLevel;
 - (void)updateFrame:(struct CGRect)arg1 withCorners:(int)arg2;
+@property(readonly, nonatomic) _Bool _hasUpdatedFrame;
 - (id)_generateCornerContentsImage:(int)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)dealloc;

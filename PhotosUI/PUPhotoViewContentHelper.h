@@ -8,7 +8,7 @@
 
 #import <PhotosUI/PHLivePhotoViewDelegate-Protocol.h>
 
-@class NSString, PHLivePhoto, PHLivePhotoView, PUAvalancheStackView, PUBackgroundColorView, PUPhotoDecoration, PUTextBannerView, PXCollectionTileLayoutTemplate, PXFeatureSpec, PXRoundedCornerOverlayView, PXTitleSubtitleUILabel, PXUIAssetBadgeView, UIColor, UIImage, UIImageView, UIView;
+@class AVAsset, ISWrappedAVPlayer, NSString, PHLivePhoto, PHLivePhotoView, PUAvalancheStackView, PUBackgroundColorView, PUPhotoDecoration, PUTextBannerView, PXCollectionTileLayoutTemplate, PXFeatureSpec, PXRoundedCornerOverlayView, PXTitleSubtitleUILabel, PXUIAssetBadgeView, PXVideoPlayerView, UIColor, UIImage, UIImageView, UIView;
 @protocol PUPhotoViewContentHelperDelegate;
 
 @interface PUPhotoViewContentHelper : NSObject <PHLivePhotoViewDelegate>
@@ -24,7 +24,10 @@
     UIColor *_layerDefaultBackgroundColor;
     struct {
         _Bool titleSubtitleUILabel;
+        _Bool loopingVideoView;
     } _needsUpdateFlags;
+    PXVideoPlayerView *_loopingVideoView;
+    ISWrappedAVPlayer *_loopingVideoPlayer;
     _Bool _isTextBannerVisible;
     _Bool _avoidsImageViewIfPossible;
     _Bool _flattensBadgeView;
@@ -47,6 +50,7 @@
     UIColor *_backgroundColor;
     id <PUPhotoViewContentHelperDelegate> _delegate;
     PHLivePhoto *_livePhoto;
+    AVAsset *_loopingVideoAsset;
     struct CGColor *_avalancheStackBackgroundColor;
     long long _badgeStyle;
     PUTextBannerView *_textBannerView;
@@ -89,6 +93,7 @@
 @property(nonatomic) struct CGColor *avalancheStackBackgroundColor; // @synthesize avalancheStackBackgroundColor=_avalancheStackBackgroundColor;
 @property(nonatomic) _Bool needsAvalancheStack; // @synthesize needsAvalancheStack=_needsAvalancheStack;
 @property(nonatomic) _Bool showsLivePhoto; // @synthesize showsLivePhoto=_showsLivePhoto;
+@property(copy, nonatomic) AVAsset *loopingVideoAsset; // @synthesize loopingVideoAsset=_loopingVideoAsset;
 @property(nonatomic) _Bool shouldPrepareForPlayback; // @synthesize shouldPrepareForPlayback=_shouldPrepareForPlayback;
 @property(retain, nonatomic) PHLivePhoto *livePhoto; // @synthesize livePhoto=_livePhoto;
 @property(nonatomic) __weak id <PUPhotoViewContentHelperDelegate> delegate; // @synthesize delegate=_delegate;
@@ -117,12 +122,16 @@
 - (struct CGSize)contentViewSizeThatFits:(struct CGSize)arg1;
 - (void)_updateTitleSubtitleUILabelIfNeeded;
 - (void)_invalidateTitleSubtitleUILabel;
+- (void)_updateLoopingVideoViewIfNeeded;
+- (void)_invalidateLoopingVideoView;
 - (void)_updateHighlight;
 - (void)_updateRoundedCornersOverlayView;
 - (void)_updateLayerCornerRadius;
 - (void)_updatePhotoDecoration;
 - (void)_updateBadgeView;
 - (void)_invalidateBadgeView;
+- (void)_updateIfNeeded;
+- (_Bool)_needsUpdate;
 - (void)_updateTextBannerView;
 - (void)_updateSubviewOrdering;
 - (void)_updateContentViewClipsToBounds;

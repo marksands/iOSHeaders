@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 + (id)_alloc;
 + (id)allocWithZone:(struct _NSZone *)arg1;
+- (id)objectEnumerator;
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (unsigned long long)count;
 - (id)autorelease;

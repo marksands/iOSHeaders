@@ -11,8 +11,8 @@
 #import <UIKit/_UIPlatterMenuDynamicsControllerDelegate-Protocol.h>
 #import <UIKit/_UIPreviewActionSheetViewDelegate-Protocol.h>
 
-@class NSArray, NSLayoutConstraint, NSString, UIGestureRecognizer, UIImageView, UIInteractionProgress, UIPreviewAction, UIPreviewForceInteractionProgress, UIScrollView, UITapGestureRecognizer, UIView, UIWindow, _UIFeedbackStatesBehavior, _UIPlatterMenuDynamicsController, _UIPreviewActionSheetView, _UIPreviewPresentationAnimator, _UIPreviewPresentationContainerView, _UIPreviewPresentationEffectView, _UIPreviewQuickActionView, _UIVelocityIntegrator;
-@protocol _UIForcePresentationControllerDelegate;
+@class NSArray, NSLayoutConstraint, NSString, UIGestureRecognizer, UIImageView, UIInteractionProgress, UIPreviewAction, UIPreviewForceInteractionProgress, UIPreviewInteractionController, UIScrollView, UITapGestureRecognizer, UIView, UIWindow, _UIPlatterMenuDynamicsController, _UIPreviewActionSheetView, _UIPreviewPresentationAnimator, _UIPreviewPresentationContainerView, _UIPreviewPresentationEffectView, _UIPreviewQuickActionView, _UIStatesFeedbackGenerator, _UIVelocityIntegrator;
+@protocol UIViewControllerPreviewing, _UIForcePresentationControllerDelegate;
 
 @interface _UIPreviewPresentationController : UIPreviewPresentationController <UIInteractionProgressObserver, _UIPreviewActionSheetViewDelegate, _UIPlatterMenuDynamicsControllerDelegate, UIForcePresentationController>
 {
@@ -29,7 +29,7 @@
     UIGestureRecognizer *_panningGestureRecognizer;
     CDUnknownBlockType _presentationPhaseCompletionBlock;
     id <_UIForcePresentationControllerDelegate> _forcePresentationControllerDelegate;
-    _UIFeedbackStatesBehavior *_feedbackBehavior;
+    _UIStatesFeedbackGenerator *_feedbackGenerator;
     UIView *_actionSheetContainerView;
     UIScrollView *_containerScrollView;
     _UIPreviewActionSheetView *_previewActionSheet;
@@ -39,7 +39,6 @@
     _UIPreviewPresentationEffectView *_revealContainerView;
     UIWindow *_initialSourceViewSnapshotWindow;
     UIView *_initialSourceViewSnapshot;
-    UIView *_updatedSourceViewSnapshot;
     _UIPreviewPresentationAnimator *_unhighlightPreviewCellSnapshotViewAnimator;
     NSArray *_previewActionItems;
     UIPreviewAction *_leadingPreviewAction;
@@ -55,12 +54,16 @@
     _UIPlatterMenuDynamicsController *_platterMenuController;
     _UIVelocityIntegrator *_revealPanningVelocityIntegrator;
     unsigned long long _currentPresentationPhase;
+    UIPreviewInteractionController *_previewInteractionController;
+    id <UIViewControllerPreviewing> _previewingContext;
     UIInteractionProgress *_interactionProgressForPresentation;
 }
 
 + (_Bool)_shouldApplyVisualEffectsToPresentingView;
 + (id)_backgroundEffectForTraitCollection:(id)arg1 interactive:(_Bool)arg2;
 @property(retain, nonatomic) UIInteractionProgress *interactionProgressForPresentation; // @synthesize interactionProgressForPresentation=_interactionProgressForPresentation;
+@property(nonatomic) __weak id <UIViewControllerPreviewing> previewingContext; // @synthesize previewingContext=_previewingContext;
+@property(nonatomic) __weak UIPreviewInteractionController *previewInteractionController; // @synthesize previewInteractionController=_previewInteractionController;
 @property(nonatomic) unsigned long long currentPresentationPhase; // @synthesize currentPresentationPhase=_currentPresentationPhase;
 @property(readonly, nonatomic, getter=isBreathing) _Bool breathing; // @synthesize breathing=_breathing;
 @property(nonatomic) _Bool panningGestureRecognizerInProgress; // @synthesize panningGestureRecognizerInProgress=_panningGestureRecognizerInProgress;
@@ -84,7 +87,6 @@
 @property(copy, nonatomic) UIPreviewAction *leadingPreviewAction; // @synthesize leadingPreviewAction=_leadingPreviewAction;
 @property(copy, nonatomic) NSArray *previewActionItems; // @synthesize previewActionItems=_previewActionItems;
 @property(retain, nonatomic) _UIPreviewPresentationAnimator *unhighlightPreviewCellSnapshotViewAnimator; // @synthesize unhighlightPreviewCellSnapshotViewAnimator=_unhighlightPreviewCellSnapshotViewAnimator;
-@property(retain, nonatomic) UIView *updatedSourceViewSnapshot; // @synthesize updatedSourceViewSnapshot=_updatedSourceViewSnapshot;
 @property(retain, nonatomic) UIView *initialSourceViewSnapshot; // @synthesize initialSourceViewSnapshot=_initialSourceViewSnapshot;
 @property(retain, nonatomic) UIWindow *initialSourceViewSnapshotWindow; // @synthesize initialSourceViewSnapshotWindow=_initialSourceViewSnapshotWindow;
 @property(retain, nonatomic) _UIPreviewPresentationEffectView *revealContainerView; // @synthesize revealContainerView=_revealContainerView;
@@ -94,7 +96,7 @@
 @property(retain, nonatomic) _UIPreviewActionSheetView *previewActionSheet; // @synthesize previewActionSheet=_previewActionSheet;
 @property(retain, nonatomic) UIScrollView *containerScrollView; // @synthesize containerScrollView=_containerScrollView;
 @property(retain, nonatomic) UIView *actionSheetContainerView; // @synthesize actionSheetContainerView=_actionSheetContainerView;
-@property(retain, nonatomic) _UIFeedbackStatesBehavior *feedbackBehavior; // @synthesize feedbackBehavior=_feedbackBehavior;
+@property(retain, nonatomic) _UIStatesFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;
 @property(nonatomic) _Bool didSendBeginEvent; // @synthesize didSendBeginEvent=_didSendBeginEvent;
 @property(nonatomic) __weak id <_UIForcePresentationControllerDelegate> forcePresentationControllerDelegate; // @synthesize forcePresentationControllerDelegate=_forcePresentationControllerDelegate;
 @property(nonatomic) _Bool _sourceViewSnapshotAndScaleTransformSuppressed; // @synthesize _sourceViewSnapshotAndScaleTransformSuppressed;

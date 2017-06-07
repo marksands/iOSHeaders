@@ -8,7 +8,7 @@
 
 #import <Metal/MTLFunctionSPI-Protocol.h>
 
-@class NSArray, NSDictionary, NSString;
+@class MTLType, NSArray, NSDictionary, NSString;
 @protocol MTLDevice, OS_dispatch_data;
 
 @interface _MTLFunction : NSObject <MTLFunctionSPI>
@@ -21,8 +21,9 @@
     NSArray *_vertexAttributes;
     NSArray *_functionConstants;
     NSDictionary *_functionConstantDictionary;
-    NSObject<OS_dispatch_data> *_constantData;
     NSString *_label;
+    MTLType *_returnType;
+    NSArray *_arguments;
 }
 
 @property(copy) NSString *label; // @synthesize label=_label;
@@ -31,19 +32,22 @@
 @property(readonly) NSString *name; // @synthesize name=_name;
 @property(readonly) unsigned long long functionType; // @synthesize functionType=_functionType;
 @property(readonly) id <MTLDevice> device; // @synthesize device=_device;
+- (id)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1 reflection:(id *)arg2;
+- (id)newIndirectArgumentEncoderWithBufferIndex:(unsigned long long)arg1;
+- (void)reflectionWithOptions:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)reflectionWithOptions:(unsigned long long)arg1;
+- (id)newSerializedVertexDataWithVertexDescriptor:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)formattedDescription:(unsigned long long)arg1;
-@property(readonly) NSObject<OS_dispatch_data> *constantData; // @dynamic constantData;
 @property(readonly) NSDictionary *functionConstantsDictionary;
 - (void)dealloc;
-- (void)newSpecializedFunctionWithConstants:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)newSpecializedFunctionWithConstants:(id)arg1 error:(id *)arg2;
 - (unsigned long long)bitCodeFileSize;
 - (const CDStruct_41a22ec7 *)bitCodeHash;
 - (void)setVendorPrivate:(id)arg1;
 - (id)initWithName:(id)arg1 type:(unsigned long long)arg2 libraryData:(struct MTLLibraryData *)arg3 device:(id)arg4;
 
 // Remaining properties
+@property NSArray *arguments; // @dynamic arguments;
 @property(readonly) unsigned long long bitCodeOffset; // @dynamic bitCodeOffset;
 @property(readonly) unsigned char bitcodeType; // @dynamic bitcodeType;
 @property(readonly, copy) NSString *debugDescription;
@@ -55,6 +59,7 @@
 @property(readonly) _Bool needsFunctionConstantValues; // @dynamic needsFunctionConstantValues;
 @property(readonly) long long patchControlPointCount; // @dynamic patchControlPointCount;
 @property(readonly) unsigned long long patchType; // @dynamic patchType;
+@property MTLType *returnType; // @dynamic returnType;
 @property(readonly) NSArray *stageInputAttributes; // @dynamic stageInputAttributes;
 @property(readonly) Class superclass;
 @property NSArray *vertexAttributes; // @dynamic vertexAttributes;

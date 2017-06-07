@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UIStatusBarForegroundStyleAttributes *foregroundStyle; // @synthesize foregroundStyle=_foregroundStyle;
 @property(nonatomic) long long idiom; // @synthesize idiom=_idiom;
 - (void).cxx_destruct;
+- (_Bool)rectIntersectsBatteryItem:(struct CGRect)arg1;
 - (_Bool)rectIntersectsTimeItem:(struct CGRect)arg1;
 - (void)jiggleLockIcon;
 - (void)animateUnlock;

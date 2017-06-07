@@ -6,7 +6,7 @@
 
 #import <MediaPlayer/MPContentItem.h>
 
-@class NSDate, NSString;
+@class MPNowPlayingInfoLyricsItem, NSArray, NSDate, NSDictionary, NSString;
 @protocol MPNowPlayingContentItemDescriptionDataSource, MPNowPlayingContentItemLanguageOptionDataSource, MPNowPlayingContentItemLyricsDataSource;
 
 @interface MPNowPlayingContentItem : MPContentItem
@@ -14,6 +14,7 @@
     id <MPNowPlayingContentItemLyricsDataSource> _lyricsDataSource;
     id <MPNowPlayingContentItemDescriptionDataSource> _descriptionDataSource;
     id <MPNowPlayingContentItemLanguageOptionDataSource> _languageOptionDataSource;
+    NSDictionary *_collectionInfo;
 }
 
 - (void).cxx_destruct;
@@ -23,28 +24,43 @@
 - (unsigned int)_convertFromRadioStationType:(long long)arg1;
 - (long long)_convertToPlaylistType:(unsigned int)arg1;
 - (unsigned int)_convertFromPlaylistType:(long long)arg1;
-- (id)languageOptionDataSource;
-- (void)setLanguageOptionDataSource:(id)arg1;
-- (id)descriptionDataSource;
-- (void)setDescriptionDataSource:(id)arg1;
-- (id)lyricsDataSource;
-- (void)setLyricsDataSource:(id)arg1;
-- (void)setSeriesName:(id)arg1;
-- (id)seriesName;
-- (void)setStartTime:(double)arg1;
-- (double)startTime;
-- (void)setEditingStyleFlags:(long long)arg1;
-- (long long)editingStyleFlags;
-- (void)setLyrics:(id)arg1;
-- (id)lyrics;
-- (void)setSections:(id)arg1;
-- (id)sections;
-- (void)setCurrentLanguageOptions:(id)arg1;
-- (id)currentLanguageOptions;
-- (void)setAvailableLanguageOptions:(id)arg1;
-- (id)availableLanguageOptions;
-- (void)setInfo:(id)arg1;
-- (id)info;
+@property(copy, nonatomic) NSDictionary *collectionInfo;
+@property(nonatomic, getter=isSteerable) _Bool steerable;
+@property(readonly, nonatomic) NSDictionary *auxiliaryNowPlayingInfo;
+@property(nonatomic) NSDictionary *nowPlayingInfo;
+@property(nonatomic) NSDictionary *deviceSpecificUserInfo;
+@property(nonatomic) NSDictionary *userInfo;
+@property(nonatomic) unsigned long long mediaType;
+@property(nonatomic) float defaultPlaybackRate;
+@property(nonatomic) float playbackRate;
+@property(nonatomic) double elapsedTime;
+@property(readonly, nonatomic) double elapsedTimeTimestamp;
+@property(nonatomic) long long trackNumber;
+@property(nonatomic) long long totalTrackCount;
+@property(nonatomic) long long totalDiscCount;
+@property(nonatomic) long long discNumber;
+@property(nonatomic, getter=isAlwaysLiveItem) _Bool alwaysLiveItem;
+@property(nonatomic, getter=isSharableItem) _Bool sharableItem;
+@property(copy, nonatomic) NSString *radioStationStringIdentifier;
+@property(copy, nonatomic) NSString *radioStationName;
+@property(copy, nonatomic) NSString *genreName;
+@property(copy, nonatomic) NSString *composerName;
+@property(copy, nonatomic) NSString *queueIdentifier;
+@property(nonatomic) __weak id <MPNowPlayingContentItemLanguageOptionDataSource> languageOptionDataSource;
+@property(nonatomic) __weak id <MPNowPlayingContentItemDescriptionDataSource> descriptionDataSource;
+@property(nonatomic) __weak id <MPNowPlayingContentItemLyricsDataSource> lyricsDataSource;
+@property(nonatomic) long long storeSubscriptionID;
+@property(nonatomic) long long storeArtistID;
+@property(nonatomic) long long storeAlbumID;
+@property(nonatomic) long long storeID;
+@property(copy, nonatomic) NSString *seriesName;
+@property(nonatomic) double startTime;
+@property(nonatomic) long long editingStyleFlags;
+@property(copy, nonatomic) MPNowPlayingInfoLyricsItem *lyrics;
+@property(copy, nonatomic) NSArray *sections;
+@property(copy, nonatomic) NSArray *currentLanguageOptions;
+@property(copy, nonatomic) NSArray *availableLanguageOptions;
+@property(copy, nonatomic) NSString *info;
 @property(nonatomic) unsigned long long numberOfChildren;
 @property(copy, nonatomic) NSString *profileIdentifier;
 @property(copy, nonatomic) NSString *collectionIdentifier;
@@ -52,10 +68,8 @@
 @property(copy, nonatomic) NSString *localizedContentRating;
 @property(nonatomic) double duration;
 @property(nonatomic) long long playCount;
-- (void)setRadioStationType:(long long)arg1;
-- (long long)radioStationType;
-- (void)setPlaylistType:(long long)arg1;
-- (long long)playlistType;
+@property(nonatomic) long long radioStationType;
+@property(nonatomic) long long playlistType;
 @property(copy, nonatomic) NSDate *releaseDate;
 @property(nonatomic) long long episodeNumber;
 @property(nonatomic) long long seasonNumber;

@@ -14,11 +14,13 @@
 }
 
 + (id)fetchPredicateFromComparisonPredicate:(id)arg1 options:(id)arg2;
++ (id)fetchEmptyFaceGroupsWithOptions:(id)arg1;
++ (id)fetchFaceGroupsGroupedByFaceLocalIdentifierForFaces:(id)arg1 options:(id)arg2;
 + (id)fetchFaceGroupsWithFace:(id)arg1 options:(id)arg2;
 + (id)fetchFaceGroupsForPerson:(id)arg1 options:(id)arg2;
 + (id)fetchFaceGroupsWithLocalIdentifiers:(id)arg1 options:(id)arg2;
 + (id)fetchFaceGroupsWithOptions:(id)arg1;
-+ (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (id)propertiesToFetchWithHint:(unsigned long long)arg1;
 + (id)fetchType;

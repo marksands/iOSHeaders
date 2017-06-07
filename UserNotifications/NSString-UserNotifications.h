@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (UserNotifications)
+- (id)un_stringWithMaxLength:(unsigned long long)arg1;
 - (unsigned long long)un_unsignedLongLongValue;
 - (id)un_logDigest;
 @end

@@ -13,7 +13,6 @@
     AVPlayerLooperInternal *_looper;
 }
 
-+ (id)keyPathsForValuesAffectingLoopingEnabled;
 + (id)playerLooperWithPlayer:(id)arg1 templateItem:(id)arg2;
 + (id)playerLooperWithPlayer:(id)arg1 templateItem:(id)arg2 timeRange:(CDStruct_e83c9415)arg3;
 + (void)initialize;
@@ -26,7 +25,6 @@
 - (void)_configureLoopingItem:(id)arg1;
 @property(readonly, nonatomic) NSArray *loopingPlayerItems;
 @property(readonly) long long loopCount;
-- (_Bool)isLoopingEnabled;
 - (void)disableLooping;
 - (void)_changeStatusToFailedWithError:(id)arg1;
 @property(readonly) NSError *error;

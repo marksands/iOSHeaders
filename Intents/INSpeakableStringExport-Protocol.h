@@ -10,6 +10,7 @@
 @class NSString;
 
 @protocol INSpeakableStringExport <NSObject, JSExport>
+@property(retain, nonatomic) NSString *vocabularyIdentifier;
 @property(retain, nonatomic) NSString *identifier;
 @property(retain, nonatomic) NSString *pronunciationHint;
 @property(retain, nonatomic) NSString *spokenPhrase;

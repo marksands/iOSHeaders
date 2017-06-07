@@ -19,8 +19,11 @@
     _Bool hasSaveRestriction;
 }
 
+- (struct CGSize)maximumVideoResolution;
 - (id)propertyListForProxy;
 - (id)_nameForProxy;
+- (id)_assetAnalysisMessages;
+- (_Bool)supportsAnalysisReporting;
 - (CDStruct_1b6d18a9)overallDurationHint;
 - (_Bool)containsFragments;
 - (_Bool)canContainFragments;

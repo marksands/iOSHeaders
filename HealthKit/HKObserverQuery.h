@@ -6,19 +6,31 @@
 
 #import <HealthKit/HKQuery.h>
 
-@interface HKObserverQuery : HKQuery
+#import <HealthKit/HKObserverQueryClientInterface-Protocol.h>
+
+@class NSString;
+
+@interface HKObserverQuery : HKQuery <HKObserverQueryClientInterface>
 {
     CDUnknownBlockType _updateHandler;
 }
 
++ (id)clientInterfaceProtocol;
 @property(readonly, nonatomic) CDUnknownBlockType updateHandler; // @synthesize updateHandler=_updateHandler;
 - (void).cxx_destruct;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (_Bool)_queue_shouldStayAliveAfterInitialResults;
-- (void)_queue_validate;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)dataUpdatedInDatabaseWithAnchor:(id)arg1 query:(id)arg2;
+- (void)queue_deliverError:(id)arg1;
+- (_Bool)queue_shouldDeactivateAfterInitialResults;
+- (void)queue_validate;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)client_dataUpdatedInDatabaseWithAnchor:(id)arg1 query:(id)arg2;
 - (id)initWithSampleType:(id)arg1 predicate:(id)arg2 updateHandler:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

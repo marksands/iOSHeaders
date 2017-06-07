@@ -9,7 +9,6 @@
 @class NSMutableArray, NSMutableDictionary;
 @protocol SCNRenderContext;
 
-__attribute__((visibility("hidden")))
 @interface SCNRenderTargetRegistry : NSObject
 {
     id <SCNRenderContext> _renderContext;
@@ -31,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)releaseRenderTargetNamed:(id)arg1;
 - (id)renderTargetWithName:(id)arg1;
 - (void)releaseRenderTarget:(id)arg1;
-- (id)renderTargetWithDescription:(CDStruct_fd8065c6)arg1 size:(id)arg2 name:(long long)arg3 useCount: /* Error: Ran out of types for this method. */;
+- (id)renderTargetWithDescription:(CDStruct_fd8065c6)arg1 size:(long long)arg2 arrayLength:(id)arg3 name:(long long)arg4 useCount: /* Error: Ran out of types for this method. */;
 - (void)dealloc;
 - (id)initWithRenderContext:(id)arg1;
 @property(readonly, nonatomic) long long numberOfRenderTargets;

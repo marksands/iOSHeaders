@@ -78,6 +78,7 @@
 - (void)_setHighlightsToday:(_Bool)arg1;
 @property(readonly, nonatomic, getter=_contentWidth) double contentWidth; // @dynamic contentWidth;
 @property(readonly, nonatomic, getter=_isTimeIntervalMode) _Bool isTimeIntervalMode; // @dynamic isTimeIntervalMode;
+- (id)_lastSelectedDateComponents;
 - (id)_labelTextForCalendarUnit:(unsigned long long)arg1;
 - (id)_selectedTextForCalendarUnit:(unsigned long long)arg1;
 @property(nonatomic) double timeInterval; // @dynamic timeInterval;

@@ -26,7 +26,8 @@
 + (id)requiredLibraryRemovalProperties;
 + (_Bool)supportsKeepLocalStatusObservation;
 + (id)requiredKeepLocalStatusObservationProperties;
-+ (id)mqf_requiredPlaybackProperties;
++ (_Bool)storeItemMetadataRequestNeedsPersonalizationForIdentifiers:(id)arg1;
++ (id)storeItemMetadataRequestItemIdentifierForIdentifiers:(id)arg1;
 @property(readonly, copy, nonatomic) MPIdentifierSet *identifiers; // @synthesize identifiers=_identifiers;
 - (void).cxx_destruct;
 - (_Bool)hasLoadedValuesForProperties:(id)arg1;
@@ -38,13 +39,13 @@
 - (id)description;
 - (id)copyWithIdentifiers:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)initWithIdentifiers:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (id)contentItemCollectionInfo;
 - (id)mediaItemPropertyValues;
 @property(readonly, nonatomic) struct MPLibraryAddStatusObserverConfiguration libraryAddStatusObserverConfiguration;
 @property(readonly, nonatomic) long long libraryRemovalSupportedOptions;
 - (id)newKeepLocalStatusObserverConfiguration;
-- (id)mqf_playbackItemMetadataModelObject;
-- (void)mqf_configurePlaybackItemMetadata:(id)arg1;
-- (id)mqf_newPlaybackItemMetadata;
+- (_Bool)storeItemMetadataRequestNeedsPersonalization;
+- (id)storeItemMetadataRequestItemIdentifier;
 
 @end
 

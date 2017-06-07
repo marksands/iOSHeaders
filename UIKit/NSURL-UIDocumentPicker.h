@@ -14,6 +14,8 @@
 - (id)ui_resolveOnDiskBookmarkAndPromise;
 - (void)ui_scheduleForCleanup;
 - (id)ui_bookmarkForExportWithError:(id *)arg1;
+- (_Bool)ui_sourceIsManaged;
+- (void)ui_setSourceIsManaged:(_Bool)arg1;
 - (_Bool)ui_isUnfulfilledPromiseURL;
 - (_Bool)ui_canOpenInPlace;
 - (void)ui_setIsFileProviderURL:(_Bool)arg1;

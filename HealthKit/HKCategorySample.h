@@ -27,6 +27,7 @@
 @property(readonly) HKCategoryType *categoryType;
 - (id)init;
 - (long long)hk_integerValue;
+- (id)_bedtimeAlarmWithCalendar:(id)arg1;
 
 @end
 

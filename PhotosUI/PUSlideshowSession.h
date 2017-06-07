@@ -8,12 +8,12 @@
 
 #import <PhotosUI/PUSlideshowSettingsViewModelChangeObserver-Protocol.h>
 #import <PhotosUI/PUSlideshowViewModelChangeObserver-Protocol.h>
-#import <PhotosUI/_UISettingsKeyObserver-Protocol.h>
+#import <PhotosUI/PXSettingsKeyObserver-Protocol.h>
 
 @class NSString, OKMediaFeederPhotoKit, OKPresentationViewController, OKProducerPreset, PHAssetCollection, PHFetchResult, PUSlideshowContextRegistry, PUSlideshowSettingsViewModel, PUSlideshowViewModel;
 
 __attribute__((visibility("hidden")))
-@interface PUSlideshowSession : NSObject <PUSlideshowViewModelChangeObserver, PUSlideshowSettingsViewModelChangeObserver, _UISettingsKeyObserver>
+@interface PUSlideshowSession : NSObject <PUSlideshowViewModelChangeObserver, PUSlideshowSettingsViewModelChangeObserver, PXSettingsKeyObserver>
 {
     OKMediaFeederPhotoKit *_mediaFeeder;
     PUSlideshowContextRegistry *_contextRegistry;

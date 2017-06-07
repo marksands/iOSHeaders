@@ -8,6 +8,7 @@
 
 @interface TITextInputTraits (UIKBExtras)
 + (id)translateToTextInputRecentInputIdentifier:(id)arg1;
++ (_Bool)translateToTextInputSmartInsertDeleteEnabled:(long long)arg1;
 + (unsigned long long)translateToTextScriptType:(long long)arg1;
 + (unsigned long long)translateToTextInputReturnKeyType:(long long)arg1;
 + (unsigned long long)translateToTextInputKeyboardAppearance:(long long)arg1;

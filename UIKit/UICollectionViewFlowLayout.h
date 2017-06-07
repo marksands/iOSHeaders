@@ -60,6 +60,7 @@
 @property(nonatomic) double minimumInteritemSpacing; // @synthesize minimumInteritemSpacing=_interitemSpacing;
 @property(nonatomic) double minimumLineSpacing; // @synthesize minimumLineSpacing=_lineSpacing;
 - (void).cxx_destruct;
+- (long long)developmentLayoutDirection;
 - (struct CGPoint)_contentOffsetForScrollingToSection:(long long)arg1;
 - (struct UIEdgeInsets)_fastScrollingIndexBarInsets;
 - (_Bool)_shouldScrollToContentBeginningInRightToLeft;

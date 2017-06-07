@@ -46,7 +46,7 @@
 @property(readonly, nonatomic) NSDictionary *contactMatchInfos;
 @property(readonly, nonatomic) NSArray *indexSections;
 @property(readonly, nonatomic) NSArray *sections;
-@property(readonly, nonatomic) NSString *mainStorePreferredForNameMeContactIdentifier;
+- (id)preferredForNameMeContactIdentifier;
 @property(readonly, nonatomic) NSArray *contacts;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

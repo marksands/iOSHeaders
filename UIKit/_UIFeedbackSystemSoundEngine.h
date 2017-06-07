@@ -31,8 +31,8 @@ __attribute__((visibility("hidden")))
 - (void)_updateValueForParameters:(id)arg1 withKey:(id)arg2;
 - (void)_dequeueReusableFeedbackPlayerWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)_updateSuspension;
-- (void)_stopPreparingToUseFeedbacks:(id)arg1;
-- (void)_startPreparingToUseFeedbacks:(id)arg1;
+- (void)_stopWarmingFeedbacks:(id)arg1;
+- (void)_startWarmingFeedbacks:(id)arg1;
 - (void)_performForEachSSIDsInFeedbacks:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)_prepareSystemSoundID:(unsigned int)arg1 forBeingActive:(_Bool)arg2;
 

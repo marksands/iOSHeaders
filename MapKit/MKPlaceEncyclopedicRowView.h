@@ -11,8 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface MKPlaceEncyclopedicRowView : MKPlaceSectionRowView
 {
-    NSMutableArray *_labels;
-    NSMutableArray *_values;
+    NSMutableArray *_factoidViews;
     UILayoutGuide *_insetMetricGuide;
     UILayoutGuide *_leftMetricGuide;
     UILayoutGuide *_rightMetricGuide;
@@ -26,12 +25,10 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)refreshContent:(_Bool)arg1;
 - (void)addWidthAndSideSpacingConstraintsForLabels;
-- (void)addConstraintsForKeyView:(id)arg1 andMatchingValueLabel:(id)arg2;
-- (id)_valueLabelWithString:(id)arg1;
-- (id)_keyLabelWithString:(id)arg1;
+- (void)refreshColumnCount;
+- (void)layoutSubviews;
 - (void)setColumnCount:(unsigned long long)arg1;
 - (void)_contentSizeDidChange;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

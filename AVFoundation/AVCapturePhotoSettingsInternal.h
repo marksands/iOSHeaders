@@ -11,23 +11,34 @@
 @interface AVCapturePhotoSettingsInternal : NSObject
 {
     NSDictionary *format;
+    NSString *processedFileType;
     unsigned int rawPhotoPixelFormatType;
+    NSString *rawFileType;
     long long uniqueID;
     long long flashMode;
     long long HDRMode;
-    _Bool autoShallowDepthOfFieldEffectEnabled;
-    _Bool originalPhotoDeliveryEnabled;
+    _Bool EV0PhotoDeliveryEnabled;
     _Bool autoStillImageStabilizationEnabled;
     _Bool autoDualCameraFusionEnabled;
+    _Bool dualCameraDualPhotoDeliveryEnabled;
     _Bool highResolutionPhotoEnabled;
+    _Bool depthDataDeliveryEnabled;
+    _Bool embedsDepthDataInPhoto;
+    _Bool depthDataFiltered;
+    _Bool cameraCalibrationDataDeliveryEnabled;
+    NSDictionary *metadata;
     NSURL *livePhotoMovieFileURL;
     NSURL *livePhotoMovieFileURLForOriginalPhoto;
+    NSString *livePhotoVideoCodecType;
     NSArray *livePhotoMovieMetadata;
     NSArray *livePhotoMovieMetadataForOriginalPhoto;
-    NSDictionary *previewFormat;
+    NSDictionary *previewPhotoFormat;
+    NSDictionary *embeddedThumbnailPhotoFormat;
     _Bool squareCropEnabled;
-    unsigned int shutterSound;
     _Bool turboModeEnabled;
+    NSArray *photoFilters;
+    NSArray *adjustedPhotoFilters;
+    unsigned int shutterSound;
     unsigned long long userInitiatedPhotoRequestTime;
     NSString *livePhotoContentIdentifier;
     NSString *livePhotoContentIdentifierForOriginalPhoto;

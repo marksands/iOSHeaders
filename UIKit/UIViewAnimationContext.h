@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 {
     NSArray *_viewAnimations;
     long long _animationCount;
-    id _completionHandler;
+    CDUnknownBlockType _completionHandler;
     UITableViewCell *_swipeToDeleteCell;
 }
 

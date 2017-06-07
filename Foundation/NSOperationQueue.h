@@ -36,6 +36,7 @@
 - (void)addOperation:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (void)_fc_addUncancellableOperationWithBlock:(CDUnknownBlockType)arg1;
 
 @end
 

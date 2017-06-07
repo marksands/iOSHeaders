@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDate, NSExpression, NSPredicate, NSString;
+#import <HealthKit/NSSecureCoding-Protocol.h>
 
-@interface _HKAchievementDefinition : NSObject
+@class NSArray, NSDate, NSExpression, NSNumber, NSPredicate, NSString;
+
+@interface _HKAchievementDefinition : NSObject <NSSecureCoding>
 {
     NSPredicate *_basePredicate;
     NSPredicate *_compiledPredicate;
@@ -17,28 +19,39 @@
     NSPredicate *_baseAlertabilityPredicate;
     NSPredicate *_compiledAlertabilityPredicate;
     NSExpression *_expressionForEarnedValue;
+    NSExpression *_expressionForProgressValue;
+    NSExpression *_expressionForGoalValue;
+    NSNumber *_referenceProgressValue;
     _Bool _earnableOnlyOnce;
     _Bool _isWorkoutAchievement;
     _Bool _isPresentedOnFollowingDay;
     _Bool _equalityRequiresSameValue;
     NSString *_identifier;
+    NSString *_achievementTypeString;
     NSString *_title;
     unsigned long long _triggers;
     NSArray *_availableCountryCodes;
     NSDate *_availableStartDateUTC;
     NSDate *_availableEndDateUTC;
     NSDate *_alertDateUTC;
+    NSDate *_modifiedDate;
     NSString *_keyPathForEarnedDate;
     NSString *_badgeShapeName;
     long long _displayOrder;
     unsigned long long _deduplicationStrategy;
     unsigned long long _calendarUnitForEqualityCheck;
     NSString *_expressionFormatForEarnedValue;
+    NSString *_expressionFormatForProgressValue;
+    NSString *_expressionFormatForGoalValue;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)_compilePredicateFromBasePredicate:(id)arg1 availableCountryCodes:(id)arg2 availableStartDateUTC:(id)arg3 availableEndDateUTC:(id)arg4 earnableOnlyOnce:(_Bool)arg5 workoutAchievement:(_Bool)arg6;
 + (id)definitionWithDictionaryRepresentation:(id)arg1;
 + (id)definitionWithPlistRepresentation:(id)arg1;
++ (id)dynamicDefinitionForAchievementIdentifier:(id)arg1 typeString:(id)arg2 dateInterval:(id)arg3 progressExpression:(id)arg4 goalExpression:(id)arg5 displayOder:(long long)arg6 badgeShapeName:(id)arg7;
+@property(retain, nonatomic) NSString *expressionFormatForGoalValue; // @synthesize expressionFormatForGoalValue=_expressionFormatForGoalValue;
+@property(retain, nonatomic) NSString *expressionFormatForProgressValue; // @synthesize expressionFormatForProgressValue=_expressionFormatForProgressValue;
 @property(retain, nonatomic) NSString *expressionFormatForEarnedValue; // @synthesize expressionFormatForEarnedValue=_expressionFormatForEarnedValue;
 @property(retain, nonatomic) NSPredicate *baseAlertabilityPredicate; // @synthesize baseAlertabilityPredicate=_baseAlertabilityPredicate;
 @property(nonatomic) unsigned long long calendarUnitForEqualityCheck; // @synthesize calendarUnitForEqualityCheck=_calendarUnitForEqualityCheck;
@@ -49,6 +62,8 @@
 @property(nonatomic) _Bool isPresentedOnFollowingDay; // @synthesize isPresentedOnFollowingDay=_isPresentedOnFollowingDay;
 @property(nonatomic) _Bool isWorkoutAchievement; // @synthesize isWorkoutAchievement=_isWorkoutAchievement;
 @property(retain, nonatomic) NSString *keyPathForEarnedDate; // @synthesize keyPathForEarnedDate=_keyPathForEarnedDate;
+@property(retain, nonatomic) NSNumber *referenceProgressValue; // @synthesize referenceProgressValue=_referenceProgressValue;
+@property(retain, nonatomic) NSDate *modifiedDate; // @synthesize modifiedDate=_modifiedDate;
 @property(retain, nonatomic) NSDate *alertDateUTC; // @synthesize alertDateUTC=_alertDateUTC;
 @property(retain, nonatomic) NSDate *availableEndDateUTC; // @synthesize availableEndDateUTC=_availableEndDateUTC;
 @property(retain, nonatomic) NSDate *availableStartDateUTC; // @synthesize availableStartDateUTC=_availableStartDateUTC;
@@ -56,15 +71,22 @@
 @property(nonatomic) _Bool earnableOnlyOnce; // @synthesize earnableOnlyOnce=_earnableOnlyOnce;
 @property(nonatomic) unsigned long long triggers; // @synthesize triggers=_triggers;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) NSString *achievementTypeString; // @synthesize achievementTypeString=_achievementTypeString;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSPredicate *alertabilityPredicate;
 - (void)setAlertabilityPredicate:(id)arg1;
 @property(retain, nonatomic) NSPredicate *unearnedVisibilityPredicate;
 @property(retain, nonatomic) NSPredicate *predicate;
 - (id)init;
+- (_Bool)requiresGoalValue;
+@property(readonly, nonatomic) _Bool requiresProgressValue;
 @property(readonly, nonatomic) _Bool requiresValue;
-@property(readonly, nonatomic) NSExpression *expressionForEarnedValue;
+@property(retain, nonatomic) NSExpression *expressionForGoalValue;
+@property(retain, nonatomic) NSExpression *expressionForProgressValue;
+@property(retain, nonatomic) NSExpression *expressionForEarnedValue;
 - (id)debugDescription;
 - (long long)compareDisplayOrderOfDefinition:(id)arg1;
 

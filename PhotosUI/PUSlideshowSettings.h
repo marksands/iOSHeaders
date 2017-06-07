@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSettings.h>
+#import <PhotosUICore/PXSettings.h>
 
 @class NSString, OKProducerPreset;
 
 __attribute__((visibility("hidden")))
-@interface PUSlideshowSettings : PUSettings
+@interface PUSlideshowSettings : PXSettings
 {
     _Bool _allowUserInteractivity;
     _Bool _slideshowSettingsEnableFullscreenSupport;
@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
 - (void)applyArchiveValue:(id)arg1 forKey:(id)arg2;
 - (void)performPostSaveActions;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)parentSettings;
 
 @end
 

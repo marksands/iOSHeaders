@@ -20,7 +20,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double sectionBorderWidth;
 @property(nonatomic) struct UIEdgeInsets backgroundInset;
 @property(retain, nonatomic) UIVisualEffect *separatorEffect;
-@property(nonatomic) double defaultMarginWidth;
+@property(nonatomic) _Bool separatorInsetIsRelativeToCellEdges;
+@property(nonatomic) double indexBarExtentFromEdge;
+@property(nonatomic) double defaultTrailingCellMarginWidth;
+@property(nonatomic) double defaultLeadingCellMarginWidth;
 
 // Remaining properties
 @property(nonatomic) long long accessoryType;
@@ -30,6 +33,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool layoutMarginsFollowReadableWidth; // @dynamic layoutMarginsFollowReadableWidth;
 @property(nonatomic) int sectionLocation; // @dynamic sectionLocation;
 @property(copy, nonatomic) UIColor *separatorColor; // @dynamic separatorColor;
+@property(nonatomic) struct UIEdgeInsets separatorInset;
 @property(nonatomic) long long separatorStyle; // @dynamic separatorStyle;
 @property(nonatomic) _Bool shouldIndentWhileEditing;
 @property(nonatomic) _Bool showsReorderControl;

@@ -6,30 +6,23 @@
 
 #import <Foundation/NSObject.h>
 
-@class CPLRUDictionary, NSMapTable, NSOperationQueue;
+@class NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
 @interface MPStoreItemMetadataRequestController : NSObject
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
-    CPLRUDictionary *_itemIdentifierToCompositeStoreItemMetadataLRUDictionary;
-    NSMapTable *_itemIdentifierToCompositeStoreItemMetadataMapTable;
-    NSOperationQueue *_operationQueue;
+    unsigned long long _lastExpiredMetadataPurgeMachTime;
+    NSMutableDictionary *_itemCaches;
 }
 
 + (unsigned long long)optimalBatchSize;
 + (id)sharedStoreItemMetadataRequestController;
 - (void).cxx_destruct;
-- (id)_itemIdentifierForStoreItemMetadata:(id)arg1;
-- (id)_storePlatformKeyProfileForRequestReason:(unsigned long long)arg1;
-- (_Bool)_storeItemMetadata:(id)arg1 hasCompleteDataForRequestReason:(unsigned long long)arg2;
-- (void)_resolveItemIdentifiers:(id)arg1 withKeyProfile:(id)arg2 storeBagDictionary:(id)arg3 originatingRequest:(id)arg4 responseHandler:(CDUnknownBlockType)arg5;
-- (id)_cachedStoreItemMetadataWithItemIdentifier:(id)arg1;
-- (id)_addStoreItemMetadata:(id)arg1 forItemIdentifier:(id)arg2;
+- (void)_removeExpiredItemsPeriodically;
 - (void)getStoreItemMetadataForRequest:(id)arg1 responseHandler:(CDUnknownBlockType)arg2;
 - (void)requestStoreItemMetadataForReason:(unsigned long long)arg1 withItemIdentifiers:(id)arg2 responseHandler:(CDUnknownBlockType)arg3;
-- (id)cachedResponseForItemIdentifiers:(id)arg1;
-- (id)addStoreItemMetadata:(id)arg1;
+- (void)addStoreItemMetadata:(id)arg1;
 - (id)init;
 
 @end

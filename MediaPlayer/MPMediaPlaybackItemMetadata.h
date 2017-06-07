@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class MPMediaItem, MPModelGenericObject, NSNumber, NSString, NSURL;
+@class MPMediaItem, MPModelGenericObject, NSDictionary, NSNumber, NSString, NSURL;
 @protocol OS_dispatch_queue;
 
 @interface MPMediaPlaybackItemMetadata : NSObject
@@ -35,6 +35,7 @@
     long long _endpointType;
     double _expectedDuration;
     NSString *_genreTitle;
+    NSDictionary *_additionalHTTPHeaderFields;
     NSURL *_localNetworkContentURL;
     MPMediaItem *_mediaItem;
     long long _mediaLibraryPersistentID;
@@ -74,6 +75,7 @@
 @property(readonly, nonatomic) MPMediaItem *mediaItem; // @synthesize mediaItem=_mediaItem;
 @property(readonly, copy, nonatomic) NSURL *localNetworkContentURL; // @synthesize localNetworkContentURL=_localNetworkContentURL;
 @property(readonly, nonatomic) _Bool isExplicitTrack; // @synthesize isExplicitTrack=_isExplicitTrack;
+@property(readonly, copy, nonatomic) NSDictionary *additionalHTTPHeaderFields; // @synthesize additionalHTTPHeaderFields=_additionalHTTPHeaderFields;
 @property(readonly, copy, nonatomic) NSString *genreTitle; // @synthesize genreTitle=_genreTitle;
 @property(readonly, nonatomic) double expectedDuration; // @synthesize expectedDuration=_expectedDuration;
 @property(readonly, nonatomic) long long endpointType; // @synthesize endpointType=_endpointType;
@@ -111,6 +113,7 @@
 @property(readonly, copy, nonatomic) NSString *iTunesStoreContentPurchasedMediaKind;
 @property(readonly, copy, nonatomic) NSString *iTunesStoreContentDownloadParameters;
 @property(readonly, nonatomic) long long likedState;
+- (id)headerFields;
 @property(readonly, nonatomic) _Bool allowsCellularNetworking;
 @property(readonly, nonatomic) _Bool allowsAssetCaching;
 - (_Bool)isEqual:(id)arg1;

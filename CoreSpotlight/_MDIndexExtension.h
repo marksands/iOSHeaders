@@ -13,17 +13,17 @@
 {
     _Bool _entitlementVerified;
     NSObject<OS_dispatch_queue> *_queue;
-    NSString *_containerPath;
     NSString *_containerID;
     NSExtension *_extension;
+    NSString *_containerPath;
     NSString *_extensionID;
 }
 
 @property(nonatomic) _Bool entitlementVerified; // @synthesize entitlementVerified=_entitlementVerified;
 @property(retain, nonatomic) NSString *extensionID; // @synthesize extensionID=_extensionID;
+@property(retain, nonatomic) NSString *containerPath; // @synthesize containerPath=_containerPath;
 @property(retain, nonatomic) NSExtension *extension; // @synthesize extension=_extension;
 @property(retain, nonatomic) NSString *containerID; // @synthesize containerID=_containerID;
-@property(retain, nonatomic) NSString *containerPath; // @synthesize containerPath=_containerPath;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (void)performJob:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;

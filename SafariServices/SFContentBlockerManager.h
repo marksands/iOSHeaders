@@ -21,6 +21,7 @@
 + (void)reloadContentBlockerWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)_contentBlockerLoaderConnection;
 + (id)contentBlockerStore;
++ (void)_createContentExtensionsDirectoryWithURL:(id)arg1;
 + (id)sharedManager;
 - (void).cxx_destruct;
 - (void)_loadContentBlockerWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -32,6 +33,7 @@
 - (void)addObserver:(id)arg1;
 @property(readonly, nonatomic) NSArray *extensions;
 - (void)reloadUserContentController;
+- (void)compileContentBlockersAfterDeviceRestore;
 @property(readonly, nonatomic) WKUserContentController *userContentController;
 
 @end

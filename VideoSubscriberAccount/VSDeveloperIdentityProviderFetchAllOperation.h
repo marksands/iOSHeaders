@@ -6,11 +6,9 @@
 
 #import <VideoSubscriberAccount/VSAsyncOperation.h>
 
-#import <VideoSubscriberAccount/VSIdentityProviderFetchAllResult-Protocol.h>
+@class VSDeveloperServiceConnection, VSOptional;
 
-@class NSString, VSDeveloperServiceConnection, VSOptional;
-
-@interface VSDeveloperIdentityProviderFetchAllOperation : VSAsyncOperation <VSIdentityProviderFetchAllResult>
+@interface VSDeveloperIdentityProviderFetchAllOperation : VSAsyncOperation
 {
     VSOptional *_result;
     VSDeveloperServiceConnection *_connection;
@@ -20,12 +18,6 @@
 @property(retain, nonatomic) VSOptional *result; // @synthesize result=_result;
 - (void).cxx_destruct;
 - (void)executionDidBegin;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

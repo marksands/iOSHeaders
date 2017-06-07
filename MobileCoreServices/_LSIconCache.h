@@ -16,15 +16,18 @@ __attribute__((visibility("hidden")))
     NSURL *_cacheURL;
 }
 
++ (long long)currentDisplayGamut;
++ (id)iconCacheSystemVersionFileURL;
++ (id)cacheFolderURL;
++ (id)cacheContainerURL;
 + (id)UUIDStringForString:(id)arg1;
 @property(retain) NSURL *cacheURL; // @synthesize cacheURL=_cacheURL;
 @property(copy) NSString *cacheKeySalt; // @synthesize cacheKeySalt=_cacheKeySalt;
 @property(readonly) _Bool initialized; // @synthesize initialized=_initialized;
+- (void).cxx_destruct;
 - (id)iconDataForKey:(id)arg1 generatorBlock:(CDUnknownBlockType)arg2;
 - (id)bundleCacheKeyForBundleIdentifier:(id)arg1 cacheKey:(id)arg2 variant:(int)arg3 options:(int)arg4;
-- (id)bundleCacheKeyForBundleIdentifier:(id)arg1 roleIdentifier:(id)arg2 iconFiles:(id)arg3 variant:(int)arg4 options:(int)arg5;
 - (id)bundleCacheKeyPrefixForBundleIdentifier:(id)arg1;
-- (void)dealloc;
 - (id)initWithCacheURL:(id)arg1 salt:(id)arg2;
 - (id)init;
 

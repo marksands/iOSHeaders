@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)knownRelationshipSingleValueKeys;
++ (Class)frozenClass;
 - (void)clearAlertedStatus;
 @property(readonly, nonatomic) unsigned int publicStatus;
 @property(readonly, nonatomic) _Bool alerted;
@@ -26,10 +28,14 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool titleChanged;
 @property(readonly, nonatomic) _Bool timeChanged;
 @property(readonly, nonatomic) _Bool dateChanged;
+- (_Bool)_propertyWithFlagDidChange:(unsigned int)arg1;
+- (unsigned int)changedProperties;
 @property(readonly, copy, nonatomic) NSDate *timestamp;
 @property(readonly, nonatomic) unsigned int changeType;
 @property(readonly, retain, nonatomic) EKCalendarItem *calendarItem;
 @property(readonly, retain, nonatomic) EKCalendar *calendar;
+- (id)URL;
+- (id)phoneNumber;
 - (id)emailAddress;
 - (id)lastName;
 - (id)firstName;
@@ -38,9 +44,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy, nonatomic) NSString *changedByFirstName;
 @property(readonly, copy, nonatomic) NSURL *changedByAddress;
 @property(readonly, copy, nonatomic) NSString *changedByDisplayName;
-- (id)_calendarItemRelation;
-- (id)lazyLoadRelationForKey:(id)arg1;
-- (id)_persistentResourceChange;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

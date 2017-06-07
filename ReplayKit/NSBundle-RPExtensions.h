@@ -7,8 +7,10 @@
 #import <Foundation/NSBundle.h>
 
 @interface NSBundle (RPExtensions)
-+ (id)localizedDictionaryForLanguage:(id)arg1;
-+ (id)_rpLocalizedStringFromFrameworkBundleWithKey:(id)arg1 bundleID:(id)arg2;
++ (id)baseIdentifier:(id)arg1;
++ (id)localizedBundle;
++ (id)fallbackBundle;
++ (id)_rpLocalizedStringFromFrameworkBundleWithKey:(id)arg1;
 + (id)_rpLocalizedAppNameFromBundleID:(id)arg1;
 + (id)_rpFrameworkBundle;
 - (id)_rpLocalizedAppName;

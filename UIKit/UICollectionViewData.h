@@ -62,6 +62,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)rectForGlobalItemIndex:(long long)arg1;
 - (struct CGRect)collectionViewContentRect;
 - (struct CGRect)rectForItemAtIndexPath:(id)arg1;
+- (_Bool)dataSourceMatchesCurrentCounts;
 - (id)indexPathForItemAtGlobalIndex:(long long)arg1;
 - (long long)globalIndexForItemAtIndexPath:(id)arg1;
 - (id)validatedIndexPathForItemAtGlobalIndex:(long long)arg1;

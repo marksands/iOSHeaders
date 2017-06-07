@@ -9,7 +9,7 @@
 #import <UIKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <UIKit/_UIActivityGroupViewDelegateFlowLayout-Protocol.h>
 
-@class NSArray, NSDictionary, NSIndexPath, NSString, UILongPressGestureRecognizer, _UIActivityUserDefaults, _UIUserDefaultsActivity;
+@class NSArray, NSIndexPath, NSString, UILongPressGestureRecognizer, _UIActivityUserDefaults, _UIUserDefaultsActivity;
 @protocol UIActivityGroupViewControllerDataSource, UIActivityGroupViewControllerDelegate;
 
 @interface UIActivityGroupViewController : UICollectionViewController <_UIActivityGroupViewDelegateFlowLayout, UIGestureRecognizerDelegate>
@@ -22,7 +22,6 @@
     _Bool _picker;
     id <UIActivityGroupViewControllerDelegate> _delegate;
     long long _activityCategory;
-    NSDictionary *_customActivityTitles;
     NSArray *_activities;
     NSArray *_visibleActivities;
     _UIActivityUserDefaults *_userDefaults;
@@ -33,6 +32,7 @@
     struct CGPoint _initialDraggingLocation;
 }
 
++ (void)contentSizeCategoryDidChange;
 @property(nonatomic) __weak id <UIActivityGroupViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic, getter=isPicker) _Bool picker; // @synthesize picker=_picker;
 @property(nonatomic, getter=isEmbedded) _Bool embedded; // @synthesize embedded=_embedded;
@@ -47,10 +47,10 @@
 @property(copy, nonatomic) NSArray *visibleActivities; // @synthesize visibleActivities=_visibleActivities;
 @property(nonatomic) _Bool hasActivities; // @synthesize hasActivities=_hasActivities;
 @property(copy, nonatomic) NSArray *activities; // @synthesize activities=_activities;
-@property(copy, nonatomic) NSDictionary *customActivityTitles; // @synthesize customActivityTitles=_customActivityTitles;
 @property(nonatomic) long long activityCategory; // @synthesize activityCategory=_activityCategory;
 @property(nonatomic) __weak id <UIActivityGroupViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)registerClassForContentSizeCategoryChanges;
 - (void)activityUserDefaultsDidChange:(id)arg1;
 - (void)ignoreUserDefaultsChangesWhileUsingBlock:(CDUnknownBlockType)arg1;
 - (void)unregisterForActivityUserDefaultsChanges;
@@ -62,9 +62,12 @@
 - (id)collectionView:(id)arg1 layout:(id)arg2 needsContainerViewForDraggingItemAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 layout:(id)arg2 moveItemAtIndexPath:(id)arg3 toIndexPath:(id)arg4;
 - (id)targetIndexPathForMoveFromRowAtIndexPath:(id)arg1 toProposedIndexPath:(id)arg2;
+- (void)_dismissPresentedMenuControllers;
+- (id)_presentedMenuControllerForHidingActivity;
 - (void)handleEditingGesture:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)_updateItemSizeIfNeeded;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
@@ -74,9 +77,8 @@
 - (id)_titleTextForActivity:(id)arg1;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
-- (void)reloadItemForActivityOfTypeIfNeeded:(id)arg1;
 - (id)activityForItemAtIndexPath:(id)arg1;
-- (void)hideActivity:(id)arg1;
+- (void)_performHideActivityForMenuController:(id)arg1;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)canBecomeFirstResponder;
 - (void)_setVisibleActivities:(id)arg1 animated:(_Bool)arg2;

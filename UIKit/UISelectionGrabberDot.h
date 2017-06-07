@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (int)textEffectsVisibilityLevel;
 - (int)textEffectsVisibilityLevelInKeyboardWindow;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (struct CGRect)_extendedHitTestingRectIncludingCalloutBarAdjustments:(_Bool)arg1;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 container:(id)arg2;

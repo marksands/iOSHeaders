@@ -10,7 +10,7 @@ __attribute__((visibility("hidden")))
 @interface _NSXPCConnectionRequestedReplies : NSObject
 {
     struct __CFDictionary *_replyTable;
-    int _lock;
+    struct _opaque_pthread_mutex_t _lock;
 }
 
 - (id)progressForSequence:(unsigned long long)arg1;

@@ -17,6 +17,7 @@
     _Bool _leftEyeClosed;
     _Bool _rightEyeClosed;
     short _confirmedFaceCropGenerationState;
+    int _trainingType;
     double _size;
     double _centerX;
     double _centerY;
@@ -49,15 +50,12 @@
 
 + (id)fetchKeyFacesGroupedByPersons:(id)arg1;
 + (id)fetchFacesGroupedByAssetLocalIdentifierForAssets:(id)arg1 options:(id)arg2;
-+ (id)fetchPredicateFromComparisonPredicate:(id)arg1 options:(id)arg2;
 + (id)propertySetAccessorsByPropertySet;
 + (Class)propertySetClassForPropertySet:(id)arg1;
++ (id)fetchFacesForPersonsAssociatedWithFaceGroupsContainingFacesWithClusterSequenceNumbers:(id)arg1 options:(id)arg2;
 + (id)fetchFacesForFaceCrop:(id)arg1 options:(id)arg2;
 + (id)fetchRejectedFacesForPerson:(id)arg1 options:(id)arg2;
-+ (id)fetchSuggestedFacesForFaceCollection:(id)arg1 options:(id)arg2;
 + (id)fetchSingletonFacesWithOptions:(id)arg1;
-+ (id)fetchKeyFaceForFaceCollection:(id)arg1 options:(id)arg2;
-+ (id)fetchFacesInFaceCollection:(id)arg1 options:(id)arg2;
 + (id)fetchKeyFaceForFaceGroup:(id)arg1 options:(id)arg2;
 + (id)fetchFacesInFaceGroup:(id)arg1 options:(id)arg2;
 + (id)fetchFacesOnAssetWithFace:(id)arg1 options:(id)arg2;
@@ -66,15 +64,14 @@
 + (id)fetchFacesInAsset:(id)arg1 options:(id)arg2;
 + (id)fetchFacesWithLocalIdentifiers:(id)arg1 options:(id)arg2;
 + (id)fetchFacesWithOptions:(id)arg1;
-+ (id)_transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
++ (id)transformValueExpression:(id)arg1 forKeyPath:(id)arg2;
 + (id)entityKeyForPropertyKey:(id)arg1;
 + (id)propertiesToFetchWithHint:(unsigned long long)arg1;
 + (id)_composePropertiesToFetchWithHint:(unsigned long long)arg1;
 + (id)personBuilderPropertiesToFetch;
 + (id)croppingPropertiesToFetch;
 + (id)corePropertiesToFetch;
-+ (_Bool)managedObjectSupportsFaceCropGeneration;
-+ (_Bool)managedObjectSupportsFaceVisibility;
++ (_Bool)managedObjectSupportsFaceState;
 + (id)fetchType;
 + (id)managedEntityName;
 + (id)identifierCode;
@@ -91,6 +88,7 @@
 @property(nonatomic) double posePitch; // @synthesize posePitch=_posePitch;
 @property(nonatomic) double poseYaw; // @synthesize poseYaw=_poseYaw;
 @property(nonatomic) double poseRoll; // @synthesize poseRoll=_poseRoll;
+@property(readonly, nonatomic) int trainingType; // @synthesize trainingType=_trainingType;
 @property(readonly, nonatomic) long long nameSource; // @synthesize nameSource=_nameSource;
 @property(readonly, copy, nonatomic) id adjustmentVersion; // @synthesize adjustmentVersion=_adjustmentVersion;
 @property(readonly, nonatomic, getter=isRightEyeClosed) _Bool rightEyeClosed; // @synthesize rightEyeClosed=_rightEyeClosed;

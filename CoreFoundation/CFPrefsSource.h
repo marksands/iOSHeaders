@@ -40,11 +40,12 @@ __attribute__((visibility("hidden")))
 - (void)handleReply:(id)arg1 toRequestNewDataMessage:(id)arg2 onConnection:(id)arg3 retryCount:(int)arg4 error:(_Bool *)arg5;
 - (id)createRequestNewContentMessageForDaemon:(int)arg1;
 - (void)fullCloudSynchronizeWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)mergeIntoDictionary:(struct __CFDictionary *)arg1;
+- (void)mergeIntoDictionary:(struct __CFDictionary *)arg1 sourceDictionary:(struct __CFDictionary *)arg2;
 - (struct __CFDictionary *)copyDictionary;
 - (struct __CFDictionary *)alreadylocked_copyDictionary;
 - (struct __CFArray *)copyKeyList;
 - (struct __CFArray *)alreadylocked_copyKeyList;
+- (void)setStoreName:(struct __CFString *)arg1;
 - (void)setConfigurationPath:(struct __CFString *)arg1;
 - (_Bool)synchronize;
 - (_Bool)alreadylocked_requestNewData;

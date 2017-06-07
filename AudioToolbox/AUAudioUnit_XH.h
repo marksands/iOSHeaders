@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool _canRender;
     _Bool _canProcess;
     _Bool _removingObserverWithContext;
+    _Bool _installedParamTreeObserver;
     AUAudioUnitBusArray_XH *_inputBusses;
     AUAudioUnitBusArray_XH *_outputBusses;
     struct unique_ptr<AUProcAndUserData, std::__1::default_delete<AUProcAndUserData>> _elementCountListenerToken;
@@ -36,6 +37,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <AUAudioUnitXPCProtocol> remote; // @synthesize remote=_remote;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (_Bool)providesUserInterface;
+- (void)selectViewConfiguration:(id)arg1;
+- (id)supportedViewConfigurations:(id)arg1;
 - (void)requestViewControllerWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)parametersForOverviewWithCount:(long long)arg1;
 - (id)parameterTree;

@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 - (double)defaultMaskGradientHeightForTableView:(id)arg1;
 - (double)defaultFocusedShadowRadiusForTableView:(id)arg1;
 - (double)defaultFocusedHorizontalOutsetForTableView:(id)arg1;
+- (double)defaultAlphaForDraggingCell:(id)arg1 inTableView:(id)arg2;
 - (_Bool)reorderingCellWantsShadows:(id)arg1 inTableView:(id)arg2;
 - (double)defaultAlphaForReorderingCell:(id)arg1 inTableView:(id)arg2;
 - (id)defaultReorderControlImageForCell:(id)arg1 inTableView:(id)arg2;
@@ -54,8 +55,10 @@ __attribute__((visibility("hidden")))
 - (id)defaultTextColorForCell:(id)arg1 inTableView:(id)arg2;
 - (double)defaultPlainHeaderLabelYPositionForTableView:(id)arg1 headerBounds:(struct CGRect)arg2 textRect:(struct CGRect)arg3 isHeader:(_Bool)arg4;
 - (double)defaultPlainFirstSectionHeaderHeightForTableView:(id)arg1;
-- (double)defaultSectionContentMarginWidthForTableView:(id)arg1;
+- (double)defaultTrailingCellMarginWidthForTableView:(id)arg1;
+- (double)defaultLeadingCellMarginWidthForTableView:(id)arg1;
 - (double)defaultMarginWidthForTableView:(id)arg1;
+- (struct UIEdgeInsets)defaultLayoutMarginsForTableView:(id)arg1;
 - (double)_defaultMarginWidthForTableView:(id)arg1 canUseLayoutMargins:(_Bool)arg2;
 - (double)defaultPaddingBetweenHeaderAndRowsForTableView:(id)arg1;
 - (double)defaultPaddingBetweenRowsForTableView:(id)arg1;

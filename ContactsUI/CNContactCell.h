@@ -12,23 +12,18 @@
 {
     NSArray *_constantConstraints;
     NSArray *_variableConstraints;
-    _Bool _hasBeenDisplayed;
-    _Bool _shouldUseExpandedContentStyle;
     CNCardGroupItem *_cardGroupItem;
-    double _leftContentMargin;
-    double _rightContentMargin;
 }
 
-@property(nonatomic) _Bool shouldUseExpandedContentStyle; // @synthesize shouldUseExpandedContentStyle=_shouldUseExpandedContentStyle;
-@property(nonatomic) _Bool hasBeenDisplayed; // @synthesize hasBeenDisplayed=_hasBeenDisplayed;
-@property(nonatomic) double rightContentMargin; // @synthesize rightContentMargin=_rightContentMargin;
-@property(nonatomic) double leftContentMargin; // @synthesize leftContentMargin=_leftContentMargin;
 @property(retain, nonatomic) CNCardGroupItem *cardGroupItem; // @synthesize cardGroupItem=_cardGroupItem;
 - (void).cxx_destruct;
-- (double)minCellHeight;
+- (void)contentSizeCategoryDidChange:(id)arg1;
+@property(readonly, nonatomic) double minCellHeight;
 - (void)updateConstraints;
-- (id)variableConstraints;
-- (id)constantConstraints;
+@property(readonly, nonatomic) NSArray *variableConstraints;
+@property(readonly, nonatomic) NSArray *constantConstraints;
+- (void)layoutSubviews;
+@property(readonly, nonatomic) _Bool hasGapBetweenSeparatorAndTrailingEdge;
 @property(nonatomic) _Bool showSeparator;
 - (void)performAccessoryAction;
 - (_Bool)shouldPerformAccessoryAction;

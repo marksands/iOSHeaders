@@ -41,7 +41,6 @@
 - (void)updateWithParticipantForSorting:(id)arg1 availabilityType:(long long)arg2 showSpinner:(_Bool)arg3 animated:(_Bool)arg4;
 - (void)updateWithParticipantForSorting:(id)arg1;
 - (void)updateConstraints;
-- (void)setFrame:(struct CGRect)arg1;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

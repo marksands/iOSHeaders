@@ -6,12 +6,10 @@
 
 #import <Foundation/NSObject.h>
 
-#import <UIKit/_UIFocusScrollAnimator-Protocol.h>
-
-@class CADisplayLink, NSMapTable, NSString, UIScreen, _UIFocusEngineScrollViewOffsets;
+@class CADisplayLink, NSMapTable, UIScreen, _UIFocusEngineScrollViewOffsets;
 
 __attribute__((visibility("hidden")))
-@interface _UIFocusDisplayLinkScrollAnimator : NSObject <_UIFocusScrollAnimator>
+@interface _UIFocusDisplayLinkScrollAnimator : NSObject
 {
     UIScreen *_screen;
     _UIFocusEngineScrollViewOffsets *_singleScrollViewEntry;
@@ -31,20 +29,11 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)currentVelocityForScrollView:(id)arg1;
 - (struct CGPoint)targetContentOffsetForScrollView:(id)arg1;
 - (_Bool)isAnimatingScrollView:(id)arg1;
-- (void)cancelPeekAdjustmentForScrollView:(id)arg1 performRollback:(_Bool)arg2;
-- (void)setPeekOffsetAdjustment:(struct CGPoint)arg1 forScrollView:(id)arg2;
 - (void)cancelScrollingForScrollView:(id)arg1;
 - (void)setTargetContentOffset:(struct CGPoint)arg1 forScrollView:(id)arg2 convergenceRate:(double)arg3 completion:(CDUnknownBlockType)arg4;
 @property(nonatomic) double defaultConvergenceRate;
-@property(readonly, nonatomic) _Bool requiresExtendingScrollViewVisibleBounds;
 - (void)dealloc;
 - (id)initWithScreen:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

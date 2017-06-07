@@ -27,6 +27,11 @@ typedef struct {
     unsigned long long size;
 } CDStruct_95bda58d;
 
+typedef struct {
+    double width;
+    double height;
+} CDStruct_8caa76fc;
+
 // Ambiguous groups
 typedef struct {
     unsigned int entityType:1;
@@ -65,6 +70,10 @@ typedef struct {
 typedef struct {
     unsigned int searchResultsCount:1;
 } CDStruct_a60b8694;
+
+typedef struct {
+    unsigned int status:1;
+} CDStruct_47fe53f2;
 
 typedef struct {
     unsigned int success:1;

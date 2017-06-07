@@ -6,7 +6,7 @@
 
 #import <UIKit/NSObject-Protocol.h>
 
-@class NSArray, NSISEngine, NSISLinearExpression, NSISVariable, NSLayoutAnchor, NSLayoutConstraint, NSString;
+@class NSArray, NSISEngine, NSISLinearExpression, NSISVariable, NSLayoutAnchor, NSLayoutConstraint, NSLayoutRect, NSString;
 @protocol NSLayoutItem;
 
 @protocol NSLayoutItem <NSObject>
@@ -23,6 +23,8 @@
 - (NSISEngine *)nsli_layoutEngine;
 
 @optional
+@property(setter=nsli_setPiercingToken:) unsigned long long nsli_piercingToken;
+- (NSLayoutRect *)nsli_layoutRect;
 - (NSISVariable *)nsli_boundsHeightVariable;
 - (NSISVariable *)nsli_boundsWidthVariable;
 - (NSISVariable *)nsli_heightVariable;
@@ -38,6 +40,7 @@
 - (NSLayoutAnchor *)nsli_layoutAnchorForAttribute:(long long)arg1;
 - (id <NSLayoutItem>)nsli_ancestorSharedWithItem:(id <NSLayoutItem>)arg1;
 - (id <NSLayoutItem>)nsli_itemDescribingLayoutDirectionForConstraint:(NSLayoutConstraint *)arg1 toItem:(id <NSLayoutItem>)arg2;
+- (id <NSLayoutItem>)nsli_layoutMarginsItem;
 - (_Bool)nsli_isRTL;
 - (_Bool)nsli_lowersExpressionRelativeToConstraintContainer;
 - (_Bool)nsli_isLegalConstraintItem;

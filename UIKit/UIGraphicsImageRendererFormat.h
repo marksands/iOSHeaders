@@ -17,6 +17,7 @@
     double _scale;
 }
 
++ (id)formatForTraitCollection:(id)arg1;
 + (id)defaultFormat;
 @property(nonatomic) _Bool prefersExtendedRange; // @synthesize prefersExtendedRange=_prefersExtendedRange;
 @property(nonatomic) _Bool opaque; // @synthesize opaque=_opaque;

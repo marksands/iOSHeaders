@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_updateDigitizerLocationForEvent:(id)arg1;
 - (struct CGPoint)_digitizerLocation;
+- (struct CGPoint)locationInView:(id)arg1 focusSystem:(id)arg2;
 - (struct CGPoint)locationInView:(id)arg1;
 - (struct CGPoint)_locationInSceneReferenceSpace;
 @property(nonatomic) double maximumIntervalBetweenSuccessiveTaps;

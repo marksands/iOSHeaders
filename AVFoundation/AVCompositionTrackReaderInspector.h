@@ -14,6 +14,8 @@
 - (id)segmentForTrackTime:(CDStruct_1b6d18a9)arg1;
 - (id)segments;
 @property(readonly, nonatomic, getter=_mutableComposition) struct OpaqueFigMutableComposition *mutableComposition;
+- (int)decodabilityValidationResult;
+- (_Bool)isDecodable;
 - (int)playabilityValidationResult;
 - (_Bool)isPlayable;
 - (void)finalize;

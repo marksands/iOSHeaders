@@ -6,7 +6,8 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVCaptureConnection, AVCaptureSession, AVWeakReference, CALayer, NSString;
+@class AVCaptureConnection, AVCaptureSession, AVWeakReference, CALayer, NSArray, NSString;
+@protocol OS_dispatch_queue;
 
 @interface AVCaptureVideoPreviewLayerInternal : NSObject
 {
@@ -14,9 +15,11 @@
     AVCaptureSession *session;
     AVCaptureConnection *connection;
     struct OpaqueFigCaptureSession *figCaptureSession;
+    NSObject<OS_dispatch_queue> *figCaptureSessionSyncQueue;
     CALayer *sublayer;
     struct CGSize sensorSize;
     NSString *sensorToPreviewVTScalingMode;
+    unsigned int imageQueueSlot;
     struct CGSize previewSize;
     double previewRotationDegrees;
     NSString *gravity;
@@ -32,6 +35,11 @@
     int changeSeed;
     struct CGAffineTransform captureDeviceTransform;
     double rollAdjustment;
+    _Bool depthDataDeliverySupported;
+    _Bool depthDataDeliveryEnabled;
+    _Bool filterRenderingEnabled;
+    _Bool unoptimizedFilterRenderingEnabled;
+    NSArray *videoPreviewFilters;
 }
 
 @end

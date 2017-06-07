@@ -12,16 +12,18 @@
 
 @interface _WKUserContentExtensionStore : NSObject <WKObject>
 {
-    struct ObjectStorage<API::UserContentExtensionStore> _userContentExtensionStore;
+    struct RetainPtr<WKContentRuleListStore> _contentRuleListStore;
 }
 
 + (id)storeWithURL:(id)arg1;
 + (id)defaultStore;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 @property(readonly) struct Object *_apiObject;
 - (void)removeContentExtensionForIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)lookupContentExtensionForIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)compileContentExtensionForIdentifier:(id)arg1 encodedContentExtension:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)dealloc;
+- (id)_initWithWKContentRuleListStore:(id)arg1;
 - (void)_invalidateContentExtensionVersionForIdentifier:(id)arg1;
 - (void)_removeAllContentExtensions;
 

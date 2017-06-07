@@ -14,18 +14,25 @@ __attribute__((visibility("hidden")))
 {
     UIBarButtonItem *_backItem;
     UIBarButtonItem *_forwardItem;
-    UIBarButtonItem *_openInSafariItem;
+    double _widthOfTrailingItemOffsets;
+    double _widthOfLeadingItemOffsets;
     id <_SFBrowserToolbarDelegate> _browserDelegate;
     id <_SFBrowserToolbarDataSource> _dataSource;
     UIBarButtonItem *_actionItem;
+    UIBarButtonItem *_openInSafariItem;
 }
 
+@property(readonly, nonatomic) UIBarButtonItem *openInSafariItem; // @synthesize openInSafariItem=_openInSafariItem;
 @property(readonly, nonatomic) UIBarButtonItem *actionItem; // @synthesize actionItem=_actionItem;
 @property(nonatomic) __weak id <_SFBrowserToolbarDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) __weak id <_SFBrowserToolbarDelegate> browserDelegate; // @synthesize browserDelegate=_browserDelegate;
 - (void).cxx_destruct;
 - (double)URLFieldHorizontalMargin;
+@property(readonly, nonatomic) double differenceBetweenWidthsOfLeadingAndTrailingItems;
+- (double)_totalWidthOfLeadingItems;
+- (double)_totalWidthOfTrailingItems;
 - (struct CGRect)popoverPresentationRectForButtonItem:(id)arg1;
+- (void)_openInSafariLongPressed:(id)arg1;
 - (void)openInSafariButtonPressed;
 - (void)actionButtonPressed;
 - (void)forwardButtonPressed;

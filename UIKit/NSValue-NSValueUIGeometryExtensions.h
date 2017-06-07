@@ -8,6 +8,8 @@
 
 @interface NSValue (NSValueUIGeometryExtensions)
 + (id)valueWithUIOffset:(struct UIOffset)arg1;
++ (id)valueWithDirectionalEdgeInsets:(struct NSDirectionalEdgeInsets)arg1;
++ (id)valueWithNSDirectionalEdgeInsets:(struct NSDirectionalEdgeInsets)arg1;
 + (id)valueWithUIEdgeInsets:(struct UIEdgeInsets)arg1;
 + (id)valueWithCGAffineTransform:(struct CGAffineTransform)arg1;
 + (id)valueWithCGRect:(struct CGRect)arg1;
@@ -15,6 +17,7 @@
 + (id)valueWithCGVector:(struct CGVector)arg1;
 + (id)valueWithCGPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic) struct UIOffset UIOffsetValue;
+@property(readonly, nonatomic) struct NSDirectionalEdgeInsets directionalEdgeInsetsValue;
 @property(readonly, nonatomic) struct UIEdgeInsets UIEdgeInsetsValue;
 @property(readonly, nonatomic) struct CGAffineTransform CGAffineTransformValue;
 @property(readonly, nonatomic) struct CGRect CGRectValue;

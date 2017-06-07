@@ -26,7 +26,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CNContactFormatter *formatter; // @synthesize formatter=_formatter;
 @property(retain, nonatomic) NSArray *people; // @synthesize people=_people;
 - (void).cxx_destruct;
-- (void)bannerViewWasSelectedToPresentPeoplePicker:(id)arg1;
 - (void)bannerView:(id)arg1 wasSelectedToPresentMeContact:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

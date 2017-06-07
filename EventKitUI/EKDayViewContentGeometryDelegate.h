@@ -15,8 +15,10 @@
 {
     EKDayViewContent *_dayViewContent;
     struct CGRect _frame;
+    struct CGRect _bounds;
 }
 
+@property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 @property(nonatomic) __weak EKDayViewContent *dayViewContent; // @synthesize dayViewContent=_dayViewContent;
 - (void).cxx_destruct;

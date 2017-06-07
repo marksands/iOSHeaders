@@ -21,7 +21,6 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)_removeButtonTapped:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (id)initWithStyle:(long long)arg1;

@@ -23,8 +23,8 @@ __attribute__((visibility("hidden")))
 - (id)_focusedItemHighlightView;
 - (void)_shim_updateTabBarItemView:(id)arg1;
 - (void)_shim_layoutItemsOnly;
-- (_Bool)_shim_hasBackdrop;
 - (void)_shim_setBackdropGroupName:(id)arg1;
+- (id)_shim_backdropGroupName;
 - (void)_shim_updateBackdropView;
 - (void)_shim_updateFocusHighlightVisibility;
 - (id)_shim_shadowView;
@@ -45,9 +45,10 @@ __attribute__((visibility("hidden")))
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (void)_updateBackground;
-- (id)_backdropGroupName;
 - (void)_cleanupAdaptiveBackdrop;
 - (void)_layoutTabBarItems;
+- (_Bool)_shouldUseHorizontalLayout;
+- (void)_configureItems:(id)arg1;
 - (id)_parentViewForItems;
 - (void)_updateAccessoryView;
 - (struct CGRect)_shadowFrameForBounds:(struct CGRect)arg1 height:(double)arg2;

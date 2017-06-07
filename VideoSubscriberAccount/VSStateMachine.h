@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray, NSMutableDictionary, NSOperationQueue, VSOptional;
+@class NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString, VSOptional;
 @protocol VSStateMachineDelegate;
 
 @interface VSStateMachine : NSObject
 {
     int _mode;
+    NSString *_name;
     id <VSStateMachineDelegate> _delegate;
     NSOperationQueue *_transitionQueue;
     VSOptional *_currentState;
@@ -26,7 +27,9 @@
 @property(retain, nonatomic) VSOptional *currentState; // @synthesize currentState=_currentState;
 @property(retain, nonatomic) NSOperationQueue *transitionQueue; // @synthesize transitionQueue=_transitionQueue;
 @property(nonatomic) __weak id <VSStateMachineDelegate> delegate; // @synthesize delegate=_delegate;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)description;
 - (void)enqueueEvent:(id)arg1;
 - (void)activateWithState:(id)arg1;
 - (void)setDestinationState:(id)arg1 forEvent:(id)arg2 inState:(id)arg3;

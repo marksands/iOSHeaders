@@ -23,13 +23,17 @@
     NSString *_relationship;
     int _suggestionType;
     _INPBValueMetadata *_valueMetadata;
+    _Bool _isMe;
     struct {
         unsigned int suggestionType:1;
+        unsigned int isMe:1;
     } _has;
 }
 
-+ (id)options;
 + (Class)aliasesType;
++ (id)options;
+@property(retain, nonatomic) NSMutableArray *aliases; // @synthesize aliases=_aliases;
+@property(nonatomic) _Bool isMe; // @synthesize isMe=_isMe;
 @property(retain, nonatomic) NSString *relationship; // @synthesize relationship=_relationship;
 @property(retain, nonatomic) NSString *customIdentifier; // @synthesize customIdentifier=_customIdentifier;
 @property(retain, nonatomic) _INPBContactHandle *contactHandle; // @synthesize contactHandle=_contactHandle;
@@ -48,6 +52,15 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)aliasesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)aliasesCount;
+- (void)addAliases:(id)arg1;
+- (void)clearAliases;
+- (int)StringAsSuggestionType:(id)arg1;
+- (id)suggestionTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasSuggestionType;
+@property(nonatomic) int suggestionType; // @synthesize suggestionType=_suggestionType;
+@property(nonatomic) _Bool hasIsMe;
 @property(readonly, nonatomic) _Bool hasRelationship;
 @property(readonly, nonatomic) _Bool hasCustomIdentifier;
 @property(readonly, nonatomic) _Bool hasContactHandle;
@@ -56,15 +69,6 @@
 @property(readonly, nonatomic) _Bool hasLastName;
 @property(readonly, nonatomic) _Bool hasFirstName;
 @property(readonly, nonatomic) _Bool hasValueMetadata;
-- (id)aliasesAtIndex:(unsigned long long)arg1;
-- (unsigned long long)aliasesCount;
-- (void)addAliases:(id)arg1;
-- (void)clearAliases;
-@property(retain, nonatomic) NSMutableArray *aliases;
-- (int)StringAsSuggestionType:(id)arg1;
-- (id)suggestionTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasSuggestionType;
-@property(nonatomic) int suggestionType;
 
 @end
 

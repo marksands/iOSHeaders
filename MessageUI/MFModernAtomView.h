@@ -23,18 +23,22 @@
     UILabel *_label;
     UIActivityIndicatorView *_activityIndicator;
     double _scalingFactor;
+    _Bool _wrappingSupported;
+    _Bool _cachedIsWrappingEnabled;
     _Bool _isPrimaryAddressAtom;
     _Bool _separatorHidden;
     _Bool _separatorIsLeftAligned;
     _Bool _selected;
+    NSString *_title;
     UIFont *_titleFont;
     unsigned long long _presentationOptions;
+    double _firstLineIndent;
 }
 
 + (_Bool)presentationOptions:(unsigned long long *)arg1 encodedIntoAddress:(id)arg2;
 + (id)_badgeImagesForPresentationOptions:(unsigned long long)arg1 iconOrder:(const unsigned long long *)arg2 orderingLength:(unsigned long long)arg3 tintColor:(id)arg4 large:(_Bool)arg5 variant:(int)arg6;
-+ (id)_defaultLabelAttributesWithFont:(id)arg1;
-+ (id)_defaultLabelAttributes;
++ (id)_defaultLabelAttributesWithFont:(id)arg1 wrappingEnabled:(_Bool)arg2;
++ (id)_defaultLabelAttributesWithWrappingEnabled:(_Bool)arg1;
 + (id)_SMSTintColor;
 + (id)_failureTintColor;
 + (id)_defaultTintColor;
@@ -43,6 +47,7 @@
 + (double)horizontalPadding;
 + (struct CGPoint)defaultBaselinePoint;
 + (double)defaultHeight;
+@property(nonatomic) double firstLineIndent; // @synthesize firstLineIndent=_firstLineIndent;
 @property(nonatomic, getter=isSelected) _Bool selected; // @synthesize selected=_selected;
 @property(nonatomic) unsigned long long presentationOptions; // @synthesize presentationOptions=_presentationOptions;
 @property(readonly, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
@@ -51,6 +56,7 @@
 @property(readonly, nonatomic) MFModernAtomIconView *badgeIconView; // @synthesize badgeIconView=_badgeIconView;
 @property(readonly, nonatomic) MFModernAtomIconView *accessoryIconView; // @synthesize accessoryIconView=_accessoryIconView;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_label;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)performBuildInAnimationFromTextColor:(id)arg1 withDuration:(double)arg2;
 - (struct CGSize)intrinsicContentSize;
 - (id)viewForLastBaselineLayout;
@@ -64,6 +70,7 @@
 @property(readonly, nonatomic) struct CGRect selectionFrame;
 - (void)layoutSubviews;
 - (double)preferredWidthWithSizeConstraints:(struct CGSize)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (double)preferredWidth;
 - (void)_updateFontIfNecessary;
 - (void)_updateActivityIndicator;
@@ -78,16 +85,20 @@
 - (void)clearPresentationOption:(unsigned long long)arg1;
 - (void)appendPresentationOption:(unsigned long long)arg1;
 - (void)_invalidatePresentationOptions;
-@property(copy, nonatomic) NSString *title;
+- (void)_updateLabelAttributes;
 @property(retain, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
 - (void)tintColorDidChange;
 - (void)_setEffectiveTintColor:(id)arg1;
 @property(readonly, nonatomic) UIColor *effectiveTintColor;
 @property(readonly, nonatomic) MFModernAtomBackgroundView *backgroundView;
+- (_Bool)isWrappingEnabled;
+- (id)_chevronTextAttachment;
+- (id)_centeredTextAttachmentWithImage:(id)arg1;
+- (void)_updateSubviewsForWrapping;
 - (int)_preferredIconVariant;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 presentationOptions:(unsigned long long)arg2 separatorStyle:(int)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 presentationOptions:(unsigned long long)arg2 separatorStyle:(int)arg3 wrappingSupported:(_Bool)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

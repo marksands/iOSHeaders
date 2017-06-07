@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 
 + (struct CGSize)keyboardSizeForInputMode:(id)arg1 screenTraits:(id)arg2 keyboardType:(long long)arg3;
 + (id)activeInstance;
+- (void)_moveWithEvent:(id)arg1;
 - (struct CGRect)dragGestureRectInView:(id)arg1;
 - (_Bool)usesAutoShift;
 - (id)currentKeyplane;
@@ -26,9 +27,12 @@ __attribute__((visibility("hidden")))
 - (void)layoutSubviews;
 - (void)setRenderConfig:(id)arg1;
 - (void)showKeyboardWithInputTraits:(id)arg1 screenTraits:(id)arg2 splitTraits:(id)arg3;
+- (void)didEndIndirectSelectionGesture;
+- (void)willBeginIndirectSelectionGesture;
 - (void)setupBackgroundViewForNewSplitTraits:(id)arg1;
 - (int)_clipCornersOfView:(id)arg1;
 - (_Bool)visible;
+- (long long)currentHandBias;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

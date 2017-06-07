@@ -6,23 +6,33 @@
 
 #import <HealthKit/HKQuery.h>
 
-@class HKLocationSeriesSample;
+#import <HealthKit/HKWorkoutRouteQueryClientInterface-Protocol.h>
 
-@interface HKLocationSeriesQuery : HKQuery
+@class HKLocationSeriesSample, NSString;
+
+@interface HKLocationSeriesQuery : HKQuery <HKWorkoutRouteQueryClientInterface>
 {
     CDUnknownBlockType _dataHandler;
     HKLocationSeriesSample *_series;
 }
 
-+ (Class)_queryServerDataObjectClass;
++ (void)configureClientInterface:(id)arg1;
++ (id)clientInterfaceProtocol;
 @property(copy) CDUnknownBlockType dataHandler; // @synthesize dataHandler=_dataHandler;
 - (void).cxx_destruct;
-- (void)_queue_cleanupAfterDeactivation;
-- (void)_queue_validate;
-- (CDUnknownBlockType)_queue_errorHandler;
-- (void)_queue_configureQueryServerDataObject:(id)arg1;
-- (void)deliverLocationSeriesDatum:(id)arg1 final:(_Bool)arg2 forQuery:(id)arg3;
+- (id)_locationDatumsFromLocations:(id)arg1;
+- (void)queue_queryDidDeactivate:(id)arg1;
+- (void)queue_deliverError:(id)arg1;
+- (void)queue_populateConfiguration:(id)arg1;
+- (void)queue_connectToQueryServerWithHealthStore:(id)arg1 activationUUID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)client_deliverWorkoutRouteLocations:(id)arg1 isFinal:(_Bool)arg2 query:(id)arg3;
 - (id)initWithSeries:(id)arg1 dataHandler:(CDUnknownBlockType)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

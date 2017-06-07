@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, NSURL, VSAccountStore;
+@class NSString, NSURL, NSUndoManager, VSAccountStore;
 @protocol OS_dispatch_queue;
 
 @interface VSAccountChannelsCenter : NSObject
@@ -32,14 +32,18 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *serialQueue; // @synthesize serialQueue=_serialQueue;
 - (void).cxx_destruct;
 - (void)fetchAccountChannelsWithCompletionHandler:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) NSUndoManager *undoManager;
 - (void)_removeSavedAccountChannelsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_saveAccountChannels:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)_saveAccountChannels:(id)arg1;
+- (void)_enqueueSaveAccountChannelsAndWait:(id)arg1;
 - (id)_removeSavedAccountChannels;
+- (void)_enqueueRemoveSavedAccountChannelsAndWait;
 - (id)_savedAccountChannels;
 - (id)_savedAccountChannelsForIdentityProviderID:(id)arg1 storeIdentityProvider:(id)arg2;
 - (id)_storeIdentityProviderForAccount:(id)arg1;
-- (id)_init;
+- (void)_snapshotPreviousChannels;
+- (id)initWithAccountStore:(id)arg1;
 - (id)init;
 
 @end

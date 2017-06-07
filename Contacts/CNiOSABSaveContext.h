@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class CNMutableSaveResponse, CNSaveRequest, NSMapTable, NSMutableDictionary;
 
@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableDictionary *abSourcesByIdentifier; // @synthesize abSourcesByIdentifier=_abSourcesByIdentifier;
 @property(retain, nonatomic) NSMutableDictionary *abGroupsByIdentifier; // @synthesize abGroupsByIdentifier=_abGroupsByIdentifier;
 @property(retain, nonatomic) NSMutableDictionary *abPersonsByIdentifier; // @synthesize abPersonsByIdentifier=_abPersonsByIdentifier;
+- (void).cxx_destruct;
 - (id)indexPathForContainerInstance:(id)arg1;
 - (id)indexPathForGroupInstance:(id)arg1;
 - (id)indexPathForContactInstance:(id)arg1;

@@ -17,28 +17,24 @@
 - (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
 - (unsigned long long)currentIndex;
 - (TIKeyboardCandidate *)currentCandidate;
-- (void)showPreviousRow;
-- (void)showNextRow;
-- (void)showPreviousPage;
-- (void)showNextPage;
-- (void)showPreviousCandidate;
-- (void)showNextCandidate;
+- (void)showCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (_Bool)showCandidate:(TIKeyboardCandidate *)arg1;
 - (void)showCandidateAtIndex:(unsigned long long)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id <UIKeyboardCandidateListDelegate>)arg1;
 - (void)setCandidates:(TIKeyboardCandidateResultSet *)arg1 inlineText:(NSString *)arg2 inlineRect:(struct CGRect)arg3 maxX:(double)arg4 layout:(_Bool)arg5;
+- (_Bool)isFloatingList;
 - (_Bool)isExtendedList;
 
 @optional
 - (TIKeyboardSecureCandidateRenderTraits *)secureCandidateRenderTraits;
+- (unsigned long long)rowForCandidateAtIndex:(unsigned long long)arg1;
 - (unsigned long long)viewOffsetForCandidateAtIndex:(unsigned long long)arg1;
 - (NSString *)inlineText;
 - (TIKeyboardCandidateResultSet *)candidates;
 - (void)revealHiddenCandidates;
 - (void)jumpToCompositions;
 - (void)candidatesDidChange;
-- (_Bool)hasPreviousPage;
-- (_Bool)hasNextPage;
+- (_Bool)hasCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (_Bool)handleTabKeyWithShift:(_Bool)arg1;
 - (_Bool)handleNumberKey:(unsigned long long)arg1;
 - (void)setCompletionContext:(NSString *)arg1;

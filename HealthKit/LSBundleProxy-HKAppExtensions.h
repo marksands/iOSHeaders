@@ -9,6 +9,5 @@
 @interface LSBundleProxy (HKAppExtensions)
 + (id)_hk_appExtensionContainerBundleProxyWithProperties:(id)arg1;
 + (id)hk_appExtensionContainerBundleForConnection:(id)arg1;
-+ (id)hk_appExtensionContainerBundleForCurrentTask;
 @end
 

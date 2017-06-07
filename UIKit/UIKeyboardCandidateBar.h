@@ -11,12 +11,13 @@
 #import <UIKit/UIKeyboardCandidateList-Protocol.h>
 #import <UIKit/UIKeyboardCandidateListDelegate-Protocol.h>
 
-@class NSArray, NSIndexPath, NSString, TIKeyboardCandidateResultSet, UIImageView, UIKBCandidateCollectionView, UIKBThemedView, UIKeyboardCandidatePocketShadow;
+@class NSArray, NSDictionary, NSIndexPath, NSString, TIKeyboardCandidateResultSet, UIImageView, UIKBCandidateCollectionView, UIKBThemedView, UIKeyboardCandidatePocketShadow;
 @protocol UIKeyboardCandidateBarDelegate, UIKeyboardCandidateListDelegate;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateBar : UIView <UIKeyboardCandidateList, UIKeyboardCandidateListDelegate, UIKeyboardCandidateBarLayoutDelegate, UICollectionViewDataSource>
 {
+    long long m_handBias;
     _Bool _canExtend;
     _Bool _forceReloadInitiallyHiddenCandidates;
     NSString *_inlineText;
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
     UIKeyboardCandidatePocketShadow *_rightBorder;
     NSIndexPath *_dragStartNextPageIndexPath;
     NSIndexPath *_dragStartPreviousPageIndexPath;
+    NSDictionary *_opacities;
     struct CGPoint _dragStartOffset;
 }
 
@@ -49,6 +51,7 @@ __attribute__((visibility("hidden")))
 + (unsigned long long)numberOfRowsForInterfaceOrientation:(long long)arg1;
 + (unsigned long long)numberOfRows;
 + (void)setScreenTraits:(id)arg1;
+@property(retain, nonatomic) NSDictionary *opacities; // @synthesize opacities=_opacities;
 @property(copy, nonatomic) NSIndexPath *dragStartPreviousPageIndexPath; // @synthesize dragStartPreviousPageIndexPath=_dragStartPreviousPageIndexPath;
 @property(copy, nonatomic) NSIndexPath *dragStartNextPageIndexPath; // @synthesize dragStartNextPageIndexPath=_dragStartNextPageIndexPath;
 @property(nonatomic) struct CGPoint dragStartOffset; // @synthesize dragStartOffset=_dragStartOffset;
@@ -61,14 +64,18 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIKBThemedView *secondaryCandidatesViewEdgeGradient; // @synthesize secondaryCandidatesViewEdgeGradient=_secondaryCandidatesViewEdgeGradient;
 @property(nonatomic) unsigned long long currentCandidateViewIndex; // @synthesize currentCandidateViewIndex=_currentCandidateViewIndex;
 @property(retain, nonatomic) NSArray *candidateViews; // @synthesize candidateViews=_candidateViews;
-@property(nonatomic) id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
+@property(nonatomic) __weak id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
 @property(nonatomic) double upArrowWidth; // @synthesize upArrowWidth=_upArrowWidth;
-@property(nonatomic) id <UIKeyboardCandidateBarDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <UIKeyboardCandidateBarDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIImageView *candidateMaskView; // @synthesize candidateMaskView=_candidateMaskView;
 @property(copy, nonatomic) NSString *inlineText; // @synthesize inlineText=_inlineText;
+- (void).cxx_destruct;
+- (void)updateScrollInsets;
+@property(nonatomic) struct UIEdgeInsets scrollInsets;
 - (void)setFrame:(struct CGRect)arg1;
 @property(readonly, nonatomic) UIKBCandidateCollectionView *currentCandidateView;
 @property(readonly, nonatomic) TIKeyboardCandidateResultSet *candidates;
+- (void)dimKeys:(id)arg1;
 - (id)visibleCandidates;
 - (Class)_barCellClassForSection:(long long)arg1;
 - (unsigned long long)_sectionIndexForSection:(long long)arg1;
@@ -94,6 +101,7 @@ __attribute__((visibility("hidden")))
 - (void)_reloadData;
 - (void)_clearData;
 - (void)_updateBorders;
+- (_Bool)_shouldShowBorders;
 - (void)_updateCandidateViews;
 - (void)candidateListShouldBeDismissed:(id)arg1;
 - (void)candidateListSelectionDidChange:(id)arg1;
@@ -113,17 +121,14 @@ __attribute__((visibility("hidden")))
 - (id)currentCandidate;
 - (_Bool)hasNextPage;
 - (_Bool)hasPreviousPage;
-- (void)showPreviousRow;
-- (void)showNextRow;
-- (void)showPreviousPage;
-- (void)showNextPage;
-- (void)showPreviousCandidate;
-- (void)showNextCandidate;
+- (_Bool)hasCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
+- (void)showCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (void)showCandidateAtIndex:(unsigned long long)arg1;
 - (_Bool)showCandidate:(id)arg1;
 - (void)setUIKeyboardCandidateListDelegate:(id)arg1;
 - (void)candidatesDidChange;
 - (void)setCandidates:(id)arg1 inlineText:(id)arg2 inlineRect:(struct CGRect)arg3 maxX:(double)arg4 layout:(_Bool)arg5;
+- (_Bool)isFloatingList;
 - (_Bool)isExtendedList;
 - (void)scrollViewDidEndDecelerating:(id)arg1;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
@@ -132,7 +137,6 @@ __attribute__((visibility("hidden")))
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;
 - (void)candidateBarLayoutDidFinishPreparingLayout;
 - (double)leftMarginForCollectionView:(id)arg1 layout:(id)arg2;
 - (struct CGSize)sizeOfDummyItemForCollectionView:(id)arg1 layout:(id)arg2;

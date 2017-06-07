@@ -14,10 +14,16 @@
     long long _status;
     long long _request;
     long long _objectAnchor;
+    long long _modificationEpoch;
+    double _modificationDate;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly) long long objectAnchor; // @synthesize objectAnchor=_objectAnchor;
+@property(readonly, nonatomic) double modificationDate; // @synthesize modificationDate=_modificationDate;
+@property(readonly, nonatomic) long long modificationEpoch; // @synthesize modificationEpoch=_modificationEpoch;
+@property(readonly, nonatomic) long long objectAnchor; // @synthesize objectAnchor=_objectAnchor;
+@property(readonly, nonatomic) long long request; // @synthesize request=_request;
+@property(readonly, nonatomic) long long status; // @synthesize status=_status;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -26,12 +32,10 @@
 - (_Bool)sharingEnabled;
 - (_Bool)requestedReading;
 - (_Bool)requestedSharing;
-@property(readonly) long long request;
-@property(readonly) long long status;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithAuthorizationStatus:(long long)arg1 authorizationRequest:(long long)arg2 objectAnchor:(long long)arg3;
+- (id)initWithAuthorizationStatus:(long long)arg1 authorizationRequest:(long long)arg2 objectAnchor:(long long)arg3 modificationEpoch:(long long)arg4 modificationDate:(double)arg5;
 
 @end
 

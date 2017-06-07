@@ -10,7 +10,7 @@
 #import <QuickLook/UITableViewDataSource-Protocol.h>
 #import <QuickLook/UITableViewDelegate-Protocol.h>
 
-@class NSArray, NSString, QLItem, QLPreviewItemStore, UIBarButtonItem, UIImage, UIPopoverPresentationController, UITableViewController;
+@class NSArray, NSString, QLItem, QLListCellManager, QLPreviewItemStore, UIBarButtonItem, UIPopoverPresentationController, UITableViewController;
 @protocol QLListViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
     UITableViewController *_tableViewController;
     QLItem *_currentPreviewItem;
     QLPreviewItemStore *_previewItemStore;
-    UIImage *_defaultImage;
+    QLListCellManager *_cellManager;
     NSArray *_itemsWithFolders;
     id <QLListViewControllerDelegate> _archiveDelegate;
     UIBarButtonItem *_barButton;
@@ -33,12 +33,11 @@ __attribute__((visibility("hidden")))
 - (void)_generateItemsAndFolders;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)presentationController:(id)arg1 viewControllerForAdaptivePresentationStyle:(long long)arg2;
 - (void)prepareForPopoverPresentation:(id)arg1;
-- (id)_defaultImage;
 - (void)_updateNavigationBarVisibilityForPresentationStyle:(long long)arg1;
 - (void)_dismiss;
 - (id)initWithPreviewItemStore:(id)arg1 currentPreviewItem:(id)arg2;

@@ -35,9 +35,6 @@
 @property(retain, nonatomic) NSNumber *nameRecordID; // @synthesize nameRecordID=_nameRecordID;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (void)_migrateToAddressBook:(void *)arg1;
-- (void)_migrateToContactsWithAddressBook:(void *)arg1;
-- (void)_migrateToSchemaVersion:(long long)arg1 withAddressBook:(void *)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (_Bool)isEqual:(id)arg1;

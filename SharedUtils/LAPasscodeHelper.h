@@ -11,7 +11,7 @@
 }
 
 + (id)sharedInstance;
-- (_Bool)useLightOnDarkPasscodeScreenWithPolicy:(long long)arg1 policyOptions:(id)arg2;
+- (long long)passcodeScreenStyleWithPolicy:(long long)arg1 options:(id)arg2;
 - (long long)createStash:(id)arg1 mode:(int)arg2 manifest:(id)arg3;
 - (long long)verifyPassword:(id)arg1 acmContext:(id)arg2 userId:(id)arg3;
 - (_Bool)isPasscodeSetWithError:(id *)arg1;

@@ -6,7 +6,6 @@
 
 #import <SceneKit/SCNAction.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNActionRepeat : SCNAction
 {
     struct SCNCActionRepeat *_mycaction;

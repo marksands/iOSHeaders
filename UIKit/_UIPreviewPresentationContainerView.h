@@ -30,6 +30,7 @@
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;
 - (struct CGSize)_standardPreferredContentSize;
+- (struct CGRect)_preferredPlatterRectForContainerRect:(struct CGRect)arg1;
 - (void)initPlatterViewsIfNeeded;
 - (_Bool)_shouldEnclosedScrollViewFlashIndicators:(id)arg1;
 - (void)layoutSubviews;

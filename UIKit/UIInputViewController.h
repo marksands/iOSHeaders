@@ -39,8 +39,11 @@
 - (void)requestSupplementaryLexiconWithCompletion:(CDUnknownBlockType)arg1;
 - (void)returnToPreviousInputMode;
 - (void)handleInputModeListFromView:(id)arg1 withEvent:(id)arg2;
+- (void)setHasDictation:(_Bool)arg1;
 - (void)advanceToNextInputMode;
 - (void)dismissKeyboard;
+@property(readonly, nonatomic) _Bool needsInputModeSwitchKey;
+@property(readonly, nonatomic) _Bool hasFullAccess;
 - (void)setView:(id)arg1;
 @property(retain, nonatomic) UIInputView *inputView;
 - (id)_textDocumentInterface;
@@ -51,7 +54,7 @@
 - (_Bool)_shouldForwardSystemLayoutFittingSizeChanges;
 - (_Bool)_canResignIfContainsFirstResponder;
 - (struct CGSize)_systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
-- (void)_setExtensionContext:(id)arg1;
+- (void)_setExtensionContextUUID:(id)arg1;
 - (id)_extensionContext;
 - (void)didReceiveMemoryWarning;
 - (void)viewDidAppear:(_Bool)arg1;

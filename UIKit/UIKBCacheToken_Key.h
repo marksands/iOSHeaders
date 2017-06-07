@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface UIKBCacheToken_Key : UIKBCacheToken
 {
-    CDUnion_2c5a7b77 _style;
+    CDUnion_bf7716c0 _style;
     NSString *_cacheDisplayString;
     NSString *_cacheSecondaryDisplayString;
     NSString *_annotationString;
@@ -24,8 +24,8 @@ __attribute__((visibility("hidden")))
     struct UIEdgeInsets _displayInsets;
 }
 
-+ (id)tokenForKey:(id)arg1 style:(CDStruct_961fb75c)arg2 displayInsets:(struct UIEdgeInsets)arg3;
-+ (id)tokenForKey:(id)arg1 style:(CDStruct_961fb75c)arg2;
++ (id)tokenForKey:(id)arg1 style:(CDStruct_227bb23d)arg2 displayInsets:(struct UIEdgeInsets)arg3;
++ (id)tokenForKey:(id)arg1 style:(CDStruct_227bb23d)arg2;
 - (id)stringForRenderFlags:(long long)arg1 lightKeyboard:(_Bool)arg2;
 - (id)string;
 - (id)_stringWithAdditionalValues:(CDUnknownBlockType)arg1;
@@ -34,8 +34,8 @@ __attribute__((visibility("hidden")))
 - (void)resetAnnotations;
 - (void)annotateWithString:(id)arg1;
 - (_Bool)hasKey;
-- (void)setStyling:(CDStruct_961fb75c)arg1;
-- (CDStruct_961fb75c)styling;
+- (void)setStyling:(CDStruct_227bb23d)arg1;
+- (CDStruct_227bb23d)styling;
 - (void)setDisplayHint:(int)arg1;
 - (int)displayHint;
 - (void)setRowHint:(int)arg1;
@@ -43,7 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)setSize:(struct CGSize)arg1;
 - (struct CGSize)size;
 - (void)dealloc;
-- (id)_initWithKey:(id)arg1 style:(CDStruct_961fb75c)arg2 displayInsets:(struct UIEdgeInsets)arg3;
+- (id)_initWithKey:(id)arg1 style:(CDStruct_227bb23d)arg2 displayInsets:(struct UIEdgeInsets)arg3;
 
 @end
 

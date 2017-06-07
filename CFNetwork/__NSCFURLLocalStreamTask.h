@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CFNetwork/NSURLSessionTask.h>
+#import <CFNetwork/NSURLSessionStreamTask.h>
 
-@class NSData, NSDictionary, NSError, NSMutableArray, NSObject, NSString, NSURLRequest, NSURLResponse, __NSURLSessionLocal;
+@class NSData, NSDate, NSDictionary, NSError, NSMutableArray, NSObject, NSString, NSURLRequest, NSURLResponse, __NSURLSessionLocal;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
-@interface __NSCFURLLocalStreamTask : NSURLSessionTask
+@interface __NSCFURLLocalStreamTask : NSURLSessionStreamTask
 {
     NSObject<OS_dispatch_queue> *_workQueue;
     struct BaseSocketStreamClient *_socketStreamClient;
@@ -45,6 +45,9 @@ __attribute__((visibility("hidden")))
     NSURLRequest *_originalRequest;
     NSURLRequest *_currentRequest;
     NSURLResponse *_response;
+    NSDate *_earliestBeginDate;
+    long long _countOfBytesClientExpectsToSend;
+    long long _countOfBytesClientExpectsToReceive;
     long long _countOfBytesExpectedToSend;
     long long _countOfBytesExpectedToReceive;
     long long _expectedWorkload;
@@ -68,6 +71,9 @@ __attribute__((visibility("hidden")))
 @property(copy) NSData *_TCPConnectionMetadata; // @synthesize _TCPConnectionMetadata=__TCPConnectionMetadata;
 @property long long countOfBytesExpectedToReceive; // @synthesize countOfBytesExpectedToReceive=_countOfBytesExpectedToReceive;
 @property long long countOfBytesExpectedToSend; // @synthesize countOfBytesExpectedToSend=_countOfBytesExpectedToSend;
+@property long long countOfBytesClientExpectsToReceive; // @synthesize countOfBytesClientExpectsToReceive=_countOfBytesClientExpectsToReceive;
+@property long long countOfBytesClientExpectsToSend; // @synthesize countOfBytesClientExpectsToSend=_countOfBytesClientExpectsToSend;
+@property(copy) NSDate *earliestBeginDate; // @synthesize earliestBeginDate=_earliestBeginDate;
 @property(copy) NSURLResponse *response; // @synthesize response=_response;
 @property(copy) NSURLRequest *currentRequest; // @synthesize currentRequest=_currentRequest;
 @property(copy) NSURLRequest *originalRequest; // @synthesize originalRequest=_originalRequest;
@@ -118,6 +124,7 @@ __attribute__((visibility("hidden")))
 - (void)_onqueue_dealWithSessionTrustAuth:(long long)arg1 credential:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_onqueue_preConnectionConfiguration:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_onqueue_stopSecureConnection;
+- (void)copyStreamProperty:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_onqueue_startSecureConnection;
 - (void)_onqueue_closeReadOp;
 - (void)_onqueue_closeWriteOp;
@@ -151,6 +158,9 @@ __attribute__((visibility("hidden")))
 - (id)_initWithSession:(id)arg1 disavow:(CDUnknownBlockType)arg2;
 - (id)_initCommonWithSession:(id)arg1 disavow:(CDUnknownBlockType)arg2;
 - (void)_init_setupTimeoutTimer;
+
+// Remaining properties
+@property double _timeoutIntervalForResource; // @dynamic _timeoutIntervalForResource;
 
 @end
 

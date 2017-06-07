@@ -17,6 +17,7 @@
 @property(retain, nonatomic, setter=_setActionManagerForNoAsset:) PUAssetActionManager *_actionManagerForNoAsset; // @synthesize _actionManagerForNoAsset=__actionManagerForNoAsset;
 @property(readonly, nonatomic) NSMapTable *_actionManagerByClass; // @synthesize _actionManagerByClass=__actionManagerByClass;
 - (void).cxx_destruct;
+- (id)actionPerformerForDuplicatingAssetsByAssetCollection:(id)arg1 withNewStillImageTime:(CDStruct_1b6d18a9)arg2;
 - (id)actionPerformerForSettingFavoriteTo:(_Bool)arg1 onAssetsByAssetCollection:(id)arg2;
 - (id)actionPerformerForSimpleActionType:(unsigned long long)arg1 onAssetsByAssetCollection:(id)arg2;
 - (unsigned long long)preferredTrashActionTypeOnAssetsByAssetCollection:(id)arg1;

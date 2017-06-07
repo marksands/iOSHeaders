@@ -9,7 +9,7 @@
 #import <UIKit/UIAdaptivePresentationControllerDelegate-Protocol.h>
 #import <UIKit/UIForcePresentationController-Protocol.h>
 
-@class NSString, UIGestureRecognizer, UIView, _UIFeedbackStatesBehavior, _UIKeyboardLayoutAlignmentView;
+@class NSLayoutConstraint, NSString, UIAlertVisualStyleUpdatableConstraints, UIGestureRecognizer, UIView, _UIKeyboardLayoutAlignmentView, _UIStatesFeedbackGenerator;
 @protocol _UIForcePresentationControllerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -18,6 +18,9 @@ __attribute__((visibility("hidden")))
     UIView *_dimmingView;
     _UIKeyboardLayoutAlignmentView *keyboardLayoutAlignmentView;
     UIView *keyboardLayoutAlignmentAvailableSpaceView;
+    UIAlertVisualStyleUpdatableConstraints *_visualStyleUpdatableConstraints;
+    NSLayoutConstraint *_topAvailableSpaceConstraint;
+    NSLayoutConstraint *_bottomAvailableSpaceConstraint;
     _Bool constraintsPrepared;
     _Bool _sourceViewSnapshotAndScaleTransformSuppressed;
     _Bool _chromeHidden;
@@ -27,13 +30,13 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _presentationPhaseCompletionBlock;
     id <_UIForcePresentationControllerDelegate> _forcePresentationControllerDelegate;
     UIView *_revealContainerView;
-    _UIFeedbackStatesBehavior *_feedbackBehavior;
+    _UIStatesFeedbackGenerator *_feedbackGenerator;
 }
 
 @property(setter=_setShouldRespectNearestCurrentContextPresenter:) _Bool _shouldRespectNearestCurrentContextPresenter; // @synthesize _shouldRespectNearestCurrentContextPresenter=__shouldRespectNearestCurrentContextPresenter;
 @property(setter=_setIsCurrentContext:) _Bool _isCurrentContext; // @synthesize _isCurrentContext=__isCurrentContext;
 @property(nonatomic, getter=_isChromeHidden, setter=_setChromeHidden:) _Bool _chromeHidden; // @synthesize _chromeHidden;
-@property(retain, nonatomic) _UIFeedbackStatesBehavior *feedbackBehavior; // @synthesize feedbackBehavior=_feedbackBehavior;
+@property(retain, nonatomic) _UIStatesFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;
 @property(nonatomic) _Bool _sourceViewSnapshotAndScaleTransformSuppressed; // @synthesize _sourceViewSnapshotAndScaleTransformSuppressed;
 @property(readonly, nonatomic) UIView *_revealContainerView; // @synthesize _revealContainerView;
 @property(nonatomic) __weak id <_UIForcePresentationControllerDelegate> forcePresentationControllerDelegate; // @synthesize forcePresentationControllerDelegate=_forcePresentationControllerDelegate;
@@ -46,7 +49,9 @@ __attribute__((visibility("hidden")))
 - (long long)adaptivePresentationStyleForPresentationController:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (void)_presentedAlertControllerDidAdapt;
+- (void)_updateConstraintsIfNecessary;
 - (void)_prepareConstraintsIfNecessary;
+- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (_Bool)_shouldOccludeDuringPresentation;
 - (_Bool)_keyboardShouldAnimateAlongsideForInteractiveTransitions;
 - (_Bool)_preserveResponderAcrossWindows;

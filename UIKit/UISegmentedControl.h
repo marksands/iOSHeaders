@@ -7,11 +7,13 @@
 #import <UIKit/UIControl.h>
 
 #import <UIKit/NSCoding-Protocol.h>
+#import <UIKit/UIPopoverPresentationControllerDelegate-Protocol.h>
 #import <UIKit/_UIBasicAnimationFactory-Protocol.h>
+#import <UIKit/_UIHostedFocusSystemDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, UIColor, UISegment, UIView;
+@class NSMutableArray, NSString, UIColor, UILongPressGestureRecognizer, UISegment, UIView, _UIHostedFocusSystem;
 
-@interface UISegmentedControl : UIControl <_UIBasicAnimationFactory, NSCoding>
+@interface UISegmentedControl : UIControl <_UIBasicAnimationFactory, UIPopoverPresentationControllerDelegate, _UIHostedFocusSystemDelegate, NSCoding>
 {
     NSMutableArray *_segments;
     long long _selectedSegment;
@@ -37,6 +39,8 @@
         unsigned int appearanceNeedsUpdate:1;
     } _segmentedControlFlags;
     _Bool __hasTranslucentOptionsBackground;
+    _UIHostedFocusSystem *_internalFocusSystem;
+    UILongPressGestureRecognizer *_axLongPressGestureRecognizer;
 }
 
 + (id)_tvDefaultTextColorDisabledUserInterfaceStyleDark;
@@ -56,8 +60,11 @@
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 + (double)defaultHeight;
 @property(nonatomic, setter=_setTranslucentOptionsBackground:) _Bool _hasTranslucentOptionsBackground; // @synthesize _hasTranslucentOptionsBackground=__hasTranslucentOptionsBackground;
+@property(retain, nonatomic) UILongPressGestureRecognizer *axLongPressGestureRecognizer; // @synthesize axLongPressGestureRecognizer=_axLongPressGestureRecognizer;
 @property(retain, nonatomic) UIView *removedSegment; // @synthesize removedSegment=_removedSegment;
 - (void).cxx_destruct;
+- (void)setSpringLoaded:(_Bool)arg1;
+- (_Bool)isSpringLoaded;
 - (id)_uiktest_segmentAtIndex:(unsigned long long)arg1;
 - (id)_uiktest_labelsWithState:(unsigned long long)arg1;
 - (void)_updateDividerImageForSegmentAtIndex:(unsigned long long)arg1;
@@ -88,13 +95,21 @@
 - (void)_setOptionsBackgroundImage:(id)arg1;
 - (void)_updateTitleTextAttributes;
 @property(retain, nonatomic) UIColor *tintColor; // @dynamic tintColor;
-- (void)willUpdateFocusToView:(id)arg1;
-- (id)_firstEnabledSegment;
-- (_Bool)_hasEnabledSegment;
-- (id)preferredFocusedView;
+- (id)_focusMapContainerForFocusSystem:(id)arg1;
+- (void)_focusSystem:(id)arg1 didFinishUpdatingFocusInContext:(id)arg2;
+- (id)_preferredFocusEnvironmentsForFocusSystem:(id)arg1;
+- (_Bool)_focusSystem:(id)arg1 containsChildOfHostEnvironment:(id)arg2;
+@property(readonly, nonatomic, getter=_internalFocusSystem) _UIHostedFocusSystem *internalFocusSystem; // @synthesize internalFocusSystem=_internalFocusSystem;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (void)_sendFocusAction;
+- (void)_cancelDelayedFocusAction;
+- (void)_sendDelayedFocusActionIfNecessary;
+- (void)_selectFocusedSegment;
+- (_Bool)_hasEnabledSegment;
+- (void)_diagnoseFocusabilityForReport:(id)arg1;
 - (_Bool)canBecomeFocused;
+- (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
+- (long long)adaptivePresentationStyleForPresentationController:(id)arg1;
+- (void)_axLongPressHandler:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)setAlpha:(double)arg1;
 - (void)setEnabled:(_Bool)arg1;
@@ -110,6 +125,8 @@
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_tapSegmentAtPoint:(struct CGPoint)arg1;
+- (int)_closestSegmentIndexAtPoint:(struct CGPoint)arg1;
+- (id)_segmentAtIndex:(int)arg1;
 - (_Bool)pointMostlyInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)highlightSegment:(int)arg1;
 - (void)_setHighlightedSegmentHighlighted:(_Bool)arg1;
@@ -130,8 +147,6 @@
 - (void)_animateContentChangeWithAnimations:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)_controlEventsForActionTriggered;
 - (void)_emitValueChanged;
-- (void)_cancelDelayedFocusAction;
-- (void)_selectFocusedSegment;
 - (void)_setSelectedSegmentIndex:(long long)arg1 notify:(_Bool)arg2 animate:(_Bool)arg3;
 - (void)_setSelectedSegmentIndex:(long long)arg1 notify:(_Bool)arg2;
 @property(nonatomic) long long selectedSegmentIndex;

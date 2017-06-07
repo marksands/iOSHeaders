@@ -12,12 +12,12 @@
 {
 }
 
-+ (id)impactBehaviorWithCoordinateSpace:(id)arg1 configuration:(id)arg2;
 + (Class)_configurationClass;
 - (id)_stats_key;
 - (void)impactOccurred;
 - (void)_impactOccurredWithIntensity:(double)arg1;
 @property(readonly, nonatomic, getter=_impactConfiguration) _UIImpactFeedbackGeneratorConfiguration *impactConfiguration;
+- (id)initWithStyle:(long long)arg1 coordinateSpace:(id)arg2;
 - (id)initWithStyle:(long long)arg1;
 
 @end

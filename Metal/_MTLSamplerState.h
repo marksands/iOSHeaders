@@ -23,6 +23,7 @@
 - (id)formattedDescription:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithDevice:(id)arg1 samplerDescriptor:(id)arg2;
+@property(readonly) unsigned long long uniqueIdentifier;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

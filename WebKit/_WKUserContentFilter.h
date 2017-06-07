@@ -12,11 +12,13 @@
 
 @interface _WKUserContentFilter : NSObject <WKObject>
 {
-    struct ObjectStorage<API::UserContentExtension> _userContentExtension;
+    struct RetainPtr<WKContentRuleList> _contentRuleList;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 @property(readonly) struct Object *_apiObject;
-- (void)dealloc;
+- (id)_initWithWKContentRuleList:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

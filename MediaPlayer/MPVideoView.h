@@ -14,6 +14,7 @@
     double _startTime;
     double _stopTime;
     NSDictionary *_AVURLAssetOptions;
+    UIView *_contentView;
     NSString *_movieSubtitle;
     NSString *_movieTitle;
     long long _scaleMode;
@@ -31,12 +32,14 @@
 - (void)didMoveToWindow;
 @property(readonly, nonatomic) struct CGRect movieContentFrame;
 @property(readonly, nonatomic) struct CGRect movieFrame;
+@property(readonly, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(readonly, nonatomic) long long effectiveScaleMode;
 - (void)toggleScaleMode:(_Bool)arg1;
 - (void)setScaleMode:(long long)arg1 animated:(_Bool)arg2;
 - (void)setScaleMode:(long long)arg1 duration:(float)arg2;
 @property(readonly, nonatomic) _Bool canChangeScaleMode;
 - (void)dealloc;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

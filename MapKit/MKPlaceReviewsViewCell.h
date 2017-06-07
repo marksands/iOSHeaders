@@ -27,10 +27,12 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *author; // @synthesize author=_author;
 @property(nonatomic) unsigned long long rating; // @synthesize rating=_rating;
 - (void).cxx_destruct;
+- (unsigned long long)maxCharacters;
 - (void)updateDetailLabelText;
 - (id)detailLabelText;
 - (void)setAuthor:(id)arg1 date:(id)arg2 rating:(unsigned long long)arg3;
 @property(nonatomic) __weak NSString *reviewText; // @dynamic reviewText;
+- (void)setLocale:(id)arg1;
 @property(nonatomic) __weak UIImage *picture; // @dynamic picture;
 - (void)updateConstraints;
 - (void)_updatePictureTheme:(id)arg1;
@@ -38,7 +40,6 @@ __attribute__((visibility("hidden")))
 - (id)standardDateAuthorLabel;
 - (void)_updateBaselineConstraints;
 - (void)_contentSizeDidChange;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

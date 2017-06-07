@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     NSArray *_array;
 }
 
++ (_Bool)supportsSecureCoding;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

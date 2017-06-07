@@ -26,6 +26,7 @@
     NSMutableDictionary *m_focusGuides;
     struct UIEdgeInsets m_unfocusedFocusGuideOutsets;
     _Bool _hasImpendingCursorLocation;
+    unsigned long long _requestedInteractionModel;
     unsigned long long _impendingCursorLocation;
 }
 
@@ -48,6 +49,7 @@
 + (id)activeKeyboard;
 @property(nonatomic) unsigned long long impendingCursorLocation; // @synthesize impendingCursorLocation=_impendingCursorLocation;
 @property(nonatomic) _Bool hasImpendingCursorLocation; // @synthesize hasImpendingCursorLocation=_hasImpendingCursorLocation;
+@property(readonly, nonatomic) unsigned long long requestedInteractionModel; // @synthesize requestedInteractionModel=_requestedInteractionModel;
 @property(nonatomic) long long keyboardIdiom; // @synthesize keyboardIdiom=m_idiom;
 - (void)_didChangeKeyplaneWithContext:(id)arg1;
 @property(nonatomic) _Bool showsCandidatesInline;
@@ -85,11 +87,11 @@
 - (void)setupKeyFocusGuides;
 - (void)setCursorLocation:(unsigned long long)arg1;
 - (unsigned long long)cursorLocation;
-- (_Bool)shouldChangeFocusedItem:(id)arg1 heading:(unsigned long long)arg2;
+- (_Bool)shouldUpdateFocusInContext:(id)arg1;
 - (_Bool)allowExternalChangeForFocusHeading:(unsigned long long)arg1 cursorLocation:(unsigned long long)arg2;
-- (void)focusedViewDidChange;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (long long)_focusedSound;
-- (struct CGSize)_sensitivitySize;
+- (long long)_focusTouchSensitivityStyle;
 - (_Bool)_mayRemainFocused;
 - (_Bool)canBecomeFocused;
 - (void)_wheelChangedWithEvent:(id)arg1;
@@ -142,6 +144,7 @@
 - (_Bool)isActivePerScreen;
 - (void)dealloc;
 - (id)initLazily;
+- (id)initWithRequestedInteractionModel:(unsigned long long)arg1;
 - (id)initWithDefaultSize;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)_initWithFrame:(struct CGRect)arg1 lazily:(_Bool)arg2;

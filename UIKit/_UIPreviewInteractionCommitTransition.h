@@ -18,7 +18,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIWindow *currentCommitEffectWindow; // @synthesize currentCommitEffectWindow=_currentCommitEffectWindow;
 @property(retain, nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
 - (void).cxx_destruct;
+- (_Bool)_shouldReduceMotion;
 - (void)_applyCommitEffectTransformToView:(id)arg1;
+- (id)_preferredTransitionAnimatorForReducedMotion;
 - (id)_preferredTransitionAnimator;
 - (void)performTransitionWithPresentationBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithPresentedViewController:(id)arg1;

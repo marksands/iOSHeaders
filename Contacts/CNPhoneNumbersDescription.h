@@ -17,7 +17,7 @@
 - (CDUnknownBlockType)fromPlistTransform;
 - (CDUnknownBlockType)plistTransform;
 - (Class)labeledValueClass;
-- (_Bool)isValue:(id)arg1 equivalentToValue:(id)arg2;
+- (_Bool)canUnifyValue:(id)arg1 withValue:(id)arg2;
 - (id)stringForIndexingForContact:(id)arg1;
 - (id)standardLabels;
 - (id)equivalentLabelSets;
@@ -28,9 +28,10 @@
 - (void)encodeUsingCoder:(id)arg1 contact:(id)arg2;
 - (_Bool)isEqualForContact:(id)arg1 other:(id)arg2;
 - (id)init;
+- (id)CNLabeledValueValueFromABMultiValueValueBytes:(char *)arg1 length:(unsigned long long)arg2;
 - (void *)ABMultiValueValueFromCNLabeledValueValue:(id)arg1;
 - (id)CNLabeledValueValueFromABMultiValueValue:(void *)arg1;
-- (int)abPropertyID:(int *)arg1;
+- (_Bool)abPropertyID:(int *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

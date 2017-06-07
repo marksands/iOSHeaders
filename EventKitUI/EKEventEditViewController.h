@@ -52,6 +52,7 @@
 @property(retain, nonatomic) EKEventStore *eventStore;
 - (void)dealloc;
 - (_Bool)shouldAutorotate;
+- (void)viewDidAppear:(_Bool)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

@@ -78,6 +78,7 @@
 - (void)setLibraryContainerFilterPredicatesWithCloudFilteringType:(long long)arg1 additionalFilterPredicates:(id)arg2;
 - (void)setLibraryEntityFilterPredicatesWithCloudFilteringType:(long long)arg1 additionalFilterPredicates:(id)arg2;
 - (void)clearLocationPropertiesOfItemWithIdentifier:(long long)arg1;
+- (void)populateLocationPropertiesOfItemWithIdentifier:(long long)arg1 withPath:(id)arg2 assetProtectionType:(long long)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)populateLocationPropertiesOfItemWithIdentifier:(long long)arg1 withPath:(id)arg2 assetProtectionType:(long long)arg3;
 - (id)itemResultSetForQueryCriteria:(id)arg1;
 - (id)collectionResultSetForQueryCriteria:(id)arg1;

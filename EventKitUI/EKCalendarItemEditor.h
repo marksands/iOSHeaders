@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 
 + (id)_doneLocalizedString;
 + (id)_addLocalizedString;
++ (id)defaultTitleForCalendarItem;
 @property(retain, nonatomic) _UIAccessDeniedView *accessDeniedView; // @synthesize accessDeniedView=_accessDeniedView;
 @property(nonatomic) _Bool timeImplicitlySet; // @synthesize timeImplicitlySet=_timeImplicitlySet;
 @property(readonly) EKCalendarItemEditItem *currentEditItem; // @synthesize currentEditItem=_currentEditItem;
@@ -134,7 +135,6 @@ __attribute__((visibility("hidden")))
 - (void)customizeActionSheet:(id)arg1;
 - (id)defaultAlertTitle;
 - (void)setupDeleteButton;
-- (id)defaultTitleForCalendarItem;
 - (id)preferredTitle;
 - (_Bool)saveCalendarItemWithSpan:(long long)arg1 error:(id *)arg2;
 - (void)prepareEditItems;

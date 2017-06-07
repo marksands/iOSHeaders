@@ -6,35 +6,35 @@
 
 #import <objc/NSObject.h>
 
-#import <CloudKit/CKBXPCClient-Protocol.h>
+#import <CloudKit/CKXPCClient-Protocol.h>
 
-@class ACAccountStore, CKAccountInfo, CKContainerID, CKContainerSetupInfo, CKDatabase, CKOperationCallbackManager, CKOperationFlowControlManager, CKRecordID, NSMapTable, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString, NSXPCConnection;
+@class ACAccountStore, CKAccountOverrideInfo, CKContainerID, CKContainerOptions, CKContainerSetupInfo, CKDatabase, CKOperationCallbackManager, CKOperationFlowControlManager, CKRecordID, NSMapTable, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString, NSXPCConnection;
 
-@interface CKContainer : NSObject <CKBXPCClient>
+@interface CKContainer : NSObject <CKXPCClient>
 {
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_sourceApplicationSecondaryIdentifier;
     _Bool _holdAllOperations;
+    _Bool _masqueradeAsThirdPartyApp;
     _Bool _hasValidConnection;
-    _Bool _needsSandboxExtensions;
     _Bool _hasCachedSetupInfo;
-    _Bool _captureResponseHTTPHeaders;
-    _Bool _wantsSiloedContext;
     int _statusReportToken;
     int _killSwitchToken;
     int _accountChangeToken;
+    int _identityUpdateToken;
     CKContainerID *_containerID;
     CKRecordID *_containerScopedUserID;
+    CKContainerOptions *_options;
     CKDatabase *_privateCloudDatabase;
     CKDatabase *_publicCloudDatabase;
     CKDatabase *_sharedCloudDatabase;
+    CKDatabase *_organizationCloudDatabase;
     NSXPCConnection *_xpcConnection;
     NSOperationQueue *_convenienceOperationQueue;
     NSOperationQueue *_throttlingOperationQueue;
     NSOperationQueue *_backgroundThrottlingOperationQueue;
     CKOperationCallbackManager *_callbackManager;
     CKOperationFlowControlManager *_flowControlManager;
-    CKAccountInfo *_accountInfoOverride;
     ACAccountStore *_accountStore;
     NSMutableArray *_sandboxExtensionHandles;
     CKContainerSetupInfo *_cachedSetupInfo;
@@ -51,18 +51,15 @@
 + (id)defaultContainer;
 @property(nonatomic) unsigned long long stateHandle; // @synthesize stateHandle=_stateHandle;
 @property(retain, nonatomic) NSMutableDictionary *fakeEntitlements; // @synthesize fakeEntitlements=_fakeEntitlements;
-@property(nonatomic) _Bool wantsSiloedContext; // @synthesize wantsSiloedContext=_wantsSiloedContext;
-@property(nonatomic) _Bool captureResponseHTTPHeaders; // @synthesize captureResponseHTTPHeaders=_captureResponseHTTPHeaders;
 @property(retain, nonatomic) NSMapTable *assetsByUUID; // @synthesize assetsByUUID=_assetsByUUID;
 @property(nonatomic) _Bool hasCachedSetupInfo; // @synthesize hasCachedSetupInfo=_hasCachedSetupInfo;
 @property(retain, nonatomic) CKContainerSetupInfo *cachedSetupInfo; // @synthesize cachedSetupInfo=_cachedSetupInfo;
-@property(nonatomic) _Bool needsSandboxExtensions; // @synthesize needsSandboxExtensions=_needsSandboxExtensions;
 @property(retain, nonatomic) NSMutableArray *sandboxExtensionHandles; // @synthesize sandboxExtensionHandles=_sandboxExtensionHandles;
+@property(nonatomic) int identityUpdateToken; // @synthesize identityUpdateToken=_identityUpdateToken;
 @property(nonatomic) int accountChangeToken; // @synthesize accountChangeToken=_accountChangeToken;
 @property(nonatomic) int killSwitchToken; // @synthesize killSwitchToken=_killSwitchToken;
 @property(nonatomic) int statusReportToken; // @synthesize statusReportToken=_statusReportToken;
 @property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
-@property(copy, nonatomic) CKAccountInfo *accountInfoOverride; // @synthesize accountInfoOverride=_accountInfoOverride;
 @property(retain, nonatomic) CKOperationFlowControlManager *flowControlManager; // @synthesize flowControlManager=_flowControlManager;
 @property(retain, nonatomic) CKOperationCallbackManager *callbackManager; // @synthesize callbackManager=_callbackManager;
 @property(retain, nonatomic) NSOperationQueue *backgroundThrottlingOperationQueue; // @synthesize backgroundThrottlingOperationQueue=_backgroundThrottlingOperationQueue;
@@ -70,9 +67,11 @@
 @property(retain, nonatomic) NSOperationQueue *convenienceOperationQueue; // @synthesize convenienceOperationQueue=_convenienceOperationQueue;
 @property(nonatomic) _Bool hasValidConnection; // @synthesize hasValidConnection=_hasValidConnection;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
+@property(retain, nonatomic) CKDatabase *organizationCloudDatabase; // @synthesize organizationCloudDatabase=_organizationCloudDatabase;
 @property(retain, nonatomic) CKDatabase *sharedCloudDatabase; // @synthesize sharedCloudDatabase=_sharedCloudDatabase;
 @property(retain, nonatomic) CKDatabase *publicCloudDatabase; // @synthesize publicCloudDatabase=_publicCloudDatabase;
 @property(retain, nonatomic) CKDatabase *privateCloudDatabase; // @synthesize privateCloudDatabase=_privateCloudDatabase;
+@property(retain, nonatomic) CKContainerOptions *options; // @synthesize options=_options;
 @property(retain, nonatomic) CKRecordID *containerScopedUserID; // @synthesize containerScopedUserID=_containerScopedUserID;
 @property(retain, nonatomic) CKContainerID *containerID; // @synthesize containerID=_containerID;
 - (void).cxx_destruct;
@@ -84,11 +83,12 @@
 - (id)CKStatusReportArray;
 - (void)fetchFullNameAndPrimaryEmailOnAccountWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)fetchCurrentDeviceIDWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)fetchServerEnvironment:(CDUnknownBlockType)arg1;
 - (void)triggerAutoBugCaptureSnapshot;
 - (void)dataclassEnabled:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)purgeTmpDirectory;
 - (void)flushOperationMetricsToPowerLog;
 - (void)updatePushTokens;
+- (void)clearPILSCacheForLookupInfos:(id)arg1;
 - (void)clearContextFromMetadataCache;
 - (void)wipeAllCachesAndDie;
 - (void)setSourceApplicationSecondaryIdentifier:(id)arg1;
@@ -98,7 +98,8 @@
 - (_Bool)holdAllOperations;
 - (void)setHoldAllOperations:(_Bool)arg1;
 - (void)setFakeEntitlement:(id)arg1 forKey:(id)arg2;
-- (void)setFakeResponseOperationResult:(id)arg1 forNextRequestOfClassName:(id)arg2 forItemID:(id)arg3;
+- (void)fetchCurrentUserBoundaryKeyWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)setFakeResponseOperationResult:(id)arg1 forNextRequestOfClassName:(id)arg2 forItemID:(id)arg3 withLifetime:(int)arg4;
 - (void)setFakeError:(id)arg1 forNextRequestOfClassName:(id)arg2;
 - (void)serverPreferredPushEnvironmentWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)tossConfigWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -111,15 +112,17 @@
 - (void)statusGroupsForApplicationPermission:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_scheduleConvenienceOperation:(id)arg1;
 - (void)addOperation:(id)arg1;
+- (void)consumeSandboxExtensions:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)_cleanupSandboxExtensionHandles:(id)arg1;
 - (void)openFileWithOpenInfo:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleOperationCheckpoint:(id)arg1 forOperationWithID:(id)arg2;
 - (void)handleOperationCompletion:(id)arg1 forOperationWithID:(id)arg2;
 - (void)handleOperationProgress:(id)arg1 forOperationWithID:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)handleOperationProgress:(id)arg1 forOperationWithID:(id)arg2;
 - (id)daemonWithErrorHandler:(CDUnknownBlockType)arg1;
-- (id)connection;
-- (void)_consumeSandboxExtensions:(id)arg1;
-- (void)_cleanupSandboxExtensionHandles:(id)arg1;
+- (id)connectionWithError:(id *)arg1;
+- (id)_CKXPCInterface;
+- (id)_CKXPCExportedInterface;
 - (void)_prepareForDaemonLaunch;
 - (id)databaseWithDatabaseScope:(long long)arg1;
 @property(readonly, nonatomic) NSString *containerIdentifier;
@@ -127,16 +130,22 @@
 - (id)_checkSelfContainerIdentifier;
 - (void)_checkSelfCloudServicesEntitlement;
 - (id)_untrustedEntitlementForKey:(id)arg1;
+@property(copy, nonatomic) CKAccountOverrideInfo *accountInfoOverride;
+- (_Bool)masqueradeAsThirdPartyApp;
+- (void)setMasqueradeAsThirdPartyApp:(_Bool)arg1;
+@property(nonatomic) _Bool captureResponseHTTPHeaders;
+@property(nonatomic) _Bool wantsSiloedContext;
+- (id)initWithContainerID:(id)arg1 accountInfoOverride:(id)arg2;
 - (id)setupInfo;
 @property(readonly, copy) NSString *description;
 - (id)CKPropertiesDescription;
 - (void)dealloc;
 - (id)initWithContainerID:(id)arg1;
-- (id)initWithContainerID:(id)arg1 accountInfoOverride:(id)arg2;
+- (id)initWithContainerID:(id)arg1 options:(id)arg2;
 - (id)_initWithContainerIdentifier:(id)arg1;
 - (id)_initWithContainerIdentifier:(id)arg1 environment:(long long)arg2;
 - (id)_allStatusReports;
-- (void)_setupWithContainerID:(id)arg1 accountInfoOverride:(id)arg2;
+- (void)_setupWithContainerID:(id)arg1 options:(id)arg2;
 - (void)discoverUserInfoWithUserRecordID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)discoverUserInfoWithEmailAddress:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)discoverAllContactUserInfosWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -146,6 +155,7 @@
 - (void)_discoverUserIdentityWithLookupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)discoverAllIdentitiesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)fetchUserRecordIDWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)getNewWebSharingIdentityDataWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getNewWebSharingIdentity:(CDUnknownBlockType)arg1;
 - (void)decryptPersonalInfoOnShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)acceptShareMetadata:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -154,6 +164,7 @@
 - (void)fetchShareParticipantWithPhoneNumber:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchShareParticipantWithEmailAddress:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchShareParticipantWithLookupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)accountInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)accountStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)fetchLongLivedOperationWithID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchAllLongLivedOperationIDsWithCompletionHandler:(CDUnknownBlockType)arg1;

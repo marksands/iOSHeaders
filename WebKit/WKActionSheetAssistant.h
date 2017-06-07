@@ -19,8 +19,11 @@ __attribute__((visibility("hidden")))
     struct RetainPtr<WKActionSheet> _interactionSheet;
     RetainPtr_5a40b48a _elementInfo;
     UIView *_view;
+    _Bool _needsLinkIndicator;
+    _Bool _isPresentingDDUserInterface;
 }
 
+@property(nonatomic) _Bool needsLinkIndicator; // @synthesize needsLinkIndicator=_needsLinkIndicator;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)cleanupSheet;
@@ -29,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (RetainPtr_f649c0c3)defaultActionsForImageSheet:(id)arg1;
 - (RetainPtr_f649c0c3)defaultActionsForLinkSheet:(id)arg1;
 - (void)_appendOpenActionsForURL:(id)arg1 actions:(id)arg2 elementInfo:(id)arg3;
+- (_Bool)_shouldPresentAtTouchLocationForElementRect:(struct CGRect)arg1;
 - (void)showImageSheet;
 - (void)_createSheetWithElementActions:(id)arg1 showLinkTitle:(_Bool)arg2;
 - (id)currentAvailableActionTitles;
@@ -38,6 +42,8 @@ __attribute__((visibility("hidden")))
 - (void)updatePositionInformation;
 - (struct CGRect)presentationRectInHostViewForSheet;
 - (struct CGRect)initialPresentationRectInHostViewForSheet;
+- (struct CGRect)presentationRectForIndicatedElement;
+- (struct CGRect)presentationRectForElementUsingClosestIndicatedRect;
 - (id)hostViewForSheet;
 - (struct CGRect)_presentationRectForSheetGivenPoint:(struct CGPoint)arg1 inHostView:(id)arg2;
 - (id)superviewForSheet;

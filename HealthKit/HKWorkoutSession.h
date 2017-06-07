@@ -15,6 +15,7 @@
 @interface HKWorkoutSession : NSObject <_HKWorkoutSessionDelegate, NSSecureCoding>
 {
     NSObject<OS_dispatch_queue> *_queue;
+    id <HKWorkoutSessionDelegate> _strongDelegate;
     id <HKWorkoutSessionDelegate> _delegate;
     _HKWorkoutSession *_privateSession;
 }
@@ -24,6 +25,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)workoutSession:(id)arg1 didUpdateMetrics:(id)arg2;
 - (void)workoutSession:(id)arg1 didGenerateEvent:(id)arg2;
 - (void)workoutSession:(id)arg1 didFailWithError:(id)arg2;
 - (void)workoutSession:(id)arg1 didChangeToState:(long long)arg2 fromState:(long long)arg3 date:(id)arg4;

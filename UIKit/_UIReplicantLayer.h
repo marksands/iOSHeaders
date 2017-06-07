@@ -6,14 +6,16 @@
 
 #import <QuartzCore/CALayer.h>
 
+@class _UISlotId;
+
 __attribute__((visibility("hidden")))
 @interface _UIReplicantLayer : CALayer
 {
-    struct {
-        unsigned int hasSetContents:1;
-    } _layerFlags;
+    _UISlotId *__slotId;
 }
 
+@property(retain, nonatomic, setter=_setSlotId:) _UISlotId *_slotId; // @synthesize _slotId=__slotId;
+- (void).cxx_destruct;
 - (void)setContents:(id)arg1;
 
 @end

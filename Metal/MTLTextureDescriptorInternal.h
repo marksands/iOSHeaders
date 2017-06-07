@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface MTLTextureDescriptorInternal : MTLTextureDescriptor
 {
-    struct MTLTextureDescriptorPrivate *_private;
+    struct MTLTextureDescriptorPrivate _private;
 }
 
 - (_Bool)validateWithDevice:(id)arg1;
@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
 - (void)setIsDrawable:(_Bool)arg1;
 - (void)setFramebufferOnly:(_Bool)arg1;
 - (_Bool)framebufferOnly;
+- (void)setCompressionMode:(unsigned long long)arg1;
+- (unsigned long long)compressionMode;
 - (unsigned long long)getSwizzle;
 - (void)setSwizzle:(unsigned long long)arg1;
 - (void)setSwizzleAlpha:(unsigned long long)arg1;
@@ -61,7 +63,6 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

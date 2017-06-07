@@ -9,6 +9,6 @@
 @class NSString;
 
 @protocol QLToolbarButtonAction <NSObject>
-- (void)buttonPressedWithIdentifier:(NSString *)arg1;
+- (void)buttonPressedWithIdentifier:(NSString *)arg1 completionHandler:(void (^)(void))arg2;
 @end
 

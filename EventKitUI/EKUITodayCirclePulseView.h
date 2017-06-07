@@ -42,6 +42,8 @@
 @property(copy, nonatomic) NSString *overlayString;
 - (id)_overlayLabel;
 - (void)_updateLabelAttributedString;
+@property(nonatomic) double roundedRectCornerRadius;
+@property(nonatomic) _Bool usesRoundedRectInsteadOfCircle;
 @property(retain, nonatomic) NSDictionary *attributes;
 @property(retain, nonatomic) UIFont *font;
 @property(copy, nonatomic) NSString *string;

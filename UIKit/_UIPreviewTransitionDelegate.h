@@ -8,15 +8,15 @@
 
 #import <UIKit/UIForceTransitioningDelegate-Protocol.h>
 
-@class NSString, UIInteractionProgress, _UIFeedbackStatesBehavior;
+@class NSString, UIInteractionProgress, _UIStatesFeedbackGenerator;
 
 @interface _UIPreviewTransitionDelegate : NSObject <UIForceTransitioningDelegate>
 {
     UIInteractionProgress *interactionProgressForPresentation;
-    _UIFeedbackStatesBehavior *_feedbackBehavior;
+    _UIStatesFeedbackGenerator *_feedbackGenerator;
 }
 
-@property(retain, nonatomic) _UIFeedbackStatesBehavior *feedbackBehavior; // @synthesize feedbackBehavior=_feedbackBehavior;
+@property(retain, nonatomic) _UIStatesFeedbackGenerator *feedbackGenerator; // @synthesize feedbackGenerator=_feedbackGenerator;
 @property(retain, nonatomic) UIInteractionProgress *interactionProgressForPresentation; // @synthesize interactionProgressForPresentation;
 - (void).cxx_destruct;
 - (id)presentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;

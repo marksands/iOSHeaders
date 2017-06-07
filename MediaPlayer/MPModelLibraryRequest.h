@@ -6,22 +6,22 @@
 
 #import <MediaPlayer/MPModelRequest.h>
 
-#import <MediaPlayer/MPModelPlaybackRequesting-Protocol.h>
 #import <MediaPlayer/MPModelRequestDetailedKeepLocalStatusRequesting-Protocol.h>
-#import <MediaPlayer/MPModelRequestRTCReporting-Protocol.h>
 
-@class MPMediaLibrary, NSArray, NSString;
+@class MPMediaLibrary, MPMediaQuery, NSArray, NSString;
 
-@interface MPModelLibraryRequest : MPModelRequest <MPModelPlaybackRequesting, MPModelRequestRTCReporting, MPModelRequestDetailedKeepLocalStatusRequesting>
+@interface MPModelLibraryRequest : MPModelRequest <MPModelRequestDetailedKeepLocalStatusRequesting>
 {
     _Bool _wantsDetailedKeepLocalRequestableResponse;
     MPMediaLibrary *_mediaLibrary;
     NSArray *_allowedItemIdentifiers;
     NSArray *_scopedContainers;
     unsigned long long _filteringOptions;
+    MPMediaQuery *_legacyMediaQuery;
     struct _NSRange _contentRange;
 }
 
+@property(copy, nonatomic) MPMediaQuery *legacyMediaQuery; // @synthesize legacyMediaQuery=_legacyMediaQuery;
 @property(nonatomic) _Bool wantsDetailedKeepLocalRequestableResponse; // @synthesize wantsDetailedKeepLocalRequestableResponse=_wantsDetailedKeepLocalRequestableResponse;
 @property(nonatomic) struct _NSRange contentRange; // @synthesize contentRange=_contentRange;
 @property(nonatomic) unsigned long long filteringOptions; // @synthesize filteringOptions=_filteringOptions;
@@ -32,8 +32,6 @@
 - (id)sectionTranslationContext;
 - (id)itemTranslationContext;
 - (void)performWithResponseHandler:(CDUnknownBlockType)arg1;
-@property(readonly, copy, nonatomic) NSString *rtcReportingPlayQueueSourceIdentifier;
-@property(nonatomic) _Bool shouldExcludeNonShuffleItems;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

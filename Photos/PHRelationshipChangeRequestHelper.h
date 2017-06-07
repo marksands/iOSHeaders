@@ -22,6 +22,7 @@
     PHChangeRequestHelper *_changeRequestHelper;
 }
 
++ (id)objectIDsOrUUIDsFromPHObjects:(id)arg1;
 + (id)_offsetsFromSourceOIDs:(id)arg1 toManagedObjects:(id)arg2;
 @property(retain, nonatomic) PHChangeRequestHelper *changeRequestHelper; // @synthesize changeRequestHelper=_changeRequestHelper;
 @property(copy, nonatomic) CDUnknownBlockType isDestinationObjectValid; // @synthesize isDestinationObjectValid=_isDestinationObjectValid;
@@ -35,8 +36,10 @@
 @property(readonly, nonatomic) NSString *relationshipName; // @synthesize relationshipName=_relationshipName;
 - (void).cxx_destruct;
 - (_Bool)applyMutationsToManagedObjectToOneRelationship:(id)arg1 error:(id *)arg2;
+- (_Bool)applyMutationsToManagedObject:(id)arg1 unorderedMutableChildren:(id)arg2 inserts:(id *)arg3 deletes:(id *)arg4 error:(id *)arg5;
 - (_Bool)applyMutationsToManagedObject:(id)arg1 unorderedMutableChildren:(id)arg2 error:(id *)arg3;
 - (_Bool)applyMutationsToManagedObject:(id)arg1 orderedMutableChildren:(id)arg2 error:(id *)arg3;
+- (void)prepareIfNeededWithExistentObjectIDs:(id)arg1;
 - (void)encodeToXPCDict:(id)arg1;
 - (id)initWithRelationshipName:(id)arg1 xpcDict:(id)arg2 changeRequestHelper:(id)arg3;
 - (id)initWithRelationshipName:(id)arg1 changeRequestHelper:(id)arg2;

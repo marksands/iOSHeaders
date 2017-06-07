@@ -12,7 +12,7 @@
 
 @interface SCNGeometrySource : NSObject <NSSecureCoding>
 {
-    struct __C3DMeshSource *_meshSource;
+    // Error parsing type: ^{__C3DMeshSource={__C3DGenericSource={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DSourceAccessor}(?=^{__CFData}^v^v)qb1b1b1}SCC}, name: _meshSource
     NSData *_data;
     NSString *_semantic;
     long long _vectorCount;
@@ -24,6 +24,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)geometrySourceWithColorComponents:(const float *)arg1 count:(long long)arg2 hasAlpha:(_Bool)arg3 colorSpace:(struct CGColorSpace *)arg4;
 + (id)geometrySourceWithTextureCoordinates:(const struct CGPoint *)arg1 count:(long long)arg2;
 + (id)geometrySourceWithNormals:(const struct SCNVector3 *)arg1 count:(long long)arg2;
 + (id)geometrySourceWithVertices:(const struct SCNVector3 *)arg1 count:(long long)arg2;
@@ -32,11 +33,14 @@
 + (id)dataWithPointArray:(const struct CGPoint *)arg1 count:(long long)arg2 bytesPerComponent:(long long *)arg3;
 + (id)dataWithVector3Array:(const struct SCNVector3 *)arg1 count:(long long)arg2 bytesPerComponent:(long long *)arg3;
 + (id)dataByConvertingDoublesToFloats:(const double *)arg1 count:(long long)arg2;
-+ (id)geometrySourceWithMeshSourceRef:(struct __C3DMeshSource *)arg1;
++     // Error parsing type: @24@0:8^{__C3DMeshSource={__C3DGenericSource={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DSourceAccessor}(?=^{__CFData}^v^v)qb1b1b1}SCC}16, name: geometrySourceWithMeshSourceRef:
 + (id)geometrySourceWithMDLVertexAttribute:(id)arg1 mesh:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (struct __C3DMeshSource *)meshSource;
+-     // Error parsing type: ^{__C3DMeshSource={__C3DGenericSource={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DSourceAccessor}(?=^{__CFData}^v^v)qb1b1b1}SCC}16@0:8, name: meshSource
+- (const void *)__CFObject;
+- (id)scene;
+- (struct __C3DScene *)sceneRef;
 - (void)_clearC3DCache;
 - (short)_componentType;
 @property(readonly, nonatomic) long long dataStride;
@@ -46,6 +50,7 @@
 @property(readonly, nonatomic) _Bool floatComponents;
 @property(readonly, nonatomic) long long vectorCount;
 @property(readonly, nonatomic) NSString *semantic;
+- (void)_printData;
 @property(readonly, nonatomic) NSData *data;
 - (void)setMkSemantic:(id)arg1;
 - (id)mkSemantic;
@@ -54,7 +59,7 @@
 - (id)description;
 - (void)dealloc;
 - (id)init;
-- (id)initWithMeshSource:(struct __C3DMeshSource *)arg1;
+-     // Error parsing type: @24@0:8^{__C3DMeshSource={__C3DGenericSource={__C3DEntity={__CFRuntimeBase=QAQ}^v^{__CFString}^{__CFString}^{__CFDictionary}^{__C3DScene}q}^{__C3DSourceAccessor}(?=^{__CFData}^v^v)qb1b1b1}SCC}16, name: initWithMeshSource:
 
 @end
 

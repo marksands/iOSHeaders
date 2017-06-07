@@ -14,6 +14,7 @@
 @property(nonatomic) _Bool hidesMasterViewInPortrait;
 @property(nonatomic) float gutterWidth;
 @property(nonatomic) float masterColumnWidth;
+@property(nonatomic) long long primaryEdge;
 @property(nonatomic) double maximumPrimaryColumnWidth;
 @property(nonatomic) double minimumPrimaryColumnWidth;
 @property(nonatomic) double preferredPrimaryColumnWidthFraction;
@@ -37,11 +38,12 @@
 - (_Bool)_shouldSynthesizeSupportedOrientations;
 - (double)_contentMarginForChildViewController:(UIViewController *)arg1;
 - (void)_updateChildContentMargins;
+- (void)_marginInfoForChild:(UIViewController *)arg1 leftMargin:(double *)arg2 rightMargin:(double *)arg3;
 - (struct UIEdgeInsets)_edgeInsetsForChildViewController:(UIViewController *)arg1 insetsAreAbsolute:(_Bool *)arg2;
 - (_Bool)_optsOutOfPopoverControllerHierarchyCheck;
 - (_Bool)_shouldPersistViewWhenCoding;
 - (struct CGRect)_frameForChildContentContainer:(id <UIContentContainer>)arg1;
-- (void)willUpdateFocusInContext:(UIFocusUpdateContext *)arg1 withAnimationCoordinator:(UIFocusAnimationCoordinator *)arg2;
+- (void)_didUpdateFocusInContext:(UIFocusUpdateContext *)arg1 withAnimationCoordinator:(UIFocusAnimationCoordinator *)arg2;
 - (void)_didEndSnapshotSession;
 - (void)_willBeginSnapshotSession;
 - (void)purgeMemoryForReason:(int)arg1;

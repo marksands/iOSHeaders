@@ -17,6 +17,7 @@
 }
 
 + (void)initialize;
++ (_Bool)expectsPropertyRevisedNotifications;
 + (_Bool)supportsSecureCoding;
 @property(readonly, copy, nonatomic) NSDictionary *URLAssetInitializationOptions;
 - (_Bool)_setURLAssetInitializationOptions:(id)arg1 error:(id *)arg2;

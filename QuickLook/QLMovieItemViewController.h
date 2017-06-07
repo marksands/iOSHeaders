@@ -33,13 +33,15 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_updatePlaceHolderView;
 @property(readonly, nonatomic) PHPlaceholderView *airPlayPlaceholderView;
+- (void)performFirstTimeAppearanceActions:(unsigned long long)arg1;
+- (_Bool)canPerformFirstTimeAppearanceActions:(unsigned long long)arg1;
 - (id)parallaxView;
 - (id)transitioningView;
 - (void)transitionDidFinish:(_Bool)arg1 didComplete:(_Bool)arg2;
 - (void)transitionDidStart:(_Bool)arg1;
 - (long long)preferredWhitePointAdaptivityStyle;
 - (void)didChangePlayingStatus;
-- (void)setPlayControlsHidden:(_Bool)arg1;
+- (void)setPlayControlsHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)play;
 - (_Bool)canEnterFullScreen;
 - (id)timeLabelScrollView;
@@ -49,7 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (void)addScrubberIfNeededWithDeferral;
-- (void)loadPreviewControllerWithPreviewItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MobileCoreServices/_LSQuery.h>
+#import <MobileCoreServices/_LSBundleQuery.h>
 
 __attribute__((visibility("hidden")))
-@interface _LSCurrentBundleProxyQuery : _LSQuery
+@interface _LSCurrentBundleProxyQuery : _LSBundleQuery
 {
 }
 

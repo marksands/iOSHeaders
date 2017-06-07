@@ -6,7 +6,6 @@
 
 #import <SceneKit/SCNAction.h>
 
-__attribute__((visibility("hidden")))
 @interface SCNActionHide : SCNAction
 {
     struct SCNCActionHide *_mycaction;

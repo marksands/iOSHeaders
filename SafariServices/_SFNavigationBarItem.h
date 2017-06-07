@@ -18,18 +18,22 @@
     _Bool _lockIconHasEVCertificateTint;
     _Bool _readerButtonSelected;
     _Bool _showsReaderButton;
+    _Bool _showsReaderAvailabilityText;
     _Bool _overrideBarStyleForSecurityWarning;
     NSString *_text;
     NSString *_textWhenExpanded;
     unsigned long long _startIndexOfTextInExpandedText;
     NSString *_customPlaceholderText;
     _SFFluidProgressView *_progressView;
+    unsigned long long _mediaCaptureDeviceIcon;
     _SFNavigationBar *_navigationBar;
 }
 
 @property(nonatomic, setter=_setNavigationBar:) __weak _SFNavigationBar *navigationBar; // @synthesize navigationBar=_navigationBar;
+@property(nonatomic) unsigned long long mediaCaptureDeviceIcon; // @synthesize mediaCaptureDeviceIcon=_mediaCaptureDeviceIcon;
 @property(retain, nonatomic) _SFFluidProgressView *progressView; // @synthesize progressView=_progressView;
 @property(nonatomic) _Bool overrideBarStyleForSecurityWarning; // @synthesize overrideBarStyleForSecurityWarning=_overrideBarStyleForSecurityWarning;
+@property(readonly, nonatomic) _Bool showsReaderAvailabilityText; // @synthesize showsReaderAvailabilityText=_showsReaderAvailabilityText;
 @property(nonatomic) _Bool showsReaderButton; // @synthesize showsReaderButton=_showsReaderButton;
 @property(nonatomic) _Bool readerButtonSelected; // @synthesize readerButtonSelected=_readerButtonSelected;
 @property(nonatomic) _Bool lockIconHasEVCertificateTint; // @synthesize lockIconHasEVCertificateTint=_lockIconHasEVCertificateTint;
@@ -43,6 +47,7 @@
 @property(readonly, nonatomic) NSString *textWhenExpanded; // @synthesize textWhenExpanded=_textWhenExpanded;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
+- (void)setShowsReaderButton:(_Bool)arg1 showsAvailabilityText:(_Bool)arg2;
 - (void)setText:(id)arg1 textWhenExpanded:(id)arg2 startIndex:(unsigned long long)arg3;
 - (id)init;
 

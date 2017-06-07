@@ -14,21 +14,29 @@
     CXDatabase *_database;
     long long _lastAddBlockingEntriesCount;
     NSString *_addBlockingEntriesInsertPhoneNumberBlockingEntrySQL;
+    long long _lastRemoveBlockingEntriesCount;
+    NSString *_removeBlockingEntriesSQL;
     long long _lastAddIdentificationEntriesCount;
     NSString *_addIdentificationEntriesInsertLabelsSQL;
     NSString *_addIdentificationEntriesInsertPhoneNumberIdentificationEntrySQL;
     long long _lastAddPhoneNumbersCount;
     NSString *_addPhoneNumbersSQL;
+    long long _lastRemoveIdentificationEntriesCount;
+    NSString *_removeIdentificationEntriesSQL;
 }
 
 + (_Bool)initializeDatabaseIfNecessaryAtURL:(id)arg1 usingTemplateAtURL:(id)arg2 error:(id *)arg3;
 + (id)databaseTemplateURL;
 + (id)databaseURLUsingTemporaryDirectory:(_Bool)arg1 error:(id *)arg2;
+@property(copy, nonatomic) NSString *removeIdentificationEntriesSQL; // @synthesize removeIdentificationEntriesSQL=_removeIdentificationEntriesSQL;
+@property(nonatomic) long long lastRemoveIdentificationEntriesCount; // @synthesize lastRemoveIdentificationEntriesCount=_lastRemoveIdentificationEntriesCount;
 @property(copy, nonatomic) NSString *addPhoneNumbersSQL; // @synthesize addPhoneNumbersSQL=_addPhoneNumbersSQL;
 @property(nonatomic) long long lastAddPhoneNumbersCount; // @synthesize lastAddPhoneNumbersCount=_lastAddPhoneNumbersCount;
 @property(copy, nonatomic) NSString *addIdentificationEntriesInsertPhoneNumberIdentificationEntrySQL; // @synthesize addIdentificationEntriesInsertPhoneNumberIdentificationEntrySQL=_addIdentificationEntriesInsertPhoneNumberIdentificationEntrySQL;
 @property(copy, nonatomic) NSString *addIdentificationEntriesInsertLabelsSQL; // @synthesize addIdentificationEntriesInsertLabelsSQL=_addIdentificationEntriesInsertLabelsSQL;
 @property(nonatomic) long long lastAddIdentificationEntriesCount; // @synthesize lastAddIdentificationEntriesCount=_lastAddIdentificationEntriesCount;
+@property(copy, nonatomic) NSString *removeBlockingEntriesSQL; // @synthesize removeBlockingEntriesSQL=_removeBlockingEntriesSQL;
+@property(nonatomic) long long lastRemoveBlockingEntriesCount; // @synthesize lastRemoveBlockingEntriesCount=_lastRemoveBlockingEntriesCount;
 @property(copy, nonatomic) NSString *addBlockingEntriesInsertPhoneNumberBlockingEntrySQL; // @synthesize addBlockingEntriesInsertPhoneNumberBlockingEntrySQL=_addBlockingEntriesInsertPhoneNumberBlockingEntrySQL;
 @property(nonatomic) long long lastAddBlockingEntriesCount; // @synthesize lastAddBlockingEntriesCount=_lastAddBlockingEntriesCount;
 @property(nonatomic, getter=isTemporary) _Bool temporary; // @synthesize temporary=_temporary;
@@ -53,6 +61,8 @@
 - (_Bool)containsBlockingEntryWithPhoneNumber:(id)arg1 error:(id *)arg2;
 - (_Bool)performTransactionWithBlock:(CDUnknownBlockType)arg1 error:(id *)arg2;
 - (_Bool)removeIdentificationEntriesForExtensionWithID:(long long)arg1 error:(id *)arg2;
+- (_Bool)_removeIdentificationEntriesWithData:(id)arg1 startIndex:(unsigned long long)arg2 count:(unsigned long long)arg3 extensionID:(long long)arg4 error:(id *)arg5;
+- (_Bool)removeIdentificationEntriesWithData:(id)arg1 extensionID:(long long)arg2 error:(id *)arg3;
 - (_Bool)_addPhoneNumbersWithEntryData:(id)arg1 startIndex:(unsigned long long)arg2 count:(unsigned long long)arg3 error:(id *)arg4;
 - (_Bool)_addIdentificationEntriesWithData:(id)arg1 startIndex:(unsigned long long)arg2 count:(unsigned long long)arg3 extensionID:(long long)arg4 error:(id *)arg5;
 - (_Bool)addIdentificationEntriesWithData:(id)arg1 extensionID:(long long)arg2 error:(id *)arg3;
@@ -63,6 +73,8 @@
 - (long long)_findOrCreateIDForPhoneNumber:(long long)arg1 error:(id *)arg2;
 - (_Bool)addIdentificationEntryWithPhoneNumber:(long long)arg1 labelID:(long long)arg2 extensionID:(long long)arg3 error:(id *)arg4;
 - (_Bool)removeBlockingEntriesForExtensionWithID:(long long)arg1 error:(id *)arg2;
+- (_Bool)_removeBlockingEntriesWithData:(id)arg1 startIndex:(unsigned long long)arg2 count:(unsigned long long)arg3 extensionID:(long long)arg4 error:(id *)arg5;
+- (_Bool)removeBlockingEntriesWithData:(id)arg1 extensionID:(long long)arg2 error:(id *)arg3;
 - (_Bool)_addBlockingEntriesWithData:(id)arg1 startIndex:(unsigned long long)arg2 count:(unsigned long long)arg3 extensionID:(long long)arg4 error:(id *)arg5;
 - (_Bool)addBlockingEntriesWithData:(id)arg1 extensionID:(long long)arg2 error:(id *)arg3;
 - (_Bool)addBlockingEntryWithPhoneNumber:(long long)arg1 extensionID:(long long)arg2 error:(id *)arg3;

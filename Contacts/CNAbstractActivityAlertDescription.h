@@ -15,7 +15,8 @@
 }
 
 - (Class)valueClass;
-- (_Bool)isValue:(id)arg1 equivalentToValue:(id)arg2;
+- (_Bool)canUnifyValue:(id)arg1 withValue:(id)arg2;
+- (id)CNMutableValueForABMultivalue;
 - (void *)ABValueFromCNValue:(id)arg1;
 - (id)CNValueFromABValue:(void *)arg1;
 

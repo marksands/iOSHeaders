@@ -7,13 +7,15 @@
 #import <Intents/JSExport-Protocol.h>
 #import <Intents/NSObject-Protocol.h>
 
-@class INDateComponentsRange, INPerson;
+@class INDateComponentsRange, INPerson, NSNumber;
 
 @protocol INSearchCallHistoryIntentExport <NSObject, JSExport>
+@property(copy, nonatomic) NSNumber *unseen;
+@property(nonatomic) long long preferredCallProvider;
+@property(nonatomic) unsigned long long callTypes;
 @property(nonatomic) unsigned long long callCapabilities;
 @property(copy, nonatomic) INPerson *recipient;
 @property(copy, nonatomic) INDateComponentsRange *dateCreated;
-@property(nonatomic) long long callType;
 - (id)init;
 @end
 

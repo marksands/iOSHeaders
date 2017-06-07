@@ -43,6 +43,9 @@
 - (id)_textColorForCaretSelection;
 - (id)_clampedpositionFromPosition:(id)arg1 offset:(int)arg2;
 - (id)_findPleasingWordBoundaryFromPosition:(id)arg1;
+- (id)_intersectionOfRange:(id)arg1 andRange:(id)arg2;
+- (_Bool)_range:(id)arg1 intersectsRange:(id)arg2;
+- (_Bool)_range:(id)arg1 containsRange:(id)arg2;
 - (id)_rangeSpanningTextUnit:(long long)arg1 andPosition:(id)arg2;
 - (id)_fullRange;
 - (id)_rangeOfParagraphEnclosingPosition:(id)arg1;
@@ -52,6 +55,7 @@
 - (id)_rangeOfTextUnit:(long long)arg1 enclosingPosition:(id)arg2;
 - (id)_rangeOfText:(id)arg1 endingAtPosition:(id)arg2;
 - (void)_scrollRectToVisible:(struct CGRect)arg1 animated:(_Bool)arg2;
+- (void)_replaceDocumentWithText:(id)arg1;
 - (void)_replaceCurrentWordWithText:(id)arg1;
 - (void)_deleteForwardAndNotify:(_Bool)arg1;
 - (void)_deleteBackwardAndNotify:(_Bool)arg1;
@@ -81,6 +85,7 @@
 - (unsigned int)_characterInRelationToCaretSelection:(int)arg1;
 - (unsigned int)_characterBeforeCaretSelection;
 - (unsigned int)_characterAfterCaretSelection;
+- (id)_textRangeFromNSRange:(struct _NSRange)arg1;
 - (struct _NSRange)_nsrangeForTextRange:(id)arg1;
 - (int)_indexForTextPosition:(id)arg1;
 - (void)_selectAll;

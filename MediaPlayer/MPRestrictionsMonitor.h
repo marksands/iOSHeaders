@@ -34,6 +34,7 @@
 - (void)_cacheValue:(id)arg1 forSetting:(id)arg2;
 - (_Bool)_isRunningInStoreDemoMode;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
+- (void)synchronizeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)effectiveValueForSetting:(id)arg1;
 @property(readonly, nonatomic) long long maximumMovieRating;
 @property(readonly, nonatomic) long long maximumTVShowRating;

@@ -6,7 +6,7 @@
 
 #import <Metal/MTLArgument.h>
 
-@class NSString;
+@class MTLType, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MTLArgumentInternal : MTLArgument
@@ -16,8 +16,11 @@ __attribute__((visibility("hidden")))
     unsigned long long _access;
     unsigned long long _index;
     _Bool _active;
+    unsigned long long _arrayLength;
+    MTLType *_dataTypeDescription;
 }
 
+- (unsigned long long)arrayLength;
 - (_Bool)isActive;
 - (unsigned long long)index;
 - (unsigned long long)access;
@@ -25,17 +28,26 @@ __attribute__((visibility("hidden")))
 - (id)name;
 - (id)description;
 - (id)formattedDescription:(unsigned long long)arg1;
-- (unsigned long long)arrayLength;
+- (id)dataTypeDescription;
 - (unsigned long long)textureDataType;
 - (unsigned long long)textureType;
 - (unsigned long long)threadgroupMemoryDataSize;
 - (unsigned long long)threadgroupMemoryAlignment;
 - (id)bufferStructType;
+- (id)bufferIndirectArgumentType;
+- (unsigned long long)indirectConstantDataType;
+- (unsigned long long)indirectConstantDataSize;
+- (unsigned long long)indirectConstantAlignment;
 - (unsigned long long)bufferDataType;
 - (unsigned long long)bufferDataSize;
 - (unsigned long long)bufferAlignment;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 index:(unsigned long long)arg4 active:(_Bool)arg5;
+- (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 index:(unsigned long long)arg4 active:(_Bool)arg5 arrayLength:(unsigned long long)arg6 typeDescription:(id)arg7;
+- (id)initWithName:(id)arg1 type:(unsigned long long)arg2 access:(unsigned long long)arg3 index:(unsigned long long)arg4 active:(_Bool)arg5 arrayLength:(unsigned long long)arg6;
+
+// Remaining properties
+@property(readonly) unsigned long long bufferALUType; // @dynamic bufferALUType;
+@property(readonly) unsigned long long bufferPixelFormat; // @dynamic bufferPixelFormat;
 
 @end
 

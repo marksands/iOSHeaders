@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
     unsigned short _length;
 }
 
+- (_Bool)_providesConcreteBacking;
 - (id)_createDispatchData;
 - (id)initWithBytes:(const void *)arg1 length:(unsigned long long)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;

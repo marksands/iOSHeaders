@@ -20,12 +20,13 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool drawsPocketShadow; // @synthesize drawsPocketShadow=_drawsPocketShadow;
 @property(nonatomic) _Bool drawsBackground; // @synthesize drawsBackground=_drawsBackground;
+- (void).cxx_destruct;
+- (void)dimKeys:(id)arg1;
 - (id)toggleButtonBackgroundImageWithHighlight:(_Bool)arg1;
 - (void)updateBackgroundImages;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class _UIFeedbackImpactBehavior;
+@class UIImpactFeedbackGenerator;
 @protocol UISwitchControl;
 
 __attribute__((visibility("hidden")))
@@ -14,13 +14,13 @@ __attribute__((visibility("hidden")))
 {
     _Bool _enabled;
     id <UISwitchControl> _switchControl;
-    _UIFeedbackImpactBehavior *_impactFeedbackBehavior;
+    UIImpactFeedbackGenerator *_impactFeedbackGenerator;
     double _enabledAlpha;
 }
 
 + (struct CGSize)preferredContentSize;
 @property(nonatomic) double enabledAlpha; // @synthesize enabledAlpha=_enabledAlpha;
-@property(retain, nonatomic) _UIFeedbackImpactBehavior *impactFeedbackBehavior; // @synthesize impactFeedbackBehavior=_impactFeedbackBehavior;
+@property(retain, nonatomic) UIImpactFeedbackGenerator *impactFeedbackGenerator; // @synthesize impactFeedbackGenerator=_impactFeedbackGenerator;
 @property(nonatomic) __weak id <UISwitchControl> switchControl; // @synthesize switchControl=_switchControl;
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;

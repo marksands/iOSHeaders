@@ -15,7 +15,7 @@
 - (id)freezeWithSelfAsSnapshot;
 - (id)freeze;
 @property(copy, nonatomic) CNGroup *snapshot; // @dynamic snapshot;
-- (void)adoptValuesFromAndSetSnaphot:(id)arg1;
+- (void)adoptValuesFromAndSetSnapshot:(id)arg1;
 @property(copy, nonatomic) NSString *name; // @dynamic name;
 @property(nonatomic) int iOSLegacyIdentifier; // @dynamic iOSLegacyIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @dynamic identifier;

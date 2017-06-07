@@ -6,9 +6,12 @@
 
 #import <CFNetwork/__NSCFURLLocalStreamTaskWork.h>
 
+@class NSData;
+
 __attribute__((visibility("hidden")))
 @interface __NSCFURLLocalStreamTaskWorkWrite : __NSCFURLLocalStreamTaskWork
 {
+    NSData *_bytesAsData;
     unsigned long long _bytesToWrite;
     CDUnknownBlockType _completion;
 }

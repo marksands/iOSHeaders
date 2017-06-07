@@ -10,12 +10,13 @@
 #import <UIKit/UIKeyboardCandidateGridLayoutDelegate-Protocol.h>
 #import <UIKit/UIKeyboardCandidateList-Protocol.h>
 
-@class NSArray, NSString, TIKeyboardCandidateResultSet, UIButton, UIKBCandidateCollectionView, UIKeyboardCandidateGridCollectionView, UIKeyboardCandidateGridLayout, UIView;
+@class NSArray, NSString, TIKeyboardCandidateResultSet, UIButton, UIKBCandidateCollectionView, UIKeyboardCandidateGridCollectionView, UIKeyboardCandidateGridLayout, UISelectionFeedbackGenerator, UIView;
 @protocol UIKeyboardCandidateGridCollectionViewControllerDelegate, UIKeyboardCandidateListDelegate;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateGridCollectionViewController : UIViewController <UICollectionViewDataSource, UIKeyboardCandidateList, UIKeyboardCandidateGridLayoutDelegate>
 {
+    UISelectionFeedbackGenerator *_indexRetargetFeedbackGenerator;
     _Bool _layoutExtensionCandidates;
     _Bool _hasSecondaryCandidates;
     _Bool _singleLineMode;
@@ -29,7 +30,7 @@ __attribute__((visibility("hidden")))
     TIKeyboardCandidateResultSet *_candidateSet;
     NSArray *_candidateGroups;
     double _rowHeight;
-    CDStruct_961fb75c _visualStyling;
+    CDStruct_227bb23d _visualStyling;
     UIButton *_padInlineFloatingArrowButton;
     UIView *_headerView;
     UIKBCandidateCollectionView *_secondaryCandidatesView;
@@ -47,12 +48,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UIButton *padInlineFloatingArrowButton; // @synthesize padInlineFloatingArrowButton=_padInlineFloatingArrowButton;
 @property(nonatomic) _Bool layoutExtensionCandidates; // @synthesize layoutExtensionCandidates=_layoutExtensionCandidates;
 @property(nonatomic) int candidatesVisualStyle; // @synthesize candidatesVisualStyle=_candidatesVisualStyle;
-@property(nonatomic) CDStruct_961fb75c visualStyling; // @synthesize visualStyling=_visualStyling;
+@property(nonatomic) CDStruct_227bb23d visualStyling; // @synthesize visualStyling=_visualStyling;
 @property(nonatomic) double rowHeight; // @synthesize rowHeight=_rowHeight;
 @property(retain, nonatomic) NSArray *candidateGroups; // @synthesize candidateGroups=_candidateGroups;
 @property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateSet; // @synthesize candidateSet=_candidateSet;
-@property(nonatomic) id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
-@property(nonatomic) id <UIKeyboardCandidateGridCollectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
+@property(nonatomic) __weak id <UIKeyboardCandidateGridCollectionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) UIKeyboardCandidateGridLayout *collectionViewGridLayout;
 @property(readonly, nonatomic) UIKeyboardCandidateGridCollectionView *collectionView;
 - (id)secureCandidateRenderTraits;
@@ -72,18 +74,17 @@ __attribute__((visibility("hidden")))
 - (void)candidateAcceptedAtIndex:(unsigned long long)arg1;
 - (unsigned long long)currentIndex;
 - (id)currentCandidate;
-- (_Bool)hasNextPage;
-- (_Bool)hasPreviousPage;
-- (void)showNextRow;
-- (void)showPreviousRow;
-- (void)showNextPage;
-- (void)showPreviousPage;
+- (_Bool)hasCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (void)stepOneLine:(_Bool)arg1;
 - (void)showPreviousCandidate;
 - (void)showNextCandidate;
+- (void)showCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (void)showCandidateAtIndex:(unsigned long long)arg1;
 - (_Bool)showCandidate:(id)arg1;
+- (_Bool)isFloatingList;
 - (_Bool)isExtendedList;
+- (void)scrollViewIndexTouchesEnded:(id)arg1;
+- (void)scrollViewIndexTouchesBegan:(id)arg1;
 - (void)scrollViewIndexChanged:(id)arg1;
 - (void)updateIndexTitles;
 - (void)updateHeaderView;

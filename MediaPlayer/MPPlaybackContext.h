@@ -17,8 +17,6 @@
     long long _startIndex;
     long long _shuffleType;
     long long _repeatType;
-    NSString *_requestingBundleIdentifier;
-    NSString *_requestingBundleVersion;
     NSString *_playActivityFeatureName;
     NSData *_playActivityRecommendationData;
     NSString *_siriReferenceIdentifier;
@@ -28,8 +26,6 @@
 @property(copy, nonatomic) NSString *siriReferenceIdentifier; // @synthesize siriReferenceIdentifier=_siriReferenceIdentifier;
 @property(copy, nonatomic) NSData *playActivityRecommendationData; // @synthesize playActivityRecommendationData=_playActivityRecommendationData;
 @property(copy, nonatomic) NSString *playActivityFeatureName; // @synthesize playActivityFeatureName=_playActivityFeatureName;
-@property(copy, nonatomic) NSString *requestingBundleVersion; // @synthesize requestingBundleVersion=_requestingBundleVersion;
-@property(copy, nonatomic) NSString *requestingBundleIdentifier; // @synthesize requestingBundleIdentifier=_requestingBundleIdentifier;
 @property(nonatomic) long long repeatType; // @synthesize repeatType=_repeatType;
 @property(nonatomic) long long shuffleType; // @synthesize shuffleType=_shuffleType;
 @property(nonatomic) _Bool shouldRestartPlayback; // @synthesize shouldRestartPlayback=_shouldRestartPlayback;

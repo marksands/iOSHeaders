@@ -21,10 +21,10 @@ __attribute__((visibility("hidden")))
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithName:(id)arg1 options:(unsigned long long)arg2;
 - (id)initWithName:(id)arg1;
 - (id)sgContactMatchesWithSortOrder:(long long)arg1 mutableObjects:(_Bool)arg2 service:(id)arg3 error:(id *)arg4;

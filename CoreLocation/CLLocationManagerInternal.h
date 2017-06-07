@@ -6,48 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableSet, NSString;
+@class CLLocationManagerStateTracker, NSMutableSet, NSString;
 @protocol CLLocationManagerDelegate;
 
 @interface CLLocationManagerInternal : NSObject
 {
     struct __CLClient *fClient;
     id <CLLocationManagerDelegate> fDelegate;
-    double fDistanceFilter;
-    double fDesiredAccuracy;
-    _Bool fUpdatingLocation;
+    CLLocationManagerStateTracker *fState;
     CDStruct_05ee51d2 fLocation;
     NSString *fLocationEventType;
-    _Bool fRequestingLocation;
     struct __CFRunLoopTimer *fLocationRequestTimer;
     double fLocationRequestTimeout;
-    _Bool fRequestingRanging;
-    _Bool fUpdatingRanging;
     struct __CFRunLoopTimer *fRangingRequestTimer;
     double fRangingRequestTimeout;
-    _Bool fCapabilitiesValid;
-    struct {
-        double bestAccuracy;
-    } fCapabilities;
-    _Bool fUpdatingHeading;
-    double fHeadingFilter;
     int fHeadingOrientation;
-    _Bool fPersistentMonitoringEnabled;
-    _Bool fAllowsLocationPrompts;
-    _Bool fAllowsAlteredAccessoryLocations;
-    _Bool fDynamicAccuracyReductionEnabled;
-    _Bool fPreviousAuthorizationStatusValid;
-    int fPreviousAuthorizationStatus;
-    long long fActivityType;
-    int fPausesLocationUpdatesAutomatically;
-    _Bool fPaused;
-    _Bool fAllowsBackgroundLocationUpdates;
-    _Bool fAllowsMapCorrection;
-    _Bool fBatchingLocation;
-    _Bool fUpdatingVehicleSpeed;
-    _Bool fUpdatingVehicleHeading;
-    _Bool fMatchInfoEnabled;
-    _Bool fCourtesyPromptNeeded;
     NSMutableSet *fRangedRegions;
 }
 

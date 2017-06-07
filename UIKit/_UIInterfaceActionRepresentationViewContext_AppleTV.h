@@ -13,16 +13,18 @@ __attribute__((visibility("hidden")))
 {
     UIMotionEffectGroup *_installedHighlightedActionMotionEffectsGroup;
     _Bool _highlighted;
+    _Bool _pressed;
     UIView *_highlightTransformTargetView;
 }
 
+@property(nonatomic) _Bool pressed; // @synthesize pressed=_pressed;
 @property(nonatomic) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(nonatomic) __weak UIView *highlightTransformTargetView; // @synthesize highlightTransformTargetView=_highlightTransformTargetView;
 - (void).cxx_destruct;
 - (id)_newMotionEffectsGroupForHighlightedAction;
 - (void)_removeMotionEffects;
 - (void)_insertMotionEffects;
-- (struct CATransform3D)_enlargedTransformForSize:(struct CGSize)arg1;
+- (struct CATransform3D)_enlargedTransformForSize:(struct CGSize)arg1 pressed:(_Bool)arg2;
 - (void)_applyHighlightTransform;
 - (id)initWithHighlightTransformTargetView:(id)arg1;
 

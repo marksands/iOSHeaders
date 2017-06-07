@@ -19,19 +19,19 @@ __attribute__((visibility("hidden")))
     RetainPtr_f649c0c3 _shippingMethods;
     struct BlockPtr<void (PKPaymentMerchantSession *, NSError *)> _sessionBlock;
     _Bool _didReachFinalState;
-    struct BlockPtr<void (PKPaymentAuthorizationStatus)> _paymentAuthorizedCompletion;
-    struct BlockPtr<void (NSArray *)> _didSelectPaymentMethodCompletion;
-    struct BlockPtr<void (PKPaymentAuthorizationStatus, NSArray *)> _didSelectShippingMethodCompletion;
-    struct BlockPtr<void (PKPaymentAuthorizationStatus, NSArray *, NSArray *)> _didSelectShippingContactCompletion;
+    struct BlockPtr<void (PKPaymentAuthorizationResult *)> _paymentAuthorizedCompletion;
+    struct BlockPtr<void (PKPaymentRequestPaymentMethodUpdate *)> _didSelectPaymentMethodCompletion;
+    struct BlockPtr<void (PKPaymentRequestShippingMethodUpdate *)> _didSelectShippingMethodCompletion;
+    struct BlockPtr<void (PKPaymentRequestShippingContactUpdate *)> _didSelectShippingContactCompletion;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)paymentAuthorizationViewController:(id)arg1 didSelectPaymentMethod:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)paymentAuthorizationViewController:(id)arg1 didSelectShippingContact:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)paymentAuthorizationViewController:(id)arg1 didSelectShippingMethod:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)paymentAuthorizationViewControllerDidFinish:(id)arg1;
-- (void)paymentAuthorizationViewController:(id)arg1 didAuthorizePayment:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)paymentAuthorizationViewController:(id)arg1 didSelectShippingContact:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)paymentAuthorizationViewController:(id)arg1 didSelectShippingMethod:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)paymentAuthorizationViewController:(id)arg1 didSelectPaymentMethod:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)paymentAuthorizationViewController:(id)arg1 didAuthorizePayment:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)paymentAuthorizationViewController:(id)arg1 didRequestMerchantSession:(CDUnknownBlockType)arg2;
 - (void)paymentAuthorizationViewController:(id)arg1 willFinishWithError:(id)arg2;
 - (void)invalidate;

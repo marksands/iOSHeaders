@@ -8,7 +8,6 @@
 
 @class NSDictionary;
 
-__attribute__((visibility("hidden")))
 @interface SCNKeyedArchiver : NSKeyedArchiver
 {
     NSDictionary *options;

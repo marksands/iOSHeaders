@@ -6,20 +6,28 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class MFComposeRecipient, MFRecipientTableViewCellDetailView, MFRecipientTableViewCellTitleView, UIColor, UIImageView;
+@class MFComposeRecipient, NSArray, UIColor, UILabel;
 
 @interface MFRecipientTableViewCell : UITableViewCell
 {
-    MFRecipientTableViewCellTitleView *_titleView;
-    MFRecipientTableViewCellDetailView *_detailView;
     MFComposeRecipient *_recipient;
-    UIImageView *_cellImageView;
     UIColor *_tintColor;
-    _Bool _shouldVerticallyCenterTitleLabel;
+    _Bool _shouldHideDetailLabel;
     _Bool _shouldHighlightCompleteMatches;
     _Bool _shouldDimIrrelevantInformation;
+    UILabel *_titleLabel;
+    UILabel *_detailLabel;
+    NSArray *_activeConstraints;
 }
 
++ (double)detailLineHeight;
++ (id)labelDetailStringAttributes;
++ (id)groupDetailStringAttributes;
++ (id)highlightedDetailStringAttributes;
++ (id)defaultDetailStringAttributes;
++ (id)highlightedTitleStringAttributes;
++ (id)regularTitleStringAttributes;
++ (id)defaultTitleStringAttributes;
 + (id)_defaultTintColor;
 + (double)heightWithRecipient:(id)arg1 width:(double)arg2;
 + (double)height;
@@ -33,18 +41,19 @@
 + (double)_deviceSpecificLayoutMargin;
 + (id)cellForRecipient:(id)arg1;
 + (id)identifier;
+@property(retain, nonatomic) NSArray *activeConstraints; // @synthesize activeConstraints=_activeConstraints;
+@property(readonly, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
+@property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) _Bool shouldDimIrrelevantInformation; // @synthesize shouldDimIrrelevantInformation=_shouldDimIrrelevantInformation;
 @property(nonatomic) _Bool shouldHighlightCompleteMatches; // @synthesize shouldHighlightCompleteMatches=_shouldHighlightCompleteMatches;
+- (void)animateSnapshotOfLabel:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)setTintColor:(id)arg1 animated:(_Bool)arg2;
 - (id)tintColor;
 - (void)setBackgroundColor:(id)arg1;
 - (void)setOpaque:(_Bool)arg1;
-- (void)setCellImage:(id)arg1 highlightedImage:(id)arg2;
 - (void)setRecipient:(id)arg1;
 - (id)recipient;
-- (void)layoutSubviews;
-- (struct CGRect)_frameForDetailView;
-- (struct CGRect)_frameForTitleView;
+- (void)updateActiveConstraints;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

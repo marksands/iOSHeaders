@@ -10,13 +10,10 @@
 
 @interface MPGeniusPlaybackQueue : MPRemotePlaybackQueue
 {
-    NSURL *_seedTrack;
 }
 
-@property(readonly, nonatomic) NSURL *seedTrack; // @synthesize seedTrack=_seedTrack;
-- (void).cxx_destruct;
+@property(readonly, nonatomic) NSURL *seedTrack;
 - (id)description;
-- (id)initWithMediaRemotePlaybackQueue:(struct _MRSystemAppPlaybackQueue *)arg1;
 
 @end
 

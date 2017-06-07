@@ -19,11 +19,13 @@
     long long _lockScreenSetting;
     long long _carPlaySetting;
     long long _alertStyle;
+    long long _showPreviewsSetting;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)settingsWithAuthorizationStatus:(long long)arg1 soundSetting:(long long)arg2 badgeSetting:(long long)arg3 alertSetting:(long long)arg4 notificationCenterSetting:(long long)arg5 lockScreenSetting:(long long)arg6 carPlaySetting:(long long)arg7 alertStyle:(long long)arg8;
++ (id)settingsWithAuthorizationStatus:(long long)arg1 soundSetting:(long long)arg2 badgeSetting:(long long)arg3 alertSetting:(long long)arg4 notificationCenterSetting:(long long)arg5 lockScreenSetting:(long long)arg6 carPlaySetting:(long long)arg7 alertStyle:(long long)arg8 showPreviewsSetting:(long long)arg9;
 + (id)emptySettings;
+@property(readonly, nonatomic) long long showPreviewsSetting; // @synthesize showPreviewsSetting=_showPreviewsSetting;
 @property(readonly, nonatomic) long long alertStyle; // @synthesize alertStyle=_alertStyle;
 @property(readonly, nonatomic) long long carPlaySetting; // @synthesize carPlaySetting=_carPlaySetting;
 @property(readonly, nonatomic) long long lockScreenSetting; // @synthesize lockScreenSetting=_lockScreenSetting;
@@ -38,7 +40,7 @@
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithAuthorizationStatus:(long long)arg1 soundSetting:(long long)arg2 badgeSetting:(long long)arg3 alertSetting:(long long)arg4 notificationCenterSetting:(long long)arg5 lockScreenSetting:(long long)arg6 carPlaySetting:(long long)arg7 alertStyle:(long long)arg8;
+- (id)initWithAuthorizationStatus:(long long)arg1 soundSetting:(long long)arg2 badgeSetting:(long long)arg3 alertSetting:(long long)arg4 notificationCenterSetting:(long long)arg5 lockScreenSetting:(long long)arg6 carPlaySetting:(long long)arg7 alertStyle:(long long)arg8 showPreviewsSetting:(long long)arg9;
 
 @end
 

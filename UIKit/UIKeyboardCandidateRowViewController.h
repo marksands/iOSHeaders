@@ -28,8 +28,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) Class cellClass; // @synthesize cellClass=_cellClass;
 @property(nonatomic) _Bool showsHiddenCandidates; // @synthesize showsHiddenCandidates=_showsHiddenCandidates;
 @property(retain, nonatomic) TIKeyboardCandidateResultSet *candidateSet; // @synthesize candidateSet=_candidateSet;
-@property(nonatomic) id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
-@property(nonatomic) id <UIKeyboardCandidateRowViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <UIKeyboardCandidateListDelegate> candidateListDelegate; // @synthesize candidateListDelegate=_candidateListDelegate;
+@property(nonatomic) __weak id <UIKeyboardCandidateRowViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *candidates;
 @property(readonly, nonatomic) UIKBCandidateCollectionView *collectionView;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
@@ -54,18 +55,13 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)currentIndex;
 - (id)currentCandidate;
 - (void)revealHiddenCandidates;
-- (void)showPreviousRow;
-- (void)showNextRow;
-- (void)showPreviousPage;
-- (void)showNextPage;
-- (void)showPreviousCandidate;
-- (void)showNextCandidate;
+- (void)showCandidateInForwardDirection:(_Bool)arg1 granularity:(int)arg2;
 - (_Bool)showCandidate:(id)arg1;
 - (void)showCandidateAtIndex:(unsigned long long)arg1;
+- (_Bool)isFloatingList;
 - (_Bool)isExtendedList;
 - (void)loadView;
 - (double)suggestedHeight;
-- (void)dealloc;
 - (id)initWithCellClass:(Class)arg1;
 
 // Remaining properties

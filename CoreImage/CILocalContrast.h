@@ -6,13 +6,14 @@
 
 #import <CoreImage/CIFilter.h>
 
-@class CIImage;
+@class CIImage, NSNumber;
 
 __attribute__((visibility("hidden")))
 @interface CILocalContrast : CIFilter
 {
     CIImage *inputImage;
-    CIImage *inputStrength;
+    NSNumber *inputStrength;
+    NSNumber *inputScale;
 }
 
 + (id)customAttributes;

@@ -6,14 +6,16 @@
 
 #import <MediaPlayer/MPRTCReportingEvent.h>
 
-@class NSError;
+@class NSError, NSString;
 
 @interface MPRTCReportingAssetLoadEvent : MPRTCReportingEvent
 {
     double _duration;
     NSError *_error;
+    NSString *_siriSessionIdentifier;
 }
 
+@property(copy, nonatomic) NSString *siriSessionIdentifier; // @synthesize siriSessionIdentifier=_siriSessionIdentifier;
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 - (void).cxx_destruct;

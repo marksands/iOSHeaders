@@ -6,37 +6,47 @@
 
 #import <MapKit/MKPlaceSectionViewController.h>
 
+#import <MapKit/MKModuleViewControllerProtocol-Protocol.h>
 #import <MapKit/MKStackingViewControllerFixedHeightAware-Protocol.h>
 #import <MapKit/_MKInfoCardChildViewControllerAnalyticsDelegate-Protocol.h>
 
-@class MKMapItem, MKPlaceSectionHeaderView, NSArray, NSString;
+@class MKMapItem, MKPlaceSectionHeaderView, NSArray, NSMutableDictionary, NSString, NSTimeZone;
 @protocol _MKInfoCardAnaylticsDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MKPlaceHoursViewController : MKPlaceSectionViewController <MKStackingViewControllerFixedHeightAware, _MKInfoCardChildViewControllerAnalyticsDelegate>
+@interface MKPlaceHoursViewController : MKPlaceSectionViewController <MKStackingViewControllerFixedHeightAware, _MKInfoCardChildViewControllerAnalyticsDelegate, MKModuleViewControllerProtocol>
 {
-    MKMapItem *_mapItem;
-    NSArray *_completeHours;
     _Bool _isExpanded;
     MKPlaceSectionHeaderView *_headerView;
+    NSMutableDictionary *_formattedData;
+    NSArray *_completeHours;
+    NSString *_currentOpeningString;
     _Bool _resizableViewsDisabled;
     id <_MKInfoCardAnaylticsDelegate> _analyticsDelegate;
+    MKMapItem *_mapItem;
 }
 
++ (id)placeHoursWithMapItem:(id)arg1;
+@property(retain, nonatomic) MKMapItem *mapItem; // @synthesize mapItem=_mapItem;
 @property(nonatomic) __weak id <_MKInfoCardAnaylticsDelegate> analyticsDelegate; // @synthesize analyticsDelegate=_analyticsDelegate;
 @property(nonatomic) _Bool resizableViewsDisabled; // @synthesize resizableViewsDisabled=_resizableViewsDisabled;
 - (void).cxx_destruct;
 - (id)infoCardChildPossibleActions;
 - (void)_updateHoursAnimated:(_Bool)arg1;
+- (void)formatData;
+- (void)calculateWidthsForData:(id)arg1;
 - (void)_contentSizeDidChange;
 - (void)_toggleShowAllHours;
 - (void)_setExpanded:(_Bool)arg1;
 - (_Bool)_shouldOnlyShowExpanded;
-@property(retain, nonatomic) MKMapItem *mapItem;
-- (void)dealloc;
+@property(readonly, nonatomic) NSString *currentOpeningString;
+@property(readonly, nonatomic) NSArray *completeHours;
+@property(readonly, nonatomic) NSTimeZone *timeZone;
 - (double)extraHeightToReserveInLayout;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (id)titleString;
+- (id)initWithMapItem:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

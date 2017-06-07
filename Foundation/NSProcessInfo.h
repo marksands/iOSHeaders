@@ -40,7 +40,6 @@
 - (id)operatingSystemName;
 - (unsigned long long)operatingSystem;
 - (id)userHomeDirectory;
-- (id)userFullName;
 @property(readonly, copy) NSString *userName;
 @property(readonly, copy) NSString *globallyUniqueString;
 @property(readonly) int processIdentifier;
@@ -59,6 +58,7 @@
 - (void)endSystemBehaviorSuspension:(id)arg1;
 - (id)beginSuspensionOfSystemBehaviors:(unsigned long long)arg1 reason:(id)arg2;
 - (_Bool)isLowPowerModeEnabled;
+- (long long)thermalState;
 
 // Remaining properties
 @property(readonly, copy) NSString *fullUserName;

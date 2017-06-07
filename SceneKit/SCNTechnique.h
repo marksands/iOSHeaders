@@ -18,6 +18,7 @@
     struct __C3DFXTechnique *_technique;
     NSMutableDictionary *_valueForSymbol;
     SCNOrderedDictionary *_animations;
+    NSMutableDictionary *_bindings;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -31,15 +32,20 @@
 - (void)_didInstallInEngineContext:(struct __C3DEngineContext *)arg1;
 - (id)presentationInstance;
 - (_Bool)isPausedOrPausedByInheritance;
-- (struct __C3DAnimationChannel *)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
+- (id)copyAnimationChannelForKeyPath:(id)arg1 animation:(id)arg2;
 - (void)unbindAnimatablePath:(id)arg1;
 - (void)bindAnimatablePath:(id)arg1 toObject:(id)arg2 withKeyPath:(id)arg3 options:(id)arg4;
+- (id)_scnBindings;
 - (_Bool)isAnimationForKeyPaused:(id)arg1;
 - (void)setSpeed:(double)arg1 forAnimationKey:(id)arg2;
 - (void)removeAnimationForKey:(id)arg1 fadeOutDuration:(double)arg2;
+- (void)removeAnimationForKey:(id)arg1 blendOutDuration:(double)arg2;
 - (void)resumeAnimationForKey:(id)arg1;
 - (void)pauseAnimationForKey:(id)arg1;
-- (void)_pauseAnimation:(_Bool)arg1 forKey:(id)arg2;
+- (void)_pauseAnimation:(_Bool)arg1 forKey:(id)arg2 pausedByNode:(_Bool)arg3;
+- (id)animationPlayerForKey:(id)arg1;
+- (void)_copyAnimationsFrom:(id)arg1;
+- (id)_scnAnimationForKey:(id)arg1;
 - (id)animationForKey:(id)arg1;
 - (void)_syncObjCAnimations;
 @property(readonly) NSArray *animationKeys;
@@ -47,6 +53,7 @@
 - (void)removeAllAnimations;
 - (void)addAnimation:(id)arg1;
 - (void)addAnimation:(id)arg1 forKey:(id)arg2;
+- (void)addAnimationPlayer:(id)arg1 forKey:(id)arg2;
 - (_Bool)__removeAnimation:(id)arg1 forKey:(id)arg2;
 - (struct __C3DAnimationManager *)animationManager;
 - (const void *)__CFObject;
@@ -55,8 +62,8 @@
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (id)valueForSymbolNamed:(id)arg1;
-- (void)setValue:(id)arg1 forSymbolNamed:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
+- (void)setValue:(id)arg1 forSymbolNamed:(id)arg2;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (struct __C3DFXTechnique *)techniqueRef;
 - (id)copy;

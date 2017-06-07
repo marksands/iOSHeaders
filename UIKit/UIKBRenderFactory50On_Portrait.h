@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
 - (double)controlColumnWidthFactor;
 - (id)_traitsForKey:(id)arg1 onKeyplane:(id)arg2;
 - (void)_customizeTraits:(id)arg1 forPopupForKey:(id)arg2 withRenderingContext:(id)arg3 keycapsFontName:(id)arg4;
+- (_Bool)shouldShowBottomRowEdge;
+- (_Bool)shouldShowTopRowEdge;
 - (id)messagesWriteboardKeyImageName;
 - (double)deleteKeyFontSize;
 - (double)spaceKeyFontSize;
