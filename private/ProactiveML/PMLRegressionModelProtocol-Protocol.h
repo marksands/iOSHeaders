@@ -6,11 +6,9 @@
 
 #import <ProactiveML/NSObject-Protocol.h>
 
-@class PMLModelCovariates, PMLModelRegressor, PMLModelWeights;
+@class PMLSparseVector;
 
 @protocol PMLRegressionModelProtocol <NSObject>
-- (PMLModelWeights *)updateForCovariates:(PMLModelCovariates *)arg1 andOutcome:(PMLModelRegressor *)arg2;
-- (PMLModelWeights *)fitForCovariates:(PMLModelCovariates *)arg1 andOutcome:(PMLModelRegressor *)arg2;
-- (double)predict:(PMLModelCovariates *)arg1;
+- (float)predict:(PMLSparseVector *)arg1;
 @end
 

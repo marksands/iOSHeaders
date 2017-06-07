@@ -6,23 +6,23 @@
 
 #import <objc/NSObject.h>
 
-@class HKGraphSeries, HKValueRange, NSDateComponents, NSNumber;
+@class HKGraphSeries, HKValueRange, NSArray, NSDateComponents;
 
 @interface HKGraphViewPointSelectionContext : NSObject
 {
     HKGraphSeries *_selectedSeries;
-    NSNumber *_selectedPointXValue;
-    NSNumber *_selectedPathIndex;
-    HKValueRange *_selectedPointDateRange;
+    HKValueRange *_selectedRangeXValues;
+    HKValueRange *_selectedPathIndexRange;
+    HKValueRange *_selectedPointValueRange;
     NSDateComponents *_pointIntervalComponents;
-    id _userInfo;
+    NSArray *_userInfo;
 }
 
-@property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
+@property(retain, nonatomic) NSArray *userInfo; // @synthesize userInfo=_userInfo;
 @property(retain, nonatomic) NSDateComponents *pointIntervalComponents; // @synthesize pointIntervalComponents=_pointIntervalComponents;
-@property(retain, nonatomic) HKValueRange *selectedPointDateRange; // @synthesize selectedPointDateRange=_selectedPointDateRange;
-@property(retain, nonatomic) NSNumber *selectedPathIndex; // @synthesize selectedPathIndex=_selectedPathIndex;
-@property(retain, nonatomic) NSNumber *selectedPointXValue; // @synthesize selectedPointXValue=_selectedPointXValue;
+@property(retain, nonatomic) HKValueRange *selectedPointValueRange; // @synthesize selectedPointValueRange=_selectedPointValueRange;
+@property(retain, nonatomic) HKValueRange *selectedPathIndexRange; // @synthesize selectedPathIndexRange=_selectedPathIndexRange;
+@property(retain, nonatomic) HKValueRange *selectedRangeXValues; // @synthesize selectedRangeXValues=_selectedRangeXValues;
 @property(retain, nonatomic) HKGraphSeries *selectedSeries; // @synthesize selectedSeries=_selectedSeries;
 - (void).cxx_destruct;
 

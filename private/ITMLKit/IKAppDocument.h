@@ -9,13 +9,15 @@
 #import <ITMLKit/IKJSDOMDocumentAppBridgeInternal-Protocol.h>
 #import <ITMLKit/IKStyleMediaQueryEvaluator-Protocol.h>
 
-@class IKAppContext, IKDOMDocument, IKHeadElement, IKJSNavigationDocument, IKJSObject, IKViewElement, IKViewElementStyleFactory, NSError, NSHashTable, NSMutableDictionary, NSString;
+@class IKAppContext, IKDOMDocument, IKHeadElement, IKJSNavigationDocument, IKJSObject, IKViewElement, IKViewElementStyleFactory, NSError, NSMapTable, NSMutableDictionary, NSString;
 @protocol IKAppDocumentDelegate;
 
 @interface IKAppDocument : NSObject <IKJSDOMDocumentAppBridgeInternal, IKStyleMediaQueryEvaluator>
 {
     NSMutableDictionary *_mediaQueryCache;
     _Bool _parsingDOM;
+    NSMapTable *_viewElementRegistry;
+    _Bool _isViewElementRegistryDirty;
     _Bool _updated;
     _Bool _subtreeUpdated;
     IKAppContext *_appContext;
@@ -29,14 +31,12 @@
     id <IKAppDocumentDelegate> _delegate;
     double _impressionThreshold;
     IKViewElementStyleFactory *_styleFactory;
-    NSHashTable *_styleChangeObservers;
     NSMutableDictionary *_impressions;
     IKJSObject *_owner;
 }
 
 @property(readonly, nonatomic) __weak IKJSObject *owner; // @synthesize owner=_owner;
 @property(retain, nonatomic) NSMutableDictionary *impressions; // @synthesize impressions=_impressions;
-@property(retain, nonatomic) NSHashTable *styleChangeObservers; // @synthesize styleChangeObservers=_styleChangeObservers;
 @property(retain, nonatomic) IKViewElementStyleFactory *styleFactory; // @synthesize styleFactory=_styleFactory;
 @property(nonatomic) double impressionThreshold; // @synthesize impressionThreshold=_impressionThreshold;
 @property(getter=isSubtreeUpdated) _Bool subtreeUpdated; // @synthesize subtreeUpdated=_subtreeUpdated;
@@ -51,11 +51,10 @@
 @property(readonly, nonatomic) __weak IKDOMDocument *jsDocument; // @synthesize jsDocument=_jsDocument;
 @property(readonly) __weak IKAppContext *appContext; // @synthesize appContext=_appContext;
 - (void).cxx_destruct;
-- (void)_setViewElementStylesDirty;
-- (void)_removeStyleChangeObserver:(id)arg1;
-- (void)_addStyleChangeObserver:(id)arg1;
+- (void)_setViewElementStylesDirtyAndDispatch:(_Bool)arg1;
 - (_Bool)_clearUpdatesForElement:(id)arg1;
 - (void)_updateWithXML:(id)arg1;
+- (id)_viewElementForNodeID:(unsigned long long)arg1;
 - (_Bool)evaluateStyleMediaQueryList:(id)arg1;
 - (_Bool)_isUpdateAllowed;
 - (void)runTestWithName:(id)arg1 options:(id)arg2;
@@ -70,6 +69,7 @@
 - (void)setViewElementStylesDirty;
 - (void)recordImpressionsForViewElements:(id)arg1;
 - (void)onViewAttributesChangeWithArguments:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)onPerformanceMetricsChange:(id)arg1;
 - (void)onImpressionsChange:(id)arg1;
 - (void)onUpdate;
 - (void)onNeedsUpdateWithCompletion:(CDUnknownBlockType)arg1;

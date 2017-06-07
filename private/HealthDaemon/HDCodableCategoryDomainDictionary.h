@@ -21,6 +21,7 @@
     } _has;
 }
 
++ (Class)keyValuePairsType;
 @property(retain, nonatomic) NSMutableArray *keyValuePairs; // @synthesize keyValuePairs=_keyValuePairs;
 @property(retain, nonatomic) NSString *domain; // @synthesize domain=_domain;
 @property(nonatomic) long long category; // @synthesize category=_category;

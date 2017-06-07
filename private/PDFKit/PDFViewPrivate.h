@@ -6,9 +6,10 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDate, NSMutableArray, NSTimer, PDFDocument, PDFPage, PDFPasswordViewController, PDFScrollView, PDFSelection, PDFViewController, PDFViewLayout, UILongPressGestureRecognizer, UIPanGestureRecognizer, UISwipeGestureRecognizer, UITapGestureRecognizer, UITextField;
+@class NSArray, NSDate, NSDictionary, NSMutableArray, PDFAKOverlayAdaptor, PDFAnnotation, PDFDocument, PDFDocumentViewController, PDFPage, PDFPanGestureRecognizer, PDFPasswordViewController, PDFRenderingProperties, PDFScrollView, PDFSelection, PDFViewController, PDFViewLayout, UIDragInteraction, UILongPressGestureRecognizer, UISwipeGestureRecognizer, UITapGestureRecognizer;
 @protocol PDFViewDelegate, PDFViewPopupManager;
 
+__attribute__((visibility("hidden")))
 @interface PDFViewPrivate : NSObject
 {
     PDFDocument *document;
@@ -23,17 +24,17 @@
     _Bool delegateOrdersPageDrawing;
     double gutterWide;
     _Bool displaysPageBreaks;
+    struct UIEdgeInsets pageBreakMargins;
     long long displayMode;
+    long long displayDirection;
     PDFViewLayout *viewLayout;
-    _Bool displaysSoloPagesCentered;
-    _Bool disableInterPageSpacing;
     _Bool scrollingChangesPages;
     _Bool displaysAsBook;
-    _Bool antiAliasing;
-    double greekingThreshold;
-    double lineWidthThreshold;
-    long long interpolationQuality;
-    long long displayBox;
+    _Bool displaysRTL;
+    PDFRenderingProperties *renderingProperties;
+    unsigned long long lastVerticalScrollDirection;
+    unsigned long long lastHorizontalScrollDirection;
+    _Bool displaysBookmarksForPages;
     unsigned long long scrollEntry;
     unsigned long long currentPageIndex;
     unsigned long long firstVisiblePage;
@@ -46,16 +47,21 @@
     long long historyIndex;
     NSArray *highlights;
     PDFPasswordViewController *passwordViewController;
-    _Bool hasInstalledTileStats;
-    UITextField *tileStatsLabel;
-    NSTimer *tileStatsTimer;
     NSObject<PDFViewPopupManager> *popupManager;
+    _Bool forceUseMainThread;
+    PDFAnnotation *currentTextWidget;
+    PDFAKOverlayAdaptor *akOverlayAdaptor;
+    _Bool enableSelectionDrawing;
+    _Bool debugDrawCGPDFNodeLayer[11];
     UILongPressGestureRecognizer *longPressGestureRecognizer;
-    UIPanGestureRecognizer *panGestureRecognizer;
+    PDFPanGestureRecognizer *panGestureRecognizer;
     UITapGestureRecognizer *tapGestureRecognizer;
     UISwipeGestureRecognizer *swipeGestureRecognizer;
     _Bool needsRotationZoomFix;
-    _Bool forceUseMainThread;
+    PDFDocumentViewController *documentViewController;
+    _Bool isUsingPageViewController;
+    NSDictionary *pageViewControllerOptions;
+    UIDragInteraction *dragInteraction;
 }
 
 - (void).cxx_destruct;

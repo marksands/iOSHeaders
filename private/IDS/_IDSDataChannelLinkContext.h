@@ -4,7 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
+
+@class NSData, NSUUID;
 
 @interface _IDSDataChannelLinkContext : NSObject
 {
@@ -18,8 +20,12 @@
     long long _remoteConnectionType;
     unsigned long long _remoteRATType;
     unsigned int _maxBitrate;
+    NSUUID *_linkUUID;
+    long long _relayServerProvider;
+    NSData *_relaySessionToken;
 }
 
+- (void).cxx_destruct;
 - (id)description;
 
 @end

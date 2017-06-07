@@ -10,7 +10,6 @@
 
 @interface CLLocation (MNExtras)
 + (id)_navigation_stringWithType:(int)arg1;
-- (int)_navigation_clLocationTypeForGEOLocationType:(int)arg1;
 @property(readonly, nonatomic, getter=_navigation_detailedMatchInfo) GEONavigationMatchInfo *detailedMatchInfo;
 @property(readonly, nonatomic, getter=_navigation_rawShiftedCoordinate) struct CLLocationCoordinate2D rawShiftedCoordinate;
 @property(readonly, nonatomic, getter=_navigation_hasMatch) _Bool hasMatch;

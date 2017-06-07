@@ -38,6 +38,7 @@
 - (void)updateUserLocation:(id)arg1 routeMatch:(id)arg2;
 - (void)stopUpdateRequests;
 - (void)startUpdateRequests;
+@property(nonatomic) unsigned long long maxAlternateRoutesCount;
 @property(nonatomic) double debugBackgroundTimeWindow;
 - (void)reset;
 - (void)dealloc;

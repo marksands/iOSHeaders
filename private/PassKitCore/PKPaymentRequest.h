@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSData, NSString, NSURL, PKContact, PKPaymentMerchantSession;
+@class AKAppleIDAuthenticationContext, NSArray, NSData, NSSet, NSString, NSURL, PKContact, PKPaymentMerchantSession;
 
 @interface PKPaymentRequest : NSObject <NSSecureCoding>
 {
     _Bool _expectsMerchantSession;
+    _Bool _suppressTotal;
     _Bool _shippingEditable;
     _Bool _requiresAddressPrecision;
     NSString *_merchantIdentifier;
@@ -21,13 +22,14 @@
     unsigned long long _merchantCapabilities;
     NSArray *_paymentSummaryItems;
     NSString *_currencyCode;
-    unsigned long long _requiredBillingAddressFields;
+    NSSet *_requiredBillingContactFields;
     PKContact *_billingContact;
-    unsigned long long _requiredShippingAddressFields;
+    NSSet *_requiredShippingContactFields;
     PKContact *_shippingContact;
     NSArray *_shippingMethods;
     unsigned long long _shippingType;
     NSData *_applicationData;
+    NSSet *_supportedCountries;
     const void *_shippingAddress;
     const void *_billingAddress;
     NSArray *_thumbnailURLs;
@@ -35,6 +37,14 @@
     NSString *_sourceApplicationBundleIdentifier;
     NSString *_sourceApplicationSecondaryIdentifier;
     NSString *_CTDataConnectionServiceType;
+    unsigned long long _requestType;
+    unsigned long long _requestor;
+    NSArray *_paymentContentItems;
+    NSData *_externalizedContext;
+    struct __SecAccessControl *_accesssControlRef;
+    AKAppleIDAuthenticationContext *_appleIDAuthenticationContext;
+    NSString *_localizedNavigationTitle;
+    NSString *_localizedConfirmationTitle;
     NSString *_shippingEditableMessage;
     PKPaymentMerchantSession *_merchantSession;
 }
@@ -47,6 +57,15 @@
 @property(nonatomic) _Bool requiresAddressPrecision; // @synthesize requiresAddressPrecision=_requiresAddressPrecision;
 @property(copy, nonatomic) NSString *shippingEditableMessage; // @synthesize shippingEditableMessage=_shippingEditableMessage;
 @property(nonatomic, getter=isShippingEditable) _Bool shippingEditable; // @synthesize shippingEditable=_shippingEditable;
+@property(copy, nonatomic) NSString *localizedConfirmationTitle; // @synthesize localizedConfirmationTitle=_localizedConfirmationTitle;
+@property(copy, nonatomic) NSString *localizedNavigationTitle; // @synthesize localizedNavigationTitle=_localizedNavigationTitle;
+@property(retain, nonatomic) AKAppleIDAuthenticationContext *appleIDAuthenticationContext; // @synthesize appleIDAuthenticationContext=_appleIDAuthenticationContext;
+@property(nonatomic) struct __SecAccessControl *accesssControlRef; // @synthesize accesssControlRef=_accesssControlRef;
+@property(copy, nonatomic) NSData *externalizedContext; // @synthesize externalizedContext=_externalizedContext;
+@property(nonatomic) _Bool suppressTotal; // @synthesize suppressTotal=_suppressTotal;
+@property(copy, nonatomic) NSArray *paymentContentItems; // @synthesize paymentContentItems=_paymentContentItems;
+@property(nonatomic) unsigned long long requestor; // @synthesize requestor=_requestor;
+@property(nonatomic) unsigned long long requestType; // @synthesize requestType=_requestType;
 @property(retain, nonatomic) NSString *CTDataConnectionServiceType; // @synthesize CTDataConnectionServiceType=_CTDataConnectionServiceType;
 @property(retain, nonatomic) NSString *sourceApplicationSecondaryIdentifier; // @synthesize sourceApplicationSecondaryIdentifier=_sourceApplicationSecondaryIdentifier;
 @property(retain, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
@@ -55,13 +74,14 @@
 @property(retain, nonatomic) NSArray *thumbnailURLs; // @synthesize thumbnailURLs=_thumbnailURLs;
 @property(nonatomic) const void *billingAddress; // @synthesize billingAddress=_billingAddress;
 @property(nonatomic) const void *shippingAddress; // @synthesize shippingAddress=_shippingAddress;
+@property(copy, nonatomic) NSSet *supportedCountries; // @synthesize supportedCountries=_supportedCountries;
 @property(copy, nonatomic) NSData *applicationData; // @synthesize applicationData=_applicationData;
 @property(nonatomic) unsigned long long shippingType; // @synthesize shippingType=_shippingType;
 @property(copy, nonatomic) NSArray *shippingMethods; // @synthesize shippingMethods=_shippingMethods;
 @property(retain, nonatomic) PKContact *shippingContact; // @synthesize shippingContact=_shippingContact;
-@property(nonatomic) unsigned long long requiredShippingAddressFields; // @synthesize requiredShippingAddressFields=_requiredShippingAddressFields;
+@property(retain, nonatomic) NSSet *requiredShippingContactFields; // @synthesize requiredShippingContactFields=_requiredShippingContactFields;
 @property(retain, nonatomic) PKContact *billingContact; // @synthesize billingContact=_billingContact;
-@property(nonatomic) unsigned long long requiredBillingAddressFields; // @synthesize requiredBillingAddressFields=_requiredBillingAddressFields;
+@property(retain, nonatomic) NSSet *requiredBillingContactFields; // @synthesize requiredBillingContactFields=_requiredBillingContactFields;
 @property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
 @property(copy, nonatomic) NSArray *paymentSummaryItems; // @synthesize paymentSummaryItems=_paymentSummaryItems;
 @property(nonatomic) unsigned long long merchantCapabilities; // @synthesize merchantCapabilities=_merchantCapabilities;
@@ -70,8 +90,11 @@
 @property(copy, nonatomic) NSString *merchantIdentifier; // @synthesize merchantIdentifier=_merchantIdentifier;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1 error:(id *)arg2;
-- (id)_shippingTypeToString;
 - (id)_transactionAmount;
+- (unsigned long long)_contactFieldsToAddressFields:(id)arg1;
+- (id)_addressFieldsToContactFields:(unsigned long long)arg1;
+@property(nonatomic) unsigned long long requiredShippingAddressFields;
+@property(nonatomic) unsigned long long requiredBillingAddressFields;
 - (_Bool)isEqualToPaymentRequest:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -80,6 +103,8 @@
 - (id)protobuf;
 - (id)serviceProviderPaymentRequest;
 - (_Bool)isServiceProviderPaymentRequest;
+- (id)peerPaymentRequest;
+- (_Bool)isPeerPaymentRequest;
 
 @end
 

@@ -11,9 +11,13 @@
 }
 
 + (id)sharedInstance;
+- (_Bool)isSafeToDeleteAttachmentAtPath:(id)arg1;
 - (_Bool)deleteAttachmentWithGUID:(id)arg1;
 - (_Bool)deleteAttachmentDataForTransfer:(id)arg1;
 - (_Bool)deleteAttachmentsWithGUIDs:(id)arg1;
+- (id)_updatedMessageBody:(id)arg1 replacingGuid:(id)arg2 withGuid:(id)arg3;
+- (_Bool)updateLegacyTransferGUIDOnMessageIfNeeded:(id)arg1;
+- (_Bool)updateLegacyTransferGUIDIfNeeded:(id)arg1;
 - (id)attachmentWithGUID:(id)arg1;
 - (_Bool)updateAttachment:(id)arg1;
 - (_Bool)removeAttachment:(id)arg1 fromMessageWithGUID:(id)arg2;

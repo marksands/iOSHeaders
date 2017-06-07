@@ -34,7 +34,6 @@ __attribute__((visibility("hidden")))
 - (void)_cacheIndentationLevelWithSortPathComponents:(id)arg1;
 - (void)_modelChanged;
 - (id)modificationDate;
-- (id)sortDate;
 - (id)tags;
 - (id)urlInLocalContainer;
 - (id)contentType;

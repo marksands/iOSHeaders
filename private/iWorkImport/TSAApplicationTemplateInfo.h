@@ -15,38 +15,39 @@ __attribute__((visibility("hidden")))
 {
     NSString *_name;
     NSString *_documentVariant;
+    NSURL *_bundledDocumentContainerURL;
+    NSString *_previewImageLocalization;
     NSString *_previewVariant;
 }
 
-+ (id)bundledDocumentContainerDirectoryURL;
-+ (void)setBundledDocumentContainerDirectoryURL:(id)arg1;
-+ (id)templateZipURLForTemplateName:(id)arg1;
-+ (id)downloadedDocumentContainerDirectoryURL;
-+ (id)localizationBundleForDocumentContainerURL:(id)arg1;
-+ (id)localizationBundleForDocumentURL:(id)arg1;
-+ (id)documentURLWithDocumentContainerURL:(id)arg1 variant:(id)arg2;
++ (id)bundledTemplatesDirectoryURL;
++ (void)setBundledTemplatesDirectoryURL:(id)arg1;
++ (id)cachedTemplatesDirectoryURL;
++ (id)localizationBundleForTemplateURL:(id)arg1;
++ (id)localizationBundleForTemplateName:(id)arg1;
++ (id)localizationBundleURLForTemplateName:(id)arg1;
 @property(readonly, nonatomic) NSString *previewVariant; // @synthesize previewVariant=_previewVariant;
+@property(copy, nonatomic) NSString *previewImageLocalization; // @synthesize previewImageLocalization=_previewImageLocalization;
+@property(readonly, nonatomic) NSURL *bundledDocumentContainerURL; // @synthesize bundledDocumentContainerURL=_bundledDocumentContainerURL;
 @property(readonly, nonatomic) NSString *documentVariant; // @synthesize documentVariant=_documentVariant;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)initHeadlessWithName:(id)arg1 documentVariant:(id)arg2 previewVariant:(id)arg3;
 - (id)initHeadlessWithName:(id)arg1 variant:(unsigned long long)arg2 locale:(struct __CFLocale *)arg3;
 - (id)initHeadlessWithName:(id)arg1 variant:(unsigned long long)arg2;
 - (id)initHeadlessWithName:(id)arg1;
 - (id)description;
-@property(readonly, nonatomic) NSURL *bundledDocumentContainerURL;
-@property(readonly, nonatomic) NSURL *documentContainerURL;
-@property(readonly, nonatomic) NSURL *downloadedDocumentContainerURL;
-@property(readonly, nonatomic) NSURL *templateZipURL;
-@property(readonly, nonatomic) long long downloadState;
+- (id)templateURLWithContainerURL:(id)arg1;
 - (id)localizationBundle;
-- (id)documentURLWithDocumentContainerURL:(id)arg1;
-- (_Bool)isAvailable;
+- (void)prepareWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) NSString *assetName;
+- (id)tags;
 - (id)documentURL;
 @property(readonly, nonatomic) NSBundle *previewBundle;
 - (id)previewImageURL;
 - (id)makeIdentifier;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithPropertyList:(id)arg1 documentVariant:(id)arg2 previewVariant:(id)arg3;
+- (id)initWithPropertyList:(id)arg1 documentLocale:(id)arg2 documentVariant:(id)arg3 previewVariant:(id)arg4;
 - (id)initWithDisplayName:(id)arg1 name:(id)arg2 documentVariant:(id)arg3 previewVariant:(id)arg4;
 
 @end

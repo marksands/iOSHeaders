@@ -8,7 +8,7 @@
 
 #import <MediaRemote/NSCopying-Protocol.h>
 
-@class NSString, _MRClientUpdatesConfigurationProtobuf, _MRCryptoPairingMessageProtobuf, _MRDeviceInfoMessageProtobuf, _MRGameControllerMessageProtobuf, _MRGameControllerPropertiesMessageProtobuf, _MRGenericMessageProtobuf, _MRGetKeyboardSessionProtobuf, _MRGetStateMessageProtobuf, _MRGetVoiceInputDevicesMessageProtobuf, _MRGetVoiceInputDevicesResponseMessageProtobuf, _MRKeyboardMessageProtobuf, _MRNotificationMessageProtobuf, _MRPlaybackQueueProtobuf, _MRPlaybackQueueRequestProtobuf, _MRRegisterForGameControllerEventsMessageProtobuf, _MRRegisterGameControllerMessageProtobuf, _MRRegisterGameControllerResponseMessageProtobuf, _MRRegisterHIDDeviceMessageProtobuf, _MRRegisterHIDDeviceResultMessageProtobuf, _MRRegisterVoiceInputDeviceMessageProtobuf, _MRRegisterVoiceInputDeviceResponseMessageProtobuf, _MRSendButtonEventMessageProtobuf, _MRSendCommandMessageProtobuf, _MRSendCommandResultMessageProtobuf, _MRSendHIDEventMessageProtobuf, _MRSendHIDReportMessageProtobuf, _MRSendLyricsEventMessageProtobuf, _MRSendPackedVirtualTouchEventMessageProtobuf, _MRSendVirtualTouchEventMessageProtobuf, _MRSendVoiceInputMessageProtobuf, _MRSetArtworkMessageProtobuf, _MRSetConnectionStateMessageProtobuf, _MRSetHiliteModeMessageProtobuf, _MRSetReadyStateMessageProtobuf, _MRSetRecordingStateMessageProtobuf, _MRSetStateMessageProtobuf, _MRTextInputMessageProtobuf, _MRTransactionMessageProtobuf, _MRUnregisterGameControllerMessageProtobuf, _MRVolumeControlAvailabilityProtobuf, _MRWakeDeviceMessageProtobuf;
+@class NSString, _MRAVModifyOutputContextRequestProtobuf, _MRClientUpdatesConfigurationProtobuf, _MRCryptoPairingMessageProtobuf, _MRDeviceInfoMessageProtobuf, _MRGameControllerMessageProtobuf, _MRGameControllerPropertiesMessageProtobuf, _MRGenericMessageProtobuf, _MRGetKeyboardSessionProtobuf, _MRGetStateMessageProtobuf, _MRGetVoiceInputDevicesMessageProtobuf, _MRGetVoiceInputDevicesResponseMessageProtobuf, _MRKeyboardMessageProtobuf, _MRNotificationMessageProtobuf, _MRPlaybackQueueProtobuf, _MRPlaybackQueueRequestProtobuf, _MRRegisterForGameControllerEventsMessageProtobuf, _MRRegisterGameControllerMessageProtobuf, _MRRegisterGameControllerResponseMessageProtobuf, _MRRegisterHIDDeviceMessageProtobuf, _MRRegisterHIDDeviceResultMessageProtobuf, _MRRegisterVoiceInputDeviceMessageProtobuf, _MRRegisterVoiceInputDeviceResponseMessageProtobuf, _MRSendButtonEventMessageProtobuf, _MRSendCommandMessageProtobuf, _MRSendCommandResultMessageProtobuf, _MRSendHIDEventMessageProtobuf, _MRSendHIDReportMessageProtobuf, _MRSendLyricsEventMessageProtobuf, _MRSendPackedVirtualTouchEventMessageProtobuf, _MRSendVirtualTouchEventMessageProtobuf, _MRSendVoiceInputMessageProtobuf, _MRSetArtworkMessageProtobuf, _MRSetConnectionStateMessageProtobuf, _MRSetHiliteModeMessageProtobuf, _MRSetNowPlayingClientMessageProtobuf, _MRSetNowPlayingPlayerMessageProtobuf, _MRSetReadyStateMessageProtobuf, _MRSetRecordingStateMessageProtobuf, _MRSetStateMessageProtobuf, _MRTextInputMessageProtobuf, _MRTransactionMessageProtobuf, _MRUnregisterGameControllerMessageProtobuf, _MRVolumeControlAvailabilityProtobuf, _MRWakeDeviceMessageProtobuf;
 
 @interface _MRMediaRemoteMessageProtobuf : PBCodable <NSCopying>
 {
@@ -29,6 +29,7 @@
     _MRGetVoiceInputDevicesResponseMessageProtobuf *_getVoiceInputDevicesResponseMessage;
     NSString *_identifier;
     _MRKeyboardMessageProtobuf *_keyboardMessage;
+    _MRAVModifyOutputContextRequestProtobuf *_modifyOutputContextRequestMessage;
     _MRNotificationMessageProtobuf *_notificationMessage;
     _MRPlaybackQueueRequestProtobuf *_playbackQueueRequest;
     _MRSetReadyStateMessageProtobuf *_readyStateMessage;
@@ -50,6 +51,8 @@
     _MRSendVoiceInputMessageProtobuf *_sendVoiceInputMessage;
     _MRSetArtworkMessageProtobuf *_setArtworkMessage;
     _MRSetHiliteModeMessageProtobuf *_setHiliteModeMessage;
+    _MRSetNowPlayingClientMessageProtobuf *_setNowPlayingClientMessage;
+    _MRSetNowPlayingPlayerMessageProtobuf *_setNowPlayingPlayerMessage;
     _MRSetRecordingStateMessageProtobuf *_setRecordingStateMessage;
     _MRSetStateMessageProtobuf *_setStateMessage;
     _MRTextInputMessageProtobuf *_textInputMessage;
@@ -65,6 +68,9 @@
     } _has;
 }
 
+@property(retain, nonatomic) _MRAVModifyOutputContextRequestProtobuf *modifyOutputContextRequestMessage; // @synthesize modifyOutputContextRequestMessage=_modifyOutputContextRequestMessage;
+@property(retain, nonatomic) _MRSetNowPlayingPlayerMessageProtobuf *setNowPlayingPlayerMessage; // @synthesize setNowPlayingPlayerMessage=_setNowPlayingPlayerMessage;
+@property(retain, nonatomic) _MRSetNowPlayingClientMessageProtobuf *setNowPlayingClientMessage; // @synthesize setNowPlayingClientMessage=_setNowPlayingClientMessage;
 @property(retain, nonatomic) _MRSendLyricsEventMessageProtobuf *sendLyricsEventMessage; // @synthesize sendLyricsEventMessage=_sendLyricsEventMessage;
 @property(retain, nonatomic) _MRSendPackedVirtualTouchEventMessageProtobuf *sendPackedVirtualTouchEventMessage; // @synthesize sendPackedVirtualTouchEventMessage=_sendPackedVirtualTouchEventMessage;
 @property(retain, nonatomic) _MRGenericMessageProtobuf *genericMessage; // @synthesize genericMessage=_genericMessage;
@@ -119,6 +125,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasModifyOutputContextRequestMessage;
+@property(readonly, nonatomic) _Bool hasSetNowPlayingPlayerMessage;
+@property(readonly, nonatomic) _Bool hasSetNowPlayingClientMessage;
 @property(readonly, nonatomic) _Bool hasSendLyricsEventMessage;
 @property(readonly, nonatomic) _Bool hasSendPackedVirtualTouchEventMessage;
 @property(readonly, nonatomic) _Bool hasGenericMessage;

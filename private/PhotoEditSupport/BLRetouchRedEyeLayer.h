@@ -20,6 +20,7 @@
 + (long long)indexOfPointNear:(struct CGPoint)arg1 inEyePoints:(id)arg2 andMaskSize:(struct CGSize)arg3;
 @property(retain, nonatomic) UIImage *repairedImage; // @synthesize repairedImage=_repairedImage;
 @property(retain, nonatomic) UIImage *repairSourceImage; // @synthesize repairSourceImage=_repairSourceImage;
+- (void).cxx_destruct;
 - (void)clearRedEyes;
 - (struct CGContext *)newContextForRect:(struct CGRect)arg1 inDestRect:(struct CGRect)arg2 andScale:(double)arg3;
 - (struct CGRect)area;

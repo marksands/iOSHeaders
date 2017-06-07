@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMapBuilding-Protocol.h>
 
@@ -13,13 +13,14 @@
 __attribute__((visibility("hidden")))
 @interface GEOMapAccessBuilding : NSObject <GEOMapBuilding>
 {
-    CDStruct_2a80a239 *_buildingFeature;
+    CDStruct_8e575d68 *_buildingFeature;
     NSArray *_sections;
 }
 
 @property(readonly, nonatomic) NSArray *sections; // @synthesize sections=_sections;
+- (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithBuildingFeature:(CDStruct_2a80a239 *)arg1;
+- (id)initWithBuildingFeature:(CDStruct_8e575d68 *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

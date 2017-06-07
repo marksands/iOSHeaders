@@ -8,10 +8,12 @@
 
 #import <Pasteboard/NSSecureCoding-Protocol.h>
 #import <Pasteboard/NSXPCListenerDelegate-Protocol.h>
+#import <Pasteboard/PBItemDataTransferDelegate-Protocol.h>
 
 @class NSArray, NSDate, NSDictionary, NSString, NSUUID, NSXPCConnection, NSXPCListener, NSXPCListenerEndpoint;
+@protocol PBItemCollectionDataTransferDelegate;
 
-@interface PBItemCollection : NSObject <NSXPCListenerDelegate, NSSecureCoding>
+@interface PBItemCollection : NSObject <NSXPCListenerDelegate, PBItemDataTransferDelegate, NSSecureCoding>
 {
     _Bool _itemQueue_isDataProvider;
     _Bool _itemQueue_deviceLockedPasteboard;
@@ -26,10 +28,12 @@
     NSString *_itemQueue_originatorBundleID;
     NSString *_itemQueue_originatorTeamID;
     long long _itemQueue_remotePasteboardState;
+    id <PBItemCollectionDataTransferDelegate> _itemQueue_dataTransferDelegate;
 }
 
 + (id)allowedClassesForSecureCoding;
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) __weak id <PBItemCollectionDataTransferDelegate> itemQueue_dataTransferDelegate; // @synthesize itemQueue_dataTransferDelegate=_itemQueue_dataTransferDelegate;
 @property(nonatomic) long long itemQueue_remotePasteboardState; // @synthesize itemQueue_remotePasteboardState=_itemQueue_remotePasteboardState;
 @property(nonatomic, getter=itemQueue_isDeviceLockedPasteboard) _Bool itemQueue_deviceLockedPasteboard; // @synthesize itemQueue_deviceLockedPasteboard=_itemQueue_deviceLockedPasteboard;
 @property(copy, nonatomic) NSString *itemQueue_originatorTeamID; // @synthesize itemQueue_originatorTeamID=_itemQueue_originatorTeamID;
@@ -45,6 +49,9 @@
 @property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
+- (void)item:(id)arg1 representationFinishedDataTransfer:(id)arg2;
+- (void)item:(id)arg1 representation:(id)arg2 beganDataTransferWithProgress:(id)arg3;
+@property(nonatomic) __weak id <PBItemCollectionDataTransferDelegate> dataTransferDelegate; // @dynamic dataTransferDelegate;
 - (void)setRemoteDataLoaded;
 @property(readonly, nonatomic, getter=isRemoteDataLoaded) _Bool remoteDataLoaded;
 - (void)setRemoteMetadataLoaded;
@@ -57,13 +64,16 @@
 - (_Bool)canInstantiateObjectOfClass:(Class)arg1;
 - (_Bool)hasItemWithRepresentationConformingToType:(id)arg1;
 - (_Bool)hasItemWithRepresentationOfType:(id)arg1;
+- (void)addItems:(id)arg1;
+- (id)copyWithDoNothingLoaders;
 - (id)copyWithItems:(id)arg1;
 - (id)initWithItems:(id)arg1;
 - (void)dealloc;
 - (void)shutdown;
 - (id)init;
-- (void)establishConnectionToDataProviderCompletionBlock:(CDUnknownBlockType)arg1;
+- (CDStruct_6ad76789)establishConnectionToDataProviderCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)_remoteDataProviderConnection;
+- (void)waitForItemRequestsDeliveryCompletion:(CDUnknownBlockType)arg1;
 - (void)setDataProviderEndpoint:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (id)dataConsumersListener;

@@ -16,13 +16,13 @@ struct CGPoint {
 };
 
 struct CGRect {
-    struct CGPoint origin;
-    struct CGSize size;
+    struct CGPoint _field1;
+    struct CGSize _field2;
 };
 
 struct CGSize {
-    double width;
-    double height;
+    double _field1;
+    double _field2;
 };
 
 struct UIEdgeInsets {
@@ -55,28 +55,6 @@ struct __UniformBindings {
     struct __UniformBinding colorSampler;
     struct __UniformBinding environmentSampler;
 };
-
-#pragma mark Typedef'd Structures
-
-typedef struct {
-    unsigned long long section;
-    unsigned long long item;
-} CDStruct_f943eba4;
-
-typedef struct {
-    double _field1;
-    double _field2;
-} CDStruct_c3b9c2ee;
-
-typedef struct {
-    CDStruct_f943eba4 first;
-    CDStruct_f943eba4 last;
-} CDStruct_c4ec18df;
-
-typedef struct {
-    CDStruct_c3b9c2ee _field1;
-    CDStruct_c3b9c2ee _field2;
-} CDStruct_90e2a262;
 
 #pragma mark Named Unions
 

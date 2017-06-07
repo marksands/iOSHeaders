@@ -7,7 +7,7 @@
 #import <PhotosUICore/NSCopying-Protocol.h>
 #import <PhotosUICore/NSObject-Protocol.h>
 
-@class NSString, PHAsset, PHAssetCollection, PHObject;
+@class NSString, PHAssetCollection, PHFetchResult, PHObject;
 
 @protocol PXRelatedEntry <NSObject, NSCopying>
 @property(readonly, nonatomic) NSString *relatedTitleFontName;
@@ -15,7 +15,7 @@
 @property(readonly, nonatomic) PHAssetCollection *relatedAssetCollection;
 @property(readonly, nonatomic) NSString *relatedLocalizedSubtitle;
 @property(readonly, nonatomic) NSString *relatedLocalizedTitle;
-@property(readonly, nonatomic) PHAsset *relatedKeyAsset;
+@property(readonly, nonatomic) PHFetchResult *relatedKeyAssetFetchResult;
 @property(readonly, nonatomic, getter=isPlaceholder) _Bool placeholder;
 @end
 

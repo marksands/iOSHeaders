@@ -19,6 +19,7 @@
     _Bool _didReadOriginalMetadata;
 }
 
++ (id)currentFormatVersion;
 @property(readonly, copy, nonatomic) NSString *imagePath; // @synthesize imagePath=_imagePath;
 @property(readonly, copy, nonatomic) NSString *videoPath; // @synthesize videoPath=_videoPath;
 - (void).cxx_destruct;

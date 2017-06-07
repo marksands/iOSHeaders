@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UINavigationBar.h>
+#import <UIKit/UIVisualEffectView.h>
 
 @class UIButton, UILabel;
 
-@interface CKStickerDetailNavigationBar : UINavigationBar
+@interface CKStickerDetailNavigationBar : UIVisualEffectView
 {
     UIButton *_closeButton;
     UILabel *_titleLabel;
@@ -20,7 +20,7 @@
 @property(retain, nonatomic) UIButton *closeButton; // @synthesize closeButton=_closeButton;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithEffect:(id)arg1;
 
 @end
 

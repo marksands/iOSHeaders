@@ -68,6 +68,7 @@
 - (void)messageEntryViewSendButtonLongPressBegan:(id)arg1;
 - (void)messageEntryViewSendButtonHitWhileDisabled:(id)arg1;
 - (void)sendMessage;
+- (struct CGSize)messageEntryViewMaxShelfPluginViewSize:(id)arg1;
 - (double)messageEntryViewMaxHeight:(id)arg1;
 - (void)messageEntryViewRaiseGestureAutoSend:(id)arg1;
 - (void)messageEntryViewSendButtonHit:(id)arg1;

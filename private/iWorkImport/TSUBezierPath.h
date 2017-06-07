@@ -9,6 +9,8 @@
 #import <iWorkImport/NSCoding-Protocol.h>
 #import <iWorkImport/NSCopying-Protocol.h>
 
+@class NSArray;
+
 __attribute__((visibility("hidden")))
 @interface TSUBezierPath : NSObject <NSCopying, NSCoding>
 {
@@ -72,6 +74,12 @@ __attribute__((visibility("hidden")))
 + (void)setFlatness:(double)arg1;
 + (double)miterLimit;
 + (void)setMiterLimit:(double)arg1;
++ (id)tracedPathForInstantAlphaBinaryBitmap:(id)arg1 pointSpacing:(double)arg2;
++ (id)tracedPathForImage:(struct CGImage *)arg1 alphaThreshold:(double)arg2 pointSpacing:(double)arg3;
++ (CDStruct_46b2202e)lineEndPositioningOnPath:(id)arg1 atHead:(_Bool)arg2 headPoint:(struct CGPoint)arg3 tailPoint:(struct CGPoint)arg4 headLineEnd:(id)arg5 tailLineEnd:(id)arg6 stroke:(id)arg7;
++ (id)createClippedPath:(id)arg1 headPositioning:(CDStruct_46b2202e)arg2 tailPositioning:(CDStruct_46b2202e)arg3 stroke:(id)arg4;
++ (CDStruct_46b2202e)makeDefaultPositioning;
++ (struct CGPoint)p_findPointWithGreatestSlopeFromStartPoint:(struct CGPoint)arg1 toPointA:(struct CGPoint)arg2 orPointB:(struct CGPoint)arg3;
 + (id)bezierPathWithConvexHullOfPoints:(struct CGPoint *)arg1 count:(unsigned long long)arg2;
 + (id)smoothBezierPath:(id)arg1 withThreshold:(double)arg2;
 + (id)exteriorOfBezierPath:(id)arg1;
@@ -88,8 +96,6 @@ __attribute__((visibility("hidden")))
 + (struct CGRect)p_pathToBounds:(Path_1b135553 *)arg1;
 + (id)p_pathToBezier:(Path_1b135553 *)arg1;
 + (Path_1b135553 *)p_bezierToPath:(id)arg1;
-+ (id)tracedPathForInstantAlphaBinaryBitmap:(id)arg1 pointSpacing:(double)arg2;
-+ (id)tracedPathForImage:(struct CGImage *)arg1 alphaThreshold:(double)arg2 pointSpacing:(double)arg3;
 - (id)initWithCString:(const char *)arg1;
 - (const char *)cString;
 - (id)initWithCoder:(id)arg1;
@@ -126,7 +132,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)isTriangular;
 - (struct CGPath *)CGPath;
 - (void)transformUsingAffineTransform:(struct CGAffineTransform)arg1;
+- (id)p_bezierPathByRemovingRedundantElementAndSubregionsSmallerThanThreshold:(double)arg1;
 - (id)bezierPathByRemovingRedundantElements;
+- (id)bezierPathByRemovingSmallSubpathsForInteriorWrapsForInset:(double)arg1;
 - (id)bezierPathByReversingPath;
 - (id)_copyFlattenedPath;
 - (id)bezierPathByFlatteningPathWithFlatness:(double)arg1;
@@ -166,7 +174,6 @@ __attribute__((visibility("hidden")))
 - (void)copyPathAttributesTo:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)finalize;
 - (void)dealloc;
 - (id)init;
 - (void)_deviceClosePath;
@@ -205,6 +212,8 @@ __attribute__((visibility("hidden")))
 - (void)addIntersectionsWithPath:(id)arg1 to:(id)arg2;
 - (void)addIntersectionsWithPath:(id)arg1 to:(id)arg2 allIntersections:(_Bool)arg3 reversed:(_Bool)arg4;
 - (void)getStartPoint:(struct CGPoint *)arg1 andEndPoint:(struct CGPoint *)arg2;
+- (void)saveToArchive:(struct Path *)arg1;
+- (id)initWithArchive:(const struct Path *)arg1;
 - (id)aliasedPathWithViewScale:(float)arg1 effectiveStrokeWidth:(float)arg2;
 - (id)aliasedPathInContext:(struct CGContext *)arg1 effectiveStrokeWidth:(float)arg2;
 - (id)p_aliasedPathInContext:(struct CGContext *)arg1 viewScale:(float)arg2 effectiveStrokeWidth:(float)arg3;
@@ -221,6 +230,10 @@ __attribute__((visibility("hidden")))
 - (id)uniteWithBezierPath:(id)arg1;
 - (id)outlineStroke;
 - (id)bezierPathByOffsettingPath:(double)arg1 joinStyle:(unsigned long long)arg2 withThreshold:(double)arg3;
+@property(readonly, nonatomic) NSArray *visuallyDistinctSubregions;
+@property(readonly, nonatomic) _Bool hasAtLeastTwoVisuallyDistinctSubregions;
+- (id)p_mergeIntersectingSubpaths:(id)arg1 stopAfterFoundTwo:(_Bool)arg2;
+@property(readonly, nonatomic) _Bool containsElementsOtherThanMoveAndClose;
 @property(readonly, nonatomic) _Bool containsClosePathElement;
 @property(readonly, nonatomic) _Bool isEffectivelyClosed;
 - (struct CGPoint)pointAlongPathAtPercentage:(double)arg1;
@@ -238,8 +251,6 @@ __attribute__((visibility("hidden")))
 - (double)yValueFromXValue:(double)arg1 elementIndex:(long long *)arg2 parametricValue:(double *)arg3;
 - (id)bezierPathByFittingCurve:(id)arg1;
 - (id)bezierPathByFittingCurve;
-- (void)saveToArchive:(struct Path *)arg1;
-- (id)initWithArchive:(const struct Path *)arg1;
 
 @end
 

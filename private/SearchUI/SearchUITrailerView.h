@@ -4,23 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUIStackView.h>
+#import <TemplateKit/TLKStackView.h>
 
-@class SFMediaPlayerCardSection, SFPunchout, SKUIPlayButton, SearchUICardViewController, UILabel, UIView;
+@class SFMediaPlayerCardSection, SFPunchout, SKUIPlayButton, SearchUITableViewController, UILabel, UIView;
 
-@interface SearchUITrailerView : SearchUIStackView
+@interface SearchUITrailerView : TLKStackView
 {
     UILabel *_titleLabel;
     SKUIPlayButton *_playButton;
     SFPunchout *_punchout;
-    SearchUICardViewController *_controller;
+    SearchUITableViewController *_controller;
     SFMediaPlayerCardSection *_section;
     UIView *_centeredBoxView;
 }
 
 @property(retain) UIView *centeredBoxView; // @synthesize centeredBoxView=_centeredBoxView;
 @property(retain) SFMediaPlayerCardSection *section; // @synthesize section=_section;
-@property __weak SearchUICardViewController *controller; // @synthesize controller=_controller;
+@property __weak SearchUITableViewController *controller; // @synthesize controller=_controller;
 @property(retain) SFPunchout *punchout; // @synthesize punchout=_punchout;
 @property(retain) SKUIPlayButton *playButton; // @synthesize playButton=_playButton;
 @property(retain) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;

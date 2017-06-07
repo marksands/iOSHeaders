@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1 hint:(id)arg2;
 - (void)dealloc;
 @property(retain, nonatomic) id <TSDHint> hint;

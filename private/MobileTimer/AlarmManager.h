@@ -48,6 +48,7 @@
 @property(readonly, nonatomic) Alarm *sleepAlarm; // @synthesize sleepAlarm=_sleepAlarm;
 - (void)setAlarm:(id)arg1 active:(_Bool)arg2;
 - (void)removeAlarm:(id)arg1;
+- (void)_updateAlarm:(id)arg1 active:(_Bool)arg2 logIntent:(_Bool)arg3;
 - (void)updateAlarm:(id)arg1 active:(_Bool)arg2;
 - (void)addAlarm:(id)arg1 active:(_Bool)arg2;
 - (id)nextAlarmForDate:(id)arg1 activeOnly:(_Bool)arg2 allowRepeating:(_Bool)arg3 allowSnoozed:(_Bool)arg4 allowSleepAlarm:(_Bool)arg5;

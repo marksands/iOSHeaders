@@ -7,6 +7,7 @@
 #import <UIKit/UIColor.h>
 
 @interface UIColor (WLKUIColors)
++ (id)wlk_keyColor;
 + (id)wlk_textModalColor;
 + (id)wlk_textColorForDarkMode;
 + (id)wlk_textColor;

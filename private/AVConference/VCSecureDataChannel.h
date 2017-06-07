@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
     unsigned int _localCallID;
     unsigned int _remoteCallID;
     struct _tls_record_s *tlsRecord;
-    id <VCSecureDataChannelDelegate> _delegate;
+    id _delegate;
     VCTransport *_transport;
     unsigned long long _maxUDPPayloadSize;
 }

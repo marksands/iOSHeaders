@@ -8,8 +8,7 @@
 
 @protocol PXPeopleProgressDatasource <NSObject>
 @property _Bool featureUnlockUserDefault;
-- (unsigned long long)verifiedCount;
-- (unsigned long long)plusMembersCount;
+- (_Bool)isFaceProcessingComplete;
 - (unsigned long long)homeMembersCount;
 - (unsigned long long)processedAssetCount;
 - (unsigned long long)pendingAssetCount;

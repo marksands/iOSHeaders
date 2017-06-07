@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOMapItemAddressBookAttributes, GEOMapItemCorrectedLocationAttributes, GEOMapItemRoutineAttributes;
+@class GEOMapItemAddressBookAttributes, GEOMapItemCorrectedLocationAttributes, GEOMapItemRoutineAttributes, PBUnknownFields;
 
 @interface GEOMapItemClientAttributes : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     GEOMapItemAddressBookAttributes *_addressBookAttributes;
     GEOMapItemCorrectedLocationAttributes *_correctedLocationAttributes;
     GEOMapItemRoutineAttributes *_routineAttributes;
@@ -20,6 +21,8 @@
 @property(retain, nonatomic) GEOMapItemCorrectedLocationAttributes *correctedLocationAttributes; // @synthesize correctedLocationAttributes=_correctedLocationAttributes;
 @property(retain, nonatomic) GEOMapItemRoutineAttributes *routineAttributes; // @synthesize routineAttributes=_routineAttributes;
 @property(retain, nonatomic) GEOMapItemAddressBookAttributes *addressBookAttributes; // @synthesize addressBookAttributes=_addressBookAttributes;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +35,6 @@
 @property(readonly, nonatomic) _Bool hasCorrectedLocationAttributes;
 @property(readonly, nonatomic) _Bool hasRoutineAttributes;
 @property(readonly, nonatomic) _Bool hasAddressBookAttributes;
-- (void)dealloc;
 
 @end
 

@@ -11,13 +11,16 @@
 __attribute__((visibility("hidden")))
 @interface TSWPStorageChildEnumerator : NSEnumerator
 {
-    TSWPStorage *_storage;
     unsigned int _index;
+    TSWPStorage *_storage;
     NSArray *_charOffsetArray;
 }
 
+@property(retain, nonatomic) NSArray *charOffsetArray; // @synthesize charOffsetArray=_charOffsetArray;
+@property(nonatomic) unsigned int index; // @synthesize index=_index;
+@property(retain, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
+- (void).cxx_destruct;
 - (id)nextObject;
-- (void)dealloc;
 - (id)initWithStorage:(id)arg1;
 
 @end

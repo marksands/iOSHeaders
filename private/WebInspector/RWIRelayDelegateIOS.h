@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (void)tcpServer:(id)arg1 receivedConnection:(id)arg2;
 - (void)_backBoardApplicationStateChanged:(id)arg1;
+- (id)_deviceUDID;
 - (id)_deviceModelName;
 - (id)_deviceBuildVersion;
 - (id)_deviceProductVersion;
@@ -30,6 +31,7 @@
 - (_Bool)_isProxyApplication:(id)arg1 bundleIdentifier:(id)arg2;
 - (id)relaySetupResponseForClientConnection:(id)arg1;
 - (void)relay:(id)arg1 unhandledApplicationXPCMessage:(id)arg2;
+- (void)relay:(id)arg1 activateApplicationWithBundleIdentifier:(id)arg2;
 - (void)relay:(id)arg1 applicationUpdated:(id)arg2;
 - (void)relay:(id)arg1 applicationDisconnected:(id)arg2;
 - (void)relay:(id)arg1 applicationConnected:(id)arg2;

@@ -11,13 +11,19 @@
 @class NSString;
 
 @interface PHPerson (PXPerson) <PXPerson>
-- (unsigned long long)numberOfAssets;
++ (void)px_loadRepresentativeFacesForPersons:(id)arg1;
+@property(readonly) _Bool isPersonModel;
+@property(readonly) NSString *px_localIdentifier;
+@property(readonly) unsigned long long numberOfAssets;
 - (void)requestFaceTileImageWithTargetSize:(struct CGSize)arg1 cropFactor:(unsigned long long)arg2 round:(_Bool)arg3 cacheResult:(_Bool)arg4 completionBlock:(CDUnknownBlockType)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly) _Bool isVerified;
+@property(readonly) NSString *name;
+@property(readonly) NSString *px_displayName;
 @property(readonly) Class superclass;
 @end
 

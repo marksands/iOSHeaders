@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (id)PNGRepresentation;
 - (id)JPEGRepresentationWithCompressionQuality:(double)arg1;
 - (id)TIFFRepresentation;
-- (id)imagePartsWithLeftCapWidth:(double)arg1 rightCapWidth:(double)arg2 topCapHeight:(double)arg3 bottomCapHeight:(double)arg4;
 - (_Bool)isEmpty;
 @property(readonly, nonatomic) long long imageOrientation;
 @property(readonly, nonatomic) struct CGImage *CGImage;

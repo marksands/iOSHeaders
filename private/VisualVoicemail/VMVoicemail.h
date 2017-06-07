@@ -6,11 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
+#import <VisualVoicemail/NSCopying-Protocol.h>
+#import <VisualVoicemail/NSMutableCopying-Protocol.h>
 #import <VisualVoicemail/NSSecureCoding-Protocol.h>
 
 @class NSData, NSDate, NSString, NSURL, VMVoicemailTranscript;
 
-@interface VMVoicemail : NSObject <NSSecureCoding>
+@interface VMVoicemail : NSObject <NSCopying, NSMutableCopying, NSSecureCoding>
 {
     unsigned long long _remoteUID;
     unsigned long long _identifier;
@@ -20,66 +22,61 @@
     double _duration;
     NSURL *_dataURL;
     NSURL *_transcriptionURL;
+    NSString *_callbackISOCountryCode;
+    NSString *_senderISOCountryCode;
     unsigned long long _flags;
-    struct __CFPhoneNumber *_senderPhoneNumber;
-    struct __CFPhoneNumber *_callbackPhoneNumber;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) struct __CFPhoneNumber *callbackPhoneNumber; // @synthesize callbackPhoneNumber=_callbackPhoneNumber;
-@property(nonatomic) struct __CFPhoneNumber *senderPhoneNumber; // @synthesize senderPhoneNumber=_senderPhoneNumber;
 @property(nonatomic) unsigned long long flags; // @synthesize flags=_flags;
-@property(readonly, nonatomic) NSURL *transcriptionURL; // @synthesize transcriptionURL=_transcriptionURL;
-@property(readonly, nonatomic) NSURL *dataURL; // @synthesize dataURL=_dataURL;
-@property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
-@property(readonly, nonatomic) NSString *callbackDestinationID; // @synthesize callbackDestinationID=_callbackDestinationID;
-@property(readonly, nonatomic) NSString *senderDestinationID; // @synthesize senderDestinationID=_senderDestinationID;
-@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
-@property(readonly, nonatomic) unsigned long long identifier; // @synthesize identifier=_identifier;
-@property(readonly, nonatomic) unsigned long long remoteUID; // @synthesize remoteUID=_remoteUID;
+@property(copy, nonatomic) NSString *senderISOCountryCode; // @synthesize senderISOCountryCode=_senderISOCountryCode;
+@property(copy, nonatomic) NSString *callbackISOCountryCode; // @synthesize callbackISOCountryCode=_callbackISOCountryCode;
+@property(retain, nonatomic) NSURL *transcriptionURL; // @synthesize transcriptionURL=_transcriptionURL;
+@property(retain, nonatomic) NSURL *dataURL; // @synthesize dataURL=_dataURL;
+@property(nonatomic) double duration; // @synthesize duration=_duration;
+@property(copy, nonatomic) NSString *callbackDestinationID; // @synthesize callbackDestinationID=_callbackDestinationID;
+@property(copy, nonatomic) NSString *senderDestinationID; // @synthesize senderDestinationID=_senderDestinationID;
+@property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
+@property(nonatomic) unsigned long long identifier; // @synthesize identifier=_identifier;
+@property(nonatomic) unsigned long long remoteUID; // @synthesize remoteUID=_remoteUID;
 - (void).cxx_destruct;
-- (unsigned long long)hash;
-- (_Bool)isEqual:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+- (void)setFlag:(unsigned long long)arg1 enabled:(_Bool)arg2;
+- (id)flagDescription;
+- (_Bool)hasSameContent:(id)arg1;
 - (_Bool)hasSameFlags:(id)arg1;
+- (_Bool)isEqualToMessage:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (id)description;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) unsigned long long transcriptionState;
-- (_Bool)isTranscribing;
-- (void)setTranscriptionAvailable:(_Bool)arg1;
-@property(readonly, nonatomic, getter=isTranscriptionRated) _Bool transcriptionRated;
-- (_Bool)wasTranscriptionAttempted;
-- (_Bool)isTranscriptionAvailable;
-- (void)setDownloading:(_Bool)arg1;
-- (void)setDataAvailable:(_Bool)arg1;
-- (void)setTemporary:(_Bool)arg1;
-- (void)setDetached:(_Bool)arg1;
-- (void)setDeleted:(_Bool)arg1;
-- (void)setTrashed:(_Bool)arg1;
-- (void)setBlocked:(_Bool)arg1;
-- (void)setRead:(_Bool)arg1;
-@property(readonly, nonatomic, getter=isDownloading) _Bool downloading;
-@property(readonly, nonatomic, getter=isDataAvailable) _Bool dataAvailable;
-@property(readonly, nonatomic, getter=isTemporary) _Bool temporary;
-@property(readonly, nonatomic, getter=isDetached) _Bool detached;
-@property(readonly, nonatomic, getter=isDeleted) _Bool deleted;
-@property(readonly, nonatomic, getter=isTrashed) _Bool trashed;
-@property(readonly, nonatomic, getter=isBlocked) _Bool blocked;
-@property(readonly, nonatomic, getter=isUnread) _Bool unread;
-@property(readonly, nonatomic, getter=isRead) _Bool read;
-- (void)dealloc;
-- (id)initWithRecord:(void *)arg1;
 @property(readonly, nonatomic) VMVoicemailTranscript *transcript;
+- (_Bool)wasTranscriptionAttempted;
+@property(readonly, nonatomic, getter=isUnread) _Bool unread;
+@property(nonatomic, getter=isTrashed) _Bool trashed;
+@property(readonly, nonatomic, getter=isTranscriptionRated) _Bool transcriptionRated;
+@property(nonatomic, getter=isTranscriptionAvailable) _Bool transcriptionAvailable;
+- (_Bool)isTranscribing;
+@property(nonatomic, getter=isTemporary) _Bool temporary;
+@property(nonatomic, getter=isRead) _Bool read;
+@property(nonatomic, getter=isDownloading) _Bool downloading;
+@property(nonatomic, getter=isDetached) _Bool detached;
+@property(nonatomic, getter=isDeleted) _Bool deleted;
+@property(nonatomic, getter=isDataAvailable) _Bool dataAvailable;
+@property(nonatomic, getter=isBlocked) _Bool blocked;
+- (id)initWithRecord:(const void *)arg1;
+- (id)initWithMessage:(id)arg1;
 @property(readonly, nonatomic) _Bool hasCallbackNumber;
 - (id)contactUsingContactStore:(id)arg1 withKeysToFetch:(id)arg2;
 - (id)contactUsingContactStore:(id)arg1;
 - (id)displayLabelUsingContactStore:(id)arg1;
 - (id)displayNameUsingContactStore:(id)arg1;
 - (_Bool)isContactSuggested:(id)arg1;
-- (id)flagDescription;
-- (id)debugDescription;
 @property(readonly, copy, nonatomic) NSData *data;
-- (id)initWithVoicemailMessage:(id)arg1 audioDataURL:(id)arg2 transcriptURL:(id)arg3;
-- (id)initWithData:(id)arg1 audioDataURL:(id)arg2 transcriptURL:(id)arg3;
+- (id)initWithVoicemailMessage:(id)arg1;
 - (id)initWithData:(id)arg1;
 - (_Bool)doesNotHaveFlags:(unsigned long long)arg1;
 - (_Bool)hasFlags:(unsigned long long)arg1;

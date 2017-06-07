@@ -13,7 +13,7 @@
 + (void)deleteCPLPlist;
 + (void)saveStoreUUID:(id)arg1;
 + (void)saveCPLPlistVersion:(id)arg1 forVersionKey:(id)arg2;
-+ (id)readCPLPlist;
++ (id)readCPLPlistWithError:(id *)arg1;
 + (id)_cplPlistPath;
 
 @end

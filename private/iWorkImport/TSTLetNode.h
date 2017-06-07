@@ -25,9 +25,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *whitespaceAfterIdentifier; // @synthesize whitespaceAfterIdentifier=_whitespaceAfterIdentifier;
 @property(retain, nonatomic) NSString *whitespaceAfterLet; // @synthesize whitespaceAfterLet=_whitespaceAfterLet;
 - (void)saveToArchive:(struct LetNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct LetNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct LetNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)buildASTNodeArray:(struct TSCEASTNodeArray *)arg1 hostCell:(struct TSUCellCoord)arg2 symbolTable:(struct TSCESymbolTable *)arg3;
 - (id)formulaPlainText;
 - (void)addAllIdentifiersToSymbolTable:(struct TSCESymbolTable *)arg1;

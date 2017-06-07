@@ -19,9 +19,14 @@ __attribute__((visibility("hidden")))
     CKDPRecordIdentifier *_recordIdentifier;
     CKDPRequestedFields *_requestedFields;
     NSString *_versionETag;
+    _Bool _shouldFailBatch;
+    struct {
+        unsigned int shouldFailBatch:1;
+    } _has;
 }
 
 + (id)options;
+@property(nonatomic) _Bool shouldFailBatch; // @synthesize shouldFailBatch=_shouldFailBatch;
 @property(retain, nonatomic) CKDPAssetsToDownload *assetsToDownload; // @synthesize assetsToDownload=_assetsToDownload;
 @property(retain, nonatomic) CKDPRecordRetrieveRequestRetrieveAssetURL *getAssetURL; // @synthesize getAssetURL=_getAssetURL;
 @property(retain, nonatomic) NSString *clientVersionETag; // @synthesize clientVersionETag=_clientVersionETag;
@@ -40,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasShouldFailBatch;
 @property(readonly, nonatomic) _Bool hasAssetsToDownload;
 @property(readonly, nonatomic) _Bool hasGetAssetURL;
 @property(readonly, nonatomic) _Bool hasClientVersionETag;

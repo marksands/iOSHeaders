@@ -8,7 +8,7 @@
 
 #import <CalendarDaemon/NSSecureCoding-Protocol.h>
 
-@class EKObjectID, NSArray, NSMutableDictionary;
+@class CADObjectID, NSArray, NSMutableDictionary;
 
 @interface CADEntityWrapper : NSObject <NSSecureCoding>
 {
@@ -16,7 +16,7 @@
     int _rowID;
     NSArray *_loadedKeys;
     NSArray *_loadedValues;
-    EKObjectID *_objectID;
+    CADObjectID *_objectID;
     NSMutableDictionary *_loadedProperties;
     _Bool _deleted;
 }

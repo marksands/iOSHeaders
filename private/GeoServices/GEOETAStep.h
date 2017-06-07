@@ -28,6 +28,7 @@
 @property(retain, nonatomic) GEOTimeCheckpoints *timeCheckpoints; // @synthesize timeCheckpoints=_timeCheckpoints;
 @property(nonatomic) unsigned int expectedTime; // @synthesize expectedTime=_expectedTime;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -42,7 +43,6 @@
 @property(nonatomic) int zilchPointIndex; // @synthesize zilchPointIndex=_zilchPointIndex;
 @property(nonatomic) _Bool hasExpectedTime;
 @property(nonatomic) _Bool hasStepID;
-- (void)dealloc;
 @property(nonatomic) _Bool hasDistanceRemaining;
 @property(nonatomic) unsigned int distanceRemaining;
 

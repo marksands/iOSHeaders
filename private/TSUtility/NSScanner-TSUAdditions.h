@@ -7,6 +7,6 @@
 #import <Foundation/NSScanner.h>
 
 @interface NSScanner (TSUAdditions)
-- (_Bool)scanCGFloat:(double *)arg1;
+- (_Bool)tsu_scanCGFloat:(double *)arg1;
 @end
 

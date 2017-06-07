@@ -14,7 +14,7 @@
 @interface AVCAudioStream : NSObject <VCMediaStreamDelegate>
 {
     AVConferenceXPCClient *_connection;
-    id <AVCAudioStreamDelegate> _delegate;
+    id _delegate;
     VCAudioStream *_opaqueStream;
     AVCMediaStreamConfig *_configuration;
     NSDictionary *_capabilities;

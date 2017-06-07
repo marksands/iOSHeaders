@@ -8,3 +8,43 @@
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
+#pragma mark Named Structures
+
+struct NSString {
+    Class _field1;
+};
+
+struct entry_s {
+    unsigned int _field1;
+    unsigned int _field2;
+};
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned long long s[2];
+} CDStruct_9981aeec;
+
+typedef struct {
+    unsigned int *list;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_9f2792e4;
+
+typedef struct {
+    unsigned long long *list;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_62a50c50;
+
+typedef struct {
+    float *list;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_fae3dc92;
+
+// Ambiguous groups
+typedef struct {
+    unsigned int timestamp:1;
+} CDStruct_b5306035;
+

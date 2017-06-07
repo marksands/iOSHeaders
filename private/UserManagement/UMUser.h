@@ -18,6 +18,7 @@
     _Bool _isLoginUser;
     _Bool _isAuditor;
     _Bool _isDisabled;
+    _Bool _hasManagedCredentials;
     _Bool _hasDataToSync;
     unsigned int _uid;
     unsigned int _gid;
@@ -56,6 +57,7 @@
 @property(nonatomic) _Bool hasDataToSync; // @synthesize hasDataToSync=_hasDataToSync;
 @property(nonatomic) unsigned long long dataUsed; // @synthesize dataUsed=_dataUsed;
 @property(nonatomic) unsigned long long dataQuota; // @synthesize dataQuota=_dataQuota;
+@property(nonatomic) _Bool hasManagedCredentials; // @synthesize hasManagedCredentials=_hasManagedCredentials;
 @property(copy, nonatomic) NSArray *languages; // @synthesize languages=_languages;
 @property(nonatomic) unsigned long long passcodeLockGracePeriod; // @synthesize passcodeLockGracePeriod=_passcodeLockGracePeriod;
 @property(nonatomic) _Bool isDisabled; // @synthesize isDisabled=_isDisabled;

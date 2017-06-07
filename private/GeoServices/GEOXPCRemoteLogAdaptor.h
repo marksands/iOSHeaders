@@ -6,19 +6,35 @@
 
 #import <GeoServices/GEOBaseLogAdaptor.h>
 
-#import <GeoServices/GEOPBSessionRequesterDelegate-Protocol.h>
+#import <GeoServices/GEOProtobufSessionTaskDelegate-Protocol.h>
 
-@class GEOLogMessageCacheManager, GEORequester, NSLock, NSObject, NSString, NSURL;
+@class GEOLogMessageCacheManager, GEOLogMessageCollectionRequest, GEOProtobufSessionTask, NSLock, NSObject, NSString, NSURL;
 @protocol OS_dispatch_queue;
 
-@interface GEOXPCRemoteLogAdaptor : GEOBaseLogAdaptor <GEOPBSessionRequesterDelegate>
+@interface GEOXPCRemoteLogAdaptor : GEOBaseLogAdaptor <GEOProtobufSessionTaskDelegate>
 {
     NSURL *_remoteURL;
     NSString *_debugRequestName;
+    unsigned long long _retryInterval;
+    unsigned long long _backOffRetryInterval;
+    _Bool _shouldAddIntervalJitter;
+    unsigned long long _intervalJitter;
+    _Bool _shouldCacheOnDisk;
+    unsigned long long _cacheEncryptionType;
+    long long _cacheMaxAllowedMessageCount;
+    long long _logMessagesOverflowPurgeSize;
+    long long _cacheMessageExpiryInterval;
+    long long _maxMessageChunkSize;
+    long long _maxMessageChunkCount;
+    _Bool _requireWiFi;
+    _Bool _sendInRealtime;
+    long long _cacheCountFlushThreshold;
+    _Bool _shouldCompressRequest;
     NSLock *_xpcActivityInfoLock;
     NSString *_logMessageCacheFilePath;
     GEOLogMessageCacheManager *_logMessageCacheManager;
-    GEORequester *_logMessageCollectionRequester;
+    GEOProtobufSessionTask *_logMessageCollectionSessionTask;
+    GEOLogMessageCollectionRequest *_request;
     _Bool _logMessageCollectionRequestPending;
     NSLock *_logMessageCollectionRequesterLock;
     NSObject<OS_dispatch_queue> *_logMessageSendQueue;
@@ -26,21 +42,24 @@
     NSString *_xpcActivityName;
     CDUnknownBlockType _shouldDeferXPCActivityBlock;
     NSLock *_shouldDeferXPCActivityBlockLock;
+    _Bool _observingNetworkChange;
+    NSObject<OS_dispatch_queue> *_networkChangeObserverQueue;
 }
 
 @property(retain, nonatomic) NSString *debugRequestName; // @synthesize debugRequestName=_debugRequestName;
 @property(retain, nonatomic) NSURL *remoteURL; // @synthesize remoteURL=_remoteURL;
+- (void).cxx_destruct;
+- (void)_networkReachabilityChanged;
+- (void)_removeNetworkObserver;
+- (void)_addNetworkObserver;
 - (void)_deviceUnlocked;
 - (void)_deviceLocking;
 - (void)_purgeExpiredLogMessagesFromCache;
 - (void)_purgeAndSendLogMessages;
 - (void)_unregisterXPCActivityTimer;
 - (void)_registerXPCActivityTimer;
-- (void)requester:(id)arg1 didFailWithError:(id)arg2;
-- (void)requesterDidCancel:(id)arg1;
-- (void)requesterDidFinish:(id)arg1;
-- (long long)_sizeOfLogMessageRequest:(id)arg1;
-- (void)_requesterDidCompleteHandler:(id)arg1;
+- (void)protobufSession:(id)arg1 didCompleteTask:(id)arg2;
+- (void)_continueToSendNextBatch:(_Bool)arg1;
 - (void)_requesterStartSendRequest:(id)arg1;
 - (void)_sendLogMessageRequest:(id)arg1;
 - (void)_sendNextLogMessageChunk;
@@ -48,6 +67,7 @@
 - (void)_queueNextLogMessagesChunkForSending;
 - (void)_beginSendingLogMessageChunks;
 - (void)_cleanupLogMessageCollectionRequester;
+- (void)updateAdaptorPolicyConfiguration:(id)arg1;
 - (_Bool)isLogFrameworkAdaptor;
 - (void)forceFlushLogs;
 - (void)flushLogs;
@@ -59,7 +79,8 @@
 @property(readonly) NSString *adaptorIdentifier;
 - (void)_setupQueueAndNotifications;
 - (void)_initializeAdaptor;
-- (id)initWithRemoteURL:(id)arg1 debugRequestName:(id)arg2 supportedTypes:(id)arg3 supportedSubTypes:(id)arg4;
+- (id)initWithAdaptorPolicy:(id)arg1;
+- (id)initWithRemoteURL:(id)arg1 debugRequestName:(id)arg2 supportedTypes:(id)arg3;
 - (void)incrementXpcActivityTriggerCount;
 @property(nonatomic) long long xpcActivityTriggerCount;
 

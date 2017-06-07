@@ -19,6 +19,8 @@ __attribute__((visibility("hidden")))
 + (void)zipDirectoryAtURL:(id)arg1 toURL:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void).cxx_destruct;
 - (id)prepareWriteChannelWithCloseCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)copyRemainingEntries:(id)arg1 fromArchive:(id)arg2 progress:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)copyEntriesFromZipFileWriter:(id)arg1 readingFromURL:(id)arg2 options:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)initWithURL:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)initWithURL:(id)arg1 error:(id *)arg2;
 

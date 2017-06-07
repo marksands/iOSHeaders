@@ -8,7 +8,7 @@
 
 #import <WebUI/UIPrintInteractionControllerDelegate-Protocol.h>
 
-@class NSNumberFormatter, NSString, UIColor, UIFont, UIPrintFormatter, UIWebBrowserView, UIWebPaginationInfo, WebFrame;
+@class NSNumberFormatter, NSString, UIColor, UIFont, UIPrintFormatter, UIViewController, UIWebBrowserView, UIWebPaginationInfo, WebFrame;
 
 @interface WBUPrintPageRenderer : UIPrintPageRenderer <UIPrintInteractionControllerDelegate>
 {
@@ -27,14 +27,17 @@
     WebFrame *_webFrame;
     NSString *_URLString;
     UIPrintFormatter *_contentFormatter;
+    UIViewController *_parentViewController;
 }
 
+@property(nonatomic) __weak UIViewController *parentViewController; // @synthesize parentViewController=_parentViewController;
 @property(nonatomic) _Bool printFooter; // @synthesize printFooter=_printFooter;
 @property(retain, nonatomic) UIPrintFormatter *contentFormatter; // @synthesize contentFormatter=_contentFormatter;
 @property(retain, nonatomic) NSString *URLString; // @synthesize URLString=_URLString;
 @property(retain, nonatomic) WebFrame *webFrame; // @synthesize webFrame=_webFrame;
 @property(retain, nonatomic) UIWebBrowserView *browserView; // @synthesize browserView=_browserView;
 - (void).cxx_destruct;
+- (id)printInteractionControllerParentViewController:(id)arg1;
 - (void)associateWithPrintController:(id)arg1;
 - (id)printInfoWithPageTitle:(id)arg1;
 - (id)printControllerWithPageTitle:(id)arg1;

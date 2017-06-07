@@ -6,20 +6,22 @@
 
 #import <objc/NSObject.h>
 
+@class IMBusinessNameManager, NSHashTable, NSMutableDictionary;
+
 @interface IMHandleRegistrar : NSObject
 {
-    id _internal;
+    NSMutableDictionary *_siblingsMap;
+    NSHashTable *_allIMHandles;
+    IMBusinessNameManager *_businessNameManager;
 }
 
 + (id)sharedInstance;
-- (void)_clearChatSiblingsForGUID:(id)arg1 handle:(id)arg2;
+- (void).cxx_destruct;
+- (id)businessNameForUID:(id)arg1 updateHandler:(CDUnknownBlockType)arg2;
 - (id)_existingChatSiblingsForHandle:(id)arg1;
-- (_Bool)_buildingChatSiblings;
 - (id)_chatSiblingsForHandle:(id)arg1;
-- (void)_clearAccountSiblingsForGUID:(id)arg1 handle:(id)arg2;
 - (id)_existingAccountSiblingsForHandle:(id)arg1;
 - (id)_accountSiblingsForHandle:(id)arg1;
-- (void)_accountsChanged:(id)arg1;
 - (void)_dumpOutAllIMHandlesForAccount:(id)arg1;
 - (void)_dumpOutAllIMHandles;
 - (id)allIMHandles;
@@ -30,8 +32,6 @@
 - (void)_clearSiblingsCacheForIMHandle:(id)arg1 rebuildAfter:(_Bool)arg2;
 - (void)_buildSiblingsForIMHandle:(id)arg1;
 - (void)_emptySiblingCacheForIMHandleGUID:(id)arg1;
-@property(nonatomic) long long nameStyle;
-- (void)dealloc;
 - (id)init;
 - (void)_addressBookChanged;
 

@@ -16,13 +16,13 @@
 + (id)fc_dictionaryFromJSON:(id)arg1 error:(id *)arg2;
 + (id)fc_dictionary:(CDUnknownBlockType)arg1;
 - (id)fc_dictionaryByMergingDictionary:(id)arg1 withValueCombiner:(CDUnknownBlockType)arg2;
-- (id)jsonString;
+- (id)fc_jsonString;
 - (id)fr_descriptionWithKeyComparator:(CDUnknownBlockType)arg1;
 - (id)fc_dictionaryBySwappingValuesAndKeys;
 - (id)fc_deepCopy;
 - (id)fc_subdictionaryWithCopiesForKeys:(id)arg1;
 - (id)fc_subdictionaryForKeys:(id)arg1;
-- (id)fc_objectsForKeysWithoutMarker:(id)arg1;
+- (id)nf_objectsForKeysWithoutMarker:(id)arg1;
 - (id)fc_dictionaryByRemovingObjectForKey:(id)arg1;
 - (id)fc_dictionaryByTransformingValuesWithBlock:(CDUnknownBlockType)arg1;
 - (id)fc_dictionaryByTransformingValuesWithKeyAndValueBlock:(CDUnknownBlockType)arg1;

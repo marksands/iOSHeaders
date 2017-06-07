@@ -8,22 +8,27 @@
 
 #import <SiriUI/SiriUIViewController-Protocol.h>
 
-@class AceObject, NSString, SAUISnippet;
+@class AceObject, NSString, SAUISnippet, SiriUISashItem;
 @protocol SiriUIAceObjectViewControllerDelegate;
 
 @interface SiriUIBaseSnippetViewController : UIViewController <SiriUIViewController>
 {
+    _Bool _utteranceUserInteractionEnabled;
     AceObject *aceObject;
+    SiriUISashItem *_sashItem;
     id <SiriUIAceObjectViewControllerDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <SiriUIAceObjectViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic, getter=isUtteranceUserInteractionEnabled) _Bool utteranceUserInteractionEnabled; // @synthesize utteranceUserInteractionEnabled=_utteranceUserInteractionEnabled;
 @property(retain, nonatomic) AceObject *aceObject; // @synthesize aceObject;
 - (void).cxx_destruct;
+- (double)desiredTopPaddingBelowController:(id)arg1;
 - (double)desiredHeight;
 - (void)wasAddedToTranscript;
 - (void)siriDidDeactivate;
 - (void)siriWillActivateFromSource:(long long)arg1;
+@property(readonly, nonatomic) SiriUISashItem *sashItem; // @synthesize sashItem=_sashItem;
 - (void)siriDidReceiveAdditionalContent:(id)arg1 error:(id)arg2;
 @property(retain, nonatomic) SAUISnippet *snippet;
 

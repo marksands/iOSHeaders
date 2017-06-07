@@ -14,9 +14,10 @@
 + (void)sendMessage:(id)arg1 location:(id)arg2 recipients:(id)arg3 failureHandler:(CDUnknownBlockType)arg4;
 + (void)sendMessage:(id)arg1 location:(id)arg2 recipients:(id)arg3;
 + (_Bool)isMMSEnabled;
-- (id)sendComposition:(id)arg1 toConversation:(id)arg2;
-- (id)_sendMessage:(id)arg1 location:(id)arg2 handles:(id)arg3;
-- (void)_sendMessage:(id)arg1 location:(id)arg2 recipients:(id)arg3 failureHandler:(CDUnknownBlockType)arg4;
+- (id)sendComposition:(id)arg1 toConversation:(id)arg2 useStandalone:(_Bool)arg3;
+- (id)_sendMessageAndReturnGUIDs:(id)arg1;
+- (void)_sendMessageAndObserveNotification:(id)arg1;
+- (void)sendMessage:(id)arg1;
 - (void)sendMessage:(id)arg1 location:(id)arg2 recipients:(id)arg3 failureHandler:(CDUnknownBlockType)arg4;
 - (void)sendMessage:(id)arg1 location:(id)arg2 recipients:(id)arg3;
 @property(readonly, nonatomic, getter=isMMSEnabled) _Bool MMSEnabled;

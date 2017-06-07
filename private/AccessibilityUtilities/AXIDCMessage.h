@@ -17,8 +17,8 @@
 + (id)messageWithPayload:(id)arg1 andSendCompletion:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) CDUnknownBlockType sendCompletion; // @synthesize sendCompletion=_sendCompletion;
 @property(retain, nonatomic) NSString *UUID; // @synthesize UUID=_UUID;
+- (void).cxx_destruct;
 - (id)transportPayload;
-- (void)dealloc;
 - (id)initWithPayload:(id)arg1;
 
 @end

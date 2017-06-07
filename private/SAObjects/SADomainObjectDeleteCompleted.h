@@ -17,6 +17,7 @@
 
 + (id)domainObjectDeleteCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)domainObjectDeleteCompleted;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

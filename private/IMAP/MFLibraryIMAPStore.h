@@ -6,11 +6,12 @@
 
 #import <Message/MFLibraryStore.h>
 
+#import <IMAP/MFIMAPConnectionDelegate-Protocol.h>
 #import <IMAP/MFIMAPSequenceIdentifierProvider-Protocol.h>
 
-@class MFIMAPCommandPipeline, MFIMAPConnection, MFIMAPDownloadCache, NSArray, NSLock, NSString;
+@class MFCancelationToken, MFIMAPCommandPipeline, MFIMAPConnection, MFIMAPDownloadCache, NSArray, NSLock, NSString;
 
-@interface MFLibraryIMAPStore : MFLibraryStore <MFIMAPSequenceIdentifierProvider>
+@interface MFLibraryIMAPStore : MFLibraryStore <MFIMAPConnectionDelegate, MFIMAPSequenceIdentifierProvider>
 {
     unsigned int _supportsCustomPermanentFlags:1;
     unsigned int _supportsJunkFlag:1;
@@ -41,10 +42,14 @@
     id _downloadDelegate;
     MFIMAPConnection *_cachedConnection;
     NSLock *_cachedConnectionLock;
+    _Bool _shouldUseIDLE;
+    MFCancelationToken *_cancelationToken;
 }
 
 + (id)copyRemoteIDForTemporaryUid:(unsigned int)arg1;
 + (void)setHandlerForTemporaryUidToRemoteIDMapping:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) MFCancelationToken *cancelationToken; // @synthesize cancelationToken=_cancelationToken;
+@property _Bool shouldUseIDLE; // @synthesize shouldUseIDLE=_shouldUseIDLE;
 - (void)connection:(id)arg1 didFinishLoadingBodyData:(id)arg2 section:(id)arg3;
 - (void)connection:(id)arg1 didLoadMoreBodyData:(id)arg2 section:(id)arg3;
 - (void)connection:(id)arg1 didBeginBodyLoad:(id)arg2 section:(id)arg3;
@@ -72,6 +77,10 @@
 - (_Bool)hasValidCacheFileForMessage:(id)arg1;
 - (void)connectionDidDisconnect:(id)arg1;
 - (_Bool)connection:(id)arg1 shouldHandleUntaggedResponse:(id)arg2 forCommand:(CDStruct_1f207a6d *)arg3;
+- (_Bool)shouldStartIdleForConnection:(id)arg1;
+- (void)_scheduleIdleTransition:(_Bool)arg1;
+- (id)_observeChangesInIdleConditions;
+- (id)_idleConditionsObservable;
 - (id)_uidsForMessages:(id)arg1;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2 forCommand:(CDStruct_1f207a6d *)arg3;
 - (_Bool)_changedFlagsForMessage:(id)arg1 fetchResponse:(id)arg2 newFlags:(unsigned long long *)arg3;
@@ -115,13 +124,15 @@
 - (long long)fetchMessagesWithRemoteIDs:(id)arg1 andSetFlags:(unsigned long long)arg2;
 - (long long)fetchMessagesWithMessageIDs:(id)arg1 andSetFlags:(unsigned long long)arg2;
 - (_Bool)canFetchMessageIDs;
-- (id)storeSearchResultMatchingCriterion:(id)arg1 limit:(unsigned int)arg2 error:(id *)arg3;
+- (id)storeSearchResultMatchingCriterion:(id)arg1 limit:(unsigned int)arg2 offset:(id)arg3 error:(id *)arg4;
 - (long long)fetchMessagesMatchingCriterion:(id)arg1 limit:(unsigned int)arg2;
 - (id)messageIdRollCall:(id)arg1;
 - (void)_fetchMessagesMatchingCriterion:(id)arg1 limit:(unsigned int)arg2 withOptions:(int)arg3 handler:(CDUnknownBlockType)arg4;
 - (id)_newSearchResponseQueueForConnection:(id)arg1 limit:(unsigned int)arg2;
 - (id)_remoteBodySearchForCriterion:(id)arg1;
 - (_Bool)canFetchSearchResults;
+- (void)_setStatusCount:(unsigned long long)arg1;
+- (void)_fetchStatusCountWithConnection:(id)arg1;
 - (void)_updateServerUnreadCount:(unsigned long long)arg1;
 - (void)_fetchServerUnreadCountWithConnection:(id)arg1;
 - (long long)fetchNumMessages:(unsigned long long)arg1 preservingUID:(id)arg2 options:(unsigned long long)arg3;

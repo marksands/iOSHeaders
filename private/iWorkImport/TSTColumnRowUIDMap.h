@@ -39,9 +39,9 @@ __attribute__((visibility("hidden")))
 - (id)mutableRowIndexesForUIDs:(const vector_dadc1b26 *)arg1;
 - (id)columnIndexesForUIDs:(const vector_dadc1b26 *)arg1;
 - (id)mutableColumnIndexesForUIDs:(const vector_dadc1b26 *)arg1;
-- (id)mutableIndexesForUIDSet:(id)arg1 asRows:(_Bool)arg2;
-- (id)mutableIndexesForUIDSet:(id)arg1 asRows:(_Bool)arg2 notFoundUIDs:(id)arg3;
-- (id)UIDSetForIndexes:(id)arg1 asRows:(_Bool)arg2;
+- (id)mutableIndexesForUIDSet:(id)arg1 isRows:(_Bool)arg2;
+- (id)mutableIndexesForUIDSet:(id)arg1 isRows:(_Bool)arg2 notFoundUIDs:(id)arg3;
+- (id)UIDSetForIndexes:(id)arg1 isRows:(_Bool)arg2;
 - (unsigned long long)rowUIDsCount;
 - (unsigned long long)columnUIDsCount;
 - (vector_dadc1b26)rowUIDs;
@@ -56,7 +56,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 columnUIDs:(const vector_dadc1b26 *)arg2 rowUIDs:(const vector_dadc1b26 *)arg3;
 - (id)initWithTableModel:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

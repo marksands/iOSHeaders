@@ -13,16 +13,18 @@
 {
     CADisplayLink *_displayLink;
     CADisplayLink *_30fpsDisplayLink;
+    CADisplayLink *_nativeDisplayLink;
     NSMutableDictionary *_minuteHandlers;
     NSMutableDictionary *_secondHandlers;
     NSMutableDictionary *_subsecondHandlers;
     NSMutableDictionary *_30fpsHandlers;
+    NSMutableDictionary *_nativeHandlers;
     unsigned long long _nextToken;
     long long _lastHour;
     long long _lastMinute;
     long long _lastSecond;
     double _lastSubsecondFraction;
-    _Bool _inForeground;
+    _Bool _permittedToRun;
     NSObject<OS_dispatch_source> *_signalSource;
     NSMutableDictionary *_identificationLogsByToken;
 }
@@ -35,14 +37,18 @@
 - (void)_updateDisplayLinkFrameIntervalAccuracyIfNecessaryForTimePastMinuteInSeconds:(double)arg1;
 - (void)_backgrounded:(id)arg1;
 - (void)_foregrounded:(id)arg1;
+- (void)_onNativeDisplayLink:(id)arg1;
 - (void)_on30fpsDisplayLink:(id)arg1;
 - (void)_handleTimePassed;
 - (void)_onDisplayLink:(id)arg1;
 - (void)_maybeClearLastSeenTimeComponents;
+- (void)_updateNativeDisplayLink;
 - (void)_update30fpsDisplayLink;
 - (void)_updateDisplayLink;
 - (void)_removeToken:(struct NSNumber *)arg1;
 - (struct NSNumber *)_nextTokenWithIdentificationLog:(CDUnknownBlockType)arg1;
+- (void)stopDisplayNativeUpdatesForToken:(struct NSNumber *)arg1;
+- (struct NSNumber *)startDisplayNativeUpdatesWithHandler:(CDUnknownBlockType)arg1 identificationLog:(CDUnknownBlockType)arg2;
 - (void)stop30fpsUpdatesForToken:(struct NSNumber *)arg1;
 - (struct NSNumber *)start30fpsUpdatesWithHandler:(CDUnknownBlockType)arg1 identificationLog:(CDUnknownBlockType)arg2;
 - (void)stopSubsecondUpdatesForToken:(id)arg1;

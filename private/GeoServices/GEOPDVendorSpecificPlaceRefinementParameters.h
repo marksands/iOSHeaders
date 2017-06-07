@@ -37,6 +37,7 @@
 @property(retain, nonatomic) NSString *vendorId; // @synthesize vendorId=_vendorId;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 @property(nonatomic) int resultProviderId; // @synthesize resultProviderId=_resultProviderId;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -67,7 +68,6 @@
 @property(readonly, nonatomic) _Bool hasVendorId;
 @property(nonatomic) _Bool hasMuid;
 @property(nonatomic) _Bool hasResultProviderId;
-- (void)dealloc;
 - (id)initWithSearchURLQuery:(id)arg1 coordinate:(CDStruct_c3b9c2ee)arg2 muid:(unsigned long long)arg3 resultProviderId:(int)arg4 contentProvider:(id)arg5;
 - (id)initWithMapItemToRefine:(id)arg1 coordinate:(CDStruct_c3b9c2ee)arg2 contentProvider:(id)arg3;
 - (id)initWithExternalBusinessID:(id)arg1 contentProvider:(id)arg2;

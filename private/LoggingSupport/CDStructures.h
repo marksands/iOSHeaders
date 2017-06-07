@@ -15,6 +15,13 @@ struct _NSRange {
     unsigned long long length;
 };
 
+struct _OSLogEventChunkContext {
+    struct tracev3_chunk_s *_field1;
+    struct _firehose_unaligned_chunk_s *_field2;
+    struct iovec _field3;
+    struct catalog_procinfo_s *_field4;
+};
+
 struct __va_list_tag {
     unsigned int _field1;
     unsigned int _field2;
@@ -71,6 +78,11 @@ struct catalog_subchunk_s {
 };
 
 struct hashtable;
+
+struct iovec {
+    void *_field1;
+    unsigned long long _field2;
+};
 
 struct mach_timebase_info {
     unsigned int _field1;
@@ -241,6 +253,7 @@ struct os_log_message_s {
     unsigned int _field17;
     unsigned char _field18;
     _Bool _field19;
+    unsigned long long _field20;
 };
 
 struct os_procinfo_map_s;
@@ -459,6 +472,7 @@ struct tracev3_subchunk_timezone_s {
 typedef struct {
     struct _os_log_index_timeref olim_oldestpersist;
     struct _os_log_index_timeref olim_oldestspecial;
+    struct _os_log_index_timeref olim_oldesthighvol;
     struct _os_log_index_timeref olim_oldestlive;
     struct _os_log_index_timeref olim_end;
     struct _os_log_index_timeref *olim_oldest;
@@ -466,5 +480,27 @@ typedef struct {
         struct _os_log_index_timeref timeref;
         unsigned char ttl;
     } olim_ttl[5];
-} CDStruct_b8fedf57;
+} CDStruct_1936c231;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned long long _field2;
+    union {
+        struct {
+            struct tracev3_chunk_s *_field1;
+            struct catalog_s *_field2;
+            struct _OSLogEventChunkContext _field3;
+            struct _firehose_unaligned_tracepoint_s *_field4;
+        } _field1;
+        struct {
+            unsigned char _field1[16];
+            struct os_timesync_time_entry_s _field2;
+        } _field2;
+        struct {
+            unsigned char _field1[16];
+            unsigned char _field2;
+            _Bool _field3;
+        } _field3;
+    } _field3;
+} CDStruct_c6d697a1;
 

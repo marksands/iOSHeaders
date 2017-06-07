@@ -14,10 +14,10 @@ __attribute__((visibility("hidden")))
     NSString *mPreferredFormat;
     _Bool isDateOnly;
     _Bool isTimeOnly;
-    OITSULocale *locale;
+    OITSULocale *_locale;
 }
 
-@property(retain, nonatomic) OITSULocale *locale; // @synthesize locale;
+@property(retain, nonatomic) OITSULocale *locale; // @synthesize locale=_locale;
 @property(nonatomic) _Bool isTimeOnly; // @synthesize isTimeOnly;
 @property(nonatomic) _Bool isDateOnly; // @synthesize isDateOnly;
 @property(retain, nonatomic) NSString *preferredFormat; // @synthesize preferredFormat=mPreferredFormat;

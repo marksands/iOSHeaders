@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/PDXPCServiceExportedInterface-Protocol.h>
 
@@ -19,15 +19,14 @@
     NSObject<OS_dispatch_queue> *_readWriteQueue;
     int _remoteProcessIdentifier;
     NSString *_remoteProcessApplicationIdentifier;
-    NSString *_remoteProcessBundleIdentifier;
 }
 
-@property(readonly, nonatomic) NSString *remoteProcessBundleIdentifier; // @synthesize remoteProcessBundleIdentifier=_remoteProcessBundleIdentifier;
 @property(readonly, nonatomic) NSString *remoteProcessApplicationIdentifier; // @synthesize remoteProcessApplicationIdentifier=_remoteProcessApplicationIdentifier;
 @property(readonly, nonatomic) int remoteProcessIdentifier; // @synthesize remoteProcessIdentifier=_remoteProcessIdentifier;
 - (void).cxx_destruct;
 - (void)serviceSuspended;
 - (void)serviceResumed;
+@property(readonly, nonatomic) NSString *remoteProcessBundleIdentifier;
 - (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)remoteObjectProxy;
 - (void)clearConnectionReference;

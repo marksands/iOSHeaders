@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOComposedRoute, NSArray, NSDate, NSDictionary, NSMutableArray;
 
@@ -33,16 +33,17 @@
 @property(nonatomic) CDStruct_c3b9c2ee origin; // @synthesize origin=_origin;
 @property(nonatomic) CDStruct_c3b9c2ee walkingEnd; // @synthesize walkingEnd=_walkingEnd;
 @property(nonatomic) CDStruct_c3b9c2ee walkingStart; // @synthesize walkingStart=_walkingStart;
-@property(readonly, retain, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
+@property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 @property(retain, nonatomic) NSDate *startTime; // @synthesize startTime=_startTime;
 @property(nonatomic) double verticalAccuracy; // @synthesize verticalAccuracy=_verticalAccuracy;
 @property(nonatomic) double horizontalAccuracy; // @synthesize horizontalAccuracy=_horizontalAccuracy;
 @property(nonatomic) double deltaT; // @synthesize deltaT=_deltaT;
+- (void).cxx_destruct;
+- (void)generateLocationsWithSpeedOverride:(double)arg1;
 - (void)generateLocations;
 - (void)simulateWalkingFrom:(CDStruct_c3b9c2ee)arg1 to:(CDStruct_c3b9c2ee)arg2;
 - (double)estimateDuration;
 - (void)addLocation:(CDStruct_c3b9c2ee)arg1 withCourse:(double)arg2 altitude:(double)arg3 speed:(double)arg4 transport:(int)arg5;
-- (void)dealloc;
 - (id)initWithRoute:(id)arg1;
 
 @end

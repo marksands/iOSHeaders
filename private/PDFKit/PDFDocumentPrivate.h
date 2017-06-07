@@ -6,15 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDictionary, NSMapTable, NSMutableArray, NSOperationQueue, NSString, NSURL, PDFForm, PDFOutline, PDFSelection;
-@protocol PDFDocumentPageChangeDelegate;
+@class NSArray, NSDictionary, NSIndexSet, NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString, NSURL, PDFAKDocumentAdaptor, PDFForm, PDFOutline, PDFRenderingProperties, PDFSelection;
+@protocol PDFAKControllerDelegateProtocol, PDFDocumentPageChangeDelegate;
 
+__attribute__((visibility("hidden")))
 @interface PDFDocumentPrivate : NSObject
 {
     struct CGPDFDocument *document;
     NSURL *documentURL;
     int documentId;
     NSMutableArray *pages;
+    NSMutableDictionary *pageIndices;
+    _Bool subclassOverridesPageAtIndex;
     id delegate;
     _Bool respondsToDidUnlock;
     _Bool respondsToDidFindMatch;
@@ -25,7 +28,8 @@
     _Bool respondsToDidMatchString;
     _Bool respondsToPrintJobTitle;
     _Bool respondsToClassForPage;
-    _Bool respondsToClassForAnnotation;
+    _Bool respondsToClassForAnnotationType;
+    _Bool respondsToClassForAnnotationClass;
     unsigned long long pageCount;
     int majorVersion;
     int minorVersion;
@@ -33,11 +37,15 @@
     _Bool isUnlocked;
     _Bool allowsPrinting;
     _Bool allowsCopying;
+    _Bool allowsDocumentChanges;
+    _Bool allowsDocumentAssembly;
+    _Bool allowsContentAccessibility;
+    _Bool allowsCommenting;
+    _Bool allowsFormFieldEntry;
     long long permission;
     NSDictionary *attributes;
     NSString *password;
     PDFOutline *outline;
-    NSMapTable *pageDictionaryMap;
     NSOperationQueue *pageLayoutThreadQueue;
     NSOperationQueue *dataDetectorQueue;
     _Bool finding;
@@ -50,7 +58,6 @@
     long long lastFindPageIndex;
     long long lastFindCharIndex;
     NSMutableArray *findResults;
-    _Bool sortAnnotations;
     PDFForm *formData;
     _Bool formDataLoaded;
     NSArray *documentCatalogMetadata;
@@ -59,6 +66,14 @@
     NSString *xmpRootPath;
     id <PDFDocumentPageChangeDelegate> pageChangeDelegate;
     struct __DDScanner *dataDetector;
+    NSMutableDictionary *pageDictionaryMap;
+    _Bool documentChanged;
+    _Bool pagesChanged;
+    NSIndexSet *initialBookmarkedPageIndices;
+    PDFAKDocumentAdaptor *akDocumentAdaptor;
+    id <PDFAKControllerDelegateProtocol> pdfAKControllerDelegateForDeferredSetup;
+    PDFRenderingProperties *renderingProperties;
+    _Bool useTaggedPDF;
 }
 
 - (void).cxx_destruct;

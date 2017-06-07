@@ -16,6 +16,8 @@
     UIColor *_color;
 }
 
++ (double)selectionKnobRadius;
++ (double)selectionBarWidth;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (void)_loadWithColor:(id)arg1 selectionExtentIncludingKnobs:(double)arg2 topKnob:(_Bool)arg3 bottomKnob:(_Bool)arg4;

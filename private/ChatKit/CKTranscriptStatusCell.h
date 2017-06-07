@@ -30,6 +30,7 @@
 - (void)performInsertion:(CDUnknownBlockType)arg1;
 - (void)layoutSubviewsForAlignmentContents;
 - (void)setOrientation:(BOOL)arg1;
+- (void)prepareForReuse;
 - (void)configureForChatItem:(id)arg1;
 
 @end

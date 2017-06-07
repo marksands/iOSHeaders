@@ -11,7 +11,7 @@
 @interface WAKWindow : WAKResponder
 {
     CALayer *_hostLayer;
-    // Error parsing type: ^{LegacyTileCache=@{RetainPtr<CGImage *>=^v}BBB{RetainPtr<LegacyTileCacheTombstone>=^v}{optional<WebCore::FloatRect>=B(constexpr_storage_t<WebCore::FloatRect>=C{FloatRect={FloatPoint=ff}{FloatSize=ff}})}ii{IntSize=ii}BBBBBB{unique_ptr<WebCore::LegacyTileGrid, std::__1::default_delete<WebCore::LegacyTileGrid> >={__compressed_pair<WebCore::LegacyTileGrid *, std::__1::default_delete<WebCore::LegacyTileGrid> >=^{LegacyTileGrid}}}{unique_ptr<WebCore::LegacyTileGrid, std::__1::default_delete<WebCore::LegacyTileGrid> >={__compressed_pair<WebCore::LegacyTileGrid *, std::__1::default_delete<WebCore::LegacyTileGrid> >=^{LegacyTileGrid}}}{Timer=^^?dddiI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[24C]}^{__base<void ()>}}}{Vector<WebCore::IntRect, 0, WTF::CrashOnOverflow, 16>=^{IntRect}II}fff{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}B}, name: _tileCache
+    // Error parsing type: ^{LegacyTileCache=@{RetainPtr<CGImage *>=^v}{RetainPtr<LegacyTileCacheTombstone>=^v}{optional<WebCore::FloatRect>=B(constexpr_storage_t<WebCore::FloatRect>=C{FloatRect={FloatPoint=ff}{FloatSize=ff}})}{IntSize=ii}iiBBBBBBBBBB{unique_ptr<WebCore::LegacyTileGrid, std::__1::default_delete<WebCore::LegacyTileGrid> >={__compressed_pair<WebCore::LegacyTileGrid *, std::__1::default_delete<WebCore::LegacyTileGrid> >=^{LegacyTileGrid}}}{unique_ptr<WebCore::LegacyTileGrid, std::__1::default_delete<WebCore::LegacyTileGrid> >={__compressed_pair<WebCore::LegacyTileGrid *, std::__1::default_delete<WebCore::LegacyTileGrid> >=^{LegacyTileGrid}}}{Timer=^^?{MonotonicTime=d}{MonotonicTime=d}{Seconds=d}iI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[32C]}^{__base<void ()>}}}{Vector<WebCore::IntRect, 0, WTF::CrashOnOverflow, 16>=^{IntRect}II}fff{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}}, name: _tileCache
     struct CGRect _frozenVisibleRect;
     CALayer *_rootLayer;
     struct CGSize _screenSize;
@@ -22,6 +22,7 @@
     WAKView *_responderView;
     WAKView *_nextResponder;
     _Bool _visible;
+    _Bool _isInSnapshottingPaint;
     _Bool _useOrientationDependentFontAntialiasing;
     _Bool _entireWindowVisibleForTesting;
     // Error parsing type: {Lock="m_byte"{Atomic<unsigned char>="value"{atomic<unsigned char>="__a_"AC}}}, name: _exposedScrollViewRectLock
@@ -48,7 +49,7 @@
 - (void)displayRect:(struct CGRect)arg1;
 @property(nonatomic) struct CGImage *contentReplacementImage;
 - (_Bool)hasPendingDraw;
--     // Error parsing type: ^{LegacyTileCache=@{RetainPtr<CGImage *>=^v}BBB{RetainPtr<LegacyTileCacheTombstone>=^v}{optional<WebCore::FloatRect>=B(constexpr_storage_t<WebCore::FloatRect>=C{FloatRect={FloatPoint=ff}{FloatSize=ff}})}ii{IntSize=ii}BBBBBB{unique_ptr<WebCore::LegacyTileGrid, std::__1::default_delete<WebCore::LegacyTileGrid> >={__compressed_pair<WebCore::LegacyTileGrid *, std::__1::default_delete<WebCore::LegacyTileGrid> >=^{LegacyTileGrid}}}{unique_ptr<WebCore::LegacyTileGrid, std::__1::default_delete<WebCore::LegacyTileGrid> >={__compressed_pair<WebCore::LegacyTileGrid *, std::__1::default_delete<WebCore::LegacyTileGrid> >=^{LegacyTileGrid}}}{Timer=^^?dddiI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[24C]}^{__base<void ()>}}}{Vector<WebCore::IntRect, 0, WTF::CrashOnOverflow, 16>=^{IntRect}II}fff{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}B}16@0:8, name: tileCache
+-     // Error parsing type: ^{LegacyTileCache=@{RetainPtr<CGImage *>=^v}{RetainPtr<LegacyTileCacheTombstone>=^v}{optional<WebCore::FloatRect>=B(constexpr_storage_t<WebCore::FloatRect>=C{FloatRect={FloatPoint=ff}{FloatSize=ff}})}{IntSize=ii}iiBBBBBBBBBB{unique_ptr<WebCore::LegacyTileGrid, std::__1::default_delete<WebCore::LegacyTileGrid> >={__compressed_pair<WebCore::LegacyTileGrid *, std::__1::default_delete<WebCore::LegacyTileGrid> >=^{LegacyTileGrid}}}{unique_ptr<WebCore::LegacyTileGrid, std::__1::default_delete<WebCore::LegacyTileGrid> >={__compressed_pair<WebCore::LegacyTileGrid *, std::__1::default_delete<WebCore::LegacyTileGrid> >=^{LegacyTileGrid}}}{Timer=^^?{MonotonicTime=d}{MonotonicTime=d}{Seconds=d}iI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[32C]}^{__base<void ()>}}}{Vector<WebCore::IntRect, 0, WTF::CrashOnOverflow, 16>=^{IntRect}II}fff{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}{Lock={Atomic<unsigned char>={atomic<unsigned char>=AC}}}}16@0:8, name: tileCache
 - (_Bool)keepsZoomedOutTiles;
 - (void)setKeepsZoomedOutTiles:(_Bool)arg1;
 - (float)currentTileScale;
@@ -66,6 +67,8 @@
 - (struct CGRect)visibleRect;
 - (struct CGRect)_visibleRectRespectingMasksToBounds:(_Bool)arg1;
 - (void)setEntireWindowVisibleForTesting:(_Bool)arg1;
+- (_Bool)isInSnapshottingPaint;
+- (void)setIsInSnapshottingPaint:(_Bool)arg1;
 - (void)setTilesOpaque:(_Bool)arg1;
 - (_Bool)tilesOpaque;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;

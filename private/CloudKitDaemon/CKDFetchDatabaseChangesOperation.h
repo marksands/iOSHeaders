@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool _fetchAllChanges;
     CDUnknownBlockType _recordZoneWithIDChangedBlock;
     CDUnknownBlockType _recordZoneWithIDWasDeletedBlock;
+    CDUnknownBlockType _recordZoneWithIDWasPurgedBlock;
     CDUnknownBlockType _serverChangeTokenUpdatedBlock;
     CKServerChangeToken *_serverChangeToken;
     long long _status;
@@ -36,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long status; // @synthesize status=_status;
 @property(retain, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
 @property(copy, nonatomic) CDUnknownBlockType serverChangeTokenUpdatedBlock; // @synthesize serverChangeTokenUpdatedBlock=_serverChangeTokenUpdatedBlock;
+@property(copy, nonatomic) CDUnknownBlockType recordZoneWithIDWasPurgedBlock; // @synthesize recordZoneWithIDWasPurgedBlock=_recordZoneWithIDWasPurgedBlock;
 @property(copy, nonatomic) CDUnknownBlockType recordZoneWithIDWasDeletedBlock; // @synthesize recordZoneWithIDWasDeletedBlock=_recordZoneWithIDWasDeletedBlock;
 @property(copy, nonatomic) CDUnknownBlockType recordZoneWithIDChangedBlock; // @synthesize recordZoneWithIDChangedBlock=_recordZoneWithIDChangedBlock;
 - (void).cxx_destruct;

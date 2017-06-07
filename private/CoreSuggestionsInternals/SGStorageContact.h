@@ -15,6 +15,7 @@
     NSArray *_internalDetectedAddresses;
     NSArray *_internalDetectedEmailAddresses;
     NSArray *_internalDetectedIMAddresses;
+    NSArray *_internalDetectedSocialProfiles;
     SGContactDetailsHolder *_internalDetectedDetails;
     struct _opaque_pthread_mutex_t _detectedDetailsLock;
     long long _masterEntityId;

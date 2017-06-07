@@ -40,6 +40,7 @@
 @property(nonatomic) unsigned int lineIndex; // @synthesize lineIndex=_lineIndex;
 @property(retain, nonatomic) GEOTransitVehicleTime *departureTime; // @synthesize departureTime=_departureTime;
 @property(retain, nonatomic) GEOTransitVehicleTime *arrivalTime; // @synthesize arrivalTime=_arrivalTime;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

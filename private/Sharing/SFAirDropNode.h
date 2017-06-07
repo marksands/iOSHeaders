@@ -15,8 +15,8 @@
     _Bool _unknown;
     _Bool _monogram;
     _Bool _classroom;
-    _Bool _classroomCourse;
     _Bool _classroomGroup;
+    _Bool _classroomCourse;
     _Bool _supportsFMF;
     _Bool _supportsPasses;
     _Bool _supportsMixedTypes;
@@ -32,8 +32,8 @@
 @property(readonly) _Bool supportsMixedTypes; // @synthesize supportsMixedTypes=_supportsMixedTypes;
 @property(readonly) _Bool supportsPasses; // @synthesize supportsPasses=_supportsPasses;
 @property(readonly) _Bool supportsFMF; // @synthesize supportsFMF=_supportsFMF;
-@property(getter=isclassroomGroup) _Bool classroomGroup; // @synthesize classroomGroup=_classroomGroup;
 @property(getter=isClassroomCourse) _Bool classroomCourse; // @synthesize classroomCourse=_classroomCourse;
+@property(getter=isclassroomGroup) _Bool classroomGroup; // @synthesize classroomGroup=_classroomGroup;
 @property(getter=isClassroom) _Bool classroom; // @synthesize classroom=_classroom;
 @property(getter=isMonogram) _Bool monogram; // @synthesize monogram=_monogram;
 @property(getter=isUnknown) _Bool unknown; // @synthesize unknown=_unknown;
@@ -48,7 +48,7 @@
 - (void)simulateFakeTransferWithSessionID:(id)arg1;
 - (void)handleOperationCallback:(struct __SFOperation *)arg1 event:(long long)arg2 withResults:(id)arg3;
 - (void)cancelSend;
-- (void)startSendWithSessionID:(id)arg1 items:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
+- (void)startSendForBundleID:(id)arg1 sessionID:(id)arg2 items:(id)arg3 description:(id)arg4 previewImage:(id)arg5;
 - (void)updateWithSFNode:(struct __SFNode *)arg1;
 - (id)description;
 - (unsigned long long)hash;

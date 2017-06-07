@@ -19,7 +19,6 @@
 @property(nonatomic) long long textAlignment; // @synthesize textAlignment=_textAlignment;
 @property(nonatomic, getter=isDestructive) _Bool destructive; // @synthesize destructive=_destructive;
 - (void)updateTitle;
-- (void)updateUIWithAnimation:(_Bool)arg1;
 - (void)didMoveToSuperview;
 - (void)tintColorDidChange;
 - (void)prepareForReuse;

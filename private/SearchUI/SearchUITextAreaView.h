@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUIStackView.h>
+#import <TemplateKit/TLKStackView.h>
 
 #import <SearchUI/NUIContainerStackViewDelegate-Protocol.h>
 
 @class NSMutableArray, NSString, SearchUITitleContainerView, UILabel;
 
-@interface SearchUITextAreaView : SearchUIStackView <NUIContainerStackViewDelegate>
+@interface SearchUITextAreaView : TLKStackView <NUIContainerStackViewDelegate>
 {
     unsigned long long _style;
     SearchUITitleContainerView *_titleContainer;

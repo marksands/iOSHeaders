@@ -30,9 +30,10 @@
     ISLivePhotoVitalityFilter *_vitalityFilter;
     long long _currentPlaybackStyle;
     long long _targetReadiness;
-    long long __playbackIdentifier;
     long long __styleToPlayWhenReady;
     NSDate *__vitalityTimeoutDate;
+    CDStruct_1b6d18a9 _seekTime;
+    CDStruct_e83c9415 _trimTimeRange;
 }
 
 @property(retain, nonatomic, setter=_setVitalityTimeoutDate:) NSDate *_vitalityTimeoutDate; // @synthesize _vitalityTimeoutDate=__vitalityTimeoutDate;
@@ -41,7 +42,8 @@
 @property(nonatomic, setter=_setShouldPrepareForVitalityWhenReady:) _Bool _shouldPrepareForVitalityWhenReady; // @synthesize _shouldPrepareForVitalityWhenReady=__shouldPrepareForVitalityWhenReady;
 @property(nonatomic, setter=_setSettleAutomaticallyWhenReady:) _Bool _settleAutomaticallyWhenReady; // @synthesize _settleAutomaticallyWhenReady=__settleAutomaticallyWhenReady;
 @property(nonatomic, setter=_setStyleToPlayWhenReady:) long long _styleToPlayWhenReady; // @synthesize _styleToPlayWhenReady=__styleToPlayWhenReady;
-@property(nonatomic, setter=_setPlaybackIdentifier:) long long _playbackIdentifier; // @synthesize _playbackIdentifier=__playbackIdentifier;
+@property(nonatomic) CDStruct_e83c9415 trimTimeRange; // @synthesize trimTimeRange=_trimTimeRange;
+@property(readonly, nonatomic) CDStruct_1b6d18a9 seekTime; // @synthesize seekTime=_seekTime;
 @property(nonatomic) long long targetReadiness; // @synthesize targetReadiness=_targetReadiness;
 @property(nonatomic, getter=isPlaybackAllowed) _Bool playbackAllowed; // @synthesize playbackAllowed=_playbackAllowed;
 @property(nonatomic) _Bool immediatelyShowsPhotoWhenPlaybackEnds; // @synthesize immediatelyShowsPhotoWhenPlaybackEnds=_immediatelyShowsPhotoWhenPlaybackEnds;
@@ -70,9 +72,9 @@
 - (void)_handlePlaybackFilterDidChange;
 - (void)_handleVitalityFilterDidChange:(id)arg1;
 - (double)_photoTransitionDuration;
-- (long long)_incrementedPlaybackIdentifier;
 - (void)_prepareForVitalityIfNeeded;
 - (void)_playIfNeeded;
+- (void)setSeekTime:(CDStruct_1b6d18a9)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)playVitality;
 - (void)prepareForVitality;
 - (void)stopPlaybackAnimated:(_Bool)arg1;

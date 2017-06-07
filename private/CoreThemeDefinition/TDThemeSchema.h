@@ -20,7 +20,6 @@
 - (void)loadStandardEffectDefinitions;
 - (void)loadTemplateRenderingModeConstants;
 - (void)loadEffectConstants;
-- (void)loadDefaultFontCustomizations;
 - (void)loadMetafontSizes;
 - (void)loadMetafontSelectors;
 - (void)loadArtworkDraftTypes;

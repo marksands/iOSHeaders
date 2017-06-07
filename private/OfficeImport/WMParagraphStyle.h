@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)isShadingNull:(id)arg1;
+- (void).cxx_destruct;
 - (void)addParagraphProperties:(id)arg1;
 - (id)trailingMarginPropertyNameWithOverridesFromProperties:(id)arg1;
 - (id)leadingMarginPropertyNameWithOverridesFromProperties:(id)arg1;
@@ -23,7 +24,6 @@ __attribute__((visibility("hidden")))
 - (void)addParagraphStyleCharacterProperties:(id)arg1;
 - (void)addParagraphPropertiesFromStyle;
 - (void)addParagraphPropertiesFromStyle:(id)arg1;
-- (void)dealloc;
 - (id)initWithWDStyle:(id)arg1 isInTextFrame:(_Bool)arg2;
 - (void)mapBorders:(id)arg1;
 

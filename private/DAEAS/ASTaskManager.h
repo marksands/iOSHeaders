@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSString *easProtocolVersion; // @synthesize easProtocolVersion=_easProtocolVersion;
 @property(retain, nonatomic) ASPolicyManager *policyManager; // @synthesize policyManager=_policyManager;
 - (void).cxx_destruct;
+- (_Bool)shouldCancelTaskDueToOnPowerFetchMode;
 - (_Bool)_hasTasksIndicatingARunningSync;
 - (void)taskEndModal:(id)arg1;
 - (void)taskRequestModal:(id)arg1;

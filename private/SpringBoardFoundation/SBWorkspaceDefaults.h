@@ -6,7 +6,7 @@
 
 #import <SpringBoardFoundation/SBAbstractSpringBoardDefaultDomain.h>
 
-@class NSDictionary;
+@class NSData;
 
 @interface SBWorkspaceDefaults : SBAbstractSpringBoardDefaultDomain
 {
@@ -15,10 +15,11 @@
 - (void)_bindAndRegisterDefaults;
 
 // Remaining properties
-@property(readonly, nonatomic) _Bool alwaysBreadcrumb; // @dynamic alwaysBreadcrumb;
+@property(readonly, nonatomic, getter=isFloatingDockEnabled) _Bool floatingDockEnabled; // @dynamic floatingDockEnabled;
+@property(readonly, nonatomic, getter=isMedusa2oEnabled) _Bool medusa2oEnabled; // @dynamic medusa2oEnabled;
+@property(readonly, nonatomic) long long medusaDeviceSimulation; // @dynamic medusaDeviceSimulation;
 @property(readonly, nonatomic, getter=isMedusaEnabled) _Bool medusaEnabled; // @dynamic medusaEnabled;
-@property(readonly, nonatomic) _Bool neverBreadcrumb; // @dynamic neverBreadcrumb;
-@property(retain, nonatomic) NSDictionary *sideAppState; // @dynamic sideAppState;
+@property(retain, nonatomic) NSData *mostRecentFloatingApplicationState; // @dynamic mostRecentFloatingApplicationState;
 
 @end
 

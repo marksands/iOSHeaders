@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) DOMNode *endNode; // @synthesize endNode=_endNode;
 @property int startOffset; // @synthesize startOffset=_startOffset;
 @property(retain, nonatomic) DOMNode *startNode; // @synthesize startNode=_startNode;
+- (void).cxx_destruct;
 - (void)dispatchContainerModificationBlock:(CDUnknownBlockType)arg1;
 - (id)newOperationForContinuation;
 - (id)newOperationForStartingOver;
@@ -33,7 +34,6 @@ __attribute__((visibility("hidden")))
 - (void)_applyContainerRestrictionsToTypes;
 - (_Bool)_containerReadyForDetection;
 - (void)cleanup;
-- (void)dealloc;
 
 // Remaining properties
 @property(retain, nonatomic) WebFrame *container; // @dynamic container;

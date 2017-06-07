@@ -6,33 +6,41 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPSessionMissingResultsFeedback-Protocol.h>
 
-@class NSMutableArray;
+@class NSArray, NSData, NSString;
 
-@interface _CPSessionMissingResultsFeedback : PBCodable <NSCopying>
+@interface _CPSessionMissingResultsFeedback : PBCodable <_CPProcessableFeedback, _CPSessionMissingResultsFeedback, NSSecureCoding>
 {
+    CDStruct_b5306035 _has;
     unsigned long long _timestamp;
-    NSMutableArray *_results;
+    NSArray *_results;
 }
 
-+ (Class)resultsType;
-@property(retain, nonatomic) NSMutableArray *results; // @synthesize results=_results;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(copy, nonatomic) NSArray *results; // @synthesize results=_results;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
 - (id)resultsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)resultsCount;
 - (void)addResults:(id)arg1;
 - (void)clearResults;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

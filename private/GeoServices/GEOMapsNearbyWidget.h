@@ -20,6 +20,7 @@
 }
 
 @property(retain, nonatomic) GEOMapsServerMetadata *serverMetadata; // @synthesize serverMetadata=_serverMetadata;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 @property(nonatomic) _Bool hasTappedItemIndex;
 @property(nonatomic) int tappedItemIndex; // @synthesize tappedItemIndex=_tappedItemIndex;
 @property(readonly, nonatomic) _Bool hasServerMetadata;
-- (void)dealloc;
 
 @end
 

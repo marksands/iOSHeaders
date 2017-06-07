@@ -6,13 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class HFUpdateLogger, NAFuture, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSMutableSet;
+@class HFMutableAggregatedCharacteristicReadPolicy, HFUpdateLogger, NAFuture, NSDictionary, NSError, NSMutableArray, NSMutableDictionary, NSMutableSet;
 @protocol OS_dispatch_group;
 
 @interface HFCharacteristicValueTransaction : NSObject
 {
     _Bool _loggerIsExternal;
-    NSMutableArray *_readValidators;
+    HFMutableAggregatedCharacteristicReadPolicy *_readPolicy;
     NSMutableSet *_characteristicsToRead;
     NSMutableSet *_writeCharacteristicRequests;
     NSMutableSet *_actionSetsToExecute;
@@ -23,13 +23,13 @@
     NSMutableDictionary *_writeFuturesKeyedByCharacteristicIdentifier;
     NAFuture *_commitFuture;
     NSObject<OS_dispatch_group> *_onFinishGroup;
-    NSMutableSet *_clientReasons;
+    NSMutableArray *_clientReasonsStack;
     HFUpdateLogger *_logger;
 }
 
 @property(nonatomic) _Bool loggerIsExternal; // @synthesize loggerIsExternal=_loggerIsExternal;
 @property(retain, nonatomic) HFUpdateLogger *logger; // @synthesize logger=_logger;
-@property(retain, nonatomic) NSMutableSet *clientReasons; // @synthesize clientReasons=_clientReasons;
+@property(retain, nonatomic) NSMutableArray *clientReasonsStack; // @synthesize clientReasonsStack=_clientReasonsStack;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *onFinishGroup; // @synthesize onFinishGroup=_onFinishGroup;
 @property(retain, nonatomic) NAFuture *commitFuture; // @synthesize commitFuture=_commitFuture;
 @property(retain, nonatomic) NSMutableDictionary *writeFuturesKeyedByCharacteristicIdentifier; // @synthesize writeFuturesKeyedByCharacteristicIdentifier=_writeFuturesKeyedByCharacteristicIdentifier;
@@ -40,10 +40,9 @@
 @property(retain, nonatomic) NSMutableSet *actionSetsToExecute; // @synthesize actionSetsToExecute=_actionSetsToExecute;
 @property(retain, nonatomic) NSMutableSet *writeCharacteristicRequests; // @synthesize writeCharacteristicRequests=_writeCharacteristicRequests;
 @property(retain, nonatomic) NSMutableSet *characteristicsToRead; // @synthesize characteristicsToRead=_characteristicsToRead;
-@property(retain, nonatomic) NSMutableArray *readValidators; // @synthesize readValidators=_readValidators;
+@property(retain, nonatomic) HFMutableAggregatedCharacteristicReadPolicy *readPolicy; // @synthesize readPolicy=_readPolicy;
 - (void).cxx_destruct;
 - (id)executionErrorForActionSet:(id)arg1;
-- (_Bool)shouldReadCharacteristic:(id)arg1 error:(id *)arg2;
 - (id)init;
 
 @end

@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 
 - (void)setPreviewMode:(_Bool)arg1;
 - (_Bool)wantsSeamlessCommit;
-- (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
+-     // Error parsing type: @40@0:8@16^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@32, name: initWithURL:result:context:
 
 @end
 

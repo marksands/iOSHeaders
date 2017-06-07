@@ -4,21 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDApplicationData, HMDHome, HMFMessageDispatcher, NSMutableArray, NSString, NSUUID;
+@class HMDApplicationData, HMDHome, HMFMessageDispatcher, NSMutableArray, NSMutableDictionary, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDServiceGroup : NSObject <HMFMessageReceiver, HMFDumpState, NSSecureCoding>
+@interface HMDServiceGroup : HMFObject <HMFMessageReceiver, HMFDumpState, NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     NSString *_name;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_workQueue;
-    NSMutableArray *_services;
+    NSMutableArray *_serviceUUIDs;
+    NSMutableDictionary *_serviceMapping;
     HMDHome *_home;
     HMFMessageDispatcher *_msgDispatcher;
     HMDApplicationData *_appData;
@@ -28,11 +30,23 @@
 @property(retain, nonatomic) HMDApplicationData *appData; // @synthesize appData=_appData;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
-@property(retain, nonatomic) NSMutableArray *services; // @synthesize services=_services;
+@property(retain, nonatomic) NSMutableDictionary *serviceMapping; // @synthesize serviceMapping=_serviceMapping;
+@property(retain, nonatomic) NSMutableArray *serviceUUIDs; // @synthesize serviceUUIDs=_serviceUUIDs;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (void)fixupServiceGroup;
+- (id)backingStoreObjects:(long long)arg1;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (void)_handleRemoveAppDataModel:(id)arg1 message:(id)arg2;
+- (void)_handleUpdateAppDataModel:(id)arg1 message:(id)arg2;
+- (id)_handleUpdateServicesTransaction:(id)arg1 error:(id *)arg2;
+- (id)_handleUpdateNameTransaction:(id)arg1 error:(id *)arg2;
+- (void)_transactionServiceGroupUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (id)updateServiceGroupWithModel:(id)arg1 message:(id)arg2;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)_handleRemoveServiceRequest:(id)arg1;
@@ -42,6 +56,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)removeService:(id)arg1;
 - (void)removeServicesForAccessory:(id)arg1;
+- (void)setServiceIfPresent:(id)arg1;
 - (void)fixupServicesForReplacementAccessory:(id)arg1;
 - (void)_handleRenameRequest:(id)arg1;
 - (id)dumpState;

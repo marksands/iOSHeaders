@@ -17,7 +17,8 @@
     SearchUIImageView *_secondaryImageView;
 }
 
-+ (id)titleFont;
++ (_Bool)needsEnlargedFontForResult:(id)arg1;
++ (id)titleFontforResult:(id)arg1;
 @property(retain, nonatomic) SearchUIImageView *secondaryImageView; // @synthesize secondaryImageView=_secondaryImageView;
 @property(retain, nonatomic) UILabel *secondaryLabel; // @synthesize secondaryLabel=_secondaryLabel;
 @property(retain, nonatomic) SearchUIVibrantLabel *titleLabel; // @synthesize titleLabel=_titleLabel;

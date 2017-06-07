@@ -15,7 +15,8 @@
 }
 
 + (id)sharedFormatter;
-- (id)stringsForStep:(id)arg1;
+- (id)signInstructionsForStep:(id)arg1;
+- (id)listInstructionForStep:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

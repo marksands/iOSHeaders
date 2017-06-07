@@ -6,20 +6,23 @@
 
 #import <objc/NSObject.h>
 
-@class NSNumber, NSURLSession;
+@class FLFollowUpController, NSNumber, NSURLSession;
 
 @interface ICQDaemonOfferManager : NSObject
 {
     NSURLSession *_sharedURLSession;
+    FLFollowUpController *_followUpController;
 }
 
 + (id)ckBackupDeviceID;
 + (id)sharedDaemonOfferManager;
 - (void).cxx_destruct;
+@property(nonatomic, getter=isLegacyDeviceStorageLevelNotificationEnabled) _Bool legacyDeviceStorageLevelNotificationEnabled;
 @property(retain, nonatomic) NSNumber *simulatedPhotosLibrarySize;
 @property(nonatomic, getter=isBuddyOfferEnabled) _Bool buddyOfferEnabled;
-@property(nonatomic) _Bool useHysteresisForDeviceStorageAlmostFull;
 @property(nonatomic, getter=isSimulatedDeviceStorageAlmostFull) _Bool simulatedDeviceStorageAlmostFull;
+@property(nonatomic) _Bool useHysteresisForDeviceStorageAlmostFull;
+@property(nonatomic) _Bool shouldDirectToStorageManagement;
 - (void)teardownCachedOffers;
 - (void)teardownCachedBuddyOffer;
 - (void)teardownCachedOffer;
@@ -52,6 +55,13 @@
 - (unsigned long long)daemonOfferSource;
 - (void)clearFollowupsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)reconsiderOffersWithCompletion:(CDUnknownBlockType)arg1;
+- (void)stopDirectingToStorageManagement;
+- (void)startDirectingToStorageManagement;
+- (void)_clearStorageManagementFollowup;
+- (void)_postStorageManagementFollowup;
+- (id)_storageManagementFollowupItem;
+- (id)_storageManagementFollowupNotification;
+- (id)_storageManagementFollowupActions;
 - (id)soonestOfferOrStubExpirationDate;
 - (void)teardownOffersForAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)processPushNotificationDictionary:(id)arg1 completion:(CDUnknownBlockType)arg2;

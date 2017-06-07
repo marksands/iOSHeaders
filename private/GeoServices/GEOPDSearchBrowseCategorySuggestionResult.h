@@ -18,6 +18,7 @@
 
 + (Class)categoryType;
 @property(retain, nonatomic) NSMutableArray *categorys; // @synthesize categorys=_categorys;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -32,7 +33,6 @@
 - (unsigned long long)categorysCount;
 - (void)addCategory:(id)arg1;
 - (void)clearCategorys;
-- (void)dealloc;
 
 @end
 

@@ -59,6 +59,7 @@ __attribute__((visibility("hidden")))
 - (id)propertyMapThatNeedsToBeTransformedWithTransformedObjects:(id)arg1;
 - (id)boxedValueForProperty:(int)arg1 oldBoxedValue:(id)arg2 transformedByTransform:(struct CGAffineTransform)arg3;
 - (_Bool)transformsFontSizes;
+- (id)archivableRepresentationOfChangeSet:(id)arg1;
 - (_Bool)validateObjectValue:(id *)arg1 withClass:(Class)arg2 forProperty:(int)arg3;
 - (_Bool)validateDoubleValue:(double *)arg1 forProperty:(int)arg2;
 - (_Bool)validateFloatValue:(float *)arg1 forProperty:(int)arg2;
@@ -146,6 +147,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *styleIdentifier;
 @property(copy, nonatomic) NSString *name;
 - (int)intValueForMUXedProperty:(int)arg1;
+- (id)shapeStyleByRemovingShadowFrameAndReflectionForContext:(id)arg1;
 - (id)constrainShapeStyleForContext:(id)arg1;
 - (void)constrainStrokeForSwatchGeneration;
 - (void)constrainShadowForSwatchGeneration;

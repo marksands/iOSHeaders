@@ -14,7 +14,7 @@
 {
 }
 
-+ (id)syncEntityDependenciesForNanoSyncProtocolVersion:(int)arg1;
++ (id)syncEntityDependenciesForSyncProtocolVersion:(int)arg1;
 + (id)_baseDataObjectPredicate;
 + (id)_objectWithCodable:(id)arg1;
 + (Class)healthEntityClass;

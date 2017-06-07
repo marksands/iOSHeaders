@@ -108,6 +108,10 @@
 - (id)copyMessagesWithRemoteIDs:(id)arg1 options:(unsigned int)arg2 inRemoteMailbox:(id)arg3;
 - (id)messageWithRemoteID:(id)arg1 inRemoteMailbox:(id)arg2;
 - (id)oldestMessageInMailbox:(id)arg1;
+- (void)setMostRecentStatusCount:(unsigned long long)arg1 forMailbox:(id)arg2;
+- (unsigned long long)mostRecentStatusCountForMailbox:(id)arg1;
+- (void)setLastSyncAndMostRecentStatusCount:(unsigned long long)arg1 forMailbox:(id)arg2;
+- (long long)statusCountDeltaForMailbox:(id)arg1;
 - (void)setServerUnreadOnlyOnServerCount:(unsigned long long)arg1 forMailbox:(id)arg2;
 - (unsigned long long)serverUnreadOnlyOnServerCountForMailbox:(id)arg1;
 - (unsigned int)totalCountForMailbox:(id)arg1;

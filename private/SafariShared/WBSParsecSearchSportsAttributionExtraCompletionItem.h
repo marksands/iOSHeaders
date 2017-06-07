@@ -8,7 +8,7 @@
 
 #import <SafariShared/WBSCompletionListItem-Protocol.h>
 
-@class NSString, NSURL, SFSearchResult, WBSParsecImageRepresentation;
+@class NSString, NSURL, SFSearchResult, WBSParsecImageRepresentation, WBSQuerySuggestion;
 
 @interface WBSParsecSearchSportsAttributionExtraCompletionItem : WBSParsecModel <WBSCompletionListItem>
 {
@@ -33,6 +33,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *lastSearchQuery;
+@property(retain, nonatomic) WBSQuerySuggestion *siriSuggestion;
 @property(readonly) Class superclass;
 
 @end

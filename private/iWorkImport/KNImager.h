@@ -8,28 +8,39 @@
 
 #import <iWorkImport/TSDConnectedInfoReplacing-Protocol.h>
 
-@class KNAbstractSlide, KNBodyPlaceholderInfo, KNTitlePlaceholderInfo, NSString;
+@class KNAbstractSlide, KNBodyPlaceholderInfo, KNTitlePlaceholderInfo, NSString, TSUImage;
+@protocol TSDCanvasProxyDelegate;
 
 __attribute__((visibility("hidden")))
 @interface KNImager : TSDImager <TSDConnectedInfoReplacing>
 {
-    unsigned long long mSlideNumber;
-    KNAbstractSlide *mSlide;
-    _Bool mShouldShowInstructionalText;
-    KNBodyPlaceholderInfo *mReplacementBodyPlaceholder;
-    KNTitlePlaceholderInfo *mReplacementTitlePlaceholder;
+    _Bool _shouldShowInstructionalText;
+    KNBodyPlaceholderInfo *_replacementBodyPlaceholder;
+    KNTitlePlaceholderInfo *_replacementTitlePlaceholder;
+    unsigned long long _slideNumber;
+    KNAbstractSlide *_slide;
+    double _elementListThumbnailContentInset;
+    struct CGSize _elementListThumbnailSize;
 }
 
-@property(retain, nonatomic) KNTitlePlaceholderInfo *replacementTitlePlaceholder; // @synthesize replacementTitlePlaceholder=mReplacementTitlePlaceholder;
-@property(retain, nonatomic) KNBodyPlaceholderInfo *replacementBodyPlaceholder; // @synthesize replacementBodyPlaceholder=mReplacementBodyPlaceholder;
-@property(nonatomic) _Bool shouldShowInstructionalText; // @synthesize shouldShowInstructionalText=mShouldShowInstructionalText;
-@property(nonatomic) KNAbstractSlide *slide; // @synthesize slide=mSlide;
-@property(nonatomic) unsigned long long slideNumber; // @synthesize slideNumber=mSlideNumber;
+@property(nonatomic) double elementListThumbnailContentInset; // @synthesize elementListThumbnailContentInset=_elementListThumbnailContentInset;
+@property(nonatomic) struct CGSize elementListThumbnailSize; // @synthesize elementListThumbnailSize=_elementListThumbnailSize;
+@property(nonatomic) _Bool shouldShowInstructionalText; // @synthesize shouldShowInstructionalText=_shouldShowInstructionalText;
+@property(retain, nonatomic) KNBodyPlaceholderInfo *replacementBodyPlaceholder; // @synthesize replacementBodyPlaceholder=_replacementBodyPlaceholder;
+@property(retain, nonatomic) KNTitlePlaceholderInfo *replacementTitlePlaceholder; // @synthesize replacementTitlePlaceholder=_replacementTitlePlaceholder;
+@property(nonatomic) __weak KNAbstractSlide *slide; // @synthesize slide=_slide;
+@property(nonatomic) unsigned long long slideNumber; // @synthesize slideNumber=_slideNumber;
+- (void).cxx_destruct;
+- (double)p_strokeWidthForScaleFactor:(double)arg1;
+- (id)p_strokeForShapeInfo:(id)arg1;
+- (_Bool)p_requiresModifiedStrokeForDrawable:(id)arg1 atScaleFactor:(double)arg2;
+@property(readonly, nonatomic) TSUImage *elementListThumbnailImage;
 - (id)infoToConnectToForConnectionLineConnectedToInfo:(id)arg1;
-- (void)dealloc;
+- (_Bool)isInfoAKeynoteMasterObject:(id)arg1;
 - (id)initWithDocumentRoot:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) id <TSDCanvasProxyDelegate> canvasProxyDelegate;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

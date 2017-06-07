@@ -10,10 +10,12 @@
 {
 }
 
-+ (id)peekViewControllerForResult:(id)arg1 style:(unsigned long long)arg2;
++ (id)viewsForCardSections:(id)arg1 style:(unsigned long long)arg2 feedbackListeners:(id)arg3;
++ (id)viewsForCardSections:(id)arg1 style:(unsigned long long)arg2 feedbackListener:(id)arg3;
++ (id)viewForCardSection:(id)arg1 style:(unsigned long long)arg2 feedbackListener:(id)arg3;
 + (id)cardViewControllerForResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 + (id)cardViewControllerForResult:(id)arg1 style:(unsigned long long)arg2;
-+ (id)rowViewForResults:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
++ (id)cardViewControllerForCard:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 + (id)rowViewForResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 + (id)rowViewForResult:(id)arg1 style:(unsigned long long)arg2;
 

@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (struct TSCH3DScenePart)partWithEnumerator:(id)arg1 layoutSettings:(CDStruct_339a9a6e)arg2;
++ (struct TSCH3DScenePart)partWithEnumerator:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
 + (void)updateLightingEffectsState:(id)arg1 scene:(id)arg2;
 + (void)addHorizontalTransformToProperties:(id)arg1;
 + (_Bool)isHorizontalChart;

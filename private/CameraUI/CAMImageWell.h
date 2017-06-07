@@ -6,9 +6,11 @@
 
 #import <UIKit/UIButton.h>
 
+#import <CameraUI/UIGestureRecognizerDelegate-Protocol.h>
+
 @class NSMutableArray, NSString, UIImage, UIImageView, UIView;
 
-@interface CAMImageWell : UIButton
+@interface CAMImageWell : UIButton <UIGestureRecognizerDelegate>
 {
     _Bool _thumbnailImageHidden;
     long long _layoutStyle;
@@ -34,7 +36,7 @@
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 - (void).cxx_destruct;
 - (void)_updateForLayoutStyle;
-- (id)_maskImage;
+- (id)_newMaskImage;
 - (void)_removeFirstDimmingView;
 - (void)_performEmitAnimationWithImage:(id)arg1 orientation:(long long)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (struct CGAffineTransform)_affineTransformForImageOrientation:(long long)arg1;
@@ -45,6 +47,8 @@
 - (void)setThumbnailImage:(id)arg1 uuid:(id)arg2 animated:(_Bool)arg3;
 - (void)setThumbnailImage:(id)arg1 animated:(_Bool)arg2;
 - (void)setCameraOrientation:(long long)arg1 animated:(_Bool)arg2;
+- (struct CGRect)alignmentRectForFrame:(struct CGRect)arg1 highlighted:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct UIEdgeInsets)alignmentRectInsets;
@@ -54,6 +58,12 @@
 - (id)initWithLayoutStyle:(long long)arg1;
 - (void)_commonCAMImageWellInitializationWithLayoutStyle:(long long)arg1;
 @property(readonly, nonatomic) UIImage *thumbnailImage;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

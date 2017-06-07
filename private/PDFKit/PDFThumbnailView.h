@@ -10,16 +10,18 @@
 #import <PDFKit/PDFCollectionViewDataSource-Protocol.h>
 #import <PDFKit/PDFCollectionViewDelegate-Protocol.h>
 
-@class NSString, PDFThumbnailViewPrivateVars, PDFView, UIColor;
+@class NSArray, NSString, PDFThumbnailViewPrivateVars, PDFView, UIColor;
 
 @interface PDFThumbnailView : UIView <PDFCollectionViewDelegate, PDFCollectionViewDataSource, NSCoding>
 {
-    PDFThumbnailViewPrivateVars *_pdfPriv;
+    PDFThumbnailViewPrivateVars *_private;
     struct UIEdgeInsets _contentInset;
 }
 
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=_contentInset;
 - (void).cxx_destruct;
+- (void)setPdfView:(id)arg1;
+- (id)pdfView;
 - (CDUnknownBlockType)_newIconSetterBlockForIconView:(id)arg1 andIndexPath:(id)arg2;
 - (void)_pdfDocumentWasUnlocked:(id)arg1;
 - (void)didEndDisplayingItem:(id)arg1;
@@ -32,9 +34,11 @@
 - (long long)numberOfItemsInSection:(long long)arg1;
 - (void)setHorizontalMode:(_Bool)arg1;
 @property(nonatomic) struct CGSize thumbnailSize;
-- (id)selectedPages;
+@property(readonly, nonatomic) NSArray *selectedPages;
 @property(copy, nonatomic) UIColor *backgroundColor;
 @property(retain, nonatomic) PDFView *PDFView;
+- (void)documentChanged;
+- (void)documentUnlocked;
 - (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

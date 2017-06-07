@@ -17,8 +17,9 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
 @property(retain, nonatomic) id <TSKAnnotation> annotation; // @synthesize annotation=_annotation;
+- (void).cxx_destruct;
+- (_Bool)isValidAndInDocument;
 - (_Bool)referencesAnnotation:(id)arg1;
-- (void)dealloc;
 
 @end
 

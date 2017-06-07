@@ -29,6 +29,7 @@
 @property(nonatomic) double transitionDuration; // @synthesize transitionDuration=_transitionDuration;
 @property(nonatomic) _Bool allowPinchTransitions; // @synthesize allowPinchTransitions=_allowPinchTransitions;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

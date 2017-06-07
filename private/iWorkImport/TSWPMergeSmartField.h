@@ -27,8 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
-- (const struct PlaceholderSmartFieldArchive *)placeholderSmartFieldArchiveFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 @property(copy, nonatomic) NSString *tableField;
 @property(copy, nonatomic) NSString *guid;
 @property(copy, nonatomic) NSString *whitespace;

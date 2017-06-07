@@ -35,7 +35,6 @@
     TKVibrationPickerViewController *_vibrationPickerViewController;
     _Bool _isHandlingSwitchControlValueChanged;
     NSMutableArray *_switchControlsBeingObserved;
-    _Bool _showsStoreButtonInNavigationBar;
     _Bool _showsToneStore;
     _Bool _showsIgnoreMute;
     _Bool _showsMedia;
@@ -48,13 +47,11 @@
 @property(nonatomic) _Bool showsIgnoreMute; // @synthesize showsIgnoreMute=_showsIgnoreMute;
 @property(nonatomic) __weak id <TKTonePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool showsToneStore; // @synthesize showsToneStore=_showsToneStore;
-@property(nonatomic) _Bool showsStoreButtonInNavigationBar; // @synthesize showsStoreButtonInNavigationBar=_showsStoreButtonInNavigationBar;
 - (void).cxx_destruct;
 - (void)vibrationPickerViewControllerWasDismissed:(id)arg1;
 - (void)vibrationPickerViewController:(id)arg1 selectedVibrationWithIdentifier:(id)arg2;
 - (void)tonePickerController:(id)arg1 requestsPresentingAlertWithTitle:(id)arg2 message:(id)arg3;
 - (void)tonePickerControllerRequestsPresentingVibrationPicker:(id)arg1;
-- (void)tonePickerControllerRequestsPresentingToneStore:(id)arg1;
 - (void)tonePickerController:(id)arg1 requestsPresentingToneClassicsPickerForItem:(id)arg2;
 - (void)tonePickerController:(id)arg1 didUpdateIgnoreMute:(_Bool)arg2 forTonePickerItem:(id)arg3 atIndexPath:(id)arg4;
 - (void)tonePickerController:(id)arg1 willBeginPlaybackOfToneWithIdentifier:(id)arg2;
@@ -69,8 +66,13 @@
 - (_Bool)tonePickerControllerShouldShowMedia:(id)arg1;
 - (void)tonePickerController:(id)arg1 selectedMediaItemWithIdentifier:(id)arg2;
 - (void)tonePickerController:(id)arg1 selectedToneWithIdentifier:(id)arg2;
+- (void)tonePickerController:(id)arg1 didUpdateFooterText:(id)arg2 ofTonePickerSectionItem:(id)arg3;
 - (void)tonePickerController:(id)arg1 didUpdateDetailText:(id)arg2 ofTonePickerItem:(id)arg3;
+- (void)tonePickerController:(id)arg1 didUpdateTonePickerItem:(id)arg2;
+- (void)tonePickerController:(id)arg1 didUpdateDownloadProgressOfTonePickerItem:(id)arg2;
 - (void)tonePickerController:(id)arg1 didUpdateCheckedStatus:(_Bool)arg2 ofTonePickerItem:(id)arg3;
+- (void)tonePickerController:(id)arg1 didInsertPickerRowItems:(id)arg2 andTonePickerSectionItems:(id)arg3;
+- (void)tonePickerController:(id)arg1 didDeletePickerRowItem:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)tonePickerControllerDidReloadTones:(id)arg1;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
@@ -90,7 +92,7 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2 forPickerRowItem:(id)arg3;
 - (void)updateDividerContentColorToMatchSeparatorColorInTableView:(id)arg1;
 - (void)updateCell:(id)arg1 withDetailText:(id)arg2;
-- (void)updateCell:(id)arg1 withCheckedStatus:(_Bool)arg2 forPickerRowItem:(id)arg3;
+- (void)updateCell:(id)arg1 withCheckedStatus:(_Bool)arg2 forTonePickerItem:(id)arg3;
 - (void)tableView:(id)arg1 updateCell:(id)arg2 withSeparatorForPickerRowItem:(id)arg3;
 - (id)selectedTonePickerItem;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forPickerRowItem:(id)arg3;
@@ -111,13 +113,13 @@
 - (id)selectedIdentifier:(_Bool *)arg1;
 @property(nonatomic, getter=isMediaAtTop) _Bool mediaAtTop;
 - (void)_handleMediaLibraryDidChangeNotification;
+- (void)_updateCell:(id)arg1 withDownloadProgress:(float)arg2 animated:(_Bool)arg3;
 - (_Bool)_shouldShowCheckmarkOnTrailingEdge;
 - (void)_resetScrollingPosition;
 - (void)_reloadData;
 - (id)_pickerRowItemForIndexPath:(id)arg1;
-- (void)_configureTextColorOfLabelInCell:(id)arg1 checked:(_Bool)arg2;
+- (void)_configureTextColorOfLabelInCell:(id)arg1 shouldTintText:(_Bool)arg2 checked:(_Bool)arg3;
 - (void)_didSelectToneWithIdentifier:(id)arg1;
-- (void)_goToStore;
 - (void)_updateMinimumTextIndentation;
 - (double)_minimumTextIndentationForTableView:(id)arg1 withCheckmarkImage:(id)arg2;
 - (id)_customHeaderViewForHeaderInSection:(long long)arg1;
@@ -125,6 +127,7 @@
 - (void)viewDidLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)_updateStyleOfTableView:(id)arg1 forStyleProvider:(id)arg2;
@@ -132,7 +135,6 @@
 @property(nonatomic) _Bool showsVibrations;
 - (void)_handleSwitchControlValueChanged:(id)arg1;
 @property(nonatomic) _Bool ignoreMute;
-- (void)_configureNavigationBarIfNeeded;
 @property(copy, nonatomic) NSString *selectedToneIdentifier;
 @property(nonatomic) _Bool showsNothingSelected;
 @property(copy, nonatomic) NSString *noneString;
@@ -145,6 +147,7 @@
 - (void)dealloc;
 - (id)initWithAlertType:(long long)arg1;
 - (id)initWithStyle:(long long)arg1;
+@property(nonatomic) _Bool showsStoreButtonInNavigationBar;
 @property(copy, nonatomic) NSString *accountIdentifier;
 
 // Remaining properties

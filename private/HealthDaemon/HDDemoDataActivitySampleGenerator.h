@@ -6,7 +6,7 @@
 
 #import <HealthDaemon/HDDemoDataBaseSampleGenerator.h>
 
-@class HDDataOriginProvenance, HDProfile, HKActivityCache, _HDDemoDataActivityWorkoutState;
+@class HDDataOriginProvenance, HDDemoDataGeneratorWorkoutConfiguration, HDProfile, HKActivityCache, _HDDemoDataActivityWorkoutState;
 
 @interface HDDemoDataActivitySampleGenerator : HDDemoDataBaseSampleGenerator
 {
@@ -24,10 +24,12 @@
     double _lastUVExposure;
     double _lastUVIndexPeak;
     HKActivityCache *_lastActivityCache;
+    HDDemoDataGeneratorWorkoutConfiguration *_currentWorkoutConfiguration;
     _HDDemoDataActivityWorkoutState *_workoutState;
 }
 
 @property(retain, nonatomic) _HDDemoDataActivityWorkoutState *workoutState; // @synthesize workoutState=_workoutState;
+@property(retain, nonatomic) HDDemoDataGeneratorWorkoutConfiguration *currentWorkoutConfiguration; // @synthesize currentWorkoutConfiguration=_currentWorkoutConfiguration;
 @property(retain, nonatomic) HKActivityCache *lastActivityCache; // @synthesize lastActivityCache=_lastActivityCache;
 @property(nonatomic) double lastUVIndexPeak; // @synthesize lastUVIndexPeak=_lastUVIndexPeak;
 @property(nonatomic) double lastUVExposure; // @synthesize lastUVExposure=_lastUVExposure;
@@ -48,7 +50,6 @@
 - (_Bool)_isDemoPersonCoolingDown:(id)arg1 atTime:(double)arg2;
 - (double)_computeUVIndexForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (id)_computeSwimmingStrokesFromDistance:(id)arg1 demoPerson:(id)arg2;
-- (id)_computeSwimmingDistanceForDemoPerson:(id)arg1;
 - (id)_computeCyclingDistanceWithStepCount:(id)arg1 demoPerson:(id)arg2;
 - (id)_computeWalkingRunningDistanceWithStepCount:(id)arg1 demoPerson:(id)arg2;
 - (double)_computePercentCooledForDemoPerson:(id)arg1 atTime:(double)arg2;
@@ -64,7 +65,9 @@
 - (id)restingCaloriesForDemoPerson:(id)arg1 atTime:(double)arg2;
 - (id)_exerciseMinuteSampleForDemoPerson:(id)arg1 atTime:(double)arg2 date:(id)arg3;
 - (id)activeCaloriesForDemoPerson:(id)arg1 atTime:(double)arg2;
-- (void)_updateWorkoutStateWithActiveEnergyBurned:(id)arg1 distanceWalking:(id)arg2 distanceCycling:(id)arg3 distanceSwimming:(id)arg4 swimmingStrokes:(id)arg5 currentTime:(double)arg6 date:(id)arg7 objectCollection:(id)arg8;
+- (void)_generateSwimmingSegmentDataWithStartDate:(id)arg1 segmentTime:(double)arg2 segmentDistance:(double)arg3 numLaps:(long long)arg4 strokeStyle:(long long)arg5 objectCollection:(id)arg6 demoPerson:(id)arg7;
+- (void)_generateSwimmingDataWithObjectCollection:(id)arg1 demoPerson:(id)arg2;
+- (void)_updateWorkoutStateWithActiveEnergyBurned:(id)arg1 distanceWalking:(id)arg2 distanceCycling:(id)arg3 currentTime:(double)arg4 date:(id)arg5 objectCollection:(id)arg6 demoPerson:(id)arg7;
 - (id)_sumQuantity:(id)arg1 withQuantity:(id)arg2;
 - (void)generateSamplesForDemoPerson:(id)arg1 atTime:(double)arg2 sampleDate:(id)arg3 objectCollection:(id)arg4;
 - (void)setupWithDemoDataGenerator:(id)arg1;

@@ -4,23 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <GeoServices/GEOBaseMapItem.h>
 
 #import <GeoServices/GEOMapItem-Protocol.h>
 
-@class GEOAddress, GEOAddressObject, GEOAssociatedApp, GEOFeatureStyleAttributes, GEOMapItemClientAttributes, GEOMapItemDetourInfo, GEOMapItemPhotosAttribution, GEOMapItemPlaceAttribution, GEOMapItemReviewsAttribution, GEOMapRegion, GEOPDBusinessClaim, GEOPDFlyover, GEOPDPlace, GEOPlace, GEOPlaceResult, GEORestaurantFeaturesLink, NSArray, NSData, NSDate, NSDictionary, NSString, NSTimeZone, NSURL;
-@protocol GEOEncyclopedicInfo, GEOMapItemTransitInfo, GEOTransitAttribution;
+@class GEOAddress, GEOAddressObject, GEOAssociatedApp, GEOFeatureStyleAttributes, GEOMapItemClientAttributes, GEOMapItemContainedPlace, GEOMapItemDetourInfo, GEOMapItemIdentifier, GEOMapItemPhotosAttribution, GEOMapItemPlaceAttribution, GEOMapItemReviewsAttribution, GEOMapRegion, GEOMessageLink, GEOPDBusinessClaim, GEOPDFlyover, GEOPDPlace, GEOPlace, GEOPlaceResult, GEOPriceDescription, GEORestaurantFeaturesLink, NSArray, NSData, NSDate, NSDictionary, NSString, NSTimeZone, NSURL;
+@protocol GEOEncyclopedicInfo, GEOMapItemTransitInfo, GEOMapItemVenueInfo, GEOTransitAttribution;
 
 __attribute__((visibility("hidden")))
-@interface _GEOPlaceItem : NSObject <GEOMapItem>
+@interface _GEOPlaceItem : GEOBaseMapItem <GEOMapItem>
 {
     GEOPlaceResult *_placeResult;
     GEOPlace *_place;
     GEOAddressObject *_addressObject;
 }
 
+- (void).cxx_destruct;
+@property(readonly, nonatomic, getter=_priceDescription) GEOPriceDescription *priceDescription;
 @property(readonly, nonatomic, getter=_associatedApp) GEOAssociatedApp *associatedApp;
 @property(readonly, nonatomic) GEOMapItemDetourInfo *detourInfo;
+@property(readonly, nonatomic, getter=_quickLinks) NSArray *quickLinks;
+@property(readonly, nonatomic, getter=_messageLink) GEOMessageLink *messageLink;
 @property(readonly, nonatomic, getter=_featureLink) GEORestaurantFeaturesLink *featureLink;
 @property(readonly, nonatomic, getter=_hasFeatureLink) _Bool hasFeatureLink;
 @property(readonly, nonatomic) NSArray *spatialMappedCategories;
@@ -68,6 +72,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=_hasAnyAmenities) _Bool hasAnyAmenities;
 - (_Bool)_hasLocalizedCategoryNamesForType:(unsigned int)arg1;
 - (id)_localizedCategoryNamesForType:(unsigned int)arg1;
+@property(readonly, nonatomic, getter=_childPlaces) NSArray *childPlaces;
 @property(readonly, nonatomic, getter=_resultSnippetDistanceDisplayThreshold) unsigned int resultSnippetDistanceDisplayThreshold;
 @property(readonly, nonatomic, getter=_resultSnippetLocationString) NSString *resultSnippetLocationString;
 @property(readonly, nonatomic, getter=_priceRange) unsigned int priceRange;
@@ -78,6 +83,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=_businessURL) NSString *businessURL;
 @property(readonly, nonatomic, getter=_areaInMeters) double areaInMeters;
 @property(readonly, nonatomic, getter=_hasAreaInMeters) _Bool hasAreaInMeters;
+@property(readonly, nonatomic, getter=_identifier) GEOMapItemIdentifier *identifier;
 @property(readonly, nonatomic, getter=_muid) unsigned long long muid;
 @property(readonly, nonatomic, getter=_hasMUID) _Bool hasMUID;
 @property(readonly, nonatomic, getter=_flyoverAnnouncementMessage) NSString *flyoverAnnouncementMessage;
@@ -106,6 +112,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=_clientAttributes) GEOMapItemClientAttributes *clientAttributes;
 @property(readonly, nonatomic, getter=_place) GEOPlace *place;
 @property(readonly, nonatomic, getter=_placeType) int placeType;
+@property(readonly, nonatomic, getter=_responseStatusIsIncomplete) _Bool responseStatusIncomplete;
 @property(readonly, nonatomic, getter=_hasResolvablePartialInformation) _Bool hasResolvablePartialInformation;
 @property(readonly, nonatomic, getter=_placeData) GEOPDPlace *placeData;
 @property(readonly, nonatomic) _Bool isEventAllDay;
@@ -131,14 +138,30 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isValid) _Bool valid;
 - (_Bool)isEqualToMapItem:(id)arg1;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithPlace:(id)arg1;
 - (id)initWithPlaceResult:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic, getter=_containedPlace) GEOMapItemContainedPlace *containedPlace;
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, nonatomic) float displayMaxZoom;
+@property(readonly, nonatomic) float displayMinZoom;
+@property(readonly, nonatomic) _Bool hasDisplayMaxZoom;
+@property(readonly, nonatomic) _Bool hasDisplayMinZoom;
+@property(readonly, nonatomic, getter=_hasVenueFeatureType) _Bool hasVenueFeatureType;
+@property(readonly, nonatomic, getter=_hasWifiFingerprintConfidence) _Bool hasWifiFingerprintConfidence;
+@property(readonly, nonatomic, getter=_hasWifiFingerprintLabelStatusCode) _Bool hasWifiFingerprintLabelStatusCode;
+@property(readonly, nonatomic, getter=_hasWifiFingerprintLabelType) _Bool hasWifiFingerprintLabelType;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic, getter=_isInLinkedPlaceRelationship) _Bool inLinkedPlaceRelationship;
+@property(readonly, nonatomic, getter=_isStandaloneBrand) _Bool isStandAloneBrand;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic, getter=_venueCategoryBrowseType) int venueCategoryBrowseType;
+@property(readonly, nonatomic, getter=_venueFeatureType) int venueFeatureType;
+@property(readonly, nonatomic, getter=_venueInfo) id <GEOMapItemVenueInfo> venueInfo;
+@property(readonly, nonatomic, getter=_wifiFingerprintConfidence) unsigned int wifiFingerprintConfidence;
+@property(readonly, nonatomic, getter=_wifiFingerprintLabelStatusCode) int wifiFingerprintLabelStatusCode;
+@property(readonly, nonatomic, getter=_wifiFingerprintLabelType) int wifiFingerprintLabelType;
 
 @end
 

@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 + (id)presetKinds;
 + (void)tsdRegisterPresetSourceClasses;
 + (void)tstRegisterPresetSourceClasses;
+- (id)referencedStyles;
 - (void)checkThemeStylesheetConsistency;
 - (void)bootstrapThemeAlternate:(int)arg1;
 - (id)p_identifierForBootstrapTheme:(int)arg1;
@@ -62,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (void)enablePresetValidation;
 - (_Bool)hasPresetsOfKind:(id)arg1;
 - (id)presetsOfKind:(id)arg1;
+- (id)presetKinds;
 @property(retain, nonatomic) TSSStylesheet *documentStylesheet;
 @property(retain, nonatomic) TSSStylesheet *legacyStylesheet;
 @property(retain, nonatomic) NSString *themeIdentifier;
@@ -76,10 +78,10 @@ __attribute__((visibility("hidden")))
 - (void)tsdLoadFromArchive:(const struct ThemeArchive *)arg1 unarchiver:(id)arg2;
 - (void)installContactCurvedShadowPresetsInStylesheet:(id)arg1;
 - (void)installMoviePresetsInStylesheet:(id)arg1;
+- (void)p_addStyleIfNotExisting:(id)arg1 inStylesheet:(id)arg2 withIdentifier:(id)arg3 presets:(id)arg4;
 - (void)upgradeStylesWithBlock:(CDUnknownBlockType)arg1;
 - (void)saveToArchive:(struct ThemeArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct ThemeArchive *)arg1 unarchiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
 - (void)tstSaveToArchive:(struct ThemeArchive *)arg1 archiver:(id)arg2;
 - (void)tstLoadFromArchive:(const struct ThemeArchive *)arg1 unarchiver:(id)arg2;
 - (void)tswpSaveToArchive:(struct ThemeArchive *)arg1 archiver:(id)arg2;
@@ -90,6 +92,7 @@ __attribute__((visibility("hidden")))
 - (void)createCommentInfoStyleIfNeeded;
 - (void)createDefaultParagraphStyleIfNeeded;
 - (void)modifyHyperlinkStyleToMatchSage;
+- (id)defaultEquationStyle;
 - (id)defaultColumnStyle;
 - (id)defaultListStyle;
 - (id)defaultParagraphStyle;

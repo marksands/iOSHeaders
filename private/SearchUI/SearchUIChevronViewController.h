@@ -11,6 +11,7 @@
 }
 
 + (_Bool)supportsResult:(id)arg1;
+- (_Bool)shouldTopAlignForAccessibilityContentSizes;
 - (id)chevronImageWithColor:(id)arg1;
 - (id)setupViewWithStyle:(unsigned long long)arg1;
 

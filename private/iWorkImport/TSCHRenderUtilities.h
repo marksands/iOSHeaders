@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 + (void)drawNullFillSwatchInContext:(struct CGContext *)arg1 frame:(struct CGRect)arg2;
 + (void)drawFill:(id)arg1 inContext:(struct CGContext *)arg2 path:(struct CGPath *)arg3;
 + (void)drawFill:(id)arg1 inContext:(struct CGContext *)arg2 frame:(struct CGRect)arg3;
++ (id)p_fillToRenderWithFill:(id)arg1 inContext:(struct CGContext *)arg2;
 + (void)drawSymbol:(int)arg1 inContext:(struct CGContext *)arg2 at:(struct CGPoint)arg3 width:(double)arg4 fill:(id)arg5 stroke:(id)arg6;
 + (struct CGPath *)newClipPathForSymbol:(int)arg1 at:(struct CGPoint)arg2 width:(double)arg3 stroke:(id)arg4;
 + (id)printCGPath:(struct CGPath *)arg1;

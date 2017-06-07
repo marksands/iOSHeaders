@@ -8,17 +8,19 @@
 
 #import <CloudKitDaemon/NSCopying-Protocol.h>
 
-@class CKDPProtectionInfo, CKDPRecordZoneIdentifier, NSString;
+@class CKDPProtectionInfo, CKDPRecordZoneIdentifier, NSData;
 
 __attribute__((visibility("hidden")))
 @interface CKDPZone : PBCodable <NSCopying>
 {
-    NSString *_etag;
+    NSData *_encryptedLastZoneishPCSRollDate;
     CKDPProtectionInfo *_protectionInfo;
+    CKDPProtectionInfo *_recordProtectionInfo;
     CKDPRecordZoneIdentifier *_zoneIdentifier;
 }
 
-@property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
+@property(retain, nonatomic) NSData *encryptedLastZoneishPCSRollDate; // @synthesize encryptedLastZoneishPCSRollDate=_encryptedLastZoneishPCSRollDate;
+@property(retain, nonatomic) CKDPProtectionInfo *recordProtectionInfo; // @synthesize recordProtectionInfo=_recordProtectionInfo;
 @property(retain, nonatomic) CKDPProtectionInfo *protectionInfo; // @synthesize protectionInfo=_protectionInfo;
 @property(retain, nonatomic) CKDPRecordZoneIdentifier *zoneIdentifier; // @synthesize zoneIdentifier=_zoneIdentifier;
 - (void).cxx_destruct;
@@ -31,7 +33,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasEtag;
+@property(readonly, nonatomic) _Bool hasEncryptedLastZoneishPCSRollDate;
+@property(readonly, nonatomic) _Bool hasRecordProtectionInfo;
 @property(readonly, nonatomic) _Bool hasProtectionInfo;
 @property(readonly, nonatomic) _Bool hasZoneIdentifier;
 

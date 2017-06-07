@@ -44,6 +44,7 @@
 - (void)setAttribute:(id)arg1 forKey:(id)arg2 withRange:(struct _NSRange)arg3;
 - (void)setAttribute:(id)arg1 forKey:(id)arg2;
 - (void)setAttributes:(id)arg1;
+- (id)attributedString;
 - (const struct __CFAttributedString *)cfAttributedString;
 - (void)replaceString:(struct __CFString *)arg1;
 - (unsigned short)characterAtIndex:(unsigned long long)arg1;
@@ -51,6 +52,7 @@
 - (void)convertAttachmentsWithBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithStringOrAttributedString:(id)arg1;
 - (id)initWithCFAttributedString:(struct __CFAttributedString *)arg1;
 - (id)initWithString:(id)arg1;
 

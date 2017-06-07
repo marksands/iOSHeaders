@@ -8,6 +8,7 @@
 
 @class NSMutableArray, NSString, PDFAction, PDFDocument, PDFOutline;
 
+__attribute__((visibility("hidden")))
 @interface PDFOutlinePrivate : NSObject
 {
     PDFDocument *document;

@@ -15,8 +15,32 @@ struct CLLocationCoordinate2D {
     double longitude;
 };
 
+struct PGRoutineInfoStruct {
+    _Bool routineAvailable;
+    unsigned long long numberOfLocationsOfInterest;
+    unsigned long long numberOfVisits;
+    unsigned long long numberOfTimeMatches;
+    unsigned long long numberOfCloseByLocationMatches;
+    unsigned long long numberOfRemoteLocationMatches;
+    unsigned long long numberOfMatchRequests;
+    double pinningVisitsRatio;
+};
+
 struct _NSRange {
     unsigned long long _field1;
     unsigned long long _field2;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned long long _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+    unsigned long long _field6;
+    unsigned long long _field7;
+    unsigned long long _field8;
+} CDStruct_e4f06a70;
 

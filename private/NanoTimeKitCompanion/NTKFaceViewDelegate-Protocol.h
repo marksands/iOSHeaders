@@ -6,9 +6,10 @@
 
 #import <NanoTimeKitCompanion/NSObject-Protocol.h>
 
-@class NSDate, NSString;
+@class NSDate, NSString, UIViewController;
 
 @protocol NTKFaceViewDelegate <NSObject>
+- (void)faceViewWantsToPresentViewController:(UIViewController *)arg1;
 - (void)faceViewRequestedLaunchFromRect:(struct CGRect)arg1;
 - (void)faceViewUpdatedResourceDirectory:(NSString *)arg1 wantsToTransferOwnership:(_Bool)arg2;
 - (_Bool)faceViewComplicationIsEmptyForSlot:(NSString *)arg1;

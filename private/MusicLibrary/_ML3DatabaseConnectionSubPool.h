@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *databasePath; // @synthesize databasePath=_databasePath;
 - (void).cxx_destruct;
 - (void)_handleDatabaseDeletion;
+- (void)handleDiagnostic:(id)arg1;
 - (void)closeConnectionsAndWaitForBusyConnections:(_Bool)arg1;
 - (void)checkInConnection:(id)arg1;
 - (id)checkoutConnection:(_Bool *)arg1;

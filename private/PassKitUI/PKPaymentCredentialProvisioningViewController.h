@@ -6,26 +6,30 @@
 
 #import <PassKitUI/PKPaymentSetupProvisioningFieldsViewController.h>
 
+#import <PassKitUI/PKPaymentProvisioningControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentSetupViewControllerCanHideSetupLaterButton-Protocol.h>
 #import <PassKitUI/PKPaymentSetupViewControllerRequiresPreflightProtocol-Protocol.h>
 
 @class NSString, PKPaymentCredential, PKPaymentCredentialMetadataTableController, PKPaymentSetupProduct, UIImage;
 
-@interface PKPaymentCredentialProvisioningViewController : PKPaymentSetupProvisioningFieldsViewController <PKPaymentSetupViewControllerCanHideSetupLaterButton, PKPaymentSetupViewControllerRequiresPreflightProtocol>
+@interface PKPaymentCredentialProvisioningViewController : PKPaymentSetupProvisioningFieldsViewController <PKPaymentSetupViewControllerCanHideSetupLaterButton, PKPaymentSetupViewControllerRequiresPreflightProtocol, PKPaymentProvisioningControllerDelegate>
 {
     UIImage *_passSnapshot;
     unsigned long long _credentialProvisioningType;
+    unsigned long long _displayType;
     PKPaymentCredentialMetadataTableController *_metadataController;
     PKPaymentCredential *_paymentCredential;
     PKPaymentSetupProduct *_setupProduct;
     _Bool _allowsManualEntry;
 }
 
++ (id)nextCredentialViewControllerWithProvisioningController:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 setupProduct:(id)arg4 allowsManualEntry:(_Bool)arg5;
 - (void).cxx_destruct;
+- (void)paymentPassUpdatedOnCredential:(id)arg1;
 - (void)_cleanupTransferredCredentialFromSourceDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_defaultHeaderViewSubTitleForLocalCredential;
 - (id)_defaultHeaderViewSubTitleForLocalCredentialTransfer;
-- (id)_remoteIDMSCredentialDefaultHeaderViewSubTitle;
+- (id)_remoteExistingCredentialDefaultHeaderViewSubTitle;
 - (id)defaultHeaderViewSubTitle;
 - (id)defaultHeaderViewTitle;
 - (_Bool)isComplete;
@@ -38,19 +42,19 @@
 - (void)_performEligibilityWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_performRequirementsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)performNextActionForProvisioningState:(long long)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_downloadPassAssetsWithURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_preflightCredentialAssetsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_preflightCredentialFieldsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)preflightWithCompletion:(CDUnknownBlockType)arg1;
-- (id)newPaymentProvisioningRequest;
 - (id)newPaymentEligibilityRequest;
 - (id)newPaymentRequirementsRequest;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)_updateTableHeader;
-- (id)_createPassSnapshotFromPaymentPass:(id)arg1;
+- (void)_updateHeaderForPassSnapshot;
+- (void)_createPassSnapshotFromPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_skipCard;
 - (void)addDifferentCard:(id)arg1;
-- (_Bool)shouldAppearWithFirstEmptyFieldAsFirstResponder;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)viewDidLoad;
 - (void)loadView;
+- (void)dealloc;
 - (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 setupDelegate:(id)arg3 paymentCredential:(id)arg4 setupProduct:(id)arg5 allowsManualEntry:(_Bool)arg6;
 
 // Remaining properties

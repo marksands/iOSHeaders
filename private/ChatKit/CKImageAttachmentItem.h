@@ -6,8 +6,6 @@
 
 #import <ChatKit/CKAttachmentItem.h>
 
-@class NSString;
-
 @interface CKImageAttachmentItem : CKAttachmentItem
 {
     _Bool _backgroundEnqueued;
@@ -25,9 +23,6 @@
 - (struct CGSize)size;
 - (id)imageData;
 - (id)_newImageData;
-
-// Remaining properties
-@property(retain, nonatomic) NSString *transferGUID;
 
 @end
 

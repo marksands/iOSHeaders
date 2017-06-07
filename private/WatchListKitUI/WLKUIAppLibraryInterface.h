@@ -8,25 +8,21 @@
 
 #import <WatchListKitUI/WLKUIAppLibraryInterface-Protocol.h>
 
-@class NSArray, NSCache;
+@class NSArray;
 
 @interface WLKUIAppLibraryInterface : IKJSObject <WLKUIAppLibraryInterface>
 {
-    NSCache *_appCache;
 }
 
 + (_Bool)_appInstallationAllowed;
-- (void).cxx_destruct;
-- (void)_invalidateAppDictionaryCache;
-- (id)_appDictionaryForBundleID:(id)arg1;
-- (id)_appDictionariesForBundleIDs:(id)arg1;
-- (void)installAppForChannel:(id)arg1:(id)arg2:(id)arg3;
-- (void)installAppForChannel:(id)arg1:(id)arg2;
+- (id)_appDictionaryForProxy:(id)arg1;
+- (id)_appDictionariesForProxies:(id)arg1;
+- (id)_rootViewController;
+- (void)presentPurchase:(id)arg1;
+- (void)installAppForChannel:(id)arg1:(id)arg2:(id)arg3:(id)arg4;
 @property(readonly, nonatomic) NSArray *test;
 @property(readonly, nonatomic) NSArray *installed;
 @property(readonly, nonatomic) NSArray *subscribed;
-- (void)dealloc;
-- (id)initWithAppContext:(id)arg1;
 
 @end
 

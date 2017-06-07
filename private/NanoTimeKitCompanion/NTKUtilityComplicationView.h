@@ -34,6 +34,7 @@
     UIView *_highlightView;
     NTKFaceColorScheme *_colorScheme;
     UIColor *_overrideColor;
+    UIColor *_platterColor;
     CLKComplicationTemplate *_complicationTemplate;
     struct CGSize _maxSize;
     struct UIEdgeInsets _touchEdgeInsets;
@@ -50,6 +51,7 @@
 @property(readonly, nonatomic) CLKComplicationTemplate *complicationTemplate; // @synthesize complicationTemplate=_complicationTemplate;
 @property(readonly, nonatomic) _Bool editing; // @synthesize editing=_editing;
 @property(readonly, nonatomic) struct CGSize maxSize; // @synthesize maxSize=_maxSize;
+@property(retain, nonatomic) UIColor *platterColor; // @synthesize platterColor=_platterColor;
 @property(retain, nonatomic) UIColor *overrideColor; // @synthesize overrideColor=_overrideColor;
 @property(retain, nonatomic) NTKFaceColorScheme *colorScheme; // @synthesize colorScheme=_colorScheme;
 @property(nonatomic) struct UIEdgeInsets touchEdgeInsets; // @synthesize touchEdgeInsets=_touchEdgeInsets;
@@ -96,6 +98,7 @@
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_applyColorScheme:(id)arg1;
+- (void)applyTransitionFraction:(double)arg1 fromFaceColor:(unsigned long long)arg2 toFaceColor:(unsigned long long)arg3 units:(unsigned long long)arg4 brightenedUnits:(unsigned long long)arg5;
 - (void)applyFaceColor:(unsigned long long)arg1 units:(unsigned long long)arg2;
 @property(nonatomic) double foregroundAlpha; // @synthesize foregroundAlpha=_foregroundAlpha;
 - (id)initWithFrame:(struct CGRect)arg1;

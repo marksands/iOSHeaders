@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 + (id)viewStateWithRoot:(id)arg1 context:(id)arg2;
 @property(retain, nonatomic) TSPObject *viewStateRoot; // @synthesize viewStateRoot=_viewStateRoot;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)packageLocator;
 - (void)dealloc;
 - (id)initWithViewStateRoot:(id)arg1 context:(id)arg2;

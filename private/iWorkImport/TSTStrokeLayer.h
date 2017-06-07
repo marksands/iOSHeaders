@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)p_flattenStrokeOrder;
 - (void)p_removeRange:(struct TSTSimpleRange)arg1;
 - (void)p_insertSpaceAtRange:(struct TSTSimpleRange)arg1;
@@ -42,7 +42,6 @@ __attribute__((visibility("hidden")))
 - (id)findStrokeAndRangeAtIndex:(long long)arg1;
 - (long long)startingIndex;
 @property(readonly, nonatomic) _Bool isEmpty;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 columnOrRowIndex:(unsigned short)arg2;
 
 @end

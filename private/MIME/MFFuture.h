@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <MIME/MFFuture-Protocol.h>
 #import <MIME/MFPromisePrivate-Protocol.h>
@@ -19,16 +19,21 @@
     NSMutableArray *_completionBlocks;
 }
 
++ (id)sequence:(id)arg1;
++ (id)_join:(id)arg1 ignoreFailures:(_Bool)arg2;
++ (id)combine:(id)arg1;
 + (id)join:(id)arg1;
 + (id)chain:(id)arg1;
 + (id)_recover:(id)arg1 withBlock:(CDUnknownBlockType)arg2 scheduler:(id)arg3;
 + (id)_then:(id)arg1 withBlock:(CDUnknownBlockType)arg2 scheduler:(id)arg3;
++ (id)onScheduler:(id)arg1 lazyFutureWithBlock:(CDUnknownBlockType)arg2;
 + (id)lazyFutureWithBlock:(CDUnknownBlockType)arg1;
 + (id)onScheduler:(id)arg1 futureWithBlock:(CDUnknownBlockType)arg2;
 + (id)futureWithBlock:(CDUnknownBlockType)arg1;
 + (id)futureWithError:(id)arg1;
 + (id)futureWithResult:(id)arg1;
 + (id)nullFuture;
+- (id)onScheduler:(id)arg1 map:(CDUnknownBlockType)arg2;
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)onScheduler:(id)arg1 recover:(CDUnknownBlockType)arg2;
 - (id)recover:(CDUnknownBlockType)arg1;

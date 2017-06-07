@@ -34,6 +34,7 @@
 @property(nonatomic) long long dataSourceType; // @synthesize dataSourceType=_dataSourceType;
 - (void)setDefaultValues;
 - (long long)_defaultDataSourceType;
+- (id)parentSettings;
 
 @end
 

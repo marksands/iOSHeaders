@@ -12,6 +12,7 @@
 
 - (id)recordZoneName;
 - (id)initWithSubscriptionID:(id)arg1;
+- (id)initWithSubscriptionIDs:(id)arg1;
 
 @end
 

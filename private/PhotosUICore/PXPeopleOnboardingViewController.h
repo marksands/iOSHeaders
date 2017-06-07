@@ -24,7 +24,7 @@
 @property _Bool originalNavBarTranslucent; // @synthesize originalNavBarTranslucent=_originalNavBarTranslucent;
 - (void).cxx_destruct;
 - (void)_progressChanged:(id)arg1;
-- (void)pushToPeopleHome:(id)arg1;
+- (void)_pushToPeopleHome:(id)arg1;
 - (void)statusViewControllerEnterButtonTapped:(id)arg1;
 - (void)_transitionFromViewController:(id)arg1 toViewController:(id)arg2;
 - (void)_updateStatusViewForStatus:(unsigned long long)arg1 progress:(double)arg2;

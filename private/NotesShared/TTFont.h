@@ -6,28 +6,34 @@
 
 #import <objc/NSObject.h>
 
+#import <NotesShared/NSSecureCoding-Protocol.h>
+
 @class NSString;
 
-@interface TTFont : NSObject
+@interface TTFont : NSObject <NSSecureCoding>
 {
-    struct UIFont *_nativeFont;
     unsigned int _fontHints;
     NSString *_fontName;
     double _pointSize;
+    id _nativeFont;
 }
 
-+ (void)font:(struct UIFont *)arg1 isBold:(_Bool *)arg2 isItalic:(_Bool *)arg3;
-+ (struct UIFont *)convertFont:(struct UIFont *)arg1 toBold:(_Bool)arg2 toItalic:(_Bool)arg3;
++ (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) id nativeFont; // @synthesize nativeFont=_nativeFont;
 @property(readonly, nonatomic) unsigned int fontHints; // @synthesize fontHints=_fontHints;
 @property(readonly, nonatomic) double pointSize; // @synthesize pointSize=_pointSize;
 @property(readonly, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
 - (void).cxx_destruct;
 - (id)description;
-- (struct UIFont *)nativeFontForStyle:(unsigned int)arg1 contentSizeCategory:(id)arg2;
-- (struct UIFont *)nativeFontForStyle:(unsigned int)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithName:(id)arg1 size:(double)arg2 hints:(unsigned int)arg3;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)serialize;
+- (void)saveToArchive:(struct Font *)arg1;
+- (id)initWithArchive:(const struct Font *)arg1;
+- (id)initWithData:(id)arg1;
 
 @end
 

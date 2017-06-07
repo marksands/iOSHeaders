@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @class CKContainer, CKDatabase, CKRecordZone, NSString;
-@protocol OS_dispatch_queue;
+@protocol OS_dispatch_queue, _KSCloudKitManagerDelegate;
 
 @interface _KSCloudKitManager : NSObject
 {
@@ -15,22 +15,26 @@
     NSObject<OS_dispatch_queue> *_dataQueue;
     _Bool _recordZoneOperationInProgress;
     _Bool _subscriptionOperationInProgress;
-    CKContainer *_cloudKitContainer;
     CKDatabase *_cloudKitDatabase;
-    CKDatabase *_publicDatabase;
     CKRecordZone *_recordZone;
+    id <_KSCloudKitManagerDelegate> _delegate;
+    CKContainer *_cloudKitContainer;
+    CKDatabase *_publicDatabase;
     NSString *_recordZoneKey;
     NSString *_subscriptionKey;
+    NSString *_lastKnownUserKey;
 }
 
 @property(nonatomic) _Bool subscriptionOperationInProgress; // @synthesize subscriptionOperationInProgress=_subscriptionOperationInProgress;
 @property(nonatomic) _Bool recordZoneOperationInProgress; // @synthesize recordZoneOperationInProgress=_recordZoneOperationInProgress;
-@property(retain, nonatomic) NSString *subscriptionKey; // @synthesize subscriptionKey=_subscriptionKey;
-@property(retain, nonatomic) NSString *recordZoneKey; // @synthesize recordZoneKey=_recordZoneKey;
-@property(retain, nonatomic) CKRecordZone *recordZone; // @synthesize recordZone=_recordZone;
+@property(readonly, nonatomic) NSString *lastKnownUserKey; // @synthesize lastKnownUserKey=_lastKnownUserKey;
+@property(readonly, nonatomic) NSString *subscriptionKey; // @synthesize subscriptionKey=_subscriptionKey;
+@property(readonly, nonatomic) NSString *recordZoneKey; // @synthesize recordZoneKey=_recordZoneKey;
 @property(retain, nonatomic) CKDatabase *publicDatabase; // @synthesize publicDatabase=_publicDatabase;
-@property(retain, nonatomic) CKDatabase *cloudKitDatabase; // @synthesize cloudKitDatabase=_cloudKitDatabase;
 @property(retain, nonatomic) CKContainer *cloudKitContainer; // @synthesize cloudKitContainer=_cloudKitContainer;
+@property(nonatomic) __weak id <_KSCloudKitManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) CKRecordZone *recordZone; // @synthesize recordZone=_recordZone;
+@property(retain, nonatomic) CKDatabase *cloudKitDatabase; // @synthesize cloudKitDatabase=_cloudKitDatabase;
 - (void).cxx_destruct;
 - (void)fetchPublicRecordsWithNames:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_submitFetchRecordsOperation:(id)arg1 withPriority:(unsigned long long)arg2 changeToken:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 retryCount:(unsigned long long)arg5;
@@ -42,15 +46,22 @@
 - (void)setupSubscription;
 - (id)recordIDForName:(id)arg1;
 - (id)recordWithName:(id)arg1 type:(id)arg2 attributes:(id)arg3;
+- (id)recordWithName:(id)arg1 type:(id)arg2 attributes:(id)arg3 encryptedFields:(id)arg4;
 - (id)recordWithName:(id)arg1 type:(id)arg2 cloudData:(id)arg3 attributes:(id)arg4;
-- (void)setupRecordZoneWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)recordWithName:(id)arg1 type:(id)arg2 cloudData:(id)arg3 attributes:(id)arg4 encryptedFields:(id)arg5;
+- (void)deleteZoneWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetZoneWithDelete:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)setupRecordZoneWithCompletionHandler:(CDUnknownBlockType)arg1 ignoreDefaults:(_Bool)arg2;
 - (void)_checkAccountStatusWithCompletionHandler:(CDUnknownBlockType)arg1 withRetryCount:(unsigned long long)arg2;
 - (_Bool)isAccountAvailable;
 - (void)queryAccountStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)identityUpdated:(id)arg1;
 - (void)accountStatusDidChange:(id)arg1;
 - (void)setupAccountDidChange:(_Bool)arg1;
+- (_Bool)needsDeviceToDevice;
 - (id)userIdentity;
 - (id)initWithRecordZoneName:(id)arg1;
+- (id)initWithContainer:(id)arg1 recordZoneName:(id)arg2;
 - (void)dealloc;
 - (id)init;
 

@@ -8,6 +8,7 @@
 @protocol OS_xpc_object;
 
 @protocol RWIRelayDelegate
+- (void)relay:(RWIRelay *)arg1 activateApplicationWithBundleIdentifier:(NSString *)arg2;
 - (NSDictionary *)relaySetupResponseForClientConnection:(RWIRelay *)arg1;
 - (void)relay:(RWIRelay *)arg1 unhandledApplicationXPCMessage:(NSObject<OS_xpc_object> *)arg2;
 - (void)relay:(RWIRelay *)arg1 applicationUpdated:(_RWIApplicationInfo *)arg2;

@@ -14,22 +14,26 @@
 
 @interface TIKeyboardCandidate : NSObject <NSCopying, NSSecureCoding, TIKeyboardCandidateCoding>
 {
+    _Bool _isSendCurrentLocation;
     unsigned int _slotID;
     NSString *_alternativeText;
     NSString *_annotationText;
+    unsigned long long _customInfoType;
     unsigned long long _indexForMetrics;
 }
 
 + (int)type;
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isSendCurrentLocation; // @synthesize isSendCurrentLocation=_isSendCurrentLocation;
 @property(nonatomic) unsigned long long indexForMetrics; // @synthesize indexForMetrics=_indexForMetrics;
+@property(nonatomic) unsigned long long customInfoType; // @synthesize customInfoType=_customInfoType;
 @property(nonatomic) unsigned int slotID; // @synthesize slotID=_slotID;
 @property(copy, nonatomic) NSString *annotationText; // @synthesize annotationText=_annotationText;
 @property(copy, nonatomic) NSString *alternativeText; // @synthesize alternativeText=_alternativeText;
 - (void)encodeWithCandidateResultSetCoder:(id)arg1;
 - (id)initWithCandidateResultSetCoder:(id)arg1;
-@property(readonly, nonatomic) _Bool isSendCurrentLocation;
 @property(readonly, nonatomic, getter=isSecureContentCandidate) _Bool secureContentCandidate;
+@property(readonly, nonatomic, getter=isRegionalCandidate) _Bool regionalCandidate;
 @property(readonly, nonatomic, getter=isOTAWordListCandidate) _Bool OTAWordListCandidate;
 @property(readonly, nonatomic, getter=isFacemarkCandidate) _Bool facemarkCandidate;
 @property(readonly, nonatomic, getter=isFullwidthCandidate) _Bool fullwidthCandidate;
@@ -50,6 +54,7 @@
 @property(readonly, nonatomic) _Bool isAddress;
 @property(readonly, retain, nonatomic) TIProactiveTrigger *proactiveTrigger;
 @property(readonly, nonatomic) NSString *candidate;
+@property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -57,7 +62,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) Class superclass;
 
 @end

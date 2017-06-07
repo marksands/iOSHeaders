@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AXSpringBoardServerInstance/AXHAServerDelegate-Protocol.h>
 #import <AXSpringBoardServerInstance/AXUIClientDelegate-Protocol.h>
 
-@class NSDictionary, NSString;
+@class NSDictionary, NSString, UIApplicationSceneClientSettingsDiffInspector;
 
 @interface AXSBHearingAidDeviceController : NSObject <AXUIClientDelegate, AXHAServerDelegate>
 {
+    UIApplicationSceneClientSettingsDiffInspector *_applicationSceneClientSettingsDiffInspector;
     double _routeChangedTime;
     _Bool isShowingHearingAidControl;
     _Bool _hearingAidIsConnected;
@@ -22,11 +23,13 @@
 }
 
 + (id)sharedController;
++ (void)_accessibilityPerformValidations:(id)arg1;
 @property(retain, nonatomic) NSDictionary *preferredRoute; // @synthesize preferredRoute=_preferredRoute;
 @property(nonatomic) _Bool holdingPhoneForConnection; // @synthesize holdingPhoneForConnection=_holdingPhoneForConnection;
 @property(nonatomic) _Bool holdingMediaForConnection; // @synthesize holdingMediaForConnection=_holdingMediaForConnection;
 @property(nonatomic) _Bool hearingAidIsConnected; // @synthesize hearingAidIsConnected=_hearingAidIsConnected;
 @property(nonatomic) _Bool isShowingHearingAidControl; // @synthesize isShowingHearingAidControl;
+- (void).cxx_destruct;
 - (void)userChangedRouteNotification:(id)arg1;
 - (void)pickableAudioRoutesDidChange:(id)arg1;
 - (void)hearingAidConnectionDidChange:(_Bool)arg1;

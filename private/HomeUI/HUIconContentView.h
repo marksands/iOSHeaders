@@ -40,6 +40,7 @@
 - (void)invalidateRenderingMode;
 - (void)_updateOverrideRenderingModeForSubviewsOfView:(id)arg1;
 - (void)setDisplayStyle:(unsigned long long)arg1;
+- (id)managedVisualEffectViews;
 - (_Bool)wantsManagedVibrancyEffect;
 - (void)updateWithIconDescriptor:(id)arg1 displayStyle:(unsigned long long)arg2 animated:(_Bool)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;

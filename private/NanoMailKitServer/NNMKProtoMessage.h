@@ -19,6 +19,8 @@
     NSData *_dateReceived;
     NSData *_dateSent;
     NSString *_from;
+    unsigned int _isSpecialMailboxSpecific;
+    NSString *_mailboxId;
     NSString *_messageId;
     NSString *_messageIdHeader;
     NSString *_notificationMessageId;
@@ -26,11 +28,21 @@
     unsigned int _status;
     NSString *_subject;
     NSMutableArray *_tos;
+    _Bool _isThreadSpecific;
     struct {
+        unsigned int isSpecialMailboxSpecific:1;
         unsigned int status:1;
+        unsigned int isThreadSpecific:1;
     } _has;
 }
 
++ (Class)bccType;
++ (Class)ccType;
++ (Class)toType;
++ (id)protoMessageFromMessage:(id)arg1 organizedByThread:(_Bool)arg2 sanitizeMessageId:(_Bool)arg3;
+@property(nonatomic) unsigned int isSpecialMailboxSpecific; // @synthesize isSpecialMailboxSpecific=_isSpecialMailboxSpecific;
+@property(nonatomic) _Bool isThreadSpecific; // @synthesize isThreadSpecific=_isThreadSpecific;
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(retain, nonatomic) NSString *notificationMessageId; // @synthesize notificationMessageId=_notificationMessageId;
 @property(retain, nonatomic) NSString *remoteId; // @synthesize remoteId=_remoteId;
 @property(retain, nonatomic) NSMutableArray *bccs; // @synthesize bccs=_bccs;
@@ -55,6 +67,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsSpecialMailboxSpecific;
+@property(nonatomic) _Bool hasIsThreadSpecific;
+@property(readonly, nonatomic) _Bool hasMailboxId;
 @property(readonly, nonatomic) _Bool hasNotificationMessageId;
 @property(readonly, nonatomic) _Bool hasRemoteId;
 - (id)bccAtIndex:(unsigned long long)arg1;

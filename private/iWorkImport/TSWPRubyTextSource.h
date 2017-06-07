@@ -46,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (id)footnoteReferenceAtCharIndex:(unsigned long long)arg1;
 - (id)smartFieldsWithAttributeKind:(int)arg1 intersectingRange:(struct _NSRange)arg2;
 - (id)smartFieldAtCharIndex:(unsigned long long)arg1 attributeKind:(int)arg2 effectiveRange:(struct _NSRange *)arg3;
-- (void)attributesAtCharIndex:(unsigned long long)arg1 attributesOfInterest:(_Bool [19])arg2 attributesTable:(id [19])arg3 effectiveRange:(struct _NSRange *)arg4;
+- (void)attributesAtCharIndex:(unsigned long long)arg1 attributesOfInterest:(_Bool [20])arg2 attributesTable:(id [20])arg3 effectiveRange:(struct _NSRange *)arg4;
 - (_Bool)hasColumnStyleForParagraphBreakAtCharIndex:(unsigned long long)arg1;
 - (_Bool)hasColumnBreakAtCharIndex:(unsigned long long)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;

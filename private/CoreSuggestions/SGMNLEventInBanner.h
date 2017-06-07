@@ -15,7 +15,7 @@
 
 @property(readonly, nonatomic) PETScalarEventTracker *tracker; // @synthesize tracker=_tracker;
 - (void).cxx_destruct;
-- (void)trackEventWithScalar:(unsigned long long)arg1 app:(struct SGMBannerDisplayApp_)arg2 eventType:(id)arg3;
+- (void)trackEventWithScalar:(unsigned long long)arg1 interface:(struct SGMNLEventInterface_)arg2 actionType:(struct SGMNLEventActionType_)arg3 eventType:(id)arg4 languageID:(id)arg5 daysFromStartDate:(unsigned long long)arg6 confidenceScore:(unsigned long long)arg7 significantSender:(struct SGMBoolOption_)arg8 participantCount:(unsigned long long)arg9 extractionLevel:(struct SGMNLEventExtractionLevel_)arg10 titleAdj:(struct SGMEventStringAdj_)arg11 dateAdj:(struct SGMEventDateAdj_)arg12 duraAdj:(struct SGMEventDurationAdj_)arg13 calendarAppUsageLevel:(struct SGMAppUsageLevel_)arg14 mailAppUsageLevel:(struct SGMAppUsageLevel_)arg15 messagesAppUsageLevel:(struct SGMAppUsageLevel_)arg16;
 - (id)init;
 
 @end

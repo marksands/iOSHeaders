@@ -6,10 +6,12 @@
 
 #import <Pasteboard/NSObject-Protocol.h>
 
-@class NSString;
+@class NSString, NSUUID;
 
 @protocol PBDataProviderProtocol <NSObject>
-- (void)loadRepresentationForItemAtIndex:(unsigned long long)arg1 type:(NSString *)arg2 completionBlock:(void (^)(NSData *, NSFileHandle *, NSError *))arg3;
+- (void)waitForItemRequestsDeliveryCompletion:(void (^)(void))arg1;
+- (void)callCleanupBlockWithUUID:(NSUUID *)arg1;
+- (void)loadRepresentationForItemAtIndex:(unsigned long long)arg1 type:(NSString *)arg2 completionBlock:(void (^)(NSData *, PBSecurityScopedURLWrapper *, NSError *, NSUUID *))arg3;
 - (void)helloCompletionBlock:(void (^)(void))arg1;
 @end
 

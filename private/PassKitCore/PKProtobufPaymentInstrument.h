@@ -15,6 +15,7 @@
     double _ingestedDate;
     NSMutableArray *_associatedWebDomains;
     NSString *_displayName;
+    NSString *_issuerCountryCode;
     NSData *_manifestHash;
     NSString *_passID;
     NSMutableArray *_paymentApplications;
@@ -29,6 +30,7 @@
 
 + (Class)associatedWebDomainsType;
 + (Class)paymentApplicationsType;
+@property(retain, nonatomic) NSString *issuerCountryCode; // @synthesize issuerCountryCode=_issuerCountryCode;
 @property(nonatomic) _Bool supportsAutomaticSelection; // @synthesize supportsAutomaticSelection=_supportsAutomaticSelection;
 @property(retain, nonatomic) NSMutableArray *associatedWebDomains; // @synthesize associatedWebDomains=_associatedWebDomains;
 @property(retain, nonatomic) NSString *primaryAccountIdentifier; // @synthesize primaryAccountIdentifier=_primaryAccountIdentifier;
@@ -48,6 +50,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasIssuerCountryCode;
 @property(nonatomic) _Bool hasSupportsAutomaticSelection;
 - (id)associatedWebDomainsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)associatedWebDomainsCount;

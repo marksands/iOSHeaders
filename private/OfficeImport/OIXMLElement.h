@@ -6,16 +6,21 @@
 
 #import <OfficeImport/OIXMLNode.h>
 
+@class NSString;
+
 @interface OIXMLElement : OIXMLNode
 {
+    NSString *_name;
     id _attributes;
     id _children;
     _Bool _hasMultipleAttributes;
     _Bool _hasMultipleChildren;
+    unsigned char _type;
 }
 
-+ (_Bool)isEmptyHTMLElement:(id)arg1;
-+ (void)_initEmptyHTMLNames;
++ (id)elementWithType:(unsigned char)arg1 stringValue:(id)arg2;
++ (id)elementWithType:(unsigned char)arg1;
+- (void).cxx_destruct;
 - (id)closingTagString;
 - (id)contentString;
 - (id)openingTagString;
@@ -23,15 +28,15 @@
 - (long long)attributeCount;
 - (long long)childrenCount;
 - (id)stringValue;
-- (id)objectValue;
-- (void)setObjectValue:(id)arg1;
+- (void)setStringValue:(id)arg1;
 - (void)insertChild:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addChild:(id)arg1;
 - (void)addAttribute:(id)arg1;
+- (_Bool)isEmptyHTMLElement;
+- (id)name;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
-- (id)initWithName:(id)arg1 stringValue:(id)arg2;
-- (id)init;
+- (id)initWithType:(unsigned char)arg1 stringValue:(id)arg2;
+- (id)initWithType:(unsigned char)arg1;
 
 @end
 

@@ -31,10 +31,20 @@
     NSNumber *_connectionDelay;
     NSNumber *_firstTxByteDelay;
     NSString *_carrierName;
+    NSNumber *_signalStrengthBars;
+    NSString *_providerStyle;
     NSDictionary *_flowNetworkInterfaceType;
+    NSNumber *_rssi;
+    NSNumber *_snr;
+    NSDictionary *_symptomsBasedNetworkQuality;
 }
 
+@property(copy, nonatomic) NSDictionary *symptomsBasedNetworkQuality; // @synthesize symptomsBasedNetworkQuality=_symptomsBasedNetworkQuality;
+@property(copy, nonatomic) NSNumber *snr; // @synthesize snr=_snr;
+@property(copy, nonatomic) NSNumber *rssi; // @synthesize rssi=_rssi;
 @property(copy, nonatomic) NSDictionary *flowNetworkInterfaceType; // @synthesize flowNetworkInterfaceType=_flowNetworkInterfaceType;
+@property(copy, nonatomic) NSString *providerStyle; // @synthesize providerStyle=_providerStyle;
+@property(copy, nonatomic) NSNumber *signalStrengthBars; // @synthesize signalStrengthBars=_signalStrengthBars;
 @property(copy, nonatomic) NSString *carrierName; // @synthesize carrierName=_carrierName;
 @property(copy, nonatomic) NSNumber *firstTxByteDelay; // @synthesize firstTxByteDelay=_firstTxByteDelay;
 @property(copy, nonatomic) NSNumber *connectionDelay; // @synthesize connectionDelay=_connectionDelay;
@@ -57,6 +67,11 @@
 @property(copy, nonatomic) NSNumber *timeUntilFirstByteRead; // @synthesize timeUntilFirstByteRead=_timeUntilFirstByteRead;
 @property(copy, nonatomic) NSNumber *timeUntilOpen; // @synthesize timeUntilOpen=_timeUntilOpen;
 - (void).cxx_destruct;
+- (id)getConnectionMetricsDescription;
+- (void)setConnectionMetricsFromNWConnectionForPOP:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)setConnectionMetricsFromNWConnectionForDirect:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)setConnectionMetricsFromConnection:(id)arg1 isPop:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)_setConnectionMetricsTCPInfo:(id)arg1;
 - (void)setConnectionMetricsFromStreamForPOP:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)setConnectionMetricsFromStreamForDirect:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)setConnectionMetricsFromStream:(id)arg1 isPop:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;

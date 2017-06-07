@@ -18,6 +18,8 @@
     _Bool _isFavorite;
     _Bool _clsIsSDOF;
     _Bool _clsIsHDR;
+    float _clsSharpnessScore;
+    float _clsExposureScore;
     NSDate *_clsDate;
     CLLocation *_clsLocation;
     NSArray *_clsPeopleNames;
@@ -33,6 +35,8 @@
 + (id)contextForItems:(id)arg1;
 + (id)itemWithUniversalDate:(id)arg1 sceneClassifications:(id)arg2;
 + (id)itemWithPeopleNames:(id)arg1 universalDate:(id)arg2 coordinate:(struct CLLocationCoordinate2D)arg3;
+@property(readonly, nonatomic) float clsExposureScore; // @synthesize clsExposureScore=_clsExposureScore;
+@property(readonly, nonatomic) float clsSharpnessScore; // @synthesize clsSharpnessScore=_clsSharpnessScore;
 @property(readonly, nonatomic) _Bool clsIsHDR; // @synthesize clsIsHDR=_clsIsHDR;
 @property(readonly, nonatomic) _Bool clsIsSDOF; // @synthesize clsIsSDOF=_clsIsSDOF;
 @property(readonly, nonatomic) NSArray *clsUnprefetchedPeopleNames; // @synthesize clsUnprefetchedPeopleNames=_clsUnprefetchedPeopleNames;
@@ -55,6 +59,7 @@
 @property(readonly, nonatomic) NSDateComponents *dateComponents;
 @property(readonly, nonatomic) NSDate *localDate;
 @property(readonly, nonatomic) NSDate *universalDate;
+@property(readonly, nonatomic) unsigned long long clsPeopleCount;
 @property(readonly, nonatomic) NSArray *peopleNames;
 @property(readonly, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) NSDate *date;

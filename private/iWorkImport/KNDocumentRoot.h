@@ -20,18 +20,18 @@ __attribute__((visibility("hidden")))
     KNSlidePreviewManager *mSlidePreviewManager;
     KNRecordingSyncMaintainer *mRecordingSyncMaintainer;
     _Bool mIsObservingRecording;
-    _Bool _isShowcastAllowed;
 }
 
-+ (void)localizeModelObject:(id)arg1 withTemplateBundle:(id)arg2;
-@property(readonly, nonatomic) _Bool isShowcastAllowed; // @synthesize isShowcastAllowed=_isShowcastAllowed;
++ (void)localizeModelObject:(id)arg1 withTemplateBundle:(id)arg2 andLocale:(id)arg3;
 @property(readonly, nonatomic) KNRecordingSyncMaintainer *recordingSyncMaintainer; // @synthesize recordingSyncMaintainer=mRecordingSyncMaintainer;
 - (void)p_applicationDidBecomeActive:(id)arg1;
 - (void)p_applicationWillResignActive:(id)arg1;
+- (_Bool)validateSlideNode:(id)arg1;
 - (_Bool)isSharedReadOnly;
 - (unsigned long long)writingDirectionForStorage;
 - (_Bool)validateUIState:(id)arg1;
 - (unsigned long long)writingDirection;
+@property(readonly, nonatomic) _Bool isShowcastAllowed;
 - (void)prepareForSavingAsTemplate;
 - (void)preprocessForSaveAsTheme;
 - (long long)compareLocationSortingInfo:(id)arg1 toSortingInfo:(id)arg2;
@@ -64,6 +64,7 @@ __attribute__((visibility("hidden")))
 - (id)childEnumerator;
 @property(nonatomic) id <KNDocumentRootDelegate> delegate; // @dynamic delegate;
 - (void)dealloc;
+- (void)collectDocumentOpenAnalyticsWithLogger:(id)arg1;
 - (void)willClose;
 - (void)documentDidLoad;
 - (void)p_thumbnailUpgradeForUnity20SlideNodes:(id)arg1 andMasterSlideNodess:(id)arg2;
@@ -72,7 +73,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) KNShow *show;
 - (unsigned long long)applicationType;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)p_hyperlinkAndBreadcrumbUpgradeForUnity20SlideNodes:(id)arg1;
 - (void)saveToArchive:(struct DocumentArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct DocumentArchive *)arg1 unarchiver:(id)arg2;

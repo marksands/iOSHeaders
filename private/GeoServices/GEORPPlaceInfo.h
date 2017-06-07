@@ -22,6 +22,7 @@
 @property(retain, nonatomic) NSString *sourceApplication; // @synthesize sourceApplication=_sourceApplication;
 @property(retain, nonatomic) GEOPDPlaceResponse *placeResponse; // @synthesize placeResponse=_placeResponse;
 @property(retain, nonatomic) GEOPDPlaceRequest *placeRequest; // @synthesize placeRequest=_placeRequest;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasSourceApplication;
 @property(readonly, nonatomic) _Bool hasPlaceResponse;
 @property(readonly, nonatomic) _Bool hasPlaceRequest;
-- (void)dealloc;
 - (void)clearSessionIdFromPlaceRequest;
 
 @end

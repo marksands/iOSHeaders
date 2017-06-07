@@ -10,6 +10,7 @@
 
 @class NSString, PDFScrollViewPrivate;
 
+__attribute__((visibility("hidden")))
 @interface PDFScrollView : UIScrollView <UIScrollViewDelegate>
 {
     PDFScrollViewPrivate *_private;
@@ -27,11 +28,10 @@
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setForcesTopAlignment:(_Bool)arg1;
-- (void)disableUpdates;
-- (void)enableUpdates;
 - (id)pdfDocumentView;
 - (void)dealloc;
 - (void)setDocument:(id)arg1;
+- (void)setPDFView:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

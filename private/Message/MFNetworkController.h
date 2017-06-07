@@ -29,6 +29,7 @@
     _Bool _isWiFiEnabled;
     _Bool _isRoamingAllowed;
     _Bool _data;
+    _Bool _alternateAdviceState;
     NSString *_dataIndicator;
     RadiosPreferences *_radiosPreferences;
     NSObject<OS_dispatch_queue> *_prefsQueue;
@@ -46,6 +47,7 @@
 - (void)removeBackgroundWifiClient:(id)arg1;
 - (void)addBackgroundWifiClient:(id)arg1;
 - (void)_updateWifiClientType;
+- (id)networkObservable;
 - (void)removeNetworkObserver:(id)arg1;
 - (id)addNetworkObserverBlock:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (id)_networkAssertionWithIdentifier:(id)arg1;
@@ -54,6 +56,7 @@
 - (void)_setDataStatus_nts:(id)arg1;
 - (void)_checkKeys:(id)arg1 forStore:(struct __SCDynamicStore *)arg2;
 - (void)_setFlags:(unsigned int)arg1 forReachability:(struct __SCNetworkReachability *)arg2;
+- (_Bool)hasAlternateAdvice;
 - (_Bool)is4GConnection;
 - (_Bool)is3GConnection;
 - (_Bool)inAirplaneMode;

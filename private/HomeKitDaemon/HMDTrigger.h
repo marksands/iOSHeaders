@@ -4,64 +4,83 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-#import <HomeKitDaemon/HMDBulletinIdentifiers-Protocol.h>
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
+#import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDDevice, HMDHome, HMDUser, HMFMessageDispatcher, NSDate, NSDictionary, NSMutableArray, NSString, NSUUID;
+@class HMDDevice, HMDHome, HMDUser, HMFMessageDispatcher, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDTrigger : NSObject <HMDBulletinIdentifiers, HMFMessageReceiver, NSSecureCoding, HMFDumpState>
+@interface HMDTrigger : HMFObject <HMFMessageReceiver, NSSecureCoding, HMFDumpState, HMFLogging, HMDBackingStoreObjectProtocol>
 {
     _Bool _active;
-    _Bool _activeOnLocalDevice;
     NSString *_name;
     NSUUID *_uuid;
     HMDHome *_home;
     HMDUser *_owner;
     HMDDevice *_owningDevice;
-    NSMutableArray *_currentActionSets;
+    NSMutableArray *_actionSetUUIDs;
+    NSMutableDictionary *_actionSetMappings;
     NSObject<OS_dispatch_queue> *_workQueue;
     HMFMessageDispatcher *_msgDispatcher;
     NSDate *_mostRecentFireDate;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)logCategory;
 @property(copy, nonatomic) NSDate *mostRecentFireDate; // @synthesize mostRecentFireDate=_mostRecentFireDate;
-@property(nonatomic, getter=isActiveOnLocalDevice) _Bool activeOnLocalDevice; // @synthesize activeOnLocalDevice=_activeOnLocalDevice;
 @property(nonatomic) _Bool active; // @synthesize active=_active;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
-@property(retain, nonatomic) NSMutableArray *currentActionSets; // @synthesize currentActionSets=_currentActionSets;
+@property(retain, nonatomic) NSMutableDictionary *actionSetMappings; // @synthesize actionSetMappings=_actionSetMappings;
+@property(retain, nonatomic) NSMutableArray *actionSetUUIDs; // @synthesize actionSetUUIDs=_actionSetUUIDs;
 @property(retain, nonatomic) HMDDevice *owningDevice; // @synthesize owningDevice=_owningDevice;
 @property(retain, nonatomic) HMDUser *owner; // @synthesize owner=_owner;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (void)timerFired:(id)arg1;
+- (id)emptyModelObject;
+- (id)backingStoreObjects:(long long)arg1;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
+- (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)shouldEncodeLastFireDate:(id)arg1;
+- (void)_handleTriggerUpdate:(id)arg1 message:(id)arg2;
+- (void)_fillBaseObjectChangeModel:(id)arg1;
 - (void)_registerForMessages;
 - (void)userDidConfirmExecute:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_directlyExecuteActionSetsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)_executeActionSets:(id)arg1 captureCurrentState:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_executeActionSetsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_handleActivateTriggerRequest:(id)arg1;
+- (void)_actionSetsUpdated:(id)arg1 message:(id)arg2;
 - (void)_handleUpdateActionSetRequest:(id)arg1;
+- (void)_handleRemoveTriggerOwnedActionSetRequest:(id)arg1;
+- (void)_handleRemoveActionSetRequest:(id)arg1;
+- (void)_handleAddTriggerOwnedActionSetRequest:(id)arg1;
+- (void)_handleAddActionSetRequest:(id)arg1;
 - (void)_handleRenameRequest:(id)arg1;
 - (void)activate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)refreshActivate;
-- (id)_updateActionSet:(id)arg1 add:(_Bool)arg2;
-- (void)activateOnLocalDevice;
+- (void)activateAfterResidentChangeWithCompletion:(CDUnknownBlockType)arg1;
+- (void)activateWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)shouldActivateOnLocalDevice;
 @property(readonly, nonatomic, getter=isOwnedByThisDevice) _Bool ownedByThisDevice;
 - (void)invalidate;
 - (void)configure:(id)arg1 messageDispatcher:(id)arg2 queue:(id)arg3;
 - (void)sendTriggerFiredNotification:(id)arg1;
+- (void)_recentFireDateUpdated:(id)arg1;
 - (void)triggerFired;
 - (void)reEvaluate;
 - (void)fixupForReplacementAccessory:(id)arg1;
@@ -70,17 +89,17 @@
 - (void)removeAccessory:(id)arg1;
 - (void)removeActionSet:(id)arg1;
 - (void)checkForNoActions;
-- (id)actionSetWithUUID:(id)arg1;
-- (id)actionSets;
+- (void)setEnabled:(_Bool)arg1 message:(id)arg2;
+- (_Bool)compatible:(id)arg1 user:(id)arg2;
+@property(readonly, nonatomic) _Bool requiresDataVersion4;
+@property(readonly, nonatomic) NSArray *actionSets;
 - (unsigned long long)triggerType;
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithName:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *bulletinContext;
-@property(readonly, nonatomic) NSDictionary *actionContext;
-@property(readonly, copy, nonatomic) NSUUID *contextSPIUniqueIdentifier;
-@property(readonly, copy, nonatomic) NSString *contextID;
+- (id)logIdentifier;
+- (id)initWithModel:(id)arg1 home:(id)arg2;
+- (id)initWithName:(id)arg1 uuid:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

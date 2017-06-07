@@ -22,12 +22,15 @@
         struct RepeatedPtrField<std::__1::basic_string<char>>;
         struct RepeatedPtrField<std::__1::basic_string<char>>;
         struct RepeatedPtrField<std::__1::basic_string<char>>;
+        struct VectorTimestamp *;
     } *_currentDocument;
+    NSOrderedSet *_clusterTypeSet;
 }
 
-+ (void)_registerClass:(Class)arg1 forType:(id)arg2;
++ (void)_registerClass:(Class)arg1 forType:(id)arg2 cluster:(_Bool)arg3;
 + (void)registerClass:(Class)arg1 forType:(id)arg2;
 + (void)registerCRClasses;
+@property(readonly, nonatomic) NSOrderedSet *clusterTypeSet; // @synthesize clusterTypeSet=_clusterTypeSet;
 @property(nonatomic) struct Document *currentDocument; // @synthesize currentDocument=_currentDocument;
 @property(retain, nonatomic) NSMutableOrderedSet *encodedObjects; // @synthesize encodedObjects=_encodedObjects;
 - (void).cxx_destruct;

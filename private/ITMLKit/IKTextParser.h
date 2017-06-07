@@ -25,11 +25,14 @@
 - (id)_stringFromDurationElement:(id)arg1 unformattedString:(id)arg2;
 - (id)_stringFromDateElement:(id)arg1 unformattedString:(id)arg2;
 - (id)_attributedStringFromDomElement:(id)arg1 usingParseBlock:(CDUnknownBlockType)arg2;
-- (id)_attributedStringWithFontHandler:(CDUnknownBlockType)arg1 defaultFont:(id)arg2 style:(id)arg3 foregroundColor:(id)arg4 textAlignment:(long long)arg5;
-- (id)_attributedStringWithFont:(id)arg1 style:(id)arg2 fontHandler:(CDUnknownBlockType)arg3;
+- (id)_attributedStringWithDefaultAttributes:(id)arg1 fontHandler:(CDUnknownBlockType)arg2 style:(id)arg3;
+- (id)_attributesWithFont:(id)arg1 style:(id)arg2 foregroundColor:(id)arg3 textAlignment:(long long)arg4;
+- (id)_attributesWithFont:(id)arg1 style:(id)arg2;
+- (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1 style:(id)arg2 foregroundColor:(id)arg3 textAlignment:(long long)arg4 defaultAttributes:(id *)arg5;
 - (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1 style:(id)arg2 foregroundColor:(id)arg3 textAlignment:(long long)arg4;
-- (id)attributedStringWithFont:(id)arg1 foregroundColor:(id)arg2 textAlignment:(long long)arg3 style:(id)arg4;
+- (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1 style:(id)arg2 defaultAttributes:(id *)arg3;
 - (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1 style:(id)arg2;
+- (id)attributedStringWithFont:(id)arg1 foregroundColor:(id)arg2 textAlignment:(long long)arg3 style:(id)arg4;
 - (id)attributedStringWithFont:(id)arg1 style:(id)arg2;
 @property(readonly, retain, nonatomic) NSString *string;
 

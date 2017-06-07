@@ -20,7 +20,9 @@
 - (void).cxx_destruct;
 - (void)_updateShinyStatus;
 - (void)_setImageForPlugin:(id)arg1;
+- (void)setSelected:(_Bool)arg1;
 - (id)iconView;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

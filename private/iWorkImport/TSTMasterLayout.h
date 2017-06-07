@@ -10,7 +10,7 @@
 #import <iWorkImport/TSTTableInternalGeometryProviding-Protocol.h>
 #import <iWorkImport/TSTTableMergeRangeProviding-Protocol.h>
 
-@class NSIndexSet, NSLock, NSMutableArray, NSMutableSet, NSPointerArray, NSString, TSDFill, TSDInfoGeometry, TSDLayoutGeometry, TSKChangeNotifier, TSTCellRegion, TSTCellSelection, TSTConcurrentMutableIndexSet, TSTDupContentCache, TSTHiddenRowsColumnsCache, TSTLayout, TSTLayoutDynamicResizeInfo, TSTMergeRangeSortedSet, TSTRWRetainedPointerKeyDictionary, TSTStrokeDefaultVendor, TSTStrokeWidthCache, TSTTableInfo, TSTTableModel, TSTWPColumnCache, TSTWidthHeightCache, TSUColor, TSUWidthLimitedQueue;
+@class NSIndexSet, NSMutableArray, NSMutableSet, NSPointerArray, NSString, TSDFill, TSDInfoGeometry, TSDLayoutGeometry, TSKChangeNotifier, TSTCellRegion, TSTCellSelection, TSTConcurrentMutableIndexSet, TSTDupContentCache, TSTHiddenRowsColumnsCache, TSTInfo, TSTLayout, TSTLayoutDynamicResizeInfo, TSTMergeRangeSortedSet, TSTRWRetainedPointerKeyDictionary, TSTStrokeDefaultVendor, TSTStrokeWidthCache, TSTTableModel, TSTWPColumnCache, TSTWidthHeightCache, TSUColor, TSUWidthLimitedQueue;
 @protocol OS_dispatch_group, TSTLayoutDynamicCellFillProtocol, TSTLayoutDynamicColumnMoveProtocol, TSTLayoutDynamicContentProtocol, TSTLayoutDynamicRowMoveProtocol;
 
 __attribute__((visibility("hidden")))
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 {
     TSKChangeNotifier *mChangeNotifier;
     int mReferenceCount;
-    TSTTableInfo *mTableInfo;
+    TSTInfo *mTableInfo;
     TSTWPColumnCache *mCellIDToWPColumnCache;
     TSTDupContentCache *mDupContentCache;
     TSTWPColumnCache *mTempWPColumnCache;
@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
     _Bool mTableNameEnabled;
     struct CGRect mTableNameBounds;
     double mCachedTableNameHeight;
+    _Bool mTableNameHeightValid;
     unsigned short mCachedNumberOfHeaderColumns;
     unsigned long long mCachedMaxNumberOfColumns;
     unsigned short mCachedNumberOfHeaderRows;
@@ -52,7 +53,8 @@ __attribute__((visibility("hidden")))
     TSTStrokeWidthCache *mColumnToStrokeWidthCache;
     TSTStrokeWidthCache *mRowToStrokeHeightCache;
     TSTRWRetainedPointerKeyDictionary *mParaStyleToHeightCache;
-    NSLock *mLock;
+    struct _opaque_pthread_rwlock_t mContentRWLock;
+    NSMutableSet *mContentReadingThreads;
     _Bool mBandedFillIsValid;
     _Bool mUseBandedFill;
     TSDFill *mBandedFillObject;
@@ -151,7 +153,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSTDupContentCache *dupContentCache; // @synthesize dupContentCache=mDupContentCache;
 @property(readonly, nonatomic) TSTWPColumnCache *cellIDToWPColumnCache; // @synthesize cellIDToWPColumnCache=mCellIDToWPColumnCache;
 @property(readonly, nonatomic) TSTStrokeDefaultVendor *strokesDefaultVendor; // @synthesize strokesDefaultVendor=mStrokesDefaultVendor;
-@property(nonatomic) TSTTableInfo *tableInfo; // @synthesize tableInfo=mTableInfo;
+@property(nonatomic) TSTInfo *tableInfo; // @synthesize tableInfo=mTableInfo;
+- (void)readSafelyUsingBlock:(CDUnknownBlockType)arg1;
+- (void)modifySafelyUsingBlock:(CDUnknownBlockType)arg1;
 - (double)fontHeightOfParagraphStyle:(id)arg1;
 - (struct UIEdgeInsets)defaultPaddingForCellID:(struct TSUCellCoord)arg1;
 - (struct UIEdgeInsets)paddingForCellID:(struct TSUCellCoord)arg1;
@@ -171,8 +175,10 @@ __attribute__((visibility("hidden")))
 - (id)p_validationFittingForChangeDescriptorType:(int)arg1 regionFromChangeDescriptor:(id)arg2 currentRegionToValidate:(id)arg3;
 - (id)p_validationFittingCellRegionForStrokesChanged:(id)arg1 currentRegionToValidate:(id)arg2;
 - (id)p_validationFittingCellRegionForRangeMergeUnmerge:(id)arg1 currentRegionToValidate:(id)arg2;
+- (id)p_validationFittingCellRegionForRowsMovedFrom:(id)arg1 toRowIndex:(unsigned short)arg2 currentRegionToValidate:(id)arg3;
 - (id)p_validationFittingCellRegionForRowsInserted:(id)arg1 currentRegionToValidate:(id)arg2;
 - (id)p_validationFittingCellRegionForRowsDeleted:(id)arg1 currentRegionToValidate:(id)arg2;
+- (id)p_validationFittingCellRegionForColumnsMovedFrom:(id)arg1 toColumnIndex:(unsigned char)arg2 currentRegionToValidate:(id)arg3;
 - (id)p_validationFittingCellRegionForColumnsVisibility:(id)arg1 currentRegionToValidate:(id)arg2;
 - (id)p_validationFittingCellRegionForColumnsInserted:(id)arg1 currentRegionToValidate:(id)arg2;
 - (id)p_validationFittingCellRegionForColumnsDeleted:(id)arg1 currentRegionToValidate:(id)arg2;
@@ -232,22 +238,22 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSIndexSet *hiddenRowIndices;
 @property(readonly, nonatomic) NSIndexSet *visibleColumnIndices;
 @property(readonly, nonatomic) NSIndexSet *visibleRowIndices;
-- (unsigned char)visibleColumnAfterAndIncludingColumn:(unsigned char)arg1;
-- (unsigned char)visibleColumnAfterColumn:(unsigned char)arg1;
-- (unsigned char)visibleColumnBeforeAndIncludingColumn:(unsigned char)arg1;
-- (unsigned char)visibleColumnBeforeColumn:(unsigned char)arg1;
+- (unsigned char)indexOfVisibleColumnAfterAndIncludingColumnAtIndex:(unsigned char)arg1;
+- (unsigned char)indexOfVisibleColumnAfterColumnAtIndex:(unsigned char)arg1;
+- (unsigned char)indexOfVisibleColumnBeforeAndIncludingColumnAtIndex:(unsigned char)arg1;
+- (unsigned char)indexOfVisibleColumnBeforeColumnAtIndex:(unsigned char)arg1;
 - (unsigned short)nonUserHiddenRowAfterAndIncludingRow:(unsigned short)arg1;
-- (unsigned short)visibleRowAfterAndIncludingRow:(unsigned short)arg1;
-- (unsigned short)visibleRowAfterRow:(unsigned short)arg1;
-- (unsigned short)visibleRowBeforeAndIncludingRow:(unsigned short)arg1;
-- (unsigned short)visibleRowBeforeRow:(unsigned short)arg1;
-- (_Bool)anyColumnsHiddenInCellRange:(struct TSUCellRect)arg1;
+- (unsigned short)indexOfVisibleRowAfterAndIncludingRowAtIndex:(unsigned short)arg1;
+- (unsigned short)indexOfVisibleRowAfterRowAtIndex:(unsigned short)arg1;
+- (unsigned short)indexOfVisibleRowBeforeAndIncludingRowAtIndex:(unsigned short)arg1;
+- (unsigned short)indexOfVisibleRowBeforeRowAtIndex:(unsigned short)arg1;
+- (_Bool)anyHiddenColumnsInCellRange:(struct TSUCellRect)arg1;
 - (_Bool)anyRowsUserHiddenInCellRange:(struct TSUCellRect)arg1;
-- (_Bool)anyRowsHiddenInCellRange:(struct TSUCellRect)arg1;
+- (_Bool)anyHiddenRowsInCellRange:(struct TSUCellRect)arg1;
 - (_Bool)isEntireCellRangeHidden:(struct TSUCellRect)arg1;
-- (_Bool)isColumnHidden:(unsigned char)arg1;
+- (_Bool)hasHiddenColumnAtIndex:(unsigned char)arg1;
 - (_Bool)isRowUserHidden:(unsigned short)arg1;
-- (_Bool)isRowHidden:(unsigned short)arg1;
+- (_Bool)hasHiddenRowAtIndex:(unsigned short)arg1;
 - (_Bool)isDynamicallyResizingCellID:(struct TSUCellCoord)arg1;
 - (_Bool)isDynamicallyResizing:(long long)arg1 rowColIndex:(unsigned short)arg2;
 - (_Bool)isDynamicallyResizing:(long long)arg1;
@@ -308,6 +314,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned short numberOfColumns;
 @property(readonly, nonatomic) unsigned short numberOfRows;
 - (unsigned long long)tableAreaForCellID:(struct TSUCellCoord)arg1;
+- (void)validateTableNameHeight;
 - (void)invalidateTableNameHeight;
 - (double)calculatedTableNameHeightIncludingDynamicResize:(_Bool)arg1;
 - (double)calculatedTableNameHeight;
@@ -316,7 +323,7 @@ __attribute__((visibility("hidden")))
 - (id)tableNameTextEngine;
 - (void)clearModelHeightWidthCacheForCellRange:(struct TSUCellRect)arg1;
 - (void)resetModelHeightWidthCache;
-- (void)validateLayoutHint:(id)arg1;
+- (_Bool)validateLayoutHint:(id)arg1;
 - (_Bool)hintIsValid:(id)arg1;
 - (id)newLayoutHint;
 - (id)customStrokeProvider;
@@ -326,13 +333,9 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithInfo:(id)arg1;
 @property(readonly, nonatomic) _Bool emptyFilteredTable; // @synthesize emptyFilteredTable=mEmptyFilteredTable;
-- (void)iterateCellsInRange:(struct TSUCellRect)arg1 withFlags:(unsigned long long)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (void)iterateCellsInRange:(struct TSUCellRect)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (void)iterateCellsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)iterateCellsInRange:(struct TSUCellRect)arg1 flags:(unsigned long long)arg2 searchFlags:(unsigned long long)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)iterateCellsAndTerminateWithIterator:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (id)cellIteratorWithRange:(struct TSUCellRect)arg1 flags:(unsigned long long)arg2;
-- (id)cellIteratorWithRange:(struct TSUCellRect)arg1;
-- (id)cellIterator;
+- (id)cellIteratorWithRange:(struct TSUCellRect)arg1 flags:(unsigned long long)arg2 searchFlags:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

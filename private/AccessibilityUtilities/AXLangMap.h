@@ -24,18 +24,18 @@
 @property(nonatomic, getter=isRTL) _Bool rtl; // @synthesize rtl=_rtl;
 @property(retain, nonatomic) NSArray *associatedAmbiguousLanguages; // @synthesize associatedAmbiguousLanguages=_associatedAmbiguousLanguages;
 @property(retain, nonatomic) NSArray *alternateLanguageIDs; // @synthesize alternateLanguageIDs=_alternateLanguageIDs;
-@property(nonatomic) AXDialectMap *userPreferredDialect; // @synthesize userPreferredDialect=_userPreferredDialect;
+@property(nonatomic) __weak AXDialectMap *userPreferredDialect; // @synthesize userPreferredDialect=_userPreferredDialect;
 @property(copy, nonatomic) NSString *generalLanguageID; // @synthesize generalLanguageID=_generalLanguageID;
 @property(nonatomic, getter=isAmbiguous) _Bool ambiguous; // @synthesize ambiguous=_ambiguous;
 @property(nonatomic, getter=isWestern) _Bool western; // @synthesize western=_western;
 @property(retain, nonatomic) NSArray *dialects; // @synthesize dialects=_dialects;
+- (void).cxx_destruct;
 - (id)dialectWithLocaleIdentifier:(id)arg1;
 @property(readonly, nonatomic) AXDialectMap *defaultDialect;
 @property(readonly, nonatomic) AXDialectMap *userLocaleDialect; // @synthesize userLocaleDialect;
 - (id)debugDescription;
 - (id)basicDescription;
 - (id)description;
-- (void)dealloc;
 - (id)initWithLanguageID:(id)arg1 isWestern:(_Bool)arg2 isAmbiguous:(_Bool)arg3 isRTL:(_Bool)arg4 dialects:(id)arg5 alternateLanguageIDs:(id)arg6 associatedAmbiguousLanguages:(id)arg7;
 
 @end

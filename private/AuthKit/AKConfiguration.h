@@ -20,6 +20,8 @@
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSDate *lastCheckInSuccessDate;
 @property(copy, nonatomic) NSDate *lastCheckInAttemptDate;
+@property(nonatomic) long long shouldAllowExperimentalMode;
+@property(nonatomic) long long shouldAllowPhoneNumberAccounts;
 @property(nonatomic) long long shouldAddHSA2CreateHeader;
 @property(nonatomic) long long shouldSuppressHSA2Suggestions;
 @property(nonatomic) long long shouldDisablePiggybacking;

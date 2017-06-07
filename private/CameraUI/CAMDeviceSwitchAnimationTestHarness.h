@@ -16,7 +16,7 @@
 
 + (id)harnessWithTestName:(id)arg1 viewfinder:(id)arg2 devicePosition:(long long)arg3;
 - (void).cxx_destruct;
-- (void)ensureCaptureDevicePosition:(long long)arg1 thenPerform:(CDUnknownBlockType)arg2;
+- (void)ensureCaptureDevicePosition:(long long)arg1 mode:(long long)arg2 thenPerform:(CDUnknownBlockType)arg3;
 - (void)startTesting;
 - (id)initWithTestName:(id)arg1 viewfinder:(id)arg2 devicePosition:(long long)arg3;
 

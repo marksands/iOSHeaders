@@ -26,6 +26,7 @@
 - (id)description;
 - (void)setNeedsReEvaluation;
 - (_Bool)evaluate;
+- (id)queryExpression;
 - (id)initWithQueryList:(id)arg1;
 
 @end

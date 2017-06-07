@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSCopying-Protocol.h>
 #import <PassKitCore/NSSecureCoding-Protocol.h>
@@ -16,6 +16,7 @@
     _Bool _supportsContactlessPayment;
     _Bool _supportsInAppPayment;
     _Bool _supportsOptionalAuthentication;
+    _Bool _requiresDeferredAuthorization;
     _Bool _inAppPINRequired;
     _Bool _auxiliary;
     NSString *_dpanIdentifier;
@@ -48,6 +49,7 @@
 @property(copy, nonatomic) NSDecimalNumber *inAppPINRequiredAmount; // @synthesize inAppPINRequiredAmount=_inAppPINRequiredAmount;
 @property(nonatomic) _Bool inAppPINRequired; // @synthesize inAppPINRequired=_inAppPINRequired;
 @property(nonatomic) long long paymentNetworkIdentifier; // @synthesize paymentNetworkIdentifier=_paymentNetworkIdentifier;
+@property(nonatomic) _Bool requiresDeferredAuthorization; // @synthesize requiresDeferredAuthorization=_requiresDeferredAuthorization;
 @property(copy, nonatomic) NSString *appletCurrencyCode; // @synthesize appletCurrencyCode=_appletCurrencyCode;
 @property(copy, nonatomic) NSArray *supportsExpressModes; // @synthesize supportsExpressModes=_supportsExpressModes;
 @property(copy, nonatomic) NSArray *supportedExpressModes; // @synthesize supportedExpressModes=_supportedExpressModes;
@@ -62,8 +64,9 @@
 @property(copy, nonatomic, setter=setDPANSuffix:) NSString *dpanSuffix; // @synthesize dpanSuffix=_dpanSuffix;
 @property(copy, nonatomic, setter=setDPANIdentifier:) NSString *dpanIdentifier; // @synthesize dpanIdentifier=_dpanIdentifier;
 - (void).cxx_destruct;
-- (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2;
 @property(readonly, nonatomic) _Bool supportsExpressSuica;
+- (_Bool)supportsExpressMode:(id)arg1;
+- (_Bool)supportsWebPaymentMode:(long long)arg1 withExclusionList:(id)arg2;
 @property(readonly, nonatomic) NSString *stateAsString;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -73,7 +76,10 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)initWithPaymentApplicationDictionary:(id)arg1 auxiliaryApplication:(_Bool)arg2;
-- (_Bool)acceptedForSupportedNetworkIdentifiers:(id)arg1 merchantCapabilities:(unsigned long long)arg2 paymentMode:(long long)arg3 webPayment:(_Bool)arg4 webService:(id)arg5;
+- (_Bool)acceptedForNonWebPaymentWithSupportedNetworkIdentifiers:(id)arg1 merchantCapabilities:(unsigned long long)arg2 paymentMode:(long long)arg3;
+- (_Bool)acceptedForNonWebPaymentWithSupportedNetworkIdentifiers:(id)arg1 merchantCapabilities:(unsigned long long)arg2 paymentMode:(long long)arg3 paymentApplicationStates:(id)arg4;
+- (_Bool)acceptedForWebPaymentWithSupportedNetworkIdentifiers:(id)arg1 merchantCapabilities:(unsigned long long)arg2 paymentMode:(long long)arg3 webService:(id)arg4;
+- (_Bool)acceptedForWebPaymentWithSupportedNetworkIdentifiers:(id)arg1 merchantCapabilities:(unsigned long long)arg2 paymentMode:(long long)arg3 webService:(id)arg4 paymentApplicationStates:(id)arg5;
 - (id)protobuf;
 
 @end

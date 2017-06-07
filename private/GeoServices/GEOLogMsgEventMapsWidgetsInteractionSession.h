@@ -38,6 +38,7 @@
 @property(retain, nonatomic) GEOMapsNearbyWidget *mapsNearbyWidget; // @synthesize mapsNearbyWidget=_mapsNearbyWidget;
 @property(retain, nonatomic) GEOMapsTransitWidget *mapsTransitWidget; // @synthesize mapsTransitWidget=_mapsTransitWidget;
 @property(retain, nonatomic) GEOMapsDestinationsWidget *mapsDestinationsWidget; // @synthesize mapsDestinationsWidget=_mapsDestinationsWidget;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -62,7 +63,6 @@
 - (id)mapsWidgetTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasMapsWidgetType;
 @property(nonatomic) int mapsWidgetType; // @synthesize mapsWidgetType=_mapsWidgetType;
-- (void)dealloc;
 
 @end
 

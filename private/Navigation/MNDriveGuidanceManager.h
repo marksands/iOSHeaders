@@ -4,27 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Navigation/MNGuidanceManager.h>
+#import <Navigation/MNClassicGuidanceManager.h>
 
-@class NSMutableArray;
-
-@interface MNDriveGuidanceManager : MNGuidanceManager
+__attribute__((visibility("hidden")))
+@interface MNDriveGuidanceManager : MNClassicGuidanceManager
 {
-    NSMutableArray *_substeps;
     int _currentContinuePhase;
 }
 
-- (void).cxx_destruct;
 - (int)transportType;
 - (_Bool)_updateConsiderExecuteAnnouncement:(id)arg1 location:(id)arg2;
-- (_Bool)_updateConsiderSubstepAnnouncement:(id)arg1 location:(id)arg2;
 - (_Bool)_updateConsiderPrepareAnnouncement:(id)arg1 withMatch:(id)arg2;
 - (_Bool)_updateConsiderContinueAnnouncement:(id)arg1 location:(id)arg2;
 - (void)_updatePrepareForNextStep;
 - (id)_nameInfoForContinueSign;
 - (double)_distanceForSign;
-- (_Bool)_hasSubsteps;
-- (id)_nextSubstep;
 - (int)_continuePhase;
 - (const CDStruct_39925896 *)_announceSettings;
 - (void)_resetStepState;

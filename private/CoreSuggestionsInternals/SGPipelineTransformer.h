@@ -18,6 +18,7 @@
 + (id)withTransformers:(id)arg1;
 @property(retain) NSArray *transformers; // @synthesize transformers=_transformers;
 - (void).cxx_destruct;
+- (id)transform:(id)arg1 stopAfterTransformerWithIndex:(unsigned long long)arg2;
 - (id)transform:(id)arg1;
 - (id)initWithTransformers:(id)arg1;
 

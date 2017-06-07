@@ -11,7 +11,7 @@
 
 @protocol FCFeedTransformationItem <NSObject, FCFeedPersonalizingArticle>
 @property(readonly, nonatomic) _Bool canBePurchased;
-@property(readonly, nonatomic) unsigned long long articleRecordModificationDateMilliseconds;
+@property(readonly, nonatomic) long long publisherArticleVersion;
 @property(readonly, nonatomic) long long minimumNewsVersion;
 @property(readonly, nonatomic, getter=isExplicitContent) _Bool explicitContent;
 @property(readonly, nonatomic, getter=isFromBlockedStorefront) _Bool fromBlockedStorefront;

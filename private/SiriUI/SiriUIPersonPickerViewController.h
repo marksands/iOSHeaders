@@ -6,29 +6,15 @@
 
 #import <SiriUI/SiriUIObjectPickerViewController.h>
 
-#import <SiriUI/ABPeoplePickerNavigationControllerDelegate-Protocol.h>
+@class UIViewController;
 
-@class NSString, UIViewController;
-
-@interface SiriUIPersonPickerViewController : SiriUIObjectPickerViewController <ABPeoplePickerNavigationControllerDelegate>
+@interface SiriUIPersonPickerViewController : SiriUIObjectPickerViewController
 {
     UIViewController *_presentingViewController;
 }
 
 - (void).cxx_destruct;
-- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
-- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
-- (void)_dismissPicker;
-- (id)_pickerResponseForPerson:(void *)arg1;
-- (id)_abAssistantManager;
 - (void)showPicker:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

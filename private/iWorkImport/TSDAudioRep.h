@@ -18,14 +18,15 @@ __attribute__((visibility("hidden")))
     _Bool mDidCheckPlayability;
     _Bool mIsPlayable;
     AVAsset *mAssetForPlayabilityCheck;
-    CALayer *mAudioImageLayer;
     CALayer *mSpinnerLayer;
     float mDynamicVolume;
     _Bool mIsChangingDynamicVolume;
     id <TSDAudioHUDController> mAudioHUDController;
+    CALayer *mAudioImageLayer;
 }
 
 @property(readonly, nonatomic, getter=isPlayable) _Bool playable; // @synthesize playable=mIsPlayable;
+@property(readonly, nonatomic) CALayer *audioImageLayer; // @synthesize audioImageLayer=mAudioImageLayer;
 - (_Bool)shouldAllowReplacementFromDrop;
 - (_Bool)shouldAllowReplacementFromPaste;
 - (void)drawInContext:(struct CGContext *)arg1;

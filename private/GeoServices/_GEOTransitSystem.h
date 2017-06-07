@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOTransitSystem-Protocol.h>
 
@@ -17,11 +17,11 @@ __attribute__((visibility("hidden")))
     GEOPBTransitSystem *_system;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) GEOStyleAttributes *styleAttributes;
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> artwork;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) unsigned long long muid;
-- (void)dealloc;
 - (id)initWithSystem:(id)arg1;
 
 // Remaining properties

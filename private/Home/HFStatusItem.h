@@ -7,20 +7,27 @@
 #import <Home/HFItem.h>
 
 @class HMHome, HMRoom;
+@protocol HFCharacteristicValueSource;
 
 @interface HFStatusItem : HFItem
 {
     HMRoom *_room;
     HMHome *_home;
+    id <HFCharacteristicValueSource> _valueSource;
 }
 
+@property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource; // @synthesize valueSource=_valueSource;
 @property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(readonly, nonatomic) HMRoom *room; // @synthesize room=_room;
 - (void).cxx_destruct;
 - (id)init;
 - (id)initWithHome:(id)arg1 room:(id)arg2;
-- (id)standardResultsForMultiServiceResponse:(id)arg1;
+- (id)initWithHome:(id)arg1 room:(id)arg2 valueSource:(id)arg3;
+- (id)standardResultsForBatchReadResponse:(id)arg1 serviceTypes:(id)arg2;
+- (id)_filteredServicesOfTypes:(id)arg1 containingCharacteristicTypes:(id)arg2;
 - (id)filteredServicesOfTypes:(id)arg1 containingCharacteristicTypes:(id)arg2;
+- (id)filteredServicesOfTypes:(id)arg1;
+- (id)filteredServices;
 
 @end
 

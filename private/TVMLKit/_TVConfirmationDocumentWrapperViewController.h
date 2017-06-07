@@ -10,8 +10,8 @@
 {
 }
 
-- (struct CGSize)preferredContentSize;
 - (void)viewDidLayoutSubviews;
+- (void)tapped;
 - (void)loadView;
 
 @end

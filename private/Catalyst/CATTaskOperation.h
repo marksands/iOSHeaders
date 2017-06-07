@@ -30,6 +30,8 @@
 - (void)main;
 - (id)initWithRequest:(id)arg1;
 - (id)init;
+- (id)cat_assertions;
+- (void)cat_addAssertion:(id)arg1;
 
 @end
 

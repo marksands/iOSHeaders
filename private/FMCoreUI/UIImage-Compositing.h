@@ -7,6 +7,7 @@
 #import <UIKit/UIImage.h>
 
 @interface UIImage (Compositing)
++ (id)blankImageOfSize:(struct CGSize)arg1;
 - (id)compositeImage:(id)arg1 blendMode:(int)arg2 alpha:(double)arg3;
 - (id)compositeImage:(id)arg1;
 @end

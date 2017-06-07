@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOSearchAttributionServerProxy-Protocol.h>
 
@@ -18,10 +18,10 @@ __attribute__((visibility("hidden")))
     int _attributionManifestUpdatedToken;
 }
 
+- (void).cxx_destruct;
 - (void)_loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3 errorHandler:(CDUnknownBlockType)arg4;
 - (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3 errorHandler:(CDUnknownBlockType)arg4;
 - (id)_attributionManifest;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

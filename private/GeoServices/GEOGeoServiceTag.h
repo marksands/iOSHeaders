@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOGeoServiceTag : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     int _serviceType;
     NSString *_tag;
     struct {
@@ -21,6 +22,8 @@
 
 + (id)defaultTag;
 @property(retain, nonatomic) NSString *tag; // @synthesize tag=_tag;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,7 +37,6 @@
 - (id)serviceTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasServiceType;
 @property(nonatomic) int serviceType; // @synthesize serviceType=_serviceType;
-- (void)dealloc;
 
 @end
 

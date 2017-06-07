@@ -6,10 +6,13 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class NSDate, NSString;
+@class GEOLogMessageCollectionRequest, NSDate, NSString;
 
 @protocol GEORequestCounterProtocol <NSObject>
 @property(nonatomic) _Bool countersEnabled;
+- (void)incrementCountsForLogMsgCollection:(GEOLogMessageCollectionRequest *)arg1 appId:(NSString *)arg2 result:(unsigned char)arg3;
+- (void)fetchTrafficProbeCollectionsStartingFrom:(NSDate *)arg1 withCompletion:(void (^)(NSDictionary *, NSError *))arg2;
+- (void)recordTrafficProbeCollectionAt:(NSDate *)arg1 tripId:(NSString *)arg2 locationCount:(int)arg3 result:(unsigned char)arg4;
 - (void)clearCounters;
 - (void)startPowerLogSessionWithName:(NSString *)arg1;
 - (void)readRequestsPerAppSince:(NSDate *)arg1 handler:(void (^)(NSDictionary *, NSError *))arg2;

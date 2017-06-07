@@ -11,6 +11,7 @@
 }
 
 + (id)entityEncoderForProfile:(id)arg1 database:(id)arg2 purpose:(long long)arg3 encodingOptions:(id)arg4 authorizationFilter:(CDUnknownBlockType)arg5;
++ (id)codableObjectsFromObjectCollection:(id)arg1;
 + (_Bool)addCodableObject:(id)arg1 toCollection:(id)arg2;
 + (id)insertDataObject:(id)arg1 withProvenance:(id)arg2 inDatabase:(id)arg3 persistentID:(id)arg4 error:(id *)arg5;
 + (id)columnsDefinition;

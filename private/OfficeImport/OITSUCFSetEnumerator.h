@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <Foundation/NSEnumerator.h>
 
 #import <OfficeImport/NSFastEnumeration-Protocol.h>
 
 __attribute__((visibility("hidden")))
-@interface OITSUCFSetEnumerator : NSObject <NSFastEnumeration>
+@interface OITSUCFSetEnumerator : NSEnumerator <NSFastEnumeration>
 {
     void *mInlineObjects[16];
     const void **mObjects;

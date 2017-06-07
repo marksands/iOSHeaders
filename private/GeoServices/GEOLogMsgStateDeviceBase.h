@@ -12,12 +12,15 @@
 {
     int _deviceBatteryState;
     int _deviceInterfaceOrientation;
+    _Bool _deviceInVehicle;
     struct {
         unsigned int deviceBatteryState:1;
         unsigned int deviceInterfaceOrientation:1;
+        unsigned int deviceInVehicle:1;
     } _has;
 }
 
+@property(nonatomic) _Bool deviceInVehicle; // @synthesize deviceInVehicle=_deviceInVehicle;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -27,6 +30,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasDeviceInVehicle;
 - (int)StringAsDeviceBatteryState:(id)arg1;
 - (id)deviceBatteryStateAsString:(int)arg1;
 @property(nonatomic) _Bool hasDeviceBatteryState;

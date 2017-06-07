@@ -16,14 +16,14 @@
 
 - (_Bool)resetWithError:(id *)arg1;
 - (_Bool)resetAllFinalCloudIdentifiersWithError:(id *)arg1;
+- (_Bool)addAddEventForRecordWithLocalIdentifier:(id)arg1 direction:(unsigned long long)arg2 error:(id *)arg3;
+- (_Bool)addDeleteEventForRecordWithLocalIdentifier:(id)arg1 direction:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)removeMappingForCloudIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)hasPendingIdentifiers;
 - (_Bool)markAllPendingIdentifiersAsFinalWithError:(id *)arg1;
 - (_Bool)setFinalCloudIdentifier:(id)arg1 forPendingCloudIdentifier:(id)arg2 error:(id *)arg3;
-- (id)setupCloudIdentifier:(id)arg1 forLocalIdentifier:(id)arg2 isFinal:(_Bool)arg3 error:(id *)arg4;
-- (_Bool)addCloudIdentifier:(id)arg1 forLocalIdentifier:(id)arg2 isFinal:(_Bool)arg3 error:(id *)arg4;
-- (id)localIdentifiersForCloudIdentifiers:(id)arg1;
-- (id)cloudIdentifiersForLocalIdentifiers:(id)arg1;
+- (id)setupCloudIdentifier:(id)arg1 forLocalIdentifier:(id)arg2 isFinal:(_Bool)arg3 direction:(unsigned long long)arg4 error:(id *)arg5;
+- (_Bool)addCloudIdentifier:(id)arg1 forLocalIdentifier:(id)arg2 isFinal:(_Bool)arg3 direction:(unsigned long long)arg4 error:(id *)arg5;
 - (id)localIdentifierForCloudIdentifierIncludeRemappedRecords:(id)arg1;
 - (id)localIdentifierForCloudIdentifier:(id)arg1 isFinal:(_Bool *)arg2;
 - (id)cloudIdentifierForLocalIdentifier:(id)arg1 isFinal:(_Bool *)arg2;

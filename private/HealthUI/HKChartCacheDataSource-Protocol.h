@@ -10,6 +10,7 @@
 @protocol NSCopying;
 
 @protocol HKChartCacheDataSource <NSObject>
+- (HKGraphSeriesDataBlock * (^)(id))mappingFunctionForContext:(id)arg1;
 - (HKChartCacheFetchOperation *)operationForIdentifier:(id <NSCopying>)arg1 completion:(void (^)(HKChartCacheFetchOperation *, id, NSError *))arg2;
 @end
 

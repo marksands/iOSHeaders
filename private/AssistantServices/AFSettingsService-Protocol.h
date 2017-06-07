@@ -6,9 +6,12 @@
 
 #import <AssistantServices/NSObject-Protocol.h>
 
-@class AFRequestInfo, AFVoiceInfo, NSArray, NSData, NSDictionary, NSString, NSURL;
+@class AFAudioPlaybackRequest, AFRequestInfo, AFVoiceInfo, NSArray, NSData, NSDictionary, NSString, NSURL;
 
 @protocol AFSettingsService <NSObject>
+- (oneway void)disableAndDeleteCloudSyncWithCompletion:(void (^)(NSError *))arg1;
+- (oneway void)fetchExperimentContextWithCompletion:(void (^)(AFExperimentContext *, NSError *))arg1;
+- (oneway void)fetchExperimentConfigurationsWithCompletion:(void (^)(NSArray *, NSError *))arg1;
 - (oneway void)sendMetricsToServerWithCompletion:(void (^)(NSError *))arg1;
 - (oneway void)resetAnalyticsStoreWithCompletion:(void (^)(NSError *))arg1;
 - (oneway void)purgeAnalyticsStoreWithCompletion:(void (^)(NSError *))arg1;
@@ -16,22 +19,30 @@
 - (oneway void)setDESPolicyCDNOverride:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)disableDESWithCompletion:(void (^)(NSError *))arg1;
 - (oneway void)setDESLotteryWinOverrideEnabled:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
-- (oneway void)setDESRecognitionEnabled:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
-- (oneway void)setDESRecordingEnabled:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
+- (oneway void)setDESRecordingAlwaysIsEnabled:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)runLiveAdaptationRecipeEvaluationWithBaseURL:(NSURL *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)runAdaptationRecipeEvaluation:(NSDictionary *)arg1 language:(NSString *)arg2 completion:(void (^)(NSArray *, NSArray *))arg3;
-- (oneway void)startRemoteRequest:(AFRequestInfo *)arg1 completion:(void (^)(NSError *))arg2;
-- (oneway void)startUIRequest:(NSString *)arg1;
+- (oneway void)stopAllAudioPlaybackRequests:(_Bool)arg1;
+- (oneway void)stopAudioPlaybackRequest:(AFAudioPlaybackRequest *)arg1 immediately:(_Bool)arg2;
+- (oneway void)startAudioPlaybackRequest:(AFAudioPlaybackRequest *)arg1 completion:(void (^)(NSError *))arg2;
+- (oneway void)getPeerIdentifiers:(void (^)(NSArray *))arg1;
+- (oneway void)startRemoteRequest:(AFRequestInfo *)arg1 onPeer:(NSString *)arg2 completion:(void (^)(NSError *))arg3;
+- (oneway void)startUIRequestWithSpeechAudioFileURL:(NSURL *)arg1;
+- (oneway void)startUIRequestWithText:(NSString *)arg1;
 - (oneway void)setOfflineDictationProfileOverridePath:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)createOfflineSpeechProfileWithLanguage:(NSString *)arg1 JSONData:(NSData *)arg2 completion:(void (^)(NSData *, NSError *))arg3;
+- (oneway void)updateOfflineSpeechProfileWithLanguage:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)getOfflineDictationStatusWithCompletion:(void (^)(NSDictionary *, NSError *))arg1;
 - (oneway void)setLanguage:(NSString *)arg1 withCompletion:(void (^)(void))arg2;
 - (oneway void)setOutputVoice:(AFVoiceInfo *)arg1 withCompletion:(void (^)(void))arg2;
 - (oneway void)getAvailableVoicesIncludingAssetInfo:(_Bool)arg1 completion:(void (^)(NSArray *))arg2;
 - (oneway void)_runServiceMaintenance;
+- (oneway void)_startDeepSyncVerificationForKeys:(NSArray *)arg1;
 - (void)_setSyncVerificationNeededAndFullReportNeeded:(_Bool)arg1 shouldPostNotification:(_Bool)arg2 completion:(void (^)(NSArray *))arg3;
 - (oneway void)_fetchPeerData:(void (^)(void))arg1;
 - (oneway void)_syncDataWithAnchorKeys:(NSArray *)arg1 forceReset:(_Bool)arg2 reason:(NSString *)arg3 reply:(void (^)(NSArray *))arg4;
+- (oneway void)_clearSyncNeededForKey:(NSString *)arg1;
+- (oneway void)_setSyncNeededForReason:(NSString *)arg1;
 - (oneway void)barrierWithReply:(void (^)(void))arg1;
 - (oneway void)_killDaemon;
 - (oneway void)setDictationEnabled:(_Bool)arg1;

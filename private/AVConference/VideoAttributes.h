@@ -19,6 +19,8 @@
     _Bool videoSourceScreen;
 }
 
++ (id)cameraUIDForVideoAttributeCamera:(int)arg1;
++ (int)videoAttributeCameraForCameraUID:(id)arg1;
 + (id)videoAttributesWithVideoAttributes:(id)arg1;
 @property(nonatomic) _Bool videoSourceScreen; // @synthesize videoSourceScreen;
 @property(nonatomic) struct CGRect contentsRect; // @synthesize contentsRect;

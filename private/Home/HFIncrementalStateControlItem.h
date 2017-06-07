@@ -6,29 +6,40 @@
 
 #import <Home/HFControlItem.h>
 
-@class HFPrimaryStateControlItem, NSNumber, NSString;
+#import <Home/HFTogglableControlItem-Protocol.h>
 
-@interface HFIncrementalStateControlItem : HFControlItem
+@class NSNumber, NSString;
+@protocol HFPrimaryStateWriter;
+
+@interface HFIncrementalStateControlItem : HFControlItem <HFTogglableControlItem>
 {
-    HFPrimaryStateControlItem *_primaryStateControlItem;
+    HFControlItem<HFPrimaryStateWriter> *_primaryStateControlItem;
     NSString *_incrementalCharacteristicType;
 }
 
 + (Class)valueClass;
 @property(readonly, copy, nonatomic) NSString *incrementalCharacteristicType; // @synthesize incrementalCharacteristicType=_incrementalCharacteristicType;
-@property(readonly, nonatomic) HFPrimaryStateControlItem *primaryStateControlItem; // @synthesize primaryStateControlItem=_primaryStateControlItem;
+@property(readonly, nonatomic) HFControlItem<HFPrimaryStateWriter> *primaryStateControlItem; // @synthesize primaryStateControlItem=_primaryStateControlItem;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSNumber *stepValue;
 - (id)characteristicValuesForValue:(id)arg1;
 - (id)valueForCharacteristicValues:(id)arg1;
+- (id)valueForCharacteristicType:(id)arg1 inBatchReadResponse:(id)arg2;
 - (id)updateWithOptions:(id)arg1;
 - (id)writeValue:(id)arg1;
+- (id)toggleValue;
 - (id)togglePrimaryAndIncrementalState;
 - (id)copyWithCharacteristicTypes:(id)arg1 valueSource:(id)arg2;
 - (_Bool)canCopyWithCharacteristicTypeSubset:(id)arg1;
 - (id)initWithValueSource:(id)arg1 characteristicTypes:(id)arg2 displayResults:(id)arg3;
 - (id)initWithValueSource:(id)arg1 incrementalAndPrimaryCharacteristicType:(id)arg2 displayResults:(id)arg3;
 - (id)initWithValueSource:(id)arg1 primaryStateControlItem:(id)arg2 incrementalCharacteristicType:(id)arg3 displayResults:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -19,6 +19,7 @@
 + (Class)announcementType;
 @property(retain, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
 @property(retain, nonatomic) NSMutableArray *announcements; // @synthesize announcements=_announcements;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +34,6 @@
 - (unsigned long long)announcementsCount;
 - (void)addAnnouncement:(id)arg1;
 - (void)clearAnnouncements;
-- (void)dealloc;
 
 @end
 

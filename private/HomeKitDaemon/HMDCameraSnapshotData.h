@@ -4,19 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class HAPOSTransaction, HMDVideoResolution, NSData;
+@class HMDVideoResolution, HMFOSTransaction, NSData;
 
-@interface HMDCameraSnapshotData : NSObject
+@interface HMDCameraSnapshotData : HMFObject
 {
     NSData *_snapshotData;
-    HAPOSTransaction *_snapshotDataTrasaction;
+    HMFOSTransaction *_snapshotDataTrasaction;
     HMDVideoResolution *_videoResolution;
 }
 
 @property(readonly, nonatomic) HMDVideoResolution *videoResolution; // @synthesize videoResolution=_videoResolution;
-@property(readonly, nonatomic) HAPOSTransaction *snapshotDataTrasaction; // @synthesize snapshotDataTrasaction=_snapshotDataTrasaction;
+@property(readonly, nonatomic) HMFOSTransaction *snapshotDataTrasaction; // @synthesize snapshotDataTrasaction=_snapshotDataTrasaction;
 @property(readonly, nonatomic) NSData *snapshotData; // @synthesize snapshotData=_snapshotData;
 - (void).cxx_destruct;
 - (void)dealloc;

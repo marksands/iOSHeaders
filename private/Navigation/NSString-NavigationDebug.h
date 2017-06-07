@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (NavigationDebug)
++ (id)_navigation_pointerDescription:(id)arg1;
 + (id)_navigation_stringWithTime:(id)arg1;
 + (id)_navigation_stringWithAltitudeUnits;
 + (id)_navigation_stringWithAltitude:(double)arg1 accuracy:(double)arg2;

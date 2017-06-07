@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class AVCaptureVideoPreviewLayer, CAMFocusIndicatorView, CAMGridView, CAMSubjectIndicatorView, CAMVideoPreviewView, NSDictionary, NSMutableDictionary, UILabel;
+@class AVCaptureVideoPreviewLayer, CAMFocusIndicatorView, CAMGridView, CAMLevelIndicatorView, CAMSubjectIndicatorView, CAMVideoPreviewView, NSDictionary, NSMutableDictionary, UILabel;
 @protocol CAMPreviewViewSubjectIndicatorDelegate;
 
 @interface CAMPreviewView : UIView
@@ -17,6 +17,7 @@
     CAMFocusIndicatorView *_continuousIndicator;
     CAMFocusIndicatorView *_pointIndicator;
     CAMGridView *_gridView;
+    CAMLevelIndicatorView *_levelView;
     id <CAMPreviewViewSubjectIndicatorDelegate> _subjectIndicatorDelegate;
     CAMSubjectIndicatorView *_centeredSubjectIndicatorView;
     UILabel *__simulatorLabel;
@@ -31,6 +32,7 @@
 @property(readonly, nonatomic) UILabel *_simulatorLabel; // @synthesize _simulatorLabel=__simulatorLabel;
 @property(retain, nonatomic) CAMSubjectIndicatorView *centeredSubjectIndicatorView; // @synthesize centeredSubjectIndicatorView=_centeredSubjectIndicatorView;
 @property(nonatomic) id <CAMPreviewViewSubjectIndicatorDelegate> subjectIndicatorDelegate; // @synthesize subjectIndicatorDelegate=_subjectIndicatorDelegate;
+@property(nonatomic) CAMLevelIndicatorView *levelView; // @synthesize levelView=_levelView;
 @property(nonatomic) CAMGridView *gridView; // @synthesize gridView=_gridView;
 @property(retain, nonatomic) CAMFocusIndicatorView *pointIndicator; // @synthesize pointIndicator=_pointIndicator;
 @property(retain, nonatomic) CAMFocusIndicatorView *continuousIndicator; // @synthesize continuousIndicator=_continuousIndicator;

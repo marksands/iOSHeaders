@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) double position; // @synthesize position=_position;
 - (id)description;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToPosition:(double)arg1;
 - (long long)compare:(id)arg1;

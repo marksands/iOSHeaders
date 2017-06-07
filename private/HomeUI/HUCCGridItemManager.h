@@ -22,8 +22,7 @@
 - (void).cxx_destruct;
 - (CDUnknownBlockType)_comparatorForSectionIdentifier:(id)arg1;
 - (id)_itemForSorting;
-- (id)_itemProviders;
-- (void)_createItemProvidersWithHome:(id)arg1;
+- (id)_buildItemProvidersForHome:(id)arg1;
 - (void)reloadForMaximumNumberOfItemsChange;
 - (id)initWithDelegate:(id)arg1 itemType:(unsigned long long)arg2;
 

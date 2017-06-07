@@ -8,5 +8,6 @@
 
 @protocol SearchUIWidthLimitedView <NSObject>
 @property double width;
+- (struct CGSize)originalFittingSizeForSize:(struct CGSize)arg1;
 @end
 

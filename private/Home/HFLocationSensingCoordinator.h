@@ -30,6 +30,7 @@
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 @property(nonatomic) _Bool homeSensingEnabled;
 @property(readonly, nonatomic) NAFuture *locationSensingAvailableFuture;
+- (void)dealloc;
 - (id)init;
 - (id)initWithDelegate:(id)arg1;
 

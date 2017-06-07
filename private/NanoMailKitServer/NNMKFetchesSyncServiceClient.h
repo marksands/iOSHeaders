@@ -21,9 +21,9 @@
 - (id)notifyInitialSyncFinished:(id)arg1;
 - (id)requestHaltSync:(id)arg1;
 - (id)requestFullSync:(id)arg1;
-- (void)requestContent:(id)arg1 highPriority:(_Bool)arg2;
+- (id)requestContent:(id)arg1 highPriority:(_Bool)arg2;
 - (void)requestMoreMessagesForConversation:(id)arg1;
-- (id)requestMoreMessages:(id)arg1;
+- (id)requestMoreMessagesInBatch:(id)arg1;
 - (id)requestFetch:(id)arg1;
 - (id)initWithQueue:(id)arg1;
 

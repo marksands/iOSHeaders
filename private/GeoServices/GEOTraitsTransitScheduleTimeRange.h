@@ -8,8 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOTraitsTransitScheduleTimeRange : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _duration;
     double _startTime;
     CDStruct_beabc505 _has;
@@ -17,6 +20,8 @@
 
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

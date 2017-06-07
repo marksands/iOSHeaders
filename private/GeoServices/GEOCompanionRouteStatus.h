@@ -52,6 +52,7 @@
 @property(nonatomic) unsigned int distanceToRoute; // @synthesize distanceToRoute=_distanceToRoute;
 @property(nonatomic) unsigned int distanceToManeuver; // @synthesize distanceToManeuver=_distanceToManeuver;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -89,6 +90,7 @@
 @property(readonly, nonatomic) _Bool hasEffectiveDistanceToManeuver;
 @property(readonly, nonatomic) unsigned int effectiveStepID;
 @property(readonly, nonatomic) _Bool hasEffectiveStepID;
+@property(readonly, nonatomic) _Bool isRecalculating;
 @property(readonly, nonatomic) _Bool isPreviewingNavigation;
 @property(readonly, nonatomic) _Bool isNavigating;
 - (void)updateFeedbackWithNavigationState:(int)arg1 locationUnreliable:(_Bool)arg2 announcementStage:(unsigned long long)arg3 nextAnnouncementStage:(unsigned long long)arg4 nextAnnouncementTime:(double)arg5;

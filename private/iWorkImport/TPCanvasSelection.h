@@ -37,6 +37,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)containsKindOfClass:(Class)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) unsigned long long infoCount;
+@property(readonly, nonatomic) NSSet *infosWithNonInteractiveInfos;
+@property(readonly, nonatomic) NSSet *nonInteractiveInfos;
 @property(readonly, nonatomic) NSSet *infos;
 @property(readonly, nonatomic) NSSet *rawAdditionalInfos;
 @property(readonly, nonatomic) NSSet *rawExcludedInfos;

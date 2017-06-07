@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool _allowSwitching;
     int _primaryPayload;
     int _dtxPayload;
+    int _redPayload;
     NSMutableArray *_secondaryPayloads;
 }
 
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int audioUnitModel; // @synthesize audioUnitModel=_audioUnitModel;
 @property(nonatomic) _Bool allowRecording; // @synthesize allowRecording=_allowRecording;
 @property(readonly, nonatomic) NSArray *secondaryPayloads; // @synthesize secondaryPayloads=_secondaryPayloads;
+@property(nonatomic) int redPayload; // @synthesize redPayload=_redPayload;
 @property(nonatomic) int dtxPayload; // @synthesize dtxPayload=_dtxPayload;
 @property(nonatomic) int primaryPayload; // @synthesize primaryPayload=_primaryPayload;
 - (void)dealloc;

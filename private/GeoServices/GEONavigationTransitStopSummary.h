@@ -21,6 +21,7 @@
 
 @property(retain, nonatomic) GEOLatLng *coordinate; // @synthesize coordinate=_coordinate;
 @property(nonatomic) unsigned long long stopID; // @synthesize stopID=_stopID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasCoordinate;
 @property(nonatomic) _Bool hasStopID;
-- (void)dealloc;
 - (id)initWithTransitStop:(id)arg1;
 
 @end

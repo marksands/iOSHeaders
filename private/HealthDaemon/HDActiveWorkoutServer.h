@@ -13,7 +13,7 @@
 #import <HealthDaemon/_HKActiveWorkoutServer-Protocol.h>
 #import <HealthDaemon/_HKWorkoutSessionDelegate-Protocol.h>
 
-@class HDClient, HDLocationDataCollector, HDPrimaryProfile, HDServer, HKSource, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSUUID, _HKActiveWorkoutServerConfiguration;
+@class HDFitnessMachineDataProducer, HDHealthStoreServer, HDLocationDataCollector, HKSource, NSArray, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSUUID, _HKActiveWorkoutServerConfiguration, _HKWeightedAverageCalculator;
 @protocol HDActiveWorkoutServerDelegate, NSXPCProxyCreating, OS_dispatch_queue;
 
 @interface HDActiveWorkoutServer : NSObject <_HKActiveWorkoutServer, HDDataObserver, _HKWorkoutSessionDelegate, HDWorkoutEventObserver, HDLocationEventDelegate, HDDatabaseProtectedDataObserver>
@@ -24,13 +24,15 @@
     NSUUID *_workoutSessionUUID;
     HDLocationDataCollector *_locationDataCollector;
     CDUnknownBlockType _endWorkoutCompletion;
+    HDFitnessMachineDataProducer *_fitnessMachineDataProducer;
+    unsigned long long _fitnessMachineType;
+    NSArray *_fitnessMachineObjectTypes;
+    _HKWeightedAverageCalculator *_averageHeartRateCalculator;
     _Bool _observingChanges;
     id <HDActiveWorkoutServerDelegate> _delegate;
+    HDHealthStoreServer *_server;
     NSObject<OS_dispatch_queue> *_queue;
     id <NSXPCProxyCreating> _clientServer;
-    HDPrimaryProfile *_primaryProfile;
-    HDServer *_server;
-    HDClient *_client;
     long long _serverState;
     NSMutableArray *_workoutEvents;
     NSMutableDictionary *_currentAnchors;
@@ -44,17 +46,17 @@
 @property(retain, nonatomic) NSMutableDictionary *currentAnchors; // @synthesize currentAnchors=_currentAnchors;
 @property(retain, nonatomic) NSMutableArray *workoutEvents; // @synthesize workoutEvents=_workoutEvents;
 @property(nonatomic) long long serverState; // @synthesize serverState=_serverState;
-@property(readonly, nonatomic) __weak HDClient *client; // @synthesize client=_client;
-@property(readonly, nonatomic) __weak HDServer *server; // @synthesize server=_server;
-@property(readonly, nonatomic) HDPrimaryProfile *primaryProfile; // @synthesize primaryProfile=_primaryProfile;
 @property(readonly, nonatomic) id <NSXPCProxyCreating> clientServer; // @synthesize clientServer=_clientServer;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(readonly, nonatomic) __weak HDHealthStoreServer *server; // @synthesize server=_server;
 @property(readonly, nonatomic) __weak id <HDActiveWorkoutServerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)workoutRouteUpdated:(id)arg1;
 - (void)locationSeriesSampleUpdated:(id)arg1;
 - (void)elevationUpdated:(unsigned long long)arg1;
 - (void)_handleWorkoutEventReceivedPauseResume:(id)arg1;
 - (void)workoutManager:(id)arg1 didReceiveEvent:(id)arg2;
+- (void)workoutSession:(id)arg1 didUpdateMetrics:(id)arg2;
 - (void)workoutSession:(id)arg1 didGenerateEvent:(id)arg2;
 - (void)workoutSession:(id)arg1 didFailWithError:(id)arg2;
 - (void)workoutSession:(id)arg1 didChangeToState:(long long)arg2 fromState:(long long)arg3 date:(id)arg4;
@@ -75,7 +77,7 @@
 - (_Bool)_queue_updateTotalsWithResumeData:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 database:(id)arg4 localDeviceEntity:(id)arg5 error:(id *)arg6;
 - (void)_queue_setAsCompleteAndStopObserving;
 - (void)_queue_endWorkoutWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_queue_addEventType:(long long)arg1 forDate:(id)arg2;
+- (void)_queue_addEventType:(long long)arg1 forDateInterval:(id)arg2;
 - (void)_queue_reactivateWorkoutWithData:(id)arg1 startDate:(id)arg2;
 - (_Bool)_queue_updateTotalsForReactivationWithResumeData:(id)arg1 startDate:(id)arg2 error:(id *)arg3;
 - (void)_queue_activateWorkoutWithCompletion:(CDUnknownBlockType)arg1;
@@ -84,14 +86,18 @@
 - (void)_queue_resolveGaps;
 - (void)_queue_initObservedTypes;
 - (void)_queue_registerObservers;
+- (_Bool)_isFitnessMachineWorkout;
 - (void)_updateTotalsSinceResumeDate:(id)arg1;
 - (void)_deactivateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_generateGapForType:(id)arg1 resumeData:(id)arg2;
 - (id)_reactivatePredicateForType:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 startRowId:(id)arg4 endRowId:(id)arg5 localDeviceEntity:(id)arg6;
+- (void)_updateMetrics:(id)arg1;
 - (void)_updateClientTotalsWithQuantities:(id)arg1 resumeData:(id)arg2 UUIDs:(id)arg3;
 - (id)_rowIdInDatabase:(id)arg1 forUUID:(id)arg2 error:(id *)arg3;
 - (id)_transactionIdentifier;
 - (id)_clientWithErrorHandler:(CDUnknownBlockType)arg1;
+- (void)setFitnessMachineType:(unsigned long long)arg1;
+- (void)setDataProducer:(id)arg1;
 - (void)deactivate;
 @property(readonly, nonatomic) NSUUID *workoutUUID;
 - (void)pauseClientWithCompletion:(CDUnknownBlockType)arg1;
@@ -109,9 +115,9 @@
 - (void)_queue_setState:(long long)arg1;
 - (id)firstPartyWorkoutSnapshot;
 - (id)diagnosticDescription;
-- (void)_setupObservedTypes;
+- (void)setupObservedTypes;
 - (void)dealloc;
-- (id)initWithClientServer:(id)arg1 serverConfiguration:(id)arg2 primaryProfile:(id)arg3 server:(id)arg4 client:(id)arg5 delegate:(id)arg6;
+- (id)initWithClientServer:(id)arg1 serverConfiguration:(id)arg2 server:(id)arg3 delegate:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

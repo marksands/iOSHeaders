@@ -51,6 +51,7 @@
 - (void)_applicationUpdated:(id)arg1;
 - (void)_proxyApplicationResponse:(id)arg1 userInfo:(id)arg2;
 - (void)_proxyApplicationConnected:(id)arg1;
+- (void)_rpc_requestApplicationLaunch:(id)arg1;
 - (void)_rpc_forwardAutomationSessionRequest:(id)arg1;
 - (void)_rpc_getConnectedDrivers:(id)arg1;
 - (void)_rpc_reportDriverDisconnected:(id)arg1;

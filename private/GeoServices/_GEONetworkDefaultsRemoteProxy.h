@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/_GEONetworkDefaultsServerProxy-Protocol.h>
 
@@ -20,7 +20,8 @@ __attribute__((visibility("hidden")))
     int _configChangedToken;
 }
 
-@property(nonatomic) id <_GEONetworkDefaultsServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <_GEONetworkDefaultsServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)updateNetworkDefaults:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;

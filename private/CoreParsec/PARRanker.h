@@ -9,14 +9,13 @@
 #import <CoreParsec/PARRanker-Protocol.h>
 
 @class NSArray, NSString, PARRankerParameters, PARSession;
-@protocol IFCentroidModel, IFCentroidStore, OS_dispatch_queue;
+@protocol IFCentroidModel, IFCentroidStore;
 
 @interface PARRanker : NSObject <PARRanker>
 {
+    PARRankerParameters *_parameters;
     id <IFCentroidStore> _store;
     id <IFCentroidModel> _model;
-    PARRankerParameters *_parameters;
-    NSObject<OS_dispatch_queue> *_queue;
     NSArray *_topicsForRequest;
     PARSession *_session;
 }
@@ -29,33 +28,27 @@
 + (id)getCentroidScoringParameters:(id)arg1 topicScale:(double)arg2 tldScale:(double)arg3 mtScale:(double)arg4 rankingAlgorithm:(id)arg5;
 @property(nonatomic) __weak PARSession *session; // @synthesize session=_session;
 @property(readonly) NSArray *topicsForRequest; // @synthesize topicsForRequest=_topicsForRequest;
-@property(readonly) PARRankerParameters *parameters; // @synthesize parameters=_parameters;
 @property(readonly) id <IFCentroidModel> model; // @synthesize model=_model;
 @property(readonly) id <IFCentroidStore> store; // @synthesize store=_store;
+@property(readonly) PARRankerParameters *parameters; // @synthesize parameters=_parameters;
 - (void).cxx_destruct;
-- (void)_enqueueAsynchronousWriteBlock:(CDUnknownBlockType)arg1;
 - (id)computeTopicsForRequest;
 - (void)deleteFeatureVectorsWithDomains:(id)arg1;
 - (void)addFeatureVectorsFromFeedbackItems:(id)arg1;
 - (void)addFeatureVectorsFromURLs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_periodicTask;
-- (void)_setTopicsForRequest;
 - (unsigned long long)addFeatureVectorsFromURLsAndTopicModel:(id)arg1 topicModel:(id)arg2;
-- (void)_addFeatureVectors:(id)arg1 update:(_Bool)arg2;
-- (id)_featureVectorFromURL:(id)arg1 topicModel:(id)arg2;
 - (void)rank:(id)arg1 enableSectionRanking:(_Bool)arg2;
 - (void)rank:(id)arg1;
 - (void)rank:(id)arg1 withAlgorithms:(id)arg2;
 - (void)rank:(id)arg1 withAlgorithms:(id)arg2 enableSectionRanking:(_Bool)arg3;
 - (id)initWithParameters:(id)arg1 client:(id)arg2 store:(id)arg3 session:(id)arg4;
 - (id)getURLTopics:(id)arg1 topicModel:(id)arg2;
-- (void)_rank:(id)arg1 withAlgorithms:(id)arg2 enableSectionRanking:(_Bool)arg3;
 - (id)generatePersonalizationScore:(id)arg1 rankingAlgorithm:(id)arg2;
 - (double)scoreForResult:(id)arg1 rankingAlgorithm:(id)arg2;
 - (double)topicScoreForResult:(id)arg1 rankingAlgorithm:(id)arg2;
 - (double)domainScoreForResult:(id)arg1 rankingAlgorithm:(id)arg2;
 - (double)mediaTypeScoreForResult:(id)arg1 rankingAlgorithm:(id)arg2;
-- (id)getSectionName:(unsigned long long)arg1;
+- (id)getSectionName:(int)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

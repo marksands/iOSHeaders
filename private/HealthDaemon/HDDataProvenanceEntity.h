@@ -11,7 +11,7 @@
 }
 
 + (id)originProvenanceForPersistentID:(long long)arg1 database:(id)arg2 error:(id *)arg3;
-+ (id)insertOrLookupDataProvenanceForSyncProvenance:(long long)arg1 originProductType:(id)arg2 originSystemBuild:(id)arg3 localProductType:(id)arg4 localSystemBuild:(id)arg5 sourceVersion:(id)arg6 timeZoneName:(id)arg7 sourceID:(id)arg8 deviceID:(id)arg9 database:(id)arg10 error:(id *)arg11;
++ (id)insertOrLookupDataProvenanceForSyncProvenance:(long long)arg1 originProductType:(id)arg2 originSystemBuild:(id)arg3 originOSVersion:(CDStruct_f6aba300)arg4 localProductType:(id)arg5 localSystemBuild:(id)arg6 sourceVersion:(id)arg7 timeZoneName:(id)arg8 sourceID:(id)arg9 deviceID:(id)arg10 database:(id)arg11 error:(id *)arg12;
 + (long long)protectionClass;
 + (id)uniquedColumns;
 + (id)columnsDefinition;

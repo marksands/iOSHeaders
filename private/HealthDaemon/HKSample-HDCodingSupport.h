@@ -6,7 +6,19 @@
 
 #import <HealthKit/HKSample.h>
 
-@interface HKSample (HDCodingSupport)
+#import <HealthDaemon/HDCoding-Protocol.h>
+
+@class NSString;
+
+@interface HKSample (HDCodingSupport) <HDCoding>
++ (id)createWithCodable:(id)arg1;
+- (_Bool)addCodableRepresentationToCollection:(id)arg1;
 - (id)codableRepresentationForSync;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @end
 

@@ -31,7 +31,7 @@
 - (void)notePasscodeFieldDidAcceptEntry;
 - (void)notePasscodeFieldTextDidChange;
 - (_Bool)shouldInsertPasscodeText:(id)arg1;
-- (void)_autofillForMesaWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_autofillForBiometricAuthenticationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_handleKeyUIEvent:(id)arg1 source:(int)arg2;
 - (struct CGSize)_viewSize;
 @property(readonly, nonatomic, getter=_textField) UITextField *textField; // @synthesize textField=_textField;
@@ -44,7 +44,6 @@
 - (_Bool)becomeFirstResponder;
 - (_Bool)isFirstResponder;
 - (_Bool)canBecomeFirstResponder;
-- (void)setBackgroundAlpha:(double)arg1;
 - (void)reset;
 @property(copy, nonatomic) NSString *stringValue; // @dynamic stringValue;
 - (void)deleteLastCharacter;

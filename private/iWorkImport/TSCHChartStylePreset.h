@@ -7,6 +7,7 @@
 #import <iWorkImport/TSPObject.h>
 
 #import <iWorkImport/TSCHStyleSwapSupporting-Protocol.h>
+#import <iWorkImport/TSKModel-Protocol.h>
 #import <iWorkImport/TSPCopying-Protocol.h>
 #import <iWorkImport/TSSCustomPresetMigration-Protocol.h>
 #import <iWorkImport/TSSPreset-Protocol.h>
@@ -14,7 +15,7 @@
 @class NSArray, NSString, NSUUID, TSCHChartStyle, TSCHLegendStyle, TSCHReferenceLineStyle;
 
 __attribute__((visibility("hidden")))
-@interface TSCHChartStylePreset : TSPObject <TSSCustomPresetMigration, TSPCopying, TSSPreset, TSCHStyleSwapSupporting>
+@interface TSCHChartStylePreset : TSPObject <TSSCustomPresetMigration, TSPCopying, TSSPreset, TSKModel, TSCHStyleSwapSupporting>
 {
     NSUUID *mUuid;
     TSCHChartStyle *mChartStyle;
@@ -29,6 +30,7 @@ __attribute__((visibility("hidden")))
 
 + (void)upgradeForTrendLineEquationAndR2LabelsPropertyMigrationFromChartStyle:(id)arg1 seriesStyles:(id)arg2;
 + (void)upgradeFor3DShadowPropertyMigrationFromChartStyle:(id)arg1 seriesStyles:(id)arg2;
++ (void)upgradeCalloutLineStylesForSeriesPresets:(id)arg1 valueAxisPresets:(id)arg2 paragraphPresets:(id)arg3;
 + (void)upgradeShadowPropertyForParagraphStyles:(id)arg1;
 + (void)upgradeTrendLinesAndErrorBarsForSeriesPresets:(id)arg1 valueAxisPresets:(id)arg2 paragraphPresets:(id)arg3;
 + (id)p_getDefaultTrendLineStrokeColor:(id)arg1;
@@ -56,14 +58,16 @@ __attribute__((visibility("hidden")))
 - (id)swatchImage;
 @property(readonly, nonatomic) NSString *presetKind;
 @property(readonly, copy) NSString *description;
+- (id)referencedStyles;
 - (void)upgradePresetIfNecessaryFromFinalizeHandlerWithOptionalPreUFFVersion:(const unsigned long long *)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)isEquivalentToPreset:(id)arg1;
 - (_Bool)isEquivalentToPreset:(id)arg1 outReasons:(id *)arg2;
 - (id)stylesheet;
 - (id)allStyles;
 - (id)copyWithContext:(id)arg1;
+- (id)copyWithContext:(id)arg1 shallowCopyStyles:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 chartStyle:(id)arg2 legendStyle:(id)arg3 valueAxisStyles:(id)arg4 categoryAxisStyles:(id)arg5 seriesStyles:(id)arg6;
 - (id)initWithContext:(id)arg1 chartStyle:(id)arg2 legendStyle:(id)arg3 valueAxisStyles:(id)arg4 categoryAxisStyles:(id)arg5 seriesStyles:(id)arg6 paragraphStyles:(id)arg7 refLineStyle:(id)arg8;

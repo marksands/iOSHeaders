@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NCNotificationDispatcher *dispatcher; // @synthesize dispatcher=_dispatcher;
 @property(retain, nonatomic) BBObserver *observer; // @synthesize observer=_observer;
 - (void).cxx_destruct;
+- (unsigned long long)_updateFeedForCoverSheetDestination:(unsigned long long)arg1 storedFeed:(unsigned long long)arg2;
 - (id)_sectionInfoForBulletin:(id)arg1;
 - (id)_bulletinsPerSectionIdForNotificationRequests:(id)arg1;
 - (void)_applicationIconChanged:(id)arg1;

@@ -6,31 +6,43 @@
 
 #import <CloudPhotoLibrary/CPLEngineSyncTask.h>
 
-@class CPLChangeBatch, CPLEngineChangePipe, NSArray, NSDictionary, NSMutableDictionary, NSObject, NSString;
-@protocol CPLEngineTransportCheckRecordsExistenceTask, CPLEngineTransportUploadBatchTask, CPLPushToTransportTaskDelegate, OS_dispatch_queue;
+@class CPLBatchExtractionStrategy, CPLChangeBatch, CPLEnginePushRepository, CPLEngineScheduler, CPLExtractedBatch, NSArray, NSDictionary, NSMutableDictionary, NSObject, NSString;
+@protocol CPLEngineTransportCheckRecordsExistenceTask, CPLEngineTransportGroup, CPLEngineTransportUploadBatchTask, CPLPushToTransportTaskDelegate, OS_dispatch_queue;
 
 @interface CPLPushToTransportTask : CPLEngineSyncTask
 {
     NSObject<OS_dispatch_queue> *_lock;
+    CPLEnginePushRepository *_pushRepository;
+    CPLEngineScheduler *_scheduler;
+    CPLBatchExtractionStrategy *_currentStrategy;
+    CPLExtractedBatch *_extractedBatch;
     CPLChangeBatch *_uploadBatch;
     CPLChangeBatch *_batchToCommit;
     NSArray *_uploadResourceTasks;
-    NSArray *_staleOrUnavailableResources;
-    NSArray *_resourcesForBackgroundUpload;
     NSDictionary *_recordsWithGeneratedResources;
     NSMutableDictionary *_recordsWithSparseResources;
     NSMutableDictionary *_recordsWithForwardCompatibilityCheck;
+    NSMutableDictionary *_recordsWithUntrustedCloudCache;
+    NSMutableDictionary *_recordsWithResourcesToLookAhead;
     NSMutableDictionary *_recordsToCheckForExistence;
+    NSMutableDictionary *_recordsNeedingToBeFullyFetched;
     id <CPLEngineTransportCheckRecordsExistenceTask> _checkExistenceTask;
     id <CPLEngineTransportUploadBatchTask> _uploadTask;
     unsigned long long _lastReportedProgress;
-    unsigned long long _countOfPushedBatches;
+    unsigned long long _countOfPushedChanges;
     NSString *_clientCacheIdentifier;
-    CPLEngineChangePipe *_currentPushQueue;
     double _startOfIteration;
     double _startOfDerivativesGeneration;
     _Bool _generatingSomeDerivatives;
     _Bool _deferredCancel;
+    _Bool _shouldCheckResourcesAhead;
+    unsigned long long _estimatedSize;
+    unsigned long long _estimatedCount;
+    _Bool _shouldSetupEstimatedSize;
+    id <CPLEngineTransportGroup> _transportGroup;
+    _Bool _shouldResetExceedingQuotaOnSuccess;
+    _Bool _isUsingOverQuotaStrategy;
+    _Bool _resetStrategy;
 }
 
 - (void).cxx_destruct;
@@ -50,7 +62,8 @@
 - (void)_checkForRecordExistence;
 - (void)_detectUpdatesNeedingExistenceCheck:(id)arg1;
 - (void)_updateChangeProperties:(id)arg1 withBaseChange:(id)arg2 withCopyProperty:(CDUnknownBlockType)arg3;
-- (_Bool)_discardResourcesToUploadFromBatch:(id)arg1 error:(id *)arg2;
+- (_Bool)_reenqueueExtractedBatchWithRejectedRecords:(id)arg1 error:(id *)arg2;
+- (_Bool)_discardUploadedExtractedBatchWithError:(id *)arg1;
 - (_Bool)_markUploadedTasksDidFinishWithError:(id)arg1 error:(id *)arg2;
 - (_Bool)_prepareResourcesToUploadInBatch:(id)arg1 error:(id *)arg2;
 - (void)_requireExistenceCheckForRecords:(id)arg1;

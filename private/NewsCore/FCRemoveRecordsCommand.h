@@ -17,9 +17,9 @@
 - (void).cxx_destruct;
 - (void)coalesceWithCommand:(id)arg1;
 - (_Bool)canCoalesceWithCommand:(id)arg1;
-- (void)handleBatchOfRecordIDs:(id)arg1 internalPrivateDataContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)handleRecordIDsFromStream:(id)arg1 internalPrivateDataContext:(id)arg2 delegate:(id)arg3;
-- (void)executeWithContext:(id)arg1 delegate:(id)arg2;
+- (void)handleBatchOfRecordIDs:(id)arg1 internalPrivateDataContext:(id)arg2 qualityOfService:(long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)handleRecordIDsFromStream:(id)arg1 internalPrivateDataContext:(id)arg2 delegate:(id)arg3 qualityOfService:(long long)arg4;
+- (void)executeWithContext:(id)arg1 delegate:(id)arg2 qualityOfService:(long long)arg3;
 - (id)recordZoneName;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

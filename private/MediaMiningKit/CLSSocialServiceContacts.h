@@ -7,6 +7,7 @@
 #import <MediaMiningKit/CLSSocialService.h>
 
 @class CNContact, CNContactStore, NSMutableArray, NSMutableDictionary;
+@protocol CLSSocialServiceContactsDelegate;
 
 @interface CLSSocialServiceContacts : CLSSocialService
 {
@@ -16,9 +17,11 @@
     NSMutableArray *_allPersons;
     NSMutableDictionary *_personsForCNIdentifiers;
     NSMutableDictionary *_personsForPHIdentifiers;
+    id <CLSSocialServiceContactsDelegate> _delegate;
 }
 
 + (id)defaultKeysToFetch;
+@property(nonatomic) __weak id <CLSSocialServiceContactsDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)enumerateBirthdaysBetweenLocalDate:(id)arg1 andLocalDate:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)_maidenNameForPersonRecord:(id)arg1;
@@ -33,6 +36,7 @@
 - (id)_mePersons;
 - (id)_meRecords;
 - (unsigned long long)_relationshipForContact:(id)arg1;
+- (void)_addAddressesToPerson:(id)arg1 withContact:(id)arg2;
 - (id)__newPersonWithContact:(id)arg1;
 - (id)__newPersonWithPHPerson:(id)arg1;
 - (id)_personWithContactIdentifier:(id)arg1;

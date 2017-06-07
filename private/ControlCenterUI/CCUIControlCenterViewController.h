@@ -45,6 +45,7 @@
 - (void)_presentButtonActionPlatterWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_presentAirDropWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_dismissAirDropWithCompletion:(CDUnknownBlockType)arg1;
+- (id)_systemControlsPageViewController;
 - (id)_contentViewControllerForLocation:(struct CGPoint)arg1 inView:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;

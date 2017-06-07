@@ -15,6 +15,7 @@
     AKAppleIDAuthenticationContext *_authContext;
 }
 
++ (_Bool)isSettingUpMultiUser;
 + (_Bool)isMultiUser;
 + (id)delegateBundleIDsForManagedAccount;
 + (id)sharedManager;

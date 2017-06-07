@@ -8,7 +8,7 @@
 
 #import <CloudDocsDaemon/NSSecureCoding-Protocol.h>
 
-@class BRCAccountSession, BRCAppLibrary, BRCBookmark, BRCClientZone, BRCGenerationID, BRCItemID, BRCServerZone, BRFileObjectID, NSData, NSDirectoryEnumerator, NSSet, NSString, NSURL;
+@class BRCAccountSession, BRCAppLibrary, BRCBookmark, BRCDirectoryEnumerator, BRCGenerationID, BRFileObjectID, NSData, NSSet, NSString, NSURL;
 
 @interface BRCRelativePath : NSObject <NSSecureCoding>
 {
@@ -21,9 +21,6 @@
     BRCGenerationID *_generationID;
     int _deviceID;
     BRCAppLibrary *_appLibrary;
-    BRCClientZone *_clientZone;
-    BRCItemID *_sharedItemID;
-    NSString *_sharedOwnerName;
     unsigned char _finderInfo[32];
     unsigned long long _fileID;
     unsigned short _mode;
@@ -54,32 +51,17 @@
         long long __sig;
         char __opaque[192];
     } _mutex;
-    struct {
-        int _field1;
-        long long _field2;
-        long long _field3;
-        char *_field4;
-        int _field5;
-        long long _field6;
-        long long _field7;
-        int _field8;
-        struct _opaque_pthread_mutex_t _field9;
-        struct _telldir *_field10;
-    } *_dir;
-    NSDirectoryEnumerator *_descendantsEnumerator;
+    BRCDirectoryEnumerator *_descendantsEnumerator;
     BRCAccountSession *_session;
     NSData *_quarantineInfo;
     NSData *_xattrs;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (int)locateByFileID:(unsigned long long)arg1 clientZone:(id)arg2 roots:(id)arg3;
-@property(retain, nonatomic) NSString *sharedOwnerName; // @synthesize sharedOwnerName=_sharedOwnerName;
-@property(retain, nonatomic) BRCItemID *sharedItemID; // @synthesize sharedItemID=_sharedItemID;
++ (int)locateByFileID:(unsigned long long)arg1 session:(id)arg2;
 @property(nonatomic) unsigned char itemScope; // @synthesize itemScope=_itemScope;
 @property(nonatomic) unsigned short type; // @synthesize type=_type;
 @property(retain, nonatomic) BRCAppLibrary *appLibrary; // @synthesize appLibrary=_appLibrary;
-@property(retain, nonatomic) BRCClientZone *clientZone; // @synthesize clientZone=_clientZone;
 @property(readonly, nonatomic) BRCAccountSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
@@ -94,8 +76,6 @@
 - (_Bool)isEqualToRelativePath:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)closeDirectoryScan;
-- (id)nextDescendant;
-- (_Bool)openDirectoryForRecursiveScan;
 - (id)nextChild;
 - (_Bool)openDirectoryForScanWithError:(int *)arg1;
 - (_Bool)performOnOpenParentFileDescriptor:(CDUnknownBlockType)arg1 error:(int *)arg2;
@@ -108,15 +88,16 @@
 - (_Bool)_shouldKeepBasePathOpen;
 - (void)refreshPathTypeAndContainer;
 - (id)refreshFromPathMustExist:(_Bool)arg1;
+- (_Bool)resolveAndKeepOpenMustExist:(_Bool)arg1 allowResolveInPkg:(_Bool)arg2 error:(int *)arg3;
 - (_Bool)resolveAndKeepOpenMustExist:(_Bool)arg1 error:(int *)arg2;
-- (_Bool)_resolveAndKeepOpenMustExist:(_Bool)arg1 error:(int *)arg2;
+- (_Bool)_resolveAndKeepOpenMustExist:(_Bool)arg1 allowResolveInPkg:(_Bool)arg2 error:(int *)arg3;
 - (int)_resolveSymlinkRelativeTo:(int)arg1 path:(id)arg2;
 - (int)_resolveWhenDoesntExist;
 - (int)_resolveWhenExists;
 - (_Bool)_fixupRelativePath;
 - (_Bool)_resolveRootWhenExists:(_Bool)arg1;
 - (int)_resolvePathTypeAndContainer;
-- (int)_resolveBasePath;
+- (int)_resolveBasePath:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool hasFinderTags;
 @property(readonly, nonatomic) unsigned int fileType;
 @property(readonly, nonatomic) _Bool isBRAlias;
@@ -134,6 +115,7 @@
 @property(readonly, nonatomic) long long size;
 @property(readonly, nonatomic) int deviceID;
 @property(readonly, nonatomic) unsigned int documentID;
+@property(readonly, nonatomic) BRFileObjectID *parentFileObjectID;
 @property(readonly, nonatomic) unsigned long long parentFileID;
 @property(readonly, nonatomic) BRFileObjectID *fileObjectID;
 @property(readonly, nonatomic) unsigned long long fileID;
@@ -144,12 +126,10 @@
 @property(readonly, nonatomic) NSString *pathRelativeToPackageRoot;
 @property(readonly, nonatomic) NSString *pathRelativeToRoot;
 @property(readonly, nonatomic) NSString *absolutePath;
-@property(readonly, nonatomic) BRCServerZone *serverZone;
 @property(readonly, nonatomic) _Bool exists;
 @property(readonly, nonatomic) _Bool isSymLink;
 @property(readonly, nonatomic) _Bool isExcluded;
 - (_Bool)isResolved;
-@property(readonly, nonatomic) NSString *sharedEnclosureUUID;
 @property(readonly, nonatomic) _Bool isRoot;
 @property(readonly, nonatomic) _Bool isInPackage;
 @property(readonly, nonatomic) _Bool isPackageRoot;
@@ -158,15 +138,17 @@
 @property(readonly, nonatomic) _Bool isBundle;
 @property(readonly, nonatomic) _Bool isFault;
 @property(readonly, nonatomic) _Bool isDocument;
+- (id)logicalURL;
 - (id)logicalURLWithLogicalName:(id)arg1;
-@property(readonly, nonatomic) NSURL *url;
+@property(readonly, nonatomic) NSURL *physicalURL;
 @property(readonly, nonatomic) BRCRelativePath *root;
 - (void)dealloc;
 - (id)pathOfPackageRoot;
 - (id)pathWithChildAtPath:(id)arg1;
-- (id)initWithFileID:(unsigned long long)arg1 clientZone:(id)arg2 roots:(id)arg3;
-- (id)initWithPath:(id)arg1 appLibrary:(id)arg2 clientZone:(id)arg3;
-- (id)initWithAbsolutePath:(id)arg1 session:(id)arg2 roots:(id)arg3;
+- (id)initWithFileID:(unsigned long long)arg1 root:(id)arg2 session:(id)arg3;
+- (id)initWithFileID:(unsigned long long)arg1 session:(id)arg2;
+- (id)initWithPath:(id)arg1 appLibrary:(id)arg2;
+- (id)initWithAbsolutePath:(id)arg1 session:(id)arg2;
 - (id)_initWithPath:(id)arg1 relativeToRoot:(id)arg2;
 - (id)initWithRootPath:(id)arg1 session:(id)arg2;
 - (id)init;

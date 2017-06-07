@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/GEOResourceManifestTileGroupObserver-Protocol.h>
 
@@ -18,6 +18,7 @@
     VKResourceManager *_resourceManager;
     VKGenericShieldGenerator *_genericShieldGenerator;
     NSArray *_nonRegionalResourceNames;
+    struct mutex _nonRegionalResourceNamesLock;
     NSMapTable *_atlases;
     NSLock *_atlasesLock;
     NSMapTable *_indexes;

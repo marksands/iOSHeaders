@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSArray *readOnlyArray;
 - (void)enumerateObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)addObjectsFromArray:(id)arg1;
 - (void)addObject:(id)arg1;
 - (id)init;
 

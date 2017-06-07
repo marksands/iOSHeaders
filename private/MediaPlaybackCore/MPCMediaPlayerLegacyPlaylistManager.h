@@ -8,7 +8,7 @@
 
 #import <MediaPlaybackCore/MPCQueueBehaviorManaging-Protocol.h>
 
-@class MPAVItem, MPMusicPlayerControllerQueue, MPMutableBidirectionalDictionary, MPQueueFeeder, NSMutableArray, NSMutableIndexSet, NSObject, NSString, _MPCAVItemSourceContext, _MPCAVPlaylistIteration;
+@class MPAVItem, MPMusicPlayerControllerQueue, MPMutableBidirectionalDictionary, MPQueueFeeder, NSMapTable, NSMutableArray, NSMutableIndexSet, NSObject, NSString, _MPCAVItemSourceContext, _MPCAVPlaylistIteration;
 @protocol OS_dispatch_queue;
 
 @interface MPCMediaPlayerLegacyPlaylistManager : MPAVPlaylistManager <MPCQueueBehaviorManaging>
@@ -25,6 +25,7 @@
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_queue> *_musicPlayerControllerAccessQueue;
     MPMusicPlayerControllerQueue *_currentMusicPlayerControllerQueue;
+    NSMapTable *_queueFeederLookup;
     _Bool _disableQueueModifications;
     MPQueueFeeder *_softQueueFeeder;
     NSMutableArray *_hardQueueSourceContexts;
@@ -75,7 +76,7 @@
 @property(readonly, nonatomic) _Bool userCanChangeShuffleAndRepeatType;
 - (_Bool)supportsAddToQueue;
 - (_Bool)preventsHardQueueModificationsForItem:(id)arg1;
-@property(readonly, nonatomic) _Bool canSkipToPreviousItem;
+- (_Bool)canSkipToPreviousItemForItem:(id)arg1;
 - (id)queueCoordinator:(id)arg1 itemToFollowItem:(id)arg2;
 - (void)_willFinishReloadWithQueueFeeder:(id)arg1 fromPlaybackContext:(id)arg2;
 - (void)queueFeederDidInvalidateRealShuffleType:(id)arg1;
@@ -96,6 +97,8 @@
 - (void)player:(id)arg1 currentItemDidChangeFromItem:(id)arg2 toItem:(id)arg3;
 - (void)_notifyQueueFeederContentsChanged;
 - (id)metadataItemForPlaylistIndex:(long long)arg1;
+- (unsigned long long)indexForContentItemID:(id)arg1;
+- (id)itemForContentItemID:(id)arg1;
 - (id)itemForPlaylistIndex:(long long)arg1;
 - (void)handlePlaybackFailureForItem:(id)arg1;
 - (unsigned long long)displayCountForItem:(id)arg1;
@@ -117,6 +120,7 @@
 // Remaining properties
 @property(readonly, nonatomic) _Bool allowsUserVisibleUpcomingItems;
 @property(readonly, nonatomic) _Bool canSeek;
+@property(readonly, nonatomic) _Bool canSkipToPreviousItem;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

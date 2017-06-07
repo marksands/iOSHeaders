@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOResourceManifestServerProxy-Protocol.h>
 
@@ -29,7 +29,8 @@ __attribute__((visibility("hidden")))
     int _activeTileGroupChangedNotificationToken;
 }
 
-@property(nonatomic) id <GEOResourceManifestServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <GEOResourceManifestServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_handleMessage:(id)arg1 xpcMessage:(id)arg2;
 - (void)deactivateResourceScenario:(int)arg1;
 - (void)activateResourceScenario:(int)arg1;
@@ -49,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (id)authToken;
 - (void)dealloc;
 @property(readonly, nonatomic) GEOActiveTileGroup *activeTileGroup;
-- (id)initWithDelegate:(id)arg1 configuration:(id)arg2;
+- (id)initWithDelegate:(id)arg1 configuration:(id)arg2 additionalMigrationTaskClasses:(id)arg3;
 - (id)serverQueue;
 
 // Remaining properties

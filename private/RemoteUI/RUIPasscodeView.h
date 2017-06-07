@@ -11,12 +11,12 @@
 #import <RemoteUI/RUITableFooterDelegate-Protocol.h>
 #import <RemoteUI/RUITopLevelPageElement-Protocol.h>
 
-@class NSString, PSPasscodeField, RUIHTMLHeaderElement, RUIHTMLHeaderView, RUIHeaderElement, RUIObjectModel, RUIPage, UIColor, UITextField, UIView;
+@class NSString, PSPasscodeField, RUIHTMLHeaderElement, RUIHTMLHeaderView, RUIHeaderElement, RUIObjectModel, RUIPage, UIColor, UIScrollView, UITextField, UIView;
 @protocol RUIHeader, RemoteUITableFooter;
 
 @interface RUIPasscodeView : RUIElement <RUITableFooterDelegate, PSPasscodeFieldDelegate, CAAnimationDelegate, RUITopLevelPageElement>
 {
-    UIView *_containerView;
+    UIScrollView *_containerView;
     UIView<RUIHeader> *_headerView;
     RUIHTMLHeaderView *_HTMLHeaderView;
     UITextField *_complexPasscodeField;
@@ -71,7 +71,7 @@
 - (id)view;
 - (void)_updateFieldSpacer;
 - (id)sourceURL;
-- (id)init;
+- (id)initWithAttributes:(id)arg1 parent:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

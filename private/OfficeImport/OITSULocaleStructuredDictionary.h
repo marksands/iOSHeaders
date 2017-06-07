@@ -16,6 +16,8 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_cldrLanguageScriptForKey;
 }
 
++ (id)numberFormatterSymbolsFallbackDictionary;
++ (id)dateFormatterSymbolsFallbackDictionary;
 + (id)dictionaryWithContentsOfFileForLocale:(struct __CFLocale *)arg1 inDirectory:(id)arg2 inBundle:(id)arg3;
 - (id)p_makeLocaleIdentifierWithLanguage:(id)arg1 script:(id)arg2 region:(id)arg3;
 - (_Bool)p_extractLanguage:(id *)arg1 script:(id *)arg2 region:(id *)arg3 fromString:(id)arg4;

@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSObject<OS_dispatch_data> *serializedData;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (_Bool)validatedLoadFromUnarchiver:(id)arg1;
 - (id)packageLocator;
 - (void)willModifyForUpgrade;
 - (void)willModify;

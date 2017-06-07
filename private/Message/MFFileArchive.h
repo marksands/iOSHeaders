@@ -31,8 +31,9 @@
 - (_Bool)_decompressContents:(id)arg1 error:(id *)arg2 mainEntry:(_Bool)arg3;
 - (_Bool)_decompressContents:(id)arg1 inMemoryWithError:(id *)arg2 mainEntry:(_Bool)arg3;
 - (int)_compressionCompleteForArchive:(struct archive *)arg1 error:(id *)arg2;
+- (int)_archiveDirectoryName:(id)arg1 withArchive:(struct archive *)arg2 error:(id *)arg3;
 - (int)_compressContents:(id)arg1 fileName:(id)arg2 withArchive:(struct archive *)arg3 error:(id *)arg4;
-- (struct archive_entry *)_compressionArchiveEntryWithFileName:(id)arg1 length:(unsigned long long)arg2;
+- (struct archive_entry *)_compressionArchiveEntryWithName:(id)arg1 length:(unsigned long long)arg2 isDirectory:(_Bool)arg3;
 - (int)_compressWithArchive:(struct archive *)arg1 error:(id *)arg2;
 - (int)_compressContents:(id)arg1 withArchive:(struct archive *)arg2 error:(id *)arg3;
 - (struct archive *)_compressionArchive;

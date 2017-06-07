@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)newObjectForUnarchiver:(id)arg1;
++ (Class)classForUnarchiver:(id)arg1;
 - (_Bool)shouldHideEmptyBullets;
 - (_Bool)autoListTermination;
 - (_Bool)autoListRecognition;
@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchive:(struct PlaceholderArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct PlaceholderArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

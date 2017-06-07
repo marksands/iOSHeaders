@@ -6,7 +6,7 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
-@class NSString, SASRecognition;
+@class NSNumber, NSString, SASRecognition, SAUIGetResponseAlternatives;
 
 @interface SASSpeechRecognized : SABaseClientBoundCommand
 {
@@ -17,7 +17,11 @@
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *title;
 @property(copy, nonatomic) NSString *sessionId;
+@property(copy, nonatomic) NSString *resultId;
+@property(retain, nonatomic) SAUIGetResponseAlternatives *responseAlternatives;
 @property(retain, nonatomic) SASRecognition *recognition;
+@property(copy, nonatomic) NSNumber *processedAudioDuration;
+@property(nonatomic) _Bool eager;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

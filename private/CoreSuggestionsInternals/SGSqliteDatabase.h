@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSCache, NSOperationQueue, NSString;
+@class NSCache, NSMutableDictionary, NSOperationQueue, NSString;
 @protocol OS_dispatch_queue;
 
 @interface SGSqliteDatabase : NSObject
@@ -17,6 +17,7 @@
     // Error parsing type: {atomic_flag="_Value"AB}, name: _isClosed
     NSString *_filename;
     NSCache *_queryCache;
+    NSMutableDictionary *_sqlarrays;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSOperationQueue *_operationQueue;
@@ -58,6 +59,7 @@
 - (_Bool)hasColumnOnTable:(id)arg1 named:(id)arg2;
 - (id)tablesWithColumnNamed:(id)arg1;
 - (_Bool)hasTableNamed:(id)arg1;
+- (long long)maxIdForTable:(id)arg1;
 - (_Bool)setUserVersion:(unsigned long long)arg1;
 - (unsigned long long)userVersion;
 - (_Bool)createSnapshot:(id)arg1;
@@ -75,6 +77,7 @@
 - (id)selectColumns:(id)arg1 fromTable:(id)arg2 whereClause:(id)arg3 onPrep:(CDUnknownBlockType)arg4 onError:(CDUnknownBlockType)arg5;
 - (void)insertOrReplaceIntoTable:(id)arg1 dictionary:(id)arg2 onError:(CDUnknownBlockType)arg3;
 - (void)updateTable:(id)arg1 dictionary:(id)arg2 whereClause:(id)arg3 onError:(CDUnknownBlockType)arg4;
+- (_Bool)prepAndRunQuery:(id)arg1 arrays:(id)arg2 onPrep:(CDUnknownBlockType)arg3 onRow:(CDUnknownBlockType)arg4 onError:(CDUnknownBlockType)arg5;
 - (_Bool)prepAndRunNonDataQueries:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (void)_prepAndRunQuery:(id)arg1 columns:(id)arg2 dictionary:(id)arg3 onError:(CDUnknownBlockType)arg4;
 - (_Bool)prepAndRunQuery:(id)arg1 onPrep:(CDUnknownBlockType)arg2 onRow:(CDUnknownBlockType)arg3 onError:(CDUnknownBlockType)arg4;
@@ -108,7 +111,6 @@
 - (_Bool)_handle_SQLITE_READONLY_ROLLBACK:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_READONLY_CANTLOCK:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_READONLY_RECOVERY:(id)arg1 onError:(CDUnknownBlockType)arg2;
-- (_Bool)_handle_SQLITE_CORRUPT_VTAB:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_BUSY_SNAPSHOT:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_BUSY_RECOVERY:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_LOCKED_SHAREDCACHE:(id)arg1 onError:(CDUnknownBlockType)arg2;
@@ -170,6 +172,7 @@
 - (_Bool)_handle_SQLITE_CANTOPEN:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_IOERR_SHORT_READ:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_NOTADB:(id)arg1 onError:(CDUnknownBlockType)arg2;
+- (_Bool)_handle_SQLITE_CORRUPT_VTAB:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_CORRUPT:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_SQLITE_FULL:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (_Bool)_handle_UNKNOWN_ERROR:(id)arg1 onError:(CDUnknownBlockType)arg2;

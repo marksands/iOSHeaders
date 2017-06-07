@@ -25,16 +25,19 @@
     NSString *_sourceChannelId;
     NSData *_subscriptionPurchaseSessionId;
     _Bool _arrivedFromAd;
+    _Bool _sawSubscriptionSheet;
     _Bool _subscriptionOnlyArticlePreview;
     struct {
         unsigned int paidSubscriptionConversionPointType:1;
         unsigned int parentFeedType:1;
         unsigned int resultType:1;
         unsigned int arrivedFromAd:1;
+        unsigned int sawSubscriptionSheet:1;
         unsigned int subscriptionOnlyArticlePreview:1;
     } _has;
 }
 
+@property(nonatomic) _Bool sawSubscriptionSheet; // @synthesize sawSubscriptionSheet=_sawSubscriptionSheet;
 @property(retain, nonatomic) NSData *subscriptionPurchaseSessionId; // @synthesize subscriptionPurchaseSessionId=_subscriptionPurchaseSessionId;
 @property(retain, nonatomic) NSString *creativeId; // @synthesize creativeId=_creativeId;
 @property(retain, nonatomic) NSString *campaignType; // @synthesize campaignType=_campaignType;
@@ -55,6 +58,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSawSubscriptionSheet;
 @property(readonly, nonatomic) _Bool hasSubscriptionPurchaseSessionId;
 @property(readonly, nonatomic) _Bool hasCreativeId;
 @property(readonly, nonatomic) _Bool hasCampaignType;

@@ -33,6 +33,7 @@
 - (void)enumerateTopicCountsWithFilter:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)recordSelectionOfTopics:(id)arg1 onDate:(id)arg2;
 - (void)recordPresentationOfTopics:(id)arg1 onDate:(id)arg2;
+- (id)initWithStorageDirectory:(id)arg1 localOnly:(_Bool)arg2;
 - (id)initWithStorageDirectory:(id)arg1;
 - (id)init;
 

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSString *_linkTitle;
     NSString *_recentsTitle;
     NSString *_recentsMessage;
+    NSString *_additionalMessage;
     VSExpressionEvaluator *_buttonExpressionEvaluator;
     NSString *_originalUsername;
     NSString *_originalPassword;
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *originalPassword; // @synthesize originalPassword=_originalPassword;
 @property(copy, nonatomic) NSString *originalUsername; // @synthesize originalUsername=_originalUsername;
 @property(retain, nonatomic) VSExpressionEvaluator *buttonExpressionEvaluator; // @synthesize buttonExpressionEvaluator=_buttonExpressionEvaluator;
+@property(copy, nonatomic) NSString *additionalMessage; // @synthesize additionalMessage=_additionalMessage;
 @property(copy, nonatomic) NSString *recentsMessage; // @synthesize recentsMessage=_recentsMessage;
 @property(copy, nonatomic) NSString *recentsTitle; // @synthesize recentsTitle=_recentsTitle;
 @property(copy, nonatomic) NSString *linkTitle; // @synthesize linkTitle=_linkTitle;
@@ -32,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VSCredentialEntryField *passwordField; // @synthesize passwordField=_passwordField;
 @property(retain, nonatomic) VSCredentialEntryField *usernameField; // @synthesize usernameField=_usernameField;
 - (void).cxx_destruct;
+- (void)configureWithRequest:(id)arg1;
 - (void)_bindField:(id)arg1;
 - (void)_unbindField:(id)arg1;
 - (id)init;

@@ -11,47 +11,35 @@
 
 @interface PVContext : NSObject <NSSecureCoding, NSCopying>
 {
-    _Bool _faceAutonamingEnabled;
-    _Bool _personMergingEnabled;
-    _Bool _faceClusteringLogEnabled;
-    _Bool _faceClusteringPerfLogEnabled;
+    _Bool _quarantineTwinsOnAssetEnabled;
+    _Bool _personBuildingDisabled;
+    _Bool _personBuilderMergeCandidatesDisabled;
     float _faceClusteringThreshold;
-    float _faceAutonamingThreshold;
-    float _faceRecallThreshold;
     float _faceMergeFaceprintDistanceThreshold;
     float _faceMergeFaceOverlapThreshold;
     float _facePrimarySuggestionsThreshold;
-    long long _faceClusteringDelay;
     unsigned long long _countRenameFromThreshold;
     unsigned long long _percentRenameFromThreshold;
     unsigned long long _countRenameToThreshold;
     unsigned long long _percentRenameToThreshold;
     long long _minFaceCountToTriggerClustering;
     long long _maxFaceCountForClustering;
-    long long _faceCountToEnableFacesNamingFlow;
-    long long _faceGroupCountToEnableFacesNamingFlow;
 }
 
 + (_Bool)supportsSecureCoding;
-@property _Bool faceClusteringPerfLogEnabled; // @synthesize faceClusteringPerfLogEnabled=_faceClusteringPerfLogEnabled;
-@property _Bool faceClusteringLogEnabled; // @synthesize faceClusteringLogEnabled=_faceClusteringLogEnabled;
-@property long long faceGroupCountToEnableFacesNamingFlow; // @synthesize faceGroupCountToEnableFacesNamingFlow=_faceGroupCountToEnableFacesNamingFlow;
-@property long long faceCountToEnableFacesNamingFlow; // @synthesize faceCountToEnableFacesNamingFlow=_faceCountToEnableFacesNamingFlow;
+@property _Bool personBuilderMergeCandidatesDisabled; // @synthesize personBuilderMergeCandidatesDisabled=_personBuilderMergeCandidatesDisabled;
+@property _Bool personBuildingDisabled; // @synthesize personBuildingDisabled=_personBuildingDisabled;
 @property long long maxFaceCountForClustering; // @synthesize maxFaceCountForClustering=_maxFaceCountForClustering;
 @property long long minFaceCountToTriggerClustering; // @synthesize minFaceCountToTriggerClustering=_minFaceCountToTriggerClustering;
 @property unsigned long long percentRenameToThreshold; // @synthesize percentRenameToThreshold=_percentRenameToThreshold;
 @property unsigned long long countRenameToThreshold; // @synthesize countRenameToThreshold=_countRenameToThreshold;
 @property unsigned long long percentRenameFromThreshold; // @synthesize percentRenameFromThreshold=_percentRenameFromThreshold;
 @property unsigned long long countRenameFromThreshold; // @synthesize countRenameFromThreshold=_countRenameFromThreshold;
-@property _Bool personMergingEnabled; // @synthesize personMergingEnabled=_personMergingEnabled;
-@property _Bool faceAutonamingEnabled; // @synthesize faceAutonamingEnabled=_faceAutonamingEnabled;
+@property _Bool quarantineTwinsOnAssetEnabled; // @synthesize quarantineTwinsOnAssetEnabled=_quarantineTwinsOnAssetEnabled;
 @property float facePrimarySuggestionsThreshold; // @synthesize facePrimarySuggestionsThreshold=_facePrimarySuggestionsThreshold;
 @property float faceMergeFaceOverlapThreshold; // @synthesize faceMergeFaceOverlapThreshold=_faceMergeFaceOverlapThreshold;
 @property float faceMergeFaceprintDistanceThreshold; // @synthesize faceMergeFaceprintDistanceThreshold=_faceMergeFaceprintDistanceThreshold;
-@property float faceRecallThreshold; // @synthesize faceRecallThreshold=_faceRecallThreshold;
-@property float faceAutonamingThreshold; // @synthesize faceAutonamingThreshold=_faceAutonamingThreshold;
 @property float faceClusteringThreshold; // @synthesize faceClusteringThreshold=_faceClusteringThreshold;
-@property long long faceClusteringDelay; // @synthesize faceClusteringDelay=_faceClusteringDelay;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

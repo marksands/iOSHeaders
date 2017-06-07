@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class NSData, NSMutableData;
+@class NSData, NSMutableData, NSObject;
 @protocol HAPSecuritySessionDelegate, OS_dispatch_queue;
 
-@interface HAPSecuritySession : NSObject
+@interface HAPSecuritySession : HMFObject
 {
     unsigned long long _state;
+    NSData *_broadcastKey;
     id <HAPSecuritySessionDelegate> _delegate;
     unsigned long long _role;
     unsigned long long _resumeSessionID;
@@ -36,6 +37,7 @@
 @property(readonly) __weak id <HAPSecuritySessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)decryptData:(id)arg1 additionalAuthenticatedData:(id)arg2 error:(id *)arg3;
+- (id)getBroadcastEncryptionKey;
 - (id)encryptData:(id)arg1 additionalAuthenticatedData:(id)arg2 error:(id *)arg3;
 - (void)_closeWithError:(id)arg1;
 - (void)closeWithError:(id)arg1;
@@ -45,6 +47,7 @@
 - (void)reallyOpen;
 - (void)open;
 - (void)_handleSetupExchangeComplete;
+- (id)_broadcastInfo;
 - (id)_outputInfo;
 - (id)_inputInfo;
 - (void)_processSetupExchangeData:(id)arg1 error:(id)arg2;
@@ -59,6 +62,7 @@
 - (void)setResumeSessionID:(unsigned long long)arg1;
 @property(readonly, getter=isOpening) _Bool opening;
 @property(readonly, getter=isOpen) _Bool open;
+@property(retain, nonatomic) NSData *broadcastKey; // @synthesize broadcastKey=_broadcastKey;
 @property unsigned long long state; // @synthesize state=_state;
 - (void)dealloc;
 - (id)initWithRole:(unsigned long long)arg1 resumeSessionID:(unsigned long long)arg2 delegate:(id)arg3;

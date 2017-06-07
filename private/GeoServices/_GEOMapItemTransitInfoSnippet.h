@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMapItemTransitInfo-Protocol.h>
 
@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSString *_displayName;
 }
 
+- (void).cxx_destruct;
 - (id)inactiveLinesForSystem:(id)arg1 relativeToDateFromBlock:(CDUnknownBlockType)arg2 excludingIncidentEntities:(id)arg3;
 - (id)serviceResumesDateForLine:(id)arg1 excludingIncidentEntities:(id)arg2 afterDate:(id)arg3 blocked:(out _Bool *)arg4;
 - (id)allSequencesForSystem:(id)arg1 direction:(id)arg2;
@@ -38,7 +39,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *connections;
 @property(readonly, nonatomic) NSArray *labelItems;
 @property(readonly, nonatomic) NSString *displayName;
-- (void)dealloc;
 - (id)initWithTransitInfoSnippet:(id)arg1;
 
 // Remaining properties

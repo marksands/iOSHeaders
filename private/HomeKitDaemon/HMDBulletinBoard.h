@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class BBDataProviderConnection, HMDBulletinProvider, HMDHomeManager, NSArray, NSMutableDictionary;
+@class BBDataProviderConnection, HMDBulletinProvider, HMDHomeManager, NSArray, NSMutableDictionary, NSObject;
 @protocol OS_dispatch_queue;
 
-@interface HMDBulletinBoard : NSObject <NSSecureCoding>
+@interface HMDBulletinBoard : HMFObject <NSSecureCoding>
 {
     _Bool _enabled;
     NSArray *_categories;
@@ -58,9 +58,11 @@
 - (void)removeBulletinsForHome:(id)arg1;
 - (void)removeBulletinWithRecordID:(id)arg1;
 - (id)updateBulletinForFirmwareUpdateInHome:(id)arg1;
-- (id)insertBulletinForSecureTriggerExecutionPermission:(id)arg1;
+- (id)insertBulletinForSecureTrigger:(id)arg1;
 - (id)insertBulletinForIncomingInvitation:(id)arg1;
 - (id)_insertImageBulletinsForChangedCharacteristics:(id)arg1 snapshotData:(id)arg2;
+- (void)insertBulletinAfterConditionEvaluationForCharacteristic:(id)arg1 context:(id)arg2;
+- (void)_insertImageBulletinsForChangedCharacteristics:(id)arg1 snapshotData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)insertBulletinsForChangedCharacteristics:(id)arg1 changedByThisDevice:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)insertImageBulletinsForChangedCharacteristics:(id)arg1 snapshotData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;

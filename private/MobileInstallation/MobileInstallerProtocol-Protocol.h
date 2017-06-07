@@ -21,6 +21,8 @@
 - (void)enumerateInstalledAppsWithOptions:(NSDictionary *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)fetchInstalledAppsWithOptions:(NSDictionary *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)fetchInstalledDeveloperAppsWithMountPath:(NSString *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
+- (void)updateSystemAppStateForIdentifier:(NSString *)arg1 appState:(int)arg2 completion:(void (^)(NSError *))arg3;
+- (void)lookupSystemAppStateWithOptions:(NSDictionary *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)clearUninstalledIdentifiers:(NSArray *)arg1 withOptions:(NSDictionary *)arg2 completion:(void (^)(NSError *))arg3;
 - (void)lookupUninstalledWithOptions:(NSDictionary *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)uninstallIdentifiers:(NSArray *)arg1 withOptions:(NSDictionary *)arg2 completion:(void (^)(NSDictionary *, NSError *))arg3;

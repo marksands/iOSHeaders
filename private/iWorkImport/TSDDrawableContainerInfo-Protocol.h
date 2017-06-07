@@ -4,8 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <iWorkImport/TSDMutableContainerInfo-Protocol.h>
+#import <iWorkImport/TSDContainerInfo-Protocol.h>
 
-@protocol TSDDrawableContainerInfo <TSDMutableContainerInfo>
+@class TSDDrawableInfo;
+
+@protocol TSDDrawableContainerInfo <TSDContainerInfo>
+- (double)highestScaleFactorForRenderingDrawableInfo:(TSDDrawableInfo *)arg1;
 @end
 

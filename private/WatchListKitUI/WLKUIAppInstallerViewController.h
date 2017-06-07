@@ -4,35 +4,38 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIViewController.h>
+#import <UIKit/UINavigationController.h>
 
-@class NSString, UIAlertController, UIView, UIVisualEffectView, WLKChannelDetails, _WLKUIAppInstallView;
+@class NSString, UIVisualEffectView, WLKChannelDetails, _WLKUIAppInstallConfirmationViewController;
 
-@interface WLKUIAppInstallerViewController : UIViewController
+@interface WLKUIAppInstallerViewController : UINavigationController
 {
-    UIAlertController *_alertController;
-    _WLKUIAppInstallView *_appInstallView;
-    UIView *_backgroundView;
-    CDUnknownBlockType _completion;
+    CDUnknownBlockType _completionBlock;
+    double _lastProgress;
+    CDUnknownBlockType _progressBlock;
     UIVisualEffectView *_tvBackgroundView;
+    _WLKUIAppInstallConfirmationViewController *_confirmationController;
     WLKChannelDetails *_channel;
     NSString *_localizedContentTitle;
+    NSString *_confirmationTitle;
+    NSString *_confirmationBody;
+    NSString *_confirmationInstallButtonTitle;
 }
 
-+ (id)_placeholderAppIcon;
+@property(copy, nonatomic) NSString *confirmationInstallButtonTitle; // @synthesize confirmationInstallButtonTitle=_confirmationInstallButtonTitle;
+@property(copy, nonatomic) NSString *confirmationBody; // @synthesize confirmationBody=_confirmationBody;
+@property(copy, nonatomic) NSString *confirmationTitle; // @synthesize confirmationTitle=_confirmationTitle;
 @property(copy, nonatomic) NSString *localizedContentTitle; // @synthesize localizedContentTitle=_localizedContentTitle;
 @property(readonly, copy, nonatomic) WLKChannelDetails *channel; // @synthesize channel=_channel;
 - (void).cxx_destruct;
 - (void)_finishInstallationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_updateWithInstallProgress:(double)arg1;
-- (void)_showAppInstallProgress;
-- (void)_hideAppInstallProgressWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_dismissAppInstall;
+- (void)_dismissAppInstallWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_beginInstallingApp;
+- (void)beginInstallingAppWithProgressHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)beginInstallingAppWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_tapAction:(id)arg1;
-- (void)_menuButtonAction:(id)arg1;
 - (void)loadView;
+- (void)_initConfirmation;
 - (id)initWithChannel:(id)arg1;
 - (id)init;
 

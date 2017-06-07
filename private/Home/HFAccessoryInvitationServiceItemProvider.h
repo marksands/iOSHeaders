@@ -13,11 +13,13 @@
     HMUser *_user;
 }
 
-@property(retain, nonatomic) HMUser *user; // @synthesize user=_user;
+@property(readonly, nonatomic) HMUser *user; // @synthesize user=_user;
 - (void).cxx_destruct;
 - (id)invalidationReasons;
 - (CDUnknownBlockType)filter;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1 user:(id)arg2;
+- (id)initWithHome:(id)arg1 serviceTypes:(id)arg2;
 
 @end
 

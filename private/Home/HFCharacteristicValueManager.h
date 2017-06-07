@@ -8,11 +8,12 @@
 
 #import <Home/HFCharacteristicValueSource-Protocol.h>
 
-@class HFCharacteristicValueTransaction, NACancelationToken, NSMutableArray, NSMutableDictionary, NSMutableSet, NSRecursiveLock, NSSet, NSString;
+@class HFCharacteristicValueTransaction, NACancelationToken, NAFuture, NSMutableArray, NSMutableDictionary, NSMutableSet, NSRecursiveLock, NSSet, NSString;
 @protocol HFCharacteristicOperationContextProviding, HFCharacteristicValueReader, HFCharacteristicValueWriter;
 
 @interface HFCharacteristicValueManager : NSObject <HFCharacteristicValueSource>
 {
+    NAFuture *readCompleteFuture;
     id <HFCharacteristicValueReader> _valueReader;
     id <HFCharacteristicValueWriter> _valueWriter;
     long long __debug_totalNumberOfIssuedBatchReadRequests;
@@ -29,6 +30,7 @@
     NACancelationToken *_inFlightReadCancelationToken;
 }
 
++ (id)na_identity;
 @property(retain, nonatomic) NACancelationToken *inFlightReadCancelationToken; // @synthesize inFlightReadCancelationToken=_inFlightReadCancelationToken;
 @property(retain, nonatomic) NSMutableDictionary *cachedExecutionErrorsKeyedByActionSetIdentifier; // @synthesize cachedExecutionErrorsKeyedByActionSetIdentifier=_cachedExecutionErrorsKeyedByActionSetIdentifier;
 @property(retain, nonatomic) NSMutableDictionary *cachedWriteErrorsKeyedByCharacteristicIdentifier; // @synthesize cachedWriteErrorsKeyedByCharacteristicIdentifier=_cachedWriteErrorsKeyedByCharacteristicIdentifier;
@@ -43,15 +45,18 @@
 @property(nonatomic) long long _debug_totalNumberOfIssuedBatchReadRequests; // @synthesize _debug_totalNumberOfIssuedBatchReadRequests=__debug_totalNumberOfIssuedBatchReadRequests;
 @property(retain, nonatomic) id <HFCharacteristicValueWriter> valueWriter; // @synthesize valueWriter=_valueWriter;
 @property(retain, nonatomic) id <HFCharacteristicValueReader> valueReader; // @synthesize valueReader=_valueReader;
+@property(retain, nonatomic) NAFuture *readCompleteFuture; // @synthesize readCompleteFuture;
 - (void).cxx_destruct;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) id <HFCharacteristicOperationContextProviding> contextProvider;
 - (id)writeValuesForCharacteristics:(id)arg1;
-- (id)readValuesForCharacteristics:(id)arg1;
 - (id)readValuesForCharacteristicsPassingTest:(CDUnknownBlockType)arg1 inServices:(id)arg2;
 - (id)readValuesForCharacteristicTypes:(id)arg1 inServices:(id)arg2;
-- (id)_readValuesForCharacteristics:(id)arg1 readSuccessBlock:(CDUnknownBlockType)arg2 failureBlock:(CDUnknownBlockType)arg3;
+- (id)readValuesForCharacteristics:(id)arg1;
 - (void)cancelInFlightReadRequests;
 - (void)invalidateAllCachedErrors;
+- (void)invalidateCachedErrorForExecutionOfActionSet:(id)arg1;
 - (id)cachedErrorForExecutionOfActionSet:(id)arg1;
 - (id)cachedErrorForWriteToCharacteristic:(id)arg1;
 - (void)invalidateCachedValuesForAccessory:(id)arg1;
@@ -64,10 +69,11 @@
 - (void)_transactionLock_executeWriteTransaction:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_openTransactionCompletionFuture;
 - (void)commitTransactionWithReason:(id)arg1;
+- (id)executeActionSet:(id)arg1;
 - (void)executeActionSet:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)writeValue:(id)arg1 forCharacteristic:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)readValueForCharacteristic:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)beginTransactionWithReason:(id)arg1 logger:(id)arg2 readValidator:(CDUnknownBlockType)arg3;
+- (id)writeValue:(id)arg1 forCharacteristic:(id)arg2;
+- (id)readValueForCharacteristic:(id)arg1;
+- (void)beginTransactionWithReason:(id)arg1 readPolicy:(id)arg2 logger:(id)arg3;
 - (void)beginTransactionWithReason:(id)arg1;
 - (id)_transactionLock_characteristicsWithPendingWritesInTransacton:(id)arg1 includeDirectWrites:(_Bool)arg2 includeActionSets:(_Bool)arg3;
 @property(readonly, copy, nonatomic) NSSet *executingActionSets;
@@ -79,7 +85,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

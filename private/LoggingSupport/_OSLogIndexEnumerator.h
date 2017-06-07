@@ -16,17 +16,20 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_catalogStartQ;
     NSMutableArray *_fileStartQ;
     NSMutableArray *_fileEndQ;
+    NSMutableArray *_fileBootQ;
+    NSMutableArray *_oversizeChunks;
     struct os_timesync_range_s *_bounds[6];
     struct os_timesync_range_s *_live_bound;
     _OSLogTracepointBuffer *_tracepoints;
     _OSLogIndex *_index;
 }
 
+@property(readonly, nonatomic) NSMutableArray *oversizeChunks; // @synthesize oversizeChunks=_oversizeChunks;
 - (void).cxx_destruct;
 - (void)enumerateTracepointsInRange:(struct os_timesync_range_s *)arg1 timesync:(struct _os_timesync_db_s *)arg2 options:(unsigned int)arg3 usingBlock:(CDUnknownBlockType)arg4;
-- (void)_initTimesyncBounds:(CDStruct_b8fedf57 *)arg1;
+- (void)_initTimesyncBounds:(CDStruct_1936c231 *)arg1;
 - (void)dealloc;
-- (id)initWithIndex:(id)arg1 metadata:(CDStruct_b8fedf57 *)arg2 fileStartList:(id)arg3 fileEndList:(id)arg4;
+- (id)initWithIndex:(id)arg1 metadata:(CDStruct_1936c231 *)arg2 fileBootList:(id)arg3;
 
 @end
 

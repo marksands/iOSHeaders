@@ -4,20 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UICollectionReusableView.h>
+#import <UIKit/UIView.h>
 
 @class UILabel;
 
-@interface PXPeopleProgressFooterView : UICollectionReusableView
+@interface PXPeopleProgressFooterView : UIView
 {
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
 }
 
-+ (id)kind;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
+- (double)preferredHeightForWidth:(double)arg1;
 - (void)_setupConstraints;
 - (void)_setupViews;
 - (id)initWithFrame:(struct CGRect)arg1;

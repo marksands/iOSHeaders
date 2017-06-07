@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -15,6 +15,9 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
+- (id)logMsgEventForBatchTrafficProbes:(id)arg1;
+- (id)logMsgEventForRealtimeTrafficProbes:(id)arg1;
 - (id)logMsgEventForClientACSuggestionsWithQuery:(id)arg1 queryTokens:(id)arg2 acSuggestionEntries:(id)arg3 selectedIndex:(int)arg4;
 - (id)logMsgEventForTelemetricWithEventKey:(int)arg1 eventValue:(unsigned long long)arg2 eventDetail:(id)arg3;
 - (id)logMsgEventForFullNavTraceWithData:(id)arg1;
@@ -27,14 +30,14 @@
 - (id)logMsgsEventForMapsWidgetsInteractionForType:(int)arg1 endState:(int)arg2 widgetSpecificObject:(id)arg3 wasLocked:(_Bool)arg4 startDate:(id)arg5 forDuration:(double)arg6;
 - (id)logMsgEventForRefineSearchSessionOfType:(int)arg1 refineSearchType:(int)arg2 suggestionItems:(id)arg3 searchString:(id)arg4;
 - (id)logMsgEventForListInteractionSessionOfType:(int)arg1 listResultItems:(id)arg2 searchString:(id)arg3;
-- (id)logMsgEventForLogFrameworkMetricType:(int)arg1 metricState:(int)arg2 messageCount:(int)arg3 messageSize:(long long)arg4 retryCount:(int)arg5;
+- (id)logMsgEventForLogFrameworkMetricType:(int)arg1 metricState:(int)arg2 purgeReason:(int)arg3 logCollectionRequest:(id)arg4;
 - (id)logMsgEventForTimeToLeaveIntialTravelTime:(double)arg1;
 - (id)logMsgEventForTimeToLeaveHypothesisWithEarlyDepartureDelta:(double)arg1 lateDepartureDelta:(double)arg2 earlyArrivalDelta:(double)arg3 lateArrivalDelta:(double)arg4 rerouteCount:(unsigned long long)arg5 uiNotification:(int)arg6;
 - (id)logMsgEventForTransitAppLaunchWithBundleId:(id)arg1 sourceLocation:(id)arg2 destinationLocation:(id)arg3;
-- (id)logMsgEventForDirectionsFeedbacks:(id)arg1 finalLocation:(id)arg2 arrivedAtDestination:(_Bool)arg3 navigationAudioFeedback:(struct GEONavigationAudioFeedback)arg4 durationOfTrip:(double)arg5;
+- (id)logMsgEventForDirectionsFeedbacks:(id)arg1 finalLocation:(id)arg2 arrivedAtDestination:(_Bool)arg3 navigationAudioFeedback:(struct GEONavigationAudioFeedback)arg4 durationOfTrip:(double)arg5 durationsInNavigationModes:(id)arg6;
 - (id)logMsgEventForCacheHitWithCacheType:(int)arg1 cacheHitCount:(unsigned int)arg2 cacheMissCount:(unsigned int)arg3;
-- (id)logMsgEventForTileUsageWithRequestAppId:(id)arg1 andTileUsageInfo:(id)arg2 remoteAddressAndPort:(id)arg3;
-- (id)logMsgEventForNetworkService:(int)arg1 requestAppId:(id)arg2 requestErrorDomain:(id)arg3 requestErrorCode:(long long)arg4 requestDataSize:(int)arg5 responseDataSize:(int)arg6 responseTime:(int)arg7 remoteAddressAndPort:(id)arg8 httpResponseStatusCode:(int)arg9;
+- (id)logMsgEventForTileUsageWithRequestAppId:(id)arg1 andTileUsageInfo:(id)arg2;
+- (id)logMsgEventForNetworkService:(int)arg1 requestAppId:(id)arg2 requestErrorDomain:(id)arg3 requestErrorCode:(long long)arg4 requestDataSize:(int)arg5 responseDataSize:(int)arg6 responseTime:(int)arg7 httpResponseStatusCode:(int)arg8 remoteAddressAndPort:(id)arg9;
 - (id)logMsgEventForPlaceDataCacheFromAppWithID:(id)arg1;
 - (id)logMsgEventForTileSetState:(int)arg1 newCoverage:(double)arg2 oldCoverage:(double)arg3 seconds:(double)arg4;
 - (id)logMsgEventForStateTransition:(id)arg1 generateOnlyIfStateChanged:(_Bool)arg2;
@@ -44,7 +47,6 @@
 - (int)_bucketValueForTravelTime:(double)arg1;
 - (int)_bucketValueForTimeDelta:(double)arg1;
 - (void)clearStateTimingData;
-- (void)dealloc;
 - (id)init;
 
 @end

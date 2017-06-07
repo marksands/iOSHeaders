@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-#import <AddressBook/ABVCardTimeProvider-Protocol.h>
+#import <AddressBookLegacy/ABVCardTimeProvider-Protocol.h>
 
 @class NSString;
 

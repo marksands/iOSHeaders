@@ -58,12 +58,6 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
-struct _SCRCStackNode {
-    id _field1;
-    void *_field2;
-    void *_field3;
-};
-
 struct __va_list_tag {
     unsigned int _field1;
     unsigned int _field2;
@@ -96,6 +90,5 @@ typedef struct {
     struct CGPoint _field20;
     struct CGPoint _field21;
     double _field22;
-    id _field23;
-} CDStruct_28ddac4e;
+} CDStruct_ddbe7a84;
 

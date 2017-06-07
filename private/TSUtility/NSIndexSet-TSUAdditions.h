@@ -7,11 +7,11 @@
 #import <Foundation/NSIndexSet.h>
 
 @interface NSIndexSet (TSUAdditions)
-+ (id)indexSetWithIndices:(unsigned long long *)arg1 count:(unsigned long long)arg2;
-- (id)indexSetByInsertingIndexes:(id)arg1 inRange:(struct _NSRange)arg2;
-- (_Bool)intersectsIndexesInIndexSet:(id)arg1;
-@property(readonly, nonatomic) _Bool isSingleContiguousRange;
-- (id)indexSetByAddingIndexes:(id)arg1;
++ (id)tsu_indexSetWithIndices:(unsigned long long *)arg1 count:(unsigned long long)arg2;
+- (id)tsu_indexSetByInsertingIndexes:(id)arg1 inRange:(struct _NSRange)arg2;
+- (_Bool)tsu_intersectsIndexesInIndexSet:(id)arg1;
+@property(readonly, nonatomic) _Bool tsu_isSingleContiguousRange;
+- (id)tsu_indexSetByAddingIndexes:(id)arg1;
 - (id)initWithIndices:(unsigned long long *)arg1 count:(unsigned long long)arg2;
 @end
 

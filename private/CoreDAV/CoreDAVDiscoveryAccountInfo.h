@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <CoreDAV/CoreDAVAccountInfoProvider-Protocol.h>
 
@@ -49,6 +49,7 @@
 @property(nonatomic) long long port; // @synthesize port=_port;
 @property(retain, nonatomic) NSString *host; // @synthesize host=_host;
 @property(retain, nonatomic) NSString *scheme; // @synthesize scheme=_scheme;
+- (void).cxx_destruct;
 - (_Bool)shouldUseOpportunisticSockets;
 - (struct __CFURLStorageSession *)copyStorageSession;
 - (_Bool)shouldSendClientInfoHeaderForURL:(id)arg1;
@@ -71,7 +72,6 @@
 - (void)promptUserForNewCoreDAVPasswordWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)url;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1;
 
 // Remaining properties

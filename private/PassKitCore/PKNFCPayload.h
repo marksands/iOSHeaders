@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSCopying-Protocol.h>
 #import <PassKitCore/NSSecureCoding-Protocol.h>
@@ -13,14 +13,12 @@
 
 @interface PKNFCPayload : NSObject <NSSecureCoding, NSCopying>
 {
-    _Bool _requiresCertificate;
     NSString *_message;
     NSData *_encryptionPublicKeyData;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSData *encryptionPublicKeyData; // @synthesize encryptionPublicKeyData=_encryptionPublicKeyData;
-@property(nonatomic) _Bool requiresCertificate; // @synthesize requiresCertificate=_requiresCertificate;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 - (void).cxx_destruct;
 - (id)description;

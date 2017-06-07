@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-#import <AddressBook/ABVCardActivityAlertAbstractSerializationStrategy-Protocol.h>
+#import <AddressBookLegacy/ABVCardActivityAlertAbstractSerializationStrategy-Protocol.h>
 
 @class NSString;
 

@@ -15,12 +15,12 @@
     WLKUIOnboardingController *_controller;
     _Bool _hasSynced;
     NSNumber *_lastReportedOptedInValue;
-    _Bool _suppressUpdates;
     _Bool _isShowing;
 }
 
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)setOptedIn:(_Bool)arg1:(id)arg2;
 - (void)migrateTvos:(id)arg1;
 - (void)dismiss;
 - (void)showForBids:(id)arg1:(id)arg2:(id)arg3;

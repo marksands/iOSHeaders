@@ -29,6 +29,7 @@
 @property(nonatomic) unsigned int blurredHourOfDay; // @synthesize blurredHourOfDay=_blurredHourOfDay;
 @property(nonatomic) unsigned int maxResultsPerCategory; // @synthesize maxResultsPerCategory=_maxResultsPerCategory;
 @property(nonatomic) unsigned int maxCategories; // @synthesize maxCategories=_maxCategories;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -43,7 +44,6 @@
 @property(nonatomic) _Bool hasBlurredHourOfDay;
 @property(nonatomic) _Bool hasMaxResultsPerCategory;
 @property(nonatomic) _Bool hasMaxCategories;
-- (void)dealloc;
 
 @end
 

@@ -87,6 +87,7 @@ __attribute__((visibility("hidden")))
 - (void)accessibilityIncreaseSelection:(int)arg1;
 - (void)accessibilityModifySelection:(int)arg1 increase:(_Bool)arg2;
 - (void)accessibilityElementDidBecomeFocused;
+- (id)accessibilityFindMatchingObjects:(id)arg1;
 - (struct AccessibilityObject *)treeItemParentForObject:(struct AccessibilityObject *)arg1;
 - (struct AccessibilityObject *)detailParentForObject:(struct AccessibilityObject *)arg1;
 - (struct AccessibilityObject *)detailParentForSummaryObject:(struct AccessibilityObject *)arg1;
@@ -132,6 +133,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)accessibilityIsAttachmentElement;
 - (id)accessibilityValue;
 - (id)accessibilityPlaceholderValue;
+- (id)accessibilityDatetimeValue;
+- (unsigned long long)accessibilityBlockquoteLevel;
 - (struct _NSRange)accessibilityColumnRange;
 - (struct _NSRange)accessibilityRowRange;
 - (unsigned long long)accessibilityARIAColumnIndex;
@@ -159,9 +162,11 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)accessibilityTraits;
 - (unsigned long long)_accessibilityTextEntryTraits;
 - (unsigned long long)_accessibilityTraitsFromAncestors;
+- (struct WebAccessibilityObjectWrapper *)_accessibilityFrameAncestor;
 - (struct WebAccessibilityObjectWrapper *)_accessibilityFieldsetAncestor;
 - (struct WebAccessibilityObjectWrapper *)_accessibilityTableAncestor;
 - (struct WebAccessibilityObjectWrapper *)_accessibilityLandmarkAncestor;
+- (struct WebAccessibilityObjectWrapper *)_accessibilityArticleAncestor;
 - (struct WebAccessibilityObjectWrapper *)_accessibilityListAncestor;
 - (struct WebAccessibilityObjectWrapper *)_accessibilityTreeAncestor;
 - (_Bool)_accessibilityIsLandmarkRole:(int)arg1;

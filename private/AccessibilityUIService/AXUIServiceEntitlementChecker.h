@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray;
 
@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSMutableArray *entitlementsCaches; // @synthesize entitlementsCaches=_entitlementsCaches;
 @property(retain, nonatomic) NSMutableArray *clientConnections; // @synthesize clientConnections=_clientConnections;
 @property(nonatomic) Class serviceClass; // @synthesize serviceClass=_serviceClass;
+- (void).cxx_destruct;
 - (id)_possibleRequiredEntitlementForMessageWithIdentifier:(unsigned long long)arg1;
 - (id)_singleRequiredEntitlementForMessageWithIdentifier:(unsigned long long)arg1;
 - (_Bool)_clientProcessWithAuditToken:(CDStruct_6ad76789 *)arg1 hasEntitlement:(id)arg2;

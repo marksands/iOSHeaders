@@ -23,6 +23,7 @@
 + (_Bool)isCustomerInstall;
 + (double)holidayCalendarRefreshInterval;
 + (id)holidayCalendarURL;
++ (_Bool)customAutoDV2UserAgentEnabled;
 + (_Bool)earlyPingEnabled;
 + (_Bool)alwaysUseCalendarHomeSync;
 + (_Bool)babysitterEnabled;

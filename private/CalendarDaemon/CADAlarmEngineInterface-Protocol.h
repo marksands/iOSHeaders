@@ -10,6 +10,6 @@
 - (void)CADDatabaseGetVehicleTriggerAlarmsWithReply:(void (^)(int, NSArray *))arg1;
 - (void)CADDatabaseGetLocationBasedAlarmsWithReply:(void (^)(int, NSArray *))arg1;
 - (void)CADDatabaseGetAlarmOccurrencesInRangeFromStart:(NSDate *)arg1 toEnd:(NSDate *)arg2 inCalendars:(NSArray *)arg3 reply:(void (^)(int, NSArray *))arg4;
-- (void)CADDatabaseGetAlarmWithUUID:(NSString *)arg1 reply:(void (^)(int, struct))arg2;
+- (void)CADDatabaseGetAlarmWithUUID:(NSString *)arg1 reply:(void (^)(int, CADObjectID *))arg2;
 @end
 

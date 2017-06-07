@@ -17,9 +17,14 @@
     id <HFOverrideCharacteristicValueProvider> _overrideValueProvider;
 }
 
++ (id)na_identity;
 @property(nonatomic) __weak id <HFOverrideCharacteristicValueProvider> overrideValueProvider; // @synthesize overrideValueProvider=_overrideValueProvider;
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> originalValueSource; // @synthesize originalValueSource=_originalValueSource;
 - (void).cxx_destruct;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
+- (void)commitTransactionWithReason:(id)arg1;
+- (void)beginTransactionWithReason:(id)arg1 readPolicy:(id)arg2 logger:(id)arg3;
 @property(readonly, nonatomic) id <HFCharacteristicOperationContextProviding> contextProvider;
 - (id)cachedErrorForWriteToCharacteristic:(id)arg1;
 - (id)cachedValueForCharacteristic:(id)arg1;
@@ -31,7 +36,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

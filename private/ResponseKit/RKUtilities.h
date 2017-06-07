@@ -14,6 +14,9 @@
 + (_Bool)prefixInArray:(id)arg1 withArray:(id)arg2;
 + (_Bool)tokenInArray:(id)arg1 withArray:(id)arg2;
 + (id)removeEmoji:(id)arg1;
++ (_Bool)isLanguageSupportedBySmartPunctuation:(id)arg1;
++ (_Bool)isLanguageSupportedForPartOfSpeech:(id)arg1;
++ (_Bool)isLanguageSupportedForLemmatization:(id)arg1;
 + (_Bool)isLanguageSupportedByNSLinguisticTaggerForLanguageIdentification:(id)arg1;
 + (id)stripDiacritics:(id)arg1;
 + (id)normalizeForPersonalization:(id)arg1;

@@ -19,6 +19,7 @@
 @property(retain, nonatomic) SBFLockScreenAlternateDateLabel *alternateDateLabel; // @synthesize alternateDateLabel=_alternateDateLabel;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)_createReplicateView;
 - (id)replicate;
 - (double)_lunarDateLabelYOffsetFromDateLabel;

@@ -8,12 +8,16 @@
 
 #import <CoreParsec/PARClientXPC-Protocol.h>
 #import <CoreParsec/SFFeedbackListener-Protocol.h>
+#import <CoreParsec/SFResourceLoader-Protocol.h>
 
-@class NSString, NSXPCConnection, PARBag, PARRanker, PARSearchClient, PARSessionConfiguration;
+@class GEOSearchFoundationFeedbackListener, NSFileManager, NSString, NSXPCConnection, PARBag, PARImageLoader, PARRanker, PARSearchClient, PARSessionConfiguration;
 @protocol PARSessionDelegate;
 
-@interface PARSession : NSObject <PARClientXPC, SFFeedbackListener>
+@interface PARSession : NSObject <PARClientXPC, SFFeedbackListener, SFResourceLoader>
 {
+    NSFileManager *_fileManager;
+    PARImageLoader *_imageLoader;
+    GEOSearchFoundationFeedbackListener *_mapsListener;
     PARBag *_bag;
     PARSearchClient *_client;
     PARSessionConfiguration *_configuration;
@@ -24,6 +28,7 @@
 
 + (id)sessionWithConfiguration:(id)arg1 delegate:(id)arg2 startImmediately:(_Bool)arg3;
 + (id)sessionWithConfiguration:(id)arg1;
++ (id)sharedSession;
 + (id)sharedPARSessionWithConfiguration:(id)arg1;
 @property(retain) PARRanker *ranker; // @synthesize ranker=_ranker;
 @property(nonatomic) __weak id <PARSessionDelegate> delegate; // @synthesize delegate=_delegate;
@@ -32,6 +37,7 @@
 @property(retain, nonatomic) PARSearchClient *client; // @synthesize client=_client;
 @property(readonly) PARBag *bag; // @synthesize bag=_bag;
 - (void).cxx_destruct;
+- (void)didGradeLookupHintRelevancy:(id)arg1;
 - (void)didGradeResultRelevancy:(id)arg1;
 - (void)didGoToSearch:(id)arg1;
 - (void)didGoToSite:(id)arg1;
@@ -51,21 +57,26 @@
 - (void)didRankSections:(id)arg1;
 - (void)didEndSearch:(id)arg1;
 - (void)didStartSearch:(id)arg1;
+- (void)cardViewDidAppear:(id)arg1;
 - (void)cardViewDidDisappear:(id)arg1;
 - (void)searchViewDidDisappear:(id)arg1;
 - (void)searchViewDidAppear:(id)arg1;
-- (void)_setupRanker;
+- (_Bool)loadMoreResults:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)loadCard:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)loadImage:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (unsigned long long)enabledStatus;
 - (void)fileHandleAndAttributesForResource:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)reportEvent:(id)arg1;
-- (void)_addTopicsToSearchRequest:(id)arg1;
 - (void)loadTask:(id)arg1;
 - (id)taskWithRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)awaitBag;
 - (void)start;
+- (void)dealloc;
+- (id)initWithConfiguration:(id)arg1 connection:(id)arg2 delegate:(id)arg3 startImmediately:(_Bool)arg4;
 - (id)initWithConfiguration:(id)arg1;
 - (id)initWithConfiguration:(id)arg1 connection:(id)arg2;
-- (id)initWithConfiguration:(id)arg1 connection:(id)arg2 delegate:(id)arg3 startImmediately:(_Bool)arg4;
+- (void)didDeleteResource:(id)arg1;
+- (void)didDownloadResource:(id)arg1;
 - (void)bagDidLoad:(id)arg1 error:(id)arg2;
 
 // Remaining properties

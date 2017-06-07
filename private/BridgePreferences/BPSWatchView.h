@@ -32,6 +32,7 @@
 - (unsigned long long)deviceSize;
 - (void)overrideMaterial:(unsigned long long)arg1 size:(unsigned long long)arg2;
 - (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)applyScreenStyle;
 - (id)watchAssetBundle;

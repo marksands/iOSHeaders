@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
 - (void)youTubePlayer:(id)arg1 didReceiveError:(id)arg2;
 - (void)youTubePlayer:(id)arg1 didChangeToState:(long long)arg2;
 - (id)createVideoPlayerView;
-- (void)layoutComponentView;
 - (void)setPlaying:(_Bool)arg1;
 - (void)setVolume:(double)arg1;
 - (double)volume;
@@ -31,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isMuted;
 - (_Bool)shouldShowMuteButton;
 - (_Bool)usesSharedAudioSession;
-- (id)initWithVideo:(id)arg1 style:(id)arg2 posterFrame:(id)arg3 posterFrameStyle:(id)arg4 disablePlayback:(_Bool)arg5;
+- (id)initWithVideo:(id)arg1 style:(id)arg2 posterFrame:(id)arg3 posterFrameStyle:(id)arg4 configuration:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -20,6 +20,8 @@
 + (_Bool)isServiceRestricted:(id)arg1;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
+- (id)documentSource:(id)arg1;
+- (id)documentsSpecifier;
 - (id)privacyAccessForSpecifier:(id)arg1;
 - (id)_privacyAccessForService:(struct __CFString *)arg1;
 - (void)setPrivacyAccess:(id)arg1 forSpecifier:(id)arg2;
@@ -30,6 +32,11 @@
 - (id)locationStatus:(id)arg1;
 - (_Bool)_isLocationServicesRestricted;
 - (id)locationServicesSpecifier;
+- (Class)photosDetailClass;
+- (id)photosLocalizedStringForAuthType:(id)arg1;
+- (id)photosAuthDescriptionForAppBundle:(struct __CFBundle *)arg1;
+- (id)photosStatus:(id)arg1;
+- (id)photosServicesSpecifier;
 - (id)isBackgroundRefreshEnabled:(id)arg1;
 - (void)setBackgroundRefreshEnabled:(id)arg1 forSpecifier:(id)arg2;
 - (_Bool)_isBackgroundAppRefreshAllowed;
@@ -41,6 +48,7 @@
 - (_Bool)_isWirelessDataRestricted;
 - (_Bool)isCellularBundleID:(id)arg1;
 - (id)dataUsageWorkspaceInfo;
+- (id)assistantAndSearchSpecifiers;
 - (id)_sectionInfo;
 - (id)notificationSpecifier;
 - (id)specifiersForPolicyOptions:(unsigned long long)arg1 force:(_Bool)arg2;

@@ -141,6 +141,7 @@
 @property(retain, nonatomic) NSTimeZone *timeZone;
 - (_Bool)hasCalendarUserAddressEquivalentToURL:(id)arg1;
 @property(retain, nonatomic) NSSet *calendarUserAddresses;
+@property(readonly, nonatomic) NSString *ownerPhoneNumber;
 @property(readonly, nonatomic) NSString *ownerEmailAddress;
 @property(retain, nonatomic) NSString *ownerDisplayName;
 @property(retain, nonatomic) NSURL *prePublishURL;

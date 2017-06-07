@@ -4,16 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSData, NSError, NSUUID, SFDevice, SFEventMessage, SFRemoteTextSessionInfo, SFRequestMessage, SFResponseMessage;
+@class NSData, NSError, NSString, NSUUID, SFDevice, SFEventMessage, SFRemoteTextSessionInfo, SFRequestMessage, SFResponseMessage;
 
 @protocol SFXPCInterface
 
 @optional
+- (void)userNotificationTextResponse:(NSString *)arg1;
+- (void)userNotificationResponse:(int)arg1;
+- (void)userNotificationError:(NSError *)arg1;
 - (void)sessionReceivedResponse:(SFResponseMessage *)arg1;
 - (void)sessionReceivedRequest:(SFRequestMessage *)arg1;
 - (void)sessionReceivedFrameType:(unsigned char)arg1 data:(NSData *)arg2;
 - (void)sessionReceivedEvent:(SFEventMessage *)arg1;
 - (void)sessionError:(NSError *)arg1;
+- (void)sessionBluetoothStateChanged:(long long)arg1;
 - (void)serviceReceivedResponse:(SFResponseMessage *)arg1;
 - (void)serviceReceivedRequest:(SFRequestMessage *)arg1;
 - (void)serviceReceivedFrameType:(unsigned char)arg1 data:(NSData *)arg2 peer:(NSUUID *)arg3;

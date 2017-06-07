@@ -22,6 +22,8 @@ __attribute__((visibility("hidden")))
     } _has;
 }
 
++ (int)payloadFromNegotiationPayload:(int)arg1;
++ (int)negotiationPayloadFromPayload:(int)arg1;
 @property(nonatomic) _Bool useSBR; // @synthesize useSBR=_useSBR;
 @property(nonatomic) unsigned int secondaryFlags; // @synthesize secondaryFlags=_secondaryFlags;
 @property(nonatomic) unsigned int payloadFlags; // @synthesize payloadFlags=_payloadFlags;
@@ -38,11 +40,9 @@ __attribute__((visibility("hidden")))
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) _Bool hasAudioUnitModel;
-- (void)print;
+- (void)printWithLogFile:(void *)arg1;
 - (id)newAudioRuleCollection;
 - (void)setAudioRuleCollection:(id)arg1;
-- (int)payloadFromNegotiationPayload:(int)arg1;
-- (int)negotiationPayloadFromPayload:(int)arg1;
 @property(readonly, nonatomic) _Bool allowAudioRecording;
 - (id)initWithSSRC:(unsigned int)arg1 audioRuleCollection:(id)arg2 allowAudioRecording:(_Bool)arg3 audioUnitNumber:(unsigned int)arg4;
 

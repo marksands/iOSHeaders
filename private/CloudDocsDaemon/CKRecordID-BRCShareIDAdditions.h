@@ -7,12 +7,12 @@
 #import <CloudKit/CKRecordID.h>
 
 @interface CKRecordID (BRCShareIDAdditions)
-- (id)brc_shareItemIDWithLibraryRowID:(id)arg1;
++ (id)brc_fetchShareIDWithSharedItem:(id)arg1;
+- (id)brc_shareItemID;
 - (id)brc_shareZoneName;
-- (id)brc_shareOwnerItemID;
 - (id)initShareIDWithRecordID:(id)arg1 zoneID:(id)arg2 session:(id)arg3;
 - (id)initShareIDWithRecordID:(id)arg1 serverZone:(id)arg2;
-- (id)initShareIDWithDocumentItem:(id)arg1;
+- (id)initShareIDWithShareableItem:(id)arg1;
 - (id)initShareIDWithItemID:(id)arg1 zoneID:(id)arg2;
 @end
 

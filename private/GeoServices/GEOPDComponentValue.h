@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAddress, GEOPDAddressObject, GEOPDAmenities, GEOPDAssociatedApp, GEOPDBounds, GEOPDBusinessClaim, GEOPDCaptionedPhoto, GEOPDETA, GEOPDEntity, GEOPDExternalAction, GEOPDFactoid, GEOPDFlyover, GEOPDHours, GEOPDPhoto, GEOPDPlaceInfo, GEOPDPlacecardURL, GEOPDRap, GEOPDRating, GEOPDRawAttribute, GEOPDRestaurantReservationLink, GEOPDResultSnippet, GEOPDReview, GEOPDRoadAccessInfo, GEOPDSimpleRestaurantMenuText, GEOPDSpatialLookupResult, GEOPDTextBlock, GEOPDTip, GEOPDTransitAttribution, GEOPDTransitIncident, GEOPDTransitInfo, GEOPDTransitInfoSnippet, GEOPDTransitSchedule, GEOStyleAttributes;
+@class GEOPDAddress, GEOPDAddressObject, GEOPDAmenities, GEOPDAssociatedApp, GEOPDBounds, GEOPDBusinessClaim, GEOPDCaptionedPhoto, GEOPDContainedPlace, GEOPDETA, GEOPDEntity, GEOPDExternalAction, GEOPDFactoid, GEOPDFlyover, GEOPDHours, GEOPDIcon, GEOPDLocationEvent, GEOPDMessageLink, GEOPDPhoto, GEOPDPlaceInfo, GEOPDPlacecardURL, GEOPDPriceDescription, GEOPDQuickLink, GEOPDRap, GEOPDRating, GEOPDRawAttribute, GEOPDRestaurantReservationLink, GEOPDResultSnippet, GEOPDReview, GEOPDRoadAccessInfo, GEOPDSimpleRestaurantMenuText, GEOPDSpatialLookupResult, GEOPDTextBlock, GEOPDTip, GEOPDTransitAttribution, GEOPDTransitIncident, GEOPDTransitInfo, GEOPDTransitInfoSnippet, GEOPDTransitSchedule, GEOPDVenueInfo, GEOPDWifiFingerprint, GEOStyleAttributes, PBUnknownFields;
 
 @interface GEOPDComponentValue : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     GEOPDRoadAccessInfo *_accessInfo;
     GEOPDAddress *_address;
     GEOPDAddressObject *_addressObject;
@@ -20,15 +21,21 @@
     GEOPDBounds *_bounds;
     GEOPDBusinessClaim *_businessClaim;
     GEOPDCaptionedPhoto *_captionedPhoto;
+    GEOPDContainedPlace *_containedPlace;
     GEOPDEntity *_entity;
     GEOPDETA *_eta;
     GEOPDExternalAction *_externalAction;
     GEOPDFactoid *_factoid;
     GEOPDFlyover *_flyover;
     GEOPDHours *_hours;
+    GEOPDIcon *_icon;
+    GEOPDLocationEvent *_locationEvent;
+    GEOPDMessageLink *_messageLink;
     GEOPDPhoto *_photo;
     GEOPDPlaceInfo *_placeInfo;
     GEOPDPlacecardURL *_placecardUrl;
+    GEOPDPriceDescription *_priceDescription;
+    GEOPDQuickLink *_quickLink;
     GEOPDRap *_rap;
     GEOPDRating *_rating;
     GEOPDRawAttribute *_rawAttribute;
@@ -45,9 +52,19 @@
     GEOPDTransitInfo *_transitInfo;
     GEOPDTransitInfoSnippet *_transitInfoSnippet;
     GEOPDTransitSchedule *_transitSchedule;
+    GEOPDVenueInfo *_venueInfo;
+    GEOPDWifiFingerprint *_wifiFingerprint;
 }
 
+@property(retain, nonatomic) GEOPDPriceDescription *priceDescription; // @synthesize priceDescription=_priceDescription;
+@property(retain, nonatomic) GEOPDIcon *icon; // @synthesize icon=_icon;
+@property(retain, nonatomic) GEOPDWifiFingerprint *wifiFingerprint; // @synthesize wifiFingerprint=_wifiFingerprint;
+@property(retain, nonatomic) GEOPDContainedPlace *containedPlace; // @synthesize containedPlace=_containedPlace;
+@property(retain, nonatomic) GEOPDVenueInfo *venueInfo; // @synthesize venueInfo=_venueInfo;
+@property(retain, nonatomic) GEOPDLocationEvent *locationEvent; // @synthesize locationEvent=_locationEvent;
 @property(retain, nonatomic) GEOPDRap *rap; // @synthesize rap=_rap;
+@property(retain, nonatomic) GEOPDQuickLink *quickLink; // @synthesize quickLink=_quickLink;
+@property(retain, nonatomic) GEOPDMessageLink *messageLink; // @synthesize messageLink=_messageLink;
 @property(retain, nonatomic) GEOPDAssociatedApp *associatedApp; // @synthesize associatedApp=_associatedApp;
 @property(retain, nonatomic) GEOPDPlacecardURL *placecardUrl; // @synthesize placecardUrl=_placecardUrl;
 @property(retain, nonatomic) GEOPDTip *tip; // @synthesize tip=_tip;
@@ -80,6 +97,8 @@
 @property(retain, nonatomic) GEOPDRoadAccessInfo *accessInfo; // @synthesize accessInfo=_accessInfo;
 @property(retain, nonatomic) GEOPDPlaceInfo *placeInfo; // @synthesize placeInfo=_placeInfo;
 @property(retain, nonatomic) GEOPDEntity *entity; // @synthesize entity=_entity;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -89,7 +108,15 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPriceDescription;
+@property(readonly, nonatomic) _Bool hasIcon;
+@property(readonly, nonatomic) _Bool hasWifiFingerprint;
+@property(readonly, nonatomic) _Bool hasContainedPlace;
+@property(readonly, nonatomic) _Bool hasVenueInfo;
+@property(readonly, nonatomic) _Bool hasLocationEvent;
 @property(readonly, nonatomic) _Bool hasRap;
+@property(readonly, nonatomic) _Bool hasQuickLink;
+@property(readonly, nonatomic) _Bool hasMessageLink;
 @property(readonly, nonatomic) _Bool hasAssociatedApp;
 @property(readonly, nonatomic) _Bool hasPlacecardUrl;
 @property(readonly, nonatomic) _Bool hasTip;
@@ -122,7 +149,6 @@
 @property(readonly, nonatomic) _Bool hasAccessInfo;
 @property(readonly, nonatomic) _Bool hasPlaceInfo;
 @property(readonly, nonatomic) _Bool hasEntity;
-- (void)dealloc;
 
 @end
 

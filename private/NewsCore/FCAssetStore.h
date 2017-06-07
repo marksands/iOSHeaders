@@ -19,10 +19,12 @@
 @property(copy, nonatomic) NSString *preferredExtension; // @synthesize preferredExtension=_preferredExtension;
 @property(copy, nonatomic) NSString *directoryPath; // @synthesize directoryPath=_directoryPath;
 - (void).cxx_destruct;
+- (unsigned long long)_sizeOfFileAtURL:(id)arg1;
 - (id)_keyForFileName:(id)arg1;
 - (id)_filePathForKey:(id)arg1;
 - (id)allKeys;
 - (unsigned long long)storeSize;
+- (unsigned long long)sizeOfFileForKey:(id)arg1;
 - (id)fileURLForKey:(id)arg1;
 - (id)filePathForKey:(id)arg1;
 - (_Bool)removeAllFiles;

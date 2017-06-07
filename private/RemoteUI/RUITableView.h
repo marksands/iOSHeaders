@@ -75,6 +75,7 @@
 - (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
 - (_Bool)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)activateRowAtIndexPath:(id)arg1 animated:(_Bool)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
@@ -135,7 +136,7 @@
 - (id)view;
 - (void)dealloc;
 - (void)_registerForNotifications:(_Bool)arg1;
-- (id)init;
+- (id)initWithAttributes:(id)arg1 parent:(id)arg2;
 - (id)staticValues;
 
 // Remaining properties

@@ -15,7 +15,7 @@
 }
 
 + (id)placeholderContact;
-+ (id)contactForPhoneNumber:(id)arg1;
++ (id)contactForPhoneNumber:(id)arg1 email:(id)arg2;
 + (id)sharedStore;
 @property(retain) NSCache *contactCache; // @synthesize contactCache=_contactCache;
 @property(retain) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMapItemTransitInfo-Protocol.h>
 
@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) _Bool hasTransitIncidentComponent; // @synthesize hasTransitIncidentComponent=_hasTransitIncidentComponent;
+- (void).cxx_destruct;
 - (id)inactiveLinesForSystem:(id)arg1 relativeToDateFromBlock:(CDUnknownBlockType)arg2 excludingIncidentEntities:(id)arg3;
 - (id)serviceResumesDateForLine:(id)arg1 excludingIncidentEntities:(id)arg2 afterDate:(id)arg3 blocked:(out _Bool *)arg4;
 - (id)sequencesForSystem:(id)arg1 excludingIncidentEntities:(id)arg2 direction:(id)arg3 validForDateFromBlock:(CDUnknownBlockType)arg4;
@@ -47,7 +48,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *systems;
 @property(readonly, nonatomic) NSArray *connections;
 @property(readonly, nonatomic) NSArray *labelItems;
-- (void)dealloc;
 - (id)initWithTransitInfo:(id)arg1 schedule:(id)arg2 timeZone:(id)arg3 incidents:(id)arg4 hasTransitIncidentComponent:(_Bool)arg5 incidentExpirationDate:(id)arg6 providerID:(int)arg7;
 
 // Remaining properties

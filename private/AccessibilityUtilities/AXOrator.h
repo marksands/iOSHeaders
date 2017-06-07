@@ -67,7 +67,8 @@
 @property(retain, nonatomic) AXLanguageTaggedContent *selectedContent; // @synthesize selectedContent=_selectedContent;
 @property(nonatomic) long long speakingContext; // @synthesize speakingContext=_speakingContext;
 @property(nonatomic) struct _NSRange lastSpokenSubstringRange; // @synthesize lastSpokenSubstringRange=_lastSpokenSubstringRange;
-@property(nonatomic) id <AXOratorDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <AXOratorDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_handleMediaServicesWereReset:(id)arg1;
 - (void)_handleMediaServicesWereLost:(id)arg1;
 - (void)_handleAudioInterruption:(id)arg1;

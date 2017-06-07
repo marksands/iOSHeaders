@@ -10,14 +10,13 @@
 #import <HealthDaemon/HDNanoSyncPersistentUserInfoCopying-Protocol.h>
 #import <HealthDaemon/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray, NSString;
+@class NSData, NSString;
 
 @interface HDCodableNanoSyncActivationRestore : PBCodable <HDNanoSyncDescription, HDNanoSyncPersistentUserInfoCopying, NSCopying>
 {
     long long _sequenceNumber;
     NSString *_defaultSourceBundleIdentifier;
     NSData *_restoreIdentifier;
-    NSMutableArray *_restores;
     int _statusCode;
     struct {
         unsigned int sequenceNumber:1;
@@ -28,7 +27,6 @@
 + (id)activationRestoreWithRestoreUUID:(id)arg1 sequenceNumber:(long long)arg2 statusCode:(int)arg3;
 + (id)persistentUserInfoKey;
 + (id)retreiveFromPersistentUserInfo:(id)arg1;
-@property(retain, nonatomic) NSMutableArray *restores; // @synthesize restores=_restores;
 @property(retain, nonatomic) NSString *defaultSourceBundleIdentifier; // @synthesize defaultSourceBundleIdentifier=_defaultSourceBundleIdentifier;
 @property(nonatomic) long long sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(retain, nonatomic) NSData *restoreIdentifier; // @synthesize restoreIdentifier=_restoreIdentifier;
@@ -42,11 +40,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
-- (id)restoresAtIndex:(unsigned long long)arg1;
-- (unsigned long long)restoresCount;
-- (void)addRestores:(id)arg1;
-- (void)clearRestores;
 @property(readonly, nonatomic) _Bool hasDefaultSourceBundleIdentifier;
+- (int)StringAsStatusCode:(id)arg1;
+- (id)statusCodeAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatusCode;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
 @property(nonatomic) _Bool hasSequenceNumber;

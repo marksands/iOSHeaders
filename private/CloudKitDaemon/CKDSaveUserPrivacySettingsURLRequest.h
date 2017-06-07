@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)requiresTokenRegistration;
 - (id)requestOperationClasses;
 - (int)operationType;
+- (long long)databaseScope;
 - (void)setDiscoverable:(_Bool)arg1;
 - (id)init;
 

@@ -22,13 +22,13 @@
 @property(nonatomic) long long layoutRole; // @synthesize layoutRole=_layoutRole;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(nonatomic) int pid; // @synthesize pid=_pid;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isLayoutFullscreenModal;
 @property(readonly, nonatomic) _Bool isLayoutPrimary;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
 - (void)_commonInit;
-- (void)dealloc;
 - (id)init;
 
 @end

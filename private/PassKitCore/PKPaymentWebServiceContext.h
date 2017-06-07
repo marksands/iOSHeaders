@@ -4,14 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <PassKitCore/PKWebServiceContext.h>
 
-#import <PassKitCore/NSSecureCoding-Protocol.h>
-
-@class NSArray, NSDate, NSDictionary, NSMutableDictionary, NSString, PKPaymentWebServiceConfiguration, PKPaymentWebServiceRegion;
+@class NSArray, NSDate, NSDictionary, NSMutableDictionary, NSObject, NSString, PKPaymentWebServiceConfiguration, PKPaymentWebServiceRegion;
 @protocol OS_dispatch_queue;
 
-@interface PKPaymentWebServiceContext : NSObject <NSSecureCoding>
+@interface PKPaymentWebServiceContext : PKWebServiceContext
 {
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _devSigned;
@@ -22,6 +20,7 @@
     NSString *_deviceID;
     NSString *_secureElementID;
     NSString *_pushToken;
+    NSString *_companionSerialNumber;
     NSDate *_registrationDate;
     NSDate *_configurationDate;
     PKPaymentWebServiceConfiguration *_configuration;
@@ -50,6 +49,7 @@
 @property(copy) NSDate *configurationDate; // @synthesize configurationDate=_configurationDate;
 @property(copy) NSDate *registrationDate; // @synthesize registrationDate=_registrationDate;
 @property _Bool devSigned; // @synthesize devSigned=_devSigned;
+@property(copy) NSString *companionSerialNumber; // @synthesize companionSerialNumber=_companionSerialNumber;
 @property(copy) NSString *pushToken; // @synthesize pushToken=_pushToken;
 @property(copy) NSString *secureElementID; // @synthesize secureElementID=_secureElementID;
 @property(copy) NSString *deviceID; // @synthesize deviceID=_deviceID;
@@ -64,7 +64,6 @@
 - (void)removeVerificationRequestRecordForUniqueID:(id)arg1;
 - (id)verificationRequestRecordForUniqueID:(id)arg1;
 - (void)addVerificationRequestRecord:(id)arg1 forUniqueID:(id)arg2;
-- (void)archiveAtPath:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

@@ -11,16 +11,20 @@
 #import <PassKitUI/RemoteUIControllerDelegate-Protocol.h>
 #import <PassKitUI/UITextFieldDelegate-Protocol.h>
 
-@class CLInUseAssertion, NSString, PKPaymentProvisioningController, PKPaymentSetupCardDetailsFooterView, PKPaymentVerificationController, RemoteUIController, _UIFeedbackEventBehavior;
+@class CLInUseAssertion, NSString, NSTimer, PKPaymentProvisioningController, PKPaymentSetupFooterView, PKPaymentVerificationController, RemoteUIController, UINotificationFeedbackGenerator;
 
 @interface PKPaymentSetupProvisioningFieldsViewController : PKPaymentSetupFieldsViewController <UITextFieldDelegate, RemoteUIControllerDelegate, PKPaymentVerificationControllerDelegate, PKPaymentSetupViewControllerCanHideSetupLaterButton>
 {
-    PKPaymentSetupCardDetailsFooterView *_cardDetailsFooterView;
+    PKPaymentSetupFooterView *_cardDetailsFooterView;
     RemoteUIController *_termsUIController;
     CLInUseAssertion *_CLInUse;
     _Bool _termsPresented;
-    _UIFeedbackEventBehavior *_cardAddedBehavior;
+    UINotificationFeedbackGenerator *_cardAddedFeedbackGenerator;
     PKPaymentVerificationController *_verificationController;
+    _Bool _waitForActivation;
+    CDUnknownBlockType _waitForActivationCompletionHandler;
+    NSTimer *_waitForActivationTimer;
+    NSString *_activatingPaymentPassUniqueID;
     _Bool _hideSetupLaterButton;
     PKPaymentProvisioningController *_paymentProvisioningController;
 }
@@ -43,13 +47,21 @@
 - (_Bool)_shouldShowVerificationMethodsForPass:(id)arg1;
 - (void)_showAutomaticSelectionForPass:(id)arg1;
 - (_Bool)_shouldShowAutomaticSelectionForPass:(id)arg1;
-- (void)handlePassSuccessfullyAdded:(id)arg1;
+- (void)_handleNextCredentialWithPresentationDelay:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_handlePassSuccessfullyAdded:(id)arg1;
+- (void)handlePassSuccessfullyAdded:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)acceptTerms;
 - (void)displayTermsForEligibility:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)displayTermsForTermsURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (void)_provisioningLocalizedProgressDescriptionDidChange:(id)arg1;
 - (void)_provisioningStateDidChange:(id)arg1;
+- (void)_passLibraryDidChange:(id)arg1;
+- (void)_cleanupWaitForActivation;
+- (void)_didActivatePaymentPass:(id)arg1;
+- (void)_waitForActivationDidTimeout:(id)arg1;
+- (void)_waitForActivation:(id)arg1;
+- (void)_requestWaitForActivation:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)requestProvisioning:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)requestEligibility:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)requestRequirements:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

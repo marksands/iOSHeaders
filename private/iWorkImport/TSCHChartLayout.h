@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 {
     _Bool mNeedsLayout;
     TSCHChartInfo *mChartInfo;
-    CDStruct_339a9a6e mLayoutSettings;
+    CDStruct_44ada6bf mLayoutSettings;
     struct CGRect _legendModelGeometryFrame;
 }
 
@@ -21,12 +21,13 @@ __attribute__((visibility("hidden")))
 + (struct CGSize)legendSizeForChartInfo:(id)arg1 initialWidth:(double)arg2;
 + (id)chartLayoutWithChartInfo:(id)arg1;
 @property struct CGRect legendModelGeometryFrame; // @synthesize legendModelGeometryFrame=_legendModelGeometryFrame;
-@property CDStruct_339a9a6e layoutSettings; // @synthesize layoutSettings=mLayoutSettings;
+@property CDStruct_44ada6bf layoutSettings; // @synthesize layoutSettings=mLayoutSettings;
 @property(readonly) TSCHChartInfo *chartInfo; // @synthesize chartInfo=mChartInfo;
 - (struct CGPath *)newDragAndDropHighlightPathForSelection:(id)arg1;
 - (id)subselectionHaloPositionsForSelections:(id)arg1;
 - (id)subselectionKnobPositionsForSelection:(id)arg1;
 - (id)hitChartElements:(struct CGPoint)arg1 passingTest:(CDUnknownBlockType)arg2;
+- (void)setForceOmitLabelPlacement:(_Bool)arg1;
 - (void)setForceOmitLegend:(_Bool)arg1;
 - (struct CGRect)convertNaturalSpaceRectToChartLayoutSpaceRect:(struct CGRect)arg1;
 - (struct CGRect)convertChartLayoutSpaceRectToNaturalSpaceRect:(struct CGRect)arg1;

@@ -4,15 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class NSArray, NSData, NSDate, NSDictionary, NSString, _IDSAccount;
+@class NSArray, NSData, NSDate, NSDictionary, NSSet, NSString, _IDSAccount;
 
 @interface IDSAccount : NSObject
 {
     _IDSAccount *_internal;
 }
 
+- (void).cxx_destruct;
+- (void)deactivateAlias:(id)arg1;
+- (void)activateAlias:(id)arg1;
+@property(readonly, nonatomic) NSSet *activeAliases;
 - (void)_reloadCachedDevices;
 - (void)_callNearbyDevicesChanged;
 - (void)deactivateAndPurgeIdentify;
@@ -44,26 +48,27 @@
 @property(readonly, nonatomic) int registrationStatus;
 - (void)updateAccountWithAccountInfo:(id)arg1;
 @property(retain, nonatomic) NSDictionary *accountInfo;
-- (void)_setIsEnabled:(_Bool)arg1;
-- (_Bool)_isEnabled;
+@property(readonly, nonatomic) _Bool isUsableForOuterMessaging;
+@property(nonatomic, setter=_setIsEnabled:) _Bool _isEnabled;
 - (void)setAuthToken:(id)arg1;
 - (void)setPassword:(id)arg1;
-@property(readonly, retain, nonatomic) NSArray *vettedAliases;
-@property(readonly, retain, nonatomic) NSArray *aliasStrings;
-@property(readonly, retain, nonatomic) NSArray *aliases;
-@property(readonly, retain, nonatomic) NSDictionary *profileInfo;
-@property(readonly, retain, nonatomic) NSArray *nearbyDevices;
-@property(readonly, retain, nonatomic) NSArray *devices;
+@property(readonly, nonatomic) NSArray *handles;
+@property(readonly, nonatomic) NSArray *vettedAliases;
+@property(readonly, nonatomic) NSArray *aliasStrings;
+@property(readonly, nonatomic) NSArray *aliases;
+@property(readonly, nonatomic) NSDictionary *profileInfo;
+@property(readonly, nonatomic) NSArray *nearbyDevices;
+@property(readonly, nonatomic) NSArray *devices;
 @property(readonly, nonatomic) _Bool canSend;
 @property(readonly, nonatomic) _Bool isUserDisabled;
 @property(readonly, nonatomic) _Bool isActive;
 @property(readonly, nonatomic) int accountType;
-@property(readonly, retain, nonatomic) NSString *primaryServiceName;
-@property(readonly, retain, nonatomic) NSString *serviceName;
+@property(readonly, nonatomic) NSString *primaryServiceName;
+@property(readonly, nonatomic) NSString *serviceName;
 @property(retain, nonatomic) NSString *loginID;
-@property(readonly, retain, nonatomic) NSString *displayName;
-@property(readonly, retain, nonatomic) NSString *uniqueID;
-- (id)_internal;
+@property(readonly, nonatomic) NSString *displayName;
+@property(readonly, nonatomic) NSString *uniqueID;
+@property(readonly, retain, nonatomic) _IDSAccount *_internal;
 - (void)dealloc;
 - (id)initWithLoginID:(id)arg1 uniqueID:(id)arg2 serviceName:(id)arg3;
 - (id)initWithDictionary:(id)arg1 uniqueID:(id)arg2 serviceName:(id)arg3;

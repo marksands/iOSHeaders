@@ -6,61 +6,58 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSData, NSError, NSMutableDictionary, NSString, PLManagedAsset, UIImage;
+@class NSError, NSMutableArray, NSString, PLManagedAsset, UIImage;
 
 @interface PLCameraImportItem : NSObject
 {
+    NSMutableArray *_sortedRepresentations;
+    _Bool _metadataRequested;
+    _Bool _shouldImport;
+    int _thumbnailState;
     NSString *_identifier;
     NSString *_parentFolder;
     NSString *_basePath;
-    NSMutableDictionary *_representationsMapping;
-    UIImage *_thumbnail;
-    NSData *_thumbnailData;
-    int _thumbnailState;
-    _Bool _metadataRequested;
-    _Bool _thumbnailRequested;
-    _Bool _shouldImport;
+    NSString *_eventName;
+    PLManagedAsset *_importedAsset;
     NSError *_importError;
-    NSString *eventName;
-    PLManagedAsset *importedAsset;
 }
 
-@property(retain, nonatomic) PLManagedAsset *importedAsset; // @synthesize importedAsset;
-@property(retain, nonatomic) NSString *eventName; // @synthesize eventName;
 @property(retain, nonatomic) NSError *importError; // @synthesize importError=_importError;
 @property(nonatomic) _Bool shouldImport; // @synthesize shouldImport=_shouldImport;
-@property(retain, nonatomic) NSData *thumbnailData; // @synthesize thumbnailData=_thumbnailData;
-@property(readonly, retain, nonatomic) UIImage *thumbnail; // @synthesize thumbnail=_thumbnail;
+@property(nonatomic) int thumbnailState; // @synthesize thumbnailState=_thumbnailState;
+@property(retain, nonatomic) PLManagedAsset *importedAsset; // @synthesize importedAsset=_importedAsset;
+@property(retain, nonatomic) NSString *eventName; // @synthesize eventName=_eventName;
 @property(retain, nonatomic) NSString *basePath; // @synthesize basePath=_basePath;
 @property(readonly, copy, nonatomic) NSString *parentFolder; // @synthesize parentFolder=_parentFolder;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (id)otherExtensions;
 - (id)audioExtension;
 - (id)movieExtension;
+- (id)imageExtension;
 - (id)rawExtension;
-- (id)jpgExtension;
-- (id)_fileExtensionForTypeWithSelector:(SEL)arg1;
+- (id)_fileExtensionOfFirstRepresentationPassingTest:(CDUnknownBlockType)arg1;
 - (id)fileExtensions;
 - (_Bool)isStandaloneMovie;
 - (_Bool)isStandalonePhoto;
 - (_Bool)isAudio;
 - (_Bool)isMovie;
+- (_Bool)isImage;
 - (_Bool)isRaw;
-- (_Bool)isJPEG;
-- (_Bool)_isTypeWithSelector:(SEL)arg1;
+- (_Bool)_hasAnyRepresentationPassingTest:(CDUnknownBlockType)arg1;
+- (id)_firstRepresentationPassingTest:(CDUnknownBlockType)arg1;
 - (unsigned long long)fileSize;
 - (id)creationDate;
-- (void)markRepresentationsInDatabase;
-- (_Bool)isInDatabaseForce:(_Bool)arg1;
+- (void)markAsInLibrary;
+- (_Bool)isInLibraryForce:(_Bool)arg1;
 - (_Bool)isOnDisk;
 - (_Bool)isLocked;
-- (void)setThumbnailWithImageRef:(struct CGImage *)arg1;
+- (id)_masterRepresentation;
+- (id)masterPath;
 - (void)clearThumbnail;
-- (void)cancelThumbnailRequest;
 - (_Bool)canRequestThumbnail;
 - (void)requestThumbnail;
-- (void)setThumbnailState:(int)arg1;
-- (int)thumbnailState;
+@property(readonly, retain, nonatomic) UIImage *thumbnail;
 - (void)clearMetadata;
 - (_Bool)hasAllMetadata;
 - (id)metadataForRepresentationWithFileExtension:(id)arg1;
@@ -71,9 +68,9 @@
 - (void)_removeRepresentation:(id)arg1;
 - (void)addRepresentationForCameraFile:(id)arg1;
 - (void)_addRepresentation:(id)arg1;
+- (id)representationsSortedForImport;
 - (id)representations;
 - (id)description;
-- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 parentFolder:(id)arg2;
 
 @end

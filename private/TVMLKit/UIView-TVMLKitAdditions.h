@@ -13,6 +13,7 @@
 - (id)tv_siriData;
 - (_Bool)tv_marqueeOnHighlight;
 - (_Bool)tv_showOnHighlight;
+- (_Bool)tv_isProxyView;
 - (unsigned long long)tv_elementType;
 - (id)tv_highlightColor;
 - (id)tv_backgroundColor;
@@ -29,6 +30,7 @@
 - (long long)tv_alignment;
 - (struct UIEdgeInsets)tv_padding;
 - (struct UIEdgeInsets)tv_focusMargin;
+- (struct UIEdgeInsets)tv_nonDirectionalMargin;
 - (struct UIEdgeInsets)tv_margin;
 - (struct UIEdgeInsets)tv_alignmentInsetsForExpectedWidth:(double)arg1;
 - (struct CGSize)tv_sizeThatFits:(struct CGSize)arg1 withSizeCalculation:(CDUnknownBlockType)arg2;

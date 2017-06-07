@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDate, NSDictionary, NSString;
 
@@ -30,9 +30,10 @@
 
 + (id)incomingFilePath;
 + (id)incomingFilePathForMessageUUID:(id)arg1;
-@property(readonly, retain, nonatomic) NSDate *expiryDate; // @synthesize expiryDate=_expiryDate;
-@property(readonly, retain, nonatomic) NSString *messageUUID; // @synthesize messageUUID=_messageUUID;
+@property(readonly, nonatomic) NSDate *expiryDate; // @synthesize expiryDate=_expiryDate;
+@property(readonly, nonatomic) NSString *messageUUID; // @synthesize messageUUID=_messageUUID;
 @property(readonly, nonatomic) unsigned long long totalBytesReceived; // @synthesize totalBytesReceived=_totalBytesReceived;
+- (void).cxx_destruct;
 - (id)finalizedMessageDictionaryIfDone;
 - (_Bool)appendMessage:(id)arg1 receiverError:(unsigned char *)arg2;
 - (_Bool)writeResourceData:(id)arg1 resourceByteOffset:(unsigned long long)arg2;

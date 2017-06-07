@@ -9,7 +9,7 @@
 #import <MediaMiningKit/CLSClueCollectionJSExports-Protocol.h>
 #import <MediaMiningKit/NSCoding-Protocol.h>
 
-@class CLSInputPeopleClue, NSMapTable;
+@class CLSInputPeopleClue, CLSMeaningClue, NSMapTable;
 @protocol OS_dispatch_queue;
 
 @interface CLSClueCollection : NSObject <NSCoding, CLSClueCollectionJSExports>
@@ -57,6 +57,8 @@
 - (long long)year;
 @property(readonly) unsigned long long numberOfDays;
 @property(readonly) double timeInterval;
+@property(readonly) CLSMeaningClue *locationMobilityClue;
+- (void)enumerateTimeOfDayClues:(CDUnknownBlockType)arg1;
 - (_Bool)hasMeaningClueWithKey:(id)arg1 value:(id)arg2 andMinimumScore:(double)arg3;
 - (_Bool)hasMeaningClueWithKey:(id)arg1 andValue:(id)arg2;
 - (id)uniqueMeaningClueForKey:(id)arg1 andValue:(id)arg2;
@@ -91,7 +93,7 @@
 - (id)_activityString;
 - (id)_petString;
 - (id)_peopleString;
-- (id)_locationSpanString;
+- (id)_locationMobilityString;
 - (id)_locationString;
 - (id)_timeEventString;
 - (id)_timeSeasonString;
@@ -120,7 +122,7 @@
 - (id)locationCounties;
 - (id)locationCities;
 - (id)locationNeighbourhoods;
-- (unsigned long long)clueLocationSpan;
+- (unsigned long long)clueLocationMobility;
 - (unsigned long long)clueLocation;
 - (id)timeEventNames;
 - (unsigned long long)clueTimeEvent;

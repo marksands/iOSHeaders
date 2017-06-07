@@ -19,9 +19,9 @@
     UIView *_topGradientView;
     UIView *_bottomGradientView;
     unsigned int _isUsingLegibility:1;
+    unsigned int _isComplicationColorApplied:1;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (void).cxx_destruct;
 - (void)_endScrubbingAnimationFromUIViewAnimateWithDuration;
 - (void)_startScrubbingAnimationFromUIViewAnimateWithDuration;
@@ -29,7 +29,7 @@
 - (void)_playQueuedUpVideo;
 - (id)_nextListing;
 - (void)_resetVideoForListing;
-- (void)_addSubviewInOrder:(id)arg1;
+- (void)didAddSubview:(id)arg1;
 - (id)_onDeckPosterImageView;
 - (id)_onDeckPosterImageViewWithTheme:(unsigned long long)arg1;
 - (id)_posterImageView;
@@ -41,8 +41,10 @@
 - (void)_handleTapToPlayVideoGesture:(id)arg1;
 - (void)videoPlayerViewDidBeginPlaying:(id)arg1;
 - (id)_viewForEditOption:(id)arg1;
+- (void)_performPreloadVideoTask;
 - (void)_handleOrdinaryScreenWake;
 - (void)_handleWristRaiseScreenWake;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
 - (void)_configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;

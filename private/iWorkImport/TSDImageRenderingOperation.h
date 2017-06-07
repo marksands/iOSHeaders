@@ -16,8 +16,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain) TSDImageInfo *imageInfo; // @synthesize imageInfo=mImageInfo;
+- (void).cxx_destruct;
 - (void)doWorkWithReadLock;
-- (void)dealloc;
 - (id)initWithPreset:(id)arg1 imageSize:(struct CGSize)arg2 imageScale:(double)arg3 swatchFrame:(struct CGRect)arg4 imageInfo:(id)arg5 documentRoot:(id)arg6;
 - (id)initWithPreset:(id)arg1 imageSize:(struct CGSize)arg2 imageScale:(double)arg3 swatchFrame:(struct CGRect)arg4 imageInfo:(id)arg5 documentRoot:(id)arg6 shouldClipVertically:(_Bool)arg7;
 

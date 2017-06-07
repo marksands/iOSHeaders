@@ -25,6 +25,7 @@
 @property(copy, nonatomic) NSArray *fallbackCommands;
 @property(retain, nonatomic) SAUIDomainObjectPicker *domainObjectPicker;
 @property(copy, nonatomic) NSString *disambiguationKey;
+@property(nonatomic) _Bool autoDisambiguationDisabled;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -23,6 +23,10 @@
 
 + (id)createFakeTestFeedbackDictionary;
 + (id)createFakeTestEntry;
++ (id)negativeFeedbackForImageQualityKeys;
++ (id)positiveFeedbackForImageQualityKeys;
++ (id)negativeFeedbackForAutoLoopKeys;
++ (id)positiveFeedbackForAutoLoopKeys;
 + (id)negativeFeedbackForMemoriesKeys;
 + (id)positiveFeedbackForMemoriesKeys;
 + (id)negativeFeedbackForMemoryDetailsKeys;

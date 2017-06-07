@@ -26,6 +26,7 @@
 @property(nonatomic) _Bool eventuallyVisible; // @synthesize eventuallyVisible=_eventuallyVisible;
 @property(nonatomic) _Bool initiallyVisible; // @synthesize initiallyVisible=_initiallyVisible;
 @property(retain, nonatomic) NSString *suggestionString; // @synthesize suggestionString=_suggestionString;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,7 +41,6 @@
 @property(nonatomic) _Bool hasEventuallyVisible;
 @property(nonatomic) _Bool hasInitiallyVisible;
 @property(readonly, nonatomic) _Bool hasSuggestionString;
-- (void)dealloc;
 
 @end
 

@@ -113,12 +113,8 @@ typedef struct {
     double hTrimModeInset;
     double hDetailNavigationBarInset;
     double hPresentedRecordMemoHeight;
-    double vDeltaLockNotificationListTop;
-    double vDeltaLockNotificationListTopToRecordingTextBaseline;
     double vDeltaLockAbsoluteTopToWaveformTop;
-    double vDeltaLockNotificationListBottom;
-    double vDeltaLockNotificationListBottomToRecordingTimeBaseline;
-} CDStruct_66e6f92a;
+} CDStruct_76b83881;
 
 // Template types
 typedef struct vector<float, std::__1::allocator<float>> {

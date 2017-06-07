@@ -11,17 +11,15 @@
 @interface FCEndpointConfiguration : NSObject
 {
     NSString *_clientAPIBaseURLString;
-    NSString *_eventRelayBaseURLString;
     NSString *_notificationsBaseURLString;
 }
 
 @property(readonly, nonatomic) NSString *notificationsBaseURLString; // @synthesize notificationsBaseURLString=_notificationsBaseURLString;
-@property(readonly, nonatomic) NSString *eventRelayBaseURLString; // @synthesize eventRelayBaseURLString=_eventRelayBaseURLString;
 @property(readonly, nonatomic) NSString *clientAPIBaseURLString; // @synthesize clientAPIBaseURLString=_clientAPIBaseURLString;
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithClientAPIBaseURLString:(id)arg1 eventRelayBaseURLString:(id)arg2 notificationsBaseURLString:(id)arg3;
+- (id)initWithClientAPIBaseURLString:(id)arg1 notificationsBaseURLString:(id)arg2;
 
 @end
 

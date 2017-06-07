@@ -6,20 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class NSLock, NSMutableArray, NSMutableAttributedString, NSMutableData, NSMutableDictionary, NSString;
+@class NSMutableArray, NSMutableData, NSString;
 
 @interface NNMKHTMLParser : NSObject
 {
-    _Bool _isLastCharAddedLineBreak;
     _Bool _containsBlacklistedElements;
+    _Bool _parsingHead;
+    _Bool _parsingBody;
     _Bool _cancelled;
-    NSLock *_lock;
-    NSMutableAttributedString *_parsedAttributedString;
+    _Bool _isLastCharAddedLineBreak;
+    NSString *_htmlBodyToParse;
     unsigned long long _encoding;
-    unsigned long long _maxLength;
-    double _maxImageWidth;
-    _Bool *_partiallyParsed;
-    NSMutableDictionary *_imageAtachmentsDataKeyedByContentId;
     struct _xmlParserCtxt *_parserContext;
     NSMutableData *_charactersBuffer;
     NSMutableArray *_stringAttributesStack;
@@ -28,18 +25,20 @@
     NSMutableArray *_listStack;
     unsigned long long _currentListLevel;
     NSString *_ignoringElementSubtree;
+    unsigned long long _bodyTagStartIndex;
+    NSString *_bodyTagStyle;
+    unsigned long long _currentHeadTagStartIndex;
+    unsigned long long _currentImgTagStartIndex;
+    NSString *_currentImgTagSource;
     struct _xmlSAXHandler _parsingSAXHandler;
 }
 
-+ (struct CGSize)_scaledDownSize:(struct CGSize)arg1 maxWidth:(double)arg2;
-+ (id)_scaleAndPrepareImageForClient:(id)arg1 maxWidth:(double)arg2 screenScale:(double)arg3;
-+ (id)trimAttributedString:(id)arg1;
-+ (id)adjustedImage:(id)arg1 maxWidth:(double)arg2 screenScale:(double)arg3;
-+ (id)imageAttachmentAttributedStringWithContentId:(id)arg1 imageSize:(struct CGSize)arg2 mergingAttributes:(id)arg3;
-+ (id)attachmentAttributedStringWithContentId:(id)arg1 mergingAttributes:(id)arg2;
+@property(retain, nonatomic) NSString *currentImgTagSource; // @synthesize currentImgTagSource=_currentImgTagSource;
+@property(nonatomic) unsigned long long currentImgTagStartIndex; // @synthesize currentImgTagStartIndex=_currentImgTagStartIndex;
+@property(nonatomic) unsigned long long currentHeadTagStartIndex; // @synthesize currentHeadTagStartIndex=_currentHeadTagStartIndex;
+@property(retain, nonatomic) NSString *bodyTagStyle; // @synthesize bodyTagStyle=_bodyTagStyle;
+@property(nonatomic) unsigned long long bodyTagStartIndex; // @synthesize bodyTagStartIndex=_bodyTagStartIndex;
 @property(retain, nonatomic) NSString *ignoringElementSubtree; // @synthesize ignoringElementSubtree=_ignoringElementSubtree;
-@property(nonatomic) _Bool cancelled; // @synthesize cancelled=_cancelled;
-@property(nonatomic) _Bool containsBlacklistedElements; // @synthesize containsBlacklistedElements=_containsBlacklistedElements;
 @property(nonatomic) _Bool isLastCharAddedLineBreak; // @synthesize isLastCharAddedLineBreak=_isLastCharAddedLineBreak;
 @property(nonatomic) unsigned long long currentListLevel; // @synthesize currentListLevel=_currentListLevel;
 @property(retain, nonatomic) NSMutableArray *listStack; // @synthesize listStack=_listStack;
@@ -49,17 +48,14 @@
 @property(retain, nonatomic) NSMutableData *charactersBuffer; // @synthesize charactersBuffer=_charactersBuffer;
 @property(nonatomic) struct _xmlParserCtxt *parserContext; // @synthesize parserContext=_parserContext;
 @property(nonatomic) struct _xmlSAXHandler parsingSAXHandler; // @synthesize parsingSAXHandler=_parsingSAXHandler;
-@property(retain, nonatomic) NSMutableDictionary *imageAtachmentsDataKeyedByContentId; // @synthesize imageAtachmentsDataKeyedByContentId=_imageAtachmentsDataKeyedByContentId;
-@property(nonatomic) _Bool *partiallyParsed; // @synthesize partiallyParsed=_partiallyParsed;
-@property(nonatomic) double maxImageWidth; // @synthesize maxImageWidth=_maxImageWidth;
-@property(nonatomic) unsigned long long maxLength; // @synthesize maxLength=_maxLength;
 @property(nonatomic) unsigned long long encoding; // @synthesize encoding=_encoding;
-@property(retain, nonatomic) NSMutableAttributedString *parsedAttributedString; // @synthesize parsedAttributedString=_parsedAttributedString;
-@property(retain, nonatomic) NSLock *lock; // @synthesize lock=_lock;
+@property(retain, nonatomic) NSString *htmlBodyToParse; // @synthesize htmlBodyToParse=_htmlBodyToParse;
+@property(nonatomic) _Bool cancelled; // @synthesize cancelled=_cancelled;
+@property(nonatomic) _Bool parsingBody; // @synthesize parsingBody=_parsingBody;
+@property(nonatomic) _Bool parsingHead; // @synthesize parsingHead=_parsingHead;
+@property(nonatomic) _Bool containsBlacklistedElements; // @synthesize containsBlacklistedElements=_containsBlacklistedElements;
 - (void).cxx_destruct;
-- (_Bool)_validateURLsAndHTMLTagsInParsedString:(id)arg1 urlsFound:(id *)arg2;
-- (void)_addDataDetectionAttributes:(id)arg1;
-- (void)_appendImageWithContentId:(id)arg1 imageSize:(struct CGSize)arg2;
+- (void)_appendImageFromAttributes:(const char **)arg1;
 - (void)_appendString:(id)arg1;
 - (void)_flushCharactersIfNeeded;
 - (void)_appendCharacters:(const char *)arg1 length:(int)arg2;
@@ -77,6 +73,7 @@
 - (void)_stringAttributeForElement:(id)arg1 attributes:(const char **)arg2 stringAttributeKey:(id *)arg3 stringAttributeValue:(id *)arg4;
 - (_Bool)_isElementIgnorable:(id)arg1;
 - (_Bool)_isElementBody:(id)arg1;
+- (_Bool)_isElementHead:(id)arg1;
 - (_Bool)_isElementImage:(id)arg1;
 - (_Bool)_isElementListItem:(id)arg1;
 - (_Bool)_isElementList:(id)arg1 ordered:(_Bool *)arg2;
@@ -85,9 +82,16 @@
 - (_Bool)_isElementDisplayedInBlock:(id)arg1;
 - (_Bool)_isErrorBlacklisted:(struct _xmlError *)arg1;
 - (_Bool)_isElementBlacklisted:(id)arg1 attributes:(const char **)arg2;
-- (id)_parseHTMLBody:(id)arg1 encoding:(unsigned long long)arg2 maxLength:(unsigned long long)arg3 maxImageWidth:(double)arg4 partiallyParsed:(_Bool *)arg5 imageAttachmentsLoaded:(id *)arg6 urlsForValidation:(id)arg7 urlsFound:(id *)arg8;
-- (id)parseHTMLBody:(id)arg1 encoding:(unsigned long long)arg2 maxLength:(unsigned long long)arg3 maxImageWidth:(double)arg4 partiallyParsed:(_Bool *)arg5 imageAttachmentsLoaded:(id *)arg6 urlsForValidation:(id)arg7;
-- (id)parseHTMLBody:(id)arg1 encoding:(unsigned long long)arg2 maxLength:(unsigned long long)arg3 maxImageWidth:(double)arg4 partiallyParsed:(_Bool *)arg5 imageAttachmentsLoaded:(id *)arg6 urlsFound:(id *)arg7;
+- (void)processImgTagSource:(id)arg1 contentRange:(struct _NSRange)arg2;
+- (void)processBodyHTMLContent:(id)arg1 style:(id)arg2 contentRange:(struct _NSRange)arg3;
+- (void)processHeadHTMLTagContent:(id)arg1;
+- (_Bool)caresAboutHTMLContentString;
+- (void)appendString:(id)arg1 stringAttributes:(id)arg2;
+- (void)appendImageWithSource:(id)arg1 width:(double)arg2 height:(double)arg3 stringAttributes:(id)arg4;
+- (_Bool)isElementIgnorable:(id)arg1;
+- (_Bool)isErrorTypeBlacklisted:(char *)arg1;
+- (_Bool)isElementBlacklisted:(id)arg1 attributeQueryBlock:(CDUnknownBlockType)arg2;
+- (void)parseHTMLBody:(id)arg1 encoding:(unsigned long long)arg2;
 - (id)init;
 
 @end

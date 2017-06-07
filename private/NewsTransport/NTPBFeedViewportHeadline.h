@@ -21,7 +21,7 @@
     int _surfacedByChannelIDRef;
     int _surfacedBySectionIDRef;
     int _surfacedByTopicIDRef;
-    _Bool _isTopStory;
+    int _topStoryType;
     _Bool _usesImageOnTopLayout;
     struct {
         unsigned int tileProminenceScore:1;
@@ -30,7 +30,7 @@
         unsigned int surfacedByChannelIDRef:1;
         unsigned int surfacedBySectionIDRef:1;
         unsigned int surfacedByTopicIDRef:1;
-        unsigned int isTopStory:1;
+        unsigned int topStoryType:1;
         unsigned int usesImageOnTopLayout:1;
     } _has;
 }
@@ -39,7 +39,6 @@
 @property(retain, nonatomic) NSString *clusterID; // @synthesize clusterID=_clusterID;
 @property(nonatomic) _Bool usesImageOnTopLayout; // @synthesize usesImageOnTopLayout=_usesImageOnTopLayout;
 @property(nonatomic) double tileProminenceScore; // @synthesize tileProminenceScore=_tileProminenceScore;
-@property(nonatomic) _Bool isTopStory; // @synthesize isTopStory=_isTopStory;
 @property(nonatomic) int surfacedByBinIDRef; // @synthesize surfacedByBinIDRef=_surfacedByBinIDRef;
 @property(nonatomic) int surfacedByTopicIDRef; // @synthesize surfacedByTopicIDRef=_surfacedByTopicIDRef;
 @property(nonatomic) int surfacedByChannelIDRef; // @synthesize surfacedByChannelIDRef=_surfacedByChannelIDRef;
@@ -59,7 +58,8 @@
 @property(readonly, nonatomic) _Bool hasClusterID;
 @property(nonatomic) _Bool hasUsesImageOnTopLayout;
 @property(nonatomic) _Bool hasTileProminenceScore;
-@property(nonatomic) _Bool hasIsTopStory;
+@property(nonatomic) _Bool hasTopStoryType;
+@property(nonatomic) int topStoryType; // @synthesize topStoryType=_topStoryType;
 @property(nonatomic) _Bool hasSurfacedByBinIDRef;
 @property(nonatomic) _Bool hasSurfacedByTopicIDRef;
 @property(nonatomic) _Bool hasSurfacedByChannelIDRef;

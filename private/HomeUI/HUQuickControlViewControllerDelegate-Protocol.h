@@ -7,11 +7,11 @@
 #import <HomeUI/NSObject-Protocol.h>
 
 @class HFItem, HUAnimationSettings, HUApplier, HUQuickControlViewController, UIViewController;
-@protocol HUQuickControlDetailsPresentationDelegateHost;
+@protocol HUDetailsPresentationDelegateHost;
 
 @protocol HUQuickControlViewControllerDelegate <NSObject>
 - (void)quickControlViewControllerWillDismissDetailsViewController:(HUQuickControlViewController *)arg1 shouldDismissQuickControl:(_Bool)arg2;
-- (UIViewController<HUQuickControlDetailsPresentationDelegateHost> *)detailsViewControllerForQuickControlViewController:(HUQuickControlViewController *)arg1 item:(HFItem *)arg2;
+- (UIViewController<HUDetailsPresentationDelegateHost> *)detailsViewControllerForQuickControlViewController:(HUQuickControlViewController *)arg1 item:(HFItem *)arg2;
 - (_Bool)hasDetailsActionForQuickControlViewController:(HUQuickControlViewController *)arg1 item:(HFItem *)arg2;
 - (HUApplier *)quickControlViewController:(HUQuickControlViewController *)arg1 applierForSourceViewTransitionWithAnimationSettings:(HUAnimationSettings *)arg2 presenting:(_Bool)arg3;
 - (double)quickControlViewController:(HUQuickControlViewController *)arg1 sourceViewInitialScaleForPresentation:(_Bool)arg2;

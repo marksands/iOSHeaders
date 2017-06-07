@@ -6,7 +6,7 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOResourceInfo, NSData, NSObject, NSString;
+@class GEOApplicationAuditToken, GEOResourceInfo, NSData, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @protocol GEOResourceLoadOperation <NSObject>
@@ -14,6 +14,6 @@
 @property(nonatomic) _Bool requiresWiFi;
 - (void)cancel;
 - (void)startWithCompletionHandler:(void (^)(NSData *, NSError *))arg1 callbackQueue:(NSObject<OS_dispatch_queue> *)arg2;
-- (id)initWithResource:(GEOResourceInfo *)arg1 existingPartialData:(NSData *)arg2 auditToken:(NSData *)arg3 baseURLString:(NSString *)arg4;
+- (id)initWithResource:(GEOResourceInfo *)arg1 existingPartialData:(NSData *)arg2 auditToken:(GEOApplicationAuditToken *)arg3 baseURLString:(NSString *)arg4;
 @end
 

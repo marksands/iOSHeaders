@@ -8,6 +8,7 @@
 
 @class NSMutableArray, PDFDocument, UIColor;
 
+__attribute__((visibility("hidden")))
 @interface PDFSelectionPrivate : NSObject
 {
     PDFDocument *document;
@@ -17,8 +18,6 @@
     _Bool forceBreaks;
     struct __CFArray *cgSelections;
     NSMutableArray *pages;
-    _Bool hasHandles;
-    _Bool hasMagnifier;
 }
 
 - (void).cxx_destruct;

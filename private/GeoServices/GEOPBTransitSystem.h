@@ -9,10 +9,11 @@
 #import <GeoServices/GEOTransitNamedItem-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPBTransitArtwork, GEOStyleAttributes, NSString;
+@class GEOPBTransitArtwork, GEOStyleAttributes, NSString, PBUnknownFields;
 
 @interface GEOPBTransitSystem : PBCodable <GEOTransitNamedItem, NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _muid;
     GEOPBTransitArtwork *_artwork;
     NSString *_nameDisplayString;
@@ -31,6 +32,8 @@
 @property(retain, nonatomic) NSString *website; // @synthesize website=_website;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 @property(nonatomic) unsigned int systemIndex; // @synthesize systemIndex=_systemIndex;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,7 +49,7 @@
 @property(readonly, nonatomic) _Bool hasWebsite;
 @property(nonatomic) _Bool hasMuid;
 @property(nonatomic) _Bool hasSystemIndex;
-- (void)dealloc;
+- (id)identifier;
 - (id)geoTransitSystem;
 - (id)bestName;
 

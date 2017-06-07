@@ -18,6 +18,7 @@
 
 + (Class)popularNearbyResultType;
 @property(retain, nonatomic) NSMutableArray *popularNearbyResults; // @synthesize popularNearbyResults=_popularNearbyResults;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -32,7 +33,6 @@
 - (unsigned long long)popularNearbyResultsCount;
 - (void)addPopularNearbyResult:(id)arg1;
 - (void)clearPopularNearbyResults;
-- (void)dealloc;
 
 @end
 

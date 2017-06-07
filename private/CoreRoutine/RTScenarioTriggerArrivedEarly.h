@@ -11,7 +11,10 @@
     double _secondsEarly;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) double secondsEarly; // @synthesize secondsEarly=_secondsEarly;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)initWithSecondsEarly:(double)arg1;
 - (id)init;

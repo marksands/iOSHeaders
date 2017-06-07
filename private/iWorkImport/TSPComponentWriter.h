@@ -37,11 +37,11 @@ __attribute__((visibility("hidden")))
     NSHashTable *_newCommandToModelReferences;
     NSHashTable *_indirectCommandToModelExternalReferences;
     NSHashTable *_externalReferences;
-    long long _objectTargetTypeOnceToken;
     unsigned long long _objectTargetType;
     struct {
         unsigned int success:1;
         unsigned int isErrorRecoverable:1;
+        unsigned int calculatedObjectTargetType:1;
         unsigned int delegateRespondsToNeedsDocumentRecovery:1;
         unsigned int delegateRespondsToLocatorForClaimingComponent:1;
         unsigned int delegateRespondsToObjectBelongsToLinkedComponent:1;

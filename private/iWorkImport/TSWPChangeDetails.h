@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-#import <iWorkImport/TSDAnnotationHosting-Protocol.h>
+#import <iWorkImport/TSDChangeDetails-Protocol.h>
 
-@class NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor, TSPObject, TSWPChange;
+@class NSDate, NSString, TSKAnnotationAuthor, TSWPChange;
 
 __attribute__((visibility("hidden")))
-@interface TSWPChangeDetails : NSObject <TSDAnnotationHosting>
+@interface TSWPChangeDetails : NSObject <TSDChangeDetails>
 {
     TSWPChange *_change;
     NSDate *_dateForLastChangeStringUpdate;
@@ -25,6 +25,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *changeTrackingContentString; // @synthesize changeTrackingContentString=_changeTrackingContentString;
 @property(retain, nonatomic) NSDate *dateForLastChangeStringUpdate; // @synthesize dateForLastChangeStringUpdate=_dateForLastChangeStringUpdate;
 @property(retain, nonatomic) TSWPChange *change; // @synthesize change=_change;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *annotationUUID;
+- (_Bool)isInDocument;
 - (void)commentWillBeAddedToDocumentRoot;
 @property(readonly, copy) NSString *description;
 - (void)p_updateChangeStrings;
@@ -33,20 +36,16 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int annotationType;
 @property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
 @property(readonly, nonatomic) NSDate *date;
-- (void)setAuthor:(id)arg1;
-@property(readonly, nonatomic) TSKAnnotationAuthor *author;
-@property(readonly, nonatomic) TSPObject *hostingModel;
+@property(retain, nonatomic) TSKAnnotationAuthor *author;
+- (_Bool)wantsAnnotationPopover;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEquivalentToObject:(id)arg1;
-- (_Bool)isEqualToChangeDetails:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithChange:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(copy, nonatomic) TSDCommentStorage *storage;
 @property(readonly) Class superclass;
 
 @end

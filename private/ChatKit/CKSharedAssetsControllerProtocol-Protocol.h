@@ -13,7 +13,7 @@
 @property(nonatomic) __weak id <CKSharedAssetsControllerDelegate> delegate;
 - (void)updateAttachmentItems:(NSArray *)arg1;
 - (void)parentScrollViewDidScroll:(struct CGPoint)arg1;
-- (struct CGSize)contentSize;
+- (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 - (unsigned long long)assetType;
 @end
 

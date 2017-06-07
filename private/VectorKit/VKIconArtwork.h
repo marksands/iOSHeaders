@@ -4,29 +4,31 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray, VKImage;
 
 __attribute__((visibility("hidden")))
 @interface VKIconArtwork : NSObject
 {
-    _Bool _hasIcon;
+    // Error parsing type: {atomic<bool>="__a_"AB}, name: _hasIcon
     VKImage *_image;
     double _contentScale;
-    double _leftCapWidth;
-    double _rightCapWidth;
-    double _textOffsetY;
+    struct CGPoint _textCenterPosition;
+    struct Style _style;
+    struct ExtraStyle _extraStyle;
     NSMutableArray *_completionHandlers;
     struct CGColor *_fullBleedColor;
 }
 
 @property(nonatomic) struct CGColor *fullBleedColor; // @synthesize fullBleedColor=_fullBleedColor;
 @property(readonly, nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)_cleanUpAfterDrawing;
 - (id)_newImage;
 - (id)_newImageWithText:(id)arg1 fontName:(id)arg2;
-- (void)getImage:(CDUnknownBlockType)arg1;
+- (void)getImage:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (id)imageWithText:(id)arg1 fontName:(id)arg2;
 - (id)image;
 - (void)dealloc;

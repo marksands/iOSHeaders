@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLogMsgEventCacheHit, GEOLogMsgEventClientACSuggestions, GEOLogMsgEventDirections, GEOLogMsgEventFullNavTrace, GEOLogMsgEventListInteractionSession, GEOLogMsgEventLogFramework, GEOLogMsgEventMapLaunch, GEOLogMsgEventMapsWidgetsInteractionSession, GEOLogMsgEventNetwork, GEOLogMsgEventPlaceDataCache, GEOLogMsgEventProactiveSuggestionInteractionSession, GEOLogMsgEventRefineSearchSession, GEOLogMsgEventStaleResource, GEOLogMsgEventStateTiming, GEOLogMsgEventTelemetric, GEOLogMsgEventTileSetState, GEOLogMsgEventTimeToLeaveHypothesis, GEOLogMsgEventTimeToLeaveInitialTravelTime, GEOLogMsgEventTransitAppLaunch, GEOLogMsgEventUserAction, LOGMSGEVENTLogMsgEventRideBookedSession, LOGMSGEVENTLogMsgEventRideBookingSession, LOGMSGEVENTLogMsgEventTableBookedSession, LOGMSGEVENTLogMsgEventTableBookingSession, NSMutableArray;
+@class GEOLogMsgEventBatchTrafficProbe, GEOLogMsgEventCacheHit, GEOLogMsgEventClientACSuggestions, GEOLogMsgEventDirections, GEOLogMsgEventFullNavTrace, GEOLogMsgEventListInteractionSession, GEOLogMsgEventLogFramework, GEOLogMsgEventMapLaunch, GEOLogMsgEventMapsWidgetsInteractionSession, GEOLogMsgEventNetwork, GEOLogMsgEventPlaceDataCache, GEOLogMsgEventProactiveSuggestionInteractionSession, GEOLogMsgEventRealtimeTrafficProbe, GEOLogMsgEventRefineSearchSession, GEOLogMsgEventStaleResource, GEOLogMsgEventStateTiming, GEOLogMsgEventTelemetric, GEOLogMsgEventTileSetState, GEOLogMsgEventTimeToLeaveHypothesis, GEOLogMsgEventTimeToLeaveInitialTravelTime, GEOLogMsgEventTransitAppLaunch, GEOLogMsgEventUserAction, LOGMSGEVENTLogMsgEventRideBookedSession, LOGMSGEVENTLogMsgEventRideBookingSession, LOGMSGEVENTLogMsgEventTableBookedSession, LOGMSGEVENTLogMsgEventTableBookingSession, NSMutableArray;
 
 @interface GEOLogMsgEvent : PBCodable <NSCopying>
 {
+    GEOLogMsgEventBatchTrafficProbe *_batchTrafficProbeCollection;
     GEOLogMsgEventCacheHit *_cacheHitEvent;
     GEOLogMsgEventClientACSuggestions *_clientAcSuggestions;
     GEOLogMsgEventDirections *_directionsEvent;
@@ -25,6 +26,7 @@
     GEOLogMsgEventNetwork *_networkEvent;
     GEOLogMsgEventPlaceDataCache *_placeDataCacheEvent;
     GEOLogMsgEventProactiveSuggestionInteractionSession *_proactiveSuggestionInteractionSessionEvent;
+    GEOLogMsgEventRealtimeTrafficProbe *_realtimeTrafficProbeCollection;
     GEOLogMsgEventRefineSearchSession *_refineSearchSession;
     LOGMSGEVENTLogMsgEventRideBookedSession *_rideBookedSession;
     LOGMSGEVENTLogMsgEventRideBookingSession *_rideBookingSession;
@@ -49,6 +51,8 @@
 + (id)acceptedLogMsgStates;
 + (void)_initializeAllowedSessionTypes;
 + (void)_initializeAcceptedLogMsgStateTypes;
+@property(retain, nonatomic) GEOLogMsgEventBatchTrafficProbe *batchTrafficProbeCollection; // @synthesize batchTrafficProbeCollection=_batchTrafficProbeCollection;
+@property(retain, nonatomic) GEOLogMsgEventRealtimeTrafficProbe *realtimeTrafficProbeCollection; // @synthesize realtimeTrafficProbeCollection=_realtimeTrafficProbeCollection;
 @property(retain, nonatomic) GEOLogMsgEventClientACSuggestions *clientAcSuggestions; // @synthesize clientAcSuggestions=_clientAcSuggestions;
 @property(retain, nonatomic) GEOLogMsgEventTelemetric *telemetric; // @synthesize telemetric=_telemetric;
 @property(retain, nonatomic) GEOLogMsgEventFullNavTrace *fullNavTrace; // @synthesize fullNavTrace=_fullNavTrace;
@@ -74,6 +78,7 @@
 @property(retain, nonatomic) GEOLogMsgEventStateTiming *stateTimingEvent; // @synthesize stateTimingEvent=_stateTimingEvent;
 @property(retain, nonatomic) GEOLogMsgEventUserAction *userActionEvent; // @synthesize userActionEvent=_userActionEvent;
 @property(retain, nonatomic) NSMutableArray *logMsgStates; // @synthesize logMsgStates=_logMsgStates;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -83,6 +88,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBatchTrafficProbeCollection;
+@property(readonly, nonatomic) _Bool hasRealtimeTrafficProbeCollection;
 @property(readonly, nonatomic) _Bool hasClientAcSuggestions;
 @property(readonly, nonatomic) _Bool hasTelemetric;
 @property(readonly, nonatomic) _Bool hasFullNavTrace;
@@ -115,7 +122,6 @@
 - (unsigned long long)logMsgStatesCount;
 - (void)addLogMsgState:(id)arg1;
 - (void)clearLogMsgStates;
-- (void)dealloc;
 - (id)logMsgStateOfType:(int)arg1 stateOrigin:(id)arg2;
 - (id)logMsgStateOfType:(int)arg1;
 - (unsigned long long)numberOfLogMsgStatesOfType:(int)arg1 stateOrigin:(id)arg2;

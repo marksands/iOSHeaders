@@ -6,44 +6,44 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPResultRankingFeedback-Protocol.h>
 
-@class NSMutableArray, _CPSearchResultForFeedback;
+@class NSArray, NSData, NSString, _CPSearchResultForFeedback;
 
-@interface _CPResultRankingFeedback : PBCodable <NSCopying>
+@interface _CPResultRankingFeedback : PBCodable <_CPProcessableFeedback, _CPResultRankingFeedback, NSSecureCoding>
 {
-    double _personalizationScore;
-    unsigned long long _timestamp;
-    NSMutableArray *_duplicateResults;
-    NSMutableArray *_hiddenResults;
-    unsigned int _localResultPosition;
-    _CPSearchResultForFeedback *_result;
     struct {
-        unsigned int personalizationScore:1;
+        unsigned int timestamp:1;
         unsigned int localResultPosition:1;
+        unsigned int personalizationScore:1;
     } _has;
+    unsigned int _localResultPosition;
+    unsigned long long _timestamp;
+    _CPSearchResultForFeedback *_result;
+    NSArray *_hiddenResults;
+    NSArray *_duplicateResults;
+    double _personalizationScore;
 }
 
-+ (Class)duplicateResultsType;
-+ (Class)hiddenResultsType;
 @property(nonatomic) double personalizationScore; // @synthesize personalizationScore=_personalizationScore;
 @property(nonatomic) unsigned int localResultPosition; // @synthesize localResultPosition=_localResultPosition;
-@property(retain, nonatomic) NSMutableArray *duplicateResults; // @synthesize duplicateResults=_duplicateResults;
-@property(retain, nonatomic) NSMutableArray *hiddenResults; // @synthesize hiddenResults=_hiddenResults;
+@property(copy, nonatomic) NSArray *duplicateResults; // @synthesize duplicateResults=_duplicateResults;
+@property(copy, nonatomic) NSArray *hiddenResults; // @synthesize hiddenResults=_hiddenResults;
 @property(retain, nonatomic) _CPSearchResultForFeedback *result; // @synthesize result=_result;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasPersonalizationScore;
-@property(nonatomic) _Bool hasLocalResultPosition;
+@property(readonly, nonatomic) _Bool hasPersonalizationScore;
+@property(readonly, nonatomic) _Bool hasLocalResultPosition;
 - (id)duplicateResultsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)duplicateResultsCount;
 - (void)addDuplicateResults:(id)arg1;
@@ -53,6 +53,14 @@
 - (void)addHiddenResults:(id)arg1;
 - (void)clearHiddenResults;
 @property(readonly, nonatomic) _Bool hasResult;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

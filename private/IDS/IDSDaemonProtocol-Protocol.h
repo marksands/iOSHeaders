@@ -6,7 +6,7 @@
 
 #import <IDS/NSObject-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSNumber, NSObject, NSSet, NSString, NSURL;
+@class ENGroupID, NSArray, NSData, NSDictionary, NSNumber, NSObject, NSSet, NSString, NSURL;
 @protocol OS_xpc_object;
 
 @protocol IDSDaemonProtocol <NSObject>
@@ -36,6 +36,13 @@
 - (void)continuityStopAdvertisingOfType:(long long)arg1;
 - (void)continuityStartAdvertisingOfType:(long long)arg1 withData:(NSData *)arg2 withOptions:(NSDictionary *)arg3;
 - (void)continuityClientInstanceCreated;
+- (NSArray *)participantsForGroupID:(NSString *)arg1 forNotifierWithUniqueID:(NSString *)arg2;
+- (void)cleanupGroupStatusNotifier:(NSString *)arg1;
+- (void)setupNewStatusNotifierWithConfiguration:(NSDictionary *)arg1;
+- (void)leaveGroupSession:(NSString *)arg1 participantInfo:(NSDictionary *)arg2;
+- (void)joinGroupSession:(NSString *)arg1 participantInfo:(NSDictionary *)arg2;
+- (void)updateMembers:(NSArray *)arg1 forGroupID:(NSString *)arg2 isTriggeredLocally:(_Bool)arg3 forSessionWithUniqueID:(NSString *)arg4;
+- (void)sendAllocationRequest:(NSString *)arg1 options:(NSDictionary *)arg2;
 - (void)acknowledgeSessionID:(NSString *)arg1 clientID:(NSString *)arg2;
 - (void)setInviteTimetout:(long long)arg1 forSessionWithUniqueID:(NSString *)arg2;
 - (void)setPreferences:(NSDictionary *)arg1 forSessionWithUniqueID:(NSString *)arg2;
@@ -65,6 +72,7 @@
 - (void)acknowledgeMessageWithStorageGUID:(NSString *)arg1 realGUID:(NSString *)arg2 forAccountWithUniqueID:(NSString *)arg3 broadcastTime:(NSNumber *)arg4 messageSize:(NSNumber *)arg5 priority:(NSNumber *)arg6 broadcastID:(long long)arg7 connectionType:(long long)arg8;
 - (void)acknowledgeMessageWithGUID:(NSString *)arg1 forAccountWithUniqueID:(NSString *)arg2 broadcastTime:(NSNumber *)arg3 messageSize:(NSNumber *)arg4 priority:(NSNumber *)arg5;
 - (void)acknowledgeOutgoingMessageWithGUID:(NSString *)arg1 alternateCallbackID:(NSString *)arg2 forAccountWithUniqueID:(NSString *)arg3;
+- (void)failedDecryptingMessage:(NSDictionary *)arg1 reason:(long long)arg2 forGroupID:(ENGroupID *)arg3 onService:(NSString *)arg4;
 - (void)testCloudQRConnection:(NSString *)arg1;
 - (void)startOTRTest:(NSString *)arg1 priority:(long long)arg2;
 - (void)setLinkPreferences:(NSDictionary *)arg1 service:(NSString *)arg2;
@@ -83,10 +91,12 @@
 - (void)setAllowedTrafficClassifiersForDevice:(NSString *)arg1 classifiers:(NSArray *)arg2 requestID:(NSString *)arg3;
 - (void)getPairedDevicesWithRequestID:(NSString *)arg1;
 - (void)getPairingDevicesWithRequestID:(NSString *)arg1;
+- (void)forgetDeviceWithID:(NSString *)arg1 requestID:(NSString *)arg2;
 - (void)unpairDeviceWithID:(NSString *)arg1 requestID:(NSString *)arg2;
 - (void)stopLocalPairingForDeviceWithID:(NSString *)arg1 requestID:(NSString *)arg2;
 - (void)unpairStartForDeviceWithID:(NSString *)arg1 requestID:(NSString *)arg2;
 - (void)deletePairedDeviceWithID:(NSString *)arg1 requestID:(NSString *)arg2;
+- (void)redeliverMessagesForDevice:(NSString *)arg1 requestID:(NSString *)arg2;
 - (void)switchActivePairedDeviceWithID:(NSString *)arg1 requestID:(NSString *)arg2;
 - (void)setupCompletedForPairedDeviceWithID:(NSString *)arg1 requestID:(NSString *)arg2;
 - (void)connectPairedDeviceWithID:(NSString *)arg1 requestID:(NSString *)arg2;
@@ -106,10 +116,12 @@
 - (void)localSetupUnpair;
 - (void)stopLocalSetup;
 - (void)startLocalSetup;
+- (void)getRegisteredIdentities;
 - (void)reRegisterWithUserID:(NSString *)arg1 action:(NSNumber *)arg2 service:(NSString *)arg3;
 - (void)idsiCloudSignInDataMigratorForID:(NSString *)arg1;
 - (void)kickGetDependentForAccount:(NSString *)arg1;
 - (void)iCloudSignOut;
+- (void)iCloudModifyForUserName:(NSString *)arg1;
 - (void)iCloudUpdateForUserName:(NSString *)arg1 accountInfo:(NSDictionary *)arg2;
 - (void)iCloudSignInWithUserName:(NSString *)arg1 authToken:(NSString *)arg2 password:(NSString *)arg3 accountInfo:(NSDictionary *)arg4 accountStatus:(NSNumber *)arg5 handles:(NSArray *)arg6;
 - (void)iCloudSignOutHack;
@@ -120,6 +132,8 @@
 - (void)_reregisterAndReidentify:(NSNumber *)arg1 account:(NSString *)arg2;
 - (void)unregisterAccount:(NSString *)arg1;
 - (void)registerAccount:(NSString *)arg1;
+- (void)deactivateAlias:(NSString *)arg1 onAccount:(NSString *)arg2;
+- (void)activateAlias:(NSString *)arg1 onAccount:(NSString *)arg2;
 - (void)unvalidateAliases:(NSArray *)arg1 forAccount:(NSString *)arg2;
 - (void)validateAliases:(NSArray *)arg1 forAccount:(NSString *)arg2;
 - (void)removeAliases:(NSArray *)arg1 fromAccount:(NSString *)arg2;

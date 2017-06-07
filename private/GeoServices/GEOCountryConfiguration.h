@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
 #import <GeoServices/_GEOCountryConfigurationServerProxyDelegate-Protocol.h>
@@ -27,6 +27,7 @@
 + (id)sharedConfiguration;
 + (void)setUseLocalProxy:(_Bool)arg1;
 + (void)disableServerConnection;
+- (void).cxx_destruct;
 - (void)serverProxy:(id)arg1 countryCodeDidChange:(id)arg2;
 - (void)serverProxyProvidersDidChange:(id)arg1;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
@@ -37,6 +38,7 @@
 - (id)_defaultForKey:(id)arg1 inCountry:(id)arg2 defaultValue:(id)arg3 sourcePtr:(long long *)arg4;
 @property(copy, nonatomic) NSString *countryCode;
 @property(readonly, nonatomic) double urlAuthenticationTimeToLive;
+@property(readonly, nonatomic) _Bool currentCountrySupportsCommute;
 @property(readonly, nonatomic) _Bool currentCountrySupportsCarIntegration;
 @property(readonly, nonatomic) _Bool currentCountrySupportsRouteGenius;
 @property(readonly, nonatomic) _Bool currentCountrySupportsTraffic;

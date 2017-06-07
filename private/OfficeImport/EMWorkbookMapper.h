@@ -43,6 +43,8 @@ __attribute__((visibility("hidden")))
 + (id)borderWidthCache;
 + (id)borderStyleCache;
 + (id)cssStyleCache;
+@property(retain) NSString *fileName; // @synthesize fileName=mFileName;
+- (void).cxx_destruct;
 - (void)finishMappingWithState:(id)arg1;
 - (void)mapElement:(id)arg1 atIndex:(unsigned long long)arg2 withState:(id)arg3 isLastElement:(_Bool)arg4;
 - (id)_copyStringForSheet:(id)arg1 atIndex:(unsigned long long)arg2 withState:(id)arg3 andMapper:(id)arg4;
@@ -50,18 +52,18 @@ __attribute__((visibility("hidden")))
 - (void)_pushTabForSheet:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)_mainPageBack;
 - (id)_frontPageByCopyingMainPage;
+- (id)headElementForFrontPage;
+- (void)mapStylesheetNamed:(id)arg1 atElement:(id)arg2;
+- (void)mapStylesheetData:(id)arg1 name:(id)arg2 atElement:(id)arg3;
 - (struct CGSize)pageSizeForDevice;
 - (_Bool)hasMultipleSheets;
 - (id)styleMatrix;
 - (id)documentTitle;
 - (id)archiver;
 - (id)blipAtIndex:(unsigned int)arg1;
-- (id)fileName;
-- (void)setFileName:(id)arg1;
 - (id)workbook;
 - (void)dealloc;
 - (id)initWithEDWorkbook:(id)arg1 archiver:(id)arg2;
-- (void)mapBodyStyleAt:(id)arg1;
 - (id)copySheetMapperWithEdSheet:(id)arg1;
 
 @end

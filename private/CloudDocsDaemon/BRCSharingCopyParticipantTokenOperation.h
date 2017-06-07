@@ -16,8 +16,10 @@ __attribute__((visibility("hidden")))
     CKRecordID *_shareID;
     CKRecordID *_contentRecordID;
     NSString *_participantKey;
+    NSString *_baseToken;
     NSError *_error;
-    _Bool _iworkShareable;
+    _Bool _iWorkShareable;
+    _Bool _isChildOfShare;
 }
 
 - (void).cxx_destruct;

@@ -11,6 +11,7 @@
 
 @protocol CKPhotoBrowserViewControllerSendDelegate <CKBrowserViewControllerSendDelegate>
 - (NSURL *)workingDirForDraft;
+- (void)showPhotosBrowser;
 - (void)dismissEntryViewShelf;
 - (void)showEntryViewShelf:(UIViewController<CKPluginEntryViewController> *)arg1;
 @end

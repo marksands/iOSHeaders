@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class IMPowerAssertion, NSArray, NSDate, NSMutableArray, NSMutableDictionary;
 
@@ -21,17 +21,14 @@
     int _acToken;
     unsigned int _avCallState;
     unsigned int _acCallState;
-    unsigned int _telephonyCallState;
     unsigned int _globalCallState;
 }
 
 + (id)sharedInstance;
-@property(nonatomic, setter=_setTelephonyCallState:) unsigned int _telephonyCallState; // @synthesize _telephonyCallState;
 - (id)_activeAudioCall;
 - (id)_activeFaceTimeCall;
 - (_Bool)_hasActiveAudioCall;
 - (_Bool)_hasActiveFaceTimeCall;
-- (_Bool)_hasActiveTelephonyCall;
 @property(readonly, nonatomic) _Bool hasActiveCall;
 - (void)_sendProxyUpdate;
 - (void)_updateACChatProxyWithInfo:(id)arg1;
@@ -40,7 +37,6 @@
 - (void)_addAVChatProxy:(id)arg1;
 - (void)_updateOverallChatState;
 @property(readonly, nonatomic) unsigned int callState;
-- (void)__setTelephonyCallState:(unsigned int)arg1;
 - (void)_updateACCallState;
 - (void)_setACCallState:(unsigned int)arg1 quietly:(_Bool)arg2;
 - (void)_setACCallState:(unsigned int)arg1;

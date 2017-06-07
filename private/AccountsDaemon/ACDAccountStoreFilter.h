@@ -80,6 +80,7 @@
 - (void)childAccountsForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)parentAccountForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)accountsOnPairedDeviceWithAccountType:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)accountsWithAccountType:(id)arg1 options:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)accountsWithAccountType:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)accountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)accountTypesWithHandler:(CDUnknownBlockType)arg1;

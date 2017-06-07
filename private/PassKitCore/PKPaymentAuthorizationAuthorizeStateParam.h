@@ -15,6 +15,7 @@
 }
 
 + (id)paramWithCredential:(id)arg1 nonce:(id)arg2;
++ (id)paramWithCredential:(id)arg1;
 @property(retain, nonatomic) NSData *nonceData; // @synthesize nonceData=_nonceData;
 @property(retain, nonatomic) NSData *credential; // @synthesize credential=_credential;
 - (void).cxx_destruct;

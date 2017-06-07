@@ -10,7 +10,8 @@
 {
 }
 
-- (id)_collectionCalculatorWithBucketBoundaries:(id)arg1;
+- (id)collectionCalculatorWithStatisticsCollection:(id)arg1;
+- (id)collectionCalculatorWithTimePeriod:(id)arg1;
 - (void)_setDataCount:(long long)arg1 inStatistics:(id)arg2 forSource:(id)arg3;
 - (void)_addSample:(id)arg1 toStatistics:(id)arg2;
 - (id)_statisticsForPredicate:(id)arg1 database:(id)arg2 shouldStopProcessing:(CDUnknownBlockType)arg3 error:(id *)arg4;

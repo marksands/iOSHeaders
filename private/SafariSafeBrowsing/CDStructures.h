@@ -22,6 +22,7 @@ struct LookupContext;
 
 struct LookupResult {
     struct OptionSet<Backend::LookupResult::Type> type;
+    int provider;
 };
 
 struct OptionSet<Backend::LookupResult::Type> {

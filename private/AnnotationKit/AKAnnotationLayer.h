@@ -26,6 +26,8 @@
 @property __weak AKPageController *pageController; // @synthesize pageController=_pageController;
 @property(retain) AKAnnotation *annotation; // @synthesize annotation=_annotation;
 - (void).cxx_destruct;
+- (void)_removeDebugVisuals;
+- (void)_addDebugVisuals;
 - (void)_stopObservingAnnotation;
 - (void)_startObservingAnnotation;
 - (void)_updateAnnotationLayerWithLoupeFastPath:(_Bool)arg1;

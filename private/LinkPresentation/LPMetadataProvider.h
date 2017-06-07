@@ -62,6 +62,7 @@
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)_cancelDueToTimeout;
 - (void)cancel;
+- (_Bool)_switchToSpecializationIfPossibleForMIMEType:(id)arg1 URL:(id)arg2;
 - (void)_fetchMetadataFromWebView;
 - (void)_startWatchdogTimer;
 - (void)startFetchingSubresourcesForPartialMetadata:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

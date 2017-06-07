@@ -9,6 +9,6 @@
 @protocol CAMPanoramaConfigurationDelegate <NSObject>
 
 @optional
-- (void)panoramaConfigurationDidChangeWithDirection:(long long)arg1;
+- (void)panoramaConfigurationDidChangeWithImageQueue:(struct _CAImageQueue *)arg1 direction:(long long)arg2;
 @end
 

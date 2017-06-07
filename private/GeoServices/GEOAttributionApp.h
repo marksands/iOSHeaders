@@ -29,6 +29,7 @@
 @property(nonatomic) _Bool supportsRestaurantReservations; // @synthesize supportsRestaurantReservations=_supportsRestaurantReservations;
 @property(retain, nonatomic) NSMutableArray *handledSchemes; // @synthesize handledSchemes=_handledSchemes;
 @property(retain, nonatomic) NSString *appBundleIdentifier; // @synthesize appBundleIdentifier=_appBundleIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,7 +49,6 @@
 - (unsigned long long)handledSchemesCount;
 - (void)addHandledSchemes:(id)arg1;
 - (void)clearHandledSchemes;
-- (void)dealloc;
 
 @end
 

@@ -7,7 +7,7 @@
 #import <iWorkImport/NSObject-Protocol.h>
 
 @class NSArray, NSDictionary, NSString, NSURL, TSKDocumentRoot, TSUImage, TSUProgress, TSUProgressContext;
-@protocol TSKImportExportDelegate;
+@protocol TSDImportExportDelegate;
 
 @protocol TSKExporter <NSObject>
 - (void)setProgressContext:(TSUProgressContext *)arg1;
@@ -15,7 +15,7 @@
 - (_Bool)isCancelled;
 - (void)quit;
 - (void)cancel;
-- (_Bool)exportToURL:(NSURL *)arg1 delegate:(id <TSKImportExportDelegate>)arg2 error:(id *)arg3;
+- (_Bool)exportToURL:(NSURL *)arg1 delegate:(id <TSDImportExportDelegate>)arg2 error:(id *)arg3;
 - (id)initWithDocumentRoot:(TSKDocumentRoot *)arg1;
 
 @optional

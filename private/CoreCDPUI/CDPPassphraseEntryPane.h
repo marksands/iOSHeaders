@@ -6,10 +6,11 @@
 
 #import <Preferences/DevicePINPane.h>
 
-@class CDPPaneHeaderView;
+@class CDPPaneHeaderView, UIScrollView;
 
 @interface CDPPassphraseEntryPane : DevicePINPane
 {
+    UIScrollView *_containerView;
     CDPPaneHeaderView *_headerView;
     double _keyboardOffset;
 }
@@ -19,6 +20,7 @@
 - (void)_layoutPinView;
 - (void)didFinishResizingHeaderView;
 - (void)_layoutHeaderRect;
+- (void)_layoutContainerView;
 @property(readonly, nonatomic) struct CGRect availableHeaderRect;
 - (void)_layoutSubviews;
 - (void)layoutSubviews;

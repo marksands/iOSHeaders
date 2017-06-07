@@ -8,8 +8,9 @@
 
 @interface NSLocale (MNExtras)
 + (void)_navigation_overrideDistanceUnit:(long long)arg1;
-+ (id)_localeOverridesForLocaleWithIdentifier:(id)arg1;
++ (id)_localeOverridesForLocaleWithCountryCode:(id)arg1;
 - (_Bool)_navigation_useYardsForShortDistances;
+- (_Bool)_navigation_distanceUsesMetricSystemIgnoringUserPreference:(_Bool)arg1;
 - (_Bool)_navigation_distanceUsesMetricSystem;
 - (id)_navigation_objectForKey:(id)arg1;
 @end

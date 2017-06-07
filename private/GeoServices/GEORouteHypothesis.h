@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
@@ -37,19 +37,20 @@
 @property(readonly, copy, nonatomic) NSString *routeName; // @synthesize routeName=_routeName;
 @property(readonly, nonatomic) double aggressiveTravelTime; // @synthesize aggressiveTravelTime=_aggressiveTravelTime;
 @property(readonly, nonatomic) double conservativeTravelTime; // @synthesize conservativeTravelTime=_conservativeTravelTime;
-@property(readonly, retain, nonatomic) NSDate *aggressiveDepartureDate; // @synthesize aggressiveDepartureDate=_aggressiveDepartureDate;
-@property(readonly, retain, nonatomic) NSDate *conservativeDepartureDate; // @synthesize conservativeDepartureDate=_conservativeDepartureDate;
-@property(readonly, retain, nonatomic) NSError *error; // @synthesize error=_error;
+@property(readonly, nonatomic) NSDate *aggressiveDepartureDate; // @synthesize aggressiveDepartureDate=_aggressiveDepartureDate;
+@property(readonly, nonatomic) NSDate *conservativeDepartureDate; // @synthesize conservativeDepartureDate=_conservativeDepartureDate;
+@property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) _Bool supportsLiveTraffic; // @synthesize supportsLiveTraffic=_supportsLiveTraffic;
 @property(readonly, nonatomic) long long travelState; // @synthesize travelState=_travelState;
-@property(readonly, retain, nonatomic) GEORouteHypothesisIncident *mostRelevantIncident; // @synthesize mostRelevantIncident=_mostRelevantIncident;
+@property(readonly, nonatomic) GEORouteHypothesisIncident *mostRelevantIncident; // @synthesize mostRelevantIncident=_mostRelevantIncident;
 @property(readonly, nonatomic) unsigned long long historicTrafficDensity; // @synthesize historicTrafficDensity=_historicTrafficDensity;
 @property(readonly, nonatomic) unsigned long long currentTrafficDensity; // @synthesize currentTrafficDensity=_currentTrafficDensity;
 @property(readonly, nonatomic) double estimatedTravelTime; // @synthesize estimatedTravelTime=_estimatedTravelTime;
-@property(readonly, retain, nonatomic) NSDate *suggestedDepartureDate; // @synthesize suggestedDepartureDate=_suggestedDepartureDate;
+@property(readonly, nonatomic) NSDate *suggestedDepartureDate; // @synthesize suggestedDepartureDate=_suggestedDepartureDate;
 @property(readonly, nonatomic) int transportType; // @synthesize transportType=_transportType;
-@property(readonly, retain, nonatomic) GEOLocation *lastLocation; // @synthesize lastLocation=_lastLocation;
-@property(readonly, retain, nonatomic) NSDate *generationDate; // @synthesize generationDate=_generationDate;
+@property(readonly, nonatomic) GEOLocation *lastLocation; // @synthesize lastLocation=_lastLocation;
+@property(readonly, nonatomic) NSDate *generationDate; // @synthesize generationDate=_generationDate;
+- (void).cxx_destruct;
 - (id)description;
 - (void)_clearHypothesisAndSetErrorWithCode:(long long)arg1;
 - (void)_setError:(id)arg1;

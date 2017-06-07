@@ -29,6 +29,7 @@
 @property(retain, nonatomic) GEORPResolution *problemResolution; // @synthesize problemResolution=_problemResolution;
 @property(nonatomic) double creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) NSString *problemId; // @synthesize problemId=_problemId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -47,7 +48,6 @@
 @property(nonatomic) int problemState; // @synthesize problemState=_problemState;
 @property(nonatomic) _Bool hasCreationDate;
 @property(readonly, nonatomic) _Bool hasProblemId;
-- (void)dealloc;
 
 @end
 

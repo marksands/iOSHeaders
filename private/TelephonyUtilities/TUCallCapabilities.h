@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface TUCallCapabilities : NSObject
 {
@@ -17,6 +17,9 @@
 + (id)_client;
 + (void)_setClientServer:(id)arg1;
 + (id)client;
++ (_Bool)supportsCarrierServices;
++ (void)endEmergencyCallbackMode;
++ (_Bool)isEmergencyCallbackModeEnabled;
 + (void)cancelPinRequestFromPrimaryDevice;
 + (void)requestPinFromPrimaryDevice;
 + (_Bool)supportsFaceTimeVideoRelayCalling;
@@ -24,8 +27,6 @@
 + (_Bool)supportsTelephonyRelayCalling;
 + (int)relayCallingAvailability;
 + (id)outgoingRelayCallerID;
-+ (void)endEmergencyCallbackMode;
-+ (_Bool)isEmergencyCallbackModeEnabled;
 + (void)setRelayCallingEnabled:(_Bool)arg1 forDeviceWithID:(id)arg2;
 + (_Bool)isRelayCallingEnabledForDeviceWithID:(id)arg1;
 + (_Bool)areRelayCallingFeaturesEnabled;

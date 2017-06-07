@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool contactedDriver; // @synthesize contactedDriver=_contactedDriver;
 @property(nonatomic) _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) _Bool bookedUsingMaps; // @synthesize bookedUsingMaps=_bookedUsingMaps;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -73,7 +74,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasContactedDriver;
 @property(nonatomic) _Bool hasCancelled;
 @property(nonatomic) _Bool hasBookedUsingMaps;
-- (void)dealloc;
 
 @end
 

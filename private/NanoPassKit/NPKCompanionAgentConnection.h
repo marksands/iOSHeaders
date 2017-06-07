@@ -57,6 +57,8 @@
 - (void)initiateLostModeExitAuthWithCompletion:(CDUnknownBlockType)arg1;
 - (id)watchPaymentWebService;
 - (void)shouldShowApplePaySettingsWithCompletion:(CDUnknownBlockType)arg1;
+- (id)sharedPeerPaymentWebServiceContextForDevice:(id)arg1;
+- (void)setSharedPeerPaymentWebServiceContext:(id)arg1 forDevice:(id)arg2;
 - (void)setSharedPaymentWebServiceContext:(id)arg1 forDevice:(id)arg2;
 - (id)sharedPaymentWebServiceContext;
 - (id)sharedPaymentWebServiceContextForDevice:(id)arg1;

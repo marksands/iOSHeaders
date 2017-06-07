@@ -6,18 +6,17 @@
 
 #import <VectorKit/VKTile.h>
 
-@class NSArray;
-
 __attribute__((visibility("hidden")))
 @interface VKResourcesTile : VKTile
 {
-    NSArray *_resourceNames;
-    NSArray *_attributions;
+    shared_ptr_f269d513 _resourceInfo;
 }
 
-@property(retain, nonatomic) NSArray *attributions; // @synthesize attributions=_attributions;
-@property(retain, nonatomic) NSArray *resourceNames; // @synthesize resourceNames=_resourceNames;
+@property(readonly, nonatomic) shared_ptr_f269d513 resourceInfo; // @synthesize resourceInfo=_resourceInfo;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)dealloc;
+- (id)initWithKey:(const struct VKTileKey *)arg1;
 
 @end
 

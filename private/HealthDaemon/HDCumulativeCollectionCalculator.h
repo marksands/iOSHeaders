@@ -6,52 +6,37 @@
 
 #import <HealthDaemon/HDCollectionCalculator.h>
 
-@class HDLastIntervalInfo, NSArray, NSDictionary, NSMutableArray;
+@class NSDictionary, NSSet;
 
 @interface HDCumulativeCollectionCalculator : HDCollectionCalculator
 {
-    struct map<long long, double, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, double>>> _currentInterval;
-    struct map<long long, double, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, double>>> _lastIntervalSources;
-    HDLastIntervalInfo *_lastIntervalInfo;
-    double _mergedSum;
-    struct map<long long, double, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, double>>> _bySource;
-    _Bool _lastBucket;
+    struct HDCumulativeStatisticsEngine _calculator;
+    struct HDCumulativeStatisticsBucket _lastFinishedBucket;
+    vector_c1c297d2 _orderedSourceIDs;
+    struct map<long long, std::__1::basic_string<char>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::basic_string<char>>>> _sourceBundleIdentifierMapping;
     unsigned long long _dataCount;
-    NSArray *_orderedSourceIds;
     unsigned long long _mergeStrategy;
-    NSMutableArray *_futureIntervals;
-    NSMutableArray *_futureBuckets;
-    NSMutableArray *_futureCounts;
-    long long _currentAligned;
 }
 
-@property(nonatomic) _Bool lastBucket; // @synthesize lastBucket=_lastBucket;
-@property(nonatomic) long long currentAligned; // @synthesize currentAligned=_currentAligned;
-@property(retain, nonatomic) NSMutableArray *futureCounts; // @synthesize futureCounts=_futureCounts;
-@property(retain, nonatomic) NSMutableArray *futureBuckets; // @synthesize futureBuckets=_futureBuckets;
-@property(retain, nonatomic) NSMutableArray *futureIntervals; // @synthesize futureIntervals=_futureIntervals;
 @property(nonatomic) unsigned long long mergeStrategy; // @synthesize mergeStrategy=_mergeStrategy;
-@property(retain, nonatomic) NSArray *orderedSourceIds; // @synthesize orderedSourceIds=_orderedSourceIds;
 @property(nonatomic) unsigned long long dataCount; // @synthesize dataCount=_dataCount;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (double)_endDateForBucket:(unsigned long long)arg1;
-- (double)_startDateForBucket:(unsigned long long)arg1;
-- (unsigned long long)_bucketCount;
-- (void)_addCurrentValue:(double)arg1 sourceId:(long long)arg2;
-- (void)_splitValue:(double)arg1 perSecond:(double)arg2 sourceId:(long long)arg3 sampleInfo:(CDStruct_dd92d3d0)arg4 sampleEndTime:(double)arg5;
-- (double)_putInFutureBucketsValue:(double)arg1 timeAfterEnd:(double)arg2 valuePerSecond:(double)arg3 sampleEndTime:(double)arg4 sourceId:(unsigned long long)arg5;
-- (double)_advanceUntilInterval:(long long)arg1;
+@property(readonly, nonatomic) NSSet *sourceIDsForCurrentBucket;
+@property(readonly, nonatomic) NSDictionary *sumsByBundleIdentifier;
+@property(readonly, nonatomic) NSDictionary *sumsBySourceID;
 - (double)addCurrentBucket;
-- (id)sourceIDsForCurrentBucket;
-@property(readonly, nonatomic) NSDictionary *sumsBySource;
-@property(readonly, nonatomic) HDLastIntervalInfo *lastIntervalInfo;
-- (void)resumeWithValue:(double)arg1 sumsBySource:(id)arg2 lastIntervalInfo:(id)arg3 dataCount:(unsigned long long)arg4;
+@property(readonly, nonatomic) double earliestAllowableStartTime;
+- (_Bool)canAddValueWithStartTime:(double)arg1 endTime:(double)arg2;
 - (void)addValue:(double)arg1 startTime:(double)arg2 endTime:(double)arg3 sourceID:(long long)arg4;
-- (_Bool)hasData;
 - (_Bool)advanceBucket;
+- (_Bool)hasData;
+- (void)setStartTime:(double)arg1 endTime:(double)arg2;
+- (void)_didAddFirstValue;
+- (struct HDCumulativeStatisticsBucket)_bucketForCurrentDates;
 - (id)description;
-- (id)initWithBucketBoundaries:(id)arg1 orderedSourceIds:(id)arg2 mergeStrategy:(unsigned long long)arg3;
+- (id)initWithStatisticsCollection:(id)arg1 orderedSourceIDs:(id)arg2 bundleIdentifierMapping:(id)arg3 mergeStrategy:(unsigned long long)arg4;
+- (id)initWithOrderedSourceIDs:(id)arg1 bundleIdentifierMapping:(id)arg2 mergeStrategy:(unsigned long long)arg3;
 
 @end
 

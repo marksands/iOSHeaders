@@ -9,6 +9,9 @@
 @class CSIndexJob, CSSearchableItem, CSUserAction, INInteraction, NSArray, NSData, NSDate, NSNumber, NSString;
 
 @protocol CSSearchableIndexInterface <NSObject>
+- (void)indexFromBundle:(NSString *)arg1 protectionClass:(NSString *)arg2 options:(long long)arg3 items:(NSData *)arg4 itemsText:(NSData *)arg5 itemsHTML:(NSData *)arg6 clientState:(NSData *)arg7 clientStateName:(NSString *)arg8 deletes:(NSData *)arg9 completionHandler:(void (^)(NSError *))arg10;
+- (void)provideFileURLForBundle:(NSString *)arg1 identifier:(NSString *)arg2 type:(NSString *)arg3 completionHandler:(void (^)(NSURL *, NSError *))arg4;
+- (void)provideDataForBundle:(NSString *)arg1 identifier:(NSString *)arg2 type:(NSString *)arg3 completionHandler:(void (^)(NSData *, NSError *))arg4;
 - (void)fetchLastClientStateWithProtectionClass:(NSString *)arg1 forBundleID:(NSString *)arg2 clientStateName:(NSString *)arg3 options:(long long)arg4 completionHandler:(void (^)(NSData *, NSError *))arg5;
 - (void)changeStateOfSearchableItemsWithUIDs:(NSArray *)arg1 toState:(long long)arg2 protectionClass:(NSString *)arg3 forBundleID:(NSString *)arg4 forUTIType:(NSString *)arg5 options:(long long)arg6;
 - (void)deleteAllSearchableItemsWithProtectionClass:(NSString *)arg1 forBundleID:(NSString *)arg2 options:(long long)arg3 completionHandler:(void (^)(NSError *))arg4;
@@ -31,6 +34,6 @@
 - (void)flushUserActivities;
 - (void)userPerformedAction:(CSUserAction *)arg1 withItem:(CSSearchableItem *)arg2 protectionClass:(NSString *)arg3;
 - (void)userPerformedAction:(CSUserAction *)arg1 withItem:(CSSearchableItem *)arg2 protectionClass:(NSString *)arg3 forBundleID:(NSString *)arg4;
-- (void)indexFromBundle:(NSString *)arg1 protectionClass:(NSString *)arg2 options:(long long)arg3 items:(NSData *)arg4 itemsText:(NSData *)arg5 itemsHTML:(NSData *)arg6 clientState:(NSData *)arg7 clientStateName:(NSString *)arg8 deletes:(NSData *)arg9 completionHandler:(void (^)(NSError *))arg10;
+- (void)deleteAllSearchableItemsWithBundleID:(NSString *)arg1 protectionClass:(NSString *)arg2 shouldGC:(_Bool)arg3 completionHandler:(void (^)(NSError *))arg4;
 @end
 

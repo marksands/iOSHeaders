@@ -9,15 +9,16 @@
 #import <HealthUI/HKChartPoint-Protocol.h>
 
 @class NSDate, NSNumber, NSString;
+@protocol HKGraphSeriesBlockCoordinateInfo;
 
 @interface _HKTimePeriodChartPoint : NSObject <HKChartPoint>
 {
     NSDate *_xValue;
     NSNumber *_yValue;
-    id _userInfo;
+    id <HKGraphSeriesBlockCoordinateInfo> _userInfo;
 }
 
-@property(retain, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
+@property(retain, nonatomic) id <HKGraphSeriesBlockCoordinateInfo> userInfo; // @synthesize userInfo=_userInfo;
 @property(retain, nonatomic) NSNumber *yValue; // @synthesize yValue=_yValue;
 @property(retain, nonatomic) NSDate *xValue; // @synthesize xValue=_xValue;
 - (void).cxx_destruct;
@@ -26,8 +27,9 @@
 - (id)maxYValue;
 - (id)minYValue;
 - (id)yValueForKey:(id)arg1;
-- (id)maxXValue;
-- (id)minXValue;
+- (id)maxXValueAsGenericType;
+- (id)minXValueAsGenericType;
+- (id)xValueAsGenericType;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

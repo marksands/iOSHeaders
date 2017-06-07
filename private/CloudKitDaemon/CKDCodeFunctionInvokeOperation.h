@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSData *_serializedResponse;
 }
 
++ (long long)isPredominatelyDownload;
 @property(copy, nonatomic) NSData *serializedResponse; // @synthesize serializedResponse=_serializedResponse;
 @property(readonly, nonatomic) NSData *serializedArguments; // @synthesize serializedArguments=_serializedArguments;
 @property(readonly, copy, nonatomic) NSString *functionName; // @synthesize functionName=_functionName;

@@ -20,7 +20,6 @@
 - (struct _NSRange)rangeOfTextBlock:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)rulerAttributesInRange:(struct _NSRange)arg1;
 - (id)fontAttributesInRange:(struct _NSRange)arg1;
-- (id)_initWithDOMRange:(id)arg1;
 - (id)initWithHTML:(id)arg1 baseURL:(id)arg2 documentAttributes:(id *)arg3;
 - (id)initWithHTML:(id)arg1 documentAttributes:(id *)arg2;
 - (id)initWithHTML:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3;
@@ -36,7 +35,7 @@
 - (id)_initWithRTFSelector:(SEL)arg1 argument:(id)arg2 documentAttributes:(id *)arg3;
 - (id)initWithData:(id)arg1 options:(id)arg2 documentAttributes:(id *)arg3 error:(id *)arg4;
 - (id)_documentFromRange:(struct _NSRange)arg1 document:(id)arg2 documentAttributes:(id)arg3 subresources:(id *)arg4;
-- (void)_readDocumentFragment:(id)arg1 fromRange:(struct _NSRange)arg2 documentAttributes:(id)arg3 subresources:(id *)arg4;
+- (id)_htmlDocumentFragmentString:(struct _NSRange)arg1 documentAttributes:(id)arg2 subresources:(id *)arg3;
 - (id)docFormatFromRange:(struct _NSRange)arg1 documentAttributes:(id)arg2;
 - (id)RTFDFileWrapperFromRange:(struct _NSRange)arg1 documentAttributes:(id)arg2;
 - (id)RTFDFromRange:(struct _NSRange)arg1 documentAttributes:(id)arg2;

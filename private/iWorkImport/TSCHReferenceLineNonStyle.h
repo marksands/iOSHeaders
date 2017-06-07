@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 + (id)imageFillProperties;
 + (id)properties;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

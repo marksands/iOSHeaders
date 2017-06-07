@@ -21,7 +21,8 @@
 
 + (_Bool)_prefer:(id)arg1 over:(id)arg2;
 + (void)postProcessGroupResults:(id)arg1;
-@property(readonly) NSArray *searchTokens; // @synthesize searchTokens=_searchTokens;
++ (_Bool)_canDedupeGroupResult:(id)arg1 withGroupResult:(id)arg2;
+@property(readonly, nonatomic) NSArray *searchTokens; // @synthesize searchTokens=_searchTokens;
 - (id)newGroupResult;
 - (struct __CFArray *)_newSortedGroupIds;
 - (_Bool)_verifySortedGroupIdsUnique;

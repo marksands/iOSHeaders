@@ -91,7 +91,6 @@
 - (struct PXSimpleIndexPath)_memoryIndexPathForViewController:(id)arg1;
 - (id)_memoryObjectReferenceForPhotosDetailsContext:(id)arg1;
 - (id)_photosDetailsContextForIndexPath:(struct PXSimpleIndexPath)arg1;
-- (id)_photosDetailsContextForMemory:(id)arg1;
 - (void)_searchBarButtonItemAction:(id)arg1;
 - (id)_sourceViewForMemoryActionsController;
 - (void)_presentActionsForMemoryReference:(id)arg1;

@@ -18,24 +18,24 @@
 {
     id <CKAvatarPickerViewControllerDelegate> _delegate;
     UIViewController *_avatarOrbPresentingViewController;
+    CKAvatarTitleCollectionReusableView *_titleView;
     UICollectionView *_collectionView;
     CKAvatarPickerLayout *_layout;
     CKConversation *_conversation;
     CNContactStore *_suggestionsEnabledContactStore;
     UITapGestureRecognizer *_tapGestureRecognizer;
-    CKAvatarTitleCollectionReusableView *_titleView;
     NSMapTable *_visibleTitleViews;
     long long _style;
 }
 
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(retain, nonatomic) NSMapTable *visibleTitleViews; // @synthesize visibleTitleViews=_visibleTitleViews;
-@property(retain, nonatomic) CKAvatarTitleCollectionReusableView *titleView; // @synthesize titleView=_titleView;
 @property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(retain, nonatomic) CNContactStore *suggestionsEnabledContactStore; // @synthesize suggestionsEnabledContactStore=_suggestionsEnabledContactStore;
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 @property(retain, nonatomic) CKAvatarPickerLayout *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
+@property(retain, nonatomic) CKAvatarTitleCollectionReusableView *titleView; // @synthesize titleView=_titleView;
 @property(nonatomic) __weak UIViewController *avatarOrbPresentingViewController; // @synthesize avatarOrbPresentingViewController=_avatarOrbPresentingViewController;
 @property(nonatomic) __weak id <CKAvatarPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -60,6 +60,7 @@
 - (void)_handleConversationRecipientsDidChange:(id)arg1;
 - (void)_handleConversationIsFilteredChange:(id)arg1;
 - (void)_chatPropertiesChanged:(id)arg1;
+- (int)chatWasDetectedAsSMSSpam;
 - (_Bool)chatIsReportedAsSpam;
 - (void)_setTitle:(id)arg1 animated:(_Bool)arg2;
 - (void)_animateOutTitleView;

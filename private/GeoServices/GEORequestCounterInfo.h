@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
@@ -17,12 +17,12 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)counterInfoWithDictionary:(id)arg1;
+- (void).cxx_destruct;
 - (id)_formattedString;
 - (void)encodeWithCoder:(id)arg1;
 - (unsigned long long)numberOfRequestsForType:(unsigned char)arg1 result:(unsigned char)arg2;
 @property(readonly, nonatomic) NSArray *requestTypes;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 

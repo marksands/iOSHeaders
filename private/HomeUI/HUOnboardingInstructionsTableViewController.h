@@ -29,8 +29,9 @@
 - (void).cxx_destruct;
 - (void)_setNavigationBarVisibility;
 - (void)_next:(id)arg1;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (_Bool)shouldHideHeaderAboveSection:(long long)arg1;
 - (void)nextButtonPressed;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)childViewControllerDidFinish:(id)arg1;

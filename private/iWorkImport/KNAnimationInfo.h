@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSArray *customAttributes;
 - (id)customAttributesForAttributeKey:(id)arg1;
 @property(readonly, nonatomic) unsigned long long directionType;
-@property(readonly, nonatomic) int category;
+@property(readonly, nonatomic) long long category;
 @property(readonly, nonatomic) NSString *animationFilter;
 @property(readonly, nonatomic) NSDictionary *defaultAttributes;
 @property(readonly, nonatomic) _Bool isDrift;

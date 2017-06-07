@@ -15,7 +15,7 @@
 }
 
 + (id)sharedInstance;
-- (id)stringFromNumber:(id)arg1 dataUnit:(id)arg2 unitController:(id)arg3;
+- (id)stringFromNumber:(id)arg1 displayType:(id)arg2 unitController:(id)arg3;
 - (_Bool)returnsUnitWithValueForDisplay;
 
 // Remaining properties

@@ -8,7 +8,7 @@
 
 #import <HealthUI/NSCopying-Protocol.h>
 
-@class UIColor, UIFont;
+@class NSNumberFormatter, UIColor, UIFont;
 
 @interface HKAxisLabelStyle : NSObject <NSCopying>
 {
@@ -16,9 +16,12 @@
     UIFont *_font;
     long long _horizontalAlignment;
     long long _verticalAlignment;
+    NSNumberFormatter *_numberFormatter;
 }
 
++ (id)labelStyleWithColor:(id)arg1 font:(id)arg2 horizontalAlignment:(long long)arg3 verticalAlignment:(long long)arg4 numberFormatter:(id)arg5;
 + (id)labelStyleWithColor:(id)arg1 font:(id)arg2 horizontalAlignment:(long long)arg3 verticalAlignment:(long long)arg4;
+@property(nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(nonatomic) long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
 @property(nonatomic) long long horizontalAlignment; // @synthesize horizontalAlignment=_horizontalAlignment;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;

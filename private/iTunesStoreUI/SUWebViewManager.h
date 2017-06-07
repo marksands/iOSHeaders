@@ -31,6 +31,7 @@
     NSMutableSet *_requireCellularURLs;
     NSMapTable *_scriptInterfaces;
     SUScriptWindowContext *_scriptWindowContext;
+    _Bool _shouldSignRequests;
     NSSet *_suppressCookiesHosts;
     long long _usingNetworkCount;
     struct __CFSet *_webFramesPendingInitialRequest;
@@ -39,6 +40,7 @@
 
 + (id)defaultLocalStoragePath;
 @property(readonly, nonatomic) __weak UIWebView *webView; // @synthesize webView=_webView;
+@property(nonatomic) _Bool shouldSignRequests; // @synthesize shouldSignRequests=_shouldSignRequests;
 @property(retain, nonatomic) SUScriptWindowContext *scriptWindowContext; // @synthesize scriptWindowContext=_scriptWindowContext;
 @property(retain, nonatomic) id originalUIDelegate; // @synthesize originalUIDelegate=_originalUIDelegate;
 @property(retain, nonatomic) id originalResourceLoadDelegate; // @synthesize originalResourceLoadDelegate=_originalResourceLoadDelegate;
@@ -54,6 +56,7 @@
 - (id)_delegate;
 - (void)_cancelUsingNetwork;
 - (void)_beginUsingNetwork;
+- (id)_locateStorePageViewController;
 - (void)_requestWebScriptReloadWithContext:(id)arg1;
 - (id)webView:(id)arg1 runJavaScriptTextInputPanelWithPrompt:(id)arg2 defaultText:(id)arg3 initiatedByFrame:(id)arg4;
 - (_Bool)webView:(id)arg1 runJavaScriptConfirmPanelWithMessage:(id)arg2 initiatedByFrame:(id)arg3;

@@ -11,18 +11,27 @@
 __attribute__((visibility("hidden")))
 @interface TSWPStorageIterator : NSObject
 {
+    _Bool _sendEventsForNilObjects;
+    _Bool _lastEventWasMarker;
+    NSCharacterSet *_markers;
     TSWPStorage *_storage;
     unsigned long long _charIndex;
     unsigned long long _startCharIndex;
     NSMutableArray *_rangeProviders;
     NSMutableArray *_locationProviders;
     NSMutableArray *_pendingEvents;
-    _Bool _sendEventsForNilObjects;
-    _Bool _lastEventWasMarker;
-    NSCharacterSet *_markers;
 }
 
+@property(nonatomic) _Bool lastEventWasMarker; // @synthesize lastEventWasMarker=_lastEventWasMarker;
+@property(nonatomic) _Bool sendEventsForNilObjects; // @synthesize sendEventsForNilObjects=_sendEventsForNilObjects;
+@property(retain, nonatomic) NSMutableArray *pendingEvents; // @synthesize pendingEvents=_pendingEvents;
+@property(retain, nonatomic) NSMutableArray *locationProviders; // @synthesize locationProviders=_locationProviders;
+@property(retain, nonatomic) NSMutableArray *rangeProviders; // @synthesize rangeProviders=_rangeProviders;
+@property(nonatomic) unsigned long long startCharIndex; // @synthesize startCharIndex=_startCharIndex;
+@property(nonatomic) unsigned long long charIndex; // @synthesize charIndex=_charIndex;
+@property(retain, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
 @property(retain, nonatomic) NSCharacterSet *markers; // @synthesize markers=_markers;
+- (void).cxx_destruct;
 - (id)description;
 - (id)nextEvent;
 - (void)p_forceRangeEndForProvider:(id)arg1 providerIndex:(unsigned long long)arg2 atCharIndex:(unsigned long long)arg3;
@@ -32,7 +41,6 @@ __attribute__((visibility("hidden")))
 - (void)addLocationProvider:(id)arg1;
 - (void)addAttributeRangeProvider:(int)arg1;
 - (void)addRangeProvider:(id)arg1;
-- (void)dealloc;
 - (id)initWithStorage:(id)arg1;
 
 @end

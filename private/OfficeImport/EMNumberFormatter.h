@@ -24,6 +24,7 @@
 }
 
 + (id)formatterForFormat:(id)arg1;
+- (void).cxx_destruct;
 - (id)formatValue:(double)arg1 inWorkbook:(id)arg2;
 - (void)_parseExcelFormatString:(id)arg1;
 - (id)convertedGenericNumberFormatWithFormat:(id)arg1;

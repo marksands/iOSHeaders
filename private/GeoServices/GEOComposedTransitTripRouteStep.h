@@ -34,6 +34,7 @@
 @property(readonly, nonatomic) double departureTimeIntervalMin; // @synthesize departureTimeIntervalMin=_departureTimeIntervalMin;
 @property(readonly, nonatomic) NSArray *arrivalTimes; // @synthesize arrivalTimes=_arrivalTimes;
 @property(readonly, nonatomic) NSArray *departureTimes; // @synthesize departureTimes=_departureTimes;
+- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) _Bool canPreloadTilesForThisStep;
 - (unsigned int)duration;
@@ -43,7 +44,6 @@
 @property(readonly, nonatomic) NSTimeZone *arrivalTimeZone;
 @property(readonly, nonatomic) NSTimeZone *departureTimeZone;
 @property(readonly, nonatomic) GEOComposedTransitTripRouteLeg *tripLeg;
-- (void)dealloc;
 - (id)initWithComposedRoute:(id)arg1 decoderData:(id)arg2 step:(id)arg3 stepIndex:(unsigned long long)arg4 duration:(unsigned int)arg5 pointRange:(struct _NSRange)arg6;
 
 @end

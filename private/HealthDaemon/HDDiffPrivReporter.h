@@ -6,24 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class HDProfile, NSMutableDictionary;
+@class HDProfile, _DPStringRecorder;
 @protocol OS_dispatch_queue;
 
 @interface HDDiffPrivReporter : NSObject
 {
     HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
-    NSMutableDictionary *_recorders;
+    _DPStringRecorder *_recorder;
 }
 
-+ (id)_valueForTypeList:(id)arg1 daysPerWeek:(id)arg2;
-+ (id)_keyForTypeList:(id)arg1;
 + (id)reportableTypes;
 + (_Bool)isAvailable;
 - (void).cxx_destruct;
 - (_Bool)reportWithCurrentDate:(id)arg1 error:(id *)arg2;
-- (id)_encodedValuesForNow:(id)arg1 typeLists:(id)arg2 error:(id *)arg3;
-- (id)_daysInWeekWithDataForTypes:(id)arg1 now:(id)arg2 error:(id *)arg3;
+- (id)_typesInMonthWithDataForTypes:(id)arg1 now:(id)arg2 error:(id *)arg3;
 - (id)initWithProfile:(id)arg1;
 
 @end

@@ -8,8 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOPDHours : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     CDStruct_95bda58d _days;
     struct GEOPDLocalTimeRange *_timeRanges;
     unsigned long long _timeRangesCount;
@@ -21,6 +24,8 @@
 + (_Bool)currentOperatingHoursAvailableForPlaceData:(id)arg1 withTimeZone:(id)arg2;
 + (id)_allHoursForPlaceData:(id)arg1;
 + (_Bool)operatingHoursAvailableForPlaceData:(id)arg1;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

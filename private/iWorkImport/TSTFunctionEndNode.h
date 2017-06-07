@@ -11,20 +11,19 @@
 __attribute__((visibility("hidden")))
 @interface TSTFunctionEndNode : TSTExpressionNode
 {
-    TSTFunctionNode *mFunctionNode;
+    TSTFunctionNode *_functionNode;
 }
 
+@property(nonatomic) TSTFunctionNode *functionNode; // @synthesize functionNode=_functionNode;
 - (void)saveToArchive:(struct FunctionEndNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct FunctionEndNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct FunctionEndNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)exportString;
 - (void)buildASTNodeArray:(struct TSCEASTNodeArray *)arg1 hostCell:(struct TSUCellCoord)arg2 symbolTable:(struct TSCESymbolTable *)arg3;
 - (void)insertFormulaText:(id)arg1 includeWhitespace:(_Bool)arg2;
 - (id)string;
 - (int)tokenType;
-@property(nonatomic) TSTFunctionNode *functionNode;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 children:(id)arg2 firstIndex:(unsigned long long)arg3 lastIndex:(unsigned long long)arg4;
 - (id)initWithContext:(id)arg1 functionNode:(id)arg2 firstIndex:(unsigned long long)arg3 lastIndex:(unsigned long long)arg4;
 

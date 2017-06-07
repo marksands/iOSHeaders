@@ -6,15 +6,17 @@
 
 #import <UIKit/UITableViewCell.h>
 
+#import <HomeUI/HUCellProtocol-Protocol.h>
 #import <HomeUI/HUDisableableCellProtocol-Protocol.h>
 
-@class HUColoredButton, NSString, UIColor;
-@protocol HUColoredButtonCellDelegate;
+@class HFItem, HUColoredButton, NSString, UIColor;
+@protocol HUColoredButtonCellDelegate, HUResizableCellDelegate;
 
-@interface HUColoredButtonCell : UITableViewCell <HUDisableableCellProtocol>
+@interface HUColoredButtonCell : UITableViewCell <HUCellProtocol, HUDisableableCellProtocol>
 {
     _Bool _disabled;
     _Bool _buttonColorFollowsTintColor;
+    HFItem *_item;
     id <HUColoredButtonCellDelegate> _delegate;
     UIColor *_buttonBackgroundColor;
     HUColoredButton *_button;
@@ -25,10 +27,10 @@
 @property(nonatomic) _Bool buttonColorFollowsTintColor; // @synthesize buttonColorFollowsTintColor=_buttonColorFollowsTintColor;
 @property(nonatomic) __weak id <HUColoredButtonCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isDisabled) _Bool disabled; // @synthesize disabled=_disabled;
+@property(retain, nonatomic) HFItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
 - (void)updateButtonColor;
-@property(retain, nonatomic) UIColor *titleColor;
-@property(copy, nonatomic) NSString *title;
+- (void)updateUIWithAnimation:(_Bool)arg1;
 - (void)prepareForReuse;
 - (void)tintColorDidChange;
 - (void)buttonPressed:(id)arg1;
@@ -38,6 +40,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @property(readonly) Class superclass;
 
 @end

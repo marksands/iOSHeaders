@@ -66,7 +66,6 @@
 - (struct UIEdgeInsets)skinnyBalloonMaskCapInsets;
 - (struct UIEdgeInsets)taillessBalloonMaskCapInsets;
 - (struct UIEdgeInsets)balloonMaskCapInsets;
-- (CDStruct_cb14c188)typingIndicatorSpec;
 - (struct CGSize)taillessSkinnyBalloonMaskSize;
 - (struct CGSize)skinnyBalloonMaskSize;
 - (struct CGSize)taillessBalloonMaskSize;
@@ -80,6 +79,7 @@
 - (_Bool)shouldAdjustWidthForSendFailure;
 - (_Bool)hyphenatesTextContent;
 - (_Bool)shouldUseDynamicGradient;
+- (id)surfReplyImage;
 - (id)arouetReplyImage;
 - (id)digitalTouchReplyImage;
 - (id)dictationReplyImage;
@@ -92,7 +92,6 @@
 - (id)transcriptDrawerFont;
 - (id)transcriptBoldTextFont;
 - (id)transcriptTextFont;
-- (long long)transcriptLoadingIndicatorStyle;
 - (double)checkmarkHorizontalPadding;
 - (double)balloonMaxWidthForTranscriptWidth:(double)arg1 marginInsets:(struct UIEdgeInsets)arg2 shouldShowPluginButtons:(_Bool)arg3 shouldShowCharacterCount:(_Bool)arg4;
 - (double)balloonBalloonTranscriptSpace:(unsigned char)arg1;
@@ -101,6 +100,7 @@
 - (double)smallTranscriptSpace;
 - (double)bottomTranscriptSpace;
 - (double)topTranscriptSpace;
+- (double)transcriptDrawerGestureAcceleration;
 - (double)transcriptDrawerMaxContentOffsetXForMarginInsets:(struct UIEdgeInsets)arg1;
 - (double)transcriptDrawerSpace;
 - (struct UIEdgeInsets)contactPhotoTranscriptInsets;
@@ -119,8 +119,6 @@
 - (_Bool)showsProgressInNavigationBar;
 - (_Bool)shouldHideStatusBarForFullScreenEffects;
 - (id)defaultWaveformImage;
-- (id)trashImage;
-- (id)detailsImage;
 - (id)conversationListGroupCountFont;
 - (id)conversationListDateFont;
 - (id)conversationListSummaryFont;
@@ -141,9 +139,9 @@
 - (_Bool)showsNoMessagesDialog;
 - (_Bool)shouldShowSearchBarInConversationList;
 - (double)transcriptButtonCharge;
+- (double)maxTranscriptPortraitHeight;
 - (unsigned long long)defaultConversationLoadMoreCount;
 - (unsigned long long)defaultConversationViewingMessageCount;
-- (_Bool)hideUnreadCountInTitleBar;
 - (_Bool)usesNavigationBarControls;
 - (_Bool)usesEntryView;
 - (_Bool)shouldUseTranslucentBars;

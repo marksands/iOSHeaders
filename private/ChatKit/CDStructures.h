@@ -53,6 +53,15 @@ struct CATransform3D {
     double m44;
 };
 
+struct CGAffineTransform {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
+};
+
 struct CGPoint {
     double x;
     double y;
@@ -112,6 +121,11 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
+struct _Spec {
+    struct CGSize _field1;
+    double _field2;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -131,20 +145,4 @@ typedef struct {
     _Bool hasCaption;
     _Bool isBatchStart;
 } CDStruct_1417b155;
-
-typedef struct {
-    struct CGSize _field1;
-    struct CGRect _field2;
-    struct CGRect _field3;
-    struct CGRect _field4;
-    double _field5;
-    struct CGPoint _field6;
-    struct CGPoint _field7;
-    struct CGPoint _field8;
-    double _field9;
-    double _field10;
-    struct CGPoint _field11;
-    struct CGRect _field12;
-    double _field13;
-} CDStruct_cb14c188;
 

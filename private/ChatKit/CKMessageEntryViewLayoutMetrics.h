@@ -6,7 +6,9 @@
 
 #import <Foundation/NSObject.h>
 
-@interface CKMessageEntryViewLayoutMetrics : NSObject
+#import <ChatKit/NSCoding-Protocol.h>
+
+@interface CKMessageEntryViewLayoutMetrics : NSObject <NSCoding>
 {
     double _defaultEntryContentViewHeight;
     double _defaultSubjectEntryContentViewHeight;
@@ -23,6 +25,8 @@
 @property(readonly, nonatomic) struct UIEdgeInsets entryViewTextAlignmentInsets; // @synthesize entryViewTextAlignmentInsets=_entryViewTextAlignmentInsets;
 @property(readonly, nonatomic) struct UIEdgeInsets entryViewContentInsets; // @synthesize entryViewContentInsets=_entryViewContentInsets;
 - (void)calculateTextMetrics;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)init;
 
 @end

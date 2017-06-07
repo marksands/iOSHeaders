@@ -6,11 +6,12 @@
 
 #import <DataDetectorsUI/DDAction.h>
 
-__attribute__((visibility("hidden")))
 @interface DDCopyAction : DDAction
 {
 }
 
++ (_Bool)actionAvailableForContact:(id)arg1;
+- (_Bool)canBePerformedWhenDeviceIsLocked;
 - (void)performFromView:(id)arg1;
 - (id)localizedName;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GKDiscovery, GKMatch, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSSet;
 @protocol OS_dispatch_queue;
@@ -47,7 +47,7 @@
 @property(retain) NSMutableDictionary *nearbyPlayers; // @synthesize nearbyPlayers=_nearbyPlayers;
 @property(nonatomic) _Bool nearbyAdvertising; // @synthesize nearbyAdvertising=_nearbyAdvertising;
 @property int matching; // @synthesize matching=_matching;
-@property(nonatomic) NSObject<OS_dispatch_queue> *lookForInviteQueue; // @synthesize lookForInviteQueue=_lookForInviteQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *lookForInviteQueue; // @synthesize lookForInviteQueue=_lookForInviteQueue;
 @property(copy, nonatomic) CDUnknownBlockType nearbyPlayerIDHandler; // @synthesize nearbyPlayerIDHandler=_nearbyPlayerIDHandler;
 @property(copy, nonatomic) CDUnknownBlockType nearbyPlayerHandler; // @synthesize nearbyPlayerHandler=_nearbyPlayerHandler;
 @property(retain) NSDictionary *inviteesByUserID; // @synthesize inviteesByUserID=_inviteesByUserID;

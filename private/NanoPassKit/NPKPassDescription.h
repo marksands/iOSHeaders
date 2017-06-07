@@ -18,8 +18,10 @@
     _Bool _cobranded;
     _Bool _deletePending;
     _Bool _hasUserSelectableContactlessPaymentApplications;
+    _Bool _supportsPeerPayment;
     PKImage *_logoImage;
     PKImage *_backgroundImage;
+    unsigned long long _expressPassTypesMask;
     NSString *_uniqueID;
     NSNumber *_groupID;
     NSString *_passTypeIdentifier;
@@ -41,6 +43,7 @@
     PKPaymentApplication *_devicePrimaryInAppPaymentApplication;
     PKPaymentApplication *_preferredPaymentApplication;
     long long _effectivePaymentApplicationState;
+    NSString *_issuerCountryCode;
     NSArray *_availableActions;
     NSString *_organizationName;
     PKFelicaTransitAppletState *_felicaTransitAppletState;
@@ -57,6 +60,7 @@
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSData *backgroundImageEncoded; // @synthesize backgroundImageEncoded=_backgroundImageEncoded;
 @property(retain, nonatomic) NSData *logoImageEncoded; // @synthesize logoImageEncoded=_logoImageEncoded;
+@property(nonatomic) _Bool supportsPeerPayment; // @synthesize supportsPeerPayment=_supportsPeerPayment;
 @property(retain, nonatomic) NSDate *pendingAddValueDate; // @synthesize pendingAddValueDate=_pendingAddValueDate;
 @property(retain, nonatomic) NSDecimalNumber *lastAddValueAmount; // @synthesize lastAddValueAmount=_lastAddValueAmount;
 @property(retain, nonatomic) NSArray *backFieldBuckets; // @synthesize backFieldBuckets=_backFieldBuckets;
@@ -64,6 +68,7 @@
 @property(retain, nonatomic) PKFelicaTransitAppletState *felicaTransitAppletState; // @synthesize felicaTransitAppletState=_felicaTransitAppletState;
 @property(retain, nonatomic) NSString *organizationName; // @synthesize organizationName=_organizationName;
 @property(retain, nonatomic) NSArray *availableActions; // @synthesize availableActions=_availableActions;
+@property(retain, nonatomic) NSString *issuerCountryCode; // @synthesize issuerCountryCode=_issuerCountryCode;
 @property(nonatomic) _Bool hasUserSelectableContactlessPaymentApplications; // @synthesize hasUserSelectableContactlessPaymentApplications=_hasUserSelectableContactlessPaymentApplications;
 @property(nonatomic) _Bool deletePending; // @synthesize deletePending=_deletePending;
 @property(nonatomic, getter=isCobranded) _Bool cobranded; // @synthesize cobranded=_cobranded;
@@ -90,18 +95,19 @@
 @property(retain, nonatomic) NSString *passTypeIdentifier; // @synthesize passTypeIdentifier=_passTypeIdentifier;
 @property(retain, nonatomic) NSNumber *groupID; // @synthesize groupID=_groupID;
 @property(retain, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;
+@property(nonatomic) unsigned long long expressPassTypesMask; // @synthesize expressPassTypesMask=_expressPassTypesMask;
 - (void).cxx_destruct;
+- (_Bool)hasValidNFCPayload;
+- (_Bool)supportsExpressPassType:(long long)arg1;
 - (_Bool)isEnroute;
 - (_Bool)isAddValuePending;
 - (id)fieldForKey:(id)arg1;
 - (id)felicaProperties;
 @property(readonly, nonatomic) long long effectiveContactlessPaymentApplicationState;
-- (_Bool)supportsInAppPaymentOnNetworks:(id)arg1 capabilities:(unsigned long long)arg2;
-- (_Bool)supportsInAppPaymentOnNetworks:(id)arg1;
-- (id)_personalizedInAppPaymentApplicationsForNetworks:(id)arg1;
+- (_Bool)supportsInAppPaymentOnNetworks:(id)arg1 capabilities:(unsigned long long)arg2 issuerCountryCodes:(id)arg3 paymentApplicationStates:(id)arg4;
+- (_Bool)supportsInAppPaymentOnNetworks:(id)arg1 issuerCountryCodes:(id)arg2;
 @property(retain, nonatomic) PKImage *backgroundImage; // @synthesize backgroundImage=_backgroundImage;
 @property(retain, nonatomic) PKImage *logoImage; // @synthesize logoImage=_logoImage;
-- (id)safeUnarchiveObjectOfClass:(Class)arg1 withData:(id)arg2;
 - (void)encodeObject:(id)arg1 asDataInCoder:(id)arg2 withKey:(id)arg3;
 - (id)encodeAsData:(id)arg1;
 - (id)description;

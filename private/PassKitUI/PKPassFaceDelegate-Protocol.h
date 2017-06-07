@@ -6,14 +6,13 @@
 
 #import <PassKitUI/NSObject-Protocol.h>
 
-@class PKPassBackFaceView, PKPassFaceView;
+@class PKPassFaceView;
 
 @protocol PKPassFaceDelegate <NSObject>
-- (void)passBackFaceShareButtonPressed:(PKPassBackFaceView *)arg1;
 - (_Bool)passFaceBarcodeButtonEnabled;
 - (_Bool)passFaceDeleteButtonEnabled;
 - (void)passFaceDeleteButtonPressed:(PKPassFaceView *)arg1;
 - (void)passFaceBarcodeButtonPressed:(PKPassFaceView *)arg1;
-- (void)passFaceFlipButtonPressed:(PKPassFaceView *)arg1;
+- (void)passFaceInfoButtonPressed:(PKPassFaceView *)arg1;
 @end
 

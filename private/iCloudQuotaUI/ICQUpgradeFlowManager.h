@@ -16,6 +16,7 @@
 {
     ICQUpgradeOfferViewController *_busyOfferViewController;
     _Bool _shouldNavigationControllerBeDismissed;
+    _Bool _completedFamilySetup;
     ICQOffer *_offer;
     id <ICQUpgradeFlowManagerDelegate> _delegate;
     UINavigationController *_hostingNavigationController;
@@ -29,6 +30,7 @@
 + (Class)subclassForOfferType:(long long)arg1;
 + (_Bool)shouldShowForOffer:(id)arg1;
 + (void)needsToRunWithCompletion:(CDUnknownBlockType)arg1;
+@property(nonatomic) _Bool completedFamilySetup; // @synthesize completedFamilySetup=_completedFamilySetup;
 @property(retain, nonatomic) ICQAlertController *upgradeAlertController; // @synthesize upgradeAlertController=_upgradeAlertController;
 @property(retain, nonatomic) UINavigationController *hostingNavigationController; // @synthesize hostingNavigationController=_hostingNavigationController;
 @property(nonatomic) _Bool shouldNavigationControllerBeDismissed; // @synthesize shouldNavigationControllerBeDismissed=_shouldNavigationControllerBeDismissed;
@@ -38,6 +40,8 @@
 - (void)_sendDelegateDidPresentViewController:(id)arg1;
 - (void)_sendDelegateComplete;
 - (void)_sendDelegateCancel;
+- (void)_initiateFamilySetupFlow;
+- (void)_simulateDoneButton;
 - (void)sender:(id)arg1 action:(long long)arg2 parameters:(id)arg3;
 - (double)senderGetTopMargin:(id)arg1;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
@@ -46,7 +50,7 @@
 - (void)_presentPageWithSpecification:(id)arg1;
 - (void)_cancelFlow;
 - (_Bool)needsNetwork;
-- (void)_performPageButtonActionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_performPageButtonActionWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initSubclassWithOffer:(id)arg1;
 - (void)_openURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_setBusyOfferViewController:(id)arg1;

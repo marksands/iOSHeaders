@@ -19,13 +19,16 @@ __attribute__((visibility("hidden")))
     unsigned int _encodedBufferSize;
     unsigned int _accessUnitDataSectionSize;
     unsigned int _bundledPackets;
+    _Bool _currentBundleVoiceActivity;
+    _Bool _lastBundleVoiceActivity;
     struct tagAccessUnitHeaderInfo _accessUnitHeaderInfo;
-    _Bool _useRFC3640;
+    int _bundlingScheme;
     _Bool _allowLargePackets;
     _Bool _isFull;
+    int _operatingMode;
 }
 
-@property(nonatomic) _Bool useRFC3640; // @synthesize useRFC3640=_useRFC3640;
+@property(nonatomic) int bundlingScheme; // @synthesize bundlingScheme=_bundlingScheme;
 @property(nonatomic) unsigned int timestamp; // @synthesize timestamp=_timestamp;
 @property(nonatomic) int payload; // @synthesize payload=_payload;
 @property(readonly, nonatomic) unsigned int bundledPackets; // @synthesize bundledPackets=_bundledPackets;
@@ -35,14 +38,16 @@ __attribute__((visibility("hidden")))
 - (void)lock;
 - (void)initLock;
 - (void)resetBuffer;
-- (_Bool)bundleAudioLegacy:(void *)arg1 numInputBytes:(unsigned int)arg2 packetPayload:(id)arg3 timestamp:(unsigned int)arg4;
-- (_Bool)bundleAudio:(void *)arg1 numInputBytes:(unsigned int)arg2 packetPayload:(id)arg3 timestamp:(unsigned int)arg4;
-- (_Bool)bundleAudioRFC3640:(void *)arg1 numInputBytes:(unsigned int)arg2 packetPayload:(id)arg3 timestamp:(unsigned int)arg4;
+- (_Bool)bundleAudioLegacy:(void *)arg1 numInputBytes:(unsigned int)arg2 payloadType:(int)arg3 timestamp:(unsigned int)arg4;
+- (_Bool)_copyInputBytes:(void *)arg1 numInputBytes:(unsigned int)arg2 payloadType:(int)arg3 timestamp:(unsigned int)arg4;
+- (_Bool)bundleAudio:(void *)arg1 numInputBytes:(unsigned int)arg2 payloadType:(int)arg3 timestamp:(unsigned int)arg4 voiceActivity:(_Bool)arg5;
+- (_Bool)bundleAudioRFC3640:(void *)arg1 numInputBytes:(unsigned int)arg2 payloadType:(int)arg3 timestamp:(unsigned int)arg4;
 - (char *)accessUnitDataSectionHead;
 - (unsigned int)accessUnitHeaderSectionSizeMaximum;
 - (unsigned int)accessUnitHeaderSectionSize;
 - (unsigned int)encodedBufferSizeForRFC3640;
 - (char *)encodedBufferForRFC3640;
+@property(readonly, nonatomic) _Bool isTalkSpurtStart;
 @property(readonly, nonatomic) unsigned int encodedBufferSize;
 @property(readonly, nonatomic) char *encodedBuffer;
 @property(readonly, nonatomic) unsigned int packetsPerBundle;
@@ -53,7 +58,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)allocateBundleBuffer:(unsigned int)arg1;
 - (unsigned int)bundleBufferSizeWidthMaxPacketSize:(unsigned int)arg1 maxPacketCount:(unsigned int)arg2;
 - (void)dealloc;
-- (id)init;
+- (id)initWithOperatingMode:(int)arg1;
 
 @end
 

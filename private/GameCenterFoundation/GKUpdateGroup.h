@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSError, NSLock, NSMutableArray, NSString;
 @protocol OS_dispatch_group, OS_dispatch_queue;
@@ -24,10 +24,8 @@
 + (id)updateGroupWithName:(id)arg1;
 + (id)updateGroup;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-@property(nonatomic) NSObject<OS_dispatch_group> *dispatchGroup; // @synthesize dispatchGroup=_dispatchGroup;
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSMutableArray *notifiers; // @synthesize notifiers=_notifiers;
-@property(nonatomic) NSObject<OS_dispatch_queue> *targetQueue; // @synthesize targetQueue=_targetQueue;
 @property(retain) NSLock *lock; // @synthesize lock=_lock;
 @property(readonly, nonatomic) long long updateCount;
 - (void)cancelUpdates;

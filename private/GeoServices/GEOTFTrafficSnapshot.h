@@ -18,6 +18,7 @@
     NSString *_feedId;
     NSMutableArray *_incidents;
     NSMutableArray *_regions;
+    NSString *_snapshotId;
     NSMutableArray *_speeds;
     unsigned int _trafficVersion;
     struct {
@@ -31,6 +32,7 @@
 + (Class)speedsType;
 + (Class)incidentsType;
 + (Class)regionType;
+@property(retain, nonatomic) NSString *snapshotId; // @synthesize snapshotId=_snapshotId;
 @property(retain, nonatomic) NSMutableArray *compactSpeeds; // @synthesize compactSpeeds=_compactSpeeds;
 @property(nonatomic) unsigned long long feedPublishTime; // @synthesize feedPublishTime=_feedPublishTime;
 @property(nonatomic) unsigned int trafficVersion; // @synthesize trafficVersion=_trafficVersion;
@@ -39,6 +41,7 @@
 @property(retain, nonatomic) NSMutableArray *speeds; // @synthesize speeds=_speeds;
 @property(retain, nonatomic) NSMutableArray *incidents; // @synthesize incidents=_incidents;
 @property(retain, nonatomic) NSMutableArray *regions; // @synthesize regions=_regions;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,6 +51,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasSnapshotId;
 - (id)compactSpeedsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)compactSpeedsCount;
 - (void)addCompactSpeeds:(id)arg1;
@@ -68,7 +72,6 @@
 - (unsigned long long)regionsCount;
 - (void)addRegion:(id)arg1;
 - (void)clearRegions;
-- (void)dealloc;
 
 @end
 

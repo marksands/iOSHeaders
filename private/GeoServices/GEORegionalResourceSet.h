@@ -20,6 +20,7 @@
 
 + (Class)resourceType;
 @property(retain, nonatomic) NSMutableArray *resources; // @synthesize resources=_resources;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

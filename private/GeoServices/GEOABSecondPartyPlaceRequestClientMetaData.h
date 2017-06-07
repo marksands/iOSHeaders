@@ -23,6 +23,7 @@
 @property(retain, nonatomic) GEOPDABClientDatasetMetadata *clientDatasetMetadata; // @synthesize clientDatasetMetadata=_clientDatasetMetadata;
 @property(retain, nonatomic) NSMutableArray *clientConfigs; // @synthesize clientConfigs=_clientConfigs;
 @property(retain, nonatomic) NSMutableArray *serverAbAssignments; // @synthesize serverAbAssignments=_serverAbAssignments;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -42,7 +43,6 @@
 - (unsigned long long)serverAbAssignmentsCount;
 - (void)addServerAbAssignment:(id)arg1;
 - (void)clearServerAbAssignments;
-- (void)dealloc;
 
 @end
 

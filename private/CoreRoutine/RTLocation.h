@@ -27,6 +27,10 @@
 @property(readonly, nonatomic) double longitude; // @synthesize longitude=_longitude;
 @property(readonly, nonatomic) double latitude; // @synthesize latitude=_latitude;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (_Bool)isEqualToLocation:(id)arg1;
+- (id)coordinateToString;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

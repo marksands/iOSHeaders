@@ -24,18 +24,18 @@
 @property(retain, nonatomic) CoreDAVResponseItem *responseItem; // @synthesize responseItem=_responseItem;
 @property(retain, nonatomic) NSSet *propPatchSetElements; // @synthesize propPatchSetElements=_propPatchSetElements;
 @property(retain, nonatomic) NSSet *propPatchRemoveElements; // @synthesize propPatchRemoveElements=_propPatchRemoveElements;
+- (void).cxx_destruct;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;
 - (id)additionalHeaderValues;
 - (id)httpMethod;
 - (id)description;
-- (void)dealloc;
 - (id)initWithPropertiesToSet:(id)arg1 andRemove:(id)arg2 atURL:(id)arg3;
 - (id)initWithURL:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) id <CoreDAVPropPatchTaskDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <CoreDAVPropPatchTaskDelegate> delegate; // @dynamic delegate;
 
 @end
 

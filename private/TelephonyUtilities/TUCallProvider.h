@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/NSCopying-Protocol.h>
 #import <TelephonyUtilities/NSSecureCoding-Protocol.h>
@@ -17,6 +17,8 @@
     _Bool _supportsAudioAndVideo;
     _Bool _supportsEmergency;
     _Bool _supportsVoicemail;
+    _Bool _supportsRecents;
+    _Bool _supportsCurrentPlatform;
     unsigned int _audioSessionID;
     NSString *_identifier;
     NSString *_localizedName;
@@ -24,7 +26,6 @@
     NSURL *_bundleURL;
     NSString *_bundleIdentifier;
     NSArray *_emergencyLabeledHandles;
-    NSString *_URLScheme;
     NSArray *_handoffIdentifiers;
     TUSandboxExtendedURL *_sandboxExtendedRingtoneSoundURL;
     NSURL *_originalRingtoneSoundURL;
@@ -35,13 +36,14 @@
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned int audioSessionID; // @synthesize audioSessionID=_audioSessionID;
+@property(nonatomic) _Bool supportsCurrentPlatform; // @synthesize supportsCurrentPlatform=_supportsCurrentPlatform;
+@property(nonatomic) _Bool supportsRecents; // @synthesize supportsRecents=_supportsRecents;
 @property(nonatomic) unsigned long long maximumCallsPerCallGroup; // @synthesize maximumCallsPerCallGroup=_maximumCallsPerCallGroup;
 @property(nonatomic) unsigned long long maximumCallGroups; // @synthesize maximumCallGroups=_maximumCallGroups;
 @property(copy, nonatomic) NSData *iconTemplateImageData; // @synthesize iconTemplateImageData=_iconTemplateImageData;
 @property(retain, nonatomic) NSURL *originalRingtoneSoundURL; // @synthesize originalRingtoneSoundURL=_originalRingtoneSoundURL;
 @property(retain, nonatomic) TUSandboxExtendedURL *sandboxExtendedRingtoneSoundURL; // @synthesize sandboxExtendedRingtoneSoundURL=_sandboxExtendedRingtoneSoundURL;
 @property(copy, nonatomic) NSArray *handoffIdentifiers; // @synthesize handoffIdentifiers=_handoffIdentifiers;
-@property(copy, nonatomic) NSString *URLScheme; // @synthesize URLScheme=_URLScheme;
 @property(copy, nonatomic) NSArray *emergencyLabeledHandles; // @synthesize emergencyLabeledHandles=_emergencyLabeledHandles;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(copy, nonatomic) NSURL *bundleURL; // @synthesize bundleURL=_bundleURL;
@@ -69,7 +71,6 @@
 - (_Bool)isSystemProvider;
 @property(readonly, nonatomic, getter=isFaceTimeProvider) _Bool faceTimeProvider;
 @property(readonly, nonatomic, getter=isTelephonyProvider) _Bool telephonyProvider;
-@property(readonly, nonatomic, getter=isEnabled) _Bool enabled;
 - (_Bool)supportsHandleType:(long long)arg1;
 - (id)description;
 - (id)init;

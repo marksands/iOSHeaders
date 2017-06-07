@@ -8,6 +8,7 @@
 
 @class PDFCoachMarkPrivate;
 
+__attribute__((visibility("hidden")))
 @interface PDFCoachMark : NSObject
 {
     PDFCoachMarkPrivate *_private;

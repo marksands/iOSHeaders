@@ -6,7 +6,7 @@
 
 #import <CloudKitDaemon/CKDDatabaseOperation.h>
 
-@class CKDDecryptRecordsOperation, CKDProtocolTranslator, CKDRecordCache, NSArray, NSData, NSDictionary, NSMutableDictionary, NSObject;
+@class CKDDecryptRecordsOperation, CKDProtocolTranslator, CKDRecordCache, NSArray, NSData, NSDictionary, NSMapTable, NSMutableDictionary, NSObject;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     _Bool _atomic;
     _Bool _shouldReportRecordsInFlight;
     int _saveAttempts;
+    NSData *_cachedUserBoundaryKeyData;
     CDUnknownBlockType _saveProgressBlock;
     CDUnknownBlockType _saveCompletionBlock;
     CDUnknownBlockType _deleteCompletionBlock;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
     NSDictionary *_pluginFieldsForRecordDeletesByID;
     NSDictionary *_handlersByRecordID;
     NSDictionary *_parentsByRecordID;
+    NSMapTable *_handlersByAsset;
     NSMutableDictionary *_modifyHandlersByZoneID;
     long long _savePolicy;
     NSData *_clientChangeTokenData;
@@ -42,6 +44,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_modifyRecordsQueue;
 }
 
++ (long long)isPredominatelyDownload;
 + (_Bool)_claimPackagesInRecord:(id)arg1 error:(id *)arg2;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *modifyRecordsQueue; // @synthesize modifyRecordsQueue=_modifyRecordsQueue;
 @property(nonatomic) _Bool shouldReportRecordsInFlight; // @synthesize shouldReportRecordsInFlight=_shouldReportRecordsInFlight;
@@ -54,6 +57,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long savePolicy; // @synthesize savePolicy=_savePolicy;
 @property(nonatomic) int saveAttempts; // @synthesize saveAttempts=_saveAttempts;
 @property(retain, nonatomic) NSMutableDictionary *modifyHandlersByZoneID; // @synthesize modifyHandlersByZoneID=_modifyHandlersByZoneID;
+@property(retain, nonatomic) NSMapTable *handlersByAsset; // @synthesize handlersByAsset=_handlersByAsset;
 @property(retain, nonatomic) NSDictionary *parentsByRecordID; // @synthesize parentsByRecordID=_parentsByRecordID;
 @property(retain, nonatomic) NSDictionary *handlersByRecordID; // @synthesize handlersByRecordID=_handlersByRecordID;
 @property(retain, nonatomic) NSDictionary *pluginFieldsForRecordDeletesByID; // @synthesize pluginFieldsForRecordDeletesByID=_pluginFieldsForRecordDeletesByID;
@@ -66,6 +70,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) CDUnknownBlockType deleteCompletionBlock; // @synthesize deleteCompletionBlock=_deleteCompletionBlock;
 @property(copy, nonatomic) CDUnknownBlockType saveCompletionBlock; // @synthesize saveCompletionBlock=_saveCompletionBlock;
 @property(copy, nonatomic) CDUnknownBlockType saveProgressBlock; // @synthesize saveProgressBlock=_saveProgressBlock;
+@property(copy, nonatomic) NSData *cachedUserBoundaryKeyData; // @synthesize cachedUserBoundaryKeyData=_cachedUserBoundaryKeyData;
 @property(nonatomic) _Bool trustProtectionData; // @synthesize trustProtectionData=_trustProtectionData;
 @property(nonatomic) _Bool canSetPreviousProtectionEtag; // @synthesize canSetPreviousProtectionEtag=_canSetPreviousProtectionEtag;
 @property(nonatomic) _Bool retryPCSFailures; // @synthesize retryPCSFailures=_retryPCSFailures;
@@ -85,8 +90,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CKDProtocolTranslator *translator;
 - (_Bool)_prepareRecordsForSave;
 - (void)_markRecordHandlersAsUploaded;
-- (id)_prepareAssetsForUpload;
+- (void)_setBoundaryKeyOnAssetsToUpload:(id)arg1;
 - (void)_uploadAssets;
+- (void)_fetchUserBoundaryKey;
+- (id)_prepareAssetsForUpload;
+- (void)_prepareForUpload;
 - (void)_fetchRecordPCSData;
 - (void)_fetchSharePCSData;
 - (void)_prepareParentPCS;

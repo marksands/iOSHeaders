@@ -6,27 +6,33 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPActionItemForFeedback-Protocol.h>
 
-@class _CPPunchoutForFeedback;
+@class NSData, NSString, _CPPunchoutForFeedback;
 
-@interface _CPActionItemForFeedback : PBCodable <NSCopying>
+@interface _CPActionItemForFeedback : PBCodable <_CPActionItemForFeedback, NSSecureCoding>
 {
     _CPPunchoutForFeedback *_punchout;
 }
 
 @property(retain, nonatomic) _CPPunchoutForFeedback *punchout; // @synthesize punchout=_punchout;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
 @property(readonly, nonatomic) _Bool hasPunchout;
+- (id)initWithFacade:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

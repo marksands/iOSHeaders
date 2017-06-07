@@ -9,6 +9,6 @@
 @class FBDisplayLayout, FBDisplayLayoutServiceServer;
 
 @protocol FBDisplayLayoutServiceServerDelegate <NSObject>
-- (FBDisplayLayout *)server:(FBDisplayLayoutServiceServer *)arg1 displayLayoutForDisplayType:(unsigned long long)arg2;
+- (FBDisplayLayout *)server:(FBDisplayLayoutServiceServer *)arg1 displayLayoutForDisplayType:(long long)arg2;
 @end
 

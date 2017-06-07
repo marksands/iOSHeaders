@@ -32,6 +32,8 @@
     } _has;
 }
 
++ (Class)requiredAnchorsType;
++ (Class)objectDataType;
 + (id)changeWithNanoSyncEntityClass:(Class)arg1;
 @property(nonatomic) _Bool complete; // @synthesize complete=_complete;
 @property(nonatomic) long long sequence; // @synthesize sequence=_sequence;
@@ -63,6 +65,8 @@
 - (void)clearObjectDatas;
 @property(nonatomic) _Bool hasEndAnchor;
 @property(nonatomic) _Bool hasStartAnchor;
+- (int)StringAsObjectType:(id)arg1;
+- (id)objectTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasObjectType;
 @property(nonatomic) int objectType; // @synthesize objectType=_objectType;
 - (id)nanoSyncDescription;

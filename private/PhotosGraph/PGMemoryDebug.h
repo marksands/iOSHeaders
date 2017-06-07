@@ -6,29 +6,57 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary;
+@class NSArray, NSDictionary, NSSet, PGMoodVector;
 
 @interface PGMemoryDebug : NSObject
 {
     NSDictionary *_matchingKeywords;
     NSDictionary *_referenceKeywords;
     NSDictionary *_eventKeywords;
+    NSDictionary *_additionalInfoKeywords;
     double _contentScore;
     double _meanContentScore;
     double _matchingScore;
     double _graphScore;
     double _neighborScore;
+    NSArray *_meaningLabels;
+    double _collectionMeaningScore;
+    double _collectionContentScoreAverage;
+    NSArray *_collectionMeaningLabels;
     unsigned long long _numberOfPeople;
+    unsigned long long _numberOfMoments;
+    unsigned long long _numberOfCollections;
     unsigned long long _index;
+    unsigned long long _suggestedMood;
+    unsigned long long _recommendedMoods;
+    unsigned long long _forbiddenMoods;
+    PGMoodVector *_positiveMoodVector;
+    PGMoodVector *_negativeMoodVector;
+    PGMoodVector *_historyWeightedPositiveMoodVector;
+    NSSet *_moodKeywords;
 }
 
+@property(retain, nonatomic) NSSet *moodKeywords; // @synthesize moodKeywords=_moodKeywords;
+@property(retain, nonatomic) PGMoodVector *historyWeightedPositiveMoodVector; // @synthesize historyWeightedPositiveMoodVector=_historyWeightedPositiveMoodVector;
+@property(retain, nonatomic) PGMoodVector *negativeMoodVector; // @synthesize negativeMoodVector=_negativeMoodVector;
+@property(retain, nonatomic) PGMoodVector *positiveMoodVector; // @synthesize positiveMoodVector=_positiveMoodVector;
+@property(nonatomic) unsigned long long forbiddenMoods; // @synthesize forbiddenMoods=_forbiddenMoods;
+@property(nonatomic) unsigned long long recommendedMoods; // @synthesize recommendedMoods=_recommendedMoods;
+@property(nonatomic) unsigned long long suggestedMood; // @synthesize suggestedMood=_suggestedMood;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
+@property(nonatomic) unsigned long long numberOfCollections; // @synthesize numberOfCollections=_numberOfCollections;
+@property(nonatomic) unsigned long long numberOfMoments; // @synthesize numberOfMoments=_numberOfMoments;
 @property(nonatomic) unsigned long long numberOfPeople; // @synthesize numberOfPeople=_numberOfPeople;
+@property(retain, nonatomic) NSArray *collectionMeaningLabels; // @synthesize collectionMeaningLabels=_collectionMeaningLabels;
+@property(nonatomic) double collectionContentScoreAverage; // @synthesize collectionContentScoreAverage=_collectionContentScoreAverage;
+@property(nonatomic) double collectionMeaningScore; // @synthesize collectionMeaningScore=_collectionMeaningScore;
+@property(retain, nonatomic) NSArray *meaningLabels; // @synthesize meaningLabels=_meaningLabels;
 @property(nonatomic) double neighborScore; // @synthesize neighborScore=_neighborScore;
 @property(nonatomic) double graphScore; // @synthesize graphScore=_graphScore;
 @property(nonatomic) double matchingScore; // @synthesize matchingScore=_matchingScore;
 @property(nonatomic) double meanContentScore; // @synthesize meanContentScore=_meanContentScore;
 @property(nonatomic) double contentScore; // @synthesize contentScore=_contentScore;
+@property(retain, nonatomic) NSDictionary *additionalInfoKeywords; // @synthesize additionalInfoKeywords=_additionalInfoKeywords;
 @property(retain, nonatomic) NSDictionary *eventKeywords; // @synthesize eventKeywords=_eventKeywords;
 @property(retain, nonatomic) NSDictionary *referenceKeywords; // @synthesize referenceKeywords=_referenceKeywords;
 @property(retain, nonatomic) NSDictionary *matchingKeywords; // @synthesize matchingKeywords=_matchingKeywords;

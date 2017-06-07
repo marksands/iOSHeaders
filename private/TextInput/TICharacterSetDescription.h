@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) NSCharacterSet *characterSet;
 - (id)newCharacterSetFromDescription;
 - (id)invertedSetDescription;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (unsigned long long)hash;

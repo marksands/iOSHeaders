@@ -26,6 +26,7 @@
 @property(readonly, retain, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 - (void).cxx_destruct;
 - (void)_saveDict:(id)arg1;
+- (id)dictionaryRepresentation;
 - (void)clear;
 - (void)removeDataForKey:(id)arg1;
 - (unsigned long long)setData:(id)arg1 forKey:(id)arg2;
@@ -33,6 +34,12 @@
 - (id)keyAtIndex:(unsigned long long)arg1;
 - (unsigned long long)count;
 - (id)initWithFilePath:(id)arg1 identifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

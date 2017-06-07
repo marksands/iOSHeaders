@@ -9,6 +9,7 @@
 @interface NSSet (Functional)
 - (id)mf_partition:(CDUnknownBlockType)arg1;
 - (unsigned long long)mf_countObjectsPassingTest:(CDUnknownBlockType)arg1;
+- (_Bool)mf_all:(CDUnknownBlockType)arg1;
 - (_Bool)mf_any:(CDUnknownBlockType)arg1;
 - (id)mf_anyPassingTest:(CDUnknownBlockType)arg1;
 - (id)mf_filter:(CDUnknownBlockType)arg1;

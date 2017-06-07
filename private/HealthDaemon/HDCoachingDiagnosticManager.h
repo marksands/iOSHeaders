@@ -6,19 +6,17 @@
 
 #import <objc/NSObject.h>
 
-#import <HealthDaemon/HDDatabaseProtectedDataObserver-Protocol.h>
 #import <HealthDaemon/HDDiagnosticObject-Protocol.h>
-#import <HealthDaemon/HDHealthDaemonReadyObserver-Protocol.h>
+#import <HealthDaemon/HDPeriodicActivityDelegate-Protocol.h>
 
-@class CMMotionActivityManager, HDProfile, NSDate, NSNumber, NSOperationQueue, NSString;
+@class CMMotionActivityManager, HDPeriodicActivity, HDProfile, NSDate, NSOperationQueue, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HDCoachingDiagnosticManager : NSObject <HDHealthDaemonReadyObserver, HDDatabaseProtectedDataObserver, HDDiagnosticObject>
+@interface HDCoachingDiagnosticManager : NSObject <HDDiagnosticObject, HDPeriodicActivityDelegate>
 {
     HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
-    _Bool _isRunning;
-    NSNumber *_waitingToRun;
+    HDPeriodicActivity *_scheduler;
     CMMotionActivityManager *_activityManager;
     NSOperationQueue *_activityQueue;
     NSDate *_cachedLastSubmittedDate;
@@ -43,16 +41,10 @@
 - (void)_queue_performCoachingDiagnosticWithRunDate:(id)arg1 ignoreAnchor:(_Bool)arg2 submitMetrics:(_Bool)arg3 handler:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_queue_setLastSubmittedDate:(id)arg1;
 - (id)_queue_lastSubmittedDate;
-- (id)_queue_lastRunDate;
-- (void)_queue_setWaitingToRun:(_Bool)arg1;
-- (void)_queue_setLastRunDate:(id)arg1;
-- (_Bool)_queue_isWaitingToRun;
-- (void)_performCoachingDiagnosticIfWaiting;
-- (void)_registerActivity;
-- (void)_performCoachingDiagnosticActivity:(id)arg1;
-- (void)_setNeedsToRunWithCompletion:(CDUnknownBlockType)arg1;
-- (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
-- (void)daemonReady:(id)arg1;
+- (void)_performCoachingDiagnosticWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)periodicActivityRequiresProtectedData:(id)arg1;
+- (void)performPeriodicActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)periodicActivity:(id)arg1 configureXPCActivityCriteria:(id)arg2;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1;
 

@@ -6,7 +6,10 @@
 
 #import <ManagedConfiguration/NSObject-Protocol.h>
 
+@class NSDictionary;
+
 @protocol MCUserMDMXPCProtocol <NSObject>
+- (void)processUserRequest:(NSDictionary *)arg1 completion:(void (^)(NSError *, NSDictionary *))arg2;
 - (void)userPushTokenWithCompletion:(void (^)(NSData *, NSError *))arg1;
 - (void)simulatePushWithCompletion:(void (^)(NSError *))arg1;
 - (void)scheduleTokenUpdateWithCompletion:(void (^)(NSError *))arg1;

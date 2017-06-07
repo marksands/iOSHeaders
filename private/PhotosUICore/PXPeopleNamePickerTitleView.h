@@ -7,45 +7,41 @@
 #import <UIKit/UIView.h>
 
 #import <PhotosUICore/PXPhotoLibraryUIChangeObserver-Protocol.h>
-#import <PhotosUICore/UITextFieldDelegate-Protocol.h>
 
-@class NSArray, NSMutableArray, NSString, UIFont, UITextField;
+@class NSArray, NSMutableArray, NSString, PHPerson, UIFont, UIImageView, UITextField;
 
-@interface PXPeopleNamePickerTitleView : UIView <UITextFieldDelegate, PXPhotoLibraryUIChangeObserver>
+@interface PXPeopleNamePickerTitleView : UIView <PXPhotoLibraryUIChangeObserver>
 {
     UITextField *_nameField;
-    NSArray *_people;
     NSString *_name;
     UIFont *_nameFont;
     NSString *_placeholder;
     UIFont *_placeholderFont;
-    UIView *_containerView;
-    NSArray *_containerStretchingConstraints;
     NSMutableArray *_fetchResults;
-    NSMutableArray *_avatarViews;
+    UIImageView *_avatarView;
+    NSArray *_labelConstraints;
+    PHPerson *_person;
 }
 
-@property(retain, nonatomic) NSMutableArray *avatarViews; // @synthesize avatarViews=_avatarViews;
+@property(retain, nonatomic) PHPerson *person; // @synthesize person=_person;
+@property(retain, nonatomic) NSArray *labelConstraints; // @synthesize labelConstraints=_labelConstraints;
+@property(retain, nonatomic) UIImageView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) NSMutableArray *fetchResults; // @synthesize fetchResults=_fetchResults;
-@property(retain, nonatomic) NSArray *containerStretchingConstraints; // @synthesize containerStretchingConstraints=_containerStretchingConstraints;
-@property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) UIFont *placeholderFont; // @synthesize placeholderFont=_placeholderFont;
 @property(copy, nonatomic) NSString *placeholder; // @synthesize placeholder=_placeholder;
 @property(retain, nonatomic) UIFont *nameFont; // @synthesize nameFont=_nameFont;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(retain, nonatomic) NSArray *people; // @synthesize people=_people;
 @property(readonly, nonatomic) UITextField *nameField; // @synthesize nameField=_nameField;
 - (void).cxx_destruct;
 - (id)prepareForPhotoLibraryChange:(id)arg1;
 - (void)_updateFieldPlaceholder;
 - (void)_updateFieldText;
-- (double)_contentWidth;
 - (void)resetImages;
-- (struct CGRect)popoverSourceRectForSourceView:(id)arg1;
 - (void)finishEditing;
-- (void)adjustLayoutForEditing:(_Bool)arg1 maxWidth:(double)arg2 animated:(_Bool)arg3;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 people:(id)arg2;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
+- (void)updateConstraints;
+- (id)initWithFrame:(struct CGRect)arg1 person:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

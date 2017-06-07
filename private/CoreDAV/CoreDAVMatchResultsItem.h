@@ -21,8 +21,8 @@
 @property(retain, nonatomic) CoreDAVLeafItem *region; // @synthesize region=_region;
 @property(retain, nonatomic) CoreDAVLeafItem *language; // @synthesize language=_language;
 @property(retain, nonatomic) CoreDAVLeafItem *rank; // @synthesize rank=_rank;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 
 @end
 

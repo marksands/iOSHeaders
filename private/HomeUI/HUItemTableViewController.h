@@ -6,17 +6,24 @@
 
 #import <HomeUI/HUTableViewController.h>
 
+#import <HomeUI/HFExecutionEnvironmentObserver-Protocol.h>
 #import <HomeUI/HFItemManagerDelegate-Protocol.h>
 #import <HomeUI/HUItemManagerContainer-Protocol.h>
+#import <HomeUI/HUItemPresentationContainer-Protocol.h>
 #import <HomeUI/HUPreloadableViewController-Protocol.h>
 
-@class HFItemManager, HUGridLayoutOptions, NSMapTable, NSString;
+@class HFItem, HFItemManager, HUGridLayoutOptions, NSMapTable, NSMutableArray, NSMutableSet, NSString;
+@protocol NACancelable;
 
-@interface HUItemTableViewController : HUTableViewController <HFItemManagerDelegate, HUItemManagerContainer, HUPreloadableViewController>
+@interface HUItemTableViewController : HUTableViewController <HFExecutionEnvironmentObserver, HFItemManagerDelegate, HUItemManagerContainer, HUItemPresentationContainer, HUPreloadableViewController>
 {
     _Bool _wantsPreferredContentSize;
     _Bool _hasFinishedInitialLoad;
+    _Bool _visibilityUpdatesEnabled;
     HFItemManager *_itemManager;
+    NSMutableArray *_foregroundUpdateFutures;
+    NSMutableSet *_registeredCellClasses;
+    id <NACancelable> _deferredVisibilityUpdate;
     NSMapTable *_textFieldToIndexPathMap;
     NSMapTable *_indexPathToTextFieldMap;
     HUGridLayoutOptions *_gridLayoutOptions;
@@ -27,11 +34,17 @@
 @property(retain, nonatomic) HUGridLayoutOptions *gridLayoutOptions; // @synthesize gridLayoutOptions=_gridLayoutOptions;
 @property(readonly, nonatomic) NSMapTable *indexPathToTextFieldMap; // @synthesize indexPathToTextFieldMap=_indexPathToTextFieldMap;
 @property(readonly, nonatomic) NSMapTable *textFieldToIndexPathMap; // @synthesize textFieldToIndexPathMap=_textFieldToIndexPathMap;
+@property(retain, nonatomic) id <NACancelable> deferredVisibilityUpdate; // @synthesize deferredVisibilityUpdate=_deferredVisibilityUpdate;
+@property(nonatomic) _Bool visibilityUpdatesEnabled; // @synthesize visibilityUpdatesEnabled=_visibilityUpdatesEnabled;
+@property(readonly, nonatomic) NSMutableSet *registeredCellClasses; // @synthesize registeredCellClasses=_registeredCellClasses;
+@property(retain, nonatomic) NSMutableArray *foregroundUpdateFutures; // @synthesize foregroundUpdateFutures=_foregroundUpdateFutures;
 @property(nonatomic) _Bool hasFinishedInitialLoad; // @synthesize hasFinishedInitialLoad=_hasFinishedInitialLoad;
 @property(retain, nonatomic) HFItemManager *itemManager; // @synthesize itemManager=_itemManager;
 @property(nonatomic) _Bool wantsPreferredContentSize; // @synthesize wantsPreferredContentSize=_wantsPreferredContentSize;
 - (void).cxx_destruct;
 - (void)recursivelyDisableItemUpdates:(_Bool)arg1 withReason:(id)arg2;
+@property(readonly, nonatomic) HFItem *hu_presentedItem;
+- (void)executionEnvironmentRunningStateDidChange:(id)arg1;
 - (id)hu_preloadContent;
 - (void)textFieldDidChange:(id)arg1;
 - (void)textFieldDidEndEditing:(id)arg1;
@@ -50,14 +63,18 @@
 - (void)itemManager:(id)arg1 didInsertItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)itemManager:(id)arg1 didRemoveItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)itemManager:(id)arg1 didUpdateResultsForItem:(id)arg2 atIndexPath:(id)arg3;
-- (_Bool)itemManager:(id)arg1 performBatchUpdateBlock:(CDUnknownBlockType)arg2;
+- (void)itemManager:(id)arg1 performUpdateRequest:(id)arg2;
+- (id)itemManager:(id)arg1 futureToUpdateItems:(id)arg2 itemUpdateOptions:(id)arg3;
+- (long long)_rowAnimationForOperationType:(unsigned long long)arg1 item:(id)arg2;
+- (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
-- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 titleForFooterInSection:(long long)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -70,7 +87,10 @@
 - (void)_updateTitle;
 - (id)_itemForTextField:(id)arg1;
 - (id)_visibleCellForItem:(id)arg1;
+- (void)_performCommonUpdateForCell:(id)arg1 item:(id)arg2 indexPath:(id)arg3 animated:(_Bool)arg4;
+- (void)_dispatchUpdateForCell:(id)arg1 item:(id)arg2 indexPath:(id)arg3 animated:(_Bool)arg4;
 - (id)textFieldForVisibleItem:(id)arg1;
+- (id)moduleControllerForItem:(id)arg1;
 - (id)subclass_preloadContent;
 - (id)childViewControllersToPreload;
 - (id)itemTableFooterView;
@@ -92,8 +112,7 @@
 - (void)updateCell:(id)arg1 forItem:(id)arg2 indexPath:(id)arg3 animated:(_Bool)arg4;
 - (void)setupCell:(id)arg1 forItem:(id)arg2 indexPath:(id)arg3;
 - (Class)cellClassForItem:(id)arg1 indexPath:(id)arg2;
-- (id)allCellClasses;
-- (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(_Bool)arg2;
+- (id)itemModuleControllers;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

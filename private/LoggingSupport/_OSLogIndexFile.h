@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     _OSLogChunkFileReference *_cfr;
     _OSLogChunkStore *_cs;
     unsigned char _bootu[16];
+    _Bool _catalogsScanned;
     unsigned long long _et;
     unsigned long long _ot;
 }
@@ -25,7 +26,8 @@ __attribute__((visibility("hidden")))
 - (long long)oldestTimeCompare:(id)arg1;
 @property(readonly, nonatomic) const char *bootUUID;
 - (id)map:(id *)arg1;
-- (_Bool)_loadHeaderMetadata:(id)arg1 error:(id *)arg2;
+- (_Bool)_loadCatalogMetadata;
+- (_Bool)_loadHeaderMetadata:(id)arg1;
 - (id)initWithChunkStore:(id)arg1 error:(id *)arg2;
 - (id)initWithTraceFile:(id)arg1 error:(id *)arg2;
 

@@ -11,7 +11,7 @@
 #import <HelpKit/HLPHelpTopicViewControllerDelegate-Protocol.h>
 #import <HelpKit/HLPReachabilityManagerDelegate-Protocol.h>
 
-@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocaleController, HLPHelpTableOfContentViewController, HLPHelpTopicViewController, HLPHelpUsageController, HLPReachabilityManager, NSArray, NSMutableDictionary, NSString, NSURL, UIBarButtonItem;
+@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocaleController, HLPHelpTableOfContentViewController, HLPHelpTopicViewController, HLPHelpUsageController, HLPReachabilityManager, NSArray, NSLayoutConstraint, NSMutableDictionary, NSString, NSURL, UIBarButtonItem;
 @protocol HLPHelpViewControllerDelegate;
 
 @interface HLPHelpViewController : UIViewController <HLPHelpTableOfContentViewControllerDelegate, HLPHelpTopicViewControllerDelegate, HLPReachabilityManagerDelegate, HLPHelpLoadingViewDelegate>
@@ -22,6 +22,7 @@
     NSURL *_helpBookURL;
     NSMutableDictionary *_localHelpBookNameIDMap;
     UIBarButtonItem *_doneBarButtonItem;
+    NSLayoutConstraint *_loadingViewTopConstraint;
     HLPHelpUsageController *_usageController;
     HLPHelpLocaleController *_localeListController;
     HLPHelpBookController *_helpBookController;
@@ -84,6 +85,8 @@
 - (void)showTopicView;
 - (void)updateDoneButton;
 - (void)updateTOCButton;
+- (void)contentSizeCategoryDidChange:(id)arg1;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;

@@ -16,10 +16,10 @@
 {
     ACAccountStore *_accountStore;
     _Bool _nextButtonPushed;
-    PKPaymentProvisioningController *_provisioningController;
     PKPaymentSetupIntroView *_splashView;
     _Bool _hideSetupLater;
     _Bool _allowsManualEntry;
+    PKPaymentProvisioningController *_provisioningController;
     long long _context;
     id <PKPaymentSetupViewControllerDelegate> _delegate;
     long long _paymentSetupMode;
@@ -30,7 +30,7 @@
 @property(nonatomic) _Bool allowsManualEntry; // @synthesize allowsManualEntry=_allowsManualEntry;
 @property(nonatomic) id <PKPaymentSetupViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long context; // @synthesize context=_context;
-@property(readonly, retain, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
+@property(readonly, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 - (void).cxx_destruct;
 - (void)privacyFooterLinkTapped:(id)arg1;
 - (void)_productSelectionViewController:(id)arg1 didSelectProduct:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
@@ -43,16 +43,18 @@
 - (id)configuredNextActionViewController;
 - (id)_associatedCredentialsForDefaultBehaviour;
 - (void)_pushNextActionViewController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (id)_contextSpecificStringForAggdKey:(id)arg1;
-- (id)_deviceSpecificLocalizedStringKeyForKey:(id)arg1;
 - (void)_next:(id)arg1;
-@property(readonly, retain, nonatomic) PKPaymentWebService *webService;
+@property(readonly, nonatomic) PKPaymentWebService *webService;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (unsigned long long)edgesForExtendedLayout;
+- (void)_addNextBarButtonItem;
+- (void)_credentialRenewalRequired:(id)arg1;
+- (void)_preflightValidation;
 - (void)viewDidLoad;
 - (void)loadView;
+- (void)dealloc;
 - (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 delegate:(id)arg3;
 
 // Remaining properties

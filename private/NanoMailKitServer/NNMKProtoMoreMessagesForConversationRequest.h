@@ -15,9 +15,11 @@
     NSData *_beforeDateReceived;
     NSString *_conversationId;
     unsigned int _fullSyncVersion;
+    NSString *_mailboxId;
     CDStruct_a125a100 _has;
 }
 
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(retain, nonatomic) NSData *beforeDateReceived; // @synthesize beforeDateReceived=_beforeDateReceived;
 @property(retain, nonatomic) NSString *conversationId; // @synthesize conversationId=_conversationId;
 @property(nonatomic) unsigned int fullSyncVersion; // @synthesize fullSyncVersion=_fullSyncVersion;
@@ -31,6 +33,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasMailboxId;
 @property(readonly, nonatomic) _Bool hasBeforeDateReceived;
 @property(readonly, nonatomic) _Bool hasConversationId;
 @property(nonatomic) _Bool hasFullSyncVersion;

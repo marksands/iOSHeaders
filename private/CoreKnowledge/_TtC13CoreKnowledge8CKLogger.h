@@ -4,31 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <swiftCore/SwiftObject.h>
 
-@class NSString;
-
-@interface _TtC13CoreKnowledge8CKLogger : NSObject
+@interface _TtC13CoreKnowledge8CKLogger : SwiftObject
 {
-    // Error parsing type: , name: name
-    // Error parsing type: , name: level
-    // Error parsing type: , name: settings
-    // Error parsing type: , name: enabled
+    // Error parsing type: , name: category
 }
-
-+ (id)getLogger:(id)arg1;
-+ (_Bool)logToFileWithPath:(id)arg1;
-- (CDUnknownBlockType).cxx_destruct;
-- (id)init;
-- (void)severeMessage:(id)arg1;
-- (void)errorMessage:(id)arg1;
-- (void)warnMessage:(id)arg1;
-- (void)infoMessage:(id)arg1;
-- (void)debugMessage:(id)arg1;
-- (void)traceMessage:(id)arg1;
-- (void)setFormatWithName:(_Bool)arg1 file:(_Bool)arg2 method:(_Bool)arg3;
-@property(nonatomic) _Bool enabled; // @synthesize enabled;
-@property(nonatomic, readonly) NSString *name; // @synthesize name;
 
 @end
 

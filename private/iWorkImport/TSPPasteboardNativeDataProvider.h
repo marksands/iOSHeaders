@@ -7,12 +7,11 @@
 #import <Foundation/NSObject.h>
 
 #import <iWorkImport/TSPDecoder-Protocol.h>
-#import <iWorkImport/TSPPasteboardWriting-Protocol.h>
 
-@class NSMutableDictionary, NSString, TSPPasteboard;
+@class NSArray, NSMutableDictionary, NSString, TSPPasteboard;
 
 __attribute__((visibility("hidden")))
-@interface TSPPasteboardNativeDataProvider : NSObject <TSPDecoder, TSPPasteboardWriting>
+@interface TSPPasteboardNativeDataProvider : NSObject <TSPDecoder>
 {
     TSPPasteboard *_pasteboard;
     NSMutableDictionary *_nativeData;
@@ -20,12 +19,12 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (id)pasteboardPropertyListForType:(id)arg1;
-- (id)writableTypesForPasteboard:(id)arg1;
 - (id)newReadChannelForDataWithIdentifier:(long long)arg1 info:(id)arg2;
 - (id)newReadChannelForRootObjectComponent;
 - (id)newReadChannelForMetadata;
+- (id)pasteboardPropertyListForType:(id)arg1;
 - (id)dataForIdentifier:(long long)arg1;
+@property(readonly, nonatomic) NSArray *promisedDataTypes;
 - (void)loadNativeData;
 @property(readonly, copy) NSString *debugDescription;
 - (id)initWithPasteboard:(id)arg1 nativeData:(id)arg2 tspData:(id)arg3;

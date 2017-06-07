@@ -31,7 +31,6 @@
     id <MusicProfileDetailViewDelegate> _delegate;
     NSString *_followingText;
     NSString *_followText;
-    UIButton *_contextualActionsButton;
     MusicMediaDetailTintInformation *_detailTintInformation;
     long long _tintStyle;
 }
@@ -41,7 +40,6 @@
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) MusicMediaDetailTintInformation *detailTintInformation; // @synthesize detailTintInformation=_detailTintInformation;
 @property(readonly, nonatomic) UIButton *shareActionsButton; // @synthesize shareActionsButton=_shareActionsButton;
-@property(readonly, nonatomic) UIButton *contextualActionsButton; // @synthesize contextualActionsButton=_contextualActionsButton;
 @property(nonatomic, getter=isFollowHidden) _Bool sharingHidden; // @synthesize sharingHidden=_sharingHidden;
 @property(nonatomic, getter=isFollowing) _Bool following; // @synthesize following=_following;
 @property(copy, nonatomic) NSString *followersText; // @synthesize followersText=_followersText;
@@ -60,7 +58,6 @@
 - (void)_shareActionsButtonTapped:(id)arg1;
 - (void)_followButtonTouchUpInsideAction:(id)arg1;
 - (void)_editButtonTouchUpInsideAction:(id)arg1;
-- (void)_contextualActionsButtonTapped:(id)arg1;
 - (void)_profileLabelTapped:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;

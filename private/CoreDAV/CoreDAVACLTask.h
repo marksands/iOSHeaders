@@ -15,16 +15,16 @@
 }
 
 @property(retain, nonatomic) NSArray *accessControlEntities; // @synthesize accessControlEntities=_accessControlEntities;
+- (void).cxx_destruct;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)requestBody;
 - (id)httpMethod;
 - (id)description;
-- (void)dealloc;
 - (id)initWithAccessControlEntities:(id)arg1 atURL:(id)arg2;
 - (id)initWithURL:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) id <CoreDAVACLTaskDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <CoreDAVACLTaskDelegate> delegate; // @dynamic delegate;
 
 @end
 

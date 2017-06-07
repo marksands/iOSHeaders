@@ -70,6 +70,11 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
+struct timeval {
+    long long tv_sec;
+    int tv_usec;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {

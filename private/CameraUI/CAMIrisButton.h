@@ -6,14 +6,13 @@
 
 #import <UIKit/UIButton.h>
 
-@class NSArray, UIImage, UIImageView;
+@class NSArray, UIImageView;
 
 @interface CAMIrisButton : UIButton
 {
     long long _layoutStyle;
     long long _irisMode;
     UIImageView *__padBackgroundView;
-    UIImage *__baseImage;
     NSArray *__enablingAnimationImages;
     struct UIEdgeInsets _tappableEdgeInsets;
 }
@@ -21,7 +20,6 @@
 + (double)enablingAnimationDuration;
 + (id)irisButtonWithLayoutStyle:(long long)arg1;
 @property(copy, nonatomic, setter=_setEnablingAnimationImages:) NSArray *_enablingAnimationImages; // @synthesize _enablingAnimationImages=__enablingAnimationImages;
-@property(readonly, nonatomic) UIImage *_baseImage; // @synthesize _baseImage=__baseImage;
 @property(readonly, nonatomic) UIImageView *_padBackgroundView; // @synthesize _padBackgroundView=__padBackgroundView;
 @property(nonatomic) struct UIEdgeInsets tappableEdgeInsets; // @synthesize tappableEdgeInsets=_tappableEdgeInsets;
 @property(nonatomic) long long irisMode; // @synthesize irisMode=_irisMode;
@@ -34,7 +32,10 @@
 - (id)_actuallyLoadEnablingAnimationImagesForScale:(double)arg1;
 - (_Bool)_shouldLoadEnablingAnimationImages;
 - (void)preloadEnablingAnimation;
+- (id)_baseImageForMode:(long long)arg1;
+- (void)_updateBaseImage;
 - (void)_updateTintColorForMode:(long long)arg1;
+- (void)setHighlighted:(_Bool)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
 - (struct UIEdgeInsets)alignmentRectInsets;

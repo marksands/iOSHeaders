@@ -6,11 +6,11 @@
 
 #import <UIKit/_UIRemoteViewController.h>
 
-#import <GameCenterUI/GKServiceViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionHostProtocol-Protocol.h>
 
 @class GKGame, GKHostedViewController, NSMutableDictionary, NSString, UIColor;
 
-@interface GKRemoteViewController : _UIRemoteViewController <GKServiceViewControllerDelegate>
+@interface GKRemoteViewController : _UIRemoteViewController <GKExtensionHostProtocol>
 {
     _Bool _didSetRemoteGame;
     _Bool _viewDidAppear;
@@ -35,6 +35,7 @@
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)remoteViewControllerIsCanceling;
 - (void)remoteViewControllerIsFinishing;
+- (void)messageFromExtension:(id)arg1;
 - (_Bool)_dismissSelfAfterGettingShouldCancel;
 - (_Bool)_dismissSelfAfterGettingShouldFinish;
 - (void)viewDidDisappear:(_Bool)arg1;

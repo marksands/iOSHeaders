@@ -15,6 +15,7 @@
     NSMutableArray *_predictedLocationsOfInterests;
 }
 
++ (Class)predictedLocationsOfInterestType;
 @property(retain, nonatomic) NSMutableArray *predictedLocationsOfInterests; // @synthesize predictedLocationsOfInterests=_predictedLocationsOfInterests;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;

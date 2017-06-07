@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property(copy, nonatomic) CDUnknownBlockType searchCompletion; // @synthesize searchCompletion=_searchCompletion;
 @property(nonatomic) double searchTimeout; // @synthesize searchTimeout=_searchTimeout;
+- (void).cxx_destruct;
 - (void)netServiceDidStop:(id)arg1;
 - (void)netService:(id)arg1 didNotPublish:(id)arg2;
 - (void)netServiceDidPublish:(id)arg1;

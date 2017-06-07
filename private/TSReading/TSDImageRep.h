@@ -78,6 +78,7 @@
 - (void)i_willEnterForeground;
 - (void)p_generateSizedImage:(id)arg1;
 - (void)p_startSizing;
+- (void)wideGamutValueDidChange;
 - (void)p_generateSizedImageIfNecessary;
 - (void)popDisableImageSizing;
 - (void)pushDisableImageSizing;

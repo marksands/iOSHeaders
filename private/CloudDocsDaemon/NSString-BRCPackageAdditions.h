@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (BRCPackageAdditions)
++ (void)_t_brc_removeForcedPackageExtension:(id)arg1;
 + (void)brc_addForcedPackageExtension:(id)arg1;
 + (void)brc_loadForcedPackageExtensions;
 - (_Bool)brc_isBlacklistedPackageExtension;

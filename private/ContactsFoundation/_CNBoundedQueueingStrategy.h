@@ -10,7 +10,6 @@
 
 @class NSString;
 
-__attribute__((visibility("hidden")))
 @interface _CNBoundedQueueingStrategy : NSObject <CNQueueingStrategy>
 {
     unsigned long long _capacity;

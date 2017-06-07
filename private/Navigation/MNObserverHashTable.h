@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+@property(readonly) _Bool hasObservers;
 - (id)initWithProtocol:(id)arg1;
 
 @end

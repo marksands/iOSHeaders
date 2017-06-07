@@ -6,19 +6,18 @@
 
 #import <UIKit/UIView.h>
 
+#import <SpringBoardUIServices/CAAnimationDelegate-Protocol.h>
 #import <SpringBoardUIServices/SBNumberPadDelegate-Protocol.h>
 
 @class NSArray, NSString, SBNumberPadWithDelegate, SBUIButton, UIColor, UIControl;
 @protocol SBUIPasscodeLockNumberPadDelegate, SBUIPasscodeNumberPadButton;
 
-@interface SBUIPasscodeLockNumberPad : UIView <SBNumberPadDelegate>
+@interface SBUIPasscodeLockNumberPad : UIView <SBNumberPadDelegate, CAAnimationDelegate>
 {
     SBNumberPadWithDelegate *_numberPad;
-    UIView *_leftPaddingView;
-    UIView *_rightPaddingView;
-    UIView *_bottomPaddingView;
     UIColor *_customBackgroundColor;
     _Bool _useLightStyle;
+    _Bool _visible;
     _Bool _showsBackspaceButton;
     _Bool _showsEmergencyCallButton;
     _Bool _showsCancelButton;
@@ -46,14 +45,13 @@
 - (void)_cancelButtonHit;
 - (void)_configureAdditionalButtons;
 - (id)_fontForAncillaryButton;
-- (void)_setLuminosityBoost:(double)arg1;
 - (double)_distanceToTopOfFirstButton;
 - (void)_numberPadTouchDrag:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchCancelled:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchUp:(id)arg1 forEvent:(id)arg2;
 - (void)_numberPadTouchDown:(id)arg1 forEvent:(id)arg2;
-- (void)setCustomBackgroundColor:(id)arg1;
-- (void)setBackgroundAlpha:(double)arg1;
+- (void)setVisible:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)initWithDefaultSizeAndLightStyle:(_Bool)arg1;
 @property(readonly, nonatomic) __weak NSArray *buttons;
 

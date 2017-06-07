@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAdditionalEnabledMarkets, GEOAddress, GEOBusinessOptions, GEOClientCapabilities, GEOIndexQueryNode, GEOLatLng, GEOLocation, GEOMapRegion, GEOSearchSubstring, GEOSuggestionsOptions, NSData, NSMutableArray, NSString;
+@class GEOAdditionalEnabledMarkets, GEOAddress, GEOBusinessOptions, GEOClientCapabilities, GEOIndexQueryNode, GEOLatLng, GEOLocation, GEOMapRegion, GEOSearchSubstring, GEOSuggestionsOptions, NSData, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPlaceSearchRequest : PBRequest <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     struct GEOSessionID _sessionGUID;
     CDStruct_95bda58d _additionalPlaceTypes;
     CDStruct_62a50c50 _businessIDs;
@@ -190,6 +191,8 @@
 @property(retain, nonatomic) NSString *search; // @synthesize search=_search;
 @property(retain, nonatomic) GEOLocation *location; // @synthesize location=_location;
 @property(retain, nonatomic) GEOAddress *address; // @synthesize address=_address;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

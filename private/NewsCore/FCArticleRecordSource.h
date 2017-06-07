@@ -30,11 +30,15 @@
 - (id)saveArticleRecords:(id)arg1;
 - (id)recordFromCKRecord:(id)arg1 base:(id)arg2;
 - (id)urlStringForThumbnailKey:(id)arg1 inRecord:(id)arg2;
+- (id)localizedExperimentalizedKeysByOriginalKey;
+- (id)experimentalizedKeysByOriginalKey;
 - (id)localizedKeysByOriginalKey;
+- (id)localizableExperimentalizableKeys;
+- (id)experimentalizableKeys;
 - (id)localizableKeys;
 - (id)desiredKeys;
-- (id)initWithContentDatabase:(id)arg1 contentDirectory:(id)arg2 desiredArticleRecordFieldOptions:(unsigned long long)arg3;
-- (id)initWithContentDatabase:(id)arg1 contentDirectory:(id)arg2;
+- (id)initWithContentDatabase:(id)arg1 contentDirectory:(id)arg2 desiredArticleRecordFieldOptions:(unsigned long long)arg3 experimentalizableFieldsPostfix:(id)arg4 activeTreatmentID:(id)arg5;
+- (id)initWithContentDatabase:(id)arg1 contentDirectory:(id)arg2 experimentalizableFieldsPostfix:(id)arg3 activeTreatmentID:(id)arg4;
 
 @end
 

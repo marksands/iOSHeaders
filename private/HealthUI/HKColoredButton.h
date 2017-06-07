@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIButton.h>
+#import <HealthUI/HKDynamicButton.h>
 
-@interface HKColoredButton : UIButton
+@interface HKColoredButton : HKDynamicButton
 {
 }
 

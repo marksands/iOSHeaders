@@ -9,10 +9,11 @@
 #import <PreferencesUI/CRCarPlayPreferencesDelegate-Protocol.h>
 #import <PreferencesUI/DevicePINControllerDelegate-Protocol.h>
 #import <PreferencesUI/PSListControllerTestableSpecifiers-Protocol.h>
+#import <PreferencesUI/PSUIHomeButtonCustomizeControllerDelegate-Protocol.h>
 
 @class CRCarPlayPreferences, NSString, NSTimer, PSSpecifier, PSUITVOutManager;
 
-@interface PSUIGeneralController : PSListController <CRCarPlayPreferencesDelegate, DevicePINControllerDelegate, PSListControllerTestableSpecifiers>
+@interface PSUIGeneralController : PSListController <CRCarPlayPreferencesDelegate, PSUIHomeButtonCustomizeControllerDelegate, DevicePINControllerDelegate, PSListControllerTestableSpecifiers>
 {
     NSTimer *_usageTimer;
     PSUITVOutManager *_tvOutManager;
@@ -23,6 +24,7 @@
 + (id)booleanCapabilitiesToTest;
 @property(retain, nonatomic) CRCarPlayPreferences *carPreferences; // @synthesize carPreferences=_carPreferences;
 - (void).cxx_destruct;
+- (void)shutDown:(id)arg1;
 - (void)handleURL:(id)arg1;
 - (_Bool)shouldDeferPushForSpecifierID:(id)arg1;
 - (void)didCancelEnteringPIN;
@@ -39,6 +41,8 @@
 - (void)dealloc;
 - (void)handleCarPlayAllowedDidChange;
 - (_Bool)_hasCarPlayContent;
+- (void)homeButtonCustomizeControllerDidFinish:(id)arg1;
+- (void)loadHomeButtonSettings:(id)arg1;
 - (id)specifiers;
 - (void)_setUseSwitchForOrientationLockWithSpecifier:(id)arg1;
 - (void)handleTVOutChange;

@@ -6,16 +6,14 @@
 
 #import <PrototypeTools/PTSRowTableViewCell.h>
 
-@class UISlider;
+@class _PTSAccessorySlider;
 
 @interface PTSSliderRowTableViewCell : PTSRowTableViewCell
 {
-    UISlider *_slider;
+    _PTSAccessorySlider *_slider;
 }
 
-+ (double)cellHeightForRow:(id)arg1;
 - (void).cxx_destruct;
-- (void)layoutSubviews;
 - (void)_valueChanged:(id)arg1;
 - (void)updateDisplayedValue;
 - (void)updateCellCharacteristics;

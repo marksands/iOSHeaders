@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     KNSlideNode *mLastVisitedSlideNode;
     KNShow *mShow;
     KNAnimationContext *mAnimationContext;
-    int mPlayMode;
+    long long mPlayMode;
     id <TSKAccessControllerReadTicket> mOutgoingRenderingTicket;
     id <TSKAccessControllerReadTicket> mIncomingRenderingTicket;
     TSDBitmapRenderingQualityInfo *mBitmapRenderingQualityInfo;
@@ -46,8 +46,12 @@ __attribute__((visibility("hidden")))
     id <TSKAccessControllerReadTicket> mAccessControllerReadTicket;
     _Bool _isExitingShow;
     _Bool _shouldNotBakeActionTextures;
+    _Bool _shouldPreserveTransparency;
+    _Bool _shouldExcludeFloatingComments;
 }
 
+@property(nonatomic) _Bool shouldExcludeFloatingComments; // @synthesize shouldExcludeFloatingComments=_shouldExcludeFloatingComments;
+@property(nonatomic) _Bool shouldPreserveTransparency; // @synthesize shouldPreserveTransparency=_shouldPreserveTransparency;
 @property(nonatomic) _Bool shouldNotBakeActionTextures; // @synthesize shouldNotBakeActionTextures=_shouldNotBakeActionTextures;
 @property(nonatomic) _Bool isExitingShow; // @synthesize isExitingShow=_isExitingShow;
 @property(nonatomic) id <TSKAccessControllerReadTicket> accessControllerReadTicket; // @synthesize accessControllerReadTicket=mAccessControllerReadTicket;
@@ -67,7 +71,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool shouldAnimateNullTransitions; // @synthesize shouldAnimateNullTransitions=mShouldAnimateNullTransitions;
 @property(nonatomic) _Bool shouldAnimateTransitionOnLastSlide; // @synthesize shouldAnimateTransitionOnLastSlide=mShouldAnimateTransitionOnLastSlide;
 @property(readonly, nonatomic) KNShow *show; // @synthesize show=mShow;
-@property(nonatomic) int playMode; // @synthesize playMode=mPlayMode;
+@property(nonatomic) long long playMode; // @synthesize playMode=mPlayMode;
 @property(copy, nonatomic) CDUnknownBlockType endShowHandler; // @synthesize endShowHandler=mEndShowHandler;
 @property(nonatomic) id <TSDCanvasDelegate> canvasDelegate; // @synthesize canvasDelegate=mCanvasDelegate;
 @property(retain, nonatomic) NSMutableArray *breadCrumbTrail; // @synthesize breadCrumbTrail=mBreadCrumbTrail;
@@ -101,7 +105,8 @@ __attribute__((visibility("hidden")))
 - (void)dropABreadCrumb;
 - (id)gotoLastSlide;
 - (id)lastSlideNode;
-- (_Bool)atBegginingOfDeck;
+@property(readonly, nonatomic) _Bool atEndOfDeck;
+@property(readonly, nonatomic) _Bool atBegginingOfDeck;
 - (id)gotoPreviousSlide;
 - (id)previousSlideNodeBeforeCurrent;
 - (id)gotoNextSlide;

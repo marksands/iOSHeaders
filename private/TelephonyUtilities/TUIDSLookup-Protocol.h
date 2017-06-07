@@ -11,6 +11,5 @@
 @protocol TUIDSLookup <NSObject>
 @property(readonly) NSArray *idsCanonicalDestinations;
 @property(readonly) NSString *idsCanonicalDestination;
-@property(readonly) NSString *idsUniqueId;
 @end
 

@@ -21,6 +21,6 @@
 - (oneway void)speechRecordingDidCancel;
 - (oneway void)speechRecordingDidEnd;
 - (oneway void)speechRecordingDidBegin;
-- (oneway void)speechRecordingWillBeginWithLevelsSharedMem:(AFXPCWrapper *)arg1;
+- (oneway void)speechRecordingWillBeginWithInputAudioPowerXPCWrapper:(AFXPCWrapper *)arg1;
 @end
 

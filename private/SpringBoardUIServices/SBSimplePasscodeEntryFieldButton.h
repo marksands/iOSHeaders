@@ -4,14 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <TelephonyUI/TPRevealingRingView.h>
+#import <UIKit/UIView.h>
 
-@interface SBSimplePasscodeEntryFieldButton : TPRevealingRingView
+@class UIColor;
+
+@interface SBSimplePasscodeEntryFieldButton : UIView
 {
     _Bool _useLightStyle;
+    _Bool _revealed;
+    struct UIEdgeInsets _paddingOutsideRing;
+    UIColor *_color;
+    UIView *_ringView;
 }
 
-- (void)setCustomBackgroundColor:(id)arg1;
+- (void).cxx_destruct;
+- (void)setRevealed:(_Bool)arg1 animated:(_Bool)arg2 delay:(double)arg3;
+- (void)setRevealed:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1 paddingOutsideRing:(struct UIEdgeInsets)arg2 useLightStyle:(_Bool)arg3;
 
 @end

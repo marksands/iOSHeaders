@@ -28,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (void)cancel;
 - (void)decodeWithPathHandler:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)_finishedDecodingWithPath:(Path_7b702847)arg1;
-- (void)dealloc;
 - (id)initWithDecoder:(id)arg1 message:(shared_ptr_27244a92)arg2;
 
 @end

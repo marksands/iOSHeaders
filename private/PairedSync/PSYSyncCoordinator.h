@@ -10,7 +10,7 @@
 #import <PairedSync/PSYActivity-Protocol.h>
 #import <PairedSync/PSYServiceSyncSessionDelegate-Protocol.h>
 
-@class NSString, NSXPCConnection, NSXPCListener, PSYServiceSyncSession;
+@class NSMutableDictionary, NSString, NSXPCConnection, NSXPCListener, PSYServiceSyncSession;
 @protocol OS_dispatch_queue, PSYSyncCoordinatorDelegate;
 
 @interface PSYSyncCoordinator : NSObject <NSXPCListenerDelegate, PSYActivity, PSYServiceSyncSessionDelegate>
@@ -29,6 +29,7 @@
     unsigned long long _syncRestriction;
     unsigned long long _syncIDOfStartedSync;
     _Bool _hasStartedListening;
+    NSMutableDictionary *_nrDevices;
     NSString *_serviceName;
     NSXPCConnection *_connection;
 }
@@ -41,11 +42,12 @@
 - (void).cxx_destruct;
 - (void)exitForTestInput:(id)arg1;
 - (void)beginDryRunSyncWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)syncSessionForOptions:(id)arg1;
+- (id)syncSessionForOptions:(id)arg1 supportsMigrationSync:(_Bool)arg2;
 - (void)deviceChanged:(id)arg1;
 - (void)unregisterForDeviceChangeNotifications;
 - (void)registerForDeviceChangeNotifications;
 - (void)_cleanup;
+- (void)dealloc;
 - (void)invalidateActiveSyncSession;
 - (void)performDelegateBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) __weak id <PSYSyncCoordinatorDelegate> delegate;
@@ -63,9 +65,14 @@
 - (oneway void)abortSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (oneway void)beginSyncWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_syncRestrictionDidUpdate:(id)arg1 forServiceName:(id)arg2;
+- (_Bool)_pairedSyncFinishedMigrationSyncWithPairingID:(id)arg1;
+- (_Bool)_pairedSyncFinishedReunionSync;
 - (unsigned long long)_syncRestriction;
 - (unsigned long long)syncRestriction;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (void)_unregisterNRDeviceMonitors;
+- (void)_registerMonitorNRDevice:(id)arg1 forMigrationChanges:(CDUnknownBlockType)arg2;
+- (void)_registerMonitorAllNRDevicesForMigrationChanges:(CDUnknownBlockType)arg1;
 - (int)registerNotifyTokenWithName:(id)arg1 withQueue:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (int)registerNotifyTokenWithName:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)readNotifyToken:(int)arg1;

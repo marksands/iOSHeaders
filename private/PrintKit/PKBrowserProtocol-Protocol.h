@@ -7,6 +7,7 @@
 #import <PrintKit/NSObject-Protocol.h>
 
 @protocol PKBrowserProtocol <NSObject>
+- (void)aggdDiscoveredPrinterStatistics;
 - (void)stopBrowsing;
 - (void)startBrowsing;
 @end

@@ -6,29 +6,21 @@
 
 #import <UIKit/UINavigationController.h>
 
-#import <GameCenterUI/GKExtensionParentViewControllerProtocol-Protocol.h>
-
-@class GKFriendRequestHostViewController, NSMutableArray, NSString, UIAlertController;
+@class NSString, UIAlertController;
 @protocol GKFriendRequestComposeViewControllerDelegate;
 
-@interface GKFriendRequestComposeViewController : UINavigationController <GKExtensionParentViewControllerProtocol>
+@interface GKFriendRequestComposeViewController : UINavigationController
 {
     unsigned int _rid;
     id <GKFriendRequestComposeViewControllerDelegate> _composeViewDelegateWeak;
     NSString *_message;
     unsigned long long _recipientCount;
-    GKFriendRequestHostViewController *_remoteViewController;
-    NSMutableArray *_playerInternalsToAddAsRecipients;
-    NSMutableArray *_emailsToAddAsRecipients;
     UIAlertController *_alertController;
 }
 
 + (unsigned long long)maxNumberOfRecipients;
 + (_Bool)_preventsAppearanceProxyCustomization;
 @property(retain, nonatomic) UIAlertController *alertController; // @synthesize alertController=_alertController;
-@property(retain, nonatomic) NSMutableArray *emailsToAddAsRecipients; // @synthesize emailsToAddAsRecipients=_emailsToAddAsRecipients;
-@property(retain, nonatomic) NSMutableArray *playerInternalsToAddAsRecipients; // @synthesize playerInternalsToAddAsRecipients=_playerInternalsToAddAsRecipients;
-@property(retain, nonatomic) GKFriendRequestHostViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewController;
 @property(nonatomic) unsigned long long recipientCount; // @synthesize recipientCount=_recipientCount;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 - (void)sendFinishedMessageToDelegateCancelled:(_Bool)arg1;
@@ -43,20 +35,12 @@
 - (_Bool)shouldAutomaticallyForwardRotationMethods;
 - (_Bool)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
 - (unsigned long long)supportedInterfaceOrientations;
-- (void)extensionDidFinishWithError:(id)arg1;
-- (void)_setupRemoteViewController;
 - (void)_setupChildViewController;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

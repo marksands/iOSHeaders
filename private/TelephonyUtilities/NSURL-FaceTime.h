@@ -18,6 +18,7 @@
 + (id)faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 audioOnly:(_Bool)arg3;
 + (id)faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2;
 + (id)faceTimeURLWithDestinationID:(id)arg1;
++ (id)_faceTimeURLWithHandle:(id)arg1 addressBookUID:(int)arg2 audioOnly:(_Bool)arg3;
 + (id)_faceTimeURLWithDestinationID:(id)arg1 addressBookUID:(int)arg2 audioOnly:(_Bool)arg3;
 - (_Bool)isShowInCallUIURL;
 - (_Bool)isLaunchForIncomingCallURL;

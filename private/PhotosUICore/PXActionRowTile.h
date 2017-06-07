@@ -34,7 +34,7 @@
 - (void).cxx_destruct;
 - (void)widgetFooterView:(id)arg1 didSelectDisclosure:(id)arg2;
 - (void)didApplyGeometry:(struct PXTileGeometry)arg1 withUserData:(id)arg2;
-- (void)handleButtonTap:(id)arg1;
+- (void)handleButtonTap:(id)arg1 forEvent:(id)arg2;
 - (void)prepareForReuse;
 - (void)becomeReusable;
 @property(readonly, nonatomic) UIView *view;

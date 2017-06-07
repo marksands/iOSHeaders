@@ -27,6 +27,7 @@
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDocument:(id)arg1 listDefinitionId:(int)arg2 styleId:(id)arg3;
+- (void)removeLastLevel;
 - (id)addLevel;
 - (id)levelAt:(int)arg1;
 - (int)levelCount;

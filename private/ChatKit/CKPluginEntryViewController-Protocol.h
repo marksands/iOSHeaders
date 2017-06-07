@@ -13,9 +13,12 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 
 @optional
+@property(readonly) _Bool loadedContentView;
 @property(readonly) _Bool wantsEdgeToEdgeLayout;
 @property(readonly) _Bool wantsClearButton;
 - (NSArray *)framesOfVisibleContentViewInCoordinateSpace:(id <UICoordinateSpace>)arg1;
+- (void)didFinishAnimatedBoundsChange;
+- (void)willAnimateBoundsChange;
 - (void)payloadWillSave;
 - (void)payloadWillClear;
 - (NSString *)payloadBundleID;

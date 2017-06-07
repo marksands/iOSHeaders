@@ -58,6 +58,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool viewedInProactiveTray; // @synthesize viewedInProactiveTray=_viewedInProactiveTray;
 @property(nonatomic) _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) _Bool bookedUsingMaps; // @synthesize bookedUsingMaps=_bookedUsingMaps;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -81,7 +82,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasViewedInProactiveTray;
 @property(nonatomic) _Bool hasCancelled;
 @property(nonatomic) _Bool hasBookedUsingMaps;
-- (void)dealloc;
 
 @end
 

@@ -15,6 +15,7 @@
     HDSQLitePredicate *_filterPredicate;
     HDActivitySummaryQueryHelper *_queryHelper;
     _Bool _shouldIncludePrivateProperties;
+    _Bool _hasSentInitialResults;
 }
 
 - (void).cxx_destruct;
@@ -24,7 +25,8 @@
 - (void)_queue_deliverResultsWithActivitySummaries:(id)arg1 error:(id)arg2;
 - (void)_queue_stop;
 - (void)_queue_start;
-- (id)initWithQueryUUID:(id)arg1 dataObject:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
+- (id)requiredEntitlements;
+- (id)initWithQueryUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
 
 @end
 

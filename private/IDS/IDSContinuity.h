@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class _IDSContinuity;
 
@@ -13,6 +13,7 @@
     _IDSContinuity *_internal;
 }
 
+- (void).cxx_destruct;
 - (void)stopTrackingPeer:(id)arg1 forType:(long long)arg2;
 - (void)startTrackingPeer:(id)arg1 forType:(long long)arg2;
 - (void)stopTrackingPeer:(id)arg1;

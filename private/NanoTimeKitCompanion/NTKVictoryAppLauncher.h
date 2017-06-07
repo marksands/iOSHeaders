@@ -10,6 +10,7 @@
 {
 }
 
++ (id)prelaunchApplicationIdentifiers;
 + (id)complication;
 + (void)attemptLaunch;
 

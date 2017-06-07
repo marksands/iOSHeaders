@@ -6,7 +6,7 @@
 
 #import <Navigation/NSObject-Protocol.h>
 
-@class GEOComposedRoute, GEOETARoute, GEOETATrafficUpdateRequest, GEOETATrafficUpdateResponse, MNETAManager, MNTrafficIncidentAlert, NSError;
+@class GEOComposedRoute, GEOETARoute, GEOETATrafficUpdateRequest, GEOETATrafficUpdateResponse, MNETAManager, MNTrafficIncidentAlert, NSArray, NSError;
 
 @protocol MNETAManagerDelegate <NSObject>
 - (void)etaManager:(MNETAManager *)arg1 updatedTrafficForETARoute:(GEOETARoute *)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4;
@@ -17,5 +17,8 @@
 - (void)etaManager:(MNETAManager *)arg1 receivedETAResponse:(GEOETATrafficUpdateResponse *)arg2;
 - (void)etaManager:(MNETAManager *)arg1 willSendETARequest:(GEOETATrafficUpdateRequest *)arg2;
 - (void)etaManagerUpdatedETATime:(MNETAManager *)arg1;
+
+@optional
+- (void)etaManager:(MNETAManager *)arg1 didUpdateAlternateRoutes:(NSArray *)arg2;
 @end
 

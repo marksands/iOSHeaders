@@ -23,7 +23,7 @@
 - (void)lazyInit;
 - (id)initWithActionDictionary:(struct CGPDFDictionary *)arg1 forDocument:(id)arg2 forPage:(id)arg3;
 - (id)description;
-@property(retain, nonatomic) NSURL *URL;
+@property(copy, nonatomic) NSURL *URL;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithURL:(id)arg1;
 

@@ -4,38 +4,37 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/NSCopying-Protocol.h>
 
 @class HMFMessageDestination, HMFMessageTransport, NSDictionary, NSString, NSUUID;
 
-@interface HMFMessageInternal : NSObject <NSCopying>
+@interface HMFMessageInternal : HMFObject <NSCopying>
 {
-    _Bool _remoteSource;
-    _Bool _internalMessage;
-    _Bool _entitledMessage;
-    _Bool _locationAuthorizedMessage;
     NSUUID *_identifier;
     NSString *_name;
+    long long _qualityOfService;
     HMFMessageDestination *_destination;
+    HMFMessageTransport *_transport;
+    NSDictionary *_userInfo;
+    NSDictionary *_headers;
     NSDictionary *_messagePayload;
     CDUnknownBlockType _responseHandler;
-    HMFMessageTransport *_transport;
 }
 
-@property(nonatomic, getter=isLocationAuthorizedMessage) _Bool locationAuthorizedMessage; // @synthesize locationAuthorizedMessage=_locationAuthorizedMessage;
-@property(nonatomic, getter=isEntitledMessage) _Bool entitledMessage; // @synthesize entitledMessage=_entitledMessage;
-@property(nonatomic, getter=isInternalMessage) _Bool internalMessage; // @synthesize internalMessage=_internalMessage;
-@property(nonatomic, getter=isRemoteSource) _Bool remoteSource; // @synthesize remoteSource=_remoteSource;
-@property(nonatomic) __weak HMFMessageTransport *transport; // @synthesize transport=_transport;
 @property(copy, nonatomic) CDUnknownBlockType responseHandler; // @synthesize responseHandler=_responseHandler;
 @property(copy, nonatomic) NSDictionary *messagePayload; // @synthesize messagePayload=_messagePayload;
+@property(copy, nonatomic) NSDictionary *headers; // @synthesize headers=_headers;
+@property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
+@property(nonatomic) __weak HMFMessageTransport *transport; // @synthesize transport=_transport;
 @property(retain, nonatomic) HMFMessageDestination *destination; // @synthesize destination=_destination;
+@property(nonatomic) long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

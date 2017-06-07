@@ -18,6 +18,7 @@
 @property _Bool appIsInstalled; // @synthesize appIsInstalled=_appIsInstalled;
 @property(retain) SKUIItemOfferButton *appStoreButton; // @synthesize appStoreButton=_appStoreButton;
 - (void).cxx_destruct;
+- (_Bool)shouldTopAlignForAccessibilityContentSizes;
 - (void)buttonPressed;
 - (void)updateWithResult:(id)arg1;
 - (id)setupViewWithStyle:(unsigned long long)arg1;

@@ -17,11 +17,12 @@
 @property(nonatomic) _Bool hasProvidedItems; // @synthesize hasProvidedItems=_hasProvidedItems;
 @property(retain, nonatomic) NSSet *staticItems; // @synthesize staticItems=_staticItems;
 - (void).cxx_destruct;
-- (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithItems:(id)arg1;
 - (id)initWithHome:(id)arg1 items:(id)arg2;
-- (id)initWithHome:(id)arg1;
+- (id)init;
 
 @end
 

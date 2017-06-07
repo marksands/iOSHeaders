@@ -15,7 +15,7 @@
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
-@property(nonatomic, getter=_status, setter=_setStatus:) long long status; // @synthesize status=_status;
+@property(getter=_status, setter=_setStatus:) long long status; // @synthesize status=_status;
 @property(readonly, nonatomic) WBSSiteMetadataRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
 - (_Bool)isFinished;

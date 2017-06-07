@@ -18,7 +18,9 @@
 
 - (void).cxx_destruct;
 - (id)addClientReplyTimeoutForBulletin:(id)arg1 sectionID:(id)arg2 timeout:(double)arg3 handler:(CDUnknownBlockType)arg4;
+- (void)_sortTimeouts;
 - (void)_handleClientReplyTimeout;
+- (void)extendClientReplyTimeout:(id)arg1 additionalTime:(unsigned long long)arg2;
 - (_Bool)invalidateClientReplyTimeout:(id)arg1;
 - (void)_invalidateClientReplyTimer;
 - (void)_startClientReplyTimerWithFireDate:(id)arg1;

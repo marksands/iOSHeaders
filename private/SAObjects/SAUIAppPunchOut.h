@@ -14,7 +14,9 @@
 
 + (id)appPunchOutWithDictionary:(id)arg1 context:(id)arg2;
 + (id)appPunchOut;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
+@property(copy, nonatomic) NSArray *themeIcons;
 @property(copy, nonatomic) NSString *subtitle;
 @property(copy, nonatomic) NSURL *punchOutUri;
 @property(copy, nonatomic) NSString *punchOutName;

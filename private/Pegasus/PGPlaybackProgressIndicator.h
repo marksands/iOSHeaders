@@ -6,11 +6,11 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, PGPlaybackProgress, PGTimer, _PGPlaybackProgressIndicatorRangesView;
+@class NSArray, NSTimer, PGPlaybackProgress, _PGPlaybackProgressIndicatorRangesView;
 
 @interface PGPlaybackProgressIndicator : UIView
 {
-    PGTimer *_playbackProgressTimer;
+    NSTimer *_playbackProgressTimer;
     double _currentProgress;
     UIView *_containerView;
     _PGPlaybackProgressIndicatorRangesView *_loadedTimeRangesView;

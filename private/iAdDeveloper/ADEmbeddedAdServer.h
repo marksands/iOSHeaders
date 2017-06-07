@@ -40,8 +40,8 @@
 @property(nonatomic) _Bool defaultsToNoQualifiedAds; // @synthesize defaultsToNoQualifiedAds=_defaultsToNoQualifiedAds;
 @property(copy, nonatomic) NSString *publicURLRoot; // @synthesize publicURLRoot=_publicURLRoot;
 @property(nonatomic) id <ADEmbeddedAdServerDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)adDataForAdBundleAtPath:(id)arg1 creative:(id)arg2 allowWebArchive:(_Bool)arg3;
-- (id)_adDataForPath:(id)arg1 creative:(id)arg2 error:(id *)arg3;
+- (id)adDataForAdBundleAtPath:(id)arg1 creative:(id)arg2 requesterId:(id)arg3 allowWebArchive:(_Bool)arg4;
+- (id)_adDataForPath:(id)arg1 creative:(id)arg2 requester:(id)arg3 error:(id *)arg4;
 - (_Bool)_tryAddingAdTagContentStringForCreative:(id)arg1 toAdReponse:(id)arg2 withAdPath:(id)arg3;
 - (id)_actionDictionaryFromProperties:(id)arg1 path:(id)arg2 error:(id *)arg3;
 - (id)_integerColorFromStringColor:(id)arg1;

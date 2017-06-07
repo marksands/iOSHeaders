@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @class NSArray, NSString;
+@protocol WebBookmarkInMemoryChangeFilter;
 
 @interface WebBookmarkListQuery : NSObject
 {
@@ -20,16 +21,18 @@
     _Bool _countShouldUseNumChildrenIfPossible;
     _Bool _customQuery;
     int _folderID;
+    id <WebBookmarkInMemoryChangeFilter> _inMemoryFilter;
 }
 
+@property(retain, nonatomic) id <WebBookmarkInMemoryChangeFilter> inMemoryFilter; // @synthesize inMemoryFilter=_inMemoryFilter;
 @property(readonly, nonatomic) int folderID; // @synthesize folderID=_folderID;
 @property(readonly, nonatomic, getter=isCustomQuery) _Bool customQuery; // @synthesize customQuery=_customQuery;
 - (void).cxx_destruct;
 - (void)_preparePrefixesFromNormalizedString:(id)arg1;
 - (id)_normalizeUserTypedString:(id)arg1;
 - (id)bookmarksInCollection:(id)arg1 fromIndex:(unsigned int)arg2 toIndex:(unsigned int)arg3;
-- (id)_sqliteNotInConditionForInMemoryDeletedBookmarksInFolder:(int)arg1 collection:(id)arg2;
-- (id)_whereClauseByAddingCondition:(id)arg1;
+- (id)_sqliteInConditionForInMemoryModifiedBookmarksInFolder:(int)arg1 collection:(id)arg2;
+- (id)_sqliteNotInConditionForInMemoryModifiedAndDeleted:(_Bool)arg1 bookmarksInFolder:(int)arg2 collection:(id)arg3;
 - (int)countInCollection:(id)arg1;
 - (id)_filterBookmarks:(id)arg1;
 - (int)_inMemoryAddedChildrenCountForBookmarkFolder:(int)arg1 collection:(id)arg2 skipCountingBookmarksThatAreDeletedInMemory:(_Bool)arg3;

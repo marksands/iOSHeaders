@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSNumber, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 @interface ICCameraProperties : NSObject
@@ -37,11 +37,13 @@
     NSObject<OS_dispatch_semaphore> *_deviceQSemaphore;
     _Bool _accessRestrictedAppleDevice;
     _Bool _applePTPCapable;
-    NSMutableArray *_requestedFiles;
+    NSMutableArray *_applePTPFiles;
+    NSNumber *_applePTPObjectLimit;
 }
 
-@property(retain) NSMutableArray *requestedFiles; // @synthesize requestedFiles=_requestedFiles;
-@property _Bool applePTPCapable; // @synthesize applePTPCapable=_applePTPCapable;
+@property(retain) NSNumber *applePTPObjectLimit; // @synthesize applePTPObjectLimit=_applePTPObjectLimit;
+@property(retain) NSMutableArray *applePTPFiles; // @synthesize applePTPFiles=_applePTPFiles;
+@property(nonatomic) _Bool applePTPCapable; // @synthesize applePTPCapable=_applePTPCapable;
 @property _Bool accessRestrictedAppleDevice; // @synthesize accessRestrictedAppleDevice=_accessRestrictedAppleDevice;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *deviceQSemaphore; // @synthesize deviceQSemaphore=_deviceQSemaphore;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *generalQ; // @synthesize generalQ=_generalQ;

@@ -26,7 +26,6 @@
 - (void).cxx_destruct;
 - (id)timeStringForTimeInterval:(double)arg1;
 - (void)prepareForReuse;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

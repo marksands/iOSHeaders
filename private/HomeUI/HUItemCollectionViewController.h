@@ -6,17 +6,24 @@
 
 #import <HomeUI/HUCollectionViewController.h>
 
+#import <HomeUI/HFExecutionEnvironmentObserver-Protocol.h>
 #import <HomeUI/HFItemManagerDelegate-Protocol.h>
 #import <HomeUI/HUItemManagerContainer-Protocol.h>
+#import <HomeUI/HUItemPresentationContainer-Protocol.h>
 #import <HomeUI/HUPreloadableViewController-Protocol.h>
 
-@class HFItemManager, NSHashTable, NSString;
+@class HFItem, HFItemManager, NSHashTable, NSMutableArray, NSMutableSet, NSString;
+@protocol NACancelable;
 
-@interface HUItemCollectionViewController : HUCollectionViewController <HFItemManagerDelegate, HUItemManagerContainer, HUPreloadableViewController>
+@interface HUItemCollectionViewController : HUCollectionViewController <HFExecutionEnvironmentObserver, HFItemManagerDelegate, HUItemManagerContainer, HUItemPresentationContainer, HUPreloadableViewController>
 {
     _Bool _wantsPreferredContentSize;
     _Bool _hasFinishedInitialLoad;
+    _Bool _visibilityUpdatesEnabled;
     HFItemManager *_itemManager;
+    NSMutableArray *_foregroundUpdateFutures;
+    NSMutableSet *_registeredCellClasses;
+    id <NACancelable> _deferredVisibilityUpdate;
     NSHashTable *_childViewControllersAtViewWillAppearTime;
     NSHashTable *_childViewControllersAtViewWillDisappearTime;
 }
@@ -24,11 +31,17 @@
 + (unsigned long long)updateMode;
 @property(retain, nonatomic) NSHashTable *childViewControllersAtViewWillDisappearTime; // @synthesize childViewControllersAtViewWillDisappearTime=_childViewControllersAtViewWillDisappearTime;
 @property(retain, nonatomic) NSHashTable *childViewControllersAtViewWillAppearTime; // @synthesize childViewControllersAtViewWillAppearTime=_childViewControllersAtViewWillAppearTime;
+@property(retain, nonatomic) id <NACancelable> deferredVisibilityUpdate; // @synthesize deferredVisibilityUpdate=_deferredVisibilityUpdate;
+@property(nonatomic) _Bool visibilityUpdatesEnabled; // @synthesize visibilityUpdatesEnabled=_visibilityUpdatesEnabled;
+@property(readonly, nonatomic) NSMutableSet *registeredCellClasses; // @synthesize registeredCellClasses=_registeredCellClasses;
+@property(retain, nonatomic) NSMutableArray *foregroundUpdateFutures; // @synthesize foregroundUpdateFutures=_foregroundUpdateFutures;
 @property(nonatomic) _Bool hasFinishedInitialLoad; // @synthesize hasFinishedInitialLoad=_hasFinishedInitialLoad;
 @property(retain, nonatomic) HFItemManager *itemManager; // @synthesize itemManager=_itemManager;
 @property(nonatomic) _Bool wantsPreferredContentSize; // @synthesize wantsPreferredContentSize=_wantsPreferredContentSize;
 - (void).cxx_destruct;
 - (void)recursivelyDisableItemUpdates:(_Bool)arg1 withReason:(id)arg2;
+@property(readonly, nonatomic) HFItem *hu_presentedItem;
+- (void)executionEnvironmentRunningStateDidChange:(id)arg1;
 - (id)hu_preloadContent;
 - (void)itemManager:(id)arg1 didChangeSourceItem:(id)arg2;
 - (void)itemManager:(id)arg1 didUpdateResultsForSourceItem:(id)arg2;
@@ -40,17 +53,18 @@
 - (void)itemManager:(id)arg1 didInsertItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)itemManager:(id)arg1 didRemoveItem:(id)arg2 atIndexPath:(id)arg3;
 - (void)itemManager:(id)arg1 didUpdateResultsForItem:(id)arg2 atIndexPath:(id)arg3;
-- (_Bool)itemManager:(id)arg1 performBatchUpdateBlock:(CDUnknownBlockType)arg2;
+- (void)itemManager:(id)arg1 performUpdateRequest:(id)arg2;
+- (id)itemManager:(id)arg1 futureToUpdateItems:(id)arg2 itemUpdateOptions:(id)arg3;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)_updateTitle;
-- (_Bool)shouldCoalesceBatchUpdatesBeforeViewDidAppear;
+- (struct CGSize)preferredContentSizeForCollectionViewContentSize:(struct CGSize)arg1;
+- (_Bool)isLayoutDependentOnItemState;
 - (id)childViewControllersToPreload;
 - (_Bool)automaticallyUpdatesViewControllerTitle;
 - (void)configureCell:(id)arg1 forItem:(id)arg2;
 - (Class)cellClassForItem:(id)arg1 indexPath:(id)arg2;
-- (id)allCellClasses;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

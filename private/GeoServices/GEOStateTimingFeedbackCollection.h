@@ -28,6 +28,7 @@
 @property(nonatomic) double durationInOldState; // @synthesize durationInOldState=_durationInOldState;
 @property(retain, nonatomic) NSMutableArray *stateTransitions; // @synthesize stateTransitions=_stateTransitions;
 @property(nonatomic) struct GEOSessionID sessionID; // @synthesize sessionID=_sessionID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -44,7 +45,6 @@
 - (void)addStateTransition:(id)arg1;
 - (void)clearStateTransitions;
 @property(nonatomic) _Bool hasSessionID;
-- (void)dealloc;
 
 @end
 

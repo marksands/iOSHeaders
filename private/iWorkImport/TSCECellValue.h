@@ -6,23 +6,32 @@
 
 #import <Foundation/NSObject.h>
 
+#import <iWorkImport/NSCopying-Protocol.h>
+
 @class TSULocale;
 
 __attribute__((visibility("hidden")))
-@interface TSCECellValue : NSObject
+@interface TSCECellValue : NSObject <NSCopying>
 {
-    int mValueType;
-    TSULocale *mLocale;
+    int _valueType;
+    TSULocale *_locale;
 }
 
 + (id)cellValueWithArchive:(const struct CellValueArchive *)arg1 locale:(id)arg2;
-@property(retain, nonatomic) TSULocale *locale; // @synthesize locale=mLocale;
-@property(nonatomic) int valueType; // @synthesize valueType=mValueType;
++ (id)newCellValueFromTSCEValue:(const struct TSCEValue *)arg1 withLocale:(id)arg2;
+@property(retain, nonatomic) TSULocale *locale; // @synthesize locale=_locale;
+@property(nonatomic) int valueType; // @synthesize valueType=_valueType;
+- (void).cxx_destruct;
 - (void)encodeCellValueToArchive:(struct CellValueArchive *)arg1;
+- (long long)compare:(id)arg1;
+- (long long)compareToCellValue:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqualToCellValue:(id)arg1;
-- (CDStruct_28403e59)formatStruct;
+- (id)format;
 - (id)displayString;
-- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (struct TSCEValue)tsceValue;
 - (id)initWithLocale:(id)arg1;
 
 @end

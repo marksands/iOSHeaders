@@ -15,6 +15,7 @@
     ASClientAccount *_account;
 }
 
++ (_Bool)_actorRunLoopInitialized;
 + (struct __CFRunLoop *)_actorRunLoop;
 + (void)_runActorThreadWithStartupLock:(id)arg1;
 @property(retain, nonatomic) ASClientAccount *account; // @synthesize account=_account;
@@ -65,6 +66,7 @@
 - (id)signingIdentityPersistentReference;
 - (oneway void)setGeneratesBulletins:(_Bool)arg1;
 - (_Bool)generatesBulletins;
+- (int)supportsUniqueServerId;
 - (int)supportsSmartForwardReply;
 - (int)supportsDraftFolderSync;
 - (int)supportsConversations;

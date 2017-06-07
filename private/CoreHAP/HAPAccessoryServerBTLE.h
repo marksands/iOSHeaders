@@ -29,6 +29,8 @@
 @property(nonatomic) _Bool notifyingCharacteristicUpdated; // @synthesize notifyingCharacteristicUpdated=_notifyingCharacteristicUpdated;
 @property(nonatomic) _Bool stateChanged; // @synthesize stateChanged=_stateChanged;
 - (void).cxx_destruct;
+- (void)generateBroadcastKey:(unsigned char)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)configureCharacteristics:(id)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)updateConnectionIdleTime:(unsigned char)arg1;
 - (_Bool)updatePeripheralIdentifier:(id *)arg1;
 - (void)updatePeripheral:(id)arg1;
@@ -38,7 +40,7 @@
 - (void)notifyDelegateUdpatedStateNumber;
 @property(retain, nonatomic) NSNumber *stateNumber; // @synthesize stateNumber=_stateNumber;
 - (long long)linkType;
-- (id)initWithPeripheral:(id)arg1 name:(id)arg2 pairingUsername:(id)arg3 statusFlags:(id)arg4 stateNumber:(id)arg5 stateChanged:(_Bool)arg6 configNumber:(id)arg7 category:(id)arg8 connectionIdleTime:(unsigned char)arg9 browser:(id)arg10 keyStore:(id)arg11;
+- (id)initWithPeripheral:(id)arg1 name:(id)arg2 pairingUsername:(id)arg3 statusFlags:(id)arg4 stateNumber:(id)arg5 stateChanged:(_Bool)arg6 configNumber:(id)arg7 category:(id)arg8 setupHash:(id)arg9 connectionIdleTime:(unsigned char)arg10 browser:(id)arg11 keyStore:(id)arg12;
 
 @end
 

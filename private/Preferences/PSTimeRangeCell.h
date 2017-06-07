@@ -20,6 +20,8 @@
 }
 
 - (void).cxx_destruct;
+- (id)accessibilityConstraintsWithVariableBindings:(id)arg1 metrics:(id)arg2;
+- (id)regularConstraintsWithVariableBindings:(id)arg1 metrics:(id)arg2;
 - (void)updateConstraints;
 - (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;

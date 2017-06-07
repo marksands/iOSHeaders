@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 @property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)saveToPropertyCommandMessage:(struct Message *)arg1 archiver:(id)arg2;
 - (id)initFromPropertyCommandMessage:(const struct Message *)arg1 unarchiver:(id)arg2;
@@ -41,7 +42,6 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

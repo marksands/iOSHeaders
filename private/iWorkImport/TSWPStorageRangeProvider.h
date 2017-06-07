@@ -17,14 +17,14 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) NSObject *object; // @synthesize object=_object;
-@property(readonly, nonatomic) struct _NSRange range; // @synthesize range=_range;
+@property(nonatomic) struct _NSRange range; // @synthesize range=_range;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (void)nextRange;
 - (unsigned long long)rangeEnd;
 - (void)setRangeStart:(unsigned long long)arg1;
 - (unsigned long long)rangeLength;
 - (unsigned long long)rangeStart;
-- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1;
 
 @end

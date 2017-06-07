@@ -22,8 +22,11 @@ __attribute__((visibility("hidden")))
     int mFunctionIndex;
 }
 
++ (id)unsupportedFunctionNameForLocale:(id)arg1;
++ (id)functionSpecForFunctionName:(id)arg1;
 + (id)functionSpecForFunctionIndex:(int)arg1;
 + (id)specWithFunctionName:(id)arg1 minArgs:(id)arg2 maxArgs:(id)arg3 repeatingGroupSize:(id)arg4 isOperator:(int)arg5 shipVersion:(int)arg6 arguments:(id)arg7 functionIndex:(int)arg8;
++ (_Bool)hasAnyDateArgumentsToFunction:(int)arg1;
 + (id)specDictionary;
 @property(readonly, nonatomic) short repeatingGroupSize; // @synthesize repeatingGroupSize=mRepeatingGroupSize;
 @property(readonly, nonatomic) int versionShippedIn; // @synthesize versionShippedIn=mShipVersion;

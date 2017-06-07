@@ -9,7 +9,7 @@
 #import <Celestial/FigXPCCoding-Protocol.h>
 #import <Celestial/NSCopying-Protocol.h>
 
-@class FigCaptureSinkConfiguration, FigCaptureSourceConfiguration, NSString;
+@class FigCaptureDepthDataSinkConfiguration, FigCaptureIrisSinkConfiguration, FigCaptureSinkConfiguration, FigCaptureSourceConfiguration, FigCaptureStillImageSinkConfiguration, FigCaptureVideoDataSinkConfiguration, FigCaptureVideoPreviewSinkConfiguration, NSString;
 
 @interface FigCaptureConnectionConfiguration : NSObject <FigXPCCoding, NSCopying>
 {
@@ -20,12 +20,16 @@
     _Bool _enabled;
 }
 
-+ (void)initialize;
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) FigCaptureSinkConfiguration *sinkConfiguration; // @synthesize sinkConfiguration=_sinkConfiguration;
 @property(retain, nonatomic) FigCaptureSourceConfiguration *sourceConfiguration; // @synthesize sourceConfiguration=_sourceConfiguration;
 @property(nonatomic) unsigned int mediaType; // @synthesize mediaType=_mediaType;
 @property(copy, nonatomic) NSString *connectionID; // @synthesize connectionID=_connectionID;
+@property(readonly) FigCaptureDepthDataSinkConfiguration *depthDataSinkConfiguration;
+@property(readonly) FigCaptureVideoPreviewSinkConfiguration *videoPreviewSinkConfiguration;
+@property(readonly) FigCaptureVideoDataSinkConfiguration *videoDataSinkConfiguration;
+@property(readonly) FigCaptureStillImageSinkConfiguration *stillImageSinkConfiguration;
+@property(readonly) FigCaptureIrisSinkConfiguration *irisSinkConfiguration;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;

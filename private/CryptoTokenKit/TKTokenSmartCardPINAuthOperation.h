@@ -15,9 +15,11 @@
     long long _PINByteOffset;
     TKSmartCard *_smartCard;
     NSString *_PIN;
+    NSString *_localizedDescription;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy) NSString *localizedDescription; // @synthesize localizedDescription=_localizedDescription;
 @property(copy) NSString *PIN; // @synthesize PIN=_PIN;
 @property(retain) TKSmartCard *smartCard; // @synthesize smartCard=_smartCard;
 @property long long PINByteOffset; // @synthesize PINByteOffset=_PINByteOffset;

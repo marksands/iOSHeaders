@@ -17,7 +17,6 @@
 + (id)_metadataForSearchableItem:(id)arg1 userAction:(id)arg2;
 + (id)interactionForSearchableItem:(id)arg1;
 + (id)policies;
-+ (id)requestedIntentClasses;
 + (id)_contactsForEmailAddresses:(id)arg1 names:(id)arg2;
 + (id)_contactsForPersons:(id)arg1;
 + (id)interactionUUIDForSearchableItemWithUID:(id)arg1 bundleID:(id)arg2;
@@ -28,6 +27,7 @@
 + (_Bool)contentTypeTree:(id)arg1 conformsToUTITypes:(id)arg2;
 + (_Bool)contentTypeTree:(id)arg1 conformsToUTIType:(id)arg2;
 + (_Bool)uncachedUtType:(id)arg1 conformsTo:(id)arg2;
++ (id)safariUTIs;
 + (id)expectedUTIsForMechanism:(long long)arg1;
 + (id)expectedSupportedUTIs;
 

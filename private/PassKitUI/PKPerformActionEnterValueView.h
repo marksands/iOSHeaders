@@ -6,19 +6,18 @@
 
 #import <UIKit/UIView.h>
 
+#import <PassKitUI/PKEnterCurrencyAmountViewDelegate-Protocol.h>
 #import <PassKitUI/PKNumberPadSuggestionsViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentDataProviderDelegate-Protocol.h>
 #import <PassKitUI/PKPerformActionView-Protocol.h>
 #import <PassKitUI/UITextFieldDelegate-Protocol.h>
 
-@class NSDecimalNumber, NSNumberFormatter, NSString, PKEnterValueNewBalanceView, PKFelicaPassProperties, PKNumberPadSuggestionsView, PKNumericSuggestionLastInput, PKNumericSuggestionsEnterValueAlgorithm, PKPass, PKPaymentPassAction, UILabel, UITextField;
+@class NSDecimalNumber, NSNumberFormatter, NSString, PKEnterCurrencyAmountView, PKEnterValueNewBalanceView, PKFelicaPassProperties, PKNumberPadSuggestionsView, PKNumericSuggestionLastInput, PKNumericSuggestionsEnterValueAlgorithm, PKPass, PKPaymentPassAction, PKPeerPaymentAccount, PKPeerPaymentService, UITextField;
 @protocol PKPaymentDataProvider, PKPerformActionViewDelegate;
 
-@interface PKPerformActionEnterValueView : UIView <PKNumberPadSuggestionsViewDelegate, UITextFieldDelegate, PKPaymentDataProviderDelegate, PKPerformActionView>
+@interface PKPerformActionEnterValueView : UIView <PKNumberPadSuggestionsViewDelegate, UITextFieldDelegate, PKPaymentDataProviderDelegate, PKEnterCurrencyAmountViewDelegate, PKPerformActionView>
 {
-    UILabel *_currencySymbolLabel;
-    UILabel *_amountLabel;
-    UITextField *_amountTextField;
+    PKEnterCurrencyAmountView *_enterCurrencyAmountView;
     PKEnterValueNewBalanceView *_newBalanceView;
     PKNumberPadSuggestionsView *_suggestionView;
     PKPass *_pass;
@@ -30,6 +29,8 @@
     NSNumberFormatter *_currentAmountFormatter;
     id <PKPerformActionViewDelegate> _delegate;
     id <PKPaymentDataProvider> _paymentServiceDataProvider;
+    PKPeerPaymentService *_peerPaymentService;
+    PKPeerPaymentAccount *_peerPaymentAccount;
     NSDecimalNumber *_cardBalance;
     NSDecimalNumber *_minAmount;
     NSDecimalNumber *_maxAmount;
@@ -41,19 +42,20 @@
 @property(nonatomic) __weak id <PKPerformActionViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_createSubviews;
-- (double)_topPaddingForCurrencySymbol;
 - (_Bool)_isCurrentAmountValid;
+- (void)_currentAmountDidChangeTo:(id)arg1 shouldGenerateNewSuggestions:(_Bool)arg2;
 - (void)_updateCurrentAmount:(id)arg1 shouldGenerateNewSuggestions:(_Bool)arg2;
-- (void)_updateCurrentAmount:(id)arg1;
 - (double)_amountTopPadding;
 - (_Bool)_shouldShakeCard:(id)arg1;
-- (unsigned long long)_mantissaFromAmountDecimalNumber:(id)arg1;
-- (id)_amountDecimalNumberWithMantissa:(unsigned long long)arg1;
 - (void)_updateCurrentBalanceWithUpdatedFelicaProperties;
 - (void)_readCurrentBalance;
-- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
+- (void)_updatePeerPaymentAccount;
+- (void)_peerPaymentAccountChanged:(id)arg1;
+- (void)enterCurrencyAmountViewDidChangeAmount:(id)arg1;
+- (_Bool)enterCurrencyAmountView:(id)arg1 shouldChangeAmountFrom:(id)arg2 to:(id)arg3;
 - (void)numberPadSuggestionsView:(id)arg1 didSelectSuggestion:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;
+@property(readonly, nonatomic) UITextField *amountTextField;
 - (void)saveLastInputValues;
 - (void)willDismissViewController;
 - (id)serviceProviderData;

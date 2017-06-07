@@ -33,7 +33,6 @@
 - (void)handleFavoritesControllerFavoritesEntriesDidChangeNotification:(id)arg1;
 - (void)handleContentSizeCategoryDidChangeNotification:(id)arg1;
 - (id)favoritesEntryAtIndex:(long long)arg1;
-- (id)contactForFavoritesEntry:(id)arg1 keyDescriptors:(id)arg2;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (_Bool)collectionView:(id)arg1 shouldSelectItemAtIndexPath:(id)arg2;

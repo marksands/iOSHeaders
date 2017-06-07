@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOPlaceDataProxy-Protocol.h>
 
@@ -19,18 +19,19 @@ __attribute__((visibility("hidden")))
     NSLock *_requestToUUIDLock;
 }
 
+- (void).cxx_destruct;
+- (_Bool)_parseReply:(id)arg1 placeResponse:(id *)arg2 userInfo:(id *)arg3 error:(id *)arg4;
 - (void)clearCache;
 - (void)applyRAPUpdatedMapItems:(id)arg1;
 - (void)shrinkBySize:(unsigned long long)arg1 finished:(CDUnknownBlockType)arg2;
 - (void)calculateFreeableSpaceWithHandler:(CDUnknownBlockType)arg1;
 - (void)cancelRequest:(id)arg1;
-- (void)performPlaceDataRequest:(id)arg1 traits:(id)arg2 timeout:(double)arg3 auditToken:(id)arg4 networkActivity:(CDUnknownBlockType)arg5 requesterHandler:(CDUnknownBlockType)arg6;
+- (void)performPlaceDataRequest:(id)arg1 traits:(id)arg2 cachePolicy:(unsigned long long)arg3 timeout:(double)arg4 auditToken:(id)arg5 networkActivity:(CDUnknownBlockType)arg6 requesterHandler:(CDUnknownBlockType)arg7;
 - (void)trackPlaceData:(id)arg1;
 - (void)requestPhoneNumbers:(id)arg1 allowCellularDataForLookup:(_Bool)arg2 traits:(id)arg3 auditToken:(id)arg4 requesterHandler:(CDUnknownBlockType)arg5;
 - (void)fetchAllCacheEntriesWithRequesterHandler:(CDUnknownBlockType)arg1;
-- (void)requestComponentsFromNetwork:(id)arg1 muid:(unsigned long long)arg2 resultProviderID:(int)arg3 traits:(id)arg4 auditToken:(id)arg5 requesterHandler:(CDUnknownBlockType)arg6;
-- (void)requestMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(id)arg4 options:(unsigned long long)arg5 auditToken:(id)arg6 requesterHandler:(CDUnknownBlockType)arg7;
-- (void)dealloc;
+- (void)requestComponentsFromNetwork:(id)arg1 identifier:(id)arg2 resultProviderID:(int)arg3 traits:(id)arg4 auditToken:(id)arg5 requesterHandler:(CDUnknownBlockType)arg6;
+- (void)requestIdentifiers:(id)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(id)arg4 options:(unsigned long long)arg5 auditToken:(id)arg6 requesterHandler:(CDUnknownBlockType)arg7;
 - (id)init;
 
 // Remaining properties

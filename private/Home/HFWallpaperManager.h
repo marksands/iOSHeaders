@@ -14,6 +14,7 @@
 
 @interface HFWallpaperManager : NSObject <HFHomeManagerObserver, HFHomeObserver>
 {
+    _Bool _wallpaperSourceRegistered;
     id <HFNamedWallpaperSource> _namedWallpaperSource;
     HFWallpaperFileManager *_fileManager;
     HFWallpaperLegacyFileManager *_legacyFileManager;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) HFWallpaperLegacyFileManager *legacyFileManager; // @synthesize legacyFileManager=_legacyFileManager;
 @property(retain, nonatomic) HFWallpaperFileManager *fileManager; // @synthesize fileManager=_fileManager;
 @property(retain, nonatomic) id <HFNamedWallpaperSource> namedWallpaperSource; // @synthesize namedWallpaperSource=_namedWallpaperSource;
+@property(readonly, nonatomic) _Bool wallpaperSourceRegistered; // @synthesize wallpaperSourceRegistered=_wallpaperSourceRegistered;
 - (void).cxx_destruct;
 - (void)_logUserMetricsAfterSettingWallpaper;
 - (void)dispatchWallpaperChangedForHomeKitObject:(id)arg1;

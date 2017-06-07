@@ -11,13 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface TSKAnnotationAuthorStorage : TSPObject
 {
-    NSMutableSet *mAuthors;
+    NSMutableSet *_mutableAuthors;
 }
 
-@property(readonly, nonatomic) NSSet *authors; // @synthesize authors=mAuthors;
+@property(retain, nonatomic) NSMutableSet *mutableAuthors; // @synthesize mutableAuthors=_mutableAuthors;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
-- (void)didLoadChildObjectFromDocumentSupport:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)packageLocator;
 - (unsigned int)delayedArchivingPriority;
 - (_Bool)shouldDelayArchiving;
@@ -33,10 +33,9 @@ __attribute__((visibility("hidden")))
 - (id)authorInStorageMatchingAuthor:(id)arg1;
 - (id)preferredAuthorMatchingPrivateID:(id)arg1 name:(id)arg2;
 - (id)authorsMatchingPrivateID:(id)arg1;
+@property(readonly) NSSet *authors;
 - (void)removeAuthor:(id)arg1;
-- (void)p_addAuthor:(id)arg1 isFromDocumentSupport:(_Bool)arg2;
 - (void)addAuthor:(id)arg1;
-- (void)dealloc;
 
 @end
 

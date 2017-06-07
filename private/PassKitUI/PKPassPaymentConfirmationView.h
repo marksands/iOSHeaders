@@ -9,32 +9,35 @@
 #import <PassKitUI/PKPassPaymentPayStateViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentServiceDelegate-Protocol.h>
 
-@class NSDate, NSObject, NSString, PKFooterTransactionView, PKPassPaymentPayStateView, PKPaymentService;
-@protocol OS_dispatch_source;
+@class NSDate, NSObject, NSString, PKExpressTransactionState, PKFooterTransactionView, PKPassPaymentPayStateView, PKPaymentService;
+@protocol NSObject, OS_dispatch_source;
 
 @interface PKPassPaymentConfirmationView : PKPassFooterContentView <PKPassPaymentPayStateViewDelegate, PKPaymentServiceDelegate>
 {
     PKFooterTransactionView *_transactionView;
     PKPassPaymentPayStateView *_payStateView;
     _Bool _animated;
-    unsigned long long _expressState;
+    PKExpressTransactionState *_expressState;
     _Bool _receivedTransaction;
     _Bool _receivedExit;
     _Bool _needsResolution;
-    _Bool _showingCheckmark;
-    _Bool _animatingCheckmark;
+    _Bool _showingResolution;
+    _Bool _animatingResolution;
     NSObject<OS_dispatch_source> *_activityResolutionTimer;
     NSDate *_visibleDate;
-    int _expressTimeoutNotifyToken;
-    int _expressFinishNotifyToken;
+    id <NSObject> _expressTransactionStartedObserver;
+    id <NSObject> _expressTransactionTimeoutObserver;
+    id <NSObject> _expressTransactionEndedObserver;
+    id <NSObject> _expressExitObserver;
     PKPaymentService *_paymentService;
 }
 
 - (void).cxx_destruct;
-- (void)_handleNotifyToken:(int)arg1;
-- (void)_registerForExpressFelicaTransitNotifications:(_Bool)arg1;
-- (_Bool)_isRegisteredForAnyExpressFelicaTransitNotifications;
-- (_Bool)_isRegisteredForAllExpressFelicaTransitNotifications;
+- (_Bool)_isExpressOutstanding;
+- (void)_handleExpressNotification:(id)arg1;
+- (void)_registerForExpressTransactionNotifications:(_Bool)arg1;
+- (_Bool)_isRegisteredForAnyExpressTransactionNotifications;
+- (_Bool)_isRegisteredForAllExpressTransactionNotifications;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
 - (void)payStateView:(id)arg1 revealingCheckmark:(_Bool)arg2;

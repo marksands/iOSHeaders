@@ -8,13 +8,14 @@
 
 #import <PreferencesUI/AAUISignInControllerDelegate-Protocol.h>
 #import <PreferencesUI/DevicePINControllerDelegate-Protocol.h>
-#import <PreferencesUI/PSSearchControllerDelegate-Protocol.h>
+#import <PreferencesUI/PSSpotlightSearchResultsControllerDelegate-Protocol.h>
 #import <PreferencesUI/RadiosPreferencesDelegate-Protocol.h>
+#import <PreferencesUI/UISearchResultsUpdating-Protocol.h>
 
-@class AAUIProfilePictureStore, ACAccountStore, EAAccessory, NSArray, NSDictionary, NSObject, NSSet, NSString, PSSearchController, PSSpecifier, PSUIClassroomVisibilityArbitrator, PSUIHomeKitVisibilityArbitrator, UIViewController, VSAccountStore;
+@class AAUIProfilePictureStore, ACAccountStore, AIDAServiceOwnersManager, CSSearchQuery, EAAccessory, NSArray, NSDictionary, NSObject, NSSet, NSString, PSSpecifier, PSSpotlightSearchResultsController, PSUIClassroomVisibilityArbitrator, PSUIHealthKitVisibilityArbitrator, PSUIHomeKitVisibilityArbitrator, UISearchController, UIViewController, VSAccountStore;
 @protocol OS_dispatch_queue, PSController;
 
-@interface PSUIPrefsListController : PSListController <PSSearchControllerDelegate, AAUISignInControllerDelegate, RadiosPreferencesDelegate, DevicePINControllerDelegate>
+@interface PSUIPrefsListController : PSListController <AAUISignInControllerDelegate, UISearchResultsUpdating, PSSpotlightSearchResultsControllerDelegate, RadiosPreferencesDelegate, DevicePINControllerDelegate>
 {
     _Bool _didFirstLoad;
     EAAccessory *_speakerAccessory;
@@ -28,12 +29,6 @@
     PSSpecifier *_wallpaperSpecifier;
     PSSpecifier *_passcodeSpecifier;
     PSSpecifier *_appleAccountSpecifier;
-    PSSpecifier *_twitterSpecifier;
-    PSSpecifier *_facebookSpecifier;
-    PSSpecifier *_flickrSpecifier;
-    PSSpecifier *_vimeoSpecifier;
-    PSSpecifier *_weiboSpecifier;
-    PSSpecifier *_tencentweiboSpecifier;
     PSSpecifier *_videoSubscriberSpecifier;
     PSSpecifier *_messagesSpecifier;
     PSSpecifier *_faceTimeSpecifier;
@@ -43,6 +38,7 @@
     PSSpecifier *_personalHotspotSpecifier;
     PSSpecifier *_classroomSpecifier;
     PSSpecifier *_homeKitSpecifier;
+    PSSpecifier *_healthKitSpecifier;
     _Bool _wifiValueIsClean;
     _Bool _bluetoothValueIsClean;
     NSArray *_originalSpecifiers;
@@ -53,31 +49,36 @@
     NSString *_pendingOffsetItemName;
     PSUIClassroomVisibilityArbitrator *_classroomVisibilityArbitrator;
     PSUIHomeKitVisibilityArbitrator *_homeKitVisibilityArbitrator;
+    PSUIHealthKitVisibilityArbitrator *_healthKitVisibilityArbitrator;
     VSAccountStore *_videoSubscriberAccountStore;
+    AIDAServiceOwnersManager *_serviceOwnersManager;
     AAUIProfilePictureStore *_profilePictureStore;
     _Bool _skipSelectingGeneralOnLaunch;
-    PSSearchController *_searchController;
-    NSString *_searchText;
     NSString *_wifiString;
     NSString *_bluetoothString;
+    UISearchController *_spotlightSearchController;
+    PSSpotlightSearchResultsController *_spotlightResultsController;
+    CSSearchQuery *_searchQuery;
 }
 
-+ (void)formatSearchEntries:(id)arg1 parent:(id)arg2;
 + (void)setAirplaneMode:(_Bool)arg1;
 + (_Bool)airplaneMode;
 + (id)radiosPreferences;
+@property(retain, nonatomic) CSSearchQuery *searchQuery; // @synthesize searchQuery=_searchQuery;
+@property(retain, nonatomic) PSSpotlightSearchResultsController *spotlightResultsController; // @synthesize spotlightResultsController=_spotlightResultsController;
+@property(retain, nonatomic) UISearchController *spotlightSearchController; // @synthesize spotlightSearchController=_spotlightSearchController;
 @property(copy, nonatomic) NSString *bluetoothString; // @synthesize bluetoothString=_bluetoothString;
 @property(copy, nonatomic) NSString *wifiString; // @synthesize wifiString=_wifiString;
-@property(copy, nonatomic) NSString *searchText; // @synthesize searchText=_searchText;
 @property(nonatomic) _Bool skipSelectingGeneralOnLaunch; // @synthesize skipSelectingGeneralOnLaunch=_skipSelectingGeneralOnLaunch;
-@property(readonly, nonatomic) PSSearchController *searchController; // @synthesize searchController=_searchController;
 - (void).cxx_destruct;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
-- (id)rootSpecifiersForSearchController:(id)arg1;
-- (void)searchController:(id)arg1 openURL:(id)arg2;
+- (id)searchResultsController:(id)arg1 iconForCategory:(id)arg2;
+- (long long)searchResultsController:(id)arg1 sortCategory1:(id)arg2 sortCategory2:(id)arg3;
+- (void)indexIfNeeded;
+- (void)searchResultsController:(id)arg1 didSelectURL:(id)arg2;
+- (void)updateSearchResultsForSearchController:(id)arg1;
 - (void)_videoSubscriberAccountAvailabilityDidChange:(id)arg1;
 - (void)_videoSubscriberAccountStoreDidChange:(id)arg1;
-- (void)_beginObservingVideoSubscriberAccountStoreDidChangeNotification;
 - (id)videoSubscriberAccountValue:(id)arg1;
 - (_Bool)shouldDeferPushForSpecifierID:(id)arg1;
 - (void)suspend;
@@ -102,6 +103,7 @@
 - (void)_beginObservingAccountStoreDidChangeNotification;
 - (id)_profilePictureStore;
 - (id)_accountStore;
+- (id)_serviceOwnersManager;
 - (void)appleAccountsDidChange;
 - (void)signInControllerDidCancel:(id)arg1;
 - (void)signInController:(id)arg1 didCompleteWithSuccess:(_Bool)arg2 error:(id)arg3;
@@ -139,9 +141,10 @@
 - (_Bool)handlePendingURL;
 - (id)specifiers;
 - (id)passbookSpecifier;
-- (void)updateWeiboState;
+- (void)showDeviceSupervisionInfo;
 - (void)updateAccountSpecifiers;
 - (void)updateHomeKitSpecifier;
+- (void)updateHealthKitSpecifier;
 - (void)updateClassroomSpecifier;
 - (void)updateRestrictedSettings;
 - (_Bool)isSpecifierHiddenDueToRestrictions:(id)arg1;
@@ -154,6 +157,7 @@
 - (void)insertMovedThirdPartySpecifiersAnimated:(_Bool)arg1;
 - (id)_specifierDictionaryForDeveloperBundlePath:(id)arg1 identifier:(id)arg2;
 - (id)_specifierDictionaryForBundlePath:(id)arg1 identifier:(id)arg2 internalIcon:(_Bool)arg3 searchPlist:(id)arg4;
+- (_Bool)_showSOS;
 - (_Bool)_showCarrier;
 - (void)_showControllerFromSpecifier:(id)arg1;
 - (id)_sidebarSpecifierForCategoryController;
@@ -161,8 +165,6 @@
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (id)identifierForSelectedIndex;
 - (id)generalViewController;
@@ -170,11 +172,13 @@
 - (void)selectGeneralCategoryForced:(_Bool)arg1;
 - (void)selectGeneralCategory;
 - (void)checkDeveloperSettingsState;
+- (long long)navigationItemLargeTitleDisplayMode;
+- (void)loadView;
 - (void)dealloc;
-- (void)setupSearchBar;
 - (id)init;
 - (void)_showDetailTargetDidChange:(id)arg1;
 - (void)insertOrderedSpecifier:(id)arg1 animated:(_Bool)arg2;
+- (long long)insertionIndexForSpecifier:(id)arg1 inSpecifiers:(id)arg2;
 - (id)_primarySpecifierOrdering;
 - (void)rerootNavigationController;
 - (void)reloadSpecifiers;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSDate, NSString;
 
@@ -24,9 +24,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool departuresHaveFrequency; // @synthesize departuresHaveFrequency=_departuresHaveFrequency;
 @property(readonly, nonatomic) NSString *headsign; // @synthesize headsign=_headsign;
 @property(readonly, nonatomic) NSString *direction; // @synthesize direction=_direction;
+- (void).cxx_destruct;
 - (id)_chooseMostImportantTransitLegInRoute:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)initWithComposedRoute:(id)arg1;
 
 @end

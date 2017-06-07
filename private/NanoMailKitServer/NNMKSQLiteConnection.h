@@ -14,11 +14,11 @@
     _Bool _isInTransaction;
     struct sqlite3 *_db;
     NSObject<OS_dispatch_queue> *_dbQueue;
-    NSMutableDictionary *_cachedPreparedStatementsKeyedBySQLPattern;
+    NSMutableDictionary *_cachedPreparedStatementsBySQLPattern;
 }
 
 + (_Bool)errorCodeMeansCorruptedDatabase:(int)arg1;
-@property(retain, nonatomic) NSMutableDictionary *cachedPreparedStatementsKeyedBySQLPattern; // @synthesize cachedPreparedStatementsKeyedBySQLPattern=_cachedPreparedStatementsKeyedBySQLPattern;
+@property(retain, nonatomic) NSMutableDictionary *cachedPreparedStatementsBySQLPattern; // @synthesize cachedPreparedStatementsBySQLPattern=_cachedPreparedStatementsBySQLPattern;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dbQueue; // @synthesize dbQueue=_dbQueue;
 @property(nonatomic) _Bool isInTransaction; // @synthesize isInTransaction=_isInTransaction;
 @property(nonatomic) struct sqlite3 *db; // @synthesize db=_db;

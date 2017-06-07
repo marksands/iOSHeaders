@@ -39,6 +39,8 @@
 - (void)realizeLocalChanges;
 - (void)walkGraph:(CDUnknownBlockType)arg1 root:(id)arg2;
 - (unsigned long long)mergeWithData:(id)arg1;
+- (void)mergeTimestampWithDocument:(id)arg1;
+- (unsigned long long)mergeResultForMergingWithDocument:(id)arg1;
 - (id)localObject:(id)arg1;
 - (void)updateObjects:(id)arg1;
 - (void)setDocument:(id)arg1;

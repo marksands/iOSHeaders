@@ -15,9 +15,46 @@ struct CGSize {
     double _field2;
 };
 
+struct MPModelStorePlaybackItemEligibility {
+    _Bool _field1;
+    long long _field2;
+};
+
+struct NSMapTable {
+    Class _field1;
+};
+
+struct _MSVSignedRange {
+    long long location;
+    long long length;
+};
+
 struct _NSRange {
     unsigned long long location;
     unsigned long long length;
+};
+
+struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
+    struct __tree_node_base<void *> *__left_;
+};
+
+struct __va_list_tag {
+    unsigned int _field1;
+    unsigned int _field2;
+    void *_field3;
+    void *_field4;
+};
+
+struct map<unsigned long, MPIdentifierSet *, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, MPIdentifierSet *>>> {
+    struct __tree<std::__1::__value_type<unsigned long, MPIdentifierSet *>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, MPIdentifierSet *>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, MPIdentifierSet *>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, MPIdentifierSet *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, MPIdentifierSet *>, std::__1::less<unsigned long>, true>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
 #pragma mark Typedef'd Structures
@@ -29,12 +66,18 @@ typedef struct {
     double duration;
     double elapsedDuration;
     float rate;
+    float defaultRate;
     _Bool isLiveContent;
-} CDStruct_45e4ec31;
+} CDStruct_98c298d5;
 
 typedef struct {
-    long long _field1;
-    long long _field2;
-    double _field3;
-} CDStruct_8ff95007;
+    long long reverseCount;
+    long long forwardCount;
+} CDStruct_339ad95e;
+
+// Ambiguous groups
+typedef struct {
+    unsigned int representativeItemCloudID:1;
+    unsigned int storeAdamID:1;
+} CDStruct_c223d907;
 

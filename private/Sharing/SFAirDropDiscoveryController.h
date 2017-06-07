@@ -35,6 +35,7 @@
 - (id)discoverableModeAlertController;
 - (void)updateAlertControllerTitle;
 - (void)wirelessSettingsDidChange:(id)arg1;
+- (void)invalidate;
 - (void)dealloc;
 @property(readonly, getter=isLegacyModeSettable) _Bool legacyModeSettable;
 @property(getter=isLegacyModeEnabled) _Bool legacyModeEnabled;

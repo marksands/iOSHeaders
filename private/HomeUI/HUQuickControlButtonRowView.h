@@ -30,6 +30,7 @@
 - (void)insertButtonView:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addButtonView:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *buttonViews;
+- (void)contentSizeCategoryDidChange;
 - (id)initWithButtonViews:(id)arg1;
 
 // Remaining properties

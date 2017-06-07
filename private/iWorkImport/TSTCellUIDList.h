@@ -36,12 +36,12 @@ __attribute__((visibility("hidden")))
 - (void)addCellRegion:(id)arg1 withColumnUIDs:(const vector_dadc1b26 *)arg2 rowUIDs:(const vector_dadc1b26 *)arg3;
 - (void)addCellUID:(const struct TSTCellUID *)arg1;
 - (id)iterator;
+- (unsigned long long)computeValidCount;
 - (unsigned long long)count;
 - (vector_afe065ba *)uncompressedCellUIDs;
 - (void)setCompressedColumnIndexes:(const vector_e0f2bd7e *)arg1;
 - (const vector_e0f2bd7e *)compressedColumnIndexes;
 - (const vector_e0f2bd7e *)compressedRowIndexes;
-- (void)remapUIDsByColumnMap:(const UUIDMap_727ee07e *)arg1 rowMap:(const UUIDMap_727ee07e *)arg2;
 - (const vector_dadc1b26 *)compressedColumnUIDs;
 - (const vector_dadc1b26 *)columnUIDs;
 - (const vector_dadc1b26 *)compressedRowUIDs;

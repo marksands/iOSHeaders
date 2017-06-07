@@ -7,12 +7,13 @@
 #import <objc/NSObject.h>
 
 #import <HomeSharing/HSCloudAvailability-Protocol.h>
+#import <HomeSharing/ICEnvironmentMonitorObserver-Protocol.h>
 #import <HomeSharing/RadiosPreferencesDelegate-Protocol.h>
 
 @class NSString, RadiosPreferences;
 @protocol OS_dispatch_queue;
 
-@interface HSCloudAvailabilityController : NSObject <RadiosPreferencesDelegate, HSCloudAvailability>
+@interface HSCloudAvailabilityController : NSObject <RadiosPreferencesDelegate, ICEnvironmentMonitorObserver, HSCloudAvailability>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     _Bool _hasProperNetworkConditionsToShowCloudMedia;
@@ -32,12 +33,12 @@
     long long _networkType;
     RadiosPreferences *_radiosPreferences;
     unsigned long long _networkReachabilityObservationCount;
-    struct __SCNetworkReachability *_reachabilityRef;
     struct __CTServerConnection *_ctServerConnection;
 }
 
 + (id)sharedController;
 - (void).cxx_destruct;
+- (void)environmentMonitorDidChangeNetworkReachability:(id)arg1;
 - (void)_onQueue_endObservingReachabilityChanges;
 - (void)_onQueue_beginObservingReachabilityChanges;
 - (void)_onQueue_updateCanShowCloudTracksWithNotification:(_Bool)arg1;
@@ -45,14 +46,12 @@
 - (_Bool)_uncachedIsShowingAllVideo;
 - (_Bool)_uncachedIsShowingAllMusic;
 - (_Bool)_uncachedIsAutoDownloadOnCellularAllowed;
-- (void)_setNewIsNetworkReachable:(_Bool)arg1;
+- (void)_setNewIsNetworkReachable:(_Bool)arg1 networkType:(long long)arg2;
 - (_Bool)_hasWiFiCapability;
 - (_Bool)_hasCellularCapability;
 - (_Bool)_isAutoDownloadOnCellularAllowed;
 - (void)_applicationWillEnterForeground:(id)arg1;
-- (void)_networkTypeDidChangeNotification:(id)arg1;
 - (void)_wifiEnabledDidChangeNotification:(id)arg1;
-- (void)_cellularNetworkAllowedDidChangeNotification:(id)arg1;
 - (void)airplaneModeChanged;
 - (void)endObservingNetworkReachability;
 - (void)beginObservingNetworkReachability;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray;
 
@@ -13,7 +13,7 @@
     NSArray *_calls;
 }
 
-@property(retain) NSArray *calls; // @synthesize calls=_calls;
+@property(copy, nonatomic) NSArray *calls; // @synthesize calls=_calls;
 - (void).cxx_destruct;
 - (id)description;
 - (void)forwardInvocation:(id)arg1;
@@ -21,6 +21,8 @@
 - (int)status;
 - (id)displayName;
 - (_Bool)isEqual:(id)arg1;
+- (id)initWithCall:(id)arg1;
+- (id)initWithCalls:(id)arg1;
 
 @end
 

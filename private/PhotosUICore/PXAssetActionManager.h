@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) PXSelectionSnapshot *selectionSnapshot; // @synthesize selectionSnapshot=_selectionSnapshot;
 - (void).cxx_destruct;
 - (id)actionPerformerForActionType:(id)arg1;
+- (_Bool)canPerformAssetVariationActions;
 - (id)init;
 - (id)initWithSelectionSnapshot:(id)arg1;
 - (void)px_registerAdditionalPerformerClasses;

@@ -8,7 +8,7 @@
 
 #import <AssistantServices/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, NSFileHandle, NSNumber, NSString, NSXPCListenerEndpoint;
+@class NSDictionary, NSFileHandle, NSNumber, NSString, NSURL, NSXPCListenerEndpoint;
 
 @interface AFSpeechRequestOptions : NSObject <NSSecureCoding>
 {
@@ -21,11 +21,14 @@
     _Bool _usePrelisteningMode;
     _Bool _pendCallbacksUntilAfterContinuation;
     _Bool _useBorealisBuffer;
+    _Bool _suppressStopAlert;
     long long _activationEvent;
     NSString *_activationDeviceIdentifier;
     NSString *_serverCommandId;
     double _homeButtonDownEventTime;
+    unsigned long long _homeButtonDownEventMachAbsoluteTime;
     double _activationEventTime;
+    unsigned long long _activationEventMachAbsoluteTime;
     double _expectedActivationEventTime;
     NSNumber *_homeButtonUpFromBeep;
     long long _audioFileType;
@@ -33,9 +36,16 @@
     NSDictionary *_voiceTriggerEventInfo;
     NSString *_recordDeviceIdentifier;
     NSXPCListenerEndpoint *_speechRecordingEventListeningEndpoint;
+    NSNumber *_notifyState;
+    NSURL *_audioFileURL;
+    unsigned long long _bargeInOptions;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) unsigned long long bargeInOptions; // @synthesize bargeInOptions=_bargeInOptions;
+@property(nonatomic) _Bool suppressStopAlert; // @synthesize suppressStopAlert=_suppressStopAlert;
+@property(copy, nonatomic) NSURL *audioFileURL; // @synthesize audioFileURL=_audioFileURL;
+@property(copy, nonatomic) NSNumber *notifyState; // @synthesize notifyState=_notifyState;
 @property(nonatomic) _Bool useBorealisBuffer; // @synthesize useBorealisBuffer=_useBorealisBuffer;
 @property(nonatomic) _Bool pendCallbacksUntilAfterContinuation; // @synthesize pendCallbacksUntilAfterContinuation=_pendCallbacksUntilAfterContinuation;
 @property(nonatomic) _Bool usePrelisteningMode; // @synthesize usePrelisteningMode=_usePrelisteningMode;
@@ -49,7 +59,9 @@
 @property(copy, nonatomic) NSNumber *homeButtonUpFromBeep; // @synthesize homeButtonUpFromBeep=_homeButtonUpFromBeep;
 @property(nonatomic) _Bool isInitialBringUp; // @synthesize isInitialBringUp=_isInitialBringUp;
 @property(nonatomic) double expectedActivationEventTime; // @synthesize expectedActivationEventTime=_expectedActivationEventTime;
+@property(nonatomic) unsigned long long activationEventMachAbsoluteTime; // @synthesize activationEventMachAbsoluteTime=_activationEventMachAbsoluteTime;
 @property(nonatomic) double activationEventTime; // @synthesize activationEventTime=_activationEventTime;
+@property(nonatomic) unsigned long long homeButtonDownEventMachAbsoluteTime; // @synthesize homeButtonDownEventMachAbsoluteTime=_homeButtonDownEventMachAbsoluteTime;
 @property(nonatomic) double homeButtonDownEventTime; // @synthesize homeButtonDownEventTime=_homeButtonDownEventTime;
 @property(nonatomic) _Bool useStreamingDictation; // @synthesize useStreamingDictation=_useStreamingDictation;
 @property(nonatomic) _Bool useAutomaticEndpointing; // @synthesize useAutomaticEndpointing=_useAutomaticEndpointing;

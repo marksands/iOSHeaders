@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <CoreDAV/CoreDAVLeafDataPayload-Protocol.h>
 
@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) NSString *syncKey; // @synthesize syncKey=_syncKey;
 @property(readonly, nonatomic) NSData *dataPayload; // @synthesize dataPayload=_dataPayload;
 @property(retain, nonatomic) NSURL *serverID; // @synthesize serverID=_serverID;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithURL:(id)arg1 eTag:(id)arg2 dataPayload:(id)arg3 inContainerWithURL:(id)arg4 withAccountInfoProvider:(id)arg5;
 
 // Remaining properties

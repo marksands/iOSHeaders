@@ -10,11 +10,14 @@
 
 @interface CAMPanoramaOutput : AVCaptureVideoDataOutput
 {
+    long long _photoEncodingBehavior;
     CAMCaptureEngine *__engine;
 }
 
 @property(readonly, nonatomic) __weak CAMCaptureEngine *_engine; // @synthesize _engine=__engine;
+@property(readonly, nonatomic) long long photoEncodingBehavior; // @synthesize photoEncodingBehavior=_photoEncodingBehavior;
 - (void).cxx_destruct;
+- (void)changeToEncodingBehavior:(long long)arg1;
 - (void)changeToDirection:(long long)arg1;
 - (id)initWithEngine:(id)arg1;
 

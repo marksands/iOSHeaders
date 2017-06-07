@@ -8,16 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
-
 @interface GEOMapLaunchDetails : PBCodable <NSCopying>
 {
-    NSString *_launchUri;
-    NSString *_sourceAppId;
 }
 
-@property(retain, nonatomic) NSString *launchUri; // @synthesize launchUri=_launchUri;
-@property(retain, nonatomic) NSString *sourceAppId; // @synthesize sourceAppId=_sourceAppId;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -27,9 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasLaunchUri;
-@property(readonly, nonatomic) _Bool hasSourceAppId;
-- (void)dealloc;
 
 @end
 

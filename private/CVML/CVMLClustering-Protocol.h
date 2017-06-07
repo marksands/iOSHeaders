@@ -16,6 +16,7 @@
 - (NSDictionary *)getDistances:(NSArray *)arg1 to:(NSArray *)arg2;
 - (NSArray *)getClustersForClusterIds:(NSArray *)arg1 options:(NSDictionary *)arg2 error:(id *)arg3;
 - (NSDictionary *)getRepresentativenessForFaces:(NSArray *)arg1 error:(id *)arg2;
+- (NSDictionary *)getDistanceBetweenLevel1Clusters:(NSArray *)arg1;
 - (NSNumber *)getDistanceBetweenLevel0ClustersWithFaceIds:(NSArray *)arg1;
 - (NSArray *)getLevel1ClusteredIdsGroupedByLevel0ClustersForFaceId:(NSNumber *)arg1;
 - (NSSet *)getClusteredIds;

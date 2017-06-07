@@ -6,15 +6,16 @@
 
 #import <Foundation/NSObject.h>
 
-@class TSUIntegerKeyDictionary;
+@class TSUSparseArray;
 
 __attribute__((visibility("hidden")))
 @interface TSTCellDictionary : NSObject
 {
-    TSUIntegerKeyDictionary *mDict;
-    struct _opaque_pthread_rwlock_t mDictRWLock;
+    struct _opaque_pthread_mutex_t _lock;
+    TSUSparseArray *_dict;
 }
 
+- (void).cxx_destruct;
 - (void)applyBlockToAllCells:(CDUnknownBlockType)arg1;
 - (id)allCells;
 - (vector_13f93596)removeAllCells;

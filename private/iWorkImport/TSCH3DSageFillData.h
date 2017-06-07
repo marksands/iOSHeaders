@@ -18,15 +18,17 @@ __attribute__((visibility("hidden")))
     NSArray *mLayersProperties;
     TSCH3DFillSetIdentifier *mIdentifier;
     NSObject<TSCH3DSageFillImageDataSource> *mImageSource;
+    _Bool mIsLowRes;
 }
 
++ (id)dataWithProperties:(id)arg1 layersProperties:(id)arg2 identifier:(id)arg3 imageSource:(id)arg4 isLowRes:(_Bool)arg5;
 + (id)dataWithProperties:(id)arg1 layersProperties:(id)arg2 identifier:(id)arg3 imageSource:(id)arg4;
 + (id)dataWithFillSetIdentifier:(id)arg1;
++ (id)dataWithFillSetIdentifier:(id)arg1 isLowRes:(_Bool)arg2;
 + (id)TSPImageDataFromTexture:(id)arg1;
 + (id)textureWithImageData:(id)arg1;
 - (id)fillSetIdentifier;
 - (id)textureForIndex:(unsigned long long)arg1;
-- (id)p_optimizedMipmapPathFromOriginalPath:(id)arg1;
 - (id)layerLightenPercentageForIndex:(unsigned long long)arg1;
 - (int)layerTilingModeForIndex:(unsigned long long)arg1;
 - (long long)layerBlendModeForIndex:(unsigned long long)arg1;
@@ -45,6 +47,7 @@ __attribute__((visibility("hidden")))
 - (Color_1703f521)makeGray:(float)arg1;
 - (struct ColorResult)colorFromRedKey:(id)arg1 greenKey:(id)arg2 blueKey:(id)arg3;
 - (void)dealloc;
+- (id)initWithProperties:(id)arg1 layersProperties:(id)arg2 identifier:(id)arg3 imageSource:(id)arg4 isLowRes:(_Bool)arg5;
 - (id)initWithProperties:(id)arg1 layersProperties:(id)arg2 identifier:(id)arg3 imageSource:(id)arg4;
 
 @end

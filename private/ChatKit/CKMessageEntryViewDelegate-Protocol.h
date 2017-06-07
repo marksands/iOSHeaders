@@ -27,6 +27,7 @@
 
 @optional
 - (void)sendCurrentLocationMessage:(CKMessageEntryView *)arg1;
+- (_Bool)shouldMessageEntryViewReportBrowserButtonHitToInputDelegate:(CKMessageEntryView *)arg1;
 - (_Bool)getContainerWidth:(double *)arg1 offset:(double *)arg2;
 @end
 

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
 
-@class NSArray, NSData, NSDate, NSDictionary, NSMapTable, NSMutableArray, NSString;
+@class NSArray, NSData, NSDate, NSDictionary, NSMapTable, NSMutableArray, NSSet, NSString;
 
 @interface _IDSAccount : NSObject <IDSDaemonListenerProtocol>
 {
@@ -25,6 +25,7 @@
     _Bool _isEnabled;
 }
 
+- (void).cxx_destruct;
 - (void)deactivateAndPurgeIdentify;
 - (void)_reregisterAndReidentify:(_Bool)arg1;
 - (void)unregisterAccount;
@@ -50,25 +51,28 @@
 - (void)account:(id)arg1 registrationStatusInfoChanged:(id)arg2;
 - (void)_connect;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSData *pushToken;
-@property(readonly, nonatomic) NSData *registrationCertificate;
-@property(readonly, nonatomic) NSArray *registeredURIs;
+@property(readonly, nonatomic) __weak NSData *pushToken;
+@property(readonly, nonatomic) __weak NSData *registrationCertificate;
+@property(readonly, nonatomic) __weak NSArray *registeredURIs;
 - (id)_registeredURIs;
-@property(readonly, nonatomic) NSDate *dateRegistered;
-@property(readonly, nonatomic) NSDate *nextRegistrationDate;
+@property(readonly, nonatomic) __weak NSDate *dateRegistered;
+@property(readonly, nonatomic) __weak NSDate *nextRegistrationDate;
 - (id)_keychainRegistration;
 - (void)_callCloudConnectedDevicesChanged;
 - (void)_callConnectedDevicesChanged;
 - (void)_callNearbyDevicesChanged;
 - (void)_callDevicesChanged;
 - (id)connectedDevices;
-@property(readonly, retain, nonatomic) NSArray *nearbyDevices;
-@property(readonly, retain, nonatomic) NSArray *devices;
-@property(readonly, retain, nonatomic) NSArray *suppressedDevices;
+@property(readonly, nonatomic) NSArray *nearbyDevices;
+@property(readonly, nonatomic) NSArray *devices;
+@property(readonly, nonatomic) NSArray *suppressedDevices;
 - (void)_reloadCachedDevices;
 - (void)_loadCachedDevices;
 - (void)_updateDependentDevicesWithDevicesInfo:(id)arg1;
-@property(readonly, nonatomic) NSString *profileID;
+- (void)deactivateAlias:(id)arg1;
+- (void)activateAlias:(id)arg1;
+@property(readonly, nonatomic) NSSet *activeAliases;
+@property(readonly, nonatomic) __weak NSString *profileID;
 @property(readonly, nonatomic) int registrationStatus;
 - (id)registrationInfo;
 - (void)setAuthToken:(id)arg1;
@@ -76,23 +80,27 @@
 @property(readonly, nonatomic) _Bool isUserDisabled;
 @property(readonly, nonatomic) int accountType;
 @property(nonatomic, setter=_setIsEnabled:) _Bool _isEnabled;
-@property(readonly, retain, nonatomic) NSString *uniqueID;
-@property(readonly, retain, nonatomic) NSString *pushTopic;
-@property(readonly, retain, nonatomic) NSString *primaryServiceName;
-@property(readonly, retain, nonatomic) NSString *serviceName;
+@property(readonly, nonatomic) NSString *uniqueID;
+@property(readonly, nonatomic) NSString *pushTopic;
+@property(readonly, nonatomic) NSString *primaryServiceName;
+@property(readonly, nonatomic) NSString *serviceName;
 @property(retain, nonatomic) NSString *loginID;
-@property(readonly, retain, nonatomic) NSString *displayName;
-@property(readonly, retain, nonatomic) NSArray *vettedAliases;
-@property(readonly, retain, nonatomic) NSArray *aliases;
-@property(readonly, retain, nonatomic) NSArray *aliasStrings;
+@property(readonly, nonatomic) NSString *displayName;
+@property(readonly, nonatomic) NSArray *handles;
+- (id)_invisibleAliases;
+@property(readonly, nonatomic) NSArray *vettedAliases;
+@property(readonly, nonatomic) NSArray *aliases;
+@property(readonly, nonatomic) NSArray *aliasStrings;
+@property(readonly, nonatomic) _Bool isUsableForOuterMessaging;
 @property(readonly, nonatomic) _Bool canSend;
-@property(readonly, nonatomic) NSDictionary *regionServerContext;
-@property(readonly, nonatomic) NSString *regionBasePhoneNumber;
-@property(readonly, nonatomic) NSString *regionID;
-@property(readonly, retain, nonatomic) NSDictionary *profileInfo;
+@property(readonly, nonatomic) __weak NSDictionary *regionServerContext;
+@property(readonly, nonatomic) __weak NSString *regionBasePhoneNumber;
+@property(readonly, nonatomic) __weak NSString *regionID;
+@property(readonly, nonatomic) NSDictionary *profileInfo;
 - (void)updateAccountWithAccountInfo:(id)arg1;
 @property(retain, nonatomic) NSDictionary *accountInfo;
 @property(readonly, nonatomic) _Bool isActive;
+@property(readonly, nonatomic) _Bool isTransientCloudPairingAccount;
 @property(readonly, nonatomic) _Bool isInTransientRegistrationState;
 - (void)_setObject:(id)arg1 forKey:(id)arg2;
 - (id)_objectForKey:(id)arg1;

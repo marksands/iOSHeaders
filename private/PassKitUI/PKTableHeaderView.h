@@ -24,8 +24,8 @@
     double _bottomPadding;
 }
 
-@property(readonly, retain, nonatomic) UIImageView *checkmarkView; // @synthesize checkmarkView=_checkmarkView;
-@property(readonly, retain, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
+@property(readonly, nonatomic) UIImageView *checkmarkView; // @synthesize checkmarkView=_checkmarkView;
+@property(readonly, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(nonatomic) _Bool accessoryViewsDisabled; // @synthesize accessoryViewsDisabled=_accessoryViewsDisabled;
 @property(nonatomic) double bottomPadding; // @synthesize bottomPadding=_bottomPadding;
@@ -36,13 +36,20 @@
 - (id)_subtitleFont;
 - (id)_titleFont;
 - (void)_updateAccessoryViews;
+- (void)_updateFonts;
+- (_Bool)_hasAccessibilityLargeText;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)tintColorDidChange;
 - (void)layoutSubviews;
 - (struct CGSize)_sizeThatFitsExcludingImage:(struct CGSize)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-@property(readonly, retain, nonatomic) UIButton *actionButton;
-@property(readonly, retain, nonatomic) UILabel *subtitleLabel;
-@property(readonly, retain, nonatomic) UILabel *titleLabel;
+@property(readonly, nonatomic) UIButton *actionButton;
+@property(readonly, nonatomic) UILabel *subtitleLabel;
+@property(readonly, nonatomic) UILabel *titleLabel;
+- (void)_updateImageView;
+- (void)setImageViewImage:(id)arg1 withSize:(struct CGSize)arg2 animated:(_Bool)arg3;
+- (void)setPassSnapshotUsingDefaultSize:(id)arg1 animated:(_Bool)arg2;
+- (void)setPassSnapshotUsingDefaultSize:(id)arg1;
 - (void)dealloc;
 
 @end

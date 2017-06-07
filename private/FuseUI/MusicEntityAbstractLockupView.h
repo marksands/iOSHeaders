@@ -9,7 +9,7 @@
 #import <FuseUI/MPUTextDrawingCacheInvalidationObserver-Protocol.h>
 #import <FuseUI/MusicArtworkViewDelegate-Protocol.h>
 
-@class MusicArtworkView, MusicEntityPlaybackStatus, MusicEntityViewContentDescriptor, MusicPlayButton, NSMapTable, NSMutableArray, NSString, UIControl, UIImage, UIImageView, UITraitCollection;
+@class MusicArtworkView, MusicEntityViewContentDescriptor, NSMapTable, NSMutableArray, NSString, UIControl, UIImage, UIImageView, UITraitCollection;
 @protocol MusicEntityValueProviding;
 
 @interface MusicEntityAbstractLockupView : UIView <MPUTextDrawingCacheInvalidationObserver, MusicArtworkViewDelegate>
@@ -17,11 +17,9 @@
     _Bool _artworkConfigurationBlockEnabled;
     MusicArtworkView *_artworkView;
     UITraitCollection *_cachedTraitCollection;
-    MusicEntityPlaybackStatus *_currentPlaybackStatus;
     _Bool _hasDirtyPlaybackStatusUpdate;
     double _lastUsedArtworkViewAspectRatio;
     double _playbackCurrentTimeOriginatingTime;
-    MusicPlayButton *_playButton;
     NSMutableArray *_recycledTextButtons;
     NSMutableArray *_recycledTextDrawingViews;
     NSMapTable *_textDescriptorsToRecycledTextButtons;
@@ -51,7 +49,6 @@
 - (_Bool)_shouldEnableArtworkViewUserInteraction;
 - (_Bool)_shouldArtworkViewRespectHighlightProperty;
 - (void)_recycleTextViewsForTextDescriptors:(id)arg1;
-- (void)_playbackStatusDidChange:(id)arg1;
 - (id)_newArtworkView;
 - (void)_layoutArtworkViewWithAvailableContentBounds:(struct CGRect)arg1 layoutDirection:(long long)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)_handleArtworkViewTapped;
@@ -59,14 +56,11 @@
 - (void)_entityDisabledDidChange;
 @property(readonly, nonatomic, getter=_currentTextLabelAlpha) double _currentTextLabelAlpha;
 - (void)_contentDescriptorDidChange:(id)arg1;
-- (void)_configurePlayButtonForLayingOverArtworkRelativeToFrame:(struct CGRect)arg1;
-- (void)_configurePlayButtonVisualProperties:(id)arg1;
 - (void)_configureArtworkView:(id)arg1 forContentArtworkDescriptor:(id)arg2 entityValueProvider:(id)arg3;
 - (void)_configureArtworkCatalog:(id)arg1;
 - (void)_artworkViewImageDidChange;
 - (void)updateForAsynchronousPropertyLoadCompleted;
 - (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
-@property(readonly, nonatomic, getter=_playButton) MusicPlayButton *playButton;
 @property(readonly, nonatomic, getter=_addButton) UIControl *addButton;
 @property(readonly, nonatomic, getter=_artworkView) UIImageView *artworkView;
 - (void)musicArtworkViewDidTouchUpInside:(id)arg1;

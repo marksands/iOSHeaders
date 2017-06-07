@@ -36,6 +36,7 @@
 @property(copy, nonatomic) CDUnknownBlockType registrationCompletionHandler; // @synthesize registrationCompletionHandler=_registrationCompletionHandler;
 @property(retain, nonatomic) NSString *completionButtonTitle; // @synthesize completionButtonTitle=_completionButtonTitle;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)titledBuddyHeaderViewDidTapLinkButton:(id)arg1;
 - (void)confirmSubmissionIfNecessaryWithConfirmHandler:(CDUnknownBlockType)arg1 andCancelHandler:(CDUnknownBlockType)arg2;
 - (void)submitButtonTapped:(id)arg1;

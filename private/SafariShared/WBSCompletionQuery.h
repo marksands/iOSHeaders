@@ -6,13 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, NSURLRequest;
+@class NSArray, NSString, NSURLRequest;
 
 @interface WBSCompletionQuery : NSObject
 {
     NSString *_normalizedQueryStringForParsec;
     _Bool _forLastSearch;
     NSString *_queryString;
+    NSArray *_querySuggestions;
     NSString *_rewrittenQueryStringFromParsec;
     long long _queryID;
     unsigned long long _triggerEvent;
@@ -36,6 +37,7 @@
 @property(nonatomic) unsigned long long triggerEvent; // @synthesize triggerEvent=_triggerEvent;
 @property(nonatomic) long long queryID; // @synthesize queryID=_queryID;
 @property(copy, nonatomic) NSString *rewrittenQueryStringFromParsec; // @synthesize rewrittenQueryStringFromParsec=_rewrittenQueryStringFromParsec;
+@property(copy) NSArray *querySuggestions; // @synthesize querySuggestions=_querySuggestions;
 @property(nonatomic, getter=isForLastSearch) _Bool forLastSearch; // @synthesize forLastSearch=_forLastSearch;
 @property(readonly, nonatomic) NSString *queryString; // @synthesize queryString=_queryString;
 - (id).cxx_construct;

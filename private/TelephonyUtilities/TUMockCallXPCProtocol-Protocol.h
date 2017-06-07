@@ -9,7 +9,7 @@
 @class TUProxyCall;
 
 @protocol TUMockCallXPCProtocol <NSObject>
-- (void)confirmAllPendingMessagesReceivedWithReply:(void (^)(void))arg1;
-- (void)updateMockCallWithProxyCall:(TUProxyCall *)arg1;
+- (oneway void)confirmAllPendingMessagesReceivedWithReply:(void (^)(void))arg1;
+- (oneway void)updateMockCallWithProxyCall:(TUProxyCall *)arg1;
 @end
 

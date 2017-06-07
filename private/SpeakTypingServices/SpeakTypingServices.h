@@ -17,6 +17,7 @@
 
 + (id)sharedInstance;
 @property(retain, nonatomic) AXUIClient *speakTypingClient; // @synthesize speakTypingClient=_speakTypingClient;
+- (void).cxx_destruct;
 - (void)connectionWithServiceWasInterruptedForUserInterfaceClient:(id)arg1;
 - (void)initializeServerConnection;
 - (id)_clientIdentifier;
@@ -29,6 +30,8 @@
 - (void)setPhoneticFeedbackEnabled:(_Bool)arg1;
 - (void)setWordFeedbackEnabled:(_Bool)arg1;
 - (id)lastSpokenString;
+- (id)lastUsedVoiceIdentifier;
+- (void)setVoiceIdentifier:(id)arg1 forLanguage:(id)arg2;
 - (void)clearLastSpokenString;
 - (void)dealloc;
 - (id)init;

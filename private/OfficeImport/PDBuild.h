@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)description;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)setDrawable:(id)arg1;
 - (id)drawable;

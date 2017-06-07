@@ -42,7 +42,6 @@
 - (void)groupsController:(id)arg1 didInsertGroup:(id)arg2 atIndex:(unsigned long long)arg3;
 - (void)groupStackView:(id)arg1 didTransitionToState:(long long)arg2 animated:(_Bool)arg3;
 - (unsigned long long)suppressedContent;
-- (_Bool)passesGrowWhenFlipped;
 - (void)groupStackViewDidEndReordering:(id)arg1;
 - (void)groupStackViewDidBeginReordering:(id)arg1;
 - (void)groupStackView:(id)arg1 deleteConfirmedForPass:(id)arg2;

@@ -23,9 +23,9 @@
     struct CGSize _captionLabelSize;
 }
 
++ (id)localMediaItemForStoreIdentifiers:(id)arg1;
 + (id)font;
 + (id)playButton;
-+ (void)preheatImages;
 + (_Bool)supportsResult:(id)arg1;
 @property struct CGSize captionLabelSize; // @synthesize captionLabelSize=_captionLabelSize;
 @property struct CGSize playButtonSize; // @synthesize playButtonSize=_playButtonSize;
@@ -42,10 +42,11 @@
 - (void)nowPlayingController:(id)arg1 playbackStateDidChange:(_Bool)arg2;
 - (void)updateProgressForCurrentlyActiveTrackAnimated:(_Bool)arg1;
 - (void)nowPlayingController:(id)arg1 elapsedTimeDidChange:(double)arg2;
-- (_Bool)matchesNowPlayingItem;
+- (_Bool)matchesNowPlayingAudioItem;
 - (void)buttonPressed;
 - (id)fetchLocalMediaItem;
 - (void)updatePlayState;
+- (_Bool)shouldTopAlignForAccessibilityContentSizes;
 - (void)updateWithResult:(id)arg1;
 - (id)setupViewWithStyle:(unsigned long long)arg1;
 

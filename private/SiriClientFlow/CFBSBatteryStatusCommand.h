@@ -6,16 +6,28 @@
 
 #import <SAObjects/SADomainCommand.h>
 
-@interface CFBSBatteryStatusCommand : SADomainCommand
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
+
+@class NSString;
+
+@interface CFBSBatteryStatusCommand : SADomainCommand <CFLocalAceHandling>
 {
 }
 
 + (id)newAceObjectWithDictionary:(id)arg1 context:(id)arg2;
 + (id)commandWithDictionary:(id)arg1 context:(id)arg2;
 + (id)command;
++ (void)batteryDeviceControllerWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (void)handleWithCompletion:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

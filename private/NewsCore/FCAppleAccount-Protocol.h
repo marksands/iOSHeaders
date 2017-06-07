@@ -18,6 +18,8 @@
 @property(readonly, nonatomic) NSString *contentStoreFrontID;
 @property(readonly, nonatomic) NSString *userStoreFrontID;
 @property(readonly, nonatomic) NSString *DSID;
+- (_Bool)isPrimaryAccountEmailAddress;
+- (void)fetchIsHSA2WithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (NSString *)currentStoreFrontID;
 - (void)loadStoreFrontIfNeededWithCompletion:(void (^)(void))arg1;
 - (NSString *)iTunesAccountName;

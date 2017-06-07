@@ -6,13 +6,13 @@
 
 #import <PassKitUI/PKPassFaceView.h>
 
-@class PKBarcodeStickerView, PKLinkedAppIconView, UILabel, WLEasyToHitCustomButton;
+@class PKBarcodeStickerView, PKContinuousButton, PKLinkedAppIconView, UILabel, WLEasyToHitCustomButton;
 
 @interface PKPassFrontFaceView : PKPassFaceView
 {
     PKBarcodeStickerView *_barcodeView;
-    WLEasyToHitCustomButton *_flipButton;
-    WLEasyToHitCustomButton *_barcodeButton;
+    WLEasyToHitCustomButton *_infoButton;
+    PKContinuousButton *_barcodeButton;
     UILabel *_logoLabel;
     _Bool _showsLinkedApp;
     _Bool _showsInfo;
@@ -28,7 +28,7 @@
 @property(nonatomic) _Bool showsLinkedApp; // @synthesize showsLinkedApp=_showsLinkedApp;
 - (void).cxx_destruct;
 - (void)_barcodeButtonPressed;
-- (void)_flipButtonPressed;
+- (void)_infoButtonPressed;
 - (id)_relevantBuckets;
 @property(readonly, nonatomic) PKBarcodeStickerView *barcodeView;
 - (struct CGRect)barcodeFrame;
@@ -43,7 +43,6 @@
 - (id)passFaceTemplate;
 - (void)setClipsContent:(_Bool)arg1;
 - (struct CGSize)contentSize;
-- (_Bool)isFrontFace;
 - (void)setShowsBarcodeView:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setShowsBarcodeButton:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)insertContentView:(id)arg1 ofType:(long long)arg2;

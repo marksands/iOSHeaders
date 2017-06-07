@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSIndexPath, NSMutableArray, NSString, TKTonePickerItem, TLAlert, TLToneManager;
-@protocol TKTonePickerControllerDelegate;
+#import <ToneKit/TLToneStoreDownloadObserver-Protocol.h>
 
-@interface TKTonePickerController : NSObject
+@class NSArray, NSIndexPath, NSMutableArray, NSMutableDictionary, NSString, TKTonePickerItem, TLAlert, TLToneManager;
+@protocol TKTonePickerControllerDelegate, TLToneStoreDownloadController;
+
+@interface TKTonePickerController : NSObject <TLToneStoreDownloadObserver>
 {
     TLToneManager *_toneManager;
     unsigned long long _toneTypes;
@@ -17,14 +19,20 @@
     _Bool _selectedToneWasExplicitlySetToDefaultTone;
     _Bool _selectedVibrationIdentifierWasExplicitlySet;
     _Bool _showsNoneWasExplicitlySet;
+    _Bool _isToneStoreDownloadButtonAllowed;
+    long long _toneStoreDownloadButtonState;
+    NSMutableDictionary *_activeToneStoreDownloadsByIdentifier;
+    NSMutableDictionary *_finishedToneStoreDownloadsByIdentifier;
+    _Bool _shouldFreezeContentsOriginatingFromToneManager;
     _Bool _hasLoadedTonesOnce;
-    _Bool _shouldCachePickerItems;
     NSMutableArray *_cachedPickerSectionItems;
     NSMutableArray *_cachedPickerRowItems;
     NSMutableArray *_cachedClassicRingtonePickerItems;
     NSMutableArray *_cachedClassicAlertTonePickerItems;
+    NSArray *_installedTones;
     NSMutableArray *_toneGroupLists;
     NSMutableArray *_toneGroupNames;
+    NSMutableArray *_toneGroupBucketIdentifiers;
     TLAlert *_playingAlert;
     _Bool _showsDefault;
     _Bool _showsNone;
@@ -42,6 +50,7 @@
     NSString *_defaultToneIdentifier;
     NSString *_noneString;
     NSString *_selectedVibrationIdentifier;
+    id <TLToneStoreDownloadController> _toneStoreDownloadController;
     NSArray *__classicRingtoneIdentifiers;
     NSArray *__classicAlertToneIdentifiers;
     unsigned long long __selectedClassicRingtoneIndex;
@@ -49,12 +58,15 @@
     NSIndexPath *__selectedToneIndexPath;
 }
 
++ (void)_updateLatestRedownloadAllTonesDate;
++ (id)_latestRedownloadAllTonesDate;
 @property(nonatomic, setter=_setBehavesAsRingtonePicker:) _Bool _behavesAsRingtonePicker; // @synthesize _behavesAsRingtonePicker=__behavesAsRingtonePicker;
 @property(retain, nonatomic, setter=_setSelectedToneIndexPath:) NSIndexPath *_selectedToneIndexPath; // @synthesize _selectedToneIndexPath=__selectedToneIndexPath;
 @property(nonatomic, setter=_setSelectedClassicAlertToneIndex:) unsigned long long _selectedClassicAlertToneIndex; // @synthesize _selectedClassicAlertToneIndex=__selectedClassicAlertToneIndex;
 @property(nonatomic, setter=_setSelectedClassicRingtoneIndex:) unsigned long long _selectedClassicRingtoneIndex; // @synthesize _selectedClassicRingtoneIndex=__selectedClassicRingtoneIndex;
 @property(retain, nonatomic, setter=_setClassicAlertToneIdentifiers:) NSArray *_classicAlertToneIdentifiers; // @synthesize _classicAlertToneIdentifiers=__classicAlertToneIdentifiers;
 @property(retain, nonatomic, setter=_setClassicRingtoneIdentifiers:) NSArray *_classicRingtoneIdentifiers; // @synthesize _classicRingtoneIdentifiers=__classicRingtoneIdentifiers;
+@property(retain, nonatomic) id <TLToneStoreDownloadController> toneStoreDownloadController; // @synthesize toneStoreDownloadController=_toneStoreDownloadController;
 @property(nonatomic) _Bool ignoreMute; // @synthesize ignoreMute=_ignoreMute;
 @property(nonatomic) _Bool showsIgnoreMute; // @synthesize showsIgnoreMute=_showsIgnoreMute;
 @property(copy, nonatomic) NSString *selectedVibrationIdentifier; // @synthesize selectedVibrationIdentifier=_selectedVibrationIdentifier;
@@ -100,17 +112,28 @@
 - (void)stopPlayingWithFadeOut:(_Bool)arg1;
 - (void)_togglePlayForToneWithIdentifier:(id)arg1;
 - (void)_playToneWithIdentifier:(id)arg1;
+- (void)_redownloadAllTones;
 - (void)_goToStore;
+- (id)_nameForToneIdentifier:(id)arg1;
+- (id)_footerTextForToneStoreGroup;
+- (void)_disableToneStoreDownloadItem;
+- (_Bool)_enableToneStoreDownloadItemIfAppropriate;
+- (void)_didUpdateToneStoreDownloadItem;
+- (void)_didUpdateFooterTextForToneStoreGroup;
+- (void)toneStoreDownloadsDidFinish:(id)arg1;
+- (void)toneStoreDownloadsDidProgress:(id)arg1;
+- (void)toneStoreDownloadsDidStart:(id)arg1;
+- (void)didFinishCheckingForAvailableToneStoreDownloads:(_Bool)arg1;
+- (void)storeAccountNameDidChange:(id)arg1;
 @property(readonly, nonatomic) _Bool canShowStore;
 @property(retain, nonatomic, setter=_setToneManager:) TLToneManager *_toneManager;
 - (void)_sortToneIdentifiersArray:(id)arg1;
-- (void)_addRingtonesInDirectory:(id)arg1 toArray:(id)arg2 fileExtension:(id)arg3;
 - (id)_loadRingtonesFromPlist;
 - (id)_loadAlertTonesFromPlist;
 - (id)_loadTonesFromPlistNamed:(id)arg1;
 @property(readonly, nonatomic) NSString *_ringtonesPlistName;
 @property(readonly, nonatomic) NSString *_alertTonesPlistName;
-- (void)_reloadTonesForExternalChange:(_Bool)arg1;
+- (void)_reloadTonesForExternalChange:(_Bool)arg1 shouldSkipDelegateFullReload:(_Bool)arg2;
 - (void)_reloadTones;
 - (void)_reloadStateForBasicBehavior;
 - (_Bool)_didSelectToneClassicsPickerItem:(id)arg1;
@@ -126,34 +149,41 @@
 - (id)_identifierOfToneAtIndexPath:(id)arg1;
 - (id)_indexPathForToneWithIdentifier:(id)arg1;
 - (_Bool)_isDividerAtIndexPath:(id)arg1;
-- (_Bool)_isVibrationGroupAtIndexPath:(id)arg1;
 - (_Bool)_isMediaGroupAtIndexPath:(id)arg1;
 - (_Bool)_isNoneGroupAtIndexPath:(id)arg1;
 - (_Bool)_isDefaultGroupAtIndexPath:(id)arg1;
-- (_Bool)_isIgnoreMuteGroupAtIndexPath:(id)arg1;
 - (_Bool)_isToneStoreGroupAtIndexPath:(id)arg1;
+- (_Bool)_isVibrationGroupAtIndexPath:(id)arg1;
+- (_Bool)_isIgnoreMuteGroupAtIndexPath:(id)arg1;
 @property(readonly, nonatomic) NSIndexPath *indexPathForSelectedTone;
-@property(readonly, nonatomic) NSIndexPath *_indexPathForVibrationGroup;
 @property(readonly, nonatomic) NSIndexPath *_indexPathForNone;
 @property(readonly, nonatomic) NSIndexPath *_indexPathForMediaGroup;
 @property(readonly, nonatomic) NSIndexPath *_indexPathForFirstToneGroup;
 @property(readonly, nonatomic) NSIndexPath *_indexPathForDefaultGroup;
-- (id)_indexPathForIgnoreMuteGroup;
+- (id)_indexPathForToneStoreDownloadItem;
 @property(readonly, nonatomic) NSIndexPath *_indexPathForToneStoreGroup;
+@property(readonly, nonatomic) NSIndexPath *_indexPathForVibrationGroup;
+- (id)_indexPathForIgnoreMuteGroup;
 - (void)_invalidatePickerItemCaches;
 - (void)_cacheToneClassicsPickerItem:(id)arg1 forIndex:(long long)arg2 headerKind:(unsigned long long)arg3;
 - (id)_cachedToneClassicsPickerItemForIndex:(long long)arg1 headerKind:(unsigned long long)arg2;
+- (void)_uncachePickerRowItemAtIndex:(long long)arg1 inSectionForItem:(id)arg2;
 - (void)_cachePickerRowItem:(id)arg1 atIndex:(long long)arg2 inSectionForItem:(id)arg3;
 - (id)_cachedPickerRowItemAtIndex:(long long)arg1 inSectionForItem:(id)arg2;
-- (void)_cachePickerRowItem:(id)arg1 forSection:(long long)arg2;
+- (void)_cachePickerSectionItem:(id)arg1 forSection:(long long)arg2;
 - (id)_cachedPickerItemForSection:(long long)arg1;
-@property(nonatomic, setter=_setShouldCachePickerItems:) _Bool _shouldCachePickerItems;
 - (id)_toneClassicsPickerItemAtIndex:(long long)arg1 belowTonePickerItem:(id)arg2;
 - (id)_pickerRowItemAtIndex:(long long)arg1 inSectionForItem:(id)arg2;
 - (id)pickerItemForSection:(long long)arg1;
 - (long long)numberOfSections;
 - (void)dealloc;
 - (id)initWithAlertType:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -23,7 +23,6 @@
 + (id)newLegacyTombstoneWithIdentifier:(id)arg1 type:(short)arg2 context:(id)arg3;
 + (id)legacyTombstoneWithIdentifier:(id)arg1 context:(id)arg2;
 + (id)legacyTombstonesMatchingPredicate:(id)arg1 context:(id)arg2;
-+ (id)allCloudObjectsInContext:(id)arg1;
 + (id)newCloudObjectForRecord:(id)arg1 context:(id)arg2;
 + (id)existingCloudObjectForRecordID:(id)arg1 context:(id)arg2;
 + (_Bool)hasTombstonePrefix:(id)arg1;

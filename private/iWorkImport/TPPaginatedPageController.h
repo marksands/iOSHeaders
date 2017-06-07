@@ -14,12 +14,14 @@ __attribute__((visibility("hidden")))
     TPTextWrapController *_wrapController;
 }
 
+- (void).cxx_destruct;
+- (_Bool)p_couldBeFirstPageIndex:(unsigned long long)arg1 forPartitionedAttachmentCharIndex:(unsigned long long)arg2;
 - (unsigned long long)p_backupPageIndexForCharIndex:(unsigned long long)arg1;
 - (struct _NSRange)p_pageRangeAffectedByInfo:(id)arg1;
 - (void)p_rebuildPageLayoutsContainingDrawableUUIDs:(id)arg1;
 - (void)p_performWithCachedPageLayouts:(CDUnknownBlockType)arg1;
-- (void)p_rebuildCachedLayoutChildrenFromStartPage:(unsigned long long)arg1 toEndPage:(unsigned long long)arg2 setNeedsLayout:(_Bool)arg3;
-- (void)syncProcessChanges:(id)arg1 forChangeSource:(id)arg2;
+- (void)i_rebuildCachedLayoutChildrenFromStartPage:(unsigned long long)arg1 toEndPage:(unsigned long long)arg2 setNeedsLayout:(_Bool)arg3;
+- (void)preprocessChanges:(id)arg1 forChangeSource:(id)arg2;
 - (void)processHeaderFooterPropertyChanged;
 - (id)textWrapper;
 - (struct CGSize)canvasSizeToFitAllPages;

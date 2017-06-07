@@ -4,51 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <GeoServices/GEOAbstractMapServiceTicket.h>
 
-#import <GeoServices/GEOMapServiceTicket-Protocol.h>
-
-@class GEOMapRegion, GEOMapServiceTraits, GEORelatedSearchSuggestion, NSArray, NSDictionary, NSString;
+@class NSArray;
 
 __attribute__((visibility("hidden")))
-@interface _GEOPhoneNumbersTicket : NSObject <GEOMapServiceTicket>
+@interface _GEOPhoneNumbersTicket : GEOAbstractMapServiceTicket
 {
     NSArray *_phoneNumbers;
-    GEOMapServiceTraits *_traits;
-    _Bool _canceled;
     _Bool _allowCellularDataForLookup;
 }
 
-@property(readonly, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
-@property(readonly, nonatomic, getter=isCanceled) _Bool canceled; // @synthesize canceled=_canceled;
-- (void)applyToPlaceInfo:(id)arg1;
-- (void)applyToCorrectedSearch:(id)arg1;
-- (void)cancel;
-- (void)submitWithRefinedHandler:(CDUnknownBlockType)arg1 timeout:(long long)arg2 networkActivity:(CDUnknownBlockType)arg3 queue:(id)arg4;
-- (void)submitWithRefinedHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2 queue:(id)arg3;
-- (void)submitWithHandler:(CDUnknownBlockType)arg1 timeout:(long long)arg2 networkActivity:(CDUnknownBlockType)arg3 queue:(id)arg4;
-- (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2 queue:(id)arg3;
-- (void)submitWithRefinedHandler:(CDUnknownBlockType)arg1 timeout:(long long)arg2 networkActivity:(CDUnknownBlockType)arg3;
+- (void).cxx_destruct;
 - (void)submitWithHandler:(CDUnknownBlockType)arg1 timeout:(long long)arg2 networkActivity:(CDUnknownBlockType)arg3;
-- (void)submitWithRefinedHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
-- (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) _Bool shouldEnableRedoSearch;
-@property(readonly, nonatomic) NSString *resultDisplayHeader;
-@property(readonly, nonatomic) int searchResultType;
-@property(readonly, nonatomic) NSString *resultSectionHeader;
-@property(readonly, nonatomic, getter=isChainResultSet) _Bool chainResultSet;
-@property(readonly, nonatomic) GEORelatedSearchSuggestion *defaultRelatedSuggestion;
-@property(readonly, nonatomic) NSArray *relatedSearchSuggestions;
-@property(readonly, nonatomic) GEOMapRegion *resultBoundingRegion;
-@property(readonly, nonatomic) NSDictionary *responseUserInfo;
-@property(readonly, copy) NSString *description;
-- (void)dealloc;
+- (id)description;
 - (id)initWithPhoneNumbers:(id)arg1 allowCellularDataForLookup:(_Bool)arg2 traits:(id)arg3;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

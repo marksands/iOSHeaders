@@ -22,10 +22,12 @@
     double _defaultTruncatedTextMinimumScaleFactor;
     double _textAutoscalingPrecision;
     long long _deviceGraphicsQuality;
+    double _simulatedSafeAreaHorizontalInsets;
 }
 
 + (id)sharedInstance;
 + (id)settingsControllerModule;
+@property(nonatomic) double simulatedSafeAreaHorizontalInsets; // @synthesize simulatedSafeAreaHorizontalInsets=_simulatedSafeAreaHorizontalInsets;
 @property(nonatomic) long long deviceGraphicsQuality; // @synthesize deviceGraphicsQuality=_deviceGraphicsQuality;
 @property(nonatomic) _Bool useFancyDarkening; // @synthesize useFancyDarkening=_useFancyDarkening;
 @property(nonatomic) _Bool drawTypographicGuidelines; // @synthesize drawTypographicGuidelines=_drawTypographicGuidelines;
@@ -41,6 +43,7 @@
 @property(nonatomic) long long defaultLabelTypesettingMode; // @synthesize defaultLabelTypesettingMode=_defaultLabelTypesettingMode;
 @property(nonatomic) _Bool defaultAsyncTextRenderingEnabled; // @synthesize defaultAsyncTextRenderingEnabled=_defaultAsyncTextRenderingEnabled;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

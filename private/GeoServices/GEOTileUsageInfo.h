@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class NSString, NSURLSessionTaskMetrics;
+@class GEOClientMetrics;
 
 @interface GEOTileUsageInfo : NSObject
 {
@@ -18,14 +18,12 @@
     unsigned long long _requestSize;
     double _queuedTime;
     double _decodingTime;
-    NSString *_remoteAddressAndPort;
     int _httpResponseStatusCode;
-    NSURLSessionTaskMetrics *_metrics;
+    GEOClientMetrics *_metrics;
 }
 
-@property(readonly, nonatomic) NSURLSessionTaskMetrics *metrics; // @synthesize metrics=_metrics;
+@property(readonly, nonatomic) GEOClientMetrics *metrics; // @synthesize metrics=_metrics;
 @property(nonatomic) int httpResponseStatusCode; // @synthesize httpResponseStatusCode=_httpResponseStatusCode;
-@property(copy, nonatomic) NSString *remoteAddressAndPort; // @synthesize remoteAddressAndPort=_remoteAddressAndPort;
 @property(nonatomic) double decodingTime; // @synthesize decodingTime=_decodingTime;
 @property(nonatomic) double queuedTime; // @synthesize queuedTime=_queuedTime;
 @property(nonatomic) unsigned long long requestSize; // @synthesize requestSize=_requestSize;
@@ -34,11 +32,11 @@
 @property(readonly, nonatomic) int tileStyle; // @synthesize tileStyle=_tileStyle;
 @property(nonatomic) double endTime; // @synthesize endTime=_endTime;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (int)resourceFetchType;
 - (int)protocolType;
-- (id)initWithTileKey:(const struct _GEOTileKey *)arg1 withTileUsageData:(id)arg2 andURLMetrics:(id)arg3;
+- (id)initWithTileKey:(const struct _GEOTileKey *)arg1 withTileUsageData:(id)arg2 andMetrics:(id)arg3;
 
 @end
 

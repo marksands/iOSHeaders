@@ -7,6 +7,7 @@
 #import <IMCore/IMSPIMessage.h>
 
 @interface IMSPIMessage (CFAdditions)
++ (_Bool)messagesForGUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (_Bool)messagesForIdentifier:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)messagesForURLs:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (long long)messageRowIDForURL:(id)arg1;

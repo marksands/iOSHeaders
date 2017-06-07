@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSData, NSMutableURLRequest, NSString, NSURL, NSURLRequest, NSURLResponse, WebArchive, WebFrame, WebResource;
+@class NSArray, NSData, NSDictionary, NSMutableURLRequest, NSString, NSURL, NSURLRequest, NSURLResponse, WebArchive, WebFrame, WebResource;
 @protocol WebDocumentRepresentation;
 
 @interface WebDataSource : NSObject
@@ -35,6 +35,7 @@
 - (void)dealloc;
 - (id)initWithRequest:(id)arg1;
 - (void)_setRepresentation:(id)arg1;
+@property(copy, nonatomic, setter=_setQuickLookContent:) NSDictionary *_quickLookContent;
 - (id)dataSourceDelegate;
 - (void)setDataSourceDelegate:(id)arg1;
 - (void)_setAllowToBeMemoryMapped;

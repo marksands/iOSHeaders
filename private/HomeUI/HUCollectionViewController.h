@@ -6,19 +6,28 @@
 
 #import <UIKit/UICollectionViewController.h>
 
-@class NSMapTable;
+#import <HomeUI/HUResizableCellDelegate-Protocol.h>
 
-@interface HUCollectionViewController : UICollectionViewController
+@class NSMapTable, NSString;
+
+@interface HUCollectionViewController : UICollectionViewController <HUResizableCellDelegate>
 {
     NSMapTable *_installedChildViewControllersKeyedByCell;
 }
 
 @property(retain, nonatomic) NSMapTable *installedChildViewControllersKeyedByCell; // @synthesize installedChildViewControllersKeyedByCell=_installedChildViewControllersKeyedByCell;
 - (void).cxx_destruct;
+- (void)didUpdateRequiredHeightForCell:(id)arg1;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)initWithCollectionViewLayout:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

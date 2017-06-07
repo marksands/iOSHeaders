@@ -6,7 +6,7 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOLogMessage, GEOLogMsgState, NSObject;
+@class GEOLogMessage, GEOLogMsgState, NSDictionary, NSObject;
 @protocol GEOLogAdaptor, OS_dispatch_queue;
 
 @protocol GEOLogAdaptor <NSObject>
@@ -14,12 +14,13 @@
 - (_Bool)isLogFrameworkAdaptor;
 - (void)flushLogs;
 - (void)queueLogMessage:(GEOLogMessage *)arg1;
-- (_Bool)acceptsLogMessageOfType:(int)arg1 subType:(int)arg2;
+- (_Bool)acceptsLogMessageOfType:(int)arg1;
 
 @optional
 - (void)forceFlushLogs;
 - (void)disableLogMsgInstrumentation;
 - (void)enableLogMsgInstrumentation;
+- (void)updateAdaptorPolicyConfiguration:(NSDictionary *)arg1;
 - (void)unregisterLogMsgStateOfType:(int)arg1;
 - (void)registerLogMsgState:(GEOLogMsgState *)arg1;
 - (void)adaptorDidGetRemoved:(id <GEOLogAdaptor>)arg1;

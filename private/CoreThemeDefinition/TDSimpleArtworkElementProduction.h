@@ -18,6 +18,7 @@
 // Remaining properties
 @property(nonatomic) _Bool isFlippable; // @dynamic isFlippable;
 @property(nonatomic) _Bool optOutOfThinning; // @dynamic optOutOfThinning;
+@property(nonatomic) _Bool preservesVectorRepresentation; // @dynamic preservesVectorRepresentation;
 @property(retain, nonatomic) TDTemplateRenderingMode *templateRenderingMode; // @dynamic templateRenderingMode;
 
 @end

@@ -31,6 +31,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)_continue;
 - (void)_peerProcessedMessageWithIdentifier:(id)arg1 userInfo:(id)arg2;
 - (void)_sentMessageWithIdentifier:(id)arg1 userInfo:(id)arg2;
 - (void)_resolvedIdentifier:(id)arg1 forResponse:(id)arg2;

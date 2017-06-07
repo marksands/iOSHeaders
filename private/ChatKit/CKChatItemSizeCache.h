@@ -8,7 +8,7 @@
 
 #import <ChatKit/IMSystemMonitorListener-Protocol.h>
 
-@class IMDoubleLinkedList, IMScheduledUpdater, NSMutableDictionary;
+@class IMDoubleLinkedList, IMScheduledUpdater, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue;
 
 @interface CKChatItemSizeCache : NSObject <IMSystemMonitorListener>
@@ -18,11 +18,13 @@
     IMDoubleLinkedList *_orderedKeys;
     NSObject<OS_dispatch_queue> *_cacheDiskQueue;
     IMScheduledUpdater *_evictionUpdater;
+    NSString *_preferredLocalization;
 }
 
 + (id)test_cachePath;
 + (id)sharedInstance;
 @property(nonatomic) _Bool test_throwExceptionDuringInflate; // @synthesize test_throwExceptionDuringInflate=_test_throwExceptionDuringInflate;
+@property(retain, nonatomic) NSString *preferredLocalization; // @synthesize preferredLocalization=_preferredLocalization;
 @property(retain, nonatomic) IMScheduledUpdater *evictionUpdater; // @synthesize evictionUpdater=_evictionUpdater;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cacheDiskQueue; // @synthesize cacheDiskQueue=_cacheDiskQueue;
 @property(retain, nonatomic) IMDoubleLinkedList *orderedKeys; // @synthesize orderedKeys=_orderedKeys;

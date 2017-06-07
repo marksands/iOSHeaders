@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <FlightUtilities/NSCopying-Protocol.h>
 #import <FlightUtilities/NSSecureCoding-Protocol.h>
 
 @class FUAirport, FUStepTime, NSNumber, NSString;
 
-@interface FUFlightStep : NSObject <NSSecureCoding>
+@interface FUFlightStep : NSObject <NSSecureCoding, NSCopying>
 {
     FUAirport *_airport;
     NSString *_gate;
@@ -21,9 +22,11 @@
     FUStepTime *_scheduledTime;
     FUStepTime *_plannedTime;
     FUStepTime *_estimatedTime;
+    FUStepTime *_runwayTime;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain) FUStepTime *runwayTime; // @synthesize runwayTime=_runwayTime;
 @property(retain) FUStepTime *estimatedTime; // @synthesize estimatedTime=_estimatedTime;
 @property(retain) FUStepTime *plannedTime; // @synthesize plannedTime=_plannedTime;
 @property(retain) FUStepTime *scheduledTime; // @synthesize scheduledTime=_scheduledTime;

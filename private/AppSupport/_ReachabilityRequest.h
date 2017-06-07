@@ -19,7 +19,7 @@
     _Bool _receivedAtLeastOneCallback;
 }
 
-@property(nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
+@property(readonly, nonatomic) NSString *hostname; // @synthesize hostname=_hostname;
 - (_Bool)hasObservers;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1 selector:(SEL)arg2;

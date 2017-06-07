@@ -12,6 +12,7 @@
 + (id)tsp_dataFromDispatchData:(id)arg1;
 + (id)tsp_dataWithContentsOfURL:(id)arg1 decryptionKey:(id)arg2;
 - (void)tsp_splitDataWithMaxSize:(unsigned long long)arg1 subdataHandlerBlock:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) unsigned long long tsp_length;
 - (id)tsp_dispatchDataWithApplier:(CDUnknownBlockType)arg1;
 - (id)tsp_dispatchData;
 - (_Bool)tsp_writeToURL:(id)arg1 encryptionKey:(id)arg2;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/XBSnapshotDataProvider-Protocol.h>
 
@@ -14,12 +14,12 @@
 {
     XBDisplaySnapshot *_snapshot;
     UIImage *_cachedImage;
+    XBSnapshotDataProviderContext *_context;
 }
 
-- (void)_invalidateSnapshotData;
+@property(readonly, retain, nonatomic) XBSnapshotDataProviderContext *context; // @synthesize context=_context;
+- (void).cxx_destruct;
 - (id)fetchImage;
-@property(readonly, retain, nonatomic) XBSnapshotDataProviderContext *context;
-- (void)dealloc;
 - (id)initWithRequest:(id)arg1 contextID:(unsigned int)arg2;
 
 // Remaining properties

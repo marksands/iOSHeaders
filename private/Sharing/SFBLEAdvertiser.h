@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CUBitCoder, CURetrier, NSData, NSDictionary, NSString;
+@class CURetrier, NSArray, NSData, NSDictionary, NSString;
 @protocol OS_dispatch_queue;
 
 @interface SFBLEAdvertiser : NSObject
@@ -14,7 +14,6 @@
     _Bool _activateCalled;
     long long _advertiseState;
     _Bool _invalidateCalled;
-    CUBitCoder *_payloadCoder;
     NSData *_payloadDataCurrent;
     NSData *_payloadDataPrevious;
     NSDictionary *_payloadFields;
@@ -28,8 +27,10 @@
     CDUnknownBlockType _connectionHandler;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _invalidationHandler;
+    NSArray *_lePipeDevices;
 }
 
+@property(copy, nonatomic) NSArray *lePipeDevices; // @synthesize lePipeDevices=_lePipeDevices;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(copy, nonatomic) CDUnknownBlockType connectionHandler; // @synthesize connectionHandler=_connectionHandler;
@@ -47,7 +48,6 @@
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setPayloadFields:(id)arg1;
 - (void)setPayloadData:(id)arg1;
-- (void)setPayloadCoder:(id)arg1 fields:(id)arg2 identifier:(id)arg3;
 - (id)description;
 - (void)dealloc;
 - (id)init;

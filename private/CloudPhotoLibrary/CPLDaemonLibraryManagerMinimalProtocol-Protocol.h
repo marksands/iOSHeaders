@@ -7,6 +7,9 @@
 @class CPLResource, NSArray, NSString, NSURL;
 
 @protocol CPLDaemonLibraryManagerMinimalProtocol
+- (void)unblockEngineElementOnce:(NSString *)arg1;
+- (void)unblockEngineElement:(NSString *)arg1;
+- (void)blockEngineElement:(NSString *)arg1;
 - (void)addInfoToLog:(NSString *)arg1;
 - (void)compactFileCacheWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)getResourcesForItemWithIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *, NSArray *))arg2;
@@ -15,14 +18,19 @@
 - (void)getStatusArrayForComponents:(NSArray *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 - (void)getStatusForComponents:(NSArray *)arg1 completionHandler:(void (^)(NSString *, NSError *))arg2;
 - (void)getListOfComponentsWithCompletionHandler:(void (^)(NSArray *, NSError *))arg1;
-- (void)resetCacheWithOption:(unsigned long long)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (void)resetCacheWithOption:(unsigned long long)arg1 reason:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)setDiagnosticsEnabled:(_Bool)arg1;
 - (void)noteClientIsEndingSignificantWork;
 - (void)noteClientIsBeginningSignificantWork;
 - (void)enableMingling;
 - (void)disableMingling;
+- (void)setShouldOverride:(_Bool)arg1 forSystemBudgets:(unsigned long long)arg2;
+- (void)getSystemBudgetsWithCompletionHandler:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)enableSynchronizationWithReason:(NSString *)arg1;
 - (void)disableSynchronizationWithReason:(NSString *)arg1;
+- (void)addStatusChangesForRecordsWithIdentifiers:(NSArray *)arg1 persist:(_Bool)arg2;
+- (void)getChangedStatusesWithCompletionHandler:(void (^)(NSArray *, NSError *))arg1;
+- (void)getStatusForRecordsWithIdentifiers:(NSArray *)arg1 completionHandler:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)checkHasBackgroundDownloadOperationsWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)noteClientIsInBackground;
 - (void)noteClientIsInForeground;

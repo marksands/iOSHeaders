@@ -12,11 +12,11 @@ __attribute__((visibility("hidden")))
     struct __CTFont *_ctFont;
 }
 
-+ (id)cacheValueWithCTFont:(struct __CTFont *)arg1;
-@property(readonly, nonatomic) struct __CTFont *ctFont; // @synthesize ctFont=_ctFont;
++ (id)cacheValueWithCTFont:(const struct __CTFont *)arg1;
+@property(readonly, nonatomic) const struct __CTFont *ctFont; // @synthesize ctFont=_ctFont;
 - (id)description;
 - (void)dealloc;
-- (id)initWithCTFont:(struct __CTFont *)arg1;
+- (id)initWithCTFont:(const struct __CTFont *)arg1;
 
 @end
 

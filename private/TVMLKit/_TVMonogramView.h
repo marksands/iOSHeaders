@@ -20,6 +20,7 @@
     UIImage *_image;
     UIImage *_placeholderImage;
     double _unfocusedImageAlpha;
+    UIView *_overlayView;
     CDUnknownBlockType _pressCompletionBlock;
     _TVImageView *_imageView;
     TVImageProxy *_imageProxy;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) TVImageProxy *imageProxy; // @synthesize imageProxy=_imageProxy;
 @property(retain, nonatomic) _TVImageView *imageView; // @synthesize imageView=_imageView;
 @property(copy, nonatomic) CDUnknownBlockType pressCompletionBlock; // @synthesize pressCompletionBlock=_pressCompletionBlock;
+@property(retain, nonatomic) UIView *overlayView; // @synthesize overlayView=_overlayView;
 @property(nonatomic) double unfocusedImageAlpha; // @synthesize unfocusedImageAlpha=_unfocusedImageAlpha;
 @property(retain, nonatomic) UIImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
@@ -42,6 +44,7 @@
 - (void)setPressed:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_updateAppearanceForSelectionStateWithCoordinator:(id)arg1;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2 withAnimationCoordinator:(id)arg3;
+- (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1 configuration:(id)arg2;

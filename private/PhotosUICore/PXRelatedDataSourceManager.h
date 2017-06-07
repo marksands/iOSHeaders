@@ -38,7 +38,7 @@
 @property(nonatomic) unsigned long long initialBatchSize; // @synthesize initialBatchSize=__initialBatchSize;
 - (void).cxx_destruct;
 - (id)_referenceAssetForReferenceObject:(id)arg1;
-- (id)_keyAssetForRelatedCollection:(id)arg1 referenceAsset:(id)arg2;
+- (id)_keyAssetFetchResultForRelatedCollection:(id)arg1 referenceAsset:(id)arg2;
 - (id)_collectionListRelatedToObject:(id)arg1;
 - (id)_referenceObjectFromCollectionListFetchResult:(id)arg1;
 - (void)_continueBackgroundLoadWithReferenceObject:(id)arg1 relatedCollections:(id)arg2;

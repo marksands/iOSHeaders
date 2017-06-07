@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <BookmarkDAV/CoreDAVContainerInfoTaskGroupDelegate-Protocol.h>
 #import <BookmarkDAV/CoreDAVDeleteTaskDelegate-Protocol.h>
 #import <BookmarkDAV/CoreDAVGetAccountPropertiesTaskGroupDelegate-Protocol.h>
 #import <BookmarkDAV/CoreDAVLocalDBTreeInfoProvider-Protocol.h>
 
-@class BookmarkDAVSyncData, NSDictionary, NSMutableSet, NSString, NSURL;
+@class BookmarkDAVSyncData, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSURL;
 @protocol CoreDAVAccountInfoProvider, CoreDAVTaskManager;
 
 @interface BookmarkDAVSyncDriver : NSObject <CoreDAVLocalDBTreeInfoProvider, CoreDAVDeleteTaskDelegate, CoreDAVGetAccountPropertiesTaskGroupDelegate, CoreDAVContainerInfoTaskGroupDelegate>
@@ -33,6 +33,10 @@
     CDUnknownBlockType _registerForPush;
     _Bool _forceSafariOrdering;
     _Bool _forceSave;
+    _Bool _inboundOnlySyncRequested;
+    NSMutableSet *_serverIDsAddedUponInboundOnlySync;
+    NSMutableSet *_serverIDsRemovedUponInboundOnlySync;
+    NSMutableDictionary *_inboundMovedBookmarkServerIDMap;
     unsigned long long _accountPropertyFetchAttempt;
 }
 

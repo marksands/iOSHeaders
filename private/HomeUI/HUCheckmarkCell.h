@@ -6,15 +6,34 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@interface HUCheckmarkCell : UITableViewCell
+#import <HomeUI/HUDisableableCellProtocol-Protocol.h>
+
+@class HUTitleDescriptionContentView, NSString;
+@protocol HFStringGenerator;
+
+@interface HUCheckmarkCell : UITableViewCell <HUDisableableCellProtocol>
 {
+    _Bool _disabled;
     _Bool _checked;
+    HUTitleDescriptionContentView *_titleDescriptionView;
 }
 
 + (id)_emptyCheckmarkPlaceholderImage;
+@property(retain, nonatomic) HUTitleDescriptionContentView *titleDescriptionView; // @synthesize titleDescriptionView=_titleDescriptionView;
 @property(nonatomic) _Bool checked; // @synthesize checked=_checked;
+@property(nonatomic, getter=isDisabled) _Bool disabled; // @synthesize disabled=_disabled;
+- (void).cxx_destruct;
+- (void)_setupConstraints;
+@property(retain, nonatomic) id <HFStringGenerator> descriptionText;
+@property(retain, nonatomic) id <HFStringGenerator> titleText;
 - (void)prepareForReuse;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

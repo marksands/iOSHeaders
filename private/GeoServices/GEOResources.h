@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_attributions;
     NSString *_authToken;
     NSString *_batchReverseGeocoderURL;
+    NSString *_batchTrafficProbeURL;
     NSString *_businessPortalBaseURL;
     NSMutableArray *_dataSetURLOverrides;
     NSMutableArray *_dataSets;
@@ -34,11 +35,14 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_locationShiftEnabledRegions;
     unsigned int _locationShiftVersion;
     NSString *_logMessageUsageURL;
+    NSString *_logMessageUsageV3URL;
     NSString *_polyLocationShiftURL;
+    NSString *_proactiveRoutingURL;
     NSString *_problemCategoriesURL;
     NSString *_problemOptInURL;
     NSString *_problemStatusURL;
     NSString *_problemSubmissionURL;
+    NSString *_realtimeTrafficProbeURL;
     NSMutableArray *_regionalResources;
     NSString *_releaseInfo;
     NSMutableArray *_resources;
@@ -80,6 +84,10 @@ __attribute__((visibility("hidden")))
 + (Class)styleSheetType;
 + (Class)tileSetType;
 + (Class)tileGroupType;
+@property(retain, nonatomic) NSString *logMessageUsageV3URL; // @synthesize logMessageUsageV3URL=_logMessageUsageV3URL;
+@property(retain, nonatomic) NSString *proactiveRoutingURL; // @synthesize proactiveRoutingURL=_proactiveRoutingURL;
+@property(retain, nonatomic) NSString *batchTrafficProbeURL; // @synthesize batchTrafficProbeURL=_batchTrafficProbeURL;
+@property(retain, nonatomic) NSString *realtimeTrafficProbeURL; // @synthesize realtimeTrafficProbeURL=_realtimeTrafficProbeURL;
 @property(retain, nonatomic) NSMutableArray *dataSetURLOverrides; // @synthesize dataSetURLOverrides=_dataSetURLOverrides;
 @property(retain, nonatomic) NSMutableArray *dataSets; // @synthesize dataSets=_dataSets;
 @property(retain, nonatomic) NSString *spatialLookupURL; // @synthesize spatialLookupURL=_spatialLookupURL;
@@ -122,6 +130,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *styleSheets; // @synthesize styleSheets=_styleSheets;
 @property(retain, nonatomic) NSMutableArray *tileSets; // @synthesize tileSets=_tileSets;
 @property(retain, nonatomic) NSMutableArray *tileGroups; // @synthesize tileGroups=_tileGroups;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -131,6 +140,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasLogMessageUsageV3URL;
+@property(readonly, nonatomic) _Bool hasProactiveRoutingURL;
+@property(readonly, nonatomic) _Bool hasBatchTrafficProbeURL;
+@property(readonly, nonatomic) _Bool hasRealtimeTrafficProbeURL;
 - (id)dataSetURLOverrideAtIndex:(unsigned long long)arg1;
 - (unsigned long long)dataSetURLOverridesCount;
 - (void)addDataSetURLOverride:(id)arg1;
@@ -232,7 +245,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)tileGroupsCount;
 - (void)addTileGroup:(id)arg1;
 - (void)clearTileGroups;
-- (void)dealloc;
 - (void)workAround24919568IfNecessary;
 - (void)convertFromLegacyFormat;
 

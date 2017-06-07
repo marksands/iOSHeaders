@@ -6,7 +6,6 @@
 
 #import <objc/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface __CNCallStack : NSObject
 {
     void **_frames;

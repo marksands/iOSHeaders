@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     unsigned int _attachment;
     NSString *_name;
     NSArray *_textureParameters;
-    struct CGSize _size;
+    struct CGSize _textureSize;
 }
 
 + (id)textureConfigWithSize:(struct CGSize)arg1 name:(id)arg2;
@@ -31,7 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int GLType; // @synthesize GLType=_GLType;
 @property(readonly, nonatomic) unsigned int GLFormat; // @synthesize GLFormat=_GLFormat;
 @property(readonly, nonatomic) int GLInternalFormat; // @synthesize GLInternalFormat=_GLInternalFormat;
-@property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
+@property(readonly, nonatomic) struct CGSize size; // @synthesize size=_textureSize;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithSize:(struct CGSize)arg1 internalFormat:(int)arg2 format:(unsigned int)arg3 type:(unsigned int)arg4 attachment:(unsigned int)arg5 textureParameters:(id)arg6 name:(id)arg7;

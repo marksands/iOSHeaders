@@ -20,6 +20,7 @@
 + (_Bool)_hadUserEventSinceIntervalAgo:(double)arg1;
 + (void)noteSuccessOfRequest:(id)arg1 inCar:(_Bool)arg2;
 + (void)noteConnectedToCarPlayHeadunit;
++ (void)logCDMAssetEvictedForAssetType:(id)arg1 language:(id)arg2;
 + (void)logDESEvaluationForLanguage:(id)arg1 error:(id)arg2;
 + (void)logDESRecordingForLanguage:(id)arg1 error:(id)arg2;
 + (void)logLocalRecognitionLostForLanguage:(id)arg1;

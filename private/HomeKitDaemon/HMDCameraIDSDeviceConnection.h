@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDCameraRemoteStreamProtocol-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegate-Protocol.h>
 
-@class HMDCameraSessionID, HMFTimer, IDSDevice, IDSDeviceConnection, IDSService, NSString;
+@class HMDCameraSessionID, HMFTimer, IDSDevice, IDSDeviceConnection, IDSService, NSObject, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
-@interface HMDCameraIDSDeviceConnection : NSObject <IDSServiceDelegate, HMDCameraRemoteStreamProtocol, HMFTimerDelegate, HMFLogging>
+@interface HMDCameraIDSDeviceConnection : HMFObject <IDSServiceDelegate, HMDCameraRemoteStreamProtocol, HMFTimerDelegate, HMFLogging>
 {
     unsigned char _keepAliveCounter;
     NSObject<OS_dispatch_queue> *_workQueue;

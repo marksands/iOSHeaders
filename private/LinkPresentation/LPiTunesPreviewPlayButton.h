@@ -26,9 +26,10 @@ __attribute__((visibility("hidden")))
 - (void)buttonPressed:(id)arg1;
 - (void)updateToState:(long long)arg1;
 @property(readonly, nonatomic) _Bool shouldUnmuteWhenUserAdjustsVolume;
+@property(readonly, nonatomic, getter=isFullScreen) _Bool fullScreen;
 @property(readonly, nonatomic) _Bool usesSharedAudioSession;
-@property(readonly, nonatomic) _Bool isPlaying;
-@property(readonly, nonatomic) _Bool isMuted;
+@property(readonly, nonatomic, getter=isPlaying) _Bool playing;
+@property(readonly, nonatomic, getter=isMuted) _Bool muted;
 @property(nonatomic, getter=isActive) _Bool active;
 - (void)dealloc;
 - (id)initWithPreviewURL:(id)arg1 style:(id)arg2;

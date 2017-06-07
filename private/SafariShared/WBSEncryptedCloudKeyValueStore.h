@@ -24,6 +24,7 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)dealloc;
+- (void)synchronizeWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)synchronize;
 - (void)removeObjectForKey:(id)arg1;
 - (id)dictionaryRepresentation;

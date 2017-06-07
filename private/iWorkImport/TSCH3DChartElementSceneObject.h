@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)shouldCreateMeshSeriesStorage;
 + (void)setLowDetailedGeometriesForScene:(id)arg1;
 + (id)scenePropertiesKey;
-+ (struct TSCH3DScenePart)partWithEnumerator:(id)arg1 layoutSettings:(CDStruct_339a9a6e)arg2;
++ (struct TSCH3DScenePart)partWithEnumerator:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
 + (_Bool)isHorizontalChart;
 - (_Bool)transparencyDepthMask;
 - (void)p_processItems:(id)arg1 processItemsClass:(Class)arg2;

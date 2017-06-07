@@ -90,8 +90,6 @@
 - (id)autocomplete;
 @property(copy) NSString *alt;
 @property(copy) NSString *accept;
-- (void)_setAutofilled:(_Bool)arg1;
-- (_Bool)_isAutofilled;
 - (_Bool)_isTextField;
 - (_Bool)_isEdited;
 - (int)_autocapitalizeType;
@@ -99,6 +97,7 @@
 - (void)setValueWithChangeEvent:(id)arg1;
 - (int)structuralComplexityContribution;
 - (void)_setAutofilled:(_Bool)arg1;
+- (_Bool)_isAutofilled;
 - (id)endPosition;
 - (id)startPosition;
 

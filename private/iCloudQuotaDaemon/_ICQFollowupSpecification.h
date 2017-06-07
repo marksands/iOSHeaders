@@ -40,6 +40,8 @@
 @property(retain, nonatomic) NSDictionary *serverDict;
 - (void)postFollowupWithController:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)postFollowupWithController:(id)arg1;
+- (id)followupActionForLink:(id)arg1 needsFlow:(_Bool)arg2;
+- (id)followupActionForLink:(id)arg1;
 - (id)initWithServerDictionary:(id)arg1;
 - (id)init;
 

@@ -8,7 +8,7 @@
 
 #import <Sharing/CBCentralManagerDelegate-Protocol.h>
 
-@class CBCentralManager, CUBitCoder, CURetrier, NSArray, NSData, NSString;
+@class CBCentralManager, CURetrier, NSArray, NSData, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface SFBLEScanner : NSObject <CBCentralManagerDelegate>
@@ -60,7 +60,6 @@
     CDUnknownBlockType _deviceChangedHandler;
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     CDUnknownBlockType _invalidationHandler;
-    CUBitCoder *_payloadCoder;
     double _rescanInterval;
     long long _rssiThreshold;
     long long _scanInterval;
@@ -83,7 +82,6 @@
 @property(nonatomic) long long rssiThreshold; // @synthesize rssiThreshold=_rssiThreshold;
 @property(nonatomic) _Bool rssiLog; // @synthesize rssiLog=_rssiLog;
 @property(nonatomic) double rescanInterval; // @synthesize rescanInterval=_rescanInterval;
-@property(retain, nonatomic) CUBitCoder *payloadCoder; // @synthesize payloadCoder=_payloadCoder;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(copy, nonatomic) CDUnknownBlockType deviceChangedHandler; // @synthesize deviceChangedHandler=_deviceChangedHandler;
@@ -93,6 +91,7 @@
 @property(nonatomic) unsigned int changeFlags; // @synthesize changeFlags=_changeFlags;
 @property(copy, nonatomic) CDUnknownBlockType bluetoothStateChangedHandler; // @synthesize bluetoothStateChangedHandler=_bluetoothStateChangedHandler;
 - (void).cxx_destruct;
+- (void)_watchSetupParseName:(id)arg1 fields:(id)arg2;
 - (void)centralManager:(id)arg1 didDiscoverPeripheral:(id)arg2 advertisementData:(id)arg3 RSSI:(id)arg4;
 - (void)centralManagerDidUpdateState:(id)arg1;
 - (void)_updateRescanTimer;

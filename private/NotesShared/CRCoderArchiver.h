@@ -25,6 +25,7 @@
         struct RepeatedPtrField<std::__1::basic_string<char>>;
         struct RepeatedPtrField<std::__1::basic_string<char>>;
         struct RepeatedPtrField<std::__1::basic_string<char>>;
+        struct VectorTimestamp *;
     } *_currentDocument;
 }
 

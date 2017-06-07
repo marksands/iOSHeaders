@@ -18,15 +18,17 @@ __attribute__((visibility("hidden")))
     _Bool mWasConstructedViaNames;
 }
 
+- (id).cxx_construct;
 - (void)dealloc;
 - (_Bool)isEqual:(id)arg1;
 - (id)referenceTextForAutocompleteWithCalculationEngine:(id)arg1 contextSheetName:(id)arg2 stickyBits:(unsigned char)arg3 inputString:(id)arg4 inputStringIsComplete:(_Bool)arg5;
-- (id)referenceTextForAutocompleteWithCalculationEngine:(id)arg1 hostTableID:(struct __CFUUID *)arg2 stickyBits:(unsigned char)arg3 inputString:(id)arg4 inputStringIsComplete:(_Bool)arg5;
+- (id)referenceTextForAutocompleteWithCalculationEngine:(id)arg1 hostTableUID:(const UUIDData_5fbc143e *)arg2 stickyBits:(unsigned char)arg3 inputString:(id)arg4 inputStringIsComplete:(_Bool)arg5;
 - (id)p_stringByUnescapingQuotedStringWithPossibleDollarPrefix:(id)arg1 partial:(_Bool)arg2;
 - (id)referenceTextWithCalculationEngine:(id)arg1 contextSheetName:(id)arg2;
-- (id)referenceTextWithCalculationEngine:(id)arg1 hostTableID:(struct __CFUUID *)arg2;
-- (struct __CFUUID *)tableID;
-- (CDStruct_fc93c73e)rangeReference;
+- (id)referenceTextWithCalculationEngine:(id)arg1 hostTableUID:(const UUIDData_5fbc143e *)arg2;
+- (UUIDData_5fbc143e)tableUID;
+- (id)rangeReference;
+- (struct TSCERangeRef)rangeRef;
 - (struct TSCECReference)cReference;
 - (_Bool)wasConstructedViaNames;
 - (void)setWasConstructedViaNames:(_Bool)arg1;
@@ -36,8 +38,8 @@ __attribute__((visibility("hidden")))
 - (void)setOverrideTextAsTyped:(id)arg1;
 - (id)overrideText;
 - (void)setOverrideText:(id)arg1;
-- (id)initWithCellReference:(CDStruct_de21cb60)arg1;
-- (id)initWithRangeReference:(CDStruct_fc93c73e)arg1;
+- (id)initWithCellRef:(const struct TSCECellRef *)arg1;
+- (id)initWithRangeRef:(const struct TSCERangeRef *)arg1;
 
 @end
 

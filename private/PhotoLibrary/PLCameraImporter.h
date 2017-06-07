@@ -14,9 +14,6 @@
 
 @interface PLCameraImporter : NSObject <ICDeviceDelegate, ICCameraDeviceDelegate>
 {
-    id _delegate;
-    NSMutableDictionary *_itemsMapping;
-    NSMutableArray *_items;
     PLMutableCameraImportQueue *_thumbnailQueue;
     PLCameraImportQueue *_downloadQueue;
     PLCameraImportQueue *_importQueue;
@@ -27,21 +24,25 @@
     NSMutableDictionary *_parentFolderMapping;
     _Bool _autosplitEvents;
     long long _eventSplitGranularity;
-    ICCameraDevice *_camera;
     PLImportFileManager *_importFileManager;
     _Bool _stopAfterNextItemImport;
     _Bool _importItemInProgress;
     NSMutableSet *_avalanchesImported;
     _Bool _isAppleDevice;
-    NSString *importSessionIdentifier;
+    id <PLCameraImporterDelegate> _delegate;
+    NSMutableDictionary *_itemsMapping;
+    NSMutableArray *_items;
+    ICCameraDevice *_camera;
+    NSString *_importSessionIdentifier;
 }
 
 @property(nonatomic) _Bool isAppleDevice; // @synthesize isAppleDevice=_isAppleDevice;
+@property(copy, nonatomic) NSString *importSessionIdentifier; // @synthesize importSessionIdentifier=_importSessionIdentifier;
 @property(retain, nonatomic) ICCameraDevice *camera; // @synthesize camera=_camera;
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
 @property(retain, nonatomic) NSMutableDictionary *itemsMapping; // @synthesize itemsMapping=_itemsMapping;
-@property(nonatomic) id <PLCameraImporterDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSString *importSessionIdentifier; // @synthesize importSessionIdentifier;
+@property(nonatomic) __weak id <PLCameraImporterDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)cameraDevice:(id)arg1 didReceiveMetadata:(id)arg2 forItem:(id)arg3 error:(id)arg4;
 - (void)cameraDevice:(id)arg1 didReceiveThumbnail:(struct CGImage *)arg2 forItem:(id)arg3 error:(id)arg4;
 - (void)cameraDevice:(id)arg1 didRemoveItems:(id)arg2;
@@ -65,6 +66,8 @@
 - (void)didReceiveImportNotification:(id)arg1;
 - (void)_photoLibraryFinishedImportForPhoto:(id)arg1 atPath:(id)arg2 error:(id)arg3;
 - (void)didImportImportItem:(id)arg1 error:(id)arg2;
+- (id)_avalancheUUIDForItem:(id)arg1 atMaterPath:(id)arg2;
+- (id)_sidecarsForItem:(id)arg1;
 - (void)importImportItem:(id)arg1;
 - (void)_downloadImportItems:(id)arg1;
 - (void)_clearImportItemsForDownload:(id)arg1;
@@ -72,7 +75,9 @@
 - (unsigned long long)approximateBytesRequiredToImportItem:(id)arg1;
 - (void)didDownloadFile:(id)arg1 error:(id)arg2 options:(id)arg3 contextInfo:(void *)arg4;
 - (void)didReceiveThumbnail:(struct CGImage *)arg1 forCameraFile:(id)arg2 error:(id)arg3;
-- (void)didReceiveThumbnail:(struct CGImage *)arg1 forImportItem:(id)arg2 error:(id)arg3;
+- (void)_requestNextThumbnailFromQueue;
+- (void)didReceiveThumbnailForImportItem:(id)arg1 error:(id)arg2;
+- (void)_enqueueItemsToThumbnailQueue:(id)arg1;
 - (void)readThumbnailsForImportItems:(id)arg1;
 - (void)didReceiveMetadata:(id)arg1 forCameraFile:(id)arg2 error:(id)arg3;
 - (void)readMetadataForImportItems:(id)arg1;

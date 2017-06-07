@@ -140,6 +140,9 @@
 @property(readonly, nonatomic) TSDCanvasLayer *canvasLayer;
 - (_Bool)becomeFirstResponder;
 - (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)p_updateWideGamut;
+- (_Bool)p_shouldUseWideGamut;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)teardown;

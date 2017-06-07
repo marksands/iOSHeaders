@@ -8,7 +8,6 @@
 
 @protocol CNObservable, CNScheduler;
 
-__attribute__((visibility("hidden")))
 @interface _CNScheduledObservable : CNObservable
 {
     id <CNObservable> _observable;

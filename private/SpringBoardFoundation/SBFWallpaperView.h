@@ -10,7 +10,7 @@
 #import <SpringBoardFoundation/_UISettingsKeyObserver-Protocol.h>
 
 @class NSString, NSTimer, SBFWallpaperParallaxSettings, SBFWallpaperSettings, UIColor, UIImage, _UILegibilitySettings, _UILegibilitySettingsProvider;
-@protocol SBFLegibilitySettingsProviderDelegate, SBFWallpaperViewInternalObserver;
+@protocol SBFLegibilitySettingsProviderDelegate, SBFWallpaperViewInternalObserver, SBFWallpaperViewSettingsProvider;
 
 @interface SBFWallpaperView : UIView <_UISettingsKeyObserver, SBFLegibilitySettingsProvider>
 {
@@ -38,18 +38,18 @@
     UIView *_contentView;
     double _parallaxFactor;
     NSString *_wallpaperName;
-    long long _variantsThatDarkenContentsToEnsureLegibility;
     long long _logicalContentOrientation;
     id <SBFWallpaperViewInternalObserver> _internalObserver;
+    id <SBFWallpaperViewSettingsProvider> _wallpaperSettingsProvider;
 }
 
 + (_Bool)_allowsRasterization;
 + (_Bool)_shouldScaleForParallax;
 + (_Bool)_allowsParallax;
+@property(nonatomic) __weak id <SBFWallpaperViewSettingsProvider> wallpaperSettingsProvider; // @synthesize wallpaperSettingsProvider=_wallpaperSettingsProvider;
 @property(nonatomic) __weak id <SBFWallpaperViewInternalObserver> internalObserver; // @synthesize internalObserver=_internalObserver;
 @property(nonatomic) long long logicalContentOrientation; // @synthesize logicalContentOrientation=_logicalContentOrientation;
 @property(nonatomic) unsigned long long transformOptions; // @synthesize transformOptions=_transformOptions;
-@property(nonatomic) long long variantsThatDarkenContentsToEnsureLegibility; // @synthesize variantsThatDarkenContentsToEnsureLegibility=_variantsThatDarkenContentsToEnsureLegibility;
 @property(nonatomic) _Bool sharesContentsAcrossVariants; // @synthesize sharesContentsAcrossVariants=_sharesContentsAcrossVariants;
 @property(copy, nonatomic) NSString *wallpaperName; // @synthesize wallpaperName=_wallpaperName;
 @property(nonatomic, getter=isRotating) _Bool rotating; // @synthesize rotating=_rotating;
@@ -63,7 +63,7 @@
 @property(nonatomic) __weak id <SBFLegibilitySettingsProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)legibilitySettingsDidChange;
-- (_Bool)contrastRequiresGradient;
+@property(readonly, nonatomic) _Bool contrastRequiresGradient;
 - (_Bool)contrastRequiresTreatments;
 - (_Bool)luminanceInRectRequiresTreatments:(struct CGRect)arg1;
 - (void)_updateContentViewScale;
@@ -91,6 +91,7 @@
 - (id)_blurredImage;
 - (void)_stopGeneratingBlurredImages;
 - (void)_startGeneratingBlurredImages;
+- (double)_contrastInContentViewRect:(struct CGRect)arg1 contrastWithinBoxes:(double *)arg2 contrastBetweenBoxes:(double *)arg3;
 - (id)_averageColorInContentViewRect:(struct CGRect)arg1 smudgeRadius:(double)arg2;
 - (id)_computeAverageColor;
 - (void)_handleVariantChange;
@@ -118,16 +119,15 @@
 - (void)setVariant:(long long)arg1 withAnimationFactory:(id)arg2;
 - (void)setZoomFactor:(double)arg1 withAnimationFactory:(id)arg2;
 @property(readonly, nonatomic) _UILegibilitySettings *legibilitySettings;
-- (double)cropZoomScale;
-- (_Bool)supportsCropping;
+@property(readonly, nonatomic) double cropZoomScale;
+@property(readonly, nonatomic) _Bool supportsCropping;
 - (void)prepareToDisappear;
 - (void)prepareToAppear;
 - (void)setCropRect:(struct CGRect)arg1 zoomScale:(double)arg2;
-- (struct CGRect)cropRect;
+@property(readonly, nonatomic) struct CGRect cropRect;
 @property(readonly, nonatomic) long long wallpaperType;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 variant:(long long)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 variant:(long long)arg2 wallpaperSettingsProvider:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

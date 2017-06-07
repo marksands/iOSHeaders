@@ -7,12 +7,13 @@
 #import <HealthUI/HKTableViewController.h>
 
 #import <HealthUI/HKDocumentPickerViewControllerDelegate-Protocol.h>
+#import <HealthUI/HKSourceAuthorizationControllerDelegate-Protocol.h>
 #import <HealthUI/HKSwitchTableViewCellDelegate-Protocol.h>
 
-@class HKDataCategoryController, HKHealthStore, HKSource, HKSourceAuthorizationController, NSArray, NSSet, NSString, UIBarButtonItem;
+@class HKDisplayCategoryController, HKHealthStore, HKSource, HKSourceAuthorizationController, NSArray, NSSet, NSString, UIBarButtonItem;
 @protocol HKAuthorizationSettingsViewControllerDelegate;
 
-@interface HKAuthorizationSettingsViewController : HKTableViewController <HKSwitchTableViewCellDelegate, HKDocumentPickerViewControllerDelegate>
+@interface HKAuthorizationSettingsViewController : HKTableViewController <HKSwitchTableViewCellDelegate, HKDocumentPickerViewControllerDelegate, HKSourceAuthorizationControllerDelegate>
 {
     NSArray *_documents;
     NSArray *_actualSections;
@@ -25,7 +26,7 @@
     NSString *_shareDescription;
     NSSet *_typesToShare;
     NSSet *_typesToRead;
-    HKDataCategoryController *_dataCategoryController;
+    HKDisplayCategoryController *_displayCategoryController;
     HKSourceAuthorizationController *_sourceAuthorizationController;
     UIBarButtonItem *_cancelButtonItem;
     UIBarButtonItem *_doneButtonItem;
@@ -35,7 +36,7 @@
 @property(retain, nonatomic) UIBarButtonItem *doneButtonItem; // @synthesize doneButtonItem=_doneButtonItem;
 @property(retain, nonatomic) UIBarButtonItem *cancelButtonItem; // @synthesize cancelButtonItem=_cancelButtonItem;
 @property(retain, nonatomic) HKSourceAuthorizationController *sourceAuthorizationController; // @synthesize sourceAuthorizationController=_sourceAuthorizationController;
-@property(retain, nonatomic) HKDataCategoryController *dataCategoryController; // @synthesize dataCategoryController=_dataCategoryController;
+@property(retain, nonatomic) HKDisplayCategoryController *displayCategoryController; // @synthesize displayCategoryController=_displayCategoryController;
 @property(retain, nonatomic) NSSet *typesToRead; // @synthesize typesToRead=_typesToRead;
 @property(retain, nonatomic) NSSet *typesToShare; // @synthesize typesToShare=_typesToShare;
 @property(copy, nonatomic) NSString *shareDescription; // @synthesize shareDescription=_shareDescription;
@@ -54,6 +55,8 @@
 - (_Bool)_shouldDisplaySharingSection;
 - (_Bool)_shouldDisplayHealthRecordsRequests;
 - (id)sectionsForAuthController:(id)arg1;
+- (void)authorizationController:(id)arg1 subTypesEnabled:(id)arg2 forType:(id)arg3 inSection:(long long)arg4;
+- (void)authorizationController:(id)arg1 parentTypeIsDisabled:(id)arg2 forType:(id)arg3 inSection:(long long)arg4;
 - (void)documentPickerViewControllerDidFinish:(id)arg1 error:(id)arg2;
 - (void)switchCellValueChanged:(id)arg1 value:(_Bool)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;

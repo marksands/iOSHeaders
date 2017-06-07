@@ -8,28 +8,29 @@
 
 #import <HealthDaemon/HDDiagnosticObject-Protocol.h>
 #import <HealthDaemon/HDHealthDaemonReadyObserver-Protocol.h>
-#import <HealthDaemon/HDHealthDataCollectionManager-Protocol.h>
 
-@class HDDemoManager, HDPrimaryProfile, NSDate, NSMutableDictionary, NSString;
-@protocol HDDataCollectionManagerDelegate, OS_dispatch_queue;
+@class HDBTLEHeartRateDataCollector, HDDemoManager, HDProfile, NSDate, NSMutableArray, NSMutableDictionary, NSString;
+@protocol OS_dispatch_queue;
 
-@interface HDDataCollectionManager : NSObject <HDDiagnosticObject, HDHealthDaemonReadyObserver, HDHealthDataCollectionManager>
+@interface HDDataCollectionManager : NSObject <HDDiagnosticObject, HDHealthDaemonReadyObserver>
 {
     NSDate *_lastLaunchUpdate;
-    HDPrimaryProfile *_primaryProfile;
-    id <HDDataCollectionManagerDelegate> _delegate;
+    NSMutableDictionary *_dataAggregatorsByType;
+    NSMutableArray *_builtinCollectors;
+    HDProfile *_profile;
     NSMutableDictionary *_dataCollectorsByType;
     NSMutableDictionary *_observersByType;
+    HDBTLEHeartRateDataCollector *_blteHeartRateDataCollector;
     NSObject<OS_dispatch_queue> *_queue;
     HDDemoManager *_demoManager;
 }
 
 @property(retain, nonatomic) HDDemoManager *demoManager; // @synthesize demoManager=_demoManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(retain, nonatomic) HDBTLEHeartRateDataCollector *blteHeartRateDataCollector; // @synthesize blteHeartRateDataCollector=_blteHeartRateDataCollector;
 @property(retain, nonatomic) NSMutableDictionary *observersByType; // @synthesize observersByType=_observersByType;
 @property(retain, nonatomic) NSMutableDictionary *dataCollectorsByType; // @synthesize dataCollectorsByType=_dataCollectorsByType;
-@property(nonatomic) __weak id <HDDataCollectionManagerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) __weak HDPrimaryProfile *primaryProfile; // @synthesize primaryProfile=_primaryProfile;
+@property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (id)diagnosticDescription;
 - (id)_dataCollectorsDiagnosticDescription;
@@ -44,6 +45,7 @@
 - (void)sensorDataArrayReceived:(id)arg1 deviceEntity:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)sensorDataReceived:(id)arg1 deviceEntity:(id)arg2;
 - (void)_updateDataCollectorsWithPrivacySettings;
+- (id)pluginDataCollectors;
 - (void)_queue_setupUnprotectedDataDependantState;
 - (void)daemonReady:(id)arg1;
 - (void)_queue_addDataCollector:(id)arg1;
@@ -52,7 +54,7 @@
 - (void)startDataCollectionForType:(id)arg1 observer:(id)arg2 collectionInterval:(double)arg3;
 - (double)_queue_defaultCollectionIntervalForType:(id)arg1;
 - (void)_queue_adjustDataCollectionForType:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (CDStruct_fd1107da)_queue_collectionStateForType:(id)arg1;
+- (CDStruct_0714bc26)_queue_collectionStateForType:(id)arg1;
 - (id)_queue_observerMapForType:(id)arg1;
 - (void)immediateUpdateForType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (double)defaultCollectionIntervalForType:(id)arg1;
@@ -61,10 +63,15 @@
 - (void)removeDataCollectionObserver:(id)arg1;
 - (void)removeDataCollectionObserver:(id)arg1 type:(id)arg2;
 - (void)addDataCollectionObserver:(id)arg1 type:(id)arg2 collectionInterval:(double)arg3 state:(id)arg4;
+- (id)btleHeartRateDataCollector;
+- (void)_queue_createBuiltinCollectors;
+- (id)_queue_aggregatorForType:(id)arg1;
+- (Class)_aggregatorClassForObjectType:(id)arg1;
+- (id)aggregatorForType:(id)arg1;
 - (void)_demoObjectsReceived:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)periodicUpdate;
 - (void)dealloc;
-- (id)initWithPrimaryProfile:(id)arg1 delegate:(id)arg2;
+- (id)initWithProfile:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

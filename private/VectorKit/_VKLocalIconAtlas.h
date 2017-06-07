@@ -14,8 +14,8 @@ __attribute__((visibility("hidden")))
     VKResourceManager *_resourceManager;
 }
 
-- (id)artworkForStyleAttributeKey:(unsigned int)arg1 longValue:(unsigned long long)arg2 style:(struct VKIconStyleInfo *)arg3 contentScale:(double)arg4 size:(long long)arg5;
-- (id)artworkForStyleAttributeKey:(unsigned int)arg1 value:(unsigned int)arg2 style:(struct VKIconStyleInfo *)arg3 contentScale:(double)arg4 size:(long long)arg5;
+- (id)artworkForStyleAttributeKey:(unsigned int)arg1 longValue:(unsigned long long)arg2 style:(struct Style *)arg3 contentScale:(double)arg4 size:(long long)arg5;
+- (id)artworkForStyleAttributeKey:(unsigned int)arg1 value:(unsigned int)arg2 style:(struct Style *)arg3 contentScale:(double)arg4 size:(long long)arg5;
 - (struct CGImage *)_createImageForName:(id)arg1 contentScale:(double)arg2 size:(long long)arg3;
 - (void)dealloc;
 - (id)initWithResourceManager:(id)arg1;

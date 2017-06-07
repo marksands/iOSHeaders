@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLatLng, NSMutableArray;
+@class GEOLatLng, NSMutableArray, PBUnknownFields;
 
 @interface GEOWaypointPlace : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     GEOLatLng *_center;
     NSMutableArray *_roadAccessPoints;
 }
@@ -19,6 +20,8 @@
 + (Class)roadAccessPointType;
 @property(retain, nonatomic) NSMutableArray *roadAccessPoints; // @synthesize roadAccessPoints=_roadAccessPoints;
 @property(retain, nonatomic) GEOLatLng *center; // @synthesize center=_center;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +36,6 @@
 - (void)addRoadAccessPoint:(id)arg1;
 - (void)clearRoadAccessPoints;
 @property(readonly, nonatomic) _Bool hasCenter;
-- (void)dealloc;
 
 @end
 

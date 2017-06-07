@@ -6,9 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <PDFKit/PDFPageDrawProgressCallback-Protocol.h>
+
 @class PageImagePoolPrivate;
 
-@interface PageImagePool : NSObject
+__attribute__((visibility("hidden")))
+@interface PageImagePool : NSObject <PDFPageDrawProgressCallback>
 {
     PageImagePoolPrivate *_private;
 }
@@ -40,7 +43,7 @@
 - (void)setWillForceUpdateWithDuration;
 - (void)updateActivePageIndex:(int)arg1;
 - (void)dealloc;
-- (id)initWithDocumentView:(id)arg1;
+- (id)initWithDelegate:(id)arg1;
 
 @end
 

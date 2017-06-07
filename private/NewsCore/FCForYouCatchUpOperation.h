@@ -6,16 +6,17 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCArticleList, FCCoverArticlesCatchUpOperation, FCEditorialCatchUpOperation, FCMutexLock, FCMyArticlesCatchUpOperation, FCTopStoriesCatchUpOperation, FCTrendingCatchUpOperation, NSArray, NSDictionary, NSError, NSHashTable, NSOperationQueue;
+@class FCBreakingNewsOperation, FCCoverArticlesOperation, FCEditorialOperation, FCMutexLock, FCMyArticlesOperation, FCTopStoriesOperation, FCTrendingOperation, NSArray, NSDictionary, NSError, NSHashTable, NSOperationQueue;
 @protocol FCChannelProviding;
 
 @interface FCForYouCatchUpOperation : FCOperation
 {
-    FCMyArticlesCatchUpOperation *_myArticlesOperation;
-    FCTopStoriesCatchUpOperation *_topStoriesOperation;
-    FCTrendingCatchUpOperation *_trendingOperation;
-    FCCoverArticlesCatchUpOperation *_coverArticlesOperation;
-    FCEditorialCatchUpOperation *_editorialOperation;
+    FCMyArticlesOperation *_myArticlesOperation;
+    FCBreakingNewsOperation *_breakingNewsOperation;
+    FCTopStoriesOperation *_topStoriesOperation;
+    FCTrendingOperation *_trendingOperation;
+    FCCoverArticlesOperation *_coverArticlesOperation;
+    FCEditorialOperation *_editorialOperation;
     NSOperationQueue *_operationQueue;
     NSHashTable *_conditionWaiters;
     FCMutexLock *_conditionWaitersLock;
@@ -26,11 +27,12 @@
 @property(retain, nonatomic) FCMutexLock *conditionWaitersLock; // @synthesize conditionWaitersLock=_conditionWaitersLock;
 @property(retain, nonatomic) NSHashTable *conditionWaiters; // @synthesize conditionWaiters=_conditionWaiters;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-@property(retain, nonatomic) FCEditorialCatchUpOperation *editorialOperation; // @synthesize editorialOperation=_editorialOperation;
-@property(retain, nonatomic) FCCoverArticlesCatchUpOperation *coverArticlesOperation; // @synthesize coverArticlesOperation=_coverArticlesOperation;
-@property(retain, nonatomic) FCTrendingCatchUpOperation *trendingOperation; // @synthesize trendingOperation=_trendingOperation;
-@property(retain, nonatomic) FCTopStoriesCatchUpOperation *topStoriesOperation; // @synthesize topStoriesOperation=_topStoriesOperation;
-@property(retain, nonatomic) FCMyArticlesCatchUpOperation *myArticlesOperation; // @synthesize myArticlesOperation=_myArticlesOperation;
+@property(retain, nonatomic) FCEditorialOperation *editorialOperation; // @synthesize editorialOperation=_editorialOperation;
+@property(retain, nonatomic) FCCoverArticlesOperation *coverArticlesOperation; // @synthesize coverArticlesOperation=_coverArticlesOperation;
+@property(retain, nonatomic) FCTrendingOperation *trendingOperation; // @synthesize trendingOperation=_trendingOperation;
+@property(retain, nonatomic) FCTopStoriesOperation *topStoriesOperation; // @synthesize topStoriesOperation=_topStoriesOperation;
+@property(retain, nonatomic) FCBreakingNewsOperation *breakingNewsOperation; // @synthesize breakingNewsOperation=_breakingNewsOperation;
+@property(retain, nonatomic) FCMyArticlesOperation *myArticlesOperation; // @synthesize myArticlesOperation=_myArticlesOperation;
 - (void).cxx_destruct;
 - (void)_serviceConditionWaiters;
 - (void)_addConditionWaiter:(id)arg1;
@@ -45,9 +47,11 @@
 @property(readonly, copy, nonatomic) NSArray *supplementalCoverArticleHeadlines;
 @property(readonly, copy, nonatomic) NSArray *coverArticleHeadlines;
 @property(readonly, copy, nonatomic) NSArray *trendingHeadlines;
-@property(readonly, nonatomic) FCArticleList *topStoriesArticleList;
-@property(readonly, copy, nonatomic) NSArray *topStoriesHeadlines;
+@property(readonly, copy, nonatomic) NSDictionary *topStoriesMetadataByArticleID;
+@property(readonly, copy, nonatomic) NSArray *optionalTopStoriesHeadlines;
+@property(readonly, copy, nonatomic) NSArray *mandatoryTopStoriesHeadlines;
 @property(readonly, copy, nonatomic) id <FCChannelProviding> topStoriesChannel;
+@property(readonly, copy, nonatomic) NSArray *breakingNewsHeadlines;
 - (_Bool)satisfiesCondition:(id)arg1;
 - (void)waitForCondition:(id)arg1 withTimeout:(double)arg2;
 - (void)waitForCondition:(id)arg1;

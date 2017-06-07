@@ -6,25 +6,26 @@
 
 #import <iWorkImport/TNSheet.h>
 
-@class NSString, TSTTableInfo;
+@class NSString, TSTInfo;
 
 __attribute__((visibility("hidden")))
 @interface TNFormBasedSheet : TNSheet
 {
-    struct __CFUUID *mTableID;
-    TSTTableInfo *mTableInfo;
+    UUIDData_5fbc143e mTableUID;
+    TSTInfo *mTableInfo;
     NSString *mImportedTargetName;
 }
 
+- (id).cxx_construct;
 - (void)resolveImportedTargetNameInDocumentRoot:(id)arg1;
 - (id)initWithContext:(id)arg1 importedTargetName:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)shouldBeDisplayed;
 - (void)clearTableInfoCache;
-@property(readonly) TSTTableInfo *tableInfo;
+@property(readonly) TSTInfo *tableInfo;
 - (void)dealloc;
-@property struct __CFUUID *tableID;
+@property(nonatomic) UUIDData_5fbc143e tableUID;
 - (_Bool)isForm;
 - (double)contentScale;
 

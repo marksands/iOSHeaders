@@ -6,48 +6,53 @@
 
 #import <UIKit/UIView.h>
 
+#import <iCloudQuotaUI/ICQUpgradeFlowManagerDelegate-Protocol.h>
 #import <iCloudQuotaUI/UITextViewDelegate-Protocol.h>
 
-@class ICQOffer, NSArray, NSLayoutConstraint, NSString, UIButton, _ICQTextView;
+@class ICQOffer, ICQUpgradeFlowManager, NSArray, NSString, UIColor, UIFont, _ICQTextView;
 @protocol ICQBannerViewDelegate;
 
-@interface ICQBannerView : UIView <UITextViewDelegate>
+@interface ICQBannerView : UIView <UITextViewDelegate, ICQUpgradeFlowManagerDelegate>
 {
     ICQOffer *_offer;
-    _Bool _hasDismissButton;
     id <ICQBannerViewDelegate> _delegate;
+    UIFont *_font;
+    UIColor *_textColor;
+    long long _textAlignment;
+    double _textLineSpacing;
     _ICQTextView *_textView;
-    UIButton *_dismissButton;
-    NSLayoutConstraint *_textViewHeightConstraint;
     NSArray *_activeConstraints;
+    ICQUpgradeFlowManager *_upgradeFlowManager;
+    struct NSDirectionalEdgeInsets _textMargins;
 }
 
 + (_Bool)shouldShowForOffer:(id)arg1;
+@property(retain, nonatomic) ICQUpgradeFlowManager *upgradeFlowManager; // @synthesize upgradeFlowManager=_upgradeFlowManager;
 @property(retain, nonatomic) NSArray *activeConstraints; // @synthesize activeConstraints=_activeConstraints;
-@property(readonly, nonatomic) NSLayoutConstraint *textViewHeightConstraint; // @synthesize textViewHeightConstraint=_textViewHeightConstraint;
-@property(readonly, nonatomic) UIButton *dismissButton; // @synthesize dismissButton=_dismissButton;
 @property(readonly, nonatomic) _ICQTextView *textView; // @synthesize textView=_textView;
+@property(nonatomic) double textLineSpacing; // @synthesize textLineSpacing=_textLineSpacing;
+@property(nonatomic) long long textAlignment; // @synthesize textAlignment=_textAlignment;
+@property(nonatomic) struct NSDirectionalEdgeInsets textMargins; // @synthesize textMargins=_textMargins;
+@property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
+@property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(nonatomic) __weak id <ICQBannerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;
+- (void)upgradeFlowManagerDidComplete:(id)arg1;
+- (void)upgradeFlowManagerDidCancel:(id)arg1;
 - (long long)_delegateActionForAction:(long long)arg1;
 - (_Bool)_legacyDelegateMethodHandlesAction:(long long)arg1;
 - (_Bool)_performLink:(id)arg1;
-- (void)tappedDismissButton:(id)arg1;
-- (void)setBounds:(struct CGRect)arg1;
-- (_Bool)shouldCenterMessage;
-- (_Bool)hasTitle;
-@property(nonatomic) _Bool hasDismissButton;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(retain, nonatomic) ICQOffer *offer;
 - (id)attributedText;
+- (void)_applyTextColor;
+- (void)_applyTextParagraphAttributes;
 - (id)messageAttributes;
-- (id)titleAttributes;
 - (id)textParagraphStyleAttributes;
 - (id)textParagraphStyle;
-- (void)layoutSubviews;
 - (void)updateConstraints;
-- (_Bool)isRTL;
 - (long long)userInterfaceLayoutDirection;
 - (long long)semanticContentAttribute;
 - (id)_initWithFrame:(struct CGRect)arg1;

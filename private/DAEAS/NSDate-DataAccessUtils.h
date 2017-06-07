@@ -7,6 +7,8 @@
 #import <Foundation/NSDate.h>
 
 @interface NSDate (DataAccessUtils)
+- (id)gmtMidnight;
+- (_Bool)isGMTMidnight;
 - (id)nearestMidnight;
 - (id)gmtDateToDateInTimeZone:(id)arg1;
 - (id)tzDateToDateInGMT:(id)arg1;

@@ -34,8 +34,6 @@
     double _handledTime;
     NSArray *_channels;
     void *_clientContext;
-    NSURL *_resourceListURL;
-    NSURL *_resourceSearchPathURL;
     NSString *_originalString;
     NSMutableArray *_originalWordRanges;
     NSMutableArray *_processedWordRanges;
@@ -49,8 +47,6 @@
 @property(retain, nonatomic) NSMutableArray *processedWordRanges; // @synthesize processedWordRanges=_processedWordRanges;
 @property(retain, nonatomic) NSMutableArray *originalWordRanges; // @synthesize originalWordRanges=_originalWordRanges;
 @property(retain, nonatomic) NSString *originalString; // @synthesize originalString=_originalString;
-@property(copy, nonatomic) NSURL *resourceSearchPathURL; // @synthesize resourceSearchPathURL=_resourceSearchPathURL;
-@property(copy, nonatomic) NSURL *resourceListURL; // @synthesize resourceListURL=_resourceListURL;
 @property(nonatomic) void *clientContext; // @synthesize clientContext=_clientContext;
 @property(retain, nonatomic) NSArray *channels; // @synthesize channels=_channels;
 @property(nonatomic) _Bool useMonarchStyleRate; // @synthesize useMonarchStyleRate=_useMonarchStyleRate;

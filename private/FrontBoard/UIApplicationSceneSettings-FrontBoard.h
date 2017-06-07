@@ -7,6 +7,7 @@
 #import <UIKit/UIApplicationSceneSettings.h>
 
 @interface UIApplicationSceneSettings (FrontBoard)
+- (_Bool)fb_isUnderLock;
 @property(readonly, nonatomic, getter=isEffectivelyBackgrounded) _Bool effectivelyBackgrounded;
 @end
 

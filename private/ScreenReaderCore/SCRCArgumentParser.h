@@ -22,6 +22,7 @@
 + (id)commandPath;
 + (id)versionString;
 + (id)processIdentifier;
+- (void).cxx_destruct;
 - (id)setRunningAtStartup:(id)arg1;
 - (id)_displayHelp:(id)arg1;
 - (id)_displayVersion:(id)arg1;

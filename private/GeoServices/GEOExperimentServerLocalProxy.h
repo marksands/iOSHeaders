@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOExperimentServerProxy-Protocol.h>
 #import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
@@ -22,6 +22,7 @@
 }
 
 @property(nonatomic) __weak id <GEOExperimentServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)resourceManifestManager:(id)arg1 didChangeActiveTileGroup:(id)arg2 fromOldTileGroup:(id)arg3;
 - (void)_deleteExperimentInfoFromDisk;
 - (void)_debug_setBucketIdDictionaryRepresentation:(id)arg1;

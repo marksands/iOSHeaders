@@ -9,6 +9,6 @@
 @class NSSet, NSString;
 
 @protocol NPSServerProtocol <NSObject>
-- (void)synchronizeUserDefaultsDomain:(NSString *)arg1 keys:(NSSet *)arg2 container:(NSString *)arg3 appGroupContainer:(NSString *)arg4;
+- (void)synchronizeUserDefaultsDomain:(NSString *)arg1 keys:(NSSet *)arg2 container:(NSString *)arg3 appGroupContainer:(NSString *)arg4 cloudEnabled:(_Bool)arg5;
 @end
 

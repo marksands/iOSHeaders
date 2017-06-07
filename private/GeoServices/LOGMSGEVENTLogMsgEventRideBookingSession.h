@@ -74,6 +74,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) GEOLatLng *originBlurred; // @synthesize originBlurred=_originBlurred;
 @property(retain, nonatomic) NSString *rideAppId; // @synthesize rideAppId=_rideAppId;
 @property(retain, nonatomic) NSString *rideBookingSessionId; // @synthesize rideBookingSessionId=_rideBookingSessionId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -117,7 +118,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasEndState;
 @property(nonatomic) int endState; // @synthesize endState=_endState;
 @property(readonly, nonatomic) _Bool hasRideBookingSessionId;
-- (void)dealloc;
 
 @end
 

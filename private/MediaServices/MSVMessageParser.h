@@ -14,9 +14,11 @@
     id <MSVMessageParserDelegate> _delegate;
     NSMutableData *_unhandledPartialObjectData;
     long long _unhandledObjectDataExpectedLength;
+    NSMutableData *_unhandledPartialData;
 }
 
 + (id)createHeader:(unsigned long long)arg1;
+@property(retain, nonatomic) NSMutableData *unhandledPartialData; // @synthesize unhandledPartialData=_unhandledPartialData;
 @property(nonatomic) long long unhandledObjectDataExpectedLength; // @synthesize unhandledObjectDataExpectedLength=_unhandledObjectDataExpectedLength;
 @property(retain, nonatomic) NSMutableData *unhandledPartialObjectData; // @synthesize unhandledPartialObjectData=_unhandledPartialObjectData;
 @property(nonatomic) __weak id <MSVMessageParserDelegate> delegate; // @synthesize delegate=_delegate;

@@ -4,18 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDBulletinIdentifiers-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDAccessory, HMDCharacteristicMetadata, HMDService, NSData, NSDate, NSDictionary, NSMutableSet, NSNumber, NSString, NSUUID;
+@class HMDCharacteristicMetadata, HMDHAPAccessory, HMDService, NSData, NSDate, NSDictionary, NSMutableSet, NSNumber, NSString, NSUUID;
 
-@interface HMDCharacteristic : NSObject <HMDBulletinIdentifiers, NSSecureCoding, HMFDumpState>
+@interface HMDCharacteristic : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFDumpState>
 {
+    _Bool _broadcastNotificationEnabled;
     _Bool _notificationRegisteredWithRemoteGateway;
-    HMDAccessory *_accessory;
+    HMDHAPAccessory *_accessory;
     HMDService *_service;
     NSNumber *_stateNumber;
     NSData *_authorizationData;
@@ -41,10 +42,11 @@
 @property(retain, nonatomic) id lastKnownValue; // @synthesize lastKnownValue=_lastKnownValue;
 @property(retain, nonatomic) NSString *characteristicType; // @synthesize characteristicType=_characteristicType;
 @property(retain, nonatomic) NSMutableSet *hapCharacteristicTuples; // @synthesize hapCharacteristicTuples=_hapCharacteristicTuples;
+@property(nonatomic) _Bool broadcastNotificationEnabled; // @synthesize broadcastNotificationEnabled=_broadcastNotificationEnabled;
 @property(copy, nonatomic) NSData *authorizationData; // @synthesize authorizationData=_authorizationData;
 @property(copy, nonatomic, setter=setStateNumber:) NSNumber *stateNumber; // @synthesize stateNumber=_stateNumber;
 @property(readonly, nonatomic) __weak HMDService *service; // @synthesize service=_service;
-@property(readonly, nonatomic) __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
+@property(readonly, nonatomic) __weak HMDHAPAccessory *accessory; // @synthesize accessory=_accessory;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -57,6 +59,7 @@
 - (_Bool)isNonHomeNotificationsEnabled;
 - (_Bool)isClientNotificationEnabled;
 - (_Bool)isNotificationEnabled;
+- (_Bool)supportsRead;
 - (_Bool)supportsNotification;
 - (id)validateValue:(id)arg1 outValue:(id *)arg2;
 @property(readonly, nonatomic) HMDCharacteristicMetadata *metadata;
@@ -74,7 +77,9 @@
 - (void)unconfigureForServerIdentifier:(id)arg1 linkType:(long long)arg2;
 - (void)unconfigure;
 - (id)initWithCharacteristic:(id)arg1 service:(id)arg2 accessory:(id)arg3;
-- (void)configureWithCharacteristic:(id)arg1 service:(id)arg2 accessory:(id)arg3;
+- (void)configureWithCharacteristic:(id)arg1;
+- (id)getCharacteristicDictionary;
+- (_Bool)updateWithDictionary:(id)arg1;
 - (id)hapCharacteristicTupleWithIdentifier:(id)arg1 linkType:(long long)arg2;
 @property(readonly, nonatomic) NSString *serializedIdentifier;
 - (id)dumpState;

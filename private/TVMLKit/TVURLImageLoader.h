@@ -23,7 +23,7 @@
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)operation:(id)arg1 finishedWithOutput:(id)arg2;
 - (void)cancelLoad:(id)arg1;
-- (id)loadImageForObject:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)loadImageForObject:(id)arg1 scaleToSize:(struct CGSize)arg2 cropToFit:(_Bool)arg3 imageDirection:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)imageKeyForObject:(id)arg1;
 - (id)init;
 

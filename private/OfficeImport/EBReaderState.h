@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) _Bool importCSV; // @synthesize importCSV=mImportCSV;
-- (void)reportWarning:(struct TCTaggedMessageStructure *)arg1;
+- (void)reportWarning:(id)arg1;
 - (id)oaState;
 - (id)columnWidthConvertor;
 - (struct XlSheetInfoTable *)xlSheetInfoTable;

@@ -23,6 +23,7 @@
 @property(nonatomic) double originalTimestamp; // @synthesize originalTimestamp=_originalTimestamp;
 @property(retain, nonatomic) GEOResource *fallbackResource; // @synthesize fallbackResource=_fallbackResource;
 @property(retain, nonatomic) GEOResource *desiredResource; // @synthesize desiredResource=_desiredResource;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(nonatomic) _Bool hasOriginalTimestamp;
 @property(readonly, nonatomic) _Bool hasFallbackResource;
 @property(readonly, nonatomic) _Bool hasDesiredResource;
-- (void)dealloc;
 
 @end
 

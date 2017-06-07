@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSCopying-Protocol.h>
 
@@ -28,7 +28,7 @@
 @property(nonatomic) unsigned long long memoryCacheCountLimit; // @synthesize memoryCacheCountLimit=_memoryCacheCountLimit;
 @property(nonatomic) _Bool trackUsage; // @synthesize trackUsage=_trackUsage;
 @property(nonatomic) Class serverProxyClass; // @synthesize serverProxyClass=_serverProxyClass;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

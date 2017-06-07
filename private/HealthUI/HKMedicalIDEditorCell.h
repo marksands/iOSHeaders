@@ -8,22 +8,24 @@
 
 #import <HealthUI/UITextFieldDelegate-Protocol.h>
 
-@class HKCaretOptionalTextField, NSString, UILabel, UIView;
+@class HKCaretOptionalTextField, NSString, UILabel, UIStackView, UIView;
 @protocol HKMedicalIDEditorCellEditDelegate;
 
 @interface HKMedicalIDEditorCell : UITableViewCell <UITextFieldDelegate>
 {
-    UIView *_verticalSeparatorView;
-    UIView *_horizontalSeparatorView;
     double _minimumLabelWidth;
     id <HKMedicalIDEditorCellEditDelegate> _editDelegate;
+    UIStackView *_stackView;
     UILabel *_labelLabel;
     HKCaretOptionalTextField *_inputTextField;
+    UIView *_verticalSeparatorView;
 }
 
 + (_Bool)showsLabelAndValue;
-@property(readonly, nonatomic) HKCaretOptionalTextField *inputTextField; // @synthesize inputTextField=_inputTextField;
-@property(readonly, nonatomic) UILabel *labelLabel; // @synthesize labelLabel=_labelLabel;
+@property(retain, nonatomic) UIView *verticalSeparatorView; // @synthesize verticalSeparatorView=_verticalSeparatorView;
+@property(retain, nonatomic) HKCaretOptionalTextField *inputTextField; // @synthesize inputTextField=_inputTextField;
+@property(retain, nonatomic) UILabel *labelLabel; // @synthesize labelLabel=_labelLabel;
+@property(retain, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(nonatomic) __weak id <HKMedicalIDEditorCellEditDelegate> editDelegate; // @synthesize editDelegate=_editDelegate;
 @property(nonatomic) double minimumLabelWidth; // @synthesize minimumLabelWidth=_minimumLabelWidth;
 - (void).cxx_destruct;
@@ -35,9 +37,9 @@
 - (void)valueDidChange;
 - (id)formattedValue;
 @property(retain, nonatomic) NSString *label;
-- (void)layoutSubviews;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
-- (void)dealloc;
+- (void)setupStackView;
+- (void)setupSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 // Remaining properties

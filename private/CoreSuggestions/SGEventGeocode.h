@@ -17,6 +17,7 @@
 + (_Bool)isGeocodeCandidate:(id)arg1;
 + (_Bool)isGeocodeCandidateLocation:(id)arg1 forEvent:(id)arg2;
 + (_Bool)locationIsGeocoded:(id)arg1;
++ (_Bool)locationIsAirport:(id)arg1;
 
 @end
 

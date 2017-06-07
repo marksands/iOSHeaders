@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_outputMessageQueue;
     NSMutableData *_incomingData;
     _RWITCPServer *_server;
+    long long _type;
 }
 
 + (id)TCPConnectionWithResolvedNetService:(id)arg1;
@@ -43,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (void)_dispatchSourceCancelled;
 - (void)_shutdown;
 - (void)dealloc;
+- (void)_commonInitializationWithServer:(id)arg1 socket:(int)arg2 type:(long long)arg3;
 - (id)initWithServer:(id)arg1 socket:(int)arg2;
 
 @end

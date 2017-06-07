@@ -15,6 +15,7 @@
     _Bool _mainAlternativeValid;
     _Bool _partiallyLoaded;
     NSString *_messageId;
+    NSString *_externalReferenceId;
     NSData *_textData;
     NSArray *_attachments;
 }
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) NSArray *attachments; // @synthesize attachments=_attachments;
 @property(retain, nonatomic) NSData *textData; // @synthesize textData=_textData;
 @property(nonatomic) _Bool mainAlternativeValid; // @synthesize mainAlternativeValid=_mainAlternativeValid;
+@property(retain, nonatomic) NSString *externalReferenceId; // @synthesize externalReferenceId=_externalReferenceId;
 @property(retain, nonatomic) NSString *messageId; // @synthesize messageId=_messageId;
 - (void).cxx_destruct;
 - (id)description;

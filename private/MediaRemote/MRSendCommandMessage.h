@@ -14,10 +14,11 @@
 }
 
 @property(readonly, nonatomic) NSDate *serializationDate; // @synthesize serializationDate=_serializationDate;
+@property(readonly, nonatomic) void *playerPath;
 @property(readonly, nonatomic) NSDictionary *options;
 @property(readonly, nonatomic) unsigned int command;
 - (unsigned long long)type;
-- (id)initWithCommand:(unsigned int)arg1 options:(id)arg2;
+- (id)initWithCommand:(unsigned int)arg1 options:(id)arg2 playerPath:(void *)arg3;
 
 @end
 

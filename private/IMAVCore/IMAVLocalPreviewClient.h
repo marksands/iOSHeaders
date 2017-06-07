@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <IMAVCore/AVConferencePreviewClientDelegate-Protocol.h>
 #import <IMAVCore/IMSystemMonitorListener-Protocol.h>
@@ -23,12 +23,11 @@
 + (struct CGSize)localPortraitAspectRatio;
 + (id)sharedInstance;
 @property(retain, nonatomic) AVConferencePreview *conferencePreview; // @synthesize conferencePreview=_conferencePreview;
-- (void)didReceiveCommError;
-- (void)cameraDidBecomeAvailable:(unsigned int)arg1;
-- (void)didReceiveErrorFromCamera:(unsigned int)arg1 error:(id)arg2;
+- (void)cameraDidBecomeAvailableForUniqueID:(id)arg1;
+- (void)didReceiveErrorFromCameraUniqueID:(id)arg1 error:(id)arg2;
 - (void)didChangeLocalScreenAttributes:(id)arg1;
 - (void)didChangeLocalVideoAttributes:(id)arg1;
-- (void)didReceiveFirstPreviewFrameFromCamera:(unsigned int)arg1;
+- (void)didReceiveFirstPreviewFrameFromCameraUniqueID:(id)arg1;
 - (void)didPausePreview;
 - (void)didStopPreview;
 - (void)didStartPreview;

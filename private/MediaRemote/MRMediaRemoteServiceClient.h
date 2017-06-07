@@ -6,56 +6,31 @@
 
 #import <Foundation/NSObject.h>
 
-@class MRAVRoutingClientController, MSVDistributedNotificationObserver, NSArray, NSMutableArray, NSMutableDictionary;
+@class MRAVRoutingClientController, MRNotificationClient, NSArray, NSMutableArray, NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface MRMediaRemoteServiceClient : NSObject
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
-    unsigned long long _registeredNowPlayingObservers;
     NSMutableArray *_registeredOrigins;
     MRAVRoutingClientController *_routingClientController;
     NSMutableDictionary *_transactionSources;
-    MSVDistributedNotificationObserver *_televisionPairedDevicesChangedObserver;
-    MSVDistributedNotificationObserver *_televisionIsPairingAllowedChangedObserver;
-    _Bool _receivesExternalScreenTypeChangedNotifications;
-    _Bool _receivesSupportedCommandsNotifications;
-    _Bool _receivesRoutesChangedNotifications;
-    _Bool _receivesOriginChangedNotifications;
-    _Bool _receivesPlaybackErrorNotifications;
-    _Bool _receivesVoiceInputRecordingStateNotifications;
-    NSArray *_nowPlayingNotificationObservers;
-    NSArray *_routingNotificationObservers;
-    NSArray *_originNotificationObservers;
-    NSArray *_voiceInputNotificationObservers;
     struct MRMediaRemoteService *_service;
-    NSArray *_externalScreenTypeNotificationObservers;
+    MRNotificationClient *_notificationClient;
 }
 
 + (id)sharedServiceClient;
-@property(retain, nonatomic) NSArray *externalScreenTypeNotificationObservers; // @synthesize externalScreenTypeNotificationObservers=_externalScreenTypeNotificationObservers;
-@property(nonatomic) _Bool receivesVoiceInputRecordingStateNotifications; // @synthesize receivesVoiceInputRecordingStateNotifications=_receivesVoiceInputRecordingStateNotifications;
-@property(nonatomic) _Bool receivesPlaybackErrorNotifications; // @synthesize receivesPlaybackErrorNotifications=_receivesPlaybackErrorNotifications;
-@property(nonatomic) _Bool receivesOriginChangedNotifications; // @synthesize receivesOriginChangedNotifications=_receivesOriginChangedNotifications;
-@property(nonatomic) _Bool receivesRoutesChangedNotifications; // @synthesize receivesRoutesChangedNotifications=_receivesRoutesChangedNotifications;
-@property(nonatomic) _Bool receivesSupportedCommandsNotifications; // @synthesize receivesSupportedCommandsNotifications=_receivesSupportedCommandsNotifications;
-@property(nonatomic) _Bool receivesExternalScreenTypeChangedNotifications; // @synthesize receivesExternalScreenTypeChangedNotifications=_receivesExternalScreenTypeChangedNotifications;
+@property(readonly, nonatomic) MRNotificationClient *notificationClient; // @synthesize notificationClient=_notificationClient;
 @property(readonly, nonatomic) struct MRMediaRemoteService *service; // @synthesize service=_service;
-@property(retain, nonatomic) NSArray *voiceInputNotificationObservers; // @synthesize voiceInputNotificationObservers=_voiceInputNotificationObservers;
-@property(retain, nonatomic) NSArray *originNotificationObservers; // @synthesize originNotificationObservers=_originNotificationObservers;
-@property(retain, nonatomic) NSArray *routingNotificationObservers; // @synthesize routingNotificationObservers=_routingNotificationObservers;
-@property(retain, nonatomic) NSArray *nowPlayingNotificationObservers; // @synthesize nowPlayingNotificationObservers=_nowPlayingNotificationObservers;
-- (void)sendTransaction:(unsigned long long)arg1 withData:(id)arg2 forOrigin:(struct _MROrigin *)arg3;
+- (void)sendTransaction:(unsigned long long)arg1 withData:(id)arg2 forPlayer:(void *)arg3;
 - (void)fetchPickableRoutesWithCategory:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)unregisterAllOriginsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)unregisterOrigin:(struct _MROrigin *)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)registerOrigin:(struct _MROrigin *)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)unregisterForNowPlayingNotifications;
-- (void)registerForNowPlayingNotificationsWithQueue:(id)arg1;
+- (void)unregisterOrigin:(void *)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)registerOrigin:(void *)arg1 withCompletion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *registeredOrigins;
-@property(readonly, nonatomic, getter=isRegisteredForNowPlayingNotifications) _Bool registeredForNowPlayingNotifications;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *serviceQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerSerialQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workerQueue;
 - (void)dealloc;
 - (id)init;
 

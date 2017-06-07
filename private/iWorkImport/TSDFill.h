@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)drawSwatchInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (void)paintPath:(struct CGPath *)arg1 naturalBounds:(struct CGRect)arg2 inContext:(struct CGContext *)arg3 isPDF:(_Bool)arg4;
 - (void)paintRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
+- (id)convertForChartSeriesType:(id)arg1 context:(id)arg2;
 @property(readonly, nonatomic) _Bool tsch_hasAllResources; // @dynamic tsch_hasAllResources;
 - (void)saveToPropertyCommandMessage:(struct Message *)arg1 archiver:(id)arg2;
 - (id)initFromPropertyCommandMessage:(const struct Message *)arg1 unarchiver:(id)arg2;

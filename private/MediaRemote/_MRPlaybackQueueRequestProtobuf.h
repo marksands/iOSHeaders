@@ -8,21 +8,24 @@
 
 #import <MediaRemote/NSCopying-Protocol.h>
 
-@class NSString, _MRPlaybackQueueContextProtobuf;
+@class NSMutableArray, NSString, _MRNowPlayingPlayerPathProtobuf, _MRPlaybackQueueContextProtobuf;
 
 @interface _MRPlaybackQueueRequestProtobuf : PBCodable <NSCopying>
 {
     double _artworkHeight;
     double _artworkWidth;
+    NSMutableArray *_contentItemIdentifiers;
     _MRPlaybackQueueContextProtobuf *_context;
     int _length;
     int _location;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
     NSString *_requestID;
     _Bool _includeInfo;
     _Bool _includeLanguageOptions;
     _Bool _includeLyrics;
     _Bool _includeMetadata;
     _Bool _includeSections;
+    _Bool _returnContentItemAssetsInUserCompletion;
     struct {
         unsigned int artworkHeight:1;
         unsigned int artworkWidth:1;
@@ -33,9 +36,14 @@
         unsigned int includeLyrics:1;
         unsigned int includeMetadata:1;
         unsigned int includeSections:1;
+        unsigned int returnContentItemAssetsInUserCompletion:1;
     } _has;
 }
 
++ (Class)contentItemIdentifiersType;
+@property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
+@property(nonatomic) _Bool returnContentItemAssetsInUserCompletion; // @synthesize returnContentItemAssetsInUserCompletion=_returnContentItemAssetsInUserCompletion;
+@property(retain, nonatomic) NSMutableArray *contentItemIdentifiers; // @synthesize contentItemIdentifiers=_contentItemIdentifiers;
 @property(retain, nonatomic) NSString *requestID; // @synthesize requestID=_requestID;
 @property(retain, nonatomic) _MRPlaybackQueueContextProtobuf *context; // @synthesize context=_context;
 @property(nonatomic) _Bool includeLanguageOptions; // @synthesize includeLanguageOptions=_includeLanguageOptions;
@@ -56,6 +64,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPlayerPath;
+@property(nonatomic) _Bool hasReturnContentItemAssetsInUserCompletion;
+- (id)contentItemIdentifiersAtIndex:(unsigned long long)arg1;
+- (unsigned long long)contentItemIdentifiersCount;
+- (void)addContentItemIdentifiers:(id)arg1;
+- (void)clearContentItemIdentifiers;
 @property(readonly, nonatomic) _Bool hasRequestID;
 @property(readonly, nonatomic) _Bool hasContext;
 @property(nonatomic) _Bool hasIncludeLanguageOptions;

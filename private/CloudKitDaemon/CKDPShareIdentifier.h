@@ -30,6 +30,7 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasZoneIdentifier;
 @property(readonly, nonatomic) _Bool hasValue;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 
 @end
 

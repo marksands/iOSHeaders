@@ -7,12 +7,11 @@
 #import <CacheDelete/CacheDeleteListener.h>
 
 #import <CacheDelete/CacheDeleteServiceProtocol-Protocol.h>
-#import <CacheDelete/NSXPCListenerDelegate-Protocol.h>
 
-@class CacheDeleteServiceInfo, NSObject, NSString, NSXPCListenerEndpoint;
+@class CacheDeleteServiceInfo, NSObject, NSXPCListenerEndpoint;
 @protocol OS_dispatch_queue;
 
-@interface CacheDeleteServiceListener : CacheDeleteListener <NSXPCListenerDelegate, CacheDeleteServiceProtocol>
+@interface CacheDeleteServiceListener : CacheDeleteListener <CacheDeleteServiceProtocol>
 {
     _Bool _legacyCallbacks;
     _Bool _anonymous;
@@ -49,12 +48,6 @@
 - (void)servicePurge:(int)arg1 info:(id)arg2 replyBlock:(CDUnknownBlockType)arg3;
 - (void)servicePurgeable:(int)arg1 info:(id)arg2 replyBlock:(CDUnknownBlockType)arg3;
 - (id)initWithName:(id)arg1 options:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

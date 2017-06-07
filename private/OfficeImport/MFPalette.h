@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 + (id)paletteWithColours:(id)arg1;
 - (id)getColour:(int)arg1;
 - (_Bool)resize:(int)arg1;
-- (_Bool)setEntries:(int)arg1:(id)arg2;
+- (_Bool)setEntries:(int)arg1 in_colours:(id)arg2;
 - (int)selectInto:(id)arg1;
 - (void)dealloc;
 - (id)initWithColours:(id)arg1;

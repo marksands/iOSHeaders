@@ -15,13 +15,12 @@
 {
 }
 
-+ (id)syncEntityDependencies;
++ (id)syncEntityDependenciesForSyncProtocolVersion:(int)arg1;
 + (void)didReceiveValuesForKeys:(id)arg1 profile:(id)arg2;
 + (long long)receiveSyncObjects:(id)arg1 syncStore:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (id)decodeSyncObjectWithData:(id)arg1;
-+ (long long)nextSyncAnchorWithStore:(id)arg1 predicate:(id)arg2 startSyncAnchor:(long long)arg3 profile:(id)arg4 error:(id *)arg5;
-+ (_Bool)generateSyncObjectsForStore:(id)arg1 predicate:(id)arg2 syncAnchorRange:(struct HDSyncAnchorRange)arg3 maxEncodedBytesPerMessage:(long long)arg4 profile:(id)arg5 error:(id *)arg6 handler:(CDUnknownBlockType)arg7;
-+ (void)adjustCodable:(id)arg1 forDomain:(id)arg2;
++ (long long)nextSyncAnchorWithSession:(id)arg1 predicate:(id)arg2 startSyncAnchor:(long long)arg3 profile:(id)arg4 error:(id *)arg5;
++ (_Bool)generateSyncObjectsForSession:(id)arg1 predicate:(id)arg2 syncAnchorRange:(struct HDSyncAnchorRange)arg3 maxEncodedBytesPerMessage:(long long)arg4 profile:(id)arg5 error:(id *)arg6 handler:(CDUnknownBlockType)arg7;
 + (id)_syncObjectPredicateWithPredicate:(id)arg1;
 + (long long)syncEntityType;
 + (long long)category;

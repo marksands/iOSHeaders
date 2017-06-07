@@ -16,10 +16,8 @@
 - (id)DESPolicyCDNOverride;
 - (void)setDESLotteryWinOverrideIsEnabled:(_Bool)arg1;
 - (_Bool)DESLotteryWinOverrideIsEnabled;
-- (void)setDESRecordingIsEnabled:(_Bool)arg1;
-- (_Bool)DESRecordingIsEnabled;
-- (void)setDESRecognitionIsEnabled:(_Bool)arg1;
-- (_Bool)DESRecognitionIsEnabled;
+- (void)setDESRecordingAlwaysIsEnabled:(_Bool)arg1;
+- (_Bool)DESRecordingAlwaysIsEnabled;
 
 @end
 

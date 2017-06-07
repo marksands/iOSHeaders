@@ -6,14 +6,14 @@
 
 #import <iTunesStore/ISOperation.h>
 
-@class ISBiometricAuthenticationContext, ISDialog, ISDialogButton, ISTouchIDDialog, ISURLBag, NSDictionary, NSObject, NSString, NSURL;
+@class ISDialog, ISDialogButton, ISTouchIDDialog, ISURLBag, NSDictionary, NSObject, NSString, NSURL, SSBiometricAuthenticationContext;
 @protocol OS_dispatch_queue;
 
 @interface ISBiometricTouchIDDialogOperation : ISOperation
 {
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     ISURLBag *_urlBag;
-    ISBiometricAuthenticationContext *_context;
+    SSBiometricAuthenticationContext *_context;
     ISDialog *_dialog;
     NSURL *_redirectURL;
     ISDialogButton *_selectedButton;
@@ -30,7 +30,7 @@
 @property(readonly) ISDialogButton *selectedButton; // @synthesize selectedButton=_selectedButton;
 @property(readonly) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
 @property(readonly) ISDialog *dialog; // @synthesize dialog=_dialog;
-@property(retain) ISBiometricAuthenticationContext *biometricAuthenticationContext; // @synthesize biometricAuthenticationContext=_context;
+@property(retain) SSBiometricAuthenticationContext *biometricAuthenticationContext; // @synthesize biometricAuthenticationContext=_context;
 - (void).cxx_destruct;
 - (_Bool)_runSignatureOperationReturningError:(id *)arg1;
 - (_Bool)_runAuthkitOperationWithError:(id)arg1 returningError:(id *)arg2;

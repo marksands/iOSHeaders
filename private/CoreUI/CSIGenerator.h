@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CUIPSDGradient, CUIShapeEffectPreset, NSArray, NSData, NSDate, NSMutableArray, NSSet, NSString;
+@class CUIPSDGradient, CUIShapeEffectPreset, NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSSet, NSString;
 
 @interface CSIGenerator : NSObject
 {
@@ -22,7 +22,7 @@
     _Bool _isVectorBased;
     long long _templateRenderingMode;
     _Bool _allowsMultiPassEncoding;
-    _Bool _allowsOptimalPacking;
+    _Bool _allowsOptimalRowbytesPacking;
     _Bool _optOutOfThinning;
     _Bool _isFlippable;
     _Bool _isTintable;
@@ -52,11 +52,17 @@
     long long _textureInterpretation;
     NSMutableArray *_mipReferences;
     _Bool _textureOpaque;
+    NSArray *_colorComponents;
+    NSDictionary *_sizesByIndex;
+    _Bool _clampMetrics;
 }
 
 + (int)fileEncoding;
 + (void)setFileEncoding:(int)arg1;
 + (void)initialize;
+@property(nonatomic) _Bool clampMetrics; // @synthesize clampMetrics=_clampMetrics;
+@property(copy, nonatomic) NSDictionary *sizesByIndex; // @synthesize sizesByIndex=_sizesByIndex;
+@property(copy, nonatomic) NSArray *colorComponents; // @synthesize colorComponents=_colorComponents;
 @property(nonatomic) _Bool textureOpaque; // @synthesize textureOpaque=_textureOpaque;
 @property(readonly, nonatomic) NSArray *mipReferences; // @synthesize mipReferences=_mipReferences;
 @property(nonatomic) long long textureInterpretation; // @synthesize textureInterpretation=_textureInterpretation;
@@ -65,7 +71,7 @@
 @property(nonatomic) _Bool isTintable; // @synthesize isTintable=_isTintable;
 @property(nonatomic) _Bool isFlippable; // @synthesize isFlippable=_isFlippable;
 @property(nonatomic) _Bool optOutOfThinning; // @synthesize optOutOfThinning=_optOutOfThinning;
-@property(nonatomic) _Bool allowsOptimalPacking; // @synthesize allowsOptimalPacking=_allowsOptimalPacking;
+@property(nonatomic) _Bool allowsOptimalRowbytesPacking; // @synthesize allowsOptimalRowbytesPacking=_allowsOptimalRowbytesPacking;
 @property(nonatomic) _Bool allowsMultiPassEncoding; // @synthesize allowsMultiPassEncoding=_allowsMultiPassEncoding;
 @property(nonatomic) struct CGRect alphaCroppedFrame; // @synthesize alphaCroppedFrame=_alphaCroppedFrame;
 @property(nonatomic) struct CGSize originalUncroppedSize; // @synthesize originalUncroppedSize=_originalUncroppedSize;
@@ -90,6 +96,8 @@
 - (unsigned long long)writeTextureToData:(id)arg1;
 - (unsigned long long)writeExternalLinkToData:(id)arg1;
 - (unsigned long long)writeRawDataToData:(id)arg1;
+- (unsigned long long)writeMultisizeImageSetToData:(id)arg1;
+- (unsigned long long)writeColorToData:(id)arg1;
 - (unsigned long long)writeGradientToData:(id)arg1;
 - (void)_addNodes:(id)arg1 toNodeList:(struct _csigradientdatanode *)arg2;
 - (unsigned long long)writeBitmap:(id)arg1 toData:(id)arg2 compress:(_Bool)arg3;
@@ -104,7 +112,11 @@
 @property(nonatomic) double compressionQuality;
 - (void)addBitmap:(id)arg1;
 - (void)_updateCompressionInfoFor:(id)arg1;
+- (_Bool)_shouldUseCompactCompressionForBitmap:(id)arg1;
+- (id)rawData;
 - (void)dealloc;
+- (id)initWithMultisizeImageSetNamed:(id)arg1 sizesByIndex:(id)arg2;
+- (id)initWithColorNamed:(id)arg1 colorSpaceID:(unsigned long long)arg2 components:(id)arg3;
 - (id)initWithInternalReferenceRect:(struct CGRect)arg1 layout:(short)arg2;
 - (id)initWithTextureImageWithSize:(struct CGSize)arg1 forPixelFormat:(long long)arg2 cubeMap:(_Bool)arg3;
 - (id)initWithTextureForPixelFormat:(long long)arg1;

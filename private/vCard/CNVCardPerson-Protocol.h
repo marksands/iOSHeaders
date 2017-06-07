@@ -55,6 +55,5 @@
 @property(readonly) NSString *lastName;
 @property(readonly) NSString *firstName;
 - (NSData *)largeImageHashOfType:(NSString *)arg1;
-- (NSData *)jpegImageDataOfAllowableKinds:(NSArray *)arg1 maximumLength:(unsigned long long)arg2 cropRects:(id *)arg3;
 @end
 

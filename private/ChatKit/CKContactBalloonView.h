@@ -26,6 +26,7 @@
 @property(retain, nonatomic) CKMediaObject *mediaObject; // @synthesize mediaObject=_mediaObject;
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2;
+- (id)_truncateNameIfNeeded:(id)arg1;
 - (void)prepareForDisplay;
 - (void)prepareForReuse;
 - (struct UIEdgeInsets)alignmentRectInsets;

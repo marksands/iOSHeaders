@@ -6,7 +6,7 @@
 
 #import <Preferences/PSListController.h>
 
-@class CHManager, NSArray, PSSpecifier, PSUIAppCellularUsageGroupController, PSUICellularAccountGroupController, PSUICellularAccountListGroupController, WirelessDataUsageWorkspace;
+@class CHManager, NSArray, NSMutableArray, PSSpecifier, PSUIAppCellularUsageGroupController, PSUICellularAccountGroupController, PSUICellularAccountListGroupController, WirelessDataUsageWorkspace;
 
 @interface PSUISettingsNetworkController : PSListController
 {
@@ -20,6 +20,7 @@
     PSSpecifier *_lastResetSpecifier;
     _Bool _ignoreNextEntitlementStatusChange;
     NSArray *_appUsageSpecifierCache;
+    NSMutableArray *_carrierSpaceBundleControllers;
     PSUICellularAccountListGroupController *_cellularAccountListGroupController;
     PSUICellularAccountGroupController *_cellularGroupController;
     PSUIAppCellularUsageGroupController *_appUsageGroupController;

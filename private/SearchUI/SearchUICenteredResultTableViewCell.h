@@ -4,21 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUITableViewCell.h>
+#import <SearchUI/SearchUILayoutFreeTableCell.h>
 
-@class UILabel;
+@class TLKNumericalResultView;
 
-@interface SearchUICenteredResultTableViewCell : SearchUITableViewCell
+@interface SearchUICenteredResultTableViewCell : SearchUILayoutFreeTableCell
 {
-    UILabel *_vibrantTitleLabel;
-    UILabel *_subtitleLabel;
 }
 
-@property(retain) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
-@property(retain) UILabel *vibrantTitleLabel; // @synthesize vibrantTitleLabel=_vibrantTitleLabel;
-- (void).cxx_destruct;
-- (void)updateWithResult:(id)arg1;
-- (id)initWithResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+- (void)updateWithRowModel:(id)arg1;
+- (id)initWithRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+
+// Remaining properties
+@property(retain) TLKNumericalResultView *sizingContainer; // @dynamic sizingContainer;
 
 @end
 

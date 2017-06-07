@@ -12,6 +12,7 @@
 __attribute__((visibility("hidden")))
 @interface CKDPCSCacheFetchOperation : CKDDatabaseOperation
 {
+    _Bool _willRetryFetchSuperCalled;
     _Bool _didFetchData;
     _Bool _wasFetchedFromCache;
     _Bool _shouldRetry;
@@ -32,6 +33,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int numRetries; // @synthesize numRetries=_numRetries;
 @property(nonatomic) _Bool wasFetchedFromCache; // @synthesize wasFetchedFromCache=_wasFetchedFromCache;
 @property(nonatomic) _Bool didFetchData; // @synthesize didFetchData=_didFetchData;
+@property(nonatomic) _Bool willRetryFetchSuperCalled; // @synthesize willRetryFetchSuperCalled=_willRetryFetchSuperCalled;
 @property(retain, nonatomic) NSError *fetchError; // @synthesize fetchError=_fetchError;
 @property(retain, nonatomic) CKDPCSData *pcsData; // @synthesize pcsData=_pcsData;
 @property(nonatomic) unsigned long long fetchOptions; // @synthesize fetchOptions=_fetchOptions;
@@ -41,17 +43,21 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)main;
+- (void)_willRetryFetch;
 - (_Bool)_savePCSDataToCache;
+- (_Bool)_saveUpdatedPCSToServer;
 - (_Bool)_decryptPCS;
-- (_Bool)_fetchParentPCS;
-- (_Bool)_createParentPCS;
+- (_Bool)_fetchDependentPCS;
+- (_Bool)_createAdditionalPCS;
 - (_Bool)_fetchPCSDataFromServer;
 - (_Bool)_fetchPCSDataFromDatabase;
-- (_Bool)hasAllPCSData;
+- (_Bool)needsAdditionalPCSCreation;
+@property(readonly, nonatomic) _Bool hasAllPCSData;
 @property(readonly, nonatomic) NSString *itemTypeName;
 - (id)nameForState:(unsigned long long)arg1;
 - (_Bool)makeStateTransition;
 - (_Bool)canBeUsedForOperation:(id)arg1 withOptions:(unsigned long long)arg2;
+- (_Bool)_errorShouldImpactFlowControl:(id)arg1;
 - (id)initWithItemID:(id)arg1 parentOperation:(id)arg2 cache:(id)arg3 options:(unsigned long long)arg4;
 
 @end

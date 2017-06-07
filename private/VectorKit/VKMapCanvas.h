@@ -7,13 +7,14 @@
 #import <VectorKit/VKScreenCanvas.h>
 
 #import <VectorKit/VKInteractiveMap-Protocol.h>
+#import <VectorKit/VKMapDataAccess-Protocol.h>
 #import <VectorKit/VKMapModelDelegate-Protocol.h>
 
-@class GEOResourceManifestConfiguration, NSArray, NSString, VKAnchorWrapper, VKCamera, VKMapModel, VKPolylineOverlayPainter, VKSceneConfiguration, VKTimedAnimation;
+@class GEOResourceManifestConfiguration, NSArray, NSString, VKAnchorWrapper, VKCamera, VKMapModel, VKSceneConfiguration, VKTimedAnimation;
 @protocol GEORoutePreloadSession, VKInteractiveMapDelegate, VKRouteMatchedAnnotationPresentation;
 
 __attribute__((visibility("hidden")))
-@interface VKMapCanvas : VKScreenCanvas <VKMapModelDelegate, VKInteractiveMap>
+@interface VKMapCanvas : VKScreenCanvas <VKMapModelDelegate, VKInteractiveMap, VKMapDataAccess>
 {
     VKMapModel *_map;
     struct CGSize _lastCanvasSize;
@@ -22,6 +23,7 @@ __attribute__((visibility("hidden")))
     _Bool _hasLastValidCanvasSizeZoomLevel;
     VKTimedAnimation *_horizontalOffsetAnimation;
     double _canonicalSkyHeight;
+    struct shared_ptr<md::AnchorContext> _anchorContext;
     id <VKInteractiveMapDelegate> _delegate;
 }
 
@@ -30,13 +32,32 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double canonicalSkyHeight; // @synthesize canonicalSkyHeight=_canonicalSkyHeight;
 @property(nonatomic) id <VKInteractiveMapDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) VKMapModel *map; // @synthesize map=_map;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)populateDebugNode:(shared_ptr_eafb90f9)arg1;
+- (id)navigationPuck;
+- (double)displayZoomLevel;
+- (CameraFrame_406dbd31)rotateCameraFrameAboutCoordinate:(const CameraFrame_406dbd31 *)arg1 coordinate:(Coordinate3D_bc242218)arg2 deltaAngle:(double)arg3;
+- (CameraFrame_406dbd31)_lookAtToCameraFrame:(const Matrix_6e1d3589 *)arg1 target:(const Matrix_6e1d3589 *)arg2 up:(const Matrix_6e1d3589 *)arg3;
+- (double)unitsPerMeterAtLatitude:(Unit_3d259e8a)arg1;
+- (void)setCameraFrame:(const CameraFrame_406dbd31 *)arg1;
+- (Matrix_6e1d3589)upForCoordinate:(const Coordinate3D_bc242218 *)arg1;
+- (double)heightAtCoordinate:(const Coordinate3D_bc242218 *)arg1;
+- (double)fovAdjustment;
+- (Matrix_08d701e4)worldViewProjectionMatrix:(const CameraFrame_406dbd31 *)arg1;
+- (const Matrix_08d701e4 *)projectionMatrix;
+- (RigidTransform_271c3a39)rigidTransformForFrame:(const CameraFrame_406dbd31 *)arg1;
+- (Matrix_2bdd42a3)screenPixelForCoordinate:(const Coordinate3D_bc242218 *)arg1 cameraFrame:(const CameraFrame_406dbd31 *)arg2;
+- (Coordinate3D_bc242218)groundCoordinateForScreenPixel:(const Matrix_2bdd42a3 *)arg1 cameraFrame:(const CameraFrame_406dbd31 *)arg2;
+- (long long)tileSize;
+- (float)currentRoadSignOffset;
+- (void)setNavCameraIsDetached:(_Bool)arg1;
 - (void)setCameraHorizontalOffset:(double)arg1 duration:(double)arg2 timingFunction:(id)arg3;
 - (long long)currentMapMode;
 - (void)transitionToTracking:(_Bool)arg1 mapMode:(long long)arg2 startLocation:(CDStruct_c3b9c2ee)arg3 startCourse:(double)arg4 cameraController:(id)arg5 pounceCompletionHandler:(CDUnknownBlockType)arg6;
 - (shared_ptr_664b6d77)stylesheet;
 - (shared_ptr_144c31f6)styleAtScreenPoint:(struct CGPoint)arg1;
 - (shared_ptr_144c31f6)styleForFeature:(const shared_ptr_430519ce *)arg1;
-- (vector_8bf6b0e5)roadMarkersForSelectionAtScreenPoint:(struct CGPoint)arg1;
 - (shared_ptr_430519ce)featureMarkerAtScreenPoint:(struct CGPoint)arg1;
 - (shared_ptr_430519ce)buildingMarkerAtScreenPoint:(struct CGPoint)arg1;
 - (void)setApplicationState:(unsigned char)arg1;
@@ -46,7 +67,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) id <VKRouteMatchedAnnotationPresentation> routeLineSplitAnnotation;
 - (id)debugLabelString:(_Bool)arg1;
 - (void)clearScene;
-- (shared_ptr_27db7edb)closestRoadMarkerForSelectionAtPoint:(struct CGPoint)arg1;
 - (void)debugHighlightObjectAtPoint:(struct CGPoint)arg1 highlightTarget:(unsigned char)arg2;
 - (void)goToTileX:(int)arg1 Y:(int)arg2 Z:(int)arg3 tileSize:(int)arg4;
 - (void)mapModelStylesheetDidChange:(id)arg1;
@@ -62,9 +82,12 @@ __attribute__((visibility("hidden")))
 - (void)mapModelDidBecomePartiallyDrawn:(id)arg1;
 - (void)mapModelDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(_Bool)arg2;
 - (void)mapModelWillBecomeFullyDrawn:(id)arg1;
-- (id)mapModel:(id)arg1 painterForOverlay:(id)arg2;
 - (void)mapModel:(id)arg1 willTransitionFrom:(long long)arg2 to:(long long)arg3 duration:(double)arg4;
 - (_Bool)isPointValidForGesturing:(struct CGPoint)arg1;
+- (void)cameraControllerDidReturnToDefaultZoom:(id)arg1;
+- (void)cameraControllerDidLeaveDefaultZoom:(id)arg1;
+- (void)cameraControllerHasStoppedPanning:(id)arg1;
+- (void)cameraControllerHasStartedPanning:(id)arg1;
 - (void)cameraController:(id)arg1 canZoomOutDidChange:(_Bool)arg2;
 - (void)cameraController:(id)arg1 canZoomInDidChange:(_Bool)arg2;
 - (id)cameraController:(id)arg1 presentationForAnnotation:(id)arg2;
@@ -75,40 +98,24 @@ __attribute__((visibility("hidden")))
 - (void)cameraController:(id)arg1 willChangeRegionAnimated:(_Bool)arg2;
 - (void)cameraControllerRequestsLayout:(id)arg1;
 - (void)cameraControllerDidChangeCameraState:(id)arg1;
+@property(nonatomic) _Bool showsVenues;
 @property(nonatomic) _Bool showsBuildings;
-@property(nonatomic) _Bool showsPointsOfInterest;
-@property(nonatomic) long long shieldIdiom;
-@property(nonatomic) long long navigationShieldSize;
-@property(nonatomic) long long shieldSize;
+- (void)setShowsPointsOfInterest:(_Bool)arg1;
+- (_Bool)showsPointsOfInterest;
 - (id)boundsForSelectedTransitLines;
 - (void)deselectTransitLineMarker;
 - (void)selectTransitLineMarker:(id)arg1;
 - (id)selectedTransitLineIDs;
 - (id)transitLineMarkersForSelectionAtPoint:(struct CGPoint)arg1;
 - (id)transitLineMarkersInCurrentViewport;
-@property(nonatomic) _Bool labelMarkerSelectionEnabled;
+- (struct LabelSettings *)labelSettings;
 - (void)debugHighlightFeatureMarker:(const shared_ptr_430519ce *)arg1;
-- (void)deselectLabelMarker;
-- (void)selectLabelMarker:(const shared_ptr_2d33c5e4 *)arg1;
-- (shared_ptr_2d33c5e4)labelMarkerForCustomFeatureAnnotation:(id)arg1 dataSource:(id)arg2;
-- (shared_ptr_2d33c5e4)labelMarkerForSelectionAtPoint:(struct CGPoint)arg1 selectableLabelsOnly:(_Bool)arg2;
-- (void)removeCustomFeatureDataSource:(id)arg1;
-- (void)addCustomFeatureDataSource:(id)arg1;
-@property(retain, nonatomic) NSArray *customFeatureDataSources;
-@property(retain, nonatomic) NSArray *externalTrafficIncidents;
 - (_Bool)shouldHideOffscreenSelectedAnnotation;
 - (CDUnknownBlockType)annotationCoordinateTest;
 - (CDUnknownBlockType)annotationRectTest;
-- (vector_af4a736d)labelMarkers;
-- (id)annotationMarkers;
-- (void)removeAnnotationMarker:(id)arg1;
-- (void)addAnnotationMarker:(id)arg1;
 @property(retain, nonatomic) id <GEORoutePreloadSession> routePreloadSession;
 - (void)preloadNavigationSceneResourcesWithDevice:(const shared_ptr_807ec9ac *)arg1;
-@property(retain, nonatomic) VKPolylineOverlayPainter *focusedLabelsPolylinePainter;
 - (void)setRouteContext:(id)arg1;
-- (void)setCurrentLocationText:(id)arg1;
-@property(nonatomic) struct PolylineCoordinate routeUserOffset;
 @property(readonly, nonatomic) NSArray *rasterOverlays;
 - (void)insertRasterOverlay:(id)arg1 belowOverlay:(id)arg2;
 - (void)insertRasterOverlay:(id)arg1 aboveOverlay:(id)arg2;
@@ -120,7 +127,6 @@ __attribute__((visibility("hidden")))
 - (id)overlays;
 - (void)removeOverlay:(id)arg1;
 - (void)addOverlay:(id)arg1;
-- (shared_ptr_2d33c5e4)selectedLabelMarker;
 - (void)setShouldLimitTrackingCameraHeight:(_Bool)arg1;
 - (void)didBeginTransitionToTransit;
 - (struct CGPoint)convertCoordinateToCameraModelPoint:(CDStruct_c3b9c2ee)arg1;
@@ -137,15 +143,15 @@ __attribute__((visibility("hidden")))
 - (id)detailedDescriptionDictionaryRepresentation;
 - (id)detailedDescription;
 - (void)dealloc;
-- (void)clearSceneIsEffectivelyHidden:(_Bool)arg1;
-- (void)setHidden:(_Bool)arg1;
-- (id)initWithTarget:(id)arg1 inBackground:(_Bool)arg2 manifestConfiguration:(id)arg3 locale:(id)arg4;
+-     // Error parsing type: @28@0:8^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B}16B24, name: initWithMapEngine:inBackground:
 - (void)resetTileContainers;
 - (void)transferStateFromCanvas:(id)arg1;
 @property(nonatomic) _Bool shouldLoadMapMargin;
 @property(nonatomic) _Bool shouldLoadFallbackTiles;
 - (void)setApplicationUILayout:(unsigned char)arg1;
 - (unsigned char)applicationUILayout;
+- (void)setEmphasis:(unsigned char)arg1;
+- (unsigned char)emphasis;
 - (void)setVehicleState:(struct VehicleState)arg1;
 - (struct VehicleState)vehicleState;
 - (void)setTargetDisplay:(unsigned char)arg1;
@@ -169,18 +175,14 @@ __attribute__((visibility("hidden")))
 - (void)beginStyleAnimationGroup;
 - (void)requestStylesheetAnimation:(id)arg1 targetMapDisplayStyle:(struct DisplayStyle)arg2 setupHandler:(CDUnknownBlockType)arg3;
 @property(nonatomic) long long mapType;
-- (void)setNeedsDisplay;
 - (void)setMapType:(long long)arg1 animated:(_Bool)arg2;
 @property(retain, nonatomic) GEOResourceManifestConfiguration *additionalManifestConfiguration;
-@property(nonatomic) unsigned char labelScaleFactor;
-@property(nonatomic) _Bool localizeLabels;
 @property(readonly, nonatomic, getter=isFullyDrawn) _Bool fullyDrawn;
 @property(nonatomic) _Bool trafficIncidentsEnabled;
 @property(nonatomic) _Bool trafficEnabled;
 - (_Bool)isShowingNoDataPlaceholders;
 - (id)attributionsForCurrentRegion;
 @property(readonly, nonatomic) NSArray *visibleTileSets;
-- (void)resetRenderQueue:(shared_ptr_06328420)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

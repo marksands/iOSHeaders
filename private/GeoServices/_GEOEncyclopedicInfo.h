@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOEncyclopedicInfo-Protocol.h>
 
@@ -17,13 +17,13 @@ __attribute__((visibility("hidden")))
     NSMapTable *_attributionMap;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) GEOMapItemAttribution *encyclopedicAttribution;
 @property(readonly, nonatomic) NSArray *factoids;
 @property(readonly, nonatomic) _Bool hasPairOfFactoids;
 @property(readonly, nonatomic) NSString *textBlockText;
 @property(readonly, nonatomic) NSString *textBlockTitle;
 @property(readonly, nonatomic) _Bool hasTextBlock;
-- (void)dealloc;
 - (id)initWithPlaceData:(id)arg1 attributionMap:(id)arg2;
 
 // Remaining properties

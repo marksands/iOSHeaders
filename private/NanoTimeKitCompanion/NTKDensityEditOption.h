@@ -16,6 +16,7 @@
 + (id)optionWithDensity:(unsigned long long)arg1;
 - (id)_valueToFaceBundleStringDict;
 @property(readonly, nonatomic) unsigned long long density;
+- (long long)swatchStyle;
 
 @end
 

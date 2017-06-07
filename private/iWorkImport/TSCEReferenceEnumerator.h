@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 
 - (const struct TSCECReference *)nextReference;
 - (void)dealloc;
-- (id)initWithCalculationEngine:(id)arg1 defaultFormulaOwnerID:(struct __CFUUID *)arg2 nodeArray:(const struct TSCEASTNodeArray *)arg3 myHostCellID:(struct TSUCellCoord)arg4 doImplicitIntersection:(_Bool)arg5 doUidReferences:(_Bool)arg6;
+- (id)initWithCalculationEngine:(id)arg1 defaultFormulaOwnerUID:(const UUIDData_5fbc143e *)arg2 nodeArray:(const struct TSCEASTNodeArray *)arg3 myHostCellID:(struct TSUCellCoord)arg4 doImplicitIntersection:(_Bool)arg5 doUidReferences:(_Bool)arg6;
 
 @end
 

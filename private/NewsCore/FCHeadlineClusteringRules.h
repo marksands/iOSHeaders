@@ -15,23 +15,31 @@
     unsigned long long _maxClusterSize;
     unsigned long long _minIdealClusterSize;
     unsigned long long _maxIdealClusterSize;
+    unsigned long long _minClusterSizeAutoFavorite;
+    unsigned long long _maxClusterSizeAutoFavorite;
+    unsigned long long _minIdealClusterSizeAutoFavorite;
+    unsigned long long _maxIdealClusterSizeAutoFavorite;
     unsigned long long _optimizedLayoutSizeThreshold;
     unsigned long long _optimizedLayoutIncrementUnit;
     FCSolConfiguration *_solConfiguration;
 }
 
-+ (id)rulesWithTreatment:(id)arg1;
++ (id)rulesWithTreatment:(id)arg1 deviceIsiPad:(_Bool)arg2;
 @property(retain, nonatomic) FCSolConfiguration *solConfiguration; // @synthesize solConfiguration=_solConfiguration;
 @property(readonly, nonatomic) unsigned long long optimizedLayoutIncrementUnit; // @synthesize optimizedLayoutIncrementUnit=_optimizedLayoutIncrementUnit;
 @property(readonly, nonatomic) unsigned long long optimizedLayoutSizeThreshold; // @synthesize optimizedLayoutSizeThreshold=_optimizedLayoutSizeThreshold;
 @property(readonly, nonatomic) _Bool enableOptimizedLayout; // @synthesize enableOptimizedLayout=_enableOptimizedLayout;
+@property(readonly, nonatomic) unsigned long long maxIdealClusterSizeAutoFavorite; // @synthesize maxIdealClusterSizeAutoFavorite=_maxIdealClusterSizeAutoFavorite;
+@property(readonly, nonatomic) unsigned long long minIdealClusterSizeAutoFavorite; // @synthesize minIdealClusterSizeAutoFavorite=_minIdealClusterSizeAutoFavorite;
+@property(readonly, nonatomic) unsigned long long maxClusterSizeAutoFavorite; // @synthesize maxClusterSizeAutoFavorite=_maxClusterSizeAutoFavorite;
+@property(readonly, nonatomic) unsigned long long minClusterSizeAutoFavorite; // @synthesize minClusterSizeAutoFavorite=_minClusterSizeAutoFavorite;
 @property(readonly, nonatomic) unsigned long long maxIdealClusterSize; // @synthesize maxIdealClusterSize=_maxIdealClusterSize;
 @property(readonly, nonatomic) unsigned long long minIdealClusterSize; // @synthesize minIdealClusterSize=_minIdealClusterSize;
 @property(readonly, nonatomic) unsigned long long maxClusterSize; // @synthesize maxClusterSize=_maxClusterSize;
 @property(readonly, nonatomic) unsigned long long minClusterSize; // @synthesize minClusterSize=_minClusterSize;
 - (void).cxx_destruct;
 - (id)init;
-- (id)initWithMinClusterSize:(unsigned long long)arg1 maxClusterSize:(unsigned long long)arg2 minIdealClusterSize:(unsigned long long)arg3 maxIdealClusterSize:(unsigned long long)arg4 enableOptimizedLayout:(_Bool)arg5 optimizedLayoutSizeThreshold:(unsigned long long)arg6 optimizedLayoutIncrementUnit:(unsigned long long)arg7 solConfiguration:(id)arg8;
+- (id)initWithMinClusterSize:(unsigned long long)arg1 maxClusterSize:(unsigned long long)arg2 minIdealClusterSize:(unsigned long long)arg3 maxIdealClusterSize:(unsigned long long)arg4 minClusterSizeAutoFavorite:(unsigned long long)arg5 maxClusterSizeAutoFavorite:(unsigned long long)arg6 minIdealClusterSizeAutoFavorite:(unsigned long long)arg7 maxIdealClusterSizeAutoFavorite:(unsigned long long)arg8 enableOptimizedLayout:(_Bool)arg9 optimizedLayoutSizeThreshold:(unsigned long long)arg10 optimizedLayoutIncrementUnit:(unsigned long long)arg11 solConfiguration:(id)arg12;
 
 @end
 

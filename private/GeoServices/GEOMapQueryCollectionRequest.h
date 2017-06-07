@@ -17,6 +17,7 @@
 
 + (Class)requestElementsType;
 @property(retain, nonatomic) NSMutableArray *requestElements; // @synthesize requestElements=_requestElements;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 - (unsigned long long)requestElementsCount;
 - (void)addRequestElements:(id)arg1;
 - (void)clearRequestElements;
-- (void)dealloc;
 
 @end
 

@@ -18,8 +18,10 @@
     NSString *_contentItemID;
     NSString *_contextID;
     NSString *_destinationAppDisplayID;
+    NSString *_insertAfterContentItemID;
     NSData *_languageOption;
     NSString *_mediaType;
+    NSString *_nowPlayingContentItemID;
     NSData *_playbackQueueContext;
     int _playbackQueueDestinationOffset;
     int _playbackQueueInsertionPosition;
@@ -60,6 +62,8 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *nowPlayingContentItemID; // @synthesize nowPlayingContentItemID=_nowPlayingContentItemID;
+@property(retain, nonatomic) NSString *insertAfterContentItemID; // @synthesize insertAfterContentItemID=_insertAfterContentItemID;
 @property(retain, nonatomic) NSData *playbackQueueContext; // @synthesize playbackQueueContext=_playbackQueueContext;
 @property(retain, nonatomic) NSData *languageOption; // @synthesize languageOption=_languageOption;
 @property(nonatomic) int playbackQueueDestinationOffset; // @synthesize playbackQueueDestinationOffset=_playbackQueueDestinationOffset;
@@ -94,6 +98,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasNowPlayingContentItemID;
+@property(readonly, nonatomic) _Bool hasInsertAfterContentItemID;
 @property(readonly, nonatomic) _Bool hasPlaybackQueueContext;
 @property(readonly, nonatomic) _Bool hasLanguageOption;
 @property(nonatomic) _Bool hasPlaybackQueueDestinationOffset;

@@ -6,19 +6,22 @@
 
 #import <objc/NSObject.h>
 
+#import <NewsCore/FCAppActivityObserving-Protocol.h>
 #import <NewsCore/FCCommandDelegate-Protocol.h>
 #import <NewsCore/FCNetworkReachabilityObserving-Protocol.h>
 
 @class FCCloudContext, FCKeyValueStore, NSMutableArray, NSString;
-@protocol OS_dispatch_group, OS_dispatch_queue, OS_dispatch_source;
+@protocol FCCommandQueueDelegate, OS_dispatch_group, OS_dispatch_queue, OS_dispatch_source;
 
-@interface FCCommandQueue : NSObject <FCNetworkReachabilityObserving, FCCommandDelegate>
+@interface FCCommandQueue : NSObject <FCNetworkReachabilityObserving, FCAppActivityObserving, FCCommandDelegate>
 {
     _Bool _suspended;
     _Bool _executingCommand;
     FCCloudContext *_context;
+    NSString *_persistentStorePath;
     FCKeyValueStore *_persistentStore;
     long long _urgency;
+    id <FCCommandQueueDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSMutableArray *_pendingCommands;
     NSObject<OS_dispatch_source> *_cooldownTimer;
@@ -34,22 +37,26 @@
 @property(retain, nonatomic) NSMutableArray *pendingCommands; // @synthesize pendingCommands=_pendingCommands;
 @property(nonatomic, getter=isSuspended) _Bool suspended; // @synthesize suspended=_suspended;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(nonatomic) __weak id <FCCommandQueueDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long urgency; // @synthesize urgency=_urgency;
 @property(retain, nonatomic) FCKeyValueStore *persistentStore; // @synthesize persistentStore=_persistentStore;
+@property(copy, nonatomic) NSString *persistentStorePath; // @synthesize persistentStorePath=_persistentStorePath;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)activityObservingApplicationDidEnterBackground;
 - (void)networkReachabilityDidChange:(id)arg1;
 - (id)_decodeCommand:(id)arg1;
 - (id)_encodeCommand:(id)arg1;
 - (id)_deserializeCommandsFromStore:(id)arg1;
 - (void)_serializeCommands:(id)arg1 toStore:(id)arg2;
 - (void)command:(id)arg1 didFinishWithStatus:(unsigned long long)arg2;
-- (void)_applicationDidEnterBackground:(id)arg1;
+- (void)_applicationDidEnterBackground;
 - (void)_savePendingCommandsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_loadFromDisk;
+- (long long)_qualityOfServiceForCommand:(id)arg1;
 - (void)_executeNextCommand;
 - (void)_scheduleCommandExecution;
-- (_Bool)isEmpty;
+- (_Bool)_isEmpty;
 - (void)clear;
 - (void)performBlockWhenEmpty:(CDUnknownBlockType)arg1;
 - (void)_addCommand:(id)arg1 saveCompletion:(CDUnknownBlockType)arg2;
@@ -57,9 +64,9 @@
 - (void)addCommand:(id)arg1;
 - (void)resume;
 - (void)dealloc;
-- (id)initWithContext:(id)arg1 storeDirectory:(id)arg2 storeFilename:(id)arg3 urgency:(long long)arg4 suspended:(_Bool)arg5;
-- (id)initWithContext:(id)arg1 urgency:(long long)arg2 suspended:(_Bool)arg3;
-- (id)initWithContext:(id)arg1 persistentStore:(id)arg2 urgency:(long long)arg3 suspended:(_Bool)arg4;
+- (id)initWithContext:(id)arg1 storeDirectory:(id)arg2 storeFilename:(id)arg3 urgency:(long long)arg4 suspended:(_Bool)arg5 delegate:(id)arg6;
+- (id)initWithContext:(id)arg1 urgency:(long long)arg2 suspended:(_Bool)arg3 delegate:(id)arg4;
+- (id)initWithContext:(id)arg1 persistentStorePath:(id)arg2 urgency:(long long)arg3 suspended:(_Bool)arg4 delegate:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

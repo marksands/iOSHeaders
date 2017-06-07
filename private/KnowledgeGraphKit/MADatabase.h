@@ -47,6 +47,8 @@
 - (void)setModelNodeProperties:(id)arg1 forIdentifier:(long long)arg2 requiresTesting:(_Bool)arg3;
 - (id)modelEdgePropertiesForIdentifier:(long long)arg1;
 - (id)modelNodePropertiesForIdentifier:(long long)arg1;
+- (_Bool)_setValue:(id)arg1 onProperty:(id)arg2;
+- (_Bool)_addProperty:(id)arg1 toProperties:(id)arg2;
 - (void)removeModelEdgeForIdentifier:(long long)arg1;
 - (void)removeModelEdgesForIdentifiers:(id)arg1;
 - (void)updateEdge:(id)arg1;

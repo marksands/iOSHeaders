@@ -12,11 +12,13 @@
 {
     struct CGRect _alignmentRect;
     _Bool _allowsMultiPassEncoding;
-    _Bool _allowsOptimalPacking;
+    _Bool _allowsOptimalRowbytesPacking;
+    _Bool _allowsCompactCompression;
 }
 
 + (void)initialize;
-@property(nonatomic) _Bool allowsOptimalPacking; // @synthesize allowsOptimalPacking=_allowsOptimalPacking;
+@property(nonatomic) _Bool allowsCompactCompression; // @synthesize allowsCompactCompression=_allowsCompactCompression;
+@property(nonatomic) _Bool allowsOptimalRowbytesPacking; // @synthesize allowsOptimalRowbytesPacking=_allowsOptimalRowbytesPacking;
 @property(nonatomic) _Bool allowsMultiPassEncoding; // @synthesize allowsMultiPassEncoding=_allowsMultiPassEncoding;
 - (void)drawPackableRenditionInContext:(struct CGContext *)arg1 withDocument:(id)arg2;
 - (void)updatePackingPropertiesWithDocument:(id)arg1;

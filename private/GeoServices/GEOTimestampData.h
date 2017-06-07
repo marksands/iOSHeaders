@@ -27,6 +27,7 @@
 @property(nonatomic) _Bool displayTimezone; // @synthesize displayTimezone=_displayTimezone;
 @property(retain, nonatomic) NSString *timezone; // @synthesize timezone=_timezone;
 @property(nonatomic) unsigned int timestampVal; // @synthesize timestampVal=_timestampVal;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,7 +41,6 @@
 @property(nonatomic) _Bool hasDisplayTimezone;
 @property(readonly, nonatomic) _Bool hasTimezone;
 @property(nonatomic) _Bool hasTimestampVal;
-- (void)dealloc;
 @property(readonly, nonatomic) NSTimeZone *timeZone;
 @property(readonly, nonatomic) double timeStamp;
 - (_Bool)displayTimeZone;

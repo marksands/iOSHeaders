@@ -8,7 +8,7 @@
 
 #import <HealthDaemon/NSCopying-Protocol.h>
 
-@class HDCodableProvenance, HDCodableSource, NSMutableArray, NSString;
+@class HDCodableGeneratedObjectCollection, HDCodableProvenance, HDCodableSource, NSMutableArray, NSString;
 
 @interface HDCodableObjectCollection : PBCodable <NSCopying>
 {
@@ -21,6 +21,7 @@
     NSMutableArray *_fitnessFriendAchievements;
     NSMutableArray *_fitnessFriendActivitySnapshots;
     NSMutableArray *_fitnessFriendWorkouts;
+    HDCodableGeneratedObjectCollection *_generatedObjectCollection;
     NSMutableArray *_locationSeries;
     HDCodableProvenance *_provenance;
     NSMutableArray *_quantitySamples;
@@ -29,7 +30,20 @@
     NSMutableArray *_workouts;
 }
 
++ (Class)fitnessFriendWorkoutsType;
++ (Class)fitnessFriendAchievementsType;
++ (Class)fitnessFriendActivitySnapshotsType;
++ (Class)cdaDocumentSamplesType;
++ (Class)locationSeriesType;
++ (Class)deletedSamplesType;
++ (Class)binarySamplesType;
++ (Class)activityCachesType;
++ (Class)correlationsType;
++ (Class)workoutsType;
++ (Class)quantitySamplesType;
++ (Class)categorySamplesType;
 @property(retain, nonatomic) HDCodableProvenance *provenance; // @synthesize provenance=_provenance;
+@property(retain, nonatomic) HDCodableGeneratedObjectCollection *generatedObjectCollection; // @synthesize generatedObjectCollection=_generatedObjectCollection;
 @property(retain, nonatomic) NSMutableArray *fitnessFriendWorkouts; // @synthesize fitnessFriendWorkouts=_fitnessFriendWorkouts;
 @property(retain, nonatomic) NSMutableArray *fitnessFriendAchievements; // @synthesize fitnessFriendAchievements=_fitnessFriendAchievements;
 @property(retain, nonatomic) NSMutableArray *fitnessFriendActivitySnapshots; // @synthesize fitnessFriendActivitySnapshots=_fitnessFriendActivitySnapshots;
@@ -55,6 +69,7 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasProvenance;
+@property(readonly, nonatomic) _Bool hasGeneratedObjectCollection;
 - (id)fitnessFriendWorkoutsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)fitnessFriendWorkoutsCount;
 - (void)addFitnessFriendWorkouts:(id)arg1;
@@ -105,9 +120,9 @@
 - (void)clearCategorySamples;
 @property(readonly, nonatomic) _Bool hasSource;
 @property(readonly, nonatomic) _Bool hasSourceBundleIdentifier;
+- (_Bool)unitTest_isEquivalentToObjectCollection:(id)arg1;
 - (id)decodedObjects;
 - (unsigned long long)count;
-- (_Bool)isEquivalentToObjectCollection:(id)arg1;
 
 @end
 

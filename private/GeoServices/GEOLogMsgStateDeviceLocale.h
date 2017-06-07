@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSString *deviceOutputLocale; // @synthesize deviceOutputLocale=_deviceOutputLocale;
 @property(retain, nonatomic) NSString *deviceInputLocale; // @synthesize deviceInputLocale=_deviceInputLocale;
 @property(retain, nonatomic) NSString *deviceSettingsLocale; // @synthesize deviceSettingsLocale=_deviceSettingsLocale;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 @property(readonly, nonatomic) _Bool hasDeviceOutputLocale;
 @property(readonly, nonatomic) _Bool hasDeviceInputLocale;
 @property(readonly, nonatomic) _Bool hasDeviceSettingsLocale;
-- (void)dealloc;
 
 @end
 

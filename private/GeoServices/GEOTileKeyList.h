@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSCopying-Protocol.h>
 #import <GeoServices/NSFastEnumeration-Protocol.h>
@@ -22,6 +22,7 @@
 }
 
 + (id)listFromXPCData:(id)arg1;
+- (void).cxx_destruct;
 - (_Bool)intersectsList:(id)arg1;
 - (_Bool)removeKey:(const struct _GEOTileKey *)arg1;
 - (void)removeKeysMatchingPredicate:(CDUnknownBlockType)arg1;

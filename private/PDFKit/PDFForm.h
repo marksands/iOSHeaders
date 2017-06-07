@@ -10,6 +10,7 @@
 
 @class PDFFormPrivateVars;
 
+__attribute__((visibility("hidden")))
 @interface PDFForm : NSObject <NSCopying>
 {
     PDFFormPrivateVars *_private;
@@ -24,12 +25,13 @@
 - (struct CGPDFString *)defaultDAStringRef;
 - (id)defaultStringValueForFieldNamed:(id)arg1;
 - (id)stringValueForFieldNamed:(id)arg1;
-- (void)setStringValue:(id)arg1 forFieldNamed:(id)arg2;
+- (void)setStringValue:(id)arg1 forFieldNamed:(id)arg2 postFormChangeNotification:(_Bool)arg3;
 - (id)fieldNames;
 - (id)document;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDocument:(id)arg1;
+- (id)init;
 - (void)setDocument:(id)arg1;
 - (struct __CFDictionary *)createDictionaryRef;
 - (void)addNeedsAppearanceToDictionaryRef:(struct __CFDictionary *)arg1;

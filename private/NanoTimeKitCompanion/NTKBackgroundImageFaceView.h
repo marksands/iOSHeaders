@@ -31,8 +31,6 @@
     struct CGRect _maskZoomStartingBounds;
 }
 
-+ (void)animateFadeInLayers:(id)arg1;
-+ (void)animateScaleInLayers:(id)arg1;
 @property(retain, nonatomic) UIView *borrowedTimeView; // @synthesize borrowedTimeView=_borrowedTimeView;
 @property(retain, nonatomic) UIView *borrowedCircleView; // @synthesize borrowedCircleView=_borrowedCircleView;
 @property(nonatomic) struct CGRect maskZoomStartingBounds; // @synthesize maskZoomStartingBounds=_maskZoomStartingBounds;
@@ -51,6 +49,7 @@
 - (_Bool)_timeLabelUsesLegibility;
 - (void)_layoutTimeTravelCaptionView:(id)arg1;
 - (void)_layoutTimeTravelStatusModule:(id)arg1;
+- (double)_timeTravelCaptionLabelMaxWidth;
 - (double)_timeTravelStatusModuleCaptionConstraintPadding;
 - (_Bool)_wantsTimeTravelStatusModule;
 - (void)_endScrubbingAnimationFromUIViewAnimateWithDuration;
@@ -65,7 +64,7 @@
 - (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (unsigned long long)_keylineLabelAlignmentForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
-- (void)_cleanupAfterOptionTransitionForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (void)_cleanupAfterTransitionToOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 forCustomEditMode:(long long)arg4 slot:(id)arg5;
 - (void)setViewMode:(long long)arg1;
 - (void)_applyForegroundZoomAlpha:(double)arg1;

@@ -9,7 +9,7 @@
 @class IKColor;
 
 @interface IKTextBadgeAttachment (TVMLKitAdditions)
-- (void)tv_resolveWithTextLayoutObserver:(CDUnknownBlockType)arg1;
+- (void)tv_resolveWithTextLayoutDirection:(long long)arg1 layoutObserver:(CDUnknownBlockType)arg2;
 - (void)tv_setImage:(id)arg1;
 @property(retain, nonatomic, setter=tv_setCurrentTintColor:) IKColor *tv_currentTintColor;
 @property(retain, nonatomic, setter=tv_setHighlightColor:) IKColor *tv_highlightColor;

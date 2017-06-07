@@ -8,19 +8,20 @@
 
 #import <CloudDocsDaemon/NSSecureCoding-Protocol.h>
 
-@class BRCAccountSession, BRCDocumentItem, BRCItemID, BRCLocalItem, BRCPQLConnection, BRCRelativePath, BRCServerItem, NSString, NSURL;
+@class BRCAccountSession, BRCDocumentItem, BRCLocalItem, BRCPQLConnection, BRCRelativePath, BRCServerItem, NSString, NSURL;
 
 @interface BRCURLToItemLookup : NSObject <NSSecureCoding>
 {
     BRCAccountSession *_session;
     union {
         struct {
-            unsigned int parentItemID:1;
+            unsigned int parentItem:1;
             unsigned int relpath:1;
             unsigned int pathMatch:1;
             unsigned int faultedMatch:1;
             unsigned int byIDMatch:1;
             unsigned int reservedMatch:1;
+            unsigned int parentPath:1;
         } ;
         unsigned int value;
     } _hasFetched;
@@ -29,7 +30,7 @@
     _Bool _allowAppLibraryRoot;
     NSURL *_url;
     BRCRelativePath *_parentRelpath;
-    BRCItemID *_parentItemID;
+    BRCLocalItem *_parentItem;
     NSString *_filename;
     NSString *_parentPath;
     BRCLocalItem *_byIDLocalItem;
@@ -58,7 +59,6 @@
 @property(readonly, nonatomic) BRCLocalItem *reservedLocalItem; // @synthesize reservedLocalItem=_reservedLocalItem;
 @property(readonly, nonatomic) CDStruct_177058d5 reservedMatch;
 - (void)_fetchReservedPathMatch;
-@property(readonly, nonatomic) BRCDocumentItem *bySharedEnclosureDocItem;
 @property(readonly, nonatomic) unsigned short pathType;
 - (void)clearFaultedItem;
 @property(readonly, nonatomic) unsigned long long faultedDiffs; // @synthesize faultedDiffs=_faultedDiffs;
@@ -85,7 +85,7 @@
 - (void)_fetchPathMatch;
 - (void)refreshByPathDiffs;
 - (void)_fetchRelPath;
-@property(readonly, nonatomic) BRCItemID *parentItemID; // @synthesize parentItemID=_parentItemID;
+@property(readonly, nonatomic) BRCLocalItem *parentItem; // @synthesize parentItem=_parentItem;
 - (void)closePaths;
 - (_Bool)resolveParentAndKeepOpenMustExist:(_Bool)arg1 errcode:(int *)arg2;
 - (_Bool)resolveAndKeepOpenWithError:(id *)arg1;
@@ -99,6 +99,9 @@
 - (void)handleReservedPathMatchesIfNeeded;
 - (void)markPathMatchLostIfLocationDoesntMatch:(CDStruct_177058d5 *)arg1;
 - (void)didApplyChangesAtPath:(id)arg1 filename:(id)arg2 li:(id)arg3 si:(id)arg4;
+- (_Bool)_appliedOrDownloadContentIfNecessary:(id)arg1 si:(id)arg2 applySchedulerState:(int *)arg3;
+- (_Bool)_applyOrEvictLosersIfNecessary:(id)arg1 si:(id)arg2 url:(id)arg3 addedLosers:(id)arg4 removedLosers:(id)arg5 updatedAddition:(_Bool *)arg6 applySchedulerState:(int *)arg7;
+- (_Bool)_applyOrDownloadThumbnailIfNecessary:(id)arg1 si:(id)arg2 url:(id)arg3 updatedAddition:(_Bool *)arg4 applySchedulerState:(int *)arg5;
 - (_Bool)tryToDeleteItemInNamespace:(unsigned char)arg1;
 - (void)tryToUpdateItemInNamespace:(unsigned char)arg1 withDstLookup:(id)arg2;
 - (_Bool)_canUpdatePathMatch:(const CDStruct_177058d5 *)arg1 hasAdditionsToApply:(_Bool)arg2;

@@ -10,14 +10,16 @@
 #import <ChatKit/CKImpactEffectAnimationProvider-Protocol.h>
 
 @class CAEmitterLayer, NSString;
-@protocol CKSendAnimationManager;
+@protocol CKSendAnimationManager, OS_dispatch_group;
 
 @interface CKChatControllerDummyAnimator : NSObject <CAAnimationDelegate, CKImpactEffectAnimationProvider>
 {
     id <CKSendAnimationManager> _animationDelegate;
     CAEmitterLayer *_dustEmitter;
+    NSObject<OS_dispatch_group> *_throwAnimationGroup;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_group> *throwAnimationGroup; // @synthesize throwAnimationGroup=_throwAnimationGroup;
 @property(retain, nonatomic) CAEmitterLayer *dustEmitter; // @synthesize dustEmitter=_dustEmitter;
 @property(nonatomic) __weak id <CKSendAnimationManager> animationDelegate; // @synthesize animationDelegate=_animationDelegate;
 - (void).cxx_destruct;
@@ -28,7 +30,7 @@
 - (void)_beginThrowAnimationWithContext:(id)arg1;
 - (void)beginAnimationWithSendAnimationContext:(id)arg1;
 - (void)stopAnimationWithSendAnimationContext:(id)arg1;
-- (id)init;
+- (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -39,6 +39,8 @@
 @property(retain, nonatomic) id <TVInterfaceCreating> extendedInterfaceCreator; // @synthesize extendedInterfaceCreator=_extendedInterfaceCreator;
 - (void).cxx_destruct;
 - (id)_getImageFromURLorBundle:(id)arg1;
+- (void)_setViewProxy:(id)arg1 forViewElement:(id)arg2;
+- (id)_viewForElement:(id)arg1;
 - (id)_styleSheetURLForTemplate:(id)arg1;
 - (id)_imageProxyForElement:(id)arg1;
 - (id)_controllerTransitionFromElement:(id)arg1 toElement:(id)arg2 forNavigationControllerOperation:(long long)arg3 relativeToFrom:(_Bool)arg4;

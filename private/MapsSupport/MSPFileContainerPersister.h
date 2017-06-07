@@ -16,10 +16,15 @@
 + (void)initialize;
 @property(readonly, nonatomic) NSURL *persistenceFileURL; // @synthesize persistenceFileURL=_persistenceFileURL;
 - (void).cxx_destruct;
-- (id)contentsFromData:(id)arg1;
-- (id)dataForContents:(id)arg1 error:(out id *)arg2;
-- (void)commitEditedContents:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)fetchContentsWithCompletion:(CDUnknownBlockType)arg1;
+- (id)stateSnapshotFromData:(id)arg1;
+- (_Bool)getSnapshot:(out id *)arg1 data:(out id *)arg2 mergingCurrentState:(id)arg3 withState:(id)arg4 mergeOptions:(id)arg5 error:(out id *)arg6;
+- (_Bool)getSnapshot:(out id *)arg1 data:(out id *)arg2 forNewContents:(id)arg3 edits:(id)arg4 appliedToOldContents:(id)arg5 error:(out id *)arg6;
+- (void)eraseWithCompletion:(CDUnknownBlockType)arg1;
+- (id)commitByCreatingStateSnapshotAndDataWithCreationHandler:(CDUnknownBlockType)arg1 error:(out id *)arg2;
+- (void)commitByMergingWithStateSnapshot:(id)arg1 mergeOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)commitEditWithNewContents:(id)arg1 edits:(id)arg2 appliedToOldContents:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)fetchStateSnapshotWithCompletion:(CDUnknownBlockType)arg1;
+- (id)newStateSnapshot;
 - (id)initWithPersistenceFileAtURL:(id)arg1;
 - (id)init;
 

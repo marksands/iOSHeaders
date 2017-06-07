@@ -10,11 +10,12 @@
 #import <iWorkImport/TSKDocumentObject-Protocol.h>
 #import <iWorkImport/TSKModel-Protocol.h>
 #import <iWorkImport/TSPCopying-Protocol.h>
+#import <iWorkImport/TSWPStorageActionObjectProtocol-Protocol.h>
 
 @class NSString, TSWPStorage;
 
 __attribute__((visibility("hidden")))
-@interface TSWPAttachment : TSPObject <TSKDocumentObject, TSDOwningAttachment, TSPCopying, TSKModel>
+@interface TSWPAttachment : TSPObject <TSWPStorageActionObjectProtocol, TSKDocumentObject, TSDOwningAttachment, TSPCopying, TSKModel>
 {
     TSWPStorage *_parentStorage;
 }
@@ -22,6 +23,8 @@ __attribute__((visibility("hidden")))
 + (id)allocWithZone:(struct _NSZone *)arg1;
 + (int)attributeArrayKind;
 @property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
+- (_Bool)preserveAttributesOverSelectionWhenInserting;
+- (_Bool)shouldInvalidateWhenTextPropertiesChange;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
@@ -34,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isPartitioned;
 @property(readonly, nonatomic) _Bool isAnchored;
 @property(readonly, nonatomic) _Bool isDrawable;
+- (void)performTemplateLocalization:(id)arg1;
 - (id)objectsForStyleMigrating;
 - (void)migrateStyleWithDocumentRoot:(id)arg1;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
@@ -42,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (id)topLevelAttachment;
 - (_Bool)changesWithPageCount;
 - (int)elementKind;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1;
@@ -50,7 +55,6 @@ __attribute__((visibility("hidden")))
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

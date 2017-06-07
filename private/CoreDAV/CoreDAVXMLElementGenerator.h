@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <CoreDAV/NSXMLParserDelegate-Protocol.h>
 
@@ -29,7 +29,7 @@
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 @property(nonatomic) _Bool checkedElementValidityIfRootElement; // @synthesize checkedElementValidityIfRootElement=_checkedElementValidityIfRootElement;
 @property(retain, nonatomic) NSDictionary *cachedElementParseRules; // @synthesize cachedElementParseRules=_cachedElementParseRules;
-@property(nonatomic) CoreDAVXMLElementGenerator *parentGenerator; // @synthesize parentGenerator=_parentGenerator;
+@property(nonatomic) __weak CoreDAVXMLElementGenerator *parentGenerator; // @synthesize parentGenerator=_parentGenerator;
 @property(retain, nonatomic) CoreDAVItem *element; // @synthesize element=_element;
 @property(retain, nonatomic) CoreDAVXMLElementGenerator *currentlyParsingSubItem; // @synthesize currentlyParsingSubItem=_currentlyParsingSubItem;
 @property(retain, nonatomic) NSMutableData *cDATA; // @synthesize cDATA=_cDATA;
@@ -37,6 +37,7 @@
 @property(nonatomic) SEL parentElementSetter; // @synthesize parentElementSetter=_parentElementSetter;
 @property(nonatomic) int parsingState; // @synthesize parsingState=_parsingState;
 @property(nonatomic) _Bool isUnrecognized; // @synthesize isUnrecognized=_isUnrecognized;
+- (void).cxx_destruct;
 - (void)resumeParsingWithParser:(id)arg1;
 - (void)noteChildCascadingFailure;
 - (void)parserDidEndDocument:(id)arg1;
@@ -49,7 +50,6 @@
 - (_Bool)isExpectedNameSpace:(id)arg1 andElementName:(id)arg2;
 - (void)notifyElement:(id)arg1 ofAttributesFound:(id)arg2;
 - (_Bool)tracksRootElement;
-- (void)dealloc;
 - (id)initWithParser:(id)arg1 parentGenerator:(id)arg2 parentElementSetter:(SEL)arg3 element:(id)arg4;
 - (id)initWithParser:(id)arg1 baseURL:(id)arg2 rootElementNameSpace:(id)arg3 elementName:(id)arg4 parseClass:(Class)arg5;
 

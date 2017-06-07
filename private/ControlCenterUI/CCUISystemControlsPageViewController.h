@@ -59,6 +59,8 @@
 - (void)noteSectionEnabledStateDidChange:(id)arg1;
 - (void)sectionWantsControlCenterDismissal:(id)arg1;
 - (void)_acknowledgeAndDismissFirstUsePanelAnimated:(_Bool)arg1;
+- (void)_addFirstUseViewToContainerView:(id)arg1;
+- (id)_firstUseViewController;
 - (void)_updateSectionVisibility:(id)arg1 animated:(_Bool)arg2;
 - (void)_updateAllSectionVisibilityAnimated:(_Bool)arg1;
 - (void)_updateStackViewMarginsAndSpacing;

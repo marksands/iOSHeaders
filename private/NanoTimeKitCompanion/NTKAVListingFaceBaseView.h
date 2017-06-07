@@ -73,7 +73,6 @@
 - (void)_handleWristRaiseScreenWake;
 - (void)_queuePreloadVideoTask;
 - (void)_performPreloadVideoTask;
-- (void)_addSubviewInOrder:(id)arg1;
 - (id)_onDeckPosterImageView;
 - (id)_nextListing;
 - (void)_resetVideoForListing;

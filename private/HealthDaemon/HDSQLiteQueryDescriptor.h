@@ -29,10 +29,11 @@
 @property(nonatomic) long long limitCount; // @synthesize limitCount=_limitCount;
 @property(nonatomic) Class entityClass; // @synthesize entityClass=_entityClass;
 - (void).cxx_destruct;
+- (id)_SQLForDeleteWithError:(id *)arg1;
 - (id)_joinClauseForProperties:(id)arg1;
-- (id)_newSelectSQLWithProperties:(id)arg1 columns:(id)arg2;
-- (id)_sortedJoinClauses:(id)arg1;
-- (id)_newSelectSQLWithProperties:(id)arg1;
+- (id)_SQLForSelectWithProperties:(id)arg1 columns:(id)arg2;
+- (id)_sortedJoinClauses:(id)arg1 withTables:(id)arg2;
+- (id)_SQLForSelectWithProperties:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

@@ -30,6 +30,7 @@
 + (id)localizedLocalAccountNameMidSentence;
 + (id)localizedLocalAccountName;
 + (_Bool)clearAccountForAppleCloudKitTable;
++ (_Bool)isCloudKitAccountAvailable;
 + (id)accountsWithAccountType:(int)arg1 context:(id)arg2;
 + (id)allActiveAccountsInContext:(id)arg1;
 + (id)allAccountsInContext:(id)arg1;
@@ -63,6 +64,7 @@
 - (id)predicateForVisibleAttachments;
 - (id)predicateForVisibleNotesIncludingTrash;
 - (id)predicateForVisibleNotes;
+- (id)predicateForAttachmentsInAccount;
 - (id)predicateForNotesInAccount;
 - (id)titleForTableViewCell;
 - (void)updateAccountNameForAccountListSorting;
@@ -88,6 +90,7 @@
 - (_Bool)hasAnyCustomFolders;
 - (_Bool)visibleRootFoldersContainFolderWithTitle:(id)arg1;
 - (id)visibleFoldersWithParent:(id)arg1;
+- (id)predicateForPinnedNotes;
 - (id)predicateForVisibleFolders;
 - (id)predicateForFolders;
 - (unsigned long long)countOfVisibleFolders;

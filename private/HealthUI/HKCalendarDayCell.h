@@ -23,6 +23,7 @@
     NSDate *_date;
 }
 
++ (void)clearImageCache;
 @property(readonly, nonatomic) _Bool representsToday; // @synthesize representsToday=_representsToday;
 @property(readonly, nonatomic) long long dayOfMonth; // @synthesize dayOfMonth=_dayOfMonth;
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
@@ -36,6 +37,9 @@
 @property(readonly, nonatomic) HKDateCache *dateCache; // @synthesize dateCache=_dateCache;
 - (void).cxx_destruct;
 - (id)debugDescription;
+- (struct CGSize)_roundedRectSizeForDayNumberString:(id)arg1;
+- (struct CGSize)circleSize;
+- (double)_roundedRectCornerRadius;
 - (void)layoutOnce;
 - (void)updateDateTextForDayNumber:(long long)arg1 textColor:(id)arg2;
 - (void)updateWithDate:(id)arg1 dayOfMonth:(long long)arg2;

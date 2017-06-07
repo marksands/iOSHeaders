@@ -8,7 +8,7 @@
 
 #import <CloudKitDaemon/CKDURLRequestPipelining-Protocol.h>
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSString;
+@class NSArray, NSDictionary, NSMutableDictionary, NSSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDFetchRecordZoneChangesURLRequest : CKDURLRequest <CKDURLRequestPipelining>
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSArray *_recordZoneIDs;
     NSDictionary *_optionsByRecordZoneID;
     long long _changeTypes;
+    NSSet *_desiredAssetKeys;
     CDUnknownBlockType _recordChangedBlock;
     CDUnknownBlockType _recordDeletedBlock;
     NSMutableDictionary *_zoneIDsByRequestOperationUUID;
@@ -29,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableDictionary *zoneIDsByRequestOperationUUID; // @synthesize zoneIDsByRequestOperationUUID=_zoneIDsByRequestOperationUUID;
 @property(copy, nonatomic) CDUnknownBlockType recordDeletedBlock; // @synthesize recordDeletedBlock=_recordDeletedBlock;
 @property(copy, nonatomic) CDUnknownBlockType recordChangedBlock; // @synthesize recordChangedBlock=_recordChangedBlock;
+@property(retain, nonatomic) NSSet *desiredAssetKeys; // @synthesize desiredAssetKeys=_desiredAssetKeys;
 @property(nonatomic) _Bool shouldFetchAssetContent; // @synthesize shouldFetchAssetContent=_shouldFetchAssetContent;
 @property(nonatomic) long long changeTypes; // @synthesize changeTypes=_changeTypes;
 @property(retain, nonatomic) NSDictionary *optionsByRecordZoneID; // @synthesize optionsByRecordZoneID=_optionsByRecordZoneID;

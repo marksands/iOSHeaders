@@ -55,6 +55,7 @@ __attribute__((visibility("hidden")))
     unsigned char _lastCameraStatusBits;
     _Bool _enableCVO;
     unsigned long long _cvoExtensionID;
+    void *_controlInfoGenerator;
     struct tagVCMemoryPool *_frameReferenceMemoryPool;
     struct opaqueRTCReporting *_reportingAgent;
 }
@@ -69,12 +70,13 @@ __attribute__((visibility("hidden")))
 - (void)sendFrame:(struct opaqueCMSampleBuffer *)arg1 cameraStatusBits:(unsigned char)arg2;
 - (_Bool)isKeyFrame:(struct opaqueCMSampleBuffer *)arg1;
 - (_Bool)prependSPSPPS:(unsigned long long *)arg1 dataPointer:(char *)arg2;
-- (void)encodeVideoFrame:(struct __CVBuffer *)arg1 time:(CDStruct_1b6d18a9)arg2 cameraStatusBits:(unsigned char)arg3;
+- (void)encodeVideoFrame:(struct opaqueCMSampleBuffer *)arg1;
 - (struct __CFDictionary *)forceKeyFrameProperties;
 - (void)initVideoCompressionWithWidth:(unsigned int)arg1 height:(unsigned int)arg2 bitrate:(unsigned int)arg3 keyFrameIntervalDuration:(unsigned int)arg4;
+- (void)thermalLevelDidChange:(int)arg1;
 - (id)clientCaptureRule;
 - (void)avConferencePreviewError:(id)arg1;
-- (_Bool)onCaptureFrame:(struct __CVBuffer *)arg1 frameTime:(CDStruct_1b6d18a9)arg2 droppedFrames:(int)arg3 cameraStatusBits:(unsigned char)arg4;
+- (_Bool)onCaptureFrame:(struct opaqueCMSampleBuffer *)arg1 frameTime:(CDStruct_1b6d18a9)arg2 droppedFrames:(int)arg3 cameraStatusBits:(unsigned char)arg4;
 - (struct CGSize)getBestCaptureSizeForEncodingSize:(struct CGSize)arg1;
 - (struct CGSize)sizeForVideoResolution:(long long)arg1;
 - (unsigned int)setTemporaryMaximumBitrate:(unsigned int)arg1;

@@ -6,16 +6,14 @@
 
 #import <FrontBoardServices/FBSWorkspaceSceneUpdateEvent.h>
 
-@class FBSDisplay, FBSSceneClientSettingsDiff, FBSSceneSpecification, NSString;
+@class FBSSceneClientSettingsDiff, FBSSceneSpecification, NSString;
 
 @interface FBSWorkspaceCreateSceneEvent : FBSWorkspaceSceneUpdateEvent
 {
     FBSSceneClientSettingsDiff *_clientSettings;
-    FBSDisplay *_display;
     NSString *_specificationClassName;
 }
 
-@property(retain, nonatomic) FBSDisplay *display; // @synthesize display=_display;
 @property(retain, nonatomic) FBSSceneClientSettingsDiff *clientSettingsDiff; // @synthesize clientSettingsDiff=_clientSettings;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;

@@ -10,7 +10,7 @@
 #import <CloudKitDaemon/NSCopying-Protocol.h>
 #import <CloudKitDaemon/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSDate, NSMutableArray, NSMutableSet, NSString;
+@class NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDOperationMetrics : NSObject <MMCSOperationMetric, NSCopying, NSSecureCoding>
@@ -26,15 +26,25 @@ __attribute__((visibility("hidden")))
     unsigned long long _recordsUploaded;
     unsigned long long _recordsDownloaded;
     unsigned long long _recordsDeleted;
+    unsigned long long _assetsUploaded;
+    unsigned long long _assetsUploadedFileSize;
+    unsigned long long _assetsDownloaded;
+    unsigned long long _assetsDownloadedFileSize;
     unsigned long long _retries;
     NSMutableSet *_requestUUIDs;
+    NSMutableDictionary *_requestOperationCountsByOperationTypeByRequestUUID;
     NSMutableArray *_ranges;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSMutableArray *ranges; // @synthesize ranges=_ranges;
+@property(retain, nonatomic) NSMutableDictionary *requestOperationCountsByOperationTypeByRequestUUID; // @synthesize requestOperationCountsByOperationTypeByRequestUUID=_requestOperationCountsByOperationTypeByRequestUUID;
 @property(retain, nonatomic) NSMutableSet *requestUUIDs; // @synthesize requestUUIDs=_requestUUIDs;
 @property unsigned long long retries; // @synthesize retries=_retries;
+@property unsigned long long assetsDownloadedFileSize; // @synthesize assetsDownloadedFileSize=_assetsDownloadedFileSize;
+@property unsigned long long assetsDownloaded; // @synthesize assetsDownloaded=_assetsDownloaded;
+@property unsigned long long assetsUploadedFileSize; // @synthesize assetsUploadedFileSize=_assetsUploadedFileSize;
+@property unsigned long long assetsUploaded; // @synthesize assetsUploaded=_assetsUploaded;
 @property unsigned long long recordsDeleted; // @synthesize recordsDeleted=_recordsDeleted;
 @property unsigned long long recordsDownloaded; // @synthesize recordsDownloaded=_recordsDownloaded;
 @property unsigned long long recordsUploaded; // @synthesize recordsUploaded=_recordsUploaded;
@@ -58,6 +68,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)_initWithStartDate:(id)arg1;
 - (id)init;
+@property(readonly, nonatomic) NSDictionary *requestOperationCountsByType;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

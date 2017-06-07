@@ -8,14 +8,14 @@
 #import <CoreSuggestions/_SGSuggestionsServiceEventsConfirmRejectProtocol-Protocol.h>
 #import <CoreSuggestions/_SGSuggestionsServiceEventsObserverProtocol-Protocol.h>
 
-@class EKEventStore, NSArray, NSString, SGEvent;
+@class EKEventStore, NSArray, NSString, NSURL;
 
 @protocol SGSuggestionsServiceEventsProtocol <_SGSuggestionsServiceBaseProtocol, _SGSuggestionsServiceEventsConfirmRejectProtocol, _SGSuggestionsServiceEventsObserverProtocol>
+- (void)suggestionsFromURL:(NSURL *)arg1 title:(NSString *)arg2 HTMLPayload:(NSString *)arg3 withCompletion:(void (^)(NSArray *, NSError *))arg4;
+- (void)isEventCandidateForURL:(NSURL *)arg1 andTitle:(NSString *)arg2 withCompletion:(void (^)(_Bool))arg3;
 - (void)allEventsLimitedTo:(unsigned long long)arg1 withCompletion:(void (^)(NSArray *, NSError *))arg2;
-- (NSArray *)allEventsLimitedTo:(unsigned long long)arg1 error:(id *)arg2;
 - (void)eventsForSchemas:(NSArray *)arg1 usingStore:(EKEventStore *)arg2 completion:(void (^)(NSArray *, NSError *))arg3;
 - (void)keysForSchemas:(NSArray *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)eventFromUniqueId:(NSString *)arg1 withCompletion:(void (^)(SGEvent *, NSError *))arg2;
-- (SGEvent *)eventFromUniqueId:(NSString *)arg1 error:(id *)arg2;
 @end
 

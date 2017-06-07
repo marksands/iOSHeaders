@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
+@class NSArray, PDFAnnotation;
 
+__attribute__((visibility("hidden")))
 @interface PDFBorderPrivateVars : NSObject
 {
+    PDFAnnotation *annotation;
     long long style;
     double hCornerRadius;
     double vCornerRadius;

@@ -6,10 +6,9 @@
 
 #import <HealthDaemon/NSObject-Protocol.h>
 
-@class HDSQLiteDatabase, HDSQLiteStatement, NSArray, NSDate, NSSet, NSString, NSUUID;
+@class HDSQLiteDatabase, HDSQLiteStatement, NSArray, NSDate, NSNumber, NSSet, NSString, NSUUID;
 
 @protocol HDSQLiteEntity <NSObject>
-+ (NSString *)associationPropertyForEntityClass:(Class)arg1;
 + (NSString *)disambiguatedSQLForProperty:(NSString *)arg1;
 + (NSSet *)joinClausesForProperty:(NSString *)arg1;
 + (NSArray *)allDatabaseColumnNames;
@@ -22,10 +21,11 @@
 + (NSString *)databaseTable;
 + (NSString *)databaseName;
 + (HDSQLiteStatement *)deleteStatementWithProperty:(NSString *)arg1 database:(HDSQLiteDatabase *)arg2;
-- (_Bool)getValuesForProperties:(NSArray *)arg1 withDatabase:(HDSQLiteDatabase *)arg2 applier:(void (^)(NSArray *, struct HDSQLiteRow *))arg3;
 - (_Bool)deleteFromDatabase:(HDSQLiteDatabase *)arg1 error:(id *)arg2;
 - (_Bool)getValuesForProperties:(NSArray *)arg1 database:(HDSQLiteDatabase *)arg2 handler:(void (^)(NSArray *, struct HDSQLiteRow *))arg3;
 - (NSUUID *)UUIDForProperty:(NSString *)arg1 database:(HDSQLiteDatabase *)arg2;
+- (NSString *)stringForProperty:(NSString *)arg1 database:(HDSQLiteDatabase *)arg2;
+- (NSNumber *)numberForProperty:(NSString *)arg1 database:(HDSQLiteDatabase *)arg2;
 - (NSDate *)dateForProperty:(NSString *)arg1 database:(HDSQLiteDatabase *)arg2;
 - (_Bool)booleanForProperty:(NSString *)arg1 database:(HDSQLiteDatabase *)arg2;
 - (id)valueForProperty:(NSString *)arg1 database:(HDSQLiteDatabase *)arg2;

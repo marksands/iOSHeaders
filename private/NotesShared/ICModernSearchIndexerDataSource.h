@@ -12,8 +12,8 @@
 
 - (void)contextWillSave:(id)arg1;
 - (id)objectForSearchableItemIdentifier:(id)arg1 context:(id)arg2;
-- (id)allSearchableItems;
-- (id)searchableItemsWithIdentifiers:(id)arg1;
+- (id)allIndexableObjectIDs;
+- (id)indexableObjectIDsWithIdentifiers:(id)arg1;
 - (id)newManagedObjectContext;
 - (id)persistentStoreCoordinator;
 - (id)dataSourceIdentifier;

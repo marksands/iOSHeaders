@@ -6,6 +6,8 @@
 
 #import <Home/HFControlItem.h>
 
+@protocol HFColorProfile;
+
 @interface HFColorControlItem : HFControlItem
 {
 }
@@ -14,7 +16,11 @@
 + (Class)valueClass;
 - (id)characteristicValuesForValue:(id)arg1;
 - (id)valueForCharacteristicValues:(id)arg1;
+- (id)valueForCharacteristicType:(id)arg1 inBatchReadResponse:(id)arg2;
 - (id)writeValue:(id)arg1;
+@property(readonly, nonatomic) id <HFColorProfile> colorProfile;
+@property(readonly, nonatomic) _Bool supportsRGBColor;
+- (_Bool)supportsItemRepresentingServices:(id)arg1;
 - (id)copyWithCharacteristicTypes:(id)arg1 valueSource:(id)arg2;
 - (_Bool)canCopyWithCharacteristicTypeSubset:(id)arg1;
 - (id)initWithValueSource:(id)arg1 characteristicTypes:(id)arg2 displayResults:(id)arg3;

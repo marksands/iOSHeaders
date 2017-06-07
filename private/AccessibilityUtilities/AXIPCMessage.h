@@ -24,9 +24,9 @@
 @property(nonatomic) unsigned int clientPort; // @synthesize clientPort=_clientPort;
 @property(copy, nonatomic) NSDictionary *payload; // @synthesize payload=_payload;
 @property(nonatomic) int key; // @synthesize key=_key;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
-@property(readonly, nonatomic) NSString *senderBundleId;
+@property(readonly, copy, nonatomic) NSString *senderBundleId;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithKey:(int)arg1 payload:(id)arg2 keyDebugInfo:(id)arg3;

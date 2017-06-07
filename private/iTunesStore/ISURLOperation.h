@@ -13,7 +13,6 @@
 
 @interface ISURLOperation : ISOperation <SSURLSessionManagerDelegate>
 {
-    NSURLRequest *_activeURLRequest;
     SSAuthenticationContext *_authenticationContext;
     NSMutableData *_dataBuffer;
     ISDataProvider *_dataProvider;
@@ -25,6 +24,7 @@
     SSURLSessionManager *_urlSessionManager;
     NSURLSessionTask *_urlSessionTask;
     _Bool _usesPrivateCookieStore;
+    NSURLRequest *_activeURLRequest;
     NSObject<OS_dispatch_queue> *_dataBufferAccessQueue;
     SSHTTPArchive *_httpArchive;
     ISURLRequestPerformance *_performanceMetrics;
@@ -43,6 +43,7 @@
 @property(retain) NSURLResponse *response; // @synthesize response=_response;
 @property(getter=_loadsHTTPFailures, setter=_setLoadsHTTPFailures:) _Bool _loadsHTTPFailures; // @synthesize _loadsHTTPFailures;
 @property(retain) ISDataProvider *dataProvider; // @synthesize dataProvider=_dataProvider;
+@property(readonly, copy) NSURLRequest *activeURLRequest; // @synthesize activeURLRequest=_activeURLRequest;
 @property(retain) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;
 - (void).cxx_destruct;
 - (_Bool)_validateContentLength:(long long)arg1 error:(id *)arg2;
@@ -118,7 +119,7 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property id <ISURLOperationDelegate> delegate; // @dynamic delegate;
+@property __weak id <ISURLOperationDelegate> delegate; // @dynamic delegate;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

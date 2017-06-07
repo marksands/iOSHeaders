@@ -10,7 +10,7 @@
 #import <AccessibilityUtilities/NSCopying-Protocol.h>
 #import <AccessibilityUtilities/NSSecureCoding-Protocol.h>
 
-@class AXEventAccelerometerInfoRepresentation, AXEventData, AXEventGameControllerInfoRepresentation, AXEventHandInfoRepresentation, AXEventKeyInfoRepresentation, NSData, NSString;
+@class AXEventAccelerometerInfoRepresentation, AXEventData, AXEventGameControllerInfoRepresentation, AXEventHandInfoRepresentation, AXEventKeyInfoRepresentation, AXEventPointerInfoRepresentation, NSData, NSString;
 
 @interface AXEventRepresentation : NSObject <AXEventRepresentationDescription, NSSecureCoding, NSCopying>
 {
@@ -33,6 +33,7 @@
     AXEventKeyInfoRepresentation *_keyInfo;
     AXEventAccelerometerInfoRepresentation *_accelerometerInfo;
     AXEventGameControllerInfoRepresentation *_gameControllerInfo;
+    AXEventPointerInfoRepresentation *_pointerControllerInfo;
     NSString *_clientId;
     unsigned long long _HIDTime;
     NSData *_HIDAttributeData;
@@ -55,9 +56,11 @@
 + (id)representationWithHIDEvent:(struct __IOHIDEvent *)arg1 hidStreamIdentifier:(id)arg2 clientID:(id)arg3 taskPort:(unsigned int)arg4;
 + (id)representationWithHIDEvent:(struct __IOHIDEvent *)arg1 hidStreamIdentifier:(id)arg2;
 + (id)representationWithLocation:(struct CGPoint)arg1 windowLocation:(struct CGPoint)arg2 handInfo:(id)arg3;
++ (id)_pointerControllerEvent:(struct __IOHIDEvent *)arg1;
 + (id)_gameControllerEvent:(struct __IOHIDEvent *)arg1;
 + (id)_wheelEvent:(struct __IOHIDEvent *)arg1;
 + (id)_keyboardButtonEvent:(struct __IOHIDEvent *)arg1;
++ (void)_appendKeyInfoToMediaKey:(id)arg1 usage:(long long)arg2 downEvent:(_Bool)arg3;
 + (id)_digitizerRepresentation:(struct __IOHIDEvent *)arg1 hidStreamIdentifier:(id)arg2;
 + (id)cancelEventForPathIndexMask:(unsigned int)arg1;
 + (id)representationWithType:(unsigned int)arg1 subtype:(int)arg2 time:(unsigned long long)arg3 location:(struct CGPoint)arg4 windowLocation:(struct CGPoint)arg5 handInfo:(id)arg6;
@@ -83,6 +86,7 @@
 @property(nonatomic) int pid; // @synthesize pid=_pid;
 @property(nonatomic) unsigned int taskPort; // @synthesize taskPort=_taskPort;
 @property(retain, nonatomic) NSString *clientId; // @synthesize clientId=_clientId;
+@property(retain, nonatomic) AXEventPointerInfoRepresentation *pointerControllerInfo; // @synthesize pointerControllerInfo=_pointerControllerInfo;
 @property(retain, nonatomic) AXEventGameControllerInfoRepresentation *gameControllerInfo; // @synthesize gameControllerInfo=_gameControllerInfo;
 @property(retain, nonatomic) AXEventAccelerometerInfoRepresentation *accelerometerInfo; // @synthesize accelerometerInfo=_accelerometerInfo;
 @property(retain, nonatomic) AXEventKeyInfoRepresentation *keyInfo; // @synthesize keyInfo=_keyInfo;
@@ -94,6 +98,7 @@
 @property(nonatomic) struct CGPoint location; // @synthesize location=_location;
 @property(nonatomic) int subtype; // @synthesize subtype=_subtype;
 @property(nonatomic) unsigned int type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (id)_accessibilityDataFromRealEvent:(struct __IOHIDEvent *)arg1;
 - (void)_applyAccessibilityDataToRealEvent:(struct __IOHIDEvent *)arg1;
 - (struct __IOHIDEvent *)_accessibilityEventFromRealEvent:(struct __IOHIDEvent *)arg1;

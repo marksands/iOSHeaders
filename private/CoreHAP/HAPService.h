@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
+
+#import <CoreHAP/HMFMerging-Protocol.h>
 
 @class CBService, HAPAccessory, NSArray, NSNumber, NSString;
 
-@interface HAPService : NSObject
+@interface HAPService : HMFObject <HMFMerging>
 {
     NSString *_type;
     NSNumber *_instanceID;
@@ -25,17 +27,25 @@
 @property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 - (void).cxx_destruct;
+- (_Bool)mergeObject:(id)arg1;
+- (_Bool)shouldMergeObject:(id)arg1;
 - (id)characteristicsOfType:(id)arg1;
-- (_Bool)isEqualToService:(id)arg1;
 - (_Bool)_validateMandatoryCharacteristics;
 - (_Bool)_validateServiceCharacteristics;
 - (_Bool)_updateCharacteristic:(id)arg1;
 - (_Bool)_updateAndValidateCharacteristics;
 - (id)propertiesDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (_Bool)isEqualToService:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (id)initWithType:(id)arg1 instanceID:(id)arg2;
 - (id)initWithType:(id)arg1 instanceID:(id)arg2 parsedCharacteristics:(id)arg3 serviceProperties:(unsigned long long)arg4 linkedServices:(id)arg5;
 @property(retain, nonatomic, setter=setCBService:) CBService *cbService;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

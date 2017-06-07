@@ -25,6 +25,9 @@
             unsigned int textScriptType:4;
             unsigned int enablesReturnKeyAutomatically:1;
             unsigned int secureTextEntry:1;
+            unsigned int smartInsertDeleteEnabled:1;
+            unsigned int smartQuotesEnabled:1;
+            unsigned int smartDashesEnabled:1;
             unsigned int disablePrediction:1;
         } fields;
     } _mask;
@@ -41,6 +44,9 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(nonatomic) _Bool disablePrediction;
+@property(nonatomic) _Bool smartDashesEnabled;
+@property(nonatomic) _Bool smartQuotesEnabled;
+@property(nonatomic) _Bool smartInsertDeleteEnabled;
 @property(nonatomic) unsigned long long textScriptType;
 @property(nonatomic) _Bool secureTextEntry;
 @property(nonatomic) _Bool enablesReturnKeyAutomatically;

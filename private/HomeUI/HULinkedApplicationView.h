@@ -9,6 +9,7 @@
 #import <HomeUI/HUCellProtocol-Protocol.h>
 
 @class HFItem, HULinkedApplicationRatingView, NSArray, NSString, NSURL, UIButton, UIImageView, UILabel;
+@protocol HUResizableCellDelegate;
 
 @interface HULinkedApplicationView : UIView <HUCellProtocol>
 {
@@ -48,6 +49,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @property(readonly) Class superclass;
 
 @end

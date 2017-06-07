@@ -27,7 +27,7 @@
 - (long long)acknowledgmentType;
 - (void)setGlyphColor:(id)arg1;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 color:(BOOL)arg2;
 
 @end
 

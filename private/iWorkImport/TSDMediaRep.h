@@ -6,26 +6,34 @@
 
 #import <iWorkImport/TSDStyledRep.h>
 
-@class CALayer, CAShapeLayer, TSDFrameRep, TSDMediaInfo, TSDMediaLayout;
+#import <iWorkImport/CALayerDelegate-Protocol.h>
+
+@class CALayer, CAShapeLayer, NSString, TSDFrameRep, TSDMediaInfo, TSDMediaLayout;
 
 __attribute__((visibility("hidden")))
-@interface TSDMediaRep : TSDStyledRep
+@interface TSDMediaRep : TSDStyledRep <CALayerDelegate>
 {
     _Bool mIsZooming;
     CALayer *mTapToReplaceLayer;
     CAShapeLayer *mMaskLayer;
-    CAShapeLayer *mStrokeLayer;
-    CALayer *mFrameMaskLayer;
     TSDFrameRep *mFrameRep;
-    struct CGRect mLastPictureFrameLayerRect;
 }
 
+@property(retain, nonatomic) TSDFrameRep *frameRep; // @synthesize frameRep=mFrameRep;
+@property(retain, nonatomic) CAShapeLayer *maskLayer; // @synthesize maskLayer=mMaskLayer;
+- (void).cxx_destruct;
 - (_Bool)isPlaceholder;
 @property(readonly, nonatomic) TSDMediaLayout *mediaLayout;
 @property(readonly, nonatomic) TSDMediaInfo *mediaInfo;
 - (void)dealloc;
 - (_Bool)i_shouldRenderStroke:(id)arg1;
 - (void)i_updateFrameRep;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

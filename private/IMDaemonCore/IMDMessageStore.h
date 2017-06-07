@@ -21,6 +21,13 @@
 + (void)_updateCacheForMessageGUID:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3 updateLastMessage:(_Bool)arg4;
 + (id)sharedInstance;
 @property(retain) NSString *modificationStamp; // @synthesize modificationStamp=_modificationStamp;
+- (void)markMessageAsCleanWithROWID:(long long)arg1;
+- (void)clearMessagesTombStoneTable;
+- (void)deleteMessagesFromTombStoneTableWithRecordIDs:(id)arg1;
+- (id)copyMessagesThatNeedToBeDeletedInCloudKitWithLimit:(unsigned long long)arg1;
+- (void)markAllMessagesAsNeedingCloudKitSync;
+- (id)messagesThatNeedSyncWithCloudKitWithLimit:(long long)arg1;
+- (id)_messagesThatNeedSyncWithCloudKitWithLimit:(long long)arg1 attemptCount:(unsigned long long)arg2;
 - (void)loadConsumedSessionPayloadsForItems:(id)arg1;
 - (id)replaceMessageAcknowledgmentsWithNewMessageAcknowledgment:(id)arg1 associatedMessageGUID:(id)arg2 sender:(id)arg3;
 - (void)postCountChanges;
@@ -47,8 +54,10 @@
 - (id)deleteMessageGUIDs:(id)arg1;
 - (id)deleteMessageGUIDs:(id)arg1 inChat:(id)arg2;
 - (void)resolveUnformattedRepresentationsForHandles:(id)arg1 onService:(id)arg2 message:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (id)_chatsForMessageGUID:(id)arg1 enableVerboseLogging:(_Bool)arg2;
 - (id)chatsForMessageGUID:(id)arg1;
 - (id)chatsForMessage:(id)arg1;
+- (id)chatForMessageGUID:(id)arg1 enableVerboseLogging:(_Bool)arg2;
 - (id)chatForMessageGUID:(id)arg1;
 - (id)chatForMessage:(id)arg1;
 - (id)frequentRepliesForForChatIdentifiers:(id)arg1 onServices:(id)arg2 limit:(unsigned long long)arg3;
@@ -59,6 +68,7 @@
 - (id)unreadMessagesWithRoomNames:(id)arg1 onServices:(id)arg2 limit:(unsigned long long)arg3 fallbackGUID:(id)arg4;
 - (id)unreadMessagesWithHandles:(id)arg1 onServices:(id)arg2 limit:(unsigned long long)arg3 fallbackGUID:(id)arg4;
 - (id)lastMessageWithHandles:(id)arg1 onServices:(id)arg2;
+- (id)messagesWithHandlesBeforeAndAfterGUID:(id)arg1 handles:(id)arg2 onServices:(id)arg3 numberOfMessagesBefore:(unsigned long long)arg4 numberOfMessagesAfter:(unsigned long long)arg5;
 - (id)messagesWithRoomNames:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned long long)arg4;
 - (id)messagesWithRoomNames:(id)arg1 onServices:(id)arg2 limit:(unsigned long long)arg3;
 - (id)messagesWithHandles:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned long long)arg4;
@@ -66,6 +76,7 @@
 - (id)messageWithReplaceMessageID:(int)arg1 fromHandle:(id)arg2 onService:(id)arg3;
 - (void)markMessageAsDeduplicated:(id)arg1;
 - (id)existingMessageSimilarToMessage:(id)arg1 skipServices:(id)arg2 skipGUIDs:(id)arg3 withinTimeInterval:(double)arg4 participants:(id)arg5;
+- (id)messageWithGUID:(id)arg1 registerAttachments:(_Bool)arg2;
 - (id)messageWithGUID:(id)arg1;
 - (id)itemWithGUID:(id)arg1;
 - (_Bool)hasStoredMessageWithGUID:(id)arg1;
@@ -76,6 +87,7 @@
 - (void)registerTransfersWithGUIDs:(id)arg1 forMessageGUID:(id)arg2;
 - (id)_unreadMessagesWithRoomNames:(id)arg1 onServices:(id)arg2 limit:(unsigned long long)arg3 fallbackGUID:(id)arg4;
 - (id)_unreadMessagesWithHandles:(id)arg1 onServices:(id)arg2 limit:(unsigned long long)arg3 fallbackGUID:(id)arg4;
+- (id)_messagesWithHandlesBeforeAndAfterGUID:(id)arg1 handles:(id)arg2 onServices:(id)arg3 numberOfMessagesBefore:(unsigned long long)arg4 numberOfMessagesAfter:(unsigned long long)arg5;
 - (id)_messagesWithRoomNames:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned long long)arg4 onlyMessages:(_Bool)arg5;
 - (id)_messagesWithHandles:(id)arg1 onServices:(id)arg2 messageGUID:(id)arg3 limit:(unsigned long long)arg4 onlyMessages:(_Bool)arg5;
 - (id)_itemsWithGUIDs:(id)arg1;

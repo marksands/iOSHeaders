@@ -9,7 +9,7 @@
 #import <CloudDocsDaemon/BRCModule-Protocol.h>
 #import <CloudDocsDaemon/BRCSuspendable-Protocol.h>
 
-@class BRCAccountSession, BRCFSEventsPersistedState, BRCRelativePath, BRCVolume, NSString, PQLConnection;
+@class BRCAccountSession, BRCFSEventsPersistedState, BRCRelativePath, BRCVolume, NSMutableArray, NSString, PQLConnection;
 @protocol BRCFSEventsDelegate, OS_dispatch_queue, OS_dispatch_semaphore, OS_dispatch_source;
 
 @interface BRCFSEventsMonitor : NSObject <BRCModule, BRCSuspendable>
@@ -25,6 +25,12 @@
     struct __FSEventStream *_stream;
     NSObject<OS_dispatch_queue> *_streamQueue;
     NSObject<OS_dispatch_source> *_historicalEventSource;
+    NSObject<OS_dispatch_queue> *_processQueue;
+    NSObject<OS_dispatch_source> *_fseventsProcessSource;
+    NSMutableArray *_fseventsToProcess;
+    unsigned long long _maxFSEventQueueSize;
+    unsigned long long _fseventProcessBatchSize;
+    _Bool _hasMarkSelf;
     BRCFSEventsPersistedState *_rendezVous;
     NSObject<OS_dispatch_semaphore> *_semaphore;
     _Bool _drainEvents;
@@ -44,7 +50,7 @@
 - (void)_cancel;
 - (void)resume;
 - (void)suspend;
-- (void)reset;
+- (void)resetWithReason:(id)arg1;
 - (void)close;
 - (void)_close;
 - (void)flushStream;
@@ -53,14 +59,18 @@
 - (void)dealloc;
 - (id)initWithAccountSession:(id)arg1 name:(id)arg2;
 - (id)initWithAccountSession:(id)arg1;
+- (void)fseventOnRootWithEventID:(unsigned long long)arg1 andReason:(id)arg2;
 - (void)fseventAtPath:(id)arg1 withFlags:(unsigned int)arg2 andID:(unsigned long long)arg3 eventIndex:(unsigned int)arg4 eventCount:(unsigned int)arg5 initialScan:(_Bool)arg6;
+- (void)processFseventBatch;
+- (void)queueEvents:(id)arg1 markSelfEncountered:(_Bool)arg2;
+- (_Bool)_queueEvents:(id)arg1 markSelfEncountered:(_Bool)arg2;
 - (void)_updatePersistedStateWithState:(id)arg1;
 - (void)didProcessEventID:(unsigned long long)arg1;
 - (void)signalAfterCurrentFSEvent:(id)arg1;
-- (_Bool)openWithRoot:(id)arg1 resetStreamIfNeeded:(_Bool)arg2 volume:(id)arg3 error:(id *)arg4;
+- (_Bool)openWithRoot:(id)arg1 isImmutableRoot:(_Bool)arg2 volume:(id)arg3 error:(id *)arg4;
 - (_Bool)openWithRoot:(id)arg1 volume:(id)arg2 error:(id *)arg3;
-- (_Bool)setUpStreamSynchronously:(_Bool)arg1 error:(id *)arg2;
-- (_Bool)setUpRoot:(id)arg1 resetStreamIfNeeded:(_Bool)arg2 volume:(id)arg3 error:(id *)arg4;
+- (_Bool)setUpStreamSynchronously:(_Bool)arg1 reason:(id)arg2 error:(id *)arg3;
+- (_Bool)setUpRoot:(id)arg1 isImmutableRoot:(_Bool)arg2 volume:(id)arg3 error:(id *)arg4;
 @property(readonly, nonatomic) _Bool volumeIsCaseSensitive;
 
 // Remaining properties

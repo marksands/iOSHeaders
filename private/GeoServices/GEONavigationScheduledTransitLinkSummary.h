@@ -29,6 +29,7 @@
 @property(nonatomic) double scheduledArrival; // @synthesize scheduledArrival=_scheduledArrival;
 @property(nonatomic) double scheduledDeparture; // @synthesize scheduledDeparture=_scheduledDeparture;
 @property(nonatomic) unsigned long long lineID; // @synthesize lineID=_lineID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +44,6 @@
 @property(nonatomic) _Bool hasScheduledArrival;
 @property(nonatomic) _Bool hasScheduledDeparture;
 @property(nonatomic) _Bool hasLineID;
-- (void)dealloc;
 - (id)initWithTransitTripRouteStep:(id)arg1 originSummary:(id)arg2 destinationSummary:(id)arg3;
 
 @end

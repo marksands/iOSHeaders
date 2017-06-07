@@ -15,6 +15,7 @@
 - (void)observeInterfaceOrientationWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeLevelWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeFrameWithBlock:(CDUnknownBlockType)arg1;
+- (void)observeDisplayConfigurationWithBlock:(CDUnknownBlockType)arg1;
 - (void)observeClassWithBlock:(CDUnknownBlockType)arg1;
 
 @end

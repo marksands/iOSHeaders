@@ -8,3 +8,15 @@
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
+#pragma mark Named Structures
+
+struct __CFDictionary;
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    struct __CFDictionary *_field1;
+    struct __CFDictionary *_field2;
+    unsigned int _field3;
+} CDStruct_6130f9a9;
+

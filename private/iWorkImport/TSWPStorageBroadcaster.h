@@ -9,8 +9,8 @@
 __attribute__((visibility("hidden")))
 @interface TSWPStorageBroadcaster : NSObject
 {
-    struct set<id<TSWPStorageObserver>, std::__1::less<id<TSWPStorageObserver>>, std::__1::allocator<id<TSWPStorageObserver>>> _observers;
-    struct set<id<TSWPStorageParagraphObserver>, std::__1::less<id<TSWPStorageParagraphObserver>>, std::__1::allocator<id<TSWPStorageParagraphObserver>>> _paragraphObservers;
+    struct set<__unsafe_unretained id<TSWPStorageObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageObserver>>> _observers;
+    struct set<__unsafe_unretained id<TSWPStorageParagraphObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageParagraphObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageParagraphObserver>>> _paragraphObservers;
 }
 
 - (id).cxx_construct;

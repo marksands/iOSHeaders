@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithDocument:(id)arg1 listId:(int)arg2 listDefinitionId:(int)arg3;
 - (_Bool)isAnyListLevelOverridden;
 - (id)levelOverrides;
+- (void)removeLevelOverride:(id)arg1;
 - (id)addLevelOverrideWithLevel:(unsigned char)arg1;
 - (id)levelOverrideForLevel:(unsigned char)arg1;
 - (id)levelOverrideAt:(unsigned long long)arg1;

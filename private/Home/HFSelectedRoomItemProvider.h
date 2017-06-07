@@ -6,23 +6,27 @@
 
 #import <Home/HFItemProvider.h>
 
-@class HFItemBuilder, HFRoomBuilderItem;
+@class HFItemBuilder, HFRoomBuilderItem, HMHome;
 @protocol HFServiceLikeBuilder;
 
 @interface HFSelectedRoomItemProvider : HFItemProvider
 {
     CDUnknownBlockType _filter;
+    HMHome *_home;
     HFItemBuilder<HFServiceLikeBuilder> *_serviceLikeBuilder;
     HFRoomBuilderItem *_roomBuilderItem;
 }
 
 @property(retain, nonatomic) HFRoomBuilderItem *roomBuilderItem; // @synthesize roomBuilderItem=_roomBuilderItem;
 @property(retain, nonatomic) HFItemBuilder<HFServiceLikeBuilder> *serviceLikeBuilder; // @synthesize serviceLikeBuilder=_serviceLikeBuilder;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
 - (void).cxx_destruct;
 - (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 - (id)initWithHome:(id)arg1 serviceLikeBuilder:(id)arg2;
 
 @end

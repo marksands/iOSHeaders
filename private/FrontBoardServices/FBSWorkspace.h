@@ -8,7 +8,7 @@
 
 #import <FrontBoardServices/FBSWorkspaceClientDelegate-Protocol.h>
 
-@class FBSSerialQueue, FBSWorkspaceClient, NSArray, NSHashTable, NSMutableDictionary, NSString;
+@class FBSSerialQueue, FBSWorkspaceClient, NSArray, NSMapTable, NSMutableDictionary, NSString;
 @protocol FBSWorkspaceDelegate, OS_dispatch_queue;
 
 @interface FBSWorkspace : NSObject <FBSWorkspaceClientDelegate>
@@ -19,8 +19,9 @@
     FBSSerialQueue *_callOutQueue;
     NSObject<OS_dispatch_queue> *_scenesQueue;
     NSMutableDictionary *_scenesByIdentifier;
-    NSHashTable *_preFenceTriggers;
+    NSMapTable *_triggerToFenceNameMap;
     _Bool _synchronizingFence;
+    unsigned long long _signpostName;
 }
 
 @property(readonly, retain, nonatomic) FBSSerialQueue *queue; // @synthesize queue=_callOutQueue;

@@ -156,7 +156,6 @@
 - (void)lineToPoint:(struct CGPoint)arg1;
 - (void)moveToPoint:(struct CGPoint)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)finalize;
 - (void)dealloc;
 - (id)init;
 - (id)chisel;

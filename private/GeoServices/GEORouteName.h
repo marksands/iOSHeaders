@@ -20,6 +20,7 @@
 }
 
 @property(retain, nonatomic) GEONameInfo *nameInfo; // @synthesize nameInfo=_nameInfo;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 @property(nonatomic) _Bool hasLastZilchStitchedIndex;
 @property(nonatomic) int lastZilchStitchedIndex; // @synthesize lastZilchStitchedIndex=_lastZilchStitchedIndex;
 @property(readonly, nonatomic) _Bool hasNameInfo;
-- (void)dealloc;
 
 @end
 

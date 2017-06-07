@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFMediaItem-Protocol.h>
 
-@class NSArray, NSString, SFImage, SFPunchout, SFText;
+@class NSArray, NSData, NSDictionary, NSString, SFImage, SFPunchout, SFText;
 
-@interface SFMediaItem : NSObject <NSSecureCoding>
+@interface SFMediaItem : NSObject <SFMediaItem, NSSecureCoding>
 {
     NSString *_title;
     SFText *_subtitleText;
@@ -28,8 +29,8 @@
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) SFImage *contentAdvisoryImage; // @synthesize contentAdvisoryImage=_contentAdvisoryImage;
 @property(copy, nonatomic) NSString *contentAdvisory; // @synthesize contentAdvisory=_contentAdvisory;
-@property(retain, nonatomic) NSArray *buyOptions; // @synthesize buyOptions=_buyOptions;
-@property(retain, nonatomic) NSArray *subtitleCustomLineBreaking; // @synthesize subtitleCustomLineBreaking=_subtitleCustomLineBreaking;
+@property(copy, nonatomic) NSArray *buyOptions; // @synthesize buyOptions=_buyOptions;
+@property(copy, nonatomic) NSArray *subtitleCustomLineBreaking; // @synthesize subtitleCustomLineBreaking=_subtitleCustomLineBreaking;
 @property(retain, nonatomic) SFPunchout *punchout; // @synthesize punchout=_punchout;
 @property(copy, nonatomic) NSString *reviewText; // @synthesize reviewText=_reviewText;
 @property(retain, nonatomic) SFImage *overlayImage; // @synthesize overlayImage=_overlayImage;
@@ -38,8 +39,17 @@
 @property(retain, nonatomic) SFText *subtitleText; // @synthesize subtitleText=_subtitleText;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

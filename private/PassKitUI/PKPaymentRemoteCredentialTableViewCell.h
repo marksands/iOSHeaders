@@ -6,18 +6,26 @@
 
 #import <PassKitUI/PKTableViewCell.h>
 
-@class PKPaymentRemoteCredential;
+@class UIImageView, UILabel;
 
 @interface PKPaymentRemoteCredentialTableViewCell : PKTableViewCell
 {
-    PKPaymentRemoteCredential *_remoteCredential;
+    _Bool _showingPlaceholder;
+    UIImageView *_snapshotImageView;
+    UILabel *_credentialDetailLabel;
 }
 
-+ (double)cellHeight;
-+ (id)reuseIdentifier;
-@property(retain, nonatomic) PKPaymentRemoteCredential *remoteCredential; // @synthesize remoteCredential=_remoteCredential;
++ (struct CGSize)defaultImageViewSize;
+@property(nonatomic) _Bool showingPlaceholder; // @synthesize showingPlaceholder=_showingPlaceholder;
+@property(readonly, nonatomic) UILabel *credentialDetailLabel; // @synthesize credentialDetailLabel=_credentialDetailLabel;
+@property(readonly, nonatomic) UIImageView *snapshotImageView; // @synthesize snapshotImageView=_snapshotImageView;
 - (void).cxx_destruct;
+- (id)detailTextLabelColor;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (void)pk_applyAppearance:(id)arg1;
+- (id)pk_childrenForAppearance;
 
 @end
 

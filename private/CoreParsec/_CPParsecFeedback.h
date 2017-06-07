@@ -6,41 +6,56 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPParsecFeedback-Protocol.h>
 
-@class _CPFeedbackPayload;
+@class NSData, NSString, _CPFeedbackPayload;
 
-@interface _CPParsecFeedback : PBCodable <NSCopying>
+@interface _CPParsecFeedback : PBCodable <_CPParsecFeedback, NSSecureCoding>
 {
-    unsigned long long _clientQueryId;
-    long long _queryId;
-    unsigned long long _relTimestamp;
-    _CPFeedbackPayload *_payload;
     struct {
-        unsigned int clientQueryId:1;
         unsigned int queryId:1;
+        unsigned int clientQueryId:1;
         unsigned int relTimestamp:1;
     } _has;
+    _CPFeedbackPayload *_payload;
+    unsigned long long _queryId;
+    unsigned long long _clientQueryId;
+    unsigned long long _relTimestamp;
+    NSString *_parsecDeveloperID;
+    NSString *_userAgent;
+    NSString *_userGuid;
 }
 
+@property(copy, nonatomic) NSString *userGuid; // @synthesize userGuid=_userGuid;
+@property(copy, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
+@property(copy, nonatomic) NSString *parsecDeveloperID; // @synthesize parsecDeveloperID=_parsecDeveloperID;
 @property(nonatomic) unsigned long long relTimestamp; // @synthesize relTimestamp=_relTimestamp;
 @property(nonatomic) unsigned long long clientQueryId; // @synthesize clientQueryId=_clientQueryId;
-@property(nonatomic) long long queryId; // @synthesize queryId=_queryId;
+@property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(retain, nonatomic) _CPFeedbackPayload *payload; // @synthesize payload=_payload;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasRelTimestamp;
-@property(nonatomic) _Bool hasClientQueryId;
-@property(nonatomic) _Bool hasQueryId;
+@property(readonly, nonatomic) _Bool hasUserGuid;
+@property(readonly, nonatomic) _Bool hasUserAgent;
+@property(readonly, nonatomic) _Bool hasParsecDeveloperID;
+@property(readonly, nonatomic) _Bool hasRelTimestamp;
+@property(readonly, nonatomic) _Bool hasClientQueryId;
+@property(readonly, nonatomic) _Bool hasQueryId;
 @property(readonly, nonatomic) _Bool hasPayload;
+- (_Bool)requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

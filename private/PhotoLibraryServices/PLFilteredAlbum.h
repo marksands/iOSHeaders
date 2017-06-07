@@ -93,6 +93,7 @@
 @property(retain, nonatomic) NSString *cloudPersonID;
 @property(retain, nonatomic) NSString *publicURL;
 @property(retain, nonatomic) NSDate *cloudSubscriptionDate;
+@property(nonatomic) _Bool cloudOwnerIsWhitelisted;
 @property(retain, nonatomic) NSString *cloudOwnerHashedPersonID;
 @property(retain, nonatomic) NSString *cloudOwnerEmail;
 @property(retain, nonatomic) NSString *cloudOwnerFullName;
@@ -153,7 +154,6 @@
 
 // Remaining properties
 @property(nonatomic) unsigned long long batchSize;
-@property(nonatomic) _Bool cloudOwnerIsWhitelisted;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, retain, nonatomic) NSDate *endDate;
 @property(readonly) unsigned long long hash;

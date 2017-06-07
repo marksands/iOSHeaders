@@ -4,9 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class CBCharacteristic, CBPeripheral;
+@class CBCharacteristic, CBPeripheral, NSArray, NSDate, NSError;
 
 @protocol HDHSCharacteristicsDelegate
+- (void)peripheral:(CBPeripheral *)arg1 didWriteValueForCharacteristic:(CBCharacteristic *)arg2 error:(NSError *)arg3;
+- (void)peripheral:(CBPeripheral *)arg1 didUpdateValueForCharacteristic:(CBCharacteristic *)arg2 updateTime:(NSDate *)arg3 error:(NSError *)arg4;
 - (void)peripheral:(CBPeripheral *)arg1 didDiscoverCharacteristic:(CBCharacteristic *)arg2;
+- (void)peripheral:(CBPeripheral *)arg1 didDiscoverCharacteristics:(NSArray *)arg2;
 @end
 

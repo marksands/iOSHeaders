@@ -33,6 +33,7 @@
 - (id)_combinedProgramSpecifiers;
 - (id)_rightProgramSpecifiers;
 - (id)_leftProgramSpecifiers;
+- (_Bool)shouldShowCombinedStreamingVolume;
 - (id)_volumeSpecifiers;
 - (id)_programSpecifiers;
 - (id)disconnectedSpecifiers;

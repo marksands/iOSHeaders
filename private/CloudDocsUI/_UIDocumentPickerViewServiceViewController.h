@@ -84,11 +84,11 @@ __attribute__((visibility("hidden")))
 - (void)_showDefaultPicker;
 - (void)_setTintColor:(id)arg1;
 - (void)_documentPickerDidDismiss;
+- (void)_waitForDownloadOfURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dismissWithURL:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)_dismissWithImportURL:(id)arg1;
 - (void)_dismissWithFileProviderURL:(id)arg1 bundleIdentifier:(id)arg2;
 - (void)_createBookmarkAndDismissWithCloudURL:(id)arg1;
-- (void)beginDownloadingURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) id <_UIDocumentPickerViewControllerHost> hostingViewController; // @dynamic hostingViewController;
 - (void)dealloc;
 

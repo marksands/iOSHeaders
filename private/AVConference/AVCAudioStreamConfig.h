@@ -16,16 +16,24 @@
     unsigned long long _ptime;
     unsigned long long _maxPtime;
     long long _audioStreamMode;
-    long long _rateModeMask;
-    long long _preferredAMRMode;
+    unsigned int _codecRateModeMask;
+    long long _preferredCodecRateMode;
     _Bool _octetAligned;
     _Bool _dtxEnabled;
     _Bool _latencySensitiveMode;
 }
 
++ (long long)clientCodecRateModeForCodecRateMode:(int)arg1;
++ (int)codecRateModeForClientCodecRateMode:(long long)arg1;
++ (unsigned int)clientCodecRateMaskForCodecRateMode:(unsigned int)arg1;
++ (unsigned int)codecRateMaskForClientCodecRateMode:(unsigned int)arg1;
++ (long long)clientStreamModeWithStreamMode:(long long)arg1;
++ (long long)streamModeWithClientStreamMode:(long long)arg1;
++ (long long)clientCodecTypeWithCodecType:(long long)arg1;
++ (long long)codecTypeWithClientCodecType:(long long)arg1;
 @property(nonatomic, getter=isLatencySensitiveMode) _Bool latencySensitiveMode; // @synthesize latencySensitiveMode=_latencySensitiveMode;
-@property(nonatomic) long long preferredAMRMode; // @synthesize preferredAMRMode=_preferredAMRMode;
-@property(nonatomic) long long rateModeMask; // @synthesize rateModeMask=_rateModeMask;
+@property(nonatomic) long long preferredCodecRateMode; // @synthesize preferredCodecRateMode=_preferredCodecRateMode;
+@property(nonatomic) unsigned int codecRateModeMask; // @synthesize codecRateModeMask=_codecRateModeMask;
 @property(nonatomic, getter=isDTXEnabled) _Bool dtxEnabled; // @synthesize dtxEnabled=_dtxEnabled;
 @property(nonatomic, getter=isOctectAligned) _Bool octetAligned; // @synthesize octetAligned=_octetAligned;
 @property(nonatomic) unsigned long long maxPtime; // @synthesize maxPtime=_maxPtime;
@@ -36,6 +44,8 @@
 @property(nonatomic, getter=isCNEnabled) _Bool cnEnabled; // @synthesize cnEnabled=_cnEnabled;
 @property(nonatomic) long long codecType; // @synthesize codecType=_codecType;
 @property(nonatomic) long long audioStreamMode; // @synthesize audioStreamMode=_audioStreamMode;
+- (id)dictionary;
+- (void)setUpWithDictionary:(id)arg1;
 - (_Bool)isCNValid;
 - (_Bool)isDTMFValid;
 - (_Bool)isValid;

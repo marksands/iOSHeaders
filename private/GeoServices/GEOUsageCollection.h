@@ -53,6 +53,7 @@
 @property(nonatomic) int responseTime; // @synthesize responseTime=_responseTime;
 @property(nonatomic) int responseDataSize; // @synthesize responseDataSize=_responseDataSize;
 @property(nonatomic) int requestDataSize; // @synthesize requestDataSize=_requestDataSize;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

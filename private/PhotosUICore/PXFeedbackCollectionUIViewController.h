@@ -6,19 +6,35 @@
 
 #import <UIKit/UIViewController.h>
 
-@class UINavigationController;
+#import <PhotosUICore/PXFeedbackFormDelegate-Protocol.h>
 
-@interface PXFeedbackCollectionUIViewController : UIViewController
+@class NSString, UINavigationController;
+
+@interface PXFeedbackCollectionUIViewController : UIViewController <PXFeedbackFormDelegate>
 {
     UINavigationController *_navigationController;
     unsigned long long _feedbackCollectionType;
 }
 
 - (void).cxx_destruct;
-- (void)cancelFeedback:(id)arg1;
+- (_Bool)persistViewControllerAfterFeedback;
+- (void)userSentPositiveFeedback:(id)arg1 negativeFeedback:(id)arg2;
+- (void)userIndicatedDislike;
+- (void)userIndicatedLike;
+- (id)negativeFeedbackKeys;
+- (id)positiveFeedbackKeys;
+- (_Bool)shouldDisplaySecondaryFeedbackButtons;
+- (id)viewTitleForRadar;
+- (id)longTitleText;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithCollectionType:(unsigned long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

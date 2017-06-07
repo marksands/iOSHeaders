@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int roadLaneCount; // @synthesize roadLaneCount=_roadLaneCount;
 @property(nonatomic) int vertexIndex; // @synthesize vertexIndex=_vertexIndex;
 @property(nonatomic) int sectionIndex; // @synthesize sectionIndex=_sectionIndex;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -64,7 +65,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasRoadLaneCount;
 @property(nonatomic) _Bool hasVertexIndex;
 @property(nonatomic) _Bool hasSectionIndex;
-- (void)dealloc;
 
 @end
 

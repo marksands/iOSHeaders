@@ -39,6 +39,7 @@
 @property(nonatomic) unsigned int problematicStepIndex; // @synthesize problematicStepIndex=_problematicStepIndex;
 @property(retain, nonatomic) NSData *overviewScreenshotImageData; // @synthesize overviewScreenshotImageData=_overviewScreenshotImageData;
 @property(retain, nonatomic) NSData *directionsResponseId; // @synthesize directionsResponseId=_directionsResponseId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -66,7 +67,6 @@
 @property(nonatomic) _Bool hasProblematicStepIndex;
 @property(readonly, nonatomic) _Bool hasOverviewScreenshotImageData;
 @property(readonly, nonatomic) _Bool hasDirectionsResponseId;
-- (void)dealloc;
 
 @end
 

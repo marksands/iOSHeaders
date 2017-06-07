@@ -6,30 +6,19 @@
 
 #import <objc/NSObject.h>
 
-#import <FlightUtilities/NSCopying-Protocol.h>
 #import <FlightUtilities/NSSecureCoding-Protocol.h>
 
-@class FUFlightStep, NSString;
+@class FUFlightStep;
 
-@interface FUFlightLeg : NSObject <NSCopying, NSSecureCoding>
+@interface FUFlightLeg : NSObject <NSSecureCoding>
 {
     long long _status;
     double _duration;
     FUFlightStep *_departure;
     FUFlightStep *_arrival;
-    double _heading;
-    double _speed;
-    double _altitude;
-    NSString *_aircraftcode;
-    struct CLLocationCoordinate2D _location;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain) NSString *aircraftcode; // @synthesize aircraftcode=_aircraftcode;
-@property struct CLLocationCoordinate2D location; // @synthesize location=_location;
-@property double altitude; // @synthesize altitude=_altitude;
-@property double speed; // @synthesize speed=_speed;
-@property double heading; // @synthesize heading=_heading;
 @property(retain) FUFlightStep *arrival; // @synthesize arrival=_arrival;
 @property(retain) FUFlightStep *departure; // @synthesize departure=_departure;
 @property double duration; // @synthesize duration=_duration;
@@ -38,7 +27,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly) double currentProgress;
 - (_Bool)isEqual:(id)arg1;
 
 @end

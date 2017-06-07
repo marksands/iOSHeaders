@@ -23,8 +23,10 @@
 - (unsigned long long)_cnui_likenessType;
 - (id)_cnui_likenessForSize:(struct CGSize)arg1 scale:(double)arg2;
 - (id)_cnui_likenessForSize:(struct CGSize)arg1;
-- (struct CGImage *)_cnui_imageForSize:(struct CGSize)arg1 scale:(double)arg2;
-- (struct CGImage *)renderImageForSize:(struct CGSize)arg1 scale:(double)arg2;
+- (struct CGImage *)_cnui_roundedRectImageForSize:(struct CGSize)arg1 scale:(double)arg2;
+- (struct CGImage *)_cnui_circularImageForSize:(struct CGSize)arg1 scale:(double)arg2;
+- (struct CGImage *)renderRoundedRectImageForSize:(struct CGSize)arg1 scale:(double)arg2;
+- (struct CGImage *)renderCircularImageForSize:(struct CGSize)arg1 scale:(double)arg2;
 - (id)init;
 
 // Remaining properties

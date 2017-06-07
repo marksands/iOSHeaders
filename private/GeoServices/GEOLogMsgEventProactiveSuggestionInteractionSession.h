@@ -26,6 +26,7 @@
 + (Class)proactiveItemType;
 @property(nonatomic) int duration; // @synthesize duration=_duration;
 @property(retain, nonatomic) NSMutableArray *proactiveItems; // @synthesize proactiveItems=_proactiveItems;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,7 +47,6 @@
 - (id)listTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasListType;
 @property(nonatomic) int listType; // @synthesize listType=_listType;
-- (void)dealloc;
 
 @end
 

@@ -25,6 +25,7 @@
 @property(nonatomic) unsigned int routeIndex; // @synthesize routeIndex=_routeIndex;
 @property(retain, nonatomic) NSData *originalDirectionsResponseID; // @synthesize originalDirectionsResponseID=_originalDirectionsResponseID;
 @property(retain, nonatomic) NSData *routeHandle; // @synthesize routeHandle=_routeHandle;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -41,7 +42,6 @@
 - (id)originalRoutePurposeAsString:(int)arg1;
 @property(nonatomic) _Bool hasOriginalRoutePurpose;
 @property(nonatomic) int originalRoutePurpose; // @synthesize originalRoutePurpose=_originalRoutePurpose;
-- (void)dealloc;
 
 @end
 

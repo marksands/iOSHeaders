@@ -55,7 +55,6 @@
 - (long long)_deletedRowCountWithDatabase:(id)arg1 error:(id *)arg2;
 - (long long)_objectRowCountWithDatabase:(id)arg1 afterRowId:(long long)arg2 error:(id *)arg3;
 - (long long)_countOfObjectsWithSQLQuery:(id)arg1 database:(id)arg2 error:(id *)arg3 bindingHandler:(CDUnknownBlockType)arg4;
-- (_Bool)_computeAndSubmitFitnessFriendsMonthlyMetric:(_Bool)arg1;
 - (_Bool)_computeAndSubmitHealthTypesDifferentialPrivacyMetric;
 - (_Bool)_computeAndSubmitAchievementCountMetric:(_Bool)arg1;
 - (_Bool)_submitAchievementCountMetricWithConnection:(id)arg1 container:(id)arg2 earnedAchievements:(id)arg3 calorieGoal:(id)arg4 force:(_Bool)arg5;

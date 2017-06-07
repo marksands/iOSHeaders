@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue;
@@ -18,11 +18,11 @@ __attribute__((visibility("hidden")))
     NSString *_filePath;
 }
 
+- (void).cxx_destruct;
 - (void)_save;
 - (void)_pruneToSize:(unsigned long long)arg1;
 - (void)setMuid:(unsigned long long)arg1 providerId:(int)arg2 forPhoneNumber:(unsigned long long)arg3;
 - (_Bool)getMuid:(out unsigned long long *)arg1 providerId:(out int *)arg2 forPhoneNumber:(unsigned long long)arg3;
-- (void)dealloc;
 - (id)initWithMappingFilePath:(id)arg1;
 
 @end

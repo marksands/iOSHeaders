@@ -28,6 +28,7 @@
 - (id)getDistances:(id)arg1 to:(id)arg2;
 - (id)getClustersForClusterIds:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (id)getRepresentativenessForFaces:(id)arg1 error:(id *)arg2;
+- (id)getDistanceBetweenClusters:(id)arg1;
 - (id)getDistanceBetweenClustersWithFaceIds:(id)arg1;
 - (id)getGroupedClusteredFaceIdsForFaceId:(id)arg1;
 @property(readonly, getter=getClusteredFaceIds) NSSet *clusteredFaceIds;

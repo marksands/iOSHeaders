@@ -29,6 +29,7 @@
 @property(nonatomic) int obtainedImageType; // @synthesize obtainedImageType=_obtainedImageType;
 @property(nonatomic) int askedImageType; // @synthesize askedImageType=_askedImageType;
 @property(readonly, nonatomic) int storageType; // @synthesize storageType=_storageType;
+- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) unsigned long long memoryUsage;
 @property(readonly, nonatomic) double scale;

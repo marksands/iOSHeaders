@@ -52,6 +52,7 @@
 - (void)getStatusDictionaryWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getStatusWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)componentName;
+@property(readonly, nonatomic) NSError *lastError;
 - (void)endClientWork:(id)arg1;
 - (void)beginClientWork:(id)arg1;
 - (void)closeAndDeactivate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -65,7 +66,6 @@
 - (id)_descriptionForBackgroundDownloadsTasks;
 - (id)task:(id)arg1 wantsToDownloadBatchesFromSyncAnchor:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)task:(id)arg1 wantsToQueryTaskForCursor:(id)arg2 class:(Class)arg3 progressHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (_Bool)taskSupportsBatchDownloadPipelining:(id)arg1;
 - (_Bool)_didFinishPullTask:(id)arg1 withError:(id)arg2 shouldStop:(_Bool *)arg3;
 - (void)_releasePowerAssertionForMingleTaskIfNecessary;
 - (void)_retainPowerAssertionForMingleTaskIfNecessary;
@@ -97,6 +97,7 @@
 - (void)kickOffSyncSession;
 - (void)startSyncSessionWithMinimalPhase:(unsigned long long)arg1;
 - (void)_restartSyncSessionFromStateLocked:(unsigned long long)arg1 cancelIfNecessary:(_Bool)arg2;
+- (void)_advanceToNextStateLockedMinimalState:(unsigned long long)arg1;
 - (void)_advanceToNextStateLocked;
 - (void)_notifyEndOfSyncSession;
 - (_Bool)_launchNecessaryTasksForCurrentStateLocked;

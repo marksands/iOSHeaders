@@ -6,21 +6,24 @@
 
 #import <UIKit/UICollectionReusableView.h>
 
-@class NSMutableArray, UILabel;
+@class CKLabel, NSMutableArray;
 
 @interface CKAvatarTitleCollectionReusableView : UICollectionReusableView
 {
     long long _style;
-    UILabel *_titleLabel;
+    long long _avatarTitleAccessoryImageType;
+    CKLabel *_titleLabel;
     NSMutableArray *_pendingTitles;
 }
 
 + (id)supplementaryViewKind;
 + (id)reuseIdentifier;
 @property(retain, nonatomic) NSMutableArray *pendingTitles; // @synthesize pendingTitles=_pendingTitles;
-@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) CKLabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(nonatomic) long long avatarTitleAccessoryImageType; // @synthesize avatarTitleAccessoryImageType=_avatarTitleAccessoryImageType;
 @property(nonatomic) long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)configureWithTitle:(id)arg1;
 - (void)_animateFromQueue;

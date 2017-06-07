@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (Class)exportOptionsControllerClass;
 - (Class)pdfExporterClassForOptions:(id)arg1;
 - (Class)exporterClassForType:(id)arg1 options:(id)arg2;
-- (Class)importerClassForType:(id)arg1;
+- (Class)importerClassForType:(id)arg1 path:(id)arg2;
 - (id)newExportableDocumentTypesForFlag:(unsigned long long)arg1;
 
 // Remaining properties

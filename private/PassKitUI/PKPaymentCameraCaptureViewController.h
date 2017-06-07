@@ -12,13 +12,14 @@
 @interface PKPaymentCameraCaptureViewController : UIViewController
 {
     NSArray *_outputObjects;
-    PKCameraCaptureInstructionView *_cameraInstructionView;
     PKPaymentCardManualEntryViewController *_manualEntryController;
     PKPaymentSetupBrowseProductsViewController *_browseCardsController;
     id <PKPaymentCameraCaptureViewControllerDelegate> _cameraCaptureDelegate;
     long long _context;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     UIView *_cameraView;
+    UIView *_cameraInstructionContainerView;
+    PKCameraCaptureInstructionView *_cameraInstructionView;
     _Bool _hideSetupLaterButton;
     UIColor *_maskColor;
     UIColor *_maskOutlineColor;

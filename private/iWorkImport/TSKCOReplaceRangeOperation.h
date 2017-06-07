@@ -44,7 +44,7 @@ __attribute__((visibility("hidden")))
 - (id)transformStaticByAnyOperation:(id)arg1 byHigherPriority:(_Bool)arg2;
 - (void)saveToArchiver:(id)arg1 message:(struct Operation *)arg2;
 - (id)initWithUnarchiver:(id)arg1 message:(const struct Operation *)arg2;
-- (id)p_transformUpdateRange:(struct _NSRange)arg1 myRange:(struct _NSRange)arg2 replacementLength:(unsigned long long)arg3 transformBehavior:(int)arg4;
+- (id)p_transformUpdateRange:(struct _NSRange)arg1 replacementRange:(struct _NSRange)arg2 replacementLength:(unsigned long long)arg3 transformBehavior:(int)arg4;
 - (id)p_transformReplaceRange:(struct _NSRange)arg1 replacementLength:(unsigned long long)arg2 myRange:(struct _NSRange)arg3 myReplacementLength:(unsigned long long)arg4 preserveLocation:(_Bool)arg5;
 
 @end

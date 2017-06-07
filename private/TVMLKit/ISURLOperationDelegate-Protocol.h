@@ -6,11 +6,13 @@
 
 #import <TVMLKit/ISOperationDelegate-Protocol.h>
 
-@class ISURLOperation, NSInputStream, NSMutableData, NSMutableURLRequest, NSNumber, NSString, NSURLAuthenticationChallenge, NSURLCredential, NSURLRequest, NSURLResponse;
+@class ISURLOperation, NSInputStream, NSMutableData, NSMutableURLRequest, NSNumber, NSString, NSURLAuthenticationChallenge, NSURLCache, NSURLCredential, NSURLRequest, NSURLResponse;
 
 @protocol ISURLOperationDelegate <ISOperationDelegate>
 
 @optional
+- (NSString *)URLCacheID;
+- (NSURLCache *)URLCache;
 - (NSURLCredential *)operation:(ISURLOperation *)arg1 credentialForAuthenticationChallenge:(NSURLAuthenticationChallenge *)arg2;
 - (long long)operation:(ISURLOperation *)arg1 dispositionForAuthenticationChallenge:(NSURLAuthenticationChallenge *)arg2;
 - (NSString *)operation:(ISURLOperation *)arg1 sanitizedStringForString:(NSString *)arg2;

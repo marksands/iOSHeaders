@@ -50,6 +50,7 @@
 - (unsigned long long)_inqUpdateGroupAndPrefixTreeForString:(id)arg1 category:(short)arg2 owningGroupId:(unsigned long long)arg3;
 - (unsigned long long)_inqAddUUID:(id)arg1 string:(id)arg2 category:(short)arg3 owningGroupId:(unsigned long long)arg4 isInBatch:(_Bool)arg5;
 - (void)_inqGetTokensFromString:(id)arg1 forIndexing:(_Bool)arg2 useWildcard:(_Bool)arg3 tokenOutput:(struct tokenOutput_t *)arg4;
+- (void)_prepareTokenOutput:(struct tokenOutput_t *)arg1 forIndexing:(_Bool)arg2;
 - (void)_inqRecycleGroups;
 - (id)_inqDequeueGroupObjectWithId:(unsigned long long)arg1 isCachedGroup:(_Bool *)arg2;
 - (id)_inqNewGroupArraysFromGroupIdSets:(id)arg1 forQuery:(id)arg2;

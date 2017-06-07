@@ -4,34 +4,68 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEONavigationServerObserverXPCInterface-Protocol.h>
 
 @class NSString, NSXPCConnection;
-@protocol OS_dispatch_queue;
+@protocol GEONavigationListenerDelegate, OS_dispatch_queue;
 
 @interface GEONavigationListener : NSObject <GEONavigationServerObserverXPCInterface>
 {
     NSXPCConnection *_connection;
     NSObject<OS_dispatch_queue> *_queue;
+    int _navigationStartedToken;
+    int _navigationStoppedToken;
+    id <GEONavigationListenerDelegate> _delegate;
     CDUnknownBlockType _routeSummaryUpdatedHandler;
     CDUnknownBlockType _transitSummaryUpdatedHandler;
     CDUnknownBlockType _guidanceStateUpdatedHandler;
     CDUnknownBlockType _activeRouteDetailsDataUpdatedHandler;
     CDUnknownBlockType _stepIndexUpdatedHandler;
     CDUnknownBlockType _rideSelectionsUpdatedHandler;
-    int _navigationStartedToken;
-    int _navigationStoppedToken;
+    CDUnknownBlockType _positionFromSignUpdatedHandler;
+    CDUnknownBlockType _positionFromManeuverUpdatedHandler;
+    CDUnknownBlockType _positionFromDestinationUpdatedHandler;
+    CDUnknownBlockType _trafficIncidentAlertDetailsDataUpdatedHandler;
+    CDUnknownBlockType _navigationVoiceVolumeUpdatedHandler;
+    NSString *_currentRoadName;
 }
 
+@property(readonly, nonatomic) NSString *currentRoadName; // @synthesize currentRoadName=_currentRoadName;
+@property(copy, nonatomic) CDUnknownBlockType navigationVoiceVolumeUpdatedHandler; // @synthesize navigationVoiceVolumeUpdatedHandler=_navigationVoiceVolumeUpdatedHandler;
+@property(copy, nonatomic) CDUnknownBlockType trafficIncidentAlertDetailsDataUpdatedHandler; // @synthesize trafficIncidentAlertDetailsDataUpdatedHandler=_trafficIncidentAlertDetailsDataUpdatedHandler;
+@property(copy, nonatomic) CDUnknownBlockType positionFromDestinationUpdatedHandler; // @synthesize positionFromDestinationUpdatedHandler=_positionFromDestinationUpdatedHandler;
+@property(copy, nonatomic) CDUnknownBlockType positionFromManeuverUpdatedHandler; // @synthesize positionFromManeuverUpdatedHandler=_positionFromManeuverUpdatedHandler;
+@property(copy, nonatomic) CDUnknownBlockType positionFromSignUpdatedHandler; // @synthesize positionFromSignUpdatedHandler=_positionFromSignUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType rideSelectionsUpdatedHandler; // @synthesize rideSelectionsUpdatedHandler=_rideSelectionsUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType stepIndexUpdatedHandler; // @synthesize stepIndexUpdatedHandler=_stepIndexUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType activeRouteDetailsDataUpdatedHandler; // @synthesize activeRouteDetailsDataUpdatedHandler=_activeRouteDetailsDataUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType guidanceStateUpdatedHandler; // @synthesize guidanceStateUpdatedHandler=_guidanceStateUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType transitSummaryUpdatedHandler; // @synthesize transitSummaryUpdatedHandler=_transitSummaryUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType routeSummaryUpdatedHandler; // @synthesize routeSummaryUpdatedHandler=_routeSummaryUpdatedHandler;
+@property(nonatomic) id <GEONavigationListenerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
+- (void)_notifyWithNavigationVoiceVolume:(int)arg1;
+- (void)_notifyWithTrafficIncidentDetailsData:(id)arg1;
+- (void)_notifyWithPositionFromDestination:(CDStruct_c3b9c2ee)arg1;
+- (void)_notifyWithPositionFromManeuver:(CDStruct_c3b9c2ee)arg1;
+- (void)_notifyWithPositionFromSign:(CDStruct_c3b9c2ee)arg1;
+- (void)_notifyWithRideSelections:(id)arg1;
+- (void)_notifyWithStepNameInfo:(id)arg1;
+- (void)_notifyWithStepIndex:(unsigned long long)arg1;
+- (void)_notifyWithActiveRouteDetailsData:(id)arg1;
+- (void)_notifyWithGuidanceState:(id)arg1;
+- (void)_notifyWithTransitSummary:(id)arg1;
+- (void)_notifyWithRouteSummary:(id)arg1;
+- (void)currentRoadNameUpdated:(id)arg1;
+- (void)navigationUpdatedWithVoiceVolumeData:(id)arg1;
+- (void)routeSummaryUpdatedWithTrafficIncidentAlertDetailsData:(id)arg1;
 - (void)routeSummaryUpdatedWithRideSelectionData:(id)arg1;
+- (void)routeSummaryUpdatedWithPositionFromDestinationData:(id)arg1;
+- (void)routeSummaryUpdatedWithPositionFromManeuverData:(id)arg1;
+- (void)routeSummaryUpdatedWithPositionFromSignData:(id)arg1;
+- (void)routeSummaryUpdatedWithStepNameInfoData:(id)arg1;
 - (void)routeSummaryUpdatedWithStepIndexData:(id)arg1;
 - (void)routeSummaryUpdatedWithActiveRouteDetailsData:(id)arg1;
 - (void)routeSummaryUpdatedWithGuidanceStateData:(id)arg1;
@@ -40,7 +74,13 @@
 - (void)_connectToDaemonIfNeeded;
 - (void)_close;
 - (void)_open;
+- (void)requestNavigationVoiceVolume;
+- (void)requestTrafficIncidentDetailsData;
+- (void)requestPositionFromDestination;
+- (void)requestPositionFromManeuver;
+- (void)requestPositionFromSign;
 - (void)requestRideSelections;
+- (void)requestStepNameInfo;
 - (void)requestStepIndex;
 - (void)requestActiveRouteDetailsData;
 - (void)requestGuidanceState;

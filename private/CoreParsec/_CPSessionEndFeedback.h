@@ -6,27 +6,40 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPSessionEndFeedback-Protocol.h>
 
-@interface _CPSessionEndFeedback : PBCodable <NSCopying>
+@class NSData, NSString;
+
+@interface _CPSessionEndFeedback : PBCodable <_CPProcessableFeedback, _CPSessionEndFeedback, NSSecureCoding>
 {
-    unsigned long long _timestamp;
+    struct {
+        unsigned int timestamp:1;
+        unsigned int reason:1;
+    } _has;
     int _reason;
+    unsigned long long _timestamp;
 }
 
 @property(nonatomic) int reason; // @synthesize reason=_reason;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+@property(nonatomic) unsigned long long timestamp;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (int)StringAsReason:(id)arg1;
-- (id)reasonAsString:(int)arg1;
+@property(readonly, nonatomic) _Bool hasReason;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

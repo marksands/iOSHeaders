@@ -40,6 +40,7 @@
 + (id)allVisibleNotesMatchingPredicate:(id)arg1 sorted:(_Bool)arg2 context:(id)arg3 fetchLimit:(unsigned long long)arg4;
 + (id)allVisibleNotesMatchingPredicate:(id)arg1 sorted:(_Bool)arg2 context:(id)arg3;
 + (id)allVisibleNotesMatchingPredicate:(id)arg1 context:(id)arg2;
++ (id)newlyAddedAttachmentInContext:(id)arg1;
 + (id)newFetchRequestForNotes;
 + (id)visibleNotesPredicate;
 + (void)removeConflictingSqliteAndIdxFiles;

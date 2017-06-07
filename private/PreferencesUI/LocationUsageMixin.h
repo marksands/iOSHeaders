@@ -6,27 +6,26 @@
 
 #import <Foundation/NSObject.h>
 
-@class PSTableCell, UIImageView, UILabel;
+@class NSString, UIImageView;
 
 @interface LocationUsageMixin : NSObject
 {
-    PSTableCell *_cell;
     int _usage;
-    UIImageView *_usageIndicator;
-    UILabel *_authLevelLabel;
-    double horizontalOffset;
     unsigned long long _authLevel;
+    UIImageView *_usageIndicator;
+    NSString *_authLevelString;
 }
 
+@property(readonly, nonatomic) NSString *authLevelString; // @synthesize authLevelString=_authLevelString;
+@property(readonly, nonatomic) UIImageView *usageIndicator; // @synthesize usageIndicator=_usageIndicator;
 @property(nonatomic) unsigned long long authLevel; // @synthesize authLevel=_authLevel;
-@property(nonatomic) double horizontalOffset; // @synthesize horizontalOffset;
 @property(nonatomic) int usage; // @synthesize usage=_usage;
 - (void).cxx_destruct;
 - (id)_authLevelForMask:(unsigned long long)arg1;
 - (struct CGSize)_authLevelLabelSize:(unsigned long long)arg1;
 - (struct CGSize)usageIndicatorSize;
 - (id)iconNameForUsage:(int)arg1;
-- (id)initWithTableCell:(id)arg1 withHorizontalOffset:(double)arg2;
+- (id)init;
 
 @end
 

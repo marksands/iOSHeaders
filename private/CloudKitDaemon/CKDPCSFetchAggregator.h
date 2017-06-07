@@ -18,8 +18,10 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_queuedFetches;
     NSMutableArray *_runningFetches;
     NSObject<OS_dispatch_source> *_fetchSource;
+    NSObject<OS_dispatch_source> *_timerSource;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_source> *timerSource; // @synthesize timerSource=_timerSource;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *fetchSource; // @synthesize fetchSource=_fetchSource;
 @property(retain, nonatomic) NSMutableArray *runningFetches; // @synthesize runningFetches=_runningFetches;
 @property(retain, nonatomic) NSMutableArray *queuedFetches; // @synthesize queuedFetches=_queuedFetches;
@@ -32,6 +34,8 @@ __attribute__((visibility("hidden")))
 - (void)requestFetchOfRecordWithID:(id)arg1 forOperation:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)fetchRequestForExistingOperation:(id)arg1 isDependentOnOperation:(id)arg2;
 - (id)_lockedGetQueuedFetchForOperation:(id)arg1 ofClass:(Class)arg2;
+- (void)_lockedRescheduleFetchTimer;
+- (void)_lockedTearDownFetchTimer;
 - (void)_lockedFetchesAreReady;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;

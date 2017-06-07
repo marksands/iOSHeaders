@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int order; // @synthesize order=_order;
 @property(nonatomic) struct TSTSimpleRange range; // @synthesize range=_range;
 @property(retain, nonatomic) TSDStroke *stroke; // @synthesize stroke=_stroke;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithStroke:(id)arg1 range:(struct TSTSimpleRange)arg2 order:(int)arg3 andPosition:(unsigned long long)arg4;
 
 // Remaining properties

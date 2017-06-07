@@ -7,17 +7,17 @@
 #import <iWorkImport/NSObject-Protocol.h>
 
 @protocol TSTTableHiddenRowColumnProviding <NSObject>
-- (_Bool)anyColumnsHiddenInCellRange:(struct TSUCellRect)arg1;
-- (_Bool)anyRowsHiddenInCellRange:(struct TSUCellRect)arg1;
-- (unsigned char)visibleColumnAfterAndIncludingColumn:(unsigned char)arg1;
-- (unsigned char)visibleColumnAfterColumn:(unsigned char)arg1;
-- (unsigned char)visibleColumnBeforeAndIncludingColumn:(unsigned char)arg1;
-- (unsigned char)visibleColumnBeforeColumn:(unsigned char)arg1;
-- (unsigned short)visibleRowAfterAndIncludingRow:(unsigned short)arg1;
-- (unsigned short)visibleRowAfterRow:(unsigned short)arg1;
-- (unsigned short)visibleRowBeforeAndIncludingRow:(unsigned short)arg1;
-- (unsigned short)visibleRowBeforeRow:(unsigned short)arg1;
-- (_Bool)isColumnHidden:(unsigned char)arg1;
-- (_Bool)isRowHidden:(unsigned short)arg1;
+- (_Bool)anyHiddenColumnsInCellRange:(struct TSUCellRect)arg1;
+- (_Bool)anyHiddenRowsInCellRange:(struct TSUCellRect)arg1;
+- (unsigned char)indexOfVisibleColumnAfterAndIncludingColumnAtIndex:(unsigned char)arg1;
+- (unsigned char)indexOfVisibleColumnAfterColumnAtIndex:(unsigned char)arg1;
+- (unsigned char)indexOfVisibleColumnBeforeAndIncludingColumnAtIndex:(unsigned char)arg1;
+- (unsigned char)indexOfVisibleColumnBeforeColumnAtIndex:(unsigned char)arg1;
+- (unsigned short)indexOfVisibleRowAfterAndIncludingRowAtIndex:(unsigned short)arg1;
+- (unsigned short)indexOfVisibleRowAfterRowAtIndex:(unsigned short)arg1;
+- (unsigned short)indexOfVisibleRowBeforeAndIncludingRowAtIndex:(unsigned short)arg1;
+- (unsigned short)indexOfVisibleRowBeforeRowAtIndex:(unsigned short)arg1;
+- (_Bool)hasHiddenColumnAtIndex:(unsigned char)arg1;
+- (_Bool)hasHiddenRowAtIndex:(unsigned short)arg1;
 @end
 

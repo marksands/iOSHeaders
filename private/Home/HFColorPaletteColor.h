@@ -9,33 +9,27 @@
 #import <Home/NAEquatable-Protocol.h>
 #import <Home/NSCopying-Protocol.h>
 
-@class NSNumber, NSString, UIColor;
+@class HFColorCollection, NSString, UIColor;
 
 @interface HFColorPaletteColor : NSObject <NAEquatable, NSCopying>
 {
-    float _red;
-    float _green;
-    float _blue;
-    NSNumber *_temperature;
-    unsigned long long _colorType;
+    HFColorCollection *_colorCollection;
 }
 
-@property(nonatomic) unsigned long long colorType; // @synthesize colorType=_colorType;
-@property(readonly, nonatomic) NSNumber *temperature; // @synthesize temperature=_temperature;
-@property(readonly, nonatomic) float blue; // @synthesize blue=_blue;
-@property(readonly, nonatomic) float green; // @synthesize green=_green;
-@property(readonly, nonatomic) float red; // @synthesize red=_red;
+@property(readonly, nonatomic) HFColorCollection *colorCollection; // @synthesize colorCollection=_colorCollection;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
+- (_Bool)isSimilarToColor:(id)arg1;
 - (_Bool)isSimilarToColor:(id)arg1 ignoreTemperature:(_Bool)arg2;
+- (id)colorByAdjustingToColorProfile:(id)arg1;
 @property(readonly, nonatomic) UIColor *UIColor;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)dictionaryRepresentation;
+- (id)dictionaryRepresentationWithPreferredPaletteType:(unsigned long long)arg1;
 - (id)initWithDictionaryRepresentation:(id)arg1;
 - (id)initWithUIColor:(id)arg1;
-- (id)initWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3 temperature:(id)arg4;
+- (id)initWithColorCollection:(id)arg1;
 - (id)initWithRed:(float)arg1 green:(float)arg2 blue:(float)arg3;
 
 // Remaining properties

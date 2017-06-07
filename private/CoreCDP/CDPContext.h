@@ -9,7 +9,7 @@
 #import <CoreCDP/NSCopying-Protocol.h>
 #import <CoreCDP/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, NSNumber, NSString;
+@class AKCircleRequestContext, CUMessageSession, KCAESGCMDuplexSession, NSDictionary, NSNumber, NSString;
 @protocol CDPAuthProviderInternal;
 
 @interface CDPContext : NSObject <NSSecureCoding, NSCopying>
@@ -21,24 +21,33 @@
     _Bool __useSecureBackupCachedPassphrase;
     _Bool __alwaysCreateEscrowRecord;
     _Bool _idmsRecovery;
+    _Bool _idmsMasterKeyRecovery;
     NSDictionary *_authenticationResults;
     NSString *_appleID;
     NSString *_password;
     NSString *_passwordEquivToken;
     NSNumber *_dsid;
+    NSString *_altDSID;
     long long _type;
     NSString *_cachedLocalSecret;
     unsigned long long _cachedLocalSecretType;
     NSString *_findMyiPhoneUUID;
     id <CDPAuthProviderInternal> __authProvider;
+    KCAESGCMDuplexSession *_duplexSession;
+    AKCircleRequestContext *_resumeContext;
+    CUMessageSession *_sharingChannel;
     NSString *__recoveryToken;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool idmsMasterKeyRecovery; // @synthesize idmsMasterKeyRecovery=_idmsMasterKeyRecovery;
 @property(nonatomic) _Bool idmsRecovery; // @synthesize idmsRecovery=_idmsRecovery;
 @property(copy, nonatomic) NSString *_recoveryToken; // @synthesize _recoveryToken=__recoveryToken;
 @property(nonatomic) _Bool _alwaysCreateEscrowRecord; // @synthesize _alwaysCreateEscrowRecord=__alwaysCreateEscrowRecord;
 @property(nonatomic) _Bool _useSecureBackupCachedPassphrase; // @synthesize _useSecureBackupCachedPassphrase=__useSecureBackupCachedPassphrase;
+@property(retain, nonatomic) CUMessageSession *sharingChannel; // @synthesize sharingChannel=_sharingChannel;
+@property(retain, nonatomic) AKCircleRequestContext *resumeContext; // @synthesize resumeContext=_resumeContext;
+@property(retain, nonatomic) KCAESGCMDuplexSession *duplexSession; // @synthesize duplexSession=_duplexSession;
 @property(retain, nonatomic) id <CDPAuthProviderInternal> _authProvider; // @synthesize _authProvider=__authProvider;
 @property _Bool supportsSkipSignIn; // @synthesize supportsSkipSignIn=_supportsSkipSignIn;
 @property(copy) NSString *findMyiPhoneUUID; // @synthesize findMyiPhoneUUID=_findMyiPhoneUUID;
@@ -48,12 +57,14 @@
 @property(nonatomic) long long type; // @synthesize type=_type;
 @property(nonatomic) _Bool didUseSMSVerification; // @synthesize didUseSMSVerification=_didUseSMSVerification;
 @property(nonatomic) _Bool isHSA2Account; // @synthesize isHSA2Account=_isHSA2Account;
+@property(copy, nonatomic) NSString *altDSID; // @synthesize altDSID=_altDSID;
 @property(copy, nonatomic) NSNumber *dsid; // @synthesize dsid=_dsid;
 @property(copy, nonatomic) NSString *passwordEquivToken; // @synthesize passwordEquivToken=_passwordEquivToken;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *appleID; // @synthesize appleID=_appleID;
 @property(copy, nonatomic) NSDictionary *authenticationResults; // @synthesize authenticationResults=_authenticationResults;
 - (void).cxx_destruct;
+- (void)augmentWithCredentialsFromContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)updateWithAuthenticationResults:(id)arg1;
 - (id)initWithCoder:(id)arg1;

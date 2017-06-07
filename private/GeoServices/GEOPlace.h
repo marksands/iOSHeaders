@@ -9,10 +9,11 @@
 #import <GeoServices/GEOURLSerializable-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAddress, GEOBusiness, GEOLatLng, GEOMapRegion, GEOStructuredAddress, GEOTimezone, NSMutableArray, NSString;
+@class GEOAddress, GEOBusiness, GEOLatLng, GEOMapRegion, GEOStructuredAddress, GEOTimezone, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPlace : PBCodable <GEOURLSerializable, NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _area;
     long long _geoId;
     long long _uID;
@@ -81,6 +82,8 @@
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) long long uID; // @synthesize uID=_uID;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -127,7 +130,6 @@
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) _Bool hasUID;
-- (void)dealloc;
 - (int)StringAsReferenceFrame:(id)arg1;
 - (id)referenceFrameAsString:(int)arg1;
 @property(nonatomic) _Bool hasReferenceFrame;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray;
 @protocol AXUIService, NSObject><NSCopying;
@@ -19,6 +19,7 @@
 @property(retain, nonatomic) NSMutableArray *clientMessengers; // @synthesize clientMessengers=_clientMessengers;
 @property(copy, nonatomic) id <NSObject><NSCopying> serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 @property(retain, nonatomic) id <AXUIService> service; // @synthesize service=_service;
+- (void).cxx_destruct;
 - (void)enumerateClientsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)clientMessengerWithIdentifier:(id)arg1;
 - (_Bool)hasClientWithIdentifier:(id)arg1;
@@ -26,7 +27,6 @@
 - (unsigned long long)_indexOfClientWithIdentifier:(id)arg1;
 - (void)addClientWithIdentifier:(id)arg1 connection:(id)arg2;
 @property(readonly, nonatomic) unsigned long long clientsCount;
-- (void)dealloc;
 - (id)initWithService:(id)arg1 serviceIdentifier:(id)arg2;
 
 @end

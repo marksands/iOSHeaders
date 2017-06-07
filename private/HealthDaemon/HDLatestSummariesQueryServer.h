@@ -29,7 +29,8 @@
 - (_Bool)_shouldObserveAllSampleTypes;
 - (_Bool)_shouldListenForUpdates;
 - (_Bool)_shouldAcceptSample:(id)arg1;
-- (id)initWithQueryUUID:(id)arg1 dataObject:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
+- (id)latestSummariesClient;
+- (id)initWithQueryUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
 
 @end
 

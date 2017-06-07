@@ -14,6 +14,7 @@
 - (void)attachInvisibleInkEffectView;
 - (void)invisibleInkEffectViewWasUncovered;
 - (Class)invisibleInkEffectViewClass;
+- (id)accessibilityIdentifier;
 - (_Bool)hasBackground;
 - (void)clearFilters;
 - (void)addFilter:(id)arg1;

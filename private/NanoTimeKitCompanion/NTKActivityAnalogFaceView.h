@@ -27,20 +27,21 @@
     double _contentScale;
     double _activityViewsAlpha;
     _Bool _wristRaiseAnimationPending;
+    _Bool _snapshotContentViewsLoaded;
     double _lastEnergyPercentage;
     double _lastBriskPercentage;
     double _lastSedentaryPercentage;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1;
-+ (id)_additionalPrelaunchApplicationIdentifiers;
 + (void)_prewarm;
 - (void).cxx_destruct;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (id)_highlightImage;
 - (void)_enumerateChronoViews:(CDUnknownBlockType)arg1;
 - (void)_enumerateActivityLabels:(CDUnknownBlockType)arg1;
 - (void)_enumerateRingGroups:(CDUnknownBlockType)arg1;
+- (id)_additionalPrelaunchApplicationIdentifiers;
 - (void)_showChronoDetailByFraction:(double)arg1 fillRings:(_Bool)arg2;
 - (double)_dialScaleForEditMode:(long long)arg1;
 - (double)_ringAlphaForEditMode:(long long)arg1;

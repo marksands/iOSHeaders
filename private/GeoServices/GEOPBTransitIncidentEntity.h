@@ -9,10 +9,11 @@
 #import <GeoServices/GEOTransitIncidentEntity-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPBTransitIncidentEntityFilter, NSSet, NSString;
+@class GEOPBTransitIncidentEntityFilter, NSSet, NSString, PBUnknownFields;
 
 @interface GEOPBTransitIncidentEntity : PBCodable <GEOTransitIncidentEntity, NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _affectedMuid;
     GEOPBTransitIncidentEntityFilter *_filter;
     struct {
@@ -22,6 +23,8 @@
 
 @property(retain, nonatomic) GEOPBTransitIncidentEntityFilter *filter; // @synthesize filter=_filter;
 @property(nonatomic) unsigned long long affectedMuid; // @synthesize affectedMuid=_affectedMuid;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +36,6 @@
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool hasFilter;
 @property(nonatomic) _Bool hasAffectedMuid;
-- (void)dealloc;
 @property(readonly, nonatomic) NSSet *nextStopIDs;
 @property(readonly, nonatomic) _Bool hasNextStopIDs;
 @property(readonly, nonatomic) unsigned long long muid;

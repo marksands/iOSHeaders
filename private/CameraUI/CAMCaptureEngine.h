@@ -8,7 +8,7 @@
 
 #import <CameraUI/CAMPanoramaProcessorDelegate-Protocol.h>
 
-@class AVCaptureDevice, AVCaptureDeviceInput, AVCaptureMetadataOutput, AVCapturePhotoOutput, AVCaptureSession, AVCaptureStillImageOutput, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, CAMCaptureMovieFileOutput, CAMMemoizationCache, CAMPanoramaConfiguration, CAMPanoramaOutput, CAMPanoramaProcessor, CAMPowerController, CIContext, NSHashTable, NSMutableArray, NSMutableDictionary, NSString;
+@class AVCaptureDevice, AVCaptureDeviceInput, AVCaptureMetadataOutput, AVCapturePhotoOutput, AVCaptureSession, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, CAMCaptureMovieFileOutput, CAMMemoizationCache, CAMPanoramaConfiguration, CAMPanoramaOutput, CAMPanoramaProcessor, CAMPowerController, CIContext, NSHashTable, NSMutableArray, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 @interface CAMCaptureEngine : NSObject <CAMPanoramaProcessorDelegate>
@@ -16,7 +16,6 @@
     AVCaptureDevice *_audioCameraDevice;
     AVCaptureDeviceInput *_audioCaptureDeviceInput;
     CAMPanoramaConfiguration *_panoramaConfiguration;
-    AVCaptureStillImageOutput *_legacyStillImageOutput;
     AVCapturePhotoOutput *_stillImageOutput;
     CAMCaptureMovieFileOutput *_movieFileOutput;
     CAMPanoramaOutput *_panoramaVideoDataOutput;
@@ -87,18 +86,15 @@
 - (id)panoramaVideoDataOutput;
 - (id)movieFileOutput;
 - (id)stillImageOutput;
-- (id)legacyStillImageOutput;
 - (id)audioCaptureDeviceInput;
 - (id)_correspondingCaptureEngineDeviceForCaptureInput:(id)arg1;
 - (id)panoramaConfiguration;
 - (id)audioCaptureDevice;
 - (id)_captureEngineDeviceForDevice:(long long)arg1;
-- (id)backDuoCameraDevice;
+- (id)backDualCameraDevice;
 - (id)backTelephotoCameraDevice;
 - (id)backCameraDevice;
 - (id)frontCameraDevice;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (id)_requestFromPossibleCaptureOutput:(id)arg1;
 - (void)captureOutput:(id)arg1 didOutputMetadataObjects:(id)arg2 fromConnection:(id)arg3;
 - (void)captureOutput:(id)arg1 didDropSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
 - (void)captureOutput:(id)arg1 didOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg2 fromConnection:(id)arg3;
@@ -109,10 +105,11 @@
 - (void)_panoramaSampleBufferQueue_stopPanoramaCaptureIfNecessary;
 - (void)stopPanoramaCapture;
 - (void)startPanoramaCaptureWithRequest:(id)arg1;
+- (void)changePanoramaEncodingBehaviorIfNeeded:(long long)arg1;
 - (void)changeToPanoramaDirection:(long long)arg1;
 - (void)_subgraphQueueCreatePanoramaImageQueueIfNecessary;
-- (void)_subgraphQueueCreatePanoramaProcessorIfNecessary;
-- (void)_notifyServicesOfPanoramaConfigurationChangeWithDirection:(long long)arg1;
+- (void)_subgraphQueueCreatePanoramaProcessorIfNecessaryWithEncodingBehavior:(long long)arg1;
+- (void)_notifyServicesOfPanoramaConfigurationChangeWithImageQueue:(struct _CAImageQueue *)arg1 direction:(long long)arg2;
 - (void)_sessionQueuePanoramaTeardown;
 - (void)_sessionQueuePanoramaSetup;
 - (_Bool)_updatePanoramaSubgraphForEnteringBackground:(_Bool)arg1;
@@ -122,26 +119,19 @@
 - (void)captureOutput:(id)arg1 didStartRecordingToOutputFileAtURL:(id)arg2 fromConnections:(id)arg3;
 - (void)stopRecording;
 - (void)registerVideoCaptureRequest:(id)arg1;
-- (void)_performPostprocessingForRequest:(id)arg1 withStillImageResult:(id)arg2 filter:(id)arg3;
-- (void *)_newFilteredSurfaceFromSurface:(void *)arg1 filter:(id)arg2;
 - (void)captureOutput:(id)arg1 didFinishCaptureForResolvedSettings:(id)arg2 error:(id)arg3;
 - (void)captureOutput:(id)arg1 didFinishProcessingLivePhotoToMovieFileAtURL:(id)arg2 duration:(CDStruct_1b6d18a9)arg3 photoDisplayTime:(CDStruct_1b6d18a9)arg4 resolvedSettings:(id)arg5 error:(id)arg6;
 - (void)captureOutput:(id)arg1 didFinishRecordingLivePhotoMovieForEventualFileAtURL:(id)arg2 resolvedSettings:(id)arg3;
-- (void)captureOutput:(id)arg1 didFinishProcessingOriginalPhotoSurface:(const void *)arg2 originalPhotoSurfaceSize:(unsigned long long)arg3 previewPhotoSurface:(const void *)arg4 metadata:(id)arg5 resolvedSettings:(id)arg6 error:(id)arg7;
-- (void)captureOutput:(id)arg1 didFinishProcessingPhotoSurface:(const void *)arg2 photoSurfaceSize:(unsigned long long)arg3 previewPhotoSurface:(const void *)arg4 metadata:(id)arg5 resolvedSettings:(id)arg6 error:(id)arg7;
-- (void)_didFinishProcessingStillImageSurface:(void *)arg1 ofSize:(unsigned long long)arg2 withPreviewSurface:(void *)arg3 metadata:(id)arg4 forSettings:(id)arg5 error:(id)arg6;
+- (id)_coordinationInfoForRequest:(id)arg1 resolvedSettings:(id)arg2 videoComplementURL:(id)arg3 isFiltered:(_Bool)arg4;
+- (id)_coordinationInfoForRequest:(id)arg1 photo:(id)arg2;
+- (id)_expectedResultSpecifiersForResolvedPhotoSettings:(id)arg1;
 - (void)captureOutput:(id)arg1 didCapturePhotoForResolvedSettings:(id)arg2;
 - (void)captureOutput:(id)arg1 willCapturePhotoForResolvedSettings:(id)arg2;
 - (void)captureOutput:(id)arg1 willBeginCaptureForResolvedSettings:(id)arg2;
 - (void)registerStillImageCaptureRequest:(id)arg1 withSettings:(id)arg2;
-- (void)completeLegacyStillImageCaptureRequest:(id)arg1 withResult:(id)arg2;
-- (void)registerLegacyStillImageCaptureRequest:(id)arg1;
-- (void)_teardownKeyValueObservingForLegacyStillImageOutput;
-- (void)_setupKeyValueObservingForLegacyStillImageOutput;
-- (void)_notifyServicesOfCompletedCaptureRequest:(id)arg1 withStillImageResult:(id)arg2;
-- (void)updateImageQueueForPanoramaPreviewView:(id)arg1;
 @property(readonly, nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
-- (void)enumerateCaptureServicesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)_enumerateCaptureServicesUsingBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_enumerateCaptureServicesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)unregisterCaptureService:(id)arg1;
 - (void)registerCaptureService:(id)arg1;
 - (void)enqueueCommand:(id)arg1;
@@ -177,7 +167,6 @@
 - (void)start;
 - (_Bool)_shouldStartSessionOnConfigurationChanges;
 - (void)dealloc;
-- (id)initWithOptions:(long long)arg1;
 - (id)initWithPowerController:(id)arg1 options:(long long)arg2;
 
 // Remaining properties

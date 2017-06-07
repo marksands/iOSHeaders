@@ -8,20 +8,20 @@
 
 #import <iWorkImport/TSCEFormulaOwning-Protocol.h>
 
-@class NSString, TSCECalculationEngine, TSCECellCoordinateVector, TSTTableInfo;
+@class NSString, TSCECalculationEngine, TSCECellCoordinateVector, TSTInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSTConditionalStyleFormulaOwner : NSObject <TSCEFormulaOwning>
 {
-    TSTTableInfo *mTableInfo;
+    TSTInfo *mTableInfo;
     TSCECalculationEngine *mCalculationEngine;
-    struct __CFUUID *mOwnerID;
+    UUIDData_5fbc143e mOwnerUID;
     TSCECellCoordinateVector *mCellsToInvalidate;
     TSCECellCoordinateVector *mCellsToRewrite;
 }
 
-- (void)releaseForCalculationEngine:(id)arg1;
-- (void)retainForCalculationEngine:(id)arg1;
+@property(nonatomic) UUIDData_5fbc143e ownerUID; // @synthesize ownerUID=mOwnerUID;
+- (id).cxx_construct;
 - (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
@@ -33,14 +33,11 @@ __attribute__((visibility("hidden")))
 - (void)removeFormulasInRange:(struct TSUCellRect)arg1;
 - (void)removeFormulaAtCellID:(struct TSUCellCoord)arg1;
 - (void)addFormulaForConditionalStyle:(id)arg1 atCellID:(struct TSUCellCoord)arg2;
-- (id)tableInfo;
-- (void)setTableInfo:(id)arg1;
-- (void)setOwnerID:(struct __CFUUID *)arg1;
-- (struct __CFUUID *)ownerID;
+@property(nonatomic) TSTInfo *tableInfo;
 - (_Bool)checkConditionForCellID:(struct TSUCellCoord)arg1 withConditionalStyle:(id)arg2 withIndex:(unsigned long long *)arg3;
 - (void)dealloc;
 - (id)initWithTableInfo:(id)arg1;
-- (id)initWithTableInfo:(id)arg1 ownerID:(struct __CFUUID *)arg2;
+- (id)initWithTableInfo:(id)arg1 ownerUID:(const UUIDData_5fbc143e *)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

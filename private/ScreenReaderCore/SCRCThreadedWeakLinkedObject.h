@@ -15,11 +15,7 @@
     _Bool _calledDealloc;
 }
 
-- (void)dealloc;
-- (oneway void)release;
-- (void)invalidateThreadsWithWeakLinks;
-- (id)retain;
-- (unsigned long long)retainCount;
+- (void).cxx_destruct;
 - (id)init;
 
 @end

@@ -8,10 +8,11 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSData, NSString, NTPBEventObject;
+@class NSData, NSMutableArray, NSString, NTPBEventObject;
 
 @interface NTPBEvent : PBCodable <NSCopying>
 {
+    long long _appConfigTreatmentId;
     long long _duration;
     long long _personalizationTreatmentId;
     long long _personalizedTreatmentId;
@@ -26,14 +27,18 @@
     NSString *_referringSource;
     NSString *_referringType;
     NSData *_sessionId;
+    NSData *_sessionIdWatch;
     NSString *_userId;
+    NSMutableArray *_userPaidSubscriptionStatus;
     NSString *_userStorefrontId;
+    NSData *_widgetSessionId;
     NSString *_windowFrameInScreen;
     _Bool _isPaidSubscriberDuringEvent;
     _Bool _isPaidSubscriberFromAppStoreDuringEvent;
     _Bool _isPaidSubscriberFromNewsDuringEvent;
     _Bool _isPaidSubscriberFromThirdPartyDuringEvent;
     struct {
+        unsigned int appConfigTreatmentId:1;
         unsigned int duration:1;
         unsigned int personalizationTreatmentId:1;
         unsigned int personalizedTreatmentId:1;
@@ -50,6 +55,11 @@
     } _has;
 }
 
++ (Class)userPaidSubscriptionStatusType;
+@property(retain, nonatomic) NSMutableArray *userPaidSubscriptionStatus; // @synthesize userPaidSubscriptionStatus=_userPaidSubscriptionStatus;
+@property(retain, nonatomic) NSData *widgetSessionId; // @synthesize widgetSessionId=_widgetSessionId;
+@property(nonatomic) long long appConfigTreatmentId; // @synthesize appConfigTreatmentId=_appConfigTreatmentId;
+@property(retain, nonatomic) NSData *sessionIdWatch; // @synthesize sessionIdWatch=_sessionIdWatch;
 @property(retain, nonatomic) NSString *notwUserId; // @synthesize notwUserId=_notwUserId;
 @property(nonatomic) _Bool isPaidSubscriberFromThirdPartyDuringEvent; // @synthesize isPaidSubscriberFromThirdPartyDuringEvent=_isPaidSubscriberFromThirdPartyDuringEvent;
 @property(nonatomic) _Bool isPaidSubscriberFromAppStoreDuringEvent; // @synthesize isPaidSubscriberFromAppStoreDuringEvent=_isPaidSubscriberFromAppStoreDuringEvent;
@@ -75,6 +85,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)userPaidSubscriptionStatusAtIndex:(unsigned long long)arg1;
+- (unsigned long long)userPaidSubscriptionStatusCount;
+- (void)addUserPaidSubscriptionStatus:(id)arg1;
+- (void)clearUserPaidSubscriptionStatus;
+@property(readonly, nonatomic) _Bool hasWidgetSessionId;
+@property(nonatomic) _Bool hasAppConfigTreatmentId;
+@property(readonly, nonatomic) _Bool hasSessionIdWatch;
 @property(readonly, nonatomic) _Bool hasNotwUserId;
 @property(nonatomic) _Bool hasIsPaidSubscriberFromThirdPartyDuringEvent;
 @property(nonatomic) _Bool hasIsPaidSubscriberFromAppStoreDuringEvent;

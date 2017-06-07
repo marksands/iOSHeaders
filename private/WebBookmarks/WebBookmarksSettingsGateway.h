@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)scheduleBookmarksDatabaseMigrationTask;
 - (void)scheduleBookmarksDatabaseMaintenance;
 - (void)getCurrentlySelectedSearchEngineWithCompletion:(CDUnknownBlockType)arg1;
 - (void)clearAllSafariHistory;

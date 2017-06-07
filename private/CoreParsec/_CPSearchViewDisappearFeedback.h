@@ -6,31 +6,41 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPSearchViewDisappearFeedback-Protocol.h>
 
-@interface _CPSearchViewDisappearFeedback : PBCodable <NSCopying>
+@class NSData, NSString;
+
+@interface _CPSearchViewDisappearFeedback : PBCodable <_CPProcessableFeedback, _CPSearchViewDisappearFeedback, NSSecureCoding>
 {
-    unsigned long long _timestamp;
-    int _viewDisappearEvent;
     struct {
+        unsigned int timestamp:1;
         unsigned int viewDisappearEvent:1;
     } _has;
+    int _viewDisappearEvent;
+    unsigned long long _timestamp;
 }
 
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+@property(nonatomic) int viewDisappearEvent; // @synthesize viewDisappearEvent=_viewDisappearEvent;
+@property(nonatomic) unsigned long long timestamp;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (int)StringAsViewDisappearEvent:(id)arg1;
-- (id)viewDisappearEventAsString:(int)arg1;
-@property(nonatomic) _Bool hasViewDisappearEvent;
-@property(nonatomic) int viewDisappearEvent; // @synthesize viewDisappearEvent=_viewDisappearEvent;
+@property(readonly, nonatomic) _Bool hasViewDisappearEvent;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

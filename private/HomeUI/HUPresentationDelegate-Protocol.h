@@ -6,10 +6,10 @@
 
 #import <HomeUI/NSObject-Protocol.h>
 
-@class UIViewController;
+@class NAFuture, UIViewController;
 @protocol HUPresentationDelegateHost;
 
 @protocol HUPresentationDelegate <NSObject>
-- (void)finishPresentation:(UIViewController<HUPresentationDelegateHost> *)arg1 animated:(_Bool)arg2;
+- (NAFuture *)finishPresentation:(UIViewController<HUPresentationDelegateHost> *)arg1 animated:(_Bool)arg2;
 @end
 

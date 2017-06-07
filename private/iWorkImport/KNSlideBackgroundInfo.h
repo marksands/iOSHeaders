@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (id)endCollectingChanges;
 - (void)willChangeProperty:(int)arg1;
 - (void)beginCollectingChanges;
+- (id)originalPDFDataForCopy;
 @property(readonly, nonatomic) _Bool isUserModifiable;
 @property(readonly, nonatomic) TSDFill *fill;
 - (Class)layoutClass;

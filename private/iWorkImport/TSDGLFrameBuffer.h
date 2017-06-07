@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
     _Bool _shouldDeleteTexturesOnTeardown;
     unsigned int _framebuffer;
     NSString *_name;
-    struct CGSize _size;
+    struct CGSize _frameBufferSize;
 }
 
 + (void)setCurrentGLFramebuffer:(int)arg1 withBindingOption:(long long)arg2;
@@ -36,8 +36,8 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) _Bool shouldDeleteTexturesOnTeardown; // @synthesize shouldDeleteTexturesOnTeardown=_shouldDeleteTexturesOnTeardown;
 @property(readonly, nonatomic) _Bool isBound; // @synthesize isBound=_isBound;
-@property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(readonly, nonatomic) unsigned int framebuffer; // @synthesize framebuffer=_framebuffer;
+@property(readonly, nonatomic) struct CGSize size; // @synthesize size=_frameBufferSize;
 @property(readonly, nonatomic) NSString *currentGLTextureName;
 @property(readonly, nonatomic) unsigned int currentGLTexture;
 - (unsigned int)currentGLTextureAtAttachment:(unsigned int)arg1;

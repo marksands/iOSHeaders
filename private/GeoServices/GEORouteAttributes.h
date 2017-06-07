@@ -31,7 +31,6 @@
     _Bool _includeLaneGuidance;
     _Bool _includeManeuverIcons;
     _Bool _includePhonetics;
-    _Bool _includeSubsteps;
     _Bool _includeTrafficAlongRoute;
     _Bool _includeTrafficIncidents;
     _Bool _includeZilchPoints;
@@ -49,7 +48,6 @@
         unsigned int includeLaneGuidance:1;
         unsigned int includeManeuverIcons:1;
         unsigned int includePhonetics:1;
-        unsigned int includeSubsteps:1;
         unsigned int includeTrafficAlongRoute:1;
         unsigned int includeTrafficIncidents:1;
         unsigned int includeZilchPoints:1;
@@ -66,6 +64,7 @@
 @property(retain, nonatomic) GEOAutomobileOptions *automobileOptions; // @synthesize automobileOptions=_automobileOptions;
 @property(nonatomic) struct GEOTimepoint timepoint; // @synthesize timepoint=_timepoint;
 @property(retain, nonatomic) NSString *phoneticLocaleIdentifier; // @synthesize phoneticLocaleIdentifier=_phoneticLocaleIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -105,8 +104,6 @@
 @property(nonatomic) unsigned int walkingLimitMeters; // @synthesize walkingLimitMeters=_walkingLimitMeters;
 @property(nonatomic) _Bool hasIncludeTrafficIncidents;
 @property(nonatomic) _Bool includeTrafficIncidents; // @synthesize includeTrafficIncidents=_includeTrafficIncidents;
-@property(nonatomic) _Bool hasIncludeSubsteps;
-@property(nonatomic) _Bool includeSubsteps; // @synthesize includeSubsteps=_includeSubsteps;
 @property(nonatomic) _Bool hasIncludeHistoricTravelTime;
 @property(nonatomic) _Bool includeHistoricTravelTime; // @synthesize includeHistoricTravelTime=_includeHistoricTravelTime;
 @property(nonatomic) _Bool hasTimepoint;

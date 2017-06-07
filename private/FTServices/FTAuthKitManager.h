@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class AKAppleIDSession;
 @protocol OS_dispatch_queue;
@@ -16,9 +16,9 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (void)handleResponse:(id)arg1 forRequest:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)anisetteHeadersForRequest:(id)arg1 completionBlockQueue:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)dealloc;
 - (id)init;
 
 @end

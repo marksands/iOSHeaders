@@ -43,6 +43,9 @@
 @property(copy, nonatomic) SGSimpleNamedEmailAddress *replyTo; // @synthesize replyTo=_replyTo;
 @property(copy, nonatomic) SGSimpleNamedEmailAddress *from; // @synthesize from=_from;
 - (void).cxx_destruct;
+- (id)spotlightUniqueIdentifier;
+- (id)spotlightBundleIdentifier;
+- (id)allRecipients;
 - (unsigned long long)contentLength;
 - (id)initWithSearchableItem:(id)arg1;
 - (id)description;

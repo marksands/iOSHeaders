@@ -24,9 +24,19 @@
     long long _graphVersion;
     NSData *_movieData;
     double _score;
+    long long _notificationState;
+    NSData *_blacklistedFeature;
+    long long _playCount;
+    long long _shareCount;
+    long long _viewCount;
 }
 
 + (id)_createTestMemoryWithAssets:(id)arg1;
+@property(nonatomic) long long viewCount; // @synthesize viewCount=_viewCount;
+@property(nonatomic) long long shareCount; // @synthesize shareCount=_shareCount;
+@property(nonatomic) long long playCount; // @synthesize playCount=_playCount;
+@property(copy, nonatomic) NSData *blacklistedFeature; // @synthesize blacklistedFeature=_blacklistedFeature;
+@property(nonatomic) long long notificationState; // @synthesize notificationState=_notificationState;
 @property(nonatomic) double score; // @synthesize score=_score;
 @property(copy, nonatomic) NSData *movieData; // @synthesize movieData=_movieData;
 @property(nonatomic, getter=isUserCreated) _Bool userCreated; // @synthesize userCreated=_userCreated;
@@ -42,6 +52,7 @@
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (CDUnknownBlockType)checkDefaultValueBlockForPropertyWithSelector:(SEL)arg1;
 - (id)propertiesDescription;
 - (_Bool)supportsDirectDeletion;
 - (_Bool)supportsDeletion;

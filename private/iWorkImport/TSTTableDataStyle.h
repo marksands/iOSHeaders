@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataStyle : TSTTableDataObject
 {
-    TSSStyle *mStyle;
+    TSSStyle *_style;
 }
 
-@property(readonly, nonatomic) TSSStyle *style; // @synthesize style=mStyle;
-- (void)dealloc;
+@property(readonly, nonatomic) TSSStyle *style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

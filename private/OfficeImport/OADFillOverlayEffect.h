@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (void)setBlendMode:(int)arg1;
 - (int)blendMode;
 - (void)dealloc;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 
 @end

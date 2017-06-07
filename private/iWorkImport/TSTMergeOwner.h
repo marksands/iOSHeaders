@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 {
     TSTTableModel *_tableModel;
     TSCECalculationEngine *_calculationEngine;
-    struct __CFUUID *_ownerID;
+    UUIDData_5fbc143e _ownerUID;
     TSTFormulaStore *_mergeRangeStorage;
     // Error parsing type: A@, name: _mergeRangeCache
     unordered_map_47ee37d2 _mergeOriginsMap;
@@ -27,8 +27,6 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)assertCollaborationConvergence;
-- (void)releaseForCalculationEngine:(id)arg1;
-- (void)retainForCalculationEngine:(id)arg1;
 - (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
@@ -93,8 +91,7 @@ __attribute__((visibility("hidden")))
 - (id)regionFromUIDMergeFormula:(const struct TSCEFormula *)arg1;
 - (struct TSUCellRect)rangeFromMergeFormula:(const struct TSCEFormula *)arg1 atCoord:(const struct TSUCellCoord *)arg2;
 - (void)resetMergeOriginMap;
-- (void)setOwnerID:(struct __CFUUID *)arg1;
-- (struct __CFUUID *)ownerID;
+@property(nonatomic) UUIDData_5fbc143e ownerUID;
 - (void)saveToArchive:(struct MergeOwnerArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct MergeOwnerArchive *)arg1 unarchiver:(id)arg2 forTableModel:(id)arg3;
 @property(readonly, copy) NSString *description;
@@ -104,7 +101,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSTMergeRangeCache *mergeRangeCache;
 - (void)dealloc;
 - (id)initWithTableModel:(id)arg1;
-- (id)initWithTableModel:(id)arg1 ownerID:(struct __CFUUID *)arg2;
+- (id)initWithTableModel:(id)arg1 ownerUID:(const UUIDData_5fbc143e *)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

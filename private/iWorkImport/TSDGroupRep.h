@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)allRepsContainedInGroup;
+- (void)setNeedsDisplay;
 - (_Bool)intersectsUnscaledRect:(struct CGRect)arg1;
 - (_Bool)containsPoint:(struct CGPoint)arg1 withSlop:(struct CGSize)arg2;
 - (_Bool)containsPoint:(struct CGPoint)arg1;

@@ -10,11 +10,12 @@
 
 @interface MRTransaction : NSObject
 {
-    struct _MROrigin *_origin;
+    void *_playerPath;
     id <MRTransactionDelegate> _delegate;
     unsigned long long _name;
 }
 
++ (void)sendTransaction:(unsigned long long)arg1 withPackets:(id)arg2 toConnection:(id)arg3 forPlayerPath:(void *)arg4 completion:(CDUnknownBlockType)arg5;
 @property(readonly, nonatomic) unsigned long long name; // @synthesize name=_name;
 @property(nonatomic) id <MRTransactionDelegate> delegate; // @synthesize delegate=_delegate;
 - (unsigned long long)_calculateMemory;
@@ -22,7 +23,9 @@
 - (void)_query:(id)arg1;
 - (void)_processMessage:(id)arg1;
 - (void)send:(id)arg1 toConnection:(id)arg2 completion:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) void *playerPath;
 - (void)dealloc;
+- (id)initWithName:(unsigned long long)arg1 playerPath:(void *)arg2;
 - (id)initWithName:(unsigned long long)arg1 fromMessage:(id)arg2 withDelegate:(id)arg3;
 
 @end

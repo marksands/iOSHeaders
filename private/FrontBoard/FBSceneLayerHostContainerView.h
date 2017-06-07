@@ -10,12 +10,11 @@
 #import <FrontBoard/_FBSceneGeometryObserver-Protocol.h>
 
 @class FBScene, NSArray, NSMutableArray, NSString;
-@protocol FBSceneLayerHostContainerViewDataSource, FBSceneLayerHostContainerViewDelegate;
+@protocol FBSceneLayerHostContainerViewDataSource;
 
 @interface FBSceneLayerHostContainerView : UIView <FBSceneLayerManagerObserver, _FBSceneGeometryObserver>
 {
     FBScene *_scene;
-    id <FBSceneLayerHostContainerViewDelegate> _delegate;
     id <FBSceneLayerHostContainerViewDataSource> _dataSource;
     NSMutableArray *_hostViews;
     NSMutableArray *_hostedLayers;
@@ -25,7 +24,6 @@
 @property(readonly, retain, nonatomic) FBScene *scene; // @synthesize scene=_scene;
 @property(nonatomic, getter=isClippingDisabled) _Bool clippingDisabled; // @synthesize clippingDisabled=_clippingDisabled;
 @property(nonatomic) id <FBSceneLayerHostContainerViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
-@property(nonatomic) id <FBSceneLayerHostContainerViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, retain, nonatomic) NSArray *hostedLayers; // @synthesize hostedLayers=_hostedLayers;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
@@ -34,11 +32,12 @@
 - (void)_scene:(id)arg1 didChangeLayoutWithAnimationSettings:(id)arg2;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-- (void)_noteHostingStatusChanged;
+- (void)_updateRenderingMode;
 - (void)_rebuildLayers;
 - (id)window;
 - (id)_hitTest:(struct CGPoint)arg1 withEvent:(id)arg2 windowServerHitTestWindow:(id)arg3;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
+- (void)updateRenderingMode;
 - (void)rebuildLayers;
 - (_Bool)hasContent;
 - (_Bool)isHosting;

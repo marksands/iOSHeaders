@@ -16,7 +16,7 @@
 
 @property(nonatomic) double delay; // @synthesize delay=_delay;
 @property(retain, nonatomic) NSString *sound; // @synthesize sound=_sound;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 
 @end

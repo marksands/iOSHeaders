@@ -8,16 +8,18 @@
 
 #import <iWorkImport/TSCEResolverContainer-Protocol.h>
 #import <iWorkImport/TSDDrawableContainerInfo-Protocol.h>
+#import <iWorkImport/TSDMutableContainerInfo-Protocol.h>
 #import <iWorkImport/TSKDocumentObject-Protocol.h>
 #import <iWorkImport/TSKModel-Protocol.h>
 #import <iWorkImport/TSKSearchTarget-Protocol.h>
 #import <iWorkImport/TSWPHeaderFooterProvider-Protocol.h>
+#import <iWorkImport/TSWPStorageParent-Protocol.h>
 
 @class NSArray, NSMutableArray, NSMutableSet, NSObject, NSString, TNDocumentRoot, TSDInfoGeometry, TSWPStorage;
 @protocol TSDContainerInfo, TSDOwningAttachment;
 
 __attribute__((visibility("hidden")))
-@interface TNSheet : TSPObject <TSKDocumentObject, TSKSearchTarget, TSKModel, TSCEResolverContainer, TSDDrawableContainerInfo, TSWPHeaderFooterProvider>
+@interface TNSheet : TSPObject <TSKDocumentObject, TSKSearchTarget, TSKModel, TSCEResolverContainer, TSDDrawableContainerInfo, TSDMutableContainerInfo, TSWPHeaderFooterProvider, TSWPStorageParent>
 {
     NSString *mName;
     NSMutableArray *mChildInfos;
@@ -47,9 +49,14 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 - (void)saveToArchive:(struct SheetArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
-- (id)initFromArchive:(const struct SheetArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromUnarchiver:(id)arg1;
+- (void)loadFromArchive:(const struct SheetArchive *)arg1 unarchiver:(id)arg2;
 - (id)copyWithContext:(id)arg1;
+@property(readonly, nonatomic) long long contentWritingDirection;
+- (_Bool)textIsLinked;
+- (_Bool)textIsVertical;
+- (_Bool)autoListTermination;
+- (_Bool)autoListRecognition;
 - (_Bool)isThemeContent;
 - (_Bool)isSelectable;
 - (Class)repClass;
@@ -64,6 +71,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
 - (void)setPrimitiveGeometry:(id)arg1;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
+- (double)highestScaleFactorForRenderingDrawableInfo:(id)arg1;
 - (void)replaceChildInfo:(id)arg1 with:(id)arg2;
 - (void)removeChildInfo:(id)arg1;
 - (void)moveChildren:(id)arg1 toIndexes:(id)arg2;
@@ -91,6 +99,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasReferenceToTables:(id)arg1;
 - (id)tableInfoForName:(id)arg1 caseSensitive:(_Bool)arg2;
 - (id)tableInfos;
+- (id)chartInfos;
 - (id)chartAndTableInfos;
 - (void)moveDrawables:(id)arg1 toIndexes:(id)arg2;
 - (_Bool)canMoveDrawables:(id)arg1 toIndexes:(id)arg2;
@@ -132,6 +141,7 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (void)p_setupHeadersFooters;
 - (id)initWithContext:(id)arg1;
+- (id)initWithContext:(id)arg1 suppressingHeaderFooterCreation:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 - (id)unsupportedExportMessageStringForType:(id)arg1;
 - (id)backwardsCompatibleTypeForType:(id)arg1;
-- (_Bool)isExportSupportedForType:(id)arg1 documentRoot:(id)arg2;
+- (_Bool)isExportSupportedForType:(id)arg1 exporterOptions:(id)arg2 documentRoot:(id)arg3;
 - (id)nestedDocumentFilename;
 - (id)needNewerVersionIndexXmlContentString;
 - (id)indexXmlFilename;
@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (id)exportableTypes;
 - (Class)exportOptionsControllerClass;
 - (Class)exporterClassForType:(id)arg1 options:(id)arg2;
-- (Class)importerClassForType:(id)arg1;
+- (Class)importerClassForType:(id)arg1 path:(id)arg2;
 - (id)epubExportLanguageCodes;
 - (id)epubExportCategories;
 - (id)newExportableDocumentTypesForFlag:(unsigned long long)arg1;

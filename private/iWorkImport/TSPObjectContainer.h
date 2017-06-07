@@ -16,15 +16,15 @@ __attribute__((visibility("hidden")))
 }
 
 + (long long)objectIdentifierForPackageIdentifier:(unsigned char)arg1;
+@property(readonly, nonatomic) NSArray *childObjects; // @synthesize childObjects=_childObjects;
 - (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)prepareForComponentWriteWithDelayedObjects:(id)arg1;
 - (unsigned int)delayedArchivingPriority;
 - (_Bool)shouldDelayArchiving;
 - (id)packageLocator;
 - (long long)tsp_identifier;
-- (void)didFinishUnarchiving;
-- (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1 packageIdentifier:(unsigned char)arg2;
 - (id)initWithContext:(id)arg1;
 

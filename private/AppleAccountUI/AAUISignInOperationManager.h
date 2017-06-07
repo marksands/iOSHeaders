@@ -31,6 +31,7 @@
 - (void)operationsHelper:(id)arg1 didSaveAccount:(id)arg2 withSuccess:(_Bool)arg3 error:(id)arg4;
 - (void)operationsHelper:(id)arg1 willSaveAccount:(id)arg2;
 - (void)_delegate_signInOperationManagerDidSaveAccount:(id)arg1 error:(id)arg2;
+- (void)_refreshEnabledDataclassesForAccount:(id)arg1;
 - (void)signInAccount:(id)arg1 enablingDataclasses:(_Bool)arg2;
 - (id)initWithPresentingViewController:(id)arg1;
 - (id)init;

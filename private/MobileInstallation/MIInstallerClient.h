@@ -51,6 +51,8 @@ __attribute__((visibility("hidden")))
 - (void)enumerateInstalledAppsWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchInstalledAppsWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchInstalledDeveloperAppsWithMountPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateSystemAppStateForIdentifier:(id)arg1 appState:(int)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)lookupSystemAppStateWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)clearUninstalledIdentifiers:(id)arg1 withOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)lookupUninstalledWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)uninstallIdentifiers:(id)arg1 withOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;

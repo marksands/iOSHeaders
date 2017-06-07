@@ -29,17 +29,17 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool geocentric; // @synthesize geocentric=_geocentric;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)appendDebugTileCommandsToBuffer:(struct CommandBuffer *)arg1 forMapTile:(id)arg2 fromLayer:(unsigned long long)arg3 withContext:(struct LayoutContext *)arg4 withConsole:(struct DebugConsole *)arg5;
+- (void)appendDebugTileCommandsToBuffer:(struct CommandBuffer *)arg1 forMapTile:(id)arg2 fromLayer:(unsigned char)arg3 withContext:(struct LayoutContext *)arg4 withConsole:(struct DebugConsole *)arg5;
 - (void)resetPools:(struct LayoutContext *)arg1;
 - (void)flushPools;
 - (void)reset;
 - (void)didReceiveMemoryWarning:(_Bool)arg1;
-- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(RenderQueue_70f64fd3 *)arg3;
 - (shared_ptr_a5e35864)unitRectMesh;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 sharedResources:(id)arg2;
 - (_Bool)shouldLayoutWithoutStyleManager;
-- (unsigned long long)mapLayerPosition;
+- (unsigned char)mapLayerPosition;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

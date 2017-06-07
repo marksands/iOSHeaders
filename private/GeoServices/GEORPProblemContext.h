@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOABAssignmentResponse, GEOPDPlace, GEOPlace, GEORPCurrentEnvironmentManifestURLs, GEORPMapLocation, GEORPPlaceInfo, GEORPTransitLineTileInfo, NSMutableArray, NSString;
+@class GEOABAssignmentResponse, GEOPDPlace, GEOPlace, GEORPCurrentEnvironmentManifestURLs, GEORPMapLocation, GEORPPersonalizedMaps, GEORPPlaceInfo, GEORPTransitLineTileInfo, GEOServicesState, NSMutableArray, NSString;
 
 @interface GEORPProblemContext : PBCodable <NSCopying>
 {
@@ -27,9 +27,11 @@
     NSString *_lastUserTypedSearchString;
     GEORPMapLocation *_mapLocation;
     GEOPlace *_originalPlace;
+    GEORPPersonalizedMaps *_personalizedMaps;
     int _pinType;
     GEOPDPlace *_place;
     GEORPPlaceInfo *_placeInfo;
+    GEOServicesState *_servicesState;
     NSString *_tileStateLog;
     GEORPTransitLineTileInfo *_transitLineTileInfo;
     NSMutableArray *_visibleTileSets;
@@ -48,6 +50,8 @@
 + (Class)directionsResponseType;
 + (Class)directionsRequestType;
 + (Class)visibleTileSetType;
+@property(retain, nonatomic) GEORPPersonalizedMaps *personalizedMaps; // @synthesize personalizedMaps=_personalizedMaps;
+@property(retain, nonatomic) GEOServicesState *servicesState; // @synthesize servicesState=_servicesState;
 @property(retain, nonatomic) NSMutableArray *directionsWaypointPlaceInfos; // @synthesize directionsWaypointPlaceInfos=_directionsWaypointPlaceInfos;
 @property(retain, nonatomic) GEORPCurrentEnvironmentManifestURLs *currentEnvironmentManifestUrls; // @synthesize currentEnvironmentManifestUrls=_currentEnvironmentManifestUrls;
 @property(retain, nonatomic) NSMutableArray *autocompleteSuggestionLists; // @synthesize autocompleteSuggestionLists=_autocompleteSuggestionLists;
@@ -68,6 +72,7 @@
 @property(retain, nonatomic) GEORPMapLocation *mapLocation; // @synthesize mapLocation=_mapLocation;
 @property(retain, nonatomic) GEOPlace *originalPlace; // @synthesize originalPlace=_originalPlace;
 @property(nonatomic) struct GEOSessionID sessionId; // @synthesize sessionId=_sessionId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -77,6 +82,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPersonalizedMaps;
+@property(readonly, nonatomic) _Bool hasServicesState;
 - (id)directionsWaypointPlaceInfoAtIndex:(unsigned long long)arg1;
 - (unsigned long long)directionsWaypointPlaceInfosCount;
 - (void)addDirectionsWaypointPlaceInfo:(id)arg1;
@@ -119,7 +126,6 @@
 @property(nonatomic) _Bool hasPinType;
 @property(nonatomic) int pinType; // @synthesize pinType=_pinType;
 @property(nonatomic) _Bool hasSessionId;
-- (void)dealloc;
 
 @end
 

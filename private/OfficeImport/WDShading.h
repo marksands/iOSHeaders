@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 
 + (id)autoBackgroundColor;
 + (id)autoForegroundColor;
-+ (id)nullShading;
++ (id)nilShading;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)setBackground:(id)arg1;
@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)setStyle:(int)arg1;
 - (int)style;
 - (void)setShading:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToShading:(id)arg1;
 - (void)dealloc;

@@ -50,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isHeaderFooterVisible:(int)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)objectUUIDPath;
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 section:(id)arg2;

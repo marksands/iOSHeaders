@@ -36,6 +36,7 @@
 - (struct CGRect)hitTestBounds;
 - (id)keysForValuesToObserveForRedrawing;
 - (id)keysForValuesToObserveForUndo;
+- (_Bool)shouldBurnIn;
 - (id)displayName;
 
 // Remaining properties

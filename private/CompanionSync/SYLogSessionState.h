@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     SYLogErrorInfo *_error;
     NSString *_identifier;
     NSMutableArray *_peers;
+    NSString *_reason;
     int _state;
     NSMutableArray *_transportOptions;
     _Bool _canRestart;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 
 + (Class)peerType;
 + (Class)transportOptionsType;
+@property(retain, nonatomic) NSString *reason; // @synthesize reason=_reason;
 @property(retain, nonatomic) NSMutableArray *peers; // @synthesize peers=_peers;
 @property(retain, nonatomic) NSMutableArray *transportOptions; // @synthesize transportOptions=_transportOptions;
 @property(nonatomic) _Bool canceled; // @synthesize canceled=_canceled;
@@ -61,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasReason;
 - (id)peerAtIndex:(unsigned long long)arg1;
 - (unsigned long long)peersCount;
 - (void)addPeer:(id)arg1;

@@ -6,11 +6,14 @@
 
 #import <HomeKitDaemon/HMDHomeInvitation.h>
 
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
+
 @class HMDUser, NSArray, NSString, NSUUID;
 
-@interface HMDOutgoingHomeInvitation : HMDHomeInvitation
+@interface HMDOutgoingHomeInvitation : HMDHomeInvitation <HMDBackingStoreObjectProtocol>
 {
     _Bool _responseReceived;
+    NSUUID *_uuid;
     HMDUser *_user;
     NSString *_inviteeDestinationAddress;
     NSArray *_operations;
@@ -23,18 +26,26 @@
 @property(retain, nonatomic) NSArray *operations; // @synthesize operations=_operations;
 @property(retain, nonatomic) NSString *inviteeDestinationAddress; // @synthesize inviteeDestinationAddress=_inviteeDestinationAddress;
 @property(readonly, nonatomic) HMDUser *user; // @synthesize user=_user;
+@property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)_transactionOutgoingInvitiationUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)updateUserManagementOperations:(id)arg1;
+- (void)updateInvitationState:(long long)arg1;
+- (void)updateUser:(id)arg1;
 - (id)describeWithFormat;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSArray *accessoryInvitationsInformation;
-- (_Bool)mergeWithInvitation:(id)arg1;
 - (void)invitationRemovedDuringMerge;
 - (void)cancel;
 @property(readonly, nonatomic, getter=isComplete) _Bool complete;
 - (id)description;
 - (id)debugDescription;
 - (id)shortDescription;
+- (id)initWithUUID:(id)arg1 invitee:(id)arg2 invitationState:(long long)arg3 forHome:(id)arg4 expiryDate:(id)arg5 messageIdentifier:(id)arg6;
 - (id)initWithInvitee:(id)arg1 invitationState:(long long)arg2 forHome:(id)arg3 expiryDate:(id)arg4 messageIdentifier:(id)arg5;
 
 @end

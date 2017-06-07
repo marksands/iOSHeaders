@@ -9,12 +9,13 @@
 #import <HomeKitDaemon/AFServiceCommand-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDAssistantCommandHelper, HMDAssistantGather, NSArray, NSObject, NSString, NSUUID;
+@class HMDAssistantCommandHelper, HMDAssistantGather, HMDHome, HMDHomeManager, NSArray, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 @interface HMDAssistantCommand : SAHACommand <AFServiceCommand, HMFLogging>
 {
     _Bool _completionHandlerCalled;
+    HMDHomeManager *_homeManager;
     HMDAssistantGather *_gather;
     NSObject<OS_dispatch_queue> *_queue;
     NSArray *_homeKitObjects;
@@ -24,10 +25,12 @@
     NSString *_currentHomeName;
     NSUUID *_currentHomeUUID;
     HMDAssistantCommandHelper *_assistantCommandHelper;
+    HMDHome *_home;
 }
 
 + (void)initialize;
 + (id)logCategory;
+@property(retain, nonatomic) HMDHome *home; // @synthesize home=_home;
 @property(nonatomic) _Bool completionHandlerCalled; // @synthesize completionHandlerCalled=_completionHandlerCalled;
 @property(retain, nonatomic) HMDAssistantCommandHelper *assistantCommandHelper; // @synthesize assistantCommandHelper=_assistantCommandHelper;
 @property(retain, nonatomic) NSUUID *currentHomeUUID; // @synthesize currentHomeUUID=_currentHomeUUID;
@@ -38,6 +41,7 @@
 @property(retain, nonatomic) NSArray *homeKitObjects; // @synthesize homeKitObjects=_homeKitObjects;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) HMDAssistantGather *gather; // @synthesize gather=_gather;
+@property(nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 - (void).cxx_destruct;
 - (void)performWithGather:(id)arg1 queue:(id)arg2 msgDispatcher:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)handleGetColor:(id)arg1 forObjects:(id)arg2 serviceType:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -80,7 +84,6 @@
 - (id)getReportingUnits:(id)arg1 hapCharacteristicType:(id)arg2 attribute:(id)arg3;
 - (id)getLocaleUnits:(id)arg1;
 - (id)entityFromActionSet:(id)arg1;
-- (id)entityFromService:(id)arg1 serviceType:(id)arg2;
 - (_Bool)populateResultWithEntity:(id)arg1 action:(id)arg2 entity:(id)arg3;
 - (_Bool)populateResult:(id)arg1 withObject:(id)arg2 serviceType:(id)arg3 action:(id)arg4;
 - (_Bool)populateResult:(id)arg1 withService:(id)arg2 serviceType:(id)arg3 characteristic:(id)arg4 resultAttribute:(id)arg5 action:(id)arg6;

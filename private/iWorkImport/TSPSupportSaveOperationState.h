@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSUUID *documentUUID; // @synthesize documentUUID=_documentUUID;
 @property(retain, nonatomic) TSUSafeSaveAssistant *safeSaveAssistant; // @synthesize safeSaveAssistant=_safeSaveAssistant;
 @property(readonly, nonatomic) long long updateType; // @synthesize updateType=_updateType;
-@property(readonly, nonatomic) NSURL *originalURL; // @synthesize originalURL=_originalURL;
+@property(copy, nonatomic) NSURL *originalURL; // @synthesize originalURL=_originalURL;
 @property(readonly, nonatomic) NSUUID *originalVersionUUID; // @synthesize originalVersionUUID=_originalVersionUUID;
 @property(readonly, nonatomic) NSUUID *originalDocumentUUID; // @synthesize originalDocumentUUID=_originalDocumentUUID;
 - (void).cxx_destruct;

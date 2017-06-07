@@ -43,7 +43,6 @@
 - (Class)cellClassForItem:(id)arg1;
 - (void)removeItem:(id)arg1;
 - (void)addItem:(id)arg1;
-- (id)allCellClasses;
 - (id)initWithDelegate:(id)arg1;
 
 // Remaining properties

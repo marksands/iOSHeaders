@@ -13,12 +13,20 @@
 __attribute__((visibility("hidden")))
 @interface CKDAppContainerTuple : NSObject <NSCopying>
 {
+    _Bool _useZoneWidePCS;
+    _Bool _useMMCSEncryptionV2;
+    _Bool _bypassPCSEncryption;
+    _Bool _wantsSiloedContext;
     NSString *_applicationBundleID;
     NSString *_sourceApplicationBundleID;
     CKContainerID *_containerID;
     NSString *_applicationContainerPath;
 }
 
+@property(nonatomic) _Bool wantsSiloedContext; // @synthesize wantsSiloedContext=_wantsSiloedContext;
+@property(nonatomic) _Bool bypassPCSEncryption; // @synthesize bypassPCSEncryption=_bypassPCSEncryption;
+@property(nonatomic) _Bool useMMCSEncryptionV2; // @synthesize useMMCSEncryptionV2=_useMMCSEncryptionV2;
+@property(nonatomic) _Bool useZoneWidePCS; // @synthesize useZoneWidePCS=_useZoneWidePCS;
 @property(retain, nonatomic) NSString *applicationContainerPath; // @synthesize applicationContainerPath=_applicationContainerPath;
 @property(retain, nonatomic) CKContainerID *containerID; // @synthesize containerID=_containerID;
 @property(retain, nonatomic) NSString *sourceApplicationBundleID; // @synthesize sourceApplicationBundleID=_sourceApplicationBundleID;

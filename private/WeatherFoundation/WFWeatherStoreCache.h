@@ -37,6 +37,7 @@
 - (void)_concurrentQueue_barrier_shrinkDomain:(id)arg1;
 - (void)_shrinkDomain:(id)arg1;
 - (void)executeTransaction:(CDUnknownBlockType)arg1;
+- (void)removeAllObjects;
 - (void)removeObjectWithinDomain:(id)arg1 forKey:(id)arg2;
 - (void)cache:(id)arg1 withinDomain:(id)arg2 date:(id)arg3 forKey:(id)arg4 expiration:(id)arg5 synchronous:(_Bool)arg6;
 - (void)cache:(id)arg1 withinDomain:(id)arg2 forKey:(id)arg3 expiration:(id)arg4;

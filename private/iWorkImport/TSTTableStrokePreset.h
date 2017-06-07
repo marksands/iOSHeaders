@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *presetKind;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct TableStrokePresetArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)setIndex:(unsigned long long)arg1;
 - (unsigned long long)index;
 - (id)initWithContext:(id)arg1;

@@ -75,6 +75,8 @@
 + (id)appearanceForTraitCollection:(id)arg1;
 + (id)appearanceWhenContainedInInstancesOfClasses:(id)arg1;
 + (id)appearance;
++ (id)aggregateReportingDomainOverride;
++ (void)setAggregateReportingDomainOverride:(id)arg1;
 + (_Bool)displaysButtonBar;
 @property(retain, nonatomic) UIColor *segmentedSliderTrackColor; // @synthesize segmentedSliderTrackColor=_segmentedSliderTrackColor;
 @property(retain, nonatomic) UIColor *footerHyperlinkColor; // @synthesize footerHyperlinkColor=_footerHyperlinkColor;
@@ -195,6 +197,7 @@
 - (void)viewDidLayoutSubviews;
 - (void)_updateSectionContentInsetWithAnimation:(_Bool)arg1;
 - (void)loadView;
+- (long long)navigationItemLargeTitleDisplayMode;
 - (_Bool)_isRegularWidth;
 - (long long)tableViewStyle;
 - (Class)tableViewClass;

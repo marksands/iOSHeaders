@@ -4,21 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Catalyst/CATTaskResultObject.h>
+#import <DeviceManagement/DMFFetchApplicationsResultObject.h>
 
-@class NSDictionary;
-
-@interface DMFFetchInstalledApplicationsResultObject : CATTaskResultObject
+@interface DMFFetchInstalledApplicationsResultObject : DMFFetchApplicationsResultObject
 {
-    NSDictionary *_applicationsByIdentifier;
 }
-
-+ (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSDictionary *applicationsByIdentifier; // @synthesize applicationsByIdentifier=_applicationsByIdentifier;
-- (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithApplicationsByIdentifier:(id)arg1;
 
 @end
 

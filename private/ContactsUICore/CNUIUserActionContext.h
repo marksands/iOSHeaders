@@ -30,7 +30,7 @@
 @property(retain, nonatomic) id <CNUIUserActionURLOpener> urlOpener; // @synthesize urlOpener=_urlOpener;
 - (void).cxx_destruct;
 - (id)init;
-- (id)initWithContactStore:(id)arg1;
+- (id)initWithContactStore:(id)arg1 applicationWorkspace:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

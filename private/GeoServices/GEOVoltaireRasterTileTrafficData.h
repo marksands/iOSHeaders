@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSMutableArray;
 
@@ -22,6 +22,7 @@
 @property(nonatomic) double expirationTime; // @synthesize expirationTime=_expirationTime;
 @property(retain, nonatomic) NSMutableArray *trafficSegments; // @synthesize trafficSegments=_trafficSegments;
 @property(nonatomic) CDStruct_912cb5d2 *vertices; // @synthesize vertices=_vertices;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithData:(id)arg1 tileKey:(const struct _GEOTileKey *)arg2;
 

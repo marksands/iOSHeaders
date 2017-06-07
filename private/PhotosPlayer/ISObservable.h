@@ -19,16 +19,20 @@
     NSObject<OS_dispatch_queue> *_observersQueue;
     _Bool _observersQueue_shouldCopyChangeObserversOnWrite;
     NSMapTable *_observersQueue_changeObserversWithContexts;
+    _Bool _hasObservers;
 }
 
+@property(readonly, nonatomic) _Bool hasObservers; // @synthesize hasObservers=_hasObservers;
 - (void).cxx_destruct;
 - (void)_observersQueue_copyChangeObserversForWriteIfNeeded;
 - (void)_applyPendingChanges;
 - (void)_publishChanges;
 - (void)_didChange;
 - (void)_willChange;
+- (void)_setHasObservers:(_Bool)arg1;
 - (void)enumerateObserversUsingBlock:(CDUnknownBlockType)arg1;
 - (void)signalChange:(unsigned long long)arg1;
+- (void)hasObserversDidChange;
 - (void)didPublishChanges;
 - (void)didPerformChanges;
 - (void)willPerformChanges;

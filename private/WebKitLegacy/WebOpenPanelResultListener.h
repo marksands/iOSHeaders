@@ -13,15 +13,17 @@
 __attribute__((visibility("hidden")))
 @interface WebOpenPanelResultListener : NSObject <WebOpenPanelResultListener>
 {
-    struct FileChooser *_chooser;
+    struct RefPtr<WebCore::FileChooser> _chooser;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)chooseFilenames:(id)arg1 displayString:(id)arg2 iconImage:(struct CGImage *)arg3;
 - (void)chooseFilename:(id)arg1 displayString:(id)arg2 iconImage:(struct CGImage *)arg3;
 - (void)chooseFilenames:(id)arg1;
 - (void)chooseFilename:(id)arg1;
 - (void)cancel;
-- (id)initWithChooser:(PassRefPtr_2f7011b9)arg1;
+- (id)initWithChooser:(struct FileChooser *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,10 +8,11 @@
 
 #import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFJSONSerializable-Protocol.h>
 
-@class NSArray, NSString;
+@class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFResultSection : NSObject <NSSecureCoding, NSCopying>
+@interface SFResultSection : NSObject <SFJSONSerializable, NSSecureCoding, NSCopying>
 {
     NSArray *_results;
     unsigned long long _maxInitiallyVisibleResults;
@@ -35,6 +36,14 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

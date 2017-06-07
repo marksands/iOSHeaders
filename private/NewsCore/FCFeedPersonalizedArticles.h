@@ -11,12 +11,14 @@
 @interface FCFeedPersonalizedArticles : NSObject
 {
     NSArray *_articlesToShow;
+    NSArray *_articlesToHide;
     NSMapTable *_personalizedScores;
     NSMapTable *_agedPersonalizedScores;
 }
 
 @property(retain, nonatomic) NSMapTable *agedPersonalizedScores; // @synthesize agedPersonalizedScores=_agedPersonalizedScores;
 @property(retain, nonatomic) NSMapTable *personalizedScores; // @synthesize personalizedScores=_personalizedScores;
+@property(retain, nonatomic) NSArray *articlesToHide; // @synthesize articlesToHide=_articlesToHide;
 @property(retain, nonatomic) NSArray *articlesToShow; // @synthesize articlesToShow=_articlesToShow;
 - (void).cxx_destruct;
 

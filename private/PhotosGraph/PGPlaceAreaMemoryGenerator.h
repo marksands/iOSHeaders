@@ -18,6 +18,7 @@
 @property(nonatomic) long long year; // @synthesize year=_year;
 @property(nonatomic) NSString *area; // @synthesize area=_area;
 - (void).cxx_destruct;
+- (id)_potentialMemoriesForDryTesting;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;
 - (id)_potentialMemories:(unsigned long long)arg1;
 - (void)_potentialMemoriesWithAreaNode:(id)arg1 inYear:(long long)arg2 result:(CDUnknownBlockType)arg3;

@@ -9,7 +9,7 @@
 #import <TextInput/NSCopying-Protocol.h>
 #import <TextInput/NSSecureCoding-Protocol.h>
 
-@class NSString, NSUUID, TIDocumentState, TIInputContextHistory, TIKeyboardCandidate, TIKeyboardLayout, TIKeyboardLayoutState, TIKeyboardSecureCandidateRenderTraits, TITextInputTraits;
+@class NSArray, NSString, NSUUID, TIDocumentState, TIInputContextHistory, TIKeyboardCandidate, TIKeyboardLayout, TIKeyboardLayoutState, TIKeyboardSecureCandidateRenderTraits, TITextInputTraits;
 
 @interface TIKeyboardState : NSObject <NSCopying, NSSecureCoding>
 {
@@ -30,6 +30,8 @@
             unsigned int autocapitalizationEnabled:1;
             unsigned int canSendCurrentLocation:1;
             unsigned int isScreenLocked:1;
+            unsigned int longPredictionListEnabled:1;
+            unsigned int needAutofill:1;
         } fields;
     } _mask;
     union {
@@ -54,9 +56,11 @@
     TIKeyboardCandidate *_currentCandidate;
     TITextInputTraits *_textInputTraits;
     NSString *_responseContext;
+    NSArray *_supportedPayloadIds;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSArray *supportedPayloadIds; // @synthesize supportedPayloadIds=_supportedPayloadIds;
 @property(copy, nonatomic) NSString *responseContext; // @synthesize responseContext=_responseContext;
 @property(retain, nonatomic) TITextInputTraits *textInputTraits; // @synthesize textInputTraits=_textInputTraits;
 @property(retain, nonatomic) TIKeyboardCandidate *currentCandidate; // @synthesize currentCandidate=_currentCandidate;
@@ -72,11 +76,14 @@
 @property(copy, nonatomic) NSString *inputMode; // @synthesize inputMode=_inputMode;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(retain, nonatomic) NSUUID *documentIdentifier; // @synthesize documentIdentifier=_documentIdentifier;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+@property(nonatomic) _Bool needAutofill;
+@property(nonatomic) _Bool longPredictionListEnabled;
 @property(nonatomic) _Bool isScreenLocked;
 @property(nonatomic) _Bool canSendCurrentLocation;
 @property(nonatomic) _Bool autocorrectionListUIAutoDisplayMode;

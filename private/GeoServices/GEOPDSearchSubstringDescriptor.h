@@ -24,6 +24,7 @@
 @property(nonatomic) int endIndex; // @synthesize endIndex=_endIndex;
 @property(nonatomic) int beginIndex; // @synthesize beginIndex=_beginIndex;
 @property(nonatomic) int stringType; // @synthesize stringType=_stringType;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -40,7 +41,6 @@
 - (void)clearSpanDatas;
 - (int)StringAsStringType:(id)arg1;
 - (id)stringTypeAsString:(int)arg1;
-- (void)dealloc;
 
 @end
 

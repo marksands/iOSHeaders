@@ -41,6 +41,7 @@
 - (void)removeAttribute:(id)arg1;
 - (void)setAttribute:(id)arg1 value:(id)arg2;
 - (id)getAttribute:(id)arg1;
+@property(readonly) struct CGRect boundsInRootViewSpace;
 @property(readonly) unsigned int childElementCount;
 @property(readonly) DOMElement *lastElementChild;
 @property(readonly) DOMElement *firstElementChild;

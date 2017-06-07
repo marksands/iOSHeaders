@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <QuickLookThumbnailing/NSSecureCoding-Protocol.h>
 #import <QuickLookThumbnailing/PQLResultSetInitializer-Protocol.h>
@@ -26,10 +26,10 @@
 @property(retain) NSDate *lastHitDate; // @synthesize lastHitDate=_lastHitDate;
 @property long long size; // @synthesize size=_size;
 @property unsigned long long documentID; // @synthesize documentID=_documentID;
+- (void).cxx_destruct;
 @property(readonly) NSString *unparsedVolumeUUID;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initFromPQLResultSet:(id)arg1 error:(id *)arg2;
 
 // Remaining properties

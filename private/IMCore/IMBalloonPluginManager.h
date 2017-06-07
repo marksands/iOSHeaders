@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, NSString, NSUUID;
+@class NSMutableDictionary, NSMutableSet, NSString, NSUUID;
 
 @interface IMBalloonPluginManager : NSObject
 {
@@ -14,6 +14,7 @@
     id _extensionMatchingContext;
     NSString *_pluginMetaDataFolder;
     NSMutableDictionary *_pluginIDToMetadataCache;
+    NSMutableSet *_pluginsToRemoveAfterExtensionsUpdate;
     NSString *_simulatedConversationID1;
     NSString *_simulatedConversationID2;
     NSUUID *_localParticipantID1;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) NSUUID *localParticipantID1; // @synthesize localParticipantID1=_localParticipantID1;
 @property(retain, nonatomic) NSString *simulatedConversationID2; // @synthesize simulatedConversationID2=_simulatedConversationID2;
 @property(retain, nonatomic) NSString *simulatedConversationID1; // @synthesize simulatedConversationID1=_simulatedConversationID1;
+@property(retain, nonatomic) NSMutableSet *pluginsToRemoveAfterExtensionsUpdate; // @synthesize pluginsToRemoveAfterExtensionsUpdate=_pluginsToRemoveAfterExtensionsUpdate;
 @property(retain, nonatomic) NSMutableDictionary *pluginIDToMetadataCache; // @synthesize pluginIDToMetadataCache=_pluginIDToMetadataCache;
 @property(retain, nonatomic) NSString *pluginMetaDataFolder; // @synthesize pluginMetaDataFolder=_pluginMetaDataFolder;
 @property(retain, nonatomic) id extensionMatchingContext; // @synthesize extensionMatchingContext=_extensionMatchingContext;
@@ -46,10 +48,17 @@
 - (void)_moveExtensionDataSourcesFromMessagesExtensionPluginToAppExtensions;
 - (_Bool)_isExtensionBlackListed:(id)arg1;
 - (_Bool)_isServerBlackListedBundle:(id)arg1 serverBag:(id)arg2;
+- (void)setPluginEnabled:(_Bool)arg1 identifier:(id)arg2;
 - (void)_removePluginsForIdentifiers:(id)arg1;
+- (void)_removePluginsWithDelay;
+- (void)removePluginWithBundleID:(id)arg1;
 - (id)_insertPluginForExtension:(id)arg1 balloonProviderBundle:(id)arg2 andTimingCollection:(id)arg3;
+- (id)_insertPluginForAppBundle:(id)arg1 balloonProviderBundle:(id)arg2;
 - (void)_updatePluginsForExtensions:(id)arg1;
+- (void)_updatePluginsForBundles:(id)arg1;
+- (void)_setPluginsToRemoveAndCallSelectorWithDelay:(id)arg1;
 - (id)_appProxyBundleIdentifiersForAppPlugins;
+- (void)_loadAppBundleDataSources;
 - (void)_loadAppExtensionDataSources;
 - (void)_clearPluginMetadataForUninstalledApps;
 - (void)_deleteMetaDataForPlugins:(id)arg1;

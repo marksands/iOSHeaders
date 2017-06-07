@@ -6,20 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class CBPeripheral, NSData;
+@class HDHealthServiceCharacteristic;
 
 @interface _HDHSWriteOperation : NSObject
 {
     _Bool _expectResponse;
-    CBPeripheral *_peripheral;
-    NSData *_data;
+    HDHealthServiceCharacteristic *_characteristic;
     CDUnknownBlockType _completion;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 @property(nonatomic) _Bool expectResponse; // @synthesize expectResponse=_expectResponse;
-@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
-@property(retain, nonatomic) CBPeripheral *peripheral; // @synthesize peripheral=_peripheral;
+@property(retain, nonatomic) HDHealthServiceCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
 - (void).cxx_destruct;
 
 @end

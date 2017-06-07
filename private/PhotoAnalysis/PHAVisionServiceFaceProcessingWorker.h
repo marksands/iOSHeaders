@@ -9,35 +9,61 @@
 #import <PhotoAnalysis/PLPhotoAnalysisVisionServiceFaceProcessingProtocol-Protocol.h>
 #import <PhotoAnalysis/PVCVMLIntegrating-Protocol.h>
 #import <PhotoAnalysis/PVNotificationListener-Protocol.h>
+#import <PhotoAnalysis/PVPersonPromoterDelegate-Protocol.h>
 
-@class NSString, NSURL, PHAVisionServicePersistenceDelegate, PhotoVision;
+@class NSMutableDictionary, NSString, NSURL, PHAVisionServicePersistenceDelegate, PhotoVision;
 
-@interface PHAVisionServiceFaceProcessingWorker : PHAVisionServiceWorker <PVNotificationListener, PVCVMLIntegrating, PLPhotoAnalysisVisionServiceFaceProcessingProtocol>
+@interface PHAVisionServiceFaceProcessingWorker : PHAVisionServiceWorker <PVNotificationListener, PVCVMLIntegrating, PVPersonPromoterDelegate, PLPhotoAnalysisVisionServiceFaceProcessingProtocol>
 {
     PhotoVision *_photoVision;
     PHAVisionServicePersistenceDelegate *_persistenceDelegate;
-    _Bool _reclusteringRequired;
+    struct {
+        double startTimeInterval;
+        unsigned long long assetCount;
+        unsigned long long faceCount;
+        unsigned long long clusteringCount;
+    } _analysisStatistics;
+    NSMutableDictionary *_state;
+    unsigned long long _incrementalPersonProcessingStage;
     _Bool _disabledByUserDefaults;
     NSURL *_suggestionLoggingDirectory;
     _Bool _suggestionLoggingSessionOpen;
     _Bool _suggestionsLoggingEnabled;
+    _Bool _personBuilderMergeCandidatesEnabled;
 }
 
 + (long long)applicationDataFolderIdentifier;
 + (_Bool)runsExclusively;
 + (short)workerType;
+@property(nonatomic) _Bool personBuilderMergeCandidatesEnabled; // @synthesize personBuilderMergeCandidatesEnabled=_personBuilderMergeCandidatesEnabled;
+@property(nonatomic) unsigned long long incrementalPersonProcessingStage; // @synthesize incrementalPersonProcessingStage=_incrementalPersonProcessingStage;
 - (void).cxx_destruct;
+- (void)personPromoterStatusWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)requestSuggestedMePersonIdentifierWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)faceProcessingStatusForUserInterfaceWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)validateClusterCacheWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)faceClusteringInformation:(unsigned long long)arg1 withContext:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (id)densityClusteringForObjects:(id)arg1 maximumDistance:(double)arg2 minimumNumberOfObjects:(unsigned long long)arg3 withDistanceBlock:(CDUnknownBlockType)arg4;
+- (id)performSocialGroupsIdentifiersWithPersonClusterManager:(id)arg1 forPersons:(id)arg2 overTheYearsComputation:(_Bool)arg3 updateBlock:(CDUnknownBlockType)arg4;
+- (id)suggestedMeIdentifierWithPersonClusterManager:(id)arg1 forPersons:(id)arg2 updateBlock:(CDUnknownBlockType)arg3;
+- (id)keyFaceForPerson:(id)arg1 qualityMeasureByFace:(id)arg2;
+- (void)processPersonsWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (_Bool)_promotePersonsWithError:(id *)arg1;
+- (_Bool)_buildPersonsIncrementally:(_Bool)arg1 error:(id *)arg2;
+- (_Bool)_clusterFacesWithPhotoVision:(id)arg1 incrementally:(_Bool)arg2 error:(id *)arg3;
+- (_Bool)_deleteAllPersonsWithError:(id *)arg1;
 - (void)reclusterFacesWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)resetPeopleWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)resetFaceClusteringStateWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)updateKeyFacesOfPersonsWithLocalIdentifiers:(id)arg1 forceUpdate:(_Bool)arg2 context:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)faceCandidatesforKeyFaceForPersonsWithLocalIdentifiers:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (id)bestRepresentativeFaceForPerson:(id)arg1 qualityMeasureByFace:(id)arg2 canceler:(id)arg3;
+- (id)_faceToFaceCountMapForFaces:(id)arg1;
 - (void)renderFaceTilesForFaceLocalIdentifiers:(id)arg1 inAssetWithLocalIdentifier:(id)arg2 context:(id)arg3 reply:(CDUnknownBlockType)arg4;
-- (void)suggestPersonForFaceWithLocalIdentifier:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)suggestFacesForPersonWithLocalIdentifier:(id)arg1 toBeConfirmedFaceSuggestions:(id)arg2 toBeRejectedFaceSuggestions:(id)arg3 context:(id)arg4 reply:(CDUnknownBlockType)arg5;
-- (void)suggestFacesForFacesWithLocalIdentifiers:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)performFaceProcessingOnSRGBImageData:(id)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 bytesPerRow:(unsigned long long)arg4 bitmapInfo:(unsigned int)arg5 context:(id)arg6 reply:(CDUnknownBlockType)arg7;
+- (void)suggestVerifiedPersonLocalIdentifierForPersonWithLocalIdentifier:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)suggestVerifiedPersonLocalIdentifierForFaceWithLocalIdentifier:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)suggestPersonsForPersonWithLocalIdentifier:(id)arg1 toBeConfirmedPersonSuggestions:(id)arg2 toBeRejectedPersonSuggestions:(id)arg3 context:(id)arg4 reply:(CDUnknownBlockType)arg5;
 - (void)performFaceProcessingOnAssetWithLocalIdentifier:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)scheduleFaceProcessingOnAssetsWithLocalIdentifiers:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (id)newPhotoVisionCVMLRequestOptions;
 - (void)handlePVNotification:(id)arg1;
 - (void)processDirtyFaceCrops;
@@ -52,8 +78,15 @@
 - (id)_facesRequiringFaceCropGenerationForAsset:(id)arg1 error:(id *)arg2;
 - (_Bool)_generateAndPersistFaceCropsOfFaces:(id)arg1 inImage:(id)arg2 forAsset:(id)arg3 error:(id *)arg4;
 - (_Bool)_validateAsset:(id)arg1 error:(id *)arg2;
-- (id)nextAdditionalJobWithScenario:(unsigned long long)arg1;
-- (_Bool)hasAdditionalJobsForScenario:(unsigned long long)arg1;
+- (void)_setStateValue:(id)arg1 forKey:(id)arg2;
+- (void)_readState;
+- (id)workerStateFileURL;
+- (id)nextAdditionalJobWithScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
+- (_Bool)hasStandaloneJobsForScenario:(unsigned long long)arg1;
+- (_Bool)hasAdditionalJobsForScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
+- (id)statusAsDictionary;
+- (_Bool)_needToRunClusteringJob;
+- (_Bool)_needToRunPersonPromoterForScenario:(unsigned long long)arg1;
 - (_Bool)_needToRunPersonBuildingJobForScenario:(unsigned long long)arg1;
 - (_Bool)_needToRunClusteringJobForScenario:(unsigned long long)arg1;
 - (_Bool)_needToRunFaceCropProcessingJobForScenario:(unsigned long long)arg1;
@@ -61,29 +94,26 @@
 - (void)willCompleteJob:(id)arg1;
 - (_Bool)stopAnalysisJob:(id)arg1 error:(id *)arg2;
 - (void)cooldown;
+- (void)warmup;
 - (void)shutdown;
 - (_Bool)performPersonBuildingWithCanceler:(id)arg1 error:(id *)arg2;
+- (_Bool)_setAllFaceGroupsNeedPersonBuilding;
 - (_Bool)processDirtyFaceCrop:(id)arg1 error:(id *)arg2;
 - (_Bool)_updateFaceCropFace:(id)arg1 withFaceprintForFaceCrop:(id)arg2 error:(id *)arg3;
 - (_Bool)_generateAndAssociateFaceprintedFaceForFaceCrop:(id)arg1 error:(id *)arg2;
 - (_Bool)performFaceClusteringWithCompletion:(CDUnknownBlockType)arg1 error:(id *)arg2;
 - (void)_performFaceCropProcessingWhileKeepingAliveJob:(id)arg1;
-- (void)_performForcedFaceClustering:(_Bool)arg1 whileKeepingAliveJob:(id)arg2;
 - (void)_didPerformFaceClustering;
 - (void)_willPerformFaceClustering;
 - (_Bool)_resetFaceClusteringStateWithContext:(id)arg1 error:(id *)arg2;
 - (_Bool)_renderFaceTilesForFaceLocalIdentifiers:(id)arg1 inAssetWithLocalIdentifier:(id)arg2 error:(id *)arg3;
-- (id)_faceSuggestionsForPersonWithLocalIdentifier:(id)arg1 toBeConfirmedFaceSuggestions:(id)arg2 toBeRejectedFaceSuggestions:(id)arg3 operation:(id)arg4 error:(id *)arg5;
-- (id)_faceSuggestionsForFacesWithLocalIdentifiers:(id)arg1 operation:(id)arg2 error:(id *)arg3;
-- (id)_faceDescriptionsOfFacesInImageWithSRGBImageData:(id)arg1 width:(unsigned long long)arg2 height:(unsigned long long)arg3 bytesPerRow:(unsigned long long)arg4 bitmapInfo:(unsigned int)arg5 error:(id *)arg6;
+- (id)_suggestionsForPersonWithLocalIdentifier:(id)arg1 toBeConfirmedPersonSuggestions:(id)arg2 toBeRejectedPersonSuggestions:(id)arg3 operation:(id)arg4 error:(id *)arg5;
 - (void)_finalizeSuggestionsLog;
 - (void)_logFaceToSuggestionsLog:(id)arg1;
 - (void)_copyImageAtURLToSuggestionsLoggingSession:(id)arg1;
 - (void)_appendToSuggestionsLog:(id)arg1;
 - (void)_closeSuggestionsLoggingSession;
 - (void)_openSuggestionsLoggingSession;
-- (_Bool)_scheduleFaceProcessingOnAssetsWithLocalIdentifiers:(id)arg1 priority:(int)arg2 error:(id *)arg3;
-- (void)_handleNilReplyBlockForSelector:(SEL)arg1;
 - (id)_analyzePVImage:(id)arg1 forAsset:(id)arg2 withAttributes:(id)arg3 error:(id *)arg4;
 - (int)_performPersistedFaceAnalysisOfPVImage:(id)arg1 withAttributes:(id)arg2 forAsset:(id)arg3 error:(id *)arg4;
 - (int)_performPersistedFaceAnalysisOfResource:(id)arg1 withAttributes:(id)arg2 forAsset:(id)arg3 error:(id *)arg4;
@@ -94,7 +124,9 @@
 - (void)terminatePhotoVision;
 - (id)_photoVisionAllowingCreation:(_Bool)arg1 error:(id *)arg2;
 - (_Bool)_synchronouslyGenerateFaceTilesForFaces:(id)arg1 fromAsset:(id)arg2 assetImage:(id)arg3 error:(id *)arg4;
-- (id)_faceSuggestionsFromKeyFaceClustSeqNums:(id)arg1 excludeFaceLocalIdentifers:(id)arg2 operation:(id)arg3 error:(id *)arg4;
+- (id)_suggestionsForPersonLocalIdentifier:(id)arg1 clusterSequenceNumbers:(id)arg2 excludePersonLocalIdentifers:(id)arg3 operation:(id)arg4 error:(id *)arg5;
+- (void)_logAnalysisStatistics;
+- (void)_resetAnalysisStatistics;
 - (void)_performFullCVMLCleanup;
 - (void)_performIntermediateCVMLCleanup;
 - (id)initWithPhotoAnalysisManager:(id)arg1 dataLoader:(id)arg2;

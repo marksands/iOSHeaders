@@ -12,11 +12,14 @@ __attribute__((visibility("hidden")))
 @interface FUFlightInfoViewController : UIViewController
 {
     FUFlightInfoView *_flight;
+    unsigned long long _style;
 }
 
 - (void).cxx_destruct;
+- (void)setStyle:(unsigned long long)arg1;
 - (void)loadView;
 - (id)flightInfoView;
+- (id)initWithStyle:(unsigned long long)arg1;
 
 @end
 

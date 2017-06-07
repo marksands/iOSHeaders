@@ -10,6 +10,12 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct RawData {
+    _Bool _field1;
+    void *_field2;
+    int _field3;
+};
+
 struct _NSRange {
     unsigned long long _field1;
     unsigned long long _field2;

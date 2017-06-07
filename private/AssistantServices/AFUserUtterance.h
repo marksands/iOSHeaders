@@ -23,6 +23,7 @@
 - (id)description;
 - (id)streamingTokens;
 @property(readonly, nonatomic) NSArray *dictationResult;
+@property(readonly, nonatomic) NSArray *allPhrases;
 - (id)updateDictationResult:(id)arg1 withAlternativeUtteranceAtIndex:(unsigned long long)arg2;
 - (void)_updateUtteranceswithAlternativeUtteranceAtIndex:(unsigned long long)arg1 swapIndices:(id)arg2;
 - (void)_updatePhraseswithSwapIndices:(id)arg1;

@@ -36,9 +36,10 @@
 - (void)addParentSectionInfo:(id)arg1 displayName:(id)arg2 icon:(id)arg3 universalSectionID:(id)arg4;
 - (void)addParentSectionInfo:(id)arg1 displayName:(id)arg2 icon:(id)arg3 unversalSectionID:(id)arg4;
 - (void)addParentSectionInfo:(id)arg1 displayName:(id)arg2 icon:(id)arg3;
-- (id)_addDataProvider:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_addDataProvider:(id)arg1 withAdditionHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)addDataProvider:(id)arg1;
 - (void)addDataProvider:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_queue_setServerProxy:(id)arg1;
 - (void)setServerProxy:(id)arg1;
 - (void)dealloc;
 - (id)initWithServiceName:(id)arg1 onQueue:(id)arg2;

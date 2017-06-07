@@ -25,6 +25,7 @@
 - (_Bool)prefersDynamicString;
 - (id)stringWithAttributes:(id)arg1;
 - (id)dynamicStringForSize:(struct CGSize)arg1 attributes:(id)arg2;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithList:(id)arg1 truncationFormat:(id)arg2 summaryFormat:(id)arg3;
 
 // Remaining properties

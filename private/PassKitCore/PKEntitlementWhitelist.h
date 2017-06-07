@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSArray, NSString;
 
@@ -18,6 +18,9 @@
     _Bool _paymentPresentation;
     _Bool _inAppPayments;
     _Bool _inAppPaymentsPrivate;
+    _Bool _cardOnFilePayments;
+    _Bool _trustedDeviceEnrollmentInfo;
+    _Bool _peerPaymentAllAccess;
     _Bool _addSilently;
     NSString *_applicationID;
     NSArray *_merchantIdentifiers;
@@ -31,6 +34,9 @@
 @property(copy) NSArray *teamIDs; // @synthesize teamIDs=_teamIDs;
 @property(readonly, copy) NSArray *merchantIdentifiers; // @synthesize merchantIdentifiers=_merchantIdentifiers;
 @property(readonly, copy) NSString *applicationID; // @synthesize applicationID=_applicationID;
+@property(readonly) _Bool peerPaymentAllAccess; // @synthesize peerPaymentAllAccess=_peerPaymentAllAccess;
+@property(readonly) _Bool trustedDeviceEnrollmentInfo; // @synthesize trustedDeviceEnrollmentInfo=_trustedDeviceEnrollmentInfo;
+@property(readonly) _Bool cardOnFilePayments; // @synthesize cardOnFilePayments=_cardOnFilePayments;
 @property(readonly) _Bool inAppPaymentsPrivate; // @synthesize inAppPaymentsPrivate=_inAppPaymentsPrivate;
 @property(readonly) _Bool inAppPayments; // @synthesize inAppPayments=_inAppPayments;
 @property(readonly) _Bool paymentPresentation; // @synthesize paymentPresentation=_paymentPresentation;

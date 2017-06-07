@@ -22,6 +22,7 @@
 - (id)_lastFinishedMessage;
 - (id)_lastSentMessage;
 - (id)_lastMessage;
+- (id)_firstMessage;
 - (id)_typingMessage;
 - (id)_itemForGUID:(id)arg1;
 - (id)_member:(id)arg1;

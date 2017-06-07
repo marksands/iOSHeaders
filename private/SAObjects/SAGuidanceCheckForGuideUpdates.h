@@ -16,6 +16,7 @@
 
 + (id)checkForGuideUpdatesWithDictionary:(id)arg1 context:(id)arg2;
 + (id)checkForGuideUpdates;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *supportedFeatures;
 @property(copy, nonatomic) NSNumber *currentSuggestedUtterancesTag;
 @property(copy, nonatomic) NSNumber *currentGuideTag;

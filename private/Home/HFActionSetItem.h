@@ -9,21 +9,20 @@
 #import <Home/HFHomeKitItemProtocol-Protocol.h>
 #import <Home/NSCopying-Protocol.h>
 
-@class HMActionSet, HMHome, NSString;
+@class HMActionSet, NSString;
 @protocol HFCharacteristicValueSource, HFHomeKitObject;
 
 @interface HFActionSetItem : HFItem <HFHomeKitItemProtocol, NSCopying>
 {
     HMActionSet *_actionSet;
-    HMHome *_home;
     unsigned long long _actionSetItemStyle;
     id <HFCharacteristicValueSource> _valueSource;
 }
 
-+ (id)_primaryStateForActionSet:(id)arg1 valueSource:(id)arg2;
++ (id)_primaryStateForActionSet:(id)arg1 valueSource:(id)arg2 logger:(id)arg3;
++ (_Bool)_value:(id)arg1 isApproximatelyEqualToValue:(id)arg2 characteristicMetadata:(id)arg3;
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource; // @synthesize valueSource=_valueSource;
 @property(readonly, nonatomic) unsigned long long actionSetItemStyle; // @synthesize actionSetItemStyle=_actionSetItemStyle;
-@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(readonly, nonatomic) HMActionSet *actionSet; // @synthesize actionSet=_actionSet;
 - (void).cxx_destruct;
 - (id)turnOffActionSet;
@@ -36,7 +35,6 @@
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (id)initWithHome:(id)arg1 actionSet:(id)arg2;
 - (id)initWithActionSet:(id)arg1 actionSetItemStyle:(unsigned long long)arg2 valueSource:(id)arg3;
 
 // Remaining properties

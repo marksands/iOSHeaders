@@ -4,17 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
+#import <GeoServices/GEODataStateCapturing-Protocol.h>
 #import <GeoServices/GEOResourceFiltersManagerDelegate-Protocol.h>
 #import <GeoServices/GEOResourceManifestServerProxy-Protocol.h>
 #import <GeoServices/NSURLSessionDataDelegate-Protocol.h>
 
-@class GEOActiveTileGroup, GEOResourceFiltersManager, GEOResourceLoader, GEOResourceManifestConfiguration, GEOResourceManifestDownload, NSError, NSLock, NSMutableArray, NSMutableData, NSString, NSTimer, NSURLSession, NSURLSessionTask, NSURLSessionTaskMetrics;
+@class GEOActiveTileGroup, GEOResourceFiltersManager, GEOResourceLoader, GEOResourceManifestConfiguration, GEOResourceManifestDownload, NSArray, NSError, NSLock, NSMutableArray, NSMutableData, NSString, NSTimer, NSURLSession, NSURLSessionTask, NSURLSessionTaskMetrics;
 @protocol GEOResourceManifestServerProxyDelegate;
 
 __attribute__((visibility("hidden")))
-@interface GEOResourceManifestServerLocalProxy : NSObject <NSURLSessionDataDelegate, GEOResourceFiltersManagerDelegate, GEOResourceManifestServerProxy>
+@interface GEOResourceManifestServerLocalProxy : NSObject <NSURLSessionDataDelegate, GEOResourceFiltersManagerDelegate, GEODataStateCapturing, GEOResourceManifestServerProxy>
 {
     id <GEOResourceManifestServerProxyDelegate> _delegate;
     NSURLSession *_session;
@@ -34,6 +35,7 @@ __attribute__((visibility("hidden")))
     _Bool _started;
     unsigned long long _manifestRetryCount;
     double _lastManifestRetryTimestamp;
+    NSURLSessionTaskMetrics *_taskMetrics;
     unsigned long long _tileGroupRetryCount;
     double _lastTileGroupRetryTimestamp;
     NSString *_authToken;
@@ -42,12 +44,15 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_manifestUpdateCompletionHandlers;
     double _lastManifestRequestStartTime;
     GEOResourceFiltersManager *_filtersManager;
-    NSURLSessionTaskMetrics *_taskMetrics;
+    NSArray *_tileGroupMigrators;
+    NSArray *_pendingTileGroupMigrationTasks;
+    unsigned long long _stateCaptureHandle;
 }
 
-@property(nonatomic) id <GEOResourceManifestServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)_resourcesForTileGroup:(id)arg1 fromResourceManifest:(id)arg2 regional:(_Bool)arg3 includeAttribution:(_Bool)arg4 scales:(id)arg5 scenarios:(id)arg6;
+@property(nonatomic) __weak id <GEOResourceManifestServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_notifyManifestUpdateCompletionHandlers:(id)arg1;
+- (id)captureStateDataWithHints:(struct os_state_hints_s *)arg1;
 - (void)filtersManagerDidChangeActiveFilters:(id)arg1;
 - (void)URLSession:(id)arg1 task:(id)arg2 didFinishCollectingMetrics:(id)arg3;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
@@ -77,15 +82,14 @@ __attribute__((visibility("hidden")))
 - (oneway void)setActiveTileGroupIdentifier:(id)arg1;
 - (void)_cleanupSession;
 - (void)_cancelSession;
+- (void)_cancelMigrationTasks;
 - (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(_Bool)arg2 ignoreIdentifier:(_Bool)arg3;
-- (_Bool)_hasAllowableFallbackResourceForResource:(id)arg1;
-- (void)_loadImmediateResources:(id)arg1 conditionalWifiResources:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)performOpportunisticResourceLoading;
 - (void)_tileGroupTimerFired:(id)arg1;
 - (void)_scheduleTileGroupUpdateTimerWithTimeInterval:(double)arg1;
 - (void)_considerChangingActiveTileGroup;
 - (id)_idealTileGroupToUse;
-- (void)_changeActiveTileGroup:(id)arg1 activeScales:(id)arg2 activeScenarios:(id)arg3 loadedResources:(id)arg4 unloadedConditionalResources:(id)arg5 flushTileCache:(_Bool)arg6 completionHandler:(CDUnknownBlockType)arg7;
+- (void)_changeActiveTileGroup:(id)arg1 activeScales:(id)arg2 activeScenarios:(id)arg3 migrationTasks:(id)arg4 flushTileCache:(_Bool)arg5 completionHandler:(CDUnknownBlockType)arg6;
 @property(readonly, nonatomic) GEOActiveTileGroup *activeTileGroup;
 - (void)_loadFromDisk;
 - (void)_startServer;
@@ -94,7 +98,8 @@ __attribute__((visibility("hidden")))
 - (void)closeConnection;
 - (void)openConnection;
 - (void)dealloc;
-- (id)initWithDelegate:(id)arg1 configuration:(id)arg2;
+- (void)createMigratorsWithAdditionalMigrationTaskClasses:(id)arg1;
+- (id)initWithDelegate:(id)arg1 configuration:(id)arg2 additionalMigrationTaskClasses:(id)arg3;
 - (id)serverOperationQueue;
 - (id)serverQueue;
 

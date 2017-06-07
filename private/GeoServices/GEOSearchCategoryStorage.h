@@ -8,16 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAutocompleteEntry, GEOPDBrowseCategory;
+@class GEOPDAutocompleteEntry, GEOPDBrowseCategory, PBUnknownFields;
 
 @interface GEOSearchCategoryStorage : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     GEOPDAutocompleteEntry *_autocompleteEntry;
     GEOPDBrowseCategory *_browseCategory;
 }
 
 @property(retain, nonatomic) GEOPDAutocompleteEntry *autocompleteEntry; // @synthesize autocompleteEntry=_autocompleteEntry;
 @property(retain, nonatomic) GEOPDBrowseCategory *browseCategory; // @synthesize browseCategory=_browseCategory;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +32,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasAutocompleteEntry;
 @property(readonly, nonatomic) _Bool hasBrowseCategory;
-- (void)dealloc;
 - (id)initWithSearchCategory:(id)arg1;
 
 @end

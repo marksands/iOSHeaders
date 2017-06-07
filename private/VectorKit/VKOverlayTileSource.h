@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (struct _GEOTileKey)downloadKeyAtX:(unsigned int)arg1 y:(unsigned int)arg2 z:(unsigned int)arg3;
 - (id)tileForKey:(const struct VKTileKey *)arg1;
 - (_Bool)canFetchTileForKey:(const struct VKTileKey *)arg1;
+- (long long)maximumZoomLevelWithoutOverride;
 - (long long)maximumZoomLevel;
 - (long long)minimumZoomLevel;
 - (long long)zEquivalenceClass;

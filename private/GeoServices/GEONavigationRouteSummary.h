@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSString *destinationName; // @synthesize destinationName=_destinationName;
 @property(retain, nonatomic) GEOComposedWaypoint *destination; // @synthesize destination=_destination;
 @property(retain, nonatomic) GEOComposedWaypoint *origin; // @synthesize origin=_origin;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -44,7 +45,6 @@
 - (id)transportTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasTransportType;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
-- (void)dealloc;
 - (void)setRoute:(id)arg1;
 - (id)initWithRoute:(id)arg1 destinationName:(id)arg2;
 

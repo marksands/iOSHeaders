@@ -15,6 +15,7 @@
         unsigned int parsingUpdatedTree:1;
         unsigned int parsingReorderedSiblings:1;
         unsigned int parsingUpdatedData:1;
+        unsigned int parsingPartOfPrototype:1;
     } _parsingFlags;
     IKViewElementRegistry *_elementRegistry;
     IKViewElementStyleFactory *_styleFactory;

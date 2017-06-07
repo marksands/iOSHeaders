@@ -8,26 +8,34 @@
 
 @class PDFViewControllerPrivate;
 
+__attribute__((visibility("hidden")))
 @interface PDFViewController : NSObject
 {
     PDFViewControllerPrivate *_private;
 }
 
 - (void).cxx_destruct;
-- (void)showMenu:(_Bool)arg1;
-- (void)_updateHandleSelection;
-- (void)_prepareHandleSelection;
-- (void)_updateWordSelectionForPage:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (int)didTapSelectionHandlersForGesture:(id)arg1;
-- (void)clearSelectionState;
-- (_Bool)isSelectingText;
-- (void)scrollViewDidEndDecelerating;
-- (void)touchSwipe:(id)arg1;
-- (void)touchPan:(id)arg1;
-- (void)touchTap:(id)arg1;
-- (void)touchLongUp:(id)arg1;
-- (void)touchLongMoved:(id)arg1;
-- (void)touchLongDown:(id)arg1;
+- (void)_clearSelection;
+- (void)clearSelection;
+- (id)_getPagePoint:(struct CGPoint *)arg1 forGesture:(id)arg2;
+- (id)_annotationAtGesture:(id)arg1;
+- (int)_canLollipopDrag:(id)arg1;
+- (void)_updateLollipopDrag:(id)arg1;
+- (void)_updateWordDrag:(id)arg1;
+- (_Bool)_canWordDrag:(id)arg1;
+- (void)_handleAnnotation:(id)arg1;
+- (void)_updateState:(int)arg1 forGesture:(id)arg2;
+- (void)showTextSelectionMenu:(_Bool)arg1;
+- (void)_showTextSelectionMenu;
+- (void)_hideTextSelectionMenu;
+- (_Bool)isDraggingLollipop;
+- (_Bool)isTouchingLollipop:(id)arg1;
+- (void)handleGesture:(id)arg1;
+- (id)_annotationFollowing:(id)arg1 wrapAround:(_Bool)arg2;
+- (id)_annotationPreceding:(id)arg1 wrapAround:(_Bool)arg2;
+- (void)activateNextAnnotation:(_Bool)arg1;
+- (void)interactWithAnnotation:(id)arg1;
+- (void)dealloc;
 - (id)initWithView:(id)arg1;
 - (struct CGPoint)_convertPoint:(struct CGPoint)arg1 toPageView:(id)arg2;
 

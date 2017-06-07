@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDLogEventObserver-Protocol.h>
 
 @class NSMutableDictionary, NSString;
 
-@interface HMDAWDLogEventObserver : NSObject <HMDLogEventObserver>
+@interface HMDAWDLogEventObserver : HMFObject <HMDLogEventObserver>
 {
     _Bool _uploadMaximumDelayReached;
     _Bool _hasDecryptionFailed;

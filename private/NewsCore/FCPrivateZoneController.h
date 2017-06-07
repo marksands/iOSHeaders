@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <NewsCore/FCCommandQueueDelegate-Protocol.h>
+
 @class FCAsyncSerialQueue, FCCKRecordZone, FCCloudContext, FCCommandQueue, FCKeyValueStore, FCPushNotificationCenter, NSDate, NSHashTable, NSString;
 
-@interface FCPrivateZoneController : NSObject
+@interface FCPrivateZoneController : NSObject <FCCommandQueueDelegate>
 {
     _Bool _dirty;
     _Bool _waitingForFirstSync;
@@ -61,6 +63,7 @@
 - (long long)_qualityOfServiceForNextSync;
 - (void)_markAsClean;
 - (void)_markAsDirty;
+- (long long)commandQueue:(id)arg1 qualityOfServiceForCommand:(id)arg2;
 - (void)loadLocalCachesFromStore;
 - (void)handleSyncWithChangedRecords:(id)arg1 deletedRecordIDs:(id)arg2;
 - (void)manualDirty;
@@ -72,7 +75,9 @@
 - (void)removeStateObserver:(id)arg1;
 - (void)addStateObserver:(id)arg1;
 - (void)saveWithCompletion:(CDUnknownBlockType)arg1;
+- (void)performFirstSyncWithCallbackQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)syncWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_syncWithCondition:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 recordZone:(id)arg3 storeDirectory:(id)arg4;
 - (id)init;
@@ -81,6 +86,12 @@
 - (void)createLocalStore;
 - (void)disableSyncing;
 - (void)enableSyncing;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

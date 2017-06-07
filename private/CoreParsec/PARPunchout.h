@@ -8,18 +8,13 @@
 
 #import <CoreParsec/NSSecureCoding-Protocol.h>
 
-@class NSString;
-
 @interface PARPunchout : SFPunchout <NSSecureCoding>
 {
-    NSString *_actionTarget;
 }
 
 + (id)punchoutWithURLs:(id)arg1;
 + (id)punchoutWithURL:(id)arg1;
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSString *actionTarget; // @synthesize actionTarget=_actionTarget;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

@@ -45,6 +45,7 @@
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 - (void)_showCustomInputView;
 - (void)paste:(id)arg1;
+- (void)handlePastedString:(id)arg1 toRange:(id)arg2;
 - (void)cut:(id)arg1;
 - (void)copy:(id)arg1;
 - (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;

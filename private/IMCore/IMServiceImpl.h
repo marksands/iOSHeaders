@@ -145,6 +145,7 @@
 - (void)_syncWithRemoteBuddies;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;
+@property(readonly, nonatomic, getter=isDiscontinued) _Bool discontinued;
 
 @end
 

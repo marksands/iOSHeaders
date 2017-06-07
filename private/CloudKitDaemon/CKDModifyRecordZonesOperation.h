@@ -13,19 +13,26 @@ __attribute__((visibility("hidden")))
 {
     _Bool _allowDefaultZoneSave;
     _Bool _markZonesAsUserPurged;
+    _Bool _dontFetchFromServer;
+    _Bool _didSynchronizeUserKeyRegistry;
     int _numZoneSaveAttempts;
     CDUnknownBlockType _saveCompletionBlock;
     CDUnknownBlockType _deleteCompletionBlock;
     NSMutableArray *_recordZonesToSave;
     NSArray *_recordZoneIDsToDelete;
     NSMutableDictionary *_recordZonesByZoneID;
+    NSMutableDictionary *_retryableErrorsByZoneID;
     long long _maxZoneSaveAttempts;
 }
 
++ (long long)isPredominatelyDownload;
+@property(nonatomic) _Bool didSynchronizeUserKeyRegistry; // @synthesize didSynchronizeUserKeyRegistry=_didSynchronizeUserKeyRegistry;
+@property(nonatomic) _Bool dontFetchFromServer; // @synthesize dontFetchFromServer=_dontFetchFromServer;
 @property(nonatomic) long long maxZoneSaveAttempts; // @synthesize maxZoneSaveAttempts=_maxZoneSaveAttempts;
 @property(nonatomic) int numZoneSaveAttempts; // @synthesize numZoneSaveAttempts=_numZoneSaveAttempts;
 @property(nonatomic) _Bool markZonesAsUserPurged; // @synthesize markZonesAsUserPurged=_markZonesAsUserPurged;
 @property(nonatomic) _Bool allowDefaultZoneSave; // @synthesize allowDefaultZoneSave=_allowDefaultZoneSave;
+@property(retain, nonatomic) NSMutableDictionary *retryableErrorsByZoneID; // @synthesize retryableErrorsByZoneID=_retryableErrorsByZoneID;
 @property(retain, nonatomic) NSMutableDictionary *recordZonesByZoneID; // @synthesize recordZonesByZoneID=_recordZonesByZoneID;
 @property(retain, nonatomic) NSArray *recordZoneIDsToDelete; // @synthesize recordZoneIDsToDelete=_recordZoneIDsToDelete;
 @property(retain, nonatomic) NSMutableArray *recordZonesToSave; // @synthesize recordZonesToSave=_recordZonesToSave;
@@ -37,9 +44,10 @@ __attribute__((visibility("hidden")))
 - (void)_checkAndPrepareZones;
 - (void)_fetchPCSDataForZonesFromServer:(_Bool)arg1;
 - (void)_fetchPCSDataForZone:(id)arg1 fromServer:(_Bool)arg2;
+- (id)_createNewPCSForZone:(id)arg1;
 - (_Bool)_saveZonesToServer;
 - (void)_handleRecordZoneDeleted:(id)arg1 responseCode:(id)arg2;
-- (void)_handleRecordZoneSaved:(id)arg1 responseCode:(id)arg2;
+- (void)_handleRecordZoneSaved:(id)arg1 responseCode:(id)arg2 serverCapabilities:(unsigned long long)arg3;
 - (void)_sendErrorForFailedZones;
 - (id)nameForState:(unsigned long long)arg1;
 - (id)activityCreate;

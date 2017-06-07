@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOPDPhotoContent : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned int _height;
     NSString *_url;
     unsigned int _width;
@@ -21,6 +22,8 @@
 @property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 @property(nonatomic) unsigned int height; // @synthesize height=_height;
 @property(nonatomic) unsigned int width; // @synthesize width=_width;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasUrl;
 @property(nonatomic) _Bool hasHeight;
 @property(nonatomic) _Bool hasWidth;
-- (void)dealloc;
 - (unsigned long long)_area;
 
 @end

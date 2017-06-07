@@ -22,6 +22,7 @@
     long long __currentPlaybackID;
     long long __readyToPlayPlaybackID;
     CDStruct_1b6d18a9 _keyTime;
+    CDStruct_e83c9415 _playbackTimeRange;
 }
 
 @property(nonatomic, getter=_isPreparing, setter=_setPreparing:) _Bool _preparing; // @synthesize _preparing=__preparing;
@@ -30,6 +31,7 @@
 @property(nonatomic, setter=_setCurrentPlaybackID:) long long _currentPlaybackID; // @synthesize _currentPlaybackID=__currentPlaybackID;
 @property(readonly, nonatomic) _Bool immediatelyShowsPhotoWhenPlaybackEnds; // @synthesize immediatelyShowsPhotoWhenPlaybackEnds=_immediatelyShowsPhotoWhenPlaybackEnds;
 @property(readonly, nonatomic) double photoTransitionDuration; // @synthesize photoTransitionDuration=_photoTransitionDuration;
+@property(readonly, nonatomic) CDStruct_e83c9415 playbackTimeRange; // @synthesize playbackTimeRange=_playbackTimeRange;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 keyTime; // @synthesize keyTime=_keyTime;
 @property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle=_playbackStyle;
 - (void)_showVideoWithPlaybackID:(long long)arg1;
@@ -42,10 +44,11 @@
 - (void)_prepareVideoForPlaybackIfNeeded;
 - (void)startPlayback;
 - (void)activeDidChange;
+- (void)videoDidPlayToEnd;
 - (void)videoWillPlayToEnd;
 - (long long)behaviorType;
 @property(nonatomic) __weak id <ISLivePhotoPlaybackBehaviorDelegate> delegate; // @dynamic delegate;
-- (id)initWithInitialLayoutInfo:(id)arg1 playbackStyle:(long long)arg2 keyTime:(CDStruct_1b6d18a9)arg3 photoTransitionDuration:(double)arg4 immediatelyShowsPhotoWhenPlaybackEnds:(_Bool)arg5;
+- (id)initWithInitialLayoutInfo:(id)arg1 playbackStyle:(long long)arg2 keyTime:(CDStruct_1b6d18a9)arg3 playbackTimeRange:(CDStruct_e83c9415)arg4 photoTransitionDuration:(double)arg5 immediatelyShowsPhotoWhenPlaybackEnds:(_Bool)arg6;
 
 @end
 

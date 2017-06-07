@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class NSData, NSString;
+@class NSData, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HAPAddRemovePairingOperation : NSObject
+@interface HAPAddRemovePairingOperation : HMFObject
 {
     _Bool _admin;
     _Bool _operationExecuting;

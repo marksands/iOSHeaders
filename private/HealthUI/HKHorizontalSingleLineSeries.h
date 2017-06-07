@@ -29,11 +29,14 @@
 @property(nonatomic) _Bool shouldConnectPoints; // @synthesize shouldConnectPoints=_shouldConnectPoints;
 @property(nonatomic) double topInsetPercentage; // @synthesize topInsetPercentage=_topInsetPercentage;
 - (void).cxx_destruct;
-- (struct CGPoint)renderPositionForLabel:(id)arg1 rect:(struct CGRect)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 constantOffset:(double)arg5 isHorizontal:(_Bool)arg6;
-- (id)labelsForChartRange:(struct HKRange)arg1 zoomScale:(double)arg2;
+- (struct CGPoint)renderPositionForLabel:(id)arg1 rect:(struct CGRect)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 constantOffset:(double)arg5 isHorizontal:(_Bool)arg6 optionalOffset:(struct CGPoint)arg7;
+- (id)findAxisLabelsInModelRange:(id)arg1 zoomScale:(double)arg2;
+- (_Bool)blockCoordinate:(id)arg1 greaterThan:(id)arg2;
+- (_Bool)blockCoordinate:(id)arg1 lessThan:(id)arg2;
 - (double)yAxisDifferenceToPoint:(struct CGPoint)arg1 blockCoordinate:(id)arg2 chartRect:(struct CGRect)arg3;
 - (double)xAxisDistanceFromPoint:(struct CGPoint)arg1 blockCoordinate:(id)arg2 chartRect:(struct CGRect)arg3;
 - (double)distanceFromPoint:(struct CGPoint)arg1 blockCoordinate:(id)arg2 chartRect:(struct CGRect)arg3;
+- (_Bool)supportsMultiTouchSelection;
 - (double)yCoordinateForLevel:(long long)arg1 chartRect:(struct CGRect)arg2;
 - (void)setYAxis:(id)arg1;
 - (id)coordinatesForBlock:(id)arg1 blockPath:(CDStruct_6ca94699)arg2 xAxis:(id)arg3 yAxis:(id)arg4;

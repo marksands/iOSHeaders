@@ -15,6 +15,9 @@
 - (_Bool)prefersDynamicString;
 - (id)stringWithAttributes:(id)arg1;
 - (id)dynamicStringForSize:(struct CGSize)arg1 attributes:(id)arg2;
+- (id)hf_stringByLowercasingFirstWord;
+- (id)hf_stringByCapitalizingFirstWord;
+- (id)hf_stringByTransformingFirstWordUsingBlock:(CDUnknownBlockType)arg1;
 - (_Bool)hf_isEmail;
 - (_Bool)hf_isPhoneNumber;
 - (id)hf_SHA256;

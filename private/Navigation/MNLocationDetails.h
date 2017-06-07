@@ -17,11 +17,13 @@
     double _distanceFromRoute;
     double _horizontalAccuracy;
     long long _shieldType;
+    long long _speedLimitShieldType;
     double _timestamp;
     unsigned long long _transitID;
     GEOLocation *_location;
     unsigned int _locationState;
     int _rampType;
+    int _rawReferenceFrame;
     GEOLatLng *_roadCoordinate;
     unsigned int _roadLineType;
     NSString *_roadName;
@@ -39,10 +41,12 @@
         unsigned int distanceFromRoute:1;
         unsigned int horizontalAccuracy:1;
         unsigned int shieldType:1;
+        unsigned int speedLimitShieldType:1;
         unsigned int timestamp:1;
         unsigned int transitID:1;
         unsigned int locationState:1;
         unsigned int rampType:1;
+        unsigned int rawReferenceFrame:1;
         unsigned int roadLineType:1;
         unsigned int speedLimit:1;
         unsigned int stepIndex:1;
@@ -55,6 +59,7 @@
 + (id)locationWithLocationDetails:(id)arg1 route:(id)arg2;
 + (id)locationWithLocationDetails:(id)arg1;
 + (id)locationDetailsWithLocation:(id)arg1;
+@property(nonatomic) long long speedLimitShieldType; // @synthesize speedLimitShieldType=_speedLimitShieldType;
 @property(nonatomic) _Bool isTunnelProjection; // @synthesize isTunnelProjection=_isTunnelProjection;
 @property(nonatomic) unsigned long long transitID; // @synthesize transitID=_transitID;
 @property(nonatomic) double distanceFromRoute; // @synthesize distanceFromRoute=_distanceFromRoute;
@@ -86,6 +91,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsRawReferenceFrame:(id)arg1;
+- (id)rawReferenceFrameAsString:(int)arg1;
+@property(nonatomic) _Bool hasRawReferenceFrame;
+@property(nonatomic) int rawReferenceFrame; // @synthesize rawReferenceFrame=_rawReferenceFrame;
+@property(nonatomic) _Bool hasSpeedLimitShieldType;
 @property(nonatomic) _Bool hasIsTunnelProjection;
 @property(nonatomic) _Bool hasTransitID;
 @property(nonatomic) _Bool hasDistanceFromRoute;

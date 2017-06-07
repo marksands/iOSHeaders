@@ -13,15 +13,21 @@
 @interface AWDProactiveModelFittingSession : PBCodable <NSCopying>
 {
     unsigned long long _label;
+    unsigned long long _supervisionType;
     unsigned long long _timestamp;
+    float _confidenceScore;
     AWDProactiveModelFittingModelInfo *_modelInfo;
     AWDProactiveModelFittingSparseFloatVector *_sparseFloatFeatures;
     struct {
         unsigned int label:1;
+        unsigned int supervisionType:1;
         unsigned int timestamp:1;
+        unsigned int confidenceScore:1;
     } _has;
 }
 
+@property(nonatomic) float confidenceScore; // @synthesize confidenceScore=_confidenceScore;
+@property(nonatomic) unsigned long long supervisionType; // @synthesize supervisionType=_supervisionType;
 @property(retain, nonatomic) AWDProactiveModelFittingSparseFloatVector *sparseFloatFeatures; // @synthesize sparseFloatFeatures=_sparseFloatFeatures;
 @property(nonatomic) unsigned long long label; // @synthesize label=_label;
 @property(retain, nonatomic) AWDProactiveModelFittingModelInfo *modelInfo; // @synthesize modelInfo=_modelInfo;
@@ -36,6 +42,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasConfidenceScore;
+@property(nonatomic) _Bool hasSupervisionType;
 @property(readonly, nonatomic) _Bool hasSparseFloatFeatures;
 @property(nonatomic) _Bool hasLabel;
 @property(readonly, nonatomic) _Bool hasModelInfo;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -14,10 +14,10 @@
 }
 
 + (id)sharedManager;
+- (void).cxx_destruct;
 - (void)reset;
 - (void)setEnabled:(_Bool)arg1 forSubTestWithName:(id)arg2;
 - (_Bool)isEnabledForSubTestWithName:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

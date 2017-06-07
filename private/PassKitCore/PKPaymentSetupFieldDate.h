@@ -30,7 +30,7 @@
 - (id)_defaultValueAsDateForCurrentLocale;
 - (id)submissionString;
 - (id)displayString;
-- (void)setCurrentValue:(id)arg1;
+@property(copy, nonatomic) NSDate *currentValue; // @dynamic currentValue;
 - (id)initWithIdentifier:(id)arg1 type:(unsigned long long)arg2;
 
 @end

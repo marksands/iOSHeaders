@@ -18,7 +18,6 @@
     _Bool _thumbnail_align_right;
     int _searchResultDomain;
     unsigned long long _resultScore;
-    double _sectionScore;
     NSString *_sourceDomain;
     NSString *_subtitle;
     NSString *_templateName;
@@ -38,7 +37,6 @@
 @property int searchResultDomain; // @synthesize searchResultDomain=_searchResultDomain;
 @property(readonly) _Bool hasSearchResultDomain; // @synthesize hasSearchResultDomain=_hasSearchResultDomain;
 @property(retain, nonatomic) NSString *sourceDomain; // @synthesize sourceDomain=_sourceDomain;
-@property(nonatomic) double sectionScore; // @synthesize sectionScore=_sectionScore;
 @property(nonatomic) unsigned long long resultScore; // @synthesize resultScore=_resultScore;
 - (void).cxx_destruct;
 - (void)writeTo:(id)arg1;
@@ -57,6 +55,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (Class)classForCoder;
 - (Class)classForKeyedArchiver;
+- (id)description;
 
 @end
 

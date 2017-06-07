@@ -16,9 +16,11 @@
     int _lineJoin;
     UIColor *_strokeColor;
     double _lineWidth;
+    long long _dashStyle;
 }
 
 + (id)strokeStyleWithColor:(id)arg1 lineWidth:(double)arg2;
+@property(nonatomic) long long dashStyle; // @synthesize dashStyle=_dashStyle;
 @property(nonatomic) int lineJoin; // @synthesize lineJoin=_lineJoin;
 @property(nonatomic) int lineCap; // @synthesize lineCap=_lineCap;
 @property(nonatomic) double lineWidth; // @synthesize lineWidth=_lineWidth;

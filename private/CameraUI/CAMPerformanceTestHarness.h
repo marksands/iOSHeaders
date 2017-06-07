@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (void)stopSubtestWithName:(id)arg1;
 - (void)startSubtestWithName:(id)arg1;
+- (void)failedTestwithReason:(id)arg1;
 - (void)stopTesting;
 - (void)startTesting;
 @property(readonly, nonatomic, getter=isRunningTest) _Bool runningTest;

@@ -6,13 +6,21 @@
 
 #import <Home/HFStaticItemProvider.h>
 
+@class HMHome, HMRoom;
+
 @interface HFStatusItemProvider : HFStaticItemProvider
 {
+    HMHome *_home;
+    HMRoom *_room;
 }
 
 + (id)_statusItemClasses;
+@property(readonly, nonatomic) HMRoom *room; // @synthesize room=_room;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
+- (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1 room:(id)arg2;
-- (id)initWithHome:(id)arg1 items:(id)arg2;
+- (id)initWithItems:(id)arg1;
 
 @end
 

@@ -8,18 +8,17 @@
 
 #import <NewsCore/FCCKDatabaseOperationMiddleware-Protocol.h>
 
-@class FCNetworkBehaviorMonitor, NSString;
+@class NSString;
 
 @interface FCCKDatabaseLoggingMiddleware : NSObject <FCCKDatabaseOperationMiddleware>
 {
-    FCNetworkBehaviorMonitor *_networkBehaviorMonitor;
+    _Bool _allowNilDesiredKeys;
 }
 
-@property(retain, nonatomic) FCNetworkBehaviorMonitor *networkBehaviorMonitor; // @synthesize networkBehaviorMonitor=_networkBehaviorMonitor;
-- (void).cxx_destruct;
+@property(nonatomic) _Bool allowNilDesiredKeys; // @synthesize allowNilDesiredKeys=_allowNilDesiredKeys;
 - (void)_addLoggersToOperation:(id)arg1 database:(id)arg2;
 - (long long)database:(id)arg1 willEnqueueOperation:(id)arg2;
-- (id)initWithNetworkBehaviorMonitor:(id)arg1;
+- (id)initAllowingNilDesiredKeys:(_Bool)arg1;
 - (id)init;
 
 // Remaining properties

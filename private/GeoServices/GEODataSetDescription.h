@@ -15,13 +15,12 @@ __attribute__((visibility("hidden")))
 {
     NSString *_dataSetDescription;
     unsigned int _identifier;
-    struct {
-        unsigned int identifier:1;
-    } _has;
+    CDStruct_1dc6d826 _has;
 }
 
 @property(retain, nonatomic) NSString *dataSetDescription; // @synthesize dataSetDescription=_dataSetDescription;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (id)description;
 @property(readonly, nonatomic) _Bool hasDataSetDescription;
 @property(nonatomic) _Bool hasIdentifier;
-- (void)dealloc;
 
 @end
 

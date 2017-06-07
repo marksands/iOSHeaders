@@ -17,10 +17,13 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) NSTimer *dismissTimer; // @synthesize dismissTimer=_dismissTimer;
 - (void).cxx_destruct;
+- (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_dismissConfirmation:(id)arg1;
 - (void)updateWithViewElement:(id)arg1;
 @property(readonly, nonatomic) _TVConfirmationDialogTemplateView *templateView;
-- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
+- (void)_setupTimer;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (void)loadView;

@@ -4,25 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class VKImage;
 
 @interface VKIconInfo : NSObject
 {
+    unsigned char _style;
+    float _alpha;
     VKImage *_image;
-    long long _style;
     struct CGColor *_fillColor;
     struct CGColor *_haloColor;
     struct CGColor *_glyphColor;
     struct CGColor *_fullBleedColor;
 }
 
+@property(nonatomic) float alpha; // @synthesize alpha=_alpha;
 @property(nonatomic) struct CGColor *fullBleedColor; // @synthesize fullBleedColor=_fullBleedColor;
 @property(nonatomic) struct CGColor *glyphColor; // @synthesize glyphColor=_glyphColor;
 @property(nonatomic) struct CGColor *haloColor; // @synthesize haloColor=_haloColor;
 @property(nonatomic) struct CGColor *fillColor; // @synthesize fillColor=_fillColor;
-@property(nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) unsigned char style; // @synthesize style=_style;
 @property(retain, nonatomic) VKImage *image; // @synthesize image=_image;
 - (void)dealloc;
 

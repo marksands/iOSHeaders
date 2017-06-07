@@ -9,6 +9,7 @@
 @class PDFPage;
 @protocol RequestDisplayListDelegate;
 
+__attribute__((visibility("hidden")))
 @interface DisplayListRequest : NSObject
 {
     PDFPage *page;

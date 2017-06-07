@@ -8,7 +8,7 @@
 
 #import <CloudKitDaemon/CKDAccountInfoProvider-Protocol.h>
 
-@class ACAccountStore, ACAccountType, CKDBackingAccount, CKDClientContext, NSPersonNameComponents, NSString;
+@class ACAccountStore, ACAccountType, CKAccountOverrideInfo, CKDBackingAccount, CKDClientContext, NSPersonNameComponents, NSString;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -18,14 +18,17 @@ __attribute__((visibility("hidden")))
     _Bool _accountWantsPushRegistration;
     _Bool _isAnonymousAccount;
     _Bool _haveWarnedAboutServerPreferredPushEnvironment;
+    CKAccountOverrideInfo *_fakeAccountInfo;
     ACAccountType *_acAccountType;
     CKDBackingAccount *_backingAccount;
     CKDClientContext *_context;
     NSObject<OS_dispatch_queue> *_authTokenCallbackQueue;
     NSString *_lastFailedCloudKitAuthToken;
+    NSString *_lastFailediCloudAuthToken;
 }
 
 + (id)globalAuthTokenQueue;
+@property(copy, nonatomic) NSString *lastFailediCloudAuthToken; // @synthesize lastFailediCloudAuthToken=_lastFailediCloudAuthToken;
 @property(copy, nonatomic) NSString *lastFailedCloudKitAuthToken; // @synthesize lastFailedCloudKitAuthToken=_lastFailedCloudKitAuthToken;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *authTokenCallbackQueue; // @synthesize authTokenCallbackQueue=_authTokenCallbackQueue;
 @property(nonatomic) _Bool haveWarnedAboutServerPreferredPushEnvironment; // @synthesize haveWarnedAboutServerPreferredPushEnvironment=_haveWarnedAboutServerPreferredPushEnvironment;
@@ -35,27 +38,26 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) ACAccountType *acAccountType; // @synthesize acAccountType=_acAccountType;
 @property(nonatomic) _Bool accountWantsPushRegistration; // @synthesize accountWantsPushRegistration=_accountWantsPushRegistration;
 @property(nonatomic) _Bool isUnitTestingAccount; // @synthesize isUnitTestingAccount=_isUnitTestingAccount;
+@property(readonly, nonatomic) CKAccountOverrideInfo *fakeAccountInfo; // @synthesize fakeAccountInfo=_fakeAccountInfo;
 - (void).cxx_destruct;
 - (void)noteTimeSpentInNetworking:(double)arg1;
 - (void)noteFailedProtocolRequest;
 - (void)noteFailedNetworkRequest;
 - (void)noteSuccessfulRequestWithNumDownloadedElements:(long long)arg1;
-- (id)enabledKeyboards;
 - (id)regionCode;
 - (id)languageCode;
 - (_Bool)shouldFailAllTasks;
 - (void)displayAuthenticationPromptWithReason:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)validateVettingToken:(id)arg1 vettingEmail:(id)arg2 vettingPhone:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)_lockediCloudAuthTokenWithError:(id *)arg1;
+- (void)iCloudAuthTokenWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)renewiCloudAuthTokenWithReason:(id)arg1 shouldForce:(_Bool)arg2 failedToken:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)_lockedCloudKitAuthTokenWithError:(id *)arg1;
 - (void)cloudKitAuthTokenWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)iCloudAuthTokenWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)renewAuthTokenWithReason:(id)arg1 shouldForce:(_Bool)arg2 failedToken:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_lockedRenewAuthTokenWithReason:(id)arg1 shouldForce:(_Bool)arg2 failedToken:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)renewCloudKitAuthTokenWithReason:(id)arg1 shouldForce:(_Bool)arg2 failedToken:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_lockedRenewTokenWithReason:(id)arg1 shouldForce:(_Bool)arg2 tokenFetchBlock:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *authTokenQueue;
 - (_Bool)isDataclassEnabled:(id)arg1;
-@property(readonly, nonatomic) _Bool cloudPhotosIsEnabled;
-@property(readonly, nonatomic) _Bool cloudKitIsEnabled;
 @property(readonly, nonatomic) _Bool canAuthWithCloudKit;
 @property(readonly, nonatomic) _Bool canAccessAccount;
 @property(readonly, nonatomic) _Bool iCloudDriveAllowsCellularAccess;
@@ -76,18 +78,22 @@ __attribute__((visibility("hidden")))
 - (void)renewMescalSessionForRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)resetMescalSession;
 - (id)mescalSession;
-- (void)fetchDeviceIDUsingBackgroundSession:(_Bool)arg1 allowsCellularAccess:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)fetchContainerScopedUserIDUsingBackgroundSession:(_Bool)arg1 allowsCellularAccess:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)fetchPrivateURLWithServerType:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)fetchPublicURLUsingBackgroundSession:(_Bool)arg1 allowsCellularAccess:(_Bool)arg2 serverType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)fetchConfigurationUsingBackgroundSession:(_Bool)arg1 allowsCellularAccess:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)fetchDeviceIDForOperation:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)fetchServerEnvironmentForOperation:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)fetchContainerScopedUserIDForOperation:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)fetchPrivateURLForServerType:(long long)arg1 operation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)fetchPublicURLForServerType:(long long)arg1 operation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)fetchConfigurationForOperation:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)config;
+@property(readonly, nonatomic) _Bool isiCloudDevEnvironmentAccount;
+- (_Bool)_userCloudDBURLisInCarryPartition;
+@property(readonly, nonatomic) _Bool isCarryAccount;
 @property(readonly, nonatomic) NSString *username;
 @property(readonly, nonatomic) NSString *primaryEmail;
 @property(readonly, nonatomic) NSPersonNameComponents *fullName;
 @property(readonly, nonatomic) NSString *accountIdentifier;
 @property(readonly, nonatomic) ACAccountStore *accountStore;
-- (id)initFakeAccountWithEmail:(id)arg1 password:(id)arg2 context:(id)arg3;
+- (id)initFakeAccountWithAccountOverrideInfo:(id)arg1 context:(id)arg2;
 - (id)initWithAccountID:(id)arg1 context:(id)arg2;
 - (id)initAnonymousAccountWithContext:(id)arg1;
 - (id)initPrimaryAccountWithContext:(id)arg1;

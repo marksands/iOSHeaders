@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)requiresRichText;
 - (id)string;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 storage:(id)arg2;

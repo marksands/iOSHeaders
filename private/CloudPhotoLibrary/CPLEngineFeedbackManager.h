@@ -26,10 +26,12 @@
 - (void)reportFetchChangesRewindToFeatureVersion:(unsigned long long)arg1;
 - (void)reportEndOfReset;
 - (void)reportResetType:(id)arg1 reason:(id)arg2;
+- (void)reportMessages:(id)arg1;
 - (void)reportMessage:(id)arg1;
 - (void)sendFeedbackToServerIfNecessary;
 - (void)_sendFeedbackToServerIfNecessary;
 - (void)_reallySendFeedbackToServer;
+- (void)_appendMessages:(id)arg1;
 - (void)_appendMessage:(id)arg1;
 - (void)_load;
 - (void)_save;

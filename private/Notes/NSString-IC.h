@@ -17,6 +17,7 @@
 - (void)enumerateParagraphsInRange:(struct _NSRange)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)numberOfLines;
 @property(readonly, nonatomic) NSString *ic_sanitizedFilenameString;
+@property(readonly, nonatomic) NSString *ic_whitespaceAndNewlineCoalescedString;
 @property(readonly, nonatomic) NSString *ic_trimmedString;
 - (id)md5;
 @end

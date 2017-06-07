@@ -31,6 +31,7 @@
 @property(nonatomic) long long crossfadeType; // @synthesize crossfadeType=_crossfadeType;
 @property(nonatomic) long long animationType; // @synthesize animationType=_animationType;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

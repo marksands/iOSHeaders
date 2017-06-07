@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 @protocol OS_dispatch_queue;
@@ -23,6 +23,7 @@
     unsigned long long _expirationRecordCount;
 }
 
+- (void).cxx_destruct;
 - (void)setExpirationRecords:(CDStruct_e4886f83 *)arg1 count:(unsigned long long)arg2;
 - (void)dataForKeys:(struct GEOTileKeyList *)arg1 asyncHandler:(CDUnknownBlockType)arg2;
 - (void)dataForKey:(struct _GEOTileKey *)arg1 asyncHandler:(CDUnknownBlockType)arg2;

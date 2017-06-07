@@ -6,26 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class AAUICDPStingrayController, ACAccount, NSNumber, RemoteUIController, UIViewController;
+@class AAUIServerUIHookHandler, ACAccount;
 
 @interface AAUICDPStingrayRemoteUIController : NSObject
 {
-    RemoteUIController *_remoteUIController;
-    UIViewController *_overridePresentingController;
-    AAUICDPStingrayController *_stingrayController;
-    ACAccount *_appleAccount;
-    NSNumber *_eligibilityOverride;
+    AAUIServerUIHookHandler *_serverHookHandler;
+    ACAccount *_account;
 }
 
 - (void).cxx_destruct;
-- (void)_reloadSecurityUIWithInfo:(id)arg1 attributes:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)_responseDataForResult:(_Bool)arg1 withError:(id)arg2;
 - (void)setPresentingController:(id)arg1;
-- (id)_currentPresenter;
-- (void)performCDPRepairWithInline:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_reauthenticateWithServerAttributes:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_validatePasscodeWithServerAttributes:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_generateRecoveryKeyWithServerAttributes:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)processObjectModel:(id)arg1 isModal:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)processObjectModel:(id)arg1 isModal:(_Bool)arg2;
 - (void)attachAuthHandler:(CDUnknownBlockType)arg1;

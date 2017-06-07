@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) GEODownloadMetadata *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) GEOResources *resources; // @synthesize resources=_resources;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -28,7 +29,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasResources;
-- (void)dealloc;
 - (id)initWithResourceManifestData:(id)arg1;
 
 @end

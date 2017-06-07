@@ -4,21 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIScrollView.h>
+#import <UIKit/UIView.h>
 
-@class BFFPaneHeaderView_RemoteUI, RUIChoiceViewElement, RUIElement, RUISubHeaderElement, UIButton, UIView;
+@class BFFPaneHeaderView_RemoteUI, RUIChoiceViewElement, RUIElement, RUISubHeaderElement, UIButton, UIScrollView, _UIBackdropView;
 @protocol RUIHeader;
 
-@interface RUIChoiceView : UIScrollView
+@interface RUIChoiceView : UIView
 {
     BFFPaneHeaderView_RemoteUI *_headerView;
     UIButton *_bigChoice;
     UIButton *_smallChoice;
+    _UIBackdropView *_trayBackdrop;
+    UIView *_buttonTray;
+    UIScrollView *_scrollView;
+    _Bool _usesTwoButtonLayout;
     RUIChoiceViewElement *_target;
     RUIElement *_header;
     RUISubHeaderElement *_subHeader;
 }
 
+@property(nonatomic) _Bool usesTwoButtonLayout; // @synthesize usesTwoButtonLayout=_usesTwoButtonLayout;
 @property(retain, nonatomic) RUISubHeaderElement *subHeader; // @synthesize subHeader=_subHeader;
 @property(retain, nonatomic) RUIElement *header; // @synthesize header=_header;
 @property(nonatomic) __weak RUIChoiceViewElement *target; // @synthesize target=_target;
@@ -32,6 +37,7 @@
 - (void)setSecondChoiceTitle:(id)arg1;
 - (void)setFirstChoiceTitle:(id)arg1;
 @property(readonly, nonatomic) UIView<RUIHeader> *headerView;
+- (id)init;
 
 @end
 

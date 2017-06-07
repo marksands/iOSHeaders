@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray;
+@class CADObjectID, NSArray;
 
 @protocol CADCalendarInterface
-- (void)CADDatabaseDeleteCalendar:(CDStruct_1ef3fb1f)arg1 forEntityType:(int)arg2 error:(void (^)(int))arg3;
-- (void)CADCalendar:(CDStruct_1ef3fb1f)arg1 hasReminders:(void (^)(int, _Bool))arg2;
-- (void)CADCalendar:(CDStruct_1ef3fb1f)arg1 hasEvents:(void (^)(int, _Bool))arg2;
+- (void)CADDatabaseDeleteCalendar:(CADObjectID *)arg1 forEntityType:(int)arg2 error:(void (^)(int))arg3;
+- (void)CADCalendar:(CADObjectID *)arg1 hasReminders:(void (^)(int, _Bool))arg2;
+- (void)CADCalendar:(CADObjectID *)arg1 hasEvents:(void (^)(int, _Bool))arg2;
 - (void)CADDatabaseGetCalendarsWithFaultedProperties:(NSArray *)arg1 reply:(void (^)(int, NSArray *, NSArray *))arg2;
 @end
 

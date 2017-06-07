@@ -10,7 +10,7 @@
 #import <SiriUI/SiriUISiriStatusViewProtocol-Protocol.h>
 #import <SiriUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSString, SUICFlamesView, SiriUIConfiguration, UIButton, UIImageView, UILongPressGestureRecognizer, UIScreen;
+@class AVPlayerLayer, AVPlayerLooper, AVQueuePlayer, NSString, SUICFlamesView, SiriUIConfiguration, UIButton, UILongPressGestureRecognizer, UIScreen;
 @protocol SiriUISiriStatusViewAnimationDelegate, SiriUISiriStatusViewDelegate;
 
 @interface SiriUISiriStatusView : UIView <SUICFlamesViewDelegate, UIGestureRecognizerDelegate, SiriUISiriStatusViewProtocol>
@@ -19,13 +19,17 @@
     UILongPressGestureRecognizer *_longPressRecognizer;
     UIView *_flamesContainerView;
     SUICFlamesView *_flamesView;
-    UIImageView *_micGlyphImageView;
+    UIView *_glyphView;
+    AVPlayerLayer *_glyphLayer;
+    AVPlayerLooper *_glyphPlayerLooper;
+    AVQueuePlayer *_glyphQueuePlayer;
     double _lastStateChangeTime;
     UIScreen *_screen;
     int _deferredFlamesViewState;
     SiriUIConfiguration *_configuration;
     _Bool _flamesViewDeferred;
     _Bool _inUITrackingMode;
+    _Bool _paused;
     long long _mode;
     double _disabledMicOpacity;
     id <SiriUISiriStatusViewDelegate> _delegate;
@@ -35,6 +39,7 @@
 
 + (double)statusViewHeightForWidthSizeClass:(_Bool)arg1;
 @property(nonatomic) __weak id <SiriUISiriStatusViewAnimationDelegate> animationDelegate; // @synthesize animationDelegate=_animationDelegate;
+@property(nonatomic) _Bool paused; // @synthesize paused=_paused;
 @property(nonatomic, getter=isInUITrackingMode) _Bool inUITrackingMode; // @synthesize inUITrackingMode=_inUITrackingMode;
 @property(nonatomic) _Bool flamesViewDeferred; // @synthesize flamesViewDeferred=_flamesViewDeferred;
 @property(nonatomic) double flamesViewWidth; // @synthesize flamesViewWidth=_flamesViewWidth;
@@ -43,9 +48,9 @@
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
 - (float)audioLevelForFlamesView:(id)arg1;
-- (struct CGRect)_micGlyphTappableRect;
+- (struct CGRect)_siriGlyphTappableRect;
 - (struct CGRect)_flamesFrame;
-- (void)_animateMicGlyphHidden:(_Bool)arg1;
+- (void)_animateSiriGlyphHidden:(_Bool)arg1;
 - (void)_layoutFlamesViewIfNeeded;
 - (void)_attachFlamesViewIfNeeded;
 - (void)_setFlamesViewState:(int)arg1;
@@ -60,7 +65,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) UIView *flamesContainerView;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 screen:(id)arg2 configuration:(id)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 screen:(id)arg2 textInputEnabled:(_Bool)arg3 configuration:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

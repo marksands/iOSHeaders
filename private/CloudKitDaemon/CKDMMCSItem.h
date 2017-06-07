@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CKAsset, CKDMMCSItemCommandWriter, CKPackage, CKRecordID, NSData, NSDictionary, NSError, NSMutableArray, NSNumber, NSString, NSURL;
+@class CKAsset, CKDMMCSItemCommandWriter, CKPackage, CKRecordID, NSData, NSDictionary, NSError, NSFileHandle, NSMutableArray, NSNumber, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface CKDMMCSItem : NSObject
@@ -24,10 +24,12 @@ __attribute__((visibility("hidden")))
     NSNumber *_deviceID;
     NSNumber *_fileID;
     NSNumber *_generationID;
+    NSFileHandle *_clientOpenedFileHandle;
     NSNumber *_modTimeInSeconds;
     unsigned long long _itemID;
     double _progress;
-    unsigned long long _size;
+    unsigned long long _fileSize;
+    unsigned long long _paddedFileSize;
     unsigned long long _offset;
     unsigned long long _packageIndex;
     NSString *_putPackageSectionIdentifier;
@@ -48,6 +50,7 @@ __attribute__((visibility("hidden")))
     NSError *_error;
     NSData *_assetKey;
     NSData *_wrappedAssetKey;
+    NSData *_boundaryKey;
     NSData *_referenceSignature;
     CKDMMCSItemCommandWriter *_writer;
     unsigned long long _uploadTokenExpiration;
@@ -70,6 +73,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool inMemoryDownloadLooksOkay; // @synthesize inMemoryDownloadLooksOkay=_inMemoryDownloadLooksOkay;
 @property(retain, nonatomic) CKDMMCSItemCommandWriter *writer; // @synthesize writer=_writer;
 @property(retain, nonatomic) NSData *referenceSignature; // @synthesize referenceSignature=_referenceSignature;
+@property(retain, nonatomic) NSData *boundaryKey; // @synthesize boundaryKey=_boundaryKey;
 @property(retain, nonatomic) NSData *wrappedAssetKey; // @synthesize wrappedAssetKey=_wrappedAssetKey;
 @property(retain, nonatomic) NSData *assetKey; // @synthesize assetKey=_assetKey;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
@@ -91,10 +95,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long packageIndex; // @synthesize packageIndex=_packageIndex;
 @property(nonatomic) unsigned int chunkCount; // @synthesize chunkCount=_chunkCount;
 @property(nonatomic) unsigned long long offset; // @synthesize offset=_offset;
-@property(nonatomic) unsigned long long size; // @synthesize size=_size;
+@property(nonatomic) unsigned long long paddedFileSize; // @synthesize paddedFileSize=_paddedFileSize;
+@property(nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
 @property(nonatomic) double progress; // @synthesize progress=_progress;
 @property(nonatomic) unsigned long long itemID; // @synthesize itemID=_itemID;
 @property(retain, nonatomic) NSNumber *modTimeInSeconds; // @synthesize modTimeInSeconds=_modTimeInSeconds;
+@property(retain, nonatomic) NSFileHandle *clientOpenedFileHandle; // @synthesize clientOpenedFileHandle=_clientOpenedFileHandle;
 @property(retain, nonatomic) NSNumber *generationID; // @synthesize generationID=_generationID;
 @property(retain, nonatomic) NSNumber *fileID; // @synthesize fileID=_fileID;
 @property(retain, nonatomic) NSNumber *deviceID; // @synthesize deviceID=_deviceID;
@@ -108,6 +114,7 @@ __attribute__((visibility("hidden")))
 - (id)_openInfo;
 - (id)description;
 - (id)CKPropertiesDescription;
+- (void)clearFileSize;
 - (id)initWithPackage:(id)arg1;
 - (id)initWithAsset:(id)arg1;
 - (id)init;

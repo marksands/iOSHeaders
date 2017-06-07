@@ -23,8 +23,15 @@ __attribute__((visibility("hidden")))
 + (id)identifierWithFillName:(id)arg1 seriesName:(id)arg2 textureSetID:(id)arg3;
 @property(readonly, nonatomic) NSString *textureSetID; // @synthesize textureSetID=_textureSetID;
 - (void)didInitFromSOS;
+- (id)mipmapTextureSetFilename;
+- (id)lowResTextureSetFilename;
 @property(readonly, nonatomic) NSString *textureSetFilename;
+- (_Bool)isOnDemandResource;
 - (_Bool)isStoredInLocalBundle;
+- (id)mipmapOnDemandResourceTag;
+- (id)textureOnDemandResourceTag;
+- (id)mipmapLocalDirectoryPath;
+- (id)lowResLocalDirectoryPath;
 - (id)localDirectoryPath;
 - (void)setSeriesIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long seriesIndex;

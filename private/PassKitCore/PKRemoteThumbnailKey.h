@@ -4,21 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSCopying-Protocol.h>
 
-@class NSData, NSString;
+@class NSDictionary, NSString;
 
 @interface PKRemoteThumbnailKey : NSObject <NSCopying>
 {
     NSString *_requestIdentifier;
-    NSData *_requestData;
+    NSDictionary *_requestDictionary;
 }
 
-@property(retain, nonatomic) NSData *requestData; // @synthesize requestData=_requestData;
+@property(retain, nonatomic) NSDictionary *requestDictionary; // @synthesize requestDictionary=_requestDictionary;
 @property(retain, nonatomic) NSString *requestIdentifier; // @synthesize requestIdentifier=_requestIdentifier;
 - (void).cxx_destruct;
+- (_Bool)isEqualToRemoteThumbnailKey:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

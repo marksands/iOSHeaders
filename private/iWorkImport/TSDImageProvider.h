@@ -27,12 +27,13 @@ __attribute__((visibility("hidden")))
 - (void)ownerAccess;
 - (void)removeOwner;
 - (void)addOwner;
-- (_Bool)hasFlushableContent;
 - (void)setFlushingManager:(id)arg1;
 - (void)flush;
 - (void)removeInterest;
 - (void)addInterest;
 - (int)interest;
+@property(readonly, nonatomic) unsigned long long i_flushableMemoryEstimate;
+@property(readonly, nonatomic) _Bool i_hasFlushableContent;
 - (void)drawImageInContext:(struct CGContext *)arg1 rect:(struct CGRect)arg2;
 @property(readonly, nonatomic) _Bool isError;
 @property(readonly, nonatomic) _Bool isValid;

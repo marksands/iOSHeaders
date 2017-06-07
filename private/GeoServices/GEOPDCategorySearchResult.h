@@ -13,23 +13,32 @@
 @interface GEOPDCategorySearchResult : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    NSMutableArray *_browseCategorys;
     GEOPDRelatedSearchSuggestion *_defaultRelatedSearchSuggestion;
     GEOMapRegion *_displayMapRegion;
     NSMutableArray *_relatedSearchSuggestions;
     NSMutableArray *_resultDetourInfos;
     GEOPDSearchClientBehavior *_searchClientBehavior;
+    _Bool _enablePartialClientization;
     _Bool _isChainResultSet;
-    CDStruct_5984ff81 _has;
+    struct {
+        unsigned int enablePartialClientization:1;
+        unsigned int isChainResultSet:1;
+    } _has;
 }
 
++ (Class)browseCategoryType;
 + (Class)resultDetourInfoType;
 + (Class)relatedSearchSuggestionType;
+@property(retain, nonatomic) NSMutableArray *browseCategorys; // @synthesize browseCategorys=_browseCategorys;
+@property(nonatomic) _Bool enablePartialClientization; // @synthesize enablePartialClientization=_enablePartialClientization;
 @property(retain, nonatomic) GEOPDSearchClientBehavior *searchClientBehavior; // @synthesize searchClientBehavior=_searchClientBehavior;
 @property(retain, nonatomic) GEOPDRelatedSearchSuggestion *defaultRelatedSearchSuggestion; // @synthesize defaultRelatedSearchSuggestion=_defaultRelatedSearchSuggestion;
 @property(retain, nonatomic) NSMutableArray *resultDetourInfos; // @synthesize resultDetourInfos=_resultDetourInfos;
 @property(retain, nonatomic) NSMutableArray *relatedSearchSuggestions; // @synthesize relatedSearchSuggestions=_relatedSearchSuggestions;
 @property(nonatomic) _Bool isChainResultSet; // @synthesize isChainResultSet=_isChainResultSet;
 @property(retain, nonatomic) GEOMapRegion *displayMapRegion; // @synthesize displayMapRegion=_displayMapRegion;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -40,6 +49,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)browseCategoryAtIndex:(unsigned long long)arg1;
+- (unsigned long long)browseCategorysCount;
+- (void)addBrowseCategory:(id)arg1;
+- (void)clearBrowseCategorys;
+@property(nonatomic) _Bool hasEnablePartialClientization;
 @property(readonly, nonatomic) _Bool hasSearchClientBehavior;
 @property(readonly, nonatomic) _Bool hasDefaultRelatedSearchSuggestion;
 - (id)resultDetourInfoAtIndex:(unsigned long long)arg1;
@@ -52,7 +66,6 @@
 - (void)clearRelatedSearchSuggestions;
 @property(nonatomic) _Bool hasIsChainResultSet;
 @property(readonly, nonatomic) _Bool hasDisplayMapRegion;
-- (void)dealloc;
 
 @end
 

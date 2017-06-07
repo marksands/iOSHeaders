@@ -15,6 +15,7 @@
 + (long long)dataType;
 - (_Bool)isValidWithError:(id *)arg1;
 @property(readonly, nonatomic) _Bool isShippingEditable;
+- (id)errors;
 @property(readonly, nonatomic) NSString *shippingType;
 @property(readonly, nonatomic) CNContact *shippingAddress;
 

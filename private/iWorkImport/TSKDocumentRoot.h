@@ -9,8 +9,8 @@
 #import <iWorkImport/TSKAccessControllerDelegate-Protocol.h>
 #import <iWorkImport/TSKModel-Protocol.h>
 
-@class NSDictionary, NSMutableArray, NSObject, NSString, TSKAccessController, TSKAnnotationAuthor, TSKAnnotationAuthorStorage, TSKChangeNotifier, TSKCollaborationDocumentSessionState, TSKCollaborationState, TSKDocumentSupport, TSKPasteboardController, TSKSelectionDispatcher, TSSStylesheet, TSSTheme, TSULocale, TSUWeakReference;
-@protocol OS_dispatch_queue, TSKDocumentRootDelegate;
+@class NSDictionary, NSMutableArray, NSString, TSKAccessController, TSKAnnotationAuthor, TSKAnnotationAuthorStorage, TSKChangeNotifier, TSKDocumentSupport, TSKPasteboardController, TSKSelectionDispatcher, TSSStylesheet, TSSTheme, TSULocale;
+@protocol TSKDocumentRootDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TSKDocumentRoot : TSPObject <TSKAccessControllerDelegate, TSKModel>
@@ -21,17 +21,14 @@ __attribute__((visibility("hidden")))
     TSKPasteboardController *_pasteboardController;
     TSKAnnotationAuthorStorage *_annotationAuthorStorage;
     TSKAnnotationAuthor *_authorForFiltering;
-    NSMutableArray *_activityLogEntries;
     _Bool _isFindActive;
-    NSObject<OS_dispatch_queue> *_iCloudTeardownStackQueue;
     NSMutableArray *_iCloudTeardownStack;
     _Bool _preventImageConversionOnOpen;
     TSULocale *_documentLocale;
+    _Bool _hasUserDefinedLocale;
     TSULocale *_documentCreationLocale;
     _Bool _isBeingLocalized;
-    TSUWeakReference *_delegateReference;
-    TSKCollaborationDocumentSessionState *_collaborationSessionState;
-    TSKCollaborationDocumentSessionState *_collaborationSessionStateIfAvailable;
+    id <TSKDocumentRootDelegate> _delegate;
     TSKDocumentSupport *_documentSupport;
     TSKDocumentSupport *_documentSupportIfAvailable;
 }
@@ -39,8 +36,6 @@ __attribute__((visibility("hidden")))
 + (_Bool)needsObjectUUID;
 @property(readonly, nonatomic) TSKDocumentSupport *documentSupportIfAvailable; // @synthesize documentSupportIfAvailable=_documentSupportIfAvailable;
 @property(readonly, nonatomic) TSKDocumentSupport *documentSupport; // @synthesize documentSupport=_documentSupport;
-@property(readonly, nonatomic) TSKCollaborationDocumentSessionState *collaborationSessionStateIfAvailable; // @synthesize collaborationSessionStateIfAvailable=_collaborationSessionStateIfAvailable;
-@property(readonly, nonatomic) TSKCollaborationDocumentSessionState *collaborationSessionState; // @synthesize collaborationSessionState=_collaborationSessionState;
 @property(readonly, nonatomic) _Bool isBeingLocalized; // @synthesize isBeingLocalized=_isBeingLocalized;
 @property(readonly, nonatomic) TSKChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
 @property(retain, nonatomic) TSKAnnotationAuthor *authorForFiltering; // @synthesize authorForFiltering=_authorForFiltering;
@@ -51,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSKPasteboardController *pasteboardController; // @synthesize pasteboardController=_pasteboardController;
 @property(readonly, nonatomic) TSKSelectionDispatcher *selectionDispatcher; // @synthesize selectionDispatcher=_selectionDispatcher;
 @property(readonly, nonatomic) TSKAccessController *accessController; // @synthesize accessController=_accessController;
+- (void).cxx_destruct;
 - (void)gilligan_documentDidRemoveObject:(id)arg1;
 - (void)gilligan_documentWillRemoveObject:(id)arg1;
 - (void)gilligan_documentWillInsertObject:(id)arg1;
@@ -64,13 +60,13 @@ __attribute__((visibility("hidden")))
 - (void)removeICloudTeardownObserver:(long long)arg1;
 - (long long)addObserverForICloudTeardownSuspendingCollaboration:(_Bool)arg1 block:(CDUnknownBlockType)arg2;
 - (long long)addObserverForICloudTeardownWithBlock:(CDUnknownBlockType)arg1;
-- (void)updateDocumentLocaleToUseLanguage:(id)arg1;
-- (void)updateDocumentLocaleToCurrent;
+- (_Bool)updateDocumentLocaleToUseLanguageIfNeeded:(id)arg1;
+- (_Bool)updateDocumentLocaleToCurrentIfNeeded;
 @property(readonly, nonatomic) NSDictionary *additionalDocumentSupportPropertiesForWrite;
 @property(readonly, nonatomic) NSDictionary *additionalDocumentPropertiesForWrite;
 - (void)saveToArchive:(struct DocumentArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct DocumentArchive *)arg1 unarchiver:(id)arg2;
-@property(readonly, nonatomic) TSKCollaborationState *collaborationState;
+@property(readonly, nonatomic) _Bool isCollaborative;
 - (void)dumpReaderWriterThreads;
 - (id)modelEnumeratorWithFlags:(unsigned long long)arg1 forObjectsPassingTest:(CDUnknownBlockType)arg2;
 - (id)modelEnumeratorForObjectsPassingTest:(CDUnknownBlockType)arg1;
@@ -92,7 +88,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *documentLanguage;
 @property(readonly, nonatomic) unsigned long long writingDirectionForStorage;
 @property(readonly, nonatomic) unsigned long long writingDirection;
-- (void)collaborationStateDidUpdate:(id)arg1;
 - (void)willClose;
 - (void)documentDidLoad;
 - (void)didSaveWithEncryptionChange;

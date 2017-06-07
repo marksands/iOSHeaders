@@ -14,6 +14,7 @@
 
 + (id)startVoiceSearchRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)startVoiceSearchRequest;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *searchTypes;
 @property(copy, nonatomic) NSDictionary *queryParameters;
 @property(copy, nonatomic) NSDictionary *headers;

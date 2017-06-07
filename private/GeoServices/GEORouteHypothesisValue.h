@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
@@ -30,7 +30,7 @@
 @property(nonatomic) long long rowId; // @synthesize rowId=_rowId;
 @property(nonatomic) double valueRefreshTimeStamp; // @synthesize valueRefreshTimeStamp=_valueRefreshTimeStamp;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
-@property(readonly, retain, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
+@property(readonly, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
 @property(readonly, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(readonly, nonatomic) NSDate *arrivalDate; // @synthesize arrivalDate=_arrivalDate;
 @property(readonly, nonatomic) GEOComposedWaypoint *destination; // @synthesize destination=_destination;
@@ -38,17 +38,17 @@
 @property(nonatomic) double updatedTimeStamp; // @synthesize updatedTimeStamp=_updatedTimeStamp;
 @property(nonatomic) _Bool prediction; // @synthesize prediction=_prediction;
 @property(retain, nonatomic) GEORouteHypothesis *currentHypothesis; // @synthesize currentHypothesis=_currentHypothesis;
-@property(readonly, retain, nonatomic) GEORouteHypothesisMonitor *monitor; // @synthesize monitor=_monitor;
+@property(readonly, nonatomic) GEORouteHypothesisMonitor *monitor; // @synthesize monitor=_monitor;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)canBePersistedToDisk;
 @property(readonly) _Bool isStaleToPurgeFromDisk;
 @property(readonly) _Bool isStaleToRefresh;
 - (_Bool)aggresiveArrivalIsAfterExpiration;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (void)commonInit;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithSource:(id)arg1 toDestination:(id)arg2 transportType:(int)arg3 arrivalDate:(id)arg4 expirationDate:(id)arg5 traits:(id)arg6;
+- (id)initWithSource:(id)arg1 toDestination:(id)arg2 transportType:(int)arg3 arrivalDate:(id)arg4 expirationDate:(id)arg5 traceName:(id)arg6 traits:(id)arg7;
 
 @end
 

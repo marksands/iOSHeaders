@@ -21,6 +21,7 @@
 @property(copy, nonatomic) CDUnknownBlockType comparator; // @synthesize comparator=_comparator;
 - (void)enumerateUniqueMessageInfosWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)debugDescription;
+- (unsigned long long)_scanForMessageInfoSimilarTo:(id)arg1;
 - (void)_invalidate;
 - (id)_duplicateMessageInfosForMessageInfo:(id)arg1;
 - (void)_removeDuplicatesForMessageInfo:(id)arg1;

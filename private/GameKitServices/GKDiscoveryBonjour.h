@@ -17,6 +17,7 @@
     struct _DNSServiceRef_t *_advertiseRef;
     CDUnknownBlockType _browseCallback;
     CDUnknownBlockType _connectionCallback;
+    CDUnknownBlockType _collisionCallback;
     CDUnknownBlockType _serviceNameCollisionCallback;
     NSMutableArray *_launchdSources;
     int _listeningPort;

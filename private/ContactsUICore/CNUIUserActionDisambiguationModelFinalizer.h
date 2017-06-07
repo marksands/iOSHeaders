@@ -18,10 +18,10 @@
 }
 
 + (id)modelWithDefaultAction:(id)arg1 actions:(id)arg2 recentActions:(id)arg3 directoryServiceActions:(id)arg4 foundOnDeviceActions:(id)arg5;
-@property(readonly, nonatomic) NSArray *foundOnDeviceActions; // @synthesize foundOnDeviceActions=_foundOnDeviceActions;
-@property(readonly, nonatomic) NSArray *directoryServiceActions; // @synthesize directoryServiceActions=_directoryServiceActions;
-@property(readonly, nonatomic) NSArray *recentActions; // @synthesize recentActions=_recentActions;
-@property(readonly, nonatomic) NSMutableArray *actions; // @synthesize actions=_actions;
+@property(retain, nonatomic) NSArray *foundOnDeviceActions; // @synthesize foundOnDeviceActions=_foundOnDeviceActions;
+@property(retain, nonatomic) NSArray *directoryServiceActions; // @synthesize directoryServiceActions=_directoryServiceActions;
+@property(retain, nonatomic) NSArray *recentActions; // @synthesize recentActions=_recentActions;
+@property(retain, nonatomic) NSMutableArray *actions; // @synthesize actions=_actions;
 @property(retain, nonatomic) CNUIUserActionItem *defaultAction; // @synthesize defaultAction=_defaultAction;
 - (void).cxx_destruct;
 - (void)removeDefaultActionFromListOfActions;

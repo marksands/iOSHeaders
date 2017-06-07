@@ -7,6 +7,6 @@
 #import <UIKit/UIImage.h>
 
 @interface UIImage (Magnify)
-- (id)sbf_resizedImagedForCurrentMagnifyMode;
+- (id)sbf_resizedImageForCurrentMagnifyMode;
 @end
 

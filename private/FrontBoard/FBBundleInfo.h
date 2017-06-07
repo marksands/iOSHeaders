@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDictionary, NSString, NSURL, NSUUID;
+@class NSString, NSURL, NSUUID;
 
 @interface FBBundleInfo : NSObject
 {
@@ -14,19 +14,16 @@
     NSString *_bundleVersion;
     NSString *_bundleType;
     NSURL *_bundleURL;
-    NSDictionary *_extendedInfo;
     unsigned long long _sequenceNumber;
     NSUUID *_cacheGUID;
 }
 
-@property(copy, nonatomic) NSDictionary *extendedInfo; // @synthesize extendedInfo=_extendedInfo;
 @property(readonly, copy, nonatomic) NSUUID *cacheGUID; // @synthesize cacheGUID=_cacheGUID;
 @property(readonly, nonatomic) unsigned long long sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(readonly, retain, nonatomic) NSURL *bundleURL; // @synthesize bundleURL=_bundleURL;
 @property(readonly, copy, nonatomic) NSString *bundleType; // @synthesize bundleType=_bundleType;
 @property(readonly, copy, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
-- (id)extendedInfoValueForKey:(id)arg1;
 - (void)dealloc;
 - (id)_initWithBundleProxy:(id)arg1 bundleIdentifier:(id)arg2 url:(id)arg3;
 - (id)_initWithBundleProxy:(id)arg1 overrideURL:(id)arg2;

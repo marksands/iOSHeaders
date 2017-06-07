@@ -4,28 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface PCLogging : NSObject
 {
 }
 
-+ (void)enableLoggingForCustomHandler:(CDUnknownBlockType)arg1;
-+ (void)enableFileLogging:(_Bool)arg1;
-+ (void)enableConsoleLoggingForLevel:(int)arg1;
-+ (void)_appendString:(id)arg1 toFileNamed:(id)arg2;
 + (id)logFileDirectory;
-+ (void)logKeepAliveInterval:(double)arg1 forServiceIdentifier:(id)arg2;
-+ (void)logAtLevel:(int)arg1 delegate:(id)arg2 format:(id)arg3 arguments:(struct __va_list_tag [1])arg4;
-+ (CDUnknownBlockType)_formatBlock;
-+ (void)logAtLevel:(int)arg1 delegate:(id)arg2 format:(id)arg3;
-+ (_Bool)loggingEnabledForLevel:(int)arg1;
-+ (void)_printLoggingConfig;
-+ (id)getMainBundleId;
-+ (void)_configureLogFacilityIfNeeded:(id)arg1;
-+ (id)_facilityForIdentifier:(id)arg1;
-+ (id)_fileNameForIdentifier:(id)arg1;
-+ (void)initialize;
 
 @end
 

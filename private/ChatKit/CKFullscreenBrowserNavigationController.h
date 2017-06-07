@@ -18,7 +18,6 @@
 - (_Bool)constrainToPresentingVCBounds;
 - (_Bool)preserveModalPresentationStyle;
 - (_Bool)wantsWindowedPresentation;
-- (long long)preferredStatusBarStyle;
 - (void)loadView;
 - (_Bool)shouldAutorotate;
 - (unsigned long long)supportedInterfaceOrientations;

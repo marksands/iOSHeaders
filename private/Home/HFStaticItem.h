@@ -16,6 +16,7 @@
     CDUnknownBlockType _resultsBlock;
 }
 
++ (id)emptyItem;
 @property(copy, nonatomic) CDUnknownBlockType resultsBlock; // @synthesize resultsBlock=_resultsBlock;
 @property(retain, nonatomic) NSDictionary *staticResults; // @synthesize staticResults=_staticResults;
 - (void).cxx_destruct;

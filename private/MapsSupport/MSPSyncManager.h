@@ -62,6 +62,7 @@
 - (void)_applyDeleteItem:(id)arg1;
 - (void)_applyUpdateItem:(id)arg1;
 - (void)_applyAddItem:(id)arg1;
+- (void)_clearAllNanoPersistableData;
 - (_Bool)syncSession:(id)arg1 resetDataStoreWithError:(id *)arg2;
 - (void)syncSession:(id)arg1 didEndWithError:(id)arg2;
 - (void)syncSession:(id)arg1 applyChanges:(id)arg2 completion:(CDUnknownBlockType)arg3;

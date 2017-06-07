@@ -9,6 +9,10 @@
 @class NSError, NSString, VSInstrumentMetrics;
 
 @protocol VSSpeechServiceDelegate <NSObject>
+- (oneway void)presynthesizedAudioRequestSuccessWithInstrumentMetrics:(VSInstrumentMetrics *)arg1 error:(NSError *)arg2;
+- (oneway void)presynthesizedAudioRequestDidStopAtEnd:(_Bool)arg1 error:(NSError *)arg2;
+- (oneway void)presynthesizedAudioRequestDidStart;
+- (oneway void)synthesisRequestDidFinishWithInstrumentMetrics:(VSInstrumentMetrics *)arg1 error:(NSError *)arg2;
 - (oneway void)speechRequestSuccessWithInstrumentMetrics:(VSInstrumentMetrics *)arg1;
 - (oneway void)speechRequestDidStopWithSuccess:(_Bool)arg1 phonemesSpoken:(NSString *)arg2 error:(NSError *)arg3;
 - (oneway void)speechRequestMark:(long long)arg1 didStartForRange:(struct _NSRange)arg2;

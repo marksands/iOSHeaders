@@ -11,6 +11,7 @@
 - (id)generateCoverImageAssetHandleWithAssetManager:(id)arg1;
 - (id)generateNameImageMaskAssetHandleForURL:(id)arg1 withAssetManager:(id)arg2;
 - (id)generateNameImageForDarkBackgroundAssetHandleWithAssetManager:(id)arg1;
+- (id)generateNameImageCompactAssetHandleWithAssetManager:(id)arg1;
 - (id)generateNameImageAssetHandleWithAssetManager:(id)arg1;
 - (id)generateLogoImageAssetHandleWithAssetManager:(id)arg1;
 @end

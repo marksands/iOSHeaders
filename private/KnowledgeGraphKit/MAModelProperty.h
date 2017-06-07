@@ -15,9 +15,9 @@
 
 // Remaining properties
 @property(nonatomic) int identifier; // @dynamic identifier;
-@property(retain, nonatomic) NSString *key; // @dynamic key;
-@property(nonatomic) NSNumber *value_double; // @dynamic value_double;
-@property(nonatomic) NSNumber *value_integer; // @dynamic value_integer;
-@property(nonatomic) NSString *value_string; // @dynamic value_string;
+@property(copy, nonatomic) NSString *key; // @dynamic key;
+@property(copy, nonatomic) NSNumber *value_double; // @dynamic value_double;
+@property(copy, nonatomic) NSNumber *value_integer; // @dynamic value_integer;
+@property(copy, nonatomic) NSString *value_string; // @dynamic value_string;
 @end
 

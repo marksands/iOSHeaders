@@ -10,6 +10,8 @@
 {
 }
 
++ (_Bool)questionClassification:(id)arg1 withLanguageIdentifier:(id)arg2;
++ (id)messageClassification:(id)arg1 withLanguageIdentifier:(id)arg2 conversationTurns:(id)arg3;
 + (id)messageClassification:(id)arg1 withLanguageIdentifier:(id)arg2;
 + (id)preferredLanguages;
 + (void)setPreferredLanguages:(id)arg1;

@@ -34,6 +34,41 @@ struct CGSize {
     double _field2;
 };
 
+struct MIDIIOErrorNotification {
+    int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    int _field4;
+};
+
+struct MIDIObjectAddRemoveNotification {
+    int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    int _field4;
+    unsigned int _field5;
+    int _field6;
+};
+
+struct MIDIObjectPropertyChangeNotification {
+    int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    int _field4;
+    struct __CFString *_field5;
+};
+
+struct MIDIPacket {
+    unsigned long long _field1;
+    unsigned short _field2;
+    unsigned char _field3[256];
+};
+
+struct MIDIPacketList {
+    unsigned int _field1;
+    struct MIDIPacket _field2[1];
+};
+
 struct NSString {
     Class _field1;
 };

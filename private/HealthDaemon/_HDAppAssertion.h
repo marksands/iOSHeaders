@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class HDAppAssertionManager, HDDaemon, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
+@class HDAppAssertionManager, HDProfile, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface _HDAppAssertion : NSObject
@@ -16,7 +16,7 @@
     NSMutableArray *_pendingDataTypeCodes;
     double _lastLaunchAttempt;
     long long _launchErrorCount;
-    HDDaemon *_daemon;
+    HDProfile *_profile;
     HDAppAssertionManager *_assertionManager;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_pendingLaunchCompletions;
@@ -30,7 +30,7 @@
 @property(retain, nonatomic) NSMutableDictionary *pendingLaunchCompletions; // @synthesize pendingLaunchCompletions=_pendingLaunchCompletions;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak HDAppAssertionManager *assertionManager; // @synthesize assertionManager=_assertionManager;
-@property(nonatomic) __weak HDDaemon *daemon; // @synthesize daemon=_daemon;
+@property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(readonly, nonatomic) long long launchErrorCount; // @synthesize launchErrorCount=_launchErrorCount;
 @property(readonly, nonatomic) double lastLaunchAttempt; // @synthesize lastLaunchAttempt=_lastLaunchAttempt;
 @property(readonly, nonatomic) NSMutableArray *pendingDataTypeCodes; // @synthesize pendingDataTypeCodes=_pendingDataTypeCodes;
@@ -44,7 +44,8 @@
 - (void)extendForDataType:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_queue_acquireAssertionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)launchWithCompletion:(CDUnknownBlockType)arg1;
-- (id)initWithBundleIdentifier:(id)arg1 assertionManager:(id)arg2 daemon:(id)arg3 queue:(id)arg4;
+- (id)launchBundleIdentifier;
+- (id)initWithBundleIdentifier:(id)arg1 assertionManager:(id)arg2 profile:(id)arg3 queue:(id)arg4;
 
 @end
 

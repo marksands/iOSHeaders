@@ -6,38 +6,33 @@
 
 #import <Home/HFItemManager.h>
 
-@class HFStaticItem, HFStaticItemProvider, HFStatusItemProvider;
+@class HFStaticItem, HFStatusItemProvider;
 
 @interface HFHomeStatusItemManager : HFItemManager
 {
     HFStaticItem *_showDetailsItem;
-    Class _weatherStatusItemClass;
-    HFStaticItemProvider *_staticItemProvider;
-    HFStatusItemProvider *_statusItemProvider;
     unsigned long long _maxStatusItemCount;
+    HFStatusItemProvider *_statusItemProvider;
     long long _latestOverallPriority;
     unsigned long long _latestOverallLoadingState;
 }
 
 @property(nonatomic) unsigned long long latestOverallLoadingState; // @synthesize latestOverallLoadingState=_latestOverallLoadingState;
 @property(nonatomic) long long latestOverallPriority; // @synthesize latestOverallPriority=_latestOverallPriority;
-@property(nonatomic) unsigned long long maxStatusItemCount; // @synthesize maxStatusItemCount=_maxStatusItemCount;
 @property(retain, nonatomic) HFStatusItemProvider *statusItemProvider; // @synthesize statusItemProvider=_statusItemProvider;
-@property(retain, nonatomic) HFStaticItemProvider *staticItemProvider; // @synthesize staticItemProvider=_staticItemProvider;
-@property(readonly, nonatomic) Class weatherStatusItemClass; // @synthesize weatherStatusItemClass=_weatherStatusItemClass;
+@property(nonatomic) unsigned long long maxStatusItemCount; // @synthesize maxStatusItemCount=_maxStatusItemCount;
 @property(retain, nonatomic) HFStaticItem *showDetailsItem; // @synthesize showDetailsItem=_showDetailsItem;
 - (void).cxx_destruct;
+- (id)_showDetailsItemTitle;
+- (unsigned long long)_overflowStatusItemCount;
 - (long long)_overallPriority;
 - (_Bool)_requiresNotificationsForCharacteristic:(id)arg1;
 - (void)_didFinishUpdateTransactionWithAffectedItems:(id)arg1;
 - (id)_itemsToHideInSet:(id)arg1;
 - (CDUnknownBlockType)_comparatorForSectionIdentifier:(id)arg1;
-- (id)_styleForItem:(id)arg1;
-- (id)_itemProviders;
-- (void)_createItemProvidersWithHome:(id)arg1;
-- (unsigned long long)overflowStatusItemCount;
+- (id)_buildItemProvidersForHome:(id)arg1;
 - (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2;
-- (id)initWithMaxStatusItems:(unsigned long long)arg1 weatherStatusItemClass:(Class)arg2 delegate:(id)arg3;
+- (id)initWithMaxStatusItems:(unsigned long long)arg1 delegate:(id)arg2;
 
 @end
 

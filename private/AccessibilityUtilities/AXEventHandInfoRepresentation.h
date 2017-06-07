@@ -38,10 +38,10 @@
 @property(nonatomic) unsigned short currentFingerCount; // @synthesize currentFingerCount=_currentFingerCount;
 @property(nonatomic) unsigned short initialFingerCount; // @synthesize initialFingerCount=_initialFingerCount;
 @property(nonatomic) unsigned int eventType; // @synthesize eventType=_eventType;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (id)accessibilityEventRepresentationTabularDescription;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeToHandInfo:(CDStruct_f2c5c900 *)arg1;

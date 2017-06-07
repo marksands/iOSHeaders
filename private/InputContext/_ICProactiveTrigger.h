@@ -6,29 +6,31 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSSet, NSString;
+#import <InputContext/NSCopying-Protocol.h>
+#import <InputContext/NSSecureCoding-Protocol.h>
 
-@interface _ICProactiveTrigger : NSObject
+@class NSDictionary, NSSet;
+
+@interface _ICProactiveTrigger : NSObject <NSSecureCoding, NSCopying>
 {
     unsigned char _triggerSourceType;
-    NSSet *_recipients;
-    NSString *_currentAppID;
-    NSString *_localeIdentifier;
+    NSSet *_availableApps;
     NSDictionary *_attributedString;
-    NSDictionary *_attributes;
 }
 
-@property(retain, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSDictionary *attributedString; // @synthesize attributedString=_attributedString;
-@property(readonly, copy, nonatomic) NSString *localeIdentifier; // @synthesize localeIdentifier=_localeIdentifier;
-@property(readonly, copy, nonatomic) NSString *currentAppID; // @synthesize currentAppID=_currentAppID;
-@property(readonly, nonatomic) NSSet *recipients; // @synthesize recipients=_recipients;
+@property(retain, nonatomic) NSSet *availableApps; // @synthesize availableApps=_availableApps;
 @property(readonly, nonatomic) unsigned char triggerSourceType; // @synthesize triggerSourceType=_triggerSourceType;
 - (void).cxx_destruct;
 - (_Bool)isEqualToProactiveTrigger:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)initWithSource:(unsigned char)arg1 attributes:(id)arg2;
-- (id)initWithInputContex:(id)arg1 attributes:(id)arg2;
 
 @end
 

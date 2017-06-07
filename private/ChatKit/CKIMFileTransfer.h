@@ -40,6 +40,7 @@
 @property(readonly, copy, nonatomic) NSString *guid; // @synthesize guid=_guid;
 - (void).cxx_destruct;
 - (void)attachmentRestored:(id)arg1;
+- (void)fetchHighQualityFile:(CDUnknownBlockType)arg1;
 - (void)transferUpdated:(id)arg1;
 - (void)updateTransfer;
 - (id)linkFileURLWithFilename:(id)arg1;

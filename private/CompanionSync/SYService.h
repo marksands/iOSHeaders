@@ -50,6 +50,7 @@
         unsigned int assignedEngineType:3;
         unsigned int suspendedForQWS:1;
     } _flags;
+    NSString *_peerID;
     double _defaultMessageTimeout;
     double _sessionStalenessInterval;
     long long _engineType;
@@ -121,6 +122,7 @@
 - (void)_processPendingChanges;
 - (id)_makeSessionForDeltaSync:(_Bool)arg1;
 @property(readonly, nonatomic) PBCodable *stateForLogging;
+@property(readonly, nonatomic) NSString *peerID; // @synthesize peerID=_peerID;
 - (void)suspend;
 - (_Bool)resume:(id *)arg1;
 - (void)setDelegate:(id)arg1 queue:(id)arg2;

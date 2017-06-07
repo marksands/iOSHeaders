@@ -16,6 +16,7 @@
 - (void)setRandomDebugHighlight;
 - (void)centerVerticallyInSuperview;
 - (void)centerHorizontallyInSuperview;
+- (void)performOnAllSubviews:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSArray *allSubviews;
 @end
 

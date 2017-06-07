@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class VKTilePool;
 
@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct VKTileKey key; // @synthesize key=_key;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(readonly) shared_ptr_696716c4 viewConstantData;
+@property(readonly, nonatomic) const shared_ptr_696716c4 *viewConstantData;
 - (void)updateViewDependentStateWithContext:(struct LayoutContext *)arg1;
 - (void)updateViewDependentStateIfNecessaryWithContext:(struct LayoutContext *)arg1;
 - (unsigned long long)geometryCount;

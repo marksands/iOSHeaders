@@ -19,6 +19,10 @@
 @property(copy, nonatomic) NSString *passTypeIdentifier; // @synthesize passTypeIdentifier=_passTypeIdentifier;
 @property(copy, nonatomic) NSString *serialNumber; // @synthesize serialNumber=_serialNumber;
 - (void).cxx_destruct;
+- (id)description;
+- (unsigned long long)hash;
+- (_Bool)_isEqualToCredential:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithPaymentPass:(id)arg1;
 - (id)init;
 

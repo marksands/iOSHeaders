@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataImportWarningSet : TSTTableDataObject
 {
-    TSTImportWarningSet *mImportWarningSet;
+    TSTImportWarningSet *_importWarningSet;
 }
 
-@property(readonly, nonatomic) TSTImportWarningSet *importWarningSet; // @synthesize importWarningSet=mImportWarningSet;
-- (void)dealloc;
+@property(readonly, nonatomic) TSTImportWarningSet *importWarningSet; // @synthesize importWarningSet=_importWarningSet;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

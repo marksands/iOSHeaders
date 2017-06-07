@@ -23,12 +23,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct PatternedLayer *patternedRibbonLayer;
 @property(readonly, nonatomic) struct RoadLayer *roadTrafficLayer;
 @property(readonly, nonatomic) struct RoadLayer *roadLayer;
-- (void)buildGglMeshesWithDevice:(Device_f0710f89 *)arg1 trafficStream:(const struct TrafficStream *)arg2;
-- (void)addPatternedRibbonTo:(unordered_map_167c727b *)arg1 styleQuery:(shared_ptr_c5d816ee)arg2 painterZ:(unsigned int)arg3 numPoints:(unsigned long long)arg4 points:(Matrix_8746f91e *)arg5;
-- (void)addRoadRibbonTo:(unordered_map_95f1fb18 *)arg1 styleQuery:(shared_ptr_c5d816ee)arg2 painterZ:(unsigned int)arg3 numPoints:(unsigned long long)arg4 points:(Matrix_8746f91e *)arg5 startCap:(_Bool)arg6 endCap:(_Bool)arg7 trafficTexelRun:(const struct TexelRun *)arg8 trafficSkeleton:(_Bool)arg9;
+- (void)buildGglMeshesWithDevice:(struct Device *)arg1 trafficStream:(const struct TrafficStream *)arg2;
+- (void)addPatternedRibbonTo:(unordered_map_171a1194 *)arg1 styleQuery:(shared_ptr_c5d816ee)arg2 painterZ:(unsigned int)arg3 numPoints:(unsigned long long)arg4 points:(Matrix_8746f91e *)arg5;
+- (void)addRoadRibbonTo:(unordered_map_59c55433 *)arg1 styleQuery:(shared_ptr_c5d816ee)arg2 painterZ:(unsigned int)arg3 numPoints:(unsigned long long)arg4 points:(Matrix_8746f91e *)arg5 startCap:(_Bool)arg6 endCap:(_Bool)arg7 trafficTexelRun:(const struct TexelRun *)arg8 trafficSkeleton:(_Bool)arg9;
 - (void)updateViewDependentStateIfNecessaryWithContext:(struct LayoutContext *)arg1;
+- (id)description;
 - (void)dealloc;
-- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(shared_ptr_a3c46825)arg3 sharedResources:(id)arg4 contentScale:(double)arg5 device:(Device_f0710f89 *)arg6;
+- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 styleManager:(shared_ptr_a3c46825)arg3 sharedResources:(id)arg4 contentScale:(double)arg5 device:(struct Device *)arg6;
 
 @end
 

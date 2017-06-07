@@ -16,6 +16,7 @@
 {
     id <DDRemoteActionPresenter> _proxy;
     DDAction *_action;
+    _Bool _cancellable;
     CNContactViewController *_personViewController;
 }
 
@@ -23,15 +24,18 @@
 + (id)_exportedInterface;
 + (id)_remoteViewControllerInterface;
 @property(retain) DDAction *action; // @synthesize action=_action;
+- (void).cxx_destruct;
+- (void)contactViewControllerForUnknownContactDidEndAddingToContacts:(id)arg1;
+- (void)contactViewControllerForUnknownContactDidBeginAddingToContacts:(id)arg1;
 - (void)contactViewController:(id)arg1 didCompleteWithContact:(id)arg2;
+- (void)setCancellable:(_Bool)arg1;
 - (void)cancelPressed:(id)arg1;
 - (void)willTransitionToTraitCollection:(id)arg1 withTransitionCoordinator:(id)arg2;
 - (void)doneWithAddingContact;
 - (void)adaptForPresentationInPopover:(_Bool)arg1;
 - (void)setCancelButtonVisible:(_Bool)arg1;
 - (void)prepareForAction:(id)arg1;
-- (void)_augmentContact:(id)arg1 withResultsFromAction:(id)arg2;
-- (void)dealloc;
+- (struct CGSize)preferredContentSize;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

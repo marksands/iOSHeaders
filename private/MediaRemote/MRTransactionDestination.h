@@ -7,10 +7,12 @@
 #import <Foundation/NSObject.h>
 
 @class MRTransactionPacketizer;
+@protocol OS_dispatch_queue;
 
 @interface MRTransactionDestination : NSObject
 {
     MRTransactionPacketizer *_packetizer;
+    NSObject<OS_dispatch_queue> *_queue;
     unsigned long long _name;
 }
 

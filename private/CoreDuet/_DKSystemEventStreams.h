@@ -11,6 +11,7 @@
 }
 
 + (id)internalQueryDataCollectionStream;
++ (id)safariHistoryStream;
 + (id)searchFeedbackStream;
 + (id)userActivityDetectedStream;
 + (id)homeKitAppViewStream;
@@ -52,7 +53,9 @@
 + (id)appIntentsStream;
 + (id)appActivityStream;
 + (id)appBulletinStream;
++ (id)appInstallStream;
 + (id)appInFocusStream;
++ (id)deviceInUseProxyStream;
 + (id)contextStorePersistentRuleStream;
 
 @end

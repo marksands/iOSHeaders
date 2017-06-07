@@ -6,7 +6,7 @@
 
 #import <FrontBoard/NSObject-Protocol.h>
 
-@class FBUISceneClientIdentity, FBUISceneIdentity;
+@class FBUISceneClientIdentity, NSString;
 @protocol FBUIProcess, FBUISceneClient;
 
 @protocol FBUISceneClientWorkspace <NSObject>
@@ -14,6 +14,6 @@
 @property(readonly, retain, nonatomic) id <FBUIProcess> clientProcess;
 - (void)endTransaction;
 - (void)beginTransaction;
-- (id <FBUISceneClient>)clientForSceneIdentity:(FBUISceneIdentity *)arg1;
+- (id <FBUISceneClient>)clientForSceneIdentifier:(NSString *)arg1;
 @end
 

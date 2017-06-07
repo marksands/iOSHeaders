@@ -27,7 +27,6 @@
     _Bool _resetConfigDisplayTimeHasElapsed;
     _Bool _keychainSyncPeerAvailable;
     _Bool _cloudDataSyncPeerAvailable;
-    int _circleNotificationToken;
     NSUUID *_uuid;
     HMFMessageDispatcher *_msgDispatcher;
     NSObject<OS_dispatch_source> *_popupTimer;
@@ -66,7 +65,6 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *popupTimer; // @synthesize popupTimer=_popupTimer;
 @property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
 @property(nonatomic) _Bool keychainSyncEnabled; // @synthesize keychainSyncEnabled=_keychainSyncEnabled;
-@property(nonatomic) int circleNotificationToken; // @synthesize circleNotificationToken=_circleNotificationToken;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
@@ -78,6 +76,7 @@
 - (_Bool)isiCloudSwitchEnabled;
 - (void)updateiCloudSwitchState:(_Bool)arg1;
 - (void)updateServerTokenAvailable:(_Bool)arg1;
+- (void)updateWithoutDataSynCheckServerTokenAvailable:(_Bool)arg1;
 - (void)_updateCloudDataSyncState:(_Bool)arg1;
 - (void)updateCloudDataSyncState:(_Bool)arg1;
 - (_Bool)_cloudSyncinProgressCheck:(id)arg1 supressPopup:(_Bool)arg2 sendCanceledError:(_Bool *)arg3 dataSyncState:(unsigned long long *)arg4;
@@ -105,11 +104,11 @@
 - (void)_startDataConfigResetTimers;
 @property(nonatomic) _Bool decryptionFailed; // @synthesize decryptionFailed=_decryptionFailed;
 - (void)_postNotificationForDataSyncInProgress:(_Bool)arg1 dataSyncState:(unsigned long long)arg2;
-- (void)_handleCircleChangedNotification;
+- (void)handleKeychainSyncStateChangedNotification:(id)arg1;
 - (void)_updateKeychainSyncEnabled:(_Bool)arg1;
 - (void)dealloc;
-- (void)_registerForCircleChangeNotifications;
-- (id)initWithName:(id)arg1 homeManager:(id)arg2 messageDispatcher:(id)arg3 serverTokenAvailable:(_Bool)arg4 localDataDecryptionFailed:(_Bool)arg5 totalHomes:(long long)arg6 currentAccount:(id)arg7;
+- (void)_registerForMessages;
+- (id)initWithName:(id)arg1 homeManager:(id)arg2 messageDispatcher:(id)arg3 localDataDecryptionFailed:(_Bool)arg4 totalHomes:(long long)arg5 currentAccount:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

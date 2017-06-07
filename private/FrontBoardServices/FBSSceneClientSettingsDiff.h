@@ -14,6 +14,7 @@
 - (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
 - (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)settingsByApplyingToMutableCopyOfSettings:(id)arg1;
+- (void)evaluateWithInspector:(id)arg1 context:(void *)arg2;
 
 @end
 

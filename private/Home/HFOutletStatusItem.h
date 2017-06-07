@@ -14,8 +14,7 @@
 - (id)multipleAbnormalServicesWithRoomFormatString;
 - (id)oneAbnormalServiceWithRoomFormatString;
 - (id)oneAbnormalServiceFormatString;
-- (id)characteristicType;
-- (id)serviceType;
+- (id)serviceTypes;
 
 @end
 

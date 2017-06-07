@@ -20,7 +20,7 @@
 @property(retain, nonatomic) PHAJobConstraints *currentConstraints; // @synthesize currentConstraints=_currentConstraints;
 @property(nonatomic) __weak id <PHAJobConstraintsObserverDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)acceptConstraints:(id)arg1 mask:(id)arg2;
+- (id)acceptConstraints:(id)arg1 mask:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)dealloc;
 - (id)init;
 - (id)initWithInitialConstraints:(id)arg1 delegate:(id)arg2;

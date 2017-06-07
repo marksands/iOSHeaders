@@ -6,11 +6,9 @@
 
 #import <Notes/NoteCollectionObject.h>
 
-#import <Notes/ICLegacyAccount-Protocol.h>
-
 @class NSDictionary, NSNumber, NSSet, NSString, NoteStoreObject;
 
-@interface NoteAccountObject : NoteCollectionObject <ICLegacyAccount>
+@interface NoteAccountObject : NoteCollectionObject
 {
     NSDictionary *_constraints;
     NSNumber *_preventMovingNotesToOtherAccounts;
@@ -30,23 +28,14 @@
 - (id)collectionInfo;
 - (id)predicateForNotes;
 - (id)noteVisibilityTestingForSearchingAccount;
-- (_Bool)supportsAttachments;
-- (id)defaultFolder;
-- (id)folders;
-- (id)emailAddress;
-- (id)objectIdentifier;
 
 // Remaining properties
 @property(retain, nonatomic) NSString *accountIdentifier; // @dynamic accountIdentifier;
 @property(retain, nonatomic) NSString *constraintsPath; // @dynamic constraintsPath;
-@property(readonly, copy) NSString *debugDescription;
 @property(retain, nonatomic) NoteStoreObject *defaultStore; // @dynamic defaultStore;
-@property(readonly, copy) NSString *description;
 @property(nonatomic) _Bool didChooseToMigrate; // @dynamic didChooseToMigrate;
-@property(readonly) unsigned long long hash;
 @property(retain, nonatomic) NSString *name; // @dynamic name;
 @property(retain, nonatomic) NSSet *stores; // @dynamic stores;
-@property(readonly) Class superclass;
 @property(retain, nonatomic) NSNumber *type; // @dynamic type;
 
 @end

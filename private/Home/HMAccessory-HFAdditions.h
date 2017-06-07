@@ -9,6 +9,7 @@
 @class NSSet;
 
 @interface HMAccessory (HFAdditions)
+@property(readonly, nonatomic) NSSet *hf_servicesBehindBridge;
 @property(readonly, nonatomic) NSSet *hf_programmableSwitchNamespaceServices;
 - (id)hf_serviceOfType:(id)arg1;
 @property(readonly, nonatomic) unsigned long long hf_numberOfProgrammableSwitches;

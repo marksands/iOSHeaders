@@ -28,6 +28,7 @@
 @property(nonatomic) double requestLocalTimestamp; // @synthesize requestLocalTimestamp=_requestLocalTimestamp;
 @property(retain, nonatomic) GEOPDViewportInfo *viewportInfo; // @synthesize viewportInfo=_viewportInfo;
 @property(nonatomic) unsigned int maxResults; // @synthesize maxResults=_maxResults;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -45,7 +46,6 @@
 @property(nonatomic) _Bool hasRequestLocalTimestamp;
 @property(readonly, nonatomic) _Bool hasViewportInfo;
 @property(nonatomic) _Bool hasMaxResults;
-- (void)dealloc;
 
 @end
 

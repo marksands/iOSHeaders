@@ -16,7 +16,6 @@
     _Bool _update;
     _Bool _sticker;
     _Bool _shouldExpire;
-    _Bool _pluginPayloadSent;
     _Bool _isPlayed;
     _Bool _isFromMe;
     NSAttributedString *_text;
@@ -26,8 +25,10 @@
     NSString *_statusText;
     NSDictionary *_userInfo;
     NSString *_messageGUID;
+    NSString *_associatedMessageGUID;
     NSString *_pluginBundleID;
     NSArray *_consumedSessionPayloads;
+    NSString *_pluginSessionGUID;
     DDScannerResult *_dataDetectedResult;
     NSArray *_attachments;
     IMBalloonPluginDataSource *_datasource;
@@ -40,10 +41,11 @@
 @property(nonatomic) __weak IMBalloonPluginDataSource *datasource; // @synthesize datasource=_datasource;
 @property(retain, nonatomic) NSArray *attachments; // @synthesize attachments=_attachments;
 @property(retain, nonatomic) DDScannerResult *dataDetectedResult; // @synthesize dataDetectedResult=_dataDetectedResult;
+@property(retain, nonatomic) NSString *pluginSessionGUID; // @synthesize pluginSessionGUID=_pluginSessionGUID;
 @property(nonatomic) _Bool isPlayed; // @synthesize isPlayed=_isPlayed;
 @property(retain, nonatomic) NSArray *consumedSessionPayloads; // @synthesize consumedSessionPayloads=_consumedSessionPayloads;
-@property(readonly, nonatomic) _Bool pluginPayloadSent; // @synthesize pluginPayloadSent=_pluginPayloadSent;
 @property(retain, nonatomic) NSString *pluginBundleID; // @synthesize pluginBundleID=_pluginBundleID;
+@property(retain, nonatomic) NSString *associatedMessageGUID; // @synthesize associatedMessageGUID=_associatedMessageGUID;
 @property(retain, nonatomic) NSString *messageGUID; // @synthesize messageGUID=_messageGUID;
 @property(retain, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) _Bool shouldExpire; // @synthesize shouldExpire=_shouldExpire;

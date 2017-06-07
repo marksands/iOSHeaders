@@ -10,7 +10,7 @@
 #import <CloudDocsDaemon/BRCReachabilityDelegate-Protocol.h>
 #import <CloudDocsDaemon/NSXPCListenerDelegate-Protocol.h>
 
-@class BRCAccountHandler, BRCAccountSession, BRCVersionsFileProvider, NSArray, NSDate, NSError, NSMutableDictionary, NSOperationQueue, NSString, NSXPCListener, NSXPCListenerEndpoint;
+@class BRCAccountHandler, BRCAccountSession, BRCVersionsFileProvider, NSDate, NSError, NSMutableDictionary, NSOperationQueue, NSString, NSXPCListener, NSXPCListenerEndpoint;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface BRCDaemon : NSObject <BRCReachabilityDelegate, NSXPCListenerDelegate, BRCAccountHandlerDelegate>
@@ -31,7 +31,6 @@
     NSObject<OS_dispatch_queue> *_startupQueue;
     int _serverAvailabilityNotifyToken;
     NSObject<OS_dispatch_queue> *_accountLoaderQueue;
-    NSArray *_fileProviders;
     NSMutableDictionary *_dirPaths;
     BRCVersionsFileProvider *_versionsProvider;
     NSMutableDictionary *_shareAcceptOperationsByURL;
@@ -48,6 +47,7 @@
     NSDate *_startupDate;
 }
 
++ (_Bool)isDaemonRunning;
 + (id)daemon;
 @property(nonatomic) _Bool doesNotHaveEnoughDiskSpaceToBeFunctional; // @synthesize doesNotHaveEnoughDiskSpaceToBeFunctional=_hasNotEnoughDiskSpaceToBeFunctional;
 @property(readonly, nonatomic) BRCVersionsFileProvider *versionsProvider; // @synthesize versionsProvider=_versionsProvider;
@@ -75,10 +75,6 @@
 - (void)waitOnAccountResumedQueue;
 - (void)accountHandler:(id)arg1 didChangeSessionTo:(id)arg2;
 - (void)accountHandler:(id)arg1 willChangeSessionFrom:(id)arg2;
-- (void)suspendFileProviderForSyncedFolderType:(unsigned long long)arg1;
-- (void)resumeFileProviderForSyncedFolderType:(unsigned long long)arg1;
-- (id)fileProviderForURL:(id)arg1;
-- (id)fileProviderForSyncedFolderType:(unsigned long long)arg1;
 - (id)dirPathForSyncedFolderType:(unsigned long long)arg1;
 - (void)setDirPath:(id)arg1 forSyncedFolderType:(unsigned long long)arg2;
 - (void)localeDidChange;
@@ -101,6 +97,7 @@
 - (void)setUpAnonymousListener;
 - (void)waitForConfiguration;
 - (id)init;
+- (void)_setupVNodeRapidAging;
 - (void)_initSignals;
 @property(nonatomic) _Bool isInSyncBubble;
 

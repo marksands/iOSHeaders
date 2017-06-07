@@ -4,37 +4,34 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
+@class TURepeatingAction;
 @protocol OS_dispatch_queue;
 
 @interface TURepeatingActor : NSObject
 {
-    _Bool _running;
     _Bool _stopped;
     _Bool _currentlyPerformingAction;
     NSObject<OS_dispatch_queue> *_queue;
-    unsigned long long _iterationsRemaining;
-    double _pauseDuration;
-    CDUnknownBlockType _action;
-    CDUnknownBlockType _completionBlock;
+    TURepeatingAction *_currentRepeatingAction;
+    TURepeatingAction *_pendingRepeatingAction;
     CDUnknownBlockType _attemptNextIterationBlock;
 }
 
 @property(nonatomic) __weak CDUnknownBlockType attemptNextIterationBlock; // @synthesize attemptNextIterationBlock=_attemptNextIterationBlock;
-@property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
-@property(copy, nonatomic) CDUnknownBlockType action; // @synthesize action=_action;
-@property(nonatomic) double pauseDuration; // @synthesize pauseDuration=_pauseDuration;
-@property(nonatomic) unsigned long long iterationsRemaining; // @synthesize iterationsRemaining=_iterationsRemaining;
+@property(retain, nonatomic) TURepeatingAction *pendingRepeatingAction; // @synthesize pendingRepeatingAction=_pendingRepeatingAction;
+@property(retain, nonatomic) TURepeatingAction *currentRepeatingAction; // @synthesize currentRepeatingAction=_currentRepeatingAction;
 @property(nonatomic, getter=isCurrentlyPerformingAction) _Bool currentlyPerformingAction; // @synthesize currentlyPerformingAction=_currentlyPerformingAction;
 @property(nonatomic, getter=isStopped) _Bool stopped; // @synthesize stopped=_stopped;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
 - (void).cxx_destruct;
 - (void)_completeWithDidFinish:(_Bool)arg1;
 - (void)_stopWithDidFinish:(_Bool)arg1;
 - (_Bool)_hasIterationsRemaining;
 - (void)_attemptNextIteration;
+- (void)_beginRepeatingAction:(id)arg1;
+@property(readonly, nonatomic, getter=isRunning) _Bool running;
 - (void)stop;
 - (void)beginRepeatingAction:(CDUnknownBlockType)arg1 iterations:(unsigned long long)arg2 pauseDurationBetweenIterations:(double)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)beginRepeatingAction:(CDUnknownBlockType)arg1 iterations:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;

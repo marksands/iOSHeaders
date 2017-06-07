@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/NSCopying-Protocol.h>
 
@@ -20,11 +20,11 @@
 + (id)identityWithBundleIdentifier:(id)arg1 store:(id)arg2;
 @property(readonly, copy, nonatomic) id <XBSnapshotManifestStore> store; // @synthesize store=_store;
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)description;
-- (void)dealloc;
 - (id)initWithBundleIdentifier:(id)arg1 store:(id)arg2;
 - (id)init;
 

@@ -17,6 +17,8 @@
     NSString *mFileName;
 }
 
+@property(retain) NSString *fileName; // @synthesize fileName=mFileName;
+- (void).cxx_destruct;
 - (struct CGSize)contentSizeForDevice;
 - (struct CGSize)pageSizeForDevice;
 - (id)documentTitle;
@@ -24,8 +26,6 @@
 - (id)archiver;
 - (void)mapWithState:(id)arg1;
 - (void)mapDefaultCssStylesAt:(id)arg1;
-- (id)fileName;
-- (void)setFileName:(id)arg1;
 - (int)defaultTabWidth;
 - (id)blipAtIndex:(unsigned int)arg1;
 - (void)dealloc;

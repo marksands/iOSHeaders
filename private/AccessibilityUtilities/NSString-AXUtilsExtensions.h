@@ -7,6 +7,11 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (AXUtilsExtensions)
+- (id)axRegionCode;
+- (id)axLanguageCode;
+- (_Bool)axIsRegionalLanguageCode;
+- (_Bool)axIsGenericLanguageCode;
+- (_Bool)axIsLanguageCode;
 - (_Bool)axContainsString:(id)arg1;
 - (_Bool)axContainsString:(id)arg1 options:(long long)arg2;
 @end

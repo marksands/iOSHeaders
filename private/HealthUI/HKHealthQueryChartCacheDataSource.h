@@ -8,22 +8,20 @@
 
 #import <HealthUI/HKChartCacheDataSource-Protocol.h>
 
-@class HKDataUnit, HKHealthStore, NSString;
+@class HKDisplayType, HKHealthStore, NSString;
 
 @interface HKHealthQueryChartCacheDataSource : NSObject <HKChartCacheDataSource>
 {
     HKHealthStore *_healthStore;
-    HKDataUnit *_dataUnit;
-    CDUnknownBlockType _mappingFunction;
+    HKDisplayType *_displayType;
 }
 
-@property(readonly, nonatomic) CDUnknownBlockType mappingFunction; // @synthesize mappingFunction=_mappingFunction;
-@property(readonly, nonatomic) HKDataUnit *dataUnit; // @synthesize dataUnit=_dataUnit;
+@property(readonly, nonatomic) HKDisplayType *displayType; // @synthesize displayType=_displayType;
 - (void).cxx_destruct;
-- (id)_seriesPointDateBeforeDate:(id)arg1 forZoom:(long long)arg2;
 - (id)queriesForStartDate:(id)arg1 endDate:(id)arg2 statisticsInterval:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (CDUnknownBlockType)mappingFunctionForContext:(id)arg1;
 - (id)operationForIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)initWithDataUnit:(id)arg1 healthStore:(id)arg2;
+- (id)initWithDisplayType:(id)arg1 healthStore:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

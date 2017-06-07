@@ -7,27 +7,25 @@
 #import <UIKit/UIViewController.h>
 
 #import <PassKitUI/PKAuthenticatorDelegate-Protocol.h>
-#import <PassKitUI/PKPaymentAuthorizationPresentationObserver-Protocol.h>
 #import <PassKitUI/PKPaymentAuthorizationServiceProtocol-Protocol.h>
 #import <PassKitUI/PKPaymentAuthorizationStateMachineDelegate-Protocol.h>
 #import <PassKitUI/UINavigationControllerDelegate-Protocol.h>
 #import <PassKitUI/UITableViewDataSource-Protocol.h>
 #import <PassKitUI/UITableViewDelegate-Protocol.h>
 
-@class NSLayoutConstraint, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationNavigationBar, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, UITableView, UIView;
+@class NSLayoutConstraint, NSString, PKAuthenticator, PKPaymentAuthorizationFooterView, PKPaymentAuthorizationLayout, PKPaymentAuthorizationPasswordButtonView, PKPaymentAuthorizationStateMachine, PKPaymentAuthorizationSummaryItemsView, PKPaymentAuthorizationTotalView, PKPaymentPreferencesViewController, UITableView, UIView;
 @protocol PKPaymentAuthorizationHostProtocol;
 
-@interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, PKPaymentAuthorizationServiceProtocol, PKPaymentAuthorizationPresentationObserver>
+@interface PKPaymentAuthorizationServiceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, PKAuthenticatorDelegate, PKPaymentAuthorizationStateMachineDelegate, PKPaymentAuthorizationServiceProtocol>
 {
     PKPaymentAuthorizationLayout *_layout;
-    PKPaymentAuthorizationNavigationBar *_navBar;
     UIView *_contentView;
     UITableView *_detailTableView;
     PKPaymentAuthorizationSummaryItemsView *_summaryItemsView;
     PKPaymentAuthorizationTotalView *_totalView;
     PKPaymentAuthorizationFooterView *_footerView;
+    PKPaymentAuthorizationPasswordButtonView *_passwordButtonView;
     UIView *_passphraseSeparatorView;
-    NSLayoutConstraint *_contentViewTopConstraint;
     NSLayoutConstraint *_contentViewRightConstraint;
     PKPaymentPreferencesViewController *_shippingMethodPreferencesController;
     PKPaymentPreferencesViewController *_shippingAddressPreferencesController;
@@ -37,8 +35,9 @@
     _Bool _hostApplicationEnteredBackground;
     _Bool _treatingHostAsBackgrounded;
     _Bool _requestingInAppPIN;
-    int _preferencesStyle;
+    long long _preferencesStyle;
     struct __IOHIDEventSystemClient *_hidSystemClient;
+    unsigned long long _biometryAttempts;
     PKPaymentAuthorizationStateMachine *_stateMachine;
     PKAuthenticator *_authenticator;
     id <PKPaymentAuthorizationHostProtocol> _delegate;
@@ -52,11 +51,11 @@
 - (void)_startSimulatorHIDListener;
 - (id)_evaluationRequest;
 - (long long)_authenticatorPolicy;
-- (id)_paymentAuthorizationPresentationController;
+- (id)_compactNavigationController;
 - (long long)_totalViewStyle;
 - (void)_updatePreferredContentSize:(struct CGSize)arg1;
 - (void)_updatePreferredContentSize;
-- (id)_paymentWithToken:(id)arg1;
+- (void)_updatePreferencesWithErrors:(id)arg1;
 - (void)_updateShippingMethods;
 - (void)_setupPaymentPassAndBillingAddress;
 - (void)_setupShippingContact;
@@ -70,29 +69,34 @@
 - (void)_addPassphraseViewControllerToHierarchy:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)resumeAndUpdateContentSize;
 - (void)cancelPressed:(id)arg1;
+- (void)_payWithPasswordPressed:(id)arg1;
 - (void)_payWithPasscodePressed:(id)arg1;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (_Bool)signInViewController:(id)arg1 shouldContinueWithAuthenticationResults:(id)arg2 error:(id)arg3 forContext:(id)arg4;
+- (void)signInViewController:(id)arg1 didAuthenticateWithResults:(id)arg2 error:(id)arg3;
 - (void)dismissPassphraseViewController;
 - (void)presentPassphraseViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)dismissPasscodeViewController;
 - (void)presentPasscodeViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)authenticatorDidEncounterMatchMiss:(id)arg1;
+- (void)authenticator:(id)arg1 didRequestUserAction:(long long)arg2;
 - (void)authenticatorDidEncounterFingerOff:(id)arg1;
 - (void)authenticatorDidEncounterFingerOn:(id)arg1;
 - (void)_didSucceed;
 - (void)_didFailWithFatalError:(id)arg1;
 - (void)_didFailWithError:(id)arg1;
 - (void)_didCancel:(_Bool)arg1;
-- (void)authorizationDidSelectPaymentMethodCompleteWithPaymentSummaryItems:(id)arg1;
-- (void)authorizationDidSelectShippingAddressCompleteWithStatus:(long long)arg1 shippingMethods:(id)arg2 paymentSummaryItems:(id)arg3;
-- (void)authorizationDidSelectShippingMethodCompleteWithStatus:(long long)arg1 paymentSummaryItems:(id)arg2;
+- (void)authorizationDidSelectPaymentMethodCompleteWithUpdate:(id)arg1;
+- (void)authorizationDidSelectShippingAddressCompleteWithUpdate:(id)arg1;
+- (void)authorizationDidSelectShippingMethodCompleteWithUpdate:(id)arg1;
 - (void)authorizationDidRequestMerchantSessionCompleteWithSession:(id)arg1 error:(id)arg2;
+- (void)authorizationDidAuthorizePeerPaymentQuoteCompleteWithResult:(id)arg1;
 - (void)authorizationDidAuthorizePurchaseCompleteWithStatus:(long long)arg1;
-- (void)authorizationDidAuthorizePaymentCompleteWithStatus:(long long)arg1;
+- (void)authorizationDidAuthorizePaymentCompleteWithResult:(id)arg1;
 - (void)_updateBackgroundedState:(_Bool)arg1;
 - (void)_hostApplicationDidEnterBackground;
 - (void)_hostApplicationWillEnterForeground;

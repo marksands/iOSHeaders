@@ -12,7 +12,7 @@
 #import <AssistantUI/AFUISpeechSynthesisLocalDelegate-Protocol.h>
 #import <AssistantUI/AFUIStateMachineDelegate-Protocol.h>
 
-@class AFConnection, AFUISpeechSynthesis, AFUIStateMachine, NSMutableSet, NSString;
+@class AFConnection, AFUIAppIntentDeliverer, AFUISpeechSynthesis, AFUIStateMachine, NSMutableSet, NSString;
 @protocol AFUISiriSessionDelegate, AFUISiriSessionLocalDataSource, AFUISiriSessionLocalDelegate, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFUISiriSession : NSObject <AFAssistantUIService, AFSpeechDelegate, AFUIStateMachineDelegate, AFUISpeechSynthesisLocalDelegate, AFUISiriSession>
@@ -24,6 +24,7 @@
     NSMutableSet *_speechRequestGroupGraveyard;
     CDUnknownBlockType _continuePendingRequest;
     _Bool _sendContextBeforeContinuingSpeechRequest;
+    AFUIAppIntentDeliverer *_currentAppIntentDeliverer;
     _Bool _eyesFree;
     _Bool _isProcessingAcousticIdRequest;
     id <AFUISiriSessionDelegate> _delegate;
@@ -44,6 +45,7 @@
 @property(nonatomic) __weak id <AFUISiriSessionLocalDataSource> localDataSource; // @synthesize localDataSource=_localDataSource;
 @property(retain, nonatomic) id <AFUISiriSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_authenticationUIPresented;
 - (id)underlyingConnection;
 - (float)recordingPowerLevel;
 - (_Bool)isListening;
@@ -57,6 +59,7 @@
 - (void)_performAceCommand:(id)arg1 forRequestUpdateViewsCommand:(id)arg2 afterDelay:(double)arg3;
 - (void)_handleUnlockDeviceCommand:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setLockState:(unsigned long long)arg1;
+- (void)setCarDNDActive:(_Bool)arg1;
 - (void)setIsStark:(_Bool)arg1;
 - (void)rollbackClearContext;
 - (void)resetContextTypes:(long long)arg1;
@@ -72,6 +75,8 @@
 - (void)_startRequestWithInfo:(id)arg1;
 - (void)_startContinuityRequestWithInfo:(id)arg1;
 - (void)_startDirectActionRequestWithString:(id)arg1 appID:(id)arg2 withContext:(id)arg3;
+- (void)audioRoutePickerWillDismiss;
+- (void)audioRoutePickerWillShow;
 - (void)recordMetricsContext:(id)arg1 forDisambiguatedAppWIthBundleIdentifier:(id)arg2;
 - (void)recordRequestMetricEvent:(id)arg1 withTimestamp:(double)arg2;
 - (void)recordUIMetrics:(id)arg1;
@@ -97,8 +102,11 @@
 - (void)assistantConnectionSpeechRecordingDidDetectStartpoint:(id)arg1;
 - (void)assistantConnectionDidChangeAudioRecordingPower:(id)arg1;
 - (void)assistantConnection:(id)arg1 speechRecordingDidChangeAVRecordRoute:(id)arg2;
-- (void)assistantConnection:(id)arg1 speechRecordingDidBeginOnAVRecordRoute:(id)arg2;
+- (void)assistantConnection:(id)arg1 speechRecordingDidBeginOnAVRecordRoute:(id)arg2 audioSessionID:(unsigned int)arg3;
 - (void)assistantConnectionSpeechRecordingWillBegin:(id)arg1;
+- (void)assistantConnection:(id)arg1 handleIntent:(id)arg2 inBackgroundAppWithBundleId:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)assistantConnection:(id)arg1 extensionRequestFinishedForApplication:(id)arg2 error:(id)arg3;
+- (void)assistantConnection:(id)arg1 extensionRequestWillStartForApplication:(id)arg2;
 - (void)assistantConnection:(id)arg1 wantsToCacheImage:(id)arg2;
 - (void)assistantConnectionDidDetectMusic:(id)arg1;
 - (void)assistantConnectionDismissAssistant:(id)arg1;
@@ -112,6 +120,7 @@
 - (void)_requestDidFinishWithError:(id)arg1;
 - (void)assistantConnection:(id)arg1 startUIRequestWithText:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)assistantConnection:(id)arg1 receivedCommand:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)_setRefIdForAllViewsInAddViews:(id)arg1;
 - (CDUnknownBlockType)safeWrapResponseCompletion:(CDUnknownBlockType)arg1;
 - (void)assistantConnectionRequestWillStart:(id)arg1;
 - (_Bool)speechSynthesisConnectionIsRecording:(id)arg1;

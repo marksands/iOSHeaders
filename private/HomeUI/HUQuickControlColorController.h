@@ -8,7 +8,7 @@
 
 #import <HomeUI/HUQuickControlColorInteractionCoordinatorDelegate-Protocol.h>
 
-@class HFColorControlItem, HUQuickControlSimpleViewProfile, NSString;
+@class HFColorControlItem, HUQuickControlColorViewProfile, NSString;
 
 @interface HUQuickControlColorController : HUQuickControlController <HUQuickControlColorInteractionCoordinatorDelegate>
 {
@@ -21,8 +21,9 @@
 - (id)overrideSecondaryStatusText;
 - (id)overrideStatusText;
 - (id)controlToViewValueTransformer;
-@property(readonly, nonatomic) HUQuickControlSimpleViewProfile *viewProfile;
+@property(readonly, nonatomic) HUQuickControlColorViewProfile *viewProfile;
 - (id)createInteractionCoordinator;
+- (unsigned long long)_paletteType;
 
 // Remaining properties
 @property(readonly, nonatomic) HFColorControlItem *controlItem; // @dynamic controlItem;

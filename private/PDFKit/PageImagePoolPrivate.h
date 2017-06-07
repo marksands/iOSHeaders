@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, PDFDocumentView;
-@protocol OS_dispatch_group, OS_dispatch_queue;
+@class NSMutableDictionary;
+@protocol OS_dispatch_group, OS_dispatch_queue, PageImagePoolDelegate;
 
+__attribute__((visibility("hidden")))
 @interface PageImagePoolPrivate : NSObject
 {
-    PDFDocumentView *documentView;
+    id <PageImagePoolDelegate> documentDelegate;
     int activePageIndex;
     NSMutableDictionary *highResPageImages;
     NSMutableDictionary *mediumResPageImages;

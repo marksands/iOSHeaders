@@ -6,7 +6,12 @@
 
 #import <HealthUI/NSObject-Protocol.h>
 
+@class HKValueRange;
+
 @protocol HKZoomScale <NSObject>
+- (void)setUnitZoomScaleValueRangeForTimeInterval:(double)arg1;
+- (HKValueRange *)unitZoomScaleValueRange;
+- (double)zoomScaleForRange:(struct HKRange)arg1;
 - (long long)zoomForZoomScale:(double)arg1;
 @end
 

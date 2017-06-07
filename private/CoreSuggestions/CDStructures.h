@@ -10,11 +10,23 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct SGFoundInMailModelMode_ {
+    unsigned long long _field1;
+};
+
+struct SGMAppUsageLevel_ {
+    unsigned long long _field1;
+};
+
 struct SGMBannerDisplayApp_ {
     unsigned long long _field1;
 };
 
 struct SGMBannerExtractionType_ {
+    unsigned long long _field1;
+};
+
+struct SGMBoolOption_ {
     unsigned long long _field1;
 };
 
@@ -66,15 +78,27 @@ struct SGMEventStringAdj_ {
     unsigned long long _field1;
 };
 
+struct SGMFoundInMailModelType_ {
+    unsigned long long _field1;
+};
+
+struct SGMFoundInMailSupervisionType_ {
+    unsigned long long _field1;
+};
+
 struct SGMInteractionIgnoredReason_ {
     unsigned long long _field1;
 };
 
-struct SGMNLEventExtraction_ {
+struct SGMNLEventActionType_ {
     unsigned long long _field1;
 };
 
-struct SGMNLEventLinkInteractionResult_ {
+struct SGMNLEventExtractionLevel_ {
+    unsigned long long _field1;
+};
+
+struct SGMNLEventInterface_ {
     unsigned long long _field1;
 };
 
@@ -83,6 +107,14 @@ struct SGMSINameClassification_ {
 };
 
 struct SGMSIPatternType_ {
+    unsigned long long _field1;
+};
+
+struct SGMSelfIdModelType_ {
+    unsigned long long _field1;
+};
+
+struct SGMSelfIdSupervisionType_ {
     unsigned long long _field1;
 };
 
@@ -102,6 +134,11 @@ struct _NSRange {
 struct _opaque_pthread_mutex_t {
     long long __sig;
     char __opaque[56];
+};
+
+struct objc_method_description {
+    SEL _field1;
+    char *_field2;
 };
 
 #pragma mark Typedef'd Structures

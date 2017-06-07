@@ -4,23 +4,38 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/GGLLayerDelegate-Protocol.h>
-#import <VectorKit/GGLRenderQueueSource-Protocol.h>
 #import <VectorKit/MDRenderTarget-Protocol.h>
 
 @class CALayer, NSString;
 @protocol GGLLayer, GGLRenderQueueSource;
 
 __attribute__((visibility("hidden")))
-@interface MDDisplayLayer : NSObject <GGLRenderQueueSource, GGLLayerDelegate, MDRenderTarget>
+@interface MDDisplayLayer : NSObject <GGLLayerDelegate, MDRenderTarget>
 {
     CALayer<GGLLayer> *_layer;
     id <GGLRenderQueueSource> _renderSource;
+    shared_ptr_e963992e _taskContext;
+    struct deque<std::__1::function<void ()>, std::__1::allocator<std::__1::function<void ()>>> _completionHandlers;
     struct RenderTargetFormat _format;
     shared_ptr_807ec9ac _device;
-    struct Renderer *_renderer;
+    struct Renderer {
+        CDUnknownFunctionPointerType *;
+        struct Device *;
+        unsigned long long;
+        unsigned long long;
+        unsigned long long;
+        _Bool;
+        float;
+        struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>>;
+        struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue>>;
+        struct shared_ptr<ggl::CommonLibrary>;
+        struct unique_ptr<ggl::RenderResourceFences, std::__1::default_delete<ggl::RenderResourceFences>>;
+        struct Texture2D *;
+        struct unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>;
+    } *_renderer;
     struct mutex _debugConsoleManagerCreationLock;
     struct unique_ptr<md::DebugConsoleManager, std::__1::default_delete<md::DebugConsoleManager>> _debugConsoleManager;
     struct unique_ptr<ggl::RenderTarget, std::__1::default_delete<ggl::RenderTarget>> _renderTarget;
@@ -41,41 +56,37 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) CALayer *layer; // @synthesize layer=_layer;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(nonatomic) _Bool debugEnableMultisampling; // @dynamic debugEnableMultisampling;
 - (struct DebugConsole *)debugConsoleForId:(int)arg1;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 @property(readonly, nonatomic) float averageFPS;
+- (void)renderWithTimestamp:(double)arg1 completion:(function_30b369b8)arg2;
+- (void)destroyRenderTarget;
+- (void)createRenderTarget;
+@property(readonly, nonatomic) struct RenderTarget *finalRenderTarget;
 @property(readonly, nonatomic) struct CGSize sizeInPixels;
-@property(readonly, nonatomic) double contentScale;
-@property(readonly, nonatomic) struct CGSize size;
+@property(readonly, nonatomic) const struct RenderTargetFormat *format;
+@property(nonatomic) struct CGRect bounds;
+@property(nonatomic) double contentScale;
+@property(nonatomic) struct CGSize size;
 - (void)didEnterBackground;
 - (void)didReceiveMemoryWarning;
-- (void)recreateLayer;
-- (void)destroyLayer;
-- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
-- (void)didReadPixels:(shared_ptr_4ce39eb2 *)arg1;
+- (shared_ptr_edb96180)bitmapData:(struct Texture *)arg1;
+- (void)_didReadPixels:(shared_ptr_edb96180 *)arg1;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (void)setBackgroundColor:(struct CGColor *)arg1;
 - (void)setContentsGravity:(id)arg1;
 - (void)setOpaque:(_Bool)arg1;
 - (void)setNeedsDisplayOnBoundsChange:(_Bool)arg1;
-- (void)setContentsScale:(double)arg1;
-- (void)setBounds:(struct CGRect)arg1;
 - (void)expandedPerformanceHUD:(id)arg1;
 - (void)disablePerformanceHUD:(id)arg1;
 - (void)enablePerformanceHUD:(id)arg1;
-- (void)forceLayout;
-- (RenderQueue_e4212455 *)renderQueue;
-- (void)onTimerFired:(double)arg1;
 @property(readonly, nonatomic) struct Renderer *renderer;
 - (void)didPresent;
-- (void)drawToTexture:(struct Texture *)arg1 withTimestamp:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)drawToTexture:(struct Texture *)arg1 withTimestamp:(double)arg2 completionHandler:(CDUnknownBlockType)arg3 prepareHandler:(CDUnknownBlockType)arg4;
 - (void)drawToTexture:(struct Texture *)arg1 withTimestamp:(double)arg2;
 - (void)_createRenderTarget:(struct Texture *)arg1;
-- (void)_createLayer;
-@property(readonly, nonatomic) const struct RenderTargetFormat *format;
-@property(readonly, nonatomic) struct Device *device;
 - (void)dealloc;
-- (id)initWithContentScale:(double)arg1 shouldRasterize:(_Bool)arg2;
+- (id)initWithContentScale:(double)arg1 shouldRasterize:(_Bool)arg2 taskContext:(const shared_ptr_e963992e *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

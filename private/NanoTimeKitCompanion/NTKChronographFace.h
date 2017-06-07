@@ -11,21 +11,21 @@
 }
 
 + (id)_localizedNameOverrideForCustomEditMode:(long long)arg1;
-+ (id)_chronoDefaultOption;
-+ (id)_defaultOptionForCustomEditMode:(long long)arg1 slot:(id)arg2;
-+ (long long)_customEditModeForUniqueConfiguration;
-+ (id)_customEditModes;
 + (unsigned long long)_dateComplicationSlotSupportedStyles;
 + (id)_dateComplicationSlot;
 + (id)_defaultSelectedComplicationSlot;
-+ (id)_complicationSlotDescriptors;
 - (Class)_optionClassForCustomEditMode:(long long)arg1;
 - (_Bool)_wantsUnadornedSnapshot;
 - (long long)complicationPickerStyle;
 - (unsigned long long)_indexOfOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (id)_optionAtIndex:(unsigned long long)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (unsigned long long)_numberOfOptionsForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (id)_chronoDefaultOption;
+- (id)_defaultOptionForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (long long)_customEditModeForUniqueConfiguration;
+- (id)_customEditModes;
 - (id)_orderedComplicationSlots;
+- (id)_complicationSlotDescriptors;
 - (long long)_editModeForOldEncodingIndex:(long long)arg1;
 
 @end

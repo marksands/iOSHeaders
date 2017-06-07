@@ -6,6 +6,8 @@
 
 #import <iWorkImport/TSCHChartLayoutItem.h>
 
+@class NSDictionary;
+
 __attribute__((visibility("hidden")))
 @interface TSCHChartBodyLayoutItem : TSCHChartLayoutItem
 {
@@ -34,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)p_exactLabelsDrawingRectForSeries:(id)arg1;
 - (struct CGRect)p_calcDrawingRectForReferenceLinesForModel:(id)arg1;
 - (struct CGRect)calcDrawingRect;
+@property(readonly, copy, nonatomic) NSDictionary *seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
 - (id)initWithParent:(id)arg1;
 
 @end

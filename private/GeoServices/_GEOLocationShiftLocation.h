@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol OS_dispatch_queue;
 
@@ -18,12 +18,13 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _mustGoToNetworkCallback;
     CDUnknownBlockType _functionHandler;
     struct __CFRunLoop *_runLoop;
-    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_callbackQueue;
     _Bool _recordCacheInfo;
 }
 
 @property(readonly, nonatomic) double accuracy; // @synthesize accuracy=_accuracy;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
+- (void).cxx_destruct;
 - (void)performMustGoToNetwork;
 - (void)performErrorHandler:(id)arg1;
 - (void)performCompletionHandlerWithShiftedCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2 function:(id)arg3 wasFunctionCached:(_Bool)arg4;

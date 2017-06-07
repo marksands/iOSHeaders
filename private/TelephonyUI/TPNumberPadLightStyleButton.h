@@ -10,20 +10,14 @@
 {
 }
 
++ (double)highlightedCircleViewAlpha;
++ (double)unhighlightedCircleViewAlpha;
 + (_Bool)usesTelephonyGlyphsWhereAvailable;
-+ (double)unhighlightCrossfadeHighlightFadeDuration;
-+ (double)unhighlightCrossfadeNormalFadeDuration;
-+ (double)unhighlightCrossfadeHighlightBeginTime;
-+ (double)unhighlightCrossfadeNormalBeginTime;
-+ (double)highlightCrossfadeHighlightFadeDuration;
-+ (double)highlightCrossfadeNormalFadeDuration;
-+ (double)highlightCrossfadeHighlightBeginTime;
-+ (double)highlightCrossfadeNormalBeginTime;
 + (double)horizontalPadding;
 + (double)verticalPadding;
 + (id)imageForCharacter:(unsigned int)arg1 highlighted:(_Bool)arg2;
 + (id)imageForCharacter:(unsigned int)arg1;
-- (id)initForCharacter:(unsigned int)arg1;
+- (id)buttonColor;
 - (id)defaultColor;
 
 @end

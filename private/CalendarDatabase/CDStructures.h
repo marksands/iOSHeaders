@@ -12,39 +12,7 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
-struct CPRecordStore;
-
-struct CalDatabase {
-    struct __CFRuntimeBase {
-        unsigned long long _field1;
-        unsigned char _field2[4];
-        unsigned int _field3;
-    } _field1;
-    int _field2;
-    struct CPRecordStore *_field3;
-    struct CalEventOccurrenceCache *_field4;
-    struct CalScheduledTaskCache *_field5;
-    struct __CFDictionary *_field6;
-    struct __CFDictionary *_field7;
-    struct _opaque_pthread_mutex_t _field8;
-    unsigned int _field9;
-    unsigned int _field10;
-    struct __CFArray *_field11;
-    struct __CFString *_field12;
-    struct __CFArray *_field13;
-    int _field14;
-    int _field15;
-    struct __CFString *_field16;
-    struct __CFString *_field17;
-    int _field18;
-    CDUnknownBlockType _field19;
-    struct _opaque_pthread_mutex_t _field20;
-    _Bool _field21;
-    struct __CFArray *_field22;
-    struct __CFArray *_field23;
-    _Bool _field24;
-    id _field25;
-};
+struct CalDatabase;
 
 struct CalEventIdsSearchContext {
     struct __CFArray *_field1;
@@ -96,15 +64,9 @@ struct CalParticipantIdsSearchContext {
     struct CalDatabase *_field5;
 };
 
-struct CalScheduledTaskCache;
-
 struct __CFArray;
 
-struct __CFDictionary;
-
 struct __CFSet;
-
-struct __CFString;
 
 struct _opaque_pthread_mutex_t {
     long long __sig;
@@ -172,7 +134,8 @@ typedef struct {
     unsigned int prohibitsICSImport:1;
     unsigned int supportsAutoGeocodingStructuredLocations:1;
     unsigned int supportsJunkReporting:1;
-} CDStruct_ce1b7935;
+    unsigned int supportsPhoneNumbers:1;
+} CDStruct_c955b4da;
 
 typedef struct {
     int _field1;
@@ -182,9 +145,4 @@ typedef struct {
     char _field5;
     double _field6;
 } CDStruct_79f9e052;
-
-typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
 

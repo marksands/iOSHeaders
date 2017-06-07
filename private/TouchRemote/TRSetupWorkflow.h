@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AKDevice, NSSet, TRNearbyDevice, TRSession, UIViewController;
+@class NSSet, TRNearbyDevice, TROperationQueue, TRSession, UIViewController;
 
 @interface TRSetupWorkflow : NSObject
 {
@@ -19,15 +19,15 @@
     TRNearbyDevice *_nearbyDevice;
     unsigned long long _state;
     TRSession *_session;
-    AKDevice *_proxiedDevice;
     NSSet *_unauthenticatedAccountServices;
     UIViewController *_presentingViewController;
+    TROperationQueue *_operationQueue;
 }
 
 + (void)initialize;
+@property(retain, nonatomic) TROperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
 @property(retain, nonatomic) UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(retain, nonatomic) NSSet *unauthenticatedAccountServices; // @synthesize unauthenticatedAccountServices=_unauthenticatedAccountServices;
-@property(retain, nonatomic) AKDevice *proxiedDevice; // @synthesize proxiedDevice=_proxiedDevice;
 @property(retain) TRSession *session; // @synthesize session=_session;
 @property unsigned long long state; // @synthesize state=_state;
 @property(retain, nonatomic) TRNearbyDevice *nearbyDevice; // @synthesize nearbyDevice=_nearbyDevice;
@@ -40,23 +40,12 @@
 - (void).cxx_destruct;
 - (void)_releaseHandlers;
 - (void)_abortSetupWithErrorCode:(long long)arg1 userInfo:(id)arg2;
-- (void)_sendCompletionRequest;
-- (void)_handleProxyAuthenticationResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_proxyAuthenticationWithAccount:(id)arg1 targetedAccountServices:(id)arg2 proxiedDevice:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_proxyAuthenticationWithAccount:(id)arg1 targetedAccountServices:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_handleCompanionAuthenticationResponse:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_companionAuthenticationWithAccount:(id)arg1 targetedAccountServices:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_authenticateWithAccountServices:(id)arg1;
-- (void)_authenticateAccountServices;
-- (void)_handleActivationResponse:(id)arg1;
-- (void)_sendActivationRequest;
-- (void)_handleNetworkResponse:(id)arg1;
-- (void)_sendNetworkRequest;
-- (void)_handleConfigurationResponse:(id)arg1;
-- (void)_sendConfigurationRequest;
-- (void)_handleHandshakeResponse:(id)arg1;
-- (void)_sendHandshakeRequest;
-- (void)sendRequest:(id)arg1 withResponseHandler:(CDUnknownBlockType)arg2;
+- (void)_performCompletionOperation;
+- (void)_performAuthenticationOperation;
+- (void)_performActivationOperation;
+- (void)_performNetworkOperation;
+- (void)_performConfigurationOperation;
+- (void)_performHandshakeOperation;
 - (void)cancel;
 - (void)start;
 - (id)initWithNearbyDevice:(id)arg1 presentingViewController:(id)arg2;

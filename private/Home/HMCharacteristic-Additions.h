@@ -16,6 +16,7 @@
 + (id)_hf_alarmCharacteristicTypeToAbnormalValueMap;
 + (id)hf_abnormalValueForAlarmCharacteristicType:(id)arg1;
 + (id)hf_alarmCharacteristicTypes;
++ (id)hf_powerStateCharacteristicTypes;
 - (id)hf_programmableSwitchTriggerValueToEventTriggersMap;
 - (id)hf_designatedEventTriggerForProgrammableSwitchWithTriggerValue:(id)arg1;
 - (id)hf_eventTriggersForTriggerValue:(id)arg1;

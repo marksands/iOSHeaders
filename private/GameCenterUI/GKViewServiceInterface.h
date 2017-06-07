@@ -23,8 +23,10 @@
 + (id)remoteSignInViewControllerInterface;
 + (id)gameCenterServiceViewControllerInterface;
 + (id)gameCenterHostViewControllerInterface;
-+ (id)serviceViewControllerInterface;
-+ (id)remoteViewControllerInterface;
++ (id)extensionInterface;
++ (id)extensionHostInterface;
++ (void)setClassesForExtensionInterface:(id)arg1;
++ (void)setClassesForHostInterface:(id)arg1;
 
 @end
 

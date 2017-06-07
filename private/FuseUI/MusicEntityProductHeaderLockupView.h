@@ -31,7 +31,6 @@
     _Bool _shouldUpdateTallestButtonHeightCache;
     _Bool _editing;
     _Bool _editableTitleShouldBecomeFirstResponder;
-    UIButton *_contextualActionsButton;
     double _downloadProgress;
     MusicDownloadProgressButton *_downloadProgressButton;
     long long _downloadProgressType;
@@ -52,7 +51,6 @@
 @property(nonatomic) long long downloadProgressType; // @synthesize downloadProgressType=_downloadProgressType;
 @property(readonly, nonatomic) MusicDownloadProgressButton *downloadProgressButton; // @synthesize downloadProgressButton=_downloadProgressButton;
 @property(nonatomic) double downloadProgress; // @synthesize downloadProgress=_downloadProgress;
-@property(readonly, nonatomic) UIButton *contextualActionsButton; // @synthesize contextualActionsButton=_contextualActionsButton;
 - (void).cxx_destruct;
 - (void)_updateLikeDislikeButtonStateAppearance;
 - (void)_updateEditableTextPlaceholderViewVisibility;
@@ -79,7 +77,6 @@
 - (void)_refreshButtonTapped:(id)arg1;
 - (void)_editButtonTapped:(id)arg1;
 - (void)_downloadProgressButtonTapped:(id)arg1;
-- (void)_contextualActionsButtonTapped:(id)arg1;
 - (void)_addSongsButtonTapped:(id)arg1;
 - (void)setEntityValueProvider:(id)arg1;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;

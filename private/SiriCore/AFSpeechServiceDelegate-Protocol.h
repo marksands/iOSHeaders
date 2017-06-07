@@ -6,11 +6,12 @@
 
 #import <SiriCore/NSObject-Protocol.h>
 
-@class AFSpeechPackage, NSArray, NSError;
+@class AFSpeechPackage, AFSpeechRecognition, NSArray, NSError;
 
 @protocol AFSpeechServiceDelegate <NSObject>
 - (oneway void)speechServiceDidFinishRecognitionWithError:(NSError *)arg1;
 - (oneway void)speechServiceDidRecognizePackage:(AFSpeechPackage *)arg1;
+- (oneway void)speechServiceDidRecognizeRawEagerRecognitionCandidate:(AFSpeechRecognition *)arg1;
 - (oneway void)speechServiceDidProcessAudioDuration:(double)arg1;
 - (oneway void)speechServiceDidRecognizeTokens:(NSArray *)arg1;
 @end

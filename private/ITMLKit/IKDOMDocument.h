@@ -19,9 +19,11 @@
 {
     id <IKJSDOMDocumentAppBridge> _appBridge;
     unsigned long long _itmlIDSequence;
+    NSString *__documentURI;
 }
 
 + (struct _xmlDoc *)_documentWithXMLStr:(id)arg1 lsInput:(id)arg2 error:(id *)arg3;
+@property(retain, nonatomic, setter=_setDocumentURI:) NSString *_documentURI; // @synthesize _documentURI=__documentURI;
 @property(nonatomic) unsigned long long itmlIDSequence; // @synthesize itmlIDSequence=_itmlIDSequence;
 @property(nonatomic) __weak id <IKJSDOMDocumentAppBridge> appBridge; // @synthesize appBridge=_appBridge;
 - (void).cxx_destruct;

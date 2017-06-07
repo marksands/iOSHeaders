@@ -7,6 +7,7 @@
 #import <Foundation/NSObject.h>
 
 @class NSString, VCHistogram;
+@protocol VCAdaptiveLearningDelegate;
 
 @interface CallSegment : NSObject
 {
@@ -25,6 +26,11 @@
     VCHistogram *_videoResolution;
     VCHistogram *_videoEncodingBitrate;
     VCHistogram *_videoJitter;
+    VCHistogram *_REDErasureCompensationRate;
+    VCHistogram *_REDReceivedCount;
+    VCHistogram *_REDDiscardedCount;
+    VCHistogram *_REDNumPayloadsUsed;
+    VCHistogram *_REDMaxDelay;
     int _duration;
     int _adjustedDuration;
     double _totalVideoStallTime;
@@ -51,10 +57,15 @@
     unsigned int _callTransportType;
     unsigned int _audioFlushPercent;
     unsigned int _videoFlushPercent;
+    unsigned int _errorCode;
+    NSString *_relayServer;
+    int _relayType;
+    NSString *_accessToken;
     int _interval;
     int _frequency;
     NSString *_segmentName;
     NSString *_previousSegmentName;
+    id <VCAdaptiveLearningDelegate> _delegate;
 }
 
 @property(readonly) unsigned int callTransportType; // @synthesize callTransportType=_callTransportType;
@@ -62,6 +73,7 @@
 @property(readonly) unsigned int callMode; // @synthesize callMode=_callMode;
 @property(readonly) NSString *previousSegmentName; // @synthesize previousSegmentName=_previousSegmentName;
 @property(readonly) NSString *segmentName; // @synthesize segmentName=_segmentName;
+@property unsigned int errorCode; // @synthesize errorCode=_errorCode;
 @property unsigned long long videoSentPacketCount; // @synthesize videoSentPacketCount=_videoSentPacketCount;
 @property unsigned long long videoFlushPacketCount; // @synthesize videoFlushPacketCount=_videoFlushPacketCount;
 @property unsigned long long audioSentPacketCount; // @synthesize audioSentPacketCount=_audioSentPacketCount;
@@ -83,6 +95,11 @@
 @property double totalVideoStallTime; // @synthesize totalVideoStallTime=_totalVideoStallTime;
 @property int adjustedDuration; // @synthesize adjustedDuration=_adjustedDuration;
 @property int duration; // @synthesize duration=_duration;
+@property(readonly) VCHistogram *REDMaxDelay; // @synthesize REDMaxDelay=_REDMaxDelay;
+@property(readonly) VCHistogram *REDNumPayloadsUsed; // @synthesize REDNumPayloadsUsed=_REDNumPayloadsUsed;
+@property(readonly) VCHistogram *REDDiscardedCount; // @synthesize REDDiscardedCount=_REDDiscardedCount;
+@property(readonly) VCHistogram *REDReceivedCount; // @synthesize REDReceivedCount=_REDReceivedCount;
+@property(readonly) VCHistogram *REDErasureCompensationRate; // @synthesize REDErasureCompensationRate=_REDErasureCompensationRate;
 @property(readonly) VCHistogram *videoJitter; // @synthesize videoJitter=_videoJitter;
 @property(readonly) VCHistogram *videoEncodingBitrate; // @synthesize videoEncodingBitrate=_videoEncodingBitrate;
 @property(readonly) VCHistogram *videoResolution; // @synthesize videoResolution=_videoResolution;
@@ -98,12 +115,13 @@
 @property(readonly) VCHistogram *JBTarget; // @synthesize JBTarget=_JBTarget;
 @property(readonly) VCHistogram *JBQSize; // @synthesize JBQSize=_JBQSize;
 @property(readonly) VCHistogram *RTT; // @synthesize RTT=_RTT;
+- (id)segmentQRReport;
 - (id)segmentReport;
 - (unsigned int)RTPeriod;
 - (void)merge:(id)arg1;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
-- (id)initWithSegmentName:(id)arg1 previousSegmentName:(id)arg2 mode:(unsigned short)arg3 deviceRole:(unsigned short)arg4 transportType:(unsigned short)arg5;
+- (id)initWithSegmentName:(id)arg1 previousSegmentName:(id)arg2 mode:(unsigned short)arg3 deviceRole:(unsigned short)arg4 transportType:(unsigned short)arg5 relayServer:(id)arg6 relayType:(unsigned short)arg7 accessToken:(id)arg8 delegate:(id)arg9;
 
 @end
 

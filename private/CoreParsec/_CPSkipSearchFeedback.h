@@ -6,35 +6,41 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPSkipSearchFeedback-Protocol.h>
 
-@class NSString;
+@class NSData, NSString;
 
-@interface _CPSkipSearchFeedback : PBCodable <NSCopying>
+@interface _CPSkipSearchFeedback : PBCodable <_CPProcessableFeedback, _CPSkipSearchFeedback, NSSecureCoding>
 {
+    CDStruct_c6e3878d _has;
+    int _triggerEvent;
     unsigned long long _timestamp;
     NSString *_input;
-    int _triggerEvent;
-    CDStruct_ce7c5ddc _has;
 }
 
-@property(retain, nonatomic) NSString *input; // @synthesize input=_input;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
+@property(copy, nonatomic) NSString *input; // @synthesize input=_input;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (int)StringAsTriggerEvent:(id)arg1;
-- (id)triggerEventAsString:(int)arg1;
-@property(nonatomic) _Bool hasTriggerEvent;
-@property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
+@property(readonly, nonatomic) _Bool hasTriggerEvent;
 @property(readonly, nonatomic) _Bool hasInput;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

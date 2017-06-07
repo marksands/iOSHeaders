@@ -6,24 +6,26 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString;
+@class BKSTerminationAssertion, NSString;
+@protocol OS_dispatch_queue;
 
 @interface FBSApplicationTerminationAssertion : NSObject
 {
+    BKSTerminationAssertion *_assertion;
+    NSObject<OS_dispatch_queue> *_queue;
     NSString *_bundleID;
     NSString *_reason;
     long long _assertionState;
-    unsigned long long _serialNumber;
 }
 
-@property(nonatomic) unsigned long long serialNumber; // @synthesize serialNumber=_serialNumber;
-@property(readonly, nonatomic) long long assertionState; // @synthesize assertionState=_assertionState;
-@property(readonly, copy, nonatomic) NSString *reason; // @synthesize reason=_reason;
-@property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
++ (id)_queue;
 - (void)invalidate;
 - (id)description;
 - (void)dealloc;
 - (id)initWithBundleID:(id)arg1 reason:(id)arg2 acquisitionHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) long long assertionState;
+@property(readonly, copy, nonatomic) NSString *reason;
+@property(readonly, copy, nonatomic) NSString *bundleID;
 
 @end
 

@@ -12,7 +12,7 @@
 #import <MusicCarDisplayUI/UITableViewDataSource-Protocol.h>
 #import <MusicCarDisplayUI/UITableViewDelegate-Protocol.h>
 
-@class AVExternalDevice, MCDNowPlayingButton, MCDPCContainer, MPWeakTimer, NSIndexPath, NSObject, NSString, UIActivityIndicatorView, UITableView, UIView, _MCDBrowsableContentTableViewPreloader, _UIFilteredDataSource;
+@class AVExternalDevice, MCDNowPlayingButton, MCDPCContainer, MPWeakTimer, NSIndexPath, NSObject, NSString, UITableView, UIView, _MCDBrowsableContentTableViewPreloader, _UIFilteredDataSource;
 @protocol OS_dispatch_queue;
 
 @interface MCDBrowsableContentTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, MCDPCContainerDelegate, MCDErrorViewDelegate>
@@ -22,7 +22,6 @@
     MCDPCContainer *_container;
     long long _count;
     NSIndexPath *_selectedNextIndexPath;
-    UIActivityIndicatorView *_activityIndicator;
     _UIFilteredDataSource *_dataSource;
     NSIndexPath *_reselectIndexPath;
     MPWeakTimer *_loadingTimer;
@@ -55,7 +54,6 @@
 - (void)reloadWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_clearLoadingActivity;
 - (void)_displayLoadingActivity;
-- (void)showActivity:(_Bool)arg1 inCell:(id)arg2;
 - (void)containerDidChangeCount:(id)arg1;
 - (void)container:(id)arg1 didInvalidateIndicies:(id)arg2;
 - (void)containerDidInvalidateRootItem:(id)arg1;

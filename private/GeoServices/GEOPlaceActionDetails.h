@@ -36,8 +36,10 @@
 }
 
 + (id)actionDetailsWithDetails:(id)arg1 timestamp:(double)arg2;
++ (id)actionDetailsWithMapItem:(id)arg1 childPlace:(id)arg2 timestamp:(double)arg3 resultIndex:(int)arg4 targetID:(unsigned long long)arg5 transitCardCategory:(int)arg6 transitSystem:(id)arg7 transitDepartureSequence:(id)arg8 transitIncident:(id)arg9;
 + (id)actionDetailsWithMapItem:(id)arg1 timestamp:(double)arg2 resultIndex:(int)arg3 targetID:(unsigned long long)arg4 transitCardCategory:(int)arg5 transitSystem:(id)arg6 transitDepartureSequence:(id)arg7 transitIncident:(id)arg8;
 + (id)actionDetailsWithMapItem:(id)arg1 timestamp:(double)arg2 resultIndex:(int)arg3 targetID:(unsigned long long)arg4;
++ (id)actionDetailsWithChildPlace:(id)arg1 timestamp:(double)arg2 resultIndex:(int)arg3;
 + (id)actionDetailsWithMapItem:(id)arg1 timestamp:(double)arg2 resultIndex:(int)arg3;
 + (id)actionDetailsWithTargetID:(unsigned long long)arg1;
 @property(retain, nonatomic) NSString *destinationApp; // @synthesize destinationApp=_destinationApp;
@@ -51,6 +53,7 @@
 @property(nonatomic) int localSearchProviderID; // @synthesize localSearchProviderID=_localSearchProviderID;
 @property(nonatomic) long long placeID; // @synthesize placeID=_placeID;
 @property(nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -73,8 +76,7 @@
 @property(nonatomic) _Bool hasLocalSearchProviderID;
 @property(nonatomic) _Bool hasPlaceID;
 @property(nonatomic) _Bool hasBusinessID;
-- (void)dealloc;
-- (id)initWithMapItem:(id)arg1 relativeTimestamp:(double)arg2 resultIndex:(int)arg3 targetID:(unsigned long long)arg4 transitCardCategory:(int)arg5 transitSystem:(id)arg6 transitDepartureSequence:(id)arg7 transitIncident:(id)arg8;
+- (id)initWithMapItem:(id)arg1 childPlace:(id)arg2 relativeTimestamp:(double)arg3 resultIndex:(int)arg4 targetID:(unsigned long long)arg5 transitCardCategory:(int)arg6 transitSystem:(id)arg7 transitDepartureSequence:(id)arg8 transitIncident:(id)arg9;
 - (id)initWithMapItem:(id)arg1 relativeTimestamp:(double)arg2 resultIndex:(int)arg3 targetID:(unsigned long long)arg4;
 - (id)initWithMapItem:(id)arg1 relativeTimestamp:(double)arg2 resultIndex:(int)arg3;
 

@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (struct CGSize)sizeValue;
 - (struct CGPoint)pointValue;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)saveToArchive:(struct Point *)arg1 archiver:(id)arg2;

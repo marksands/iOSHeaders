@@ -31,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (id)headerForKey:(unsigned int)arg1 willModify:(_Bool)arg2 createIfNotThere:(_Bool)arg3;
 - (id)headerForKey:(unsigned int)arg1 willModify:(_Bool)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)packageLocator;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;

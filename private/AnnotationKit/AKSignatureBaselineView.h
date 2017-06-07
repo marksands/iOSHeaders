@@ -9,11 +9,14 @@
 @interface AKSignatureBaselineView : UIView
 {
     double _baselinePercent;
+    struct UIEdgeInsets _lastSafeAreaInsets;
 }
 
+@property(nonatomic) struct UIEdgeInsets lastSafeAreaInsets; // @synthesize lastSafeAreaInsets=_lastSafeAreaInsets;
 @property(nonatomic) double baselinePercent; // @synthesize baselinePercent=_baselinePercent;
 - (_Bool)_isRTL;
 - (void)_drawBaselineInContext:(struct CGContext *)arg1;
+- (void)layoutSubviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (double)scaleFactor;

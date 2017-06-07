@@ -24,6 +24,7 @@
     } _has;
 }
 
++ (Class)locationDataType;
 @property(retain, nonatomic) NSMutableArray *locationDatas; // @synthesize locationDatas=_locationDatas;
 @property(nonatomic) _Bool final; // @synthesize final=_final;
 @property(retain, nonatomic) NSData *continuationUUID; // @synthesize continuationUUID=_continuationUUID;

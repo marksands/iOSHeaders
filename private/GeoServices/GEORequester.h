@@ -19,6 +19,7 @@
     _Bool _canceled;
     CDStruct_e05fddca _conditionalConnectionProperties;
     _Bool _hasConditionalConnectionProperties;
+    _Bool _requireWiFi;
 }
 
 + (void)replayRequests;
@@ -32,12 +33,12 @@
 @property(nonatomic) CDStruct_e05fddca conditionalConnectionProperties; // @synthesize conditionalConnectionProperties=_conditionalConnectionProperties;
 @property(copy, nonatomic) NSString *throttleKey; // @synthesize throttleKey=_throttleKey;
 @property(retain, nonatomic) NSString *debugRequestName; // @synthesize debugRequestName=_debugRequestName;
-- (id)sessionWithConnectionProperties:(id)arg1;
+- (void).cxx_destruct;
+- (id)newSessionWithDelegate:(id)arg1 delegateQueue:(id)arg2 connectionProperties:(id)arg3;
+- (id)newSessionWithDelegate:(id)arg1 delegateQueue:(id)arg2;
 - (id)persistentSessionConfig;
 - (id)newMutableURLRequestWithURL:(id)arg1;
 - (id)requestPreamble;
-- (id)logResponseToFile;
-- (id)logRequestToFile;
 - (void)_logErrorIfNecessary:(id)arg1;
 - (void)_logResponsesIfNecessary:(id)arg1;
 - (void)_logRequestsIfNecessary:(id)arg1;
@@ -51,7 +52,7 @@
 - (void)_applicationDidStopAllRequests:(id)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 andDelegate:(id)arg2;
-- (id)initWithURL:(id)arg1 andDelegate:(id)arg2 useBackgroundConnection:(_Bool)arg3;
+- (id)initWithURL:(id)arg1 andDelegate:(id)arg2 requestConnectionOptions:(CDStruct_3d581f42)arg3;
 
 @end
 

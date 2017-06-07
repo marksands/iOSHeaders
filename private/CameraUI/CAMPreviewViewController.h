@@ -6,7 +6,6 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <CameraUI/CAMEffectsPreviewSampleBufferDelegate-Protocol.h>
 #import <CameraUI/CAMExposureDelegate-Protocol.h>
 #import <CameraUI/CAMFacesDelegate-Protocol.h>
 #import <CameraUI/CAMFocusDelegate-Protocol.h>
@@ -14,10 +13,10 @@
 #import <CameraUI/CAMPreviewViewSubjectIndicatorDelegate-Protocol.h>
 #import <CameraUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CAMBurstIndicatorView, CAMEffectsRenderer, CAMExposureResult, CAMFocusIndicatorView, CAMFocusResult, CAMMotionController, CAMPreviewView, CAMSubjectIndicatorView, CAMTimelapseController, CUCaptureController, NSDate, NSString, UILongPressGestureRecognizer, UIPanGestureRecognizer, UITapGestureRecognizer;
+@class CAMBurstIndicatorView, CAMExposureResult, CAMFocusIndicatorView, CAMFocusResult, CAMMotionController, CAMPreviewView, CAMSubjectIndicatorView, CAMTimelapseController, CUCaptureController, NSDate, NSString, UILongPressGestureRecognizer, UIPanGestureRecognizer, UITapGestureRecognizer;
 @protocol CAMPreviewViewControllerDelegate;
 
-@interface CAMPreviewViewController : UIViewController <UIGestureRecognizerDelegate, CAMFocusDelegate, CAMExposureDelegate, CAMFocusIndicatorViewDelegate, CAMEffectsPreviewSampleBufferDelegate, CAMPreviewViewSubjectIndicatorDelegate, CAMFacesDelegate>
+@interface CAMPreviewViewController : UIViewController <UIGestureRecognizerDelegate, CAMFocusDelegate, CAMExposureDelegate, CAMFocusIndicatorViewDelegate, CAMPreviewViewSubjectIndicatorDelegate, CAMFacesDelegate>
 {
     _Bool __changingModeOrDevice;
     _Bool __userLockedFocusAndExposure;
@@ -26,7 +25,6 @@
     float __cachedExposureTargetBias;
     float __exposureBiasPanStartValue;
     id <CAMPreviewViewControllerDelegate> _delegate;
-    CAMEffectsRenderer *_effectsRenderer;
     long long _layoutStyle;
     long long _shallowDepthOfFieldStatus;
     CUCaptureController *__captureController;
@@ -83,7 +81,6 @@
 @property(readonly, nonatomic) CUCaptureController *_captureController; // @synthesize _captureController=__captureController;
 @property(nonatomic) long long shallowDepthOfFieldStatus; // @synthesize shallowDepthOfFieldStatus=_shallowDepthOfFieldStatus;
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
-@property(readonly, nonatomic) CAMEffectsRenderer *effectsRenderer; // @synthesize effectsRenderer=_effectsRenderer;
 @property(nonatomic) __weak id <CAMPreviewViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)previewViewDidRemoveLastTrackedSubjectIndicator:(id)arg1;
@@ -97,14 +94,11 @@
 - (void)handleTapAtPoint:(struct CGPoint)arg1;
 - (void)focusOnNormalizedPoint:(struct CGPoint)arg1;
 - (void)_applicationDidEnterBackground;
-- (void)effectsPreviewVideoDataOutputDidDropSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
-- (void)effectsPreviewVideoDataOutputDidOutputSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
 - (void)notifyCaptureSessionDidStopRunning;
 - (void)notifyDidStopCapture;
 - (void)notifyWillStartCapturing;
 - (void)notifyShutterButtonPressed;
 - (void)_updateExposureBiasSideAnimated:(_Bool)arg1;
-- (void)_updateVideoPreviewViewOrientationAnimated:(_Bool)arg1;
 - (void)_captureOrientationChanged:(id)arg1;
 - (void)_handleAspectRatioToggleDoubleTap:(id)arg1;
 - (_Bool)_shouldDisableAspectRatioToggle;
@@ -178,9 +172,6 @@
 - (long long)_largeStyleForPointIndicator;
 - (long long)_styleForPointIndicator;
 - (void)_showIndicatorAtPointOfInterest:(struct CGPoint)arg1;
-- (void)_setFocusIndicatorsHidden:(_Bool)arg1 animated:(_Bool)arg2;
-- (_Bool)_shouldHideFocusIndicators;
-- (void)updateIndicatorVisibilityAnimated:(_Bool)arg1;
 - (void)_deactivateFocusIndicator:(id)arg1;
 - (void)_deactivateFocusIndicator:(id)arg1 afterDelay:(double)arg2;
 - (void)_activateFocusIndicator:(id)arg1;
@@ -212,7 +203,6 @@
 @property(readonly, nonatomic) CAMPreviewView *previewView;
 - (void)_cancelDelayedActions;
 - (void)viewWillDisappear:(_Bool)arg1;
-- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;

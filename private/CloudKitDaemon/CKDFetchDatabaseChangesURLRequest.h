@@ -15,22 +15,26 @@ __attribute__((visibility("hidden")))
 {
     NSMutableArray *_changedZoneIDs;
     NSMutableArray *_deletedZoneIDs;
+    NSMutableArray *_purgedZoneIDs;
     unsigned long long _resultsLimit;
     NSData *_serverChangeTokenData;
     long long _status;
     CDUnknownBlockType _zoneChangedBlock;
     CDUnknownBlockType _zoneDeletedBlock;
+    CDUnknownBlockType _zonePurgedBlock;
     CKRecordZoneID *_recordZoneID;
     NSData *_previousServerChangeTokenData;
 }
 
 @property(retain, nonatomic) NSData *previousServerChangeTokenData; // @synthesize previousServerChangeTokenData=_previousServerChangeTokenData;
 @property(retain, nonatomic) CKRecordZoneID *recordZoneID; // @synthesize recordZoneID=_recordZoneID;
+@property(copy, nonatomic) CDUnknownBlockType zonePurgedBlock; // @synthesize zonePurgedBlock=_zonePurgedBlock;
 @property(copy, nonatomic) CDUnknownBlockType zoneDeletedBlock; // @synthesize zoneDeletedBlock=_zoneDeletedBlock;
 @property(copy, nonatomic) CDUnknownBlockType zoneChangedBlock; // @synthesize zoneChangedBlock=_zoneChangedBlock;
 @property(nonatomic) long long status; // @synthesize status=_status;
 @property(retain, nonatomic) NSData *serverChangeTokenData; // @synthesize serverChangeTokenData=_serverChangeTokenData;
 @property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;
+@property(readonly, nonatomic) NSArray *purgedZoneIDs; // @synthesize purgedZoneIDs=_purgedZoneIDs;
 @property(readonly, nonatomic) NSArray *deletedZoneIDs; // @synthesize deletedZoneIDs=_deletedZoneIDs;
 @property(readonly, nonatomic) NSArray *changedZoneIDs; // @synthesize changedZoneIDs=_changedZoneIDs;
 - (void).cxx_destruct;

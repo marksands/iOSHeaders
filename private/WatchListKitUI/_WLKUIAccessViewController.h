@@ -27,8 +27,6 @@
 - (id)_watchListAppIcon;
 - (void)_fetchRemoteAppInfo;
 - (id)_imageForBundleID:(id)arg1;
-- (_Bool)_synchronizeSettingsFromCloudIfNeeded;
-- (_Bool)_runOnboarding;
 - (void)_presentGenericErrorWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_toggleLoadingScreen;
 - (void)_setupAccessViews;

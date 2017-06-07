@@ -57,6 +57,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool hasDocumentVersionUUID;
 @property(readonly, nonatomic) _Bool didFinishResolvingReferences;
 @property(readonly, nonatomic) unsigned long long fileFormatVersion;
+@property(readonly, nonatomic) long long componentIdentifier;
 - (id)dataForIdentifier:(long long)arg1;
 - (id)UUIDForObjectIdentifier:(long long)arg1;
 - (long long)objectIdentifierForUUID:(id)arg1;

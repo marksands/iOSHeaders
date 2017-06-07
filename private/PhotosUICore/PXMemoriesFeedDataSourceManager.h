@@ -30,6 +30,7 @@
 - (void)handleIncrementalFetchResultChange:(id)arg1 updatedFetchResultsForMemoriesWithChangedKeyAssets:(id)arg2;
 - (void)_handleFinishedGeneratingAdditionalEntriesWithNewDataSource:(id)arg1 changeDetails:(id)arg2 firstUngroupedMemoryIndex:(unsigned long long)arg3;
 - (void)_generateAdditionalEntriesWithOldDataSource:(id)arg1 startingIndex:(unsigned long long)arg2 sync:(_Bool)arg3;
+- (void)reloadMemories:(_Bool)arg1;
 - (void)generateAdditionalEntriesIfPossible;
 - (void)generateAdditionalEntriesWithOldDataSource:(id)arg1 startingIndex:(unsigned long long)arg2 sync:(_Bool)arg3;
 - (void)startGeneratingMemories;

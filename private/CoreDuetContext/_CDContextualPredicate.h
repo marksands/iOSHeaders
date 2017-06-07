@@ -25,6 +25,7 @@
 + (id)contextualPredicateForKeyPaths:(id)arg1 withPredicate:(id)arg2;
 + (id)predicateForKeyPath:(id)arg1 withPredicate:(id)arg2;
 + (id)predicateForKeyPath:(id)arg1 equalToValue:(id)arg2;
++ (id)predicateForChangeAtKeyPaths:(id)arg1;
 + (id)predicateForChangeAtKeyPath:(id)arg1;
 @property(retain, nonatomic) NSPredicate *predicate; // @synthesize predicate=_predicate;
 @property(copy, nonatomic) NSSet *keyPaths; // @synthesize keyPaths=_keyPaths;

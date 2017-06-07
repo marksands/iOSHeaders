@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 
@@ -23,6 +23,7 @@
 @property(retain, nonatomic, setter=_setTarget:) id _target; // @synthesize _target;
 @property(retain, nonatomic, setter=_setNotificationName:) NSString *_notificationName; // @synthesize _notificationName;
 @property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
+- (void).cxx_destruct;
 - (void)_handleNotificationWithName:(id)arg1 object:(const void *)arg2 userInfo:(id)arg3;
 - (void)processHandler:(SEL)arg1;
 - (void)_stopObserving;

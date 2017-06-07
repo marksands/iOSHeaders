@@ -7,7 +7,10 @@
 #import <UIKit/UIFont.h>
 
 @interface UIFont (TelephonyUI)
++ (id)telephonyUIFontWithDescriptor:(id)arg1;
 + (id)telephonyUISubheadlineShortFont;
++ (id)telephonyUIBodyShortItalicFont;
++ (id)telephonyUIBodyShortEmphasizedFont;
 + (id)telephonyUIBodyShortFont;
 @end
 

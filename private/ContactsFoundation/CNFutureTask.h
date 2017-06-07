@@ -11,7 +11,6 @@
 
 @class CNFutureCompletionBlocks, CNFutureResult, CNTask, NSConditionLock, NSString;
 
-__attribute__((visibility("hidden")))
 @interface CNFutureTask : NSObject <CNFuture, CNPromise>
 {
     NSConditionLock *_stateLock;

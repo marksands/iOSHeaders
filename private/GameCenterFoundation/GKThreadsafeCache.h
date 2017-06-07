@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GameCenterFoundation/GKCache-Protocol.h>
 
@@ -21,7 +21,7 @@
     NSObject<OS_dispatch_queue> *_syncQueue;
 }
 
-@property(nonatomic) NSObject<OS_dispatch_queue> *syncQueue; // @synthesize syncQueue=_syncQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *syncQueue; // @synthesize syncQueue=_syncQueue;
 @property(nonatomic) unsigned long long count; // @synthesize count=_count;
 @property(nonatomic) unsigned long long maxCount; // @synthesize maxCount=_maxCount;
 @property(retain, nonatomic) GKLinkedList *cacheList; // @synthesize cacheList=_cacheList;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/TUAudioDeviceControllerActions-Protocol.h>
 
@@ -27,9 +27,9 @@
 @property(readonly, nonatomic) NSArray *outputDevices;
 @property(readonly, nonatomic) NSArray *inputDevices;
 @property(readonly, nonatomic) NSArray *devices;
-- (void)setCurrentOutputDeviceToDeviceWithUID:(id)arg1;
+- (oneway void)setCurrentAudioOutputDeviceToDeviceWithUID:(id)arg1;
 @property(retain, nonatomic) AVAudioDevice *currentOutputDevice;
-- (void)setCurrentInputDeviceToDeviceWithUID:(id)arg1;
+- (oneway void)setCurrentAudioInputDeviceToDeviceWithUID:(id)arg1;
 @property(retain, nonatomic) AVAudioDevice *currentInputDevice;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1;

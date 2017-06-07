@@ -16,10 +16,11 @@
 #import <ChatKit/UITableViewDelegate-Protocol.h>
 #import <ChatKit/UIViewControllerPreviewingDelegate-Protocol.h>
 #import <ChatKit/UIViewControllerPreviewingDelegate_Private-Protocol.h>
+#import <ChatKit/_UIViewDraggingDestinationDelegate-Protocol.h>
 
-@class CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, UIBarButtonItem, UISearchController, UITableView, UIView;
+@class CKConversation, CKConversationList, CKConversationSearchResultsController, CKMessagesController, CKScheduledUpdater, NSArray, NSIndexPath, NSString, UIBarButtonItem, UISearchController, UITableView, UIView;
 
-@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+@interface CKConversationListController : UITableViewController <UISearchControllerDelegate, UISearchBarDelegate, CKConversationResultsControllerDelegate, CKConversationListCellDelegate, _UIViewDraggingDestinationDelegate, CKTranscriptPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 {
     UITableView *_table;
     NSIndexPath *_previouslySelectedIndexPath;
@@ -36,9 +37,10 @@
     NSArray *_frozenConversations;
     unsigned long long _filteredConversationCount;
     long long _filterMode;
-    NSArray *_filteredContactsAndSMSConversations;
+    NSArray *_filteredWhitelistedConversations;
     NSArray *_filteredJunkConversations;
     NSArray *_nonPlaceholderConversations;
+    CKConversation *_conversationChangingPinState;
     double _conversationCellHeight;
     UISearchController *_searchController;
     CKConversationSearchResultsController *_searchResultsController;
@@ -49,9 +51,10 @@
 @property(retain, nonatomic) CKConversationSearchResultsController *searchResultsController; // @synthesize searchResultsController=_searchResultsController;
 @property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
 @property(nonatomic) double conversationCellHeight; // @synthesize conversationCellHeight=_conversationCellHeight;
+@property(retain, nonatomic) CKConversation *conversationChangingPinState; // @synthesize conversationChangingPinState=_conversationChangingPinState;
 @property(retain, nonatomic) NSArray *nonPlaceholderConversations; // @synthesize nonPlaceholderConversations=_nonPlaceholderConversations;
 @property(retain, nonatomic) NSArray *filteredJunkConversations; // @synthesize filteredJunkConversations=_filteredJunkConversations;
-@property(retain, nonatomic) NSArray *filteredContactsAndSMSConversations; // @synthesize filteredContactsAndSMSConversations=_filteredContactsAndSMSConversations;
+@property(retain, nonatomic) NSArray *filteredWhitelistedConversations; // @synthesize filteredWhitelistedConversations=_filteredWhitelistedConversations;
 @property(nonatomic) long long filterMode; // @synthesize filterMode=_filterMode;
 @property(nonatomic) unsigned long long filteredConversationCount; // @synthesize filteredConversationCount=_filteredConversationCount;
 @property(copy, nonatomic) NSArray *frozenConversations; // @synthesize frozenConversations=_frozenConversations;
@@ -74,6 +77,15 @@
 - (void)_keyboardWillHide:(id)arg1;
 - (void)_keyboardWillShow:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (_Bool)_cellHighlightedForDrag:(id)arg1;
+- (id)_itemProvidersFromDraggingInfo:(id)arg1;
+- (id)_indexPathOfDroppedCell;
+- (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
+- (void)view:(id)arg1 performDragOperation:(id)arg2;
+- (void)view:(id)arg1 draggingExited:(id)arg2;
+- (_Bool)view:(id)arg1 prepareForDragOperation:(id)arg2;
+- (_Bool)view:(id)arg1 allowsSimultaneousDragToEnter:(id)arg2;
+- (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
 - (void)searcherDidComplete:(id)arg1;
 - (void)searcher:(id)arg1 userDidDeleteChatGUID:(id)arg2;
 - (void)searcher:(id)arg1 userDidSelectChatGUID:(id)arg2 messageGUID:(id)arg3;
@@ -87,22 +99,30 @@
 - (void)_dismissDetailsController:(id)arg1;
 - (void)avatarHeaderWasTappedForConversation:(id)arg1 inCell:(id)arg2;
 - (double)tableViewSpacingForExtraSeparators:(id)arg1;
+- (id)tableView:(id)arg1 targetIndexPathForMoveFromRowAtIndexPath:(id)arg2 toProposedIndexPath:(id)arg3;
+- (void)tableView:(id)arg1 moveRowAtIndexPath:(id)arg2 toIndexPath:(id)arg3;
+- (_Bool)tableView:(id)arg1 canMoveRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldIndentWhileEditingRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 editingStyleForRowAtIndexPath:(id)arg2;
+- (void)pinConversationButtonTappedForIndexPath:(id)arg1 setPinned:(_Bool)arg2;
 - (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (void)muteConversationButtonTappedForIndexPath:(id)arg1 setMuted:(_Bool)arg2;
 - (void)markAsReadButtonTappedForIndexPath:(id)arg1;
 - (void)markAsReadButtonTapped:(id)arg1;
 - (void)deleteButtonTappedForIndexPath:(id)arg1;
 - (void)batchDeleteButtonTapped:(id)arg1;
 - (void)tableView:(id)arg1 didEndEditingRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willBeginEditingRowAtIndexPath:(id)arg2;
+- (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
+- (id)tableView:(id)arg1 trailingSwipeActionsForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
+- (long long)preferredStatusBarStyle;
 - (void)composeButtonClicked:(id)arg1;
 - (void)_updateToolbarItems;
 - (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
@@ -117,6 +137,7 @@
 - (id)committedViewControllerForPreviewViewController:(id)arg1;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (id)previewViewControllerForRowAtIndexPath:(id)arg1;
+@property(readonly, nonatomic) _Bool isVisible;
 - (void)applicationWillSuspend;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
@@ -125,9 +146,10 @@
 - (void)viewDidUnload;
 - (void)viewDidLoad;
 - (void)loadView;
+- (id)_mergeUnsentComposition:(id)arg1 withDroppedComposition:(id)arg2;
+- (void)_showConversationWithComposition:(id)arg1 atIndexPath:(id)arg2;
 - (void)performSearch:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateNonPlaceholderConverationLists;
-- (_Bool)_shouldOnlyShowNonPlaceholderConversationLists;
 - (void)_updateFilteredConversationLists;
 - (void)_updateConversationFilteredFlagsAndReportSpam;
 - (void)updateNoMessagesDialog;
@@ -143,14 +165,16 @@
 - (void)editButtonTapped:(id)arg1;
 - (void)updateNavigationItems;
 - (void)updateTitle;
+- (void)_updateTableViewRowHeights;
 - (_Bool)_shouldKeepSelection;
 - (void)_groupsChanged:(id)arg1;
 - (void)_conversationMessageWasSent:(id)arg1;
 - (void)_conversationListDidChange:(id)arg1;
 - (void)_conversationListDidFinishLoadingConversations:(id)arg1;
+- (void)_chatWatermarkDidChange:(id)arg1;
 - (void)_chatItemsDidChange:(id)arg1;
+- (void)_conversationPinStateChangedNotification:(id)arg1;
 - (void)_conversationContactPhotosEnabledChangedNotification:(id)arg1;
-- (void)_conversationKeepMessagesChangedNotification:(id)arg1;
 - (void)_conversationFilteringStateChangedNotification:(id)arg1;
 - (void)_conversationMuteDidChangeNotification:(id)arg1;
 - (void)_conversationDisplayNameChangedNotification:(id)arg1;
@@ -159,6 +183,7 @@
 - (void)_chatUnreadCountDidChange:(id)arg1;
 - (void)accessibilityLargeTextDidChange;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
+- (_Bool)_shouldResizeNavigationBar;
 - (void)invalidateCellLayout;
 - (void)dealloc;
 - (id)init;

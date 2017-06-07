@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GKPlayer, GKTurnBasedParticipantInternal, NSDate, NSString;
 
@@ -33,6 +33,7 @@
 @property(copy, nonatomic) NSDate *lastTurnDate; // @dynamic lastTurnDate;
 @property(readonly, nonatomic) _Bool isWinner;
 @property(readonly, nonatomic) NSString *matchOutcomeString;
+- (id)matchOutcomeStringForLocalPlayer;
 - (id)basicMatchOutcomeString;
 @property(readonly, nonatomic) NSString *matchStatusString;
 - (void)setStatus:(long long)arg1;

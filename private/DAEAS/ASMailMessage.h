@@ -19,6 +19,7 @@
 - (id)rfc822Data;
 - (int)smimeType;
 - (_Bool)isDraft;
+- (id)bcc;
 - (_Bool)verbIsSet;
 - (_Bool)flaggedIsSet;
 - (_Bool)readIsSet;

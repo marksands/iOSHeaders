@@ -22,6 +22,7 @@
 
 + (id)sharedCameraImportManager;
 @property(retain, nonatomic) NSMutableArray *importers; // @synthesize importers=_importers;
+- (void).cxx_destruct;
 - (void)deviceBrowser:(id)arg1 didRemoveDevice:(id)arg2 moreGoing:(_Bool)arg3;
 - (void)deviceBrowser:(id)arg1 didAddDevice:(id)arg2 moreComing:(_Bool)arg3;
 - (id)importerMatchingDevice:(id)arg1;
@@ -34,7 +35,6 @@
 - (void)_stopListening;
 - (unsigned long long)startListening;
 - (id)importerForDevice:(id)arg1 withDelegate:(id)arg2;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

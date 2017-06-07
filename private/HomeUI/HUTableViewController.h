@@ -6,37 +6,45 @@
 
 #import <UIKit/UITableViewController.h>
 
-@class NSHashTable, NSMapTable, NSMutableArray;
+#import <HomeUI/HUResizableCellDelegate-Protocol.h>
 
-@interface HUTableViewController : UITableViewController
+@class NSHashTable, NSMapTable, NSString;
+
+@interface HUTableViewController : UITableViewController <HUResizableCellDelegate>
 {
-    _Bool _isUpdatingTableView;
+    _Bool _viewLayingOut;
     NSHashTable *_childViewControllersAtViewWillAppearTime;
     NSHashTable *_childViewControllersAtViewWillDisappearTime;
     NSMapTable *_installedChildViewControllersKeyedByCell;
-    NSMutableArray *_tableViewUpdateRequestQueue;
 }
 
-@property(nonatomic) _Bool isUpdatingTableView; // @synthesize isUpdatingTableView=_isUpdatingTableView;
-@property(retain, nonatomic) NSMutableArray *tableViewUpdateRequestQueue; // @synthesize tableViewUpdateRequestQueue=_tableViewUpdateRequestQueue;
+@property(nonatomic, getter=isViewLayingOut) _Bool viewLayingOut; // @synthesize viewLayingOut=_viewLayingOut;
 @property(retain, nonatomic) NSMapTable *installedChildViewControllersKeyedByCell; // @synthesize installedChildViewControllersKeyedByCell=_installedChildViewControllersKeyedByCell;
 @property(retain, nonatomic) NSHashTable *childViewControllersAtViewWillDisappearTime; // @synthesize childViewControllersAtViewWillDisappearTime=_childViewControllersAtViewWillDisappearTime;
 @property(retain, nonatomic) NSHashTable *childViewControllersAtViewWillAppearTime; // @synthesize childViewControllersAtViewWillAppearTime=_childViewControllersAtViewWillAppearTime;
 - (void).cxx_destruct;
+- (void)didUpdateRequiredHeightForCell:(id)arg1;
 - (void)tableView:(id)arg1 didEndDisplayingCell:(id)arg2 forRowAtIndexPath:(id)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)_performTableViewUpdateWithRequest:(id)arg1;
-- (void)_performTableViewUpdateBlock:(CDUnknownBlockType)arg1;
 - (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
+- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
+- (void)contentSizeCategoryDidChange;
 - (void)viewDidLoad;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithStyle:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

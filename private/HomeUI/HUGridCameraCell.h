@@ -6,29 +6,32 @@
 
 #import <HomeUI/HUGridCell.h>
 
-@class HFItem, HUCameraView, HUDecayingTimer, HUGridCameraCellLayoutOptions, NSArray, UILabel;
+@class HFItem, HUCameraView, HUGridCameraCellLayoutOptions, NADecayingTimer, NSArray, UILabel, UIView;
 
 @interface HUGridCameraCell : HUGridCell
 {
     HFItem *_item;
     HUGridCameraCellLayoutOptions *_layoutOptions;
+    UIView *_topBarView;
     UILabel *_titleLabel;
     UILabel *_descriptionLabel;
     HUCameraView *_cameraView;
     NSArray *_allConstraints;
-    NSArray *_descriptionLabelConstraints;
-    HUDecayingTimer *_descriptionLabelUpdateTimer;
+    NSArray *_labelsConstraints;
+    NADecayingTimer *_descriptionLabelUpdateTimer;
 }
 
 + (Class)layoutOptionsClass;
 + (_Bool)requiresConstraintBasedLayout;
-@property(retain, nonatomic) HUDecayingTimer *descriptionLabelUpdateTimer; // @synthesize descriptionLabelUpdateTimer=_descriptionLabelUpdateTimer;
-@property(retain, nonatomic) NSArray *descriptionLabelConstraints; // @synthesize descriptionLabelConstraints=_descriptionLabelConstraints;
+@property(retain, nonatomic) NADecayingTimer *descriptionLabelUpdateTimer; // @synthesize descriptionLabelUpdateTimer=_descriptionLabelUpdateTimer;
+@property(retain, nonatomic) NSArray *labelsConstraints; // @synthesize labelsConstraints=_labelsConstraints;
 @property(retain, nonatomic) NSArray *allConstraints; // @synthesize allConstraints=_allConstraints;
 @property(retain, nonatomic) HUCameraView *cameraView; // @synthesize cameraView=_cameraView;
 @property(retain, nonatomic) UILabel *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) UIView *topBarView; // @synthesize topBarView=_topBarView;
 @property(retain, nonatomic) HUGridCameraCellLayoutOptions *layoutOptions; // @synthesize layoutOptions=_layoutOptions;
+- (void)setItem:(id)arg1;
 - (id)item;
 - (void).cxx_destruct;
 - (id)_descriptionLabelText:(id)arg1;
@@ -38,9 +41,7 @@
 - (void)updateConstraints;
 - (void)_invalidateConstraints;
 - (void)layoutOptionsDidChange;
-- (void)displayStyleDidChange;
 - (void)updateUIWithAnimation:(_Bool)arg1;
-- (void)setItem:(id)arg1;
 - (struct CGRect)cameraViewFrame;
 - (void)tintColorDidChange;
 - (void)dealloc;

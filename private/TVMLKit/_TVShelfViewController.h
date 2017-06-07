@@ -39,9 +39,9 @@
 - (_Bool)contentFlowsVertically;
 - (id)makeCollectionViewWithFrame:(struct CGRect)arg1;
 - (void)updateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (void)_snapTargetContentOffset:(inout struct CGPoint *)arg1 toItemIndexPath:(id)arg2 atItemOffset:(struct CGPoint)arg3 inSize:(struct CGSize)arg4;
+- (void)_snapTargetContentOffset:(inout struct CGPoint *)arg1 toItemIndexPath:(id)arg2 atItemOffset:(struct CGPoint)arg3;
 - (id)_findSnappingItemFromContentOffset:(inout struct CGPoint *)arg1 withVelocity:(struct CGPoint)arg2;
-- (void)_ensureScrollViewSnapsToItemForSize:(struct CGSize)arg1;
+- (void)_ensureScrollViewSnaps;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)_scrollToIndexPath:(id)arg1;

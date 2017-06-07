@@ -7,9 +7,11 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (Functional)
+- (id)mf_permutations;
 - (id)mf_subarraysOfSize:(unsigned long long)arg1;
 - (id)mf_groupBy:(CDUnknownBlockType)arg1;
 - (id)mf_partition:(CDUnknownBlockType)arg1;
+- (id)mf_prefix:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *mf_tail;
 - (id)mf_foldLeftWithStart:(id)arg1 reduce:(CDUnknownBlockType)arg2;
 - (id)mf_reduce:(CDUnknownBlockType)arg1;

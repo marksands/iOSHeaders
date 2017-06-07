@@ -17,13 +17,13 @@
 
 @property(readonly) WDListDefinition *listDefinition; // @synthesize listDefinition=_listDefinition;
 @property(retain) WDList *currentList; // @synthesize currentList=_currentList;
+- (void).cxx_destruct;
 - (void)increaseCounterAtLevel:(unsigned char)arg1;
 - (id)levelDescriptionAtIndex:(unsigned char)arg1;
 - (unsigned long long)counterAtLevel:(unsigned char)arg1;
 - (void)setCounterTo:(unsigned long long)arg1 atLevel:(unsigned char)arg2;
 - (void)reset;
 - (unsigned long long)levelCount;
-- (void)dealloc;
 - (id)initWithListDefinition:(id)arg1;
 - (id)init;
 

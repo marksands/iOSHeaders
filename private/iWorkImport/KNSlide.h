@@ -14,14 +14,15 @@
 __attribute__((visibility("hidden")))
 @interface KNSlide : KNAbstractSlide <TSKModel, TSKTransformableObject>
 {
-    KNMasterSlide *mMaster;
-    KNNoteInfo *mNote;
-    NSMutableSet *mInfosUsingObjectPlaceholderGeometry;
+    KNMasterSlide *_master;
+    KNNoteInfo *_note;
+    NSMutableSet *_infosUsingObjectPlaceholderGeometry;
 }
 
 + (id)blankSlideWithSlideNode:(id)arg1 master:(id)arg2 andShow:(id)arg3;
-@property(retain, nonatomic) KNNoteInfo *note; // @synthesize note=mNote;
-@property(readonly, nonatomic) NSSet *infosUsingObjectPlaceholderGeometry; // @synthesize infosUsingObjectPlaceholderGeometry=mInfosUsingObjectPlaceholderGeometry;
+@property(readonly, nonatomic) NSSet *infosUsingObjectPlaceholderGeometry; // @synthesize infosUsingObjectPlaceholderGeometry=_infosUsingObjectPlaceholderGeometry;
+@property(retain, nonatomic) KNNoteInfo *note; // @synthesize note=_note;
+- (void).cxx_destruct;
 - (void)p_checkMaster;
 - (void)addMapForStorage:(id)arg1 forHyperlink:(id)arg2;
 - (void)removeMapForStorage:(id)arg1 forHyperlink:(id)arg2;
@@ -40,6 +41,7 @@ __attribute__((visibility("hidden")))
 - (void)removeDrawable:(id)arg1;
 - (_Bool)p_oneOrMoreDrawablesMayHaveImplicitBuildEventsInDrawables:(id)arg1;
 - (void)insertDrawables:(id)arg1 atIndex:(unsigned long long)arg2 dolcContext:(id)arg3;
+- (_Bool)isMasterSlide;
 @property(readonly, nonatomic) _Bool slideObjectsLayerWithMaster;
 - (id)infoCorrespondingToMasterInfo:(id)arg1;
 - (id)defaultSlideNumberPlaceholderWithContext:(id)arg1;
@@ -52,10 +54,9 @@ __attribute__((visibility("hidden")))
 - (void)removeInfoUsingObjectPlaceholderGeometry:(id)arg1;
 - (void)addInfoUsingObjectPlaceholderGeometry:(id)arg1;
 @property(retain, nonatomic) KNMasterSlide *master;
-- (void)dealloc;
 - (id)initWithSlideNode:(id)arg1 master:(id)arg2 andShow:(id)arg3;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchive:(struct SlideArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct SlideArchive *)arg1 unarchiver:(id)arg2;
 - (_Bool)isComponentRoot;

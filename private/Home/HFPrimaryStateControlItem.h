@@ -6,21 +6,23 @@
 
 #import <Home/HFControlItem.h>
 
+#import <Home/HFPrimaryStateWriter-Protocol.h>
+
 @class HFValueTransformer, NSString;
 
-@interface HFPrimaryStateControlItem : HFControlItem
+@interface HFPrimaryStateControlItem : HFControlItem <HFPrimaryStateWriter>
 {
     NSString *_primaryStateCharacteristicType;
     HFValueTransformer *_valueTransformer;
 }
 
-+ (id)powerStateControlItemWithValueSource:(id)arg1 displayResults:(id)arg2;
 + (Class)valueClass;
 @property(readonly, nonatomic) HFValueTransformer *valueTransformer; // @synthesize valueTransformer=_valueTransformer;
 @property(readonly, copy, nonatomic) NSString *primaryStateCharacteristicType; // @synthesize primaryStateCharacteristicType=_primaryStateCharacteristicType;
 - (void).cxx_destruct;
 - (id)characteristicValuesForValue:(id)arg1;
 - (id)valueForCharacteristicValues:(id)arg1;
+- (id)toggleValue;
 - (id)togglePrimaryState;
 - (id)writePrimaryState:(long long)arg1;
 - (id)writeValue:(id)arg1;
@@ -28,6 +30,12 @@
 - (_Bool)canCopyWithCharacteristicTypeSubset:(id)arg1;
 - (id)initWithValueSource:(id)arg1 characteristicTypes:(id)arg2 displayResults:(id)arg3;
 - (id)initWithValueSource:(id)arg1 characteristicType:(id)arg2 valueTransformer:(id)arg3 displayResults:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

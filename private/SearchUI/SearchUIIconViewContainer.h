@@ -12,18 +12,18 @@
 {
     NSArray *_iconViews;
     NSLayoutConstraint *_trailingConstraint;
-    NSLayoutConstraint *_lastLayoutGuideWidthConstraint;
     NSArray *_spacerLayoutGuides;
     NSArray *_spacerLayoutGuideWidthConstraints;
+    NSArray *_iconViewWidthConstraints;
 }
 
 + (unsigned long long)numberOfColumnsForCurrentOrientation;
 + (unsigned long long)maximumNumberOfColumns;
 + (unsigned long long)numberOfColumnsForLandscape;
 + (unsigned long long)numberOfColumnsForPortrait;
+@property(retain) NSArray *iconViewWidthConstraints; // @synthesize iconViewWidthConstraints=_iconViewWidthConstraints;
 @property(retain) NSArray *spacerLayoutGuideWidthConstraints; // @synthesize spacerLayoutGuideWidthConstraints=_spacerLayoutGuideWidthConstraints;
 @property(retain) NSArray *spacerLayoutGuides; // @synthesize spacerLayoutGuides=_spacerLayoutGuides;
-@property(retain) NSLayoutConstraint *lastLayoutGuideWidthConstraint; // @synthesize lastLayoutGuideWidthConstraint=_lastLayoutGuideWidthConstraint;
 @property(retain) NSLayoutConstraint *trailingConstraint; // @synthesize trailingConstraint=_trailingConstraint;
 @property(retain) NSArray *iconViews; // @synthesize iconViews=_iconViews;
 - (void).cxx_destruct;

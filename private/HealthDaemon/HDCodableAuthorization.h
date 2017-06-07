@@ -13,15 +13,18 @@
     long long _authorizationRequest;
     long long _authorizationStatus;
     double _modificationDate;
+    long long _modificationEpoch;
     long long _objectType;
     struct {
         unsigned int authorizationRequest:1;
         unsigned int authorizationStatus:1;
         unsigned int modificationDate:1;
+        unsigned int modificationEpoch:1;
         unsigned int objectType:1;
     } _has;
 }
 
+@property(nonatomic) long long modificationEpoch; // @synthesize modificationEpoch=_modificationEpoch;
 @property(nonatomic) double modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(nonatomic) long long authorizationRequest; // @synthesize authorizationRequest=_authorizationRequest;
 @property(nonatomic) long long authorizationStatus; // @synthesize authorizationStatus=_authorizationStatus;
@@ -35,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasModificationEpoch;
 @property(nonatomic) _Bool hasModificationDate;
 @property(nonatomic) _Bool hasAuthorizationRequest;
 @property(nonatomic) _Bool hasAuthorizationStatus;

@@ -9,27 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface _OSLogTracepointBuffer : NSObject
 {
-    struct {
-        unsigned int _field1;
-        unsigned long long _field2;
-        union {
-            struct {
-                struct tracev3_chunk_s *_field1;
-                struct tracev3_chunk_s *_field2;
-                struct catalog_s *_field3;
-                struct _firehose_unaligned_tracepoint_s *_field4;
-            } _field1;
-            struct {
-                unsigned char _field1[16];
-                struct os_timesync_time_entry_s _field2;
-            } _field2;
-            struct {
-                unsigned char _field1[16];
-                unsigned char _field2;
-                _Bool _field3;
-            } _field3;
-        } _field3;
-    } *_events;
+    CDStruct_c6d697a1 *_events;
     unsigned long long _cursor;
     unsigned long long _count;
     unsigned long long _size;

@@ -6,16 +6,28 @@
 
 #import <PhotoLibraryServices/PLPhotoEditModel.h>
 
-@class NSArray, NSDictionary, NSString, _UIDynamicValueAnimation;
+@class NSArray, NSDictionary, NSNumber, NSString, _UIDynamicValueAnimation;
 
 @interface PLPhotoEditMutableModel : PLPhotoEditModel
 {
     long long _transactionDepth;
+    PLPhotoEditModel *_modelBeforeChanges;
     _UIDynamicValueAnimation *_currentCopyAnimation;
 }
 
-@property(nonatomic) CDStruct_1b6d18a9 trimEndTimeOffset; // @dynamic trimEndTimeOffset;
-@property(nonatomic) CDStruct_1b6d18a9 trimStartTimeOffset; // @dynamic trimStartTimeOffset;
+- (void).cxx_destruct;
+@property(nonatomic) long long inputOrientation; // @dynamic inputOrientation;
+@property(nonatomic) struct CGSize inputSize; // @dynamic inputSize;
+@property(copy, nonatomic) NSDictionary *depthEffectSettings; // @dynamic depthEffectSettings;
+@property(nonatomic, getter=isDepthEffectEnabled) _Bool depthEffectEnabled; // @dynamic depthEffectEnabled;
+@property(retain, nonatomic) NSNumber *muted; // @dynamic muted;
+@property(nonatomic) CDStruct_1b6d18a9 stillPhotoTime; // @dynamic stillPhotoTime;
+@property(nonatomic) CDStruct_1b6d18a9 trimEndTime; // @dynamic trimEndTime;
+@property(nonatomic) CDStruct_1b6d18a9 trimStartTime; // @dynamic trimStartTime;
+@property(nonatomic, getter=isTrimEnabled) _Bool trimEnabled; // @dynamic trimEnabled;
+@property(copy, nonatomic) NSString *autoLoopFlavor; // @dynamic autoLoopFlavor;
+@property(copy, nonatomic) NSDictionary *autoLoopRecipe; // @dynamic autoLoopRecipe;
+@property(nonatomic, getter=isAutoLoopEnabled) _Bool autoLoopEnabled; // @dynamic autoLoopEnabled;
 - (void)removeRedEyeCorrections:(id)arg1;
 - (void)addRedEyeCorrections:(id)arg1;
 @property(nonatomic) _Bool legacyAutoEnhanceIsOn; // @dynamic legacyAutoEnhanceIsOn;
@@ -24,11 +36,11 @@
 @property(copy, nonatomic) NSArray *redEyeCorrections; // @dynamic redEyeCorrections;
 @property(copy, nonatomic) NSString *autoWhiteBalanceIdentifier; // @dynamic autoWhiteBalanceIdentifier;
 @property(copy, nonatomic) NSDictionary *autoWhiteBalanceSettings; // @dynamic autoWhiteBalanceSettings;
-@property(nonatomic) long long appliedOrientation; // @dynamic appliedOrientation;
+@property(nonatomic) long long userOrientation; // @dynamic userOrientation;
 @property(nonatomic, getter=isAutoCropped) _Bool autoCropped; // @dynamic autoCropped;
 - (void)setCropConstraintWidth:(long long)arg1 height:(long long)arg2;
-@property(nonatomic) struct CGRect normalizedCropRect; // @dynamic normalizedCropRect;
-@property(nonatomic) double straightenAngle; // @dynamic straightenAngle;
+@property(nonatomic) struct CGRect cropRect; // @dynamic cropRect;
+@property(nonatomic) double straightenAngleRadiansCW; // @dynamic straightenAngleRadiansCW;
 @property(nonatomic) double whiteBalanceFaceWarmth; // @dynamic whiteBalanceFaceWarmth;
 @property(nonatomic) double whiteBalanceFaceStrength; // @dynamic whiteBalanceFaceStrength;
 @property(nonatomic) double whiteBalanceFaceQ; // @dynamic whiteBalanceFaceQ;
@@ -70,8 +82,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)performChangesWithBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
-- (void)pl_setCropConstraintForDataConstraint:(struct CGSize)arg1 imageGeometry:(id)arg2;
-- (void)pl_setNormalizedCropRectForDataCrop:(struct CGRect)arg1 straightenAngle:(double)arg2 imageGeometry:(id)arg3;
 
 @end
 

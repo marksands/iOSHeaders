@@ -6,24 +6,33 @@
 
 #import <UIKit/UITableViewController.h>
 
-@class UITextField;
+@class UIControl;
+@protocol UITextInput;
 
 @interface SearchUIKeyboardableTableViewController : UITableViewController
 {
-    UITextField *_textField;
+    _Bool _shouldHideTableCellsUnderKeyboard;
+    UIControl<UITextInput> *_textField;
     double _keyboardHeight;
 }
 
 @property double keyboardHeight; // @synthesize keyboardHeight=_keyboardHeight;
-@property(retain) UITextField *textField; // @synthesize textField=_textField;
+@property(nonatomic) _Bool shouldHideTableCellsUnderKeyboard; // @synthesize shouldHideTableCellsUnderKeyboard=_shouldHideTableCellsUnderKeyboard;
+@property __weak UIControl<UITextInput> *textField; // @synthesize textField=_textField;
 - (void).cxx_destruct;
+- (void)showKeyboard;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
+- (void)scrollViewDidScroll:(id)arg1;
+- (void)hideCellsBelowKeyboardIfNecessary;
+- (void)viewDidLayoutSubviews;
 - (void)scrollIndexPathToVisible:(id)arg1;
 - (void)moveCursorToPosition:(id)arg1;
 - (void)moveCursorToEnd;
 - (void)moveCursorToBeginning;
 - (_Bool)canHighlightRowAtIndexPath:(id)arg1;
 - (void)selectHighlightedRow;
-- (void)highlightRowAtIndexPath:(id)arg1;
+- (id)indexPathForNextSelectableIndexPath:(id)arg1 upward:(_Bool)arg2;
+- (void)highlightRowAtIndexPath:(id)arg1 upward:(_Bool)arg2;
 - (void)downArrowPressed:(id)arg1;
 - (void)upArrowPressed:(id)arg1;
 - (void)returnPressed;

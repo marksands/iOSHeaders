@@ -33,6 +33,8 @@
 - (void).cxx_destruct;
 - (void)_updateVitalityFilters;
 - (id)_newVitalityFilter;
+- (void)canPerformVitalityDidChange;
+@property(readonly, nonatomic) _Bool canPerformVitality;
 - (void)performChanges:(CDUnknownBlockType)arg1;
 - (void)didLayoutPlayerViews;
 - (void)removePlayerView:(id)arg1;

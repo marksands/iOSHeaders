@@ -29,7 +29,7 @@
 - (void)_appendKey:(id)arg1 value:(id)arg2 toSearchResultElement:(id)arg3;
 - (void)_performQuery;
 - (id)_copySearchStringForQueryInput:(id)arg1;
-- (id)_copySearchStringPortionForWord:(id)arg1;
+- (id)_searchStringForWord:(id)arg1;
 - (void)disable;
 - (id)initWithQuery:(id)arg1;
 

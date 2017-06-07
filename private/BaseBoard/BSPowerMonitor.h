@@ -6,13 +6,15 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSHashTable;
+@class BSZeroingWeakReference, NSHashTable;
 @protocol OS_dispatch_queue;
 
 @interface BSPowerMonitor : NSObject
 {
+    BSZeroingWeakReference *_weakSelf;
     NSObject<OS_dispatch_queue> *_queue;
-    NSHashTable *_queue_observers;
+    struct os_unfair_lock_s _observersLock;
+    NSHashTable *_lock_observers;
 }
 
 + (id)sharedInstance;

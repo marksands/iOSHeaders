@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)addObject:(id)arg1;
 - (_Bool)hasObjects;
 - (_Bool)containsObject:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)firstObject;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;

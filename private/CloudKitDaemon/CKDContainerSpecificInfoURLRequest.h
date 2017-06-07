@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool needUserID; // @synthesize needUserID=_needUserID;
 - (void).cxx_destruct;
 - (void)requestDidParseJSONObject:(id)arg1;
+- (void)_renewAuthTokenWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)additionalHeaderValues;
 - (_Bool)hasRequestBody;
 - (id)url;

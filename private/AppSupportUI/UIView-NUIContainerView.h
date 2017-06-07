@@ -7,11 +7,17 @@
 #import <UIKit/UIView.h>
 
 @interface UIView (NUIContainerView)
+- (void)setNeverCacheContentLayoutSize:(_Bool)arg1;
+- (_Bool)neverCacheContentLayoutSize;
+- (id)contentLayoutSizeCacheDescription;
+@property(nonatomic) _Bool invalidatingIntrinsicContentSizeAlsoInvalidatesSuperview;
 @property(nonatomic) double customFirstBaselineOffsetFromContentTop;
 @property(nonatomic) double customBaselineOffsetFromBottom;
 @property(nonatomic) _Bool allowsBaselineOffsetApproximation;
 @property(nonatomic, getter=isBaselineRelativeAlignmentRectInsets) _Bool baselineRelativeAlignmentRectInsets;
 @property(nonatomic) struct UIEdgeInsets customAlignmentRectInsets;
 - (id)containerViewInfoCreateIfNeeded:(_Bool)arg1;
+- (_Bool)isLayoutSizeDependentOnPerpendicularAxis;
+- (_Bool)supportsAsynchronousMeasurement;
 @end
 

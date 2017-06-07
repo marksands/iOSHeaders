@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol GEONavdAnalyticsReporter;
 
@@ -15,7 +15,7 @@
 
 + (id)sharedManager;
 @property(retain, nonatomic) id <GEONavdAnalyticsReporter> analyticsReporter; // @synthesize analyticsReporter=_analyticsReporter;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

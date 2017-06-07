@@ -12,8 +12,8 @@
 
 + (Class)safeCategoryBaseClass;
 + (id)safeCategoryTargetClassName;
-- (_Bool)_accessibilityHitTestsAnyElement;
-- (void)_setAccessibilityHitTestsAnyElement:(_Bool)arg1;
+- (_Bool)_accessibilityAutomationHitTest;
+- (void)_setAccessibilityAutomationHitTest:(_Bool)arg1;
 - (void)_setAccessibilityHitTestStartsAtElement:(id)arg1;
 - (id)_accessibilityHitTestStartsAtElement;
 

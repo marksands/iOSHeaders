@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/PKPaymentDataProvider-Protocol.h>
 #import <PassKitCore/PKPaymentServiceDelegate-Protocol.h>
@@ -29,6 +29,7 @@
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didReceiveTransaction:(id)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableTransactionService:(_Bool)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didEnableMessageService:(_Bool)arg2;
+- (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (_Bool)supportsInAppPaymentsForPass:(id)arg1;
 - (_Bool)supportsNotificationsForPass:(id)arg1;
 - (_Bool)supportsMessagesForPass:(id)arg1;
@@ -37,7 +38,7 @@
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(id)arg1 withTransactionSource:(unsigned long long)arg2 withBackingData:(unsigned long long)arg3 limit:(long long)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)setDefaultPaymentApplication:(id)arg1 forPassUniqueIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)felicaStateWithPassUniqueIdentifier:(id)arg1 paymentApplication:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)setDefaultExpressFelicaTransitPassIdentifier:(id)arg1 withCredential:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)setExpressWithPassInformation:(id)arg1 credential:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(retain, nonatomic) NSString *defaultPaymentPassIdentifier;
 - (void)setPaymentHandoffDisabled:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool isPaymentHandoffDisabled;
@@ -45,6 +46,8 @@
 - (id)transactionsAppLaunchTokenForPassWithUniqueIdentifier:(id)arg1;
 @property(readonly, nonatomic) _Bool secureElementIsProductionSigned;
 @property(readonly, nonatomic) NSString *secureElementIdentifier;
+- (id)expressPassInformationForMode:(id)arg1;
+- (id)expressPassesInformation;
 - (id)defaultExpressFelicaTransitPassIdentifier;
 @property(readonly, nonatomic) _Bool isDeviceInRestrictedMode;
 - (void)_accessDelegatesWithHandler:(CDUnknownBlockType)arg1;

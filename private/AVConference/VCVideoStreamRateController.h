@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int targetBitrate; // @synthesize targetBitrate=_targetBitrate;
 - (id)className;
 - (void)releaseLogDumpFile;
-- (void)createLogDumpFile;
+- (void)createLogDumpFile:(unsigned int)arg1;
 - (void)updateAverageTargetBitrate:(unsigned int)arg1 interval:(double)arg2;
 - (void)setOperatingTierIndexWithBitrate:(unsigned int)arg1;
 - (unsigned short)maxTierIndex:(unsigned int)arg1;
@@ -51,7 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)setRateControlInterval:(double)arg1;
 - (void)setMaxTargetBitrate:(unsigned int)arg1 minTargetBitrate:(unsigned int)arg2;
 - (void)dealloc;
-- (id)init;
+- (id)initWithDumpID:(unsigned int)arg1;
 
 @end
 

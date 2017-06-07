@@ -16,8 +16,8 @@
 }
 
 - (void).cxx_destruct;
-- (id)anyEntityWithPredicate:(id)arg1;
-- (void)enumerateEntitiesWithPredicate:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (id)anyEntityWithPredicate:(id)arg1 error:(id *)arg2;
+- (_Bool)enumerateEntitiesWithPredicate:(id)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
 - (id)initWithDescriptor:(id)arg1 properties:(id)arg2 database:(id)arg3;
 
 @end

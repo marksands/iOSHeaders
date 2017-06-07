@@ -15,19 +15,19 @@
     NSString *_sceneID;
     struct CGRect _frame;
     _Bool _opaque;
-    double _scale;
     NSSet *_layersToExclude;
     FBSSceneSettings *_settings;
     long long _orientation;
     NSDate *_expirationDate;
+    double _scale;
 }
 
 + (id)contextWithFBSContext:(id)arg1;
+@property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(retain, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(copy, nonatomic) NSSet *layersToExclude; // @synthesize layersToExclude=_layersToExclude;
 @property(copy, nonatomic) FBSSceneSettings *settings; // @synthesize settings=_settings;
-@property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic, getter=isOpaque) _Bool opaque; // @synthesize opaque=_opaque;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 @property(readonly, copy, nonatomic) NSString *sceneID; // @synthesize sceneID=_sceneID;

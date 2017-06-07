@@ -10,7 +10,6 @@
 {
 }
 
-- (_Bool)supportsAttendeesInExceptions;
 - (_Bool)supportsGALPhotos;
 - (_Bool)sendDeviceInfoOnProvision;
 - (_Bool)useEventIdsInMeetingResponse;

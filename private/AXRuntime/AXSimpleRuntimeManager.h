@@ -29,8 +29,8 @@
 @property(copy, nonatomic) CDUnknownBlockType attributeCallback; // @synthesize attributeCallback=_attributeCallback;
 @property(copy, nonatomic) CDUnknownBlockType parameterizedAttributeCallback; // @synthesize parameterizedAttributeCallback=_parameterizedAttributeCallback;
 @property(nonatomic) _Bool systemWideServer; // @synthesize systemWideServer=_systemWideServer;
+- (void).cxx_destruct;
 - (void)start;
-- (void)dealloc;
 
 @end
 

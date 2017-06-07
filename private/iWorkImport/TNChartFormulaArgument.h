@@ -16,8 +16,8 @@ __attribute__((visibility("hidden")))
 @property(readonly) int type; // @synthesize type=mType;
 - (id)description;
 @property(readonly) struct TSCEValue *staticValue;
-@property(readonly) CDStruct_fc93c73e rangeReference;
-@property(readonly) CDStruct_de21cb60 cellReference;
+@property(readonly) struct TSCERangeRef rangeReference;
+@property(readonly) struct TSCECellRef cellReference;
 @property(readonly) _Bool isBadRef;
 @property(readonly) _Bool isReference;
 @property(readonly) _Bool isStaticValue;
@@ -26,8 +26,8 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithBadRef;
 - (id)initWithStaticValue:(const struct TSCEValue *)arg1;
-- (id)initWithRangeReference:(CDStruct_fc93c73e)arg1;
-- (id)initWithCellReference:(CDStruct_de21cb60)arg1;
+- (id)initWithRangeReference:(struct TSCERangeRef)arg1;
+- (id)initWithCellReference:(struct TSCECellRef)arg1;
 
 @end
 

@@ -32,6 +32,7 @@
 - (void)_selectBackground:(id)arg1 animated:(_Bool)arg2;
 - (void)_selectBackground:(id)arg1;
 - (void)_createButtonsWithBlurStyle:(long long)arg1;
+- (long long)tagForCandidateItemAtIndex:(unsigned long long)arg1;
 - (void)setSelectedIndex:(unsigned long long)arg1;
 - (void)setBarHidden:(_Bool)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (struct CGSize)intrinsicContentSize;

@@ -39,18 +39,16 @@
 - (void)searchResultNodesForSceneIdentifiers:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)searchResultNodesForSceneClassifications:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)sceneNodesForSceneIdentifiers:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (_Bool)_performAnalysisOnAssetResource:(id)arg1 ofAsset:(id)arg2 error:(id *)arg3;
-- (_Bool)_performAndPersistAnalysisWithHandler:(id)arg1 forAsset:(id)arg2 error:(id *)arg3;
-- (_Bool)_performAndPersistAnalysisOfImageData:(id)arg1 withOrientation:(unsigned long long)arg2 forAsset:(id)arg3 error:(id *)arg4;
-- (_Bool)_performAndPersistAnalysisOfImageFileAtURL:(id)arg1 forAsset:(id)arg2 error:(id *)arg3;
+- (id)_performAnalysisOfAssetResource:(id)arg1 withAttributes:(id)arg2 forAsset:(id)arg3;
+- (id)_performAndPersistAnalysisWithHandler:(id)arg1 withAttributes:(id)arg2 forAsset:(id)arg3;
+- (id)_performAndPersistAnalysisOfImageData:(id)arg1 withOrientation:(unsigned long long)arg2 withAttributes:(id)arg3 forAsset:(id)arg4;
+- (id)_performAndPersistAnalysisOfImageFileAtURL:(id)arg1 withAttributes:(id)arg2 forAsset:(id)arg3;
 - (id)_computeImageprintForAsset:(id)arg1 usingRequestHandler:(id)arg2 error:(id *)arg3;
-- (_Bool)_performSceneClassificationOfAsset:(id)arg1 usingRequestHandler:(id)arg2 sceneClassifications:(id *)arg3 acceptedObservations:(id *)arg4 rejectedObservations:(id *)arg5 unknownObservations:(id *)arg6 error:(id *)arg7;
+- (id)_performSceneClassificationOfAsset:(id)arg1 usingRequestHandler:(id)arg2;
 - (_Bool)getLocallyAvailableAssetResource:(id *)arg1 forAnalyzingAsset:(id)arg2 error:(id *)arg3;
 - (id)preferredAssetResourcesForAnalyzingAsset:(id)arg1;
 - (struct CGImage *)_newCGImageRefForAssetResourceFileURL:(id)arg1 orientation:(unsigned long long *)arg2 error:(id *)arg3;
 - (_Bool)_reclassificationOfSceneNeededForAsset:(id)arg1;
-- (_Bool)_scheduleSceneClassificationOfAssetsWithLocalIdentifiers:(id)arg1 withPriority:(int)arg2 error:(id *)arg3;
-- (void)_handleNilReplyBlockForSelector:(SEL)arg1;
 - (id)initWithPhotoAnalysisManager:(id)arg1 dataLoader:(id)arg2;
 
 @end

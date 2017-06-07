@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -14,6 +14,7 @@
     struct _opaque_pthread_mutex_t _requestContextMapLock;
 }
 
+- (void).cxx_destruct;
 - (id)invalidateTimeoutsAndReturnHandlersForAllRequests;
 - (id)_criticalInvalidateTimeoutAndReturnHandlerForRequestID:(id)arg1;
 - (id)invalidateTimeoutAndReturnHandlerForRequestID:(id)arg1;

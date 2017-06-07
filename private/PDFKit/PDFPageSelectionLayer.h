@@ -8,30 +8,25 @@
 
 @class PDFPageSelectionLayerPrivate;
 
+__attribute__((visibility("hidden")))
 @interface PDFPageSelectionLayer : CALayer
 {
     PDFPageSelectionLayerPrivate *_private;
 }
 
 - (void).cxx_destruct;
-- (struct CGImage *)_createMagnifierContentsImage:(struct CGSize)arg1;
-- (void)_updateMagnifierGraphics;
-- (id)_createMagnifier;
 - (id)_createSelectionLollipop:(double)arg1 isLeftSide:(_Bool)arg2;
 - (void)_generateSelectionIsFirstPage:(_Bool)arg1 isLastPage:(_Bool)arg2;
-- (_Bool)_isTouchingHandle:(id)arg1 forPagePoint:(struct CGPoint)arg2;
 - (void)_updateHandleGraphics;
 - (void)_updateGraphics;
-- (void)magnificationDidChange;
-- (void)magnificationWillChange;
-- (_Bool)isTouchingRightHandle:(struct CGPoint)arg1;
-- (_Bool)isTouchingLeftHandle:(struct CGPoint)arg1;
-- (void)updateSelectionHandleGeometry;
+- (void)enableTextSelectionHandles;
+- (void)clearTextSelectionHandles;
 - (id)_hashRectTransformPair:(CDStruct_b93daf5b *)arg1;
 - (id)_inactiveColor;
 - (id)_activeColor;
 - (void)_generateRects;
 - (void)updateRotation;
+- (id)selection;
 - (void)setSelection:(id)arg1;
 - (void)setDisplayBox:(long long)arg1;
 - (id)page;

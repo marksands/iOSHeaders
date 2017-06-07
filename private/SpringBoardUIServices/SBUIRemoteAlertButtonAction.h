@@ -11,9 +11,10 @@
 }
 
 - (void)sendResponseWithUnHandledEvents:(long long)arg1;
-- (long long)events;
-- (void)sendResponse:(id)arg1;
-- (id)initWithEvents:(long long)arg1 targetQueue:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) long long events;
+- (void)sendResponse:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (id)initWithEvents:(long long)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (id)initWithEvents:(long long)arg1;
 
 @end
 

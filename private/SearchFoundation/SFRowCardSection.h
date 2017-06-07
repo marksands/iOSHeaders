@@ -6,17 +6,39 @@
 
 #import <SearchFoundation/SFCardSection.h>
 
-@class NSNumber, NSString, SFImage, SFText;
+#import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFRowCardSection-Protocol.h>
 
-@interface SFRowCardSection : SFCardSection
+@class NSArray, NSData, NSDictionary, NSNumber, NSString, SFCard, SFColor, SFImage, SFRichText;
+
+@interface SFRowCardSection : SFCardSection <SFRowCardSection, NSSecureCoding>
 {
+    struct {
+        unsigned int canBeHidden:1;
+        unsigned int hasTopPadding:1;
+        unsigned int hasBottomPadding:1;
+        unsigned int separatorStyle:1;
+        unsigned int imageIsRightAligned:1;
+        unsigned int keyNoWrap:1;
+        unsigned int valueNoWrap:1;
+        unsigned int cardPaddingBottom:1;
+    } _has;
+    _Bool _canBeHidden;
+    _Bool _hasTopPadding;
+    _Bool _hasBottomPadding;
     _Bool _imageIsRightAligned;
     _Bool _keyNoWrap;
     _Bool _valueNoWrap;
     _Bool _cardPaddingBottom;
+    int _separatorStyle;
+    NSArray *_punchoutOptions;
+    NSString *_punchoutPickerTitle;
+    NSString *_punchoutPickerDismissText;
+    NSString *_type;
+    SFColor *_backgroundColor;
     SFImage *_image;
-    SFText *_leadingText;
-    SFText *_trailingText;
+    SFRichText *_leadingText;
+    SFRichText *_trailingText;
     NSString *_leftText;
     NSString *_rightText;
     SFImage *_attributionImage;
@@ -24,9 +46,13 @@
     NSNumber *_keyWeight;
     NSString *_value;
     NSNumber *_valueWeight;
+    SFRichText *_leadingSubtitle;
+    SFRichText *_trailingSubtitle;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) SFRichText *trailingSubtitle; // @synthesize trailingSubtitle=_trailingSubtitle;
+@property(retain, nonatomic) SFRichText *leadingSubtitle; // @synthesize leadingSubtitle=_leadingSubtitle;
 @property(nonatomic) _Bool cardPaddingBottom; // @synthesize cardPaddingBottom=_cardPaddingBottom;
 @property(copy, nonatomic) NSNumber *valueWeight; // @synthesize valueWeight=_valueWeight;
 @property(nonatomic) _Bool valueNoWrap; // @synthesize valueNoWrap=_valueNoWrap;
@@ -37,13 +63,44 @@
 @property(retain, nonatomic) SFImage *attributionImage; // @synthesize attributionImage=_attributionImage;
 @property(copy, nonatomic) NSString *rightText; // @synthesize rightText=_rightText;
 @property(copy, nonatomic) NSString *leftText; // @synthesize leftText=_leftText;
-@property(retain, nonatomic) SFText *trailingText; // @synthesize trailingText=_trailingText;
-@property(retain, nonatomic) SFText *leadingText; // @synthesize leadingText=_leadingText;
+@property(retain, nonatomic) SFRichText *trailingText; // @synthesize trailingText=_trailingText;
+@property(retain, nonatomic) SFRichText *leadingText; // @synthesize leadingText=_leadingText;
 @property(nonatomic) _Bool imageIsRightAligned; // @synthesize imageIsRightAligned=_imageIsRightAligned;
 @property(retain, nonatomic) SFImage *image; // @synthesize image=_image;
+@property(retain, nonatomic) SFColor *backgroundColor;
+@property(nonatomic) int separatorStyle;
+@property(copy, nonatomic) NSString *type;
+@property(nonatomic) _Bool hasBottomPadding;
+@property(nonatomic) _Bool hasTopPadding;
+@property(nonatomic) _Bool canBeHidden;
+@property(copy, nonatomic) NSString *punchoutPickerDismissText;
+@property(copy, nonatomic) NSString *punchoutPickerTitle;
+@property(copy, nonatomic) NSArray *punchoutOptions;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasCardPaddingBottom;
+- (_Bool)hasValueNoWrap;
+- (_Bool)hasKeyNoWrap;
+- (_Bool)hasImageIsRightAligned;
+- (_Bool)hasSeparatorStyle;
+- (_Bool)hasHasBottomPadding;
+- (_Bool)hasHasTopPadding;
+- (_Bool)hasCanBeHidden;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(copy, nonatomic) NSString *cardSectionId;
+@property(copy, nonatomic) NSArray *commands;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(nonatomic) _Bool hideDivider;
+@property(retain, nonatomic) SFCard *nextCard;
+@property(copy, nonatomic) NSArray *parameterKeyPaths;
+@property(readonly) Class superclass;
 
 @end
 

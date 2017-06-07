@@ -28,6 +28,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithOverrideType:(unsigned long long)arg1 mode:(unsigned long long)arg2 effectiveIntervals:(id)arg3;

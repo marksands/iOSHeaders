@@ -43,7 +43,7 @@ __attribute__((visibility("hidden")))
 - (id)_fetchVersionsOperationWithDepsOp:(id)arg1;
 - (id)_fetchThumbnailOperationForVersionRecord:(id)arg1 physicalURL:(id)arg2;
 - (id)createActivity;
-- (id)initWithDocument:(id)arg1 serverItem:(id)arg2 relpath:(id)arg3 logicalURL:(id)arg4 client:(id)arg5 XPCReceiver:(id)arg6 error:(id *)arg7;
+- (id)initWithDocument:(id)arg1 serverItem:(id)arg2 relpath:(id)arg3 client:(id)arg4 XPCReceiver:(id)arg5 error:(id *)arg6;
 - (oneway void)invalidate;
 - (void)listNonLocalVersionsWithReply:(CDUnknownBlockType)arg1;
 

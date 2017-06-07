@@ -9,14 +9,14 @@
 #import <HomeUI/HUQuickControlInteractiveView-Protocol.h>
 #import <HomeUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class HUColorWheelView, HUQuickControlMagnifierView, HUQuickControlViewProfile, NSString, UILongPressGestureRecognizer;
+@class HUColorWheelView, HUQuickControlColorViewProfile, HUQuickControlMagnifierView, NSString, UILongPressGestureRecognizer;
 @protocol HUColorWheelSpace, HUQuickControlColorPickerViewInteractionDelegate;
 
 @interface HUColorPickerView : UIView <UIGestureRecognizerDelegate, HUQuickControlInteractiveView>
 {
     _Bool _userInteractionActive;
     id <HUQuickControlColorPickerViewInteractionDelegate> _interactionDelegate;
-    HUQuickControlViewProfile *_profile;
+    HUQuickControlColorViewProfile *_profile;
     unsigned long long _colorPickerMode;
     unsigned long long _mirroringAxisBias;
     HUColorWheelView *_colorWheelView;
@@ -27,12 +27,16 @@
         double angle;
         double radius;
     } _selectedColorCoordinate;
-    CDStruct_dbd0f16f _selectedColor;
+    struct {
+        double r;
+        double g;
+        double b;
+        double temperature;
+    } _selectedColor;
 }
 
-+ (id)_colorWheelSpaceForMode:(unsigned long long)arg1;
 @property(nonatomic, getter=isUserInteractionActive) _Bool userInteractionActive; // @synthesize userInteractionActive=_userInteractionActive;
-@property(nonatomic) CDStruct_dbd0f16f selectedColor; // @synthesize selectedColor=_selectedColor;
+@property(nonatomic) CDStruct_d2b197d1 selectedColor; // @synthesize selectedColor=_selectedColor;
 @property(nonatomic) CDStruct_c3b9c2ee selectedColorCoordinate; // @synthesize selectedColorCoordinate=_selectedColorCoordinate;
 @property(nonatomic) double touchDownTimestamp; // @synthesize touchDownTimestamp=_touchDownTimestamp;
 @property(retain, nonatomic) UILongPressGestureRecognizer *gestureRecognizer; // @synthesize gestureRecognizer=_gestureRecognizer;
@@ -40,7 +44,7 @@
 @property(retain, nonatomic) HUColorWheelView *colorWheelView; // @synthesize colorWheelView=_colorWheelView;
 @property(nonatomic) unsigned long long mirroringAxisBias; // @synthesize mirroringAxisBias=_mirroringAxisBias;
 @property(nonatomic) unsigned long long colorPickerMode; // @synthesize colorPickerMode=_colorPickerMode;
-@property(copy, nonatomic) HUQuickControlViewProfile *profile; // @synthesize profile=_profile;
+@property(copy, nonatomic) HUQuickControlColorViewProfile *profile; // @synthesize profile=_profile;
 @property(nonatomic) __weak id <HUQuickControlColorPickerViewInteractionDelegate> interactionDelegate; // @synthesize interactionDelegate=_interactionDelegate;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
@@ -54,6 +58,7 @@
 - (void)_applyMirroringAxisBiasToColorWheelSpaceIfNecessary;
 - (void)_updateMagnifierPosition;
 - (void)_updateDerivedSelectedColorCoordinate;
+- (id)_colorWheelSpaceForMode:(unsigned long long)arg1;
 - (void)_setColorPickerMode:(unsigned long long)arg1 notifyDelegate:(_Bool)arg2;
 @property(nonatomic) struct CGPoint magnifierLocation;
 @property(nonatomic) double wheelHoleRadius;

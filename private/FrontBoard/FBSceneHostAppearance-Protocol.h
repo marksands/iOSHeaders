@@ -6,14 +6,15 @@
 
 #import <FrontBoard/NSObject-Protocol.h>
 
-@class UIColor;
+@class NSString, UIColor;
 
 @protocol FBSceneHostAppearance <NSObject>
-@property(readonly, nonatomic, getter=isContextHosted) _Bool contextHosted;
 @property(readonly, nonatomic) double level;
 @property(readonly, nonatomic) struct CGRect referenceFrame;
 @property(readonly, nonatomic, getter=isHosting) _Bool hosting;
 @property(nonatomic) unsigned long long appearanceStyle;
+@property(copy, nonatomic) NSString *minificationFilterName;
+@property(nonatomic) unsigned long long renderingMode;
 @property(nonatomic) unsigned long long hostedLayerTypes;
 @property(retain, nonatomic) UIColor *backgroundColorWhileNotHosting;
 @property(retain, nonatomic) UIColor *backgroundColorWhileHosting;

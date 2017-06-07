@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <DataDetectorsUI/UIActionSheetDelegate-Protocol.h>
 
@@ -23,14 +23,23 @@
     NSObject<DDDetectionControllerDelegate> *_delegate;
 }
 
-+ (_Bool)_shouldConsiderResultForCoreRecents:(struct __DDResult *)arg1;
++ (id)barcodeContext:(id)arg1 preview:(_Bool)arg2 contact:(id)arg3 ics:(id)arg4;
++     // Error parsing type: B24@0:8^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16, name: _shouldConsiderResultForCoreRecents:
++ (CDUnknownBlockType)messagesActionHandler;
++ (void)setMessagesActionHandler:(CDUnknownBlockType)arg1;
 + (id)tapAndHoldSchemes;
 + (id)sharedController;
-@property __weak NSObject<DDDetectionControllerDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak NSObject<DDDetectionControllerDelegate> *delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
+-     // Error parsing type: @56@0:8@16@24^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}32@40@48, name: barcodePreviewActionForContext:URL:result:contact:ics:
+-     // Error parsing type: @56@0:8@16@24^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}32@40@48, name: barcodeActionsForContext:URL:result:contact:ics:
 - (_Bool)_shouldImmediatelyShowActionSheetForURL:(id)arg1;
-- (_Bool)_shouldImmediatelyShowActionSheetForCoreResult:(struct __DDResult *)arg1;
-- (struct __DDResult *)_resultForURL:(id)arg1 forContainer:(id)arg2 context:(id *)arg3;
-- (struct __DDResult *)_resultForIdentifier:(id)arg1 forContainer:(id)arg2 context:(id *)arg3;
+-     // Error parsing type: B24@0:8^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16, name: _shouldImmediatelyShowActionSheetForCoreResult:
+-     // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}40@0:8@16@24^@32, name: _resultForURL:forContainer:context:
+-     // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}40@0:8@16@24^@32, name: _resultForIdentifier:forContainer:context:
+- (void)cancelAction;
+- (_Bool)actionIsCancellable;
+- (_Bool)isPerformingAction;
 - (void)performAction:(id)arg1 fromView:(id)arg2 alertController:(id)arg3 interactionDelegate:(id)arg4;
 - (void)performAction:(id)arg1 fromAlertController:(id)arg2 interactionDelegate:(id)arg3;
 - (void)performAction:(id)arg1 inView:(id)arg2 interactionDelegate:(id)arg3;
@@ -74,7 +83,9 @@
 - (void)setContext:(id)arg1 forFrame:(id)arg2;
 - (void)setResults:(struct __CFArray *)arg1 forFrame:(id)arg2;
 - (void)startURLificationForFrame:(id)arg1 detectedTypes:(unsigned long long)arg2 options:(int)arg3;
-- (_Bool)shouldUseLightStyleAtIndex:(unsigned long long)arg1 ofStorage:(id)arg2;
+- (id)preferredTextAttributesForLinkAtCharacterIndex:(unsigned long long)arg1 ofStorage:(id)arg2;
+- (_Bool)shouldUseLightStyleAtIndex:(unsigned long long)arg1 ofStorage:(id)arg2 moreHighlight:(_Bool *)arg3;
+- (id)titleForResult:(struct __DDResult *)arg1 subResult:(struct __DDResult *)arg2 withURL:(id)arg3 context:(id)arg4;
 - (id)defaultActionAtIndex:(unsigned long long)arg1 ofStorage:(id)arg2 context:(id)arg3;
 - (id)titleForResultAtIndex:(unsigned long long)arg1 ofStorage:(id)arg2 context:(id)arg3;
 - (id)actionsAtIndex:(unsigned long long)arg1 ofStorage:(id)arg2 context:(id)arg3;

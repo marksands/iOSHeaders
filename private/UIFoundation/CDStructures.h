@@ -72,6 +72,13 @@ struct _NSAttributeInfo {
     unsigned int :15;
 };
 
+struct _NSGlyphIndexForPointCache {
+    struct CGPoint point;
+    void *textContainer;
+    unsigned long long indexCache;
+    double fractionCache;
+};
+
 struct _NSGlyphNode;
 
 struct _NSGlyphTree {

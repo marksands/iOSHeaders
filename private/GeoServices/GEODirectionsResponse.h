@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAlert, GEOETAServiceResponseSummary, GEOPBTransitRoutingIncidentMessage, GEOPDDatasetABStatus, GEORouteDisplayHints, GEOStyleAttributes, GEOTransitDecoderData, NSData, NSMutableArray, NSString;
+@class GEOAlert, GEOClientMetrics, GEOETAServiceResponseSummary, GEOPBTransitRoutingIncidentMessage, GEOPDDatasetABStatus, GEORouteDisplayHints, GEOStyleAttributes, GEOTransitDecoderData, NSData, NSMutableArray, NSString;
 
 @interface GEODirectionsResponse : PBCodable <NSCopying>
 {
@@ -18,18 +18,19 @@
     struct GEOProblemDetail *_problemDetails;
     unsigned long long _problemDetailsCount;
     unsigned long long _problemDetailsSpace;
+    GEOClientMetrics *_clientMetrics;
     GEOPDDatasetABStatus *_datasetAbStatus;
     GEOTransitDecoderData *_decoderData;
     NSData *_directionsResponseID;
     GEORouteDisplayHints *_displayHints;
     GEOETAServiceResponseSummary *_etaServiceSummary;
     GEOAlert *_failureAlert;
-    NSData *_graphV3;
     NSMutableArray *_incidentsOffRoutes;
     NSMutableArray *_incidentsOnRoutes;
     int _instructionSignFillColor;
     int _liveRouteSavingsSeconds;
     int _localDistanceUnits;
+    NSData *_nonRecommendedRoutesCache;
     NSMutableArray *_placeSearchResponses;
     NSMutableArray *_routes;
     unsigned int _selectedRouteIndex;
@@ -38,6 +39,7 @@
     int _status;
     GEOStyleAttributes *_styleAttributes;
     NSMutableArray *_suggestedRoutes;
+    NSMutableArray *_trafficCameras;
     NSString *_transitDataVersion;
     GEOPBTransitRoutingIncidentMessage *_transitIncidentMessage;
     _Bool _isNavigable;
@@ -55,16 +57,18 @@
 }
 
 + (Class)suggestedRouteType;
++ (Class)trafficCameraType;
 + (Class)serviceGapType;
 + (Class)incidentsOffRoutesType;
 + (Class)incidentsOnRoutesType;
 + (Class)placeSearchResponseType;
 + (Class)routeType;
 @property(retain, nonatomic) NSString *transitDataVersion; // @synthesize transitDataVersion=_transitDataVersion;
-@property(retain, nonatomic) NSData *graphV3; // @synthesize graphV3=_graphV3;
 @property(retain, nonatomic) GEOTransitDecoderData *decoderData; // @synthesize decoderData=_decoderData;
 @property(nonatomic) struct GEOTimepoint timepointUsed; // @synthesize timepointUsed=_timepointUsed;
 @property(retain, nonatomic) NSMutableArray *suggestedRoutes; // @synthesize suggestedRoutes=_suggestedRoutes;
+@property(retain, nonatomic) NSData *nonRecommendedRoutesCache; // @synthesize nonRecommendedRoutesCache=_nonRecommendedRoutesCache;
+@property(retain, nonatomic) NSMutableArray *trafficCameras; // @synthesize trafficCameras=_trafficCameras;
 @property(retain, nonatomic) GEOPDDatasetABStatus *datasetAbStatus; // @synthesize datasetAbStatus=_datasetAbStatus;
 @property(nonatomic) int liveRouteSavingsSeconds; // @synthesize liveRouteSavingsSeconds=_liveRouteSavingsSeconds;
 @property(retain, nonatomic) GEOAlert *failureAlert; // @synthesize failureAlert=_failureAlert;
@@ -80,6 +84,7 @@
 @property(retain, nonatomic) NSMutableArray *placeSearchResponses; // @synthesize placeSearchResponses=_placeSearchResponses;
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -90,13 +95,17 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasTransitDataVersion;
-@property(readonly, nonatomic) _Bool hasGraphV3;
 @property(readonly, nonatomic) _Bool hasDecoderData;
 @property(nonatomic) _Bool hasTimepointUsed;
 - (id)suggestedRouteAtIndex:(unsigned long long)arg1;
 - (unsigned long long)suggestedRoutesCount;
 - (void)addSuggestedRoute:(id)arg1;
 - (void)clearSuggestedRoutes;
+@property(readonly, nonatomic) _Bool hasNonRecommendedRoutesCache;
+- (id)trafficCameraAtIndex:(unsigned long long)arg1;
+- (unsigned long long)trafficCamerasCount;
+- (void)addTrafficCamera:(id)arg1;
+- (void)clearTrafficCameras;
 @property(readonly, nonatomic) _Bool hasDatasetAbStatus;
 @property(nonatomic) _Bool hasLiveRouteSavingsSeconds;
 @property(readonly, nonatomic) _Bool hasFailureAlert;
@@ -159,6 +168,8 @@
 @property(nonatomic) unsigned long long debugLatencyMs;
 @property(retain, nonatomic) GEOETAServiceResponseSummary *etaServiceSummary;
 @property(readonly, nonatomic) _Bool hasEtaServiceSummary;
+@property(retain, nonatomic) GEOClientMetrics *clientMetrics;
+@property(readonly, nonatomic) _Bool hasClientMetrics;
 - (id)_destinationMapItem;
 - (id)initWithDictionaryRepresentation:(id)arg1;
 

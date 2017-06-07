@@ -14,7 +14,7 @@
 __attribute__((visibility("hidden")))
 @interface KNTransition : TSPContainedObject <KNInspectableAnimation, TSKModel>
 {
-    KNTransitionAttributes *mAttributes;
+    KNTransitionAttributes *_attributes;
 }
 
 + (id)attributeKeyForBindingKeyPath:(id)arg1;
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 + (id)bindingMap;
 + (unsigned long long)directionTypeForEffect:(id)arg1;
 + (_Bool)hasDirectionOptionForEffect:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isMagicMove;
 - (_Bool)p_supportsCustomEffectTimingCurveForLayoutStyles:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsCustomEffectTimingCurve3;
@@ -62,7 +63,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) KNAnimationInfo *animationInfo;
 @property(readonly, nonatomic) NSString *effect;
 @property(copy, nonatomic) KNTransitionAttributes *attributes;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithOwner:(id)arg1 attributes:(id)arg2;
 - (id)initWithOwner:(id)arg1;

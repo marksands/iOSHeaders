@@ -18,7 +18,7 @@
     // Error parsing type: AB, name: _configured
     PARPromise *_endpointPromise;
     NSObject<OS_dispatch_queue> *_idQueue;
-    long long _idState[20];
+    unsigned long long _idState[22];
     id <PARDaemonXPC> _remoteObject;
     NSXPCConnection *_connection;
     PARSessionConfiguration *_config;
@@ -33,14 +33,18 @@
 @property(retain) id <PARDaemonXPC> remoteObject; // @synthesize remoteObject=_remoteObject;
 - (void).cxx_destruct;
 - (id)replacementObjectForXPCConnection:(id)arg1 encoder:(id)arg2 object:(id)arg3;
+- (void)updateParameters:(double)arg1 safariLast1day:(double)arg2 safariLast1week:(double)arg3 safariLast1month:(double)arg4 safariAll:(double)arg5 safariMostRecent:(double)arg6 minThresholdToSend:(double)arg7;
+- (void)clearCompletionsFromDate:(id)arg1 toDate:(id)arg2;
+- (void)addCompletion:(id)arg1 forInput:(id)arg2;
+- (void)getImageMap:(CDUnknownBlockType)arg1;
 - (void)fileHandleAndAttributesForResource:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)listSessions:(CDUnknownBlockType)arg1;
 - (void)listenToFlusher:(CDUnknownBlockType)arg1;
 - (void)feedback:(CDUnknownBlockType)arg1;
 - (void)reportEvent:(id)arg1;
-- (long long)request:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (long long)_queryIdForObject:(id)arg1;
-- (void)coalesceQueryId:(long long)arg1;
+- (unsigned long long)request:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (unsigned long long)_queryIdForObject:(id)arg1;
+- (void)coalesceQueryId:(unsigned long long)arg1;
 - (void)bag:(CDUnknownBlockType)arg1;
 - (void)configure;
 @property(retain) NSXPCListenerEndpoint *endpoint;

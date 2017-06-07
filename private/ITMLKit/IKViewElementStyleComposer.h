@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (void)_composeWithMediaQueryEvaluator:(id)arg1;
 - (id)composedSansDefaultStyleWithMediaQueryEvaluator:(id)arg1;
+- (id)consolidatedDefaultStyleList;
 - (void)setNeedsRecomposition;
 - (id)composedStyleWithMediaQueryEvaluator:(id)arg1;
 - (id)initWithDefaultStyleComposer:(id)arg1 parentStyleComposer:(id)arg2 styleList:(id)arg3 elementStyleOverrides:(id)arg4;

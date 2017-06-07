@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *transitLineMuid; // @synthesize transitLineMuid=_transitLineMuid;
 @property(retain, nonatomic) NSString *transitIncidentTitle; // @synthesize transitIncidentTitle=_transitIncidentTitle;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasTransitLineMuid;
 @property(readonly, nonatomic) _Bool hasTransitIncidentTitle;
-- (void)dealloc;
 
 @end
 

@@ -67,6 +67,7 @@
 - (_Bool)programsListsAreEqual;
 - (_Bool)showCombinedPrograms;
 - (_Bool)propertyIsAvailable:(unsigned long long)arg1 forEar:(int)arg2;
+- (_Bool)deviceSupportsProperty:(unsigned long long)arg1;
 - (unsigned long long)availablePropertiesForPeripheral:(id)arg1;
 - (id)rightPrograms;
 - (id)leftPrograms;

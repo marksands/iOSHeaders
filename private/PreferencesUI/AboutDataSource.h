@@ -54,6 +54,9 @@
 - (id)_songs:(id)arg1;
 - (id)countForKey:(id)arg1;
 - (void)_loadMediaFinished:(id)arg1;
+- (void)updateProductModelSpecifier:(id)arg1;
+- (id)_regulatoryModelNumberString;
+- (id)_modelRegionString;
 - (void)updateSIMSpecifier:(id)arg1;
 - (void)updateCarrierSpecifier:(id)arg1;
 - (id)_CSNString:(id)arg1;

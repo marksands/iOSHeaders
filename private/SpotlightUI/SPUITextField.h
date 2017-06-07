@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UITextField.h>
+#import <SearchUI/SearchUISearchField.h>
 
-@class NSArray, SPUIHeaderBlurView, UIImage, UIView;
+@class NSArray, SPSearchEntity, SPUIHeaderBlurView, UIImage, UIView;
 
-@interface SPUITextField : UITextField
+@interface SPUITextField : SearchUISearchField
 {
+    _Bool _ignoreRepresentedObjectUpdate;
     NSArray *_suggestions;
     UIImage *_clearButtonImage;
     SPUIHeaderBlurView *_blurView;
@@ -17,6 +18,7 @@
     struct CGSize _imageSize;
 }
 
+@property _Bool ignoreRepresentedObjectUpdate; // @synthesize ignoreRepresentedObjectUpdate=_ignoreRepresentedObjectUpdate;
 @property(retain) UIView *tintView; // @synthesize tintView=_tintView;
 @property(retain) SPUIHeaderBlurView *blurView; // @synthesize blurView=_blurView;
 @property(retain) UIImage *clearButtonImage; // @synthesize clearButtonImage=_clearButtonImage;
@@ -24,14 +26,12 @@
 @property(retain) NSArray *suggestions; // @synthesize suggestions=_suggestions;
 - (void).cxx_destruct;
 - (void)updateWithColor:(id)arg1;
-- (_Bool)isRightToLeft;
-- (struct CGRect)editingRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)placeholderRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)textRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)leftViewRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)rightViewRectForBounds:(struct CGRect)arg1;
 - (void)dictationButtonTapped;
-- (void)insertTextSuggestion:(id)arg1;
+@property(readonly) SPSearchEntity *searchEntity;
+- (void)setText:(id)arg1;
+- (id)text;
+- (Class)_backgroundViewClass;
+- (void)updateContentSizeCategory;
 - (struct CGSize)intrinsicContentSize;
 - (id)init;
 

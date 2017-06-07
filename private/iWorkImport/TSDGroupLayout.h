@@ -19,23 +19,23 @@ __attribute__((visibility("hidden")))
     TSUBezierPath *mCachedExternalWrapPath;
 }
 
++ (id)p_childWrapPathsFrom:(id)arg1;
+- (void).cxx_destruct;
 - (void)p_invalidateDescendentWrapPaths;
 - (void)p_invalidateParentForWrap;
 - (void)p_destroyDynamicCopies;
 - (void)setDynamicGeometry:(id)arg1;
 - (void)p_createDynamicCopies;
 - (id)descendentWrappables;
+- (void)transferLayoutGeometryToInfo:(id)arg1;
 - (struct CGRect)rectInRootForCalculatingActivityLineEndpoint;
-- (void)wrappableChildInvalidated;
 - (id)i_externalWrapPath;
 - (id)i_wrapPath;
 - (id)i_computeWrapPath;
-- (id)p_childWrapPathsFrom:(id)arg1;
 - (_Bool)supportsFlipping;
 - (_Bool)canFlip;
 - (_Bool)supportsRotation;
 - (_Bool)supportsInspectorPositioning;
-- (_Bool)supportsParentRotation;
 - (_Bool)allowsConnections;
 - (id)layoutsForProvidingGuidesForChildLayouts;
 - (_Bool)providesGuidesForChildLayouts;
@@ -62,7 +62,6 @@ __attribute__((visibility("hidden")))
 - (id)layoutGeometryFromInfo;
 - (_Bool)canInspectGeometry;
 - (id)visibleGeometries;
-- (void)dealloc;
 
 @end
 

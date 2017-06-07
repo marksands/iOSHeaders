@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) int faceLocation; // @synthesize faceLocation=_faceLocation;
 @property(readonly, nonatomic) int faceSize; // @synthesize faceSize=_faceSize;
 @property(readonly, nonatomic) struct CGRect faceRect; // @synthesize faceRect=_faceRect;
+- (void).cxx_destruct;
 - (id)initWithCIFaceFeature:(id)arg1 ofSize:(int)arg2 andLocation:(int)arg3 andShirtColor:(id)arg4;
 
 @end

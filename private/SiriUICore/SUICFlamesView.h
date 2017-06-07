@@ -82,6 +82,7 @@
 @property(nonatomic) int mode; // @synthesize mode=_mode;
 @property(nonatomic) __weak id <SUICFlamesViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (float)_currentMicPowerLevel;
 - (void)_updateCurveLayer:(id)arg1;
 @property(readonly, nonatomic) _Bool isRenderingEnabled;
@@ -89,6 +90,7 @@
 - (_Bool)inDictationMode;
 - (_Bool)inSiriMode;
 - (void)_tearDownDisplayLink;
+- (double)_currentDisplayScale;
 - (void)layoutSubviews;
 - (void)_updateOrthoProjection;
 - (_Bool)_resizeFromLayer:(id)arg1;

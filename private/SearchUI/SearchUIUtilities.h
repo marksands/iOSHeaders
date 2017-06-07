@@ -10,7 +10,11 @@
 {
 }
 
++ (id)stringForSFRichTextArray:(id)arg1;
++ (id)stringForSFRichText:(id)arg1;
 + (id)localizedStringForKey:(id)arg1;
++ (void)requestDeviceUnlockWithSuccessHandler:(CDUnknownBlockType)arg1;
++ (_Bool)deviceIsAuthenticated;
 + (void)performOpenTask:(CDUnknownBlockType)arg1;
 + (id)openOptions;
 + (void)openUserActivity:(id)arg1 applicationBundleIdentifier:(id)arg2;
@@ -18,6 +22,7 @@
 + (void)performAnimatableChanges:(CDUnknownBlockType)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)performAnimatableChanges:(CDUnknownBlockType)arg1 animated:(_Bool)arg2;
 + (void)performAnimatableChanges:(CDUnknownBlockType)arg1;
++ (void)dispatchAsyncIfNecessary:(CDUnknownBlockType)arg1;
 + (void)dispatchMainIfNecessary:(CDUnknownBlockType)arg1;
 + (struct CGRect)absoluteFrameForView:(id)arg1;
 + (_Bool)isPortrait;
@@ -26,14 +31,21 @@
 + (id)addAspectRatioConstraintForImageView:(id)arg1;
 + (id)imageWithColor:(id)arg1 size:(struct CGSize)arg2 cornersToRound:(unsigned long long)arg3 cornerRadius:(double)arg4;
 + (id)imageWithColor:(id)arg1 size:(struct CGSize)arg2;
-+ (id)footnoteBoldFont;
++ (id)footnoteFont;
 + (id)captionFont;
++ (id)shortFontForFontStyle:(id)arg1;
++ (id)boldBodyFont;
++ (id)shortBodyFont;
 + (id)shortFootnoteFont;
 + (id)shortSubheadFont;
++ (id)shortSubheadBoldFont;
++ (id)shortTitle1Font;
 + (id)hyphenatableStringForString:(id)arg1;
 + (double)standardTableCellContentInset;
 + (double)onePixelForCurrentScreenResolution;
 + (double)separatorHeight;
++ (_Bool)backgroundColorPrefersWhiteForegroundText:(id)arg1;
++ (id)uiColorForSFColor:(id)arg1;
 + (id)vibrantButtonColorForStyle:(unsigned long long)arg1;
 + (id)buttonColorForStyle:(unsigned long long)arg1;
 + (id)textColorForStyle:(unsigned long long)arg1;

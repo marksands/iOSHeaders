@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLatLng, NSMutableArray, NSString;
+@class GEOLatLng, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOBusiness : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _uID;
     NSMutableArray *_attributeKeyValues;
     NSMutableArray *_attributions;
@@ -64,6 +65,8 @@
 @property(retain, nonatomic) NSString *phoneticName; // @synthesize phoneticName=_phoneticName;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) unsigned long long uID; // @synthesize uID=_uID;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -121,9 +124,6 @@
 @property(readonly, nonatomic) _Bool hasPhoneticName;
 @property(readonly, nonatomic) _Bool hasName;
 @property(nonatomic) _Bool hasUID;
-- (void)dealloc;
-- (id)_photosOfSize:(int)arg1;
-- (id)_firstPhotoOfSize:(int)arg1;
 - (id)initWithPlaceDataEntity:(id)arg1 rating:(id)arg2 hours:(id)arg3 reviews:(id)arg4 photos:(id)arg5 entityAttribution:(id)arg6;
 - (id)initWithBusinessURL:(id)arg1 phoneNumber:(id)arg2 muid:(unsigned long long)arg3 attributionID:(id)arg4 sampleSizeForUserRatingScore:(unsigned int)arg5 normalizedUserRatingScore:(float)arg6;
 

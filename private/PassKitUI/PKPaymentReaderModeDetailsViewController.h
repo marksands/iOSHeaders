@@ -21,7 +21,7 @@
 - (id)defaultHeaderViewTitle;
 - (id)visibleFieldIdentifiers;
 - (id)defaultFields;
-- (void)_pushReaderModeProvisioning;
+- (void)_pushReaderModeProvisioningWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_showTerms;
 - (void)_registerLocalDeviceWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleNextButtonTapped:(id)arg1;

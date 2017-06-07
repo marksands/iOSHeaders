@@ -16,6 +16,7 @@
     NSString *_managingProfileIdentifier;
 }
 
++ (id)_MCKeysToDMFKeys;
 + (id)errorChainFromError:(id)arg1;
 + (id)malformedRequestErrorResult;
 @property(retain, nonatomic) NSString *managingProfileIdentifier; // @synthesize managingProfileIdentifier=_managingProfileIdentifier;
@@ -42,7 +43,6 @@
 - (void)_inviteToProgramRequest:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_stopMirroringRequest:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_requestMirroringRequest:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)_uninstallApplication:(id)arg1;
 - (id)_triggerDiagnostics:(id)arg1;
 - (id)_removeApplication:(id)arg1;
 - (id)_managedApplicationFeedback:(id)arg1;
@@ -50,9 +50,12 @@
 - (id)_managedApplicationAttributes:(id)arg1;
 - (id)_managedApplicationConfiguration:(id)arg1;
 - (id)_managedApplicationList:(id)arg1;
+- (id)_managedApplicationsForBundleIDs:(id)arg1 outError:(id *)arg2;
 - (id)_applyRedemptionCode:(id)arg1 assertion:(id)arg2;
 - (id)_validateApplications:(id)arg1;
 - (void)_installApplication:(id)arg1 assertion:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)_stringForAppState:(unsigned long long)arg1;
+- (id)_stringForBookState:(unsigned long long)arg1;
 - (id)_appStoreDisabledError;
 - (id)_settings:(id)arg1 accessRights:(int)arg2;
 - (id)_performSetting:(id)arg1 outAdditionalResponseKeys:(id *)arg2 outRestartAppleTVApp:(_Bool *)arg3;
@@ -80,15 +83,16 @@
 - (id)_restrictions:(id)arg1 withProfileFilterFlags:(int)arg2;
 - (id)_restrictions:(id)arg1;
 - (id)_installedApplicationList:(id)arg1;
+- (_Bool)_identifiersIsStringArray:(id)arg1;
 - (id)_removeProvisioningProfile:(id)arg1;
 - (_Bool)_isProvisioningProfileUUIDManaged:(id)arg1;
 - (_Bool)_isProfileIdentifierManaged:(id)arg1;
 - (id)_installProvisioningProfile:(id)arg1;
 - (id)_provisioningProfileList:(id)arg1;
 - (id)_certificateList:(id)arg1;
-- (void)_performQuery:(id)arg1 withResultDictionary:(id)arg2;
 - (id)_allowedDeviceQueriesForAccessRights:(int)arg1;
 - (id)_deviceInformationWithRequest:(id)arg1 accessRights:(int)arg2;
+- (id)_DMFKeyFromMCKey:(id)arg1;
 - (id)_deleteUser:(id)arg1;
 - (id)_logOutUser:(id)arg1;
 - (id)_userList:(id)arg1;

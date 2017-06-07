@@ -11,9 +11,7 @@
 @protocol TSWPOffscreenColumn <NSObject>
 @property(readonly, nonatomic) unsigned long long nextWidowPullsDownFromCharIndex;
 @property(readonly, nonatomic) struct _NSRange anchoredRange;
-@property(readonly, nonatomic) unsigned long long startAnchoredCharIndex;
 @property(readonly, nonatomic) struct _NSRange range;
-@property(readonly, nonatomic) unsigned long long startCharIndex;
 - (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id <TSWPLayoutTarget>)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
 @end
 

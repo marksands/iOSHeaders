@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GKUpdateGroup, NSError, NSLock, NSMutableArray;
 
@@ -22,7 +22,8 @@
 - (void)addUpdatesFromGroup:(id)arg1;
 - (void)addUpdate:(CDUnknownBlockType)arg1 error:(id)arg2;
 - (void)updateError:(id)arg1;
-@property(nonatomic) GKUpdateGroup *group; // @synthesize group=_group;
+- (void)setGroup:(id)arg1;
+- (id)group;
 - (oneway void)release;
 - (id)retain;
 - (void)dealloc;

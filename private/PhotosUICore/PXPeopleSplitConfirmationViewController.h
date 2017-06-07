@@ -41,7 +41,7 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)noMoreSuggestionsAvailableForSuggestionManager:(id)arg1;
-- (void)suggestionManager:(id)arg1 hasNewSuggestionAvailable:(id)arg2;
+- (void)suggestionManager:(id)arg1 hasNewSuggestionsAvailable:(id)arg2;
 - (void)_updateUndoButton;
 - (id)_buttonBackgroundImageFromColor:(id)arg1;
 - (void)_disableActionButtonsWithSelectedButton:(id)arg1;

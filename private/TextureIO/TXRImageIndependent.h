@@ -18,6 +18,7 @@
 
 @property(nonatomic) unsigned long long alphaInfo; // @synthesize alphaInfo=_alphaInfo;
 @property(readonly, nonatomic) unsigned long long pixelFormat; // @synthesize pixelFormat=_pixelFormat;
+- (struct CGImage *)newCGImageWithColorSpace:(struct CGColorSpace *)arg1 error:(id *)arg2;
 - (_Bool)exportToURL:(id)arg1 uttype:(const struct __CFString *)arg2 error:(id *)arg3;
 - (id)initWithDimensions:(unsigned long long)arg1 pixelFormat:(unsigned long long)arg2 alphaInfo:(id)arg3 bufferAllocator: /* Error: Ran out of types for this method. */;
 - (id)initWithCGImage:(struct CGImage *)arg1 pixelFormat:(unsigned long long)arg2 bufferAllocator:(id)arg3 options:(id)arg4 error:(id *)arg5;

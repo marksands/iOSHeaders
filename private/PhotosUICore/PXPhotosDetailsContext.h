@@ -30,6 +30,7 @@
     NSString *_titleFontName;
 }
 
++ (id)photosDetailsContextForMemory:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldUseKeyFace; // @synthesize shouldUseKeyFace=_shouldUseKeyFace;
 @property(readonly, nonatomic) _Bool shouldShowMovieHeader; // @synthesize shouldShowMovieHeader=_shouldShowMovieHeader;
 @property(readonly, copy, nonatomic) NSString *titleFontName; // @synthesize titleFontName=_titleFontName;

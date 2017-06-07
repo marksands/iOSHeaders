@@ -27,11 +27,12 @@
 @property(retain, nonatomic) CDPDCircleController *circleController; // @synthesize circleController=_circleController;
 @property(retain, nonatomic) CDPContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (id)secureChannelContextForController:(id)arg1;
 - (id)contextForController:(id)arg1;
 - (void)circleController:(id)arg1 secureBackupRecordsArePresentWithCompletion:(CDUnknownBlockType)arg2;
-- (void)promotForLocalSecretWithCompletion:(CDUnknownBlockType)arg1;
+- (void)promptForLocalSecretWithCompletion:(CDUnknownBlockType)arg1;
 - (void)promptForAdoptionOfMultipleICSCWithCompletion:(CDUnknownBlockType)arg1;
-- (_Bool)synchronizeCircleViewsForSecureBackupController:(id)arg1;
+- (_Bool)synchronizeCircleViewsForSecureBackupContext:(id)arg1;
 - (id)circlePeerIDForSecureBackupController:(id)arg1;
 - (void)_collectLocalSecretWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_cdpStateMachine;

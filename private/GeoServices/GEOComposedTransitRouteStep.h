@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) id <GEOTransitRoutingIncidentMessage> routeDetailsIncidentMessage; // @synthesize routeDetailsIncidentMessage=_routeDetailsIncidentMessage;
 @property(readonly, nonatomic) id <GEOTransitRoutingIncidentMessage> steppingIncidentMessage; // @synthesize steppingIncidentMessage=_steppingIncidentMessage;
 @property(readonly, nonatomic) int maneuver; // @synthesize maneuver=_maneuver;
+- (void).cxx_destruct;
 - (id)_intermediateListNameForStop:(id)arg1;
 @property(readonly, nonatomic) NSString *destinationStopIntermediateListName;
 @property(readonly, nonatomic) NSString *originStopIntermediateListName;
@@ -63,7 +64,6 @@
 - (unsigned int)distance;
 - (unsigned int)duration;
 - (_Bool)hasDuration;
-- (void)dealloc;
 - (void)_populateArtworksWithDecoderData:(id)arg1;
 - (void)_populateIncidentsWithDecoderData:(id)arg1;
 - (id)initWithComposedRoute:(id)arg1 routeLegType:(long long)arg2 step:(id)arg3 stepIndex:(unsigned long long)arg4 duration:(unsigned int)arg5 pointRange:(struct _NSRange)arg6;

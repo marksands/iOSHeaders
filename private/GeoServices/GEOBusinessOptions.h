@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEOBusinessOptions : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSMutableArray *_attributeKeys;
     int _maxBusinessResults;
     NSMutableArray *_photoOptions;
@@ -30,6 +31,8 @@
 @property(nonatomic) _Bool includeBusinessHours; // @synthesize includeBusinessHours=_includeBusinessHours;
 @property(retain, nonatomic) NSMutableArray *attributeKeys; // @synthesize attributeKeys=_attributeKeys;
 @property(retain, nonatomic) NSMutableArray *photoOptions; // @synthesize photoOptions=_photoOptions;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -51,7 +54,6 @@
 - (unsigned long long)photoOptionsCount;
 - (void)addPhotoOptions:(id)arg1;
 - (void)clearPhotoOptions;
-- (void)dealloc;
 
 @end
 

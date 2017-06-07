@@ -10,10 +10,6 @@
 
 @interface GEOACResult : PBCodable <NSCopying>
 {
-    int _acType;
-    struct {
-        unsigned int acType:1;
-    } _has;
 }
 
 - (void)mergeFrom:(id)arg1;
@@ -25,10 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (int)StringAsAcType:(id)arg1;
-- (id)acTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasAcType;
-@property(nonatomic) int acType; // @synthesize acType=_acType;
 
 @end
 

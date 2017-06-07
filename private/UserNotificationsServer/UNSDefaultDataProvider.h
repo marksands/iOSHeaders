@@ -7,15 +7,16 @@
 #import <objc/NSObject.h>
 
 #import <UserNotificationsServer/BBRemoteDataProvider-Protocol.h>
+#import <UserNotificationsServer/UNSNotificationCategoryRepositoryObserver-Protocol.h>
 #import <UserNotificationsServer/UNSNotificationRepositoryObserver-Protocol.h>
 
 @class BBDataProviderProxy, BSCFBundle, NSMutableDictionary, NSString, NSURL, UNSApplicationLauncher, UNSAttachmentsService, UNSNotificationCategoryRepository, UNSNotificationRepository;
 @protocol OS_dispatch_queue;
 
-@interface UNSDefaultDataProvider : NSObject <UNSNotificationRepositoryObserver, BBRemoteDataProvider>
+@interface UNSDefaultDataProvider : NSObject <UNSNotificationRepositoryObserver, UNSNotificationCategoryRepositoryObserver, BBRemoteDataProvider>
 {
     NSString *_sectionID;
-    NSString *_displayName;
+    NSString *_universalApplicationIdentifier;
     BSCFBundle *_appBundle;
     NSURL *_dataContainerURL;
     UNSApplicationLauncher *_appLauncher;
@@ -26,6 +27,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_primaryAttachments;
     NSMutableDictionary *_primaryAttachmentMetadata;
+    NSMutableDictionary *_categoryToParamSubType;
 }
 
 @property(retain, nonatomic) BBDataProviderProxy *proxy; // @synthesize proxy=_proxy;
@@ -34,16 +36,13 @@
 - (id)attachmentPNGDataForRecordID:(id)arg1 sizeConstraints:(id)arg2;
 - (float)attachmentAspectRatioForRecordID:(id)arg1;
 - (void)_addAttachments:(id)arg1 toBulletinRequest:(id)arg2;
-- (void)_setBadgeForNotification:(id)arg1;
-- (void)_logNotification:(id)arg1;
 - (void)_queue_withdrawBulletinForNotification:(id)arg1;
-- (void)_queue_modifyBulletinForNotification:(id)arg1;
-- (unsigned long long)_destinationsForNotification:(id)arg1;
 - (void)_queue_addBulletinForNotification:(id)arg1;
 - (void)_queue_notificationRepositoryDidPerformUpdates:(id)arg1;
+- (void)categoryRepository:(id)arg1 didChangeCategoriesForBundleIdentifier:(id)arg2;
 - (void)notificationRepository:(id)arg1 didPerformUpdates:(id)arg2 forBundleIdentifier:(id)arg3;
 - (_Bool)syncsBulletinDismissal;
-- (id)_unachiveNotificationFromData:(id)arg1;
+- (id)_unarchiveNotificationFromData:(id)arg1;
 - (void)_handleBulletinActionResponse:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)handleBulletinActionResponse:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)noteSectionInfoDidChange:(id)arg1;
@@ -72,10 +71,9 @@
 - (_Bool)_isResourceValidForPath:(id)arg1 withContainerPath:(id)arg2;
 - (id)_pathForSoundName:(id)arg1;
 - (id)_queue_bulletinForNotification:(id)arg1;
-- (id)sectionDisplayName;
+- (id)universalSectionIdentifier;
 - (id)defaultSectionInfo;
 - (id)sectionParameters;
-- (id)_sortKey;
 - (_Bool)_isPushDataProvider;
 - (void)invalidate;
 - (void)uninstall;

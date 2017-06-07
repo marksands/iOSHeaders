@@ -16,6 +16,7 @@
     BLTPBAppearance *_appearance;
     int _behavior;
     NSData *_behaviorParameters;
+    NSData *_behaviorParametersNulls;
     NSString *_identifier;
     NSString *_launchURL;
     struct {
@@ -23,6 +24,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSData *behaviorParametersNulls; // @synthesize behaviorParametersNulls=_behaviorParametersNulls;
 @property(retain, nonatomic) NSData *behaviorParameters; // @synthesize behaviorParameters=_behaviorParameters;
 @property(nonatomic) int behavior; // @synthesize behavior=_behavior;
 @property(retain, nonatomic) NSString *launchURL; // @synthesize launchURL=_launchURL;
@@ -39,6 +41,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBehaviorParametersNulls;
 @property(readonly, nonatomic) _Bool hasBehaviorParameters;
 @property(nonatomic) _Bool hasBehavior;
 @property(readonly, nonatomic) _Bool hasLaunchURL;

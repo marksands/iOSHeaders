@@ -12,6 +12,7 @@
 @protocol NCNotificationSectionList <NSObject>
 @property(readonly, nonatomic) unsigned long long sectionCount;
 @property(nonatomic) __weak id <NCNotificationSectionListDelegate> delegate;
+- (_Bool)containsNotificationRequest:(NCNotificationRequest *)arg1;
 - (long long)sectionIndexForListSectionIdentifier:(NSString *)arg1;
 - (void)clearSectionWithIdentifier:(NSString *)arg1;
 - (void)clearAllSections;

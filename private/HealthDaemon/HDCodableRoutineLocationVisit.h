@@ -31,7 +31,6 @@
 - (id)description;
 @property(nonatomic) _Bool hasExitTime;
 @property(nonatomic) _Bool hasEntryTime;
-- (id)initWithLocationOfInterestVisit:(id)arg1;
 
 @end
 

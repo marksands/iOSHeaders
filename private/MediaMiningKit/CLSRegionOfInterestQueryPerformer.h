@@ -10,8 +10,8 @@
 {
 }
 
-+ (double)precision;
-- (id)initWithRegions:(id)arg1;
++ (double)defaultPrecision;
+- (id)initWithRegions:(id)arg1 precision:(double)arg2;
 
 @end
 

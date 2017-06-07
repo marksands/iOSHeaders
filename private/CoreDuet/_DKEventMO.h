@@ -6,7 +6,7 @@
 
 #import <CoreDuet/_DKObjectMO.h>
 
-@class NSString;
+@class NSSet, NSString, _DKStructuredMetadataMO;
 
 @interface _DKEventMO : _DKObjectMO
 {
@@ -15,16 +15,24 @@
 
 // Remaining properties
 @property(nonatomic) double confidence; // @dynamic confidence;
+@property(retain, nonatomic) NSSet *customMetadata; // @dynamic customMetadata;
 @property(nonatomic) double endDate; // @dynamic endDate;
 @property(nonatomic) short endDayOfWeek; // @dynamic endDayOfWeek;
 @property(nonatomic) int endSecondOfDay; // @dynamic endSecondOfDay;
+@property(nonatomic) _Bool hasCustomMetadata; // @dynamic hasCustomMetadata;
+@property(nonatomic) _Bool hasStructuredMetadata; // @dynamic hasStructuredMetadata;
 @property(nonatomic) long long secondsFromGMT; // @dynamic secondsFromGMT;
+@property(nonatomic) _Bool shouldSync; // @dynamic shouldSync;
 @property(nonatomic) double startDate; // @dynamic startDate;
 @property(nonatomic) short startDayOfWeek; // @dynamic startDayOfWeek;
 @property(nonatomic) int startSecondOfDay; // @dynamic startSecondOfDay;
 @property(retain, nonatomic) NSString *streamName; // @dynamic streamName;
+@property(retain, nonatomic) _DKStructuredMetadataMO *structuredMetadata; // @dynamic structuredMetadata;
 @property(retain, nonatomic) _DKObjectMO *value; // @dynamic value;
+@property(nonatomic) short valueClass; // @dynamic valueClass;
 @property(nonatomic) double valueDouble; // @dynamic valueDouble;
 @property(nonatomic) long long valueInteger; // @dynamic valueInteger;
+@property(retain, nonatomic) NSString *valueString; // @dynamic valueString;
+@property(nonatomic) long long valueTypeCode; // @dynamic valueTypeCode;
 @end
 

@@ -8,14 +8,18 @@
 
 @class NSString;
 
-__attribute__((visibility("hidden")))
 @interface DDTelephoneNumberAction : DDAction
 {
     NSString *_phoneNumber;
+    NSString *_body;
 }
 
-- (void)dealloc;
-- (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
+- (void).cxx_destruct;
+- (id)contactAndLabelForPhoneNumber:(id *)arg1;
+- (id)labelToUseForEmail:(id)arg1 ofContact:(id)arg2;
+- (id)labelToUseForPhoneNumber:(id)arg1 ofContact:(id)arg2;
+- (id)contactsMatchingPhoneNumber:(id)arg1 inContactStore:(id)arg2;
+-     // Error parsing type: @40@0:8@16^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@32, name: initWithURL:result:context:
 
 @end
 

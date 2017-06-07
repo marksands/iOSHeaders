@@ -46,6 +46,7 @@
 - (void)_workQueue_destroyApplicationStateMonitor;
 - (void)_workQueue_setupCameraProcessMonitoringIfNecessary;
 - (_Bool)_isCameraRunning;
+- (int)_pidForApplication:(id)arg1;
 - (void)handleClientDisconnection;
 - (void)handleClientConnection:(id)arg1;
 - (struct CGAffineTransform)_frameTransformForState:(id)arg1;
@@ -55,7 +56,7 @@
 - (_Bool)_shouldSaveLastTimelapseDataForDebugging;
 - (void)_movieWrittenToFilePath:(id)arg1 duration:(CDStruct_1b6d18a9)arg2 metadata:(id)arg3 state:(id)arg4;
 - (void)_createPlaceholderAssetForState:(id)arg1;
-- (void)_reserveDummyFileForTimelapseUUID:(id)arg1 firstImageFilePath:(id)arg2;
+- (void)_reserveDummyFileForTimelapseUUID:(id)arg1 firstImageFilePath:(id)arg2 useHEVC:(_Bool)arg3;
 - (void)_writeMovieForSessionContext:(id)arg1;
 - (_Bool)_deleteItemAtPath:(id)arg1;
 - (_Bool)_scheduleDelayedMovieWriteIfNeededForTimelapseUUID:(id)arg1;

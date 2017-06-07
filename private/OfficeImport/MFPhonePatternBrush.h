@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)patternBrushWithBitmap:(id)arg1 usePaletteForBilevel:(_Bool)arg2;
-- (void)fillPath:(id)arg1:(id)arg2;
+- (void)fillPath:(id)arg1 in_path:(id)arg2;
 - (void)dealloc;
 - (id)initWithBitmap:(id)arg1 usePaletteForBilevel:(_Bool)arg2;
 

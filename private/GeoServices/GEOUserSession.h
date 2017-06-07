@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOUserSessionEntity, NSData, NSLock;
 
@@ -29,12 +29,12 @@
     struct GEOSessionID _zeroSessionID;
 }
 
-+ (void)registerGEOLogFacility;
 + (id)sharedInstance;
 + (void)setIsGeod;
 + (_Bool)isGeod;
 @property _Bool zeroSessionIDMode; // @synthesize zeroSessionIDMode=_zeroSessionIDMode;
 @property _Bool shareSessionWithMaps; // @synthesize shareSessionWithMaps=_shareSessionWithMaps;
+- (void).cxx_destruct;
 - (void)endNavigationSession;
 - (void)startNavigationSessionWithDirectionsID:(id)arg1 originalDirectionsID:(id)arg2;
 @property(readonly) GEOUserSessionEntity *navSessionEntity;

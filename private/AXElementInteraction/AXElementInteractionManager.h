@@ -23,7 +23,8 @@
 
 + (id)sharedManager;
 @property(nonatomic) _Bool displayCursor; // @synthesize displayCursor=_displayCursor;
-@property(nonatomic) id <AXElementInteractionManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <AXElementInteractionManagerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_sendMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 errorHandler:(CDUnknownBlockType)arg3;
 - (void)_sendMessageWithIdentifier:(unsigned long long)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (id)_client;
@@ -42,7 +43,6 @@
 - (int)_registerForAXNotifications:(_Bool)arg1;
 - (void)_initializeAXObserver;
 - (void)startInteractionMode;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

@@ -41,8 +41,8 @@
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) unsigned long long flags;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) unsigned long long maxVersionRead;
-@property(readonly, nonatomic) unsigned long long maxVersionSeen;
+@property(readonly, nonatomic) long long maxVersionRead;
+@property(readonly, nonatomic) long long maxVersionSeen;
 @property(readonly) Class superclass;
 @end
 

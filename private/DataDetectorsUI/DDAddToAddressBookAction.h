@@ -12,6 +12,11 @@
 {
 }
 
++ (_Bool)actionAvailableForContact:(id)arg1;
+- (id)notificationURL;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
+- (id)contact;
 - (void)adaptForPresentationInPopover:(_Bool)arg1;
 - (void)prepareViewControllerForActionController:(id)arg1;
 - (int)interactionType;

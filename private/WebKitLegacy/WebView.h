@@ -6,7 +6,7 @@
 
 #import <WebCore/WAKView.h>
 
-@class DOMCSSStyleDeclaration, DOMDocument, DOMRange, NSData, NSString, NSUndoManager, WAKWindow, WebBackForwardList, WebFrame, WebPreferences, WebScriptObject, WebViewPrivate;
+@class DOMCSSStyleDeclaration, DOMDocument, DOMRange, NSData, NSString, NSUndoManager, WAKWindow, WebBackForwardList, WebFrame, WebPreferences, WebScriptObject, WebUITextIndicatorData, WebViewPrivate;
 @protocol WebDownloadDelegate, WebEditingDelegate, WebFrameLoadDelegate, WebPolicyDelegate, WebResourceLoadDelegate, WebUIDelegate;
 
 @interface WebView : WAKView
@@ -60,8 +60,6 @@
 + (void)_disableRemoteInspector;
 + (void)_enableRemoteInspector;
 + (id)_MIMETypeForFile:(id)arg1;
-+ (_Bool)_shouldWaitForMemoryClearMessage;
-+ (void)_clearMemoryPressure;
 + (_Bool)_isUnderMemoryPressure;
 + (_Bool)_allowCookies;
 + (void)_setAllowCookies:(_Bool)arg1;
@@ -73,15 +71,8 @@
 + (void)_unregisterPluginMIMEType:(id)arg1;
 + (void)_registerPluginMIMEType:(id)arg1;
 + (_Bool)isCharacterSmartReplaceExempt:(unsigned short)arg1 isPreviousCharacter:(_Bool)arg2;
-+ (void)discardAllCompiledCode;
-+ (void)drainLayerPool;
-+ (void)purgeInactiveFontData;
-+ (void)garbageCollectNow;
-+ (void)releaseFastMallocMemoryOnCurrentThread;
 + (void)willEnterBackgroundWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (void)_releaseMemoryNow;
-+ (void)registerForMemoryNotifications;
-+ (void)_handleMemoryWarning;
 + (void)enableWebThread;
 + (id)_supportedMIMETypes;
 + (void)_reportException:(struct OpaqueJSValue *)arg1 inContext:(struct OpaqueJSContext *)arg2;
@@ -220,8 +211,6 @@
 - (void)resetTrackedRepaints;
 - (_Bool)isTrackingRepaints;
 - (void)setTracksRepaints:(_Bool)arg1;
-- (_Bool)_includesFlattenedCompositingLayersWhenDrawingToBitmap;
-- (void)_setIncludesFlattenedCompositingLayersWhenDrawingToBitmap:(_Bool)arg1;
 - (_Bool)_isSoftwareRenderable;
 - (id)_contentsOfUserInterfaceItem:(id)arg1;
 - (void)setValidationMessageTimerMagnification:(int)arg1;
@@ -329,12 +318,25 @@
 - (void)_didFinishScrollingOrZooming;
 - (void)_willStartScrollingOrZooming;
 - (void)_dispatchTileDidDraw:(id)arg1;
-- (struct CGSize)_contentsSizeRespectingOverflow;
 - (unsigned long long)_renderTreeSize;
 - (id)styleAtSelectionStart;
 - (void)_dispatchUnloadEvent;
 - (_Bool)_isClosed;
 - (_Bool)_viewClass:(Class *)arg1 andRepresentationClass:(Class *)arg2 forMIMEType:(id)arg3;
+- (void)_didConcludeEditDataInteraction;
+- (void)_endedDataInteraction:(struct CGPoint)arg1 global:(struct CGPoint)arg2;
+- (_Bool)_tryToPerformDataInteraction:(id)arg1 client:(struct CGPoint)arg2 global:(struct CGPoint)arg3 operation:(unsigned long long)arg4;
+- (void)_performDataInteraction:(id)arg1 client:(struct CGPoint)arg2 global:(struct CGPoint)arg3 operation:(unsigned long long)arg4;
+- (void)_exitedDataInteraction:(id)arg1 client:(struct CGPoint)arg2 global:(struct CGPoint)arg3 operation:(unsigned long long)arg4;
+- (unsigned long long)_updatedDataInteraction:(id)arg1 client:(struct CGPoint)arg2 global:(struct CGPoint)arg3 operation:(unsigned long long)arg4;
+- (unsigned long long)_enteredDataInteraction:(id)arg1 client:(struct CGPoint)arg2 global:(struct CGPoint)arg3 operation:(unsigned long long)arg4;
+- (struct DragData)dragDataForDataInteraction:(id)arg1 client:(struct CGPoint)arg2 global:(struct CGPoint)arg3 operation:(unsigned long long)arg4;
+- (id)_createImageWithPlatterForImage:(id)arg1 boundingRect:(struct CGRect)arg2 contentScaleFactor:(double)arg3 clippingRects:(id)arg4;
+- (id)_getDataInteractionData;
+@property(readonly, nonatomic, getter=_dataOperationTextIndicator) WebUITextIndicatorData *dataOperationTextIndicator;
+@property(readonly, nonatomic, getter=_dataInteractionCaretRect) struct CGRect dataInteractionCaretRect;
+- (void)_setDataInteractionData:(struct CGImage *)arg1 textIndicator:(optional_5c01e1a6)arg2 atClientPosition:(struct CGPoint)arg3 anchorPoint:(struct CGPoint)arg4 action:(unsigned long long)arg5;
+- (_Bool)_requestStartDataInteraction:(struct CGPoint)arg1 globalPosition:(struct CGPoint)arg2;
 - (void)updateLayoutIgnorePendingStyleSheets;
 - (void)_replaceCurrentHistoryItem:(id)arg1;
 - (id)initSimpleHTMLDocumentWithStyle:(id)arg1 frame:(struct CGRect)arg2 preferences:(id)arg3 groupName:(id)arg4;
@@ -580,7 +582,7 @@
 - (_Bool)_needsOneShotDrawingSynchronization;
 - (void)_clearCredentials;
 - (id)_selectedOrMainFrame;
--     // Error parsing type: ^{Frame=^^?{atomic<unsigned int>=AI}{HashSet<WebCore::FrameDestructionObserver *, WTF::PtrHash<WebCore::FrameDestructionObserver *>, WTF::HashTraits<WebCore::FrameDestructionObserver *> >={HashTable<WebCore::FrameDestructionObserver *, WebCore::FrameDestructionObserver *, WTF::IdentityExtractor, WTF::PtrHash<WebCore::FrameDestructionObserver *>, WTF::HashTraits<WebCore::FrameDestructionObserver *>, WTF::HashTraits<WebCore::FrameDestructionObserver *> >=^^{FrameDestructionObserver}IIII}}^{MainFrame}^{Page}{RefPtr<WebCore::Settings>=^{Settings}}{FrameTree=^{Frame}^{Frame}{AtomicString={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}}{AtomicString={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}}{RefPtr<WebCore::Frame>=^{Frame}}^{Frame}{RefPtr<WebCore::Frame>=^{Frame}}^{Frame}I}{FrameLoader=^{Frame}^{FrameLoaderClient}{unique_ptr<WebCore::PolicyChecker, std::__1::default_delete<WebCore::PolicyChecker> >={__compressed_pair<WebCore::PolicyChecker *, std::__1::default_delete<WebCore::PolicyChecker> >=^{PolicyChecker}}}{unique_ptr<WebCore::HistoryController, std::__1::default_delete<WebCore::HistoryController> >={__compressed_pair<WebCore::HistoryController *, std::__1::default_delete<WebCore::HistoryController> >=^{HistoryController}}}{ResourceLoadNotifier=^{Frame}}{unique_ptr<WebCore::SubframeLoader, std::__1::default_delete<WebCore::SubframeLoader> >={__compressed_pair<WebCore::SubframeLoader *, std::__1::default_delete<WebCore::SubframeLoader> >=^{SubframeLoader}}}{FrameLoaderStateMachine=i}{unique_ptr<WebCore::IconController, std::__1::default_delete<WebCore::IconController> >={__compressed_pair<WebCore::IconController *, std::__1::default_delete<WebCore::IconController> >=^{IconController}}}{MixedContentChecker=^{Frame}}{unique_ptr<WebCore::FrameLoader::FrameProgressTracker, std::__1::default_delete<WebCore::FrameLoader::FrameProgressTracker> >={__compressed_pair<WebCore::FrameLoader::FrameProgressTracker *, std::__1::default_delete<WebCore::FrameLoader::FrameProgressTracker> >=^{FrameProgressTracker}}}ii{RefPtr<WebCore::DocumentLoader>=^{DocumentLoader}}{RefPtr<WebCore::DocumentLoader>=^{DocumentLoader}}{RefPtr<WebCore::DocumentLoader>=^{DocumentLoader}}{URL={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}b1b1b1IIIIIIIIII}BBB{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}BBBiB{RefPtr<WebCore::SerializedScriptValue>=^{SerializedScriptValue}}B{URL={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}b1b1b1IIIIIIIIII}{Timer=^^?dddiI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[24C]}^{__base<void ()>}}}BB^{Frame}{HashSet<WebCore::Frame *, WTF::PtrHash<WebCore::Frame *>, WTF::HashTraits<WebCore::Frame *> >={HashTable<WebCore::Frame *, WebCore::Frame *, WTF::IdentityExtractor, WTF::PtrHash<WebCore::Frame *>, WTF::HashTraits<WebCore::Frame *>, WTF::HashTraits<WebCore::Frame *> >=^^{Frame}IIII}}BBBi{RefPtr<WebCore::FrameNetworkingContext>=^{FrameNetworkingContext}}{optional<WebCore::ResourceRequestCachePolicy>=B(constexpr_storage_t<WebCore::ResourceRequestCachePolicy>=Ci)}{optional<WebCore::ResourceLoadPriority>=B(constexpr_storage_t<WebCore::ResourceLoadPriority>=Ci)}B{URL={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}b1b1b1IIIIIIIIII}{RefPtr<WebCore::HistoryItem>=^{HistoryItem}}}{NavigationScheduler=^{Frame}{Timer=^^?dddiI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[24C]}^{__base<void ()>}}}{unique_ptr<WebCore::ScheduledNavigation, std::__1::default_delete<WebCore::ScheduledNavigation> >={__compressed_pair<WebCore::ScheduledNavigation *, std::__1::default_delete<WebCore::ScheduledNavigation> >=^{ScheduledNavigation}}}}^{HTMLFrameOwnerElement}{RefPtr<WebCore::FrameView>=^{FrameView}}{RefPtr<WebCore::Document>=^{Document}}{unique_ptr<WebCore::ScriptController, std::__1::default_delete<WebCore::ScriptController> >={__compressed_pair<WebCore::ScriptController *, std::__1::default_delete<WebCore::ScriptController> >=^{ScriptController}}}{unique_ptr<WebCore::Editor, std::__1::default_delete<WebCore::Editor> >={__compressed_pair<WebCore::Editor *, std::__1::default_delete<WebCore::Editor> >=^{Editor}}}{unique_ptr<WebCore::FrameSelection, std::__1::default_delete<WebCore::FrameSelection> >={__compressed_pair<WebCore::FrameSelection *, std::__1::default_delete<WebCore::FrameSelection> >=^{FrameSelection}}}{unique_ptr<WebCore::AnimationController, std::__1::default_delete<WebCore::AnimationController> >={__compressed_pair<WebCore::AnimationController *, std::__1::default_delete<WebCore::AnimationController> >=^{AnimationController}}}{RetainPtr<NSArray>=^v}{Timer=^^?dddiI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[24C]}^{__base<void ()>}}}f{IntPoint=ii}{ViewportArguments=iffffffffffffB}B{VisibleSelection={Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}iib1b1}{VisibleSelection={Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}iib1b1}ffiBB{unique_ptr<WebCore::EventHandler, std::__1::default_delete<WebCore::EventHandler> >={__compressed_pair<WebCore::EventHandler *, std::__1::default_delete<WebCore::EventHandler> >=^{EventHandler}}}}16@0:8, name: _mainCoreFrame
+-     // Error parsing type: ^{Frame=^^?{atomic<unsigned int>=AI}{HashSet<WebCore::FrameDestructionObserver *, WTF::PtrHash<WebCore::FrameDestructionObserver *>, WTF::HashTraits<WebCore::FrameDestructionObserver *> >={HashTable<WebCore::FrameDestructionObserver *, WebCore::FrameDestructionObserver *, WTF::IdentityExtractor, WTF::PtrHash<WebCore::FrameDestructionObserver *>, WTF::HashTraits<WebCore::FrameDestructionObserver *>, WTF::HashTraits<WebCore::FrameDestructionObserver *> >=^^{FrameDestructionObserver}IIII}}^{MainFrame}^{Page}{RefPtr<WebCore::Settings>=^{Settings}}{FrameTree=^{Frame}^{Frame}{AtomicString={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}}{AtomicString={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}}{RefPtr<WebCore::Frame>=^{Frame}}^{Frame}{RefPtr<WebCore::Frame>=^{Frame}}^{Frame}I}{FrameLoader=^{Frame}^{FrameLoaderClient}{unique_ptr<WebCore::PolicyChecker, std::__1::default_delete<WebCore::PolicyChecker> >={__compressed_pair<WebCore::PolicyChecker *, std::__1::default_delete<WebCore::PolicyChecker> >=^{PolicyChecker}}}{unique_ptr<WebCore::HistoryController, std::__1::default_delete<WebCore::HistoryController> >={__compressed_pair<WebCore::HistoryController *, std::__1::default_delete<WebCore::HistoryController> >=^{HistoryController}}}{ResourceLoadNotifier=^{Frame}}{unique_ptr<WebCore::SubframeLoader, std::__1::default_delete<WebCore::SubframeLoader> >={__compressed_pair<WebCore::SubframeLoader *, std::__1::default_delete<WebCore::SubframeLoader> >=^{SubframeLoader}}}{FrameLoaderStateMachine=i}{unique_ptr<WebCore::IconController, std::__1::default_delete<WebCore::IconController> >={__compressed_pair<WebCore::IconController *, std::__1::default_delete<WebCore::IconController> >=^{IconController}}}{MixedContentChecker=^{Frame}}{unique_ptr<WebCore::FrameLoader::FrameProgressTracker, std::__1::default_delete<WebCore::FrameLoader::FrameProgressTracker> >={__compressed_pair<WebCore::FrameLoader::FrameProgressTracker *, std::__1::default_delete<WebCore::FrameLoader::FrameProgressTracker> >=^{FrameProgressTracker}}}ii{RefPtr<WebCore::DocumentLoader>=^{DocumentLoader}}{RefPtr<WebCore::DocumentLoader>=^{DocumentLoader}}{RefPtr<WebCore::DocumentLoader>=^{DocumentLoader}}{URL={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}b1b1b1IIIIIIIIII}BBB{String={RefPtr<WTF::StringImpl>=^{StringImpl}}}BBBiB{RefPtr<WebCore::SerializedScriptValue>=^{SerializedScriptValue}}B{URL={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}b1b1b1IIIIIIIIII}{Timer=^^?{MonotonicTime=d}{MonotonicTime=d}{Seconds=d}iI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[32C]}^{__base<void ()>}}}BB^{Frame}{HashSet<WebCore::Frame *, WTF::PtrHash<WebCore::Frame *>, WTF::HashTraits<WebCore::Frame *> >={HashTable<WebCore::Frame *, WebCore::Frame *, WTF::IdentityExtractor, WTF::PtrHash<WebCore::Frame *>, WTF::HashTraits<WebCore::Frame *>, WTF::HashTraits<WebCore::Frame *> >=^^{Frame}IIII}}BBBi{RefPtr<WebCore::FrameNetworkingContext>=^{FrameNetworkingContext}}{optional<WebCore::ResourceRequestCachePolicy>=B(constexpr_storage_t<WebCore::ResourceRequestCachePolicy>=Ci)}{optional<WebCore::ResourceLoadPriority>=B(constexpr_storage_t<WebCore::ResourceLoadPriority>=Ci)}B{URL={String={RefPtr<WTF::StringImpl>=^{StringImpl}}}b1b1b1IIIIIIIIII}{RefPtr<WebCore::HistoryItem>=^{HistoryItem}}}{NavigationScheduler=^{Frame}{Timer=^^?{MonotonicTime=d}{MonotonicTime=d}{Seconds=d}iI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[32C]}^{__base<void ()>}}}{unique_ptr<WebCore::ScheduledNavigation, std::__1::default_delete<WebCore::ScheduledNavigation> >={__compressed_pair<WebCore::ScheduledNavigation *, std::__1::default_delete<WebCore::ScheduledNavigation> >=^{ScheduledNavigation}}}}^{HTMLFrameOwnerElement}{RefPtr<WebCore::FrameView>=^{FrameView}}{RefPtr<WebCore::Document>=^{Document}}{UniqueRef<WebCore::ScriptController>={unique_ptr<WebCore::ScriptController, std::__1::default_delete<WebCore::ScriptController> >={__compressed_pair<WebCore::ScriptController *, std::__1::default_delete<WebCore::ScriptController> >=^{ScriptController}}}}{UniqueRef<WebCore::Editor>={unique_ptr<WebCore::Editor, std::__1::default_delete<WebCore::Editor> >={__compressed_pair<WebCore::Editor *, std::__1::default_delete<WebCore::Editor> >=^{Editor}}}}{UniqueRef<WebCore::FrameSelection>={unique_ptr<WebCore::FrameSelection, std::__1::default_delete<WebCore::FrameSelection> >={__compressed_pair<WebCore::FrameSelection *, std::__1::default_delete<WebCore::FrameSelection> >=^{FrameSelection}}}}{UniqueRef<WebCore::CSSAnimationController>={unique_ptr<WebCore::CSSAnimationController, std::__1::default_delete<WebCore::CSSAnimationController> >={__compressed_pair<WebCore::CSSAnimationController *, std::__1::default_delete<WebCore::CSSAnimationController> >=^{CSSAnimationController}}}}{RetainPtr<NSArray>=^v}{Timer=^^?{MonotonicTime=d}{MonotonicTime=d}{Seconds=d}iI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[32C]}^{__base<void ()>}}}f{IntPoint=ii}{ViewportArguments=iffffffffffffiB}B{VisibleSelection={Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}iib1b1}{VisibleSelection={Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}{Position={RefPtr<WebCore::Node>=^{Node}}ib3b1}iib1b1}ffiBB{UniqueRef<WebCore::EventHandler>={unique_ptr<WebCore::EventHandler, std::__1::default_delete<WebCore::EventHandler> >={__compressed_pair<WebCore::EventHandler *, std::__1::default_delete<WebCore::EventHandler> >=^{EventHandler}}}}}16@0:8, name: _mainCoreFrame
 - (int)_keyboardUIMode;
 - (void)_retrieveKeyboardUIModeFromPreferences:(id)arg1;
 - (void)_removeObjectForIdentifier:(unsigned long long)arg1;
@@ -589,6 +591,8 @@
 - (_Bool)_becomingFirstResponderFromOutside;
 - (id)_deviceOrientationProvider;
 - (void)_setDeviceOrientationProvider:(id)arg1;
+- (id)_userMediaClient;
+- (void)_setUserMediaClient:(id)arg1;
 - (void)_resetAllGeolocationPermission;
 - (void)_geolocationDidFailWithMessage:(id)arg1;
 - (void)_geolocationDidChangePosition:(id)arg1;

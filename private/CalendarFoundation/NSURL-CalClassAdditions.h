@@ -9,6 +9,14 @@
 @interface NSURL (CalClassAdditions)
 + (id)davCompatibleFilenameForFilename:(id)arg1;
 + (id)URLWithAddressBookUID:(id)arg1;
+- (_Bool)cal_isEquivalentToPhoneNumber:(id)arg1;
+- (_Bool)cal_isEquivalentToEmailAddress:(id)arg1;
+- (id)cal_phoneNumberString;
+- (id)cal_emailAddressString;
+- (id)cal_resourceSpecifierNoLeadingSlashes;
+- (_Bool)cal_hasSchemeTel;
+- (_Bool)cal_hasSchemeMailto;
+- (_Bool)cal_caseInsensitiveHasScheme:(id)arg1;
 - (id)hostWithoutWWW;
 - (_Bool)isEqualToURLIgnoringScheme:(id)arg1;
 - (_Bool)compareToLocalURL:(id)arg1;

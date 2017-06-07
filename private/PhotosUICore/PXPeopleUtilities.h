@@ -10,17 +10,30 @@
 {
 }
 
++ (void)_setDaysDictionary:(id)arg1;
++ (id)_daysDictionary;
++ (_Bool)_hasRecentlyHandledBootstrapForPerson:(id)arg1;
++ (id)modelObjectsFromPersonItemArray:(id)arg1;
++ (CDUnknownBlockType)_manualOrderComparator;
++ (CDUnknownBlockType)_otherPeopleComparator;
++ (CDUnknownBlockType)comparatorForFetchType:(unsigned long long)arg1;
 + (_Bool)facesSyncFeatureEnabled;
++ (_Bool)isPersonHiddenFromPeopleHome:(id)arg1;
 + (id)assetCollectionListFetchResultForPerson:(id)arg1;
-+ (id)showDetailsForPerson:(id)arg1;
-+ (id)dataSourceArrayForHomeViewController;
-+ (long long)personTypeForDataSource:(id)arg1;
++ (void)markHandledBootstrapForPerson:(id)arg1;
++ (_Bool)showBootstrapIfNeededWithContext:(id)arg1 fromParentVC:(id)arg2 force:(_Bool)arg3 delegate:(id)arg4;
++ (_Bool)showBootstrapIfNeededWithContext:(id)arg1 fromParentVC:(id)arg2 delegate:(id)arg3;
++ (_Bool)showBootstrapIfNeededWithContext:(id)arg1 fromParentVC:(id)arg2;
++ (id)bootstrapViewControllerForContext:(id)arg1 delegate:(id)arg2;
++ (_Bool)shouldShowBootstrapForPerson:(id)arg1;
++ (id)createDetailsForPerson:(id)arg1;
 + (void)reSequenceManualOrderForPersonChangeRequests:(id)arg1;
 + (void)reSequenceFavorites:(id)arg1 afterMovingModels:(id)arg2 toType:(long long)arg3;
 + (id)identifiersForPeople:(id)arg1;
 + (void)mergePersons:(id)arg1 withPerson:(id)arg2;
 + (void)changePeople:(id)arg1 toPersonType:(long long)arg2 error:(id *)arg3;
 + (id)changePerson:(id)arg1 toPersonType:(long long)arg2;
++ (id)personWithLocalIdentifier:(id)arg1;
 + (id)personWithPersonUri:(id)arg1;
 + (id)sharedContactStore;
 

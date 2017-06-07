@@ -10,6 +10,7 @@
 @protocol NSSecureCoding;
 
 @protocol UAResumableActivitiesAdministrativeProtocol <NSObject>
+- (void)doGetSFActivityAdvertisement:(NSDictionary *)arg1 completionHandler:(void (^)(NSData *, NSDate *, NSUUID *, NSError *))arg2;
 - (void)doSetLocalPasteboardReflection:(_Bool)arg1;
 - (void)doSetRemotePasteboardAvalible:(_Bool)arg1;
 - (void)doReplayCommands:(NSArray *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
@@ -28,6 +29,7 @@
 - (void)doTerminateServer;
 - (void)doCopyDynamicUserActivitiesString:(NSDictionary *)arg1 completionHandler:(void (^)(NSString *))arg2;
 - (void)doCopyStatusString:(NSString *)arg1 options:(NSDictionary *)arg2 completionHandler:(void (^)(NSString *))arg3;
+- (void)doCopyRecentActions:(NSDictionary *)arg1 completionHandler:(void (^)(NSArray *))arg2;
 - (void)doCopyDebuggingInfo:(NSDictionary *)arg1 completionHandler:(void (^)(NSDictionary *))arg2;
 - (void)doCopyEnabledUUIDsWithCompletionHandler:(void (^)(NSArray *))arg1;
 - (void)doCopyAllUUIDsOfType:(unsigned long long)arg1 withCompletionHandler:(void (^)(NSArray *))arg2;

@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMDCameraSessionID, HMFTimer, NSDictionary, NSMutableArray, NSString;
+@class HMDCameraSessionID, HMFTimer, NSDictionary, NSMutableArray, NSObject, NSString;
 @protocol HMDVideoStreamReconfigureDelegate, OS_dispatch_queue;
 
-@interface HMDVideoStreamReconfigure : NSObject <HMFTimerDelegate, HMFLogging>
+@interface HMDVideoStreamReconfigure : HMFObject <HMFTimerDelegate, HMFLogging>
 {
     _Bool _reconfigurationMode;
     NSDictionary *_downlinkQualityInfo;

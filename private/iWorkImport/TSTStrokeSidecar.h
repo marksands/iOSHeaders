@@ -25,8 +25,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSPointerArray *rightColumnStrokes; // @synthesize rightColumnStrokes=_rightColumnStrokes;
 @property(retain, nonatomic) NSPointerArray *leftColumnStrokes; // @synthesize leftColumnStrokes=_leftColumnStrokes;
 @property(nonatomic) int maxOrder; // @synthesize maxOrder=_maxOrder;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)strokeLayerForBottomOfRow:(unsigned short)arg1;
 - (id)strokeLayerForTopOfRow:(unsigned short)arg1;
 - (id)strokeLayerForRightSideOfColumn:(unsigned char)arg1;
@@ -38,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)insertRows:(struct _NSRange)arg1;
 - (void)removeColumns:(struct _NSRange)arg1;
 - (void)insertColumns:(struct _NSRange)arg1;
+- (void)enumerateStrokesInRegion:(id)arg1 usingTopStrokeBlock:(CDUnknownBlockType)arg2 usingBottomStrokeBlock:(CDUnknownBlockType)arg3 usingLeftStrokeBlock:(CDUnknownBlockType)arg4 usingRightStrokeBlock:(CDUnknownBlockType)arg5;
 - (void)flattenStrokeOrder;
 - (id)p_flattenMajorStrokeLayer:(id)arg1 minorStrokeLayer:(id)arg2;
 - (void)setStroke:(id)arg1 forRightOfColumn:(unsigned char)arg2 order:(int)arg3 rowRange:(struct TSTSimpleRange)arg4;
@@ -52,7 +54,6 @@ __attribute__((visibility("hidden")))
 - (void)p_setRightStroke:(id)arg1 order:(int)arg2 atCellID:(struct TSUCellCoord)arg3;
 - (void)p_setLeftStroke:(id)arg1 order:(int)arg2 atCellID:(struct TSUCellCoord)arg3;
 - (void)p_setStroke:(id)arg1 order:(int)arg2 inStrokesArray:(id)arg3 atIndex:(unsigned short)arg4 atRange:(struct TSTSimpleRange)arg5;
-- (void)dealloc;
 - (id)initForUpgradeWithTableModel:(id)arg1;
 
 // Remaining properties

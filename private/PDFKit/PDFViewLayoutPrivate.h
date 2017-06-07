@@ -8,25 +8,24 @@
 
 @class NSLock, PDFDocument;
 
+__attribute__((visibility("hidden")))
 @interface PDFViewLayoutPrivate : NSObject
 {
     id delegate;
     _Bool delegateKnowsMargins;
-    _Bool delegateKnowsScaleFactor;
     _Bool delegateKnowsDisplayMode;
     _Bool delegateKnowsDisplayAsBook;
     _Bool delegateKnowsDisplayBox;
-    _Bool delegateKnowsDisplaySoloPagesCentered;
     _Bool delegateKnowsDisplayRTL;
-    _Bool delegateKnowsDisableInterpageSpacing;
-    _Bool delegateKnowsFlipped;
-    struct CGSize singlePageContinuousSize;
-    struct CGSize twoUpContinousSize;
-    struct CGRect *pageLayoutBounds;
-    NSLock *layoutLock;
+    _Bool delegateKnowsDisplaysDirection;
+    _Bool delegateKnowsIsUsingPageViewController;
     PDFDocument *document;
     unsigned long long pageCount;
-    struct _NSRange pageSubrange;
+    NSLock *pageLayoutLock;
+    struct CGRect *pageLayoutBounds;
+    struct CGSize singlePageContinuousSize;
+    struct CGSize twoUpContinousSize;
+    long long cachedContinuousSizeDisplayDirection;
 }
 
 - (void).cxx_destruct;

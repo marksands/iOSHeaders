@@ -44,6 +44,7 @@
 - (_Bool)_shouldEditNotesSupportOnProtocolChange;
 - (id)addressBookConstraintsPath;
 - (id)calendarConstraintsPath;
+- (int)supportsUniqueServerId;
 - (int)supportsSmartForwardReply;
 - (int)supportsDraftFolderSync;
 - (int)supportsConversations;

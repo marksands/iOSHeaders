@@ -6,7 +6,7 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
-@class NSString, SAMPCollection;
+@class NSArray, NSString, SAMPCollection;
 
 @interface SAMPAddMediaItemsToUpNextQueue : SABaseClientBoundCommand
 {
@@ -17,6 +17,7 @@
 - (_Bool)requiresResponse;
 @property(retain, nonatomic) SAMPCollection *mediaCollection;
 @property(copy, nonatomic) NSString *insertLocation;
+@property(copy, nonatomic) NSArray *hashedRouteUIDs;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

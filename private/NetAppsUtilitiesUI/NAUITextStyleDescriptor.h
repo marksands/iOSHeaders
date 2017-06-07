@@ -18,6 +18,7 @@
     NSString *_textStyle;
 }
 
++ (id)na_identity;
 + (id)defaultFontForTextStyleDescriptor:(id)arg1;
 + (id)fontWithTextStyleDescriptor:(id)arg1;
 + (id)descriptorWithTextStyle:(id)arg1;

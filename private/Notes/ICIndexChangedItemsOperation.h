@@ -11,7 +11,7 @@
 }
 
 - (id)searchableItemIdentifiersToDeleteFromDataSource:(id)arg1;
-- (id)searchableItemsToIndexFromDataSource:(id)arg1;
+- (id)objectIDsToIndexFromDataSource:(id)arg1;
 
 @end
 

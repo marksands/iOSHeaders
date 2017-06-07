@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOStyleAttributes, NSString;
+@class GEOStyleAttributes, NSString, PBUnknownFields;
 
 @interface GEOPBTransitBrand : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _muid;
     unsigned int _brandIndex;
     NSString *_nameDisplayString;
@@ -26,6 +27,8 @@
 @property(retain, nonatomic) GEOStyleAttributes *styleAttributes; // @synthesize styleAttributes=_styleAttributes;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 @property(nonatomic) unsigned int brandIndex; // @synthesize brandIndex=_brandIndex;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -39,7 +42,6 @@
 @property(readonly, nonatomic) _Bool hasStyleAttributes;
 @property(nonatomic) _Bool hasMuid;
 @property(nonatomic) _Bool hasBrandIndex;
-- (void)dealloc;
 
 @end
 

@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (PhotosUICore)
+@property(readonly, nonatomic) struct _NSRange px_firstLetterRange;
 @property(readonly, nonatomic) NSString *px_stringByIndentingNewLines;
 @property(readonly, nonatomic) long long px_platformAgnosticHash;
 - (_Bool)px_hasStringIgnoringCaseAndDiacritics:(id)arg1;

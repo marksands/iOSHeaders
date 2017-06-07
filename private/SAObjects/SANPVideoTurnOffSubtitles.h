@@ -6,6 +6,8 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
+@class NSString;
+
 @interface SANPVideoTurnOffSubtitles : SABaseClientBoundCommand
 {
 }
@@ -13,6 +15,7 @@
 + (id)turnOffSubtitlesWithDictionary:(id)arg1 context:(id)arg2;
 + (id)turnOffSubtitles;
 - (_Bool)requiresResponse;
+@property(copy, nonatomic) NSString *languageOptionChangeUserSetting;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

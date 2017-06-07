@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (id)uuidBasedCellMapByTableInfo:(id)arg1;
 - (id)uuidBasedCellMapByTableInfo:(id)arg1 preserveHostCells:(_Bool)arg2;
 - (id)cellIDBasedCellMapByTableInfo:(id)arg1;
+- (void)appendCellMap:(id)arg1;
 - (void)clearMerges;
 - (void)remapUIDsByColumnMap:(const UUIDMap_727ee07e *)arg1 rowMap:(const UUIDMap_727ee07e *)arg2 ownerMap:(const UUIDMap_727ee07e *)arg3;
 - (void)popLastCell;
@@ -73,7 +74,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1 copyingCells:(_Bool)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 cell:(id)arg2 cellIDList:(const vector_13f93596 *)arg3;
 - (id)initWithContext:(id)arg1 cell:(id)arg2 cellUIDList:(id)arg3;

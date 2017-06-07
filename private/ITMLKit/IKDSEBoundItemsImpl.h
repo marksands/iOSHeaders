@@ -25,12 +25,12 @@ __attribute__((visibility("hidden")))
     NSDictionary *_usedPrototypesByType;
     NSDictionary *_childrenByItemID;
     NSMutableIndexSet *_visibleIndexSet;
-    NSMutableDictionary *_virtualChildrenByItemID;
+    NSMutableDictionary *_proxyChildrenByItemID;
 }
 
 + (_Bool)_isPrototypeDOMElement:(id)arg1 validForReuseWithID:(id)arg2;
 + (_Bool)areItemsBoundForBinding:(id)arg1;
-@property(retain, nonatomic) NSMutableDictionary *virtualChildrenByItemID; // @synthesize virtualChildrenByItemID=_virtualChildrenByItemID;
+@property(retain, nonatomic) NSMutableDictionary *proxyChildrenByItemID; // @synthesize proxyChildrenByItemID=_proxyChildrenByItemID;
 @property(retain, nonatomic) NSMutableIndexSet *visibleIndexSet; // @synthesize visibleIndexSet=_visibleIndexSet;
 @property(copy, nonatomic) NSDictionary *childrenByItemID; // @synthesize childrenByItemID=_childrenByItemID;
 @property(copy, nonatomic) NSDictionary *usedPrototypesByType; // @synthesize usedPrototypesByType=_usedPrototypesByType;
@@ -42,7 +42,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)_itemsPropertyPath;
 - (id)_prototypeForType:(id)arg1;
-- (id)_appDataItemFromJSDataItem:(id)arg1;
+- (id)_appDataItemFromJSDataItem:(id)arg1 prototype:(id)arg2;
 - (void)_appendAutoHighlightedIndexesWithIndex:(long long)arg1;
 - (void)_appendUpdatedIndexesWithIndex:(long long)arg1;
 - (void)_appendVisibleIndexSetWithIndex:(long long)arg1;
@@ -59,13 +59,16 @@ __attribute__((visibility("hidden")))
 - (_Bool)domBindingController:(id)arg1 doKeysAffectChildren:(id)arg2;
 - (void)domBindingController:(id)arg1 didLoadBinding:(id)arg2;
 - (long long)indexOfItemForChildElement:(id)arg1;
+- (id)actualElementForProxyElement:(id)arg1;
+- (void)resetUpdates;
 - (void)updateStylesUsingUpdater:(CDUnknownBlockType)arg1;
 - (void)applyUpdatesWithImplementation:(id)arg1 usingUpdater:(CDUnknownBlockType)arg2;
 - (void)configureUpdatesWithImplementation:(id)arg1;
 - (void)teardown;
-- (void)initialize;
+- (void)initializeWithElementFactory:(id)arg1;
 - (void)unloadIndex:(long long)arg1;
-- (id)elementForItemAtIndex:(long long)arg1 loadIfNeeded:(_Bool)arg2;
+- (void)loadIndex:(long long)arg1;
+- (id)elementForItemAtIndex:(long long)arg1;
 - (id)prototypeForItemAtIndex:(long long)arg1;
 - (long long)numberOfItems;
 - (id)initWithDataSourceElement:(id)arg1;

@@ -9,10 +9,11 @@
 #import <GeoServices/GEOURLSerializable-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOStructuredAddress, NSMutableArray, NSString;
+@class GEOStructuredAddress, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOAddress : PBCodable <GEOURLSerializable, NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSMutableArray *_formattedAddressLines;
     int _formattedAddressType;
     GEOStructuredAddress *_structuredAddress;
@@ -25,6 +26,8 @@
 + (id)geoAddressForPlaceData:(id)arg1;
 @property(retain, nonatomic) GEOStructuredAddress *structuredAddress; // @synthesize structuredAddress=_structuredAddress;
 @property(retain, nonatomic) NSMutableArray *formattedAddressLines; // @synthesize formattedAddressLines=_formattedAddressLines;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +46,6 @@
 - (unsigned long long)formattedAddressLinesCount;
 - (void)addFormattedAddressLine:(id)arg1;
 - (void)clearFormattedAddressLines;
-- (void)dealloc;
 - (_Bool)_isEquivalentURLRepresentationTo:(id)arg1;
 - (id)urlRepresentation;
 - (id)initWithUrlRepresentation:(id)arg1;

@@ -8,17 +8,15 @@
 
 #import <WebApp/UIApplicationDelegate-Protocol.h>
 
-@class NSString, NSURL, UIWindow, WebAppController;
+@class NSString, UIWindow, WebAppController;
 
 @interface WebApplication : UIApplication <UIApplicationDelegate>
 {
-    NSURL *_lastActiveWebClipURL;
     WebAppController *_webApp;
     _Bool _wasSuspendedUnderLock;
 }
 
 - (void).cxx_destruct;
-- (void)applicationOpenURL:(id)arg1;
 - (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2;
 - (void)applicationDidBecomeActive:(id)arg1;
 - (void)applicationWillResignActive:(id)arg1;

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (struct CGRect)canonicalBounds;
+- (void).cxx_destruct;
 - (struct CGPath *)copyShapeWithTransform:(struct CGAffineTransform)arg1;
 - (float)maxAdjustedValue;
 - (_Bool)isOffice12;
@@ -26,7 +27,6 @@ __attribute__((visibility("hidden")))
 - (void)setFileFormat:(int)arg1;
 - (void)setShapeType:(int)arg1;
 - (void)setOrientedBounds:(id)arg1;
-- (void)dealloc;
 
 @end
 

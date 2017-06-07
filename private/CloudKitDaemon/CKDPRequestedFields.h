@@ -31,6 +31,7 @@
 - (unsigned long long)fieldsCount;
 - (void)addFields:(id)arg1;
 - (void)clearFields;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 
 @end
 

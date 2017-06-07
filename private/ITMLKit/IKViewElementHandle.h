@@ -11,13 +11,14 @@
 __attribute__((visibility("hidden")))
 @interface IKViewElementHandle : NSObject
 {
-    id _object;
+    IKDOMElement *_domElement;
+    IKViewElement *_viewElement;
 }
 
-@property(nonatomic) __weak id object; // @synthesize object=_object;
+@property(retain, nonatomic) IKViewElement *viewElement; // @synthesize viewElement=_viewElement;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) __weak IKViewElement *viewElement;
-@property(readonly, nonatomic) __weak IKDOMElement *domElement;
+@property(readonly, nonatomic) __weak IKDOMElement *domElement; // @synthesize domElement=_domElement;
+- (id)initWithDOMElement:(id)arg1;
 
 @end
 

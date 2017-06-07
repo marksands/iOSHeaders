@@ -32,6 +32,7 @@
     UIColor *_footerHyperlinkColor;
     UIColor *_progressBarTintColor;
     UIColor *_progressBarTrackTintColor;
+    UIColor *_searchBarTintcolor;
     UIColor *_cameraCaptureMaskColor;
     UIColor *_cameraCaptureMaskOutlineColor;
     UIImage *_navBarPointImage;
@@ -42,6 +43,7 @@
 @property(copy, nonatomic) UIImage *navBarPointImage; // @synthesize navBarPointImage=_navBarPointImage;
 @property(copy, nonatomic) UIColor *cameraCaptureMaskOutlineColor; // @synthesize cameraCaptureMaskOutlineColor=_cameraCaptureMaskOutlineColor;
 @property(copy, nonatomic) UIColor *cameraCaptureMaskColor; // @synthesize cameraCaptureMaskColor=_cameraCaptureMaskColor;
+@property(copy, nonatomic) UIColor *searchBarTintcolor; // @synthesize searchBarTintcolor=_searchBarTintcolor;
 @property(copy, nonatomic) UIColor *progressBarTrackTintColor; // @synthesize progressBarTrackTintColor=_progressBarTrackTintColor;
 @property(copy, nonatomic) UIColor *progressBarTintColor; // @synthesize progressBarTintColor=_progressBarTintColor;
 @property(copy, nonatomic) UIColor *footerHyperlinkColor; // @synthesize footerHyperlinkColor=_footerHyperlinkColor;

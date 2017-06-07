@@ -6,11 +6,15 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class TSKAnnotationAuthor;
+@class NSDate, NSString, TSKAnnotationAuthor;
 
 @protocol TSKAnnotation <NSObject>
 @property(readonly, nonatomic) int annotationDisplayStringType;
-@property(readonly, nonatomic) TSKAnnotationAuthor *author;
+@property(readonly, nonatomic) NSDate *date;
+@property(retain, nonatomic) TSKAnnotationAuthor *author;
 @property(readonly, nonatomic) int annotationType;
+@property(readonly, nonatomic) NSString *annotationUUID;
+- (_Bool)wantsAnnotationPopover;
+- (_Bool)isInDocument;
 @end
 

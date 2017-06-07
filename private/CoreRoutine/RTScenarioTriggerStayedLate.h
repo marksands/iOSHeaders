@@ -11,7 +11,10 @@
     double _secondsLate;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) double secondsLate; // @synthesize secondsLate=_secondsLate;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)initWithSecondsLate:(double)arg1;
 - (id)init;

@@ -6,22 +6,35 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class CNAvatarView;
+@class CNAvatarView, CNContact, NSArray, NSString, UIImage, UIImageView, UILabel, UIView;
 
 @interface HUContactDetailsTableViewCell : UITableViewCell
 {
     CNAvatarView *_avatarView;
+    UIImageView *_photoView;
+    UIView *_containerView;
+    UILabel *_titleLabel;
+    UILabel *_descriptionLabel;
+    NSArray *_constraints;
 }
 
-+ (double)preferredHeight;
-+ (id)identifier;
-@property(retain, nonatomic) CNAvatarView *avatarView; // @synthesize avatarView=_avatarView;
++ (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) NSArray *constraints; // @synthesize constraints=_constraints;
+@property(readonly, nonatomic) UILabel *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
+@property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
+@property(readonly, nonatomic) UIImageView *photoView; // @synthesize photoView=_photoView;
+@property(readonly, nonatomic) CNAvatarView *avatarView; // @synthesize avatarView=_avatarView;
 - (void).cxx_destruct;
-- (void)_updateCellStyle;
 - (void)layoutSubviews;
-- (id)init;
+- (void)updateConstraints;
+@property(retain, nonatomic) UIImage *photo;
+@property(retain, nonatomic) CNContact *contact;
+@property(retain, nonatomic) NSString *descriptionText;
+@property(retain, nonatomic) NSString *titleText;
+- (void)prepareForReuse;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-- (id)initWithReuseIdentifier:(id)arg1;
 
 @end
 

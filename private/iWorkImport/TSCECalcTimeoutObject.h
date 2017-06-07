@@ -15,9 +15,9 @@ __attribute__((visibility("hidden")))
     NSString *_blockingIdentifier;
 }
 
-@property(readonly) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(readonly) NSString *blockingIdentifier; // @synthesize blockingIdentifier=_blockingIdentifier;
-- (void)dealloc;
+@property(readonly) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
+- (void).cxx_destruct;
 - (id)initWithTimeout:(double)arg1;
 
 @end

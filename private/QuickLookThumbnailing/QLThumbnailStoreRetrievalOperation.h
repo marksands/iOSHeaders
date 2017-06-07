@@ -33,6 +33,7 @@
 @property(nonatomic, getter=isExecuting) _Bool executing; // @synthesize executing=_executing;
 @property(nonatomic, getter=isFinished) _Bool finished; // @synthesize finished=_finished;
 @property(retain) NSError *error; // @synthesize error=_error;
+- (void).cxx_destruct;
 @property(readonly) _Bool thumbnailWasAutomaticallyGenerated;
 @property(readonly) GSAddition *genStoreAddition;
 @property(readonly) NSData *serializedQuickLookMetadataDictionary;
@@ -48,7 +49,6 @@
 - (_Bool)_finishIfCancelled;
 - (void)cancel;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDocumentAtURL:(id)arg1;
 - (id)init;
 - (_Bool)isConcurrent;

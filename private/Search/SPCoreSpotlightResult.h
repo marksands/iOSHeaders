@@ -14,23 +14,19 @@
     NSString *_relatedUniqueIdentifier;
     unsigned long long _buddyScore;
     NSString *_itemIdentifier;
-    NSDate *_lastUsedDate;
     NSDate *_interestingDate;
     NSString *_domainIdentifier;
     long long _incomingCount;
     long long _outgoingCount;
     NSString *_relatedBundleID;
-    double _contactCDRank;
 }
 
-@property double contactCDRank; // @synthesize contactCDRank=_contactCDRank;
 @property(retain) NSString *relatedBundleID; // @synthesize relatedBundleID=_relatedBundleID;
 @property long long outgoingCount; // @synthesize outgoingCount=_outgoingCount;
 @property long long incomingCount; // @synthesize incomingCount=_incomingCount;
 @property(retain) NSString *domainIdentifier; // @synthesize domainIdentifier=_domainIdentifier;
 @property _Bool completed; // @synthesize completed=_completed;
 @property(retain) NSDate *interestingDate; // @synthesize interestingDate=_interestingDate;
-@property(retain) NSDate *lastUsedDate; // @synthesize lastUsedDate=_lastUsedDate;
 @property(retain) NSString *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 @property unsigned long long buddyScore; // @synthesize buddyScore=_buddyScore;
 @property(retain) NSString *relatedUniqueIdentifier; // @synthesize relatedUniqueIdentifier=_relatedUniqueIdentifier;

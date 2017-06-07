@@ -6,14 +6,15 @@
 
 #import <objc/NSObject.h>
 
+#import <ContactsUICore/CNUIIDSIDQueryControllerWrapper-Protocol.h>
+
 @class IDSIDQueryController;
 
-@interface CNUIIDSIDQueryControllerWrapper : NSObject
+@interface CNUIIDSIDQueryControllerWrapper : NSObject <CNUIIDSIDQueryControllerWrapper>
 {
     IDSIDQueryController *_controller;
 }
 
-+ (id)defaultInstance;
 @property(readonly, nonatomic) IDSIDQueryController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
 - (_Bool)refreshIDStatusForDestinations:(id)arg1 service:(id)arg2 listenerID:(id)arg3 queue:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;

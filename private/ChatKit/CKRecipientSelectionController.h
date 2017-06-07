@@ -6,17 +6,18 @@
 
 #import <ChatKit/CKViewController.h>
 
-#import <ChatKit/ABPeoplePickerNavigationControllerDelegate-Protocol.h>
 #import <ChatKit/CKRecipientSearchListControllerDelegate-Protocol.h>
+#import <ChatKit/CNContactPickerDelegate-Protocol.h>
 #import <ChatKit/MFComposeRecipientTextViewDelegate-Protocol.h>
 #import <ChatKit/MFGroupDetailViewControllerDelegate-Protocol.h>
 
-@class ABPeoplePickerNavigationController, CKComposeRecipientView, CKPendingConversation, CKRecipientSearchListController, MFComposeRecipient, NSArray, NSMutableDictionary, NSString, UILabel, UIScrollView, UIView;
+@class CKComposeRecipientView, CKPendingConversation, CKRecipientSearchListController, CNContactPickerViewController, CNContactStore, MFComposeRecipient, NSArray, NSMutableDictionary, NSString, UILabel, UIScrollView, UIView;
 @protocol CKRecipientSelectionControllerDelegate;
 
-@interface CKRecipientSelectionController : CKViewController <MFComposeRecipientTextViewDelegate, CKRecipientSearchListControllerDelegate, MFGroupDetailViewControllerDelegate, ABPeoplePickerNavigationControllerDelegate>
+@interface CKRecipientSelectionController : CKViewController <MFComposeRecipientTextViewDelegate, CKRecipientSearchListControllerDelegate, MFGroupDetailViewControllerDelegate, CNContactPickerDelegate>
 {
     double _keyboardHeightWithAccessoryView;
+    CNContactStore *_contactStore;
     _Bool _peoplePickerHidden;
     _Bool _editable;
     _Bool _forceMMS;
@@ -32,9 +33,9 @@
     CDUnknownBlockType _gameCenterPickerBlock;
     UIScrollView *_toFieldScrollingView;
     UILabel *_toFieldPlaceholderLabel;
-    ABPeoplePickerNavigationController *_peoplePickerController;
+    CNContactPickerViewController *_contactPickerViewController;
     NSArray *_addressBookProperties;
-    MFComposeRecipient *_recentContactForPresentedABCard;
+    MFComposeRecipient *_recentContactForPresentedCNCard;
     NSMutableDictionary *_recipientAvailibityTimers;
     NSMutableDictionary *_recipientAvailabilities;
 }
@@ -45,9 +46,9 @@
 @property(readonly, nonatomic) _Bool homogenizePreferredServiceForiMessage; // @synthesize homogenizePreferredServiceForiMessage=_homogenizePreferredServiceForiMessage;
 @property(nonatomic) _Bool didShowOneTimeErrorAlert; // @synthesize didShowOneTimeErrorAlert=_didShowOneTimeErrorAlert;
 @property(nonatomic) _Bool preventAtomization; // @synthesize preventAtomization=_preventAtomization;
-@property(retain, nonatomic) MFComposeRecipient *recentContactForPresentedABCard; // @synthesize recentContactForPresentedABCard=_recentContactForPresentedABCard;
+@property(retain, nonatomic) MFComposeRecipient *recentContactForPresentedCNCard; // @synthesize recentContactForPresentedCNCard=_recentContactForPresentedCNCard;
 @property(retain, nonatomic) NSArray *addressBookProperties; // @synthesize addressBookProperties=_addressBookProperties;
-@property(retain, nonatomic) ABPeoplePickerNavigationController *peoplePickerController; // @synthesize peoplePickerController=_peoplePickerController;
+@property(retain, nonatomic) CNContactPickerViewController *contactPickerViewController; // @synthesize contactPickerViewController=_contactPickerViewController;
 @property(retain, nonatomic) UILabel *toFieldPlaceholderLabel; // @synthesize toFieldPlaceholderLabel=_toFieldPlaceholderLabel;
 @property(retain, nonatomic) UIScrollView *toFieldScrollingView; // @synthesize toFieldScrollingView=_toFieldScrollingView;
 @property(copy, nonatomic) CDUnknownBlockType gameCenterPickerBlock; // @synthesize gameCenterPickerBlock=_gameCenterPickerBlock;
@@ -87,8 +88,10 @@
 - (void)_startAvailabilityTimeoutTimerForRecipient:(id)arg1;
 - (BOOL)_availibilityForRecipient:(id)arg1 onService:(id)arg2;
 - (void)_handleConversationPreferredServiceDidChangeNotification:(id)arg1;
+- (void)_handleAddressBookChangedNotification:(id)arg1;
 - (id)_toFieldCollapsedTextColor;
 - (unsigned long long)_atomPresentationOptionsForRecipient:(id)arg1;
+- (void)_updateToFieldRecipientsData;
 - (void)_updateToField;
 - (id)_canonicalRecipientAddresses;
 - (void)removeRecipient:(id)arg1;
@@ -109,9 +112,10 @@
 - (_Bool)isGameCenterRecipient:(id)arg1;
 - (void)setGameCenterPickedHandles:(id)arg1 playerNames:(id)arg2;
 - (void)_dismissPeoplePicker;
-- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(const void *)arg2;
-- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
+- (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
+- (void)contactPicker:(id)arg1 didSelectContactProperty:(id)arg2;
+- (void)contactPickerDidCancel:(id)arg1;
+@property(readonly, nonatomic) CNContactStore *contactStore;
 - (void)groupDetailViewControllerDidCancel:(id)arg1;
 - (void)groupDetailViewController:(id)arg1 didTapComposeRecipient:(id)arg2;
 - (void)groupDetailViewController:(id)arg1 didAskToRemoveGroup:(id)arg2;

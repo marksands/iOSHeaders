@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
+#import <CalendarDaemon/CalActivatable-Protocol.h>
 #import <CalendarDaemon/ClientConnectionDelegate-Protocol.h>
 #import <CalendarDaemon/NSXPCListenerDelegate-Protocol.h>
 
 @class BirthdayCalendarManager, CDBDataProtectionObserver, LocalAttachmentCleanUpSupport, NSArray, NSLock, NSMutableSet, NSString, NSXPCListener;
 @protocol OS_dispatch_queue, OS_xpc_object;
 
-@interface CADServer : NSObject <NSXPCListenerDelegate, ClientConnectionDelegate>
+@interface CADServer : NSObject <NSXPCListenerDelegate, ClientConnectionDelegate, CalActivatable>
 {
     NSObject<OS_dispatch_queue> *_notificationQueue;
     int _backgroundTaskCount;
@@ -25,18 +26,22 @@
     NSLock *_connectionLock;
     unsigned long long _birthdayManagerGeneration;
     NSArray *_signalSensors;
-    _Bool _running;
-    NSObject<OS_dispatch_queue> *_serverQueue;
-    NSObject *_bbProvider;
+    _Bool _active;
     CDBDataProtectionObserver *_dataProtectionObserver;
+    NSArray *_modules;
+    NSObject<OS_dispatch_queue> *_workQueue;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
+@property(retain, nonatomic) NSArray *modules; // @synthesize modules=_modules;
 @property(retain, nonatomic) CDBDataProtectionObserver *dataProtectionObserver; // @synthesize dataProtectionObserver=_dataProtectionObserver;
 - (void).cxx_destruct;
 - (void)_dumpState;
 - (void)_exitWithStatus:(int)arg1;
-- (void)idleChangeTrackingClientCleanupDatabase:(struct CalDatabase *)arg1;
-- (void)identityOrphanCleanupDatabase:(struct CalDatabase *)arg1;
+- (void)_deactivateAndExitWithStatus:(int)arg1;
+-     // Error parsing type: v24@0:8^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}16, name: idleChangeTrackingClientCleanupDatabase:
+-     // Error parsing type: v24@0:8^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}16, name: identityOrphanCleanupDatabase:
 - (void)_registerForIdleChangeTrackingClientCleanup;
 - (void)_registerForIdentityOrphanCleanup;
 - (void)_registerMaintenanceActivities;
@@ -51,9 +56,10 @@
 - (void)_handleXPCConnection:(id)arg1;
 - (void)clientConnectionDied:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
-- (void)shutDown;
-- (void)run;
+- (void)deactivate;
+- (void)activate;
 - (void)dealloc;
+- (id)initWithModules:(id)arg1;
 - (id)init;
 
 // Remaining properties

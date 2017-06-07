@@ -19,6 +19,7 @@
 @property(retain, nonatomic) PXViewControllerPinchTransitionSettings *pinchTransitionSettings; // @synthesize pinchTransitionSettings=_pinchTransitionSettings;
 @property(retain, nonatomic) PXViewControllerZoomTransitionSettings *zoomTransitionSettings; // @synthesize zoomTransitionSettings=_zoomTransitionSettings;
 - (void).cxx_destruct;
+- (id)parentSettings;
 
 @end
 

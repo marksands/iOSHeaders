@@ -47,6 +47,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)canSizeBeChangedIncrementally;
 - (_Bool)canAspectRatioLockBeChangedByUser;
 - (_Bool)isSelectable;
+- (_Bool)supportsParentRotation;
 - (_Bool)supportsHyperlinks;
 - (Class)layoutClass;
 - (Class)repClass;
@@ -61,7 +62,6 @@ __attribute__((visibility("hidden")))
 - (void)acceptVisitor:(id)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
-- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned long long)arg3;
 - (_Bool)isVisibleAtBeginningOfMagicChartBuildForDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2;
 - (_Bool)hasBackgroundLayerForPieChart;
 - (_Bool)hasReferenceLines;
@@ -97,16 +97,15 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 chartType:(id)arg2 legendShowing:(id)arg3 chartBodyFrame:(id)arg4 stylePreset:(id)arg5 privateSeriesStyles:(id)arg6 chartNonStyle:(id)arg7 legendNonStyle:(id)arg8 valueAxisNonStyles:(id)arg9 categoryAxisNonStyles:(id)arg10 seriesNonStyles:(id)arg11 refLineNonStylesMap:(id)arg12 refLineStylesMap:(id)arg13;
 - (id)initWithContext:(id)arg1 chartType:(id)arg2 legendShowing:(id)arg3 chartBodyFrame:(id)arg4 chartAreaFrame:(id)arg5 circumscribingFrame:(id)arg6 legendFrame:(id)arg7 stylePreset:(id)arg8 privateSeriesStyles:(id)arg9 chartNonStyle:(id)arg10 legendNonStyle:(id)arg11 valueAxisNonStyles:(id)arg12 categoryAxisNonStyles:(id)arg13 seriesNonStyles:(id)arg14 refLineNonStylesMap:(id)arg15 refLineStylesMap:(id)arg16;
 - (id)initWithContext:(id)arg1 chart:(id)arg2;
-- (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (id)p_copyFor3DAs2DWithContext:(id)arg1 chartFrame:(struct CGRect)arg2 legendFrame:(struct CGRect)arg3;
-- (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
-- (id)additionalObjectsToCopy;
+- (void)loadFromPreUFFArchiveWithUnarchiver:(id)arg1;
+- (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (_Bool)validatedLoadFromUnarchiver:(id)arg1;
 - (id)objectToArchiveInDependencyTracker;
 - (id)componentRootObject;
 - (_Bool)registerLast;
-- (struct __CFUUID *)formulaOwnerID;
+- (UUIDData_5fbc143e)formulaOwnerUID;
 - (void)unregisterFromCalculationEngine:(id)arg1;
 - (void)registerWithCalculationEngineForDocumentLoad:(id)arg1;
 

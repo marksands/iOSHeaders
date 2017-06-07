@@ -7,13 +7,13 @@
 #import <objc/NSObject.h>
 
 @interface NSObject (AXScanner)
-- (void)_accessibilitySetScannerActivateBehavior:(int)arg1;
-- (int)_accessibilityScannerActivateBehavior;
-- (void)_accessibilitySetScannerGroupTraits:(int)arg1;
+- (void)_accessibilitySetScannerActivateBehavior:(long long)arg1;
+- (long long)_accessibilityScannerActivateBehavior;
+- (void)_accessibilitySetScannerGroupTraits:(unsigned long long)arg1;
 - (void)_accessibilitySetIsScannerGroup:(_Bool)arg1;
-- (int)_accessibilityScannerGroupTraits;
+- (unsigned long long)_accessibilityScannerGroupTraits;
 - (_Bool)_accessibilityIsScannerGroup;
-- (int)_accessibilityScanningBehaviorTraits;
+- (unsigned long long)_accessibilityScanningBehaviorTraits;
 - (long long)_accessibilityCollectionViewItemsPerRow;
 - (_Bool)_accessibilityTreatCollectionViewRowsAsScannerGroups;
 - (id)_accessibilityScannerGroupElements;

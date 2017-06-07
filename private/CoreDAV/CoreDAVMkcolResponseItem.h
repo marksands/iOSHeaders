@@ -15,10 +15,10 @@
 
 + (id)copyParseRules;
 @property(retain, nonatomic) NSMutableSet *propStats; // @synthesize propStats=_propStats;
+- (void).cxx_destruct;
 - (_Bool)hasPropertyError;
 - (void)addPropStat:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

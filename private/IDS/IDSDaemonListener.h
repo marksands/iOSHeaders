@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
 
@@ -28,6 +28,7 @@
     _Bool _hidingDisconnect;
 }
 
+- (void).cxx_destruct;
 - (void)deviceIdentifierDidChange:(id)arg1;
 - (void)continuityDidDisconnectFromPeer:(id)arg1 withError:(id)arg2;
 - (void)continuityDidConnectToPeer:(id)arg1 withError:(id)arg2;
@@ -52,6 +53,7 @@
 - (void)switchActivePairedDevice:(id)arg1 forAccount:(id)arg2;
 - (void)_internalDidSwitchActivePairedDevice:(id)arg1 forService:(id)arg2;
 - (void)didSwitchActivePairedDevice:(id)arg1;
+- (void)didGetIdentities:(id)arg1 error:(id)arg2;
 - (void)device:(id)arg1 nsuuidChanged:(id)arg2;
 - (id)dependentDevicesForAccount:(id)arg1;
 - (void)refreshRegistrationForAccount:(id)arg1;
@@ -82,11 +84,10 @@
 - (void)addHandler:(id)arg1;
 - (void)_performSyncBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic, setter=_setHidingDisconnect:) _Bool _hidingDisconnect;
-@property(readonly, retain, nonatomic) NSString *deviceIdentifier;
+@property(readonly, nonatomic) NSString *deviceIdentifier;
 @property(readonly, nonatomic) _Bool hasPostedSetupComplete;
 @property(readonly, nonatomic) _Bool isSetupComplete;
 - (void)_noteDisconnected;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

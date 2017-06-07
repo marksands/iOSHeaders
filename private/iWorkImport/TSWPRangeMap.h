@@ -10,10 +10,13 @@ __attribute__((visibility("hidden")))
 @interface TSWPRangeMap : NSObject
 {
     struct _NSRange _subRange;
-    struct vector<_TSWPCharIndexAndAffinity, std::__1::allocator<_TSWPCharIndexAndAffinity>> _unmappedIndexes;
-    struct vector<_TSWPCharIndexAndAffinity, std::__1::allocator<_TSWPCharIndexAndAffinity>> _mappedIndexes;
+    vector_ea6649b6 _unmappedIndexes;
+    vector_ea6649b6 _mappedIndexes;
 }
 
+@property(nonatomic) vector_ea6649b6 mappedIndexes; // @synthesize mappedIndexes=_mappedIndexes;
+@property(nonatomic) vector_ea6649b6 unmappedIndexes; // @synthesize unmappedIndexes=_unmappedIndexes;
+@property(nonatomic) struct _NSRange subRange; // @synthesize subRange=_subRange;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)adjustByDelta:(long long)arg1 startingAt:(unsigned long long)arg2;

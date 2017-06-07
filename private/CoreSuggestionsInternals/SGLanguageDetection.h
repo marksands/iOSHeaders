@@ -11,6 +11,7 @@
 }
 
 + (id)detectLanguageFromText:(id)arg1;
++ (id)dominantLanguageTagFromText:(id)arg1;
 
 @end
 

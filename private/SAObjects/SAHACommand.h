@@ -6,9 +6,11 @@
 
 #import <SAObjects/SADomainCommand.h>
 
+#import <SAObjects/SAConditionallyMutatingClientBoundCommand-Protocol.h>
+
 @class NSArray, NSString, SAHAFilter;
 
-@interface SAHACommand : SADomainCommand
+@interface SAHACommand : SADomainCommand <SAConditionallyMutatingClientBoundCommand>
 {
 }
 
@@ -16,10 +18,21 @@
 + (id)command;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *serverValidity;
+@property(nonatomic) _Bool mutatingCommand;
 @property(retain, nonatomic) SAHAFilter *filter;
 @property(copy, nonatomic) NSArray *actions;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+
+// Remaining properties
+@property(copy, nonatomic) NSString *aceId; // @dynamic aceId;
+@property(copy, nonatomic) NSString *appId; // @dynamic appId;
+@property(copy, nonatomic) NSArray *callbacks; // @dynamic callbacks;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(copy, nonatomic) NSString *refId; // @dynamic refId;
+@property(readonly) Class superclass;
 
 @end
 

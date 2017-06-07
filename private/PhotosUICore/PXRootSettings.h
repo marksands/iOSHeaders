@@ -6,12 +6,12 @@
 
 #import <PhotosUICore/PXSettings.h>
 
-@class NSMutableSet, PXAssetsSceneSettings, PXDiagnosticsSettings, PXKitSettings, PXMemoriesFeedSettings, PXMemoriesRelatedSettings, PXModelSettings, PXPeopleDetailSettings, PXPhotosDataSourceSettings, PXPhotosDetailsHeaderTileSettings, PXPhotosDetailsSettings, PXRelatedSettings, PXSnapBackSettings, PXTilingSettings, PXViewControllerTransitionSettings;
+@class PXAssetVariationsSettings, PXAssetsSceneSettings, PXDiagnosticsSettings, PXDragAndDropSettings, PXImageFiltererSettings, PXImageModulationSettings, PXKitSettings, PXMemoriesFeedSettings, PXMemoriesRelatedSettings, PXModelSettings, PXPeopleDetailSettings, PXPeopleUISettings, PXPhotosDataSourceSettings, PXPhotosDetailsHeaderTileSettings, PXPhotosDetailsSettings, PXRelatedSettings, PXSharingSettings, PXSnapBackSettings, PXTilingSettings, PXViewControllerTransitionSettings;
 
 @interface PXRootSettings : PXSettings
 {
-    NSMutableSet *_archivedSettings;
     PXDiagnosticsSettings *_diagnostics;
+    PXImageModulationSettings *_imageModulationSettings;
     PXPhotosDetailsSettings *_photosDetails;
     PXPhotosDetailsHeaderTileSettings *_photosDetailsHeaderTile;
     PXRelatedSettings *_related;
@@ -25,11 +25,20 @@
     PXViewControllerTransitionSettings *_viewControllerTransition;
     PXSnapBackSettings *_snapBack;
     PXPeopleDetailSettings *_peopleDetail;
+    PXPeopleUISettings *_peopleUISettings;
+    PXDragAndDropSettings *_dragAndDrop;
+    PXImageFiltererSettings *_imageFiltererSettings;
+    PXSharingSettings *_sharingSettings;
+    PXAssetVariationsSettings *_variationsSettings;
 }
 
-+ (id)archiveKey;
 + (id)sharedInstance;
 + (id)settingsControllerModule;
+@property(retain, nonatomic) PXAssetVariationsSettings *variationsSettings; // @synthesize variationsSettings=_variationsSettings;
+@property(retain, nonatomic) PXSharingSettings *sharingSettings; // @synthesize sharingSettings=_sharingSettings;
+@property(retain, nonatomic) PXImageFiltererSettings *imageFiltererSettings; // @synthesize imageFiltererSettings=_imageFiltererSettings;
+@property(retain, nonatomic) PXDragAndDropSettings *dragAndDrop; // @synthesize dragAndDrop=_dragAndDrop;
+@property(retain, nonatomic) PXPeopleUISettings *peopleUISettings; // @synthesize peopleUISettings=_peopleUISettings;
 @property(retain, nonatomic) PXPeopleDetailSettings *peopleDetail; // @synthesize peopleDetail=_peopleDetail;
 @property(retain, nonatomic) PXSnapBackSettings *snapBack; // @synthesize snapBack=_snapBack;
 @property(retain, nonatomic) PXViewControllerTransitionSettings *viewControllerTransition; // @synthesize viewControllerTransition=_viewControllerTransition;
@@ -43,10 +52,10 @@
 @property(retain, nonatomic) PXRelatedSettings *related; // @synthesize related=_related;
 @property(retain, nonatomic) PXPhotosDetailsHeaderTileSettings *photosDetailsHeaderTile; // @synthesize photosDetailsHeaderTile=_photosDetailsHeaderTile;
 @property(retain, nonatomic) PXPhotosDetailsSettings *photosDetails; // @synthesize photosDetails=_photosDetails;
+@property(retain, nonatomic) PXImageModulationSettings *imageModulationSettings; // @synthesize imageModulationSettings=_imageModulationSettings;
 @property(retain, nonatomic) PXDiagnosticsSettings *diagnostics; // @synthesize diagnostics=_diagnostics;
 - (void).cxx_destruct;
-- (id)archiveValueForKey:(id)arg1;
-- (void)save;
+- (id)parentSettings;
 
 @end
 

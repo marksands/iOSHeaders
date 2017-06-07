@@ -22,7 +22,7 @@
 @property(nonatomic) struct CGSize baseImageSize; // @synthesize baseImageSize=_baseImageSize;
 @property(retain, nonatomic) PLPhotoEditMutableModel *model; // @synthesize model=_model;
 @property(retain, nonatomic) PFAdjustment *adjustmentData; // @synthesize adjustmentData=_adjustmentData;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

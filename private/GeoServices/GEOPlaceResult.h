@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAddress, GEOPlace, GEOPlaceSearchRequest, NSMutableArray, NSString;
+@class GEOAddress, GEOPlace, GEOPlaceSearchRequest, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPlaceResult : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _flyoverTourMuid;
     NSMutableArray *_additionalPlaces;
     int _cacheControl;
@@ -52,6 +53,8 @@
 @property(retain, nonatomic) NSString *suggestedQuery; // @synthesize suggestedQuery=_suggestedQuery;
 @property(retain, nonatomic) NSMutableArray *additionalPlaces; // @synthesize additionalPlaces=_additionalPlaces;
 @property(retain, nonatomic) GEOPlace *place; // @synthesize place=_place;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -92,7 +95,6 @@
 - (unsigned long long)additionalPlacesCount;
 - (void)addAdditionalPlace:(id)arg1;
 - (void)clearAdditionalPlaces;
-- (void)dealloc;
 - (id)geoMapItem;
 
 @end

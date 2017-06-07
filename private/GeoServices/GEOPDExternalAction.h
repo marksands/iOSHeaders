@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEOPDExternalAction : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     int _componentType;
     NSMutableArray *_externalActionDetails;
     struct {
@@ -21,6 +22,8 @@
 
 + (Class)externalActionDetailType;
 @property(retain, nonatomic) NSMutableArray *externalActionDetails; // @synthesize externalActionDetails=_externalActionDetails;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +41,6 @@
 - (id)componentTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasComponentType;
 @property(nonatomic) int componentType; // @synthesize componentType=_componentType;
-- (void)dealloc;
 
 @end
 

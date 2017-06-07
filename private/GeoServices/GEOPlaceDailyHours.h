@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray;
 
@@ -18,8 +18,8 @@ __attribute__((visibility("hidden")))
 + (id)dailyHours:(id)arg1 forDays:(struct _NSRange)arg2;
 @property(readonly) NSArray *openIntervals; // @synthesize openIntervals=_openIntervals;
 @property(readonly) struct _NSRange dayOfWeekRange; // @synthesize dayOfWeekRange=_dayOfWeekRange;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 
 @end
 

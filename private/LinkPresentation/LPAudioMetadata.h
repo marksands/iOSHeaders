@@ -15,9 +15,11 @@
     unsigned int _version;
     NSURL *_URL;
     NSString *_type;
+    NSString *_accessibilityText;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *accessibilityText; // @synthesize accessibilityText=_accessibilityText;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(readonly, nonatomic) unsigned int version; // @synthesize version=_version;

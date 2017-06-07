@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <FrontBoardUIServices/FBUISceneClient-Protocol.h>
 
-@class FBUISceneIdentity, NSString;
+@class NSString;
 @protocol FBUISceneHostProxy;
 
 @interface FBUISceneClient : NSObject <FBUISceneClient>
 {
-    FBUISceneIdentity *_identity;
+    NSString *_identifier;
     id <FBUISceneHostProxy> _hostProxy;
 }
 
@@ -21,7 +21,6 @@
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
-@property(readonly, copy, nonatomic) NSString *sceneIdentifier;
 - (void)didInvalidateSceneHost:(id)arg1;
 - (void)sceneHost:(id)arg1 didReceiveActions:(id)arg2;
 - (void)sceneHost:(id)arg1 destroySceneWithTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -30,7 +29,7 @@
 - (void)registerWithDelegate:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithIdentity:(id)arg1;
+- (id)initWithIdentifier:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

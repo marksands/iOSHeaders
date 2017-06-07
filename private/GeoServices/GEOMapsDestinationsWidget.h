@@ -27,6 +27,7 @@
 @property(nonatomic) _Bool everExpanded; // @synthesize everExpanded=_everExpanded;
 @property(nonatomic) _Bool initiallyExpanded; // @synthesize initiallyExpanded=_initiallyExpanded;
 @property(retain, nonatomic) NSMutableArray *proactiveItems; // @synthesize proactiveItems=_proactiveItems;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -44,7 +45,6 @@
 - (unsigned long long)proactiveItemsCount;
 - (void)addProactiveItem:(id)arg1;
 - (void)clearProactiveItems;
-- (void)dealloc;
 
 @end
 

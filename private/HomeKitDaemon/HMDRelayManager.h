@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFNetMonitorDelegate-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegateHomeKit-Protocol.h>
 #import <HomeKitDaemon/NSURLSessionDelegate-Protocol.h>
 
-@class HMDHome, HMFNetMonitor, IDSService, NSHashTable, NSMutableArray, NSString, NSURLSession;
+@class HMDHome, HMFNetMonitor, IDSService, NSHashTable, NSMutableArray, NSObject, NSString, NSURLSession;
 @protocol OS_dispatch_queue;
 
-@interface HMDRelayManager : NSObject <HMFNetMonitorDelegate, IDSServiceDelegateHomeKit, NSURLSessionDelegate, HMFLogging>
+@interface HMDRelayManager : HMFObject <HMFNetMonitorDelegate, IDSServiceDelegateHomeKit, NSURLSessionDelegate, HMFLogging>
 {
     _Bool _supported;
     _Bool _enabled;

@@ -6,9 +6,9 @@
 
 #import <HealthUI/NSObject-Protocol.h>
 
-@protocol HKSimpleDataEntryItemType;
+@class HKSimpleDataEntryItem;
 
 @protocol HKSimpleDataEntryItemDelegate <NSObject>
-- (void)dataEntryItemDidUpdateValue:(id <HKSimpleDataEntryItemType>)arg1;
+- (void)dataEntryItemDidUpdateValue:(HKSimpleDataEntryItem *)arg1;
 @end
 

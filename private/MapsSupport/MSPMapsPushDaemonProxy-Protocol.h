@@ -6,10 +6,12 @@
 
 #import <MapsSupport/MSPRemoteModelAccess-Protocol.h>
 
-@class GEOAnnouncement, NSData, NSString, NSURL, RTVehicleEvent;
+@class GEOAnnouncement, MNCommuteNotificationDetails, MSPLowFuelDetails, NSData, NSString, NSURL, RTVehicleEvent;
 
 @protocol MSPMapsPushDaemonProxy <MSPRemoteModelAccess>
 - (void)fetchUserRoutingPreferencesWithCompletion:(void (^)(MSPUserRoutingPreferences *, NSError *))arg1;
+- (void)mapsLocationAuthorizationStatusChanged;
+- (void)handleMapsApplicationRemoval:(void (^)(NSError *))arg1;
 - (void)eraseRAPData;
 - (oneway void)updateMapsModelBackupAttributesIfNeeded;
 - (void)clearParkedCarBulletin;
@@ -17,6 +19,11 @@
 - (void)showParkedCarReplacementBulletinForEvent:(RTVehicleEvent *)arg1 replacingEvent:(RTVehicleEvent *)arg2;
 - (void)showParkedCarBulletinForEvent:(RTVehicleEvent *)arg1 afterDelay:(double)arg2;
 - (void)showParkedCarBulletinForEvent:(RTVehicleEvent *)arg1;
+- (void)clearLowFuelAlertBulletin;
+- (void)showLowFuelAlertBulletinForLowFuelDetails:(MSPLowFuelDetails *)arg1;
+- (void)clearPredictedRouteTrafficIncidentBulletin;
+- (void)showPredictedRouteTrafficIncidentBulletinForCommuteDetails:(MNCommuteNotificationDetails *)arg1 afterDelay:(double)arg2;
+- (void)showPredictedRouteTrafficIncidentBulletinForCommuteDetails:(MNCommuteNotificationDetails *)arg1;
 - (void)clearTransitAlightAlertBulletin;
 - (void)showTransitAlightAlertWithTitle:(NSString *)arg1 message:(NSString *)arg2;
 - (void)clearTrafficIncidentsBulletin;

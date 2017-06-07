@@ -42,6 +42,7 @@
 @property(nonatomic) _Bool toFreeway; // @synthesize toFreeway=_toFreeway;
 @property(retain, nonatomic) NSMutableArray *signposts; // @synthesize signposts=_signposts;
 @property(retain, nonatomic) NSMutableArray *maneuverNames; // @synthesize maneuverNames=_maneuverNames;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;

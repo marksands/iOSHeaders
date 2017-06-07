@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDAssociatedApp : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSMutableArray *_alternateAppAdamIds;
     NSString *_preferredAppAdamId;
 }
@@ -20,6 +21,8 @@
 + (id)associatedAppForPlaceData:(id)arg1;
 @property(retain, nonatomic) NSMutableArray *alternateAppAdamIds; // @synthesize alternateAppAdamIds=_alternateAppAdamIds;
 @property(retain, nonatomic) NSString *preferredAppAdamId; // @synthesize preferredAppAdamId=_preferredAppAdamId;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,7 +37,6 @@
 - (void)addAlternateAppAdamId:(id)arg1;
 - (void)clearAlternateAppAdamIds;
 @property(readonly, nonatomic) _Bool hasPreferredAppAdamId;
-- (void)dealloc;
 
 @end
 

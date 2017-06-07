@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class NSMutableOrderedSet, NSNumber;
+@class NSMutableOrderedSet, NSNumber, NSObject;
 @protocol HAPFragmentationStreamDelegate, OS_dispatch_queue;
 
-@interface HAPFragmentationStream : NSObject
+@interface HAPFragmentationStream : HMFObject
 {
     id <HAPFragmentationStreamDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_clientQueue;

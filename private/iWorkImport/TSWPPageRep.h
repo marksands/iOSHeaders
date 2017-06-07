@@ -6,10 +6,12 @@
 
 #import <iWorkImport/TSDContainerRep.h>
 
-@class NSTimer;
+#import <iWorkImport/CALayerDelegate-Protocol.h>
+
+@class NSString, NSTimer;
 
 __attribute__((visibility("hidden")))
-@interface TSWPPageRep : TSDContainerRep
+@interface TSWPPageRep : TSDContainerRep <CALayerDelegate>
 {
     NSTimer *editingDidBeginTimer;
 }
@@ -29,6 +31,12 @@ __attribute__((visibility("hidden")))
 - (void)addAdditionalChildLayersToArray:(id)arg1;
 - (void)updateFromLayout;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

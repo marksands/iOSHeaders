@@ -16,23 +16,27 @@ __attribute__((visibility("hidden")))
 {
     NSString *mFormatName;
     NSString *mFormatNameStem;
+    NSString *mFormatNameTag;
     int mFormatType;
     OITSUCustomFormatData *mDefaultFormatData;
     NSMutableArray *mConditionList;
 }
 
 @property(readonly, nonatomic) NSMutableArray *conditionList; // @synthesize conditionList=mConditionList;
-@property(retain, nonatomic) NSString *formatName; // @synthesize formatName=mFormatName;
+- (id)description;
 - (id)conditionalFormatDataForKey:(unsigned long long)arg1;
 - (id)conditionalFormatAtIndex:(unsigned long long)arg1;
 - (id)conditionalFormatDataForValue:(double)arg1 outKey:(unsigned long long *)arg2;
 - (id)conditionalFormatDataForValue:(double)arg1;
 @property(readonly, nonatomic) OITSUCustomFormatData *defaultFormatData;
 @property(readonly, nonatomic) int formatType;
+@property(readonly, nonatomic) NSString *formatName; // @synthesize formatName=mFormatName;
 - (_Bool)isEqualWithStemNameMatching:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)p_isEqual:(id)arg1 matchingFullName:(_Bool)arg2;
-- (_Bool)p_nameStemIsEqual:(id)arg1;
+@property(readonly, nonatomic) NSString *formatNameTag;
+@property(readonly, nonatomic) NSString *formatNameStem;
+- (void)p_makeFormatNameStemAndTag;
 - (unsigned long long)hash;
 - (void)p_addConditionOfType:(int)arg1 value:(double)arg2 data:(id)arg3;
 @property(readonly, nonatomic) unsigned long long conditionCount;
@@ -41,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 formatType:(int)arg2 data:(id)arg3;
+- (id)initWithName:(id)arg1 formatType:(int)arg2 data:(id)arg3 conditionList:(id)arg4;
 
 @end
 

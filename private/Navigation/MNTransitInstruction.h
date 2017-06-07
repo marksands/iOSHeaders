@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSTimeZone;
+@class NSArray;
 @protocol GEOServerFormattedString;
 
 @interface MNTransitInstruction : NSObject
@@ -32,7 +32,6 @@
 - (id)instructionSetsForInstructionType:(long long)arg1;
 - (struct NSDictionary *)overridenInstructionsMapping;
 - (id)instructionSet;
-@property(readonly, nonatomic) NSTimeZone *timeZoneForFormattedString;
 - (void)_fillInInstructions;
 - (id)initWithContext:(long long)arg1;
 

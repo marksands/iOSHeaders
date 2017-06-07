@@ -18,7 +18,7 @@
 - (void)tracePlayer:(MNTracePlayer *)arg1 didReceiveLocationError:(NSError *)arg2;
 - (void)tracePlayer:(MNTracePlayer *)arg1 didUpdateLocation:(MNLocation *)arg2;
 - (void)tracePlayerDidStayOnRoute:(MNTracePlayer *)arg1;
-- (void)tracePlayer:(MNTracePlayer *)arg1 didJumpToRouteResponse:(GEODirectionsResponse *)arg2 request:(GEODirectionsRequest *)arg3 destination:(GEOComposedWaypoint *)arg4;
+- (void)tracePlayer:(MNTracePlayer *)arg1 didJumpToRouteResponse:(GEODirectionsResponse *)arg2 request:(GEODirectionsRequest *)arg3 origin:(GEOComposedWaypoint *)arg4 destination:(GEOComposedWaypoint *)arg5;
 - (void)tracePlayer:(MNTracePlayer *)arg1 didPlayAtTime:(double)arg2;
 - (void)tracePlayer:(MNTracePlayer *)arg1 didSeekToTime:(double)arg2 location:(MNLocation *)arg3;
 - (void)tracePlayer:(MNTracePlayer *)arg1 didSeekToTransportType:(int)arg2;

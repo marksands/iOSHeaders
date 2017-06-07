@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/PKPaymentWebServiceTargetDeviceProtocol-Protocol.h>
 
@@ -15,11 +15,14 @@
     PKPassLibrary *_passLibrary;
     PKPaymentService *_paymentService;
     PKAssertion *_provisioningAssertion;
-    _Bool _assertionActive;
+    _Bool _provisioningAssertionActive;
+    PKAssertion *_verificationAssertion;
+    _Bool _verificationAssertionActive;
 }
 
 + (id)localTargetDevice;
 - (void).cxx_destruct;
+- (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (_Bool)felicaSecureElementIsAvailable;
 - (void)paymentWebService:(id)arg1 validateTransferPreconditionsWithCompletion:(CDUnknownBlockType)arg2;
 - (void)paymentWebService:(id)arg1 removePass:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
@@ -38,6 +41,7 @@
 - (int)paymentSupportedInCurrentRegionForWebService:(id)arg1;
 - (id)paymentWebService:(id)arg1 filterVerificationChannels:(id)arg2;
 - (void)paymentWebService:(id)arg1 didRegisterWithRegionMap:(id)arg2 primaryRegionTopic:(id)arg3;
+- (id)trustedDeviceEnrollmentInfoForWebService:(id)arg1;
 - (void)paymentWebService:(id)arg1 provisioningDataWithCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)paymentWebService:(id)arg1 signData:(id)arg2 signatureEntanglementMode:(unsigned long long)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)paymentWebService:(id)arg1 registrationDataWithAuthToken:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -45,6 +49,8 @@
 - (void)paymentWebService:(id)arg1 queueConnectionToTrustedServiceManagerForPushTopic:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)paymentWebServiceDidUpdateConfiguration:(id)arg1;
 - (id)secureElementIdentifiers;
+- (void)startBackgroundVerificationObserverForPass:(id)arg1 verificationMethod:(id)arg2;
+- (void)noteForegroundVerificationObserverActive:(_Bool)arg1;
 - (void)noteProvisioningUserInterfaceDidDisappear;
 - (void)noteProvisioningUserInterfaceDidAppear;
 - (void)noteProvisioningDidEnd;

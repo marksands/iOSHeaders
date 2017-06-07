@@ -25,6 +25,7 @@
     FMFSession *_locationSharingSession;
     FMFDevice *_locationSharingDevice;
     NSNumber *_locationSharingEnabled;
+    NSNumber *_isLocationServicesEnabled;
 }
 
 + (_Bool)isLocationRestricted;
@@ -42,6 +43,9 @@
 - (id)locationSharingSession;
 - (id)locationSharingOperationQueue;
 - (unsigned long long)locationSharingTimeout;
+- (void)_pushCoreRoutineViewController;
+- (void)_handleAuthenticationForSpecifier:(id)arg1 success:(_Bool)arg2 error:(id)arg3;
+- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)specifiers;
 - (void)updateLocationSharingSpecifiersWithReload:(_Bool)arg1;

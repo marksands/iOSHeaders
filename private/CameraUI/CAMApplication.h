@@ -21,6 +21,7 @@
 - (_Bool)runPresentTestWithName:(id)arg1 options:(id)arg2;
 - (_Bool)runSwitchModesTestWithName:(id)arg1 options:(id)arg2;
 - (_Bool)runSwitchCamerasTestWithName:(id)arg1 options:(id)arg2;
+- (_Bool)runTakePicturePortraitTest:(id)arg1 options:(id)arg2 prototype:(id)arg3;
 - (_Bool)runTakePictureTestWithFrontCamera:(id)arg1 options:(id)arg2 prototype:(id)arg3;
 - (_Bool)runTakePictureTestWithTestName:(id)arg1 options:(id)arg2 prototype:(id)arg3;
 - (void)didChangeToMode:(long long)arg1 device:(long long)arg2;

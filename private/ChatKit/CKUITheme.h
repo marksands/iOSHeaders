@@ -6,20 +6,29 @@
 
 #import <Foundation/NSObject.h>
 
-@class UIColor, _UIBackdropViewSettings;
+@class CNContactStyle, UIColor, _UIBackdropViewSettings;
 
 @interface CKUITheme : NSObject
 {
     long long _HUDStyle;
     UIColor *_darkAppTintColor;
+    UIColor *_transcriptNavBarTextColor;
     UIColor *_detailsCellStaticTextColor;
 }
 
 @property(readonly, nonatomic) UIColor *detailsCellStaticTextColor; // @synthesize detailsCellStaticTextColor=_detailsCellStaticTextColor;
+@property(readonly, nonatomic) UIColor *transcriptNavBarTextColor; // @synthesize transcriptNavBarTextColor=_transcriptNavBarTextColor;
 @property(readonly, nonatomic) UIColor *darkAppTintColor; // @synthesize darkAppTintColor=_darkAppTintColor;
 @property(nonatomic) long long HUDStyle; // @synthesize HUDStyle=_HUDStyle;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) UIColor *businessNavTintColor;
+@property(readonly, nonatomic) UIColor *businessNavBarTintColor;
+@property(readonly, nonatomic) UIColor *businessInfoViewDescriptionTextColor;
+@property(readonly, nonatomic) UIColor *businessDescriptionViewControllerBackgroundColor;
+@property(readonly, nonatomic) UIColor *fsmPickerCurrentPageColor;
+@property(readonly, nonatomic) UIColor *fsmPickerTextColor;
 @property(readonly, nonatomic) UIColor *stickerDetailsSubheaderTextColor;
+@property(readonly, nonatomic) UIColor *browserSwitcherBorderColor;
 @property(readonly, nonatomic) UIColor *browserSwitcherGutterDividerColor;
 @property(readonly, nonatomic) UIColor *browserSwitcherGutterColor;
 @property(readonly, nonatomic) UIColor *browserLabelColor;
@@ -30,8 +39,14 @@
 - (BOOL)messageAcknowledgmentBalloonColorTypeForStyle:(long long)arg1;
 - (id)messageAcknowledgment:(long long)arg1 selectedAcknowledgmentImageColor:(long long)arg2;
 - (id)messageAcknowledgment:(long long)arg1 acknowledgmentImageColor:(long long)arg2;
+- (BOOL)ckAcknowledgemntColorTypeForColor:(id)arg1;
+@property(readonly, nonatomic) UIColor *messageAcknowledgmentWhiteColor;
+@property(readonly, nonatomic) UIColor *messageAcknowledgmentGrayColor;
+@property(readonly, nonatomic) UIColor *messageAcknowledgmentRedColor;
 @property(readonly, nonatomic) UIColor *messageAcknowledgmentBalloonBorderColor;
+@property(readonly, nonatomic) UIColor *messageAcknowledgmentPickerBackgroundColor;
 @property(readonly, nonatomic) UIColor *activeRecordingDotColor;
+@property(readonly, nonatomic) double contactTableViewContactBackgroundAlpha;
 @property(readonly, nonatomic) UIColor *contactTableViewCellContentTextColor;
 @property(readonly, nonatomic) UIColor *contactTableViewHeaderBackgroundColor;
 @property(readonly, nonatomic) UIColor *contactTableViewCellBackgroundColor;
@@ -56,6 +71,8 @@
 @property(readonly, nonatomic) UIColor *entryFieldDarkStyleButtonColor;
 @property(readonly, nonatomic) UIColor *entryFieldHighlightedButtonColor;
 @property(readonly, nonatomic) UIColor *entryFieldButtonColor;
+- (id)business_sendButtonColor;
+- (id)black_sendButtonColor;
 - (id)white_sendButtonColor;
 - (id)red_sendButtonColor;
 - (id)siri_sendButtonColor;
@@ -68,12 +85,15 @@
 @property(readonly, nonatomic) _UIBackdropViewSettings *entryViewBackdropSettings;
 @property(readonly, nonatomic) long long keyboardDarkAppearance;
 @property(readonly, nonatomic) long long keyboardAppearance;
+@property(readonly, nonatomic) long long entryViewStyle;
 @property(readonly, nonatomic) UIColor *searchResultsSeperatorColor;
 @property(readonly, nonatomic) UIColor *searchResultsCellSelectedColor;
 @property(readonly, nonatomic) UIColor *searchResultsCellBackgroundColor;
 @property(readonly, nonatomic) UIColor *searchResultsBackgroundColor;
 @property(readonly, nonatomic) UIColor *toFieldTextColor;
 @property(readonly, nonatomic) long long toFieldBackdropStyle;
+- (id)business_recipientTextColor;
+- (id)black_recipientTextColor;
 - (id)white_recipientTextColor;
 - (id)red_recipientTextColor;
 - (id)siri_recipientTextColor;
@@ -83,6 +103,8 @@
 - (id)recipientTextColorForColorType:(BOOL)arg1;
 @property(readonly, nonatomic) UIColor *waveformDisabledColor;
 @property(readonly, nonatomic) UIColor *waveformUnplayedColor;
+- (id)business_progressViewColor;
+- (id)black_progressViewColor;
 - (id)white_progressViewColor;
 - (id)red_progressViewColor;
 - (id)siri_progressViewColor;
@@ -90,6 +112,8 @@
 - (id)green_progressViewColor;
 - (id)gray_progressViewColor;
 - (id)progressViewColorForColorType:(BOOL)arg1;
+- (id)business_waveformColor;
+- (id)black_waveformColor;
 - (id)white_waveformColor;
 - (id)red_waveformColor;
 - (id)siri_waveformColor;
@@ -100,6 +124,8 @@
 @property(readonly, nonatomic) UIColor *attachmentBalloonSubtitleTextColor;
 @property(readonly, nonatomic) UIColor *attachmentBalloonTitleTextColor;
 @property(readonly, nonatomic) UIColor *attachmentBalloonActionColor;
+- (id)business_balloonOverlayColor;
+- (id)black_balloonOverlayColor;
 - (id)white_balloonOverlayColor;
 - (id)red_balloonOverlayColor;
 - (id)siri_balloonOverlayColor;
@@ -107,6 +133,8 @@
 - (id)green_balloonOverlayColor;
 - (id)gray_balloonOverlayColor;
 - (id)balloonOverlayColorForColorType:(BOOL)arg1;
+- (id)business_balloonTextLinkColor;
+- (id)black_balloonTextLinkColor;
 - (id)white_balloonTextLinkColor;
 - (id)red_balloonTextLinkColor;
 - (id)siri_balloonTextLinkColor;
@@ -114,6 +142,8 @@
 - (id)green_balloonTextLinkColor;
 - (id)gray_balloonTextLinkColor;
 - (id)balloonTextLinkColorForColorType:(BOOL)arg1;
+- (id)business_balloonTextColor;
+- (id)black_balloonTextColor;
 - (id)white_balloonTextColor;
 - (id)red_balloonTextColor;
 - (id)siri_balloonTextColor;
@@ -121,6 +151,8 @@
 - (id)green_balloonTextColor;
 - (id)gray_balloonTextColor;
 - (id)balloonTextColorForColorType:(BOOL)arg1;
+- (id)business_unfilledBalloonColor;
+- (id)black_unfilledBalloonColor;
 - (id)white_unfilledBalloonColor;
 - (id)red_unfilledBalloonColor;
 - (id)siri_unfilledBalloonColor;
@@ -128,7 +160,10 @@
 - (id)green_unfilledBalloonColor;
 - (id)gray_unfilledBalloonColor;
 - (id)unfilledBalloonColorForColorType:(BOOL)arg1;
+@property(readonly, nonatomic) UIColor *autoloopMuteButtonColor;
 @property(readonly, nonatomic) UIColor *typingIndicatorDotColor;
+- (id)business_balloonColors;
+- (id)black_balloonColors;
 - (id)white_balloonColors;
 - (id)red_balloonColors;
 - (id)siri_balloonColors;
@@ -136,14 +171,15 @@
 - (id)green_balloonColors;
 - (id)gray_balloonColors;
 - (id)balloonColorsForColorType:(BOOL)arg1;
+@property(readonly, nonatomic) long long transcriptLoadingIndicatorStyle;
 @property(readonly, nonatomic) UIColor *transcriptDeemphasizedTextColor;
 @property(readonly, nonatomic) UIColor *transcriptBigEmojiColor;
 @property(readonly, nonatomic) UIColor *transcriptTextColor;
 @property(readonly, nonatomic) UIColor *transcriptBackgroundColor;
 @property(readonly, nonatomic) UIColor *progressBarTrackTintColor;
-@property(readonly, nonatomic) UIColor *dimmingViewBackgroundColor;
 @property(readonly, nonatomic) UIColor *transcriptSeparatorColor;
 @property(readonly, nonatomic) UIColor *conversationListGroupCountColor;
+@property(readonly, nonatomic) UIColor *conversationListLargeTextDateColor;
 @property(readonly, nonatomic) UIColor *conversationListDateColor;
 @property(readonly, nonatomic) UIColor *conversationListSummaryColor;
 @property(readonly, nonatomic) UIColor *conversationListSenderColor;
@@ -151,7 +187,9 @@
 @property(readonly, nonatomic) UIColor *conversationListSelectedCellColor;
 @property(readonly, nonatomic) UIColor *conversationListCellColor;
 @property(readonly, nonatomic) UIColor *conversationListBackgroundColor;
+@property(readonly, nonatomic) CNContactStyle *contactStyle;
 @property(readonly, nonatomic) long long scrollIndicatorStyle;
+@property(readonly, nonatomic) long long businessStatusBarStyle;
 @property(readonly, nonatomic) long long statusBarStyle;
 @property(readonly, nonatomic) long long defaultBarStyle;
 @property(readonly, nonatomic) long long navBarStyle;

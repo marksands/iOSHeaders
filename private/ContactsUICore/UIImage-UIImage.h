@@ -7,6 +7,9 @@
 #import <UIKit/UIImage.h>
 
 @interface UIImage (UIImage)
++ (id)_cnui_imageWithCGImage:(struct CGImage *)arg1 size:(struct CGSize)arg2 scale:(double)arg3;
+- (struct CGImage *)_cnui_CGImage;
+- (struct CGRect)_cnui_bounds;
 - (id)_cnui_pngData;
 @end
 

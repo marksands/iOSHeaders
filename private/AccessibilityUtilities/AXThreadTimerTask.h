@@ -18,7 +18,7 @@
 @property(nonatomic, getter=isFinished) _Bool finished; // @synthesize finished;
 @property(nonatomic, getter=isCancelled) _Bool cancel; // @synthesize cancel;
 @property(copy, nonatomic) CDUnknownBlockType block; // @synthesize block=_block;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)runAfterDelay:(float)arg1;
 - (void)run;
 

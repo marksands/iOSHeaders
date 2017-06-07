@@ -9,7 +9,7 @@
 #import <VectorKit/MDSnapshotMap-Protocol.h>
 #import <VectorKit/VKMapModelDelegate-Protocol.h>
 
-@class NSArray, NSString, VKMapModel;
+@class NSString, VKMapModel;
 
 __attribute__((visibility("hidden")))
 @interface VKMapImageCanvas : VKImageCanvas <VKMapModelDelegate, MDSnapshotMap>
@@ -21,7 +21,6 @@ __attribute__((visibility("hidden")))
 - (void)mapModelWillBecomeFullyDrawn:(id)arg1;
 - (void)mapModelDidBecomePartiallyDrawn:(id)arg1;
 - (void)mapModelDidUpdateMinMaxZoomLevel:(id)arg1;
-- (id)mapModel:(id)arg1 painterForOverlay:(id)arg2;
 - (void)mapModelLabelsDidLayout:(id)arg1;
 - (void)mapModel:(id)arg1 selectedLabelMarkerDidChangeState:(const shared_ptr_2d33c5e4 *)arg2;
 - (void)mapModel:(id)arg1 selectedLabelMarkerWillDisappear:(const shared_ptr_2d33c5e4 *)arg2;
@@ -29,23 +28,18 @@ __attribute__((visibility("hidden")))
 - (void)mapModelDidFailLoadingTiles:(id)arg1 withError:(id)arg2;
 - (void)mapModelDidFinishLoadingTiles:(id)arg1;
 - (void)mapModelDidStartLoadingTiles:(id)arg1;
-- (void)removeCustomFeatureDataSource:(id)arg1;
-- (void)addCustomFeatureDataSource:(id)arg1;
-@property(retain, nonatomic) NSArray *customFeatureDataSources;
 - (_Bool)isShowingNoDataPlaceholders;
+@property(nonatomic) _Bool showsVenues;
 @property(nonatomic) _Bool showsBuildings;
-@property(nonatomic) _Bool showsPointsOfInterest;
-@property(nonatomic) unsigned char labelScaleFactor;
-@property(nonatomic) _Bool localizeLabels;
+- (struct LabelSettings *)labelSettings;
 - (void)cancelTileRequests;
 - (void)clearScene;
 - (void)setMapDisplayStyle:(struct DisplayStyle)arg1;
 - (void)setMapType:(long long)arg1;
 - (void)update;
 - (void)dealloc;
-- (id)initWithTarget:(id)arg1 device:(struct Device *)arg2 homeQueue:(id)arg3 manifestConfiguration:(id)arg4 locale:(id)arg5;
-- (id)initWithTarget:(id)arg1 device:(struct Device *)arg2 homeQueue:(id)arg3 manifestConfiguration:(id)arg4 locale:(id)arg5 localizeLabels:(_Bool)arg6 mapType:(long long)arg7;
-- (id)initWithTarget:(id)arg1 device:(struct Device *)arg2 homeQueue:(id)arg3 manifestConfiguration:(id)arg4 locale:(id)arg5 mapPurpose:(unsigned long long)arg6;
+-     // Error parsing type: @36@0:8^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B}16B24q28, name: initWithMapEngine:localizeLabels:mapType:
+-     // Error parsing type: @24@0:8^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B}16, name: initWithMapEngine:
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

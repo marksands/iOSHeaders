@@ -7,33 +7,47 @@
 #import <objc/NSObject.h>
 
 #import <SOS/SOSClientProtocol-Protocol.h>
+#import <SOS/SOSInternalClientProtocol-Protocol.h>
 
 @class NSString, NSXPCConnection;
 @protocol OS_dispatch_semaphore;
 
-@interface SOSManager : NSObject <SOSClientProtocol>
+@interface SOSManager : NSObject <SOSInternalClientProtocol, SOSClientProtocol>
 {
     _Bool _sendingLocationUpdate;
+    long long _sosInitiationState;
+    long long _sosInteractiveState;
     NSObject<OS_dispatch_semaphore> *_initialStateSemaphore;
     int _connectionRequestNotificationToken;
     NSXPCConnection *_connection;
+    NSString *_mostRecentSOSActivationReason;
 }
 
 + (_Bool)_hidesSOSTriggerAlert;
 + (void)_logSOSAlertResponseAlertReason:(int)arg1 withUUID:(id)arg2;
-+ (void)_beginSOSCallWithCompletion:(CDUnknownBlockType)arg1;
-+ (void)_triggerSOSWithUUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (long long)TPInCallUILaunchReasonForSOSTriggerMechanism:(long long)arg1;
++ (void)_beginSOSCallWithCompletion:(CDUnknownBlockType)arg1 triggerMechanism:(long long)arg2;
++ (void)_triggerSOSWithUUID:(id)arg1 triggerMechanism:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 + (id)sharedInstance;
++ (void)notifySOSTriggerMechanismChanged;
 + (_Bool)deviceSupportsSOS;
++ (_Bool)shouldTriggerSOS;
++ (void)triggerSOSWithUUID:(id)arg1 triggerMechanism:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)triggerSOSWithUUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)triggerSOSWithCompletion:(CDUnknownBlockType)arg1;
 + (void)triggerSOS;
+@property(copy, nonatomic) NSString *mostRecentSOSActivationReason; // @synthesize mostRecentSOSActivationReason=_mostRecentSOSActivationReason;
 @property(nonatomic) int connectionRequestNotificationToken; // @synthesize connectionRequestNotificationToken=_connectionRequestNotificationToken;
 - (void).cxx_destruct;
 - (void)_resetStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_waitForInitialState;
+- (void)updateCurrentSOSInteractiveState:(long long)arg1;
+- (void)updateCurrentSOSInitiationState:(long long)arg1;
 - (void)setSendingLocationUpdate:(_Bool)arg1;
+@property(nonatomic) long long currentSOSInteractiveState;
+@property(nonatomic) long long currentSOSInitiationState;
 - (_Bool)isSendingLocationUpdate;
+- (void)mostRecentLocationSentWithCompletion:(CDUnknownBlockType)arg1;
 - (void)stopSendingLocationUpdate;
 - (void)startSendingLocationUpdateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)willStartSendingLocationUpdate;

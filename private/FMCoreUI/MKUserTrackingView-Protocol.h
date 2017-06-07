@@ -14,6 +14,7 @@
 - (long long)userTrackingMode;
 
 @optional
+- (_Bool)postsMapViewInitialRenderingNotification;
 - (_Bool)hasRenderedSomething;
 @end
 

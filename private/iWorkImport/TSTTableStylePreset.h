@@ -17,15 +17,16 @@ __attribute__((visibility("hidden")))
 {
     TSTTableStyleNetwork *_styleNetwork;
     unsigned long long _tempUpgradePresetID;
+    _Bool _tableHasStrongOwnership;
 }
 
 + (_Bool)needsObjectUUID;
+@property(nonatomic) _Bool tableHasStrongOwnership; // @synthesize tableHasStrongOwnership=_tableHasStrongOwnership;
 - (void)replaceReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (id)referencedStyles;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct TableStylePresetArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
-- (_Bool)allowsImplicitComponentOwnership;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)drawSwatchInRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
 - (id)swatchImage;
 @property(readonly, nonatomic) NSString *presetKind;

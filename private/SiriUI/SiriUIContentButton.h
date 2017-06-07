@@ -14,19 +14,24 @@
     UIColor *_defaultColorForTemplate;
     UIColor *_highlightColorForTemplate;
     _Bool _usePlatterStyle;
+    struct UIEdgeInsets _hitTestEdgeInsets;
 }
 
 + (id)buttonWithImageTemplate:(id)arg1;
 + (id)buttonWithImageMask:(id)arg1;
++ (id)buttonWithImageTemplate:(id)arg1 style:(long long)arg2;
++ (id)buttonWithImageMask:(id)arg1 style:(long long)arg2;
 + (id)buttonWithMediumWeightFont;
 + (id)buttonWithLightWeightFont;
 + (id)button;
+@property(nonatomic) struct UIEdgeInsets hitTestEdgeInsets; // @synthesize hitTestEdgeInsets=_hitTestEdgeInsets;
 @property(nonatomic) _Bool usePlatterStyle; // @synthesize usePlatterStyle=_usePlatterStyle;
 - (void).cxx_destruct;
 - (void)_updateTintColor;
 - (void)setHighlightColorForTemplate:(id)arg1;
 - (void)setDefaultColorForTemplate:(id)arg1;
 - (void)_setIsRenderingImageTemplate:(_Bool)arg1;
+- (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_updateStyling;

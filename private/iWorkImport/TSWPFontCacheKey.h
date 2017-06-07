@@ -19,10 +19,10 @@ __attribute__((visibility("hidden")))
 + (id)cacheKeyWithFontName:(id)arg1 size:(double)arg2;
 @property(readonly, nonatomic) double fontSize; // @synthesize fontSize=_fontSize;
 @property(readonly, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
+- (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithFontName:(id)arg1 size:(double)arg2;
 
 @end

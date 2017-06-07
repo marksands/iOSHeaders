@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKAnchorDelegate-Protocol.h>
 
-@class MDDisplayLayer, NSString;
+@class NSString;
+@protocol MDRenderTarget;
 
 @interface VKAnchorWrapper : NSObject <VKAnchorDelegate>
 {
@@ -19,10 +20,10 @@
     struct Coordinate2D<Degrees, double> _lastCoordinate;
     _Bool _isUpdating;
     double _pointsPerMeter;
-    MDDisplayLayer *_displayLayer;
+    id <MDRenderTarget> _displayLayer;
 }
 
-@property(nonatomic) MDDisplayLayer *displayLayer; // @synthesize displayLayer=_displayLayer;
+@property(nonatomic) id <MDRenderTarget> displayLayer; // @synthesize displayLayer=_displayLayer;
 @property(nonatomic) _Bool followsTerrain; // @synthesize followsTerrain=_followsTerrain;
 - (id).cxx_construct;
 - (void).cxx_destruct;

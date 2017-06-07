@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOLocation, GEONavigationMatchInfo, GEORoadMatch, GEORouteMatch;
 
@@ -27,10 +27,10 @@
 @property(readonly, nonatomic) GEORoadMatch *roadMatch; // @synthesize roadMatch=_roadMatch;
 @property(readonly, nonatomic) GEORouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (void)setLocationUnreliable:(_Bool)arg1;
 - (void)setDetailedMatchInfo:(id)arg1;
 - (void)setRouteMatch:(id)arg1;
-- (void)dealloc;
 - (id)initWithRawLocation:(id)arg1;
 - (id)initWithRoadMatch:(id)arg1 location:(id)arg2;
 - (id)initWithRouteMatch:(id)arg1 location:(id)arg2;

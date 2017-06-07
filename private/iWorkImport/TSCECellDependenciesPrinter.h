@@ -11,20 +11,22 @@
 __attribute__((visibility("hidden")))
 @interface TSCECellDependenciesPrinter : NSObject
 {
+    _Bool _showCleanCells;
     NSString *_ownerName;
     unsigned long long _numDirtyCells;
-    _Bool _showCleanCells;
     NSMutableArray *_dirtyCellDependencyRows;
     NSMutableArray *_cleanCellDependencyRows;
 }
 
 + (id)stringForOwnerKind:(int)arg1;
+@property(retain, nonatomic) NSMutableArray *cleanCellDependencyRows; // @synthesize cleanCellDependencyRows=_cleanCellDependencyRows;
+@property(retain, nonatomic) NSMutableArray *dirtyCellDependencyRows; // @synthesize dirtyCellDependencyRows=_dirtyCellDependencyRows;
 @property(nonatomic) _Bool showCleanCells; // @synthesize showCleanCells=_showCleanCells;
 @property(nonatomic) unsigned long long numDirtyCells; // @synthesize numDirtyCells=_numDirtyCells;
 @property(retain, nonatomic) NSString *ownerName; // @synthesize ownerName=_ownerName;
+- (void).cxx_destruct;
 - (id)description;
 - (void)addDependencyRow:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

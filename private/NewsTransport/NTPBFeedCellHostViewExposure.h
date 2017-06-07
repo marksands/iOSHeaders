@@ -18,12 +18,17 @@
     NSString *_creativeId;
     int _feedCellHostType;
     NSString *_topicFeedId;
+    int _userAction;
+    _Bool _pickFavsButtonExposed;
     struct {
         unsigned int areaPresentationReason:1;
         unsigned int feedCellHostType:1;
+        unsigned int userAction:1;
+        unsigned int pickFavsButtonExposed:1;
     } _has;
 }
 
+@property(nonatomic) _Bool pickFavsButtonExposed; // @synthesize pickFavsButtonExposed=_pickFavsButtonExposed;
 @property(retain, nonatomic) NSString *creativeId; // @synthesize creativeId=_creativeId;
 @property(retain, nonatomic) NSString *campaignType; // @synthesize campaignType=_campaignType;
 @property(retain, nonatomic) NSString *campaignId; // @synthesize campaignId=_campaignId;
@@ -37,6 +42,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasUserAction;
+@property(nonatomic) int userAction; // @synthesize userAction=_userAction;
+@property(nonatomic) _Bool hasPickFavsButtonExposed;
 @property(readonly, nonatomic) _Bool hasCreativeId;
 @property(readonly, nonatomic) _Bool hasCampaignType;
 @property(readonly, nonatomic) _Bool hasCampaignId;

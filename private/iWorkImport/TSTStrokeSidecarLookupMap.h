@@ -23,10 +23,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSIndexSet *columnIndiciesInRow; // @synthesize columnIndiciesInRow=_columnIndiciesInRow;
 @property(retain, nonatomic) TSTCellRegion *region; // @synthesize region=_region;
 @property(retain, nonatomic) TSTStrokeSidecar *strokeSidecar; // @synthesize strokeSidecar=_strokeSidecar;
+- (void).cxx_destruct;
 - (_Bool)cellBorderAtColumn:(unsigned char)arg1;
 - (_Bool)anyCellBordersInThisRow;
 - (void)setIteratorToRow:(unsigned short)arg1;
-- (void)dealloc;
 - (id)initWithStrokeSidecar:(id)arg1 region:(id)arg2;
 
 @end

@@ -17,10 +17,11 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)needsObjectUUID;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToSession:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
 @property(retain, nonatomic) NSDate *date;
 @property(retain, nonatomic) TSKAnnotationAuthor *author;

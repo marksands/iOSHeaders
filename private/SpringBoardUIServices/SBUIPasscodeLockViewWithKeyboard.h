@@ -16,11 +16,6 @@
     SBUIAlphanumericPasscodeEntryField *_alphaEntryField;
     UIView *_statusFieldBackground;
     SBUIRingViewLabelButton *_emergencyCallButton;
-    UIView *_emergencyCallToTopFiller;
-    UIView *_emergencyCallLeftFiller;
-    UIView *_emergencyCallRightFiller;
-    UIView *_statusFieldToTopOrEmergencyCallBottomFiller;
-    UIView *_entryFieldToBottomFiller;
     _Bool _wasMinimizedWhenAnimationStarted;
     _Bool _previousKeyboardShowedInlineCandidates;
     _Bool _disableAnimationsDuringMinMax;
@@ -34,13 +29,16 @@
 @property(retain, nonatomic) UILabel *statusSubtitleView; // @synthesize statusSubtitleView=_statusSubtitleView;
 @property(retain, nonatomic) UILabel *statusField; // @synthesize statusField=_statusField;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)_updateFont;
 - (void)_layoutStatusView;
 - (void)updateStatusText:(id)arg1 subtitle:(id)arg2 animated:(_Bool)arg3;
 - (void)_handleDidRotateNotification:(id)arg1;
 - (void)_handleWillAnimateNotification:(id)arg1;
 - (void)_handleWillRotateNotification:(id)arg1;
+- (double)_largeTextEmergencyButtonMaxWidth;
 - (double)_statusTitleWidth;
-- (double)_statusFieldHeight;
+- (double)_statusFieldHeightWithWidth:(double)arg1;
 - (double)_keyboardToEntryFieldOffset;
 - (struct CGRect)_keyboardFrameForInterfaceOrientation:(long long)arg1;
 - (void)_maximize;
@@ -71,11 +69,8 @@
 - (void)layoutSubviews;
 - (void)setShowsStatusField:(_Bool)arg1;
 - (void)setShowsEmergencyCallButton:(_Bool)arg1;
-- (void)setBackgroundAlpha:(double)arg1;
-- (void)setCustomBackgroundColor:(id)arg1;
 - (id)passcode;
 - (void)_luminanceBoostDidChange;
-- (double)backgroundAlpha;
 - (void)dealloc;
 - (id)initWithLightStyle:(_Bool)arg1;
 

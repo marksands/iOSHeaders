@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/PKPaymentWebServiceProxyObjectExportedInterface-Protocol.h>
 
@@ -42,6 +42,7 @@
 - (void)deleteApplicationWithAID:(id)arg1;
 - (void)getProvisioningDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)signData:(id)arg1 signatureEntanglementMode:(unsigned long long)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)getTrustedDeviceEnrollmentInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getRegistrationDataWithAuthToken:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getConfigurationDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)queueConnectionToTrustedServiceManagerForPushTopic:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

@@ -33,6 +33,7 @@
 @property(retain, nonatomic) GEOMapRegion *displayRegion; // @synthesize displayRegion=_displayRegion;
 @property(retain, nonatomic) NSString *localizedDescription; // @synthesize localizedDescription=_localizedDescription;
 @property(retain, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -62,7 +63,6 @@
 - (id)displayStyleAsString:(int)arg1;
 @property(nonatomic) _Bool hasDisplayStyle;
 @property(nonatomic) int displayStyle; // @synthesize displayStyle=_displayStyle;
-- (void)dealloc;
 
 @end
 

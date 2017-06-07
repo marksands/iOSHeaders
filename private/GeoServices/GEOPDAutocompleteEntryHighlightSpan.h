@@ -23,6 +23,7 @@
 
 @property(nonatomic) unsigned int length; // @synthesize length=_length;
 @property(nonatomic) unsigned int startIndex; // @synthesize startIndex=_startIndex;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -35,7 +36,6 @@
 - (id)description;
 @property(nonatomic) _Bool hasLength;
 @property(nonatomic) _Bool hasStartIndex;
-- (void)dealloc;
 
 @end
 

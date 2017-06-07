@@ -6,7 +6,7 @@
 
 #import <CloudKitDaemon/CKDCacheBasedRequest.h>
 
-@class NSArray, NSMutableArray;
+@class CKDDiscoverUserIdentitiesURLRequest, NSArray, NSMutableArray;
 
 __attribute__((visibility("hidden")))
 @interface CKDPublicIdentityLookupRequest : CKDCacheBasedRequest
@@ -15,9 +15,11 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _lookupCompletionBlock;
     NSArray *_originalLookupInfosToFetch;
     NSMutableArray *_lookupInfosToFetch;
+    CKDDiscoverUserIdentitiesURLRequest *_request;
 }
 
 + (void)removeCacheForLookupInfos:(id)arg1 inCache:(id)arg2;
+@property(retain, nonatomic) CKDDiscoverUserIdentitiesURLRequest *request; // @synthesize request=_request;
 @property(retain, nonatomic) NSMutableArray *lookupInfosToFetch; // @synthesize lookupInfosToFetch=_lookupInfosToFetch;
 @property(retain, nonatomic) NSArray *originalLookupInfosToFetch; // @synthesize originalLookupInfosToFetch=_originalLookupInfosToFetch;
 @property(copy, nonatomic) CDUnknownBlockType lookupCompletionBlock; // @synthesize lookupCompletionBlock=_lookupCompletionBlock;

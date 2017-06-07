@@ -8,11 +8,16 @@
 
 #import <CloudKitDaemon/NSCopying-Protocol.h>
 
+@class CKDPZoneCapabilities;
+
 __attribute__((visibility("hidden")))
 @interface CKDPZoneSaveResponse : PBCodable <NSCopying>
 {
+    CKDPZoneCapabilities *_capabilities;
 }
 
+@property(retain, nonatomic) CKDPZoneCapabilities *capabilities; // @synthesize capabilities=_capabilities;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -22,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasCapabilities;
 
 @end
 

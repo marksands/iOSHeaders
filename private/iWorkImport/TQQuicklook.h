@@ -6,11 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString, TSABaseApplicationDelegate, TSACirrusDocument, TSUTemporaryDirectory;
+#import <iWorkImport/TSPDocumentResourceFileURLProvider-Protocol.h>
+
+@class NSBundle, NSString, TSABaseApplicationDelegate, TSACirrusDocument, TSUTemporaryDirectory;
 @protocol TSKRenderingExporter;
 
 __attribute__((visibility("hidden")))
-@interface TQQuicklook : NSObject
+@interface TQQuicklook : NSObject <TSPDocumentResourceFileURLProvider>
 {
     NSString *mPath;
     TSACirrusDocument *mDocument;
@@ -18,6 +20,8 @@ __attribute__((visibility("hidden")))
     TSUTemporaryDirectory *mTemporaryDirectory;
     NSString *mPassphrase;
     id <TSKRenderingExporter> mExporter;
+    NSBundle *mInstalledGingerBundle;
+    NSBundle *mInstalledSageBundle;
 }
 
 + (void)unloadAssetColorMap;
@@ -33,8 +37,15 @@ __attribute__((visibility("hidden")))
 - (_Bool)load;
 - (void)dealloc;
 - (id)initWithPath:(id)arg1 passphrase:(id)arg2;
+- (id)fileURLForDocumentResourceInfo:(id)arg1;
 - (_Bool)writePreviewToOutput:(id)arg1 pageNumber:(unsigned long long)arg2;
 - (Class)appDelegateClass;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

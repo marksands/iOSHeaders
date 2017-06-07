@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 {
     NSObject<OS_dispatch_queue> *_serialQueue;
     NSNetServiceBrowser *_serviceBrowser;
-    NSMutableSet *_discoveredTelevisions;
+    NSMutableSet *_discoveredDevices;
     NSMutableSet *_resolvingServices;
     _Bool _discovering;
     id <MRTelevisionDelegate> _delegate;

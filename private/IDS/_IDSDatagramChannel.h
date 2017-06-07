@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class IDSDataChannelLinkContext, NSData, NSMutableArray, NSMutableDictionary;
 @protocol OS_nw_connection, OS_nw_path_evaluator;
@@ -15,6 +15,7 @@
     int _socketDescriptor;
     CDUnknownBlockType _eventHandler;
     CDUnknownBlockType _readHandler;
+    CDUnknownBlockType _readHandlerWithOptions;
     _Bool _connected;
     struct os_unfair_lock_s _writeLock;
     NSObject<OS_nw_connection> *_connection;
@@ -31,8 +32,14 @@
     BOOL _defaultLinkID;
     NSData *_preConnectionData;
     NSMutableArray *_sendingMetadata;
+    _Bool _needsMediaEncryptionInfo;
+    unsigned long long _outgoingBytes;
+    unsigned long long _incomingBytes;
+    double _lastOutgoingStatReport;
+    double _lastIncomingStatReport;
 }
 
+- (void).cxx_destruct;
 - (id)init;
 
 @end

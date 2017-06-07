@@ -33,9 +33,10 @@
 - (void)_updateLocalStateForPrunedResource:(id)arg1 inPhotoLibrary:(id)arg2;
 - (void)_runOnWorkQueueWithTransaction:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)pruneStatusForDebug:(_Bool)arg1;
-- (long long)_fetchResourcesForPruningWithBatchHandler:(CDUnknownBlockType)arg1 budget:(long long)arg2;
+- (long long)_fetchResourcesForPruningWithBudget:(long long)arg1 batchHandler:(CDUnknownBlockType)arg2;
 - (void)stop;
-- (long long)startAutomaticPruneWithBudget:(long long)arg1;
+- (void)startAutomaticPruneWithBudget:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateCacheDeletePurgeableAmount;
 - (void)dealloc;
 - (id)initWithCPLManager:(id)arg1;
 - (id)init;

@@ -21,17 +21,10 @@
 @property(retain, nonatomic) NSManagedObjectContext *destinationContext; // @synthesize destinationContext=_destinationContext;
 @property(retain, nonatomic) NSPersistentStoreCoordinator *sourceCoordinator; // @synthesize sourceCoordinator=_sourceCoordinator;
 - (void).cxx_destruct;
-- (id)contextSaveUserInfoKeys;
-- (_Bool)shouldMergeContextDidSaveChanges:(id)arg1;
-- (void)registerForContextDidSaveNotifications;
-- (void)contextDidSave:(id)arg1;
 - (void)postNotesPasswordStatusDidChangeNotification;
-- (void)postNotesDidChangeNotification;
 - (void)postAccountDidChangeNotification;
 - (void)registerForAccountNotifications;
 - (void)registerForPasswordStatusDidChangeNotifications;
-- (void)handleCrossProcessNotesDidChangeNotificationForceRefreshAllObjects:(_Bool)arg1;
-- (void)registerForNotesRefreshNotifications;
 - (void)registerForCrossProcessNotificationName:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)postCrossProcessNotificationName:(id)arg1 userInfo:(id)arg2;
 - (void)dealloc;

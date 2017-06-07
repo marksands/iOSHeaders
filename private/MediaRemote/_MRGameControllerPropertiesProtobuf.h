@@ -16,13 +16,16 @@
     unsigned int _playerIndex;
     int _profile;
     NSString *_vendorName;
+    _Bool _supportsExtendedMotion;
     struct {
         unsigned int buttonAUpDelay:1;
         unsigned int playerIndex:1;
         unsigned int profile:1;
+        unsigned int supportsExtendedMotion:1;
     } _has;
 }
 
+@property(nonatomic) _Bool supportsExtendedMotion; // @synthesize supportsExtendedMotion=_supportsExtendedMotion;
 @property(nonatomic) int buttonAUpDelay; // @synthesize buttonAUpDelay=_buttonAUpDelay;
 @property(retain, nonatomic) NSString *vendorName; // @synthesize vendorName=_vendorName;
 @property(nonatomic) unsigned int playerIndex; // @synthesize playerIndex=_playerIndex;
@@ -35,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSupportsExtendedMotion;
 - (int)StringAsProfile:(id)arg1;
 - (id)profileAsString:(int)arg1;
 @property(nonatomic) _Bool hasProfile;

@@ -47,6 +47,7 @@
 @property(nonatomic) __weak id <RCControlsViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_inputAvailabilityDidChangeNotification:(id)arg1;
+- (void)_contentSizeDidChangeNotification:(id)arg1;
 - (void)_doneButtonPressed:(id)arg1;
 - (void)_playStateButtonPressed:(id)arg1;
 - (void)_recordingStateButtonPressed:(id)arg1;
@@ -60,6 +61,7 @@
 - (void)performFailedToStartRecordingActions;
 - (void)performRecordButtonPress;
 - (id)_recordButton;
+- (void)setButtonFontForUISize:(id)arg1;
 - (void)setControlsConfiguration:(long long)arg1 animate:(_Bool)arg2;
 - (void)drawRect:(struct CGRect)arg1;
 - (struct CGSize)intrinsicContentSize;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray;
 @protocol GEOEnvironmentsControllerDelegate;
@@ -18,10 +18,12 @@
     id <GEOEnvironmentsControllerDelegate> _delegate;
 }
 
-@property(nonatomic) id <GEOEnvironmentsControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <GEOEnvironmentsControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)removeCustomEnvironment:(id)arg1;
 - (void)addCustomEnvironment:(id)arg1;
 - (id)environmentInfosForSection:(long long)arg1;
+- (void)reloadEnvironments:(CDUnknownBlockType)arg1;
 - (void)reloadEnvironments;
 - (void)dealloc;
 - (id)initEnablingCustomEnvironments:(_Bool)arg1;

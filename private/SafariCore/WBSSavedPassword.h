@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString;
+@class NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSString;
 
 @interface WBSSavedPassword : NSObject
 {
@@ -16,8 +16,10 @@
     NSString *_highLevelDomain;
     NSString *_user;
     NSString *_password;
+    NSDate *_earliestModifiedDateForSites;
 }
 
+@property(readonly, nonatomic) NSDate *earliestModifiedDateForSites; // @synthesize earliestModifiedDateForSites=_earliestModifiedDateForSites;
 @property(readonly, nonatomic) _Bool userIsNeverSaveMarker; // @synthesize userIsNeverSaveMarker=_userIsNeverSaveMarker;
 @property(readonly, nonatomic) NSString *password; // @synthesize password=_password;
 @property(readonly, nonatomic) NSString *user; // @synthesize user=_user;
@@ -32,6 +34,7 @@
 - (void)_deleteCredentials;
 - (void)_deleteCredentialForProtectionSpace:(id)arg1 fromStorage:(id)arg2;
 - (_Bool)_containsProtectionSpace:(id)arg1;
+- (void)_addModificationDate:(id)arg1;
 - (void)_addProtectionSpace:(id)arg1 forSite:(id)arg2;
 - (id)description;
 - (id)_initWithHighLevelDomain:(id)arg1 user:(id)arg2 password:(id)arg3;

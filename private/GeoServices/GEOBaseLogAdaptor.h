@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOLogAdaptor-Protocol.h>
 
@@ -18,14 +18,14 @@
     NSObject<OS_dispatch_queue> *_adaptorQueue;
 }
 
+- (void).cxx_destruct;
 - (id)adaptorQueue;
 - (_Bool)isLogFrameworkAdaptor;
 - (void)flushLogs;
 - (void)queueLogMessage:(id)arg1;
-- (_Bool)acceptsLogMessageOfType:(int)arg1 subType:(int)arg2;
-- (void)removeSupportForLogMessageType:(int)arg1 subType:(int)arg2;
-- (void)addSupportForLogMessageType:(int)arg1 subType:(int)arg2;
-- (void)dealloc;
+- (_Bool)acceptsLogMessageOfType:(int)arg1;
+- (void)removeSupportForLogMessageType:(int)arg1;
+- (void)addSupportForLogMessageType:(int)arg1;
 - (id)init;
 
 // Remaining properties

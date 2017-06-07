@@ -17,6 +17,8 @@
     NSObject<OS_dispatch_semaphore> *_tokenSema;
 }
 
++ (_Bool)isMultiUserMode;
++ (_Bool)isInternalBuild;
 + (id)productVersion;
 + (id)userAgentHeader;
 + (id)clientInfoHeader;

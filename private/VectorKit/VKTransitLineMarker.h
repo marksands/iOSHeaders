@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class NSString;
+@class GEOMapItemIdentifier, NSString;
 
 @interface VKTransitLineMarker : NSObject
 {
-    unsigned long long _featureID;
+    GEOMapItemIdentifier *_identifier;
     NSString *_shieldText;
     NSString *_shieldLocale;
     long long _shieldType;
@@ -28,11 +28,12 @@
 @property(readonly, nonatomic) long long shieldType; // @synthesize shieldType=_shieldType;
 @property(readonly, nonatomic) NSString *shieldLocale; // @synthesize shieldLocale=_shieldLocale;
 @property(readonly, nonatomic) NSString *shieldText; // @synthesize shieldText=_shieldText;
-@property(readonly, nonatomic) unsigned long long featureID; // @synthesize featureID=_featureID;
+@property(readonly, nonatomic) GEOMapItemIdentifier *identifier; // @synthesize identifier=_identifier;
 - (id).cxx_construct;
+@property(readonly, nonatomic) unsigned long long featureID;
 - (id)description;
 - (void)dealloc;
-- (id)initWithFeatureID:(unsigned long long)arg1;
+- (id)initWithIdentifier:(id)arg1;
 - (id)initWithFeature:(CDStruct_5be08681 *)arg1 transitLink:(const CDStruct_cb3d236a *)arg2;
 
 @end

@@ -170,6 +170,7 @@
 @property(readonly, nonatomic) NSArray *aliases;
 - (id)_statuses;
 - (id)_aliasInfoForAlias:(id)arg1;
+- (id)_invisibleAliases;
 - (id)_aliases;
 @property(readonly, nonatomic) NSArray *vettedAliases;
 - (void)_updateProfileInfo:(id)arg1;
@@ -200,7 +201,7 @@
 - (void)handleSubscriptionRequestFrom:(id)arg1 withMessage:(id)arg2;
 - (void)imHandle:(id)arg1 buddyStatusChanged:(_Bool)arg2;
 - (void)disconnectAllIMHandles;
-- (void)unregisterIMHandle:(id)arg1;
+- (void)unregisterIMHandleWithID:(id)arg1;
 - (void)registerIMHandle:(id)arg1;
 - (void)_refreshLoginIMHandle;
 - (void)forgetAllWatches;
@@ -252,6 +253,7 @@
 - (void)_updateRegistrationStatus:(int)arg1 error:(int)arg2 info:(id)arg3;
 @property(readonly, nonatomic) _Bool supportsRegistration;
 @property(readonly, nonatomic) NSDictionary *registrationFailureAlertInfo;
+@property(readonly, nonatomic) _Bool canSendMessages;
 @property(readonly, nonatomic) _Bool isOperational;
 @property(readonly, nonatomic) _Bool isRegistered;
 @property(readonly, nonatomic) _Bool _isUsableForSending;

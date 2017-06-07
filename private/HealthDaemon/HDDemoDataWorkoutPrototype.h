@@ -19,12 +19,22 @@
     double _totalDistanceWalkingInMiles;
     double _totalDistanceCyclingInMiles;
     double _totalDistanceSwimmingInYards;
-    long long _totalSwimmingLaps;
+    double _swimmingSegmentDistanceInYards;
+    long long _totalSwimmingSegments;
+    long long _numLapsPerSegment;
+    double _swimTimePerSegment;
+    double _restTimePerSegment;
+    long long _swimmingStrokeStyle;
 }
 
-+ (id)workoutPrototypeWithActivityType:(unsigned long long)arg1 goalType:(unsigned long long)arg2 goal:(id)arg3 startTime:(double)arg4 duration:(double)arg5 energyBurned:(double)arg6 distanceWalking:(double)arg7 distanceCycling:(double)arg8 distanceSwimming:(double)arg9 totalSwimmingLaps:(long long)arg10;
++ (id)workoutPrototypeWithActivityType:(unsigned long long)arg1 goalType:(unsigned long long)arg2 goal:(id)arg3 startTime:(double)arg4 duration:(double)arg5 energyBurned:(double)arg6 distanceWalking:(double)arg7 distanceCycling:(double)arg8 distanceSwimming:(double)arg9 distanceSwimmingSegment:(double)arg10 totalSwimmingSegments:(long long)arg11 numLapsPerSegment:(long long)arg12 swimTimePerSegment:(double)arg13 restTimePerSegment:(double)arg14 swimmingStrokeStyle:(long long)arg15;
 + (id)workoutPrototypeWithActivityType:(unsigned long long)arg1 goalType:(unsigned long long)arg2 goal:(id)arg3 startTime:(double)arg4 duration:(double)arg5 energyBurned:(double)arg6 distanceWalking:(double)arg7 distanceCycling:(double)arg8;
-@property(nonatomic) long long totalSwimmingLaps; // @synthesize totalSwimmingLaps=_totalSwimmingLaps;
+@property(nonatomic) long long swimmingStrokeStyle; // @synthesize swimmingStrokeStyle=_swimmingStrokeStyle;
+@property(nonatomic) double restTimePerSegment; // @synthesize restTimePerSegment=_restTimePerSegment;
+@property(nonatomic) double swimTimePerSegment; // @synthesize swimTimePerSegment=_swimTimePerSegment;
+@property(nonatomic) long long numLapsPerSegment; // @synthesize numLapsPerSegment=_numLapsPerSegment;
+@property(nonatomic) long long totalSwimmingSegments; // @synthesize totalSwimmingSegments=_totalSwimmingSegments;
+@property(nonatomic) double swimmingSegmentDistanceInYards; // @synthesize swimmingSegmentDistanceInYards=_swimmingSegmentDistanceInYards;
 @property(nonatomic) double totalDistanceSwimmingInYards; // @synthesize totalDistanceSwimmingInYards=_totalDistanceSwimmingInYards;
 @property(nonatomic) double totalDistanceCyclingInMiles; // @synthesize totalDistanceCyclingInMiles=_totalDistanceCyclingInMiles;
 @property(nonatomic) double totalDistanceWalkingInMiles; // @synthesize totalDistanceWalkingInMiles=_totalDistanceWalkingInMiles;

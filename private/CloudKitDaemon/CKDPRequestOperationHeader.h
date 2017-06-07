@@ -17,6 +17,7 @@
     unsigned long long _deviceFlowControlBudgetCap;
     unsigned long long _deviceProtocolVersion;
     unsigned long long _globalConfigVersion;
+    unsigned long long _operationGroupQuantity;
     NSString *_applicationBundle;
     NSString *_applicationContainer;
     int _applicationContainerEnvironment;
@@ -34,6 +35,7 @@
     int _isolationLevel;
     CKDPLocale *_locale;
     NSString *_mmcsProtocolVersion;
+    NSString *_operationGroupName;
     int _targetDatabase;
     NSString *_userIDContainerID;
     NSString *_userToken;
@@ -43,6 +45,7 @@
         unsigned int deviceFlowControlBudgetCap:1;
         unsigned int deviceProtocolVersion:1;
         unsigned int globalConfigVersion:1;
+        unsigned int operationGroupQuantity:1;
         unsigned int applicationContainerEnvironment:1;
         unsigned int deviceFlowControlRegeneration:1;
         unsigned int isolationLevel:1;
@@ -50,6 +53,8 @@
     } _has;
 }
 
+@property(nonatomic) unsigned long long operationGroupQuantity; // @synthesize operationGroupQuantity=_operationGroupQuantity;
+@property(retain, nonatomic) NSString *operationGroupName; // @synthesize operationGroupName=_operationGroupName;
 @property(retain, nonatomic) NSString *userIDContainerID; // @synthesize userIDContainerID=_userIDContainerID;
 @property(retain, nonatomic) NSString *deviceHardwareID; // @synthesize deviceHardwareID=_deviceHardwareID;
 @property(retain, nonatomic) NSString *deviceAssignedName; // @synthesize deviceAssignedName=_deviceAssignedName;
@@ -82,6 +87,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasOperationGroupQuantity;
+@property(readonly, nonatomic) _Bool hasOperationGroupName;
 - (int)StringAsIsolationLevel:(id)arg1;
 - (id)isolationLevelAsString:(int)arg1;
 @property(nonatomic) _Bool hasIsolationLevel;
@@ -116,6 +123,9 @@
 @property(readonly, nonatomic) _Bool hasApplicationBundle;
 @property(readonly, nonatomic) _Bool hasApplicationContainer;
 @property(readonly, nonatomic) _Bool hasUserToken;
+- (id)_targetDatabaseCKLogValue;
+- (id)_isolationLevelCKLogValue;
+- (id)_applicationContainerEnvironmentCKLogValue;
 
 @end
 

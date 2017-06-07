@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 - (void)addDefaultMappings:(_Bool)arg1;
 - (id)description;
 - (_Bool)isEmpty;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)addMapping:(int)arg1 index:(int)arg2;
 - (int)mappingForIndex:(int)arg1;

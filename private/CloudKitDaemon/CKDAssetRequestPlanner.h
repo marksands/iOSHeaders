@@ -8,7 +8,6 @@
 
 @class NSArray, NSMutableDictionary, NSMutableOrderedSet;
 
-__attribute__((visibility("hidden")))
 @interface CKDAssetRequestPlanner : NSObject
 {
     unsigned int _assetTokenRequestSizeLimit;

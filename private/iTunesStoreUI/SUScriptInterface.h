@@ -72,6 +72,7 @@
 - (void)handleRootObjectWithPropertyListString:(id)arg1;
 - (_Bool)checkCapabilitiesPropertyListString:(id)arg1 showFailureDialog:(_Bool)arg2;
 - (id)systemVersion;
+- (_Bool)shouldShowAddToWalletLink:(id)arg1;
 - (_Bool)shouldRestrictContentOfSystem:(id)arg1 level:(id)arg2;
 - (_Bool)haveAccount;
 - (id)accountName;
@@ -108,6 +109,7 @@
 - (id)_className;
 @property(readonly) SUScriptKeyValueStore *applicationLocalStorage;
 @property(readonly) id applicationAccessibilityEnabled;
+@property(readonly) id creditCardReaderAvailable;
 - (void)showSafariViewControllerWithURLString:(id)arg1 identifier:(id)arg2 animated:(_Bool)arg3;
 - (void)dismissSafariViewControllerAnimated:(_Bool)arg1;
 - (void)accessibilityPostScreenChange;
@@ -121,11 +123,14 @@
 - (void)registerNavBarButtonWithTitle:(id)arg1 side:(id)arg2 function:(id)arg3;
 - (void)performPurchaseAnimationForIdentifier:(id)arg1 style:(id)arg2;
 - (void)perfLog:(id)arg1;
+- (void)openWallet;
 - (id)machineGUID;
 - (void)log:(id)arg1;
 - (void)handleDialogPropertyListString:(id)arg1;
 - (void)dispatchXEvent:(id)arg1;
 - (void)dispatchGlobalEventWithName:(id)arg1 payload:(id)arg2;
+- (void)openFamilyCircleSetupWithClientName:(id)arg1 completionFunction:(id)arg2;
+- (void)openCreditCardReaderWithCompletionFunction:(id)arg1;
 - (id)parentViewController;
 - (id)DOMElementWithElement:(id)arg1;
 @property(retain) WebFrame *webFrame;
@@ -187,6 +192,7 @@
 - (void)setAccounts:(id)arg1;
 @property(readonly) NSArray *accounts;
 - (id)makeAccount;
+- (void)authenticateAppleIdWithUsername:(id)arg1 password:(id)arg2 callback:(id)arg3;
 - (void)authenticateForAccount:(id)arg1 withOptions:(id)arg2;
 - (id)accountForDSID:(id)arg1;
 - (void)initAuthentication;

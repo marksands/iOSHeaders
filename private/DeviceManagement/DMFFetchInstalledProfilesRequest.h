@@ -4,18 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Catalyst/CATTaskRequest.h>
+#import <DeviceManagement/DMFFetchProfilesRequest.h>
 
-@interface DMFFetchInstalledProfilesRequest : CATTaskRequest
+@interface DMFFetchInstalledProfilesRequest : DMFFetchProfilesRequest
 {
-    unsigned long long _filterFlags;
 }
-
-+ (Class)whitelistedClassForResultObject;
-+ (_Bool)supportsSecureCoding;
-@property(nonatomic) unsigned long long filterFlags; // @synthesize filterFlags=_filterFlags;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 
 @end
 

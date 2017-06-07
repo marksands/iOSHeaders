@@ -30,6 +30,7 @@
 - (void)_prepareConstraints;
 - (double)_initialLeading;
 - (void)updateConstraints;
+- (_Bool)_hasAccessibilityLargeText;
 - (void)_createSubviews;
 - (void)setLabel:(id)arg1 value:(id)arg2;
 - (void)dealloc;

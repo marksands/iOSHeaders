@@ -22,10 +22,10 @@ __attribute__((visibility("hidden")))
 
 + (void)fillHTMLArchiveForExcelData:(id)arg1 fileName:(id)arg2 xmlFlag:(_Bool)arg3 archiver:(id)arg4;
 + (void)fillHTMLArchiveForExcelFile:(id)arg1 xmlFlag:(_Bool)arg2 archiver:(id)arg3;
+- (void).cxx_destruct;
 - (void)readerDidEndDocument:(id)arg1;
 - (void)readerDidReadElement:(id)arg1 atIndex:(unsigned long long)arg2 inDocument:(id)arg3 isLastElement:(_Bool)arg4;
 - (void)readerDidStartDocument:(id)arg1 withElementCount:(long long)arg2;
-- (void)dealloc;
 - (void)readFile:(id)arg1 xmlFlag:(_Bool)arg2 archiver:(id)arg3;
 - (void)readData:(id)arg1 fileName:(id)arg2 xmlFlag:(_Bool)arg3 archiver:(id)arg4;
 - (void)readFile:(id)arg1 orData:(id)arg2 withDataFileName:(id)arg3 xmlFlag:(_Bool)arg4 archiver:(id)arg5;

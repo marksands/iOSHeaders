@@ -11,12 +11,12 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataRichTextPayload : TSTTableDataObject
 {
-    TSTRichTextPayload *mPayload;
+    TSTRichTextPayload *_payload;
 }
 
-@property(readonly, nonatomic) TSTRichTextPayload *richTextPayload; // @synthesize richTextPayload=mPayload;
+@property(readonly, nonatomic) TSTRichTextPayload *richTextPayload; // @synthesize richTextPayload=_payload;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) TSWPStorage *richTextStorage;
-- (void)dealloc;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

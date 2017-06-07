@@ -34,6 +34,7 @@
 - (_Bool)_calculateRadioRestricted;
 - (void)getRadioAvailabilityWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isRadioAvailable) _Bool radioAvailable;
+@property(readonly, nonatomic) _Bool hasLoadedRadioAvailability;
 - (void)profileConnectionDidReceiveRestrictionChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)profileConnectionDidReceiveEffectiveSettingsChangedNotification:(id)arg1 userInfo:(id)arg2;
 - (void)bagDidChange:(id)arg1;

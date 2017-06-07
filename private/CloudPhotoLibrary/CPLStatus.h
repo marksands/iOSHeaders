@@ -20,11 +20,16 @@
 + (id)statusForSharedLibrary;
 @property(nonatomic) __weak id <CPLStatusDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool hasBatteryBudget;
+@property(readonly, nonatomic) _Bool hasCellularBudget;
+@property(readonly, nonatomic) _Bool hasValidSystemBudget;
+- (void)setHasCellularBudget:(_Bool)arg1 hasBatteryBudget:(_Bool)arg2 isBudgetValid:(_Bool)arg3;
 - (id)statusDescription;
 - (void)_statusDidChange;
 @property(readonly, nonatomic) NSDate *cloudAssetCountPerTypeLastCheckDate;
 - (void)setCloudAssetCountPerType:(id)arg1 updateCheckDate:(_Bool)arg2;
 @property(readonly, nonatomic) NSDictionary *cloudAssetCountPerType;
+@property(nonatomic) _Bool iCloudLibraryClientVersionTooOld;
 @property(nonatomic) _Bool iCloudLibraryExists;
 @property(nonatomic) _Bool iCloudLibraryHasBeenWiped;
 @property(copy, nonatomic) NSDate *exitDeleteTime;

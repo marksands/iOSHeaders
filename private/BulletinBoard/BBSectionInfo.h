@@ -80,9 +80,9 @@
 - (void)_configureWithDefaultsForSectionType:(long long)arg1;
 - (id)initWithDefaultsForSectionType:(long long)arg1;
 - (id)init;
-- (id)effectiveSectionInfoWithFactoryInfo:(id)arg1;
+- (id)effectiveSectionInfoWithFactoryInfo:(id)arg1 defaultContentPreviewSetting:(long long)arg2;
 - (long long)disabledSettingForSetting:(long long)arg1;
-- (id)effectiveSectionInfo;
+- (id)effectiveSectionInfoWithDefaultContentPreviewSetting:(long long)arg1;
 - (void)updateWithDefaultSectionInfo:(id)arg1;
 - (void)updateWithDefaultFilters:(id)arg1;
 @property(readonly, nonatomic) BBSectionInfoSettings *writableSettings;

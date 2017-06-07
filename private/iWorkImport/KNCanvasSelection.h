@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)emptySelection;
 @property(readonly, nonatomic) NSSet *buildChunks; // @synthesize buildChunks=mBuildChunks;
 - (id)UUIDDescription;
-- (id)description;
+- (id)subclassDescription;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)p_drawablesWithoutPromisesInDrawableToActionGhostIndexPromiseMap:(id)arg1;

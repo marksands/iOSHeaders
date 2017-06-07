@@ -10,16 +10,16 @@
 
 @interface AWDHomeKitCameraStreamIDSConnSetupParameters : PBCodable <NSCopying>
 {
-    unsigned long long _connectionComplete;
-    unsigned long long _connectionRequested;
+    unsigned int _connectionComplete;
+    unsigned int _connectionRequested;
     struct {
         unsigned int connectionComplete:1;
         unsigned int connectionRequested:1;
     } _has;
 }
 
-@property(nonatomic) unsigned long long connectionComplete; // @synthesize connectionComplete=_connectionComplete;
-@property(nonatomic) unsigned long long connectionRequested; // @synthesize connectionRequested=_connectionRequested;
+@property(nonatomic) unsigned int connectionComplete; // @synthesize connectionComplete=_connectionComplete;
+@property(nonatomic) unsigned int connectionRequested; // @synthesize connectionRequested=_connectionRequested;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

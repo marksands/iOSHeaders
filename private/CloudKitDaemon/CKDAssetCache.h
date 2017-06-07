@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-@class CKDMMCS, CKSQLitePool, NSMutableDictionary, NSMutableSet, NSString;
-@protocol OS_dispatch_queue, OS_dispatch_source;
+@class CKDMMCS, CKSQLitePool, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString;
+@protocol NSObject, OS_dispatch_queue;
 
 @interface CKDAssetCache : NSObject
 {
@@ -22,7 +22,8 @@
     NSString *_dbPath;
     NSString *_fileStagingPath;
     NSObject<OS_dispatch_queue> *_queue;
-    NSObject<OS_dispatch_source> *_expiryTimer;
+    NSOperationQueue *_opQueue;
+    id <NSObject> _assetHandleExpirationNotificationObserver;
     NSMutableDictionary *_volumeUUIDByVolumeIndex;
     NSMutableDictionary *_volumeIndexByVolumeUUID;
     NSMutableSet *_deferredDeletedAssetHandles;
@@ -37,9 +38,10 @@
 @property(retain, nonatomic) NSMutableSet *deferredDeletedAssetHandles; // @synthesize deferredDeletedAssetHandles=_deferredDeletedAssetHandles;
 @property(retain, nonatomic) NSMutableDictionary *volumeIndexByVolumeUUID; // @synthesize volumeIndexByVolumeUUID=_volumeIndexByVolumeUUID;
 @property(retain, nonatomic) NSMutableDictionary *volumeUUIDByVolumeIndex; // @synthesize volumeUUIDByVolumeIndex=_volumeUUIDByVolumeIndex;
+@property(retain, nonatomic) id <NSObject> assetHandleExpirationNotificationObserver; // @synthesize assetHandleExpirationNotificationObserver=_assetHandleExpirationNotificationObserver;
 @property _Bool isEvictionScheduled; // @synthesize isEvictionScheduled=_isEvictionScheduled;
 @property(nonatomic) int fileDownloadPathFd; // @synthesize fileDownloadPathFd=_fileDownloadPathFd;
-@property(retain, nonatomic) NSObject<OS_dispatch_source> *expiryTimer; // @synthesize expiryTimer=_expiryTimer;
+@property(retain, nonatomic) NSOperationQueue *opQueue; // @synthesize opQueue=_opQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) NSString *fileStagingPath; // @synthesize fileStagingPath=_fileStagingPath;
 @property(retain, nonatomic) NSString *dbPath; // @synthesize dbPath=_dbPath;
@@ -104,7 +106,7 @@
 - (id)existingOrNewVolumeIndexForVolumeUUID:(id)arg1 usingDB:(id)arg2;
 - (void)_setVolumeIndex:(id)arg1 forVolumeUUID:(id)arg2;
 - (void)dealloc;
-- (id)initWithApplicationBundleID:(id)arg1 assetDirectoryContext:(id)arg2;
+- (id)_initWithApplicationBundleID:(id)arg1 assetDirectoryContext:(id)arg2 error:(id *)arg3;
 
 @end
 

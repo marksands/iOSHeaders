@@ -23,14 +23,11 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)accountPropertiesForDataclass:(id)arg1;
 - (_Bool)iCloudDriveAllowsCellularAccess;
-- (void)updateAccountProperiesInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)saveVerifiedAccountInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateAccountPropertiesAndSaveAccountInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)iCloudAuthTokenWithError:(id *)arg1;
 - (id)cloudKitAuthTokenWithError:(id *)arg1;
 - (id)_accountCredentialForAccount:(id)arg1 withError:(id *)arg2;
 - (_Bool)isDataclassEnabled:(id)arg1;
-- (_Bool)cloudPhotosIsEnabled;
-- (_Bool)cloudKitIsEnabled;
 - (_Bool)canAuthWithCloudKit;
 - (id)fullName;
 - (id)identifier;

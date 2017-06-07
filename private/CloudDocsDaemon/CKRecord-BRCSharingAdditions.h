@@ -7,9 +7,10 @@
 #import <CloudKit/CKRecord.h>
 
 @interface CKRecord (BRCSharingAdditions)
-- (void)brc_updateWithLogicalName:(id)arg1;
+- (void)brc_updateWithLogicalName:(id)arg1 isFolder:(_Bool)arg2;
 - (id)brc_documentName;
 - (id)brc_sharedDocumentDisplayName;
 - (id)brc_sharedDocumentExtension;
+- (_Bool)isFolderShare;
 @end
 

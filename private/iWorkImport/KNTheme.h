@@ -11,22 +11,21 @@
 #import <iWorkImport/TSKTransformableObject-Protocol.h>
 #import <iWorkImport/TSSPresetSource-Protocol.h>
 
-@class KNSlideNode, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject, NSString, TSUPointerKeyDictionary, TSUWeakReference, TSWPParagraphStyle;
+@class KNSlideNode, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSObject, NSString, TSUPointerKeyDictionary, TSWPParagraphStyle;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface KNTheme : TSATheme <KNSlideCollection, TSSPresetSource, TSKTransformableObject, TSKDocumentObject>
 {
-    NSString *mUUID;
-    NSArray *mMasters;
-    NSObject<OS_dispatch_queue> *mDefaultMasterSlideNodeQueue;
-    TSUWeakReference *mDefaultMasterSlideNodeReference;
-    _Bool mDefaultMasterSlideNodeIsOurBestGuess;
-    long long mSlideStyleIndex;
-    NSMutableArray *mClassicThemeRecords;
-    NSMutableDictionary *mCustomEffectTimingCurves;
-    NSMutableDictionary *mSlideNodesForFormulaReferenceNamesCache;
-    TSUPointerKeyDictionary *mFormulaReferenceNamesForSlideNodesCache;
+    NSString *_UUID;
+    NSArray *_masters;
+    NSMutableArray *_classicThemeRecords;
+    NSMutableDictionary *_customEffectTimingCurves;
+    NSObject<OS_dispatch_queue> *_defaultMasterSlideNodeQueue;
+    KNSlideNode *_defaultMasterSlideNode;
+    _Bool _defaultMasterSlideNodeIsOurBestGuess;
+    NSMutableDictionary *_slideNodesForFormulaReferenceNamesCache;
+    TSUPointerKeyDictionary *_formulaReferenceNamesForSlideNodesCache;
 }
 
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3;
@@ -37,8 +36,9 @@ __attribute__((visibility("hidden")))
 + (id)nativeThemeNameFromTheme:(id)arg1;
 + (id)generateUUID;
 + (void)initialize;
-@property(readonly, nonatomic) _Bool defaultMasterSlideNodeIsOurBestGuess; // @synthesize defaultMasterSlideNodeIsOurBestGuess=mDefaultMasterSlideNodeIsOurBestGuess;
-@property(retain, nonatomic) NSArray *classicThemeRecords; // @synthesize classicThemeRecords=mClassicThemeRecords;
+@property(retain, nonatomic) NSArray *classicThemeRecords; // @synthesize classicThemeRecords=_classicThemeRecords;
+@property(readonly, nonatomic) _Bool defaultMasterSlideNodeIsOurBestGuess; // @synthesize defaultMasterSlideNodeIsOurBestGuess=_defaultMasterSlideNodeIsOurBestGuess;
+- (void).cxx_destruct;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
@@ -80,15 +80,14 @@ __attribute__((visibility("hidden")))
 - (_Bool)customTimingCurvesContainsName:(id)arg1;
 - (id)customTimingCurveWithName:(id)arg1;
 - (void)setCustomTimingCurve:(id)arg1 forName:(id)arg2;
+@property(copy, nonatomic) NSDictionary *customEffectTimingCurves;
 - (id)nameForMasterCopyWithName:(id)arg1;
-@property(copy, nonatomic) NSDictionary *customEffectTimingCurves; // @synthesize customEffectTimingCurves=mCustomEffectTimingCurves;
 - (id)masterWithName:(id)arg1;
 - (_Bool)containsMasterWithName:(id)arg1;
 - (void)insertMasterSlideNode:(id)arg1 withThumbnails:(id)arg2 atIndex:(unsigned long long)arg3 dolcContext:(id)arg4;
 - (void)addMasterSlideNode:(id)arg1 withThumbnails:(id)arg2 dolcContext:(id)arg3;
 - (void)addMasterSlideNode:(id)arg1 dolcContext:(id)arg2;
 @property(readonly, nonatomic) struct CGSize thumbnailSize;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 documentStylesheet:(id)arg2;
 - (void)bootstrapWhiteThemeOfSize:(struct CGSize)arg1;
 - (void)bootstrapGradientThemeOfSize:(struct CGSize)arg1;
@@ -98,10 +97,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) KNSlideNode *defaultMasterSlideNode;
 - (void)p_setDefaultMasterSlideNode:(id)arg1;
 @property(retain, nonatomic) NSString *UUID;
-@property(retain, nonatomic) NSArray *masters;
+@property(copy, nonatomic) NSArray *masters;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ThemeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ThemeArchive *)arg1 unarchiver:(id)arg2;
 
 // Remaining properties

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     int mType;
 }
 
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)setType:(int)arg1;
 - (int)type;

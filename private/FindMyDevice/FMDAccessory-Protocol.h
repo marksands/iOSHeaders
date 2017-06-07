@@ -6,11 +6,10 @@
 
 #import <FindMyDevice/NSObject-Protocol.h>
 
-@class NSString;
+@class NSObject;
+@protocol FMDIdentifiable;
 
 @protocol FMDAccessory <NSObject>
-@property(readonly, nonatomic) unsigned int deviceProductId;
-@property(readonly, nonatomic) unsigned int deviceVendor;
-@property(readonly, nonatomic) NSString *accessoryIdentifier;
+@property(readonly, nonatomic) NSObject<FMDIdentifiable> *accessoryIdentifier;
 @end
 

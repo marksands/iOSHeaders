@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOLocalizedName : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_languageCode;
     NSString *_name;
     unsigned int _nameRank;
@@ -30,6 +31,8 @@
 @property(retain, nonatomic) NSString *nameType; // @synthesize nameType=_nameType;
 @property(retain, nonatomic) NSString *languageCode; // @synthesize languageCode=_languageCode;
 @property(nonatomic) _Bool isDefault; // @synthesize isDefault=_isDefault;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -45,7 +48,6 @@
 @property(readonly, nonatomic) _Bool hasNameType;
 @property(readonly, nonatomic) _Bool hasLanguageCode;
 @property(nonatomic) _Bool hasIsDefault;
-- (void)dealloc;
 - (id)initWithPlaceDataLocalizedString:(id)arg1;
 
 @end

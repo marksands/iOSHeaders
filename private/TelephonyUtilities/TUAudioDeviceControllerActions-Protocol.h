@@ -9,7 +9,7 @@
 @class NSString;
 
 @protocol TUAudioDeviceControllerActions <NSObject>
-- (void)setCurrentOutputDeviceToDeviceWithUID:(NSString *)arg1;
-- (void)setCurrentInputDeviceToDeviceWithUID:(NSString *)arg1;
+- (oneway void)setCurrentAudioOutputDeviceToDeviceWithUID:(NSString *)arg1;
+- (oneway void)setCurrentAudioInputDeviceToDeviceWithUID:(NSString *)arg1;
 @end
 

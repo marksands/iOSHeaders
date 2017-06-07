@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class BSSignal, NSArray;
 @protocol OS_dispatch_queue, OS_xpc_object;
@@ -15,6 +15,7 @@
     BSSignal *_invalidationSignal;
     CDUnknownBlockType _handler;
     unsigned int _interestedStates;
+    NSArray *_interestedAssertionReasons;
     NSArray *_interestedBundleIDs;
     _Bool _elevatedPriority;
     NSObject<OS_dispatch_queue> *_queue;
@@ -29,6 +30,7 @@
 - (void)queue_handleMessage:(id)arg1;
 - (void)queue_registerWithServer;
 - (void)queue_updateInterestedStates:(_Bool)arg1;
+- (void)queue_setInterestedAssertions:(id)arg1;
 - (void)queue_updateInterestedStates;
 - (void)queue_setElevatedPriority:(_Bool)arg1;
 - (void)queue_setInterestedStates:(unsigned int)arg1;
@@ -43,11 +45,14 @@
 - (unsigned int)applicationStateForApplication:(id)arg1;
 - (void)applicationInfoForPID:(int)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)applicationInfoForApplication:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateInterestedAssertionReasons:(id)arg1;
 - (void)updateInterestedBundleIDs:(id)arg1 states:(unsigned int)arg2;
 - (void)updateInterestedStates:(unsigned int)arg1;
 - (void)updateInterestedBundleIDs:(id)arg1;
 - (void)setElevatedPriority:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool elevatedPriority;
+- (id)interestedAssertionReasons;
+- (void)setInterestedAssertionReasons:(id)arg1;
 @property(nonatomic) unsigned int interestedStates; // @dynamic interestedStates;
 @property(copy, nonatomic) NSArray *interestedBundleIDs; // @dynamic interestedBundleIDs;
 @property(copy, nonatomic) CDUnknownBlockType handler; // @dynamic handler;

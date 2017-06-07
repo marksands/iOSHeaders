@@ -30,6 +30,7 @@
 - (void)sectionInfoObserver:(id)arg1 updatedSectionInfo:(id)arg2 withUniversalSectionID:(id)arg3 displayName:(id)arg4;
 - (void)reloadWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)initWithSettingsGateway:(id)arg1;
 - (id)init;
 
 // Remaining properties

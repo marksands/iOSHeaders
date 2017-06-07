@@ -7,6 +7,9 @@
 #import <Foundation/NSCoder.h>
 
 @interface NSCoder (RemoteTransport)
+- (id)supportedFeatures;
+- (id)user;
+- (_Bool)isForNonAdminSharedUser;
 - (_Bool)isRemoteUserAdministrator;
 - (_Bool)isRemoteGatewayCoder;
 - (_Bool)isRemoteTransportOnSameAccount;

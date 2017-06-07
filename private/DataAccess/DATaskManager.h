@@ -58,6 +58,7 @@
 - (void)_startModal:(id)arg1;
 - (void)_requestCancelTasksWithReason:(int)arg1;
 - (void)_performTask:(id)arg1;
+- (_Bool)shouldCancelTaskDueToOnPowerFetchMode;
 - (_Bool)taskIsModal:(id)arg1;
 - (void)taskEndModal:(id)arg1;
 - (void)taskRequestModal:(id)arg1;
@@ -71,6 +72,7 @@
 - (void)_clearUserInitiatedSyncTimer;
 - (void)_useOpportunisticSocketsAgain;
 - (id)stateString;
+- (void)cancelTasksDueToOnPowerMode;
 - (void)shutdown;
 - (void)cancelAllTasks;
 - (void)cancelTask:(id)arg1;

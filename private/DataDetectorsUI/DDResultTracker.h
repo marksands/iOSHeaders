@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray;
 
@@ -17,19 +17,20 @@ __attribute__((visibility("hidden")))
     unsigned long long referenceResultLocation;
     unsigned long long maximumDistanceForEmails;
     unsigned long long maximumDistance;
-    struct __DDResult *existingAddressResult;
+    // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}, name: existingAddressResult
     NSMutableArray *resultsBefore;
     NSMutableArray *resultsAfter;
-    struct __DDResult *referenceResult;
+    // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}, name: referenceResult
 }
 
 @property unsigned long long maximumDistance; // @synthesize maximumDistance;
 @property unsigned long long maximumDistanceForEmails; // @synthesize maximumDistanceForEmails;
 @property(readonly) unsigned int totalCountRemaining; // @synthesize totalCountRemaining;
+- (void).cxx_destruct;
 - (id)results;
-- (_Bool)addResultIfAppropriate:(struct __DDResult *)arg1;
+-     // Error parsing type: B24@0:8^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16, name: addResultIfAppropriate:
 - (void)dealloc;
-- (id)initWithReferenceResult:(struct __DDResult *)arg1;
+-     // Error parsing type: @24@0:8^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16, name: initWithReferenceResult:
 
 @end
 

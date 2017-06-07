@@ -23,9 +23,16 @@
 
 + (id)sharedInstance;
 @property(retain, nonatomic) NSString *contextStamp; // @synthesize contextStamp=_contextStamp;
+- (_Bool)populateLocalURLsForTransfer:(id)arg1 fromCKRecord:(id)arg2;
+- (void)clearSyncStateForRecord:(id)arg1;
+- (void)markTransferAsNotSyncSuccessFullyUsingCKRecord:(id)arg1;
+- (id)updateTransfersWithCKRecord:(id)arg1;
+- (id)_attachmentStoreSharedInstance;
+- (id)_messageStoreSharedInstance;
+- (_Bool)initiateHighQualityDownload:(id)arg1;
 - (_Bool)markAttachment:(id)arg1 sender:(id)arg2 recipients:(id)arg3 isIncoming:(_Bool)arg4;
 - (id)guidsForStoredAttachmentPayloadData:(id)arg1 messageGUID:(id)arg2;
-- (id)_newFileTransferForStoredAttachmentPayloadDataWithTransferGUID:(id)arg1 messageGUID:(id)arg2;
+- (id)_getNewFileTransferForStoredAttachmentPayloadDataWithTransferGUID:(id)arg1 messageGUID:(id)arg2;
 - (void)_handleFileTransferRemoved:(id)arg1;
 - (void)_handleFileTransferStopped:(id)arg1;
 - (void)_handleFileTransfer:(id)arg1 acceptedWithPath:(id)arg2 autoRename:(_Bool)arg3 overwrite:(_Bool)arg4 postNotification:(_Bool)arg5;
@@ -38,8 +45,11 @@
 - (void)resetTransferAndPostError:(id)arg1 error:(id)arg2;
 - (void)resetTransfer:(id)arg1 andPostReason:(long long)arg2;
 - (void)failTransfer:(id)arg1 reason:(long long)arg2;
+- (void)endTransfer:(id)arg1 overrideFinalFileName:(id)arg2;
 - (void)endTransfer:(id)arg1;
 - (void)startFinalizingTransfer:(id)arg1;
+- (_Bool)isSafeToDeleteTransferAttachmentPath:(id)arg1;
+- (void)updateTransferAsWaitingForAccept:(id)arg1;
 - (void)updateTransfer:(id)arg1;
 - (void)updateTransfer:(id)arg1 currentBytes:(unsigned long long)arg2 totalBytes:(unsigned long long)arg3;
 - (void)startTransfer:(id)arg1;
@@ -66,7 +76,7 @@
 - (void)_addSpotlightPropertiesFromFileTransfer:(id)arg1 toDirectory:(id)arg2;
 - (void)addDefaultGatekeeperPropertiesToDirectory:(id)arg1;
 - (void)_addGatekeeperProperties:(id)arg1 toDirectory:(id)arg2;
-- (int)_addGatekeeperProperties:(id)arg1 toFileAtPath:(id)arg2;
+- (void)_addGatekeeperProperties:(id)arg1 toFileAtPath:(id)arg2;
 - (void)fileCopierDidFinish:(id)arg1;
 - (void)fileCopierDidStart:(id)arg1;
 - (void)archiveFileTransfer:(id)arg1;

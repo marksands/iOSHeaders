@@ -33,6 +33,7 @@
 - (id)previewActionForActionType:(id)arg1;
 - (id)barButtonItemForActionType:(id)arg1;
 - (id)actionPerformerForActionType:(id)arg1;
+- (_Bool)canPerformAssetVariationActions;
 - (_Bool)canPerformActionType:(id)arg1;
 - (void)registerPerformerClass:(Class)arg1 forType:(id)arg2;
 - (id)initWithSelectionSnapshot:(id)arg1;

@@ -6,9 +6,10 @@
 
 #import <CameraUI/NSObject-Protocol.h>
 
-@class CLLocation;
+@class CLHeading, CLLocation;
 
 @protocol CAMMutableCaptureRequestLocation <NSObject>
+@property(retain, nonatomic) CLHeading *heading;
 @property(retain, nonatomic) CLLocation *location;
 @end
 

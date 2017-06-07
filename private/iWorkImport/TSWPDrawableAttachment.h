@@ -25,6 +25,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int hOffsetType; // @synthesize hOffsetType=_hOffsetType;
 @property(readonly, retain, nonatomic) TSDDrawableInfo *drawable; // @synthesize drawable=_drawableInfo;
 - (_Bool)supportsUUID;
+- (_Bool)preserveAttributesOverSelectionWhenInserting;
+- (void)updateForStyleChangeToStorage:(id)arg1 charIndex:(unsigned long long)arg2;
+- (_Bool)needsUpdateForStyleChangeToStorage:(id)arg1 charIndex:(unsigned long long)arg2;
+- (_Bool)shouldInvalidateWhenTextPropertiesChange;
 - (id)childEnumerator;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
@@ -45,19 +49,16 @@ __attribute__((visibility("hidden")))
 - (void)attachDrawable:(id)arg1;
 - (id)detachDrawable;
 - (void)invalidate;
-@property(readonly, nonatomic) double descent;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithContext:(id)arg1;
 - (void)saveMessage:(struct DrawableAttachmentArchive *)arg1 toArchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadMessage:(const struct DrawableAttachmentArchive *)arg1 fromUnarchiver:(id)arg2;
-- (id)subclassInitFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1 drawable:(id)arg2;
 - (void)dealloc;
 - (int)elementKind;
-- (id)textStorages;
-- (id)textRepresentationForCopy;
 
 @end
 

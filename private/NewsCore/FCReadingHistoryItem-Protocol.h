@@ -17,10 +17,10 @@
 @property(readonly, nonatomic) _Bool hasArticleBeenSeen;
 @property(readonly, nonatomic) _Bool hasArticleBeenRead;
 @property(readonly, nonatomic) unsigned long long flags;
-@property(readonly, nonatomic) unsigned long long maxVersionSeen;
+@property(readonly, nonatomic) long long maxVersionSeen;
 @property(readonly, copy, nonatomic) NSDate *firstSeenAtOfMaxVersionSeen;
 @property(readonly, copy, nonatomic) NSDate *firstSeenAt;
-@property(readonly, nonatomic) unsigned long long maxVersionRead;
+@property(readonly, nonatomic) long long maxVersionRead;
 @property(readonly, copy, nonatomic) NSDate *lastVisitedAt;
 @property(readonly, copy, nonatomic) NSString *articleID;
 @property(readonly, copy, nonatomic) NSString *identifier;

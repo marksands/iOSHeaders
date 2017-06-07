@@ -6,13 +6,10 @@
 
 #import <objc/NSObject.h>
 
-@class NSURL, NSXPCConnection;
-@protocol OS_dispatch_queue;
+@class NSURL;
 
 @interface FMDFMIPManager : NSObject
 {
-    NSXPCConnection *_xpcConnection;
-    NSObject<OS_dispatch_queue> *_xpcConnectionCreationQueue;
     NSURL *_managedLostModeFileURL;
     NSURL *_needsLocateAckLostModeFileURL;
 }
@@ -20,10 +17,7 @@
 + (id)sharedInstance;
 @property(retain, nonatomic) NSURL *needsLocateAckLostModeFileURL; // @synthesize needsLocateAckLostModeFileURL=_needsLocateAckLostModeFileURL;
 @property(retain, nonatomic) NSURL *managedLostModeFileURL; // @synthesize managedLostModeFileURL=_managedLostModeFileURL;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *xpcConnectionCreationQueue; // @synthesize xpcConnectionCreationQueue=_xpcConnectionCreationQueue;
-@property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
-- (void)disableManagedLostModeWithCompletion:(CDUnknownBlockType)arg1;
 - (id)getNeedsLocateAckLostModeFileURL;
 - (id)getManagedLostModeFileURL;
 - (void)_initiateLostModeExitAuthForIDSDeviceID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -76,11 +70,9 @@
 - (unsigned long long)_managedLostModeType;
 - (_Bool)isManagedLostModeActive;
 - (_Bool)lostModeIsActive;
-- (void)_destroyXPCConnection;
-- (id)currentXPCConnection;
-- (void)dealloc;
-- (id)init;
 - (void)addNotificationRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)showDailyLocateReport;
+- (void)setDailyLocateReportEnabled:(_Bool)arg1;
 - (void)disableTouchIDForLostModeWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_postWipePrefPath;
 - (_Bool)_quickFetchFMIPEnabledstate;

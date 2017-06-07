@@ -17,16 +17,17 @@
 }
 
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
++ (id)gPTPPortWithService:(unsigned int)arg1;
 - (void)dealloc;
-@property(readonly, nonatomic) unsigned int propagationDelay;
+@property(readonly, nonatomic) long long portType; // @dynamic portType;
+@property(readonly, nonatomic) long long portRole; // @dynamic portRole;
 @property(readonly, nonatomic) unsigned short portNumber; // @dynamic portNumber;
-@property(readonly, nonatomic, getter=isASCapable) _Bool asCapable; // @dynamic asCapable;
-@property(readonly, nonatomic) unsigned short remotePortNumber; // @dynamic remotePortNumber;
-@property(readonly, nonatomic) unsigned long long remoteClockIdentity; // @dynamic remoteClockIdentity;
 - (void)serviceTerminated;
 - (void)_registryPropertyChanged;
 @property(readonly, nonatomic) unsigned int service;
 - (id)initWithMatchingDictionary:(id)arg1;
+- (id)initWithService:(unsigned int)arg1;
+- (_Bool)_commonInitWithService:(unsigned int)arg1;
 - (id)init;
 
 @end

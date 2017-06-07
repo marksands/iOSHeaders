@@ -8,23 +8,20 @@
 
 #import <BulletinDistributorCompanion/BBObserverDelegate-Protocol.h>
 
-@class BBObserver, BLTDebugMetricsRatioOnInterval, NSString;
+@class BBObserver, NSString;
 @protocol BLTDebugObserverWatchKitAppList;
 
 @interface BLTDebugObserverHolder : NSObject <BBObserverDelegate>
 {
     BBObserver *_observer;
-    BLTDebugMetricsRatioOnInterval *_exceedeExpirationDebugMetric;
     id <BLTDebugObserverWatchKitAppList> _wkAppList;
 }
 
-+ (void)startWithExceededExpirationDebugMetric:(id)arg1 wkAppList:(id)arg2;
++ (void)startWithWKAppList:(id)arg1;
 - (void).cxx_destruct;
-- (void)observer:(id)arg1 noteServerConnectionStateChanged:(_Bool)arg2;
 - (void)observer:(id)arg1 addBulletin:(id)arg2 forFeed:(unsigned long long)arg3 playLightsAndSirens:(_Bool)arg4 withReply:(CDUnknownBlockType)arg5;
-- (void)_reconnectObserver;
 - (void)dealloc;
-- (id)initWithExceededExpirationDebugMetric:(id)arg1 wkAppList:(id)arg2;
+- (id)initWithWKAppList:(id)arg1;
 - (id)init;
 
 // Remaining properties

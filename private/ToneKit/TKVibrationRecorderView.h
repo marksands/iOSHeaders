@@ -8,8 +8,8 @@
 
 #import <ToneKit/TKVibrationRecorderTouchSurfaceDelegate-Protocol.h>
 
-@class NSLayoutConstraint, NSString, TKVibrationRecorderProgressView, TKVibrationRecorderTouchSurface, UILabel, UIToolbar;
-@protocol NSCopying, TKVibrationRecorderStyleProvider, TKVibrationRecorderViewDelegate, UILayoutSupport;
+@class NSLayoutConstraint, NSString, TKVibrationRecorderProgressView, TKVibrationRecorderTouchSurface, UILabel, UILayoutGuide, UIToolbar;
+@protocol NSCopying, TKVibrationRecorderStyleProvider, TKVibrationRecorderViewDelegate;
 
 @interface TKVibrationRecorderView : UIView <TKVibrationRecorderTouchSurfaceDelegate>
 {
@@ -31,10 +31,10 @@
     _Bool _isAnimatingProgress;
     id <NSCopying> _displayLinkManagerObserverToken;
     id <TKVibrationRecorderViewDelegate> _delegate;
-    id <UILayoutSupport> _topLayoutGuide;
+    UILayoutGuide *_safeAreaLayoutGuide;
 }
 
-@property(retain, nonatomic) id <UILayoutSupport> topLayoutGuide; // @synthesize topLayoutGuide=_topLayoutGuide;
+@property(retain, nonatomic) UILayoutGuide *safeAreaLayoutGuide; // @synthesize safeAreaLayoutGuide=_safeAreaLayoutGuide;
 @property(nonatomic) __weak id <TKVibrationRecorderViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)vibrationRecorderTouchSurface:(id)arg1 didExitRecordingModeWithContextObject:(id)arg2;

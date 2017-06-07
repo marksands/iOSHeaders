@@ -16,6 +16,7 @@
 
 + (id)siteSearchStartedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)siteSearchStarted;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

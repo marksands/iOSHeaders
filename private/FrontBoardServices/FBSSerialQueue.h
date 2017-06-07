@@ -6,18 +6,21 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSMutableArray, NSMutableSet;
-@protocol OS_dispatch_queue;
+@class NSArray, NSMutableArray;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 @interface FBSSerialQueue : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableArray *_blocks;
+    unsigned long long _enqueueID;
+    unsigned long long _dequeueID;
     NSObject<OS_dispatch_queue> *_targetQueue;
     NSArray *_mainRunLoopModes;
     struct __CFRunLoopSource *_runLoopSource;
     _Bool _runLoopSourceHandlingBlock;
-    NSMutableSet *_enqueueSemaphores;
+    NSObject<OS_dispatch_semaphore> *_synchronizingEnqueueSemaphore;
+    unsigned long long _lastSynchronizingWorkspaceName;
 }
 
 + (id)queueWithMainRunLoopModes:(id)arg1;
@@ -26,8 +29,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (void)_performNextFromRunLoopSource;
-- (void)_deregisterEnqueueSemaphore:(id)arg1;
-- (void)_registerEnqueueSemaphore:(id)arg1;
+- (void)_setSynchronizingEnqueueSemaphore:(id)arg1 forWorkspaceWithName:(unsigned long long)arg2;
 - (_Bool)_performNext;
 - (_Bool)_hasNext;
 - (void)_queue_performAsync:(CDUnknownBlockType)arg1;

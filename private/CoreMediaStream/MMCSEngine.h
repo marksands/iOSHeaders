@@ -57,7 +57,6 @@
 - (void)_removeAssetForItemID:(unsigned long long)arg1;
 - (id)_assetWithItemID:(unsigned long long)arg1;
 - (void)_registerAsset:(id)arg1;
-- (void)_logLevel:(int)arg1 message:(id)arg2;
 - (void)putAssets:(id)arg1 requestURL:(id)arg2 DSID:(id)arg3 options:(id)arg4;
 - (void)getAssets:(id)arg1 requestURL:(id)arg2 DSID:(id)arg3 options:(id)arg4;
 - (void)unregisterAssets:(id)arg1;

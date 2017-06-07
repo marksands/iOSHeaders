@@ -17,6 +17,7 @@
 
 + (Class)telemetricEntityType;
 @property(retain, nonatomic) NSMutableArray *telemetricEntitys; // @synthesize telemetricEntitys=_telemetricEntitys;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (unsigned long long)telemetricEntitysCount;
 - (void)addTelemetricEntity:(id)arg1;
 - (void)clearTelemetricEntitys;
-- (void)dealloc;
 
 @end
 

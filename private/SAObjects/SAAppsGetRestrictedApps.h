@@ -14,6 +14,7 @@
 
 + (id)getRestrictedAppsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getRestrictedApps;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *appIds;
 - (id)encodedClassName;

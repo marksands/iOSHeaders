@@ -7,13 +7,16 @@
 #import <objc/NSObject.h>
 
 @class FCThreadSafeMutableDictionary;
+@protocol FCBackgroundTaskable;
 
 @interface FCRemoteDefaults : NSObject
 {
+    id <FCBackgroundTaskable> _backgroundTaskable;
     FCThreadSafeMutableDictionary *_remoteDefaults;
 }
 
-+ (id)sharedDefaults;
+@property(readonly, nonatomic) FCThreadSafeMutableDictionary *remoteDefaults; // @synthesize remoteDefaults=_remoteDefaults;
+@property(readonly, nonatomic) __weak id <FCBackgroundTaskable> backgroundTaskable; // @synthesize backgroundTaskable=_backgroundTaskable;
 - (void).cxx_destruct;
 - (void)processResponse:(id)arg1 data:(id)arg2 error:(id)arg3;
 - (id)URLRequest;
@@ -23,10 +26,8 @@
 - (id)URLForKey:(id)arg1;
 - (id)stringForKey:(id)arg1;
 - (id)objectForKey:(id)arg1;
-- (void)applicationDidEnterBackground:(id)arg1;
-- (void)dealloc;
 - (id)init;
-- (id)initInternal;
+- (id)initWithBackgroundTaskable:(id)arg1;
 
 @end
 

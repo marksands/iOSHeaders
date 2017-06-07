@@ -8,7 +8,7 @@
 
 #import <MediaRemote/NSCopying-Protocol.h>
 
-@class NSString, _MRNowPlayingInfoProtobuf, _MRPlaybackQueueContextProtobuf, _MRPlaybackQueueProtobuf, _MRSupportedCommandsProtobuf;
+@class NSString, _MRNowPlayingInfoProtobuf, _MRNowPlayingPlayerPathProtobuf, _MRPlaybackQueueCapabilitiesProtobuf, _MRPlaybackQueueProtobuf, _MRPlaybackQueueRequestProtobuf, _MRSupportedCommandsProtobuf;
 
 @interface _MRSetStateMessageProtobuf : PBCodable <NSCopying>
 {
@@ -16,15 +16,19 @@
     NSString *_displayName;
     _MRNowPlayingInfoProtobuf *_nowPlayingInfo;
     _MRPlaybackQueueProtobuf *_playbackQueue;
-    _MRPlaybackQueueContextProtobuf *_playbackQueueContext;
+    _MRPlaybackQueueCapabilitiesProtobuf *_playbackQueueCapabilities;
     unsigned int _playbackState;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
+    _MRPlaybackQueueRequestProtobuf *_request;
     _MRSupportedCommandsProtobuf *_supportedCommands;
     struct {
         unsigned int playbackState:1;
     } _has;
 }
 
-@property(retain, nonatomic) _MRPlaybackQueueContextProtobuf *playbackQueueContext; // @synthesize playbackQueueContext=_playbackQueueContext;
+@property(retain, nonatomic) _MRPlaybackQueueRequestProtobuf *request; // @synthesize request=_request;
+@property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
+@property(retain, nonatomic) _MRPlaybackQueueCapabilitiesProtobuf *playbackQueueCapabilities; // @synthesize playbackQueueCapabilities=_playbackQueueCapabilities;
 @property(nonatomic) unsigned int playbackState; // @synthesize playbackState=_playbackState;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSString *displayID; // @synthesize displayID=_displayID;
@@ -40,7 +44,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasPlaybackQueueContext;
+@property(readonly, nonatomic) _Bool hasRequest;
+@property(readonly, nonatomic) _Bool hasPlayerPath;
+@property(readonly, nonatomic) _Bool hasPlaybackQueueCapabilities;
 @property(nonatomic) _Bool hasPlaybackState;
 @property(readonly, nonatomic) _Bool hasDisplayName;
 @property(readonly, nonatomic) _Bool hasDisplayID;

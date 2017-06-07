@@ -225,6 +225,7 @@
 - (struct CGSize)i_canvasCenterOffsetForProposedViewScale:(double)arg1 originalViewScale:(double)arg2;
 - (double)i_viewScaleForProposedViewScale:(double)arg1 originalViewScale:(double)arg2;
 - (void)i_viewScaleDidChange;
+- (void)i_canvasWideGamutValueDidChange;
 - (void)i_canvasContentsScaleDidChange;
 - (void)viewDidEndZooming;
 - (void)i_viewDidZoomToViewScale:(double)arg1;

@@ -21,7 +21,7 @@
 - (_Bool)enumerateProperties:(id)arg1 error:(id *)arg2 enumerationHandler:(CDUnknownBlockType)arg3;
 - (_Bool)enumeratePersistentIDsAndProperties:(id)arg1 error:(id *)arg2 enumerationHandler:(CDUnknownBlockType)arg3;
 - (void)enumerateEntitiesUsingBlock:(CDUnknownBlockType)arg1;
-- (_Bool)deleteAllEntities;
+- (_Bool)deleteAllEntitiesWithError:(id *)arg1;
 - (id)copySelectSQLWithProperties:(id)arg1;
 - (void)bindToSelectStatement:(struct sqlite3_stmt *)arg1 bindingIndex:(inout int *)arg2;
 - (id)initWithDatabase:(id)arg1 descriptor:(id)arg2;

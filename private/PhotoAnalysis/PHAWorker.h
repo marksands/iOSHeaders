@@ -22,6 +22,7 @@
 }
 
 + (void)configureXPCConnection:(id)arg1;
++ (_Bool)persistsState;
 + (_Bool)wantsToReceiveXPCRequestsOnUserInitiatedRequestQueue;
 + (_Bool)runsExclusively;
 + (short)workerType;
@@ -37,8 +38,8 @@
 - (_Bool)shouldCooldownForConstraintChange:(id)arg1;
 - (_Bool)shouldWarmupForConstraintChange:(id)arg1;
 - (_Bool)warmupBasedOnConstraintChanges;
-- (id)nextAdditionalJobWithScenario:(unsigned long long)arg1;
-- (_Bool)hasAdditionalJobsForScenario:(unsigned long long)arg1;
+- (id)nextAdditionalJobWithScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
+- (_Bool)hasAdditionalJobsForScenario:(unsigned long long)arg1 requestReason:(unsigned long long)arg2;
 - (_Bool)stopAcknowledgeDeletionsJob:(id)arg1 error:(id *)arg2;
 - (_Bool)startAcknowledgeDeletionsJob:(id)arg1 error:(id *)arg2;
 - (_Bool)stopAnalysisJob:(id)arg1 error:(id *)arg2;

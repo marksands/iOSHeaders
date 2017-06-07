@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <CoreDAV/CoreDAVSubmittable-Protocol.h>
 
@@ -29,13 +29,14 @@
 
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
-@property(nonatomic) id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
+@property(nonatomic) __weak id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
 @property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
 @property(readonly, nonatomic) NSMutableSet *outstandingTasks; // @synthesize outstandingTasks=_outstandingTasks;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
-@property(nonatomic) id <CoreDAVTaskGroupDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CoreDAVTaskGroupDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
-@property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
+@property(nonatomic) __weak id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
+- (void).cxx_destruct;
 - (void)submitWithTaskManager:(id)arg1;
 - (void)finishEarlyWithError:(id)arg1;
 - (void)finishCoreDAVTaskGroupWithError:(id)arg1;

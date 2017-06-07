@@ -13,6 +13,7 @@
 + (id)stringWithDayNameAndShortMonthFromDate:(id)arg1;
 + (id)stringWithEitherTodayOrLongStyleDateFromDate:(id)arg1;
 + (id)_localizedTodayFormatterWithTemplate:(id)arg1;
++ (id)timeRangeStringFromDateInterval:(id)arg1;
 + (id)timeStringWithSpaceRemoved:(id)arg1 date:(id)arg2;
 + (_Bool)_dateStringFits:(id)arg1 font:(id)arg2 maxWidth:(double)arg3;
 + (id)timeFormatter;

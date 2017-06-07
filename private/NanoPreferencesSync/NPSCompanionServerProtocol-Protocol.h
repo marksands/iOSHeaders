@@ -9,6 +9,6 @@
 @class NSSet, NSString;
 
 @protocol NPSCompanionServerProtocol <NPSServerProtocol>
-- (void)synchronizeNanoDomain:(NSString *)arg1 keys:(NSSet *)arg2;
+- (void)synchronizeNanoDomain:(NSString *)arg1 keys:(NSSet *)arg2 cloudEnabled:(_Bool)arg3;
 @end
 

@@ -14,6 +14,7 @@
 
 + (id)startStructuredDictationRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)startStructuredDictationRequest;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *structuredDictationType;
 - (id)encodedClassName;
 - (id)groupIdentifier;

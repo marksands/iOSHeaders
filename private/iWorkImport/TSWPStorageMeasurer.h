@@ -11,7 +11,7 @@
 #import <iWorkImport/TSWPLayoutTarget-Protocol.h>
 
 @class NSMutableArray, NSString, TSDCanvas, TSDLayout, TSPObject, TSWPPadding, TSWPStorage;
-@protocol TSDHint, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPOffscreenColumn;
+@protocol TSDHint, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPOffscreenColumn, TSWPTopicNumberHints;
 
 __attribute__((visibility("hidden")))
 @interface TSWPStorageMeasurer : NSObject <TSWPLayoutTarget, TSWPLayoutOwner, TSWPColumnMetrics>
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
+@property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
 @property(readonly, nonatomic) _Bool columnsAreLeftToRight;
 @property(readonly, nonatomic) _Bool shrinkTextToFit;
 @property(readonly, nonatomic) _Bool alwaysStartsNewTarget;
@@ -39,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutManager:(id)arg1 didClearDirtyRangeWithDelta:(long long)arg2 afterCharIndex:(unsigned long long)arg3;
 - (void)layoutManagerNeedsLayout:(id)arg1;
 - (_Bool)caresAboutStorageChanges;
+@property(readonly, nonatomic) _Bool shouldWrapAroundExternalDrawables;
 @property(readonly, nonatomic) _Bool layoutIsValid;
 - (_Bool)isLayoutOffscreen;
 @property(readonly, nonatomic) _Bool textIsVertical;
@@ -68,8 +70,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 - (struct CGSize)measuredSizeWithFlags:(unsigned int)arg1 minSize:(struct CGSize)arg2 maxSize:(struct CGSize)arg3;
@@ -87,6 +89,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) struct CGRect maskRect;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
+@property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) _Bool shouldHyphenate;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) double textScaleFactor;

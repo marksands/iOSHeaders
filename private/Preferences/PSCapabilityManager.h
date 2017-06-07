@@ -17,8 +17,7 @@
 @property(retain, nonatomic) NSMutableDictionary *overrides; // @synthesize overrides=_overrides;
 - (void).cxx_destruct;
 - (id)applicationDisplayIdentifiers;
-- (id)supportsEmergencySOSSelectableNumberOfClicksCapability;
-- (id)supportsEmergencySOSCapability;
+- (id)supportsPSShowStorageCapability;
 - (id)supportsInEDUModeCapability;
 - (id)supportsInStoreDemoModeCapability;
 - (id)supportsNightShiftCapability;

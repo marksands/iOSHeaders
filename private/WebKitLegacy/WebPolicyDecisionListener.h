@@ -10,7 +10,6 @@
 
 @class NSString, WebPolicyDecisionListenerPrivate;
 
-__attribute__((visibility("hidden")))
 @interface WebPolicyDecisionListener : NSObject <WebPolicyDecisionListener>
 {
     WebPolicyDecisionListenerPrivate *_private;

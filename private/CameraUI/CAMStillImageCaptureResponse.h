@@ -8,12 +8,10 @@
 
 #import <CameraUI/CAMTransientAssetConvertible-Protocol.h>
 
-@class NSDate, NSDictionary, NSString, NSURL, UIImage;
+@class CAMStillImageCaptureCoordinationInfo, NSDate, NSDictionary, NSString, NSURL, UIImage;
 
 @interface CAMStillImageCaptureResponse : CAMCaptureResponse <CAMTransientAssetConvertible>
 {
-    _Bool _originalForHDR;
-    _Bool _originalForPortraitEffect;
     _Bool _expectingPairedVideo;
     NSString *_persistenceUUID;
     NSDate *_captureDate;
@@ -21,11 +19,11 @@
     NSString *_burstIdentifier;
     unsigned long long _burstRepresentedCount;
     UIImage *_imageWellImage;
+    CAMStillImageCaptureCoordinationInfo *_coordinationInfo;
 }
 
 @property(readonly, nonatomic, getter=isExpectingPairedVideo) _Bool expectingPairedVideo; // @synthesize expectingPairedVideo=_expectingPairedVideo;
-@property(readonly, nonatomic, getter=isOriginalForPortraitEffect) _Bool originalForPortraitEffect; // @synthesize originalForPortraitEffect=_originalForPortraitEffect;
-@property(readonly, nonatomic, getter=isOriginalForHDR) _Bool originalForHDR; // @synthesize originalForHDR=_originalForHDR;
+@property(readonly, nonatomic) CAMStillImageCaptureCoordinationInfo *coordinationInfo; // @synthesize coordinationInfo=_coordinationInfo;
 @property(readonly, nonatomic) UIImage *imageWellImage; // @synthesize imageWellImage=_imageWellImage;
 @property(readonly, nonatomic) unsigned long long burstRepresentedCount; // @synthesize burstRepresentedCount=_burstRepresentedCount;
 @property(readonly, copy, nonatomic) NSString *burstIdentifier; // @synthesize burstIdentifier=_burstIdentifier;
@@ -43,10 +41,10 @@
 @property(readonly, nonatomic) UIImage *placeholderImage;
 @property(readonly, copy, nonatomic) NSURL *persistenceURL;
 @property(readonly, nonatomic) NSString *uuid;
+@property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic, getter=isOriginal) _Bool original;
-- (id)initWithUUID:(id)arg1 captureSession:(unsigned short)arg2 captureDate:(id)arg3 metadata:(id)arg4 burstIdentifier:(id)arg5 burstRepresentedCount:(unsigned long long)arg6 imageWellImage:(id)arg7 originalForHDR:(_Bool)arg8 originalForPortraitEffect:(_Bool)arg9 expectingPairedVideo:(_Bool)arg10;
+- (id)initWithUUID:(id)arg1 captureSession:(unsigned short)arg2 captureDate:(id)arg3 metadata:(id)arg4 burstIdentifier:(id)arg5 burstRepresentedCount:(unsigned long long)arg6 imageWellImage:(id)arg7 coordinationInfo:(id)arg8 expectingPairedVideo:(_Bool)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

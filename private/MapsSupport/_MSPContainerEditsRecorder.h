@@ -12,7 +12,6 @@ __attribute__((visibility("hidden")))
 @interface _MSPContainerEditsRecorder : NSObject
 {
     NSMutableArray *_originalMutableArray;
-    NSMutableArray *_proxiesMutableArray;
     NSMutableArray *_orderedEdits;
     NSMutableSet *_updatedObjects;
 }
@@ -20,6 +19,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)useImmutableObjectsForEditsFromMap:(id)arg1 intermediateMutableObjectTransferBlock:(CDUnknownBlockType)arg2;
 - (void)_editDetectorDidDetectUpdateForObject:(id)arg1;
+- (void)_mutableObjectContentDidUpdate:(id)arg1;
 - (void)replaceEditableObjectsAtIndexes:(id)arg1 withEditableObjects:(id)arg2;
 - (void)removeEditableObjectsAtIndexes:(id)arg1;
 - (void)insertEditableObjects:(id)arg1 atIndexes:(id)arg2;

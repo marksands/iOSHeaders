@@ -23,8 +23,14 @@
     NSString *_responseContentHeaders;
     NSData *_responseContentBody;
     long long _responseContentVersion;
+    NSData *_sessionToken;
+    NSString *_senderID;
+    NSString *_anonymousSenderID;
 }
 
+@property(copy) NSString *anonymousSenderID; // @synthesize anonymousSenderID=_anonymousSenderID;
+@property(copy) NSString *senderID; // @synthesize senderID=_senderID;
+@property(copy) NSData *sessionToken; // @synthesize sessionToken=_sessionToken;
 @property long long responseContentVersion; // @synthesize responseContentVersion=_responseContentVersion;
 @property(copy) NSData *responseContentBody; // @synthesize responseContentBody=_responseContentBody;
 @property(copy) NSString *responseContentHeaders; // @synthesize responseContentHeaders=_responseContentHeaders;

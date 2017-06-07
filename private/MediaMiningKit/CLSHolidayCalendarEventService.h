@@ -15,7 +15,7 @@
     NSArray *_eventRules;
 }
 
-@property(readonly, copy, nonatomic) NSArray *eventRules; // @synthesize eventRules=_eventRules;
+@property(retain, nonatomic) NSArray *eventRules; // @synthesize eventRules=_eventRules;
 - (void).cxx_destruct;
 - (id)_ruleWithUUID:(id)arg1;
 - (id)dateForRuleWithUUID:(id)arg1 byEvaluatingForYear:(long long)arg2;

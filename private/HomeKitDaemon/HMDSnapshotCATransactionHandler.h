@@ -4,21 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class CAContext, NSString;
+@class BSPortDeathWatcher, CAContext, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDSnapshotCATransactionHandler : NSObject <HMFLogging>
+@interface HMDSnapshotCATransactionHandler : HMFObject <HMFLogging>
 {
     CAContext *_snapshotContext;
     NSObject<OS_dispatch_queue> *_clientQueue;
+    BSPortDeathWatcher *_backboardServicesWatcher;
 }
 
 + (id)logCategory;
 + (id)sharedHandler;
+@property(readonly, nonatomic) BSPortDeathWatcher *backboardServicesWatcher; // @synthesize backboardServicesWatcher=_backboardServicesWatcher;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(retain, nonatomic) CAContext *snapshotContext; // @synthesize snapshotContext=_snapshotContext;
 - (void).cxx_destruct;
@@ -27,6 +29,8 @@
 - (void)deleteSlot:(id)arg1 filePath:(id)arg2;
 - (id)_createSlot:(id)arg1 snapshotCATransaction:(id)arg2;
 - (id)createSlot:(id)arg1;
+- (void)_backboardServicesRelaunched;
+- (void)_createSnapshotContext;
 - (id)init;
 
 // Remaining properties

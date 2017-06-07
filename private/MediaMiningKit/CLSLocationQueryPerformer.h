@@ -17,18 +17,24 @@
     NSArray *_geoLocations;
     NSArray *_regions;
     _Bool _isCancelled;
+    double _precision;
+    CDStruct_dd9df0da _statitics;
 }
 
++ (double)defaultPrecision;
 + (unsigned long long)numberOfRegionsPerBatch;
-+ (_Bool)shouldQueryItemsForRegion:(id)arg1 selectedRegions:(id)arg2;
-+ (id)queryForRegions:(id)arg1;
++ (id)queryWithTemplate:(id)arg1 forRegions:(id)arg2;
+@property(nonatomic) double precision; // @synthesize precision=_precision;
+@property(nonatomic) CDStruct_dd9df0da statistics; // @synthesize statistics=_statitics;
 - (void).cxx_destruct;
+- (_Bool)shouldQueryItemsForRegion:(id)arg1 selectedRegions:(id)arg2;
 @property(readonly) _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
 - (void)cancel;
 - (void)submitWithHandler:(CDUnknownBlockType)arg1;
-- (void)cacheItems:(id)arg1;
+- (unsigned long long)cacheItems:(id)arg1;
 - (id)regions;
-- (id)initWithRegions:(id)arg1;
+- (id)initWithRegions:(id)arg1 precision:(double)arg2;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -9,12 +9,10 @@
 #import <BulletinBoard/BBSectionIdentity-Protocol.h>
 
 @class BBDataProviderIdentity, NSString;
-@protocol OS_dispatch_queue;
 
 @interface BBDataProvider : NSObject <BBSectionIdentity>
 {
-    NSObject<OS_dispatch_queue> *_identityQueue;
-    BBDataProviderIdentity *__identity;
+    BBDataProviderIdentity *_identity;
 }
 
 - (void).cxx_destruct;
@@ -57,7 +55,6 @@
 - (void)invalidate;
 @property(retain) BBDataProviderIdentity *identity;
 @property(readonly, copy) NSString *description;
-- (id)init;
 
 // Remaining properties
 @property(readonly) unsigned long long hash;

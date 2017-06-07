@@ -37,6 +37,7 @@
     _Bool _inserted;
     _Bool _needsSyncUpdate;
     unsigned long long _modifiedAttributes;
+    _Bool _usedForInMemoryChangeTracking;
 }
 
 + (id)_trimmedPreviewText:(id)arg1;
@@ -82,6 +83,8 @@
 @property(retain, nonatomic) NSData *syncData;
 @property(retain, nonatomic) NSString *syncKey;
 @property(retain, nonatomic) NSString *serverID;
+- (void)_setUsedForInMemoryChangeTracking:(_Bool)arg1;
+- (_Bool)_usedForInMemoryChangeTracking;
 - (void)_setSyncable:(_Bool)arg1;
 - (void)_setHidden:(_Bool)arg1;
 - (void)_setInserted:(_Bool)arg1;
@@ -97,15 +100,15 @@
 - (id)_initWithSqliteRow:(struct sqlite3_stmt *)arg1 hasIcon:(_Bool)arg2;
 - (id)_initWithSqliteRow:(struct sqlite3_stmt *)arg1;
 - (void)cleanupRedundantPreviewText;
+@property(nonatomic) _Bool hasFetchedMetadata;
 @property(retain, nonatomic) NSString *localPreviewText;
-@property(retain, nonatomic) NSString *siteName;
 @property(retain, nonatomic) NSDictionary *nextPageURLs;
 - (void)setTitle:(id)arg1 previewText:(id)arg2 dateLastFetched:(id)arg3;
-@property(retain, nonatomic) NSString *sourceBundleID;
-@property(retain, nonatomic) NSString *sourceLocalizedAppName;
 @property(retain, nonatomic) NSDate *dateLastFetched;
 @property(retain, nonatomic) NSDate *dateLastViewed;
 @property(retain, nonatomic) NSDate *dateAdded;
+@property(retain, nonatomic) NSString *readingListIconUUID;
+@property(retain, nonatomic) NSString *readingListIconURL;
 @property(retain, nonatomic) NSDate *dateLastArchived;
 @property(nonatomic) int webFilterStatus;
 @property(nonatomic) int archiveStatus;
@@ -113,8 +116,9 @@
 @property(retain, nonatomic) NSString *previewText;
 - (_Bool)isReadingListItem;
 - (id)initReadingListBookmarkWithTitle:(id)arg1 address:(id)arg2 previewText:(id)arg3;
+@property(nonatomic) _Bool shouldArchive;
 - (_Bool)fullArchiveAvailable;
-- (_Bool)shouldReattemptArchive;
+- (_Bool)shouldReattemptArchiveWithAutomaticArchivingEnabled:(_Bool)arg1;
 - (void)clearArchiveSynchronously;
 - (void)clearArchive;
 - (void)_removeDirectoryAtPath:(id)arg1;

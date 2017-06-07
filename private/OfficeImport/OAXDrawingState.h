@@ -85,6 +85,7 @@ __attribute__((visibility("hidden")))
 - (id)tableStyleCache;
 - (void)setStyleMatrix:(id)arg1;
 - (id)styleMatrix;
+- (id)appVersion;
 - (void)setPackagePart:(id)arg1;
 - (id)packagePart;
 - (id)client;

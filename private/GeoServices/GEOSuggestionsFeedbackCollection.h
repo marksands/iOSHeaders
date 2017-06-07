@@ -31,6 +31,7 @@
 @property(nonatomic) int suggestionEntryIndex; // @synthesize suggestionEntryIndex=_suggestionEntryIndex;
 @property(nonatomic) int suggestionsEntryListIndex; // @synthesize suggestionsEntryListIndex=_suggestionsEntryListIndex;
 @property(nonatomic) struct GEOSessionID sessionID; // @synthesize sessionID=_sessionID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,7 +47,6 @@
 @property(nonatomic) _Bool hasSuggestionEntryIndex;
 @property(nonatomic) _Bool hasSuggestionsEntryListIndex;
 @property(nonatomic) _Bool hasSessionID;
-- (void)dealloc;
 
 @end
 

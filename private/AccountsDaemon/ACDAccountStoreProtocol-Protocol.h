@@ -71,6 +71,7 @@
 - (void)accountIdentifiersEnabledToSyncDataclass:(NSString *)arg1 handler:(void (^)(NSArray *, NSError *))arg2;
 - (void)childAccountsForAccountWithIdentifier:(NSString *)arg1 handler:(void (^)(NSArray *, NSError *))arg2;
 - (void)parentAccountForAccountWithIdentifier:(NSString *)arg1 handler:(void (^)(ACAccount *, NSError *))arg2;
+- (void)accountsWithAccountType:(ACAccountType *)arg1 options:(unsigned long long)arg2 completion:(void (^)(NSArray *, NSError *))arg3;
 - (void)accountsWithAccountType:(ACAccountType *)arg1 handler:(void (^)(NSArray *, NSError *))arg2;
 - (void)accountWithIdentifier:(NSString *)arg1 handler:(void (^)(ACAccount *, NSError *))arg2;
 - (void)accountTypesWithHandler:(void (^)(NSArray *, NSError *))arg1;

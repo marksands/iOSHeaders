@@ -6,29 +6,38 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPClearInputFeedback-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 
-@interface _CPClearInputFeedback : PBCodable <NSCopying>
+@class NSData, NSString;
+
+@interface _CPClearInputFeedback : PBCodable <_CPProcessableFeedback, _CPClearInputFeedback, NSSecureCoding>
 {
-    unsigned long long _timestamp;
+    CDStruct_c6e3878d _has;
     int _triggerEvent;
-    CDStruct_ce7c5ddc _has;
+    unsigned long long _timestamp;
 }
 
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+@property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
+@property(nonatomic) unsigned long long timestamp;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (int)StringAsTriggerEvent:(id)arg1;
-- (id)triggerEventAsString:(int)arg1;
-@property(nonatomic) _Bool hasTriggerEvent;
-@property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
+@property(readonly, nonatomic) _Bool hasTriggerEvent;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

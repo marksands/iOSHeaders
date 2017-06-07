@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOETAUpdaterDelegate-Protocol.h>
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
 @class GEOCommonOptions, GEOComposedRoute, GEOComposedWaypoint, GEODirectionsRequest, GEODirectionsRequestFeedback, GEOETARoute, GEOETAUpdater, GEOLocation, GEOMapRegion, GEOMapServiceTraits, GEORouteAttributes, GEORouteHypothesis, GEORouteHypothesizerAnalyticsStore, GEORouteMatch, NSDate, NSMutableArray, NSString;
-@protocol OS_dispatch_semaphore;
+@protocol GEOTTLTraceRecorder, OS_dispatch_semaphore;
 
 @interface GEORouteHypothesisMonitor : NSObject <GEOETAUpdaterDelegate, NSSecureCoding>
 {
@@ -41,9 +41,13 @@
     _Bool _isTraveling;
     double _travelScore;
     GEOMapRegion *_arrivalMapRegion;
+    NSString *_traceName;
+    id <GEOTTLTraceRecorder> _traceRecorder;
 }
 
-+ (id)monitorWithSource:(id)arg1 toDestination:(id)arg2 transportType:(int)arg3 arrivalDate:(id)arg4 traits:(id)arg5;
++ (id)monitorWithSource:(id)arg1 toDestination:(id)arg2 transportType:(int)arg3 arrivalDate:(id)arg4 traceName:(id)arg5 traits:(id)arg6;
++ (void)setTTLTraceRecorderFactory:(id)arg1;
++ (id)ttlTraceRecorderFactory;
 + (void)setServerFormattedStringFormatter:(id)arg1;
 + (id)serverFormattedStringFormatter;
 + (void)setUserPreferencesProvider:(id)arg1;
@@ -55,6 +59,7 @@
 @property(readonly, nonatomic) GEOComposedWaypoint *destination; // @synthesize destination=_destination;
 @property(readonly, nonatomic) GEOComposedWaypoint *source; // @synthesize source=_source;
 @property(retain, nonatomic) GEODirectionsRequestFeedback *feedback; // @synthesize feedback=_feedback;
+- (void).cxx_destruct;
 - (id)routeMatchForLocation:(id)arg1;
 - (void)travelStateChanged;
 - (void)checkRouteForLocation:(id)arg1;
@@ -86,12 +91,13 @@
 @property(readonly, nonatomic) _Bool supportsLiveTraffic;
 @property(readonly, nonatomic) NSString *routeName;
 @property(readonly, copy) NSString *description;
+- (void)_recordTraceForEvent:(long long)arg1 parameters:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
 - (void)_finishEtaUpdaterInit;
 - (void)_commonInit;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithSource:(id)arg1 toDestination:(id)arg2 transportType:(int)arg3 arrivalDate:(id)arg4 traits:(id)arg5;
+- (id)initWithSource:(id)arg1 toDestination:(id)arg2 transportType:(int)arg3 arrivalDate:(id)arg4 traceName:(id)arg5 traits:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

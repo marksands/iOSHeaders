@@ -9,11 +9,13 @@
 #import <PassKitUI/PKPaymentDataProviderDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentPassTableCellDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentServiceDelegate-Protocol.h>
+#import <PassKitUI/PKPeerPaymentAccountStateControllerDelegate-Protocol.h>
+#import <PassKitUI/PKSwitchSpinnerTableCellDelegate-Protocol.h>
 
-@class NSArray, NSString, PKPaymentPreference, PKPaymentPreferencesViewController, PKPaymentSetupAboutViewController, PSSpecifier;
-@protocol PKPassLibraryDataProvider, PKPassbookSettingsDataSource, PKPassbookSettingsDelegate, PKPaymentDataProvider, PKPaymentOptionsProtocol;
+@class NSArray, NSString, PKPaymentPreference, PKPaymentPreferenceCard, PKPaymentPreferencesViewController, PKPaymentSetupAboutViewController, PKPeerPaymentAccountStateController, PKPeerPaymentWebService, PSSpecifier;
+@protocol PKPassLibraryDataProvider, PKPassbookPeerPaymentSettingsDelegate, PKPassbookSettingsDataSource, PKPassbookSettingsDelegate, PKPaymentDataProvider, PKPaymentOptionsProtocol;
 
-@interface PKPassbookSettingsController : NSObject <PKPaymentServiceDelegate, PKPaymentDataProviderDelegate, PKPaymentPassTableCellDelegate>
+@interface PKPassbookSettingsController : NSObject <PKPaymentServiceDelegate, PKPeerPaymentAccountStateControllerDelegate, PKPaymentDataProviderDelegate, PKSwitchSpinnerTableCellDelegate, PKPaymentPassTableCellDelegate>
 {
     id <PKPassbookSettingsDataSource> _dataSource;
     id <PKPassLibraryDataProvider> _passLibraryDataProvider;
@@ -23,7 +25,7 @@
     PKPaymentSetupAboutViewController *_privacyController;
     PKPaymentPreferencesViewController *_defaultCardsController;
     PKPaymentPreference *_availableCards;
-    PKPaymentPreference *_unavailableCards;
+    PKPaymentPreferenceCard *_unavailableCards;
     NSString *_defaultCardIdentifier;
     NSString *_provisioningPassIdentifier;
     NSArray *_passes;
@@ -39,6 +41,10 @@
     PSSpecifier *_defaultShippingAddressSpecifier;
     PSSpecifier *_defaultContactEmailSpecifier;
     PSSpecifier *_defaultContactPhoneSpecifier;
+    id <PKPassbookPeerPaymentSettingsDelegate> _peerPaymentDelegate;
+    PKPeerPaymentWebService *_peerPaymentWebService;
+    PSSpecifier *_peerPaymentSwitchSpecifier;
+    PKPeerPaymentAccountStateController *_peerPaymentAccountStateController;
     NSArray *_expressFelicaTransitPasses;
     NSString *_defaultExpressFelicaTransitPassIdentifier;
     PSSpecifier *_defaultExpressFelicaTransitSpecifier;
@@ -48,9 +54,8 @@
 @property(nonatomic) id <PKPassbookSettingsDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (long long)_paymentSetupContextForSettingsContext:(long long)arg1;
-- (void)_presentCannotTransferAlert;
-- (void)_canTransferForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)_performPhoneToWatchProvisioningForPaymentPass:(id)arg1;
+- (void)_felicaPropertiesForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)_performPhoneToWatchProvisioningForPaymentPass:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_setCardAddProvisioningButtonEnabled:(_Bool)arg1 forPaymentPass:(id)arg2;
 - (void)_requestDelegatePresentViewController:(id)arg1;
 - (void)_handleProvisioningError:(id)arg1 viewController:(id)arg2;
@@ -62,6 +67,14 @@
 - (id)_defaultExpressFelicaTransitPassDescription;
 - (id)_defaultExpressFelicaTransitSpecifier;
 - (id)_transitDefaultsGroupSpecifiers;
+- (id)_peerPaymentSwitchSpecifier;
+- (void)switchSpinnerCell:(id)arg1 hasToggledSwitch:(_Bool)arg2;
+- (id)_peerPaymentGroupSpecifiers;
+- (void)_unregisterForPeerPaymentWithSpecifier:(id)arg1;
+- (void)_registerForPeerPaymentWithSpecifier:(id)arg1;
+- (_Bool)_isPeerPaymentRegistered;
+- (void)_displayAlertForError:(id)arg1;
+- (void)presentAccountStateViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)paymentPassWithUniqueIdentifier:(id)arg1 didUpdateWithFelicaPassProperties:(id)arg2;
 - (id)_displayableStringForLabeledValue:(id)arg1;
 - (id)_getDefaultContactPhone;
@@ -91,11 +104,13 @@
 - (id)_specifierForPassUniqueID:(id)arg1;
 - (id)_companionPassSpecifiers;
 - (id)_passSpecifiers;
-- (void)_addPaymentCard;
-- (int)_paymentPreferencesStyle;
+- (void)openPaymentSetupWithMode:(long long)arg1 referrerIdentifier:(id)arg2;
+- (long long)_paymentPreferencesStyle;
+- (void)addCardTappedForPaymentPassWithUniqueID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)addCardTappedForPaymentPassWithUniqueID:(id)arg1;
 - (void)addCardTapped;
 - (void)removeFooterForSpecifier:(id)arg1;
+- (void)_updateExpressPassIdentifiersWithReload:(_Bool)arg1;
 - (void)refreshExpressFelicaTransitCard;
 - (void)refreshDefaultCard;
 - (void)refreshPasses;

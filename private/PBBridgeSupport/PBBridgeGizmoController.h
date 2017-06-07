@@ -74,6 +74,8 @@
 - (void)tellCompanionThatGizmoFailedToCreatePasscode:(int)arg1;
 - (void)tellCompanionThatGizmoFinishedSettingPasscode:(_Bool)arg1 isLong:(_Bool)arg2;
 - (id)customDescriptionOfMessageType:(unsigned short)arg1;
+- (_Bool)tellCompanionThatLanguageAndLanguageCompletedWithStatus:(unsigned short)arg1;
+- (void)companionDidSendLanguageAndLocale:(id)arg1;
 - (void)setLocationEnabled:(id)arg1;
 - (void)setDiagnosticsEnabled:(id)arg1;
 - (void)handleActivationData:(id)arg1;

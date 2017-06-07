@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSDictionary, NSString;
 @protocol NSObject><NSCopying;
@@ -51,10 +51,12 @@
 - (id)submissionString;
 - (id)displayString;
 @property(readonly, copy, nonatomic) NSString *compactLocalizedDisplayName;
+- (id)pickerFieldObject;
 - (id)footerFieldObject;
 - (id)labelFieldObject;
 - (id)dateFieldObject;
 - (id)textFieldObject;
+- (_Bool)isFieldTypePicker;
 - (_Bool)isFieldTypeFooter;
 - (_Bool)isFieldTypeLabel;
 - (_Bool)isFieldTypeDate;

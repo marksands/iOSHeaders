@@ -7,6 +7,8 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (IC)
+- (_Bool)ic_indexIsValid:(long long)arg1;
+- (unsigned long long)ic_indexOfSortedObject:(id)arg1 insertionIndex:(out unsigned long long *)arg2 usingComparator:(CDUnknownBlockType)arg3;
 - (id)arrayByGroupingIntoArraysWithMaxCount:(unsigned long long)arg1;
 - (id)objectsOfClass:(Class)arg1;
 - (id)objectsPassingTest:(CDUnknownBlockType)arg1;

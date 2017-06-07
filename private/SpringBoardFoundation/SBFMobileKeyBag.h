@@ -16,6 +16,7 @@
     NSMutableArray *_queue_observerStateChangedCallbackBlocks;
     NSHashTable *_queue_observers;
     _Bool _queue_hasPasscodeSet;
+    _Bool _queue_hasUnlockedSinceBoot;
     int _stateChangedNotifyToken;
     int _firstUnlockNotification;
 }
@@ -34,10 +35,11 @@
 @property(readonly, copy, nonatomic) SBFMobileKeyBagState *extendedState;
 @property(readonly, copy, nonatomic) SBFMobileKeyBagState *state;
 @property(readonly, nonatomic) _Bool hasBeenUnlockedSinceBoot;
-- (void)lock;
 - (void)createStashBag:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)createStashBag:(id)arg1 completion:(CDUnknownBlockType)arg2 completionQueue:(id)arg3;
 @property(readonly, nonatomic) _Bool hasPasscodeSet;
+- (_Bool)unlockWithPasscode:(id)arg1 error:(id *)arg2;
+- (void)lockSkippingGracePeriod:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;
 

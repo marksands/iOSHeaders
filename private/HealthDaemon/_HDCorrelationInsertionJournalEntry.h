@@ -4,27 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HealthDaemon/HDJournalEntry.h>
+#import <HealthDaemon/_HDAssociationInsertionJournalEntry.h>
 
-@class NSData, NSUUID;
-
-@interface _HDCorrelationInsertionJournalEntry : HDJournalEntry
+@interface _HDCorrelationInsertionJournalEntry : _HDAssociationInsertionJournalEntry
 {
-    NSUUID *_correlationUUID;
-    NSData *_objectUUIDsData;
-    long long _provenance;
 }
-
-+ (_Bool)supportsSecureCoding;
-+ (void)applyEntries:(id)arg1 withProfile:(id)arg2;
-@property(readonly, nonatomic) long long provenance; // @synthesize provenance=_provenance;
-@property(readonly, nonatomic) NSData *objectUUIDsData; // @synthesize objectUUIDsData=_objectUUIDsData;
-@property(readonly, nonatomic) NSUUID *correlationUUID; // @synthesize correlationUUID=_correlationUUID;
-- (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)description;
-- (id)initWithCorrelationUUID:(id)arg1 objectUUIDsData:(id)arg2 provenance:(long long)arg3;
 
 @end
 

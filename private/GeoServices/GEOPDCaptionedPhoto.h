@@ -8,28 +8,34 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDPhoto, NSString;
+@class GEOPDPhoto, NSString, PBUnknownFields;
 
 @interface GEOPDCaptionedPhoto : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_author;
     NSString *_caption;
     NSString *_licenseDescription;
     NSString *_licenseUrl;
     GEOPDPhoto *_photo;
     _Bool _displayFullPhotoInline;
+    _Bool _useGallery;
     struct {
         unsigned int displayFullPhotoInline:1;
+        unsigned int useGallery:1;
     } _has;
 }
 
 + (id)captionedPhotosForPlaceData:(id)arg1;
+@property(nonatomic) _Bool useGallery; // @synthesize useGallery=_useGallery;
 @property(nonatomic) _Bool displayFullPhotoInline; // @synthesize displayFullPhotoInline=_displayFullPhotoInline;
 @property(retain, nonatomic) GEOPDPhoto *photo; // @synthesize photo=_photo;
 @property(retain, nonatomic) NSString *licenseUrl; // @synthesize licenseUrl=_licenseUrl;
 @property(retain, nonatomic) NSString *licenseDescription; // @synthesize licenseDescription=_licenseDescription;
 @property(retain, nonatomic) NSString *author; // @synthesize author=_author;
 @property(retain, nonatomic) NSString *caption; // @synthesize caption=_caption;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -39,13 +45,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasUseGallery;
 @property(nonatomic) _Bool hasDisplayFullPhotoInline;
 @property(readonly, nonatomic) _Bool hasPhoto;
 @property(readonly, nonatomic) _Bool hasLicenseUrl;
 @property(readonly, nonatomic) _Bool hasLicenseDescription;
 @property(readonly, nonatomic) _Bool hasAuthor;
 @property(readonly, nonatomic) _Bool hasCaption;
-- (void)dealloc;
 
 @end
 

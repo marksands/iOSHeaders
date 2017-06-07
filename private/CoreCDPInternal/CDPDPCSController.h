@@ -25,6 +25,8 @@
 - (void)_enableCDPWithCompletion:(CDUnknownBlockType)arg1;
 - (void)enableCDPWithCompletion:(CDUnknownBlockType)arg1;
 - (struct _PCSIdentitySetData *)_getOrSetupIdentitySetRef:(id *)arg1;
+- (_Bool)isCompanionInKeychainCircle:(id *)arg1;
+- (_Bool)isCloudProtectionEnabledLocally:(id *)arg1;
 - (void)_checkiCDPStatusNetwork:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_reauthenticateAndCheckiCDPStatusWithNetwork:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)checkiCDPStatusNetwork:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;

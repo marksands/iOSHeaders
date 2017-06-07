@@ -16,7 +16,7 @@
     float _rateLimitedVolume;
     int _lastPlayedSound;
     _Bool _hasTelephony;
-    _Bool _volumeHUDSupressed;
+    _Bool _volumeHUDsuppressed;
     double _lastTime;
     PSSpecifier *_voiceMailSpecifier;
     long long _voiceMailSpecifierIndex;
@@ -44,6 +44,8 @@
 - (void)endInterruption;
 - (void)updateVolume;
 - (void)didLock;
+- (id)systemHapticsEnabled:(id)arg1;
+- (void)setSystemHapticsEnabled:(id)arg1 specifier:(id)arg2;
 - (id)specifiers;
 - (_Bool)_canChangeRingtoneWithButtons;
 - (void)updateVoiceMailVisibility;
@@ -51,7 +53,9 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)willForeground;
 - (void)didBackground;
-- (void)setVolumeHUDSupression:(_Bool)arg1;
+- (void)setVolumeHUDsuppression:(_Bool)arg1;
+- (void)willHideSlider;
+- (void)willShowSlider;
 - (int)_deviceType;
 - (id)init;
 

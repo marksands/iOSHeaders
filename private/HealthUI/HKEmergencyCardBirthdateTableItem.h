@@ -8,12 +8,11 @@
 
 #import <HealthUI/HKMedicalIDEditorCellEditDelegate-Protocol.h>
 
-@class HKMedicalIDEditorDateCell, NSCalendar, _HKCustomInsetCellLayoutManager;
+@class HKMedicalIDEditorDateCell, NSCalendar;
 
 @interface HKEmergencyCardBirthdateTableItem : HKEmergencyCardTableItem <HKMedicalIDEditorCellEditDelegate>
 {
     HKMedicalIDEditorDateCell *_editableCell;
-    _HKCustomInsetCellLayoutManager *_layoutManager;
     NSCalendar *_gregorianCalendar;
 }
 

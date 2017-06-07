@@ -6,18 +6,24 @@
 
 #import <objc/NSObject.h>
 
+#import <ITMLKit/NSCopying-Protocol.h>
+
 @class NSMutableArray;
 
-@interface IKCSSSelectorList : NSObject
+@interface IKCSSSelectorList : NSObject <NSCopying>
 {
-    NSMutableArray *selectors;
+    NSMutableArray *_selectors;
 }
 
+@property(readonly, nonatomic) NSMutableArray *selectors; // @synthesize selectors=_selectors;
 - (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)count;
+- (id)lastSelector;
+- (id)firstSelector;
 - (id)selectorAtIndex:(unsigned long long)arg1;
 - (void)addSelector:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 
 @end

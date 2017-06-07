@@ -19,7 +19,7 @@
 - (void)recomputeRelevantPassesWithSearchMode:(long long)arg1;
 - (void)logDelayExitReasons;
 - (void)sendUserEditedCatalog:(PKCatalog *)arg1;
-- (void)issueWalletUserNotificationWithTitle:(NSString *)arg1 message:(NSString *)arg2;
+- (void)issueWalletUserNotificationWithTitle:(NSString *)arg1 message:(NSString *)arg2 forPassUniqueIdentifier:(NSString *)arg3 customActionRoute:(NSString *)arg4;
 - (void)shuffleGroups:(int)arg1;
 - (void)introduceDatabaseIntegrityProblem;
 - (void)nukeDatabaseAndExit;
@@ -33,6 +33,7 @@
 - (void)getArchivedObjectWithUniqueID:(NSString *)arg1 handler:(void (^)(NSData *))arg2;
 - (void)personalizePassWithUniqueIdentifier:(NSString *)arg1 contact:(PKContact *)arg2 personalizationToken:(NSString *)arg3 requiredPersonalizationFields:(unsigned long long)arg4 personalizationSource:(unsigned long long)arg5 handler:(void (^)(_Bool))arg6;
 - (void)updateObjectWithUniqueIdentifier:(NSString *)arg1 handler:(void (^)(_Bool))arg2;
+- (void)rescheduleCommutePlanRenewalReminderForPassWithUniqueID:(NSString *)arg1;
 - (void)updateSettings:(unsigned long long)arg1 forObjectWithUniqueID:(NSString *)arg2;
 - (void)removePassesOfType:(unsigned long long)arg1 withDiagnosticReason:(NSString *)arg2 handler:(void (^)(void))arg3;
 - (void)getImageSetContainerForUniqueID:(NSString *)arg1 ofType:(long long)arg2 displayProfile:(PKDisplayProfile *)arg3 handler:(void (^)(PKImageSetXPCContainer *))arg4;
@@ -41,6 +42,7 @@
 - (void)presentContactlessInterfaceForPassWithUniqueIdentifier:(NSString *)arg1 fromSource:(long long)arg2 handler:(void (^)(_Bool))arg3;
 - (void)presentContactlessInterfaceForDefaultPassFromSource:(long long)arg1 handler:(void (^)(_Bool))arg2;
 - (void)requestContactlessInterfaceSuppressionWithHandler:(void (^)(_Bool))arg1;
-- (void)openPaymentUI:(void (^)(_Bool))arg1;
+- (void)openWalletUIWithRelevantPass:(NSString *)arg1;
+- (void)openPaymentUIWithCompletion:(void (^)(_Bool))arg1;
 @end
 

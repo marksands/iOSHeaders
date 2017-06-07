@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)stop;
 - (void)start;
+- (void)dealloc;
 - (id)initWithURL:(id)arg1;
 
 @end

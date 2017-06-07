@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSSet, WBSHistoryDeletionPlan, WBSHistorySQLiteStore;
+@class NSSet, WBSHistoryDeletionPlan;
+@protocol WBSHistoryStore;
 
 @interface WBSHistoryAgeAndItemCountLimitEnforcementPlan : NSObject
 {
-    WBSHistorySQLiteStore *_store;
+    id <WBSHistoryStore> _store;
     NSSet *_items;
     double _ageLimit;
     unsigned long long _itemCountLimit;

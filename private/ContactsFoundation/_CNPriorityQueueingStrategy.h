@@ -10,7 +10,6 @@
 
 @class NSString;
 
-__attribute__((visibility("hidden")))
 @interface _CNPriorityQueueingStrategy : NSObject <CNQueueingStrategy>
 {
     CDUnknownBlockType _priorityComparator;

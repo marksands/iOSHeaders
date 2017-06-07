@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @interface IMAVInterface : NSObject
 {
@@ -32,13 +32,8 @@
 @property(nonatomic) unsigned int maxBitrate;
 - (void)setRemoteVideoPresentationState:(unsigned int)arg1 forChat:(id)arg2;
 - (void)setRemoteVideoPresentationSize:(struct CGSize)arg1 forChat:(id)arg2;
-- (void)setRemoteVideoLayersFromChat:(id)arg1 toChat:(id)arg2;
 @property(nonatomic) void *localVideoBackLayer;
 @property(nonatomic) void *localVideoLayer;
-- (void)setRemoteVideoBackLayer:(void *)arg1 forChat:(id)arg2;
-- (void *)remoteVideoBackLayerForChat:(id)arg1;
-- (void)setRemoteVideoLayer:(void *)arg1 forChat:(id)arg2;
-- (void *)remoteVideoLayerForChat:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsLayers;
 - (id)avChat:(id)arg1 IPAndPortDataWithCallerIP:(id)arg2 callerSIPPort:(unsigned int)arg3 shouldFindExternalIP:(_Bool)arg4;
 - (id)avChat:(id)arg1 IPAndPortDataWithCallerIPAndPortData:(id)arg2 shouldFindExternalIP:(_Bool)arg3;

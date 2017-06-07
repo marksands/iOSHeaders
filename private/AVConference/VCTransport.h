@@ -51,6 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)iceConnectedForCallID:(unsigned int)arg1 result:(struct tagCONNRESULT *)arg2 didReceivePacket:(int)arg3 useRelay:(int)arg4 secretKey:(struct __CFData *)arg5 skeResult:(int)arg6;
 - (int)updateInterfaceList:(unsigned int)arg1 shouldFilterCellInterface:(_Bool)arg2 isUpdateNeeded:(int *)arg3;
 - (void)registerICEBlockForCallID:(unsigned int)arg1 connectedBlock:(CDUnknownBlockType)arg2 newCandidatesBlock:(CDUnknownBlockType)arg3 newNominationBlock:(CDUnknownBlockType)arg4 removeIPPortBlock:(CDUnknownBlockType)arg5;
+- (void)setReportingAgent:(struct opaqueRTCReporting *)arg1;
 - (void)dealloc;
 - (id)init;
 

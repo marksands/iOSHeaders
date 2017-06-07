@@ -23,6 +23,7 @@
 + (Class)searchAttributionSourcesType;
 @property(retain, nonatomic) NSMutableArray *actionComponentMapEntries; // @synthesize actionComponentMapEntries=_actionComponentMapEntries;
 @property(retain, nonatomic) NSMutableArray *searchAttributionSources; // @synthesize searchAttributionSources=_searchAttributionSources;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,7 +41,6 @@
 - (unsigned long long)searchAttributionSourcesCount;
 - (void)addSearchAttributionSources:(id)arg1;
 - (void)clearSearchAttributionSources;
-- (void)dealloc;
 @property(retain, nonatomic) NSString *sourceURL;
 @property(readonly, nonatomic) _Bool hasSourceURL;
 @property(nonatomic) _Bool hasTimestamp;

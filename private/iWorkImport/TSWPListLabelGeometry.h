@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double scale; // @synthesize scale=mScale;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithScale:(double)arg1 scaleWithText:(_Bool)arg2 baselineOffset:(double)arg3;
 

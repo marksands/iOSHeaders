@@ -12,31 +12,42 @@
 {
     _Bool _didResetTorchMode;
     _Bool _shouldShowGridView;
+    _Bool _shouldShowQRBanners;
     _Bool _shouldCaptureHDREV0;
-    _Bool _shouldCaptureOriginalForPortraitEffect;
-    _Bool _didAcknowledgePortraitModeDescription;
     _Bool _preserveEffectFilter;
     _Bool _preserveCaptureMode;
     _Bool _preserveLivePhoto;
     _Bool _shouldDisableCameraSwitchingDuringVideoRecording;
     _Bool _lockAsShutterEnabled;
     _Bool _shouldDelayRemotePersistence;
+    _Bool _capturesOnTouchDown;
+    _Bool _burstFollowsEncoderSettings;
+    _Bool __preferHEVCWhenAvailable;
     CAMCaptureConfiguration *_captureConfiguration;
     CAMConflictingControlConfiguration *_conflictingControlConfiguration;
     long long _videoConfiguration;
     long long _slomoConfiguration;
     long long _previewViewAspectMode;
+    long long _photoModeLastCapturedEffectFilterType;
+    long long _squareModeLastCapturedEffectFilterType;
+    long long _portraitModeLastCapturedEffectFilterType;
     NSDate *_resetTimeoutDate;
+    double _burstDelayAfterTouchDownCapture;
     long long _overriddenBackCaptureInterval;
     long long _overriddenFrontCaptureInterval;
     NSUserDefaults *_underlyingUserDefaults;
 }
 
++ (long long)defaultFilterTypeForMode:(long long)arg1;
 + (id)_defaultCaptureConfiguration;
 + (id)preferences;
+@property(readonly, nonatomic) _Bool _preferHEVCWhenAvailable; // @synthesize _preferHEVCWhenAvailable=__preferHEVCWhenAvailable;
 @property(retain, nonatomic, getter=_underlyingUserDefaults, setter=_setUnderlyingUserDefaults:) NSUserDefaults *underlyingUserDefaults; // @synthesize underlyingUserDefaults=_underlyingUserDefaults;
 @property(readonly, nonatomic) long long overriddenFrontCaptureInterval; // @synthesize overriddenFrontCaptureInterval=_overriddenFrontCaptureInterval;
 @property(readonly, nonatomic) long long overriddenBackCaptureInterval; // @synthesize overriddenBackCaptureInterval=_overriddenBackCaptureInterval;
+@property(readonly, nonatomic) _Bool burstFollowsEncoderSettings; // @synthesize burstFollowsEncoderSettings=_burstFollowsEncoderSettings;
+@property(readonly, nonatomic) double burstDelayAfterTouchDownCapture; // @synthesize burstDelayAfterTouchDownCapture=_burstDelayAfterTouchDownCapture;
+@property(readonly, nonatomic) _Bool capturesOnTouchDown; // @synthesize capturesOnTouchDown=_capturesOnTouchDown;
 @property(readonly, nonatomic) _Bool shouldDelayRemotePersistence; // @synthesize shouldDelayRemotePersistence=_shouldDelayRemotePersistence;
 @property(readonly, nonatomic, getter=isLockAsShutterEnabled) _Bool lockAsShutterEnabled; // @synthesize lockAsShutterEnabled=_lockAsShutterEnabled;
 @property(readonly, nonatomic) _Bool shouldDisableCameraSwitchingDuringVideoRecording; // @synthesize shouldDisableCameraSwitchingDuringVideoRecording=_shouldDisableCameraSwitchingDuringVideoRecording;
@@ -44,21 +55,27 @@
 @property(readonly, nonatomic) _Bool preserveCaptureMode; // @synthesize preserveCaptureMode=_preserveCaptureMode;
 @property(readonly, nonatomic) _Bool preserveEffectFilter; // @synthesize preserveEffectFilter=_preserveEffectFilter;
 @property(retain, nonatomic, setter=_setResetTimeoutDate:) NSDate *resetTimeoutDate; // @synthesize resetTimeoutDate=_resetTimeoutDate;
+@property(nonatomic) long long portraitModeLastCapturedEffectFilterType; // @synthesize portraitModeLastCapturedEffectFilterType=_portraitModeLastCapturedEffectFilterType;
+@property(nonatomic) long long squareModeLastCapturedEffectFilterType; // @synthesize squareModeLastCapturedEffectFilterType=_squareModeLastCapturedEffectFilterType;
+@property(nonatomic) long long photoModeLastCapturedEffectFilterType; // @synthesize photoModeLastCapturedEffectFilterType=_photoModeLastCapturedEffectFilterType;
 @property(nonatomic) long long previewViewAspectMode; // @synthesize previewViewAspectMode=_previewViewAspectMode;
 @property(readonly, nonatomic) long long slomoConfiguration; // @synthesize slomoConfiguration=_slomoConfiguration;
 @property(readonly, nonatomic) long long videoConfiguration; // @synthesize videoConfiguration=_videoConfiguration;
-@property(nonatomic) _Bool didAcknowledgePortraitModeDescription; // @synthesize didAcknowledgePortraitModeDescription=_didAcknowledgePortraitModeDescription;
-@property(readonly, nonatomic) _Bool shouldCaptureOriginalForPortraitEffect; // @synthesize shouldCaptureOriginalForPortraitEffect=_shouldCaptureOriginalForPortraitEffect;
 @property(readonly, nonatomic) _Bool shouldCaptureHDREV0; // @synthesize shouldCaptureHDREV0=_shouldCaptureHDREV0;
+@property(readonly, nonatomic) _Bool shouldShowQRBanners; // @synthesize shouldShowQRBanners=_shouldShowQRBanners;
 @property(readonly, nonatomic) _Bool shouldShowGridView; // @synthesize shouldShowGridView=_shouldShowGridView;
 @property(retain, nonatomic) CAMConflictingControlConfiguration *conflictingControlConfiguration; // @synthesize conflictingControlConfiguration=_conflictingControlConfiguration;
 @property(retain, nonatomic) CAMCaptureConfiguration *captureConfiguration; // @synthesize captureConfiguration=_captureConfiguration;
 @property(nonatomic, setter=_setDidResetTorchMode:) _Bool didResetTorchMode; // @synthesize didResetTorchMode=_didResetTorchMode;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) long long photoEncodingBehavior;
+@property(readonly, nonatomic) long long videoEncodingBehavior;
 - (_Bool)shouldResetCaptureConfiguration;
 - (void)writePreferences;
-- (_Bool)readPreferencesWithLaunchOptions:(id)arg1 emulationMode:(long long)arg2;
+- (_Bool)readPreferencesWithLaunchOptions:(id)arg1 emulationMode:(long long)arg2 forceReset:(_Bool)arg3;
 - (void)readPreferences;
+- (long long)_sanitizeEffectFilterType:(long long)arg1 forMode:(long long)arg2;
+- (id)filterTypesForMode:(long long)arg1;
 
 @end
 

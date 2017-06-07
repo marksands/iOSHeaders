@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
         unsigned int chartLayoutStructure:1;
     } mChartInvalidFlags;
     TSCHChartLayout *mChartLayout;
+    _Bool mForceLayoutSettingsOmitLabelPlacement;
     TSDLayoutGeometry *mLayoutGeometryWhileCallingSuperComputeLayoutGeometry;
     TSDLayoutGeometry *mLastPureGeometry;
     TSDLayoutGeometry *mLastChartAreaGeometry;
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) TSDLayoutGeometry *p_lastChartAreaGeometry; // @synthesize p_lastChartAreaGeometry=mLastChartAreaGeometry;
 @property(copy, nonatomic) TSDLayoutGeometry *p_lastPureGeometry; // @synthesize p_lastPureGeometry=mLastPureGeometry;
 @property(retain, nonatomic) TSCHChartLayout *p_chartLayoutNoCreate; // @synthesize p_chartLayoutNoCreate=mChartLayout;
+@property(nonatomic) _Bool forceLayoutSettingsOmitLabelPlacement; // @synthesize forceLayoutSettingsOmitLabelPlacement=mForceLayoutSettingsOmitLabelPlacement;
 - (double)viewScaleForZoomingToSelectionPath:(id)arg1 targetPointSize:(double)arg2;
 - (id)childSearchTargets;
 - (id)i_computeWrapPath;
@@ -62,7 +64,6 @@ __attribute__((visibility("hidden")))
 - (id)propertiesThatInvalidateLayout;
 - (void)willBeAddedToLayoutController:(id)arg1;
 - (id)computeInfoGeometryFromPureLayoutGeometry:(id)arg1;
-- (_Bool)supportsParentRotation;
 - (_Bool)canRotateChildLayout:(id)arg1;
 - (id)computeInfoGeometryDuringResize;
 - (id)computeLayoutGeometry;
@@ -84,6 +85,7 @@ __attribute__((visibility("hidden")))
 - (void)p_setLegendGeometry:(id)arg1 fromTransform:(struct CGAffineTransform)arg2 onLayout:(id)arg3 shouldUpdateLayoutItemSize:(_Bool)arg4;
 - (void)p_setLegendSize:(struct CGSize)arg1;
 @property(copy, nonatomic) NSDictionary *seriesIndexedPieWedgeExplosions;
+@property(readonly, copy, nonatomic) NSDictionary *seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
 - (id)p_chartLayout2D;
 @property(copy, nonatomic) NSArray *pieWedgeExplosions;
 - (id)pieWedgeExplosionsForSeriesIndices:(id)arg1;

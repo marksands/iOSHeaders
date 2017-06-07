@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray, NSMutableDictionary, NSString;
 
@@ -28,6 +28,7 @@
     _Bool _labelCollisionEnabled;
     _Bool _labelFlipAlternatePositionsEnable;
     _Bool _labelTileDecodeEnabled;
+    _Bool _disableBackgroundLabelLayout;
     _Bool _labelAllowDefaultStyle;
     _Bool _labelUpdateMapTilesContinuously;
     _Bool _labelAutoOffsetRoadText;
@@ -36,6 +37,7 @@
     _Bool _dontMapMatchToSnappedRouteLine;
     _Bool _highlightUnmatchedRouteLine;
     _Bool _dontVerifyRouteToTransitSnapping;
+    _Bool _showManeuverPoints;
     _Bool _paintRoadSigns;
     _Bool _paintLabelBounds;
     _Bool _paintLabelRoadFeatures;
@@ -52,6 +54,7 @@
     _Bool _paintTrafficSkeleton;
     _Bool _loadGreenTraffic;
     _Bool _showTrafficCasing;
+    _Bool _texturedTrafficCasing;
     _Bool _prioritizeTrafficSkeleton;
     _Bool _paintRoadsStitchedByName;
     _Bool _realisticWireframeEnabled;
@@ -91,7 +94,6 @@
     _Bool _isInstalledInLockScreen;
     _Bool _enableLoggingInLockScreen;
     _Bool _useBuildingShadowTexture;
-    _Bool _drawContinuously;
     _Bool _layoutContinuously;
     _Bool _enableSignPostEvents;
     _Bool _useTransactionManager;
@@ -112,8 +114,17 @@
     _Bool _constantlyChangeTileGroup;
     _Bool _disableRoadSignLimit;
     _Bool _enableShieldsOnRouteLine;
+    _Bool _overrideVenueCameraSettings;
+    float _venueBoundsPaddingForCamera;
+    float _venueZoomOutFalloff;
+    _Bool _enableTrafficCameraLabelDebugging;
+    _Bool _trafficCameraLabelSelfCollide;
+    _Bool _trafficCameraLabelCollideOutExternal;
+    _Bool _trafficCameraLabelCollideWithExternal;
     struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<md::ObjectGroup>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<md::ObjectGroup>>>> _customLandmarks;
     _Bool _paintPoiTiles;
+    _Bool _paintLandcoverTiles;
+    _Bool _paintVenues;
     _Bool _labelCollideContinuously;
     _Bool _useStaticTrafficFeed;
     _Bool _newRouteTraffic;
@@ -121,15 +132,15 @@
     _Bool _showNavCameraDebugOverlay;
     _Bool _disableStylesheetAnimations;
     _Bool _trackingCameraZoomFurther;
-    float _routeRefineThreshold;
-    float _routeCoarsenThreshold;
     CDStruct_7a997382 _landmark2DStrokeSettings;
     shared_ptr_a3c46825 _debugStyleManager;
 }
 
 + (id)sharedSettings;
-@property(nonatomic) float routeCoarsenThreshold; // @synthesize routeCoarsenThreshold=_routeCoarsenThreshold;
-@property(nonatomic) float routeRefineThreshold; // @synthesize routeRefineThreshold=_routeRefineThreshold;
+@property(nonatomic) _Bool trafficCameraLabelCollideWithExternal; // @synthesize trafficCameraLabelCollideWithExternal=_trafficCameraLabelCollideWithExternal;
+@property(nonatomic) _Bool trafficCameraLabelCollideOutExternal; // @synthesize trafficCameraLabelCollideOutExternal=_trafficCameraLabelCollideOutExternal;
+@property(nonatomic) _Bool trafficCameraLabelSelfCollide; // @synthesize trafficCameraLabelSelfCollide=_trafficCameraLabelSelfCollide;
+@property(nonatomic) _Bool enableTrafficCameraLabelDebugging; // @synthesize enableTrafficCameraLabelDebugging=_enableTrafficCameraLabelDebugging;
 @property(nonatomic) _Bool enableShieldsOnRouteLine; // @synthesize enableShieldsOnRouteLine=_enableShieldsOnRouteLine;
 @property(nonatomic) _Bool disableRoadSignLimit; // @synthesize disableRoadSignLimit=_disableRoadSignLimit;
 @property(nonatomic) _Bool constantlyChangeTileGroup; // @synthesize constantlyChangeTileGroup=_constantlyChangeTileGroup;
@@ -153,7 +164,6 @@
 @property(nonatomic) _Bool useTransactionManager; // @synthesize useTransactionManager=_useTransactionManager;
 @property(nonatomic) _Bool enableSignPostEvents; // @synthesize enableSignPostEvents=_enableSignPostEvents;
 @property(nonatomic) _Bool layoutContinuously; // @synthesize layoutContinuously=_layoutContinuously;
-@property(nonatomic) _Bool drawContinuously; // @synthesize drawContinuously=_drawContinuously;
 @property(nonatomic) _Bool useBuildingShadowTexture; // @synthesize useBuildingShadowTexture=_useBuildingShadowTexture;
 @property(nonatomic) _Bool enableLoggingInLockScreen; // @synthesize enableLoggingInLockScreen=_enableLoggingInLockScreen;
 @property(nonatomic) _Bool isInstalledInLockScreen; // @synthesize isInstalledInLockScreen=_isInstalledInLockScreen;
@@ -167,6 +177,9 @@
 @property(nonatomic) float altitudeHideMeshTime; // @synthesize altitudeHideMeshTime=_altitudeHideMeshTime;
 @property(nonatomic) float altitudeTileQualityThreshold; // @synthesize altitudeTileQualityThreshold=_altitudeTileQualityThreshold;
 @property(nonatomic) float altitudeLodScale; // @synthesize altitudeLodScale=_altitudeLodScale;
+@property(nonatomic) float venueZoomOutFalloff; // @synthesize venueZoomOutFalloff=_venueZoomOutFalloff;
+@property(nonatomic) float venueBoundsPaddingForCamera; // @synthesize venueBoundsPaddingForCamera=_venueBoundsPaddingForCamera;
+@property(nonatomic) _Bool overrideVenueCameraSettings; // @synthesize overrideVenueCameraSettings=_overrideVenueCameraSettings;
 @property(nonatomic) float ribbonCrispness; // @synthesize ribbonCrispness=_ribbonCrispness;
 @property(nonatomic) _Bool showNavCameraDebugOverlay; // @synthesize showNavCameraDebugOverlay=_showNavCameraDebugOverlay;
 @property(nonatomic) _Bool showNavCameraDebugLegend; // @synthesize showNavCameraDebugLegend=_showNavCameraDebugLegend;
@@ -195,6 +208,7 @@
 @property(nonatomic) _Bool realisticWireframeEnabled; // @synthesize realisticWireframeEnabled=_realisticWireframeEnabled;
 @property(nonatomic) _Bool paintRoadsStitchedByName; // @synthesize paintRoadsStitchedByName=_paintRoadsStitchedByName;
 @property(nonatomic) _Bool prioritizeTrafficSkeleton; // @synthesize prioritizeTrafficSkeleton=_prioritizeTrafficSkeleton;
+@property(nonatomic) _Bool texturedTrafficCasing; // @synthesize texturedTrafficCasing=_texturedTrafficCasing;
 @property(nonatomic) _Bool showTrafficCasing; // @synthesize showTrafficCasing=_showTrafficCasing;
 @property(nonatomic) _Bool newRouteTraffic; // @synthesize newRouteTraffic=_newRouteTraffic;
 @property(nonatomic) _Bool useStaticTrafficFeed; // @synthesize useStaticTrafficFeed=_useStaticTrafficFeed;
@@ -213,6 +227,7 @@
 @property(nonatomic) _Bool paintLabelRoadFeatures; // @synthesize paintLabelRoadFeatures=_paintLabelRoadFeatures;
 @property(nonatomic) _Bool paintLabelBounds; // @synthesize paintLabelBounds=_paintLabelBounds;
 @property(nonatomic) _Bool paintRoadSigns; // @synthesize paintRoadSigns=_paintRoadSigns;
+@property(nonatomic) _Bool showManeuverPoints; // @synthesize showManeuverPoints=_showManeuverPoints;
 @property(nonatomic) _Bool dontVerifyRouteToTransitSnapping; // @synthesize dontVerifyRouteToTransitSnapping=_dontVerifyRouteToTransitSnapping;
 @property(nonatomic) _Bool highlightUnmatchedRouteLine; // @synthesize highlightUnmatchedRouteLine=_highlightUnmatchedRouteLine;
 @property(nonatomic) _Bool dontMapMatchToSnappedRouteLine; // @synthesize dontMapMatchToSnappedRouteLine=_dontMapMatchToSnappedRouteLine;
@@ -221,6 +236,7 @@
 @property(nonatomic) _Bool labelAutoOffsetRoadText; // @synthesize labelAutoOffsetRoadText=_labelAutoOffsetRoadText;
 @property(nonatomic) _Bool labelUpdateMapTilesContinuously; // @synthesize labelUpdateMapTilesContinuously=_labelUpdateMapTilesContinuously;
 @property(nonatomic) _Bool labelAllowDefaultStyle; // @synthesize labelAllowDefaultStyle=_labelAllowDefaultStyle;
+@property(nonatomic) _Bool disableBackgroundLabelLayout; // @synthesize disableBackgroundLabelLayout=_disableBackgroundLabelLayout;
 @property(nonatomic) _Bool labelTileDecodeEnabled; // @synthesize labelTileDecodeEnabled=_labelTileDecodeEnabled;
 @property(nonatomic) _Bool labelFlipAlternatePositionsEnable; // @synthesize labelFlipAlternatePositionsEnable=_labelFlipAlternatePositionsEnable;
 @property(nonatomic) _Bool labelCollideContinuously; // @synthesize labelCollideContinuously=_labelCollideContinuously;
@@ -232,6 +248,8 @@
 @property(nonatomic) _Bool paintCoastlines; // @synthesize paintCoastlines=_paintCoastlines;
 @property(nonatomic) _Bool paintJunctions; // @synthesize paintJunctions=_paintJunctions;
 @property(nonatomic) _Bool paintVertices; // @synthesize paintVertices=_paintVertices;
+@property(nonatomic) _Bool paintVenues; // @synthesize paintVenues=_paintVenues;
+@property(nonatomic) _Bool paintLandcoverTiles; // @synthesize paintLandcoverTiles=_paintLandcoverTiles;
 @property(nonatomic) _Bool paintPolygonTiles; // @synthesize paintPolygonTiles=_paintPolygonTiles;
 @property(nonatomic) _Bool paintPointTiles; // @synthesize paintPointTiles=_paintPointTiles;
 @property(nonatomic) _Bool paintPoiTiles; // @synthesize paintPoiTiles=_paintPoiTiles;

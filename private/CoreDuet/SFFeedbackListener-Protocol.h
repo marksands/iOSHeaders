@@ -6,11 +6,12 @@
 
 #import <CoreDuet/NSObject-Protocol.h>
 
-@class SFCardSectionEngagementFeedback, SFCardViewDisappearFeedback, SFClearInputFeedback, SFCustomFeedback, SFDidGoToSearchFeedback, SFDidGoToSiteFeedback, SFEndSearchFeedback, SFErrorFeedback, SFLateSectionsAppendedFeedback, SFRankingFeedback, SFResultEngagementFeedback, SFResultGradingFeedback, SFResultsReceivedAfterTimeoutFeedback, SFSearchViewAppearFeedback, SFSearchViewDisappearFeedback, SFSectionEngagementFeedback, SFStartSearchFeedback, SFSuggestionEngagementFeedback, SFVisibleResultsFeedback, SFVisibleSectionHeaderFeedback, SFVisibleSuggestionsFeedback;
+@class SFCardSectionEngagementFeedback, SFCardViewAppearFeedback, SFCardViewDisappearFeedback, SFClearInputFeedback, SFCustomFeedback, SFDidGoToSearchFeedback, SFDidGoToSiteFeedback, SFEndSearchFeedback, SFErrorFeedback, SFLateSectionsAppendedFeedback, SFLookupHintRelevancyFeedback, SFRankingFeedback, SFResultEngagementFeedback, SFResultGradingFeedback, SFResultsReceivedAfterTimeoutFeedback, SFSearchViewAppearFeedback, SFSearchViewDisappearFeedback, SFSectionEngagementFeedback, SFStartSearchFeedback, SFSuggestionEngagementFeedback, SFVisibleResultsFeedback, SFVisibleSectionHeaderFeedback, SFVisibleSuggestionsFeedback;
 
 @protocol SFFeedbackListener <NSObject>
 
 @optional
+- (void)didGradeLookupHintRelevancy:(SFLookupHintRelevancyFeedback *)arg1;
 - (void)didGoToSearch:(SFDidGoToSearchFeedback *)arg1;
 - (void)didGoToSite:(SFDidGoToSiteFeedback *)arg1;
 - (void)sectionHeaderDidBecomeVisible:(SFVisibleSectionHeaderFeedback *)arg1;
@@ -29,6 +30,7 @@
 - (void)didRankSections:(SFRankingFeedback *)arg1;
 - (void)didEndSearch:(SFEndSearchFeedback *)arg1;
 - (void)didStartSearch:(SFStartSearchFeedback *)arg1;
+- (void)cardViewDidAppear:(SFCardViewAppearFeedback *)arg1;
 - (void)cardViewDidDisappear:(SFCardViewDisappearFeedback *)arg1;
 - (void)searchViewDidDisappear:(SFSearchViewDisappearFeedback *)arg1;
 - (void)searchViewDidAppear:(SFSearchViewAppearFeedback *)arg1;

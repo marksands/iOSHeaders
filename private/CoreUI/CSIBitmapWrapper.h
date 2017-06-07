@@ -17,7 +17,8 @@
     unsigned int _height;
     unsigned long long _rowbytes;
     _Bool _allowsMultiPassEncoding;
-    _Bool _allowsOptimalPacking;
+    _Bool _allowsOptimalRowbytesPacking;
+    _Bool _allowsCompactCompression;
     _Bool _flipped;
     struct CGImage *_sourceImage;
     long long _texturePixelFormat;
@@ -37,7 +38,8 @@
 @property(nonatomic) _Bool flipped; // @synthesize flipped=_flipped;
 @property(nonatomic) unsigned int pixelFormat; // @synthesize pixelFormat=_pixelFormat;
 - (id)compressedData:(_Bool)arg1 usedEncoding:(int *)arg2 andRowChunkSize:(unsigned int *)arg3;
-@property _Bool allowsOptimalPacking; // @synthesize allowsOptimalPacking=_allowsOptimalPacking;
+@property _Bool allowsCompactCompression;
+@property _Bool allowsOptimalRowbytesPacking; // @synthesize allowsOptimalRowbytesPacking=_allowsOptimalRowbytesPacking;
 @property _Bool allowsMultiPassEncoding; // @synthesize allowsMultiPassEncoding=_allowsMultiPassEncoding;
 - (id)pixelData;
 - (void)setPixelData:(id)arg1;

@@ -15,7 +15,7 @@
     NSMutableDictionary *_effectList;
 }
 
-@property(copy) NSMutableDictionary *effectList; // @synthesize effectList=_effectList;
+@property(retain) NSMutableDictionary *effectList; // @synthesize effectList=_effectList;
 @property double effectScale; // @synthesize effectScale=_effectScale;
 @property _Bool visible; // @synthesize visible=_visible;
 - (void)dealloc;

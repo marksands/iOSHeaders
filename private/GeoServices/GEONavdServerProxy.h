@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface GEONavdServerProxy : NSObject
 {
@@ -19,7 +19,6 @@
 - (void)shouldPostDarwinNotificationForNextUpdate:(_Bool)arg1;
 - (void)getDirectionsForClient:(id)arg1 withRouteHypothesisRequest:(id)arg2 andCallback:(CDUnknownBlockType)arg3;
 - (void)statusWithCallback:(CDUnknownBlockType)arg1;
-- (void)dealloc;
 - (void)close;
 - (void)open;
 - (id)init;

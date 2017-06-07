@@ -6,33 +6,50 @@
 
 #import <Foundation/NSObject.h>
 
-@class ICCameraFile, NSDictionary, NSString;
+@class ICCameraFile, NSDictionary, NSString, UIImage;
 
 @interface PLCameraImportItemRepresentation : NSObject
 {
-    ICCameraFile *_cameraFile;
-    NSDictionary *_metadata;
+    _Bool _inLibrary;
     _Bool _canRequestMetadata;
     _Bool _canRequestThumbnail;
+    _Bool _isRender;
+    ICCameraFile *_cameraFile;
+    NSDictionary *_metadata;
     NSString *_path;
-    _Bool _inDatabase;
+    NSString *_name;
+    NSString *_fileExtension;
+    UIImage *_thumbnail;
 }
 
-@property(nonatomic) _Bool inDatabase; // @synthesize inDatabase=_inDatabase;
++ (CDUnknownBlockType)_fileTypeComparator;
++ (CDUnknownBlockType)_originalFirstComparator;
++ (CDUnknownBlockType)_renderFirstComparator;
++ (CDUnknownBlockType)importComparator;
++ (CDUnknownBlockType)itemComparator;
+@property(readonly, nonatomic) UIImage *thumbnail; // @synthesize thumbnail=_thumbnail;
+@property(readonly, nonatomic) _Bool isRender; // @synthesize isRender=_isRender;
+@property(readonly, copy, nonatomic) NSString *fileExtension; // @synthesize fileExtension=_fileExtension;
+@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *path; // @synthesize path=_path;
 @property(nonatomic) _Bool canRequestThumbnail; // @synthesize canRequestThumbnail=_canRequestThumbnail;
 @property(nonatomic) _Bool canRequestMetadata; // @synthesize canRequestMetadata=_canRequestMetadata;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
-@property(retain, nonatomic) ICCameraFile *cameraFile; // @synthesize cameraFile=_cameraFile;
+@property(readonly, nonatomic) ICCameraFile *cameraFile; // @synthesize cameraFile=_cameraFile;
+- (void).cxx_destruct;
+- (long long)_fileTypeSortOrder;
 - (id)forwardingTargetForSelector:(SEL)arg1;
-- (_Bool)isAudio;
-- (_Bool)isMovie;
-- (_Bool)isRaw;
-- (_Bool)isJPEG;
-- (id)fileExtension;
-- (_Bool)isInDatabaseForce:(_Bool)arg1;
+- (void)requestThumbnail;
+- (void)clearThumbnail;
+- (void)setThumbnailWithImageRef:(struct CGImage *)arg1;
+@property(readonly, nonatomic) _Bool isAudio;
+@property(readonly, nonatomic) _Bool isMovie;
+@property(readonly, nonatomic) _Bool isImage;
+@property(readonly, nonatomic) _Bool isRaw;
+- (void)markAsInDatabase;
+- (_Bool)_checkIfIsInLibrary;
+- (_Bool)isInLibraryForce:(_Bool)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)initWithCameraFile:(id)arg1;
 
 @end

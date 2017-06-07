@@ -18,9 +18,9 @@
 @property(nonatomic) double imageScaleFactor; // @synthesize imageScaleFactor=_imageScaleFactor;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) BLPixelImageBuffer *imageBuffer; // @synthesize imageBuffer=_imageBuffer;
+- (void).cxx_destruct;
 - (struct CGContext *)newContextForRect:(struct CGRect)arg1 inDestRect:(struct CGRect)arg2 andScale:(double)arg3;
 - (struct CGSize)imageSize;
-- (void)dealloc;
 
 @end
 

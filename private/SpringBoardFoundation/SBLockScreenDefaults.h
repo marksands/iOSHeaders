@@ -10,14 +10,16 @@
 {
 }
 
-@property(readonly, nonatomic) _Bool lostModeDisableDashBoard; // @dynamic lostModeDisableDashBoard;
-@property(nonatomic) _Bool useDashBoard; // @dynamic useDashBoard;
 - (void)_bindAndRegisterDefaults;
 
 // Remaining properties
+@property(nonatomic) _Bool forceWakeToMaps; // @dynamic forceWakeToMaps;
 @property(nonatomic) _Bool limitFeaturesForRemoteLock; // @dynamic limitFeaturesForRemoteLock;
+@property(nonatomic) double nowPlayingTimeout; // @dynamic nowPlayingTimeout;
 @property(nonatomic) _Bool showAuthenticationEngineeringUI; // @dynamic showAuthenticationEngineeringUI;
+@property(nonatomic) _Bool showCoverSheetFeatures; // @dynamic showCoverSheetFeatures;
 @property(readonly, nonatomic) _Bool showLegalText; // @dynamic showLegalText;
+@property(nonatomic) _Bool showQuickNoteFingerGestureRecognizer; // @dynamic showQuickNoteFingerGestureRecognizer;
 @property(nonatomic) _Bool showSupervisionText; // @dynamic showSupervisionText;
 
 @end

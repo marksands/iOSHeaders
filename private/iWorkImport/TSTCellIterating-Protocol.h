@@ -4,16 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <iWorkImport/NSObject-Protocol.h>
+#import <iWorkImport/TSTDataStoreIterating-Protocol.h>
 
-@class TSTTableTileRowInfo;
+@class TSTInfo;
 @protocol TSTCellIteratorData;
 
-@protocol TSTCellIterating <NSObject>
-@property(readonly, nonatomic) TSTTableTileRowInfo *currentRowInfo;
+@protocol TSTCellIterating <TSTDataStoreIterating>
 - (void)terminate;
 - (_Bool)getNextCellData:(id *)arg1;
 - (id <TSTCellIteratorData>)nextCellData;
 - (void)iterateCellsUsingBlock:(void (^)(id <TSTCellIteratorData>, _Bool *))arg1;
+
+@optional
+@property(readonly, retain, nonatomic) TSTInfo *tableInfo;
 @end
 

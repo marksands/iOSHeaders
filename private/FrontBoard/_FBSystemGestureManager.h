@@ -9,16 +9,17 @@
 #import <FrontBoard/FBExclusiveTouchGestureRecognizerDelegate-Protocol.h>
 #import <FrontBoard/UIGestureRecognizerDelegate-Protocol.h>
 
-@class BKSTouchStream, FBSDisplay, NSMutableSet, NSSet, NSString, UIGestureRecognizer;
+@class BKSTouchStream, FBSDisplayIdentity, NSMutableSet, NSSet, NSString, UIGestureRecognizer;
 
 @interface _FBSystemGestureManager : NSObject <UIGestureRecognizerDelegate, FBExclusiveTouchGestureRecognizerDelegate>
 {
+    FBSDisplayIdentity *_rootDisplayIdentity;
     NSMutableSet *_recognizingGestures;
     NSMutableSet *_internalGestures;
     NSMutableSet *_externalGestures;
+    long long _disableIgnoranceCount;
     _Bool _achievedMaximumMovement;
     _Bool _didSeeExclusiveTouchBegan;
-    FBSDisplay *_display;
     UIGestureRecognizer *_exclusiveTouchGesture;
     BKSTouchStream *_touchStream;
 }
@@ -27,7 +28,6 @@
 @property(nonatomic) _Bool didSeeExclusiveTouchBegan; // @synthesize didSeeExclusiveTouchBegan=_didSeeExclusiveTouchBegan;
 @property(nonatomic) _Bool achievedMaximumMovement; // @synthesize achievedMaximumMovement=_achievedMaximumMovement;
 @property(retain, nonatomic) UIGestureRecognizer *exclusiveTouchGesture; // @synthesize exclusiveTouchGesture=_exclusiveTouchGesture;
-@property(readonly, retain, nonatomic) FBSDisplay *display; // @synthesize display=_display;
 - (void)_handleTooMuchMovementWithLastTouchTimestamp:(double)arg1;
 - (void)_externalGestureRecognizerChanged:(id)arg1;
 - (void)_exclusiveTouchGestureChanged:(id)arg1;
@@ -38,12 +38,13 @@
 - (id)windowForSystemGestures;
 - (void)removeGestureRecognizer:(id)arg1;
 - (void)addGestureRecognizer:(id)arg1;
+- (void)addGestureRecognizer:(id)arg1 recognitionEvent:(long long)arg2;
 @property(readonly, copy, nonatomic) NSSet *gestureRecognizers;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (void)_removeInternalGestures;
 - (void)_addInternalGesturesToView:(id)arg1;
-- (id)initWithDisplay:(id)arg1;
+- (id)initWithRootDisplayIdentity:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

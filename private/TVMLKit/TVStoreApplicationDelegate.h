@@ -9,7 +9,7 @@
 #import <TVMLKit/TVApplicationControllerDelegate-Protocol.h>
 #import <TVMLKit/UIApplicationDelegate-Protocol.h>
 
-@class BKSProcessAssertion, NSDictionary, NSString, NSURL, TVApplicationController, TVStoreApplicationSetupHelper, UIWindow;
+@class BKSProcessAssertion, IKURLBagCache, NSDictionary, NSString, NSURL, TVApplicationController, TVStoreApplicationSetupHelper, UIWindow;
 
 @interface TVStoreApplicationDelegate : UIResponder <UIApplicationDelegate, TVApplicationControllerDelegate>
 {
@@ -23,9 +23,11 @@
     _Bool _overrideOrientation;
     UIWindow *_window;
     TVApplicationController *_appController;
+    IKURLBagCache *_bagCache;
 }
 
 @property(nonatomic) _Bool overrideOrientation; // @synthesize overrideOrientation=_overrideOrientation;
+@property(readonly, nonatomic) IKURLBagCache *bagCache; // @synthesize bagCache=_bagCache;
 @property(readonly, nonatomic) TVApplicationController *appController; // @synthesize appController=_appController;
 @property(retain, nonatomic) UIWindow *window; // @synthesize window=_window;
 - (void).cxx_destruct;
@@ -38,6 +40,7 @@
 - (void)applicationDidEnterBackground:(id)arg1;
 - (void)_launchApp;
 - (_Bool)application:(id)arg1 didFinishLaunchingWithOptions:(id)arg2;
+- (_Bool)shouldBeForcedLeftToRight;
 - (void)updateIdleModeVisualEffectsStatus:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool supportsIdleModeVisualEffects;
 - (_Bool)shouldUseTabBarAsRootViewController;
@@ -45,6 +48,7 @@
 - (void)didShowViewController;
 - (void)setupWithBootURL:(id)arg1;
 - (id)bootURL;
+- (id)cachedBagPath;
 - (void)dealloc;
 - (id)init;
 

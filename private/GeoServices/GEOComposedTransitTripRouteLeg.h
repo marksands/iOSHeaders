@@ -25,6 +25,7 @@
 
 @property(readonly, nonatomic) NSArray *transitLineOptions; // @synthesize transitLineOptions=_transitLineOptions;
 @property(nonatomic) unsigned long long selectedRideOptionIndex; // @synthesize selectedRideOptionIndex=_selectedRideOptionIndex;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool notifyBeforeAlightStep;
 @property(readonly, nonatomic) NSArray *routeLineArtwork;
 @property(readonly, nonatomic) NSDate *lastStepArrivalDate;
@@ -46,7 +47,6 @@
 @property(readonly, nonatomic) GEOComposedTransitTripRouteStep *boardStep; // @synthesize boardStep=_boardStep;
 - (_Bool)_needsStepData;
 - (void)_cacheStepData;
-- (void)dealloc;
 - (id)initWithComposedRoute:(id)arg1 tripIndex:(unsigned long long)arg2 stepRange:(struct _NSRange)arg3 transitStepRange:(struct _NSRange)arg4 pointRange:(struct _NSRange)arg5;
 
 @end

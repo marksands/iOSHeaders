@@ -6,10 +6,19 @@
 
 #import <PassKitUI/PKPaymentPreferenceCell.h>
 
+@class UITextField;
+
 @interface PKPaymentPreferenceDetailedCell : PKPaymentPreferenceCell
 {
+    UITextField *_textField;
+    _Bool _inlineEditingEnabled;
 }
 
+@property(readonly, nonatomic) UITextField *textField; // @synthesize textField=_textField;
+@property(nonatomic) _Bool inlineEditingEnabled; // @synthesize inlineEditingEnabled=_inlineEditingEnabled;
+- (void).cxx_destruct;
+- (void)layoutSubviews;
+- (void)showTextField:(_Bool)arg1;
 - (id)initWithReuseIdentifier:(id)arg1;
 
 @end

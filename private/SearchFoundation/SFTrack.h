@@ -7,11 +7,13 @@
 #import <objc/NSObject.h>
 
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFTrack-Protocol.h>
 
-@class NSString, NSURL, SFActionItem;
+@class NSData, NSDictionary, NSString, NSURL, SFActionItem;
 
-@interface SFTrack : NSObject <NSSecureCoding>
+@interface SFTrack : NSObject <SFTrack, NSSecureCoding>
 {
+    CDStruct_62e447a2 _has;
     _Bool _highlighted;
     NSString *_title;
     NSString *_number;
@@ -28,8 +30,18 @@
 @property(copy, nonatomic) NSString *number; // @synthesize number=_number;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasHighlighted;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

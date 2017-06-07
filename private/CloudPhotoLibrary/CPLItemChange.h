@@ -21,6 +21,7 @@
 - (void).cxx_destruct;
 - (id)containerRelationChangesComparedToRelationEnumerator:(id)arg1 error:(id *)arg2;
 - (id)propertiesForChangeType:(unsigned long long)arg1;
+- (id)containerDescription;
 - (id)init;
 
 @end

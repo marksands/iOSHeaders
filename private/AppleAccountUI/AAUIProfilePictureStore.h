@@ -6,21 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class AAGrandSlamSigner, ABMonogrammer, ACAccount, ACAccountStore, NSOperationQueue;
+@class AAGrandSlamSigner, ACAccount, ACAccountStore, CNMonogrammer, NSOperationQueue;
 
 @interface AAUIProfilePictureStore : NSObject
 {
     ACAccount *_account;
     ACAccountStore *_accountStore;
     AAGrandSlamSigner *_grandSlamSigner;
-    ABMonogrammer *_monogrammer;
+    CNMonogrammer *_monogrammer;
     NSOperationQueue *_networkingQueue;
     _Bool _didBeginUsingAddressBookSingleton;
     double _pictureDiameter;
-    long long _pictureStyle;
+    long long _monogramType;
 }
 
-@property(nonatomic) long long pictureStyle; // @synthesize pictureStyle=_pictureStyle;
++ (long long)CNMonogrammerStyleFromAAUIMonogramType:(long long)arg1;
++ (long long)abMonogramStyleForAAUIType:(long long)arg1;
++ (long long)aauiMonogramTypeForABStyle:(long long)arg1;
+@property(nonatomic) long long monogramType; // @synthesize monogramType=_monogramType;
 @property(nonatomic) double pictureDiameter; // @synthesize pictureDiameter=_pictureDiameter;
 - (void).cxx_destruct;
 - (id)_profilePictureForPicture:(id)arg1 crop:(_Bool)arg2 cropRect:(struct CGRect)arg3 cacheable:(_Bool)arg4;
@@ -34,6 +37,7 @@
 - (_Bool)_onAddressBookQueue_peopleLinkedToMeCardContainsRecordID:(int)arg1;
 - (void *)_onAddressBookQueue_copyPersonWithImageDataMatchingFamilyMemberEmailAddress:(id)arg1;
 - (void *)_onAddressBookQueue_copyPersonWithImageDataMatchingFamilyMember:(id)arg1;
+- (id)_monogramContactImage:(id)arg1;
 - (id)_monogramPersonImage:(void *)arg1;
 - (void)_familyMember:(id)arg1 rawImageAndCropRect:(CDUnknownBlockType)arg2;
 - (id)_familyMemberPersonPicture:(id)arg1;
@@ -62,6 +66,7 @@
 - (id)initWithAppleAccount:(id)arg1 grandSlamAccount:(id)arg2 accountStore:(id)arg3;
 - (id)initWithAppleAccount:(id)arg1 grandSlamSigner:(id)arg2;
 - (id)init;
+@property(nonatomic) long long pictureStyle;
 - (void)setProfilePictureForAccountOwner:(id)arg1;
 - (id)profilePictureForFamilyMemberWithFirstName:(id)arg1 lastName:(id)arg2 email:(id)arg3;
 - (id)initWithAppleAccount:(id)arg1 store:(id)arg2;

@@ -9,6 +9,6 @@
 @class NSSet;
 
 @protocol HFRoomSuggestionVendor <NSObject>
-- (NSSet *)roomSuggestions;
+@property(readonly, copy, nonatomic) NSSet *roomSuggestions;
 @end
 

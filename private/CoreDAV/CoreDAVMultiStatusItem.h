@@ -17,10 +17,10 @@
 + (id)copyParseRules;
 @property(retain, nonatomic) CoreDAVLeafItem *responseDescription; // @synthesize responseDescription=_responseDescription;
 @property(retain, nonatomic) NSMutableArray *orderedResponses; // @synthesize orderedResponses=_orderedResponses;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSSet *responses;
 - (void)addResponse:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

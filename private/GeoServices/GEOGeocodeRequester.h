@@ -4,22 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
-
-@class NSLock, NSMapTable;
+#import <GeoServices/GEOServiceRequester.h>
 
 __attribute__((visibility("hidden")))
-@interface GEOGeocodeRequester : NSObject
+@interface GEOGeocodeRequester : GEOServiceRequester
 {
-    NSMapTable *_pendingBatchGeocodes;
-    NSLock *_pendingGeocodesLock;
 }
 
 + (id)sharedGeocodeRequester;
 - (void)cancelBatchReverseGeocode:(id)arg1;
 - (void)batchReverseGeocode:(id)arg1 success:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
-- (void)dealloc;
-- (id)init;
 
 @end
 

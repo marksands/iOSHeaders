@@ -37,6 +37,8 @@
     _Bool _allowPartialResults;
     _Bool _includeDistance;
     _Bool _includeHistoricTravelTime;
+    _Bool _includeRouteTrafficDetail;
+    _Bool _includeShortTrafficSummary;
     _Bool _isFromAPI;
     _Bool _needServerLatency;
     _Bool _useLiveTrafficAsFallback;
@@ -48,6 +50,8 @@
         unsigned int allowPartialResults:1;
         unsigned int includeDistance:1;
         unsigned int includeHistoricTravelTime:1;
+        unsigned int includeRouteTrafficDetail:1;
+        unsigned int includeShortTrafficSummary:1;
         unsigned int isFromAPI:1;
         unsigned int needServerLatency:1;
         unsigned int useLiveTrafficAsFallback:1;
@@ -59,6 +63,7 @@
 + (Class)destinationWaypointTypedType;
 + (Class)destinationType;
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(nonatomic) _Bool includeShortTrafficSummary; // @synthesize includeShortTrafficSummary=_includeShortTrafficSummary;
 @property(retain, nonatomic) GEOPDABClientDatasetMetadata *abClientMetadata; // @synthesize abClientMetadata=_abClientMetadata;
 @property(retain, nonatomic) GEOLocation *lastKnownRoadLocation; // @synthesize lastKnownRoadLocation=_lastKnownRoadLocation;
 @property(retain, nonatomic) GEOClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
@@ -81,6 +86,7 @@
 @property(retain, nonatomic) NSMutableArray *destinations; // @synthesize destinations=_destinations;
 @property(retain, nonatomic) GEOWaypoint *origin; // @synthesize origin=_origin;
 @property(nonatomic) struct GEOTimepoint timepoint; // @synthesize timepoint=_timepoint;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -96,6 +102,9 @@
 - (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(nonatomic) _Bool hasIncludeShortTrafficSummary;
+@property(nonatomic) _Bool hasIncludeRouteTrafficDetail;
+@property(nonatomic) _Bool includeRouteTrafficDetail; // @synthesize includeRouteTrafficDetail=_includeRouteTrafficDetail;
 @property(readonly, nonatomic) _Bool hasAbClientMetadata;
 @property(readonly, nonatomic) _Bool hasLastKnownRoadLocation;
 @property(readonly, nonatomic) _Bool hasClientCapabilities;
@@ -133,7 +142,6 @@
 - (id)transportTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasTransportType;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
-- (void)dealloc;
 @property(nonatomic) _Bool hasNeedServerLatency;
 @property(nonatomic) _Bool needServerLatency;
 @property(nonatomic) _Bool hasUseLiveTrafficAsFallback;

@@ -6,10 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
+#import <iWorkImport/CALayerDelegate-Protocol.h>
+
+@class NSString;
 @protocol TPLayerDelegateProxyDelegate;
 
 __attribute__((visibility("hidden")))
-@interface TPLayerDelegateProxy : NSObject
+@interface TPLayerDelegateProxy : NSObject <CALayerDelegate>
 {
     id <TPLayerDelegateProxyDelegate> _delegate;
 }
@@ -21,6 +24,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (void)clearDelegate;
 - (id)initWithDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

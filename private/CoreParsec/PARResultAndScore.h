@@ -32,7 +32,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double topicScore; // @synthesize topicScore=_topicScore;
 @property(retain, nonatomic) SFSearchResult *result; // @synthesize result=_result;
 - (void).cxx_destruct;
-- (id)description;
 
 @end
 

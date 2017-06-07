@@ -4,13 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
+
+@class NSString;
+@protocol OS_dispatch_queue;
 
 @interface GEOLogMsgStateFactory : NSObject
 {
+    NSString *_carrierOperatorName;
+    _Bool _cellularDataUsageAllowedForMaps;
+    _Bool _hasCellularDataUsageAllowedForMaps;
+    NSObject<OS_dispatch_queue> *_coreTelephonyIsolationQueue;
+    NSObject<OS_dispatch_queue> *_subscriptionIsolation;
+    unsigned long long _numberOfExplicitSubscriptions;
 }
 
++ (_Bool)deviceHasRadio;
 + (id)sharedInstance;
+- (void).cxx_destruct;
+- (id)logMsgStateForRealtimeTrafficProbeCollectionWithTripId:(id)arg1 probeCount:(unsigned long long)arg2 recvTime:(id)arg3;
 - (id)logMsgStateForExtensionWithTableBookingAppsInstalled:(_Bool)arg1 hasAppsEnabled:(_Bool)arg2;
 - (id)logMsgStateForRidesharingWithNumberOfAppsInstalled:(unsigned long long)arg1 enabled:(unsigned long long)arg2;
 - (id)logMsgStateForSuggestionsWithSearchFieldType:(int)arg1 searchString:(id)arg2 displayedResults:(id)arg3 selectedIndex:(int)arg4 acSequenceNumber:(int)arg5;
@@ -46,6 +58,7 @@
 - (id)logMsgStateForMapsUIWithLayoutInfo:(int)arg1 layoutStyle:(int)arg2;
 - (id)logMsgStateForTransitWithStateOrigin:(id)arg1 transitNotAvailableAdvisoryShowing:(_Bool)arg2;
 - (id)logMsgStateForTransitWithTransitNotAvailableAdvisoryShowing:(_Bool)arg1;
+- (id)logMsgStateForMapViewLocationWithTouristInfo:(_Bool)arg1;
 - (id)logMsgStateForMapViewLocationWithStateOrigin:(id)arg1 locationBucket:(int)arg2 currentLocationInViewport:(_Bool)arg3;
 - (id)logMsgStateForMapViewLocationWithLocationBucket:(int)arg1 currentLocationInViewport:(_Bool)arg2;
 - (id)logMsgStateForMapViewWithStateOrigin:(id)arg1 mapRegion:(id)arg2 zoomLevel:(double)arg3 mapType:(int)arg4;
@@ -54,6 +67,15 @@
 - (id)logMsgStateForPairedDeviceWithIsConnected:(_Bool)arg1 deviceType:(int)arg2 deviceOSVersion:(id)arg3 deviceHardwareId:(id)arg4;
 - (id)logMsgStateForCarPlayWithStateOrigin:(id)arg1 isConnected:(_Bool)arg2 carInfo:(id)arg3;
 - (id)logMsgStateForCarPlayWithIsConnected:(_Bool)arg1 carInfo:(id)arg2;
+- (void)_retrieveCellularDataUsagePolicyForMaps;
+- (void)_updateCellularDataAllowedForMapsSetting;
+- (int)cellularDataState;
+@property(readonly, nonatomic, getter=isCellularDataUsageAllowedForDevice) _Bool cellularDataUsageAllowedForDevice;
+@property(readonly, nonatomic, getter=isCellularDataUsageAllowedForMaps) _Bool cellularDataUsageAllowedForMaps;
+- (void)_retrieveCarrierOperatorName;
+- (void)_updateCarrierOperatorName;
+- (void)_connectToCoreTelephonyServer;
+@property(readonly, nonatomic) NSString *carrierOperatorName;
 - (void)dealloc;
 - (id)init;
 

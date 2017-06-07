@@ -8,11 +8,12 @@
 
 #import <SafariShared/WBSCompletionListItem-Protocol.h>
 
-@class NSString, SFSearchResult;
+@class NSString, SFSearchResult, WBSQuerySuggestion;
 
 @interface WBSURLCompletionMatch : NSObject <WBSCompletionListItem>
 {
     long long _matchLocation;
+    NSString *_userInput;
     SFSearchResult *_sfSearchResultValue;
 }
 
@@ -30,12 +31,13 @@
 - (id)originalURLString;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool matchLocationIsInURL;
-- (id)initWithMatchLocation:(long long)arg1;
+- (id)initWithMatchLocation:(long long)arg1 userInput:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *lastSearchQuery;
+@property(retain, nonatomic) WBSQuerySuggestion *siriSuggestion;
 @property(readonly) Class superclass;
 
 @end

@@ -34,6 +34,7 @@
 @property(retain, nonatomic) id secondaryValue;
 @property(retain, nonatomic) id value;
 - (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
 - (CDStruct_c3b9c2ee)_permittedValueRange;
 - (id)initWithProfile:(id)arg1;
 

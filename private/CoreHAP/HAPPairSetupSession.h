@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <CoreHAP/HMFTimerDelegate-Protocol.h>
 
-@class HMFTimer, NSString;
+@class HMFTimer, NSObject, NSString;
 @protocol HAPPairSetupSessionDelegate, OS_dispatch_queue;
 
-@interface HAPPairSetupSession : NSObject <HMFTimerDelegate>
+@interface HAPPairSetupSession : HMFObject <HMFTimerDelegate>
 {
     id <HAPPairSetupSessionDelegate> _delegate;
     long long _role;

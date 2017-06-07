@@ -6,21 +6,17 @@
 
 #import <Navigation/MNLocationTracker.h>
 
-#import <Navigation/GEOMapAccessRestrictions-Protocol.h>
-
-@class GEOMapAccess, GEONavigationMapMatcher, MNLocation, NSData, NSString, NSTimer;
+@class GEONavigationMapMatcher, MNLocation, NSData, NSTimer;
 @protocol GEODirectionServiceTicket;
 
 __attribute__((visibility("hidden")))
-@interface MNTurnByTurnLocationTracker : MNLocationTracker <GEOMapAccessRestrictions>
+@interface MNTurnByTurnLocationTracker : MNLocationTracker
 {
     GEONavigationMapMatcher *_mapMatcher;
-    GEOMapAccess *_mapAccess;
     double _startTime;
     id <GEODirectionServiceTicket> _rerouteTicket;
     NSData *_serverSessionState;
     unsigned long long _rerouteReason;
-    _Bool _localizeRoadNames;
     long long _responseErrorCode;
     unsigned long long _responseErrorCount;
     unsigned long long _recalculationNetworkUnreachableCount;
@@ -28,13 +24,13 @@ __attribute__((visibility("hidden")))
     unsigned long long _reroutesOnFeature;
     MNLocation *_lastLocationUsedForReroute;
     unsigned long long _consecutiveOffRouteCount;
+    MNLocation *_lastKnownGoodLocationOnRoute;
 }
 
 @property(retain, nonatomic) NSData *serverSessionState; // @synthesize serverSessionState=_serverSessionState;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) _Bool allowsNetworkTileLoad;
-- (id)_lazyContingentRouteForRouteSet:(id)arg1 forLocation:(id)arg2;
-- (id)_contingentRouteForRouteSet:(id)arg1 forLocation:(id)arg2;
+- (void)forceOnRoute:(id)arg1 atLocation:(id)arg2;
+- (id)_alternateRouteForOffRouteLocation:(id)arg1;
 - (_Bool)_allowSwitchToTransportType:(int)arg1 forLocation:(id)arg2;
 - (int)_detectedMotionForLocation:(id)arg1;
 - (void)_updateForArrival;
@@ -42,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateForLocation:(id)arg1;
 - (id)_overrideLocationForLocation:(id)arg1;
 - (id)_newMapMatcherForRoute:(id)arg1;
+- (void)traceJumpedInTime;
 - (id)_matchedLocationForLocation:(id)arg1;
 - (void)updateLocation:(id)arg1;
 - (void)stopTracking;
@@ -58,22 +55,15 @@ __attribute__((visibility("hidden")))
 - (id)_rerouteTicketForLocation:(id)arg1 transportType:(int)arg2 stepIndex:(unsigned long long)arg3;
 - (_Bool)_isCameraTestMode;
 - (_Bool)_isRerouting;
-- (void)_defaultsDidChange;
-- (void)_updateShouldLocalizeRoadNames;
-- (void)_roadFeaturesForFeature:(CDStruct_6ac9d495 *)arg1 outRoadName:(id *)arg2 outShieldText:(id *)arg3 outShieldType:(long long *)arg4;
 - (id)_matchedLocationForMatchResult:(id)arg1 originalLocation:(id)arg2;
+- (_Bool)_shouldAdvanceGuidanceToRouteMatch:(id)arg1;
 - (void)_updateSwitchTransportTypeForLocation:(id)arg1;
 - (void)_updateStateForLocation:(id)arg1;
 - (void)reroute:(id)arg1 reason:(unsigned long long)arg2;
 - (void)updateDestination:(id)arg1 finishedHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithNavigationSession:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initForTestingWithRoute:(id)arg1;
 
 @end
 

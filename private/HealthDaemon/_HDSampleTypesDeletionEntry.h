@@ -6,22 +6,22 @@
 
 #import <HealthDaemon/HDJournalEntry.h>
 
-@class NSNumber, NSSet;
+@class NSSet;
 
 @interface _HDSampleTypesDeletionEntry : HDJournalEntry
 {
-    NSNumber *_sourceID;
+    NSSet *_sourceIDs;
     NSSet *_types;
 }
 
 + (_Bool)supportsSecureCoding;
 + (void)applyEntries:(id)arg1 withProfile:(id)arg2;
 @property(retain, nonatomic) NSSet *types; // @synthesize types=_types;
-@property(copy, nonatomic) NSNumber *sourceID; // @synthesize sourceID=_sourceID;
+@property(copy, nonatomic) NSSet *sourceIDs; // @synthesize sourceIDs=_sourceIDs;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithSourceID:(id)arg1 types:(id)arg2;
+- (id)initWithSourceIDs:(id)arg1 types:(id)arg2;
 
 @end
 

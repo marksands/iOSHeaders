@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool etaUpdatesWereReported; // @synthesize etaUpdatesWereReported=_etaUpdatesWereReported;
 @property(nonatomic) unsigned long long etaUpdatesAfterEventStart; // @synthesize etaUpdatesAfterEventStart=_etaUpdatesAfterEventStart;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)didShowUI:(unsigned long long)arg1;

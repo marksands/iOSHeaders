@@ -25,12 +25,16 @@
 @property(nonatomic, getter=_isGeneratingAdditionalEntries, setter=_setGeneratingAdditionalEntries:) _Bool _generatingAdditionalEntries; // @synthesize _generatingAdditionalEntries=__generatingAdditionalEntries;
 @property(nonatomic, setter=_setFirstUngroupedMemoryIndex:) unsigned long long _firstUngroupedMemoryIndex; // @synthesize _firstUngroupedMemoryIndex=__firstUngroupedMemoryIndex;
 - (void).cxx_destruct;
-- (void)markCurrentMemoriesAsNotPending;
+- (void)updateCurrentMemoriesNonPendingAndNotificationStatus;
+- (void)_clearPendingNotificationForMemory:(id)arg1;
 - (void)handleChangedKeyAssetsForMemories:(id)arg1;
 - (void)handleNonIncrementalFetchResultChange:(id)arg1;
 - (void)handleIncrementalFetchResultChange:(id)arg1 updatedFetchResultsForMemoriesWithChangedKeyAssets:(id)arg2;
+- (void)reloadMemories:(_Bool)arg1;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1 withPreparedInfo:(id)arg2;
 - (id)prepareForPhotoLibraryChange:(id)arg1;
+- (void)pauseLibraryUpdates;
+- (void)resumeLibraryUpdates;
 - (void)generateAdditionalEntriesIfPossible;
 - (void)startGeneratingMemories;
 - (void)resetMemoriesFetchResult;

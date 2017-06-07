@@ -31,12 +31,13 @@
 - (void)applyToJoinCircleWithJoinHandler:(CDUnknownBlockType)arg1;
 - (id)_peerDeviceNamesByPeerID;
 - (void)useCircleInfoToUpdateNameForDevices:(id)arg1;
-- (void)_resetCicleToResolvePendingAfterRecoveryWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetCicleToResolvePendingAfterRecoveryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)joinCircleAfterRecoveryWithCompletion:(CDUnknownBlockType)arg1;
 - (unsigned long long)_peerCount;
-- (void)_joinCDPCircleIgnoringBackups:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)joinCDPCircleIgnoringBackups:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)joinCDPCircleWithCompletion:(CDUnknownBlockType)arg1;
+- (void)promptForCredentials:(CDUnknownBlockType)arg1;
+- (void)_joinCircleIgnoringBackups:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)joinCircleIgnoringBackups:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)joinCircleWithCompletion:(CDUnknownBlockType)arg1;
 - (void)prepareCircleStateForRecovery;
 - (_Bool)synchronizeCircleViews;
 - (id)peerID;

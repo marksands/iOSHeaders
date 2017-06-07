@@ -23,9 +23,9 @@
     NSURL *_cacheDirUrl;
 }
 
-+ (unsigned int)activeFaceprintVersion;
-+ (_Bool)facesSyncFeatureEnabled;
++ (unsigned int)activeFaceAlgorithmVersion;
 - (void).cxx_destruct;
+- (id)suggestedPersonLocalIdentifierForPersonLocalIdentifier:(id)arg1 error:(id *)arg2;
 - (id)suggestedPersonLocalIdentifierForFaceLocalIdentifier:(id)arg1 error:(id *)arg2;
 - (id)suggestionsForFaceClusterSequenceNumbers:(id)arg1 error:(id *)arg2;
 - (_Bool)cancelAllSuggestionRequests;
@@ -37,21 +37,21 @@
 - (void)requestFaceClusteringWithCompletion:(CDUnknownBlockType)arg1;
 - (void)performFaceClusteringAndWait;
 - (void)performFaceClusteringIfNecessaryAndWait;
-- (_Bool)faceClusteringIsNeeded;
-- (void)dropFaceClusterSequenceNumbers:(id)arg1;
-- (void)processFaceUpdates:(id)arg1;
+- (unsigned long long)numberOfFacesPendingClustering;
+- (void)scheduleUnclusteringOfFacesWithClusterSequenceNumbers:(id)arg1;
+- (void)scheduleClusteringOfFacesWithLocalIdentifiers:(id)arg1;
 - (id)analyzeImage:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (void)stop;
 - (void)start:(CDUnknownBlockType)arg1;
 - (id)initWithPersistenceDelegate:(id)arg1 notificationListener:(id)arg2 options:(id)arg3;
-- (_Bool)buildPersonsWithCanceler:(id)arg1 error:(id *)arg2;
+- (_Bool)buildPersonsWithCanceler:(id)arg1 keyFaceUpdateBlock:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (id)context;
+- (long long)clustererState;
+- (_Bool)isClusterCacheValid:(id *)arg1;
 - (_Bool)getFaceClusters:(id *)arg1 clusteringThreshold:(double *)arg2 utilizingGPU:(_Bool *)arg3 error:(id *)arg4;
-- (_Bool)reclusterFacesWithThreshold:(id)arg1 withContext:(id)arg2 error:(id *)arg3;
+- (_Bool)reclusterFacesWithThreshold:(id)arg1 shouldRecluster:(_Bool)arg2 withContext:(id)arg3 error:(id *)arg4;
 - (_Bool)resetFaceClusteringStateWithContext:(id)arg1 error:(id *)arg2;
 - (id)mergeExistingFaces:(id)arg1 withDetectedFaces:(id)arg2 forImage:(id)arg3;
-- (void)drawFaceboxes:(id)arg1 inImage:(id)arg2 outputFilename:(id)arg3;
-- (void)configurePhotoVisionContextWithParams:(id)arg1;
 
 @end
 

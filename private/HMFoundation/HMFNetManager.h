@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class _HMFNetManagerWoWAssertion;
+@class NSObject, _HMFNetManagerWoWAssertion;
 @protocol OS_dispatch_queue;
 
-@interface HMFNetManager : NSObject
+@interface HMFNetManager : HMFObject
 {
     NSObject<OS_dispatch_queue> *_clientQueue;
     _HMFNetManagerWoWAssertion *_wowAssertion;

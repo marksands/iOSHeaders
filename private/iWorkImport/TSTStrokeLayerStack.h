@@ -28,7 +28,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSTMutableStrokeLayer *clearedStrokeLayer; // @synthesize clearedStrokeLayer=_clearedStrokeLayer;
 @property(retain, nonatomic) TSTStrokeLayer *customStrokeLayer; // @synthesize customStrokeLayer=_customStrokeLayer;
 @property(retain, nonatomic) TSTStrokeLayer *defaultStrokeLayer; // @synthesize defaultStrokeLayer=_defaultStrokeLayer;
-- (id)strokeLayerEnumeration;
+- (void).cxx_destruct;
+- (unsigned long long)count;
+- (id)p_strokeLayerEnumeration;
 - (void)invalidateSpillStrokes;
 - (void)invalidateDynamicStrokesInRange:(struct TSTSimpleRange)arg1;
 - (void)invalidateDynamicStrokes;
@@ -41,7 +43,6 @@ __attribute__((visibility("hidden")))
 - (void)insertDynamicStroke:(id)arg1 strokeOrder:(int)arg2 atRange:(struct TSTSimpleRange)arg3;
 - (void)insertClearedStrokeAtRange:(struct TSTSimpleRange)arg1;
 - (id)portalledStrokeLayer;
-- (void)dealloc;
 - (id)initWithStackKind:(long long)arg1;
 
 @end

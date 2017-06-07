@@ -29,7 +29,6 @@
 + (_Bool)performUpgradeOfPersistence:(id)arg1 fileManager:(id)arg2 error:(id *)arg3;
 + (id)serviceDebuggingPath;
 + (id)readInternalDefaultValueForKey:(id)arg1;
-+ (id)_getGroupDefaultsFromURLInApp:(id)arg1;
 + (id)preferencesWithPersistence:(id)arg1;
 + (id)userDefaultsPersistence;
 + (id)sharedPreferences;
@@ -52,6 +51,7 @@
 - (id)twcLogoURL;
 - (id)serviceHost;
 - (id)UUID;
+- (void)forceSyncCloudPreferences;
 - (void)synchronizeStateToDisk;
 - (void)synchronizeStateToDiskDoNotify:(_Bool)arg1;
 - (void)setDefaultSelectedCityID:(id)arg1;

@@ -6,10 +6,9 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class NSArray, NSString;
+@class NSArray;
 
 @protocol GEOServerFormattedString <NSObject>
-@property(readonly, nonatomic) NSString *formatString;
 @property(readonly, nonatomic) NSArray *separators;
 @property(readonly, nonatomic) NSArray *formatTokens;
 @property(readonly, nonatomic) NSArray *formatStrings;

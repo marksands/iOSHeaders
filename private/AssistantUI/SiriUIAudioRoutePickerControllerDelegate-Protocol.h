@@ -9,6 +9,8 @@
 @class SiriUIAudioRoutePickerController;
 
 @protocol SiriUIAudioRoutePickerControllerDelegate <NSObject>
+- (void)routePickerControllerWillDismiss:(SiriUIAudioRoutePickerController *)arg1;
+- (void)routePickerControllerWillShow:(SiriUIAudioRoutePickerController *)arg1;
 - (void)routePickerControllerPickedNewRoute:(SiriUIAudioRoutePickerController *)arg1 isBluetooth:(_Bool)arg2;
 - (void)routePickerController:(SiriUIAudioRoutePickerController *)arg1 hasRoutesToPick:(_Bool)arg2;
 @end

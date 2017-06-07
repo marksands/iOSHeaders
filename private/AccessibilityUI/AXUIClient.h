@@ -28,7 +28,8 @@
 @property(retain, nonatomic) AXUIClientConnection *clientConnection; // @synthesize clientConnection=_clientConnection;
 @property(retain, nonatomic) AXUIMessageSender *messageSender; // @synthesize messageSender=_messageSender;
 @property(copy, nonatomic) NSString *serviceBundleName; // @synthesize serviceBundleName=_serviceBundleName;
-@property(nonatomic) id <AXUIClientDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <AXUIClientDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_requestInitializationMessageFromDelegateIfNeeded;

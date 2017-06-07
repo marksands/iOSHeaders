@@ -13,12 +13,20 @@
 @interface GEOPDBrowseCategory : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    int _displayMode;
     NSString *_displayString;
     NSString *_popularDisplayToken;
     NSString *_shortDisplayString;
+    int _sortOrder;
     GEOStyleAttributes *_styleAttributes;
+    int _subCategoryType;
     NSMutableArray *_subCategorys;
     NSData *_suggestionEntryMetadata;
+    struct {
+        unsigned int displayMode:1;
+        unsigned int sortOrder:1;
+        unsigned int subCategoryType:1;
+    } _has;
 }
 
 + (Class)subCategoryType;
@@ -28,6 +36,7 @@
 @property(retain, nonatomic) GEOStyleAttributes *styleAttributes; // @synthesize styleAttributes=_styleAttributes;
 @property(retain, nonatomic) NSString *displayString; // @synthesize displayString=_displayString;
 @property(retain, nonatomic) NSData *suggestionEntryMetadata; // @synthesize suggestionEntryMetadata=_suggestionEntryMetadata;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -38,6 +47,18 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsSubCategoryType:(id)arg1;
+- (id)subCategoryTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasSubCategoryType;
+@property(nonatomic) int subCategoryType; // @synthesize subCategoryType=_subCategoryType;
+- (int)StringAsDisplayMode:(id)arg1;
+- (id)displayModeAsString:(int)arg1;
+@property(nonatomic) _Bool hasDisplayMode;
+@property(nonatomic) int displayMode; // @synthesize displayMode=_displayMode;
+- (int)StringAsSortOrder:(id)arg1;
+- (id)sortOrderAsString:(int)arg1;
+@property(nonatomic) _Bool hasSortOrder;
+@property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
 @property(readonly, nonatomic) _Bool hasPopularDisplayToken;
 @property(readonly, nonatomic) _Bool hasShortDisplayString;
 - (id)subCategoryAtIndex:(unsigned long long)arg1;
@@ -47,7 +68,6 @@
 @property(readonly, nonatomic) _Bool hasStyleAttributes;
 @property(readonly, nonatomic) _Bool hasDisplayString;
 @property(readonly, nonatomic) _Bool hasSuggestionEntryMetadata;
-- (void)dealloc;
 
 @end
 

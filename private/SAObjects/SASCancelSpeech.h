@@ -16,6 +16,7 @@
 
 + (id)cancelSpeechWithDictionary:(id)arg1 context:(id)arg2;
 + (id)cancelSpeech;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

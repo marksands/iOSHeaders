@@ -18,10 +18,6 @@
     _Bool connectionPersists;
 }
 
-+ (id)dictionaryForVideoConfig:(id)arg1;
-+ (id)dictionaryForAudioConfig:(id)arg1;
-+ (id)dictionaryForCommonStreamConfig:(id)arg1;
-+ (id)dictionaryForMediaStreamConfig:(id)arg1;
 + (id)AVConferenceXPCClientSingleton;
 @property(readonly) _Bool connectionPersists; // @synthesize connectionPersists;
 @property(readonly) NSMutableDictionary *registeredBlocks; // @synthesize registeredBlocks;

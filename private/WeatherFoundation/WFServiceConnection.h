@@ -40,6 +40,7 @@
 - (void)_onQueueInvalidateConnection:(id)arg1;
 - (void)_onQueueOpenConnection;
 - (void)_handleRemoteObjectProxyError:(id)arg1;
+- (void)invalidateCache;
 - (void)invalidate;
 - (void)enqueueRequest:(id)arg1 waitUntilDone:(_Bool)arg2;
 - (void)enqueueRequest:(id)arg1;

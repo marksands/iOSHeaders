@@ -17,6 +17,7 @@
     long long _feedScrollDirection;
     unsigned long long _feedMemoriesPerRow;
     double _feedEntryHeaderHeight;
+    double _firstFeedEntryHeaderHeight;
     double _distanceBetweenHeaderBaselineAndImageTop;
     double _feedInteritemSpacing;
     long long _idiom;
@@ -51,6 +52,7 @@
 @property(readonly, nonatomic) long long idiom; // @synthesize idiom=_idiom;
 @property(readonly, nonatomic) double feedInteritemSpacing; // @synthesize feedInteritemSpacing=_feedInteritemSpacing;
 @property(readonly, nonatomic) double distanceBetweenHeaderBaselineAndImageTop; // @synthesize distanceBetweenHeaderBaselineAndImageTop=_distanceBetweenHeaderBaselineAndImageTop;
+@property(readonly, nonatomic) double firstFeedEntryHeaderHeight; // @synthesize firstFeedEntryHeaderHeight=_firstFeedEntryHeaderHeight;
 @property(readonly, nonatomic) double feedEntryHeaderHeight; // @synthesize feedEntryHeaderHeight=_feedEntryHeaderHeight;
 @property(readonly, nonatomic) struct UIEdgeInsets feedEntryEdgeInsets; // @synthesize feedEntryEdgeInsets=_feedEntryEdgeInsets;
 @property(readonly, nonatomic) unsigned long long feedMemoriesPerRow; // @synthesize feedMemoriesPerRow=_feedMemoriesPerRow;

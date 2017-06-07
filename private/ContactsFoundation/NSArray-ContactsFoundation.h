@@ -7,9 +7,12 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (ContactsFoundation)
++ (id)_cn_arrayWithObject:(id)arg1 count:(unsigned long long)arg2;
+- (id)_cn_arrayByRotatingRange:(struct _NSRange)arg1 by:(long long)arg2;
 - (_Bool)_cn_isNonEmpty;
 - (_Bool)_cn_isIdenticalToArray:(id)arg1;
 - (id)_cn_safeSortedArrayUsingComparator:(CDUnknownBlockType)arg1;
+- (id)_cn_reversed;
 - (void)_cn_zip:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)_cn_zip:(id)arg1;
 - (id)_cn_indexBy:(CDUnknownBlockType)arg1;
@@ -24,6 +27,7 @@
 - (id)_cn_flatten;
 - (id)_cn_distinctObjects;
 - (id)_cn_indicesForObjects:(id)arg1;
+- (_Bool)_cn_none:(CDUnknownBlockType)arg1;
 - (_Bool)_cn_any:(CDUnknownBlockType)arg1;
 - (_Bool)_cn_all:(CDUnknownBlockType)arg1;
 - (id)_cn_tail;
@@ -36,6 +40,7 @@
 - (id)_cn_join:(id)arg1;
 - (void)_cn_each_reverse:(CDUnknownBlockType)arg1;
 - (void)_cn_each:(CDUnknownBlockType)arg1 untilCancelled:(id)arg2;
+- (void)_cn_each:(CDUnknownBlockType)arg1 until:(CDUnknownBlockType)arg2;
 - (void)_cn_each:(CDUnknownBlockType)arg1;
 @end
 

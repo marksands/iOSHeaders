@@ -17,6 +17,7 @@
     NSDictionary *_channelsByBundleID;
 }
 
++ (_Bool)isItunesOrFirstPartyBundleID:(id)arg1;
 + (id)_validiTunesBundles;
 + (_Bool)isItunesBundleID:(id)arg1;
 + (id)sharedInstance;

@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSMutableArray *logoURLs; // @synthesize logoURLs=_logoURLs;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) NSString *language; // @synthesize language=_language;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +44,6 @@
 - (void)clearLogoURLs;
 @property(readonly, nonatomic) _Bool hasDisplayName;
 @property(readonly, nonatomic) _Bool hasLanguage;
-- (void)dealloc;
 - (id)bestURLForLogos:(id)arg1 scale:(double)arg2;
 
 @end

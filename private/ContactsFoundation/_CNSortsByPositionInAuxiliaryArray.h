@@ -8,7 +8,6 @@
 
 @class NSArray, NSDictionary;
 
-__attribute__((visibility("hidden")))
 @interface _CNSortsByPositionInAuxiliaryArray : NSObject
 {
     NSDictionary *_ranks;

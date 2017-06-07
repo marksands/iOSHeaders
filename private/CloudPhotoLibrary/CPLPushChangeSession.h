@@ -14,9 +14,10 @@
 {
 }
 
-- (void)commitChangeBatch:(id)arg1 withUnderlyingCompletionHandler:(CDUnknownBlockType)arg2;
++ (id)shortDescription;
 - (void)commitChangeBatch:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (id)_sessionLogDomain;
+- (void)commitChangeBatch:(id)arg1 withUnderlyingCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)commitChangeBatch:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)initWithLibraryManager:(id)arg1;
 
 // Remaining properties

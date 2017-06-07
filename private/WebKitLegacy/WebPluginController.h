@@ -11,6 +11,7 @@
 
 @class NSMutableArray, NSMutableSet, NSString, WAKView, WebDataSource;
 
+__attribute__((visibility("hidden")))
 @interface WebPluginController : NSObject <WebPluginManualLoader, WebPluginContainerCheckController>
 {
     WAKView *_documentView;

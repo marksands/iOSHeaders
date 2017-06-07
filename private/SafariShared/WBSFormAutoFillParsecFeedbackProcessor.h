@@ -8,14 +8,15 @@
 
 #import <SafariShared/WBSFormAutoFillFeedbackProcessor-Protocol.h>
 
-@class NSString, WBSFormAutoFillCorrectionsDomainNormalizer;
-@protocol WBSFormAutoFillFeedbackDomainPolicyProvider, WBSParsecGlobalFeedbackDispatcher;
+@class NSString, WBSCrowdsourcedFeedbackDomainNormalizer;
+@protocol OS_dispatch_queue, WBSFormAutoFillFeedbackDomainPolicyProvider, WBSParsecGlobalFeedbackDispatcher;
 
 @interface WBSFormAutoFillParsecFeedbackProcessor : NSObject <WBSFormAutoFillFeedbackProcessor>
 {
     id <WBSParsecGlobalFeedbackDispatcher> _globalFeedbackDispatcher;
     unsigned long long _autoFillVersion;
-    WBSFormAutoFillCorrectionsDomainNormalizer *_domainNormalizer;
+    WBSCrowdsourcedFeedbackDomainNormalizer *_domainNormalizer;
+    NSObject<OS_dispatch_queue> *_internalQueue;
     id <WBSFormAutoFillFeedbackDomainPolicyProvider> _domainPolicyProvider;
 }
 

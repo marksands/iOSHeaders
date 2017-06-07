@@ -8,8 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOFormattedStringClientCapabilities : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     _Bool _concatenatingFormatStringsSupported;
     _Bool _timestampFormatPatternSupported;
     struct {
@@ -20,6 +23,8 @@
 
 @property(nonatomic) _Bool timestampFormatPatternSupported; // @synthesize timestampFormatPatternSupported=_timestampFormatPatternSupported;
 @property(nonatomic) _Bool concatenatingFormatStringsSupported; // @synthesize concatenatingFormatStringsSupported=_concatenatingFormatStringsSupported;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

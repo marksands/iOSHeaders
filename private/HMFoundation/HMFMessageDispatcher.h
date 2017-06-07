@@ -4,22 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/HMFMessageTransportDelegate-Protocol.h>
 
-@class HMFMessageTransport, NSMutableDictionary, NSString;
+@class HMFMessageTransport, NSMutableDictionary, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMFMessageDispatcher : NSObject <HMFMessageTransportDelegate>
+@interface HMFMessageDispatcher : HMFObject <HMFMessageTransportDelegate>
 {
-    _Bool _remoteSource;
+    _Bool _remote;
     HMFMessageTransport *_transport;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSMutableDictionary *_notificationHandlers;
 }
 
-@property(nonatomic, getter=isRemoteSource) _Bool remoteSource; // @synthesize remoteSource=_remoteSource;
+@property(nonatomic, getter=isRemote) _Bool remote; // @synthesize remote=_remote;
 @property(retain, nonatomic) NSMutableDictionary *notificationHandlers; // @synthesize notificationHandlers=_notificationHandlers;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) HMFMessageTransport *transport; // @synthesize transport=_transport;

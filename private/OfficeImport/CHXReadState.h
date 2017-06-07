@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool ignoreFormulas; // @synthesize ignoreFormulas=mIgnoreFormulas;
 - (id)autoStyling;
+- (void)popDefaultTextProperties;
+- (void)pushDefaultTextProperties:(id)arg1;
 - (void)popTitleTextProperties;
 - (void)pushTitleTextProperties:(_Bool)arg1;
 - (void)setDefaultTextPropertiesHaveExplicitFontSize:(_Bool)arg1;

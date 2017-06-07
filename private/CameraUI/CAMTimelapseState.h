@@ -14,6 +14,7 @@
 @interface CAMTimelapseState : NSObject <NSCoding, NSCopying>
 {
     _Bool _allFramesWritten;
+    _Bool _preferHEVC;
     unsigned short _sessionIdentifier;
     int _captureOrientation;
     float _focusLensPosition;
@@ -32,6 +33,7 @@
 
 + (id)stateWithContentsOfFile:(id)arg1;
 + (double)maxTimeToWaitForWrittenFrameAfterStop;
+@property(nonatomic) _Bool preferHEVC; // @synthesize preferHEVC=_preferHEVC;
 @property(nonatomic) struct CGSize nominalIntermediateFrameSize; // @synthesize nominalIntermediateFrameSize=_nominalIntermediateFrameSize;
 @property(nonatomic) float focusLensPosition; // @synthesize focusLensPosition=_focusLensPosition;
 @property(readonly, nonatomic) long long nextFrameIndex; // @synthesize nextFrameIndex=_nextFrameIndex;

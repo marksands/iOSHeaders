@@ -14,6 +14,7 @@
 {
     GEOFormattedString *_bannerLargeText;
     GEOFormattedString *_bannerSmallText;
+    int _bannerStyle;
     unsigned int _hideAtDistance;
     unsigned int _incidentDistance;
     unsigned int _incidentIndex;
@@ -25,6 +26,7 @@
     GEOFormattedString *_spokenPrompt;
     _Bool _disableFasterRerouteByDefault;
     struct {
+        unsigned int bannerStyle:1;
         unsigned int hideAtDistance:1;
         unsigned int incidentDistance:1;
         unsigned int incidentIndex:1;
@@ -47,6 +49,7 @@
 @property(retain, nonatomic) NSMutableArray *localizedIncidentSpokenTexts; // @synthesize localizedIncidentSpokenTexts=_localizedIncidentSpokenTexts;
 @property(retain, nonatomic) NSMutableArray *localizedIncidentSubBanners; // @synthesize localizedIncidentSubBanners=_localizedIncidentSubBanners;
 @property(retain, nonatomic) NSMutableArray *localizedIncidentBanners; // @synthesize localizedIncidentBanners=_localizedIncidentBanners;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -56,6 +59,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsBannerStyle:(id)arg1;
+- (id)bannerStyleAsString:(int)arg1;
+@property(nonatomic) _Bool hasBannerStyle;
+@property(nonatomic) int bannerStyle; // @synthesize bannerStyle=_bannerStyle;
 @property(nonatomic) _Bool hasDisableFasterRerouteByDefault;
 @property(nonatomic) _Bool disableFasterRerouteByDefault; // @synthesize disableFasterRerouteByDefault=_disableFasterRerouteByDefault;
 - (int)StringAsPreviousBannerChange:(id)arg1;
@@ -81,7 +88,6 @@
 - (unsigned long long)localizedIncidentBannersCount;
 - (void)addLocalizedIncidentBanner:(id)arg1;
 - (void)clearLocalizedIncidentBanners;
-- (void)dealloc;
 
 @end
 

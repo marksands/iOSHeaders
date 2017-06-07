@@ -8,10 +8,15 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOPDSimpleRestaurantMenuTextFilter : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
 }
 
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

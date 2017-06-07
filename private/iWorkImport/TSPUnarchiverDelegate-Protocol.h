@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) _Bool hasDocumentVersionUUID;
 @property(readonly, nonatomic) _Bool didFinishResolvingReferences;
 @property(readonly, nonatomic) unsigned long long fileFormatVersion;
+@property(readonly, nonatomic) long long componentIdentifier;
 - (TSPData *)dataForIdentifier:(long long)arg1;
 - (NSUUID *)UUIDForObjectIdentifier:(long long)arg1;
 - (long long)objectIdentifierForUUID:(NSUUID *)arg1;

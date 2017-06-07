@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <PersistentConnection/PCInterfaceUsabilityMonitorProtocol-Protocol.h>
 
@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 + (id)stringForLinkQuality:(int)arg1;
 + (_Bool)isBadLinkQuality:(int)arg1;
 + (_Bool)isPoorLinkQuality:(int)arg1;
+- (void).cxx_destruct;
 - (void)_createLinkQualityMonitor;
 - (void)_createLinkQualityMonitorOnIvarQueue;
 - (void)_dynamicStoreCallback:(id)arg1;

@@ -99,6 +99,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) int placeType; // @synthesize placeType=_placeType;
 @property(nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
 @property(nonatomic) long long uID; // @synthesize uID=_uID;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

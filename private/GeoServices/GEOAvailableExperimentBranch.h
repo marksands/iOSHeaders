@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSDictionary, NSMutableArray, NSString;
 
@@ -20,6 +20,7 @@
 @property(retain, nonatomic, getter=_clientConfig, setter=_setClientConfig:) NSArray *clientConfig; // @synthesize clientConfig=_clientConfig;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
+- (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isActive) _Bool active;
 @property(readonly, nonatomic, getter=_dictionaryRepresentation) NSDictionary *dictionaryRepresentation;
 @property(readonly, nonatomic) NSDictionary *clientConfigValues;
@@ -27,7 +28,6 @@
 - (void)_addAssignment:(id)arg1;
 - (id)_descriptionWithIndent:(unsigned long long)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)initWithLabel:(id)arg1 name:(id)arg2 experimentIdentifier:(id)arg3;
 
 @end

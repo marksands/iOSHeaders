@@ -6,19 +6,16 @@
 
 #import <UIKit/UITableViewController.h>
 
-#import <CoreSuggestionsUI/CNContactViewControllerDelegate-Protocol.h>
-#import <CoreSuggestionsUI/EKEventEditViewDelegate-Protocol.h>
-#import <CoreSuggestionsUI/EKEventViewDelegate-Protocol.h>
 #import <CoreSuggestionsUI/SGUIAddAllTableViewCellDelegate-Protocol.h>
-#import <CoreSuggestionsUI/SGUIContactSuggestionTableViewCellDelegate-Protocol.h>
-#import <CoreSuggestionsUI/SGUIEventSuggestionTableViewCellDelegate-Protocol.h>
+#import <CoreSuggestionsUI/SGUISuggestionTableViewCellDelegate-Protocol.h>
 #import <CoreSuggestionsUI/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, SGUISuggestionConfirmationController;
 @protocol SGUIEventsAndContactsTableViewControllerDelegate;
 
-@interface SGUIEventsAndContactsTableViewController : UITableViewController <CNContactViewControllerDelegate, EKEventEditViewDelegate, EKEventViewDelegate, SGUIEventSuggestionTableViewCellDelegate, SGUIContactSuggestionTableViewCellDelegate, SGUIAddAllTableViewCellDelegate, UIPopoverPresentationControllerDelegate>
+@interface SGUIEventsAndContactsTableViewController : UITableViewController <SGUISuggestionTableViewCellDelegate, SGUIAddAllTableViewCellDelegate, UIPopoverPresentationControllerDelegate>
 {
+    SGUISuggestionConfirmationController *_confirmationController;
     NSMutableArray *_realtimeEvents;
     NSMutableArray *_realtimeContacts;
     id _presentedSuggestion;
@@ -27,16 +24,11 @@
 
 @property(nonatomic) __weak id <SGUIEventsAndContactsTableViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)presentViewControllerInCurrentContext:(id)arg1;
-- (void)removeSuggestion:(id)arg1;
-- (void)eventViewController:(id)arg1 didCompleteWithAction:(long long)arg2;
-- (void)eventEditViewController:(id)arg1 didCompleteWithAction:(long long)arg2;
-- (void)contactViewController:(id)arg1 didCompleteWithContact:(id)arg2;
+- (void)_removeSuggestion:(id)arg1;
+- (void)_doneWithSuggestion:(id)arg1;
 - (void)addAllTableViewCellDidTapAddAll:(id)arg1;
-- (void)contactSuggestionCell:(id)arg1 didTapConfirmForContactSuggestion:(id)arg2;
-- (void)contactSuggestionCell:(id)arg1 didTapIgnoreForContactSuggestion:(id)arg2;
-- (void)eventSuggestionCell:(id)arg1 didTapConfirmForEventSuggestion:(id)arg2;
-- (void)eventSuggestionCell:(id)arg1 didTapIgnoreForEventSuggestion:(id)arg2;
+- (void)suggestionCell:(id)arg1 didTapConfirmForSuggestion:(id)arg2;
+- (void)suggestionCell:(id)arg1 didTapIgnoreForSuggestion:(id)arg2;
 - (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

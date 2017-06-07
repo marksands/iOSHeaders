@@ -11,7 +11,6 @@
     struct __SecTask *_currentTask;
 }
 
-+ (_Bool)isSandboxed;
 + (id)currentProcessInfo;
 @property(nonatomic) struct __SecTask *currentTask; // @synthesize currentTask=_currentTask;
 - (_Bool)valueForEntitlement:(id)arg1 containsObject:(id)arg2;

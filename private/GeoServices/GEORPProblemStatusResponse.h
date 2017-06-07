@@ -19,6 +19,7 @@
 
 + (Class)problemStatusType;
 @property(retain, nonatomic) NSMutableArray *problemStatus; // @synthesize problemStatus=_problemStatus;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -36,7 +37,6 @@
 - (id)statusCodeAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatusCode;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
-- (void)dealloc;
 
 @end
 

@@ -36,13 +36,15 @@ __attribute__((visibility("hidden")))
 - (void)finishDecryption;
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (id)_unwrapEncryptedPropertiesOnRecord:(id)arg1 withPCS:(struct _OpaquePCSShareProtection *)arg2;
-- (id)_unwrapPackageAssets:(id)arg1 withPCS:(struct _OpaquePCSShareProtection *)arg2;
-- (id)_unwrapAssetKey:(id)arg1 withPCS:(struct _OpaquePCSShareProtection *)arg2;
+- (id)_unwrapEncryptedPropertiesForRecordValueStore:(id)arg1 withPCS:(struct _OpaquePCSShareProtection *)arg2;
+- (id)_unwrapPackageAssets:(id)arg1 inRecordWithID:(id)arg2 forField:(id)arg3 withPCS:(struct _OpaquePCSShareProtection *)arg4;
+- (id)_unwrapAssetKeyForAsset:(id)arg1 inRecordWithID:(id)arg2 forField:(id)arg3 withPCS:(struct _OpaquePCSShareProtection *)arg4;
 - (void)_handleProtectionDataForRecordInfo:(id)arg1;
 - (void)_handleShareProtectionDataForRecordInfo:(id)arg1;
 - (id)_decryptRecordPCSForRecord:(id)arg1 usingChainPCS:(id)arg2;
 - (id)_decryptRecordPCSForRecord:(id)arg1 usingSharePCS:(id)arg2;
 - (void)_handleZoneProtectionDataForRecordInfo:(id)arg1;
+- (void)_decryptRecordInfo:(id)arg1 usingZonePCS:(id)arg2;
 - (void)_decryptRecordInfo:(id)arg1 usingWebSharingIdentityData:(id)arg2;
 - (void)_decryptRecordInfo:(id)arg1;
 - (void)_clearProtectionDataForRecordInfo:(id)arg1;

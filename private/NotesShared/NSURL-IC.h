@@ -6,7 +6,13 @@
 
 #import <Foundation/NSURL.h>
 
+@class NSString;
+
 @interface NSURL (IC)
+@property(readonly, nonatomic) long long ic_fileSize;
+@property(readonly, nonatomic) NSString *ic_UTI;
+@property(readonly, nonatomic) _Bool isSupportedAsAttachment;
+@property(readonly, nonatomic) _Bool isWebURL;
 @property(readonly, nonatomic) _Bool isAppStoreURL;
 @property(readonly, nonatomic) _Bool isiTunesURL;
 @property(readonly, nonatomic) _Bool isNewsURL;

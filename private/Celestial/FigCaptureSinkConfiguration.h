@@ -9,44 +9,22 @@
 #import <Celestial/FigXPCCoding-Protocol.h>
 #import <Celestial/NSCopying-Protocol.h>
 
-@class FigCaptureIrisPreparedSettings, NSString;
+@class NSString;
 
 @interface FigCaptureSinkConfiguration : NSObject <FigXPCCoding, NSCopying>
 {
     NSString *_sinkID;
-    int _sinkType;
-    _Bool _videoDataDiscardsLateVideoFrames;
-    _Bool _videoDataDerivedFromPreview;
-    _Bool _irisMovieCaptureEnabled;
-    CDStruct_1b6d18a9 _irisMovieDuration;
-    CDStruct_1b6d18a9 _irisMovieVideoFrameDuration;
-    int _irisMovieAutoTrimMethod;
-    FigCaptureIrisPreparedSettings *_irisPreparedSettings;
-    _Bool _optimizesImagesForOfflineVideoStabilization;
-    _Bool _quadraHighResStillImageCaptureEnabled;
 }
 
-+ (int)sinkTypeForString:(id)arg1;
 + (id)stringForSinkType:(int)arg1;
-+ (void)initialize;
-@property(nonatomic) _Bool quadraHighResStillImageCaptureEnabled; // @synthesize quadraHighResStillImageCaptureEnabled=_quadraHighResStillImageCaptureEnabled;
-@property(nonatomic) _Bool optimizesImagesForOfflineVideoStabilization; // @synthesize optimizesImagesForOfflineVideoStabilization=_optimizesImagesForOfflineVideoStabilization;
-@property(retain, nonatomic) FigCaptureIrisPreparedSettings *irisPreparedSettings; // @synthesize irisPreparedSettings=_irisPreparedSettings;
-@property(nonatomic) int irisMovieAutoTrimMethod; // @synthesize irisMovieAutoTrimMethod=_irisMovieAutoTrimMethod;
-@property(nonatomic) CDStruct_1b6d18a9 irisMovieVideoFrameDuration; // @synthesize irisMovieVideoFrameDuration=_irisMovieVideoFrameDuration;
-@property(nonatomic) CDStruct_1b6d18a9 irisMovieDuration; // @synthesize irisMovieDuration=_irisMovieDuration;
-@property(nonatomic) _Bool irisMovieCaptureEnabled; // @synthesize irisMovieCaptureEnabled=_irisMovieCaptureEnabled;
-@property(nonatomic) _Bool videoDataDerivedFromPreview; // @synthesize videoDataDerivedFromPreview=_videoDataDerivedFromPreview;
-@property(nonatomic) _Bool videoDataDiscardsLateVideoFrames; // @synthesize videoDataDiscardsLateVideoFrames=_videoDataDiscardsLateVideoFrames;
-@property(nonatomic) int sinkType; // @synthesize sinkType=_sinkType;
 @property(copy, nonatomic) NSString *sinkID; // @synthesize sinkID=_sinkID;
 - (void)dealloc;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) int sinkType;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, copy) NSString *description;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
-- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -207,6 +207,7 @@
 - (void)viewScrollDidChange;
 - (void)viewScrollWillChange;
 - (void)viewScaleDidChange;
+- (void)wideGamutValueDidChange;
 - (void)screenScaleDidChange;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)setNeedsDisplay;

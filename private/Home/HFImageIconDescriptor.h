@@ -17,6 +17,7 @@
 
 @property(readonly, nonatomic) NSString *imageIdentifier; // @synthesize imageIdentifier=_imageIdentifier;
 - (void).cxx_destruct;
+- (id)iconDescriptorByMergingWithIconDescriptor:(id)arg1;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSString *identifier;
 @property(readonly) unsigned long long hash;

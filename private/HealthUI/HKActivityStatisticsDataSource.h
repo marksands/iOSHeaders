@@ -6,14 +6,14 @@
 
 #import <HealthUI/HKHealthQueryChartCacheDataSource.h>
 
-@class HKUnitController, NSCalendar, NSPredicate;
+@class HKUnitPreferenceController, NSCalendar, NSPredicate;
 
 @interface HKActivityStatisticsDataSource : HKHealthQueryChartCacheDataSource
 {
     NSPredicate *_sourcesPredicate;
     NSCalendar *_gregorianCalendar;
     NSCalendar *_gregorianNonUTCCalendar;
-    HKUnitController *_unitController;
+    HKUnitPreferenceController *_unitController;
 }
 
 - (void).cxx_destruct;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CLLocation, NSArray, NSDate, NSDictionary, NSError, NSHashTable, NSNumber, NSString, NSTimeZone, NSTimer, NSURL, WFLocation, WFTemperature;
+@class CLLocation, NSArray, NSDate, NSDictionary, NSError, NSHashTable, NSNumber, NSString, NSTimeZone, NSTimer, NSURL, WFGeocodeRequest, WFLocation, WFTemperature;
 
 @interface City : NSObject
 {
@@ -17,7 +17,6 @@
     _Bool _isUpdating;
     _Bool _isRequestedByFrameworkClient;
     _Bool _lockedForDemoMode;
-    _Bool _updatingTimeZone;
     float _windChill;
     float _windDirection;
     float _windSpeed;
@@ -56,6 +55,7 @@
     unsigned long long _lastUpdateStatus;
     long long _updateInterval;
     NSTimer *_autoUpdateTimer;
+    WFGeocodeRequest *_activeGeocodeRequest;
     NSHashTable *_cityUpdateObservers;
     NSString *_fullName;
 }
@@ -64,7 +64,7 @@
 + (id)_ISO8601Calendar;
 @property(copy, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
 @property(retain, nonatomic) NSHashTable *cityUpdateObservers; // @synthesize cityUpdateObservers=_cityUpdateObservers;
-@property(nonatomic, getter=isUpdatingTimeZone) _Bool updatingTimeZone; // @synthesize updatingTimeZone=_updatingTimeZone;
+@property(retain, nonatomic) WFGeocodeRequest *activeGeocodeRequest; // @synthesize activeGeocodeRequest=_activeGeocodeRequest;
 @property(retain, nonatomic) NSTimer *autoUpdateTimer; // @synthesize autoUpdateTimer=_autoUpdateTimer;
 @property(nonatomic) long long updateInterval; // @synthesize updateInterval=_updateInterval;
 @property(nonatomic) _Bool lockedForDemoMode; // @synthesize lockedForDemoMode=_lockedForDemoMode;

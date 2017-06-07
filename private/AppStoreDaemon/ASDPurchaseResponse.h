@@ -13,12 +13,10 @@
 
 @interface ASDPurchaseResponse : ASDRequestResponse <NSCopying, NSSecureCoding>
 {
-    _Bool _success;
     NSArray *_items;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) _Bool success; // @synthesize success=_success;
 @property(readonly) NSArray *items; // @synthesize items=_items;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableSet, NSRecursiveLock;
 
@@ -13,14 +13,13 @@
     _Bool _registered;
     NSRecursiveLock *_lock;
     NSMutableSet *_disableFastDormancyTokens;
-    void *__suspendDormancyAssertion;
 }
 
 + (id)sharedInstance;
-@property(nonatomic) void *_suspendDormancyAssertion; // @synthesize _suspendDormancyAssertion=__suspendDormancyAssertion;
 @property(nonatomic) _Bool registered; // @synthesize registered=_registered;
 @property(retain, nonatomic) NSMutableSet *disableFastDormancyTokens; // @synthesize disableFastDormancyTokens=_disableFastDormancyTokens;
 @property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
+- (void).cxx_destruct;
 - (void)removeFastDormancyDisableToken:(id)arg1;
 - (void)addFastDormancyDisableToken:(id)arg1;
 - (_Bool)disableFastDormancy;

@@ -14,14 +14,17 @@
 {
     PBUnknownFields *_unknownFields;
     GEOLatLng *_droppedPinCoordinate;
+    int _droppedPinFloorOrdinal;
     GEOMapItemStorage *_mapItemStorage;
     int _origin;
     NSString *_title;
     struct {
+        unsigned int droppedPinFloorOrdinal:1;
         unsigned int origin:1;
     } _has;
 }
 
+@property(nonatomic) int droppedPinFloorOrdinal; // @synthesize droppedPinFloorOrdinal=_droppedPinFloorOrdinal;
 @property(retain, nonatomic) GEOLatLng *droppedPinCoordinate; // @synthesize droppedPinCoordinate=_droppedPinCoordinate;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) GEOMapItemStorage *mapItemStorage; // @synthesize mapItemStorage=_mapItemStorage;
@@ -36,6 +39,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasDroppedPinFloorOrdinal;
 @property(readonly, nonatomic) _Bool hasDroppedPinCoordinate;
 @property(readonly, nonatomic) _Bool hasTitle;
 - (int)StringAsOrigin:(id)arg1;

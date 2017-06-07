@@ -13,12 +13,18 @@
 @interface HUTemperatureColorWheelSpace : NSObject <HUColorWheelSpace>
 {
     unsigned long long _mirroringBiasAxis;
+    CDStruct_ef18196a _supportedRange;
 }
 
++ (CDStruct_c3b9c2ee)largestAllowableTemperatureRange;
++ (CDStruct_c3b9c2ee)defaultTemperatureRange;
+@property(readonly, nonatomic) CDStruct_c3b9c2ee supportedRange; // @synthesize supportedRange=_supportedRange;
 @property(nonatomic) unsigned long long mirroringBiasAxis; // @synthesize mirroringBiasAxis=_mirroringBiasAxis;
-- (CDStruct_c3b9c2ee)coordinateForColor:(CDStruct_dbd0f16f)arg1 isValid:(out _Bool *)arg2;
-- (CDStruct_dbd0f16f)colorForCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (CDStruct_c3b9c2ee)coordinateForColor:(CDStruct_d2b197d1)arg1 isValid:(out _Bool *)arg2;
+- (CDStruct_d2b197d1)colorForCoordinate:(CDStruct_c3b9c2ee)arg1;
 @property(readonly, nonatomic) unsigned long long type;
+- (id)init;
+- (id)initWithSupportedRange:(CDStruct_c3b9c2ee)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,20 +6,30 @@
 
 #import <objc/NSObject.h>
 
-@class Reachability;
+#import <BulletinDistributorCompanion/PCInterfaceMonitorDelegate-Protocol.h>
 
-@interface BLTReachabilityManager : NSObject
+@class NSString;
+@protocol OS_dispatch_queue;
+
+@interface BLTReachabilityManager : NSObject <PCInterfaceMonitorDelegate>
 {
-    Reachability *_reachability;
-    long long _reachabilityStatus;
+    NSObject<OS_dispatch_queue> *_updateQueue;
+    _Bool _internetReachable;
 }
 
 + (id)sharedInstance;
-@property long long reachabilityStatus; // @synthesize reachabilityStatus=_reachabilityStatus;
+@property(getter=isInternetReachable) _Bool internetReachable; // @synthesize internetReachable=_internetReachable;
 - (void).cxx_destruct;
-- (void)_reachabilityUpdated:(id)arg1;
-- (void)dealloc;
+- (void)interfaceRadioHotnessChanged:(id)arg1;
+- (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
+- (void)interfaceReachabilityChanged:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

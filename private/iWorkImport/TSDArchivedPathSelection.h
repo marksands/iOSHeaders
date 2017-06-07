@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSKSelection *selection; // @synthesize selection=mPathSelection;
 @property(readonly, copy) NSString *description;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
 
 // Remaining properties

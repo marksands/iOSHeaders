@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOAutomobileOptions, GEOComposedWaypoint, GEOLocation, GEOTransitOptions, GEOWalkingOptions, NSArray, NSDate;
 
@@ -34,8 +34,8 @@
 @property(readonly, nonatomic) NSDate *departureDate; // @synthesize departureDate=_departureDate;
 @property(readonly, nonatomic) GEOComposedWaypoint *destinationWaypoint; // @synthesize destinationWaypoint=_destinationWaypoint;
 @property(readonly, nonatomic) GEOComposedWaypoint *sourceWaypoint; // @synthesize sourceWaypoint=_sourceWaypoint;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)initWithSource:(id)arg1 toDestination:(id)arg2 arrivalDate:(id)arg3 transportType:(int)arg4 currentLocation:(id)arg5 includeDistance:(_Bool)arg6 additionalTransportTypesRequested:(id)arg7 automobileOptions:(id)arg8 transitOptions:(id)arg9 walkingOptions:(id)arg10;
 - (id)initWithSource:(id)arg1 toDestination:(id)arg2 departureDate:(id)arg3 transportType:(int)arg4 currentLocation:(id)arg5 includeDistance:(_Bool)arg6 additionalTransportTypesRequested:(id)arg7 automobileOptions:(id)arg8 transitOptions:(id)arg9 walkingOptions:(id)arg10;
 - (id)initWithSource:(id)arg1 toDestination:(id)arg2 arrivalDate:(id)arg3 transportType:(int)arg4 currentLocation:(id)arg5 includeDistance:(_Bool)arg6 additionalTransportTypesRequested:(id)arg7;

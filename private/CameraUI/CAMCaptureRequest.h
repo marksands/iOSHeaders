@@ -9,14 +9,17 @@
 #import <CameraUI/CAMDistinctPersistenceCopying-Protocol.h>
 #import <CameraUI/NSCopying-Protocol.h>
 
-@class CLLocation, NSString, NSURL;
+@class CLHeading, CLLocation, NSString, NSURL;
 
 @interface CAMCaptureRequest : NSObject <NSCopying, CAMDistinctPersistenceCopying>
 {
+    long long _videoEncodingBehavior;
+    long long _photoEncodingBehavior;
     long long _origin;
     unsigned int _assertionIdentifier;
     _Bool _capturedFromPhotoBooth;
     CLLocation *_location;
+    CLHeading *_heading;
     long long _persistenceOptions;
     unsigned long long _deferredPersistenceOptions;
     long long _temporaryPersistenceOptions;
@@ -29,10 +32,11 @@
     long long _captureDevice;
     long long _captureMode;
     long long _captureOrientation;
-    long long _physicalButtonType;
+    long long _pressType;
     long long _type;
 }
 
++ (_Bool)shouldPersistToIncomingDirectoryWithPersistenceOptions:(long long)arg1 temporaryPersistenceOptions:(long long)arg2;
 @property(readonly, nonatomic) _Bool shouldDelayRemotePersistence; // @synthesize shouldDelayRemotePersistence=_shouldDelayRemotePersistence;
 @property(readonly, nonatomic) _Bool shouldPersistDiagnosticsToSidecar; // @synthesize shouldPersistDiagnosticsToSidecar=_shouldPersistDiagnosticsToSidecar;
 @property(readonly, nonatomic) _Bool shouldExtractDiagnosticsFromMetadata; // @synthesize shouldExtractDiagnosticsFromMetadata=_shouldExtractDiagnosticsFromMetadata;
@@ -41,12 +45,15 @@
 @property(readonly, nonatomic) long long temporaryPersistenceOptions; // @synthesize temporaryPersistenceOptions=_temporaryPersistenceOptions;
 @property(readonly, nonatomic) unsigned long long deferredPersistenceOptions; // @synthesize deferredPersistenceOptions=_deferredPersistenceOptions;
 @property(readonly, nonatomic) long long persistenceOptions; // @synthesize persistenceOptions=_persistenceOptions;
+@property(readonly, nonatomic) CLHeading *heading; // @synthesize heading=_heading;
 @property(readonly, nonatomic) CLLocation *location; // @synthesize location=_location;
 @property(readonly, nonatomic) _Bool capturedFromPhotoBooth; // @synthesize capturedFromPhotoBooth=_capturedFromPhotoBooth;
 @property(readonly, nonatomic) unsigned int assertionIdentifier; // @synthesize assertionIdentifier=_assertionIdentifier;
 @property(readonly, nonatomic) long long origin; // @synthesize origin=_origin;
+@property(readonly, nonatomic) long long photoEncodingBehavior; // @synthesize photoEncodingBehavior=_photoEncodingBehavior;
+@property(readonly, nonatomic) long long videoEncodingBehavior; // @synthesize videoEncodingBehavior=_videoEncodingBehavior;
 @property(readonly, nonatomic) unsigned short sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
-@property(readonly, nonatomic) long long physicalButtonType; // @synthesize physicalButtonType=_physicalButtonType;
+@property(readonly, nonatomic) long long pressType; // @synthesize pressType=_pressType;
 @property(readonly, nonatomic) long long captureMode; // @synthesize captureMode=_captureMode;
 @property(readonly, nonatomic) long long captureDevice; // @synthesize captureDevice=_captureDevice;
 @property(readonly, nonatomic) long long captureOrientation; // @synthesize captureOrientation=_captureOrientation;

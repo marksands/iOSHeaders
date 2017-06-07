@@ -27,6 +27,7 @@
 + (long long)_validateModificationDatePolicyWithKey:(id)arg1 domain:(id)arg2 category:(long long)arg3 modificationDate:(double)arg4 database:(id)arg5 error:(id *)arg6;
 + (long long)_shouldUpdateWithPolicy:(long long)arg1 key:(id)arg2 domain:(id)arg3 category:(long long)arg4 modificationDate:(double)arg5 database:(id)arg6 error:(id *)arg7;
 + (_Bool)_doInsertValues:(id)arg1 forKeys:(id)arg2 modificationDates:(id)arg3 domain:(id)arg4 category:(long long)arg5 provenance:(long long)arg6 updatePolicy:(long long)arg7 database:(id)arg8 error:(id *)arg9;
++ (_Bool)_insertCodableTimestampedKeyValuePairs:(id)arg1 domain:(id)arg2 category:(long long)arg3 provenance:(long long)arg4 updatePolicy:(long long)arg5 profile:(id)arg6 error:(id *)arg7;
 + (_Bool)_insertCodableTimestampedKeyValuePairs:(id)arg1 domain:(id)arg2 category:(long long)arg3 provenance:(long long)arg4 profile:(id)arg5 error:(id *)arg6;
 + (_Bool)_insertCodableCategoryDomainDictionary:(id)arg1 provenance:(long long)arg2 profile:(id)arg3 error:(id *)arg4;
 + (_Bool)_insertKeysAndValues:(id)arg1 modificationDate:(id)arg2 domain:(id)arg3 category:(long long)arg4 provenance:(long long)arg5 updatePolicy:(long long)arg6 database:(id)arg7 error:(id *)arg8;

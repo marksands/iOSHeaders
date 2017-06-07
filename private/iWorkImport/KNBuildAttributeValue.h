@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
 + (id)valueWithDouble:(double)arg1;
 + (id)valueWithInteger:(long long)arg1;
 + (id)emptyValue;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
@@ -44,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool boolValue;
 @property(readonly, nonatomic) double doubleValue;
 @property(readonly, nonatomic) long long integerValue;
+- (_Bool)p_attributesAreEmpty;
 @property(readonly, nonatomic) id <NSObject> objectValue;
 @property(readonly, nonatomic) _Bool isEmpty;
 @property(readonly, nonatomic) unsigned long long type;

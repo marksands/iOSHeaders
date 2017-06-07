@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <PhotoLibrary/ABPeoplePickerNavigationControllerDelegate-Protocol.h>
+#import <PhotoLibrary/CNContactPickerDelegate-Protocol.h>
 #import <PhotoLibrary/MFContactsSearchConsumer-Protocol.h>
 #import <PhotoLibrary/UIPopoverControllerDelegate-Protocol.h>
 #import <PhotoLibrary/UITableViewDataSource-Protocol.h>
@@ -15,7 +15,7 @@
 @class MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, NSString, PLComposeRecipientView, UIPopoverController, UIScrollView, UITableView;
 @protocol PLComposeRecipientViewControllerDelegate;
 
-@interface PLComposeRecipientViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, MFContactsSearchConsumer, UITableViewDelegate, UITableViewDataSource, UIPopoverControllerDelegate>
+@interface PLComposeRecipientViewController : UIViewController <CNContactPickerDelegate, MFContactsSearchConsumer, UITableViewDelegate, UITableViewDataSource, UIPopoverControllerDelegate>
 {
     PLComposeRecipientView *_recipientView;
     UIScrollView *_recipientContainerView;
@@ -36,17 +36,16 @@
         unsigned int offsettingForResultsTable:1;
         unsigned int wasFirstResponder:1;
     } _flags;
-    NSArray *_properties;
 }
 
 + (void)recordRecentInvitationRecipient:(id)arg1 displayName:(id)arg2 date:(id)arg3;
 @property(nonatomic) id <PLComposeRecipientViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long maxExpandRows; // @synthesize maxExpandRows=_maxExpandRows;
 @property(readonly, retain, nonatomic) PLComposeRecipientView *recipientView; // @synthesize recipientView=_recipientView;
-- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (_Bool)peoplePickerNavigationController:(id)arg1 shouldContinueAfterSelectingPerson:(void *)arg2;
-- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
-- (_Bool)shouldShowCardForPerson:(void *)arg1 peoplePicker:(id)arg2;
+- (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
+- (void)contactPicker:(id)arg1 didSelectContactProperty:(id)arg2;
+- (void)contactPickerDidCancel:(id)arg1;
+- (void)_addRecipientFromSelectedContactProperty:(id)arg1;
 - (_Bool)isRecipientViewFirstResponder;
 - (void)makeRecipientViewResignFirstResponder;
 - (void)makeRecipientViewFirstResponder;
@@ -83,7 +82,7 @@
 - (void)_updateViewsLayoutAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void *)_addressBook;
 - (void)_forceDismissPeoplePickerPopover;
-- (void)_dismissPeoplePicker:(id)arg1;
+- (void)_dismissContactPicker:(id)arg1;
 - (id)recipients;
 - (void)didRotateFromInterfaceOrientation:(long long)arg1;
 - (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;

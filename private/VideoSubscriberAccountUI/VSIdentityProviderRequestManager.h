@@ -8,24 +8,24 @@
 
 #import <VideoSubscriberAccountUI/VSApplicationControllerDelegate-Protocol.h>
 
-@class NSMutableArray, NSOperationQueue, NSString, VSApplicationController, VSIdentityProvider, VSOptional, VSPreferences, VSViewModel;
+@class NSMutableArray, NSOperationQueue, NSString, VSApplicationController, VSAuditToken, VSIdentityProvider, VSOptional, VSPreferences, VSViewModel;
 @protocol OS_dispatch_source, VSIdentityProviderRequestManagerDelegate;
 
-__attribute__((visibility("hidden")))
 @interface VSIdentityProviderRequestManager : NSObject <VSApplicationControllerDelegate>
 {
-    _Bool _showingUserInterface;
     _Bool _didCreateAccount;
     _Bool _allowsApplicationControllerTimer;
     VSIdentityProvider *_identityProvider;
     id <VSIdentityProviderRequestManagerDelegate> _delegate;
+    VSAuditToken *_auditToken;
+    VSViewModel *_viewModel;
     NSOperationQueue *_privateQueue;
     NSMutableArray *_requestContexts;
     VSApplicationController *_applicationController;
     VSOptional *_currentApplicationControllerRequest;
-    VSViewModel *_viewModel;
     VSOptional *_account;
     VSOptional *_accountStore;
+    VSOptional *_accountChannelsCenter;
     VSPreferences *_preferences;
     NSObject<OS_dispatch_source> *_applicationControllerTimerSource;
     double _applicationControllerTimerLeeway;
@@ -40,14 +40,15 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *applicationControllerTimerSource; // @synthesize applicationControllerTimerSource=_applicationControllerTimerSource;
 @property(retain, nonatomic) VSPreferences *preferences; // @synthesize preferences=_preferences;
 @property(nonatomic) _Bool didCreateAccount; // @synthesize didCreateAccount=_didCreateAccount;
-@property(nonatomic) _Bool showingUserInterface; // @synthesize showingUserInterface=_showingUserInterface;
+@property(retain, nonatomic) VSOptional *accountChannelsCenter; // @synthesize accountChannelsCenter=_accountChannelsCenter;
 @property(retain, nonatomic) VSOptional *accountStore; // @synthesize accountStore=_accountStore;
 @property(retain, nonatomic) VSOptional *account; // @synthesize account=_account;
-@property(retain, nonatomic) VSViewModel *viewModel; // @synthesize viewModel=_viewModel;
 @property(retain, nonatomic) VSOptional *currentApplicationControllerRequest; // @synthesize currentApplicationControllerRequest=_currentApplicationControllerRequest;
 @property(retain, nonatomic) VSApplicationController *applicationController; // @synthesize applicationController=_applicationController;
 @property(retain, nonatomic) NSMutableArray *requestContexts; // @synthesize requestContexts=_requestContexts;
 @property(retain, nonatomic) NSOperationQueue *privateQueue; // @synthesize privateQueue=_privateQueue;
+@property(retain, nonatomic) VSViewModel *viewModel; // @synthesize viewModel=_viewModel;
+@property(copy, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(nonatomic) __weak id <VSIdentityProviderRequestManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) VSIdentityProvider *identityProvider; // @synthesize identityProvider=_identityProvider;
 - (void).cxx_destruct;
@@ -65,11 +66,10 @@ __attribute__((visibility("hidden")))
 - (double)_requestCompletionDelay;
 - (_Bool)_requestRequiresApplicationController:(id)arg1;
 - (_Bool)_requestRequiresApplicationControllerIgnoringAuthentication:(id)arg1;
-- (void)_hideUserInterfaceIfNecessary;
 - (void)_notifyDidAuthenticateAccount:(id)arg1;
 - (void)_stopObservingViewModel:(id)arg1;
 - (void)_startObservingViewModel:(id)arg1;
-- (void)_showAuthenticationUIWithPurpose:(long long)arg1;
+- (void)_showAuthenticationUI;
 - (void)_submitApplicationControllerRequest:(id)arg1;
 - (void)_stopApplicationController;
 - (id)_applicationControllerRequestWithIdentityProviderRequest:(id)arg1;
@@ -93,7 +93,7 @@ __attribute__((visibility("hidden")))
 - (id)_currentRequest;
 - (id)_currentRequestContext;
 - (void)_processRequestContext:(id)arg1;
-- (void)enqueueRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)enqueueRequest:(id)arg1;
 - (void)dealloc;
 - (id)initWithIdentityProvider:(id)arg1;
 - (id)init;

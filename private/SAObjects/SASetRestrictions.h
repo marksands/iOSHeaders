@@ -17,6 +17,7 @@
 
 + (id)setRestrictionsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setRestrictions;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *restrictions;
 - (id)encodedClassName;
 - (id)groupIdentifier;

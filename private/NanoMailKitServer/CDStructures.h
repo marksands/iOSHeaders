@@ -15,6 +15,11 @@ struct CGSize {
     double height;
 };
 
+struct _NSRange {
+    unsigned long long _field1;
+    unsigned long long _field2;
+};
+
 struct _xmlDoc;
 
 struct _xmlError {
@@ -194,6 +199,11 @@ struct _xmlValidState;
 #pragma mark Typedef'd Structures
 
 // Ambiguous groups
+typedef struct {
+    unsigned int fullSyncVersion:1;
+    unsigned int mailboxSyncVersion:1;
+} CDStruct_8d07e858;
+
 typedef struct {
     unsigned int fullSyncVersion:1;
 } CDStruct_a125a100;

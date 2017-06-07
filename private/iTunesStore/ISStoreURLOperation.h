@@ -8,7 +8,7 @@
 
 #import <iTunesStore/ISBiometricSessionDelegate-Protocol.h>
 
-@class ISBiometricAuthenticationContext, NSNumber, NSString, SSURLBagContext, SSVFairPlaySAPSession;
+@class NSNumber, NSString, SSBiometricAuthenticationContext, SSURLBagContext, SSVFairPlaySAPSession;
 @protocol ISBiometricSessionDelegate, ISStoreURLOperationDelegate;
 
 @interface ISStoreURLOperation : ISURLOperation <ISBiometricSessionDelegate>
@@ -26,11 +26,16 @@
     _Bool _urlKnownToBeTrusted;
     _Bool _useUserSpecificURLBag;
     _Bool _needsTermsAndConditionsAcceptance;
+    _Bool _shouldSuppressUserInfo;
     _Bool _shouldSendDSIDHeader;
-    ISBiometricAuthenticationContext *_biometricAuthenticationContext;
+    SSBiometricAuthenticationContext *_biometricAuthenticationContext;
     id <ISBiometricSessionDelegate> _biometricSessionDelegate;
 }
 
++ (id)_storeFrontIdentifierForAccount:(id)arg1;
++ (void)_performMachineDataRequest:(id)arg1 requestProperties:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (_Bool)_operationWaitsForPurchases:(id)arg1;
++ (void)_handleResponseHeaders:(id)arg1 response:(id)arg2 request:(id)arg3 account:(id)arg4 performsMachineDataActions:(_Bool)arg5 shouldRetry:(_Bool *)arg6;
 + (id)_authKitSession;
 + (id)_restrictionsHeaderValue;
 + (void)_addITunesStoreHeadersToRequest:(id)arg1 withURLBag:(id)arg2 account:(id)arg3 clientBundleIdentifier:(id)arg4;
@@ -41,12 +46,13 @@
 + (void)handleITunesStoreResponseHeaders:(id)arg1 request:(id)arg2 withAccountIdentifier:(id)arg3 shouldRetry:(_Bool *)arg4;
 + (void)addITunesStoreHeadersToRequest:(id)arg1 withAccountIdentifier:(id)arg2;
 @property _Bool shouldSendDSIDHeader; // @synthesize shouldSendDSIDHeader=_shouldSendDSIDHeader;
+@property _Bool shouldSuppressUserInfo; // @synthesize shouldSuppressUserInfo=_shouldSuppressUserInfo;
 @property long long machineDataStyle; // @synthesize machineDataStyle=_machineDataStyle;
 @property id <ISBiometricSessionDelegate> biometricSessionDelegate; // @synthesize biometricSessionDelegate=_biometricSessionDelegate;
 @property _Bool useUserSpecificURLBag; // @synthesize useUserSpecificURLBag=_useUserSpecificURLBag;
 @property _Bool urlKnownToBeTrusted; // @synthesize urlKnownToBeTrusted=_urlKnownToBeTrusted;
 @property(nonatomic, getter=isURLBagRequest) _Bool URLBagRequest; // @synthesize URLBagRequest=_isURLBagRequest;
-@property(retain) ISBiometricAuthenticationContext *biometricAuthenticationContext; // @synthesize biometricAuthenticationContext=_biometricAuthenticationContext;
+@property(retain) SSBiometricAuthenticationContext *biometricAuthenticationContext; // @synthesize biometricAuthenticationContext=_biometricAuthenticationContext;
 @property _Bool needsURLBag; // @synthesize needsURLBag=_needsURLBag;
 @property _Bool needsTermsAndConditionsAcceptance; // @synthesize needsTermsAndConditionsAcceptance=_needsTermsAndConditionsAcceptance;
 @property _Bool needsAuthentication; // @synthesize needsAuthentication=_needsAuthentication;

@@ -11,8 +11,6 @@
 @interface SBUIPasscodeLockViewSIMLockKeypad : SBUIPasscodeLockViewLongNumericKeypad
 {
     UILabel *_statusSubtitleView;
-    UIView *_entryFieldFiller;
-    double _targetEntryFieldFillerAlpha;
     _Bool _isShowingStatus;
     UIView *_statusSpringView;
     UIView *_statusSpringViewParent;
@@ -31,8 +29,6 @@
 - (void)_shakeStatus;
 - (void)layoutSubviews;
 - (void)_layoutStatusView;
-- (void)setBackgroundAlpha:(double)arg1;
-- (void)setCustomBackgroundColor:(id)arg1;
 - (void)_setHasInput:(_Bool)arg1;
 - (_Bool)_showsPromptLabelOnEntryField;
 - (void)forceShowStatus:(_Bool)arg1;

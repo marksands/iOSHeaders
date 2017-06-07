@@ -4,52 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <DeviceManagement/DMFApplication.h>
 
-#import <DeviceManagement/NSSecureCoding-Protocol.h>
-
-@class DMFInstalledApplicationInstallProgress, NSData, NSNumber, NSString;
-
-@interface DMFInstalledApplication : NSObject <NSSecureCoding>
+@interface DMFInstalledApplication : DMFApplication
 {
-    _Bool _isInstalled;
-    _Bool _isPlaceholder;
-    _Bool _isAppUpdate;
-    _Bool _isBetaApp;
-    _Bool _isRemoveable;
-    _Bool _fileSharingEnabled;
-    NSString *_bundleIdentifier;
-    NSString *_name;
-    NSData *_iconData;
-    NSString *_bundleVersion;
-    NSString *_applicationType;
-    NSNumber *_adamID;
-    NSNumber *_externalVersionIdentifier;
-    NSNumber *_betaExternalVersionIdentifier;
-    DMFInstalledApplicationInstallProgress *_progress;
 }
-
-+ (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) DMFInstalledApplicationInstallProgress *progress; // @synthesize progress=_progress;
-@property(nonatomic) _Bool fileSharingEnabled; // @synthesize fileSharingEnabled=_fileSharingEnabled;
-@property(nonatomic) _Bool isRemoveable; // @synthesize isRemoveable=_isRemoveable;
-@property(nonatomic) _Bool isBetaApp; // @synthesize isBetaApp=_isBetaApp;
-@property(nonatomic) _Bool isAppUpdate; // @synthesize isAppUpdate=_isAppUpdate;
-@property(nonatomic) _Bool isPlaceholder; // @synthesize isPlaceholder=_isPlaceholder;
-@property(nonatomic) _Bool isInstalled; // @synthesize isInstalled=_isInstalled;
-@property(copy, nonatomic) NSNumber *betaExternalVersionIdentifier; // @synthesize betaExternalVersionIdentifier=_betaExternalVersionIdentifier;
-@property(copy, nonatomic) NSNumber *externalVersionIdentifier; // @synthesize externalVersionIdentifier=_externalVersionIdentifier;
-@property(copy, nonatomic) NSNumber *adamID; // @synthesize adamID=_adamID;
-@property(copy, nonatomic) NSString *applicationType; // @synthesize applicationType=_applicationType;
-@property(copy, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
-@property(copy, nonatomic) NSData *iconData; // @synthesize iconData=_iconData;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
-- (void).cxx_destruct;
-- (_Bool)isEqual:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithBundleIdentifier:(id)arg1 name:(id)arg2 iconData:(id)arg3 applicationType:(id)arg4 adamID:(id)arg5 externalVersionNumber:(id)arg6 betaExternalVersionIdentifier:(id)arg7 isInstalled:(_Bool)arg8 isPlaceholder:(_Bool)arg9 isAppUpdate:(_Bool)arg10 isBetaApp:(_Bool)arg11 isRemoveable:(_Bool)arg12 fileSharingEnabled:(_Bool)arg13 progress:(id)arg14;
 
 @end
 

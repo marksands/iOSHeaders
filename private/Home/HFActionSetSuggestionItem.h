@@ -17,9 +17,11 @@
 @property(readonly, nonatomic) NSString *builtInActionSetType; // @synthesize builtInActionSetType=_builtInActionSetType;
 @property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
+- (id)_controlItemValueSourceForService:(id)arg1;
 - (id)_actionBuildersToSetTargetBlindsPositionOpen:(_Bool)arg1;
 - (id)_actionBuildersToSetTargetSecuritySystemState:(long long)arg1;
 - (id)_actionBuildersToSetTargetLockState:(long long)arg1 forServicesOfTypes:(id)arg2;
+- (id)_actionBuildersToSetTargetDoorState:(long long)arg1 forServicesOfTypes:(id)arg2;
 - (id)_actionBuildersToSetLightbulbBrightness:(double)arg1;
 - (id)_actionBuildersToSetLightbulbColorWithPaletteColor:(id)arg1;
 - (id)_actionBuildersToSetPowerState:(_Bool)arg1 forServicesOfTypes:(id)arg2;

@@ -17,6 +17,7 @@
     CDStruct_a995201b _has;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -31,7 +32,6 @@
 - (id)transportTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasTransportType;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
-- (void)dealloc;
 
 @end
 

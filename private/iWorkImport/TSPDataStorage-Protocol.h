@@ -6,7 +6,7 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class AVAsset, NSData, NSDictionary, NSString, NSURL, TSPData, TSPDataStorageWriteResult, TSPPackage, TSPPackageWriter;
+@class AVAsset, NSData, NSDictionary, NSString, NSURL, TSPData, TSPDataStorageWriteResult, TSPPackage, TSPPackageWriter, TSUColor;
 @protocol TSPCryptoInfo, TSPDataArchiver, TSPMutableCryptoInfo;
 
 @protocol TSPDataStorage <NSObject>
@@ -29,6 +29,7 @@
 - (struct CGDataProvider *)newCGDataProvider;
 
 @optional
+@property(readonly, nonatomic) TSUColor *fallbackColor;
 @property(readonly, nonatomic) unsigned int CRC;
 @property(readonly, nonatomic) id <TSPCryptoInfo> decryptionInfo;
 @property(nonatomic) _Bool gilligan_isRemote;

@@ -31,8 +31,9 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_updateLastLocation:(id)arg1 onFeedbackForStep:(id)arg2 updateTriggerLocation:(_Bool)arg3;
 - (id)_alightNotificationFeedbackForStep:(id)arg1 trigger:(int)arg2 approachedAt:(id)arg3;
-- (id)_latLonDictionaryFromLocation:(id)arg1;
 - (void)_recordTraceEvent:(long long)arg1 withData:(id)arg2;
+- (id)_latLonDictionaryFromLocation:(id)arg1;
+- (id)_traceRecorder;
 - (void)_markNextStepAsReached;
 - (void)_reachedStep:(id)arg1;
 - (void)_markNextStepAsApproaching;
@@ -51,9 +52,11 @@ __attribute__((visibility("hidden")))
 - (id)_projectedArrivalDateForNextStep;
 - (_Bool)_isApproachingNextStep;
 - (id)_remainingSteps;
+- (long long)_transitTypeForStep:(id)arg1;
 - (_Bool)_isStepAlightingStep:(id)arg1;
 - (_Bool)_isStepBoardingStep:(id)arg1;
 - (_Bool)_isStepScheduleBasedBoardingStep:(id)arg1;
+- (int)_maneuverForStep:(id)arg1;
 @property(readonly, nonatomic) GEOComposedRouteStep *nextStep;
 @property(readonly, nonatomic) GEOComposedRoute *route;
 - (void)matchedLocation:(id)arg1;

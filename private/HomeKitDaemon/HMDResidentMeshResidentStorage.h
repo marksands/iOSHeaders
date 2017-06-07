@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
 @class HMDDevice, HMDResidentMesh, HMFTimer, NSMutableSet, NSSet, NSString;
 
-@interface HMDResidentMeshResidentStorage : NSObject <HMFTimerDelegate>
+@interface HMDResidentMeshResidentStorage : HMFObject <HMFTimerDelegate>
 {
     HMDResidentMesh *_owner;
     HMDDevice *_resident;

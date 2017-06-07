@@ -10,21 +10,20 @@
 #import <PhotosUICore/UITableViewDelegate-Protocol.h>
 
 @class NSArray, NSMutableDictionary, NSString, UITableViewController;
+@protocol PXFeedbackFormDelegate;
 
 @interface PXFeedbackFormUIViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
-    unsigned long long _feedbackCollectionType;
-    NSArray *_feedbackKeys;
-    NSMutableDictionary *_feedbackValues;
     _Bool _userLikedIt;
-    _Bool __singleFeedbackList;
     NSArray *_positiveFeedbackKeys;
     NSMutableDictionary *_positiveFeedbackValues;
     NSArray *_negativeFeedbackKeys;
     NSMutableDictionary *_negativeFeedbackValues;
     UITableViewController *_tableViewController;
+    id <PXFeedbackFormDelegate> _delegate;
 }
 
+@property(retain, nonatomic) id <PXFeedbackFormDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UITableViewController *tableViewController; // @synthesize tableViewController=_tableViewController;
 - (void).cxx_destruct;
 - (void)_markCell:(id)arg1 asSelected:(_Bool)arg2;
@@ -39,8 +38,7 @@
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)sendFeedback:(id)arg1;
 - (void)viewDidLoad;
-- (id)initWithCollectionType:(unsigned long long)arg1 keys:(id)arg2 userLikedIt:(_Bool)arg3;
-- (id)initWithCollectionType:(unsigned long long)arg1 positiveKeys:(id)arg2 negativeKeys:(id)arg3;
+- (id)initWithDelegate:(id)arg1 positiveKeys:(id)arg2 negativeKeys:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

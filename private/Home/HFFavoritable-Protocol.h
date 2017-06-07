@@ -9,6 +9,7 @@
 @class NAFuture;
 
 @protocol HFFavoritable <NSObject>
+@property(readonly, nonatomic) _Bool hf_shouldShowInFavorites;
 @property(readonly, nonatomic) _Bool hf_hasSetFavorite;
 @property(readonly, nonatomic) _Bool hf_isFavorite;
 - (NAFuture *)hf_updateIsFavorite:(_Bool)arg1;

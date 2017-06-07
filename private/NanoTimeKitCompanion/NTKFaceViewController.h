@@ -20,6 +20,7 @@
 {
     NTKFaceView *_faceView;
     NSMutableDictionary *_normalComplicationControllers;
+    NSMutableDictionary *_detachedComplicationControllers;
     NTKFaceEditView *_editView;
     _Bool _editingComplications;
     NSCache *_appearanceVariantsCache;
@@ -86,13 +87,16 @@
 - (id)_newNormalDisplayForComplicationController:(id)arg1 slot:(id)arg2;
 - (void)_updateInteractivityOfComplicationDisplays;
 - (void)_removeNormalComplicationForSlot:(id)arg1 andDisconnectDisplay:(_Bool)arg2;
+- (void)_removeDetachedComplicationForSlot:(id)arg1 andDisconnectDisplay:(_Bool)arg2;
 - (void)_insertNormalComplicationDisplay:(id)arg1 controller:(id)arg2 forSlot:(id)arg3;
+- (void)_insertDetachedComplicationDisplay:(id)arg1 controller:(id)arg2 forSlot:(id)arg3;
+- (void)_ensureDetachedComplication:(id)arg1;
 - (void)_ensureNormalComplication:(id)arg1 forSlot:(id)arg2;
 - (void)_removeComplicationForSlot:(id)arg1;
 - (void)_ensureComplication:(id)arg1 forSlot:(id)arg2;
 - (void)_handleStatusBarChange;
 - (void)_showStatusBarAfterWake;
-- (id)currentComplicationApplicationIdentifiers;
+- (id)currentOrderedComplicationApplicationIdentifiers;
 - (void)performComplicationBackgroundDataRefresh;
 - (void)setNextRenderIsFirstAfterWake;
 - (void)handleOrdinaryScreenWake;
@@ -116,6 +120,7 @@
 - (void)PPTCreateComplication:(id)arg1 forSlot:(id)arg2 synchronously:(_Bool)arg3;
 - (void)PPTPrepareComplicationTest;
 - (id)PPTUniqueComplicationsToSlotForCurrentFace;
+- (void)faceViewWantsToPresentViewController:(id)arg1;
 - (void)faceViewUpdatedResourceDirectory:(id)arg1 wantsToTransferOwnership:(_Bool)arg2;
 - (_Bool)faceViewComplicationIsEmptyForSlot:(id)arg1;
 - (void)faceViewDidHideOrShowComplicationSlot;
@@ -174,6 +179,7 @@
 - (void)unfreeze;
 - (void)freezeAfterDelay:(double)arg1;
 - (void)freeze;
+- (_Bool)_shouldHideUI;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithFace:(id)arg1 configuration:(CDUnknownBlockType)arg2;

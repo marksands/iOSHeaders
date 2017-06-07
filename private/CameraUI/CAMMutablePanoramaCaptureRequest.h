@@ -6,20 +6,23 @@
 
 #import <CameraUI/CAMPanoramaCaptureRequest.h>
 
+#import <CameraUI/CAMMutableCaptureRequestEncodingBehavior-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestLocation-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestOrigin-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestPersistence-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestPower-Protocol.h>
 
-@class CLLocation, NSString, NSURL;
+@class CLHeading, CLLocation, NSString, NSURL;
 @protocol CAMPanoramaCaptureRequestDelegate;
 
-@interface CAMMutablePanoramaCaptureRequest : CAMPanoramaCaptureRequest <CAMMutableCaptureRequestPersistence, CAMMutableCaptureRequestLocation, CAMMutableCaptureRequestPower, CAMMutableCaptureRequestOrigin>
+@interface CAMMutablePanoramaCaptureRequest : CAMPanoramaCaptureRequest <CAMMutableCaptureRequestPersistence, CAMMutableCaptureRequestLocation, CAMMutableCaptureRequestPower, CAMMutableCaptureRequestOrigin, CAMMutableCaptureRequestEncodingBehavior>
 {
 }
 
+@property(nonatomic) long long photoEncodingBehavior;
 @property(nonatomic) unsigned int assertionIdentifier;
 @property(nonatomic) long long origin;
+@property(retain, nonatomic) CLHeading *heading;
 @property(retain, nonatomic) CLLocation *location;
 @property(nonatomic) _Bool shouldDelayRemotePersistence;
 @property(nonatomic) _Bool shouldPersistDiagnosticsToSidecar;
@@ -30,7 +33,7 @@
 @property(nonatomic) long long persistenceOptions;
 @property(copy, nonatomic) NSString *persistenceUUID;
 @property(nonatomic) unsigned short sessionIdentifier; // @dynamic sessionIdentifier;
-@property(nonatomic) long long physicalButtonType; // @dynamic physicalButtonType;
+@property(nonatomic) long long pressType; // @dynamic pressType;
 @property(nonatomic) long long captureMode; // @dynamic captureMode;
 @property(nonatomic) long long captureDevice; // @dynamic captureDevice;
 @property(nonatomic) long long captureOrientation; // @dynamic captureOrientation;
@@ -43,6 +46,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(nonatomic) long long videoEncodingBehavior;
 
 @end
 

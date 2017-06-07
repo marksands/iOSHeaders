@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSURLSessionDataDelegate-Protocol.h>
 
-@class GEONSURLSharedSession, NSArray, NSDictionary, NSMutableArray, NSMutableData, NSMutableDictionary, NSOperationQueue, NSString, NSURL, NSURLSessionTask, NSURLSessionTaskMetrics, PBDataReader;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableData, NSMutableDictionary, NSOperationQueue, NSString, NSURL, NSURLSession, NSURLSessionTask, NSURLSessionTaskMetrics, PBDataReader;
 @protocol GEOPBSessionRequesterDelegate;
 
 __attribute__((visibility("hidden")))
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
     NSURL *_URL;
     id <GEOPBSessionRequesterDelegate> _delegate;
     NSOperationQueue *_delegateQueue;
-    GEONSURLSharedSession *_session;
+    NSURLSession *_session;
     NSURLSessionTask *_currentTask;
     NSOperationQueue *_sessionDelegateQ;
     NSMutableData *_data;
@@ -37,9 +37,8 @@ __attribute__((visibility("hidden")))
     NSDictionary *_httpResponseHeaders;
     NSMutableDictionary *_httpRequestHeaders;
     double _timeoutSeconds;
-    NSString *_logRequestToFile;
-    NSString *_logResponseToFile;
     _Bool _didNotifyRequestCompleted;
+    NSArray *_clientCertificates;
     NSDictionary *_connectionProperties;
     _Bool _shouldHandleCookies;
     struct {
@@ -59,23 +58,26 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)usesEncodedMessages;
 @property(nonatomic) _Bool shouldHandleCookies; // @synthesize shouldHandleCookies=_shouldHandleCookies;
+@property(retain, nonatomic) NSArray *clientCertificates; // @synthesize clientCertificates=_clientCertificates;
 @property(readonly, nonatomic) unsigned long long downloadPayloadSize; // @synthesize downloadPayloadSize=_downloadPayloadSize;
 @property(readonly, nonatomic) unsigned long long uploadPayloadSize; // @synthesize uploadPayloadSize=_uploadPayloadSize;
-@property(retain, nonatomic) NSString *logResponseToFile; // @synthesize logResponseToFile=_logResponseToFile;
-@property(retain, nonatomic) NSString *logRequestToFile; // @synthesize logRequestToFile=_logRequestToFile;
 @property(nonatomic) double timeoutSeconds; // @synthesize timeoutSeconds=_timeoutSeconds;
 @property(copy, nonatomic) NSDictionary *httpResponseHeaders; // @synthesize httpResponseHeaders=_httpResponseHeaders;
 @property(retain, nonatomic) NSURLSessionTask *currentTask; // @synthesize currentTask=_currentTask;
-@property(retain, nonatomic) GEONSURLSharedSession *session; // @synthesize session=_session;
+@property(retain, nonatomic) NSURLSession *session; // @synthesize session=_session;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (void).cxx_destruct;
 - (void)startWithConnectionProperties:(id)arg1;
-- (id)sessionWithConnectionProperties:(id)arg1;
+- (id)newSessionTaskOnSession:(id)arg1 withURLRequest:(id)arg2;
+- (id)_newSessionWithDelegate:(id)arg1 delegateQueue:(id)arg2 connectionProperties:(id)arg3;
+- (id)newSessionWithDelegate:(id)arg1 delegateQueue:(id)arg2 connectionProperties:(id)arg3;
 - (id)newMutableURLRequestWithURL:(id)arg1;
 - (id)decodeResponseData:(id)arg1;
 - (void)encodeRequestData:(id)arg1 startRequestCallback:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSString *remoteAddressAndPort;
 @property(readonly, nonatomic) int requestBodySize;
 @property(readonly, nonatomic) unsigned long long requestResponseTime;
+- (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)URLSession:(id)arg1 task:(id)arg2 didFinishCollectingMetrics:(id)arg3;
 - (void)URLSession:(id)arg1 task:(id)arg2 _willSendRequestForEstablishedConnection:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;

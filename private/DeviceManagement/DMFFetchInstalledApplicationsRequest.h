@@ -4,27 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Catalyst/CATTaskRequest.h>
+#import <DeviceManagement/DMFFetchApplicationsRequest.h>
 
-@class NSArray;
-
-@interface DMFFetchInstalledApplicationsRequest : CATTaskRequest
+@interface DMFFetchInstalledApplicationsRequest : DMFFetchApplicationsRequest
 {
-    _Bool _excludeIcon;
-    unsigned long long _typeFilter;
-    unsigned long long _stateFilter;
-    NSArray *_bundleIdentifiers;
 }
-
-+ (_Bool)supportsSecureCoding;
-+ (Class)whitelistedClassForResultObject;
-@property(copy, nonatomic) NSArray *bundleIdentifiers; // @synthesize bundleIdentifiers=_bundleIdentifiers;
-@property(nonatomic) unsigned long long stateFilter; // @synthesize stateFilter=_stateFilter;
-@property(nonatomic) unsigned long long typeFilter; // @synthesize typeFilter=_typeFilter;
-@property(nonatomic) _Bool excludeIcon; // @synthesize excludeIcon=_excludeIcon;
-- (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 
 @end
 

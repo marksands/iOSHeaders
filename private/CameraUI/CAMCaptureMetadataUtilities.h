@@ -10,6 +10,9 @@
 {
 }
 
++ (id)metadataFromPanoramaRequest:(id)arg1;
++ (id)removeUnwantedKeysForPersistence:(id)arg1;
++ (id)metadataFromRequest:(id)arg1;
 + (id)preciseCaptureDateFromStillImageMetadata:(id)arg1;
 
 @end

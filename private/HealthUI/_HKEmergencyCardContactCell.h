@@ -6,28 +6,25 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class NSLayoutConstraint, UIImageView, UILabel, UIStackView, _HKEmergencyContact;
+@class UILabel, _HKEmergencyContact;
 
 @interface _HKEmergencyCardContactCell : UITableViewCell
 {
+    _HKEmergencyContact *_contact;
     UILabel *_relationshipLabel;
     UILabel *_nameLabel;
     UILabel *_phoneNumberLabel;
-    UILabel *_tagLabel;
-    UIImageView *_phoneImageView;
-    NSLayoutConstraint *_phoneImageViewWidthConstraint;
-    _HKEmergencyContact *_contact;
-    UIStackView *_horizontalStack;
-    UIStackView *_verticalStack;
 }
 
-@property(retain, nonatomic) UIStackView *verticalStack; // @synthesize verticalStack=_verticalStack;
-@property(retain, nonatomic) UIStackView *horizontalStack; // @synthesize horizontalStack=_horizontalStack;
+@property(retain, nonatomic) UILabel *phoneNumberLabel; // @synthesize phoneNumberLabel=_phoneNumberLabel;
+@property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(retain, nonatomic) UILabel *relationshipLabel; // @synthesize relationshipLabel=_relationshipLabel;
 @property(retain, nonatomic) _HKEmergencyContact *contact; // @synthesize contact=_contact;
 - (void).cxx_destruct;
 - (void)setContact:(id)arg1 showRelationship:(_Bool)arg2 showPhoneIcon:(_Bool)arg3;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
-- (void)_setupStackViews;
+- (void)setupConstraints;
+- (void)setupViewHeirarchy;
 - (void)_setupIndividualViews;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

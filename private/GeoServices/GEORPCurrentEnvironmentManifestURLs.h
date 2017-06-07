@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSMutableArray *urls; // @synthesize urls=_urls;
 @property(retain, nonatomic) NSString *environmentReleaseName; // @synthesize environmentReleaseName=_environmentReleaseName;
 @property(retain, nonatomic) NSString *environmentDisplayName; // @synthesize environmentDisplayName=_environmentDisplayName;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -36,7 +37,6 @@
 - (void)clearUrls;
 @property(readonly, nonatomic) _Bool hasEnvironmentReleaseName;
 @property(readonly, nonatomic) _Bool hasEnvironmentDisplayName;
-- (void)dealloc;
 
 @end
 

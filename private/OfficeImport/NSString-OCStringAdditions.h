@@ -7,9 +7,11 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (OCStringAdditions)
-+ (_Bool)skipString:(id)arg1;
-+ (id)mapString:(id)arg1;
-- (int)languageTypeAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
-- (id)initialsFromAuthorName;
++ (_Bool)tc_skipString:(id)arg1;
++ (id)tc_mapString:(id)arg1;
+- (id)tc_escapedFragment;
+- (id)tc_escapedPath;
+- (int)tc_languageTypeAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (id)tc_initialsFromAuthorName;
 @end
 

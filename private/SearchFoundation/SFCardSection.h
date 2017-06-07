@@ -6,36 +6,55 @@
 
 #import <objc/NSObject.h>
 
-#import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFCardSection-Protocol.h>
+#import <SearchFoundation/SFJSONSerializable-Protocol.h>
 
-@class NSArray, NSString, SFCard;
+@class NSArray, NSData, NSDictionary, NSString, SFCard, SFColor;
 
-@interface SFCardSection : NSObject <NSSecureCoding>
+@interface SFCardSection : NSObject <SFJSONSerializable, SFCardSection>
 {
-    _Bool _hideDivider;
+    _Bool _hasBottomPadding;
     _Bool _canBeHidden;
     _Bool _hasTopPadding;
-    _Bool _hasBottomPadding;
-    NSArray *_punchoutOptions;
-    NSString *_punchoutPickerTitle;
-    NSString *_punchoutPickerDismissText;
+    _Bool _hideDivider;
+    int _separatorStyle;
     NSString *_type;
     SFCard *_nextCard;
+    NSArray *_commands;
+    NSString *_punchoutPickerTitle;
+    NSArray *_punchoutOptions;
+    NSString *_punchoutPickerDismissText;
+    NSArray *_parameterKeyPaths;
+    NSString *_cardSectionId;
+    SFColor *_backgroundColor;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) SFCard *nextCard; // @synthesize nextCard=_nextCard;
-@property(copy, nonatomic) NSString *type; // @synthesize type=_type;
-@property(nonatomic) _Bool hasBottomPadding; // @synthesize hasBottomPadding=_hasBottomPadding;
+@property(retain, nonatomic) SFColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(copy, nonatomic) NSString *cardSectionId; // @synthesize cardSectionId=_cardSectionId;
+@property(copy, nonatomic) NSArray *parameterKeyPaths; // @synthesize parameterKeyPaths=_parameterKeyPaths;
+@property(nonatomic) int separatorStyle; // @synthesize separatorStyle=_separatorStyle;
 @property(nonatomic) _Bool hasTopPadding; // @synthesize hasTopPadding=_hasTopPadding;
 @property(nonatomic) _Bool canBeHidden; // @synthesize canBeHidden=_canBeHidden;
-@property(nonatomic) _Bool hideDivider; // @synthesize hideDivider=_hideDivider;
 @property(copy, nonatomic) NSString *punchoutPickerDismissText; // @synthesize punchoutPickerDismissText=_punchoutPickerDismissText;
-@property(copy, nonatomic) NSString *punchoutPickerTitle; // @synthesize punchoutPickerTitle=_punchoutPickerTitle;
 @property(copy, nonatomic) NSArray *punchoutOptions; // @synthesize punchoutOptions=_punchoutOptions;
+@property(copy, nonatomic) NSString *punchoutPickerTitle; // @synthesize punchoutPickerTitle=_punchoutPickerTitle;
+@property(copy, nonatomic) NSArray *commands; // @synthesize commands=_commands;
+@property(nonatomic) _Bool hasBottomPadding; // @synthesize hasBottomPadding=_hasBottomPadding;
+@property(retain, nonatomic) SFCard *nextCard; // @synthesize nextCard=_nextCard;
+@property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(nonatomic) _Bool hideDivider; // @synthesize hideDivider=_hideDivider;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

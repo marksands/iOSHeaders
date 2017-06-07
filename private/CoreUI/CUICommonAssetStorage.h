@@ -70,12 +70,13 @@ __attribute__((visibility("hidden")))
 - (id)zeroCodeGlyphList;
 - (id)_zeroCodeListFromTree:(const void *)arg1;
 - (void)_swapZeroCodeInformation:(CDStruct_c0454aff *)arg1;
+- (id)renditionNameForKeyBaseList:(struct _renditionkeytoken *)arg1;
 - (id)renditionNameForKeyList:(struct _renditionkeytoken *)arg1;
 - (id)allRenditionNames;
 - (const struct _renditionkeytoken *)renditionKeyForName:(const char *)arg1 hotSpot:(struct CGPoint *)arg2;
 - (struct _renditionkeytoken)_swapRenditionKeyToken:(struct _renditionkeytoken)arg1;
 - (id)renditionInfoForIdentifier:(unsigned short)arg1;
-- (void)enumerateKeysAndObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (_Bool)enumerateKeysAndObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)assetKeysMatchingBlock:(CDUnknownBlockType)arg1;
 - (id)allAssetKeys;
 - (id)assetForKey:(id)arg1;

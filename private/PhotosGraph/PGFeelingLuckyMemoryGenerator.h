@@ -10,6 +10,7 @@
 {
 }
 
+- (id)_potentialMemoriesForDryTesting;
 - (id)_potentialMemories:(unsigned long long)arg1;
 
 @end

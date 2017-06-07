@@ -10,14 +10,15 @@
 {
 }
 
-+ (id)_placeDisplayNameForPeopleAddressEdgeLabel:(id)arg1;
++ (id)_placeDisplayNameForPeopleAddressNodeLabel:(id)arg1;
 + (id)_nameFromPeopleNode:(id)arg1;
-+ (id)_peopleGroupNameForPeopleNodes:(id)arg1;
++ (id)peopleGroupNameForPeopleNodes:(id)arg1 allowedGroupsFormat:(unsigned long long)arg2;
 + (id)_ageStringWithStartAge:(long long)arg1 endAge:(long long)arg2;
 + (id)ageStringForPeopleNode:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
 + (id)ageStringForPeopleNode:(id)arg1 date:(id)arg2;
-+ (id)nameStringForPeopleNodes:(id)arg1 includeMe:(_Bool)arg2;
-+ (id)beautifiedLocationStringWithPeopleNode:(id)arg1 peopleAddressEdgeLabel:(id)arg2;
++ (id)nameStringForPeopleNodes:(id)arg1 includeMe:(_Bool)arg2 allowUnnamed:(_Bool)arg3 allowedGroupsFormat:(unsigned long long)arg4 insertLineBreaks:(_Bool)arg5;
++ (id)nameStringForPeopleNodes:(id)arg1 includeMe:(_Bool)arg2 insertLineBreaks:(_Bool)arg3;
++ (id)beautifiedLocationStringWithPeopleNode:(id)arg1 peopleAddressEdge:(id)arg2 insertLineBreak:(_Bool)arg3;
 
 @end
 

@@ -6,13 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class CAMediaTimingFunction, CASpringAnimation, PKPassGroupView, UIPanGestureRecognizer, _UIDynamicValueAnimation;
+@class PKPassGroupView, UIPanGestureRecognizer, _UIDynamicValueAnimation;
 
 @interface PKPassGroupViewVerticalPanAnimator : NSObject
 {
     _UIDynamicValueAnimation *_panningAnimation;
-    CASpringAnimation *_springAnimation;
-    CAMediaTimingFunction *_timingFunction;
     PKPassGroupView *_groupView;
     UIPanGestureRecognizer *_gestureRecognizer;
     double _panningViewTargetScale;
@@ -29,6 +27,7 @@
 - (void)dismissWithStartVelocity:(double)arg1 alongSideApplier:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_dynamicAnimationWithStart:(double)arg1 target:(double)arg2 initialVelocity:(double)arg3;
 - (void)layoutViewsWithY:(double)arg1;
+- (double)scaleForY:(double)arg1;
 - (void)stop;
 - (void)dealloc;
 - (id)initWithGroupView:(id)arg1;

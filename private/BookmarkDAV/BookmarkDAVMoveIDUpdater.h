@@ -4,13 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @interface BookmarkDAVMoveIDUpdater : NSObject
 {
     void *_database;
 }
 
++ (void)rewriteOrderedPayloadsFromProvider:(CDUnknownBlockType)arg1;
+- (void)_recursivelyRewriteServerIDsInMutableMap:(id)arg1 sortingHint:(id)arg2;
+- (void)_recursivelyRewriteServerIDsForItemWithServerID:(id)arg1 newParentID:(id)arg2 mutableMap:(id)arg3;
+- (void)recursivelyRewriteServerIDsInMap:(id)arg1;
 - (void)recursivelyRewriteServerIDsForItemWithServerID:(id)arg1 newParentID:(id)arg2;
 - (void)dealloc;
 - (id)initWithDatabase:(void *)arg1;

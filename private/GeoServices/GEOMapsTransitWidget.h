@@ -29,6 +29,7 @@
 @property(nonatomic) _Bool everExpanded; // @synthesize everExpanded=_everExpanded;
 @property(nonatomic) _Bool initiallyExpanded; // @synthesize initiallyExpanded=_initiallyExpanded;
 @property(retain, nonatomic) NSMutableArray *transitIncidentItems; // @synthesize transitIncidentItems=_transitIncidentItems;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -50,7 +51,6 @@
 - (id)transitMessageTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasTransitMessageType;
 @property(nonatomic) int transitMessageType; // @synthesize transitMessageType=_transitMessageType;
-- (void)dealloc;
 
 @end
 

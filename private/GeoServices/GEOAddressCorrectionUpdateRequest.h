@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSMutableArray *addressResults; // @synthesize addressResults=_addressResults;
 @property(retain, nonatomic) NSString *addressID; // @synthesize addressID=_addressID;
 @property(retain, nonatomic) NSMutableArray *significantLocations; // @synthesize significantLocations=_significantLocations;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -50,7 +51,6 @@
 - (id)correctionStatusAsString:(int)arg1;
 @property(nonatomic) _Bool hasCorrectionStatus;
 @property(nonatomic) int correctionStatus; // @synthesize correctionStatus=_correctionStatus;
-- (void)dealloc;
 
 @end
 

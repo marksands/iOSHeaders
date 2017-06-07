@@ -22,8 +22,10 @@
     UITapGestureRecognizer *_tapGestureRecognizer;
     UIButton *_collapseButton;
     _CKAcknowledgmentVoteCountView *_currentlyExpandedVoteCountView;
+    NSArray *_sortedAnimatorModelItems;
 }
 
+@property(copy, nonatomic) NSArray *sortedAnimatorModelItems; // @synthesize sortedAnimatorModelItems=_sortedAnimatorModelItems;
 @property(retain, nonatomic) _CKAcknowledgmentVoteCountView *currentlyExpandedVoteCountView; // @synthesize currentlyExpandedVoteCountView=_currentlyExpandedVoteCountView;
 @property(retain, nonatomic) UIButton *collapseButton; // @synthesize collapseButton=_collapseButton;
 @property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;

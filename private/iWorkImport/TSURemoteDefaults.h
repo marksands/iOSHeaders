@@ -6,8 +6,6 @@
 
 #import <iWorkImport/TSURemotePropertyList.h>
 
-@class NSURL;
-
 __attribute__((visibility("hidden")))
 @interface TSURemoteDefaults : TSURemotePropertyList
 {
@@ -19,7 +17,6 @@ __attribute__((visibility("hidden")))
 - (void)registerDefaults;
 - (id)initInternal;
 - (id)initWithRemoteURL:(id)arg1 localURL:(id)arg2;
-@property(readonly, nonatomic) NSURL *downloadableContentURL;
 
 @end
 

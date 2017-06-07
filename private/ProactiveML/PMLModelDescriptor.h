@@ -6,28 +6,29 @@
 
 #import <objc/NSObject.h>
 
-#import <ProactiveML/DictionarySerializableProtocol-Protocol.h>
+#import <ProactiveML/PMLDictionarySerializableProtocol-Protocol.h>
+#import <ProactiveML/PMLPlistAndChunksSerializableProtocol-Protocol.h>
 
-@class NSNumber, NSString, PMLModelLearningRates, PMLModelWeights, _PASTuple2;
+@class NSNumber, NSString, PMLModelLearningRates, PMLModelWeights;
 
-@interface PMLModelDescriptor : NSObject <DictionarySerializableProtocol>
+@interface PMLModelDescriptor : NSObject <PMLDictionarySerializableProtocol, PMLPlistAndChunksSerializableProtocol>
 {
-    _PASTuple2 *_shape;
     NSString *_name;
     NSNumber *_version;
     PMLModelWeights *_weights;
     PMLModelLearningRates *_learningRates;
 }
 
-+ (id)fromDictionary:(id)arg1;
++ (_Bool)isValidModelDescriptorInPlistMetadata:(id)arg1 withErrorDescription:(id *)arg2;
 @property(retain) PMLModelLearningRates *learningRates; // @synthesize learningRates=_learningRates;
 @property(retain) PMLModelWeights *weights; // @synthesize weights=_weights;
 @property(retain) NSNumber *version; // @synthesize version=_version;
 @property(retain) NSString *name; // @synthesize name=_name;
-@property(retain) _PASTuple2 *shape; // @synthesize shape=_shape;
 - (void).cxx_destruct;
 - (id)toDictionary;
 - (id)initFromDictionary:(id)arg1;
+- (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
+- (id)toPlistWithChunks:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

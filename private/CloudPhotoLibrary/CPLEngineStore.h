@@ -9,8 +9,8 @@
 #import <CloudPhotoLibrary/CPLAbstractObject-Protocol.h>
 #import <CloudPhotoLibrary/CPLEngineComponent-Protocol.h>
 
-@class CPLEngineChangePipe, CPLEngineClientCache, CPLEngineCloudCache, CPLEngineDerivativesCache, CPLEngineIDMapping, CPLEngineLibrary, CPLEngineQuarantinedRecords, CPLEngineRemappedDeletes, CPLEngineResourceDownloadQueue, CPLEngineResourceStorage, CPLEngineResourceUploadQueue, CPLEngineTransientRepository, CPLPlatformObject, NSArray, NSDate, NSHashTable, NSMutableArray, NSString, NSURL;
-@protocol OS_dispatch_queue;
+@class CPLEngineChangePipe, CPLEngineClientCache, CPLEngineCloudCache, CPLEngineDerivativesCache, CPLEngineIDMapping, CPLEngineLibrary, CPLEngineOutgoingResources, CPLEnginePushRepository, CPLEngineQuarantinedRecords, CPLEngineRemappedDeletes, CPLEngineResourceDownloadQueue, CPLEngineResourceStorage, CPLEngineStatusCenter, CPLEngineTransientRepository, CPLPlatformObject, CPLResetTracker, NSArray, NSDate, NSHashTable, NSMutableArray, NSSet, NSString, NSURL;
+@protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface CPLEngineStore : NSObject <CPLAbstractObject, CPLEngineComponent>
 {
@@ -18,13 +18,21 @@
     NSObject<OS_dispatch_queue> *_batchedTransactionsQueue;
     NSMutableArray *_batchedTransactions;
     _Bool _batchedTransactionDequeueIsScheduled;
+    _Bool _dontDelayChangeSessionUpdate;
     NSURL *_resetEventsURL;
     NSMutableArray *_resetEvents;
+    CPLResetTracker *_pendingTracker;
+    NSSet *_lastInvalidRecordIdentifiers;
+    NSDate *_lastInvalidRecordsDate;
+    NSObject<OS_dispatch_source> *_pendingUpdateTimer;
+    NSObject<OS_dispatch_queue> *_pendingUpdateQueue;
+    double _pendingUpdateInterval;
+    _Bool _unschedulePendingUpdateApplyOnWriteSuccess;
+    _Bool _schedulePendingUpdateApplyOnWriteSuccess;
     _Bool _supportedFeatureVersionIsMostRecent;
     CPLPlatformObject *_platformObject;
     CPLEngineLibrary *_engineLibrary;
-    CPLEngineChangePipe *_pushQueue;
-    CPLEngineChangePipe *_deletePushQueue;
+    CPLEnginePushRepository *_pushRepository;
     CPLEngineChangePipe *_pullQueue;
     CPLEngineIDMapping *_idMapping;
     CPLEngineClientCache *_clientCache;
@@ -32,9 +40,10 @@
     CPLEngineTransientRepository *_transientPullRepository;
     CPLEngineResourceStorage *_resourceStorage;
     CPLEngineResourceDownloadQueue *_downloadQueue;
-    CPLEngineResourceUploadQueue *_uploadQueue;
+    CPLEngineOutgoingResources *_outgoingResources;
     CPLEngineRemappedDeletes *_remappedDeletes;
     CPLEngineQuarantinedRecords *_quarantinedRecords;
+    CPLEngineStatusCenter *_statusCenter;
     CPLEngineDerivativesCache *_derivativesCache;
     unsigned long long _state;
 }
@@ -44,9 +53,10 @@
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) CPLEngineDerivativesCache *derivativesCache; // @synthesize derivativesCache=_derivativesCache;
 @property(readonly, nonatomic) _Bool supportedFeatureVersionIsMostRecent; // @synthesize supportedFeatureVersionIsMostRecent=_supportedFeatureVersionIsMostRecent;
+@property(readonly, nonatomic) CPLEngineStatusCenter *statusCenter; // @synthesize statusCenter=_statusCenter;
 @property(readonly, nonatomic) CPLEngineQuarantinedRecords *quarantinedRecords; // @synthesize quarantinedRecords=_quarantinedRecords;
 @property(readonly, nonatomic) CPLEngineRemappedDeletes *remappedDeletes; // @synthesize remappedDeletes=_remappedDeletes;
-@property(readonly, nonatomic) CPLEngineResourceUploadQueue *uploadQueue; // @synthesize uploadQueue=_uploadQueue;
+@property(readonly, nonatomic) CPLEngineOutgoingResources *outgoingResources; // @synthesize outgoingResources=_outgoingResources;
 @property(readonly, nonatomic) CPLEngineResourceDownloadQueue *downloadQueue; // @synthesize downloadQueue=_downloadQueue;
 @property(readonly, nonatomic) CPLEngineResourceStorage *resourceStorage; // @synthesize resourceStorage=_resourceStorage;
 @property(readonly, nonatomic) CPLEngineTransientRepository *transientPullRepository; // @synthesize transientPullRepository=_transientPullRepository;
@@ -54,8 +64,7 @@
 @property(readonly, nonatomic) CPLEngineClientCache *clientCache; // @synthesize clientCache=_clientCache;
 @property(readonly, nonatomic) CPLEngineIDMapping *idMapping; // @synthesize idMapping=_idMapping;
 @property(readonly, nonatomic) CPLEngineChangePipe *pullQueue; // @synthesize pullQueue=_pullQueue;
-@property(readonly, nonatomic) CPLEngineChangePipe *deletePushQueue; // @synthesize deletePushQueue=_deletePushQueue;
-@property(readonly, nonatomic) CPLEngineChangePipe *pushQueue; // @synthesize pushQueue=_pushQueue;
+@property(readonly, nonatomic) CPLEnginePushRepository *pushRepository; // @synthesize pushRepository=_pushRepository;
 @property(readonly, nonatomic) __weak CPLEngineLibrary *engineLibrary; // @synthesize engineLibrary=_engineLibrary;
 @property(readonly, nonatomic) CPLPlatformObject *platformObject; // @synthesize platformObject=_platformObject;
 - (void).cxx_destruct;
@@ -70,6 +79,15 @@
 - (void)_setTransactionOnCurrentThread:(id)arg1;
 - (id)_currentTransaction;
 @property(readonly, copy) NSString *description;
+- (_Bool)checkExpectedLibraryVersion:(id)arg1 error:(id *)arg2;
+- (_Bool)applyPreviousChangeSessionUpdateWithExpectedLibraryVersion:(id)arg1 error:(id *)arg2;
+- (_Bool)beginChangeSession:(id)arg1 withLibraryVersion:(id)arg2 resetTracker:(id)arg3 error:(id *)arg4;
+- (_Bool)storeChangeSessionUpdate:(id)arg1 error:(id *)arg2;
+- (void)_unschedulePendingUpdateApply;
+- (void)_schedulePendingUpdateApply;
+- (void)_reallyUnschedulePendingUpdateApply;
+- (void)_reallySchedulePendingUpdateApply;
+- (_Bool)_applyPendingUpdate:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) _Bool shouldGenerateDerivatives;
 @property(readonly, nonatomic) id corruptionInfo;
 @property(readonly) NSDate *libraryCreationDate;
@@ -84,24 +102,33 @@
 - (id)libraryZoneName;
 - (_Bool)storeUserIdentifier:(id)arg1 error:(id *)arg2;
 - (id)userIdentifier;
-@property(readonly, nonatomic) _Bool pushQueuesAreFull;
+@property(readonly, nonatomic) _Bool pushRepositoryIsFull;
 - (id)createNewLibraryVersion;
 - (id)libraryVersion;
 - (_Bool)storeLibraryVersion:(id)arg1 withError:(id *)arg2;
 - (void)closeAndDeactivate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)performBatchedWriteTransactionBarrier;
 - (void)performBatchedWriteTransactionWithBlock:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_reallyPerformBatchedTransactionsLocked;
 - (void)_scheduleBatchedTransactionsLocked;
 - (id)performWriteTransactionWithBlock:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_commitWriteTransaction:(id)arg1 commitError:(id)arg2;
+- (void)writeTransactionDidFail;
+- (void)writeTransactionDidSucceed;
 - (id)performReadTransactionWithBlock:(CDUnknownBlockType)arg1;
 - (void)openWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_performTransaction:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)noteInvalidRecordIdentifiersInPushSession:(id)arg1;
+- (void)noteOtherResetEvent:(id)arg1 cause:(id)arg2;
 - (_Bool)resetSyncAnchorWithCause:(id)arg1 error:(id *)arg2;
 - (_Bool)resetCompleteSyncStateWithCause:(id)arg1 error:(id *)arg2;
+- (_Bool)resetLocalSyncStateWithCause:(id)arg1 date:(id)arg2 error:(id *)arg3;
 - (_Bool)resetLocalSyncStateWithCause:(id)arg1 error:(id *)arg2;
 - (id)_resetEventsDescriptions;
 - (void)noteResetSyncFinished;
-- (void)_storeResetEvent:(id)arg1 cause:(id)arg2;
+- (void)_storeResetEvent:(id)arg1 date:(id)arg2 cause:(id)arg3;
+- (void)_storeResetEvent:(id)arg1 date:(id)arg2 pending:(_Bool)arg3 cause:(id)arg4;
+- (void)_loadResetEvents;
 - (_Bool)_resetLocalSyncStateWithError:(id *)arg1;
 - (void)registerStorage:(id)arg1;
 @property(readonly, nonatomic) NSArray *storages;

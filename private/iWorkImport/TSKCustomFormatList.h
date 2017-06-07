@@ -13,22 +13,31 @@
 __attribute__((visibility("hidden")))
 @interface TSKCustomFormatList : TSPObject <NSCopying>
 {
-    NSMutableDictionary *mFormatsByKeyDictionary;
-    TSUNoCopyDictionary *mKeysByFormatDictionary;
-    TSUNoCopyDictionary *mKeysByFormatWithNameStemMatching;
-    TSUSparseArray *mKeysByIndex;
-    TSUNoCopyDictionary *mIndexesByKey;
-    NSMutableSet *mNamesList;
-    _Bool mUpgrading;
-    _Bool mUpgradingDone;
-    _Bool mImporting;
-    _Bool mImportingDone;
+    _Bool _importing;
+    _Bool _upgrading;
+    _Bool _upgradingDone;
+    _Bool _importingDone;
+    NSMutableDictionary *_formatsByKeyDictionary;
+    TSUNoCopyDictionary *_keysByFormatDictionary;
+    TSUNoCopyDictionary *_keysByFormatWithNameStemMatching;
+    TSUSparseArray *_keysByIndex;
+    TSUNoCopyDictionary *_indexesByKey;
+    NSMutableSet *_namesList;
 }
 
 + (id)unarchiveKeys:(const RepeatedPtrField_bfda3daa *)arg1;
 + (void)archiveKeys:(id)arg1 message:(RepeatedPtrField_bfda3daa *)arg2;
-@property(nonatomic) _Bool upgrading; // @synthesize upgrading=mUpgrading;
-@property(nonatomic) _Bool importing; // @synthesize importing=mImporting;
+@property(nonatomic) _Bool importingDone; // @synthesize importingDone=_importingDone;
+@property(nonatomic) _Bool upgradingDone; // @synthesize upgradingDone=_upgradingDone;
+@property(retain, nonatomic) NSMutableSet *namesList; // @synthesize namesList=_namesList;
+@property(retain, nonatomic) TSUNoCopyDictionary *indexesByKey; // @synthesize indexesByKey=_indexesByKey;
+@property(retain, nonatomic) TSUSparseArray *keysByIndex; // @synthesize keysByIndex=_keysByIndex;
+@property(retain, nonatomic) TSUNoCopyDictionary *keysByFormatWithNameStemMatching; // @synthesize keysByFormatWithNameStemMatching=_keysByFormatWithNameStemMatching;
+@property(retain, nonatomic) TSUNoCopyDictionary *keysByFormatDictionary; // @synthesize keysByFormatDictionary=_keysByFormatDictionary;
+@property(retain, nonatomic) NSMutableDictionary *formatsByKeyDictionary; // @synthesize formatsByKeyDictionary=_formatsByKeyDictionary;
+@property(nonatomic) _Bool upgrading; // @synthesize upgrading=_upgrading;
+@property(nonatomic) _Bool importing; // @synthesize importing=_importing;
+- (void).cxx_destruct;
 - (id)description;
 - (void)remapCustomFormatKeysWithOldToNewKeyMap:(id)arg1;
 - (id)upgradedCustomFormatKeyForLegacyID:(unsigned int)arg1;
@@ -53,11 +62,9 @@ __attribute__((visibility("hidden")))
 - (id)keyForCustomFormat:(id)arg1;
 - (id)customFormatForKey:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
-- (id)init;
 
 @end
 

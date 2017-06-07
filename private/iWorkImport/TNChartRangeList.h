@@ -9,19 +9,19 @@
 __attribute__((visibility("hidden")))
 @interface TNChartRangeList : NSObject
 {
-    struct __CFUUID *mTableID;
-    struct TNChartRangeNode *mNodeList;
-    struct TSCERangeCoordinate mUnionRange;
-    _Bool mUnionRangeValid;
+    UUIDData_5fbc143e _tableUID;
+    struct TNChartRangeNode *_nodeList;
+    struct TSCERangeCoordinate _unionRange;
+    _Bool _unionRangeValid;
 }
 
-+ (id)rangeListWithRangeRef:(CDStruct_fc93c73e)arg1;
-+ (id)rangeListWithTableID:(struct __CFUUID *)arg1 range:(struct TSCERangeCoordinate)arg2;
-+ (id)rangeListWithTableID:(struct __CFUUID *)arg1;
-@property(readonly, nonatomic) struct __CFUUID *tableID; // @synthesize tableID=mTableID;
++ (id)rangeListWithRangeRef:(struct TSCERangeRef)arg1;
++ (id)rangeListWithTableUID:(const UUIDData_5fbc143e *)arg1 range:(struct TSCERangeCoordinate)arg2;
++ (id)rangeListWithTableUID:(const UUIDData_5fbc143e *)arg1;
+@property(readonly, nonatomic) UUIDData_5fbc143e tableUID; // @synthesize tableUID=_tableUID;
+- (id).cxx_construct;
 - (id)description;
 - (void)enumerateRangesUsingBlock:(CDUnknownBlockType)arg1;
-- (CDStruct_fc93c73e)unionRangeRef;
 - (struct TSCERangeCoordinate)unionRange;
 - (struct TSCERangeCoordinate)rangeStartingAfterCell:(struct TSUCellCoord)arg1 direction:(int)arg2;
 - (struct TSCERangeCoordinate)rangeStartingAtCell:(struct TSUCellCoord)arg1 direction:(int)arg2;
@@ -32,8 +32,8 @@ __attribute__((visibility("hidden")))
 - (void)removeAllRanges;
 - (void)addRange:(struct TSCERangeCoordinate)arg1 coalesceFlags:(int)arg2;
 - (void)dealloc;
-- (id)initWithTableID:(struct __CFUUID *)arg1 range:(struct TSCERangeCoordinate)arg2;
-- (id)initWithTableID:(struct __CFUUID *)arg1;
+- (id)initWithTableUID:(const UUIDData_5fbc143e *)arg1 range:(struct TSCERangeCoordinate)arg2;
+- (id)initWithTableUID:(const UUIDData_5fbc143e *)arg1;
 
 @end
 

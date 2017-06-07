@@ -6,7 +6,7 @@
 
 #import <CoreThemeDefinition/TDPersistentDocument.h>
 
-@class NSManagedObjectModel, NSMutableDictionary, NSString, NSURL, NSUUID, TDDeviceTraits, TDHistorian, TDThreadMOCOrganizer;
+@class NSManagedObjectModel, NSMutableArray, NSMutableDictionary, NSString, NSURL, NSUUID, TDCatalogGlobals, TDDeviceTraits, TDHistorian, TDThreadMOCOrganizer;
 @protocol TDAssetManagementDelegate, TDCustomAssetProvider;
 
 @interface CoreThemeDocument : TDPersistentDocument
@@ -30,9 +30,9 @@
     int _majorVersion;
     int _minorVersion;
     int _patchVersion;
-    TDDeviceTraits *_optimizeForDeviceTraits;
+    NSMutableArray *_deviceTraits;
     struct _renditionkeyfmt *_keyFormat;
-    long long _capabilities;
+    TDCatalogGlobals *_catalogGlobals;
     id <TDAssetManagementDelegate> _assetManagementDelegate;
     id <TDCustomAssetProvider> _customAssetProvider;
 }
@@ -62,12 +62,13 @@
 @property(nonatomic) id <TDAssetManagementDelegate> assetManagementDelegate; // @synthesize assetManagementDelegate=_assetManagementDelegate;
 @property(copy) NSString *pathToRepresentedDocument; // @synthesize pathToRepresentedDocument;
 @property(copy, nonatomic) NSString *minimumDeploymentVersion; // @synthesize minimumDeploymentVersion=_minimumDeploymentVersion;
-@property(retain, nonatomic) TDDeviceTraits *optimizeForDeviceTraits; // @synthesize optimizeForDeviceTraits=_optimizeForDeviceTraits;
-@property(nonatomic) long long documentCapabilities; // @synthesize documentCapabilities=_capabilities;
+- (_Bool)_clampMetrics;
+- (void)_processModelProductions;
 - (void)_automaticP3GenerationFromSRGB;
 - (void)_automaticSRGBGenerationFromP3;
 - (_Bool)_matchesAllExceptGamut:(id)arg1 andKeySpec:(id)arg2;
 - (void)_optimizeForDeviceTraits;
+- (void)incrementallyPackRenditionsSinceDate:(id)arg1;
 - (void)packRenditions;
 - (void)_groupPackableRenditions;
 - (void)_updateRenditionPackings:(id)arg1;
@@ -85,9 +86,7 @@
 - (_Bool)configurePersistentStoreCoordinatorForURL:(id)arg1 ofType:(id)arg2 modelConfiguration:(id)arg3 storeOptions:(id)arg4 error:(id *)arg5;
 - (id)updatedVersionsMetadataFromMetadata:(id)arg1;
 - (id)persistentStoreTypeForFileType:(id)arg1;
-@property(nonatomic) _Bool allowsVibrancy;
-@property(nonatomic) int defaultBlendMode;
-- (id)_catalogGlobals;
+@property(readonly) TDCatalogGlobals *catalogGlobals;
 - (void)importCursorsFromURL:(id)arg1 getUnusedImportedCursors:(id *)arg2 getUnupdatedCursors:(id *)arg3;
 - (void)exportCursorsToURL:(id)arg1;
 - (void)importColorsFromURL:(id)arg1 valuesOnly:(_Bool)arg2 getUnusedColorNames:(id *)arg3;
@@ -153,7 +152,6 @@
 - (id)_addAssetsFromCustomAssetInfos:(id)arg1 bitSource:(id)arg2 error:(id *)arg3;
 - (void)deleteNamedAssets:(id)arg1 shouldDeleteAssetFiles:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)importNamedAssetsWithImportInfos:(id)arg1 referenceFiles:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)importNamedAssetsWithImportInfos:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)importNamedAssetsFromFileURLs:(id)arg1 referenceFiles:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_backwardsCompatibilityPatchForLayoutDirection;
 - (void)_tidyUpLayerStacks;
@@ -161,8 +159,11 @@
 - (void)_addResolvedLayerReferenceToFlattenedImageRendition:(id)arg1 usingArtworkRendition:(id)arg2 andLayerReference:(id)arg3;
 - (long long)_compareFlattenedKeySpec1:(id)arg1 toKeySpec2:(id)arg2;
 - (id)updateAutomaticTexturesForCustomInfos:(id)arg1 allTextureInfos:(id)arg2;
+- (void)createNamedModelsForCustomInfos:(id)arg1 referenceFiles:(_Bool)arg2 bitSource:(id)arg3 error:(id *)arg4;
 - (void)createNamedTexturesForCustomInfos:(id)arg1 referenceFiles:(_Bool)arg2 bitSource:(id)arg3 error:(id *)arg4;
 - (id)createNamedArtworkProductionsForAssets:(id)arg1 customInfos:(id)arg2 error:(id *)arg3;
+- (id)_sizeIndexesByNameFromNamedAssetImportInfos:(id)arg1;
+- (id)createNamedColorProductionsForImportInfos:(id)arg1 error:(id *)arg2;
 - (id)slicesComputedForImageSize:(struct CGSize)arg1 usingSliceInsets:(CDStruct_3c058996)arg2 resizableSliceSize:(struct CGSize)arg3 withRenditionType:(long long)arg4;
 - (id)namedArtworkProductionWithName:(id)arg1;
 - (id)elementProductionsWithName:(id)arg1;
@@ -251,7 +252,12 @@
 - (void)_getFilename:(id *)arg1 scaleFactor:(unsigned int *)arg2 category:(id *)arg3 bitSource:(id *)arg4 forFileURL:(id)arg5;
 - (id)_predicateForRenditionKeySpec:(id)arg1;
 - (void)changedObjectsNotification:(id)arg1;
+- (_Bool)shouldSupportCompactCompression;
 - (void)updateRenditionSpec:(id)arg1;
+- (id)deviceTraitsUsedForOptimization;
+- (void)removeDeviceTraitsForOptimization;
+- (void)addDeviceTraitForOptimization:(id)arg1;
+@property(retain, nonatomic) TDDeviceTraits *optimizeForDeviceTraits;
 @property(readonly, nonatomic) int patchVersion;
 @property(readonly, nonatomic) int minorVersion;
 @property(readonly, nonatomic) int majorVersion;

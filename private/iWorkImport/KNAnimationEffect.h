@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)localizedMenuString:(long long)arg1;
 + (id)supportedTypes;
 + (id)animationFilter;
-+ (int)animationCategory;
++ (long long)animationCategory;
 + (id)animationName;
 - (id)initWithAnimationContext:(id)arg1;
 

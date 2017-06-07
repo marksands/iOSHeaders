@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
     struct ResizeData mCurrent;
     tvec2_84d5962d mTarget;
     unsigned long long mIndex;
-    CDStruct_339a9a6e mLayoutSettings;
+    CDStruct_44ada6bf mLayoutSettings;
 }
 
 + (id)resizerWithLayout:(id)arg1 chartType:(id)arg2;

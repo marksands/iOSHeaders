@@ -10,7 +10,7 @@
 #import <VideoSubscriberAccountUI/IKApplication-Protocol.h>
 #import <VideoSubscriberAccountUI/VSStateMachineDelegate-Protocol.h>
 
-@class IKAppContext, NSError, NSHTTPCookieStorage, NSString, NSURL, VSAppDeviceConfig, VSStateMachine;
+@class IKAppContext, NSError, NSHTTPCookieStorage, NSString, NSURL, VSAppDeviceConfig, VSAuditToken, VSStateMachine;
 @protocol VSApplicationDelegate;
 
 __attribute__((visibility("hidden")))
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     NSURL *_bootURL;
     IKAppContext *_appContext;
     id <VSApplicationDelegate> _delegate;
+    VSAuditToken *_auditToken;
     VSStateMachine *_stateMachine;
     VSAppDeviceConfig *_appDeviceConfig;
     NSHTTPCookieStorage *_cookieStorage;
@@ -31,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VSAppDeviceConfig *appDeviceConfig; // @synthesize appDeviceConfig=_appDeviceConfig;
 @property(retain, nonatomic) VSStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
 @property(nonatomic) _Bool shouldAllowRemoteInspection; // @synthesize shouldAllowRemoteInspection=_shouldAllowRemoteInspection;
+@property(copy, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(nonatomic) __weak id <VSApplicationDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) IKAppContext *appContext; // @synthesize appContext=_appContext;
 @property(readonly, copy, nonatomic) NSURL *bootURL; // @synthesize bootURL=_bootURL;
@@ -44,6 +46,9 @@ __attribute__((visibility("hidden")))
 - (id)appIdentifier;
 - (id)appJSURL;
 - (_Bool)shouldIgnoreJSValidation;
+- (_Bool)appIsTrusted;
+- (id)sourceApplicationAuditTokenDataForContext:(id)arg1;
+- (id)sourceApplicationBundleIdentifierForContext:(id)arg1;
 - (id)xhrSessionConfigurationForContext:(id)arg1;
 - (id)objectForPlayer:(id)arg1;
 - (id)objectForPlaylist:(id)arg1;
@@ -64,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)transitionToReadyState;
 - (void)transitionToNotifyingOfFailureToStartState;
 - (void)transitionToStartingState;
+- (void)dealloc;
 - (id)initWithBootURL:(id)arg1;
 - (id)init;
 

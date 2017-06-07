@@ -4,12 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDictionary;
 
 @interface BRAsset : NSObject
 {
+    _Bool _hasAudio;
+    _Bool _hasHaptic;
     _Bool _isNull;
     long long _type;
     NSDictionary *_parameters;
@@ -19,6 +21,8 @@
 + (id)withType:(long long)arg1 andParameters:(id)arg2;
 @property(readonly, nonatomic) _Bool isNull; // @synthesize isNull=_isNull;
 @property(readonly, nonatomic) NSDictionary *parameters; // @synthesize parameters=_parameters;
+@property(nonatomic) _Bool hasHaptic; // @synthesize hasHaptic=_hasHaptic;
+@property(nonatomic) _Bool hasAudio; // @synthesize hasAudio=_hasAudio;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) id propertyList;
 - (id)description;

@@ -19,8 +19,9 @@
 
 - (void)postNotification:(id)arg1;
 - (void)postCommandCompletionNotification:(id)arg1;
-- (void)asyncRetrieveDataOfFilesImp:(id)arg1;
-- (void)asyncRequestDataOfFilesImp:(id)arg1;
+- (void)enumerateContent;
+- (void)aptpRetrieveDataForFilesImp:(id)arg1;
+- (void)aptpRequestDataForFilesImp:(id)arg1;
 - (void)ejectImp:(id)arg1;
 - (void)downloadFileImp:(id)arg1;
 - (void)deleteFileImp:(id)arg1;
@@ -36,9 +37,8 @@
 - (int)deleteFile:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
 - (int)getMetadataOfFile:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
 - (int)getThumbnailOfFile:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
-- (unsigned int)getMaxObjects:(id)arg1 contextInfo:(void *)arg2;
-- (int)asyncRetrieveDataOfFiles:(id)arg1 contextInfo:(void *)arg2;
-- (int)asyncRequestDataOfFiles:(id)arg1 fromDevice:(id)arg2 withThumbnailSize:(unsigned short)arg3 contextInfo:(void *)arg4;
+- (int)aptpRetrieveDataForFiles:(id)arg1 contextInfo:(void *)arg2;
+- (int)aptpRequestDataForFiles:(id)arg1 fromDevice:(id)arg2 contextInfo:(void *)arg3;
 - (int)syncClock:(id)arg1 contextInfo:(void *)arg2;
 - (int)closeSession:(id)arg1 contextInfo:(void *)arg2;
 - (int)openSession:(id)arg1 contextInfo:(void *)arg2;

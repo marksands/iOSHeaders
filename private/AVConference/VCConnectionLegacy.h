@@ -8,7 +8,7 @@
 
 #import <AVConference/VCConnectionProtocol-Protocol.h>
 
-@class NSString;
+@class NSString, NSUUID;
 
 __attribute__((visibility("hidden")))
 @interface VCConnectionLegacy : NSObject <VCConnectionProtocol>
@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSString *localInterfaceTypeString;
 - (_Bool)matchesSourceDestinationInfo:(struct tagVCSourceDestinationInfo *)arg1;
 - (void)getSourceDestinationInfo:(struct tagVCSourceDestinationInfo *)arg1;
+@property(readonly) NSUUID *connectionUUID;
 @property int cellularMTU;
 @property int remoteCellTech;
 @property int localCellTech;

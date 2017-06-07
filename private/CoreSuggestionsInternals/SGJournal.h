@@ -22,6 +22,7 @@
 - (void)freezeObservers;
 - (void)addContactsObserver:(id)arg1;
 - (void)addCalendarObserver:(id)arg1;
+- (void)addEntries:(id)arg1;
 - (void)addEntry:(id)arg1;
 - (void)_callCalendarObservers:(id)arg1 contactsObservers:(id)arg2 withEntry:(id)arg3;
 - (id)init;

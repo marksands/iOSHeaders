@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataMultipleChoiceList : TSTTableDataObject
 {
-    TSTPopUpMenuModel *mPopUpMenuModel;
+    TSTPopUpMenuModel *_popUpMenuModel;
 }
 
-@property(readonly, nonatomic) TSTPopUpMenuModel *popUpMenuModel; // @synthesize popUpMenuModel=mPopUpMenuModel;
-- (void)dealloc;
+@property(readonly, nonatomic) TSTPopUpMenuModel *popUpMenuModel; // @synthesize popUpMenuModel=_popUpMenuModel;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

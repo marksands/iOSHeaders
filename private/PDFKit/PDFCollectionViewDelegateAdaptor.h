@@ -11,6 +11,7 @@
 @class NSString;
 @protocol PDFCollectionViewDelegate;
 
+__attribute__((visibility("hidden")))
 @interface PDFCollectionViewDelegateAdaptor : NSObject <UICollectionViewDelegate>
 {
     NSObject<PDFCollectionViewDelegate> *_wrappedDelegate;

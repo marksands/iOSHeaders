@@ -9,7 +9,7 @@
 #import <Celestial/FigXPCCoding-Protocol.h>
 #import <Celestial/NSCopying-Protocol.h>
 
-@class FigCaptureSourceFormat, NSDictionary, NSString;
+@class FigCaptureSourceDepthDataFormat, FigCaptureSourceVideoFormat, NSDictionary, NSString;
 
 @interface FigCaptureSourceConfiguration : NSObject <FigXPCCoding, NSCopying>
 {
@@ -17,7 +17,7 @@
     struct OpaqueFigCaptureSource *_source;
     int _sourceType;
     NSDictionary *_sourceAttributes;
-    FigCaptureSourceFormat *_requiredFormat;
+    FigCaptureSourceVideoFormat *_requiredFormat;
     float _requiredMaxFrameRate;
     float _requiredMinFrameRate;
     _Bool _hasSetVideoZoomFactorOnCaptureSource;
@@ -29,13 +29,14 @@
     NSDictionary *_faceDetectionConfiguration;
     _Bool _sensorHDREnabled;
     int _colorSpace;
-    _Bool _autoShallowDepthOfFieldEffectEnabled;
+    _Bool _depthDataDeliveryEnabled;
+    FigCaptureSourceDepthDataFormat *_depthDataFormat;
 }
 
 + (int)sourceTypeForString:(id)arg1;
 + (id)stringForSourceType:(int)arg1;
-+ (void)initialize;
-@property(nonatomic) _Bool autoShallowDepthOfFieldEffectEnabled; // @synthesize autoShallowDepthOfFieldEffectEnabled=_autoShallowDepthOfFieldEffectEnabled;
+@property(retain, nonatomic) FigCaptureSourceDepthDataFormat *depthDataFormat; // @synthesize depthDataFormat=_depthDataFormat;
+@property(nonatomic) _Bool depthDataDeliveryEnabled; // @synthesize depthDataDeliveryEnabled=_depthDataDeliveryEnabled;
 @property(nonatomic) int colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) _Bool sensorHDREnabled; // @synthesize sensorHDREnabled=_sensorHDREnabled;
 @property(copy, nonatomic) NSDictionary *faceDetectionConfiguration; // @synthesize faceDetectionConfiguration=_faceDetectionConfiguration;
@@ -47,8 +48,9 @@
 @property(nonatomic) _Bool hasSetVideoZoomFactorOnCaptureSource; // @synthesize hasSetVideoZoomFactorOnCaptureSource=_hasSetVideoZoomFactorOnCaptureSource;
 @property(nonatomic) float requiredMinFrameRate; // @synthesize requiredMinFrameRate=_requiredMinFrameRate;
 @property(nonatomic) float requiredMaxFrameRate; // @synthesize requiredMaxFrameRate=_requiredMaxFrameRate;
-@property(retain, nonatomic) FigCaptureSourceFormat *requiredFormat; // @synthesize requiredFormat=_requiredFormat;
+@property(retain, nonatomic) FigCaptureSourceVideoFormat *requiredFormat; // @synthesize requiredFormat=_requiredFormat;
 @property(copy, nonatomic) NSString *sourceID; // @synthesize sourceID=_sourceID;
+- (int)_deviceType;
 - (id)_sourceUID;
 - (int)_sourceToken;
 - (_Bool)_isCameraSource;

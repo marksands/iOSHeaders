@@ -8,7 +8,6 @@
 
 @class SCRCPhotoEvaluatorResult, SCRCPhotoEvaluatorResultPeople;
 
-__attribute__((visibility("hidden")))
 @interface SCRCPhotoEvaluatorResults : NSObject
 {
     SCRCPhotoEvaluatorResult *_blurResult;
@@ -21,7 +20,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) SCRCPhotoEvaluatorResultPeople *peopleResult; // @synthesize peopleResult=_peopleResult;
 @property(readonly, nonatomic) SCRCPhotoEvaluatorResult *colorResult; // @synthesize colorResult=_colorResult;
 @property(readonly, nonatomic) SCRCPhotoEvaluatorResult *blurResult; // @synthesize blurResult=_blurResult;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithBlurResult:(id)arg1 colorResult:(id)arg2 peopleResult:(id)arg3 luminanceResult:(id)arg4;
 
 @end

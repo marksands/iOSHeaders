@@ -6,9 +6,11 @@
 
 #import <FrontBoard/NSObject-Protocol.h>
 
-@class FBSceneLayerHostContainerView, NSOrderedSet;
+@class FBSceneLayerHostContainerView, NSOrderedSet, NSString;
 
 @protocol FBSceneLayerHostContainerViewDataSource <NSObject>
+- (NSString *)layerMinificationFilterNameForHostContainerView:(FBSceneLayerHostContainerView *)arg1;
+- (unsigned long long)contextHostRenderingModeForHostContainerView:(FBSceneLayerHostContainerView *)arg1;
 - (NSOrderedSet *)layersForHostContainerView:(FBSceneLayerHostContainerView *)arg1;
 @end
 

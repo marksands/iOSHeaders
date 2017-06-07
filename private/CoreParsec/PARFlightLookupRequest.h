@@ -13,9 +13,11 @@
 @interface PARFlightLookupRequest : PARRequest <NSSecureCoding>
 {
     NSString *_flightId;
+    NSString *_appBundleId;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *appBundleId; // @synthesize appBundleId=_appBundleId;
 @property(copy, nonatomic) NSString *flightId; // @synthesize flightId=_flightId;
 - (void).cxx_destruct;
 - (Class)responseClass;

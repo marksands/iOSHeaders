@@ -6,7 +6,8 @@
 
 #import <IMAP/IMAPAccount.h>
 
-@class ACAccount, ACAccountStore, DeliveryAccount, MFLock, NSMutableDictionary, NSString, NSURL;
+@class ACAccount, ACAccountStore, DeliveryAccount, MFLock, NSMutableDictionary, NSObject, NSString, NSURL;
+@protocol OS_dispatch_queue;
 
 @interface CastleIMAPAccount : IMAPAccount
 {
@@ -16,6 +17,7 @@
     unsigned int _readyForPushRegistration:1;
     NSMutableDictionary *_aliasChanges;
     NSString *_updatedDefaultEmail;
+    NSObject<OS_dispatch_queue> *_aliasUpdateQueue;
 }
 
 + (id)newChildAccountWithParentAccount:(id)arg1 error:(id *)arg2;

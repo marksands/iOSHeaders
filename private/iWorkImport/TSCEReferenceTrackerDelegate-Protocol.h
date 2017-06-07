@@ -9,8 +9,8 @@
 @class NSArray, TSCEReferenceTracker, TSCETrackedReference;
 
 @protocol TSCEReferenceTrackerDelegate <NSObject>
-- (void)trackedReferenceWasDeleted:(TSCETrackedReference *)arg1 fromOwnerID:(struct __CFUUID *)arg2;
-- (NSArray *)cellRangeWasInserted:(CDStruct_fc93c73e)arg1;
+- (void)trackedReferenceWasDeleted:(TSCETrackedReference *)arg1 fromOwnerUID:(const UUIDData_5fbc143e *)arg2;
+- (NSArray *)cellRangeWasInserted:(const struct TSCERangeRef *)arg1;
 - (_Bool)shouldRewriteOnTableIDReassignment;
 - (_Bool)shouldRewriteOnTranspose;
 - (_Bool)shouldRewriteOnCellMerge;
@@ -21,6 +21,6 @@
 
 @optional
 - (void)referenceTrackerDidUpdateReferences:(TSCEReferenceTracker *)arg1;
-- (void)updateTrackedHeaders:(struct __CFUUID *)arg1;
+- (void)updateTrackedHeaders:(const UUIDData_5fbc143e *)arg1;
 @end
 

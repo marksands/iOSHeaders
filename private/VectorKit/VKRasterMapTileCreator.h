@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKImageCanvasDelegate-Protocol.h>
 
@@ -22,9 +22,26 @@
     CDUnknownBlockType _completion;
     VKRasterMapTileRequest *_request;
     NSObject<OS_dispatch_queue> *_homeQueue;
-    struct Renderer *_renderer;
+    struct Renderer {
+        CDUnknownFunctionPointerType *;
+        struct Device *;
+        unsigned long long;
+        unsigned long long;
+        unsigned long long;
+        _Bool;
+        float;
+        struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>>;
+        struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue>>;
+        struct shared_ptr<ggl::CommonLibrary>;
+        struct unique_ptr<ggl::RenderResourceFences, std::__1::default_delete<ggl::RenderResourceFences>>;
+        struct Texture2D *;
+        struct unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>;
+    } *_renderer;
+    struct unique_ptr<md::MapEngine, std::__1::default_delete<md::MapEngine>> _mapEngine;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)imageCanvasWillBecomeFullyDrawn:(id)arg1;
 - (void)imageCanvasDidBecomeFullyDrawn:(id)arg1 hasFailedTiles:(_Bool)arg2;
 - (void)renderRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;

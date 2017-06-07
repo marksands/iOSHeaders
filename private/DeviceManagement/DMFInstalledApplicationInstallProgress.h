@@ -4,24 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <DeviceManagement/DMFApplicationInstallProgress.h>
 
-#import <DeviceManagement/NSSecureCoding-Protocol.h>
-
-@interface DMFInstalledApplicationInstallProgress : NSObject <NSSecureCoding>
+@interface DMFInstalledApplicationInstallProgress : DMFApplicationInstallProgress
 {
-    unsigned long long _state;
-    unsigned long long _phase;
-    double _fractionCompleted;
 }
-
-+ (_Bool)supportsSecureCoding;
-@property(nonatomic) double fractionCompleted; // @synthesize fractionCompleted=_fractionCompleted;
-@property(nonatomic) unsigned long long phase; // @synthesize phase=_phase;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
-- (_Bool)isEqual:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 
 @end
 

@@ -8,23 +8,26 @@
 
 @interface CAMFilterButton : UIButton
 {
+    long long _layoutStyle;
     long long _orientation;
     struct UIEdgeInsets _tappableEdgeInsets;
 }
 
-+ (id)filterButton;
++ (id)filterButtonWithLayoutStyle:(long long)arg1;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) struct UIEdgeInsets tappableEdgeInsets; // @synthesize tappableEdgeInsets=_tappableEdgeInsets;
+@property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 - (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (id)_filterOnImage;
 - (id)_filterImage;
 @property(nonatomic, getter=isOn) _Bool on;
-- (double)_selectedIndicatorAlpha;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
 - (struct UIEdgeInsets)alignmentRectInsets;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)_commonCAMFilterButtonInitialization;
+- (void)_commonCAMFilterButtonInitializationWithStyle:(long long)arg1;
 
 @end
 

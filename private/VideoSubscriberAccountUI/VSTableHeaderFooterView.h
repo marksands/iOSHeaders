@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class UIButton, UILabel, UIStackView;
+@class UIButton, UILabel, UIStackView, VSFontCenter;
 @protocol VSTableHeaderFooterViewDelegate;
 
 __attribute__((visibility("hidden")))
@@ -17,8 +17,10 @@ __attribute__((visibility("hidden")))
     UIButton *_button;
     UILabel *_textLabel;
     UIStackView *_stackView;
+    VSFontCenter *_fontCenter;
 }
 
+@property(retain, nonatomic) VSFontCenter *fontCenter; // @synthesize fontCenter=_fontCenter;
 @property(retain, nonatomic) UIStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) UILabel *textLabel; // @synthesize textLabel=_textLabel;
 @property(retain, nonatomic) UIButton *button; // @synthesize button=_button;

@@ -26,6 +26,7 @@
 
 @property(retain, nonatomic) GEOLatLng *significantLocation; // @synthesize significantLocation=_significantLocation;
 @property(nonatomic) double requestLocalTimestamp; // @synthesize requestLocalTimestamp=_requestLocalTimestamp;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -44,7 +45,6 @@
 @property(nonatomic) unsigned int maxNumCategoriesPerEntry; // @synthesize maxNumCategoriesPerEntry=_maxNumCategoriesPerEntry;
 @property(readonly, nonatomic) _Bool hasSignificantLocation;
 @property(nonatomic) _Bool hasRequestLocalTimestamp;
-- (void)dealloc;
 
 @end
 

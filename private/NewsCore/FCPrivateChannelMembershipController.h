@@ -6,9 +6,11 @@
 
 #import <NewsCore/FCPrivateZoneController.h>
 
-@class NSDictionary, NSMutableSet;
+#import <NewsCore/FCAppActivityObserving-Protocol.h>
 
-@interface FCPrivateChannelMembershipController : FCPrivateZoneController
+@class NSDictionary, NSMutableSet, NSString;
+
+@interface FCPrivateChannelMembershipController : FCPrivateZoneController <FCAppActivityObserving>
 {
     NSDictionary *_membershipsByChannelID;
     NSMutableSet *_membershipReferences;
@@ -26,6 +28,7 @@
 @property(retain, nonatomic) NSMutableSet *membershipReferences; // @synthesize membershipReferences=_membershipReferences;
 @property(retain, nonatomic) NSDictionary *membershipsByChannelID; // @synthesize membershipsByChannelID=_membershipsByChannelID;
 - (void).cxx_destruct;
+- (void)activityObservingApplicationDidBecomeActive;
 - (void)changedMembershipsFrom:(id)arg1 toMemberships:(id)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
@@ -45,6 +48,12 @@
 - (_Bool)isMemberOfChannelID:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 pushNotificationCenter:(id)arg2 recordZone:(id)arg3 storeDirectory:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

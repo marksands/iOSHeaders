@@ -9,7 +9,7 @@
 #import <iWorkImport/TSKMediaPlayerControllerDelegate-Protocol.h>
 
 @class CALayer, NSObject, NSString;
-@protocol NSCopying, TSKMediaPlayerController;
+@protocol NSCopying, TSDMovieHUDViewController, TSKMediaPlayerController;
 
 __attribute__((visibility("hidden")))
 @interface KNMovieRenderer : KNBuildRenderer <TSKMediaPlayerControllerDelegate>
@@ -33,10 +33,12 @@ __attribute__((visibility("hidden")))
     unsigned int mShouldMoviePlaybackEndOnCompletion:1;
     unsigned int mWasMoviePlayingBeforeAnimationPause:1;
     unsigned int mIsTeardownCompletionBlockPending:1;
+    id <TSDMovieHUDViewController> _viewController;
 }
 
 + (id)movieInfoForMovieTimelineMovieIdentifier:(id)arg1;
 + (id)movieTimelineMovieIdentifierForMovieInfo:(id)arg1;
+@property(retain, nonatomic) id <TSDMovieHUDViewController> viewController; // @synthesize viewController=_viewController;
 @property(readonly, nonatomic) NSObject<TSKMediaPlayerController> *playerController; // @synthesize playerController=mPlayerController;
 @property(nonatomic) KNBuildRenderer *buildInRenderer; // @synthesize buildInRenderer=mBuildInRenderer;
 @property(readonly, nonatomic) NSObject<NSCopying> *movieTimelineMovieIdentifier;

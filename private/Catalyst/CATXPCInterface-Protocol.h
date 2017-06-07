@@ -9,6 +9,6 @@
 @class CATMessage;
 
 @protocol CATXPCInterface <NSObject>
-- (void)processMessage:(CATMessage *)arg1;
+- (void)processMessage:(CATMessage *)arg1 completion:(void (^)(void))arg2;
 @end
 

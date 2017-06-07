@@ -8,13 +8,14 @@
 
 #import <HealthDaemon/HDHealthDaemonReadyObserver-Protocol.h>
 
-@class HDDemoDataActivitySampleGenerator, HDDemoDataBloodSampleGenerator, HDDemoDataBodySampleGenerator, HDDemoDataFoodSampleGenerator, HDDemoDataGeneratorState, HDDemoDataHealthDocumentSampleGenerator, HDDemoDataMindfulnessSampleGenerator, HDDemoDataPathologySampleGenerator, HDDemoDataPerson, HDDemoDataReproductiveHealthSampleGenerator, HDDemoDataSleepSampleGenerator, HDDemoDataStatisticsSampleGenerator, HDDemoDataVitalsSampleGenerator, HDProfile, NSArray, NSCalendar, NSString;
+@class HDDemoDataActivitySampleGenerator, HDDemoDataBloodSampleGenerator, HDDemoDataBodySampleGenerator, HDDemoDataFoodSampleGenerator, HDDemoDataGeneratorState, HDDemoDataHealthDocumentSampleGenerator, HDDemoDataMindfulnessSampleGenerator, HDDemoDataPathologySampleGenerator, HDDemoDataPerson, HDDemoDataReproductiveHealthSampleGenerator, HDDemoDataSleepSampleGenerator, HDDemoDataStatisticsSampleGenerator, HDDemoDataVitalsSampleGenerator, HDProfile, NSArray, NSCalendar, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface HDDemoDataGenerator : NSObject <HDHealthDaemonReadyObserver>
 {
     NSArray *_sampleGenerators;
     HDProfile *_profile;
+    NSMutableDictionary *_appProvenances;
     HDDemoDataGeneratorState *_generatorState;
     NSCalendar *_gregorianCalendar;
     long long _numHKSamples;
@@ -63,6 +64,8 @@
 - (void)_updateWorkoutConfigurationInGeneratorState;
 - (id)_watchProvenanceWithPerson:(id)arg1;
 - (id)_phoneProveance;
+- (id)_appProvenanceWithBundleIdentifier:(id)arg1;
+- (id)_appSourceWithBundleIdentifier:(id)arg1;
 - (void)_insertIntoDatabaseObjectCollection:(id)arg1 fromPerson:(id)arg2;
 - (void)_insertMedicalIDForDemoPerson:(id)arg1;
 - (void)_insertBiographicalDataFromDemoPerson:(id)arg1;

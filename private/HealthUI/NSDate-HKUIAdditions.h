@@ -8,6 +8,7 @@
 
 @interface NSDate (HKUIAdditions)
 + (id)hk_minimumDateForBirthDateWithCalendar:(id)arg1;
+- (double)doubleValue;
 - (id)hk_dateWithTruncatedSecond;
 @end
 

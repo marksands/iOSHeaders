@@ -43,6 +43,7 @@
 - (void)nowPlayingController:(id)arg1 playbackStateDidChange:(_Bool)arg2;
 - (void)routingViewController:(id)arg1 didPickRoute:(id)arg2;
 - (void)routingControllerAvailableRoutesDidChange:(id)arg1;
+- (void)controlCenterWillFinishTransitionOpen:(_Bool)arg1 withDuration:(double)arg2;
 - (void)controlCenterDidFinishTransition;
 - (void)controlCenterWillBeginTransition;
 - (void)controlCenterDidDismiss;

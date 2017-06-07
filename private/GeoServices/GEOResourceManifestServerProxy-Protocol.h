@@ -6,12 +6,12 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOActiveTileGroup, GEOResourceManifestConfiguration, NSNumber, NSObject, NSString;
+@class GEOActiveTileGroup, GEOResourceManifestConfiguration, NSArray, NSNumber, NSObject, NSString;
 @protocol GEOResourceManifestServerProxyDelegate, OS_dispatch_queue;
 
 @protocol GEOResourceManifestServerProxy <NSObject>
 @property(readonly, nonatomic) GEOActiveTileGroup *activeTileGroup;
-@property(nonatomic) id <GEOResourceManifestServerProxyDelegate> delegate;
+@property(nonatomic) __weak id <GEOResourceManifestServerProxyDelegate> delegate;
 - (void)getResourceManifestWithHandler:(void (^)(GEOResourceManifestDownload *, NSError *))arg1;
 - (oneway void)resetActiveTileGroup;
 - (oneway void)setActiveTileGroupIdentifier:(NSNumber *)arg1;
@@ -28,6 +28,6 @@
 - (void)closeConnection;
 - (void)openConnection;
 - (NSObject<OS_dispatch_queue> *)serverQueue;
-- (id)initWithDelegate:(id <GEOResourceManifestServerProxyDelegate>)arg1 configuration:(GEOResourceManifestConfiguration *)arg2;
+- (id)initWithDelegate:(id <GEOResourceManifestServerProxyDelegate>)arg1 configuration:(GEOResourceManifestConfiguration *)arg2 additionalMigrationTaskClasses:(NSArray *)arg3;
 @end
 

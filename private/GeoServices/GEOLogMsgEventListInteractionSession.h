@@ -23,6 +23,7 @@
 + (Class)listResultItemType;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(retain, nonatomic) NSMutableArray *listResultItems; // @synthesize listResultItems=_listResultItems;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -41,7 +42,6 @@
 - (id)listTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasListType;
 @property(nonatomic) int listType; // @synthesize listType=_listType;
-- (void)dealloc;
 
 @end
 

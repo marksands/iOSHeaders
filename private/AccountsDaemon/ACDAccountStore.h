@@ -105,7 +105,10 @@
 - (void)childAccountsWithAccountTypeIdentifier:(id)arg1 parentAccountIdentifier:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)childAccountsForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)parentAccountForAccountWithIdentifier:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (id)_predicateForFetchingAccountsWithManagedAccountTypeID:(id)arg1 options:(unsigned long long)arg2;
+- (id)_accountsWithAccountType:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (id)_accountsWithAcountType:(id)arg1 error:(id *)arg2;
+- (void)accountsWithAccountType:(id)arg1 options:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)accountsWithAccountType:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)dataclassesWithHandler:(CDUnknownBlockType)arg1;
 - (void)removeCredentialItem:(id)arg1 completion:(CDUnknownBlockType)arg2;

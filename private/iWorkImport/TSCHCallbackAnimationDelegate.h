@@ -6,8 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <iWorkImport/CAAnimationDelegate-Protocol.h>
+
+@class NSString;
+
 __attribute__((visibility("hidden")))
-@interface TSCHCallbackAnimationDelegate : NSObject
+@interface TSCHCallbackAnimationDelegate : NSObject <CAAnimationDelegate>
 {
     id target;
     SEL selector;
@@ -17,6 +21,12 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id target; // @synthesize target;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

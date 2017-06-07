@@ -23,13 +23,13 @@
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(retain, nonatomic) NSSet *aceItems; // @synthesize aceItems=_aceItems;
 @property(nonatomic) int state; // @synthesize state=_state;
+- (void).cxx_destruct;
 - (void)taskGroupWillCancelWithError:(id)arg1;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_finishWithError:(id)arg1 state:(int)arg2;
 - (void)startTaskGroup;
 - (void)_startSetACLWithAccessControlEntities:(id)arg1;
 - (void)_startGetACL;
-- (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 aceItems:(id)arg2 url:(id)arg3 taskManager:(id)arg4;
 
 // Remaining properties

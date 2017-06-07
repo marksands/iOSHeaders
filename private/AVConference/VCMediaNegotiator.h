@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class VCMediaNegotiatorAudioResults, VCMediaNegotiatorCaptionsResults, VCMediaNegotiatorLocalConfiguration, VCMediaNegotiatorResults, VCMediaNegotiatorVideoResults;
+@class VCMediaNegotiatorAudioResults, VCMediaNegotiatorCaptionsResults, VCMediaNegotiatorLocalConfiguration, VCMediaNegotiatorMomentsResults, VCMediaNegotiatorResults, VCMediaNegotiatorVideoResults;
 
 __attribute__((visibility("hidden")))
 @interface VCMediaNegotiator : NSObject
@@ -19,8 +19,10 @@ __attribute__((visibility("hidden")))
     VCMediaNegotiatorVideoResults *_negotiatedVideoSettings;
     VCMediaNegotiatorVideoResults *_negotiatedScreenSettings;
     VCMediaNegotiatorCaptionsResults *_negotiatedCaptionsSettings;
+    VCMediaNegotiatorMomentsResults *_negotiatedMomentsSettings;
 }
 
+@property(readonly, nonatomic) VCMediaNegotiatorMomentsResults *negotiatedMomentsSettings; // @synthesize negotiatedMomentsSettings=_negotiatedMomentsSettings;
 @property(readonly, nonatomic) VCMediaNegotiatorCaptionsResults *negotiatedCaptionsSettings; // @synthesize negotiatedCaptionsSettings=_negotiatedCaptionsSettings;
 @property(readonly, nonatomic) VCMediaNegotiatorLocalConfiguration *localSettings; // @synthesize localSettings=_localSettings;
 @property(readonly, nonatomic) VCMediaNegotiatorVideoResults *negotiatedScreenSettings; // @synthesize negotiatedScreenSettings=_negotiatedScreenSettings;
@@ -30,11 +32,15 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool usePreNegotiation; // @synthesize usePreNegotiation=_usePreNegotiation;
 - (_Bool)negotiateCaptionsWithCaptionsSettings:(id)arg1;
 - (void)setupCaptionsForMediaBlob:(id)arg1;
+- (_Bool)negotiateMomentsWithMomentsSettings:(id)arg1;
+- (void)setupMomentsForMediaBlob:(id)arg1;
 - (_Bool)setupScreenWithNegotiatedSettings:(id)arg1;
 - (_Bool)negotiateScreenSettings:(id)arg1;
 - (id)getPreferredScreenPayloadList;
 - (_Bool)setupVideoWithNegotiatedSettings:(id)arg1;
 - (_Bool)negotiateVideoSettings:(id)arg1;
+- (_Bool)canDecodeVideo:(id)arg1;
+- (_Bool)canEncodeVideo:(id)arg1;
 - (_Bool)processParameterSets:(id)arg1 videoResults:(id)arg2;
 - (void)negotiateRTCPFB:(id)arg1;
 - (_Bool)selectBestVideoRuleForTransport:(unsigned char)arg1 payload:(int)arg2 encodingType:(unsigned char)arg3 localVideoRuleCollection:(id)arg4 remoteVideoSettings:(id)arg5 negotiatedVideoSettings:(id)arg6 isScreen:(_Bool)arg7;
@@ -44,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)setupAudioWithNegotiatedSettings:(id)arg1;
 - (_Bool)negotiateAudioSettings:(id)arg1;
 - (void)negotiateAudioSecondaryPayloads:(id)arg1;
+- (_Bool)negotiateAudioREDPayload:(id)arg1;
 - (_Bool)negotiateAudioDTXPayload:(id)arg1;
 - (_Bool)negotiateAudioPrimaryPayload:(id)arg1;
 - (void)negotiateAudioAllowRecording:(id)arg1;

@@ -4,17 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
+@class NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
 @interface CoreDAVLogging : NSObject
 {
-    struct __CFDictionary *_logDelegates;
+    NSMutableDictionary *_logDelegates;
     NSObject<OS_dispatch_queue> *_delegateMuckingQueue;
 }
 
 + (id)sharedLogging;
+- (void).cxx_destruct;
 - (void)logDiagnosticForProvider:(id)arg1 withLevel:(long long)arg2 format:(id)arg3 args:(struct __va_list_tag [1])arg4;
 - (id)delegatesToLogTransmittedDataForAccountInfoProvider:(id)arg1;
 - (_Bool)_shouldOutputAtLevel:(long long)arg1 forAccountInfoProvider:(id)arg2;
@@ -22,7 +24,6 @@
 - (id)_delegatesToLogForProvider:(id)arg1;
 - (void)removeLogDelegate:(id)arg1 forAccountInfoProvider:(id)arg2;
 - (void)addLogDelegate:(id)arg1 forAccountInfoProvider:(id)arg2;
-- (void)dealloc;
 - (id)init;
 
 @end

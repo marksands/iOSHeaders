@@ -15,8 +15,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isFinderBookmark;
 - (id)baseContentsRecord;
 - (id)contentsRecordID;
-- (float)prepareDeletionSyncUpWithOperation:(id)arg1 defaults:(id)arg2;
-- (float)prepareEditSyncUpWithOperation:(id)arg1 defaults:(id)arg2;
 
 @end
 

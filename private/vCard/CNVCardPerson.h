@@ -104,7 +104,6 @@
 @property(retain) NSString *firstName; // @synthesize firstName=_firstName;
 - (void).cxx_destruct;
 - (id)largeImageHashOfType:(id)arg1;
-- (id)jpegImageDataOfAllowableKinds:(id)arg1 maximumLength:(unsigned long long)arg2 cropRects:(id *)arg3;
 @property(readonly) NSString *companyName;
 
 // Remaining properties

@@ -8,33 +8,23 @@
 
 #import <NewsCore/FCPushNotificationHandling-Protocol.h>
 
-@class FCAsyncSerialQueue, FCCKDatabase, NSMapTable, NSMutableDictionary, NSString;
+@class FCCKPrivateDatabase, NSMapTable, NSString;
 
 @interface FCPushNotificationCenter : NSObject <FCPushNotificationHandling>
 {
     _Bool _syncingEnabled;
-    FCCKDatabase *_privateDatabase;
-    FCAsyncSerialQueue *_fetchQueue;
-    NSMutableDictionary *_subscriptionsByID;
+    FCCKPrivateDatabase *_privateDatabase;
     NSMapTable *_recordZoneObservers;
 }
 
 @property(nonatomic, getter=isSyncingEnabled) _Bool syncingEnabled; // @synthesize syncingEnabled=_syncingEnabled;
 @property(retain, nonatomic) NSMapTable *recordZoneObservers; // @synthesize recordZoneObservers=_recordZoneObservers;
-@property(retain, nonatomic) NSMutableDictionary *subscriptionsByID; // @synthesize subscriptionsByID=_subscriptionsByID;
-@property(retain, nonatomic) FCAsyncSerialQueue *fetchQueue; // @synthesize fetchQueue=_fetchQueue;
-@property(retain, nonatomic) FCCKDatabase *privateDatabase; // @synthesize privateDatabase=_privateDatabase;
+@property(retain, nonatomic) FCCKPrivateDatabase *privateDatabase; // @synthesize privateDatabase=_privateDatabase;
 - (void).cxx_destruct;
 - (void)_saveDatabaseServerChangeToken:(id)arg1;
 - (void)_deleteLocalDataForRecordZoneIDs:(id)arg1;
 - (void)_fetchChangesForRecordZoneIDs:(id)arg1;
 - (id)serverChangeTokenKey;
-- (void)deleteSubscriptionWithID:(id)arg1 inDatabase:(id)arg2;
-- (void)ensureSubscriptionExistsWithID:(id)arg1 database:(id)arg2 recordZone:(id)arg3 createBlock:(CDUnknownBlockType)arg4;
-- (void)removeAllRecordZoneSubscriptionsInDatabase:(id)arg1;
-- (void)fetchAllSubscriptionsInDatabase:(id)arg1;
-- (id)subscriptionIDForRecordZoneWithName:(id)arg1;
-- (void)_handleRecordZoneNotification:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handlePrivateDatabaseNotification:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)handleRemoteNotification:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeRecordZoneObserver:(id)arg1;

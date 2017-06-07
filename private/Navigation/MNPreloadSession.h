@@ -10,7 +10,6 @@
 {
 }
 
-+ (void)updatePreloader:(id)arg1 withGuidanceLevel:(int)arg2;
 + (id)preloadSessionForRoute:(id)arg1 loggingEnabled:(_Bool)arg2 minimalDebugging:(_Bool)arg3 fullDebugging:(_Bool)arg4 delegate:(id)arg5 traits:(id)arg6 withBatteryHandler:(CDUnknownBlockType)arg7;
 
 @end

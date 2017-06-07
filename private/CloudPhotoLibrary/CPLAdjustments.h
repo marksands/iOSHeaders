@@ -20,6 +20,7 @@
     NSData *_simpleAdjustmentData;
     NSString *_similarToOriginalAdjustmentsFingerprint;
     NSString *_otherAdjustmentsFingerprint;
+    unsigned long long _adjustmentRenderTypes;
     CPLResource *_adjustmentData;
     NSString *_creatorCode;
 }
@@ -27,6 +28,7 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSString *creatorCode; // @synthesize creatorCode=_creatorCode;
 @property(retain, nonatomic) CPLResource *adjustmentData; // @synthesize adjustmentData=_adjustmentData;
+@property(nonatomic) unsigned long long adjustmentRenderTypes; // @synthesize adjustmentRenderTypes=_adjustmentRenderTypes;
 @property(copy, nonatomic) NSString *otherAdjustmentsFingerprint; // @synthesize otherAdjustmentsFingerprint=_otherAdjustmentsFingerprint;
 @property(copy, nonatomic) NSString *similarToOriginalAdjustmentsFingerprint; // @synthesize similarToOriginalAdjustmentsFingerprint=_similarToOriginalAdjustmentsFingerprint;
 @property(retain, nonatomic) NSData *simpleAdjustmentData; // @synthesize simpleAdjustmentData=_simpleAdjustmentData;

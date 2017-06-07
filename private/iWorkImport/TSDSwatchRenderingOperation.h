@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class NSObject, NSString, TSKDocumentRoot, TSUWeakReference, UIView;
+@class NSObject, NSString, TSKDocumentRoot, UIView;
 @protocol TSDSwatchRenderingOperationDelegate, TSKAccessControllerReadTicket, TSSPreset;
 
 __attribute__((visibility("hidden")))
@@ -24,18 +24,24 @@ __attribute__((visibility("hidden")))
     NSString *mIdentifier;
     id <TSKAccessControllerReadTicket> mRenderingTicket;
     _Bool mWaitingToBecomeReady;
-    TSUWeakReference *mWeakDelegateReference;
+    _Bool mRenderForWideGamut;
+    _Bool mSuppressesAnimation;
+    id <TSDSwatchRenderingOperationDelegate> mDelegate;
 }
 
+@property(nonatomic) _Bool suppressesAnimation; // @synthesize suppressesAnimation=mSuppressesAnimation;
+@property(readonly, nonatomic) _Bool renderForWideGamut; // @synthesize renderForWideGamut=mRenderForWideGamut;
 @property(copy) NSString *identifier; // @synthesize identifier=mIdentifier;
 @property unsigned long long insertPopoverPageNumber; // @synthesize insertPopoverPageNumber=mInsertPopoverPageNumber;
 @property unsigned long long insertPopoverPageType; // @synthesize insertPopoverPageType=mInsertPopoverPageType;
 @property(readonly) TSKDocumentRoot *documentRoot; // @synthesize documentRoot=mDocumentRoot;
+@property(nonatomic) __weak id <TSDSwatchRenderingOperationDelegate> delegate; // @synthesize delegate=mDelegate;
 @property(readonly) struct CGRect swatchFrame; // @synthesize swatchFrame=mSwatchFrame;
 @property(readonly) double imageScale; // @synthesize imageScale=mImageScale;
 @property(readonly) struct CGSize imageSize; // @synthesize imageSize=mImageSize;
 @property(readonly) NSObject<TSSPreset> *preset; // @synthesize preset=mPreset;
 @property(retain) UIView *view; // @synthesize view=mView;
+- (void).cxx_destruct;
 - (void)cancel;
 - (void)main;
 - (void)doWorkWithReadLock;
@@ -44,12 +50,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGImage *deliveredImage;
 - (void)deliverCGImage:(struct CGImage *)arg1;
 - (void)p_didFinishRendering;
-@property(nonatomic) id <TSDSwatchRenderingOperationDelegate> delegate;
 - (void)p_deliverResultOnMainThread:(id)arg1;
 - (struct CGImage *)p_newSwatchPressedStateBackgroundFromCGImage:(struct CGImage *)arg1;
-- (void)p_animateSwatchIn;
+- (void)p_showSwatchInViewAnimated:(_Bool)arg1;
 - (id)p_extendedRenderingTicket;
 @property(retain, nonatomic) id <TSKAccessControllerReadTicket> renderingTicket;
+- (_Bool)isReadyToRender;
 - (_Bool)isReady;
 - (void)p_applicationDidBecomeActive:(id)arg1;
 - (void)dealloc;

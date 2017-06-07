@@ -13,6 +13,9 @@
 - (id)messageAcknowledgmentBalloonColorForStyle:(long long)arg1;
 - (id)messageAcknowledgment:(long long)arg1 selectedAcknowledgmentImageColor:(long long)arg2;
 - (id)messageAcknowledgment:(long long)arg1 acknowledgmentImageColor:(long long)arg2;
+- (id)messageAcknowledgmentWhiteColor;
+- (id)messageAcknowledgmentRedColor;
+- (id)messageAcknowledgmentGrayColor;
 - (id)messageAcknowledgmentBalloonBorderColor;
 - (id)attachmentBalloonSubtitleTextColor;
 - (id)attachmentBalloonTitleTextColor;
@@ -22,6 +25,7 @@
 - (id)transcriptTextColor;
 - (id)transcriptBackgroundColor;
 - (id)blue_sendButtonColor;
+- (id)transcriptNavBarTextColor;
 - (id)progressBarTrackTintColor;
 - (id)conversationListGroupCountColor;
 - (id)conversationListDateColor;

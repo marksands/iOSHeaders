@@ -7,10 +7,10 @@
 @class NSDate, NSString, SGRealtimeEvent, SGRecordId;
 
 @protocol _SGDSuggestManagerEventsConfirmRejectProtocol
-- (void)waitForEventWithIdentifier:(NSString *)arg1 toAppearInEventStoreWithLastModificationDate:(NSDate *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
-- (void)rejectEventByRecordId:(SGRecordId *)arg1 completion:(void (^)(NSError *))arg2;
-- (void)confirmEventByRecordId:(SGRecordId *)arg1 completion:(void (^)(NSError *))arg2;
-- (void)rejectEvent:(SGRealtimeEvent *)arg1 completion:(void (^)(NSError *))arg2;
-- (void)confirmEvent:(SGRealtimeEvent *)arg1 completion:(void (^)(NSError *))arg2;
+- (void)waitForEventWithIdentifier:(NSString *)arg1 toAppearInEventStoreWithLastModificationDate:(NSDate *)arg2 completion:(void (^)(SGXPCResponse1 *))arg3;
+- (void)rejectEventByRecordId:(SGRecordId *)arg1 completion:(void (^)(SGXPCResponse *))arg2;
+- (void)confirmEventByRecordId:(SGRecordId *)arg1 completion:(void (^)(SGXPCResponse *))arg2;
+- (void)rejectEvent:(SGRealtimeEvent *)arg1 completion:(void (^)(SGXPCResponse *))arg2;
+- (void)confirmEvent:(SGRealtimeEvent *)arg1 completion:(void (^)(SGXPCResponse *))arg2;
 @end
 

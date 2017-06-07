@@ -6,18 +6,14 @@
 
 #import <UIKit/UIView.h>
 
-@class SiriUIKeyline, UIButton;
+@class UIButton;
 
 @interface SiriUIObjectPickerButtonView : UIView
 {
-    SiriUIKeyline *_topKeyline;
-    SiriUIKeyline *_bottomKeyline;
-    _Bool _showsTopKeyline;
     UIButton *_button;
 }
 
 + (double)defaultHeight;
-@property(nonatomic) _Bool showsTopKeyline; // @synthesize showsTopKeyline=_showsTopKeyline;
 @property(readonly, nonatomic) UIButton *button; // @synthesize button=_button;
 - (void).cxx_destruct;
 - (void)layoutSubviews;

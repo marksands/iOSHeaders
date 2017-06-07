@@ -8,23 +8,31 @@
 
 #import <NanoMailKitServer/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray;
+@class NSData, NSMutableArray, NSString;
 
 @interface NNMKProtoBatchedFetchResult : PBCodable <NSCopying>
 {
     NSData *_dateForRequestingMoreMessages;
     NSData *_dateSynced;
     unsigned int _fullSyncVersion;
+    NSString *_mailboxId;
+    unsigned int _mailboxSyncVersion;
     NSMutableArray *_messageAdditions;
     NSMutableArray *_messageDeletions;
     NSMutableArray *_messageUpdates;
     _Bool _shouldTrimDatabase;
     struct {
         unsigned int fullSyncVersion:1;
+        unsigned int mailboxSyncVersion:1;
         unsigned int shouldTrimDatabase:1;
     } _has;
 }
 
++ (Class)messageDeletionType;
++ (Class)messageUpdateType;
++ (Class)messageAdditionType;
+@property(nonatomic) unsigned int mailboxSyncVersion; // @synthesize mailboxSyncVersion=_mailboxSyncVersion;
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(nonatomic) _Bool shouldTrimDatabase; // @synthesize shouldTrimDatabase=_shouldTrimDatabase;
 @property(retain, nonatomic) NSData *dateForRequestingMoreMessages; // @synthesize dateForRequestingMoreMessages=_dateForRequestingMoreMessages;
 @property(retain, nonatomic) NSMutableArray *messageDeletions; // @synthesize messageDeletions=_messageDeletions;
@@ -42,6 +50,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMailboxSyncVersion;
+@property(readonly, nonatomic) _Bool hasMailboxId;
 @property(nonatomic) _Bool hasShouldTrimDatabase;
 @property(readonly, nonatomic) _Bool hasDateForRequestingMoreMessages;
 - (id)messageDeletionAtIndex:(unsigned long long)arg1;

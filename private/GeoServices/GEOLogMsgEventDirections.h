@@ -16,6 +16,7 @@
     struct GEOSessionID _navSessionId;
     double _durationOfTrip;
     NSMutableArray *_directionsFeedbacks;
+    NSMutableArray *_durationInNavigationModes;
     GEOLocation *_finalLocation;
     _Bool _arrivedAtDestination;
     struct {
@@ -26,13 +27,16 @@
     } _has;
 }
 
++ (Class)durationInNavigationModeType;
 + (Class)directionsFeedbackType;
+@property(retain, nonatomic) NSMutableArray *durationInNavigationModes; // @synthesize durationInNavigationModes=_durationInNavigationModes;
 @property(nonatomic) struct GEOSessionID navSessionId; // @synthesize navSessionId=_navSessionId;
 @property(nonatomic) double durationOfTrip; // @synthesize durationOfTrip=_durationOfTrip;
 @property(nonatomic) struct GEONavigationAudioFeedback navigationAudioFeedback; // @synthesize navigationAudioFeedback=_navigationAudioFeedback;
 @property(nonatomic) _Bool arrivedAtDestination; // @synthesize arrivedAtDestination=_arrivedAtDestination;
 @property(retain, nonatomic) GEOLocation *finalLocation; // @synthesize finalLocation=_finalLocation;
 @property(retain, nonatomic) NSMutableArray *directionsFeedbacks; // @synthesize directionsFeedbacks=_directionsFeedbacks;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -42,6 +46,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)durationInNavigationModeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)durationInNavigationModesCount;
+- (void)addDurationInNavigationMode:(id)arg1;
+- (void)clearDurationInNavigationModes;
 @property(nonatomic) _Bool hasNavSessionId;
 @property(nonatomic) _Bool hasDurationOfTrip;
 @property(nonatomic) _Bool hasNavigationAudioFeedback;
@@ -51,7 +59,6 @@
 - (unsigned long long)directionsFeedbacksCount;
 - (void)addDirectionsFeedback:(id)arg1;
 - (void)clearDirectionsFeedbacks;
-- (void)dealloc;
 
 @end
 

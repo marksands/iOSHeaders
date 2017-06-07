@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSLayoutConstraint, PKGlyphView, PKPaymentAuthorizationLayout, UIButton, UILabel;
+@class NSLayoutConstraint, NSMutableArray, NSString, PKGlyphView, PKPaymentAuthorizationLayout, UIButton, UILabel;
 
 @interface PKPaymentAuthorizationFooterView : UIView
 {
@@ -18,11 +18,15 @@
     NSLayoutConstraint *_separatorLeftConstraint;
     NSLayoutConstraint *_payWithPasscodeCenterYConstraint;
     NSLayoutConstraint *_overallHeightConstraint;
+    NSMutableArray *_hiddenConstraints;
+    NSMutableArray *_regularConstraints;
     long long _state;
     UIButton *_payWithPasscodeButton;
     PKPaymentAuthorizationLayout *_layout;
+    NSString *_localizedConfirmationTitle;
 }
 
+@property(copy, nonatomic) NSString *localizedConfirmationTitle; // @synthesize localizedConfirmationTitle=_localizedConfirmationTitle;
 @property(retain, nonatomic) PKPaymentAuthorizationLayout *layout; // @synthesize layout=_layout;
 @property(readonly, nonatomic) UIButton *payWithPasscodeButton; // @synthesize payWithPasscodeButton=_payWithPasscodeButton;
 @property(nonatomic) long long state; // @synthesize state=_state;
@@ -31,9 +35,9 @@
 - (id)_titleLabelAttributedString:(id)arg1;
 - (void)_prepareConstraints;
 - (void)updateConstraints;
+- (void)setHidden:(_Bool)arg1;
 - (void)_createSubviews;
 - (void)setState:(long long)arg1 string:(id)arg2 animated:(_Bool)arg3;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 layout:(id)arg2;
 
 @end

@@ -42,6 +42,7 @@
 @property(nonatomic) unsigned int occurrenceStepIndex; // @synthesize occurrenceStepIndex=_occurrenceStepIndex;
 @property(retain, nonatomic) NSData *occurrenceRouteId; // @synthesize occurrenceRouteId=_occurrenceRouteId;
 @property(nonatomic) unsigned int occurrenceResponseIndex; // @synthesize occurrenceResponseIndex=_occurrenceResponseIndex;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -68,7 +69,6 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (void)dealloc;
 
 @end
 

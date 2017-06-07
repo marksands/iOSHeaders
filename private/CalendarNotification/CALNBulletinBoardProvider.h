@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class BBDataProviderConnection, CALNRemoteEventProvider, CALNRemoteReminderProvider, EKTravelEngine, _EKAlarmEngine, _EKNotificationMonitor;
+#import <CalendarNotification/CADModule-Protocol.h>
+
+@class BBDataProviderConnection, CALNRemoteEventProvider, CALNRemoteReminderProvider, EKTravelEngine, NSString, _EKAlarmEngine, _EKNotificationMonitor;
 @protocol OS_dispatch_queue;
 
-@interface CALNBulletinBoardProvider : NSObject
+@interface CALNBulletinBoardProvider : NSObject <CADModule>
 {
     NSObject<OS_dispatch_queue> *_bulletinQueue;
     NSObject<OS_dispatch_queue> *_notificationMonitorQueue;
@@ -35,10 +37,18 @@
 - (void)startNotificationMonitor;
 - (void)startTravelEngine;
 - (void)startAlarmEngine;
-- (void)handleDarwinNotification:(id)arg1;
+- (void)receivedNotificationNamed:(id)arg1;
 - (void)registerForNotifications;
 - (void)dealloc;
+- (void)deactivate;
+- (void)activate;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

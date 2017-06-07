@@ -31,9 +31,13 @@
     unsigned long long _flags;
     _Bool _isInvitationMessage;
     long long _messageID;
+    NSDictionary *_bizIntent;
+    NSString *_locale;
+    _Bool _isSOS;
     NSString *_associatedMessageGUID;
     long long _associatedMessageType;
     NSDictionary *_messageSummaryInfo;
+    NSString *_associatedBalloonBundleID;
     NSData *_customTypingIndicatorIcon;
     struct _NSRange _associatedMessageRange;
 }
@@ -44,6 +48,7 @@
 + (id)fromMeIMHandle:(id)arg1 withText:(id)arg2 fileTransferGUIDs:(id)arg3 flags:(unsigned long long)arg4;
 + (id)instantMessageWithText:(id)arg1 messageSubject:(id)arg2 fileTransferGUIDs:(id)arg3 flags:(unsigned long long)arg4 balloonBundleID:(id)arg5 payloadData:(id)arg6 expressiveSendStyleID:(id)arg7;
 + (id)instantMessageWithText:(id)arg1 messageSubject:(id)arg2 fileTransferGUIDs:(id)arg3 flags:(unsigned long long)arg4;
++ (id)instantMessageWithText:(id)arg1 messageSubject:(id)arg2 flags:(unsigned long long)arg3 expressiveSendStyleID:(id)arg4;
 + (id)instantMessageWithText:(id)arg1 messageSubject:(id)arg2 flags:(unsigned long long)arg3;
 + (id)instantMessageWithText:(id)arg1 flags:(unsigned long long)arg2;
 + (id)defaultInvitationMessageFromSender:(id)arg1 flags:(unsigned long long)arg2;
@@ -53,11 +58,15 @@
 + (id)breadcrumbMessageWithText:(id)arg1 associatedMessageGUID:(id)arg2 balloonBundleID:(id)arg3 fileTransferGUIDs:(id)arg4 payloadData:(id)arg5;
 + (id)editedMessageWithOriginalMessage:(id)arg1 originalPrefixedGUID:(id)arg2 newBody:(id)arg3;
 + (id)instantMessageWithAssociatedMessageContent:(id)arg1 flags:(unsigned long long)arg2 associatedMessageGUID:(id)arg3 associatedMessageType:(long long)arg4 associatedMessageRange:(struct _NSRange)arg5 messageSummaryInfo:(id)arg6;
+@property(nonatomic) _Bool isSOS; // @synthesize isSOS=_isSOS;
 @property(retain, nonatomic) NSData *customTypingIndicatorIcon; // @synthesize customTypingIndicatorIcon=_customTypingIndicatorIcon;
 @property(retain, nonatomic) NSDate *timeExpressiveSendPlayed; // @synthesize timeExpressiveSendPlayed=_timeExpressiveSendPlayed;
 @property(retain, nonatomic) NSString *expressiveSendStyleID; // @synthesize expressiveSendStyleID=_expressiveSendStyleID;
+@property(retain, nonatomic) NSString *associatedBalloonBundleID; // @synthesize associatedBalloonBundleID=_associatedBalloonBundleID;
 @property(retain, nonatomic) NSData *payloadData; // @synthesize payloadData=_payloadData;
 @property(retain, nonatomic) NSString *balloonBundleID; // @synthesize balloonBundleID=_balloonBundleID;
+@property(retain, nonatomic, setter=_updateLocale:) NSString *locale; // @synthesize locale=_locale;
+@property(retain, nonatomic, setter=_updateBizIntent:) NSDictionary *bizIntent; // @synthesize bizIntent=_bizIntent;
 @property(copy, nonatomic, setter=_messageSummaryInfo:) NSDictionary *messageSummaryInfo; // @synthesize messageSummaryInfo=_messageSummaryInfo;
 @property(nonatomic, setter=_associatedMessageRange:) struct _NSRange associatedMessageRange; // @synthesize associatedMessageRange=_associatedMessageRange;
 @property(nonatomic, setter=_associatedMessageType:) long long associatedMessageType; // @synthesize associatedMessageType=_associatedMessageType;

@@ -25,6 +25,7 @@
 + (Class)suggestionItemType;
 @property(retain, nonatomic) NSMutableArray *suggestionItems; // @synthesize suggestionItems=_suggestionItems;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -47,7 +48,6 @@
 - (id)searchTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasSearchType;
 @property(nonatomic) int searchType; // @synthesize searchType=_searchType;
-- (void)dealloc;
 
 @end
 

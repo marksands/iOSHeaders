@@ -9,6 +9,7 @@
 
 @protocol NUIWidgetGridViewCell
 @property(readonly, nonatomic) unsigned long long index;
+- (CDStruct_a157df34)donatableSpaceAllowRemeasure:(_Bool)arg1;
 - (CDStruct_a157df34)donatableSpace;
 - (id)initWithWidgetGridView:(NUIWidgetGridView *)arg1 item:(id <NUIWidgetGridViewItem>)arg2 index:(unsigned long long)arg3;
 @end

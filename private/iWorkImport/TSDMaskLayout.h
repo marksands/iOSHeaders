@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) double pathScale; // @synthesize pathScale=mPathScale;
+- (void).cxx_destruct;
 - (void)p_destroyDynamicCopies;
 - (void)p_setDynamicInfoGeometry:(id)arg1;
 - (void)p_createDynamicCopies;

@@ -9,6 +9,7 @@
 @class NSData, NSString;
 
 @protocol TSPPackageDataWriter <NSObject>
+- (_Bool)flushPendingWritesReturningError:(id *)arg1;
 - (struct CGDataConsumer *)newCGDataConsumerAtRelativePath:(NSString *)arg1;
 - (_Bool)writeData:(NSData *)arg1 toRelativePath:(NSString *)arg2 allowEncryption:(_Bool)arg3 error:(id *)arg4;
 @end

@@ -6,15 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, UIColor;
+@class NSNumber, NSString, UIColor;
 
 @interface LPCaptionPresentationProperties : NSObject
 {
     NSString *_text;
     UIColor *_color;
     double _textScale;
+    NSNumber *_maximumNumberOfLines;
 }
 
+@property(retain, nonatomic) NSNumber *maximumNumberOfLines; // @synthesize maximumNumberOfLines=_maximumNumberOfLines;
 @property(nonatomic) double textScale; // @synthesize textScale=_textScale;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;

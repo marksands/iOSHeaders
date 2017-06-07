@@ -67,7 +67,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) struct CGSize minSize;
 - (struct CGSize)calcMinSize;
 @property(readonly, nonatomic) unsigned long long dataSetIndex;
-@property(nonatomic) CDStruct_339a9a6e layoutSettings;
+@property(nonatomic) CDStruct_44ada6bf layoutSettings;
 @property(readonly, nonatomic) TSCHChartModel *model;
 @property(readonly, nonatomic) TSCHChartInfo *chartInfo;
 @property(readonly, nonatomic) TSCHChartRootLayoutItem *root;

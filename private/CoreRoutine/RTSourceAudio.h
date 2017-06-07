@@ -19,10 +19,11 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)stringFromAudioSource:(long long)arg1;
-+ (id)allowedKeys;
 @property(readonly, nonatomic) long long audioSource; // @synthesize audioSource=_audioSource;
 @property(readonly, nonatomic) NSString *deviceName; // @synthesize deviceName=_deviceName;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

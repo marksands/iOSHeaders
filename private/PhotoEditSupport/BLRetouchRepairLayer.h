@@ -28,6 +28,7 @@
 @property(nonatomic) struct CGRect brushStrokeRect; // @synthesize brushStrokeRect=_brushStrokeRect;
 @property(retain, nonatomic) UIImage *repairSourceImage; // @synthesize repairSourceImage=_repairSourceImage;
 @property(retain, nonatomic) UIImage *repairAnalysisImage; // @synthesize repairAnalysisImage=_repairAnalysisImage;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)init;
 - (_Bool)solidBrush;

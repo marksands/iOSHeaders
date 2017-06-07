@@ -18,9 +18,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)allowsPasteAsSmartField;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
-- (const struct PlaceholderSmartFieldArchive *)placeholderSmartFieldArchiveFromUnarchiver:(id)arg1;
+- (id)bookmarkHyperlinkForUnarchiving;
 @property(copy, nonatomic) NSString *href;
 
 @end

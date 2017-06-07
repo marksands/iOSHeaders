@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (PKStringAdditions)
+- (id)pk_uppercaseAttributedString;
 - (id)pk_uppercaseFirstStringForPreferredLocale;
 - (id)pk_capitalizedStringForPreferredLocale;
 - (id)pk_lowercaseStringForPreferredLocale;

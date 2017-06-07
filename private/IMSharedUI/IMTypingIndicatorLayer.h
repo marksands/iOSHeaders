@@ -30,7 +30,7 @@
 + (double)thinkingDotSpace;
 + (double)thinkingDotDiameter;
 + (struct CGPoint)thinkingDotsOffset;
-+ (double)iconImageLeadingSpace;
++ (double)iconImageTrailingSpace;
 + (struct CGRect)iconImageFrame;
 + (struct CGPoint)largeBubbleGrowOffset;
 + (struct CGRect)largeBubbleFrame;

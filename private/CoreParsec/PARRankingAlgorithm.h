@@ -11,7 +11,7 @@
 @interface PARRankingAlgorithm : NSObject
 {
     _Bool _enableSectionRanking;
-    unsigned long long _section;
+    int _section;
     NSString *_version;
     long long _sectionMaxResults;
     PARRankingThresholds *_rankingThresholds;
@@ -27,7 +27,7 @@
 @property(nonatomic) _Bool enableSectionRanking; // @synthesize enableSectionRanking=_enableSectionRanking;
 @property(nonatomic) long long sectionMaxResults; // @synthesize sectionMaxResults=_sectionMaxResults;
 @property(retain, nonatomic) NSString *version; // @synthesize version=_version;
-@property(nonatomic) unsigned long long section; // @synthesize section=_section;
+@property(nonatomic) int section; // @synthesize section=_section;
 - (void).cxx_destruct;
 
 @end

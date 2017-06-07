@@ -25,9 +25,11 @@
 - (int)purpleBuddyPIDWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (NSNumber *)focusedAppPIDWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isSystemAppShowingAnAlertWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (void)rebootDeviceWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)activateSOSModeWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)setDashBoardSystemGesturesEnabled:(_Bool)arg1 withServerInstance:(_AXSpringBoardServerInstance *)arg2;
 - (void)revealSpotlightWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (NSDictionary *)medusaAppsWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)serverInstance:(_AXSpringBoardServerInstance *)arg1 performMedusaGesture:(unsigned long long)arg2;
 - (NSArray *)allowedMedusaGesturesWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)setSiriIsTalking:(_Bool)arg1 withServerInstance:(_AXSpringBoardServerInstance *)arg2;
@@ -49,11 +51,13 @@
 - (void)simulateEdgePressHaptics:(_AXSpringBoardServerInstance *)arg1;
 - (void)dismissAppSwitcherWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)openAppSwitcherWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
-- (_Bool)clearSideAppStateWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
-- (_Bool)isSideSwitcherVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (_Bool)isDockVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isAppSwitcherVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (_Bool)isShowingHomescreenWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isSiriVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isControlCenterVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (void)armApplePayWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (void)toggleDockWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)serverInstance:(_AXSpringBoardServerInstance *)arg1 showNotificationCenter:(_Bool)arg2;
 - (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 showControlCenter:(_Bool)arg2;
 - (_Bool)isNotificationCenterVisibleWithServerInstance:(_AXSpringBoardServerInstance *)arg1;

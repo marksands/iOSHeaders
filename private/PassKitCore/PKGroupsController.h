@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/PKPassLibraryDelegate-Protocol.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSString, PKCatalog, PKPassLibrary;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSSet, NSString, PKCatalog, PKPassLibrary, PKPaymentService;
 @protocol PKGroupsControllerDelegate;
 
 @interface PKGroupsController : NSObject <PKPassLibraryDelegate>
 {
     PKPassLibrary *_passLibrary;
+    PKPaymentService *_paymentService;
     unsigned long long _filters;
     unsigned long long _passTypeMask;
     NSMutableArray *_groups;
@@ -26,14 +27,18 @@
     PKCatalog *_catalogBeforeReordering;
     NSMutableArray *_enqueuedUpdates;
     NSArray *_localPasses;
+    NSSet *_expressPassesInformation;
     _Bool _limitedMode;
     _Bool _activePassesOnly;
+    int _expressPassesInformationToken;
     _Bool _reorderingEnabled;
     _Bool _shouldSeparatePaymentPasses;
     id <PKGroupsControllerDelegate> _delegate;
+    NSArray *_filteredPassUniqueIDs;
 }
 
 @property(nonatomic) _Bool shouldSeparatePaymentPasses; // @synthesize shouldSeparatePaymentPasses=_shouldSeparatePaymentPasses;
+@property(readonly, nonatomic) NSArray *filteredPassUniqueIDs; // @synthesize filteredPassUniqueIDs=_filteredPassUniqueIDs;
 @property(nonatomic) _Bool reorderingEnabled; // @synthesize reorderingEnabled=_reorderingEnabled;
 @property(nonatomic) __weak id <PKGroupsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -50,7 +55,7 @@
 - (void)_fixIndicesFrom:(unsigned long long)arg1 through:(unsigned long long)arg2;
 - (void)_fixIndicesFrom:(unsigned long long)arg1;
 - (void)_fixIndex:(unsigned long long)arg1;
-- (id)_passesDictionaryFromSet:(id)arg1;
+- (id)_displayablePassesDictionaryFromSet:(id)arg1;
 - (id)_groupsExcludingPayment;
 - (unsigned long long)_indexOfGroupID:(id)arg1;
 - (void)_performEnqueuedUpdates;
@@ -64,11 +69,14 @@
 - (void)enableRemoteUpdates;
 - (void)moveGroupAtIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)suppressRemoteUpdates:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool filteringEnabled;
 - (void)handleUserPassDelete:(id)arg1;
+- (void)handleUserPassesDelete:(id)arg1;
 - (unsigned long long)indexOfSeparationGroup;
 - (unsigned long long)groupIndexForPassUniqueID:(id)arg1;
 - (unsigned long long)indexOfGroup:(id)arg1;
 - (id)groupAtIndex:(unsigned long long)arg1;
+- (id)groups;
 - (unsigned long long)groupCount;
 - (void)reloadGroups;
 - (void)loadGroupsSynchronously;

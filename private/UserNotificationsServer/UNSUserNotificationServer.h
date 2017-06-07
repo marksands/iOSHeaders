@@ -11,11 +11,12 @@
 #import <UserNotificationsServer/UNSNotificationRepositoryDelegate-Protocol.h>
 #import <UserNotificationsServer/UNSRemoteNotificationServerObserver-Protocol.h>
 
-@class NSString, UNSApplicationLauncher, UNSAttachmentsService, UNSDefaultDataProviderFactory, UNSLocationMonitor, UNSNotificationCategoryRepository, UNSNotificationRepository, UNSNotificationSchedulingService, UNSNotificationSettingsService, UNSPendingNotificationRepository, UNSRemoteNotificationServer, UNSUserNotificationServerConnectionListener;
+@class BKSApplicationStateMonitor, FBSSystemService, NSString, UNSApplicationLauncher, UNSApplicationService, UNSAttachmentsService, UNSDefaultDataProviderFactory, UNSLocationMonitor, UNSNotificationCategoryRepository, UNSNotificationRepository, UNSNotificationSchedulingService, UNSNotificationSettingsService, UNSPendingNotificationRepository, UNSRemoteNotificationServer, UNSUserNotificationServerConnectionListener;
 
 @interface UNSUserNotificationServer : NSObject <LSApplicationWorkspaceObserverProtocol, UNSDefaultDataProviderFactoryObserver, UNSNotificationRepositoryDelegate, UNSRemoteNotificationServerObserver>
 {
     UNSApplicationLauncher *_applicationLauncher;
+    UNSApplicationService *_applicationService;
     UNSDefaultDataProviderFactory *_dataProviderFactory;
     UNSUserNotificationServerConnectionListener *_userNotificationServerConnectionListener;
     UNSNotificationCategoryRepository *_categoryRepository;
@@ -26,13 +27,14 @@
     UNSRemoteNotificationServer *_remoteNotificationService;
     UNSAttachmentsService *_attachmentsService;
     UNSLocationMonitor *_locationMonitor;
+    FBSSystemService *_systemService;
+    BKSApplicationStateMonitor *_applicationStateMonitor;
 }
 
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (void)_didChangeApplicationState:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
 - (void)_triggerLocationArrowForBundleIdentifier:(id)arg1;
-- (_Bool)_isBundleIdentifierAuthorizedForRegionMonitoring:(id)arg1;
-- (void)_removeAllNotificationsForBundleIdentifier:(id)arg1;
 - (void)_registerLoggers;
 - (void)_timeDidChangeSignificantly;
 - (void)_ensureAttachmentsIntegrity;
@@ -41,6 +43,7 @@
 - (void)_addObserverForDataProviderFactoryChanges;
 - (void)_addObserverForApplicationWorkspaceChanges;
 - (void)_addObserverForApplicationStateRestore;
+- (void)_addObserverForApplicationStateMonitor;
 - (void)_backgroundRefreshApplicationsDidChange;
 - (void)_applicationStateDidRestore;
 - (void)_addObserverForBackgroundRefreshApplicationChanges;
@@ -54,8 +57,10 @@
 - (void)applicationsDidAuthorizeNotificationSettings:(id)arg1;
 - (void)applicationsDidDenyNotificationSettings:(id)arg1;
 - (void)applicationsDidUninstall:(id)arg1;
+- (void)_applicationsDidInstall:(id)arg1;
+- (void)applicationStateDidChange:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;
-- (id)initWithSystemStateProvider:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

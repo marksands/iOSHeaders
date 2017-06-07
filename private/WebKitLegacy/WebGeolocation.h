@@ -8,7 +8,6 @@
 
 @class WebGeolocationPrivate;
 
-__attribute__((visibility("hidden")))
 @interface WebGeolocation : NSObject
 {
     WebGeolocationPrivate *_private;

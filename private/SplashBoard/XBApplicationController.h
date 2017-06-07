@@ -4,15 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
+
+@class FBSDisplayConfiguration;
 
 @interface XBApplicationController : NSObject
 {
+    FBSDisplayConfiguration *_mainDisplayConfiguration;
 }
 
 + (id)sharedInstance;
-- (void)_captureLaunchImageForApplication:(id)arg1 withCompatibilityInfo:(id)arg2 firstImageIsReady:(CDUnknownBlockType)arg3 withCompletion:(CDUnknownBlockType)arg4;
+- (void).cxx_destruct;
 - (id)launchRequestsForApplication:(id)arg1 withCompatibilityInfo:(id)arg2;
+- (void)_captureOrUpdateLaunchImagesForApplications:(id)arg1 firstImageIsReady:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_captureOrUpdateLaunchImagesForApplications:(id)arg1 firstImageIsReady:(CDUnknownBlockType)arg2;
 - (void)_removeLaunchImagesMatchingPredicate:(id)arg1 forApplications:(id)arg2 forgettingApps:(_Bool)arg3;
 - (void)_removeCachedLaunchImagesForApplications:(id)arg1 forgettingApps:(_Bool)arg2;
@@ -24,6 +28,7 @@
 - (id)_allApplications;
 - (id)_allApplicationsFilteredBySystem:(_Bool)arg1 bySplashBoard:(_Bool)arg2;
 - (void)_migrateDataIfNeeded;
+- (id)init;
 
 @end
 

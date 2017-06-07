@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/NSCopying-Protocol.h>
 #import <TelephonyUtilities/NSSecureCoding-Protocol.h>
@@ -40,6 +40,7 @@
     _Bool _supportsSimultaneousVoiceAndData;
     _Bool _pairedDeviceExists;
     _Bool _emergencyCallbackModeEnabled;
+    _Bool _supportsCarrierServices;
     int _relayCallingAvailability;
     TUCTCapabilityInfo *_wiFiCallingCapabilityInfo;
     TUCTCapabilityInfo *_voLTECallingCapabilityInfo;
@@ -53,6 +54,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)allowedCapabilityInformationClasses;
+@property(nonatomic) _Bool supportsCarrierServices; // @synthesize supportsCarrierServices=_supportsCarrierServices;
 @property(nonatomic, getter=isEmergencyCallbackModeEnabled) _Bool emergencyCallbackModeEnabled; // @synthesize emergencyCallbackModeEnabled=_emergencyCallbackModeEnabled;
 @property(copy, nonatomic) NSArray *cloudCallingDevices; // @synthesize cloudCallingDevices=_cloudCallingDevices;
 @property(nonatomic) _Bool pairedDeviceExists; // @synthesize pairedDeviceExists=_pairedDeviceExists;

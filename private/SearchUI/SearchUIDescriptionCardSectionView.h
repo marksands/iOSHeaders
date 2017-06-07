@@ -6,22 +6,27 @@
 
 #import <SearchUI/SearchUILayoutFreeSectionView.h>
 
-@class UIButton, UITextView;
+#import <SearchUI/TLKDescriptionViewDelegate-Protocol.h>
 
-@interface SearchUIDescriptionCardSectionView : SearchUILayoutFreeSectionView
+@class NSString, TLKDescriptionView;
+
+@interface SearchUIDescriptionCardSectionView : SearchUILayoutFreeSectionView <TLKDescriptionViewDelegate>
 {
-    UIButton *_moreButton;
-    UITextView *_detailsTextView;
+    TLKDescriptionView *_descriptionView;
 }
 
-@property(retain) UITextView *detailsTextView; // @synthesize detailsTextView=_detailsTextView;
-@property(retain) UIButton *moreButton; // @synthesize moreButton=_moreButton;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
+@property(retain) TLKDescriptionView *descriptionView; // @synthesize descriptionView=_descriptionView;
 - (void).cxx_destruct;
-- (_Bool)shouldHideMoreButtonForTextView:(id)arg1;
-- (void)setMoreButtonFrameWithTextView:(id)arg1 inset:(double)arg2 lastLineYOrigin:(double)arg3;
-- (void)layoutSubviews;
-- (void)moreButtonPressed;
+- (void)didPressMoreButton;
+- (void)updateWithCardSection:(id)arg1;
 - (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -41,7 +41,6 @@ __attribute__((visibility("hidden")))
     TSKAnnotationAuthor *_authorFilter;
 }
 
-@property(readonly, nonatomic) NSMutableDictionary *chartUIState; // @synthesize chartUIState=_chartUIState;
 @property(retain, nonatomic) TSKSelectionPath *selectionPath; // @synthesize selectionPath=_selectionPath;
 @property(retain, nonatomic) TSKSelectionPath *compatibilitySelectionPath; // @synthesize compatibilitySelectionPath=_compatibilitySelectionPath;
 - (void)captureViewStateWithProvider:(id)arg1;
@@ -49,7 +48,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)showsComments;
 - (void)dealloc;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

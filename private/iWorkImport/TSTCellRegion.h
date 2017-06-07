@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 + (id)regionFromMergeActionArray:(id)arg1 withTableInfo:(id)arg2;
 + (id)regionFromMergeMap:(id)arg1;
 + (id)regionFromMergeList:(const vector_db509b29 *)arg1;
++ (id)regionFromCellRangeVector:(const vector_db509b29 *)arg1;
 + (id)regionFromCellIDVector:(const vector_13f93596 *)arg1;
 + (id)regionFromCellDiffMap:(id)arg1 withTableInfo:(id)arg2;
 + (id)regionFromCellMap:(id)arg1 withTableInfo:(id)arg2 passingTest:(CDUnknownBlockType)arg3;
@@ -53,8 +54,6 @@ __attribute__((visibility("hidden")))
 - (void)p_calculateIntersectingColumns;
 - (void)p_calculateAncillaryInformation;
 - (void)p_insertRangeIntoRegion:(struct TSUCellRect)arg1;
-- (void)enumerateCellsInTable:(id)arg1 withFlags:(unsigned long long)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (void)enumerateCellsInTable:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateGridRowsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateGridColumnsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateMissingColumnsIntersectingCellRange:(struct TSUCellRect)arg1 usingBlock:(CDUnknownBlockType)arg2;
@@ -72,7 +71,6 @@ __attribute__((visibility("hidden")))
 - (void)enumerateColumnsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateCellRangesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateCellIDsUsingBlock:(CDUnknownBlockType)arg1;
-- (struct NSObject *)newTopToBottomIterator;
 - (struct NSObject *)newRightToLeftIterator;
 - (struct NSObject *)newIterator;
 - (struct TSUCellCoord)suitableCursor;
@@ -122,7 +120,7 @@ __attribute__((visibility("hidden")))
 - (id)regionByIntersectingRowIndices:(id)arg1;
 - (id)regionByRemovingColumns:(id)arg1;
 - (id)regionByRemovingRows:(id)arg1;
-- (id)regionOffsetBy:(CDStruct_1ef3fb1f)arg1;
+- (id)regionOffsetBy:(CDStruct_945081a1)arg1;
 - (id)regionByIntersectingRegion:(id)arg1;
 - (id)regionBySubtractingRegion:(id)arg1;
 - (id)regionByAddingRegion:(id)arg1;
@@ -135,7 +133,6 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)init;
 - (void)fillCellRangeRowMajorSet:(set_f8eea70b *)arg1 leftToRight:(_Bool)arg2;
-- (void)fillCellRangeColMajorSet:(set_ddcb7def *)arg1 leftToRight:(_Bool)arg2;
 
 @end
 

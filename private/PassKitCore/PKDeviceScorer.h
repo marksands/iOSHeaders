@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class PKDSPContext;
 
@@ -16,6 +16,7 @@
 + (_Bool)deviceScoringSupported;
 @property(readonly, copy, nonatomic) PKDSPContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (void)peerPaymentDeviceScoreWithCompletion:(CDUnknownBlockType)arg1;
 - (void)deviceScoreWithNonce:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initWithContext:(id)arg1;
 - (id)init;

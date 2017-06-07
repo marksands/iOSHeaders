@@ -6,7 +6,6 @@
 
 #import <objc/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface WKQuadObject : NSObject
 {
     struct _WKQuad _quad;

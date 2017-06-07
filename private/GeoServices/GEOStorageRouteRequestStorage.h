@@ -23,6 +23,7 @@
 @property(retain, nonatomic) GEOURLRouteHandle *routeHandle; // @synthesize routeHandle=_routeHandle;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 @property(retain, nonatomic) NSMutableArray *waypoints; // @synthesize waypoints=_waypoints;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -41,7 +42,6 @@
 - (unsigned long long)waypointsCount;
 - (void)addWaypoints:(id)arg1;
 - (void)clearWaypoints;
-- (void)dealloc;
 
 @end
 

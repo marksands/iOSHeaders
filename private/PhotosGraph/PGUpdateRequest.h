@@ -17,7 +17,7 @@
     CDUnknownBlockType _completionHandler;
 }
 
-+ (id)updateRequestWithMomentsToInsert:(id)arg1 momentsToDelete:(id)arg2 indentifiersToDelete:(id)arg3;
++ (id)updateRequestWithMomentsToInsert:(id)arg1 momentsToDelete:(id)arg2 identifiersToDelete:(id)arg3;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
 @property(readonly, nonatomic) NSSet *identifiersToDelete; // @synthesize identifiersToDelete=_identifiersToDelete;

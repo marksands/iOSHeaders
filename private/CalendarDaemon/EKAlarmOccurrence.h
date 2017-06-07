@@ -6,12 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class EKObjectID, NSDate, NSString, NSTimeZone, NSURL;
+@class CADObjectID, NSDate, NSString, NSTimeZone, NSURL;
 
 @interface EKAlarmOccurrence : NSObject
 {
-    EKObjectID *_alarmID;
-    EKObjectID *_ownerID;
+    CADObjectID *_alarmID;
+    CADObjectID *_ownerID;
     NSDate *_ownerDate;
     NSTimeZone *_ownerTimeZone;
     NSURL *_ownerURI;
@@ -27,8 +27,8 @@
 @property(readonly, nonatomic) NSURL *ownerURI; // @synthesize ownerURI=_ownerURI;
 @property(readonly, nonatomic) NSTimeZone *ownerTimeZone; // @synthesize ownerTimeZone=_ownerTimeZone;
 @property(readonly, nonatomic) NSDate *ownerDate; // @synthesize ownerDate=_ownerDate;
-@property(readonly, nonatomic) EKObjectID *ownerID; // @synthesize ownerID=_ownerID;
-@property(readonly, nonatomic) EKObjectID *alarmID; // @synthesize alarmID=_alarmID;
+@property(readonly, nonatomic) CADObjectID *ownerID; // @synthesize ownerID=_ownerID;
+@property(readonly, nonatomic) CADObjectID *alarmID; // @synthesize alarmID=_alarmID;
 - (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1;

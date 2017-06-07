@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <MIME/MFScheduler-Protocol.h>
 
@@ -16,13 +16,14 @@
     NSObject<OS_dispatch_queue> *_queue;
 }
 
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+- (void).cxx_destruct;
 - (id)afterDelay:(double)arg1 performBlock:(CDUnknownBlockType)arg2;
 - (id)performCancelableBlock:(CDUnknownBlockType)arg1;
 - (void)performBlock:(CDUnknownBlockType)arg1;
 - (_Bool)_prefersImmediateExecution;
 - (id)initWithQueue:(id)arg1;
 - (id)init;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

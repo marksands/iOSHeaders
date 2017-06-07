@@ -8,7 +8,7 @@
 
 #import <PassKitUI/PKPaymentVerificationControllerDelegate-Protocol.h>
 
-@class NSString, PKPass, PKPassView, PKPaymentVerificationController, PKPaymentWebService, PKTableHeaderView, UIImage;
+@class NSString, PKPass, PKPassView, PKPaymentProvisioningController, PKPaymentVerificationController, PKPaymentWebService, PKTableHeaderView, UIImage;
 @protocol PKPaymentSetupViewControllerDelegate;
 
 @interface PKPassSetupAutomaticPresentationController : PKPaymentSetupTableViewController <PKPaymentVerificationControllerDelegate>
@@ -19,6 +19,7 @@
     PKPassView *_passView;
     UIImage *_passSnapshot;
     PKPaymentVerificationController *_verificationController;
+    PKPaymentProvisioningController *_provisioningController;
     PKPass *_pass;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
 }
@@ -34,6 +35,8 @@
 - (void)_showVerificationForPass:(id)arg1;
 - (long long)_paymentPassState;
 - (id)_buttonTitleForPaymentPassState:(long long)arg1;
+- (void)_terminateSetupFlow;
+- (void)_presentNextCredentialWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_dismissView;
 - (void)done:(id)arg1;
 - (void)cancel:(id)arg1;
@@ -44,7 +47,7 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)loadView;
-- (id)initWithPaymentWebService:(id)arg1 pass:(id)arg2 context:(long long)arg3;
+- (id)initWithPaymentWebService:(id)arg1 pass:(id)arg2 context:(long long)arg3 provisioningController:(id)arg4;
 - (id)initWithPass:(id)arg1;
 
 // Remaining properties

@@ -25,7 +25,14 @@
     int _userAction;
     _Bool _arrivedFromAd;
     _Bool _subscriptionOnlyArticlePreview;
-    CDStruct_945473b1 _has;
+    struct {
+        unsigned int paidSubscriptionConversionPointType:1;
+        unsigned int parentFeedType:1;
+        unsigned int resultType:1;
+        unsigned int userAction:1;
+        unsigned int arrivedFromAd:1;
+        unsigned int subscriptionOnlyArticlePreview:1;
+    } _has;
 }
 
 @property(retain, nonatomic) NSString *iadQtoken; // @synthesize iadQtoken=_iadQtoken;

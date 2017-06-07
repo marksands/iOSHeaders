@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class SGCoalescingDropBox, SGDSuggestManager;
+#import <CoreSuggestionsInternals/SpotlightReceiver-Protocol.h>
 
-@interface SGDSpotlightReceiver : NSObject
+@class NSString, SGCoalescingDropBox, SGDSuggestManager;
+
+@interface SGDSpotlightReceiver : NSObject <SpotlightReceiver>
 {
     SGDSuggestManager *_manager;
     SGCoalescingDropBox *_purgeDropbox;
@@ -19,7 +21,6 @@
     SGCoalescingDropBox *_deleteInteractionGroupIdDropbox;
 }
 
-+ (void)initialize;
 - (void).cxx_destruct;
 - (void)deleteAllInteractionsWithBundleID:(id)arg1 protectionClass:(id)arg2;
 - (void)deleteInteractionsWithGroupIdentifiers:(id)arg1 bundleID:(id)arg2 protectionClass:(id)arg3;
@@ -31,10 +32,17 @@
 - (void)deleteSearchableItemsWithDomainIdentifiers:(id)arg1 bundleID:(id)arg2;
 - (void)deleteSearchableItemsWithIdentifiers:(id)arg1 bundleID:(id)arg2;
 - (void)purgeSearchableItemsWithIdentifiers:(id)arg1 bundleID:(id)arg2;
+- (void)addUserAction:(id)arg1 withItem:(id)arg2;
 - (void)addOrUpdateSearchableItems:(id)arg1 bundleID:(id)arg2;
-- (_Bool)_isValidBundleID:(id)arg1;
+- (id)supportedBundleIDs;
 - (id)initWithManager:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

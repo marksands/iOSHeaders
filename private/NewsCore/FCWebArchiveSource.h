@@ -11,6 +11,7 @@
 #import <NewsCore/FCFetchCoordinatorDelegate-Protocol.h>
 
 @class FCCacheCoordinator, FCFetchCoordinator, FCThreadSafeMutableDictionary, FCWebArchiveStore, NSString, NSURL;
+@protocol OS_dispatch_queue;
 
 @interface FCWebArchiveSource : NSObject <FCCacheCoordinatorDelegate, FCFetchCoordinatorDelegate, FCCacheFlushing>
 {
@@ -19,14 +20,18 @@
     FCCacheCoordinator *_cacheCoordinator;
     FCFetchCoordinator *_fetchCoordinator;
     FCThreadSafeMutableDictionary *_keysToURLs;
+    NSObject<OS_dispatch_queue> *_initQueue;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *initQueue; // @synthesize initQueue=_initQueue;
 @property(retain, nonatomic) FCThreadSafeMutableDictionary *keysToURLs; // @synthesize keysToURLs=_keysToURLs;
 @property(retain, nonatomic) FCFetchCoordinator *fetchCoordinator; // @synthesize fetchCoordinator=_fetchCoordinator;
 @property(retain, nonatomic) FCCacheCoordinator *cacheCoordinator; // @synthesize cacheCoordinator=_cacheCoordinator;
 @property(retain, nonatomic) FCWebArchiveStore *webArchiveStore; // @synthesize webArchiveStore=_webArchiveStore;
 @property(readonly, nonatomic) NSURL *directoryURLForCachedWebArchives; // @synthesize directoryURLForCachedWebArchives=_directoryURLForCachedWebArchives;
 - (void).cxx_destruct;
+- (void)_initStore;
+- (void)_prepareForUse;
 - (void)fetchCoordinator:(id)arg1 addFetchOperation:(id)arg2 context:(id)arg3;
 - (id)fetchCoordinator:(id)arg1 fetchOperationForKeys:(id)arg2 context:(id)arg3 qualityOfService:(long long)arg4 relativePriority:(long long)arg5;
 - (void)fetchCoordinator:(id)arg1 filterKeysToFetch:(id)arg2 context:(id)arg3;

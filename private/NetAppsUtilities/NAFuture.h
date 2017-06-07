@@ -43,9 +43,9 @@
 - (id)reschedule:(id)arg1;
 - (id)flatMap:(CDUnknownBlockType)arg1;
 - (void)_flushCompletionBlocks;
-- (void)addCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)addFailureBlock:(CDUnknownBlockType)arg1;
-- (void)addSuccessBlock:(CDUnknownBlockType)arg1;
+- (id)addCompletionBlock:(CDUnknownBlockType)arg1;
+- (id)addFailureBlock:(CDUnknownBlockType)arg1;
+- (id)addSuccessBlock:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)errorOnlyCompletionHandlerAdapter;
 - (CDUnknownBlockType)completionHandlerAdapter;
 - (_Bool)finishWithNoResult;

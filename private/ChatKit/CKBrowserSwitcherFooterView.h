@@ -6,38 +6,70 @@
 
 #import <UIKit/UIView.h>
 
-#import <ChatKit/_UIBackdropViewGraphicsQualityChangeDelegate-Protocol.h>
+#import <ChatKit/UICollectionViewDataSource-Protocol.h>
+#import <ChatKit/UICollectionViewDelegate-Protocol.h>
+#import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 
-@class CKBrowserSwitcherScrollBar, UIButton, UILabel, _UIBackdropView;
+@class CKAppStripLayout, NSString, NSTimer, UICollectionView, UILongPressGestureRecognizer;
+@protocol CKBrowserSwitcherFooterViewDataSource, CKBrowserSwitcherFooterViewDelegate;
 
-@interface CKBrowserSwitcherFooterView : UIView <_UIBackdropViewGraphicsQualityChangeDelegate>
+@interface CKBrowserSwitcherFooterView : UIView <UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate>
 {
-    _Bool _dragging;
-    long long _barStyle;
-    UILabel *_appNameLabel;
-    UIButton *_expandButton;
-    UIButton *_browserButton;
-    CKBrowserSwitcherScrollBar *_switcherScrollBar;
-    _UIBackdropView *_backdropView;
+    UICollectionView *_collectionView;
+    CKAppStripLayout *_appStripLayout;
+    struct UIEdgeInsets _minifiedContentInsets;
+    _Bool _isMagnified;
+    _Bool _isDoingMagnificationAnimation;
+    _Bool _isMagnificationEnabled;
+    _Bool _ignoreDataSourceChanges;
+    NSTimer *_minificationTimer;
+    UILongPressGestureRecognizer *_longPressRecognizer;
+    UILongPressGestureRecognizer *_touchTracker;
+    _Bool _hasTouches;
+    _Bool _scrollsLastUsedAppIconIntoView;
+    id <CKBrowserSwitcherFooterViewDelegate> _delegate;
+    id <CKBrowserSwitcherFooterViewDataSource> _dataSource;
     UIView *_grayLine;
 }
 
 @property(retain, nonatomic) UIView *grayLine; // @synthesize grayLine=_grayLine;
-@property(retain, nonatomic) _UIBackdropView *backdropView; // @synthesize backdropView=_backdropView;
-@property(nonatomic, getter=isDragging) _Bool dragging; // @synthesize dragging=_dragging;
-@property(retain, nonatomic) CKBrowserSwitcherScrollBar *switcherScrollBar; // @synthesize switcherScrollBar=_switcherScrollBar;
-@property(retain, nonatomic) UIButton *browserButton; // @synthesize browserButton=_browserButton;
-@property(retain, nonatomic) UIButton *expandButton; // @synthesize expandButton=_expandButton;
-@property(retain, nonatomic) UILabel *appNameLabel; // @synthesize appNameLabel=_appNameLabel;
-@property(readonly, nonatomic) long long barStyle; // @synthesize barStyle=_barStyle;
+@property(nonatomic) _Bool scrollsLastUsedAppIconIntoView; // @synthesize scrollsLastUsedAppIconIntoView=_scrollsLastUsedAppIconIntoView;
+@property(nonatomic) __weak id <CKBrowserSwitcherFooterViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
+@property(nonatomic) __weak id <CKBrowserSwitcherFooterViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_animateOutScrollBar;
-- (void)_animateInScrollBar;
-- (void)backdropView:(id)arg1 didChangeToGraphicsQuality:(long long)arg2;
-- (id)backdropView:(id)arg1 willChangeToGraphicsQuality:(long long)arg2;
-- (void)setBarStyle:(long long)arg1;
+- (id)collectionView;
+- (void)reloadData;
+- (void)installedAppsChanged:(id)arg1;
+- (void)updateCollectionView:(id)arg1;
+- (void)visibleAppsChanges:(id)arg1;
+- (void)collectionView:(id)arg1 moveItemAtIndexPath:(id)arg2 toIndexPath:(id)arg3;
+- (_Bool)collectionView:(id)arg1 canMoveItemAtIndexPath:(id)arg2;
+- (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (id)collectionView:(id)arg1 targetIndexPathForMoveFromItemAtIndexPath:(id)arg2 toProposedIndexPath:(id)arg3;
+- (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
+- (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
+- (void)scrollViewDidEndScrollingAnimation:(id)arg1;
+- (void)scrollViewWillBeginDragging:(id)arg1;
+- (void)adjustMagnificationAtPoint:(struct CGPoint)arg1 minifyImmediately:(_Bool)arg2;
+- (struct CGPoint)targetContentOffsetForFocusPoint:(struct CGPoint)arg1 initialLayoutMode:(unsigned long long)arg2 finalLayoutMode:(unsigned long long)arg3;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (void)touchTrackerTrackedTouches:(id)arg1;
+- (void)appsLongPressed:(id)arg1;
+- (void)selectPluginAtIndexPath:(id)arg1;
+- (void)setInitiallySelectedPluginIfNeeded;
+@property(readonly, nonatomic) _Bool isMagnified;
 - (void)layoutSubviews;
-- (id)initWithFrame:(struct CGRect)arg1 barStyle:(long long)arg2;
+- (void)willMoveToSuperview:(id)arg1;
+- (void)willMoveToWindow:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

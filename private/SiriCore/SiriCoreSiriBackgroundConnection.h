@@ -6,30 +6,26 @@
 
 #import <objc/NSObject.h>
 
-#import <SiriCore/SiriCoreStreamProviderDelegate-Protocol.h>
+#import <SiriCore/SiriCoreConnectionProviderDelegate-Protocol.h>
 
-@class NSMutableArray, NSMutableData, NSMutableDictionary, NSString, SiriCoreDataCompressor, SiriCoreDataDecompressor, SiriCorePingInfo, SiriCoreSiriConnectionInfo;
-@protocol OS_dispatch_queue, OS_dispatch_source, SiriCoreSiriBackgroundConnectionDelegate, SiriCoreStreamProvider;
+@class NSMutableArray, NSMutableDictionary, NSString, SiriCoreDataCompressor, SiriCoreDataDecompressor, SiriCorePingInfo, SiriCoreSiriConnectionInfo;
+@protocol OS_dispatch_data, OS_dispatch_queue, OS_dispatch_source, SiriCoreConnectionProvider, SiriCoreSiriBackgroundConnectionDelegate;
 
-@interface SiriCoreSiriBackgroundConnection : NSObject <SiriCoreStreamProviderDelegate>
+@interface SiriCoreSiriBackgroundConnection : NSObject <SiriCoreConnectionProviderDelegate>
 {
     id <SiriCoreSiriBackgroundConnectionDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
-    id <SiriCoreStreamProvider> _streamProvider;
-    struct __CFReadStream *_readStream;
-    struct __CFWriteStream *_writeStream;
+    id <SiriCoreConnectionProvider> _connectionProvider;
     SiriCoreSiriConnectionInfo *_connectionInfo;
-    NSMutableData *_bufferedInputData;
-    NSMutableData *_bufferedProviderHeaderOutputData;
-    NSMutableData *_bufferedGeneralOutputData;
-    unsigned char _readBuffer[10240];
+    NSObject<OS_dispatch_data> *_bufferedInputData;
+    NSObject<OS_dispatch_data> *_bufferedProviderHeaderOutputData;
+    NSObject<OS_dispatch_data> *_bufferedGeneralOutputData;
     SiriCoreDataDecompressor *_inputDecompressor;
     SiriCoreDataCompressor *_outputCompressor;
     struct __CFHTTPMessage *_httpResponseHeader;
     _Bool _isOpened;
     _Bool _isCanceled;
     _Bool _hasReportedError;
-    _Bool _hasFoundTrust;
     NSMutableDictionary *_errorsForConnectionMethods;
     NSObject<OS_dispatch_source> *_aceHeaderTimerSource;
     unsigned long long _aceHeaderTimerFireCount;
@@ -45,7 +41,7 @@
     unsigned int _currentBarrierIndex;
     NSMutableDictionary *_outstandingBarriers;
     long long _connectionMethod;
-    NSMutableData *_safetyNetBuffer;
+    NSObject<OS_dispatch_data> *_safetyNetBuffer;
     double _firstStartTime;
     double _currentStartTime;
     double _currentOpenTime;
@@ -73,9 +69,6 @@
 - (void).cxx_destruct;
 - (void)_flushOutgoingCommandsAndDispatchSendCompletionWithResult:(long long)arg1 error:(id)arg2;
 - (void)_addOutgoingCommandForSendCompletion:(id)arg1;
-- (void)_validateTrustForStream:(id)arg1;
-- (void)_validateTrustInfo:(id)arg1;
-- (void)_connectionMetricsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getConnectionMetrics:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)_connectionMethodDescription;
 - (id)getConnectionMethodUsed;
@@ -90,22 +83,17 @@
 - (id)_tryReadingAceHeaderFromData:(id)arg1 bytesParsed:(unsigned long long *)arg2 error:(id *)arg3;
 - (_Bool)_tryParsingHTTPHeaderData:(id)arg1 partialMessage:(struct __CFHTTPMessage *)arg2 statusCode:(long long *)arg3 bytesRead:(unsigned long long *)arg4 error:(id *)arg5;
 - (_Bool)_tryReadingHTTPHeaderData:(id)arg1 withMessage:(struct __CFHTTPMessage *)arg2 bytesRead:(unsigned long long *)arg3 error:(id *)arg4;
-- (id)_readDataFromReadStream:(struct __CFReadStream *)arg1 hasMore:(_Bool *)arg2;
-- (void)_sendAcePongWithId:(unsigned int)arg1;
-- (void)_sendAcePingWithId:(unsigned int)arg1;
+- (void)_setupReadHandlerOnProvider;
+- (_Bool)_sendAcePongWithId:(unsigned int)arg1 error:(id *)arg2;
+- (_Bool)_sendAcePingWithId:(unsigned int)arg1 error:(id *)arg2;
 - (void)sendCommand:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)_sendProviderHeader;
 - (void)_sendGeneralData:(id)arg1;
-- (void)_sendData:(id)arg1 bufferedOutputData:(id)arg2;
 - (void)_tryToWriteBufferedOutputData;
-- (id)_activeBufferedOutputData;
 - (id)_userAgent;
 - (id)_headerDataForURL:(id)arg1 aceHost:(id)arg2 languageCode:(id)arg3 syncAssistantId:(id)arg4;
-- (void)_writeStreamEndEncountered;
-- (void)_writeStreamErrorOccurred;
-- (void)_writeStreamHasSpaceAvailable;
-- (void)_writeStreamDidOpen;
-- (void)_readStreamHasBytesAvailable;
+- (void)_networkProviderDidOpen;
+- (void)_connectionHasBytesAvailable:(id)arg1;
 - (void)_cancelForExtendedValidationFailureWithTrustInfo:(id)arg1;
 - (_Bool)_consumeAceDataWithData:(id)arg1 bytesRead:(unsigned long long *)arg2 error:(id *)arg3;
 - (_Bool)_consumeAceHeaderWithData:(id)arg1 bytesRead:(unsigned long long *)arg2 error:(id *)arg3;
@@ -113,14 +101,13 @@
 - (_Bool)_hasReadACEHeader;
 - (_Bool)_consumeHTTPHeaderWithData:(id)arg1 bytesRead:(unsigned long long *)arg2 error:(id *)arg3;
 - (_Bool)_hasReadHTTPHeader;
-- (void)_readStreamEndEncountered;
-- (void)_readStreamErrorOccurred;
-- (void)streamProvider:(id)arg1 receivedError:(id)arg2;
+- (void)connectionProvider:(id)arg1 receivedError:(id)arg2;
 - (void)stopHeartBeat;
 - (void)startHeartBeat;
 - (void)_cancelOutstandingBarriers;
 - (void)_handleBarrierReply:(unsigned int)arg1;
 - (void)barrier:(CDUnknownBlockType)arg1;
+- (void)probeConnection;
 - (long long)_checkPings;
 - (long long)_checkForProgressOnReadingData;
 - (void)_pingTimerFired;
@@ -130,7 +117,9 @@
 - (void)_scheduleAceHeaderTimeoutTimerWithInterval:(double)arg1;
 - (_Bool)_wifiMayBeBetterThanCurrentStream;
 - (_Bool)_tcpInfoIndicatesPoorLinkQuality;
-- (_Bool)_wifiIsAvailable;
+- (void)_getWifiMetrics:(id)arg1;
+- (long long)_normalizeSNR:(int)arg1;
+- (void)_getCellularMetrics:(id)arg1;
 - (_Bool)_canFallBackFromError:(id)arg1;
 - (void)_fallBackToNextConnectionMethodWithError:(id)arg1 orElse:(CDUnknownBlockType)arg2;
 - (void)_fallBackToNextConnectionMethodWithError:(id)arg1;
@@ -144,7 +133,10 @@
 - (id)_aceHeaderData;
 - (id)_httpHeaderData;
 - (void)cancel;
-- (void)_didOpenStreamPairWithInitialDataPayload:(id)arg1 withBufferedLength:(unsigned long long)arg2 url:(id)arg3 completedWithInputStream:(id)arg4 outputStream:(id)arg5 error:(id)arg6;
+- (void)_startNetworkProviderWithInfo:(id)arg1;
+- (void)_updateBuffersForInitialPayload:(id)arg1 bufferedLength:(unsigned long long)arg2;
+- (id)_getInitialPayloadWithBufferedLength:(unsigned long long *)arg1;
+- (Class)_getProviderClassAndOverridePOP:(_Bool *)arg1;
 - (void)_startWithConnectionInfo:(id)arg1 allowFallbackToNewConnectionMethod:(_Bool)arg2;
 - (void)startWithConnectionInfo:(id)arg1;
 - (long long)_nextConnectionMethod;

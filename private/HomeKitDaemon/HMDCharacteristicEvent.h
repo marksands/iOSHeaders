@@ -4,36 +4,32 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HomeKitDaemon/HMDEvent.h>
+#import <HomeKitDaemon/HMDCharacteristicEventBase.h>
 
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDCharacteristic, NSNumber, NSUUID;
-
-@interface HMDCharacteristicEvent : HMDEvent <NSSecureCoding>
+@interface HMDCharacteristicEvent : HMDCharacteristicEventBase <NSSecureCoding>
 {
-    HMDCharacteristic *_characteristic;
     id _eventValue;
-    id _previousValue;
-    NSUUID *_accessoryUUID;
-    NSNumber *_serviceID;
-    NSNumber *_characteristicInstanceID;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)characteristicEventWithDictionary:(id)arg1 home:(id)arg2 error:(id *)arg3;
-@property(readonly, nonatomic) NSNumber *characteristicInstanceID; // @synthesize characteristicInstanceID=_characteristicInstanceID;
-@property(readonly, nonatomic) NSNumber *serviceID; // @synthesize serviceID=_serviceID;
-@property(readonly, nonatomic) NSUUID *accessoryUUID; // @synthesize accessoryUUID=_accessoryUUID;
-@property(retain, nonatomic) id previousValue; // @synthesize previousValue=_previousValue;
++ (id)logCategory;
 @property(retain, nonatomic) id eventValue; // @synthesize eventValue=_eventValue;
-@property(readonly, nonatomic) HMDCharacteristic *characteristic; // @synthesize characteristic=_characteristic;
 - (void).cxx_destruct;
+- (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)createPayload;
 - (id)dumpState;
-- (void)replaceCharacteristic:(id)arg1;
-- (id)initWithCharacteristic:(id)arg1 eventValue:(id)arg2;
+- (_Bool)_compareEventValue:(id)arg1;
+- (_Bool)_evaluateNewValue:(id)arg1;
+- (void)_handleUpdateRequest:(id)arg1;
+- (id)emptyModelObject;
+- (id)description;
+- (id)initWithModel:(id)arg1 home:(id)arg2;
 
 @end
 

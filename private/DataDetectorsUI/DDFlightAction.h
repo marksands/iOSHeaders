@@ -11,9 +11,10 @@
 __attribute__((visibility("hidden")))
 @interface DDFlightAction : DDAction
 {
-    UINavigationController *_navigationController;
+    UINavigationController *_viewController;
 }
 
+- (void).cxx_destruct;
 - (id)viewController;
 - (void)closePressed;
 - (int)interactionType;
@@ -21,7 +22,6 @@ __attribute__((visibility("hidden")))
 - (void)prepareViewControllerForActionController:(id)arg1;
 - (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 - (void)adaptForPresentationInPopover:(_Bool)arg1;
-- (void)dealloc;
 
 @end
 

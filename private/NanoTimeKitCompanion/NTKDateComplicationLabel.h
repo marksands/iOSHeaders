@@ -22,16 +22,16 @@
     _Bool _cachedSizeIsValid;
     _Bool _usesLegibility;
     _Bool _legibilityHidden;
-    _Bool _needsAbbreviatedDate;
     id <NTKComplicationDisplayObserver> displayObserver;
     long long _sizeStyle;
     CLKFont *_font;
     UIColor *_numberColor;
+    unsigned long long _overrideDateStyle;
     struct UIEdgeInsets _touchEdgeInsets;
 }
 
 @property(nonatomic) struct UIEdgeInsets touchEdgeInsets; // @synthesize touchEdgeInsets=_touchEdgeInsets;
-@property(nonatomic) _Bool needsAbbreviatedDate; // @synthesize needsAbbreviatedDate=_needsAbbreviatedDate;
+@property(nonatomic) unsigned long long overrideDateStyle; // @synthesize overrideDateStyle=_overrideDateStyle;
 @property(nonatomic) _Bool legibilityHidden; // @synthesize legibilityHidden=_legibilityHidden;
 @property(nonatomic) _Bool usesLegibility; // @synthesize usesLegibility=_usesLegibility;
 @property(retain, nonatomic) UIColor *numberColor; // @synthesize numberColor=_numberColor;

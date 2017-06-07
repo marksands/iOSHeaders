@@ -45,10 +45,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSDStroke *defaultHorizontalBorderStrokeEvenIfNotVisible;
 - (id)boxedValueForProperty:(int)arg1 oldBoxedValue:(id)arg2 transformedByTransform:(struct CGAffineTransform)arg3;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
-- (SEL)mapThemePropertyMapSelector;
 - (void)validate;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveTableStylePropertiesToArchive:(struct TableStylePropertiesArchive *)arg1 archiver:(id)arg2;
 - (void)loadTableStylePropertiesIntoPropertyMap:(id)arg1 fromArchive:(const struct TableStylePropertiesArchive *)arg2 unarchiver:(id)arg3;
 - (unsigned int)maskForStrokePresets:(id)arg1;

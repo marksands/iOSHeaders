@@ -41,6 +41,7 @@
 - (void)_removeAllAnimations;
 - (void)_setupThrowFrames;
 - (void)_sendMessageAndPinTranscript;
+- (void)_snapshotLiveBubbleIfNecessary;
 - (id)_entryView;
 - (id)_collectionViewController;
 - (void)animateMessages:(id)arg1;

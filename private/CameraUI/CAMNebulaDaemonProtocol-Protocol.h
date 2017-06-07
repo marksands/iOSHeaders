@@ -8,5 +8,6 @@
 #import <CameraUI/CAMNebulaDaemonTimelapseProtocol-Protocol.h>
 
 @protocol CAMNebulaDaemonProtocol <CAMNebulaDaemonTimelapseProtocol, CAMNebulaDaemonIrisProtocol>
+- (void)pingAfterInterruption;
 @end
 

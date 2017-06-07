@@ -9,21 +9,34 @@
 #import <CommunicationsSetupUI/AKAppleIDAuthenticationDelegate-Protocol.h>
 #import <CommunicationsSetupUI/CNFRegWizardControllerDelegate-Protocol.h>
 
-@class NSString;
+@class CKFilteringListController, CKNSExtension, NSString, UIProgressHUD;
 
 @interface CKSettingsMessagesController : CNFRegListController <CNFRegWizardControllerDelegate, AKAppleIDAuthenticationDelegate>
 {
     _Bool _showingChildViewController;
     int _profileToken;
+    CKFilteringListController *_filteringController;
+    id _beginMappingID;
+    CKNSExtension *_ckExtension;
+    UIProgressHUD *_cloudKitProgressView;
 }
 
 + (id)currentKeepMessages;
 + (int)currentMessageAutoKeepOptionForType:(int)arg1;
 + (_Bool)currentMessageAutoKeepForType:(int)arg1;
+@property(retain, nonatomic) UIProgressHUD *cloudKitProgressView; // @synthesize cloudKitProgressView=_cloudKitProgressView;
+@property(retain, nonatomic) CKNSExtension *ckExtension; // @synthesize ckExtension=_ckExtension;
+@property(retain) id beginMappingID; // @synthesize beginMappingID=_beginMappingID;
+@property(retain, nonatomic) CKFilteringListController *filteringController; // @synthesize filteringController=_filteringController;
+- (void).cxx_destruct;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (id)controllerForSpecifier:(id)arg1;
 - (id)_smsRelayDevicesController;
 - (id)_madridSettingsController;
+- (void)hideSpinner;
+- (void)showSpinnerMessage:(id)arg1;
+- (void)_stopListeningForNotifications;
+- (void)_startListeningForNotifications;
 - (void)_clearMessagesAppExtensionSalt;
 - (void)_setupAccountHandlersForDisabling;
 - (_Bool)_allAccountsAreDeactivated;
@@ -53,6 +66,21 @@
 - (id)areReadReceiptsEnabled:(id)arg1;
 - (id)readReceiptSpecifierIdentifiers;
 - (_Bool)shouldShowReadReceipts;
+- (void)_displayICloudErrorMessage;
+- (void)tryToDisableAllDevicesDidReturn:(id)arg1;
+- (void)setEnabledDidReturned:(id)arg1;
+- (void)cloudKitSettingsChnaged;
+- (id)_lastSyncDateLabel;
+- (id)_lastSyncLabel;
+- (id)syncToiCloudEnabled:(id)arg1;
+- (_Bool)eligibleForTruthZone;
+- (void)syncToiCloudNow:(id)arg1;
+- (void)_warnAboutDisablingICloud:(id)arg1;
+- (void)setiMessageOniCloudEnabled:(id)arg1 specifier:(id)arg2;
+- (id)iMessageOniCloudEnabled:(id)arg1;
+- (_Bool)enableiCloudSwitch;
+- (id)iCloudSettingsSpecificerIdentifiers;
+- (_Bool)shouldShowiCloudSettings;
 - (id)smsRelaySettingsSpecifierIdentifiers;
 - (_Bool)shouldShowSMSRelaySettings;
 - (id)contactPhotoSettingsSpecifierIdentifiers;
@@ -61,8 +89,13 @@
 - (_Bool)shouldShowAudioMessageSettings;
 - (void)setConversationListFilteringEnabled:(id)arg1 specifier:(id)arg2;
 - (id)isConversationListFilteringEnabled:(id)arg1;
+- (id)spamFilteringSpecifierIdentifiers;
 - (id)iMessageFilteringSpecifierIdentifiers;
-- (_Bool)shouldShowiMessageFilteringSettings;
+- (_Bool)shouldShowiMessageFilteringSettings:(id)arg1;
+- (void)messageFilteringTapped:(id)arg1;
+- (void)findSpamExtensions;
+- (void)endMatchingExtensions;
+- (void)notifyThatConversationFilteringChanged;
 - (id)raiseToListenSpecifierIdentifiers;
 - (_Bool)shouldShowRaiseToListenSwitch;
 - (_Bool)_isRaiseGestureSupported;
@@ -101,6 +134,8 @@
 - (_Bool)shouldReloadSpecifiersOnResume;
 - (void)systemApplicationDidEnterBackground;
 - (void)systemApplicationWillEnterForeground;
+- (void)applicationDidResume;
+- (void)applicationWillSuspend;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

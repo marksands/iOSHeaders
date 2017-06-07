@@ -6,30 +6,29 @@
 
 #import <Home/HFItemProvider.h>
 
-@class NSSet;
+@class HMHome, NSMutableSet;
 
 @interface HULinkedApplicationItemProvider : HFItemProvider
 {
     CDUnknownBlockType _filter;
-    NSSet *_linkedApplicationItems;
+    HMHome *_home;
+    NSMutableSet *_linkedApplicationItems;
 }
 
 + (_Bool)prefersNonBlockingReloads;
-@property(retain, nonatomic) NSSet *linkedApplicationItems; // @synthesize linkedApplicationItems=_linkedApplicationItems;
+@property(retain, nonatomic) NSMutableSet *linkedApplicationItems; // @synthesize linkedApplicationItems=_linkedApplicationItems;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
 - (void).cxx_destruct;
-- (id)_imageForSize:(struct CGSize)arg1 fromArtwork:(id)arg2;
-- (int)_iconVariantForScale:(double)arg1;
-- (id)_loadStoreIconWithArtwork:(id)arg1 results:(id)arg2;
-- (id)_itemForStoreItem:(id)arg1;
-- (id)_itemForLibraryItem:(id)arg1;
 - (id)_generateItemsFromStoreResult:(id)arg1;
 - (id)_performStoreLookupWithLibraryResult:(id)arg1;
 - (id)_performLibraryLookupForAccessories:(id)arg1;
 - (id)reloadItems;
 - (id)invalidationReasons;
 - (id)items;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1;
+- (id)init;
 
 @end
 

@@ -6,12 +6,10 @@
 
 #import <NanoPassKit/NSObject-Protocol.h>
 
-@class NSArray, NSData, NSDate, NSDecimalNumber, NSNumber, NSString, PKFelicaAppletHistory, PKFelicaTransitAppletState, PKPaymentApplication, PKPaymentWebServiceContext;
+@class NSArray, NSData, NSDate, NSDecimalNumber, NSNumber, NSString, PKFelicaAppletHistory, PKFelicaTransitAppletState, PKPaymentApplication;
 
 @protocol NPKGizmoServerProtocol <NSObject>
 - (void)noteWebServiceUpdateNeededWithCompletion:(void (^)(void))arg1;
-- (void)setSharedWebServiceContext:(PKPaymentWebServiceContext *)arg1 completion:(void (^)(_Bool))arg2;
-- (void)getSharedWebServiceContextWithCompletion:(void (^)(PKPaymentWebServiceContext *))arg1;
 - (void)handleEndedServiceModeRequest;
 - (void)handleAddedValue:(NSDecimalNumber *)arg1 forPassUniqueID:(NSString *)arg2;
 - (void)processFelicaTransitAppletState:(PKFelicaTransitAppletState *)arg1 forPassUniqueID:(NSString *)arg2;

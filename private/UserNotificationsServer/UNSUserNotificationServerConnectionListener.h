@@ -33,7 +33,6 @@
 - (void)_notificationRepsitoryDidSave:(id)arg1;
 - (void)_queue_localNotificationsDidChange:(id)arg1;
 - (void)_localNotificationsDidChange:(id)arg1;
-- (void)_queue_willPresentNotification:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_queue_didReceiveDeviceToken:(id)arg1 forBundleIdentifier:(id)arg2;
 - (id)_queue_delegateConnectionForBundleIdentifier:(id)arg1;
 - (id)_queue_observerConnectionsForBundleIdentifier:(id)arg1;
@@ -43,11 +42,11 @@
 - (id)_notificationRequestsForNotificationRecords:(id)arg1 bundleIdentifier:(id)arg2;
 - (id)_notificationsForNotificationRecords:(id)arg1 bundleIdentifier:(id)arg2;
 - (void)_removeConnectionForAllBundleIdentifiers:(id)arg1;
-- (_Bool)_isAllowedToRequestUserNotificationsForBundleIdentifier:(id)arg1;
-- (id)_bundleProxy;
-- (id)_environmentFromAuditToken;
-- (void)willPresentNotification:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (id)_currentConnection;
 - (void)didReceiveDeviceToken:(id)arg1 forBundleIdentifier:(id)arg2;
+- (void)setBadgeString:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)setBadgeNumber:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)getBadgeNumberForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)getAllowsRemoteNotificationsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)invalidateTokenForRemoteNotificationsForBundleIdentifier:(id)arg1;
 - (void)requestTokenForRemoteNotificationsForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

@@ -33,8 +33,11 @@
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (_Bool)pointInside:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)layoutSubviews;
-- (struct CGSize)intrinsicContentSize;
+- (void)ensureCorrectHeaderViewOrientation;
+- (_Bool)preferVerticalLayout;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)_setupConstraints;
+- (void)_updateSegmentViewsForUILayoutDirection;
 - (void)_updateSegmentSelectionStateAnimated:(_Bool)arg1;
 - (void)_handleGesture:(id)arg1;
 - (id)initWithSegments:(id)arg1;

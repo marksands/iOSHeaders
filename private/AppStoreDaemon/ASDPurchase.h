@@ -19,6 +19,7 @@
     _Bool _isBackgroundUpdate;
     _Bool _isRedownload;
     _Bool _shouldCancelForInstalledBundleItems;
+    _Bool _sendGUID;
     NSString *_bundleID;
     NSNumber *_itemID;
     NSString *_itemName;
@@ -36,6 +37,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool sendGUID; // @synthesize sendGUID=_sendGUID;
 @property(nonatomic) _Bool shouldCancelForInstalledBundleItems; // @synthesize shouldCancelForInstalledBundleItems=_shouldCancelForInstalledBundleItems;
 @property(copy, nonatomic) NSArray *requiredCapabilities; // @synthesize requiredCapabilities=_requiredCapabilities;
 @property long long purchaseID; // @synthesize purchaseID=_purchaseID;

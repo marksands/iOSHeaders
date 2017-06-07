@@ -17,6 +17,7 @@
     NSDate *_endDate;
 }
 
++ (id)dateRangeWithEarlierDate:(id)arg1 laterDate:(id)arg2;
 + (id)dateRangeWithStartDate:(id)arg1 endDate:(id)arg2;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
@@ -45,6 +46,7 @@
 @property(readonly, nonatomic) NSDate *laterDate;
 @property(readonly, nonatomic) NSDate *earlierDate;
 - (id)initWithStartDate:(id)arg1 timeInterval:(double)arg2;
+- (id)initWithEarlierDate:(id)arg1 laterDate:(id)arg2;
 - (id)initWithStartDate:(id)arg1 endDate:(id)arg2;
 - (id)init;
 

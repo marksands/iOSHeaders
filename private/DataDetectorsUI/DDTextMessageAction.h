@@ -19,6 +19,9 @@ __attribute__((visibility("hidden")))
 - (id)viewController;
 - (_Bool)canBePerformedByOpeningURL;
 - (void)performFromView:(id)arg1;
+- (id)notificationURL;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
 - (int)interactionType;
 - (id)localizedName;
 

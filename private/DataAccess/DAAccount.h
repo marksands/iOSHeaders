@@ -7,7 +7,7 @@
 #import <Foundation/NSObject.h>
 
 @class ACAccount, DAStatusReport, DATaskManager, DATrustHandler, NSArray, NSData, NSMapTable, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSURL;
-@protocol OS_dispatch_queue;
+@protocol OS_dispatch_queue, OS_xpc_object;
 
 @interface DAAccount : NSObject
 {
@@ -20,6 +20,8 @@
     struct __CFURLStorageSession *_storageSession;
     NSString *_clientToken;
     DATaskManager *_taskManager;
+    NSObject<OS_xpc_object> *_xpcActivity;
+    _Bool _isFetchingAutomatically;
     _Bool _shouldFailAllTasks;
     _Bool _isValidating;
     DATrustHandler *_trustHandler;
@@ -49,6 +51,11 @@
 @property(retain, nonatomic) DAStatusReport *statusReport; // @synthesize statusReport=_statusReport;
 @property(readonly, nonatomic) ACAccount *backingAccountInfo; // @synthesize backingAccountInfo=_backingAccountInfo;
 - (void).cxx_destruct;
+- (_Bool)getFetchingAutomaticallyState;
+- (void)saveFetchingAutomaticallyState:(_Bool)arg1;
+- (void)removeXpcActivity;
+- (void)saveXpcActivity:(id)arg1;
+- (_Bool)shouldCancelTaskDueToOnPowerFetchMode;
 - (id)accountTypeIdentifier;
 - (id)protocolVersion;
 - (void)reload;
@@ -169,8 +176,11 @@
 - (void)ingestBackingAccountInfoProperties;
 - (id)initWithBackingAccountInfo:(id)arg1;
 - (void)dealloc;
+- (_Bool)handleTrustChallenge:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)handleTrustChallenge:(id)arg1;
 - (id)getAppleIDSession;
+- (void)removeFromCoreDAVLoggingDelegates;
+- (void)addToCoreDAVLoggingDelegates;
 - (void)handleValidationError:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)webLoginRequestedAtURL:(id)arg1 reasonString:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)_webLoginRequestedAtURL:(id)arg1 reasonString:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;

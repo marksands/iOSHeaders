@@ -19,6 +19,7 @@
 + (Class)significantLocationType;
 @property(retain, nonatomic) NSMutableArray *significantLocations; // @synthesize significantLocations=_significantLocations;
 @property(retain, nonatomic) NSString *addressID; // @synthesize addressID=_addressID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +34,6 @@
 - (void)addSignificantLocation:(id)arg1;
 - (void)clearSignificantLocations;
 @property(readonly, nonatomic) _Bool hasAddressID;
-- (void)dealloc;
 
 @end
 

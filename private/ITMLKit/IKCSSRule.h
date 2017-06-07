@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <ITMLKit/NSCopying-Protocol.h>
+
 @class IKCSSDeclarationList, IKCSSMediaQuery, IKCSSSelectorList;
 
-@interface IKCSSRule : NSObject
+@interface IKCSSRule : NSObject <NSCopying>
 {
     IKCSSSelectorList *_selectorList;
     IKCSSDeclarationList *_declarationList;
@@ -19,6 +21,7 @@
 - (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) IKCSSMediaQuery *mediaQuery;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

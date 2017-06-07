@@ -9,17 +9,24 @@
 #import <iWorkImport/NSCopying-Protocol.h>
 #import <iWorkImport/TSDMixing-Protocol.h>
 
+@class NSString;
+
 __attribute__((visibility("hidden")))
 @interface TSDPathSource : NSObject <TSDMixing, NSCopying>
 {
     _Bool mHorizontalFlip;
     _Bool mVerticalFlip;
+    NSString *mLocalizationKey;
+    NSString *mName;
 }
 
 + (id)pathSourceForShapeType:(int)arg1 naturalSize:(struct CGSize)arg2;
 + (id)pathSourceWithArchive:(const struct PathSourceArchive *)arg1;
 @property _Bool hasVerticalFlip; // @synthesize hasVerticalFlip=mVerticalFlip;
 @property _Bool hasHorizontalFlip; // @synthesize hasHorizontalFlip=mHorizontalFlip;
+@property(copy, nonatomic) NSString *userDefinedName; // @synthesize userDefinedName=mName;
+@property(copy, nonatomic) NSString *localizationKey; // @synthesize localizationKey=mLocalizationKey;
+- (void).cxx_destruct;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (id)valueForSetSelector:(SEL)arg1;
@@ -29,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)setNaturalSize:(struct CGSize)arg1;
 - (struct CGSize)naturalSize;
 - (Class)preferredControllerClass;
+- (id)interiorWrapPathForInset:(double)arg1 joinStyle:(unsigned long long)arg2;
 - (id)interiorWrapPath;
 - (id)bezierPathWithoutFlips;
 - (id)bezierPath;

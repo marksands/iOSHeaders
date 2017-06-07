@@ -6,16 +6,20 @@
 
 #import <Foundation/NSObject.h>
 
+@class NPNameComponentsData;
+
 @interface NPHMMClassifier : NSObject
 {
     unsigned long long _totalGivenNamesCount;
     unsigned long long _totalFamilyNamesCount;
     unsigned long long _uniqueGivenNamesCount;
     unsigned long long _uniqueFamilyNamesCount;
+    NPNameComponentsData *_nameComponentsData;
     CDStruct_a720a2d7 _stateProbabilities;
 }
 
 @property CDStruct_a720a2d7 stateProbabilities; // @synthesize stateProbabilities=_stateProbabilities;
+- (void).cxx_destruct;
 - (id)coumpoundsFromName:(id)arg1;
 - (_Bool)isParticle:(id)arg1;
 - (_Bool)formCompoundFamilyName:(id)arg1;
@@ -37,7 +41,7 @@
 - (unsigned long long)extractMetricForType:(unsigned long long)arg1;
 - (void)dealloc;
 - (unsigned long long)frequencyForName:(id)arg1 type:(unsigned long long)arg2;
-- (id)initWithHMMProbabilities:(CDStruct_a720a2d7)arg1;
+- (id)initWithHMMProbabilities:(CDStruct_a720a2d7)arg1 nameComponentsDate:(id)arg2;
 
 @end
 

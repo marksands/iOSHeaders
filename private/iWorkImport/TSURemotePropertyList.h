@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (double)timeIntervalUntilNextUpdate;
 - (id)validateUserDefaultsDownloadURL:(id)arg1;
 - (void)checkForUpdateWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)arrayForKey:(id)arg1;
 - (id)dictionaryForKey:(id)arg1;
 - (id)URLForKey:(id)arg1;
 - (id)stringForKey:(id)arg1;

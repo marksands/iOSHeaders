@@ -8,6 +8,7 @@
 
 @class PDFPageSearchLayerPrivate;
 
+__attribute__((visibility("hidden")))
 @interface PDFPageSearchLayer : CALayer
 {
     PDFPageSearchLayerPrivate *_private;
@@ -18,6 +19,7 @@
 - (id)_activeColor;
 - (void)_generateRects;
 - (void)updateRotation;
+- (void)addSelection:(id)arg1;
 - (void)setSelection:(id)arg1;
 - (void)setDisplayBox:(long long)arg1;
 - (id)page;

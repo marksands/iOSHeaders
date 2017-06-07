@@ -9,14 +9,16 @@
 #import <GeoServices/GEOTransitNamedItem-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPBTransitArtwork, GEOPBTransitLineDisplayHints, GEOStyleAttributes, NSString;
+@class GEOPBTransitArtwork, GEOPBTransitLineDisplayHints, GEOStyleAttributes, NSString, PBUnknownFields;
 
 @interface GEOPBTransitLine : PBCodable <GEOTransitNamedItem, NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _muid;
     struct GEOPBTransitTimeRange *_operatingHours;
     unsigned long long _operatingHoursCount;
     unsigned long long _operatingHoursSpace;
+    GEOPBTransitArtwork *_alternateArtwork;
     GEOPBTransitArtwork *_artwork;
     GEOPBTransitLineDisplayHints *_displayHints;
     int _guidanceSnappingType;
@@ -47,9 +49,12 @@
 @property(nonatomic) unsigned int systemIndex; // @synthesize systemIndex=_systemIndex;
 @property(retain, nonatomic) NSString *lineColor; // @synthesize lineColor=_lineColor;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
+@property(retain, nonatomic) GEOPBTransitArtwork *alternateArtwork; // @synthesize alternateArtwork=_alternateArtwork;
 @property(retain, nonatomic) GEOPBTransitArtwork *modeArtwork; // @synthesize modeArtwork=_modeArtwork;
 @property(retain, nonatomic) GEOPBTransitArtwork *artwork; // @synthesize artwork=_artwork;
 @property(nonatomic) unsigned int lineIndex; // @synthesize lineIndex=_lineIndex;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -84,10 +89,12 @@
 @property(nonatomic) _Bool hasGuidanceSnappingType;
 @property(nonatomic) int guidanceSnappingType; // @synthesize guidanceSnappingType=_guidanceSnappingType;
 @property(nonatomic) _Bool hasMuid;
+@property(readonly, nonatomic) _Bool hasAlternateArtwork;
 @property(readonly, nonatomic) _Bool hasModeArtwork;
 @property(readonly, nonatomic) _Bool hasArtwork;
 @property(nonatomic) _Bool hasLineIndex;
 - (void)dealloc;
+- (id)identifier;
 - (id)geoTransitLineWithSystem:(id)arg1;
 - (id)bestName;
 

@@ -9,17 +9,20 @@
 #import <MapsSupport/GEOTransitLineItem-Protocol.h>
 #import <MapsSupport/NSCopying-Protocol.h>
 
-@class GEOMapRegion, MSPTransitStorageAttribution, MSPTransitStorageLine, NSArray, NSString, PBUnknownFields;
+@class GEOMapItemIdentifier, GEOMapRegion, MSPTransitStorageAttribution, MSPTransitStorageLine, NSArray, NSMutableArray, NSString, PBUnknownFields;
 @protocol GEOEncyclopedicInfo, GEOTransitArtworkDataSource, GEOTransitAttribution, GEOTransitSystem;
 
 @interface MSPTransitStorageLineItem : PBCodable <GEOTransitLineItem, NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    NSMutableArray *_incidents;
     MSPTransitStorageLine *_line;
     GEOMapRegion *_storedMapRegion;
     MSPTransitStorageAttribution *_transitAttribution;
 }
 
++ (Class)incidentsType;
+@property(retain, nonatomic) NSMutableArray *incidents; // @synthesize incidents=_incidents;
 @property(retain, nonatomic) MSPTransitStorageAttribution *transitAttribution; // @synthesize transitAttribution=_transitAttribution;
 @property(retain, nonatomic) GEOMapRegion *storedMapRegion; // @synthesize storedMapRegion=_storedMapRegion;
 @property(retain, nonatomic) MSPTransitStorageLine *line; // @synthesize line=_line;
@@ -34,6 +37,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+- (id)incidentsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)incidentsCount;
+- (void)addIncidents:(id)arg1;
+- (void)clearIncidents;
 @property(readonly, nonatomic) _Bool hasTransitAttribution;
 @property(readonly, nonatomic) _Bool hasStoredMapRegion;
 @property(readonly, nonatomic) _Bool hasLine;
@@ -41,7 +48,6 @@
 @property(readonly, nonatomic) _Bool hasEncyclopedicInfo;
 @property(readonly, nonatomic) _Bool hasIncidentComponent;
 @property(readonly, nonatomic) _Bool isIncidentsTTLExpired;
-@property(readonly, nonatomic) NSArray *incidents;
 @property(readonly, nonatomic) GEOMapRegion *mapRegion;
 @property(readonly, nonatomic) id <GEOTransitAttribution> attribution;
 @property(readonly, nonatomic) NSArray *labelItems;
@@ -49,12 +55,14 @@
 @property(readonly, nonatomic) _Bool showVehicleNumber;
 @property(readonly, nonatomic) NSString *lineColorString;
 @property(readonly, nonatomic) _Bool hasLineColorString;
+@property(readonly, nonatomic) id <GEOTransitArtworkDataSource> alternateArtwork;
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> modeArtwork;
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> artwork;
 @property(readonly, nonatomic) _Bool departuresAreVehicleSpecific;
 @property(readonly, nonatomic) unsigned long long departureTimeDisplayStyle;
 @property(readonly, nonatomic) id <GEOTransitSystem> system;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) GEOMapItemIdentifier *identifier;
 @property(readonly, nonatomic) unsigned long long muid;
 - (id)initWithLineItem:(id)arg1;
 

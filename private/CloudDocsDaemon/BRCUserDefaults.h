@@ -21,12 +21,18 @@
 + (void)loadCachedServerConfigFromDB:(id)arg1;
 + (void)reset;
 + (void)setServerConfigurationURL:(id)arg1 whenLoaded:(CDUnknownBlockType)arg2;
++ (id)defaultsForSharedZone;
 + (id)defaultsForMetadataContainer;
-+ (id)defaultsForAppLibraryName:(id)arg1;
-+ (id)defaultsForAppLibraryIdentifier:(id)arg1;
++ (id)defaultsForMangledID:(id)arg1;
 + (id)_userDefaultsManager;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) double powerLogReportInterval;
+@property(readonly, nonatomic) unsigned long long maxFolderEnumerationDepth;
+@property(readonly, nonatomic) unsigned long long maxFolderEnumerationCount;
+@property(readonly, nonatomic) unsigned long long deleteShareIDBatchCount;
 @property(readonly, nonatomic) _Bool shouldFixupTargetCZMAliases;
+@property(readonly, nonatomic) unsigned long long optimisticallyFillChainBatchSpace;
+@property(readonly, nonatomic) _Bool optimisticallyPCSChain;
 @property(readonly, nonatomic) _Bool shouldAutoMigrateToCloudDocs;
 @property(readonly, nonatomic) unsigned int ignoredQuarantineMask;
 @property(readonly, nonatomic) NSSet *excludedExtensionsWorthPreserving;
@@ -52,12 +58,10 @@
 @property(readonly, nonatomic) long long minimalSizeToShowAdditionalDescription;
 @property(readonly, nonatomic) double intervalToWaitBeforeShowingAdditionalDescription;
 @property(readonly, nonatomic) NSDictionary *migrationThrottleParams;
-@property(readonly, nonatomic) unsigned long long maxRecentDocumentCount;
-@property(readonly, nonatomic) double shortcutServicePacerInterval;
-@property(readonly, nonatomic) NSDictionary *spotlightIndexerFailureThrottleParams;
-@property(readonly, nonatomic) unsigned long long spotlightIndexerMaxHierarchyDepth;
-@property(readonly, nonatomic) unsigned long long spotlightIndexerBatchSize;
-@property(readonly, nonatomic) double spotlightIndexerPacerInterval;
+@property(readonly, nonatomic) NSDictionary *recentsEnumeratorFailureThrottleParams;
+@property(readonly, nonatomic) unsigned long long recentsEnumeratorMaxHierarchyDepth;
+@property(readonly, nonatomic) unsigned long long recentsEnumeratorBatchSize;
+@property(readonly, nonatomic) double recentsEnumeratorPacerInterval;
 @property(readonly, nonatomic) _Bool spotlightIndexingEnabled;
 @property(readonly, nonatomic) _Bool shouldDisplayUploadNotification;
 @property(readonly, nonatomic) double activeDownloadSizeRefreshInterval;
@@ -105,6 +109,8 @@
 @property(readonly, nonatomic) int transferQueueMaxConcurrentOperations;
 @property(readonly, nonatomic) int transferQueueMinConcurrentOperations;
 @property(readonly, nonatomic) int transferQueueMinBatchSize;
+@property(readonly, nonatomic) unsigned long long fseventProcessBatchSize;
+@property(readonly, nonatomic) unsigned long long fseventQueueBufferSize;
 @property(readonly, nonatomic) double fseventsResetBackoff;
 @property(readonly, nonatomic) double fseventsLatency;
 @property(readonly, nonatomic) double readerLostItemBackoff;
@@ -129,6 +135,7 @@
 @property(readonly, nonatomic) long long uploadMaxFileSize;
 @property(readonly, nonatomic) unsigned long long maxNumberOfFilesInAFolder;
 @property(readonly, nonatomic) unsigned long long maxTotalFilesCount;
+@property(readonly, nonatomic) _Bool shouldSessionBeGreedy;
 @property(readonly, nonatomic) _Bool shouldAppLibraryBeGreedy;
 @property(readonly, nonatomic) _Bool skipServerSideThrottling;
 @property(readonly, nonatomic) float dbAutovacuumRatio;
@@ -168,12 +175,14 @@
 @property(readonly, nonatomic) double appsFetchPacerDelay;
 @property(readonly, nonatomic) double quotaFetchPacerDelay;
 @property(readonly, nonatomic) unsigned long long availableQuotaComfortSize;
+@property(readonly, nonatomic) NSDictionary *uploadFileModifiedThrottleParams;
 @property(readonly, nonatomic) NSDictionary *uploadThrottleParams;
 @property(readonly, nonatomic) NSDictionary *downloadThrottleParams;
 @property(readonly, nonatomic) NSDictionary *applyThrottleParams;
 @property(readonly, nonatomic) NSDictionary *lostItemThrottleParams;
 @property(readonly, nonatomic) NSDictionary *appLibraryScanThrottleParams;
 @property(readonly, nonatomic) NSArray *syncThrottles;
+@property(readonly, nonatomic) NSObject<OS_xpc_object> *transmogrifyXPCActivity;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *forcedSyncXPCActivity;
 @property(readonly, nonatomic) NSObject<OS_xpc_object> *configurationUpdateXPCActivity;
 @property(readonly, nonatomic) unsigned short stageInPackageFileUmask;
@@ -216,6 +225,7 @@
 - (int)intForKey:(id)arg1 min:(int)arg2 max:(int)arg3 byDefault:(int)arg4;
 - (id)objectForKey:(id)arg1 inheritFromGlobal:(_Bool)arg2 validateWithBlock:(CDUnknownBlockType)arg3;
 - (id)_serverDefaultForKey:(id)arg1;
+- (id)_loadObjectForKey:(id)arg1 inheritFromGlobal:(_Bool)arg2 validateWithBlock:(CDUnknownBlockType)arg3;
 - (id)initAsGlobalWithServerConfiguration:(id)arg1;
 - (id)initWithServerConfiguration:(id)arg1 globalUserDefaults:(id)arg2 clientZoneIdentifier:(id)arg3;
 

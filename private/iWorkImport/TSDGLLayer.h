@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void)p_drawFrameAtLayerTime:(double)arg1;
 - (void)teardown;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 isOpaque:(_Bool)arg2 delegate:(id)arg3;
+- (id)initWithFrame:(struct CGRect)arg1 isOpaque:(_Bool)arg2 delegate:(id)arg3 isWideGamut:(_Bool)arg4;
 
 @end
 

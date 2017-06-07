@@ -9,7 +9,7 @@
 #import <NanoRegistry/NRMutableStateProtocol-Protocol.h>
 
 @class NSMutableSet, NSString;
-@protocol NRMutableStateParentDelegate, OS_dispatch_queue;
+@protocol NRMutableStateParentDelegate;
 
 @interface NRMutableStateBase : NSObject <NRMutableStateProtocol>
 {
@@ -31,7 +31,6 @@
 - (id)addObserverQueue:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)notifyObserversWithDiff:(id)arg1;
 - (void)notifyParentWithDiff:(id)arg1;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
 - (id)applyDiff:(id)arg1 upOnly:(_Bool)arg2 notifyParent:(_Bool)arg3 unconditional:(_Bool)arg4;
 - (id)applyDiff:(id)arg1;
 - (id)init;

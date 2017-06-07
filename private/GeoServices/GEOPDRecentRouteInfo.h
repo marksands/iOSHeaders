@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSData *routeId; // @synthesize routeId=_routeId;
 @property(retain, nonatomic) NSData *sessionState; // @synthesize sessionState=_sessionState;
 @property(retain, nonatomic) NSData *zilchPoints; // @synthesize zilchPoints=_zilchPoints;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -34,7 +35,6 @@
 @property(readonly, nonatomic) _Bool hasRouteId;
 @property(readonly, nonatomic) _Bool hasSessionState;
 @property(readonly, nonatomic) _Bool hasZilchPoints;
-- (void)dealloc;
 
 @end
 

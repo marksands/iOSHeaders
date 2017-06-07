@@ -8,10 +8,11 @@
 
 #import <SpringBoardFoundation/BSDescriptionProviding-Protocol.h>
 #import <SpringBoardFoundation/NSCopying-Protocol.h>
+#import <SpringBoardFoundation/NSSecureCoding-Protocol.h>
 
 @class NSData, NSString;
 
-@interface SBFWallpaperOptions : NSObject <NSCopying, BSDescriptionProviding>
+@interface SBFWallpaperOptions : NSObject <NSCopying, BSDescriptionProviding, NSSecureCoding>
 {
     _Bool _magnifyEnabled;
     _Bool _supportsCropping;
@@ -24,6 +25,7 @@
     struct CGRect _cropRect;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)optionsWithName:(id)arg1 parallaxFactor:(double)arg2 zoomScale:(double)arg3 supportsCropping:(_Bool)arg4 cropRect:(struct CGRect)arg5 portrait:(_Bool)arg6 hasVideo:(_Bool)arg7 stillTimeInVideo:(double)arg8;
 + (id)optionsWithName:(id)arg1 parallaxFactor:(double)arg2 zoomScale:(double)arg3 supportsCropping:(_Bool)arg4 cropRect:(struct CGRect)arg5 portrait:(_Bool)arg6;
 @property(nonatomic) double stillTimeInVideo; // @synthesize stillTimeInVideo=_stillTimeInVideo;
@@ -36,6 +38,8 @@
 @property(nonatomic) double parallaxFactor; // @synthesize parallaxFactor=_parallaxFactor;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
@@ -47,7 +51,7 @@
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, nonatomic) struct CGSize bestWallpaperSize;
+- (struct CGSize)bestWallpaperSizeForWallpaperSize:(struct CGSize)arg1 wallpaperScale:(double)arg2 deviceType:(long long)arg3 imageScale:(double)arg4;
 @property(readonly, nonatomic) _Bool parallaxEnabled;
 - (id)initWithStream:(id)arg1;
 - (id)initWithPersistentDataRepresentation:(id)arg1;

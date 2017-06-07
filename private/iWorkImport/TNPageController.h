@@ -6,44 +6,57 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableDictionary, TNDocumentRoot, TNPageCoordinateDictionary, TNPrintProperties, TNSheet, TSUPointerKeyDictionary;
+@class TNDocumentRoot, TNPageCoordinateDictionary, TNPrintProperties, TNSheet, TSUPointerKeyDictionary;
 @protocol TNPageControllerDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TNPageController : NSObject
 {
-    TNDocumentRoot *mDocumentRoot;
-    TNPageCoordinateDictionary *mPageLayoutCache;
-    TSUPointerKeyDictionary *mHintCacheDictionary;
-    TSUPointerKeyDictionary *mSheetPageCountCache;
-    TNSheet *mSheet;
-    struct TSUCellCoord mMaxPageCoordinate;
-    _Bool mMaxPageCoordinateValid;
-    NSMutableDictionary *mCachedAutoFitContentScaleDictionary;
-    TNPageCoordinateDictionary *mHeaderLayerCache;
-    TNPageCoordinateDictionary *mFooterLayerCache;
-    long long mCachedPageCountDuringDynamicContentScaleChange;
-    long long mPriorPageCount;
-    long long mSubsequentPageCount;
-    _Bool mPageCountsValid;
-    _Bool mComputingPageCounts;
-    _Bool mInDynamicContentScaleChange;
-    double mHeaderTextHeight;
-    double mFooterTextHeight;
-    NSObject<TNPageControllerDelegate> *mDelegate;
+    _Bool _pageCountsValid;
+    _Bool _computingPageCounts;
+    _Bool _maxPageCoordinateValid;
+    _Bool _inDynamicContentScaleChange;
+    struct TSUCellCoord _maxPageCoordinate;
+    NSObject<TNPageControllerDelegate> *_delegate;
+    TNDocumentRoot *_documentRoot;
+    TNSheet *_sheet;
+    double _userViewScale;
+    double _headerTextHeight;
+    double _footerTextHeight;
+    TNPageCoordinateDictionary *_pageLayoutCache;
+    TSUPointerKeyDictionary *_hintCacheDictionary;
+    TSUPointerKeyDictionary *_sheetPageCountCache;
+    TNPageCoordinateDictionary *_headerLayerCache;
+    TNPageCoordinateDictionary *_footerLayerCache;
+    long long _cachedPageCountDuringDynamicContentScaleChange;
+    long long _priorPageCount;
+    long long _subsequentPageCount;
     TNPrintProperties *_printProperties;
-    double mUserViewScale;
 }
 
 + (double)autoFitContentScaleForSheet:(id)arg1;
 + (double)p_contentScaleAutoFitForSheet:(id)arg1;
 + (id)p_cachedAutoFitContentScaleDictionary;
-@property(nonatomic) TNSheet *sheet; // @synthesize sheet=mSheet;
-@property(readonly, nonatomic) _Bool inDynamicContentScaleChange; // @synthesize inDynamicContentScaleChange=mInDynamicContentScaleChange;
-@property(nonatomic) double userViewScale; // @synthesize userViewScale=mUserViewScale;
-@property(nonatomic) TNDocumentRoot *documentRoot; // @synthesize documentRoot=mDocumentRoot;
-@property(nonatomic) double footerTextHeight; // @synthesize footerTextHeight=mFooterTextHeight;
-@property(nonatomic) double headerTextHeight; // @synthesize headerTextHeight=mHeaderTextHeight;
+@property(readonly, nonatomic) _Bool inDynamicContentScaleChange; // @synthesize inDynamicContentScaleChange=_inDynamicContentScaleChange;
+@property(retain, nonatomic) TNPrintProperties *printProperties; // @synthesize printProperties=_printProperties;
+@property(nonatomic) _Bool maxPageCoordinateValid; // @synthesize maxPageCoordinateValid=_maxPageCoordinateValid;
+@property(nonatomic) struct TSUCellCoord maxPageCoordinate; // @synthesize maxPageCoordinate=_maxPageCoordinate;
+@property(nonatomic) _Bool computingPageCounts; // @synthesize computingPageCounts=_computingPageCounts;
+@property(nonatomic) _Bool pageCountsValid; // @synthesize pageCountsValid=_pageCountsValid;
+@property(nonatomic) long long subsequentPageCount; // @synthesize subsequentPageCount=_subsequentPageCount;
+@property(nonatomic) long long priorPageCount; // @synthesize priorPageCount=_priorPageCount;
+@property(nonatomic) long long cachedPageCountDuringDynamicContentScaleChange; // @synthesize cachedPageCountDuringDynamicContentScaleChange=_cachedPageCountDuringDynamicContentScaleChange;
+@property(retain, nonatomic) TNPageCoordinateDictionary *footerLayerCache; // @synthesize footerLayerCache=_footerLayerCache;
+@property(retain, nonatomic) TNPageCoordinateDictionary *headerLayerCache; // @synthesize headerLayerCache=_headerLayerCache;
+@property(retain, nonatomic) TSUPointerKeyDictionary *sheetPageCountCache; // @synthesize sheetPageCountCache=_sheetPageCountCache;
+@property(retain, nonatomic) TSUPointerKeyDictionary *hintCacheDictionary; // @synthesize hintCacheDictionary=_hintCacheDictionary;
+@property(retain, nonatomic) TNPageCoordinateDictionary *pageLayoutCache; // @synthesize pageLayoutCache=_pageLayoutCache;
+@property(nonatomic) double footerTextHeight; // @synthesize footerTextHeight=_footerTextHeight;
+@property(nonatomic) double headerTextHeight; // @synthesize headerTextHeight=_headerTextHeight;
+@property(nonatomic) double userViewScale; // @synthesize userViewScale=_userViewScale;
+@property(nonatomic) __weak TNSheet *sheet; // @synthesize sheet=_sheet;
+@property(nonatomic) __weak TNDocumentRoot *documentRoot; // @synthesize documentRoot=_documentRoot;
+- (void).cxx_destruct;
 - (void)layoutAtPageIndex:(unsigned long long)arg1 forLayoutController:(id)arg2;
 - (unsigned long long)pageCount;
 - (id)pageInfoForPageIndex:(unsigned long long)arg1;
@@ -86,7 +99,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)firstPartitionFrameForInfo:(id)arg1 outStartPageCoordinate:(out struct TSUCellCoord *)arg2;
 - (unsigned long long)pageNumberForPageCoordinate:(struct TSUCellCoord)arg1;
 - (_Bool)isPagePlaceholderAtPageCoordinate:(struct TSUCellCoord)arg1;
-@property(readonly) unsigned long long numPages;
+@property(readonly, nonatomic) unsigned long long numPages;
 - (CDStruct_d8c645bd)pageRangeWithPlaceholdersWithUpperBound:(struct TSUCellCoord)arg1;
 - (struct CGSize)contentSizeForCanvasLayer;
 - (struct TSUCellCoord)pageCoordinateForMaxVisiblePage;
@@ -98,17 +111,16 @@ __attribute__((visibility("hidden")))
 - (void)updateUserViewScale;
 - (void)canvasViewScaleDidChange:(double)arg1;
 - (long long)p_priorPageCount;
-@property(readonly) struct CGSize pageSizeWithGutter;
-@property(readonly) struct CGRect contentFrame;
-@property(readonly) struct CGSize pageSize;
+- (struct CGSize)pageSizeWithGutter;
+@property(readonly, nonatomic) struct CGRect contentFrame;
+@property(readonly, nonatomic) struct CGSize pageSize;
 - (void)p_computePriorPageCountForCurrentSheet;
 - (void)p_computeSubsequentPageCountForCurrentSheet;
 - (long long)p_pageCountForSheet:(id)arg1;
 - (long long)p_updateCachedPageCountForCurrentSheet;
-@property(readonly, getter=isPortrait) _Bool portrait;
-@property(readonly) double contentScale;
-@property(nonatomic) NSObject<TNPageControllerDelegate> *delegate; // @synthesize delegate=mDelegate;
-@property(readonly) TNPrintProperties *printProperties; // @synthesize printProperties=_printProperties;
+@property(readonly, nonatomic, getter=isPortrait) _Bool portrait;
+@property(readonly, nonatomic) double contentScale;
+@property(nonatomic) __weak NSObject<TNPageControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1;
 - (double)p_printViewDefaultUserViewScale;

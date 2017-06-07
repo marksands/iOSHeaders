@@ -6,16 +6,19 @@
 
 #import <Navigation/MNLocationTracker.h>
 
-@class GEORouteMatcher;
+@class GEORouteMatcher, MNTransitLocationCoordinator;
 
 __attribute__((visibility("hidden")))
 @interface MNSteppingLocationTracker : MNLocationTracker
 {
+    MNTransitLocationCoordinator *_transitLocationCoordinator;
     GEORouteMatcher *_routeMatcher;
 }
 
 - (void).cxx_destruct;
 - (id)_matchedLocationForLocation:(id)arg1;
+- (void)stopTracking;
+- (void)startTracking;
 - (id)matchedLocationForLocation:(id)arg1;
 - (void)resetForTracePlayerAtLocation:(id)arg1;
 - (int)transportType;

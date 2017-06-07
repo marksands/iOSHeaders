@@ -7,11 +7,11 @@
 #import <NewsCore/FCCacheFlushing-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCArticleListRecordSource, FCArticleRecordSource, FCCKDatabase, FCChannelMembershipController, FCFeedDatabase, FCForYouConfigRecordSource, FCPurchaseLookupRecordSource, FCResourceRecordSource, FCTagRecordSource, FCWebArchiveSource, FCWidgetSectionConfigRecordSource;
+@class FCArticleListRecordSource, FCArticleRecordSource, FCCKContentDatabase, FCChannelMembershipController, FCFeedDatabase, FCForYouConfigRecordSource, FCPurchaseLookupRecordSource, FCResourceRecordSource, FCTagRecordSource, FCWebArchiveSource, FCWidgetSectionConfigRecordSource;
 
 @protocol FCContentContextInternal <NSObject, FCCacheFlushing>
-@property(readonly, nonatomic) FCCKDatabase *contentDatabase;
-@property(readonly, nonatomic) FCFeedDatabase *feedDatabase;
+@property(readonly, nonatomic) FCCKContentDatabase *contentDatabase;
+@property(readonly) FCFeedDatabase *feedDatabase;
 @property(readonly, nonatomic) FCWidgetSectionConfigRecordSource *widgetSectionConfigRecordSource;
 @property(readonly, nonatomic) FCForYouConfigRecordSource *forYouConfigRecordSource;
 @property(readonly, nonatomic) FCPurchaseLookupRecordSource *purchaseLookupRecordSource;

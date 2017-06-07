@@ -11,13 +11,9 @@
 }
 
 + (id)contentInfoTextWithAttachmentCount:(unsigned long long)arg1;
+- (void)addLocation;
+- (id)MKMapItem;
 - (_Bool)shouldSyncPreviewImageToCloud:(id)arg1;
-- (void)generatePreviewsInOperation:(id)arg1;
-- (_Bool)generateAsynchronousPreviews;
-- (_Bool)needToGeneratePreviews;
-- (CDUnknownBlockType)genericBrickThumbnailCreator;
-- (CDUnknownBlockType)genericListThumbnailCreator;
-- (_Bool)requiresNetworkToGeneratePreview;
 - (_Bool)hasPreviews;
 
 @end

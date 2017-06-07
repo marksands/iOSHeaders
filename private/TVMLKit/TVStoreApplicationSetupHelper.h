@@ -8,11 +8,12 @@
 
 #import <TVMLKit/ISURLOperationDelegate-Protocol.h>
 
-@class NSString, NSURL;
+@class IKURLBagCache, NSString, NSURL;
 
 @interface TVStoreApplicationSetupHelper : NSObject <ISURLOperationDelegate>
 {
     NSURL *_defaultBootURL;
+    IKURLBagCache *_bagCache;
     CDUnknownBlockType _loadBagOperationCompletion;
 }
 
@@ -20,6 +21,7 @@
 + (id)launchContextWithLaunchOptions:(id)arg1 bootURL:(id)arg2 appLocalBootURL:(id)arg3;
 + (id)launchContextWithLaunchOptions:(id)arg1 bootURL:(id)arg2;
 @property(copy, nonatomic) CDUnknownBlockType loadBagOperationCompletion; // @synthesize loadBagOperationCompletion=_loadBagOperationCompletion;
+@property(readonly, nonatomic) IKURLBagCache *bagCache; // @synthesize bagCache=_bagCache;
 @property(copy, nonatomic) NSURL *defaultBootURL; // @synthesize defaultBootURL=_defaultBootURL;
 - (void).cxx_destruct;
 - (id)_bootURLWithBagBootURL:(id)arg1;
@@ -28,6 +30,7 @@
 - (void)operationFinished:(id)arg1;
 - (void)operation:(id)arg1 failedWithError:(id)arg2;
 - (void)dealloc;
+- (id)initWithDefaultBootURL:(id)arg1 bagCache:(id)arg2;
 - (id)initWithDefaultBootURL:(id)arg1;
 - (id)init;
 

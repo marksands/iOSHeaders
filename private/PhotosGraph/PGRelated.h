@@ -41,6 +41,8 @@
 @property(retain, nonatomic) NSArray *moments; // @synthesize moments=_moments;
 @property(retain, nonatomic) NSString *debugDescription; // @synthesize debugDescription=_debugDescription;
 - (void).cxx_destruct;
+- (void)_addKeywords:(id)arg1 forRelatedType:(unsigned long long)arg2;
+- (void)_addKeywordsFromKeywords:(id)arg1;
 @property(nonatomic) unsigned short relatedAlgorithmsVersion;
 @property(nonatomic) unsigned short graphSchemaVersion;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;

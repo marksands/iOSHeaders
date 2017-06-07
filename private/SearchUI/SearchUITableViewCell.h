@@ -6,39 +6,43 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@protocol SearchUIFeedbackDelegatePrivate;
+@class NSArray, SearchUIDropTarget;
+@protocol SearchUIFeedbackDelegate, SearchUIRowModel;
 
 @interface SearchUITableViewCell : UITableViewCell
 {
-    _Bool _expanded;
+    _Bool _isExpanded;
+    id <SearchUIRowModel> _rowModel;
     unsigned long long _style;
-    id <SearchUIFeedbackDelegatePrivate> _delegate;
+    id <SearchUIFeedbackDelegate> _delegate;
+    SearchUIDropTarget *_dropTarget;
 }
 
 + (double)distanceToTopOfAppIconsForMultiResultCell;
 + (_Bool)canCellExpandWithResults:(id)arg1;
-+ (_Bool)resultIsSuggestedQuery:(id)arg1;
-+ (id)reuseIdentifierForResults:(id)arg1;
 + (id)convertResultIfNecessary:(id)arg1;
 + (id)reuseIdentifierForResult:(id)arg1;
++ (id)rowViewsForResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 + (id)rowViewForResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
-+ (id)reuseIdentifierForClass:(Class)arg1;
-+ (Class)classForResult:(id)arg1;
-@property __weak id <SearchUIFeedbackDelegatePrivate> delegate; // @synthesize delegate=_delegate;
-@property(getter=isExpanded) _Bool expanded; // @synthesize expanded=_expanded;
+@property(retain) SearchUIDropTarget *dropTarget; // @synthesize dropTarget=_dropTarget;
+@property __weak id <SearchUIFeedbackDelegate> delegate; // @synthesize delegate=_delegate;
+@property _Bool isExpanded; // @synthesize isExpanded=_isExpanded;
 @property unsigned long long style; // @synthesize style=_style;
+@property(retain) id <SearchUIRowModel> rowModel; // @synthesize rowModel=_rowModel;
 - (void).cxx_destruct;
+- (id)dragSourceRowModel;
 - (_Bool)shouldHideBottomSeparator;
+- (void)roundNecessaryCornersForView:(id)arg1;
 - (void)setSectionLocation:(int)arg1 animated:(_Bool)arg2;
 - (_Bool)isExpandable;
-- (unsigned long long)numberOfVisibleResults;
 - (_Bool)supportsRecycling;
 - (void)updateExpanded:(_Bool)arg1;
 - (void)updateWithResults:(id)arg1;
-- (void)updateWithResult:(id)arg1;
-- (id)initWithResults:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
-- (id)initWithResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+- (id)initWithRowModel:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
+@property(readonly) NSArray *visibleResults;
+- (void)updateWithRowModel:(id)arg1;
 - (id)initWithStyle:(unsigned long long)arg1;
+- (void)updateWithResult:(id)arg1;
 
 @end
 

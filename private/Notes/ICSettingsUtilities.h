@@ -10,8 +10,11 @@
 {
 }
 
++ (void)setBool:(_Bool)arg1 forKey:(id)arg2;
++ (_Bool)boolForKey:(id)arg1;
 + (void)setObject:(id)arg1 forKey:(id)arg2;
 + (id)objectForKey:(id)arg1;
++ (void)registerDefaults:(id)arg1;
 
 @end
 

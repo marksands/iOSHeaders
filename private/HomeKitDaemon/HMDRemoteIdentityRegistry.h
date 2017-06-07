@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
+#import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class NSMapTable, NSString;
+@class NSMapTable, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDRemoteIdentityRegistry : NSObject <HMFLogging>
+@interface HMDRemoteIdentityRegistry : HMFObject <HMFLogging, HMFDumpState>
 {
     NSObject<OS_dispatch_queue> *_propertyQueue;
     NSMapTable *_accountIdentities;
@@ -24,6 +25,7 @@
 @property(readonly, nonatomic) NSMapTable *accountIdentities; // @synthesize accountIdentities=_accountIdentities;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 - (void).cxx_destruct;
+- (id)dumpState;
 - (void)reset;
 - (id)pairingIdentityForIdentifier:(id)arg1;
 - (id)pairingIdentityForAccount:(id)arg1;

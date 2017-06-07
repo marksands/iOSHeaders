@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class GEOComposedRoute, NSHashTable, NSString;
+@class NSArray, NSHashTable, NSString, VKRouteInfo;
 
 @interface VKRouteContext : NSObject
 {
-    GEOComposedRoute *_route;
+    VKRouteInfo *_routeInfo;
     unsigned char useType;
     long long _inspectedLegIndex;
     long long _inspectedStepIndex;
@@ -28,9 +28,13 @@
     NSHashTable *_labelObservers;
     _Bool _hasContextChangedForRouteLine;
     NSHashTable *_routeLineObservers;
+    _Bool _hasContextChangedForAlternateRouteLines;
+    NSHashTable *_alternateRouteLineObservers;
+    NSArray *_alternateRoutes;
     unsigned char _useType;
 }
 
+@property(retain, nonatomic) NSArray *alternateRoutes; // @synthesize alternateRoutes=_alternateRoutes;
 @property(retain, nonatomic) NSString *accessPointExitName; // @synthesize accessPointExitName=_accessPointExitName;
 @property(retain, nonatomic) NSString *accessPointEntryName; // @synthesize accessPointEntryName=_accessPointEntryName;
 @property(retain, nonatomic) NSString *locale; // @synthesize locale=_locale;
@@ -44,15 +48,16 @@
 @property(nonatomic) long long currentLegIndex; // @synthesize currentLegIndex=_currentLegIndex;
 @property(nonatomic) struct PolylineCoordinate routeOffset; // @synthesize routeOffset=_routeOffset;
 @property(readonly, nonatomic) unsigned char useType; // @synthesize useType=_useType;
-@property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
+@property(readonly, nonatomic) VKRouteInfo *routeInfo; // @synthesize routeInfo=_routeInfo;
 - (id).cxx_construct;
-- (void)_setContextChangedForRouteLine;
-- (void)_setContextChangedForLabels;
 - (void)resetNotificationsForObserverType:(unsigned char)arg1;
 - (void)removeObserver:(id)arg1 withType:(unsigned char)arg2;
 - (void)addObserver:(id)arg1 withType:(unsigned char)arg2;
+- (void)_setHasContextChangedForObserverType:(unsigned char)arg1 withValue:(_Bool)arg2;
+- (id)_hashTableForObserverType:(unsigned char)arg1;
 - (void)dealloc;
-- (id)initWithComposedRoute:(id)arg1;
+- (id)initWithRouteInfo:(id)arg1 useType:(unsigned char)arg2;
+- (id)initWithComposedRoute:(id)arg1 useType:(unsigned char)arg2 uniqueStart:(struct PolylineCoordinate)arg3 uniqueEnd:(struct PolylineCoordinate)arg4;
 
 @end
 

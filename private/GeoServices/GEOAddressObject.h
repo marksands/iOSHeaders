@@ -4,28 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOAddressObjectProtocol-Protocol.h>
 
-@class NSString;
-@protocol GEOAddressObjectProtocol;
+@class NSString, _GEOAddressObject;
 
 @interface GEOAddressObject : NSObject <GEOAddressObjectProtocol>
 {
-    id <GEOAddressObjectProtocol> _implementations[2];
+    _GEOAddressObject *_pimpl;
+    int *_knownAccuracy;
 }
 
-+ (id)libraryVersion;
-+ (unsigned char)_implementionType;
 + (id)addressObjectWithPlaceDataAddressObject:(id)arg1 placeDataAddress:(id)arg2 placeDataInfo:(id)arg3 placeDataEntity:(id)arg4;
 + (_Bool)isMarkingMMStrings;
 + (void)markMMStrings:(_Bool)arg1;
-+ (_Bool)isUsingV1Behavior;
-+ (void)useV1Behavior:(_Bool)arg1;
-+ (_Bool)isUsingMM;
-+ (void)useMM:(_Bool)arg1;
++ (id)libraryVersion;
 + (id)addressObjectForPlaceData:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)rawBytes;
@@ -33,10 +29,16 @@
 @property(readonly, nonatomic) int knownAccuracy;
 @property(readonly, nonatomic) _Bool hasKnownAccuracy;
 - (id)titlesForMapRect:(CDStruct_90e2a262)arg1;
+- (id)venueShortAddress;
+- (id)venueLevel;
+- (id)venueLabel;
+- (id)venueLabel:(long long)arg1;
 - (id)parkingDisplayName;
 - (id)weatherDisplayName;
 - (id)cityDisplayNameWithFallback:(_Bool)arg1;
 - (id)shortAddress;
+- (id)fullAddressNoCurrentCountryWithMultiline:(_Bool)arg1;
+- (id)fullAddressWithMultiline:(_Bool)arg1 relative:(id)arg2;
 - (id)fullAddressWithMultiline:(_Bool)arg1;
 - (id)phoneticAddress;
 - (id)phoneticName;
@@ -48,8 +50,9 @@
 - (id)address;
 - (id)name;
 - (void)dealloc;
+- (id)initWithCurrentCountry;
+- (id)initWithContactAddressDictionary:(id)arg1 langauge:(id)arg2 country:(id)arg3 phoneticLocale:(id)arg4;
 - (id)initWithPlaceDataAddressObject:(id)arg1 placeDataAddress:(id)arg2 placeDataInfo:(id)arg3 placeDataEntity:(id)arg4 language:(id)arg5 country:(id)arg6 phoneticLocale:(id)arg7;
-- (id)_implemention;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

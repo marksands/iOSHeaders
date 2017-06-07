@@ -13,20 +13,21 @@
 __attribute__((visibility("hidden")))
 @interface TSCENamedReferenceManager : TSPObject <TSCEReferenceTrackerDelegate>
 {
-    TSCENamedReferenceTrie *mNames;
-    struct __CFDictionary *mStringsByTrackedReferenceByTable;
-    struct __CFSet *mTablesBeingTracked;
-    NSLock *mNRMLock;
-    TSCEReferenceTracker *mReferenceTracker;
-    TSCECalculationEngine *mCalculationEngine;
+    TSCENamedReferenceTrie *_names;
+    struct unordered_map<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<std::__1::pair<const TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>>> _stringsByTrackedReferenceByTable;
+    NSLock *_nrmLock;
+    TSCEReferenceTracker *_referenceTracker;
+    TSCECalculationEngine *_calcEngine;
 }
 
-- (id)initFromUnarchiver:(id)arg1;
+- (id).cxx_construct;
+- (void).cxx_destruct;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (void)referenceTrackerDidUpdateReferences:(id)arg1;
-- (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerID:(struct __CFUUID *)arg2;
-- (id)cellRangeWasInserted:(CDStruct_fc93c73e)arg1;
+- (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerUID:(const UUIDData_5fbc143e *)arg2;
+- (id)cellRangeWasInserted:(const struct TSCERangeRef *)arg1;
 - (_Bool)shouldRewriteOnTableIDReassignment;
 - (_Bool)shouldRewriteOnTranspose;
 - (_Bool)shouldRewriteOnCellMerge;
@@ -34,24 +35,23 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldRewriteOnRangeMove;
 - (_Bool)shouldRewriteOnSort;
 - (void)referencedCellWasModified:(id)arg1;
-- (_Bool)trackedReferencesExistForTable:(struct __CFUUID *)arg1;
-- (void)updateTrackedHeaders:(struct __CFUUID *)arg1;
-- (id)trackedReferencesExactlyMatchingString:(id)arg1 scopedToTable:(struct __CFUUID *)arg2;
+- (_Bool)trackedReferencesExistForTable:(const UUIDData_5fbc143e *)arg1;
+- (void)updateTrackedHeaders:(const UUIDData_5fbc143e *)arg1;
+- (id)trackedReferencesExactlyMatchingString:(id)arg1 scopedToTable:(const UUIDData_5fbc143e *)arg2;
 - (id)trackedReferencesMatchingPrefix:(id)arg1;
-- (id)trackedReferencesMatchingPrefix:(id)arg1 scopedToTable:(struct __CFUUID *)arg2;
-- (_Bool)referenceNameIsUnique:(id)arg1 forReference:(CDStruct_fc93c73e)arg2 contextTable:(struct __CFUUID *)arg3;
-- (id)stringForTrackedReference:(id)arg1 inTable:(struct __CFUUID *)arg2;
+- (id)trackedReferencesMatchingPrefix:(id)arg1 scopedToTable:(const UUIDData_5fbc143e *)arg2;
+- (_Bool)referenceNameIsUnique:(id)arg1 forReference:(const struct TSCERangeRef *)arg2 contextTable:(const UUIDData_5fbc143e *)arg3;
+- (id)stringForTrackedReference:(id)arg1 inTable:(const UUIDData_5fbc143e *)arg2;
 - (id)referenceForTrackedReference:(id)arg1 sticky:(_Bool)arg2;
-- (CDStruct_fc93c73e)rangeForTrackedReference:(id)arg1 gettingTrackedCell:(CDStruct_de21cb60 *)arg2;
+- (struct TSCERangeRef)rangeForTrackedReference:(id)arg1 gettingTrackedCell:(struct TSCECellRef *)arg2;
 - (id)referenceTracker;
-- (void)endTrackingNamesInTable:(struct __CFUUID *)arg1;
+- (void)endTrackingNamesInTable:(const UUIDData_5fbc143e *)arg1;
 - (void)beginTrackingNameInCell:(struct TSUCellCoord)arg1 ofResolver:(id)arg2 addingTrackedReferencesTo:(id)arg3;
 - (void)beginTrackingNamesInRange:(struct TSCERangeCoordinate)arg1 ofResolver:(id)arg2 addingTrackedReferencesTo:(id)arg3;
-- (id)beginTrackingNamesInTable:(struct __CFUUID *)arg1 limitedToRange:(struct TSCERangeCoordinate)arg2;
+- (id)beginTrackingNamesInTable:(const UUIDData_5fbc143e *)arg1 limitedToRange:(struct TSCERangeCoordinate)arg2;
 - (void)headerCellContentWasModified:(id)arg1;
-- (struct __CFUUID *)formulaOwnerID;
+- (UUIDData_5fbc143e)formulaOwnerUID;
 - (void)setCalculationEngine:(id)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 calculationEngine:(id)arg2;
 - (id)initWithContext:(id)arg1;
 

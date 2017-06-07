@@ -6,20 +6,24 @@
 
 #import <Home/HFItemProvider.h>
 
-@class NSMutableSet;
+@class HMHome, NSMutableSet;
 
 @interface HFOutgoingHomeInvitationItemProvider : HFItemProvider
 {
     CDUnknownBlockType _filter;
+    HMHome *_home;
     NSMutableSet *_outgoingInvites;
 }
 
 @property(retain, nonatomic) NSMutableSet *outgoingInvites; // @synthesize outgoingInvites=_outgoingInvites;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
 - (void).cxx_destruct;
 - (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 - (id)initWithHome:(id)arg1;
 
 @end

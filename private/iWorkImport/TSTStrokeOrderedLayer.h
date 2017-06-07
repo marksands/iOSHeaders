@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) TSTStrokeLayer *minorStrokeLayer; // @synthesize minorStrokeLayer=_minorStrokeLayer;
 @property(retain, nonatomic) TSTStrokeLayer *majorStrokeLayer; // @synthesize majorStrokeLayer=_majorStrokeLayer;
+- (void).cxx_destruct;
 - (void)enumerateRawStrokesSegmentsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)invalidateRange:(struct TSTSimpleRange)arg1;
 - (void)invalidate;
@@ -25,7 +26,6 @@ __attribute__((visibility("hidden")))
 - (id)findStrokeAndRangeAtIndex:(long long)arg1;
 - (id)p_findStrokeAndRangeAtIndex:(long long)arg1 highOrderToken:(id)arg2 updatingLowOrderToken:(id *)arg3 lowOrderLayer:(id)arg4;
 - (long long)startingIndex;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 majorStrokeLayer:(id)arg2 minorStrokeLayer:(id)arg3;
 
 @end

@@ -18,15 +18,9 @@
 
 + (_Bool)dismissAutomaticallyAfterExtensionCompletion;
 + (id)matchmakerExtension;
-- (void)remoteViewControllerIsCanceling;
-- (void)setBrowsingForNearbyPlayers:(_Bool)arg1;
-- (void)cancelMatching;
-- (void)sendData:(id)arg1;
-- (void)cancelPendingInviteToPlayer:(id)arg1;
-- (void)startMatchingWithRequest:(id)arg1;
-- (void)setShareInvitees:(id)arg1;
+- (void)extensionIsCanceling;
 - (void)shareMatchWithRequest:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)finishWithError:(id)arg1;
+- (void)messageFromExtension:(id)arg1;
 - (void)applicationWillEnterForeground;
 - (void)setNearbyPlayer:(id)arg1 reachable:(_Bool)arg2;
 - (void)inviterCancelled;
@@ -42,7 +36,7 @@
 - (void)setHosted:(_Bool)arg1;
 - (void)setAcceptedInviteInternal:(id)arg1;
 - (void)setMatchRequestInternal:(id)arg1;
-- (id)contextForRequestIdentifier;
+- (id)extensionObjectProxy;
 @property(nonatomic) GKMatchmakerViewController *delegate; // @synthesize delegate=_delegateWeak;
 - (void)dealloc;
 

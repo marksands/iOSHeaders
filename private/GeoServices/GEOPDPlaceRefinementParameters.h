@@ -33,6 +33,7 @@
 @property(retain, nonatomic) GEOLatLng *locationHint; // @synthesize locationHint=_locationHint;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 @property(nonatomic) int resultProviderId; // @synthesize resultProviderId=_resultProviderId;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -61,7 +62,6 @@
 @property(readonly, nonatomic) _Bool hasLocationHint;
 @property(nonatomic) _Bool hasMuid;
 @property(nonatomic) _Bool hasResultProviderId;
-- (void)dealloc;
 - (_Bool)_routeHypothesisPlaceRefinementParametersIsEqual:(id)arg1;
 - (unsigned long long)_routeHypothesisPlaceRefinementParametersHash;
 - (_Bool)_hasRequiredFields;

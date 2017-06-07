@@ -23,6 +23,7 @@
 
 @property(retain, nonatomic) GEOLogMsgStateDeviceIdentifier *pairedDeviceIdentifier; // @synthesize pairedDeviceIdentifier=_pairedDeviceIdentifier;
 @property(nonatomic) _Bool isConnected; // @synthesize isConnected=_isConnected;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +39,6 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (void)dealloc;
 
 @end
 

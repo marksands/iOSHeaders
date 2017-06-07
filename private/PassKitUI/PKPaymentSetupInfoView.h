@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSString, PKPaymentHeroImageController, PKPaymentSetupHeroView, PKPaymentSetupPrivacyFooterView, UIImageView, UILabel;
+@class NSString, PKPaymentHeroImageController, PKPaymentSetupHeroView, PKPaymentSetupPrivacyFooterView, UIImageView, UILabel, UIScrollView;
 
 @interface PKPaymentSetupInfoView : UIView
 {
@@ -20,13 +20,17 @@
     PKPaymentSetupHeroView *_heroView;
     long long _context;
     UIView *_maskView;
+    UIScrollView *_scrollView;
 }
 
+@property(retain, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) UIView *maskView; // @synthesize maskView=_maskView;
 @property(nonatomic) _Bool insetPrivacyFooter; // @synthesize insetPrivacyFooter=_insetPrivacyFooter;
 @property(nonatomic) long long context; // @synthesize context=_context;
 @property(readonly, nonatomic) PKPaymentSetupHeroView *heroView; // @synthesize heroView=_heroView;
 - (void).cxx_destruct;
+- (_Bool)shouldUseScrollView;
+- (void)_updateFonts;
 - (id)_bodyFont;
 - (id)_titleFont;
 - (double)_textHeightForSize:(struct CGSize)arg1;
@@ -40,6 +44,7 @@
 - (void)stopAnimation;
 - (void)startAnimation;
 - (void)layoutSubviews;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 context:(long long)arg2 heroImageController:(id)arg3 hasSupportingHardware:(_Bool)arg4 region:(id)arg5;
 - (void)pk_applyAppearance:(id)arg1;
 

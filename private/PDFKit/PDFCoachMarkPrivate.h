@@ -9,6 +9,7 @@
 @class CAGradientLayer;
 @protocol PDFCoachMarkDelegate;
 
+__attribute__((visibility("hidden")))
 @interface PDFCoachMarkPrivate : NSObject
 {
     struct CGRect frame;

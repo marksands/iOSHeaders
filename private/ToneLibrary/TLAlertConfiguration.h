@@ -27,6 +27,7 @@
     NSURL *_externalToneFileURL;
     unsigned long long _externalToneMediaLibraryItemIdentifier;
     NSDictionary *_externalVibrationPattern;
+    NSURL *_externalVibrationPatternFileURL;
     NSString *_audioCategory;
     double _maximumDuration;
 }
@@ -38,6 +39,7 @@
 @property(nonatomic, getter=isForPreview) _Bool forPreview; // @synthesize forPreview=_forPreview;
 @property(nonatomic) float audioVolume; // @synthesize audioVolume=_audioVolume;
 @property(copy, nonatomic) NSString *audioCategory; // @synthesize audioCategory=_audioCategory;
+@property(copy, nonatomic) NSURL *externalVibrationPatternFileURL; // @synthesize externalVibrationPatternFileURL=_externalVibrationPatternFileURL;
 @property(copy, nonatomic) NSDictionary *externalVibrationPattern; // @synthesize externalVibrationPattern=_externalVibrationPattern;
 @property(nonatomic) unsigned long long externalToneMediaLibraryItemIdentifier; // @synthesize externalToneMediaLibraryItemIdentifier=_externalToneMediaLibraryItemIdentifier;
 @property(copy, nonatomic) NSURL *externalToneFileURL; // @synthesize externalToneFileURL=_externalToneFileURL;
@@ -48,7 +50,6 @@
 @property(readonly, nonatomic) _Bool _hasCustomAudioVolume; // @synthesize _hasCustomAudioVolume;
 - (void).cxx_destruct;
 - (void)_throwForFrozenInstance;
-- (void)_performBlockIgnoringFrozenFlag:(CDUnknownBlockType)arg1;
 - (void)_freeze;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -19,7 +19,7 @@
 - (id)initWithURL:(id)arg1;
 
 // Remaining properties
-@property(nonatomic) id <CoreDAVPrincipalSearchPropertySetTaskDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <CoreDAVPrincipalSearchPropertySetTaskDelegate> delegate; // @dynamic delegate;
 
 @end
 

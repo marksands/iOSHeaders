@@ -27,6 +27,7 @@
 @property(nonatomic) long long limit; // @synthesize limit=_limit;
 @property(nonatomic) long long implementation; // @synthesize implementation=_implementation;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

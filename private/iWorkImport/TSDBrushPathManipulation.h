@@ -20,5 +20,7 @@ __attribute__((visibility("hidden")))
     _Bool mSplitAtSharpAngles;
 }
 
+- (void).cxx_destruct;
+
 @end
 

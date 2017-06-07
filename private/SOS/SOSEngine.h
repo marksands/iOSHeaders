@@ -8,11 +8,12 @@
 
 #import <SOS/NPHSOSPersistentTimerLocationManagerDelegate-Protocol.h>
 #import <SOS/NSXPCListenerDelegate-Protocol.h>
+#import <SOS/SOSInternalServerProtocol-Protocol.h>
 #import <SOS/SOSServerProtocol-Protocol.h>
 
 @class CLLocation, FKFriendsManager, NPHSOSPersistentTimerLocationManager, NSDate, NSMutableArray, NSString, SOSContactsManager;
 
-@interface SOSEngine : NSObject <NPHSOSPersistentTimerLocationManagerDelegate, SOSServerProtocol, NSXPCListenerDelegate>
+@interface SOSEngine : NSObject <NPHSOSPersistentTimerLocationManagerDelegate, SOSInternalServerProtocol, SOSServerProtocol, NSXPCListenerDelegate>
 {
     NPHSOSPersistentTimerLocationManager *_sosPersistentTimerLocationManager;
     NSDate *_timeToStopSendingMessages;
@@ -35,6 +36,8 @@
 - (_Bool)_locationIsValidToSend:(id)arg1;
 - (id)_sosMessageForLocation:(id)arg1 isFirstMessage:(_Bool)arg2 withMMS:(_Bool)arg3;
 - (void)isSendingLocationUpdate:(CDUnknownBlockType)arg1;
+- (void)mostRecentLocationSentWithCompletion:(CDUnknownBlockType)arg1;
+- (long long)currentSOSInitiationState;
 - (_Bool)isSendingLocationUpdate;
 - (void)stopSendingLocationUpdate;
 - (void)startSendingLocationUpdateWithCompletion:(CDUnknownBlockType)arg1;
@@ -42,6 +45,8 @@
 - (_Bool)notificationEnabledAndContactsExist;
 - (_Bool)_isMMSEnabled;
 - (void)sosPersistentTimerLocationMangerTimerFired:(id)arg1 location:(id)arg2;
+- (void)updateCurrentSOSInteractiveState:(long long)arg1;
+- (void)updateCurrentSOSInitiationState:(long long)arg1;
 - (void)SOSSendingLocationUpdateChanged:(id)arg1;
 - (id)contactsManager;
 - (void)dealloc;

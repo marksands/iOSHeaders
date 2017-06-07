@@ -38,22 +38,6 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithSelectionArray:(id)arg1;
-- (id)tableNameTextEditingSelection;
-- (id)containedCellTextEditingSelection;
-- (id)singleSelectedTableInfo;
-- (id)tableNameSelection;
-- (id)formulaSelection;
-- (id)strokeSelection;
-- (id)controlCellSelection;
-- (id)cellSelection;
-- (id)autofillSelection;
-@property(readonly, nonatomic) _Bool isEditingTableName;
-@property(readonly, nonatomic) _Bool isEditingTableCell;
-@property(readonly, nonatomic) _Bool selectsMultipleTables;
-- (id)selectionPathByFixingUpRowColumnSelection;
-- (id)selectionPathWithTableTextEditingSelectionRemoved;
-- (id)selectionPathWithControlCellSelectionRemovedForConfiguration;
-- (id)selectionPathByFixingUpControlCellSelection;
 
 @end
 

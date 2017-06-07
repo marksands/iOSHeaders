@@ -13,8 +13,8 @@
 + (unsigned long long)_dateComplicationSlotSupportedStyles;
 + (id)_dateComplicationSlot;
 + (id)_defaultSelectedComplicationSlot;
-+ (id)_complicationSlotDescriptors;
 - (id)_orderedComplicationSlots;
+- (id)_complicationSlotDescriptors;
 
 @end
 

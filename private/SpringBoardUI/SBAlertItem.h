@@ -54,7 +54,6 @@
 - (_Bool)_displayActionButtonOnLockScreen;
 - (_Bool)_didEverActivate;
 - (_Bool)_hasActiveKeyboardOnScreen;
-- (_Bool)_preventLockOver;
 - (void)_noteVolumeOrLockPressed;
 - (id)_attachmentImage;
 - (id)_iconImage;
@@ -62,6 +61,7 @@
 - (void)_clearAlertController;
 - (id)_alertController;
 - (void)_deactivationCompleted;
+- (void)doCleanupAfterDeactivationAnimation;
 - (_Bool)dismissesOverlaysOnLockScreen;
 - (int)alertPriority;
 - (_Bool)allowInLoginWindow;

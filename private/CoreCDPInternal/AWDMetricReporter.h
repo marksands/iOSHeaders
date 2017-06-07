@@ -13,7 +13,7 @@
 + (void)reportStateMachineRecoveryWithSecretType:(long long)arg1 userDidReset:(_Bool)arg2 error:(id)arg3;
 + (void)reportStateMachineRepairCircleAuth;
 + (void)reportStateMachineRepairHSA2AuthWithError:(id)arg1;
-+ (void)reportStateMachineCircleJoinWithStatus:(long long)arg1 needsBackupRecovery:(_Bool)arg2 hasPeersForRemoteApproval:(_Bool)arg3 error:(id)arg4;
++ (void)reportStateMachineCircleJoinWithResult:(id)arg1 error:(id)arg2;
 + (void)reportStateMachineEnableCDPShouldCompleteSignIn:(_Bool)arg1 cloudDataProtectionEnabled:(_Bool)arg2 error:(id)arg3;
 + (void)reportStateMachineLockAssertionWithError:(id)arg1;
 + (void)reportStateMachineCompletionShouldCompleteSignIn:(_Bool)arg1 cloudDataProtectionEnabled:(_Bool)arg2 error:(id)arg3;

@@ -17,6 +17,7 @@
 @property(retain, nonatomic) UIButton *termsButton; // @synthesize termsButton=_termsButton;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)layoutSubviews;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1 bypassDelegate:(_Bool)arg2;

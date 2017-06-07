@@ -8,11 +8,12 @@
 
 #import <iCloudQuotaUI/PSCloudStorageOffersManagerDelegate-Protocol.h>
 
-@class NSString, NSURLSession, PSCloudStorageOffersManager;
+@class NSDictionary, NSString, NSURLSession, PSCloudStorageOffersManager;
 
 @interface ICQUpgradeCloudStorageFlowManager : ICQUpgradeFlowManager <PSCloudStorageOffersManagerDelegate>
 {
     NSURLSession *_buyProductSession;
+    NSString *_storagePurchaseButtonId;
     PSCloudStorageOffersManager *_storageOffersManager;
     CDUnknownBlockType _purchaseCompletionHandler;
 }
@@ -21,6 +22,7 @@
 + (_Bool)shouldSubclassShowForOffer:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType purchaseCompletionHandler; // @synthesize purchaseCompletionHandler=_purchaseCompletionHandler;
 @property(retain, nonatomic) PSCloudStorageOffersManager *storageOffersManager; // @synthesize storageOffersManager=_storageOffersManager;
+@property(retain, nonatomic) NSString *storagePurchaseButtonId; // @synthesize storagePurchaseButtonId=_storagePurchaseButtonId;
 - (void).cxx_destruct;
 - (void)manager:(id)arg1 didCompleteWithError:(id)arg2;
 - (void)managerDidCancel:(id)arg1;
@@ -40,7 +42,8 @@
 - (id)_buyProductQueryItems;
 - (id)_buyProductQueryDictionary;
 - (id)_buyProductQueryKeySet;
-- (void)_performPageButtonActionWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSDictionary *storagePurchaseKeybag;
+- (void)_performPageButtonActionWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initSubclassWithOffer:(id)arg1;
 
 // Remaining properties

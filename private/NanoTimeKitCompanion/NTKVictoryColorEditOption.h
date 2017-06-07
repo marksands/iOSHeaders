@@ -15,7 +15,9 @@
 + (id)_orderedValues;
 + (id)optionWithVictoryColor:(unsigned long long)arg1;
 - (id)_valueToFaceBundleStringDict;
+- (_Bool)optionExistsInOSVersion:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned long long victoryColor;
+- (long long)swatchStyle;
 
 @end
 

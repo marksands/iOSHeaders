@@ -4,21 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOTransitIncident-Protocol.h>
+#import <GeoServices/NSSecureCoding-Protocol.h>
 
 @class GEOPBTransitIncident, NSArray, NSDate, NSString;
 
 __attribute__((visibility("hidden")))
-@interface _GEOTransitIncident : NSObject <GEOTransitIncident>
+@interface _GEOTransitIncident : NSObject <GEOTransitIncident, NSSecureCoding>
 {
     GEOPBTransitIncident *_incident;
 }
 
++ (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 @property(readonly, nonatomic) NSArray *affectedEntities;
 @property(readonly, nonatomic, getter=isBlockingIncident) _Bool blockingIncident;
 @property(readonly, nonatomic) NSDate *lastUpdated;
@@ -33,6 +35,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *summary;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) unsigned long long muid;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithIncident:(id)arg1;
 
 // Remaining properties

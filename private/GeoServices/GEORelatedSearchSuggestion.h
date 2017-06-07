@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOPDRelatedSearchSuggestion, NSString;
 
@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) GEOPDRelatedSearchSuggestion *relatedSearchSuggestion; // @synthesize relatedSearchSuggestion=_relatedSearchSuggestion;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)_suggestionEntryMetadata;
 @property(readonly, nonatomic) NSString *searchBarDisplayToken;
 @property(readonly, nonatomic) NSString *displayString;

@@ -6,14 +6,19 @@
 
 #import <UIKit/UIView.h>
 
+@class UIColor;
+
 @interface CAMShutterButtonRingView : UIView
 {
     _Bool _showContrastBorder;
+    UIColor *_color;
     struct CAMShutterButtonSpec _spec;
 }
 
+@property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(nonatomic) _Bool showContrastBorder; // @synthesize showContrastBorder=_showContrastBorder;
 @property(nonatomic) struct CAMShutterButtonSpec spec; // @synthesize spec=_spec;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

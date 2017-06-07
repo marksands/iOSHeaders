@@ -16,6 +16,7 @@
 + (id)optionWithCharacter:(unsigned long long)arg1;
 - (id)_valueToFaceBundleStringDict;
 @property(readonly, nonatomic) unsigned long long character;
+- (long long)swatchStyle;
 
 @end
 

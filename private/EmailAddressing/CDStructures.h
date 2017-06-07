@@ -4,3 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    unsigned long long state;
+    id *itemsPtr;
+    unsigned long long *mutationsPtr;
+    unsigned long long extra[5];
+} CDStruct_58648341;
+

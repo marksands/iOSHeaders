@@ -27,9 +27,7 @@
 - (void)_updateHighlightStateAnimated:(_Bool)arg1;
 - (void)_updateDisclosureIndicator;
 - (_Bool)horizontalLockupViewShouldLayoutAsEditing:(id)arg1;
-- (void)horizontalLockupView:(id)arg1 didSelectPlayButtonAction:(unsigned long long)arg2;
 - (void)horizontalLockupViewDidSelectAddButton:(id)arg1 events:(unsigned long long)arg2;
-- (void)horizontalLockupViewDidSelectContextualActionsButton:(id)arg1;
 - (void)horizontalLockupViewDidLayoutSubviews:(id)arg1;
 - (void)updateForAsynchronousPropertyLoadCompleted;
 @property(retain, nonatomic) id <MusicEntityValueProviding> entityValueProvider;

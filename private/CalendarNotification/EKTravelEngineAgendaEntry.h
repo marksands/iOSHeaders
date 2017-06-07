@@ -71,6 +71,7 @@
 - (void)_accountForMaximumTravelDuration;
 - (void)_trackTTLCandidateEvent:(id)arg1;
 - (void)_accountForGeocodedEventEncounter;
+- (void)sendNotificationDismissalForType:(unsigned long long)arg1 dismissalReason:(unsigned long long)arg2;
 - (void)sendFeedbackForPostingLeaveNowNotification;
 - (void)sendFeedbackForPostingLeaveByNotification;
 @property(readonly, nonatomic) EKTravelEngineOriginalEvent *originalEvent;

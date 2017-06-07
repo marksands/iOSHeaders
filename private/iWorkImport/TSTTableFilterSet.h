@@ -23,9 +23,9 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)saveToArchive:(struct FilterSetArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct FilterSetArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct FilterSetArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)setNeedsFormulaRewriteForImport:(_Bool)arg1;
 - (_Bool)needsFormulaRewriteForImport;
 - (id)columnIndicesForRulesInTable:(id)arg1;
@@ -42,7 +42,7 @@ __attribute__((visibility("hidden")))
 - (void)replaceRule:(id)arg1 atRuleIndex:(unsigned long long)arg2 inFilter:(unsigned long long)arg3;
 - (void)addRules:(id)arg1 inFilter:(unsigned long long)arg2;
 - (void)p_addRules:(id)arg1 atRuleIndices:(id)arg2 inFilter:(unsigned long long)arg3 isNew:(_Bool)arg4;
-- (void)removeRulesForColumnIndices:(id)arg1 withTableModel:(id)arg2;
+- (void)removeRulesForColumnIndices:(id)arg1 withTableInfo:(id)arg2;
 - (void)removeRulesWithIndices:(id)arg1 inFilter:(unsigned long long)arg2;
 - (id)removeRulesWithAbsoluteIndices:(id)arg1;
 @property(readonly, nonatomic) unsigned long long filterCount;
@@ -57,8 +57,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_thresholdComparisonMatchesFilter:(long long)arg1 withPredicateType:(int)arg2;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)containsFilterRulesInUIDForm;
-- (id)copyByRewritingFilterRulesToGeometricFormWithContext:(id)arg1 withTableModel:(id)arg2;
-- (id)copyByRewritingFilterRulesToUidFormWithContext:(id)arg1 withTableModel:(id)arg2;
+- (id)copyByRewritingFilterRulesToGeometricFormWithContext:(id)arg1 withTableInfo:(id)arg2;
+- (id)copyByRewritingFilterRulesToUidFormWithContext:(id)arg1 withTableInfo:(id)arg2;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
 - (id)initWithFilterRules:(id)arg1 type:(int)arg2 context:(id)arg3;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSDictionary, NSSet, TSURetainedPointerKeyDictionary;
+@class NSArray, NSDictionary, NSMutableArray, NSSet, TSURetainedPointerKeyDictionary;
 @protocol TSDLayerAndSubviewHosting;
 
 @interface TSDCanvasSubviewsController : NSObject
@@ -17,6 +17,7 @@
     NSArray *_alternateLayersForViews;
     _Bool _needsLayout;
     _Bool _hasBeenTornDown;
+    NSMutableArray *_subviewLayers;
     TSURetainedPointerKeyDictionary *_repViewControllersByChildView;
     struct _opaque_pthread_mutex_t {
         long long __sig;

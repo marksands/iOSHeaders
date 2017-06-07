@@ -20,6 +20,7 @@
 - (id)scrollViewToBeInsetted;
 - (void)dealloc;
 - (void)viewDidBecomeVisible;
+- (void)webViewDidFinishLoad:(id)arg1;
 - (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
 - (id)htmlFileLocation;
 - (id)markupString;

@@ -6,14 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class PDFPage, PDFView;
-@protocol IOTiledPoolDelegate;
+@class PDFPage, PDFRenderingProperties;
+@protocol PDFTilePoolDelegate;
 
+__attribute__((visibility("hidden")))
 @interface TileRenderRequest : NSObject
 {
-    id <IOTiledPoolDelegate> target;
+    id <PDFTilePoolDelegate> target;
     PDFPage *page;
-    PDFView *pdfView;
+    PDFRenderingProperties *renderingProperties;
     struct CGRect tileFrame;
     double zoomFactor;
     struct CGAffineTransform matrix;

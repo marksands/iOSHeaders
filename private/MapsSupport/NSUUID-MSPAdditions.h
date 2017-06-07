@@ -7,7 +7,8 @@
 #import <Foundation/NSUUID.h>
 
 @interface NSUUID (MSPAdditions)
++ (id)_maps_UUIDWithUUIDString:(id)arg1;
 + (id)_maps_zeroUUID;
-- (id)_maps_initWithUUIDString:(id)arg1 disallowReturningZeroUUID:(_Bool)arg2;
+- (long long)_maps_compare:(id)arg1;
 @end
 

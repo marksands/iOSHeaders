@@ -24,7 +24,6 @@ __attribute__((visibility("hidden")))
 - (void)_loadLowBatteryState;
 @property(readonly, nonatomic) _Bool fmipStateChangeInProgress;
 @property(readonly, nonatomic) _Bool fmipEnabled;
-- (void)invalidateCache;
 - (id)init;
 
 @end

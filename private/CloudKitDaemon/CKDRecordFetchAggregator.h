@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool _preserveOrdering;
     _Bool _started;
     _Bool _markedToFinishByParent;
+    _Bool _forceDecryptionAttempt;
     CDUnknownBlockType _fetchAggregatorCompletionBlock;
     NSDictionary *_assetTransferOptionsByRecordTypeAndKey;
     NSSet *_desiredKeys;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
     CKDFetchRecordsOperation *_currentFetchOp;
 }
 
+@property(nonatomic) _Bool forceDecryptionAttempt; // @synthesize forceDecryptionAttempt=_forceDecryptionAttempt;
 @property(getter=isMarkedToFinishByParent) _Bool markedToFinishByParent; // @synthesize markedToFinishByParent=_markedToFinishByParent;
 @property _Bool started; // @synthesize started=_started;
 @property(nonatomic) __weak CKDFetchRecordsOperation *currentFetchOp; // @synthesize currentFetchOp=_currentFetchOp;

@@ -8,7 +8,7 @@
 
 #import <RemoteUI/UIWebViewDelegate-Protocol.h>
 
-@class NSArray, NSDictionary, NSMutableArray, NSString, RUIBarButtonItem, RUIElement, RUIObjectModel, RUIPasscodeView, RUISpinnerView, RUIStyle, RUITableView, RUIWebView, UIBarButtonItem, UILabel, UIToolbar, UIView;
+@class NSArray, NSDictionary, NSMutableArray, NSString, RUIBarButtonItem, RUIElement, RUIObjectModel, RUIPageElement, RUIPasscodeView, RUISpinnerView, RUIStyle, RUITableView, RUIWebView, UIBarButtonItem, UILabel, UIToolbar, UIView;
 @protocol RUITopLevelPageElement;
 
 @interface RUIPage : UIViewController <UIWebViewDelegate>
@@ -33,6 +33,7 @@
     _Bool _showsTitlesAsHeaderViews;
     _Bool _loading;
     NSDictionary *_attributes;
+    RUIPageElement *_pageElement;
     RUIElement<RUITopLevelPageElement> *_primaryElement;
     RUIStyle *_style;
     NSString *_backButtonTitle;
@@ -71,6 +72,7 @@
 @property(copy, nonatomic) NSString *validationFunction; // @synthesize validationFunction=_validationFunction;
 @property(retain, nonatomic) RUIStyle *style; // @synthesize style=_style;
 @property(retain, nonatomic) RUIElement<RUITopLevelPageElement> *primaryElement; // @synthesize primaryElement=_primaryElement;
+@property(retain, nonatomic) RUIPageElement *pageElement; // @synthesize pageElement=_pageElement;
 @property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(copy, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
 @property(copy, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;

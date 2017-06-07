@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOCacheManaging-Protocol.h>
 
@@ -17,9 +17,10 @@
 }
 
 + (id)sharedManager;
-+ (_Bool)_isLocalProxy;
 + (void)useRemoteProxy;
 + (void)useLocalProxy;
++ (void)useProxy:(Class)arg1;
+- (void).cxx_destruct;
 - (long long)invalidationStateForComponent:(id)arg1;
 - (long long)invalidationStateForPlace:(id)arg1;
 - (id)refreshLOIReverseGeocodedMapItems:(id)arg1 updatedCoordinates:(id)arg2;
@@ -31,7 +32,6 @@
 - (void)snapshotWithFilePathArray:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)checkHasExpiredWithInvalidationDatas:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)versionsForDomains:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

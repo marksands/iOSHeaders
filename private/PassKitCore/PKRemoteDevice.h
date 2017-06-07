@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSCopying-Protocol.h>
 #import <PassKitCore/NSSecureCoding-Protocol.h>
@@ -28,7 +28,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (CDUnknownBlockType)acceptedComparatorForSupportedNetworks:(id)arg1 merchantCapabilities:(unsigned long long)arg2;
++ (CDUnknownBlockType)acceptedComparatorForSupportedNetworks:(id)arg1 merchantCapabilities:(unsigned long long)arg2 webService:(id)arg3;
 + (CDUnknownBlockType)preferenceComparator;
 @property(retain, nonatomic) NSUUID *bluetoothUUID; // @synthesize bluetoothUUID=_bluetoothUUID;
 @property(copy, nonatomic) NSString *uniqueID; // @synthesize uniqueID=_uniqueID;

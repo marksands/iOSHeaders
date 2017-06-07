@@ -11,6 +11,7 @@
 @protocol UIScrollViewDelegate <NSObject>
 
 @optional
+- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)arg1;
 - (void)scrollViewDidScrollToTop:(UIScrollView *)arg1;
 - (_Bool)scrollViewShouldScrollToTop:(UIScrollView *)arg1;
 - (void)scrollViewDidEndZooming:(UIScrollView *)arg1 withView:(UIView *)arg2 atScale:(double)arg3;

@@ -12,11 +12,12 @@
 #import <iWorkImport/TSCHDataFormatter-Protocol.h>
 #import <iWorkImport/TSCHDataFormatterPersistableStyleObject-Protocol.h>
 #import <iWorkImport/TSCHDataFormatterSupportedClientFormatObject-Protocol.h>
+#import <iWorkImport/TSCHFormatTypeSupport-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSCHNumberFormat : NSObject <NSCopying, NSMutableCopying, TSCHDataFormatter, TSCHCustomFormatSupport, TSCHDataFormatterPersistableStyleObject, TSCHDataFormatterSupportedClientFormatObject>
+@interface TSCHNumberFormat : NSObject <NSCopying, NSMutableCopying, TSCHDataFormatter, TSCHCustomFormatSupport, TSCHDataFormatterPersistableStyleObject, TSCHDataFormatterSupportedClientFormatObject, TSCHFormatTypeSupport>
 {
     CDStruct_28403e59 mFormatStruct;
     NSString *mPrefixString;
@@ -45,7 +46,7 @@ __attribute__((visibility("hidden")))
 - (id)chartFormattedInspectorStringForValue:(id)arg1 locale:(id)arg2;
 - (id)chartFormattedStringForValue:(id)arg1 locale:(id)arg2;
 - (id)p_formattedBodyStringForDouble:(double)arg1 locale:(id)arg2;
-- (id)dataFormatterForDocumentRoot:(id)arg1;
+- (id)dataFormatterForDocumentRoot:(id)arg1 pasteboardCustomFormatList:(id)arg2;
 - (id)customFormatListKey;
 - (id)customFormatKey;
 - (CDStruct_28403e59)formatStruct;

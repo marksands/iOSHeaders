@@ -21,6 +21,7 @@
 - (void)mergeVersion:(unsigned int)arg1 fromData:(id)arg2;
 - (unsigned long long)mergeWithStringVersionedDocument:(id)arg1;
 - (id)initWithArchive:(const Document_0e94f2f5 *)arg1 andReplicaID:(id)arg2;
+- (id)initWithMergeableString:(id)arg1;
 - (id)initWithData:(id)arg1 andReplicaID:(id)arg2;
 
 @end

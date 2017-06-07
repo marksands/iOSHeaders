@@ -78,6 +78,10 @@
     _Bool _canCoalesceBreakingCharacters;
 }
 
++ (id)dropProposalForSession:(id)arg1;
++ (id)retargetedDragItem:(id)arg1 withDefault:(id)arg2 canvasView:(id)arg3 icc:(id)arg4;
++ (id)previewForDragItem:(id)arg1;
++ (id)dragItemForHitRepWithDragInteraction:(id)arg1 session:(id)arg2 canvasView:(id)arg3 icc:(id)arg4 withTouchPoint:(struct CGPoint)arg5;
 @property(nonatomic) _Bool canCoalesceBreakingCharacters; // @synthesize canCoalesceBreakingCharacters=_canCoalesceBreakingCharacters;
 @property(nonatomic) _Bool coalescingText; // @synthesize coalescingText=_coalescingText;
 @property(nonatomic) _Bool disableInspector; // @synthesize disableInspector=_disableInspector;
@@ -204,6 +208,7 @@
 - (void)copyObject:(id)arg1;
 - (void)copyToPasteboard:(id)arg1;
 - (void)copy:(id)arg1;
+- (id)copyString;
 - (id)currentLayoutParent;
 - (id)styleProvider;
 - (int)p_canPerformOptInEditorAction:(SEL)arg1 withSender:(id)arg2;
@@ -287,6 +292,7 @@
 - (_Bool)p_respondsToRubyGestures;
 - (_Bool)p_respondsToHyperlinkGestures;
 - (_Bool)p_respondsToListGestures;
+- (_Bool)isUnscaledPointInTextSelection:(struct CGPoint)arg1;
 - (id)p_documentViewController;
 - (struct CGRect)p_adjustedPopoverTargetRectForRange:(struct _NSRange)arg1;
 - (id)p_viewControllerForPresenting;
@@ -330,6 +336,8 @@
 @property(readonly, retain, nonatomic) TSKSelection<TSDTextSelection> *textInputSelection;
 - (struct _NSRange)tsax_rangeOfLineFragmentAtCharIndex:(unsigned long long)arg1;
 - (id)tsax_listItemLabelForCharIndex:(unsigned long long)arg1 textIsLiteral:(_Bool *)arg2;
+- (id)_repsForStorage:(id)arg1 selection:(id)arg2;
+- (id)dragItemForCurrentSelectionWithDragInteraction:(id)arg1 session:(id)arg2 withTouchPoint:(struct CGPoint)arg3;
 - (unsigned long long)p_getVisualInsertionPointIndexForString:(id)arg1 selection:(id)arg2;
 - (unsigned long long)p_getVisualDeletionIndexForSelection:(id)arg1 backward:(_Bool *)arg2;
 - (const struct TSWPLineFragment *)p_lineFragmentWithCaretInfo:(CDStruct_7549c2a6 *)arg1 forSelection:(id)arg2;

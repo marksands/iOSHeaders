@@ -15,6 +15,7 @@
     CDStruct_9f2792e4 _incidentEndOffsetsInETARoutes;
     CDStruct_9f2792e4 _trafficColorOffsets;
     CDStruct_9f2792e4 _trafficColors;
+    NSMutableArray *_enrouteNotices;
     unsigned int _historicTravelTime;
     NSMutableArray *_incidentsOffReRoutes;
     NSMutableArray *_incidentsOnETARoutes;
@@ -40,12 +41,14 @@
     } _has;
 }
 
++ (Class)enrouteNoticeType;
 + (Class)incidentsOffReRoutesType;
 + (Class)incidentsOnReRoutesType;
 + (Class)incidentsOnETARouteType;
 + (Class)invalidSectionZilchPointsType;
 + (Class)reroutedRouteType;
 + (Class)stepType;
+@property(retain, nonatomic) NSMutableArray *enrouteNotices; // @synthesize enrouteNotices=_enrouteNotices;
 @property(nonatomic) unsigned int staticTravelTime; // @synthesize staticTravelTime=_staticTravelTime;
 @property(nonatomic) unsigned int travelTimeConservativeEstimate; // @synthesize travelTimeConservativeEstimate=_travelTimeConservativeEstimate;
 @property(nonatomic) unsigned int travelTimeBestEstimate; // @synthesize travelTimeBestEstimate=_travelTimeBestEstimate;
@@ -61,6 +64,7 @@
 @property(retain, nonatomic) NSData *zilchPoints; // @synthesize zilchPoints=_zilchPoints;
 @property(retain, nonatomic) NSMutableArray *steps; // @synthesize steps=_steps;
 @property(retain, nonatomic) NSData *routeID; // @synthesize routeID=_routeID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -70,6 +74,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)enrouteNoticeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)enrouteNoticesCount;
+- (void)addEnrouteNotice:(id)arg1;
+- (void)clearEnrouteNotices;
 @property(nonatomic) _Bool hasStaticTravelTime;
 @property(nonatomic) _Bool hasTravelTimeConservativeEstimate;
 @property(nonatomic) _Bool hasTravelTimeBestEstimate;

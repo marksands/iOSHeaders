@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) UIImage *placeholderImage;
 @property(readonly, copy, nonatomic) NSURL *persistenceURL;
 @property(readonly, nonatomic) NSString *uuid;
+@property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType;
 @property(readonly, copy) NSString *description;
 - (id)initWithUUID:(id)arg1 captureSession:(unsigned short)arg2 url:(id)arg3 captureDate:(id)arg4 duration:(CDStruct_1b6d18a9)arg5 stillPersistenceUUID:(id)arg6 stillDisplayTime:(CDStruct_1b6d18a9)arg7 reason:(long long)arg8 videoZoomFactor:(double)arg9 imageWellImage:(id)arg10 previewImage:(id)arg11;

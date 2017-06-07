@@ -11,16 +11,12 @@
 @protocol WLCardViewDelegate <NSObject>
 
 @optional
+- (void)passViewDidPresentPassDetails:(PKPassView *)arg1;
 - (void)passViewDidEndAuthenticating:(PKPassView *)arg1;
 - (void)passViewDidBeginAuthenticating:(PKPassView *)arg1;
-- (_Bool)passViewBackGrowsCentered:(PKPassView *)arg1;
 - (void)passViewDidResize:(PKPassView *)arg1 animated:(_Bool)arg2;
 - (_Bool)passViewShouldResize:(PKPassView *)arg1;
-- (void)passViewDidFlip:(PKPassView *)arg1 animated:(_Bool)arg2;
-- (void)passViewWillFlip:(PKPassView *)arg1 animated:(_Bool)arg2;
-- (_Bool)passViewShouldFlip:(PKPassView *)arg1;
-- (void)passView:(PKPassView *)arg1 resizeButtonPressedForPass:(PKPass *)arg2;
-- (void)passView:(PKPassView *)arg1 flipButtonPressedForPass:(PKPass *)arg2;
+- (void)passView:(PKPassView *)arg1 resizeButtonPressedForPass:(PKPass *)arg2 withBarcode:(_Bool)arg3;
 - (_Bool)passView:(PKPassView *)arg1 deleteButtonEnabledForPass:(PKPass *)arg2;
 - (void)passView:(PKPassView *)arg1 deleteButtonPressedForPass:(PKPass *)arg2;
 - (void)passViewTapped:(PKPassView *)arg1;

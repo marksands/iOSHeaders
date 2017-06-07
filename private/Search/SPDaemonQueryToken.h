@@ -34,10 +34,9 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) SPSearchQuery *query; // @synthesize query=_query;
 @property(readonly, nonatomic) unsigned int queryID; // @synthesize queryID=_queryID;
-@property(nonatomic) __weak id <SPDaemonQueryDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) __weak id <SPDaemonQueryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)initWithQuery:(id)arg1;
-- (id)initWithQuery:(id)arg1 queue:(id)arg2;
+- (id)initWithQuery:(id)arg1 queue:(id)arg2 delegate:(id)arg3;
 - (void)queryDidComplete;
 - (void)handleLocalQueryWithResultSet:(id)arg1;
 - (void)handleMessage:(id)arg1;

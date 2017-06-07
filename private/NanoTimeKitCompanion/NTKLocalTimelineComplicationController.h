@@ -38,6 +38,8 @@
 - (id)_currentTemplate;
 - (id)_currentEntry;
 - (id)complicationApplicationIdentifier;
+- (void)didTouchUpInside;
+- (void)didTouchDown;
 - (void)performTapAction;
 - (_Bool)hasTapAction;
 - (void)_startExtendLeftOperationFromDate:(id)arg1;

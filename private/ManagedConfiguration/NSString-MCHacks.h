@@ -7,6 +7,7 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (MCHacks)
+- (id)MCRemoveAppExternalVersionIDParameter;
 - (id)MCAppendGreenteaSuffix;
 @end
 

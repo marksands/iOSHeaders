@@ -16,7 +16,6 @@
     NSMutableDictionary *_dataProvidersByBundleIdentifier;
     NSMutableDictionary *_descriptionsByBundleIdentifier;
     NSMutableSet *_authorizedBundleIdentifiers;
-    NSMutableSet *_registeredBundleIdentifiers;
     NSMutableArray *_observers;
     UNSApplicationLauncher *_appLauncher;
     UNSNotificationCategoryRepository *_categoryRepository;

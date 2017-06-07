@@ -15,8 +15,8 @@
 + (_Bool)isMenuItemCurrentSortTypeForTag:(long long)arg1;
 + (void)setCurrentNoteListSortTypeByTag:(long long)arg1;
 + (id)descriptionForNoteListSortType:(long long)arg1;
-+ (id)sortDescriptorsForICSearchResultsForType:(long long)arg1;
-+ (id)sortDescriptorsForICSearchResultsForCurrentType;
++ (id)sortDescriptorsForCurrentTypeIncludingPinnedNotes:(_Bool)arg1;
++ (id)sortDescriptorsForPinnedNotes;
 + (id)sortDescriptorsForCurrentType;
 + (id)sortDescriptorsForType:(long long)arg1;
 + (void)setCurrentNoteListSortType:(long long)arg1;

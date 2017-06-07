@@ -13,7 +13,7 @@
 #import <NanoTimeKitCompanion/NTKTimeView-Protocol.h>
 #import <NanoTimeKitCompanion/PUICCrownInputSequencerDelegate-Protocol.h>
 
-@class NSDate, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NTKClockIconView, NTKContainerView, NTKFaceEditView, NTKTimeTravelModuleView, UIImage;
+@class NSDate, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NTKClockIconView, NTKContainerView, NTKExtraLargeTimeView, NTKFaceEditView, NTKTimeTravelModuleView, UIImage;
 @protocol NTKFaceViewDelegate, NTKTimeView;
 
 @interface NTKFaceView : UIView <PUICCrownInputSequencerDelegate, NTKTimeTravelModuleViewTapClient, NTKContainerViewLayoutDelegate, NTKClockIconZoomAnimator, NTKTimeView, NTKClockHardwareInput>
@@ -39,6 +39,7 @@
     NSDate *_aggdTimeTravelSessionStart;
     double _aggdTimeTravelMaximumOffset;
     _Bool _statusIconVisible;
+    NTKExtraLargeTimeView *_sensitiveUIShieldView;
     NSMutableDictionary *_complicationDisplayWrappers;
     NSMutableDictionary *_complicationLayouts;
     NSMutableDictionary *_complicationPickerViews;
@@ -67,6 +68,7 @@
     _Bool _timeScrubbing;
     _Bool _editing;
     long long _faceStyle;
+    NSString *_clientIdentifier;
     long long _dataMode;
     id <NTKFaceViewDelegate> _delegate;
     NTKFaceEditView *_editView;
@@ -83,16 +85,14 @@
     double _editModeTransitionFraction;
 }
 
-+ (id)_additionalPrelaunchApplicationIdentifiers;
 + (long long)_numberOfDetailModes;
 + (long long)numberOfDetailModesForFaceStyle:(long long)arg1;
 + (id)_swatchColorForColorOption:(id)arg1;
 + (id)_swatchImageForColorOption:(id)arg1;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1;
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 + (void)_prewarm;
 + (id)swatchForEditModeDependsOnOptions:(long long)arg1;
-+ (id)swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
++ (id)newFaceViewOfStyle:(long long)arg1 clientIdentifier:(id)arg2;
 + (id)newFaceViewOfStyle:(long long)arg1;
 @property(readonly, nonatomic) double editModeTransitionFraction; // @synthesize editModeTransitionFraction=_editModeTransitionFraction;
 @property(readonly, nonatomic) long long toEditMode; // @synthesize toEditMode=_toEditMode;
@@ -119,9 +119,11 @@
 @property(nonatomic) _Bool showsCanonicalContent; // @synthesize showsCanonicalContent=_showsCanonicalContent;
 @property(nonatomic) long long dataMode; // @synthesize dataMode=_dataMode;
 @property(nonatomic) _Bool shouldShowUnsnapshotableContent; // @synthesize shouldShowUnsnapshotableContent=_shouldShowUnsnapshotableContent;
+@property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(nonatomic) long long faceStyle; // @synthesize faceStyle=_faceStyle;
 @property(readonly, nonatomic) UIView *foregroundContainerView; // @synthesize foregroundContainerView=_foregroundContainerView;
 - (void).cxx_destruct;
+- (id)_additionalPrelaunchApplicationIdentifiers;
 - (void)_resetSequencerBoundaries;
 - (void)_prepareScrubbingSequencerBoundaries;
 - (_Bool)_handlePhysicalButton:(unsigned long long)arg1 event:(unsigned long long)arg2;
@@ -170,6 +172,7 @@
 - (void)prepareForStatusChange:(_Bool)arg1;
 - (double)verticalPaddingForStatusBar;
 - (_Bool)wantsStatusBarHidden;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (double)_minimumBreathingScaleForComplicationSlot:(id)arg1;
 - (_Bool)_fadesComplicationSlot:(id)arg1 inEditMode:(long long)arg2;
 - (double)_editSpeedForComplications;
@@ -182,10 +185,10 @@
 - (_Bool)_keylineLabelShouldShowIndividualOptionNamesForCustomEditMode:(long long)arg1;
 - (struct CGRect)_keylineFrameForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
-- (void)_cleanupAfterOptionTransitionForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (void)_cleanupAfterTransitionToOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 forCustomEditMode:(long long)arg4 slot:(id)arg5;
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
-- (void)_updateForResourceDirectoryChange;
+- (void)_updateForResourceDirectoryChange:(id)arg1;
 - (void)_configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)_configureForEditMode:(long long)arg1;
 - (void)_cleanupAfterEditing;
@@ -207,6 +210,7 @@
 - (void)_bringForegroundViewsToFront;
 - (void)_adjustUIForBoundsChange;
 - (void)_loadLayoutRules;
+- (id)_detachedComplicationDisplays;
 - (void)_configureComplicationView:(id)arg1 forSlot:(id)arg2;
 - (long long)_legacyLayoutOverrideforComplicationType:(unsigned long long)arg1 slot:(id)arg2;
 - (id)_newLegacyViewForComplication:(id)arg1 family:(long long)arg2 slot:(id)arg3;
@@ -241,6 +245,7 @@
 - (id)complicationLayoutforSlot:(id)arg1;
 - (void)layoutContainerView:(id)arg1;
 - (id)blurSourceImage;
+- (id)swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (void)applyRubberBandingFraction:(double)arg1 forComplicationSlot:(id)arg2;
 - (void)applyBreathingFraction:(double)arg1 forComplicationSlot:(id)arg2;
 - (double)editSpeedForComplications;
@@ -261,7 +266,7 @@
 - (_Bool)keylineLabelShouldShowIndividualOptionNamesForCustomEditMode:(long long)arg1;
 - (struct CGRect)keylineFrameForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (id)keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;
-- (void)cleanupAfterOptionTransitionForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (void)cleanupAfterTransitionToOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)setTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 customEditMode:(long long)arg4 slot:(id)arg5;
 - (void)configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)configureForEditMode:(long long)arg1;
@@ -279,6 +284,8 @@
 - (void)_willEnterForeground;
 - (void)_didEnterBackground;
 - (void)layoutComplicationViews;
+- (id)detachedComplicationDisplayWrapperForSlot:(id)arg1;
+- (void)setDetachedComplicationDisplayWrapper:(id)arg1 forSlot:(id)arg2;
 - (id)normalComplicationDisplayWrapperForSlot:(id)arg1;
 - (void)setNormalComplicationDisplayWrapper:(id)arg1 forSlot:(id)arg2;
 - (void)configureComplicationViewDisplayWrapper:(id)arg1 forSlot:(id)arg2;
@@ -290,6 +297,7 @@
 - (void)willMoveToWindow:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
+- (_Bool)_shouldHideUI;
 - (void)_handleLocaleDidChange;
 - (id)initWithFrame:(struct CGRect)arg1;
 

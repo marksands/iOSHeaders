@@ -11,6 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)nullBulletProperties;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 
 @end

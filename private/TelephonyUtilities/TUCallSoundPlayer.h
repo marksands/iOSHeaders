@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class TUSoundPlayer;
 
@@ -19,6 +19,8 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isPlaying) _Bool playing;
 - (void)stopPlaying;
+- (_Bool)attemptToPlayDescriptor:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)attemptToPlayDescriptor:(id)arg1;
 - (_Bool)attemptToPlaySoundType:(long long)arg1 forCall:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)attemptToPlaySoundType:(long long)arg1 forCall:(id)arg2;
 - (id)init;

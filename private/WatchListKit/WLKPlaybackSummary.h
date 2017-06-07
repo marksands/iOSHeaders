@@ -43,8 +43,11 @@
 - (_Bool)_compareOptional:(id)arg1 with:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)JSONRepresentation;
+- (id)dictionaryRepresentation;
 - (id)description;
 - (unsigned long long)hash;
+- (_Bool)isEqualToSummaryExceptForCursor:(id)arg1;
 - (_Bool)isEqualToSummary:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithBundleId:(id)arg1 timestamp:(id)arg2 duration:(id)arg3 elapsedTime:(id)arg4 externalProfileID:(id)arg5 contentID:(id)arg6 accountID:(id)arg7 playbackState:(long long)arg8 playbackRate:(id)arg9 completionState:(long long)arg10;

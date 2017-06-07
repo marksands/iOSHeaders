@@ -4,35 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <GeoServices/GEOAbstractRequestResponseTicket.h>
 
 #import <GeoServices/GEOMapServiceSearchFieldPlaceholderTicket-Protocol.h>
 
-@class GEOMapServiceTraits, GEOPDPlaceRequest, GEOPDPlaceResponse, NSDictionary, NSString;
+@class GEOMapServiceTraits, NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
-@interface _GEOPlaceSearchPlaceholderTicket : NSObject <GEOMapServiceSearchFieldPlaceholderTicket>
+@interface _GEOPlaceSearchPlaceholderTicket : GEOAbstractRequestResponseTicket <GEOMapServiceSearchFieldPlaceholderTicket>
 {
-    GEOPDPlaceRequest *_request;
-    GEOPDPlaceResponse *_response;
-    NSDictionary *_userInfo;
-    GEOMapServiceTraits *_traits;
-    _Bool _canceled;
 }
 
-@property(readonly, nonatomic, getter=isCanceled) _Bool canceled; // @synthesize canceled=_canceled;
-@property(readonly, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
-- (void)cancel;
 - (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) NSDictionary *responseUserInfo;
-- (void)dealloc;
-- (id)initWithRequest:(id)arg1 traits:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSDictionary *responseUserInfo;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) GEOMapServiceTraits *traits;
 
 @end
 

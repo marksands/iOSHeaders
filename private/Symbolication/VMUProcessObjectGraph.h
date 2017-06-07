@@ -8,7 +8,8 @@
 
 #import <Symbolication/VMUCommonGraphInterface-Protocol.h>
 
-@class NSArray, NSDictionary, NSString, VMUClassInfoMap, VMUNodeToStringMap, VMURangeToStringMap;
+@class NSArray, NSDictionary, NSString, VMUClassInfoMap, VMUDebugTimer, VMUGraphStackLogReader, VMUNodeToStringMap, VMURangeToStringMap;
+@protocol VMUStackLogReader;
 
 @interface VMUProcessObjectGraph : VMUObjectGraph <VMUCommonGraphInterface>
 {
@@ -18,20 +19,27 @@
     NSArray *_regions;
     unsigned int _regionCount;
     NSArray *_zoneNames;
-    NSString *_procDescription;
-    NSString *_procName;
+    NSString *_processName;
+    NSString *_processDescriptionString;
+    NSString *_binaryImagesDescription;
     VMURangeToStringMap *_threadNameRanges;
     VMURangeToStringMap *_binarySectionNameRanges;
     VMURangeToStringMap *_regionSymbolNameRanges;
+    _Bool _gotObjcClassStructureRanges;
     NSDictionary *_pthreadOffsets;
     VMUNodeToStringMap *_nodeLabels;
     void *_userMarked;
+    VMUGraphStackLogReader *_stackLogReader;
+    VMUDebugTimer *_debugTimer;
 }
 
+@property(retain, nonatomic) id <VMUStackLogReader> stackLogReader; // @synthesize stackLogReader=_stackLogReader;
+@property(retain, nonatomic) VMUDebugTimer *debugTimer; // @synthesize debugTimer=_debugTimer;
 @property(nonatomic) unsigned long long snapshotMachTime; // @synthesize snapshotMachTime=_machAbsolute;
 @property(readonly, nonatomic) unsigned int regionCount; // @synthesize regionCount=_regionCount;
 @property(readonly, nonatomic) unsigned int vmPageSize; // @synthesize vmPageSize=_kernPageSize;
 @property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
+- (void).cxx_destruct;
 - (void)markReachableNodesFromRoots:(void *)arg1 inMap:(void *)arg2;
 - (void)refineEdges:(unsigned int)arg1 withOptions:(unsigned int)arg2 markingInvalid:(void *)arg3;
 - (void)refineTypesWithOverlay:(id)arg1;
@@ -43,10 +51,15 @@
 - (id)nodeDescription:(unsigned int)arg1;
 - (id)shortNodeDescription:(unsigned int)arg1;
 - (id)vmuVMRegionForNode:(unsigned int)arg1;
+- (id)vmuVMRegionForAddress:(unsigned long long)arg1;
 - (id)_descriptionForRegionAddress:(unsigned long long)arg1 withOffset:(unsigned long long)arg2 showSegment:(_Bool)arg3;
 @property(readonly, nonatomic) _Bool is64bit;
-@property(copy, nonatomic) NSString *processName;
-@property(copy, nonatomic) NSString *toolHeaderDescription;
+- (void)setProcessName:(id)arg1;
+@property(readonly, nonatomic) NSString *processName;
+- (void)setBinaryImagesDescription:(id)arg1;
+@property(readonly, nonatomic) NSString *binaryImagesDescription;
+- (void)setProcessDescriptionString:(id)arg1;
+@property(readonly, nonatomic) NSString *processDescriptionString;
 - (void)setUserMarked:(void *)arg1;
 - (void *)copyUserMarked;
 - (void)_renameWithNodeMap:(unsigned int *)arg1 nodeNamespace:(unsigned int)arg2 edgeMap:(unsigned int *)arg3 edgeNamespace:(unsigned int)arg4;
@@ -56,6 +69,7 @@
 @property(readonly, nonatomic) VMUClassInfoMap *realizedClasses;
 - (id)shortLabelForMallocNode:(unsigned int)arg1;
 - (void *)contentForNode:(unsigned int)arg1;
+- (_Bool)hasLabelsForNodes;
 - (id)labelForNode:(unsigned int)arg1;
 - (void)setLabel:(id)arg1 forNode:(unsigned int)arg2;
 - (unsigned int)nodeReferencedFromDataRegion:(id)arg1 byGlobalSymbol:(id)arg2;
@@ -63,8 +77,8 @@
 - (struct _VMURange)rangeForSymbolName:(id)arg1 inRegion:(id)arg2;
 - (struct _VMURange)regionSymbolRangeContainingAddress:(unsigned long long)arg1;
 - (id)regionSymbolNameForAddress:(unsigned long long)arg1;
-- (void)_deriveObjcClassStructureRanges;
 - (void)setRegionSymbolName:(id)arg1 forRange:(struct _VMURange)arg2;
+- (void)_deriveObjcClassStructureRanges;
 - (struct _VMURange)binarySectionRangeContainingAddress:(unsigned long long)arg1;
 - (id)binarySectionNameForAddress:(unsigned long long)arg1;
 - (void)setBinarySectionName:(id)arg1 forRange:(struct _VMURange)arg2;

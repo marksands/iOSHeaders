@@ -41,9 +41,8 @@
     PKPassFaceTemplate *_faceTemplate;
 }
 
-+ (id)newBackFaceViewForStyle:(long long)arg1 tall:(_Bool)arg2;
 + (id)newFrontFaceViewForStyle:(long long)arg1;
-+ (Class)_faceClassForStyle:(long long)arg1 front:(_Bool)arg2;
++ (Class)_faceClassForStyle:(long long)arg1;
 @property(readonly, nonatomic) PKPassFaceTemplate *faceTemplate; // @synthesize faceTemplate=_faceTemplate;
 @property(retain, nonatomic) NSMutableArray *headerBucketViews; // @synthesize headerBucketViews=_headerBucketViews;
 @property(nonatomic) long long style; // @synthesize style=_style;
@@ -64,13 +63,11 @@
 - (void)_flushContentViewsForRegions:(unsigned long long)arg1;
 - (void)_createContentViewsForRegions:(unsigned long long)arg1;
 - (void)_createInvariantViewsForRegions:(unsigned long long)arg1;
-- (void)prepareForFlip;
 - (void)createBodyContentViews;
 - (void)createHeaderContentViews;
 - (void)createBodyInvariantViews;
 - (void)createHeaderInvariantViews;
 @property(readonly, nonatomic) struct CGSize contentSize;
-@property(readonly, nonatomic) _Bool isFrontFace;
 - (id)passFaceTemplate;
 - (long long)_validityStateForPass:(id)arg1;
 - (void)_presentDiffRecursivelyDiff:(id)arg1 forBucketAtIndex:(unsigned long long)arg2 withBuckets:(id)arg3 completion:(CDUnknownBlockType)arg4;

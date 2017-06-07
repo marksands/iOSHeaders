@@ -10,8 +10,8 @@
 #import <iWorkImport/TSWPLayoutOwner-Protocol.h>
 #import <iWorkImport/TSWPLayoutTarget-Protocol.h>
 
-@class NSMutableArray, NSString, TSDCanvas, TSDLayout, TSPObject, TSSStylesheet, TSUColor, TSULocale, TSWPColumnStyle, TSWPListStyle, TSWPPadding, TSWPParagraphStyle, TSWPStorage, TSWPTextParentInfo, TSWPTextParentLayout;
-@protocol TSDHint, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPOffscreenColumn, TSWPTextDelegate;
+@class NSArray, NSMutableArray, NSString, TSDCanvas, TSDLayout, TSPObject, TSSStylesheet, TSUColor, TSULocale, TSWPColumnStyle, TSWPListStyle, TSWPPadding, TSWPParagraphStyle, TSWPStorage, TSWPTextParentInfo, TSWPTextParentLayout;
+@protocol TSDHint, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPOffscreenColumn, TSWPTextDelegate, TSWPTopicNumberHints;
 
 __attribute__((visibility("hidden")))
 @interface TSWPText : NSObject <TSWPLayoutTarget, TSWPLayoutOwner, TSWPColumnMetrics>
@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSUColor *textColorOverride; // @synthesize textColorOverride=_textColorOverride;
 @property(readonly, nonatomic) int naturalDirection; // @synthesize naturalDirection=_naturalDirection;
 @property(readonly, nonatomic) int naturalAlignment; // @synthesize naturalAlignment=_naturalAlignment;
+@property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
 @property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 - (void)p_setParentLayoutMaximumFrameSizeForChildren;
 - (_Bool)forceWesternLineBreaking;
@@ -49,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutManager:(id)arg1 didClearDirtyRangeWithDelta:(long long)arg2 afterCharIndex:(unsigned long long)arg3;
 - (void)layoutManagerNeedsLayout:(id)arg1;
 - (_Bool)caresAboutStorageChanges;
+@property(readonly, nonatomic) _Bool shouldWrapAroundExternalDrawables;
 @property(readonly, nonatomic) _Bool layoutIsValid;
 - (_Bool)isLayoutOffscreen;
 @property(readonly, nonatomic) _Bool textIsVertical;
@@ -76,8 +78,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 @property(readonly, nonatomic) _Bool columnsAreLeftToRight;
@@ -90,12 +92,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSWPPadding *layoutMargins;
 - (struct CGSize)adjustedInsetsForTarget:(id)arg1;
 @property(readonly, nonatomic) TSULocale *locale;
-- (void)drawText:(id)arg1 inContext:(struct CGContext *)arg2 minSize:(struct CGSize)arg3 maxSize:(struct CGSize)arg4 anchor:(struct CGPoint)arg5 flags:(int)arg6 viewScale:(double)arg7;
+- (void)drawText:(id)arg1 inContext:(struct CGContext *)arg2 minSize:(struct CGSize)arg3 maxSize:(struct CGSize)arg4 anchor:(struct CGPoint)arg5 flags:(int)arg6 isFlipped:(_Bool)arg7 viewScale:(double)arg8;
 - (void)drawColumn:(id)arg1 inContext:(struct CGContext *)arg2 isFlipped:(_Bool)arg3 viewScale:(double)arg4;
 - (void)drawColumn:(id)arg1 selection:(id)arg2 inContext:(struct CGContext *)arg3 isFlipped:(_Bool)arg4 viewScale:(double)arg5;
 - (struct CGSize)measureText:(id)arg1;
 - (id)layoutText:(id)arg1 context:(id)arg2 kind:(int)arg3 minSize:(struct CGSize)arg4 maxSize:(struct CGSize)arg5 anchor:(struct CGPoint)arg6 flags:(int)arg7;
 - (id)layoutText:(id)arg1 minSize:(struct CGSize)arg2 maxSize:(struct CGSize)arg3 anchor:(struct CGPoint)arg4 flags:(int)arg5;
+@property(readonly, nonatomic) NSArray *childLayouts;
 - (id)layoutTextStorage:(id)arg1 minSize:(struct CGSize)arg2 maxSize:(struct CGSize)arg3 anchor:(struct CGPoint)arg4 pageNumber:(unsigned long long)arg5 pageCount:(unsigned long long)arg6 flags:(int)arg7;
 - (id)layoutTextStorage:(id)arg1 minSize:(struct CGSize)arg2 maxSize:(struct CGSize)arg3 anchor:(struct CGPoint)arg4 flags:(int)arg5;
 - (void)dealloc;
@@ -113,6 +116,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) struct CGRect maskRect;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
+@property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) _Bool shouldHyphenate;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) double textScaleFactor;

@@ -18,8 +18,7 @@
 - (void)sendNow;
 - (void)queuePending;
 - (void)handleFileURL:(id)arg1;
-- (void)_sendRequest:(id)arg1 type:(unsigned short)arg2 withTimeout:(id)arg3 isTrafficRestricted:(_Bool)arg4 attachmentURL:(id)arg5 attachmentKey:(id)arg6 didSend:(CDUnknownBlockType)arg7 didQueue:(CDUnknownBlockType)arg8;
-- (void)sendRequest:(id)arg1 type:(unsigned short)arg2 withTimeout:(id)arg3 isTrafficRestricted:(_Bool)arg4 attachmentURL:(id)arg5 attachmentKey:(id)arg6 didSend:(CDUnknownBlockType)arg7;
+- (void)sendRequest:(id)arg1 withTimeout:(id)arg2 isTrafficRestricted:(_Bool)arg3 didSend:(CDUnknownBlockType)arg4;
 - (void)sendRequest:(id)arg1 type:(unsigned short)arg2 didSend:(CDUnknownBlockType)arg3 didQueue:(CDUnknownBlockType)arg4;
 
 @end

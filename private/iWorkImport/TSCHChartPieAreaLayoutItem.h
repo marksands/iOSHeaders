@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 - (void)p_layoutOutward;
 - (void)p_layoutInward;
 - (void)buildSubTree;
+- (id)seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
 
 @end
 

@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_recordsToSaveByID;
 }
 
++ (long long)isPredominatelyDownload;
 @property(nonatomic) int numSaveAttempts; // @synthesize numSaveAttempts=_numSaveAttempts;
 @property(retain, nonatomic) NSMutableDictionary *recordsToSaveByID; // @synthesize recordsToSaveByID=_recordsToSaveByID;
 @property(retain, nonatomic) NSMutableSet *fetchedRecordIDs; // @synthesize fetchedRecordIDs=_fetchedRecordIDs;

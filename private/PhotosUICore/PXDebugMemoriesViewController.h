@@ -33,7 +33,6 @@
 - (void)_switchLogsAction:(id)arg1;
 - (void)viewDidLoad;
 - (void)_setupWithDictionary:(id)arg1;
-- (id)_preprocessDictionary:(id)arg1;
 - (id)initWithMemory:(id)arg1;
 - (id)_debugDictionary;
 

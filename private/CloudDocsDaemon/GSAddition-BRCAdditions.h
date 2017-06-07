@@ -7,8 +7,8 @@
 #import <GenerationalStorage/GSAddition.h>
 
 @interface GSAddition (BRCAdditions)
-+ (_Bool)brc_parseAdditionFilename:(id)arg1 mangledContainerID:(id *)arg2 itemID:(id *)arg3 etag:(id *)arg4 session:(id)arg5;
++ (_Bool)brc_parseAdditionFilename:(id)arg1 mangledID:(id *)arg2 itemID:(id *)arg3 etag:(id *)arg4 session:(id)arg5;
 + (id)additionURLForName:(id)arg1 storagePrefix:(id)arg2 inConflictNamespace:(_Bool)arg3;
-- (_Bool)brc_parseMangledContainerID:(id *)arg1 itemID:(id *)arg2 etag:(id *)arg3 session:(id)arg4;
+- (_Bool)brc_parseMangledID:(id *)arg1 itemID:(id *)arg2 etag:(id *)arg3 session:(id)arg4;
 @end
 

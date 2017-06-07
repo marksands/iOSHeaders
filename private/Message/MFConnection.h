@@ -51,6 +51,7 @@
 @property(readonly, nonatomic) _Bool hasBytesAvailable;
 - (void)disconnect;
 @property(readonly, nonatomic) _Bool isValid;
+- (void)endCompression;
 - (_Bool)startCompression;
 @property(readonly, nonatomic) NSString *securityProtocol;
 - (_Bool)startTLSForAccount:(id)arg1;

@@ -25,6 +25,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsLocationType:(id)arg1;
+- (id)locationTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasLocationType;
 @property(nonatomic) int locationType; // @synthesize locationType=_locationType;
 

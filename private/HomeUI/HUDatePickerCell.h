@@ -6,27 +6,21 @@
 
 #import <UIKit/UITableViewCell.h>
 
-#import <HomeUI/HUCellProtocol-Protocol.h>
+@class NSDateComponents, UIDatePicker;
+@protocol HUDatePickerCellDelegate;
 
-@class HFItem, NSString, UIDatePicker;
-
-@interface HUDatePickerCell : UITableViewCell <HUCellProtocol>
+@interface HUDatePickerCell : UITableViewCell
 {
-    HFItem *_item;
+    id <HUDatePickerCellDelegate> _delegate;
     UIDatePicker *_datePicker;
 }
 
 @property(retain, nonatomic) UIDatePicker *datePicker; // @synthesize datePicker=_datePicker;
-@property(retain, nonatomic) HFItem *item; // @synthesize item=_item;
+@property(nonatomic) __weak id <HUDatePickerCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)updateUIWithAnimation:(_Bool)arg1;
+- (void)_valueChanged:(id)arg1;
+@property(retain, nonatomic) NSDateComponents *timeComponents;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOResourceManifestDownload, NSData, NSDictionary, NSError, NSString;
 
@@ -24,6 +24,7 @@
 @property(readonly, nonatomic) NSString *releaseName; // @synthesize releaseName=_releaseName;
 @property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (id)overrideURLs;
 - (id)serviceURLs;
 - (void)reloadManifestDataWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -33,7 +34,6 @@
 - (_Bool)isActive;
 - (void)makeActive;
 - (id)urlDictionary;
-- (void)dealloc;
 - (id)initWithName:(id)arg1 displayName:(id)arg2 dictionaryRepresentation:(id)arg3;
 
 @end

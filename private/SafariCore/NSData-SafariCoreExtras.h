@@ -7,6 +7,7 @@
 #import <Foundation/NSData.h>
 
 @interface NSData (SafariCoreExtras)
+- (id)safari_descriptionWithoutSpaces;
 - (id)safari_SHA1Hash;
 - (unsigned long long)safari_hashMD5;
 - (_Bool)safari_dataAppearsToBeCompressed;

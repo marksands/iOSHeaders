@@ -23,7 +23,7 @@
 - (void)tearDownConnection;
 - (void)setUpConnection;
 - (void)transportSendMessageOperation:(id)arg1 processMessage:(id)arg2;
-- (void)processMessage:(id)arg1;
+- (void)processMessage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)didInvalidate;
 - (id)operationToSendMessage:(id)arg1;
 - (void)invalidateConnection;

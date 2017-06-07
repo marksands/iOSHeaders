@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (void)CADScheduledTaskCacheGetDaysAndTaskCounts:(CDUnknownBlockType)arg1;
 - (void)CADDatabaseGetProperties:(id)arg1 forReminders:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)CADDatabaseGetCountOfRemindersWithPredicate:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)CADDatabaseSetDefaultCalendarForNewReminders:(CDStruct_1ef3fb1f)arg1;
+- (void)CADDatabaseSetDefaultCalendarForNewReminders:(id)arg1;
 - (void)CADDatabaseGetDefaultCalendarForNewRemindersWithReply:(CDUnknownBlockType)arg1;
 
 @end

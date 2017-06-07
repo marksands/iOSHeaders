@@ -54,7 +54,6 @@
 + (id)entityFromURL:(id)arg1 inLibrary:(id)arg2 verifyExistence:(_Bool)arg3;
 + (id)entityFromURL:(id)arg1 inLibrary:(id)arg2;
 + (id)entityURLScheme;
-+ (id)widthLimitedSetValuesQueue;
 + (id)newSelectSQLForProperties:(const id *)arg1 count:(unsigned long long)arg2 predicate:(id)arg3;
 + (id)newSelectAllEntitiesSQLForProperties:(const id *)arg1 count:(unsigned long long)arg2 predicate:(id)arg3;
 + (id)subselectPropertyForProperty:(id)arg1;

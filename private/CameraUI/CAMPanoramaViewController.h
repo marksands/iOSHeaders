@@ -6,12 +6,12 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <CameraUI/CAMPanoramaConfigurationDelegate-Protocol.h>
+#import <CameraUI/CAMPanoramaChangeDelegate-Protocol.h>
 #import <CameraUI/CAMPanoramaViewDelegate-Protocol.h>
 
 @class CAMPanoramaView, CMMotionManager, CUCaptureController, NSString, UITapGestureRecognizer;
 
-@interface CAMPanoramaViewController : UIViewController <CAMPanoramaViewDelegate, CAMPanoramaConfigurationDelegate>
+@interface CAMPanoramaViewController : UIViewController <CAMPanoramaViewDelegate, CAMPanoramaChangeDelegate>
 {
     _Bool _painting;
     long long _layoutStyle;

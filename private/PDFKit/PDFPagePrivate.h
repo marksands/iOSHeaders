@@ -6,8 +6,9 @@
 
 #import <objc/NSObject.h>
 
-@class NSLock, NSMutableArray, NSMutableAttributedString, NSString, NSThread, PDFDocument, PDFView, UIImage;
+@class NSLock, NSMutableArray, NSMutableAttributedString, NSMutableSet, NSString, NSThread, PDFAKPageAdaptor, PDFDocument, PDFView, UIImage;
 
+__attribute__((visibility("hidden")))
 @interface PDFPagePrivate : NSObject
 {
     PDFDocument *document;
@@ -45,8 +46,12 @@
     struct CGRect bleedBox;
     struct CGRect trimBox;
     struct CGRect artBox;
-    _Bool isBookmarked;
+    _Bool bookmarked;
     _Bool isFullyConstructed;
+    _Bool colorWidgetBackgrounds;
+    PDFAKPageAdaptor *akPageAdaptor;
+    NSMutableArray *annotationChanges;
+    NSMutableSet *changedAnnotations;
 }
 
 - (void).cxx_destruct;

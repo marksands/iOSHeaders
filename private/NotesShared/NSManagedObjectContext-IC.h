@@ -9,7 +9,7 @@
 @class NSString;
 
 @interface NSManagedObjectContext (IC)
-- (_Bool)ic_saveWithErrorLogFormat:(id)arg1;
+- (_Bool)ic_saveWithLogDescription:(id)arg1;
 - (_Bool)ic_save;
 @property(retain, nonatomic) NSString *debugName;
 @end

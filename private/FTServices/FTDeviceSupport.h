@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDictionary, NSString;
 
@@ -31,9 +31,8 @@
     _Bool _commCenterDead;
     _Bool _simBecameNotReady;
     _Bool _simInserted;
-    _Bool _wantsForcedCelluarQueries;
+    _Bool _wantsForcedCellularQueries;
     int _carrierBundleSupported;
-    int _iMessageAllowedToken;
     _Bool _faceTimeBlocked;
     _Bool _iMessageBlocked;
     _Bool _accountModificationRestricted;
@@ -42,7 +41,7 @@
 }
 
 + (id)sharedInstance;
-@property(readonly, nonatomic) _Bool wantsForcedCelluarQueries; // @synthesize wantsForcedCelluarQueries=_wantsForcedCelluarQueries;
+@property(readonly, nonatomic) _Bool wantsForcedCellularQueries; // @synthesize wantsForcedCellularQueries=_wantsForcedCellularQueries;
 @property(readonly, nonatomic) _Bool mmsConfigured; // @synthesize mmsConfigured=_mmsConfigured;
 @property(readonly, nonatomic) _Bool supportsMMS; // @synthesize supportsMMS=_supportsMMS;
 @property(readonly, nonatomic) _Bool supportsSMS; // @synthesize supportsSMS=_supportsSMS;
@@ -55,8 +54,10 @@
 @property(readonly, nonatomic) _Bool supportsHandoff; // @synthesize supportsHandoff=_supportsHandoff;
 @property(readonly, nonatomic) _Bool supportsApplePay; // @synthesize supportsApplePay=_supportsApplePay;
 @property(readonly, nonatomic) _Bool supportsRegistrationControl; // @synthesize supportsRegistrationControl=_supportsRegistrationControl;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isInMultiUserMode;
 @property(readonly, nonatomic) _Bool nonWifiCallingAvailable;
+- (_Bool)nonBluetoothAvailableForBundleId:(id)arg1;
 - (_Bool)wifiAllowedForBundleId:(id)arg1;
 - (_Bool)nonWifiAvailableForBundleId:(id)arg1;
 @property(readonly, nonatomic) _Bool nonWifiFaceTimeAvailable;
@@ -65,6 +66,7 @@
 - (void)_registerForLockdownNotifications;
 - (void)_lockdownStateChanged:(id)arg1;
 @property(readonly, nonatomic) NSString *deviceInformationString;
+@property(readonly, nonatomic) NSString *productOSVersion;
 @property(readonly, nonatomic) NSString *productBuildVersion;
 @property(readonly, nonatomic) NSString *productVersion;
 @property(readonly, nonatomic) NSString *productName;
@@ -124,10 +126,12 @@
 - (void)_unregisterForCarrierNotifications;
 - (void)_registerForCarrierNotifications;
 - (void)_registerForCapabilityNotifications;
+- (void)_unregisterForiMessageStatusNotifications;
+- (void)_registerForiMessageStatusNotifications;
+- (id)_iMessageStatus;
 - (void)_updateManagedConfigurationSettings;
 - (void)_unregisterForManagedConfigurationNotifications;
 - (void)_registerForManagedConfigurationNotifications;
-- (void)_watchNotifyTokens;
 - (void)dealloc;
 - (id)init;
 

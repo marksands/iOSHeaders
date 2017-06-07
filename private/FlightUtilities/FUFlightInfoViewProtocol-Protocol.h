@@ -10,5 +10,6 @@
 
 @protocol FUFlightInfoViewProtocol <NSObject>
 - (void)flightInfoView:(FUFlightInfoView *)arg1 didUpdateFocus:(long long)arg2;
+- (_Bool)hasFollowupContent:(FUFlightInfoView *)arg1;
 @end
 

@@ -8,12 +8,14 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAutomobileOptions, GEOLocation, GEOMapRegion, GEOTraitsTransitScheduleFilter, GEOTransitOptions, GEOWalkingOptions, NSMutableArray, NSString;
+@class GEOAutomobileOptions, GEOLocation, GEOMapRegion, GEOPDVenueIdentifier, GEOTraitsTransitScheduleFilter, GEOTransitOptions, GEOWalkingOptions, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOMapServiceTraits : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     struct GEOSessionID _sessionId;
     CDStruct_95bda58d _engineTypes;
+    CDStruct_95bda58d _knownClientResolvedTypes;
     CDStruct_95bda58d _transportTypes;
     double _carHeadunitPixelHeight;
     double _carHeadunitPixelWidth;
@@ -40,6 +42,7 @@
     NSMutableArray *_photoSizes;
     unsigned int _photosCount;
     NSString *_providerID;
+    int _requestMode;
     NSMutableArray *_reviewUserPhotoSizes;
     unsigned int _reviewUserPhotosCount;
     unsigned int _sequenceNumber;
@@ -48,10 +51,15 @@
     unsigned int _timeSinceMapViewportChanged;
     GEOTransitOptions *_transitOptions;
     GEOTraitsTransitScheduleFilter *_transitScheduleFilter;
+    GEOPDVenueIdentifier *_venueIdentifier;
     GEOWalkingOptions *_walkingOptions;
+    _Bool _deviceInVehicle;
     _Bool _isAPICall;
     _Bool _isRedoSearch;
     _Bool _navigating;
+    _Bool _supportDirectionIntentSearch;
+    _Bool _supportDymSuggestion;
+    _Bool _wantsBrandIcon;
     struct {
         unsigned int sessionId:1;
         unsigned int carHeadunitPixelHeight:1;
@@ -64,14 +72,19 @@
         unsigned int deviceInterfaceOrientation:1;
         unsigned int mode:1;
         unsigned int photosCount:1;
+        unsigned int requestMode:1;
         unsigned int reviewUserPhotosCount:1;
         unsigned int sequenceNumber:1;
         unsigned int source:1;
         unsigned int timeSinceMapEnteredForeground:1;
         unsigned int timeSinceMapViewportChanged:1;
+        unsigned int deviceInVehicle:1;
         unsigned int isAPICall:1;
         unsigned int isRedoSearch:1;
         unsigned int navigating:1;
+        unsigned int supportDirectionIntentSearch:1;
+        unsigned int supportDymSuggestion:1;
+        unsigned int wantsBrandIcon:1;
     } _has;
 }
 
@@ -79,6 +92,11 @@
 + (Class)reviewUserPhotoSizesType;
 + (Class)photoSizesType;
 + (Class)deviceDisplayLanguageType;
+@property(nonatomic) _Bool deviceInVehicle; // @synthesize deviceInVehicle=_deviceInVehicle;
+@property(retain, nonatomic) GEOPDVenueIdentifier *venueIdentifier; // @synthesize venueIdentifier=_venueIdentifier;
+@property(nonatomic) _Bool wantsBrandIcon; // @synthesize wantsBrandIcon=_wantsBrandIcon;
+@property(nonatomic) _Bool supportDymSuggestion; // @synthesize supportDymSuggestion=_supportDymSuggestion;
+@property(nonatomic) _Bool supportDirectionIntentSearch; // @synthesize supportDirectionIntentSearch=_supportDirectionIntentSearch;
 @property(retain, nonatomic) GEOWalkingOptions *walkingOptions; // @synthesize walkingOptions=_walkingOptions;
 @property(retain, nonatomic) GEOTransitOptions *transitOptions; // @synthesize transitOptions=_transitOptions;
 @property(retain, nonatomic) GEOAutomobileOptions *automobileOptions; // @synthesize automobileOptions=_automobileOptions;
@@ -110,6 +128,8 @@
 @property(retain, nonatomic) NSString *appIdentifier; // @synthesize appIdentifier=_appIdentifier;
 @property(nonatomic) unsigned int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(nonatomic) struct GEOSessionID sessionId; // @synthesize sessionId=_sessionId;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -119,6 +139,23 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasDeviceInVehicle;
+@property(readonly, nonatomic) _Bool hasVenueIdentifier;
+@property(nonatomic) _Bool hasWantsBrandIcon;
+- (int)StringAsKnownClientResolvedTypes:(id)arg1;
+- (id)knownClientResolvedTypesAsString:(int)arg1;
+- (void)setKnownClientResolvedTypes:(int *)arg1 count:(unsigned long long)arg2;
+- (int)knownClientResolvedTypeAtIndex:(unsigned long long)arg1;
+- (void)addKnownClientResolvedType:(int)arg1;
+- (void)clearKnownClientResolvedTypes;
+@property(readonly, nonatomic) int *knownClientResolvedTypes;
+@property(readonly, nonatomic) unsigned long long knownClientResolvedTypesCount;
+@property(nonatomic) _Bool hasSupportDymSuggestion;
+@property(nonatomic) _Bool hasSupportDirectionIntentSearch;
+- (int)StringAsRequestMode:(id)arg1;
+- (id)requestModeAsString:(int)arg1;
+@property(nonatomic) _Bool hasRequestMode;
+@property(nonatomic) int requestMode; // @synthesize requestMode=_requestMode;
 - (int)StringAsEngineTypes:(id)arg1;
 - (id)engineTypesAsString:(int)arg1;
 - (void)setEngineTypes:(int *)arg1 count:(unsigned long long)arg2;

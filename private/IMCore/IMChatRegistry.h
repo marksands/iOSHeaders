@@ -9,6 +9,7 @@
 #import <IMCore/NSFastEnumeration-Protocol.h>
 
 @class IMTimer, NSArray, NSMutableArray, NSMutableDictionary, NSString, NSUserActivity;
+@protocol OS_dispatch_queue;
 
 @interface IMChatRegistry : NSObject <NSFastEnumeration>
 {
@@ -36,19 +37,31 @@
     long long _daemonLastFailedMessageID;
     NSUserActivity *_userActivity;
     NSMutableDictionary *_chatsBeingLoadedMap;
+    NSMutableDictionary *_chatPersonIDToChatMap;
     _Bool _personaKitRetriveAPITimedOut;
     NSArray *_simulatedChats;
+    IMChatRegistry *_batchProcessingRegistry;
+    NSObject<OS_dispatch_queue> *_batchProcessingQueue;
+    NSMutableArray *_updateBlocks;
+    NSArray *_preExistingAllChats;
 }
 
 + (Class)messageClass;
 + (void)setMessageClass:(Class)arg1;
 + (id)sharedInstance;
++ (void)setHasInitializedChatFiltering:(_Bool)arg1;
++ (_Bool)hasInitializedChatFiltering;
+@property(retain, nonatomic) NSArray *preExistingAllChats; // @synthesize preExistingAllChats=_preExistingAllChats;
+@property(retain, nonatomic) NSMutableArray *updateBlocks; // @synthesize updateBlocks=_updateBlocks;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *batchProcessingQueue; // @synthesize batchProcessingQueue=_batchProcessingQueue;
+@property(retain, nonatomic) IMChatRegistry *batchProcessingRegistry; // @synthesize batchProcessingRegistry=_batchProcessingRegistry;
 @property(retain, nonatomic, setter=_setSimulatedChats:) NSArray *simulatedChats; // @synthesize simulatedChats=_simulatedChats;
 @property(nonatomic) _Bool personaKitRetriveAPITimedOut; // @synthesize personaKitRetriveAPITimedOut=_personaKitRetriveAPITimedOut;
 @property(nonatomic, setter=_setPostMessageSentNotifications:) _Bool _postMessageSentNotifications; // @synthesize _postMessageSentNotifications;
 @property(readonly, nonatomic) _Bool _isLoading; // @synthesize _isLoading=_loading;
 @property(nonatomic, setter=_setDefaultNumberOfMessagesToLoad:) unsigned long long _defaultNumberOfMessagesToLoad; // @synthesize _defaultNumberOfMessagesToLoad;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool isBatchProcessing;
 - (_Bool)_firstLoad;
 - (void)systemApplicationDidResume;
 - (void)_clearMarkAsReadTimerIfNecessary;
@@ -57,6 +70,7 @@
 - (void)_chat:(id)arg1 handleCompletionOfQuery:(id)arg2 withUserInfo:(id)arg3 success:(_Bool)arg4 error:(id)arg5;
 - (void)_blockUntilQueriesComplete:(id)arg1;
 - (void)__blockUntilQueriesComplete;
+- (id)_chatGUIDToChatMap;
 - (id)_chatsWithMessageGUID:(id)arg1;
 - (id)_chatsWithMessage:(id)arg1;
 - (id)_allGUIDsForChat:(id)arg1;
@@ -70,11 +84,13 @@
 - (id)existingChatForAddresses:(id)arg1 allowRetargeting:(_Bool)arg2 bestHandles:(id *)arg3;
 - (id)existingChatForIMHandles:(id)arg1 allowRetargeting:(_Bool)arg2 groupID:(id)arg3;
 - (id)existingChatForIMHandle:(id)arg1 allowRetargeting:(_Bool)arg2;
+- (id)existingChatForEngramID:(id)arg1;
 - (id)exisitingChatForGroupID:(id)arg1;
 - (id)existingChatForRoom:(id)arg1 onAccount:(id)arg2;
 - (id)existingChatForIMHandles:(id)arg1;
 - (id)existingChatForIMHandle:(id)arg1;
 - (id)existingChatWithGUID:(id)arg1;
+- (id)existingChatForPersonID:(id)arg1;
 - (id)existingChatWithChatIdentifier:(id)arg1;
 - (id)existingChatWithGroupID:(id)arg1;
 - (id)_lookupExistingChatWithIMHandle:(id)arg1;
@@ -108,11 +124,16 @@
 - (void)unregisterChat:(id)arg1;
 - (void)_registerChat:(id)arg1 isIncoming:(_Bool)arg2 guid:(id)arg3;
 - (void)_registerChatDictionary:(id)arg1 forChat:(id)arg2 isIncoming:(_Bool)arg3 newGUID:(id)arg4;
+- (void)_registerChatDictionary:(id)arg1 forChat:(id)arg2 isIncoming:(_Bool)arg3 newGUID:(id)arg4 shouldPostNotification:(_Bool)arg5;
 - (void)dealloc;
 - (id)init;
 - (id)_chatInstanceForGUID:(id)arg1;
 - (void)_noteChatDealloc:(id)arg1;
 - (void)_noteChatInit:(id)arg1;
+- (void)verifyFilteringForAllChats;
+- (void)enumerateAllChatsAndAttachmentSizes:(CDUnknownBlockType)arg1;
+- (void)_IMChatGetIdentifiersAndServicesTestHook:(id)arg1 identifiers:(id *)arg2 services:(id *)arg3 personCentricEnabled:(_Bool)arg4;
+- (void)_chat_closeSession:(id)arg1;
 - (void)_chat_loadAttachments:(id)arg1 queryID:(id)arg2;
 - (void)_chat_loadUnreadMessages:(id)arg1 limit:(unsigned long long)arg2 fallbackGUID:(id)arg3 queryId:(id)arg4;
 - (void)_chat_loadFrequentReplies:(id)arg1 limit:(unsigned long long)arg2 queryID:(id)arg3;
@@ -120,6 +141,7 @@
 - (void)_chat_markAsSpamAutomatically:(id)arg1;
 - (void)_chat_markAsSpam:(id)arg1 queryID:(id)arg2;
 - (void)_chat_clearHistory:(id)arg1 beforeGUID:(id)arg2 afterGUID:(id)arg3 queryID:(id)arg4;
+- (void)_chat_loadPagedHistory:(id)arg1 numberOfMessagesBefore:(unsigned long long)arg2 numberOfMessagesAfter:(unsigned long long)arg3 messageGUID:(id)arg4 queryID:(id)arg5;
 - (void)_chat_loadHistory:(id)arg1 limit:(unsigned long long)arg2 beforeGUID:(id)arg3 afterGUID:(id)arg4 queryID:(id)arg5;
 - (void)_chat:(id)arg1 updateIsFiltered:(_Bool)arg2;
 - (void)_chat:(id)arg1 updateDisplayName:(id)arg2;
@@ -148,34 +170,46 @@
 - (void)setupComplete:(_Bool)arg1 info:(id)arg2;
 - (void)__handleChatReconstructions:(id)arg1;
 - (void)_handleChatReconstructions:(id)arg1;
+- (void)__handleMergedChatReconstructions:(id)arg1;
+- (void)_resetChatRegistry;
+- (id)chatPersonIDToChatMap;
+- (void)_handleMergedChatReconstructions:(id)arg1;
 - (void)frequentRepliesQuery:(id)arg1 finishedWithResult:(id)arg2 limit:(unsigned long long)arg3;
 - (void)frequentRepliesQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4 limit:(unsigned long long)arg5;
 - (void)markAsSpamQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
 - (void)attachmentQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4;
+- (void)pagedHistoryQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 numberOfMessagesBefore:(unsigned long long)arg4 numberOfMessagesAfter:(unsigned long long)arg5 finishedWithResult:(id)arg6;
 - (void)historyQuery:(id)arg1 chatID:(id)arg2 services:(id)arg3 finishedWithResult:(id)arg4 limit:(unsigned long long)arg5;
+- (void)_checkLimitAndSetMessagesToKeepLoadedIfNeeded:(unsigned long long)arg1 chat:(id)arg2;
 - (void)historicalMessageGUIDsDeleted:(id)arg1 chatGUIDs:(id)arg2 queryID:(id)arg3;
 - (void)lastFailedMessageIDChanged:(long long)arg1;
 - (void)unreadCountChanged:(long long)arg1;
 - (void)chat:(id)arg1 updated:(id)arg2;
 - (void)_updateInfo:(id)arg1 forGUID:(id)arg2 updatingUnreadCount:(_Bool)arg3;
 - (void)_updateUnreadCountForChat:(id)arg1;
+- (void)engroupParticipantsUpdatedForChat:(id)arg1;
+- (void)chat:(id)arg1 engramIDUpdated:(id)arg2;
 - (void)chat:(id)arg1 isFilteredUpdated:(_Bool)arg2;
 - (void)chat:(id)arg1 displayNameUpdated:(id)arg2;
 - (void)chat:(id)arg1 propertiesUpdated:(id)arg2;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 member:(id)arg5 statusChanged:(int)arg6;
 - (void)leftChat:(id)arg1;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 statusChanged:(int)arg5 handleInfo:(id)arg6;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 statusChanged:(int)arg6 handleInfo:(id)arg7;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 error:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 updateProperties:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 invitationReceived:(id)arg5;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messagesReceived:(id)arg5;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageReceived:(id)arg5;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 messagesReceived:(id)arg6;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 messageReceived:(id)arg6;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 notifySentMessage:(id)arg5 sendTime:(id)arg6;
-- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageSent:(id)arg5;
-- (void)_processMessageForAccount:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 message:(id)arg5;
+- (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 messageSent:(id)arg6;
+- (void)_processMessageForAccount:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 chatPersonCentricID:(id)arg5 message:(id)arg6;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messageUpdated:(id)arg5;
 - (void)account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messagesUpdated:(id)arg5;
 - (void)_account:(id)arg1 chat:(id)arg2 style:(unsigned char)arg3 chatProperties:(id)arg4 messagesUpdated:(id)arg5;
+- (void)loadedChats:(id)arg1;
+- (void)_startBackgroundProcessingChats:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)mergeWithCopyRegistry:(id)arg1;
+- (id)copyForBatchProcessing;
 
 @end
 

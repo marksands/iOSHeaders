@@ -13,15 +13,17 @@
 {
     _Bool _dontCreateValidatingParentReferences;
     NSString *_bundleIdentifier;
+    long long _databaseScope;
     id <CKDProtocolTranslatorIdentityDelegate> _identityDelegate;
     NSString *_containerScopedUserID;
     NSString *_overriddenContainerScopedUserID;
 }
 
-+ (id)translatorIgnoringUserIDs;
++ (id)translatorIgnoringUserIDsWithDatabaseScope:(long long)arg1;
 @property(copy, nonatomic) NSString *overriddenContainerScopedUserID; // @synthesize overriddenContainerScopedUserID=_overriddenContainerScopedUserID;
 @property(copy, nonatomic) NSString *containerScopedUserID; // @synthesize containerScopedUserID=_containerScopedUserID;
 @property(nonatomic) __weak id <CKDProtocolTranslatorIdentityDelegate> identityDelegate; // @synthesize identityDelegate=_identityDelegate;
+@property(readonly, nonatomic) long long databaseScope; // @synthesize databaseScope=_databaseScope;
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(nonatomic) _Bool dontCreateValidatingParentReferences; // @synthesize dontCreateValidatingParentReferences=_dontCreateValidatingParentReferences;
 - (void).cxx_destruct;
@@ -30,7 +32,6 @@
 - (id)pAliasWithUserRecordID:(id)arg1;
 - (id)pAliasWithHashedStringID:(id)arg1 type:(int)arg2;
 - (id)pAliasWithPhoneNumber:(id)arg1;
-- (id)_canonicalizedPhoneNumber:(id)arg1;
 - (id)pAliasWithEmailAddress:(id)arg1;
 - (id)pAliasWithIdentityLookupInfo:(id)arg1;
 - (id)notificationFromPPushMessage:(id)arg1;
@@ -39,8 +40,9 @@
 - (id)pShareFromShare:(id)arg1 forCache:(_Bool)arg2;
 - (id)shareFromPShare:(id)arg1 error:(id *)arg2;
 - (id)containerPrivacySettingsFromPContainerPrivacySettings:(id)arg1;
+- (unsigned long long)capabilitiesFromPZoneCapabilities:(id)arg1;
 - (id)pRecordZoneFromRecordZone:(id)arg1;
-- (id)recordZoneFromPRecordZone:(id)arg1 withDatabaseScope:(long long)arg2 error:(id *)arg3;
+- (id)recordZoneFromPRecordZone:(id)arg1 error:(id *)arg2;
 - (id)pSubscriptionFromSubscription:(id)arg1 error:(id *)arg2;
 - (id)subscriptionFromPSubscription:(id)arg1 error:(id *)arg2;
 - (id)pQueryFromQuery:(id)arg1 error:(id *)arg2;
@@ -52,6 +54,7 @@
 - (id)pRecordFromRecord:(id)arg1;
 - (id)pRecordFromRecord:(id)arg1 forCache:(_Bool)arg2;
 - (id)_pRecordFromRecordSansValues:(id)arg1 forCache:(_Bool)arg2;
+- (_Bool)_valueTypeIsAnEncryptedBytesTypeForField:(id)arg1;
 - (id)recordFromPRecord:(id)arg1 error:(id *)arg2;
 - (id)pReferenceFromReference:(id)arg1 error:(id *)arg2;
 - (id)referenceFromPReference:(id)arg1 error:(id *)arg2;
@@ -72,15 +75,19 @@
 @property(readonly, nonatomic) CKDPIdentifier *pUserID;
 - (_Bool)_isDefaultUserNameFromClient:(id)arg1;
 - (_Bool)_isDefaultUserNameFromServer:(id)arg1;
-- (id)initWithContainerScopedUserID:(id)arg1 bundleIdentifier:(id)arg2;
-- (id)_initWithContainerScopedUserID:(id)arg1 bundleIdentifier:(id)arg2;
+- (id)initWithContainerScopedUserID:(id)arg1 bundleIdentifier:(id)arg2 databaseScope:(long long)arg3;
+- (id)_initWithContainerScopedUserID:(id)arg1 bundleIdentifier:(id)arg2 databaseScope:(long long)arg3;
 - (id)pFieldWithKey:(id)arg1 value:(id)arg2;
 - (id)objectRepresentationFromFieldValue:(id)arg1;
+- (id)encryptedObjectRepresentationFromFieldValue:(id)arg1;
 - (id)fieldValueListOfType:(int)arg1 withList:(id)arg2;
 - (id)locationFieldValueWithLatitude:(double)arg1 longitude:(double)arg2;
 - (id)fieldValueOfType:(int)arg1 withObject:(id)arg2;
+- (id)encryptedFieldValueOfType:(int)arg1 withObject:(id)arg2;
 - (id)fieldValueFromObject:(id)arg1;
+- (_Bool)objectIsAnEncryptedType:(id)arg1;
 - (int)fieldValueTypeFromObject:(id)arg1;
+- (int)fieldValueTypeFromEncryptedDataObject:(id)arg1 isInList:(_Bool)arg2;
 
 @end
 

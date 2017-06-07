@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)displayStringWithCalculationEngine:(id)arg1 forTable:(struct __CFUUID *)arg2 andCellID:(struct TSUCellCoord)arg3;
+- (id)displayStringWithCalculationEngine:(id)arg1 forTable:(const UUIDData_5fbc143e *)arg2 andCellID:(struct TSUCellCoord)arg3;
 - (void)setIgnored:(_Bool)arg1;
 - (_Bool)isIgnored;
 - (id)type;

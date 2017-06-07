@@ -30,12 +30,13 @@
 @property(readonly, nonatomic) struct CGAffineTransform inverseViewToMaskTransform; // @synthesize inverseViewToMaskTransform=_inverseViewToMaskTransform;
 @property(nonatomic) struct CGAffineTransform viewToMaskTransform; // @synthesize viewToMaskTransform=_viewToMaskTransform;
 @property(nonatomic) struct CGSize maskSize; // @synthesize maskSize=_maskSize;
-@property(readonly, retain, nonatomic) NSMutableArray *layers; // @synthesize layers=_layers;
+@property(readonly, nonatomic) NSMutableArray *layers; // @synthesize layers=_layers;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (double)maskArea;
 - (_Bool)readyToDraw;
 - (_Bool)haveLayerMask;
-@property(nonatomic) NSDictionary *strokesDataDictionary;
+@property(nonatomic) __weak NSDictionary *strokesDataDictionary;
 - (double)timestamp;
 @property(nonatomic) double workingImageScaleFactor;
 @property(retain, nonatomic) UIImage *workingImage;

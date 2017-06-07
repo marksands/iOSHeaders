@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKMapViewDelegate-Protocol.h>
 
@@ -17,6 +17,7 @@
     NSObject<OS_xpc_object> *_connection;
     VKMapView *_mapView;
     struct shared_ptr<MITManager> _mitManager;
+    struct DebugTree _debugTree;
     _Bool _isActive;
 }
 
@@ -27,6 +28,7 @@
 - (void)mapLayer:(id)arg1 didChangeRegionAnimated:(_Bool)arg2;
 - (_Bool)takeMITSnapshot:(out id *)arg1;
 - (void)decodeMITreeData:(id)arg1;
+- (void)decodeDebugTreeData:(id)arg1;
 - (void)sendData:(id)arg1;
 - (void)recievedData:(id)arg1;
 - (void)handleXPCEvent:(id)arg1;

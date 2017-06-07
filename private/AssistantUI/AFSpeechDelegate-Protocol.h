@@ -6,7 +6,7 @@
 
 #import <AssistantUI/NSObject-Protocol.h>
 
-@class AFConnection, AFSpeechInterpretation, NSArray, NSError, NSString, SASSpeechPartialResult, SASSpeechRecognized;
+@class AFConnection, AFSpeechInterpretation, AFXPCWrapper, NSArray, NSError, NSString, SASSpeechPartialResult, SASSpeechRecognized;
 
 @protocol AFSpeechDelegate <NSObject>
 
@@ -26,7 +26,9 @@
 - (void)assistantConnection:(AFConnection *)arg1 speechRecordingPerformTwoShotPromptWithType:(long long)arg2 completion:(void (^)(double, double, NSError *))arg3;
 - (void)assistantConnectionSpeechRecordingDidDetectStartpoint:(AFConnection *)arg1;
 - (void)assistantConnection:(AFConnection *)arg1 speechRecordingDidChangeAVRecordRoute:(NSString *)arg2;
+- (void)assistantConnection:(AFConnection *)arg1 speechRecordingDidBeginOnAVRecordRoute:(NSString *)arg2 audioSessionID:(unsigned int)arg3;
 - (void)assistantConnection:(AFConnection *)arg1 speechRecordingDidBeginOnAVRecordRoute:(NSString *)arg2;
+- (void)assistantConnection:(AFConnection *)arg1 speechRecordingWillBeginWithInputAudioPowerXPCWrapper:(AFXPCWrapper *)arg2;
 - (void)assistantConnectionSpeechRecordingWillBegin:(AFConnection *)arg1;
 @end
 

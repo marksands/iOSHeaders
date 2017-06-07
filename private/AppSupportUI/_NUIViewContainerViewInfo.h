@@ -8,13 +8,20 @@
 
 @interface _NUIViewContainerViewInfo : NSObject
 {
+    struct nui_size_cache _sizeCache;
     struct UIEdgeInsets _customAlignmentInsets;
-    _Bool _baselineRelativeInsets;
-    _Bool _allowFastBaselines;
     double _customTopBaseline;
     double _customBottomBaseline;
+    struct {
+        unsigned int baselineRelativeInsets:1;
+        unsigned int allowFastBaselines:1;
+        unsigned int alsoInvalidateSuperview:1;
+        unsigned int neverCacheSize:1;
+    } _flags;
 }
 
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)init;
 
 @end

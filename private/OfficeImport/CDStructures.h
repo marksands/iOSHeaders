@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class EDString, NSDate, NSMutableArray, NSString, NSUUID, OITSUCustomFormat, WDBorder, WDShading, WDStyle;
+@class NSDate, NSMutableArray, NSString, NSUUID, OITSUCustomFormat, WDBorder, WDShading, WDStyle;
 
 #pragma mark Function Pointers and Blocks
 
@@ -525,10 +525,11 @@ struct EDBuildablePtg {
     unsigned short _field5;
     struct EDBuildablePtg *_field6;
     struct EDBuildablePtg *_field7;
-    _Bool _field8;
-    int _field9;
-    unsigned short _field10;
+    struct EDBuildablePtg *_field8;
+    _Bool _field9;
+    int _field10;
     unsigned short _field11;
+    unsigned short _field12;
 };
 
 struct EDCellAnchorMarker {
@@ -565,7 +566,7 @@ struct EDValue {
     union {
         _Bool boolean;
         double number;
-        EDString *string;
+        void *string;
         unsigned long long stringIndex;
         int error;
     } ;
@@ -1521,11 +1522,6 @@ struct TCFontStyling {
     int width;
 };
 
-struct TCTaggedMessageStructure {
-    int _field1;
-    id _field2;
-};
-
 struct TCXmlEnumDescription {
     int _field1;
     char *_field2;
@@ -1552,6 +1548,34 @@ struct TextRun;
 
 struct UID {
     unsigned char _field1[16];
+};
+
+struct UUIDData<TSP::UUIDData> {
+    union {
+        unsigned char _field1[16];
+        struct {
+            unsigned char _field1;
+            unsigned char _field2;
+            unsigned char _field3;
+            unsigned char _field4;
+            unsigned char _field5;
+            unsigned char _field6;
+            unsigned char _field7;
+            unsigned char _field8;
+            unsigned char _field9;
+            unsigned char _field10;
+            unsigned char _field11;
+            unsigned char _field12;
+            unsigned char _field13;
+            unsigned char _field14;
+            unsigned char _field15;
+            unsigned char _field16;
+        } _field2;
+        struct {
+            unsigned long long _field1;
+            unsigned long long _field2;
+        } _field3;
+    } _field1;
 };
 
 struct WBParagraphReadState {
@@ -4272,6 +4296,10 @@ struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<vo
     struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
 };
 
+struct __hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*> *__next_;
+};
+
 struct __sFILE {
     char *_field1;
     int _field2;
@@ -4579,6 +4607,10 @@ struct map<unsigned long, unsigned long, std::__1::less<unsigned long>, std::__1
     } __tree_;
 };
 
+struct os_unfair_lock_s {
+    unsigned int _os_unfair_lock_opaque;
+};
+
 struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerFlushingOrderLess, std::__1::allocator<TSUFlushableObjectInfo *>> {
     struct __tree<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerFlushingOrderLess, std::__1::allocator<TSUFlushableObjectInfo *>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -4618,6 +4650,36 @@ struct timeval {
     int tv_usec;
 };
 
+struct tsuSaPage {
+    CDUnknownFunctionPointerType *_field1;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*>> {
+                unsigned long long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unordered_set<TSU::UUIDData<TSP::UUIDData>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<TSU::UUIDData<TSP::UUIDData>>> {
+    struct __hash_table<TSU::UUIDData<TSP::UUIDData>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<TSU::UUIDData<TSP::UUIDData>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>, std::__1::allocator<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*> __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::hash<TSUUUID>> {
+            unsigned long long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
 struct vector<CGRect, std::__1::allocator<CGRect>> {
     struct CGRect *__begin_;
     struct CGRect *__end_;
@@ -4640,6 +4702,14 @@ struct vector<OADTablePartStyle *, std::__1::allocator<OADTablePartStyle *>> {
     struct __compressed_pair<OADTablePartStyle **, std::__1::allocator<OADTablePartStyle *>> {
         id *_field1;
     } _field3;
+};
+
+struct vector<TSU::UUIDData<TSP::UUIDData>, std::__1::allocator<TSU::UUIDData<TSP::UUIDData>>> {
+    UUIDData_60906e89 *__begin_;
+    UUIDData_60906e89 *__end_;
+    struct __compressed_pair<TSU::UUIDData<TSP::UUIDData>*, std::__1::allocator<TSU::UUIDData<TSP::UUIDData>>> {
+        UUIDData_60906e89 *__first_;
+    } __end_cap_;
 };
 
 struct vector<WBTextBoxReaderInfo, std::__1::allocator<WBTextBoxReaderInfo>> {
@@ -5073,9 +5143,10 @@ typedef struct {
 } CDStruct_214f2dba;
 
 typedef struct {
-    unsigned long long _field1;
-    unsigned long long _field2;
-} CDStruct_4bcfbbae;
+    unsigned long long numberOfColumns;
+    unsigned long long numberOfRows;
+    _Bool isConstantColumnCount;
+} CDStruct_6d33b4ba;
 
 typedef struct {
     unsigned long long _field1;
@@ -5083,6 +5154,11 @@ typedef struct {
     unsigned long long *_field3;
     unsigned long long _field4[5];
 } CDStruct_70511ce9;
+
+typedef struct {
+    unsigned short _field1;
+    unsigned short _field2;
+} CDStruct_d65e47c4;
 
 typedef struct {
     CDUnknownFunctionPointerType _field1;
@@ -5379,6 +5455,34 @@ typedef struct EshTablePropVal<EshPathCommand> {
     struct ChVector<EshPathCommand> _field2;
 } EshTablePropVal_ea625207;
 
+typedef struct UUIDData<TSP::UUIDData> {
+    union {
+        unsigned char _field1[16];
+        struct {
+            unsigned char _field1;
+            unsigned char _field2;
+            unsigned char _field3;
+            unsigned char _field4;
+            unsigned char _field5;
+            unsigned char _field6;
+            unsigned char _field7;
+            unsigned char _field8;
+            unsigned char _field9;
+            unsigned char _field10;
+            unsigned char _field11;
+            unsigned char _field12;
+            unsigned char _field13;
+            unsigned char _field14;
+            unsigned char _field15;
+            unsigned char _field16;
+        } _field2;
+        struct {
+            unsigned long long _field1;
+            unsigned long long _field2;
+        } _field3;
+    } _field1;
+} UUIDData_60906e89;
+
 typedef struct set<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
     struct __tree<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -5391,6 +5495,21 @@ typedef struct set<unsigned int, std::__1::less<unsigned int>, std::__1::allocat
     } _field1;
 } set_531c353a;
 
+typedef struct unordered_set<TSU::UUIDData<TSP::UUIDData>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<TSU::UUIDData<TSP::UUIDData>>> {
+    struct __hash_table<TSU::UUIDData<TSP::UUIDData>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<TSU::UUIDData<TSP::UUIDData>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*>, std::__1::allocator<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<TSU::UUIDData<TSP::UUIDData>, void *>*> __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::hash<TSUUUID>> {
+            unsigned long long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+} unordered_set_3f00ed57;
+
 typedef struct vector<CGRect, std::__1::allocator<CGRect>> {
     struct CGRect *__begin_;
     struct CGRect *__end_;
@@ -5399,14 +5518,18 @@ typedef struct vector<CGRect, std::__1::allocator<CGRect>> {
     } __end_cap_;
 } vector_b8c73e0a;
 
+typedef struct vector<TSU::UUIDData<TSP::UUIDData>, std::__1::allocator<TSU::UUIDData<TSP::UUIDData>>> {
+    UUIDData_60906e89 *__begin_;
+    UUIDData_60906e89 *__end_;
+    struct __compressed_pair<TSU::UUIDData<TSP::UUIDData>*, std::__1::allocator<TSU::UUIDData<TSP::UUIDData>>> {
+        UUIDData_60906e89 *__first_;
+    } __end_cap_;
+} vector_dadc1b26;
+
 #pragma mark Named Unions
 
 union EFData {
-    struct {
-        unsigned long long _field1;
-        unsigned long long _field2;
-        _Bool _field3;
-    } _field1;
+    CDStruct_6d33b4ba _field1;
     struct {
         unsigned long long _field1;
         void *_field2;

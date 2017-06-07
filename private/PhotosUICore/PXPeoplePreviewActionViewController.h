@@ -12,7 +12,6 @@
 @interface PXPeoplePreviewActionViewController : UIViewController
 {
     PXPersonItem *_personItem;
-    long long _localPersonType;
     UIImageView *_imageView;
     UIImage *_image;
     UIView *_placeholderView;
@@ -23,19 +22,17 @@
 @property(retain, nonatomic) UIView *placeholderView; // @synthesize placeholderView=_placeholderView;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
-@property(nonatomic) long long localPersonType; // @synthesize localPersonType=_localPersonType;
 @property(retain, nonatomic) PXPersonItem *personItem; // @synthesize personItem=_personItem;
 - (void).cxx_destruct;
+- (void)_removePerson;
 - (void)_toggleFaceCollectionFavorited;
-- (void)_toggleFaceCollectionHidden;
 - (void)_toggleForDesiredType:(long long)arg1;
-- (id)_localizedHideActionTitle;
+- (id)_localizedRemoveActionTitle;
 - (id)_localizedFavoriteActionTitle;
 - (id)previewActionItems;
 - (void)_updateImageView;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
-- (void)setPersonItem:(id)arg1 withLocalType:(long long)arg2;
 - (id)initWithDelegate:(id)arg1;
 
 @end

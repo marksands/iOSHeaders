@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     long long _cellState;
     NSString *_sessionID;
     NSObject<SFPersonCollectionViewCellDelegate> *_delegate;
+    double _activitySheetWidth;
     SFPersonImageView *_imageView;
     SFCircleProgressView *_circleProgressView;
     id _progressToken;
@@ -26,18 +27,36 @@ __attribute__((visibility("hidden")))
     UILabel *_secondLabel;
     NSArray *_secondLabelVisibleConstraintsArray;
     UIColor *_fadedSecondLabelColor;
+    UILabel *_labelForPositioning;
     UINotificationFeedbackGenerator *_notificationHaptic;
     UISelectionFeedbackGenerator *_selectionHaptic;
     UIImpactFeedbackGenerator *_impactHaptic;
     NSLayoutConstraint *_secondLabelFBConstraint;
+    NSLayoutConstraint *_cellWidthConstraint;
+    NSLayoutConstraint *_chickletToTitleSpacingConstraint;
+    NSLayoutConstraint *_nameFirstBaselineConstraint;
+    NSLayoutConstraint *_largeTextNameCenterYConstraint;
+    NSArray *_regularConstraints;
+    NSArray *_largeTextConstraints;
+    NSLayoutConstraint *_progressHeightConstraint;
+    NSLayoutConstraint *_progressWidthConstraint;
     UILabel *_nameLabel;
 }
 
 @property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(retain, nonatomic) NSLayoutConstraint *progressWidthConstraint; // @synthesize progressWidthConstraint=_progressWidthConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *progressHeightConstraint; // @synthesize progressHeightConstraint=_progressHeightConstraint;
+@property(retain, nonatomic) NSArray *largeTextConstraints; // @synthesize largeTextConstraints=_largeTextConstraints;
+@property(retain, nonatomic) NSArray *regularConstraints; // @synthesize regularConstraints=_regularConstraints;
+@property(retain, nonatomic) NSLayoutConstraint *largeTextNameCenterYConstraint; // @synthesize largeTextNameCenterYConstraint=_largeTextNameCenterYConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *nameFirstBaselineConstraint; // @synthesize nameFirstBaselineConstraint=_nameFirstBaselineConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *chickletToTitleSpacingConstraint; // @synthesize chickletToTitleSpacingConstraint=_chickletToTitleSpacingConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *cellWidthConstraint; // @synthesize cellWidthConstraint=_cellWidthConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *secondLabelFBConstraint; // @synthesize secondLabelFBConstraint=_secondLabelFBConstraint;
 @property(retain, nonatomic) UIImpactFeedbackGenerator *impactHaptic; // @synthesize impactHaptic=_impactHaptic;
 @property(retain, nonatomic) UISelectionFeedbackGenerator *selectionHaptic; // @synthesize selectionHaptic=_selectionHaptic;
 @property(retain, nonatomic) UINotificationFeedbackGenerator *notificationHaptic; // @synthesize notificationHaptic=_notificationHaptic;
+@property(retain, nonatomic) UILabel *labelForPositioning; // @synthesize labelForPositioning=_labelForPositioning;
 @property(retain, nonatomic) UIColor *fadedSecondLabelColor; // @synthesize fadedSecondLabelColor=_fadedSecondLabelColor;
 @property(retain, nonatomic) NSArray *secondLabelVisibleConstraintsArray; // @synthesize secondLabelVisibleConstraintsArray=_secondLabelVisibleConstraintsArray;
 @property(retain, nonatomic) UILabel *secondLabel; // @synthesize secondLabel=_secondLabel;
@@ -45,6 +64,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id progressToken; // @synthesize progressToken=_progressToken;
 @property(retain, nonatomic) SFCircleProgressView *circleProgressView; // @synthesize circleProgressView=_circleProgressView;
 @property(retain, nonatomic) SFPersonImageView *imageView; // @synthesize imageView=_imageView;
+@property(nonatomic) double activitySheetWidth; // @synthesize activitySheetWidth=_activitySheetWidth;
 @property(nonatomic) __weak NSObject<SFPersonCollectionViewCellDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *sessionID; // @synthesize sessionID=_sessionID;
 @property(nonatomic) _Bool stateBeingRestored; // @synthesize stateBeingRestored=_stateBeingRestored;
@@ -53,8 +73,11 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) SFAirDropNode *person; // @synthesize person=_person;
 @property(nonatomic) _Bool darkStyleOnLegacyApp; // @synthesize darkStyleOnLegacyApp=_darkStyleOnLegacyApp;
 - (void).cxx_destruct;
+- (struct CGSize)calculatedContentSizeForSheetWidth:(double)arg1 sizeCategory:(id)arg2;
 - (void)handleKVOUpdateForProgress:(id)arg1 keyPath:(id)arg2;
 - (void)handleKVOUpdateForPerson:(id)arg1 keyPath:(id)arg2;
+- (void)_updateForCurrentSizeCategory;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)triggerKVOForKeyPaths:(id)arg1 ofObject:(id)arg2;
 - (void)removeObserverOfValuesForKeyPaths:(id)arg1 ofObject:(id)arg2;
 - (void)addObserverOfValuesForKeyPaths:(id)arg1 ofObject:(id)arg2;
@@ -66,9 +89,10 @@ __attribute__((visibility("hidden")))
 - (void)updatePersonIconView;
 - (void)fireHapticsForState:(long long)arg1;
 - (void)deactivateHaptics;
+- (void)prepareHapticsPreWarm:(_Bool)arg1;
 - (void)prepareHaptics;
 - (void)restoreCellStateFromFinalTransferState:(long long)arg1;
-- (void)setCellState:(long long)arg1 animated:(_Bool)arg2;
+- (void)setCellState:(long long)arg1 animated:(_Bool)arg2 silent:(_Bool)arg3;
 - (void)setSelected:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)prepareForReuse;

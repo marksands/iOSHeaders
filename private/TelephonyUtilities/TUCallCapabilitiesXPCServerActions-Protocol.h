@@ -9,18 +9,18 @@
 @class NSString;
 
 @protocol TUCallCapabilitiesXPCServerActions <NSObject>
-- (void)endEmergencyCallbackMode;
-- (void)cancelPinRequestFromPrimaryDevice;
-- (void)requestPinFromPrimaryDevice;
-- (void)invalidateAndRefreshThumperCallingProvisioningURL;
-- (void)invalidateAndRefreshWiFiCallingProvisioningURL;
-- (void)setRelayCallingEnabled:(_Bool)arg1 forDeviceWithID:(NSString *)arg2;
-- (void)setThumperCallingAllowedOnDefaultPairedDevice:(_Bool)arg1;
-- (void)setThumperCallingAllowed:(_Bool)arg1 onSecondaryDeviceWithID:(NSString *)arg2;
-- (void)setRelayCallingEnabled:(_Bool)arg1;
-- (void)setThumperCallingEnabled:(_Bool)arg1;
-- (void)setVoLTECallingEnabled:(_Bool)arg1;
-- (void)setWiFiCallingRoamingEnabled:(_Bool)arg1;
-- (void)setWiFiCallingEnabled:(_Bool)arg1;
+- (oneway void)endEmergencyCallbackMode;
+- (oneway void)cancelPinRequestFromPrimaryDevice;
+- (oneway void)requestPinFromPrimaryDevice;
+- (oneway void)invalidateAndRefreshThumperCallingProvisioningURL;
+- (oneway void)invalidateAndRefreshWiFiCallingProvisioningURL;
+- (oneway void)setRelayCallingEnabled:(_Bool)arg1 forDeviceWithID:(NSString *)arg2;
+- (oneway void)setThumperCallingAllowedOnDefaultPairedDevice:(_Bool)arg1;
+- (oneway void)setThumperCallingAllowed:(_Bool)arg1 onSecondaryDeviceWithID:(NSString *)arg2;
+- (oneway void)setRelayCallingEnabled:(_Bool)arg1;
+- (oneway void)setThumperCallingEnabled:(_Bool)arg1;
+- (oneway void)setVoLTECallingEnabled:(_Bool)arg1;
+- (oneway void)setWiFiCallingRoamingEnabled:(_Bool)arg1;
+- (oneway void)setWiFiCallingEnabled:(_Bool)arg1;
 @end
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AVCaptureDevice, AVCaptureDeviceFormat, AVCaptureDeviceInput, AVCaptureMetadataOutput, AVCaptureMovieFileOutput, AVCapturePhotoOutput, AVCaptureSession, AVCaptureStillImageOutput, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, CAMCaptureEngine, CAMPanoramaConfiguration, CAMPanoramaOutput, NSString;
+@class AVCaptureDevice, AVCaptureDeviceFormat, AVCaptureDeviceInput, AVCaptureMetadataOutput, AVCaptureMovieFileOutput, AVCapturePhotoOutput, AVCaptureSession, AVCaptureVideoDataOutput, AVCaptureVideoPreviewLayer, CAMCaptureEngine, CAMPanoramaConfiguration, CAMPanoramaOutput, NSString;
 @protocol AVCaptureFileOutputRecordingDelegate, AVCapturePhotoCaptureDelegate;
 
 @interface CAMCaptureCommandContext : NSObject
@@ -14,11 +14,11 @@
     AVCaptureSession *_currentCaptureSession;
     AVCaptureDevice *_currentVideoDevice;
     AVCaptureDeviceFormat *_currentVideoDeviceFormat;
+    AVCaptureDeviceFormat *_currentDepthDataFormat;
     NSString *_currentVideoDevicePreset;
     AVCaptureDeviceInput *_currentVideoDeviceInput;
     AVCaptureDevice *_currentAudioDevice;
     AVCaptureDeviceInput *_currentAudioDeviceInput;
-    AVCaptureStillImageOutput *_currentLegacyStillImageOutput;
     AVCapturePhotoOutput *_currentStillImageOutput;
     AVCaptureMovieFileOutput *_currentMovieFileOutput;
     CAMPanoramaOutput *_currentPanoramaOutput;
@@ -35,11 +35,11 @@
 @property(retain, nonatomic) CAMPanoramaOutput *currentPanoramaOutput; // @synthesize currentPanoramaOutput=_currentPanoramaOutput;
 @property(retain, nonatomic) AVCaptureMovieFileOutput *currentMovieFileOutput; // @synthesize currentMovieFileOutput=_currentMovieFileOutput;
 @property(retain, nonatomic) AVCapturePhotoOutput *currentStillImageOutput; // @synthesize currentStillImageOutput=_currentStillImageOutput;
-@property(retain, nonatomic) AVCaptureStillImageOutput *currentLegacyStillImageOutput; // @synthesize currentLegacyStillImageOutput=_currentLegacyStillImageOutput;
 @property(retain, nonatomic) AVCaptureDeviceInput *currentAudioDeviceInput; // @synthesize currentAudioDeviceInput=_currentAudioDeviceInput;
 @property(retain, nonatomic) AVCaptureDevice *currentAudioDevice; // @synthesize currentAudioDevice=_currentAudioDevice;
 @property(retain, nonatomic) AVCaptureDeviceInput *currentVideoDeviceInput; // @synthesize currentVideoDeviceInput=_currentVideoDeviceInput;
 @property(retain, nonatomic) NSString *currentVideoDevicePreset; // @synthesize currentVideoDevicePreset=_currentVideoDevicePreset;
+@property(retain, nonatomic) AVCaptureDeviceFormat *currentDepthDataFormat; // @synthesize currentDepthDataFormat=_currentDepthDataFormat;
 @property(retain, nonatomic) AVCaptureDeviceFormat *currentVideoDeviceFormat; // @synthesize currentVideoDeviceFormat=_currentVideoDeviceFormat;
 @property(retain, nonatomic) AVCaptureDevice *currentVideoDevice; // @synthesize currentVideoDevice=_currentVideoDevice;
 @property(retain, nonatomic) AVCaptureSession *currentCaptureSession; // @synthesize currentCaptureSession=_currentCaptureSession;
@@ -58,8 +58,6 @@
 - (void)registerVideoCaptureRequest:(id)arg1;
 @property(readonly, nonatomic) __weak id <AVCapturePhotoCaptureDelegate> currentStillImageDelegate;
 - (void)registerStillImageCaptureRequest:(id)arg1 withSettings:(id)arg2;
-- (void)legacyStillImageRequest:(id)arg1 didCompleteCaptureWithResult:(id)arg2;
-- (void)registerLegacyStillImageCaptureRequest:(id)arg1;
 - (id)initWithCaptureEngine:(id)arg1;
 
 @end

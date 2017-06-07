@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSConditionLock, NSMapTable, NSMutableArray, NSString, VMUProcessDescription, VMUTaskMemoryCache;
+@class NSConditionLock, NSMapTable, NSMutableArray, NSMutableDictionary, NSString, VMUProcessDescription, VMUTaskMemoryCache;
 
 @interface VMUSampler : NSObject
 {
@@ -16,15 +16,17 @@
     _Bool _needTaskPortDealloc;
     _Bool _recordThreadStates;
     _Bool _taskIs64Bit;
+    _Bool _sampling;
+    unsigned int _numberOfCopiedBacktraces;
     NSString *_processName;
     VMUProcessDescription *_processDescription;
     struct _CSTypeRef _symbolicator;
     VMUTaskMemoryCache *_memCache;
     struct sampling_context_t *_samplingContext;
-    unsigned int _mainThread;
     NSMapTable *_lastThreadBacktraceMap;
-    unsigned int _numberOfCopiedBacktraces;
     unsigned int *_previousThreadList;
+    unsigned int _mainThread;
+    unsigned int _samplingThreadPort;
     unsigned int _previousThreadCount;
     unsigned int _maxPreviousThreadCount;
     double _tbRate;
@@ -33,8 +35,6 @@
     double _interval;
     double _timeLimit;
     unsigned int _sampleLimit;
-    _Bool _sampling;
-    unsigned int _samplingThreadPort;
     unsigned int _numberOfSamples;
     NSMutableArray *_samples;
     _Bool _stacksFixed;
@@ -44,14 +44,15 @@
     unsigned int _dispatchThreadSoftLimitCount;
     unsigned int _dispatchThreadHardLimit;
     unsigned int _dispatchThreadHardLimitCount;
-    NSMapTable *_threadPortToNameMap;
-    NSMapTable *_dispatchQueueSerialNumToNameMap;
+    NSMutableDictionary *_threadPortToNameMap;
+    NSMutableDictionary *_dispatchQueueSerialNumToNameMap;
 }
 
 + (id)sampleAllThreadsOfTask:(unsigned int)arg1 symbolicate:(_Bool)arg2;
 + (id)sampleAllThreadsOfTask:(unsigned int)arg1;
 + (id)sampleAllThreadsOfPID:(int)arg1;
 + (void)initialize;
+- (void).cxx_destruct;
 - (void)writeOutput:(id)arg1 append:(_Bool)arg2;
 - (id)createOutput;
 - (id)outputString;

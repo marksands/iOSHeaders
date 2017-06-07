@@ -6,9 +6,10 @@
 
 #import <Navigation/NSObject-Protocol.h>
 
-@class GEOComposedRouteStep, NSArray;
+@class GEOComposedRouteStep, NSArray, NSString;
 
 @protocol GEOServerFormattedStepStringFormatter <NSObject>
-- (NSArray *)stringsForStep:(GEOComposedRouteStep *)arg1;
+- (NSArray *)signInstructionsForStep:(GEOComposedRouteStep *)arg1;
+- (NSString *)listInstructionForStep:(GEOComposedRouteStep *)arg1;
 @end
 

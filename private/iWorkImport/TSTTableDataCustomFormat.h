@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataCustomFormat : TSTTableDataObject
 {
-    TSUCustomFormat *mCustomFormat;
+    TSUCustomFormat *_customFormat;
 }
 
-@property(readonly, nonatomic) TSUCustomFormat *customFormat; // @synthesize customFormat=mCustomFormat;
-- (void)dealloc;
+@property(readonly, nonatomic) TSUCustomFormat *customFormat; // @synthesize customFormat=_customFormat;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

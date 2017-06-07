@@ -11,7 +11,9 @@
 }
 
 + (id)defaultManager;
++ (void)initialize;
 - (void)notifyIndexer;
+- (_Bool)siriSuggestionsEnabled;
 - (void)applicationWasUninstalled:(id)arg1;
 - (void)registerApplication:(id)arg1 withCategories:(id)arg2;
 - (id)getBundleIdForDomainNumber:(id)arg1;

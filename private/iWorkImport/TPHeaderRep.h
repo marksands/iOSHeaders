@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)p_isMiddleHeaderRep;
 - (_Bool)p_shouldCreateArrowKnobs;
 - (_Bool)p_isInDocumentSetup;
+- (_Bool)shouldShowHyperlinkUI;
 - (_Bool)shouldIgnoreSingleTapAtPoint:(struct CGPoint)arg1 withRecognizer:(id)arg2;
 @property(readonly, nonatomic) TPPaginatedPageInfo *pageInfo;
 - (id)pageLayout;

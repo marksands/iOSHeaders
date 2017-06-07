@@ -8,46 +8,49 @@
 
 #import <HealthDaemon/HDDataObserver-Protocol.h>
 #import <HealthDaemon/HDDatabaseProtectedDataObserver-Protocol.h>
-#import <HealthDaemon/HKQueryServer-Protocol.h>
+#import <HealthDaemon/HKQueryServerInterface-Protocol.h>
 
-@class HDProfile, HKObjectType, HKSampleType, NSDictionary, NSString, NSUUID, _HKFilter;
-@protocol HDQueryServerDelegate, NSXPCProxyCreating, OS_dispatch_queue, OS_dispatch_semaphore;
+@class HDProfile, HDXPCClient, HKObjectType, HKQuantityType, HKQueryServerConfiguration, HKSampleType, NSDictionary, NSString, NSUUID, _HKFilter;
+@protocol HDQueryServerDelegate, HKQueryClientInterface><NSXPCProxyCreating, OS_dispatch_queue;
 
-@interface HDQueryServer : NSObject <HDDatabaseProtectedDataObserver, HKQueryServer, HDDataObserver>
+@interface HDQueryServer : NSObject <HDDatabaseProtectedDataObserver, HKQueryServerInterface, HDDataObserver>
 {
-    NSObject<OS_dispatch_queue> *_unitTestQueryQueue;
-    _Bool _unitTestShouldWaitForQueryStart;
-    int _unitTestSamplesBeforeSuspend;
-    NSObject<OS_dispatch_semaphore> *_unitTestActivationSemaphore;
-    NSObject<OS_dispatch_semaphore> *_unitTestProcessSuspendedSemaphore;
-    CDUnknownBlockType _unitTestQueryStateHandler;
-    CDUnknownBlockType _unitTestBatchLimitSuspendProcessHandler;
     _Bool _didEndActivationTransaction;
     _Bool _observingData;
     NSDictionary *_baseDataEntityEncodingOptions;
+    HKQueryServerConfiguration *_configuration;
+    CDUnknownBlockType _queryDidFinishHandler;
     int _shouldFinish;
     int _shouldPause;
+    NSObject<OS_dispatch_queue> *_unitTestQueryQueue;
     NSUUID *_queryUUID;
     _HKFilter *_filter;
-    id <NSXPCProxyCreating> _clientProxy;
+    id <HKQueryClientInterface><NSXPCProxyCreating> _clientProxy;
+    HDXPCClient *_client;
     HDProfile *_profile;
     id <HDQueryServerDelegate> _delegate;
     long long _queryState;
     double _collectionInterval;
     HKObjectType *_objectType;
+    CDUnknownBlockType _unitTest_queryServerSetShouldPauseHandler;
+    CDUnknownBlockType _unitTest_queryServerWillChangeStateHandler;
     NSObject<OS_dispatch_queue> *_queryQueue;
 }
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queryQueue; // @synthesize queryQueue=_queryQueue;
+@property(copy, nonatomic) CDUnknownBlockType unitTest_queryServerWillChangeStateHandler; // @synthesize unitTest_queryServerWillChangeStateHandler=_unitTest_queryServerWillChangeStateHandler;
+@property(copy, nonatomic) CDUnknownBlockType unitTest_queryServerSetShouldPauseHandler; // @synthesize unitTest_queryServerSetShouldPauseHandler=_unitTest_queryServerSetShouldPauseHandler;
 @property(readonly, nonatomic) HKObjectType *objectType; // @synthesize objectType=_objectType;
 @property(nonatomic) double collectionInterval; // @synthesize collectionInterval=_collectionInterval;
-@property(nonatomic) long long queryState; // @synthesize queryState=_queryState;
+@property(readonly, nonatomic) long long queryState; // @synthesize queryState=_queryState;
 @property(readonly, nonatomic) __weak id <HDQueryServerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
-@property(readonly, nonatomic) id <NSXPCProxyCreating> clientProxy; // @synthesize clientProxy=_clientProxy;
+@property(readonly, nonatomic) HDXPCClient *client; // @synthesize client=_client;
+@property(readonly, nonatomic) id <HKQueryClientInterface><NSXPCProxyCreating> clientProxy; // @synthesize clientProxy=_clientProxy;
 @property(readonly, nonatomic) _HKFilter *filter; // @synthesize filter=_filter;
-@property(readonly, nonatomic) NSUUID *queryUUID; // @synthesize queryUUID=_queryUUID;
+@property(readonly, copy, nonatomic) NSUUID *queryUUID; // @synthesize queryUUID=_queryUUID;
 - (void).cxx_destruct;
+@property(readonly, copy) NSString *description;
 - (id)_queryStateString;
 - (id)diagnosticDescription;
 - (id)_predicateString;
@@ -56,8 +59,6 @@
 - (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
 - (void)samplesOfTypesWereRemoved:(id)arg1 anchor:(id)arg2;
 - (void)samplesAdded:(id)arg1 anchor:(id)arg2;
-- (void)_batchSamplesWithLimit:(unsigned long long)arg1 anchor:(id)arg2 includeDeletedObjects:(_Bool)arg3 batchHandler:(CDUnknownBlockType)arg4;
-- (void)_batchSamplesWithLimit:(unsigned long long)arg1 sortDescriptors:(id)arg2 anchor:(id)arg3 batchHandler:(CDUnknownBlockType)arg4;
 - (_Bool)_shouldExecuteWhenProtectedDataIsUnavailable;
 - (_Bool)_queue_validateConfiguration:(id *)arg1;
 - (void)_queue_endObservingDataTypes;
@@ -68,17 +69,22 @@
 - (_Bool)_shouldObserveAllSampleTypes;
 - (id)_sampleTypeToObserveForUpdates;
 - (_Bool)_shouldListenForUpdates;
+- (id)requiredEntitlements;
 - (id)newDataEntityEnumerator;
-- (_Bool)_isAuthorizedToReadType:(id)arg1 withRestrictedSourceIdentifier:(id *)arg2 authorizationAnchor:(id *)arg3;
-- (_Bool)_isAuthorizedToReadType:(id)arg1 withRestrictedSourceIdentifier:(id *)arg2;
+- (id)readAuthorizationStatusForType:(id)arg1 error:(id *)arg2;
 - (CDUnknownBlockType)sampleAuthorizationFilter;
 - (void)onQueue:(CDUnknownBlockType)arg1;
 - (void)scheduleDatabaseAccessOnQueueWithBlock:(CDUnknownBlockType)arg1;
+@property(readonly) _Bool clientHasActiveWorkout;
+@property(readonly) _Bool clientIsInForeground;
+- (void)setShouldPause:(_Bool)arg1;
+@property(readonly, nonatomic) HKQuantityType *quantityType;
 @property(readonly, nonatomic) HKSampleType *sampleType;
+- (void)remote_deactivateServer;
 - (void)clientStateChanged;
 - (void)_queue_stopDataCollection;
 - (void)_queue_startDataCollection;
-- (void)_queue_setQueueState:(long long)arg1;
+- (void)_queue_setQueryState:(long long)arg1;
 - (void)_queue_transitionToSuspendedState:(long long)arg1;
 - (void)_queue_transitionToPaused;
 - (void)_queue_transitionToFinished;
@@ -90,29 +96,18 @@
 - (void)pauseServerValidateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)pauseServer;
 - (void)deactivateServerWithCompletion:(CDUnknownBlockType)arg1;
-- (void)deactivateServer;
 - (void)_queue_startQueryIfNecessary;
 - (void)_scheduleStartQuery;
 - (void)_queue_closeActivationTransactionIfNecessary;
+- (void)setQueryDidFinishHandler:(CDUnknownBlockType)arg1;
 - (void)activateServerWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_activationTransactionString;
 - (void)dealloc;
 - (id)initWithQueryUUID:(id)arg1 dataObject:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
-- (void)_unitTestProcessResume;
-- (void)_unitTestBatchLimitReachedWaitTimeoutSeconds:(unsigned long long)arg1;
-@property(copy, nonatomic, getter=_unitTestBatchLimitSuspendProcessHandler, setter=_setUnitTestBatchLimitSuspendProcessHandler:) CDUnknownBlockType unitTestBatchLimitSuspendProcessHandler;
-- (void)_unitTestQueryStateChange:(long long)arg1;
-@property(copy, nonatomic, getter=_unitTestQueryStateHandler, setter=_setUnitTestQueryStateHandler:) CDUnknownBlockType unitTestQueryStateHandler;
-- (void)_unitTestResumeActivation;
-- (void)_unitTestWaitForResumeActivationTimeoutSeconds:(unsigned long long)arg1;
-- (void)_unitTestPrepareToWaitForResumeAction;
-@property(nonatomic, getter=_unitTestShouldWaitForQueryStart, setter=_setUnitTestShouldWaitForQueryStart:) _Bool unitTestShouldWaitForQueryStart;
-@property(nonatomic, getter=_unitTestSamplesBeforeSuspend, setter=_setUnitTestSamplesBeforeSuspend:) int unitTestSamplesBeforeSuspend;
-- (void)_unitTestInitWithDataObject:(id)arg1 queueTag:(id)arg2;
+- (id)initWithQueryUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

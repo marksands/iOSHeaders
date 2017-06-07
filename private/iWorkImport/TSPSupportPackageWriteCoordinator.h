@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (_Bool)wasComponentCopied:(long long)arg1;
 - (long long)componentIdentifierForObjectIdentifier:(long long)arg1 objectOrNil:(id)arg2 objectUUIDOrNil:(id)arg3;
 - (id)objectForIdentifier:(long long)arg1;
 - (_Bool)componentWriter:(id)arg1 externalPackageDidWriteObject:(id)arg2 claimingComponent:(id *)arg3;

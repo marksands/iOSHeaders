@@ -21,10 +21,13 @@
     PKProtobufPaymentMerchantSession *_merchantSession;
     NSString *_originatingURL;
     unsigned int _requiredBillingAddressFields;
+    NSMutableArray *_requiredBillingContactFields;
     unsigned int _requiredShippingAddressFields;
+    NSMutableArray *_requiredShippingContactFields;
     NSData *_shippingContact;
     NSMutableArray *_shippingMethods;
     NSMutableArray *_summaryItems;
+    NSMutableArray *_supportedCountries;
     NSMutableArray *_supportedNetworks;
     NSMutableArray *_thumbnailURLs;
     _Bool _expectsMerchantSession;
@@ -36,10 +39,16 @@
     } _has;
 }
 
++ (Class)supportedCountriesType;
++ (Class)requiredBillingContactFieldsType;
++ (Class)requiredShippingContactFieldsType;
 + (Class)thumbnailURLsType;
 + (Class)shippingMethodsType;
 + (Class)summaryItemsType;
 + (Class)supportedNetworksType;
+@property(retain, nonatomic) NSMutableArray *supportedCountries; // @synthesize supportedCountries=_supportedCountries;
+@property(retain, nonatomic) NSMutableArray *requiredBillingContactFields; // @synthesize requiredBillingContactFields=_requiredBillingContactFields;
+@property(retain, nonatomic) NSMutableArray *requiredShippingContactFields; // @synthesize requiredShippingContactFields=_requiredShippingContactFields;
 @property(nonatomic) _Bool expectsMerchantSession; // @synthesize expectsMerchantSession=_expectsMerchantSession;
 @property(retain, nonatomic) NSMutableArray *thumbnailURLs; // @synthesize thumbnailURLs=_thumbnailURLs;
 @property(retain, nonatomic) PKProtobufPaymentMerchantSession *merchantSession; // @synthesize merchantSession=_merchantSession;
@@ -66,6 +75,18 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)supportedCountriesAtIndex:(unsigned long long)arg1;
+- (unsigned long long)supportedCountriesCount;
+- (void)addSupportedCountries:(id)arg1;
+- (void)clearSupportedCountries;
+- (id)requiredBillingContactFieldsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)requiredBillingContactFieldsCount;
+- (void)addRequiredBillingContactFields:(id)arg1;
+- (void)clearRequiredBillingContactFields;
+- (id)requiredShippingContactFieldsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)requiredShippingContactFieldsCount;
+- (void)addRequiredShippingContactFields:(id)arg1;
+- (void)clearRequiredShippingContactFields;
 @property(nonatomic) _Bool hasExpectsMerchantSession;
 - (id)thumbnailURLsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)thumbnailURLsCount;

@@ -40,7 +40,7 @@
 - (id)activeDownloadForAppID:(id)arg1;
 - (id)doNotBackupAppIDs;
 - (_Bool)applyRedemptionCode:(id)arg1 forBundleID:(id)arg2 assertion:(id)arg3 outError:(id *)arg4;
-- (void)_uninstallApplication:(id)arg1;
+- (void)uninstallApplication:(id)arg1;
 - (void)uninstallManagedAppsAccordingToFlagsWithAssertion:(id)arg1;
 - (void)installManifestURL:(id)arg1 managementFlags:(int)arg2 changeManagementState:(int)arg3 attributes:(id)arg4 configuration:(id)arg5 assertion:(id)arg6 completionBlock:(CDUnknownBlockType)arg7;
 - (void)_completePurchaseWithBundleID:(id)arg1 error:(id)arg2 assertion:(id)arg3;

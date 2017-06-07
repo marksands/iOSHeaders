@@ -21,6 +21,7 @@
 
 @property(nonatomic) __weak id <BLTSectionInfoListProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)enableNotifications:(_Bool)arg1 sectionID:(id)arg2 mirror:(_Bool)arg3;
 - (id)_loadOverridesChangedSince:(id)arg1;
 - (void)_reloadUpdatedOverridesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_reloadUpdatedOverrides;

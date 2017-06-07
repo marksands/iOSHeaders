@@ -25,6 +25,14 @@ struct CGSize {
     double height;
 };
 
+struct CLKUIGLUniforms {
+    int rotation;
+    int sampleRadius;
+    int sampleCenter;
+    int primaryTexture;
+    int secondaryTexture;
+};
+
 struct NSNumber {
     Class _field1;
 };

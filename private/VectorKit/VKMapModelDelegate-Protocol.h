@@ -6,8 +6,7 @@
 
 #import <VectorKit/NSObject-Protocol.h>
 
-@class NSError, VKMapModel, VKOverlayPainter;
-@protocol VKOverlay;
+@class NSError, VKMapModel;
 
 @protocol VKMapModelDelegate <NSObject>
 - (void)mapModelDidUpdateMinMaxZoomLevel:(VKMapModel *)arg1;
@@ -21,7 +20,6 @@
 - (void)mapModelDidBecomeFullyDrawn:(VKMapModel *)arg1 hasFailedTiles:(_Bool)arg2;
 - (void)mapModelWillBecomeFullyDrawn:(VKMapModel *)arg1;
 - (void)mapModelDidBecomePartiallyDrawn:(VKMapModel *)arg1;
-- (VKOverlayPainter *)mapModel:(VKMapModel *)arg1 painterForOverlay:(id <VKOverlay>)arg2;
 
 @optional
 - (void)mapModelStylesheetDidChange:(VKMapModel *)arg1;

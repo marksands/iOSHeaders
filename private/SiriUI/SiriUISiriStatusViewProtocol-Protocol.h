@@ -10,6 +10,7 @@
 @protocol SiriUISiriStatusViewDelegate;
 
 @protocol SiriUISiriStatusViewProtocol <NSObject>
+@property(nonatomic) _Bool paused;
 @property(nonatomic, getter=isInUITrackingMode) _Bool inUITrackingMode;
 @property(nonatomic) _Bool flamesViewDeferred;
 @property(readonly, nonatomic) UIView *flamesContainerView;

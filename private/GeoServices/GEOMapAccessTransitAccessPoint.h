@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMapTransitAccessPoint-Protocol.h>
 
@@ -37,7 +37,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *internalName;
 @property(readonly, nonatomic) unsigned long long transitID;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
-- (void)dealloc;
 - (id)initWithMap:(id)arg1 accessPoint:(shared_ptr_4792c490)arg2;
 
 // Remaining properties

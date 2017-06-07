@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSString *displayRegion; // @synthesize displayRegion=_displayRegion;
 @property(retain, nonatomic) NSString *deviceCountryCode; // @synthesize deviceCountryCode=_deviceCountryCode;
 @property(retain, nonatomic) NSMutableArray *locations; // @synthesize locations=_locations;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

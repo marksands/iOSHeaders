@@ -16,7 +16,10 @@
 }
 
 + (id)_templateTreeNodeWithXMLNode:(struct _xmlNode *)arg1 parentNode:(id)arg2;
++ (void)findNodesInXmlTree:(struct _xmlDoc *)arg1 styleNode:(struct _xmlNode **)arg2 templateNode:(struct _xmlNode **)arg3;
++ (void)resolveEmbeddedTemplatesInXmlTree:(struct _xmlNode *)arg1;
 + (struct _xmlDoc *)xmlTreeWithData:(id)arg1 error:(id *)arg2;
++ (struct _xmlDoc *)xmlTreeForTemplateName:(id)arg1;
 + (void)coalesceTrees:(struct _xmlNode *)arg1 overridingTree:(struct _xmlNode *)arg2 forcedTemplateName:(id)arg3;
 + (id)styleSheetForTemplateName:(id)arg1;
 + (void)registerStyleSheetURL:(id)arg1 parentStyleSheets:(id)arg2 forTemplateName:(id)arg3;

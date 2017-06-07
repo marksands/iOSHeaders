@@ -6,24 +6,24 @@
 
 #import <UIKit/UIView.h>
 
-#import <CoreSuggestionsUI/EKEventViewDelegate-Protocol.h>
-#import <CoreSuggestionsUI/EKEventViewDelegatePrivate-Protocol.h>
 #import <CoreSuggestionsUI/SGUIEventsAndContactsTableViewControllerDelegate-Protocol.h>
+#import <CoreSuggestionsUI/UIPopoverPresentationControllerDelegate-Protocol.h>
 
-@class NSArray, NSLayoutConstraint, NSMutableSet, NSString, SGRealtimeContact, SGRealtimeEvent, UIButton, UIImage, UIImageView, UILabel, UITapGestureRecognizer;
-@protocol SGUIBannerViewDelegate;
+@class NSArray, NSLayoutConstraint, NSMutableSet, NSString, SGUISuggestionConfirmationController, UIButton, UIImage, UIImageView, UILabel, UITapGestureRecognizer;
+@protocol SGRealtimeSuggestion, SGUIBannerViewDelegate;
 
-@interface SGUIBannerView : UIView <EKEventViewDelegate, EKEventViewDelegatePrivate, SGUIEventsAndContactsTableViewControllerDelegate>
+@interface SGUIBannerView : UIView <UIPopoverPresentationControllerDelegate, SGUIEventsAndContactsTableViewControllerDelegate>
 {
-    SGRealtimeEvent *_currentEventSuggestion;
-    SGRealtimeContact *_currentContactSuggestion;
+    SGUISuggestionConfirmationController *_confirmationController;
     NSMutableSet *_doneSuggestions;
     NSArray *_singleBannerImageConstraints;
     NSArray *_multipleBannerImageConstraints;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    NSLayoutConstraint *_guideTopConstraint;
     NSLayoutConstraint *_titleBaselineConstraint;
     NSLayoutConstraint *_subtitleBaselineConstraint;
     NSLayoutConstraint *_buttonBaselineConstraint;
+    id <SGRealtimeSuggestion> _suggestionBeingConfirmed;
     id <SGUIBannerViewDelegate> _delegate;
     UIButton *_closeButton;
     UIButton *_addButton;
@@ -39,13 +39,13 @@
 + (id)_cancelImage;
 + (id)_contactsImage;
 + (id)_calendarImage;
-+ (id)_suggestionsService;
 + (double)bannerHeightConstant;
 + (double)interLabelBaselineDeltaConstant;
 + (double)topMarginConstant;
 + (id)buttonFont;
 + (id)subtitleFont;
 + (id)titleFont;
++ (id)bannerViewForSuggestions:(id)arg1;
 + (id)bannerViewForEventSuggestions:(id)arg1 contactSuggestions:(id)arg2;
 @property(copy, nonatomic) NSArray *orderedSuggestions; // @synthesize orderedSuggestions=_orderedSuggestions;
 @property(retain, nonatomic) UIImageView *disclosureImageView; // @synthesize disclosureImageView=_disclosureImageView;
@@ -57,11 +57,17 @@
 @property(retain, nonatomic) UIButton *closeButton; // @synthesize closeButton=_closeButton;
 @property(nonatomic) __weak id <SGUIBannerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (_Bool)eventViewControllerShouldAlwaysShowNavBar:(id)arg1;
-- (void)eventViewController:(id)arg1 didCompleteWithAction:(long long)arg2;
-- (void)controller:(id)arg1 wantsToConfirmSuggestion:(id)arg2;
-- (void)controller:(id)arg1 wantsToIgnoreSuggestion:(id)arg2;
-- (void)_contentSizeCategoryDidChange:(id)arg1;
+- (void)_dismissPresentedViewController:(id)arg1;
+- (id)_presentedControllerCancelButtonItem;
+- (id)_presentedControllerDoneButtonItem;
+- (void)_dismissViewControllerAnimated:(_Bool)arg1;
+- (void)_presentModalViewController:(id)arg1 fromSourceView:(id)arg2;
+- (void)_presentModalViewControllerFromButton:(id)arg1;
+- (id)_presentingViewController;
+- (void)_hideMe;
+- (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
+- (_Bool)popoverPresentationControllerShouldDismissPopover:(id)arg1;
+- (void)presentationController:(id)arg1 willPresentWithAdaptiveStyle:(long long)arg2 transitionCoordinator:(id)arg3;
 - (unsigned long long)numberOfSuggestions;
 - (_Bool)areMultipleSuggestionsPresent;
 - (id)disclosureImagePressed;
@@ -71,21 +77,26 @@
 @property(readonly, copy, nonatomic) NSArray *currentSuggestionGroup;
 - (void)controller:(id)arg1 doneWithSuggestion:(id)arg2;
 - (id)_filterRealtimeSuggestions:(id)arg1 forClass:(Class)arg2;
-- (void)_rejectSuggestion:(id)arg1;
+- (id)popoverSourceView;
 - (void)confirmEventSuggestion;
 - (void)confirmContactSuggestion;
-- (id)popoverSourceView;
+- (void)_confirmCurrentSuggestion;
 - (void)_confirmSuggestion:(id)arg1;
 - (void)_dismissBannerRejectSuggestion:(_Bool)arg1;
 - (void)dismissBanner:(id)arg1;
 - (void)_tapGestureRecognized:(id)arg1;
 - (id)_findSuggestionsOfClass:(Class)arg1;
+- (id)addButtonTitle;
+- (void)updateFonts;
 - (void)_updateUI;
 - (void)_update;
+- (void)_contentSizeCategoryDidChange:(id)arg1;
+- (void)updateConstraints;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)_installLayoutConstraints;
 - (void)_setupViews;
+- (id)initWithSuggestions:(id)arg1;
 - (id)initWithEventSuggestions:(id)arg1 contactSuggestions:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 

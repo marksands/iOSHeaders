@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     unsigned int _assertion;
 }
 
+- (void).cxx_destruct;
 - (id)description;
 - (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 timeout:(double)arg2;

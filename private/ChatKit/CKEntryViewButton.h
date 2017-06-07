@@ -14,11 +14,14 @@
     long long _entryViewButtonType;
 }
 
++ (void)prewarmEntryViewButtons;
 + (id)imageNameForEntryViewButtonType:(long long)arg1;
 + (id)entryViewButtonOfType:(long long)arg1;
 @property(nonatomic) long long entryViewButtonType; // @synthesize entryViewButtonType=_entryViewButtonType;
 @property(retain, nonatomic) UIColor *ckTintColor; // @synthesize ckTintColor=_ckTintColor;
 - (void).cxx_destruct;
+- (void)setTintedImageForButtonType:(long long)arg1 tintColor:(id)arg2;
+- (void)setDefaultImage;
 
 @end
 

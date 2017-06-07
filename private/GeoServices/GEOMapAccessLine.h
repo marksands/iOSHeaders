@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMapLine-Protocol.h>
 
@@ -24,7 +24,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double length;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee *coordinates;
 @property(readonly, nonatomic) unsigned long long coordinateCount;
-- (void)dealloc;
 - (id)initWithMap:(id)arg1 edge:(shared_ptr_035a2da2)arg2;
 
 // Remaining properties

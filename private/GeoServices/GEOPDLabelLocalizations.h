@@ -17,6 +17,7 @@
 
 + (Class)localizedStringType;
 @property(retain, nonatomic) NSMutableArray *localizedStrings; // @synthesize localizedStrings=_localizedStrings;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (unsigned long long)localizedStringsCount;
 - (void)addLocalizedString:(id)arg1;
 - (void)clearLocalizedStrings;
-- (void)dealloc;
 - (id)bestLocalizedName;
 
 @end

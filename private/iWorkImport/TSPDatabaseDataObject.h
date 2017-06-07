@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) TSPData *data; // @synthesize data=_data;
 - (void).cxx_destruct;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

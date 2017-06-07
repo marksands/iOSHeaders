@@ -18,7 +18,6 @@
     unsigned long long _dateStyle;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 + (id)_swatchColorForColorOption:(id)arg1;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1;
 + (id)_swatchImageFaceName;
@@ -43,6 +42,7 @@
 - (id)_keylineViewForDensityEditing;
 - (id)_utilityComplicationSlots;
 - (Class)_utilitarianSceneClass;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (_Bool)_shouldFreezeSceneForEditMode:(long long)arg1;
 - (_Bool)_fadesComplicationSlot:(id)arg1 inEditMode:(long long)arg2;
 - (unsigned long long)_keylineLabelAlignmentForComplicationSlot:(id)arg1;

@@ -24,9 +24,8 @@ __attribute__((visibility("hidden")))
         unsigned int bitmapEncoding:4;
         unsigned int optOutOfThinning:1;
         unsigned int isFlippable:1;
-        unsigned int otherImageProvider:1;
         unsigned int isTintable:1;
-        unsigned int reserved:20;
+        unsigned int reserved:21;
     } _renditionFlags;
     long long _templateRenderingMode;
     long long _artworkStatus;
@@ -64,6 +63,8 @@ __attribute__((visibility("hidden")))
 - (unsigned int)gradientStyle;
 - (id)gradient;
 - (double)gradientDrawingAngle;
+- (id)sizeIndexes;
+- (const struct _csicolor *)csiColor;
 - (_Bool)edgesOnly;
 - (_Bool)isScaled;
 - (_Bool)isTiled;
@@ -101,6 +102,8 @@ __attribute__((visibility("hidden")))
 - (void)_initalizeMetadataFromCSIData:(const struct _csiheader *)arg1;
 - (void)_initializeCompositingOptionsFromCSIData:(const struct _csiheader *)arg1;
 - (void)_initializeTypeIdentifiersWithLayout:(unsigned short)arg1;
+- (struct CGRect)_destinationFrame;
+- (unsigned long long)sourceRowbytes;
 - (struct CGSize)unslicedSize;
 - (id)linkingToRendition;
 - (_Bool)isInternalLink;

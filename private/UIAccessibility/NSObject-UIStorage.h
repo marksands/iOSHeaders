@@ -7,6 +7,9 @@
 #import <objc/NSObject.h>
 
 @interface NSObject (UIStorage)
+- (id)_accessibilityProxyView;
+- (id)_accessibilityProxyViewAncestorWhenMissingWindow;
+- (_Bool)_accessibilityApplicationHandleButtonAction:(int)arg1;
 - (id)_accessibilitySiriContentElementsWithSemanticContext;
 - (id)_accessibilityElementsWithSemanticContext:(id)arg1;
 - (id)_accessibilitySupplementaryHeaderViewAtIndexPath:(id)arg1;
@@ -23,8 +26,9 @@
 - (id)_accessibilitySiriContentNativeFocusableElements;
 - (id)_accessibilityNativeFocusableElements:(id)arg1;
 - (id)_accessibilityExplorerElements;
+- (_Bool)_accessibilityIsContainedByPreferredNativeFocusElement;
 - (id)_accessibilityNativeFocusElement;
-- (id)_accessibilityAggregatedHeaderElements;
+- (id)_accessibilityRetrieveHeaderElements;
 - (id)_accessibilityNativeFocusAncestor;
 - (_Bool)_accessibilityShouldSpeakExplorerElementsAfterFocus;
 - (_Bool)_accessibilityShouldIgnoreSoundForFailedMoveAttempt;
@@ -33,6 +37,7 @@
 - (id)_accessibilityNativeFocusPreferredElement;
 - (_Bool)_accessibilityCanBecomeNativeFocused;
 - (_Bool)_accessibilitySetNativeFocus;
+- (_Bool)_accessibilityShouldSetNativeFocusWhenATVFocused;
 - (_Bool)_accessibilityViewHierarchyHasNativeFocus;
 - (_Bool)_accessibilityFullscreenVideoViewIsVisible;
 - (_Bool)_accessibilityHasNativeFocus;
@@ -49,10 +54,32 @@
 - (_Bool)_accessibilityIgnoreDelegate;
 - (_Bool)_accessibilityMimicsTextInputResponder;
 - (_Bool)accessibilityPerformAction:(int)arg1 withValue:(id)arg2 fencePort:(unsigned int)arg3;
+- (_Bool)_accessibilityActivateDragWithDescriptorDictionary:(id)arg1 forAssistiveTechnology:(id)arg2;
+- (id)dragDescriptorMatchingDictionary:(id)arg1;
 - (struct CGRect)_accessibilityScreenRectForSceneReferenceRect:(struct CGRect)arg1;
 - (struct CGPoint)_accessibilityScreenPointForSceneReferencePoint:(struct CGPoint)arg1;
 - (_Bool)_accessibilityHandleMagicTap;
 - (_Bool)_accessibilityHandleMagicTapForPronunciation;
+- (void)_setAccessibilityActivateBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityGuideElementHeaderTextBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityLinkedUIElementsBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityHeaderElementsBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityNavigationStyleBlock:(CDUnknownBlockType)arg1;
+- (void)_setShouldGroupAccessibilityChildrenBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityViewIsModalBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityElementsHiddenBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityLanguageBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityActivationPointBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityPathBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityFrameBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityTraitsBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityValueBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityHintBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityIdentifierBlock:(CDUnknownBlockType)arg1;
+- (void)_setAccessibilityLabelBlock:(CDUnknownBlockType)arg1;
+- (void)_setIsAccessibilityElementBlock:(CDUnknownBlockType)arg1;
+- (void *)_accessibilityGetBlockForAttribute:(long long)arg1;
+- (void)_accessibilitySetBlock:(void *)arg1 forAttribute:(long long)arg2;
 - (void)_accessibilityRemoveActionBlockForKey:(unsigned int)arg1;
 - (void)_accessibilityRemoveAllActionBlocks;
 - (void)_accessibilityActionBlock:(CDUnknownBlockType *)arg1 andValue:(id *)arg2 forKey:(unsigned int)arg3;

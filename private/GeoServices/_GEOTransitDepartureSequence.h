@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOTransitDepartureSequence-Protocol.h>
 
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     long long _displayStyle;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSSet *nextStopIDs;
 - (id)operatingHoursForDate:(id)arg1 inTimeZone:(id)arg2;
 - (_Bool)isDepartureDateInactive:(id)arg1 withReferenceDate:(id)arg2;
@@ -43,7 +44,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <GEOTransitLine> line;
 @property(readonly, nonatomic) NSArray *frequencies;
 @property(readonly, nonatomic) NSArray *departures;
-- (void)dealloc;
 - (id)initWithSequence:(id)arg1 line:(id)arg2 pbLine:(id)arg3;
 
 // Remaining properties

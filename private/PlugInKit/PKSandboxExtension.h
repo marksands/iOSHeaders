@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (void)expel;
 - (void)consume;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithExtension:(id)arg1;
 

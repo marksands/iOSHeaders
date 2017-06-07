@@ -8,7 +8,7 @@
 
 #import <NewsCore/NSFilePresenter-Protocol.h>
 
-@class NSOperationQueue, NSString, NSURL;
+@class NSOperationQueue, NSSet, NSString, NSURL;
 
 @interface FCFileCoordinatedDictionary : NSObject <NSFilePresenter>
 {
@@ -36,6 +36,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

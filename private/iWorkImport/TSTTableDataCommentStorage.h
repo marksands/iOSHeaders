@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataCommentStorage : TSTTableDataObject
 {
-    TSDCommentStorage *mCommentStorage;
+    TSDCommentStorage *_commentStorage;
 }
 
-@property(readonly, nonatomic) TSDCommentStorage *commentStorage; // @synthesize commentStorage=mCommentStorage;
-- (void)dealloc;
+@property(readonly, nonatomic) TSDCommentStorage *commentStorage; // @synthesize commentStorage=_commentStorage;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

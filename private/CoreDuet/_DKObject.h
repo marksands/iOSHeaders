@@ -7,37 +7,43 @@
 #import <objc/NSObject.h>
 
 #import <CoreDuet/NSSecureCoding-Protocol.h>
+#import <CoreDuet/_DKProtobufConverting-Protocol.h>
 
-@class NSDictionary, NSUUID, _DKSource;
+@class NSString, NSUUID, _DKSource;
 
-@interface _DKObject : NSObject <NSSecureCoding>
+@interface _DKObject : NSObject <_DKProtobufConverting, NSSecureCoding>
 {
     NSUUID *_UUID;
-    NSDictionary *_metadata;
     _DKSource *_source;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)fromPBCodable:(id)arg1;
 + (id)objectFromManagedObject:(id)arg1 readMetadata:(_Bool)arg2 cache:(id)arg3;
 + (id)fetchObjectWithUUID:(id)arg1 context:(id)arg2;
 + (id)entityName;
 @property(retain) _DKSource *source; // @synthesize source=_source;
-@property(copy) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(retain) NSUUID *UUID; // @synthesize UUID=_UUID;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
 - (id)stringValue;
 - (double)doubleValue;
 - (long long)integerValue;
 - (_Bool)boolValue;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
-- (id)metadataFromData:(id)arg1 cache:(id)arg2;
-- (id)metadataFromData:(id)arg1;
-- (_Bool)copyBaseObjectInfoFromManagedObject:(id)arg1 readMetadata:(_Bool)arg2 cache:(id)arg3;
+- (id)toPBCodable;
+- (_Bool)copyBaseObjectInfoFromManagedObject:(id)arg1 cache:(id)arg2;
 - (_Bool)copyToManagedObject:(id)arg1;
+- (long long)typeCode;
 - (id)entityName;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,12 +14,13 @@
     long long _duplicatesPolicy;
 }
 
-+ (void)initialize;
 @property(readonly, nonatomic) long long duplicatesPolicy; // @synthesize duplicatesPolicy=_duplicatesPolicy;
 @property(nonatomic) __weak id <MSPContainerPersisterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)commitEditedContents:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)fetchContentsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)eraseWithCompletion:(CDUnknownBlockType)arg1;
+- (void)commitByMergingWithStateSnapshot:(id)arg1 mergeOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)commitEditWithNewContents:(id)arg1 edits:(id)arg2 appliedToOldContents:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)fetchStateSnapshotWithCompletion:(CDUnknownBlockType)arg1;
 
 @end
 

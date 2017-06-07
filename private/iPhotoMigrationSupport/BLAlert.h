@@ -7,11 +7,10 @@
 #import <objc/NSObject.h>
 
 #import <iPhotoMigrationSupport/BLAlertViewControllerDelegate-Protocol.h>
-#import <iPhotoMigrationSupport/UIAlertViewDelegate-Protocol.h>
 
 @class BLAlertAction, BLAlertViewController, NSArray, NSString;
 
-@interface BLAlert : NSObject <BLAlertViewControllerDelegate, UIAlertViewDelegate>
+@interface BLAlert : NSObject <BLAlertViewControllerDelegate>
 {
     BLAlertAction *_cancelAction;
     NSArray *_actions;

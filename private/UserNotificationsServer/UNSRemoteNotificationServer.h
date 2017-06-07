@@ -7,46 +7,40 @@
 #import <objc/NSObject.h>
 
 #import <UserNotificationsServer/APSConnectionDelegate-Protocol.h>
-#import <UserNotificationsServer/FBProcessManagerObserver-Protocol.h>
-#import <UserNotificationsServer/FBProcessObserver-Protocol.h>
 
-@class BKSApplicationStateMonitor, NSMutableDictionary, NSMutableSet, NSSet, NSString, UNSApplicationLauncher, UNSAttachmentsService, UNSNotificationRepository, UNSNotificationSettingsService;
-@protocol OS_dispatch_queue, UNSRemoteNotificationServerObserver, UNSSystemStateProviding;
+@class NSMutableDictionary, NSMutableSet, NSSet, NSString, UNSAttachmentsService, UNSNotificationRepository, UNSNotificationSettingsService;
+@protocol OS_dispatch_queue, UNSRemoteNotificationServerObserver, _DASActivityScheduler;
 
-@interface UNSRemoteNotificationServer : NSObject <APSConnectionDelegate, FBProcessManagerObserver, FBProcessObserver>
+@interface UNSRemoteNotificationServer : NSObject <APSConnectionDelegate>
 {
     UNSNotificationRepository *_notificationRepository;
     UNSNotificationSettingsService *_notificationSettingsService;
-    id <UNSSystemStateProviding> _systemStateProvider;
     UNSAttachmentsService *_attachmentsService;
-    UNSApplicationLauncher *_applicationLauncher;
+    id <_DASActivityScheduler> _duetActivityScheduler;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_extensionQueue;
     NSObject<OS_dispatch_queue> *_apsQueue;
-    NSMutableSet *_debuggingBundleIdentifiers;
     NSMutableSet *_foregroundBundleIdentifiers;
-    NSMutableSet *_importantBundleIdentifiers;
+    NSMutableSet *_runningBundleIdentifiers;
     NSMutableSet *_userNotificationEnabledBundleIdentifiers;
     NSSet *_backgroundAppRefreshBlackList;
     NSMutableDictionary *_bundleIdentifiersToClients;
     NSMutableDictionary *_bundleIdentifiersToAppDescriptions;
     NSMutableDictionary *_environmentsToConnections;
-    BKSApplicationStateMonitor *_appStateMonitor;
     NSMutableSet *_bundleIdentifiersNeedingToken;
     id <UNSRemoteNotificationServerObserver> _observer;
 }
 
++ (id)_newPushServiceConnectionWithEnvironmentName:(id)arg1 namedDelegatePort:(id)arg2 queue:(id)arg3;
 + (id)_environmentFromAuditToken:(CDStruct_6ad76789 *)arg1;
 + (id)environmentFromAuditToken:(CDStruct_6ad76789 *)arg1;
-@property(retain) id <UNSSystemStateProviding> systemStateProvider; // @synthesize systemStateProvider=_systemStateProvider;
 @property(nonatomic) id <UNSRemoteNotificationServerObserver> observer; // @synthesize observer=_observer;
 - (void).cxx_destruct;
 - (void)_queue_removeClientForBundleIdentifier:(id)arg1;
 - (void)_queue_invalidateTokenForBundleIdentifier:(id)arg1;
-- (void)_queue_setBackgroundDeliveryDisabled:(_Bool)arg1 forBundleIdentifier:(id)arg2;
 - (void)allowsRemoteNotificationsForBundleIdentifier:(id)arg1 withResult:(CDUnknownBlockType)arg2;
 - (void)backgroundRefreshApplicationsDidChange;
-- (void)_queue_requestTokenForClient:(id)arg1;
+- (void)_queue_requestTokenForClient:(id)arg1 withBundleIdentifier:(id)arg2;
 - (void)_queue_setBackgroundAppRefreshAllowed:(_Bool)arg1 forBundleIdentifier:(id)arg2;
 - (void)_queue_registerApplicationWithBundleIdentifier:(id)arg1 forEnvironment:(id)arg2 appWantsPush:(_Bool)arg3;
 - (void)invalidateTokenForRemoteNotificationsForBundleIdentifier:(id)arg1;
@@ -58,35 +52,26 @@
 - (_Bool)_queue_isUserNotificationEnabled:(id)arg1;
 - (void)_queue_applicationsDidDenyNotificationSettings:(id)arg1;
 - (void)_queue_applicationsDidAuthorizeNotificationSettings:(id)arg1;
-- (_Bool)_queue_isAppDebugging:(id)arg1;
-- (void)_queue_appDebugStateDidChange:(id)arg1;
-- (_Bool)_queue_isAppForeground:(id)arg1;
 - (_Bool)_queue_isUserNotificationEnabledForApplication:(id)arg1;
 - (_Bool)_queue_isPushedEnabledForApplication:(id)arg1;
 - (_Bool)_queue_isBackgroundAppRefreshAllowedForBundleIdentifier:(id)arg1;
-- (_Bool)_queue_isBackgroundAppRefreshSupportedForApplication:(id)arg1;
-- (_Bool)_queue_isNewsstandPushEnabledForApplication:(id)arg1;
-- (_Bool)_queue_isNewsstandContentBackgroundModeSupportedForApplication:(id)arg1;
-- (_Bool)_queue_isNewsstandApplication:(id)arg1;
-- (void)_queue_appDidBecomeForeground:(id)arg1;
-- (void)_queue_appDidBecomeBackground:(id)arg1;
-- (void)_queue_appDidGetKilledByUser:(id)arg1;
-- (void)_queue_appStateDidChange:(id)arg1;
-- (_Bool)_queue_isAppImportant:(id)arg1;
-- (void)_queue_appDidBecomeUnimportant:(id)arg1;
-- (void)_queue_appDidBecomeImportant:(id)arg1;
-- (void)_queue_appImportanceChanged:(id)arg1;
-- (void)_queue_moveTopicsForApp:(id)arg1 fromList:(unsigned long long)arg2 toList:(unsigned long long)arg3;
+- (_Bool)_queue_isContentAvailableRemoteNotificationSupportedForBundleIdentifier:(id)arg1;
+- (void)_queue_applicationDidTerminate:(id)arg1;
+- (void)_queue_applicationDidLaunch:(id)arg1;
+- (_Bool)_queue_isApplicationRunning:(id)arg1;
+- (void)_queue_applicationDidBecomeBackground:(id)arg1;
+- (void)_queue_applicationDidBecomeForeground:(id)arg1;
+- (_Bool)_queue_isApplicationForeground:(id)arg1;
+- (void)_queue_didChangeApplicationState:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
+- (void)_queue_moveTopicsForApplication:(id)arg1 fromList:(unsigned long long)arg2 toList:(unsigned long long)arg3;
 - (void)_queue_backgroundRefreshApplicationsDidChange;
 - (void)_queue_reloadBackgroundAppRefreshBlackList;
-- (void)applicationProcessDebuggingStateDidChange:(id)arg1;
-- (void)processManager:(id)arg1 didRemoveProcess:(id)arg2;
-- (void)processManager:(id)arg1 didAddProcess:(id)arg2;
 - (void)applicationsDidUninstall:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;
+- (id)_queue_appDescriptionForBundleIdentifier:(id)arg1;
 - (void)_queue_removeAppDescriptionForBundleIdentifier:(id)arg1;
-- (void)_queue_addAppDescriptions:(id)arg1;
-- (void)_queue_deliverBackgroundContentAvailablePushForNotificationRequest:(id)arg1 bundleIdentifier:(id)arg2 message:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
+- (void)_queue_addApplicationDescriptions:(id)arg1;
+- (void)_scheduleContentAvailablePushActivityForMessage:(id)arg1 bundleIdentifier:(id)arg2;
 - (void)_queue_deliverNotificationRequest:(id)arg1 bundleIdentifier:(id)arg2 message:(id)arg3;
 - (void)_queue_modifyNotificationRequest:(id)arg1 bundleIdentifier:(id)arg2 message:(id)arg3 extensionWrapper:(id)arg4;
 - (void)_queue_tryToModifyNotificationRequest:(id)arg1 bundleIdentifier:(id)arg2 message:(id)arg3;
@@ -97,11 +82,12 @@
 - (void)_queue_connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
 - (void)connection:(id)arg1 didReceiveToken:(id)arg2 forTopic:(id)arg3 identifier:(id)arg4;
+- (void)didChangeApplicationState:(unsigned int)arg1 forBundleIdentifier:(id)arg2;
 - (void)applicationsDidDenyNotificationSettings:(id)arg1;
 - (void)applicationsDidAuthorizeNotificationSettings:(id)arg1;
 - (void)dealloc;
-- (id)_initWithSettingsService:(id)arg1 notificationRepository:(id)arg2 systemStateProvider:(id)arg3 attachmentsService:(id)arg4 applicationLauncher:(id)arg5 queue:(id)arg6 extensionQueue:(id)arg7 apsQueue:(id)arg8 applicationStateMonitor:(id)arg9;
-- (id)initWithSettingsService:(id)arg1 notificationRepository:(id)arg2 systemStateProvider:(id)arg3 attachmentsService:(id)arg4 applicationLauncher:(id)arg5;
+- (id)_initWithSettingsService:(id)arg1 notificationRepository:(id)arg2 attachmentsService:(id)arg3 queue:(id)arg4 extensionQueue:(id)arg5 apsQueue:(id)arg6 duetActivityScheduler:(id)arg7;
+- (id)initWithSettingsService:(id)arg1 notificationRepository:(id)arg2 attachmentsService:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

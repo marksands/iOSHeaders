@@ -11,7 +11,7 @@
 
 @interface AVCRemoteVideoClient : NSObject
 {
-    id <AVCRemoteVideoClientDelegate> _delegate;
+    id _delegate;
     long long _streamToken;
     CALayer *_primaryCameraLayer;
     CALayer *_secondaryCameraLayer;

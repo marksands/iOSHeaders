@@ -27,6 +27,7 @@
     _Bool _selectedPairedUnlock;
     unsigned short _granularActivationState;
     int _activationState;
+    int _activationRetries;
     RUIStyle *_remoteUIStyle;
     id <RUILoaderDelegate> _ruiDelegate;
     id <PBBridgeConnectionDelegate> _delegate;
@@ -40,17 +41,20 @@
     NSString *_remoteActivationUserAgent;
     CDUnknownBlockType _lockedOnAnimationCompletion;
     CDUnknownBlockType _initialSyncPrepCompletion;
+    CDUnknownBlockType _languageLocaleCompletion;
     NSMutableDictionary *_reportMapping;
 }
 
 + (id)displayNameWithFirstName:(id)arg1 lastName:(id)arg2;
 + (void)iCloudFirstName:(id *)arg1 lastName:(id *)arg2;
 + (void)meCardFirstName:(id *)arg1 lastName:(id *)arg2;
+@property(nonatomic) int activationRetries; // @synthesize activationRetries=_activationRetries;
 @property(nonatomic) _Bool selectedPairedUnlock; // @synthesize selectedPairedUnlock=_selectedPairedUnlock;
 @property(nonatomic) _Bool passcodeSet; // @synthesize passcodeSet=_passcodeSet;
 @property(retain, nonatomic) NSMutableDictionary *reportMapping; // @synthesize reportMapping=_reportMapping;
 @property(nonatomic) _Bool sentActivationRequest; // @synthesize sentActivationRequest=_sentActivationRequest;
 @property(nonatomic) _Bool sentSessionRequest; // @synthesize sentSessionRequest=_sentSessionRequest;
+@property(copy, nonatomic) CDUnknownBlockType languageLocaleCompletion; // @synthesize languageLocaleCompletion=_languageLocaleCompletion;
 @property(copy, nonatomic) CDUnknownBlockType initialSyncPrepCompletion; // @synthesize initialSyncPrepCompletion=_initialSyncPrepCompletion;
 @property(copy, nonatomic) CDUnknownBlockType lockedOnAnimationCompletion; // @synthesize lockedOnAnimationCompletion=_lockedOnAnimationCompletion;
 @property(copy, nonatomic) NSString *remoteActivationUserAgent; // @synthesize remoteActivationUserAgent=_remoteActivationUserAgent;
@@ -125,6 +129,8 @@
 - (void)beganWaitingForUserResponseToActivationEvent;
 - (void)beganWaitingForPresentationOfActivationEvent;
 - (id)customDescriptionOfMessageType:(unsigned short)arg1;
+- (void)watchDidRespondWithLanguageAndLocaleStatus:(id)arg1;
+- (void)tellWatchLanguagesAndLocaleWithCompletion:(CDUnknownBlockType)arg1;
 - (void)enableSiriForGizmo:(id)arg1;
 - (void)getSiriState:(id)arg1;
 - (void)gizmoBecameAvailableWantsConfirmation:(id)arg1;

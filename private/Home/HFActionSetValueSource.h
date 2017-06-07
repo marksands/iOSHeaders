@@ -18,13 +18,20 @@
     id <HFActionSetValueSourceDelegate> _delegate;
 }
 
++ (id)na_identity;
 @property(nonatomic) __weak id <HFActionSetValueSourceDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) HMActionSet *actionSet; // @synthesize actionSet=_actionSet;
 @property(retain, nonatomic) HFItemBuilder<HFActionSetBuilderProtocol> *actionSetBuilder; // @synthesize actionSetBuilder=_actionSetBuilder;
 - (void).cxx_destruct;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)_valueForCurrentStateCharacteristic:(id)arg1;
+- (_Bool)_isCurrentStateCharacteristic:(id)arg1;
 - (id)_targetValueForCharacteristic:(id)arg1;
 - (id)_actionForCharacteristic:(id)arg1;
 - (id)_existingActionBuilderForCharacteristic:(id)arg1;
+- (void)commitTransactionWithReason:(id)arg1;
+- (void)beginTransactionWithReason:(id)arg1 readPolicy:(id)arg2 logger:(id)arg3;
 - (id)cachedValueForCharacteristic:(id)arg1;
 - (id)writeValuesForCharacteristics:(id)arg1;
 - (id)readValuesForCharacteristicTypes:(id)arg1 inServices:(id)arg2;
@@ -36,7 +43,6 @@
 @property(readonly, nonatomic) id <HFCharacteristicOperationContextProviding> contextProvider;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

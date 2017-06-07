@@ -6,11 +6,17 @@
 
 #import <SearchUI/SearchUILayoutFreeSectionView.h>
 
+@class TLKHeaderView;
+
 @interface SearchUIRichTitleCardSectionView : SearchUILayoutFreeSectionView
 {
+    TLKHeaderView *_headerView;
 }
 
-- (id)textContainerViewForSection:(id)arg1;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
+@property(retain) TLKHeaderView *headerView; // @synthesize headerView=_headerView;
+- (void).cxx_destruct;
+- (void)updateWithCardSection:(id)arg1;
 - (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
 
 @end

@@ -272,6 +272,15 @@ struct _csibitmap {
     unsigned char _field5[0];
 };
 
+struct _csicolor {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int :8;
+    unsigned int :24;
+    unsigned int _field3;
+    double _field4[0];
+};
+
 struct _csigradientdatanode {
     unsigned int _field1;
     float _field2;

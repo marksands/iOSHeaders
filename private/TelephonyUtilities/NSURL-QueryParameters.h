@@ -9,7 +9,6 @@
 @interface NSURL (QueryParameters)
 - (id)URLByDeletingQueryParameterWithKey:(id)arg1;
 - (id)URLBySettingQueryParameterValue:(id)arg1 forKey:(id)arg2;
-- (id)URLWithNewQueryParameterDictionary:(id)arg1;
 - (id)tuQueryParameters;
 - (id)queryParameters;
 @end

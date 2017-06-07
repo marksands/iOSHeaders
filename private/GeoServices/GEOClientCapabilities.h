@@ -8,10 +8,12 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOFormattedStringClientCapabilities, NSMutableArray, NSString;
+@class GEOAbAssignInfo, GEOFormattedStringClientCapabilities, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOClientCapabilities : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
+    GEOAbAssignInfo *_abAssignInfo;
     NSString *_appMajorVersion;
     NSString *_appMinorVersion;
     NSString *_deviceCountryCode;
@@ -28,8 +30,12 @@
     _Bool _clusteredTransitRoutesSupported;
     _Bool _includeCrossLanguagePhonetics;
     _Bool _internalInstall;
+    _Bool _internalTool;
     _Bool _routeOptionsSupported;
     _Bool _snapToClosestStopSupported;
+    _Bool _supportsGuidanceEvents;
+    _Bool _supportsGuidanceEventsInlineShields;
+    _Bool _supportsLongShieldStrings;
     struct {
         unsigned int maxFormatterSupported:1;
         unsigned int maxManeuverTypeSupported:1;
@@ -39,12 +45,20 @@
         unsigned int clusteredTransitRoutesSupported:1;
         unsigned int includeCrossLanguagePhonetics:1;
         unsigned int internalInstall:1;
+        unsigned int internalTool:1;
         unsigned int routeOptionsSupported:1;
         unsigned int snapToClosestStopSupported:1;
+        unsigned int supportsGuidanceEvents:1;
+        unsigned int supportsGuidanceEventsInlineShields:1;
+        unsigned int supportsLongShieldStrings:1;
     } _has;
 }
 
 + (Class)displayLanguagesType;
+@property(retain, nonatomic) GEOAbAssignInfo *abAssignInfo; // @synthesize abAssignInfo=_abAssignInfo;
+@property(nonatomic) _Bool supportsGuidanceEventsInlineShields; // @synthesize supportsGuidanceEventsInlineShields=_supportsGuidanceEventsInlineShields;
+@property(nonatomic) _Bool supportsGuidanceEvents; // @synthesize supportsGuidanceEvents=_supportsGuidanceEvents;
+@property(nonatomic) _Bool supportsLongShieldStrings; // @synthesize supportsLongShieldStrings=_supportsLongShieldStrings;
 @property(retain, nonatomic) NSString *userCurrentTimezone; // @synthesize userCurrentTimezone=_userCurrentTimezone;
 @property(nonatomic) _Bool includeCrossLanguagePhonetics; // @synthesize includeCrossLanguagePhonetics=_includeCrossLanguagePhonetics;
 @property(nonatomic) _Bool snapToClosestStopSupported; // @synthesize snapToClosestStopSupported=_snapToClosestStopSupported;
@@ -54,10 +68,13 @@
 @property(retain, nonatomic) NSString *deviceCountryCode; // @synthesize deviceCountryCode=_deviceCountryCode;
 @property(retain, nonatomic) NSString *displayRegion; // @synthesize displayRegion=_displayRegion;
 @property(retain, nonatomic) NSMutableArray *displayLanguages; // @synthesize displayLanguages=_displayLanguages;
+@property(nonatomic) _Bool internalTool; // @synthesize internalTool=_internalTool;
 @property(nonatomic) _Bool internalInstall; // @synthesize internalInstall=_internalInstall;
 @property(retain, nonatomic) NSString *hardwareModel; // @synthesize hardwareModel=_hardwareModel;
 @property(retain, nonatomic) NSString *appMinorVersion; // @synthesize appMinorVersion=_appMinorVersion;
 @property(retain, nonatomic) NSString *appMajorVersion; // @synthesize appMajorVersion=_appMajorVersion;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -67,6 +84,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAbAssignInfo;
+@property(nonatomic) _Bool hasSupportsGuidanceEventsInlineShields;
+@property(nonatomic) _Bool hasSupportsGuidanceEvents;
+@property(nonatomic) _Bool hasSupportsLongShieldStrings;
 @property(readonly, nonatomic) _Bool hasUserCurrentTimezone;
 @property(nonatomic) _Bool hasIncludeCrossLanguagePhonetics;
 @property(nonatomic) _Bool hasSnapToClosestStopSupported;
@@ -89,6 +110,7 @@
 - (unsigned long long)displayLanguagesCount;
 - (void)addDisplayLanguages:(id)arg1;
 - (void)clearDisplayLanguages;
+@property(nonatomic) _Bool hasInternalTool;
 @property(nonatomic) _Bool hasInternalInstall;
 - (int)StringAsMaxManeuverTypeSupported:(id)arg1;
 - (id)maxManeuverTypeSupportedAsString:(int)arg1;
@@ -97,7 +119,6 @@
 @property(readonly, nonatomic) _Bool hasHardwareModel;
 @property(readonly, nonatomic) _Bool hasAppMinorVersion;
 @property(readonly, nonatomic) _Bool hasAppMajorVersion;
-- (void)dealloc;
 
 @end
 

@@ -8,9 +8,15 @@
 
 @interface UIView (NUISubclassHelpers)
 - (struct CGSize)effectiveLayoutSizeFittingSize:(struct CGSize)arg1;
-- (_Bool)isLayoutSizeDependentOnPerpendicularAxis;
+- (double)systemSpacingToContainerView:(id)arg1 edge:(unsigned long long)arg2 baselineRelative:(_Bool)arg3 multiplier:(double)arg4;
+- (double)systemSpacingToAdjecentSiblingView:(id)arg1 axis:(long long)arg2 baselineRelative:(_Bool)arg3 multiplier:(double)arg4;
 - (double)effectiveFirstBaselineOffsetFromContentTop;
 - (double)effectiveBaselineOffsetFromContentBottom;
 - (struct UIEdgeInsets)effectiveAlignmentRectInsets;
+- (_Bool)_nui_supportsBaselinesWithoutAutolayout;
+- (long long)_nui_isUIButtonType;
+
+// Remaining properties
+@property(nonatomic) _Bool neverCacheContentLayoutSize;
 @end
 

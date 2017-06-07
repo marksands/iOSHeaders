@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray, NSPointerArray;
 @protocol OS_dispatch_queue;
@@ -15,18 +15,15 @@ __attribute__((visibility("hidden")))
     NSPointerArray *_requesters;
     NSMutableArray *_inProgress;
     NSObject<OS_dispatch_queue> *_isolation;
-    unsigned long long _maxConcurrentRequests;
 }
 
-+ (unsigned long long)maxConcurrentRequests;
 + (id)sharedScheduler;
+- (void).cxx_destruct;
 - (id)_highestPriorityRequester;
 - (void)sendNextRequestIfNecessary;
 - (void)operationDidStop:(id)arg1;
 - (void)removeTileRequester:(id)arg1;
 - (void)addTileRequester:(id)arg1;
-- (void)_networkDefaultsDidChange:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

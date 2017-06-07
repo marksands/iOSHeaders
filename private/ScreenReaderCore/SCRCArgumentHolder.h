@@ -8,12 +8,12 @@
 
 @class SCRCArgumentHolderPrivate;
 
-__attribute__((visibility("hidden")))
 @interface SCRCArgumentHolder : NSObject
 {
     SCRCArgumentHolderPrivate *_private;
 }
 
+- (void).cxx_destruct;
 - (_Bool)isRequired;
 - (void)setIsRequired:(_Bool)arg1;
 - (id)argumentDescription;
@@ -30,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)process;
-- (void)dealloc;
 - (id)init;
 
 @end

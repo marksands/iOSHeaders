@@ -35,6 +35,7 @@
 @property(retain, nonatomic) NSMutableArray *localizedAttributions; // @synthesize localizedAttributions=_localizedAttributions;
 @property(nonatomic) unsigned int sourceVersion; // @synthesize sourceVersion=_sourceVersion;
 @property(retain, nonatomic) NSString *sourceIdentifier; // @synthesize sourceIdentifier=_sourceIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

@@ -8,11 +8,14 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray, NSString;
+@class NSData, NSMutableArray, NSString, NTPBWidgetEngagement;
 
 @interface NTPBArticleLikeDislike : PBCodable <NSCopying>
 {
+    long long _backendArticleVersionInt64;
     long long _personalizationTreatmentId;
+    long long _previousArticlePublisherArticleVersion;
+    long long _publisherArticleVersionInt64;
     NSString *_articleId;
     NSData *_articleSessionId;
     int _articleType;
@@ -25,13 +28,20 @@
     NSString *_feedId;
     int _feedType;
     NSData *_feedViewExposureId;
+    NSMutableArray *_fractionalCohortMemberships;
     NSString *_groupFeedId;
     int _groupType;
+    NSString *_iadNativeAd;
+    NSString *_iadNativeCampaign;
+    NSString *_iadNativeLine;
     NSString *_language;
     int _likeDislikeLocation;
     NSMutableArray *_namedEntities;
+    NSString *_nativeCampaignData;
     int _nextArticleAffordanceType;
     NSString *_nextArticleAffordanceTypeFeedId;
+    NSString *_previousArticleId;
+    NSString *_previousArticleVersion;
     int _publisherArticleVersion;
     NSString *_referencedArticleId;
     NSString *_sectionHeadlineId;
@@ -39,16 +49,25 @@
     NSString *_surfacedByChannelId;
     NSString *_surfacedBySectionId;
     NSString *_surfacedByTopicId;
+    int _topStoryType;
     int _userAction;
+    NTPBWidgetEngagement *_widgetEngagement;
     _Bool _fromNextArticleAffordanceTap;
+    _Bool _isBreakingNewsArticle;
     _Bool _isCoverArticle;
     _Bool _isDigitalReplicaAd;
     _Bool _isFreeArticle;
     _Bool _isGroupedArticle;
+    _Bool _isNativeAd;
     _Bool _isPaidSubscriberToSourceChannel;
+    _Bool _isSearchResultArticle;
+    _Bool _isTopStoryArticle;
     _Bool _isUserSubscribedToFeed;
     struct {
+        unsigned int backendArticleVersionInt64:1;
         unsigned int personalizationTreatmentId:1;
+        unsigned int previousArticlePublisherArticleVersion:1;
+        unsigned int publisherArticleVersionInt64:1;
         unsigned int articleType:1;
         unsigned int backendArticleVersion:1;
         unsigned int characterCount:1;
@@ -57,18 +76,39 @@
         unsigned int likeDislikeLocation:1;
         unsigned int nextArticleAffordanceType:1;
         unsigned int publisherArticleVersion:1;
+        unsigned int topStoryType:1;
         unsigned int userAction:1;
         unsigned int fromNextArticleAffordanceTap:1;
+        unsigned int isBreakingNewsArticle:1;
         unsigned int isCoverArticle:1;
         unsigned int isDigitalReplicaAd:1;
         unsigned int isFreeArticle:1;
         unsigned int isGroupedArticle:1;
+        unsigned int isNativeAd:1;
         unsigned int isPaidSubscriberToSourceChannel:1;
+        unsigned int isSearchResultArticle:1;
+        unsigned int isTopStoryArticle:1;
         unsigned int isUserSubscribedToFeed:1;
     } _has;
 }
 
++ (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
+@property(retain, nonatomic) NSString *iadNativeAd; // @synthesize iadNativeAd=_iadNativeAd;
+@property(retain, nonatomic) NSString *iadNativeLine; // @synthesize iadNativeLine=_iadNativeLine;
+@property(retain, nonatomic) NSString *iadNativeCampaign; // @synthesize iadNativeCampaign=_iadNativeCampaign;
+@property(nonatomic) long long backendArticleVersionInt64; // @synthesize backendArticleVersionInt64=_backendArticleVersionInt64;
+@property(nonatomic) long long publisherArticleVersionInt64; // @synthesize publisherArticleVersionInt64=_publisherArticleVersionInt64;
+@property(retain, nonatomic) NSMutableArray *fractionalCohortMemberships; // @synthesize fractionalCohortMemberships=_fractionalCohortMemberships;
+@property(retain, nonatomic) NTPBWidgetEngagement *widgetEngagement; // @synthesize widgetEngagement=_widgetEngagement;
+@property(retain, nonatomic) NSString *previousArticleVersion; // @synthesize previousArticleVersion=_previousArticleVersion;
+@property(retain, nonatomic) NSString *previousArticleId; // @synthesize previousArticleId=_previousArticleId;
+@property(retain, nonatomic) NSString *nativeCampaignData; // @synthesize nativeCampaignData=_nativeCampaignData;
+@property(nonatomic) _Bool isNativeAd; // @synthesize isNativeAd=_isNativeAd;
+@property(nonatomic) _Bool isSearchResultArticle; // @synthesize isSearchResultArticle=_isSearchResultArticle;
+@property(nonatomic) _Bool isTopStoryArticle; // @synthesize isTopStoryArticle=_isTopStoryArticle;
+@property(nonatomic) _Bool isBreakingNewsArticle; // @synthesize isBreakingNewsArticle=_isBreakingNewsArticle;
 @property(retain, nonatomic) NSString *nextArticleAffordanceTypeFeedId; // @synthesize nextArticleAffordanceTypeFeedId=_nextArticleAffordanceTypeFeedId;
 @property(nonatomic) _Bool fromNextArticleAffordanceTap; // @synthesize fromNextArticleAffordanceTap=_fromNextArticleAffordanceTap;
 @property(nonatomic) _Bool isCoverArticle; // @synthesize isCoverArticle=_isCoverArticle;
@@ -107,6 +147,28 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;
+@property(readonly, nonatomic) _Bool hasIadNativeAd;
+@property(readonly, nonatomic) _Bool hasIadNativeLine;
+@property(readonly, nonatomic) _Bool hasIadNativeCampaign;
+@property(nonatomic) _Bool hasBackendArticleVersionInt64;
+@property(nonatomic) _Bool hasPublisherArticleVersionInt64;
+- (id)fractionalCohortMembershipAtIndex:(unsigned long long)arg1;
+- (unsigned long long)fractionalCohortMembershipsCount;
+- (void)addFractionalCohortMembership:(id)arg1;
+- (void)clearFractionalCohortMemberships;
+@property(readonly, nonatomic) _Bool hasWidgetEngagement;
+@property(readonly, nonatomic) _Bool hasPreviousArticleVersion;
+@property(readonly, nonatomic) _Bool hasPreviousArticleId;
+@property(readonly, nonatomic) _Bool hasNativeCampaignData;
+@property(nonatomic) _Bool hasIsNativeAd;
+@property(nonatomic) _Bool hasIsSearchResultArticle;
+@property(nonatomic) _Bool hasIsTopStoryArticle;
+- (int)StringAsTopStoryType:(id)arg1;
+- (id)topStoryTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasTopStoryType;
+@property(nonatomic) int topStoryType; // @synthesize topStoryType=_topStoryType;
+@property(nonatomic) _Bool hasIsBreakingNewsArticle;
 @property(readonly, nonatomic) _Bool hasNextArticleAffordanceTypeFeedId;
 - (int)StringAsNextArticleAffordanceType:(id)arg1;
 - (id)nextArticleAffordanceTypeAsString:(int)arg1;

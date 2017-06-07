@@ -17,7 +17,9 @@
 + (id)_fu_sausageFontOfSize:(double)arg1 fontWeight:(double)arg2 centeredColons:(_Bool)arg3;
 + (id)_fu_sausageFontOfSize:(double)arg1 fontWeight:(double)arg2;
 + (id)fu_boldSausageFontOfSize:(double)arg1;
++ (id)fu_semiboldSausageFontOfSize:(double)arg1;
 + (id)fu_mediumSausageFontOfSize:(double)arg1;
++ (id)fu_lightSausageFontOfSize:(double)arg1 centeredColons:(_Bool)arg2;
 + (id)fu_lightSausageFontOfSize:(double)arg1;
 + (id)fu_sausageFontOfSize:(double)arg1 centeredColons:(_Bool)arg2;
 + (id)fu_sausageFontOfSize:(double)arg1;
@@ -26,6 +28,7 @@
 - (id)fu_shortSlashFont;
 - (id)fu_smallCapsFont;
 - (id)fu_monospacedFont;
+- (id)fu_fontWithStraightSidedNumbers;
 - (id)fu_fontWithCenteredColons;
 - (id)fu_fontWithSize:(double)arg1;
 @end

@@ -14,6 +14,7 @@
     _Bool _showExtraVC;
     PSSpecifier *_accountSpecifier;
     id _acObserver;
+    int accountUpdateThrottle;
 }
 
 - (void).cxx_destruct;

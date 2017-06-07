@@ -60,6 +60,7 @@
 - (void)addTag:(id)arg1;
 - (_Bool)isFromForwardedMessage;
 - (_Bool)isCancelled;
+- (_Bool)isNaturalLanguageEvent;
 - (id)loadOrigin:(id)arg1;
 - (void)validate;
 - (unsigned long long)hash;

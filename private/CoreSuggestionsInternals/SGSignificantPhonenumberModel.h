@@ -4,40 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <CoreSuggestionsInternals/SGModel.h>
 
-#import <CoreSuggestionsInternals/SGModel-Protocol.h>
-
-@class NSString, SGPipelineTransformer;
-@protocol PMLRegressionModelProtocol;
-
-@interface SGSignificantPhonenumberModel : NSObject <SGModel>
+@interface SGSignificantPhonenumberModel : SGModel
 {
-    id <PMLRegressionModelProtocol> _model;
-    SGPipelineTransformer *_transformers;
-    SGPipelineTransformer *_ngramtransformers;
-    SGPipelineTransformer *_covariateTransformer;
 }
 
-@property(retain) SGPipelineTransformer *covariateTransformer; // @synthesize covariateTransformer=_covariateTransformer;
-@property(retain) SGPipelineTransformer *ngramtransformers; // @synthesize ngramtransformers=_ngramtransformers;
-@property(retain) SGPipelineTransformer *transformers; // @synthesize transformers=_transformers;
-@property(retain) id <PMLRegressionModelProtocol> model; // @synthesize model=_model;
-- (void).cxx_destruct;
-- (id)ngrammed:(id)arg1;
-- (id)swapped:(id)arg1;
-- (id)features:(id)arg1;
-- (id)fit:(id)arg1 toOutcome:(_Bool)arg2;
-- (_Bool)predict:(id)arg1;
-- (id)covariatize:(id)arg1;
-- (id)featurize:(id)arg1;
-- (id)initWithWeights:(id)arg1 isLogistic:(_Bool)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
++ (id)temporaryKeyMap;
++ (id)featuresVersion;
++ (id)featuresModelId;
++ (id)createTransformerForLanguage:(id)arg1 maxDistance:(unsigned long long)arg2 ngrams:(unsigned long long)arg3;
 
 @end
 

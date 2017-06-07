@@ -13,6 +13,7 @@
 #import <ChatKit/CKSharedAssetsControllerProtocol-Protocol.h>
 #import <ChatKit/QLPreviewControllerDelegate-Protocol.h>
 #import <ChatKit/UICollectionViewDataSource-Protocol.h>
+#import <ChatKit/UICollectionViewDragSource-Protocol.h>
 #import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <ChatKit/UIViewControllerPreviewingDelegate-Protocol.h>
 #import <ChatKit/UIViewControllerPreviewingDelegate_Private-Protocol.h>
@@ -20,7 +21,7 @@
 @class CKAttachmentCollectionView, CKFeedCollectionViewLayout, CKQLDetailsPreviewController, NSArray, NSString, UIBarButtonItem;
 @protocol CKSharedAssetsControllerDelegate;
 
-@interface CKDetailsPhotosViewController : CKViewController <CKFeedCollectionViewLayoutDelegate, CKAttachmentCellDelegate, CKFeedCollectionViewLayoutDatasource, CKQLPreviewControllerDelegate, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UIGestureRecognizerDelegate, UICollectionViewDataSource, QLPreviewControllerDelegate, CKSharedAssetsControllerProtocol>
+@interface CKDetailsPhotosViewController : CKViewController <CKFeedCollectionViewLayoutDelegate, CKAttachmentCellDelegate, CKFeedCollectionViewLayoutDatasource, CKQLPreviewControllerDelegate, UICollectionViewDragSource, UIViewControllerPreviewingDelegate, UIViewControllerPreviewingDelegate_Private, UIGestureRecognizerDelegate, UICollectionViewDataSource, QLPreviewControllerDelegate, CKSharedAssetsControllerProtocol>
 {
     _Bool _initialLoad;
     _Bool _selectingAttachments;
@@ -85,6 +86,7 @@
 - (_Bool)previewController:(id)arg1 canShareItem:(id)arg2;
 - (void)previewControllerDidCancelDismiss:(id)arg1;
 - (id)invisibleInkEffectControllerForPreviewController:(id)arg1;
+- (id)_collectionView:(id)arg1 dragItemsForItemAtIndexPath:(id)arg2;
 - (void)_deleteSelectedAttachments:(id)arg1;
 - (void)_saveSelectedAttachments:(id)arg1;
 - (void)_deleteAttachments:(id)arg1;
@@ -108,7 +110,7 @@
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)updateAttachmentItems:(id)arg1;
 - (void)parentScrollViewDidScroll:(struct CGPoint)arg1;
-- (struct CGSize)contentSize;
+- (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 - (unsigned long long)assetType;
 - (struct CGSize)screenSize;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

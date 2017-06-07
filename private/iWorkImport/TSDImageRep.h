@@ -6,13 +6,14 @@
 
 #import <iWorkImport/TSDMediaRep.h>
 
+#import <iWorkImport/CALayerDelegate-Protocol.h>
 #import <iWorkImport/TSDMagicMoveMatching-Protocol.h>
 
-@class CALayer, CAShapeLayer, NSCache, NSMutableArray, NSObject, NSRecursiveLock, TSDImageRepSizingState, TSDInstantAlphaTracker, TSDLayoutGeometry;
+@class CALayer, CAShapeLayer, NSCache, NSMutableArray, NSMutableSet, NSObject, NSRecursiveLock, NSString, TSDImageRepSizingState, TSDInstantAlphaTracker, TSDLayoutGeometry, TSPData;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 __attribute__((visibility("hidden")))
-@interface TSDImageRep : TSDMediaRep <TSDMagicMoveMatching>
+@interface TSDImageRep : TSDMediaRep <CALayerDelegate, TSDMagicMoveMatching>
 {
     TSDLayoutGeometry *mLastImageGeometryInRoot;
     TSDLayoutGeometry *mLastMaskGeometryInRoot;
@@ -24,6 +25,9 @@ __attribute__((visibility("hidden")))
     CAShapeLayer *mIAMaskLayer;
     CAShapeLayer *mMaskSublayer;
     struct CGAffineTransform mLastPictureFrameLayerTransform;
+    CAShapeLayer *mStrokeLayer;
+    CALayer *mFrameMaskLayer;
+    struct CGRect mLastPictureFrameLayerRect;
     _Bool mDirectlyManagesLayerContent;
     _Bool mShowImageHighlight;
     _Bool mIsEquation;
@@ -44,13 +48,14 @@ __attribute__((visibility("hidden")))
     _Bool mSizedImageHasAdjustmentsBakedIn;
     struct CGPath *mSizedImageMaskPath;
     NSCache *mHitTestCache;
-    long long mHitTestCacheOnce;
+    NSMutableSet *mDisabledCanvasViewGRs;
     NSMutableArray *mUpdateFromLayoutBlocks;
     NSObject<OS_dispatch_semaphore> *mUpdateFromLayoutBlocksLock;
 }
 
 + (struct CGPath *)p_newPathToBakeIntoSizedImageForSize:(struct CGSize)arg1 withImageLayout:(id)arg2 orientation:(long long)arg3;
 + (double)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2 mixingTypeContext:(id)arg3;
+- (void).cxx_destruct;
 - (_Bool)canDrawShadowInOneStepWithChildren:(_Bool)arg1;
 - (_Bool)p_drawsInOneStep;
 - (id)p_validatedThumbnailImageProvider;
@@ -70,6 +75,7 @@ __attribute__((visibility("hidden")))
 - (id)downloadProgressPlaceholderImage;
 - (_Bool)shouldShowCheckerboard;
 - (_Bool)isDataCurrentlyDownloading;
+@property(readonly) TSPData *imageDataForRendering;
 - (void)willBeRemoved;
 - (id)maskLayout;
 - (id)maskInfo;
@@ -77,6 +83,12 @@ __attribute__((visibility("hidden")))
 - (id)imageInfo;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

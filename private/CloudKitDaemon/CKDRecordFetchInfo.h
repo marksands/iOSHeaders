@@ -12,6 +12,7 @@
 __attribute__((visibility("hidden")))
 @interface CKDRecordFetchInfo : NSObject
 {
+    _Bool _ignoreErrors;
     double _startDate;
     unsigned long long _fetchOrder;
     CKRecordID *_recordID;
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_recordReadySource;
 }
 
+@property(nonatomic) _Bool ignoreErrors; // @synthesize ignoreErrors=_ignoreErrors;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *recordReadySource; // @synthesize recordReadySource=_recordReadySource;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;

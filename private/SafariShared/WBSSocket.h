@@ -8,7 +8,7 @@
 
 #import <SafariShared/NSStreamDelegate-Protocol.h>
 
-@class NSInputStream, NSOutputStream, NSString;
+@class NSInputStream, NSMutableData, NSOutputStream, NSString;
 @protocol OS_dispatch_queue;
 
 @interface WBSSocket : NSObject <NSStreamDelegate>
@@ -16,6 +16,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSInputStream *_inputStream;
     NSOutputStream *_outputStream;
+    NSMutableData *_outgoingData;
     _Bool _open;
     _Bool _hasCalledConnectionHandler;
     NSString *_host;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) unsigned long long port; // @synthesize port=_port;
 @property(readonly, copy, nonatomic) NSString *host; // @synthesize host=_host;
 - (void).cxx_destruct;
+- (void)_sendDataIfPossible;
 - (void)_didDisconnectWithError:(id)arg1;
 - (void)_didConnect;
 - (void)_didReceiveData;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/HMFLogging-Protocol.h>
 #import <HMFoundation/HMFNetMonitorDelegate-Protocol.h>
@@ -12,13 +12,15 @@
 #import <HMFoundation/NSURLSessionDelegate-Protocol.h>
 #import <HMFoundation/_HMFNetServiceMonitorDelegate-Protocol.h>
 
-@class HMFExponentialBackoffTimer, HMFNetMonitor, HMFNetService, NSOperationQueue, NSString, NSURL, NSURLSession, _HMFNetServiceMonitor;
+@class HMFExponentialBackoffTimer, HMFNetMonitor, HMFNetService, NSObject, NSOperationQueue, NSString, NSURL, NSURLSession, _HMFNetServiceMonitor;
 @protocol HMFHTTPClientDelegate, OS_dispatch_queue;
 
-@interface HMFHTTPClient : NSObject <HMFLogging, HMFNetMonitorDelegate, _HMFNetServiceMonitorDelegate, HMFTimerDelegate, NSURLSessionDelegate>
+@interface HMFHTTPClient : HMFObject <HMFLogging, HMFNetMonitorDelegate, _HMFNetServiceMonitorDelegate, HMFTimerDelegate, NSURLSessionDelegate>
 {
     _Bool _reachable;
+    _Bool _pinging;
     _Bool _allowAnonymousConnection;
+    _Bool _active;
     NSURL *_baseURL;
     HMFNetService *_netService;
     id <HMFHTTPClientDelegate> _delegate;
@@ -40,6 +42,7 @@
 @property(readonly, nonatomic) _HMFNetServiceMonitor *netServiceMonitor; // @synthesize netServiceMonitor=_netServiceMonitor;
 @property(readonly, nonatomic) NSOperationQueue *reachabilityProbeQueue; // @synthesize reachabilityProbeQueue=_reachabilityProbeQueue;
 @property(readonly, nonatomic) HMFNetMonitor *reachabilityMonitor; // @synthesize reachabilityMonitor=_reachabilityMonitor;
+@property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(readonly, nonatomic) NSURLSession *session; // @synthesize session=_session;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
@@ -64,6 +67,7 @@
 - (_Bool)requestClientReachabilityPingWithRetry:(_Bool)arg1;
 - (void)startReachabilityProbe;
 - (void)notifyDelegateOfReachabilityChange:(_Bool)arg1;
+@property(nonatomic, getter=isPinging) _Bool pinging; // @synthesize pinging=_pinging;
 @property(nonatomic, getter=isReachable) _Bool reachable; // @synthesize reachable=_reachable;
 @property(readonly, copy, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 - (_Bool)isValid;

@@ -49,7 +49,6 @@ __attribute__((visibility("hidden")))
 - (void)addData:(id)arg1 forPasteboardType:(id)arg2;
 - (void)addItems:(id)arg1 isSmartCopy:(_Bool)arg2;
 - (void)addItems:(id)arg1;
-- (void)performAsynchronousWriteUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) long long numberOfItems;
 - (id)valueForPasteboardType:(id)arg1;
 - (id)stringForPasteboardType:(id)arg1;

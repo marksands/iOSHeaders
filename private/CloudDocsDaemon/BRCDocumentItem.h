@@ -6,9 +6,11 @@
 
 #import <CloudDocsDaemon/BRCLocalItem.h>
 
+#import <CloudDocsDaemon/BRCTopLevelShareable-Protocol.h>
+
 @class BRCAliasItem, BRCDesiredVersion, BRCDirectoryItem, BRCLocalVersion, NSData, NSDictionary, NSError, NSMutableSet, NSSet, NSString;
 
-@interface BRCDocumentItem : BRCLocalItem
+@interface BRCDocumentItem : BRCLocalItem <BRCTopLevelShareable>
 {
     BRCLocalVersion *_currentVersion;
     BRCDesiredVersion *_desiredVersion;
@@ -18,8 +20,6 @@
     NSData *_liveThumbnailSignature;
 }
 
-+ (_Bool)shouldIndexDocument:(id)arg1;
-+ (_Bool)_shouldIndexAtURL:(id)arg1 forItem:(id)arg2;
 + (_Bool)supportsSecureCoding;
 + (id)anyReverseAliasInAppLibrary:(id)arg1 toRelativePath:(id)arg2;
 + (struct PQLResultSet *)reverseAliasEnumeratorWithRelativePath:(id)arg1;
@@ -27,11 +27,6 @@
 + (id)anyReverseAliasWithUnsaltedBookmarkData:(id)arg1 inAppLibrary:(id)arg2;
 + (_Bool)isDocumentAutomaticallyEvictableWithName:(id)arg1;
 + (_Bool)isDocumentAutomaticallyEvictableWithExtension:(id)arg1;
-+ (_Bool)parseBookmarkData:(id)arg1 inAccountSession:(id)arg2 docID:(id *)arg3 itemID:(id *)arg4 mangledID:(id *)arg5 unsaltedBookmarkData:(id *)arg6 error:(id *)arg7;
-+ (id)unsaltedBookmarkDataWithRelativePath:(id)arg1;
-+ (id)bookmarkDataWithRelativePath:(id)arg1;
-+ (id)itemResolutionStringWithRelativePath:(id)arg1;
-+ (id)unsaltedBookmarkDataWithItemResolutionString:(id)arg1 serverZone:(id)arg2;
 @property(retain, nonatomic) NSData *liveThumbnailSignature; // @synthesize liveThumbnailSignature=_liveThumbnailSignature;
 @property(readonly, nonatomic) _Bool shouldAutomaticallyDownloadThumbnail; // @synthesize shouldAutomaticallyDownloadThumbnail=_shouldAutomaticallyDownloadThumbnail;
 @property(readonly, nonatomic) NSSet *resolvedConflictLoserEtags; // @synthesize resolvedConflictLoserEtags=_resolvedConflictLoserEtags;
@@ -48,7 +43,7 @@
 - (void)_updateRecursivePropertiesInDB:(id)arg1 dbRowID:(unsigned long long)arg2 diffs:(unsigned long long)arg3;
 - (_Bool)_nukePackageItemsFromDB:(id)arg1;
 - (void)_updateReadThrottleIfNeededForRowID:(unsigned long long)arg1 forCreation:(_Bool)arg2;
-- (void)_updateUploadThrottleIfNeededWithDiffs:(unsigned long long)arg1;
+- (void)_updateUploadJobIfNeededWithDiffs:(unsigned long long)arg1;
 - (void)_updateLiveConflictLoserFromFSAtPath:(id)arg1;
 - (void)addResolvedConflictLoserEtag:(id)arg1;
 - (void)removeLiveConflictLoserEtag:(id)arg1;
@@ -59,8 +54,8 @@
 - (void)markForceNeedsSyncUp;
 - (void)markForceUpload;
 - (void)handleUnknownItemError;
-- (void)markLatestRequestAcknowledged;
-- (void)markLatestSyncRequestRejected;
+- (void)markLatestRequestAcknowledgedInZone:(id)arg1;
+- (void)markLatestSyncRequestRejectedInZone:(id)arg1;
 - (void)markNeedsReading;
 - (void)markDead;
 - (void)markLiveFromStageWithAppLibrary:(id)arg1;
@@ -70,16 +65,19 @@
 - (void)forceVersionConflictByClearkingCKInfo;
 - (void)forceiWorkConflictEtag:(id)arg1;
 - (_Bool)changedAtRelativePath:(id)arg1 scanPackage:(_Bool)arg2;
-- (_Bool)updateLocationAndMetaFromFSAtPath:(id)arg1 parentID:(id)arg2;
-- (_Bool)updateFromFSAtPath:(id)arg1 parentID:(id)arg2;
+- (_Bool)updateLocationAndMetaFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
+- (_Bool)updateFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
+- (id)_filenameOverrideForPath:(id)arg1;
 - (void)learnItemID:(id)arg1 ownerKey:(id)arg2 path:(id)arg3 markLost:(_Bool)arg4;
+- (void)markItemForgottenByServer;
 - (void)updateVersionMetadataFromServerItem:(id)arg1 preventVersionDiffs:(_Bool)arg2;
 - (void)updateContentsCKInfoAndDeviceIDFromServerItem:(id)arg1;
 - (void)clearDesiredVersion;
-- (int)setVersionToStage:(id)arg1 diffsWithServerItem:(unsigned long long)arg2 options:(unsigned int)arg3 needsSave:(_Bool *)arg4;
-- (int)setVersionToStage:(id)arg1 options:(unsigned int)arg2 needsSave:(_Bool *)arg3;
+- (int)updateDesiredVersionWithServerItem:(id)arg1 diffs:(unsigned long long)arg2 options:(unsigned int)arg3 needsSave:(_Bool *)arg4;
+- (int)updateDesiredVersionWithServerItem:(id)arg1 options:(unsigned int)arg2 needsSave:(_Bool *)arg3;
 - (void)stageFaultForCreation:(_Bool)arg1 serverItem:(id)arg2;
 - (void)stageFaultForCreation:(_Bool)arg1 name:(id)arg2 size:(id)arg3 isPackage:(_Bool)arg4;
+- (id)syncContextUsedForTransfers;
 - (void)clearVersionSignatures:(unsigned long long)arg1 isPackage:(_Bool)arg2;
 - (void)learnThumbnailSignatureFromLiveVersion:(id)arg1;
 - (_Bool)validateLoggingToFile:(struct __sFILE *)arg1;
@@ -89,7 +87,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)_initFromPQLResultSet:(id)arg1 session:(id)arg2 db:(id)arg3 error:(id *)arg4;
 - (_Bool)updateXattrInfoFromPath:(id)arg1 error:(id *)arg2;
-- (id)_initWithRelativePath:(id)arg1 parentID:(id)arg2;
+- (id)_initWithRelativePath:(id)arg1 parentGlobalID:(id)arg2;
 - (id)_initWithLocalItem:(id)arg1;
 - (id)_initWithServerItem:(id)arg1 dbRowID:(unsigned long long)arg2;
 - (id)descriptionWithContext:(id)arg1;
@@ -104,13 +102,11 @@
 @property(readonly, nonatomic) _Bool shouldHaveThumbnail;
 @property(readonly, nonatomic) _Bool shouldBeGreedy;
 - (_Bool)hasShareIDAndIsOwnedByMe;
-- (_Bool)isSharedByMe;
-- (_Bool)isOwnedByMe;
 @property(readonly, nonatomic) _Bool isVisibleIniCloudDrive;
 @property(readonly, nonatomic) _Bool isAutomaticallyEvictable;
 @property(readonly, nonatomic) _Bool isEvictable;
 @property(readonly, nonatomic) _Bool hasLocalContent;
-@property(readonly, nonatomic) _Bool isSharedDocument;
+- (id)asShareableItem;
 @property(readonly, nonatomic) BRCDocumentItem *asDocument;
 - (_Bool)isFault;
 - (_Bool)isDocument;
@@ -119,14 +115,11 @@
 - (id)aliasItemID;
 - (id)baseContentsRecord;
 - (id)contentsRecordID;
-- (float)prepareEditSyncUpWithOperation:(id)arg1 defaults:(id)arg2;
-- (float)prepareDeletionSyncUpWithOperation:(id)arg1 defaults:(id)arg2;
-- (id)spotlightUniqueIdentifier;
-@property(readonly, nonatomic) NSString *unsaltedBookmarkData;
 
 // Remaining properties
 @property(readonly, nonatomic) BRCAliasItem *asBRAlias; // @dynamic asBRAlias;
 @property(readonly, nonatomic) BRCDirectoryItem *asDirectory; // @dynamic asDirectory;
+@property(readonly, nonatomic) NSString *unsaltedBookmarkData; // @dynamic unsaltedBookmarkData;
 
 @end
 

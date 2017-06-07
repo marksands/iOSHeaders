@@ -6,8 +6,8 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSCondition, NSThread, TSUMemoryWatcher, TSUPointerKeyDictionary, TSURetainedPointerKeyDictionary;
-@protocol TSUFlushable;
+@class NSCondition, NSThread, TSUPointerKeyDictionary, TSURetainedPointerKeyDictionary;
+@protocol TSUiOSMemoryWarningFlushable;
 
 __attribute__((visibility("hidden")))
 @interface TSUFlushingManager : NSObject
@@ -21,10 +21,9 @@ __attribute__((visibility("hidden")))
     _Bool _stopFlushing;
     _Bool _stopFlushingWhenQueueEmpty;
     _Bool _isFlushing;
-    id <TSUFlushable> _flushingObject;
+    id <TSUiOSMemoryWarningFlushable> _flushingObject;
     NSCondition *_cond;
     NSCondition *_isFlushingCond;
-    TSUMemoryWatcher *_memoryWatcher;
     NSThread *_bgThread;
     unsigned long long _backgroundTransitionTaskId;
     unsigned long long _activeBgThreadTask;
@@ -49,16 +48,12 @@ __attribute__((visibility("hidden")))
 - (void)_stopFlushingObjects;
 - (void)_startFlushingObjects;
 - (void)_flushAllEligible;
-- (void)memoryLevelDecreased:(int)arg1 was:(int)arg2;
-- (void)memoryLevelIncreased:(int)arg1 was:(int)arg2;
 - (void)didReceiveMemoryWarning;
 - (void)willEnterForeground;
 - (void)didEnterBackground;
 - (void)safeToFlush:(id)arg1 wasAccessed:(_Bool)arg2;
 - (void)unsafeToFlush:(id)arg1;
 - (void)doneWithObject:(id)arg1;
-- (void)stopProtectingObject:(id)arg1;
-- (void)protectObject:(id)arg1;
 - (void)removeObject:(id)arg1;
 - (void)addObject:(id)arg1;
 - (void)dealloc;

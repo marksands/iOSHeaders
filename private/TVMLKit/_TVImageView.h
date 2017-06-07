@@ -6,7 +6,7 @@
 
 #import <UIKit/UIControl.h>
 
-@class TVImageProxy, UIColor, UIImage, UIImageView;
+@class CAFilter, TVImageProxy, UIColor, UIImage, UIImageView;
 
 @interface _TVImageView : UIControl
 {
@@ -18,6 +18,7 @@
     UIImage *_flatImage;
     UIImage *_flatHighlightImage;
     _Bool _selected;
+    CAFilter *_highlightFilter;
     _Bool _imageLoaded;
     _Bool __enableEdgeAntialiasingOnSelected;
     UIImage *_placeholderImage;
@@ -38,8 +39,16 @@
 - (void)_setImage:(id)arg1;
 - (id)_imageView;
 - (void)_loadImage;
+- (void)_reloadImageForLayoutDirectionChange;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setHighlighted:(_Bool)arg1;
+- (void)_resetContentRect;
+- (void)_setContentRectInPixels:(struct CGRect)arg1 forContentSize:(struct CGSize)arg2;
 @property(nonatomic) double cornerRadius;
+- (double)_cornerRadius;
+- (void)_setCornerRadius:(double)arg1;
+- (double)_continuousCornerRadius;
+- (void)_setContinuousCornerRadius:(double)arg1;
 - (void)setImageProxy:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic) UIImage *image;
 - (void)willMoveToWindow:(id)arg1;

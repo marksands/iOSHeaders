@@ -8,14 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOPBTransitLineDisplayHints : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     _Bool _showVehicleNumber;
     struct {
         unsigned int showVehicleNumber:1;
     } _has;
 }
 
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

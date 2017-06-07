@@ -8,7 +8,7 @@
 
 #import <SafariShared/WBSCompletionListItem-Protocol.h>
 
-@class MKMapItem, NSArray, NSDictionary, NSNumber, NSString, NSURL, SFResultSection, SFSearchResult, WBSParsecActionButton, WBSParsecImageRepresentation;
+@class MKMapItem, NSArray, NSDictionary, NSNumber, NSString, NSURL, SFResultSection, SFSearchResult, WBSParsecActionButton, WBSParsecImageRepresentation, WBSQuerySuggestion;
 
 @interface WBSParsecSearchResult : WBSParsecModel <WBSCompletionListItem>
 {
@@ -47,6 +47,7 @@
     NSDictionary *_styleOverrides;
 }
 
++ (Class)_resultClassForDictionary:(id)arg1;
 + (id)resultWithDictionary:(id)arg1;
 + (id)searchResultSchemaForCardDetailRequest;
 + (id)_specializedSchema;
@@ -86,7 +87,6 @@
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (void)_setStyleOverridesWithDictionary:(id)arg1;
-- (unsigned long long)_constructTypeMaskForTypeString:(id)arg1;
 - (id)_glyphsFromGlyphRepresentations:(id)arg1 withSession:(id)arg2;
 - (id)_glyphRepresentationsFromGlyphDictionaries:(id)arg1;
 - (_Bool)canBecomeTopHitForQuery:(id)arg1;
@@ -102,6 +102,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *lastSearchQuery;
+@property(retain, nonatomic) WBSQuerySuggestion *siriSuggestion;
 @property(readonly) Class superclass;
 
 @end

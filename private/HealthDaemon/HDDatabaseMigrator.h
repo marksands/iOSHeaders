@@ -6,17 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class HDSQLiteDatabase;
+@class HDProfile, HDSQLiteDatabase;
 
 @interface HDDatabaseMigrator : NSObject
 {
     HDSQLiteDatabase *_database;
+    HDProfile *_profile;
 }
 
+@property(readonly, nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(readonly, nonatomic) HDSQLiteDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
 - (long long)performHFDMigrationToVersion:(long long)arg1 handler:(CDUnknownBlockType)arg2 error:(id *)arg3;
-- (long long)_setHealthAppSourceForAllObjectsWithProfile:(id)arg1 error:(id *)arg2;
 - (long long)migrateProtectedDatabaseFromVersion:(long long)arg1 profile:(id)arg2 error:(id *)arg3;
 - (id)_migrationStepsForProtectedDatabaseWithProfile:(id)arg1;
 - (long long)migrateUnprotectedDatabaseFromVersion:(long long)arg1 error:(id *)arg2;
@@ -27,7 +28,7 @@
 - (long long)statusForUnhandledVersion:(long long)arg1 error:(id *)arg2;
 - (_Bool)executeSQLStatements:(id)arg1 error:(id *)arg2;
 - (_Bool)executeSQL:(id)arg1 error:(id *)arg2;
-- (id)initWithDatabase:(id)arg1;
+- (id)initWithProfile:(id)arg1 database:(id)arg2;
 - (id)init;
 - (long long)_removeActivitySharingDataWithError:(id *)arg1;
 - (long long)_migrateAchievementExtraDataToWorkoutActivityTypeWithError:(id *)arg1;
@@ -45,7 +46,7 @@
 - (long long)_fixDataProvenanceProductTypeWithError:(id *)arg1;
 - (long long)_addMaxObjectPersistentIDToKeyValueStoreWithError:(id *)arg1;
 - (long long)_addTimeZoneOffsetColumnToFitnessFriendsTableWithError:(id *)arg1;
-- (long long)_addWStepsToWorkoutsAndEventsWithError:(id *)arg1;
+- (long long)_addSwimmingStrokeCountToWorkoutsAndEventsWithError:(id *)arg1;
 - (long long)_addObjectAuthorizationTableWithError:(id *)arg1;
 - (long long)_migrateDeepBreathingColumnInActivityCacheTableWithError:(id *)arg1;
 - (long long)_addWheelchairUseColumnToFitnessFriendsTableWithError:(id *)arg1;
@@ -145,6 +146,33 @@
 - (long long)_updateKeyValueEntityUniquenessWithProtectedDatabase:(_Bool)arg1 error:(id *)arg2;
 - (id)eagleProtectedMigrationSteps;
 - (id)eagleUnprotectedMigrationSteps;
+- (_Bool)_databaseSchemas:(id)arg1 containsTable:(id)arg2;
+- (_Bool)_deleteDataEntitySubclassTables:(id)arg1 intermediateTables:(id)arg2 error:(out id *)arg3;
+- (long long)_createTrustedFitnessMachineEntityTable:(out id *)arg1;
+- (long long)_setupNFCForFitnessMachinesWithError:(out id *)arg1;
+- (long long)_addArbitraryMetadataSupportForWorkoutEventsWithError:(out id *)arg1;
+- (long long)_removeUnusedColumnsFromActivityCacheWithError:(out id *)arg1;
+- (long long)_addDeviceColumnsToFitnessFriendWorkoutsWithError:(out id *)arg1;
+- (long long)_addFlightsClimbedToWorkoutsWithError:(id *)arg1;
+- (long long)_createPendingAssociationTable:(id *)arg1;
+- (long long)_addDataValueColumnToMetadataValuesTable:(id *)arg1;
+- (long long)_addDurationColumnToWorkoutEventsTable:(id *)arg1;
+- (long long)_updateExternalSyncDatabaseSchema:(id *)arg1;
+- (long long)_updateWithComputedStatsColumnsInActivityCacheTableWithError:(id *)arg1;
+- (long long)_updateOriginVersionsWithError:(id *)arg1;
+- (long long)_createExternalSyncIdentifierEntityTable:(out id *)arg1;
+- (long long)_recreateDataProvenanceTableIncludingOriginVersionsWithError:(id *)arg1;
+- (id)tigrisProtectedMigrationSteps;
+- (long long)_tigris_createLocalSourceCopiesWithError:(id *)arg1;
+- (long long)_tigris_addLastCheckAndOwnerIDColumnsWithError:(id *)arg1;
+- (long long)_tigris_addEmptyZonesColumnWithError:(id *)arg1;
+- (long long)_tigris_addLastSyncColumnWithError:(id *)arg1;
+- (long long)_tigris_addRebaseDeadlineColumnWithError:(id *)arg1;
+- (long long)_addModificationEpochColumnToAuthorizationsTableWithError:(out id *)arg1;
+- (long long)_addBaselineEpochColumnToCloudSyncStoreEntityTableWithError:(out id *)arg1;
+- (long long)_addSourceSyncAnchorColumnWithError:(out id *)arg1;
+- (long long)_createCloudSyncStoreEntityTable:(out id *)arg1;
+- (id)tigrisUnprotectedMigrationSteps;
 - (long long)_corry_rewriteHFDStep2WithError:(id *)arg1;
 - (long long)_corry_rewriteHFDStep1WithError:(id *)arg1;
 - (id)_corry_temporaryHFDURL;

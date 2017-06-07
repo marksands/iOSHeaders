@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double fieldOfViewInRadians; // @synthesize fieldOfViewInRadians=mFOVInRadians;
 @property(nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=mColorSpace;
 @property(readonly, nonatomic) TSDCapabilities *capabilities; // @synthesize capabilities=mCapabilities;
-@property(readonly, nonatomic, getter=isBaseLayerVisible) _Bool baseLayerVisible; // @synthesize baseLayerVisible=mBaseLayerVisible;
+@property(nonatomic, getter=isBaseLayerVisible) _Bool baseLayerVisible; // @synthesize baseLayerVisible=mBaseLayerVisible;
 @property(readonly, nonatomic) CALayer *baseLayer; // @synthesize baseLayer=mBaseLayer;
 - (void)updateGeometryToFitBaseLayerAtViewScale:(double)arg1;
 @property(readonly, nonatomic) double showScale;

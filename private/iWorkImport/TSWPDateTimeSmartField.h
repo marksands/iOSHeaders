@@ -25,12 +25,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsDeepCopyForUndo;
 - (int)smartFieldKind;
 - (void)setFormat:(id)arg1 localeIdentifier:(id)arg2 dateStyle:(long long)arg3 timeStyle:(long long)arg4;
-- (void)resetLocale;
+- (void)resetLocaleTo:(id)arg1;
 - (id)generateInlineText;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
 - (id)initWithLocaleIdentifier:(id)arg1 dateStyle:(long long)arg2 timeStyle:(long long)arg3 autoUpdate:(_Bool)arg4 context:(id)arg5;
 - (id)initWithLocaleIdentifier:(id)arg1 dateStyle:(long long)arg2 timeStyle:(long long)arg3 format:(id)arg4 autoUpdate:(_Bool)arg5 context:(id)arg6;
 - (id)initWithLocaleIdentifier:(id)arg1 dateStyle:(long long)arg2 timeStyle:(long long)arg3 format:(id)arg4 date:(id)arg5 updatePlan:(int)arg6 context:(id)arg7;

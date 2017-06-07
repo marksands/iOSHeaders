@@ -26,6 +26,8 @@
     } _has;
 }
 
++ (Class)ccType;
++ (Class)toType;
 @property(nonatomic) _Bool includeAttachments; // @synthesize includeAttachments=_includeAttachments;
 @property(retain, nonatomic) NSString *referenceMessageId; // @synthesize referenceMessageId=_referenceMessageId;
 @property(nonatomic) unsigned int sendingType; // @synthesize sendingType=_sendingType;

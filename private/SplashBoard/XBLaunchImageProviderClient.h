@@ -6,16 +6,17 @@
 
 #import <FrontBoardServices/BSBaseXPCClient.h>
 
+@class XBApplicationLaunchCompatibilityInfo;
+
 @interface XBLaunchImageProviderClient : BSBaseXPCClient
 {
+    XBApplicationLaunchCompatibilityInfo *_appInfo;
 }
 
-- (void)_sendMessageType:(long long)arg1 withMessage:(CDUnknownBlockType)arg2 withReplyHandler:(CDUnknownBlockType)arg3 waitForReply:(_Bool)arg4;
-- (void)killService;
-- (void)flushContextForApplicationWithCompatibilityInfo:(id)arg1;
-- (void)launchImageForApplicationWithCompatibilityInfo:(id)arg1 launchRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (id)initWithServiceName:(id)arg1 endpoint:(id)arg2;
-- (id)initWithDefaultService;
++ (void)preheatServiceWithTimeout:(double)arg1;
+- (void).cxx_destruct;
+- (unsigned int)generateImageWithContext:(id)arg1;
+- (id)initWithApplicationInfo:(id)arg1;
 - (id)init;
 
 @end

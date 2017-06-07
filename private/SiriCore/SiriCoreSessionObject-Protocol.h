@@ -6,15 +6,18 @@
 
 #import <SiriCore/NSObject-Protocol.h>
 
-@class NSData, NSError, NSString;
+@class NSError, NSObject, NSString;
+@protocol OS_dispatch_data;
 
 @protocol SiriCoreSessionObject <NSObject>
 @property(copy, nonatomic) NSString *refId;
 @property(copy, nonatomic) NSString *aceId;
+- (void)siriCore_setSessionRequestId:(NSString *)arg1;
+- (NSString *)siriCore_requestId;
 - (void)siriCore_dispatchSendCompletionsWithResult:(long long)arg1 error:(NSError *)arg2;
 - (void)siriCore_addSendCompletion:(void (^)(long long, NSError *))arg1;
 - (_Bool)siriCore_supportsSendCompletions;
-- (NSData *)siriCore_serializedAceDataError:(id *)arg1;
+- (NSObject<OS_dispatch_data> *)siriCore_serializedAceDataError:(id *)arg1;
 - (void)siriCore_logDiagnostics;
 - (_Bool)siriCore_isRestartable;
 - (_Bool)siriCore_isRetryable;

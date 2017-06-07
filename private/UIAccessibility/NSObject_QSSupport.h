@@ -16,6 +16,7 @@
 - (id)_accessibilityQuickSpeakContent;
 - (id)_accessibilityQuickSpeakEnclosingSentence:(id *)arg1;
 - (_Bool)_accessibilityIsTextInput;
+- (id)_accessibilityQuickSpeakTokenizer;
 
 @end
 

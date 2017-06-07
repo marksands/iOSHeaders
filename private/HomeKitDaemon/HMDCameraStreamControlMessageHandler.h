@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDCameraSettingsControlManagerDelegate-Protocol.h>
 #import <HomeKitDaemon/HMDCameraStreamControlManagerDelegate-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMDAccessory, HMDCameraResidentMessageHandler, HMDCameraSettingsControlManager, HMDCameraStreamManagerSession, HMDCameraStreamSnapshotHandler, HMDCameraSupportedConfigurationCache, HMDNotificationRegistration, HMDService, HMFMessageDispatcher, HMFNetMonitor, NSString, NSUUID;
+@class HMDAccessory, HMDCameraResidentMessageHandler, HMDCameraSettingsControlManager, HMDCameraStreamManagerSession, HMDCameraStreamSnapshotHandler, HMDCameraSupportedConfigurationCache, HMDNotificationRegistration, HMDService, HMFMessageDispatcher, HMFNetMonitor, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDCameraStreamControlMessageHandler : NSObject <HMFTimerDelegate, HMDCameraSettingsControlManagerDelegate, HMDCameraStreamControlManagerDelegate, HMFLogging>
+@interface HMDCameraStreamControlMessageHandler : HMFObject <HMFTimerDelegate, HMDCameraSettingsControlManagerDelegate, HMDCameraStreamControlManagerDelegate, HMFLogging>
 {
     HMDCameraStreamManagerSession *_streamSession;
     HMDService *_streamManagementService;

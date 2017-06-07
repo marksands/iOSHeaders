@@ -15,7 +15,7 @@
 
 - (void).cxx_destruct;
 - (void)viewDidLoad;
-- (id)initWithHealthStore:(id)arg1 dataUnitController:(id)arg2 source:(id)arg3;
+- (id)initWithHealthStore:(id)arg1 displayTypeController:(id)arg2 source:(id)arg3;
 
 @end
 

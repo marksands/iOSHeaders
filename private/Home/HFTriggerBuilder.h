@@ -6,7 +6,7 @@
 
 #import <Home/HFItemBuilder.h>
 
-@class HFMutableSetDiff, HFTriggerAnonymousActionSetBuilder, HMTrigger, NSArray, NSString;
+@class HFConditionCollection, HFMutableSetDiff, HFTriggerAnonymousActionSetBuilder, HMTrigger, NSArray, NSString;
 @protocol HFTriggerBuilderContextProviding;
 
 @interface HFTriggerBuilder : HFItemBuilder
@@ -14,24 +14,31 @@
     _Bool _enabled;
     NSString *_name;
     HFTriggerAnonymousActionSetBuilder *_anonymousActionSetBuilder;
-    NSArray *_conditions;
     id <HFTriggerBuilderContextProviding> _context;
+    HFConditionCollection *_conditionCollection;
     HFMutableSetDiff *_actionSetBuilders;
+    HFMutableSetDiff *_endEventBuildersDiff;
 }
 
-+ (_Bool)supportsConditions;
 + (id)triggerBuilderForTrigger:(id)arg1 inHome:(id)arg2 context:(id)arg3;
 + (Class)homeKitRepresentationClass;
+@property(retain, nonatomic) HFMutableSetDiff *endEventBuildersDiff; // @synthesize endEventBuildersDiff=_endEventBuildersDiff;
 @property(retain, nonatomic) HFMutableSetDiff *actionSetBuilders; // @synthesize actionSetBuilders=_actionSetBuilders;
+@property(retain, nonatomic) HFConditionCollection *conditionCollection; // @synthesize conditionCollection=_conditionCollection;
 @property(retain, nonatomic) id <HFTriggerBuilderContextProviding> context; // @synthesize context=_context;
-@property(retain, nonatomic) NSArray *conditions; // @synthesize conditions=_conditions;
 @property(retain, nonatomic) HFTriggerAnonymousActionSetBuilder *anonymousActionSetBuilder; // @synthesize anonymousActionSetBuilder=_anonymousActionSetBuilder;
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (id)_deleteTrigger:(id)arg1 fromHome:(id)arg2;
+- (id)_commitAddTriggerToHome:(id)arg1;
+- (id)_uniquelyRenameTrigger:(id)arg1 pendingReplaceByNewTrigger:(id)arg2;
+- (void)_didReplaceBackingTrigger;
+- (id)replaceCurrentTriggerWithTrigger:(id)arg1;
 - (id)naturalLanguageNameOfType:(unsigned long long)arg1;
 - (id)commitEditTrigger;
 - (id)commitCreateTrigger;
+- (id)_updateEndEvents;
 - (id)_updateConditions;
 - (id)_updateName;
 - (id)_updateActionSets;
@@ -42,11 +49,17 @@
 - (id)deleteTrigger;
 - (_Bool)markTriggerAsHomeAppCreated;
 - (void)setMarkTriggerAsHomeAppCreated:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool requiresUpdatedHomeHub;
+@property(readonly, nonatomic) _Bool requiresHomeHub;
+@property(readonly, nonatomic) _Bool requiresLocationServicesAuthorization;
 @property(readonly, nonatomic) _Bool secureActionsRequireConfirmationToRun;
 @property(readonly, nonatomic) _Bool requiresConfirmationToRun;
-- (void)removeCondition:(id)arg1;
-- (void)updateCondition:(id)arg1;
-- (void)addCondition:(id)arg1;
+@property(readonly, nonatomic) NSArray *endEventBuilders;
+- (void)setEndEvent:(id)arg1;
+- (void)removeAllEndEventBuilders;
+- (void)removeEndEventBuilder:(id)arg1;
+- (void)updateEndEventBuilder:(id)arg1;
+- (void)addEndEventBuilder:(id)arg1;
 - (void)removeAllActionsAndActionSets;
 - (void)removeAction:(id)arg1;
 - (void)updateAction:(id)arg1;
@@ -62,6 +75,8 @@
 - (id)initWithExistingObject:(id)arg1 inHome:(id)arg2;
 - (id)initWithHome:(id)arg1 context:(id)arg2;
 - (id)initWithHome:(id)arg1;
+@property(readonly, nonatomic) _Bool supportsEndEvents;
+@property(readonly, nonatomic) _Bool supportsConditions;
 
 @end
 

@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateAudioSessionCategory;
 - (_Bool)_sharedSessionHasPlayingAudio;
 - (id)audioSession;
+- (_Bool)releaseDecodingResourcesForInactivePlayers;
 - (void)_deactivateAllPlayingMediaPlayersExcept:(id)arg1;
 - (void)mediaPlayer:(id)arg1 didChangeMutedState:(_Bool)arg2;
 - (void)mediaPlayer:(id)arg1 didChangePlayingState:(_Bool)arg2;

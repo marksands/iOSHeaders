@@ -18,5 +18,8 @@
 + (id)optionAtIndex:(unsigned long long)arg1;
 + (unsigned long long)numberOfOptions;
 
+// Remaining properties
+@property(readonly, nonatomic) unsigned long long _value; // @dynamic _value;
+
 @end
 

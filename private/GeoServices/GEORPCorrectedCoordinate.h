@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) GEOLatLng *correctedCoordinate; // @synthesize correctedCoordinate=_correctedCoordinate;
 @property(retain, nonatomic) GEOLatLng *originalCoordinate; // @synthesize originalCoordinate=_originalCoordinate;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasCorrectedCoordinate;
 @property(readonly, nonatomic) _Bool hasOriginalCoordinate;
-- (void)dealloc;
 
 @end
 

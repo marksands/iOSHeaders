@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 - (void)setOptions:(id)arg1;
 - (void)dealloc;
+- (_Bool)validatePassphrases:(id *)arg1;
 - (void)setCopyPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPrintPassphrase:(id)arg1 hint:(id)arg2;
 - (void)setPassphrase:(id)arg1 hint:(id)arg2;

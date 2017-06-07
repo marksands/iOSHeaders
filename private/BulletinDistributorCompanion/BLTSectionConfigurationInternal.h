@@ -15,8 +15,11 @@
 
 - (void).cxx_destruct;
 - (id)_loadConfigurations;
+- (_Bool)hasSectionIDOptedOutOfWaitForUserIdle:(id)arg1;
+- (_Bool)shouldSectionIDAlwaysAlert:(id)arg1;
 - (_Bool)shouldSectionIDSettingsAlwaysSync:(id)arg1;
 - (_Bool)hasSectionIDOptedOutOfAttachmentCoordination:(id)arg1;
+- (_Bool)hasSectionIDOptedOutOfCoordination:(id)arg1 subtype:(long long)arg2 category:(id)arg3;
 - (_Bool)hasSectionIDOptedOutOfCoordination:(id)arg1 subtype:(long long)arg2;
 - (id)init;
 

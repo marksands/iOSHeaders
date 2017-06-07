@@ -13,15 +13,20 @@
 __attribute__((visibility("hidden")))
 @interface _EARSpeechRecognitionResultPackage : NSObject <NSCopying>
 {
+    _Bool _recognitionIsFormatted;
+    _Bool _isFinal;
     _EARSpeechRecognition *_recognition;
     _EARSpeechRecognition *_preITNRecognition;
 }
 
+@property(readonly, nonatomic) _Bool isFinal; // @synthesize isFinal=_isFinal;
+@property(readonly, nonatomic) _Bool recognitionIsFormatted; // @synthesize recognitionIsFormatted=_recognitionIsFormatted;
 @property(readonly, copy, nonatomic) _EARSpeechRecognition *preITNRecognition; // @synthesize preITNRecognition=_preITNRecognition;
 @property(readonly, copy, nonatomic) _EARSpeechRecognition *recognition; // @synthesize recognition=_recognition;
 - (void).cxx_destruct;
+- (id)nBestResults;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)_initWithRecognition:(id)arg1 preITNRecognition:(id)arg2;
+- (id)_initWithRecognition:(id)arg1 preITNRecognition:(id)arg2 recognitionIsFormatted:(_Bool)arg3 isFinal:(_Bool)arg4;
 
 @end
 

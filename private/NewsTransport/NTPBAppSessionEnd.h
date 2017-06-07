@@ -13,7 +13,9 @@
 @interface NTPBAppSessionEnd : PBCodable <NSCopying>
 {
     long long _appSessionDuration;
+    NSMutableArray *_autoSubscribedFeedIds;
     int _channelSubscriptionCount;
+    NSMutableArray *_groupableFeedIds;
     NSMutableArray *_lastVisibleViews;
     NSMutableArray *_notificationChannelIds;
     int _notificationEnabledChannelsCount;
@@ -22,6 +24,8 @@
     int _sessionEndReason;
     NSMutableArray *_subscribedFeedIds;
     int _topicSubscriptionCount;
+    _Bool _breakingNewsAvailableDuringSession;
+    _Bool _breakingNewsDismissedDuringSession;
     struct {
         unsigned int appSessionDuration:1;
         unsigned int channelSubscriptionCount:1;
@@ -29,13 +33,21 @@
         unsigned int notitificationsEnabledChannelsCount:1;
         unsigned int sessionEndReason:1;
         unsigned int topicSubscriptionCount:1;
+        unsigned int breakingNewsAvailableDuringSession:1;
+        unsigned int breakingNewsDismissedDuringSession:1;
     } _has;
 }
 
++ (Class)groupableFeedIdsType;
++ (Class)autoSubscribedFeedIdsType;
 + (Class)subscribedFeedIdsType;
 + (Class)notificationChannelIdsType;
 + (Class)paidSubscriptionChannelIdsType;
 + (Class)lastVisibleViewsType;
+@property(retain, nonatomic) NSMutableArray *groupableFeedIds; // @synthesize groupableFeedIds=_groupableFeedIds;
+@property(retain, nonatomic) NSMutableArray *autoSubscribedFeedIds; // @synthesize autoSubscribedFeedIds=_autoSubscribedFeedIds;
+@property(nonatomic) _Bool breakingNewsDismissedDuringSession; // @synthesize breakingNewsDismissedDuringSession=_breakingNewsDismissedDuringSession;
+@property(nonatomic) _Bool breakingNewsAvailableDuringSession; // @synthesize breakingNewsAvailableDuringSession=_breakingNewsAvailableDuringSession;
 @property(retain, nonatomic) NSMutableArray *subscribedFeedIds; // @synthesize subscribedFeedIds=_subscribedFeedIds;
 @property(nonatomic) int notificationEnabledChannelsCount; // @synthesize notificationEnabledChannelsCount=_notificationEnabledChannelsCount;
 @property(retain, nonatomic) NSMutableArray *notificationChannelIds; // @synthesize notificationChannelIds=_notificationChannelIds;
@@ -54,6 +66,16 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)groupableFeedIdsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)groupableFeedIdsCount;
+- (void)addGroupableFeedIds:(id)arg1;
+- (void)clearGroupableFeedIds;
+- (id)autoSubscribedFeedIdsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)autoSubscribedFeedIdsCount;
+- (void)addAutoSubscribedFeedIds:(id)arg1;
+- (void)clearAutoSubscribedFeedIds;
+@property(nonatomic) _Bool hasBreakingNewsDismissedDuringSession;
+@property(nonatomic) _Bool hasBreakingNewsAvailableDuringSession;
 - (id)subscribedFeedIdsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)subscribedFeedIdsCount;
 - (void)addSubscribedFeedIds:(id)arg1;

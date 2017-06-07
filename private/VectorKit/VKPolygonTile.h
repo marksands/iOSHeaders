@@ -4,15 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <VectorKit/VKVectorTile.h>
+#import <VectorKit/VKSkewingVectorTile.h>
 
-@class NSArray, NSMutableArray, VKAnimation;
+#import <VectorKit/VKPolygonTile-Protocol.h>
+
+@class VKAnimation;
 
 __attribute__((visibility("hidden")))
-@interface VKPolygonTile : VKVectorTile
+@interface VKPolygonTile : VKSkewingVectorTile <VKPolygonTile>
 {
-    NSMutableArray *_polygonGroups;
-    NSMutableArray *_coastlineGroups;
+    vector_2e22b445 _polygonGroups;
+    vector_0661f58a _coastlineGroups;
     float _alpha;
     float _scale;
     float _minLayeringHeight;
@@ -29,15 +31,15 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) float minLayeringHeight; // @synthesize minLayeringHeight=_minLayeringHeight;
 @property(nonatomic) float scale; // @synthesize scale=_scale;
 @property(nonatomic) float alpha; // @synthesize alpha=_alpha;
-@property(readonly, nonatomic) NSArray *coastlineGroups; // @synthesize coastlineGroups=_coastlineGroups;
-@property(readonly, nonatomic) NSArray *polygonGroups; // @synthesize polygonGroups=_polygonGroups;
+@property(readonly, nonatomic) vector_0661f58a *coastlineGroups; // @synthesize coastlineGroups=_coastlineGroups;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)setTransitNodesRouteAttributes:(const unordered_map_5292d3da *)arg1;
 - (void)buildCoastlinesWithStyleManager:(shared_ptr_a3c46825 *)arg1;
-- (void)buildMeshesWithDevice:(Device_f0710f89 *)arg1 triangulator:(id)arg2 prepareExtrusion:(_Bool)arg3;
+- (void)buildMeshesWithDevice:(struct Device *)arg1 triangulator:(id)arg2 prepareExtrusion:(_Bool)arg3;
+@property(readonly, nonatomic) const vector_2e22b445 *polygonGroups;
 - (void)dealloc;
-- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 prepareExtrusion:(_Bool)arg3 styleManager:(shared_ptr_a3c46825)arg4 sharedResources:(id)arg5 contentScale:(double)arg6 device:(Device_f0710f89 *)arg7;
+- (id)initWithKey:(const struct VKTileKey *)arg1 modelTile:(id)arg2 prepareExtrusion:(_Bool)arg3 styleManager:(shared_ptr_a3c46825)arg4 sharedResources:(id)arg5 contentScale:(double)arg6 device:(struct Device *)arg7;
 
 @end
 

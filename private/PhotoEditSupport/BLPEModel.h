@@ -34,6 +34,7 @@
 @property(retain, nonatomic) CIFilter *photoFiltersFilter; // @synthesize photoFiltersFilter=_photoFiltersFilter;
 @property(retain, nonatomic) CIFilter *vintageFilter; // @synthesize vintageFilter=_vintageFilter;
 @property(nonatomic) _Bool liveInteraction; // @synthesize liveInteraction=_liveInteraction;
+- (void).cxx_destruct;
 - (id)ciImageWithInk:(id)arg1 cache:(id)arg2 groupIndex:(int)arg3 withOptionsObject:(id)arg4 gradientRect:(struct CGRect)arg5 padding:(double)arg6 liveInteraction:(_Bool)arg7;
 - (id)imageWithInk:(id)arg1 cache:(id)arg2 groupIndex:(int)arg3 withOptionsObject:(id)arg4 gradientRect:(struct CGRect)arg5 padding:(double)arg6 liveInteraction:(_Bool)arg7;
 - (id)imageWithAdaptiveGradientV2:(id)arg1 cache:(id)arg2 groupIndex:(int)arg3 withCenter:(struct CGPoint)arg4 withSize:(double)arg5 withAngle:(float)arg6 gradientRect:(struct CGRect)arg7 liveInteraction:(_Bool)arg8;

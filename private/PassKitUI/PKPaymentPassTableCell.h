@@ -25,6 +25,9 @@
     UIControl *_actionButton;
 }
 
++ (double)heightForCellWithMinimum:(double)arg1 hasSubTitle:(_Bool)arg2;
++ (id)subTitleFont;
++ (id)titleFont;
 @property(readonly, nonatomic) UIControl *actionButton; // @synthesize actionButton=_actionButton;
 @property(readonly, nonatomic) UILabel *subTextLabel; // @synthesize subTextLabel=_subTextLabel;
 @property(readonly, nonatomic) UILabel *mainLabel; // @synthesize mainLabel=_mainLabel;

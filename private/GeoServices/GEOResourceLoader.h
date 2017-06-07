@@ -4,12 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class GEOPowerAssertion, NSArray, NSData, NSMapTable, NSMutableArray, NSString;
+#import <GeoServices/NSProgressReporting-Protocol.h>
+
+@class GEOApplicationAuditToken, GEOPowerAssertion, GEOReportedProgress, NSArray, NSMapTable, NSMutableArray, NSProgress, NSString;
 @protocol OS_dispatch_queue;
 
-@interface GEOResourceLoader : NSObject
+@interface GEOResourceLoader : NSObject <NSProgressReporting>
 {
     NSString *_directory;
     NSString *_additionalDirectoryToConsider;
@@ -23,17 +25,19 @@
     unsigned long long _maxConcurrentLoads;
     NSArray *_resourceInfos;
     NSMutableArray *_loadedResources;
-    NSData *_auditToken;
+    GEOApplicationAuditToken *_auditToken;
     _Bool _allowResumingPartialDownloads;
     NSMapTable *_inProgressResourceDownloads;
     GEOPowerAssertion *_powerAssertion;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_queue> *_callbackQueue;
+    GEOReportedProgress *_progress;
 }
 
 + (Class)resourceLoadOperationClass;
 @property(nonatomic) _Bool requiresWiFi; // @synthesize requiresWiFi=_requiresWiFi;
-@property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
+@property(retain, nonatomic) GEOApplicationAuditToken *auditToken; // @synthesize auditToken=_auditToken;
+- (void).cxx_destruct;
 - (void)cancel;
 - (_Bool)_copyResource:(id)arg1 fromPath:(id)arg2 allowCreatingHardLink:(_Bool)arg3 error:(id *)arg4;
 - (void)_writeResourceToDisk:(id)arg1 withData:(id)arg2 checksum:(id)arg3 completionHandler:(CDUnknownBlockType)arg4 callbackQueue:(id)arg5;
@@ -42,8 +46,14 @@
 - (_Bool)_establishHardLinkIfPossibleForResource:(id)arg1 toResource:(id)arg2 error:(id *)arg3;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1 callbackQueue:(id)arg2;
 - (void)_cleanup;
-- (void)dealloc;
+@property(readonly) NSProgress *progress;
 - (id)initWithTargetDirectory:(id)arg1 baseURLString:(id)arg2 resources:(id)arg3 maximumConcurrentLoads:(unsigned long long)arg4 additionalDirectoryToConsider:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

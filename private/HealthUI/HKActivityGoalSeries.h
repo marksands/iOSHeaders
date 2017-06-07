@@ -15,10 +15,13 @@
 }
 
 - (void).cxx_destruct;
+- (_Bool)blockCoordinate:(id)arg1 greaterThan:(id)arg2;
+- (_Bool)blockCoordinate:(id)arg1 lessThan:(id)arg2;
 - (_Bool)blockCoordinateIsVisibleInsideOfChartRect:(struct CGRect)arg1 blockCoordinate:(id)arg2;
 - (double)yAxisDifferenceToPoint:(struct CGPoint)arg1 blockCoordinate:(id)arg2 chartRect:(struct CGRect)arg3;
 - (double)xAxisDistanceFromPoint:(struct CGPoint)arg1 blockCoordinate:(id)arg2 chartRect:(struct CGRect)arg3;
 - (double)distanceFromPoint:(struct CGPoint)arg1 blockCoordinate:(id)arg2 chartRect:(struct CGRect)arg3;
+- (_Bool)supportsMultiTouchSelection;
 - (void)_enumerateCoordinateListByRemovingOffscreenPoints:(id)arg1 withTransform:(struct CGAffineTransform)arg2 zoomLevelConfiguration:(id)arg3 axisRect:(struct CGRect)arg4 block:(CDUnknownBlockType)arg5;
 - (void)_enumerateCoordinateList:(id)arg1 withTransform:(struct CGAffineTransform)arg2 zoomLevelConfiguration:(id)arg3 axisRect:(struct CGRect)arg4 block:(CDUnknownBlockType)arg5;
 - (void)drawSeriesWithBlockCoordinates:(id)arg1 axisRect:(struct CGRect)arg2 zoomLevelConfiguration:(id)arg3 pointTransform:(struct CGAffineTransform)arg4 renderContext:(struct CGContext *)arg5 secondaryRenderContext:(id)arg6;

@@ -7,6 +7,6 @@
 #import <VectorKit/NSObject-Protocol.h>
 
 @protocol VKMapLayer <NSObject>
-- (unsigned long long)mapLayerPosition;
+- (unsigned char)mapLayerPosition;
 @end
 

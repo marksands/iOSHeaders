@@ -6,32 +6,37 @@
 
 #import <objc/NSObject.h>
 
-@class BRCDumper, NSString, PQLConnection;
+@class BRCDumper, NSDate, NSString, PQLConnection, brc_task_tracker;
 
 @interface BRCDumpContext : NSObject
 {
     long long _indentation;
     BRCDumper *_dumper;
+    NSDate *_nowDate;
     _Bool _liveDaemon;
     _Bool _onlyActiveStuff;
     _Bool _dumpTrackedPendingDownloads;
     struct __sFILE *_fp;
     PQLConnection *_db;
     NSString *_indentationBaseString;
+    brc_task_tracker *_taskTracker;
 }
 
 + (id)stringFromByteCount:(long long)arg1 context:(id)arg2;
 + (id)stringFromByteCount:(long long)arg1 showActualByteCount:(_Bool)arg2 suffix:(id)arg3 context:(id)arg4;
 + (id)stringFromInterval:(double)arg1 context:(id)arg2;
-+ (id)stringFromDueStamp:(unsigned long long)arg1 now:(unsigned long long)arg2 allowsPast:(_Bool)arg3 context:(id)arg4;
-+ (id)stringFromDueDate:(id)arg1 now:(id)arg2 allowsPast:(_Bool)arg3 context:(id)arg4;
++ (id)stringFromDueStamp:(long long)arg1 allowsPast:(_Bool)arg2 context:(id)arg3;
++ (id)stringFromDueDate:(id)arg1 allowsPast:(_Bool)arg2 context:(id)arg3;
 + (id)stringFromError:(id)arg1 context:(id)arg2;
 + (id)stringFromErrorString:(id)arg1 context:(id)arg2;
 + (id)stringFromOperationUUID:(unsigned char [16])arg1 context:(id)arg2;
 + (id)stringFromItemID:(id)arg1 context:(id)arg2;
 + (id)highlightedString:(id)arg1 type:(long long)arg2 context:(id)arg3;
++ (long long)nowFromContext:(id)arg1;
++ (id)nowDateFromContext:(id)arg1;
 + (id)stringFromItemAsString:(id)arg1 context:(id)arg2;
 + (id)stringFromThrottleState:(int)arg1 context:(id)arg2;
+@property(retain, nonatomic) brc_task_tracker *taskTracker; // @synthesize taskTracker=_taskTracker;
 @property(nonatomic) _Bool dumpTrackedPendingDownloads; // @synthesize dumpTrackedPendingDownloads=_dumpTrackedPendingDownloads;
 @property(nonatomic) _Bool onlyActiveStuff; // @synthesize onlyActiveStuff=_onlyActiveStuff;
 @property(nonatomic) _Bool liveDaemon; // @synthesize liveDaemon=_liveDaemon;
@@ -43,6 +48,7 @@
 - (void)pushIndentation;
 - (id)highlightedString:(id)arg1 type:(long long)arg2;
 - (void)writeLineWithFormat:(id)arg1;
+@property(readonly, nonatomic) _Bool isCancelled;
 - (id)initWithDumper:(id)arg1;
 - (id)initWithFile:(struct __sFILE *)arg1 db:(id)arg2;
 

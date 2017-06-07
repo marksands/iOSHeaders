@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)maximumZoomLevelBoundsCamera;
 - (_Bool)minimumZoomLevelBoundsCamera;
 - (void)dealloc;
-- (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4 labelManager:(const shared_ptr_e1d4bd06 *)arg5;
+- (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4 taskContext:(shared_ptr_e963992e)arg5 labelManager:(const shared_ptr_e1d4bd06 *)arg6;
 
 @end
 

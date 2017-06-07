@@ -22,5 +22,7 @@
 - (id)_fiui_badgeContainerPath;
 - (id)_fiui_badgeAssetNameSuffix;
 - (id)fiui_uniqueBadgeModelIdentifier;
+- (id)fiui_badgePathIdentifier;
+- (_Bool)fiui_usesMonthlyChallengeBadge;
 @end
 

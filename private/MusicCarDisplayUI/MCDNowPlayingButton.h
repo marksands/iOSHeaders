@@ -13,15 +13,13 @@
     CALayer *_leadingBorder;
     CALayer *_focusColorLayer;
     struct CGSize _layoutFrameSize;
-    _Bool _hidesLeadingBorder;
     double _height;
 }
 
 + (id)buttonWithHeight:(double)arg1;
 @property(nonatomic) double height; // @synthesize height=_height;
-@property(nonatomic) _Bool hidesLeadingBorder; // @synthesize hidesLeadingBorder=_hidesLeadingBorder;
 - (void).cxx_destruct;
-- (void)focusedViewDidChange;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
 - (struct CGRect)imageRectForContentRect:(struct CGRect)arg1;

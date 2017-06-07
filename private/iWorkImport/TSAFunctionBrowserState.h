@@ -31,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)canGoForward;
 - (_Bool)canGoBack;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)p_filterOutUnknownFunctions:(id)arg1;
 - (id)initWithContext:(id)arg1;
 

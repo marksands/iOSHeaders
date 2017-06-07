@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class PDFAnnotationButtonWidget, UIColor;
+@class PDFAnnotation, UIColor;
 
+__attribute__((visibility("hidden")))
 @interface PDFKitButtonPrivateVars : NSObject
 {
-    PDFAnnotationButtonWidget *annotation;
+    PDFAnnotation *annotation;
     UIColor *backgroundColor;
     UIColor *fontColor;
     struct CGRect drawingBounds;

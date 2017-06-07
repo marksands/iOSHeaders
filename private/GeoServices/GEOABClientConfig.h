@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSMutableArray *debugExperimentBranchs; // @synthesize debugExperimentBranchs=_debugExperimentBranchs;
 @property(retain, nonatomic) NSString *assignedAbBranchId; // @synthesize assignedAbBranchId=_assignedAbBranchId;
 @property(retain, nonatomic) NSMutableArray *configKeyValues; // @synthesize configKeyValues=_configKeyValues;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -42,7 +43,6 @@
 - (unsigned long long)configKeyValuesCount;
 - (void)addConfigKeyValue:(id)arg1;
 - (void)clearConfigKeyValues;
-- (void)dealloc;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <SafariShared/NSObject-Protocol.h>
 
-@class NSString, SFSearchResult;
+@class NSString, SFSearchResult, WBSQuerySuggestion;
 
 @protocol WBSCompletionListItem <NSObject>
 @property(readonly, nonatomic) unsigned long long engagementDestination;
@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) NSString *parsecDomainIdentifier;
 
 @optional
+@property(retain, nonatomic) WBSQuerySuggestion *siriSuggestion;
 @property(readonly, nonatomic) NSString *lastSearchQuery;
 @end
 

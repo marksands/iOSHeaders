@@ -38,6 +38,8 @@
 @property(copy, nonatomic) CDUnknownBlockType onBytesAvailable; // @synthesize onBytesAvailable=_onBytesAvailable;
 @property(copy, nonatomic) CDUnknownBlockType onOpenComplete; // @synthesize onOpenComplete=_onOpenComplete;
 - (void).cxx_destruct;
+- (_Bool)setProperty:(id)arg1 forKey:(id)arg2;
+- (id)propertyForKey:(id)arg1;
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (_Bool)hasBytesAvailable;
 - (_Bool)getBuffer:(char **)arg1 length:(unsigned long long *)arg2;

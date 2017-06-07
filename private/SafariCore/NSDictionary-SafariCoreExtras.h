@@ -11,6 +11,7 @@
 + (id)safari_dictionaryWithPropertyListData:(id)arg1 options:(unsigned long long)arg2;
 + (id)safari_dictionaryWithPropertyListData:(id)arg1;
 - (id)safari_mapAndFilterKeysAndObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (id)safari_setForKey:(id)arg1;
 - (id)safari_UUIDForKey:(id)arg1;
 - (id)safari_URLForKey:(id)arg1;
 - (id)safari_dictionaryForKey:(id)arg1;

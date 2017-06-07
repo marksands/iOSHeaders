@@ -22,8 +22,11 @@
     long long notificationBehavior;
     SBLockScreenLegibilitySettings *legibilitySettings;
     NSArray *elementOverrides;
+    struct CGRect presentationRegion;
 }
 
+- (void)setPresentationRegion:(struct CGRect)arg1;
+@property(readonly, nonatomic) struct CGRect presentationRegion;
 - (void)setElementOverrides:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *elementOverrides;
 - (void)setLegibilitySettings:(id)arg1;

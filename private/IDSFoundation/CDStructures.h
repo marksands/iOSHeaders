@@ -10,9 +10,99 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct IDSGLAttrBinaryData_ {
+    int len;
+    unsigned char data[512];
+};
+
+struct IDSGlobalLinkAttribute {
+    unsigned short type;
+    unsigned short len;
+    union {
+        struct sockaddr_storage ss;
+        unsigned short u16;
+        unsigned int u32;
+        unsigned long long u64;
+        struct IDSGLAttrBinaryData_ binaryData;
+    } value;
+};
+
+struct IDSNetBuffer_;
+
+struct IDSSimpleUInt16List {
+    int listSize;
+    int itemCount;
+    unsigned short *items;
+};
+
+struct IDSStunAttribute {
+    unsigned short type;
+    unsigned short len;
+    unsigned short valueType;
+    union {
+        struct sockaddr_storage ss;
+        unsigned short u16;
+        unsigned int u32;
+        unsigned long long u64;
+        struct StunBinaryData binaryData;
+        struct StunErrorCode errorCode;
+        struct StunUnknownAttribute unknownAttribute;
+    } value;
+};
+
+struct IDSTCPConnection_ {
+    int _field1;
+    _Bool _field2;
+    unsigned int _field3;
+    int _field4;
+    struct IDSNetBuffer_ *_field5;
+    struct sockaddr_storage _field6;
+    struct sockaddr_storage _field7;
+    CDStruct_183601bc *_field8;
+    CDStruct_183601bc *_field9;
+    struct IDSTCPLinkCounter_ *_field10;
+    struct IDSTCPConnection_ *_field11;
+    id _field12;
+    CDUnknownBlockType _field13;
+};
+
+struct IDSTCPLinkCounter_ {
+    unsigned long long _totalBytesSent;
+    unsigned long long _totalPacketsSent;
+    unsigned long long _totalBytesReceived;
+    unsigned long long _totalPacketsReceived;
+};
+
+struct StunBinaryData {
+    int len;
+    unsigned char data[1472];
+};
+
+struct StunErrorCode {
+    int errorClass;
+    int errorNumber;
+    unsigned char errorReason[128];
+    int len;
+};
+
+struct StunUnknownAttribute {
+    int count;
+    unsigned short unknowAttributes[20];
+};
+
 struct _NSRange {
     unsigned long long _field1;
     unsigned long long _field2;
+};
+
+struct ifaddrs {
+    struct ifaddrs *_field1;
+    char *_field2;
+    unsigned int _field3;
+    struct sockaddr *_field4;
+    struct sockaddr *_field5;
+    struct sockaddr *_field6;
+    void *_field7;
 };
 
 struct in6_addr {
@@ -25,6 +115,10 @@ struct in6_addr {
 
 struct in_addr {
     unsigned int _field1;
+};
+
+struct os_unfair_lock_s {
+    unsigned int _os_unfair_lock_opaque;
 };
 
 struct sockaddr {
@@ -57,4 +151,39 @@ struct sockaddr_storage {
     long long __ss_align;
     char __ss_pad2[112];
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    int length;
+    unsigned char data[12];
+} CDStruct_330c469e;
+
+typedef struct CDStruct_183601bc;
+
+typedef struct {
+    char *_field1;
+    unsigned long long _field2;
+    long long _field3;
+    long long _field4;
+    _Bool _field5;
+    _Bool _field6;
+    _Bool _field7;
+    _Bool _field8;
+    _Bool _field9;
+    _Bool _field10;
+    _Bool _field11;
+    unsigned int _field12;
+    struct sockaddr_storage _field13;
+    struct sockaddr_storage _field14;
+    unsigned short _field15;
+    unsigned short _field16;
+    unsigned char _field17;
+    _Bool _field18;
+    unsigned long long _field19;
+    char _field20;
+    char _field21;
+    int _field22;
+    unsigned char _field23[0];
+} CDStruct_3b17df7f;
 

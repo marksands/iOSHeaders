@@ -6,19 +6,14 @@
 
 #import <Preferences/PSListController.h>
 
-#import <BridgePreferences/BPSInternalGlanceObserverDelegate-Protocol.h>
+@class BBSectionInfo, NPSDomainAccessor, NSMutableArray, NSMutableDictionary, NSString, PSSpecifier;
 
-@class BBSectionInfo, BPSInternalGlanceManager, NGSGlance, NPSDomainAccessor, NSMutableArray, NSMutableDictionary, NSString, PSSpecifier;
-
-@interface BPSNotificationAppController : PSListController <BPSInternalGlanceObserverDelegate>
+@interface BPSNotificationAppController : PSListController
 {
     _Bool _mirrorSettings;
     NSString *_bundleIdentifier;
     BBSectionInfo *_bbSectionInfo;
     NSMutableArray *_notificationApplicationSpecifiers;
-    NGSGlance *_glance;
-    BPSInternalGlanceManager *_manager;
-    BPSInternalGlanceManager *_oldManager;
     NPSDomainAccessor *_bbAppsSettings;
     NSMutableArray *_notificationSpecifiers;
     NSMutableDictionary *_sectionInfo;
@@ -30,9 +25,6 @@
 @property(readonly, nonatomic) _Bool mirrorSettings; // @synthesize mirrorSettings=_mirrorSettings;
 @property(readonly, nonatomic) NSMutableArray *notificationSpecifiers; // @synthesize notificationSpecifiers=_notificationSpecifiers;
 @property(retain, nonatomic) NPSDomainAccessor *bbAppsSettings; // @synthesize bbAppsSettings=_bbAppsSettings;
-@property(retain, nonatomic) BPSInternalGlanceManager *oldManager; // @synthesize oldManager=_oldManager;
-@property(retain, nonatomic) BPSInternalGlanceManager *manager; // @synthesize manager=_manager;
-@property(retain, nonatomic) NGSGlance *glance; // @synthesize glance=_glance;
 @property(retain, nonatomic) NSMutableArray *notificationApplicationSpecifiers; // @synthesize notificationApplicationSpecifiers=_notificationApplicationSpecifiers;
 @property(retain, nonatomic) BBSectionInfo *bbSectionInfo; // @synthesize bbSectionInfo=_bbSectionInfo;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
@@ -60,13 +52,9 @@
 - (id)applicationGroupSpecifiers;
 - (id)mirroredApplicationGroupSpecifiers;
 - (void)mirrorSettingsChanged:(_Bool)arg1;
-- (_Bool)wantsGlanceRowIfApplicable;
 - (_Bool)suppressAllMirrorSpecifiers;
 - (_Bool)suppressAlertSpecifiers;
 - (_Bool)suppressMirrorOption;
-- (void)settingsManagerReloadedGlances:(id)arg1;
-- (id)showsGlance:(id)arg1;
-- (void)setShowsGlance:(id)arg1 forSpecifier:(id)arg2;
 - (id)applicationBundleIdentifier;
 - (id)localizedPaneTitle;
 - (void)removeAlertOptions;
@@ -80,16 +68,8 @@
 - (id)bulletinBoardSettings;
 - (_Bool)caresAboutSubsections;
 - (_Bool)shouldReloadSpecifiersOnResume;
-- (void)viewWillAppear:(_Bool)arg1;
 - (id)bundle;
-- (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

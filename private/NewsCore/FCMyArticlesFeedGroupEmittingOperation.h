@@ -22,8 +22,7 @@
 - (void).cxx_destruct;
 - (id)_sortClusteredHeadlinesForDisplay:(id)arg1 withAdditionalData:(id)arg2 scoresByArticleID:(id)arg3 topicsByID:(id)arg4;
 - (id)_joinedFeedTransformation;
-- (id)_nonEditorialFeedTransformationWithFeedContext:(id)arg1 feedItemScores:(id)arg2;
-- (void)_buildResults;
+- (id)_nonEditorialFeedTransformationWithFeedContext:(id)arg1 feedItemScores:(id)arg2 showStoriesOnlyFromFavorites:(_Bool)arg3;
 - (void)performOperation;
 
 @end

@@ -6,30 +6,22 @@
 
 #import <SearchUI/SearchUILayoutFreeSectionView.h>
 
-@class NSArray, SearchUIGridLayoutManager;
+@class TLKGridRowView;
 
 @interface SearchUITableRowCardView : SearchUILayoutFreeSectionView
 {
-    NSArray *_views;
-    SearchUIGridLayoutManager *_gridData;
+    TLKGridRowView *_rowView;
 }
 
-+ (void)growViewsForStackView:(id)arg1 views:(id)arg2 withSizes:(id)arg3 indexOfFirstTrailingColumn:(unsigned long long)arg4;
-+ (void)setRowSpacing:(id)arg1 forContainer:(id)arg2 trailingColumn:(unsigned long long)arg3;
-+ (void)makeViewExpandWithIndex:(unsigned long long)arg1 withViews:(id)arg2;
-+ (void)setWidthForColumns:(id)arg1 forContainer:(id)arg2 views:(id)arg3;
-+ (id)ignoreIndicesForViews:(id)arg1;
-+ (void)setupStackView:(id)arg1 spacings:(id)arg2 views:(id)arg3 withSizes:(id)arg4 trailingColumn:(unsigned long long)arg5;
-@property(retain) SearchUIGridLayoutManager *gridData; // @synthesize gridData=_gridData;
-@property(retain) NSArray *views; // @synthesize views=_views;
++ (_Bool)isAHeader:(id)arg1;
++ (struct UIEdgeInsets)defaultLayoutMargins;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
++ (double)largestImageSizeForSection:(id)arg1;
+@property(retain) TLKGridRowView *rowView; // @synthesize rowView=_rowView;
 - (void).cxx_destruct;
-- (struct UIEdgeInsets)verticalBaselineInsetsForHeader:(_Bool)arg1;
-- (struct UIEdgeInsets)verticalBaselineInsetsForRows;
-- (long long)textAlignmentForAlignment:(long long)arg1;
-- (id)viewWithFormattedText:(id)arg1 textAlignment:(long long)arg2 row:(id)arg3;
-- (void)setTruncationPriorities:(id)arg1;
-- (void)layoutSubviews;
-- (id)rowOfViewsForData:(id)arg1 alignmentData:(id)arg2;
+- (struct UIEdgeInsets)verticalBaselineInsetsForHeader:(_Bool)arg1 isCompactTable:(_Bool)arg2;
+- (struct UIEdgeInsets)verticalBaselineInsetsForRowsWithCompactTable:(_Bool)arg1;
+- (void)updateWithCardSection:(id)arg1 manager:(id)arg2;
 - (id)initWithCardSection:(id)arg1 gridData:(id)arg2 controller:(id)arg3 style:(unsigned long long)arg4;
 
 @end

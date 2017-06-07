@@ -29,8 +29,10 @@ __attribute__((visibility("hidden")))
     VCBitrateArbiter *_bitrateArbiter;
     NSSet *_captionsReceiverLanguages;
     NSSet *_captionsSenderLanguages;
+    void *_callLogFile;
 }
 
+@property(nonatomic) void *callLogFile; // @synthesize callLogFile=_callLogFile;
 @property(retain, nonatomic) NSSet *captionsReceiverLanguages; // @synthesize captionsReceiverLanguages=_captionsReceiverLanguages;
 @property(retain, nonatomic) NSSet *captionsSenderLanguages; // @synthesize captionsSenderLanguages=_captionsSenderLanguages;
 @property(retain, nonatomic) VCBitrateArbiter *bitrateArbiter; // @synthesize bitrateArbiter=_bitrateArbiter;

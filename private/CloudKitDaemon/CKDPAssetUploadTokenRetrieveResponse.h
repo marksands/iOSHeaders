@@ -13,14 +13,16 @@
 __attribute__((visibility("hidden")))
 @interface CKDPAssetUploadTokenRetrieveResponse : PBCodable <NSCopying>
 {
+    NSData *_authCopyResponse;
     NSData *_authPutResponse;
-    NSMutableArray *_authPutResponseHeaders;
+    NSMutableArray *_contentResponseHeaders;
     NSMutableArray *_uploadTokens;
 }
 
-+ (Class)authPutResponseHeadersType;
++ (Class)contentResponseHeadersType;
 + (Class)uploadTokensType;
-@property(retain, nonatomic) NSMutableArray *authPutResponseHeaders; // @synthesize authPutResponseHeaders=_authPutResponseHeaders;
+@property(retain, nonatomic) NSData *authCopyResponse; // @synthesize authCopyResponse=_authCopyResponse;
+@property(retain, nonatomic) NSMutableArray *contentResponseHeaders; // @synthesize contentResponseHeaders=_contentResponseHeaders;
 @property(retain, nonatomic) NSData *authPutResponse; // @synthesize authPutResponse=_authPutResponse;
 @property(retain, nonatomic) NSMutableArray *uploadTokens; // @synthesize uploadTokens=_uploadTokens;
 - (void).cxx_destruct;
@@ -33,10 +35,11 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (id)authPutResponseHeadersAtIndex:(unsigned long long)arg1;
-- (unsigned long long)authPutResponseHeadersCount;
-- (void)addAuthPutResponseHeaders:(id)arg1;
-- (void)clearAuthPutResponseHeaders;
+@property(readonly, nonatomic) _Bool hasAuthCopyResponse;
+- (id)contentResponseHeadersAtIndex:(unsigned long long)arg1;
+- (unsigned long long)contentResponseHeadersCount;
+- (void)addContentResponseHeaders:(id)arg1;
+- (void)clearContentResponseHeaders;
 @property(readonly, nonatomic) _Bool hasAuthPutResponse;
 - (id)uploadTokensAtIndex:(unsigned long long)arg1;
 - (unsigned long long)uploadTokensCount;

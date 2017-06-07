@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (void)requestPermissionToDownloadWithPhotoLibrary:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property unsigned long long requestCount; // @synthesize requestCount=_requestCount;
+- (id)statusAsDictionary;
 - (id)init;
 
 // Remaining properties

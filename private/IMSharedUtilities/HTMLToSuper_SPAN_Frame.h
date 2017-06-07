@@ -8,10 +8,7 @@
 
 @interface HTMLToSuper_SPAN_Frame : HTMLToSuper_Default_Frame
 {
-    _Bool _shouldPopBackgroundColor;
-    _Bool _shouldPopForegroundColor;
     _Bool _shouldPopFontFamily;
-    _Bool _shouldPopFontSize;
     _Bool _shouldDecrementBoldCount;
     _Bool _shouldDecrementItalicCount;
     _Bool _shouldDecrementUnderlineCount;

@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)shouldShadePreview;
 + (id)attachmentSummary:(unsigned long long)arg1;
 
 @end

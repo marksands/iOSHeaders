@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 
-@class HMDHomeManager, NSString, NSUUID;
+@class HMDHomeManager, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDKeyTransferAgent : NSObject <HMFLogging, HMFMessageReceiver>
+@interface HMDKeyTransferAgent : HMFObject <HMFLogging, HMFMessageReceiver>
 {
     _Bool _inProgress;
     unsigned long long _residentProvisioningStatus;
@@ -22,7 +22,6 @@
 }
 
 + (id)logCategory;
-+ (id)minimumSupportedKeyTransferHomeKitVersion;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(nonatomic) __weak HMDHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;

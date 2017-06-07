@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GameCenterUI/GKServiceViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionHostProtocol-Protocol.h>
 
 @class GKMatchRequestInternal, GKPlayerInternal, NSArray, NSData, NSError;
 
-@protocol GKMatchmakerHostProtocol <GKServiceViewControllerDelegate>
+@protocol GKMatchmakerHostProtocol <GKExtensionHostProtocol>
+
+@optional
 - (void)setBrowsingForNearbyPlayers:(_Bool)arg1;
 - (void)cancelMatching;
 - (void)sendData:(NSData *)arg1;

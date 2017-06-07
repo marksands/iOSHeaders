@@ -13,6 +13,7 @@
 
 @property(readonly, copy, nonatomic) CDUnknownBlockType handlerBlock; // @synthesize handlerBlock=_handlerBlock;
 - (void)displayLinkFired:(id)arg1;
+- (void)dealloc;
 - (id)initWithHandlerBlock:(CDUnknownBlockType)arg1;
 
 @end

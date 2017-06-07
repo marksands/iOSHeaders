@@ -8,7 +8,7 @@
 
 #import <Network/NWPrettyDescription-Protocol.h>
 
-@class NSArray, NSString, NSUUID, NWEndpoint, NWInterface, NWParameters;
+@class NSArray, NSString, NSUUID, NWBrowseDescriptor, NWEndpoint, NWInterface, NWParameters;
 @protocol OS_nw_path;
 
 @interface NWPath : NSObject <NWPrettyDescription>
@@ -16,21 +16,27 @@
     NSObject<OS_nw_path> *_internalPath;
 }
 
-+ (id)statusToString:(long long)arg1;
++ (id)pathWithProtocolBufferData:(id)arg1;
++ (id)createStringFromStatus:(long long)arg1;
 + (id)pathForClientID:(id)arg1;
 + (id)allClientIDs;
 @property(readonly) NSObject<OS_nw_path> *internalPath; // @synthesize internalPath=_internalPath;
 - (void).cxx_destruct;
+- (id)createProtocolBufferObject;
 @property(readonly, nonatomic, getter=isEligibleForCrazyIvan46) _Bool eligibleForCrazyIvan46;
 @property(readonly, nonatomic) _Bool supportsDNS;
 @property(readonly, nonatomic) _Bool supportsIPv6;
 @property(readonly, nonatomic) _Bool supportsIPv4;
-@property(retain, nonatomic) NWEndpoint *derivedEndpoint;
 @property(readonly, nonatomic) NSArray *proxySettings;
 @property(readonly, nonatomic) _Bool fallbackEligible;
 @property(readonly, nonatomic) _Bool fallbackIsWeak;
 @property(readonly, nonatomic) unsigned int fallbackInterfaceIndex;
 @property(readonly, nonatomic) NWParameters *derivedParameters;
+@property(readonly, nonatomic) NWBrowseDescriptor *browseDescriptor;
+@property(readonly, nonatomic) _Bool hasBrowseDescriptor;
+@property(readonly, nonatomic) NWInterface *connectedInterface;
+@property(readonly, nonatomic) NWEndpoint *effectiveRemoteEndpoint;
+@property(readonly, nonatomic) NWEndpoint *effectiveLocalEndpoint;
 @property(readonly, nonatomic) NWEndpoint *endpoint;
 @property(readonly, nonatomic) NWParameters *parameters;
 @property(readonly, nonatomic, getter=isRoaming) _Bool roaming;
@@ -47,11 +53,14 @@
 @property(readonly, nonatomic, getter=isFlowDivert) _Bool flowDivert;
 @property(readonly, nonatomic) NSString *reasonDescription;
 @property(readonly, nonatomic) long long reason;
+@property(readonly, nonatomic) long long maximumDatagramSize;
 @property(readonly, nonatomic) long long mtu;
 @property(readonly, nonatomic) NSArray *dnsSearchDomains;
 @property(readonly, nonatomic) NSArray *dnsServersAsStrings;
 @property(readonly, nonatomic) NSArray *dnsServers;
+@property(readonly, nonatomic) NSArray *flows;
 @property(readonly, nonatomic) NWInterface *fallbackInterface;
+- (id)delegateInterface;
 @property(readonly, nonatomic) NWInterface *interface;
 @property(readonly, nonatomic) NWInterface *scopedInterface;
 - (id)inactiveNetworkAgentUUIDsOnlyVoluntary:(_Bool)arg1;
@@ -60,6 +69,12 @@
 - (_Bool)usesNetworkAgent:(id)arg1;
 - (_Bool)usesNetworkAgentType:(Class)arg1;
 - (_Bool)usesInterfaceType:(long long)arg1;
+- (_Bool)isLinkQualityAbort;
+- (_Bool)fastOpenBlocked;
+- (_Bool)ecnEnabled;
+- (_Bool)shouldProbeConnectivity;
+@property(readonly, nonatomic, getter=isDefunct) _Bool defunct;
+@property(readonly, nonatomic, getter=isViable) _Bool viable;
 @property(readonly, nonatomic, getter=isExpensive) _Bool expensive;
 @property(readonly, nonatomic) NSUUID *clientID;
 @property(readonly, nonatomic) long long status;

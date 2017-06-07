@@ -12,7 +12,7 @@
 @protocol TSCEReferenceResolving <NSObject>
 + (struct TSCEFormat)formatFromVector:(const struct TSCETableReferenceVector *)arg1 atIndex:(unsigned long long)arg2;
 + (int)getHidingAction:(const struct TSCETableReference *)arg1;
-+ (CDStruct_fc93c73e)getRangeReference:(const struct TSCETableReference *)arg1;
++ (struct TSCERangeRef)getRangeReference:(const struct TSCETableReference *)arg1;
 + (struct TSCERangeCoordinate)getRange:(const struct TSCETableReference *)arg1;
 + (struct TSCEFormat)format:(const struct TSCETableReference *)arg1 fromCell:(struct TSUCellCoord)arg2;
 + (int)mergeReferences:(struct TSCETableReference *)arg1 left:(const struct TSCETableReference *)arg2 right:(const struct TSCETableReference *)arg3;
@@ -26,7 +26,7 @@
 + (id <TSCEResolverContainer>)resolverContainerMatchingName:(NSString *)arg1 inDocumentRoot:(TSKDocumentRoot *)arg2;
 - (TSWPParagraphStyle *)cellTextStyle:(struct TSUCellCoord)arg1;
 - (struct TSCERangeCoordinate)preMergeRangeFromUidTract:(TSCEUidTract *)arg1;
-- (struct TSCERangeCoordinate)expandCellRangeToCoverMergedCells:(struct TSCERangeCoordinate)arg1;
+- (struct TSCERangeCoordinate)resolverExpandCellRangeToCoverMergedCells:(struct TSCERangeCoordinate)arg1;
 - (TSUMutableUUIDSet *)UIDSetForRange:(struct _NSRange)arg1 isRows:(_Bool)arg2;
 - (NSMutableIndexSet *)mutableIndexesForUIDSet:(TSUUUIDSet *)arg1 isRows:(_Bool)arg2 notFoundUIDs:(TSUMutableUUIDSet *)arg3;
 - (TSUMutableUUIDSet *)UIDSetForIndexes:(NSIndexSet *)arg1 isRows:(_Bool)arg2;
@@ -37,35 +37,34 @@
 - (UUIDData_5fbc143e)UIDForIndex:(unsigned short)arg1 isRows:(_Bool)arg2;
 - (vector_dadc1b26)allColumnUIDs;
 - (vector_dadc1b26)columnUIDsForColumnRange:(struct _NSRange)arg1;
-- (NSMutableIndexSet *)columnIndexesForUIDs:(const vector_dadc1b26 *)arg1;
+- (NSMutableIndexSet *)mutableColumnIndexesForUIDs:(const vector_dadc1b26 *)arg1;
 - (vector_dadc1b26)columnUIDsForColumnIndexes:(NSIndexSet *)arg1;
 - (unsigned char)columnIndexForColumnUID:(const UUIDData_5fbc143e *)arg1;
 - (UUIDData_5fbc143e)columnUIDForColumnIndex:(unsigned char)arg1;
 - (vector_dadc1b26)allRowUIDs;
 - (vector_dadc1b26)rowUIDsForRowRange:(struct _NSRange)arg1;
-- (NSMutableIndexSet *)rowIndexesForUIDs:(const vector_dadc1b26 *)arg1;
+- (NSMutableIndexSet *)mutableRowIndexesForUIDs:(const vector_dadc1b26 *)arg1;
 - (vector_dadc1b26)rowUIDsForRowIndexes:(NSIndexSet *)arg1;
 - (unsigned short)rowIndexForRowUID:(const UUIDData_5fbc143e *)arg1;
 - (UUIDData_5fbc143e)rowUIDForRowIndex:(unsigned short)arg1;
 - (_Bool)hasNamesInHeaders;
-- (NSString *)cellRangeName:(struct TSCERangeCoordinate)arg1 stickyBits:(unsigned char)arg2 isRangeWithFunction:(_Bool)arg3 quoteComponents:(_Bool)arg4 forceEscaping:(_Bool)arg5;
+- (NSString *)cellRangeName:(struct TSCERangeCoordinate)arg1 stickyBits:(unsigned char)arg2 suppressIdenticalEndReference:(_Bool)arg3 quoteComponents:(_Bool)arg4 forceEscaping:(_Bool)arg5 rangeNameContainsColumnOrRowName:(out _Bool *)arg6;
 - (NSString *)tableName;
 - (NSString *)sheetName;
 - (struct TSCERangeCoordinate)apparentRangeForRange:(struct TSCERangeCoordinate)arg1 rangeContext:(unsigned char)arg2;
-- (struct __CFUUID *)conditionalStyleFormulaOwnerID;
+- (UUIDData_5fbc143e)conditionalStyleFormulaOwnerUID;
 - (void)resetAllFormulaDependenciesForCell:(struct TSUCellCoord)arg1;
 - (void)resetDependenciesForCell:(struct TSUCellCoord)arg1;
 - (_Bool)cellWasModifiedInThisRecalcCycle:(struct TSUCellCoord)arg1;
-- (struct TSCERangeCoordinate)footerRange;
-- (struct TSCERangeCoordinate)tableRange;
-- (struct TSCERangeCoordinate)bodyRange;
+- (struct TSCERangeCoordinate)footerRangeCoordinate;
+- (struct TSCERangeCoordinate)tableRangeCoordinate;
+- (struct TSCERangeCoordinate)bodyRangeCoordinate;
 - (_Bool)hasCellID:(struct TSUCellCoord)arg1;
 - (struct TSCETableReference)makeReference:(struct TSUCellCoord)arg1 bottomRight:(struct TSUCellCoord)arg2;
 - (UUIDData_5fbc143e)resolverUID;
+- (UUIDData_5fbc143e)mergeOwnerUID;
 - (id)tableModel;
-- (struct __CFUUID *)mergeOwnerID;
 - (_Bool)resolverIsATable;
-- (struct __CFUUID *)resolverID;
 - (TSCECalculationEngine *)calcEngine;
 @end
 

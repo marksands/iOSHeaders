@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSXPCConnection;
 @protocol OS_dispatch_queue;
@@ -31,6 +31,8 @@
 - (void)_removeAllRecentContactsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)removeRecentContacts:(id)arg1 error:(out id *)arg2;
 - (_Bool)_removeRecentContactsWithRecentIDs:(id)arg1 syncKeys:(id)arg2 recentsDomain:(id)arg3 error:(out id *)arg4;
+- (void)_recordContactEvents:(id)arg1 recentsDomain:(id)arg2 sendingAddress:(id)arg3 source:(id)arg4 userInitiated:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)recordContactEvents:(id)arg1 recentsDomain:(id)arg2 sendingAddress:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)recordContactEvents:(id)arg1 recentsDomain:(id)arg2 sendingAddress:(id)arg3 source:(id)arg4 userInitiated:(_Bool)arg5;
 - (void)recordContactEvents:(id)arg1 recentsDomain:(id)arg2 sendingAddress:(id)arg3 userInitiated:(_Bool)arg4;
 - (void)recordContactEvents:(id)arg1 recentsDomain:(id)arg2 sendingAddress:(id)arg3;

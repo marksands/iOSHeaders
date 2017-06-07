@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface GEONavdDefaults : NSObject
 {
@@ -17,6 +17,7 @@
 @property(readonly, nonatomic) _Bool transitTTLSupported;
 @property(readonly, nonatomic) _Bool shouldUseServerSideETAs;
 @property(readonly, nonatomic) double exitRegionSize;
+@property(readonly, nonatomic) unsigned long long maximumTraceFileCount;
 @property(readonly, nonatomic) double maximumUserRoutingPreferencesAge;
 @property(readonly, nonatomic) _Bool useConservativeDepartureForRefreshTimer;
 @property(readonly, nonatomic) double updateTimeout;
@@ -56,8 +57,14 @@
 @property(readonly, nonatomic) double locationUpdatesDesiredAccuracyWhileStationaryForWalking;
 @property(readonly, nonatomic) double locationUpdatesDesiredAccuracyWhileStationaryForDriving;
 @property(readonly, nonatomic) double minimumDistanceToGetLocationUpdatesInMeters;
+@property(readonly, nonatomic) _Bool shouldPreloadSubscriptions;
+@property(readonly, nonatomic) double automaticTrafficIncidentRerouteDelay;
+@property(readonly, nonatomic) _Bool shouldAutomaticallyRerouteTrafficIncidents;
+@property(readonly, nonatomic) _Bool shouldRequestInlineShields;
+@property(readonly, nonatomic) _Bool shouldRequestLaneGuidance;
+@property(readonly, nonatomic) _Bool shouldUseGuidanceEventManager;
 @property(readonly, nonatomic) _Bool shouldLazyLoadRoutes;
-@property(readonly, nonatomic) _Bool shouldRunLegacyNavigation;
+@property(readonly, nonatomic) _Bool shouldShowServiceErrorAlert;
 @property(readonly, nonatomic) _Bool shouldRunNavigationInDaemon;
 
 @end

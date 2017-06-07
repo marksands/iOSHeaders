@@ -4,11 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Home/HFStaticItem.h>
+#import <Home/HFItem.h>
 
-@interface HULinkedApplicationItem : HFStaticItem
+@class NSString;
+
+@interface HULinkedApplicationItem : HFItem
 {
 }
+
+- (id)_failedUpdateOutcome;
+- (int)_iconVariantForScale:(double)arg1;
+@property(readonly, nonatomic) NSString *bundleIdentifier;
 
 @end
 

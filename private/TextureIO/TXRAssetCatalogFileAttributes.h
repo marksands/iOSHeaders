@@ -9,12 +9,13 @@
 @interface TXRAssetCatalogFileAttributes : NSObject
 {
     struct CGColorSpace *_colorSpace;
-    unsigned long long _origin;
+    unsigned char _exifOrientation;
     unsigned long long _fileFormat;
 }
 
 @property(nonatomic) unsigned long long fileFormat; // @synthesize fileFormat=_fileFormat;
-@property(nonatomic) unsigned long long origin; // @synthesize origin=_origin;
+@property(nonatomic) unsigned char exifOrientation; // @synthesize exifOrientation=_exifOrientation;
+- (id)init;
 @property(nonatomic) struct CGColorSpace *colorSpace;
 
 @end

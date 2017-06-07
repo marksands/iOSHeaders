@@ -6,40 +6,39 @@
 
 #import <Foundation/NSObject.h>
 
-#import <iWorkImport/TSDAnnotationHosting-Protocol.h>
+#import <iWorkImport/TSDComment-Protocol.h>
 
-@class NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor, TSPObject, TSTTableInfo;
+@class NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor, TSTInfo;
 
 __attribute__((visibility("hidden")))
-@interface TSTCommentHosting : NSObject <TSDAnnotationHosting>
+@interface TSTCommentHosting : NSObject <TSDComment>
 {
     TSDCommentStorage *mStorage;
-    TSTTableInfo *mTableInfo;
-    struct TSTCellUID mCellUID;
+    TSTInfo *_tableInfo;
+    struct TSTCellUID _cellUID;
 }
 
-@property(readonly, nonatomic) struct TSTCellUID cellUID; // @synthesize cellUID=mCellUID;
-@property(retain, nonatomic) TSTTableInfo *tableInfo; // @synthesize tableInfo=mTableInfo;
+@property(readonly, nonatomic) struct TSTCellUID cellUID; // @synthesize cellUID=_cellUID;
+@property(retain, nonatomic) TSTInfo *tableInfo; // @synthesize tableInfo=_tableInfo;
 - (id).cxx_construct;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *annotationUUID;
+- (_Bool)isInDocument;
 - (void)commentWillBeAddedToDocumentRoot;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool isHighlight;
 @property(readonly, nonatomic) int annotationDisplayStringType;
 @property(readonly, nonatomic) int annotationType;
 @property(readonly, nonatomic) NSDate *date;
-- (void)setAuthor:(id)arg1;
-@property(readonly, nonatomic) TSKAnnotationAuthor *author;
+@property(retain, nonatomic) TSKAnnotationAuthor *author;
 @property(readonly, nonatomic) struct TSUCellCoord cellID;
-@property(readonly, nonatomic) TSPObject *hostingModel;
+- (_Bool)wantsAnnotationPopover;
 - (Class)editorClass;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) TSDCommentStorage *storage;
-- (void)dealloc;
 - (id)initWithStorage:(id)arg1 forTableInfo:(id)arg2 cellID:(struct TSUCellCoord)arg3;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
-@property(readonly, nonatomic) NSString *changeTrackingContentString;
-@property(readonly, nonatomic) NSString *changeTrackingTitleString;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

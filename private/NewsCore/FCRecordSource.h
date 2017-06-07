@@ -10,15 +10,20 @@
 #import <NewsCore/FCCacheFlushing-Protocol.h>
 #import <NewsCore/FCFetchCoordinatorDelegate-Protocol.h>
 
-@class FCCKDatabase, FCCacheCoordinator, FCFetchCoordinator, FCKeyValueStore, FCThreadSafeMutableDictionary, NSArray, NSString;
+@class FCCKContentDatabase, FCCacheCoordinator, FCFetchCoordinator, FCKeyValueStore, FCThreadSafeMutableDictionary, NSArray, NSString;
+@protocol OS_dispatch_queue;
 
 @interface FCRecordSource : NSObject <FCCacheCoordinatorDelegate, FCFetchCoordinatorDelegate, FCCacheFlushing>
 {
-    FCCKDatabase *_contentDatabase;
+    NSObject<OS_dispatch_queue> *_initQueue;
+    FCCKContentDatabase *_contentDatabase;
+    NSString *_contentDirectory;
     FCKeyValueStore *_localStore;
     FCCacheCoordinator *_cacheCoordinator;
     FCFetchCoordinator *_fetchCoordinator;
     FCThreadSafeMutableDictionary *_fetchErrorsByKey;
+    NSString *_experimentalizableFieldsPostfix;
+    NSString *_activeTreatmentID;
 }
 
 + (id)modificationDateFromCKRecord:(id)arg1;
@@ -32,18 +37,26 @@
 + (unsigned long long)storeVersion;
 + (id)storeFilename;
 + (id)recordType;
+@property(readonly, nonatomic) NSString *activeTreatmentID; // @synthesize activeTreatmentID=_activeTreatmentID;
+@property(readonly, nonatomic) NSString *experimentalizableFieldsPostfix; // @synthesize experimentalizableFieldsPostfix=_experimentalizableFieldsPostfix;
 @property(readonly, nonatomic) FCThreadSafeMutableDictionary *fetchErrorsByKey; // @synthesize fetchErrorsByKey=_fetchErrorsByKey;
 @property(readonly, nonatomic) FCFetchCoordinator *fetchCoordinator; // @synthesize fetchCoordinator=_fetchCoordinator;
 @property(readonly, nonatomic) FCCacheCoordinator *cacheCoordinator; // @synthesize cacheCoordinator=_cacheCoordinator;
 @property(readonly, nonatomic) FCKeyValueStore *localStore; // @synthesize localStore=_localStore;
-@property(readonly, nonatomic) FCCKDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
+@property(readonly, nonatomic) NSString *contentDirectory; // @synthesize contentDirectory=_contentDirectory;
+@property(readonly, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *initQueue; // @synthesize initQueue=_initQueue;
 - (void).cxx_destruct;
+- (void)t_stopOverridingExperimentalizableFieldsPostfixAndTreatmentID;
+- (void)t_startOverridingExperimentalizableFieldsPostfix:(id)arg1 treatmentID:(id)arg2;
 - (id)_fetchErrorForKey:(id)arg1;
 - (id)_faultableRecordsWithIdentifiers:(id)arg1;
 - (id)_saveCKRecordsWithWriteLock:(id)arg1 updateFetchDateForRecordIdentifiers:(id)arg2 fetchContext:(id)arg3;
 - (id)_identifierFromCKRecordID:(id)arg1;
 - (id)_ckRecordIDFromIdentifier:(id)arg1;
 - (id)_recordBaseFromCKRecord:(id)arg1;
+- (void)_initStore;
+- (void)_prepareForUse;
 - (void)fetchCoordinator:(id)arg1 addFetchOperation:(id)arg2 context:(id)arg3;
 - (id)fetchCoordinator:(id)arg1 fetchOperationForKeys:(id)arg2 context:(id)arg3 qualityOfService:(long long)arg4 relativePriority:(long long)arg5;
 - (void)fetchCoordinator:(id)arg1 filterKeysToFetch:(id)arg2 context:(id)arg3;
@@ -56,14 +69,21 @@
 - (id)cachedRecordsWithIDs:(id)arg1;
 - (id)fetchOperationForRecordsWithIDs:(id)arg1 ignoreCacheForRecordIDs:(id)arg2;
 - (id)fetchOperationForRecordsWithIDs:(id)arg1;
-- (id)_localizedKeysByOriginalKeyForContentStoreFrontID:(id)arg1;
-- (id)_desiredKeysForContentStoreFrontID:(id)arg1;
+- (id)_localizedExperimentalizedKeysByOriginalWithCacheDictionary:(id)arg1;
+- (id)_localizedExperimentalizedKeysByOriginalKeyForContentStoreFrontID:(id)arg1 experimentPostfix:(id)arg2;
+- (id)_experimentalizedKeysByOriginalWithCacheDictionary:(id)arg1;
+- (id)_experimentalizedKeysByOriginalKeyForExperimentPostfix:(id)arg1;
 - (id)_localizedKeysByOriginalWithCacheDictionary:(id)arg1;
+- (id)_localizedKeysByOriginalKeyForContentStoreFrontID:(id)arg1;
+- (id)_desiredKeysForContentStoreFrontID:(id)arg1 experimentPostfix:(id)arg2;
 - (id)_desiredKeysWithCacheDictionary:(id)arg1;
+- (id)localizableExperimentalizableKeys;
+- (id)experimentalizableKeys;
 - (id)localizableKeys;
 @property(readonly, nonatomic) NSArray *genericKeys;
 - (id)recordFromCKRecord:(id)arg1 base:(id)arg2;
 @property(readonly, nonatomic) NSArray *desiredKeys;
+- (id)initWithContentDatabase:(id)arg1 contentDirectory:(id)arg2 experimentalizableFieldsPostfix:(id)arg3 activeTreatmentID:(id)arg4;
 - (id)initWithContentDatabase:(id)arg1 contentDirectory:(id)arg2;
 - (id)init;
 

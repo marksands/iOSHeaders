@@ -8,29 +8,31 @@
 
 #import <HealthDaemon/CLLocationSmootherDelegate-Protocol.h>
 
-@class CLLocationSmoother, HDProfile, NSMutableArray, NSString;
+@class CLLocationSmoother, HDProfile, HDSmoothingTask, NSMutableArray, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HDWorkoutLocationSmoother : NSObject <CLLocationSmootherDelegate>
 {
+    NSString *_xpcTransactionName;
     CLLocationSmoother *_smoother;
-    NSMutableArray *_listOfSmoothingTasks;
     NSObject<OS_dispatch_queue> *_queue;
     HDProfile *_profile;
+    NSMutableArray *_samplesToSmooth;
+    HDSmoothingTask *_currentSmoothingTask;
 }
 
 - (void).cxx_destruct;
-- (_Bool)_queue_fetchLocationsForSampleUUID:(id)arg1 fetchedLocations:(id *)arg2;
-- (_Bool)_queue_containsWorkoutObject:(id)arg1 containsWorkout:(_Bool *)arg2;
-- (_Bool)_queue_deleteSample:(id)arg1;
+- (id)_locationsForSampleUUID:(id)arg1 error:(id *)arg2;
+- (_Bool)_containsWorkoutObject:(id)arg1 error:(id *)arg2;
+- (void)_deleteSample:(id)arg1;
 - (_Bool)_workoutExistsForSample:(id)arg1;
-- (void)_queue_smoothLocationSample:(id)arg1;
-- (void)smoothLocationSample:(id)arg1;
-- (_Bool)_queue_createNewLocationSeriesWithMetadata:(id)arg1 sourceEntity:(id)arg2 withLocations:(id)arg3 error:(id *)arg4 newSeries:(id *)arg5;
-- (id)_hkLocationDataFromLocations:(id)arg1;
-- (_Bool)_queue_createNewSeriesFromTask:(id)arg1 withLocations:(id)arg2 error:(id *)arg3;
+- (id)_createWorkoutRouteWithMetadata:(id)arg1 sourceEntity:(id)arg2 locations:(id)arg3 error:(id *)arg4;
+- (void)_finishSmoothingSample;
+- (_Bool)_queue_createNewSeriesFromTask:(id)arg1 locations:(id)arg2 error:(id *)arg3;
+- (void)_queue_smoothRouteSample:(id)arg1;
+- (void)_queue_smoothNextSample;
 - (void)locationManager:(id)arg1 didSmoothLocations:(id)arg2 ofType:(int)arg3;
-- (id)_queue_nextSmoothingTask;
+- (void)smoothRouteSample:(id)arg1;
 - (id)initWithProfile:(id)arg1;
 
 // Remaining properties

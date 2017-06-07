@@ -27,8 +27,8 @@
     NSString *_title;
     NSString *_primaryAudience;
     NSDate *_publishDate;
-    unsigned long long _publisherArticleVersion;
-    unsigned long long _backendArticleVersion;
+    long long _publisherArticleVersion;
+    long long _backendArticleVersion;
     NSObject<FCChannelProviding> *_sourceChannel;
     NSString *_sourceName;
     FCHeadlineThumbnail *_thumbnailLQ;
@@ -41,8 +41,8 @@
     NSURL *_contentURL;
     NSDate *_lastModifiedDate;
     NSDate *_lastFetchedDate;
+    NSArray *_topics;
     NSArray *_topicIDs;
-    NSArray *_topicFlags;
     NSArray *_endOfArticleTopicIDs;
     NSURL *_videoURL;
     double _videoDuration;
@@ -62,7 +62,6 @@
     NSString *_flintDocumentUrlString;
     NSArray *_flintFontResourceIDs;
     NSString *_changeEtag;
-    struct CGSize _largestThumbnailSize;
     struct CGRect _thumbnailFocalFrame;
 }
 
@@ -90,25 +89,31 @@
 - (id)iAdSectionIDs;
 - (id)iAdKeywords;
 - (id)iAdCategories;
+- (void)setSponsored:(_Bool)arg1;
 - (_Bool)isSponsored;
 - (double)videoDuration;
 - (id)videoURL;
 - (id)endOfArticleTopicIDs;
-- (id)topicFlags;
 - (void)setTopicIDs:(id)arg1;
 - (id)topicIDs;
+- (id)topics;
 - (id)lastFetchedDate;
 - (id)lastModifiedDate;
 - (id)contentURL;
 - (id)accessoryText;
 - (void)setShortExcerpt:(id)arg1;
 - (id)shortExcerpt;
+- (void)setThumbnailUltraHQ:(id)arg1;
 - (id)thumbnailUltraHQ;
+- (void)setThumbnailHQ:(id)arg1;
 - (id)thumbnailHQ;
+- (void)setThumbnailMedium:(id)arg1;
 - (id)thumbnailMedium;
+- (void)setThumbnail:(id)arg1;
 - (id)thumbnail;
+- (void)setThumbnailLQ:(id)arg1;
 - (id)thumbnailLQ;
-- (struct CGSize)largestThumbnailSize;
+- (void)setHasThumbnail:(_Bool)arg1;
 - (_Bool)hasThumbnail;
 - (void)setThumbnailFocalFrame:(struct CGRect)arg1;
 - (struct CGRect)thumbnailFocalFrame;
@@ -116,8 +121,8 @@
 - (id)sourceName;
 - (void)setSourceChannel:(id)arg1;
 - (id)sourceChannel;
-- (unsigned long long)backendArticleVersion;
-- (unsigned long long)publisherArticleVersion;
+- (long long)backendArticleVersion;
+- (long long)publisherArticleVersion;
 - (void)setPublishDate:(id)arg1;
 - (id)publishDate;
 - (id)primaryAudience;

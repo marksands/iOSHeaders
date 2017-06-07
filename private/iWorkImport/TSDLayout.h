@@ -6,13 +6,11 @@
 
 #import <iWorkImport/TSDAbstractLayout.h>
 
-#import <iWorkImport/TSKSearchTarget-Protocol.h>
-
-@class NSMutableSet, NSObject, NSSet, NSString, TSDLayoutGeometry;
+@class NSMutableSet, NSObject, NSSet, TSDLayoutGeometry;
 @protocol TSDInfo;
 
 __attribute__((visibility("hidden")))
-@interface TSDLayout : TSDAbstractLayout <TSKSearchTarget>
+@interface TSDLayout : TSDAbstractLayout
 {
     NSObject<TSDInfo> *mInfo;
     int mLayoutState;
@@ -59,6 +57,8 @@ __attribute__((visibility("hidden")))
 - (void)i_accumulateLayoutsIntoSet:(id)arg1;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)setNeedsDisplay;
+@property(readonly, nonatomic) double inlineCenteredAlignmentHorizontalOffset;
+@property(readonly, nonatomic) double descentForInlineLayout;
 - (id)additionalGuides;
 - (_Bool)shouldProvideSizingGuides;
 - (_Bool)shouldDisplayGuides;
@@ -73,7 +73,6 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)calculatePointFromSearchReference:(id)arg1;
 - (struct CGRect)rectInRootForCalculatingActivityLineEndpoint;
 - (id)additionalDependenciesForChildLayout:(id)arg1;
-- (id)searchTarget;
 - (void)processChangedProperty:(int)arg1;
 - (double)scaleForInlineClampingUnrotatedSize:(struct CGSize)arg1 withGeometry:(id)arg2;
 - (id)computeLayoutGeometry;
@@ -84,6 +83,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isDraggable) _Bool draggable;
 @property(readonly, nonatomic, getter=isSelectable) _Bool selectable;
 - (void)validateFromLastInterimPosition;
+- (void)p_calculateClampModelValuesAndPerformBlock:(CDUnknownBlockType)arg1;
+- (void)transferLayoutGeometryToInfo:(id)arg1;
 - (_Bool)canFlip;
 - (struct CGAffineTransform)originalPureTransformInRoot;
 - (struct CGAffineTransform)pureTransformInRoot;
@@ -96,9 +97,10 @@ __attribute__((visibility("hidden")))
 - (id)initialInfoGeometry;
 - (struct CGRect)initialBoundsForStandardKnobs;
 - (_Bool)isBeingManipulated;
+- (id)finalInfoGeometryForResize;
 - (void)endResize;
 - (void)takeSizeFromTracker:(id)arg1;
-- (void)resizeWithTransform:(struct CGAffineTransform)arg1 asChild:(_Bool)arg2;
+- (void)resizeWithTransform:(struct CGAffineTransform)arg1;
 - (struct CGSize)minimumSize;
 - (void)beginResize;
 @property(readonly, nonatomic) _Bool canAspectRatioLockBeChangedByUser;
@@ -146,6 +148,7 @@ __attribute__((visibility("hidden")))
 - (void)unregisterFromLayoutController;
 - (void)updateChildrenFromInfo;
 - (void)invalidateChildren;
+- (id)wrapInvalidationParent;
 - (void)invalidateExteriorWrap;
 - (void)updateMaximumInlineFrameSize;
 - (void)invalidateInlineSize;
@@ -159,12 +162,6 @@ __attribute__((visibility("hidden")))
 - (id)initWithInfo:(id)arg1;
 - (void)setAdjustedInterimPositionY:(double)arg1;
 - (void)setAdjustedInterimPositionX:(double)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

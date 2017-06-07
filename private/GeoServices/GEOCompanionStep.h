@@ -17,6 +17,7 @@
     unsigned int _endCoordinateIndex;
     GEOCompanionFerryStep *_ferryStep;
     NSMutableArray *_instructionWithAlternatives;
+    NSString *_listInstruction;
     unsigned int _maneuverStartCoordinateIndex;
     NSString *_roadName;
     unsigned int _startCoordinateIndex;
@@ -34,6 +35,7 @@
 }
 
 + (Class)instructionWithAlternativesType;
+@property(retain, nonatomic) NSString *listInstruction; // @synthesize listInstruction=_listInstruction;
 @property(retain, nonatomic) NSMutableArray *instructionWithAlternatives; // @synthesize instructionWithAlternatives=_instructionWithAlternatives;
 @property(nonatomic) unsigned int endCoordinateIndex; // @synthesize endCoordinateIndex=_endCoordinateIndex;
 @property(nonatomic) unsigned int maneuverStartCoordinateIndex; // @synthesize maneuverStartCoordinateIndex=_maneuverStartCoordinateIndex;
@@ -45,6 +47,7 @@
 @property(nonatomic) unsigned int time; // @synthesize time=_time;
 @property(nonatomic) unsigned int distance; // @synthesize distance=_distance;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -54,6 +57,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasListInstruction;
 - (id)instructionWithAlternativesAtIndex:(unsigned long long)arg1;
 - (unsigned long long)instructionWithAlternativesCount;
 - (void)addInstructionWithAlternatives:(id)arg1;
@@ -68,7 +72,6 @@
 @property(nonatomic) _Bool hasTime;
 @property(nonatomic) _Bool hasDistance;
 @property(nonatomic) _Bool hasStepID;
-- (void)dealloc;
 - (id)geoStep;
 - (id)maneuverStep;
 - (id)initWithStep:(id)arg1 route:(id)arg2 stringFormatter:(id)arg3;

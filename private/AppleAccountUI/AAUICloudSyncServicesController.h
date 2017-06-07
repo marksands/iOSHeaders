@@ -30,7 +30,7 @@
 + (Class)_accountClassForAddress:(id)arg1;
 + (_Bool)needSetupForMailAccount:(id)arg1;
 + (_Bool)canAutoSetupMailAccount:(id)arg1;
-+ (_Bool)_isRemovedSystemApplication:(id)arg1;
++ (_Bool)_isInstalledSystemApplication:(id)arg1;
 + (_Bool)shouldInitiallyEnableDataclass:(id)arg1 forAccount:(id)arg2;
 - (void).cxx_destruct;
 - (void)_addDAEmailAccount:(id)arg1;

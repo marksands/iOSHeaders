@@ -23,6 +23,7 @@
 + (id)tableChevronSelectedColor;
 + (id)tableCellSelectedGrayColor;
 + (id)overdueRedColor;
++ (id)tableOutlineColorDarkenedIfNeeded;
 + (id)tableOutlineColor;
 + (id)keyColor;
 

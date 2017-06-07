@@ -6,14 +6,13 @@
 
 #import <Foundation/NSObject.h>
 
-@class TSPDocumentResourceDataProvider, TSPObjectContext;
+@class TSPObjectContext;
 @protocol TSPDataDownloadManagerDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TSPDataDownloadManager : NSObject
 {
     TSPObjectContext *_context;
-    TSPDocumentResourceDataProvider *_docServerDataProvider;
     id <TSPDataDownloadManagerDelegate> _delegate;
 }
 

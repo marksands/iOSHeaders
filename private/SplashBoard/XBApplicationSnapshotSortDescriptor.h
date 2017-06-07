@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSDescriptionProviding-Protocol.h>
 
@@ -22,14 +22,14 @@
 @property(copy, nonatomic) CDUnknownBlockType comparator; // @synthesize comparator=_comparator;
 @property(nonatomic) _Bool ascending; // @synthesize ascending=_ascending;
 @property(nonatomic) unsigned long long key; // @synthesize key=_key;
+- (void).cxx_destruct;
 - (id)_stringForKey:(unsigned long long)arg1;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
-@property(readonly, retain, nonatomic) NSSortDescriptor *NSSortDescriptor;
+@property(readonly, nonatomic) NSSortDescriptor *NSSortDescriptor;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithKey:(unsigned long long)arg1 ascending:(_Bool)arg2 comparator:(CDUnknownBlockType)arg3;
 
 // Remaining properties

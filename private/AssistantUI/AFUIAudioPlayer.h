@@ -13,6 +13,7 @@
 
 @interface AFUIAudioPlayer : NSObject <AVAudioPlayerDelegate>
 {
+    _Bool _deactivateAudioSessionOnPlaybackFinished;
     id <AFUIAudioPlayerDelegate> _delegate;
     AceObject *_playbackCommand;
     NSUUID *_conversationItemIdentifier;
@@ -23,6 +24,7 @@
 + (id)voicemailPlayer;
 @property(retain, nonatomic, getter=_player, setter=_setPlayer:) AVAudioPlayer *player; // @synthesize player=_player;
 @property(nonatomic) __weak NSUUID *conversationItemIdentifier; // @synthesize conversationItemIdentifier=_conversationItemIdentifier;
+@property(nonatomic) _Bool deactivateAudioSessionOnPlaybackFinished; // @synthesize deactivateAudioSessionOnPlaybackFinished=_deactivateAudioSessionOnPlaybackFinished;
 @property(retain, nonatomic) AceObject *playbackCommand; // @synthesize playbackCommand=_playbackCommand;
 @property(nonatomic) __weak id <AFUIAudioPlayerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

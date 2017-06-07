@@ -39,7 +39,7 @@
 - (int)_sendData:(id)arg1;
 - (int)_sendBytes:(const char *)arg1 length:(unsigned long long)arg2 progressHandler:(CDUnknownBlockType)arg3;
 - (long long)timeLastCommandWasSent;
-- (long long)mailFrom:(id)arg1 recipients:(id)arg2 withData:(id)arg3 host:(id)arg4 errorTitle:(id *)arg5 errorMessage:(id *)arg6 serverResponse:(id *)arg7 displayError:(_Bool *)arg8 errorCode:(int *)arg9;
+- (long long)mailFrom:(id)arg1 recipients:(id)arg2 withData:(id)arg3 host:(id)arg4 errorTitle:(id *)arg5 errorMessage:(id *)arg6 serverResponse:(id *)arg7 displayError:(_Bool *)arg8 errorCode:(int *)arg9 errorUserInfo:(id *)arg10;
 - (id)dataForDataCmd;
 - (id)dataForRcptTo:(id)arg1;
 - (id)dataForMailFrom:(id)arg1;

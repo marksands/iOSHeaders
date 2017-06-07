@@ -10,6 +10,16 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct CGPoint {
+    double _field1;
+    double _field2;
+};
+
+struct CGRect {
+    struct CGPoint _field1;
+    struct CGSize _field2;
+};
+
 struct CGSize {
     double width;
     double height;
@@ -30,4 +40,13 @@ struct __va_list_tag {
     void *_field3;
     void *_field4;
 };
+
+#pragma mark Typedef'd Structures
+
+typedef struct {
+    long long value;
+    int timescale;
+    unsigned int flags;
+    long long epoch;
+} CDStruct_1b6d18a9;
 

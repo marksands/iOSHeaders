@@ -8,8 +8,8 @@
 
 #import <NewsCore/FCHeadlineProviding-Protocol.h>
 
-@class FCCoverArt, FCHeadlineThumbnail, FCSharedStringIndex, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL, NTPBFeedViewportHeadline;
-@protocol FCChannelProviding;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCSharedStringIndex, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL, NTPBFeedViewportHeadline;
+@protocol FCChannelProviding, FCNativeAdProviding;
 
 @interface FCDeflatedHeadline : NSObject <FCHeadlineProviding>
 {
@@ -20,8 +20,11 @@
 @property(readonly, nonatomic) FCSharedStringIndex *sharedStrings; // @synthesize sharedStrings=_sharedStrings;
 @property(readonly, nonatomic) NTPBFeedViewportHeadline *pbHeadline; // @synthesize pbHeadline=_pbHeadline;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool hasVideo;
+@property(readonly, nonatomic) id <FCNativeAdProviding> associatedAd;
+@property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *publisherCohort;
+@property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort;
 @property(readonly, nonatomic) _Bool canBePurchased;
-@property(readonly, nonatomic) unsigned long long articleRecordModificationDateMilliseconds;
 - (double)globalScore;
 @property(readonly, nonatomic) unsigned long long feedHalfLifeMilliseconds;
 @property(readonly, nonatomic) unsigned long long publishDateMilliseconds;
@@ -54,14 +57,15 @@
 @property(readonly, copy, nonatomic) NSArray *iAdSectionIDs;
 @property(readonly, copy, nonatomic) NSArray *iAdKeywords;
 @property(readonly, copy, nonatomic) NSArray *iAdCategories;
+@property(readonly, copy, nonatomic) NSString *sponsoredBy;
+@property(readonly, nonatomic, getter=isDisplayingAsNativeAd) _Bool displayAsNativeAd;
 @property(readonly, nonatomic, getter=isSponsored) _Bool sponsored;
 @property(readonly, nonatomic, getter=isFeatureCandidate) _Bool featureCandidate;
 @property(readonly, nonatomic) double videoDuration;
 @property(readonly, nonatomic) NSURL *videoURL;
 @property(readonly, copy, nonatomic) NSArray *endOfArticleTopicIDs;
-@property(readonly, copy, nonatomic) NSArray *topicFlags;
-@property(readonly, copy, nonatomic) NSArray *topicScores;
 @property(readonly, copy, nonatomic) NSArray *topicIDs;
+@property(readonly, copy, nonatomic) NSArray *topics;
 @property(readonly, copy, nonatomic) NSDate *lastFetchedDate;
 @property(readonly, copy, nonatomic) NSDate *lastModifiedDate;
 @property(readonly, copy, nonatomic) NSURL *contentURL;
@@ -78,24 +82,25 @@
 @property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailMedium;
 @property(readonly, nonatomic) FCHeadlineThumbnail *thumbnail;
 @property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailLQ;
-@property(readonly, nonatomic) struct CGSize largestThumbnailSize;
 @property(readonly, nonatomic) _Bool hasThumbnail;
 @property(readonly, nonatomic) struct CGRect thumbnailFocalFrame;
 @property(readonly, copy, nonatomic) NSString *sourceName;
 @property(readonly, copy, nonatomic) NSObject<FCChannelProviding> *sourceChannel;
-@property(readonly, nonatomic) unsigned long long backendArticleVersion;
-@property(readonly, nonatomic) unsigned long long publisherArticleVersion;
+@property(readonly, nonatomic) long long backendArticleVersion;
+@property(readonly, nonatomic) long long publisherArticleVersion;
 @property(readonly, copy, nonatomic) NSDate *publishDate;
 @property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, copy, nonatomic) NSString *primaryAudience;
 @property(readonly, nonatomic) unsigned long long contentType;
 @property(readonly, copy, nonatomic) NSString *referencedArticleID;
 @property(readonly, copy, nonatomic) NSString *versionIdentifier;
+- (void)enumerateTopicCohortsWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSDate *displayDate;
 @property(readonly, nonatomic) unsigned long long storyType;
 @property(readonly, nonatomic) _Bool usesImageOnTopLayout;
 @property(readonly, nonatomic) double tileProminenceScore;
-@property(readonly, nonatomic, getter=isTopStory) _Bool topStory;
+@property(readonly, nonatomic) unsigned long long topStoryType;
+@property(readonly, nonatomic) _Bool isTopStory;
 @property(readonly, copy, nonatomic) NSString *surfacedByBinID;
 @property(readonly, copy, nonatomic) NSString *surfacedByTopicID;
 @property(readonly, copy, nonatomic) NSString *surfacedByChannelID;

@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOUser, NSString;
+@class GEOUser, NSString, PBUnknownFields;
 
 @interface GEOReview : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _reviewTime;
     double _score;
     NSString *_languageCode;
@@ -30,6 +31,8 @@
 @property(nonatomic) double reviewTime; // @synthesize reviewTime=_reviewTime;
 @property(nonatomic) double score; // @synthesize score=_score;
 @property(retain, nonatomic) NSString *snippet; // @synthesize snippet=_snippet;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -45,7 +48,6 @@
 @property(nonatomic) _Bool hasReviewTime;
 @property(nonatomic) _Bool hasScore;
 @property(readonly, nonatomic) _Bool hasSnippet;
-- (void)dealloc;
 
 @end
 

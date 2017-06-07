@@ -31,6 +31,7 @@
 - (void)_willAppearInRemoteViewController;
 - (_Bool)supportsMessageInspection;
 - (_Bool)supportsAttachments;
+- (_Bool)composeChatControllerShouldShowBackButtonViewDuringSendAnimation:(id)arg1;
 - (void)composeChatController:(id)arg1 didSelectNewConversation:(id)arg2;
 - (void)composeChatControllerDidCancelComposition:(id)arg1;
 - (_Bool)composeChatControllerCanEditRecipients;

@@ -8,7 +8,7 @@
 
 #import <Sharing/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, NSString, NSUUID;
+@class NSData, NSDictionary, NSString, NSUUID;
 
 @interface SFAutoUnlockDevice : SFPeerDevice <NSSecureCoding>
 {
@@ -16,15 +16,25 @@
     _Bool _keyExists;
     _Bool _bluetoothCloudPaired;
     _Bool _placeholder;
+    _Bool _supportsAlwaysDirect;
+    _Bool _supportsAuthPrompts;
+    _Bool _supportsEncryption;
     NSString *_modelDescription;
     NSUUID *_bluetoothID;
     NSUUID *_proxyBluetoothID;
     NSString *_modelName;
     NSDictionary *_results;
+    NSData *_hintToken;
+    long long _majorOSVersion;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) long long majorOSVersion; // @synthesize majorOSVersion=_majorOSVersion;
+@property(nonatomic) _Bool supportsEncryption; // @synthesize supportsEncryption=_supportsEncryption;
+@property(nonatomic) _Bool supportsAuthPrompts; // @synthesize supportsAuthPrompts=_supportsAuthPrompts;
+@property(nonatomic) _Bool supportsAlwaysDirect; // @synthesize supportsAlwaysDirect=_supportsAlwaysDirect;
 @property(nonatomic) _Bool placeholder; // @synthesize placeholder=_placeholder;
+@property(retain, nonatomic) NSData *hintToken; // @synthesize hintToken=_hintToken;
 @property(retain, nonatomic) NSDictionary *results; // @synthesize results=_results;
 @property(retain, nonatomic) NSString *modelName; // @synthesize modelName=_modelName;
 @property(copy, nonatomic) NSUUID *proxyBluetoothID; // @synthesize proxyBluetoothID=_proxyBluetoothID;

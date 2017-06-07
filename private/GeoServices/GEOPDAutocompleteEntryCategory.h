@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLocalizedString, GEOStyleAttributes, NSData, PBUnknownFields;
+@class GEOLocalizedString, GEOPDVenueIdentifier, GEOStyleAttributes, NSData, PBUnknownFields;
 
 @interface GEOPDAutocompleteEntryCategory : PBCodable <NSCopying>
 {
@@ -16,11 +16,14 @@
     GEOLocalizedString *_displayName;
     GEOStyleAttributes *_styleAttributes;
     NSData *_suggestionEntryMetadata;
+    GEOPDVenueIdentifier *_venueIdentifier;
 }
 
+@property(retain, nonatomic) GEOPDVenueIdentifier *venueIdentifier; // @synthesize venueIdentifier=_venueIdentifier;
 @property(retain, nonatomic) NSData *suggestionEntryMetadata; // @synthesize suggestionEntryMetadata=_suggestionEntryMetadata;
 @property(retain, nonatomic) GEOStyleAttributes *styleAttributes; // @synthesize styleAttributes=_styleAttributes;
 @property(retain, nonatomic) GEOLocalizedString *displayName; // @synthesize displayName=_displayName;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -31,10 +34,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasVenueIdentifier;
 @property(readonly, nonatomic) _Bool hasSuggestionEntryMetadata;
 @property(readonly, nonatomic) _Bool hasStyleAttributes;
 @property(readonly, nonatomic) _Bool hasDisplayName;
-- (void)dealloc;
 
 @end
 

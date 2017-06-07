@@ -9,10 +9,11 @@
 #import <GeoServices/GEOTransitDepartureFrequency-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSDate, NSString;
+@class NSDate, NSString, PBUnknownFields;
 
 @interface GEOPDDepartureFrequency : PBCodable <GEOTransitDepartureFrequency, NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned int _displayDepartureFrequency;
     unsigned int _earliestDepartureTime;
     unsigned int _latestDepartureTime;
@@ -35,6 +36,8 @@
 @property(nonatomic) unsigned int earliestDepartureTime; // @synthesize earliestDepartureTime=_earliestDepartureTime;
 @property(nonatomic) unsigned int maxDepartureFrequency; // @synthesize maxDepartureFrequency=_maxDepartureFrequency;
 @property(nonatomic) unsigned int minDepartureFrequency; // @synthesize minDepartureFrequency=_minDepartureFrequency;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;

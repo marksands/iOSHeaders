@@ -6,11 +6,9 @@
 
 #import <AssertionServices/BKSProcessAssertionUpdateEvent.h>
 
-#import <AssertionServices/BSXPCCoding-Protocol.h>
-
 @class NSString;
 
-@interface BKSProcessAssertionCreateEvent : BKSProcessAssertionUpdateEvent <BSXPCCoding>
+@interface BKSProcessAssertionCreateEvent : BKSProcessAssertionUpdateEvent
 {
     unsigned int _reason;
     NSString *_targetBundleIdentifier;
@@ -22,13 +20,9 @@
 @property(nonatomic) unsigned int reason; // @synthesize reason=_reason;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
-@property(readonly, copy) NSString *description;
+- (_Bool)isEqual:(id)arg1;
+- (id)description;
 - (void)dealloc;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

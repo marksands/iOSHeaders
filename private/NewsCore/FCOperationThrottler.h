@@ -21,8 +21,10 @@
 - (void).cxx_destruct;
 @property _Bool suspended; // @synthesize suspended=_suspended;
 - (void)tickle;
+- (void)addCompletionForCurrentOperation:(CDUnknownBlockType)arg1;
 - (void)tickleWithCompletion:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)initWithDelegate:(id)arg1 updateQueue:(id)arg2;
 - (id)initWithDelegate:(id)arg1;
 - (id)init;
 

@@ -8,7 +8,7 @@
 
 #import <NewsCore/FCContentContextInternal-Protocol.h>
 
-@class CKContainer, FCArticleListRecordSource, FCArticleRecordSource, FCCKDatabase, FCChannelMembershipController, FCFeedDatabase, FCForYouConfigRecordSource, FCPurchaseLookupRecordSource, FCResourceRecordSource, FCTagRecordSource, FCWebArchiveSource, FCWidgetSectionConfigRecordSource, NSString;
+@class FCArticleListRecordSource, FCArticleRecordSource, FCCKContentDatabase, FCChannelMembershipController, FCFeedDatabase, FCForYouConfigRecordSource, FCPurchaseLookupRecordSource, FCResourceRecordSource, FCTagRecordSource, FCWebArchiveSource, FCWidgetSectionConfigRecordSource, NSString;
 
 @interface FCContentContextInternal : NSObject <FCContentContextInternal>
 {
@@ -22,13 +22,11 @@
     FCForYouConfigRecordSource *_forYouConfigRecordSource;
     FCWidgetSectionConfigRecordSource *_widgetSectionConfigRecordSource;
     FCFeedDatabase *_feedDatabase;
-    FCCKDatabase *_contentDatabase;
-    CKContainer *_contentContainer;
+    FCCKContentDatabase *_contentDatabase;
 }
 
-@property(retain, nonatomic) CKContainer *contentContainer; // @synthesize contentContainer=_contentContainer;
-@property(retain, nonatomic) FCCKDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
-@property(retain, nonatomic) FCFeedDatabase *feedDatabase; // @synthesize feedDatabase=_feedDatabase;
+@property(retain, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
+@property(retain) FCFeedDatabase *feedDatabase; // @synthesize feedDatabase=_feedDatabase;
 @property(retain, nonatomic) FCWidgetSectionConfigRecordSource *widgetSectionConfigRecordSource; // @synthesize widgetSectionConfigRecordSource=_widgetSectionConfigRecordSource;
 @property(retain, nonatomic) FCForYouConfigRecordSource *forYouConfigRecordSource; // @synthesize forYouConfigRecordSource=_forYouConfigRecordSource;
 @property(retain, nonatomic) FCPurchaseLookupRecordSource *purchaseLookupRecordSource; // @synthesize purchaseLookupRecordSource=_purchaseLookupRecordSource;

@@ -6,24 +6,27 @@
 
 #import <MediaPlayer/MPStoreAVItem.h>
 
+#import <VideosExtras/VideosAVItemCapability-Protocol.h>
+
 @class IKAssetElement, NSString;
 
-@interface VideosExtrasAVItem : MPStoreAVItem
+@interface VideosExtrasAVItem : MPStoreAVItem <VideosAVItemCapability>
 {
     _Bool _loadedHLS;
+    unsigned long long _mediaType;
     id _rtcReportingParentHierarchyToken;
     NSString *_rtcReportingServiceIdentifier;
     _Bool _background;
     IKAssetElement *_assetElement;
-    unsigned long long _mediaType;
 }
 
-@property(readonly, nonatomic) unsigned long long mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic, getter=isBackground) _Bool background; // @synthesize background=_background;
 @property(readonly, nonatomic) IKAssetElement *assetElement; // @synthesize assetElement=_assetElement;
 - (void).cxx_destruct;
 - (void)_networkSettingsChanged:(id)arg1;
 - (long long)_expectedPlaybackMode;
+@property(readonly, nonatomic) unsigned long long mediaType;
+@property(readonly, nonatomic) _Bool supportsPictureInPicture;
 - (_Bool)isiTunesStoreStream;
 - (_Bool)allowsStoreBagStreamingKeyURLsFallback;
 - (unsigned long long)streamType;
@@ -37,6 +40,15 @@
 - (_Bool)isValidPlayerSubstituteForItem:(id)arg1;
 - (void)dealloc;
 - (id)initWithAssetElement:(id)arg1 mediaType:(unsigned long long)arg2 isBackground:(_Bool)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) unsigned long long overrideType;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) _Bool supportsNotification;
+@property(readonly, nonatomic) _Bool supportsScrubbing;
 
 @end
 

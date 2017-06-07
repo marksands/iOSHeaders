@@ -21,6 +21,8 @@
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) _Bool hasEndTimeRef; // @synthesize hasEndTimeRef=_hasEndTimeRef;
 - (void).cxx_destruct;
+- (_Bool)repairTimesyncDB:(id *)arg1;
+- (_Bool)checkTimesyncDB:(_Bool *)arg1 error:(id *)arg2;
 - (_Bool)performDestructiveUpdates:(id *)arg1;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 error:(id *)arg2;

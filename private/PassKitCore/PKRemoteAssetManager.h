@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class NSMutableDictionary, NSURL, NSURLSession;
+@class NSMutableArray, NSMutableDictionary, NSURL, NSURLSession;
 @protocol OS_dispatch_queue;
 
 @interface PKRemoteAssetManager : NSObject
@@ -15,6 +15,7 @@
     NSURLSession *_urlSession;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_manifestItemsByRelativeURL;
+    NSMutableArray *_completionHandlers;
 }
 
 - (void).cxx_destruct;
@@ -22,6 +23,8 @@
 - (void)cancelDownloads;
 - (void)downloadRemoteAssetsWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)addRemoteAssetData:(id)arg1 forManifestItem:(id)arg2 error:(id *)arg3;
+- (void)_callCompletionHandlersWithFinishState:(_Bool)arg1 progress:(float)arg2 error:(id)arg3;
+- (void)_downloadRemoteAssetsWithScreenScale:(double)arg1 suffix:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)downloadRemoteAssetsWithScreenScale:(double)arg1 suffix:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)assetExistsLocally:(id)arg1;
 - (id)itemWithRelativePath:(id)arg1;

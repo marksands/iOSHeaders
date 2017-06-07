@@ -6,11 +6,13 @@
 
 #import <iWorkImport/TSWPShapeInfo.h>
 
-@class NSArray, NSSet, TSWPTOCPartitioner, TSWPTOCSettings;
+#import <iWorkImport/TSWPTextualEquivalentProvider-Protocol.h>
+
+@class NSArray, NSSet, NSString, TSWPTOCPartitioner, TSWPTOCSettings;
 @protocol TSWPTOCController;
 
 __attribute__((visibility("hidden")))
-@interface TSWPTOCInfo : TSWPShapeInfo
+@interface TSWPTOCInfo : TSWPShapeInfo <TSWPTextualEquivalentProvider>
 {
     TSWPTOCPartitioner *_partitioner;
     _Bool rebuildEntriesAfterPaste;
@@ -24,10 +26,11 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *pageNumberRanges; // @synthesize pageNumberRanges=_pageNumberRanges;
 @property(retain, nonatomic, setter=setTOCSettings:) TSWPTOCSettings *tocSettings; // @synthesize tocSettings=_tocSettings;
 @property(nonatomic) id <TSWPTOCController> tocController; // @synthesize tocController=_tocController;
+- (id)textualEquivalent;
 - (void)saveTOCInfoMessage:(struct TOCInfoArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadTOCInfoMessage:(const struct TOCInfoArchive *)arg1 unarchiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)supportsAttachedComments;
 - (void)acceptVisitor:(id)arg1;
 - (id)referencedStyles;
@@ -42,6 +45,12 @@ __attribute__((visibility("hidden")))
 - (Class)repClass;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

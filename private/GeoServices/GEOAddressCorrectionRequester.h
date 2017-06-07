@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSLock, NSMapTable;
 
@@ -15,6 +15,7 @@
 }
 
 + (id)sharedRequester;
+- (void).cxx_destruct;
 - (void)cancelRequest:(id)arg1;
 - (void)startAddressCorrectionUpdateRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;
 - (void)startAddressCorrectionInitRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 error:(CDUnknownBlockType)arg3;

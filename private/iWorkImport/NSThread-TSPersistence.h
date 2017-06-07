@@ -12,7 +12,10 @@
 + (_Bool)tsp_hasReadFileAccess;
 + (void)tsp_runFinalizeHandlersForReadCoordinator:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 + (_Bool)tsp_isRunningFinalizeHandlersForLegacyDocument;
++ (_Bool)tsp_isRunningFinalizeHandlersForUpgrade;
 + (void)tsp_performSynchronousArchiverOperationUsingBlock:(CDUnknownBlockType)arg1;
 + (_Bool)tsp_isArchiverThread;
++ (_Bool)tsp_isUnarchiverThread;
++ (id)tsp_newUnarchiverQueueWithName:(const char *)arg1;
 @end
 

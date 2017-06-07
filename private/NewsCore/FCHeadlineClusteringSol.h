@@ -13,7 +13,6 @@
 @interface FCHeadlineClusteringSol : NSObject <FCHeadlineClustering>
 {
     FCHeadlineClusteringRules *_rules;
-    NSSet *_subscribedTagIDs;
     NSSet *_articleIds;
     NSDictionary *_articlesByTag;
     NSDictionary *_tagsByArticle;
@@ -24,8 +23,10 @@
     NSSet *_groupableTags;
     NSSet *_hardOrphans;
     FCSolHeuristic *_heuristic;
+    FCSolHeuristic *_autoFavoriteHeuristic;
 }
 
+@property(retain, nonatomic) FCSolHeuristic *autoFavoriteHeuristic; // @synthesize autoFavoriteHeuristic=_autoFavoriteHeuristic;
 @property(retain, nonatomic) FCSolHeuristic *heuristic; // @synthesize heuristic=_heuristic;
 @property(retain, nonatomic) NSSet *hardOrphans; // @synthesize hardOrphans=_hardOrphans;
 @property(retain, nonatomic) NSSet *groupableTags; // @synthesize groupableTags=_groupableTags;
@@ -36,14 +37,14 @@
 @property(retain, nonatomic) NSDictionary *tagsByArticle; // @synthesize tagsByArticle=_tagsByArticle;
 @property(retain, nonatomic) NSDictionary *articlesByTag; // @synthesize articlesByTag=_articlesByTag;
 @property(retain, nonatomic) NSSet *articleIds; // @synthesize articleIds=_articleIds;
-@property(retain, nonatomic) NSSet *subscribedTagIDs; // @synthesize subscribedTagIDs=_subscribedTagIDs;
 @property(retain, nonatomic) FCHeadlineClusteringRules *rules; // @synthesize rules=_rules;
 - (void).cxx_destruct;
-- (id)clusterHeadlinesByTopic:(id)arg1 subscribedTopicIDs:(id)arg2 blacklistedTopicIDs:(id)arg3 rules:(id)arg4 tagScoreProvider:(CDUnknownBlockType)arg5;
-- (id)computeBestGrouping:(id)arg1 subscribedTagIDs:(id)arg2 articleScoresByTag:(id)arg3 tagScores:(id)arg4 headlinesById:(id)arg5;
+- (id)clusterHeadlinesByTopic:(id)arg1 subscriptionList:(id)arg2 personalizer:(id)arg3 rules:(id)arg4;
+- (id)computeBestGrouping:(id)arg1 articleScoresByTag:(id)arg2 tagScores:(id)arg3 headlinesById:(id)arg4;
 - (void)computeGrouping:(id)arg1 topK:(double)arg2;
 - (id)sortedScoredArticles:(id)arg1 tag:(id)arg2 length:(long long)arg3 asc:(_Bool)arg4;
 - (id)scoredArticleWithID:(id)arg1 tag:(id)arg2;
+- (double)specificityScoreForTag:(id)arg1;
 - (double)computeGroupingUtility:(id)arg1;
 - (double)rawScoreForArticle:(id)arg1 tag:(id)arg2;
 - (double)personalizationScoreForArticle:(id)arg1;

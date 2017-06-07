@@ -6,15 +6,22 @@
 
 #import <CoreRoutine/NSObject-Protocol.h>
 
-@class CLLocation, GEOMapItemStorage, NSData, NSDate, NSNumber, NSPredicate, NSString, NSUUID, RTAction, RTPredictedLocationOfInterest;
+@class CLLocation, GEOMapItemStorage, NSArray, NSData, NSDate, NSDateInterval, NSDictionary, NSNumber, NSPredicate, NSSet, NSString, NSUUID, RTAction, RTPredictedLocationOfInterest;
 
 @protocol RTDaemonProtocol <NSObject>
-- (void)userInteractionWithPredictedLocationOfInterest:(RTPredictedLocationOfInterest *)arg1 interaction:(unsigned long long)arg2 feedback:(NSString *)arg3;
+- (void)fetchPredictedContentForBundleWithIdentifier:(NSString *)arg1 reply:(void (^)(NSArray *, NSError *))arg2;
+- (void)fetchAllRoutesForSettingsWithReply:(void (^)(NSArray *, NSError *))arg1;
+- (void)sortRoutes:(NSArray *)arg1 toLocationOfInterestWithIdentifier:(NSUUID *)arg2 fromLocation:(CLLocation *)arg3 reply:(void (^)(NSArray *, NSError *))arg4;
+- (void)userInteractionWithPredictedLocationOfInterest:(RTPredictedLocationOfInterest *)arg1 interaction:(unsigned long long)arg2 feedback:(NSString *)arg3 geoMapItem:(GEOMapItemStorage *)arg4 reply:(void (^)(NSError *))arg5;
+- (void)extendLifetimeOfVisitsWithIdentifiers:(NSSet *)arg1 reply:(void (^)(NSError *))arg2;
+- (void)removeVisitWithIdentifier:(NSUUID *)arg1 reply:(void (^)(NSError *))arg2;
+- (void)removeLocationOfInterestWithIdentifier:(NSUUID *)arg1 reply:(void (^)(NSError *))arg2;
 - (void)updateLocationOfInterestWithIdentifier:(NSUUID *)arg1 customLabel:(NSString *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)updateLocationOfInterestWithIdentifier:(NSUUID *)arg1 type:(long long)arg2 reply:(void (^)(NSError *))arg3;
 - (void)updateLocationOfInterestWithIdentifier:(NSUUID *)arg1 mapItemStorage:(GEOMapItemStorage *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)updateLocationOfInterestWithIdentifier:(NSUUID *)arg1 type:(long long)arg2 mapItemStorage:(GEOMapItemStorage *)arg3 customLabel:(NSString *)arg4 reply:(void (^)(RTLocationOfInterest *, NSError *))arg5;
-- (void)addLocationOfInterestOfType:(long long)arg1 mapItemStorage:(GEOMapItemStorage *)arg2 reply:(void (^)(RTLocationOfInterest *, NSError *))arg3;
+- (void)addLocationOfInterestOfType:(long long)arg1 mapItemStorage:(GEOMapItemStorage *)arg2 customLabel:(NSString *)arg3 reply:(void (^)(RTLocationOfInterest *, NSError *))arg4;
+- (void)fetchAutomaticVehicleEventDetectionSupportedWithReply:(void (^)(_Bool, NSError *))arg1;
 - (void)stopMonitoringVehicleEvents;
 - (void)startMonitoringVehicleEvents;
 - (void)engageInVehicleEventWithIdentifier:(NSUUID *)arg1;
@@ -28,9 +35,6 @@
 - (void)stopMonitoringNextPredictedLocationsOfInterest;
 - (void)startMonitoringNextPredictedLocationsOfInterest;
 - (void)setRestorationIdentifier:(NSString *)arg1;
-- (void)fetchPredictedRoomsAtCurrentLocationWithReply:(void (^)(NSArray *, NSError *))arg1;
-- (void)stopMonitoringForPredictedRooms;
-- (void)startMonitoringForPredictedRooms;
 - (void)fetchPredictedApplicationsWithPredicate:(NSPredicate *)arg1 reply:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchPredictedApplicationsAtLocation:(CLLocation *)arg1 reply:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchPredictedApplications:(void (^)(NSArray *, NSError *))arg1;
@@ -39,13 +43,14 @@
 - (void)fetchMonitoredScenarioTriggerTypesWithReply:(void (^)(unsigned long long, NSError *))arg1;
 - (void)stopMonitoringScenarioTriggerOfType:(unsigned long long)arg1;
 - (void)startMonitoringScenarioTriggerOfType:(unsigned long long)arg1;
+- (void)fetchLocationsOfInterestVisitedBetweenStartDate:(NSDate *)arg1 endDate:(NSDate *)arg2 reply:(void (^)(NSArray *, NSError *))arg3;
 - (void)fetchLocationOfInterestWithIdentifier:(NSUUID *)arg1 withReply:(void (^)(RTLocationOfInterest *, NSError *))arg2;
 - (void)fetchPredictedLocationsOfInterestBetweenStartDate:(NSDate *)arg1 endDate:(NSDate *)arg2 withReply:(void (^)(NSArray *, NSError *))arg3;
 - (void)fetchPredictedExitDatesFromLocation:(CLLocation *)arg1 onDate:(NSDate *)arg2 withReply:(void (^)(NSArray *, NSError *))arg3;
-- (void)fetchLocationOfInterestAtCachedLocationWithReply:(void (^)(RTLocationOfInterest *, NSError *))arg1;
-- (void)fetchLocationOfInterestAtCurrentLocationWithReply:(void (^)(RTLocationOfInterest *, NSError *))arg1;
 - (void)fetchLocationOfInterestAtLocation:(CLLocation *)arg1 withReply:(void (^)(RTLocationOfInterest *, NSError *))arg2;
 - (void)fetchPathToDiagnosticFilesWithReply:(void (^)(NSString *, NSError *))arg1;
+- (void)stopLeechingLowConfidenceVisits;
+- (void)startLeechingLowConfidenceVisits;
 - (void)stopLeechingVisits;
 - (void)startLeechingVisits;
 - (void)stopMonitoringVisits;
@@ -54,12 +59,17 @@
 - (void)fetchPredictedLocationsOfInterestAssociatedToTitle:(NSString *)arg1 location:(NSString *)arg2 calendarIdentifier:(NSString *)arg3 withReply:(void (^)(NSArray *, NSError *))arg4;
 - (void)fetchLocationsOfInterestAssociatedToIdentifier:(NSString *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchRoutineModeFromLocation:(CLLocation *)arg1 withReply:(void (^)(long long, NSError *))arg2;
-- (void)fetchPredictedConditionsForAction:(RTAction *)arg1 withReply:(void (^)(NSArray *, NSError *))arg2;
+- (void)fetchPredictedConditionsForAction:(RTAction *)arg1 dateInterval:(NSDateInterval *)arg2 reply:(void (^)(NSArray *, NSError *))arg3;
+- (void)provideFeedbackForAction:(RTAction *)arg1 engagementResult:(long long)arg2 reply:(void (^)(NSError *))arg3;
+- (void)stopMonitoringPredictedConditionsForAction:(RTAction *)arg1 reply:(void (^)(NSError *))arg2;
+- (void)startMonitoringPredictedConditionsForAction:(RTAction *)arg1 reply:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchAllLocationsOfInterestForSettingsWithReply:(void (^)(NSArray *, NSError *))arg1;
+- (void)submitMetricWithIdentifier:(NSString *)arg1 dictionary:(NSDictionary *)arg2 reply:(void (^)(NSError *))arg3;
 - (void)simulateApplicationPredictionWithBundleIdentifier:(NSString *)arg1 reason:(NSNumber *)arg2 reply:(void (^)(NSError *))arg3;
-- (void)clearRoutine;
-- (void)setRoutineEnabled:(_Bool)arg1;
-- (void)fetchBBPluginSupportedWithReply:(void (^)(_Bool))arg1;
+- (void)updateCloudSyncProvisionedForAccount:(_Bool)arg1 reply:(void (^)(NSError *))arg2;
+- (void)fetchCloudSyncAuthorizationState:(void (^)(long long, NSError *))arg1;
+- (void)clearRoutineWithReply:(void (^)(NSError *))arg1;
+- (void)setRoutineEnabled:(_Bool)arg1 withReply:(void (^)(NSError *))arg2;
 - (void)fetchRoutineEnabledWithReply:(void (^)(_Bool))arg1;
 - (void)fetchNextPredictedLocationsOfInterestFromLocation:(CLLocation *)arg1 startDate:(NSDate *)arg2 timeInterval:(double)arg3 withReply:(void (^)(NSArray *, NSError *))arg4;
 - (void)fetchAllLocationsOfInterestWithReply:(void (^)(NSArray *, NSError *))arg1;

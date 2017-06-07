@@ -8,12 +8,14 @@
 
 #import <MediaPlaybackCore/NSSecureCoding-Protocol.h>
 
-@class MPCPlayerItem, MPCRadioStationPlaybackMetadata, RadioStationMatchContext;
+@class MPCModelRadioContentReference, MPCPlayerItem, MPCRadioStationPlaybackMetadata, RadioStationMatchContext;
 
 @interface MPCRadioPlaybackIntentTracklistToken : NSObject <NSSecureCoding>
 {
     MPCRadioStationPlaybackMetadata *_radioStationPlaybackMetadata;
+    MPCModelRadioContentReference *_nowPlayingContentReference;
     RadioStationMatchContext *_nowPlayingContext;
+    MPCModelRadioContentReference *_seedContentReference;
     RadioStationMatchContext *_stationMatchContext;
     MPCPlayerItem *_prefixItem;
 }
@@ -21,7 +23,9 @@
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) MPCPlayerItem *prefixItem; // @synthesize prefixItem=_prefixItem;
 @property(retain, nonatomic) RadioStationMatchContext *stationMatchContext; // @synthesize stationMatchContext=_stationMatchContext;
+@property(copy, nonatomic) MPCModelRadioContentReference *seedContentReference; // @synthesize seedContentReference=_seedContentReference;
 @property(retain, nonatomic) RadioStationMatchContext *nowPlayingContext; // @synthesize nowPlayingContext=_nowPlayingContext;
+@property(copy, nonatomic) MPCModelRadioContentReference *nowPlayingContentReference; // @synthesize nowPlayingContentReference=_nowPlayingContentReference;
 @property(copy, nonatomic) MPCRadioStationPlaybackMetadata *radioStationPlaybackMetadata; // @synthesize radioStationPlaybackMetadata=_radioStationPlaybackMetadata;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

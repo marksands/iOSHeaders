@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOPDRestaurantReservationLink, NSArray, NSMapTable;
 
@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) GEOPDRestaurantReservationLink *restaurantReservationLink; // @synthesize restaurantReservationLink=_restaurantReservationLink;
-- (void)dealloc;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *featureTypes;
 - (unsigned long long)extensionModeForVendorID:(id)arg1;
 - (id)displayNameForVendorID:(id)arg1;

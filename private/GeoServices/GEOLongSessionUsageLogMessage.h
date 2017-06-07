@@ -8,28 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOCacheHitLogMessage, GEOLogFrameworkMetricLogMessage, GEONetworkUsageLogMessage, NSString;
-
 @interface GEOLongSessionUsageLogMessage : PBCodable <NSCopying>
 {
-    struct GEOSessionID _sessionId;
-    double _timestamp;
-    GEOCacheHitLogMessage *_cacheHitLogMessage;
-    GEOLogFrameworkMetricLogMessage *_logFrameworkMetricLogMessage;
-    GEONetworkUsageLogMessage *_networkUsageLogMessage;
-    NSString *_requestingAppIdentifier;
-    struct {
-        unsigned int sessionId:1;
-        unsigned int timestamp:1;
-    } _has;
 }
 
-@property(retain, nonatomic) GEOCacheHitLogMessage *cacheHitLogMessage; // @synthesize cacheHitLogMessage=_cacheHitLogMessage;
-@property(retain, nonatomic) GEOLogFrameworkMetricLogMessage *logFrameworkMetricLogMessage; // @synthesize logFrameworkMetricLogMessage=_logFrameworkMetricLogMessage;
-@property(retain, nonatomic) GEONetworkUsageLogMessage *networkUsageLogMessage; // @synthesize networkUsageLogMessage=_networkUsageLogMessage;
-@property(retain, nonatomic) NSString *requestingAppIdentifier; // @synthesize requestingAppIdentifier=_requestingAppIdentifier;
-@property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-@property(nonatomic) struct GEOSessionID sessionId; // @synthesize sessionId=_sessionId;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -39,13 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasCacheHitLogMessage;
-@property(readonly, nonatomic) _Bool hasLogFrameworkMetricLogMessage;
-@property(readonly, nonatomic) _Bool hasNetworkUsageLogMessage;
-@property(readonly, nonatomic) _Bool hasRequestingAppIdentifier;
-@property(nonatomic) _Bool hasTimestamp;
-@property(nonatomic) _Bool hasSessionId;
-- (void)dealloc;
 
 @end
 

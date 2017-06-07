@@ -12,6 +12,7 @@
 
 @optional
 - (void)syncCoordinatorDidReceiveStartSyncCommand:(PSYSyncCoordinator *)arg1;
+- (void)supportsMigrationSync;
 - (void)syncCoordinatorDidChangeSyncRestriction:(PSYSyncCoordinator *)arg1;
 - (void)syncCoordinator:(PSYSyncCoordinator *)arg1 didInvalidateSyncSession:(PSYServiceSyncSession *)arg2;
 - (void)syncCoordinator:(PSYSyncCoordinator *)arg1 beginSyncSession:(PSYServiceSyncSession *)arg2;

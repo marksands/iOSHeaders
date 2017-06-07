@@ -20,8 +20,8 @@
     MCProfileConnection *_profileConnection;
     id <SBUIBiometricAuthenticationPolicy> _authPolicy;
     SBFMobileKeyBag *_keybag;
-    unsigned long long _matchMode;
     unsigned long long _lastEvent;
+    _Bool _hasMesaHardware;
     _Bool _isMatchingAllowed;
     _Bool _isMatchingEnabled;
     _Bool _isFingerDetectionAllowed;
@@ -34,8 +34,8 @@
     _Bool _wasMatchingBeforeKeybagStateChangeOccurred;
     SBFCredentialSet *_unlockCredentialSet;
     NSHashTable *_observers;
-    NSMutableOrderedSet *_matchingAssertions;
-    NSMutableOrderedSet *_fingerDetectWantedAssertions;
+    NSMutableOrderedSet *_matchAssertions;
+    NSMutableOrderedSet *_fingerDetectAssertions;
     id <SBUIBiometricAuthenticationPolicy> _authenticationPolicy;
 }
 
@@ -48,21 +48,19 @@
 @property(retain, nonatomic) SBFCredentialSet *unlockCredentialSet; // @synthesize unlockCredentialSet=_unlockCredentialSet;
 @property(retain, nonatomic) id <SBUIBiometricAuthenticationPolicy> authenticationPolicy; // @synthesize authenticationPolicy=_authenticationPolicy;
 - (void).cxx_destruct;
-- (_Bool)_shouldSignpost;
 - (void)_notifyObserversOfEvent:(unsigned long long)arg1;
 - (void)_updateHandlersForEvent:(unsigned long long)arg1;
 - (void)_reevaluateFingerDetection;
-- (void)_stopMatching;
-- (void)_reallyReallyUpdateMatchMode;
-- (void)_updateMatchMode:(unsigned long long)arg1;
 - (void)_reevaluateMatching;
-- (id)_activeMatchingAssertion;
 - (void)_matchingAllowedStateMayHaveChangedForReason:(id)arg1;
 - (void)_fingerDetectAllowedStateMayHaveChangedForReason:(id)arg1;
 - (void)_removeFingerDetectionWantedAssertion:(id)arg1;
 - (void)_addFingerDetectionWantedAssertion:(id)arg1;
 - (void)_removeMatchingAssertion:(id)arg1;
 - (void)_addMatchingAssertion:(id)arg1;
+- (void)_deactivateAssertion:(id)arg1;
+- (_Bool)_activateFingerDetectAssertion:(id)arg1 error:(id *)arg2;
+- (_Bool)_activateMatchAssertion:(id)arg1 error:(id *)arg2;
 - (void)_reallySetAuthenticated:(_Bool)arg1 keybagState:(id)arg2;
 - (void)biometricKitInterface:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)biometricKitInterface:(id)arg1 enrolledIdentitiesDidChange:(_Bool)arg2;
@@ -84,10 +82,10 @@
 @property(readonly, nonatomic) _Bool hasBiometricAuthenticationCapabilityEnabled;
 @property(readonly, nonatomic) unsigned long long biometricLockoutState;
 @property(readonly, nonatomic, getter=isFingerDetectEnabled) _Bool fingerDetectEnabled;
-@property(readonly, nonatomic) unsigned long long matchMode;
-@property(readonly, nonatomic) _Bool hasEnrolledFingers;
+@property(readonly, nonatomic) _Bool hasEnrolledIdentities;
 @property(readonly, nonatomic, getter=isFingerOn) _Bool fingerOn;
 - (void)dealloc;
+- (id)initWithBiometricKitInterface:(id)arg1;
 - (id)init;
 
 // Remaining properties

@@ -13,15 +13,16 @@
 __attribute__((visibility("hidden")))
 @interface TSKCustomFormatListStemMatchObject : NSObject <NSCopying>
 {
-    TSUCustomFormat *mCustomFormat;
+    TSUCustomFormat *_customFormat;
 }
 
 + (id)stemMatchObjectWithCustomFormat:(id)arg1;
+@property(readonly, nonatomic) TSUCustomFormat *customFormat; // @synthesize customFormat=_customFormat;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initObjectWithCustomFormat:(id)arg1;
 
 @end

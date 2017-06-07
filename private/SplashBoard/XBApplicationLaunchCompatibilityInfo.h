@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSXPCCoding-Protocol.h>
 #import <SplashBoard/NSCoding-Protocol.h>
@@ -29,11 +29,11 @@
 @property(copy, nonatomic) NSString *bundlePath; // @synthesize bundlePath=_bundlePath;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(readonly, copy, nonatomic) NSArray *launchInterfaces; // @synthesize launchInterfaces=_launchInterfaces;
+- (void).cxx_destruct;
 - (id)launchInterfaceIdentifierForRequest:(id)arg1;
 - (id)launchInterfaceWithIdentifier:(id)arg1;
 @property(readonly, copy, nonatomic) XBLaunchInterface *defaultLaunchInterface;
 @property(readonly, nonatomic) _Bool allowsSavingLaunchImages;
-- (void)dealloc;
 @property(readonly, copy) NSString *description;
 - (id)initWithBundle:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

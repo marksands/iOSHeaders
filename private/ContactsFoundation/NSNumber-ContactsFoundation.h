@@ -7,5 +7,6 @@
 #import <Foundation/NSNumber.h>
 
 @interface NSNumber (ContactsFoundation)
+- (void)_cn_times:(CDUnknownBlockType)arg1;
 @end
 

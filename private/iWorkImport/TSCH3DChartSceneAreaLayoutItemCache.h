@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 + (id)cacheWithCacheValues:(const struct TSCH3DChartSceneAreaLayoutItemCacheValues *)arg1;
 @property(readonly, nonatomic) TSCH3DVector *containingViewportVector; // @synthesize containingViewportVector=_containingViewportVector;
 - (id).cxx_construct;
-@property(readonly, nonatomic) CDStruct_339a9a6e layoutSettings;
+@property(readonly, nonatomic) CDStruct_44ada6bf layoutSettings;
 @property(readonly, nonatomic) tvec2_3b141483 modelSize;
 @property(readonly, nonatomic) _Bool forcedValid;
 @property(readonly, nonatomic) struct CGSize requestChartBodyLayoutSize;

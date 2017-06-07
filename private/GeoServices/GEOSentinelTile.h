@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *resourceName; // @synthesize resourceName=_resourceName;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 - (int)StringAsType:(id)arg1;
 - (id)typeAsString:(int)arg1;
-- (void)dealloc;
 
 @end
 

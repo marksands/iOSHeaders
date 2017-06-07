@@ -14,8 +14,8 @@
     UIColor *_dodgeColor;
 }
 
-+ (id)extrasBackButton;
-+ (id)extrasNavigationButton;
++ (id)extrasBackButton:(long long)arg1;
++ (id)extrasNavigationButton:(long long)arg1;
 + (id)textFilter;
 + (id)textDodgeColor;
 - (void).cxx_destruct;

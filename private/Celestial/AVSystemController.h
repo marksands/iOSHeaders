@@ -31,7 +31,6 @@
 - (_Bool)getPortDiscoveryEnabled;
 - (_Bool)setPickedRouteWithPassword:(id)arg1 withPassword:(id)arg2;
 - (_Bool)didCancelRoutePicking:(id)arg1;
-- (_Bool)willStartRoutePicking:(id)arg1;
 - (_Bool)setBTHFPRoute:(id)arg1 availableForVoicePrompts:(_Bool)arg2;
 - (_Bool)setVolumeTo:(float)arg1 forCategory:(id)arg2;
 - (_Bool)changeVolumeBy:(float)arg1 forCategory:(id)arg2;

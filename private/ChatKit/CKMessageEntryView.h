@@ -9,6 +9,7 @@
 #import <ChatKit/CKActionMenuControllerDelegate-Protocol.h>
 #import <ChatKit/CKActionMenuGestureRecognizerButtonDelegate-Protocol.h>
 #import <ChatKit/CKAudioRecorderDelegate-Protocol.h>
+#import <ChatKit/CKBrowserSwitcherFooterViewDelegate-Protocol.h>
 #import <ChatKit/CKInlineAudioReplyButtonDelegate-Protocol.h>
 #import <ChatKit/CKMessageEntryContentViewDelegate-Protocol.h>
 #import <ChatKit/CKMessageEntryRecordedAudioViewDelegate-Protocol.h>
@@ -16,10 +17,10 @@
 #import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <ChatKit/_UIBackdropViewGraphicsQualityChangeDelegate-Protocol.h>
 
-@class CAMShutterButton, CKActionMenuController, CKActionMenuGestureRecognizerButton, CKAudioRecorder, CKComposition, CKConversation, CKEntryViewButton, CKInlineAudioReplyButtonController, CKMessageEntryAudioHintView, CKMessageEntryContentView, CKMessageEntryRecordedAudioView, CKMessageEntryWaveformView, CKScheduledUpdater, NSArray, NSString, UILabel, UILongPressGestureRecognizer, UIPreviewInteraction, _UIBackdropView;
+@class CAMShutterButton, CKActionMenuController, CKActionMenuGestureRecognizerButton, CKAudioRecorder, CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKComposition, CKConversation, CKEntryViewButton, CKInlineAudioReplyButtonController, CKMessageEntryAudioHintView, CKMessageEntryContentView, CKMessageEntryRecordedAudioView, CKMessageEntryWaveformView, CKScheduledUpdater, NSArray, NSString, UIInputContextHistory, UILabel, UILongPressGestureRecognizer, UIPreviewInteraction, _UIBackdropView;
 @protocol CKMessageEntryViewDelegate><UIPreviewInteractionDelegate, CKMessageEntryViewInputDelegate, UIPreviewInteractionDelegate;
 
-@interface CKMessageEntryView : UIView <CKMessageEntryContentViewDelegate, CKAudioRecorderDelegate, CKActionMenuControllerDelegate, CKMessageEntryRecordedAudioViewDelegate, CKActionMenuGestureRecognizerButtonDelegate, CKInlineAudioReplyButtonDelegate, UIGestureRecognizerDelegate, _UIBackdropViewGraphicsQualityChangeDelegate, CKMessageEntryViewStyleProtocol>
+@interface CKMessageEntryView : UIView <CKMessageEntryContentViewDelegate, CKAudioRecorderDelegate, CKActionMenuControllerDelegate, CKMessageEntryRecordedAudioViewDelegate, CKActionMenuGestureRecognizerButtonDelegate, CKInlineAudioReplyButtonDelegate, UIGestureRecognizerDelegate, _UIBackdropViewGraphicsQualityChangeDelegate, CKBrowserSwitcherFooterViewDelegate, CKMessageEntryViewStyleProtocol>
 {
     _Bool _shouldShowSendButton;
     _Bool _shouldShowSubject;
@@ -27,17 +28,19 @@
     _Bool _shouldShowCharacterCount;
     _Bool _shouldKnockoutCoverView;
     _Bool _keyboardVisible;
+    _Bool _entryFieldCollapsed;
+    _Bool _showAppStrip;
     _Bool _disablePluginButtons;
     _Bool _composingRecipient;
     _Bool _failedRecipients;
     _Bool _unreachableEmergencyRecipient;
     _Bool _sendingMessage;
-    _Bool _shouldEntryViewBeExpanded;
     _Bool _characterCountHidden;
     _Bool _shouldCenterCharacterCount;
     _Bool _shouldAllowImpactSend;
     _Bool _shouldConfigureForFullscreenAppView;
     _Bool _performingActionMenuSend;
+    _Bool _animatingLayoutChange;
     _Bool _entryFieldUpdaterCollapsedValue;
     _Bool _entryFieldUpdaterAnimatedValue;
     NSArray *_keyCommands;
@@ -51,8 +54,6 @@
     CKEntryViewButton *_photoButton;
     CKEntryViewButton *_sendButton;
     UIView *_inputButtonContainerView;
-    UILabel *_collpasedPlaceholderLabel;
-    CKEntryViewButton *_digitalTouchButton;
     CKEntryViewButton *_browserButton;
     CKEntryViewButton *_arrowButton;
     UILongPressGestureRecognizer *_sendButtonLongPressGestureRecognizer;
@@ -70,14 +71,16 @@
     CKMessageEntryAudioHintView *_audioHintView;
     unsigned long long _displayMode;
     UIView *_contentClipView;
-    double _panStartTime;
+    UIInputContextHistory *_inputContextHistory;
+    UILabel *_collpasedPlaceholderLabel;
+    CKBrowserSwitcherFooterView *_appStrip;
+    CKBrowserSwitcherFooterViewDataSource *_appStripDataSource;
     CAMShutterButton *_shutterButton;
     CKScheduledUpdater *_entryFieldCollapsedUpdater;
     struct CGSize _inputButtonSize;
     struct CGSize _sendButtonSize;
     struct CGSize _characterCountSize;
     struct CGSize _waveformViewSize;
-    struct CGPoint _panAnimationStartPosition;
     struct UIEdgeInsets _marginInsets;
     struct UIEdgeInsets _coverInsets;
     struct CGRect _audioActionMenuFrame;
@@ -92,8 +95,11 @@
 @property(nonatomic) _Bool entryFieldUpdaterCollapsedValue; // @synthesize entryFieldUpdaterCollapsedValue=_entryFieldUpdaterCollapsedValue;
 @property(retain, nonatomic) CKScheduledUpdater *entryFieldCollapsedUpdater; // @synthesize entryFieldCollapsedUpdater=_entryFieldCollapsedUpdater;
 @property(retain, nonatomic) CAMShutterButton *shutterButton; // @synthesize shutterButton=_shutterButton;
-@property(nonatomic) double panStartTime; // @synthesize panStartTime=_panStartTime;
-@property(nonatomic) struct CGPoint panAnimationStartPosition; // @synthesize panAnimationStartPosition=_panAnimationStartPosition;
+@property(retain, nonatomic) CKBrowserSwitcherFooterViewDataSource *appStripDataSource; // @synthesize appStripDataSource=_appStripDataSource;
+@property(retain, nonatomic) CKBrowserSwitcherFooterView *appStrip; // @synthesize appStrip=_appStrip;
+@property(retain, nonatomic) UILabel *collpasedPlaceholderLabel; // @synthesize collpasedPlaceholderLabel=_collpasedPlaceholderLabel;
+@property(nonatomic) _Bool animatingLayoutChange; // @synthesize animatingLayoutChange=_animatingLayoutChange;
+@property(retain, nonatomic) UIInputContextHistory *inputContextHistory; // @synthesize inputContextHistory=_inputContextHistory;
 @property(nonatomic, getter=isPerformingActionMenuSend) _Bool performingActionMenuSend; // @synthesize performingActionMenuSend=_performingActionMenuSend;
 @property(retain, nonatomic) UIView *contentClipView; // @synthesize contentClipView=_contentClipView;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
@@ -121,15 +127,14 @@
 @property(retain, nonatomic) UILongPressGestureRecognizer *sendButtonLongPressGestureRecognizer; // @synthesize sendButtonLongPressGestureRecognizer=_sendButtonLongPressGestureRecognizer;
 @property(retain, nonatomic) CKEntryViewButton *arrowButton; // @synthesize arrowButton=_arrowButton;
 @property(retain, nonatomic) CKEntryViewButton *browserButton; // @synthesize browserButton=_browserButton;
-@property(retain, nonatomic) CKEntryViewButton *digitalTouchButton; // @synthesize digitalTouchButton=_digitalTouchButton;
-@property(retain, nonatomic) UILabel *collpasedPlaceholderLabel; // @synthesize collpasedPlaceholderLabel=_collpasedPlaceholderLabel;
 @property(retain, nonatomic) UIView *inputButtonContainerView; // @synthesize inputButtonContainerView=_inputButtonContainerView;
-@property(nonatomic) _Bool shouldEntryViewBeExpanded; // @synthesize shouldEntryViewBeExpanded=_shouldEntryViewBeExpanded;
 @property(nonatomic, getter=isSendingMessage) _Bool sendingMessage; // @synthesize sendingMessage=_sendingMessage;
 @property(nonatomic, getter=hasUnreachableEmergencyRecipient) _Bool unreachableEmergencyRecipient; // @synthesize unreachableEmergencyRecipient=_unreachableEmergencyRecipient;
 @property(nonatomic, getter=hasFailedRecipients) _Bool failedRecipients; // @synthesize failedRecipients=_failedRecipients;
 @property(nonatomic, getter=isComposingRecipient) _Bool composingRecipient; // @synthesize composingRecipient=_composingRecipient;
 @property(nonatomic, getter=shouldDisablePluginButtons) _Bool disablePluginButtons; // @synthesize disablePluginButtons=_disablePluginButtons;
+@property(nonatomic, getter=shouldShowAppStrip) _Bool showAppStrip; // @synthesize showAppStrip=_showAppStrip;
+@property(nonatomic) _Bool entryFieldCollapsed; // @synthesize entryFieldCollapsed=_entryFieldCollapsed;
 @property(nonatomic, getter=isKeyboardVisible) _Bool keyboardVisible; // @synthesize keyboardVisible=_keyboardVisible;
 @property(nonatomic) _Bool shouldKnockoutCoverView; // @synthesize shouldKnockoutCoverView=_shouldKnockoutCoverView;
 @property(retain, nonatomic) CKEntryViewButton *sendButton; // @synthesize sendButton=_sendButton;
@@ -154,8 +159,11 @@
 - (void)loadRecordedAudioViewsIfNeeded;
 - (_Bool)pluginButtonsEnabled;
 - (_Bool)sendButtonEnabled;
-- (void)clearResponseContext;
-- (void)updateResponseContext;
+- (void)_initializeInputContextHistory;
+- (void)_addMessageToInputContextHistory:(id)arg1;
+- (void)_participantsDidChange:(id)arg1;
+- (BOOL)_sendButtonColor;
+- (_Bool)_isSURFInShelf;
 - (void)updateEntryView;
 - (_Bool)shouldRecordForService:(id)arg1;
 - (void)messageReceived:(id)arg1;
@@ -175,10 +183,9 @@
 - (void)audioMenuItemAction:(id)arg1;
 - (void)_setupWaveformView;
 - (double)_accessoryViewFadeDuration;
-- (void)collpasedPlaceholderLabelTapped:(id)arg1;
+- (void)collapsedPlaceholderLabelTapped:(id)arg1;
 - (void)arrowButtonTapped:(id)arg1;
 - (void)browserButtonTapped:(id)arg1;
-- (void)digitalTouchButtonTapped:(id)arg1;
 - (void)photoButtonTapped:(id)arg1;
 - (void)audioReplyButtonCancel:(id)arg1;
 - (void)audioReplyButtonStop:(id)arg1;
@@ -209,17 +216,21 @@
 - (_Bool)messageEntryContentViewShouldBeginEditing:(id)arg1;
 - (void)messageEntryContentViewDidChange:(id)arg1;
 - (void)messageEntryContentViewCancelWasTapped:(id)arg1 shelfPluginPayload:(id)arg2;
-- (void)_animateCollapseInteractive:(_Bool)arg1;
+- (void)_animateToCompactLayoutCollapsing:(_Bool)arg1;
 - (_Bool)_shouldNotAnimateCollapseInteractive;
-- (void)collapseGestureRecongnized;
+- (void)collapseGestureRecognized;
 - (void)expandGestureRecongnized;
-- (void)arrowCollapsePanGestureRecongnized:(id)arg1;
 - (void)_animateExpand;
+- (struct UIEdgeInsets)adjustedCoverInsets;
 - (void)_updateUIForEntryFieldCollapsedStateChange;
 - (void)endDeferringEntryFieldCollapsedStateChanges;
 - (void)beginDeferringEntryFieldCollapsedStateChanges;
+- (struct CGRect)browserButtonFrame;
+- (id)snapshotForCompactBrowserAnimation;
+- (id)pasteBoardTextFromComposition:(id)arg1;
 - (void)setEntryFieldCollapsed:(_Bool)arg1 animated:(_Bool)arg2;
-@property _Bool entryFieldCollapsed;
+@property(readonly, nonatomic) _Bool shouldEntryViewBeExpandedLayout;
+- (_Bool)layoutIsCurrentlyCompact;
 @property(readonly, nonatomic) _Bool hasRecording;
 @property(readonly, nonatomic, getter=isRecording) _Bool recording;
 - (void)dismissAudioActionMenuAnimated:(_Bool)arg1;
@@ -232,6 +243,7 @@
 - (id)initForFullscreenAppViewWithFrame:(struct CGRect)arg1 marginInsets:(struct UIEdgeInsets)arg2 shouldAllowImpact:(_Bool)arg3 shouldShowSendButton:(_Bool)arg4 shouldShowSubject:(_Bool)arg5 shouldShowBrowserButton:(_Bool)arg6 shouldShowCharacterCount:(_Bool)arg7;
 - (struct CGPoint)sendButtonConvertPointToScreen:(struct CGPoint)arg1;
 - (struct CGRect)sendButtonFrameInScreenCoordinates;
+@property(readonly) double coverViewWidth;
 - (double)placeholderHeight;
 - (void)backdropView:(id)arg1 didChangeToGraphicsQuality:(long long)arg2;
 - (id)backdropView:(id)arg1 willChangeToGraphicsQuality:(long long)arg2;
@@ -241,6 +253,11 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)configureForDisplayMode:(unsigned long long)arg1;
 - (void)updateTextViewsForShouldHideCaret:(_Bool)arg1;
+- (void)switcherView:(id)arg1 didMagnify:(_Bool)arg2;
+- (void)switcherView:(id)arg1 didSelectPluginAtIndex:(id)arg2;
+- (double)appStripHeight;
+- (double)bottomInsetForAppStrip;
+- (void)updateAppStripFrame;
 - (void)layoutSubviews;
 - (void)dealloc;
 

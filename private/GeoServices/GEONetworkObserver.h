@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSLock;
 
@@ -20,6 +20,7 @@
 
 + (id)sharedNetworkObserver;
 + (id)allocWithZone:(struct _NSZone *)arg1;
+- (void).cxx_destruct;
 - (_Bool)isCellConnection;
 - (void)removeNetworkReachableObserver:(id)arg1;
 - (void)addNetworkReachableObserver:(id)arg1 selector:(SEL)arg2;

@@ -29,14 +29,10 @@
     NSArray *_uncoalescedRecentCalls;
     NSArray *_uncoalescedUnFilteredRecentCalls;
     NSNumber *_unreadCallCount;
-    id _databaseChangedNotificationRef;
-    id _addressBookChangedNotificationRef;
 }
 
 + (unsigned int)CHCallStatusForCallWithDuration:(double)arg1 isOriginated:(_Bool)arg2 isAnswered:(_Bool)arg3;
 + (id)limitingCallKindsForCallType:(unsigned int)arg1;
-@property(retain) id addressBookChangedNotificationRef; // @synthesize addressBookChangedNotificationRef=_addressBookChangedNotificationRef;
-@property(retain) id databaseChangedNotificationRef; // @synthesize databaseChangedNotificationRef=_databaseChangedNotificationRef;
 @property(retain) NSNumber *unreadCallCount; // @synthesize unreadCallCount=_unreadCallCount;
 @property(retain) NSArray *uncoalescedUnFilteredRecentCalls; // @synthesize uncoalescedUnFilteredRecentCalls=_uncoalescedUnFilteredRecentCalls;
 @property(retain, nonatomic, getter=uncoalescedRecentCallsSync) NSArray *uncoalescedRecentCalls; // @synthesize uncoalescedRecentCalls=_uncoalescedRecentCalls;
@@ -84,9 +80,9 @@
 - (id)applyPredicate:(id)arg1 toCalls:(id)arg2;
 - (id)unCoalesceCall:(id)arg1;
 - (id)coalesceCalls:(id)arg1;
+- (void)currentLocaleChanged:(id)arg1;
 - (void)databaseChanged:(id)arg1;
 - (void)addressBookChanged:(id)arg1;
-- (void)unRegisterForNotifications;
 - (void)registerForNotifications;
 - (void)dealloc;
 - (void)setInitialLimitingCallKinds:(id)arg1;

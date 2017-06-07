@@ -39,8 +39,11 @@
     NSDictionary *_sourceInfo;
 }
 
++ (id)notificationRequestWithNotificationId:(id)arg1 requestDestinations:(id)arg2 lockScreenPersistence:(unsigned long long)arg3;
++ (id)notificationRequestWithSectionId:(id)arg1 notificationId:(id)arg2 subSectionIds:(id)arg3 requestDestinations:(id)arg4;
 + (id)notificationRequestWithSectionId:(id)arg1 subSectionIds:(id)arg2;
 + (id)notificationRequestWithNotificationId:(id)arg1 requestDestinations:(id)arg2 isCritical:(_Bool)arg3;
++ (id)notificationRequestWithNotificationId:(id)arg1 requestDestinations:(id)arg2;
 + (id)notificationRequestWithNotificationId:(id)arg1 lockScreenPriority:(unsigned long long)arg2 lockScreenPersistence:(unsigned long long)arg3;
 + (id)notificationRequestWithNotificationId:(id)arg1 lockScreenPriority:(unsigned long long)arg2;
 + (id)notificationRequestWithActionWithId:(id)arg1 runner:(id)arg2;

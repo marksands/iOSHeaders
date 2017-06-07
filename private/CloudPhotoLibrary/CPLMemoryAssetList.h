@@ -13,8 +13,14 @@
 @interface CPLMemoryAssetList : PBCodable <NSCopying>
 {
     NSMutableArray *_assets;
+    unsigned int _version;
+    struct {
+        unsigned int version:1;
+    } _has;
 }
 
++ (Class)assetType;
+@property(nonatomic) unsigned int version; // @synthesize version=_version;
 @property(retain, nonatomic) NSMutableArray *assets; // @synthesize assets=_assets;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -26,6 +32,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasVersion;
 - (id)assetAtIndex:(unsigned long long)arg1;
 - (unsigned long long)assetsCount;
 - (void)addAsset:(id)arg1;

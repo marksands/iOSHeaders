@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDDepartureSequence : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     CDStruct_62a50c50 _nextStopIds;
     unsigned long long _lineId;
     struct GEOPDTimeRange *_operatingHours;
@@ -36,6 +37,8 @@
 @property(retain, nonatomic) NSMutableArray *departures; // @synthesize departures=_departures;
 @property(nonatomic) unsigned long long stopId; // @synthesize stopId=_stopId;
 @property(nonatomic) unsigned long long lineId; // @synthesize lineId=_lineId;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

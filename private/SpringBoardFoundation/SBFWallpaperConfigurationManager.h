@@ -20,12 +20,12 @@
     long long _batchNotifyVariants;
     _Bool _cachedVariantsShareWallpaperConfiguration;
     _Bool _cachedVariantsShareWallpaperConfigurationValid;
+    NSArray *_dataStores;
     id <SBFWallpaperConfigurationManagerDelegate> _delegate;
     double _wallpaperScale;
     long long _wallpaperSizeType;
     id <SBFProceduralWallpaperProvider> _proceduralWallpaperProvider;
     SBFMagnifyMode *_magnifyMode;
-    NSArray *_dataStores;
     struct CGSize _wallpaperSize;
 }
 
@@ -33,13 +33,13 @@
 + (void)initialize;
 @property(nonatomic, getter=isCachedVariantsShareWallpaperConfigurationValid) _Bool cachedVariantsShareWallpaperConfigurationValid; // @synthesize cachedVariantsShareWallpaperConfigurationValid=_cachedVariantsShareWallpaperConfigurationValid;
 @property(nonatomic) _Bool cachedVariantsShareWallpaperConfiguration; // @synthesize cachedVariantsShareWallpaperConfiguration=_cachedVariantsShareWallpaperConfiguration;
-@property(copy, nonatomic) NSArray *dataStores; // @synthesize dataStores=_dataStores;
 @property(retain, nonatomic) SBFMagnifyMode *magnifyMode; // @synthesize magnifyMode=_magnifyMode;
 @property(nonatomic) __weak id <SBFProceduralWallpaperProvider> proceduralWallpaperProvider; // @synthesize proceduralWallpaperProvider=_proceduralWallpaperProvider;
 @property(readonly, nonatomic) long long wallpaperSizeType; // @synthesize wallpaperSizeType=_wallpaperSizeType;
 @property(readonly, nonatomic) double wallpaperScale; // @synthesize wallpaperScale=_wallpaperScale;
 @property(readonly, nonatomic) struct CGSize wallpaperSize; // @synthesize wallpaperSize=_wallpaperSize;
 @property(nonatomic) __weak id <SBFWallpaperConfigurationManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, copy, nonatomic) NSArray *dataStores; // @synthesize dataStores=_dataStores;
 - (void).cxx_destruct;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
@@ -53,6 +53,9 @@
 - (void)notifyDelegateOfChangesToVariants:(long long)arg1;
 - (void)wallpaperDidChangeForVariants:(long long)arg1 shouldNotify:(_Bool)arg2;
 - (void)wallpaperWillChangeForVariants:(long long)arg1;
+- (void)removeWallpaperColorForVariants:(long long)arg1;
+- (_Bool)setWallpaperColorName:(id)arg1 forVariants:(long long)arg2;
+- (_Bool)setWallpaperColor:(id)arg1 forVariants:(long long)arg2;
 - (void)removeProceduralWallpaperForVariants:(long long)arg1;
 - (_Bool)setProceduralWallpaperIdentifier:(id)arg1 options:(id)arg2 forVariants:(long long)arg3;
 - (id)proceduralWallpaperInfoForVariant:(long long)arg1;
@@ -68,11 +71,14 @@
 - (void)regenerateThumbnailIfNecessaryForVariant:(long long)arg1;
 - (void)safeMigrateWallpaperImageIfNecessary;
 - (_Bool)safeMigrateWallpaperImageIfNecessaryForVariant:(long long)arg1 representingVariants:(long long)arg2;
-- (void)migrateWallpaperOptionsForImageIfNecessaryForVariant:(long long)arg1;
+- (id)migratedWallpaperOptionsForWallpaperOptions:(id)arg1 originalImageSize:(struct CGSize)arg2;
+- (void)migrateWallpaperOptionsForImageIfNecessaryForVariant:(long long)arg1 representingVariants:(long long)arg2;
 - (void)performMigrationWithFailureHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) unsigned long long numberOfCachedStaticImages;
 - (void)preheatImageCacheForVariant:(long long)arg1;
 - (void)clearCacheForVariants:(long long)arg1;
+- (_Bool)setWallpaperConfigurationFromDefaultWallpaperConfiguration:(id)arg1 forVariants:(long long)arg2;
+- (_Bool)setWallpaperConfigurationFromDefaultWallpaperConfigurationSet:(id)arg1;
 - (void)restoreDefaultWallpaperForAllVariantsAndNotify:(_Bool)arg1;
 - (long long)wallpaperTypeForSharedWallpaperConfigurationForTypes:(unsigned long long)arg1;
 - (_Bool)variantsShareWallpaperConfigurationForTypes:(unsigned long long)arg1;
@@ -82,6 +88,8 @@
 - (id)wallpaperOptionsForVariant:(long long)arg1;
 - (void)removeWallpaperImagesForVariants:(long long)arg1 variantsShareWallpaperConfiguration:(_Bool)arg2;
 - (void)removeWallpaperImagesForVariants:(long long)arg1;
+- (_Bool)setWallpaperThumbnailData:(id)arg1 forVariant:(long long)arg2;
+- (_Bool)setWallpaperThumbnailFromFullsizeImage:(id)arg1 forVariant:(long long)arg2;
 - (double)thumbnailWidth;
 - (id)thumbnailDataForImage:(id)arg1;
 - (id)normalizeImage:(id)arg1;
@@ -96,6 +104,9 @@
 @property(readonly, copy, nonatomic) SBFWallpaperConfiguration *homeScreenWallpaperConfiguration;
 @property(readonly, copy, nonatomic) SBFWallpaperConfiguration *lockScreenWallpaperConfiguration;
 - (id)wallpaperConfigurationForVariant:(long long)arg1;
+- (id)homeScreenWallpaperConfigurationIncludingValuesForTypes:(unsigned long long)arg1;
+- (id)lockScreenWallpaperConfigurationIncludingValuesForTypes:(unsigned long long)arg1;
+- (id)wallpaperConfigurationForVariant:(long long)arg1 includingValuesForTypes:(unsigned long long)arg2;
 - (_Bool)isVideoSupportedByDefaultForVariant:(long long)arg1;
 - (_Bool)isVideoSupportedForVariant:(long long)arg1;
 - (void)clearDelayedChangeNotifications;

@@ -31,7 +31,7 @@
 - (id)cuiStyleEffects;
 - (id)cuiCatalog;
 - (_Bool)_shouldSetOriginalFontAttribute;
-@property(nonatomic) id <NSTextStorageDelegate> delegate;
+@property(nonatomic) __weak id <NSTextStorageDelegate> delegate;
 - (void)fontSetChanged;
 - (void)_notifyEdited:(unsigned long long)arg1 range:(struct _NSRange)arg2 changeInLength:(long long)arg3 invalidatedRange:(struct _NSRange)arg4;
 @property(readonly, nonatomic) _Bool fixesAttributesLazily;

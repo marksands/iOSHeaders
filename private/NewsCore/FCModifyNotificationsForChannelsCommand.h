@@ -27,7 +27,7 @@
 - (void).cxx_destruct;
 - (void)coalesceWithCommand:(id)arg1;
 - (_Bool)canCoalesceWithCommand:(id)arg1;
-- (void)executeWithContext:(id)arg1 delegate:(id)arg2;
+- (void)executeWithContext:(id)arg1 delegate:(id)arg2 qualityOfService:(long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithChannelIDsToAdd:(id)arg1 paidChannelIDsToAdd:(id)arg2 channelIDsToRemove:(id)arg3 userID:(id)arg4 deviceToken:(id)arg5 storefrontID:(id)arg6;

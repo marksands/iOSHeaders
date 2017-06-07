@@ -50,6 +50,7 @@
 - (void)getBehaviorOverridesEffectiveWhileUnlockedWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setBehaviorOverridesEffectiveWhileUnlocked:(_Bool)arg1 source:(unsigned long long)arg2;
 - (void)setPrivilegedSenderAddressBookGroupRecordID:(int)arg1 name:(id)arg2 source:(unsigned long long)arg3;
+- (void)setEffectiveGlobalContentPreviewsSetting:(long long)arg1;
 - (void)setPrivilegedSenderTypes:(unsigned long long)arg1 source:(unsigned long long)arg2;
 - (void)setBehaviorOverrideStatus:(long long)arg1 effectiveDate:(id)arg2 source:(unsigned long long)arg3;
 - (void)setBehaviorOverrideStatus:(long long)arg1 source:(unsigned long long)arg2;
@@ -62,6 +63,7 @@
 - (void)setPrivilegedSenderTypesWithSourceChangeHandler:(CDUnknownBlockType)arg1;
 - (void)setPrivilegedSenderAddressBookGroupRecordIDWithSourceChangeHandler:(CDUnknownBlockType)arg1;
 - (void)setBehaviorOverrideStateChangeHandler:(CDUnknownBlockType)arg1;
+- (void)getEffectiveGlobalContentPreviewsSettingWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getBehaviorOverridesEnabledAndEffectiveDateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)setActiveBehaviorOverrideTypesWithSourceChangeActiveQuietModeAssertionCountHandler:(CDUnknownBlockType)arg1;
 - (void)setActiveBehaviorOverrideTypesWithSourceChangeHandler:(CDUnknownBlockType)arg1;
@@ -73,7 +75,9 @@
 - (void)getBehaviorOverridesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getSectionOrderRuleWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getSectionInfoForActiveSectionsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)getEffectiveSectionInfoForSectionID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getSectionInfoForSectionID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)getEffectiveSectionInfoForSectionIDs:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getSectionInfoForSectionIDs:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getSectionInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)invalidate;

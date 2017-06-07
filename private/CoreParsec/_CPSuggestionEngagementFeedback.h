@@ -6,29 +6,39 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPSuggestionEngagementFeedback-Protocol.h>
 
-@class _CPSearchSuggestion;
+@class NSData, NSString, _CPSearchSuggestionForFeedback;
 
-@interface _CPSuggestionEngagementFeedback : PBCodable <NSCopying>
+@interface _CPSuggestionEngagementFeedback : PBCodable <_CPProcessableFeedback, _CPSuggestionEngagementFeedback, NSSecureCoding>
 {
+    CDStruct_b5306035 _has;
     unsigned long long _timestamp;
-    _CPSearchSuggestion *_suggestion;
+    _CPSearchSuggestionForFeedback *_suggestion;
 }
 
-@property(retain, nonatomic) _CPSearchSuggestion *suggestion; // @synthesize suggestion=_suggestion;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(retain, nonatomic) _CPSearchSuggestionForFeedback *suggestion; // @synthesize suggestion=_suggestion;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
 @property(readonly, nonatomic) _Bool hasSuggestion;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

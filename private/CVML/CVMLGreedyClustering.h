@@ -23,6 +23,7 @@
 - (id)getDistances:(id)arg1 to:(id)arg2;
 - (id)getClustersForClusterIds:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (id)getRepresentativenessForFaces:(id)arg1 error:(id *)arg2;
+- (id)getDistanceBetweenLevel1Clusters:(id)arg1;
 - (id)getDistanceBetweenLevel0ClustersWithFaceIds:(id)arg1;
 - (id)getLevel1ClusteredIdsGroupedByLevel0ClustersForFaceId:(id)arg1;
 - (id)getLevel0ClusteredIdsForFaceId:(id)arg1;

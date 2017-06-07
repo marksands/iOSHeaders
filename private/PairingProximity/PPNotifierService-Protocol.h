@@ -6,7 +6,9 @@
 
 #import <PairingProximity/NSObject-Protocol.h>
 
+@class NSString;
+
 @protocol PPNotifierService <NSObject>
-- (void)notifyOfNearbyDeviceWithReply:(void (^)(_Bool))arg1;
+- (void)notifyOfNearbyDevice:(NSString *)arg1 withReply:(void (^)(_Bool))arg2;
 @end
 

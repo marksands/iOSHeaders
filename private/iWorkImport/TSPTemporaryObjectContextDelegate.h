@@ -24,8 +24,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 - (void).cxx_destruct;
 - (void)requestAutosave;
+- (void)resumeSaveAndAutosaveWithReason:(id)arg1;
+- (void)suspendSaveAndAutosaveWithReason:(id)arg1;
 - (void)resumeAutosaveWithReason:(id)arg1;
 - (void)suspendAutosaveWithReason:(id)arg1;
+- (void)context:(id)arg1 canPerformUserActionUsingBlock:(CDUnknownBlockType)arg2;
 - (id)persistenceWarningsForData:(id)arg1 flags:(unsigned long long)arg2;
 - (void)addPersistenceWarnings:(id)arg1;
 - (void)presentPersistenceError:(id)arg1;

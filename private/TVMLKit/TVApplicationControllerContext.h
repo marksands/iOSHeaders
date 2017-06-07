@@ -30,6 +30,7 @@
 @property(copy, nonatomic) NSURL *javaScriptApplicationURL; // @synthesize javaScriptApplicationURL=_javaScriptApplicationURL;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 
 @end
 

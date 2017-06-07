@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSDate *date; // @dynamic date;
 @property(retain, nonatomic) UIImage *attachmentImage; // @dynamic attachmentImage;
 @property(retain, nonatomic) UIImage *icon; // @dynamic icon;
-@property(copy, nonatomic) NSString *topic; // @dynamic topic;
+@property(copy, nonatomic) NSString *hiddenPreviewsBodyPlaceholder; // @dynamic hiddenPreviewsBodyPlaceholder;
 @property(copy, nonatomic) NSString *message; // @dynamic message;
 @property(copy, nonatomic) NSString *subtitle; // @dynamic subtitle;
 @property(copy, nonatomic) NSString *title; // @dynamic title;

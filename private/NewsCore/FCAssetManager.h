@@ -17,32 +17,42 @@
 {
     _Bool _flushUnusedAssets;
     NSURL *_directoryURLForCachedAssets;
+    NSString *_name;
+    NSString *_parentDirectory;
     FCKeyValueStore *_keyValueStore;
     FCAssetStore *_assetStore;
     FCCacheCoordinator *_cacheCoordinator;
     NSMapTable *_assetHandles;
     NSObject<OS_dispatch_queue> *_assetHandlesQueue;
     FCNetworkBehaviorMonitor *_networkBehaviorMonitor;
+    NSObject<OS_dispatch_queue> *_initQueue;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *initQueue; // @synthesize initQueue=_initQueue;
 @property(retain, nonatomic) FCNetworkBehaviorMonitor *networkBehaviorMonitor; // @synthesize networkBehaviorMonitor=_networkBehaviorMonitor;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *assetHandlesQueue; // @synthesize assetHandlesQueue=_assetHandlesQueue;
 @property(retain, nonatomic) NSMapTable *assetHandles; // @synthesize assetHandles=_assetHandles;
 @property(retain, nonatomic) FCCacheCoordinator *cacheCoordinator; // @synthesize cacheCoordinator=_cacheCoordinator;
 @property(retain, nonatomic) FCAssetStore *assetStore; // @synthesize assetStore=_assetStore;
 @property(retain, nonatomic) FCKeyValueStore *keyValueStore; // @synthesize keyValueStore=_keyValueStore;
+@property(copy, nonatomic) NSString *parentDirectory; // @synthesize parentDirectory=_parentDirectory;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSURL *directoryURLForCachedAssets; // @synthesize directoryURLForCachedAssets=_directoryURLForCachedAssets;
 @property(nonatomic) _Bool flushUnusedAssets; // @synthesize flushUnusedAssets=_flushUnusedAssets;
 - (void).cxx_destruct;
+- (id)_transformerForAssetAtPath:(id)arg1 fromNetworkEvent:(id)arg2;
 - (id)_assetKeyForRemoteURL:(id)arg1;
+- (void)_initStores;
+- (void)_prepareForUse;
 - (void)enableFlushingWithFlushingThreshold:(unsigned long long)arg1;
 - (void)cacheCoordinator:(id)arg1 flushKeysWithWriteLock:(id)arg2;
 - (unsigned long long)cacheCoordinatorCurrentSizeWithReadLock:(id)arg1;
 - (id)operationToFetchFileForAssetHandle:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)assetHandleForRemoteURL:(id)arg1 lifetimeHint:(long long)arg2 transformer:(id)arg3;
+- (id)assetHandleForData:(id)arg1 lifetimeHint:(long long)arg2;
 - (id)assetHandleForRemoteURL:(id)arg1 lifetimeHint:(long long)arg2;
 - (id)initWithName:(id)arg1 directory:(id)arg2 networkBehaviorMonitor:(id)arg3;
 - (id)init;
+- (id)assetHandleForRecordID:(id)arg1 field:(long long)arg2 contentDatabase:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

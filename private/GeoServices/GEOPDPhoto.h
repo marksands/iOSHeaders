@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDPhoto : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_photoId;
     NSMutableArray *_photoVersions;
 }
@@ -20,6 +21,8 @@
 + (id)photosForPlaceData:(id)arg1;
 @property(retain, nonatomic) NSMutableArray *photoVersions; // @synthesize photoVersions=_photoVersions;
 @property(retain, nonatomic) NSString *photoId; // @synthesize photoId=_photoId;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,7 +37,6 @@
 - (void)addPhotoVersion:(id)arg1;
 - (void)clearPhotoVersions;
 @property(readonly, nonatomic) _Bool hasPhotoId;
-- (void)dealloc;
 - (id)bestURL;
 
 @end

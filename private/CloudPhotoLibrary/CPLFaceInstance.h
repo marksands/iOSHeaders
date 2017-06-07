@@ -16,6 +16,7 @@
     double _centerY;
     double _size;
     unsigned int _faceState;
+    unsigned int _nameSource;
     NSString *_personIdentifier;
     NSMutableArray *_rejectedPersonIdentifiers;
     struct {
@@ -23,10 +24,12 @@
         unsigned int centerY:1;
         unsigned int size:1;
         unsigned int faceState:1;
+        unsigned int nameSource:1;
     } _has;
 }
 
 + (Class)rejectedPersonIdentifiersType;
+@property(nonatomic) unsigned int nameSource; // @synthesize nameSource=_nameSource;
 @property(retain, nonatomic) NSMutableArray *rejectedPersonIdentifiers; // @synthesize rejectedPersonIdentifiers=_rejectedPersonIdentifiers;
 @property(nonatomic) unsigned int faceState; // @synthesize faceState=_faceState;
 @property(nonatomic) double size; // @synthesize size=_size;
@@ -43,6 +46,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasNameSource;
 - (id)rejectedPersonIdentifiersAtIndex:(unsigned long long)arg1;
 - (unsigned long long)rejectedPersonIdentifiersCount;
 - (void)addRejectedPersonIdentifiers:(id)arg1;

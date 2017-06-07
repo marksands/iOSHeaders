@@ -10,12 +10,12 @@
 #import <AXHearingSupport/AXIDCRemoteControllerDelegate-Protocol.h>
 #import <AXHearingSupport/NSNetServiceBrowserDelegate-Protocol.h>
 
-@class AXHAAccessQueueTimer, AXHearingSlaveController, NSMutableArray, NSMutableDictionary, NSString;
-@protocol AXIDCManagerSecurityDelegate;
+@class AXHearingSlaveController, NSMutableArray, NSMutableDictionary, NSObject, NSString;
+@protocol AXIDCManagerSecurityDelegate, OS_dispatch_queue;
 
 @interface AXHAControllerBrowser : AXIDCManager <NSNetServiceBrowserDelegate, AXIDCRemoteControllerDelegate, AXHADeviceControllerProtocol>
 {
-    AXHAAccessQueueTimer *_deviceUpdatesTimer;
+    NSObject<OS_dispatch_queue> *_deviceUpdatesQueue;
     NSMutableDictionary *_deviceUpdatesDescription;
     AXHearingSlaveController *_slaveController;
     NSMutableArray *_updateDeviceBlocks;

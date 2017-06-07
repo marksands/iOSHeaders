@@ -10,7 +10,7 @@
 #import <VideoSubscriberAccountUI/VSApplicationDelegate-Protocol.h>
 #import <VideoSubscriberAccountUI/VSStateMachineDelegate-Protocol.h>
 
-@class JSValue, NSError, NSOperationQueue, NSString, VSAppDocumentController, VSApplication, VSApplicationControllerResponseHandler, VSIdentityProvider, VSPreferences, VSStateMachine;
+@class JSValue, NSError, NSOperationQueue, NSString, VSAppDocumentController, VSApplication, VSApplicationControllerResponseHandler, VSAuditToken, VSIdentityProvider, VSPreferences, VSStateMachine;
 @protocol VSApplicationControllerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     _Bool _allowUI;
     id <VSApplicationControllerDelegate> _delegate;
     VSIdentityProvider *_identityProvider;
+    VSAuditToken *_auditToken;
     VSStateMachine *_stateMachine;
     NSError *_delegateError;
     NSError *_onLaunchError;
@@ -41,12 +42,12 @@ __attribute__((visibility("hidden")))
 @property(retain) NSError *onLaunchError; // @synthesize onLaunchError=_onLaunchError;
 @property(retain) NSError *delegateError; // @synthesize delegateError=_delegateError;
 @property(retain, nonatomic) VSStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
+@property(copy, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(retain, nonatomic) VSIdentityProvider *identityProvider; // @synthesize identityProvider=_identityProvider;
 @property(nonatomic) __weak id <VSApplicationControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_makeJavaScriptRequest;
 - (id)_errorForJavascriptErrorValueValue:(id)arg1 withRequest:(id)arg2;
-- (id)_javascriptShowUserInterfacePurposeForAuthenticationUserInterfacePurpose:(long long)arg1;
 - (id)_javascriptRequestForRequest:(id)arg1 withVerificationData:(id)arg2;
 - (void)_makeJavascriptRequestForRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)_applicationLaunchParams;
@@ -72,13 +73,14 @@ __attribute__((visibility("hidden")))
 - (void)applicationDidStart:(id)arg1;
 - (void)application:(id)arg1 evaluateAppJavascriptInContext:(id)arg2;
 - (void)submitRequest:(id)arg1;
-- (void)showAuthenticationUserInterfaceWithAuthenticationToken:(id)arg1 purpose:(long long)arg2;
+- (void)showAuthenticationUserInterfaceWithAuthenticationToken:(id)arg1;
 - (void)stop;
 - (void)start;
 - (void)transitionToInvalidState;
 - (void)transitionToNotifyingOfLaunchFailureState;
 - (void)transitionToReadyState;
 - (void)transitionToWaitingForBothLaunchCallbacksState;
+- (void)dealloc;
 - (id)initWithIdentityProvider:(id)arg1;
 - (id)init;
 

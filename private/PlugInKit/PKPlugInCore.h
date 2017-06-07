@@ -27,9 +27,11 @@
     NSUUID *_uuid;
     NSData *_cdhash;
     NSString *_requirement;
+    NSURL *_dataContainerURL;
 }
 
 + (id)readSDKDictionary:(id)arg1;
+@property(readonly, nonatomic) NSURL *dataContainerURL; // @synthesize dataContainerURL=_dataContainerURL;
 @property(retain) NSString *requirement; // @synthesize requirement=_requirement;
 @property(retain) NSData *cdhash; // @synthesize cdhash=_cdhash;
 @property(retain) NSUUID *uuid; // @synthesize uuid=_uuid;
@@ -47,6 +49,7 @@
 @property(retain) NSString *originalIdentifier; // @synthesize originalIdentifier=_originalIdentifier;
 @property(retain) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (void)localizedInfoDictionaryForKeys:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)augmentInterface:(id)arg1;
 - (id)attribute:(id)arg1;
 - (id)pluginKey:(id)arg1;

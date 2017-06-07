@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIImage *locationShareBalloonContactImage;
 @property(readonly, nonatomic) UIImage *locationMapViewContactImage;
+- (void)_setBusinessInfoForMutableContact:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *textVibrationIdentifier;
 @property(readonly, copy, nonatomic) NSString *textToneIdentifier;
 @property(readonly, copy, nonatomic) NSString *name;
@@ -44,7 +45,8 @@
 - (id)description;
 - (void)dealloc;
 - (id)initWithIMHandle:(id)arg1;
-- (id)personViewControllerWithDelegate:(id)arg1;
+- (id)personViewControllerWithDelegate:(id)arg1 isUnknown:(_Bool *)arg2 contactStoreProvider:(id)arg3;
+- (id)personViewControllerWithDelegate:(id)arg1 isUnknown:(_Bool *)arg2;
 
 @end
 

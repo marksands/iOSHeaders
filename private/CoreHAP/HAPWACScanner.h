@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class HAPWACScanRequest, NSMutableArray;
+@class HAPWACScanRequest, NSMutableArray, NSObject;
 @protocol OS_dispatch_queue;
 
-@interface HAPWACScanner : NSObject
+@interface HAPWACScanner : HMFObject
 {
     _Bool _scanInProgres;
     NSMutableArray *_pendingRequests;

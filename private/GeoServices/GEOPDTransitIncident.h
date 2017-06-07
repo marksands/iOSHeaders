@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEOPDTransitIncident : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSMutableArray *_transitIncidents;
 }
 
@@ -19,6 +20,8 @@
 + (id)transitIncidentsTTLExpirationDateForPlaceData:(id)arg1;
 + (id)transitIncidentsForPlaceData:(id)arg1 hasTransitIncidentComponent:(_Bool *)arg2;
 @property(retain, nonatomic) NSMutableArray *transitIncidents; // @synthesize transitIncidents=_transitIncidents;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +35,6 @@
 - (unsigned long long)transitIncidentsCount;
 - (void)addTransitIncident:(id)arg1;
 - (void)clearTransitIncidents;
-- (void)dealloc;
 
 @end
 

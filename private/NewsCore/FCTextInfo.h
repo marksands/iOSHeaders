@@ -8,20 +8,18 @@
 
 #import <NewsCore/NSCopying-Protocol.h>
 
-@class FCLoadableFont, UIColor;
+@class FCColor, FCLoadableFont;
 
 @interface FCTextInfo : NSObject <NSCopying>
 {
     FCLoadableFont *_font;
     long long _fontSizeAdjustment;
     double _lineHeightMultiplier;
-    UIColor *_color;
-    long long _horizontalTextAlignment;
+    FCColor *_color;
 }
 
 + (id)textInfoFromJSONValues:(id)arg1;
-@property(nonatomic) long long horizontalTextAlignment; // @synthesize horizontalTextAlignment=_horizontalTextAlignment;
-@property(copy, nonatomic) UIColor *color; // @synthesize color=_color;
+@property(copy, nonatomic) FCColor *color; // @synthesize color=_color;
 @property(nonatomic) double lineHeightMultiplier; // @synthesize lineHeightMultiplier=_lineHeightMultiplier;
 @property(nonatomic) long long fontSizeAdjustment; // @synthesize fontSizeAdjustment=_fontSizeAdjustment;
 @property(copy, nonatomic) FCLoadableFont *font; // @synthesize font=_font;

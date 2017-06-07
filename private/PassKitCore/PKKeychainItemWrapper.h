@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -23,7 +23,7 @@
 - (void)resetKeychainItem;
 - (id)objectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
-- (id)initWithIdentifier:(id)arg1 accessGroup:(id)arg2;
+- (id)initWithIdentifier:(id)arg1 accessGroup:(id)arg2 serviceName:(id)arg3;
 
 @end
 

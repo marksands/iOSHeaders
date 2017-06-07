@@ -6,46 +6,55 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPSectionRankingFeedback-Protocol.h>
 
-@class NSMutableArray, _CPResultSectionForFeedback;
+@class NSArray, NSData, NSString, _CPResultSectionForFeedback;
 
-@interface _CPSectionRankingFeedback : PBCodable <NSCopying>
+@interface _CPSectionRankingFeedback : PBCodable <_CPProcessableFeedback, _CPSectionRankingFeedback, NSSecureCoding>
 {
-    double _personalizationScore;
-    unsigned long long _timestamp;
-    unsigned int _localSectionPosition;
-    NSMutableArray *_results;
-    _CPResultSectionForFeedback *_section;
     struct {
-        unsigned int personalizationScore:1;
+        unsigned int timestamp:1;
         unsigned int localSectionPosition:1;
+        unsigned int personalizationScore:1;
     } _has;
+    unsigned int _localSectionPosition;
+    unsigned long long _timestamp;
+    NSArray *_results;
+    _CPResultSectionForFeedback *_section;
+    double _personalizationScore;
 }
 
-+ (Class)resultsType;
 @property(nonatomic) double personalizationScore; // @synthesize personalizationScore=_personalizationScore;
 @property(nonatomic) unsigned int localSectionPosition; // @synthesize localSectionPosition=_localSectionPosition;
 @property(retain, nonatomic) _CPResultSectionForFeedback *section; // @synthesize section=_section;
-@property(retain, nonatomic) NSMutableArray *results; // @synthesize results=_results;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(copy, nonatomic) NSArray *results; // @synthesize results=_results;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasPersonalizationScore;
-@property(nonatomic) _Bool hasLocalSectionPosition;
+@property(readonly, nonatomic) _Bool hasPersonalizationScore;
+@property(readonly, nonatomic) _Bool hasLocalSectionPosition;
 @property(readonly, nonatomic) _Bool hasSection;
 - (id)resultsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)resultsCount;
 - (void)addResults:(id)arg1;
 - (void)clearResults;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

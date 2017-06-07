@@ -45,6 +45,7 @@
 - (void)subCalURLRequest:(id)arg1 finishedWithData:(id)arg2 error:(id)arg3;
 - (void)subCalURLRequest:(id)arg1 didRedirectToURL:(id)arg2;
 - (void)subCalURLRequest:(id)arg1 updatedData:(id)arg2;
+- (void)handleTrustChallenge:(id)arg1 forSubCalURLRequest:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)handleTrustChallenge:(id)arg1 forSubCalURLRequest:(id)arg2;
 - (void)performTask;
 - (void)didFinish;

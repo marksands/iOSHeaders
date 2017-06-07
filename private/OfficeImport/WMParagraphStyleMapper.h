@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     WMParagraphStyle *mStyle;
 }
 
+- (void).cxx_destruct;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)mapParagraphProperties;
 - (void)mapParagraphStyle;
@@ -29,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (void)updateOutlineStateWithListId:(int)arg1 listLevel:(unsigned char)arg2 document:(id)arg3 state:(id)arg4;
 - (void)destyleEmptyParagraph;
 - (_Bool)isListItem;
-- (void)dealloc;
 - (id)initWithWDParagraph:(id)arg1 parent:(id)arg2 isInTextFrame:(_Bool)arg3;
 - (void)mapBulletAt:(id)arg1 forIndex:(int)arg2 inLevelDescription:(id)arg3 listState:(id)arg4;
 - (id)bulletLabelForIndex:(int)arg1 inLevelDescription:(id)arg2 listState:(id)arg3;

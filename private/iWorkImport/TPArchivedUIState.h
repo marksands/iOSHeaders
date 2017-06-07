@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) TPArchivedViewState *viewState; // @synthesize viewState=_viewState;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 @property(retain, nonatomic) TPArchivedLayoutState *layoutState;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;

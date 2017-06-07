@@ -8,16 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOSubPremise : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_name;
     int _type;
 }
 
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +32,6 @@
 - (id)description;
 - (int)StringAsType:(id)arg1;
 - (id)typeAsString:(int)arg1;
-- (void)dealloc;
 
 @end
 

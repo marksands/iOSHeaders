@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray;
 
@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) _Bool invalidateEverything; // @synthesize invalidateEverything=_invalidateEverything;
 @property(nonatomic) _Bool flushEverything; // @synthesize flushEverything=_flushEverything;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)tileset:(unsigned int *)arg1 edition:(unsigned int *)arg2 provider:(unsigned int *)arg3 invalidateOnly:(_Bool *)arg4 atIndex:(unsigned long long)arg5;
 - (unsigned long long)tilesetCount;
 - (void)addTileset:(unsigned int)arg1 edition:(unsigned int)arg2 provider:(unsigned int)arg3 invalidateOnly:(_Bool)arg4;

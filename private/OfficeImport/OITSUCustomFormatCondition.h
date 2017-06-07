@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) OITSUCustomFormatData *data; // @synthesize data=mData;
 @property(readonly, nonatomic) double conditionValue; // @synthesize conditionValue=mConditionValue;
 @property(readonly, nonatomic) int conditionType; // @synthesize conditionType=mConditionType;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

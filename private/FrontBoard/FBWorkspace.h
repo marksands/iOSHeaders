@@ -35,9 +35,9 @@
 - (id)registerHost:(id)arg1;
 - (void)registerInvalidationAction:(id)arg1;
 - (void)_queue_sceneDidInvalidate:(id)arg1;
-- (void)_invalidateSceneClientWithIdentity:(id)arg1;
-- (id)_createSceneClientWithIdentity:(id)arg1;
-- (Class)_sceneClassForIdentity:(id)arg1;
+- (void)_invalidateSceneClientWithIdentifier:(id)arg1;
+- (id)_createSceneClientWithIdentifier:(id)arg1 specification:(id)arg2;
+- (Class)_sceneClassForSpecification:(id)arg1;
 - (Class)_serverClass;
 - (id)_server;
 - (id)_queue;

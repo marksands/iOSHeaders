@@ -12,7 +12,6 @@
 {
 }
 
-+ (id)addUnmanagedAdjustmentFromAdjustmentFileAtPath:(id)arg1 withAsset:(id)arg2;
 + (id)_convertRedEyeCorrection:(id)arg1 withOrientation:(long long)arg2;
 + (id)_convertRedEyeCorrections:(id)arg1 withOrientation:(long long)arg2;
 + (id)addUnmanagedAdjustmentFromXMPDataIfNeededForAsset:(id)arg1;
@@ -24,6 +23,7 @@
 @property(retain, nonatomic) NSNumber *adjustmentBaseImageFormat; // @dynamic adjustmentBaseImageFormat;
 @property(retain, nonatomic) NSString *adjustmentFormatIdentifier; // @dynamic adjustmentFormatIdentifier;
 @property(retain, nonatomic) NSString *adjustmentFormatVersion; // @dynamic adjustmentFormatVersion;
+@property(nonatomic) unsigned int adjustmentRenderTypes; // @dynamic adjustmentRenderTypes;
 @property(retain, nonatomic) NSDate *adjustmentTimestamp; // @dynamic adjustmentTimestamp;
 @property(retain, nonatomic) PLAdditionalAssetAttributes *assetAttributes; // @dynamic assetAttributes;
 @property(retain, nonatomic) NSString *editorLocalizedName; // @dynamic editorLocalizedName;

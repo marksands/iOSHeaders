@@ -89,6 +89,9 @@
 @property(readonly, nonatomic) _Bool hasContactInformation;
 @property(readonly, nonatomic) _Bool hasUserId;
 @property(readonly, nonatomic) _Bool hasParticipantId;
+- (id)_permissionCKLogValue;
+- (id)_participantTypeCKLogValue;
+- (id)_stateCKLogValue;
 
 @end
 

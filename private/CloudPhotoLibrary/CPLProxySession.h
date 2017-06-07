@@ -14,11 +14,11 @@
 {
 }
 
-+ (void)beginSessionForProxy:(id)arg1 knownVersion:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
++ (void)beginSessionForProxy:(id)arg1 knownVersion:(id)arg2 context:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)dispatchBlockWhenLibraryIsOpen:(CDUnknownBlockType)arg1;
 - (void)tearDownWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)finalizeWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)beginSessionWithKnownLibraryVersion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)beginSessionWithKnownLibraryVersion:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)proxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)proxyLibraryManager;
 

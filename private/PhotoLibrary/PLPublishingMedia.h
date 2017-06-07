@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSString *pathForVideoFile; // @synthesize pathForVideoFile=_pathForVideoFile;
 @property(nonatomic) _Bool isVideo; // @synthesize isVideo=_isVideo;
 @property(retain, nonatomic) id asset; // @synthesize asset=_asset;
+- (void)dealloc;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)initWithAVURLAsset:(id)arg1;

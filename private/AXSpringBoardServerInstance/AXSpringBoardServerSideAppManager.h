@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface AXSpringBoardServerSideAppManager : NSObject
 {
@@ -13,25 +13,29 @@
 + (id)_mainDisplaySceneLayoutViewController;
 + (id)_mainDisplaySceneManager;
 + (void)performValidation;
-- (struct CGPoint)_dividerPointForSideElementFrame:(struct CGRect)arg1 orientation:(long long)arg2;
-- (struct CGPoint)_sideOverlayDismissPointForSideElementFrame:(struct CGRect)arg1 orientation:(long long)arg2;
-- (struct CGRect)_sideElementFrameAdjustingForKeyboard:(struct CGRect)arg1;
 - (id)_mainDisplaySceneLayoutViewController;
-- (id)_mainDisplaySceneLayoutGestureManager;
 - (id)_mainDisplaySceneManager;
-- (void)_performFakeResizeGestureForGestureType:(unsigned long long)arg1;
-- (void)_dismissSideSwitcher;
-- (void)_revealSideApp;
-- (void)_revealSideSwitcherForGestureType:(unsigned long long)arg1;
-- (void)_revealSideAppAsSwitcher:(_Bool)arg1;
-- (double)_distanceForSideAppReveal;
-- (double)_velocityForHorizontalSwipe:(_Bool)arg1;
+- (id)_floatingAppRootViewController;
+- (id)_layoutState;
+- (long long)_currentSpaceConfiguration;
+- (long long)_currentFloatingConfiguration;
+- (id)_sbWorkspaceMainWorkspace;
+- (id)_sbPreviousWorkspaceEntityClass;
+- (id)_sbEmptyEntity;
+- (id)_sbPreviousEntity;
+- (void)launchFloatingApplication:(id)arg1;
+- (void)launchPinnedApplication:(id)arg1 onLeft:(_Bool)arg2;
+- (void)launchApplication:(id)arg1;
+- (void)_requestTransactionWithPrimaryEntity:(id)arg1 sideEntity:(id)arg2 floatingEntity:(id)arg3 spaceConfiguration:(long long)arg4 floatingConfiguration:(long long)arg5;
+- (void)_performMedusaGesture:(unsigned long long)arg1;
 - (void)_addResizeGestureRecognizerGesturesIfAllowed:(id)arg1;
-- (void)_addRevealGesturesIfAllowed:(id)arg1;
+- (void)_addFloatingApplicationGesturesIfAllowed:(id)arg1;
+- (_Bool)_hasPinnedApp;
+- (_Bool)_hasFloatingApp;
+- (_Bool)hasMultipleApps;
 - (_Bool)performMedusaGesture:(unsigned long long)arg1;
-- (_Bool)clearSideAppState;
+- (id)medusaApps;
 - (id)allowedMedusaGestures;
-- (_Bool)isSideSwitcherVisible;
 
 @end
 

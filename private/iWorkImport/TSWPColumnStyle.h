@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 + (id)properties;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ColumnStyleArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ColumnStyleArchive *)arg1 unarchiver:(id)arg2;
 @property(readonly, nonatomic) _Bool columnsAreLeftToRight;
 @property(readonly, nonatomic) _Bool shrinkTextToFit;

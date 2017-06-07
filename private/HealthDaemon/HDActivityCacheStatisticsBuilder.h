@@ -14,9 +14,10 @@
     vector_53e1d725 _workouts;
     vector_81c32433 _standHourSamples;
     vector_6dc0ebed _activationLogSamples;
+    vector_cffd497f _heartRateSamples;
     HKQuantity *_lastActiveEnergyValue;
     HKQuantity *_lastDistanceWalkingValue;
-    HKQuantity *_lastFlightsClimbedValue;
+    NSNumber *_lastFlightsClimbedValue;
     NSNumber *_lastStepCountValue;
     NSNumber *_lastPushCountValue;
     NSNumber *_lastStandHourValue;
@@ -35,13 +36,14 @@
 @property(nonatomic) double intervalDuration; // @synthesize intervalDuration=_intervalDuration;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (double)_sumSourceTotals:(map_c63dce6d *)arg1 orderedSources:(vector_d87a6415)arg2 strictStartTime:(double)arg3 strictEndTime:(double)arg4;
-- (double)_sumSourceTotals:(map_c63dce6d *)arg1 orderedSources:(vector_d87a6415)arg2;
+- (double)_sumSourceTotals:(map_c63dce6d *)arg1 orderedSources:(vector_c1c297d2)arg2 strictStartTime:(double)arg3 strictEndTime:(double)arg4;
+- (double)_sumSourceTotals:(map_c63dce6d *)arg1 orderedSources:(vector_c1c297d2)arg2;
 - (void)_addSample:(struct HDActivityCacheStatisticsBuilderSample)arg1 toSourceTotals:(map_c63dce6d *)arg2 fromWorkout:(_Bool)arg3;
 - (void)_addSamples:(const vector_e4bf223f *)arg1 toSourceTotals:(map_c63dce6d *)arg2 fromWorkout:(_Bool)arg3;
 - (double)_maxTimestampInSourceTotals:(const map_c63dce6d *)arg1;
 - (double)_minTimestampInSourceTotals:(const map_c63dce6d *)arg1;
 - (_Bool)_sourceMapIsEmpty:(const map_c63dce6d *)arg1;
+- (id)heartRateReadings;
 - (id)workoutSamplesWithSourceManager:(id)arg1;
 - (id)createStandStatisticsWithCalendar:(id)arg1;
 - (id)createExerciseStatisticsWithIntervalComponents:(id)arg1 calendar:(id)arg2;
@@ -49,6 +51,8 @@
 - (id)_createStatisticsForType:(id)arg1 withIntervalComponents:(id)arg2 calendar:(id)arg3;
 - (id)createStatisticsCollectionWithType:(id)arg1 intervalComponents:(id)arg2 calendar:(id)arg3;
 - (vector_6dc0ebed)_activeSourceVectorFromActivationLogSamples:(const vector_e4bf223f *)arg1;
+- (void)clearEphemeralDataForTypeCode:(long long)arg1;
+- (void)addHeartRateSamples:(const vector_cffd497f *)arg1;
 - (void)addDeepBreathingSessionDuration:(double)arg1;
 - (void)addWorkoutSample:(struct HDActivityCacheStatisticsBuilderSample)arg1 typeCode:(long long)arg2;
 - (void)addDeviceSamples:(const vector_e4bf223f *)arg1 typeCode:(long long)arg2;
@@ -68,10 +72,10 @@
 - (long long)standHourValue;
 - (long long)pushCountValue;
 - (long long)stepCountValue;
-- (id)flightsClimbedValue;
+- (long long)flightsClimbedValue;
 - (id)distanceWalkingValue;
 - (id)activeEnergyValue;
-- (vector_d87a6415)_sourceOrderForTypeCode:(long long)arg1;
+- (vector_c1c297d2)_sourceOrderForTypeCode:(long long)arg1;
 - (id)init;
 - (id)initWithTimePeriod:(id)arg1 loggingName:(id)arg2;
 

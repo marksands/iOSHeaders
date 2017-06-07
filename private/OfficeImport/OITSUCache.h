@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (id)p_objectsForKeys:(id)arg1 notFoundMarker:(id)arg2;
 - (void)p_addEntriesFromDictionary:(id)arg1;
 - (id)p_objectForKey:(id)arg1;
+- (id)p_createContentsDictionary;
 
 @end
 

@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface WebCoreSharedBufferData : NSData
 {
-    struct RefPtr<WebCore::SharedBuffer::DataBuffer> sharedBufferDataBuffer;
+    struct RefPtr<const WebCore::SharedBuffer::DataSegment> sharedBufferDataSegment;
 }
 
 + (void)initialize;
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (const void *)bytes;
 - (unsigned long long)length;
--     // Error parsing type: @24@0:8^{DataBuffer={atomic<unsigned int>=AI}{Vector<char, 0, WTF::CrashOnOverflow, 16>=*II}}16, name: initWithSharedBufferDataBuffer:
+-     // Error parsing type: @24@0:8r^{DataSegment={atomic<unsigned int>=AI}{Variant<WTF::Vector<char, 0, WTF::CrashOnOverflow, 16>, WTF::RetainPtr<const __CFData *>, WebCore::MappedFileData>=(__variant_data<WTF::Vector<char, 0, WTF::CrashOnOverflow, 16>, WTF::RetainPtr<const __CFData *>, WebCore::MappedFileData>=(__variant_data<WTF::Vector<char, 0, WTF::CrashOnOverflow, 16> >={__storage_wrapper<WTF::Vector<char, 0, WTF::CrashOnOverflow, 16> >={type=[16C]}}{__dummy_type=})(__variant_data<WTF::RetainPtr<const __CFData *>, WebCore::MappedFileData>=(__variant_data<WTF::RetainPtr<const __CFData *> >={__storage_wrapper<WTF::RetainPtr<const __CFData *> >={type=[8C]}}{__dummy_type=})(__variant_data<WebCore::MappedFileData>={__storage_wrapper<WebCore::MappedFileData>={type=[16C]}}{__dummy_type=})))c}}16, name: initWithSharedBufferDataSegment:
 - (void)dealloc;
 
 @end

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOCompletion-Protocol.h>
 
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) NSArray *groups; // @synthesize groups=_groups;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithResponse:(id)arg1 traits:(id)arg2 mapItems:(id)arg3;
 
 // Remaining properties

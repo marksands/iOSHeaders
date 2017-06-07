@@ -10,7 +10,7 @@
 {
 }
 
-- (long long)unHandledEvents;
+@property(readonly, nonatomic) long long unHandledEvents;
 - (id)initWithUnHandledEvents:(long long)arg1;
 
 @end

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 
@@ -25,8 +25,8 @@
 @property(readonly, nonatomic) NSString *nameSpace; // @synthesize nameSpace=_nameSpace;
 @property(readonly, nonatomic) long long maximumNumber; // @synthesize maximumNumber=_maximumNumber;
 @property(readonly, nonatomic) long long minimumNumber; // @synthesize minimumNumber=_minimumNumber;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)initWithMinimumNumber:(long long)arg1 maximumNumber:(long long)arg2 nameSpace:(id)arg3 elementName:(id)arg4 objectClass:(Class)arg5 setterMethod:(SEL)arg6;
 
 @end

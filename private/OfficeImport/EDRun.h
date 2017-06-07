@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (void)adjustIndex:(unsigned long long)arg1;
 - (unsigned long long)charIndex;
 - (long long)key;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToRun:(id)arg1;
 - (void)dealloc;
@@ -46,7 +47,6 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

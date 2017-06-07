@@ -6,20 +6,17 @@
 
 #import <GeoServices/GEOTileServerProxy.h>
 
-@class NSHashTable, NSLock, NSObject;
+@class NSObject;
 @protocol OS_dispatch_queue, OS_xpc_object;
 
 @interface GEOTileServerRemoteProxy : GEOTileServerProxy
 {
-    NSObject<OS_dispatch_queue> *_connQueue;
-    NSObject<OS_xpc_object> *_conn;
-    NSLock *_connLock;
-    int _suspendCount;
-    unsigned long long _handleCounter;
-    NSHashTable *_cancellingConnections;
-    NSLock *_cancellingConnectionsLock;
+    NSObject<OS_dispatch_queue> *_connectionReplyQueue;
+    NSObject<OS_xpc_object> *_connection;
+    NSObject<OS_dispatch_queue> *_connectionSendIsolation;
 }
 
+- (void).cxx_destruct;
 - (_Bool)skipNetworkForKeysWhenPreloading:(id)arg1;
 - (void)endPreloadSession;
 - (void)beginPreloadSessionOfSize:(unsigned long long)arg1 exclusive:(_Bool)arg2;
@@ -31,14 +28,16 @@
 - (void)reportCorruptTile:(const struct _GEOTileKey *)arg1;
 - (void)cancel:(const struct _GEOTileKey *)arg1;
 - (void)reprioritizeKey:(const struct _GEOTileKey *)arg1 newPriority:(unsigned int)arg2;
-- (void)loadTiles:(id)arg1 priorities:(unsigned int *)arg2 options:(unsigned long long)arg3 client:(id)arg4;
+- (void)loadTiles:(id)arg1 priorities:(const unsigned int *)arg2 hasAdditionalInfos:(const _Bool *)arg3 additionalInfos:(const CDStruct_58878026 *)arg4 options:(unsigned long long)arg5 client:(id)arg6;
 - (void)_handleEditionUpgrade:(id)arg1;
 - (void)_handleNetworkBegan:(id)arg1;
 - (void)_handleError:(id)arg1;
 - (void)_handleTile:(id)arg1;
-- (void)_handleEvent:(id)arg1 fromConnection:(id)arg2;
+- (void)_sendMessage:(id)arg1;
+- (_Bool)_sendMessage:(id)arg1 withReply:(CDUnknownBlockType)arg2;
+- (void)_handleEvent:(id)arg1;
 - (void)dealloc;
-- (id)initWithCacheLocation:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3;
+- (id)initWithCacheLocation:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 delegateQueue:(id)arg4 delegate:(id)arg5;
 
 @end
 

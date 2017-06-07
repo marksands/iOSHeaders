@@ -21,7 +21,6 @@
     struct NSNumber *_clockTimerToken;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1;
 - (void).cxx_destruct;
 - (void)_prepareForHourChangeWithSecondsUntilChange:(double)arg1;
@@ -49,6 +48,7 @@
 - (void)endScrubbingAnimated:(_Bool)arg1;
 - (void)_scrubToDate:(id)arg1 animated:(_Bool)arg2;
 - (void)setOverrideDate:(id)arg1 duration:(double)arg2;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (_Bool)_fadesComplicationSlot:(id)arg1 inEditMode:(long long)arg2;
 - (double)_keylineCornerRadiusForComplicationSlot:(id)arg1;
 - (unsigned long long)_keylineLabelAlignmentForComplicationSlot:(id)arg1;

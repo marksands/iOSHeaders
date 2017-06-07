@@ -14,8 +14,8 @@
 @interface HUItemTableHeaderFooterView : UITableViewHeaderFooterView <UITextViewDelegate>
 {
     _Bool _includeBottomSpacing;
-    id <HUTextInteractionHandling> _textInteractionHandler;
     UITextView *_messageTextView;
+    id <HUTextInteractionHandling> _textInteractionHandler;
     NSArray *_constraints;
     NSLayoutConstraint *_bottomSpacingConstraint;
 }
@@ -23,9 +23,9 @@
 + (_Bool)requiresConstraintBasedLayout;
 @property(retain, nonatomic) NSLayoutConstraint *bottomSpacingConstraint; // @synthesize bottomSpacingConstraint=_bottomSpacingConstraint;
 @property(retain, nonatomic) NSArray *constraints; // @synthesize constraints=_constraints;
-@property(retain, nonatomic) UITextView *messageTextView; // @synthesize messageTextView=_messageTextView;
 @property(nonatomic) __weak id <HUTextInteractionHandling> textInteractionHandler; // @synthesize textInteractionHandler=_textInteractionHandler;
 @property(nonatomic) _Bool includeBottomSpacing; // @synthesize includeBottomSpacing=_includeBottomSpacing;
+@property(retain, nonatomic) UITextView *messageTextView; // @synthesize messageTextView=_messageTextView;
 - (void).cxx_destruct;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
 - (void)updateConstraints;

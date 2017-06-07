@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     NSIndexSet *mParagraphIndicesInTOCs;
 }
 
++ (id)URLWithDestinationName:(id)arg1;
 + (id)footnoteMarkNameForIndex:(unsigned long long)arg1;
 + (id)footnoteRefNameForIndex:(unsigned long long)arg1;
 - (id)p_paragraphIndicesInTOCs;

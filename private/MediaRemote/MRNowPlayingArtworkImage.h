@@ -17,7 +17,6 @@
 @property(readonly, copy, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
 @property(readonly, copy, nonatomic) NSData *imageData; // @synthesize imageData=_imageData;
 - (id)copyImageData;
-- (void)bindToXPCDictionary:(id)arg1;
 - (_Bool)hasArtworkData;
 - (unsigned int)type;
 - (_Bool)isEqual:(id)arg1;

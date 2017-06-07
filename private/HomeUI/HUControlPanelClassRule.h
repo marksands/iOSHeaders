@@ -8,21 +8,23 @@
 
 #import <HomeUI/HUControlPanelRule-Protocol.h>
 
-@class NSSet, NSString;
+@class NSString, Protocol;
 
 @interface HUControlPanelClassRule : NSObject <HUControlPanelRule>
 {
     double _priority;
-    NSSet *_classes;
+    Class _class;
+    Protocol *_protocol;
 }
 
-+ (id)ruleWithControlItemClasses:(id)arg1;
++ (id)ruleWithControlItemProtocol:(id)arg1;
 + (id)ruleWithControlItemClass:(Class)arg1;
-@property(copy, nonatomic) NSSet *classes; // @synthesize classes=_classes;
+@property(retain, nonatomic) Protocol *protocol; // @synthesize protocol=_protocol;
+@property(copy, nonatomic) Class class; // @synthesize class=_class;
 @property(nonatomic) double priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
 - (_Bool)ruleMatchesItem:(id)arg1;
-- (id)initWithControlItemClasses:(id)arg1;
+- (id)initWithControlItemClass:(Class)arg1 protocol:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

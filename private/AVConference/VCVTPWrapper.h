@@ -11,8 +11,8 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (void)dealloc;
-- (id)init;
++ (void)stopVTP;
++ (void)startVTP;
 
 @end
 

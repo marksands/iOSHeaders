@@ -6,13 +6,14 @@
 
 #import <iWorkImport/TSWPTextHostRep.h>
 
+#import <iWorkImport/CALayerDelegate-Protocol.h>
 #import <iWorkImport/TSCHChartRepPlatformProtocols-Protocol.h>
 #import <iWorkImport/TSCHSupportsRendering-Protocol.h>
 
-@class CALayer, CAShapeLayer, NSArray, NSString, TSCHChartDrawableInfo, TSCHChartLayout, TSCHLegendMoveKnob, TSCHRendererLayer, TSCHSearchSelection, TSCHSelectionPath;
+@class CALayer, CAShapeLayer, NSArray, NSMutableArray, NSString, TSCHChartDrawableInfo, TSCHChartLayout, TSCHLegendMoveKnob, TSCHRendererLayer, TSCHSearchSelection, TSCHSelectionPath;
 
 __attribute__((visibility("hidden")))
-@interface TSCHChartRep : TSWPTextHostRep <TSCHChartRepPlatformProtocols, TSCHSupportsRendering>
+@interface TSCHChartRep : TSWPTextHostRep <TSCHChartRepPlatformProtocols, TSCHSupportsRendering, CALayerDelegate>
 {
     NSArray *mRenderers;
     _Bool mBuildingChunks;
@@ -45,18 +46,16 @@ __attribute__((visibility("hidden")))
     _Bool mFinishedBecomingSelected;
     TSCHLegendMoveKnob *mDynamicLegendKnob;
     _Bool mIs2DRepFor3DChartRep;
-    CDUnknownBlockType mDrawingOpStartBlock;
-    CDUnknownBlockType mDrawingOpEndBlock;
     int mRenderPassChunkPhase;
     struct CGPoint mLastSubselectionLayerRelativeReferencePosition;
+    CALayer *mDownloadIndicatorLayer;
+    NSMutableArray *mRenderersWaitingForDownload;
     TSCHSearchSelection *_selection;
 }
 
 + (double)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2 mixingTypeContext:(id)arg3;
 @property(readonly, nonatomic) TSCHSearchSelection *selection; // @synthesize selection=_selection;
 @property(readonly, nonatomic) _Bool is2DRepFor3DChartRep; // @synthesize is2DRepFor3DChartRep=mIs2DRepFor3DChartRep;
-@property(copy, nonatomic) CDUnknownBlockType drawingOpEndBlock; // @synthesize drawingOpEndBlock=mDrawingOpEndBlock;
-@property(copy, nonatomic) CDUnknownBlockType drawingOpStartBlock; // @synthesize drawingOpStartBlock=mDrawingOpStartBlock;
 @property(readonly, nonatomic) long long currentChunk; // @synthesize currentChunk=mCurrentChunk;
 @property(readonly, nonatomic) _Bool chartRepGoingAway; // @synthesize chartRepGoingAway=mChartRepGoingAway;
 @property(readonly, retain, nonatomic) TSCHSelectionPath *activeTextEditingPath; // @synthesize activeTextEditingPath=mActiveTextEditingPath;
@@ -64,8 +63,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool drawingSearchReference; // @synthesize drawingSearchReference=mDrawingSearchReference;
 @property(retain, nonatomic) TSCHLegendMoveKnob *dynamicLegendKnob; // @synthesize dynamicLegendKnob=mDynamicLegendKnob;
 @property(nonatomic) _Bool forceSeparateLegendLayer; // @synthesize forceSeparateLegendLayer=mForceSeparateLegendLayer;
-- (void)endDrawingOperation;
-- (void)beginDrawingOperation;
 - (struct CGRect)convertUnscaledToBoundsRect:(struct CGRect)arg1;
 - (struct CGRect)outerShadowFrame;
 - (void)p_removeOrShowAndPositionMessageOverlay;
@@ -92,6 +89,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)renderGrid;
 - (_Bool)renderElements;
 - (id)textureForContext:(id)arg1;
+- (_Bool)shouldSetTextureStage:(unsigned long long)arg1;
 - (void)setTextureStage:(unsigned long long)arg1;
 - (void)protected_renderChunkInBounds:(struct CGRect)arg1 textureSet:(id)arg2;
 @property(readonly, nonatomic) unsigned long long chartDeliveryStyle;

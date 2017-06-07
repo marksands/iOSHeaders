@@ -6,15 +6,15 @@
 
 #import <UIKit/UIScrollView.h>
 
-#import <PassKitUI/PKPassDeleteDelegate-Protocol.h>
+#import <PassKitUI/PKPassDeleteAnimationControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPassDeleteHandler-Protocol.h>
 #import <PassKitUI/PKPassGroupViewDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentServiceDelegate-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSString, NSTimer, PKGroup, PKPGSVHeaderContext, PKPass, PKPassDeleteSheet, PKPassFooterView, PKPassGroupView, PKPassthroughView, PKPaymentService, PKReusablePassViewQueue, PKSecureElement, UIColor;
-@protocol PKPassGroupStackViewDatasource, PKPassGroupStackViewDelegate><UIScrollViewDelegate;
+@class NSMutableArray, NSMutableDictionary, NSObject, NSString, NSTimer, PKGroup, PKPGSVSectionHeaderContext, PKPass, PKPassDeleteAnimationController, PKPassFooterView, PKPassGroupView, PKPassthroughView, PKPaymentService, PKPeerPaymentAccount, PKReusablePassViewQueue, PKSecureElement, UIColor, UIImageView, UIView;
+@protocol OS_dispatch_source, PKPassGroupStackViewDatasource, PKPassGroupStackViewDelegate><UIScrollViewDelegate;
 
-@interface PKPassGroupStackView : UIScrollView <PKPassGroupViewDelegate, PKPassDeleteDelegate, PKPaymentServiceDelegate, PKPassDeleteHandler>
+@interface PKPassGroupStackView : UIScrollView <PKPassGroupViewDelegate, PKPassDeleteAnimationControllerDelegate, PKPaymentServiceDelegate, PKPassDeleteHandler>
 {
     PKPassGroupView *_modallyPresentedGroupView;
     PKGroup *_modallyPresentedGroup;
@@ -24,8 +24,12 @@
     int _currentTestReps;
     long long _presentationState;
     NSMutableDictionary *_groupViewsByGroupID;
-    PKPGSVHeaderContext *_paymentHeaderContext;
-    PKPGSVHeaderContext *_passHeaderContext;
+    PKPGSVSectionHeaderContext *_paymentHeaderContext;
+    PKPGSVSectionHeaderContext *_passHeaderContext;
+    UIView *_footerView;
+    double _footerViewMinimumHeight;
+    UIImageView *_footerPocketBackgroundShadow;
+    UIImageView *_footerPocketForegroundShadow;
     struct {
         unsigned long long numberOfGroups;
         unsigned long long separatorIndex;
@@ -37,13 +41,17 @@
         unsigned int hasPasses:1;
         unsigned int hasPaymentHeader:1;
         unsigned int hasPassHeader:1;
+        unsigned int hasFooter:1;
         unsigned int isDeleting:1;
         unsigned int isContinuingModalPresentation:1;
         unsigned int forceSubheaderUpdate:1;
         unsigned int forceFooterUpdate:1;
         unsigned int mutatingForcePileOffscreen:1;
     } _layoutState;
-    PKPassDeleteSheet *_deleteSheet;
+    struct CGSize _lastBoundsSize;
+    struct UIEdgeInsets _lastBoundsInsets;
+    struct CGSize _lastStatusBarSize;
+    PKPassDeleteAnimationController *_deleteAnimationController;
     CDUnknownBlockType _transitionCanceller;
     long long _nextState;
     long long _priorState;
@@ -78,12 +86,20 @@
     PKPassthroughView *_passContainerView;
     NSMutableArray *_passthroughViews;
     PKSecureElement *_secureElement;
+    double _userBrightness;
+    _Bool _isTransitioningBrightness;
+    NSObject<OS_dispatch_source> *_brightnessTimer;
+    NSObject<OS_dispatch_source> *_brightnessNotificationTimer;
+    _Bool _delegateWantsTopContentSeparation;
+    _Bool _delegateWantsBottomContentSeparation;
+    PKPeerPaymentAccount *_peerPaymentAccount;
     _Bool _footerSuppressed;
     id <PKPassGroupStackViewDatasource> _datasource;
     UIColor *_pageIndicatorTintColor;
     UIColor *_currentPageIndicatorTintColor;
 }
 
++ (id)backgroundColor;
 @property(copy, nonatomic) UIColor *currentPageIndicatorTintColor; // @synthesize currentPageIndicatorTintColor=_currentPageIndicatorTintColor;
 @property(copy, nonatomic) UIColor *pageIndicatorTintColor; // @synthesize pageIndicatorTintColor=_pageIndicatorTintColor;
 @property(nonatomic) _Bool footerSuppressed; // @synthesize footerSuppressed=_footerSuppressed;
@@ -93,24 +109,20 @@
 - (void).cxx_destruct;
 - (void)_paymentDidReceiveSuccessfulTransactionNotification:(id)arg1;
 - (_Bool)handleDeletePassRequestWithPass:(id)arg1 forViewController:(id)arg2;
-- (void)deleteSheet:(id)arg1 didComplete:(_Bool)arg2;
-- (void)deleteSheetWillBeginDeleteAnimation:(id)arg1;
+- (void)deleteAnimationController:(id)arg1 didComplete:(_Bool)arg2;
+- (void)deleteAnimationControllerWillBeginDeleteAnimation:(id)arg1;
 - (void)groupViewDidUpdatePageControlVisibility:(id)arg1;
 - (_Bool)groupView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
 - (void)groupView:(id)arg1 deleteButtonPressedForPass:(id)arg2;
 - (void)groupView:(id)arg1 didScrollToPassView:(id)arg2;
-- (void)groupView:(id)arg1 resizeButtonPressedForPass:(id)arg2;
-- (void)groupViewFrontPassDidFlip:(id)arg1 animated:(_Bool)arg2;
+- (void)groupView:(id)arg1 resizeButtonPressedForPass:(id)arg2 withBarcode:(_Bool)arg3;
 - (struct CGRect)groupView:(id)arg1 targetPageControlFrameForProposedFrame:(struct CGRect)arg2;
 - (long long)groupViewContentModeForFrontmostPassWhenPiled:(id)arg1 withDefaultContentMode:(long long)arg2;
 - (long long)groupViewContentModeForFrontmostPassWhenStacked:(id)arg1;
 - (id)groupViewReusablePassViewQueue:(id)arg1;
 - (unsigned long long)groupViewPassesSuppressedContent:(id)arg1;
-- (_Bool)groupViewPassesGrowCenteredWhenFlipped:(id)arg1;
-- (_Bool)groupViewPassesGrowWhenFlipped:(id)arg1;
 - (void)groupViewFrontPassDidResize:(id)arg1 animated:(_Bool)arg2;
 - (_Bool)groupViewShouldAllowPassResize:(id)arg1;
-- (_Bool)groupViewShouldAllowPassFlip:(id)arg1;
 - (void)groupView:(id)arg1 panned:(struct CGPoint)arg2 withVelocity:(struct CGPoint)arg3;
 - (_Bool)groupViewShouldAllowPanning:(id)arg1;
 - (void)groupViewPanDidEnd:(id)arg1;
@@ -122,6 +134,7 @@
 - (void)paymentDeviceDidBecomeAvailable;
 - (void)paymentDeviceDidLeaveRestrictedMode;
 - (void)paymentDeviceDidEnterRestrictedMode;
+- (void)_handlePeerPaymentAccountDidChangeNotification:(id)arg1;
 - (void)_cancelSuspendedTransition;
 - (void)_resumeSuspendedTransition;
 - (void)_suspendTransition;
@@ -133,8 +146,6 @@
 - (void)_setDefaultPaymentPassFromGroupView:(id)arg1 reorderedGroupView:(id)arg2;
 - (void)_disableScrollingAndNormalizeContentOffset;
 - (void)_setScrollEnabled:(_Bool)arg1;
-- (void)_removeDimmingFromPileWithAnimation:(_Bool)arg1;
-- (void)_addDimmingToPileWithAnimation:(_Bool)arg1;
 - (_Bool)_isIngestingPass;
 - (void)_setModalGroupView:(id)arg1;
 - (void)_notifyDelegateOfStateChange:(_Bool)arg1;
@@ -184,6 +195,7 @@
 - (double)_scaleForGroupView:(id)arg1 atIndex:(unsigned long long)arg2 forState:(long long)arg3;
 - (double)_opacityForGroupAtIndex:(unsigned long long)arg1 forState:(long long)arg2;
 - (double)_xPositionForGroupView:(id)arg1 forState:(long long)arg2;
+- (struct CGRect)_xFrameForGroupViewInState:(long long)arg1;
 - (unsigned long long)_indexOfGroupView:(id)arg1;
 - (double)_yForGroupInOffscreenPileAtIndex:(unsigned long long)arg1;
 - (double)_yForGroupInPileAtIndex:(unsigned long long)arg1;
@@ -196,8 +208,6 @@
 - (unsigned long long)_maximumNumberOfVisiblePilePasses;
 - (double)_maxYOfPassFrontFaceAtIndex:(unsigned long long)arg1;
 - (double)_yForSingleGroupView:(id)arg1;
-- (double)_yOffsetForModallyPresentedNFCPassGroupView;
-- (double)_yForModallyPresentedPaymentPassGroupView;
 - (double)_yForModallyPresentedGroup;
 - (double)_yForGroupInTableAtIndex:(unsigned long long)arg1;
 - (double)_transformedYForNativeYInTable:(double)arg1 withBounds:(struct CGRect)arg2 index:(unsigned long long)arg3;
@@ -206,14 +216,16 @@
 - (unsigned long long)_indexForNativePositionInTable:(struct CGPoint)arg1;
 - (double)_nativeYForGroupInTableAtIndex:(unsigned long long)arg1;
 - (struct CGSize)_contentSize;
+- (double)_lastBarcodePassGroupCellHeight;
 - (double)_groupCellHeight;
 - (unsigned long long)_tablePresentationNumberOfCellsBeforeHeaderHidden;
 - (unsigned long long)_tablePresentationNumberOfCellsBeforeStacking;
 - (double)_yPositionForGroupAtIndex:(unsigned long long)arg1 forState:(long long)arg2;
+- (void)_updateContentSize;
 - (void)_updateContentSizeAndLayout:(_Bool)arg1 forceUpdate:(_Bool)arg2;
 - (void)_updateContentSizeAndLayout:(_Bool)arg1;
 - (_Bool)_recomputeLayoutState;
-- (void)_updateHeaderState:(_Bool)arg1;
+- (void)_updateHeaderFooterState:(_Bool)arg1;
 - (_Bool)_updateHeaderContext:(id *)arg1 toContext:(id)arg2 animated:(_Bool)arg3;
 - (void)_endGroupPanWithGestureRecognizer:(id)arg1;
 - (void)_beginGroupPanWithGestureRecognizer:(id)arg1;
@@ -233,8 +245,9 @@
 - (_Bool)_passEligibleForFooter:(id)arg1;
 - (void)_presentPassIngestionWithAnimation:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_presentGroupStackViewWithAnimation:(_Bool)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)_presentFlippedModalGroupView:(id)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_presentModalGroupViewPostAnimationActions;
+- (void)_brightnessDidChange:(id)arg1;
+- (void)_animateToBrightnessValue:(double)arg1 duration:(double)arg2;
 - (void)_presentModalGroupView:(id)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_presentOffscreenAnimated:(_Bool)arg1 split:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_generateModalGroupPileWithVisibleIndexes:(struct _NSRange)arg1 reservePlaceForModalGroup:(_Bool)arg2;
@@ -251,6 +264,7 @@
 - (void)_tileGroupsForState:(long long)arg1 eager:(_Bool)arg2;
 - (id)_loadGroupViewAtIndex:(unsigned long long)arg1 forState:(long long)arg2 presentationState:(long long)arg3 cached:(_Bool *)arg4;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
+@property(nonatomic) id <PKPassGroupStackViewDelegate><UIScrollViewDelegate> delegate; // @dynamic delegate;
 @property(readonly, nonatomic) _Bool isPresentingPassViewFront;
 @property(readonly, nonatomic) _Bool isReordering;
 @property(readonly, nonatomic) _Bool isModallyPresentedPassAuthorized;
@@ -273,15 +287,14 @@
 - (void)setPresentationState:(long long)arg1 context:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)setPresentationState:(long long)arg1 animated:(_Bool)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)setPresentationState:(long long)arg1 animated:(_Bool)arg2;
+- (void)_updateBottomContentSeparatorVisibilityAnimated:(_Bool)arg1;
+- (void)_updateTopContentSeparatorVisibilityAnimated:(_Bool)arg1;
 - (CDStruct_86e25f83)_layoutStateForHeaderContextInTable:(id)arg1 withBounds:(struct CGRect)arg2;
-- (void)layoutHeadersAnimated:(_Bool)arg1;
+- (void)layoutHeaderFootersAnimated:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)gotoBaseTestState;
-- (void)beginFlipCardTest;
-- (void)testFlipToFront;
-- (void)testFlipToBack;
 - (void)beginSelectCardTest;
 - (void)testGroupSelection;
 - (void)testGoModal;
@@ -293,7 +306,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(nonatomic) id <PKPassGroupStackViewDelegate><UIScrollViewDelegate> delegate; // @dynamic delegate;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

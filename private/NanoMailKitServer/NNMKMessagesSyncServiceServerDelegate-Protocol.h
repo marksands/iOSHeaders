@@ -6,9 +6,10 @@
 
 #import <NanoMailKitServer/NSObject-Protocol.h>
 
-@class NNMKMessagesSyncServiceServer, NNMKProtoCompactMessagesRequest, NNMKProtoMessageDeletions, NNMKProtoMessageStatusUpdates, NNMKProtoMessagesFilteredOutWarning, NNMKProtoSendMessageRequest, NSString;
+@class NNMKMessagesSyncServiceServer, NNMKProtoCompactMessagesRequest, NNMKProtoMailboxSelection, NNMKProtoMessageDeletions, NNMKProtoMessageStatusUpdates, NNMKProtoMessagesFilteredOutWarning, NNMKProtoSendMessageRequest, NSString;
 
 @protocol NNMKMessagesSyncServiceServerDelegate <NSObject>
+- (void)messagesSyncServiceServer:(NNMKMessagesSyncServiceServer *)arg1 didUpdateMailboxSelection:(NNMKProtoMailboxSelection *)arg2;
 - (void)messagesSyncServiceServer:(NNMKMessagesSyncServiceServer *)arg1 didRequestSendMessage:(NNMKProtoSendMessageRequest *)arg2;
 - (void)messagesSyncServiceServer:(NNMKMessagesSyncServiceServer *)arg1 didRequestCompactMessages:(NNMKProtoCompactMessagesRequest *)arg2;
 - (void)messagesSyncServiceServer:(NNMKMessagesSyncServiceServer *)arg1 didWarnMessagesFilteredOut:(NNMKProtoMessagesFilteredOutWarning *)arg2;

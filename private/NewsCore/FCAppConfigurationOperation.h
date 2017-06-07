@@ -6,12 +6,12 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCAppConfigurationResource, NSObject, NSString;
-@protocol FCContentContext, OS_dispatch_queue;
+@class FCAppConfigurationResource, FCCKContentDatabase, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
 @interface FCAppConfigurationOperation : FCOperation
 {
-    id <FCContentContext> _context;
+    FCCKContentDatabase *_contentDatabase;
     NSString *_resourceID;
     FCAppConfigurationResource *_cachedResource;
     CDUnknownBlockType _configurationCompletionHandler;
@@ -24,12 +24,9 @@
 @property(copy, nonatomic) CDUnknownBlockType configurationCompletionHandler; // @synthesize configurationCompletionHandler=_configurationCompletionHandler;
 @property(copy, nonatomic) FCAppConfigurationResource *cachedResource; // @synthesize cachedResource=_cachedResource;
 @property(copy, nonatomic) NSString *resourceID; // @synthesize resourceID=_resourceID;
-@property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
+@property(retain, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
 - (void).cxx_destruct;
 - (void)_downloadAppConfigFromURL:(id)arg1;
-- (void)resetForRetry;
-- (_Bool)canRetryWithError:(id)arg1 retryAfter:(double *)arg2;
-- (unsigned long long)maxRetries;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
 - (_Bool)validateOperation;

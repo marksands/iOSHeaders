@@ -6,16 +6,19 @@
 
 #import <Foundation/NSObject.h>
 
+#import <iWorkImport/NSCopying-Protocol.h>
+
 @class TSCH3DResource, TSCH3DTextureResource;
 
 __attribute__((visibility("hidden")))
-@interface TSCH3DTexture : NSObject
+@interface TSCH3DTexture : NSObject <NSCopying>
 {
     TSCH3DTextureResource *mTextureResource;
 }
 
 - (void)didInitFromSOS;
 - (id)optimizedMipmapBuffer;
+- (id)representativeColorBuffer;
 - (_Bool)canLoadCachedFullMipmapBufferForDataCache:(id)arg1;
 - (void)resetResource;
 @property(readonly, nonatomic) TSCH3DResource *resource; // @dynamic resource;

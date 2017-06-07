@@ -17,6 +17,7 @@
     struct CGSize _measuredSize;
     unsigned long long _index;
     _Bool _donatableSpaceIsValid;
+    _Bool _accessibilityEnabled;
     CDStruct_a157df34 _donatableSpace;
     NUIWidgetGridView *_gridView;
 }
@@ -31,6 +32,7 @@
 @property(readonly, nonatomic) UILabel *subtitleLabel;
 @property(readonly, nonatomic) UILabel *titleLabel;
 @property(readonly, nonatomic) UIImageView *imageView;
+- (id)currentFont;
 - (id)_createLabelForStyle:(long long)arg1;
 - (id)_createButtonWithGridView:(id)arg1 item:(id)arg2;
 - (void)_didTapButton:(id)arg1;

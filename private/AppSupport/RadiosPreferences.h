@@ -24,11 +24,14 @@
 @property(nonatomic) id <RadiosPreferencesDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)setCallback:(CDUnknownFunctionPointerType)arg1 withContext:(CDStruct_e097db04 *)arg2;
 - (void)setValue:(void *)arg1 forKey:(id)arg2;
+- (void *)getValueWithLockForKey:(id)arg1;
 - (void *)getValueForKey:(id)arg1;
 - (void)synchronize;
 - (void)notifyTarget:(unsigned int)arg1;
 - (void)initializeSCPrefs:(id)arg1;
 - (void)refresh;
+- (void)setTelephonyState:(_Bool)arg1 fromBundleID:(id)arg2;
+- (_Bool)telephonyStateWithBundleIdentifierOut:(id *)arg1;
 - (void)setAirplaneModeWithoutMirroring:(_Bool)arg1;
 @property(nonatomic) _Bool airplaneMode;
 - (void)dealloc;

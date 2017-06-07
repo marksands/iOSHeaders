@@ -11,6 +11,7 @@
 @protocol AXSystemAppServer <NSObject>
 + (id <AXSystemAppServer>)server;
 - (void)wakeUpDeviceIfNecessary;
+- (void)rebootDevice;
 - (_Bool)isMediaPlaying;
 - (_Bool)isReceivingAirPlay;
 - (_Bool)isSiriTalkingOrListening;
@@ -18,9 +19,9 @@
 - (_Bool)isNowPlayingUIVisible;
 - (_Bool)isNotificationVisible;
 - (_Bool)isScreenSaverVisible;
-- (_Bool)isSideSwitcherVisible;
 - (_Bool)isControlCenterVisible;
 - (_Bool)isNotificationCenterVisible;
+- (_Bool)isDockVisible;
 - (_Bool)isAppSwitcherVisible;
 - (_Bool)isSiriVisible;
 - (_Bool)dismissSiri;

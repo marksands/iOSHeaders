@@ -9,12 +9,12 @@
 #import <AppleAccountUI/AAUISignInViewControllerDelegate-Protocol.h>
 
 @class NSDictionary, NSString;
-@protocol AAServiceOwnerProtocol, AAUISignInControllerDelegate;
+@protocol AAUISignInControllerDelegate, AIDAServiceOwnerProtocol;
 
 @interface AAUISignInController : UINavigationController <AAUISignInViewControllerDelegate>
 {
     NSDictionary *_authenticationResults;
-    id <AAServiceOwnerProtocol> _serviceOwnersManager;
+    id <AIDAServiceOwnerProtocol> _serviceOwnersManager;
     NSString *_serviceType;
 }
 
@@ -27,12 +27,12 @@
 - (void)_delegate_signInControllerDidCompleteWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)_attemptSignInForService:(id)arg1 withAuthenticationResults:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_performAuthenticationForAccount:(id)arg1 serviceType:(id)arg2 inViewController:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_mainQueue_presentSpinnerViewControllerWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_mainQueue_presentSpinnerViewControllerInParentViewController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_mainQueue_presentAlertForError:(id)arg1 inViewController:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_mainQueue_continueSignInWithAuthenticationResults:(id)arg1;
 - (void)_mainQueue_presentContinueUsingInViewController:(id)arg1 account:(id)arg2 serviceType:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)prepareInViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(retain, nonatomic, setter=_setServiceOwnersManager:) id <AAServiceOwnerProtocol> _serviceOwnersManager;
+@property(retain, nonatomic, setter=_setServiceOwnersManager:) id <AIDAServiceOwnerProtocol> _serviceOwnersManager;
 @property(retain, nonatomic, setter=_setAuthenticationResults:) NSDictionary *_authenticationResults;
 - (_Bool)_isAuthenticatingPrimary:(id)arg1;
 - (_Bool)_showsServiceIconsForService:(id)arg1;

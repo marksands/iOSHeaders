@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMotionContextProviderDelegate-Protocol.h>
 
@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) unsigned long long confidence; // @synthesize confidence=_confidence;
 @property(readonly, nonatomic) unsigned long long exitType; // @synthesize exitType=_exitType;
 @property(readonly, nonatomic) unsigned long long motionType; // @synthesize motionType=_motionType;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)motionContextProvider:(id)arg1 didUpdateMotion:(unsigned long long)arg2 exitType:(unsigned long long)arg3 confidence:(unsigned long long)arg4;
 @property(readonly, nonatomic) _Bool isDriving;

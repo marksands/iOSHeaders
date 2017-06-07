@@ -6,7 +6,6 @@
 
 #import <DataDetectorsUI/DDAction.h>
 
-__attribute__((visibility("hidden")))
 @interface DDShowItemAction : DDAction
 {
 }

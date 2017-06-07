@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     double _labelWidthExpansionAmount;
     NSArray *_labelWidthConstraints;
     _Bool _configuresForCollectionViewCell;
+    _Bool _highlighted;
     NSArray *_components;
     UIView *_overlayView;
     NSArray *_filteredComponents;
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIView *mainImageComponent; // @synthesize mainImageComponent=_mainImageComponent;
 @property(copy, nonatomic) NSArray *filteredComponents; // @synthesize filteredComponents=_filteredComponents;
 @property(nonatomic) struct TVCellMetrics cellMetrics; // @synthesize cellMetrics=_cellMetrics;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(nonatomic) _Bool configuresForCollectionViewCell; // @synthesize configuresForCollectionViewCell=_configuresForCollectionViewCell;
 @property(retain, nonatomic) UIView *overlayView; // @synthesize overlayView=_overlayView;
 @property(copy, nonatomic) NSArray *components; // @synthesize components=_components;

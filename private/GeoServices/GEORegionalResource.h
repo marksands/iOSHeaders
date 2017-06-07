@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned int z; // @synthesize z=_z;
 @property(nonatomic) unsigned int y; // @synthesize y=_y;
 @property(nonatomic) unsigned int x; // @synthesize x=_x;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

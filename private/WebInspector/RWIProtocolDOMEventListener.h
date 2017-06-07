@@ -12,6 +12,8 @@
 {
 }
 
+@property(nonatomic) _Bool once;
+@property(nonatomic) _Bool passive;
 @property(retain, nonatomic) RWIProtocolRuntimeRemoteObject *handler;
 @property(copy, nonatomic) NSString *sourceName;
 @property(retain, nonatomic) RWIProtocolDebuggerLocation *location;

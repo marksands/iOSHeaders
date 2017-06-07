@@ -6,12 +6,17 @@
 
 #import <PhotosUICore/NSObject-Protocol.h>
 
-@class NSArray;
+@class NSArray, PXSuggestionToken;
 @protocol PXPerson;
 
 @protocol PXPeopleSuggestionManagerDataSource <NSObject>
-- (void)commitSuggestionsForPerson:(id <PXPerson>)arg1 withConfirmedSuggestions:(NSArray *)arg2 andRejectedSuggestions:(NSArray *)arg3;
-- (_Bool)cancelSuggestionForPerson:(id <PXPerson>)arg1 withToken:(long long)arg2 error:(id *)arg3;
-- (long long)suggestionsForPerson:(id <PXPerson>)arg1 withConfirmedSuggestions:(NSArray *)arg2 andRejectedSuggestions:(NSArray *)arg3 completion:(void (^)(NSArray *))arg4;
+- (id <PXPerson>)commitSuggestionsForPerson:(id <PXPerson>)arg1 withConfirmedSuggestions:(NSArray *)arg2 andRejectedSuggestions:(NSArray *)arg3;
+- (_Bool)cancelSuggestionForPerson:(id <PXPerson>)arg1 withToken:(PXSuggestionToken *)arg2 error:(id *)arg3;
+- (PXSuggestionToken *)suggestionsForPerson:(id <PXPerson>)arg1 withConfirmedSuggestions:(NSArray *)arg2 andRejectedSuggestions:(NSArray *)arg3 completion:(void (^)(NSArray *))arg4;
+
+@optional
+@property(nonatomic) unsigned long long initialPageLimit;
+- (void)stopListeningForLibraryChanges;
+- (void)startListeningForLibraryChanges;
 @end
 

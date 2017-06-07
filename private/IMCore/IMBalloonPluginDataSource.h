@@ -26,6 +26,7 @@
     NSMutableSet *_temporaryAttachmentURLs;
     NSString *__imMessageGUID;
     NSString *_messageGUID;
+    NSString *_sessionGUID;
     NSString *_bundleID;
     NSArray *_consumedPayloads;
     NSString *_guidOfLastMessageInSession;
@@ -45,6 +46,7 @@
 @property(retain, nonatomic) NSArray *consumedPayloads; // @synthesize consumedPayloads=_consumedPayloads;
 @property(nonatomic) _Bool hasInvalidatedSize; // @synthesize hasInvalidatedSize=_hasInvalidatedSize;
 @property(readonly, retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
+@property(retain, nonatomic) NSString *sessionGUID; // @synthesize sessionGUID=_sessionGUID;
 @property(retain, nonatomic) NSString *messageGUID; // @synthesize messageGUID=_messageGUID;
 @property(nonatomic, setter=setShowingLatestMessageAsBreadcrumb:) _Bool isShowingLatestMessageAsBreadcrumb; // @synthesize isShowingLatestMessageAsBreadcrumb=_isShowingLatestMessageAsBreadcrumb;
 @property(retain, nonatomic) NSString *_imMessageGUID; // @synthesize _imMessageGUID=__imMessageGUID;
@@ -68,12 +70,14 @@
 - (void)datasourceWasMovedToNewGuid:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)individualPreviewAttachmentFileAndUTI:(id *)arg1;
+- (id)_summaryText;
 - (id)individualPreviewSummary;
 - (void)stopPlayback;
 - (void)playbackWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)playbackType;
 - (void)markAsPlayed;
 - (void)needsResize;
+@property(readonly, nonatomic) _Bool supportsDynamicSize;
 - (void)statusStringNeedsUpdate;
 @property(readonly, nonatomic) _Bool wantsReplyFromContentView;
 - (void)didTapStatusItem;

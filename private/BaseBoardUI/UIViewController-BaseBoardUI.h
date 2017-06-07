@@ -7,8 +7,13 @@
 #import <UIKit/UIViewController.h>
 
 @interface UIViewController (BaseBoardUI)
+- (id)bs_topPresentedViewController;
+- (id)bs_presentationContextDefiningViewController;
+- (id)bs_presentedViewControllerIncludingAncestors;
 - (_Bool)bs_removeChildViewController:(id)arg1 animated:(_Bool)arg2 transitionBlock:(CDUnknownBlockType)arg3;
 - (_Bool)bs_removeChildViewController:(id)arg1;
+- (_Bool)bs_addChildViewController:(id)arg1 withSuperview:(id)arg2 animated:(_Bool)arg3 transitionBlock:(CDUnknownBlockType)arg4;
+- (_Bool)bs_addChildViewController:(id)arg1 withSuperview:(id)arg2;
 - (_Bool)bs_addChildViewController:(id)arg1 animated:(_Bool)arg2 transitionBlock:(CDUnknownBlockType)arg3;
 - (_Bool)bs_addChildViewController:(id)arg1;
 - (_Bool)bs_endAppearanceTransitionForChildViewController:(id)arg1 toVisible:(_Bool)arg2;

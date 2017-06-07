@@ -10,6 +10,10 @@
 @protocol VKTrackableAnnotation, VKTrackableAnnotationPresentation;
 
 @protocol VKCameraControllerDelegate <NSObject>
+- (void)cameraControllerDidReturnToDefaultZoom:(VKCameraController *)arg1;
+- (void)cameraControllerDidLeaveDefaultZoom:(VKCameraController *)arg1;
+- (void)cameraControllerHasStoppedPanning:(VKCameraController *)arg1;
+- (void)cameraControllerHasStartedPanning:(VKCameraController *)arg1;
 - (void)cameraControllerDidFinishInitialTrackingAnimation:(VKCameraController *)arg1;
 - (void)cameraController:(VKCameraController *)arg1 canZoomOutDidChange:(_Bool)arg2;
 - (void)cameraController:(VKCameraController *)arg1 canZoomInDidChange:(_Bool)arg2;

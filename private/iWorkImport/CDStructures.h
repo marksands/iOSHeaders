@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSObject, NSSet, NSString, NSUUID, TSCH3DScene, TSCH3DShaderVariable, TSCHChartInfo, TSCHChartSeriesType, TSCHChartType, TSTCell, TSUCustomFormat;
+@class NSObject, NSSet, NSString, NSUUID, TSCH3DScene, TSCH3DShaderVariable, TSCHChartInfo, TSCHChartSeriesType, TSCHChartType, TSUCustomFormat;
 
 #pragma mark Function Pointers and Blocks
 
@@ -59,6 +59,13 @@ struct Address {
     struct Address *_field6;
 };
 
+struct AllFootnoteSelectionArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+};
+
 struct AnimationAttributesArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -111,6 +118,33 @@ struct ArrayNodeArchive {
     struct ExpressionNodeArchive *_field5;
     unsigned int _field6;
     unsigned int _field7;
+};
+
+struct AttributeCollection {
+    CDUnknownFunctionPointerType *_field1;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum>>> _field2;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength>>> _field3;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>>>> _field4;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>>>> _field5;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>>> _field6;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum>>> _field7;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum>>> _field8;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum>>> _field9;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>>>> _field10;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>>>> _field11;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>>>> _field12;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>>>> _field13;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel>>> _field14;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum>>> _field15;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form>>> _field16;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant>>> _field17;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long>>> _field18;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long>>> _field19;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double>>> _field20;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength>>> _field21;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short>>> _field22;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum>>> _field23;
+    struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease>>> _field24;
 };
 
 struct AttributeSpecs {
@@ -438,7 +472,8 @@ struct CellValueArchive {
     struct DateCellValueArchive *_field6;
     struct NumberCellValueArchive *_field7;
     struct StringCellValueArchive *_field8;
-    int _field9;
+    struct ErrorCellValueArchive *_field9;
+    int _field10;
 };
 
 struct CharacterStyleArchive {
@@ -494,7 +529,8 @@ struct CharacterStylePropertiesArchive {
     _Bool _field40;
     _Bool _field41;
     _Bool _field42;
-    int _field43;
+    _Bool _field43;
+    int _field44;
 };
 
 struct CharacterStylePropertyChangeSetArchive;
@@ -794,22 +830,23 @@ struct ChartGenericPropertyMapArchive {
     struct ShadowArchive *_field15;
     struct StrokeArchive *_field16;
     int _field17;
-    _Bool _field18;
+    int _field18;
     _Bool _field19;
     _Bool _field20;
     _Bool _field21;
-    struct FillArchive *_field22;
+    _Bool _field22;
     int _field23;
-    float _field24;
+    struct FillArchive *_field24;
     float _field25;
     float _field26;
-    int _field27;
-    float _field28;
-    _Bool _field29;
+    float _field27;
+    int _field28;
+    float _field29;
     _Bool _field30;
-    int _field31;
+    _Bool _field31;
     struct Color *_field32;
     basic_string_a1f69cfb *_field33;
+    int _field34;
 };
 
 struct ChartGridArchive {
@@ -927,7 +964,7 @@ struct ChartSceneInfo {
     TSCHChartInfo *chartInfo;
     TSCHChartType *chartType;
     TSCHChartSeriesType *seriesType;
-    CDStruct_339a9a6e layoutSettings;
+    CDStruct_44ada6bf layoutSettings;
 };
 
 struct ChartScenePropertyAccessor {
@@ -961,77 +998,82 @@ struct ChartSeriesGenericPropertyMapArchive {
     int _field4;
     struct FormatStructArchive *_field5;
     struct FormatStructArchive *_field6;
-    struct FormatStructArchive *_field7;
-    struct FormatStructArchive *_field8;
-    struct ChartsNSArrayOfNSNumberDoubleArchive *_field9;
+    struct LineEndArchive *_field7;
+    struct LineEndArchive *_field8;
+    struct StrokeArchive *_field9;
     float _field10;
-    float _field11;
-    struct ChartsNSArrayOfNSNumberDoubleArchive *_field12;
-    struct ChartsNSArrayOfNSNumberDoubleArchive *_field13;
+    int _field11;
+    struct FormatStructArchive *_field12;
+    struct FormatStructArchive *_field13;
     struct ChartsNSArrayOfNSNumberDoubleArchive *_field14;
-    struct LineEndArchive *_field15;
-    float _field16;
-    float _field17;
-    struct LineEndArchive *_field18;
+    struct ChartsNSArrayOfNSNumberDoubleArchive *_field15;
+    struct ChartsNSArrayOfNSNumberDoubleArchive *_field16;
+    struct ChartsNSArrayOfNSNumberDoubleArchive *_field17;
+    float _field18;
     float _field19;
-    int _field20;
-    struct ShadowArchive *_field21;
-    int _field22;
+    struct LineEndArchive *_field20;
+    struct LineEndArchive *_field21;
+    float _field22;
     float _field23;
-    struct StrokeArchive *_field24;
-    float _field25;
-    int _field26;
-    struct StrokeArchive *_field27;
-    struct FillArchive *_field28;
-    int _field29;
-    float _field30;
+    int _field24;
+    int _field25;
+    struct ShadowArchive *_field26;
+    float _field27;
+    float _field28;
+    struct StrokeArchive *_field29;
+    struct StrokeArchive *_field30;
     int _field31;
     int _field32;
-    struct FormatStructArchive *_field33;
-    int _field34;
-    float _field35;
+    struct FillArchive *_field33;
+    float _field34;
+    int _field35;
     struct FormatStructArchive *_field36;
     int _field37;
     int _field38;
-    struct ShadowArchive *_field39;
-    _Bool _field40;
-    _Bool _field41;
-    _Bool _field42;
-    _Bool _field43;
+    float _field39;
+    int _field40;
+    struct FormatStructArchive *_field41;
+    struct ShadowArchive *_field42;
+    int _field43;
     _Bool _field44;
     _Bool _field45;
     _Bool _field46;
     _Bool _field47;
-    struct StrokeArchive *_field48;
-    struct FillArchive *_field49;
-    int _field50;
-    float _field51;
-    _Bool _field52;
-    _Bool _field53;
-    _Bool _field54;
+    _Bool _field48;
+    _Bool _field49;
+    _Bool _field50;
+    _Bool _field51;
+    int _field52;
+    struct StrokeArchive *_field53;
+    struct FillArchive *_field54;
     _Bool _field55;
-    int _field56;
-    struct StrokeArchive *_field57;
-    float _field58;
+    _Bool _field56;
+    _Bool _field57;
+    _Bool _field58;
     float _field59;
-    basic_string_a1f69cfb *_field60;
+    struct StrokeArchive *_field60;
     int _field61;
-    int _field62;
-    float _field63;
+    float _field62;
+    basic_string_a1f69cfb *_field63;
     float _field64;
-    struct ShadowArchive *_field65;
-    _Bool _field66;
-    _Bool _field67;
-    int _field68;
-    struct StrokeArchive *_field69;
-    float _field70;
-    int _field71;
-    float _field72;
-    int _field73;
+    int _field65;
+    int _field66;
+    float _field67;
+    struct ShadowArchive *_field68;
+    float _field69;
+    _Bool _field70;
+    _Bool _field71;
+    _Bool _field72;
+    struct StrokeArchive *_field73;
     int _field74;
-    int _field75;
-    float _field76;
-    int _field77;
+    float _field75;
+    int _field76;
+    float _field77;
+    int _field78;
+    int _field79;
+    int _field80;
+    float _field81;
+    int _field82;
 };
 
 struct ChartUIState {
@@ -1116,6 +1158,8 @@ struct ClassicThemeRecordArchive {
     RepeatedPtrField_a0d2dbe7 _field7;
 };
 
+struct Collection;
+
 struct ColorResult {
     _Bool _field1;
     struct Color {
@@ -1182,6 +1226,7 @@ struct CommentStorageArchive {
     basic_string_a1f69cfb *_field5;
     struct Date *_field6;
     struct Reference *_field7;
+    RepeatedPtrField_a0d2dbe7 _field8;
 };
 
 struct CompletionTokenAttachmentArchive {
@@ -1338,6 +1383,22 @@ struct DataInfo {
     basic_string_a1f69cfb *_field16;
 };
 
+struct DataMetadata {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    struct Color *_field5;
+};
+
+struct DataMetadataMap {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    struct RepeatedPtrField<TSP::DataMetadataMap_DataMetadataMapEntry> _field5;
+};
+
 struct DataReference {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -1462,6 +1523,14 @@ struct DesktopUILayoutArchive {
     int _field10;
     _Bool _field11;
     _Bool _field12;
+    _Bool _field13;
+};
+
+struct Dictionary {
+    struct IdentifierMap _field1;
+    struct map<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry, std::__1::less<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>>, std::__1::allocator<std::__1::pair<const std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry>>> _field2;
+    struct map<unsigned short, EQKit::Config::Operator::Form, std::__1::less<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, EQKit::Config::Operator::Form>>> _field3;
+    struct map<unsigned short, unsigned long, std::__1::less<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned long>>> _field4;
 };
 
 struct DispatchDataInputStream {
@@ -1475,6 +1544,10 @@ struct DispatchDataInputStream {
 };
 
 struct DocumentRevision;
+
+struct DoublePoint;
+
+struct DoubleSize;
 
 struct DrawableArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -1509,6 +1582,7 @@ struct DrawableSelectionArchive {
     unsigned int _field3[1];
     int _field4;
     RepeatedPtrField_a0d2dbe7 _field5;
+    RepeatedPtrField_a0d2dbe7 _field6;
 };
 
 struct DropShadowArchive;
@@ -1524,6 +1598,59 @@ struct DurationNodeArchive {
     unsigned int _field8;
     unsigned int _field9;
 };
+
+struct EQKitCache<EQKit::OpticalKern::Glyph::Key, std::__1::shared_ptr<EQKit::OpticalKern::Edge::Path>, std::__1::shared_ptr<const EQKit::OpticalKern::Edge::Path>>;
+
+struct EQKitCacheLRUCounter {
+    unsigned long long _field1;
+};
+
+struct EQKitLayoutContext {
+    CDUnknownFunctionPointerType *_field1;
+    struct Info _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    id _field6;
+    struct Collection *_field7;
+    struct __CTFont *_field8;
+    struct CGColor *_field9;
+    struct {
+        unsigned int :1;
+        unsigned int :1;
+        unsigned int :1;
+    } _field10;
+    CDStruct_d6fcdff4 _field11;
+};
+
+struct EQKitLayoutElementaryStack;
+
+struct EQKitLayoutManager {
+    id _field1;
+    double _field2;
+    struct CGSize _field3;
+    struct __CFString *_field4;
+    struct Manager *_field5;
+    struct Config *_field6;
+    struct EQKitLayoutContext _field7;
+    struct stack<unsigned long, std::__1::deque<unsigned long, std::__1::allocator<unsigned long>>> _field8;
+    struct stack<EQKitLayoutContext, std::__1::deque<EQKitLayoutContext, std::__1::allocator<EQKitLayoutContext>>> _field9;
+    struct stack<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &), std::__1::deque<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &), std::__1::allocator<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &)>>> _field10;
+    struct stack<EQKitLayoutRow, std::__1::deque<EQKitLayoutRow, std::__1::allocator<EQKitLayoutRow>>> _field11;
+    struct vector<id<EQKitLayoutNode>, std::__1::allocator<id<EQKitLayoutNode>>> _field12;
+    struct stack<id<EQKitLayoutNode>, std::__1::deque<id<EQKitLayoutNode>, std::__1::allocator<id<EQKitLayoutNode>>>> _field13;
+    struct stack<EQKitLayoutStretchedOperator, std::__1::deque<EQKitLayoutStretchedOperator, std::__1::allocator<EQKitLayoutStretchedOperator>>> _field14;
+    struct stack<EQKitLayoutElementaryStack, std::__1::deque<EQKitLayoutElementaryStack, std::__1::allocator<EQKitLayoutElementaryStack>>> _field15;
+    struct stack<EQKitLayoutTable, std::__1::deque<EQKitLayoutTable, std::__1::allocator<EQKitLayoutTable>>> _field16;
+    id _field17;
+    struct AttributeCollection *_field18;
+};
+
+struct EQKitLayoutRow;
+
+struct EQKitLayoutStretchedOperator;
+
+struct EQKitLayoutTable;
 
 struct EdgeDetectionParameters {
     _Bool detectSilhouetteEdges;
@@ -1553,7 +1680,20 @@ struct EnableClipDistances {
 
 struct EncryptionInfo;
 
+struct Entry;
+
 struct EnumDescriptor;
+
+struct ErrorCellValueArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    int _field5;
+    int _field6;
+    basic_string_a1f69cfb *_field7;
+    double _field8;
+};
 
 struct ExpressionNodeArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -1684,6 +1824,25 @@ struct FindLinesContext {
     int _field6;
 };
 
+struct FlowInfoArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    struct Reference *_field5;
+    RepeatedPtrField_a0d2dbe7 _field6;
+    unsigned int _field7;
+};
+
+struct FlowInfoContainerArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    RepeatedPtrField_a0d2dbe7 _field5;
+    unsigned int _field6;
+};
+
 struct FormatStructArchive {
     CDUnknownFunctionPointerType *_field1;
     struct ExtensionSet _field2;
@@ -1762,8 +1921,8 @@ struct FormulaRewriteSpecArchive {
     struct UnknownFieldSet _field2;
     unsigned int _field3[1];
     int _field4;
-    struct CFUUIDArchive *_field5;
-    struct CFUUIDArchive *_field6;
+    struct UUID *_field5;
+    struct UUID *_field6;
     struct ColumnOrRowUuidsInfoArchive *_field7;
     struct ColumnOrRowUuidsInfoArchive *_field8;
     struct RegionMovedInfoArchive *_field9;
@@ -1940,6 +2099,12 @@ struct HyperlinkFieldArchive {
     basic_string_a1f69cfb *_field6;
 };
 
+struct IdentifierMap {
+    unsigned short _field1;
+    struct map<std::__1::basic_string<char>, unsigned short, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, unsigned short>>> _field2;
+    struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> _field3;
+};
+
 struct IdentifierNodeArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -1973,28 +2138,29 @@ struct ImageAdjustmentsArchive {
 
 struct ImageArchive {
     CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct DrawableArchive *_field5;
-    struct DataReference *_field6;
-    struct Reference *_field7;
-    struct Size *_field8;
-    struct Reference *_field9;
-    struct DataReference *_field10;
+    struct ExtensionSet _field2;
+    struct UnknownFieldSet _field3;
+    unsigned int _field4[1];
+    int _field5;
+    struct DrawableArchive *_field6;
+    struct DataReference *_field7;
+    struct Reference *_field8;
+    struct Size *_field9;
+    struct Reference *_field10;
     struct DataReference *_field11;
-    struct Size *_field12;
-    struct Path *_field13;
-    struct ImageAdjustmentsArchive *_field14;
-    unsigned int _field15;
-    _Bool _field16;
-    struct DataReference *_field17;
+    struct DataReference *_field12;
+    struct Size *_field13;
+    struct Path *_field14;
+    struct ImageAdjustmentsArchive *_field15;
+    unsigned int _field16;
+    _Bool _field17;
     struct DataReference *_field18;
     struct DataReference *_field19;
-    struct Reference *_field20;
+    struct DataReference *_field20;
     struct Reference *_field21;
     struct Reference *_field22;
-    struct Path *_field23;
+    struct Reference *_field23;
+    struct Path *_field24;
 };
 
 struct ImageFillArchive;
@@ -2053,6 +2219,17 @@ struct IndexedUidsArchive {
     unsigned int _field3[1];
     int _field4;
     struct RepeatedPtrField<TSCE::IndexedUidsArchive_IndexedUid> _field5;
+};
+
+struct Info {
+    unsigned long long _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    int _field5;
+    double _field6;
+    int _field7;
+    struct __CFString *_field8;
 };
 
 struct IteratorRange<const char *> {
@@ -2348,6 +2525,22 @@ struct MovieSegmentArchive {
     struct Reference *_field7;
 };
 
+struct NSDictionary {
+    Class _field1;
+};
+
+struct NSMutableArray {
+    Class _field1;
+};
+
+struct NSMutableDictionary {
+    Class _field1;
+};
+
+struct NSMutableSet {
+    Class _field1;
+};
+
 struct NSObject {
     Class _field1;
 };
@@ -2360,22 +2553,18 @@ struct NSString {
     Class _field1;
 };
 
+struct NSThread {
+    Class _field1;
+    id _field2;
+    unsigned char _field3[44];
+};
+
 struct NoteArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
     unsigned int _field3[1];
     int _field4;
     struct Reference *_field5;
-};
-
-struct NumberAttachmentArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct TextualAttachmentArchive *_field5;
-    basic_string_a1f69cfb *_field6;
-    unsigned int _field7;
 };
 
 struct NumberCellValueArchive {
@@ -2418,6 +2607,10 @@ struct ObjcSharedPtr<NSSet> {
 };
 
 struct ObjcSharedPtr<NSString> {
+    id _field1;
+};
+
+struct ObjcSharedPtr<TSCEError> {
     id _field1;
 };
 
@@ -2465,6 +2658,7 @@ struct ObjectSerializationMetadata {
     struct ComponentInfo *component_;
     RepeatedPtrField_fe6aca30 datas_;
     RepeatedPtrField_c964a194 external_object_uuid_map_entries_;
+    struct Reference *data_metadata_map_;
 };
 
 struct ObjectStackEntry;
@@ -2570,6 +2764,7 @@ struct PackageMetadata {
     RepeatedField_27dfe32f file_format_version_;
     int _file_format_version_cached_byte_size_;
     unsigned long long save_token_;
+    struct Reference *data_metadata_map_;
     int preferred_package_type_;
 };
 
@@ -2599,7 +2794,11 @@ struct PageHintArchive {
     struct RepeatedPtrField<TP::AnchorPosArchive> _field12;
     struct TopicNumberHintsArchive *_field13;
     RepeatedPtrField_a0d2dbe7 _field14;
-    unsigned int _field15;
+    RepeatedPtrField_bfda3daa _field15;
+    RepeatedPtrField_a0d2dbe7 _field16;
+    struct RepeatedPtrField<TP::TargetHintArchive> _field17;
+    struct RepeatedPtrField<TP::TopicNumberHintsArchive> _field18;
+    unsigned int _field19;
 };
 
 struct ParagraphStyleArchive {
@@ -2655,7 +2854,8 @@ struct ParagraphStylePropertiesArchive {
     int _field39;
     struct Reference *_field40;
     struct Reference *_field41;
-    int _field42;
+    _Bool _field42;
+    int _field43;
 };
 
 struct ParagraphStylePropertyChangeSetArchive;
@@ -2670,6 +2870,7 @@ struct PasteboardMetadata {
     basic_string_a1f69cfb *app_name_;
     RepeatedPtrField_fe6aca30 datas_;
     struct UUID *source_document_uuid_;
+    struct Reference *data_metadata_map_;
 };
 
 struct PathSourceArchive {
@@ -2683,8 +2884,10 @@ struct PathSourceArchive {
     struct CalloutPathSourceArchive *_field8;
     struct ConnectionLinePathSourceArchive *_field9;
     struct EditableBezierPathSourceArchive *_field10;
-    _Bool _field11;
-    _Bool _field12;
+    basic_string_a1f69cfb *_field11;
+    basic_string_a1f69cfb *_field12;
+    _Bool _field13;
+    _Bool _field14;
 };
 
 struct PatternedStrokeArchive;
@@ -2791,6 +2994,13 @@ struct PrototypeForUndoMasterChangeArchive {
     RepeatedPtrField_236b8a23 _field9;
 };
 
+struct QuantizationConfig {
+    unsigned long long _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+};
+
 struct Range {
     tvec2_84d5962d _field1;
     _Bool _field2;
@@ -2844,6 +3054,7 @@ struct RecordingMovieTrackArchive {
     unsigned int _field3[1];
     int _field4;
     struct RepeatedPtrField<KN::MovieSegmentArchive> _field5;
+    _Bool _field6;
 };
 
 struct RecordingNavigationEventArchive;
@@ -2931,7 +3142,7 @@ struct RegionInfoArchive {
     struct UnknownFieldSet _field2;
     unsigned int _field3[1];
     int _field4;
-    struct CFUUIDArchive *_field5;
+    struct UUID *_field5;
     struct IndexedUidsArchive *_field6;
     struct IndexedUidsArchive *_field7;
 };
@@ -2943,8 +3154,28 @@ struct RegionMovedInfoArchive {
     int _field4;
     struct RegionInfoArchive *_field5;
     struct RegionInfoArchive *_field6;
-    _Bool _field7;
+    struct RegionInfoArchive *_field7;
     _Bool _field8;
+    _Bool _field9;
+};
+
+struct RemoteDataSpecifierArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    basic_string_a1f69cfb *_field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    double _field8;
+};
+
+struct RemoteDataValueMapArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    struct RepeatedPtrField<TSCE::RemoteDataValueMapArchive_RemoteDataMapEntry> _field5;
 };
 
 struct RenderElementInfo {
@@ -3075,6 +3306,13 @@ struct RepeatedPtrField<TN::SheetUIStateDictionaryEntryArchive> {
     int _field4;
 };
 
+struct RepeatedPtrField<TN::UUIDSheetUIStateDictionaryArchive> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
 struct RepeatedPtrField<TP::AnchorPosArchive> {
     void **_field1;
     int _field2;
@@ -3090,6 +3328,20 @@ struct RepeatedPtrField<TP::PageHintArchive> {
 };
 
 struct RepeatedPtrField<TP::TargetHintArchive> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
+struct RepeatedPtrField<TP::TopicNumberEntryArchive> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
+struct RepeatedPtrField<TP::TopicNumberHintsArchive> {
     void **_field1;
     int _field2;
     int _field3;
@@ -3145,6 +3397,13 @@ struct RepeatedPtrField<TSCE::IndexedUidsArchive_IndexedUid> {
     int _field4;
 };
 
+struct RepeatedPtrField<TSCE::RemoteDataValueMapArchive_RemoteDataMapEntry> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
 struct RepeatedPtrField<TSCE::RewriteRangeEntryArchive> {
     void **_field1;
     int _field2;
@@ -3153,6 +3412,13 @@ struct RepeatedPtrField<TSCE::RewriteRangeEntryArchive> {
 };
 
 struct RepeatedPtrField<TSCE::RewriteTableIDInfoArchive_TableIDMapEntryArchive> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
+};
+
+struct RepeatedPtrField<TSCE::StockArchive_AttributeEntry> {
     void **_field1;
     int _field2;
     int _field3;
@@ -3332,6 +3598,13 @@ struct RepeatedPtrField<TSP::DataInfo> {
     int current_size_;
     int allocated_size_;
     int total_size_;
+};
+
+struct RepeatedPtrField<TSP::DataMetadataMap_DataMetadataMapEntry> {
+    void **_field1;
+    int _field2;
+    int _field3;
+    int _field4;
 };
 
 struct RepeatedPtrField<TSP::DataReference> {
@@ -3632,6 +3905,13 @@ struct SFUZipEndOfCentralDirectory {
 
 struct ScalarPathSourceArchive;
 
+struct Schemata {
+    CDUnknownFunctionPointerType *_field1;
+    int _field2;
+    id _field3;
+    id _field4;
+};
+
 struct SectionArchive {
     CDUnknownFunctionPointerType *_field1;
     struct UnknownFieldSet _field2;
@@ -3728,6 +4008,9 @@ struct ShapeInfoArchive {
     int _field4;
     struct ShapeArchive *_field5;
     struct Reference *_field6;
+    struct Reference *_field7;
+    struct Reference *_field8;
+    struct Range *_field9;
 };
 
 struct ShapeStyleArchive {
@@ -3739,6 +4022,8 @@ struct ShapeStyleArchive {
     struct ShapeStylePropertiesArchive *_field6;
     unsigned int _field7;
 };
+
+struct ShapeStylePropertyChangeSetArchive;
 
 struct SheetArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -4011,89 +4296,9 @@ struct SparseUUIDPathArray {
     unsigned int _field6;
 };
 
-struct SpecBoolArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct SpecSetBoolArchive *_field5;
-};
-
-struct SpecColorArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct SpecSetColorArchive *_field5;
-};
-
-struct SpecDoubleArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct SpecSetDoubleArchive *_field5;
-};
-
-struct SpecIntegerArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct SpecSetIntegerArchive *_field5;
-};
-
-struct SpecSetBoolArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    _Bool _field5;
-    _Bool _field6;
-};
-
-struct SpecSetColorArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct Color *_field5;
-    _Bool _field6;
-};
-
-struct SpecSetDoubleArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    double _field5;
-    _Bool _field6;
-};
-
-struct SpecSetIntegerArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    int _field5;
-    _Bool _field6;
-};
-
-struct SpecSetStringArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    basic_string_a1f69cfb *_field5;
-    _Bool _field6;
-};
-
-struct SpecStringArchive {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct SpecSetStringArchive *_field5;
+struct Spec {
+    struct vector<EQKit::OpticalKern::Spec::Entry, std::__1::allocator<EQKit::OpticalKern::Spec::Entry>> _field1;
+    unsigned int _field2;
 };
 
 struct StateSpec {
@@ -4124,6 +4329,16 @@ struct StateStack<glm::detail::tmat4x4<float>, 8> {
     unsigned long long mIndex;
     tmat4x4_3074befe mCurrent;
     tmat4x4_3074befe mStack[8];
+};
+
+struct StockArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    basic_string_a1f69cfb *_field5;
+    double _field6;
+    struct RepeatedPtrField<TSCE::StockArchive_AttributeEntry> _field7;
 };
 
 struct StringCellValueArchive {
@@ -4221,6 +4436,7 @@ struct StyleDiffArchive {
     struct Reference *_field5;
     struct CharacterStylePropertyChangeSetArchive *_field6;
     struct ParagraphStylePropertyChangeSetArchive *_field7;
+    struct ShapeStylePropertyChangeSetArchive *_field8;
 };
 
 struct StyleOwnerPath {
@@ -4290,7 +4506,8 @@ struct TOCEntryInstanceArchive {
     unsigned int _field9;
     unsigned int _field10;
     struct Reference *_field11;
-    unsigned int _field12;
+    basic_string_a1f69cfb *_field12;
+    unsigned int _field13;
 };
 
 struct TOCEntryStyleArchive {
@@ -4397,16 +4614,17 @@ struct TSCEASTNodeReferenceExtractionFunction {
     struct TSCEASTNodeArrayReader *_field8;
     id _field9;
     struct TSCEFormulaContainingCell _field10;
-    _Bool _field11;
-    struct TSCEASTNodeArray *_field12;
-    struct vector<TSCEASTElementWithChildren *, std::__1::allocator<TSCEASTElementWithChildren *>> _field13;
-    vector_88016b54 _field14;
-    struct vector<TSCEASTElement *, std::__1::allocator<TSCEASTElement *>> _field15;
-    struct stack<std::__1::pair<TSCECReference, bool>, std::__1::vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>>> _field16;
-    struct vector<TSCECReference, std::__1::allocator<TSCECReference>> _field17;
-    _Bool _field18;
+    id _field11;
+    _Bool _field12;
+    struct TSCEASTNodeArray *_field13;
+    struct vector<TSCEASTElementWithChildren *, std::__1::allocator<TSCEASTElementWithChildren *>> _field14;
+    vector_88016b54 _field15;
+    struct vector<TSCEASTElement *, std::__1::allocator<TSCEASTElement *>> _field16;
+    struct stack<std::__1::pair<TSCECReference, bool>, std::__1::vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>>> _field17;
+    struct vector<TSCECReference, std::__1::allocator<TSCECReference>> _field18;
     _Bool _field19;
-    struct pair<TSCECReference, bool> _field20;
+    _Bool _field20;
+    struct pair<TSCECReference, bool> _field21;
 };
 
 struct TSCEAbstractVector;
@@ -4432,19 +4650,11 @@ struct TSCEBooleanValue {
 
 struct TSCECReference {
     unsigned short referenceType;
-    union {
-        CDStruct_de21cb60 cellReference;
-        CDStruct_fc93c73e rangeReference;
-        struct {
-            CDStruct_fc93c73e rangeReference;
-            unsigned char rangeContext;
-        } spanningRangeReference;
-        struct __CFUUID *tableID;
-        struct {
-            unsigned long long uuidLower;
-            unsigned long long uuidUpper;
-        } uuidValue;
-    } referenceUnion;
+    struct TSCECellRef cellRef;
+    struct TSCERangeRef rangeRef;
+    struct TSCESpanningRangeRef spanningRangeRef;
+    UUIDData_5fbc143e tableUID;
+    UUIDData_5fbc143e uuidValue;
 };
 
 struct TSCECellRandSeed {
@@ -4474,27 +4684,36 @@ struct TSCEDependencyTracker {
     _Bool _field7;
     struct _opaque_pthread_mutex_t _field8;
     struct deque<TSCEInternalCellReference, std::__1::allocator<TSCEInternalCellReference>> _field9;
-    unordered_set_81328eae _field10;
+    unordered_set_c4d0cfce _field10;
     struct deque<TSCEInternalCellReference, std::__1::allocator<TSCEInternalCellReference>> _field11;
     struct vector<TSCEInternalCellReference, std::__1::allocator<TSCEInternalCellReference>> _field12;
-    CDStruct_de21cb60 _field13;
+    struct TSCECellRef _field13;
+    struct _opaque_pthread_mutex_t _field14;
+    unordered_set_7ec2a700 _field15;
+};
+
+struct TSCEErrorValue {
+    CDUnknownFunctionPointerType *_field1;
+    struct ObjcSharedPtr<TSCEError> _field2;
 };
 
 struct TSCEEvaluationContext {
-    id _field1;
+    struct TSCEEvaluationStack _field1;
     id _field2;
-    struct TSCEEvaluationStack _field3;
+    id _field3;
     _Bool _field4;
     _Bool _field5;
     _Bool _field6;
     struct TSCEWarningReportingContext _field7;
-    struct __CFUUID *_field8;
+    UUIDData_5fbc143e _field8;
     struct TSUCellCoord _field9;
     struct TSCEValueBindingEnvironment _field10;
     struct TSCESymbolTable _field11;
-    struct TSCEReferenceSet _field12;
-    struct TSCERandGenerator *_field13;
-    id _field14;
+    id _field12;
+    _Bool _field13;
+    struct TSCEReferenceSet _field14;
+    struct TSCERandGenerator *_field15;
+    id _field16;
 };
 
 struct TSCEEvaluationStack {
@@ -4503,19 +4722,9 @@ struct TSCEEvaluationStack {
 };
 
 struct TSCEFormat {
-    CDUnknownFunctionPointerType *_vptr$TSCEFormat;
     int mFormatType;
     _Bool mIsImplicitFormat;
-    union {
-        CDStruct_50447d3e mNumberStruct;
-        CDStruct_7ef9dbe9 mFractionFormatStruct;
-        CDStruct_c5e3a123 mBaseFormatStruct;
-        CDStruct_b44fd3ce mDateFormatStruct;
-        CDStruct_b1177b60 mDurationFormatStruct;
-        CDStruct_f25b4237 mCustomFormatStruct;
-        CDStruct_8374e35e mControlFormatStruct;
-        CDStruct_4edf9c0c mMultipleChoiceListFormatStruct;
-    } mData;
+    void *mData;
 };
 
 struct TSCEFormula {
@@ -4527,14 +4736,12 @@ struct TSCEFormula {
 };
 
 struct TSCEFormulaContainingCell {
-    struct __CFUUID *_field1;
-    UUIDData_5fbc143e _field2;
-    struct TSUCellCoord _field3;
-    struct __CFUUID *_field4;
-    UUIDData_5fbc143e _field5;
-    struct TSUCellCoord _field6;
-    _Bool _field7;
-    _Bool _field8;
+    UUIDData_5fbc143e _field1;
+    struct TSUCellCoord _field2;
+    UUIDData_5fbc143e _field3;
+    struct TSUCellCoord _field4;
+    _Bool _field5;
+    _Bool _field6;
 };
 
 struct TSCEFormulaCreator {
@@ -4553,12 +4760,12 @@ struct TSCEIDAllocator<unsigned short> {
 };
 
 struct TSCEIDMap {
-    struct TSCEIDAllocator<unsigned short> _field1;
-    struct unordered_map<unsigned short, const __CFUUID *, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, const __CFUUID *>>> _field2;
-    struct unordered_map<const __CFUUID *, unsigned short, TSCEFormulaOwnerIDHash, TSCEFormulaOwnerIDEqual, std::__1::allocator<std::__1::pair<const __CFUUID *const, unsigned short>>> _field3;
-    struct unordered_map<unsigned short, TSU::UUIDData<TSP::UUIDData>, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, TSU::UUIDData<TSP::UUIDData>>>> _field4;
-    struct unordered_map<TSU::UUIDData<TSP::UUIDData>, unsigned short, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<std::__1::pair<const TSU::UUIDData<TSP::UUIDData>, unsigned short>>> _field5;
-    struct unordered_map<unsigned short, unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned short>>> _field6;
+    struct _opaque_pthread_mutex_t _field1;
+    struct TSCEIDAllocator<unsigned short> _field2;
+    struct unordered_map<unsigned short, TSU::UUIDData<TSP::UUIDData>, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, TSU::UUIDData<TSP::UUIDData>>>> _field3;
+    struct unordered_map<TSU::UUIDData<TSP::UUIDData>, unsigned short, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<std::__1::pair<const TSU::UUIDData<TSP::UUIDData>, unsigned short>>> _field4;
+    struct unordered_map<unsigned short, unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned short>>> _field5;
+    struct unordered_set<unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<unsigned short>> _field6;
 };
 
 struct TSCEInternalCellReference {
@@ -4568,8 +4775,8 @@ struct TSCEInternalCellReference {
 };
 
 struct TSCENamedReferenceTrieNode {
-    struct __CFDictionary *mTrackedReferencesByOwnerID;
-    struct unordered_map<unsigned short, TSCENamedReferenceTrieNode *, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, TSCENamedReferenceTrieNode *>>> mChildren;
+    struct unordered_map<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<std::__1::pair<const TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>>> _trackedReferencesByOwner;
+    struct unordered_map<unsigned short, TSCENamedReferenceTrieNode *, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, TSCENamedReferenceTrieNode *>>> _children;
 };
 
 struct TSCENumberValue {
@@ -4593,6 +4800,11 @@ struct TSCERandGenerator {
 struct TSCERangeCoordinate {
     struct TSUCellCoord mTopLeft;
     struct TSUCellCoord mBottomRight;
+};
+
+struct TSCERangeRef {
+    struct TSCERangeCoordinate range;
+    UUIDData_5fbc143e tableUID;
 };
 
 struct TSCEReferenceSet {
@@ -4634,6 +4846,11 @@ struct TSCERelativeCellRef {
     unsigned int rowIsAbsolute:1;
     unsigned int isSpanningColumn:1;
     unsigned int isSpanningRow:1;
+};
+
+struct TSCESpanningRangeRef {
+    struct TSCERangeRef rangeRef;
+    unsigned char rangeContext;
 };
 
 struct TSCEStringValue {
@@ -4714,7 +4931,7 @@ struct TSCH3DChartSceneAreaLayoutItemCacheValues {
     struct CGSize chartBodyLayoutSize;
     struct CGSize requestChartBodyLayoutSize;
     tvec2_3b141483 modelSize;
-    CDStruct_339a9a6e layoutSettings;
+    CDStruct_44ada6bf layoutSettings;
     _Bool forcedValid;
 };
 
@@ -4745,6 +4962,28 @@ struct TSCHChartDrawableLayoutLegendResizerFrames {
     struct CGRect _field3;
 };
 
+struct TSCHChartPieLabelGeometries {
+    struct TSCHChartPieLabelGeometry _field1;
+    struct TSCHChartPieLabelGeometry _field2;
+};
+
+struct TSCHChartPieLabelGeometry {
+    struct CGAffineTransform _field1;
+    struct CGSize _field2;
+    struct CGRect _field3;
+    struct CGRect _field4;
+};
+
+struct TSCHChartPieLabelRects {
+    struct CGRect _field1;
+    struct CGRect _field2;
+};
+
+struct TSCHChartPieWedgeElementLayoutSystem {
+    long long coordinateSpace;
+    struct CGPoint centerPoint;
+};
+
 struct TSCHLegendAnchorLine {
     struct CGPoint normal;
     double distance;
@@ -4756,18 +4995,6 @@ struct TSCHLegendAnchorRange {
 };
 
 struct TSDBrushVertexData;
-
-struct TSMTraceRecordHeader_s {
-    unsigned char _field1;
-    unsigned char _field2;
-    unsigned short _field3;
-    struct timeval _field4;
-};
-
-struct TSMTraceRecord_s {
-    struct TSMTraceRecordHeader_s _field1;
-    char _field2[0];
-};
 
 struct TSTCSENodeData {
     unsigned long long _field1;
@@ -4895,6 +5122,11 @@ struct TSUOpstat_s {
     struct timeval last_time;
 };
 
+struct TSUPointerKeyDictionary {
+    Class _field1;
+    struct __CFDictionary *_field2;
+};
+
 struct TSWPAdornmentLine {
     struct CGPoint _field1;
     double _field2;
@@ -4941,17 +5173,19 @@ struct TSWPAttributeArray {
     struct TSWPAttributeRecord *_field5;
     id _field6;
     unsigned long long _field7;
+    _Bool _field8;
 };
 
 struct TSWPAttributeEnumerator {
-    id _field1;
-    unsigned long long _field2;
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
     unsigned long long _field3;
-    struct TSWPAttributeArray *_field4;
-    _Bool _field5;
-    unsigned long long _field6;
-    _Bool _field7;
-    struct TSWPAttributeRecord _field8;
+    unsigned long long _field4;
+    struct TSWPAttributeArray *_field5;
+    _Bool _field6;
+    unsigned long long _field7;
+    _Bool _field8;
+    struct TSWPAttributeRecord _field9;
 };
 
 struct TSWPAttributeRecord {
@@ -4969,7 +5203,8 @@ struct TSWPChangeAttributeArray {
     id _field6;
     unsigned long long _field7;
     _Bool _field8;
-    id _field9;
+    _Bool _field9;
+    id _field10;
 };
 
 struct TSWPDirtyRange;
@@ -5050,13 +5285,6 @@ struct TSWPLineRef;
 
 struct TSWPListLabel;
 
-struct TSWPLoadableFontInfo {
-    id _field1;
-    id _field2;
-    id _field3;
-    _Bool _field4;
-};
-
 struct TSWPMarkers {
     struct vector<std::__1::pair<unsigned long, unsigned short>, std::__1::allocator<std::__1::pair<unsigned long, unsigned short>>> _field1;
     _Bool _field2;
@@ -5074,8 +5302,11 @@ struct TSWPParagraphAttributeArray {
     id _field6;
     unsigned long long _field7;
     _Bool _field8;
-    unsigned long long _field9;
+    _Bool _field9;
     unsigned long long _field10;
+    unsigned long long _field11;
+    struct TSWPParagraphAttributeArray *_field12;
+    unsigned long long _field13;
 };
 
 struct TSWPParagraphData {
@@ -5142,8 +5373,12 @@ struct TSWPStorageActionBuilder {
     struct TSWPStorageActionRunner _field7;
     unsigned long long _field8;
     struct vector<TSWPStorageAction, std::__1::allocator<TSWPStorageAction>> *_field9;
-    int _field10;
-    unsigned int _field11;
+    struct TSWPStorageAction *_field10;
+    _Bool _field11;
+    _Bool _field12;
+    int _field13;
+    unsigned int _field14;
+    unsigned long long _field15;
 };
 
 struct TSWPStorageActionGroup {
@@ -5171,6 +5406,9 @@ struct TSWPStorageActionState {
     struct TSWPStorageActionRunner _field7;
     unsigned long long _field8;
     struct vector<TSWPStorageAction, std::__1::allocator<TSWPStorageAction>> *_field9;
+    struct TSWPStorageAction *_field10;
+    _Bool _field11;
+    _Bool _field12;
 };
 
 struct TSWPStorageChangeRange;
@@ -5185,34 +5423,19 @@ struct TSWPStorageTransaction {
     unsigned long long _field5;
     struct TSWPStorageActionGroup _field6;
     unsigned int _field7;
-    unsigned int _field8;
-    unsigned long long _field9;
-    struct vector<TSWPAttributeArrayKind, std::__1::allocator<TSWPAttributeArrayKind>> _field10;
-    struct vector<TSWPStorageChangeRange, std::__1::allocator<TSWPStorageChangeRange>> _field11;
-    struct vector<TSWPStorageParagraphIndexChange, std::__1::allocator<TSWPStorageParagraphIndexChange>> _field12;
+    unsigned long long _field8;
+    struct vector<TSWPAttributeArrayKind, std::__1::allocator<TSWPAttributeArrayKind>> _field9;
+    struct vector<TSWPStorageChangeRange, std::__1::allocator<TSWPStorageChangeRange>> _field10;
+    struct vector<TSWPStorageParagraphIndexChange, std::__1::allocator<TSWPStorageParagraphIndexChange>> _field11;
+    unsigned long long _field12;
     unsigned long long _field13;
-    unsigned long long _field14;
-    _Bool _field15;
-    id _field16;
+    _Bool _field14;
+    id _field15;
+    struct vector<TSWPStorageAction, std::__1::allocator<TSWPStorageAction>> _field16;
+    struct vector<TSWPStorageAction, std::__1::allocator<TSWPStorageAction>> _field17;
 };
 
 struct TSWPStorageTransactionObject;
-
-struct TSWPTargetHint {
-    struct CGRect _field1;
-    struct _NSRange _field2;
-    unsigned long long _field3;
-    struct _NSRange _field4;
-    unsigned long long _field5;
-    unsigned long long _field6;
-    _Bool _field7;
-};
-
-struct TSWPTopicNumberHints {
-    struct map<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>, std::__1::less<const TSWPListStyle *>, std::__1::allocator<std::__1::pair<const TSWPListStyle *const, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>>> _numbersForListStyle;
-    unsigned long long _charIndex;
-    unsigned long long _validThroughCharIndex;
-};
 
 struct TSWPTypesettingState;
 
@@ -5362,6 +5585,22 @@ struct TabsArchive {
     struct RepeatedPtrField<TSWP::TabArchive> _field5;
 };
 
+struct TargetHintArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    struct Point *_field5;
+    struct Size *_field6;
+    struct Range *_field7;
+    struct Range *_field8;
+    unsigned int _field9;
+    unsigned int _field10;
+    struct DoublePoint *_field11;
+    struct DoubleSize *_field12;
+    unsigned int _field13;
+};
+
 struct TexCoordTilingShaderEffectState {
     struct array<TSCH3D::TexCoordTilingShaderEffectState::Data, 3> _field1;
 };
@@ -5454,7 +5693,15 @@ struct TokenAttachmentArchive {
     struct Reference *_field6;
 };
 
-struct TopicNumberHintsArchive;
+struct TopicNumberHintsArchive {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    struct RepeatedPtrField<TP::TopicNumberEntryArchive> _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+};
 
 struct TrackedReferenceArchive {
     CDUnknownFunctionPointerType *_field1;
@@ -5650,20 +5897,22 @@ struct WrittenComponentInfo {
     id _field2;
     _Bool _field3;
     _Bool _field4;
-    id _field5;
-    _Bool _field6;
+    _Bool _field5;
+    id _field6;
     _Bool _field7;
-    id _field8;
-    id _field9;
-    _Bool _field10;
-    unsigned long long _field11;
-    unsigned long long _field12;
-    id _field13;
-    id _field14;
+    _Bool _field8;
+    _Bool _field9;
+    id _field10;
+    id _field11;
+    _Bool _field12;
+    unsigned long long _field13;
+    unsigned long long _field14;
     id _field15;
     id _field16;
     id _field17;
     id _field18;
+    id _field19;
+    id _field20;
 };
 
 struct WrittenObjectInfo;
@@ -5677,26 +5926,11 @@ struct _NSRange {
     unsigned long long length;
 };
 
-struct _TPConstrainToPageLayoutContext {
-    id _field1;
-    id _field2;
-    id _field3;
-    struct CGPoint *_field4;
-    unsigned long long *_field5;
-};
-
 struct _TSDStrokeOutsets {
     double _field1;
     double _field2;
     double _field3;
     double _field4;
-};
-
-struct _TSTDefaultCellBlock {
-    TSTCell *defaultBodyCell;
-    TSTCell *defaultHeaderRowCell;
-    TSTCell *defaultHeaderColumnCell;
-    TSTCell *defaultFooterRowCell;
 };
 
 struct _TSWPCharIndexAndAffinity;
@@ -5709,7 +5943,7 @@ struct _TSWPCharIndexAndPosition {
     double _field5;
 };
 
-struct __CFUUID;
+struct __CFString;
 
 struct __CTFont;
 
@@ -5725,20 +5959,16 @@ struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<vo
     struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
 };
 
-struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUCellRect, void *>>> {
-    struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-};
-
 struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUFlushableObjectInfo *, void *>>> {
     struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
 };
 
-struct __hash_node_base<std::__1::__hash_node<TSCECellRef, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<TSCECellRef, void *>*> *_field1;
+struct __compressed_pair<unsigned long, std::__1::allocator<unsigned long>> {
+    unsigned long long __first_;
 };
 
-struct __hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*> *_field1;
+struct __hash_node_base<std::__1::__hash_node<TSCECellRef, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<TSCECellRef, void *>*> *_field1;
 };
 
 struct __hash_node_base<std::__1::__hash_node<TSCEInternalCellReference, void *>*> {
@@ -5783,6 +6013,14 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSTCel
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSTExpressionNode *, TSTCSENodeData>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSTExpressionNode *, TSTCSENodeData>, void *>*> *__next_;
+};
+
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*> *__next_;
+};
+
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*> *__next_;
 };
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSCEDependencyTrackerFormulaOwnerInfo>, void *>*> {
@@ -5831,14 +6069,6 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSUCel
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const TSP::FieldPath, TSP::FieldInfo_Rule>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const TSP::FieldPath, TSP::FieldInfo_Rule>, void *>*> *_field1;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*> *__next_;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*> *_field1;
 };
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const char *, unsigned int>, void *>*> {
@@ -5933,10 +6163,6 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsign
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, TSU::UUIDData<TSP::UUIDData>>, void *>*> *__next_;
 };
 
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*> *_field1;
-};
-
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*> *_field1;
 };
@@ -5947,6 +6173,10 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::pair<SFUtility::ObjcShar
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, SFUtility::ObjcSharedPtr<NSObject>>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, SFUtility::ObjcSharedPtr<NSObject>>, void *>*> *_field1;
+};
+
+struct __hash_node_base<std::__1::__hash_node<unsigned short, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<unsigned short, void *>*> *_field1;
 };
 
 struct __hash_table<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSU::UUIDData<TSP::UUIDData>>, std::__1::__unordered_map_hasher<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSU::UUIDData<TSP::UUIDData>>, std::__1::hash<TSUUUID>, true>, std::__1::__unordered_map_equal<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSU::UUIDData<TSP::UUIDData>>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, true>, std::__1::allocator<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSU::UUIDData<TSP::UUIDData>>>> {
@@ -6006,6 +6236,10 @@ struct __va_list_tag {
     unsigned int _field2;
     void *_field3;
     void *_field4;
+};
+
+struct __wrap_iter<double *> {
+    double *_field1;
 };
 
 struct _opaque_pthread_mutex_t {
@@ -6176,6 +6410,96 @@ struct box<glm::detail::tvec3<float>> {
     tvec3_17f03ce0 mMax;
 };
 
+struct deque<EQKitLayoutContext, std::__1::allocator<EQKitLayoutContext>> {
+    struct __split_buffer<EQKitLayoutContext *, std::__1::allocator<EQKitLayoutContext *>> {
+        struct EQKitLayoutContext **_field1;
+        struct EQKitLayoutContext **_field2;
+        struct EQKitLayoutContext **_field3;
+        struct __compressed_pair<EQKitLayoutContext **, std::__1::allocator<EQKitLayoutContext *>> {
+            struct EQKitLayoutContext **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<EQKitLayoutContext>> {
+        unsigned long long _field1;
+    } _field3;
+};
+
+struct deque<EQKitLayoutElementaryStack, std::__1::allocator<EQKitLayoutElementaryStack>> {
+    struct __split_buffer<EQKitLayoutElementaryStack *, std::__1::allocator<EQKitLayoutElementaryStack *>> {
+        struct EQKitLayoutElementaryStack **_field1;
+        struct EQKitLayoutElementaryStack **_field2;
+        struct EQKitLayoutElementaryStack **_field3;
+        struct __compressed_pair<EQKitLayoutElementaryStack **, std::__1::allocator<EQKitLayoutElementaryStack *>> {
+            struct EQKitLayoutElementaryStack **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<EQKitLayoutElementaryStack>> {
+        unsigned long long _field1;
+    } _field3;
+};
+
+struct deque<EQKitLayoutRow, std::__1::allocator<EQKitLayoutRow>> {
+    struct __split_buffer<EQKitLayoutRow *, std::__1::allocator<EQKitLayoutRow *>> {
+        struct EQKitLayoutRow **_field1;
+        struct EQKitLayoutRow **_field2;
+        struct EQKitLayoutRow **_field3;
+        struct __compressed_pair<EQKitLayoutRow **, std::__1::allocator<EQKitLayoutRow *>> {
+            struct EQKitLayoutRow **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<EQKitLayoutRow>> {
+        unsigned long long _field1;
+    } _field3;
+};
+
+struct deque<EQKitLayoutStretchedOperator, std::__1::allocator<EQKitLayoutStretchedOperator>> {
+    struct __split_buffer<EQKitLayoutStretchedOperator *, std::__1::allocator<EQKitLayoutStretchedOperator *>> {
+        struct EQKitLayoutStretchedOperator **_field1;
+        struct EQKitLayoutStretchedOperator **_field2;
+        struct EQKitLayoutStretchedOperator **_field3;
+        struct __compressed_pair<EQKitLayoutStretchedOperator **, std::__1::allocator<EQKitLayoutStretchedOperator *>> {
+            struct EQKitLayoutStretchedOperator **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<EQKitLayoutStretchedOperator>> {
+        unsigned long long _field1;
+    } _field3;
+};
+
+struct deque<EQKitLayoutTable, std::__1::allocator<EQKitLayoutTable>> {
+    struct __split_buffer<EQKitLayoutTable *, std::__1::allocator<EQKitLayoutTable *>> {
+        struct EQKitLayoutTable **_field1;
+        struct EQKitLayoutTable **_field2;
+        struct EQKitLayoutTable **_field3;
+        struct __compressed_pair<EQKitLayoutTable **, std::__1::allocator<EQKitLayoutTable *>> {
+            struct EQKitLayoutTable **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<EQKitLayoutTable>> {
+        unsigned long long _field1;
+    } _field3;
+};
+
+struct deque<EQKitMathMLParserState, std::__1::allocator<EQKitMathMLParserState>> {
+    struct __split_buffer<EQKitMathMLParserState *, std::__1::allocator<EQKitMathMLParserState *>> {
+        int **__first_;
+        int **__begin_;
+        int **__end_;
+        struct __compressed_pair<EQKitMathMLParserState **, std::__1::allocator<EQKitMathMLParserState *>> {
+            int **__first_;
+        } __end_cap_;
+    } __map_;
+    unsigned long long __start_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<EQKitMathMLParserState>> {
+        unsigned long long __first_;
+    } __size_;
+};
+
 struct deque<TSCEInternalCellReference, std::__1::allocator<TSCEInternalCellReference>> {
     struct __split_buffer<TSCEInternalCellReference *, std::__1::allocator<TSCEInternalCellReference *>> {
         struct TSCEInternalCellReference **_field1;
@@ -6236,6 +6560,21 @@ struct deque<TSU::UUIDData<TSP::UUIDData>, std::__1::allocator<TSU::UUIDData<TSP
     } __size_;
 };
 
+struct deque<id<EQKitLayoutNode>, std::__1::allocator<id<EQKitLayoutNode>>> {
+    struct __split_buffer<id<EQKitLayoutNode>*, std::__1::allocator<id<EQKitLayoutNode>*>> {
+        id **_field1;
+        id **_field2;
+        id **_field3;
+        struct __compressed_pair<id<EQKitLayoutNode>**, std::__1::allocator<id<EQKitLayoutNode>*>> {
+            id **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<id<EQKitLayoutNode>>> {
+        unsigned long long _field1;
+    } _field3;
+};
+
 struct deque<std::__1::pair<const Action *, int>, std::__1::allocator<std::__1::pair<const Action *, int>>> {
     struct __split_buffer<std::__1::pair<const Action *, int>*, std::__1::allocator<std::__1::pair<const Action *, int>*>> {
         struct pair<const Action *, int> **_field1;
@@ -6262,6 +6601,34 @@ struct deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shar
     } _field1;
     unsigned long long _field2;
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::shared_ptr<StateSpec>>> {
+        unsigned long long _field1;
+    } _field3;
+};
+
+struct deque<unsigned long, std::__1::allocator<unsigned long>> {
+    struct __split_buffer<unsigned long *, std::__1::allocator<unsigned long *>> {
+        unsigned long long **_field1;
+        unsigned long long **_field2;
+        unsigned long long **_field3;
+        struct __compressed_pair<unsigned long **, std::__1::allocator<unsigned long *>> {
+            unsigned long long **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned long>> _field3;
+};
+
+struct deque<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &), std::__1::allocator<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &)>> {
+    struct __split_buffer<void (^*)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &), std::__1::allocator<void (^*)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &)>> {
+        CDUnknownBlockType **_field1;
+        CDUnknownBlockType **_field2;
+        CDUnknownBlockType **_field3;
+        struct __compressed_pair<void (^**)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &), std::__1::allocator<void (^*)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &)>> {
+            CDUnknownBlockType **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &)>> {
         unsigned long long _field1;
     } _field3;
 };
@@ -6380,18 +6747,6 @@ struct map<TSUCellCoord, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<TSUC
     } __tree_;
 };
 
-struct map<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>, std::__1::less<const TSWPListStyle *>, std::__1::allocator<std::__1::pair<const TSWPListStyle *const, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>>> {
-    struct __tree<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, std::__1::less<const TSWPListStyle *>, true>, std::__1::allocator<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<const TSWPListStyle *, std::__1::__value_type<const TSWPListStyle *, std::__1::vector<TSWPTopicNumberEntry, std::__1::allocator<TSWPTopicNumberEntry>>>, std::__1::less<const TSWPListStyle *>, true>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
 struct map<int, TSPUnknownFieldTreeNode *, std::__1::less<int>, std::__1::allocator<std::__1::pair<const int, TSPUnknownFieldTreeNode *>>> {
     struct __tree<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::__map_value_compare<int, std::__1::__value_type<int, TSPUnknownFieldTreeNode *>, std::__1::less<int>, true>, std::__1::allocator<std::__1::__value_type<int, TSPUnknownFieldTreeNode *>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
@@ -6464,6 +6819,306 @@ struct map<long, TSCH3D::CachedLabelBoundsArray, std::__1::less<long>, std::__1:
     } _field1;
 };
 
+struct map<std::__1::basic_string<char>, unsigned short, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, unsigned short>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, unsigned short>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, unsigned short>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, unsigned short>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, unsigned short>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, unsigned short>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Config::Operator::Form>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::Script::Variant>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKit::ScriptLevel>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitLength>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitPseudoUnitLength>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Align::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Boolean::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::CFRetainRelease>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Display::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::Edge::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::GroupAlign::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, EQKitTypes::VAlign::Enum>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, double>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, long>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::basic_string<char>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitLength, std::__1::allocator<EQKitLength>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Align::Enum, std::__1::allocator<EQKitTypes::Align::Enum>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::Notation::Enum, std::__1::allocator<EQKitTypes::Notation::Enum>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<EQKitTypes::VAlign::Enum, std::__1::allocator<EQKitTypes::VAlign::Enum>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>>>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned long>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, std::__1::allocator<std::__1::pair<const std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short>, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, std::__1::__value_type<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>, unsigned short>, std::__1::less<std::__1::pair<id<EQKitLayoutNode>, EQKitTypes::Attributes::Enum>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry, std::__1::less<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>>, std::__1::allocator<std::__1::pair<const std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry>>> {
+    struct __tree<std::__1::__value_type<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry>, std::__1::__map_value_compare<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, std::__1::__value_type<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry>, std::__1::less<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, std::__1::__value_type<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>, EQKit::Config::Operator::Dictionary::Entry>, std::__1::less<std::__1::pair<unsigned short, EQKit::Config::Operator::Form>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
 struct map<unsigned int, SFUtility::ObjcSharedPtr<NSObject>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, SFUtility::ObjcSharedPtr<NSObject>>>> {
     struct __tree<std::__1::__value_type<unsigned int, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, SFUtility::ObjcSharedPtr<NSObject>>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, SFUtility::ObjcSharedPtr<NSObject>>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -6524,16 +7179,40 @@ struct map<unsigned long, TSWPFontHeightCacheEntry, std::__1::less<unsigned long
     } __tree_;
 };
 
-struct map<unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>>>> {
-    struct __tree<std::__1::__value_type<unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>>>> {
+struct map<unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>>>> {
+    struct __tree<std::__1::__value_type<unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>>, void *>>> {
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>>, std::__1::less<unsigned long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>>, std::__1::less<unsigned long>, true>> {
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
+};
+
+struct map<unsigned short, EQKit::Config::Operator::Form, std::__1::less<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, EQKit::Config::Operator::Form>>> {
+    struct __tree<std::__1::__value_type<unsigned short, EQKit::Config::Operator::Form>, std::__1::__map_value_compare<unsigned short, std::__1::__value_type<unsigned short, EQKit::Config::Operator::Form>, std::__1::less<unsigned short>, true>, std::__1::allocator<std::__1::__value_type<unsigned short, EQKit::Config::Operator::Form>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned short, EQKit::Config::Operator::Form>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned short, std::__1::__value_type<unsigned short, EQKit::Config::Operator::Form>, std::__1::less<unsigned short>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<unsigned short, unsigned long, std::__1::less<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned long>>> {
+    struct __tree<std::__1::__value_type<unsigned short, unsigned long>, std::__1::__map_value_compare<unsigned short, std::__1::__value_type<unsigned short, unsigned long>, std::__1::less<unsigned short>, true>, std::__1::allocator<std::__1::__value_type<unsigned short, unsigned long>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned short, unsigned long>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned short, std::__1::__value_type<unsigned short, unsigned long>, std::__1::less<unsigned short>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
 };
 
 struct multimap<unsigned long, TPPageLayout *, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, TPPageLayout *>>> {
@@ -6600,6 +7279,11 @@ struct pair<const char *, const char *> {
     char *_field2;
 };
 
+struct pair<double, double> {
+    double _field1;
+    double _field2;
+};
+
 struct pair<int, int> {
     int _field1;
     int _field2;
@@ -6630,6 +7314,18 @@ struct scoped_array<unsigned char> {
 };
 
 struct segment_data<double>;
+
+struct set<EQKitTypes::Attributes::Enum, std::__1::less<EQKitTypes::Attributes::Enum>, std::__1::allocator<EQKitTypes::Attributes::Enum>> {
+    struct __tree<EQKitTypes::Attributes::Enum, std::__1::less<EQKitTypes::Attributes::Enum>, std::__1::allocator<EQKitTypes::Attributes::Enum>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<EQKitTypes::Attributes::Enum, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<EQKitTypes::Attributes::Enum>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
 
 struct set<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
     struct __tree<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
@@ -6666,20 +7362,12 @@ struct set<TSTMergeRangeElem, TSTMergeRangeElemCompare, std::__1::allocator<TSTM
     } _field1;
 };
 
-struct set<TSUCellRect, TSTCellRangeColumnMajorLess, std::__1::allocator<TSUCellRect>> {
-    struct __tree<TSUCellRect, TSTCellRangeColumnMajorLess, std::__1::allocator<TSUCellRect>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUCellRect, void *>>> __pair1_;
-        struct __compressed_pair<unsigned long, TSTCellRangeColumnMajorLess> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
 struct set<TSUCellRect, TSTCellRangeRowMajorLess, std::__1::allocator<TSUCellRect>> {
     struct __tree<TSUCellRect, TSTCellRangeRowMajorLess, std::__1::allocator<TSUCellRect>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUCellRect, void *>>> __pair1_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUCellRect, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
         struct __compressed_pair<unsigned long, TSTCellRangeRowMajorLess> {
             unsigned long long __first_;
         } __pair3_;
@@ -6706,25 +7394,25 @@ struct set<TSUFlushableObjectInfo *, TSUFlushableObjectInfoPointerTimeStampLess,
     } _field1;
 };
 
-struct set<id<TSWPStorageObserver>, std::__1::less<id<TSWPStorageObserver>>, std::__1::allocator<id<TSWPStorageObserver>>> {
-    struct __tree<id<TSWPStorageObserver>, std::__1::less<id<TSWPStorageObserver>>, std::__1::allocator<id<TSWPStorageObserver>>> {
+struct set<__unsafe_unretained id<TSWPStorageObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageObserver>>> {
+    struct __tree<__unsafe_unretained id<TSWPStorageObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageObserver>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<id<TSWPStorageObserver>, void *>>> {
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<__unsafe_unretained id<TSWPStorageObserver>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::less<id<TSWPStorageObserver>>> {
+        struct __compressed_pair<unsigned long, std::__1::less<__unsafe_unretained id<TSWPStorageObserver>>> {
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
 };
 
-struct set<id<TSWPStorageParagraphObserver>, std::__1::less<id<TSWPStorageParagraphObserver>>, std::__1::allocator<id<TSWPStorageParagraphObserver>>> {
-    struct __tree<id<TSWPStorageParagraphObserver>, std::__1::less<id<TSWPStorageParagraphObserver>>, std::__1::allocator<id<TSWPStorageParagraphObserver>>> {
+struct set<__unsafe_unretained id<TSWPStorageParagraphObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageParagraphObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageParagraphObserver>>> {
+    struct __tree<__unsafe_unretained id<TSWPStorageParagraphObserver>, std::__1::less<__unsafe_unretained id<TSWPStorageParagraphObserver>>, std::__1::allocator<__unsafe_unretained id<TSWPStorageParagraphObserver>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<id<TSWPStorageParagraphObserver>, void *>>> {
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<__unsafe_unretained id<TSWPStorageParagraphObserver>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::less<id<TSWPStorageParagraphObserver>>> {
+        struct __compressed_pair<unsigned long, std::__1::less<__unsafe_unretained id<TSWPStorageParagraphObserver>>> {
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
@@ -6780,8 +7468,20 @@ struct set<unsigned short, std::__1::less<unsigned short>, std::__1::allocator<u
     } _field1;
 };
 
+struct set<wchar_t, std::__1::less<wchar_t>, std::__1::allocator<wchar_t>> {
+    struct __tree<wchar_t, std::__1::less<wchar_t>, std::__1::allocator<wchar_t>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<wchar_t, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<wchar_t>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
 struct shared_count {
-    struct sp_counted_base *pi_;
+    struct sp_counted_base *_field1;
 };
 
 struct shared_ptr<StateSpec>;
@@ -6804,13 +7504,13 @@ struct shared_ptr<TSP::ArchiveInfo> {
 struct shared_ptr<TSUStringChunk>;
 
 struct shared_ptr<TSWPLineFragmentArray> {
-    struct TSWPLineFragmentArray *px;
-    struct shared_count pn;
+    struct TSWPLineFragmentArray *__ptr_;
+    struct __shared_weak_count *__cntrl_;
 };
 
 struct shared_ptr<TSWPParagraphTypesetter> {
     struct TSWPParagraphTypesetter *_field1;
-    struct shared_count _field2;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<google::protobuf::Message> {
@@ -6833,6 +7533,34 @@ struct sockaddr_in {
 
 struct sp_counted_base;
 
+struct stack<EQKitLayoutContext, std::__1::deque<EQKitLayoutContext, std::__1::allocator<EQKitLayoutContext>>> {
+    struct deque<EQKitLayoutContext, std::__1::allocator<EQKitLayoutContext>> _field1;
+};
+
+struct stack<EQKitLayoutElementaryStack, std::__1::deque<EQKitLayoutElementaryStack, std::__1::allocator<EQKitLayoutElementaryStack>>> {
+    struct deque<EQKitLayoutElementaryStack, std::__1::allocator<EQKitLayoutElementaryStack>> _field1;
+};
+
+struct stack<EQKitLayoutRow, std::__1::deque<EQKitLayoutRow, std::__1::allocator<EQKitLayoutRow>>> {
+    struct deque<EQKitLayoutRow, std::__1::allocator<EQKitLayoutRow>> _field1;
+};
+
+struct stack<EQKitLayoutStretchedOperator, std::__1::deque<EQKitLayoutStretchedOperator, std::__1::allocator<EQKitLayoutStretchedOperator>>> {
+    struct deque<EQKitLayoutStretchedOperator, std::__1::allocator<EQKitLayoutStretchedOperator>> _field1;
+};
+
+struct stack<EQKitLayoutTable, std::__1::deque<EQKitLayoutTable, std::__1::allocator<EQKitLayoutTable>>> {
+    struct deque<EQKitLayoutTable, std::__1::allocator<EQKitLayoutTable>> _field1;
+};
+
+struct stack<EQKitMathMLParserState, std::__1::deque<EQKitMathMLParserState, std::__1::allocator<EQKitMathMLParserState>>> {
+    struct deque<EQKitMathMLParserState, std::__1::allocator<EQKitMathMLParserState>> c;
+};
+
+struct stack<id<EQKitLayoutNode>, std::__1::deque<id<EQKitLayoutNode>, std::__1::allocator<id<EQKitLayoutNode>>>> {
+    struct deque<id<EQKitLayoutNode>, std::__1::allocator<id<EQKitLayoutNode>>> _field1;
+};
+
 struct stack<std::__1::pair<TSCECReference, bool>, std::__1::vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>>> {
     struct vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>> _field1;
 };
@@ -6843,6 +7571,14 @@ struct stack<std::__1::pair<const Action *, int>, std::__1::deque<std::__1::pair
 
 struct stack<std::__1::shared_ptr<StateSpec>, std::__1::deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shared_ptr<StateSpec>>>> {
     struct deque<std::__1::shared_ptr<StateSpec>, std::__1::allocator<std::__1::shared_ptr<StateSpec>>> _field1;
+};
+
+struct stack<unsigned long, std::__1::deque<unsigned long, std::__1::allocator<unsigned long>>> {
+    struct deque<unsigned long, std::__1::allocator<unsigned long>> _field1;
+};
+
+struct stack<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &), std::__1::deque<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &), std::__1::allocator<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &)>>> {
+    struct deque<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &), std::__1::allocator<void (^)(id<EQKitLayoutNode>, const EQKit::Layout::Schemata &)>> _field1;
 };
 
 struct timeval {
@@ -6996,17 +7732,6 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellRef, 
     } _field1;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*> **_field1;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*>> {
-                unsigned long long _field1;
-            } _field1;
-        } _field2;
-    } _field1;
-};
-
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSCEInternalCellReference, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCEInternalCellReference, void *>*>*>>> {
     struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<TSCEInternalCellReference, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCEInternalCellReference, void *>*>*>>> {
         struct __hash_node_base<std::__1::__hash_node<TSCEInternalCellReference, void *>*> **_field1;
@@ -7122,6 +7847,28 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
         struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSTExpressionNode *, TSTCSENodeData>, void *>*> **__first_;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSTExpressionNode *, TSTCSENodeData>, void *>*>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSTExpressionNode *, TSTCSENodeData>, void *>*>*>> {
+                unsigned long long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>*>> {
+                unsigned long long __first_;
+            } __data_;
+        } __second_;
+    } __ptr_;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>*>> {
                 unsigned long long __first_;
             } __data_;
         } __second_;
@@ -7254,28 +8001,6 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
         struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const TSP::FieldPath, TSP::FieldInfo_Rule>, void *>*> **_field1;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const TSP::FieldPath, TSP::FieldInfo_Rule>, void *>*>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const TSP::FieldPath, TSP::FieldInfo_Rule>, void *>*>*>> {
-                unsigned long long _field1;
-            } _field1;
-        } _field2;
-    } _field1;
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>*>> {
-                unsigned long long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*> **_field1;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>*>> {
                 unsigned long long _field1;
             } _field1;
         } _field2;
@@ -7535,17 +8260,6 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*> **_field1;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>*>> {
-                unsigned long long _field1;
-            } _field1;
-        } _field2;
-    } _field1;
-};
-
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*>*>>> {
     struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*>*>>> {
         struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*> **_field1;
@@ -7573,6 +8287,17 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pai
         struct __hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, SFUtility::ObjcSharedPtr<NSObject>>, void *>*> **_field1;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, SFUtility::ObjcSharedPtr<NSObject>>, void *>*>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::pair<unsigned int, SFUtility::ObjcSharedPtr<NSObject>>, void *>*>*>> {
+                unsigned long long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<unsigned short, void *>*> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>*>> {
                 unsigned long long _field1;
             } _field1;
         } _field2;
@@ -7664,6 +8389,36 @@ struct unordered_map<TSTExpressionNode *, TSTCSENodeData, std::__1::hash<TSTExpr
             unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<TSTExpressionNode *, std::__1::__hash_value_type<TSTExpressionNode *, TSTCSENodeData>, std::__1::equal_to<TSTExpressionNode *>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<std::__1::pair<const TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>>> {
+    struct __hash_table<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, std::__1::__unordered_map_hasher<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, std::__1::hash<TSUUUID>, true>, std::__1::__unordered_map_equal<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, true>, std::__1::allocator<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, void *>*> __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, std::__1::hash<TSUUUID>, true>> {
+            unsigned long long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<NSMutableSet>>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, true>> {
+            float __first_;
+        } __p3_;
+    } __table_;
+};
+
+struct unordered_map<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>, std::__1::hash<TSUUUID>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, std::__1::allocator<std::__1::pair<const TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>>> {
+    struct __hash_table<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, std::__1::__unordered_map_hasher<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, std::__1::hash<TSUUUID>, true>, std::__1::__unordered_map_equal<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, true>, std::__1::allocator<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, void *>*> __first_;
+        } __p1_;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, std::__1::hash<TSUUUID>, true>> {
+            unsigned long long __first_;
+        } __p2_;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, SFUtility::ObjcSharedPtr<TSUPointerKeyDictionary>>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, true>> {
             float __first_;
         } __p3_;
     } __table_;
@@ -7833,36 +8588,6 @@ struct unordered_map<const TSP::FieldPath, TSP::FieldInfo_Rule, TSP::FieldPathHa
             unsigned long long _field1;
         } _field3;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<const TSP::FieldPath, std::__1::__hash_value_type<const TSP::FieldPath, TSP::FieldInfo_Rule>, TSP::FieldPathEqualTo, true>> {
-            float _field1;
-        } _field4;
-    } _field1;
-};
-
-struct unordered_map<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>, TSCEFormulaOwnerIDHash, TSCEFormulaOwnerIDEqual, std::__1::allocator<std::__1::pair<const __CFUUID *const, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>>> {
-    struct __hash_table<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, std::__1::__unordered_map_hasher<const __CFUUID *, std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, TSCEFormulaOwnerIDHash, true>, std::__1::__unordered_map_equal<const __CFUUID *, std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, TSCEFormulaOwnerIDEqual, true>, std::__1::allocator<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, void *>*> __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<const __CFUUID *, std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, TSCEFormulaOwnerIDHash, true>> {
-            unsigned long long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<const __CFUUID *, std::__1::__hash_value_type<const __CFUUID *, std::__1::vector<std::__1::pair<TSUCellCoord, TSCEFormula>, std::__1::allocator<std::__1::pair<TSUCellCoord, TSCEFormula>>>>, TSCEFormulaOwnerIDEqual, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<const __CFUUID *, unsigned short, TSCEFormulaOwnerIDHash, TSCEFormulaOwnerIDEqual, std::__1::allocator<std::__1::pair<const __CFUUID *const, unsigned short>>> {
-    struct __hash_table<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, std::__1::__unordered_map_hasher<const __CFUUID *, std::__1::__hash_value_type<const __CFUUID *, unsigned short>, TSCEFormulaOwnerIDHash, true>, std::__1::__unordered_map_equal<const __CFUUID *, std::__1::__hash_value_type<const __CFUUID *, unsigned short>, TSCEFormulaOwnerIDEqual, true>, std::__1::allocator<std::__1::__hash_value_type<const __CFUUID *, unsigned short>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const __CFUUID *, unsigned short>, void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<const __CFUUID *, std::__1::__hash_value_type<const __CFUUID *, unsigned short>, TSCEFormulaOwnerIDHash, true>> {
-            unsigned long long _field1;
-        } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<const __CFUUID *, std::__1::__hash_value_type<const __CFUUID *, unsigned short>, TSCEFormulaOwnerIDEqual, true>> {
             float _field1;
         } _field4;
     } _field1;
@@ -8213,21 +8938,6 @@ struct unordered_map<unsigned short, TSU::UUIDData<TSP::UUIDData>, std::__1::has
     } __table_;
 };
 
-struct unordered_map<unsigned short, const __CFUUID *, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, const __CFUUID *>>> {
-    struct __hash_table<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, std::__1::__unordered_map_hasher<unsigned short, std::__1::__hash_value_type<unsigned short, const __CFUUID *>, std::__1::hash<unsigned short>, true>, std::__1::__unordered_map_equal<unsigned short, std::__1::__hash_value_type<unsigned short, const __CFUUID *>, std::__1::equal_to<unsigned short>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned short, const __CFUUID *>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, const __CFUUID *>, void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned short, std::__1::__hash_value_type<unsigned short, const __CFUUID *>, std::__1::hash<unsigned short>, true>> {
-            unsigned long long _field1;
-        } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned short, std::__1::__hash_value_type<unsigned short, const __CFUUID *>, std::__1::equal_to<unsigned short>, true>> {
-            float _field1;
-        } _field4;
-    } _field1;
-};
-
 struct unordered_map<unsigned short, unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<std::__1::pair<const unsigned short, unsigned short>>> {
     struct __hash_table<std::__1::__hash_value_type<unsigned short, unsigned short>, std::__1::__unordered_map_hasher<unsigned short, std::__1::__hash_value_type<unsigned short, unsigned short>, std::__1::hash<unsigned short>, true>, std::__1::__unordered_map_equal<unsigned short, std::__1::__hash_value_type<unsigned short, unsigned short>, std::__1::equal_to<unsigned short>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned short, unsigned short>>> {
         struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned short, unsigned short>, void *>*>*>>> _field1;
@@ -8253,21 +8963,6 @@ struct unordered_set<TSCECellRef, std::__1::hash<TSCECellRef>, std::__1::equal_t
             unsigned long long _field1;
         } _field3;
         struct __compressed_pair<float, std::__1::equal_to<TSCECellRef>> {
-            float _field1;
-        } _field4;
-    } _field1;
-};
-
-struct unordered_set<TSCECellReference, TSCECellReferenceHash, TSCECellReferenceEqual, std::__1::allocator<TSCECellReference>> {
-    struct __hash_table<TSCECellReference, TSCECellReferenceHash, TSCECellReferenceEqual, std::__1::allocator<TSCECellReference>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>, std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, TSCECellReferenceHash> {
-            unsigned long long _field1;
-        } _field3;
-        struct __compressed_pair<float, TSCECellReferenceEqual> {
             float _field1;
         } _field4;
     } _field1;
@@ -8359,6 +9054,21 @@ struct unordered_set<TSUCellRect, std::__1::hash<TSUCellRect>, std::__1::equal_t
     } _field1;
 };
 
+struct unordered_set<unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<unsigned short>> {
+    struct __hash_table<unsigned short, std::__1::hash<unsigned short>, std::__1::equal_to<unsigned short>, std::__1::allocator<unsigned short>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<unsigned short, void *>*>, std::__1::allocator<std::__1::__hash_node<unsigned short, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<unsigned short, void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::hash<unsigned short>> {
+            unsigned long long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::equal_to<unsigned short>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
 struct vector<(anonymous namespace)::Range, std::__1::allocator<(anonymous namespace)::Range>> {
     struct Range *__begin_;
     struct Range *__end_;
@@ -8380,6 +9090,22 @@ struct vector<CGRect, std::__1::allocator<CGRect>> {
     struct CGRect *__end_;
     struct __compressed_pair<CGRect *, std::__1::allocator<CGRect>> {
         struct CGRect *__first_;
+    } __end_cap_;
+};
+
+struct vector<EQKit::OpticalKern::Spec::Entry, std::__1::allocator<EQKit::OpticalKern::Spec::Entry>> {
+    struct Entry *_field1;
+    struct Entry *_field2;
+    struct __compressed_pair<EQKit::OpticalKern::Spec::Entry *, std::__1::allocator<EQKit::OpticalKern::Spec::Entry>> {
+        struct Entry *_field1;
+    } _field3;
+};
+
+struct vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>> {
+    int *__begin_;
+    int *__end_;
+    struct __compressed_pair<EQKitTypes::Crossout::Enum *, std::__1::allocator<EQKitTypes::Crossout::Enum>> {
+        int *__first_;
     } __end_cap_;
 };
 
@@ -8460,6 +9186,14 @@ struct vector<TSCERangeCoordinate, std::__1::allocator<TSCERangeCoordinate>> {
     struct TSCERangeCoordinate *_field2;
     struct __compressed_pair<TSCERangeCoordinate *, std::__1::allocator<TSCERangeCoordinate>> {
         struct TSCERangeCoordinate *_field1;
+    } _field3;
+};
+
+struct vector<TSCERangeRef, std::__1::allocator<TSCERangeRef>> {
+    struct TSCERangeRef *_field1;
+    struct TSCERangeRef *_field2;
+    struct __compressed_pair<TSCERangeRef *, std::__1::allocator<TSCERangeRef>> {
+        struct TSCERangeRef *_field1;
     } _field3;
 };
 
@@ -8807,14 +9541,6 @@ struct vector<TSWPStorageTransactionObject, std::__1::allocator<TSWPStorageTrans
     } _field3;
 };
 
-struct vector<TSWPTargetHint, std::__1::allocator<TSWPTargetHint>> {
-    struct TSWPTargetHint *__begin_;
-    struct TSWPTargetHint *__end_;
-    struct __compressed_pair<TSWPTargetHint *, std::__1::allocator<TSWPTargetHint>> {
-        struct TSWPTargetHint *__first_;
-    } __end_cap_;
-};
-
 struct vector<TSWPUIAttachmentData, std::__1::allocator<TSWPUIAttachmentData>> {
     struct TSWPUIAttachmentData *_field1;
     struct TSWPUIAttachmentData *_field2;
@@ -8840,9 +9566,7 @@ struct vector<_TSWPCharIndexAndAffinity, std::__1::allocator<_TSWPCharIndexAndAf
 struct vector<bool, std::__1::allocator<bool>> {
     unsigned long long *__begin_;
     unsigned long long __size_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned long>> {
-        unsigned long long __first_;
-    } __cap_alloc_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned long>> __cap_alloc_;
 };
 
 struct vector<boost::polygon::segment_data<double>, std::__1::allocator<boost::polygon::segment_data<double>>> {
@@ -8851,14 +9575,6 @@ struct vector<boost::polygon::segment_data<double>, std::__1::allocator<boost::p
     struct __compressed_pair<boost::polygon::segment_data<double>*, std::__1::allocator<boost::polygon::segment_data<double>>> {
         struct segment_data<double> *_field1;
     } _field3;
-};
-
-struct vector<boost::shared_ptr<TSUStringChunk>, std::__1::allocator<boost::shared_ptr<TSUStringChunk>>> {
-    struct shared_ptr<TSUStringChunk> *__begin_;
-    struct shared_ptr<TSUStringChunk> *__end_;
-    struct __compressed_pair<boost::shared_ptr<TSUStringChunk>*, std::__1::allocator<boost::shared_ptr<TSUStringChunk>>> {
-        struct shared_ptr<TSUStringChunk> *__first_;
-    } __end_cap_;
 };
 
 struct vector<double, std::__1::allocator<double>> {
@@ -8943,6 +9659,14 @@ struct vector<glm::detail::tvec4<int>, std::__1::allocator<glm::detail::tvec4<in
 
 struct vector<google::protobuf::UnknownField, std::__1::allocator<google::protobuf::UnknownField>>;
 
+struct vector<id<EQKitLayoutNode>, std::__1::allocator<id<EQKitLayoutNode>>> {
+    id *_field1;
+    id *_field2;
+    struct __compressed_pair<id<EQKitLayoutNode>*, std::__1::allocator<id<EQKitLayoutNode>>> {
+        id *_field1;
+    } _field3;
+};
+
 struct vector<int, std::__1::allocator<int>> {
     int *__begin_;
     int *__end_;
@@ -8973,6 +9697,14 @@ struct vector<std::__1::auto_ptr<TSP::PersistedObjectUUIDMapOperation>, std::__1
     struct __compressed_pair<std::__1::auto_ptr<TSP::PersistedObjectUUIDMapOperation>*, std::__1::allocator<std::__1::auto_ptr<TSP::PersistedObjectUUIDMapOperation>>> {
         struct auto_ptr<TSP::PersistedObjectUUIDMapOperation> *__first_;
     } __end_cap_;
+};
+
+struct vector<std::__1::basic_string<char>, std::__1::allocator<std::__1::basic_string<char>>> {
+    basic_string_a1f69cfb *_field1;
+    basic_string_a1f69cfb *_field2;
+    struct __compressed_pair<std::__1::basic_string<char>*, std::__1::allocator<std::__1::basic_string<char>>> {
+        basic_string_a1f69cfb *_field1;
+    } _field3;
 };
 
 struct vector<std::__1::pair<TSCECReference, bool>, std::__1::allocator<std::__1::pair<TSCECReference, bool>>> {
@@ -9029,6 +9761,14 @@ struct vector<std::__1::set<unsigned int, std::__1::less<unsigned int>, std::__1
     struct __compressed_pair<std::__1::set<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>>*, std::__1::allocator<std::__1::set<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>>>> {
         struct set<unsigned int, std::__1::less<unsigned int>, std::__1::allocator<unsigned int>> *_field1;
     } _field3;
+};
+
+struct vector<std::__1::shared_ptr<TSUStringChunk>, std::__1::allocator<std::__1::shared_ptr<TSUStringChunk>>> {
+    struct shared_ptr<TSUStringChunk> *__begin_;
+    struct shared_ptr<TSUStringChunk> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<TSUStringChunk>*, std::__1::allocator<std::__1::shared_ptr<TSUStringChunk>>> {
+        struct shared_ptr<TSUStringChunk> *__first_;
+    } __end_cap_;
 };
 
 struct vector<std::__1::unordered_map<SFUtility::ObjcSharedPtr<NSString>, unsigned int, TSCE::NSStringHash, TSCE::NSStringEqual, std::__1::allocator<std::__1::pair<const SFUtility::ObjcSharedPtr<NSString>, unsigned int>>>, std::__1::allocator<std::__1::unordered_map<SFUtility::ObjcSharedPtr<NSString>, unsigned int, TSCE::NSStringHash, TSCE::NSStringEqual, std::__1::allocator<std::__1::pair<const SFUtility::ObjcSharedPtr<NSString>, unsigned int>>>>> {
@@ -9099,6 +9839,27 @@ typedef struct {
 
 typedef struct {
     int _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    _Bool _field5;
+} Config_5da22101;
+
+typedef struct {
+    CDUnknownFunctionPointerType *_field1;
+    struct Collection *_field2;
+    struct EQKitCacheLRUCounter _field3;
+} Manager_e51557f8;
+
+typedef struct {
+    struct EQKitCache<EQKit::OpticalKern::Glyph::Key, std::__1::shared_ptr<EQKit::OpticalKern::Edge::Path>, std::__1::shared_ptr<const EQKit::OpticalKern::Edge::Path>> *_field1;
+    struct EQKitCacheLRUCounter _field2;
+    _Bool _field3;
+    struct QuantizationConfig _field4;
+} Manager_36464627;
+
+typedef struct {
+    int _field1;
     int _field2;
     int _field3;
     struct path_descr *_field4;
@@ -9152,7 +9913,8 @@ typedef struct {
     struct Reference *_field15;
     struct Reference *_field16;
     _Bool _field17;
-} DocumentArchive_943d363d;
+    _Bool _field18;
+} DocumentArchive_cc920261;
 
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
@@ -9235,44 +9997,6 @@ typedef struct {
     unsigned int _field3[1];
     int _field4;
     struct Reference *_field5;
-    struct Reference *_field6;
-    struct Size *_field7;
-    struct Point *_field8;
-    float _field9;
-    float _field10;
-    RepeatedPtrField_a0d2dbe7 _field11;
-    struct Point *_field12;
-    struct Point *_field13;
-    struct Reference *_field14;
-    float _field15;
-    float _field16;
-    struct Point *_field17;
-    struct RepeatedPtrField<TSCH::ChartUIState> _field18;
-    float _field19;
-    _Bool _field20;
-    _Bool _field21;
-    _Bool _field22;
-    _Bool _field23;
-    RepeatedPtrField_a0d2dbe7 _field24;
-    RepeatedPtrField_a0d2dbe7 _field25;
-    RepeatedPtrField_a0d2dbe7 _field26;
-    float _field27;
-    float _field28;
-    _Bool _field29;
-    _Bool _field30;
-    _Bool _field31;
-    float _field32;
-    struct Size *_field33;
-    struct Point *_field34;
-    struct SelectionPathArchive *_field35;
-} UIStateArchive_b5e67a28;
-
-typedef struct {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    struct Reference *_field5;
     RepeatedField_27dfe32f _field6;
     RepeatedField_27dfe32f _field7;
 } ChartMediatorArchive_9bee4689;
@@ -9311,7 +10035,9 @@ typedef struct {
     RepeatedPtrField_a0d2dbe7 _field7;
     basic_string_a1f69cfb *_field8;
     _Bool _field9;
-} DocumentArchive_e58439c3;
+    _Bool _field10;
+    _Bool _field11;
+} DocumentArchive_9de3ea16;
 
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
@@ -9362,15 +10088,6 @@ typedef struct {
     unsigned int _field3[1];
     int _field4;
     RepeatedPtrField_a0d2dbe7 _field5;
-    struct Reference *_field6;
-} CanvasSelectionArchive_d53b2c58;
-
-typedef struct {
-    CDUnknownFunctionPointerType *_field1;
-    struct UnknownFieldSet _field2;
-    unsigned int _field3[1];
-    int _field4;
-    RepeatedPtrField_a0d2dbe7 _field5;
     struct RepeatedPtrField<TN::SheetUIStateDictionaryEntryArchive> _field6;
     unsigned int _field7;
     unsigned int _field8;
@@ -9393,32 +10110,85 @@ typedef struct {
     struct Size *_field25;
     struct RepeatedPtrField<TSCH::ChartUIState> _field26;
     struct SelectionPathArchive *_field27;
-    _Bool _field28;
+    struct RepeatedPtrField<TN::UUIDSheetUIStateDictionaryArchive> _field28;
     _Bool _field29;
     _Bool _field30;
     _Bool _field31;
-} UIStateArchive_1217286a;
+    _Bool _field32;
+} UIStateArchive_442a8ce8;
+
+typedef struct {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[1];
+    int _field4;
+    RepeatedPtrField_a0d2dbe7 _field5;
+    RepeatedPtrField_a0d2dbe7 _field6;
+    struct Reference *_field7;
+} CanvasSelectionArchive_cc53fcdb;
+
+typedef struct {
+    CDUnknownFunctionPointerType *_field1;
+    struct UnknownFieldSet _field2;
+    unsigned int _field3[2];
+    struct Reference *_field4;
+    struct Reference *_field5;
+    struct Size *_field6;
+    struct Point *_field7;
+    float _field8;
+    float _field9;
+    RepeatedPtrField_a0d2dbe7 _field10;
+    struct Point *_field11;
+    struct Point *_field12;
+    struct Reference *_field13;
+    float _field14;
+    float _field15;
+    struct Point *_field16;
+    struct RepeatedPtrField<TSCH::ChartUIState> _field17;
+    float _field18;
+    _Bool _field19;
+    _Bool _field20;
+    _Bool _field21;
+    _Bool _field22;
+    RepeatedPtrField_a0d2dbe7 _field23;
+    RepeatedPtrField_a0d2dbe7 _field24;
+    RepeatedPtrField_a0d2dbe7 _field25;
+    float _field26;
+    float _field27;
+    struct Size *_field28;
+    float _field29;
+    _Bool _field30;
+    _Bool _field31;
+    _Bool _field32;
+    _Bool _field33;
+    struct Point *_field34;
+    struct SelectionPathArchive *_field35;
+    RepeatedPtrField_a0d2dbe7 _field36;
+    float _field37;
+    float _field38;
+    _Bool _field39;
+    int _field40;
+} UIStateArchive_eb76c215;
+
+typedef struct {
+    struct set<wchar_t, std::__1::less<wchar_t>, std::__1::allocator<wchar_t>> _field1;
+    struct set<wchar_t, std::__1::less<wchar_t>, std::__1::allocator<wchar_t>> _field2;
+} Config_b4c5d39d;
 
 #endif
 
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    NSUUID *mCustomFormatKey;
-    TSUCustomFormat *mCustomFormat;
-    unsigned int mLegacyID;
-    unsigned char mAppliedConditionKey;
-} CDStruct_f25b4237;
-
-typedef struct {
     _Bool forceOmitLegend;
     _Bool forceOmitTitle;
     _Bool forceOmitAxisTitle;
+    _Bool forceOmitLabelPlacement;
     _Bool enable3DTightBounds;
     _Bool enable3DScaledDepthBounds;
     long long maxDepthRatioType;
     unsigned long long max3DLimitingSeries;
-} CDStruct_339a9a6e;
+} CDStruct_44ada6bf;
 
 typedef struct {
     _Bool applicationExists;
@@ -9454,6 +10224,11 @@ typedef struct {
     unsigned char byte14;
     unsigned char byte15;
 } CDStruct_e6eac3cb;
+
+typedef struct {
+    unsigned int useCount;
+    id ticket;
+} CDStruct_2a021fcd;
 
 typedef struct {
     unsigned int column;
@@ -9499,20 +10274,6 @@ typedef struct {
 } CDStruct_ba543347;
 
 typedef struct {
-    unsigned int mCurrencyCodeIndex:16;
-    unsigned int mDecimalPlaces:8;
-    unsigned int mNegativeStyle:3;
-    unsigned int mShowThousandsSeparator:1;
-    unsigned int mUseAccountingStyle:1;
-} CDStruct_50447d3e;
-
-typedef struct {
-    unsigned int mSuppressDateFormat:1;
-    unsigned int mSuppressTimeFormat:1;
-    NSString *mDateTimeFormat;
-} CDStruct_b44fd3ce;
-
-typedef struct {
     unsigned int mUseAutomaticUnits:1;
     int mDurationUnitSmallest;
     int mDurationUnitLargest;
@@ -9523,16 +10284,6 @@ typedef struct {
     unsigned int formulaID:24;
     unsigned int reserved:8;
 } CDStruct_a91f2c80;
-
-typedef struct {
-    unsigned int mBase:8;
-    unsigned int mBasePlaces:8;
-    unsigned int mBaseUseMinusSign:1;
-} CDStruct_c5e3a123;
-
-typedef struct {
-    unsigned int mFractionAccuracy:8;
-} CDStruct_7ef9dbe9;
 
 typedef struct {
     double _field1;
@@ -9559,15 +10310,6 @@ typedef struct {
 } CDStruct_d2b197d1;
 
 typedef struct {
-    double mMinimum;
-    double mMaximum;
-    double mIncrement;
-    int mDisplayFormatType;
-    unsigned int mOrientation:2;
-    unsigned int mPosition:2;
-} CDStruct_8374e35e;
-
-typedef struct {
     double skew;
     double skewOffset;
     double scale;
@@ -9590,21 +10332,15 @@ typedef struct {
 } CDStruct_6e3f967a;
 
 typedef struct {
-    int mInitialValue;
-    unsigned int mMultipleChoiceListFormatID;
-    id mData;
-} CDStruct_4edf9c0c;
-
-typedef struct {
     int _field1;
     unsigned long long _field2;
     _Bool _field3;
 } CDStruct_b9fbe577;
 
 typedef struct {
-    int _field1;
-    int _field2;
-} CDStruct_1ef3fb1f;
+    int columnOffset;
+    int rowOffset;
+} CDStruct_945081a1;
 
 typedef struct {
     long long _field1;
@@ -9642,6 +10378,13 @@ typedef struct {
 } CDStruct_627e0f85;
 
 typedef struct CDStruct_183601bc;
+
+typedef struct {
+    double _field1;
+    struct CGPoint _field2;
+    long long _field3;
+    double _field4;
+} CDStruct_46b2202e;
 
 typedef struct {
     long long _field1;
@@ -9684,11 +10427,6 @@ typedef struct {
 } CDStruct_e3b9714e;
 
 typedef struct {
-    struct TSUCellCoord coordinate;
-    struct __CFUUID *tableID;
-} CDStruct_de21cb60;
-
-typedef struct {
     struct TSUCellCoord topLeft;
     struct TSUCellCoord bottomRight;
 } CDStruct_d8c645bd;
@@ -9724,14 +10462,46 @@ typedef struct {
 typedef struct {
     int mFormatType;
     union {
-        CDStruct_50447d3e mNumberFormatStruct;
-        CDStruct_7ef9dbe9 mFractionFormatStruct;
-        CDStruct_c5e3a123 mBaseFormatStruct;
-        CDStruct_b44fd3ce mDateFormatStruct;
+        struct {
+            unsigned int mCurrencyCodeIndex:16;
+            unsigned int mDecimalPlaces:8;
+            unsigned int mNegativeStyle:3;
+            unsigned int mShowThousandsSeparator:1;
+            unsigned int mUseAccountingStyle:1;
+        } mNumberFormatStruct;
+        struct {
+            unsigned int mFractionAccuracy:8;
+        } mFractionFormatStruct;
+        struct {
+            unsigned int mBase:8;
+            unsigned int mBasePlaces:8;
+            unsigned int mBaseUseMinusSign:1;
+        } mBaseFormatStruct;
+        struct {
+            unsigned int mSuppressDateFormat:1;
+            unsigned int mSuppressTimeFormat:1;
+            NSString *mDateTimeFormat;
+        } mDateFormatStruct;
         CDStruct_b1177b60 mDurationFormatStruct;
-        CDStruct_f25b4237 mCustomFormatStruct;
-        CDStruct_8374e35e mControlFormatStruct;
-        CDStruct_4edf9c0c mMultipleChoiceListFormatStruct;
+        struct {
+            NSUUID *mCustomFormatKey;
+            TSUCustomFormat *mCustomFormat;
+            unsigned int mLegacyID;
+            unsigned char mAppliedConditionKey;
+        } mCustomFormatStruct;
+        struct {
+            double mMinimum;
+            double mMaximum;
+            double mIncrement;
+            int mDisplayFormatType;
+            unsigned int mOrientation:2;
+            unsigned int mPosition:2;
+        } mControlFormatStruct;
+        struct {
+            int mInitialValue;
+            unsigned int mMultipleChoiceListFormatID;
+            id mData;
+        } mMultipleChoiceListFormatStruct;
     } ;
 } CDStruct_28403e59;
 
@@ -9747,27 +10517,14 @@ typedef struct {
 typedef struct {
     struct CGRect _field1;
     double _field2;
-    double _field3;
+    CDStruct_a6fa95e6 _field3;
     double _field4;
-    double _field5;
-} CDStruct_50f584da;
-
-typedef struct {
-    struct TSCERangeCoordinate range;
-    struct __CFUUID *tableID;
-} CDStruct_fc93c73e;
+    struct CGRect _field5;
+    double _field6;
+    CDStruct_a6fa95e6 _field7;
+} CDStruct_b7a3d57d;
 
 // Ambiguous groups
-typedef struct {
-    unsigned int _field1;
-    id _field2;
-} CDStruct_2f1ac7ad;
-
-typedef struct {
-    unsigned int useCount;
-    id ticket;
-} CDStruct_2a021fcd;
-
 typedef struct {
     unsigned long long _field1;
     unsigned long long _field2;
@@ -9960,6 +10717,10 @@ typedef struct UUIDMap<TSP::UUIDMap> {
     struct __hash_table<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSU::UUIDData<TSP::UUIDData>>, std::__1::__unordered_map_hasher<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSU::UUIDData<TSP::UUIDData>>, std::__1::hash<TSUUUID>, true>, std::__1::__unordered_map_equal<TSU::UUIDData<TSP::UUIDData>, std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSU::UUIDData<TSP::UUIDData>>, std::__1::equal_to<TSU::UUIDData<TSP::UUIDData>>, true>, std::__1::allocator<std::__1::__hash_value_type<TSU::UUIDData<TSP::UUIDData>, TSU::UUIDData<TSP::UUIDData>>>> __table_;
 } UUIDMap_727ee07e;
 
+typedef struct __wrap_iter<double *> {
+    double *_field1;
+} __wrap_iter_8fb6ff7c;
+
 typedef struct array<(anonymous namespace)::TextureVariables, 2> {
     struct TextureVariables _field1[2];
 } array_bb63b711;
@@ -10059,6 +10820,18 @@ typedef struct map<unsigned long long, std::__1::tuple<std::__1::shared_ptr<goog
     } _field1;
 } map_33c58e88;
 
+typedef struct multimap<unsigned long, TPPageLayout *, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, TPPageLayout *>>> {
+    struct __tree<std::__1::__value_type<unsigned long, TPPageLayout *>, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, TPPageLayout *>, std::__1::less<unsigned long>, true>, std::__1::allocator<std::__1::__value_type<unsigned long, TPPageLayout *>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned long, TPPageLayout *>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned long, std::__1::__value_type<unsigned long, TPPageLayout *>, std::__1::less<unsigned long>, true>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
+} multimap_9b10e2a9;
+
 typedef struct multiset<TSTColumnOrRowMap, TSTColumnOrRowMapPbLess, std::__1::allocator<TSTColumnOrRowMap>> {
     struct __tree<TSTColumnOrRowMap, TSTColumnOrRowMapPbLess, std::__1::allocator<TSTColumnOrRowMap>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -10089,6 +10862,11 @@ typedef struct pair<bool, TSCH3DShaderVariableLinkage *> {
     id _field2;
 } pair_64bf96b1;
 
+typedef struct pair<double, double> {
+    double _field1;
+    double _field2;
+} pair_b2618ff2;
+
 typedef struct pair<int, int> {
     int _field1;
     int _field2;
@@ -10103,6 +10881,18 @@ typedef struct range<double> {
     double _field1;
     double _field2;
 } range_2a4e38ce;
+
+typedef struct set<EQKitTypes::Attributes::Enum, std::__1::less<EQKitTypes::Attributes::Enum>, std::__1::allocator<EQKitTypes::Attributes::Enum>> {
+    struct __tree<EQKitTypes::Attributes::Enum, std::__1::less<EQKitTypes::Attributes::Enum>, std::__1::allocator<EQKitTypes::Attributes::Enum>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<EQKitTypes::Attributes::Enum, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::less<EQKitTypes::Attributes::Enum>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+} set_25e6ba53;
 
 typedef struct set<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
     struct __tree<GQUtility::ObjcSharedPtr<GQDWrapPoint>, GQUtility::NSObjectComparator<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
@@ -10127,20 +10917,12 @@ typedef struct set<TSTColumnOrRowMap, TSTColumnOrRowMapTgtLess, std::__1::alloca
     } __tree_;
 } set_d8b32998;
 
-typedef struct set<TSUCellRect, TSTCellRangeColumnMajorLess, std::__1::allocator<TSUCellRect>> {
-    struct __tree<TSUCellRect, TSTCellRangeColumnMajorLess, std::__1::allocator<TSUCellRect>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUCellRect, void *>>> __pair1_;
-        struct __compressed_pair<unsigned long, TSTCellRangeColumnMajorLess> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-} set_ddcb7def;
-
 typedef struct set<TSUCellRect, TSTCellRangeRowMajorLess, std::__1::allocator<TSUCellRect>> {
     struct __tree<TSUCellRect, TSTCellRangeRowMajorLess, std::__1::allocator<TSUCellRect>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUCellRect, void *>>> __pair1_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<TSUCellRect, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
         struct __compressed_pair<unsigned long, TSTCellRangeRowMajorLess> {
             unsigned long long __first_;
         } __pair3_;
@@ -10165,14 +10947,14 @@ typedef struct shared_ptr<TSP::ArchiveInfo> {
 } shared_ptr_bafc106c;
 
 typedef struct shared_ptr<TSWPLineFragmentArray> {
-    struct TSWPLineFragmentArray *px;
-    struct shared_count pn;
-} shared_ptr_72f95721;
+    struct TSWPLineFragmentArray *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_1a254aea;
 
 typedef struct shared_ptr<TSWPParagraphTypesetter> {
     struct TSWPParagraphTypesetter *_field1;
-    struct shared_count _field2;
-} shared_ptr_6f812b7d;
+    struct __shared_weak_count *_field2;
+} shared_ptr_b124cf66;
 
 typedef struct shared_ptr<google::protobuf::Message> {
     struct Message *_field1;
@@ -10413,21 +11195,6 @@ typedef struct unordered_set<TSCECellRef, std::__1::hash<TSCECellRef>, std::__1:
     } _field1;
 } unordered_set_7ec2a700;
 
-typedef struct unordered_set<TSCECellReference, TSCECellReferenceHash, TSCECellReferenceEqual, std::__1::allocator<TSCECellReference>> {
-    struct __hash_table<TSCECellReference, TSCECellReferenceHash, TSCECellReferenceEqual, std::__1::allocator<TSCECellReference>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*>, std::__1::allocator<std::__1::__hash_node<TSCECellReference, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<TSCECellReference, void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, TSCECellReferenceHash> {
-            unsigned long long _field1;
-        } _field3;
-        struct __compressed_pair<float, TSCECellReferenceEqual> {
-            float _field1;
-        } _field4;
-    } _field1;
-} unordered_set_81328eae;
-
 typedef struct unordered_set<TSCEInternalCellReference, std::__1::hash<TSCEInternalCellReference>, std::__1::equal_to<TSCEInternalCellReference>, std::__1::allocator<TSCEInternalCellReference>> {
     struct __hash_table<TSCEInternalCellReference, std::__1::hash<TSCEInternalCellReference>, std::__1::equal_to<TSCEInternalCellReference>, std::__1::allocator<TSCEInternalCellReference>> {
         struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TSCEInternalCellReference, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TSCEInternalCellReference, void *>*>*>>> _field1;
@@ -10499,6 +11266,14 @@ typedef struct unordered_set<TSUCellRect, std::__1::hash<TSUCellRect>, std::__1:
     } _field1;
 } unordered_set_ea210bc4;
 
+typedef struct vector<EQKitTypes::Crossout::Enum, std::__1::allocator<EQKitTypes::Crossout::Enum>> {
+    int *__begin_;
+    int *__end_;
+    struct __compressed_pair<EQKitTypes::Crossout::Enum *, std::__1::allocator<EQKitTypes::Crossout::Enum>> {
+        int *__first_;
+    } __end_cap_;
+} vector_2d5e04fe;
+
 typedef struct vector<GQUtility::ObjcSharedPtr<GQDWrapPoint>, std::__1::allocator<GQUtility::ObjcSharedPtr<GQDWrapPoint>>> {
     struct ObjcSharedPtr<GQDWrapPoint> *_field1;
     struct ObjcSharedPtr<GQDWrapPoint> *_field2;
@@ -10530,6 +11305,14 @@ typedef struct vector<TSCERangeCoordinate, std::__1::allocator<TSCERangeCoordina
         struct TSCERangeCoordinate *_field1;
     } _field3;
 } vector_60dd006f;
+
+typedef struct vector<TSCERangeRef, std::__1::allocator<TSCERangeRef>> {
+    struct TSCERangeRef *_field1;
+    struct TSCERangeRef *_field2;
+    struct __compressed_pair<TSCERangeRef *, std::__1::allocator<TSCERangeRef>> {
+        struct TSCERangeRef *_field1;
+    } _field3;
+} vector_5a16d233;
 
 typedef struct vector<TSCEReferenceValue, std::__1::allocator<TSCEReferenceValue>> {
     struct TSCEReferenceValue *_field1;
@@ -10675,20 +11458,18 @@ typedef struct vector<TSWPAdornmentRect, std::__1::allocator<TSWPAdornmentRect>>
     } _field3;
 } vector_e65b05c3;
 
-typedef struct vector<TSWPTargetHint, std::__1::allocator<TSWPTargetHint>> {
-    struct TSWPTargetHint *__begin_;
-    struct TSWPTargetHint *__end_;
-    struct __compressed_pair<TSWPTargetHint *, std::__1::allocator<TSWPTargetHint>> {
-        struct TSWPTargetHint *__first_;
+typedef struct vector<_TSWPCharIndexAndAffinity, std::__1::allocator<_TSWPCharIndexAndAffinity>> {
+    struct _TSWPCharIndexAndAffinity *__begin_;
+    struct _TSWPCharIndexAndAffinity *__end_;
+    struct __compressed_pair<_TSWPCharIndexAndAffinity *, std::__1::allocator<_TSWPCharIndexAndAffinity>> {
+        struct _TSWPCharIndexAndAffinity *__first_;
     } __end_cap_;
-} vector_7a2e319d;
+} vector_ea6649b6;
 
 typedef struct vector<bool, std::__1::allocator<bool>> {
     unsigned long long *__begin_;
     unsigned long long __size_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned long>> {
-        unsigned long long __first_;
-    } __cap_alloc_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned long>> __cap_alloc_;
 } vector_277e069e;
 
 typedef struct vector<boost::polygon::segment_data<double>, std::__1::allocator<boost::polygon::segment_data<double>>> {

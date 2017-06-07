@@ -6,57 +6,45 @@
 
 #import <SearchUI/SearchUITableViewController.h>
 
-#import <SearchUI/UIViewControllerPreviewingDelegate-Protocol.h>
+@class NSArray, NSMutableDictionary, SFCard, SFSearchResult, UIActivityIndicatorView, UIColor, UILabel, UIView;
 
-@class NSArray, NSIndexPath, NSMutableDictionary, NSString, SFSearchResult, UIColor;
-@protocol SearchUIFeedbackDelegate, UIViewControllerPreviewing;
-
-@interface SearchUICardViewController : SearchUITableViewController <UIViewControllerPreviewingDelegate>
+@interface SearchUICardViewController : SearchUITableViewController
 {
     SFSearchResult *_result;
-    unsigned long long _style;
     NSArray *_cardSectionViews;
-    id <UIViewControllerPreviewing> _previewingContext;
-    NSIndexPath *_forceTouchIndexPath;
-    id <SearchUIFeedbackDelegate> _feedbackDelegate;
+    SFCard *_card;
+    UIView *_loadingView;
+    UIActivityIndicatorView *_loadingSpinner;
+    UILabel *_loadingLabel;
     NSMutableDictionary *_cellCache;
 }
 
-+ (double)separatorHeight;
-+ (id)cardViewControllerForResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
-+ (id)cardViewControllerForResult:(id)arg1 style:(unsigned long long)arg2;
++ (void)applySeparatorStyleToCell:(id)arg1 withCurrentCardSectionView:(id)arg2 nextCardSectionView:(id)arg3;
 @property(retain) NSMutableDictionary *cellCache; // @synthesize cellCache=_cellCache;
-@property(nonatomic) __weak id <SearchUIFeedbackDelegate> feedbackDelegate; // @synthesize feedbackDelegate=_feedbackDelegate;
-@property(retain) NSIndexPath *forceTouchIndexPath; // @synthesize forceTouchIndexPath=_forceTouchIndexPath;
-@property(retain) id <UIViewControllerPreviewing> previewingContext; // @synthesize previewingContext=_previewingContext;
+@property(retain) UILabel *loadingLabel; // @synthesize loadingLabel=_loadingLabel;
+@property(retain) UIActivityIndicatorView *loadingSpinner; // @synthesize loadingSpinner=_loadingSpinner;
+@property(retain) UIView *loadingView; // @synthesize loadingView=_loadingView;
+@property(retain) SFCard *card; // @synthesize card=_card;
 @property(retain) NSArray *cardSectionViews; // @synthesize cardSectionViews=_cardSectionViews;
-@property unsigned long long style; // @synthesize style=_style;
 @property(retain, nonatomic) SFSearchResult *result; // @synthesize result=_result;
 - (void).cxx_destruct;
-- (void)traitCollectionDidChange:(id)arg1;
-- (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
-- (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
-- (_Bool)didHandlePunchout:(id)arg1 fromSection:(id)arg2;
-- (void)sendFeedbackForPunchout:(id)arg1 fromSection:(id)arg2;
-- (void)openPunchout:(id)arg1 fromSection:(id)arg2;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (id)punchoutPickerDismissText:(id)arg1;
+- (id)punchoutPickerTitleForIndexPath:(id)arg1;
+- (id)nextCardForIndexPath:(id)arg1;
 - (id)punchoutsForIndexPath:(id)arg1;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
+- (id)cardSectionForIndexPath:(id)arg1;
+- (id)cellForIndexPath:(id)arg1 reuseIfPossible:(_Bool)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 @property(readonly) UIColor *textColor;
-- (id)initWithResult:(id)arg1 style:(unsigned long long)arg2 inline:(_Bool)arg3 feedbackDelegate:(id)arg4;
-- (id)initWithResult:(id)arg1 style:(unsigned long long)arg2 inline:(_Bool)arg3;
-- (id)initWithResult:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
-- (id)initWithResult:(id)arg1 style:(unsigned long long)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (void)setShouldUseInsetRoundedSections:(_Bool)arg1;
+- (void)viewDidLayoutSubviews;
+- (void)displayLoadingView;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)cardViewDidAppear;
+- (void)viewWillAppear:(_Bool)arg1;
+- (id)initWithCard:(id)arg1 style:(unsigned long long)arg2 feedbackDelegate:(id)arg3;
 
 @end
 

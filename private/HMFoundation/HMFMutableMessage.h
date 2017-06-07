@@ -6,7 +6,7 @@
 
 #import <HMFoundation/HMFMessage.h>
 
-@class HMFMessageDestination, NSDictionary, NSString, NSUUID;
+@class HMFMessageDestination, HMFMessageTransport, NSDictionary, NSString, NSUUID;
 
 @interface HMFMutableMessage : HMFMessage
 {
@@ -14,6 +14,12 @@
 
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic) __weak HMFMessageTransport *transport; // @dynamic transport;
+- (void)setHeaderValue:(id)arg1 forKey:(id)arg2;
+@property(copy, nonatomic) NSDictionary *headers; // @dynamic headers;
+- (void)setUserInfoValue:(id)arg1 forKey:(id)arg2;
+@property(copy, nonatomic) NSDictionary *userInfo; // @dynamic userInfo;
+@property(nonatomic) long long qualityOfService; // @dynamic qualityOfService;
 @property(copy, nonatomic) NSString *name; // @dynamic name;
 
 // Remaining properties

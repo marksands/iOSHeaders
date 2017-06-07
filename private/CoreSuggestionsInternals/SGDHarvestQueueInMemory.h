@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (void)_flushWithItemIdLockedAsync:(long long)arg1;
 - (void)_flushWithIndexLockedAsync:(unsigned long long)arg1;
-- (void)_deleteWithItemId:(long long)arg1;
+- (void)_deleteWithItemId:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (long long)_indexOfItemWithIdLocked:(long long)arg1;
 - (void)_sortLocked;
 - (void)writePermafail:(id)arg1;

@@ -34,6 +34,7 @@
 - (id)fileProtectionClassRequest:(id)arg1;
 - (void)dealloc;
 - (id)init:(id)arg1 withModelDBPath:(id)arg2 withPropertyList:(id)arg3;
+- (id)getSolution;
 
 @end
 

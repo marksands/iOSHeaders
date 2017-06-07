@@ -17,6 +17,7 @@
 
 + (Class)tileSetInfoType;
 @property(retain, nonatomic) NSMutableArray *tileSetInfos; // @synthesize tileSetInfos=_tileSetInfos;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (unsigned long long)tileSetInfosCount;
 - (void)addTileSetInfo:(id)arg1;
 - (void)clearTileSetInfos;
-- (void)dealloc;
 
 @end
 

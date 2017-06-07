@@ -6,9 +6,10 @@
 
 #import <CoreHAP/NSObject-Protocol.h>
 
-@class NSData, NSDictionary, NSString, NSUUID;
+@class HAPPairingIdentity, NSData, NSDictionary, NSString, NSUUID;
 
 @protocol HAPKeyStore <NSObject>
+@property(readonly, nonatomic) NSString *activeControllerPairingIdentifier;
 - (_Bool)removeAllAccessoryKeys:(id *)arg1;
 - (_Bool)removeAccessoryKeyForName:(NSString *)arg1 error:(id *)arg2;
 - (_Bool)registerAccessoryWithHomeKit:(NSString *)arg1 error:(id *)arg2;
@@ -24,8 +25,10 @@
 - (_Bool)deserializeKeyPair:(NSData *)arg1 publicKey:(id *)arg2 secretKey:(id *)arg3 error:(id *)arg4;
 - (_Bool)saveKeyPair:(NSData *)arg1 username:(NSString *)arg2 syncable:(_Bool)arg3 error:(id *)arg4;
 - (_Bool)getControllerPublicKey:(id *)arg1 secretKey:(id *)arg2 keyPair:(id *)arg3 username:(id *)arg4 allowCreation:(_Bool)arg5 error:(id *)arg6;
-- (_Bool)getControllerKeyPair:(id *)arg1 username:(id *)arg2 error:(id *)arg3;
 - (_Bool)getControllerPublicKey:(id *)arg1 secretKey:(id *)arg2 username:(id *)arg3 allowCreation:(_Bool)arg4 error:(id *)arg5;
+- (_Bool)saveLocalPairingIdentity:(HAPPairingIdentity *)arg1 syncable:(_Bool)arg2 error:(id *)arg3;
+- (HAPPairingIdentity *)getOrCreateLocalPairingIdentity:(id *)arg1;
+- (HAPPairingIdentity *)getLocalPairingIdentity:(id *)arg1;
 
 @optional
 - (NSDictionary *)getPeripherialIdentifiersAndAccessoryNames;

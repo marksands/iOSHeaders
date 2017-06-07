@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSSPropertyMap *propertyMapToReset; // @synthesize propertyMapToReset=_propertyMapToReset;
 @property(retain, nonatomic) TSSPropertyMap *propertyMapToSet; // @synthesize propertyMapToSet=_propertyMapToSet;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)objectApplyingDiffToObject:(id)arg1 andUpdateInverse:(id)arg2;
 - (void)clear;
 - (void)removeObjectsToSetForProperty:(int)arg1;

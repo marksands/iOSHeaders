@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <CoreDAV/CoreDAVSubmittable-Protocol.h>
 
@@ -74,9 +74,10 @@
 @property(nonatomic) int depth; // @synthesize depth=_depth;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
-@property(nonatomic) id <CoreDAVTaskDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
-@property(nonatomic) id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
+@property(nonatomic) __weak id <CoreDAVTaskDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <CoreDAVAccountInfoProvider> accountInfoProvider; // @synthesize accountInfoProvider=_accountInfoProvider;
+@property(nonatomic) __weak id <CoreDAVTaskManager> taskManager; // @synthesize taskManager=_taskManager;
+- (void).cxx_destruct;
 - (id)_requestForLogging;
 - (id)_connectionForLogging;
 - (void)reportStatusWithError:(id)arg1;

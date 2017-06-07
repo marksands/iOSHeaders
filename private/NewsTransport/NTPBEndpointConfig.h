@@ -12,6 +12,8 @@
 
 @interface NTPBEndpointConfig : PBCodable <NSCopying>
 {
+    NSString *_analyticsEndpointUrlsJson;
+    NSString *_analyticsEnvelopeContentTypePropJson;
     NSString *_clientApiBaseUrl;
     int _environment;
     NSString *_eventRelayBaseUrl;
@@ -19,6 +21,8 @@
     NSString *_newsNotificationsBaseUrl;
 }
 
+@property(retain, nonatomic) NSString *analyticsEnvelopeContentTypePropJson; // @synthesize analyticsEnvelopeContentTypePropJson=_analyticsEnvelopeContentTypePropJson;
+@property(retain, nonatomic) NSString *analyticsEndpointUrlsJson; // @synthesize analyticsEndpointUrlsJson=_analyticsEndpointUrlsJson;
 @property(retain, nonatomic) NSString *newsNotificationsBaseUrl; // @synthesize newsNotificationsBaseUrl=_newsNotificationsBaseUrl;
 @property(retain, nonatomic) NSString *eventRelayBatchBaseUrl; // @synthesize eventRelayBatchBaseUrl=_eventRelayBatchBaseUrl;
 @property(retain, nonatomic) NSString *eventRelayBaseUrl; // @synthesize eventRelayBaseUrl=_eventRelayBaseUrl;
@@ -33,6 +37,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAnalyticsEnvelopeContentTypePropJson;
+@property(readonly, nonatomic) _Bool hasAnalyticsEndpointUrlsJson;
 @property(readonly, nonatomic) _Bool hasNewsNotificationsBaseUrl;
 @property(readonly, nonatomic) _Bool hasEventRelayBatchBaseUrl;
 @property(readonly, nonatomic) _Bool hasEventRelayBaseUrl;

@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSMutableArray *separators; // @synthesize separators=_separators;
 @property(retain, nonatomic) NSMutableArray *formatArguments; // @synthesize formatArguments=_formatArguments;
 @property(retain, nonatomic) NSMutableArray *formatStrings; // @synthesize formatStrings=_formatStrings;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -45,8 +46,6 @@
 - (unsigned long long)formatStringsCount;
 - (void)addFormatString:(id)arg1;
 - (void)clearFormatStrings;
-- (void)dealloc;
-@property(readonly, nonatomic) NSString *formatString;
 @property(readonly, nonatomic) NSArray *formatTokens;
 
 // Remaining properties

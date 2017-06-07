@@ -6,7 +6,7 @@
 
 #import <PhotosPlayer/ISObservable.h>
 
-@class AVPlayer, AVPlayerItem, AVPlayerLooper, AVQueuePlayer, NSArray, NSError, NSMutableDictionary, NSObject;
+@class AVPlayer, AVPlayerItem, AVQueuePlayer, AVVideoComposition, NSArray, NSError, NSMutableDictionary, NSObject;
 @protocol ISWrappedAVPlayerDelegate, OS_dispatch_queue;
 
 @interface ISWrappedAVPlayer : ISObservable
@@ -16,7 +16,6 @@
     NSObject<OS_dispatch_queue> *_delegateQueue;
     AVPlayer *_playerQueue_avPlayer;
     AVQueuePlayer *_playerQueue_avQueuePlayer;
-    AVPlayerLooper *_playerQueue_avPlayerLooper;
     id _playerQueue_playerItemDidPlayToEndObserver;
     AVPlayerItem *_ivarQueue_currentItem;
     long long _ivarQueue_status;
@@ -30,6 +29,7 @@
     CDStruct_1b6d18a9 _ivarQueue_itemForwardPlaybackEndTime;
     CDStruct_1b6d18a9 _ivarQueue_itemDuration;
     _Bool _ivarQueue_itemPlaybackBufferFull;
+    AVVideoComposition *_ivarQueue_itemVideoComposition;
     _Bool _ivarQueue_itemIsLikelyToKeepUp;
     _Bool _ivarQueue_itemPlaybackBufferEmpty;
     NSArray *_ivarQueue_currentItemLoadedTimeRanges;
@@ -57,6 +57,7 @@
 - (void)setActionAtItemEnd:(long long)arg1;
 - (void)playToTime:(CDStruct_1b6d18a9)arg1 withInitialRate:(float)arg2 overDuration:(double)arg3 progressHandler:(CDUnknownBlockType)arg4;
 - (void)setRate:(float)arg1 time:(CDStruct_1b6d18a9)arg2 atHostTime:(CDStruct_1b6d18a9)arg3;
+- (void)setLoopingEnabled:(_Bool)arg1 withTemplateItem:(id)arg2;
 - (void)setLoopingEnabled:(_Bool)arg1;
 - (_Bool)isAudioEnabled;
 - (void)_playerQueue_updatePlayerItemAudioTracksEnabled;
@@ -68,6 +69,7 @@
 - (id)currentItem;
 - (id)error;
 - (id)currentItemError;
+- (id)currentItemVideoComposition;
 - (_Bool)currentItemIsLikelyToKeepUp;
 - (_Bool)currentItemPlaybackBufferEmpty;
 - (_Bool)currentItemPlaybackBufferFull;
@@ -76,7 +78,6 @@
 - (long long)currentItemStatus;
 - (long long)status;
 - (_Bool)isLoopingEnabled;
-- (void)_handleLooperItemsDidChange;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)_nilOrValue:(id)arg1;
 - (void)_playerItemDidPlayToEnd:(id)arg1;

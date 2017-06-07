@@ -11,10 +11,12 @@
 @interface HKEmergencyCardTableItem : NSObject
 {
     _Bool _isInEditMode;
+    _Bool _shouldShowHints;
     _HKMedicalIDData *_data;
     UIViewController *_owningViewController;
 }
 
+@property(nonatomic) _Bool shouldShowHints; // @synthesize shouldShowHints=_shouldShowHints;
 @property(readonly, nonatomic) _Bool isInEditMode; // @synthesize isInEditMode=_isInEditMode;
 @property(nonatomic) __weak UIViewController *owningViewController; // @synthesize owningViewController=_owningViewController;
 @property(retain, nonatomic) _HKMedicalIDData *data; // @synthesize data=_data;

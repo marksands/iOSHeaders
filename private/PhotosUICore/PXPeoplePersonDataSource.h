@@ -17,14 +17,13 @@
     NSDictionary *_keyFacesByPersons;
     NSDictionary *_assetsByFaces;
     NSObject<OS_dispatch_queue> *_imageManagerDataSourceLoadingQueue;
-    long long _personType;
+    unsigned long long _personFetchType;
 }
 
-+ (CDUnknownBlockType)manualOrderComparator;
-+ (id)hiddenPeopleDataSourceWithFetchLimit:(unsigned long long)arg1;
++ (id)allPeopleDataSourceWithFetchLimit:(unsigned long long)arg1;
 + (id)otherPeopleDataSourceWithFetchLimit:(unsigned long long)arg1;
 + (id)importantPeopleDataSourceWithFetchLimit:(unsigned long long)arg1;
-@property(nonatomic) long long personType; // @synthesize personType=_personType;
+@property(nonatomic) unsigned long long personFetchType; // @synthesize personFetchType=_personFetchType;
 - (void).cxx_destruct;
 - (id)_assetForFace:(id)arg1;
 - (id)_faceForPerson:(id)arg1;
@@ -32,12 +31,13 @@
 - (void)addVisiblePerson:(id)arg1;
 - (void)photoLibraryDidChange:(id)arg1;
 @property(readonly, nonatomic) PXPeopleFaceTileImageManager *imageManager;
-- (CDUnknownBlockType)defaultComparator;
+- (id)generateFetchResult;
 - (void)cancelImageLoadingForItem:(id)arg1;
 - (void)_asyncLoadImageForItem:(id)arg1 targetSize:(struct CGSize)arg2 withCompletionBlock:(CDUnknownBlockType)arg3 fastDisplayBlock:(CDUnknownBlockType)arg4;
 - (id)_membersForModelObjects:(id)arg1;
 - (id)_applyChanges:(id)arg1;
-- (void)_updateMember:(id)arg1 WithModelObject:(id)arg2;
+- (long long)_personTypeForFetchType:(unsigned long long)arg1;
+- (id)_fetchResultForFetchType:(unsigned long long)arg1 fetchOptions:(id)arg2;
 - (id)_itemsArrayFromObjects:(id)arg1;
 - (id)titleAtIndex:(unsigned long long)arg1;
 - (void)_handleMembersLoadedWithCompletion:(CDUnknownBlockType)arg1;
@@ -45,10 +45,8 @@
 - (void)stopListeningForChanges;
 - (void)startListeningForChanges;
 - (id)initWithImageManagerSupportAndName:(id)arg1 objectsReloadBlock:(CDUnknownBlockType)arg2 asynchronousLoad:(_Bool)arg3 callbackDelegate:(id)arg4;
-- (id)initWithName:(id)arg1 personType:(long long)arg2 fetchLimit:(unsigned long long)arg3;
-- (id)initWithName:(id)arg1 personType:(long long)arg2 objects:(id)arg3;
-- (id)initWithName:(id)arg1 objects:(id)arg2;
-- (id)initWithName:(id)arg1 fetchResultBlock:(CDUnknownBlockType)arg2;
+- (id)initWithName:(id)arg1 personFetchType:(unsigned long long)arg2 fetchLimit:(unsigned long long)arg3;
+- (id)initWithName:(id)arg1 personFetchType:(unsigned long long)arg2 objects:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

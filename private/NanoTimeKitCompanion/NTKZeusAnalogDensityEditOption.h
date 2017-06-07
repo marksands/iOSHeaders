@@ -12,6 +12,7 @@
 
 + (id)_nameLocalizationKeyForValue:(unsigned long long)arg1;
 + (id)_orderedValues;
+- (long long)swatchStyle;
 
 @end
 

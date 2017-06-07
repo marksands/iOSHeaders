@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOComposedRouteLeg, GEOComposedRouteStep;
 
@@ -12,7 +12,7 @@
 {
     unsigned int _startPointIndex;
     unsigned int _pointCount;
-    CDStruct_b2fbf00d *_points;
+    CDStruct_6e3f967a *_points;
     int _transportType;
     GEOComposedRouteLeg *_composedRouteLeg;
     GEOComposedRouteStep *_composedRouteStep;
@@ -29,12 +29,13 @@
 @property(readonly, nonatomic) unsigned long long finalStepIndex; // @synthesize finalStepIndex=_finalStepIndex;
 @property(readonly, nonatomic) CDStruct_90e2a262 bounds; // @synthesize bounds=_bounds;
 @property(readonly, nonatomic) unsigned long long composedRouteLegIndex; // @synthesize composedRouteLegIndex=_composedRouteLegIndex;
-@property(readonly, nonatomic) GEOComposedRouteStep *composedRouteStep; // @synthesize composedRouteStep=_composedRouteStep;
-@property(readonly, nonatomic) GEOComposedRouteLeg *composedRouteLeg; // @synthesize composedRouteLeg=_composedRouteLeg;
+@property(readonly, nonatomic) __weak GEOComposedRouteStep *composedRouteStep; // @synthesize composedRouteStep=_composedRouteStep;
+@property(readonly, nonatomic) __weak GEOComposedRouteLeg *composedRouteLeg; // @synthesize composedRouteLeg=_composedRouteLeg;
 @property(readonly, nonatomic) int transportType; // @synthesize transportType=_transportType;
-@property(readonly, nonatomic) CDStruct_b2fbf00d *points; // @synthesize points=_points;
+@property(readonly, nonatomic) CDStruct_6e3f967a *points; // @synthesize points=_points;
 @property(readonly, nonatomic) unsigned int pointCount; // @synthesize pointCount=_pointCount;
 @property(readonly, nonatomic) unsigned int startPointIndex; // @synthesize startPointIndex=_startPointIndex;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isTransfer;
 @property(readonly, nonatomic) unsigned int endPointIndex;

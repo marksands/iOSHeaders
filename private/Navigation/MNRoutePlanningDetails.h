@@ -8,7 +8,7 @@
 
 #import <Navigation/NSCopying-Protocol.h>
 
-@class GEOComposedWaypoint, GEODirectionsRequest, GEODirectionsResponse, GEOLocation, GEORouteAttributes, NSString;
+@class GEOComposedWaypoint, GEODirectionsRequest, GEODirectionsResponse, GEOLocation, GEORoute, GEORouteAttributes, NSString;
 
 @interface MNRoutePlanningDetails : PBCodable <NSCopying>
 {
@@ -17,12 +17,15 @@
     int _navigationType;
     GEOComposedWaypoint *_origin;
     GEODirectionsRequest *_request;
+    NSString *_requestingAppIdentifier;
     GEODirectionsResponse *_response;
+    GEORoute *_route;
     GEORouteAttributes *_routeAttributes;
     unsigned int _routeIndex;
     NSString *_traceFileName;
     int _transportType;
     _Bool _copyTracesToCrashReporterDirectory;
+    _Bool _fullGuidance;
     _Bool _guidancePromptsEnabled;
     _Bool _isForReconnecting;
     _Bool _isTraceRecording;
@@ -32,6 +35,7 @@
         unsigned int routeIndex:1;
         unsigned int transportType:1;
         unsigned int copyTracesToCrashReporterDirectory:1;
+        unsigned int fullGuidance:1;
         unsigned int guidancePromptsEnabled:1;
         unsigned int isForReconnecting:1;
         unsigned int isTraceRecording:1;
@@ -39,8 +43,10 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *requestingAppIdentifier; // @synthesize requestingAppIdentifier=_requestingAppIdentifier;
 @property(nonatomic) _Bool copyTracesToCrashReporterDirectory; // @synthesize copyTracesToCrashReporterDirectory=_copyTracesToCrashReporterDirectory;
 @property(retain, nonatomic) NSString *traceFileName; // @synthesize traceFileName=_traceFileName;
+@property(retain, nonatomic) GEORoute *route; // @synthesize route=_route;
 @property(retain, nonatomic) GEOLocation *lastLocation; // @synthesize lastLocation=_lastLocation;
 @property(retain, nonatomic) GEORouteAttributes *routeAttributes; // @synthesize routeAttributes=_routeAttributes;
 @property(nonatomic) unsigned int routeIndex; // @synthesize routeIndex=_routeIndex;
@@ -59,10 +65,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasRequestingAppIdentifier;
 @property(nonatomic) _Bool hasCopyTracesToCrashReporterDirectory;
 @property(nonatomic) _Bool hasIsTraceRecording;
 @property(nonatomic) _Bool isTraceRecording; // @synthesize isTraceRecording=_isTraceRecording;
 @property(readonly, nonatomic) _Bool hasTraceFileName;
+@property(nonatomic) _Bool hasFullGuidance;
+@property(nonatomic) _Bool fullGuidance; // @synthesize fullGuidance=_fullGuidance;
+@property(readonly, nonatomic) _Bool hasRoute;
 @property(readonly, nonatomic) _Bool hasLastLocation;
 @property(nonatomic) _Bool hasShouldPrepare;
 @property(nonatomic) _Bool shouldPrepare; // @synthesize shouldPrepare=_shouldPrepare;

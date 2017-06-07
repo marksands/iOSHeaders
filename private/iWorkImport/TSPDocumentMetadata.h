@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 - (void)takeSnapshotWithCollaborationMode:(_Bool)arg1;
 - (id)packageLocator;
 - (long long)tsp_identifier;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

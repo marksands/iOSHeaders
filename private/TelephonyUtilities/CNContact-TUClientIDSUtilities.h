@@ -6,7 +6,9 @@
 
 #import <Contacts/CNContact.h>
 
+@class NSArray;
+
 @interface CNContact (TUClientIDSUtilities)
-- (id)allIDSDestinations;
+@property(readonly, nonatomic) NSArray *allIDSDestinations;
 @end
 

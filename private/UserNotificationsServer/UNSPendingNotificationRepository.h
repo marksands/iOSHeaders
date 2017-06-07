@@ -18,6 +18,7 @@
 - (void)performMigrationForBundleIdentifier:(id)arg1;
 - (void)performMigration;
 - (void)applicationStateDidRestore;
+- (void)applicationsDidUninstall:(id)arg1;
 - (void)_notifyObserversOfChangesFrom:(id)arg1 to:(id)arg2 forBundleIdentifier:(id)arg3;
 - (void)setPendingNotificationRecords:(id)arg1 forBundleIdentifier:(id)arg2;
 - (id)pendingNotificationRecordsForBundleIdentifier:(id)arg1;

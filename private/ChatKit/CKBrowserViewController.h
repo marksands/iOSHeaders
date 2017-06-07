@@ -8,11 +8,12 @@
 
 #import <ChatKit/CKBrowserViewControllerProtocol-Protocol.h>
 
-@class CKBrowserDragManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSNumber, NSObject, NSString, UIView;
+@class CKBrowserDragManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSData, NSNumber, NSObject, NSString, UIView;
 @protocol CKBrowserViewControllerSendDelegate, UIViewControllerTransitioningDelegate;
 
 @interface CKBrowserViewController : UIViewController <CKBrowserViewControllerProtocol>
 {
+    long long _previousConsumer;
     _Bool _isiMessage;
     _Bool _isTransitioningToExpandedPresentation;
     NSObject<CKBrowserViewControllerSendDelegate> *_sendDelegate;
@@ -41,6 +42,7 @@
 - (void)endDisablingUserInteraction;
 - (void)beginDisablingUserInteraction;
 @property(readonly, nonatomic) _Bool mayBeKeptInViewHierarchy;
+@property(readonly, nonatomic) _Bool shouldSuppressEntryView;
 @property(readonly, nonatomic) _Bool supportsQuickView;
 @property(readonly, nonatomic) _Bool shouldShowChatChrome;
 @property(readonly, nonatomic) _Bool wantsDarkUI;
@@ -50,6 +52,7 @@
 - (void)viewWillTransitionToCompactPresentation;
 - (void)viewDidTransitionToExpandedPresentation;
 - (void)viewWillTransitionToExpandedPresentation;
+@property(readonly, nonatomic) _Bool wasExpandedPresentation;
 @property(readonly, nonatomic) _Bool inExpandedPresentation;
 - (_Bool)isLoaded;
 - (void)dismiss;
@@ -74,11 +77,14 @@
 @property(retain, nonatomic) NSNumber *adamID;
 @property(readonly, nonatomic) unsigned long long badgeValue;
 @property(readonly, nonatomic) _Bool canReplaceDataSource;
+@property(retain, nonatomic) NSData *conversationEngramID;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct CGRect horizontalSwipeExclusionRect;
 @property(readonly, nonatomic) long long parentModalPresentationStyle;
 @property(readonly, nonatomic) __weak id <UIViewControllerTransitioningDelegate> parentTransitioningDelegate;
+@property(readonly, nonatomic) UIViewController *remoteViewController;
 @property(readonly) Class superclass;
 
 @end

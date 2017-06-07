@@ -8,7 +8,7 @@
 
 #import <PassKitUI/PKPaymentServiceDelegate-Protocol.h>
 
-@class CLInUseAssertion, NSArray, NSObject, NSString, PKFieldProperties, PKPassGroupsViewController, PKPaymentService, _UIBackdropView;
+@class CLInUseAssertion, NSArray, NSObject, NSString, PKFieldProperties, PKPassGroupsViewController, PKPaymentService;
 @protocol OS_dispatch_group;
 
 @interface PKPaymentRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentServiceDelegate>
@@ -18,12 +18,12 @@
     PKFieldProperties *_fieldProperties;
     NSArray *_fieldPassUniqueIdentifiers;
     NSString *_passUniqueIdentifier;
-    _UIBackdropView *_backdropView;
     CLInUseAssertion *_passbookForegroundAssertion;
     NSObject<OS_dispatch_group> *_fieldPropertiesLookupGroup;
     long long _presentationSource;
     unsigned long long _presentationStartTime;
     _Bool _backlightActive;
+    _Bool _deviceUILocked;
     _Bool _processHomeButtonEvents;
     _Bool _homeButtonDoubleTapAlertHasOccurred;
 }
@@ -41,6 +41,7 @@
 - (void)_dismissIfRestricted;
 - (void)_presentHomeButtonDoubleTapAlertIfNecessary;
 - (void)_setupGroupController;
+- (void)handleLockButtonPressed;
 - (void)handleHomeButtonPressed;
 - (void)setUserInfo:(id)arg1;
 - (unsigned long long)supportedInterfaceOrientations;

@@ -6,12 +6,13 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSArray;
+@class NSArray, TSPDataMetadataMap;
 
 __attribute__((visibility("hidden")))
 @interface TSPObjectSerializationMetadata : TSPObject
 {
     struct ObjectSerializationMetadata _message;
+    TSPDataMetadataMap *_identifierToDataMetadataMap;
     NSArray *_dataReferences;
 }
 
@@ -21,7 +22,10 @@ __attribute__((visibility("hidden")))
 - (long long)tsp_identifier;
 - (struct ObjectSerializationMetadata *)message;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
+- (id)dataMetadataForDataIdentifier:(long long)arg1;
+- (void)setDataMetadata:(id)arg1 forDataIdentifier:(long long)arg2;
+- (id)initWithContext:(id)arg1;
 
 @end
 

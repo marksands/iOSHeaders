@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CHDrawing, NSCharacterSet, NSMutableIndexSet, NSString, NSURL;
+@class CHDrawing, NSCharacterSet, NSLocale, NSMutableIndexSet, NSString, NSURL;
 @protocol OS_dispatch_queue;
 
 @interface CHRecognizer : NSObject
@@ -21,16 +21,19 @@
     NSObject<OS_dispatch_queue> *_recognitionQueue;
     struct Network *_radicalClusterFST;
     struct Network *_formatGrammarFST;
+    NSLocale *_locale;
     void *_languageModel;
+    void *_characterLanguageModel;
     struct __Mecabra *_mecabra;
-    void *_mecabraStaticLexicon;
-    void *_mecabraDynamicLexicon;
+    void *_staticLexicon;
+    void *_dynamicLexicon;
+    struct _LXLexicon *_customLexicon;
+    struct _CFBurstTrie *_ovsTrie;
     NSURL *_learningDictionaryURL;
     CHDrawing *_savedDrawing;
     NSString *_savedTop1CandidateString;
     CHDrawing *_cachedDrawing;
-    struct VariantMap *_scVariantMap;
-    struct VariantMap *_tcVariantMap;
+    struct VariantMap *_transliterationVariantMap;
     void **_icuTransliterator;
     unsigned long long _lastCharacterStrokeCount;
     NSMutableIndexSet *_lastCharacterStrokeIndexes;
@@ -38,42 +41,60 @@
     map_4a1e39a4 _cachedResults;
 }
 
-+ (id)defaultPunctuationResultsForRecognitionType:(int)arg1;
-@property(nonatomic) NSMutableIndexSet *lastCharacterStrokeIndexes; // @synthesize lastCharacterStrokeIndexes=_lastCharacterStrokeIndexes;
++ (double)_computeEditPenalizationFromString:(id)arg1 toReferenceString:(id)arg2 withSuffix:(id)arg3 withCaseSensitivity:(_Bool)arg4 withDiacriticSensitivity:(_Bool)arg5 withDiacriticsCharSet:(id)arg6 withConsumableStrokesCharSet:(id)arg7 outputSuffix:(id *)arg8 lexiconExtraCharacters:(id *)arg9 firstLetterCaseFlipped:(_Bool *)arg10;
++ (id)wordsForCustomLexicon;
+@property(retain, nonatomic) NSMutableIndexSet *lastCharacterStrokeIndexes; // @synthesize lastCharacterStrokeIndexes=_lastCharacterStrokeIndexes;
 @property(nonatomic) unsigned long long lastCharacterStrokeCount; // @synthesize lastCharacterStrokeCount=_lastCharacterStrokeCount;
 @property(nonatomic) void **icuTransliterator; // @synthesize icuTransliterator=_icuTransliterator;
-@property(nonatomic) struct VariantMap *tcVariantMap; // @synthesize tcVariantMap=_tcVariantMap;
-@property(nonatomic) struct VariantMap *scVariantMap; // @synthesize scVariantMap=_scVariantMap;
+@property(nonatomic) struct VariantMap *transliterationVariantMap; // @synthesize transliterationVariantMap=_transliterationVariantMap;
 @property(nonatomic) map_4a1e39a4 cachedResults; // @synthesize cachedResults=_cachedResults;
 @property(copy, nonatomic) CHDrawing *cachedDrawing; // @synthesize cachedDrawing=_cachedDrawing;
 @property(nonatomic) _Bool saveDrawingUntilNextCandidateAccepted; // @synthesize saveDrawingUntilNextCandidateAccepted=_saveDrawingUntilNextCandidateAccepted;
 @property(copy, nonatomic) NSString *savedTop1CandidateString; // @synthesize savedTop1CandidateString=_savedTop1CandidateString;
 @property(copy, nonatomic) CHDrawing *savedDrawing; // @synthesize savedDrawing=_savedDrawing;
 @property(retain, nonatomic) NSURL *learningDictionaryURL; // @synthesize learningDictionaryURL=_learningDictionaryURL;
-@property(nonatomic) void *mecabraDynamicLexicon; // @synthesize mecabraDynamicLexicon=_mecabraDynamicLexicon;
-@property(nonatomic) void *mecabraStaticLexicon; // @synthesize mecabraStaticLexicon=_mecabraStaticLexicon;
+@property(nonatomic) struct _CFBurstTrie *ovsTrie; // @synthesize ovsTrie=_ovsTrie;
+@property(nonatomic) struct _LXLexicon *customLexicon; // @synthesize customLexicon=_customLexicon;
+@property(nonatomic) void *dynamicLexicon; // @synthesize dynamicLexicon=_dynamicLexicon;
+@property(nonatomic) void *staticLexicon; // @synthesize staticLexicon=_staticLexicon;
 @property(nonatomic) struct __Mecabra *mecabra; // @synthesize mecabra=_mecabra;
+@property(nonatomic) void *characterLanguageModel; // @synthesize characterLanguageModel=_characterLanguageModel;
 @property(nonatomic) void *languageModel; // @synthesize languageModel=_languageModel;
+@property(nonatomic) NSLocale *locale; // @synthesize locale=_locale;
 @property(nonatomic) struct Network *formatGrammarFST; // @synthesize formatGrammarFST=_formatGrammarFST;
 @property(nonatomic) struct Network *radicalClusterFST; // @synthesize radicalClusterFST=_radicalClusterFST;
-@property(readonly, nonatomic) struct CGSize minimumDrawingSize; // @synthesize minimumDrawingSize=_minimumDrawingSize;
-@property(nonatomic) NSObject<OS_dispatch_queue> *recognitionQueue; // @synthesize recognitionQueue=_recognitionQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *recognitionQueue; // @synthesize recognitionQueue=_recognitionQueue;
 @property(nonatomic) struct CHNeuralNetwork *freeformEngine; // @synthesize freeformEngine=_freeformEngine;
 @property(nonatomic) struct CHNeuralNetwork *engine; // @synthesize engine=_engine;
+@property(nonatomic) struct CGSize minimumDrawingSize; // @synthesize minimumDrawingSize=_minimumDrawingSize;
 @property(retain, nonatomic) NSCharacterSet *activeCharacterSet; // @synthesize activeCharacterSet=_activeCharacterSet;
 @property(nonatomic) int recognitionMode; // @synthesize recognitionMode=_recognitionMode;
 @property(nonatomic) int recognitionType; // @synthesize recognitionType=_recognitionType;
 @property(nonatomic) unsigned long long maxRecognitionResultCount; // @synthesize maxRecognitionResultCount=_maxRecognitionResultCount;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)rescoreCandidatesWithLangaugeModel:(vector_06f11b7b *)arg1 history:(id)arg2;
-- (void)applyTransliterationAndSyntheticCandidates:(vector_06f11b7b *)arg1;
-- (id)applySentenceTransliterationCandidates:(unsigned short *)arg1 codesLen:(int)arg2 codesMax:(int)arg3;
+- (struct CGSize)getMinimumDrawingSize;
+- (void)_rescoreCandidatesWithLanguageModel:(vector_06f11b7b *)arg1 history:(id)arg2;
+- (unsigned int)_tokenIDForUNKCharacterString:(id)arg1;
+- (void)_applyTransliterationAndSyntheticCandidates:(vector_06f11b7b *)arg1;
+- (id)_applySentenceTransliterationCandidates:(unsigned short *)arg1 codesLen:(int)arg2 codesMax:(int)arg3;
+- (void)_adjustCandidatesForConfusableCharacters:(vector_06f11b7b *)arg1;
 - (id)recognitionResultsForDrawing:(id)arg1 options:(id)arg2;
 - (id)recognitionResultsForDrawing:(id)arg1 options:(id)arg2 shouldCancel:(CDUnknownBlockType)arg3;
-- (id)recognitionResultsForMultipleCharacterDrawing:(id)arg1 sortedStrokeIndices:(vector_eb9481f9 *)arg2 network:(struct Network *)arg3 options:(id)arg4 ch:(struct Hanzi *)arg5 shouldCancel:(CDUnknownBlockType)arg6;
-- (id)bestNetworkPaths:(struct Network *)arg1 count:(unsigned long long)arg2 mecabraIDs:(vector_3203cf93 *)arg3;
+- (id)_subStrokeSegmentationPointsForDrawing:(id)arg1;
+- (id)_performMultipleCharacterRecognition:(id)arg1 options:(id)arg2 shouldCancel:(CDUnknownBlockType)arg3;
+- (id)recognitionResultsForMultipleCharacterDrawing:(id)arg1 sortedStrokeIndices:(vector_eb9481f9 *)arg2 sortedSubStrokeSegments:(id)arg3 network:(struct Network *)arg4 boundsAtNode:(vector_ea45b3ba *)arg5 options:(id)arg6 shouldCancel:(CDUnknownBlockType)arg7;
+- (void)_filterNonHumanFriendlyCandidates:(id)arg1;
+- (void)_adjustResultsForConfusableCharacters:(id)arg1;
+- (id)postProcessLatticePaths:(const vector_7a3f6ffc *)arg1 history:(id)arg2 activeHistoryRange:(struct _NSRange)arg3;
+- (id)_wordLXLexiconCorrectionForString:(id)arg1 withLexicon:(struct _LXLexicon *)arg2 consumableStrokesSet:(id)arg3 resultWordID:(unsigned int *)arg4;
+- (id)_wordLMLexiconCorrectionForString:(id)arg1 withLexicon:(void *)arg2 consumableStrokesSet:(id)arg3 resultWordID:(unsigned int *)arg4;
+- (id)postProcessMultiWordsLatticePaths:(const vector_7a3f6ffc *)arg1 withMaximumResults:(unsigned long long)arg2;
+- (_Bool)_shouldCapitalizeGivenHistory:(id)arg1;
+- (_Bool)_updateResults:(id)arg1 string:(id)arg2 score:(double)arg3 lexicalEntry:(_Bool)arg4 patternEntry:(_Bool)arg5;
+- (id)bestNetworkPaths:(struct Network *)arg1 count:(unsigned long long)arg2 staticLexiconCursor:(void *)arg3 customLexiconCursor:(struct _LXCursor *)arg4 patternCursor:(struct PatternGraph *)arg5 history:(id)arg6 activeHistoryRange:(struct _NSRange)arg7 mecabraIDs:(vector_e0f2bd7e *)arg8;
 - (id)recognitionResultsForSingleCharacterDrawing:(id)arg1 options:(id)arg2;
+- (void)_removeOVSResults:(id)arg1 withHistory:(id)arg2;
 - (id)recognitionResultsForSketchDrawing:(id)arg1 options:(id)arg2;
 - (id)manhattanLineCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2 rejectionResult:(id *)arg3;
 - (id)lineCandidateResultForDrawing:(id)arg1 candidate:(struct CHCandidateResult *)arg2 rejectionResult:(id *)arg3;
@@ -91,18 +112,35 @@
 - (id)sketchCodeForDescription:(id)arg1;
 - (id)sketchDescriptionForCode:(int)arg1;
 - (void)dealloc;
+- (id)initWithType:(int)arg1 mode:(int)arg2 locale:(struct __CFLocale *)arg3;
 - (id)initWithType:(int)arg1 mode:(int)arg2;
 - (id)strokeIndexesForLastCharacter;
+- (_Bool)isMecabraRareEntry:(id)arg1;
 - (vector_de520796)completionsForCandidate:(id)arg1 candidateContext:(id)arg2 prefix:(id)arg3 option:(unsigned long long)arg4;
 - (vector_de520796)completionsForCandidate:(id)arg1 prefix:(id)arg2 option:(unsigned long long)arg3;
 - (void)candidateAccepted:(void *)arg1;
 - (void)candidatesCleared;
+- (void)_buildCustomLexiconFromWords:(id)arg1;
 - (void)updateUserDictionaryLexicon:(id)arg1;
 - (void)updateAddressBookLexicon:(id)arg1;
 - (void)logCandidateIfAppropriate:(void *)arg1;
 - (void)releaseLMResources;
-- (void)loadEngineModel;
+- (void)_loadEngineModel;
+- (_Bool)_isLocaleSupported:(id)arg1;
+- (void)_loadMecabraIfNeeded;
+- (void)_prepareStaticLexicon;
+- (void)_prepareCHCharacterLanguageModel;
+- (id)_alternativeInterpretationsForString:(id)arg1;
+- (id)_transliterationVariantsForString:(id)arg1;
+- (id)transliterationVariantsForString:(id)arg1;
+- (_Bool)_isOVSString:(id)arg1;
+- (_Bool)isOVSString:(id)arg1;
+- (id)obfuscateString:(id)arg1;
+- (void)_prepareOVSTrie;
+- (void)_prepareTransliterationVariantMap;
 - (id)initWithType:(int)arg1 mode:(int)arg2 learningDictionaryURL:(id)arg3;
+- (id)initWithType:(int)arg1 mode:(int)arg2 locale:(struct __CFLocale *)arg3 learningDictionaryURL:(id)arg4;
+- (id)defaultPunctuationResultsForRecognitionType:(int)arg1;
 
 @end
 

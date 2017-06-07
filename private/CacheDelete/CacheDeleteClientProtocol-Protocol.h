@@ -7,10 +7,12 @@
 @class NSDictionary, NSString, NSXPCListenerEndpoint;
 
 @protocol CacheDeleteClientProtocol
+- (void)clientRequestCacheableSpaceGuidance:(NSDictionary *)arg1 replyBlock:(void (^)(NSDictionary *))arg2;
 - (void)clientUpdatePurgeable:(NSDictionary *)arg1 replyBlock:(void (^)(void))arg2;
 - (void)clientGetState:(NSString *)arg1 replyBlock:(void (^)(id))arg2;
 - (void)clientSetState:(id)arg1 key:(NSString *)arg2 replyBlock:(void (^)(void))arg3;
 - (void)clientCancelPurge:(NSDictionary *)arg1 replyBlock:(void (^)(void))arg2;
+- (void)clientPerformServiceRequest:(NSDictionary *)arg1 replyBlock:(void (^)(NSDictionary *))arg2;
 - (void)clientPerformOperation:(NSDictionary *)arg1 replyBlock:(void (^)(NSDictionary *))arg2;
 - (void)clientPurge:(NSDictionary *)arg1 replyBlock:(void (^)(NSDictionary *))arg2;
 - (void)clientItemizedPurgeableSpace:(NSDictionary *)arg1 replyBlock:(void (^)(NSDictionary *))arg2;

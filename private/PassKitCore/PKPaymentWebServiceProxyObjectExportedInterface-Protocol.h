@@ -30,6 +30,7 @@
 - (void)deleteApplicationWithAID:(NSString *)arg1;
 - (void)getProvisioningDataWithCompletion:(void (^)(PKPaymentDeviceProvisioningData *, NSError *))arg1;
 - (void)signData:(NSData *)arg1 signatureEntanglementMode:(unsigned long long)arg2 withCompletion:(void (^)(NSData *, PKSecureElementSignatureInfo *, NSError *))arg3;
+- (void)getTrustedDeviceEnrollmentInfoWithCompletion:(void (^)(PKTrustedDeviceEnrollmentInfo *))arg1;
 - (void)getRegistrationDataWithAuthToken:(NSString *)arg1 completion:(void (^)(PKPaymentDeviceRegistrationData *, NSError *))arg2;
 - (void)getConfigurationDataWithCompletion:(void (^)(PKPaymentDeviceConfigurationData *, NSError *))arg1;
 - (void)queueConnectionToTrustedServiceManagerForPushTopic:(NSString *)arg1 withCompletion:(void (^)(_Bool, NSError *))arg2;

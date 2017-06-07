@@ -7,6 +7,7 @@
 #import <Foundation/NSSet.h>
 
 @interface NSSet (FCAdditions)
++ (id)fc_unionOfSetsInArray:(id)arg1;
 + (id)fc_set:(CDUnknownBlockType)arg1;
 - (id)fc_setByRemovingObject:(id)arg1;
 - (id)fc_setByUnioningSet:(id)arg1;
@@ -17,6 +18,7 @@
 - (id)fc_arrayByTransformingWithBlock:(CDUnknownBlockType)arg1;
 - (id)fc_mutableSetByTransformingWithBlock:(CDUnknownBlockType)arg1;
 - (id)fc_setByTransformingWithBlock:(CDUnknownBlockType)arg1;
+- (unsigned long long)fc_countOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_arrayOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_setOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (_Bool)fc_containsObjectPassingTest:(CDUnknownBlockType)arg1;

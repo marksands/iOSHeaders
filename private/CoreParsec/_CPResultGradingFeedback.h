@@ -6,40 +6,48 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPResultGradingFeedback-Protocol.h>
 
-@class NSString, _CPSearchResultForFeedback;
+@class NSData, NSString, _CPSearchResultForFeedback;
 
-@interface _CPResultGradingFeedback : PBCodable <NSCopying>
+@interface _CPResultGradingFeedback : PBCodable <_CPProcessableFeedback, _CPResultGradingFeedback, NSSecureCoding>
 {
-    unsigned long long _timestamp;
-    int _grade;
-    _CPSearchResultForFeedback *_result;
-    NSString *_textFeedback;
     struct {
+        unsigned int timestamp:1;
         unsigned int grade:1;
     } _has;
+    int _grade;
+    unsigned long long _timestamp;
+    _CPSearchResultForFeedback *_result;
+    NSString *_textFeedback;
 }
 
-@property(retain, nonatomic) NSString *textFeedback; // @synthesize textFeedback=_textFeedback;
+@property(copy, nonatomic) NSString *textFeedback; // @synthesize textFeedback=_textFeedback;
+@property(nonatomic) int grade; // @synthesize grade=_grade;
 @property(retain, nonatomic) _CPSearchResultForFeedback *result; // @synthesize result=_result;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
 @property(readonly, nonatomic) _Bool hasTextFeedback;
-- (int)StringAsGrade:(id)arg1;
-- (id)gradeAsString:(int)arg1;
-@property(nonatomic) _Bool hasGrade;
-@property(nonatomic) int grade; // @synthesize grade=_grade;
+@property(readonly, nonatomic) _Bool hasGrade;
 @property(readonly, nonatomic) _Bool hasResult;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

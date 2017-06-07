@@ -10,23 +10,24 @@
 #import <CloudDocsDaemon/NSSecureCoding-Protocol.h>
 #import <CloudDocsDaemon/PQLValuable-Protocol.h>
 
-@class BRCALRowID, NSString;
+@class BRCALRowID, BRCZoneRowID, NSString;
 
 @interface BRCItemID : NSObject <NSCopying, NSSecureCoding, PQLValuable>
 {
     BRCALRowID *_appLibraryRowID;
+    BRCZoneRowID *_zoneRowID;
     unsigned char _kind;
     unsigned char _uuid[16];
 }
 
++ (_Bool)migrateItemIDsToVersion11WithDB:(id)arg1 serverTruth:(_Bool)arg2;
 + (_Bool)migrateItemIDsToVersion8WithDB:(id)arg1 serverTruth:(_Bool)arg2;
 + (_Bool)migrateItemIDsToVersion5WithDB:(id)arg1 serverTruth:(_Bool)arg2;
-+ (id)parseMangledItemID:(id)arg1 mangledContainerID:(id *)arg2 etag:(id *)arg3 session:(id)arg4;
++ (id)parseMangledItemIDString:(id)arg1 mangledID:(id *)arg2 etag:(id *)arg3 session:(id)arg4;
 + (_Bool)supportsSecureCoding;
 + (_Bool)isDocumentsItemIDWithSQLiteValue:(struct Mem *)arg1;
 + (_Bool)isRootItemIDWithSQLiteValue:(struct Mem *)arg1;
 + (id)newFromSqliteValue:(struct Mem *)arg1;
-+ (id)newItemIDFromEnclosureUUID:(id)arg1 libraryRowID:(id)arg2;
 + (id)documentsItemIDWithAppLibraryRowID:(id)arg1;
 - (void).cxx_destruct;
 - (id)derivedAliasItemIDWithOwnerName:(id)arg1;
@@ -35,15 +36,14 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithItemID:(id)arg1;
-- (id)initWithUUIDObject:(struct UUIDItemObject *)arg1;
 - (id)initWithRootObject:(struct RootItemObject *)arg1;
 - (id)initWithUUID:(const char *)arg1;
 - (id)initWithAliasUUID:(id)arg1;
 - (id)initAsDocumentsWithAppLibraryRowID:(id)arg1;
-- (id)_initAsLibraryRootWithAppLibraryRowID:(id)arg1 enclosureUUID:(id)arg2;
+- (id)_initAsZoneRootWithZoneRowID:(id)arg1;
+- (id)_initAsLibraryRootWithAppLibraryRowID:(id)arg1;
 - (id)initWithUUIDString:(id)arg1;
-- (id)initWithSharedUUIDString:(id)arg1 libraryRowID:(id)arg2;
-- (id)initWithString:(id)arg1 libraryRowID:(id)arg2;
+- (id)initWithString:(id)arg1 libraryRowID:(id)arg2 sharedZoneRowID:(id)arg3;
 - (id)init;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -52,13 +52,16 @@
 @property(readonly, nonatomic) const char *UTF8String;
 @property(readonly, nonatomic) NSString *debugItemIDString;
 @property(readonly, nonatomic) NSString *itemIDString;
+- (id)zoneUniqueItemIDStringWithSession:(id)arg1;
 - (id)itemUUIDString;
+@property(readonly, nonatomic) BRCZoneRowID *sharedZoneRowID;
 @property(readonly, nonatomic) BRCALRowID *appLibraryRowID;
-@property(readonly, nonatomic) _Bool isDocuments;
-@property(readonly, nonatomic) _Bool isNonDesktopAppLibraryRoot;
+@property(readonly, nonatomic) _Bool isSharedZoneRoot;
+@property(readonly, nonatomic) _Bool isDocumentsFolder;
+@property(readonly, nonatomic) _Bool isNonDesktopRoot;
 - (id)directoryReferenceInZoneID:(id)arg1 action:(unsigned long long)arg2;
 - (id)_directoryRecordName;
-- (id)structureRecordIDForItemType:(BOOL)arg1 appLibrary:(id)arg2 aliasTargetZone:(id)arg3;
+- (id)structureRecordIDForItemType:(BOOL)arg1 appLibrary:(id)arg2 zone:(id)arg3 aliasTargetZone:(id)arg4;
 - (id)pcsChainDocumentStructureReferenceInZoneID:(id)arg1;
 - (id)pcsChainParentReferenceInZoneID:(id)arg1;
 - (id)validatingDirectoryReferenceInZoneID:(id)arg1;

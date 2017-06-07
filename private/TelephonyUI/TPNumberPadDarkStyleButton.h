@@ -10,16 +10,11 @@
 {
 }
 
-+ (double)unhighlightCrossfadeHighlightFadeDuration;
-+ (double)unhighlightCrossfadeNormalFadeDuration;
-+ (double)unhighlightCrossfadeHighlightBeginTime;
-+ (double)unhighlightCrossfadeNormalBeginTime;
-+ (double)highlightCrossfadeHighlightFadeDuration;
-+ (double)highlightCrossfadeNormalFadeDuration;
-+ (double)highlightCrossfadeHighlightBeginTime;
-+ (double)highlightCrossfadeNormalBeginTime;
++ (double)highlightedCircleViewAlpha;
++ (double)unhighlightedCircleViewAlpha;
 + (id)imageForCharacter:(unsigned int)arg1 highlighted:(_Bool)arg2;
 + (id)imageForCharacter:(unsigned int)arg1;
+- (id)buttonColor;
 - (id)defaultColor;
 
 @end

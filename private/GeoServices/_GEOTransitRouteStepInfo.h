@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOStep, GEOTransitStep;
 
@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) GEOTransitStep *transitStep; // @synthesize transitStep=_transitStep;
 @property(nonatomic) struct _NSRange pointRange; // @synthesize pointRange=_pointRange;
 @property(nonatomic) long long routeLegType; // @synthesize routeLegType=_routeLegType;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

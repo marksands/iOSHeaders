@@ -9,19 +9,13 @@
 #import <SpringBoardUIServices/SBUIPasscodeEntryFieldDelegate-Protocol.h>
 #import <SpringBoardUIServices/SBUIPasscodeLockNumberPadDelegate-Protocol.h>
 
-@class NSString, SBUIPasscodeLockNumberPad, UILabel, UIView;
+@class NSString, SBUIPasscodeLockNumberPad, UILabel;
 
 @interface SBUIPasscodeLockViewWithKeypad : SBUIPasscodeLockViewBase <SBUIPasscodeLockNumberPadDelegate, SBUIPasscodeEntryFieldDelegate>
 {
     UILabel *_statusTitleView;
     UILabel *_statusSubtitleView;
-    UIView *_statusBackgroundView;
     SBUIPasscodeLockNumberPad *_numberPad;
-    UIView *_topToStatusFieldOrEntryFieldFiller;
-    UIView *_entryFieldToNumberPadFiller;
-    UIView *_leftToNumberPadFiller;
-    UIView *_rightToNumberPadFiller;
-    UIView *_bottomToNumberPadFiller;
     NSString *_lastCharacterBeforeBackspace;
     _Bool _undoInputOnTouchCancellation;
     _Bool _useLightStyle;
@@ -43,6 +37,7 @@
 - (void)passcodeLockNumberPad:(id)arg1 keyCancelled:(id)arg2;
 - (void)passcodeLockNumberPad:(id)arg1 keyUp:(id)arg2;
 - (void)passcodeLockNumberPad:(id)arg1 keyDown:(id)arg2;
+- (void)_updateFonts;
 - (_Bool)_usesLightStyle;
 - (id)_numericEntryFieldIfExists;
 - (double)_numberPadOffsetFromTopOfScreen;
@@ -64,20 +59,17 @@
 - (_Bool)_includesStatusView;
 - (id)_newEntryField;
 - (id)_numberPad;
-- (id)_statusBackgroundView;
 - (id)_statusSubtitleView;
 - (id)_statusTitleView;
-- (void)_luminanceBoostDidChange;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)setKeypadVisible:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setShowsStatusField:(_Bool)arg1;
 - (void)setShowsCancelButton:(_Bool)arg1;
 - (void)setShowsEmergencyCallButton:(_Bool)arg1;
-- (void)setBackgroundAlpha:(double)arg1;
-- (void)setCustomBackgroundColor:(id)arg1;
 - (void)reset;
 - (void)resetForFailedPasscode;
 - (id)passcode;
 - (void)layoutSubviews;
-- (double)backgroundAlpha;
 - (void)dealloc;
 - (id)initWithLightStyle:(_Bool)arg1;
 - (id)init;

@@ -26,6 +26,7 @@
 - (void)saveCitiesToCloud:(id)arg1;
 - (void)setCloudStoreCities:(id)arg1;
 - (void)cloudPersistenceDidSynchronize:(id)arg1;
+- (void)forceSync;
 - (id)prepareLocalCitiesForReconciliation:(id)arg1 isInitialSync:(_Bool)arg2;
 - (id)reconcileCloudCities:(id)arg1 withLocal:(id)arg2 isInitialSync:(_Bool)arg3;
 - (void)updateLocalStoreWithRemoteChanges:(id)arg1;

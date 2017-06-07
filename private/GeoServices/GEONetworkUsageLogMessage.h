@@ -8,42 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
-
 @interface GEONetworkUsageLogMessage : PBCodable <NSCopying>
 {
-    long long _requestErrorCode;
-    int _connectionType;
-    int _networkService;
-    int _placeRequestType;
-    int _requestDataSize;
-    NSString *_requestErrorDescription;
-    NSString *_requestErrorDomain;
-    int _responseDataSize;
-    int _responseTime;
-    NSMutableArray *_tileSetUsages;
-    _Bool _isConnectedToCarplay;
-    struct {
-        unsigned int requestErrorCode:1;
-        unsigned int connectionType:1;
-        unsigned int networkService:1;
-        unsigned int placeRequestType:1;
-        unsigned int requestDataSize:1;
-        unsigned int responseDataSize:1;
-        unsigned int responseTime:1;
-        unsigned int isConnectedToCarplay:1;
-    } _has;
 }
 
-+ (Class)tileSetUsageType;
-@property(nonatomic) _Bool isConnectedToCarplay; // @synthesize isConnectedToCarplay=_isConnectedToCarplay;
-@property(retain, nonatomic) NSMutableArray *tileSetUsages; // @synthesize tileSetUsages=_tileSetUsages;
-@property(retain, nonatomic) NSString *requestErrorDescription; // @synthesize requestErrorDescription=_requestErrorDescription;
-@property(nonatomic) long long requestErrorCode; // @synthesize requestErrorCode=_requestErrorCode;
-@property(retain, nonatomic) NSString *requestErrorDomain; // @synthesize requestErrorDomain=_requestErrorDomain;
-@property(nonatomic) int responseTime; // @synthesize responseTime=_responseTime;
-@property(nonatomic) int responseDataSize; // @synthesize responseDataSize=_responseDataSize;
-@property(nonatomic) int requestDataSize; // @synthesize requestDataSize=_requestDataSize;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -53,30 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasIsConnectedToCarplay;
-- (int)StringAsPlaceRequestType:(id)arg1;
-- (id)placeRequestTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasPlaceRequestType;
-@property(nonatomic) int placeRequestType; // @synthesize placeRequestType=_placeRequestType;
-- (id)tileSetUsageAtIndex:(unsigned long long)arg1;
-- (unsigned long long)tileSetUsagesCount;
-- (void)addTileSetUsage:(id)arg1;
-- (void)clearTileSetUsages;
-- (int)StringAsConnectionType:(id)arg1;
-- (id)connectionTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasConnectionType;
-@property(nonatomic) int connectionType; // @synthesize connectionType=_connectionType;
-@property(readonly, nonatomic) _Bool hasRequestErrorDescription;
-@property(nonatomic) _Bool hasRequestErrorCode;
-@property(readonly, nonatomic) _Bool hasRequestErrorDomain;
-@property(nonatomic) _Bool hasResponseTime;
-@property(nonatomic) _Bool hasResponseDataSize;
-@property(nonatomic) _Bool hasRequestDataSize;
-- (int)StringAsNetworkService:(id)arg1;
-- (id)networkServiceAsString:(int)arg1;
-@property(nonatomic) _Bool hasNetworkService;
-@property(nonatomic) int networkService; // @synthesize networkService=_networkService;
-- (void)dealloc;
 
 @end
 

@@ -11,15 +11,15 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)newObjectForUnarchiver:(id)arg1;
++ (Class)classForUnarchiver:(id)arg1;
 - (id)stringEquivalentWithLayoutParent:(id)arg1;
 - (void)setStringEquivalent:(id)arg1;
 - (id)stringEquivalent;
 - (id)stringWithPageNumber:(unsigned long long)arg1 pageCount:(unsigned long long)arg2 charIndex:(unsigned long long)arg3;
 - (void)saveToArchive:(struct TextualAttachmentArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (const struct TextualAttachmentArchive *)textualAttachmentArchiveFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromArchive:(const struct TextualAttachmentArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)shouldArchiveStringEquivalent;
 
 @end

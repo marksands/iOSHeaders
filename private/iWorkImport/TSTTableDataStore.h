@@ -11,31 +11,34 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataStore : TSPContainedObject
 {
-    struct TSTTableRBTreeNode_s *mColumnTileIndex;
-    struct TSTTableRBTreeNode_s *mRowTileIndex;
-    TSTTileIDKeyDict *mTileStorage;
-    TSTTableHeaderStorage *mRowHeaderStorage;
-    TSPLazyReference *mColumnHeaderStorageReference;
-    TSPLazyReference *mConditionalStyleSetTableReference;
-    TSPLazyReference *mStringTableReference;
-    TSTTableDataList *mStyleTableList;
-    TSPLazyReference *mFormulaTableReference;
-    TSPLazyReference *mFormulaErrorTableReference;
-    TSPLazyReference *mRichTextPayloadTableReference;
-    TSPLazyReference *mFormatTableReference;
-    TSTTableDataList *mMultipleChoiceListFormatTableList;
-    TSPLazyReference *mCommentStorageTableReference;
-    TSPLazyReference *mImportWarningSetTableReference;
-    TSKCustomFormatList *mPasteboardCustomFormatList;
-    NSMutableDictionary *mPasteboardCustomFormatMap;
-    unsigned short mNextRowStripID;
-    unsigned short mNextColumnStripID;
-    TSTMergeRegionMap *mMergedCellRanges;
-    unsigned int mCellCount;
-    _Bool mCellCountValid;
-    unsigned char mStorageVersion;
+    struct TSTTableRBTreeNode_s *_columnTileIndex;
+    struct TSTTableRBTreeNode_s *_rowTileIndex;
+    TSTTileIDKeyDict *_tileStorage;
+    TSTTableHeaderStorage *_rowHeaderStorage;
+    TSPLazyReference *_columnHeaderStorageReference;
+    TSPLazyReference *_conditionalStyleSetTableReference;
+    TSPLazyReference *_stringTableReference;
+    TSTTableDataList *_styleTableList;
+    TSPLazyReference *_formulaTableReference;
+    TSPLazyReference *_formulaErrorTableReference;
+    TSPLazyReference *_richTextPayloadTableReference;
+    TSPLazyReference *_formatTableReference;
+    TSTTableDataList *_multipleChoiceListFormatTableList;
+    TSPLazyReference *_commentStorageTableReference;
+    TSPLazyReference *_importWarningSetTableReference;
+    TSKCustomFormatList *_pasteboardCustomFormatList;
+    NSMutableDictionary *_pasteboardCustomFormatMap;
+    unsigned short _nextRowStripID;
+    unsigned short _nextColumnStripID;
+    TSTMergeRegionMap *_mergedCellRanges;
+    unsigned int _cellCount;
+    _Bool _cellCountValid;
+    unsigned char _storageVersion;
+    _Bool _upgrading;
 }
 
+@property _Bool upgrading; // @synthesize upgrading=_upgrading;
+- (void).cxx_destruct;
 - (void)validate;
 - (void)debugDump;
 - (void)saveToArchive:(struct DataStore *)arg1 archiver:(id)arg2 isInTheDocument:(_Bool)arg3;
@@ -47,7 +50,10 @@ __attribute__((visibility("hidden")))
 - (void)p_updateTileStorageToCurrentVersion;
 - (void)dealloc;
 - (id)initWithOwner:(id)arg1;
+- (void)replaceConditionalStyleSetsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)replaceFormulasUsingBlock:(CDUnknownBlockType)arg1;
 - (void)remapPasteboardCustomFormatKeys:(id)arg1;
+- (id)setupEmptyPasteboardCustomFormatList;
 - (void)makePasteboardCustomFormatList;
 - (void)clearPasteboardCustomFormatMap;
 - (void)copyPasteboardCustomFormatsFromDataStore:(id)arg1;
@@ -74,6 +80,8 @@ __attribute__((visibility("hidden")))
 - (void)enumerateTilesConcurrentlyUsingBlock:(CDUnknownBlockType)arg1 andWaitForAsyncBlocks:(_Bool)arg2;
 - (void)enumerateTilesInRowRange:(struct _NSRange)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateTilesAtNode:(struct TSTTableRBTreeNode_s *)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (void)setColumnHeaderStorage:(id)arg1;
+- (void)setRowHeaderStorage:(id)arg1;
 - (void)enumerateColumnHeaderInfosWithBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateRowHeaderInfosWithBlock:(CDUnknownBlockType)arg1;
 

@@ -80,6 +80,7 @@
 @property(retain, nonatomic) NSMutableArray *vehicleInfos; // @synthesize vehicleInfos=_vehicleInfos;
 @property(nonatomic) unsigned int endingStopIndex; // @synthesize endingStopIndex=_endingStopIndex;
 @property(nonatomic) unsigned int startingStopIndex; // @synthesize startingStopIndex=_startingStopIndex;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

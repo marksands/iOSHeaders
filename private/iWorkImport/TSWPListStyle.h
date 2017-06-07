@@ -40,7 +40,6 @@ __attribute__((visibility("hidden")))
 + (id)defaultLabelGeometries;
 + (id)defaultLabelIndents;
 + (id)defaultTextIndents;
-+ (id)defaultMissingBulletImageWithContext:(id)arg1;
 + (void)pGetDefaultTextIndentFloats:(float [9])arg1;
 + (_Bool)defaultTieredNumber;
 + (int)defaultLabelNumberType;
@@ -49,7 +48,7 @@ __attribute__((visibility("hidden")))
 + (int)labelTypeForLevel:(unsigned long long)arg1 forPropertyMapping:(id)arg2;
 + (int)effectiveTypeForLevel:(unsigned long long)arg1 forPropertyMapping:(id)arg2;
 + (int)pLabelTypeForLevel:(unsigned long long)arg1 forPropertyMapping:(id)arg2 includeDegenerateLevels:(_Bool)arg3;
-+ (_Bool)isDefaultMissingBulletImage:(id)arg1;
++ (_Bool)deprecated_isDefaultMissingBulletImage:(id)arg1;
 + (id)additionalBulletStrings;
 + (id)textInspectorBulletStrings;
 + (id)propertiesAllowingNSNull;
@@ -67,7 +66,7 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchive:(struct ListStyleArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ListStyleArchive *)arg1 unarchiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)overridePropertyMapWithValue:(id)arg1 forProperty:(int)arg2 atParagraphLevels:(id)arg3 withContext:(id)arg4;
 - (id)pOverrideArrayWithValue:(id)arg1 forProperty:(int)arg2 atParagraphLevels:(id)arg3 withContext:(id)arg4;
 - (int)firstLabelType;

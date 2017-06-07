@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSError, NSString;
+@class NSError, NSString, VSIdentityProvider;
 
 __attribute__((visibility("hidden")))
 @interface VSViewModel : NSObject
@@ -15,15 +15,16 @@ __attribute__((visibility("hidden")))
     unsigned long long _validationState;
     NSError *_error;
     NSString *_title;
-    unsigned long long _deleteAccountState;
+    VSIdentityProvider *_identityProvider;
 }
 
-@property(nonatomic) unsigned long long deleteAccountState; // @synthesize deleteAccountState=_deleteAccountState;
+@property(retain, nonatomic) VSIdentityProvider *identityProvider; // @synthesize identityProvider=_identityProvider;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) unsigned long long validationState; // @synthesize validationState=_validationState;
 @property(nonatomic) unsigned long long viewState; // @synthesize viewState=_viewState;
 - (void).cxx_destruct;
+- (void)configureWithRequest:(id)arg1;
 
 @end
 

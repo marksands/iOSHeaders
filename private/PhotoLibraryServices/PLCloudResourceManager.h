@@ -20,7 +20,8 @@
 
 - (id)statusForDebug:(_Bool)arg1;
 - (void)stop;
-- (void)startAutomaticPrefetchOrPruneWithTimeout:(_Bool)arg1;
+- (void)startAutomaticPruneIfNecessary;
+- (void)startAutomaticPrefetchAndPruneWithTimeout:(_Bool)arg1 onlyPrune:(_Bool)arg2;
 - (void)_runOnWorkQueueWithTransaction:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)initWithCPLManager:(id)arg1;

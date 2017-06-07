@@ -20,12 +20,12 @@
 @property(copy, nonatomic) NSString *fakeURLString; // @synthesize fakeURLString=_fakeURLString;
 @property(copy, nonatomic) NSString *fakeFullPath; // @synthesize fakeFullPath=_fakeFullPath;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
+- (void).cxx_destruct;
 - (id)store;
-- (_Bool)isSelectable;
+- (_Bool)isStore;
 - (_Bool)isSpecialMailboxUid;
 - (id)fullPath;
 - (id)URLString;
-- (void)dealloc;
 - (id)initWithAccount:(id)arg1 URLString:(id)arg2 fullPath:(id)arg3 isSpecial:(_Bool)arg4;
 - (id)initWithAccount:(id)arg1 URLString:(id)arg2 fullPath:(id)arg3;
 

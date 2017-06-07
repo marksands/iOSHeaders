@@ -6,9 +6,10 @@
 
 #import <NanoPassKit/NSObject-Protocol.h>
 
-@class NSArray, NSDictionary, NSString, PKFelicaTransitAppletState, PKPaymentWebServiceBackgroundContext, PKPaymentWebServiceContext;
+@class NSArray, NSDictionary, NSString, PKFelicaTransitAppletState, PKPaymentWebServiceBackgroundContext, PKPaymentWebServiceContext, PKPeerPaymentWebServiceContext;
 
 @protocol NPKPaymentWebServiceCompanionTargetDeviceDelegate <NSObject>
+- (void)handleUpdatedPeerPaymentWebServiceContext:(PKPeerPaymentWebServiceContext *)arg1;
 - (void)sendPaymentOptionsDefaultsToWatch;
 - (void)showPaymentSetupForAppDisplayName:(NSString *)arg1;
 - (void)sendWebServiceContextToWatch;

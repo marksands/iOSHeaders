@@ -12,13 +12,22 @@
 
 @interface PLPerson : PLManagedObject <PLSyncablePerson>
 {
-    _Bool _needsPersistenceUpdate;
 }
 
++ (id)predicateForPersistence;
++ (id)predicateForVisibleKeyFace;
++ (id)predicateForPersonsNeedingFaceCropGenerationForFaceObjectID:(id)arg1;
 + (id)_stringFromContact:(id)arg1 preferGivenName:(_Bool)arg2;
 + (id)displayNameFromContact:(id)arg1;
 + (id)fullNameFromContact:(id)arg1;
++ (void)_persistMetadataToFileSystemInBackgroundForPersonUUID:(id)arg1;
++ (void)_removePersistenceOperationForPersonUUID:(id)arg1;
++ (void)_cancelPersistenceOperationsForPersonUUID:(id)arg1;
++ (_Bool)_setPersistenceOperationIfMissing:(id)arg1 forPersonUUID:(id)arg2;
++ (void)_runOnPersistenceOperationsQueue:(CDUnknownBlockType)arg1;
 + (id)_persistenceUpdateQueue;
++ (void)deletePersistenceMetadataForUUIDInBackground:(id)arg1;
++ (void)batchFetchAssociatedPersonByFaceGroupUUIDWithFaceGroupUUIDs:(id)arg1 predicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (id)fetchPersonCountByAssetUUIDForAssetUUIDs:(id)arg1 predicate:(id)arg2 error:(id *)arg3;
 + (void)batchFetchPersonsByAssetUUIDWithAssetUUIDs:(id)arg1 predicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)batchFetchPersonUUIDsByAssetUUIDWithAssetUUIDs:(id)arg1 predicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -27,43 +36,68 @@
 + (void)createAssociatedPersonForFaceGroup:(id)arg1 inManagedObjectContext:(id)arg2;
 + (void)createAssociatedPersonForFaceGroup:(id)arg1;
 + (void)deleteAllPersonsInManagedObjectContext:(id)arg1;
++ (id)personsWithUUIDs:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)personsWithPersonUri:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)allPersonsInManagedObjectContext:(id)arg1;
 + (id)personWithUUID:(id)arg1 inManagedObjectContext:(id)arg2;
-+ (id)_personsMatchingPredicate:(id)arg1 fetchLimit:(unsigned long long)arg2 inManagedObjectContext:(id)arg3;
-+ (id)insertIntoManagedObjectContext:(id)arg1 withPersonUUID:(id)arg2 fullName:(id)arg3 verified:(_Bool)arg4;
-+ (id)insertIntoPhotoLibrary:(id)arg1 withPersonUUID:(id)arg2 fullName:(id)arg3 verified:(_Bool)arg4;
++ (id)personsMatchingPredicate:(id)arg1 fetchLimit:(unsigned long long)arg2 sortDescriptors:(id)arg3 relationshipKeyPathsForPrefetching:(id)arg4 inManagedObjectContext:(id)arg5;
++ (id)insertIntoManagedObjectContext:(id)arg1 withPersonUUID:(id)arg2 fullName:(id)arg3 verifiedType:(int)arg4;
++ (id)insertIntoPhotoLibrary:(id)arg1 withPersonUUID:(id)arg2 fullName:(id)arg3 verifiedType:(int)arg4;
 + (void)enumerateAssetUUIDsForSearchIndexingWithPersonUUID:(id)arg1 managedObjectContext:(id)arg2 assetUUIDHandler:(CDUnknownBlockType)arg3;
-+ (void)resetCloudStateInPhotoLibrary:(id)arg1;
-+ (id)peopleToUploadInPhotoLibrary:(id)arg1 limit:(long long)arg2;
-+ (id)peopleWithUUIDs:(id)arg1 inPhotoLibrary:(id)arg2;
++ (_Bool)person:(id)arg1 isBetterMergeTargetThanPerson:(id)arg2;
++ (void)resetCloudStateInPhotoLibrary:(id)arg1 hardReset:(_Bool)arg2;
++ (id)personsToPrefetchInManagedObjectContext:(id)arg1;
++ (id)personsToUploadInPhotoLibrary:(id)arg1 limit:(long long)arg2;
 + (id)listOfSyncedProperties;
-@property(nonatomic) _Bool needsPersistenceUpdate; // @synthesize needsPersistenceUpdate=_needsPersistenceUpdate;
-- (void)mergePersons:(id)arg1 nominalTarget:(id)arg2;
-- (id)_metadataKeys;
-- (id)_optimalMetadataForMergingPersons:(id)arg1;
-- (void)removePersistedFileSystemData;
+- (_Bool)dedupeGraphPersons:(id)arg1 error:(id *)arg2;
+- (void)mergePersons:(id)arg1 withOptimalState:(id)arg2;
+- (void)basicMergePersons:(id)arg1;
+- (void)_basicMergePersons:(id)arg1;
+- (id)finalMergeTargetPerson;
+- (id)pickKeyFaceOptimalStateForContactDedupeWithPersons:(id)arg1;
+- (void)prepareForUserInitiatedMergeWithPersons:(id)arg1;
+- (id)pickOptimalStateForUserInitiatedMergeWithPersons:(id)arg1 nominalTarget:(id)arg2;
+- (id)_nameRelatedMetadataKeys;
+- (void)persistMetadataToFileSystemInBackground;
 - (void)persistMetadataToFileSystem;
 - (_Bool)isValidForPersistence;
+- (void)refreshInvalidMergeCandidates;
+- (void)refereshMergeCandidates;
 - (void)refreshFaceCrops;
 - (void)refreshRejectedFaces;
 - (void)refreshFaces;
+- (void)_refreshRelationshipForKey:(id)arg1;
+@property(nonatomic) int effectiveVerifiedType;
+- (void)rejectFaceIfPossible:(id)arg1 shouldCreateFaceCrop:(_Bool)arg2;
+- (void)resetAllFacesToDefault;
 - (id)debugLogDescription;
+- (void)setKeyFace:(id)arg1 pickSource:(short)arg2;
+- (id)mutableInvalidMergeCandidates;
+- (id)mutableMergeCandidates;
 - (id)mutableFaceCrops;
 - (id)mutableRejectedFacesNeedingFaceCrops;
 - (id)mutableRejectedFaces;
 - (id)mutableFaces;
-- (void)didSave;
 - (void)willSave;
 - (void)prepareForDeletion;
 - (_Bool)shouldIndexForSearch;
+@property(readonly, nonatomic) _Bool isTombstone;
+@property(readonly, nonatomic) _Bool graphVerified;
+@property(readonly, nonatomic) _Bool userVerified;
+- (void)setKeyFaceToPicked;
+@property(readonly, nonatomic) _Bool keyFaceIsPicked;
+@property(readonly, retain, nonatomic) id localID;
+- (void)setCPLInferredMergeTarget:(id)arg1;
 - (id)cplPersonChange;
+- (id)cplFullRecord;
 - (_Bool)isSyncableChange;
 - (_Bool)supportsCloudUpload;
 
 // Remaining properties
 @property(retain, nonatomic) PLDetectedFaceGroup *associatedFaceGroup; // @dynamic associatedFaceGroup;
 @property(nonatomic) short cloudLocalState; // @dynamic cloudLocalState;
+@property(nonatomic) int cloudVerifiedType; // @dynamic cloudVerifiedType;
+@property(retain, nonatomic) NSSet *clusterRejectedFaces; // @dynamic clusterRejectedFaces;
 @property(retain, nonatomic) NSDictionary *contactMatchingDictionary; // @dynamic contactMatchingDictionary;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
@@ -74,8 +108,13 @@
 @property(retain, nonatomic) NSString *fullName; // @dynamic fullName;
 @property(readonly) unsigned long long hash;
 @property(nonatomic) _Bool inPersonNamingModel; // @dynamic inPersonNamingModel;
+@property(retain, nonatomic) NSSet *invalidMergeCandidates; // @dynamic invalidMergeCandidates;
 @property(retain, nonatomic) PLDetectedFace *keyFace; // @dynamic keyFace;
+@property(nonatomic) short keyFacePickSource; // @dynamic keyFacePickSource;
 @property(nonatomic) int manualOrder; // @dynamic manualOrder;
+@property(retain, nonatomic) NSSet *mergeCandidates; // @dynamic mergeCandidates;
+@property(retain, nonatomic) NSSet *mergeSourcePersons; // @dynamic mergeSourcePersons;
+@property(retain, nonatomic) PLPerson *mergeTargetPerson; // @dynamic mergeTargetPerson;
 @property(retain, nonatomic) NSSet *personReferences; // @dynamic personReferences;
 @property(retain, nonatomic) NSString *personUUID; // @dynamic personUUID;
 @property(retain, nonatomic) NSString *personUri; // @dynamic personUri;
@@ -83,7 +122,7 @@
 @property(retain, nonatomic) NSSet *rejectedFacesNeedingFaceCrops; // @dynamic rejectedFacesNeedingFaceCrops;
 @property(readonly) Class superclass;
 @property(nonatomic) int type; // @dynamic type;
-@property(nonatomic) _Bool verified; // @dynamic verified;
+@property(nonatomic) int verifiedType; // @dynamic verifiedType;
 
 @end
 

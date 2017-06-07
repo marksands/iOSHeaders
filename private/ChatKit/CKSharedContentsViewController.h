@@ -12,13 +12,14 @@
 #import <ChatKit/CNAvatarViewDelegate-Protocol.h>
 #import <ChatKit/UICollectionViewDataSource-Protocol.h>
 #import <ChatKit/UICollectionViewDelegate-Protocol.h>
+#import <ChatKit/UICollectionViewDragSource-Protocol.h>
 #import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <ChatKit/UIViewControllerPreviewingDelegate-Protocol.h>
 
 @class CKQLDetailsPreviewController, NSArray, NSString, UIBarButtonItem, UICollectionView, UICollectionViewFlowLayout, UIView;
 @protocol CKSharedAssetsControllerDelegate;
 
-@interface CKSharedContentsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CNAvatarViewDelegate, UIViewControllerPreviewingDelegate, CKQLPreviewControllerDelegate, UIGestureRecognizerDelegate, CKSharedContentsCollectionViewCellDelegate, CKSharedAssetsControllerProtocol>
+@interface CKSharedContentsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CNAvatarViewDelegate, UICollectionViewDragSource, UIViewControllerPreviewingDelegate, CKQLPreviewControllerDelegate, UIGestureRecognizerDelegate, CKSharedContentsCollectionViewCellDelegate, CKSharedAssetsControllerProtocol>
 {
     _Bool _selectingAttachments;
     UICollectionView *_collectionView;
@@ -50,6 +51,7 @@
 - (void)collectionView:(id)arg1 performAction:(SEL)arg2 forItemAtIndexPath:(id)arg3 withSender:(id)arg4;
 - (_Bool)collectionView:(id)arg1 canPerformAction:(SEL)arg2 forItemAtIndexPath:(id)arg3 withSender:(id)arg4;
 - (_Bool)collectionView:(id)arg1 shouldShowMenuForItemAtIndexPath:(id)arg2;
+- (id)_collectionView:(id)arg1 dragItemsForItemAtIndexPath:(id)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)deleteSelectedContents:(id)arg1;
@@ -76,7 +78,7 @@
 - (id)selectedAttachmentIndexes;
 - (void)parentScrollViewDidScroll:(struct CGPoint)arg1;
 - (void)updateAttachmentItems:(id)arg1;
-- (struct CGSize)contentSize;
+- (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 - (unsigned long long)assetType;
 - (double)cellAspectRatio;
 - (long long)numberOfItemsInRow;
@@ -87,6 +89,7 @@
 - (void)setupToolbar;
 - (_Bool)isJ99LandscapeModeFullScreen;
 - (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (void)dealloc;
 - (void)didMoveToParentViewController:(id)arg1;

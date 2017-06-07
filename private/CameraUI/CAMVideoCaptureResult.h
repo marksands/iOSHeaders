@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSDate, NSError, NSURL;
+@class CAMStillImageCaptureCoordinationInfo, NSArray, NSDate, NSError, NSURL;
 
 @interface CAMVideoCaptureResult : NSObject
 {
@@ -16,12 +16,14 @@
     double _videoZoomFactor;
     long long _reason;
     NSDate *_captureDate;
+    CAMStillImageCaptureCoordinationInfo *_coordinationInfo;
     NSError *_error;
     CDStruct_1b6d18a9 _duration;
     CDStruct_1b6d18a9 _stillDisplayTime;
 }
 
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
+@property(readonly, nonatomic) CAMStillImageCaptureCoordinationInfo *coordinationInfo; // @synthesize coordinationInfo=_coordinationInfo;
 @property(readonly, nonatomic) NSDate *captureDate; // @synthesize captureDate=_captureDate;
 @property(readonly, nonatomic) long long reason; // @synthesize reason=_reason;
 @property(readonly, nonatomic) double videoZoomFactor; // @synthesize videoZoomFactor=_videoZoomFactor;
@@ -32,7 +34,7 @@
 @property(readonly, nonatomic) NSURL *localDestinationURL; // @synthesize localDestinationURL=_localDestinationURL;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 filteredLocalDestinationURL:(id)arg2 duration:(CDStruct_1b6d18a9)arg3 stillDisplayTime:(CDStruct_1b6d18a9)arg4 metadata:(id)arg5 videoZoomFactor:(double)arg6 reason:(long long)arg7 videoPreviewSurface:(void *)arg8 error:(id)arg9;
+- (id)initWithURL:(id)arg1 filteredLocalDestinationURL:(id)arg2 duration:(CDStruct_1b6d18a9)arg3 stillDisplayTime:(CDStruct_1b6d18a9)arg4 metadata:(id)arg5 videoZoomFactor:(double)arg6 reason:(long long)arg7 videoPreviewSurface:(void *)arg8 coordinationInfo:(id)arg9 error:(id)arg10;
 
 @end
 

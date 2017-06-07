@@ -6,12 +6,15 @@
 
 #import <CoreDuet/_DKEventQuery.h>
 
+@class NSDate;
+
 @interface _DKPredictionQuery : _DKEventQuery
 {
     _Bool _isTopNPrediction;
     int _slotDuration;
     int _totalSlotsInDay;
     unsigned long long _type;
+    NSDate *_asOfDate;
     CDUnknownBlockType _predictionHandler;
     long long _topN;
     double _minLikelihood;
@@ -25,6 +28,7 @@
 @property(nonatomic) _Bool isTopNPrediction; // @synthesize isTopNPrediction=_isTopNPrediction;
 @property(nonatomic) int totalSlotsInDay; // @synthesize totalSlotsInDay=_totalSlotsInDay;
 @property(copy) CDUnknownBlockType predictionHandler; // @synthesize predictionHandler=_predictionHandler;
+@property(retain, nonatomic) NSDate *asOfDate; // @synthesize asOfDate=_asOfDate;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic) int slotDuration; // @synthesize slotDuration=_slotDuration;
 - (void).cxx_destruct;
@@ -34,9 +38,11 @@
 - (id)executeUsingCoreDataStorage:(id)arg1 error:(id *)arg2;
 - (id)likelihoodForTopN:(long long)arg1 withMinLikelihood:(double)arg2 withData:(id)arg3;
 - (id)predictionOfType:(unsigned long long)arg1 withData:(id)arg2;
-- (void)handleEventPredictionWithEventStartDate:(id)arg1 eventEndDate:(id)arg2 predictionStartDate:(id)arg3 observations:(id)arg4;
-- (void)handleImpulsePredictionWithEventStartDate:(id)arg1 predictionStartDate:(id)arg2 observations:(id)arg3 lastDate:(id *)arg4 lastSlot:(int *)arg5;
-- (id)constructTimelineWithObservations:(id)arg1 withFirstEventDate:(id)arg2 withPredictionStartDate:(id)arg3;
+- (void)handleEventPredictionWithEventStartDate:(id)arg1 eventEndDate:(id)arg2 predictionStartDate:(id)arg3 shouldSplitWeekdayWeekend:(_Bool)arg4 calendar:(id)arg5 observations:(id)arg6;
+- (void)handleImpulsePredictionWithEventStartDate:(id)arg1 predictionStartDate:(id)arg2 shouldSplitWeekdayWeekend:(_Bool)arg3 calendar:(id)arg4 observations:(id)arg5 lastDate:(id *)arg6 lastSlot:(int *)arg7;
+- (id)constructTimelineWithObservations:(id)arg1 withFirstEventDate:(id)arg2 withPredictionStartDate:(id)arg3 weekdayWeekendSplit:(_Bool)arg4;
+- (void)setValueForIndex:(int)arg1 forObservations:(id)arg2 withDenominator:(int)arg3;
+- (_Bool)both:(id)arg1 and:(id)arg2 areWeekendOrWeekdayWithCalendar:(id)arg3;
 - (int)computeSlotForDate:(id)arg1 relativeToDate:(id)arg2;
 
 @end

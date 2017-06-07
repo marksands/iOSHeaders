@@ -6,9 +6,13 @@
 
 #import <SpringBoardFoundation/NSObject-Protocol.h>
 
-@class NSData, NSDictionary, NSURL, SBFWallpaperOptions, SBWallpaperImage, UIImage;
+@class NSData, NSDictionary, NSString, NSURL, SBFWallpaperOptions, SBWallpaperImage, UIColor, UIImage;
 
 @protocol SBFWallpaperDataStore <NSObject>
+- (void)removeWallpaperColorForVariants:(long long)arg1;
+- (_Bool)setWallpaperColorName:(NSString *)arg1 forVariants:(long long)arg2;
+- (_Bool)setWallpaperColor:(UIColor *)arg1 forVariants:(long long)arg2;
+- (UIColor *)wallpaperColorForVariant:(long long)arg1;
 - (void)removeWallpaperOptionsForVariants:(long long)arg1;
 - (_Bool)setWallpaperOptions:(SBFWallpaperOptions *)arg1 forVariants:(long long)arg2;
 - (SBFWallpaperOptions *)wallpaperOptionsForVariant:(long long)arg1;
@@ -16,8 +20,11 @@
 - (_Bool)setProceduralWallpaperInfo:(NSDictionary *)arg1 forVariants:(long long)arg2;
 - (NSDictionary *)proceduralWallpaperInfoForVariant:(long long)arg1;
 - (void)removeVideoForVariant:(long long)arg1;
+- (_Bool)setOriginalVideoURL:(NSURL *)arg1 forVariant:(long long)arg2;
 - (_Bool)setVideoURL:(NSURL *)arg1 forVariant:(long long)arg2;
+- (NSURL *)verifiedOriginalVideoURLForVariant:(long long)arg1;
 - (NSURL *)verifiedVideoURLForVariant:(long long)arg1;
+- (NSURL *)unverifiedVideoURLForVariant:(long long)arg1;
 - (void)removeWallpaperImageDataTypes:(unsigned long long)arg1 forVariants:(long long)arg2;
 - (void)moveWallpaperImageDataTypes:(unsigned long long)arg1 fromVariant:(long long)arg2 toVariant:(long long)arg3;
 - (_Bool)setWallpaperThumbnailData:(NSData *)arg1 forVariant:(long long)arg2;

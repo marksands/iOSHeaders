@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
 @class HMDAccessory, NSUUID;
 
-@interface HMDAccessoryInvitation : NSObject <NSSecureCoding>
+@interface HMDAccessoryInvitation : HMFObject <NSSecureCoding>
 {
     NSUUID *_identifier;
     HMDAccessory *_accessory;

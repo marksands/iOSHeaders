@@ -35,10 +35,10 @@
 - (id)_bandForSceneLevel:(double)arg1 createIfNeeded:(_Bool)arg2;
 - (id)_deactivationBandsForLevel:(double)arg1;
 - (_Bool)_areEligibleSceneSettings:(id)arg1 forProcess:(id)arg2;
-- (_Bool)_isEligibleScene:(id)arg1 forSettings:(id)arg2;
-- (_Bool)_isEligibleScene:(id)arg1;
+- (_Bool)_shouldTrackSceneInitiallyAtInitialization:(id)arg1;
+- (_Bool)_isEligibleDisplayIdentity:(id)arg1;
+- (_Bool)_isEligibleScene:(id)arg1 withSettings:(id)arg2;
 - (_Bool)_isEligibleProcess:(id)arg1;
-- (_Bool)_isEligibleDisplay:(id)arg1;
 - (void)removeAssertion:(id)arg1;
 - (void)addAssertion:(id)arg1 withTransitionContext:(id)arg2;
 @property(readonly, copy) NSString *description;

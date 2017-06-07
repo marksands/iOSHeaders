@@ -36,7 +36,7 @@
 @property(retain, nonatomic) HUQuickControlPresentationContext *presentationContext; // @synthesize presentationContext=_presentationContext;
 - (void).cxx_destruct;
 - (void)_logUserMetricsAfterPress;
-- (void)finishPresentation:(id)arg1 animated:(_Bool)arg2;
+- (id)finishPresentation:(id)arg1 animated:(_Bool)arg2;
 - (void)quickControlViewControllerWillDismissDetailsViewController:(id)arg1 shouldDismissQuickControl:(_Bool)arg2;
 - (id)detailsViewControllerForQuickControlViewController:(id)arg1 item:(id)arg2;
 - (_Bool)hasDetailsActionForQuickControlViewController:(id)arg1 item:(id)arg2;
@@ -44,9 +44,11 @@
 - (double)quickControlViewController:(id)arg1 sourceViewInitialScaleForPresentation:(_Bool)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+@property(readonly, nonatomic, getter=isQuickControlPresented) _Bool quickControlIsPresented;
 - (void)_cleanupForQuickControlDismissal;
-- (_Bool)_dismissQuickControlViewControllerAnimated:(_Bool)arg1;
-- (_Bool)dismissQuickControlAnimated:(_Bool)arg1;
+- (id)_dismissQuickControlViewControllerAnimated:(_Bool)arg1;
+- (id)dismissQuickControlAnimated:(_Bool)arg1;
+- (id)dismissQuickControlAnimated:(_Bool)arg1 wasDismissed:(_Bool *)arg2;
 - (void)_validatePresentationContext:(id)arg1;
 - (void)_beginControlPresentation;
 - (void)presentQuickControlAnimatedWithContext:(id)arg1;

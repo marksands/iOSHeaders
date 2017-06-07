@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOProxyClient, NSLock, NSMutableSet;
 
@@ -16,10 +16,10 @@
 }
 
 + (id)sharedRegistry;
+- (void).cxx_destruct;
 - (void)removeClient:(id)arg1;
 - (void)addClient:(id)arg1;
 - (void)_updateComposite;
-- (void)dealloc;
 - (void)enableRegistry;
 
 @end

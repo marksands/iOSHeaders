@@ -23,8 +23,10 @@
 + (void)_generateImageDerivativeResourcesFromInputResource:(id)arg1 destinationDirectory:(id)arg2 isAdjusted:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (void)generateDerivativeResourcesFromInputResource:(id)arg1 withAdjustments:(id)arg2 destinationDirectory:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (_Bool)isUnsupportedOriginalFormatError:(id)arg1;
-+ (void)transcodeVideoAtURL:(id)arg1 withAdjustments:(id)arg2 destinationURL:(id)arg3 presetName:(id)arg4 outputFileType:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
++ (id)singlePassTranscodeVideoAtURL:(id)arg1 destinationURL:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
++ (id)transcodeVideoAtURL:(id)arg1 withAdjustments:(id)arg2 destinationURL:(id)arg3 options:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)generatePosterFrameForVideoAtURL:(id)arg1 maximumPixelCount:(long long)arg2 destinationURL:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
++ (void)resizeImageAtURL:(id)arg1 destinationURL:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 + (void)resizeImageAtURL:(id)arg1 destinationURL:(id)arg2 maximumPixelCount:(long long)arg3 bakeInOrientation:(_Bool)arg4 colorOutput:(long long)arg5 completionHandler:(CDUnknownBlockType)arg6;
 + (long long)status;
 + (void)_sendCommandToRemoteObjectProxy:(CDUnknownBlockType)arg1 withErrorHandler:(CDUnknownBlockType)arg2;

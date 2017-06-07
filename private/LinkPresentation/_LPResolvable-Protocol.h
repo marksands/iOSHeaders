@@ -10,9 +10,10 @@
 @protocol _LPResolver;
 
 @protocol _LPResolvable <NSObject>
+- (NSString *)accessibilityText;
 - (long long)maximumBytes;
 - (_Bool)isValidMIMEType:(NSString *)arg1;
 - (NSURL *)URL;
-- (id <_LPResolver>)tryToResolveWithWebViewForProcessSharing:(WKWebView *)arg1 completionHandler:(void (^)(id))arg2;
+- (id <_LPResolver>)tryToResolveWithWebViewForProcessSharing:(WKWebView *)arg1 completionHandler:(void (^)(id, id <_LPResolvable>))arg2;
 @end
 

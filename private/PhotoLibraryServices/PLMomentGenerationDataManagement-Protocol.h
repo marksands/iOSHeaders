@@ -13,6 +13,10 @@
 - (NSArray *)allAssetIDsNeedingLocationShiftWithError:(id *)arg1;
 - (void)invalidateShiftedLocationForAllAssetsInMoments;
 - (NSDictionary *)locationCoordinatesForAssetIDs:(NSArray *)arg1;
+- (void)invalidateLocationsOfInterest;
+- (NSArray *)locationsOfInterest;
+- (_Bool)needsLocationsOfInterestProcessing;
+- (_Bool)hasLocationsOfInterestInformation;
 - (NSDictionary *)homeAddressDictionary;
 - (_Bool)isNetworkReachable;
 - (void)stopObservingNetworkReachabilityChanges;

@@ -15,8 +15,6 @@
 }
 
 + (id)_stringForColor:(id)arg1 sourceType:(long long)arg2;
-+ (id)colorForName:(id)arg1;
-+ (void)initColorNames;
 @property(retain, nonatomic) IKColor *color; // @synthesize color=_color;
 @property long long sourceType; // @synthesize sourceType=_sourceType;
 - (void).cxx_destruct;

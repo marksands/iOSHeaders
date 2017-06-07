@@ -9,7 +9,7 @@
 #import <HomeKitDaemon/AVCVideoStreamDelegate-Protocol.h>
 #import <HomeKitDaemon/HMDVideoStreamReconfigureDelegate-Protocol.h>
 
-@class AVCVideoStream, HAPOSTransaction, HMDVideoStreamReconfigure, NSNumber, NSObject, NSString;
+@class AVCVideoStream, HMDVideoStreamReconfigure, HMFOSTransaction, NSNumber, NSObject, NSString;
 @protocol HMDVideoStreamInterfaceDelegate, HMDVideoStreamLastDecodedFrameDelegate, OS_dispatch_queue;
 
 @interface HMDVideoStreamInterface : HMDStreamInterface <AVCVideoStreamDelegate, HMDVideoStreamReconfigureDelegate>
@@ -19,13 +19,13 @@
     id <HMDVideoStreamInterfaceDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_lastFrameDelegateQueue;
     id <HMDVideoStreamLastDecodedFrameDelegate> _lastFrameDelegate;
-    HAPOSTransaction *_snapshotDataTrasaction;
+    HMFOSTransaction *_snapshotDataTrasaction;
     double _rtcpSendIntervalSec;
 }
 
 + (id)logCategory;
 @property(nonatomic) double rtcpSendIntervalSec; // @synthesize rtcpSendIntervalSec=_rtcpSendIntervalSec;
-@property(retain, nonatomic) HAPOSTransaction *snapshotDataTrasaction; // @synthesize snapshotDataTrasaction=_snapshotDataTrasaction;
+@property(retain, nonatomic) HMFOSTransaction *snapshotDataTrasaction; // @synthesize snapshotDataTrasaction=_snapshotDataTrasaction;
 @property __weak id <HMDVideoStreamLastDecodedFrameDelegate> lastFrameDelegate; // @synthesize lastFrameDelegate=_lastFrameDelegate;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *lastFrameDelegateQueue; // @synthesize lastFrameDelegateQueue=_lastFrameDelegateQueue;
 @property(readonly) __weak id <HMDVideoStreamInterfaceDelegate> delegate; // @synthesize delegate=_delegate;

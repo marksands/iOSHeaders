@@ -14,8 +14,10 @@
     NSArray *_postalAddresses;
     NSArray *_phoneNumbers;
     NSArray *_instantMessageAddresses;
+    NSArray *_socialProfiles;
 }
 
+@property(retain) NSArray *socialProfiles; // @synthesize socialProfiles=_socialProfiles;
 @property(retain) NSArray *instantMessageAddresses; // @synthesize instantMessageAddresses=_instantMessageAddresses;
 @property(retain) NSArray *phoneNumbers; // @synthesize phoneNumbers=_phoneNumbers;
 @property(retain) NSArray *postalAddresses; // @synthesize postalAddresses=_postalAddresses;

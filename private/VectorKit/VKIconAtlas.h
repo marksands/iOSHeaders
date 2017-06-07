@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSLock, NSMapTable, VKPIconPack;
 
@@ -21,11 +21,11 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (struct CGImage *)_createImageForIconInfo:(id)arg1 contentScale:(double)arg2;
 - (struct CGImage *)_createImageForName:(id)arg1 contentScale:(double)arg2 size:(long long)arg3;
-- (id)artworkForName:(id)arg1 style:(struct VKIconStyleInfo *)arg2 contentScale:(double)arg3 size:(long long)arg4 hasText:(_Bool)arg5 includeFullBleedColor:(_Bool)arg6;
-- (id)artworkForStyleAttributeKey:(unsigned int)arg1 value:(unsigned int)arg2 style:(struct VKIconStyleInfo *)arg3 contentScale:(double)arg4 size:(long long)arg5 hasText:(_Bool)arg6 includeFullBleedColor:(_Bool)arg7;
-- (id)artworkForStyleAttributeKey:(unsigned int)arg1 longValue:(unsigned long long)arg2 style:(struct VKIconStyleInfo *)arg3 contentScale:(double)arg4 size:(long long)arg5 includeFullBleedColor:(_Bool)arg6;
+- (id)artworkForName:(id)arg1 style:(struct Style *)arg2 extraStyle:(struct ExtraStyle *)arg3 contentScale:(double)arg4 size:(long long)arg5 hasText:(_Bool)arg6 includeFullBleedColor:(_Bool)arg7 resourceNames:(id)arg8;
+- (id)artworkForStyleAttributeKey:(unsigned int)arg1 value:(unsigned int)arg2 style:(struct Style *)arg3 extraStyle:(struct ExtraStyle *)arg4 contentScale:(double)arg5 size:(long long)arg6 hasText:(_Bool)arg7 includeFullBleedColor:(_Bool)arg8 resourceNames:(id)arg9;
+- (id)artworkForStyleAttributeKey:(unsigned int)arg1 longValue:(unsigned long long)arg2 style:(struct Style *)arg3 extraStyle:(struct ExtraStyle *)arg4 contentScale:(double)arg5 size:(long long)arg6 includeFullBleedColor:(_Bool)arg7 resourceNames:(id)arg8;
 - (struct CGColor *)_newFullBleedColorForName:(id)arg1 contentScale:(double)arg2;
-- (id)_artworkForBaseImage:(struct CGImage *)arg1 additionalImage:(struct CGImage *)arg2 fullBleedColor:(struct CGColor *)arg3 style:(struct VKIconStyleInfo *)arg4 contentScale:(double)arg5 hasText:(_Bool)arg6;
+- (id)_artworkForBaseImage:(struct CGImage *)arg1 additionalImage:(struct CGImage *)arg2 fullBleedColor:(struct CGColor *)arg3 style:(struct Style *)arg4 extraStyle:(struct ExtraStyle *)arg5 contentScale:(double)arg6 hasText:(_Bool)arg7;
 - (void)dealloc;
 - (id)initWithIconPack:(id)arg1;
 - (id)init;

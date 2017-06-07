@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class CoreDAVResourceTypeItem, CoreDAVSupportedReportSetItem, NSDictionary, NSSet, NSString, NSURL;
 
@@ -44,7 +44,7 @@
 @property(retain, nonatomic) NSString *containerTitle; // @synthesize containerTitle=_containerTitle;
 @property(nonatomic) _Bool isUnauthenticated; // @synthesize isUnauthenticated=_isUnauthenticated;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
-- (void)dealloc;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool supportsSyncCollectionReport;
 @property(readonly, nonatomic) _Bool supportsPrincipalPropertySearchReport;
 @property(readonly, nonatomic) NSSet *supportedReportsAsStringSet;

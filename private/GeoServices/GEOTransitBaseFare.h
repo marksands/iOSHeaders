@@ -29,6 +29,7 @@
 @property(nonatomic) _Bool cashOnly; // @synthesize cashOnly=_cashOnly;
 @property(retain, nonatomic) NSMutableArray *supportedPaymentMethods; // @synthesize supportedPaymentMethods=_supportedPaymentMethods;
 @property(retain, nonatomic) GEOTransitPrice *price; // @synthesize price=_price;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -50,7 +51,6 @@
 @property(nonatomic) _Bool hasPaymentType;
 @property(nonatomic) int paymentType; // @synthesize paymentType=_paymentType;
 @property(readonly, nonatomic) _Bool hasPrice;
-- (void)dealloc;
 @property(readonly, nonatomic) NSArray *supportedICCardProviders;
 @property(readonly, nonatomic) long long type;
 @property(readonly, copy, nonatomic) NSString *currencyCode;

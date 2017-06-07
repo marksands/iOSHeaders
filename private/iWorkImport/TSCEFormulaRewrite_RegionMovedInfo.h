@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     TSCEFormulaRewrite_RegionInfo *_srcRegion;
     TSCEFormulaRewrite_RegionInfo *_dstRegion;
+    TSCEFormulaRewrite_RegionInfo *_originalSrcRegion;
     UUIDMap_727ee07e _srcUidForDstUid;
     UUIDMap_727ee07e _dstUidForSrcUid;
     _Bool _spanningRows;
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool spanningRows; // @synthesize spanningRows=_spanningRows;
 @property(readonly, nonatomic) const UUIDMap_727ee07e *dstUidForSrcUid; // @synthesize dstUidForSrcUid=_dstUidForSrcUid;
 @property(readonly, nonatomic) const UUIDMap_727ee07e *srcUidForDstUid; // @synthesize srcUidForDstUid=_srcUidForDstUid;
+@property(retain, nonatomic) TSCEFormulaRewrite_RegionInfo *originalSrcRegion; // @synthesize originalSrcRegion=_originalSrcRegion;
 @property(readonly, nonatomic) TSCEFormulaRewrite_RegionInfo *dstRegion; // @synthesize dstRegion=_dstRegion;
 @property(readonly, nonatomic) TSCEFormulaRewrite_RegionInfo *srcRegion; // @synthesize srcRegion=_srcRegion;
 - (id).cxx_construct;
@@ -34,21 +36,21 @@ __attribute__((visibility("hidden")))
 - (void)unloadIndexes;
 - (void)loadIndexesForSrcTable:(id)arg1 dstTable:(id)arg2;
 - (void)loadIndexesFromRegions;
+@property(readonly, nonatomic) TSCEFormulaRewrite_Uids *originalSrcRowUids;
+@property(readonly, nonatomic) TSCEFormulaRewrite_Uids *originalSrcColumnUids;
 @property(readonly, nonatomic) TSCEFormulaRewrite_Uids *dstRowUids;
 @property(readonly, nonatomic) TSCEFormulaRewrite_Uids *dstColumnUids;
 @property(readonly, nonatomic) TSCEFormulaRewrite_Uids *srcRowUids;
 @property(readonly, nonatomic) TSCEFormulaRewrite_Uids *srcColumnUids;
+@property(readonly, nonatomic) UUIDData_5fbc143e originalSrcCondStyleOwnerUID;
 @property(readonly, nonatomic) UUIDData_5fbc143e dstCondStyleOwnerUID;
 @property(readonly, nonatomic) UUIDData_5fbc143e srcCondStyleOwnerUID;
-@property(readonly, nonatomic) struct __CFUUID *dstCondStyleOwnerID;
-@property(readonly, nonatomic) struct __CFUUID *srcCondStyleOwnerID;
+@property(readonly, nonatomic) UUIDData_5fbc143e originalSrcTableUID;
 @property(readonly, nonatomic) UUIDData_5fbc143e dstTableUID;
 @property(readonly, nonatomic) UUIDData_5fbc143e srcTableUID;
-@property(readonly, nonatomic) struct __CFUUID *dstTableID;
-@property(readonly, nonatomic) struct __CFUUID *srcTableID;
 - (id)description;
 - (void)dealloc;
-- (id)initWithSrcTableID:(struct __CFUUID *)arg1 srcColumnUids:(const vector_dadc1b26 *)arg2 srcRowUids:(const vector_dadc1b26 *)arg3 dstTableID:(struct __CFUUID *)arg4 dstColumnUids:(const vector_dadc1b26 *)arg5 dstRowUids:(const vector_dadc1b26 *)arg6;
+- (id)initWithSrcTableUID:(const UUIDData_5fbc143e *)arg1 srcColumnUids:(const vector_dadc1b26 *)arg2 srcRowUids:(const vector_dadc1b26 *)arg3 dstTableUID:(const UUIDData_5fbc143e *)arg4 dstColumnUids:(const vector_dadc1b26 *)arg5 dstRowUids:(const vector_dadc1b26 *)arg6;
 
 @end
 

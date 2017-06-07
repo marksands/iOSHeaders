@@ -48,6 +48,7 @@
 @property(readonly, nonatomic) NSString *previousCTag; // @synthesize previousCTag=_previousCTag;
 @property(readonly, nonatomic) NSURL *folderURL; // @synthesize folderURL=_folderURL;
 @property(nonatomic) unsigned long long multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
+- (void).cxx_destruct;
 - (_Bool)shouldSyncChildWithResourceType:(id)arg1;
 - (id)dataContentType;
 - (id)copyFolderMultiGetTaskWithURLs:(id)arg1;
@@ -79,12 +80,11 @@
 - (void)_tearDownAllUnsubmittedTasks;
 - (void)taskGroupWillCancelWithError:(id)arg1;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousPTag:(id)arg3 previousSyncToken:(id)arg4 actions:(id)arg5 syncItemOrder:(_Bool)arg6 context:(id)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(nonatomic) id <CoreDAVLocalDBTreeInfoProvider> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <CoreDAVLocalDBTreeInfoProvider> delegate; // @dynamic delegate;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

@@ -10,7 +10,6 @@
 {
 }
 
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (_Bool)canBecomeFirstResponder;
 - (id)initWithFrame:(struct CGRect)arg1;
 

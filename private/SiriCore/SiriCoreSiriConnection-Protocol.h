@@ -12,7 +12,7 @@
 @protocol SiriCoreSiriConnection <NSObject>
 @property(nonatomic) _Bool imposePolicyBan;
 @property(copy, nonatomic) NSString *connectionId;
-@property(retain, nonatomic) Class peerStreamProviderClass;
+@property(retain, nonatomic) Class peerProviderClass;
 @property(nonatomic) _Bool siriConnectionUsesPeerManagedSync;
 @property(nonatomic) _Bool deviceIsInWalkaboutExperimentGroup;
 @property(nonatomic) _Bool usesProxyConnection;
@@ -32,6 +32,7 @@
 @property(nonatomic) __weak id <SiriCoreSiriConnectionDelegate> delegate;
 - (void)getConnectionMetrics:(void (^)(SiriCoreConnectionMetrics *))arg1;
 - (void)getAnalysisInfo:(void (^)(SiriCoreAceConnectionAnalysisInfo *))arg1;
+- (void)probeConnection;
 - (void)barrier:(void (^)(_Bool))arg1;
 - (void)cancelSynchronously:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)setSendPings:(_Bool)arg1;

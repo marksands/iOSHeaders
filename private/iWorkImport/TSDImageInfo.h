@@ -47,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSPData *originalImageData; // @synthesize originalImageData=mOriginalImageData;
 @property(retain, nonatomic) TSPData *thumbnailImageData; // @synthesize thumbnailImageData=mThumbnailImageData;
 @property(retain, nonatomic) TSPData *imageData; // @synthesize imageData=mImageData;
+- (void).cxx_destruct;
 - (id)mediaDataForDragging;
 - (void)acceptVisitor:(id)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
@@ -55,10 +56,10 @@ __attribute__((visibility("hidden")))
 - (id)propertyNameForFlagsCommand;
 @property(nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic) TSUBezierPath *tracedPath;
-- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned long long)arg3;
 - (void)updateGeometryToReplaceMediaInfo:(id)arg1;
+- (void)scaleDownSizeToFitWithinSize:(struct CGSize)arg1;
 - (struct CGPoint)centerForReplacingWithNewMedia;
-@property(readonly, nonatomic) _Bool canPasteAsPDF;
+- (_Bool)hasPDFDataForCopy;
 - (_Bool)isPDF;
 - (id)updatedMaskInfoGeometryForImageDraggedBy:(struct CGPoint)arg1;
 - (id)defaultMaskInfo;
@@ -66,6 +67,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)maskCanBeReset;
 - (_Bool)isMasked;
 - (id)objectForProperty:(int)arg1;
+@property(readonly, nonatomic) double descentForInlineLayout;
 - (void)setAdjustedImageData:(id)arg1 thumbnailData:(id)arg2;
 @property(retain, nonatomic) TSUBezierPath *instantAlphaPath;
 - (id)i_instantAlphaPathIgnoringNaturalSize;
@@ -81,6 +83,8 @@ __attribute__((visibility("hidden")))
 - (long long)mediaCompatibilityTypeForData:(id)arg1 associatedHint:(id)arg2;
 - (struct CGSize)targetSizeForImageData:(id)arg1 associatedHint:(id)arg2;
 - (id)datasForReplacingMediaContentsWithAssociatedHints;
+- (_Bool)p_aspectRatioUnlockedResizeWouldCauseSkew;
+- (_Bool)allowsParentGroupToBeResizedWithoutAspectRatioLock;
 - (struct CGAffineTransform)computeFullTransform;
 - (id)geometryWithMask;
 - (id)infoForSelectionPath:(id)arg1;
@@ -90,6 +94,7 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
+- (_Bool)canAspectRatioLockBeChangedByUser;
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
 @property(readonly, nonatomic) TSDMediaStyle *imageStyle;
@@ -108,10 +113,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSPData *thumbnailAdjustedImageData;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ImageArchive *)arg1 archiver:(id)arg2;
-- (id)subclassInitFromUnarchiver:(id)arg1;
 - (void)p_upgradeImageThumbnail;
 - (void)p_upgradeImageGeometry;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ImageArchive *)arg1 unarchiver:(id)arg2;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 

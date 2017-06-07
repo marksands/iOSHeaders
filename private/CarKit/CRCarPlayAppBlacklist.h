@@ -11,15 +11,16 @@
 
 @interface CRCarPlayAppBlacklist : NSObject
 {
-    NSSet *_blacklistedBundleIDs;
     NSObject<OS_dispatch_queue> *_blacklistAccessQueue;
+    NSSet *_blacklistedBundleIDs;
 }
 
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *blacklistAccessQueue; // @synthesize blacklistAccessQueue=_blacklistAccessQueue;
 @property(retain, nonatomic) NSSet *blacklistedBundleIDs; // @synthesize blacklistedBundleIDs=_blacklistedBundleIDs;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *blacklistAccessQueue; // @synthesize blacklistAccessQueue=_blacklistAccessQueue;
 - (void).cxx_destruct;
+- (void)_fetchAppBlacklistWithReply:(CDUnknownBlockType)arg1;
+- (id)_init;
 - (_Bool)containsBundleIdentifier:(id)arg1;
-- (void)_fetchBlacklist;
 - (id)init;
 
 @end

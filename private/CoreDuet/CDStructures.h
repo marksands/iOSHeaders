@@ -14,6 +14,19 @@ struct NSArray {
     Class _field1;
 };
 
+struct XSPerfCollection {
+    id _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    struct XSPerfCounter *_field4;
+    struct XSPerfMetric *_field5;
+    char *_field6;
+};
+
+struct XSPerfCounter;
+
+struct XSPerfMetric;
+
 struct _cdp_prediction_result {
     int _field1;
     float _field2;

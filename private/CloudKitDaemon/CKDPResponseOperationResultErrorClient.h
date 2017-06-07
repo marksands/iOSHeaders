@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) _Bool hasOplockFailure;
 @property(retain, nonatomic) CKDPUniqueFieldFailure *uniqueFieldFailure;
 @property(readonly, nonatomic) _Bool hasUniqueFieldFailure;
+- (id)_typeCKLogValue;
 
 @end
 

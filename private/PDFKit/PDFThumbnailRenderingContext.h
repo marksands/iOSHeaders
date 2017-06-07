@@ -8,6 +8,7 @@
 
 @class PDFPage;
 
+__attribute__((visibility("hidden")))
 @interface PDFThumbnailRenderingContext : NSObject
 {
     id _contextObject;

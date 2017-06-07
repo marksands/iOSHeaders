@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     _Bool _isAllowedToAccessAnyCloudService;
     _Bool _isProxyEntitled;
     _Bool _isSharingProxyEntitled;
+    _Bool _isFolderSharingProxyEntitled;
     _Bool _isSharingPrivateInterfaceEntitled;
     _Bool _isAutomationEntitled;
     _Bool _hasAuditToken;
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSSet *appLibraryIDs; // @synthesize appLibraryIDs=_appLibraryIDs;
 @property(readonly, nonatomic) _Bool isAutomationEntitled; // @synthesize isAutomationEntitled=_isAutomationEntitled;
 @property(readonly, nonatomic) _Bool isSharingPrivateInterfaceEntitled; // @synthesize isSharingPrivateInterfaceEntitled=_isSharingPrivateInterfaceEntitled;
+@property(readonly, nonatomic) _Bool isFolderSharingProxyEntitled; // @synthesize isFolderSharingProxyEntitled=_isFolderSharingProxyEntitled;
 @property(readonly, nonatomic) _Bool isSharingProxyEntitled; // @synthesize isSharingProxyEntitled=_isSharingProxyEntitled;
 @property(readonly, nonatomic) _Bool isProxyEntitled; // @synthesize isProxyEntitled=_isProxyEntitled;
 @property(readonly, nonatomic) _Bool isAllowedToAccessAnyCloudService; // @synthesize isAllowedToAccessAnyCloudService=_isAllowedToAccessAnyCloudService;
@@ -49,7 +51,6 @@ __attribute__((visibility("hidden")))
 - (int)pid;
 - (_Bool)hasPid;
 - (id)initWithNonSandboxedAppWithAppLibraryIDs:(id)arg1 bundleID:(id)arg2 auditToken:(CDStruct_4c969caf)arg3;
-- (id)initWithPid:(int)arg1;
 - (id)initWithAuditToken:(CDStruct_4c969caf)arg1;
 
 @end

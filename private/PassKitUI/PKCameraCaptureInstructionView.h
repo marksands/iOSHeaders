@@ -6,22 +6,25 @@
 
 #import <UIKit/UIView.h>
 
-@class PKTableHeaderView, UIButton;
+@class PKTableHeaderView, UIButton, UIScrollView;
 
 @interface PKCameraCaptureInstructionView : UIView
 {
-    PKTableHeaderView *_headerView;
     long long _context;
-    UIButton *_manualEntryButton;
-    UIButton *_setupLaterButton;
+    UIScrollView *_scrollView;
+    UIButton *_primaryButton;
+    UIButton *_secondaryButton;
+    PKTableHeaderView *_headerView;
 }
 
-@property(retain, nonatomic) UIButton *setupLaterButton; // @synthesize setupLaterButton=_setupLaterButton;
-@property(retain, nonatomic) UIButton *manualEntryButton; // @synthesize manualEntryButton=_manualEntryButton;
+@property(retain, nonatomic) PKTableHeaderView *headerView; // @synthesize headerView=_headerView;
+@property(retain, nonatomic) UIButton *secondaryButton; // @synthesize secondaryButton=_secondaryButton;
+@property(retain, nonatomic) UIButton *primaryButton; // @synthesize primaryButton=_primaryButton;
 - (void).cxx_destruct;
 - (_Bool)isBuddyiPad;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 context:(long long)arg2;
 

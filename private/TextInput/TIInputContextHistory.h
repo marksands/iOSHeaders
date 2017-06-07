@@ -9,28 +9,38 @@
 #import <TextInput/NSCopying-Protocol.h>
 #import <TextInput/NSSecureCoding-Protocol.h>
 
-@class NSMutableArray, NSSet, NSString;
+@class NSArray, NSMutableArray, NSSet, NSString;
 
 @interface TIInputContextHistory : NSObject <NSCopying, NSSecureCoding>
 {
     NSMutableArray *_entries;
     NSMutableArray *_pendingEntries;
     NSSet *_recipientIdentifiers;
+    NSString *_senderIdentifier;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSArray *pendingEntries; // @synthesize pendingEntries=_pendingEntries;
+@property(readonly, nonatomic) NSArray *entries; // @synthesize entries=_entries;
+@property(readonly, nonatomic) NSString *senderIdentifier; // @synthesize senderIdentifier=_senderIdentifier;
 @property(readonly, nonatomic) NSSet *recipientIdentifiers; // @synthesize recipientIdentifiers=_recipientIdentifiers;
-@property(readonly, nonatomic) NSString *lastInputContext;
+@property(readonly, nonatomic) NSString *mostRecentNonSenderTextEntry;
 @property(readonly, nonatomic) NSString *aggregateText;
+- (_Bool)hasPendingEntries;
+- (void)appendPendingEntriesFromInputContextHistory:(id)arg1;
 - (void)enumeratePendingEntries:(CDUnknownBlockType)arg1;
 - (void)enumerateAllEntries:(CDUnknownBlockType)arg1;
+- (void)_enumerateAllEntriesAsInputContextEntries:(CDUnknownBlockType)arg1;
+- (void)addTextEntry:(id)arg1 timestamp:(id)arg2 senderIdentifier:(id)arg3;
 - (void)addTextEntry:(id)arg1 timestamp:(id)arg2;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)assertCheckpointForCoding;
 - (void)dealloc;
 - (id)initWithRecipientIdentifiers:(id)arg1;
+- (id)initWithRecipientIdentifiers:(id)arg1 senderIdentifier:(id)arg2;
 
 @end
 

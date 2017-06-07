@@ -6,18 +6,19 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <UserNotificationsUIKit/NCContentSizeCategoryAdjusting-Protocol.h>
+#import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
 #import <UserNotificationsUIKit/NCNotificationCustomContentDelegate-Protocol.h>
 #import <UserNotificationsUIKit/UIScrollViewDelegate-Protocol.h>
 
-@class MTMaterialSettings, NCNotificationAction, NCNotificationRequest, NSString, UIScrollView, UIView, _NCNotificationViewControllerView;
+@class NCNotificationAction, NCNotificationRequest, NSPointerArray, NSString, UIScrollView, UIView, _NCNotificationViewControllerView;
 @protocol NCNotificationCustomContent, NCNotificationCustomContentProviding, NCNotificationStaticContentProviding, NCNotificationViewControllerDelegate, UIViewControllerTransitionCoordinator;
 
-@interface NCNotificationViewController : UIViewController <UIScrollViewDelegate, NCNotificationCustomContentDelegate, NCContentSizeCategoryAdjusting>
+@interface NCNotificationViewController : UIViewController <UIScrollViewDelegate, NCNotificationCustomContentDelegate, MTContentSizeCategoryAdjusting>
 {
     _Bool _didQueryCanPan;
     _Bool _canPan;
     long long _ncTransitionAnimationState;
+    NSPointerArray *_observers;
     struct UIView *_lookView;
     _Bool _revealAdditionalContentOnPresentation;
     _Bool _interactionEnabled;
@@ -30,17 +31,17 @@
     id <NCNotificationCustomContentProviding> _customContentProvider;
     id <UIViewControllerTransitionCoordinator> _activeTransitionCoordinator;
     UIView *_associatedView;
+    CDUnknownBlockType _pendingPresentationTransitionDidEndBlock;
     UIScrollView *_scrollView;
     UIViewController<NCNotificationCustomContent> *_customContentProvidingViewController;
-    MTMaterialSettings *_materialSettings;
     CDUnknownBlockType _dismissalCompletion;
 }
 
 @property(copy, nonatomic, getter=_dismissalCompletion, setter=_setDismissalCompletion:) CDUnknownBlockType dismissalCompletion; // @synthesize dismissalCompletion=_dismissalCompletion;
-@property(retain, nonatomic) MTMaterialSettings *materialSettings; // @synthesize materialSettings=_materialSettings;
 @property(nonatomic, getter=_shouldRestorePresentingShortLookOnDismiss, setter=_setShouldRestorePresentingShortLookOnDismiss:) _Bool shouldRestorePresentingShortLookOnDismiss; // @synthesize shouldRestorePresentingShortLookOnDismiss=_shouldRestorePresentingShortLookOnDismiss;
 @property(retain, nonatomic, getter=_customContentProvidingViewController, setter=_setCustomContentProvidingViewController:) UIViewController<NCNotificationCustomContent> *customContentProvidingViewController; // @synthesize customContentProvidingViewController=_customContentProvidingViewController;
 @property(readonly, nonatomic, getter=_scrollView) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
+@property(copy, nonatomic, getter=_pendingPresentationTransitionDidEndBlock, setter=_setPendingPresentationTransitionDidEndBlock:) CDUnknownBlockType pendingPresentationTransitionDidEndBlock; // @synthesize pendingPresentationTransitionDidEndBlock=_pendingPresentationTransitionDidEndBlock;
 @property(nonatomic) __weak UIView *associatedView; // @synthesize associatedView=_associatedView;
 @property(nonatomic, getter=isInteractionEnabled) _Bool interactionEnabled; // @synthesize interactionEnabled=_interactionEnabled;
 @property(retain, nonatomic, getter=_activeTransitionCoordinator, setter=_setActiveTransitionCoordinator:) id <UIViewControllerTransitionCoordinator> activeTransitionCoordinator; // @synthesize activeTransitionCoordinator=_activeTransitionCoordinator;
@@ -68,7 +69,7 @@
 - (void)_askDelegateToExecuteAction:(id)arg1 withParameters:(id)arg2 animated:(_Bool)arg3;
 - (void)_updateScrollViewContentSize;
 - (_Bool)_shouldPadScrollViewContentSizeHeight;
-- (void)transitionManager:(id)arg1 shouldFinishInteractionWithCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)previewInteractionManager:(id)arg1 shouldFinishInteractionWithCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)_executeCancelAction:(_Bool)arg1;
 - (void)_executeCloseAction:(_Bool)arg1;
 - (void)_executeClearAction:(_Bool)arg1;
@@ -81,9 +82,13 @@
 - (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (unsigned long long)supportedInterfaceOrientations;
 - (_Bool)shouldAutorotate;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
+- (id)notificationUsageTrackingState;
 - (void)_updatePreferredContentSize;
 - (void)_setPreferredCustomContentSize:(struct CGSize)arg1;
 - (struct CGSize)_preferredCustomContentSizeForSize:(struct CGSize)arg1 parentContentContainerBounds:(struct CGRect)arg2;
@@ -115,6 +120,9 @@
 - (void)updateContent;
 - (void)setHasUpdatedContent;
 - (_Bool)didReceiveNotificationRequest:(id)arg1;
+- (void)_notifyObserversWithBlock:(CDUnknownBlockType)arg1;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
 - (void)_setupCustomContentProvider;
 - (void)_setupStaticContentProvider;
 - (void)reloadStaticContentProvider;

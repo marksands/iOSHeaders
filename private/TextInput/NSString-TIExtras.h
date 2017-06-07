@@ -9,7 +9,7 @@
 @interface NSString (TIExtras)
 + (id)stringWithUnichar:(unsigned int)arg1;
 + (_Bool)_string:(id)arg1 matchesString:(id)arg2;
-+ (struct USet *)_nonFullwidthLettersAndSymbolsSet;
++ (struct USet *)_fullwidthLettersAndSymbolsSet;
 + (struct USet *)_nonFullwidthLettersAndNumbersSet;
 + (struct USet *)_fullwidthLettersAndNumbersSet;
 + (struct USet *)_bopomofoToneSet;
@@ -58,7 +58,7 @@
 - (id)_stringByConvertingFromFullWidthToHalfWidth;
 - (id)_stringByConvertingFromHalfWidthToFullWidth;
 - (_Bool)_shouldBePaddedWithSpaces;
-- (_Bool)_containsFullwidthLettersAndSymbols;
+- (_Bool)_containsFullwidthLettersAndSymbolsOnly;
 - (_Bool)_containsFullwidthLettersAndNumbers;
 - (_Bool)_containsFullwidthLettersAndNumbersOnly;
 - (_Bool)_containsCJKSymbolsAndPunctuation;
@@ -67,6 +67,7 @@
 - (_Bool)_containsIdeographsOrBopomofoOnly;
 - (_Bool)_containsBopomofoToneOnly;
 - (_Bool)_containsBopomofoOnly;
+- (_Bool)_containsEmojiOnly;
 - (_Bool)_containsEmoji;
 - (_Bool)_containsHiraganaKatakanaOrBopomofo;
 - (_Bool)_containsKatakanaOrKanji;

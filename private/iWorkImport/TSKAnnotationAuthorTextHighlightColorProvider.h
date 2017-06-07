@@ -13,11 +13,12 @@
 __attribute__((visibility("hidden")))
 @interface TSKAnnotationAuthorTextHighlightColorProvider : NSObject <TSKCGColorProvider>
 {
-    TSKAnnotationAuthor *mAnnotationAuthor;
+    TSKAnnotationAuthor *_annotationAuthor;
 }
 
+@property(retain, nonatomic) TSKAnnotationAuthor *annotationAuthor; // @synthesize annotationAuthor=_annotationAuthor;
+- (void).cxx_destruct;
 - (struct CGColor *)cgColor;
-- (void)dealloc;
 - (id)initWithAnnotationAuthor:(id)arg1;
 
 // Remaining properties

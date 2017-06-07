@@ -8,6 +8,7 @@
 
 @class NSURL, PDFDestination, PDFDocument;
 
+__attribute__((visibility("hidden")))
 @interface PDFActionRemoteGoToPrivateVars : NSObject
 {
     unsigned long long pageIndex;

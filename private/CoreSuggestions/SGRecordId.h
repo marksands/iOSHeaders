@@ -15,14 +15,12 @@
 }
 
 + (id)recordIdWithNumericValue:(long long)arg1;
-+ (id)recordIdWithInternalEntityId:(long long)arg1 foreignHash:(id)arg2;
 + (id)recordIdWithInternalEntityId:(long long)arg1;
 + (_Bool)supportsSecureCoding;
 - (id)description;
 - (_Bool)isEqualToRecordId:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)foreignHash;
 - (long long)numericValue;
 - (long long)internalEntityId;
 - (void)encodeWithCoder:(id)arg1;

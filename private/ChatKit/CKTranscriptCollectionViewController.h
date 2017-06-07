@@ -23,7 +23,7 @@
 #import <ChatKit/UICollectionViewDelegateFlowLayout-Protocol.h>
 
 @class CKAudioController, CKConversation, CKFullScreenEffectManager, CKImpactEffectManager, CKPluginPlaybackManager, CKTranscriptCollectionView, IMChat, NSArray, NSIndexPath, NSIndexSet, NSMutableSet, NSObject, NSString, UITapGestureRecognizer, UIView;
-@protocol CKFullscreenEffectView, CKGradientReferenceView, CKTranscriptCollectionViewControllerDelegate, OS_dispatch_group;
+@protocol CKFullscreenEffectView, CKGradientReferenceView, CKTranscriptCollectionViewControllerDelegate, OS_dispatch_group, UIDragInteractionDelegate;
 
 @interface CKTranscriptCollectionViewController : CKViewController <CKAudioControllerDelegate, CKLocationShareBalloonViewDelegate, CKLocationSharingDelegate, CKMovieBalloonViewDelegate, CKTitledImageBalloonViewDelegate, CKTranscriptCollectionViewDelegate, CNAvatarViewDelegate, UIAlertViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, CKFullScreenEffectManagerDelegate, CKPluginPlaybackManagerDelegate, CKAssociatedMessageTranscriptCellDelegate, CKSendAnimationManagerDelegate>
 {
@@ -35,7 +35,7 @@
     _Bool _isPerformingRegenerateOnlyUpdate;
     _Bool _peeking;
     _Bool _hasHiddenItems;
-    _Bool _isLoadingEarlierMessages;
+    _Bool _isLoadingMoreMessages;
     _Bool _sizedFullTranscript;
     _Bool _shouldUseOpaqueMask;
     _Bool _filterAllButFirstMessage;
@@ -54,7 +54,9 @@
     CKFullScreenEffectManager *_fullscreenEffectManager;
     double _pluginPlaybackDelay;
     NSString *___CurrentTestName;
+    id <UIDragInteractionDelegate> _dragInteractionDelegate;
     UITapGestureRecognizer *_loggingTapGestureRecognizer;
+    NSArray *_bulletins;
     CKTranscriptCollectionView *_collectionView;
     CKAudioController *_audioController;
     CKPluginPlaybackManager *_pluginPlaybackManager;
@@ -80,7 +82,7 @@
 @property(nonatomic) _Bool shouldUseOpaqueMask; // @synthesize shouldUseOpaqueMask=_shouldUseOpaqueMask;
 @property(nonatomic) _Bool sizedFullTranscript; // @synthesize sizedFullTranscript=_sizedFullTranscript;
 @property(copy, nonatomic) NSString *speakerTransferGUID; // @synthesize speakerTransferGUID=_speakerTransferGUID;
-@property(nonatomic) _Bool isLoadingEarlierMessages; // @synthesize isLoadingEarlierMessages=_isLoadingEarlierMessages;
+@property(nonatomic) _Bool isLoadingMoreMessages; // @synthesize isLoadingMoreMessages=_isLoadingMoreMessages;
 @property(nonatomic) _Bool hasHiddenItems; // @synthesize hasHiddenItems=_hasHiddenItems;
 @property(nonatomic, getter=isPeeking) _Bool peeking; // @synthesize peeking=_peeking;
 @property(nonatomic) struct CGPoint peekSampleTranslation; // @synthesize peekSampleTranslation=_peekSampleTranslation;
@@ -89,7 +91,9 @@
 @property(retain, nonatomic) CKPluginPlaybackManager *pluginPlaybackManager; // @synthesize pluginPlaybackManager=_pluginPlaybackManager;
 @property(retain, nonatomic) CKAudioController *audioController; // @synthesize audioController=_audioController;
 @property(retain, nonatomic) CKTranscriptCollectionView *collectionView; // @synthesize collectionView=_collectionView;
+@property(copy, nonatomic) NSArray *bulletins; // @synthesize bulletins=_bulletins;
 @property(retain, nonatomic) UITapGestureRecognizer *loggingTapGestureRecognizer; // @synthesize loggingTapGestureRecognizer=_loggingTapGestureRecognizer;
+@property(nonatomic) __weak id <UIDragInteractionDelegate> dragInteractionDelegate; // @synthesize dragInteractionDelegate=_dragInteractionDelegate;
 @property(retain, nonatomic, setter=__setCurrentTestName:) NSString *__CurrentTestName; // @synthesize __CurrentTestName=___CurrentTestName;
 @property(nonatomic) double pluginPlaybackDelay; // @synthesize pluginPlaybackDelay=_pluginPlaybackDelay;
 @property(nonatomic) _Bool allowsPluginPlayback; // @synthesize allowsPluginPlayback=_allowsPluginPlayback;
@@ -115,9 +119,11 @@
 - (void)configureSpeakerButtonCell:(id)arg1 forItemAtIndexPath:(id)arg2;
 - (void)reconfigureVisibleSpeakerButtonCells;
 - (void)_refreshLocationsForRecipientsIfNecessary;
+- (void)_tearDownLiveBubbles;
 - (void)chatRegistryDidLoad:(id)arg1;
 - (void)chatItemsDidChange:(id)arg1;
 - (void)chatItemIsFilteredChanged:(id)arg1;
+- (void)installedAppsChanged:(id)arg1;
 - (void)addressBookChanged:(id)arg1;
 - (void)transferUpdated:(id)arg1;
 - (void)locationStringDidChange:(id)arg1;
@@ -151,10 +157,13 @@
 - (void)scrollToTopOfLastBubbleCellAnimated:(_Bool)arg1;
 - (void)loadEarlierMessagesIfNeeded;
 - (void)loadEarlierMessages;
+- (void)loadMoreRecentMessages;
 - (void)setChatItems:(id)arg1 removedAssociatedIndexes:(id *)arg2 insertedAssociatedIndexes:(id *)arg3;
 - (void)_diffAssociatedItemsWithOldAssociatedItems:(id)arg1 removedAssociatedIndexes:(id *)arg2 insertedAssociatedIndexes:(id *)arg3;
 - (id)chatItemWithIMChatItem:(id)arg1;
 - (id)chatItemsWithIMChatItems:(id)arg1;
+- (id)chatItemWithBulletin:(id)arg1;
+- (id)chatItemsWithBulletins:(id)arg1;
 - (void)updateTranscriptChatItems:(id)arg1 inserted:(id)arg2 removed:(id)arg3 reload:(id)arg4 regenerate:(id)arg5 animated:(_Bool)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)updateTranscriptChatItems:(id)arg1 inserted:(id)arg2 removed:(id)arg3 reload:(id)arg4 regenerate:(id)arg5 animated:(_Bool)arg6 checkFiltered:(_Bool)arg7 completion:(CDUnknownBlockType)arg8;
 - (void)_updatePluginPlaybackManagerForInsertedChatItems:(id)arg1;
@@ -187,6 +196,7 @@
 - (void)balloonView:(id)arg1 mediaObjectDidFinishPlaying:(id)arg2;
 - (void)interactionStoppedFromPreviewItemControllerInBalloonView:(id)arg1;
 - (void)interactionStartedFromPreviewItemControllerInBalloonView:(id)arg1;
+- (void)liveViewController:(id)arg1 requestPresentationStyleExpanded:(_Bool)arg2;
 - (void)associatedMessageTranscriptCellLongTouched:(id)arg1;
 - (void)associatedMessageTranscriptCellDoubleTapped:(id)arg1;
 - (void)_handleAssociatedMessageCellTapEvent:(id)arg1 isDoubleTap:(_Bool)arg2;
@@ -248,6 +258,7 @@
 - (void)highlightItemAtIndexPathWhenDisplayed:(id)arg1;
 - (void)_highlightCell:(id)arg1;
 @property(readonly, nonatomic) IMChat *chat;
+- (id)initWithConversation:(id)arg1 bulletins:(id)arg2 balloonMaxWidth:(double)arg3 marginInsets:(struct UIEdgeInsets)arg4;
 - (id)initWithConversation:(id)arg1 balloonMaxWidth:(double)arg2 marginInsets:(struct UIEdgeInsets)arg3;
 - (void)_prewarmTranscriptAssetsIfNecessary;
 - (void)viewDidAppearDeferredSetup;

@@ -22,7 +22,6 @@
 - (int)peekAtAddress:(unsigned long long)arg1 size:(unsigned long long)arg2 returnsBuf:(void **)arg3;
 - (int)stopPeeking;
 - (int)startPeeking;
-- (void)finalize;
 - (void)dealloc;
 - (void)flushMemoryCache;
 - (id)initWithTask:(unsigned int)arg1;

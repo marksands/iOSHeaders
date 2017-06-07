@@ -6,12 +6,18 @@
 
 #import <SearchUI/SearchUILayoutFreeSectionView.h>
 
+@class TLKKeyValueView;
+
 @interface SearchUIKeyValueDataCardSectionView : SearchUILayoutFreeSectionView
 {
+    TLKKeyValueView *_keyValueView;
 }
 
-- (id)labelForString:(id)arg1 vibrant:(_Bool)arg2;
-- (id)gridOfViewsForSection:(id)arg1;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
+@property(retain) TLKKeyValueView *keyValueView; // @synthesize keyValueView=_keyValueView;
+- (void).cxx_destruct;
+- (void)updateWithCardSection:(id)arg1;
+- (id)convertSFKeyValueData:(id)arg1;
 - (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
 
 @end

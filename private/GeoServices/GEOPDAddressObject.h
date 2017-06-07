@@ -8,14 +8,17 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSData;
+@class NSData, PBUnknownFields;
 
 @interface GEOPDAddressObject : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSData *_addressObject;
 }
 
 @property(retain, nonatomic) NSData *addressObject; // @synthesize addressObject=_addressObject;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -26,7 +29,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasAddressObject;
-- (void)dealloc;
 
 @end
 

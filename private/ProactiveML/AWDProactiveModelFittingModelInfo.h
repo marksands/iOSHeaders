@@ -17,6 +17,8 @@
     NSString *_version;
 }
 
++ (id)modelInfoFromPlanId:(struct NSString *)arg1;
++ (id)modelInfoFromSessionDescriptor:(id)arg1;
 @property(retain, nonatomic) NSString *locale; // @synthesize locale=_locale;
 @property(retain, nonatomic) NSString *version; // @synthesize version=_version;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;

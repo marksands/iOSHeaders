@@ -14,25 +14,25 @@
 __attribute__((visibility("hidden")))
 @interface TNDocumentRoot : TSADocumentRoot <TSTResolverContainerNameProvider, TSTFormsSheetProvider>
 {
-    TNTheme *mTheme;
-    TSSStylesheet *mStylesheet;
-    NSMutableArray *mSheets;
-    TSKTreeNode *mSidebarOrder;
-    unsigned long long mSheetNameCounter;
-    TNUIState *mUIState;
-    _Bool mDocumentWasPreparedFromTemplate;
-    _Bool _printingAllSheets;
-    NSString *_printerID;
     NSString *_paperID;
     struct CGSize _pageSize;
+    _Bool _printingAllSheets;
+    TNTheme *_theme;
+    TSKTreeNode *_sidebarOrder;
+    TNUIState *_uiState;
+    NSMutableArray *_mutableSheets;
+    TSSStylesheet *_stylesheet;
 }
 
 + (struct CGSize)previewImageMaxSizeForType:(unsigned long long)arg1;
 + (struct CGSize)previewImageSizeForType:(unsigned long long)arg1;
-@property(retain, nonatomic) TNUIState *uiState; // @synthesize uiState=mUIState;
-@property(readonly, retain, nonatomic) TSKTreeNode *sidebarOrder; // @synthesize sidebarOrder=mSidebarOrder;
-@property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=mStylesheet;
+@property(retain, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
+@property(retain, nonatomic) NSMutableArray *mutableSheets; // @synthesize mutableSheets=_mutableSheets;
 @property(nonatomic, getter=isPrintingAllSheets) _Bool printingAllSheets; // @synthesize printingAllSheets=_printingAllSheets;
+@property(retain, nonatomic) TNUIState *uiState; // @synthesize uiState=_uiState;
+@property(retain, nonatomic) TSKTreeNode *sidebarOrder; // @synthesize sidebarOrder=_sidebarOrder;
+@property(readonly, nonatomic) TNTheme *theme; // @synthesize theme=_theme;
+- (void).cxx_destruct;
 - (int)verticalAlignmentForTextStorage:(id)arg1;
 - (int)naturalAlignmentAtCharIndex:(unsigned long long)arg1 inTextStorage:(id)arg2;
 - (void)setUIState:(id)arg1 forChart:(id)arg2;
@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (double)p_imageBorderForSize:(struct CGSize)arg1;
 - (_Bool)prepareAndValidateSidecarViewStateObjectWithVersionUUIDMismatch:(id)arg1 originalDocumentViewStateObject:(id)arg2;
 - (id)nearestDisplayableSheetToSheet:(id)arg1;
+- (void)collectDocumentOpenAnalyticsWithLogger:(id)arg1;
 - (void)documentDidLoad;
 - (void)performDeferredUpgradeImportOperationsRequiringCalcEngine;
 - (void)performDeferredUpgradeImportOperationsOnNewThreadForCharts:(id)arg1;
@@ -53,7 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)sheet:(id)arg1 removedDrawable:(id)arg2;
 - (void)sheet:(id)arg1 insertedDrawable:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 @property(nonatomic) _Bool removedAllQuickCalcFunctions;
 @property(copy, nonatomic) NSArray *selectedQuickCalcFunctions;
 - (id)childEnumerator;
@@ -67,41 +68,40 @@ __attribute__((visibility("hidden")))
 - (id)nameForResolverContainer:(id)arg1;
 - (id)resolverContainerNameForResolver:(id)arg1;
 - (id)p_resolverContainerForResolver:(id)arg1;
-- (void)tableID:(struct __CFUUID *)arg1 changedToTableID:(struct __CFUUID *)arg2;
-- (_Bool)isTableLinkedToAForm:(struct __CFUUID *)arg1;
+- (void)tableUID:(const UUIDData_5fbc143e *)arg1 changedToTableUID:(const UUIDData_5fbc143e *)arg2;
+- (_Bool)isTableLinkedToAForm:(const UUIDData_5fbc143e *)arg1;
 - (_Bool)containsForms;
 - (void)p_buildSidebarOrder;
 - (void)p_removeSidebarNodeForSheet:(id)arg1;
 - (void)p_addSidebarNodeForSheet:(id)arg1;
 - (void)setSidebarChildren:(id)arg1 forSheet:(id)arg2;
+@property(copy, nonatomic) NSString *printerID;
 - (_Bool)validName:(id)arg1 forRenamingSheet:(id)arg2;
 - (_Bool)validNameForNewSheet:(id)arg1;
 - (_Bool)shouldShowComments;
 - (void)moveSheetFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
-- (void)insertSheet:(id)arg1 sheetIndex:(unsigned long long)arg2 context:(id)arg3;
+- (void)insertSheet:(id)arg1 sheetIndex:(unsigned long long)arg2 forPasteOrUndoDelete:(_Bool)arg3 context:(id)arg4;
 - (void)removeSheet:(id)arg1;
 - (void)addSheet:(id)arg1 dolcContext:(id)arg2;
 - (void)removeAllSheets;
 - (id)activeSheet;
+- (id)uniqueNameForSheet:(id)arg1 appendNewTag:(_Bool)arg2;
 - (id)untitledSheetName;
-- (void)incrementSheetNameCounter;
-- (void)prepareNewDocumentWithTemplateBundle:(id)arg1;
+- (void)prepareNewDocumentWithTemplateBundle:(id)arg1 documentLocale:(id)arg2;
 - (void)setThemeForTemplateImport:(id)arg1;
-@property(retain, nonatomic) TNTheme *theme;
+- (void)setTheme:(id)arg1;
 - (void)setStylesheet:(id)arg1 andThemeForImport:(id)arg2;
 - (unsigned long long)p_tableCountForSheet:(id)arg1;
 @property(readonly, nonatomic) unsigned long long tableCount;
-@property(readonly, nonatomic) NSArray *sheets;
+@property(readonly, copy, nonatomic) NSArray *sheets;
 - (void)setImportedPaperID:(id)arg1 printerID:(id)arg2;
 - (void)setStylesheetForUpgradeToSingleStylesheet:(id)arg1;
-@property(nonatomic) struct CGSize pageSize; // @synthesize pageSize=_pageSize;
-@property(copy, nonatomic) NSString *paperID; // @synthesize paperID=_paperID;
-@property(copy, nonatomic) NSString *printerID; // @synthesize printerID=_printerID;
 - (unsigned long long)applicationType;
 - (void)initializeForImport;
 - (void)initializeHardCodedBlankDocument;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
+@property(nonatomic) struct CGSize pageSize;
+@property(copy, nonatomic) NSString *paperID;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

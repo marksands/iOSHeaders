@@ -7,6 +7,6 @@
 #import <NewsTransport/NTPBPersonalizationAggregateDelta.h>
 
 @interface NTPBPersonalizationAggregateDelta (FCBugFixSwizzle)
-- (void)fc_swizzle_addEvents:(unsigned int)arg1;
++ (void)fc_swizzleFor24117796;
 @end
 

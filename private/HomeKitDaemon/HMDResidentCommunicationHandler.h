@@ -4,18 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMDCentralMessageDispatcher, HMDDevice, HMFTimer, NSMapTable, NSMutableArray, NSString, NSUUID;
+@class HMDCentralMessageDispatcher, HMDDevice, HMFTimer, NSMapTable, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDResidentCommunicationHandler : NSObject <HMFLogging, HMFTimerDelegate>
+@interface HMDResidentCommunicationHandler : HMFObject <HMFLogging, HMFTimerDelegate>
 {
-    HMDDevice *_device;
     NSObject<OS_dispatch_queue> *_workQueue;
+    NSMapTable *_deviceMapping;
     NSMutableArray *_pendingReadRequests;
     NSMapTable *_dispatchedReadRequests;
     HMFTimer *_multiReadCoalesceTimer;
@@ -33,17 +33,23 @@
 @property(retain, nonatomic) HMFTimer *multiReadCoalesceTimer; // @synthesize multiReadCoalesceTimer=_multiReadCoalesceTimer;
 @property(readonly, nonatomic) NSMapTable *dispatchedReadRequests; // @synthesize dispatchedReadRequests=_dispatchedReadRequests;
 @property(readonly, nonatomic) NSMutableArray *pendingReadRequests; // @synthesize pendingReadRequests=_pendingReadRequests;
+@property(retain, nonatomic) NSMapTable *deviceMapping; // @synthesize deviceMapping=_deviceMapping;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
-@property(readonly, nonatomic) HMDDevice *device; // @synthesize device=_device;
 - (void).cxx_destruct;
 - (void)_processResponse:(id)arg1 overallError:(id)arg2 messageIdentifier:(id)arg3;
 - (void)_sendMultipleCharacteristicRead;
 - (void)timerDidFire:(id)arg1;
-- (void)_redispatchMessage:(id)arg1 target:(id)arg2 responseQueue:(id)arg3;
 - (void)redispatchMessage:(id)arg1 target:(id)arg2 responseQueue:(id)arg3;
+- (long long)preferredDeviceType;
+@property(readonly, nonatomic) HMDDevice *preferredDevice;
+- (id)deviceForType:(long long)arg1;
+- (_Bool)containsDevice:(id)arg1;
+- (void)_removeDeviceForType:(long long)arg1;
+- (void)removeDeviceForType:(long long)arg1;
+- (void)setDevice:(id)arg1 forType:(long long)arg2;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithHomeUUID:(id)arg1 device:(id)arg2 remoteDispatcher:(id)arg3;
+- (id)initWithHomeUUID:(id)arg1 remoteDispatcher:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

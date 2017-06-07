@@ -13,13 +13,13 @@
     unsigned long long _mode;
     NSArray *_overrides;
     unsigned long long _privilegeTypes;
-    int _recordID;
     NSDateComponents *_fromComponents;
     NSDateComponents *_toComponents;
     BBSettingsGateway *_bbGateway;
     unsigned long long _overrideType;
     _Bool _valid;
     _Bool _isEffectiveWhileUnlocked;
+    int _recordID;
     NSArray *_behaviorOverrides;
     long long _overrideStatus;
 }
@@ -29,12 +29,12 @@
 + (void)setManualEnabled:(_Bool)arg1;
 + (_Bool)isDNDScheduled;
 + (id)sharedController;
+@property(nonatomic) int recordID; // @synthesize recordID=_recordID;
 @property(nonatomic) long long overrideStatus; // @synthesize overrideStatus=_overrideStatus;
 @property(nonatomic) unsigned long long overrideType; // @synthesize overrideType=_overrideType;
 @property(readonly, nonatomic) BBSettingsGateway *bbGateway; // @synthesize bbGateway=_bbGateway;
 @property(retain, nonatomic) NSDateComponents *toComponents; // @synthesize toComponents=_toComponents;
 @property(retain, nonatomic) NSDateComponents *fromComponents; // @synthesize fromComponents=_fromComponents;
-@property(nonatomic) int recordID; // @synthesize recordID=_recordID;
 @property(nonatomic) unsigned long long privilegeTypes; // @synthesize privilegeTypes=_privilegeTypes;
 @property(nonatomic) _Bool isEffectiveWhileUnlocked; // @synthesize isEffectiveWhileUnlocked=_isEffectiveWhileUnlocked;
 @property(copy, nonatomic) NSArray *overrides; // @synthesize overrides=_overrides;

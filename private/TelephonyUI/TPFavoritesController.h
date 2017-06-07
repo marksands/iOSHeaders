@@ -8,39 +8,49 @@
 
 #import <TelephonyUI/TUCallProviderManagerDelegate-Protocol.h>
 
-@class CNContactStore, CNFavorites, NSArray, NSMutableDictionary, NSString, TUCallProviderManager;
-@protocol TPFavoritesControllerDelegate;
+@class CNContactStore, CNFavorites, NSArray, NSCache, NSString, TUCallProviderManager;
+@protocol OS_dispatch_queue;
 
 @interface TPFavoritesController : NSObject <TUCallProviderManagerDelegate>
 {
     TUCallProviderManager *_callProviderManager;
-    NSArray *_favoritesEntries;
-    id <TPFavoritesControllerDelegate> _delegate;
+    NSCache *_contactCache;
     CNContactStore *_contactStore;
+    NSArray *_favoritesEntries;
+    NSCache *_transportNameCache;
+    NSObject<OS_dispatch_queue> *_completionDispatchQueue;
+    NSObject<OS_dispatch_queue> *_serialDispatchQueue;
     CNFavorites *_favorites;
-    NSMutableDictionary *_transportNameCache;
 }
 
-@property(readonly, copy, nonatomic) NSMutableDictionary *transportNameCache; // @synthesize transportNameCache=_transportNameCache;
 @property(retain, nonatomic) CNFavorites *favorites; // @synthesize favorites=_favorites;
-@property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
-@property(nonatomic) __weak id <TPFavoritesControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *serialDispatchQueue; // @synthesize serialDispatchQueue=_serialDispatchQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *completionDispatchQueue; // @synthesize completionDispatchQueue=_completionDispatchQueue;
 - (void).cxx_destruct;
+- (CDUnknownBlockType)qosUserInteractiveDispatchBlockForBlock:(CDUnknownBlockType)arg1;
 - (void)providersChangedForProviderManager:(id)arg1;
-- (id)dialRequestForCallProvider:(id)arg1;
 - (void)handleFavoritesEntryChangedNotification:(id)arg1;
 - (void)handleFavoritesChangedNotification:(id)arg1;
 - (void)handleContactStoreDidChangeNotification:(id)arg1;
+@property(readonly, nonatomic) NSCache *transportNameCache; // @synthesize transportNameCache=_transportNameCache;
 @property(copy, nonatomic) NSArray *favoritesEntries; // @synthesize favoritesEntries=_favoritesEntries;
+@property(readonly, nonatomic) NSCache *contactCache; // @synthesize contactCache=_contactCache;
+- (id)transportNameCacheKeyForFavoritesEntry:(id)arg1;
+- (id)fetchTransportNameForFavoritesEntry:(id)arg1;
+- (id)fetchFavoritesEntries;
+- (id)fetchContactForFavoritesEntry:(id)arg1 keyDescriptors:(id)arg2;
+- (id)fetchContactForFavoritesEntry:(id)arg1;
+- (id)contactCacheKeyForFavoritesEntry:(id)arg1;
 - (unsigned long long)absoluteIndexForIndex:(unsigned long long)arg1;
-- (id)dialRequestForFavoritesEntry:(id)arg1;
 - (id)transportNameForFavoritesEntry:(id)arg1;
 - (id)contactForFavoritesEntry:(id)arg1 keyDescriptors:(id)arg2;
+- (id)contactForFavoritesEntry:(id)arg1;
 - (void)save;
 - (void)removeEntriesAtIndexes:(id)arg1;
 - (void)moveEntryAtIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (_Bool)canAddEntry;
 - (id)addEntry:(id)arg1;
+@property(readonly, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
 @property(retain, nonatomic) TUCallProviderManager *callProviderManager; // @synthesize callProviderManager=_callProviderManager;
 - (void)dealloc;
 - (id)initWithContactStore:(id)arg1;

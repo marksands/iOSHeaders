@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSString *value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *field; // @synthesize field=_field;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -42,7 +43,6 @@
 @property(readonly, nonatomic) _Bool hasField;
 - (int)StringAsType:(id)arg1;
 - (id)typeAsString:(int)arg1;
-- (void)dealloc;
 
 @end
 

@@ -8,18 +8,19 @@
 
 #import <NewsCore/FCPrivateDataContextInternal-Protocol.h>
 
-@class CKContainer, FCCKDatabase, FCCKRecordZone, FCCKRecordZoneManager, NSString;
+@class FCCKPrivateDatabase, FCCKRecordZone, FCCKRecordZoneManager, NSString;
+@protocol FCAppActivityMonitor;
 
 @interface FCPrivateDataContextInternal : NSObject <FCPrivateDataContextInternal>
 {
-    FCCKDatabase *_privateDatabase;
-    CKContainer *_privateContainer;
+    FCCKPrivateDatabase *_privateDatabase;
+    id <FCAppActivityMonitor> _appActivityMonitor;
     FCCKRecordZoneManager *_recordZoneManager;
 }
 
 @property(retain, nonatomic) FCCKRecordZoneManager *recordZoneManager; // @synthesize recordZoneManager=_recordZoneManager;
-@property(retain, nonatomic) CKContainer *privateContainer; // @synthesize privateContainer=_privateContainer;
-@property(retain, nonatomic) FCCKDatabase *privateDatabase; // @synthesize privateDatabase=_privateDatabase;
+@property(retain, nonatomic) id <FCAppActivityMonitor> appActivityMonitor; // @synthesize appActivityMonitor=_appActivityMonitor;
+@property(retain, nonatomic) FCCKPrivateDatabase *privateDatabase; // @synthesize privateDatabase=_privateDatabase;
 - (void).cxx_destruct;
 - (id)recordZoneWithName:(id)arg1;
 @property(readonly, nonatomic) FCCKRecordZone *userInfoRecordZone;

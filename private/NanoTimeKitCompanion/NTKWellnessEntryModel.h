@@ -27,6 +27,8 @@
     NTKWellnessEntryModel *_previousEntryModel;
 }
 
++ (id)_LocalizedStringWithActiveEnergy:(id)arg1;
++ (id)formattingManager;
 + (id)largeUtility:(id)arg1;
 + (id)largeModular:(id)arg1;
 + (id)_activityTemplateWithFamily:(long long)arg1 entryModel:(id)arg2;

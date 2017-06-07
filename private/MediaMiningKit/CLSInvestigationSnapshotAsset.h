@@ -40,9 +40,14 @@
     NSNumber *_clsShareCount;
     NSData *_clsDistanceIdentity;
     NSNumber *_clsVideoScore;
+    NSNumber *_clsActivityLevel;
+    NSNumber *_clsVideoFaceCount;
     NSNumber *_clsSharpnessScore;
     NSNumber *_clsContentScore;
     NSNumber *_duration;
+    NSNumber *_clsSmileCount;
+    NSNumber *_clsBlinkCount;
+    NSNumber *_clsExposureCount;
     NSArray *_clsUnprefetchedPeopleNames;
 }
 
@@ -51,9 +56,14 @@
 @property(readonly, nonatomic) NSArray *clsUnprefetchedPeopleNames; // @synthesize clsUnprefetchedPeopleNames=_clsUnprefetchedPeopleNames;
 @property(readonly, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) float clsExposureScore;
+- (long long)clsBlinkCount;
+- (long long)clsSmileCount;
 - (double)duration;
 @property(readonly, nonatomic) double clsContentScore;
-- (float)clsSharpnessScore;
+@property(readonly, nonatomic) float clsSharpnessScore;
+- (unsigned long long)clsVideoFaceCount;
+- (float)clsActivityLevel;
 - (float)clsVideoScore;
 @property(readonly, nonatomic) NSData *clsDistanceIdentity;
 @property(readonly, nonatomic) long long clsShareCount;

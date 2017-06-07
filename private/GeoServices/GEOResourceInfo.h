@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOResource, NSArray, NSData, NSString;
 
@@ -18,11 +18,11 @@
 @property(nonatomic, getter=_allowResumingPartialDownload, setter=_setAllowResumingPartialDownload:) _Bool allowResumingPartialDownload; // @synthesize allowResumingPartialDownload=_allowResumingPartialDownload;
 @property(readonly, nonatomic) GEOResource *resource; // @synthesize resource=_resource;
 @property(copy, nonatomic) NSArray *equivalentResources; // @synthesize equivalentResources=_equivalentResources;
+- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) NSData *checksum;
 @property(readonly, nonatomic) int type;
 @property(readonly, nonatomic) NSString *name;
-- (void)dealloc;
 - (id)initWithResource:(id)arg1;
 
 @end

@@ -7,29 +7,43 @@
 #import <objc/NSObject.h>
 
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFPunchout-Protocol.h>
 
-@class NSArray, NSString;
+@class NSArray, NSData, NSDictionary, NSString, SFUserActivityData;
 
-@interface SFPunchout : NSObject <NSSecureCoding>
+@interface SFPunchout : NSObject <SFPunchout, NSSecureCoding>
 {
     NSString *_name;
     NSString *_bundleIdentifier;
     NSString *_label;
     NSArray *_urls;
+    SFUserActivityData *_userActivityData;
+    NSString *_actionTarget;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)punchoutWithURLs:(id)arg1;
 + (id)punchoutWithURL:(id)arg1;
-@property(retain, nonatomic) NSArray *urls; // @synthesize urls=_urls;
+@property(copy, nonatomic) NSString *actionTarget; // @synthesize actionTarget=_actionTarget;
+@property(retain, nonatomic) SFUserActivityData *userActivityData; // @synthesize userActivityData=_userActivityData;
+@property(copy, nonatomic) NSArray *urls; // @synthesize urls=_urls;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithProtobuf:(id)arg1;
 - (_Bool)canOpenURL:(id)arg1;
 - (id)preferredOpenableURL;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

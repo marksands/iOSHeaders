@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class GEOTileKeyList, NSMutableSet;
+@class GEOTileKeyList, NSMutableArray, NSMutableSet;
 @protocol GEOMapServiceTicket;
 
 __attribute__((visibility("hidden")))
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     double startTime;
     double endTime;
     struct vector<GEOLocationCoordinate2D, std::__1::allocator<GEOLocationCoordinate2D>> coords;
+    NSMutableArray *_latLngToLoad;
     unsigned int priority;
     id <GEOMapServiceTicket> placeDataRequestTicketForBatch;
     double endTimeForScheduleFreshness;
@@ -33,7 +34,6 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (double)networkDataRateKB;
 - (double)dataRateKB;
-- (void)dealloc;
 - (id)init;
 
 @end

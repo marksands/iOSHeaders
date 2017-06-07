@@ -57,8 +57,6 @@
 - (_Bool)canProvideAnalysisJobResultInformation:(id)arg1 withoutRequiringAssetResourceForAsset:(id)arg2;
 - (void)willPerformJob:(id)arg1;
 - (Class)assetsAnalyzingOperationClass;
-- (void)scheduleProcessingOfAssetsWithLocalIdentifiers:(id)arg1 withPriority:(long long)arg2;
-- (void)scheduleProcessingOfAssetsWithLocalIdentifiers:(id)arg1;
 - (unsigned long long)lastPerformedJobScenario;
 - (_Bool)isExecutingDuringDarkWake;
 - (void)_checkForDarkWakeStateTransition;

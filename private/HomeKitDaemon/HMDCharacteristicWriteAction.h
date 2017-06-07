@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
 @class HMDActionSet, HMDCharacteristic, NSUUID;
 
-@interface HMDCharacteristicWriteAction : NSObject <NSSecureCoding>
+@interface HMDCharacteristicWriteAction : HMFObject <NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     NSUUID *_uuid;
     HMDActionSet *_actionSet;
@@ -24,12 +25,16 @@
 @property(readonly, nonatomic) __weak HMDActionSet *actionSet; // @synthesize actionSet=_actionSet;
 @property(readonly, copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (void)_processWriteActionModelUpdated:(id)arg1 message:(id)arg2;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)actionInformation;
 - (id)dumpState;
 - (void)replaceCharacteristic:(id)arg1;
-- (void)configure:(id)arg1 actionSet:(id)arg2;
-- (id)initWithCharacteristic:(id)arg1 targetValue:(id)arg2;
+- (id)initWithUUID:(id)arg1 characteristic:(id)arg2 targetValue:(id)arg3 actionSet:(id)arg4;
 - (id)init;
 
 @end

@@ -17,9 +17,8 @@
 - (void)dismissPasscodeViewController;
 - (void)presentPasscodeViewController:(struct UIViewController *)arg1 completionHandler:(void (^)(_Bool))arg2 reply:(void (^)(NSData *))arg3;
 - (struct UIViewController *)passcodeViewController;
-- (void)authenticatorDidDeactivateDynamicFunctionRowConfirmation:(PKAuthenticator *)arg1;
-- (void)authenticatorDidActivateDynamicFunctionRowConfirmation:(PKAuthenticator *)arg1;
 - (void)authenticatorDidEncounterMatchMiss:(PKAuthenticator *)arg1;
+- (void)authenticator:(PKAuthenticator *)arg1 didRequestUserAction:(long long)arg2;
 - (void)authenticatorDidEncounterFingerOff:(PKAuthenticator *)arg1;
 - (void)authenticatorDidEncounterFingerOn:(PKAuthenticator *)arg1;
 - (void)authenticatorWillRestartEvaluation:(PKAuthenticator *)arg1;

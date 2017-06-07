@@ -30,6 +30,7 @@
 @property(retain) NSArray *tokens; // @synthesize tokens=_tokens;
 @property(retain) NSPersonNameComponents *components; // @synthesize components=_components;
 @property(copy) NSString *string; // @synthesize string=_string;
+- (void).cxx_destruct;
 - (void)extractGivenMiddleFamilyNamesFromWhatsLeftUsingOrder:(long long)arg1;
 - (void)adjustTokensForNobiliaryParticles;
 - (void)extractNamePrefixFromBeginning;
@@ -37,7 +38,6 @@
 - (void)extractNicknameFromQuotedContent;
 - (void)removeParentheticalContent;
 - (id)parseComponents;
-- (void)dealloc;
 - (id)initWithString:(id)arg1;
 
 @end

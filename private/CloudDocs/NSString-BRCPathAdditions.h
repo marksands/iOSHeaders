@@ -18,7 +18,7 @@
 - (_Bool)br_isSideFaultName;
 - (_Bool)br_isEqualToStringForHFS:(id)arg1 isCaseSensitive:(_Bool)arg2;
 - (long long)br_compareToStringForHFS:(id)arg1 isCaseSensitive:(_Bool)arg2;
-- (id)br_representableDirectoryExtension;
+- (id)br_representableDirectoryName;
 - (id)br_sideFaultName;
 - (id)br_sideFaultPath;
 - (id)br_representableHFSFileNameWithNumber:(id)arg1 addedExtension:(id)arg2 makeDotFile:(_Bool)arg3;

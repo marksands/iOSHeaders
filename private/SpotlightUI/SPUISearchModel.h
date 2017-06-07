@@ -4,54 +4,59 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Search/SPSearchAgent.h>
+#import <objc/NSObject.h>
 
-#import <SpotlightUI/SPDaemonQueryDelegate-Protocol.h>
+#import <SpotlightUI/SPQueryTaskDelegate-Protocol.h>
 
-@class CPLRUDictionary, NSArray, NSObject, NSOperation, NSOperationQueue, NSString;
-@protocol OS_dispatch_semaphore;
+@class NSArray, NSString, SFResultSection, SPQueryResponse, SPQueryTask;
+@protocol SPSearchAgentDelegate;
 
-@interface SPUISearchModel : SPSearchAgent <SPDaemonQueryDelegate>
+@interface SPUISearchModel : NSObject <SPQueryTaskDelegate>
 {
-    CPLRUDictionary *_cachedResultImages;
-    NSObject<OS_dispatch_semaphore> *_cacheResultLock;
-    NSOperationQueue *_prefetchOperationQueue;
-    NSOperationQueue *_loadOperationQueue;
-    NSOperation *_waitOperation;
-    NSArray *_deferredResults;
-    _Bool _isDeferredQUeryComplete;
+    long long _updatesDisabled;
+    NSString *_lastQueryString;
     _Bool _springBoardIsActive;
+    _Bool _infinitePatience;
+    _Bool _queryComplete;
+    _Bool _queryDidFinish;
+    _Bool _forceStableResults;
+    SFResultSection *_searchThroughSection;
+    NSObject<SPSearchAgentDelegate> *_delegate;
+    SPQueryTask *_queryTask;
+    SPQueryResponse *_lastResponse;
 }
 
-+ (void)deactivate;
-+ (void)activate;
++ (void)preheat;
 + (void)retrieveFirstTimeExperienceTextWithReply:(CDUnknownBlockType)arg1;
-+ (id)sharedPartialZKWInstance;
 + (id)sharedFullZWKInstance;
 + (id)sharedGeneralInstance;
 + (id)sharedInstance;
+@property(retain) SPQueryResponse *lastResponse; // @synthesize lastResponse=_lastResponse;
+@property(retain) SPQueryTask *queryTask; // @synthesize queryTask=_queryTask;
+@property(retain) NSObject<SPSearchAgentDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(readonly) SFResultSection *searchThroughSection; // @synthesize searchThroughSection=_searchThroughSection;
+@property _Bool forceStableResults; // @synthesize forceStableResults=_forceStableResults;
+@property _Bool queryDidFinish; // @synthesize queryDidFinish=_queryDidFinish;
+@property _Bool queryComplete; // @synthesize queryComplete=_queryComplete;
+@property _Bool infinitePatience; // @synthesize infinitePatience=_infinitePatience;
 @property _Bool springBoardIsActive; // @synthesize springBoardIsActive=_springBoardIsActive;
 - (void).cxx_destruct;
-- (id)createZKWSearchQuery;
-- (_Bool)isWideScreen;
-- (void)transferZKWResults:(id)arg1 wasSimilar:(_Bool)arg2;
-- (id)_customImageForPath:(id)arg1;
-- (void)handleOptionsForNewSections:(id)arg1;
-- (void)finishRanking:(id)arg1 blendingDuration:(double)arg2;
-- (_Bool)itemInLibrary:(id)arg1;
+- (void)invalidate;
+- (void)resultsDidBecomeInvalid:(id)arg1;
+- (void)invalidateQuery:(id)arg1;
+- (void)didReceiveResponse:(id)arg1;
+- (void)updateWithResponse:(id)arg1;
+- (_Bool)_suggestionsReadyForDisplay;
+@property(readonly) _Bool wantsCompletions;
+@property(readonly) NSArray *sections;
+- (void)clear;
+- (void)disableUpdates;
+- (void)enableUpdates;
+- (void)updatesEnabled;
+- (void)updatesDispabled;
 - (void)invalidateCurrentQuery;
-- (long long)contentFilters;
-- (void)cachedZKWAvailable:(_Bool)arg1;
 - (void)deactivate;
 - (void)activate;
-- (void)dealloc;
-- (id)initForZKWLevel:(int)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

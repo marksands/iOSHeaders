@@ -20,8 +20,8 @@
 @property(retain) NSString *UID; // @synthesize UID;
 @property(retain) NSString *portName; // @synthesize portName;
 @property(retain) NSString *portType; // @synthesize portType;
+- (void).cxx_destruct;
 - (id)channels;
-- (void)dealloc;
 
 @end
 

@@ -37,10 +37,8 @@
     UIImage *_editedContentArtworkImage;
     NSString *_editedContentTitle;
     UIViewController *_relatedContentViewController;
-    id <MusicEntityProviding> __contextualActionsOverrideTracklistEntityProvider;
 }
 
-@property(readonly, nonatomic) id <MusicEntityProviding> _contextualActionsOverrideTracklistEntityProvider; // @synthesize _contextualActionsOverrideTracklistEntityProvider=__contextualActionsOverrideTracklistEntityProvider;
 @property(retain, nonatomic) UIViewController *relatedContentViewController; // @synthesize relatedContentViewController=_relatedContentViewController;
 @property(copy, nonatomic) NSString *editedContentTitle; // @synthesize editedContentTitle=_editedContentTitle;
 @property(retain, nonatomic) UIImage *editedContentArtworkImage; // @synthesize editedContentArtworkImage=_editedContentArtworkImage;

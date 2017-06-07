@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *localizedText; // @synthesize localizedText=_localizedText;
 @property(retain, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasLocalizedText;
 @property(readonly, nonatomic) _Bool hasLocalizedTitle;
-- (void)dealloc;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <ChatKit/CKBrowserSelectionControllerDelegate-Protocol.h>
+#import <ChatKit/CKBrowserSwitcherFooterViewDelegate-Protocol.h>
 #import <ChatKit/CKBrowserSwitcherScrollPreventerDelegate-Protocol.h>
 #import <ChatKit/CKBrowserTransitionCoordinatorDelegate-Protocol.h>
 #import <ChatKit/UICollectionViewDataSource-Protocol.h>
@@ -14,14 +14,15 @@
 #import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <ChatKit/UIScrollViewDelegate-Protocol.h>
 
-@class CKBrowserSelectionController, CKBrowserSwitcherFooterView, CKBrowserSwitcherScrollPreventer, CKBrowserTransitionCoordinator, IMBalloonPlugin, IMScheduledUpdater, NSArray, NSDate, NSMutableDictionary, NSString, UICollectionView, UICollectionViewFlowLayout, UIPanGestureRecognizer, UIView;
+@class CKAppGrabberView, CKBrowserSwitcherFooterView, CKBrowserSwitcherFooterViewDataSource, CKBrowserSwitcherScrollPreventer, CKBrowserTransitionCoordinator, IMBalloonPlugin, IMScheduledUpdater, NSArray, NSDate, NSMutableDictionary, NSString, UICollectionView, UICollectionViewFlowLayout, UILongPressGestureRecognizer, UIPanGestureRecognizer, UITapGestureRecognizer, UIView;
 @protocol CKBrowserSwitcherViewControllerDelegate><CKBrowserTransitionCoordinatorDelegate, CKBrowserViewControllerProtocol;
 
-@interface CKBrowserSwitcherViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CKBrowserSwitcherScrollPreventerDelegate, CKBrowserSelectionControllerDelegate, CKBrowserTransitionCoordinatorDelegate>
+@interface CKBrowserSwitcherViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CKBrowserSwitcherScrollPreventerDelegate, CKBrowserTransitionCoordinatorDelegate, CKBrowserSwitcherFooterViewDelegate>
 {
+    CKAppGrabberView *_grabberView;
+    UITapGestureRecognizer *_expandTapRecognizer;
     _Bool _dragging;
     _Bool _browserViewReadyForUserInteraction;
-    _Bool _selectionControllerPresented;
     _Bool _insertedViaCollapse;
     _Bool _inManualContentOffsetChange;
     _Bool _inDragAndDrop;
@@ -35,16 +36,16 @@
     UIViewController<CKBrowserViewControllerProtocol> *_currentViewController;
     CKBrowserTransitionCoordinator *_transitionCoordinator;
     CKBrowserSwitcherFooterView *_footerView;
+    UIView *_contentView;
     UICollectionView *_collectionView;
     UICollectionViewFlowLayout *_flowLayout;
     NSMutableDictionary *_livePluginIdentifierToTimestampMap;
+    UILongPressGestureRecognizer *_horizontalSwipePreventer;
     CKBrowserSwitcherScrollPreventer *_scrollPreventer;
     IMScheduledUpdater *_scrollUpdater;
     UIPanGestureRecognizer *_expandGestureRecognizer;
-    CKBrowserSelectionController *_selectionController;
     IMBalloonPlugin *_currentVisiblePlugin;
-    UIView *_grayLine;
-    UIView *_dimmingView;
+    CKBrowserSwitcherFooterViewDataSource *_footerViewDataSource;
     id _cancelTouchesToken;
     IMBalloonPlugin *_balloonPlugin;
     NSArray *_gutterDividerViews;
@@ -66,17 +67,16 @@
 @property(nonatomic, getter=isInDragAndDrop) _Bool inDragAndDrop; // @synthesize inDragAndDrop=_inDragAndDrop;
 @property(nonatomic) _Bool inManualContentOffsetChange; // @synthesize inManualContentOffsetChange=_inManualContentOffsetChange;
 @property(nonatomic) _Bool insertedViaCollapse; // @synthesize insertedViaCollapse=_insertedViaCollapse;
-@property(retain, nonatomic) UIView *dimmingView; // @synthesize dimmingView=_dimmingView;
-@property(retain, nonatomic) UIView *grayLine; // @synthesize grayLine=_grayLine;
+@property(retain, nonatomic) CKBrowserSwitcherFooterViewDataSource *footerViewDataSource; // @synthesize footerViewDataSource=_footerViewDataSource;
 @property(retain, nonatomic) IMBalloonPlugin *currentVisiblePlugin; // @synthesize currentVisiblePlugin=_currentVisiblePlugin;
-@property(nonatomic) _Bool selectionControllerPresented; // @synthesize selectionControllerPresented=_selectionControllerPresented;
-@property(retain, nonatomic) CKBrowserSelectionController *selectionController; // @synthesize selectionController=_selectionController;
 @property(retain, nonatomic) UIPanGestureRecognizer *expandGestureRecognizer; // @synthesize expandGestureRecognizer=_expandGestureRecognizer;
 @property(retain, nonatomic) IMScheduledUpdater *scrollUpdater; // @synthesize scrollUpdater=_scrollUpdater;
 @property(retain, nonatomic) CKBrowserSwitcherScrollPreventer *scrollPreventer; // @synthesize scrollPreventer=_scrollPreventer;
+@property(retain, nonatomic) UILongPressGestureRecognizer *horizontalSwipePreventer; // @synthesize horizontalSwipePreventer=_horizontalSwipePreventer;
 @property(retain, nonatomic) NSMutableDictionary *livePluginIdentifierToTimestampMap; // @synthesize livePluginIdentifierToTimestampMap=_livePluginIdentifierToTimestampMap;
 @property(retain, nonatomic) UICollectionViewFlowLayout *flowLayout; // @synthesize flowLayout=_flowLayout;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
+@property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) CKBrowserSwitcherFooterView *footerView; // @synthesize footerView=_footerView;
 @property(nonatomic, getter=isBrowserReadyForUserInteraction) _Bool browserViewReadyForUserInteraction; // @synthesize browserViewReadyForUserInteraction=_browserViewReadyForUserInteraction;
 @property(nonatomic, getter=isDragging) _Bool dragging; // @synthesize dragging=_dragging;
@@ -92,14 +92,12 @@
 - (void)_scrollUpdaterFired;
 - (void)_endHoldingScrollUpdatesForKey:(id)arg1;
 - (void)_beginHoldingScrollUpdatesForKey:(id)arg1;
-- (void)browserSelectionControllerSelectedBalloonPlugin:(id)arg1;
 - (_Bool)_scrollToVisiblePluginWithIdentifier:(id)arg1;
 - (void)_loadBrowserForBalloonPlugin:(id)arg1 datasource:(id)arg2;
-- (void)showSelectionViewController:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)handleAppsButton:(id)arg1;
 - (void)handleExpandButton:(id)arg1;
-- (void)setAppName:(id)arg1;
 - (void)setCurrentViewController:(id)arg1;
+- (void)_cleanupOffscreenChildViewControllers;
+- (void)_cleanupOffscreenChildViewControllersWithDelay;
 - (void)_moveLiveBrowserViewsToUpdatedVisibleIndices;
 - (void)_updateActiveBrowserTimestampForCurrentBalloonPlugin;
 - (void)_removeBrowserFromViewHierarchy:(id)arg1;
@@ -107,6 +105,9 @@
 - (void)_updateBrowserViewPositionForPluginAndInsertIfNecessary:(id)arg1;
 - (void)_insertCurrentBrowserAndRemoveOldBrowsersIfNeeded;
 - (_Bool)shouldAutorotate;
+- (_Bool)_shouldHideFooterView;
+- (void)_removeFooterView;
+- (void)_addFooterView;
 - (void)_transitionSnapshotViewToBrowserView;
 - (void)_handleRemoteViewControllerConnectionInterrupted:(id)arg1;
 - (void)_transitionSnapshotViewToBrowserViewAfterViewDidPrepareForDisplay:(id)arg1;
@@ -118,6 +119,7 @@
 - (void)_updateGutterDividerViewsForCurrentVisibleBrowser;
 - (void)_updateAppNameAndPageForOffset:(struct CGPoint)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
+- (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_expandPanGestureRecognized:(id)arg1;
 - (void)_updatePluginFromScrollPosition;
 - (_Bool)_pluginHasLiveBrowserViewInSwitcher:(id)arg1;
@@ -126,6 +128,8 @@
 - (void)_updateCurrentBrowserSnapshotIfPossible;
 - (void)_handleVisibleSwitcherPluginsChanged:(id)arg1;
 - (void)saveSnapshotForCurrentBrowserViewControllerIfPossible;
+- (void)animateOutCompactWithCompletion:(CDUnknownBlockType)arg1;
+- (void)animateInCompactWithCompletion:(CDUnknownBlockType)arg1;
 - (void)showBrowserFullscreenForPlugin:(id)arg1 datasource:(id)arg2;
 - (void)showBrowserInSwitcherForPlugin:(id)arg1 datasource:(id)arg2 reloadData:(_Bool)arg3;
 - (void)unloadRemoteViewControllers;
@@ -135,12 +139,13 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollPreventerDidEndDecelerating:(id)arg1;
+- (void)scrollPreventer:(id)arg1 didReceiveTouchAtDate:(id)arg2;
 - (void)scrollPreventer:(id)arg1 scrolledToOffset:(struct CGPoint)arg2;
 - (void)scrollPreventerWillBeginDragging:(id)arg1;
 - (void)scrollPreventerDidLayoutSubviews:(id)arg1;
 - (void)browserTransitionCoordinator:(id)arg1 wantsToSwitchToPlugin:(id)arg2;
+- (void)browserTransitionCoordinatorWantsPresentationOfAppManager:(id)arg1;
 - (void)browserTransitionCoordinatorWantsPresentationOfAppStore:(id)arg1;
-- (id)transcriptEntryViewForBrowserTransitionCoordinator:(id)arg1;
 - (void)browserTransitionCoordinatorDidCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
 - (void)browserTransitionCoordinatorWillCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
 - (void)browserTransitionCoordinatorDidTransitionOrPresentToFullscreen:(id)arg1 withReason:(long long)arg2;
@@ -166,6 +171,9 @@
 - (void)layoutMarginsDidChange;
 - (_Bool)isBrowserSwitcherFirstLaunch;
 - (void)viewDidLayoutSubviews;
+- (void)switcherView:(id)arg1 didMagnify:(_Bool)arg2;
+- (id)indexPathOfCurrentlySelectedPluginInSwitcherView:(id)arg1;
+- (void)switcherView:(id)arg1 didSelectPluginAtIndex:(id)arg2;
 - (void)updateFooterViewFrame;
 - (id)activeBrowserView;
 - (void)loadView;

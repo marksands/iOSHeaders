@@ -11,16 +11,16 @@
 __attribute__((visibility("hidden")))
 @interface KNArchivedUIState : TSPObject
 {
-    KNUIState *mUIState;
+    KNUIState *_uiState;
 }
 
-@property(readonly, nonatomic) KNUIState *uiState; // @synthesize uiState=mUIState;
+@property(readonly, nonatomic) KNUIState *uiState; // @synthesize uiState=_uiState;
+- (void).cxx_destruct;
+- (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)validateDesktopViewStateWithDocumentRoot:(id)arg1;
 - (_Bool)validateMobileViewStateWithDocumentRoot:(id)arg1;
-- (void)dealloc;
 - (id)initWithUIState:(id)arg1 context:(id)arg2;
-- (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
 
 @end
 

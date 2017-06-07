@@ -25,6 +25,7 @@
 
 @property(retain, nonatomic) GEONavCameraState *navCameraState; // @synthesize navCameraState=_navCameraState;
 @property(nonatomic) double distanceToDestination; // @synthesize distanceToDestination=_distanceToDestination;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -44,7 +45,6 @@
 - (id)lineTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasLineType;
 @property(nonatomic) int lineType; // @synthesize lineType=_lineType;
-- (void)dealloc;
 
 @end
 

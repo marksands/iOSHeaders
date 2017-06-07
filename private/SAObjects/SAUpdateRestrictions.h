@@ -17,6 +17,7 @@
 
 + (id)updateRestrictionsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)updateRestrictions;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *restrictionsToRemove;
 @property(copy, nonatomic) NSArray *restrictionsToAdd;
 - (id)encodedClassName;

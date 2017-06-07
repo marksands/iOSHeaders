@@ -11,9 +11,14 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (long long)compareToCellValue:(id)arg1;
 - (_Bool)isEqualToCellValue:(id)arg1;
-- (CDStruct_28403e59)formatStruct;
+- (id)format;
 - (id)displayString;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (struct TSCEValue)tsceValue;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLocale:(id)arg1;
 
 @end

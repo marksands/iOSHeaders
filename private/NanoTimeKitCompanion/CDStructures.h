@@ -124,6 +124,11 @@ struct NTKCharacterPrograms {
     struct NUProgram programs[6];
 };
 
+struct NTKKaleidoscopePathfinderPoint {
+    float _field1;
+    double _field2[4];
+};
+
 struct NUMemFile {
     int descriptor;
     int length;
@@ -179,17 +184,17 @@ typedef struct {
 } CDStruct_77693742;
 
 typedef struct {
+    unsigned long long _field1;
+    id *_field2;
+    unsigned long long *_field3;
+    unsigned long long _field4[5];
+} CDStruct_70511ce9;
+
+typedef struct {
     float _field1;
     float _field2;
     float _field3;
 } CDStruct_869f9c67;
-
-typedef struct {
-    long long value;
-    int timescale;
-    unsigned int flags;
-    long long epoch;
-} CDStruct_1b6d18a9;
 
 typedef struct {
     double _field1;

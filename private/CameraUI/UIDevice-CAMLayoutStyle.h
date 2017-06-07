@@ -7,6 +7,6 @@
 #import <UIKit/UIDevice.h>
 
 @interface UIDevice (CAMLayoutStyle)
-- (long long)initialLayoutStyle;
+- (long long)cam_initialLayoutStyle;
 @end
 

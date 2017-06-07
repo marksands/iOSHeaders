@@ -14,12 +14,13 @@ struct NSArray {
     Class _field1;
 };
 
-struct NSString {
-    Class _field1;
-};
-
 struct _FZChatRoomValidity {
     int _field1;
     unsigned short _field2;
+};
+
+struct _NSRange {
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 

@@ -7,14 +7,14 @@
 #import <Foundation/NSObject.h>
 
 #import <iWorkImport/NSFilePresenter-Protocol.h>
-#import <iWorkImport/TSKImportExportDelegate-Protocol.h>
+#import <iWorkImport/TSDImportExportDelegate-Protocol.h>
 #import <iWorkImport/TSPObjectContextDelegate-Protocol.h>
 
-@class NSDictionary, NSError, NSMutableArray, NSMutableSet, NSOperationQueue, NSString, NSURL, NSUUID, TSPObjectContext, TSUProgressContext, TSUTemporaryDirectory;
+@class NSDictionary, NSError, NSMutableArray, NSMutableSet, NSOperationQueue, NSProgress, NSSet, NSString, NSURL, NSUUID, TSPObjectContext, TSUProgressContext, TSUTemporaryDirectory;
 @protocol NSFilePresenter, OS_dispatch_group, TSAImportDelegate, TSKImporter;
 
 __attribute__((visibility("hidden")))
-@interface TSAImportController : NSObject <TSPObjectContextDelegate, NSFilePresenter, TSKImportExportDelegate>
+@interface TSAImportController : NSObject <TSPObjectContextDelegate, NSFilePresenter, TSDImportExportDelegate>
 {
     TSUTemporaryDirectory *_temporaryDirectory;
     TSUTemporaryDirectory *_temporaryDFFDirectory;
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
     NSURL *_presentedItemURL;
     NSOperationQueue *_presentedItemOperationQueue;
     NSMutableArray *_deferredWriters;
+    NSProgress *_resourceAccessProgress;
     struct {
         unsigned int success:1;
         unsigned int isPasswordProtected:1;
@@ -50,6 +51,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSKImporter> importer; // @synthesize importer=_importer;
 @property(readonly, copy) NSURL *presentedItemURL; // @synthesize presentedItemURL=_presentedItemURL;
 @property(readonly, retain) NSOperationQueue *presentedItemOperationQueue; // @synthesize presentedItemOperationQueue=_presentedItemOperationQueue;
+- (void)resumeSaveAndAutosaveWithReason:(id)arg1;
+- (void)suspendSaveAndAutosaveWithReason:(id)arg1;
+- (void)resumeAutosaveWithReason:(id)arg1;
+- (void)suspendAutosaveWithReason:(id)arg1;
 @property(readonly, nonatomic) _Bool areNewExternalReferencesToDataAllowed;
 - (void)addPersistenceWarnings:(id)arg1;
 - (void)presentPersistenceError:(id)arg1;
@@ -64,6 +69,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool hasWarnings;
 - (id)defaultDraftName;
 - (id)name;
+- (id)collaborationStateForContext:(id)arg1;
 - (void)_setPresentedItemURL:(id)arg1;
 - (void)removeFilePresenter;
 - (void)presentedItemDidMoveToURL:(id)arg1;
@@ -108,6 +114,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDictionary *incompatibleMediaContainersWithDataUnsupportedOnAllDevices;
 @property(readonly, nonatomic) NSDictionary *incompatibleMediaContainersWithDataUnsupportedOnThisDevice;
 @property(readonly, nonatomic) _Bool isDocumentSupportTemporary;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

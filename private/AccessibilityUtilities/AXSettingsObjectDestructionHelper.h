@@ -14,6 +14,7 @@
     NSMutableArray *_selectorKeys;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
 - (void)addSelectorKey:(SEL)arg1;
 - (id)initWithListenerAddress:(void *)arg1;

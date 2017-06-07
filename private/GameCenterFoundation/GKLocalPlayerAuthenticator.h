@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GameCenterFoundation/RemoteUIControllerDelegate-Protocol.h>
 
@@ -57,15 +57,20 @@
 - (void)remoteUIController:(id)arg1 didReceiveObjectModel:(id)arg2 actionSignal:(unsigned long long *)arg3;
 - (void)remoteUIController:(id)arg1 didReceiveHTTPResponse:(id)arg2;
 - (_Bool)remoteUIController:(id)arg1 shouldLoadRequest:(id)arg2 redirectResponse:(id)arg3;
+- (void)handleAuthKitResultsForUnder13WithContinuationData:(id)arg1 altDSID:(id)arg2 password:(id)arg3;
+- (void)authenticateFromExternalServiceWithAuthenticationResults:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)_handleAuthResponse:(id)arg1 error:(id)arg2 handler:(CDUnknownBlockType)arg3;
 @property(readonly, copy) NSString *description;
 - (void)applicationDidEnterBackground:(id)arg1;
 - (void)authenticationDidComplete;
 - (void)reset;
-- (void)_authenticateUsingAuthUI:(_Bool)arg1 usernameEditable:(_Bool)arg2 authUIDismissHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_authenticateUsingAuthUI:(_Bool)arg1 authenticationResults:(id)arg2 usernameEditable:(_Bool)arg3 authUIDismissHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)authenticateUsingAuthUIAllowingAppleIDCreation:(_Bool)arg1 usernameEditable:(_Bool)arg2 dismissHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)cancelAuthDueToAuthKitErrorWithHandler:(CDUnknownBlockType)arg1;
 - (void)authenticateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)authenticateExistingUserAuthUIWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)authenticateWithAuthKitResults:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (_Bool)shouldAuthenticateForGameCenter;
 - (void)authenticateUsingAuthUIWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)authenticateUsingAuthUIWithAuthUIDismissHandler:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;

@@ -13,6 +13,7 @@
 
 @interface NPKQuickPaymentSession : NSObject <PKContactlessInterfaceSessionDelegate>
 {
+    NSData *_credential;
     _Bool _deferAuthorization;
     _Bool _inServiceMode;
     _Bool _confirmed;
@@ -21,7 +22,6 @@
     PKPass *_currentPass;
     NSDictionary *_vasPasses;
     id <NPKQuickPaymentSessionDelegate> _delegate;
-    NSData *_credential;
     NSObject<OS_dispatch_queue> *_paymentSessionQueue;
     NSObject<OS_dispatch_queue> *_internalQueue;
     NSObject<OS_dispatch_queue> *_callbackQueue;
@@ -49,7 +49,6 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *internalQueue; // @synthesize internalQueue=_internalQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *paymentSessionQueue; // @synthesize paymentSessionQueue=_paymentSessionQueue;
 @property(nonatomic) _Bool inServiceMode; // @synthesize inServiceMode=_inServiceMode;
-@property(retain, nonatomic) NSData *credential; // @synthesize credential=_credential;
 @property(nonatomic) __weak id <NPKQuickPaymentSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_internalQueue_invokeDeactivationCompletionBlocks;
@@ -75,17 +74,18 @@
 - (void)_updateAuthorizationValidity;
 - (void)_internalQueue_updateContactlessValidityAndPerformWork:(CDUnknownBlockType)arg1;
 - (void)_internalQueue_updateSessionWithCurrentPassAndLoyaltyState;
+- (_Bool)_sessionQueue_authorizeWithDeferredAuthorization:(_Bool)arg1;
 - (_Bool)_sessionQueue_enablePersistentCardEmulation;
 - (_Bool)_sessionQueue_startContactlessSessionWithSuccessfulCompletionOnInternalQueue:(CDUnknownBlockType)arg1;
 - (void)_sessionQueue_invokeAppropriateCallbackForActivationWithSuccess:(_Bool)arg1 invokeOnSuccess:(_Bool)arg2 contactlessValidity:(unsigned long long)arg3 forPass:(id)arg4;
-- (_Bool)_sessionQueue_updateContactlessSessionForPass:(id)arg1 paymentApplication:(id)arg2 whitelistedVASPasses:(id)arg3 greylistedVASPasses:(id)arg4 sessionConfirmed:(_Bool)arg5 deferAuthorization:(_Bool)arg6;
-- (void)_internalQueue_updateContactlessSessionForPass:(id)arg1 whitelistedVASPasses:(id)arg2 greylistedVASPasses:(id)arg3;
+- (_Bool)_sessionQueue_updateContactlessSessionForPass:(id)arg1 paymentApplication:(id)arg2 vasPasses:(id)arg3 sessionConfirmed:(_Bool)arg4 deferAuthorization:(_Bool)arg5;
+- (void)_internalQueue_updateContactlessSessionForPass:(id)arg1 vasPasses:(id)arg2;
 - (void)_internalQueue_deactivateSessionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)deactivateSessionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)confirmOrRenewSession;
-- (void)getAllVASPasses:(CDUnknownBlockType)arg1;
 @property(nonatomic) _Bool deferAuthorization; // @synthesize deferAuthorization=_deferAuthorization;
 @property(retain, nonatomic) NSDictionary *vasPasses; // @synthesize vasPasses=_vasPasses;
+- (void)setCredential:(id)arg1;
 @property(retain, nonatomic) PKPass *currentPass; // @synthesize currentPass=_currentPass;
 - (_Bool)startSession;
 - (void)dealloc;

@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <CoreCDPInternal/CDPRecoveryKeyValidatorInernal-Protocol.h>
+#import <CoreCDPInternal/CDPRecoveryKeyValidatorInternal-Protocol.h>
 
 @class CDPContext, NSString;
 @protocol CDPDRecoveryKeyValidatorInternalDelegate;
 
-@interface CDPDRecoveryKeyValidatorImpl : NSObject <CDPRecoveryKeyValidatorInernal>
+@interface CDPDRecoveryKeyValidatorImpl : NSObject <CDPRecoveryKeyValidatorInternal>
 {
     CDPContext *_context;
     id <CDPDRecoveryKeyValidatorInternalDelegate> _delegate;

@@ -25,6 +25,7 @@
     } _has;
 }
 
++ (Class)changesType;
 + (id)changeSetWithChanges:(id)arg1 sessionUUID:(id)arg2 startDate:(id)arg3 sessionError:(id)arg4 statusCode:(int)arg5;
 + (id)persistentUserInfoKey;
 + (id)retreiveFromPersistentUserInfo:(id)arg1;
@@ -42,6 +43,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+- (int)StringAsStatusCode:(id)arg1;
+- (id)statusCodeAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatusCode;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
 @property(readonly, nonatomic) _Bool hasSessionError;

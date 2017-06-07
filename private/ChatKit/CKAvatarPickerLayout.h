@@ -36,6 +36,7 @@
 @property(nonatomic) __weak id <CKAvatarPickerLayoutDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long layoutMode; // @synthesize layoutMode=_layoutMode;
 - (void).cxx_destruct;
+- (_Bool)_shouldShowContactNames;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;

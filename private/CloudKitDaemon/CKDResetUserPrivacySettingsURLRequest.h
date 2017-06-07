@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 - (id)requestOperationClasses;
 - (_Bool)requiresTokenRegistration;
 - (int)operationType;
+- (long long)databaseScope;
 
 @end
 

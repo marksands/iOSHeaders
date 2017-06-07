@@ -8,7 +8,7 @@
 
 #import <AnnotationKit/UINavigationBarDelegate-Protocol.h>
 
-@class AKController, AKSignatureBaselineView, AKSignatureView, AKSmoothPathView, NSString, UILabel, UINavigationBar;
+@class AKController, AKInkSignatureView, AKSignatureBaselineView, AKSmoothPathView, NSString, UILabel, UINavigationBar;
 @protocol AKSignatureCreationControllerDelegate;
 
 @interface AKSignatureCreationViewController_iOS : UIViewController <UINavigationBarDelegate>
@@ -16,7 +16,7 @@
     id <AKSignatureCreationControllerDelegate> _delegate;
     UINavigationBar *_navBar;
     AKSmoothPathView *_pathView;
-    AKSignatureView *_signatureView;
+    AKInkSignatureView *_signatureView;
     AKSignatureBaselineView *_baselineView;
     UILabel *_label;
     AKController *_controller;
@@ -25,7 +25,7 @@
 @property(nonatomic) __weak AKController *controller; // @synthesize controller=_controller;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(retain, nonatomic) AKSignatureBaselineView *baselineView; // @synthesize baselineView=_baselineView;
-@property(retain, nonatomic) AKSignatureView *signatureView; // @synthesize signatureView=_signatureView;
+@property(retain, nonatomic) AKInkSignatureView *signatureView; // @synthesize signatureView=_signatureView;
 @property(retain, nonatomic) AKSmoothPathView *pathView; // @synthesize pathView=_pathView;
 @property(retain, nonatomic) UINavigationBar *navBar; // @synthesize navBar=_navBar;
 @property __weak id <AKSignatureCreationControllerDelegate> delegate; // @synthesize delegate=_delegate;

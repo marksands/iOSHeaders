@@ -19,6 +19,8 @@
 - (void)handleActivationData:(IDSProtobuf *)arg1;
 - (void)setCompanionRegion:(IDSProtobuf *)arg1;
 - (void)setCompanionLanguage:(IDSProtobuf *)arg1;
+
+@optional
 - (void)companionBecameAvailableWantsConfirmation:(IDSProtobuf *)arg1;
 @end
 

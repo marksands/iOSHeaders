@@ -10,6 +10,7 @@
 
 @interface PLPhotoEffect : NSObject
 {
+    _Bool _isLegacy;
     NSString *_filterIdentifier;
     NSString *_displayName;
     NSString *_CIFilterName;
@@ -20,14 +21,21 @@
 + (unsigned long long)indexOfEffectWithIdentifier:(id)arg1;
 + (_Bool)isEffectWithIdentifier:(id)arg1 equalToEffectWithIdentifier:(id)arg2;
 + (_Bool)isEffectNoneForIdentifier:(id)arg1;
++ (id)allSupportedEffects;
++ (id)standardSupportedEffects;
 + (id)allEffects;
++ (id)_effectWithIdentifier:(id)arg1 CIFilterName:(id)arg2 displayName:(id)arg3 type:(long long)arg4 isLegacy:(_Bool)arg5;
++ (id)_effectWithIdentifier:(id)arg1 CIFilterName:(id)arg2 displayName:(id)arg3 type:(long long)arg4;
 + (id)_effectWithIdentifier:(id)arg1 CIFilterName:(id)arg2 displayName:(id)arg3;
++ (id)_legacyEffectWithIdentifier:(id)arg1 CIFilterName:(id)arg2;
+@property(readonly, nonatomic) _Bool isLegacy; // @synthesize isLegacy=_isLegacy;
 @property(readonly, copy, nonatomic) NSString *CIFilterName; // @synthesize CIFilterName=_CIFilterName;
 @property(readonly, copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly, copy, nonatomic) NSString *filterIdentifier; // @synthesize filterIdentifier=_filterIdentifier;
 - (id)newEffectFilter;
 @property(readonly, nonatomic) long long latestVersion;
 - (id)description;
+- (void)dealloc;
 
 @end
 

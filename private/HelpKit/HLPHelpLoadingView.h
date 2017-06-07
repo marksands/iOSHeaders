@@ -12,16 +12,19 @@
 @interface HLPHelpLoadingView : UIView
 {
     UIImageView *_errorImageView;
-    UILabel *_errorTitleLabel;
-    UILabel *_errorMessageLabel;
     UIActivityIndicatorView *_activityIndicatorView;
     id <HLPHelpLoadingViewDelegate> _delegate;
+    UILabel *_errorTitleLabel;
+    UILabel *_errorMessageLabel;
 }
 
 @property(retain, nonatomic) UIActivityIndicatorView *activityIndicatorView; // @synthesize activityIndicatorView=_activityIndicatorView;
+@property(retain, nonatomic) UILabel *errorMessageLabel; // @synthesize errorMessageLabel=_errorMessageLabel;
+@property(retain, nonatomic) UILabel *errorTitleLabel; // @synthesize errorTitleLabel=_errorTitleLabel;
 @property(nonatomic) __weak id <HLPHelpLoadingViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)showHelpBookInfo;
+- (void)updateFonts;
 - (void)showErrorWithTitle:(id)arg1 message:(id)arg2;
 - (void)showDefaultErrorMessage;
 - (void)showNoConnectionErrorMessage;

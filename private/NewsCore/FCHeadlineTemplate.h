@@ -8,14 +8,14 @@
 
 #import <NewsCore/NSCopying-Protocol.h>
 
-@class FCTextInfo, NSArray, UIColor;
+@class FCColor, FCTextInfo, NSArray;
 
 @interface FCHeadlineTemplate : NSObject <NSCopying>
 {
     FCTextInfo *_headlineTitleTextInfo;
     FCTextInfo *_headlineExcerptTextInfo;
     FCTextInfo *_headlineBylineTextInfo;
-    UIColor *_backgroundColor;
+    FCColor *_backgroundColor;
     NSArray *_loadableFonts;
 }
 
@@ -25,7 +25,7 @@
 + (id)_headlineTemplateWithJSON:(id)arg1 versionNumber:(id)arg2;
 + (id)headlineTemplateWithJSON:(id)arg1;
 @property(copy, nonatomic) NSArray *loadableFonts; // @synthesize loadableFonts=_loadableFonts;
-@property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(copy, nonatomic) FCColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(copy, nonatomic) FCTextInfo *headlineBylineTextInfo; // @synthesize headlineBylineTextInfo=_headlineBylineTextInfo;
 @property(copy, nonatomic) FCTextInfo *headlineExcerptTextInfo; // @synthesize headlineExcerptTextInfo=_headlineExcerptTextInfo;
 @property(copy, nonatomic) FCTextInfo *headlineTitleTextInfo; // @synthesize headlineTitleTextInfo=_headlineTitleTextInfo;

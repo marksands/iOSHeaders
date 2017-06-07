@@ -8,7 +8,7 @@
 
 #import <iTunesStore/NSCopying-Protocol.h>
 
-@class ISBiometricAuthenticationContext;
+@class SSBiometricAuthenticationContext;
 
 @interface ISProtocolDataProvider : ISDataProvider <NSCopying>
 {
@@ -16,12 +16,14 @@
     _Bool _shouldProcessAccount;
     _Bool _shouldProcessAuthenticationDialogs;
     _Bool _shouldProcessDialogs;
+    _Bool _shouldProcessDialogsOutsideDaemon;
     _Bool _shouldProcessProtocol;
     _Bool _shouldProcessTouchIDDialogs;
     _Bool _shouldTriggerDownloads;
-    ISBiometricAuthenticationContext *_biometricAuthenticationContext;
+    SSBiometricAuthenticationContext *_biometricAuthenticationContext;
 }
 
+@property _Bool shouldProcessDialogsOutsideDaemon; // @synthesize shouldProcessDialogsOutsideDaemon=_shouldProcessDialogsOutsideDaemon;
 @property _Bool shouldTriggerDownloads; // @synthesize shouldTriggerDownloads=_shouldTriggerDownloads;
 @property _Bool shouldProcessProtocol; // @synthesize shouldProcessProtocol=_shouldProcessProtocol;
 @property _Bool shouldProcessDialogs; // @synthesize shouldProcessDialogs=_shouldProcessDialogs;

@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (void)breakUpFontName:(id)arg1 isBold:(_Bool *)arg2 isItalic:(_Bool *)arg3;
-+ (id)stylesheetOfStyles:(id)arg1;
++ (id)stylesheetOfStyles:(id)arg1 nilAllowed:(_Bool)arg2;
 + (id)trendlineColorFromCGColor:(struct CGColor *)arg1;
 + (void)p_adjustTrendlineSaturation:(double *)arg1 brightness:(double *)arg2;
 + (void)convertToSimpleTSDFillsInProperties:(id)arg1 inMap:(id)arg2 context:(id)arg3;

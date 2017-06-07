@@ -27,14 +27,20 @@
 - (id)_transcriptPluginBalloon;
 - (id)_imageBalloon;
 - (void)_loadBalloonView;
+@property(readonly) _Bool loadedContentView;
 @property(readonly) _Bool wantsClearButton;
 - (id)payloadWillSend;
 @property(readonly) _Bool wantsEdgeToEdgeLayout;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)didFinishAnimatedBoundsChange;
+- (void)_handleResignActive:(id)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)loadView;
+- (void)dealloc;
 - (id)initWithDataSource:(id)arg1 entryViewDelegate:(id)arg2 andPlugin:(id)arg3;
+- (void)payloadWillClear;
 - (id)initWithDataSource:(id)arg1 entryViewDelegate:(id)arg2;
 
 // Remaining properties

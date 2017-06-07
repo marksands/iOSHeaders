@@ -6,11 +6,11 @@
 
 #import <Home/HFItem.h>
 
-#import <Home/NAEquatable-Protocol.h>
+#import <Home/NAIdentifiable-Protocol.h>
 
 @class NSDictionary, NSSet, NSString;
 
-@interface HFControlPanelItem : HFItem <NAEquatable>
+@interface HFControlPanelItem : HFItem <NAIdentifiable>
 {
     NSString *_uniqueIdentifier;
     NSSet *_controlItems;
@@ -19,17 +19,18 @@
     NSDictionary *_UUIDsByControlItemPointer;
 }
 
++ (id)na_identity;
++ (id)standardControlPanelItemsForControlItems:(id)arg1;
++ (id)_controlPanelItemRules;
 @property(readonly, nonatomic) NSDictionary *UUIDsByControlItemPointer; // @synthesize UUIDsByControlItemPointer=_UUIDsByControlItemPointer;
 @property(readonly, nonatomic) NSDictionary *controlItemsByUUID; // @synthesize controlItemsByUUID=_controlItemsByUUID;
 @property(readonly, nonatomic) NSDictionary *displayResults; // @synthesize displayResults=_displayResults;
 @property(readonly, copy, nonatomic) NSSet *controlItems; // @synthesize controlItems=_controlItems;
 @property(readonly, nonatomic) NSString *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
 - (void).cxx_destruct;
-- (id)_controlItemLatestResultsKeyedByIdentifier;
 - (long long)sortPriority;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (_Bool)isEqualToControlPanelItem:(id)arg1;
 - (id)_subclass_updateWithOptions:(id)arg1;
 - (id)controlItemForIdentifier:(id)arg1;
 - (id)identifierForControlItem:(id)arg1;

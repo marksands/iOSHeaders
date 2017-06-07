@@ -16,6 +16,7 @@
 
 + (id)basicPodcastAppSearchCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)basicPodcastAppSearchCompleted;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *podcastStations;
 @property(copy, nonatomic) NSArray *podcastCollections;
 - (id)encodedClassName;

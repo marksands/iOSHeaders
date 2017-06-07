@@ -37,6 +37,8 @@
 - (void)_handleError:(id)arg1 format:(id)arg2;
 - (_Bool)_reallyOpenDB;
 - (_Bool)_openDB;
+- (void)_obliterateWithReason:(id)arg1 preserveCopy:(_Bool)arg2 generateStackshot:(_Bool)arg3;
+- (void)obliterateWithReason:(id)arg1 preserveCopy:(_Bool)arg2;
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 objectClass:(Class)arg2;

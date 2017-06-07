@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSString, NSURL, WLKArtworkVariantListing;
+@class NSArray, NSDictionary, NSString, NSURL, WLKArtworkVariantListing;
 
 @interface WLKChannelDetails : NSObject
 {
     _Bool _subscribed;
     _Bool _itunes;
+    _Bool _firstParty;
     _Bool _watchListEnabled;
     _Bool _requiresSubscriptionForConsent;
     _Bool _requiresAccountLevelConsent;
@@ -24,13 +25,16 @@
     NSString *_appName;
     NSURL *_appStoreURL;
     WLKArtworkVariantListing *_images;
+    NSDictionary *_rateLimit;
 }
 
 @property(readonly, nonatomic, getter=isAppInstalled) _Bool appInstalled; // @synthesize appInstalled=_appInstalled;
+@property(readonly, nonatomic) NSDictionary *rateLimit; // @synthesize rateLimit=_rateLimit;
 @property(readonly, nonatomic) _Bool shouldPromptForConsentOnSubscriptionChange; // @synthesize shouldPromptForConsentOnSubscriptionChange=_shouldPromptForConsentOnSubscriptionChange;
 @property(readonly, nonatomic) _Bool requiresAccountLevelConsent; // @synthesize requiresAccountLevelConsent=_requiresAccountLevelConsent;
 @property(readonly, nonatomic) _Bool requiresSubscriptionForConsent; // @synthesize requiresSubscriptionForConsent=_requiresSubscriptionForConsent;
 @property(readonly, nonatomic, getter=isWatchListEnabled) _Bool watchListEnabled; // @synthesize watchListEnabled=_watchListEnabled;
+@property(readonly, nonatomic, getter=isFirstParty) _Bool firstParty; // @synthesize firstParty=_firstParty;
 @property(readonly, nonatomic, getter=isiTunes) _Bool itunes; // @synthesize itunes=_itunes;
 @property(readonly, nonatomic, getter=isSubscribed) _Bool subscribed; // @synthesize subscribed=_subscribed;
 @property(readonly, nonatomic) WLKArtworkVariantListing *images; // @synthesize images=_images;

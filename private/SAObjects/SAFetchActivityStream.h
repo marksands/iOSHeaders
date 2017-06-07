@@ -6,7 +6,7 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
-@class NSArray, NSDate, NSNumber, NSString;
+@class NSArray, NSDate, NSDictionary, NSNumber, NSString;
 
 @interface SAFetchActivityStream : SABaseClientBoundCommand
 {
@@ -20,6 +20,8 @@
 @property(copy, nonatomic) NSString *taskType;
 @property(copy, nonatomic) NSArray *streamTypes;
 @property(copy, nonatomic) NSString *sortBy;
+@property(copy, nonatomic) NSDictionary *matchingMetadataKeysAndStringValues;
+@property(copy, nonatomic) NSArray *matchingMetadataKeys;
 @property(copy, nonatomic) NSNumber *limit;
 @property(copy, nonatomic) NSDate *fromDate;
 @property(nonatomic) _Bool ascending;

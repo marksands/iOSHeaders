@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol VKCustomFeatureDataSource;
 
@@ -18,13 +18,25 @@
 - (void).cxx_destruct;
 - (_Bool)isInjectedFeature;
 - (shared_ptr_e9082761 *)feature;
+- (void)setPlaceholderIconWithSize:(struct CGSize)arg1 anchorPoint:(struct CGPoint)arg2 isRound:(_Bool)arg3;
 - (void)setAnnotationText:(id)arg1 locale:(id)arg2;
 - (void)setText:(id)arg1 locale:(id)arg2;
+- (void)setTextDisplayMode:(unsigned char)arg1;
 - (void)setSortKey:(int)arg1;
 - (void)setMaxZoom:(float)arg1;
 - (void)setMinZoom:(float)arg1;
 - (id)styleAttributes;
 - (void)setStyleAttributes:(id)arg1;
+- (short)venueFloorOrdinal;
+- (void)setVenueFloorOrdinal:(short)arg1;
+- (unsigned long long)venueComponentID;
+- (void)setVenueComponentID:(unsigned long long)arg1;
+- (unsigned long long)venueLevelID;
+- (void)setVenueLevelID:(unsigned long long)arg1;
+- (unsigned long long)venueBuildingID;
+- (void)setVenueBuildingID:(unsigned long long)arg1;
+- (unsigned long long)venueID;
+- (void)setVenueID:(unsigned long long)arg1;
 - (unsigned long long)businessID;
 - (void)setBusinessID:(unsigned long long)arg1;
 - (unsigned long long)featureID;

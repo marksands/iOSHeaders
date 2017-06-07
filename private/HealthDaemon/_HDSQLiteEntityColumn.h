@@ -29,6 +29,7 @@
 - (id)_columnNameAndTypeString;
 - (id)creationSQL;
 - (id)initWithName:(id)arg1 columnType:(id)arg2 keyPathType:(unsigned long long)arg3 targetEntityClass:(Class)arg4 targetProperty:(id)arg5 deletionAction:(long long)arg6;
+- (id)initWithName:(id)arg1 columnType:(id)arg2 keyPathType:(unsigned long long)arg3;
 
 @end
 

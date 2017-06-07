@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSCopying-Protocol.h>
 
@@ -19,7 +19,9 @@
 + (id)logContextWithDefaultTraitsForCachedContext;
 + (id)logContextWithDefaultTraits;
 + (id)defaultLogContext;
++ (id)emptyLogContext;
 @property(readonly, nonatomic) NSArray *logMsgStates; // @synthesize logMsgStates=_logMsgStates;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_registerMapViewStateWithTraits:(id)arg1;
 - (void)_registerDeviceLocaleStateWithTraits:(id)arg1;
@@ -39,7 +41,6 @@
 - (void)registerLogMsgState:(id)arg1;
 - (id)logContextByMergingLogContext:(id)arg1;
 - (void)mergeLogContext:(id)arg1;
-- (void)dealloc;
 - (id)initWithTraits:(id)arg1;
 - (id)initWithDefaultTraits;
 - (id)initWithDefaultStates;

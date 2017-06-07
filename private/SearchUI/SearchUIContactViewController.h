@@ -10,8 +10,7 @@
 {
 }
 
-+ (id)viewControllerForContact:(id)arg1;
-+ (id)viewControllerForUnknownContact:(id)arg1;
++ (id)viewControllerForContact:(id)arg1 isUnknown:(_Bool)arg2 style:(unsigned long long)arg3;
 - (void)dealloc;
 - (unsigned long long)edgesForExtendedLayout;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -13,11 +13,11 @@
     NSMutableDictionary *_results;
 }
 
+- (void).cxx_destruct;
 - (void)enumerateResolutionsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)setError:(id)arg1 forPhoneNumber:(id)arg2;
 - (void)setResult:(id)arg1 forPhoneNumber:(id)arg2;
 - (id)xpcDictionaryRepresentation;
-- (void)dealloc;
 - (id)description;
 - (id)initWithXPCDictionaryRepresentation:(id)arg1;
 - (id)init;

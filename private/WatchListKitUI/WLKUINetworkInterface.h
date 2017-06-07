@@ -8,11 +8,18 @@
 
 #import <WatchListKitUI/WLKUINetworkInterface-Protocol.h>
 
+@class NSXPCConnection;
+
 @interface WLKUINetworkInterface : IKJSObject <WLKUINetworkInterface>
 {
     _Bool _suppressServerConfigNotifications;
+    int _playbackReportToken;
+    NSXPCConnection *_connection;
 }
 
+- (void).cxx_destruct;
+- (id)_connection;
+- (void)_handlePlaybackReport:(id)arg1;
 - (void)_handleServerConfigChange:(id)arg1;
 - (void)_handleAppLibChange:(id)arg1;
 - (void)_fireInitConfigCallbackWithUUID:(id)arg1;

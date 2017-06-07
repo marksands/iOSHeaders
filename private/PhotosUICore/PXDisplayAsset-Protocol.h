@@ -12,10 +12,12 @@
 @protocol PXDisplayAsset <NSObject, NSCopying>
 @property(readonly, nonatomic, getter=isFavorite) _Bool favorite;
 @property(readonly, nonatomic) unsigned long long mediaSubtypes;
-@property(readonly, nonatomic) unsigned long long mediaType;
-- (unsigned long long)isContentEqualTo:(id <PXDisplayAsset>)arg1;
+@property(readonly, nonatomic) long long mediaType;
+- (long long)isContentEqualTo:(id <PXDisplayAsset>)arg1;
 
 @optional
+@property(readonly, nonatomic) long long playbackVariation;
+@property(readonly, nonatomic) long long playbackStyle;
 @property(readonly, nonatomic) double duration;
 @end
 

@@ -19,6 +19,7 @@
 - (_Bool)useSmartMailTasks;
 - (_Bool)usesTopLevelStatusCodes;
 - (_Bool)sendEmailInWBXML;
+- (_Bool)supportsAttendeesInExceptions;
 - (unsigned char)shortProtocolVersion;
 - (id)protocolVersion;
 

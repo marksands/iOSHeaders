@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ITMLKit/IKJSTabBar-Protocol.h>
 #import <ITMLKit/JSExport-Protocol.h>
 
 @class IKJSTabBarItem, NSArray;
 
-@protocol _IKJSTabBar <JSExport>
+@protocol _IKJSTabBar <IKJSTabBar, JSExport>
 @property(retain, nonatomic) IKJSTabBarItem *selectedTab;
 @property(readonly, nonatomic) NSArray *tabs;
 - (void)setTabs:(NSArray *)arg1;

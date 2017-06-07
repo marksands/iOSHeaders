@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSString *mPresentationName;
 }
 
+- (void).cxx_destruct;
 - (float)defaultFontSize;
 - (id)diagram;
 - (id)baseTextListStyleWithBounds:(id)arg1 isCentered:(_Bool)arg2;

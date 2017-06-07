@@ -6,21 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSLock, NSMutableDictionary, NSOperationQueue;
-
 @interface PLKeyFaceManager : NSObject
 {
-    NSMutableDictionary *_operationsByPersonUUID;
-    NSLock *_dictionaryLock;
-    NSOperationQueue *_operationQueue;
 }
 
 + (id)sharedInstance;
-- (void)operationDidCompletion:(id)arg1;
-- (id)makeOperationForPersonUUID:(id)arg1;
 - (void)markPersonAsNeedingKeyFace:(id)arg1;
-- (void)dealloc;
-- (id)init;
 
 @end
 

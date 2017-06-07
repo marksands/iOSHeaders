@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDBulletinIdentifiers-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
@@ -12,46 +12,46 @@
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDAccessory, HMFMessageDispatcher, NSArray, NSString, NSUUID;
+@class HMDAccessory, HMFMessageDispatcher, NSArray, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDAccessoryProfile : NSObject <HMDBulletinIdentifiers, HMFMessageReceiver, HMFDumpState, HMFLogging, NSSecureCoding>
+@interface HMDAccessoryProfile : HMFObject <HMDBulletinIdentifiers, HMFMessageReceiver, HMFDumpState, HMFLogging, NSSecureCoding>
 {
-    NSObject<OS_dispatch_queue> *_workQueue;
     HMFMessageDispatcher *_msgDispatcher;
+    NSObject<OS_dispatch_queue> *_workQueue;
     NSUUID *_uniqueIdentifier;
     NSString *_logID;
     HMDAccessory *_accessory;
-    NSArray *_filteredServices;
-    NSArray *_exposedServices;
+    NSArray *_services;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
-@property(readonly, nonatomic) NSArray *exposedServices; // @synthesize exposedServices=_exposedServices;
-@property(readonly, nonatomic) NSArray *filteredServices; // @synthesize filteredServices=_filteredServices;
-@property(readonly, nonatomic) __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
+@property(readonly, nonatomic) NSArray *services; // @synthesize services=_services;
+@property(readonly) __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
 @property(readonly, nonatomic) NSString *logID; // @synthesize logID=_logID;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;
-@property(retain, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(readonly, nonatomic) HMFMessageDispatcher *msgDispatcher; // @synthesize msgDispatcher=_msgDispatcher;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 - (void).cxx_destruct;
 - (void)_encodeWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)configureWithMessageDispatcher:(id)arg1;
 - (void)registerForMessages;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (id)logIdentifier;
 - (id)dumpState;
-- (id)initWithAccessory:(id)arg1 uuid:(id)arg2 filteredServices:(id)arg3 exposedServices:(id)arg4 msgDispatcher:(id)arg5;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
+- (id)initWithAccessory:(id)arg1 uniqueIdentifier:(id)arg2 services:(id)arg3;
 @property(readonly, copy, nonatomic) NSUUID *contextSPIUniqueIdentifier;
 @property(readonly, copy, nonatomic) NSString *contextID;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

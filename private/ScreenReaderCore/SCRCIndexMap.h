@@ -31,7 +31,7 @@
 - (id)_initAndDeepCopyIndexMap:(id)arg1;
 - (id)_initWithIndexMap:(id)arg1;
 - (id)init;
-- (id)initWithObjects:(id *)arg1 andIndexes:(unsigned long long *)arg2 count:(unsigned long long)arg3;
+- (id)initWithObjects:(const id *)arg1 andIndexes:(unsigned long long *)arg2 count:(unsigned long long)arg3;
 
 @end
 

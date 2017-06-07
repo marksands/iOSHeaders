@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
+@class NSObject;
 @protocol OS_dispatch_queue;
 
-@interface HMDPowerManager : NSObject
+@interface HMDPowerManager : HMFObject
 {
     NSObject<OS_dispatch_queue> *_dispatchQueue;
     _Bool _networkInterfaceActive;

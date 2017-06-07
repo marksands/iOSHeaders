@@ -15,7 +15,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-- (id)currentSizeClasses;
 - (id)timeZone;
 - (id)storeFrontCountryCode;
 - (id)systemLanguage;

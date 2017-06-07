@@ -6,10 +6,11 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOSearchCategory, NSArray, NSData, NSString;
+@class GEOMapItemIdentifier, GEOSearchCategory, NSArray, NSData, NSString;
 @protocol GEOMapItem;
 
 @protocol GEOCompletionItem <NSObject>
+@property(readonly, nonatomic) GEOMapItemIdentifier *identifier;
 @property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic) NSData *metadata;
 @property(readonly, nonatomic) NSData *entryMetadata;

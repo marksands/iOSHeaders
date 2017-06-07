@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOServerFormattedString-Protocol.h>
 
@@ -16,11 +16,10 @@ __attribute__((visibility("hidden")))
     NSString *_formatString;
 }
 
-@property(readonly, nonatomic) NSString *formatString;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *separators;
 @property(readonly, nonatomic) NSArray *formatTokens;
 @property(readonly, nonatomic) NSArray *formatStrings;
-- (void)dealloc;
 - (id)initWithString:(id)arg1;
 
 // Remaining properties

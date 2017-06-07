@@ -10,7 +10,7 @@
 
 @interface _PASNotificationDescriptor : NSObject
 {
-    // Error parsing type: Ai, name: isCanceled
+    // Error parsing type: AB, name: isCanceled
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_group> *_group;
     CDUnknownBlockType _handler;

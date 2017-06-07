@@ -25,6 +25,7 @@
 @property(readonly, nonatomic, getter=isAlertToneStoreAvailable) _Bool alertToneStoreAvailable;
 @property(readonly, nonatomic, getter=isRingtoneStoreAvailable) _Bool ringtoneStoreAvailable;
 - (void)_handleStoreAvailableItemKindsChangedNotification:(id)arg1;
+- (void)_updateRingtoneStoreAvailabilityWithAvailableKinds:(id)arg1 error:(id)arg2;
 - (void)_checkRingtoneStoreAvailability;
 - (_Bool)_hasTelephonyCapability;
 - (void)dealloc;

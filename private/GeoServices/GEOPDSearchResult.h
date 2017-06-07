@@ -8,27 +8,44 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOMapRegion, GEOPDRelatedSearchSuggestion, GEOPDSearchClientBehavior, NSMutableArray, NSString, PBUnknownFields;
+@class GEOMapRegion, GEOPDDirectionIntent, GEOPDRelatedSearchSuggestion, GEOPDResolvedItem, GEOPDSearchClientBehavior, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDSearchResult : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    GEOPDResolvedItem *_clientResolvedResult;
     GEOPDRelatedSearchSuggestion *_defaultRelatedSearchSuggestion;
+    GEOPDDirectionIntent *_directionIntent;
     NSMutableArray *_disambiguationLabels;
+    NSMutableArray *_displayHeaderSubstitutes;
     GEOMapRegion *_displayMapRegion;
+    unsigned int _dymSuggestionVisibleTime;
     NSMutableArray *_relatedSearchSuggestions;
+    NSMutableArray *_resultDetourInfos;
     NSString *_resultDisplayHeader;
     GEOPDSearchClientBehavior *_searchClientBehavior;
     int _searchResultType;
+    _Bool _enablePartialClientization;
     _Bool _isChainResultSet;
+    _Bool _showDymSuggestionCloseButton;
     struct {
+        unsigned int dymSuggestionVisibleTime:1;
         unsigned int searchResultType:1;
+        unsigned int enablePartialClientization:1;
         unsigned int isChainResultSet:1;
+        unsigned int showDymSuggestionCloseButton:1;
     } _has;
 }
 
++ (Class)displayHeaderSubstituteType;
++ (Class)resultDetourInfoType;
 + (Class)relatedSearchSuggestionType;
 + (Class)disambiguationLabelType;
+@property(nonatomic) _Bool enablePartialClientization; // @synthesize enablePartialClientization=_enablePartialClientization;
+@property(retain, nonatomic) NSMutableArray *displayHeaderSubstitutes; // @synthesize displayHeaderSubstitutes=_displayHeaderSubstitutes;
+@property(retain, nonatomic) GEOPDResolvedItem *clientResolvedResult; // @synthesize clientResolvedResult=_clientResolvedResult;
+@property(retain, nonatomic) GEOPDDirectionIntent *directionIntent; // @synthesize directionIntent=_directionIntent;
+@property(retain, nonatomic) NSMutableArray *resultDetourInfos; // @synthesize resultDetourInfos=_resultDetourInfos;
 @property(retain, nonatomic) GEOPDSearchClientBehavior *searchClientBehavior; // @synthesize searchClientBehavior=_searchClientBehavior;
 @property(retain, nonatomic) GEOPDRelatedSearchSuggestion *defaultRelatedSearchSuggestion; // @synthesize defaultRelatedSearchSuggestion=_defaultRelatedSearchSuggestion;
 @property(retain, nonatomic) NSString *resultDisplayHeader; // @synthesize resultDisplayHeader=_resultDisplayHeader;
@@ -36,6 +53,7 @@
 @property(nonatomic) _Bool isChainResultSet; // @synthesize isChainResultSet=_isChainResultSet;
 @property(retain, nonatomic) NSMutableArray *disambiguationLabels; // @synthesize disambiguationLabels=_disambiguationLabels;
 @property(retain, nonatomic) GEOMapRegion *displayMapRegion; // @synthesize displayMapRegion=_displayMapRegion;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -46,6 +64,21 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasShowDymSuggestionCloseButton;
+@property(nonatomic) _Bool showDymSuggestionCloseButton; // @synthesize showDymSuggestionCloseButton=_showDymSuggestionCloseButton;
+@property(nonatomic) _Bool hasDymSuggestionVisibleTime;
+@property(nonatomic) unsigned int dymSuggestionVisibleTime; // @synthesize dymSuggestionVisibleTime=_dymSuggestionVisibleTime;
+@property(nonatomic) _Bool hasEnablePartialClientization;
+- (id)displayHeaderSubstituteAtIndex:(unsigned long long)arg1;
+- (unsigned long long)displayHeaderSubstitutesCount;
+- (void)addDisplayHeaderSubstitute:(id)arg1;
+- (void)clearDisplayHeaderSubstitutes;
+@property(readonly, nonatomic) _Bool hasClientResolvedResult;
+@property(readonly, nonatomic) _Bool hasDirectionIntent;
+- (id)resultDetourInfoAtIndex:(unsigned long long)arg1;
+- (unsigned long long)resultDetourInfosCount;
+- (void)addResultDetourInfo:(id)arg1;
+- (void)clearResultDetourInfos;
 @property(readonly, nonatomic) _Bool hasSearchClientBehavior;
 @property(readonly, nonatomic) _Bool hasDefaultRelatedSearchSuggestion;
 @property(readonly, nonatomic) _Bool hasResultDisplayHeader;
@@ -63,7 +96,6 @@
 - (void)addDisambiguationLabel:(id)arg1;
 - (void)clearDisambiguationLabels;
 @property(readonly, nonatomic) _Bool hasDisplayMapRegion;
-- (void)dealloc;
 
 @end
 

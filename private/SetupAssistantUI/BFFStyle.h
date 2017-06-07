@@ -18,9 +18,14 @@
 - (void)applyThemeToRemoteUIWebViewController:(id)arg1;
 - (void)applyThemeToTextView:(id)arg1;
 - (void)applyThemeToLabel:(id)arg1;
+- (double)tallRowHeight;
+- (struct CGSize)sizeForContinueButtonInParent:(id)arg1;
+- (id)continueButtonWithTitle:(id)arg1 inView:(id)arg2;
 - (void)applyThemeToNavigationController:(id)arg1;
+- (void)applyThemeToNavigationController:(id)arg1 allowUnderlap:(_Bool)arg2;
 - (id)backgroundColor;
 - (struct UIEdgeInsets)edgeInsetsForTable:(id)arg1;
+- (struct UIEdgeInsets)horizontalInsetsForContainingInView:(id)arg1 width:(double)arg2;
 - (double)horizontalMarginForView:(id)arg1;
 - (double)nonTableHorizontalMargin;
 - (double)singleLineCellHeightForTable:(id)arg1;
@@ -34,6 +39,9 @@
 - (double)headerTitleBaselineOffsetForView:(id)arg1 hasIcon:(_Bool)arg2;
 - (double)headerIconBaselineOffset;
 - (double)headerIconBaselineOffsetForView:(id)arg1;
+- (double)headerTitleBaselineOffsetForView:(id)arg1 icon:(id)arg2;
+- (double)headerYOffsetForIcon:(id)arg1 inView:(id)arg2;
+- (struct CGSize)_effectiveSizeForIcon:(id)arg1 inView:(id)arg2;
 - (id)headerTitleFont;
 
 @end

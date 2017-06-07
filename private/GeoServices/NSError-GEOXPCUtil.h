@@ -7,7 +7,9 @@
 #import <Foundation/NSError.h>
 
 @interface NSError (GEOXPCUtil)
++ (id)_geo_errorFromXPCError:(id)arg1;
 + (id)_geo_errorFromXPCData:(id)arg1;
 - (id)_geo_newXPCData;
+@property(readonly, nonatomic) _Bool _geo_isXPCInterruptedError;
 @end
 

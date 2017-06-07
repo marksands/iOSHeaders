@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOPDExternalActionDetail : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_actionLabel;
     NSString *_actionUrlComponent;
     NSString *_actionUrlVerb;
@@ -22,6 +23,8 @@
 @property(retain, nonatomic) NSString *actionUrlComponent; // @synthesize actionUrlComponent=_actionUrlComponent;
 @property(retain, nonatomic) NSString *logoId; // @synthesize logoId=_logoId;
 @property(retain, nonatomic) NSString *actionLabel; // @synthesize actionLabel=_actionLabel;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +38,6 @@
 @property(readonly, nonatomic) _Bool hasActionUrlComponent;
 @property(readonly, nonatomic) _Bool hasLogoId;
 @property(readonly, nonatomic) _Bool hasActionLabel;
-- (void)dealloc;
 
 @end
 

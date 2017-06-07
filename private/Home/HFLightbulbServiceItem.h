@@ -11,7 +11,7 @@
 }
 
 - (id)_subclass_updateWithOptions:(id)arg1;
-- (id)createControlItemsWithValueSource:(id)arg1;
+- (id)createControlItems;
 
 @end
 

@@ -15,6 +15,7 @@
 - (_Bool)uns_usesCloudKit;
 - (_Bool)uns_usesLocalNotifications;
 - (_Bool)uns_requiresLocalNotifications;
+- (id)uns_universalApplicationIdentifier;
 - (id)uns_bundle;
 - (_Bool)uns_isSystemApplication;
 @end

@@ -32,6 +32,7 @@
 @property(readonly, nonatomic) UIImage *placeholderImage;
 @property(readonly, nonatomic) NSDate *captureDate;
 @property(readonly, nonatomic) NSString *uuid;
+@property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType;
 @property(readonly, copy) NSString *description;
 - (id)initWithUUID:(id)arg1 captureSession:(unsigned short)arg2 url:(id)arg3 creationDate:(id)arg4 scubberImage:(id)arg5 metadata:(id)arg6 burstIdentifier:(id)arg7 burstRepresentedCount:(unsigned long long)arg8 expectingPairedVideo:(_Bool)arg9;

@@ -15,11 +15,13 @@
     NSString *_articleId;
     float _maxScrollDepth;
     NSString *_sourceChannelId;
+    NSString *_windowId;
     struct {
         unsigned int maxScrollDepth:1;
     } _has;
 }
 
+@property(retain, nonatomic) NSString *windowId; // @synthesize windowId=_windowId;
 @property(retain, nonatomic) NSString *sourceChannelId; // @synthesize sourceChannelId=_sourceChannelId;
 @property(retain, nonatomic) NSString *articleId; // @synthesize articleId=_articleId;
 @property(nonatomic) float maxScrollDepth; // @synthesize maxScrollDepth=_maxScrollDepth;
@@ -32,6 +34,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasWindowId;
 @property(readonly, nonatomic) _Bool hasSourceChannelId;
 @property(readonly, nonatomic) _Bool hasArticleId;
 @property(nonatomic) _Bool hasMaxScrollDepth;

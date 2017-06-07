@@ -42,6 +42,7 @@
 - (void)_ensureAudioPlayer;
 - (void)clearMessageFiltersFromCells:(id)arg1;
 - (void)applyMessageFiltersToTriggeringCell:(id)arg1;
+- (void)animateFiltersForCell:(id)arg1;
 - (void)applyMessageFiltersToCells:(id)arg1;
 - (int)_filterTypeForCell:(id)arg1 caresAboutOrientation:(_Bool *)arg2 orientation:(char *)arg3;
 - (void)dealloc;

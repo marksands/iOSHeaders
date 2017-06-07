@@ -10,6 +10,7 @@
 
 @interface PGFeatureVectorGenerator : NSObject
 {
+    _Bool _isDryTesting;
     NSDate *_localDate;
     CLLocation *_location;
     NSArray *_peopleNames;
@@ -17,6 +18,7 @@
 }
 
 + (id)_calendarEventsBetweenDate:(id)arg1 andDate:(id)arg2 atLocation:(id)arg3 withPeopleUUIDs:(id)arg4 inPhotoLibrary:(id)arg5;
+@property _Bool isDryTesting; // @synthesize isDryTesting=_isDryTesting;
 @property(readonly) __weak PGManager *manager; // @synthesize manager=_manager;
 @property(copy, nonatomic) NSArray *peopleNames; // @synthesize peopleNames=_peopleNames;
 @property(retain, nonatomic) CLLocation *location; // @synthesize location=_location;

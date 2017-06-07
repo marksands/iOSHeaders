@@ -6,9 +6,11 @@
 
 #import <IDS/IDSDevice.h>
 
-@class HMFProductInfo;
+@class HMDDeviceCapabilities, HMDHomeKitVersion, HMFProductInfo;
 
 @interface IDSDevice (HMDDevice)
-@property(readonly, nonatomic) HMFProductInfo *productInfo;
+@property(readonly, nonatomic) HMDDeviceCapabilities *hmd_capabilities;
+@property(readonly, nonatomic) HMDHomeKitVersion *hmd_version;
+@property(readonly, nonatomic) HMFProductInfo *hmd_productInfo;
 @end
 

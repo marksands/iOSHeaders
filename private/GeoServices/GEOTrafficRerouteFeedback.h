@@ -42,6 +42,7 @@
 @property(nonatomic) unsigned int oldRouteHistoricTravelTime; // @synthesize oldRouteHistoricTravelTime=_oldRouteHistoricTravelTime;
 @property(nonatomic) unsigned int reroutedRouteTravelTime; // @synthesize reroutedRouteTravelTime=_reroutedRouteTravelTime;
 @property(nonatomic) unsigned int oldRouteTravelTime; // @synthesize oldRouteTravelTime=_oldRouteTravelTime;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -70,7 +71,6 @@
 @property(nonatomic) _Bool hasOldRouteHistoricTravelTime;
 @property(nonatomic) _Bool hasReroutedRouteTravelTime;
 @property(nonatomic) _Bool hasOldRouteTravelTime;
-- (void)dealloc;
 
 @end
 

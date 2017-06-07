@@ -23,6 +23,7 @@
     } _has;
 }
 
++ (void)initialize;
 @property(nonatomic) unsigned long long totalWritePosition; // @synthesize totalWritePosition=_totalWritePosition;
 @property(nonatomic) unsigned long long totalLength; // @synthesize totalLength=_totalLength;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -43,7 +44,7 @@
 @property(readonly, nonatomic) _Bool hasPacketData;
 @property(readonly, nonatomic) _Bool hasKey;
 - (void)dealloc;
-- (id)description;
+- (id)detailedDescription;
 
 @end
 

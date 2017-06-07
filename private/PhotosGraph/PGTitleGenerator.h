@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSSet, NSString, PGTitleGeneratorDateMatching, PHAsset, PHAssetCollection;
+@class NSLocale, NSSet, PGTitle, PGTitleGeneratorDateMatching, PHAsset, PHAssetCollection;
 
 @interface PGTitleGenerator : NSObject
 {
@@ -15,14 +15,13 @@
     PHAsset *_keyAsset;
     PHAssetCollection *_curatedAssetCollection;
     PHAssetCollection *_assetCollection;
-    NSString *_title;
-    NSString *_subtitle;
-    long long _category;
+    PGTitle *_title;
+    PGTitle *_subtitle;
     NSSet *_usedLocationNodes;
+    NSLocale *_locale;
 }
 
-+ (id)_closestAddressNodeFromMomentNodes:(id)arg1 toLocation:(id)arg2 withMaximumDistance:(double)arg3;
-+ (id)_closestAssetLocationForAsset:(id)arg1 inAssetCollection:(id)arg2;
+@property(retain, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
 @property(retain, nonatomic) NSSet *usedLocationNodes; // @synthesize usedLocationNodes=_usedLocationNodes;
 @property(readonly, nonatomic) PHAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
 @property(readonly, nonatomic) PHAssetCollection *curatedAssetCollection; // @synthesize curatedAssetCollection=_curatedAssetCollection;
@@ -40,9 +39,8 @@
 - (id)_defaultTitle;
 - (void)_generateTitleAndSubtitleWithResult:(CDUnknownBlockType)arg1;
 - (void)_generateTitleAndSubtitle;
-@property(readonly, nonatomic) long long category; // @synthesize category=_category;
-@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) PGTitle *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, nonatomic) PGTitle *title; // @synthesize title=_title;
 - (id)initWithMomentNode:(id)arg1 type:(long long)arg2;
 - (id)initWithMomentNodes:(id)arg1 type:(long long)arg2;
 - (id)initWithMomentNodes:(id)arg1 referenceDateInterval:(id)arg2 keyAsset:(id)arg3 curatedAssetCollection:(id)arg4 assetCollection:(id)arg5 type:(long long)arg6;

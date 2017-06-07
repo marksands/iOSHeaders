@@ -16,7 +16,6 @@
     FBApplicationLibraryConfiguration *_configuration;
     LSApplicationWorkspace *_applicationWorkspace;
     NSObject<OS_dispatch_queue> *_observerQueue;
-    NSMapTable *_observerQueue_legacyObserverToTokens;
     NSMapTable *_observerQueue_tokensToBlocks;
     NSObject<OS_dispatch_queue> *_workQueue;
     _Bool _workQueue_usingNetwork;
@@ -30,7 +29,6 @@
 
 + (id)_systemApplicationProxy;
 + (id)_systemApplicationBundleIdentifier;
-+ (void)setBundleExtendedInfoGenerationHandler:(CDUnknownBlockType)arg1;
 + (id)sharedInstance;
 - (void)applicationsDidFailToUninstall:(id)arg1;
 - (void)applicationsWillUninstall:(id)arg1;
@@ -54,7 +52,6 @@
 - (void)_workQueue_notePlaceholdersModifiedSignificantly:(id)arg1;
 - (id)_workQueue_placeholderForProxy:(id)arg1 filterExisting:(_Bool)arg2 updateExistingIfNecessary:(_Bool)arg3 createIfNecessary:(_Bool)arg4 createReason:(id)arg5;
 - (id)_workQueue_applicationInfoForProxy:(id)arg1 filterExisting:(_Bool)arg2 createIfNecessary:(_Bool)arg3 createReason:(id)arg4;
-- (void)_anyQueue_generateExtendedInfoForBundleInfo:(id)arg1;
 - (id)_workQueue_applicationsForProxies:(id)arg1 createIfNecessary:(_Bool)arg2 createReason:(id)arg3 createdApplications:(id *)arg4 existingApplications:(id *)arg5 filterExistingApplications:(id *)arg6 unmappedProxies:(id *)arg7;
 - (id)_workQueue_placeholdersForProxies:(id)arg1 updateExistingIfNecessary:(_Bool)arg2 createIfNecessary:(_Bool)arg3 createReason:(id)arg4 createdPlaceholders:(id *)arg5 existingPlaceholders:(id *)arg6 filterExistingPlaceholders:(id *)arg7 unmappedProxies:(id *)arg8;
 - (void)_load;
@@ -70,12 +67,8 @@
 - (void)_notifyDidCancelPlaceholders:(id)arg1;
 - (void)_notifyDidAddPlaceholders:(id)arg1;
 - (void)_notifyForType:(long long)arg1 synchronously:(_Bool)arg2 withCastingBlock:(CDUnknownBlockType)arg3;
-- (id)_observerQueue_observeType:(long long)arg1 withCopiedBlock:(CDUnknownBlockType)arg2 token:(id)arg3;
 - (id)_observeType:(long long)arg1 withBlock:(id)arg2;
-- (void)_observerQueue_removeObserverForToken:(id)arg1;
 - (void)executeOrPendInstallSynchronizationBlock:(CDUnknownBlockType)arg1;
-- (void)removeObserver:(id)arg1;
-- (void)addObserver:(id)arg1;
 - (id)observeDidChangeNetworkUsageWithBlock:(CDUnknownBlockType)arg1;
 - (id)observeDidDemoteApplicationsWithBlock:(CDUnknownBlockType)arg1;
 - (id)observeDidRemoveApplicationsWithBlock:(CDUnknownBlockType)arg1;

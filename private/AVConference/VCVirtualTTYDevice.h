@@ -6,16 +6,20 @@
 
 #import <Foundation/NSObject.h>
 
-#import <AVConference/VCAudioIOClient-Protocol.h>
+#import <AVConference/VCAudioIODelegate-Protocol.h>
+#import <AVConference/VCAudioIOSink-Protocol.h>
+#import <AVConference/VCAudioIOSource-Protocol.h>
 #import <AVConference/VCMediaStreamProtocol-Protocol.h>
 
-@class NSString, VCAudioPayload;
+@class NSString, VCAudioIO, VCAudioPayload;
 @protocol OS_dispatch_queue, VCMediaStreamDelegate;
 
 __attribute__((visibility("hidden")))
-@interface VCVirtualTTYDevice : NSObject <VCMediaStreamProtocol, VCAudioIOClient>
+@interface VCVirtualTTYDevice : NSObject <VCMediaStreamProtocol, VCAudioIOSink, VCAudioIOSource, VCAudioIODelegate>
 {
+    int _clientPid;
     struct AudioStreamBasicDescription vpioFormat;
+    unsigned int _vpioSamplesPerFrame;
     int deviceRole;
     _Bool isValid;
     NSObject<VCMediaStreamDelegate> *delegate;
@@ -23,6 +27,7 @@ __attribute__((visibility("hidden")))
     struct _opaque_pthread_mutex_t sessionLock;
     int state;
     VCAudioPayload *_currentAudioPayload;
+    VCAudioIO *_audioIO;
     struct SoundDec_t *_decoder;
     struct opaqueCMSimpleQueue *_charQueue;
     struct tagVCMemoryPool *_characterPool;
@@ -31,10 +36,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) NSObject<VCMediaStreamDelegate> *delegate; // @synthesize delegate;
 @property int deviceRole; // @synthesize deviceRole;
 @property _Bool isValid; // @synthesize isValid;
+- (void)didResumeAudioIO:(id)arg1;
+- (void)didSuspendAudioIO:(id)arg1;
 - (void)setCanProcessAudio:(_Bool)arg1;
 - (_Bool)canProcessAudio;
-- (_Bool)onPlaySound:(char *)arg1 numBytes:(int)arg2 numSamples:(int)arg3 timeStamp:(unsigned int)arg4 averagePower:(float)arg5;
-- (_Bool)onCaptureSound:(char *)arg1 numBytes:(int)arg2 numSamples:(int)arg3 timeStamp:(unsigned int)arg4 timeStampDelta:(int)arg5 bufferedSamples:(int)arg6 hostTime:(double)arg7 averagePower:(float)arg8 voiceActivity:(unsigned int)arg9;
+- (void)pushAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
+- (void)pullAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
 - (void)unlock;
 - (void)lock;
 - (void)setPause:(_Bool)arg1;
@@ -44,7 +51,7 @@ __attribute__((visibility("hidden")))
 - (void)startVirtualTTYWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)start;
 - (void)dealloc;
-- (id)initWithMode:(long long)arg1;
+- (id)initWithMode:(long long)arg1 clientPid:(int)arg2;
 - (_Bool)setStreamConfig:(id)arg1 withError:(id *)arg2;
 
 // Remaining properties

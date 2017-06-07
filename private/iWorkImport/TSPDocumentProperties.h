@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 
 + (id)shareIdentifierRelativePath;
 + (id)documentPropertiesRelativePath;
++ (id)keychainGenericItemForDocumentUUID:(id)arg1;
 + (_Bool)documentIsEncryptedAtURL:(id)arg1;
 + (id)documentRevisionAtURL:(id)arg1;
 + (id)documentUUIDAtURL:(id)arg1;

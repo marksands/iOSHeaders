@@ -10,8 +10,10 @@
 {
 }
 
++ (double)bottomMargin;
++ (struct CGSize)headerImageSize;
++ (struct UIEdgeInsets)headerImageMargins;
 + (_Bool)isAvailable;
-+ (struct UIEdgeInsets)textInsets;
 - (void)_addCardPressed;
 - (id)init;
 

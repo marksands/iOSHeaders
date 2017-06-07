@@ -11,8 +11,9 @@
 }
 
 - (unsigned long long)type;
+@property(readonly, nonatomic) void *playerPath;
 @property(readonly, nonatomic) void *request;
-- (id)initWithRequest:(void *)arg1;
+- (id)initWithRequest:(void *)arg1 forPlayerPath:(void *)arg2;
 
 @end
 

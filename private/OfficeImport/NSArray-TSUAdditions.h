@@ -7,7 +7,9 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (TSUAdditions)
++ (id)tsu_arrayWithNonNilObject:(id)arg1;
 + (id)tsu_arrayWithUIntegers:(unsigned long long *)arg1 count:(unsigned long long)arg2;
++ (id)tsu_arrayByUnioningArray:(id)arg1 withArray:(id)arg2;
 + (id)tsu_arrayWithInts:(int *)arg1 count:(unsigned long long)arg2;
 + (id)tsu_arrayWithCGFloats:(double *)arg1 count:(unsigned long long)arg2;
 - (id)tsu_anyObject;
@@ -17,6 +19,8 @@
 - (id)tsu_arrayByMappingObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)tsu_arrayByTransformingWithBlock:(CDUnknownBlockType)arg1;
 - (id)tsu_arrayOfObjectsPassingTest:(CDUnknownBlockType)arg1;
+- (_Bool)tsu_isHomogeneousForClass:(Class)arg1;
+- (_Bool)tsu_containsObjectPassingTest:(CDUnknownBlockType)arg1;
 - (id)tsu_firstObjectPassingTest:(CDUnknownBlockType)arg1;
 - (void)tsu_enumerateSnapshotObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)tsu_arrayByReversingOrder;

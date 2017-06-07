@@ -22,6 +22,7 @@
 @property(retain, nonatomic) NSMutableArray *mapsSearchResults; // @synthesize mapsSearchResults=_mapsSearchResults;
 @property(retain, nonatomic) NSMutableArray *suggestionEntryMetadataDisplayeds; // @synthesize suggestionEntryMetadataDisplayeds=_suggestionEntryMetadataDisplayeds;
 @property(retain, nonatomic) NSData *suggestionEntryMetadataTappedOn; // @synthesize suggestionEntryMetadataTappedOn=_suggestionEntryMetadataTappedOn;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,7 +41,6 @@
 - (void)addSuggestionEntryMetadataDisplayed:(id)arg1;
 - (void)clearSuggestionEntryMetadataDisplayeds;
 @property(readonly, nonatomic) _Bool hasSuggestionEntryMetadataTappedOn;
-- (void)dealloc;
 
 @end
 

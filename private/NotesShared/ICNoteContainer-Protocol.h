@@ -10,10 +10,11 @@
 @protocol ICNoteVisibilityTesting;
 
 @protocol ICNoteContainer <ICNoteVisibilityTesting>
+@property(readonly, nonatomic) ICAccount *noteContainerAccount;
 - (id <ICNoteVisibilityTesting>)noteVisibilityTestingForSearchingAccount;
 - (_Bool)isDeleted;
 - (_Bool)canBeSharedViaICloud;
-- (ICAccount *)noteContainerAccount;
+- (NSPredicate *)predicateForPinnedNotes;
 - (NSPredicate *)predicateForVisibleNotes;
 - (_Bool)supportsEditingNotes;
 - (NSString *)accountName;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
 
@@ -29,6 +29,7 @@
     NSOutputStream *_outputStreamForSocket;
 }
 
+- (void).cxx_destruct;
 - (void)closeSocketForDomain:(id)arg1;
 - (void)xpcObject:(id)arg1 objectContext:(id)arg2;
 - (void)closeStreamPairWithInputStream:(id)arg1 outputStream:(id)arg2;
@@ -41,11 +42,11 @@
 - (void)_connectedStateChanged;
 - (void)_nearbyStateChanged;
 - (void)_addIdentity:(id)arg1;
-@property(readonly, retain, nonatomic) NSArray *identities;
-@property(readonly, retain, nonatomic) NSData *pushToken;
+@property(readonly, nonatomic) NSArray *identities;
+@property(readonly, nonatomic) NSData *pushToken;
 @property(readonly, nonatomic) _Bool isHSATrusted;
-@property(readonly, retain, nonatomic) NSString *enclosureColor;
-@property(readonly, retain, nonatomic) NSString *deviceColor;
+@property(readonly, nonatomic) NSString *enclosureColor;
+@property(readonly, nonatomic) NSString *deviceColor;
 @property(readonly, nonatomic) _Bool supportsPhoneCalls;
 @property(readonly, nonatomic) _Bool supportsMMSRelay;
 @property(readonly, nonatomic) _Bool supportsSMSRelay;
@@ -54,12 +55,12 @@
 @property(readonly, nonatomic) _Bool supportsTethering;
 @property(readonly, nonatomic) _Bool supportsiCloudPairing;
 @property(retain, nonatomic, setter=setNSUUID:) NSUUID *nsuuid;
-@property(readonly, retain, nonatomic) NSArray *linkedUserURIs;
+@property(readonly, nonatomic) NSArray *linkedUserURIs;
 @property(readonly, nonatomic) unsigned long long serviceMinCompatibilityVersion;
 @property(readonly, nonatomic) unsigned long long maxCompatibilityVersion;
 @property(readonly, nonatomic) unsigned long long minCompatibilityVersion;
 @property(readonly, nonatomic) unsigned long long pairingProtocolVersion;
-@property(readonly, retain, nonatomic) NSDate *lastActivityDate;
+@property(readonly, nonatomic) NSDate *lastActivityDate;
 @property(readonly, nonatomic) _Bool isActive;
 @property(readonly, nonatomic) _Bool isLocallyPaired;
 @property(readonly, nonatomic) _Bool isDefaultPairedDevice;
@@ -69,14 +70,14 @@
 @property(readonly, nonatomic, getter=isNearby) _Bool nearby;
 @property(readonly, copy) NSString *description;
 - (id)fullDescription;
-@property(readonly, retain, nonatomic) NSString *service;
-@property(readonly, retain, nonatomic) NSString *name;
-@property(readonly, retain, nonatomic) NSString *modelIdentifier;
+@property(readonly, nonatomic) NSString *service;
+@property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) NSString *modelIdentifier;
 @property(readonly, nonatomic) NSString *productVersion;
 @property(readonly, nonatomic) NSString *productName;
 @property(readonly, nonatomic) NSString *productBuildVersion;
-@property(readonly, retain, nonatomic) NSString *uniqueIDOverride;
-@property(readonly, retain, nonatomic) NSString *uniqueID;
+@property(readonly, nonatomic) NSString *uniqueIDOverride;
+@property(readonly, nonatomic) NSString *uniqueID;
 - (void)_connect;
 - (void)dealloc;
 - (id)initWithDictionary:(id)arg1;

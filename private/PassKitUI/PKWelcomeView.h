@@ -6,42 +6,52 @@
 
 #import <UIKit/UIView.h>
 
-@class NSAttributedString, UIActivityIndicatorView, UIButton, UIImage, UIImageView, UITextView;
+#import <PassKitUI/PKPGSVSectionSubheaderView-Protocol.h>
 
-@interface PKWelcomeView : UIView
+@class NSAttributedString, NSMutableArray, NSString, UIActivityIndicatorView, UIImage, UIImageView, UITextView;
+
+@interface PKWelcomeView : UIView <PKPGSVSectionSubheaderView>
 {
     UIImageView *_backgroundView;
     UIImageView *_shadowView;
     UIImageView *_headerView;
-    UITextView *_titleView;
     UITextView *_messageView;
     UIActivityIndicatorView *_activityIndicator;
     _Bool _showActivityIndicator;
     UIImage *_headerImage;
-    NSAttributedString *_title;
     NSAttributedString *_message;
-    UIButton *_actionButton;
+    NSMutableArray *_actionButtons;
 }
 
 + (struct UIEdgeInsets)textInsets;
 + (id)messageFont;
-+ (id)titleFont;
-+ (double)bodySeparation;
-+ (double)headerImageRegionHeight;
-+ (struct UIEdgeInsets)margins;
++ (id)buttonWithTitle:(id)arg1;
++ (double)bottomMargin;
++ (struct CGSize)headerImageSize;
++ (struct UIEdgeInsets)headerImageMargins;
 + (double)defaultHeight;
 + (_Bool)isAvailable;
-@property(retain, nonatomic) UIButton *actionButton; // @synthesize actionButton=_actionButton;
++ (double)buttonHeight;
++ (double)buttonSpacing;
++ (double)textToButtonSpacing;
+@property(retain, nonatomic) NSMutableArray *actionButtons; // @synthesize actionButtons=_actionButtons;
 @property(copy, nonatomic) NSAttributedString *message; // @synthesize message=_message;
-@property(copy, nonatomic) NSAttributedString *title; // @synthesize title=_title;
 @property(retain, nonatomic) UIImage *headerImage; // @synthesize headerImage=_headerImage;
 @property(nonatomic) _Bool showActivityIndicator; // @synthesize showActivityIndicator=_showActivityIndicator;
 - (void).cxx_destruct;
+- (void)addActionButton:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithHeight:(double)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
+- (_Bool)needsUpdate;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

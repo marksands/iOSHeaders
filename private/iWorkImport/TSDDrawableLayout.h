@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     TSDWrapSegments *mCachedWrapSegments;
     TSUBezierPath *mCachedWrapPath;
     TSUBezierPath *mCachedExternalWrapPath;
+    TSUBezierPath *mCachedExteriorWrapPath;
 }
 
 - (_Bool)supportsInspectorPositioning;
@@ -35,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isHTMLWrap;
 - (id)wrapSegments;
 - (id)wrapPath;
+- (id)p_exteriorTextWrapPath;
 - (id)i_externalWrapPath;
 - (id)i_wrapPath;
 - (id)i_computeWrapPath;

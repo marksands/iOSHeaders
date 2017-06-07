@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOMapRegion, GEOTransitDecoderData, GEOTransitSuggestedRoute, NSMutableArray, NSMutableData;
 
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     GEOTransitDecoderData *_decoderData;
 }
 
+- (void).cxx_destruct;
 - (_Bool)_shouldBreakPointSectionAtStep:(id)arg1 previousStep:(id)arg2;
 - (id)_sectionForRoute:(id)arg1 pointRange:(struct _NSRange)arg2 stepIndex:(unsigned long long)arg3 bounds:(CDStruct_90e2a262)arg4 currentTransitLineColor:(id)arg5 startDistance:(double)arg6;
 - (double)_buildPointSectionsForRoute:(id)arg1 pointRange:(struct _NSRange)arg2 stepIndex:(unsigned long long)arg3 currentTransitLineColor:(id)arg4 startDistance:(double)arg5;

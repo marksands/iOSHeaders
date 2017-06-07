@@ -23,7 +23,7 @@
 - (void)finishWithError:(id)arg1;
 - (_Bool)shouldStallAfterConnectionLost;
 - (_Bool)shouldHandlePasswordErrors;
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)didProcessContext:(id)arg1;
 - (void)loadRequest:(id)arg1;
 - (id)_OAuthURLFromResponseData:(id)arg1;

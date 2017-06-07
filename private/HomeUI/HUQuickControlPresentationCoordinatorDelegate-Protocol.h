@@ -7,7 +7,7 @@
 #import <HomeUI/NSObject-Protocol.h>
 
 @class HFItem, HUControllableCollectionViewLayoutOverrideAttributes, HUQuickControlPresentationContext, HUQuickControlPresentationCoordinator, UITraitCollection, UIViewController;
-@protocol HUQuickControlDetailsPresentationDelegateHost;
+@protocol HUDetailsPresentationDelegateHost;
 
 @protocol HUQuickControlPresentationCoordinatorDelegate <NSObject>
 - (_Bool)hasDetailsActionForPresentationCoordinator:(HUQuickControlPresentationCoordinator *)arg1 item:(HFItem *)arg2;
@@ -24,7 +24,7 @@
 - (void)presentationCoordinator:(HUQuickControlPresentationCoordinator *)arg1 willBeginPresentationWithContext:(HUQuickControlPresentationContext *)arg2;
 - (_Bool)presentationCoordinator:(HUQuickControlPresentationCoordinator *)arg1 shouldBeginPresentationWithContext:(HUQuickControlPresentationContext *)arg2;
 - (void)presentationCoordinator:(HUQuickControlPresentationCoordinator *)arg1 didRecognizeTapForItem:(HFItem *)arg2;
-- (UIViewController<HUQuickControlDetailsPresentationDelegateHost> *)detailsViewControllerForPresentationCoordinator:(HUQuickControlPresentationCoordinator *)arg1 item:(HFItem *)arg2;
+- (UIViewController<HUDetailsPresentationDelegateHost> *)detailsViewControllerForPresentationCoordinator:(HUQuickControlPresentationCoordinator *)arg1 item:(HFItem *)arg2;
 - (void)presentationCoordinator:(HUQuickControlPresentationCoordinator *)arg1 pressedStateDidChange:(_Bool)arg2 forItem:(HFItem *)arg3;
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOComposedRoute;
 
@@ -12,9 +12,12 @@
 {
     GEOComposedRoute *_route;
     _Bool _useStrictInitialOnRouteCriteria;
+    _Bool _shouldSnapRouteMatchToRoute;
 }
 
+@property(nonatomic) _Bool shouldSnapRouteMatchToRoute; // @synthesize shouldSnapRouteMatchToRoute=_shouldSnapRouteMatchToRoute;
 @property(nonatomic) _Bool useStrictInitialOnRouteCriteria; // @synthesize useStrictInitialOnRouteCriteria=_useStrictInitialOnRouteCriteria;
+- (void).cxx_destruct;
 - (_Bool)_shouldConsiderCourseForLocation:(id)arg1;
 - (double)_scoreModifierForStep:(id)arg1 previousStep:(id)arg2;
 - (void)_finishRouteMatch:(id)arg1 previousRouteMatch:(id)arg2 forLocation:(id)arg3;
@@ -29,7 +32,6 @@
 - (id)matchToClosestPointOnRouteWithLocation:(id)arg1;
 - (id)matchToRouteWithLocation:(id)arg1 previousRouteMatch:(id)arg2;
 - (id)matchToRouteWithLocation:(id)arg1;
-- (void)dealloc;
 - (id)initWithRoute:(id)arg1;
 
 @end

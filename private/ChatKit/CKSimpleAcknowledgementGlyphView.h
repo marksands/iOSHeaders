@@ -19,7 +19,8 @@
 - (void)layoutSubviews;
 - (double)animationDuration;
 - (struct CGPoint)glyphOffset;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)glyphImageForType:(long long)arg1 color:(BOOL)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 color:(BOOL)arg2;
 
 @end
 

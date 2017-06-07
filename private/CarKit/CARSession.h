@@ -6,18 +6,23 @@
 
 #import <objc/NSObject.h>
 
-@class CARSessionConfiguration, NSNumber;
+#import <CarKit/CARSessionCommandDelegate-Protocol.h>
 
-@interface CARSession : NSObject
+@class CARInputDeviceManager, CARSessionConfiguration, NSNumber, NSString;
+
+@interface CARSession : NSObject <CARSessionCommandDelegate>
 {
     _Bool _authenticated;
     CARSessionConfiguration *_configuration;
+    CARInputDeviceManager *_inputDeviceManager;
 }
 
+@property(retain, nonatomic) CARInputDeviceManager *inputDeviceManager; // @synthesize inputDeviceManager=_inputDeviceManager;
 @property(readonly, nonatomic, getter=isAuthenticated) _Bool authenticated; // @synthesize authenticated=_authenticated;
 @property(readonly, nonatomic) CARSessionConfiguration *configuration; // @synthesize configuration=_configuration;
 - (void).cxx_destruct;
-- (id)description;
+- (void)sendCommand:(id)arg1 withParameters:(id)arg2;
+@property(readonly, copy) NSString *description;
 - (id)requestTurnByTurnNavigationOwnership;
 - (void)takeScreenForConnection;
 - (void)takeScreenForClient:(id)arg1 reason:(id)arg2;
@@ -32,6 +37,11 @@
 @property(readonly, copy, nonatomic) NSNumber *limitUserInterfaces;
 @property(readonly, copy, nonatomic) NSNumber *nightMode;
 - (id)initWithFigEndpoint:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

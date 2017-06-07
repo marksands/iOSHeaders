@@ -8,16 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOLocalizedDisambiguationLabel : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_locale;
     NSString *_string;
 }
 
 @property(retain, nonatomic) NSString *string; // @synthesize string=_string;
 @property(retain, nonatomic) NSString *locale; // @synthesize locale=_locale;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +32,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasString;
 @property(readonly, nonatomic) _Bool hasLocale;
-- (void)dealloc;
 
 @end
 

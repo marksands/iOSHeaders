@@ -8,14 +8,12 @@
 
 #import <FitnessUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class EAGLContext, FIUIBadge, GLKTextureInfo, NSAttributedString, NSDictionary, NSString, UIImage, UIPanGestureRecognizer, UITapGestureRecognizer;
+@class FIUIBadge, GLKTextureInfo, NSAttributedString, NSDictionary, NSString, UIImage, UIPanGestureRecognizer, UITapGestureRecognizer;
 @protocol FIUIBadgeViewDelegate;
 
 @interface FIUIBadgeView : HKGLView <UIGestureRecognizerDelegate>
 {
     FIUIBadge *_badge;
-    EAGLContext *_context;
-    _Bool _contextPushed;
     union _GLKMatrix4 _viewProjectionMatrix;
     GLKTextureInfo *_colorTexture;
     GLKTextureInfo *_envTexture;
@@ -67,7 +65,7 @@
 - (void)dealloc;
 - (void)_context_destroyBuffers;
 - (void)_context_drawInRect:(struct CGRect)arg1;
-- (unsigned int)drawInRect:(struct CGRect)arg1;
+- (unsigned int)drawInRect:(struct CGRect)arg1 withContext:(id)arg2;
 - (void)_disengageMagnets;
 - (void)_engageMagnets;
 - (void)update;
@@ -90,7 +88,6 @@
 - (void)_panned:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)_forEachProgram:(CDUnknownBlockType)arg1;
-- (void)_withContext:(CDUnknownBlockType)arg1;
 - (id)_defaultTweaks;
 - (void)setBadgeModelPath:(id)arg1 texturePath:(id)arg2 plistPath:(id)arg3;
 - (id)init;

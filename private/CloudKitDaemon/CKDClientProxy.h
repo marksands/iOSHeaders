@@ -8,8 +8,8 @@
 
 #import <CloudKitDaemon/CKDSystemAvailabilityWatcher-Protocol.h>
 
-@class CKDClientContext, CKWatchdog, NSArray, NSDate, NSMutableArray, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString, NSXPCConnection;
-@protocol OS_dispatch_queue;
+@class CKDClientContext, CKWatchdog, NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSString, NSXPCConnection;
+@protocol NSObject, OS_dispatch_queue;
 
 @interface CKDClientProxy : NSObject <CKDSystemAvailabilityWatcher>
 {
@@ -20,6 +20,7 @@
     _Bool _canUseCKDuringBuddy;
     _Bool _canUseCKBeforeFirstUnlock;
     _Bool _holdAllOperations;
+    _Bool _hasFakeEntitlements;
     int _pid;
     NSOperationQueue *_operationQueue;
     NSOperationQueue *_cleanupOperationQueue;
@@ -37,15 +38,20 @@
     CKWatchdog *_watchdog;
     NSDate *_connectionDate;
     long long _hasTCCAuthorizationTernary;
+    NSDictionary *_connectionEntitlements;
     NSOperationQueue *_tccAuthOpQueue;
     NSObject<OS_dispatch_queue> *_tccAuthQueue;
+    id <NSObject> _TCCDatabaseChangedNotificationObserver;
     NSMutableDictionary *_operationStatisticsByClassName;
 }
 
 + (id)sharedClientThrottlingOperationQueue;
 @property(retain, nonatomic) NSMutableDictionary *operationStatisticsByClassName; // @synthesize operationStatisticsByClassName=_operationStatisticsByClassName;
+@property(retain, nonatomic) id <NSObject> TCCDatabaseChangedNotificationObserver; // @synthesize TCCDatabaseChangedNotificationObserver=_TCCDatabaseChangedNotificationObserver;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *tccAuthQueue; // @synthesize tccAuthQueue=_tccAuthQueue;
 @property(retain, nonatomic) NSOperationQueue *tccAuthOpQueue; // @synthesize tccAuthOpQueue=_tccAuthOpQueue;
+@property(nonatomic) _Bool hasFakeEntitlements; // @synthesize hasFakeEntitlements=_hasFakeEntitlements;
+@property(retain, nonatomic) NSDictionary *connectionEntitlements; // @synthesize connectionEntitlements=_connectionEntitlements;
 @property(nonatomic) long long hasTCCAuthorizationTernary; // @synthesize hasTCCAuthorizationTernary=_hasTCCAuthorizationTernary;
 @property(retain, nonatomic) NSDate *connectionDate; // @synthesize connectionDate=_connectionDate;
 @property(retain, nonatomic) CKWatchdog *watchdog; // @synthesize watchdog=_watchdog;
@@ -74,13 +80,14 @@
 - (void)triggerAutoBugCaptureSnapshot;
 - (void)dataclassEnabled:(id)arg1 withSetupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)flushOperationMetricsToPowerLog;
-- (void)purgeDirectory:(id)arg1;
 - (void)updatePushTokens;
+- (void)clearPILSCacheForLookupInfos:(id)arg1;
 - (void)clearContextFromMetadataCache;
 - (void)wipeAllCachesAndDie;
 - (id)CKStatusReportArray;
 - (id)_operationStatusReport:(id)arg1;
 - (void)repairZonePCSWithOperationInfo:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)getRecordPCSDiagnosticsForZonesWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getPCSDiagnosticsForZonesWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)clearCachesForZoneWithSetupInfo:(id)arg1 zoneID:(id)arg2 databaseScope:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)clearCachesForRecordWithSetupInfo:(id)arg1 recordID:(id)arg2 databaseScope:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -89,7 +96,7 @@
 - (void)clearRecordCacheWithSetupInfo:(id)arg1 databaseScope:(long long)arg2;
 - (void)clearAssetCacheWithSetupInfo:(id)arg1 databaseScope:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)showAssetCacheWithSetupInfo:(id)arg1 databaseScope:(long long)arg2;
-- (void)setFakeResponseOperationResult:(id)arg1 forNextRequestOfClassName:(id)arg2 forItemID:(id)arg3 setupInfo:(id)arg4;
+- (void)setFakeResponseOperationResult:(id)arg1 forNextRequestOfClassName:(id)arg2 forItemID:(id)arg3 withLifetime:(int)arg4 setupInfo:(id)arg5;
 - (void)setFakeError:(id)arg1 forNextRequestOfClassName:(id)arg2 setupInfo:(id)arg3;
 - (void)forceFinishClientSetupWithClientContext:(id)arg1;
 - (void)_setupClientWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -106,6 +113,8 @@
 - (void)performAggregateZonePCSOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)fullNameAndPrimaryEmailOnAccountWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)currentDeviceIDWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)serverEnvironmentWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)currentUserBoundaryKeyWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)serverPreferredPushEnvironmentWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)tossConfigWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)resetAllApplicationPermissionsWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -131,13 +140,18 @@
 - (void)performModifySubscriptionsOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performQueryOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performModifyRecordAccessOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)getNewWebSharingIdentityDataWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getNewWebSharingIdentityWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)performModifyWebSharingOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performPublishAssetsOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)performArchiveRecordsOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)performFetchArchivedRecordsOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performFetchRecordVersionsOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performFetchRecordChangesOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performFetchRecordZoneChangesOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performFetchRecordsOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)_reallyPerformFetchRecordsOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)_performFetchCurrentUserRecordOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performModifyRecordsOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performFetchDatabaseChangesOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)performFetchRecordZonesOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
@@ -148,18 +162,18 @@
 - (void)fetchAllLongLivedOperationIDsWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchLongLivedOperationsWithIDs:(id)arg1 setupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)openFileWithOpenInfo:(id)arg1 error:(id *)arg2;
-- (void)_handleCheckpointForOperationWithID:(id)arg1 withArguments:(id)arg2;
+- (void)handleCheckpointForOperationWithID:(id)arg1 withArguments:(id)arg2;
 - (void)_handleCompletionForOperationWithID:(id)arg1 isLongLived:(_Bool)arg2 withResult:(id)arg3 block:(CDUnknownBlockType)arg4;
 - (void)_handleCompletionForOperation:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)_handleProgressForOperationWithID:(id)arg1 withArguments:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_handleProgressForOperation:(id)arg1 withArguments:(id)arg2;
 - (void)_handleProgressForOperation:(id)arg1 withArguments:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_sanityCheckMutableEncryptedPublicSharingKeyOnReturnedRecord:(id)arg1 forOperationID:(id)arg2;
 - (void)requestApplicationPermission:(unsigned long long)arg1 setupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_setApplicationPermission:(unsigned long long)arg1 enabled:(_Bool)arg2 setupInfo:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_globalStatusForApplicationPermission:(unsigned long long)arg1 setupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)statusForApplicationPermission:(unsigned long long)arg1 setupInfo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)currentUserIDWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)accountInfoWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)accountStatusWithSetupInfo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_accountStatusWithClientContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (long long)_applicationPermissionStatusFromUserPrivacySetting:(long long)arg1;
@@ -170,6 +184,7 @@
 - (id)apsEnvironmentEntitlement;
 - (id)_clientPrefixEntitlement;
 - (id)applicationIdentifier;
+- (id)serviceNameForContainerMapEntitlement;
 - (_Bool)hasDisplaysSystemAcceptPromptEntitlement;
 - (_Bool)hasParticipantPIIEntitlement;
 - (_Bool)hasOutOfProcessUIEntitlement;
@@ -179,12 +194,14 @@
 - (_Bool)hasDarkWakeNetworkReachabilityEnabledEntitlement;
 - (_Bool)hasCloudKitSystemServiceEntitlement;
 - (_Bool)hasDeviceIdentifierEntitlement;
+- (_Bool)hasZoneProtectionDataEntitlement;
 - (_Bool)hasProtectionDataEntitlement;
 - (_Bool)_hasCustomAccountsEntitlement;
 - (_Bool)_hasEnvironmentEntitlement;
 - (_Bool)hasMasqueradingEntitlement;
 - (_Bool)_hasEntitlementForKey:(id)arg1;
 - (id)valueForEntitlement:(id)arg1;
+- (_Bool)_updateConnectionEntitlementsWithFakeEntitlements:(id)arg1;
 - (_Bool)isLongLived;
 - (void)getTCCAuthorizationWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)hasTCCAuthorization;

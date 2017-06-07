@@ -19,6 +19,7 @@
     } _has;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -33,7 +34,6 @@
 - (id)versionAsString:(int)arg1;
 @property(nonatomic) _Bool hasVersion;
 @property(nonatomic) int version; // @synthesize version=_version;
-- (void)dealloc;
 
 @end
 

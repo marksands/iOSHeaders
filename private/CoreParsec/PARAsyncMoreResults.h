@@ -14,21 +14,20 @@
     PARSessionConfiguration *_configuration;
     double _scale;
     NSURL *_moreResultsURL;
-    long long _queryId;
+    unsigned long long _queryId;
     unsigned long long _clientQueryId;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)moreResults:(id)arg1 label:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(long long)arg5 clientQueryId:(unsigned long long)arg6;
-+ (id)moreResults:(id)arg1 label:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(long long)arg5;
++ (id)moreResults:(id)arg1 label:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(unsigned long long)arg5 clientQueryId:(unsigned long long)arg6;
++ (id)moreResults:(id)arg1 label:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(unsigned long long)arg5;
 @property(readonly, nonatomic) unsigned long long clientQueryId; // @synthesize clientQueryId=_clientQueryId;
-@property(readonly, nonatomic) long long queryId; // @synthesize queryId=_queryId;
+@property(readonly, nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(readonly, copy, nonatomic) NSURL *moreResultsURL; // @synthesize moreResultsURL=_moreResultsURL;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(retain, nonatomic) PARSessionConfiguration *configuration; // @synthesize configuration=_configuration;
-@property(retain, nonatomic) NSXPCListenerEndpoint *endpoint; // @synthesize endpoint=_endpoint;
+@property(readonly, nonatomic) PARSessionConfiguration *configuration; // @synthesize configuration=_configuration;
+@property(readonly, nonatomic) NSXPCListenerEndpoint *endpoint; // @synthesize endpoint=_endpoint;
 - (void).cxx_destruct;
-- (void)loadSearchResultsWithCompletionAndErrorHandler:(CDUnknownBlockType)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

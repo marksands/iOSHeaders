@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) OADColorMap *colorMap;
 @property(readonly, nonatomic) OADColorScheme *colorScheme;
 - (void)dealloc;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)applyThemeOverrides:(id)arg1 colorMapOverride:(id)arg2;
 - (id)initWithTheme:(id)arg1 colorMap:(id)arg2 colorPalette:(id)arg3;

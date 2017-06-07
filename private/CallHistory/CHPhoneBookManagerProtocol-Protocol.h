@@ -6,13 +6,13 @@
 
 #import <CallHistory/NSObject-Protocol.h>
 
-@class NSDictionary, NSString;
+@class CNContact, NSDictionary, NSString;
 
 @protocol CHPhoneBookManagerProtocol <NSObject>
 + (id)get;
 - (_Bool)isABContactASuggestion;
-- (NSString *)getLocalizedCallerIdLabelForRecord:(const void *)arg1 withMultiValueId:(NSString *)arg2 withCallerIdIsEmail:(_Bool)arg3;
-- (NSString *)getPersonsNameForRecord:(const void *)arg1;
-- (NSDictionary *)getRecordId:(NSString *)arg1 andISOCountryCode:(NSString *)arg2 isEmail:(_Bool)arg3;
+- (NSString *)getLocalizedCallerIdLabelForContact:(CNContact *)arg1 forCallerId:(NSString *)arg2 withCallerIdIsEmail:(_Bool)arg3;
+- (NSString *)getPersonsNameForContact:(CNContact *)arg1;
+- (NSDictionary *)getRecordId:(NSString *)arg1 isEmail:(_Bool)arg2;
 @end
 

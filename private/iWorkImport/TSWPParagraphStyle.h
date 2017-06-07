@@ -42,15 +42,14 @@ __attribute__((visibility("hidden")))
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 @property(readonly, nonatomic) NSString *presetKind;
-- (SEL)mapThemePropertyMapSelector;
 - (id)boxedValueForProperty:(int)arg1 oldBoxedValue:(id)arg2 transformedByTransform:(struct CGAffineTransform)arg3;
 - (_Bool)transformsFontSizes;
+- (id)archivableRepresentationOfChangeSet:(id)arg1;
 - (void)addMissingClassProperties;
 - (void)localizeForBidi:(_Bool)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ParagraphStyleArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
-- (const struct ParagraphStyleArchive *)paragraphStyleArchiveFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ParagraphStyleArchive *)arg1 unarchiver:(id)arg2;
 - (id)initialListStyle;
 - (void)setInitialListStyle:(id)arg1;

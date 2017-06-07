@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSString;
 
@@ -17,10 +17,11 @@
 }
 
 @property(retain) NSArray *associatedResults; // @synthesize associatedResults=_associatedResults;
-@property(retain) struct __DDResult *result; // @synthesize result=_result;
 @property(retain) NSString *trailingText; // @synthesize trailingText=_trailingText;
 @property(retain) NSString *leadingText; // @synthesize leadingText=_leadingText;
+- (void).cxx_destruct;
 - (void)dealloc;
+@property(retain) struct __DDResult *result; // @synthesize result=_result;
 
 @end
 

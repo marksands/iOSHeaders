@@ -8,18 +8,13 @@
 
 #import <UserNotificationsServer/NSCoding-Protocol.h>
 
-@class NSData, NSDate, NSString;
+@class NSData, NSString;
 
 @interface UNSRemoteNotificationClient : NSObject <NSCoding>
 {
-    NSString *_bundleIdentifier;
     NSString *_tokenIdentifier;
     NSString *_environment;
     NSData *_lastKnownDeviceToken;
-    NSDate *_missingDate;
-    _Bool _backgroundDeliveryDisabled;
-    long long _dayOfLastNewsstandPush;
-    unsigned long long _dailyCountOfNewsstandPushes;
     _Bool _wantsPush;
     NSString *_pushDisabledReason;
 }
@@ -28,19 +23,14 @@
 + (void)initialize;
 @property(nonatomic, getter=doesWantPush) _Bool wantsPush; // @synthesize wantsPush=_wantsPush;
 @property(retain, nonatomic) NSString *pushDisabledReason; // @synthesize pushDisabledReason=_pushDisabledReason;
-@property(nonatomic) unsigned long long dailyCountOfNewsstandPushes; // @synthesize dailyCountOfNewsstandPushes=_dailyCountOfNewsstandPushes;
-@property(nonatomic) long long dayOfLastNewsstandPush; // @synthesize dayOfLastNewsstandPush=_dayOfLastNewsstandPush;
-@property(nonatomic) _Bool backgroundDeliveryDisabled; // @synthesize backgroundDeliveryDisabled=_backgroundDeliveryDisabled;
-@property(retain, nonatomic) NSDate *missingDate; // @synthesize missingDate=_missingDate;
 @property(retain, nonatomic) NSData *lastKnownDeviceToken; // @synthesize lastKnownDeviceToken=_lastKnownDeviceToken;
 @property(retain, nonatomic) NSString *environment; // @synthesize environment=_environment;
 @property(readonly, retain, nonatomic) NSString *tokenIdentifier; // @synthesize tokenIdentifier=_tokenIdentifier;
-@property(readonly, retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)wantsPushWithCoder:(id)arg1;
-- (id)initWithBundleIdentifier:(id)arg1;
+- (id)init;
 
 @end
 

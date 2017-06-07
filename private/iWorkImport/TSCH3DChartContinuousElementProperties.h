@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 - (float)depthForScene:(id)arg1;
 - (float)chartMinZForScene:(id)arg1;
 - (void)reset;
-- (void)resetWithEnumerator:(id)arg1 layoutSettings:(CDStruct_339a9a6e)arg2;
+- (void)resetWithEnumerator:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
 - (void)updateLabels;
 - (tvec2_3b141483)seriesSize;
 @property(readonly, nonatomic) long long seriesCount;

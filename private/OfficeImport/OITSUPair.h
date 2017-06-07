@@ -20,10 +20,10 @@ __attribute__((visibility("hidden")))
 + (id)pair;
 + (id)pairWithPair:(id)arg1;
 + (id)pairWithFirst:(id)arg1 second:(id)arg2;
+@property(readonly, nonatomic) id second; // @synthesize second=mSecond;
+@property(readonly, nonatomic) id first; // @synthesize first=mFirst;
 - (void)p_SetSecond:(id)arg1;
 - (void)p_SetFirst:(id)arg1;
-- (id)second;
-- (id)first;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;

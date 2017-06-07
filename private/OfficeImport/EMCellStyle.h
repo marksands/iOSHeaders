@@ -17,8 +17,6 @@ __attribute__((visibility("hidden")))
     int _edCellType;
     double _columnWidth;
     double _contentWidth;
-    _Bool _isRowZero;
-    _Bool _isColumnZero;
     _Bool _truncateContents;
     _Bool _resolvedProperties;
 }
@@ -26,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)_parseFontName:(id)arg1 nameContainsBold:(_Bool *)arg2 nameContainsItalic:(_Bool *)arg3;
 + (double)contentWidthForColumnWidth:(double)arg1;
 + (id)styleForFont:(id)arg1;
+- (void).cxx_destruct;
 - (id)cacheFriendlyCSSStyleString;
 - (id)cssStyleString;
 - (_Bool)isEqual:(id)arg1;
@@ -35,10 +34,9 @@ __attribute__((visibility("hidden")))
 - (void)addBordersStyle:(id)arg1;
 - (void)addFillStyle:(id)arg1;
 - (void)addFontStyle:(id)arg1;
-- (void)resolveBorders;
 - (void)resolveContentWidth;
 - (void)resolveFormatType;
-- (id)initWithEDStyle:(id)arg1 type:(int)arg2 rowIndex:(unsigned long long)arg3 columnIndex:(unsigned long long)arg4 columnWidth:(unsigned long long)arg5 contentWidth:(unsigned long long)arg6 truncateContents:(_Bool)arg7;
+- (id)initWithEDStyle:(id)arg1 type:(int)arg2 columnWidth:(unsigned long long)arg3 contentWidth:(unsigned long long)arg4 truncateContents:(_Bool)arg5;
 
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDate;
 
@@ -21,11 +21,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CAARiseTransitSetDetails riseTransitSet; // @synthesize riseTransitSet=_riseTransitSet;
 @property(readonly, nonatomic) double julianDay; // @synthesize julianDay=_julianDay;
 - (id).cxx_construct;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSDate *sunset;
 @property(readonly, nonatomic) NSDate *transit;
 @property(readonly, nonatomic) NSDate *sunrise;
 - (id)_dateFromOffset:(double)arg1 ofJulianDay:(double)arg2;
-- (void)dealloc;
 - (id)initWithJulianDay:(double)arg1 riseTransitSet:(struct CAARiseTransitSetDetails)arg2;
 
 @end

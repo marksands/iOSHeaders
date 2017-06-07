@@ -32,6 +32,7 @@
 @property(retain, nonatomic) GEOPDAnalyticMetadata *analyticMetadata; // @synthesize analyticMetadata=_analyticMetadata;
 @property(retain, nonatomic) GEORPUserCredentials *userCredentials; // @synthesize userCredentials=_userCredentials;
 @property(retain, nonatomic) GEORPProblem *problem; // @synthesize problem=_problem;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -52,7 +53,6 @@
 @property(readonly, nonatomic) _Bool hasAnalyticMetadata;
 @property(readonly, nonatomic) _Bool hasUserCredentials;
 @property(readonly, nonatomic) _Bool hasProblem;
-- (void)dealloc;
 - (id)initWithProblem:(id)arg1 pushToken:(id)arg2 allowContactBackAtEmailAddress:(id)arg3 traits:(id)arg4;
 
 @end

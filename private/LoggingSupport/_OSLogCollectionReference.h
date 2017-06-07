@@ -12,16 +12,18 @@ __attribute__((visibility("hidden")))
 @interface _OSLogCollectionReference : NSObject
 {
     _OSLogDirectoryReference *_diagnosticsDirectoryReference;
+    _OSLogDirectoryReference *_timesyncReference;
     _OSLogDirectoryReference *_UUIDTextReference;
 }
 
 + (id)localDBRef;
 + (id)referenceWithURL:(id)arg1 error:(id *)arg2;
-@property(retain, nonatomic) _OSLogDirectoryReference *UUIDTextReference; // @synthesize UUIDTextReference=_UUIDTextReference;
-@property(retain, nonatomic) _OSLogDirectoryReference *diagnosticsDirectoryReference; // @synthesize diagnosticsDirectoryReference=_diagnosticsDirectoryReference;
+@property(readonly, nonatomic) _OSLogDirectoryReference *UUIDTextReference; // @synthesize UUIDTextReference=_UUIDTextReference;
+@property(readonly, nonatomic) _OSLogDirectoryReference *timesyncReference; // @synthesize timesyncReference=_timesyncReference;
+@property(readonly, nonatomic) _OSLogDirectoryReference *diagnosticsDirectoryReference; // @synthesize diagnosticsDirectoryReference=_diagnosticsDirectoryReference;
 - (void).cxx_destruct;
 - (void)close;
-- (id)initWithDiagnosticsDirectory:(id)arg1 UUIDTextDirectory:(id)arg2;
+- (id)initWithDiagnosticsDirectory:(id)arg1 timesyncDirectory:(id)arg2 UUIDTextDirectory:(id)arg3;
 
 @end
 

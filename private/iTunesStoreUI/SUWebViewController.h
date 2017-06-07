@@ -24,6 +24,7 @@
     SUObjectPool *_objectPool;
     ISURLRequestPerformance *_performanceMetrics;
     long long _scheduledOrientation;
+    _Bool _shouldSignRequests;
     SUStorePageProtocol *_storePageProtocol;
     long long _style;
     NSURL *_url;
@@ -33,6 +34,7 @@
 
 @property(nonatomic) _Bool viewIsReady; // @synthesize viewIsReady=_viewIsReady;
 @property(nonatomic) long long style; // @synthesize style=_style;
+@property(nonatomic) _Bool shouldSignRequests; // @synthesize shouldSignRequests=_shouldSignRequests;
 @property(retain, nonatomic, getter=_performanceMetrics, setter=_setPerformanceMetrics:) ISURLRequestPerformance *_performanceMetrics; // @synthesize _performanceMetrics;
 @property(retain, nonatomic, getter=_mescalSession, setter=_setMescalSession:) SUMescalSession *_mescalSession; // @synthesize _mescalSession;
 @property(copy, nonatomic) SSAuthenticationContext *authenticationContext; // @synthesize authenticationContext=_authenticationContext;

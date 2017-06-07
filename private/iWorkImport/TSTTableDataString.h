@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataString : TSTTableDataObject
 {
-    NSString *mString;
+    NSString *_string;
 }
 
-@property(readonly, nonatomic) NSString *string; // @synthesize string=mString;
-- (void)dealloc;
+@property(readonly, nonatomic) NSString *string; // @synthesize string=_string;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

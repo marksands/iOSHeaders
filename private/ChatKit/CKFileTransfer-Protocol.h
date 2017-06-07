@@ -28,6 +28,7 @@
 @property(retain, nonatomic) IMMessage *IMMessage;
 - (void)mediaObjectRemoved;
 - (void)mediaObjectAdded;
+- (void)fetchHighQualityFile:(void (^)(_Bool, NSURL *))arg1;
 - (id)initWithFileURL:(NSURL *)arg1 transcoderUserInfo:(NSDictionary *)arg2 attributionInfo:(NSDictionary *)arg3 hideAttachment:(_Bool)arg4;
 - (id)initWithTransferGUID:(NSString *)arg1 imMessage:(IMMessage *)arg2;
 

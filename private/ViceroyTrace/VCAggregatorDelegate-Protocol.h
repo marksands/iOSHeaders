@@ -9,6 +9,7 @@
 @class NSDictionary;
 
 @protocol VCAggregatorDelegate <NSObject>
+- (void)reportQR:(NSDictionary *)arg1;
 - (void)report:(NSDictionary *)arg1;
 @end
 

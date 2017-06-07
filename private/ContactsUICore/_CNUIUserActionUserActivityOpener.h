@@ -8,15 +8,15 @@
 
 #import <ContactsUICore/CNUIUserActionUserActivityOpener-Protocol.h>
 
-@class LSApplicationWorkspace, NSString;
+@class CNLSApplicationWorkspace, NSString;
 
 @interface _CNUIUserActionUserActivityOpener : NSObject <CNUIUserActionUserActivityOpener>
 {
-    LSApplicationWorkspace *_applicationWorkspace;
+    CNLSApplicationWorkspace *_applicationWorkspace;
 }
 
 + (id)errorForUnableToOpenUserActivity:(id)arg1 withUnderlyingError:(id)arg2;
-@property(readonly, nonatomic) LSApplicationWorkspace *applicationWorkspace; // @synthesize applicationWorkspace=_applicationWorkspace;
+@property(readonly, nonatomic) CNLSApplicationWorkspace *applicationWorkspace; // @synthesize applicationWorkspace=_applicationWorkspace;
 - (void).cxx_destruct;
 - (id)openUserActivity:(id)arg1 usingBundleIdentifier:(id)arg2 withScheduler:(id)arg3;
 - (id)initWithApplicationWorkspace:(id)arg1;

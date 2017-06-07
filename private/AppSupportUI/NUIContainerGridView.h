@@ -17,12 +17,15 @@
     struct _NUIGridArrangement _visibleArrangement;
     struct CGSize _visibleCount;
     struct unordered_map<UIView *, const std::__1::pair<_NSRange, _NSRange>, std::__1::hash<UIView *>, std::__1::equal_to<UIView *>, std::__1::allocator<std::__1::pair<UIView *const, const std::__1::pair<_NSRange, _NSRange>>>> _viewRanges;
+    struct unordered_map<unsigned long, const std::__1::pair<UIView *, UIView *>, std::__1::hash<unsigned long>, std::__1::equal_to<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, const std::__1::pair<UIView *, UIView *>>>> _rowBaselineViews;
     struct CGSize _spacing;
     struct vector<_NUIGridViewDimensionConfiguration, std::__1::allocator<_NUIGridViewDimensionConfiguration>> _rows;
     struct vector<_NUIGridViewDimensionConfiguration, std::__1::allocator<_NUIGridViewDimensionConfiguration>> _columns;
     struct {
         unsigned int inInsertOrRemove:1;
+        unsigned int pendingUpdate:1;
         unsigned int delegateMinSpacing:1;
+        unsigned int delegateMinDirectionalSpacing:1;
         unsigned int delegateHorizontalAlignment:1;
         unsigned int delegateVerticalAlignment:1;
     } _gridViewFlags;
@@ -47,10 +50,13 @@
 - (double)_widthOfColumnAtIndex:(long long)arg1;
 - (void)didRemoveArrangedSubview:(id)arg1 atIndex:(long long)arg2;
 - (void)didInsertArrangedSubview:(id)arg1 atIndex:(long long)arg2;
-- (void)invalidateIntrinsicContentSizeRequiringArrangedSubviewRemeasurement:(_Bool)arg1;
+- (_Bool)invalidateIntrinsicContentSizeRequiringArrangedSubviewRemeasurement:(_Bool)arg1;
 - (id)arrangedDescription;
 - (_Bool)layoutArrangedSubviewsInBounds:(struct CGRect)arg1;
 - (struct CGSize)calculateArrangedSizeFittingSize:(struct CGSize)arg1;
+- (id)viewForLastBaselineLayoutInRow:(long long)arg1;
+- (id)viewForFirstBaselineLayoutInRow:(long long)arg1;
+- (id)_baselineViewForFirstBaseline:(_Bool)arg1 forRow:(unsigned long long)arg2;
 - (id)viewForLastBaselineLayout;
 - (id)viewForFirstBaselineLayout;
 - (id)_baselineViewVendForFirstBaseline:(_Bool)arg1 fromViews:(id)arg2;
@@ -58,6 +64,7 @@
 @property(nonatomic) double rowSpacing;
 @property(nonatomic) long long verticalDistribution;
 @property(nonatomic) long long horizontalDistribution;
+- (void)replaceArrangedSubview:(id)arg1 inColumnAtIndex:(long long)arg2 rowAtIndex:(long long)arg3;
 - (void)removeColumnAtIndex:(long long)arg1;
 - (void)insertColumnAtIndex:(long long)arg1 withArrangedSubviews:(id)arg2;
 - (void)addColumnWithArrangedSubviews:(id)arg1;
@@ -72,7 +79,11 @@
 - (id)arrangedSubviewsInRowAtIndex:(long long)arg1;
 @property(readonly, nonatomic) long long numberOfColumns;
 @property(readonly, nonatomic) long long numberOfRows;
+- (void)_invalidateIntrinsicContentSizeAndUpdateArrangedSubviewsToMatchCurrentGrid;
+- (void)_updateArrangedSubviewsToMatchCurrentGrid;
+- (_Bool)_verifyInternalGridConsistencyWarningOnly:(_Bool)arg1;
 - (void)dealloc;
+- (id)initWithArrangedSubviewRows:(id)arg1;
 - (id)initWithArrangeSubviewRows:(id)arg1;
 - (id)initWithArrangedSubviews:(id)arg1;
 - (void)setBaselineRelativeArrangement:(_Bool)arg1;

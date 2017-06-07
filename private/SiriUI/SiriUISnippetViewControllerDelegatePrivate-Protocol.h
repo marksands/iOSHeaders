@@ -6,10 +6,17 @@
 
 #import <SiriUI/NSObject-Protocol.h>
 
-@class NSString, UIViewController;
+@class AFUserUtteranceSelectionResults, NSString, UIViewController;
 @protocol SiriUIViewController;
 
 @protocol SiriUISnippetViewControllerDelegatePrivate <NSObject>
+- (void)removeSiriViewController:(id <SiriUIViewController>)arg1;
+- (void)siriViewController:(id <SiriUIViewController>)arg1 startCorrectedSpeechRequestWithText:(NSString *)arg2 correctionIdentifier:(id)arg3 userSelectionResults:(AFUserUtteranceSelectionResults *)arg4;
+- (void)siriViewControllerRequestTearDownEditingViewController:(id <SiriUIViewController>)arg1;
+- (void)siriViewControllerDidEndEditing:(id <SiriUIViewController>)arg1;
+- (void)siriViewControllerWillBeginEditing:(id <SiriUIViewController>)arg1;
+- (_Bool)siriViewControllerShouldPreventUserInteraction:(id <SiriUIViewController>)arg1;
+- (void)siriSnippetViewController:(id <SiriUIViewController>)arg1 didDisambiguateAppWithBundleIdentifier:(NSString *)arg2 metricsContext:(NSString *)arg3;
 - (void)cancelSpeakingForSiriViewController:(id <SiriUIViewController>)arg1;
 - (void)siriSnippetViewController:(id <SiriUIViewController>)arg1 willDismissViewController:(UIViewController *)arg2;
 - (void)siriSnippetViewController:(id <SiriUIViewController>)arg1 willPresentViewController:(UIViewController *)arg2;

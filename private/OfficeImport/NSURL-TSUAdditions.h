@@ -7,9 +7,22 @@
 #import <Foundation/NSURL.h>
 
 @interface NSURL (TSUAdditions)
+- (id)tsu_fileTypeIdentifierHandlingFileCoordinationPromises;
+- (_Bool)tsu_setNeedsDocumentIdentifierAndReturnError:(out id *)arg1;
+- (_Bool)tsu_shareOwnerName:(out id *)arg1 error:(id *)arg2;
+- (id)tsu_shareOwnerName;
+- (_Bool)tsu_isDocumentUploaded:(out _Bool *)arg1 error:(id *)arg2;
+- (_Bool)tsu_isDocumentUploaded;
+- (_Bool)tsu_displayName:(out id *)arg1 error:(id *)arg2;
 - (id)tsu_displayName;
-- (_Bool)tsu_isSharedWithMe;
+- (_Bool)tsu_isShareOwner:(out _Bool *)arg1 error:(id *)arg2;
+- (_Bool)tsu_isShareOwner;
+- (_Bool)tsu_isShareCollaborator:(out _Bool *)arg1 error:(id *)arg2;
+- (_Bool)tsu_isShareCollaborator;
+- (_Bool)_isShareRole:(out _Bool *)arg1 role:(id)arg2 error:(id *)arg3;
+- (_Bool)tsu_isShared:(out _Bool *)arg1 error:(id *)arg2;
 - (_Bool)tsu_isShared;
+- (_Bool)tsu_fileSize:(out unsigned long long *)arg1 error:(id *)arg2;
 - (unsigned long long)tsu_fileSize;
 - (_Bool)tsu_isFileSizeTooLargeForSharing;
 - (void)tsu_performSecurityScopedResourceAccessAsynchronouslyUsingBlock:(CDUnknownBlockType)arg1;

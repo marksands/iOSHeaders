@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol GEOPhoneNumberResolving, OS_dispatch_queue;
 
@@ -14,10 +14,13 @@
     NSObject<OS_dispatch_queue> *_workQueue;
 }
 
++ (void)useRemoteResolver;
 + (void)useLocalResolver;
++ (void)useProxy:(Class)arg1;
++ (id)sharedResolver;
+- (void).cxx_destruct;
 - (void)_alePackResolution:(id)arg1 handler:(CDUnknownBlockType)arg2 queue:(id)arg3;
 - (void)resolvePhoneNumbers:(id)arg1 handler:(CDUnknownBlockType)arg2 queue:(id)arg3;
-- (void)dealloc;
 - (id)init;
 
 @end

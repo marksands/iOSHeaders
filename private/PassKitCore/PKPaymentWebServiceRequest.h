@@ -4,21 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <PassKitCore/PKOverlayableWebServiceRequest.h>
 
 @protocol PKPaymentWebServiceTargetDeviceProtocol;
 
-@interface PKPaymentWebServiceRequest : NSObject
+@interface PKPaymentWebServiceRequest : PKOverlayableWebServiceRequest
 {
     id <PKPaymentWebServiceTargetDeviceProtocol> _targetDevice;
 }
 
-+ (id)_HTTPBodyWithDictionary:(id)arg1;
-+ (id)authHeaderWithAccount:(id)arg1;
 @property(retain, nonatomic) id <PKPaymentWebServiceTargetDeviceProtocol> targetDevice; // @synthesize targetDevice=_targetDevice;
 - (void).cxx_destruct;
+- (id)_murlRequestWithServiceURL:(id)arg1 version:(id)arg2 endpointComponents:(id)arg3 queryParameters:(id)arg4 account:(id)arg5;
 - (id)_murlRequestWithServiceURL:(id)arg1 endpointComponents:(id)arg2 queryParameters:(id)arg3 account:(id)arg4;
-- (id)_murlRequestWithURL:(id)arg1 account:(id)arg2;
 - (id)_murlRequestWithURL:(id)arg1;
 - (void)_signRequest:(id)arg1 webService:(id)arg2 completion:(CDUnknownBlockType)arg3;
 

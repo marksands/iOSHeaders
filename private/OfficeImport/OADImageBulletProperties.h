@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     OADBlipRef *mImage;
 }
 
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)image;
 - (void)dealloc;

@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <SafariShared/NSSecureCoding-Protocol.h>
+
 @class NSString;
 
-@interface WBSURLCompletionUserTypedString : NSObject
+@interface WBSURLCompletionUserTypedString : NSObject <NSSecureCoding>
 {
     NSString *_string;
     const unsigned short *_unichars;
@@ -19,11 +21,15 @@
     _Bool _ownsChars;
 }
 
++ (_Bool)supportsSecureCoding;
 + (void)initialize;
 @property(readonly, nonatomic) NSString *normalizedString; // @synthesize normalizedString=_string;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithString:(id)arg1;
+- (id)init;
 
 @end
 

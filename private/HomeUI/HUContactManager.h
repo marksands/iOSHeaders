@@ -6,21 +6,27 @@
 
 #import <objc/NSObject.h>
 
-@class ABMonogrammer, NSArray;
+@class CNContactStore, CNMonogrammer, NSDictionary;
 
 @interface HUContactManager : NSObject
 {
-    NSArray *_allPeople;
-    ABMonogrammer *_monogrammer;
+    NSDictionary *_cachedContactByEmails;
+    CNContactStore *_contactStore;
+    CNMonogrammer *_monogrammer;
     double _monogramDiameter;
 }
 
 + (id)sharedManager;
 @property(nonatomic) double monogramDiameter; // @synthesize monogramDiameter=_monogramDiameter;
-@property(retain, nonatomic) ABMonogrammer *monogrammer; // @synthesize monogrammer=_monogrammer;
-@property(retain, nonatomic) NSArray *allPeople; // @synthesize allPeople=_allPeople;
+@property(retain, nonatomic) CNMonogrammer *monogrammer; // @synthesize monogrammer=_monogrammer;
+@property(readonly, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
+@property(copy, nonatomic) NSDictionary *cachedContactByEmails; // @synthesize cachedContactByEmails=_cachedContactByEmails;
 - (void).cxx_destruct;
 - (id)userDataFromEmail:(id)arg1 monogramDiameter:(double)arg2;
+- (id)contactForEmailAddress:(id)arg1 keysToFetch:(id)arg2;
+- (void)contactStoreDidChange:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *content; // @synthesize content=_content;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasContent;
 @property(readonly, nonatomic) _Bool hasTitle;
-- (void)dealloc;
 
 @end
 

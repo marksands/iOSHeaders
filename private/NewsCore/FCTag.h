@@ -12,7 +12,7 @@
 #import <NewsCore/FCTagProviding-Protocol.h>
 #import <NewsCore/FCTopicProviding-Protocol.h>
 
-@class FCAssetHandle, FCHeadlineTemplate, FCInterestToken, FCTagBanner, FCTextInfo, NSArray, NSData, NSDate, NSString, NTPBFeedConfiguration, NTPBTagRecord, UIColor;
+@class FCAssetHandle, FCColor, FCHeadlineTemplate, FCInterestToken, FCTagBanner, FCTextInfo, NSArray, NSData, NSDate, NSString, NTPBFeedConfiguration, NTPBPublisherPaidDescriptionStrings, NTPBTagRecord;
 @protocol FCChannelProviding, FCFeedTheming, FCSectionProviding, FCTopicProviding;
 
 @interface FCTag : NSObject <FCTagProviding, FCChannelProviding, FCSectionProviding, FCTopicProviding, FCFeedTheming>
@@ -27,6 +27,7 @@
     NSString *_identifier;
     NSString *_versionKey;
     NSString *_name;
+    NSString *_nameCompact;
     unsigned long long _tagType;
     long long _contentProvider;
     NSString *_primaryAudience;
@@ -45,6 +46,7 @@
     unsigned long long _forYouMaximumArticleCount;
     double _forYouCutoffTime;
     FCAssetHandle *_nameImageAssetHandle;
+    FCAssetHandle *_nameImageCompactAssetHandle;
     double _bannerImageScale;
     double _bannerImageBaselineOffsetPercentage;
     FCAssetHandle *_nameImageForDarkBackgroundAssetHandle;
@@ -62,13 +64,16 @@
     FCTagBanner *_bannerImageForWhiteBackground;
     FCTagBanner *_bannerImageForThemeBackground;
     FCTagBanner *_bannerImageForMask;
+    FCTagBanner *_compactBannerImage;
     NSString *_publisherPaidAuthorizationURL;
     NSString *_publisherPaidVerificationURL;
     NSString *_publisherPaidWebAccessURL;
     NSArray *_publisherPaidFeldsparablePurchaseIDs;
     NSArray *_publisherPaidOfferableConfigurations;
+    NTPBPublisherPaidDescriptionStrings *_publisherPaidDescriptionStrings;
     FCAssetHandle *_nameImageMaskWidgetLQAssetHandle;
     FCAssetHandle *_nameImageMaskWidgetHQAssetHandle;
+    unsigned long long _groupingEligibility;
     NSString *_pptFeedIDOverride;
     FCInterestToken *_tagInterestToken;
     NTPBFeedConfiguration *_feedConfiguration;
@@ -97,9 +102,11 @@
 @property(copy, nonatomic) NTPBFeedConfiguration *feedConfiguration; // @synthesize feedConfiguration=_feedConfiguration;
 @property(retain, nonatomic) FCInterestToken *tagInterestToken; // @synthesize tagInterestToken=_tagInterestToken;
 @property(copy, nonatomic) NSString *pptFeedIDOverride; // @synthesize pptFeedIDOverride=_pptFeedIDOverride;
+@property(readonly, nonatomic) unsigned long long groupingEligibility; // @synthesize groupingEligibility=_groupingEligibility;
 @property(readonly, nonatomic) _Bool hideAccessoryText; // @synthesize hideAccessoryText=_hideAccessoryText;
 @property(readonly, nonatomic) FCAssetHandle *nameImageMaskWidgetHQAssetHandle; // @synthesize nameImageMaskWidgetHQAssetHandle=_nameImageMaskWidgetHQAssetHandle;
 @property(readonly, nonatomic) FCAssetHandle *nameImageMaskWidgetLQAssetHandle; // @synthesize nameImageMaskWidgetLQAssetHandle=_nameImageMaskWidgetLQAssetHandle;
+@property(readonly, nonatomic) NTPBPublisherPaidDescriptionStrings *publisherPaidDescriptionStrings; // @synthesize publisherPaidDescriptionStrings=_publisherPaidDescriptionStrings;
 @property(readonly, nonatomic) _Bool publisherPaidWebAccessOptIn; // @synthesize publisherPaidWebAccessOptIn=_publisherPaidWebAccessOptIn;
 @property(readonly, nonatomic) _Bool publisherPaidLeakyPaywallOptOut; // @synthesize publisherPaidLeakyPaywallOptOut=_publisherPaidLeakyPaywallOptOut;
 @property(readonly, nonatomic) NSArray *publisherPaidOfferableConfigurations; // @synthesize publisherPaidOfferableConfigurations=_publisherPaidOfferableConfigurations;
@@ -125,9 +132,10 @@
 @property(readonly, nonatomic) FCAssetHandle *nameImageForDarkBackgroundAssetHandle; // @synthesize nameImageForDarkBackgroundAssetHandle=_nameImageForDarkBackgroundAssetHandle;
 @property(nonatomic) double bannerImageBaselineOffsetPercentage; // @synthesize bannerImageBaselineOffsetPercentage=_bannerImageBaselineOffsetPercentage;
 @property(nonatomic) double bannerImageScale; // @synthesize bannerImageScale=_bannerImageScale;
+@property(readonly, nonatomic) FCAssetHandle *nameImageCompactAssetHandle; // @synthesize nameImageCompactAssetHandle=_nameImageCompactAssetHandle;
 @property(readonly, nonatomic) struct UIEdgeInsets nameImageInsets; // @synthesize nameImageInsets=_nameImageInsets;
-@property(readonly, nonatomic) struct CGSize nameImageSize; // @synthesize nameImageSize=_nameImageSize;
-@property(readonly, nonatomic) FCAssetHandle *nameImageAssetHandle; // @synthesize nameImageAssetHandle=_nameImageAssetHandle;
+@property(nonatomic) struct CGSize nameImageSize; // @synthesize nameImageSize=_nameImageSize;
+@property(retain, nonatomic) FCAssetHandle *nameImageAssetHandle; // @synthesize nameImageAssetHandle=_nameImageAssetHandle;
 @property(readonly, nonatomic) double forYouCutoffTime; // @synthesize forYouCutoffTime=_forYouCutoffTime;
 @property(readonly, nonatomic) unsigned long long forYouMaximumArticleCount; // @synthesize forYouMaximumArticleCount=_forYouMaximumArticleCount;
 @property(readonly, nonatomic) _Bool isNotificationEnabled; // @synthesize isNotificationEnabled=_isNotificationEnabled;
@@ -149,6 +157,7 @@
 @property(readonly, nonatomic) _Bool isPublic; // @synthesize isPublic=_isPublic;
 @property(readonly, nonatomic) long long contentProvider; // @synthesize contentProvider=_contentProvider;
 @property(readonly, nonatomic) unsigned long long tagType; // @synthesize tagType=_tagType;
+@property(readonly, copy, nonatomic) NSString *nameCompact; // @synthesize nameCompact=_nameCompact;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *versionKey; // @synthesize versionKey=_versionKey;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -156,16 +165,17 @@
 @property(readonly, nonatomic) _Bool isWhitelisted;
 @property(readonly, nonatomic) _Bool supportsNotifications;
 - (void)ppt_overrideFeedID:(id)arg1;
-@property(readonly, nonatomic) long long statusBarStyle;
-@property(readonly, nonatomic) UIColor *groupTitleColor;
-@property(readonly, nonatomic) UIColor *foregroundColor;
-@property(readonly, nonatomic) UIColor *backgroundColor;
+@property(readonly, nonatomic) FCColor *groupTitleColor;
+@property(readonly, nonatomic) FCColor *foregroundColor;
+@property(readonly, nonatomic) FCColor *backgroundColor;
+@property(readonly, nonatomic) FCTagBanner *compactBannerImage; // @synthesize compactBannerImage=_compactBannerImage;
 @property(readonly, nonatomic) FCTagBanner *bannerImageForThemeBackground; // @synthesize bannerImageForThemeBackground=_bannerImageForThemeBackground;
 @property(readonly, nonatomic) FCTagBanner *bannerImageForWhiteBackground; // @synthesize bannerImageForWhiteBackground=_bannerImageForWhiteBackground;
 @property(readonly, nonatomic) FCTagBanner *defaultBannerImage;
 @property(readonly, nonatomic) _Bool isWhite;
 @property(readonly, nonatomic) FCTagBanner *bannerImageForMask; // @synthesize bannerImageForMask=_bannerImageForMask;
 @property(readonly, nonatomic) long long feedType;
+- (_Bool)shouldPrefetchPurchase;
 - (id)authorizationURL;
 - (_Bool)isAuthenticationSetup;
 - (_Bool)isPurchaseSetup;
@@ -178,6 +188,7 @@
 - (id)freeFeedIDForBin:(long long)arg1;
 - (_Bool)isEqualToTag:(id)arg1;
 @property(readonly, nonatomic) _Bool isSubscribable;
+@property(readonly, nonatomic) _Bool allowCustomBottomStyle;
 @property(readonly, copy, nonatomic) id <FCFeedTheming> theme;
 @property(readonly, nonatomic) id <FCTopicProviding> asTopic;
 @property(readonly, nonatomic) id <FCSectionProviding> asSection;

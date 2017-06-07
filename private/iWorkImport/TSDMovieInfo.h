@@ -56,7 +56,6 @@ __attribute__((visibility("hidden")))
 - (void)acceptVisitor:(id)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
-- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned long long)arg3;
 - (id)animationFilters;
 - (_Bool)canChangeWrapType;
 - (Class)repClass;
@@ -89,8 +88,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSPData *movieData;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct MovieArchive *)arg1 archiver:(id)arg2;
-- (id)subclassInitFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct MovieArchive *)arg1 unarchiver:(id)arg2;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 

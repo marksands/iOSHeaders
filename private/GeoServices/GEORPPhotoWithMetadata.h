@@ -29,6 +29,7 @@
 @property(retain, nonatomic) GEOLatLng *geotagCoordinate; // @synthesize geotagCoordinate=_geotagCoordinate;
 @property(nonatomic) double creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +44,6 @@
 @property(readonly, nonatomic) _Bool hasGeotagCoordinate;
 @property(nonatomic) _Bool hasCreationDate;
 @property(readonly, nonatomic) _Bool hasData;
-- (void)dealloc;
 
 @end
 

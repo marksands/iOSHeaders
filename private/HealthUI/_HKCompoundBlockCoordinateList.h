@@ -11,7 +11,7 @@
 @interface _HKCompoundBlockCoordinateList : HKGraphSeriesBlockCoordinateList
 {
     NSArray *_subCoordinates;
-    HKValueRange *_chartableDateRange;
+    HKValueRange *_chartableValueRange;
 }
 
 - (void).cxx_destruct;
@@ -21,11 +21,11 @@
 - (CDStruct_6ca94699)blockPathStart;
 - (long long)_numCoordinatesInChartableRange:(id)arg1;
 - (long long)numCoordinates;
-- (id)_coordinatesInChartableRange:(id)arg1;
 - (id)coordinates;
-- (void)_enumerateCoordinatesWithTransform:(struct CGAffineTransform)arg1 chartableDateRange:(id)arg2 roundToViewScale:(_Bool)arg3 block:(CDUnknownBlockType)arg4;
+- (id)_coordinatesInChartableRange:(id)arg1;
+- (void)_enumerateCoordinatesWithTransform:(struct CGAffineTransform)arg1 chartableValueRange:(id)arg2 roundToViewScale:(_Bool)arg3 block:(CDUnknownBlockType)arg4;
 - (void)enumerateCoordinatesWithTransform:(struct CGAffineTransform)arg1 roundToViewScale:(_Bool)arg2 block:(CDUnknownBlockType)arg3;
-- (id)initWithSubCoordinates:(id)arg1 chartableDateRange:(id)arg2;
+- (id)initWithSubCoordinates:(id)arg1 chartableValueRange:(id)arg2;
 
 @end
 

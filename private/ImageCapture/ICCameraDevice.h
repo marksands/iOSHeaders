@@ -6,7 +6,7 @@
 
 #import <ImageCapture/ICDevice.h>
 
-@class NSArray, NSString;
+@class NSArray, NSNumber, NSString;
 
 @interface ICCameraDevice : ICDevice
 {
@@ -17,12 +17,9 @@
 - (void)receivedDeviceCommandCompletion;
 - (void)addToMetadataFetchQ:(id)arg1;
 - (void)addToThumbnailFetchQ:(id)arg1;
-- (void)requestThumbWithMetadataOfFiles:(id)arg1 withPreferredResolution:(unsigned long long)arg2;
-- (void)requestMetadataOfFiles:(id)arg1;
-- (void)requestThumbOfFiles:(id)arg1 withPreferredResolution:(unsigned long long)arg2;
-- (void)requestMaxMetadataAndThumbnail;
-- (void)requestMaxMetadata;
-- (void)requestMaxThumbnails;
+- (void)requestDataForFiles:(id)arg1 withProperties:(id)arg2;
+- (void)requestMetadataForFiles:(id)arg1;
+- (void)requestThumbnailsForFiles:(id)arg1;
 - (_Bool)applePTPCapable;
 - (void)removeFolder:(id)arg1;
 - (void)addFolder:(id)arg1;
@@ -33,7 +30,7 @@
 - (void)requestSyncClock;
 - (void)requestCloseSession;
 - (void)requestOpenSession;
-- (void)updateFiles:(id)arg1 withThumbnails:(_Bool)arg2 withMetadata:(_Bool)arg3;
+- (void)aptpUpdateFilesWithCommand:(id)arg1 andData:(id)arg2;
 - (void)handleImageCaptureEventNotification:(id)arg1;
 - (void)handleCommandCompletionNotification:(id)arg1;
 - (id)filesOfType:(id)arg1;
@@ -42,7 +39,8 @@
 - (void)pendNotifyingDelegateOfAddedItem:(id)arg1;
 - (void)notifyDelegateOfAddedItems:(id)arg1;
 - (void)notifyDelegateOfAddedItem:(id)arg1;
-- (id)requestedFiles;
+@property NSNumber *applePTPObjectLimit;
+- (id)applePTPFiles;
 - (id)deviceQSemaphore;
 - (id)generalQ;
 @property(getter=isApplePTPCapable) _Bool applePTPCapable;

@@ -16,9 +16,10 @@
     _Bool _isHidden;
     _Bool _manual;
     _Bool _representative;
-    _Bool _nameSourceAuto;
+    _Bool _clusterRejected;
     _Bool _hidden;
-    int _faceAlgorithmVersion;
+    int _nameSource;
+    int _cloudNameSource;
     NSString *_assetUUID;
     NSString *_assetCloudGUID;
     double _centerX;
@@ -27,14 +28,16 @@
 }
 
 + (void)enumerateMatchedAssetsWithMetadata:(id)arg1 inContext:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
-+ (id)persistedFaceMetadataWithDetectedFace:(id)arg1 isKeyFace:(_Bool)arg2;
-+ (void)_migratePersistedFaces:(id)arg1 fromVersion:(unsigned long long)arg2;
-+ (id)detectedFaceRelationshipKeyPathsToPrefetch;
-+ (id)detectedFacePropertiesToFetch;
++ (id)_persistedFacesWithUnarchiver:(id)arg1 key:(id)arg2;
++ (id)_migrateDetectedFaces:(id)arg1 forPersonMetadata:(id)arg2 fromVersion:(unsigned long long)arg3;
++ (id)_persistedFaceMetadataWithDetectedFace:(id)arg1 isKeyFace:(_Bool)arg2 isClusterRejected:(_Bool)arg3;
++ (id)_detectedFaceRelationshipKeyPathsToPrefetch;
++ (id)_detectedFacePropertiesToFetch;
 @property(nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
 @property(readonly, nonatomic, getter=isHidden) _Bool isHidden; // @synthesize isHidden=_isHidden;
-@property(nonatomic) int faceAlgorithmVersion; // @synthesize faceAlgorithmVersion=_faceAlgorithmVersion;
-@property(nonatomic, getter=isNameSourceAuto) _Bool nameSourceAuto; // @synthesize nameSourceAuto=_nameSourceAuto;
+@property(nonatomic) int cloudNameSource; // @synthesize cloudNameSource=_cloudNameSource;
+@property(nonatomic) int nameSource; // @synthesize nameSource=_nameSource;
+@property(nonatomic, getter=isClusterRejected) _Bool clusterRejected; // @synthesize clusterRejected=_clusterRejected;
 @property(nonatomic, getter=isRepresentative) _Bool representative; // @synthesize representative=_representative;
 @property(nonatomic, getter=isManual) _Bool manual; // @synthesize manual=_manual;
 @property(nonatomic) double size; // @synthesize size=_size;
@@ -43,7 +46,8 @@
 @property(copy, nonatomic) NSString *assetCloudGUID; // @synthesize assetCloudGUID=_assetCloudGUID;
 @property(copy, nonatomic) NSString *assetUUID; // @synthesize assetUUID=_assetUUID;
 - (void).cxx_destruct;
-- (id)insertDeferredRebuildFaceFromDataInManagedObjectContext:(id)arg1;
+- (id)_identifier;
+- (id)_insertDeferredRebuildFaceFromDataInManagedObjectContext:(id)arg1 personUUID:(id)arg2 isRejected:(_Bool)arg3;
 @property(readonly, copy) NSString *description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

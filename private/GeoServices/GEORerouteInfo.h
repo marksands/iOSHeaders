@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
@@ -24,9 +24,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double distanceFromDestination; // @synthesize distanceFromDestination=_distanceFromDestination;
 @property(retain, nonatomic) NSDate *time; // @synthesize time=_time;
 @property(readonly, nonatomic) double penalty; // @synthesize penalty=_penalty;
+- (void).cxx_destruct;
 - (void)updateWithCurrentTime:(id)arg1 location:(id)arg2 isMostRecentReroute:(_Bool)arg3 destinationCoordinate:(CDStruct_c3b9c2ee)arg4 numThrottledReroutes:(unsigned long long)arg5;
 - (void)encodeWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 
 @end

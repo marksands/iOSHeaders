@@ -6,8 +6,10 @@
 
 #import <Foundation/NSObject.h>
 
+#import <iWorkImport/NSCopying-Protocol.h>
+
 __attribute__((visibility("hidden")))
-@interface TSCH3DTextureTiling : NSObject
+@interface TSCH3DTextureTiling : NSObject <NSCopying>
 {
 }
 

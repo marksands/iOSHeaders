@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDAccessory, HMDCameraSessionID, HMDCameraStreamMetrics, HMDCameraStreamSnapshotHandler, HMDService, NSNumber, NSString;
+@class HMDAccessory, HMDCameraSessionID, HMDCameraStreamMetrics, HMDCameraStreamSnapshotHandler, HMDService, NSNumber, NSObject, NSString;
 @protocol HMDCameraStreamControlManagerDelegate, OS_dispatch_queue;
 
-@interface HMDCameraStreamControlManager : NSObject <HMFLogging>
+@interface HMDCameraStreamControlManager : HMFObject <HMFLogging>
 {
     id <HMDCameraStreamControlManagerDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_delegateQueue;

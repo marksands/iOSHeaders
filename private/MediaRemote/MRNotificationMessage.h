@@ -13,6 +13,7 @@
 }
 
 - (unsigned long long)type;
+@property(readonly, nonatomic) void *playerPath;
 @property(readonly, nonatomic) NSDictionary *userInfo;
 @property(readonly, nonatomic) NSString *notification;
 - (id)initWithNotification:(id)arg1;

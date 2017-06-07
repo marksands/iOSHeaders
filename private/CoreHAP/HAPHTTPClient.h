@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class NSString;
+@class NSObject, NSString;
 @protocol HAPHTTPClientDebugDelegate, HAPHTTPClientDelegate, OS_dispatch_queue;
 
-@interface HAPHTTPClient : NSObject
+@interface HAPHTTPClient : HMFObject
 {
     struct HTTPClientPrivate *_httpClient;
     _Bool _invalidateRequested;
@@ -35,7 +35,7 @@
 - (_Bool)_delegateRespondsToSelector:(SEL)arg1;
 - (id)_deserializeUAPJSONData:(id)arg1 error:(id *)arg2;
 - (id)_serializeUAPJSONObject:(id)arg1 error:(id *)arg2;
-- (void)_handleHTTPResponseForMessage:(struct HTTPMessagePrivate *)arg1 completionHandler:(CDUnknownBlockType)arg2;
+-     // Error parsing type: v32@0:8^{HTTPMessagePrivate={__CFRuntimeBase=QAQ}^{HTTPMessagePrivate}{?=[8192c]Q*Q*Qi*Q{?=*Q*Q*Q*Q*Q*Q*Q***Q*Q}*Qi*QCQCi}CiC*QQQ[32000C]*^{?}*Q[2{iovec=^vQ}]^{iovec}iQiii^v^v^v^v^v^v^?^?@?iCq*iQ}16@?24, name: _handleHTTPResponseForMessage:completionHandler:
 - (void)_sendHTTPRequestToURL:(id)arg1 withMethod:(int)arg2 requestObject:(id)arg3 serializationType:(unsigned long long)arg4 timeout:(double)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)sendDELETERequestToURL:(id)arg1 withRequestObject:(id)arg2 serializationType:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)sendPOSTRequestToURL:(id)arg1 withRequestObject:(id)arg2 serializationType:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;

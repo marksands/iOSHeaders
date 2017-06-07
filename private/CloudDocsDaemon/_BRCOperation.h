@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class BRCSyncContext, BRCThrottle, NSDate, NSError, NSObject, NSUUID, _BRCLogSection;
+@class BRCSyncContext, BRCThrottle, CKOperationGroup, NSDate, NSError, NSObject, NSUUID;
 @protocol OS_dispatch_group, OS_dispatch_queue, OS_dispatch_source, OS_os_activity, OS_os_transaction;
 
 __attribute__((visibility("hidden")))
@@ -31,12 +31,14 @@ __attribute__((visibility("hidden")))
     BRCThrottle *_operationFailureThrottle;
     CDUnknownBlockType _mainBlock;
     CDUnknownBlockType _finishBlock;
-    _BRCLogSection *_logSections;
+    unsigned long long _logSections;
+    CKOperationGroup *_operationGroup;
 }
 
+@property(retain, nonatomic) CKOperationGroup *group; // @synthesize group=_operationGroup;
 @property(readonly, nonatomic) BRCSyncContext *syncContext; // @synthesize syncContext=_syncContext;
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(readonly, nonatomic) _BRCLogSection *logSections; // @synthesize logSections=_logSections;
+@property(readonly, nonatomic) unsigned long long logSections; // @synthesize logSections=_logSections;
 @property(copy, nonatomic) CDUnknownBlockType finishBlock; // @synthesize finishBlock=_finishBlock;
 @property(copy, nonatomic) CDUnknownBlockType mainBlock; // @synthesize mainBlock=_mainBlock;
 @property(nonatomic) BRCThrottle *operationFailureThrottle; // @synthesize operationFailureThrottle=_operationFailureThrottle;
@@ -69,6 +71,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool usesBackgroundSession;
 - (void)dealloc;
 - (id)createActivity;
+- (id)initWithName:(id)arg1;
 - (id)initWithName:(id)arg1 syncContext:(id)arg2;
 - (id)initWithName:(id)arg1 syncContext:(id)arg2 group:(id)arg3;
 - (id)init;

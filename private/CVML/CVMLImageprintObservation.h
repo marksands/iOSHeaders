@@ -22,6 +22,9 @@
 @property(retain) NSString *imageprintVersion; // @synthesize imageprintVersion=_imageprintVersion;
 @property(retain) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)serializeAsVNImageprintStateAndReturnError:(id *)arg1;
+- (unsigned long long)serializeStateIntoData:(id)arg1 startingAtByteOffset:(unsigned long long)arg2 error:(id *)arg3;
+- (unsigned long long)serializedLength;
 @property(readonly) NSData *rawImageprintDescriptor;
 - (id)initWithRawImageprintDescriptor:(id)arg1;
 - (id)isImageprintValid;

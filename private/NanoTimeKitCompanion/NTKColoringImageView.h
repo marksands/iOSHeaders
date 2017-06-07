@@ -8,11 +8,10 @@
 
 #import <NanoTimeKitCompanion/NTKColoringView-Protocol.h>
 
-@class CLKImageProvider, NSString, UIColor, _NTKColorManager;
+@class CLKImageProvider, NSString, UIColor;
 
 @interface NTKColoringImageView : UIImageView <NTKColoringView>
 {
-    _NTKColorManager *_colorManager;
     UIColor *_overrideColor;
     CLKImageProvider *_imageProvider;
     struct CGSize _maxSize;
@@ -23,19 +22,16 @@
 @property(retain, nonatomic) UIColor *overrideColor; // @synthesize overrideColor=_overrideColor;
 - (void).cxx_destruct;
 @property(nonatomic) _Bool usesLegibility; // @dynamic usesLegibility;
-- (id)forwardingTargetForSelector:(SEL)arg1;
 - (void)sizeToFit;
-- (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
-- (void)_updateImageColor;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setImage:(id)arg1;
+@property(retain, nonatomic) UIColor *color; // @dynamic color;
 - (id)initWithImage:(id)arg1 highlightedImage:(id)arg2;
 - (id)initWithImage:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonInit;
 
 // Remaining properties
-@property(retain, nonatomic) UIColor *color; // @dynamic color;
 @property(readonly, nonatomic) UIColor *contentColor; // @dynamic contentColor;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

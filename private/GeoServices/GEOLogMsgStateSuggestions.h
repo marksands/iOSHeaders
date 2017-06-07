@@ -29,6 +29,7 @@
 @property(nonatomic) int selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(retain, nonatomic) NSMutableArray *displayedResults; // @synthesize displayedResults=_displayedResults;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -49,7 +50,6 @@
 - (void)addDisplayedResult:(id)arg1;
 - (void)clearDisplayedResults;
 @property(readonly, nonatomic) _Bool hasSearchString;
-- (void)dealloc;
 
 @end
 

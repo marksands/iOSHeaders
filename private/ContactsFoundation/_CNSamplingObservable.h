@@ -8,7 +8,6 @@
 
 @protocol CNCancelable, CNObservable;
 
-__attribute__((visibility("hidden")))
 @interface _CNSamplingObservable : CNObservable
 {
     id <CNObservable> _observable;

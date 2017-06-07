@@ -23,9 +23,6 @@ __attribute__((visibility("hidden")))
     NSArray *_executionInstructionFormats;
 }
 
-+ (id)contentsWithManeuverType:(int)arg1 transportType:(int)arg2 context:(long long)arg3;
-+ (id)contentsWithSubstep:(id)arg1 transportType:(int)arg2 context:(long long)arg3;
-+ (id)contentsWithStep:(id)arg1 transportType:(int)arg2 context:(long long)arg3 isSecondary:(_Bool)arg4;
 + (id)contentsWithStep:(id)arg1 transportType:(int)arg2 destination:(id)arg3 options:(CDStruct_61a83fd4 *)arg4 isSecondary:(_Bool)arg5;
 @property(retain, nonatomic) NSArray *executionInstructionFormats; // @synthesize executionInstructionFormats=_executionInstructionFormats;
 @property(retain, nonatomic) id <GEOServerFormattedString> prepareInstructionFormat; // @synthesize prepareInstructionFormat=_prepareInstructionFormat;
@@ -37,31 +34,9 @@ __attribute__((visibility("hidden")))
 - (id)instructionForStage:(unsigned long long)arg1 distance:(double)arg2;
 - (id)_instructionsForFormats:(id)arg1 distance:(double)arg2;
 - (id)instructionWithShorterAlternatives:(id *)arg1;
-- (id)_spokenWalkingInstructionForStart;
-- (id)_spokenWalkingInstructionForRoundabout;
-- (id)_spokenWalkingInstructionForUTurn;
-- (id)_spokenWalkingInstructionForContinue;
-- (id)_spokenWalkingInstructionForTurn;
-- (id)_spokenInstructionFromSignposts;
-- (id)_spokenInstructionForChangeHighways;
-- (id)_spokenInstructionForExit;
-- (id)_spokenInstructionForStart;
-- (id)_spokenInstructionForArrival;
-- (id)_spokenInstructionForFerry;
-- (id)_spokenInstructionForRoundabout;
-- (id)_spokenInstructionForUTurn;
-- (id)_spokenInstructionForContinue;
-- (id)_spokenInstructionForBranch;
-- (id)_spokenInstructionForTurn;
-- (id)description;
-- (_Bool)useTowardNames;
-- (_Bool)useDestinationName;
-- (_Bool)useIntersectionName;
-- (_Bool)useRoadName;
-- (id)_exitNumberFromNameInfo:(id)arg1;
-- (id)_stringFromNameInfo:(id)arg1;
 @property(nonatomic) long long context;
 @property(readonly, nonatomic) int numSignsWanted;
+- (id)description;
 - (void)_populateFromStep:(id)arg1;
 - (id)init;
 

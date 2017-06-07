@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKLabelNavFeature-Protocol.h>
 
@@ -20,13 +20,17 @@ __attribute__((visibility("hidden")))
     int _type;
     int _drivingSide;
     _Bool _isVisible;
+    _Bool _isPicked;
 }
 
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) _Bool isPicked; // @synthesize isPicked=_isPicked;
 @property(readonly, nonatomic) _Bool isVisible; // @synthesize isVisible=_isVisible;
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffset; // @synthesize routeOffset=_routeOffset;
 @property(readonly, nonatomic) VKLabelNavRoadLabel *maneuverSign; // @synthesize maneuverSign=_maneuverSign;
 - (id).cxx_construct;
+@property(readonly, nonatomic) _Bool isTrafficCameraFeature;
+@property(readonly, nonatomic) _Bool isEtaFeature;
 @property(readonly, nonatomic) _Bool isGuidanceStepStart;
 @property(readonly, nonatomic) NSString *shieldDisplayGroup;
 @property(readonly, nonatomic) _Bool isInGuidance;

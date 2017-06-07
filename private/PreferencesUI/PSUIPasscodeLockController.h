@@ -36,7 +36,7 @@
 - (void)devicePINController:(id)arg1 didAcceptChangedPIN:(id)arg2;
 - (void)_didUpdatePasscode:(id)arg1;
 - (void)devicePINController:(id)arg1 didAcceptSetPIN:(id)arg2;
-- (void)_showWeakWarningAlertForController:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)showWeakWarningAlertForController:(id)arg1 offerUseAnyway:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)devicePINController:(id)arg1 shouldAcceptPIN:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (id)_makeWipeDeviceGroupFooter;
 - (void)_setWipeEnabled:(_Bool)arg1;

@@ -18,6 +18,7 @@
 
 + (Class)disambiguationLabelType;
 @property(retain, nonatomic) NSMutableArray *disambiguationLabels; // @synthesize disambiguationLabels=_disambiguationLabels;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -32,7 +33,6 @@
 - (unsigned long long)disambiguationLabelsCount;
 - (void)addDisambiguationLabel:(id)arg1;
 - (void)clearDisambiguationLabels;
-- (void)dealloc;
 
 @end
 

@@ -25,6 +25,13 @@ struct CGSize {
     double _field2;
 };
 
+struct NSDirectionalEdgeInsets {
+    double top;
+    double leading;
+    double bottom;
+    double trailing;
+};
+
 struct _NSRange {
     unsigned long long _field1;
     unsigned long long _field2;

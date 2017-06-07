@@ -8,7 +8,7 @@
 
 #import <NanoTimeKitCompanion/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSString, NTKCharacterTimeView, NTKUtilityComplicationFactory, UITapGestureRecognizer, UIView;
+@class NSString, NTKCharacterTimeView, NTKUtilityComplicationFactory, UIColor, UITapGestureRecognizer, UIView;
 
 @interface NTKCharacterFaceView : NTKFaceView <UIGestureRecognizerDelegate>
 {
@@ -19,9 +19,11 @@
     UITapGestureRecognizer *_timeTapRecognizer;
     unsigned int _isContentLoaded:1;
     long long _prevDataMode;
+    unsigned long long _optionCharacter;
+    UIColor *_optionClothingColor;
+    double _optionClothingDesaturation;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 + (id)_swatchColorForColorOption:(id)arg1;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1;
 + (void)_prewarm;
@@ -41,6 +43,7 @@
 - (void)_performWristRaiseAnimation;
 - (void)_prepareWristRaiseAnimation;
 - (double)_verticalPaddingForStatusBar;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 forCustomEditMode:(long long)arg4 slot:(id)arg5;
 - (void)_applyOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;

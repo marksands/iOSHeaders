@@ -6,13 +6,15 @@
 
 #import <CoreKnowledge/_TtC13CoreKnowledge20CKAbstractWriteBatch.h>
 
-#import <CoreKnowledge/_TtP13CoreKnowledge26CKKnowledgeStoreWriteBatch_-Protocol.h>
+#import <CoreKnowledge/CKKnowledgeStoreWriteBatch-Protocol.h>
 
-@interface _TtC13CoreKnowledge15CKSQLWriteBatch : _TtC13CoreKnowledge20CKAbstractWriteBatch <_TtP13CoreKnowledge26CKKnowledgeStoreWriteBatch_>
+@interface _TtC13CoreKnowledge15CKSQLWriteBatch : _TtC13CoreKnowledge20CKAbstractWriteBatch <CKKnowledgeStoreWriteBatch>
 {
+    // Error parsing type: , name: queue
 }
 
 - (_Bool)writeAndReturnError:(id *)arg1;
+- (void)writeWithCompletionHandler:(CDUnknownBlockType)arg1;
 
 @end
 

@@ -9,15 +9,16 @@
 #import <ITMLKit/IKJSDOMEventTarget-Protocol.h>
 #import <ITMLKit/IKJSDOMNode-Protocol.h>
 #import <ITMLKit/NSObject-Protocol.h>
-#import <ITMLKit/_IKDOMNode-Protocol.h>
-#import <ITMLKit/_IKDOMNodeProxy-Protocol.h>
+#import <ITMLKit/_IKJSDOMNode-Protocol.h>
+#import <ITMLKit/_IKJSDOMNodeProxy-Protocol.h>
 
-@class IKDOMDocument, IKDOMNodeData, IKDOMNodeList, IKJSDataItem, JSManagedValue, NSHashTable, NSMutableDictionary, NSString;
+@class IKDOMDocument, IKDOMNodeData, IKDOMNodeList, IKJSDataItem, JSManagedValue, JSValue, NSHashTable, NSMutableDictionary, NSString;
 
-@interface IKDOMNode : IKJSObject <NSObject, IKJSDOMNode, _IKDOMNodeProxy, _IKDOMNode, IKJSDOMEventTarget>
+@interface IKDOMNode : IKJSObject <NSObject, IKJSDOMNode, _IKJSDOMNodeProxy, _IKJSDOMNode, IKJSDOMEventTarget>
 {
     struct _xmlNode *_nodePtr;
-    IKJSDataItem *_dataItem;
+    JSManagedValue *_managedDataItem;
+    IKJSDataItem *_boxedDataItem;
     JSManagedValue *_managedOwnerDocument;
     JSManagedValue *_managedParent;
     JSManagedValue *_managedChildNodeList;
@@ -25,12 +26,15 @@
     NSHashTable *_domObservers;
     long long _ITMLID;
     JSManagedValue *_managedSelf;
+    NSString *_identifier;
 }
 
 + (id)_eventListenerMapKeyForType:(id)arg1 useCapture:(_Bool)arg2;
 + (void)handleNodeWillRelease:(struct _xmlNode *)arg1;
 + (void)handleNodeParentDidChange:(struct _xmlNode *)arg1;
++ (id)ITMLIDStringforITMLID:(unsigned long long)arg1;
 + (id)nodeWithAppContext:(id)arg1 nodePtr:(struct _xmlNode *)arg2;
+@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, retain, nonatomic) JSManagedValue *managedSelf; // @synthesize managedSelf=_managedSelf;
 @property(nonatomic) long long ITMLID; // @synthesize ITMLID=_ITMLID;
 @property(retain, nonatomic) NSHashTable *domObservers; // @synthesize domObservers=_domObservers;
@@ -61,12 +65,14 @@
 - (void)childrenUpdatedWithUpdatedChildNodes:(id)arg1 notify:(_Bool)arg2;
 - (void)updatedAndMark:(_Bool)arg1 notify:(_Bool)arg2;
 - (void)enumerateEventListernersForType:(id)arg1 xmlAttribute:(id)arg2 phase:(long long)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (void)enumerateEventListenersUsingBlock:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) IKJSDataItem *boxedDataItem;
 @property(readonly, retain, nonatomic) IKDOMNodeData *jsNodeData;
 - (struct _xmlNode *)nodePtr;
-@property(retain, nonatomic) IKJSDataItem *dataItem;
 - (_Bool)dispatchEvent:(id)arg1;
 - (void)removeEventListener:(id)arg1:(id)arg2:(_Bool)arg3;
 - (void)addEventListener:(id)arg1:(id)arg2:(_Bool)arg3;
+@property(nonatomic) __weak JSValue *dataItem;
 - (_Bool)contains:(id)arg1;
 - (id)getFeature:(id)arg1:(id)arg2;
 - (_Bool)isEqualNode:(id)arg1;
@@ -92,7 +98,7 @@
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithAppContext:(id)arg1 xmlNode:(struct _xmlNode *)arg2;
-- (id)asPrivateIKDOMNode;
+- (id)asPrivateIKJSDOMNode;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

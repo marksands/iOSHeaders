@@ -4,29 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIView.h>
+#import <UIKit/_UIBatteryView.h>
 
-@class UIImageView;
-
-@interface BCBatteryView : UIView
+@interface BCBatteryView : _UIBatteryView
 {
-    UIImageView *_shellImageView;
-    UIImageView *_highCapacityFillImageView;
-    UIImageView *_lowCapacityFillImageView;
     _Bool _lowBattery;
-    unsigned long long _percentCharge;
 }
 
-+ (id)chargeGlyph;
-@property(nonatomic, getter=isLowBattery) _Bool lowBattery; // @synthesize lowBattery=_lowBattery;
-@property(nonatomic) unsigned long long percentCharge; // @synthesize percentCharge=_percentCharge;
-- (void).cxx_destruct;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (void)layoutSubviews;
-- (struct UIEdgeInsets)_edgeInsetsForBatteryInsidesForScale:(double)arg1;
-- (id)_batteryColorForLowCapacity:(_Bool)arg1;
-- (void)_setPercentCharge:(unsigned long long)arg1 force:(_Bool)arg2;
-- (id)initWithFrame:(struct CGRect)arg1;
+@property(nonatomic, getter=isLowBattery) _Bool lowBattery;
+- (id)initWithSizeCategory:(long long)arg1;
+- (id)init;
 
 @end
 

@@ -7,6 +7,7 @@
 #import <iWorkImport/TSWPPageLayout.h>
 
 #import <iWorkImport/TPAttachmentLayoutParent-Protocol.h>
+#import <iWorkImport/TSDWrapInvalidationParent-Protocol.h>
 #import <iWorkImport/TSWPColumnMetrics-Protocol.h>
 #import <iWorkImport/TSWPLayoutParent-Protocol.h>
 
@@ -14,7 +15,7 @@
 @protocol NSFastEnumeration, TPMasterDrawableProvider, TSWPHeaderFooterProvider;
 
 __attribute__((visibility("hidden")))
-@interface TPPageLayout : TSWPPageLayout <TSWPLayoutParent, TSWPColumnMetrics, TPAttachmentLayoutParent>
+@interface TPPageLayout : TSWPPageLayout <TSWPLayoutParent, TSWPColumnMetrics, TPAttachmentLayoutParent, TSDWrapInvalidationParent>
 {
     id <TSWPHeaderFooterProvider> _headerFooterProvider;
     TPMarginAdjustLayout *_marginAdjustLayout;
@@ -24,7 +25,7 @@ __attribute__((visibility("hidden")))
     _Bool _childLayoutsValid;
     TSURetainedPointerKeyDictionary *_oldChildLayouts;
     id <TPMasterDrawableProvider> _masterDrawableProvider;
-    unsigned int _contentFlags;
+    int _contentFlags;
     int _inInvalidationClusterCount;
     _Bool _childTextLayoutsNeedInvalidationForExteriorWrap;
     _Bool _validating;
@@ -34,6 +35,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TPFootnoteContainerLayout *footnoteContainerLayout; // @synthesize footnoteContainerLayout=_footnoteContainerLayout;
 @property(readonly, nonatomic) TPMarginAdjustLayout *marginAdjustLayout; // @synthesize marginAdjustLayout=_marginAdjustLayout;
 @property(nonatomic, getter=isValidating) _Bool validating; // @synthesize validating=_validating;
+- (void).cxx_destruct;
+- (pair_b2618ff2)p_sideMargins;
 - (void)p_removeNoLongerInlineLayoutsFromBodyLayout;
 - (void)p_removeInlineLayoutsFromPageLayout;
 - (_Bool)p_isHeaderFooterLayout:(id)arg1;
@@ -85,7 +88,7 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)footnoteContainerFrameWithSize:(struct CGSize)arg1;
 - (void)inflateFootnotesInFootnoteContainer:(id)arg1;
 - (double)heightAvailableForFootnotes;
-- (void)resetLayoutsForReinflation;
+- (void)setNeedsInflation;
 - (void)rebuildChildLayoutsOnNextValidationForcingTextLayout:(_Bool)arg1;
 - (void)invalidateFootnoteContainers;
 - (void)invalidateFootnoteSeparatorLine;

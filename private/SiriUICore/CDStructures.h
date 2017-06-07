@@ -25,6 +25,11 @@ struct CGSize {
     double height;
 };
 
+struct _NSRange {
+    unsigned long long location;
+    unsigned long long length;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {

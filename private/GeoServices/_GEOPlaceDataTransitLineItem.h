@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOTransitLineItem-Protocol.h>
 
-@class GEOMapRegion, NSArray, NSString;
+@class GEOMapItemIdentifier, GEOMapRegion, NSArray, NSString;
 @protocol GEOEncyclopedicInfo, GEOMapItemTransitInfo, GEOTransitArtworkDataSource, GEOTransitAttribution, GEOTransitLine, GEOTransitSystem;
 
 __attribute__((visibility("hidden")))
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     id <GEOEncyclopedicInfo> _encyclopedicInfo;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) id <GEOEncyclopedicInfo> encyclopedicInfo;
 @property(readonly, nonatomic) _Bool hasEncyclopedicInfo;
 @property(readonly, nonatomic) _Bool isIncidentsTTLExpired;
@@ -34,14 +35,15 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool showVehicleNumber;
 @property(readonly, nonatomic) NSString *lineColorString;
 @property(readonly, nonatomic) _Bool hasLineColorString;
+@property(readonly, nonatomic) id <GEOTransitArtworkDataSource> alternateArtwork;
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> modeArtwork;
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> artwork;
 @property(readonly, nonatomic) _Bool departuresAreVehicleSpecific;
 @property(readonly, nonatomic) unsigned long long departureTimeDisplayStyle;
 @property(readonly, nonatomic) id <GEOTransitSystem> system;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) GEOMapItemIdentifier *identifier;
 @property(readonly, nonatomic) unsigned long long muid;
-- (void)dealloc;
 - (id)initWithMapItem:(id)arg1;
 
 // Remaining properties

@@ -32,6 +32,7 @@
 @property(retain, nonatomic) NSMutableArray *notificationMessages; // @synthesize notificationMessages=_notificationMessages;
 @property(retain, nonatomic) NSMutableArray *labels; // @synthesize labels=_labels;
 @property(nonatomic) _Bool useSplines; // @synthesize useSplines=_useSplines;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

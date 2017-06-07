@@ -10,6 +10,7 @@
 
 @class UIImageView, UILabel;
 
+__attribute__((visibility("hidden")))
 @interface PDFThumbnailItem_ios : UICollectionReusableView <PDFKitPlatformThumbnailItem>
 {
     UIImageView *_imageView;

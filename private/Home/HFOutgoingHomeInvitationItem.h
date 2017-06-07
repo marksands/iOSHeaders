@@ -9,24 +9,20 @@
 #import <Home/HFHomeKitItemProtocol-Protocol.h>
 #import <Home/NSCopying-Protocol.h>
 
-@class HMHome, HMOutgoingHomeInvitation, NSString;
+@class HMOutgoingHomeInvitation, NSString;
 @protocol HFHomeKitObject;
 
 @interface HFOutgoingHomeInvitationItem : HFItem <HFHomeKitItemProtocol, NSCopying>
 {
-    HMHome *_home;
     HMOutgoingHomeInvitation *_outgoingInvitation;
 }
 
 @property(readonly, nonatomic) HMOutgoingHomeInvitation *outgoingInvitation; // @synthesize outgoingInvitation=_outgoingInvitation;
-@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 - (id)_subclass_updateWithOptions:(id)arg1;
-- (id)uniqueIdentifier;
-@property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithHome:(id)arg1 outgoingInvitation:(id)arg2;
-- (id)init;
+@property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;
+- (id)initWithOutgoingInvitation:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

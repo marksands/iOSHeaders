@@ -16,11 +16,12 @@
     NSError *_underlyingError;
 }
 
-+ (id)errorWithUnderlyingError:(id)arg1 contextProvider:(id)arg2;
++ (id)errorWithUnderlyingError:(id)arg1 readTraits:(id)arg2 contextProvider:(id)arg3;
 @property(copy, nonatomic) NSError *underlyingError; // @synthesize underlyingError=_underlyingError;
 @property(retain, nonatomic) id <HFCharacteristicOperationContextProviding> contextProvider; // @synthesize contextProvider=_contextProvider;
 @property(nonatomic) unsigned long long category; // @synthesize category=_category;
 - (void).cxx_destruct;
+@property(readonly, nonatomic, getter=isPersistentError) _Bool persistentError;
 
 @end
 

@@ -20,6 +20,17 @@ struct CLLocationCoordinate2D {
     double longitude;
 };
 
+struct CLSRoutineServiceStatisticsStruct {
+    _Bool routineAvailable;
+    unsigned long long numberOfLocationsOfInterest;
+    unsigned long long numberOfVisits;
+    unsigned long long numberOfTimeMatches;
+    unsigned long long numberOfCloseByLocationMatches;
+    unsigned long long numberOfRemoteLocationMatches;
+    unsigned long long numberOfMatchRequests;
+    double pinningVisitsRatio;
+};
+
 struct _CLSLRUMemoryCacheList {
     unsigned long long _field1;
     struct _CLSLRUMemoryCacheListElement *_field2;
@@ -55,4 +66,10 @@ typedef struct {
     double _field1;
     double _field2;
 } CDStruct_c3b9c2ee;
+
+typedef struct {
+    long long numberOfLocations;
+    long long numberOfResolvedLocations;
+    long long numberOfUnneededLocations;
+} CDStruct_dd9df0da;
 

@@ -6,9 +6,11 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
+
 @class NSString;
 
-@interface CFBCWriteDnuForSubmission : SABaseClientBoundCommand
+@interface CFBCWriteDnuForSubmission : SABaseClientBoundCommand <CFLocalAceHandling>
 {
 }
 
@@ -20,6 +22,13 @@
 @property(copy, nonatomic) NSString *filePrefix;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (void)handleWithCompletion:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

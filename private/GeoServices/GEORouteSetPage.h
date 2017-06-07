@@ -4,10 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOComposedRoute, GEODirectionsRequest, GEODirectionsResponse, GEORouteSet, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
-@protocol GEOTransitRoutingIncidentMessage;
 
 __attribute__((visibility("hidden")))
 @interface GEORouteSetPage : NSObject
@@ -16,7 +15,6 @@ __attribute__((visibility("hidden")))
     GEODirectionsResponse *_response;
     GEORouteSet *_routeSet;
     NSArray *_routes;
-    NSArray *_routesAndGaps;
     NSArray *_routesAndContingencies;
     NSMutableDictionary *_composedRoutesDict;
     NSMutableDictionary *_routesDict;
@@ -28,34 +26,29 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_contingentMiddleRoutes;
     NSMutableArray *_contingentRoutes;
     GEOComposedRoute *_preferredRoute;
-    id <GEOTransitRoutingIncidentMessage> _transitRoutingIncidentMessage;
     _Bool _isNavigable;
     _Bool _lazyLoadingEnabled;
     long long _selectedRouteIndex;
 }
 
-@property(readonly, nonatomic) id <GEOTransitRoutingIncidentMessage> transitRoutingIncidentMessage; // @synthesize transitRoutingIncidentMessage=_transitRoutingIncidentMessage;
 @property(readonly, nonatomic) __weak GEOComposedRoute *preferredRoute; // @synthesize preferredRoute=_preferredRoute;
-@property(readonly, nonatomic) NSArray *routesAndGaps; // @synthesize routesAndGaps=_routesAndGaps;
 @property(readonly, nonatomic) NSArray *routes; // @synthesize routes=_routes;
 @property(nonatomic) __weak GEORouteSet *routeSet; // @synthesize routeSet=_routeSet;
 @property(readonly, nonatomic) GEODirectionsResponse *response; // @synthesize response=_response;
 @property(readonly, nonatomic) GEODirectionsRequest *request; // @synthesize request=_request;
 @property(readonly, nonatomic) _Bool isNavigable; // @synthesize isNavigable=_isNavigable;
+- (void).cxx_destruct;
 - (void)_createAlternateStartRoutesLookup;
 @property(readonly, nonatomic) NSDictionary *alternateStartRoutesLookup;
 @property(readonly, nonatomic) NSArray *routesAndContingencies;
 - (id)_composedRouteForRoute:(id)arg1;
+- (void)_debugAddGuidanceEventsForRoute:(id)arg1 response:(id)arg2;
 - (void)_createIncidentsOnRoute:(id)arg1;
 - (void)_attachAlternateStartRoute:(id)arg1 toRouteID:(id)arg2;
 - (void)_stitchRoutesFromArray:(id)arg1 addToRoutes:(id)arg2 includeDepartureRoutes:(_Bool)arg3;
 - (void)_buildAllRouteTypes:(id)arg1;
 - (void)_setupDriveWalkRoutesForResponse:(id)arg1;
-@property(readonly, nonatomic) _Bool allTransitRoutesBlockedByIncident;
-@property(readonly, nonatomic) _Bool transitModePreferencesIgnored;
-- (void)_buildRoutesAndGapsForResponse:(id)arg1;
 - (void)_setupTransitRoutesForResponse:(id)arg1;
-- (void)dealloc;
 - (unsigned long long)indexOfFullRoute:(id)arg1;
 - (id)routeAndFullLazyContingenciesAtIndex:(unsigned long long)arg1;
 - (id)routeAndPartialLazyContingenciesAtIndex:(unsigned long long)arg1;

@@ -6,7 +6,7 @@
 
 #import <HomeUI/HUIconContentView.h>
 
-@class HUApplier, HUNonAnimatingTintImageView, UIImageView, UIVisualEffectView;
+@class HUDynamicStateAnimationApplier, HUNonAnimatingTintImageView, UIImageView, UIVisualEffectView;
 
 @interface HUFanIconContentView : HUIconContentView
 {
@@ -16,10 +16,10 @@
     UIVisualEffectView *_bladesVisualEffectView;
     unsigned long long _rotationState;
     double _rotationSpeed;
-    HUApplier *_speedRampApplier;
+    HUDynamicStateAnimationApplier *_speedRampApplier;
 }
 
-@property(retain, nonatomic) HUApplier *speedRampApplier; // @synthesize speedRampApplier=_speedRampApplier;
+@property(retain, nonatomic) HUDynamicStateAnimationApplier *speedRampApplier; // @synthesize speedRampApplier=_speedRampApplier;
 @property(nonatomic) double rotationSpeed; // @synthesize rotationSpeed=_rotationSpeed;
 @property(nonatomic) unsigned long long rotationState; // @synthesize rotationState=_rotationState;
 @property(retain, nonatomic) UIVisualEffectView *bladesVisualEffectView; // @synthesize bladesVisualEffectView=_bladesVisualEffectView;
@@ -28,9 +28,9 @@
 @property(retain, nonatomic) UIImageView *baseView; // @synthesize baseView=_baseView;
 - (void).cxx_destruct;
 - (void)_setBladesLayerSpeed:(float)arg1;
-- (void)_rampBladesLayerToSpeed:(float)arg1 animated:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_rampBladesLayerToRotationSpeedAnimated:(_Bool)arg1;
 - (void)_updateImages;
-- (void)_updateRotationAnimationFromState:(unsigned long long)arg1 toState:(unsigned long long)arg2 rotationSpeed:(double)arg3 shouldRampSpeed:(_Bool)arg4;
+- (void)_updateRotationAnimationFromState:(unsigned long long)arg1 shouldRampSpeed:(_Bool)arg2;
 - (void)_updateVisualEffects;
 - (void)setVibrancyEffect:(id)arg1;
 - (_Bool)wantsManagedVibrancyEffect;

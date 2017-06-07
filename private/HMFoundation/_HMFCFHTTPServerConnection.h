@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/HMFLogging-Protocol.h>
 
-@class HMFNetAddress, NSMutableArray, NSString;
+@class HMFNetAddress, NSMutableArray, NSObject, NSString;
 @protocol OS_dispatch_queue, _HMFCFHTTPServerConnectionDelegate;
 
-@interface _HMFCFHTTPServerConnection : NSObject <HMFLogging>
+@interface _HMFCFHTTPServerConnection : HMFObject <HMFLogging>
 {
     id <_HMFCFHTTPServerConnectionDelegate> _delegate;
     HMFNetAddress *_address;

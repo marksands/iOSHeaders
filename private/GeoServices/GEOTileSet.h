@@ -47,6 +47,7 @@
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) NSString *multiTileURL; // @synthesize multiTileURL=_multiTileURL;
 @property(retain, nonatomic) NSString *baseURL; // @synthesize baseURL=_baseURL;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -87,7 +88,6 @@
 - (id)styleAsString:(int)arg1;
 @property(readonly, nonatomic) _Bool hasMultiTileURL;
 @property(readonly, nonatomic) _Bool hasBaseURL;
-- (void)dealloc;
 
 @end
 

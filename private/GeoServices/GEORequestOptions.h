@@ -24,6 +24,7 @@
 + (Class)requestOptionType;
 @property(nonatomic) int optionUsed; // @synthesize optionUsed=_optionUsed;
 @property(retain, nonatomic) NSMutableArray *requestOptions; // @synthesize requestOptions=_requestOptions;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +39,6 @@
 - (unsigned long long)requestOptionsCount;
 - (void)addRequestOption:(id)arg1;
 - (void)clearRequestOptions;
-- (void)dealloc;
 @property(readonly, nonatomic) id <GEOSurchargeType> selectedSurchargeType;
 @property(readonly, nonatomic) unsigned long long selectedSurchargeTypeIndex;
 @property(readonly, nonatomic) NSArray *surchargeTypes;

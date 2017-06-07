@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class FCReachability, NSHashTable, NSString;
+@class CTTelephonyNetworkInfo, FCReachability, NSHashTable, NSString;
 
 @interface FCNetworkReachability : NSObject
 {
@@ -19,6 +19,7 @@
     _Bool _accessRestrictedBecauseOfCountry;
     _Bool _accessRestrictedBecauseOfDeviceAbandoned;
     long long _offlineReason;
+    CTTelephonyNetworkInfo *_networkInfo;
     NSHashTable *_observers;
     long long _currentRadioAccessTechnology;
     NSString *_currentCellularCarrierName;
@@ -35,6 +36,7 @@
 @property(nonatomic) _Bool accessRestrictedBecauseOfAppVersion; // @synthesize accessRestrictedBecauseOfAppVersion=_accessRestrictedBecauseOfAppVersion;
 @property(nonatomic) _Bool isCloudKitAccessAllowed; // @synthesize isCloudKitAccessAllowed=_isCloudKitAccessAllowed;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
+@property(retain, nonatomic) CTTelephonyNetworkInfo *networkInfo; // @synthesize networkInfo=_networkInfo;
 @property(nonatomic) long long offlineReason; // @synthesize offlineReason=_offlineReason;
 @property(nonatomic) _Bool isNetworkReachableViaCellular; // @synthesize isNetworkReachableViaCellular=_isNetworkReachableViaCellular;
 @property(nonatomic) _Bool isNetworkReachableViaWiFi; // @synthesize isNetworkReachableViaWiFi=_isNetworkReachableViaWiFi;
@@ -44,6 +46,8 @@
 @property(readonly, nonatomic) _Bool isCloudKitReachable;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+@property(readonly, nonatomic) long long reachabilityStatus;
+- (void)_accessRestrictionsChanged;
 - (void)_reachabilityChanged:(id)arg1;
 - (void)_updateReachability;
 @property(readonly, nonatomic) _Bool isNetworkOnlyReachableViaCellular;

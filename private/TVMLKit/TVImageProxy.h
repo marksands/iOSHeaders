@@ -22,6 +22,7 @@
     TVImageDecorator *_decorator;
     CDUnknownBlockType _completionHandler;
     CDUnknownBlockType _writeCompletionHandler;
+    long long _imageDirection;
     long long _groupType;
     id _requestToken;
     _TVDecoratorRequest *_decoratorRequestToken;
@@ -32,10 +33,11 @@
 @property(nonatomic) _Bool writeToAssetLibrary; // @synthesize writeToAssetLibrary=_writeToAssetLibrary;
 @property(nonatomic) _Bool loadSynchronouslyIfCached; // @synthesize loadSynchronouslyIfCached=_loadSynchronouslyIfCached;
 @property(retain, nonatomic) id imageDidWriteObserver; // @synthesize imageDidWriteObserver=_imageDidWriteObserver;
-@property(nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
 @property(retain, nonatomic) _TVDecoratorRequest *decoratorRequestToken; // @synthesize decoratorRequestToken=_decoratorRequestToken;
 @property(retain, nonatomic) id requestToken; // @synthesize requestToken=_requestToken;
 @property(nonatomic) long long groupType; // @synthesize groupType=_groupType;
+@property(nonatomic) long long imageDirection; // @synthesize imageDirection=_imageDirection;
+@property(nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
 @property(nonatomic, getter=isImageAvailable) _Bool imageAvailable; // @synthesize imageAvailable=_imageAvailable;
 @property(copy) CDUnknownBlockType writeCompletionHandler; // @synthesize writeCompletionHandler=_writeCompletionHandler;
 @property(copy) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;

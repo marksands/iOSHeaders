@@ -26,6 +26,7 @@
 @property(nonatomic) _Bool arrivedAtDestination; // @synthesize arrivedAtDestination=_arrivedAtDestination;
 @property(retain, nonatomic) GEOLocation *finalLocation; // @synthesize finalLocation=_finalLocation;
 @property(retain, nonatomic) NSMutableArray *directionsFeedbacks; // @synthesize directionsFeedbacks=_directionsFeedbacks;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +44,6 @@
 - (unsigned long long)directionsFeedbacksCount;
 - (void)addDirectionsFeedback:(id)arg1;
 - (void)clearDirectionsFeedbacks;
-- (void)dealloc;
 
 @end
 

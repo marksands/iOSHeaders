@@ -23,6 +23,7 @@
 }
 
 @property(retain, nonatomic) GEOLatLng *center; // @synthesize center=_center;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

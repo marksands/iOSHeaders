@@ -7,11 +7,13 @@
 #import <iTunesStoreUI/NSObject-Protocol.h>
 #import <iTunesStoreUI/UIScrollViewDelegate-Protocol.h>
 
-@class NSArray, NSIndexPath, NSString, UIFocusAnimationCoordinator, UITableView, UITableViewCell, UITableViewFocusUpdateContext, UIView;
+@class NSArray, NSIndexPath, NSString, UIFocusAnimationCoordinator, UISwipeActionsConfiguration, UITableView, UITableViewCell, UITableViewFocusUpdateContext, UIView;
+@protocol UISpringLoadedInteractionContext;
 
 @protocol UITableViewDelegate <NSObject, UIScrollViewDelegate>
 
 @optional
+- (_Bool)tableView:(UITableView *)arg1 shouldSpringLoadRowAtIndexPath:(NSIndexPath *)arg2 withContext:(id <UISpringLoadedInteractionContext>)arg3;
 - (NSIndexPath *)indexPathForPreferredFocusedViewInTableView:(UITableView *)arg1;
 - (void)tableView:(UITableView *)arg1 didUpdateFocusInContext:(UITableViewFocusUpdateContext *)arg2 withAnimationCoordinator:(UIFocusAnimationCoordinator *)arg3;
 - (_Bool)tableView:(UITableView *)arg1 shouldUpdateFocusInContext:(UITableViewFocusUpdateContext *)arg2;
@@ -24,6 +26,8 @@
 - (void)tableView:(UITableView *)arg1 didEndEditingRowAtIndexPath:(NSIndexPath *)arg2;
 - (void)tableView:(UITableView *)arg1 willBeginEditingRowAtIndexPath:(NSIndexPath *)arg2;
 - (_Bool)tableView:(UITableView *)arg1 shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)arg2;
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)arg1 trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)arg2;
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)arg1 leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)arg2;
 - (NSArray *)tableView:(UITableView *)arg1 editActionsForRowAtIndexPath:(NSIndexPath *)arg2;
 - (NSString *)tableView:(UITableView *)arg1 titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)arg2;
 - (long long)tableView:(UITableView *)arg1 editingStyleForRowAtIndexPath:(NSIndexPath *)arg2;

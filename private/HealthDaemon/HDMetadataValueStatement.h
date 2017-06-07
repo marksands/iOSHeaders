@@ -10,6 +10,7 @@
 {
 }
 
++ (id)metadataValueStatementWithDatabase:(id)arg1;
 - (_Bool)enumerateResultsForObjectID:(long long)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
 - (id)initWithDatabase:(id)arg1;
 

@@ -13,9 +13,6 @@
 
 + (id)instanceThatAlwaysReturns:(_Bool)arg1;
 - (_Bool)getWithHashes:(id)arg1;
-- (id)combineHashesWithSeed:(int)arg1 hashA:(id)arg2 hashB:(id)arg3 reuse:(id)arg4;
-- (id)computeHashesWithSeed:(int)arg1 forData:(id)arg2 reuse:(id)arg3;
-- (id)newHashesArray;
 - (id)initWithResult:(_Bool)arg1;
 
 @end

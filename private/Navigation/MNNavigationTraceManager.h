@@ -10,7 +10,7 @@
 #import <Navigation/MNLocationProvider-Protocol.h>
 #import <Navigation/MNTracePlayerObserver-Protocol.h>
 
-@class MNTracePlayer, MNTraceRecorder, NSBundle, NSString;
+@class MNTraceEventRecorder, MNTracePlayer, MNTraceRecorder, NSBundle, NSString;
 @protocol GEOMotionContextProviderDelegate, MNLocationProviderDelegate, MNNavigationTraceManagerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -18,12 +18,14 @@ __attribute__((visibility("hidden")))
 {
     MNTracePlayer *_tracePlayer;
     MNTraceRecorder *_traceRecorder;
+    MNTraceEventRecorder *_traceEventRecorder;
     int _navigationType;
     id <MNNavigationTraceManagerDelegate> _traceManagerDelegate;
     id <MNLocationProviderDelegate> _locationProviderDelegate;
     id <GEOMotionContextProviderDelegate> _motionContextProviderDelegate;
 }
 
+@property(readonly, nonatomic) MNTraceEventRecorder *traceEventRecorder; // @synthesize traceEventRecorder=_traceEventRecorder;
 @property(readonly, nonatomic) MNTraceRecorder *traceRecorder; // @synthesize traceRecorder=_traceRecorder;
 @property(readonly, nonatomic) MNTracePlayer *tracePlayer; // @synthesize tracePlayer=_tracePlayer;
 @property(nonatomic) __weak id <MNNavigationTraceManagerDelegate> traceManagerDelegate; // @synthesize traceManagerDelegate=_traceManagerDelegate;
@@ -67,7 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)tracePlayer:(id)arg1 didReceiveLocationError:(id)arg2;
 - (void)tracePlayer:(id)arg1 didUpdateLocation:(id)arg2;
 - (void)tracePlayerDidStayOnRoute:(id)arg1;
-- (void)tracePlayer:(id)arg1 didJumpToRouteResponse:(id)arg2 request:(id)arg3 destination:(id)arg4;
+- (void)tracePlayer:(id)arg1 didJumpToRouteResponse:(id)arg2 request:(id)arg3 origin:(id)arg4 destination:(id)arg5;
 - (void)tracePlayer:(id)arg1 didPlayAtTime:(double)arg2;
 - (void)tracePlayer:(id)arg1 didSeekToTime:(double)arg2 location:(id)arg3;
 - (void)tracePlayer:(id)arg1 didSeekToTransportType:(int)arg2;

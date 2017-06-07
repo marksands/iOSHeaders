@@ -152,6 +152,7 @@
 - (_Bool)doesNeedDisplayOnEditingDidEnd;
 - (_Bool)isOverflowing;
 - (id)textImageForRect:(struct CGRect)arg1;
+- (id)textImageForSelection:(id)arg1 frame:(struct CGRect *)arg2 usingGlyphRect:(_Bool)arg3 drawBackground:(_Bool)arg4 shouldPulsate:(_Bool)arg5 suppressInvisibles:(_Bool)arg6;
 - (id)textImageForSelection:(id)arg1 frame:(struct CGRect *)arg2 usingGlyphRect:(_Bool)arg3 shouldPulsate:(_Bool)arg4 suppressInvisibles:(_Bool)arg5;
 - (id)textImageForSelection:(id)arg1;
 - (id)p_imageForRect:(struct CGRect)arg1 usingGlyphRect:(_Bool)arg2 drawBackground:(_Bool)arg3 shouldPulsate:(_Bool)arg4 forCaret:(_Bool)arg5 drawSelection:(id)arg6 suppressInvisibles:(_Bool)arg7;
@@ -273,6 +274,7 @@
 - (struct CGRect)rectForSelection:(id)arg1 includeRuby:(_Bool)arg2;
 - (struct CGRect)rectForSelection:(id)arg1;
 - (_Bool)isPointInSelectedArea:(struct CGPoint)arg1;
+- (id)selectionRects;
 - (struct CGRect)selectionRect;
 - (struct CGRect)caretRect;
 - (struct CGPoint)pinToClosestColumn:(struct CGPoint)arg1;

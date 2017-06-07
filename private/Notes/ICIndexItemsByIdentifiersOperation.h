@@ -16,7 +16,7 @@
 @property(copy, nonatomic) NSArray *identifiersToIndex; // @synthesize identifiersToIndex=_identifiersToIndex;
 - (void).cxx_destruct;
 - (id)searchableItemIdentifiersToDeleteFromDataSource:(id)arg1;
-- (id)searchableItemsToIndexFromDataSource:(id)arg1;
+- (id)objectIDsToIndexFromDataSource:(id)arg1;
 - (id)initWithSearchableIndex:(id)arg1 dataSources:(id)arg2;
 - (id)initWithSearchableIndex:(id)arg1 dataSources:(id)arg2 identifiersToIndex:(id)arg3;
 

@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSTAutofillSelection *autofillSelection; // @synthesize autofillSelection=_autofillSelection;
 - (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 @property(retain, nonatomic) TSKSelection *selection;
 
 // Remaining properties

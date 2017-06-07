@@ -19,7 +19,8 @@
     double _totalBasalEnergyBurnedInCanonicalUnit;
     double _totalDistanceInCanonicalUnit;
     double _totalEnergyBurnedInCanonicalUnit;
-    double _totalWStepsInCanonicalUnit;
+    double _totalFlightsClimbedInCanonicalUnit;
+    double _totalSwimmingStrokeCountInCanonicalUnit;
     long long _type;
     NSMutableArray *_events;
     HDCodableSample *_sample;
@@ -30,12 +31,15 @@
         unsigned int totalBasalEnergyBurnedInCanonicalUnit:1;
         unsigned int totalDistanceInCanonicalUnit:1;
         unsigned int totalEnergyBurnedInCanonicalUnit:1;
-        unsigned int totalWStepsInCanonicalUnit:1;
+        unsigned int totalFlightsClimbedInCanonicalUnit:1;
+        unsigned int totalSwimmingStrokeCountInCanonicalUnit:1;
         unsigned int type:1;
     } _has;
 }
 
-@property(nonatomic) double totalWStepsInCanonicalUnit; // @synthesize totalWStepsInCanonicalUnit=_totalWStepsInCanonicalUnit;
++ (Class)eventsType;
+@property(nonatomic) double totalFlightsClimbedInCanonicalUnit; // @synthesize totalFlightsClimbedInCanonicalUnit=_totalFlightsClimbedInCanonicalUnit;
+@property(nonatomic) double totalSwimmingStrokeCountInCanonicalUnit; // @synthesize totalSwimmingStrokeCountInCanonicalUnit=_totalSwimmingStrokeCountInCanonicalUnit;
 @property(nonatomic) double totalBasalEnergyBurnedInCanonicalUnit; // @synthesize totalBasalEnergyBurnedInCanonicalUnit=_totalBasalEnergyBurnedInCanonicalUnit;
 @property(nonatomic) double goal; // @synthesize goal=_goal;
 @property(nonatomic) long long goalType; // @synthesize goalType=_goalType;
@@ -55,7 +59,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
-@property(nonatomic) _Bool hasTotalWStepsInCanonicalUnit;
+@property(nonatomic) _Bool hasTotalFlightsClimbedInCanonicalUnit;
+@property(nonatomic) _Bool hasTotalSwimmingStrokeCountInCanonicalUnit;
 @property(nonatomic) _Bool hasTotalBasalEnergyBurnedInCanonicalUnit;
 @property(nonatomic) _Bool hasGoal;
 @property(nonatomic) _Bool hasGoalType;
@@ -71,6 +76,7 @@
 - (_Bool)applyToObject:(id)arg1;
 - (id)decodedGoal;
 - (unsigned long long)decodedGoalType;
+- (id)decodedTotalFlightsClimbed;
 - (id)decodedTotalSwimmingStrokeCount;
 - (id)decodedTotalDistance;
 - (id)decodedTotalBasalEnergyBurned;

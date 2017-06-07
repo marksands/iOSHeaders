@@ -8,7 +8,7 @@
 
 #import <CloudDocsDaemon/BRReachabilityObserver-Protocol.h>
 
-@class BRReachabilityMonitor, NSDate, NSHashTable, NSMapTable, NSMutableDictionary, NSMutableSet, NSString;
+@class BRReachabilityMonitor, NSDate, NSHashTable, NSMapTable, NSMutableDictionary, NSMutableSet, NSString, br_pacer;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
@@ -19,8 +19,7 @@ __attribute__((visibility("hidden")))
     NSHashTable *_reachabilityObservers;
     BRReachabilityMonitor *_reachabilityMonitor;
     unsigned int _reachabilityFlags;
-    _Bool _isNetworkReachable;
-    NSObject<OS_dispatch_source> *_isNetworkReachableTimer;
+    NSObject<OS_dispatch_source> *_reachabilityFlagsTimer;
     NSHashTable *_powerObservers;
     int _powerNotifyToken;
     _Bool _powerLevelOK;
@@ -33,6 +32,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_source> *_lowDiskTimer;
     NSHashTable *_lowMemoryObservers;
     NSObject<OS_dispatch_source> *_memoryNotificationEventSource;
+    br_pacer *_memoryNotificationCoalescePacer;
     NSMapTable *_processObservers;
     NSHashTable *_appListObservers;
 }
@@ -75,11 +75,11 @@ __attribute__((visibility("hidden")))
 - (void)addReachabilityObserver:(id)arg1;
 - (void)_setReachabilityFlags:(unsigned int)arg1;
 @property(readonly) unsigned int reachabilityFlags;
-- (void)_setNetworkReachable:(_Bool)arg1;
-- (void)_setNetworkReachableWithCoalescing:(_Bool)arg1;
 @property(readonly) _Bool isNetworkReachable;
+- (void)_setReachabilityFlagsWithCoalescing:(unsigned int)arg1;
 - (void)_invalidateReachability;
 - (void)_resetReachability;
+- (void)__resetReachability;
 - (void)_initReachability;
 - (void)reachabilityMonitor:(id)arg1 didChangeReachabilityFlagsTo:(unsigned int)arg2;
 - (void)reachabilityMonitor:(id)arg1 didChangeReachabilityStatusTo:(_Bool)arg2;

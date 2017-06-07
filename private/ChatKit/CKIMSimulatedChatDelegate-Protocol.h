@@ -7,6 +7,6 @@
 @class CKIMSimulatedChat, IMMessageItem;
 
 @protocol CKIMSimulatedChatDelegate
-- (void)chat:(CKIMSimulatedChat *)arg1 didSendMessage:(IMMessageItem *)arg2;
+- (void)chat:(CKIMSimulatedChat *)arg1 didSendMessage:(IMMessageItem *)arg2 finished:(_Bool)arg3;
 @end
 

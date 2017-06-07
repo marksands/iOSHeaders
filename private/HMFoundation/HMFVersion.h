@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/NSCopying-Protocol.h>
 #import <HMFoundation/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface HMFVersion : NSObject <NSCopying, NSSecureCoding>
+@interface HMFVersion : HMFObject <NSCopying, NSSecureCoding>
 {
     unsigned long long _majorVersion;
     unsigned long long _minorVersion;
@@ -19,20 +19,20 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) unsigned long long updateVersion; // @synthesize updateVersion=_updateVersion;
-@property(readonly, nonatomic) unsigned long long minorVersion; // @synthesize minorVersion=_minorVersion;
-@property(readonly, nonatomic) unsigned long long majorVersion; // @synthesize majorVersion=_majorVersion;
+@property(readonly) unsigned long long updateVersion; // @synthesize updateVersion=_updateVersion;
+@property(readonly) unsigned long long minorVersion; // @synthesize minorVersion=_minorVersion;
+@property(readonly) unsigned long long majorVersion; // @synthesize majorVersion=_majorVersion;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (_Bool)isGreaterVersion:(id)arg1;
+- (_Bool)isGreaterThanVersion:(id)arg1;
 - (_Bool)isAtLeastVersion:(id)arg1;
 - (_Bool)isEqualToVersion:(id)arg1;
 - (long long)compare:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)description;
-@property(readonly, copy, nonatomic) NSString *versionString;
+@property(readonly, copy) NSString *versionString;
 - (id)initWithVersionString:(id)arg1;
 - (id)initWithMajorVersion:(unsigned long long)arg1 minorVersion:(unsigned long long)arg2 updateVersion:(unsigned long long)arg3;
 - (id)init;

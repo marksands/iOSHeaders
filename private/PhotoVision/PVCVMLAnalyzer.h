@@ -6,17 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSURL, PVContext, PVTimingStats;
-@protocol OS_dispatch_queue, PVCVMLIntegrating;
+@class NSDictionary, NSURL, PVContext;
+@protocol OS_dispatch_queue, PVCVMLIntegrating, PVPersistenceDelegate;
 
 __attribute__((visibility("hidden")))
 @interface PVCVMLAnalyzer : NSObject
 {
+    id <PVPersistenceDelegate> _persistenceDelegate;
     id <PVCVMLIntegrating> _cvmlIntegration;
     PVContext *_context;
     NSDictionary *_detectionOptions;
     NSDictionary *_detailsExtractionOptions;
-    PVTimingStats *_timingStats;
     NSObject<OS_dispatch_queue> *_processingQueue;
     NSURL *_cacheDirUrl;
 }
@@ -28,7 +28,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)centroidForLandmarkRegion:(id)arg1;
 - (struct CGRect)rectForLandmarkRegion:(id)arg1;
 - (id)_newCVMLRequestOptions;
-- (id)initWithContext:(id)arg1 cacheDirectoryUrl:(id)arg2 cvmlIntegration:(id)arg3;
+- (id)initWithContext:(id)arg1 cacheDirectoryUrl:(id)arg2 cvmlIntegration:(id)arg3 persistenceDelegate:(id)arg4;
 
 @end
 

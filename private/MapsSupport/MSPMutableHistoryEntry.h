@@ -19,7 +19,6 @@
     MSPHistoryEntryStorage *_storage;
 }
 
-+ (void)initialize;
 + (id)mutableHistoryEntryForStorage:(id)arg1;
 + (id)mutableObjectProtocol;
 + (Class)mutableObjectClass;
@@ -30,7 +29,7 @@
 @property(copy, nonatomic) NSDate *usageDate; // @synthesize usageDate=_usageDate;
 - (id)storageIdentifier;
 - (void).cxx_destruct;
-- (void)_assertNotImmutable;
+- (void)_noteWillMutate;
 - (void)_markImmutable;
 - (_Bool)isFailed;
 @property(nonatomic, getter=tracksRAPReportingOnly) _Bool tracksRAPReportingOnly;

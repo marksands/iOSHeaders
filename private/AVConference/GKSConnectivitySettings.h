@@ -10,7 +10,24 @@
 {
 }
 
++ (double)getLongTermValueWeightC;
++ (double)getShortTermValueWeightC;
++ (double)getAdjustmentFactorC;
++ (double)getLongTermValueWeightB;
++ (double)getShortTermValueWeightB;
++ (double)getAdjustmentFactorB;
++ (double)getAdaptiveLearningB;
++ (double)getLongTermValueWeightA;
++ (double)getShortTermValueWeightA;
++ (double)getAdjustmentFactorA;
++ (double)getAdaptiveLearningA;
++ (int)getLongTermHistoryLength;
++ (int)getShortTermHistoryLength;
++ (int)getAdaptiveLearningState;
 + (_Bool)supportiRATRecommendation;
++ (_Bool)isRedStateA;
++ (_Bool)supportsRedAudio;
++ (_Bool)supportsEVSCodec;
 + (int)getKeepAliveTimeoutFromCarrierBundle;
 + (int)getNATTypeFromCarrierBundle;
 + (id)getAllSettings;

@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ITMLKit/IKJSApplication-Protocol.h>
 #import <ITMLKit/JSExport-Protocol.h>
 
 @class NSDictionary;
 
-@protocol _IKJSApplication <JSExport>
+@protocol _IKJSApplication <IKJSApplication, JSExport>
 @property(readonly, nonatomic) NSDictionary *traitCollection;
 - (void)update;
 @end

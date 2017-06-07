@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/PKPassLibraryDataProvider-Protocol.h>
 
@@ -17,6 +17,7 @@
 
 - (void).cxx_destruct;
 - (void)removePass:(id)arg1;
+- (id)peerPaymentPassUniqueID;
 - (id)passWithUniqueID:(id)arg1;
 - (id)passWithPassTypeIdentifier:(id)arg1 serialNumber:(id)arg2;
 - (id)paymentPasses;

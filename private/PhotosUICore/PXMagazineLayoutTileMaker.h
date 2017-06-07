@@ -54,8 +54,11 @@
 - (void)_updateDimensionInfos;
 - (void)_setRandomSeedWithInputs:(id)arg1;
 - (double *)_normalizeWeightsByInputs:(id)arg1;
+- (void)_getFrames:(struct CGRect *)arg1 magazineRects:(struct PXMagazineRect *)arg2 withInputs:(id)arg3;
 - (void)getFrames:(struct CGRect *)arg1 withInputs:(id)arg2;
+- (unsigned long long)getMagazineRects:(struct PXMagazineRect *)arg1 withInputs:(id)arg2;
 @property(readonly, nonatomic) unsigned long long numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
+- (double)_aspectRatioOfInput:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithReferenceSize:(struct CGSize)arg1 numberOfColumns:(unsigned long long)arg2;

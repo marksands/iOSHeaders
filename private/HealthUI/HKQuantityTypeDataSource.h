@@ -6,11 +6,11 @@
 
 #import <HealthUI/HKHealthQueryChartCacheDataSource.h>
 
-@class HKQuantityType, HKUnitController;
+@class HKQuantityType, HKUnitPreferenceController;
 
 @interface HKQuantityTypeDataSource : HKHealthQueryChartCacheDataSource
 {
-    HKUnitController *_unitController;
+    HKUnitPreferenceController *_unitController;
     CDUnknownBlockType _mappingFunction;
     unsigned long long _statisticsOptions;
     CDUnknownBlockType _userInfoCreationBlock;
@@ -24,9 +24,9 @@
 - (id)_dailyAverageQueriesWithStartDate:(id)arg1 endDate:(id)arg2 statisticsInterval:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)queriesForStartDate:(id)arg1 endDate:(id)arg2 statisticsInterval:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (CDUnknownBlockType)_createMappingFunction;
-- (CDUnknownBlockType)mappingFunction;
+- (CDUnknownBlockType)mappingFunctionForContext:(id)arg1;
 @property(readonly, nonatomic) HKQuantityType *quantityType;
-- (id)initWithUnitController:(id)arg1 options:(unsigned long long)arg2 dataUnit:(id)arg3 healthStore:(id)arg4;
+- (id)initWithUnitController:(id)arg1 options:(unsigned long long)arg2 displayType:(id)arg3 healthStore:(id)arg4;
 
 @end
 

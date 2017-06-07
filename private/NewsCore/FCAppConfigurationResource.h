@@ -18,6 +18,7 @@
     NSString *_etag;
     NSDate *_lastFetchedDate;
     NSDate *_lastModifiedDate;
+    NSString *_resourceID;
     NSString *_lastModifiedString;
     NSNumber *_maxAge;
 }
@@ -26,6 +27,7 @@
 + (int)keyValuePairType;
 @property(retain, nonatomic) NSNumber *maxAge; // @synthesize maxAge=_maxAge;
 @property(retain, nonatomic) NSString *lastModifiedString; // @synthesize lastModifiedString=_lastModifiedString;
+@property(retain, nonatomic) NSString *resourceID; // @synthesize resourceID=_resourceID;
 @property(retain, nonatomic) NSDate *lastModifiedDate; // @synthesize lastModifiedDate=_lastModifiedDate;
 @property(retain, nonatomic) NSDate *lastFetchedDate; // @synthesize lastFetchedDate=_lastFetchedDate;
 @property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;

@@ -6,16 +6,21 @@
 
 #import <CVML/NSObject-Protocol.h>
 
-@class MTLCompileOptions, MTLComputePipelineDescriptor, MTLDepthStencilDescriptor, MTLHeapDescriptor, MTLRenderPipelineDescriptor, MTLSamplerDescriptor, MTLTextureDescriptor, NSBundle, NSObject, NSString;
-@protocol MTLBuffer, MTLCommandQueue, MTLComputePipelineState, MTLDepthStencilState, MTLFence, MTLFunction, MTLHeap, MTLLibrary, MTLRenderPipelineState, MTLSamplerState, MTLTexture, OS_dispatch_data;
+@class MTLCompileOptions, MTLComputePipelineDescriptor, MTLDepthStencilDescriptor, MTLHeapDescriptor, MTLRenderPipelineDescriptor, MTLSamplerDescriptor, MTLTextureDescriptor, NSArray, NSBundle, NSObject, NSString, NSURL;
+@protocol MTLBuffer, MTLCommandQueue, MTLComputePipelineState, MTLDepthStencilState, MTLFence, MTLFunction, MTLHeap, MTLIndirectArgumentEncoder, MTLLibrary, MTLRenderPipelineState, MTLSamplerState, MTLTexture, OS_dispatch_data;
 
 @protocol MTLDevice <NSObject>
+@property(readonly, getter=areProgrammableSamplePositionsSupported) _Bool programmableSamplePositionsSupported;
 @property(readonly, getter=isDepth24Stencil8PixelFormatSupported) _Bool depth24Stencil8PixelFormatSupported;
 @property(readonly) unsigned long long recommendedMaxWorkingSetSize;
+@property(readonly, getter=isRemovable) _Bool removable;
 @property(readonly, getter=isHeadless) _Bool headless;
 @property(readonly, getter=isLowPower) _Bool lowPower;
 @property(readonly) CDStruct_14f26992 maxThreadsPerThreadgroup;
 @property(readonly) NSString *name;
+- (id <MTLIndirectArgumentEncoder>)newIndirectArgumentEncoderWithArguments:(NSArray *)arg1;
+- (void)getDefaultSamplePositions:(CDStruct_b2fbf00d *)arg1 count:(unsigned long long)arg2;
+- (unsigned long long)minimumLinearTextureAlignmentForPixelFormat:(unsigned long long)arg1;
 - (_Bool)supportsTextureSampleCount:(unsigned long long)arg1;
 - (_Bool)supportsFeatureSet:(unsigned long long)arg1;
 - (id <MTLFence>)newFence;
@@ -32,6 +37,7 @@
 - (void)newLibraryWithSource:(NSString *)arg1 options:(MTLCompileOptions *)arg2 completionHandler:(void (^)(id <MTLLibrary>, NSError *))arg3;
 - (id <MTLLibrary>)newLibraryWithSource:(NSString *)arg1 options:(MTLCompileOptions *)arg2 error:(id *)arg3;
 - (id <MTLLibrary>)newLibraryWithData:(NSObject<OS_dispatch_data> *)arg1 error:(id *)arg2;
+- (id <MTLLibrary>)newLibraryWithURL:(NSURL *)arg1 error:(id *)arg2;
 - (id <MTLLibrary>)newLibraryWithFile:(NSString *)arg1 error:(id *)arg2;
 - (id <MTLLibrary>)newDefaultLibraryWithBundle:(NSBundle *)arg1 error:(id *)arg2;
 - (id <MTLLibrary>)newDefaultLibrary;
@@ -46,5 +52,8 @@
 - (CDStruct_4bcfbbae)heapTextureSizeAndAlignWithDescriptor:(MTLTextureDescriptor *)arg1;
 - (id <MTLCommandQueue>)newCommandQueueWithMaxCommandBufferCount:(unsigned long long)arg1;
 - (id <MTLCommandQueue>)newCommandQueue;
+
+@optional
+@property(readonly, getter=areRasterOrderGroupsSupported) _Bool rasterOrderGroupsSupported;
 @end
 

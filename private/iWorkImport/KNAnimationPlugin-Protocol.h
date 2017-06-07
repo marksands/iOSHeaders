@@ -17,12 +17,12 @@
 + (NSString *)localizedMenuString:(long long)arg1;
 + (NSArray *)supportedTypes;
 + (NSString *)animationFilter;
-+ (int)animationCategory;
++ (long long)animationCategory;
 + (NSString *)animationName;
 - (id)initWithAnimationContext:(KNAnimationContext *)arg1;
 
 @optional
-+ (int)rendererTypeForCapabilities:(TSDCapabilities *)arg1;
++ (long long)rendererTypeForCapabilities:(TSDCapabilities *)arg1;
 + (NSDictionary *)customEffectTimingCurveDisplayParametersForAttributes:(NSDictionary *)arg1 layoutStyleOnly:(_Bool)arg2;
 + (NSArray *)customAttributes;
 - (NSDictionary *)animationInfoForAnimatedBuild:(KNAnimatedBuild *)arg1;

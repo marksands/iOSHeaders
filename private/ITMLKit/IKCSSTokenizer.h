@@ -14,6 +14,7 @@
     unsigned long long textBytesCharCount;
     unsigned short *textBytes;
     IKCSSToken *reconsumeToken;
+    IKCSSToken *_currentToken;
 }
 
 + (_Bool)isNonPrintable:(unsigned short)arg1;
@@ -27,7 +28,9 @@
 + (_Bool)isDigit:(unsigned short)arg1;
 + (_Bool)isNewline:(unsigned short)arg1;
 + (_Bool)isWhitespace:(unsigned short)arg1;
+@property(readonly, nonatomic) IKCSSToken *currentToken; // @synthesize currentToken=_currentToken;
 - (void).cxx_destruct;
+- (id)_consumeComment:(unsigned long long)arg1 consumed:(unsigned long long *)arg2;
 - (id)_consumeString:(unsigned long long)arg1 consumed:(unsigned long long *)arg2 toEndChar:(unsigned short)arg3;
 - (id)_consumeWhitespace:(unsigned long long)arg1 consumed:(unsigned long long *)arg2;
 - (id)_consumeNumeric:(unsigned long long)arg1 consumed:(unsigned long long *)arg2;

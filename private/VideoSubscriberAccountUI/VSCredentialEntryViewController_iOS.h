@@ -8,7 +8,7 @@
 
 #import <VideoSubscriberAccountUI/VSCredentialEntryViewController-Protocol.h>
 
-@class NSArray, NSString, UIButton, UIProgressHUD, VSCredentialEntryViewModel, VSIdentityProviderLogoView, VSViewModel;
+@class NSArray, NSString, UIButton, VSCredentialEntryViewModel, VSIdentityProviderLogoView, VSViewModel;
 @protocol VSAuthenticationViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -19,20 +19,20 @@ __attribute__((visibility("hidden")))
     id <VSAuthenticationViewControllerDelegate> _delegate;
     VSIdentityProviderLogoView *_logoView;
     UIButton *_linkButton;
-    UIProgressHUD *_deletingAccountHUD;
     NSArray *_credentialEntryFieldSpecifiers;
     double _keyboardHeight;
     id _textFieldTextDidChangeObserver;
     id _keyboardWillShowObserver;
     id _keyboardWillHideObserver;
+    id _weakTarget;
 }
 
+@property(retain, nonatomic) id weakTarget; // @synthesize weakTarget=_weakTarget;
 @property(nonatomic) __weak id keyboardWillHideObserver; // @synthesize keyboardWillHideObserver=_keyboardWillHideObserver;
 @property(nonatomic) __weak id keyboardWillShowObserver; // @synthesize keyboardWillShowObserver=_keyboardWillShowObserver;
 @property(nonatomic) __weak id textFieldTextDidChangeObserver; // @synthesize textFieldTextDidChangeObserver=_textFieldTextDidChangeObserver;
 @property(nonatomic) double keyboardHeight; // @synthesize keyboardHeight=_keyboardHeight;
 @property(retain, nonatomic) NSArray *credentialEntryFieldSpecifiers; // @synthesize credentialEntryFieldSpecifiers=_credentialEntryFieldSpecifiers;
-@property(retain, nonatomic) UIProgressHUD *deletingAccountHUD; // @synthesize deletingAccountHUD=_deletingAccountHUD;
 @property(retain, nonatomic) UIButton *linkButton; // @synthesize linkButton=_linkButton;
 @property(retain, nonatomic) VSIdentityProviderLogoView *logoView; // @synthesize logoView=_logoView;
 @property(nonatomic) __weak id <VSAuthenticationViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -54,12 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)setViewModel:(id)arg1;
 - (void)_stopObservingViewModel:(id)arg1;
 - (void)_startObservingViewModel:(id)arg1;
-- (void)_showNavigationBarButtons;
-- (void)_stopValidationAndShowButtons:(_Bool)arg1;
 - (void)_startValidation;
-- (void)_hideDeletingAccountHUD;
-- (void)_showDeletingAccountHUD;
-- (void)_deleteAccountButtonTapped:(id)arg1;
 - (void)_linkButtonTapped:(id)arg1;
 - (id)_linkURL;
 - (void)_setText:(id)arg1 forSpecifier:(id)arg2;

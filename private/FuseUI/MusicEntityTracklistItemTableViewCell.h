@@ -24,8 +24,6 @@
 @property(nonatomic, getter=isEntityDisabled) _Bool entityDisabled; // @synthesize entityDisabled=_entityDisabled;
 - (void).cxx_destruct;
 - (_Bool)tracklistItemViewShouldLayoutAsEditing:(id)arg1;
-- (void)tracklistItemView:(id)arg1 didSelectPlayButtonAction:(unsigned long long)arg2;
-- (void)tracklistItemViewDidSelectContextualActionsButton:(id)arg1;
 @property(retain, nonatomic) id <MusicEntityValueProviding> entityValueProvider;
 @property(retain, nonatomic) MusicEntityViewContentDescriptor *contentDescriptor;
 - (void)_setShouldHaveFullLengthBottomSeparator:(_Bool)arg1;

@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_successfulNotificationIDs;
 }
 
++ (long long)isPredominatelyDownload;
 @property(retain, nonatomic) NSMutableSet *successfulNotificationIDs; // @synthesize successfulNotificationIDs=_successfulNotificationIDs;
 @property(retain, nonatomic) NSMutableDictionary *errorByNotificationID; // @synthesize errorByNotificationID=_errorByNotificationID;
 @property(retain, nonatomic) NSArray *notificationIDs; // @synthesize notificationIDs=_notificationIDs;

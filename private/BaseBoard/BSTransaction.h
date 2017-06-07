@@ -28,6 +28,7 @@
     unsigned long long _state;
     BSAuditHistory *_auditHistory;
     NSObject<OS_os_log> *_auditHistoryLog;
+    _Bool _disableDebugLogCheckForUnitTesting;
     _Bool _debugLoggingEnabled;
     NSMutableSet *_debugLogCategories;
     NSString *_cachedDescriptionProem;
@@ -94,6 +95,14 @@
 - (void)_setState:(unsigned long long)arg1;
 - (id)_descriptionForDebugging:(_Bool)arg1 indentLevel:(unsigned long long)arg2 visited:(id)arg3;
 - (id)_descriptionForDebugging:(_Bool)arg1 indentLevel:(unsigned long long)arg2;
+- (void)_populateGraphIntoNodes:(id)arg1 edges:(id)arg2;
+- (id)_buildGraphEdgeDescriptionWithType:(id)arg1 fromTransaction:(id)arg2 toTransaction:(id)arg3;
+- (id)_buildGraphNodeDescription;
+- (id)_sanitizedCustomDescriptionProperties;
+- (id)_base64EncodedGraphDescription;
+- (id)_graphDescription;
+- (id)_graphNodeDebugName;
+- (id)_graphNodeIdentifier;
 - (void)_noteChildTransactionFinishedWork:(id)arg1;
 - (void)_noteChildTransactionCompleted:(id)arg1;
 - (void)_failWithReason:(id)arg1 description:(id)arg2 precipitatingError:(id)arg3;
@@ -165,6 +174,7 @@
 @property(readonly, retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
 - (void)dealloc;
 - (id)init;
+- (id)_initForUnitTesting;
 
 // Remaining properties
 @property(readonly) unsigned long long hash;

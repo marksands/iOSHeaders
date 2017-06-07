@@ -18,9 +18,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *whitespaceAfterDelimiters; // @synthesize whitespaceAfterDelimiters=mWhitespaceAfterDelimiters;
 @property(retain) NSString *whitespaceAfterLeftParen; // @synthesize whitespaceAfterLeftParen=mWhitespaceAfterLeftParen;
 - (void)saveToArchive:(struct ListNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct ListNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct ListNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)buildASTNodeArray:(struct TSCEASTNodeArray *)arg1 hostCell:(struct TSUCellCoord)arg2 symbolTable:(struct TSCESymbolTable *)arg3;
 - (id)argumentSpec;
 - (id)string;

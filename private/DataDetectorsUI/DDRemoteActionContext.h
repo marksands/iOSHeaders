@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <DataDetectorsUI/NSCoding-Protocol.h>
 #import <DataDetectorsUI/NSSecureCoding-Protocol.h>
@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 @interface DDRemoteActionContext : NSObject <NSCoding, NSSecureCoding>
 {
     NSURL *_URL;
-    struct __DDResult *_result;
+    // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}, name: _result
     NSDictionary *_context;
     NSArray *_associatedResults;
     NSString *_actionClass;
@@ -26,12 +26,14 @@ __attribute__((visibility("hidden")))
 @property(retain) NSString *actionClass; // @synthesize actionClass=_actionClass;
 @property(retain) NSArray *associatedResults; // @synthesize associatedResults=_associatedResults;
 @property(retain) NSDictionary *context; // @synthesize context=_context;
-@property struct __DDResult *result; // @synthesize result=_result;
+// Error parsing type for property result:
+// Property attributes: T^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf},V_result
+
 @property(retain) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3 associatedResults:(id)arg4 className:(id)arg5;
+-     // Error parsing type: @56@0:8@16^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@32@40@48, name: initWithURL:result:context:associatedResults:className:
 - (void)dealloc;
 
 @end

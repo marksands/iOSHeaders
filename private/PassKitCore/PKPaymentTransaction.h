@@ -4,15 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
+#import <PassKitCore/PKCloudStoreCoding-Protocol.h>
 
-@class CLLocation, NSData, NSDate, NSDecimalNumber, NSString, PKMerchant;
+@class CLLocation, NSData, NSDate, NSDecimalNumber, NSDictionary, NSString, PKMerchant, PKPaymentTransactionFees, PKPaymentTransactionForeignExchangeInformation;
 
-@interface PKPaymentTransaction : NSObject <NSSecureCoding>
+@interface PKPaymentTransaction : NSObject <NSSecureCoding, PKCloudStoreCoding>
 {
     _Bool _enRoute;
+    _Bool _isCloudKitArchived;
     _Bool _processedForLocation;
     _Bool _processedForMerchantCleanup;
     _Bool _processedForStations;
@@ -20,8 +22,9 @@
     _Bool _hasNotificationServiceData;
     NSString *_identifier;
     NSString *_serviceIdentifier;
-    NSString *_transactionIdentifier;
+    NSString *_paymentHash;
     NSDecimalNumber *_amount;
+    NSDecimalNumber *_subtotalAmount;
     NSString *_currencyCode;
     NSDate *_transactionDate;
     PKMerchant *_merchant;
@@ -40,6 +43,21 @@
     NSString *_startStation;
     NSData *_endStationCode;
     NSString *_endStation;
+    long long _peerPaymentType;
+    NSString *_peerPaymentCounterpartName;
+    NSString *_peerPaymentCounterpartHandle;
+    NSString *_peerPaymentMemo;
+    PKPaymentTransactionForeignExchangeInformation *_foreignExchangeInformation;
+    PKPaymentTransactionFees *_fees;
+    NSDecimalNumber *_primaryFundingSourceAmount;
+    NSString *_primaryFundingSourceCurrencyCode;
+    NSDecimalNumber *_secondaryFundingSourceAmount;
+    NSString *_secondaryFundingSourceCurrencyCode;
+    long long _secondaryFundingSourceNetwork;
+    NSString *_secondaryFundingSourceDPANSuffix;
+    NSString *_secondaryFundingSourceFPANIdentifier;
+    NSString *_secondaryFundingSourceDescription;
+    NSDictionary *_metadata;
     long long _transactionStatus;
     long long _transactionType;
     long long _technologyType;
@@ -59,6 +77,22 @@
 @property(nonatomic) _Bool processedForStations; // @synthesize processedForStations=_processedForStations;
 @property(nonatomic) _Bool processedForMerchantCleanup; // @synthesize processedForMerchantCleanup=_processedForMerchantCleanup;
 @property(nonatomic) _Bool processedForLocation; // @synthesize processedForLocation=_processedForLocation;
+@property(nonatomic) _Bool isCloudKitArchived; // @synthesize isCloudKitArchived=_isCloudKitArchived;
+@property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(copy, nonatomic) NSString *secondaryFundingSourceDescription; // @synthesize secondaryFundingSourceDescription=_secondaryFundingSourceDescription;
+@property(copy, nonatomic) NSString *secondaryFundingSourceFPANIdentifier; // @synthesize secondaryFundingSourceFPANIdentifier=_secondaryFundingSourceFPANIdentifier;
+@property(copy, nonatomic) NSString *secondaryFundingSourceDPANSuffix; // @synthesize secondaryFundingSourceDPANSuffix=_secondaryFundingSourceDPANSuffix;
+@property(nonatomic) long long secondaryFundingSourceNetwork; // @synthesize secondaryFundingSourceNetwork=_secondaryFundingSourceNetwork;
+@property(copy, nonatomic) NSString *secondaryFundingSourceCurrencyCode; // @synthesize secondaryFundingSourceCurrencyCode=_secondaryFundingSourceCurrencyCode;
+@property(copy, nonatomic) NSDecimalNumber *secondaryFundingSourceAmount; // @synthesize secondaryFundingSourceAmount=_secondaryFundingSourceAmount;
+@property(copy, nonatomic) NSString *primaryFundingSourceCurrencyCode; // @synthesize primaryFundingSourceCurrencyCode=_primaryFundingSourceCurrencyCode;
+@property(copy, nonatomic) NSDecimalNumber *primaryFundingSourceAmount; // @synthesize primaryFundingSourceAmount=_primaryFundingSourceAmount;
+@property(retain, nonatomic) PKPaymentTransactionFees *fees; // @synthesize fees=_fees;
+@property(retain, nonatomic) PKPaymentTransactionForeignExchangeInformation *foreignExchangeInformation; // @synthesize foreignExchangeInformation=_foreignExchangeInformation;
+@property(copy, nonatomic) NSString *peerPaymentMemo; // @synthesize peerPaymentMemo=_peerPaymentMemo;
+@property(copy, nonatomic) NSString *peerPaymentCounterpartHandle; // @synthesize peerPaymentCounterpartHandle=_peerPaymentCounterpartHandle;
+@property(copy, nonatomic) NSString *peerPaymentCounterpartName; // @synthesize peerPaymentCounterpartName=_peerPaymentCounterpartName;
+@property(nonatomic) long long peerPaymentType; // @synthesize peerPaymentType=_peerPaymentType;
 @property(copy, nonatomic) NSString *endStation; // @synthesize endStation=_endStation;
 @property(copy, nonatomic) NSData *endStationCode; // @synthesize endStationCode=_endStationCode;
 @property(copy, nonatomic) NSString *startStation; // @synthesize startStation=_startStation;
@@ -78,8 +112,9 @@
 @property(retain, nonatomic) PKMerchant *merchant; // @synthesize merchant=_merchant;
 @property(copy, nonatomic) NSDate *transactionDate; // @synthesize transactionDate=_transactionDate;
 @property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
+@property(copy, nonatomic) NSDecimalNumber *subtotalAmount; // @synthesize subtotalAmount=_subtotalAmount;
 @property(copy, nonatomic) NSDecimalNumber *amount; // @synthesize amount=_amount;
-@property(copy, nonatomic) NSString *transactionIdentifier; // @synthesize transactionIdentifier=_transactionIdentifier;
+@property(copy, nonatomic) NSString *paymentHash; // @synthesize paymentHash=_paymentHash;
 @property(copy, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
@@ -91,6 +126,9 @@
 @property(readonly, nonatomic) _Bool hasTransactionSource;
 @property(retain, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) __weak NSString *displayLocation;
+- (id)recordName;
+- (void)encodeWithCloudStoreCoder:(id)arg1;
+- (id)initWithCloudStoreCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)isEqualToPaymentTransaction:(id)arg1;

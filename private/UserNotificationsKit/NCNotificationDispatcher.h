@@ -45,7 +45,7 @@
 - (void)destination:(id)arg1 requestsClearingNotificationRequests:(id)arg2;
 - (id)notificationSectionSettingsForDestination:(id)arg1 forSectionIdentifier:(id)arg2;
 - (id)notificationSectionSettingsForDestination:(id)arg1;
-- (void)destination:(id)arg1 executeAction:(id)arg2 forNotificationRequest:(id)arg3 withParameters:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)destination:(id)arg1 executeAction:(id)arg2 forNotificationRequest:(id)arg3 requestAuthentication:(_Bool)arg4 withParameters:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)destination:(id)arg1 requestPermissionToExecuteAction:(id)arg2 forNotificationRequest:(id)arg3 withParameters:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)removeDispatcherSourceDelegate:(id)arg1;
 - (void)addDispatcherSourceDelegate:(id)arg1;

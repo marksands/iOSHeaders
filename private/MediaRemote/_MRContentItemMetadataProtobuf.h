@@ -14,10 +14,12 @@
 {
     double _duration;
     double _elapsedTime;
-    long long _iTunesAlbumIdentifier;
-    long long _iTunesArtistIdentifier;
-    long long _iTunesIdentifier;
-    long long _iTunesSubscriptionIdentifier;
+    double _elapsedTimeTimestamp;
+    long long _iTunesStoreAlbumIdentifier;
+    long long _iTunesStoreArtistIdentifier;
+    long long _iTunesStoreIdentifier;
+    long long _iTunesStoreSubscriptionIdentifier;
+    double _inferredTimestamp;
     long long _radioStationIdentifier;
     double _releaseDate;
     double _startTime;
@@ -25,12 +27,15 @@
     NSString *_albumName;
     NSData *_appMetricsData;
     NSString *_artworkMIMEType;
+    NSString *_artworkURL;
     NSString *_assetURL;
     int _chapterCount;
     NSString *_collectionIdentifier;
+    NSData *_collectionInfoData;
     NSString *_composer;
     NSString *_contentIdentifier;
     float _defaultPlaybackRate;
+    NSData *_deviceSpecificUserInfo;
     NSString *_directorName;
     int _discNumber;
     float _downloadProgress;
@@ -39,6 +44,7 @@
     int _episodeNumber;
     NSString *_genre;
     NSString *_localizedContentRating;
+    NSString *_lyricsURL;
     int _mediaSubType;
     int _mediaType;
     NSData *_nowPlayingInfo;
@@ -49,7 +55,6 @@
     int _playlistType;
     NSString *_profileIdentifier;
     NSData *_purchaseInfoData;
-    NSString *_radioStationHash;
     NSString *_radioStationName;
     NSString *_radioStationString;
     int _radioStationType;
@@ -61,11 +66,10 @@
     int _totalTrackCount;
     NSString *_trackArtistName;
     int _trackNumber;
+    NSData *_userInfo;
     _Bool _artworkAvailable;
     _Bool _infoAvailable;
-    _Bool _isAdvertisement;
     _Bool _isAlwaysLive;
-    _Bool _isBanned;
     _Bool _isContainer;
     _Bool _isCurrentlyPlaying;
     _Bool _isExplicitItem;
@@ -73,16 +77,19 @@
     _Bool _isLiked;
     _Bool _isPlayable;
     _Bool _isSharable;
+    _Bool _isSteerable;
     _Bool _isStreamingContent;
     _Bool _languageOptionsAvailable;
     _Bool _lyricsAvailable;
     struct {
         unsigned int duration:1;
         unsigned int elapsedTime:1;
-        unsigned int iTunesAlbumIdentifier:1;
-        unsigned int iTunesArtistIdentifier:1;
-        unsigned int iTunesIdentifier:1;
-        unsigned int iTunesSubscriptionIdentifier:1;
+        unsigned int elapsedTimeTimestamp:1;
+        unsigned int iTunesStoreAlbumIdentifier:1;
+        unsigned int iTunesStoreArtistIdentifier:1;
+        unsigned int iTunesStoreIdentifier:1;
+        unsigned int iTunesStoreSubscriptionIdentifier:1;
+        unsigned int inferredTimestamp:1;
         unsigned int radioStationIdentifier:1;
         unsigned int releaseDate:1;
         unsigned int startTime:1;
@@ -107,9 +114,7 @@
         unsigned int trackNumber:1;
         unsigned int artworkAvailable:1;
         unsigned int infoAvailable:1;
-        unsigned int isAdvertisement:1;
         unsigned int isAlwaysLive:1;
-        unsigned int isBanned:1;
         unsigned int isContainer:1;
         unsigned int isCurrentlyPlaying:1;
         unsigned int isExplicitItem:1;
@@ -117,12 +122,22 @@
         unsigned int isLiked:1;
         unsigned int isPlayable:1;
         unsigned int isSharable:1;
+        unsigned int isSteerable:1;
         unsigned int isStreamingContent:1;
         unsigned int languageOptionsAvailable:1;
         unsigned int lyricsAvailable:1;
     } _has;
 }
 
++ (void)initialize;
+@property(nonatomic) double inferredTimestamp; // @synthesize inferredTimestamp=_inferredTimestamp;
+@property(nonatomic) double elapsedTimeTimestamp; // @synthesize elapsedTimeTimestamp=_elapsedTimeTimestamp;
+@property(retain, nonatomic) NSData *collectionInfoData; // @synthesize collectionInfoData=_collectionInfoData;
+@property(retain, nonatomic) NSData *deviceSpecificUserInfo; // @synthesize deviceSpecificUserInfo=_deviceSpecificUserInfo;
+@property(retain, nonatomic) NSString *lyricsURL; // @synthesize lyricsURL=_lyricsURL;
+@property(retain, nonatomic) NSString *artworkURL; // @synthesize artworkURL=_artworkURL;
+@property(nonatomic) _Bool isSteerable; // @synthesize isSteerable=_isSteerable;
+@property(retain, nonatomic) NSData *userInfo; // @synthesize userInfo=_userInfo;
 @property(retain, nonatomic) NSData *nowPlayingInfo; // @synthesize nowPlayingInfo=_nowPlayingInfo;
 @property(nonatomic) int mediaSubType; // @synthesize mediaSubType=_mediaSubType;
 @property(nonatomic) int mediaType; // @synthesize mediaType=_mediaType;
@@ -132,19 +147,16 @@
 @property(nonatomic) int downloadState; // @synthesize downloadState=_downloadState;
 @property(nonatomic) float defaultPlaybackRate; // @synthesize defaultPlaybackRate=_defaultPlaybackRate;
 @property(retain, nonatomic) NSData *purchaseInfoData; // @synthesize purchaseInfoData=_purchaseInfoData;
-@property(nonatomic) long long iTunesAlbumIdentifier; // @synthesize iTunesAlbumIdentifier=_iTunesAlbumIdentifier;
-@property(nonatomic) long long iTunesArtistIdentifier; // @synthesize iTunesArtistIdentifier=_iTunesArtistIdentifier;
-@property(nonatomic) long long iTunesSubscriptionIdentifier; // @synthesize iTunesSubscriptionIdentifier=_iTunesSubscriptionIdentifier;
-@property(nonatomic) long long iTunesIdentifier; // @synthesize iTunesIdentifier=_iTunesIdentifier;
+@property(nonatomic) long long iTunesStoreAlbumIdentifier; // @synthesize iTunesStoreAlbumIdentifier=_iTunesStoreAlbumIdentifier;
+@property(nonatomic) long long iTunesStoreArtistIdentifier; // @synthesize iTunesStoreArtistIdentifier=_iTunesStoreArtistIdentifier;
+@property(nonatomic) long long iTunesStoreSubscriptionIdentifier; // @synthesize iTunesStoreSubscriptionIdentifier=_iTunesStoreSubscriptionIdentifier;
+@property(nonatomic) long long iTunesStoreIdentifier; // @synthesize iTunesStoreIdentifier=_iTunesStoreIdentifier;
 @property(retain, nonatomic) NSString *radioStationString; // @synthesize radioStationString=_radioStationString;
 @property(retain, nonatomic) NSString *radioStationName; // @synthesize radioStationName=_radioStationName;
-@property(retain, nonatomic) NSString *radioStationHash; // @synthesize radioStationHash=_radioStationHash;
 @property(nonatomic) long long radioStationIdentifier; // @synthesize radioStationIdentifier=_radioStationIdentifier;
 @property(nonatomic) _Bool isInWishList; // @synthesize isInWishList=_isInWishList;
 @property(nonatomic) _Bool isLiked; // @synthesize isLiked=_isLiked;
-@property(nonatomic) _Bool isBanned; // @synthesize isBanned=_isBanned;
 @property(nonatomic) _Bool isSharable; // @synthesize isSharable=_isSharable;
-@property(nonatomic) _Bool isAdvertisement; // @synthesize isAdvertisement=_isAdvertisement;
 @property(retain, nonatomic) NSString *contentIdentifier; // @synthesize contentIdentifier=_contentIdentifier;
 @property(nonatomic) int trackNumber; // @synthesize trackNumber=_trackNumber;
 @property(nonatomic) int totalTrackCount; // @synthesize totalTrackCount=_totalTrackCount;
@@ -196,6 +208,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasInferredTimestamp;
+@property(nonatomic) _Bool hasElapsedTimeTimestamp;
+@property(readonly, nonatomic) _Bool hasCollectionInfoData;
+@property(readonly, nonatomic) _Bool hasDeviceSpecificUserInfo;
+@property(readonly, nonatomic) _Bool hasLyricsURL;
+@property(readonly, nonatomic) _Bool hasArtworkURL;
+@property(nonatomic) _Bool hasIsSteerable;
+@property(readonly, nonatomic) _Bool hasUserInfo;
 @property(readonly, nonatomic) _Bool hasNowPlayingInfo;
 @property(nonatomic) _Bool hasMediaSubType;
 @property(nonatomic) _Bool hasMediaType;
@@ -205,19 +225,16 @@
 @property(nonatomic) _Bool hasDownloadState;
 @property(nonatomic) _Bool hasDefaultPlaybackRate;
 @property(readonly, nonatomic) _Bool hasPurchaseInfoData;
-@property(nonatomic) _Bool hasITunesAlbumIdentifier;
-@property(nonatomic) _Bool hasITunesArtistIdentifier;
-@property(nonatomic) _Bool hasITunesSubscriptionIdentifier;
-@property(nonatomic) _Bool hasITunesIdentifier;
+@property(nonatomic) _Bool hasITunesStoreAlbumIdentifier;
+@property(nonatomic) _Bool hasITunesStoreArtistIdentifier;
+@property(nonatomic) _Bool hasITunesStoreSubscriptionIdentifier;
+@property(nonatomic) _Bool hasITunesStoreIdentifier;
 @property(readonly, nonatomic) _Bool hasRadioStationString;
 @property(readonly, nonatomic) _Bool hasRadioStationName;
-@property(readonly, nonatomic) _Bool hasRadioStationHash;
 @property(nonatomic) _Bool hasRadioStationIdentifier;
 @property(nonatomic) _Bool hasIsInWishList;
 @property(nonatomic) _Bool hasIsLiked;
-@property(nonatomic) _Bool hasIsBanned;
 @property(nonatomic) _Bool hasIsSharable;
-@property(nonatomic) _Bool hasIsAdvertisement;
 @property(readonly, nonatomic) _Bool hasContentIdentifier;
 @property(nonatomic) _Bool hasTrackNumber;
 @property(nonatomic) _Bool hasTotalTrackCount;
@@ -261,6 +278,7 @@
 @property(readonly, nonatomic) _Bool hasSubtitle;
 @property(readonly, nonatomic) _Bool hasTitle;
 - (void)dealloc;
+- (id)customDictionaryRepresentation;
 
 @end
 

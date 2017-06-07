@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKLabelNavFeature-Protocol.h>
 
@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 @interface VKLabelNavRoad : NSObject <VKLabelNavFeature>
 {
     VKLabelTile *_tile;
-    CDStruct_6ac9d495 *_data;
+    CDStruct_c707fdd0 *_data;
     unsigned long long _vertexIndexA;
     unsigned long long _vertexIndexB;
     CDStruct_3b01f0aa *_junctionA;
@@ -37,14 +37,16 @@ __attribute__((visibility("hidden")))
     NSString *_shieldGroup;
     VKLabelNavRoadLabel *_roadSign;
     VKLabelNavRoadLabel *_roadShield;
-    _Bool _isVisibilityCached[2];
-    _Bool _cachedSignVisibility[2];
-    _Bool _cachedShieldVisibility[2];
+    _Bool _isVisibilityCached[3];
+    _Bool _cachedSignVisibility[3];
+    _Bool _cachedShieldVisibility[3];
     _Bool _hasVisibleSigns;
     _Bool _hasVisibleShields;
     _Bool _suppressRoadSignIfShieldPresent;
+    _Bool _isPicked;
 }
 
+@property(nonatomic) _Bool isPicked; // @synthesize isPicked=_isPicked;
 @property(readonly, nonatomic) _Bool suppressRoadSignIfShieldPresent; // @synthesize suppressRoadSignIfShieldPresent=_suppressRoadSignIfShieldPresent;
 @property(readonly, nonatomic) VKLabelNavJunction *navJunctionA; // @synthesize navJunctionA=_navJunctionA;
 @property(nonatomic) _Bool isRoadLabelUnique; // @synthesize isRoadLabelUnique=_isRoadLabelUnique;
@@ -62,15 +64,17 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool isTrafficCameraFeature;
+@property(readonly, nonatomic) _Bool isEtaFeature;
 - (double)length;
 - (id)_newLabelWithNavContext:(struct NavContext *)arg1 isShieldLabel:(_Bool)arg2 worldPoint:(Matrix_6e1d3589)arg3 alignment:(unsigned char)arg4 artworkCache:(struct VKLabelNavArtworkCache *)arg5;
 @property(readonly, nonatomic) unsigned char roadSignAlignment;
-- (_Bool)_worldPointForRoadOffset:(float)arg1 worldPoint:(Mercator3_d8bb135c *)arg2;
+- (_Bool)_worldPointForRoadOffset:(float)arg1 worldPoint:(Mercator3_40a88dec *)arg2;
 - (void)_worldRoadPoints:(vector_e20517dc *)arg1;
 - (void)appendSimplifiedWorldRoadPoints:(vector_e20517dc *)arg1;
 - (void)recreateRoadSignWithAlignment:(unsigned char)arg1 navContext:(struct NavContext *)arg2 artworkCache:(struct VKLabelNavArtworkCache *)arg3;
 - (void)createLabelWithNavContext:(struct NavContext *)arg1 isShieldLabel:(_Bool)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 minRouteDistance:(float)arg6 roadGraph:(id)arg7 artworkCache:(struct VKLabelNavArtworkCache *)arg8;
-- (_Bool)_findLabelAnchorPoint:(Mercator3_d8bb135c *)arg1 isShieldLabel:(_Bool)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 roadGraph:(id)arg6;
+- (_Bool)_findLabelAnchorPoint:(Mercator3_40a88dec *)arg1 isShieldLabel:(_Bool)arg2 desiredOffsetDistance:(float)arg3 maxOffsetDistance:(float)arg4 minJunctionDistance:(float)arg5 roadGraph:(id)arg6;
 - (float)_findRoadOffsetForDistanceToRay:(float)arg1 rayStart:(Matrix_6e1d3589)arg2 rayVector:(Matrix_8746f91e)arg3 roadGraph:(id)arg4;
 - (id)labelWithType:(_Bool)arg1;
 @property(readonly, nonatomic) NSString *shieldDisplayGroup;

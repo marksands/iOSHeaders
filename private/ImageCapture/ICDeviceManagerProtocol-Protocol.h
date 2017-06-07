@@ -9,9 +9,9 @@
 @class ICCameraDevice, ICCameraFile, ICDevice, NSArray, NSDictionary;
 
 @protocol ICDeviceManagerProtocol <NSObject>
-- (unsigned int)getMaxObjects:(ICDevice *)arg1 contextInfo:(void *)arg2;
-- (int)asyncRetrieveDataOfFiles:(ICCameraDevice *)arg1 contextInfo:(void *)arg2;
-- (int)asyncRequestDataOfFiles:(NSArray *)arg1 fromDevice:(ICCameraDevice *)arg2 withThumbnailSize:(unsigned short)arg3 contextInfo:(void *)arg4;
+- (void)enumerateContent;
+- (int)aptpRetrieveDataForFiles:(ICCameraDevice *)arg1 contextInfo:(void *)arg2;
+- (int)aptpRequestDataForFiles:(NSArray *)arg1 fromDevice:(ICCameraDevice *)arg2 contextInfo:(void *)arg3;
 - (int)eject:(ICCameraDevice *)arg1;
 - (int)downloadFile:(ICCameraFile *)arg1 fromDevice:(ICCameraDevice *)arg2 options:(NSDictionary *)arg3 contextInfo:(void *)arg4;
 - (int)deleteFile:(ICCameraFile *)arg1 fromDevice:(ICCameraDevice *)arg2 contextInfo:(void *)arg3;

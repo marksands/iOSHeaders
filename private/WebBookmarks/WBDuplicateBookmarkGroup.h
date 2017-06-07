@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 @interface WBDuplicateBookmarkGroup : NSObject
 {
     NSMutableArray *_dupicateBookmarks;
+    NSMutableArray *_dupicateBookmarksToKeep;
     _Bool _foundDuplicates;
     WebBookmark *_originalBookmark;
 }
@@ -20,7 +21,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) WebBookmark *originalBookmark; // @synthesize originalBookmark=_originalBookmark;
 - (void).cxx_destruct;
 - (void)removeAllDuplicates;
+- (void)exchangeOriginalBookmarkWithBookmark:(id)arg1;
+- (void)addDuplicateBookmarkToKeep:(id)arg1;
 - (void)addDuplicateBookmark:(id)arg1 replaceOriginal:(_Bool)arg2;
+@property(readonly, nonatomic) NSArray *duplicatesToKeep;
 @property(readonly, nonatomic) NSArray *duplicates;
 - (id)initWithOriginalBookmark:(id)arg1;
 

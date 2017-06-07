@@ -7,31 +7,39 @@
 #import <objc/NSObject.h>
 
 #import <ToneLibrary/TLAlertPlaybackBackEndController-Protocol.h>
+#import <ToneLibrary/TLBacklightObserver-Protocol.h>
 
 @class NSMapTable, NSString;
 @protocol OS_dispatch_queue;
 
-@interface TLAlertSystemSoundController : NSObject <TLAlertPlaybackBackEndController>
+@interface TLAlertSystemSoundController : NSObject <TLBacklightObserver, TLAlertPlaybackBackEndController>
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSString *_accessQueueLabel;
     NSMapTable *_alertSystemSoundContexts;
+    long long _backlightStatus;
+    unsigned long long _backlightObservationRequestsCount;
 }
 
++ (void)_reportPlaybackFailureWithPlaybackCompletionContext:(id)arg1;
 + (id)_optionsForSystemSoundAlert:(id)arg1;
++ (id)_descriptionForAlertComponentsSuppressionFlags:(unsigned int)arg1;
++ (unsigned int)_componentSuppressionFlagsForAlert:(id)arg1;
 + (id)_vibrationPatternForAlert:(id)arg1;
 + (unsigned int)_soundBehaviorForAlert:(id)arg1;
-+ (id)_soundForAlert:(id)arg1;
++ (id)_toneIdentifierForDeemphasizingAlert:(id)arg1;
++ (id)_soundForAlert:(id)arg1 toneIdentifierForDeemphasizingAlert:(id)arg2;
 - (void).cxx_destruct;
-- (void)_didCompletePlaybackForAlert:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 playbackCompletionType:(long long)arg3 error:(id)arg4;
-- (void)_didCompletePlaybackForAlert:(id)arg1 withCompletionType:(long long)arg2 error:(id)arg3;
+- (void)backlightStatusDidChange:(long long)arg1;
+- (void)_endRequiringBacklightObservation;
+- (void)_beginRequiringBacklightObservation;
+- (void)_notifyOfPlaybackCompletionWithContext:(id)arg1;
+- (void)_didCompletePlaybackForAlert:(id)arg1;
 - (void)_willBeginPlayingAlert:(id)arg1 withSoundID:(unsigned int)arg2;
-- (void)_systemSoundPlaybackDidCompleteForAlert:(id)arg1;
-- (void)_stopRepeatedlyPlayingAlert:(id)arg1 withOptions:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3 targetQueue:(id)arg4;
-- (void)_stopPlayingAlerts:(id)arg1 withOptions:(CDStruct_2418a849)arg2 playbackCompletionType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_stopPlayingAlerts:(id)arg1 withOptions:(id)arg2 playbackCompletionType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_playAlert:(id)arg1 withSoundID:(unsigned int)arg2;
 - (void)_playAlert:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)stopRepeatedlyPlayingAlert:(id)arg1 withOptions:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3 targetQueue:(id)arg4;
-- (void)stopPlayingAlerts:(id)arg1 withOptions:(CDStruct_2418a849)arg2 playbackCompletionType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)stopPlayingAlerts:(id)arg1 withOptions:(id)arg2 playbackCompletionType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)playAlert:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_assertRunningOnAccessQueue;
 - (void)_performBlockOnAccessQueue:(CDUnknownBlockType)arg1;

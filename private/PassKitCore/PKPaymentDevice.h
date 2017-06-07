@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/CLLocationManagerDelegate-Protocol.h>
 
@@ -40,9 +40,11 @@
 - (void)deleteApplicationWithAID:(id)arg1;
 - (void)setRegistrationRegionMap:(id)arg1 primaryRegionTopic:(id)arg2;
 - (void)provisioningDataWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)trustedDeviceEnrollmentInfo;
 - (id)configurationData;
 - (id)rewrapDataWithDeviceIdentifier:(id)arg1 certificates:(id)arg2;
 - (void)signData:(id)arg1 signatureEntanglementMode:(unsigned long long)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)trustedDeviceEnrollmentInfoWithAccountDSID:(id)arg1 sessionData:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)registrationDataWithAuthToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)queueConnectionToTrustedServiceManagerForPushTopic:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)dealloc;

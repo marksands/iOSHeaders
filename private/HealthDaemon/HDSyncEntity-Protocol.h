@@ -6,15 +6,15 @@
 
 #import <HealthDaemon/NSObject-Protocol.h>
 
-@class HDProfile, HDSQLitePredicate, NSArray, NSData, NSSet;
+@class HDProfile, HDSQLitePredicate, HDSyncSession, NSArray, NSData, NSSet;
 @protocol HDSyncCodable, HDSyncStore;
 
 @protocol HDSyncEntity <NSObject>
 + (long long)receiveSyncObjects:(NSArray *)arg1 syncStore:(id <HDSyncStore>)arg2 profile:(HDProfile *)arg3 error:(id *)arg4;
 + (id <HDSyncCodable>)decodeSyncObjectWithData:(NSData *)arg1;
-+ (NSSet *)syncEntityDependencies;
-+ (long long)nextSyncAnchorWithStore:(id <HDSyncStore>)arg1 predicate:(HDSQLitePredicate *)arg2 startSyncAnchor:(long long)arg3 profile:(HDProfile *)arg4 error:(id *)arg5;
-+ (_Bool)generateSyncObjectsForStore:(id <HDSyncStore>)arg1 predicate:(HDSQLitePredicate *)arg2 syncAnchorRange:(struct HDSyncAnchorRange)arg3 maxEncodedBytesPerMessage:(long long)arg4 profile:(HDProfile *)arg5 error:(id *)arg6 handler:(_Bool (^)(NSArray *, long long, _Bool, id *))arg7;
++ (NSSet *)syncEntityDependenciesForSyncProtocolVersion:(int)arg1;
++ (long long)nextSyncAnchorWithSession:(HDSyncSession *)arg1 predicate:(HDSQLitePredicate *)arg2 startSyncAnchor:(long long)arg3 profile:(HDProfile *)arg4 error:(id *)arg5;
++ (_Bool)generateSyncObjectsForSession:(HDSyncSession *)arg1 predicate:(HDSQLitePredicate *)arg2 syncAnchorRange:(struct HDSyncAnchorRange)arg3 maxEncodedBytesPerMessage:(long long)arg4 profile:(HDProfile *)arg5 error:(id *)arg6 handler:(_Bool (^)(NSArray *, long long, _Bool, id *))arg7;
 + (long long)syncEntityType;
 @end
 

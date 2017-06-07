@@ -18,6 +18,7 @@
 + (unsigned long long)stateForMessages:(id)arg1;
 @property(retain, nonatomic) MFMessageInfo *stickyPlaceholder; // @synthesize stickyPlaceholder=_stickyPlaceholder;
 @property(readonly, nonatomic) long long messageCollectionHash; // @synthesize messageCollectionHash=_messageCollectionHash;
+@property(copy, nonatomic) CDUnknownBlockType duplicatePreferenceComparator;
 - (unsigned long long)state;
 - (void)mergeWithCollection:(id)arg1;
 - (id)visibleMessageInfo;

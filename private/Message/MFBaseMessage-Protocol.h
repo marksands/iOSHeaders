@@ -6,6 +6,8 @@
 
 #import <Message/NSObject-Protocol.h>
 
+@class MFMessageInfo;
+
 @protocol MFBaseMessage <NSObject>
 @property(readonly, nonatomic, getter=isKnownToHaveAttachments) _Bool knownToHaveAttachments;
 @property(readonly, nonatomic) _Bool senderVIP;
@@ -18,5 +20,6 @@
 @property(readonly, nonatomic) unsigned int dateSentInterval;
 @property(readonly, nonatomic) unsigned int dateReceivedInterval;
 @property(readonly, nonatomic) unsigned int uid;
+- (MFMessageInfo *)copyMessageInfo;
 @end
 

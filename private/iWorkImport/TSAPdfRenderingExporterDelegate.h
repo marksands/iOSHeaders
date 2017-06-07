@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
     int mRenderingQuality;
 }
 
+- (_Bool)validatePassphrases:(id *)arg1;
 - (_Bool)supportsRenderingQuality;
 - (_Bool)supportsPaging;
 - (void)releaseCGContext:(struct CGContext *)arg1;

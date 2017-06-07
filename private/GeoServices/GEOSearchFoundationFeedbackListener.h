@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/SFFeedbackListener-Protocol.h>
 
@@ -17,12 +17,12 @@
 }
 
 + (id)feedbackListenerForParsec;
+- (void).cxx_destruct;
 - (void)didEngageResult:(id)arg1;
 - (void)didEngageSection:(id)arg1;
 - (void)resultsDidBecomeVisible:(id)arg1;
 - (void)didRankSections:(id)arg1;
 - (id)traits;
-- (void)dealloc;
 - (id)initWithClientType:(unsigned long long)arg1;
 - (id)init;
 

@@ -8,16 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEOPDTransitAttribution : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSMutableArray *_providerNames;
 }
 
 + (Class)providerNameType;
 + (id)transitAttributionForPlaceData:(id)arg1;
 @property(retain, nonatomic) NSMutableArray *providerNames; // @synthesize providerNames=_providerNames;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,7 +34,6 @@
 - (unsigned long long)providerNamesCount;
 - (void)addProviderName:(id)arg1;
 - (void)clearProviderNames;
-- (void)dealloc;
 
 @end
 

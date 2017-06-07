@@ -16,6 +16,7 @@
 }
 
 + (id)server;
+- (void).cxx_destruct;
 - (void)resetAccessibilityFeatures;
 - (_Bool)loadGAXBundleForUnmanagedASAM;
 - (_Bool)supportsAccessibilityDisplayFilters;
@@ -31,9 +32,11 @@
 - (void)toggleGuidedAccess;
 - (_Bool)isGuidedAccessUnmanagedSelfLocked;
 - (_Bool)isGuidedAccessSelfLockedToApp:(id)arg1;
-- (void)requestGuidedAccessSession:(_Bool)arg1 appID:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)requestGuidedAccessSessionEndWithCompletion:(CDUnknownBlockType)arg1;
+- (void)requestGuidedAccessSessionStartWithConfigurationDictionary:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (unsigned long long)guidedAccessAvailability;
 - (id)performGuidedAccessAutomationCommand:(id)arg1 error:(id *)arg2;
+- (id)guidedAccessEffectiveAppBundleIdentifier;
 - (_Bool)isGuidedAccessInWorkspace;
 - (_Bool)isGuidedAccessActive;
 - (id)_springboardParametersForGuidedAccessAvailability;

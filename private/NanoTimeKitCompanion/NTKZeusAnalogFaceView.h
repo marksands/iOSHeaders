@@ -13,13 +13,13 @@
     _Bool _isEditing;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 + (id)_swatchColorForColorOption:(id)arg1;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1;
 - (_Bool)_timeViewBehindContentForEditMode:(long long)arg1;
 - (struct CGPoint)_timeTravelStatusModuleCenter;
 - (void)_prepareForStatusChange:(_Bool)arg1;
 - (double)_verticalPaddingForStatusBar;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (double)_numbersAlphaForEditMode:(long long)arg1;
 - (double)_handAlphaForEditing:(_Bool)arg1;
 - (double)_secondHandAlphaForDensity:(unsigned long long)arg1 isEditing:(_Bool)arg2;

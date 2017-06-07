@@ -6,10 +6,10 @@
 
 #import <HealthUI/NSObject-Protocol.h>
 
-@class HKDataUnit, HKUnitController, NSNumber, NSString;
+@class HKDisplayType, HKUnitPreferenceController, NSNumber, NSString;
 
 @protocol HKNumberFormatter <NSObject>
-- (NSString *)stringFromNumber:(NSNumber *)arg1 dataUnit:(HKDataUnit *)arg2 unitController:(HKUnitController *)arg3;
+- (NSString *)stringFromNumber:(NSNumber *)arg1 displayType:(HKDisplayType *)arg2 unitController:(HKUnitPreferenceController *)arg3;
 - (_Bool)returnsUnitWithValueForDisplay;
 @end
 

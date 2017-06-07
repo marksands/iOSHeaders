@@ -15,6 +15,7 @@
     NSString *_comments;
     GEORPCorrectedCoordinate *_correctedCoordinate;
     NSMutableArray *_correctedFields;
+    NSMutableArray *_correctedFlags;
     GEORPCorrectedLabel *_correctedLabel;
     GEORPMapLocation *_correctedMapLocation;
     GEORPCorrectedSearch *_correctedSearch;
@@ -27,8 +28,10 @@
     } _has;
 }
 
++ (Class)correctedFlagType;
 + (Class)photoWithMetadataType;
 + (Class)correctedFieldType;
+@property(retain, nonatomic) NSMutableArray *correctedFlags; // @synthesize correctedFlags=_correctedFlags;
 @property(nonatomic) _Bool delayed; // @synthesize delayed=_delayed;
 @property(retain, nonatomic) NSMutableArray *photoWithMetadatas; // @synthesize photoWithMetadatas=_photoWithMetadatas;
 @property(retain, nonatomic) GEORPDirectionsProblem *directionsProblem; // @synthesize directionsProblem=_directionsProblem;
@@ -39,6 +42,7 @@
 @property(retain, nonatomic) GEORPCorrectedCoordinate *correctedCoordinate; // @synthesize correctedCoordinate=_correctedCoordinate;
 @property(retain, nonatomic) GEORPCorrectedLabel *correctedLabel; // @synthesize correctedLabel=_correctedLabel;
 @property(retain, nonatomic) NSMutableArray *correctedFields; // @synthesize correctedFields=_correctedFields;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,6 +52,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)correctedFlagAtIndex:(unsigned long long)arg1;
+- (unsigned long long)correctedFlagsCount;
+- (void)addCorrectedFlag:(id)arg1;
+- (void)clearCorrectedFlags;
 @property(nonatomic) _Bool hasDelayed;
 - (id)photoWithMetadataAtIndex:(unsigned long long)arg1;
 - (unsigned long long)photoWithMetadatasCount;
@@ -64,7 +72,6 @@
 - (unsigned long long)correctedFieldsCount;
 - (void)addCorrectedField:(id)arg1;
 - (void)clearCorrectedFields;
-- (void)dealloc;
 
 @end
 

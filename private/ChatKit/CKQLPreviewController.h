@@ -13,9 +13,11 @@
 @interface CKQLPreviewController : QLPreviewController <QLPreviewControllerDataSource>
 {
     _Bool _controllerWasDismissed;
+    _Bool _suppressRefetchingCurrentHighQualityImage;
     NSArray *_previewItems;
 }
 
+@property(nonatomic) _Bool suppressRefetchingCurrentHighQualityImage; // @synthesize suppressRefetchingCurrentHighQualityImage=_suppressRefetchingCurrentHighQualityImage;
 @property(nonatomic) _Bool controllerWasDismissed; // @synthesize controllerWasDismissed=_controllerWasDismissed;
 @property(copy, nonatomic) NSArray *previewItems; // @synthesize previewItems=_previewItems;
 - (void).cxx_destruct;

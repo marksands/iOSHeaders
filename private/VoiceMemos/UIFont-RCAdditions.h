@@ -9,7 +9,9 @@
 @class NSString;
 
 @interface UIFont (RCAdditions)
++ (id)rcs_lightMonospacedFontOfSize:(double)arg1;
 + (id)rcs_ultraLightMonospacedFontOfSize:(double)arg1;
++ (id)rcs_dynamicMonospacedTitle0Font;
 @property(readonly, nonatomic) NSString *rc_textStyle;
 @end
 

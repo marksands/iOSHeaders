@@ -32,6 +32,7 @@
 - (void)_setupConnectionIfNecessary;
 - (void)_handleApplicationDidEnterBackground:(id)arg1;
 - (void)_handleApplicationWillEnterForeground:(id)arg1;
+- (void)sendCameraRollVisibilityChangedMessage:(_Bool)arg1;
 - (void)stopKeepAliveSession;
 - (void)startKeepAliveSession;
 - (void)dealloc;

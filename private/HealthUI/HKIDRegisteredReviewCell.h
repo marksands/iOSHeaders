@@ -19,9 +19,11 @@
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIImageView *logoImageView; // @synthesize logoImageView=_logoImageView;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 @property(retain, nonatomic) NSString *bodyText;
 @property(retain, nonatomic) NSString *titleText;
 @property(retain, nonatomic) UIImage *logoImage;
+- (void)_updateForCurrentSizeCategory;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 
 - (id)inspectorLocalizedValueLabelsDisclosureTitle;
 - (id)inspectorLocalizedValueLabelsTabName;
+- (_Bool)supportsCalloutLines;
 - (id)supportedValueLabelsAxisCombinations;
 - (id)axisTypesForValueLabels;
 - (id)elementBuilder;
@@ -25,6 +26,8 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)valueDimensions;
 - (_Bool)supportsValueLabelsSeriesName;
 - (id)init;
+- (int)fillPropertyType;
+- (id)fillPropertyTypeName;
 - (id)g_genericToSpecificPropertyMapPie;
 - (_Bool)floatValueForLabelExplosion:(float *)arg1 series:(id)arg2;
 

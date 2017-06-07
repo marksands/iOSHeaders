@@ -20,6 +20,7 @@
     unsigned long long _mode;
 }
 
++ (double)minimumDescriptionScaleFactor;
 @property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(nonatomic) double descriptionTextColorDimmingFactor; // @synthesize descriptionTextColorDimmingFactor=_descriptionTextColorDimmingFactor;

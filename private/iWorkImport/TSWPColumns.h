@@ -30,6 +30,7 @@ __attribute__((visibility("hidden")))
 - (double)positionForColumnIndex:(unsigned long long)arg1 bodyWidth:(double)arg2 outWidth:(double *)arg3 outGap:(double *)arg4;
 - (double)gapForColumnIndex:(unsigned long long)arg1 bodyWidth:(double)arg2;
 - (double)widthForColumnIndex:(unsigned long long)arg1 bodyWidth:(double)arg2;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)setEqualWidth:(_Bool)arg1;
 - (void)p_setColumnCount:(unsigned long long)arg1;

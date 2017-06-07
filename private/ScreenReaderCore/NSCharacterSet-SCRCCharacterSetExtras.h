@@ -9,6 +9,7 @@
 @interface NSCharacterSet (SCRCCharacterSetExtras)
 + (id)emojiCharacterSet;
 + (id)wordBreakCharacterSet;
++ (id)passwordBulletCharacterSet;
 + (id)whitespaceNewlineAndSpecialCharacterSet;
 @end
 

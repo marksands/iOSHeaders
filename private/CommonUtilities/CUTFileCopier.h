@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSURL;
 @protocol CUTFileCopierDelegate;
@@ -28,9 +28,10 @@
 @property(readonly, nonatomic) _Bool didErrorOccur; // @synthesize didErrorOccur=_didErrorOccur;
 @property(readonly, nonatomic) _Bool wasCancelled; // @synthesize wasCancelled=_shouldCancel;
 @property(readonly) id identifier; // @synthesize identifier=_identifier;
-@property(readonly) NSURL *outputURL; // @synthesize outputURL=_outputURL;
-@property(readonly) NSURL *inputURL; // @synthesize inputURL=_inputURL;
-@property id <CUTFileCopierDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, copy) NSURL *outputURL; // @synthesize outputURL=_outputURL;
+@property(readonly, copy) NSURL *inputURL; // @synthesize inputURL=_inputURL;
+@property __weak id <CUTFileCopierDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_worker_doCopy;
 - (void)_main_copierFinishedWithResult:(id)arg1;
 - (void)cleanup;

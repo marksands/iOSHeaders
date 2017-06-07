@@ -7,7 +7,7 @@
 #import <Foundation/NSObject.h>
 
 @class GKAutoPeerIDTable, GKConnection, GKList, GKSession, GKTable, GKVoiceChatSessionListener, NSString;
-@protocol GKSessionDOOBReceiveHandler, GKSessionDataReceiveHandler, GKSessionDelegate, GKSessionPrivateDelegate;
+@protocol GKSessionDOOBReceiveHandler, GKSessionDelegate, GKSessionPrivateDelegate;
 
 @interface GKSessionInternal : NSObject
 {
@@ -21,9 +21,9 @@
     struct OpaqueGCKSession *sessionRef;
     struct OpaqueAGPSession *agpSessionRef;
     GKConnection *_connection;
-    id <GKSessionDelegate> _delegate;
-    id <GKSessionPrivateDelegate> _privateDelegate;
-    id <GKSessionDataReceiveHandler> _dataReceiveHandler;
+    id _delegate;
+    id _privateDelegate;
+    id _dataReceiveHandler;
     void *_dataReceiveHandlerContext;
     id <GKSessionDOOBReceiveHandler> _doobReceiveHandler[2];
     void *_doobReceiveHandlerContext[2];

@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCHeadline.h>
 
-@class FCCoverArt, FCHeadlineThumbnail, FCInterestToken, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSObject, NSString, NSURL, NTPBArticleRecord;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCInterestToken, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSObject, NSString, NSURL, NTPBArticleRecord;
 @protocol FCChannelProviding;
 
 @interface FCArticleHeadline : FCHeadline
@@ -28,8 +28,8 @@
     NSString *_title;
     NSString *_primaryAudience;
     NSDate *_publishDate;
-    unsigned long long _publisherArticleVersion;
-    unsigned long long _backendArticleVersion;
+    long long _publisherArticleVersion;
+    long long _backendArticleVersion;
     NSObject<FCChannelProviding> *_sourceChannel;
     NSString *_sourceName;
     FCHeadlineThumbnail *_thumbnailLQ;
@@ -45,9 +45,10 @@
     NSURL *_contentURL;
     NSDate *_lastModifiedDate;
     NSDate *_lastFetchedDate;
+    NSArray *_topics;
     NSArray *_topicIDs;
-    NSArray *_topicScores;
-    NSArray *_topicFlags;
+    COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_globalCohort;
+    COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_publisherCohort;
     NSURL *_videoURL;
     double _videoDuration;
     NSArray *_iAdCategories;
@@ -64,7 +65,6 @@
     NTPBArticleRecord *_articleRecord;
     FCInterestToken *_articleInterestToken;
     long long _behaviorFlags;
-    struct CGSize _largestThumbnailSize;
     struct CGRect _thumbnailFocalFrame;
 }
 
@@ -93,13 +93,15 @@
 - (id)iAdSectionIDs;
 - (id)iAdKeywords;
 - (id)iAdCategories;
+- (void)setSponsored:(_Bool)arg1;
 - (_Bool)isSponsored;
 - (double)videoDuration;
 - (id)videoURL;
-- (id)topicFlags;
-- (id)topicScores;
+- (id)publisherCohort;
+- (id)globalCohort;
 - (void)setTopicIDs:(id)arg1;
 - (id)topicIDs;
+- (id)topics;
 - (id)lastFetchedDate;
 - (id)lastModifiedDate;
 - (id)contentURL;
@@ -109,12 +111,17 @@
 - (id)thumbnailWidgetHQ;
 - (id)thumbnailWidget;
 - (id)thumbnailWidgetLQ;
+- (void)setThumbnailUltraHQ:(id)arg1;
 - (id)thumbnailUltraHQ;
+- (void)setThumbnailHQ:(id)arg1;
 - (id)thumbnailHQ;
+- (void)setThumbnailMedium:(id)arg1;
 - (id)thumbnailMedium;
+- (void)setThumbnail:(id)arg1;
 - (id)thumbnail;
+- (void)setThumbnailLQ:(id)arg1;
 - (id)thumbnailLQ;
-- (struct CGSize)largestThumbnailSize;
+- (void)setHasThumbnail:(_Bool)arg1;
 - (_Bool)hasThumbnail;
 - (void)setThumbnailFocalFrame:(struct CGRect)arg1;
 - (struct CGRect)thumbnailFocalFrame;
@@ -122,8 +129,8 @@
 - (id)sourceName;
 - (void)setSourceChannel:(id)arg1;
 - (id)sourceChannel;
-- (unsigned long long)backendArticleVersion;
-- (unsigned long long)publisherArticleVersion;
+- (long long)backendArticleVersion;
+- (long long)publisherArticleVersion;
 - (void)setPublishDate:(id)arg1;
 - (id)publishDate;
 - (id)primaryAudience;

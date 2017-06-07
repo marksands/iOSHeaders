@@ -38,6 +38,7 @@
 @property(nonatomic) unsigned int valInt2; // @synthesize valInt2=_valInt2;
 @property(nonatomic) unsigned int valInt1; // @synthesize valInt1=_valInt1;
 @property(retain, nonatomic) NSString *token; // @synthesize token=_token;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;

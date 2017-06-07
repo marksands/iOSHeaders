@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEORouteMatch, VKPuckAnimatorLocationProjector, VKRunningCurve, VKTimedAnimation;
 @protocol VKPuckAnimatorDelegate, VKPuckAnimatorTarget;
@@ -31,6 +31,7 @@
 @property(nonatomic) id <VKPuckAnimatorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id <VKPuckAnimatorTarget> target; // @synthesize target=_target;
 - (id).cxx_construct;
+- (id)detailedDescription;
 - (void)updateVehicleHeading:(double)arg1;
 - (void)updateLocation:(id)arg1 routeMatch:(id)arg2;
 - (void)_step;

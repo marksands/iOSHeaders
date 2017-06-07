@@ -6,9 +6,11 @@
 
 #import <CoreSuggestionsInternals/SGJournalBaseObserver-Protocol.h>
 
-@class SGStorageEvent;
+@class NSArray, SGStorageEvent;
 
 @protocol SGJournalCalendarObserver <SGJournalBaseObserver>
+- (void)cancelEvents:(NSArray *)arg1;
+- (void)addEvents:(NSArray *)arg1;
 - (void)calendarDeleted;
 - (void)orphanEvent:(SGStorageEvent *)arg1;
 - (void)rejectEvent:(SGStorageEvent *)arg1;

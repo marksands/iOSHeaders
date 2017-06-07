@@ -6,12 +6,13 @@
 
 #import <HealthUI/HKMedicalIDEditorCell.h>
 
+#import <HealthUI/HKMultilineCellHeightEstimatable-Protocol.h>
 #import <HealthUI/UITextViewDelegate-Protocol.h>
 
 @class NSString, UILabel, UITextView;
 @protocol HKMedicalIDEditorCellHeightChangeDelegate;
 
-@interface HKMedicalIDEditorMultilineStringCell : HKMedicalIDEditorCell <UITextViewDelegate>
+@interface HKMedicalIDEditorMultilineStringCell : HKMedicalIDEditorCell <UITextViewDelegate, HKMultilineCellHeightEstimatable>
 {
     UILabel *_labelLabel;
     double _lastSeenTextViewContentHeight;
@@ -32,10 +33,13 @@
 - (void)textViewDidChange:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
 - (void)textViewDidChangeSelection:(id)arg1;
+- (struct CGRect)_cursorRectForTextView:(id)arg1;
+@property(readonly, nonatomic) UILabel *placeholderLabel;
 @property(retain, nonatomic) NSString *placeholder;
 @property(retain, nonatomic) NSString *stringValue;
 - (id)label;
 - (void)setLabel:(id)arg1;
+- (double)estimatedHeightWithWidth:(double)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)_contentSizeCategoryDidChange:(id)arg1;

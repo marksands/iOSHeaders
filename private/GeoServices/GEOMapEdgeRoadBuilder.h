@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 - (id)_firstTile;
 - (Matrix_8746f91e)_lastPoint;
 - (Matrix_8746f91e)_firstPoint;
-- (unsigned long long)_connectionTypeForEdge:(CDStruct_91f75a7f *)arg1 points:(CDStruct_b2fbf00d *)arg2 connectingTilePoint:(Matrix_8746f91e)arg3;
+- (unsigned long long)_connectionTypeForEdge:(CDStruct_91f75a7f *)arg1 points:(CDStruct_6e3f967a *)arg2 connectingTilePoint:(Matrix_8746f91e)arg3;
 - (_Bool)_shouldFindEdgeBehind;
 - (_Bool)_shouldFindEdgeAhead;
 - (_Bool)_findEdgeBehindInTile:(id)arg1;
@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (void)_buildCompleteEdge;
 - (unsigned long long)_maxTileCount;
 - (void)dealloc;
-- (id)initWithMap:(id)arg1 roadFeature:(CDStruct_2244da21 *)arg2 shouldFlip:(_Bool)arg3;
+- (id)initWithMap:(id)arg1 roadFeature:(CDStruct_a2ef2718 *)arg2 shouldFlip:(_Bool)arg3;
 
 @end
 

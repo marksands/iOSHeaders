@@ -10,6 +10,8 @@
 @protocol SBUIPowerDownViewInterface;
 
 @protocol SBUIPowerDownViewDelegate <NSObject>
+- (void)powerDownViewWillAnimateOut:(UIView<SBUIPowerDownViewInterface> *)arg1;
+- (void)powerDownViewWillAnimateIn:(UIView<SBUIPowerDownViewInterface> *)arg1;
 - (void)powerDownViewAnimateOutCompleted:(UIView<SBUIPowerDownViewInterface> *)arg1;
 - (void)powerDownViewRequestPowerDown:(UIView<SBUIPowerDownViewInterface> *)arg1;
 - (void)powerDownViewRequestCancel:(UIView<SBUIPowerDownViewInterface> *)arg1;

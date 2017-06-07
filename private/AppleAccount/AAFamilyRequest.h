@@ -18,6 +18,7 @@
 - (id)urlRequest;
 @property(readonly, nonatomic) _Bool isUserInitiated;
 - (id)initWithGrandSlamSigner:(id)arg1;
+- (id)initWithGrandSlamAccount:(id)arg1 accountStore:(id)arg2;
 - (id)initWithAppleAccount:(id)arg1 grandSlamAccount:(id)arg2 accountStore:(id)arg3;
 
 @end

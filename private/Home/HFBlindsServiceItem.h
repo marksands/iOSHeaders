@@ -11,8 +11,7 @@
 }
 
 - (long long)_doorServicePriority;
-- (id)controlPanelItems;
-- (id)createControlItemsWithValueSource:(id)arg1;
+- (id)createControlItems;
 
 @end
 

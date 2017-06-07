@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOTileKeyList;
 
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     unsigned int bytesLoaded;
     unsigned int bytesLoadedFromNetwork;
     unsigned int generation;
+    unsigned int numRetries;
     unsigned int hasError:1;
     unsigned int hasLifetimeError:1;
     unsigned int nearManeuver:1;
@@ -27,11 +28,11 @@ __attribute__((visibility("hidden")))
     unsigned int preempted:1;
 }
 
+- (void).cxx_destruct;
 - (double)networkDataRateKB;
 - (double)dataRateKB;
 - (void)resetErrors;
 - (_Bool)okToLoad;
-- (void)dealloc;
 
 @end
 

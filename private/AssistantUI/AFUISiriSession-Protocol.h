@@ -10,6 +10,8 @@
 @protocol SAAceCommand;
 
 @protocol AFUISiriSession <NSObject>
+- (void)audioRoutePickerWillDismiss;
+- (void)audioRoutePickerWillShow;
 - (void)recordMetricsContext:(NSString *)arg1 forDisambiguatedAppWIthBundleIdentifier:(NSString *)arg2;
 - (void)recordRequestMetricEvent:(NSString *)arg1 withTimestamp:(double)arg2;
 - (void)recordUIMetrics:(AFMetrics *)arg1;
@@ -37,6 +39,7 @@
 - (void)forceAudioSessionActive;
 - (void)preheat;
 - (void)setLockState:(unsigned long long)arg1;
+- (void)setCarDNDActive:(_Bool)arg1;
 - (void)setIsStark:(_Bool)arg1;
 @end
 

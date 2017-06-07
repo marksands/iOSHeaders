@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@interface HMDPersistentStore : NSObject
+@interface HMDPersistentStore : HMFObject
 {
 }
 
 + (id)decryptDataWithMetadataKey:(id)arg1 error:(id *)arg2;
 + (id)encryptDataWithMetadataKey:(id)arg1 error:(id *)arg2;
-+ (id)decryptDataWithControllerKey:(id)arg1 totalKeysFound:(unsigned long long *)arg2 deleteExtraKeys:(_Bool)arg3 controllerIdentifierChanged:(_Bool *)arg4 successfulKeyUserName:(id *)arg5 error:(id *)arg6;
++ (id)decryptDataWithControllerKey:(id)arg1 totalKeysFound:(unsigned long long *)arg2 deleteExtraKeys:(_Bool)arg3 allowControllerIdentifierToChange:(_Bool)arg4 controllerIdentifierChanged:(_Bool *)arg5 successfulKeyUserName:(id *)arg6 error:(id *)arg7;
 + (id)encryptDataWithControllerKey:(id)arg1 error:(id *)arg2;
 + (id)_decryptData:(id)arg1 withKey:(id)arg2 error:(id *)arg3;
 + (id)_encryptData:(id)arg1 withKey:(id)arg2 error:(id *)arg3;
@@ -24,12 +24,14 @@
 + (id)archiveBlacklistedBundles:(id)arg1;
 + (id)unarchiveIDSDataSyncJournal;
 + (id)archiveIDSDataSyncJournal:(id)arg1;
-+ (id)unarchiveTransactionJournal;
-+ (id)archiveTransactions:(id)arg1;
++ (void)removeTransactionJournal;
 + (id)unarchiveServerTokenData:(_Bool *)arg1;
 + (id)archiveCloudServerTokenData:(id)arg1;
-+ (id)archiveMetadata:(id)arg1;
++ (void)removeServerTokenDataFile;
++ (_Bool)archiveMetadata:(id)arg1;
 + (id)encryptUsingLocalKeyAndArchiveData:(id)arg1 storePath:(id)arg2 dataLabel:(id)arg3;
++ (id)loadBuiltinPlainMetadataDictionary;
++ (id)loadPlainMetadataDictionary;
 + (id)serializeMetadata:(id)arg1;
 + (id)unarchiveMetadata:(id *)arg1;
 + (id)decryptUsingLocalKeyAndUnarchiveFromPath:(id)arg1 error:(id *)arg2;
@@ -43,6 +45,7 @@
 + (void)cleanupKeysInStore;
 + (id)unarchiveHomeData:(id *)arg1 decryptionFailed:(_Bool *)arg2;
 + (_Bool)deserializeHomeData:(id *)arg1 localStorage:(_Bool)arg2 fromData:(id)arg3;
++ (_Bool)writeDictionary:(id)arg1 toStorePath:(id)arg2;
 + (id)_writeData:(id)arg1 toStorePath:(id)arg2 dataLabel:(id)arg3;
 + (id)writeData:(id)arg1 toStorePath:(id)arg2 dataLabel:(id)arg3;
 

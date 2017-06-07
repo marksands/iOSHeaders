@@ -24,8 +24,8 @@ __attribute__((visibility("hidden")))
 + (id)p_drawablesToInsertForGroup:(id)arg1 filteredWithTarget:(id)arg2 action:(SEL)arg3 didUngroup:(_Bool *)arg4;
 + (id)drawablesToInsertForGroup:(id)arg1 filteredWithTarget:(id)arg2 action:(SEL)arg3;
 + (id)groupGeometryFromChildrenInfos:(id)arg1;
+- (void).cxx_destruct;
 - (void)processSelectedStoragesWithStatisticsController:(id)arg1;
-- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned long long)arg3;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
@@ -60,14 +60,15 @@ __attribute__((visibility("hidden")))
 - (Class)repClass;
 - (Class)layoutClass;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
-- (_Bool)aspectRatioLocked;
+- (_Bool)supportsParentRotation;
+- (_Bool)allowsParentGroupToBeResizedWithoutAspectRatioLock;
 - (_Bool)canAspectRatioLockBeChangedByUser;
 - (void)dealloc;
+- (id)initWithContext:(id)arg1 geometry:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct GroupArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct GroupArchive *)arg1 unarchiver:(id)arg2 upgradeDOLC:(_Bool)arg3;
-- (id)subclassInitFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)containsDisallowedElementKind:(unsigned int)arg1;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 

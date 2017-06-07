@@ -27,8 +27,9 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemovedFromDocumentRoot:(id)arg1 storage:(id)arg2;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)p_performHyperlinkSelector:(SEL)arg1 onStorage:(id)arg2;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct HyperlinkFieldArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct HyperlinkFieldArchive *)arg1 archiver:(id)arg2;

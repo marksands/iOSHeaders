@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class AXAssertion, AXDispatchTimer, UIAttachmentBehavior, UICollisionBehavior, UIDynamicAnimator, UIDynamicItemBehavior, UIGravityBehavior, UIPanGestureRecognizer, UISnapBehavior, UIView;
 @protocol AXUINubbitDelegate;
@@ -37,9 +37,9 @@
 @property(retain, nonatomic) UIPanGestureRecognizer *moveNubbitGestureRecognizer; // @synthesize moveNubbitGestureRecognizer=_moveNubbitGestureRecognizer;
 @property(retain, nonatomic) AXAssertion *disableDashBoardSystemGesturesAssertion; // @synthesize disableDashBoardSystemGesturesAssertion=_disableDashBoardSystemGesturesAssertion;
 @property(retain, nonatomic) AXAssertion *disableSystemGesturesAssertion; // @synthesize disableSystemGesturesAssertion=_disableSystemGesturesAssertion;
-@property(nonatomic) id <AXUINubbitDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <AXUINubbitDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) UIView *nubbit; // @synthesize nubbit=_nubbit;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

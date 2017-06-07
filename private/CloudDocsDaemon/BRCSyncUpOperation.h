@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_createdAppLibraryNames;
     NSMutableArray *_deletedRecordIDs;
     NSMutableArray *_iworkUnsharedShareIDs;
-    NSMutableDictionary *_iworkRenamedShareIDsToNames;
+    NSMutableDictionary *_renamedShareIDsToNames;
     NSMutableArray *_recordsNeedingNewSharingProtectionInfo;
     NSMutableArray *_recordsNeedingUpdatedSharingProtectionInfo;
     NSMutableDictionary *_recordIDsToDeleteToEtags;
@@ -43,7 +43,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableDictionary *recordIDsToDeleteToEtags; // @synthesize recordIDsToDeleteToEtags=_recordIDsToDeleteToEtags;
 @property(retain, nonatomic) NSMutableArray *recordsNeedingUpdatedSharingProtectionInfo; // @synthesize recordsNeedingUpdatedSharingProtectionInfo=_recordsNeedingUpdatedSharingProtectionInfo;
 @property(retain, nonatomic) NSMutableArray *recordsNeedingNewSharingProtectionInfo; // @synthesize recordsNeedingNewSharingProtectionInfo=_recordsNeedingNewSharingProtectionInfo;
-@property(retain, nonatomic) NSMutableDictionary *iworkRenamedShareIDsToNames; // @synthesize iworkRenamedShareIDsToNames=_iworkRenamedShareIDsToNames;
+@property(retain, nonatomic) NSMutableDictionary *renamedShareIDsToNames; // @synthesize renamedShareIDsToNames=_renamedShareIDsToNames;
 @property(retain, nonatomic) NSMutableArray *iworkUnsharedShareIDs; // @synthesize iworkUnsharedShareIDs=_iworkUnsharedShareIDs;
 @property(retain, nonatomic) NSMutableArray *deletedRecordIDs; // @synthesize deletedRecordIDs=_deletedRecordIDs;
 @property(readonly, nonatomic) NSMutableArray *createdAppLibraryNames; // @synthesize createdAppLibraryNames=_createdAppLibraryNames;

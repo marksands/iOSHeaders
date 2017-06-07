@@ -9,7 +9,7 @@
 #import <VideoSubscriberAccountUI/VSIdentityProviderPickerViewController-Protocol.h>
 #import <VideoSubscriberAccountUI/VSTableHeaderFooterViewDelegate-Protocol.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, UISearchController, VSFontCenter, VSIdentityProviderFilter, VSIdentityProviderTableViewDataSource, VSSearchBarDelegate;
 @protocol VSIdentityProviderPickerViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -21,8 +21,20 @@ __attribute__((visibility("hidden")))
     unsigned long long _additionalProvidersMode;
     NSString *_requestingAppDisplayName;
     NSString *_resourceTitle;
+    UISearchController *_searchController;
+    VSIdentityProviderFilter *_filter;
+    VSSearchBarDelegate *_searchBarDelegate;
+    VSIdentityProviderTableViewDataSource *_unfilteredDataSource;
+    VSIdentityProviderTableViewDataSource *_filteredDataSource;
+    VSFontCenter *_fontCenter;
 }
 
+@property(retain, nonatomic) VSFontCenter *fontCenter; // @synthesize fontCenter=_fontCenter;
+@property(retain, nonatomic) VSIdentityProviderTableViewDataSource *filteredDataSource; // @synthesize filteredDataSource=_filteredDataSource;
+@property(retain, nonatomic) VSIdentityProviderTableViewDataSource *unfilteredDataSource; // @synthesize unfilteredDataSource=_unfilteredDataSource;
+@property(retain, nonatomic) VSSearchBarDelegate *searchBarDelegate; // @synthesize searchBarDelegate=_searchBarDelegate;
+@property(retain, nonatomic) VSIdentityProviderFilter *filter; // @synthesize filter=_filter;
+@property(retain, nonatomic) UISearchController *searchController; // @synthesize searchController=_searchController;
 @property(copy, nonatomic) NSString *resourceTitle; // @synthesize resourceTitle=_resourceTitle;
 @property(copy, nonatomic) NSString *requestingAppDisplayName; // @synthesize requestingAppDisplayName=_requestingAppDisplayName;
 @property(nonatomic) unsigned long long additionalProvidersMode; // @synthesize additionalProvidersMode=_additionalProvidersMode;
@@ -32,29 +44,19 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)willMoveToParentViewController:(id)arg1;
 - (void)viewDidLoad;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)didInvalidateIntrinsicContentSizeForTableHeaderFooterView:(id)arg1;
 - (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
-- (long long)numberOfSectionsInTableView:(id)arg1;
-- (void)deselectSelectedProviderAnimated:(_Bool)arg1;
 - (void)_dismissAboutPrivacy:(id)arg1;
 - (void)_showAboutPrivacy:(id)arg1;
 - (void)_cancelButtonPressed:(id)arg1;
 - (void)_didPickAdditionalIdentityProviders;
 - (void)_didPickIdentityProvider:(id)arg1;
-- (long long)_textAlignmentForRowAtIndexPath:(id)arg1;
-- (long long)_accessoryTypeForRowAtIndexPath:(id)arg1;
-- (id)_titleForRowAtIndexPath:(id)arg1;
-- (long long)_cellStyleForRowAtIndexPath:(id)arg1;
-- (id)_cellReuseIdentifierForRowAtIndexPath:(id)arg1;
-- (unsigned long long)_sectionForIndexPath:(id)arg1;
-- (id)_identityProviderAtIndex:(unsigned long long)arg1;
-- (id)_additionalProvidersRowTitle;
 - (id)titleForTableFooterView;
 - (id)titleForTableHeaderView;
+- (void)_updateTableHeaderTitle;
 - (id)initWithStyle:(long long)arg1;
 
 // Remaining properties

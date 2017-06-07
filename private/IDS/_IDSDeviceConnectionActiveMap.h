@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -15,7 +15,7 @@
 }
 
 + (id)sharedInstance;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)removeActiveConnection:(id)arg1 forKey:(id)arg2;
 - (_Bool)hasActiveConnection:(id)arg1 forKey:(id)arg2;
 - (void)setActiveConnection:(id)arg1 forKey:(id)arg2;

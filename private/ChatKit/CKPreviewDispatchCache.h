@@ -43,6 +43,7 @@
 - (void)enqueueGenerationBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2 withPriority:(long long)arg3 forKey:(id)arg4;
 - (void)enqueueSaveBlock:(CDUnknownBlockType)arg1 withPriority:(long long)arg2;
 - (id)init;
+- (id)initWithCacheLimit:(unsigned long long)arg1;
 - (void)dealloc;
 - (void)enqueueSaveBlock:(CDUnknownBlockType)arg1 forMediaObject:(id)arg2 withPriority:(long long)arg3;
 

@@ -8,6 +8,7 @@
 
 @class PDFDocument, PDFPage;
 
+__attribute__((visibility("hidden")))
 @interface PDFDestinationPrivate : NSObject
 {
     PDFDocument *document;
@@ -18,7 +19,6 @@
     double right;
     double bottom;
     double zoom;
-    struct CGPDFDictionary *pageRef;
 }
 
 - (void).cxx_destruct;

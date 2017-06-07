@@ -6,9 +6,10 @@
 
 #import <ITMLKit/JSExport-Protocol.h>
 
-@class IKDOMDocument, IKDOMNode, IKDOMNodeList, IKJSObject, NSString;
+@class IKDOMDocument, IKDOMNode, IKDOMNodeList, IKJSObject, JSValue, NSString;
 
 @protocol IKJSDOMNode <JSExport>
+@property(nonatomic) __weak JSValue *dataItem;
 @property(retain, nonatomic) NSString *textContent;
 @property(readonly, nonatomic) __weak IKDOMDocument *ownerDocument;
 @property(readonly, nonatomic) __weak IKDOMNode *nextSibling;

@@ -6,9 +6,8 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSError, UIButton, UILabel;
+@class NSError, UIButton, UILabel, VSFontCenter;
 
-__attribute__((visibility("hidden")))
 @interface VSErrorViewController : UIViewController
 {
     _Bool _recoveryDestructive;
@@ -16,8 +15,10 @@ __attribute__((visibility("hidden")))
     UIButton *_recoveryButton;
     UILabel *_titleLabel;
     UILabel *_messageLabel;
+    VSFontCenter *_fontCenter;
 }
 
+@property(retain, nonatomic) VSFontCenter *fontCenter; // @synthesize fontCenter=_fontCenter;
 @property(retain, nonatomic) UILabel *messageLabel; // @synthesize messageLabel=_messageLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIButton *recoveryButton; // @synthesize recoveryButton=_recoveryButton;
@@ -25,8 +26,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void).cxx_destruct;
 - (void)viewDidLoad;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)_recoveryButtonPressed:(id)arg1;
 - (void)_updateText;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

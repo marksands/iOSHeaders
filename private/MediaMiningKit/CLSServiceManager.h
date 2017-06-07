@@ -6,27 +6,40 @@
 
 #import <objc/NSObject.h>
 
-@class CLSLRUMemoryCache, CLSPerson, CLSSocialServiceCalendar, CLSSocialServiceContacts;
+#import <MediaMiningKit/CLSSocialServiceContactsDelegate-Protocol.h>
 
-@interface CLSServiceManager : NSObject
+@class CLSLRUMemoryCache, CLSPerson, CLSRoutineService, CLSSocialServiceCalendar, CLSSocialServiceContacts, NSDateInterval, NSString;
+
+@interface CLSServiceManager : NSObject <CLSSocialServiceContactsDelegate>
 {
     CLSLRUMemoryCache *_cache;
     CLSSocialServiceContacts *_contactsService;
     CLSSocialServiceCalendar *_calendarService;
+    CLSRoutineService *_routineService;
     CLSPerson *_mePerson;
+    NSObject *_routineServiceLockObject;
+    NSDateInterval *_validDateInterval;
 }
 
 + (id)sharedManager;
+@property(retain, nonatomic) NSDateInterval *validDateInterval; // @synthesize validDateInterval=_validDateInterval;
+@property(readonly, nonatomic) NSObject *routineServiceLockObject; // @synthesize routineServiceLockObject=_routineServiceLockObject;
 @property(retain, nonatomic) CLSPerson *mePerson; // @synthesize mePerson=_mePerson;
 - (void).cxx_destruct;
+- (id)mePersonAddressesOfType:(unsigned long long)arg1;
+- (_Bool)hasAddressesForMePerson;
 - (void)enumeratePersonsForIdentifiers:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumeratePersonsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)eventsOperationForClueCollection:(id)arg1;
 - (void)prefetchEventsFromUniversalDate:(id)arg1 toUniversalDate:(id)arg2 forAssetCollectionsSortedByStartDate:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)tracesDescription;
 - (void)addTraceFromObject:(id)arg1 feature:(id)arg2 type:(unsigned long long)arg3 context:(id)arg4 withDescriptionFormat:(id)arg5;
 - (id)_traceStringForType:(unsigned long long)arg1;
+- (void)postProcessLocationsOfInterest;
+- (_Bool)shouldFetchPointsOfInterestAtLocation:(id)arg1;
+- (_Bool)isRemoteLocation:(id)arg1 inDateInterval:(id)arg2;
+- (id)locationOfInterestPlacemarkCloseToLocation:(id)arg1 inDateInterval:(id)arg2;
 - (id)mePersonName;
 - (id)personResultsOperationForName:(id)arg1 inPhotoLibrary:(id)arg2;
 - (id)personsOperationNearLocations:(id)arg1;
@@ -34,10 +47,25 @@
 - (id)personOperationForName:(id)arg1 inPhotoLibrary:(id)arg2;
 - (id)eventsOperationForDates:(id)arg1;
 - (id)mePersonOperation;
-- (void)invalidateMemoryCaches;
-@property(readonly) CLSSocialServiceCalendar *calendarService; // @synthesize calendarService=_calendarService;
-@property(readonly) CLSSocialServiceContacts *contactsService; // @synthesize contactsService=_contactsService;
+- (void)invalidateMomentaryMemoryCaches;
+- (void)invalidatePermanentMemoryCaches;
+@property(readonly, nonatomic) CLSRoutineService *routineService; // @synthesize routineService=_routineService;
+@property(readonly, nonatomic) CLSSocialServiceCalendar *calendarService; // @synthesize calendarService=_calendarService;
+@property(readonly, nonatomic) CLSSocialServiceContacts *contactsService; // @synthesize contactsService=_contactsService;
 - (id)init;
+- (double)pinningVisitsRatio;
+- (unsigned long long)numberOfMatchRequests;
+- (unsigned long long)numberOfRemoteLocationMatches;
+- (unsigned long long)numberOfCloseByLocationMatches;
+- (unsigned long long)numberOfTimeMatches;
+- (unsigned long long)numberOfVisits;
+- (unsigned long long)numberOfLocationsOfInterest;
+- (_Bool)routineIsAvailable;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

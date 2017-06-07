@@ -18,9 +18,15 @@
 - (void)beginDownloadForResource:(CPLResource *)arg1 clientBundleID:(NSString *)arg2 highPriority:(_Bool)arg3 proposedTaskIdentifier:(NSString *)arg4 completionHandler:(void (^)(CPLResourceTransferTask *))arg5;
 - (void)enableMingling;
 - (void)disableMingling;
+- (void)addStatusChangesForRecordsWithIdentifiers:(NSArray *)arg1 persist:(_Bool)arg2;
+- (void)acknowledgeChangedStatuses:(NSArray *)arg1;
+- (void)getChangedStatusesWithCompletionHandler:(void (^)(NSArray *, NSError *))arg1;
+- (void)getStatusForRecordsWithIdentifiers:(NSArray *)arg1 completionHandler:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)checkHasBackgroundDownloadOperationsWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)noteClientIsEndingSignificantWork;
 - (void)noteClientIsBeginningSignificantWork;
+- (void)setShouldOverride:(_Bool)arg1 forSystemBudgets:(unsigned long long)arg2;
+- (void)getSystemBudgetsWithCompletionHandler:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)enableSynchronizationWithReason:(NSString *)arg1;
 - (void)disableSynchronizationWithReason:(NSString *)arg1;
 - (void)noteClientIsInBackground;
@@ -33,6 +39,9 @@
 - (void)openWithCompletionHandler:(void (^)(NSError *, NSString *, NSString *, NSURL *))arg1;
 
 @optional
+- (void)unblockEngineElementOnce:(NSString *)arg1;
+- (void)unblockEngineElement:(NSString *)arg1;
+- (void)blockEngineElement:(NSString *)arg1;
 - (void)addInfoToLog:(NSString *)arg1;
 - (void)compactFileCacheWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)cloudCacheGetDescriptionForRecordWithIdentifier:(NSString *)arg1 related:(_Bool)arg2 completionHandler:(void (^)(id, id, NSError *))arg3;
@@ -40,9 +49,9 @@
 - (void)getStatusArrayForComponents:(NSArray *)arg1 completionHandler:(void (^)(NSArray *, NSError *))arg2;
 - (void)getStatusForComponents:(NSArray *)arg1 completionHandler:(void (^)(NSString *, NSError *))arg2;
 - (void)getListOfComponentsWithCompletionHandler:(void (^)(NSArray *, NSError *))arg1;
-- (void)resetCacheWithOption:(unsigned long long)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (void)resetCacheWithOption:(unsigned long long)arg1 reason:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)getResourcesForItemWithIdentifier:(NSString *)arg1 completionHandler:(void (^)(NSError *, NSArray *))arg2;
-- (void)deleteResources:(NSArray *)arg1 completionHandler:(void (^)(NSArray *, NSDictionary *))arg2;
+- (void)deleteResources:(NSArray *)arg1 checkServerIfNecessary:(_Bool)arg2 completionHandler:(void (^)(NSArray *, NSDictionary *))arg3;
 - (void)barrier;
 @end
 

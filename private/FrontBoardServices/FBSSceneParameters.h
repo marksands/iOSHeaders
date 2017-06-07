@@ -11,12 +11,11 @@
 #import <FrontBoardServices/NSCopying-Protocol.h>
 #import <FrontBoardServices/NSMutableCopying-Protocol.h>
 
-@class FBSDisplay, FBSSceneClientSettings, FBSSceneSettings, FBSSceneSpecification, NSString;
+@class FBSSceneClientSettings, FBSSceneSettings, FBSSceneSpecification, NSString;
 
 @interface FBSSceneParameters : NSObject <BSXPCCoding, NSCopying, NSMutableCopying, BSDescriptionProviding>
 {
     FBSSceneSpecification *_specification;
-    FBSDisplay *_display;
     FBSSceneSettings *_settings;
     FBSSceneClientSettings *_clientSettings;
 }
@@ -24,7 +23,6 @@
 + (id)parametersForSpecification:(id)arg1;
 @property(copy, nonatomic) FBSSceneClientSettings *clientSettings; // @synthesize clientSettings=_clientSettings;
 @property(copy, nonatomic) FBSSceneSettings *settings; // @synthesize settings=_settings;
-@property(copy, nonatomic) FBSDisplay *display; // @synthesize display=_display;
 @property(readonly, copy, nonatomic) FBSSceneSpecification *specification; // @synthesize specification=_specification;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
@@ -38,6 +36,7 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_configureCopy:(id)arg1;
+- (void)updateSettingsWithBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithSpecification:(id)arg1;

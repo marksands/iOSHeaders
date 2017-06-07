@@ -29,10 +29,13 @@ __attribute__((visibility("hidden")))
 - (void)updateCellularMTU:(int)arg1;
 - (id)getSecondaryConnectionToBeCompared;
 - (id)getPrimaryConnectionToBeCompared;
+- (void)handoverWithWRMSuggestion:(_Bool)arg1;
+- (_Bool)shouldHandoverWhenUpdateWRMDuplication:(int)arg1;
 - (int)removeConnection:(id)arg1;
 - (void)handleSecondaryConnectionRemoved;
 - (void)handlePrimaryConnectionRemoved;
 - (int)addConnection:(id)arg1;
+- (_Bool)selectPrimaryAndSecondaryWithConnection:(id)arg1;
 - (void)updateSecondaryWithConnection:(id)arg1;
 - (void)updatePrimaryWithConnection:(id)arg1;
 - (void)dealloc;

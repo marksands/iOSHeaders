@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-#import <HomeKitDaemon/HMDMerging-Protocol.h>
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
+#import <HomeKitDaemon/HMFMerging-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDDevice, HMDHome, NSString, NSUUID;
+@class HMDDevice, HMDHome, HMDResidentDeviceManager, NSString, NSUUID;
 
-@interface HMDResidentDevice : NSObject <HMFDumpState, HMFLogging, HMDMerging, NSSecureCoding>
+@interface HMDResidentDevice : HMFObject <HMFDumpState, HMFLogging, HMFMerging, NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     _Bool _enabled;
     _Bool _confirmed;
@@ -24,12 +25,14 @@
     long long _batteryState;
     HMDHome *_home;
     unsigned long long _capabilities;
+    HMDResidentDeviceManager *_residentDeviceManager;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
 + (id)batteryStateAsString:(long long)arg1;
 + (id)shortDescription;
+@property(nonatomic) __weak HMDResidentDeviceManager *residentDeviceManager; // @synthesize residentDeviceManager=_residentDeviceManager;
 @property(readonly, nonatomic) unsigned long long capabilities; // @synthesize capabilities=_capabilities;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(nonatomic, getter=isLowBattery) _Bool lowBattery; // @synthesize lowBattery=_lowBattery;
@@ -40,10 +43,18 @@
 @property(retain, nonatomic) HMDDevice *device; // @synthesize device=_device;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (void)_handleResidentDeviceUpdateConfirmed:(_Bool)arg1;
+- (void)_handleResidentDeviceUpdateEnabled:(_Bool)arg1;
+- (_Bool)_handleResidentDeviceUpdateDeviceWithUUID:(id)arg1;
+- (void)_residentDeviceModelUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)dumpState;
 - (_Bool)mergeObject:(id)arg1;
+- (_Bool)_updateDevice:(id)arg1;
 @property(readonly, nonatomic) unsigned long long status;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
@@ -52,6 +63,7 @@
 - (id)descriptionWithPointer:(_Bool)arg1;
 - (id)shortDescription;
 - (id)initWithDevice:(id)arg1 home:(id)arg2;
+- (id)initWithModel:(id)arg1 residentDeviceManager:(id)arg2;
 - (id)init;
 
 // Remaining properties

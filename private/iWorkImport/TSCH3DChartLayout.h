@@ -33,8 +33,8 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)boundsForResize;
 - (void)p_ensureValidForInwardLayout;
 - (id)p_layoutTree;
-- (void)setLayoutSettings:(CDStruct_339a9a6e)arg1;
-- (_Bool)p_shouldClearSceneForLayoutSettings:(CDStruct_339a9a6e)arg1;
+- (void)setLayoutSettings:(CDStruct_44ada6bf)arg1;
+- (_Bool)p_shouldClearSceneForLayoutSettings:(CDStruct_44ada6bf)arg1;
 - (void)dealloc;
 - (id)initWithChartInfo:(id)arg1;
 

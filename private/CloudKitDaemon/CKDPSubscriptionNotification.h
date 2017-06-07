@@ -8,22 +8,27 @@
 
 #import <CloudKitDaemon/NSCopying-Protocol.h>
 
-@class CKDPSubscriptionNotificationAlert, NSMutableArray;
+@class CKDPSubscriptionNotificationAlert, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDPSubscriptionNotification : PBCodable <NSCopying>
 {
     NSMutableArray *_additionalFields;
     CKDPSubscriptionNotificationAlert *_alert;
+    NSString *_collapseIdKey;
     _Bool _shouldBadge;
     _Bool _shouldSendContentAvailable;
+    _Bool _shouldSendMutableContent;
     struct {
         unsigned int shouldBadge:1;
         unsigned int shouldSendContentAvailable:1;
+        unsigned int shouldSendMutableContent:1;
     } _has;
 }
 
 + (Class)additionalFieldsType;
+@property(retain, nonatomic) NSString *collapseIdKey; // @synthesize collapseIdKey=_collapseIdKey;
+@property(nonatomic) _Bool shouldSendMutableContent; // @synthesize shouldSendMutableContent=_shouldSendMutableContent;
 @property(nonatomic) _Bool shouldSendContentAvailable; // @synthesize shouldSendContentAvailable=_shouldSendContentAvailable;
 @property(retain, nonatomic) NSMutableArray *additionalFields; // @synthesize additionalFields=_additionalFields;
 @property(nonatomic) _Bool shouldBadge; // @synthesize shouldBadge=_shouldBadge;
@@ -38,6 +43,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasCollapseIdKey;
+@property(nonatomic) _Bool hasShouldSendMutableContent;
 @property(nonatomic) _Bool hasShouldSendContentAvailable;
 - (id)additionalFieldsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)additionalFieldsCount;

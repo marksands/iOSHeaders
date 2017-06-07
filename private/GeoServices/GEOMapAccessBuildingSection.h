@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMapBuildingSection-Protocol.h>
 
@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long coordinateCount; // @synthesize coordinateCount=_coordinateCount;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee *coordinates; // @synthesize coordinates=_coordinates;
 - (void)dealloc;
-- (id)initWithFeature:(CDStruct_2a80a239 *)arg1 sectionIndex:(unsigned long long)arg2;
+- (id)initWithFeature:(CDStruct_8e575d68 *)arg1 sectionIndex:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

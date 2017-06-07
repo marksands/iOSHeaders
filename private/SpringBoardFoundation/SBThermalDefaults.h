@@ -13,7 +13,6 @@
 - (void)_bindAndRegisterDefaults;
 
 // Remaining properties
-@property(readonly, nonatomic) _Bool suppressThermalWarning; // @dynamic suppressThermalWarning;
 @property(nonatomic) _Bool wasConnectedToWiFiWhenBrickedForThermalConditions; // @dynamic wasConnectedToWiFiWhenBrickedForThermalConditions;
 
 @end

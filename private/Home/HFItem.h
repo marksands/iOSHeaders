@@ -6,20 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class HFItemManager, NAFuture, NSDictionary, NSString;
+@class HFItemManager, NAFuture, NSDictionary;
 
 @interface HFItem : NSObject
 {
+    _Bool __debug_isChildItem;
     NSDictionary *_latestResults;
     unsigned long long _loadingState;
-    NSString *_itemStyle;
     NAFuture *_cancellableInFlightUpdateFuture;
     HFItemManager *__debug_owningItemManager;
 }
 
+@property(nonatomic) _Bool _debug_isChildItem; // @synthesize _debug_isChildItem=__debug_isChildItem;
 @property(nonatomic) __weak HFItemManager *_debug_owningItemManager; // @synthesize _debug_owningItemManager=__debug_owningItemManager;
 @property(nonatomic) __weak NAFuture *cancellableInFlightUpdateFuture; // @synthesize cancellableInFlightUpdateFuture=_cancellableInFlightUpdateFuture;
-@property(copy, nonatomic) NSString *itemStyle; // @synthesize itemStyle=_itemStyle;
 @property(nonatomic) unsigned long long loadingState; // @synthesize loadingState=_loadingState;
 @property(retain, nonatomic) NSDictionary *latestResults; // @synthesize latestResults=_latestResults;
 - (void).cxx_destruct;
@@ -31,7 +31,6 @@
 - (unsigned long long)_effectiveLoadingStateForSuggestedLoadingState:(unsigned long long)arg1;
 - (void)copyLatestResultsFromItem:(id)arg1;
 - (id)updateWithOptions:(id)arg1;
-- (id)init;
 
 @end
 

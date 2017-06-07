@@ -30,10 +30,14 @@
     NSArray *_tags;
     NSURL *_URL;
     NSString *_naturalLanguageEventTypeIdentifier;
+    unsigned long long _naturalLanguageEventAttributes;
+    NSArray *_schemaOrg;
 }
 
 + (id)eventWithRecordId:(id)arg1 origin:(id)arg2 uniqueKey:(id)arg3 opaqueKey:(id)arg4 title:(id)arg5 notes:(id)arg6 start:(id)arg7 startTimeZone:(id)arg8 end:(id)arg9 endTimeZone:(id)arg10 isAllDay:(_Bool)arg11 creationDate:(id)arg12 lastModifiedDate:(id)arg13 locations:(id)arg14 tags:(id)arg15 URL:(id)arg16;
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSArray *schemaOrg; // @synthesize schemaOrg=_schemaOrg;
+@property(readonly, nonatomic) unsigned long long naturalLanguageEventAttributes; // @synthesize naturalLanguageEventAttributes=_naturalLanguageEventAttributes;
 @property(readonly, nonatomic) NSString *naturalLanguageEventTypeIdentifier; // @synthesize naturalLanguageEventTypeIdentifier=_naturalLanguageEventTypeIdentifier;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(readonly, nonatomic) NSArray *tags; // @synthesize tags=_tags;
@@ -50,7 +54,7 @@
 @property(readonly, nonatomic) NSString *notes; // @synthesize notes=_notes;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
-- (id)naturalLanguageEventTypeIdentifierInTags:(id)arg1;
+- (id)_naturalLanguageEventTagsInTags:(id)arg1;
 @property(readonly, nonatomic, getter=isNaturalLanguageEvent) _Bool naturalLanguageEvent;
 - (id)geocodedEventWithStartDate:(id)arg1 startTimeZone:(id)arg2 endDate:(id)arg3 endTimeZone:(id)arg4 locations:(id)arg5;
 - (id)geocodeLocations;
@@ -72,11 +76,12 @@
 - (void)geocodeWithCallback:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isGeocodeCandidate) _Bool geocodeCandidate;
 - (id)dateForUTCDate:(id)arg1 withTimeZone:(id)arg2;
+- (double)duration;
 - (id)endDateComponents;
 - (id)startDateComponents;
 - (id)_componentsForDate:(id)arg1 timeZone:(id)arg2 isEnd:(_Bool)arg3 calendar:(id)arg4;
 - (id)initWithRecordId:(id)arg1 origin:(id)arg2 uniqueKey:(id)arg3 opaqueKey:(id)arg4 title:(id)arg5 notes:(id)arg6 start:(id)arg7 startTimeZone:(id)arg8 end:(id)arg9 endTimeZone:(id)arg10 isAllDay:(_Bool)arg11 creationDate:(id)arg12 lastModifiedDate:(id)arg13 locations:(id)arg14 tags:(id)arg15 URL:(id)arg16;
-- (id)initWithRecordId:(id)arg1 origin:(id)arg2 uniqueKey:(id)arg3 opaqueKey:(id)arg4 title:(id)arg5 notes:(id)arg6 start:(id)arg7 startTimeZone:(id)arg8 end:(id)arg9 endTimeZone:(id)arg10 isAllDay:(_Bool)arg11 creationDate:(id)arg12 lastModifiedDate:(id)arg13 locations:(id)arg14 tagStrings:(id)arg15 URL:(id)arg16 naturalLanguageEventIdentifier:(id)arg17;
+- (id)initWithRecordId:(id)arg1 origin:(id)arg2 uniqueKey:(id)arg3 opaqueKey:(id)arg4 title:(id)arg5 notes:(id)arg6 start:(id)arg7 startTimeZone:(id)arg8 end:(id)arg9 endTimeZone:(id)arg10 isAllDay:(_Bool)arg11 creationDate:(id)arg12 lastModifiedDate:(id)arg13 locations:(id)arg14 tagStrings:(id)arg15 URL:(id)arg16 naturalLanguageEventIdentifier:(id)arg17 naturalLanguageEventAttributes:(unsigned long long)arg18 schemaOrg:(id)arg19;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

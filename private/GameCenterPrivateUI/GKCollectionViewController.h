@@ -19,7 +19,6 @@
 {
     _Bool _skipLoadAfterViewDidLoad;
     _Bool _shouldSlideInContents;
-    _Bool _supportsMasterSelectionBehavior;
     _Bool _showSupplementaryViewsWhileLoading;
     _Bool _readyToDisplayData;
     _Bool _active;
@@ -60,7 +59,6 @@
 @property(retain, nonatomic) GKPlaceholderView *placeholderView; // @synthesize placeholderView=_placeholderView;
 @property(readonly, nonatomic) _Bool readyToDisplayData; // @synthesize readyToDisplayData=_readyToDisplayData;
 @property(nonatomic) _Bool showSupplementaryViewsWhileLoading; // @synthesize showSupplementaryViewsWhileLoading=_showSupplementaryViewsWhileLoading;
-@property(nonatomic) _Bool supportsMasterSelectionBehavior; // @synthesize supportsMasterSelectionBehavior=_supportsMasterSelectionBehavior;
 @property(retain, nonatomic) id <UICollectionViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) _Bool shouldSlideInContents; // @synthesize shouldSlideInContents=_shouldSlideInContents;
 - (void)clearSelectionHighlight;
@@ -142,7 +140,6 @@
 - (void)configureDataSource;
 - (void)updateDynamicColumnCountsForViewSize:(struct CGSize)arg1;
 - (void)updateMetrics;
-- (void)traitCollectionDidChange:(id)arg1;
 - (void)_systemContentSizeSettingDidChange:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)willAnimateRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
@@ -150,8 +147,6 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)showDetailForSelectedItem;
-- (id)preservedIndexPathForSelectedItem;
 - (id)nearestSelectableIndexPath:(id)arg1;
 - (void)updateSelectionHighlight;
 - (void)updateLayoutGuideOffsets;

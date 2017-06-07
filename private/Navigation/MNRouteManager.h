@@ -8,30 +8,33 @@
 
 #import <Navigation/MNLocationManagerObserver-Protocol.h>
 
-@class GEOComposedRoute, GEOComposedWaypoint, GEOETARoute, GEORoutePreloader, GEORouteSet, MNActiveRouteDetails, MNRoutePlanningDetails, NSString;
+@class GEOComposedRoute, GEOComposedWaypoint, GEOETARoute, GEORouteAttributes, GEORoutePreloader, GEORouteSet, MNActiveRouteDetails, MNActiveRouteInfo, MNRoutePlanningDetails, NSArray, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MNRouteManager : NSObject <MNLocationManagerObserver>
 {
+    GEORouteAttributes *_routeAttributes;
     GEORouteSet *_currentRouteSet;
-    GEOComposedRoute *_currentRoute;
-    GEOETARoute *_etaRoute;
+    MNActiveRouteInfo *_currentRouteInfo;
+    NSMutableArray *_alternateRoutes;
+    NSArray *_allRoutes;
     GEOComposedWaypoint *_originalDestination;
-    GEOComposedRoute *_originalRoute;
+    MNActiveRouteInfo *_originalRouteInfo;
     MNRoutePlanningDetails *_routePlanningDetails;
     MNActiveRouteDetails *_activeRouteDetails;
-    int _guidanceLevel;
     GEORoutePreloader *_preloader;
     NSString *_tileLoaderClientIdentifier;
+    GEOComposedRoute *_originalRoute;
 }
 
 @property(readonly, nonatomic) MNActiveRouteDetails *activeRouteDetails; // @synthesize activeRouteDetails=_activeRouteDetails;
 @property(readonly, nonatomic) MNRoutePlanningDetails *routePlanningDetails; // @synthesize routePlanningDetails=_routePlanningDetails;
 @property(readonly, nonatomic) GEOComposedRoute *originalRoute; // @synthesize originalRoute=_originalRoute;
 @property(readonly, nonatomic) GEOComposedWaypoint *originalDestination; // @synthesize originalDestination=_originalDestination;
-@property(readonly, nonatomic) GEOETARoute *etaRoute; // @synthesize etaRoute=_etaRoute;
-@property(readonly, nonatomic) GEOComposedRoute *currentRoute; // @synthesize currentRoute=_currentRoute;
+@property(readonly, nonatomic) NSArray *alternateRoutes; // @synthesize alternateRoutes=_alternateRoutes;
+@property(readonly, nonatomic) MNActiveRouteInfo *currentRouteInfo; // @synthesize currentRouteInfo=_currentRouteInfo;
 @property(readonly, nonatomic) GEORouteSet *currentRouteSet; // @synthesize currentRouteSet=_currentRouteSet;
+@property(readonly, nonatomic) GEORouteAttributes *routeAttributes; // @synthesize routeAttributes=_routeAttributes;
 - (void).cxx_destruct;
 - (void)locationManager:(id)arg1 didUpdateVehicleHeading:(double)arg2 timestamp:(id)arg3;
 - (void)locationManager:(id)arg1 didUpdateVehicleSpeed:(double)arg2 timestamp:(id)arg3;
@@ -41,18 +44,19 @@ __attribute__((visibility("hidden")))
 - (void)locationManagerDidReset:(id)arg1;
 - (void)locationManagerFailedToUpdateLocation:(id)arg1 withError:(id)arg2;
 - (void)locationManagerUpdatedLocation:(id)arg1;
-- (void)_updatePreloaderForCurrentGuidanceLevel;
 - (void)_updatePreloaderForNewRoute;
 - (void)_clearPreloader;
 - (void)clearCurrentRoute;
+- (void)updateWithAlternateRoutes:(id)arg1;
 - (void)updateForLocation:(id)arg1;
-- (void)updateForGuidanceLevel:(int)arg1;
-- (void)updateForETA:(id)arg1 forRoute:(id)arg2;
 - (void)updateForReroute:(id)arg1 rerouteReason:(unsigned long long)arg2 request:(id)arg3 response:(id)arg4;
 - (_Bool)updateForRoutePlanningDetails:(id)arg1 outError:(out id *)arg2;
 - (void)close;
 - (void)open;
 - (void)dealloc;
+@property(readonly, nonatomic) NSArray *allRoutes;
+@property(readonly, nonatomic) GEOETARoute *etaRoute;
+@property(readonly, nonatomic) GEOComposedRoute *currentRoute;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

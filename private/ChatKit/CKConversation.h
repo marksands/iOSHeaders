@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CKComposition, CKEntity, IMChat, IMService, NSArray, NSAttributedString, NSString;
+@class CKComposition, CKEntity, IMChat, IMService, NSArray, NSAttributedString, NSSet, NSString;
 
 @interface CKConversation : NSObject
 {
@@ -19,11 +19,14 @@
     } _conversationFlags;
     _Bool _needsReload;
     _Bool _isReportedAsSpam;
+    int _wasDetectedAsSMSSpam;
     NSArray *_pendingHandles;
+    NSSet *_pendingRecipients;
     NSAttributedString *_groupName;
     NSString *_previewText;
 }
 
++ (_Bool)pinnedConversationsEnabled;
 + (id)conversationForAddresses:(id)arg1 allowRetargeting:(_Bool)arg2 candidateConversation:(id)arg3;
 + (id)newPendingConversation;
 + (double)_iMessage_maxTrimDurationForMediaType:(int)arg1;
@@ -47,6 +50,7 @@
 @property(copy, nonatomic) NSString *previewText; // @synthesize previewText=_previewText;
 @property(retain, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(readonly, nonatomic) NSAttributedString *groupName; // @synthesize groupName=_groupName;
+@property(retain, nonatomic) NSSet *pendingRecipients; // @synthesize pendingRecipients=_pendingRecipients;
 @property(readonly, nonatomic) _Bool needsReload; // @synthesize needsReload=_needsReload;
 @property(nonatomic) unsigned int limitToLoad; // @synthesize limitToLoad=_limitToLoad;
 @property(retain, nonatomic) IMChat *chat; // @synthesize chat=_chat;
@@ -60,12 +64,14 @@
 @property(readonly, nonatomic) NSString *serviceDisplayName;
 - (BOOL)outgoingBubbleColor;
 @property(readonly, nonatomic) BOOL buttonColor;
+@property(nonatomic, getter=isPinned) _Bool pinned;
 @property(readonly, nonatomic) _Bool isPreviewTextForAttachment;
 @property(nonatomic) NSString *displayName;
 @property(readonly, nonatomic) _Bool hasDisplayName;
 @property(readonly, nonatomic) NSString *name; // @dynamic name;
 @property(readonly, nonatomic) unsigned long long disclosureAtomStyle; // @dynamic disclosureAtomStyle;
 @property(readonly, nonatomic) _Bool shouldShowCharacterCount;
+- (id)senderIdentifier;
 - (void)_clearTypingIndicatorsIfNecessary;
 - (void)updateUserActivity;
 @property(nonatomic) _Bool localUserIsRecording;
@@ -91,14 +97,19 @@
 - (_Bool)isPlaceholder;
 - (void)markAllMessagesAsRead;
 - (void)enumerateMessagesWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (_Bool)hasLoadedFromSpotlight;
+- (void)clearConversationLoadFromSpotlight;
 - (id)ensureMessageWithGUIDIsLoaded:(id)arg1;
 - (void)setLoadedMessageCount:(unsigned long long)arg1;
 - (void)setLoadedMessageCount:(unsigned long long)arg1 loadImmediately:(_Bool)arg2;
 - (void)loadMoreMessages;
 - (void)loadFrequentReplies;
 @property(readonly, nonatomic) NSArray *frequentReplies;
+- (void)loadMoreMessagesAfterLastMessage;
+- (void)loadMoreMessagesBeforeFirstMessage;
 - (void)loadAllUnreadMessagesUpToMessageGUID:(id)arg1;
 - (void)loadAllMessages;
+- (_Bool)_earlyReturnHistoryLoad;
 - (void)deleteAllMessagesAndRemoveGroup;
 - (void)deleteAllMessages;
 - (void)_deleteAllMessagesAndRemoveGroup:(_Bool)arg1;
@@ -106,6 +117,7 @@
 @property(readonly, nonatomic) _Bool isToEmailAddress;
 @property(readonly, nonatomic) unsigned long long recipientCount;
 - (id)uniqueIdentifier;
+@property(readonly, nonatomic) int wasDetectedAsSMSSpam; // @synthesize wasDetectedAsSMSSpam=_wasDetectedAsSMSSpam;
 @property(readonly, nonatomic) NSString *deviceIndependentID;
 @property(readonly, nonatomic) NSString *groupID; // @dynamic groupID;
 - (_Bool)noAvailableServices;
@@ -123,6 +135,11 @@
 @property(readonly, nonatomic, getter=shouldSendReadReceipts) _Bool sendReadReceipts;
 - (void)setMutedUntilDate:(id)arg1;
 - (void)unmute;
+- (_Bool)hasReplyEnabled;
+- (_Bool)hasVerifiedBusiness;
+- (_Bool)isMakoConversation;
+- (_Bool)isAppleConversation;
+- (_Bool)isBusinessConversation;
 @property(readonly, nonatomic, getter=isMuted) _Bool muted;
 - (_Bool)canInsertMoreRecipients;
 - (long long)maximumRecipientsForSendingService;
@@ -135,6 +152,7 @@
 @property(nonatomic, getter=isIgnoringTypingUpdates) _Bool ignoringTypingUpdates; // @dynamic ignoringTypingUpdates;
 - (_Bool)isDowngraded;
 @property(retain, nonatomic) CKComposition *unsentComposition; // @dynamic unsentComposition;
+- (void)_handleEngroupFinishedUpdating:(id)arg1;
 - (void)_handleChatJoinStateDidChange:(id)arg1;
 - (void)_handleChatParticipantsDidChange:(id)arg1;
 - (void)acceptTransfer:(id)arg1;
@@ -156,6 +174,7 @@
 - (_Bool)_sms_canSendToRecipients:(id)arg1 alertIfUnable:(_Bool)arg2;
 - (_Bool)_sms_supportsCharacterCountForAddresses:(id)arg1;
 - (_Bool)_sms_willSendMMSByDefaultForAddresses:(id)arg1;
+- (_Bool)supportsSurf;
 
 @end
 

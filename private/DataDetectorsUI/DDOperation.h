@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSArray *results; // @synthesize results=_results;
 @property _Bool needContinuation; // @synthesize needContinuation=_needContinuation;
 @property(retain, nonatomic) id container; // @synthesize container=_container;
+- (void).cxx_destruct;
 - (void)dispatchScanQueryCreationWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)newOperationForContinuation;
 - (id)newOperationForStartingOver;

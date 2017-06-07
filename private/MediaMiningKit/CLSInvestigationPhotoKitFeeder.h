@@ -15,31 +15,30 @@
     PHFetchOptions *_fetchOptions;
     PHFetchResult *_fetchResult;
     NSArray *_allItems;
-    _Bool _prefetchPersons;
-    _Bool _prefetchPersonCount;
-    _Bool _prefetchScenes;
-    _Bool _prefetchMediaAnalyses;
+    unsigned long long _prefetchOptions;
     PHAssetCollection *_assetCollection;
 }
 
-+ (id)feederForAssetCollection:(id)arg1 options:(id)arg2 prefetchPersons:(_Bool)arg3 personCountPrefetchOption:(unsigned long long)arg4 scenesPrefetchOption:(unsigned long long)arg5 mediaAnalysesPrefetchOption:(unsigned long long)arg6;
++ (id)feederForAssetCollection:(id)arg1 options:(id)arg2 feederPrefetchOptions:(id)arg3;
 @property(readonly, nonatomic) PHAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
 - (void).cxx_destruct;
 - (id)itemMetadataAtIndex:(unsigned long long)arg1 withKeys:(id)arg2;
 - (struct CGImage *)itemThumbnailAtIndex:(unsigned long long)arg1 withResolution:(unsigned long long)arg2;
+- (void)enumerateItemsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateItemsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)itemAtIndex:(unsigned long long)arg1;
 - (id)allItems;
 - (id)approximateLocation;
 - (id)endDateComponents;
 - (id)startDateComponents;
+@property(readonly, nonatomic) unsigned long long numberOfAllPeople;
 @property(readonly, nonatomic) NSDate *universalEndDate;
 @property(readonly, nonatomic) NSDate *universalStartDate;
 @property(readonly, nonatomic) _Bool hasFavoritedAssets;
 @property(readonly, nonatomic) _Bool hasPeople;
 - (unsigned long long)numberOfItems;
 - (_Bool)_shouldPrefetchCurationInformation;
-- (id)init;
+- (id)initWithFeederForAssetCollection:(id)arg1 options:(id)arg2 feederPrefetchOptions:(id)arg3;
 - (void)snapshotAllToURL:(id)arg1 scoreForInputCollection:(double)arg2 curatedCollection:(id)arg3 collectionScore:(double)arg4 curatedAsset:(id)arg5 assetScore:(double)arg6 completionBlock:(CDUnknownBlockType)arg7;
 - (id)imageFileNameFor:(id)arg1 baseName:(id)arg2;
 - (id)writeImageToTemporaryURL:(struct CGImage *)arg1 imageFileName:(id)arg2;

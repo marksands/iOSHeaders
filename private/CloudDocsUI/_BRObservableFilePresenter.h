@@ -8,7 +8,7 @@
 
 #import <CloudDocsUI/NSFilePresenter-Protocol.h>
 
-@class BRObservableFile, NSOperationQueue, NSString, NSURL;
+@class BRObservableFile, NSOperationQueue, NSSet, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface _BRObservableFilePresenter : NSObject <NSFilePresenter>
@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

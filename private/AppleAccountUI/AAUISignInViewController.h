@@ -31,6 +31,7 @@
     id <AAUISignInViewControllerDelegate> _delegate;
 }
 
++ (void)phoneNumberSupportedWithCompletion:(CDUnknownBlockType)arg1;
 @property(nonatomic) _Bool showServiceIcons; // @synthesize showServiceIcons=_showServiceIcons;
 @property(nonatomic) _Bool allowsAccountCreation; // @synthesize allowsAccountCreation=_allowsAccountCreation;
 @property(nonatomic) __weak id <AAUISignInViewControllerDelegate> delegate; // @synthesize delegate=_delegate;

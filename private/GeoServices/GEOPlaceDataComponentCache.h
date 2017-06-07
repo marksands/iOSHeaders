@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOPlaceDataDBReader, GEOPlaceDataDBWriter;
 @protocol OS_dispatch_queue;
@@ -18,6 +18,7 @@
 }
 
 @property(readonly, nonatomic) int resultProviderID; // @synthesize resultProviderID=_resultProviderID;
+- (void).cxx_destruct;
 - (void)evictAllEntries;
 - (void)shrinkBySize:(unsigned long long)arg1 callback:(CDUnknownBlockType)arg2 onQueue:(id)arg3;
 - (void)calculateFreeableSpaceWithHandler:(CDUnknownBlockType)arg1 onQueue:(id)arg2;
@@ -26,7 +27,6 @@
 - (void)rememberComponent:(id)arg1 forKey:(union _GEOPlaceDataComponentKey)arg2;
 - (id)componentForKey:(union _GEOPlaceDataComponentKey)arg1;
 - (void)flushPendingWritesSynchronously;
-- (void)dealloc;
 - (id)initWithPath:(id)arg1 resultProviderID:(int)arg2;
 - (id)init;
 - (id)allCacheEntries;

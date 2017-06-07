@@ -6,14 +6,14 @@
 
 #import <objc/NSObject.h>
 
-#import <TVMLKit/IKAppContextDelegate-Protocol.h>
+#import <TVMLKit/IKAppContextInspectorDelegate-Protocol.h>
 #import <TVMLKit/IKAppDeviceConfig-Protocol.h>
 #import <TVMLKit/_TVAppNavigationControllerDelegate-Protocol.h>
 
-@class IKAppContext, IKAppDataStorage, IKAppTabBar, NSDate, NSDictionary, NSString, NSXPCListener, TVApplicationControllerContext, UINavigationController, UIViewController, UIWindow, _TVAppNavigationController, _TVMLKitApplication, _TVRootMenuBarController;
+@class IKAppContext, IKAppDataStorage, IKAppTabBar, NSDate, NSDictionary, NSString, NSXPCListener, TVApplicationControllerContext, UINavigationController, UIView, UIViewController, UIWindow, _TVAppNavigationController, _TVInspectorHighlightView, _TVMLKitApplication, _TVRootMenuBarController;
 @protocol TVApplicationControllerDelegate;
 
-@interface TVApplicationController : NSObject <IKAppContextDelegate, IKAppDeviceConfig, _TVAppNavigationControllerDelegate>
+@interface TVApplicationController : NSObject <IKAppContextInspectorDelegate, IKAppDeviceConfig, _TVAppNavigationControllerDelegate>
 {
     IKAppContext *_appContext;
     _TVMLKitApplication *_application;
@@ -33,13 +33,16 @@
     long long _interfaceOrientation;
     _TVRootMenuBarController *_menuBarController;
     IKAppTabBar *_tabBar;
+    _TVInspectorHighlightView *_inspectorView;
     UIWindow *_window;
     TVApplicationControllerContext *_context;
     id <TVApplicationControllerDelegate> _delegate;
+    UIView *_viewServiceKeyView;
 }
 
 + (id)_jsLaunchOptionsWithApplicationOptions:(id)arg1;
 + (void)initialize;
+@property(nonatomic) __weak UIView *viewServiceKeyView; // @synthesize viewServiceKeyView=_viewServiceKeyView;
 @property(readonly, nonatomic) __weak id <TVApplicationControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) TVApplicationControllerContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) UIWindow *window; // @synthesize window=_window;
@@ -52,6 +55,8 @@
 - (void)_openURLControllerDidDisplay:(id)arg1;
 - (void)_openURLOnAppLaunchControllerDidDisplay:(id)arg1;
 @property(readonly, nonatomic) UINavigationController *_currentNavigationController;
+- (void)applicationWillSuspend:(id)arg1;
+- (void)applicationDidResume:(id)arg1;
 @property(readonly, nonatomic) UIViewController *rootViewController;
 @property(readonly, nonatomic) UINavigationController *navigationController;
 - (_Bool)appNavigationController:(id)arg1 shouldDismissShroudForDocument:(id)arg2;
@@ -75,6 +80,8 @@
 - (id)tabBarForContext:(id)arg1;
 - (id)navigationControllerForContext:(id)arg1;
 - (id)deviceConfigForContext:(id)arg1;
+- (_Bool)cancelHighlightViewForAppContext:(id)arg1;
+- (_Bool)appContext:(id)arg1 highlightViewForElement:(id)arg2 contentColor:(id)arg3 paddingColor:(id)arg4 borderColor:(id)arg5 marginColor:(id)arg6;
 - (void)_statusBarOrientationDidChange:(id)arg1;
 - (void)_applicationWillTerminateNotification:(id)arg1;
 - (void)_applicationWillResignActiveNotification:(id)arg1;

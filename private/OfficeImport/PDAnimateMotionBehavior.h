@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     int mPathEditMode;
 }
 
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)setPathEditMode:(int)arg1;
 - (int)pathEditMode;

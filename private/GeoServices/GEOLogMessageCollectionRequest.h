@@ -17,6 +17,7 @@
 
 + (Class)logMessageType;
 @property(retain, nonatomic) NSMutableArray *logMessages; // @synthesize logMessages=_logMessages;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 - (unsigned long long)logMessagesCount;
 - (void)addLogMessage:(id)arg1;
 - (void)clearLogMessages;
-- (void)dealloc;
 
 @end
 

@@ -16,6 +16,7 @@
 }
 
 + (id)imagePatchListWithSingleImage:(struct CGImage *)arg1;
+- (void).cxx_destruct;
 - (id)description;
 - (struct CGSize)size;
 - (long long)count;

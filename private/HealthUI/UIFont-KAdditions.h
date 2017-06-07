@@ -7,12 +7,15 @@
 #import <UIKit/UIFont.h>
 
 @interface UIFont (KAdditions)
++ (id)hk_roundedSystemFontWithSize:(double)arg1 weight:(double)arg2;
 + (id)hk_unitLabelFontScaledBy:(double)arg1;
 + (id)hk_titleLabelFontScaledBy:(double)arg1;
 + (id)hk_defaultFontWithUIFontTextStyle:(id)arg1 symbolicTraits:(unsigned int)arg2 attributes:(id)arg3;
 + (double)hk_fittingScaleFactorForUILabels:(id)arg1 constrainingWidth:(double)arg2;
 + (id)hk_preferredFontIgnoringAccessibilitySizeForTextStyle:(id)arg1 symbolicTraits:(unsigned int)arg2;
 + (id)hk_preferredFontIgnoringAccessibilitySizeForTextStyle:(id)arg1;
++ (id)hk_preferredFontForTextStyle:(id)arg1 symbolicTraits:(unsigned int)arg2;
++ (id)hk_preferredFontForTextStyle:(id)arg1;
 + (id)hk_staticPreferredFontForTextStyle:(id)arg1 symbolicTraits:(unsigned int)arg2;
 + (id)hk_staticPreferredFontForTextStyle:(id)arg1;
 @end

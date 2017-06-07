@@ -17,8 +17,8 @@
 + (id)copyParseRules;
 @property(retain, nonatomic) CoreDAVLeafItem *descriptionItem; // @synthesize descriptionItem=_descriptionItem;
 @property(retain, nonatomic) CoreDAVItem *prop; // @synthesize prop=_prop;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

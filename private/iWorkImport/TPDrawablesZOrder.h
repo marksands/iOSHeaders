@@ -28,9 +28,10 @@ __attribute__((visibility("hidden")))
 - (id)drawableAtZOrder:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long drawableCount;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
+- (id)drawableEnumerator;
 
 @end
 

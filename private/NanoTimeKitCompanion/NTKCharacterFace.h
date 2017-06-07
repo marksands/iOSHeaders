@@ -14,11 +14,7 @@
 }
 
 + (id)_localizedNameOverrideForCustomEditMode:(long long)arg1;
-+ (long long)_customEditModeForUniqueConfiguration;
-+ (id)_defaultOptionForCustomEditMode:(long long)arg1 slot:(id)arg2;
-+ (id)_customEditModes;
 + (id)_defaultSelectedComplicationSlot;
-+ (id)_complicationSlotDescriptors;
 - (void).cxx_destruct;
 - (unsigned long long)_selectedCharacter;
 - (Class)_optionClassForCustomEditMode:(long long)arg1;
@@ -26,8 +22,12 @@
 - (id)_optionAtIndex:(unsigned long long)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (unsigned long long)_numberOfOptionsForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (id)_defaultName;
+- (long long)_customEditModeForUniqueConfiguration;
+- (id)_defaultOptionForCustomEditMode:(long long)arg1 slot:(id)arg2;
 - (void)_noteOptionChangedFrom:(id)arg1 to:(id)arg2 forCustomEditMode:(long long)arg3 slot:(id)arg4;
+- (id)_customEditModes;
 - (id)_orderedComplicationSlots;
+- (id)_complicationSlotDescriptors;
 - (long long)_editModeForOldEncodingIndex:(long long)arg1;
 - (id)_faceDescriptionKey;
 

@@ -8,17 +8,17 @@
 
 #import <AXHearingSupport/AXIDCManagerSecurityDelegate-Protocol.h>
 
-@class AXHAAccessQueue, NSArray, NSString;
+@class NSArray, NSString;
+@protocol OS_dispatch_queue;
 
 @interface AXHASecurityHelper : NSObject <AXIDCManagerSecurityDelegate>
 {
     struct __SecIdentity *_appleIDIdentity;
+    NSObject<OS_dispatch_queue> *_securityQueue;
     NSArray *_certificateDescription;
-    AXHAAccessQueue *_securityQueue;
 }
 
 + (id)sharedHelper;
-@property(retain, nonatomic) AXHAAccessQueue *securityQueue; // @synthesize securityQueue=_securityQueue;
 @property(retain, nonatomic) NSArray *certificateDescription; // @synthesize certificateDescription=_certificateDescription;
 - (void).cxx_destruct;
 - (_Bool)shouldTrustStream:(id)arg1;

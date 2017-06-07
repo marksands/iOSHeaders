@@ -18,6 +18,7 @@
 - (_Bool)widgetComposition:(PXWidgetComposition *)arg1 widget:(id <PXWidget>)arg2 transitionToViewController:(struct NSObject *)arg3 withTransitionType:(long long)arg4;
 - (long long)widgetComposition:(PXWidgetComposition *)arg1 loadingPriorityForWidget:(id <PXWidget>)arg2;
 - (_Bool)widgetComposition:(PXWidgetComposition *)arg1 shouldUseEdgeToEdgeLayoutForWidget:(id <PXWidget>)arg2;
+- (_Bool)widgetCompositionHasContentAbove:(PXWidgetComposition *)arg1;
 - (_Bool)widgetComposition:(PXWidgetComposition *)arg1 requestViewControllerDismissalAnimated:(_Bool)arg2;
 @end
 

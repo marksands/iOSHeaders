@@ -20,7 +20,6 @@
     CDStruct_e99c65f7 _has;
 }
 
-+ (id)__test_mtaSystem;
 @property(retain, nonatomic) MSPTransitStorageArtwork *artwork; // @synthesize artwork=_artwork;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;

@@ -11,15 +11,15 @@
 __attribute__((visibility("hidden")))
 @interface CKDAcceptSharesOperation : CKDOperation
 {
-    int _numShareAcceptAttempts;
     CDUnknownBlockType _acceptCompletionBlock;
     NSMutableDictionary *_clientProvidedMetadatasByURL;
     NSMutableArray *_shareURLsToAccept;
     NSMutableArray *_acceptedShareURLsToFetch;
     NSMutableDictionary *_shareMetadatasToAcceptByURL;
+    unsigned long long _numShareAcceptAttempts;
 }
 
-@property(nonatomic) int numShareAcceptAttempts; // @synthesize numShareAcceptAttempts=_numShareAcceptAttempts;
+@property(nonatomic) unsigned long long numShareAcceptAttempts; // @synthesize numShareAcceptAttempts=_numShareAcceptAttempts;
 @property(retain, nonatomic) NSMutableDictionary *shareMetadatasToAcceptByURL; // @synthesize shareMetadatasToAcceptByURL=_shareMetadatasToAcceptByURL;
 @property(retain, nonatomic) NSMutableArray *acceptedShareURLsToFetch; // @synthesize acceptedShareURLsToFetch=_acceptedShareURLsToFetch;
 @property(retain, nonatomic) NSMutableArray *shareURLsToAccept; // @synthesize shareURLsToAccept=_shareURLsToAccept;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
@@ -20,11 +20,11 @@
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
-@property(readonly, retain, nonatomic) NSData *handle; // @synthesize handle=_handle;
+@property(readonly, nonatomic) NSData *handle; // @synthesize handle=_handle;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 @property(retain, nonatomic) NSDate *arrivalDate; // @synthesize arrivalDate=_arrivalDate;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithCoordinate:(CDStruct_c3b9c2ee)arg1;

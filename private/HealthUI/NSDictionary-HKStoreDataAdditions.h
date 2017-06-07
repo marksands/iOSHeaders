@@ -17,9 +17,10 @@
 - (id)_hk_artwork;
 - (id)_hk_circularArtwork;
 @property(readonly, nonatomic) NSString *hk_priceFormatted;
-- (id)_defaultOffer;
+- (id)_hk_defaultOffer;
 @property(readonly, nonatomic) NSNumber *hk_storeID;
 @property(readonly, nonatomic) NSString *hk_bundleId;
 @property(readonly, nonatomic) NSString *hk_title;
+- (id)_hk_lookupItem;
 @end
 

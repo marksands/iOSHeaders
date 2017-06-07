@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
 - (id)initFromArchive:(const struct FilterRuleArchive *)arg1;
 - (void)encodeToArchive:(struct FilterRuleArchive *)arg1 archiver:(id)arg2;
 - (_Bool)matchesCell:(id)arg1;
-- (unsigned char)columnIndexForFilterRuleInTableModel:(id)arg1;
-- (_Bool)matchesRow:(unsigned short)arg1 withFormulaTableID:(struct __CFUUID *)arg2 withCalculationEngine:(id)arg3;
+- (unsigned char)columnIndexForFilterRuleInTableInfo:(id)arg1;
+- (_Bool)matchesRow:(unsigned short)arg1 withFormulaTableUID:(const UUIDData_5fbc143e *)arg2 withCalculationEngine:(id)arg3;
 - (_Bool)needsFormulaRewriteForImport;
 - (void)setDoesNotNeedFormulaRewriteForImport;
 - (_Bool)needsThreshold;
@@ -33,8 +33,8 @@ __attribute__((visibility("hidden")))
 - (id)predicate;
 - (id)description;
 - (void)dealloc;
-- (id)copyByRewritingToGeometricFormWithTableModel:(id)arg1 containsBadRef:(_Bool *)arg2;
-- (id)copyByRewritingToUidFormWithTableModel:(id)arg1;
+- (id)copyByRewritingToGeometricFormWithTableInfo:(id)arg1 containsBadRef:(_Bool *)arg2;
+- (id)copyByRewritingToUidFormWithTableInfo:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initRuleWhereValuesInTable:(id)arg1 inColumn:(unsigned char)arg2 matchCell:(id)arg3;
 - (id)initWithFormulaPredicate:(id)arg1;

@@ -109,6 +109,9 @@
 + (id)printerWithName:(id)arg1 discoveryTimeout:(double)arg2;
 + (id)printerWithName:(id)arg1;
 + (void)listenForPrinterNotifications;
++ (_Bool)uriMatchesMCProfileAdded:(id)arg1;
++ (_Bool)mcProfilePrintersOnlyAllowed;
++ (_Bool)ippsIsRequired;
 + (id)requiredPDL;
 + (_Bool)urfIsOptional;
 + (struct _ipp_s *)getAttributes:(const char **)arg1 count:(int)arg2 fromURI:(id)arg3;
@@ -121,7 +124,6 @@
 @property(retain) NSUUID *btleUUID; // @synthesize btleUUID;
 @property(readonly) long long type; // @synthesize type;
 @property(readonly) _Bool hasIdentifyPrinterOp; // @synthesize hasIdentifyPrinterOp;
-@property _Bool isFromMCProfile; // @synthesize isFromMCProfile;
 @property _Bool isLocal; // @synthesize isLocal;
 @property(readonly) long long accessState; // @synthesize accessState;
 @property(readonly) long long kind; // @synthesize kind;
@@ -153,6 +155,7 @@
 - (_Bool)isPaperReady:(id)arg1;
 @property(readonly) NSArray *localizedNamesOfEmptyTrays; // @dynamic localizedNamesOfEmptyTrays;
 @property(readonly) NSString *uuid; // @dynamic uuid;
+@property _Bool isFromMCProfile; // @synthesize isFromMCProfile;
 @property(readonly) _Bool isIPPS; // @dynamic isIPPS;
 @property(readonly) _Bool isAdobeRGBSupported; // @dynamic isAdobeRGBSupported;
 - (void)getSupplyLevels:(CDUnknownBlockType)arg1;
@@ -180,6 +183,7 @@
 - (void)addRSSIValue:(id)arg1;
 - (void)setPrivateObject:(id)arg1 forKey:(id)arg2;
 - (id)privateObjectForKey:(id)arg1;
+- (struct http_addrlist_s *)lookup;
 - (id)localName;
 - (long long)finalizeJob:(int)arg1;
 - (struct _ipp_s *)createRequest:(id)arg1 ofType:(id)arg2 url:(id)arg3;

@@ -15,6 +15,7 @@
     NSMutableArray *_variants;
 }
 
++ (Class)variantType;
 @property(retain, nonatomic) NSMutableArray *variants; // @synthesize variants=_variants;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;

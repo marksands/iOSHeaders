@@ -21,8 +21,8 @@
 @property(retain, nonatomic) UIView *reusableView; // @synthesize reusableView=_reusableView;
 @property(nonatomic) struct CGRect sceneRelativeFrame; // @synthesize sceneRelativeFrame=_sceneRelativeFrame;
 @property(nonatomic) _Bool hasFocus; // @synthesize hasFocus=_hasFocus;
-@property(nonatomic) id element; // @synthesize element=_element;
-- (void)dealloc;
+@property(nonatomic) __weak id element; // @synthesize element=_element;
+- (void).cxx_destruct;
 - (id)description;
 
 @end

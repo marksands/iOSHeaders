@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool _fixLowSpeedCourseSwing;
 }
 
+- (void).cxx_destruct;
 - (void)_finishRouteMatch:(id)arg1 previousRouteMatch:(id)arg2 forLocation:(id)arg3;
 - (id)_startStepForPreviousRouteMatch:(id)arg1;
 - (void)_snapRouteMatchToRoad:(id)arg1;

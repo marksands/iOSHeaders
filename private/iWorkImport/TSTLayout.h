@@ -11,7 +11,7 @@
 #import <iWorkImport/TSWPLayoutParent-Protocol.h>
 #import <iWorkImport/TSWPStorageObserver-Protocol.h>
 
-@class NSMutableDictionary, NSString, TSTLayoutHint, TSTLayoutSpaceBundle, TSTMasterLayout, TSTTableInfo, TSTTableModel, TSWPLayout, TSWPPadding;
+@class NSMutableDictionary, NSString, TSTInfo, TSTLayoutHint, TSTLayoutSpaceBundle, TSTMasterLayout, TSTTableModel, TSWPLayout, TSWPPadding;
 
 __attribute__((visibility("hidden")))
 @interface TSTLayout : TSWPTextHostLayout <TSKSearchTarget, TSWPColumnMetrics, TSWPLayoutParent, TSWPStorageObserver>
@@ -51,6 +51,8 @@ __attribute__((visibility("hidden")))
     struct CGSize mSpillingTextSize;
     int mCoordinatesChangedMaskForChrome;
     _Bool mShouldUpdateAttachmentChildren;
+    unsigned long long mPageCount;
+    unsigned long long mPageNumber;
 }
 
 @property(nonatomic) _Bool processChangesFiltering; // @synthesize processChangesFiltering=mProcessChangesFiltering;
@@ -66,9 +68,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool newCanvasRevealedHorizontally; // @synthesize newCanvasRevealedHorizontally=mNewCanvasRevealedHorizontally;
 @property(readonly, nonatomic) unsigned long long pageCount;
 @property(readonly, nonatomic) unsigned long long pageNumber;
+- (void)validatePageNumberCount;
 - (_Bool)p_getLayoutDirectionLeftToRight;
 - (int)p_defaultAlignmentForTableWritingDirection;
 - (int)reapCoordinatesChangedMaskForChrome;
+- (void)transferLayoutGeometryToInfo:(id)arg1;
 - (struct CGSize)initialTextSize;
 - (struct CGRect)p_maskRectForRichTextLayout:(id)arg1;
 - (struct CGRect)p_maskRectForTextEditingLayout:(id)arg1;
@@ -94,7 +98,7 @@ __attribute__((visibility("hidden")))
 - (int)naturalAlignmentForCellID:(struct TSUCellCoord)arg1;
 @property(readonly, nonatomic) struct CGRect computedEditingCellContentFrame;
 - (struct CGRect)p_textFrameForWrappingCell:(struct TSUCellCoord)arg1 defaultRowHeight:(_Bool *)arg2;
-- (struct CGRect)adjustRect:(struct CGRect)arg1 forScrollingToSelectionPath:(id)arg2;
+- (struct CGRect)adjustRect:(struct CGRect)arg1 forScrollingToSelectionPath:(id)arg2 forZoom:(_Bool)arg3;
 - (_Bool)textIsVertical;
 @property(readonly, nonatomic) _Bool shrinkTextToFit;
 @property(readonly, nonatomic) _Bool alwaysStartsNewTarget;
@@ -132,6 +136,10 @@ __attribute__((visibility("hidden")))
 - (void)invalidatePosition;
 - (void)invalidateSize;
 - (void)invalidate;
+- (void)invalidateLayoutSpaceCoordinatesAfterRow:(unsigned short)arg1;
+- (void)invalidateLayoutSpaceCoordinatesAfterColumn:(unsigned char)arg1;
+- (void)invalidateLayoutSpaceCoordinates;
+- (void)invalidateLayoutSpaceTableOffsets;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)setNeedsDisplay;
 - (void)validate;
@@ -156,16 +164,11 @@ __attribute__((visibility("hidden")))
 - (id)initWithInfo:(id)arg1;
 - (id)initWithInfo:(id)arg1 layoutHint:(id)arg2;
 @property(readonly, nonatomic) TSTTableModel *tableModel;
-@property(readonly, nonatomic) TSTTableInfo *tableInfo;
+@property(readonly, nonatomic) TSTInfo *tableInfo;
 @property(nonatomic) struct CGSize scaleToFit;
-- (void)iterateCellsInRange:(struct TSUCellRect)arg1 withFlags:(unsigned long long)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (void)iterateCellsInRange:(struct TSUCellRect)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (void)iterateCellsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)iterateCellsInRange:(struct TSUCellRect)arg1 flags:(unsigned long long)arg2 searchFlags:(unsigned long long)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)iterateCellsAndTerminateWithIterator:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (id)cellIteratorWithRange:(struct TSUCellRect)arg1 flags:(unsigned long long)arg2;
-- (id)cellIteratorWithRange:(struct TSUCellRect)arg1;
-- (id)cellIterator;
-- (id)textWrapper;
+- (id)cellIteratorWithRange:(struct TSUCellRect)arg1 flags:(unsigned long long)arg2 searchFlags:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

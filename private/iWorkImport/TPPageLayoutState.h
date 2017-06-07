@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) void *bodyLayoutState; // @synthesize bodyLayoutState=_bodyLayoutState;
 @property(readonly, nonatomic) unsigned long long documentPageIndex; // @synthesize documentPageIndex=_documentPageIndex;
 @property(readonly, nonatomic) TPPageIndexPath *pageIndexPath; // @synthesize pageIndexPath=_pageIndexPath;
+- (void).cxx_destruct;
 - (void)setDocumentPageIndex:(unsigned long long)arg1;
 - (void)setPageIndex:(unsigned long long)arg1;
 - (void)setSectionIndex:(unsigned long long)arg1;
@@ -44,12 +45,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isLayoutComplete;
 @property(readonly, nonatomic) _Bool onLastSection;
 @property(readonly, nonatomic) struct _NSRange sectionCharRange;
-@property(readonly, nonatomic) TPSection *section;
+@property(readonly, nonatomic) __weak TPSection *section;
 @property(readonly, nonatomic) unsigned long long lastLaidOutDocumentPageIndex;
 @property(readonly, nonatomic) unsigned long long pageIndex;
 @property(readonly, nonatomic) unsigned long long sectionIndex;
-- (void)dealloc;
-- (id)init;
 - (id)initWithBodyStorage:(id)arg1;
 
 @end

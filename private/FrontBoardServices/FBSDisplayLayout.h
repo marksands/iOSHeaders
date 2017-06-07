@@ -9,13 +9,13 @@
 #import <FrontBoardServices/BSDescriptionProviding-Protocol.h>
 #import <FrontBoardServices/BSXPCCoding-Protocol.h>
 
-@class FBSDisplay, NSArray, NSDate, NSMutableArray, NSString;
+@class FBSDisplayConfiguration, NSArray, NSDate, NSMutableArray, NSString;
 
 @interface FBSDisplayLayout : NSObject <BSXPCCoding, BSDescriptionProviding>
 {
     NSMutableArray *_elements;
-    FBSDisplay *_display;
-    unsigned long long _displayType;
+    FBSDisplayConfiguration *_displayConfiguration;
+    long long _displayType;
     long long _backlightLevel;
     long long _interfaceOrientation;
     struct CGRect _bounds;
@@ -29,8 +29,9 @@
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(nonatomic) long long displayBacklightLevel; // @synthesize displayBacklightLevel=_backlightLevel;
-@property(nonatomic) unsigned long long displayType; // @synthesize displayType=_displayType;
-@property(retain, nonatomic) FBSDisplay *display; // @synthesize display=_display;
+@property(nonatomic) long long displayType; // @synthesize displayType=_displayType;
+@property(retain, nonatomic) FBSDisplayConfiguration *displayConfiguration; // @synthesize displayConfiguration=_displayConfiguration;
+- (id)display;
 - (void)encodeWithXPCDictionary:(id)arg1;
 - (id)initWithXPCDictionary:(id)arg1;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;

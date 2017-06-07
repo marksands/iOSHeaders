@@ -23,6 +23,7 @@
     NSMutableArray *__enqueuedAssetsWaitingForLocation;
 }
 
++ (id)locationMetadataForLocation:(id)arg1 heading:(id)arg2 device:(long long)arg3;
 + (id)_sharedGPSDatestampFormatter;
 + (id)_sharedGPSTimestampFormatter;
 @property(readonly, nonatomic) NSMutableArray *_enqueuedAssetsWaitingForLocation; // @synthesize _enqueuedAssetsWaitingForLocation=__enqueuedAssetsWaitingForLocation;
@@ -36,7 +37,7 @@
 - (void).cxx_destruct;
 - (void)enqueueAssetForLocationUpdates:(id)arg1;
 - (void)_updateAssetsWaitingOnLocation;
-- (id)locationMetadataForLocation:(id)arg1 captureOrientation:(long long)arg2 device:(long long)arg3;
+- (id)headingForOrientation:(long long)arg1;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)locationManager:(id)arg1 didUpdateHeading:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;

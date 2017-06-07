@@ -10,12 +10,13 @@
 #import <ClassroomKit/CRKClassSessionBeaconBrowserDelegate-Protocol.h>
 #import <ClassroomKit/CRKSessionDelegate-Protocol.h>
 
-@class CATNetworkReachability, CRKClassSessionBeaconBrowser, NSMutableDictionary, NSSet, NSString;
+@class CATNetworkReachability, CRKClassSessionBeaconBrowser, NSMutableArray, NSMutableDictionary, NSSet, NSString;
 @protocol CRKClassSessionBrowserDelegate, CRKInvitationSessionBrowserDelegate;
 
 @interface CRKClassSessionBrowser : NSObject <CRKSessionDelegate, CRKClassSessionBeaconBrowserDelegate, CATNetworkReachabilityDelegate>
 {
     NSMutableDictionary *mClassSessionsByIdentifier;
+    NSMutableArray *mInRangeClassSessions;
     NSMutableDictionary *mInvitationSessionsByIPAddress;
     CRKClassSessionBeaconBrowser *mBeaconBrowser;
     CATNetworkReachability *mNetworkReachability;
@@ -23,12 +24,14 @@
     NSMutableDictionary *mConnectWithoutBeaconAssertionCountByInviteSessionIP;
     _Bool _allowInvitationSessions;
     _Bool _allowUnenrolledSessions;
+    _Bool _inRange;
     id <CRKClassSessionBrowserDelegate> _delegate;
     id <CRKInvitationSessionBrowserDelegate> _invitationSessionDelegate;
     NSSet *_organizationUUIDs;
     NSSet *_enrolledControlGroupIdentifiers;
 }
 
+@property(nonatomic, getter=isInRange) _Bool inRange; // @synthesize inRange=_inRange;
 @property(nonatomic) _Bool allowUnenrolledSessions; // @synthesize allowUnenrolledSessions=_allowUnenrolledSessions;
 @property(nonatomic) _Bool allowInvitationSessions; // @synthesize allowInvitationSessions=_allowInvitationSessions;
 @property(copy, nonatomic) NSSet *enrolledControlGroupIdentifiers; // @synthesize enrolledControlGroupIdentifiers=_enrolledControlGroupIdentifiers;
@@ -52,6 +55,7 @@
 - (id)browserStateDictionary;
 - (id)stateDictionariesByClassSessionIdentifierString;
 - (void)updateRequiresBeaconFlagForSession:(id)arg1;
+- (void)updateInRangeState;
 - (void)reachabilityDidChange:(id)arg1;
 - (void)beaconBrowser:(id)arg1 didFindBeaconForInvitationSessionWithIPAddress:(id)arg2;
 - (void)beaconBrowser:(id)arg1 didFindBeaconForClassSession:(id)arg2 flags:(unsigned short)arg3;

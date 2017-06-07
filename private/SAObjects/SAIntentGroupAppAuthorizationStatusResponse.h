@@ -16,6 +16,7 @@
 
 + (id)appAuthorizationStatusResponseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)appAuthorizationStatusResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSDictionary *appAuthorizationStatusMap;
 - (id)encodedClassName;
 - (id)groupIdentifier;

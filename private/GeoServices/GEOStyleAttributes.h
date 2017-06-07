@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEOStyleAttributes : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _customIconId;
     NSMutableArray *_attributes;
     struct {
@@ -24,6 +25,8 @@
 + (id)attributesForTransitLine:(id)arg1;
 @property(nonatomic) unsigned long long customIconId; // @synthesize customIconId=_customIconId;
 @property(retain, nonatomic) NSMutableArray *attributes; // @synthesize attributes=_attributes;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +41,7 @@
 - (unsigned long long)attributesCount;
 - (void)addAttribute:(id)arg1;
 - (void)clearAttributes;
-- (void)dealloc;
+- (id)initWithGEOFeatureStyleAttributes:(id)arg1;
 
 @end
 

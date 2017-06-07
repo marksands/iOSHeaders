@@ -11,19 +11,17 @@
 __attribute__((visibility("hidden")))
 @interface TSCEFormulaOwnerWrapper : NSObject <NSCopying>
 {
-    struct __CFUUID *mOwner;
+    UUIDData_5fbc143e _ownerUID;
 }
 
-@property(readonly) struct __CFUUID *ownerID; // @synthesize ownerID=mOwner;
+- (id).cxx_construct;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToTSCEFormulaOwnerWrapper:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 @property(readonly) UUIDData_5fbc143e ownerUID;
 - (id)initWithFormulaOwnerUID:(const UUIDData_5fbc143e *)arg1;
-- (id)initWithTSCEFormulaOwnerID:(struct __CFUUID *)arg1;
 
 @end
 

@@ -13,7 +13,6 @@ __attribute__((visibility("hidden")))
 
 + (id)styleSet;
 + (id)ruleDictionaryForStyle:(id)arg1;
-+ (id)baseRules;
 + (id)secondToLastComponentOfStyle:(id)arg1;
 - (id)initWithCaption:(id)arg1 style:(id)arg2 firstLineLeading:(double)arg3 themePath:(id)arg4 generator:(id)arg5;
 

@@ -6,13 +6,13 @@
 
 #import <PairedUnlock/NSObject-Protocol.h>
 
-@class NSError;
+@class NSError, PURemoteDeviceState;
 
 @protocol PUUnlockClient <NSObject>
-- (void)didGetRemoteDeviceHasPasscode:(_Bool)arg1 isLocked:(_Bool)arg2 isUnlockOnly:(_Bool)arg3 error:(NSError *)arg4;
+- (void)didGetRemoteDeviceState:(PURemoteDeviceState *)arg1 error:(NSError *)arg2;
 - (void)remoteDeviceDidRemoveLockout:(_Bool)arg1 error:(NSError *)arg2;
 - (void)remoteDeviceDidUnlock;
-- (void)remoteDeviceDidCompletePasscodeAction:(_Bool)arg1 error:(NSError *)arg2;
+- (void)remoteDeviceDidCompleteRemoteAction:(_Bool)arg1 remoteDeviceState:(PURemoteDeviceState *)arg2 error:(NSError *)arg3;
 - (void)didDisableOnlyRemoteUnlock:(_Bool)arg1 error:(NSError *)arg2;
 - (void)didEnableOnlyRemoteUnlock:(_Bool)arg1 error:(NSError *)arg2;
 - (void)didUnpairForUnlock:(_Bool)arg1 error:(NSError *)arg2;

@@ -27,7 +27,7 @@
 - (void)addController:(id)arg1;
 - (void)replyConnectedHosts:(id)arg1;
 - (_Bool)_delayEvent:(unsigned long long)arg1 setValue:(float)arg2 forElement:(int)arg3 withUpDelay:(double)arg4;
-- (void)controllerID:(unsigned long long)arg1 setArrayValueX:(float)arg2 y:(float)arg3 z:(float)arg4 forElement:(int)arg5;
+- (void)controllerID:(unsigned long long)arg1 setArrayValueX:(float)arg2 y:(float)arg3 z:(float)arg4 w:(float)arg5 forElement:(int)arg6;
 - (void)controllerID:(unsigned long long)arg1 setDigitizerX:(float)arg2 digitizerY:(float)arg3 withTimeStamp:(unsigned long long)arg4 touchDown:(_Bool)arg5;
 - (void)controllerID:(unsigned long long)arg1 setValue:(float)arg2 forElement:(int)arg3;
 - (void)controllerID:(unsigned long long)arg1 setValue:(float)arg2 forElement:(int)arg3 withUpDelay:(double)arg4;

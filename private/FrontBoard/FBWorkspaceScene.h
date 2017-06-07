@@ -12,7 +12,7 @@
 #import <FrontBoard/FBSceneClient-Protocol.h>
 #import <FrontBoard/FBWorkspaceServerSceneEventHandler-Protocol.h>
 
-@class FBSSceneClientSettings, FBSSceneSettings, FBSSceneSpecification, FBSSerialQueue, FBUISceneIdentity, FBWorkspace, NSMutableArray, NSString;
+@class FBSSceneClientSettings, FBSSceneSettings, FBSSceneSpecification, FBSSerialQueue, FBWorkspace, NSMutableArray, NSString;
 @protocol FBSSceneHostAgent, FBSceneHost, OS_dispatch_queue;
 
 @interface FBWorkspaceScene : NSObject <FBWorkspaceServerSceneEventHandler, FBSSceneHandle, FBSSceneAgentProxy, BSDescriptionProviding, FBSceneClient>
@@ -22,7 +22,6 @@
     NSObject<OS_dispatch_queue> *_workspaceQueue;
     NSString *_identifier;
     FBSSceneSpecification *_specification;
-    FBUISceneIdentity *_identity;
     FBSSceneSettings *_settings;
     FBSSceneClientSettings *_clientSettings;
     _Bool _handledInitialSettingsDiff;
@@ -40,7 +39,6 @@
 @property(nonatomic, getter=_workspaceQueue_hasSentCreationEvent, setter=_workspaceQueue_setSentCreationEvent:) _Bool sentCreationEvent; // @synthesize sentCreationEvent=_sentCreationEvent;
 @property(nonatomic, getter=_workspaceQueue_handledInitialSettingsDiff, setter=_workspaceQueue_setHandledInitialSettingsDiff:) _Bool handledInitialSettingsDiff; // @synthesize handledInitialSettingsDiff=_handledInitialSettingsDiff;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(readonly, copy, nonatomic) FBUISceneIdentity *identity; // @synthesize identity=_identity;
 @property(readonly, nonatomic) __weak id <FBSceneHost> host; // @synthesize host=_host;
 @property(readonly, nonatomic) __weak FBWorkspace *parentWorkspace; // @synthesize parentWorkspace=_workspace;
 - (void).cxx_destruct;
@@ -53,7 +51,6 @@
 - (void)host:(id)arg1 didReceiveActions:(id)arg2;
 - (void)host:(id)arg1 didInvalidateWithTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)host:(id)arg1 didUpdateSettings:(id)arg2 withDiff:(id)arg3 transitionContext:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)host:(id)arg1 configureWithInitialClientSettings:(id)arg2;
 - (void)host:(id)arg1 configureWithDefinition:(id)arg2 parameters:(id)arg3;
 - (void)agent:(id)arg1 sendMessage:(id)arg2 withResponse:(CDUnknownBlockType)arg3;
 - (void)agent:(id)arg1 registerMessageHandler:(CDUnknownBlockType)arg2;
@@ -84,7 +81,7 @@
 - (void)invalidate;
 @property(readonly, copy, nonatomic) FBSSceneSettings *settings;
 - (void)dealloc;
-- (id)initWithParentWorkspace:(id)arg1 identity:(id)arg2;
+- (id)initWithParentWorkspace:(id)arg1 identifier:(id)arg2;
 
 // Remaining properties
 @property(readonly) unsigned long long hash;

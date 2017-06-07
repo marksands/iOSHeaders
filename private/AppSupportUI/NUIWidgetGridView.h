@@ -6,15 +6,15 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NUIContainerStackView;
+@class NSArray, NUIContainerGridView;
 @protocol NUIWidgetGridViewDataSource, NUIWidgetGridViewDelegate;
 
 @interface NUIWidgetGridView : UIView
 {
-    NUIContainerStackView *_stackView;
+    NUIContainerGridView *_gridView;
     NSArray *_itemViews;
-    unsigned long long _visibleCount;
-    struct CGSize _labelSizes[6];
+    struct CGSize _labelSizes[8];
+    unsigned long long _currentLayout;
     id <NUIWidgetGridViewDataSource> _dataSource;
     id <NUIWidgetGridViewDelegate> _delegate;
     long long _imageStyle;
@@ -35,12 +35,19 @@
 @property(nonatomic) __weak id <NUIWidgetGridViewDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)_createStackViewIfNeeded;
+- (void)_createGridViewIfNeeded;
+- (double)horizontalMargin;
+- (double)labelMinSpacing;
+- (double)labelOutset;
+- (void)generateItems;
 - (CDStruct_a157df34)borrowableSpaceForCellAtIndex:(unsigned long long)arg1;
 - (CDStruct_a157df34)entitledExtraSpaceForCellAtIndex:(unsigned long long)arg1;
+- (unsigned long long)itemsPerRow;
 - (id)cellForGridViewItemAtIndex:(long long)arg1;
 - (void)reloadData;
+- (void)contentSizeDidChange;
 - (id)initWithDataSource:(id)arg1 delegate:(id)arg2;
+- (long long)currentLayout;
 
 @end
 

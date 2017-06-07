@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class GEOFeatureStyleAttributes, VKRouteContext;
+@class GEOFeatureStyleAttributes, VKMapView, VKRouteContext;
 
 #pragma mark Blocks
 
@@ -12,14 +12,15 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct AdditionalRouteInfo;
+
 struct AlphaAtlas {
-    unsigned int _field1;
-    _Bool _field2;
+    _Bool _field1;
+    unsigned int _field2;
     unsigned int _field3;
     unsigned int _field4;
-    unsigned int _field5;
-    float _field6;
-    struct Texture2D *_field7;
+    float _field5;
+    struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> _field6;
 };
 
 struct AltitudeDebugSettings {
@@ -43,32 +44,21 @@ struct AltitudeDebugSettings {
 
 struct AnchorContext;
 
-struct AnchorManagerPrivate;
-
 struct AnimationManager {
-    struct AnimationTimer _field1;
-    double _field2;
-    struct vector<altitude::AnimationObjectHolder, std::__1::allocator<altitude::AnimationObjectHolder>> _field3;
+    CDUnknownFunctionPointerType *_field1;
+    struct _retain_ptr<_AnimationManagerRunner *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> {
+        CDUnknownFunctionPointerType *_field1;
+        id _field2;
+        struct _retain_objc _field3;
+        struct _release_objc _field4;
+    } _field2;
+    struct mutex _field3;
+    struct array<std::__1::unordered_set<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>, 2> _field4;
+    _Bool _field5;
 };
 
-struct AnimationObjectHolder;
-
-struct AnimationReferenceTimer {
-    double _field1;
-    double _field2;
-    double _field3;
-};
-
-struct AnimationTimer {
-    struct AnimationReferenceTimer *_field1;
-    double _field2;
-    double _field3;
-    double _field4;
-};
-
-struct AnnotationPipelineStates {
-    struct shared_ptr<ggl::TextureWithBrightness::MeshPipelineState> _field1;
-    struct shared_ptr<ggl::TextureAlphaMask::MeshPipelineState> _field2;
+struct AnimationRunner {
+    struct MapEngine *_field1;
 };
 
 struct BaseMesh {
@@ -93,9 +83,11 @@ struct BasePipelineSetup {
 
 struct BasePipelineState;
 
-struct BasicViewNode;
-
-struct BitmapData;
+struct Batcher {
+    MultiRange_4bdc93a8 _field1;
+    struct vector<gm::MultiRange<unsigned long>, std::__1::allocator<gm::MultiRange<unsigned long>>> _field2;
+    MultiRange_4bdc93a8 _field3;
+};
 
 struct BitmapDataBase;
 
@@ -124,36 +116,19 @@ struct BufferData;
 struct BufferLoadItem;
 
 struct BufferMemory {
-    struct BufferData *_user;
     struct ResourceAccessor *_accessor;
-    struct Range _range;
+    struct BufferData *_user;
+    struct Range<unsigned long> _range;
     int _access;
     int _sync;
     char *_data;
 };
 
-struct BuildingFlatStrokeMesh;
-
-struct BuildingFlatStrokePipelineState;
-
 struct BuildingMesh;
 
-struct BuildingPipelineSetup {
-    CDUnknownFunctionPointerType *_field1;
-    struct PipelineDataCReflection *_field2;
-    struct shared_ptr<ggl::PipelineState> _field3;
-    struct vector<ggl::ConstantDataElement, std::__1::allocator<ggl::ConstantDataElement>> _field4;
-    struct vector<ggl::Texture *, std::__1::allocator<ggl::Texture *>> _field5;
-    struct Mesh *_field6;
-};
-
-struct BuildingPipelineState;
-
-struct C3bRequestManager;
-
-struct C3mmRequestManager;
-
 struct CGColor;
+
+struct CGImage;
 
 struct CGPoint {
     double x;
@@ -175,11 +150,59 @@ struct CGVector {
     double _field2;
 };
 
+struct CLabelCache;
+
+struct CLabelDebug {
+    struct CLabelLayer *_field1;
+};
+
+struct CLabelLayer {
+    CDUnknownFunctionPointerType *_field1;
+    struct CommandBufferIdSet _field2;
+    struct map<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>, std::__1::less<md::CommandBufferId>, std::__1::allocator<std::__1::pair<const md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>>> _field3;
+    _Bool _field4;
+    unsigned int _field5;
+    CDUnknownFunctionPointerType *_field6;
+    struct CartographicRenderer *_field7;
+    unsigned char _field8;
+    struct CLabelDebug _field9;
+    shared_ptr_e1d4bd06 _field10;
+    id _field11;
+    struct unique_ptr<md::LabelSettings, std::__1::default_delete<md::LabelSettings>> _field12;
+    struct CLabelCache *_field13;
+    unsigned int _field14;
+    _Bool _field15;
+    _Bool _field16;
+    _Bool _field17;
+};
+
+struct CMercatorTerrainHeightCache;
+
+struct COverlayLayer {
+    CDUnknownFunctionPointerType *_field1;
+    struct CommandBufferIdSet _field2;
+    struct map<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>, std::__1::less<md::CommandBufferId>, std::__1::allocator<std::__1::pair<const md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>>> _field3;
+    _Bool _field4;
+    unsigned int _field5;
+    CDUnknownFunctionPointerType *_field6;
+    struct CartographicRenderer *_field7;
+    unsigned char _field8;
+    id _field9;
+    unsigned char _field10;
+};
+
+struct CPolylineGroupChangeObserver {
+    CDUnknownFunctionPointerType *_field1;
+};
+
+struct CPuckStyleInfo;
+
 struct CameraFrame<geo::Radians, double> {
-    Mercator3_d8bb135c _target;
+    Coordinate3D_bc242218 _target;
     struct Unit<MeterUnitDescription, double> _distanceFromTarget;
     Unit_3d259e8a _pitch;
     Unit_3d259e8a _heading;
+    Unit_3d259e8a _roll;
 };
 
 struct CameraManager {
@@ -190,26 +213,26 @@ struct CameraManager {
     Matrix_443f5d51 _panCurrentCursor;
     Matrix_443f5d51 _panPreviousCursor;
     Matrix_443f5d51 _panStartCursor;
-    struct Coordinate3D<Radians, double> _panStartPosition;
+    Coordinate3D_bc242218 _panStartPosition;
     double _panDistance;
     _Bool _panAtStartPosition;
     _Bool _rotateBegin;
     _Bool _rotateInProgress;
     _Bool _rotateEnd;
-    struct Position3d _rotateStartPosition;
+    Coordinate3D_bc242218 _rotateStartPosition;
     Matrix_443f5d51 _rotateCurrentCursor;
     double _rotateAngle;
     _Bool _tiltBegin;
     _Bool _tiltInProgress;
     _Bool _tiltEnd;
-    struct Position3d _tiltStartPosition;
+    Coordinate3D_bc242218 _tiltStartPosition;
     Matrix_443f5d51 _tiltCurrentCursor;
     Matrix_443f5d51 _tiltPreviousCursor;
     double _tiltAngle;
     _Bool _zoomBegin;
     _Bool _zoomInProgress;
     _Bool _zoomEnd;
-    struct Position3d _zoomStartPosition;
+    Coordinate3D_bc242218 _zoomStartPosition;
     Matrix_443f5d51 _zoomCurrentCursor;
     double _zoomFactor;
     double _zoomStartDistance;
@@ -222,12 +245,52 @@ struct CameraManager {
     double _startPushDownTilt;
     double _tiltLimitTransferFraction;
     double _startTiltLimitTilt;
-    struct PositionGeo3d _startTiltLimitPosition;
+    Geocentric_d8fde6f2 _startTiltLimitPosition;
     Matrix_6e1d3589 _startTiltLimitDirection;
     double _fullZoomTiltLimitFactor;
 };
 
 struct CartoStyle<gss::PropertyID>;
+
+struct CartographicLayer {
+    CDUnknownFunctionPointerType *_field1;
+    struct CommandBufferIdSet _field2;
+    struct map<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>, std::__1::less<md::CommandBufferId>, std::__1::allocator<std::__1::pair<const md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>>> _field3;
+    _Bool _field4;
+    unsigned int _field5;
+    CDUnknownFunctionPointerType *_field6;
+    struct CartographicRenderer *_field7;
+    unsigned char _field8;
+};
+
+struct CartographicRenderer {
+    CDUnknownFunctionPointerType *_field1;
+    shared_ptr_e963992e _field2;
+    struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> _field3;
+    struct RenderLayer *_field4[28];
+    struct RenderLayer *_field5[65];
+    struct RunLoopController *_field6;
+    struct MapEngine *_field7;
+    id _field8;
+    id _field9;
+    id _field10;
+    id _field11;
+    shared_ptr_a3c46825 _field12;
+    struct CommandBuffer *_field13;
+    struct AnimationRunner *_field14;
+};
+
+struct CasedTrafficBatch;
+
+struct CasedTrafficLayer {
+    CDUnknownFunctionPointerType *_field1;
+    struct vector<md::CasedTrafficBatch *, std::__1::allocator<md::CasedTrafficBatch *>> _field2;
+    struct vector<ggl::TrafficBase::BaseMesh *, std::__1::allocator<ggl::TrafficBase::BaseMesh *>> _field3;
+    struct RenderState *_field4[1];
+    shared_ptr_696716c4 _field5;
+    unsigned long long _field6;
+    struct TrafficSharedResources *_field7;
+};
 
 struct ClearItem {
     unsigned char colorMask;
@@ -246,13 +309,14 @@ struct ClusterTreeClusterNode {
     unsigned int _field5;
     unsigned int _field6;
     unsigned char _field7;
-    struct _retain_ptr<id<VKCustomFeatureAnnotation>, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _field8;
-    struct ClusterTreeNode *_field9[2];
-    struct ClusterTreeFeatureNode *_field10;
-    double _field11;
-    unsigned int _field12;
-    _Bool _field13;
+    _Bool _field8;
+    struct _retain_ptr<id<VKCustomFeatureAnnotation>, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _field9;
+    struct ClusterTreeNode *_field10[2];
+    struct ClusterTreeFeatureNode *_field11;
+    double _field12;
+    unsigned int _field13;
     _Bool _field14;
+    _Bool _field15;
 };
 
 struct ClusterTreeFeatureNode;
@@ -268,51 +332,24 @@ struct CommandBuffer {
     struct vector<ggl::RenderItem *, std::__1::allocator<ggl::RenderItem *>> _field6;
     struct vector<ggl::Texture2DLoadItem, std::__1::allocator<ggl::Texture2DLoadItem>> _field7;
     struct vector<ggl::BufferLoadItem, std::__1::allocator<ggl::BufferLoadItem>> _field8;
-    struct deque<geo::fast_shared_ptr<ggl::QueryItem>, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>>> _field9;
+    struct deque<std::__1::shared_ptr<ggl::QueryItem>, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>>> _field9;
     struct deque<ggl::PendingQuery, std::__1::allocator<ggl::PendingQuery>> _field10;
     id _field11;
 };
 
 struct CommandBufferIdSet {
-    struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId>> _ids;
+    struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId>> _field1;
 };
 
 struct CommonLibrary;
 
-struct CompleteGlobeTileSetCullingGraph;
+struct ComputeQueue;
 
-struct CompleteGlobeTileSetLoader;
-
-struct CompressedMeshMesh;
-
-struct CompressedMeshPipelineSetup {
-    CDUnknownFunctionPointerType *_field1;
-    struct PipelineDataCReflection *_field2;
-    struct shared_ptr<ggl::PipelineState> _field3;
-    struct vector<ggl::ConstantDataElement, std::__1::allocator<ggl::ConstantDataElement>> _field4;
-    struct vector<ggl::Texture *, std::__1::allocator<ggl::Texture *>> _field5;
-    struct Mesh *_field6;
-};
-
-struct CompressedMeshPipelineState;
+struct ComputeShaderEntry;
 
 struct ConstantDataElement;
 
-struct ConstantDataTyped<ggl::AnimatableTexture::Variant>;
-
-struct ConstantDataTyped<ggl::Building::Fade>;
-
-struct ConstantDataTyped<ggl::Building::Lighting>;
-
 struct ConstantDataTyped<ggl::Fog::Skyfog>;
-
-struct ConstantDataTyped<ggl::Grid::Style>;
-
-struct ConstantDataTyped<ggl::GridBase::GridView>;
-
-struct ConstantDataTyped<ggl::PolygonFill::Fill>;
-
-struct ConstantDataTyped<ggl::SimpleGrid::Style>;
 
 struct ConstantDataTyped<ggl::Sky::Style>;
 
@@ -321,6 +358,10 @@ struct ConstantDataTyped<ggl::Tile::View>;
 struct ConstantDataTyped<ggl::TransitNode::Settings>;
 
 struct Context;
+
+struct ConvexHull2<double> {
+    vector_e20517dc _field1;
+};
 
 struct Coordinate2D<Degrees, double> {
     struct Unit<DegreeUnitDescription, double> latitude;
@@ -339,6 +380,8 @@ struct CullingGridWithHeight {
 
 struct CullingNode;
 
+struct DashTexture;
+
 struct DashTextureCache {
     struct unordered_map<md::DashTextureCache::Key, std::__1::shared_ptr<md::DashTexture>, md::DashTextureCache::KeyHasher, std::__1::equal_to<md::DashTextureCache::Key>, std::__1::allocator<std::__1::pair<const md::DashTextureCache::Key, std::__1::shared_ptr<md::DashTexture>>>> _field1;
 };
@@ -356,6 +399,22 @@ struct DataWrite<ggl::PolygonBase::CompressedVbo> {
 };
 
 struct DataWrite<ggl::PolygonCommonStroke::DefaultVbo> {
+    struct BufferMemory _memory;
+};
+
+struct DataWrite<ggl::Venue3DStroke::HorizontalDefaultVbo> {
+    struct BufferMemory _memory;
+};
+
+struct DataWrite<ggl::Venue3DStroke::VerticalDefaultVbo> {
+    struct BufferMemory _memory;
+};
+
+struct DataWrite<ggl::VenueWall::DefaultVbo> {
+    struct BufferMemory _memory;
+};
+
+struct DataWrite<ggl::VenueWall::EndCapVbo> {
     struct BufferMemory _memory;
 };
 
@@ -383,12 +442,29 @@ struct DebugConsole {
 
 struct DebugConsoleManager;
 
+struct DebugTree {
+    VKMapView *_mapView;
+    struct vector<std::__1::shared_ptr<md::DebugTreeNode>, std::__1::allocator<std::__1::shared_ptr<md::DebugTreeNode>>> _nodes;
+    _Bool _options[3];
+};
+
+struct DebugTreeNode;
+
 struct DepthState {
     int _field1;
     int _field2;
     int _field3;
     float _field4;
     float _field5;
+};
+
+struct Device {
+    CDUnknownFunctionPointerType *_field1;
+    struct DeviceVersion _field2;
+    struct DeviceCapabilities _field3;
+    struct DeviceAPIProperties _field4;
+    int _field5;
+    int _field6;
 };
 
 struct DeviceAPIProperties {
@@ -398,9 +474,17 @@ struct DeviceAPIProperties {
 
 struct DeviceCapabilities {
     _Bool _field1;
-    unsigned int _field2;
+    _Bool _field2;
     unsigned int _field3;
     unsigned int _field4;
+    unsigned int _field5;
+    struct DeviceSize _field6;
+};
+
+struct DeviceSize {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
 };
 
 struct DeviceVersion {
@@ -420,15 +504,22 @@ struct DistanceAtlas {
     unsigned int _field1;
     unsigned int _field2;
     unsigned int _field3;
-    unsigned int _field4;
-    struct Texture2D *_field5;
+    struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> _field4;
 };
 
-struct DtmCacheNode;
+struct Edge;
 
-struct DtmRequestManager;
-
-struct EarthAdjustedViewNode;
+struct ExtraStyle {
+    float _scale;
+    float _contentScale;
+    float _tailLength;
+    float _tailBrainChord;
+    float _tailDirection;
+    Matrix_8746f91e _glyphImageSize;
+    Matrix_8746f91e _landmarkImageSize;
+    Matrix_8746f91e _outlineImageSize;
+    basic_string_805fe43b _text;
+};
 
 struct FeatureAttributePair;
 
@@ -442,104 +533,26 @@ struct FixedPointVector<unsigned char, 4> {
     unsigned char _e[4];
 };
 
-struct Flow {
-    long long _field1;
-    float _field2;
-    float _field3;
-    int _field4;
-};
-
 struct FlyoverLibrary;
 
-struct FlyoverTour;
-
 struct FogInfo {
-    shared_ptr_c062e934 _fogConstantData;
+    struct shared_ptr<ggl::ConstantDataTyped<ggl::Fog::Skyfog>> _fogConstantData;
 };
 
 struct FogPipelineSetup;
 
 struct FogPipelineState;
 
-struct FragmentedPool<ggl::BuildingFacadeDepth::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::BuildingFlat::CompressedMeshPipelineSetup>;
-
-struct FragmentedPool<ggl::BuildingFlatStroke::BuildingFlatStrokePipelineSetup>;
-
-struct FragmentedPool<ggl::BuildingPointyRoofDepth::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::BuildingShadow::MeshPipelineSetup>;
-
-struct FragmentedPool<ggl::BuildingTopDepth::CompressedMeshPipelineSetup>;
-
-struct FragmentedPool<ggl::Debug::BaseMesh>;
+struct FontManager {
+    struct read_write_lock _field1;
+    struct map<std::__1::basic_string<char>, md::FontManager::SystemFontData, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, md::FontManager::SystemFontData>>> _field2;
+};
 
 struct FragmentedPool<ggl::Debug::BasePipelineSetup>;
 
 struct FragmentedPool<ggl::DebugPoints::BasePipelineSetup>;
 
-struct FragmentedPool<ggl::DiffuseBuilding::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::DiffuseBuildingPointyRoof::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::DiffuseBuildingTop::CompressedMeshPipelineSetup>;
-
-struct FragmentedPool<ggl::DiffuseLandmark::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::FoggedDiffuseBuilding::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::FoggedDiffuseBuildingTop::CompressedMeshPipelineSetup>;
-
-struct FragmentedPool<ggl::FoggedDiffuseLandmark::LandmarkPipelineSetup>;
-
-struct FragmentedPool<ggl::FoggedSpecularBuilding::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::FoggedSpecularBuildingTop::CompressedMeshPipelineSetup>;
-
-struct FragmentedPool<ggl::FoggedSpecularLandmark::LandmarkPipelineSetup>;
-
-struct FragmentedPool<ggl::Glow::MeshPipelineSetup>;
-
-struct FragmentedPool<ggl::GlowAlpha::MeshPipelineSetup>;
-
-struct FragmentedPool<ggl::LandmarkDepth::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::LandmarkFlat::LandmarkPipelineSetup>;
-
-struct FragmentedPool<ggl::PolygonAnimatableFill::CompressedMeshPipelineSetup>;
-
-struct FragmentedPool<ggl::PolygonAnimatableStroke::MeshPipelineSetup>;
-
-struct FragmentedPool<ggl::PolygonFill::CompressedMeshPipelineSetup>;
-
-struct FragmentedPool<ggl::PolygonShadowedStroke::ShadowPathPipelineSetup>;
-
-struct FragmentedPool<ggl::PolygonStroke::MeshPipelineSetup>;
-
-struct FragmentedPool<ggl::PrefilteredLine::PrefilteredLinePipelineSetup>;
-
 struct FragmentedPool<ggl::RenderItem>;
-
-struct FragmentedPool<ggl::SpecularBuilding::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::SpecularBuildingPointyRoof::BuildingPipelineSetup>;
-
-struct FragmentedPool<ggl::SpecularBuildingTop::CompressedMeshPipelineSetup>;
-
-struct FragmentedPool<ggl::SpecularLandmark::LandmarkPipelineSetup>;
-
-struct FrameLatLon {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-    struct PositionLatLonAlt _field5;
-};
-
-struct FreeList;
-
-struct FreezeViewNode;
 
 struct FunctionEntry;
 
@@ -552,126 +565,36 @@ struct GeoCoordinates {
 
 struct GeoServicesLoadJob;
 
-struct GeoServicesLoader;
-
 struct Geocentric<double> {
-    double _field1[3];
+    double _e[3];
 };
 
 struct GlobeAdapter {
     struct shared_ptr<md::GlobeAdapterData> _field1;
     struct GlobeView *_field2;
-    struct Geocentric<double> _field3;
-    struct {
-        double _field1;
-        double _field2;
-    } _field4;
+    Geocentric_d8fde6f2 _field3;
+    struct Coordinate2D<Degrees, double> _field4;
     struct vector<std::__1::shared_ptr<md::LabelMapTile>, std::__1::allocator<std::__1::shared_ptr<md::LabelMapTile>>> _field5;
     shared_ptr_e1d4bd06 _field6;
-    _Bool _field7;
+    struct unique_ptr<md::LabelSettings, std::__1::default_delete<md::LabelSettings>> _field7;
     _Bool _field8;
+    _Bool _field9;
 };
 
 struct GlobeAdapterData;
 
-struct GlobeCleanupLoader;
-
 struct GlobeDispatch;
 
-struct GlobeMainViewNode;
-
 struct GlobeOverlayContainer {
-    weak_ptr_96fca551 _field1;
-    struct GlobeView *_field2;
-    struct NSMutableArray *_field3;
-    struct mutex _field4;
-    double _field5;
+    struct GlobeView *_field1;
+    struct NSMutableArray *_field2;
+    struct mutex _field3;
+    double _field4;
 };
 
 struct GlobeTileRenderManager;
 
-struct GlobeView {
-    CDUnknownFunctionPointerType *_field1;
-    struct AnchorManagerPrivate *_field2;
-    struct Scene *_field3;
-    struct Context *_field4;
-    struct DtmCacheNode *_field5;
-    struct DtmRequestManager *_field6;
-    struct FreezeViewNode *_field7;
-    struct Projection _field8;
-    struct FrameLatLon _field9;
-    _Bool _field10;
-    basic_string_805fe43b _field11;
-    basic_string_805fe43b _field12;
-    struct vector<altitude::TileBound, std::__1::allocator<altitude::TileBound>> _field13;
-    struct vector<altitude::SimpleTileKey, std::__1::allocator<altitude::SimpleTileKey>> _field14;
-    _Bool _field15;
-    unsigned int _field16;
-    unsigned int _field17;
-    unsigned int _field18;
-    unsigned int _field19;
-    struct VKClassicGlobeCanvas *_field20;
-    _Bool _field21;
-    _Bool _field22;
-    int _field23;
-    struct AnimationManager _field24;
-    struct Timer _field25;
-    double _field26;
-    _Bool _field27;
-    double _field28;
-    double _field29;
-    double _field30;
-    struct FrameLatLon _field31;
-    struct C3mmRequestManager *_field32;
-    struct RenderableGroup *_field33;
-    unsigned int _field34;
-    double _field35;
-    _Bool _field36;
-    _Bool _field37;
-    struct LabelDataManagerPrivate *_field38;
-    _Bool _field39;
-    _Bool _field40;
-    _Bool _field41;
-    _Bool _field42;
-    struct RouteLineManager *_field43;
-    struct GlobeCleanupLoader *_field44;
-    struct CompleteGlobeTileSetCullingGraph *_field45;
-    struct CompleteGlobeTileSetLoader *_field46;
-    struct TileSetNode *_field47;
-    struct GlobeTileRenderManager *_field48;
-    struct CullingNode *_field49;
-    struct EarthAdjustedViewNode *_field50;
-    struct UserViewNode *_field51;
-    struct View *_field52;
-    struct BasicViewNode *_field53;
-    struct GlobeMainViewNode *_field54;
-    struct C3bRequestManager *_field55;
-    float _field56;
-    _Bool _field57;
-    struct shared_ptr<bool> _field58;
-    struct HeightRequestManager *_field59;
-    struct map<gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>, altitude::GlobeView::LessVector2i, std::__1::allocator<std::__1::pair<const gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>>>> _field60;
-    struct Mutex _field61;
-    struct shared_ptr<altitude::Stylesheet> _field62;
-    struct FlyoverTour *_field63;
-    _Bool _field64;
-    struct TriggerManager *_field65;
-    struct Viewport _field66;
-    struct AnimationReferenceTimer _field67;
-    _Bool _field68;
-    struct set<altitude::ManifestListener *, std::__1::less<altitude::ManifestListener *>, std::__1::allocator<altitude::ManifestListener *>> _field69;
-    struct GeoServicesLoader *_field70;
-    struct ManifestManager *_field71;
-    struct GlobeDispatch *_field72;
-};
-
-struct GridMesh;
-
-struct GridPipelineSetup;
-
-struct GridPipelineState;
-
-struct HeightRequestManager;
+struct GlobeView;
 
 struct HighlightHelper {
     id _field1;
@@ -704,16 +627,14 @@ struct IndexDataTyped<unsigned short>;
 struct IsoAlphaAtlas {
     unsigned int _field1;
     unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    float _field5;
-    struct Texture2D *_field6;
-    shared_ptr_cedd5232 _field7;
+    float _field3;
+    struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> _field4;
+    shared_ptr_cedd5232 _field5;
 };
 
-struct LRUCache<unsigned long, CGImage *>;
+struct LRUCache<unsigned long, CGImage *, std::__1::hash<unsigned long>>;
 
-struct LRUCache<unsigned long, VKRoadSignArtwork *>;
+struct LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<unsigned long>>;
 
 struct LabelClusterProvider;
 
@@ -741,16 +662,21 @@ struct LabelCustomFeatureProvider {
 
 struct LabelCustomFeatureSupport;
 
-struct LabelDataManagerPrivate;
-
 struct LabelExternalIconRenderer;
 
 struct LabelExternalObjectsModerator {
     struct fast_shared_ptr<md::unsynchronized_weak_interface_ptr<md::LabelExternalObjectsModerator>> _field1;
     struct LabelExternalIconRenderer *_field2;
-    unordered_set_65896b03 _field3;
-    struct unordered_map<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>, std::__1::hash<const GEOTransitLink *>, std::__1::equal_to<const GEOTransitLink *>, std::__1::allocator<std::__1::pair<const GEOTransitLink *const, std::__1::weak_ptr<md::LabelExternalTransitLink>>>> _field4;
-    struct unordered_map<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>>> _field5;
+    struct vector<std::__1::shared_ptr<md::LabelCreateExternalIconRequest>, std::__1::allocator<std::__1::shared_ptr<md::LabelCreateExternalIconRequest>>> _field3;
+    struct unordered_set<std::__1::shared_ptr<md::LabelExternalIcon>, std::__1::hash<std::__1::shared_ptr<md::LabelExternalIcon>>, std::__1::equal_to<std::__1::shared_ptr<md::LabelExternalIcon>>, std::__1::allocator<std::__1::shared_ptr<md::LabelExternalIcon>>> _field4;
+    struct set<unsigned long long, std::__1::less<unsigned long long>, std::__1::allocator<unsigned long long>> _field5;
+    struct set<unsigned long long, std::__1::less<unsigned long long>, std::__1::allocator<unsigned long long>> _field6;
+    struct unordered_map<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>, std::__1::hash<const GEOTransitLink *>, std::__1::equal_to<const GEOTransitLink *>, std::__1::allocator<std::__1::pair<const GEOTransitLink *const, std::__1::weak_ptr<md::LabelExternalTransitLink>>>> _field7;
+    struct unordered_map<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>>> _field8;
+    struct mutex _field9;
+    struct mutex _field10;
+    _Bool _field11;
+    _Bool _field12;
 };
 
 struct LabelExternalPointFeature;
@@ -758,6 +684,8 @@ struct LabelExternalPointFeature;
 struct LabelFeatureMarker;
 
 struct LabelImageKey;
+
+struct LabelLayoutContext;
 
 struct LabelManager;
 
@@ -776,7 +704,33 @@ struct LabelMarkerFeatureHandle {
 
 struct LabelNavJunctionInfo;
 
+struct LabelNavLayoutContext;
+
 struct LabelScene;
+
+struct LabelSettings {
+    struct LabelSettings_Presentation _field1;
+    struct LabelSettings_Navigation _field2;
+    struct LabelSettings_Markers _field3;
+    shared_ptr_e1d4bd06 _field4;
+    struct unique_ptr<md::LabelSettingsData, std::__1::default_delete<md::LabelSettingsData>> _field5;
+};
+
+struct LabelSettingsData;
+
+struct LabelSettings_Markers {
+    struct LabelSettings *_field1;
+};
+
+struct LabelSettings_Navigation {
+    struct LabelSettings *_field1;
+};
+
+struct LabelSettings_Presentation {
+    struct LabelSettings *_field1;
+};
+
+struct LabelStyle;
 
 struct LabelTile;
 
@@ -818,8 +772,6 @@ struct LabelTransitSupport {
     struct unordered_map<std::__1::pair<unsigned long long, bool>, gm::FixedPointVector<uint8_t, 4>, md::LabelTransitSupport::TransitLineColorKeyHash, std::__1::equal_to<std::__1::pair<unsigned long long, bool>>, std::__1::allocator<std::__1::pair<const std::__1::pair<unsigned long long, bool>, gm::FixedPointVector<uint8_t, 4>>>> _field21;
 };
 
-struct LandmarkPipelineState;
-
 struct Latitude {
     unsigned int _field1;
 };
@@ -828,34 +780,35 @@ struct LayoutContext {
     id _field1;
     struct shared_ptr<md::ViewTransform> _field2;
     struct shared_ptr<md::AnchorContext> _field3;
-    long long _field4;
+    id _field4;
     id _field5;
-    id _field6;
-    struct VKEdgeInsets _field7;
+    shared_ptr_a3c46825 _field6;
+    shared_ptr_c37d6e02 _field7;
     struct VKEdgeInsets _field8;
-    unsigned char _field9;
-    struct shared_ptr<ggl::PolygonBase::MeshMesh> _field10;
+    struct VKEdgeInsets _field9;
+    unsigned char _field10;
     struct shared_ptr<ggl::PolygonBase::MeshMesh> _field11;
-    struct shared_ptr<ggl::TextureMesh::MeshMesh> _field12;
-    struct StencilManager _field13;
-    shared_ptr_807ec9ac _field14;
-    struct Loader _field15;
-    double _field16;
+    struct shared_ptr<ggl::PolygonBase::MeshMesh> _field12;
+    struct shared_ptr<ggl::TextureMesh::MeshMesh> _field13;
+    struct StencilManager _field14;
+    shared_ptr_807ec9ac _field15;
+    struct Loader _field16;
     double _field17;
-    _Bool _field18;
+    double _field18;
     _Bool _field19;
     _Bool _field20;
     _Bool _field21;
     _Bool _field22;
-    Mercator3_d8bb135c _field23;
-    float _field24;
+    _Bool _field23;
+    Coordinate3D_bc242218 _field24;
     float _field25;
     float _field26;
-    int _field27;
-    struct View *_field28;
+    float _field27;
+    int _field28;
     struct View *_field29;
-    struct Viewport *_field30;
-    struct shared_ptr<ggl::ConstantDataTyped<ggl::Building::Lighting>> _field31;
+    struct View *_field30;
+    struct Viewport *_field31;
+    struct array<std::__1::unique_ptr<md::LogicContext, std::__1::default_delete<md::LogicContext>>, 3> _field32;
 };
 
 struct Loader {
@@ -864,11 +817,26 @@ struct Loader {
 
 struct LoaderImpl;
 
+struct Logic;
+
+struct LogicContext;
+
+struct LogicManager {
+    CDUnknownFunctionPointerType *_field1;
+    struct Logic *_field2[3];
+};
+
 struct Longitude {
     unsigned int _field1;
 };
 
 struct MITManager;
+
+struct ManeuverArrowCoordinates {
+    struct vector<md::ManeuverArrowInfo, std::__1::allocator<md::ManeuverArrowInfo>> _maneuverArrows;
+};
+
+struct ManeuverArrowInfo;
 
 struct ManeveuverDistancesRange {
     double _immediate;
@@ -880,7 +848,7 @@ struct ManeveuverDistancesRange {
     double _veryFar;
 };
 
-struct ManifestManager;
+struct MapEngine;
 
 struct Matrix<double, 2, 1> {
     double _e[2];
@@ -888,10 +856,6 @@ struct Matrix<double, 2, 1> {
 
 struct Matrix<double, 3, 1> {
     double _e[3];
-};
-
-struct Matrix<double, 3, 3> {
-    double _e[9];
 };
 
 struct Matrix<double, 4, 4> {
@@ -931,7 +895,7 @@ struct Mercator2<double> {
 };
 
 struct Mercator3<double> {
-    double _e[3];
+    double _field1[3];
 };
 
 struct Mesh {
@@ -949,13 +913,11 @@ struct MeshCReflection;
 
 struct MeshMesh;
 
-struct MeshPipelineSetup;
-
 struct MeshPipelineState;
 
 struct MeshSet<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh, ggl::BuildingFlatStroke::DefaultVbo> {
     struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
-    vector_8a1db405 _meshes;
+    vector_4558960f _meshes;
     struct DataWrite<ggl::BuildingFlatStroke::DefaultVbo> _vertexDataWrite;
     struct DataWrite<unsigned short> _indexDataWrite;
     unsigned char _meshIndex;
@@ -965,7 +927,7 @@ struct MeshSet<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh, ggl::BuildingFla
 
 struct MeshSet<ggl::PolygonBase::CompressedMeshMesh, ggl::PolygonBase::CompressedVbo> {
     struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
-    vector_3f17ee4c _meshes;
+    vector_ab9b77fc _meshes;
     struct DataWrite<ggl::PolygonBase::CompressedVbo> _vertexDataWrite;
     struct DataWrite<unsigned short> _indexDataWrite;
     unsigned char _meshIndex;
@@ -975,8 +937,48 @@ struct MeshSet<ggl::PolygonBase::CompressedMeshMesh, ggl::PolygonBase::Compresse
 
 struct MeshSet<ggl::PolygonCommonStroke::MeshMesh, ggl::PolygonCommonStroke::DefaultVbo> {
     struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
-    vector_83cbb261 _meshes;
+    vector_78bd515f _meshes;
     struct DataWrite<ggl::PolygonCommonStroke::DefaultVbo> _vertexDataWrite;
+    struct DataWrite<unsigned short> _indexDataWrite;
+    unsigned char _meshIndex;
+    unsigned short _meshVertexOffset;
+    unsigned int _meshIndexOffset;
+};
+
+struct MeshSet<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh, ggl::Venue3DStroke::HorizontalDefaultVbo> {
+    struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
+    vector_8cf9b7af _meshes;
+    struct DataWrite<ggl::Venue3DStroke::HorizontalDefaultVbo> _vertexDataWrite;
+    struct DataWrite<unsigned short> _indexDataWrite;
+    unsigned char _meshIndex;
+    unsigned short _meshVertexOffset;
+    unsigned int _meshIndexOffset;
+};
+
+struct MeshSet<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh, ggl::Venue3DStroke::VerticalDefaultVbo> {
+    struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
+    vector_4bf97ea8 _meshes;
+    struct DataWrite<ggl::Venue3DStroke::VerticalDefaultVbo> _vertexDataWrite;
+    struct DataWrite<unsigned short> _indexDataWrite;
+    unsigned char _meshIndex;
+    unsigned short _meshVertexOffset;
+    unsigned int _meshIndexOffset;
+};
+
+struct MeshSet<ggl::VenueWall::EndCapMesh, ggl::VenueWall::EndCapVbo> {
+    struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
+    vector_59518bae _meshes;
+    struct DataWrite<ggl::VenueWall::EndCapVbo> _vertexDataWrite;
+    struct DataWrite<unsigned short> _indexDataWrite;
+    unsigned char _meshIndex;
+    unsigned short _meshVertexOffset;
+    unsigned int _meshIndexOffset;
+};
+
+struct MeshSet<ggl::VenueWall::MeshMesh, ggl::VenueWall::DefaultVbo> {
+    struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<std::__1::pair<unsigned short, unsigned int>>> _vertexAndIndexCounts;
+    vector_3a6d496e _meshes;
+    struct DataWrite<ggl::VenueWall::DefaultVbo> _vertexDataWrite;
     struct DataWrite<unsigned short> _indexDataWrite;
     unsigned char _meshIndex;
     unsigned short _meshVertexOffset;
@@ -993,25 +995,21 @@ struct MeshVendor<ggl::BuildingPointyRoof::BuildingMesh> {
     struct BuildingMesh *_field2;
 };
 
-struct MeshVendor<ggl::Glow::MeshMesh> {
-    struct vector<ggl::Glow::MeshMesh *, std::__1::allocator<ggl::Glow::MeshMesh *>> _field1;
-    struct MeshMesh *_field2;
-};
-
-struct MeshVendor<ggl::PolygonShadowedStroke::ShadowPathMesh> {
-    struct vector<ggl::PolygonShadowedStroke::ShadowPathMesh *, std::__1::allocator<ggl::PolygonShadowedStroke::ShadowPathMesh *>> _field1;
-    struct ShadowPathMesh *_field2;
-};
-
 struct MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh> {
     struct vector<ggl::PrefilteredLine::PrefilteredLineMesh *, std::__1::allocator<ggl::PrefilteredLine::PrefilteredLineMesh *>> _field1;
     struct PrefilteredLineMesh *_field2;
 };
 
-struct MultiRange;
+struct MultiRange<unsigned long> {
+    struct vector<gm::Range<unsigned long>, std::__1::allocator<gm::Range<unsigned long>>> _field1;
+};
 
 struct Mutex {
     void *mMutex;
+};
+
+struct NSDictionary {
+    Class _field1;
 };
 
 struct NSMutableArray;
@@ -1019,35 +1017,52 @@ struct NSMutableArray;
 struct NavContext {
     CDUnknownFunctionPointerType *_field1;
     struct LabelManager *_field2;
+    struct LabelLayoutContext *_field3;
+    struct LabelNavLayoutContext *_field4;
 };
 
 struct NavCurrentRoadSign {
     CDUnknownFunctionPointerType *_field1;
     basic_string_805fe43b _field2;
-    shared_ptr_c5d816ee _field3;
+    struct shared_ptr<md::LabelStyle> _field3;
+    _Bool _field4;
+    shared_ptr_c5d816ee _field5;
     struct {
         _Bool _field1;
         _Bool _field2;
         float _field3;
         float _field4;
-    } _field4;
-    struct unique_ptr<md::NavLabelPart, std::__1::default_delete<md::NavLabelPart>> _field5;
-    Mercator2_57ec32b6 _field6;
-    Matrix_8746f91e _field7;
-    Matrix_8746f91e _field8;
-    Box_3fb92e00 _field9;
-    _Bool _field10;
-    _Bool _field11;
+    } _field6;
+    struct unique_ptr<md::NavLabelPart, std::__1::default_delete<md::NavLabelPart>> _field7;
+    Mercator2_57ec32b6 _field8;
+    Matrix_8746f91e _field9;
+    Matrix_8746f91e _field10;
+    Box_3fb92e00 _field11;
     _Bool _field12;
-    float _field13;
+    _Bool _field13;
     _Bool _field14;
-    _Bool _field15;
-    float _field16;
+    float _field15;
+    _Bool _field16;
+    _Bool _field17;
+    float _field18;
+    float _field19;
 };
 
 struct NavLabel;
 
 struct NavLabelPart;
+
+struct NavigationPuck {
+    struct CPuckStyleInfo *_field1;
+    Coordinate3D_bc242218 _field2;
+    Unit_3d259e8a _field3;
+    float _field4;
+    float _field5;
+    int _field6;
+    _Bool _field7;
+    _Bool _field8;
+    _Bool _field9;
+};
 
 struct OESContext;
 
@@ -1055,20 +1070,11 @@ struct OESDevice;
 
 struct ObjectGroup;
 
-struct OffscreenQueue;
-
-struct OnscreenTimestampData;
-
-struct Ortho {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-    double _field5;
-    double _field6;
-};
-
 struct Pass;
+
+struct PatternedBasePipelineSetup;
+
+struct PatternedBasePipelineState;
 
 struct PatternedBatch;
 
@@ -1082,26 +1088,25 @@ struct PatternedLayer {
     struct PatternedSharedResources *_field7;
 };
 
+struct PatternedLineSetup {
+    struct shared_ptr<ggl::TransitLineRibbon::PatternedBasePipelineSetup> _field1;
+    struct shared_ptr<md::DashTexture> _field2;
+};
+
 struct PatternedSharedResources;
 
 struct PendingQuery;
 
-struct Perspective {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-};
-
 struct PerspectiveView<double> {
-    struct RigidTransform<double> _transform;
+    RigidTransform_271c3a39 _transform;
     Matrix_08d701e4 _projectionMatrix;
+    Matrix_08d701e4 _inverseProjection;
+    double _ndcZNear;
+    struct ViewSize _size;
+    int _type;
     double _verticalFOV;
-    double _aspectRatio;
     double _near;
     double _far;
-    double _ndcZNear;
-    Matrix_08d701e4 _inverseProjection;
 };
 
 struct PilledTrafficBatch;
@@ -1128,16 +1133,19 @@ struct PolygonRouteAttributes {
     _Bool hasRouteSignificance;
 };
 
+struct PolygonSection {
+    Matrix_8746f91e *_field1;
+    Matrix_8746f91e *_field2;
+    Matrix_8746f91e *_field3;
+    _Bool *_field4;
+    unsigned long long _field5;
+    unsigned long long _field6;
+    unsigned long long _field7;
+};
+
 struct PolylineCoordinate {
     unsigned int index;
     float offset;
-};
-
-struct Pool<ggl::RenderItem> {
-    struct set<void *, std::__1::less<void *>, std::__1::allocator<void *>> mAllocatedSlabs;
-    unsigned long long mElementsPerSlab;
-    unsigned long long mSlabSize;
-    struct FreeList *mFreeElement;
 };
 
 struct Pos2DUVMesh {
@@ -1155,33 +1163,11 @@ struct Pos2DUVPipelineSetup;
 
 struct Pos2DUVPipelineState;
 
-struct Position3d {
-    double _latitude;
-    double _longitude;
-    double _height;
-};
-
-struct PositionGeo3d {
-    double _x;
-    double _y;
-    double _z;
-};
-
-struct PositionLatLonAlt {
-    double _field1;
-    double _field2;
-    double _field3;
-};
-
 struct PrefilteredLineMesh;
 
-struct PrefilteredLinePipelineState;
-
-struct Projection {
-    struct Perspective _field1;
-    struct Ortho _field2;
-    _Bool _field3;
-    _Bool _field4;
+struct Quaternion<double> {
+    Matrix_6e1d3589 _imaginary;
+    double _scalar;
 };
 
 struct QueryOverrides {
@@ -1201,14 +1187,14 @@ struct QueryOverrides {
     _Bool _field14;
 };
 
-struct Range {
-    unsigned long long _start;
-    unsigned long long _count;
-};
-
 struct Range<float> {
     float _field1;
     float _field2;
+};
+
+struct Range<unsigned long> {
+    unsigned long long _min;
+    unsigned long long _max;
 };
 
 struct RasterOverlayData;
@@ -1220,16 +1206,26 @@ struct RasterizerState {
     struct Box<unsigned int, 2> _field4;
 };
 
-struct Record {
-    unsigned int _field1;
-    unsigned int _field2;
-    float _field3;
-    float _field4;
-    long long _field5;
-    int _field6;
-    float _field7;
-    float _field8;
-    int _field9;
+struct RealisticRenderer {
+    CDUnknownFunctionPointerType *_field1;
+    shared_ptr_e963992e _field2;
+    struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> _field3;
+    struct RenderLayer *_field4[28];
+    struct RenderLayer *_field5[65];
+    struct RunLoopController *_field6;
+    struct MapEngine *_field7;
+    id _field8;
+    struct Device *_field9;
+    struct GlobeView *_field10;
+    struct Context *_field11;
+    struct StencilManager *_field12;
+    struct GlobeDispatch *_field13;
+    struct CullingNode *_field14;
+    struct GlobeTileRenderManager *_field15;
+    struct TexturePager *_field16;
+    struct shared_ptr<md::GlobeOverlayContainer> _field17;
+    struct shared_ptr<ggl::FlyoverLibrary> _field18;
+    id _field19;
 };
 
 struct RenderBuffer;
@@ -1240,24 +1236,15 @@ struct RenderItem {
     struct RenderState *_renderState;
     struct PipelineSetup *_pipelineSetup;
     unsigned int _stencilRefValue;
-    unsigned int _renderOrder;
+    unsigned long long _renderOrder;
     float _lineWidth;
     struct Mesh *_mesh;
-    struct Range _range;
-    struct Range *_ranges;
+    struct Range<unsigned long> _range;
+    struct Range<unsigned long> *_ranges;
     unsigned long long _rangeCount;
 };
 
-struct RenderItemBatcher {
-    struct vector<ggl::Range, std::__1::allocator<ggl::Range>> _activeRanges;
-    unsigned long long _rangePoolCount;
-    struct vector<ggl::MultiRange, std::__1::allocator<ggl::MultiRange>> _rangePool;
-    struct vector<ggl::Range, std::__1::allocator<ggl::Range>> _activeRanges;
-    struct RenderItem *_prototype;
-    struct Pool<ggl::RenderItem> _pool;
-    unsigned long long _rangePoolCount;
-    struct vector<ggl::MultiRange, std::__1::allocator<ggl::MultiRange>> _rangePool;
-};
+struct RenderLayer;
 
 struct RenderResource;
 
@@ -1265,14 +1252,12 @@ struct RenderResourceFences;
 
 struct RenderState {
     CDUnknownFunctionPointerType *_field1;
-    char *_field2;
-    CDUnknownFunctionPointerType *_field3;
-    struct ResourceManager *_field4;
-    struct RenderResource *_field5;
-    struct DepthState _field6;
-    struct StencilState _field7;
-    struct RasterizerState _field8;
-    _Bool _field9;
+    struct ResourceManager *_field2;
+    struct RenderResource *_field3;
+    struct DepthState _field4;
+    struct StencilState _field5;
+    struct RasterizerState _field6;
+    _Bool _field7;
 };
 
 struct RenderTarget {
@@ -1300,55 +1285,34 @@ struct RenderTargetFormat {
 
 struct RenderTransaction;
 
-struct RenderTree {
-    CDUnknownFunctionPointerType *_field1;
-    id _field2;
-};
-
-struct RenderableGroup;
-
-struct Renderer {
-    CDUnknownFunctionPointerType *_field1;
-    struct Device *_field2;
-    unsigned long long _field3;
-    unsigned long long _field4;
-    unsigned long long _field5;
-    _Bool _field6;
-    float _field7;
-    struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>> _field8;
-    struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue>> _field9;
-    struct shared_ptr<ggl::CommonLibrary> _field10;
-    struct unique_ptr<ggl::RenderResourceFences, std::__1::default_delete<ggl::RenderResourceFences>> _field11;
-    struct Texture2D *_field12;
-    struct unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>> _field13;
-};
-
 struct ResourceAccessor {
     CDUnknownFunctionPointerType *_field1;
 };
 
+struct ResourceInfo;
+
 struct ResourceManager;
 
-struct RibbonBatch<ggl::RoadRibbonDescriptor>;
+struct RibbonBatch<md::Ribbons::TransitRibbonDescriptor>;
 
-struct RibbonBatch<ggl::TransitRibbonDescriptor>;
+struct RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>;
 
-struct RibbonLayer<ggl::RoadRibbonDescriptor> {
+struct RibbonLayer<md::Ribbons::TransitRibbonDescriptor> {
     CDUnknownFunctionPointerType *_field1;
-    struct vector<ggl::RibbonBatch<ggl::RoadRibbonDescriptor>*, std::__1::allocator<ggl::RibbonBatch<ggl::RoadRibbonDescriptor>*>> _field2;
-    struct vector<ggl::Ribbon::BaseMesh *, std::__1::allocator<ggl::Ribbon::BaseMesh *>> _field3;
-    struct RenderState *_field4[8];
-};
-
-struct RibbonLayer<ggl::TransitRibbonDescriptor> {
-    CDUnknownFunctionPointerType *_field1;
-    struct vector<ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*, std::__1::allocator<ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>> _field2;
+    struct vector<md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*, std::__1::allocator<md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>> _field2;
     struct vector<ggl::TransitLineRibbon::BaseMesh *, std::__1::allocator<ggl::TransitLineRibbon::BaseMesh *>> _field3;
     struct RenderState *_field4[2];
 };
 
+struct RibbonLayer<md::TransitDisplayConnectionRibbonDescriptor> {
+    CDUnknownFunctionPointerType *_field1;
+    struct vector<md::Ribbons::RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>*, std::__1::allocator<md::Ribbons::RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>*>> _field2;
+    struct vector<ggl::Ribbon::BaseMesh *, std::__1::allocator<ggl::Ribbon::BaseMesh *>> _field3;
+    struct RenderState *_field4[2];
+};
+
 struct RigidTransform<double> {
-    struct Matrix<double, 3, 3> _rotation;
+    Quaternion_febf9140 _rotation;
     Matrix_6e1d3589 _translation;
 };
 
@@ -1362,27 +1326,6 @@ struct RoadLayer {
     shared_ptr_696716c4 _field5;
     unsigned long long _field6;
     struct RoadSharedResources *_field7;
-    struct TrafficSpeedStyling *_field8;
-};
-
-struct RoadLayoutContext {
-    struct LayoutContext *_field1;
-    float _field2;
-    float _field3;
-    char _field4;
-    char _field5;
-    float _field6;
-    float _field7;
-    struct CGSize _field8;
-    struct CGSize _field9;
-    _Bool _field10;
-    unsigned char _field11;
-    float _field12;
-    float _field13;
-    float _field14;
-    float _field15;
-    Matrix_5173352a _field16[5];
-    _Bool _field17;
 };
 
 struct RoadSharedResources;
@@ -1458,79 +1401,25 @@ struct RoadSignTextMetrics {
     double _textDrawWidth;
 };
 
+struct RouteContextChangeObserver {
+    CDUnknownFunctionPointerType *_field1;
+};
+
 struct RouteJunctionInfo;
-
-struct RouteLineArrowSharedPipelineStates {
-    struct shared_ptr<ggl::RouteLineArrow::BasePipelineState> _field1;
-};
-
-struct RouteLineArrowSharedRenderStates {
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field1;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field2;
-};
-
-struct RouteLineArrowSharedResources {
-    struct RouteLineArrowSharedPipelineStates _field1;
-    struct RouteLineArrowSharedRenderStates _field2;
-    shared_ptr_479d1306 _field3;
-};
-
-struct RouteLineLayer;
-
-struct RouteLineManager;
-
-struct RouteLineSharedPipelineStates {
-    struct shared_ptr<ggl::RouteLine::BasePipelineState> _field1;
-    struct shared_ptr<ggl::PatternedRibbon::RoutePipelineState> _field2;
-    struct shared_ptr<ggl::RouteLineAlphaReset::BasePipelineState> _field3;
-    struct shared_ptr<ggl::RouteLineTraffic::BasePipelineState> _field4;
-};
-
-struct RouteLineSharedRenderStates {
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field1;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field2;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field3;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field4;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field5;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field6;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field7;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field8;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field9;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field10;
-    struct unique_ptr<ggl::RenderState, std::__1::default_delete<ggl::RenderState>> _field11;
-};
-
-struct RouteLineSharedResources {
-    struct RouteLineSharedRenderStates _field1;
-    struct RouteLineSharedPipelineStates _field2;
-    struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> _field3;
-    struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> _field4;
-    struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> _field5;
-    struct AlphaAtlas *_field6;
-    struct DashTextureCache _field7;
-};
-
-struct RoutePipelineState;
 
 struct RouteSegment;
 
-struct SamplerState;
+struct RunLoopController {
+    struct MapEngine *_field1;
+};
 
-struct Scene;
+struct SamplerState;
 
 struct ShaderEntry;
 
 struct ShaderLibraryData;
 
 struct ShaderLibraryDescriptor;
-
-struct ShadowPathMesh;
-
-struct ShadowPathPipelineState;
-
-struct SharedDeviceResources;
-
-struct SimpleTileKey;
 
 struct SkyMesh;
 
@@ -1550,31 +1439,28 @@ struct SolidTrafficLayer {
     struct TrafficSharedResources *_field7;
 };
 
-struct Spring<double, md::SpringType::Angular> {
+struct Spring<double, 1, md::SpringType::Angular> {
     double _position;
     double _velocity;
     double _restingPosition;
     double _kSpring;
     double _kDamper;
-    int _type;
 };
 
-struct Spring<double, md::SpringType::Linear> {
+struct Spring<double, 1, md::SpringType::Linear> {
     double _position;
     double _velocity;
     double _restingPosition;
     double _kSpring;
     double _kDamper;
-    int _type;
 };
 
-struct Spring<gm::Matrix<double, 2, 1>, md::SpringType::Linear> {
+struct Spring<double, 2, md::SpringType::Linear> {
     Matrix_2bdd42a3 _position;
     Matrix_2bdd42a3 _velocity;
     Matrix_2bdd42a3 _restingPosition;
     double _kSpring;
     double _kDamper;
-    int _type;
 };
 
 struct StandardLibrary {
@@ -1584,8 +1470,9 @@ struct StandardLibrary {
     struct ShaderLibraryDescriptor *_field4;
     struct vector<ggl::ShaderLibrary::FunctionEntry, std::__1::allocator<ggl::ShaderLibrary::FunctionEntry>> _field5;
     struct vector<ggl::ShaderLibrary::ShaderEntry, std::__1::allocator<ggl::ShaderLibrary::ShaderEntry>> _field6;
-    struct vector<std::__1::shared_ptr<ggl::Shader>, std::__1::allocator<std::__1::shared_ptr<ggl::Shader>>> _field7;
-    struct shared_ptr<ggl::ShaderLibraryData> _field8;
+    struct vector<ggl::ShaderLibrary::ComputeShaderEntry, std::__1::allocator<ggl::ShaderLibrary::ComputeShaderEntry>> _field7;
+    struct vector<std::__1::shared_ptr<ggl::Shader>, std::__1::allocator<std::__1::shared_ptr<ggl::Shader>>> _field8;
+    struct shared_ptr<ggl::ShaderLibraryData> _field9;
 };
 
 struct StencilManager {
@@ -1610,11 +1497,30 @@ struct String {
     struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> _field1;
 };
 
+struct Style {
+    struct optional<gss::IconStyle> _iconStyle;
+    float _scale;
+    float _contentScale;
+    float _fillWeight;
+    float _strokeWeight;
+    float _shadowWeight;
+    float _cornerRadius;
+    Matrix_8746f91e _glyphMargin;
+    Matrix_8746f91e _shadowOffset;
+    FixedPointVector_f041f768 _fillColor;
+    FixedPointVector_f041f768 _strokeColor;
+    FixedPointVector_f041f768 _shadowColor;
+    FixedPointVector_f041f768 _glyphColor;
+    FixedPointVector_f041f768 _gradientTop;
+    FixedPointVector_f041f768 _gradientBottom;
+    unsigned char _glyphBlendMode;
+    unsigned char _glyphStyle;
+    basic_string_805fe43b _shieldID;
+};
+
 struct StyleSheet<gss::PropertyID>;
 
 struct StyleTexture<md::TransitLineSegment::StylePixel>;
-
-struct Stylesheet;
 
 struct StylesheetManager<gss::PropertyID>;
 
@@ -1623,6 +1529,8 @@ struct StylesheetManager<gss::ScenePropertyID>;
 struct StylesheetQuery<gss::PropertyID>;
 
 struct StylesheetVendor;
+
+struct TaskContext;
 
 struct TexelRun {
     float _field1;
@@ -1670,17 +1578,13 @@ struct TextureData2D;
 
 struct TextureDataAbstract;
 
-struct TexturePool;
-
-struct TileBound;
+struct TexturePager;
 
 struct TileExclusionArea;
 
-struct TileSetNode;
+struct TileSelectionProfile;
 
-struct Timer {
-    double _field1;
-};
+struct TileSelector;
 
 struct TrafficDynamicTile;
 
@@ -1718,11 +1622,7 @@ struct TrafficSharedResources {
     struct IsoAlphaAtlas *_field3;
 };
 
-struct TrafficSkeletonTile {
-    struct vector<zilch::TrafficSkeletonTile::Record, std::__1::allocator<zilch::TrafficSkeletonTile::Record>> m_records;
-};
-
-struct TrafficSpeedStyling;
+struct TrafficSkeletonTile;
 
 struct TrafficStream {
     unsigned int _field1;
@@ -1745,7 +1645,8 @@ struct TransitLine;
 
 struct TransitLineSharedResources {
     struct shared_ptr<ggl::TransitLineRibbon::BasePipelineState> _field1;
-    struct shared_ptr<ggl::SolidRibbon::PipelineState> _field2;
+    struct shared_ptr<ggl::TransitLineRibbon::PatternedBasePipelineState> _field2;
+    struct shared_ptr<ggl::SolidRibbon::PipelineState> _field3;
 };
 
 struct TransitLink;
@@ -1753,8 +1654,8 @@ struct TransitLink;
 struct TransitNodeFeaturePool {
     CDUnknownFunctionPointerType *_field1;
     CDUnknownFunctionPointerType *_field2;
-    struct _retain_ptr<NSArray *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _field3;
-    struct _retain_ptr<NSArray *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _field4;
+    struct vector<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> _field3;
+    struct vector<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> _field4;
     struct fast_shared_ptr<md::unsynchronized_weak_interface_ptr<md::TransitNodeFeaturePool>> _field5;
     struct LabelExternalObjectsModerator *_field6;
     struct unordered_map<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>>> _field7;
@@ -1780,8 +1681,6 @@ struct TransitNodeFeaturePool {
 
 struct TransitNodeTextureAtlas;
 
-struct TriggerManager;
-
 struct Unit<DegreeUnitDescription, double> {
     double _value;
 };
@@ -1794,8 +1693,6 @@ struct Unit<RadianUnitDescription, double> {
     double _value;
 };
 
-struct UserViewNode;
-
 struct VKCacheKey {
     unsigned int a;
     unsigned int b;
@@ -1804,20 +1701,17 @@ struct VKCacheKey {
 };
 
 struct VKCameraState {
-    Matrix_6e1d3589 position;
-    Matrix_08d701e4 orientation;
+    RigidTransform_271c3a39 transform;
     double aspectRatio;
     double verticalFieldOfView;
     double horizontalOffset;
 };
 
-struct VKClassicGlobeCanvas;
-
 struct VKEdgeInsets {
-    double top;
-    double left;
-    double bottom;
-    double right;
+    float top;
+    float left;
+    float bottom;
+    float right;
 };
 
 struct VKFootprintConvexHull_struct {
@@ -1868,32 +1762,16 @@ struct VKGuidanceManeuverArrowMetrics {
 };
 
 struct VKIconStyleDescriptor {
-    struct VKIconStyleInfo _field1;
-    unsigned int _field2;
+    unsigned int _field1;
+    float _field2;
     basic_string_805fe43b _field3;
-};
-
-struct VKIconStyleInfo {
-    unsigned char iconStyle;
-    Matrix_5173352a iconBadgeColor;
-    Matrix_5173352a iconGradientColor[2];
-    Matrix_5173352a iconBadgeLightColor;
-    unsigned char iconBadgeLightBlendMode;
-    Matrix_5173352a iconGlyphColor;
-    unsigned char iconGlyphStyle;
-    unsigned char iconGlyphBlendMode;
-    float iconHaloSize;
-    Matrix_5173352a iconHaloColor;
-    Matrix_8746f91e iconDropShadowOffset;
-    float iconDropShadowSize;
-    Matrix_5173352a iconDropShadowColor;
-    float iconCornerRadius;
-    float iconBevelAmount;
+    struct Style _field4;
+    struct ExtraStyle _field5;
 };
 
 struct VKLabelNavArtworkCache {
-    struct unique_ptr<LRUCache<unsigned long, VKRoadSignArtwork *>, std::__1::default_delete<LRUCache<unsigned long, VKRoadSignArtwork *>>> _field1;
-    struct unique_ptr<LRUCache<unsigned long, CGImage *>, std::__1::default_delete<LRUCache<unsigned long, CGImage *>>> _field2;
+    struct unique_ptr<LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<unsigned long>>, std::__1::default_delete<LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<unsigned long>>>> _field1;
+    struct unique_ptr<LRUCache<unsigned long, CGImage *, std::__1::hash<unsigned long>>, std::__1::default_delete<LRUCache<unsigned long, CGImage *, std::__1::hash<unsigned long>>>> _field2;
     struct CGColor *_field3;
     struct CGColor *_field4;
     struct VKGuidanceManeuverArrowMetrics _field5;
@@ -1945,16 +1823,81 @@ struct VehicleState {
     _Bool _isParked;
 };
 
+struct Venue {
+    unsigned long long _field1;
+    struct vector<md::VenueBuilding, std::__1::allocator<md::VenueBuilding>> _field2;
+    struct ConvexHull2<double> _field3;
+    basic_string_805fe43b _field4;
+};
+
+struct VenueBuilding {
+    struct vector<md::VenueLevel, std::__1::allocator<md::VenueLevel>> _field1;
+    unsigned long long _field2;
+    unsigned long long _field3;
+    short _field4;
+    Matrix_2bdd42a3 _field5;
+    struct ConvexHull2<double> _field6;
+};
+
+struct VenueBuildingFeatureMarker;
+
+struct VenueFeatureMarker;
+
+struct VenueFloorGroup;
+
+struct VenueLevel;
+
+struct VenueLogic {
+    CDUnknownFunctionPointerType *_field1;
+    _Bool _field2;
+    unsigned short _field3;
+    struct mutex _field4;
+    vector_4460e468 _field5;
+    struct VenueLogicContext _field6;
+    struct Venue *_field7;
+    struct VenueBuilding *_field8;
+    double _field9;
+    unsigned long long _field10;
+    struct unordered_map<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>>> _field11;
+    struct VenueLogicDelegate *_field12;
+    struct _retain_ptr<VKTimedAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _field13;
+    struct _retain_ptr<VKTimedAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> _field14;
+    _Bool _field15;
+    float _field16;
+};
+
+struct VenueLogicContext {
+    CDUnknownFunctionPointerType *_field1;
+    struct unordered_map<unsigned long long, md::Venue, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, md::Venue>>> _field2;
+    struct unordered_map<unsigned long long, short, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, short>>> _field3;
+    unordered_set_65896b03 _field4;
+    struct vector<unsigned long long, std::__1::allocator<unsigned long long>> _field5;
+    float _field6;
+    float _field7;
+    _Bool _field8;
+};
+
+struct VenueLogicDelegate;
+
 struct View;
+
+struct View<double> {
+    RigidTransform_271c3a39 _field1;
+    Matrix_08d701e4 _field2;
+    Matrix_08d701e4 _field3;
+    double _field4;
+    struct ViewSize _field5;
+    int _field6;
+};
+
+struct ViewSize {
+    unsigned short width;
+    unsigned short height;
+};
 
 struct ViewTransform;
 
-struct Viewport {
-    int _field1;
-    int _field2;
-    int _field3;
-    int _field4;
-};
+struct Viewport;
 
 struct ZoomRange {
     float min;
@@ -2004,14 +1947,12 @@ struct _GEOTileKey {
     unsigned char reserved2[4];
 };
 
-struct _MDRenderTargetRef {
-    id ptr;
-};
-
 struct _NSRange {
     unsigned long long _field1;
     unsigned long long _field2;
 };
+
+struct _RunLoopCallbacker;
 
 struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> {
     struct __rep {
@@ -2035,28 +1976,20 @@ struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char
     } __first_;
 };
 
-struct __hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*> *__next_;
-};
-
 struct __hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*> *_field1;
+};
+
+struct __hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*> *_field1;
 };
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, void *>*> *__next_;
 };
 
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*> *__next_;
-};
-
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>>, void *>*> *_field1;
-};
-
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*> *__next_;
 };
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::DashTextureCache::Key, std::__1::shared_ptr<md::DashTexture>>, void *>*> {
@@ -2071,12 +2004,12 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::Ic
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::IconCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::IconCacheKey, id, _value_ptr>, void *>>, void *>*> *__next_;
 };
 
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*> *_field1;
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*> *_field1;
 };
 
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*> *_field1;
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*> *_field1;
 };
 
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::ShieldCacheKey, std::__1::__list_iterator<geo::detail::_CacheItem<md::ShieldCacheKey, VKShieldArtwork *, _value_ptr>, void *>>, void *>*> {
@@ -2111,6 +2044,14 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsign
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::PolygonRouteAttributes>, void *>*> *__next_;
 };
 
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*> *_field1;
+};
+
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*> *_field1;
+};
+
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*> *_field1;
 };
@@ -2119,8 +2060,16 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsign
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::unordered_set<md::TransitNode *, std::__1::hash<md::TransitNode *>, std::__1::equal_to<md::TransitNode *>, std::__1::allocator<md::TransitNode *>>>, void *>*> *__next_;
 };
 
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*> *_field1;
+};
+
 struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*> {
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*> *_field1;
+};
+
+struct __hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*> *_field1;
 };
 
 struct __hash_node_base<std::__1::__hash_node<unsigned long long, void *>*> {
@@ -2155,20 +2104,20 @@ struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
 
 struct _fast_shared_ptr_control;
 
-struct _geo_weak_ptr<id> {
-    id _p;
-};
-
 struct _release_objc;
 
 struct _retain_objc;
 
-struct _retain_ptr<NSArray *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> {
-    CDUnknownFunctionPointerType *_field1;
-    id _field2;
-    struct _retain_objc _field3;
-    struct _release_objc _field4;
+struct _retain_ptr<CGImage *, geo::_retain_cf<CGImage *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> {
+    CDUnknownFunctionPointerType *_vptr$_retain_ptr;
+    struct CGImage *_obj;
+    struct _retain_cf<CGImage *> _retain;
+    struct _release_cf _release;
 };
+
+struct _retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>;
+
+struct _retain_ptr<VKPolylineGroupOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>;
 
 struct _retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> {
     CDUnknownFunctionPointerType *_vptr$_retain_ptr;
@@ -2176,6 +2125,17 @@ struct _retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo:
     struct _retain_objc _retain;
     struct _release_objc _release;
 };
+
+struct _retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>;
+
+struct _retain_ptr<VKTimedAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> {
+    CDUnknownFunctionPointerType *_field1;
+    id _field2;
+    struct _retain_objc _field3;
+    struct _release_objc _field4;
+};
+
+struct _retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>;
 
 struct _retain_ptr<id<VKCustomFeatureAnnotation>, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> {
     CDUnknownFunctionPointerType *_field1;
@@ -2195,23 +2155,16 @@ struct array<double, 4> {
     double __elems_[4];
 };
 
-struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
-    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> __r_;
+struct array<std::__1::unique_ptr<md::LogicContext, std::__1::default_delete<md::LogicContext>>, 3> {
+    struct unique_ptr<md::LogicContext, std::__1::default_delete<md::LogicContext>> _field1[3];
 };
 
-struct deque<geo::fast_shared_ptr<ggl::QueryItem>, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>>> {
-    struct __split_buffer<geo::fast_shared_ptr<ggl::QueryItem>*, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>*>> {
-        struct fast_shared_ptr<ggl::QueryItem> **_field1;
-        struct fast_shared_ptr<ggl::QueryItem> **_field2;
-        struct fast_shared_ptr<ggl::QueryItem> **_field3;
-        struct __compressed_pair<geo::fast_shared_ptr<ggl::QueryItem>**, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>*>> {
-            struct fast_shared_ptr<ggl::QueryItem> **_field1;
-        } _field4;
-    } _field1;
-    unsigned long long _field2;
-    struct __compressed_pair<unsigned long, std::__1::allocator<geo::fast_shared_ptr<ggl::QueryItem>>> {
-        unsigned long long _field1;
-    } _field3;
+struct array<std::__1::unordered_set<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>>, 2> {
+    struct unordered_set<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> _field1[2];
+};
+
+struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
+    struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> __r_;
 };
 
 struct deque<ggl::PendingQuery, std::__1::allocator<ggl::PendingQuery>> {
@@ -2229,7 +2182,35 @@ struct deque<ggl::PendingQuery, std::__1::allocator<ggl::PendingQuery>> {
     } _field3;
 };
 
-struct fast_shared_ptr<ggl::QueryItem>;
+struct deque<std::__1::function<void ()>, std::__1::allocator<std::__1::function<void ()>>> {
+    struct __split_buffer<std::__1::function<void ()>*, std::__1::allocator<std::__1::function<void ()>*>> {
+        function_30b369b8 **__first_;
+        function_30b369b8 **__begin_;
+        function_30b369b8 **__end_;
+        struct __compressed_pair<std::__1::function<void ()>**, std::__1::allocator<std::__1::function<void ()>*>> {
+            function_30b369b8 **__first_;
+        } __end_cap_;
+    } __map_;
+    unsigned long long __start_;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::function<void ()>>> {
+        unsigned long long __first_;
+    } __size_;
+};
+
+struct deque<std::__1::shared_ptr<ggl::QueryItem>, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>>> {
+    struct __split_buffer<std::__1::shared_ptr<ggl::QueryItem>*, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>*>> {
+        struct shared_ptr<ggl::QueryItem> **_field1;
+        struct shared_ptr<ggl::QueryItem> **_field2;
+        struct shared_ptr<ggl::QueryItem> **_field3;
+        struct __compressed_pair<std::__1::shared_ptr<ggl::QueryItem>**, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>*>> {
+            struct shared_ptr<ggl::QueryItem> **_field1;
+        } _field4;
+    } _field1;
+    unsigned long long _field2;
+    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::shared_ptr<ggl::QueryItem>>> {
+        unsigned long long _field1;
+    } _field3;
+};
 
 struct fast_shared_ptr<md::RouteLineSection> {
     struct _fast_shared_ptr_control *_control;
@@ -2243,9 +2224,14 @@ struct fast_shared_ptr<md::unsynchronized_weak_interface_ptr<md::TransitNodeFeat
     struct _fast_shared_ptr_control *_field1;
 };
 
-struct function<void (const md::RoadPiece &)> {
+struct function<bool (unsigned long long)> {
     struct type _field1;
-    struct __base<void (const md::RoadPiece &)> *_field2;
+    struct __base<bool (unsigned long long)> *_field2;
+};
+
+struct function<void ()> {
+    struct type _field1;
+    struct __base<void ()> *_field2;
 };
 
 struct list<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>, std::__1::allocator<geo::detail::_CacheItem<md::GenericShieldCacheKey, VKShieldArtwork *, _value_ptr>>> {
@@ -2274,6 +2260,18 @@ struct list<md::TransitDisplayConnection, std::__1::allocator<md::TransitDisplay
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<md::TransitDisplayConnection, void *>>> {
         unsigned long long __first_;
     } __size_alloc_;
+};
+
+struct map<PatternedLineKey, PatternedLineSetup, std::__1::less<PatternedLineKey>, std::__1::allocator<std::__1::pair<const PatternedLineKey, PatternedLineSetup>>> {
+    struct __tree<std::__1::__value_type<PatternedLineKey, PatternedLineSetup>, std::__1::__map_value_compare<PatternedLineKey, std::__1::__value_type<PatternedLineKey, PatternedLineSetup>, std::__1::less<PatternedLineKey>, true>, std::__1::allocator<std::__1::__value_type<PatternedLineKey, PatternedLineSetup>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<PatternedLineKey, PatternedLineSetup>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<PatternedLineKey, std::__1::__value_type<PatternedLineKey, PatternedLineSetup>, std::__1::less<PatternedLineKey>, true>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
 };
 
 struct map<VKPolylineOverlay *, std::__1::weak_ptr<altitude::RouteLineData>, std::__1::less<VKPolylineOverlay *>, std::__1::allocator<std::__1::pair<VKPolylineOverlay *const, std::__1::weak_ptr<altitude::RouteLineData>>>> {
@@ -2324,42 +2322,6 @@ struct map<geo::_retain_ptr<NSString *, geo::_retain_objc, geo::_release_objc, g
     } __tree_;
 };
 
-struct map<gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>, altitude::GlobeView::LessVector2i, std::__1::allocator<std::__1::pair<const gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>>>> {
-    struct __tree<std::__1::__value_type<gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>>, std::__1::__map_value_compare<gm::Matrix<int, 2, 1>, std::__1::__value_type<gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>>, altitude::GlobeView::LessVector2i, true>, std::__1::allocator<std::__1::__value_type<gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
-        } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gm::Matrix<int, 2, 1>, std::__1::__value_type<gm::Matrix<int, 2, 1>, std::__1::pair<bool, altitude::Position3d>>, altitude::GlobeView::LessVector2i, true>> {
-            unsigned long long _field1;
-        } _field3;
-    } _field1;
-};
-
-struct map<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::RoadStyling, std::__1::default_delete<md::RoadStyling>>, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>, std::__1::allocator<std::__1::pair<gss::StylesheetQuery<gss::PropertyID>*const, std::__1::unique_ptr<md::RoadStyling, std::__1::default_delete<md::RoadStyling>>>>> {
-    struct __tree<std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::RoadStyling, std::__1::default_delete<md::RoadStyling>>>, std::__1::__map_value_compare<gss::StylesheetQuery<gss::PropertyID>*, std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::RoadStyling, std::__1::default_delete<md::RoadStyling>>>, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>, true>, std::__1::allocator<std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::RoadStyling, std::__1::default_delete<md::RoadStyling>>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::RoadStyling, std::__1::default_delete<md::RoadStyling>>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::StylesheetQuery<gss::PropertyID>*, std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::RoadStyling, std::__1::default_delete<md::RoadStyling>>>, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>, true>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
-struct map<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::TrafficSpeedStyling, std::__1::default_delete<md::TrafficSpeedStyling>>, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>, std::__1::allocator<std::__1::pair<gss::StylesheetQuery<gss::PropertyID>*const, std::__1::unique_ptr<md::TrafficSpeedStyling, std::__1::default_delete<md::TrafficSpeedStyling>>>>> {
-    struct __tree<std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::TrafficSpeedStyling, std::__1::default_delete<md::TrafficSpeedStyling>>>, std::__1::__map_value_compare<gss::StylesheetQuery<gss::PropertyID>*, std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::TrafficSpeedStyling, std::__1::default_delete<md::TrafficSpeedStyling>>>, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>, true>, std::__1::allocator<std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::TrafficSpeedStyling, std::__1::default_delete<md::TrafficSpeedStyling>>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::TrafficSpeedStyling, std::__1::default_delete<md::TrafficSpeedStyling>>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<gss::StylesheetQuery<gss::PropertyID>*, std::__1::__value_type<gss::StylesheetQuery<gss::PropertyID>*, std::__1::unique_ptr<md::TrafficSpeedStyling, std::__1::default_delete<md::TrafficSpeedStyling>>>, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>, true>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
 struct map<id<VKCustomFeatureAnnotation>, md::LabelCustomFeatureProvider::FeatureInfo, std::__1::less<id<VKCustomFeatureAnnotation>>, std::__1::allocator<std::__1::pair<const id<VKCustomFeatureAnnotation>, md::LabelCustomFeatureProvider::FeatureInfo>>> {
     struct __tree<std::__1::__value_type<id<VKCustomFeatureAnnotation>, md::LabelCustomFeatureProvider::FeatureInfo>, std::__1::__map_value_compare<id<VKCustomFeatureAnnotation>, std::__1::__value_type<id<VKCustomFeatureAnnotation>, md::LabelCustomFeatureProvider::FeatureInfo>, std::__1::less<id<VKCustomFeatureAnnotation>>, true>, std::__1::allocator<std::__1::__value_type<id<VKCustomFeatureAnnotation>, md::LabelCustomFeatureProvider::FeatureInfo>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -2386,14 +2348,26 @@ struct map<md::Anchor *, float, std::__1::less<md::Anchor *>, std::__1::allocato
 
 struct map<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>, std::__1::less<md::CommandBufferId>, std::__1::allocator<std::__1::pair<const md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>>> {
     struct __tree<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, std::__1::__map_value_compare<md::CommandBufferId, std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, std::__1::less<md::CommandBufferId>, true>, std::__1::allocator<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
         struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
         struct __compressed_pair<unsigned long, std::__1::__map_value_compare<md::CommandBufferId, std::__1::__value_type<md::CommandBufferId, std::__1::unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>>>, std::__1::less<md::CommandBufferId>, true>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
+
+struct map<std::__1::basic_string<char>, md::FontManager::SystemFontData, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, md::FontManager::SystemFontData>>> {
+    struct __tree<std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>, std::__1::less<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<std::__1::basic_string<char>, std::__1::__value_type<std::__1::basic_string<char>, md::FontManager::SystemFontData>, std::__1::less<std::__1::basic_string<char>>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
 };
 
 struct map<std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>, std::__1::less<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<ggl::Texture2D>>>> {
@@ -2420,13 +2394,13 @@ struct map<std::__1::shared_ptr<md::LabelExternalRoadFeature>, std::__1::shared_
     } _field1;
 };
 
-struct map<unsigned int, ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>>> {
-    struct __tree<std::__1::__value_type<unsigned int, ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>>> {
+struct map<unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>>> {
+    struct __tree<std::__1::__value_type<unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>, std::__1::less<unsigned int>, true>, std::__1::allocator<std::__1::__value_type<unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>, void *>>> {
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>, std::__1::less<unsigned int>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<unsigned int, std::__1::__value_type<unsigned int, md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>, std::__1::less<unsigned int>, true>> {
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
@@ -2439,18 +2413,82 @@ struct mutex {
     } __m_;
 };
 
+struct optional<gss::IconStyle> {
+    _Bool _hasValue;
+    union ValueUnion {
+        unsigned char data[1];
+        unsigned char type;
+    } _value;
+};
+
+struct optional<md::MeshSet<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh, ggl::BuildingFlatStroke::DefaultVbo>> {
+    _Bool _hasValue;
+    union ValueUnion {
+        unsigned char data[152];
+        struct MeshSet<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh, ggl::BuildingFlatStroke::DefaultVbo> type;
+    } _value;
+};
+
+struct optional<md::MeshSet<ggl::PolygonBase::CompressedMeshMesh, ggl::PolygonBase::CompressedVbo>> {
+    _Bool _hasValue;
+    union ValueUnion {
+        unsigned char data[152];
+        struct MeshSet<ggl::PolygonBase::CompressedMeshMesh, ggl::PolygonBase::CompressedVbo> type;
+    } _value;
+};
+
+struct optional<md::MeshSet<ggl::PolygonCommonStroke::MeshMesh, ggl::PolygonCommonStroke::DefaultVbo>> {
+    _Bool _hasValue;
+    union ValueUnion {
+        unsigned char data[152];
+        struct MeshSet<ggl::PolygonCommonStroke::MeshMesh, ggl::PolygonCommonStroke::DefaultVbo> type;
+    } _value;
+};
+
+struct optional<md::MeshSet<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh, ggl::Venue3DStroke::HorizontalDefaultVbo>> {
+    _Bool _hasValue;
+    union ValueUnion {
+        unsigned char data[152];
+        struct MeshSet<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh, ggl::Venue3DStroke::HorizontalDefaultVbo> type;
+    } _value;
+};
+
+struct optional<md::MeshSet<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh, ggl::Venue3DStroke::VerticalDefaultVbo>> {
+    _Bool _hasValue;
+    union ValueUnion {
+        unsigned char data[152];
+        struct MeshSet<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh, ggl::Venue3DStroke::VerticalDefaultVbo> type;
+    } _value;
+};
+
+struct optional<md::MeshSet<ggl::VenueWall::EndCapMesh, ggl::VenueWall::EndCapVbo>> {
+    _Bool _hasValue;
+    union ValueUnion {
+        unsigned char data[152];
+        struct MeshSet<ggl::VenueWall::EndCapMesh, ggl::VenueWall::EndCapVbo> type;
+    } _value;
+};
+
+struct optional<md::MeshSet<ggl::VenueWall::MeshMesh, ggl::VenueWall::DefaultVbo>> {
+    _Bool _hasValue;
+    union ValueUnion {
+        unsigned char data[152];
+        struct MeshSet<ggl::VenueWall::MeshMesh, ggl::VenueWall::DefaultVbo> type;
+    } _value;
+};
+
 struct pair<TransitLineWithLink, float>;
 
 struct pair<bool, GEOFeatureStylePair>;
 
-struct pair<md::CommandBufferId, md::CommandBufferId> {
-    unsigned char _field1;
-    unsigned char _field2;
-};
-
 struct pair<std::__1::unique_ptr<ggl::PolygonSolidFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonSolidFill::MeshPipelineSetup>>, std::__1::unique_ptr<ggl::RenderItem, std::__1::default_delete<ggl::RenderItem>>>;
 
 struct pair<unsigned short, unsigned int>;
+
+struct pair<void *, unsigned long> {
+    void *_field1;
+    unsigned long long _field2;
+};
 
 struct read_write_lock {
     struct _opaque_pthread_rwlock_t {
@@ -2459,40 +2497,40 @@ struct read_write_lock {
     } _lock;
 };
 
-struct set<altitude::ManifestListener *, std::__1::less<altitude::ManifestListener *>, std::__1::allocator<altitude::ManifestListener *>> {
-    struct __tree<altitude::ManifestListener *, std::__1::less<altitude::ManifestListener *>, std::__1::allocator<altitude::ManifestListener *>> {
+struct set<VKPolylineGroupOverlay *, std::__1::less<VKPolylineGroupOverlay *>, std::__1::allocator<VKPolylineGroupOverlay *>> {
+    struct __tree<VKPolylineGroupOverlay *, std::__1::less<VKPolylineGroupOverlay *>, std::__1::allocator<VKPolylineGroupOverlay *>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<VKPolylineGroupOverlay *, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::less<VKPolylineGroupOverlay *>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct set<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::less<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct __tree<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::less<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
+        } __pair1_;
+        struct __compressed_pair<unsigned long, std::__1::less<geo::_retain_ptr<VKOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+            unsigned long long __first_;
+        } __pair3_;
+    } __tree_;
+};
+
+struct set<unsigned long long, std::__1::less<unsigned long long>, std::__1::allocator<unsigned long long>> {
+    struct __tree<unsigned long long, std::__1::less<unsigned long long>, std::__1::allocator<unsigned long long>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<altitude::ManifestListener *, void *>>> {
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<unsigned long long, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::less<altitude::ManifestListener *>> {
+        struct __compressed_pair<unsigned long, std::__1::less<unsigned long long>> {
             unsigned long long _field1;
         } _field3;
     } _field1;
-};
-
-struct set<gss::StylesheetQuery<gss::PropertyID>*, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>, std::__1::allocator<gss::StylesheetQuery<gss::PropertyID>*>> {
-    struct __tree<gss::StylesheetQuery<gss::PropertyID>*, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>, std::__1::allocator<gss::StylesheetQuery<gss::PropertyID>*>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<gss::StylesheetQuery<gss::PropertyID>*, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::less<gss::StylesheetQuery<gss::PropertyID>*>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
-struct set<void *, std::__1::less<void *>, std::__1::allocator<void *>> {
-    struct __tree<void *, std::__1::less<void *>, std::__1::allocator<void *>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<void *, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::less<void *>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
 };
 
 struct shared_ptr<MITManager> {
@@ -2502,11 +2540,6 @@ struct shared_ptr<MITManager> {
 
 struct shared_ptr<altitude::GeoServicesLoadJob> {
     struct GeoServicesLoadJob *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<altitude::Stylesheet> {
-    struct Stylesheet *_field1;
     struct __shared_weak_count *_field2;
 };
 
@@ -2530,45 +2563,12 @@ struct shared_ptr<const md::TransitLineSharedResources> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::BitmapData> {
-    struct BitmapData *_field1;
-    struct __shared_weak_count *_field2;
-};
-
 struct shared_ptr<ggl::BitmapDataBase> {
     struct BitmapDataBase *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::BuildingFacadeDepth::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::BuildingFlat::CompressedMeshPipelineState> {
-    struct CompressedMeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokePipelineState> {
-    struct BuildingFlatStrokePipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::BuildingPointyRoofDepth::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::BuildingShadow::MeshPipelineState> {
-    struct MeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::BuildingTopDepth::CompressedMeshPipelineState> {
-    struct CompressedMeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
+struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>;
 
 struct shared_ptr<ggl::Clut::Pos2DUVPipelineState> {
     struct Pos2DUVPipelineState *__ptr_;
@@ -2576,47 +2576,12 @@ struct shared_ptr<ggl::Clut::Pos2DUVPipelineState> {
 };
 
 struct shared_ptr<ggl::CommonLibrary> {
-    struct CommonLibrary *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::ConstantDataTyped<ggl::AnimatableTexture::Variant>> {
-    struct ConstantDataTyped<ggl::AnimatableTexture::Variant> *__ptr_;
+    struct CommonLibrary *__ptr_;
     struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::ConstantDataTyped<ggl::Building::Fade>> {
-    struct ConstantDataTyped<ggl::Building::Fade> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::ConstantDataTyped<ggl::Building::Lighting>> {
-    struct ConstantDataTyped<ggl::Building::Lighting> *_field1;
-    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<ggl::ConstantDataTyped<ggl::Fog::Skyfog>> {
     struct ConstantDataTyped<ggl::Fog::Skyfog> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::ConstantDataTyped<ggl::Grid::Style>> {
-    struct ConstantDataTyped<ggl::Grid::Style> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::ConstantDataTyped<ggl::GridBase::GridView>> {
-    struct ConstantDataTyped<ggl::GridBase::GridView> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::ConstantDataTyped<ggl::PolygonFill::Fill>> {
-    struct ConstantDataTyped<ggl::PolygonFill::Fill> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::ConstantDataTyped<ggl::SimpleGrid::Style>> {
-    struct ConstantDataTyped<ggl::SimpleGrid::Style> *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -2657,26 +2622,6 @@ struct shared_ptr<ggl::Device> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::DiffuseBuilding::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::DiffuseBuildingPointyRoof::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::DiffuseBuildingTop::CompressedMeshPipelineState> {
-    struct CompressedMeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::DiffuseLandmark::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
 struct shared_ptr<ggl::FlyoverLibrary> {
     struct FlyoverLibrary *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -2684,56 +2629,6 @@ struct shared_ptr<ggl::FlyoverLibrary> {
 
 struct shared_ptr<ggl::Fog::FogPipelineState> {
     struct FogPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::FoggedDiffuseBuilding::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::FoggedDiffuseBuildingTop::CompressedMeshPipelineState> {
-    struct CompressedMeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::FoggedDiffuseLandmark::LandmarkPipelineState> {
-    struct LandmarkPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::FoggedSpecularBuilding::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::FoggedSpecularBuildingTop::CompressedMeshPipelineState> {
-    struct CompressedMeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::FoggedSpecularLandmark::LandmarkPipelineState> {
-    struct LandmarkPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::Glow::MeshPipelineState> {
-    struct MeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::GlowAlpha::MeshPipelineState> {
-    struct MeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::Grid::GridPipelineState> {
-    struct GridPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::GridBase::GridMesh> {
-    struct GridMesh *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -2747,16 +2642,6 @@ struct shared_ptr<ggl::IndexDataTyped<unsigned short>> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::LandmarkDepth::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::LandmarkFlat::LandmarkPipelineState> {
-    struct LandmarkPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
 struct shared_ptr<ggl::OESDevice> {
     struct OESDevice *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -2767,69 +2652,30 @@ struct shared_ptr<ggl::OptimizedTraffic::BasePipelineState> {
     struct __shared_weak_count *_field2;
 };
 
-struct shared_ptr<ggl::PatternedRibbon::RoutePipelineState> {
-    struct RoutePipelineState *_field1;
-    struct __shared_weak_count *_field2;
-};
-
 struct shared_ptr<ggl::PipelineState> {
     struct PipelineState *_field1;
     struct __shared_weak_count *_field2;
 };
 
-struct shared_ptr<ggl::PolygonAnimatableFill::CompressedMeshPipelineState> {
-    struct CompressedMeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::PolygonAnimatableStroke::MeshPipelineState> {
-    struct MeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
+struct shared_ptr<ggl::PolygonBase::CompressedMeshMesh>;
 
 struct shared_ptr<ggl::PolygonBase::MeshMesh> {
     struct MeshMesh *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::PolygonFill::CompressedMeshPipelineState> {
-    struct CompressedMeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::PolygonFill::MeshPipelineState> {
-    struct MeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::PolygonShadowedStroke::ShadowPathPipelineState> {
-    struct ShadowPathPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
+struct shared_ptr<ggl::PolygonCommonStroke::MeshMesh>;
 
 struct shared_ptr<ggl::PolygonSolidFill::MeshPipelineState> {
     struct MeshPipelineState *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::PolygonStroke::MeshPipelineState> {
-    struct MeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::PrefilteredLine::PrefilteredLinePipelineState> {
-    struct PrefilteredLinePipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::RenderItem> {
-    struct RenderItem *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
+struct shared_ptr<ggl::QueryItem>;
 
 struct shared_ptr<ggl::RenderQueue> {
-    struct RenderQueue *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+    struct RenderQueue *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<ggl::RenderState> {
@@ -2839,26 +2685,6 @@ struct shared_ptr<ggl::RenderState> {
 
 struct shared_ptr<ggl::RenderTransaction> {
     struct RenderTransaction *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::RouteLine::BasePipelineState> {
-    struct BasePipelineState *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::RouteLineAlphaReset::BasePipelineState> {
-    struct BasePipelineState *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::RouteLineArrow::BasePipelineState> {
-    struct BasePipelineState *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::RouteLineTraffic::BasePipelineState> {
-    struct BasePipelineState *_field1;
     struct __shared_weak_count *_field2;
 };
 
@@ -2872,11 +2698,6 @@ struct shared_ptr<ggl::Shader>;
 struct shared_ptr<ggl::ShaderLibraryData> {
     struct ShaderLibraryData *_field1;
     struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::SimpleGrid::GridPipelineState> {
-    struct GridPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
 };
 
 struct shared_ptr<ggl::Sky::SkyMesh> {
@@ -2904,26 +2725,6 @@ struct shared_ptr<ggl::SolidTraffic::BasePipelineState> {
     struct __shared_weak_count *_field2;
 };
 
-struct shared_ptr<ggl::SpecularBuilding::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::SpecularBuildingPointyRoof::BuildingPipelineState> {
-    struct BuildingPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::SpecularBuildingTop::CompressedMeshPipelineState> {
-    struct CompressedMeshPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::SpecularLandmark::LandmarkPipelineState> {
-    struct LandmarkPipelineState *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
 struct shared_ptr<ggl::StandardLibrary> {
     struct StandardLibrary *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -2934,16 +2735,6 @@ struct shared_ptr<ggl::Texture2D> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<ggl::TextureAlphaMask::MeshPipelineSetup> {
-    struct MeshPipelineSetup *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::TextureAlphaMask::MeshPipelineState> {
-    struct MeshPipelineState *_field1;
-    struct __shared_weak_count *_field2;
-};
-
 struct shared_ptr<ggl::TextureData2D> {
     struct TextureData2D *_field1;
     struct __shared_weak_count *_field2;
@@ -2951,16 +2742,6 @@ struct shared_ptr<ggl::TextureData2D> {
 
 struct shared_ptr<ggl::TextureMesh::MeshMesh> {
     struct MeshMesh *_field1;
-    struct __shared_weak_count *_field2;
-};
-
-struct shared_ptr<ggl::TextureWithBrightness::MeshPipelineSetup> {
-    struct MeshPipelineSetup *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<ggl::TextureWithBrightness::MeshPipelineState> {
-    struct MeshPipelineState *_field1;
     struct __shared_weak_count *_field2;
 };
 
@@ -2983,6 +2764,24 @@ struct shared_ptr<ggl::TransitLineRibbon::BasePipelineState> {
     struct BasePipelineState *_field1;
     struct __shared_weak_count *_field2;
 };
+
+struct shared_ptr<ggl::TransitLineRibbon::PatternedBasePipelineSetup> {
+    struct PatternedBasePipelineSetup *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::TransitLineRibbon::PatternedBasePipelineState> {
+    struct PatternedBasePipelineState *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>;
+
+struct shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>;
+
+struct shared_ptr<ggl::VenueWall::EndCapMesh>;
+
+struct shared_ptr<ggl::VenueWall::MeshMesh>;
 
 struct shared_ptr<ggl::VertexData>;
 
@@ -3021,9 +2820,26 @@ struct shared_ptr<md::AnchorContext> {
     struct __shared_weak_count *__cntrl_;
 };
 
+struct shared_ptr<md::CMercatorTerrainHeightCache> {
+    struct CMercatorTerrainHeightCache *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<md::CoastlineGroup>;
+
+struct shared_ptr<md::DashTexture> {
+    struct DashTexture *_field1;
+    struct __shared_weak_count *_field2;
+};
+
 struct shared_ptr<md::DataOverrideManager> {
     struct DataOverrideManager *__ptr_;
     struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<md::DebugTreeNode> {
+    struct DebugTreeNode *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<md::FeatureMarker> {
@@ -3045,6 +2861,8 @@ struct shared_ptr<md::LabelClusterTree> {
     struct LabelClusterTree *_field1;
     struct __shared_weak_count *_field2;
 };
+
+struct shared_ptr<md::LabelCreateExternalIconRequest>;
 
 struct shared_ptr<md::LabelExternalPointFeature> {
     struct LabelExternalPointFeature *__ptr_;
@@ -3085,6 +2903,11 @@ struct shared_ptr<md::LabelScene> {
     struct __shared_weak_count *_field2;
 };
 
+struct shared_ptr<md::LabelStyle> {
+    struct LabelStyle *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
 struct shared_ptr<md::LabelTile> {
     struct LabelTile *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -3120,8 +2943,23 @@ struct shared_ptr<md::RasterOverlayData> {
     struct __shared_weak_count *__cntrl_;
 };
 
+struct shared_ptr<md::ResourceInfo> {
+    struct ResourceInfo *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
 struct shared_ptr<md::StylesheetVendor> {
     struct StylesheetVendor *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<md::TaskContext> {
+    struct TaskContext *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+};
+
+struct shared_ptr<md::TrafficDynamicTile> {
+    struct TrafficDynamicTile *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
@@ -3133,13 +2971,8 @@ struct shared_ptr<md::TransitInterTileMediator> {
 };
 
 struct shared_ptr<md::TransitItemMarker> {
-    struct TransitItemMarker *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-};
-
-struct shared_ptr<md::TransitLineSharedResources> {
-    struct TransitLineSharedResources *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+    struct TransitItemMarker *_field1;
+    struct __shared_weak_count *_field2;
 };
 
 struct shared_ptr<md::TransitNode>;
@@ -3153,42 +2986,40 @@ struct shared_ptr<md::VKGlobeStylesheet> {
     struct __shared_weak_count *__cntrl_;
 };
 
-struct shared_ptr<md::ViewTransform> {
-    struct ViewTransform *__ptr_;
-    struct __shared_weak_count *__cntrl_;
+struct shared_ptr<md::VenueBuildingFeatureMarker> {
+    struct VenueBuildingFeatureMarker *_field1;
+    struct __shared_weak_count *_field2;
 };
 
-struct shared_ptr<zilch::TrafficDynamicTile> {
-    struct TrafficDynamicTile *__ptr_;
+struct shared_ptr<md::VenueFeatureMarker> {
+    struct VenueFeatureMarker *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<md::ViewTransform> {
+    struct ViewTransform *_field1;
+    struct __shared_weak_count *_field2;
+};
+
+struct shared_ptr<zilch::TrafficSkeletonTile> {
+    struct TrafficSkeletonTile *__ptr_;
     struct __shared_weak_count *__cntrl_;
 };
 
 struct type {
-    unsigned char _field1[24];
+    unsigned char _field1[32];
 };
 
-struct unique_ptr<AnnotationPipelineStates, std::__1::default_delete<AnnotationPipelineStates>> {
-    struct __compressed_pair<AnnotationPipelineStates *, std::__1::default_delete<AnnotationPipelineStates>> {
-        struct AnnotationPipelineStates *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<LRUCache<unsigned long, CGImage *>, std::__1::default_delete<LRUCache<unsigned long, CGImage *>>> {
-    struct __compressed_pair<LRUCache<unsigned long, CGImage *>*, std::__1::default_delete<LRUCache<unsigned long, CGImage *>>> {
-        struct LRUCache<unsigned long, CGImage *> *_field1;
+struct unique_ptr<LRUCache<unsigned long, CGImage *, std::__1::hash<unsigned long>>, std::__1::default_delete<LRUCache<unsigned long, CGImage *, std::__1::hash<unsigned long>>>> {
+    struct __compressed_pair<LRUCache<unsigned long, CGImage *, std::__1::hash<unsigned long>>*, std::__1::default_delete<LRUCache<unsigned long, CGImage *, std::__1::hash<unsigned long>>>> {
+        struct LRUCache<unsigned long, CGImage *, std::__1::hash<unsigned long>> *_field1;
     } _field1;
 };
 
-struct unique_ptr<LRUCache<unsigned long, VKRoadSignArtwork *>, std::__1::default_delete<LRUCache<unsigned long, VKRoadSignArtwork *>>> {
-    struct __compressed_pair<LRUCache<unsigned long, VKRoadSignArtwork *>*, std::__1::default_delete<LRUCache<unsigned long, VKRoadSignArtwork *>>> {
-        struct LRUCache<unsigned long, VKRoadSignArtwork *> *_field1;
+struct unique_ptr<LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<unsigned long>>, std::__1::default_delete<LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<unsigned long>>>> {
+    struct __compressed_pair<LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<unsigned long>>*, std::__1::default_delete<LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<unsigned long>>>> {
+        struct LRUCache<unsigned long, VKRoadSignArtwork *, std::__1::hash<unsigned long>> *_field1;
     } _field1;
-};
-
-struct unique_ptr<VKLabelNavArtworkCache, std::__1::default_delete<VKLabelNavArtworkCache>> {
-    struct __compressed_pair<VKLabelNavArtworkCache *, std::__1::default_delete<VKLabelNavArtworkCache>> {
-        struct VKLabelNavArtworkCache *__first_;
-    } __ptr_;
 };
 
 struct unique_ptr<ggl::AlphaAtlas, std::__1::default_delete<ggl::AlphaAtlas>> {
@@ -3245,48 +3076,6 @@ struct unique_ptr<ggl::Fog::FogPipelineSetup, std::__1::default_delete<ggl::Fog:
     } __ptr_;
 };
 
-struct unique_ptr<ggl::FragmentedPool<ggl::BuildingFacadeDepth::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFacadeDepth::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingFacadeDepth::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFacadeDepth::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::BuildingFacadeDepth::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::BuildingFlat::CompressedMeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlat::CompressedMeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingFlat::CompressedMeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlat::CompressedMeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::BuildingFlat::CompressedMeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::BuildingFlatStroke::BuildingFlatStrokePipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlatStroke::BuildingFlatStrokePipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingFlatStroke::BuildingFlatStrokePipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingFlatStroke::BuildingFlatStrokePipelineSetup>>> {
-        struct FragmentedPool<ggl::BuildingFlatStroke::BuildingFlatStrokePipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::BuildingPointyRoofDepth::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingPointyRoofDepth::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingPointyRoofDepth::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingPointyRoofDepth::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::BuildingPointyRoofDepth::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::BuildingShadow::MeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingShadow::MeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingShadow::MeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingShadow::MeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::BuildingShadow::MeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::BuildingTopDepth::CompressedMeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingTopDepth::CompressedMeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::BuildingTopDepth::CompressedMeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::BuildingTopDepth::CompressedMeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::BuildingTopDepth::CompressedMeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::Debug::BaseMesh>, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::BaseMesh>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::Debug::BaseMesh>*, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::BaseMesh>>> {
-        struct FragmentedPool<ggl::Debug::BaseMesh> *__first_;
-    } __ptr_;
-};
-
 struct unique_ptr<ggl::FragmentedPool<ggl::Debug::BasePipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::BasePipelineSetup>>> {
     struct __compressed_pair<ggl::FragmentedPool<ggl::Debug::BasePipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::Debug::BasePipelineSetup>>> {
         struct FragmentedPool<ggl::Debug::BasePipelineSetup> *__first_;
@@ -3299,159 +3088,9 @@ struct unique_ptr<ggl::FragmentedPool<ggl::DebugPoints::BasePipelineSetup>, std:
     } __ptr_;
 };
 
-struct unique_ptr<ggl::FragmentedPool<ggl::DiffuseBuilding::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::DiffuseBuilding::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::DiffuseBuilding::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::DiffuseBuilding::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::DiffuseBuilding::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::DiffuseBuildingPointyRoof::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::DiffuseBuildingPointyRoof::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::DiffuseBuildingPointyRoof::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::DiffuseBuildingPointyRoof::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::DiffuseBuildingPointyRoof::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::DiffuseBuildingTop::CompressedMeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::DiffuseBuildingTop::CompressedMeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::DiffuseBuildingTop::CompressedMeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::DiffuseBuildingTop::CompressedMeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::DiffuseBuildingTop::CompressedMeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::DiffuseLandmark::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::DiffuseLandmark::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::DiffuseLandmark::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::DiffuseLandmark::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::DiffuseLandmark::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::FoggedDiffuseBuilding::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedDiffuseBuilding::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::FoggedDiffuseBuilding::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedDiffuseBuilding::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::FoggedDiffuseBuilding::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::FoggedDiffuseBuildingTop::CompressedMeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedDiffuseBuildingTop::CompressedMeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::FoggedDiffuseBuildingTop::CompressedMeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedDiffuseBuildingTop::CompressedMeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::FoggedDiffuseBuildingTop::CompressedMeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::FoggedDiffuseLandmark::LandmarkPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedDiffuseLandmark::LandmarkPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::FoggedDiffuseLandmark::LandmarkPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedDiffuseLandmark::LandmarkPipelineSetup>>> {
-        struct FragmentedPool<ggl::FoggedDiffuseLandmark::LandmarkPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::FoggedSpecularBuilding::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedSpecularBuilding::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::FoggedSpecularBuilding::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedSpecularBuilding::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::FoggedSpecularBuilding::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::FoggedSpecularBuildingTop::CompressedMeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedSpecularBuildingTop::CompressedMeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::FoggedSpecularBuildingTop::CompressedMeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedSpecularBuildingTop::CompressedMeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::FoggedSpecularBuildingTop::CompressedMeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::FoggedSpecularLandmark::LandmarkPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedSpecularLandmark::LandmarkPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::FoggedSpecularLandmark::LandmarkPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::FoggedSpecularLandmark::LandmarkPipelineSetup>>> {
-        struct FragmentedPool<ggl::FoggedSpecularLandmark::LandmarkPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::Glow::MeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::Glow::MeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::Glow::MeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::Glow::MeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::Glow::MeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::GlowAlpha::MeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::GlowAlpha::MeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::GlowAlpha::MeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::GlowAlpha::MeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::GlowAlpha::MeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::LandmarkDepth::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::LandmarkDepth::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::LandmarkDepth::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::LandmarkDepth::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::LandmarkDepth::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::LandmarkFlat::LandmarkPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::LandmarkFlat::LandmarkPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::LandmarkFlat::LandmarkPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::LandmarkFlat::LandmarkPipelineSetup>>> {
-        struct FragmentedPool<ggl::LandmarkFlat::LandmarkPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::PolygonAnimatableFill::CompressedMeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableFill::CompressedMeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonAnimatableFill::CompressedMeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableFill::CompressedMeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::PolygonAnimatableFill::CompressedMeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::MeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::MeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::MeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonAnimatableStroke::MeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::PolygonAnimatableStroke::MeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::PolygonFill::CompressedMeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonFill::CompressedMeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonFill::CompressedMeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonFill::CompressedMeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::PolygonFill::CompressedMeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::PolygonShadowedStroke::ShadowPathPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonShadowedStroke::ShadowPathPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonShadowedStroke::ShadowPathPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonShadowedStroke::ShadowPathPipelineSetup>>> {
-        struct FragmentedPool<ggl::PolygonShadowedStroke::ShadowPathPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::PolygonStroke::MeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonStroke::MeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::PolygonStroke::MeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PolygonStroke::MeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::PolygonStroke::MeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::PrefilteredLine::PrefilteredLinePipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::PrefilteredLine::PrefilteredLinePipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::PrefilteredLine::PrefilteredLinePipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::PrefilteredLine::PrefilteredLinePipelineSetup>>> {
-        struct FragmentedPool<ggl::PrefilteredLine::PrefilteredLinePipelineSetup> *__first_;
-    } __ptr_;
-};
-
 struct unique_ptr<ggl::FragmentedPool<ggl::RenderItem>, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> {
     struct __compressed_pair<ggl::FragmentedPool<ggl::RenderItem>*, std::__1::default_delete<ggl::FragmentedPool<ggl::RenderItem>>> {
         struct FragmentedPool<ggl::RenderItem> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::SpecularBuilding::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::SpecularBuilding::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::SpecularBuilding::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::SpecularBuilding::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::SpecularBuilding::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::SpecularBuildingPointyRoof::BuildingPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::SpecularBuildingPointyRoof::BuildingPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::SpecularBuildingPointyRoof::BuildingPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::SpecularBuildingPointyRoof::BuildingPipelineSetup>>> {
-        struct FragmentedPool<ggl::SpecularBuildingPointyRoof::BuildingPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::SpecularBuildingTop::CompressedMeshPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::SpecularBuildingTop::CompressedMeshPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::SpecularBuildingTop::CompressedMeshPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::SpecularBuildingTop::CompressedMeshPipelineSetup>>> {
-        struct FragmentedPool<ggl::SpecularBuildingTop::CompressedMeshPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::FragmentedPool<ggl::SpecularLandmark::LandmarkPipelineSetup>, std::__1::default_delete<ggl::FragmentedPool<ggl::SpecularLandmark::LandmarkPipelineSetup>>> {
-    struct __compressed_pair<ggl::FragmentedPool<ggl::SpecularLandmark::LandmarkPipelineSetup>*, std::__1::default_delete<ggl::FragmentedPool<ggl::SpecularLandmark::LandmarkPipelineSetup>>> {
-        struct FragmentedPool<ggl::SpecularLandmark::LandmarkPipelineSetup> *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::Grid::GridPipelineSetup, std::__1::default_delete<ggl::Grid::GridPipelineSetup>> {
-    struct __compressed_pair<ggl::Grid::GridPipelineSetup *, std::__1::default_delete<ggl::Grid::GridPipelineSetup>> {
-        struct GridPipelineSetup *__first_;
     } __ptr_;
 };
 
@@ -3485,18 +3124,6 @@ struct unique_ptr<ggl::MeshVendor<ggl::BuildingPointyRoof::BuildingMesh>, std::_
     } __ptr_;
 };
 
-struct unique_ptr<ggl::MeshVendor<ggl::Glow::MeshMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::Glow::MeshMesh>>> {
-    struct __compressed_pair<ggl::MeshVendor<ggl::Glow::MeshMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::Glow::MeshMesh>>> {
-        MeshVendor_43d71dca *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::MeshVendor<ggl::PolygonShadowedStroke::ShadowPathMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::PolygonShadowedStroke::ShadowPathMesh>>> {
-    struct __compressed_pair<ggl::MeshVendor<ggl::PolygonShadowedStroke::ShadowPathMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::PolygonShadowedStroke::ShadowPathMesh>>> {
-        MeshVendor_303b8b6a *__first_;
-    } __ptr_;
-};
-
 struct unique_ptr<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>, std::__1::default_delete<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>>> {
     struct __compressed_pair<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>*, std::__1::default_delete<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>>> {
         MeshVendor_8027e961 *__first_;
@@ -3506,12 +3133,6 @@ struct unique_ptr<ggl::MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh>, st
 struct unique_ptr<ggl::OESContext, std::__1::default_delete<ggl::OESContext>> {
     struct __compressed_pair<ggl::OESContext *, std::__1::default_delete<ggl::OESContext>> {
         struct OESContext *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::PolygonFill::MeshPipelineSetup, std::__1::default_delete<ggl::PolygonFill::MeshPipelineSetup>> {
-    struct __compressed_pair<ggl::PolygonFill::MeshPipelineSetup *, std::__1::default_delete<ggl::PolygonFill::MeshPipelineSetup>> {
-        struct MeshPipelineSetup *__first_;
     } __ptr_;
 };
 
@@ -3551,24 +3172,6 @@ struct unique_ptr<ggl::RenderTarget, std::__1::default_delete<ggl::RenderTarget>
     } __ptr_;
 };
 
-struct unique_ptr<ggl::RibbonLayer<ggl::RoadRibbonDescriptor>, std::__1::default_delete<ggl::RibbonLayer<ggl::RoadRibbonDescriptor>>> {
-    struct __compressed_pair<ggl::RibbonLayer<ggl::RoadRibbonDescriptor>*, std::__1::default_delete<ggl::RibbonLayer<ggl::RoadRibbonDescriptor>>> {
-        RibbonLayer_db5d8a14 *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::RibbonLayer<ggl::TransitRibbonDescriptor>, std::__1::default_delete<ggl::RibbonLayer<ggl::TransitRibbonDescriptor>>> {
-    struct __compressed_pair<ggl::RibbonLayer<ggl::TransitRibbonDescriptor>*, std::__1::default_delete<ggl::RibbonLayer<ggl::TransitRibbonDescriptor>>> {
-        RibbonLayer_d95b4043 *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::SimpleGrid::GridPipelineSetup, std::__1::default_delete<ggl::SimpleGrid::GridPipelineSetup>> {
-    struct __compressed_pair<ggl::SimpleGrid::GridPipelineSetup *, std::__1::default_delete<ggl::SimpleGrid::GridPipelineSetup>> {
-        struct GridPipelineSetup *__first_;
-    } __ptr_;
-};
-
 struct unique_ptr<ggl::Texture, std::__1::default_delete<ggl::Texture>> {
     struct __compressed_pair<ggl::Texture *, std::__1::default_delete<ggl::Texture>> {
         struct Texture *__first_;
@@ -3578,12 +3181,6 @@ struct unique_ptr<ggl::Texture, std::__1::default_delete<ggl::Texture>> {
 struct unique_ptr<ggl::Texture2D, std::__1::default_delete<ggl::Texture2D>> {
     struct __compressed_pair<ggl::Texture2D *, std::__1::default_delete<ggl::Texture2D>> {
         struct Texture2D *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<ggl::TexturePool, std::__1::default_delete<ggl::TexturePool>> {
-    struct __compressed_pair<ggl::TexturePool *, std::__1::default_delete<ggl::TexturePool>> {
-        struct TexturePool *__first_;
     } __ptr_;
 };
 
@@ -3623,9 +3220,21 @@ struct unique_ptr<ggl::TransitNodeRGB::BasePipelineSetup, std::__1::default_dele
     } _field1;
 };
 
+struct unique_ptr<md::CasedTrafficLayer, std::__1::default_delete<md::CasedTrafficLayer>> {
+    struct __compressed_pair<md::CasedTrafficLayer *, std::__1::default_delete<md::CasedTrafficLayer>> {
+        struct CasedTrafficLayer *__first_;
+    } __ptr_;
+};
+
 struct unique_ptr<md::DebugConsoleManager, std::__1::default_delete<md::DebugConsoleManager>> {
     struct __compressed_pair<md::DebugConsoleManager *, std::__1::default_delete<md::DebugConsoleManager>> {
         struct DebugConsoleManager *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<md::FontManager, std::__1::default_delete<md::FontManager>> {
+    struct __compressed_pair<md::FontManager *, std::__1::default_delete<md::FontManager>> {
+        struct FontManager *__first_;
     } __ptr_;
 };
 
@@ -3641,9 +3250,27 @@ struct unique_ptr<md::LabelClusterProvider, std::__1::default_delete<md::LabelCl
     } _field1;
 };
 
-struct unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext>> {
-    struct __compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext>> {
-        struct LayoutContext *__first_;
+struct unique_ptr<md::LabelSettings, std::__1::default_delete<md::LabelSettings>> {
+    struct __compressed_pair<md::LabelSettings *, std::__1::default_delete<md::LabelSettings>> {
+        struct LabelSettings *_field1;
+    } _field1;
+};
+
+struct unique_ptr<md::LabelSettingsData, std::__1::default_delete<md::LabelSettingsData>> {
+    struct __compressed_pair<md::LabelSettingsData *, std::__1::default_delete<md::LabelSettingsData>> {
+        struct LabelSettingsData *_field1;
+    } _field1;
+};
+
+struct unique_ptr<md::LogicContext, std::__1::default_delete<md::LogicContext>> {
+    struct __compressed_pair<md::LogicContext *, std::__1::default_delete<md::LogicContext>> {
+        struct LogicContext *_field1;
+    } _field1;
+};
+
+struct unique_ptr<md::MapEngine, std::__1::default_delete<md::MapEngine>> {
+    struct __compressed_pair<md::MapEngine *, std::__1::default_delete<md::MapEngine>> {
+        struct MapEngine *__first_;
     } __ptr_;
 };
 
@@ -3653,21 +3280,9 @@ struct unique_ptr<md::NavLabelPart, std::__1::default_delete<md::NavLabelPart>> 
     } _field1;
 };
 
-struct unique_ptr<md::OffscreenQueue, std::__1::default_delete<md::OffscreenQueue>> {
-    struct __compressed_pair<md::OffscreenQueue *, std::__1::default_delete<md::OffscreenQueue>> {
-        struct OffscreenQueue *__first_;
-    } __ptr_;
-};
-
 struct unique_ptr<md::PatternedLayer, std::__1::default_delete<md::PatternedLayer>> {
     struct __compressed_pair<md::PatternedLayer *, std::__1::default_delete<md::PatternedLayer>> {
         struct PatternedLayer *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<md::PatternedSharedResources, std::__1::default_delete<md::PatternedSharedResources>> {
-    struct __compressed_pair<md::PatternedSharedResources *, std::__1::default_delete<md::PatternedSharedResources>> {
-        struct PatternedSharedResources *__first_;
     } __ptr_;
 };
 
@@ -3683,9 +3298,15 @@ struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> {
     } __ptr_;
 };
 
-struct unique_ptr<md::RenderTree, std::__1::default_delete<md::RenderTree>> {
-    struct __compressed_pair<md::RenderTree *, std::__1::default_delete<md::RenderTree>> {
-        struct RenderTree *__first_;
+struct unique_ptr<md::Ribbons::RibbonLayer<md::Ribbons::TransitRibbonDescriptor>, std::__1::default_delete<md::Ribbons::RibbonLayer<md::Ribbons::TransitRibbonDescriptor>>> {
+    struct __compressed_pair<md::Ribbons::RibbonLayer<md::Ribbons::TransitRibbonDescriptor>*, std::__1::default_delete<md::Ribbons::RibbonLayer<md::Ribbons::TransitRibbonDescriptor>>> {
+        RibbonLayer_abf9b3d8 *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<md::Ribbons::RibbonLayer<md::TransitDisplayConnectionRibbonDescriptor>, std::__1::default_delete<md::Ribbons::RibbonLayer<md::TransitDisplayConnectionRibbonDescriptor>>> {
+    struct __compressed_pair<md::Ribbons::RibbonLayer<md::TransitDisplayConnectionRibbonDescriptor>*, std::__1::default_delete<md::Ribbons::RibbonLayer<md::TransitDisplayConnectionRibbonDescriptor>>> {
+        RibbonLayer_99607768 *__first_;
     } __ptr_;
 };
 
@@ -3693,38 +3314,6 @@ struct unique_ptr<md::RoadLayer, std::__1::default_delete<md::RoadLayer>> {
     struct __compressed_pair<md::RoadLayer *, std::__1::default_delete<md::RoadLayer>> {
         struct RoadLayer *__first_;
     } __ptr_;
-};
-
-struct unique_ptr<md::RoadSharedResources, std::__1::default_delete<md::RoadSharedResources>> {
-    struct __compressed_pair<md::RoadSharedResources *, std::__1::default_delete<md::RoadSharedResources>> {
-        struct RoadSharedResources *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<md::RouteLineArrowLayer, std::__1::default_delete<md::RouteLineArrowLayer>>;
-
-struct unique_ptr<md::RouteLineArrowSharedResources, std::__1::default_delete<md::RouteLineArrowSharedResources>> {
-    struct __compressed_pair<md::RouteLineArrowSharedResources *, std::__1::default_delete<md::RouteLineArrowSharedResources>> {
-        struct RouteLineArrowSharedResources *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<md::RouteLineLayer, std::__1::default_delete<md::RouteLineLayer>> {
-    struct __compressed_pair<md::RouteLineLayer *, std::__1::default_delete<md::RouteLineLayer>> {
-        struct RouteLineLayer *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<md::RouteLineSharedResources, std::__1::default_delete<md::RouteLineSharedResources>> {
-    struct __compressed_pair<md::RouteLineSharedResources *, std::__1::default_delete<md::RouteLineSharedResources>> {
-        struct RouteLineSharedResources *__first_;
-    } __ptr_;
-};
-
-struct unique_ptr<md::SharedDeviceResources, std::__1::default_delete<md::SharedDeviceResources>> {
-    struct __compressed_pair<md::SharedDeviceResources *, std::__1::default_delete<md::SharedDeviceResources>> {
-        struct SharedDeviceResources *_field1;
-    } _field1;
 };
 
 struct unique_ptr<md::SolidTrafficLayer, std::__1::default_delete<md::SolidTrafficLayer>> {
@@ -3736,6 +3325,18 @@ struct unique_ptr<md::SolidTrafficLayer, std::__1::default_delete<md::SolidTraff
 struct unique_ptr<md::StyleTexture<md::TransitLineSegment::StylePixel>, std::__1::default_delete<md::StyleTexture<md::TransitLineSegment::StylePixel>>> {
     struct __compressed_pair<md::StyleTexture<md::TransitLineSegment::StylePixel>*, std::__1::default_delete<md::StyleTexture<md::TransitLineSegment::StylePixel>>> {
         struct StyleTexture<md::TransitLineSegment::StylePixel> *__first_;
+    } __ptr_;
+};
+
+struct unique_ptr<md::TileSelectionProfile, std::__1::default_delete<md::TileSelectionProfile>> {
+    struct __compressed_pair<md::TileSelectionProfile *, std::__1::default_delete<md::TileSelectionProfile>> {
+        struct TileSelectionProfile *_field1;
+    } _field1;
+};
+
+struct unique_ptr<md::TileSelector, std::__1::default_delete<md::TileSelector>> {
+    struct __compressed_pair<md::TileSelector *, std::__1::default_delete<md::TileSelector>> {
+        struct TileSelector *__first_;
     } __ptr_;
 };
 
@@ -3757,27 +3358,10 @@ struct unique_ptr<md::TransitJunctionManager, std::__1::default_delete<md::Trans
     } __ptr_;
 };
 
-struct unique_ptr<md::TransitNodeFeaturePool, std::__1::default_delete<md::TransitNodeFeaturePool>> {
-    struct __compressed_pair<md::TransitNodeFeaturePool *, std::__1::default_delete<md::TransitNodeFeaturePool>> {
-        struct TransitNodeFeaturePool *__first_;
-    } __ptr_;
-};
-
 struct unique_ptr<md::TransitNodeTextureAtlas, std::__1::default_delete<md::TransitNodeTextureAtlas>> {
     struct __compressed_pair<md::TransitNodeTextureAtlas *, std::__1::default_delete<md::TransitNodeTextureAtlas>> {
         struct TransitNodeTextureAtlas *_field1;
     } _field1;
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>*>> {
-                unsigned long long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
 };
 
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*>*>>> {
@@ -3785,6 +3369,17 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TransitLineWi
         struct __hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*> **_field1;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*>*>> {
+                unsigned long long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>*>> {
                 unsigned long long _field1;
             } _field1;
         } _field2;
@@ -3802,17 +3397,6 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>*>> {
-                unsigned long long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
-};
-
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>>, void *>*>*>>> {
     struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>>, void *>*>*>>> {
         struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const GEOTransitLink *, std::__1::weak_ptr<md::LabelExternalTransitLink>>, void *>*> **_field1;
@@ -3822,17 +3406,6 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
             } _field1;
         } _field2;
     } _field1;
-};
-
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>*>> {
-                unsigned long long __first_;
-            } __data_;
-        } __second_;
-    } __ptr_;
 };
 
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::DashTextureCache::Key, std::__1::shared_ptr<md::DashTexture>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::DashTextureCache::Key, std::__1::shared_ptr<md::DashTexture>>, void *>*>*>>> {
@@ -3868,22 +3441,22 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*> **_field1;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*>> {
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*>> {
                 unsigned long long _field1;
             } _field1;
         } _field2;
     } _field1;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*> **_field1;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*>> {
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*>> {
                 unsigned long long _field1;
             } _field1;
         } _field2;
@@ -3978,6 +3551,28 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
     } __ptr_;
 };
 
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>*>> {
+                unsigned long long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>*>> {
+                unsigned long long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*>*>>> {
     struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*>*>>> {
         struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*> **_field1;
@@ -4000,11 +3595,33 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
     } __ptr_;
 };
 
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>*>> {
+                unsigned long long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
 struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*>*>>> {
     struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*>*>>> {
         struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*> **_field1;
         struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*>*>> {
             struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*>*>> {
+                unsigned long long _field1;
+            } _field1;
+        } _field2;
+    } _field1;
+};
+
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*> **_field1;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>*>> {
                 unsigned long long _field1;
             } _field1;
         } _field2;
@@ -4032,21 +3649,6 @@ struct unordered_map<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>, s
             unsigned long long __first_;
         } __p2_;
         struct __compressed_pair<float, std::__1::__unordered_map_equal<GEOGenericTileType, std::__1::__hash_value_type<GEOGenericTileType, std::__1::shared_ptr<ggl::Texture2D>>, std::__1::equal_to<GEOGenericTileType>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_map<VKVectorTile *, OccluderGroupList, std::__1::hash<VKVectorTile *>, std::__1::equal_to<VKVectorTile *>, std::__1::allocator<std::__1::pair<VKVectorTile *const, OccluderGroupList>>> {
-    struct __hash_table<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::__unordered_map_hasher<VKVectorTile *, std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::hash<VKVectorTile *>, true>, std::__1::__unordered_map_equal<VKVectorTile *, std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::equal_to<VKVectorTile *>, true>, std::__1::allocator<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, void *>*> __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<VKVectorTile *, std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::hash<VKVectorTile *>, true>> {
-            unsigned long long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<VKVectorTile *, std::__1::__hash_value_type<VKVectorTile *, OccluderGroupList>, std::__1::equal_to<VKVectorTile *>, true>> {
             float __first_;
         } __p3_;
     } __table_;
@@ -4112,31 +3714,31 @@ struct unordered_map<md::IconCacheKey, std::__1::__list_iterator<geo::detail::_C
     } __table_;
 };
 
-struct unordered_map<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>, std::__1::hash<md::PatternedBatchKey>, std::__1::equal_to<md::PatternedBatchKey>, std::__1::allocator<std::__1::pair<const md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>>> {
-    struct __hash_table<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::__unordered_map_hasher<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::hash<md::PatternedBatchKey>, true>, std::__1::__unordered_map_equal<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::equal_to<md::PatternedBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*> _field1;
+struct unordered_map<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>, std::__1::hash<md::PatternedBatchKey>, std::__1::equal_to<md::PatternedBatchKey>, std::__1::allocator<std::__1::pair<const md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::__unordered_map_hasher<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::hash<md::PatternedBatchKey>, true>, std::__1::__unordered_map_equal<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::equal_to<md::PatternedBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::hash<md::PatternedBatchKey>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::hash<md::PatternedBatchKey>, true>> {
             unsigned long long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::equal_to<md::PatternedBatchKey>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::equal_to<md::PatternedBatchKey>, true>> {
             float _field1;
         } _field4;
     } _field1;
 };
 
-struct unordered_map<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>, std::__1::hash<md::RoadBatchKey>, std::__1::equal_to<md::RoadBatchKey>, std::__1::allocator<std::__1::pair<const md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>>> {
-    struct __hash_table<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::__unordered_map_hasher<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::hash<md::RoadBatchKey>, true>, std::__1::__unordered_map_equal<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::equal_to<md::RoadBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*> _field1;
+struct unordered_map<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>, std::__1::hash<md::RoadBatchKey>, std::__1::equal_to<md::RoadBatchKey>, std::__1::allocator<std::__1::pair<const md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::__unordered_map_hasher<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::hash<md::RoadBatchKey>, true>, std::__1::__unordered_map_equal<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::equal_to<md::RoadBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::hash<md::RoadBatchKey>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::hash<md::RoadBatchKey>, true>> {
             unsigned long long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::equal_to<md::RoadBatchKey>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::equal_to<md::RoadBatchKey>, true>> {
             float _field1;
         } _field4;
     } _field1;
@@ -4262,6 +3864,36 @@ struct unordered_map<unsigned long long, md::PolygonRouteAttributes, std::__1::h
     } __table_;
 };
 
+struct unordered_map<unsigned long long, md::Venue, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, md::Venue>>> {
+    struct __hash_table<std::__1::__hash_value_type<unsigned long long, md::Venue>, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, md::Venue>, std::__1::hash<unsigned long long>, true>, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, md::Venue>, std::__1::equal_to<unsigned long long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long long, md::Venue>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, md::Venue>, void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, md::Venue>, std::__1::hash<unsigned long long>, true>> {
+            unsigned long long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, md::Venue>, std::__1::equal_to<unsigned long long>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
+struct unordered_map<unsigned long long, short, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, short>>> {
+    struct __hash_table<std::__1::__hash_value_type<unsigned long long, short>, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, short>, std::__1::hash<unsigned long long>, true>, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, short>, std::__1::equal_to<unsigned long long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long long, short>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, short>, void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, short>, std::__1::hash<unsigned long long>, true>> {
+            unsigned long long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, short>, std::__1::equal_to<unsigned long long>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
 struct unordered_map<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>>> {
     struct __hash_table<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, std::__1::hash<unsigned long long>, true>, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, std::__1::equal_to<unsigned long long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>>> {
         struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::shared_ptr<md::TransitNodeFeature>>, void *>*>*>>> _field1;
@@ -4292,6 +3924,21 @@ struct unordered_map<unsigned long long, std::__1::unordered_set<md::TransitNode
     } __table_;
 };
 
+struct unordered_map<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, std::__1::hash<unsigned long long>, true>, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, std::__1::equal_to<unsigned long long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, std::__1::hash<unsigned long long>, true>> {
+            unsigned long long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, std::__1::vector<unsigned long long, std::__1::allocator<unsigned long long>>>, std::__1::equal_to<unsigned long long>, true>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
 struct unordered_map<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>, std::__1::hash<unsigned long long>, std::__1::equal_to<unsigned long long>, std::__1::allocator<std::__1::pair<const unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>>> {
     struct __hash_table<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, std::__1::__unordered_map_hasher<unsigned long long, std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, std::__1::hash<unsigned long long>, true>, std::__1::__unordered_map_equal<unsigned long long, std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, std::__1::equal_to<unsigned long long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>>> {
         struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long long, std::__1::weak_ptr<md::LabelExternalTransitNode>>, void *>*>*>>> _field1;
@@ -4307,36 +3954,6 @@ struct unordered_map<unsigned long long, std::__1::weak_ptr<md::LabelExternalTra
     } _field1;
 };
 
-struct unordered_multimap<long long, const zilch::TrafficDynamicTile::Flow *, std::__1::hash<long long>, std::__1::equal_to<long long>, std::__1::allocator<std::__1::pair<const long long, const zilch::TrafficDynamicTile::Flow *>>> {
-    struct __hash_table<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::hash<long long>, true>, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::equal_to<long long>, true>, std::__1::allocator<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, void *>*> __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<long long, std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::hash<long long>, true>> {
-            unsigned long long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<long long, std::__1::__hash_value_type<long long, const zilch::TrafficDynamicTile::Flow *>, std::__1::equal_to<long long>, true>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
-struct unordered_set<GEOComposedRouteSection *, std::__1::hash<GEOComposedRouteSection *>, std::__1::equal_to<GEOComposedRouteSection *>, std::__1::allocator<GEOComposedRouteSection *>> {
-    struct __hash_table<GEOComposedRouteSection *, std::__1::hash<GEOComposedRouteSection *>, std::__1::equal_to<GEOComposedRouteSection *>, std::__1::allocator<GEOComposedRouteSection *>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*>, std::__1::allocator<std::__1::__hash_node<GEOComposedRouteSection *, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<GEOComposedRouteSection *, void *>*> __first_;
-        } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::hash<GEOComposedRouteSection *>> {
-            unsigned long long __first_;
-        } __p2_;
-        struct __compressed_pair<float, std::__1::equal_to<GEOComposedRouteSection *>> {
-            float __first_;
-        } __p3_;
-    } __table_;
-};
-
 struct unordered_set<TransitLineWithLink, TransitLineWithLinkHash, std::__1::equal_to<TransitLineWithLink>, std::__1::allocator<TransitLineWithLink>> {
     struct __hash_table<TransitLineWithLink, TransitLineWithLinkHash, std::__1::equal_to<TransitLineWithLink>, std::__1::allocator<TransitLineWithLink>> {
         struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<TransitLineWithLink, void *>*>*>>> _field1;
@@ -4347,6 +3964,36 @@ struct unordered_set<TransitLineWithLink, TransitLineWithLinkHash, std::__1::equ
             unsigned long long _field1;
         } _field3;
         struct __compressed_pair<float, std::__1::equal_to<TransitLineWithLink>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
+struct unordered_set<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct __hash_table<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::hash<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::equal_to<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>, std::__1::allocator<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*>, std::__1::allocator<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::hash<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+            unsigned long long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::equal_to<geo::_retain_ptr<VKAnimation *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+            float _field1;
+        } _field4;
+    } _field1;
+};
+
+struct unordered_set<std::__1::shared_ptr<md::LabelExternalIcon>, std::__1::hash<std::__1::shared_ptr<md::LabelExternalIcon>>, std::__1::equal_to<std::__1::shared_ptr<md::LabelExternalIcon>>, std::__1::allocator<std::__1::shared_ptr<md::LabelExternalIcon>>> {
+    struct __hash_table<std::__1::shared_ptr<md::LabelExternalIcon>, std::__1::hash<std::__1::shared_ptr<md::LabelExternalIcon>>, std::__1::equal_to<std::__1::shared_ptr<md::LabelExternalIcon>>, std::__1::allocator<std::__1::shared_ptr<md::LabelExternalIcon>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::shared_ptr<md::LabelExternalIcon>, void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::hash<std::__1::shared_ptr<md::LabelExternalIcon>>> {
+            unsigned long long _field1;
+        } _field3;
+        struct __compressed_pair<float, std::__1::equal_to<std::__1::shared_ptr<md::LabelExternalIcon>>> {
             float _field1;
         } _field4;
     } _field1;
@@ -4365,6 +4012,22 @@ struct unordered_set<unsigned long long, std::__1::hash<unsigned long long>, std
             float __first_;
         } __p3_;
     } __table_;
+};
+
+struct vector<AdditionalRouteInfo, std::__1::allocator<AdditionalRouteInfo>> {
+    struct AdditionalRouteInfo *__begin_;
+    struct AdditionalRouteInfo *__end_;
+    struct __compressed_pair<AdditionalRouteInfo *, std::__1::allocator<AdditionalRouteInfo>> {
+        struct AdditionalRouteInfo *__first_;
+    } __end_cap_;
+};
+
+struct vector<Edge, std::__1::allocator<Edge>> {
+    struct Edge *_field1;
+    struct Edge *_field2;
+    struct __compressed_pair<Edge *, std::__1::allocator<Edge>> {
+        struct Edge *_field1;
+    } _field3;
 };
 
 struct vector<GEO3DBuildingFeature, std::__1::allocator<GEO3DBuildingFeature>> {
@@ -4388,14 +4051,6 @@ struct vector<LabelNavJunctionInfo, std::__1::allocator<LabelNavJunctionInfo>> {
     struct LabelNavJunctionInfo *__end_;
     struct __compressed_pair<LabelNavJunctionInfo *, std::__1::allocator<LabelNavJunctionInfo>> {
         struct LabelNavJunctionInfo *__first_;
-    } __end_cap_;
-};
-
-struct vector<OnscreenTimestampData, std::__1::allocator<OnscreenTimestampData>> {
-    struct OnscreenTimestampData *__begin_;
-    struct OnscreenTimestampData *__end_;
-    struct __compressed_pair<OnscreenTimestampData *, std::__1::allocator<OnscreenTimestampData>> {
-        struct OnscreenTimestampData *__first_;
     } __end_cap_;
 };
 
@@ -4423,6 +4078,14 @@ struct vector<VKBuildingHeightMap, std::__1::allocator<VKBuildingHeightMap>> {
     } __end_cap_;
 };
 
+struct vector<VKLabelNavRoadLabel *, std::__1::allocator<VKLabelNavRoadLabel *>> {
+    id *__begin_;
+    id *__end_;
+    struct __compressed_pair<VKLabelNavRoadLabel **, std::__1::allocator<VKLabelNavRoadLabel *>> {
+        id *__first_;
+    } __end_cap_;
+};
+
 struct vector<VKMapTile *, std::__1::allocator<VKMapTile *>> {
     id *__begin_;
     id *__end_;
@@ -4439,35 +4102,51 @@ struct vector<VKTileKey, std::__1::allocator<VKTileKey>> {
     } __end_cap_;
 };
 
-struct vector<altitude::AnimationObjectHolder, std::__1::allocator<altitude::AnimationObjectHolder>> {
-    struct AnimationObjectHolder *_field1;
-    struct AnimationObjectHolder *_field2;
-    struct __compressed_pair<altitude::AnimationObjectHolder *, std::__1::allocator<altitude::AnimationObjectHolder>> {
-        struct AnimationObjectHolder *_field1;
+struct vector<geo::Coordinate3D<Radians, double>, std::__1::allocator<geo::Coordinate3D<Radians, double>>> {
+    Coordinate3D_bc242218 *__begin_;
+    Coordinate3D_bc242218 *__end_;
+    struct __compressed_pair<geo::Coordinate3D<Radians, double>*, std::__1::allocator<geo::Coordinate3D<Radians, double>>> {
+        Coordinate3D_bc242218 *__first_;
+    } __end_cap_;
+};
+
+struct vector<geo::_retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct _retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__begin_;
+    struct _retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__end_;
+    struct __compressed_pair<geo::_retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>*, std::__1::allocator<geo::_retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct _retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__first_;
+    } __end_cap_;
+};
+
+struct vector<geo::_retain_ptr<VKPolylineGroupOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKPolylineGroupOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct _retain_ptr<VKPolylineGroupOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__begin_;
+    struct _retain_ptr<VKPolylineGroupOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__end_;
+    struct __compressed_pair<geo::_retain_ptr<VKPolylineGroupOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>*, std::__1::allocator<geo::_retain_ptr<VKPolylineGroupOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct _retain_ptr<VKPolylineGroupOverlay *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__first_;
+    } __end_cap_;
+};
+
+struct vector<geo::_retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct _retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__begin_;
+    struct _retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__end_;
+    struct __compressed_pair<geo::_retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>*, std::__1::allocator<geo::_retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct _retain_ptr<VKRouteContext *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__first_;
+    } __end_cap_;
+};
+
+struct vector<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct _retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *_field1;
+    struct _retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *_field2;
+    struct __compressed_pair<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>*, std::__1::allocator<geo::_retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct _retain_ptr<VKTile *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *_field1;
     } _field3;
 };
 
-struct vector<altitude::SimpleTileKey, std::__1::allocator<altitude::SimpleTileKey>> {
-    struct SimpleTileKey *_field1;
-    struct SimpleTileKey *_field2;
-    struct __compressed_pair<altitude::SimpleTileKey *, std::__1::allocator<altitude::SimpleTileKey>> {
-        struct SimpleTileKey *_field1;
-    } _field3;
-};
-
-struct vector<altitude::TileBound, std::__1::allocator<altitude::TileBound>> {
-    struct TileBound *_field1;
-    struct TileBound *_field2;
-    struct __compressed_pair<altitude::TileBound *, std::__1::allocator<altitude::TileBound>> {
-        struct TileBound *_field1;
-    } _field3;
-};
-
-struct vector<geo::Mercator2<double>, std::__1::allocator<geo::Mercator2<double>>> {
-    Mercator2_57ec32b6 *__begin_;
-    Mercator2_57ec32b6 *__end_;
-    struct __compressed_pair<geo::Mercator2<double>*, std::__1::allocator<geo::Mercator2<double>>> {
-        Mercator2_57ec32b6 *__first_;
+struct vector<geo::_retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct _retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__begin_;
+    struct _retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__end_;
+    struct __compressed_pair<geo::_retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>*, std::__1::allocator<geo::_retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct _retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__first_;
     } __end_cap_;
 };
 
@@ -4476,6 +4155,14 @@ struct vector<geo::fast_shared_ptr<md::RouteLineSection>, std::__1::allocator<ge
     struct fast_shared_ptr<md::RouteLineSection> *__end_;
     struct __compressed_pair<geo::fast_shared_ptr<md::RouteLineSection>*, std::__1::allocator<geo::fast_shared_ptr<md::RouteLineSection>>> {
         struct fast_shared_ptr<md::RouteLineSection> *__first_;
+    } __end_cap_;
+};
+
+struct vector<ggl::Batcher, std::__1::allocator<ggl::Batcher>> {
+    struct Batcher *__begin_;
+    struct Batcher *__end_;
+    struct __compressed_pair<ggl::Batcher *, std::__1::allocator<ggl::Batcher>> {
+        struct Batcher *__first_;
     } __end_cap_;
 };
 
@@ -4495,14 +4182,6 @@ struct vector<ggl::BuildingFacade::BuildingMesh *, std::__1::allocator<ggl::Buil
     } _field3;
 };
 
-struct vector<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh, std::__1::allocator<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>> {
-    struct BuildingFlatStrokeMesh *__begin_;
-    struct BuildingFlatStrokeMesh *__end_;
-    struct __compressed_pair<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh *, std::__1::allocator<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>> {
-        struct BuildingFlatStrokeMesh *__first_;
-    } __end_cap_;
-};
-
 struct vector<ggl::BuildingPointyRoof::BuildingMesh *, std::__1::allocator<ggl::BuildingPointyRoof::BuildingMesh *>> {
     struct BuildingMesh **_field1;
     struct BuildingMesh **_field2;
@@ -4519,28 +4198,20 @@ struct vector<ggl::CommandBuffer *, std::__1::allocator<ggl::CommandBuffer *>> {
     } _field3;
 };
 
+struct vector<ggl::ComputeQueue *, std::__1::allocator<ggl::ComputeQueue *>> {
+    struct ComputeQueue **_field1;
+    struct ComputeQueue **_field2;
+    struct __compressed_pair<ggl::ComputeQueue **, std::__1::allocator<ggl::ComputeQueue *>> {
+        struct ComputeQueue **_field1;
+    } _field3;
+};
+
 struct vector<ggl::ConstantDataElement, std::__1::allocator<ggl::ConstantDataElement>> {
     struct ConstantDataElement *_field1;
     struct ConstantDataElement *_field2;
     struct __compressed_pair<ggl::ConstantDataElement *, std::__1::allocator<ggl::ConstantDataElement>> {
         struct ConstantDataElement *_field1;
     } _field3;
-};
-
-struct vector<ggl::Glow::MeshMesh *, std::__1::allocator<ggl::Glow::MeshMesh *>> {
-    struct MeshMesh **_field1;
-    struct MeshMesh **_field2;
-    struct __compressed_pair<ggl::Glow::MeshMesh **, std::__1::allocator<ggl::Glow::MeshMesh *>> {
-        struct MeshMesh **_field1;
-    } _field3;
-};
-
-struct vector<ggl::MultiRange, std::__1::allocator<ggl::MultiRange>> {
-    struct MultiRange *__begin_;
-    struct MultiRange *__end_;
-    struct __compressed_pair<ggl::MultiRange *, std::__1::allocator<ggl::MultiRange>> {
-        struct MultiRange *__first_;
-    } __end_cap_;
 };
 
 struct vector<ggl::OptimizedTraffic::BaseMesh *, std::__1::allocator<ggl::OptimizedTraffic::BaseMesh *>> {
@@ -4559,30 +4230,6 @@ struct vector<ggl::PatternedRibbon::BaseMesh *, std::__1::allocator<ggl::Pattern
     } _field3;
 };
 
-struct vector<ggl::PolygonBase::CompressedMeshMesh, std::__1::allocator<ggl::PolygonBase::CompressedMeshMesh>> {
-    struct CompressedMeshMesh *__begin_;
-    struct CompressedMeshMesh *__end_;
-    struct __compressed_pair<ggl::PolygonBase::CompressedMeshMesh *, std::__1::allocator<ggl::PolygonBase::CompressedMeshMesh>> {
-        struct CompressedMeshMesh *__first_;
-    } __end_cap_;
-};
-
-struct vector<ggl::PolygonCommonStroke::MeshMesh, std::__1::allocator<ggl::PolygonCommonStroke::MeshMesh>> {
-    struct MeshMesh *__begin_;
-    struct MeshMesh *__end_;
-    struct __compressed_pair<ggl::PolygonCommonStroke::MeshMesh *, std::__1::allocator<ggl::PolygonCommonStroke::MeshMesh>> {
-        struct MeshMesh *__first_;
-    } __end_cap_;
-};
-
-struct vector<ggl::PolygonShadowedStroke::ShadowPathMesh *, std::__1::allocator<ggl::PolygonShadowedStroke::ShadowPathMesh *>> {
-    struct ShadowPathMesh **_field1;
-    struct ShadowPathMesh **_field2;
-    struct __compressed_pair<ggl::PolygonShadowedStroke::ShadowPathMesh **, std::__1::allocator<ggl::PolygonShadowedStroke::ShadowPathMesh *>> {
-        struct ShadowPathMesh **_field1;
-    } _field3;
-};
-
 struct vector<ggl::PrefilteredLine::PrefilteredLineMesh *, std::__1::allocator<ggl::PrefilteredLine::PrefilteredLineMesh *>> {
     struct PrefilteredLineMesh **_field1;
     struct PrefilteredLineMesh **_field2;
@@ -4591,28 +4238,12 @@ struct vector<ggl::PrefilteredLine::PrefilteredLineMesh *, std::__1::allocator<g
     } _field3;
 };
 
-struct vector<ggl::Range, std::__1::allocator<ggl::Range>> {
-    struct Range *__begin_;
-    struct Range *__end_;
-    struct __compressed_pair<ggl::Range *, std::__1::allocator<ggl::Range>> {
-        struct Range *__first_;
-    } __end_cap_;
-};
-
 struct vector<ggl::RenderItem *, std::__1::allocator<ggl::RenderItem *>> {
     struct RenderItem **_field1;
     struct RenderItem **_field2;
     struct __compressed_pair<ggl::RenderItem **, std::__1::allocator<ggl::RenderItem *>> {
         struct RenderItem **_field1;
     } _field3;
-};
-
-struct vector<ggl::RenderItemBatcher, std::__1::allocator<ggl::RenderItemBatcher>> {
-    struct RenderItemBatcher *__begin_;
-    struct RenderItemBatcher *__end_;
-    struct __compressed_pair<ggl::RenderItemBatcher *, std::__1::allocator<ggl::RenderItemBatcher>> {
-        struct RenderItemBatcher *__first_;
-    } __end_cap_;
 };
 
 struct vector<ggl::RenderQueue::Pass, std::__1::allocator<ggl::RenderQueue::Pass>> {
@@ -4631,19 +4262,11 @@ struct vector<ggl::Ribbon::BaseMesh *, std::__1::allocator<ggl::Ribbon::BaseMesh
     } _field3;
 };
 
-struct vector<ggl::RibbonBatch<ggl::RoadRibbonDescriptor>*, std::__1::allocator<ggl::RibbonBatch<ggl::RoadRibbonDescriptor>*>> {
-    struct RibbonBatch<ggl::RoadRibbonDescriptor> **_field1;
-    struct RibbonBatch<ggl::RoadRibbonDescriptor> **_field2;
-    struct __compressed_pair<ggl::RibbonBatch<ggl::RoadRibbonDescriptor>**, std::__1::allocator<ggl::RibbonBatch<ggl::RoadRibbonDescriptor>*>> {
-        struct RibbonBatch<ggl::RoadRibbonDescriptor> **_field1;
-    } _field3;
-};
-
-struct vector<ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*, std::__1::allocator<ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>> {
-    struct RibbonBatch<ggl::TransitRibbonDescriptor> **_field1;
-    struct RibbonBatch<ggl::TransitRibbonDescriptor> **_field2;
-    struct __compressed_pair<ggl::RibbonBatch<ggl::TransitRibbonDescriptor>**, std::__1::allocator<ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>> {
-        struct RibbonBatch<ggl::TransitRibbonDescriptor> **_field1;
+struct vector<ggl::ShaderLibrary::ComputeShaderEntry, std::__1::allocator<ggl::ShaderLibrary::ComputeShaderEntry>> {
+    struct ComputeShaderEntry *_field1;
+    struct ComputeShaderEntry *_field2;
+    struct __compressed_pair<ggl::ShaderLibrary::ComputeShaderEntry *, std::__1::allocator<ggl::ShaderLibrary::ComputeShaderEntry>> {
+        struct ComputeShaderEntry *_field1;
     } _field3;
 };
 
@@ -4719,6 +4342,22 @@ struct vector<gm::Matrix<float, 2, 1>, std::__1::allocator<gm::Matrix<float, 2, 
     } _field3;
 };
 
+struct vector<gm::MultiRange<unsigned long>, std::__1::allocator<gm::MultiRange<unsigned long>>> {
+    MultiRange_4bdc93a8 *_field1;
+    MultiRange_4bdc93a8 *_field2;
+    struct __compressed_pair<gm::MultiRange<unsigned long>*, std::__1::allocator<gm::MultiRange<unsigned long>>> {
+        MultiRange_4bdc93a8 *_field1;
+    } _field3;
+};
+
+struct vector<gm::Range<unsigned long>, std::__1::allocator<gm::Range<unsigned long>>> {
+    struct Range<unsigned long> *_field1;
+    struct Range<unsigned long> *_field2;
+    struct __compressed_pair<gm::Range<unsigned long>*, std::__1::allocator<gm::Range<unsigned long>>> {
+        struct Range<unsigned long> *_field1;
+    } _field3;
+};
+
 struct vector<gss::FeatureAttributePair, std::__1::allocator<gss::FeatureAttributePair>> {
     struct FeatureAttributePair *__begin_;
     struct FeatureAttributePair *__end_;
@@ -4727,11 +4366,27 @@ struct vector<gss::FeatureAttributePair, std::__1::allocator<gss::FeatureAttribu
     } __end_cap_;
 };
 
+struct vector<md::CasedTrafficBatch *, std::__1::allocator<md::CasedTrafficBatch *>> {
+    struct CasedTrafficBatch **_field1;
+    struct CasedTrafficBatch **_field2;
+    struct __compressed_pair<md::CasedTrafficBatch **, std::__1::allocator<md::CasedTrafficBatch *>> {
+        struct CasedTrafficBatch **_field1;
+    } _field3;
+};
+
 struct vector<md::CommandBufferId, std::__1::allocator<md::CommandBufferId>> {
-    unsigned char *__begin_;
-    unsigned char *__end_;
+    unsigned char *_field1;
+    unsigned char *_field2;
     struct __compressed_pair<md::CommandBufferId *, std::__1::allocator<md::CommandBufferId>> {
-        unsigned char *__first_;
+        unsigned char *_field1;
+    } _field3;
+};
+
+struct vector<md::ManeuverArrowInfo, std::__1::allocator<md::ManeuverArrowInfo>> {
+    struct ManeuverArrowInfo *__begin_;
+    struct ManeuverArrowInfo *__end_;
+    struct __compressed_pair<md::ManeuverArrowInfo *, std::__1::allocator<md::ManeuverArrowInfo>> {
+        struct ManeuverArrowInfo *__first_;
     } __end_cap_;
 };
 
@@ -4748,6 +4403,22 @@ struct vector<md::PilledTrafficBatch *, std::__1::allocator<md::PilledTrafficBat
     struct PilledTrafficBatch **_field2;
     struct __compressed_pair<md::PilledTrafficBatch **, std::__1::allocator<md::PilledTrafficBatch *>> {
         struct PilledTrafficBatch **_field1;
+    } _field3;
+};
+
+struct vector<md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*, std::__1::allocator<md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>> {
+    struct RibbonBatch<md::Ribbons::TransitRibbonDescriptor> **_field1;
+    struct RibbonBatch<md::Ribbons::TransitRibbonDescriptor> **_field2;
+    struct __compressed_pair<md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>**, std::__1::allocator<md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>> {
+        struct RibbonBatch<md::Ribbons::TransitRibbonDescriptor> **_field1;
+    } _field3;
+};
+
+struct vector<md::Ribbons::RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>*, std::__1::allocator<md::Ribbons::RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>*>> {
+    struct RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor> **_field1;
+    struct RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor> **_field2;
+    struct __compressed_pair<md::Ribbons::RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>**, std::__1::allocator<md::Ribbons::RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>*>> {
+        struct RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor> **_field1;
     } _field3;
 };
 
@@ -4799,6 +4470,38 @@ struct vector<md::TransitLink, std::__1::allocator<md::TransitLink>> {
     } __end_cap_;
 };
 
+struct vector<md::Venue, std::__1::allocator<md::Venue>> {
+    struct Venue *__begin_;
+    struct Venue *__end_;
+    struct __compressed_pair<md::Venue *, std::__1::allocator<md::Venue>> {
+        struct Venue *__first_;
+    } __end_cap_;
+};
+
+struct vector<md::VenueBuilding, std::__1::allocator<md::VenueBuilding>> {
+    struct VenueBuilding *_field1;
+    struct VenueBuilding *_field2;
+    struct __compressed_pair<md::VenueBuilding *, std::__1::allocator<md::VenueBuilding>> {
+        struct VenueBuilding *_field1;
+    } _field3;
+};
+
+struct vector<md::VenueFloorGroup, std::__1::allocator<md::VenueFloorGroup>> {
+    struct VenueFloorGroup *__begin_;
+    struct VenueFloorGroup *__end_;
+    struct __compressed_pair<md::VenueFloorGroup *, std::__1::allocator<md::VenueFloorGroup>> {
+        struct VenueFloorGroup *__first_;
+    } __end_cap_;
+};
+
+struct vector<md::VenueLevel, std::__1::allocator<md::VenueLevel>> {
+    struct VenueLevel *_field1;
+    struct VenueLevel *_field2;
+    struct __compressed_pair<md::VenueLevel *, std::__1::allocator<md::VenueLevel>> {
+        struct VenueLevel *_field1;
+    } _field3;
+};
+
 struct vector<std::__1::pair<TransitLineWithLink, float>, std::__1::allocator<std::__1::pair<TransitLineWithLink, float>>> {
     struct pair<TransitLineWithLink, float> *_field1;
     struct pair<TransitLineWithLink, float> *_field2;
@@ -4831,12 +4534,36 @@ struct vector<std::__1::pair<unsigned short, unsigned int>, std::__1::allocator<
     } __end_cap_;
 };
 
+struct vector<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>>> {
+    struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh> *__begin_;
+    struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>>> {
+        struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh> *__first_;
+    } __end_cap_;
+};
+
 struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>> {
     struct shared_ptr<ggl::DebugRenderer> *_field1;
     struct shared_ptr<ggl::DebugRenderer> *_field2;
     struct __compressed_pair<std::__1::shared_ptr<ggl::DebugRenderer>*, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>> {
         struct shared_ptr<ggl::DebugRenderer> *_field1;
     } _field3;
+};
+
+struct vector<std::__1::shared_ptr<ggl::PolygonBase::CompressedMeshMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonBase::CompressedMeshMesh>>> {
+    struct shared_ptr<ggl::PolygonBase::CompressedMeshMesh> *__begin_;
+    struct shared_ptr<ggl::PolygonBase::CompressedMeshMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::PolygonBase::CompressedMeshMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonBase::CompressedMeshMesh>>> {
+        struct shared_ptr<ggl::PolygonBase::CompressedMeshMesh> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<ggl::PolygonCommonStroke::MeshMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonCommonStroke::MeshMesh>>> {
+    struct shared_ptr<ggl::PolygonCommonStroke::MeshMesh> *__begin_;
+    struct shared_ptr<ggl::PolygonCommonStroke::MeshMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::PolygonCommonStroke::MeshMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonCommonStroke::MeshMesh>>> {
+        struct shared_ptr<ggl::PolygonCommonStroke::MeshMesh> *__first_;
+    } __end_cap_;
 };
 
 struct vector<std::__1::shared_ptr<ggl::Shader>, std::__1::allocator<std::__1::shared_ptr<ggl::Shader>>> {
@@ -4855,6 +4582,38 @@ struct vector<std::__1::shared_ptr<ggl::Texture2D>, std::__1::allocator<std::__1
     } __end_cap_;
 };
 
+struct vector<std::__1::shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>>> {
+    struct shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh> *__begin_;
+    struct shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>>> {
+        struct shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>>> {
+    struct shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh> *__begin_;
+    struct shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>>> {
+        struct shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<ggl::VenueWall::EndCapMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::VenueWall::EndCapMesh>>> {
+    struct shared_ptr<ggl::VenueWall::EndCapMesh> *__begin_;
+    struct shared_ptr<ggl::VenueWall::EndCapMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::VenueWall::EndCapMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::VenueWall::EndCapMesh>>> {
+        struct shared_ptr<ggl::VenueWall::EndCapMesh> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<ggl::VenueWall::MeshMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::VenueWall::MeshMesh>>> {
+    struct shared_ptr<ggl::VenueWall::MeshMesh> *__begin_;
+    struct shared_ptr<ggl::VenueWall::MeshMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::VenueWall::MeshMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::VenueWall::MeshMesh>>> {
+        struct shared_ptr<ggl::VenueWall::MeshMesh> *__first_;
+    } __end_cap_;
+};
+
 struct vector<std::__1::shared_ptr<ggl::VertexData>, std::__1::allocator<std::__1::shared_ptr<ggl::VertexData>>> {
     struct shared_ptr<ggl::VertexData> *_field1;
     struct shared_ptr<ggl::VertexData> *_field2;
@@ -4869,6 +4628,30 @@ struct vector<std::__1::shared_ptr<gss::StylesheetQuery<gss::PropertyID>>, std::
     struct __compressed_pair<std::__1::shared_ptr<gss::StylesheetQuery<gss::PropertyID>>*, std::__1::allocator<std::__1::shared_ptr<gss::StylesheetQuery<gss::PropertyID>>>> {
         shared_ptr_c5d816ee *__first_;
     } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<md::CoastlineGroup>, std::__1::allocator<std::__1::shared_ptr<md::CoastlineGroup>>> {
+    struct shared_ptr<md::CoastlineGroup> *__begin_;
+    struct shared_ptr<md::CoastlineGroup> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<md::CoastlineGroup>*, std::__1::allocator<std::__1::shared_ptr<md::CoastlineGroup>>> {
+        struct shared_ptr<md::CoastlineGroup> *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<md::DebugTreeNode>, std::__1::allocator<std::__1::shared_ptr<md::DebugTreeNode>>> {
+    shared_ptr_eafb90f9 *__begin_;
+    shared_ptr_eafb90f9 *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<md::DebugTreeNode>*, std::__1::allocator<std::__1::shared_ptr<md::DebugTreeNode>>> {
+        shared_ptr_eafb90f9 *__first_;
+    } __end_cap_;
+};
+
+struct vector<std::__1::shared_ptr<md::LabelCreateExternalIconRequest>, std::__1::allocator<std::__1::shared_ptr<md::LabelCreateExternalIconRequest>>> {
+    struct shared_ptr<md::LabelCreateExternalIconRequest> *_field1;
+    struct shared_ptr<md::LabelCreateExternalIconRequest> *_field2;
+    struct __compressed_pair<std::__1::shared_ptr<md::LabelCreateExternalIconRequest>*, std::__1::allocator<std::__1::shared_ptr<md::LabelCreateExternalIconRequest>>> {
+        struct shared_ptr<md::LabelCreateExternalIconRequest> *_field1;
+    } _field3;
 };
 
 struct vector<std::__1::shared_ptr<md::LabelExternalPointFeature>, std::__1::allocator<std::__1::shared_ptr<md::LabelExternalPointFeature>>> {
@@ -4904,18 +4687,10 @@ struct vector<std::__1::shared_ptr<md::LabelFeatureMarker>, std::__1::allocator<
 };
 
 struct vector<std::__1::shared_ptr<md::LabelMapTile>, std::__1::allocator<std::__1::shared_ptr<md::LabelMapTile>>> {
-    shared_ptr_d0281386 *__begin_;
-    shared_ptr_d0281386 *__end_;
+    shared_ptr_d0281386 *_field1;
+    shared_ptr_d0281386 *_field2;
     struct __compressed_pair<std::__1::shared_ptr<md::LabelMapTile>*, std::__1::allocator<std::__1::shared_ptr<md::LabelMapTile>>> {
-        shared_ptr_d0281386 *__first_;
-    } __end_cap_;
-};
-
-struct vector<std::__1::shared_ptr<md::LabelMarker>, std::__1::allocator<std::__1::shared_ptr<md::LabelMarker>>> {
-    shared_ptr_2d33c5e4 *_field1;
-    shared_ptr_2d33c5e4 *_field2;
-    struct __compressed_pair<std::__1::shared_ptr<md::LabelMarker>*, std::__1::allocator<std::__1::shared_ptr<md::LabelMarker>>> {
-        shared_ptr_2d33c5e4 *_field1;
+        shared_ptr_d0281386 *_field1;
     } _field3;
 };
 
@@ -4967,30 +4742,27 @@ struct vector<std::__1::shared_ptr<md::TransitParentNode>, std::__1::allocator<s
     } __end_cap_;
 };
 
-struct vector<std::__1::unique_ptr<md::RouteLineArrowLayer, std::__1::default_delete<md::RouteLineArrowLayer>>, std::__1::allocator<std::__1::unique_ptr<md::RouteLineArrowLayer, std::__1::default_delete<md::RouteLineArrowLayer>>>> {
-    struct unique_ptr<md::RouteLineArrowLayer, std::__1::default_delete<md::RouteLineArrowLayer>> *__begin_;
-    struct unique_ptr<md::RouteLineArrowLayer, std::__1::default_delete<md::RouteLineArrowLayer>> *__end_;
-    struct __compressed_pair<std::__1::unique_ptr<md::RouteLineArrowLayer, std::__1::default_delete<md::RouteLineArrowLayer>>*, std::__1::allocator<std::__1::unique_ptr<md::RouteLineArrowLayer, std::__1::default_delete<md::RouteLineArrowLayer>>>> {
-        struct unique_ptr<md::RouteLineArrowLayer, std::__1::default_delete<md::RouteLineArrowLayer>> *__first_;
+struct vector<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>, std::__1::allocator<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>>>;
+
+struct vector<std::__1::vector<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>, std::__1::allocator<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>>>, std::__1::allocator<std::__1::vector<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>, std::__1::allocator<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>>>>> {
+    struct vector<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>, std::__1::allocator<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>>> *__begin_;
+    struct vector<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>, std::__1::allocator<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>>> *__end_;
+    struct __compressed_pair<std::__1::vector<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>, std::__1::allocator<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>>>*, std::__1::allocator<std::__1::vector<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>, std::__1::allocator<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>>>>> {
+        struct vector<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>, std::__1::allocator<std::__1::vector<FeatureRange, std::__1::allocator<FeatureRange>>>> *__first_;
     } __end_cap_;
 };
 
-struct vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>;
-
-struct vector<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>, std::__1::allocator<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>>> {
-    struct vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>> *__begin_;
-    struct vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>> *__end_;
-    struct __compressed_pair<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>*, std::__1::allocator<std::__1::vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>>>> {
-        struct vector<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>, std::__1::allocator<std::__1::vector<ggl::Range, std::__1::allocator<ggl::Range>>>> *__first_;
-    } __end_cap_;
+struct vector<unsigned long long, std::__1::allocator<unsigned long long>> {
+    unsigned long long *_field1;
+    unsigned long long *_field2;
+    struct __compressed_pair<unsigned long long *, std::__1::allocator<unsigned long long>> {
+        unsigned long long *_field1;
+    } _field3;
 };
 
-struct vector<zilch::TrafficSkeletonTile::Record, std::__1::allocator<zilch::TrafficSkeletonTile::Record>> {
-    struct Record *__begin_;
-    struct Record *__end_;
-    struct __compressed_pair<zilch::TrafficSkeletonTile::Record *, std::__1::allocator<zilch::TrafficSkeletonTile::Record>> {
-        struct Record *__first_;
-    } __end_cap_;
+struct weak_ptr<ggl::RunLoop::_RunLoopCallbacker> {
+    struct _RunLoopCallbacker *__ptr_;
+    struct __shared_weak_count *__cntrl_;
 };
 
 struct weak_ptr<md::GlobeOverlayContainer> {
@@ -5007,36 +4779,49 @@ struct weak_ptr<md::StylesheetVendor> {
 // Names with conflicting types:
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
-    struct DeviceVersion _field2;
-    struct DeviceCapabilities _field3;
-    struct DeviceAPIProperties _field4;
-    int _field5;
-    int _field6;
-} Device_f0710f89;
-
-typedef struct {
-    CDUnknownFunctionPointerType *_field1;
-    Mercator3_d8bb135c _field2;
+    Mercator3_40a88dec _field2;
     struct Coordinate2D<Degrees, double> _field3;
     id _field4;
-} Anchor_439ad9f1;
+} Anchor_16e7d7c9;
 
 typedef struct {
     CDUnknownFunctionPointerType *_field1;
-    shared_ptr_06328420 _field2;
-} RenderQueue_da5f8b9c;
+    struct shared_ptr<ggl::RenderQueue> _field2;
+} RenderQueue_70f64fd3;
 
 typedef struct {
-    int _field1;
-    shared_ptr_807ec9ac _field2;
-    struct unique_ptr<md::SharedDeviceResources, std::__1::default_delete<md::SharedDeviceResources>> _field3;
-} Device_0f0703c5;
+    CDUnknownFunctionPointerType *_field1;
+    struct Device *_field2;
+    unsigned long long _field3;
+    unsigned long long _field4;
+    unsigned long long _field5;
+    _Bool _field6;
+    float _field7;
+    struct vector<std::__1::shared_ptr<ggl::DebugRenderer>, std::__1::allocator<std::__1::shared_ptr<ggl::DebugRenderer>>> _field8;
+    struct unique_ptr<ggl::RenderQueue, std::__1::default_delete<ggl::RenderQueue>> _field9;
+    struct shared_ptr<ggl::CommonLibrary> _field10;
+    struct unique_ptr<ggl::RenderResourceFences, std::__1::default_delete<ggl::RenderResourceFences>> _field11;
+    struct Texture2D *_field12;
+    struct unique_ptr<ggl::CommandBuffer, std::__1::default_delete<ggl::CommandBuffer>> _field13;
+} Renderer_8d52ff56;
+
+typedef struct {
+    CDUnknownFunctionPointerType *_field1;
+    shared_ptr_e963992e _field2;
+    struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> _field3;
+    struct RenderLayer *_field4[28];
+    struct RenderLayer *_field5[65];
+    struct RunLoopController *_field6;
+    struct MapEngine *_field7;
+} Renderer_e10ca448;
 
 typedef struct {
     struct vector<ggl::RenderQueue::Pass, std::__1::allocator<ggl::RenderQueue::Pass>> _field1;
-    struct vector<ggl::CommandBuffer *, std::__1::allocator<ggl::CommandBuffer *>> _field2;
-    struct shared_ptr<ggl::RenderTransaction> _field3;
-} RenderQueue_e4212455;
+    struct vector<ggl::ComputeQueue *, std::__1::allocator<ggl::ComputeQueue *>> _field2;
+    struct vector<ggl::CommandBuffer *, std::__1::allocator<ggl::CommandBuffer *>> _field3;
+    struct shared_ptr<ggl::RenderTransaction> _field4;
+    struct vector<ggl::Texture *, std::__1::allocator<ggl::Texture *>> _field5;
+} RenderQueue_5bbf3210;
 
 #endif
 
@@ -5098,10 +4883,7 @@ typedef struct {
 typedef struct {
     unsigned int _field1;
     int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-} CDStruct_6adf2384;
+} CDStruct_1e94be47;
 
 typedef struct {
     unsigned long long _field1;
@@ -5149,13 +4931,6 @@ typedef struct {
     unsigned int _g;
     unsigned int _r;
 } CDStruct_58ec0031;
-
-typedef struct {
-    float _field1;
-    float _field2;
-    float _field3;
-    float _field4;
-} CDStruct_818bb265;
 
 typedef struct {
     float _field1;
@@ -5215,14 +4990,6 @@ typedef struct {
     CDStruct_183601bc *_field6;
     CDStruct_183601bc *_field7;
 } CDStruct_91f75a7f;
-
-typedef struct {
-    int from;
-    int to;
-    CDStruct_80aa614a fromDisplayStyle;
-    CDStruct_80aa614a toDisplayStyle;
-    float fraction;
-} CDStruct_6bdb9208;
 
 typedef struct {
     CDStruct_58d0ca89 _field1;
@@ -5288,7 +5055,12 @@ typedef struct {
             CDStruct_b2fbf00d _field1;
             CDStruct_b2fbf00d _field2;
         } _field1;
-        CDStruct_818bb265 _field2;
+        struct {
+            float _field1;
+            float _field2;
+            float _field3;
+            float _field4;
+        } _field2;
     } _field9;
     CDStruct_183601bc *_field10;
     struct {
@@ -5305,26 +5077,28 @@ typedef struct {
     unsigned char _field19;
     struct _NSRange _field20;
     _Bool _field21;
-} CDStruct_6ac9d495;
+    unsigned int _field22;
+} CDStruct_c707fdd0;
 
 typedef struct {
-    CDStruct_6ac9d495 _field1;
+    CDStruct_c707fdd0 _field1;
     unsigned long long _field2;
     unsigned long long _field3;
     _Bool _field4;
     _Bool _field5;
-} CDStruct_de1a80f1;
+} CDStruct_bc04cdca;
 
 typedef struct {
-    CDStruct_6ac9d495 _field1;
+    CDStruct_c707fdd0 _field1;
     CDStruct_b2fbf00d _field2;
     _Bool _field3;
     _Bool _field4;
-    _Bool _field5;
+    unsigned char _field5;
     unsigned long long _field6;
     unsigned long long _field7;
     CDStruct_b2fbf00d _field8;
-} CDStruct_826c734b;
+    unsigned long long _field9;
+} CDStruct_f65f1467;
 
 // Ambiguous groups
 typedef struct {
@@ -5364,15 +5138,26 @@ typedef struct Box<float, 2> {
 } Box_3fb92e00;
 
 typedef struct CameraFrame<geo::Radians, double> {
-    Mercator3_d8bb135c _target;
+    Coordinate3D_bc242218 _target;
     struct Unit<MeterUnitDescription, double> _distanceFromTarget;
     Unit_3d259e8a _pitch;
     Unit_3d259e8a _heading;
-} CameraFrame_e4e5578c;
+    Unit_3d259e8a _roll;
+} CameraFrame_406dbd31;
+
+typedef struct Coordinate3D<Radians, double> {
+    Unit_3d259e8a latitude;
+    Unit_3d259e8a longitude;
+    struct Unit<MeterUnitDescription, double> altitude;
+} Coordinate3D_bc242218;
 
 typedef struct FixedPointVector<unsigned char, 4> {
     unsigned char _e[4];
 } FixedPointVector_f041f768;
+
+typedef struct Geocentric<double> {
+    double _e[3];
+} Geocentric_d8fde6f2;
 
 typedef struct Matrix<double, 2, 1> {
     double _e[2];
@@ -5411,8 +5196,8 @@ typedef struct Mercator2<double> {
 } Mercator2_57ec32b6;
 
 typedef struct Mercator3<double> {
-    double _e[3];
-} Mercator3_d8bb135c;
+    double _field1[3];
+} Mercator3_40a88dec;
 
 typedef struct MeshVendor<ggl::BuildingFacade::BuildingMesh> {
     struct vector<ggl::BuildingFacade::BuildingMesh *, std::__1::allocator<ggl::BuildingFacade::BuildingMesh *>> _field1;
@@ -5424,47 +5209,65 @@ typedef struct MeshVendor<ggl::BuildingPointyRoof::BuildingMesh> {
     struct BuildingMesh *_field2;
 } MeshVendor_c6d8e5cd;
 
-typedef struct MeshVendor<ggl::Glow::MeshMesh> {
-    struct vector<ggl::Glow::MeshMesh *, std::__1::allocator<ggl::Glow::MeshMesh *>> _field1;
-    struct MeshMesh *_field2;
-} MeshVendor_43d71dca;
-
-typedef struct MeshVendor<ggl::PolygonShadowedStroke::ShadowPathMesh> {
-    struct vector<ggl::PolygonShadowedStroke::ShadowPathMesh *, std::__1::allocator<ggl::PolygonShadowedStroke::ShadowPathMesh *>> _field1;
-    struct ShadowPathMesh *_field2;
-} MeshVendor_303b8b6a;
-
 typedef struct MeshVendor<ggl::PrefilteredLine::PrefilteredLineMesh> {
     struct vector<ggl::PrefilteredLine::PrefilteredLineMesh *, std::__1::allocator<ggl::PrefilteredLine::PrefilteredLineMesh *>> _field1;
     struct PrefilteredLineMesh *_field2;
 } MeshVendor_8027e961;
 
-typedef struct RibbonLayer<ggl::RoadRibbonDescriptor> {
-    CDUnknownFunctionPointerType *_field1;
-    struct vector<ggl::RibbonBatch<ggl::RoadRibbonDescriptor>*, std::__1::allocator<ggl::RibbonBatch<ggl::RoadRibbonDescriptor>*>> _field2;
-    struct vector<ggl::Ribbon::BaseMesh *, std::__1::allocator<ggl::Ribbon::BaseMesh *>> _field3;
-    struct RenderState *_field4[8];
-} RibbonLayer_db5d8a14;
+typedef struct MultiRange<unsigned long> {
+    struct vector<gm::Range<unsigned long>, std::__1::allocator<gm::Range<unsigned long>>> _field1;
+} MultiRange_4bdc93a8;
 
-typedef struct RibbonLayer<ggl::TransitRibbonDescriptor> {
+typedef struct Quaternion<double> {
+    Matrix_6e1d3589 _imaginary;
+    double _scalar;
+} Quaternion_febf9140;
+
+typedef struct RibbonLayer<md::Ribbons::TransitRibbonDescriptor> {
     CDUnknownFunctionPointerType *_field1;
-    struct vector<ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*, std::__1::allocator<ggl::RibbonBatch<ggl::TransitRibbonDescriptor>*>> _field2;
+    struct vector<md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*, std::__1::allocator<md::Ribbons::RibbonBatch<md::Ribbons::TransitRibbonDescriptor>*>> _field2;
     struct vector<ggl::TransitLineRibbon::BaseMesh *, std::__1::allocator<ggl::TransitLineRibbon::BaseMesh *>> _field3;
     struct RenderState *_field4[2];
-} RibbonLayer_d95b4043;
+} RibbonLayer_abf9b3d8;
+
+typedef struct RibbonLayer<md::TransitDisplayConnectionRibbonDescriptor> {
+    CDUnknownFunctionPointerType *_field1;
+    struct vector<md::Ribbons::RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>*, std::__1::allocator<md::Ribbons::RibbonBatch<md::TransitDisplayConnectionRibbonDescriptor>*>> _field2;
+    struct vector<ggl::Ribbon::BaseMesh *, std::__1::allocator<ggl::Ribbon::BaseMesh *>> _field3;
+    struct RenderState *_field4[2];
+} RibbonLayer_99607768;
+
+typedef struct RigidTransform<double> {
+    Quaternion_febf9140 _rotation;
+    Matrix_6e1d3589 _translation;
+} RigidTransform_271c3a39;
 
 typedef struct Unit<RadianUnitDescription, double> {
     double _value;
 } Unit_3d259e8a;
 
+typedef struct View<double> {
+    RigidTransform_271c3a39 _field1;
+    Matrix_08d701e4 _field2;
+    Matrix_08d701e4 _field3;
+    double _field4;
+    struct ViewSize _field5;
+    int _field6;
+} View_fc0baec4;
+
 typedef struct basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> {
     struct __compressed_pair<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>::__rep, std::__1::allocator<char>> __r_;
 } basic_string_805fe43b;
 
-typedef struct function<void (const md::RoadPiece &)> {
+typedef struct function<bool (unsigned long long)> {
     struct type _field1;
-    struct __base<void (const md::RoadPiece &)> *_field2;
-} function_186234d7;
+    struct __base<bool (unsigned long long)> *_field2;
+} function_d674753c;
+
+typedef struct function<void ()> {
+    struct type _field1;
+    struct __base<void ()> *_field2;
+} function_30b369b8;
 
 typedef struct list<md::TransitDisplayConnection, std::__1::allocator<md::TransitDisplayConnection>> {
     struct __list_node_base<md::TransitDisplayConnection, void *> __end_;
@@ -5473,10 +5276,10 @@ typedef struct list<md::TransitDisplayConnection, std::__1::allocator<md::Transi
     } __size_alloc_;
 } list_cc555e0e;
 
-typedef struct pair<md::CommandBufferId, md::CommandBufferId> {
-    unsigned char _field1;
-    unsigned char _field2;
-} pair_4be19211;
+typedef struct pair<void *, unsigned long> {
+    void *_field1;
+    unsigned long long _field2;
+} pair_1503616b;
 
 typedef struct shared_ptr<altitude::GeoServicesLoadJob> {
     struct GeoServicesLoadJob *_field1;
@@ -5493,11 +5296,6 @@ typedef struct shared_ptr<const md::TransitLineSharedResources> {
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_f4e206f4;
 
-typedef struct shared_ptr<ggl::BitmapData> {
-    struct BitmapData *_field1;
-    struct __shared_weak_count *_field2;
-} shared_ptr_4ce39eb2;
-
 typedef struct shared_ptr<ggl::BitmapDataBase> {
     struct BitmapDataBase *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -5507,16 +5305,6 @@ typedef struct shared_ptr<ggl::Clut::Pos2DUVPipelineState> {
     struct Pos2DUVPipelineState *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_ec7954e2;
-
-typedef struct shared_ptr<ggl::ConstantDataTyped<ggl::Building::Fade>> {
-    struct ConstantDataTyped<ggl::Building::Fade> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_cc2c7f49;
-
-typedef struct shared_ptr<ggl::ConstantDataTyped<ggl::Fog::Skyfog>> {
-    struct ConstantDataTyped<ggl::Fog::Skyfog> *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_c062e934;
 
 typedef struct shared_ptr<ggl::ConstantDataTyped<ggl::Tile::View>> {
     struct ConstantDataTyped<ggl::Tile::View> *__ptr_;
@@ -5537,11 +5325,6 @@ typedef struct shared_ptr<ggl::OESDevice> {
     struct OESDevice *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_2063da68;
-
-typedef struct shared_ptr<ggl::RenderQueue> {
-    struct RenderQueue *__ptr_;
-    struct __shared_weak_count *__cntrl_;
-} shared_ptr_06328420;
 
 typedef struct shared_ptr<ggl::SamplerState> {
     struct SamplerState *_field1;
@@ -5603,10 +5386,20 @@ typedef struct shared_ptr<md::Anchor> {
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_2fc78ff4;
 
+typedef struct shared_ptr<md::CMercatorTerrainHeightCache> {
+    struct CMercatorTerrainHeightCache *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_f9615488;
+
 typedef struct shared_ptr<md::DataOverrideManager> {
     struct DataOverrideManager *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_887a193f;
+
+typedef struct shared_ptr<md::DebugTreeNode> {
+    struct DebugTreeNode *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_eafb90f9;
 
 typedef struct shared_ptr<md::FeatureMarker> {
     struct FeatureMarker *__ptr_;
@@ -5663,10 +5456,25 @@ typedef struct shared_ptr<md::ObjectGroup> {
     struct __shared_weak_count *_field2;
 } shared_ptr_9d00bcb9;
 
+typedef struct shared_ptr<md::ResourceInfo> {
+    struct ResourceInfo *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_f269d513;
+
 typedef struct shared_ptr<md::StylesheetVendor> {
     struct StylesheetVendor *__ptr_;
     struct __shared_weak_count *__cntrl_;
 } shared_ptr_dd2d1f5e;
+
+typedef struct shared_ptr<md::TaskContext> {
+    struct TaskContext *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_e963992e;
+
+typedef struct shared_ptr<md::TrafficDynamicTile> {
+    struct TrafficDynamicTile *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} shared_ptr_c2d2f807;
 
 typedef struct shared_ptr<md::TransitInterTileMediator> {
     struct TransitInterTileMediator *__ptr_;
@@ -5674,39 +5482,60 @@ typedef struct shared_ptr<md::TransitInterTileMediator> {
 } shared_ptr_10302801;
 
 typedef struct shared_ptr<md::TransitItemMarker> {
-    struct TransitItemMarker *__ptr_;
+    struct TransitItemMarker *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_64d557d2;
+
+typedef struct shared_ptr<md::VenueBuildingFeatureMarker> {
+    struct VenueBuildingFeatureMarker *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_ec62a932;
+
+typedef struct shared_ptr<md::VenueFeatureMarker> {
+    struct VenueFeatureMarker *_field1;
+    struct __shared_weak_count *_field2;
+} shared_ptr_c500bfa8;
+
+typedef struct shared_ptr<zilch::TrafficSkeletonTile> {
+    struct TrafficSkeletonTile *__ptr_;
     struct __shared_weak_count *__cntrl_;
-} shared_ptr_3e9bdfe1;
+} shared_ptr_7444c9fa;
 
-typedef struct unordered_map<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>, std::__1::hash<md::PatternedBatchKey>, std::__1::equal_to<md::PatternedBatchKey>, std::__1::allocator<std::__1::pair<const md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>>> {
-    struct __hash_table<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::__unordered_map_hasher<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::hash<md::PatternedBatchKey>, true>, std::__1::__unordered_map_equal<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::equal_to<md::PatternedBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, void *>*> _field1;
+typedef struct unique_ptr<md::TileSelectionProfile, std::__1::default_delete<md::TileSelectionProfile>> {
+    struct __compressed_pair<md::TileSelectionProfile *, std::__1::default_delete<md::TileSelectionProfile>> {
+        struct TileSelectionProfile *_field1;
+    } _field1;
+} unique_ptr_6bf34eb3;
+
+typedef struct unordered_map<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>, std::__1::hash<md::PatternedBatchKey>, std::__1::equal_to<md::PatternedBatchKey>, std::__1::allocator<std::__1::pair<const md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::__unordered_map_hasher<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::hash<md::PatternedBatchKey>, true>, std::__1::__unordered_map_equal<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::equal_to<md::PatternedBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::hash<md::PatternedBatchKey>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::hash<md::PatternedBatchKey>, true>> {
             unsigned long long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::PatternRibbon>, std::__1::default_delete<md::Ribbon<ggl::PatternRibbon>>>>>>, std::__1::equal_to<md::PatternedBatchKey>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::PatternedBatchKey, std::__1::__hash_value_type<md::PatternedBatchKey, std::__1::vector<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::PatternedRibbon, std::__1::default_delete<md::PatternedRibbon>>>>>, std::__1::equal_to<md::PatternedBatchKey>, true>> {
             float _field1;
         } _field4;
     } _field1;
-} unordered_map_167c727b;
+} unordered_map_171a1194;
 
-typedef struct unordered_map<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>, std::__1::hash<md::RoadBatchKey>, std::__1::equal_to<md::RoadBatchKey>, std::__1::allocator<std::__1::pair<const md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>>> {
-    struct __hash_table<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::__unordered_map_hasher<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::hash<md::RoadBatchKey>, true>, std::__1::__unordered_map_equal<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::equal_to<md::RoadBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>*>>> _field1;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, void *>*> _field1;
+typedef struct unordered_map<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>, std::__1::hash<md::RoadBatchKey>, std::__1::equal_to<md::RoadBatchKey>, std::__1::allocator<std::__1::pair<const md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>>> {
+    struct __hash_table<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::__unordered_map_hasher<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::hash<md::RoadBatchKey>, true>, std::__1::__unordered_map_equal<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::equal_to<md::RoadBatchKey>, true>, std::__1::allocator<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>*>>> _field1;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, void *>*> _field1;
         } _field2;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::hash<md::RoadBatchKey>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::hash<md::RoadBatchKey>, true>> {
             unsigned long long _field1;
         } _field3;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>, std::__1::allocator<std::__1::unique_ptr<md::Ribbon<ggl::RoadRibbon>, std::__1::default_delete<md::Ribbon<ggl::RoadRibbon>>>>>>, std::__1::equal_to<md::RoadBatchKey>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<md::RoadBatchKey, std::__1::__hash_value_type<md::RoadBatchKey, std::__1::vector<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>, std::__1::allocator<std::__1::unique_ptr<md::RoadRibbon, std::__1::default_delete<md::RoadRibbon>>>>>, std::__1::equal_to<md::RoadBatchKey>, true>> {
             float _field1;
         } _field4;
     } _field1;
-} unordered_map_95f1fb18;
+} unordered_map_59c55433;
 
 typedef struct unordered_map<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>, std::__1::hash<std::__1::basic_string<char>>, std::__1::equal_to<std::__1::basic_string<char>>, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
     struct __hash_table<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::__unordered_map_hasher<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::hash<std::__1::basic_string<char>>, true>, std::__1::__unordered_map_equal<std::__1::basic_string<char>, std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>, std::__1::equal_to<std::__1::basic_string<char>>, true>, std::__1::allocator<std::__1::__hash_value_type<std::__1::basic_string<char>, std::__1::shared_ptr<NavRoadFeature>>>> {
@@ -5768,6 +5597,14 @@ typedef struct unordered_set<unsigned long long, std::__1::hash<unsigned long lo
     } __table_;
 } unordered_set_65896b03;
 
+typedef struct vector<Edge, std::__1::allocator<Edge>> {
+    struct Edge *_field1;
+    struct Edge *_field2;
+    struct __compressed_pair<Edge *, std::__1::allocator<Edge>> {
+        struct Edge *_field1;
+    } _field3;
+} vector_304c695f;
+
 typedef struct vector<GEO3DBuildingFeature, std::__1::allocator<GEO3DBuildingFeature>> {
     CDStruct_183601bc *_field1;
     CDStruct_183601bc *_field2;
@@ -5784,6 +5621,38 @@ typedef struct vector<RouteJunctionInfo, std::__1::allocator<RouteJunctionInfo>>
     } _field3;
 } vector_682a2c99;
 
+typedef struct vector<VKLabelNavRoadLabel *, std::__1::allocator<VKLabelNavRoadLabel *>> {
+    id *__begin_;
+    id *__end_;
+    struct __compressed_pair<VKLabelNavRoadLabel **, std::__1::allocator<VKLabelNavRoadLabel *>> {
+        id *__first_;
+    } __end_cap_;
+} vector_13142ee6;
+
+typedef struct vector<geo::Coordinate3D<Radians, double>, std::__1::allocator<geo::Coordinate3D<Radians, double>>> {
+    Coordinate3D_bc242218 *__begin_;
+    Coordinate3D_bc242218 *__end_;
+    struct __compressed_pair<geo::Coordinate3D<Radians, double>*, std::__1::allocator<geo::Coordinate3D<Radians, double>>> {
+        Coordinate3D_bc242218 *__first_;
+    } __end_cap_;
+} vector_be85b44e;
+
+typedef struct vector<geo::_retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct _retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__begin_;
+    struct _retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__end_;
+    struct __compressed_pair<geo::_retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>*, std::__1::allocator<geo::_retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct _retain_ptr<VKPolygonGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__first_;
+    } __end_cap_;
+} vector_2e22b445;
+
+typedef struct vector<geo::_retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>, std::__1::allocator<geo::_retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+    struct _retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__begin_;
+    struct _retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__end_;
+    struct __compressed_pair<geo::_retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>*, std::__1::allocator<geo::_retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>>> {
+        struct _retain_ptr<VKVenueGroup *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc> *__first_;
+    } __end_cap_;
+} vector_afc99996;
+
 typedef struct vector<geo::fast_shared_ptr<md::RouteLineSection>, std::__1::allocator<geo::fast_shared_ptr<md::RouteLineSection>>> {
     struct fast_shared_ptr<md::RouteLineSection> *__begin_;
     struct fast_shared_ptr<md::RouteLineSection> *__end_;
@@ -5791,30 +5660,6 @@ typedef struct vector<geo::fast_shared_ptr<md::RouteLineSection>, std::__1::allo
         struct fast_shared_ptr<md::RouteLineSection> *__first_;
     } __end_cap_;
 } vector_8449fd58;
-
-typedef struct vector<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh, std::__1::allocator<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>> {
-    struct BuildingFlatStrokeMesh *__begin_;
-    struct BuildingFlatStrokeMesh *__end_;
-    struct __compressed_pair<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh *, std::__1::allocator<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>> {
-        struct BuildingFlatStrokeMesh *__first_;
-    } __end_cap_;
-} vector_8a1db405;
-
-typedef struct vector<ggl::PolygonBase::CompressedMeshMesh, std::__1::allocator<ggl::PolygonBase::CompressedMeshMesh>> {
-    struct CompressedMeshMesh *__begin_;
-    struct CompressedMeshMesh *__end_;
-    struct __compressed_pair<ggl::PolygonBase::CompressedMeshMesh *, std::__1::allocator<ggl::PolygonBase::CompressedMeshMesh>> {
-        struct CompressedMeshMesh *__first_;
-    } __end_cap_;
-} vector_3f17ee4c;
-
-typedef struct vector<ggl::PolygonCommonStroke::MeshMesh, std::__1::allocator<ggl::PolygonCommonStroke::MeshMesh>> {
-    struct MeshMesh *__begin_;
-    struct MeshMesh *__end_;
-    struct __compressed_pair<ggl::PolygonCommonStroke::MeshMesh *, std::__1::allocator<ggl::PolygonCommonStroke::MeshMesh>> {
-        struct MeshMesh *__first_;
-    } __end_cap_;
-} vector_83cbb261;
 
 typedef struct vector<gm::Box<double, 2>, std::__1::allocator<gm::Box<double, 2>>> {
     Box_3d7e3c2c *__begin_;
@@ -5864,6 +5709,22 @@ typedef struct vector<md::TransitLink, std::__1::allocator<md::TransitLink>> {
     } __end_cap_;
 } vector_1e20c8c3;
 
+typedef struct vector<md::Venue, std::__1::allocator<md::Venue>> {
+    struct Venue *__begin_;
+    struct Venue *__end_;
+    struct __compressed_pair<md::Venue *, std::__1::allocator<md::Venue>> {
+        struct Venue *__first_;
+    } __end_cap_;
+} vector_4460e468;
+
+typedef struct vector<md::VenueFloorGroup, std::__1::allocator<md::VenueFloorGroup>> {
+    struct VenueFloorGroup *__begin_;
+    struct VenueFloorGroup *__end_;
+    struct __compressed_pair<md::VenueFloorGroup *, std::__1::allocator<md::VenueFloorGroup>> {
+        struct VenueFloorGroup *__first_;
+    } __end_cap_;
+} vector_63e63e89;
+
 typedef struct vector<std::__1::pair<TransitLineWithLink, float>, std::__1::allocator<std::__1::pair<TransitLineWithLink, float>>> {
     struct pair<TransitLineWithLink, float> *_field1;
     struct pair<TransitLineWithLink, float> *_field2;
@@ -5888,6 +5749,30 @@ typedef struct vector<std::__1::pair<std::__1::unique_ptr<ggl::PolygonSolidFill:
     } __end_cap_;
 } vector_87190c80;
 
+typedef struct vector<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>>> {
+    struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh> *__begin_;
+    struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh>>> {
+        struct shared_ptr<ggl::BuildingFlatStroke::BuildingFlatStrokeMesh> *__first_;
+    } __end_cap_;
+} vector_4558960f;
+
+typedef struct vector<std::__1::shared_ptr<ggl::PolygonBase::CompressedMeshMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonBase::CompressedMeshMesh>>> {
+    struct shared_ptr<ggl::PolygonBase::CompressedMeshMesh> *__begin_;
+    struct shared_ptr<ggl::PolygonBase::CompressedMeshMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::PolygonBase::CompressedMeshMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonBase::CompressedMeshMesh>>> {
+        struct shared_ptr<ggl::PolygonBase::CompressedMeshMesh> *__first_;
+    } __end_cap_;
+} vector_ab9b77fc;
+
+typedef struct vector<std::__1::shared_ptr<ggl::PolygonCommonStroke::MeshMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonCommonStroke::MeshMesh>>> {
+    struct shared_ptr<ggl::PolygonCommonStroke::MeshMesh> *__begin_;
+    struct shared_ptr<ggl::PolygonCommonStroke::MeshMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::PolygonCommonStroke::MeshMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::PolygonCommonStroke::MeshMesh>>> {
+        struct shared_ptr<ggl::PolygonCommonStroke::MeshMesh> *__first_;
+    } __end_cap_;
+} vector_78bd515f;
+
 typedef struct vector<std::__1::shared_ptr<ggl::Texture2D>, std::__1::allocator<std::__1::shared_ptr<ggl::Texture2D>>> {
     shared_ptr_479d1306 *__begin_;
     shared_ptr_479d1306 *__end_;
@@ -5895,6 +5780,38 @@ typedef struct vector<std::__1::shared_ptr<ggl::Texture2D>, std::__1::allocator<
         shared_ptr_479d1306 *__first_;
     } __end_cap_;
 } vector_dc840c5c;
+
+typedef struct vector<std::__1::shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>>> {
+    struct shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh> *__begin_;
+    struct shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh>>> {
+        struct shared_ptr<ggl::Venue3DStroke::HorizontalVenue3DStrokeMesh> *__first_;
+    } __end_cap_;
+} vector_8cf9b7af;
+
+typedef struct vector<std::__1::shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>>> {
+    struct shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh> *__begin_;
+    struct shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh>>> {
+        struct shared_ptr<ggl::Venue3DStroke::VerticalVenue3DStrokeMesh> *__first_;
+    } __end_cap_;
+} vector_4bf97ea8;
+
+typedef struct vector<std::__1::shared_ptr<ggl::VenueWall::EndCapMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::VenueWall::EndCapMesh>>> {
+    struct shared_ptr<ggl::VenueWall::EndCapMesh> *__begin_;
+    struct shared_ptr<ggl::VenueWall::EndCapMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::VenueWall::EndCapMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::VenueWall::EndCapMesh>>> {
+        struct shared_ptr<ggl::VenueWall::EndCapMesh> *__first_;
+    } __end_cap_;
+} vector_59518bae;
+
+typedef struct vector<std::__1::shared_ptr<ggl::VenueWall::MeshMesh>, std::__1::allocator<std::__1::shared_ptr<ggl::VenueWall::MeshMesh>>> {
+    struct shared_ptr<ggl::VenueWall::MeshMesh> *__begin_;
+    struct shared_ptr<ggl::VenueWall::MeshMesh> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<ggl::VenueWall::MeshMesh>*, std::__1::allocator<std::__1::shared_ptr<ggl::VenueWall::MeshMesh>>> {
+        struct shared_ptr<ggl::VenueWall::MeshMesh> *__first_;
+    } __end_cap_;
+} vector_3a6d496e;
 
 typedef struct vector<std::__1::shared_ptr<gss::StylesheetQuery<gss::PropertyID>>, std::__1::allocator<std::__1::shared_ptr<gss::StylesheetQuery<gss::PropertyID>>>> {
     shared_ptr_c5d816ee *__begin_;
@@ -5904,6 +5821,14 @@ typedef struct vector<std::__1::shared_ptr<gss::StylesheetQuery<gss::PropertyID>
     } __end_cap_;
 } vector_2cb66512;
 
+typedef struct vector<std::__1::shared_ptr<md::CoastlineGroup>, std::__1::allocator<std::__1::shared_ptr<md::CoastlineGroup>>> {
+    struct shared_ptr<md::CoastlineGroup> *__begin_;
+    struct shared_ptr<md::CoastlineGroup> *__end_;
+    struct __compressed_pair<std::__1::shared_ptr<md::CoastlineGroup>*, std::__1::allocator<std::__1::shared_ptr<md::CoastlineGroup>>> {
+        struct shared_ptr<md::CoastlineGroup> *__first_;
+    } __end_cap_;
+} vector_0661f58a;
+
 typedef struct vector<std::__1::shared_ptr<md::LabelFeatureMarker>, std::__1::allocator<std::__1::shared_ptr<md::LabelFeatureMarker>>> {
     shared_ptr_27db7edb *_field1;
     shared_ptr_27db7edb *_field2;
@@ -5911,14 +5836,6 @@ typedef struct vector<std::__1::shared_ptr<md::LabelFeatureMarker>, std::__1::al
         shared_ptr_27db7edb *_field1;
     } _field3;
 } vector_8bf6b0e5;
-
-typedef struct vector<std::__1::shared_ptr<md::LabelMarker>, std::__1::allocator<std::__1::shared_ptr<md::LabelMarker>>> {
-    shared_ptr_2d33c5e4 *_field1;
-    shared_ptr_2d33c5e4 *_field2;
-    struct __compressed_pair<std::__1::shared_ptr<md::LabelMarker>*, std::__1::allocator<std::__1::shared_ptr<md::LabelMarker>>> {
-        shared_ptr_2d33c5e4 *_field1;
-    } _field3;
-} vector_af4a736d;
 
 typedef struct vector<std::__1::shared_ptr<md::NavLabel>, std::__1::allocator<std::__1::shared_ptr<md::NavLabel>>> {
     shared_ptr_93ff9d4a *__begin_;
@@ -5943,6 +5860,11 @@ typedef struct vector<std::__1::shared_ptr<md::TransitNode>, std::__1::allocator
         struct shared_ptr<md::TransitNode> *__first_;
     } __end_cap_;
 } vector_3c601afa;
+
+typedef struct weak_ptr<ggl::RunLoop::_RunLoopCallbacker> {
+    struct _RunLoopCallbacker *__ptr_;
+    struct __shared_weak_count *__cntrl_;
+} weak_ptr_bda9c8ce;
 
 typedef struct weak_ptr<md::GlobeOverlayContainer> {
     struct GlobeOverlayContainer *__ptr_;

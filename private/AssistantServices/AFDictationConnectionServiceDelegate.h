@@ -28,7 +28,7 @@
 - (oneway void)speechRecordingDidCancel;
 - (oneway void)speechRecordingDidEnd;
 - (oneway void)speechRecordingDidBegin;
-- (oneway void)speechRecordingWillBeginWithLevelsSharedMem:(id)arg1;
+- (oneway void)speechRecordingWillBeginWithInputAudioPowerXPCWrapper:(id)arg1;
 - (id)initWithDictationConnection:(id)arg1;
 
 // Remaining properties

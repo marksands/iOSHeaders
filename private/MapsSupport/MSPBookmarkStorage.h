@@ -24,8 +24,6 @@
     CDStruct_dd13975a _has;
 }
 
-+ (id)__test_newBookmarkStorageForLineWithMuid:(unsigned long long)arg1;
-+ (id)__test_newBookmarkStorageForLine;
 @property(retain, nonatomic) MSPTransitLineBookmark *transitLineBookmark; // @synthesize transitLineBookmark=_transitLineBookmark;
 @property(retain, nonatomic) MSPRegionBookmark *regionBookmark; // @synthesize regionBookmark=_regionBookmark;
 @property(retain, nonatomic) MSPRouteBookmark *routeBookmark; // @synthesize routeBookmark=_routeBookmark;

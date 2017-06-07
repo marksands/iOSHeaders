@@ -24,6 +24,10 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (long long)defaultGenderForOutputVoiceLanguageCode:(id)arg1;
++ (id)voiceInfoForLanguageCode:(id)arg1;
++ (id)allVoicesForSiriSessionLanguage:(id)arg1;
++ (long long)genderForVSSpeechGender:(long long)arg1;
 @property(readonly, nonatomic) _Bool wasInitalizedFromDictionaryRepresentation; // @synthesize wasInitalizedFromDictionaryRepresentation=_wasInitalizedFromDictionaryRepresentation;
 @property(nonatomic) long long gender; // @synthesize gender=_gender;
 @property(readonly, nonatomic) NSString *masteredVersion; // @synthesize masteredVersion=_masteredVersion;
@@ -46,6 +50,11 @@
 - (id)initWithLanguageCode:(id)arg1;
 - (id)initWithLanguageCode:(id)arg1 gender:(long long)arg2 isCustom:(_Bool)arg3;
 - (id)initWithLanguageCode:(id)arg1 gender:(long long)arg2 isCustom:(_Bool)arg3 name:(id)arg4 footprint:(long long)arg5 contentVersion:(id)arg6 masteredVersion:(id)arg7;
+- (_Bool)isValidForSiriSessionLanguage:(id)arg1;
+- (_Bool)isMatchForVoiceAsset:(id)arg1;
+- (long long)VSSpeechType;
+- (long long)VSSpeechFootprint;
+- (long long)VSSpeechGender;
 
 @end
 

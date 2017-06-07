@@ -7,6 +7,11 @@
 @class NSArray, NSData, NSDictionary, NSNumber, NSString, NSURL, SFActionItem, SFCard, SFCustom, SFImage, SFMoreResults, SFPunchout, SFText;
 
 @protocol SFSearchResult
+@property(copy, nonatomic) NSString *srf;
+@property(copy, nonatomic) NSString *fbr;
+@property(copy, nonatomic) NSArray *itemProviderFileTypes;
+@property(copy, nonatomic) NSArray *itemProviderDataTypes;
+@property(copy, nonatomic) NSString *userInput;
 @property(nonatomic) _Bool publiclyIndexable;
 @property(nonatomic) unsigned long long queryId;
 @property(copy, nonatomic) NSString *completedQuery;
@@ -33,14 +38,14 @@
 @property(nonatomic) double serverScore;
 @property(copy, nonatomic) NSString *mediaType;
 @property(nonatomic) unsigned long long minimumRankOfTopHitToSuppressResult;
-@property(nonatomic) unsigned long long type;
-@property(nonatomic) unsigned long long placement;
+@property(nonatomic) int type;
+@property(nonatomic) int placement;
 @property(nonatomic) double rankingScore;
 @property(nonatomic) _Bool renderHorizontallyWithOtherResultsInCategory;
 @property(copy, nonatomic) NSURL *sectionHeaderMoreURL;
 @property(copy, nonatomic) NSString *sectionHeaderMore;
 @property(copy, nonatomic) NSString *sectionHeader;
-@property(nonatomic) unsigned long long topHit;
+@property(nonatomic) int topHit;
 @property(copy, nonatomic) NSString *userActivityRequiredString;
 @property(nonatomic) _Bool isLocalApplicationResult;
 @property(copy, nonatomic) NSString *sectionBundleIdentifier;
@@ -60,7 +65,7 @@
 @property(copy, nonatomic) NSString *storeIdentifier;
 @property(retain, nonatomic) SFPunchout *punchout;
 @property(retain, nonatomic) SFActionItem *action;
-@property(nonatomic) unsigned long long auxiliaryBottomTextColor;
+@property(nonatomic) int auxiliaryBottomTextColor;
 @property(copy, nonatomic) NSString *auxiliaryBottomText;
 @property(copy, nonatomic) NSString *auxiliaryMiddleText;
 @property(copy, nonatomic) NSString *auxiliaryTopText;

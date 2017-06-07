@@ -15,6 +15,7 @@
 - (void)setDesiredAutoLockDuration:(double)arg1;
 - (void)setIdleTimerDisabled:(_Bool)arg1 forReason:(NSString *)arg2;
 - (void)setDesiredStatusBarStyleOverrides:(int)arg1;
+- (void)setSwipeDismissalStyle:(long long)arg1;
 - (void)setDismissalAnimationStyle:(long long)arg1;
 - (void)setAllowsAlertStacking:(_Bool)arg1;
 - (void)setBackgroundStyle:(long long)arg1 withDuration:(double)arg2;

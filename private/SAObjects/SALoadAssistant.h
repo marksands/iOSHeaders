@@ -16,7 +16,9 @@
 
 + (id)loadAssistantWithDictionary:(id)arg1 context:(id)arg2;
 + (id)loadAssistant;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *speechId;
+@property(copy, nonatomic) NSString *sharedUserId;
 @property(copy, nonatomic) NSData *sessionValidationData;
 @property(copy, nonatomic) NSString *linkedSpeechId;
 @property(copy, nonatomic) NSData *linkedSessionValidationData;

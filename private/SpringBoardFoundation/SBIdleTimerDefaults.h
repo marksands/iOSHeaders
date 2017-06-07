@@ -16,6 +16,7 @@
 
 // Remaining properties
 @property(readonly, nonatomic, getter=isBacklightLoggingEnabled) _Bool backlightLoggingEnabled; // @dynamic backlightLoggingEnabled;
+@property(readonly, nonatomic) _Bool disableAttentionAwareness; // @dynamic disableAttentionAwareness;
 @property(readonly, nonatomic) _Bool dontDimOrLockWhileConnectedToPower; // @dynamic dontDimOrLockWhileConnectedToPower;
 @property(readonly, nonatomic) double minimumLockscreenIdleTime; // @dynamic minimumLockscreenIdleTime;
 @property(readonly, nonatomic) _Bool supportLiftToWake; // @dynamic supportLiftToWake;

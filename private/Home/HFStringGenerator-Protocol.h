@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <Home/NSCopying-Protocol.h>
 #import <Home/NSObject-Protocol.h>
 
 @class NSAttributedString, NSDictionary;
 
-@protocol HFStringGenerator <NSObject>
+@protocol HFStringGenerator <NSObject, NSCopying>
 - (_Bool)prefersDynamicString;
 - (NSAttributedString *)stringWithAttributes:(NSDictionary *)arg1;
 - (NSAttributedString *)dynamicStringForSize:(struct CGSize)arg1 attributes:(NSDictionary *)arg2;

@@ -21,7 +21,6 @@
     _Bool __shouldSkipPostcaptureReview;
     _Bool __retakingPhoto;
     int _photoSavingOptions;
-    int __enabledGestures;
     int __windowEdgeClip;
     NSDictionary *_imagePickerOptions;
     PLPhotoTileViewController *_tileViewController;
@@ -33,7 +32,6 @@
 @property(nonatomic, setter=_setWindowEdgeClip:) int _windowEdgeClip; // @synthesize _windowEdgeClip=__windowEdgeClip;
 @property(nonatomic, getter=_isRetakingPhoto, setter=_setRetakingPhoto:) _Bool _retakingPhoto; // @synthesize _retakingPhoto=__retakingPhoto;
 @property(readonly, nonatomic) _Bool _shouldSkipPostcaptureReview; // @synthesize _shouldSkipPostcaptureReview=__shouldSkipPostcaptureReview;
-@property(nonatomic, setter=_setEnabledGestures:) int _enabledGestures; // @synthesize _enabledGestures=__enabledGestures;
 @property(readonly, nonatomic) PLVideoView *_videoView; // @synthesize _videoView=__videoView;
 @property(nonatomic, getter=_isManipulatingCrop, setter=_setManipulatingCrop:) _Bool _manipulatingCrop; // @synthesize _manipulatingCrop=__manipulatingCrop;
 @property(readonly, nonatomic) PLCropOverlay *_cropOverlay; // @synthesize _cropOverlay=__cropOverlay;

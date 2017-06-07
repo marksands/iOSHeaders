@@ -8,21 +8,27 @@
 
 #import <NanoMailKitServer/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray;
+@class NSData, NSMutableArray, NSString;
 
 @interface NNMKProtoMessageAdditions : PBCodable <NSCopying>
 {
     NSData *_dateForRequestingMoreMessages;
     NSData *_dateSynced;
     unsigned int _fullSyncVersion;
+    NSString *_mailboxId;
+    unsigned int _mailboxSyncVersion;
     NSMutableArray *_messageAdditions;
     _Bool _messagesAreNew;
     struct {
         unsigned int fullSyncVersion:1;
+        unsigned int mailboxSyncVersion:1;
         unsigned int messagesAreNew:1;
     } _has;
 }
 
++ (Class)messageAdditionType;
+@property(nonatomic) unsigned int mailboxSyncVersion; // @synthesize mailboxSyncVersion=_mailboxSyncVersion;
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(nonatomic) _Bool messagesAreNew; // @synthesize messagesAreNew=_messagesAreNew;
 @property(retain, nonatomic) NSData *dateForRequestingMoreMessages; // @synthesize dateForRequestingMoreMessages=_dateForRequestingMoreMessages;
 @property(retain, nonatomic) NSMutableArray *messageAdditions; // @synthesize messageAdditions=_messageAdditions;
@@ -38,6 +44,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMailboxSyncVersion;
+@property(readonly, nonatomic) _Bool hasMailboxId;
 @property(nonatomic) _Bool hasMessagesAreNew;
 @property(readonly, nonatomic) _Bool hasDateForRequestingMoreMessages;
 - (id)messageAdditionAtIndex:(unsigned long long)arg1;

@@ -8,8 +8,12 @@
 #import <Home/NSObject-Protocol.h>
 
 @class NSString;
+@protocol HFIconDescriptor;
 
 @protocol HFIconDescriptor <NSObject, NAEquatable>
 @property(readonly, nonatomic) NSString *identifier;
+
+@optional
+- (id)iconDescriptorByMergingWithIconDescriptor:(id <HFIconDescriptor>)arg1;
 @end
 

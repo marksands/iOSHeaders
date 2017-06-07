@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
 @property(nonatomic) double doubleValue; // @synthesize doubleValue=_doubleValue;
 @property(nonatomic) long long intValue; // @synthesize intValue=_intValue;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -42,7 +43,6 @@
 @property(readonly, nonatomic) _Bool hasStringValue;
 @property(nonatomic) _Bool hasDoubleValue;
 @property(nonatomic) _Bool hasIntValue;
-- (void)dealloc;
 
 @end
 

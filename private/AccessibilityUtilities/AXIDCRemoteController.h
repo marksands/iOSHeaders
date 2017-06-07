@@ -32,7 +32,8 @@
 @property(retain, nonatomic) NSInputStream *inputStream; // @synthesize inputStream=_inputStream;
 @property(retain, nonatomic) NSMutableArray *outputDataQueue; // @synthesize outputDataQueue=_outputDataQueue;
 @property(retain, nonatomic) NSNetService *service; // @synthesize service=_service;
-@property(nonatomic) id <AXIDCRemoteControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <AXIDCRemoteControllerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (_Bool)sendObject:(id)arg1 withSendCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)sendObject:(id)arg1;

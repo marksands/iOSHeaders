@@ -15,8 +15,13 @@
     DDRemoteActionViewController *viewController;
 }
 
++ (_Bool)actionAvailableForEvent:(id)arg1;
++ (id)cachedEventForICSString:(id)arg1;
 @property(retain, nonatomic) DDRemoteActionViewController *viewController; // @synthesize viewController;
 - (void).cxx_destruct;
+- (id)notificationURL;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
 - (void)prepareViewControllerForActionController:(id)arg1;
 - (void)eventEditViewController:(id)arg1 didCompleteWithAction:(long long)arg2;
 - (int)interactionType;

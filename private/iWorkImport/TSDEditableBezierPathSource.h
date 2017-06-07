@@ -97,11 +97,11 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (id)init;
-- (void)saveToArchive:(struct PathSourceArchive *)arg1;
-- (id)initWithArchive:(const struct PathSourceArchive *)arg1;
 - (void)addTemporarySmoothNodes;
 - (void)updateSmoothNodes;
 - (void)morphWithMorphInfo:(id)arg1;
+- (void)saveToArchive:(struct PathSourceArchive *)arg1;
+- (id)initWithArchive:(const struct PathSourceArchive *)arg1;
 
 @end
 

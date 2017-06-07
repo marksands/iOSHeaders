@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class VKFootprint, VKViewVolume;
-@protocol VKCameraDelegate;
 
 @interface VKCamera : NSObject
 {
-    id <VKCameraDelegate> _delegate;
+    struct RunLoopController *_runLoopController;
     CDStruct_7a7719de _frustum;
     double _minHeight;
     double _maxHeight;
@@ -40,11 +39,12 @@
     double _far;
     double _width;
     double _height;
-    Matrix_08d701e4 _orientation;
-    Matrix_6e1d3589 _position;
+    RigidTransform_271c3a39 _transform;
     Matrix_08d701e4 _scaledViewMatrix;
+    Matrix_08d701e4 _scaledSkewedViewMatrix;
     Matrix_08d701e4 _scaledProjectionMatrix;
     Matrix_08d701e4 _scaledViewProjectionMatrix;
+    Matrix_08d701e4 _scaledSkewedViewProjectionMatrix;
     Matrix_08d701e4 _unscaledViewMatrix;
     Matrix_08d701e4 _unscaledProjectionMatrix;
     Matrix_08d701e4 _unscaledViewProjectionMatrix;
@@ -61,17 +61,16 @@
 @property(readonly, nonatomic) double screenHeightOfGroundAndFarClipPlaneIntersection; // @synthesize screenHeightOfGroundAndFarClipPlaneIntersection=_screenHeightOfGroundAndFarClipPlaneIntersection;
 @property(readonly, nonatomic) double distanceToGroundAndFarClipPlaneIntersection; // @synthesize distanceToGroundAndFarClipPlaneIntersection=_distanceToGroundAndFarClipPlaneIntersection;
 @property(nonatomic) double fractionOfScreenAboveFarClipPlaneAtCanonicalPitch; // @synthesize fractionOfScreenAboveFarClipPlaneAtCanonicalPitch=_fractionOfScreenAboveFarClipPlaneAtCanonicalPitch;
-@property(nonatomic) id <VKCameraDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) double terrainHeight; // @synthesize terrainHeight=_terrainHeight;
 @property(nonatomic) double maxPitch; // @synthesize maxPitch=_maxPitch;
 @property(nonatomic) double maxHeight; // @synthesize maxHeight=_maxHeight;
 @property(nonatomic) double minHeight; // @synthesize minHeight=_minHeight;
 @property(nonatomic) double maxHeightNoPitch; // @synthesize maxHeightNoPitch=_maxHeightNoPitch;
 @property(nonatomic) double aspectRatio; // @synthesize aspectRatio=_aspectRatio;
-@property(nonatomic) Matrix_6e1d3589 position; // @synthesize position=_position;
-@property(readonly, nonatomic) CDStruct_7a7719de frustum; // @synthesize frustum=_frustum;
 - (id).cxx_construct;
-- (Matrix_6e1d3589)projectWorldSpaceToClipSpace:(const Mercator3_d8bb135c *)arg1;
+- (void).cxx_destruct;
+- (View_fc0baec4)view:(struct ViewSize)arg1;
+- (Matrix_6e1d3589)projectWorldSpaceToClipSpace:(const Mercator3_40a88dec *)arg1;
 @property(readonly, nonatomic) const Matrix_08d701e4 *unscaledProjectionMatrix;
 @property(readonly, nonatomic) const Matrix_08d701e4 *unscaledViewProjectionMatrix;
 @property(readonly, nonatomic) const Matrix_08d701e4 *unscaledViewMatrix;
@@ -79,6 +78,7 @@
 @property(readonly, nonatomic) const Matrix_08d701e4 *scaledProjectionMatrix;
 @property(readonly, nonatomic) const Matrix_08d701e4 *unscaledProjectionMatrixWithoutOffset;
 @property(readonly, nonatomic) const Matrix_08d701e4 *viewProjectionMatrixWithoutOffset;
+@property(readonly, nonatomic) const Matrix_08d701e4 *scaledSkewedViewProjectionMatrix;
 @property(readonly, nonatomic) const Matrix_08d701e4 *scaledViewProjectionMatrix;
 - (void)adjustClipPlanes;
 - (float)zoomAtCentrePoint;
@@ -112,12 +112,15 @@
 @property(readonly, nonatomic) double farClipDistance;
 @property(readonly, nonatomic) float horizontalFieldOfView;
 @property(nonatomic) float verticalFieldOfView;
-@property(nonatomic) const Matrix_08d701e4 *orientation; // @synthesize orientation=_orientation;
+@property(nonatomic) const Quaternion_febf9140 *orientation;
+@property(readonly, nonatomic) CDStruct_7a7719de frustum;
+@property(nonatomic) const Matrix_6e1d3589 *position;
 - (void)_setPosition:(const Matrix_6e1d3589 *)arg1;
 - (id)descriptionDictionaryRepresentation;
 - (id)description;
+- (id)detailedDescription;
 - (void)dealloc;
-- (id)init;
+- (id)initWithRunLoopController:(struct RunLoopController *)arg1;
 
 @end
 

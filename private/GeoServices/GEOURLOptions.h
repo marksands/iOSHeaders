@@ -21,15 +21,18 @@
     GEOURLTimePoint *_timePoint;
     int _transportType;
     int _userTrackingMode;
+    _Bool _connectedToCar;
     _Bool _enableTraffic;
     struct {
         unsigned int mapType:1;
         unsigned int transportType:1;
         unsigned int userTrackingMode:1;
+        unsigned int connectedToCar:1;
         unsigned int enableTraffic:1;
     } _has;
 }
 
+@property(nonatomic) _Bool connectedToCar; // @synthesize connectedToCar=_connectedToCar;
 @property(retain, nonatomic) GEOURLTimePoint *timePoint; // @synthesize timePoint=_timePoint;
 @property(retain, nonatomic) GEOURLRouteHandle *routeHandle; // @synthesize routeHandle=_routeHandle;
 @property(retain, nonatomic) NSString *referralIdentifier; // @synthesize referralIdentifier=_referralIdentifier;
@@ -37,6 +40,7 @@
 @property(retain, nonatomic) GEOURLCenterSpan *centerSpan; // @synthesize centerSpan=_centerSpan;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 @property(nonatomic) _Bool enableTraffic; // @synthesize enableTraffic=_enableTraffic;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,6 +50,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+@property(nonatomic) _Bool hasConnectedToCar;
 @property(readonly, nonatomic) _Bool hasTimePoint;
 @property(readonly, nonatomic) _Bool hasRouteHandle;
 - (int)StringAsUserTrackingMode:(id)arg1;
@@ -63,7 +68,6 @@
 @property(nonatomic) _Bool hasMapType;
 @property(nonatomic) int mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) _Bool hasEnableTraffic;
-- (void)dealloc;
 - (id)urlRepresentation;
 - (id)initWithUrlRepresentation:(id)arg1;
 

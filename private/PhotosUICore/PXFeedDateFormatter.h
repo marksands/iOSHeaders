@@ -30,6 +30,7 @@
 - (id)_completeRelativeStringForDate:(id)arg1 dateFormatter:(id)arg2;
 - (void)_prepare;
 - (void)_invalidate;
+- (_Bool)isDateInToday:(id)arg1;
 - (id)stringFromDate:(id)arg1;
 - (void)dealloc;
 - (id)initWithLocale:(id)arg1 ignoreWhitelist:(_Bool)arg2;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol GEOSearchAttributionServerProxy;
 
@@ -14,11 +14,13 @@
 }
 
 + (id)sharedManager;
-+ (void)useLocalProxy;
++ (void)setUseLocalProxy:(_Bool)arg1;
 + (void)useRemoteProxy;
++ (void)useLocalProxy;
++ (void)useProxy:(Class)arg1;
 @property(readonly, nonatomic) id <GEOSearchAttributionServerProxy> serverProxy; // @synthesize serverProxy=_serverProxy;
+- (void).cxx_destruct;
 - (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 completionHandler:(CDUnknownBlockType)arg3 errorHandler:(CDUnknownBlockType)arg4;
-- (void)dealloc;
 - (id)init;
 
 @end

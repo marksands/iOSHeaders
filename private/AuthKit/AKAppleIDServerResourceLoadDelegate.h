@@ -13,17 +13,17 @@
 @interface AKAppleIDServerResourceLoadDelegate : NSObject <NSSecureCoding>
 {
     NSString *_altDSID;
-    NSString *_identityToken;
     _Bool _shouldSendEphemeralAuthHeader;
-    _Bool _shouldSendAbsintheHeader;
     _Bool _shouldSendICSCIntentHeader;
     _Bool _shouldSendLocalUserHasAppleIDLoginHeader;
+    _Bool _shouldSendAbsintheHeader;
     NSString *_serviceToken;
     long long _serviceType;
     NSArray *_loggedInServices;
     NSString *_passwordResetToken;
     NSString *_continuationToken;
     NSString *_heartbeatToken;
+    NSString *_identityToken;
     AKDevice *_proxiedDevice;
     NSString *_proxyAppName;
     NSString *_clientAppName;
@@ -34,12 +34,14 @@
 + (unsigned long long)signalFromServerResponse:(id)arg1;
 + (id)sharedController;
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool shouldSendAbsintheHeader; // @synthesize shouldSendAbsintheHeader=_shouldSendAbsintheHeader;
 @property(retain, nonatomic) AKAnisetteData *proxiedDeviceAnisetteData; // @synthesize proxiedDeviceAnisetteData=_proxiedDeviceAnisetteData;
 @property(retain, nonatomic) NSNumber *hasEmptyPasswordOverride; // @synthesize hasEmptyPasswordOverride=_hasEmptyPasswordOverride;
 @property(copy, nonatomic) NSString *clientAppName; // @synthesize clientAppName=_clientAppName;
 @property(copy, nonatomic) NSString *proxyAppName; // @synthesize proxyAppName=_proxyAppName;
 @property(retain, nonatomic) AKDevice *proxiedDevice; // @synthesize proxiedDevice=_proxiedDevice;
 @property(copy, nonatomic) NSString *altDSID; // @synthesize altDSID=_altDSID;
+@property(copy, nonatomic) NSString *identityToken; // @synthesize identityToken=_identityToken;
 @property(copy, nonatomic) NSString *heartbeatToken; // @synthesize heartbeatToken=_heartbeatToken;
 @property(copy, nonatomic) NSString *continuationToken; // @synthesize continuationToken=_continuationToken;
 @property(copy, nonatomic) NSString *passwordResetToken; // @synthesize passwordResetToken=_passwordResetToken;
@@ -47,7 +49,6 @@
 @property(nonatomic) long long serviceType; // @synthesize serviceType=_serviceType;
 @property(nonatomic) _Bool shouldSendLocalUserHasAppleIDLoginHeader; // @synthesize shouldSendLocalUserHasAppleIDLoginHeader=_shouldSendLocalUserHasAppleIDLoginHeader;
 @property(nonatomic) _Bool shouldSendICSCIntentHeader; // @synthesize shouldSendICSCIntentHeader=_shouldSendICSCIntentHeader;
-@property(nonatomic) _Bool shouldSendAbsintheHeader; // @synthesize shouldSendAbsintheHeader=_shouldSendAbsintheHeader;
 @property(nonatomic) _Bool shouldSendEphemeralAuthHeader; // @synthesize shouldSendEphemeralAuthHeader=_shouldSendEphemeralAuthHeader;
 @property(copy, nonatomic) NSString *serviceToken; // @synthesize serviceToken=_serviceToken;
 - (void).cxx_destruct;
@@ -55,6 +56,8 @@
 - (_Bool)isResponseActionable:(id)arg1;
 - (_Bool)isAuthenticationRequired:(id)arg1;
 - (_Bool)isResponseFinal:(id)arg1;
+- (void)_signWithFeatureOptInHeaders:(id)arg1;
+- (void)signRequestWithCommonHeaders:(id)arg1;
 - (void)signRequest:(id)arg1;
 - (id)initWithAltDSID:(id)arg1 identityToken:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;

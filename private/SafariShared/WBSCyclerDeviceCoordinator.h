@@ -19,11 +19,13 @@
     NSString *_primaryDeviceHost;
     WBSCyclerPrimaryDeviceCoordinator *_primaryDeviceCoordinator;
     WBSCyclerSecondaryDeviceCoordinator *_secondaryDeviceCoordinator;
+    _Bool _coordinating;
     id <WBSCyclerDeviceCoordinatorDelegate> _delegate;
     NSNumber *_numberOfSecondaryDevices;
 }
 
 @property(readonly, nonatomic) NSNumber *numberOfSecondaryDevices; // @synthesize numberOfSecondaryDevices=_numberOfSecondaryDevices;
+@property(getter=isCoordinating) _Bool coordinating; // @synthesize coordinating=_coordinating;
 @property __weak id <WBSCyclerDeviceCoordinatorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_descriptionForErrorCode:(long long)arg1;
@@ -33,17 +35,22 @@
 - (_Bool)_setSecondaryCyclerCountOnInternalQueue:(id)arg1 error:(id *)arg2;
 - (_Bool)_setPrimaryCyclerAddressOnInternalQueue:(id)arg1 error:(id *)arg2;
 - (id)_primaryDeviceAddressOnInternalQueue;
+- (void)_didReceiveData:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)_didStartListeningAsPrimaryDeviceOnPort:(unsigned long long)arg1;
 - (void)_didEncounterError:(id)arg1;
 - (void)_didFinishConnectingToDevices;
+- (void)secondaryDeviceCoordinator:(id)arg1 didReceiveDataFromPrimaryDevice:(id)arg2;
 - (void)secondaryDeviceCoordinator:(id)arg1 didEncounterError:(id)arg2;
 - (void)secondaryDeviceCoordinatorDidConnectToPrimaryDevice:(id)arg1;
+- (void)primaryDeviceCoordinator:(id)arg1 didReceiveData:(id)arg2 fromSecondaryDevice:(unsigned long long)arg3;
 - (void)primaryDeviceCoordinator:(id)arg1 didStartListeningForSecondaryDevicesOnPort:(unsigned long long)arg2;
 - (void)primaryDeviceCoordinator:(id)arg1 didEncounterError:(id)arg2;
 - (void)primaryDeviceCoordinatorDidConnectToAllSecondaryDevices:(id)arg1;
+- (void)sendData:(id)arg1;
 - (void)startCoordinatingWithTimeout:(double)arg1;
 - (_Bool)setValue:(id)arg1 forConfigurationKey:(id)arg2 error:(id *)arg3;
 @property(readonly, copy, nonatomic) NSString *primaryDeviceAddress;
+@property(readonly, nonatomic, getter=isPrimaryDevice) _Bool primaryDevice;
 - (id)init;
 
 // Remaining properties

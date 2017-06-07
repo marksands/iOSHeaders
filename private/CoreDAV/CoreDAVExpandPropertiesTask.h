@@ -14,6 +14,7 @@
 }
 
 @property(retain, nonatomic) NSMutableSet *propertiesToExpand; // @synthesize propertiesToExpand=_propertiesToExpand;
+- (void).cxx_destruct;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)parseHints;
 - (id)requestBody;
@@ -21,7 +22,6 @@
 - (id)description;
 - (void)addPropertyToExpandWithPropertiesToFind:(id)arg1 expandedName:(id)arg2 expandedNameSpace:(id)arg3;
 - (id)initWithPropertiesToFind:(id)arg1 atURL:(id)arg2 expandedName:(id)arg3 expandedNameSpace:(id)arg4;
-- (void)dealloc;
 
 @end
 

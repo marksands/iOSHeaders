@@ -6,7 +6,7 @@
 
 #import <SAObjects/SADomainCommand.h>
 
-@class SAMPPodcastStation;
+@class NSArray, SAMPPodcastStation;
 
 @interface SAMPPlayPodcastStation : SADomainCommand
 {
@@ -14,8 +14,10 @@
 
 + (id)playPodcastStationWithDictionary:(id)arg1 context:(id)arg2;
 + (id)playPodcastStation;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(retain, nonatomic) SAMPPodcastStation *station;
+@property(copy, nonatomic) NSArray *hashedRouteUIDs;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

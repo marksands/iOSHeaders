@@ -6,11 +6,12 @@
 
 #import <Message/MailAccount.h>
 
+#import <IMAP/MFIMAPConnectionDelegate-Protocol.h>
 #import <IMAP/MFIMAPMailboxListFilter-Protocol.h>
 
 @class MFIMAPOperationCache, NSArray, NSMutableArray, NSMutableDictionary, NSRecursiveLock, NSSet, NSString;
 
-@interface IMAPAccount : MailAccount <MFIMAPMailboxListFilter>
+@interface IMAPAccount : MailAccount <MFIMAPConnectionDelegate, MFIMAPMailboxListFilter>
 {
     NSString *_separatorChar;
     NSString *_serverNamespace;
@@ -135,10 +136,12 @@
 - (void)fetchMailboxList;
 - (void)_synchronizeAccountWithServer;
 - (void)throttledGetMailboxListWithConnection:(id)arg1;
+- (_Bool)getMailboxListWithConnection:(id)arg1 statusDataItems:(id)arg2 statusEntriesByMailbox:(id *)arg3;
 - (_Bool)getMailboxListWithConnection:(id)arg1;
 - (void)resetMailboxTimer;
 - (void)nowWouldBeAGoodTimeToStartBackgroundSynchronization;
 - (id)moveMessages:(id)arg1 fromMailbox:(id)arg2 toMailbox:(id)arg3 markAsRead:(_Bool)arg4;
+- (id)specialUseAttributesForMailbox:(id)arg1;
 - (_Bool)isSpecialMailbox:(id)arg1;
 - (id)allMailMailboxUid;
 - (id)_specialMailboxUidWithType:(int)arg1 create:(_Bool)arg2;
@@ -150,7 +153,7 @@
 - (id)_newMailboxWithParent:(id)arg1 name:(id)arg2 attributes:(unsigned int)arg3 dictionary:(id)arg4 withCreationOption:(int)arg5;
 - (id)_listingForMailboxUid:(id)arg1 listAllChildren:(_Bool)arg2;
 - (id)_listingForMailboxUid:(id)arg1 listAllChildren:(_Bool)arg2 onlySubscribed:(_Bool)arg3;
-- (id)_listingForMailboxUid:(id)arg1 listAllChildren:(_Bool)arg2 onlySubscribed:(_Bool)arg3 withConnection:(id)arg4;
+- (id)_listingForMailboxUid:(id)arg1 listAllChildren:(_Bool)arg2 onlySubscribed:(_Bool)arg3 statusDataItems:(id)arg4 withConnection:(id)arg5 statusEntriesByMailbox:(id *)arg6;
 - (_Bool)xListSupportedOnConnection:(id)arg1;
 - (id)fetchLimits;
 - (void)_setCapabilities:(id)arg1;
@@ -169,8 +172,6 @@
 - (void)networkChanged;
 - (void)flushOfflineCache;
 - (void)_flushOfflineCache;
-- (void)validateConnections;
-- (void)_validateConnections;
 - (void)releaseAllConnectionsIdleForTimeInterval:(double)arg1;
 - (void)releaseAllForcedConnections;
 - (void)releaseAllConnections;
@@ -224,6 +225,12 @@
 - (id)certUIService;
 - (id)initWithLibrary:(id)arg1 persistentAccount:(id)arg2;
 - (id)mf_lockOrdering;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

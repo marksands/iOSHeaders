@@ -16,6 +16,7 @@
 
 + (id)startBackgroundActionRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)startBackgroundActionRequest;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *backgroundAction;
 - (id)encodedClassName;
 - (id)groupIdentifier;

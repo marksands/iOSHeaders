@@ -17,13 +17,14 @@
 @property(nonatomic) long long preferredSensorLocation; // @synthesize preferredSensorLocation=_preferredSensorLocation;
 - (void)setDeliverData:(_Bool)arg1;
 - (_Bool)deliverData;
-- (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;
+- (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 updateTime:(id)arg3 error:(id)arg4;
 - (void)peripheral:(id)arg1 didDiscoverCharacteristic:(id)arg2;
 - (void)performOperation:(id)arg1 onPeripheral:(id)arg2 withParameters:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (_Bool)supportsOperation:(id)arg1;
 - (void)resetEnergyExpendedOnPeripheral:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handleBodyLocation:(id)arg1;
 - (void)handleHeartRate:(id)arg1;
-- (id)initWithServiceManager:(id)arg1 propertyManager:(id)arg2 healthDaemon:(id)arg3 peripheral:(id)arg4;
+- (id)initWithServiceManager:(id)arg1 peripheral:(id)arg2 advertisementData:(id)arg3 profile:(id)arg4;
 
 @end
 

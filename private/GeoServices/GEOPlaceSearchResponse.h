@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOMapRegion, NSData, NSMutableArray, NSString;
+@class GEOMapRegion, NSData, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPlaceSearchResponse : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _turnaroundTime;
     GEOMapRegion *_mapRegion;
     NSMutableArray *_namedFeatures;
@@ -41,6 +42,8 @@
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) NSMutableArray *placeResults; // @synthesize placeResults=_placeResults;
 @property(nonatomic) int status; // @synthesize status=_status;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -73,7 +76,6 @@
 - (void)clearPlaceResults;
 - (int)StringAsStatus:(id)arg1;
 - (id)statusAsString:(int)arg1;
-- (void)dealloc;
 
 @end
 

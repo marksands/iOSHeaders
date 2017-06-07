@@ -6,11 +6,9 @@
 
 #import <AccountsUI/ACUIDataclassConfigurationViewController.h>
 
-#import <DataAccessUI/UIModalViewDelegate-Protocol.h>
+@class DAAccount;
 
-@class DAAccount, NSString;
-
-@interface DASettingsDataclassConfigurationViewController : ACUIDataclassConfigurationViewController <UIModalViewDelegate>
+@interface DASettingsDataclassConfigurationViewController : ACUIDataclassConfigurationViewController
 {
     DAAccount *_daAccount;
     _Bool _haveRegisteredForAccountsChanged;
@@ -35,12 +33,6 @@
 - (id)_navTitle;
 - (id)accountDescriptionForFirstTimeSetup;
 - (void)dealloc;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -55,6 +55,12 @@ struct _NSRange {
     unsigned long long length;
 };
 
+struct _opaque_pthread_t {
+    long long _field1;
+    struct __darwin_pthread_handler_rec *_field2;
+    char _field3[8176];
+};
+
 struct internal_state;
 
 struct os_unfair_lock_s {

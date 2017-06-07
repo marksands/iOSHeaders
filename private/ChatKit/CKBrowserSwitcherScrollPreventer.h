@@ -6,13 +6,15 @@
 
 #import <UIKit/UIView.h>
 
+#import <ChatKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <ChatKit/UIScrollViewDelegate-Protocol.h>
 
-@class NSString, UIScrollView;
+@class NSString, UILongPressGestureRecognizer, UIScrollView;
 @protocol CKBrowserSwitcherScrollPreventerDelegate;
 
-@interface CKBrowserSwitcherScrollPreventer : UIView <UIScrollViewDelegate>
+@interface CKBrowserSwitcherScrollPreventer : UIView <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 {
+    UILongPressGestureRecognizer *_touchTracker;
     _Bool _engaged;
     _Bool _switching;
     _Bool _scrollEnabled;
@@ -35,6 +37,8 @@
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)layoutSubviews;
+- (void)touchTrackerRecognized:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

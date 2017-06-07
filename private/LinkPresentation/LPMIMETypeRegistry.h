@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)isVideoType:(id)arg1;
 + (_Bool)isImageType:(id)arg1;
 + (_Bool)isHTMLType:(id)arg1;
 

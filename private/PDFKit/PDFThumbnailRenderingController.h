@@ -8,6 +8,7 @@
 
 @class NSMapTable, NSOperationQueue, UIImage;
 
+__attribute__((visibility("hidden")))
 @interface PDFThumbnailRenderingController : NSObject
 {
     NSMapTable *_contextObjectToContextMap;

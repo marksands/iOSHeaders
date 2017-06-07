@@ -37,7 +37,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSSet *indexedStyles;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct TOCSettingsArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct TOCSettingsArchive *)arg1 unarchiver:(id)arg2;
 @property(readonly, nonatomic) NSString *presetKind;
 - (id)copyUsingDeepCopy;

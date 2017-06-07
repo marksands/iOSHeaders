@@ -7,7 +7,7 @@
 #import <Foundation/NSMutableSet.h>
 
 @interface NSMutableSet (TSUAdditions)
-- (void)addNonNilObject:(id)arg1;
-- (void)xorSet:(id)arg1;
+- (void)tsu_addNonNilObject:(id)arg1;
+- (void)tsu_xorSet:(id)arg1;
 @end
 

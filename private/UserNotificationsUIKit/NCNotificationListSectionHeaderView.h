@@ -20,7 +20,8 @@
 }
 
 + (id)_labelFont;
-+ (double)headerHeight;
++ (struct CGSize)_labelSizeWithWidth:(double)arg1 title:(id)arg2;
++ (double)headerHeightWithWidth:(double)arg1 title:(id)arg2;
 @property(copy, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier=_sectionIdentifier;
 @property(retain, nonatomic) NCNotificationListClearButton *clearButton; // @synthesize clearButton=_clearButton;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
@@ -34,11 +35,16 @@
 - (long long)_graphicsQuality;
 - (void)clearButtonViewDidDismissForceTouchView:(id)arg1;
 - (void)clearButtonViewDidPresentForceTouchView:(id)arg1;
+- (void)setClearButtonVisible:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)contentSizeDidChange;
 - (_Bool)dismissModalFullScreenIfNeeded;
 - (void)resetAnimated:(_Bool)arg1;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
 - (void)setTitle:(id)arg1 forSectionIdentifier:(id)arg2;
+- (void)configureClearButton;
+- (void)dealloc;
+- (void)_observeContentSizeChange;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

@@ -25,9 +25,9 @@ __attribute__((visibility("hidden")))
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (void)upgradePreU2_0CustomFormatsForDocumentRoot:(id)arg1;
 - (id)formatObjectPropertySet;
-- (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
+- (void)loadFromPreUFFArchiveWithUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)p_upgradeSeparateVisibilityProperties:(id)arg1;
 - (void)p_upgradeMixedChartProperties:(id)arg1;
 - (id)initWithContext:(id)arg1 name:(id)arg2 overridePropertyMap:(id)arg3 isVariation:(_Bool)arg4;

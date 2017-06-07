@@ -23,6 +23,7 @@
 
 @property(nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +39,6 @@
 @property(nonatomic) int mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) _Bool hasZoomLevel;
 @property(readonly, nonatomic) _Bool hasMapRegion;
-- (void)dealloc;
 
 @end
 

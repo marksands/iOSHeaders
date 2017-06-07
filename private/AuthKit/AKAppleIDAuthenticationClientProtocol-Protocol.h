@@ -6,7 +6,7 @@
 
 #import <AuthKit/NSObject-Protocol.h>
 
-@class AKAppleIDAuthenticationContext, AKAppleIDServerResourceLoadDelegate, NSData, NSDictionary, NSError, NSString, NSURLRequest, NSUUID;
+@class AKAccountRecoveryContext, AKAppleIDAuthenticationContext, AKAppleIDServerResourceLoadDelegate, NSData, NSDictionary, NSError, NSString, NSURLRequest, NSUUID;
 
 @protocol AKAppleIDAuthenticationClientProtocol <NSObject>
 - (void)legacyAnisetteDataForContext:(AKAppleIDAuthenticationContext *)arg1 DSID:(NSString *)arg2 withCompletion:(void (^)(AKAnisetteData *, NSError *))arg3;
@@ -15,8 +15,8 @@
 - (void)syncAnisetteForContext:(AKAppleIDAuthenticationContext *)arg1 withSIMData:(NSData *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)provisionAnisetteForContext:(AKAppleIDAuthenticationContext *)arg1 withCompletion:(void (^)(_Bool, NSError *))arg2;
 - (void)shouldContinueWithAuthenticationResults:(NSDictionary *)arg1 error:(NSError *)arg2 forContextID:(NSUUID *)arg3 completion:(void (^)(_Bool, NSDictionary *))arg4;
-- (void)dismissICSCRecoveryUIForContext:(AKAppleIDAuthenticationContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
-- (void)presentICSCRecoveryUIForContext:(AKAppleIDAuthenticationContext *)arg1 withInfo:(NSDictionary *)arg2 completion:(void (^)(NSDictionary *, NSError *))arg3;
+- (void)dismissNativeRecoveryUIForContext:(AKAppleIDAuthenticationContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
+- (void)presentNativeRecoveryUIForContext:(AKAppleIDAuthenticationContext *)arg1 recoveryContext:(AKAccountRecoveryContext *)arg2 completion:(void (^)(NSDictionary *, NSError *))arg3;
 - (void)dismissServerProvidedUIForContext:(AKAppleIDAuthenticationContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)presentServerProvidedUIForContext:(AKAppleIDAuthenticationContext *)arg1 URLRequest:(NSURLRequest *)arg2 delegate:(AKAppleIDServerResourceLoadDelegate *)arg3 completion:(void (^)(NSHTTPURLResponse *, NSDictionary *, NSError *))arg4;
 - (void)presentSecondFactorAlertForContext:(AKAppleIDAuthenticationContext *)arg1 withError:(NSError *)arg2 title:(NSString *)arg3 message:(NSString *)arg4 completion:(void (^)(NSNumber *, NSError *))arg5;

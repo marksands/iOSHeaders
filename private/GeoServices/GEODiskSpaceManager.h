@@ -4,27 +4,39 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class NSLock, NSMutableDictionary;
-@protocol OS_dispatch_queue;
+#import <GeoServices/GEODiskSpaceProvider-Protocol.h>
 
-@interface GEODiskSpaceManager : NSObject
+@class NSMutableArray, NSString;
+
+@interface GEODiskSpaceManager : NSObject <GEODiskSpaceProvider>
 {
-    NSObject<OS_dispatch_queue> *_queue;
-    NSLock *_lock;
-    NSMutableDictionary *_freeableClaims;
+    NSString *_cacheDeleteID;
+    NSMutableArray *_diskSpaceProviders;
+    _Bool _freePurgableInProgress;
+    double _lastSignificantUpdate;
+    double _cachedPurgableTime[4];
+    unsigned long long _cachedPurgableSpace[4];
 }
 
 + (id)sharedManager;
-- (unsigned long long)freeDiskSpaceBy:(unsigned long long)arg1;
-- (unsigned long long)getFreeableSpace;
-- (void)dealloc;
+@property(readonly, copy) NSString *cacheDeleteID; // @synthesize cacheDeleteID=_cacheDeleteID;
+- (void).cxx_destruct;
+- (unsigned long long)freePurgableDiskSpace:(unsigned long long)arg1 urgency:(int)arg2;
+- (unsigned long long)purgableDiskSpaceForUrgency:(int)arg1;
+- (void)reportSignificantPurgableDiskSpaceUpdate;
+- (void)addDiskSpaceProvider:(id)arg1;
 - (void)_registerCacheDeleteCallbacks;
-- (_Bool)_isValidVolume:(struct __CFDictionary *)arg1;
-- (id)_getVolume:(struct __CFDictionary *)arg1;
-- (id)_getPurgeableSpace:(struct __CFDictionary *)arg1;
-- (id)init;
+- (id)_validVolume:(id)arg1;
+- (id)initWithCacheDeleteID:(id)arg1;
+- (_Bool)shouldIncreaseCacheSizeBy:(unsigned long long)arg1 urgency:(int)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

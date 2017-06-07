@@ -19,12 +19,14 @@ __attribute__((visibility("hidden")))
     NSArray *_recordZoneIDs;
     NSMutableDictionary *_zonesToSaveForPCSUpdateByZoneID;
     NSMutableArray *_zoneIDsNeedingPCSUpdateRetry;
+    NSMutableDictionary *_pcsUpdateErrorsByZoneID;
     long long _numZoneSaveAttempts;
 }
 
 @property(nonatomic) _Bool ignorePCSFailures; // @synthesize ignorePCSFailures=_ignorePCSFailures;
 @property(nonatomic) _Bool onlyFetchPCSInfo; // @synthesize onlyFetchPCSInfo=_onlyFetchPCSInfo;
 @property(nonatomic) long long numZoneSaveAttempts; // @synthesize numZoneSaveAttempts=_numZoneSaveAttempts;
+@property(retain, nonatomic) NSMutableDictionary *pcsUpdateErrorsByZoneID; // @synthesize pcsUpdateErrorsByZoneID=_pcsUpdateErrorsByZoneID;
 @property(retain, nonatomic) NSMutableArray *zoneIDsNeedingPCSUpdateRetry; // @synthesize zoneIDsNeedingPCSUpdateRetry=_zoneIDsNeedingPCSUpdateRetry;
 @property(nonatomic) _Bool shouldRetry; // @synthesize shouldRetry=_shouldRetry;
 @property(retain, nonatomic) NSMutableDictionary *zonesToSaveForPCSUpdateByZoneID; // @synthesize zonesToSaveForPCSUpdateByZoneID=_zonesToSaveForPCSUpdateByZoneID;
@@ -35,6 +37,8 @@ __attribute__((visibility("hidden")))
 - (void)_finishOnCallbackQueueWithError:(id)arg1;
 - (void)main;
 - (void)fetchZonesFromServer;
+- (void)_cachePCSOnRecordZone:(id)arg1;
+- (void)_continueHandlingFetchedRecordZone:(id)arg1 zoneID:(id)arg2;
 - (void)_handleRecordZoneFetch:(id)arg1 zoneID:(id)arg2 responseCode:(id)arg3;
 - (void)saveZonesWithUpdatedZonePCS;
 - (void)_handleRecordZoneSaved:(id)arg1 error:(id)arg2;

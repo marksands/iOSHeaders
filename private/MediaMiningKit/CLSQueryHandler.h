@@ -34,7 +34,7 @@
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
 - (void).cxx_destruct;
-- (void)_cacheMapItems:(id)arg1;
+- (unsigned long long)_cacheMapItems:(id)arg1;
 - (void)cancel;
 - (void)_handleError:(id)arg1;
 - (void)_heartBeat;

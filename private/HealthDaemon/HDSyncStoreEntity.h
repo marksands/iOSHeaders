@@ -14,6 +14,7 @@
 + (id)columnsDefinition;
 + (id)databaseTable;
 + (id)_predicateWithStoreUUID:(id)arg1 type:(long long)arg2;
++ (id)existingSyncStoreEntityWithUUID:(id)arg1 database:(id)arg2 error:(id *)arg3;
 + (id)syncStoreEntityWithUUID:(id)arg1 type:(long long)arg2 healthDatabase:(id)arg3 error:(id *)arg4;
 - (long long)syncProvenance;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <WebKitLegacy/DOMNode.h>
+#import <WebKit/DOMNode.h>
 
 @interface DOMNode (DDExtensions)
 - (_Bool)dd_searchForLinkRemovingExistingDDLinksWithEndNode:(id)arg1 didModifyDOM:(_Bool *)arg2;

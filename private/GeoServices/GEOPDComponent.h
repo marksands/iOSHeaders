@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAttribution, GEOPDSource, NSMutableArray;
+@class GEOPDAttribution, GEOPDSource, NSMutableArray, PBUnknownFields;
 
 @interface GEOPDComponent : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _timestampFirstSeen;
     GEOPDAttribution *_attribution;
     int _cacheControl;
@@ -46,6 +47,8 @@
 @property(nonatomic) int valuesAvailable; // @synthesize valuesAvailable=_valuesAvailable;
 @property(nonatomic) int startIndex; // @synthesize startIndex=_startIndex;
 @property(nonatomic) unsigned int ttl; // @synthesize ttl=_ttl;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -81,7 +84,7 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (void)dealloc;
+- (_Bool)statusCodeIsValid;
 @property(nonatomic) _Bool hasTimestampFirstSeen;
 @property(nonatomic) double timestampFirstSeen;
 

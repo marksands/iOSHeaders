@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class CBPeripheral, NSMapTable, NSMutableDictionary, NSNumber, NSString;
+@class CBPeripheral, NSData, NSMapTable, NSMutableDictionary, NSNumber, NSString;
 
-@interface HAPRecentlySeenPairedBTLEPeripheralTuple : NSObject
+@interface HAPRecentlySeenPairedBTLEPeripheralTuple : HMFObject
 {
     _Bool _notifyingCharacteristicUpdated;
     _Bool _monitorState;
@@ -19,6 +19,7 @@
     NSNumber *_configNumber;
     NSNumber *_categoryIdentifier;
     NSString *_identifier;
+    NSData *_setupHash;
     unsigned long long _advertisementFormat;
     NSMutableDictionary *_cachedDescriptors;
     NSMapTable *_cachedCharacteristicSignatures;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) NSMutableDictionary *cachedDescriptors; // @synthesize cachedDescriptors=_cachedDescriptors;
 @property(nonatomic) _Bool notifyingCharacteristicUpdated; // @synthesize notifyingCharacteristicUpdated=_notifyingCharacteristicUpdated;
 @property(nonatomic) unsigned long long advertisementFormat; // @synthesize advertisementFormat=_advertisementFormat;
+@property(readonly, nonatomic) NSData *setupHash; // @synthesize setupHash=_setupHash;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSNumber *categoryIdentifier; // @synthesize categoryIdentifier=_categoryIdentifier;
 @property(retain, nonatomic) NSNumber *configNumber; // @synthesize configNumber=_configNumber;
@@ -41,8 +43,9 @@
 @property(retain, nonatomic) CBPeripheral *peripheral; // @synthesize peripheral=_peripheral;
 @property(readonly, nonatomic) double lastSeen; // @synthesize lastSeen=_lastSeen;
 - (void).cxx_destruct;
+- (id)description;
 - (void)updatePairedPeripheralConfiguration:(_Bool)arg1 connectionPriority:(unsigned long long)arg2;
-- (id)initRecentlySeenPairedBTLEPeripheral:(id)arg1 statusFlags:(id)arg2 stateNumber:(id)arg3 category:(id)arg4 configNumber:(id)arg5 identifier:(id)arg6 advertisementFormat:(unsigned long long)arg7;
+- (id)initRecentlySeenPairedBTLEPeripheral:(id)arg1 statusFlags:(id)arg2 stateNumber:(id)arg3 category:(id)arg4 configNumber:(id)arg5 identifier:(id)arg6 advertisementFormat:(unsigned long long)arg7 setupHash:(id)arg8;
 
 @end
 

@@ -35,6 +35,7 @@
 @property(nonatomic, getter=isCancelled) _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic, getter=isPending) _Bool pending; // @synthesize pending=_pending;
 @property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)cancel;
 - (void)_reallyCancel;

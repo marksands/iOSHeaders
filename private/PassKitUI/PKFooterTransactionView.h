@@ -6,30 +6,38 @@
 
 #import <UIKit/UIView.h>
 
-@class PKFelicaPassProperties, PKPaymentPass, PKPaymentTransaction, PKStackedTextItemGroup, PKStackedTextItemGroupView, UIImageView;
+#import <PassKitUI/PKPeerPaymentContactResolverDelegate-Protocol.h>
 
-@interface PKFooterTransactionView : UIView
+@class NSString, PKFelicaPassProperties, PKPaymentPass, PKPaymentTransaction, PKPeerPaymentAccount, PKPeerPaymentContactResolver, PKStackedTextItemGroup, PKStackedTextItemGroupView, UIImageView;
+
+@interface PKFooterTransactionView : UIView <PKPeerPaymentContactResolverDelegate>
 {
     PKStackedTextItemGroup *_displayItem;
     PKStackedTextItemGroupView *_headerView;
     UIView *_separatorView;
     PKStackedTextItemGroupView *_contentView;
+    PKPeerPaymentContactResolver *_peerPaymentContactResolver;
     UIImageView *_imageView;
     _Bool _animated;
     PKPaymentPass *_pass;
     PKPaymentTransaction *_transaction;
     PKFelicaPassProperties *_felicaProperties;
+    PKPeerPaymentAccount *_peerPaymentAccount;
 }
 
+@property(readonly, nonatomic) PKPeerPaymentAccount *peerPaymentAccount; // @synthesize peerPaymentAccount=_peerPaymentAccount;
 @property(readonly, nonatomic) PKFelicaPassProperties *felicaProperties; // @synthesize felicaProperties=_felicaProperties;
 @property(readonly, nonatomic) PKPaymentTransaction *transaction; // @synthesize transaction=_transaction;
 @property(readonly, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (void).cxx_destruct;
+- (void)contactsDidChangeForContactResolver:(id)arg1;
 @property(readonly, nonatomic) _Bool hasContent;
+- (void)setPeerPaymentAccount:(id)arg1 animated:(_Bool)arg2;
 - (void)setFelicaProperties:(id)arg1 animated:(_Bool)arg2;
 - (void)setTransaction:(id)arg1 animated:(_Bool)arg2;
 - (void)setPass:(id)arg1 animated:(_Bool)arg2;
 - (id)_image;
+- (id)_peerPaymentCounterpart;
 - (id)_amountText;
 - (id)_relativeDateText;
 - (id)_statusText;
@@ -39,7 +47,13 @@
 - (void)layoutSubviews;
 - (void)layoutIfNeededAnimated:(_Bool)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 peerPaymentContactResolver:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,29 +6,44 @@
 
 #import <UIKit/UIButton.h>
 
-@class UIImageView;
+#import <CameraUI/CAMAccessibilityHUDImageProvider-Protocol.h>
 
-@interface CAMFlipButton : UIButton
+@class NSString, UIImageView;
+
+@interface CAMFlipButton : UIButton <CAMAccessibilityHUDImageProvider>
 {
     long long _layoutStyle;
+    long long _backgroundStyle;
     long long _orientation;
-    UIImageView *__padBackgroundView;
+    UIImageView *__imageView;
+    UIImageView *__backgroundView;
     struct UIEdgeInsets _tappableEdgeInsets;
 }
 
 + (id)flipButtonWithLayoutStyle:(long long)arg1;
-@property(readonly, nonatomic) UIImageView *_padBackgroundView; // @synthesize _padBackgroundView=__padBackgroundView;
+@property(retain, nonatomic) UIImageView *_backgroundView; // @synthesize _backgroundView=__backgroundView;
+@property(readonly, nonatomic) UIImageView *_imageView; // @synthesize _imageView=__imageView;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) struct UIEdgeInsets tappableEdgeInsets; // @synthesize tappableEdgeInsets=_tappableEdgeInsets;
+@property(nonatomic) long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 - (void).cxx_destruct;
-- (void)_updateForLayoutStyle;
+- (id)imageForAccessibilityHUD;
+- (void)setBackgroundStyle:(long long)arg1 animated:(_Bool)arg2;
 - (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)intrinsicContentSize;
+- (void)setHighlighted:(_Bool)arg1;
 - (struct UIEdgeInsets)alignmentRectInsets;
+- (void)animateFlipClockwise:(_Bool)arg1;
 - (void)_updateImages;
 - (void)_commonCAMFlipButtonInitializationWithStyle:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

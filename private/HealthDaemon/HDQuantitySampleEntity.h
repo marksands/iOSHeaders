@@ -16,8 +16,9 @@
 + (id)joinClausesForProperty:(id)arg1;
 + (_Bool)enumerateQuantityValuesForPredicate:(id)arg1 database:(id)arg2 error:(id *)arg3 handler:(CDUnknownBlockType)arg4;
 + (id)insertDataObject:(id)arg1 withProvenance:(id)arg2 inDatabase:(id)arg3 persistentID:(id)arg4 error:(id *)arg5;
++ (id)columnNameForSortIdentifier:(id)arg1;
 + (id)columnsDefinition;
-+ (id)_databaseTable;
++ (id)databaseTable;
 
 @end
 

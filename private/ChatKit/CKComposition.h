@@ -17,8 +17,22 @@
     NSString *_expressiveSendStyleID;
 }
 
++ (id)compositionWithMSMessage:(id)arg1 appExtensionIdentifier:(id)arg2;
 + (id)compositionWithShelfPluginPayload:(id)arg1;
 + (id)composition;
++ (void)requestMediaObjectForItemProvider:(id)arg1 type:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (id)richestMediaTypeForItemProvider:(id)arg1;
++ (void)requestCompositionFromItemProviders:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (void)updateComposition:(id)arg1 fromItemProvider:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)requestFilenameForType:(id)arg1 forItemProvider:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (void)requestPluginDisplayContainerForItemProvider:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (id)compositionFromItemProviders:(id)arg1;
++ (id)filenameForType:(id)arg1 forItemProvider:(id)arg2;
++ (id)dataForPasteboardType:(id)arg1 forItemProvider:(id)arg2;
++ (id)__ck_valueForItemClass:(Class)arg1 forItemProvider:(id)arg2;
++ (id)pasteboardTypesForItemProvider:(id)arg1;
++ (id)pluginDisplayContainerForItemProvider:(id)arg1;
++ (id)mediaObjectForItemProvider:(id)arg1;
 + (id)compositionWithPluginDisplayContainer:(id)arg1 subject:(id)arg2;
 + (id)compositionWithMediaObjects:(id)arg1 subject:(id)arg2;
 + (id)compositionWithMediaObject:(id)arg1 subject:(id)arg2;
@@ -55,6 +69,7 @@
 @property(readonly, nonatomic) NSArray *pasteboardItems;
 - (id)compositionByAppendingPluginDisplayContainer:(id)arg1;
 @property(readonly, nonatomic, getter=isTextOnly) _Bool textOnly;
+@property(readonly, nonatomic) NSArray *pluginDisplayContainers;
 @property(readonly, nonatomic) NSArray *mediaObjects;
 - (id)compositionByReplacingMediaObject:(id)arg1 withMediaObject:(id)arg2;
 - (id)compositionByAppendingMediaObjects:(id)arg1;

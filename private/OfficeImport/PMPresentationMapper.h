@@ -25,9 +25,9 @@ __attribute__((visibility("hidden")))
     unsigned int mNextCommit;
     unsigned int mCurrentSlide;
     _Bool mHasPushedFirstSlides;
-    float mSlideOriginY;
 }
 
+- (void).cxx_destruct;
 - (void)finishMappingWithState:(id)arg1;
 - (void)mapElement:(id)arg1 atIndex:(unsigned long long)arg2 withState:(id)arg3 isLastElement:(_Bool)arg4;
 - (void)_pushEmptySlideWithMessage:(id)arg1;
@@ -40,7 +40,6 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithPDPresentation:(id)arg1 archiver:(id)arg2;
 - (void)setHtmlDocumentSizeInArchiver;
-- (void)mapDefaultCssStylesAt:(id)arg1;
 
 @end
 

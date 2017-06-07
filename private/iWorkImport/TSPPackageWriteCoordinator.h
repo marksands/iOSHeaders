@@ -13,7 +13,7 @@
 #import <iWorkImport/TSPObjectModifyDelegate-Protocol.h>
 #import <iWorkImport/TSPPersistedObjectUUIDMapDelegate-Protocol.h>
 
-@class NSHashTable, NSMutableArray, NSMutableSet, NSString, NSURL, TSPArchiverManager, TSPComponentExternalReferenceMap, TSPDataAttributesSnapshot, TSPDocumentRevision, TSPObject, TSPObjectContainer, TSPObjectContext, TSPObjectReferenceMap, TSPPackageMetadata, TSPPersistedObjectUUIDMap, TSUPathSet;
+@class NSHashTable, NSMutableArray, NSMutableSet, NSSet, NSString, NSURL, TSPArchiverManager, TSPComponentExternalReferenceMap, TSPDataAttributesSnapshot, TSPDocumentRevision, TSPObject, TSPObjectContainer, TSPObjectContext, TSPObjectReferenceMap, TSPPackageMetadata, TSPPersistedObjectUUIDMap;
 @protocol OS_dispatch_group, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -31,12 +31,13 @@ __attribute__((visibility("hidden")))
     TSPObjectReferenceMap *_objectReferenceMap;
     TSPArchiverManager *_archiverManager;
     NSObject<OS_dispatch_group> *_completionGroup;
+    NSSet *_knownComponentLocators;
     struct unordered_map<const long long, TSP::ComponentPropertiesSnapshot, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, TSP::ComponentPropertiesSnapshot>>> _componentPropertiesSnapshot;
     NSObject<OS_dispatch_queue> *_componentQueue;
     struct unordered_map<const long long, TSP::WrittenComponentInfo, TSP::IdentifierHash, std::__1::equal_to<const long long>, std::__1::allocator<std::__1::pair<const long long, TSP::WrittenComponentInfo>>> _writtenComponents;
     unordered_map_502345cb _skippedComponents;
     struct map<unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>, std::__1::less<unsigned int>, std::__1::allocator<std::__1::pair<const unsigned int, std::__1::queue<TSPComponent *, std::__1::deque<TSPComponent *, std::__1::allocator<TSPComponent *>>>>>> _remainingComponentsQueue;
-    TSUPathSet *_packageLocatorPathSet;
+    NSMutableSet *_packageLocatorSet;
     TSPObjectContainer *_objectContainer;
     TSPPersistedObjectUUIDMap *_persistedUUIDMap;
     NSObject<OS_dispatch_queue> *_modifyObjectQueue;
@@ -72,6 +73,7 @@ __attribute__((visibility("hidden")))
 - (void)persistedObjectUUIDMap:(id)arg1 foundDuplicateUUID:(id)arg2 firstObjectLocation:(struct ObjectLocation)arg3 secondObjectLocation:(struct ObjectLocation)arg4;
 - (id)persistedObjectUUIDMap:(id)arg1 needsDescriptionForComponentIdentifier:(long long)arg2 objectIdentifier:(long long)arg3;
 - (id)explicitComponentRootObjectForObject:(id)arg1;
+- (_Bool)wasComponentCopied:(long long)arg1;
 - (long long)componentIdentifierForObjectIdentifier:(long long)arg1 objectOrNil:(id)arg2 objectUUIDOrNil:(id)arg3;
 - (id)objectForIdentifier:(long long)arg1;
 - (void)addDataFinalizeHandlerForSuccessfulSave:(CDUnknownBlockType)arg1;
@@ -104,16 +106,17 @@ __attribute__((visibility("hidden")))
 - (void)copyComponent:(id)arg1 locator:(id)arg2 packageWriter:(id)arg3;
 - (void)writeExternalReferences:(id)arg1 andUpdateLazyReferences:(id)arg2 withPackageWriter:(id)arg3 forComponent:(id)arg4 locator:(id)arg5;
 - (void)archiveComponent:(id)arg1 locator:(id)arg2 storeOutsideObjectArchive:(_Bool)arg3 rootObject:(id)arg4 withPackageWriter:(id)arg5;
-- (void)writeComponent:(id)arg1 rootObjectOrNil:(id)arg2 forceArchive:(_Bool)arg3 withPackageWriter:(id)arg4;
+- (void)writeComponent:(id)arg1 rootObjectOrNil:(id)arg2 forceArchive:(_Bool)arg3 failToAutosaveOnArchive:(_Bool)arg4 withPackageWriter:(id)arg5;
 - (void)writeRemainingComponentsWithPackageWriter:(id)arg1 completionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)nextComponentAndRootObjectForComponentWriteWithCompletion:(CDUnknownBlockType)arg1;
-- (void)enqueueComponent:(id)arg1 rootObjectOrNil:(id)arg2 forceArchive:(_Bool)arg3;
-- (void)enqueueRootObjectImpl:(id)arg1 forceArchive:(_Bool)arg2 isAddingDelayedObjectReferencedByObjectContainer:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)enqueueRootObject:(id)arg1 forceArchive:(_Bool)arg2 isAddingDelayedObjectReferencedByObjectContainer:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)enqueueComponent:(id)arg1 rootObjectOrNil:(id)arg2 forceArchive:(_Bool)arg3 failToAutosaveOnArchive:(_Bool)arg4;
+- (void)enqueueRootObjectImpl:(id)arg1 forceArchive:(_Bool)arg2 failToAutosaveOnArchive:(_Bool)arg3 isAddingDelayedObjectReferencedByObjectContainer:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)enqueueRootObject:(id)arg1 forceArchive:(_Bool)arg2 failToAutosaveOnArchive:(_Bool)arg3 isAddingDelayedObjectReferencedByObjectContainer:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)writeRootObjectAndRelatedComponents:(id)arg1 withPackageWriter:(id)arg2 completionQueue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)writeRemainingRootObjectsAndRelatedComponents:(id)arg1 withPackageWriter:(id)arg2 completionQueue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)enumerateWrittenObjectsWithBlock:(CDUnknownBlockType)arg1;
 - (void)updateObjectContextForSuccessfulSaveWithPackageWriter:(id)arg1 packageURL:(id)arg2;
+@property(readonly, nonatomic) TSPObjectContainer *objectContainer;
 - (void)writeRootObject:(id)arg1 withPackageWriter:(id)arg2 saveOperationState:(id)arg3 completionQueue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (unsigned long long)writeRootObject:(id)arg1 withPackageWriter:(id)arg2 saveOperationState:(id)arg3 error:(id *)arg4;
 - (void)stopCapturingSnapshots;

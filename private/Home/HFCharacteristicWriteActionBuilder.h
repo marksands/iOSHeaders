@@ -23,6 +23,7 @@
 - (id)_performValidation;
 - (_Bool)requiresDeviceUnlock;
 - (_Bool)updateWithActionBuilder:(id)arg1;
+- (id)copyForCreatingNewAction;
 - (id)initWithExistingObject:(id)arg1 inHome:(id)arg2;
 
 // Remaining properties

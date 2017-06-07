@@ -10,7 +10,7 @@
 {
 }
 
-- (_Bool)optOutOfCoordination;
+- (_Bool)optOutOfCoordinationWithSubtype:(long long)arg1;
 
 @end
 

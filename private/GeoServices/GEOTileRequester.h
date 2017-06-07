@@ -4,25 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class GEOResourceManifestConfiguration, GEOTileKeyList, GEOTileKeyMap, NSData, NSLocale, NSString, NSThread;
+@class GEOTileRequest, NSString, NSThread;
 @protocol GEOTileRequesterDelegate;
 
 @interface GEOTileRequester : NSObject
 {
-    GEOResourceManifestConfiguration *_manifestConfiguration;
-    NSLocale *_locale;
-    GEOTileKeyList *_keyList;
-    GEOTileKeyMap *_cachedEtags;
-    GEOTileKeyMap *_cachedData;
-    GEOTileKeyMap *_priorities;
+    GEOTileRequest *_tileRequest;
     id <GEOTileRequesterDelegate> _delegate;
     id _context;
     NSThread *_thread;
-    NSString *_bundleIdentifier;
-    NSString *_bundleVersion;
-    NSData *_auditToken;
     _Bool _requireWiFi;
     NSString *_deviceCountry;
     NSString *_deviceRegion;
@@ -34,24 +26,18 @@
 + (unsigned char)tileProviderIdentifier;
 @property(retain, nonatomic) NSString *deviceRegion; // @synthesize deviceRegion=_deviceRegion;
 @property(retain, nonatomic) NSString *deviceCountry; // @synthesize deviceCountry=_deviceCountry;
-@property(nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
-@property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
-@property(retain, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
-@property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) id context; // @synthesize context=_context;
 @property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
-@property(readonly, nonatomic) GEOTileKeyMap *priorities; // @synthesize priorities=_priorities;
-@property(readonly, nonatomic) GEOTileKeyMap *cachedData; // @synthesize cachedData=_cachedData;
-@property(readonly, nonatomic) GEOTileKeyMap *cachedEtags; // @synthesize cachedEtags=_cachedEtags;
-@property(readonly, nonatomic) GEOTileKeyList *keyList; // @synthesize keyList=_keyList;
+@property(readonly, nonatomic) GEOTileRequest *tileRequest; // @synthesize tileRequest=_tileRequest;
+@property(nonatomic) __weak id <GEOTileRequesterDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (unsigned int)tileSetForKey:(const struct _GEOTileKey *)arg1;
 - (void)reprioritizeKey:(const struct _GEOTileKey *)arg1 newPriority:(unsigned int)arg2;
 - (void)cancelKey:(const struct _GEOTileKey *)arg1;
 - (void)cancel;
 - (void)start;
-- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5 priorities:(id)arg6;
-@property(nonatomic) __weak id <GEOTileRequesterDelegate> delegate;
+- (id)initWithTileRequest:(id)arg1;
 
 @end
 

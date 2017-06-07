@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
 - (id)CKPropertiesDescription;
 @property(readonly, nonatomic) id <NSSecureCoding> itemID;
 @property(nonatomic) struct _OpaquePCSShareProtection *pcs; // @synthesize pcs=_pcs;
+- (_Bool)shouldEncodePCSData;
 - (void)dealloc;
 - (id)initWithPCSData:(id)arg1;
 - (void)sqliteBind:(struct sqlite3_stmt *)arg1 index:(int)arg2;

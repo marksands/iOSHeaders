@@ -6,11 +6,12 @@
 
 #import <StoreKitUI/UIScrollViewDelegate-Protocol.h>
 
-@class NSString, UIScrollView;
+@class NSAttributedString, NSString, UIScrollView;
 
 @protocol UIScrollViewAccessibilityDelegate <UIScrollViewDelegate>
 
 @optional
+- (NSAttributedString *)accessibilityAttributedScrollStatusForScrollView:(UIScrollView *)arg1;
 - (NSString *)accessibilityScrollStatusForScrollView:(UIScrollView *)arg1;
 @end
 

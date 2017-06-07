@@ -8,18 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
-
 @interface GEOAppConfig : PBCodable <NSCopying>
 {
-    NSString *_appIdentifier;
-    NSString *_appMajorVersion;
-    NSString *_appMinorVersion;
 }
 
-@property(retain, nonatomic) NSString *appMinorVersion; // @synthesize appMinorVersion=_appMinorVersion;
-@property(retain, nonatomic) NSString *appMajorVersion; // @synthesize appMajorVersion=_appMajorVersion;
-@property(retain, nonatomic) NSString *appIdentifier; // @synthesize appIdentifier=_appIdentifier;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,10 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasAppMinorVersion;
-@property(readonly, nonatomic) _Bool hasAppMajorVersion;
-@property(readonly, nonatomic) _Bool hasAppIdentifier;
-- (void)dealloc;
 
 @end
 

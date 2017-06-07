@@ -25,9 +25,8 @@
 - (void)widgetListFooterViewAvailableNewWidgetsUpdated:(id)arg1;
 - (id)widgetListFooterView:(id)arg1 customBackgroundViewForItem:(id)arg2;
 - (void)setShouldBlurContent:(_Bool)arg1;
-- (id)_repopulateStackViewWithWidgetIdentifiers:(id)arg1 forColumnMode:(long long)arg2;
+- (id)_repopulateStackViewWithWidgetIdentifiers:(id)arg1;
 - (void)_configureStackView;
-- (id)visibleWidgetIdentifiersForColumnMode:(long long)arg1;
 - (id)_group;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 

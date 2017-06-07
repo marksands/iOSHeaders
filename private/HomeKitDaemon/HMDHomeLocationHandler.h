@@ -4,19 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDLocationDelegate-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class CLLocation, CLRegion, HMDHome, HMFMessageDispatcher, NSDate, NSString, NSTimeZone, NSUUID;
+@class CLLocation, CLRegion, HMDHome, HMDHomeLocationData, HMFMessageDispatcher, NSDate, NSObject, NSString, NSTimeZone, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDHomeLocationHandler : NSObject <HMDLocationDelegate, HMFMessageReceiver, NSSecureCoding>
+@interface HMDHomeLocationHandler : HMFObject <HMDLocationDelegate, HMFMessageReceiver, NSSecureCoding>
 {
-    _Bool _shouldEvaluateRegionState;
-    _Bool _expectingLocationUpdateForHome;
     int _locationAuthorization;
     CLLocation *_location;
     NSTimeZone *_timeZone;
@@ -29,8 +27,6 @@
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)mergeLocationDataForLocalHome:(id)arg1 withCloudHome:(id)arg2;
-@property(nonatomic, getter=isExpectingLocationUpdateForHome) _Bool expectingLocationUpdateForHome; // @synthesize expectingLocationUpdateForHome=_expectingLocationUpdateForHome;
-@property(nonatomic) _Bool shouldEvaluateRegionState; // @synthesize shouldEvaluateRegionState=_shouldEvaluateRegionState;
 @property(retain, nonatomic) CLRegion *region; // @synthesize region=_region;
 @property(nonatomic) int locationAuthorization; // @synthesize locationAuthorization=_locationAuthorization;
 @property(retain, nonatomic) NSDate *locationUpdateTimestamp; // @synthesize locationUpdateTimestamp=_locationUpdateTimestamp;
@@ -43,12 +39,13 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+- (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)didDetermineState:(long long)arg1 forRegion:(id)arg2;
 - (void)didDetermineLocation:(id)arg1;
-- (void)extractHomeLocation:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) HMDHomeLocationData *locationData;
 - (void)_sendLocationUpdate;
-- (void)_saveToLocalstoreWithLocalChange:(_Bool)arg1;
+- (id)_handleHomeLocationData:(id)arg1 message:(id)arg2;
 - (void)_setNewlocation:(id)arg1;
 - (void)_updateLocation:(id)arg1;
 - (void)_updateTimeZone:(id)arg1;

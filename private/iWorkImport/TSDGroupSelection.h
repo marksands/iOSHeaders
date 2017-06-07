@@ -6,14 +6,23 @@
 
 #import <iWorkImport/TSDDrawableSelection.h>
 
+@class NSSet;
+
 __attribute__((visibility("hidden")))
 @interface TSDGroupSelection : TSDDrawableSelection
 {
+    _Bool _hasSelectedInfosInNonGroupContainer;
 }
 
 + (Class)archivedSelectionClass;
-- (id)initWithInfos:(id)arg1;
+@property(nonatomic) _Bool hasSelectedInfosInNonGroupContainer; // @synthesize hasSelectedInfosInNonGroupContainer=_hasSelectedInfosInNonGroupContainer;
+- (id)subclassDescription;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
+@property(readonly, nonatomic) _Bool isCrossContainerSelection;
+@property(readonly, nonatomic) NSSet *containerGroups;
 - (id)initWithGroupInfo:(id)arg1;
+- (id)initWithContainerGroups:(id)arg1 hasSelectedInfosInNonGroupContainer:(_Bool)arg2;
 
 @end
 

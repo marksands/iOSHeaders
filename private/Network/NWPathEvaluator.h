@@ -37,7 +37,10 @@
 @property(readonly, nonatomic) NWPath *path;
 - (id)copyPath;
 - (id)init;
+- (id)initWithListenParameters:(id)arg1;
+- (id)initWithBrowseDescriptor:(id)arg1 parameters:(id)arg2;
 - (id)initWithEndpoint:(id)arg1 parameters:(id)arg2;
+- (id)initWithEvaluator:(id)arg1 parameters:(id)arg2;
 - (void)dealloc;
 
 @end

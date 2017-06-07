@@ -13,6 +13,7 @@
     UIWindow *_presentationWindow;
 }
 
+- (void).cxx_destruct;
 - (void)_voiceOverStatusChanged;
 - (void)_cleanUpPresentationWindow;
 - (void)dismissViewControllerWithTransition:(int)arg1 completion:(CDUnknownBlockType)arg2;

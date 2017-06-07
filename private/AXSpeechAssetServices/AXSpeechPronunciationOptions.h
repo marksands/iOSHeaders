@@ -19,8 +19,8 @@
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSString *language; // @synthesize language=_language;
 @property(retain, nonatomic) NSString *orthography; // @synthesize orthography=_orthography;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

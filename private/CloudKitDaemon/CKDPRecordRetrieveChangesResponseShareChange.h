@@ -16,7 +16,9 @@ __attribute__((visibility("hidden")))
     int _changeType;
     CKDPShare *_share;
     CKDPShareIdentifier *_shareIdentifier;
-    CDStruct_f5f6ac14 _has;
+    struct {
+        unsigned int changeType:1;
+    } _has;
 }
 
 @property(retain, nonatomic) CKDPShare *share; // @synthesize share=_share;

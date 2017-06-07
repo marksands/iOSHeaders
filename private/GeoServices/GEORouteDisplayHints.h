@@ -8,14 +8,13 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEORequestOptions, NSArray, NSMutableArray;
+@class GEORequestOptions, NSArray;
 @protocol GEOSurchargeOption;
 
 @interface GEORouteDisplayHints : PBCodable <NSCopying>
 {
     CDStruct_95bda58d _availablePaymentTypes;
     CDStruct_95bda58d _availablePrioritizations;
-    NSMutableArray *_availableTransitSurcharges;
     GEORequestOptions *_transitSurchargeOptions;
     _Bool _showTransitSchedules;
     struct {
@@ -23,9 +22,8 @@
     } _has;
 }
 
-+ (Class)availableTransitSurchargeType;
 @property(retain, nonatomic) GEORequestOptions *transitSurchargeOptions; // @synthesize transitSurchargeOptions=_transitSurchargeOptions;
-@property(retain, nonatomic) NSMutableArray *availableTransitSurcharges; // @synthesize availableTransitSurcharges=_availableTransitSurcharges;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -44,10 +42,6 @@
 - (void)clearAvailablePaymentTypes;
 @property(readonly, nonatomic) int *availablePaymentTypes;
 @property(readonly, nonatomic) unsigned long long availablePaymentTypesCount;
-- (id)availableTransitSurchargeAtIndex:(unsigned long long)arg1;
-- (unsigned long long)availableTransitSurchargesCount;
-- (void)addAvailableTransitSurcharge:(id)arg1;
-- (void)clearAvailableTransitSurcharges;
 - (int)StringAsAvailablePrioritizations:(id)arg1;
 - (id)availablePrioritizationsAsString:(int)arg1;
 - (void)setAvailablePrioritizations:(int *)arg1 count:(unsigned long long)arg2;

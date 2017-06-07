@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *info; // @synthesize info=_info;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long uID; // @synthesize uID=_uID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -65,7 +66,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool hasInfo;
 @property(readonly, nonatomic) _Bool hasTitle;
 @property(nonatomic) _Bool hasUID;
-- (void)dealloc;
 
 @end
 

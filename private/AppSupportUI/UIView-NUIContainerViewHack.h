@@ -11,6 +11,7 @@
 @class NSString;
 
 @interface UIView (NUIContainerViewHack) <_UIMultilineTextContentSizing>
+- (void)_intrinsicContentSizeInvalidatedForChildView:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

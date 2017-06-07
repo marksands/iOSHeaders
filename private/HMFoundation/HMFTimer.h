@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
+@class NSObject;
 @protocol HMFTimerDelegate, OS_dispatch_queue, OS_dispatch_source;
 
-@interface HMFTimer : NSObject
+@interface HMFTimer : HMFObject
 {
     double _timeInterval;
     unsigned long long _leeway;

@@ -6,12 +6,15 @@
 
 #import <UIKit/UIControl.h>
 
-@class NSIndexSet, NSMutableArray, NSMutableIndexSet, UIImageView, UIView;
+#import <CameraUI/CAMAccessibilityHUDItemProvider-Protocol.h>
+
+@class CAMTouchingGestureRecognizer, NSIndexSet, NSMutableArray, NSMutableIndexSet, NSString, UIImageView, UIView;
 @protocol CAMExpandableMenuButtonDelegate;
 
-@interface CAMExpandableMenuButton : UIControl
+@interface CAMExpandableMenuButton : UIControl <CAMAccessibilityHUDItemProvider>
 {
     _Bool _expanded;
+    _Bool __trackingViewHighlighted;
     long long _layoutStyle;
     long long _selectedIndex;
     long long _orientation;
@@ -20,12 +23,17 @@
     NSIndexSet *__shownIndexesWhileCollapsed;
     NSMutableIndexSet *__highlightedIndexesWhileCollapsed;
     UIImageView *__padBackgroundView;
+    UIView *__trackingView;
     id <CAMExpandableMenuButtonDelegate> _expandableMenuDelegate;
+    CAMTouchingGestureRecognizer *_touchingGestureRecognizer;
     struct UIEdgeInsets _tappableEdgeInsets;
 }
 
 + (double)expansionDuration;
+@property(readonly, nonatomic) CAMTouchingGestureRecognizer *touchingGestureRecognizer; // @synthesize touchingGestureRecognizer=_touchingGestureRecognizer;
 @property(nonatomic) __weak id <CAMExpandableMenuButtonDelegate> expandableMenuDelegate; // @synthesize expandableMenuDelegate=_expandableMenuDelegate;
+@property(nonatomic, getter=_isTrackingViewHighlighted, setter=_setTrackingViewHighlighted:) _Bool _trackingViewHighlighted; // @synthesize _trackingViewHighlighted=__trackingViewHighlighted;
+@property(retain, nonatomic, setter=_setTrackingView:) UIView *_trackingView; // @synthesize _trackingView=__trackingView;
 @property(readonly, nonatomic) UIImageView *_padBackgroundView; // @synthesize _padBackgroundView=__padBackgroundView;
 @property(readonly, copy, nonatomic) NSMutableIndexSet *_highlightedIndexesWhileCollapsed; // @synthesize _highlightedIndexesWhileCollapsed=__highlightedIndexesWhileCollapsed;
 @property(readonly, copy, nonatomic) NSIndexSet *_shownIndexesWhileCollapsed; // @synthesize _shownIndexesWhileCollapsed=__shownIndexesWhileCollapsed;
@@ -36,6 +44,8 @@
 @property(nonatomic) long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 - (void).cxx_destruct;
+- (void)selectedByAccessibilityHUDManager:(id)arg1;
+- (id)hudItemForAccessibilityHUDManager:(id)arg1;
 - (_Bool)shouldIgnoreMenuInteraction;
 - (_Bool)shouldAllowExpansion;
 - (id)shownIndexesWhileCollapsed;
@@ -46,7 +56,8 @@
 - (long long)numberOfMenuItems;
 - (void)updateToContentSize:(id)arg1;
 @property(nonatomic) struct UIEdgeInsets tappableEdgeInsets; // @synthesize tappableEdgeInsets=_tappableEdgeInsets;
-- (void)_handleTapGestureRecognizer:(id)arg1;
+- (id)_viewToTrackForTouchAtLocation:(struct CGPoint)arg1;
+- (void)_handleTouchGesture:(id)arg1;
 - (void)setHighlighted:(_Bool)arg1 forIndex:(long long)arg2;
 - (void)_updateFromOrientationChangeAnimated:(_Bool)arg1;
 - (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
@@ -88,6 +99,12 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithLayoutStyle:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

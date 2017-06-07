@@ -9,6 +9,7 @@
 #import <HomeUI/HUCellProtocol-Protocol.h>
 
 @class HFItem, NSString, UIActivityIndicatorView;
+@protocol HUResizableCellDelegate;
 
 @interface HUSpinnerButtonCell : HUButtonCell <HUCellProtocol>
 {
@@ -31,6 +32,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) HFItem *item;
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @property(readonly) Class superclass;
 
 @end

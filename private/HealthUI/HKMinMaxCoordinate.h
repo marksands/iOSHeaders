@@ -9,10 +9,11 @@
 #import <HealthUI/HKGraphSeriesBlockCoordinate-Protocol.h>
 
 @class NSString;
+@protocol HKGraphSeriesBlockCoordinateInfo;
 
 @interface HKMinMaxCoordinate : NSObject <HKGraphSeriesBlockCoordinate>
 {
-    id _userInfo;
+    id <HKGraphSeriesBlockCoordinateInfo> _userInfo;
     struct CGPoint _min;
     struct CGPoint _max;
 }
@@ -22,7 +23,7 @@
 - (void).cxx_destruct;
 - (_Bool)isVisibleInChartRect:(struct CGRect)arg1;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id userInfo;
+@property(readonly, nonatomic) id <HKGraphSeriesBlockCoordinateInfo> userInfo;
 - (double)yAxisDifferenceToPoint:(struct CGPoint)arg1;
 - (double)distanceToPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic) double endXValue;

@@ -6,12 +6,13 @@
 
 #import <FMCoreUI/NSObject-Protocol.h>
 
-@class MKAnnotationView, MKMapView, MKOverlayRenderer, MKOverlayView, MKUserLocation, NSArray, NSError, UIControl;
+@class MKAnnotationView, MKClusterAnnotation, MKMapView, MKOverlayRenderer, MKOverlayView, MKUserLocation, NSArray, NSError, UIControl;
 @protocol MKAnnotation, MKOverlay;
 
 @protocol MKMapViewDelegate <NSObject>
 
 @optional
+- (MKClusterAnnotation *)mapView:(MKMapView *)arg1 clusterAnnotationForMemberAnnotations:(NSArray *)arg2;
 - (void)mapView:(MKMapView *)arg1 didAddOverlayViews:(NSArray *)arg2;
 - (MKOverlayView *)mapView:(MKMapView *)arg1 viewForOverlay:(id <MKOverlay>)arg2;
 - (void)mapView:(MKMapView *)arg1 didAddOverlayRenderers:(NSArray *)arg2;

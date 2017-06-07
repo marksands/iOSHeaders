@@ -10,7 +10,6 @@
 
 @class NSString, Protocol;
 
-__attribute__((visibility("hidden")))
 @interface CNXPCListenerDelegate : NSObject <NSXPCListenerDelegate>
 {
     id _exportedObject;

@@ -6,23 +6,23 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, VSAccount, VSAccountStore, VSOptional;
+@class NSString, VSAccount, VSAccountChannelsCenter, VSAccountStore, VSOptional;
 
-__attribute__((visibility("hidden")))
 @interface VSIdentityProviderRequest : NSObject
 {
     long long _type;
     NSString *_requestingAppDisplayName;
     VSAccount *_account;
     VSAccountStore *_accountStore;
+    VSAccountChannelsCenter *_accountChannelsCenter;
     VSOptional *_accountMetadataRequest;
 }
 
-+ (id)deleteAccountRequestWithAccount:(id)arg1 accountStore:(id)arg2;
-+ (id)accountMetadataRequestWithAccount:(id)arg1 accountStore:(id)arg2 accountMetadataRequest:(id)arg3 requestingAppDisplayName:(id)arg4;
-+ (id)editAccountRequestWithAccount:(id)arg1 accountStore:(id)arg2;
-+ (id)makeAccountRequestWithAccountStore:(id)arg1;
++ (id)deleteAccountRequestWithAccount:(id)arg1 accountStore:(id)arg2 accountChannelsCenter:(id)arg3;
++ (id)accountMetadataRequestWithAccount:(id)arg1 accountStore:(id)arg2 accountChannelsCenter:(id)arg3 accountMetadataRequest:(id)arg4 requestingAppDisplayName:(id)arg5;
++ (id)makeAccountRequestWithAccountStore:(id)arg1 accountChannelsCenter:(id)arg2;
 @property(retain, nonatomic) VSOptional *accountMetadataRequest; // @synthesize accountMetadataRequest=_accountMetadataRequest;
+@property(retain, nonatomic) VSAccountChannelsCenter *accountChannelsCenter; // @synthesize accountChannelsCenter=_accountChannelsCenter;
 @property(retain, nonatomic) VSAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 @property(retain, nonatomic) VSAccount *account; // @synthesize account=_account;
 @property(copy, nonatomic) NSString *requestingAppDisplayName; // @synthesize requestingAppDisplayName=_requestingAppDisplayName;
@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) _Bool forceAuthentication;
-- (id)_initWithRequestType:(long long)arg1 account:(id)arg2 accountStore:(id)arg3;
+- (id)_initWithRequestType:(long long)arg1 account:(id)arg2 accountStore:(id)arg3 accountChannelsCenter:(id)arg4;
 @property(readonly, nonatomic) _Bool requiresUI;
 @property(readonly, nonatomic) _Bool allowsUI;
 - (id)init;

@@ -59,6 +59,7 @@
 - (void)resetWithErrorPrompt:(id)arg1 title:(id)arg2;
 - (void)resetWithErrorPrompt:(id)arg1;
 - (_Bool)wantsFullScreenLayout;
+- (double)numberPadTopConstraintConstant;
 - (void)loadView;
 - (void)dealloc;
 - (id)initForChangePINWithMinLength:(unsigned int)arg1 maxLength:(unsigned int)arg2 confirmPIN:(_Bool)arg3;

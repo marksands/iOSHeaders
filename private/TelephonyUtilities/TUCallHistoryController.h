@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/TUCallProviderManagerDelegate-Protocol.h>
 
@@ -12,7 +12,7 @@
 
 @interface TUCallHistoryController : NSObject <TUCallProviderManagerDelegate>
 {
-    NSString *_coalescingStrategy;
+    unsigned long long _coalescingStrategy;
     unsigned long long _options;
     NSArray *_recentCalls;
     unsigned long long _unreadCallCount;
@@ -25,8 +25,8 @@
     NSMutableSet *_metadataPreCachedOptions;
 }
 
-+ (id)callHistoryControllerWithCoalescingStrategy:(id)arg1 options:(unsigned long long)arg2;
-+ (id)sharedControllerWithCoalescingStrategy:(id)arg1 options:(unsigned long long)arg2;
++ (id)callHistoryControllerWithCoalescingStrategy:(unsigned long long)arg1 options:(unsigned long long)arg2;
++ (id)sharedControllerWithCoalescingStrategy:(unsigned long long)arg1 options:(unsigned long long)arg2;
 + (id)sharedController;
 @property(retain, nonatomic) NSMutableSet *metadataPreCachedOptions; // @synthesize metadataPreCachedOptions=_metadataPreCachedOptions;
 @property(retain, nonatomic) TUDispatcher *simpleIvarDispatcher; // @synthesize simpleIvarDispatcher=_simpleIvarDispatcher;
@@ -37,11 +37,14 @@
 - (void)providersChangedForProviderManager:(id)arg1;
 - (void)dispatcherDidFinishBoost:(id)arg1;
 - (void)callHistoryDatabaseChanged:(id)arg1;
+- (id)_callHistoryCoalescingStrategyForCoalescingStrategy:(unsigned long long)arg1;
 - (void)_updateCallHistoryManagerUsingCurrentOptions;
 - (CDUnknownBlockType)callHistoryManagerRecentCallsDispatchBlock;
 - (CDUnknownBlockType)callHistoryManagerInitializationDispatchBlock;
 - (void)loadDispatchQueue;
-- (id)initWithCoalescingStrategy:(id)arg1 options:(unsigned long long)arg2;
+- (id)initWithCoalescingStrategy:(unsigned long long)arg1 options:(unsigned long long)arg2;
+- (_Bool)coalesceCall:(id)arg1 withCall:(id)arg2;
+- (_Bool)canCoalesceCall:(id)arg1 withCall:(id)arg2;
 - (void)reloadWithOptions:(unsigned long long)arg1;
 - (id)recentCallsWithPredicate:(id)arg1;
 - (void)markRecentCallsAsReadWithPredicate:(id)arg1;
@@ -57,7 +60,7 @@
 @property(nonatomic) unsigned long long unreadCallCount; // @synthesize unreadCallCount=_unreadCallCount;
 @property(retain, nonatomic) NSArray *recentCalls; // @synthesize recentCalls=_recentCalls;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
-@property(copy, nonatomic) NSString *coalescingStrategy; // @synthesize coalescingStrategy=_coalescingStrategy;
+@property(nonatomic) unsigned long long coalescingStrategy; // @synthesize coalescingStrategy=_coalescingStrategy;
 - (void)dealloc;
 - (id)init;
 

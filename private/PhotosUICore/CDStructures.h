@@ -57,6 +57,43 @@ struct PXAssetBadgeInfo {
     long long count;
 };
 
+struct PXCPLServiceStatus {
+    long long state;
+    long long pauseReason;
+    unsigned long long activity;
+    long long action;
+    double pendingProgress;
+    unsigned long long pendingNumberOfItems;
+    double lastSuccessfulSyncTimeIntervalSinceReferenceDate;
+    double exitTimeIntervalSinceReferenceDate;
+    unsigned long long numberOfItemsFailingToUpload;
+};
+
+struct PXCPLStatusSnapshot {
+    _Bool isSyncing;
+    double exitTimeIntervalSinceReferenceDate;
+    double lastSuccessfulSyncTimeIntervalSinceReferenceDate;
+    unsigned long long numberOfItemsToUpload;
+    double itemsToUploadProgress;
+    unsigned long long numberOfItemsToAdd;
+    unsigned long long numberOfOriginalsToDownload;
+    unsigned long long numberOfItemsFailingToUpload;
+    _Bool isUserPaused;
+    _Bool isInBatterySaverMode;
+    _Bool isExceedingBatteryQuota;
+    _Bool isExceedingCellularQuota;
+    _Bool isExceedingLocalStorageQuota;
+    _Bool isExceedingQuota;
+    _Bool isClientVersionTooOld;
+};
+
+struct PXContextualNotificationVisualState {
+    _Bool onscreen;
+    struct CGRect containingFrame;
+    double verticalOffset;
+    double alpha;
+};
+
 struct PXDisplayVelocity {
     double x;
     double y;
@@ -266,6 +303,18 @@ typedef struct {
 } CDStruct_4bbd3430;
 
 typedef struct {
+    long long value;
+    int timescale;
+    unsigned int flags;
+    long long epoch;
+} CDStruct_1b6d18a9;
+
+typedef struct {
+    _Bool _field1;
+    struct CGPoint _field2;
+} CDStruct_7898798c;
+
+typedef struct {
     struct CLLocationCoordinate2D _field1;
     struct {
         double _field1;
@@ -275,6 +324,25 @@ typedef struct {
 
 // Ambiguous groups
 typedef struct {
+    _Bool respondsToItemIndexPathAtLocation;
+    _Bool respondsToItemIndexPathClosestLeadingLocation;
+    _Bool respondsToItemIndexPathClosestAboveLocation;
+} CDStruct_d45a99d3;
+
+typedef struct {
+    _Bool respondsToProgressDidChange;
+    _Bool respondsToStatusDidChange;
+} CDStruct_79eed083;
+
+typedef struct {
     _Bool button;
 } CDStruct_6d279c03;
+
+typedef struct {
+    _Bool output;
+} CDStruct_db2bc502;
+
+typedef struct {
+    _Bool selectedIndexPaths;
+} CDStruct_0794f076;
 

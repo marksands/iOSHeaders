@@ -11,6 +11,8 @@
 @interface MSPMapsPaths : NSObject
 {
     NSURL *_libraryURL;
+    CDUnknownBlockType _invalidationHandler;
+    NSString *_fuzzyLocationStoragePath;
     NSString *_mapsDirectory;
     NSString *_cacheDirectory;
     NSString *_nanoDirectory;
@@ -56,7 +58,11 @@
 + (id)cacheDirectory;
 + (id)mapsDirectory;
 + (id)pathsAtLocation:(long long)arg1;
++ (id)currentMapsApplicationContainerURL;
++ (id)mapsApplicationContainerPaths;
++ (id)mapsApplicationContainerPathsWithInvalidationHandler:(CDUnknownBlockType)arg1;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *fuzzyLocationStoragePath;
 - (_Bool)deleteHistorySyncedMarkerFile;
 - (_Bool)shouldSyncMergeHistoryAfterCheckingOrCreatingMarkerFile;
 - (_Bool)deleteFavoritesSyncedMarkerFile;
@@ -85,7 +91,8 @@
 @property(readonly, nonatomic) NSString *cacheDirectory; // @synthesize cacheDirectory=_cacheDirectory;
 @property(readonly, nonatomic) NSString *mapsDirectory; // @synthesize mapsDirectory=_mapsDirectory;
 @property(readonly, nonatomic) NSString *homeDirectory;
-- (id)initWithLibraryDirectoryURL:(id)arg1;
+- (void)_invalidate;
+- (id)initWithLibraryDirectoryURL:(id)arg1 invalidationHandler:(CDUnknownBlockType)arg2;
 
 @end
 

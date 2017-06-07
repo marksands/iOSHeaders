@@ -16,5 +16,9 @@
 - (void)itemsOrSelectionDidChange:(_Bool)arg1;
 - (_Bool)shouldShowAction:(long long)arg1;
 - (void)performAction:(long long)arg1 item:(_UIDocumentPickerContainerItem *)arg2 view:(UIView *)arg3 completion:(void (^)(void))arg4;
+- (_Bool)shouldSelectItem:(_UIDocumentPickerContainerItem *)arg1;
+- (void)didUnhighlightItem:(_UIDocumentPickerContainerItem *)arg1;
+- (void)didHighlightItem:(_UIDocumentPickerContainerItem *)arg1;
+- (_Bool)shouldHighlightItem:(_UIDocumentPickerContainerItem *)arg1;
 @end
 

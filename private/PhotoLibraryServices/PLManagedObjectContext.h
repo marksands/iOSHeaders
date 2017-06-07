@@ -23,7 +23,8 @@
     PLDelayedFiledSystemDeletions *_delayedDeletions;
     NSMutableSet *_avalancheUUIDsForUpdate;
     NSMutableDictionary *_uuidsForCloudDeletion;
-    NSMutableSet *_assetObjectIDsWithCloudGUIDChange;
+    NSMutableSet *_personObjectIDsNeedingPersistence;
+    NSMutableSet *_personUUIDsNeedingPersistenceDelete;
     _Bool _syncChangeMarker;
     NSMutableDictionary *_updatedObjectsAttributes;
     NSMutableDictionary *_updatedObjectsRelationships;
@@ -31,7 +32,6 @@
     id <PLManagedObjectContextPTPNotificationDelegate> _ptpNotificationDelegate;
     PLDelayedSaveActions *_delayedSaveActions;
     _Bool _regenerateVideoThumbnails;
-    _Bool __hiddenFaceStateChanged;
     int _changeSource;
     NSObject<OS_xpc_object> *changeHubConnection;
 }
@@ -41,7 +41,10 @@
 + (void)handleUnknownMergeEvent;
 + (_Bool)_isAssetLibraryFetchingAlbum:(id)arg1;
 + (void)mergeChangesFromRemoteContextSave:(id)arg1 intoAllContextsNotIdenticalTo:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-+ (id)_changeNotificationKeys;
++ (id)changeNotificationObjectIDKeys;
++ (id)changeNotificationObjectIDMutationKeys;
++ (id)changeNotificationObjectKeys;
++ (id)changeNotificationObjectMutationKeys;
 + (void)mergeIntoAllContextsChangesFromRemoteContextSave:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)relationshipNamesForIndexValues:(unsigned long long)arg1 entity:(id)arg2;
 + (unsigned long long)indexValueForRelationshipNames:(id)arg1 entity:(id)arg2;
@@ -83,7 +86,6 @@
 @property(nonatomic) _Bool isBackingALAssetsLibrary; // @synthesize isBackingALAssetsLibrary=_isBackingALAssetsLibrary;
 @property(nonatomic) _Bool isLoadingPhotoLibrary; // @synthesize isLoadingPhotoLibrary=_isLoadingPhotoLibrary;
 @property(nonatomic) _Bool isInitializingSingletons; // @synthesize isInitializingSingletons=_isInitializingSingletons;
-@property(nonatomic, setter=_setHiddenFaceStateChanged:) _Bool _hiddenFaceStateChanged; // @synthesize _hiddenFaceStateChanged=__hiddenFaceStateChanged;
 @property(nonatomic) _Bool regenerateVideoThumbnails; // @synthesize regenerateVideoThumbnails=_regenerateVideoThumbnails;
 @property(nonatomic) int changeSource; // @synthesize changeSource=_changeSource;
 @property(nonatomic) _Bool hasMetadataChanges; // @synthesize hasMetadataChanges=_hasMetadataChanges;
@@ -95,17 +97,17 @@
 - (void)tearDownLocalChangeNotifications;
 - (void)setupLocalChangeNotifications;
 - (void)_informPTPDelegateAboutChangesFromRemoteContextSaveNotification:(id)arg1;
-- (void)_getInsertedIDs:(id)arg1 deletedIDs:(id)arg2 changedIDs:(id)arg3 ofEntityKind:(id)arg4 fromRemoteContextDidSaveNotification:(id)arg5;
+- (void)_getInsertedIDs:(id)arg1 deletedIDs:(id)arg2 changedIDs:(id)arg3 adjustedIDs:(id)arg4 ofEntityKind:(id)arg5 fromRemoteContextDidSaveObjectIDsNotification:(id)arg6;
+- (_Bool)_adjustmentTimestampChangedChangedAttribute:(id)arg1 from:(id)arg2;
 - (void)_mergeChangesFromDidSaveDictionary:(id)arg1 usingObjectIDs:(_Bool)arg2;
 - (void)_notifyALAssetsLibraryWithChanges:(id)arg1 usingObjectIDs:(_Bool)arg2;
 - (id)pl_fetchObjectsWithIDs:(id)arg1;
 - (id)pl_fetchObjectsWithIDs:(id)arg1 rootEntity:(id)arg2;
 - (_Bool)_tooManyAssetChangesToHandle:(unsigned long long)arg1;
-- (void)refreshAssetsWithCloudGUIDChangePersistenceIfNeeded;
-- (void)recordAssetWithCloudGUIDChange:(id)arg1;
-- (void)_writeHiddenFaceMetadata;
-- (void)refreshHiddenFaceStatePersistenceIfNeeded;
-- (void)recordHiddenFaceStateChanged;
+- (void)removePersonForMetadataPersistence:(id)arg1;
+- (void)recordPersonForMetadataPersistence:(id)arg1;
+- (void)recordDetectedFaceForMetadataPersistence:(id)arg1;
+- (void)_refreshPersonPersistenceIfNeeded;
 - (_Bool)getAndClearSyncChangeMarker;
 - (void)recordSyncChangeMarker;
 - (id)getAndClearRecordedObjectsForCloudDeletion;
@@ -119,8 +121,8 @@
 - (void)_createDelayedSaveActionsWithTransaction:(id)arg1;
 @property(readonly, retain, nonatomic) PLDelayedSaveActions *delayedSaveActions;
 - (void)getAndClearUpdatedObjectsAttributes:(id *)arg1 relationships:(id *)arg2;
-- (void)_recordChangedKeys:(id)arg1 forObject:(id)arg2;
-- (void)recordTriggerChangesFromUserInfo:(id)arg1;
+- (void)_recordChangedKeys:(id)arg1 forObjectID:(id)arg2;
+- (void)recordChangesFromTriggerModifiedObjectIDs:(id)arg1;
 - (void)recordManagedObjectWillSave:(id)arg1;
 - (void)disconnectFromChangeHub;
 - (void)connectToChangeHub;
@@ -133,7 +135,6 @@
 - (void)withDispatchGroup:(id)arg1 performBlock:(CDUnknownBlockType)arg2;
 - (void)setGlobalValue:(id)arg1 forKey:(id)arg2;
 - (id)globalValueForKey:(id)arg1;
-- (long long)context:(id)arg1 shouldHandleInaccessibleFault:(id)arg2 forObjectID:(id)arg3 andTrigger:(id)arg4;
 @property(readonly, nonatomic) _Bool isUserInterfaceContext;
 @property(nonatomic) id <PLManagedObjectContextPTPNotificationDelegate> ptpNotificationDelegate; // @synthesize ptpNotificationDelegate=_ptpNotificationDelegate;
 @property(nonatomic) PLPhotoLibrary *photoLibrary;

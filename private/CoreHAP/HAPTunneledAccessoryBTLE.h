@@ -62,6 +62,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
+- (_Bool)mergeObject:(id)arg1;
 - (void)securitySession:(id)arg1 didCloseWithError:(id)arg2;
 - (void)securitySessionDidOpen:(id)arg1;
 - (void)securitySessionIsOpening:(id)arg1;
@@ -102,9 +103,11 @@
 - (void)_handleSecuritySession:(id)arg1 setupExchangeData:(id)arg2;
 - (_Bool)_establishSecureSessionWithError:(id *)arg1;
 - (void)_sendPairingRequestData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)listPairingsWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removePairingForCurrentControllerWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)removePairingWithIdentifier:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)addPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(_Bool)arg3 completionQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)removePairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)addPairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_markNotifyingCharacteristicUpdatedForCharacteristic:(id)arg1;
 - (void)_performTimedWriteExecuteForCharacteristic:(id)arg1 value:(id)arg2 options:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_performTimedWritePrepareWithValue:(id)arg1 toCharacteristic:(id)arg2 authorizationData:(id)arg3 options:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_performTimedWriteValue:(id)arg1 toCharacteristic:(id)arg2 authorizationData:(id)arg3 options:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;

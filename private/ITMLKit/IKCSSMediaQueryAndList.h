@@ -24,6 +24,7 @@
 - (_Bool)evaluate;
 - (id)expressionList;
 - (void)addQuery:(id)arg1;
+- (id)expressionAsString;
 - (id)init;
 
 @end

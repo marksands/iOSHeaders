@@ -16,6 +16,7 @@
     CDUnknownBlockType _resultCallback;
 }
 
+- (void).cxx_destruct;
 - (void)cancelPronunciationSession;
 - (void)stopPronunciationSession;
 - (void)startPronunciationSession:(id)arg1 resultCallback:(CDUnknownBlockType)arg2;

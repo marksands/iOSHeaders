@@ -16,7 +16,7 @@
 - (void)deleteBookmarkWithIdentifier:(NSString *)arg1 reply:(void (^)(_Bool))arg2;
 - (void)createBookmarkListWithTitle:(NSString *)arg1 inListWithIdentifier:(NSString *)arg2 atIndex:(unsigned long long)arg3 reply:(void (^)(_Bool))arg4;
 - (void)createBookmarkWithTitle:(NSString *)arg1 url:(NSURL *)arg2 inListWithIdentifier:(NSString *)arg3 atIndex:(unsigned long long)arg4 reply:(void (^)(_Bool))arg5;
-- (void)clearBookmarksIncludingServerBookmarks:(_Bool)arg1 completionHandler:(void (^)(_Bool))arg2;
+- (void)clearBookmarksWithOptions:(unsigned long long)arg1 completionHandler:(void (^)(_Bool))arg2;
 - (void)fetchTopLevelBookmarkList:(void (^)(WBSCyclerBookmarkListRepresentation *))arg1;
 @end
 

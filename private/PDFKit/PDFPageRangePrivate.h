@@ -8,6 +8,7 @@
 
 @class PDFPage;
 
+__attribute__((visibility("hidden")))
 @interface PDFPageRangePrivate : NSObject
 {
     PDFPage *page;

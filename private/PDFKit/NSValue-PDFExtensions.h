@@ -7,7 +7,9 @@
 #import <Foundation/NSValue.h>
 
 @interface NSValue (PDFExtensions)
++ (id)PDFKitValueWithPDFPoint:(struct CGPoint)arg1;
 + (id)PDFKitValueWithPDFRect:(struct CGRect)arg1;
+- (struct CGPoint)PDFKitPDFPointValue;
 - (struct CGRect)PDFKitPDFRectValue;
 @end
 

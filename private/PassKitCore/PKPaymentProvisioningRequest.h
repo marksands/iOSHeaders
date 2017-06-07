@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PassKitCore/PKPaymentOverlayableRequest.h>
+#import <PassKitCore/PKPaymentWebServiceRequest.h>
 
 @class NSArray, NSData, NSNumber, NSString, PKDSPContext, PKPaymentDeviceProvisioningData, PKPaymentEligibilityResponse;
 
-@interface PKPaymentProvisioningRequest : PKPaymentOverlayableRequest
+@interface PKPaymentProvisioningRequest : PKPaymentWebServiceRequest
 {
     NSNumber *_primaryJSBLSequenceCounter;
     NSArray *_certChain;
@@ -20,8 +20,10 @@
     NSString *_cardSecurityCode;
     NSData *_activationData;
     PKDSPContext *_context;
+    NSString *_referrerIdentifier;
 }
 
+@property(copy, nonatomic) NSString *referrerIdentifier; // @synthesize referrerIdentifier=_referrerIdentifier;
 @property(copy, nonatomic) PKDSPContext *context; // @synthesize context=_context;
 @property(copy, nonatomic) NSData *activationData; // @synthesize activationData=_activationData;
 @property(copy, nonatomic) NSString *cardSecurityCode; // @synthesize cardSecurityCode=_cardSecurityCode;

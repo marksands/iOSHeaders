@@ -6,13 +6,22 @@
 
 #import <WatchListKit/NSObject-Protocol.h>
 
-@class NSString;
+@class NSDictionary, NSNumber, NSString;
 
 @protocol WLKConnectionServerProtocol <NSObject>
 - (void)ping;
-- (void)fetchApplicationsOfType:(unsigned long long)arg1 replyHandler:(void (^)(NSArray *))arg2;
+- (void)fetchSettings:(void (^)(NSDictionary *))arg1;
+- (void)postSettings:(NSDictionary *)arg1 replyHandler:(void (^)(_Bool))arg2;
+- (void)writeSettingsStore:(NSDictionary *)arg1 replyHandler:(void (^)(_Bool))arg2;
+- (void)readSettingsStore:(void (^)(NSDictionary *))arg1;
+- (void)setNextConfigurationEK:(NSString *)arg1;
+- (void)invalidateConfiguration:(void (^)(void))arg1;
+- (void)fetchConfigurationCache:(void (^)(WLKServerConfigurationResponse *))arg1;
+- (void)fetchConfiguration:(void (^)(WLKServerConfigurationResponse *))arg1;
+- (void)fetchApplications:(void (^)(NSDictionary *))arg1;
 - (void)deletePlaybackActivityWithIdentifier:(NSString *)arg1 bundleID:(NSString *)arg2;
-- (void)requestConsentForBundleID:(NSString *)arg1 replyHandler:(void (^)(_Bool))arg2;
+- (void)requestConsentForBundleID:(NSString *)arg1 forceAuth:(_Bool)arg2 replyHandler:(void (^)(_Bool))arg3;
+- (void)requestPlaybackSummaryForID:(NSNumber *)arg1 completion:(void (^)(WLKPlaybackSummary *))arg2;
 - (void)requestPlaybackSummary:(void (^)(WLKPlaybackSummary *))arg1;
 @end
 

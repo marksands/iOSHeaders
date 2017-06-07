@@ -10,15 +10,15 @@
 #import <KeyboardServices/NSXPCListenerDelegate-Protocol.h>
 #import <KeyboardServices/_KSTextReplacementCancellation-Protocol.h>
 #import <KeyboardServices/_KSTextReplacementStoreProtocol-Protocol.h>
+#import <KeyboardServices/_KSTextReplacementSyncProtocol-Protocol.h>
 
 @class APSConnection, NSString, NSXPCListener, _KSTRClient, _KSTextReplacementManager;
 @protocol OS_dispatch_queue;
 
-@interface _KSTextReplacementServer : NSObject <NSXPCListenerDelegate, APSConnectionDelegate, _KSTextReplacementStoreProtocol, _KSTextReplacementCancellation>
+@interface _KSTextReplacementServer : NSObject <NSXPCListenerDelegate, APSConnectionDelegate, _KSTextReplacementSyncProtocol, _KSTextReplacementStoreProtocol, _KSTextReplacementCancellation>
 {
     NSObject<OS_dispatch_queue> *_workQueue;
     _KSTRClient *_daemonClient;
-    _Bool _setupAssistanceRunning;
     _KSTextReplacementManager *_textReplacementManager;
     APSConnection *_pushConnection;
     NSXPCListener *_listener;
@@ -27,7 +27,6 @@
 
 + (_Bool)isBlackListed:(unsigned int)arg1;
 + (id)textReplacementServer;
-@property(nonatomic) _Bool setupAssistanceRunning; // @synthesize setupAssistanceRunning=_setupAssistanceRunning;
 @property(copy, nonatomic) NSString *directoryPath; // @synthesize directoryPath=_directoryPath;
 @property(retain, nonatomic) NSXPCListener *listener; // @synthesize listener=_listener;
 @property(retain, nonatomic) APSConnection *pushConnection; // @synthesize pushConnection=_pushConnection;
@@ -44,6 +43,7 @@
 - (id)textReplacementEntriesForClient:(id)arg1;
 - (id)textReplacementEntries;
 - (_Bool)_cancelPendingUpdateForClient:(id)arg1;
+- (void)requestSync:(unsigned long long)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)requestSyncWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)cancelPendingUpdates;
 - (void)removeAllEntries;

@@ -18,10 +18,11 @@
     NSObject<OS_voucher> *_voucher;
 }
 
+@property(retain) NSObject<OS_voucher> *voucher; // @synthesize voucher=_voucher;
 @property(retain) id context; // @synthesize context=_context;
 @property _Bool shouldBoost; // @synthesize shouldBoost=_boost;
 @property(retain) IMLocalObject *localObject; // @synthesize localObject=_localObject;
-@property NSObject<OS_xpc_object> *xpcMessage; // @synthesize xpcMessage=_xpcMessage;
+@property(retain) NSObject<OS_xpc_object> *xpcMessage; // @synthesize xpcMessage=_xpcMessage;
 - (void)dealloc;
 - (id)init;
 

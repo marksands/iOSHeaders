@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (long long)tileSize;
 - (_Bool)maximumZoomLevelBoundsCamera;
 - (_Bool)minimumZoomLevelBoundsCamera;
-- (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4;
+- (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4 taskContext:(shared_ptr_e963992e)arg5;
 
 @end
 

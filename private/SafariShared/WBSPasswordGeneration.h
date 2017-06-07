@@ -10,10 +10,6 @@
 {
 }
 
-+ (id)test_passwordAllowedCharactersKey;
-+ (id)test_passwordMaxLengthKey;
-+ (id)test_passwordMinLengthKey;
-+ (id)test_getPasswordRandomCharactersWithFirstCharacterConstraints:(id)arg1 numberOfPasswordRandomCharacters:(unsigned long long)arg2 allowedCharacters:(id)arg3;
 + (_Bool)passwordGenerationIsDisallowedByRequirements:(id)arg1;
 + (_Bool)manualPasswordGenerationIsDisallowedByRequirements:(id)arg1;
 + (id)protectionSpaceForGeneratedPasswordsInProtectionSpace:(id)arg1;

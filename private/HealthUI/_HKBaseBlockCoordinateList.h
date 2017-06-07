@@ -23,7 +23,7 @@
 - (id)coordinates;
 - (CDStruct_6ca94699)blockPathEnd;
 - (CDStruct_6ca94699)blockPathStart;
-- (void)_enumerateCoordinatesWithTransform:(struct CGAffineTransform)arg1 chartableDateRange:(id)arg2 roundToViewScale:(_Bool)arg3 block:(CDUnknownBlockType)arg4;
+- (void)_enumerateCoordinatesWithTransform:(struct CGAffineTransform)arg1 chartableValueRange:(id)arg2 roundToViewScale:(_Bool)arg3 block:(CDUnknownBlockType)arg4;
 - (id)initWithCoordinates:(id)arg1 blockPath:(CDStruct_6ca94699)arg2;
 
 @end

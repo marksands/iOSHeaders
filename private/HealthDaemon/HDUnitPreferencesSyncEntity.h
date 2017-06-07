@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)syncEntityDependencies;
++ (id)syncEntityDependenciesForSyncProtocolVersion:(int)arg1;
 + (void)didReceiveValuesForKeys:(id)arg1 profile:(id)arg2;
 + (long long)syncEntityType;
 + (long long)category;

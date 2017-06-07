@@ -15,6 +15,7 @@
     NSLock *_lock;
 }
 
+- (void).cxx_destruct;
 - (id)imagePatchList;
 - (_Bool)hasLayerStack;
 - (id)layerStack;
@@ -23,7 +24,6 @@
 - (_Bool)hasRedeye;
 - (_Bool)hasRepair;
 - (_Bool)hasRepairOrRedeye;
-- (void)dealloc;
 - (id)initWithAdjustmentsDictionary:(id)arg1;
 
 @end

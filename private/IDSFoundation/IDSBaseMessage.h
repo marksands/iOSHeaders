@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDSFoundation/NSCopying-Protocol.h>
 
-@class NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSNumber, NSString;
+@class IDSValidationSession, NSArray, NSData, NSDate, NSDictionary, NSMutableArray, NSNumber, NSString, NSURL;
 
 @interface IDSBaseMessage : NSObject <NSCopying>
 {
@@ -21,7 +21,8 @@
     _Bool _highPriority;
     _Bool _hasReceivedPushAck;
     _Bool _hasAttemptedAPSDelivery;
-    _Bool _alwaysForceCelluar;
+    _Bool _httpDoNotDecodeData;
+    _Bool _alwaysForceCellular;
     int _timeoutRetries;
     id _context;
     NSDictionary *_clientInfo;
@@ -44,9 +45,18 @@
     long long _importanceLevel;
     long long _deliveryMechanism;
     NSString *_underlyingService;
+    IDSValidationSession *_validationSession;
+    NSURL *_URLOverride;
+    unsigned long long _sentByteCount;
+    unsigned long long _receivedByteCount;
 }
 
-@property _Bool alwaysForceCelluar; // @synthesize alwaysForceCelluar=_alwaysForceCelluar;
+@property _Bool alwaysForceCellular; // @synthesize alwaysForceCellular=_alwaysForceCellular;
+@property _Bool httpDoNotDecodeData; // @synthesize httpDoNotDecodeData=_httpDoNotDecodeData;
+@property(nonatomic) unsigned long long receivedByteCount; // @synthesize receivedByteCount=_receivedByteCount;
+@property(nonatomic) unsigned long long sentByteCount; // @synthesize sentByteCount=_sentByteCount;
+@property(copy) NSURL *URLOverride; // @synthesize URLOverride=_URLOverride;
+@property(retain, nonatomic) IDSValidationSession *validationSession; // @synthesize validationSession=_validationSession;
 @property(copy) NSString *underlyingService; // @synthesize underlyingService=_underlyingService;
 @property long long deliveryMechanism; // @synthesize deliveryMechanism=_deliveryMechanism;
 @property long long importanceLevel; // @synthesize importanceLevel=_importanceLevel;
@@ -77,21 +87,26 @@
 @property(copy) NSData *serviceData; // @synthesize serviceData=_serviceData;
 @property(copy) NSDictionary *clientInfo; // @synthesize clientInfo=_clientInfo;
 @property(retain) id context; // @synthesize context=_context;
+- (void).cxx_destruct;
+- (_Bool)shouldForceDevicesToCarry;
 - (void)logFailureInfo;
 - (void)handleResponseDictionary:(id)arg1;
+- (void)handleResponseStatus:(unsigned long long)arg1;
+- (void)handleResponseBody:(id)arg1;
 - (void)handleResponseHeaders:(id)arg1;
-@property(readonly, retain) NSDictionary *messageBody;
-@property(readonly, retain) NSDictionary *additionalInternalHeaders;
-@property(readonly, retain) NSDictionary *nonStandardMessageHeadersForOutgoingPush;
-@property(readonly, retain) NSDictionary *additionalMessageHeadersForOutgoingPush;
-@property(readonly, retain) NSDictionary *additionalQueryStringParameters;
-@property(readonly, retain) NSDictionary *additionalMessageHeaders;
-@property(readonly, retain) NSString *bagKey;
+@property(readonly) NSDictionary *messageBody;
+@property(readonly) NSDictionary *additionalInternalHeaders;
+@property(readonly) NSDictionary *nonStandardMessageHeadersForOutgoingPush;
+@property(readonly) NSDictionary *additionalMessageHeadersForOutgoingPush;
+@property(readonly) NSDictionary *additionalQueryStringParameters;
+@property(readonly) NSDictionary *additionalMessageHeaders;
+@property(readonly) NSString *retryCountKey;
+@property(readonly) NSString *bagKey;
 @property(readonly) long long responseCommand;
 @property(readonly) long long command;
-@property(readonly, retain) NSString *userAgentHeaderString;
+@property(readonly) NSString *userAgentHeaderString;
 @property(readonly) _Bool wantsUserAgentInHeaders;
-@property(readonly, retain) NSArray *requiredKeys;
+@property(readonly) NSArray *requiredKeys;
 - (_Bool)hasRequiredKeys:(id *)arg1;
 @property(copy, nonatomic) NSNumber *serverTimestampReceivedDate;
 @property(copy, nonatomic) NSNumber *serverTimestamp;
@@ -108,12 +123,15 @@
 @property(nonatomic) struct __SecKey *pushPrivateKey;
 - (void)_clearCache;
 - (void)_cacheBody;
-@property(readonly, retain) NSDictionary *messageBodyUsingCache;
+@property(readonly) NSDictionary *messageBodyUsingCache;
 @property(readonly) _Bool isValidMessage;
 @property(readonly) _Bool payloadCanBeLogged;
-@property(readonly, retain) NSString *dataUsageBundleIdentifier; // @synthesize dataUsageBundleIdentifier=_dataUsageBundleIdentifier;
+- (_Bool)isIDSMessage;
+- (id)messageBodyDataOverride;
+@property(readonly) NSString *dataUsageBundleIdentifier; // @synthesize dataUsageBundleIdentifier=_dataUsageBundleIdentifier;
 @property(readonly) double customRetryInterval;
 @property(readonly) _Bool wantsCustomRetryInterval;
+@property(readonly) _Bool wantsIDSSignatures;
 @property(readonly) _Bool wantsBodySignature;
 @property(readonly) _Bool isWebTunnelMessage;
 @property(readonly) _Bool wantsSignature;
@@ -132,9 +150,8 @@
 @property(readonly) _Bool wantsJSONBody;
 @property(readonly) _Bool wantsCompressedBody;
 @property(readonly) _Bool wantsIDSServer;
-@property(readonly, retain) NSString *uniqueIDString;
+@property(readonly) NSString *uniqueIDString;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

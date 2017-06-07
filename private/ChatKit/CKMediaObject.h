@@ -9,11 +9,13 @@
 #import <ChatKit/QLPreviewItem-Protocol.h>
 
 @class NSData, NSDictionary, NSString, NSURL;
-@protocol CKFileTransfer;
+@protocol CKFileTransfer, OS_dispatch_group;
 
 @interface CKMediaObject : NSObject <QLPreviewItem>
 {
     id <CKFileTransfer> _transfer;
+    NSURL *_cachedHighQualityFileURL;
+    NSObject<OS_dispatch_group> *_highQualityFetchInProgressGroup;
 }
 
 + (id)mediaClasses;
@@ -25,11 +27,14 @@
 + (_Bool)shouldShadePreview;
 + (_Bool)shouldScaleUpPreview;
 + (_Bool)isPreviewable;
+@property(retain, nonatomic) NSObject<OS_dispatch_group> *highQualityFetchInProgressGroup; // @synthesize highQualityFetchInProgressGroup=_highQualityFetchInProgressGroup;
+@property(retain, nonatomic) NSURL *cachedHighQualityFileURL; // @synthesize cachedHighQualityFileURL=_cachedHighQualityFileURL;
 @property(retain, nonatomic) id <CKFileTransfer> transfer; // @synthesize transfer=_transfer;
 - (void).cxx_destruct;
 - (_Bool)isPromisedItem;
 @property(readonly, nonatomic) NSURL *previewItemURL;
 @property(readonly, nonatomic) _Bool canShareItem;
+- (void)fetchHighQualityFile:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool needsAnimation;
 @property(readonly, nonatomic) int mediaType;
 - (id)pasteboardItem;

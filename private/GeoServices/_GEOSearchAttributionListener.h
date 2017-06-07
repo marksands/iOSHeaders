@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableArray, NSString;
 
@@ -19,10 +19,10 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) unsigned int version; // @synthesize version=_version;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (void)handleError:(id)arg1;
 - (void)handleInfo:(id)arg1 updatedManifest:(_Bool)arg2;
 - (void)addCompletionHandler:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 - (id)initWithIdentifier:(id)arg1 version:(unsigned int)arg2;
 
 @end

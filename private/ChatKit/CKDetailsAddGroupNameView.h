@@ -31,8 +31,6 @@
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (void)commitGroupName;
-- (void)layoutSubviews;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

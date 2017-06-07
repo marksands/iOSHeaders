@@ -25,6 +25,7 @@
 
 @property(retain, nonatomic) GEOUserPreferences *userPreferences; // @synthesize userPreferences=_userPreferences;
 @property(nonatomic) _Bool includeHistoricTravelTime; // @synthesize includeHistoricTravelTime=_includeHistoricTravelTime;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -42,7 +43,6 @@
 @property(nonatomic) _Bool hasTrafficType;
 @property(nonatomic) int trafficType; // @synthesize trafficType=_trafficType;
 @property(nonatomic) _Bool hasIncludeHistoricTravelTime;
-- (void)dealloc;
 
 @end
 

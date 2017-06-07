@@ -49,6 +49,7 @@
 + (id)columnHeadersWithOptions:(unsigned long long)arg1 maximumLength:(unsigned long long)arg2 memorySizeDivisor:(unsigned int)arg3 hasFractionalPageSizes:(_Bool)arg4;
 + (id)columnHeadersWithOptions:(unsigned long long)arg1 maximumLength:(unsigned long long)arg2;
 + (void)initialize;
+- (void).cxx_destruct;
 - (id)breakAtLength:(unsigned long long)arg1;
 - (void)addInfoFromRegion:(id)arg1;
 - (_Bool)hasSameInfoAsRegion:(id)arg1;
@@ -65,7 +66,6 @@
 - (id)descriptionWithOptions:(unsigned long long)arg1 maximumLength:(unsigned long long)arg2 memorySizeDivisor:(unsigned int)arg3 hasFractionalPageSizes:(_Bool)arg4;
 - (id)descriptionWithOptions:(unsigned long long)arg1 maximumLength:(unsigned long long)arg2;
 - (void)getVMRegionData:(struct _VMUVMRegionData *)arg1 withSimpleSerializer:(id)arg2;
-- (void)dealloc;
 - (id)initWithVMRegionData:(struct _VMUVMRegionData *)arg1 encodedVersion:(long long)arg2 simpleSerializer:(id)arg3;
 - (id)init;
 

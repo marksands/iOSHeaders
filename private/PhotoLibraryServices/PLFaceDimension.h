@@ -6,9 +6,9 @@
 
 #import <Foundation/NSObject.h>
 
-#import <PhotoLibraryServices/CVMLPhotosFaceRepresentation-Protocol.h>
+#import <PhotoLibraryServices/PFPhotosFaceRepresentation-Protocol.h>
 
-@interface PLFaceDimension : NSObject <CVMLPhotosFaceRepresentation>
+@interface PLFaceDimension : NSObject <PFPhotosFaceRepresentation>
 {
     long long _sourceWidth;
     long long _sourceHeight;
@@ -17,11 +17,18 @@
     double _size;
 }
 
-- (double)cvmlPhotosFaceRepresentationSize;
-- (double)cvmlPhotosFaceRepresentationCenterY;
-- (double)cvmlPhotosFaceRepresentationCenterX;
-- (long long)cvmlPhotosFaceRepresentationSourceHeight;
-- (long long)cvmlPhotosFaceRepresentationSourceWidth;
+- (id)photosFaceRepresentationLocalIdentifier;
+- (long long)photosFaceRepresentationClusterSequenceNumber;
+- (long long)photosFaceRepresentationQualityMeasure;
+- (_Bool)photosFaceRepresentationIsRightEyeClosed;
+- (_Bool)photosFaceRepresentationIsLeftEyeClosed;
+- (_Bool)photosFaceRepresentationHasSmile;
+- (double)photosFaceRepresentationBlurScore;
+- (double)photosFaceRepresentationSize;
+- (double)photosFaceRepresentationCenterY;
+- (double)photosFaceRepresentationCenterX;
+- (long long)photosFaceRepresentationSourceHeight;
+- (long long)photosFaceRepresentationSourceWidth;
 - (id)initWithSourceWidth:(long long)arg1 sourceHeight:(long long)arg2 centerX:(double)arg3 centerY:(double)arg4 size:(double)arg5;
 
 @end

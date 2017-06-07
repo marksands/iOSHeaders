@@ -4,6 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#pragma mark Blocks
+
+typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
+
 #pragma mark Named Structures
 
 struct CGPoint {
@@ -21,6 +25,13 @@ struct CGSize {
     double height;
 };
 
+struct NSDirectionalEdgeInsets {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+};
+
 struct UIEdgeInsets {
     double top;
     double left;
@@ -33,6 +44,17 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
+struct _NUIBoxArrangement {
+    id container;
+    _Bool baselineRelative;
+    long long horzDist;
+    long long vertDist;
+    vector_0b89710d cells;
+    struct vector<CGRect, std::__1::allocator<CGRect>> viewFrames;
+};
+
+struct _NUIBoxArrangementCell;
+
 struct _NUIGridArrangement {
     id container;
     _Bool baselineRelative;
@@ -41,6 +63,7 @@ struct _NUIGridArrangement {
     vector_f7a18e83 cells;
     vector_29d414c0 columns;
     vector_29d414c0 rows;
+    struct vector<CGRect, std::__1::allocator<CGRect>> viewFrames;
 };
 
 struct _NUIGridArrangementCell;
@@ -53,8 +76,8 @@ struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<UIView
     struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<UIView *, const std::__1::pair<_NSRange, _NSRange>>, void *>*> *__next_;
 };
 
-struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*> {
-    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*> *__next_;
+struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*> {
+    struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*> *__next_;
 };
 
 struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
@@ -62,12 +85,12 @@ struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
 };
 
 struct nui_size_cache {
-    struct __tree<std::__1::__value_type<long, CGSize>, std::__1::__map_value_compare<long, std::__1::__value_type<long, CGSize>, std::__1::less<long>, true>, std::__1::allocator<std::__1::__value_type<long, CGSize>>> {
+    struct __tree<std::__1::__value_type<CGSize, CGSize>, std::__1::__map_value_compare<CGSize, std::__1::__value_type<CGSize, CGSize>, std::__1::less<CGSize>, true>, std::__1::allocator<std::__1::__value_type<CGSize, CGSize>>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<long, CGSize>, void *>>> {
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<CGSize, CGSize>, void *>>> {
             struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
         } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<long, std::__1::__value_type<long, CGSize>, std::__1::less<long>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<CGSize, std::__1::__value_type<CGSize, CGSize>, std::__1::less<CGSize>, true>> {
             unsigned long long __first_;
         } __pair3_;
     } __tree_;
@@ -84,11 +107,11 @@ struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__h
     } __ptr_;
 };
 
-struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>*>>> {
-    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>*>>> {
-        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*> **__first_;
-        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>*>> {
-            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>*>> {
+struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>*>>> {
+    struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>**, std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>*>>> {
+        struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*> **__first_;
+        struct __bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>*>> {
+            struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>*>> {
                 unsigned long long __first_;
             } __data_;
         } __second_;
@@ -110,19 +133,35 @@ struct unordered_map<UIView *, const std::__1::pair<_NSRange, _NSRange>, std::__
     } __table_;
 };
 
-struct unordered_map<const UIView *, nui_size_cache, std::__1::hash<const UIView *>, std::__1::equal_to<const UIView *>, std::__1::allocator<std::__1::pair<const UIView *const, nui_size_cache>>> {
-    struct __hash_table<std::__1::__hash_value_type<const UIView *, nui_size_cache>, std::__1::__unordered_map_hasher<const UIView *, std::__1::__hash_value_type<const UIView *, nui_size_cache>, std::__1::hash<const UIView *>, true>, std::__1::__unordered_map_equal<const UIView *, std::__1::__hash_value_type<const UIView *, nui_size_cache>, std::__1::equal_to<const UIView *>, true>, std::__1::allocator<std::__1::__hash_value_type<const UIView *, nui_size_cache>>> {
-        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>*>>> __bucket_list_;
-        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>>> {
-            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<const UIView *, nui_size_cache>, void *>*> __first_;
+struct unordered_map<unsigned long, const std::__1::pair<UIView *, UIView *>, std::__1::hash<unsigned long>, std::__1::equal_to<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, const std::__1::pair<UIView *, UIView *>>>> {
+    struct __hash_table<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>>> {
+        struct unique_ptr<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>*[], std::__1::__bucket_list_deallocator<std::__1::allocator<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>*>>> __bucket_list_;
+        struct __compressed_pair<std::__1::__hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*>, std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>>> {
+            struct __hash_node_base<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, void *>*> __first_;
         } __p1_;
-        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<const UIView *, std::__1::__hash_value_type<const UIView *, nui_size_cache>, std::__1::hash<const UIView *>, true>> {
+        struct __compressed_pair<unsigned long, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, std::__1::hash<unsigned long>, true>> {
             unsigned long long __first_;
         } __p2_;
-        struct __compressed_pair<float, std::__1::__unordered_map_equal<const UIView *, std::__1::__hash_value_type<const UIView *, nui_size_cache>, std::__1::equal_to<const UIView *>, true>> {
+        struct __compressed_pair<float, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, const std::__1::pair<UIView *, UIView *>>, std::__1::equal_to<unsigned long>, true>> {
             float __first_;
         } __p3_;
     } __table_;
+};
+
+struct vector<CGRect, std::__1::allocator<CGRect>> {
+    struct CGRect *__begin_;
+    struct CGRect *__end_;
+    struct __compressed_pair<CGRect *, std::__1::allocator<CGRect>> {
+        struct CGRect *__first_;
+    } __end_cap_;
+};
+
+struct vector<_NUIBoxArrangementCell, std::__1::allocator<_NUIBoxArrangementCell>> {
+    struct _NUIBoxArrangementCell *__begin_;
+    struct _NUIBoxArrangementCell *__end_;
+    struct __compressed_pair<_NUIBoxArrangementCell *, std::__1::allocator<_NUIBoxArrangementCell>> {
+        struct _NUIBoxArrangementCell *__first_;
+    } __end_cap_;
 };
 
 struct vector<_NUIGridArrangementCell, std::__1::allocator<_NUIGridArrangementCell>> {
@@ -165,6 +204,14 @@ typedef struct {
 } CDStruct_a157df34;
 
 // Template types
+typedef struct vector<_NUIBoxArrangementCell, std::__1::allocator<_NUIBoxArrangementCell>> {
+    struct _NUIBoxArrangementCell *__begin_;
+    struct _NUIBoxArrangementCell *__end_;
+    struct __compressed_pair<_NUIBoxArrangementCell *, std::__1::allocator<_NUIBoxArrangementCell>> {
+        struct _NUIBoxArrangementCell *__first_;
+    } __end_cap_;
+} vector_0b89710d;
+
 typedef struct vector<_NUIGridArrangementCell, std::__1::allocator<_NUIGridArrangementCell>> {
     struct _NUIGridArrangementCell *__begin_;
     struct _NUIGridArrangementCell *__end_;

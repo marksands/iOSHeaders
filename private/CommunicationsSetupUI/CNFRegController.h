@@ -161,7 +161,7 @@
 - (void)_clearAccountCache;
 - (id)loginForAccount:(id)arg1;
 - (void)signoutAccount:(id)arg1;
-- (void)_signOutAccount:(id)arg1 delete:(_Bool)arg2;
+- (void)_signOutAccount:(id)arg1;
 - (id)beginAccountSetupWithAccount:(id)arg1;
 - (id)beginAccountSetupWithLogin:(id)arg1 password:(id)arg2 foundExisting:(_Bool *)arg3;
 - (id)beginAccountSetupWithLogin:(id)arg1 authID:(id)arg2 authToken:(id)arg3 regionInfo:(id)arg4 foundExisting:(_Bool *)arg5;

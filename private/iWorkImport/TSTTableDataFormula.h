@@ -9,10 +9,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataFormula : TSTTableDataObject
 {
-    struct TSCEFormula *mFormula;
+    struct TSCEFormula *_formula;
 }
 
-@property(readonly, nonatomic) struct TSCEFormula *formula; // @synthesize formula=mFormula;
+@property(readonly, nonatomic) struct TSCEFormula *formula; // @synthesize formula=_formula;
+- (void)setFormula:(const struct TSCEFormula *)arg1;
 - (void)dealloc;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

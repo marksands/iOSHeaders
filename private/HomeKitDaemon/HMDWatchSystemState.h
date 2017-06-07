@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class NSHashTable;
+@class NSHashTable, NSObject;
 @protocol OS_dispatch_queue;
 
-@interface HMDWatchSystemState : NSObject
+@interface HMDWatchSystemState : HMFObject
 {
     _Bool _companionReachable;
     NSHashTable *_watchSystemStateDelegates;

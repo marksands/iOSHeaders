@@ -11,11 +11,21 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)errorForStatus:(int)arg1;
++ (_Bool)shouldUseTouchID;
++ (void)setTouchIDAppPreferenceEnabled:(_Bool)arg1;
++ (void)cryptoProcessData:(id)arg1 encrypt:(_Bool)arg2 localizedReason:(id)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
++ (long long)touchIDAvailability;
++ (id)defaultServiceForGenericItem:(id)arg1;
++ (void)authenticateAndUpgradeKeychainResult:(id)arg1 localizedReason:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 + (_Bool)removeGenericItem:(id)arg1 error:(id *)arg2;
++ (id)mutableQueryForGenericItem:(id)arg1 returnData:(_Bool)arg2;
 + (_Bool)lookupGenericItem:(id)arg1 account:(id *)arg2 passphrase:(id *)arg3 error:(id *)arg4;
 + (_Bool)lookupGenericItem:(id)arg1 passphrase:(id *)arg2 error:(id *)arg3;
-+ (_Bool)setPassphrase:(id)arg1 forGenericItem:(id)arg2 service:(id)arg3 description:(id)arg4 label:(id)arg5 account:(id)arg6 error:(id *)arg7;
-+ (_Bool)setPassphrase:(id)arg1 forGenericItem:(id)arg2 service:(id)arg3 description:(id)arg4 label:(id)arg5 error:(id *)arg6;
++ (void)cancelTouchIDIfNeeded;
++ (void)lookupGenericItem:(id)arg1 localizedReason:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
++ (void)setPassphrase:(id)arg1 forGenericItem:(id)arg2 service:(id)arg3 description:(id)arg4 label:(id)arg5 account:(id)arg6 preferTouchID:(_Bool)arg7 queue:(id)arg8 completion:(CDUnknownBlockType)arg9;
++ (_Bool)setPassphrase:(id)arg1 forGenericItem:(id)arg2 service:(id)arg3 description:(id)arg4 label:(id)arg5 account:(id)arg6 preferTouchID:(_Bool)arg7 error:(id *)arg8;
 
 @end
 

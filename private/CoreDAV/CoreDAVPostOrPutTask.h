@@ -25,10 +25,10 @@
 @property(retain, nonatomic) NSString *requestDataContentType; // @synthesize requestDataContentType=_requestDataContentType;
 @property(retain, nonatomic) NSString *previousETag; // @synthesize previousETag=_previousETag;
 @property(nonatomic) _Bool forceToServer; // @synthesize forceToServer=_forceToServer;
+- (void).cxx_destruct;
 - (id)requestBody;
 - (id)additionalHeaderValues;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDataPayload:(id)arg1 dataContentType:(id)arg2 atURL:(id)arg3 previousETag:(id)arg4;
 - (id)initWithURL:(id)arg1;
 

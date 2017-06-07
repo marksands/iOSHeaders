@@ -8,6 +8,7 @@
 
 @class PDFPage, PDFThumbnailItem_ios, UITouch;
 
+__attribute__((visibility("hidden")))
 @interface PDFCollectionView_ios : PDFCollectionView
 {
     _Bool _isInScrubbingGesture;

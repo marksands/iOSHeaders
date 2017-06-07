@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@protocol OS_dispatch_queue, OS_dispatch_semaphore, SFWirelessSettingsControllerDelegate;
+@protocol SFWirelessSettingsControllerDelegate;
 
 @interface SFWirelessSettingsController : NSObject
 {
@@ -18,12 +18,11 @@
     _Bool _wirelessCarPlayEnabled;
     _Bool _wirelessAccessPointEnabled;
     struct __SFOperation *_information;
-    NSObject<OS_dispatch_queue> *_informationQueue;
-    NSObject<OS_dispatch_semaphore> *_firstCallBackSemaphore;
 }
 
 @property __weak id <SFWirelessSettingsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)invalidate;
 - (void)dealloc;
 @property(readonly, getter=isWirelessCarPlayEnabled) _Bool wirelessCarPlayEnabled;
 @property(readonly, getter=isWirelessAccessPointEnabled) _Bool wirelessAccessPointEnabled;

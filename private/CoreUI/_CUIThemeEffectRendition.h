@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
 {
     const struct _cuieffectdata *effectData;
     CUIShapeEffectPreset *_effectPreset;
+    float _minimumShadowSpread;
 }
 
 + (id)_filteredCSIDataFromBaseCSIData:(id)arg1;

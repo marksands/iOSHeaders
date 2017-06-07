@@ -31,6 +31,7 @@
 @property(retain, nonatomic) GEOGenericInstruction *genericInstruction; // @synthesize genericInstruction=_genericInstruction;
 @property(retain, nonatomic) GEOTransitListInstruction *transitListInstruction; // @synthesize transitListInstruction=_transitListInstruction;
 @property(retain, nonatomic) GEOTransitSignInstruction *transitSignInstruction; // @synthesize transitSignInstruction=_transitSignInstruction;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,7 +49,6 @@
 @property(readonly, nonatomic) _Bool hasGenericInstruction;
 @property(readonly, nonatomic) _Bool hasTransitListInstruction;
 @property(readonly, nonatomic) _Bool hasTransitSignInstruction;
-- (void)dealloc;
 @property(readonly, nonatomic) id <GEOServerFormattedString> countStopsFormattedString;
 @property(readonly, nonatomic) id <GEOServerFormattedString> departureBarFormattedString;
 

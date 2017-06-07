@@ -9,14 +9,18 @@
 __attribute__((visibility("hidden")))
 @interface TSCEBooleanCellValue : TSCECellValue
 {
-    struct TSCEBooleanValue *mBooleanValue;
+    struct TSCEBooleanValue *_booleanValue;
 }
 
 - (void)encodeToArchive:(struct BooleanCellValueArchive *)arg1;
 - (id)initWithArchive:(const struct BooleanCellValueArchive *)arg1 locale:(id)arg2;
+- (long long)compareToCellValue:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqualToCellValue:(id)arg1;
+- (struct TSCEValue)tsceValue;
 - (id)displayString;
-- (CDStruct_28403e59)formatStruct;
+- (id)format;
 - (struct TSCEBooleanValue *)booleanValue;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

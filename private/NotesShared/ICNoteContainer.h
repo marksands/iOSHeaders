@@ -19,7 +19,7 @@
 - (_Bool)supportsEditingNotes;
 - (id)accountName;
 - (id)cloudAccount;
-- (id)noteContainerAccount;
+@property(readonly, nonatomic) ICAccount *noteContainerAccount;
 - (id)titleForTableViewCell;
 - (id)titleForNavigationBar;
 - (_Bool)noteIsVisible:(id)arg1;
@@ -27,6 +27,7 @@
 - (id)visibleNotes;
 - (id)predicateForSearchableAttachments;
 - (id)predicateForSearchableNotes;
+- (id)predicateForPinnedNotes;
 - (id)predicateForVisibleNotes;
 - (_Bool)supportsVisibilityTestingType:(long long)arg1;
 

@@ -37,6 +37,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic, getter=_expectsResponse) _Bool expectsResponse; // @synthesize expectsResponse=_expectsResponse;
 @property(readonly, copy, nonatomic) BSSettings *info; // @synthesize info=_info;
 - (void)_queue_tryExecuteQueueHandler;
 - (id)_queue_encodedSendRight;

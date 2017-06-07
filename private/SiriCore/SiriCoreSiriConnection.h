@@ -38,7 +38,7 @@
     _Bool _usesProxyConnection;
     _Bool _deviceIsInWalkaboutExperimentGroup;
     _Bool _siriConnectionUsesPeerManagedSync;
-    Class _peerStreamProviderClass;
+    Class _peerProviderClass;
     NSMutableArray *_connMethodUsedHistory;
     _Bool _imposePolicyBan;
     _Bool _skipPeer;
@@ -50,7 +50,7 @@
 @property(copy, nonatomic) SAConnectionPolicy *connectionPolicy; // @synthesize connectionPolicy=_connectionPolicy;
 @property(nonatomic) _Bool imposePolicyBan; // @synthesize imposePolicyBan=_imposePolicyBan;
 @property(copy, nonatomic) NSString *connectionId; // @synthesize connectionId=_connectionId;
-@property(retain, nonatomic) Class peerStreamProviderClass; // @synthesize peerStreamProviderClass=_peerStreamProviderClass;
+@property(retain, nonatomic) Class peerProviderClass; // @synthesize peerProviderClass=_peerProviderClass;
 @property(nonatomic) _Bool siriConnectionUsesPeerManagedSync; // @synthesize siriConnectionUsesPeerManagedSync=_siriConnectionUsesPeerManagedSync;
 @property(nonatomic) _Bool deviceIsInWalkaboutExperimentGroup; // @synthesize deviceIsInWalkaboutExperimentGroup=_deviceIsInWalkaboutExperimentGroup;
 @property(nonatomic) _Bool usesProxyConnection; // @synthesize usesProxyConnection=_usesProxyConnection;
@@ -83,6 +83,7 @@
 - (void)getAnalysisInfo:(CDUnknownBlockType)arg1;
 - (id)analysisInfo;
 - (void)cancelSynchronously:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)probeConnection;
 - (void)barrier:(CDUnknownBlockType)arg1;
 - (void)setSendPings:(_Bool)arg1;
 - (void)sendCommand:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;

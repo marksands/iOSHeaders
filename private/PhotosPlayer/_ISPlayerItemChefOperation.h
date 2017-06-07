@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) CDStruct_e83c9415 trimmedTimeRange; // @synthesize trimmedTimeRange=_trimmedTimeRange;
 @property(readonly, nonatomic) AVAsset *asset; // @synthesize asset=_asset;
 - (void).cxx_destruct;
+- (void)_preparePlayerItem;
 - (void)_handleValuesDidLoad;
 - (void)main;
 - (id)initWithAsset:(id)arg1 trimmedTimeRange:(CDStruct_e83c9415)arg2 photoTime:(CDStruct_1b6d18a9)arg3 includeAudio:(_Bool)arg4 includeVideo:(_Bool)arg5 resultHandler:(CDUnknownBlockType)arg6;

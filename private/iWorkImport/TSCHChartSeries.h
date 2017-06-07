@@ -70,6 +70,9 @@ __attribute__((visibility("hidden")))
 - (void)clearParent;
 - (void)modelSyncSetStyle:(id)arg1;
 - (void)modelSyncSetNonStyle:(id)arg1;
+- (unsigned int)valueLabelPosition;
+- (id)valueLabelStringForValueIndex:(unsigned long long)arg1;
+- (id)seriesNameStringForValueIndex:(unsigned long long)arg1;
 - (id)formattedValueLabelStringForValueIndex:(unsigned long long)arg1;
 - (id)axisTypesForValueLabelString;
 - (_Bool)hasCustomFormatForGridValueType:(int)arg1;

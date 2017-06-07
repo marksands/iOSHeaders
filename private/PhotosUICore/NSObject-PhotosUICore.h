@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @interface NSObject (PhotosUICore)
++ (void)px_enumeratePropertiesUsingBlock:(CDUnknownBlockType)arg1;
 + (void)px_performOnceForFirstAncestorClassSubclassOf:(Class)arg1 context:(void *)arg2 block:(CDUnknownBlockType)arg3;
 + (void)px_swizzleMethod:(SEL)arg1 withMethod:(SEL)arg2;
 @end

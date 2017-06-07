@@ -6,42 +6,50 @@
 
 #import <UIKit/UIView.h>
 
-#import <MaterialKit/_UISettingsKeyObserver-Protocol.h>
+#import <MaterialKit/MTMaterialSettingsObserving-Protocol.h>
 
-@class MTMaterialSettings, NSString, _UIBackdropView;
+@class MTVibrantStylingProvider, NSString;
+@protocol MTMaterialSettings><MTMaterialSettingsObservable;
 
-@interface MTMaterialView : UIView <_UISettingsKeyObserver>
+@interface MTMaterialView : UIView <MTMaterialSettingsObserving>
 {
-    unsigned long long _styleOptions;
-    _UIBackdropView *_backdropView;
+    id <MTMaterialSettings><MTMaterialSettingsObservable> _settings;
+    unsigned long long _options;
+    UIView *_backdropView;
     UIView *_lightOverlayView;
     UIView *_whiteOverlayView;
-    UIView *_cutoutOverlayView;
-    MTMaterialSettings *_settings;
     _Bool _cornerRadiusIsContinuous;
-    _Bool _captureOnly;
-    double _subviewsContinuousCornerRadius;
+    _Bool _highlighted;
+    NSString *_groupName;
 }
 
-+ (id)materialViewWithStyleOptions:(unsigned long long)arg1;
-+ (id)materialViewWithStyleOptions:(unsigned long long)arg1 materialSettings:(id)arg2;
-+ (id)materialViewWithStyleOptions:(unsigned long long)arg1 materialSettings:(id)arg2 captureOnly:(_Bool)arg3;
-@property(nonatomic, getter=_subviewsContinuousCornerRadius, setter=_setSubviewsContinuousCornerRadius:) double subviewsContinuousCornerRadius; // @synthesize subviewsContinuousCornerRadius=_subviewsContinuousCornerRadius;
++ (id)materialViewWithRecipe:(long long)arg1 options:(unsigned long long)arg2;
+@property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
+@property(copy, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
 - (void).cxx_destruct;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
-@property(nonatomic) double grayscaleValue;
+- (id)_backdropLayer;
 - (void)_reduceTransparencyStatusDidChange;
-- (void)_configureCutoutOverlayViewIfNecessary;
 - (void)_configureWhiteOverlayViewIfNecessary;
 - (void)_configureLightOverlayViewIfNecessary;
+- (id)_lightOverlayColor;
+- (id)_lightOverlaySettings;
+- (id)_configureOverlayView:(id *)arg1 withOptions:(unsigned long long)arg2 withBackgroundColor:(id)arg3;
+- (id)_configureOverlayView:(id *)arg1 ofClass:(Class)arg2 withOptions:(unsigned long long)arg3 withBackgroundColor:(id)arg4;
 - (void)_configureBackdropViewIfNecessary;
+- (id)_luminanceOverlaySettings;
+- (id)_backdropViewSettingsForMaterialSettings:(id)arg1 options:(unsigned long long)arg2;
 - (void)_configureIfNecessary;
 - (void)_setContinuousCornerRadius:(double)arg1;
 - (double)_continuousCornerRadius;
-@property(nonatomic) double cornerRadius;
-@property(copy, nonatomic) NSString *groupName;
+- (void)_setCornerRadius:(double)arg1;
+- (double)cornerRadius;
 - (void)dealloc;
-- (id)initWithStyleOptions:(unsigned long long)arg1 materialSettings:(id)arg2 captureOnly:(_Bool)arg3;
+- (id)initWithRecipe:(long long)arg1 options:(unsigned long long)arg2;
+@property(nonatomic) _Bool allowsInPlaceFiltering;
+@property(readonly, nonatomic) __weak MTVibrantStylingProvider *vibrantStylingProvider;
+@property(readonly, nonatomic) id <MTMaterialSettings><MTMaterialSettingsObservable> materialSettings;
+- (void)_transitionToSettings:(id)arg1 options:(unsigned long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,11 +6,14 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class CNAvatarView, CNContact, HMIncomingHomeInvitation, HUPillButton, NSLayoutConstraint, UIActivityIndicatorView, UILabel, UIView;
+@class CNAvatarView, CNContact, HMIncomingHomeInvitation, HUPillButton, UIActivityIndicatorView, UILabel, UIView;
+@protocol HUIncomingInvitationTableViewCellDelegate;
 
 @interface HUIncomingInvitationTableViewCell : UITableViewCell
 {
+    _Bool _showSpinner;
     HMIncomingHomeInvitation *_invitation;
+    id <HUIncomingInvitationTableViewCellDelegate> _delegate;
     CNContact *_contact;
     CNAvatarView *_avatarView;
     UIView *_containerView;
@@ -19,13 +22,9 @@
     HUPillButton *_declineButton;
     HUPillButton *_acceptButton;
     UIActivityIndicatorView *_spinner;
-    NSLayoutConstraint *_declineButtonHiddenConstraint;
-    NSLayoutConstraint *_acceptButtonHiddenConstraint;
 }
 
 + (id)_formatDate:(id)arg1;
-@property(retain, nonatomic) NSLayoutConstraint *acceptButtonHiddenConstraint; // @synthesize acceptButtonHiddenConstraint=_acceptButtonHiddenConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *declineButtonHiddenConstraint; // @synthesize declineButtonHiddenConstraint=_declineButtonHiddenConstraint;
 @property(retain, nonatomic) UIActivityIndicatorView *spinner; // @synthesize spinner=_spinner;
 @property(retain, nonatomic) HUPillButton *acceptButton; // @synthesize acceptButton=_acceptButton;
 @property(retain, nonatomic) HUPillButton *declineButton; // @synthesize declineButton=_declineButton;
@@ -34,12 +33,15 @@
 @property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) CNAvatarView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
+@property(nonatomic) __weak id <HUIncomingInvitationTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool showSpinner; // @synthesize showSpinner=_showSpinner;
 @property(retain, nonatomic) HMIncomingHomeInvitation *invitation; // @synthesize invitation=_invitation;
 - (void).cxx_destruct;
-- (void)hideInvitationSpinner;
-- (void)showInvitationSpinner;
+- (void)_hideInvitationSpinner;
+- (void)_showInvitationSpinner;
 - (void)acceptButtonPressed:(id)arg1;
 - (void)declineButtonPressed:(id)arg1;
+- (void)prepareForReuse;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

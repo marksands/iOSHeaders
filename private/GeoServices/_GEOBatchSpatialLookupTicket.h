@@ -4,29 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <GeoServices/GEOAbstractTicket.h>
 
 #import <GeoServices/GEOMapServiceBatchSpatialLookupTicket-Protocol.h>
 
 @class GEOMapServiceTraits, GEOSpatialLookupBatchRequest, GEOSpatialLookupBatchResponse, NSArray, NSMapTable, NSString;
 
 __attribute__((visibility("hidden")))
-@interface _GEOBatchSpatialLookupTicket : NSObject <GEOMapServiceBatchSpatialLookupTicket>
+@interface _GEOBatchSpatialLookupTicket : GEOAbstractTicket <GEOMapServiceBatchSpatialLookupTicket>
 {
-    GEOMapServiceTraits *_traits;
     GEOSpatialLookupBatchRequest *_request;
     GEOSpatialLookupBatchResponse *_response;
     NSArray *_parameters;
     NSMapTable *_parametersToMapItems;
-    _Bool _canceled;
 }
 
-@property(readonly, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
+- (void).cxx_destruct;
 - (id)mapItemsForParameters:(id)arg1;
-- (void)cancel;
 - (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2 queue:(id)arg3;
 - (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 - (id)initWithRequest:(id)arg1 forParameters:(id)arg2 traits:(id)arg3;
 
 // Remaining properties
@@ -34,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) GEOMapServiceTraits *traits;
 
 @end
 

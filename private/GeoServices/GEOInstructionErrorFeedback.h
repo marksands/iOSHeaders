@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSMutableArray *serverInstructions; // @synthesize serverInstructions=_serverInstructions;
 @property(retain, nonatomic) NSMutableArray *clientInstructions; // @synthesize clientInstructions=_clientInstructions;
 @property(nonatomic) _Bool isSpoken; // @synthesize isSpoken=_isSpoken;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -55,7 +56,6 @@
 - (id)maneuverTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasManeuverType;
 @property(nonatomic) int maneuverType; // @synthesize maneuverType=_maneuverType;
-- (void)dealloc;
 
 @end
 

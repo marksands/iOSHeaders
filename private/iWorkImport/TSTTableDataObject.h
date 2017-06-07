@@ -9,10 +9,10 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataObject : NSObject
 {
-    unsigned int mRefCount;
+    unsigned int _refCount;
 }
 
-@property(readonly, nonatomic) unsigned int refCount; // @synthesize refCount=mRefCount;
+@property(readonly, nonatomic) unsigned int refCount; // @synthesize refCount=_refCount;
 - (void)addReferencesFromObject:(id)arg1;
 - (_Bool)dropReference;
 - (void)takeReference;

@@ -9,7 +9,7 @@
 #import <AssistantUI/NSCopying-Protocol.h>
 #import <AssistantUI/NSSecureCoding-Protocol.h>
 
-@class AFBulletin, AFRequestInfo, NSDictionary, NSNumber, NSString, NSURL, SAGuidanceCheckForGuideUpdateContext, SASPronunciationContext;
+@class AFBulletin, AFRequestInfo, AFSpeechRequestOptions, NSDictionary, NSNumber, NSString, NSURL, SAGuidanceCheckForGuideUpdateContext, SASPronunciationContext;
 
 @interface AFUIRequestOptions : NSObject <NSCopying, NSSecureCoding>
 {
@@ -36,11 +36,13 @@
     NSNumber *_homeButtonUpFromBeep;
     NSDictionary *_continuityInfo;
     AFRequestInfo *_requestInfo;
+    AFSpeechRequestOptions *_speechRequestOptions;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool releaseAudioSessionOnRecordingCompletion; // @synthesize releaseAudioSessionOnRecordingCompletion=_releaseAudioSessionOnRecordingCompletion;
 @property(nonatomic) _Bool acousticIdEnabled; // @synthesize acousticIdEnabled=_acousticIdEnabled;
+@property(retain, nonatomic) AFSpeechRequestOptions *speechRequestOptions; // @synthesize speechRequestOptions=_speechRequestOptions;
 @property(retain, nonatomic) AFRequestInfo *requestInfo; // @synthesize requestInfo=_requestInfo;
 @property(copy, nonatomic) NSDictionary *continuityInfo; // @synthesize continuityInfo=_continuityInfo;
 @property(retain, nonatomic) NSNumber *homeButtonUpFromBeep; // @synthesize homeButtonUpFromBeep=_homeButtonUpFromBeep;

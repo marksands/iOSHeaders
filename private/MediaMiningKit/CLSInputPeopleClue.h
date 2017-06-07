@@ -14,6 +14,7 @@
 {
     CLSPerson *_person;
     PHPhotoLibrary *_photoLibrary;
+    unsigned long long _numberOfFaces;
 }
 
 + (_Bool)supportsSecureCoding;
@@ -21,6 +22,7 @@
 + (id)clueWithPeopleUUID:(id)arg1 inPhotoLibrary:(id)arg2;
 + (id)cluesWithPeoples:(id)arg1;
 + (id)clueWithPeople:(id)arg1;
+@property(nonatomic) unsigned long long numberOfFaces; // @synthesize numberOfFaces=_numberOfFaces;
 @property(nonatomic) __weak PHPhotoLibrary *photoLibrary; // @synthesize photoLibrary=_photoLibrary;
 - (void).cxx_destruct;
 - (_Bool)isEqualToClue:(id)arg1;

@@ -11,6 +11,7 @@
 }
 
 - (id)description;
+- (struct _NSRange)range;
 - (id)init;
 
 @end

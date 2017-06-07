@@ -11,29 +11,30 @@
 __attribute__((visibility("hidden")))
 @interface KNRecording : TSPObject
 {
-    NSArray *mEventTracks;
-    KNRecordingMovieTrack *mMovieTrack;
-    double mDuration;
-    NSDate *mModificationDate;
-    KNRecordingSyncState *mSyncState;
+    NSArray *_eventTracks;
+    KNRecordingMovieTrack *_movieTrack;
+    double _duration;
+    NSDate *_modificationDate;
+    KNRecordingSyncState *_syncState;
 }
 
-@property(readonly, nonatomic) NSDate *modificationDate; // @synthesize modificationDate=mModificationDate;
-@property(readonly, nonatomic) double duration; // @synthesize duration=mDuration;
-@property(readonly, nonatomic) KNRecordingMovieTrack *movieTrack; // @synthesize movieTrack=mMovieTrack;
-@property(readonly, nonatomic) NSArray *eventTracks; // @synthesize eventTracks=mEventTracks;
+@property(readonly, nonatomic) NSDate *modificationDate; // @synthesize modificationDate=_modificationDate;
+@property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
+@property(readonly, nonatomic) KNRecordingMovieTrack *movieTrack; // @synthesize movieTrack=_movieTrack;
+@property(readonly, nonatomic) NSArray *eventTracks; // @synthesize eventTracks=_eventTracks;
+- (void).cxx_destruct;
 - (void)slideNodeWillBeRemovedFromDocument:(id)arg1;
 - (void)slideNodeWasAddedToDocument:(id)arg1;
 - (id)recordingByMarkingAsOutOfSyncWithShow:(_Bool)arg1 withLocalOutOfSyncToken:(id)arg2 restoringModificationDate:(id)arg3;
-- (id)recordingByReplacingSegmentAfterTime:(double)arg1 withRecording:(id)arg2;
+- (id)recordingByReplacingAfterTime:(double)arg1 withRecording:(id)arg2 trimmedMovieSegment:(id)arg3;
+- (id)movieSegmentToTrimWhenReplacingAfterTime:(double)arg1 trimDuration:(out double *)arg2;
 - (_Bool)isLocallyOutOfSyncWithShowUsingLocalOutOfSyncToken:(id)arg1;
 @property(readonly, nonatomic, getter=isInSyncWithShow) _Bool inSyncWithShow;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 eventTracks:(id)arg2 movieTrack:(id)arg3 duration:(double)arg4;
 - (id)initWithContext:(id)arg1 eventTracks:(id)arg2 movieTrack:(id)arg3 duration:(double)arg4 modificationDate:(id)arg5;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchive:(struct RecordingArchive *)arg1 archiver:(id)arg2;
 
 @end

@@ -21,9 +21,10 @@
 - (void)_resetStore:(id)arg1;
 - (long long)_receivedAnchorForEntityClass:(Class)arg1 store:(id)arg2 error:(id *)arg3;
 - (_Bool)_setReceivedAnchor:(long long)arg1 forEntityClass:(Class)arg2 store:(id)arg3 error:(id *)arg4;
-- (_Bool)_sendChanges:(id)arg1 session:(id)arg2 error:(id *)arg3;
+- (_Bool)_transactionDidEndForSession:(id)arg1 error:(id *)arg2;
+- (long long)_sendChanges:(id)arg1 session:(id)arg2 error:(id *)arg3;
 - (_Bool)_performSyncSession:(id)arg1 error:(id *)arg2;
-- (_Bool)_synchronizeSyncEntityClass:(Class)arg1 session:(id)arg2 predicate:(id)arg3 startAnchor:(long long *)arg4 finalAnchor:(long long)arg5 postTransactionBlocks:(id)arg6 error:(id *)arg7;
+- (long long)_synchronizeSyncEntityClass:(Class)arg1 session:(id)arg2 predicate:(id)arg3 startAnchor:(long long *)arg4 finalAnchor:(long long)arg5 postTransactionBlocks:(id)arg6 error:(id *)arg7;
 - (void)resetStore:(id)arg1;
 - (_Bool)applyAcknowledgedAnchorMap:(id)arg1 forStore:(id)arg2 resetNext:(_Bool)arg3 resetInvalid:(_Bool)arg4 error:(id *)arg5;
 - (_Bool)getReceivedAnchorMap:(id)arg1 forStore:(id)arg2 error:(id *)arg3;

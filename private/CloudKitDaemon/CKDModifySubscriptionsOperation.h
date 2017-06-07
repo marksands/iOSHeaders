@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_subscriptionsByServerID;
 }
 
++ (long long)isPredominatelyDownload;
 @property(retain, nonatomic) NSMutableDictionary *subscriptionsByServerID; // @synthesize subscriptionsByServerID=_subscriptionsByServerID;
 @property(retain, nonatomic) NSArray *subscriptionIDsToDelete; // @synthesize subscriptionIDsToDelete=_subscriptionIDsToDelete;
 @property(retain, nonatomic) NSArray *subscriptionsToSave; // @synthesize subscriptionsToSave=_subscriptionsToSave;

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 + (void)setOrderFromPickers:(id)arg1;
 + (id)pickerOrder;
 + (void)_ubiquityIdentityTokenDidChange:(id)arg1;
++ (BOOL)cloudMigrationStatus;
 + (BOOL)cloudEnabledStatus;
 + (void)_updateCloudEnabledStatus;
 + (void)__updateCloudEnabledStatus;

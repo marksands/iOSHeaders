@@ -17,7 +17,6 @@
 + (id)appSubscriptionsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)appSubscriptions;
 @property(copy, nonatomic) NSArray *activeSubscriptions;
-@property(copy, nonatomic) NSArray *activeSubscriptionBundleIds;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

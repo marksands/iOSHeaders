@@ -23,6 +23,7 @@
 + (Class)sectionsType;
 @property(nonatomic) _Bool enableRap; // @synthesize enableRap=_enableRap;
 @property(retain, nonatomic) NSMutableArray *sections; // @synthesize sections=_sections;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -38,7 +39,6 @@
 - (unsigned long long)sectionsCount;
 - (void)addSections:(id)arg1;
 - (void)clearSections;
-- (void)dealloc;
 
 @end
 

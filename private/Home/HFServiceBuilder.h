@@ -35,6 +35,8 @@
 - (id)_lazilyUpdateName;
 - (id)commitItem;
 - (id)_performValidation;
+@property(readonly, copy) NSString *description;
+- (id)removeItemFromHome;
 @property(readonly, nonatomic) NSArray *availableIconDescriptors;
 @property(readonly, nonatomic) _Bool supportsFavoriting;
 - (id)accessories;
@@ -44,7 +46,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

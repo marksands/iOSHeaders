@@ -9,7 +9,7 @@
 #import <iWorkImport/TSPDatabaseReaderDelegate-Protocol.h>
 #import <iWorkImport/TSPReadCoordinator-Protocol.h>
 
-@class NSMapTable, NSMutableDictionary, NSObject, NSString, NSURL, NSUUID, TSPDatabase, TSPDocumentResourceDataProvider, TSPFinalizeHandlerQueue, TSPObjectContext;
+@class NSMapTable, NSMutableDictionary, NSObject, NSString, NSURL, NSUUID, TSPDatabase, TSPFinalizeHandlerQueue, TSPObjectContext;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -19,7 +19,6 @@ __attribute__((visibility("hidden")))
     NSUUID *_baseObjectUUID;
     NSURL *_packageURL;
     TSPFinalizeHandlerQueue *_finalizeHandlerQueue;
-    TSPDocumentResourceDataProvider *_documentResourceDataProvider;
     TSPDatabase *_database;
     unsigned long long _databaseVersion;
     NSMapTable *_objects;
@@ -50,7 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long fileFormatVersion;
 - (id)createUpgradedOldAppBundleResourcePath:(id)arg1;
 - (id)dataForAppRelativePath:(id)arg1 filename:(id)arg2;
-- (id)documentResourceEntryForAppRelativePath:(id)arg1;
+- (id)documentResourceInfoForAppRelativePath:(id)arg1;
 - (id)dataForReadChannel:(id)arg1 filename:(id)arg2 linkURLOrNil:(id)arg3;
 - (id)dataForLinkURL:(id)arg1 filename:(id)arg2;
 - (id)dataForDatabaseObject:(id)arg1 filename:(id)arg2;
@@ -58,7 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)didUpdateLazyReferenceDelegate:(id)arg1;
 - (void)readRootObjectWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)endReading;
-- (id)initWithContext:(id)arg1 packageURL:(id)arg2 finalizeHandlerQueue:(id)arg3 documentResourceDataProvider:(id)arg4 error:(id *)arg5;
+- (id)initWithContext:(id)arg1 packageURL:(id)arg2 finalizeHandlerQueue:(id)arg3 error:(id *)arg4;
 - (id)init;
 
 // Remaining properties

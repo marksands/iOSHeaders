@@ -8,7 +8,7 @@
 
 #import <MediaMiningKit/NSCoding-Protocol.h>
 
-@class CLSInformant, CLSProfile, NSString;
+@class CLSInformant, CLSProfile, NSDictionary, NSString;
 
 @interface CLSClue : NSObject <NSCoding>
 {
@@ -17,6 +17,7 @@
     id _value;
     double _confidence;
     double _relevance;
+    NSDictionary *_extraParameters;
     CLSInformant *_informant;
     CLSProfile *_profile;
     NSString *_informantIdentifier;
@@ -31,6 +32,7 @@
 @property _Bool transient; // @synthesize transient=_transient;
 @property(retain) CLSProfile *profile; // @synthesize profile=_profile;
 @property(retain) CLSInformant *informant; // @synthesize informant=_informant;
+@property(retain) NSDictionary *extraParameters; // @synthesize extraParameters=_extraParameters;
 @property double relevance; // @synthesize relevance=_relevance;
 @property double confidence; // @synthesize confidence=_confidence;
 @property(retain) id value; // @synthesize value=_value;

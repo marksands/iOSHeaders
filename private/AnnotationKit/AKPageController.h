@@ -9,27 +9,31 @@
 #import <AnnotationKit/AKHighlightColorEditorControllerDelegate-Protocol.h>
 #import <AnnotationKit/AKNoteEditorControllerDelegate-Protocol.h>
 
-@class AKController, AKGeometryHelper, AKHighlightColorEditorController, AKLayerPresentationManager, AKPageModelController, NSMutableDictionary, NSString, UIView;
+@class AKController, AKGeometryHelper, AKHighlightColorEditorController, AKInkPageOverlayController, AKLayerPresentationManager, AKPageModelController, NSMutableDictionary, NSString, UIView;
 @protocol AKControllerDelegateProtocol;
 
 @interface AKPageController : NSObject <AKNoteEditorControllerDelegate, AKHighlightColorEditorControllerDelegate>
 {
     _Bool _shouldPixelate;
-    _Bool _layerPresentationManagerWasSetup;
+    _Bool _superviewDependentThingsWereSetUp;
     AKController *_controller;
     AKPageModelController *_pageModelController;
     unsigned long long _pageIndex;
     AKGeometryHelper *_geometryHelper;
     AKLayerPresentationManager *_layerPresentationManager;
     UIView *_overlayView;
+    AKInkPageOverlayController *_inkPageOverlayController;
+    id _inkOverlayDrawingUndoTarget;
     AKHighlightColorEditorController *_highlightColorEditorController;
     NSMutableDictionary *_noteEditors;
 }
 
 + (id)pageControllerWithController:(id)arg1 andPageModelController:(id)arg2;
 @property(retain) NSMutableDictionary *noteEditors; // @synthesize noteEditors=_noteEditors;
-@property _Bool layerPresentationManagerWasSetup; // @synthesize layerPresentationManagerWasSetup=_layerPresentationManagerWasSetup;
+@property _Bool superviewDependentThingsWereSetUp; // @synthesize superviewDependentThingsWereSetUp=_superviewDependentThingsWereSetUp;
 @property(retain, nonatomic) AKHighlightColorEditorController *highlightColorEditorController; // @synthesize highlightColorEditorController=_highlightColorEditorController;
+@property(retain, nonatomic) id inkOverlayDrawingUndoTarget; // @synthesize inkOverlayDrawingUndoTarget=_inkOverlayDrawingUndoTarget;
+@property(retain, nonatomic) AKInkPageOverlayController *inkPageOverlayController; // @synthesize inkPageOverlayController=_inkPageOverlayController;
 @property(retain, nonatomic) UIView *overlayView; // @synthesize overlayView=_overlayView;
 @property(retain, nonatomic) AKLayerPresentationManager *layerPresentationManager; // @synthesize layerPresentationManager=_layerPresentationManager;
 @property(retain, nonatomic) AKGeometryHelper *geometryHelper; // @synthesize geometryHelper=_geometryHelper;
@@ -48,7 +52,9 @@
 - (unsigned long long)edgeForNoteEditor:(id)arg1;
 - (void)noteEditorDidFinishEditing:(id)arg1;
 - (void)noteEditorDidBeginEditing:(id)arg1;
-- (void)openPopoverForNoteAnnotation:(id)arg1;
+- (void)openPopupAnnotation:(id)arg1;
+- (void)removeNoteFromAnnotation:(id)arg1;
+- (void)addPopupToAnnotation:(id)arg1 openPopup:(_Bool)arg2;
 - (_Bool)editorController:(id)arg1 isRightArrowEnabledForAnnotation:(id)arg2;
 - (void)editorController:(id)arg1 showEditMenuForAnnotation:(id)arg2;
 - (void)editorController:(id)arg1 deleteAnnotation:(id)arg2;
@@ -56,6 +62,7 @@
 - (void)editorController:(id)arg1 editNote:(id)arg2;
 - (void)editorController:(id)arg1 editedAnnotation:(id)arg2 toText:(id)arg3;
 - (void)openPopoverForHighlightAnnotation:(id)arg1;
+- (struct CGRect)visibleRectOfOverlay;
 - (double)modelBaseScaleFactor;
 - (id)annotationsBeneathLoupe:(id)arg1;
 - (id)newContentSnapshotPDFDataAtScale:(double)arg1 inRect:(struct CGRect)arg2 forLoupeAnnotation:(id)arg3;

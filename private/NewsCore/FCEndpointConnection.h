@@ -29,6 +29,7 @@
 - (void).cxx_destruct;
 - (_Bool)_hasOverrideCAPIBaseURL;
 - (id)_overrideCAPIBaseURLString;
+- (void)performHTTPRequestWithURL:(id)arg1 valuesByHTTPHeaderField:(id)arg2 method:(id)arg3 data:(id)arg4 contentType:(id)arg5 priority:(float)arg6 callbackQueue:(id)arg7 completion:(CDUnknownBlockType)arg8;
 - (void)performHTTPRequestWithURL:(id)arg1 method:(id)arg2 data:(id)arg3 contentType:(id)arg4 priority:(float)arg5 callbackQueue:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (id)initWithContext:(id)arg1;
 

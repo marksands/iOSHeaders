@@ -12,6 +12,7 @@
 {
     unsigned int _connection;
     NSMutableArray *_clockPersonalities;
+    struct mach_timebase_info _timebaseInfo;
     unsigned long long _machAbsoluteNanosecondClockIdentifier;
 }
 
@@ -21,9 +22,10 @@
 + (id)clockManager;
 + (id)sharedClockManager;
 + (id)timeSyncAudioClockDeviceUIDForClockIdentifier:(unsigned long long)arg1;
-+ (void)loadClockManagerNub;
 @property(readonly, nonatomic) unsigned long long machAbsoluteNanosecondClockIdentifier; // @synthesize machAbsoluteNanosecondClockIdentifier=_machAbsoluteNanosecondClockIdentifier;
 - (void)dealloc;
+- (unsigned long long)nanosecondsToMachAbsolute:(unsigned long long)arg1;
+- (unsigned long long)machAbsoluteToNanoseconds:(unsigned long long)arg1;
 - (_Bool)removeUserFilteredClockWithIdentifier:(unsigned long long)arg1 error:(id *)arg2;
 - (unsigned long long)addUserFilteredClockWithMachInterval:(unsigned long long)arg1 domainInterval:(unsigned long long)arg2 usingFilterShift:(unsigned char)arg3 isAdaptive:(_Bool)arg4 error:(id *)arg5;
 - (id)clockWithClockIdentifier:(unsigned long long)arg1;

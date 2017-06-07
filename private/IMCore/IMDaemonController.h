@@ -89,7 +89,6 @@
 - (void)_addressBookChanged:(id)arg1;
 - (void)setMyStatus:(unsigned long long)arg1 message:(id)arg2 forAccount:(id)arg3;
 - (void)setMyStatus:(unsigned long long)arg1 message:(id)arg2;
-- (void)setMyProfile:(id)arg1;
 - (void)setMyPicture:(id)arg1 smallPictureData:(id)arg2;
 - (id)_remoteObject;
 - (_Bool)setCapabilities:(unsigned int)arg1 forListenerID:(id)arg2;

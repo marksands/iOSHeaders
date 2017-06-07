@@ -6,13 +6,18 @@
 
 #import <iWorkImport/TSKAccessControllerDelegate-Protocol.h>
 
-@class NSURL, TSKCollaborationState, TSKDocumentRoot, TSPDocumentRevision, TSPObjectContext;
+@class NSObject, NSString, NSURL, SFUCryptoKey, TSKCollaborationState, TSKDocumentRoot, TSPDocumentRevision, TSPObjectContext;
+@protocol NSFilePresenter, OS_dispatch_queue;
 
 @protocol TSKDocumentRootDelegate <TSKAccessControllerDelegate>
 @property(readonly, nonatomic) NSURL *fileURL;
-- (TSKCollaborationState *)collaborationStateForContext:(TSPObjectContext *)arg1;
 
 @optional
+@property(readonly, retain, nonatomic) SFUCryptoKey *encryptionKey;
+@property(readonly, nonatomic) id <NSFilePresenter> cloudFilePresenter;
+- (void)documentRootDidRollbackOfflineCommands:(TSKDocumentRoot *)arg1;
+- (void)refreshSharingStateWithReason:(NSString *)arg1 queue:(NSObject<OS_dispatch_queue> *)arg2 completionBlock:(void (^)(TSKSharingState *, NSError *))arg3;
 - (void)documentRoot:(TSKDocumentRoot *)arg1 didUpdateDocumentRevision:(TSPDocumentRevision *)arg2;
+- (TSKCollaborationState *)collaborationStateForContext:(TSPObjectContext *)arg1;
 @end
 

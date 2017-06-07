@@ -22,6 +22,7 @@
 @property(readonly, copy, nonatomic) NSArray *utterances; // @synthesize utterances=_utterances;
 @property(readonly, copy, nonatomic) NSArray *phrases; // @synthesize phrases=_phrases;
 - (void).cxx_destruct;
+- (id)aceRecognition;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithPhrases:(id)arg1 utterances:(id)arg2;
 - (id)initWithPhrases:(id)arg1;

@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDAccessory, HMFMessage, NSSet, NSString;
+@class HMDAccessory, HMFMessage, NSObject, NSSet, NSString;
 @protocol HMDCameraSettingProactiveReaderDelegate, OS_dispatch_queue;
 
-@interface HMDCameraSettingProactiveReader : NSObject <HMFLogging>
+@interface HMDCameraSettingProactiveReader : HMFObject <HMFLogging>
 {
     HMFMessage *_message;
     NSObject<OS_dispatch_queue> *_workQueue;

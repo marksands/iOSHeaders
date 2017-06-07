@@ -13,23 +13,23 @@
 
 @interface ICDataPersister : NSObject <ICDataPersister, NSSecureCoding>
 {
+    unsigned long long _accumulatedDataSize;
     ICDataCryptor *_dataCryptor;
     NSURL *_cacheDirectoryURL;
     NSString *_objectIdentifier;
     NSMutableArray *_allURLs;
     NSMutableDictionary *_identifierToDataDictionary;
-    unsigned long long _accumulatedDataSize;
 }
 
 + (_Bool)supportsSecureCoding;
 + (void)deletePasteboardDataFiles;
 + (id)rootCacheDirectoryPathForPasteboard:(_Bool)arg1;
-@property(nonatomic) unsigned long long accumulatedDataSize; // @synthesize accumulatedDataSize=_accumulatedDataSize;
 @property(readonly, nonatomic) NSMutableDictionary *identifierToDataDictionary; // @synthesize identifierToDataDictionary=_identifierToDataDictionary;
 @property(readonly, nonatomic) NSMutableArray *allURLs; // @synthesize allURLs=_allURLs;
 @property(readonly, nonatomic) NSString *objectIdentifier; // @synthesize objectIdentifier=_objectIdentifier;
 @property(readonly, nonatomic) NSURL *cacheDirectoryURL; // @synthesize cacheDirectoryURL=_cacheDirectoryURL;
 @property(readonly, nonatomic) ICDataCryptor *dataCryptor; // @synthesize dataCryptor=_dataCryptor;
+@property(nonatomic) unsigned long long accumulatedDataSize; // @synthesize accumulatedDataSize=_accumulatedDataSize;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

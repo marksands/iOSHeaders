@@ -13,11 +13,16 @@
 
 @interface ICCloudSyncingObject : NSManagedObject <ICCloudObject, ICLoggable>
 {
-    _Bool needsToLoadDecryptedValues;
+    _Bool _needsToLoadDecryptedValues;
     _Bool mergingUnappliedEncryptedRecord;
     NSMutableDictionary *_decryptedValues;
+    CKRecord *_serverRecord;
+    CKShare *_serverShare;
+    CKRecord *_userSpecificServerRecord;
 }
 
++ (id)shareSystemFieldsTransformer;
++ (id)recordSystemFieldsTransformer;
 + (void)resetAllDeletedByThisDeviceProperties;
 + (id)deletedByThisDeviceSet;
 + (id)deletedByThisDeviceOperationQueue;
@@ -50,10 +55,8 @@
 + (id)failureCountQueue;
 + (id)objectWithRecordID:(id)arg1 context:(id)arg2;
 + (id)keyPathsForValuesAffectingCloudAccount;
-+ (void)applicationWillTerminate:(id)arg1;
-+ (void)initialize;
 @property(nonatomic, getter=isMergingUnappliedEncryptedRecord) _Bool mergingUnappliedEncryptedRecord; // @synthesize mergingUnappliedEncryptedRecord;
-@property(nonatomic) _Bool needsToLoadDecryptedValues; // @synthesize needsToLoadDecryptedValues;
+@property(nonatomic) _Bool needsToLoadDecryptedValues; // @synthesize needsToLoadDecryptedValues=_needsToLoadDecryptedValues;
 - (void).cxx_destruct;
 - (id)ic_loggingValues;
 - (id)ic_loggingIdentifier;
@@ -61,10 +64,12 @@
 - (id)loggingDescription;
 - (_Bool)hasAllMandatoryFields;
 - (void)resetUniqueIdentifier;
+@property(retain, nonatomic) CKRecord *userSpecificServerRecord; // @synthesize userSpecificServerRecord=_userSpecificServerRecord;
+@property(retain, nonatomic) CKShare *serverShare; // @synthesize serverShare=_serverShare;
+@property(retain, nonatomic) CKRecord *serverRecord; // @synthesize serverRecord=_serverRecord;
 @property(readonly, nonatomic) _Bool isUnsupported;
 - (_Bool)isInCloud;
 - (void)setInCloud:(_Bool)arg1;
-@property(retain, nonatomic) CKRecord *serverRecord; // @dynamic serverRecord;
 - (_Bool)deletedByThisDevice;
 - (void)setDeletedByThisDevice:(_Bool)arg1;
 - (long long)isPushingSameOrLaterThanVersion:(long long)arg1;
@@ -103,6 +108,7 @@
 - (_Bool)isSharedReadOnly;
 - (_Bool)isSharedRootObject;
 - (_Bool)isOwnedByCurrentUser;
+- (_Bool)canBeRootShareObject;
 - (_Bool)isSharedViaICloud;
 - (_Bool)canBeSharedViaICloud;
 - (_Bool)needsToDeleteShare;
@@ -110,7 +116,9 @@
 - (void)updateParentReferenceIfNecessary;
 - (id)childCloudObjects;
 - (id)parentCloudObject;
+- (void)updateMinimumSupportedNotesVersion;
 - (_Bool)supportsDeletionByTTL;
+@property(nonatomic) _Bool markedForDeletion; // @dynamic markedForDeletion;
 - (void)unmarkForDeletion;
 - (void)markForDeletion;
 - (void)fixBrokenReferences;
@@ -165,6 +173,8 @@
 - (_Bool)validateIdentifier:(inout id *)arg1 error:(out id *)arg2;
 - (void)awakeFromFetch;
 - (void)awakeFromInsert;
+- (void)didTurnIntoFault;
+- (id)initWithEntity:(id)arg1 insertIntoManagedObjectContext:(id)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) ICCloudState *cloudState; // @dynamic cloudState;
@@ -177,16 +187,16 @@
 @property(readonly) unsigned long long hash;
 @property(retain, nonatomic) NSString *identifier; // @dynamic identifier;
 @property(nonatomic) _Bool isPasswordProtected; // @dynamic isPasswordProtected;
-@property(nonatomic) _Bool markedForDeletion; // @dynamic markedForDeletion;
 @property(nonatomic) long long minimumSupportedNotesVersion; // @dynamic minimumSupportedNotesVersion;
 @property(nonatomic) _Bool needsInitialFetchFromCloud; // @dynamic needsInitialFetchFromCloud;
 @property(nonatomic) _Bool needsToSaveUserSpecificRecord; // @dynamic needsToSaveUserSpecificRecord;
 @property(retain, nonatomic) NSString *passwordHint; // @dynamic passwordHint;
 @property(retain, nonatomic) NSString *primitiveZoneOwnerName; // @dynamic primitiveZoneOwnerName;
-@property(retain, nonatomic) CKShare *serverShare; // @dynamic serverShare;
+@property(retain, nonatomic) NSData *serverRecordData; // @dynamic serverRecordData;
+@property(retain, nonatomic) NSData *serverShareData; // @dynamic serverShareData;
 @property(readonly) Class superclass;
 @property(retain, nonatomic) NSData *unappliedEncryptedRecord; // @dynamic unappliedEncryptedRecord;
-@property(retain, nonatomic) CKRecord *userSpecificServerRecord; // @dynamic userSpecificServerRecord;
+@property(retain, nonatomic) NSData *userSpecificServerRecordData; // @dynamic userSpecificServerRecordData;
 
 @end
 

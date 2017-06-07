@@ -29,15 +29,14 @@
     NSNumber *_pendingLevel;
     int _type;
     NSMutableDictionary *_userInfo;
-    NSString *_permanentTag;
 }
 
++ (_Bool)typeIsValidTransferDestination:(int)arg1;
 + (_Bool)isSentMailboxType:(int)arg1;
 + (_Bool)isDraftsMailboxType:(int)arg1;
 + (_Bool)isOutgoingMailboxType:(int)arg1;
 + (_Bool)isStandardizedMailboxUidType:(int)arg1;
 + (id)specialNameForType:(int)arg1;
-@property(retain, nonatomic) NSString *permanentTag; // @synthesize permanentTag=_permanentTag;
 @property(retain, nonatomic) NSArray *extraAttributes; // @synthesize extraAttributes=_extraAttributes;
 - (void)updateSuggestionsLostMessageSearchResultCount:(unsigned long long)arg1;
 @property(readonly, nonatomic) double suggestionsLostMessageSearchTimestamp;
@@ -49,7 +48,6 @@
 - (_Bool)alwaysWriteFullMessageFile;
 - (_Bool)shouldRestoreMessagesAfterFailedDelete;
 - (_Bool)isShared;
-- (_Bool)isSelectable;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)store;
 - (void)setCriterion:(id)arg1;
@@ -106,9 +104,7 @@
 - (_Bool)setChildren:(id)arg1;
 - (id)fullPathNonNil;
 - (id)mutableCopyOfChildren;
-- (id)descendantWithPermanentTag:(id)arg1;
 - (id)descendantWithExtraAttribute:(id)arg1;
-- (id)childWithPermanentTag:(id)arg1;
 - (id)childWithExtraAttribute:(id)arg1;
 - (id)childWithName:(id)arg1;
 - (unsigned long long)indexOfChild:(id)arg1;
@@ -121,6 +117,9 @@
 - (_Bool)hasChildren;
 - (id)_mutableChildren;
 - (id)children;
+- (_Bool)shouldUseNonDeletedForUnreadCount;
+- (void)updateMostRecentStatusCount:(unsigned long long)arg1;
+- (long long)statusCountDelta;
 - (unsigned long long)nonDeletedCount;
 - (unsigned long long)unreadCountMatchingCriterion:(id)arg1;
 - (unsigned long long)unreadCount;
@@ -133,14 +132,16 @@
 @property(readonly, copy, nonatomic) NSString *name;
 - (id)displayName;
 - (id)uniqueId;
-- (id)initWithName:(id)arg1 attributes:(unsigned int)arg2 forAccount:(id)arg3 permanentTag:(id)arg4;
+- (id)mutableDictionaryRepresentation;
+- (id)dictionaryRepresentation;
+- (id)_dictionaryRepresentation;
 - (id)initWithName:(id)arg1 attributes:(unsigned int)arg2 forAccount:(id)arg3 extraAttributes:(id)arg4;
 - (id)_initWithName:(id)arg1 attributes:(unsigned int)arg2 forAccount:(id)arg3;
 - (id)initWithAccount:(id)arg1;
 - (id)init;
 - (void)dealloc;
-@property(readonly, copy, nonatomic) NSString *persistentID;
 @property(readonly, nonatomic) MFInvocationQueue *attachmentDownloadQueue;
+@property(readonly, copy, nonatomic) NSString *persistentID;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

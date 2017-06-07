@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 + (id)tupleWithChunk:(id)arg1 property:(id)arg2 value:(id)arg3;
 @property(readonly, nonatomic) KNBuildAttributeValue *value; // @synthesize value=_attributeValue;
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isValidForSlide:(id)arg1;
 @property(readonly, nonatomic) _Bool isChunkTuple;

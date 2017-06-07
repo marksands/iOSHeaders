@@ -12,7 +12,7 @@
 - (void)sendCrowdsourcedAutoFillFeedback:(NSDictionary *)arg1;
 
 @optional
-- (void)sendSmartSearchFieldClickedFeedback;
+- (void)sendSmartSearchFieldClickedFeedbackWithReaderAvailable:(_Bool)arg1;
 - (void)sendWindowMiniaturizeByMouseFeedback;
 - (void)sendWindowMiniaturizeByKeyboardFeedback;
 - (void)sendWindowCloseByMouseFeedback;

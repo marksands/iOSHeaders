@@ -29,6 +29,7 @@
     _Bool _isUpdate;
     _Bool _launchProhibited;
     _Bool _softwareIconNeedsShine;
+    _Bool _thirtyTwoBitOnly;
     NSData *_appReceiptData;
     NSArray *_assets;
     NSNumber *_artistID;
@@ -78,6 +79,7 @@
 @property(copy, nonatomic) NSNumber *iAdAttribution; // @synthesize iAdAttribution=_iAdAttribution;
 @property(copy, nonatomic) NSString *variantID; // @synthesize variantID=_variantID;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(getter=is32BitOnly) _Bool thirtyTwoBitOnly; // @synthesize thirtyTwoBitOnly=_thirtyTwoBitOnly;
 @property(copy, nonatomic) NSString *thumbnailURL; // @synthesize thumbnailURL=_thumbnailURL;
 @property(copy, nonatomic) NSString *storeCohort; // @synthesize storeCohort=_storeCohort;
 @property(copy, nonatomic) NSNumber *softwareVersionExternalIdentifier; // @synthesize softwareVersionExternalIdentifier=_softwareVersionExternalIdentifier;

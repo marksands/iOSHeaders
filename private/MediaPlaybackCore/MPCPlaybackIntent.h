@@ -12,32 +12,30 @@
 @interface MPCPlaybackIntent : NSObject
 {
     id <MPCPlaybackIntentDataSource> _resolvedTracklistDataSource;
-    long long _kind;
-    NSString *_title;
+    NSString *_localizedTitle;
     long long _tracklistSource;
     id <NSSecureCoding> _tracklistToken;
-    long long _artworkSource;
-    id <NSSecureCoding> _artworkToken;
     long long _shuffleMode;
     NSString *_playActivityFeatureName;
     NSData *_playActivityRecommendationData;
 }
 
 + (id)tracklistDataSourceForSource:(long long)arg1;
++ (id)radioPlaybackIntentWithStationURL:(id)arg1;
++ (id)radioPlaybackIntentWithStationStringID:(id)arg1;
++ (id)radioPlaybackIntentWithStation:(id)arg1;
++ (id)radioPlaybackIntentFromSong:(id)arg1;
++ (id)radioPlaybackIntentFromArtist:(id)arg1;
++ (id)radioPlaybackIntentFromAlbum:(id)arg1;
 @property(copy, nonatomic) NSData *playActivityRecommendationData; // @synthesize playActivityRecommendationData=_playActivityRecommendationData;
 @property(copy, nonatomic) NSString *playActivityFeatureName; // @synthesize playActivityFeatureName=_playActivityFeatureName;
 @property(nonatomic) long long shuffleMode; // @synthesize shuffleMode=_shuffleMode;
-@property(retain, nonatomic) id <NSSecureCoding> artworkToken; // @synthesize artworkToken=_artworkToken;
-@property(nonatomic) long long artworkSource; // @synthesize artworkSource=_artworkSource;
 @property(retain, nonatomic) id <NSSecureCoding> tracklistToken; // @synthesize tracklistToken=_tracklistToken;
 @property(nonatomic) long long tracklistSource; // @synthesize tracklistSource=_tracklistSource;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(nonatomic) long long kind; // @synthesize kind=_kind;
+@property(copy, nonatomic) NSString *localizedTitle; // @synthesize localizedTitle=_localizedTitle;
 - (void).cxx_destruct;
-- (id)_legacyRepresentationForPlayer:(id)arg1;
-- (void)populateItemsForContainer:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)configureContainer:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)artworkCatalog;
+- (void)getRemotePlaybackQueueRepresentationWithPlayerPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)getPlaybackContextWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) id <MPCPlaybackIntentDataSource> tracklistDataSource;
 - (id)description;
 

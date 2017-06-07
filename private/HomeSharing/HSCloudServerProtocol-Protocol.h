@@ -58,8 +58,13 @@
 - (void)addGeniusPlaylistWithPersistentID:(long long)arg1 name:(NSString *)arg2 seedItemSagaIDs:(NSArray *)arg3 itemSagaIDs:(NSArray *)arg4 completion:(void (^)(unsigned long long, NSError *))arg5;
 - (void)updateGeniusDataWithCompletionHandler:(void (^)(NSError *))arg1;
 - (void)loadGeniusItemsForSagaID:(unsigned long long)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
+- (void)loadArtworkInfoForSubscriptionContainerPersistentIDs:(NSArray *)arg1 completion:(void (^)(NSError *, NSArray *))arg2;
+- (void)loadScreenshotInfoForSubscriptionPersistentIDs:(NSArray *)arg1 completion:(void (^)(NSError *, NSArray *))arg2;
+- (void)loadArtworkInfoForSubscriptionItemPersistentIDs:(NSArray *)arg1 completion:(void (^)(NSError *, NSArray *))arg2;
+- (void)loadScreenshotInfoForSagaIDs:(NSArray *)arg1 completion:(void (^)(NSError *, NSArray *))arg2;
 - (void)loadArtworkInfoForContainerSagaIDs:(NSArray *)arg1 completion:(void (^)(NSError *, NSArray *))arg2;
 - (void)loadArtworkInfoForSagaIDs:(NSArray *)arg1 completion:(void (^)(NSError *, NSArray *))arg2;
+- (void)loadScreenshotInfoForPurchaseHistoryIDs:(NSArray *)arg1 completion:(void (^)(NSError *, NSArray *))arg2;
 - (void)loadArtworkInfoForPurchaseHistoryIDs:(NSArray *)arg1 completion:(void (^)(NSError *, NSArray *))arg2;
 - (void)deprioritizeAlbumArtistHeroImageForPersistentID:(long long)arg1;
 - (void)deprioritizeArtistHeroImageForPersistentID:(long long)arg1;

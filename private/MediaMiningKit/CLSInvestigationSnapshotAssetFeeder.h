@@ -21,6 +21,7 @@
 - (void).cxx_destruct;
 - (id)itemMetadataAtIndex:(unsigned long long)arg1 withKeys:(id)arg2;
 - (struct CGImage *)itemThumbnailAtIndex:(unsigned long long)arg1 withResolution:(unsigned long long)arg2;
+- (void)enumerateItemsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateItemsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)itemAtIndex:(unsigned long long)arg1;
 - (id)allItems;

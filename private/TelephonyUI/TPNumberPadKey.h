@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSLayoutConstraint, UIImageView, UILabel;
+@class NSLayoutConstraint, UILabel;
 
 @interface TPNumberPadKey : UIView
 {
@@ -16,12 +16,10 @@
     NSLayoutConstraint *_digitBaseline;
     NSLayoutConstraint *_letterBaseline;
     NSLayoutConstraint *_secondaryLetterBaseline;
-    UIImageView *_plus;
 }
 
 + (float)absoluteTrackingValueForString:(id)arg1 pointSize:(float)arg2 unitsPerEm:(float)arg3;
 + (void)initialize;
-@property(retain, nonatomic) UIImageView *plus; // @synthesize plus=_plus;
 @property(retain, nonatomic) NSLayoutConstraint *secondaryLetterBaseline; // @synthesize secondaryLetterBaseline=_secondaryLetterBaseline;
 @property(retain, nonatomic) NSLayoutConstraint *letterBaseline; // @synthesize letterBaseline=_letterBaseline;
 @property(retain, nonatomic) NSLayoutConstraint *digitBaseline; // @synthesize digitBaseline=_digitBaseline;

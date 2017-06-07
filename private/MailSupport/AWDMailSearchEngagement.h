@@ -8,7 +8,7 @@
 
 #import <MailSupport/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class AWDMailUserSuggestionsEngagment, NSMutableArray;
 
 @interface AWDMailSearchEngagement : PBCodable <NSCopying>
 {
@@ -20,6 +20,7 @@
     unsigned long long _numSearchResults;
     NSMutableArray *_engagements;
     int _searchScope;
+    AWDMailUserSuggestionsEngagment *_suggestionsEngagement;
     struct {
         unsigned int numSearchResults:1;
         unsigned int searchScope:1;
@@ -27,6 +28,7 @@
 }
 
 + (Class)engagementsType;
+@property(retain, nonatomic) AWDMailUserSuggestionsEngagment *suggestionsEngagement; // @synthesize suggestionsEngagement=_suggestionsEngagement;
 @property(retain, nonatomic) NSMutableArray *engagements; // @synthesize engagements=_engagements;
 @property(nonatomic) unsigned long long numSearchResults; // @synthesize numSearchResults=_numSearchResults;
 - (void).cxx_destruct;
@@ -39,6 +41,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasSuggestionsEngagement;
 - (id)engagementsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)engagementsCount;
 - (void)addEngagements:(id)arg1;
@@ -57,7 +60,7 @@
 @property(readonly, nonatomic) int *atoms;
 @property(readonly, nonatomic) unsigned long long atomsCount;
 - (void)dealloc;
-- (id)initWithAtoms:(id)arg1 searchScope:(_Bool)arg2;
+- (id)initWithAtoms:(id)arg1 searchScope:(_Bool)arg2 suggestionsEngagement:(id)arg3;
 
 @end
 

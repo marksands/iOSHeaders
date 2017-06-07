@@ -17,11 +17,14 @@
     struct vector<double, std::__1::allocator<double>> _spacingAfter;
     struct _NUIGridArrangement _visibleArrangement;
     struct CGSize _visibleCount;
+    double _smallestWidthKnownToCompress;
     struct {
         unsigned int delegateMinSpacing:1;
+        unsigned int delegateMinDirectionalSpacing:1;
         unsigned int delegateAlignment:1;
     } _stackViewFlags;
     long long _axis;
+    long long _effectiveAxis;
     long long _distribution;
     long long _alignment;
     double _spacing;
@@ -32,25 +35,31 @@
 @property(nonatomic) double spacing; // @synthesize spacing=_spacing;
 @property(nonatomic) long long alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) long long distribution; // @synthesize distribution=_distribution;
+@property(readonly, nonatomic) long long effectiveAxis; // @synthesize effectiveAxis=_effectiveAxis;
 @property(nonatomic) long long axis; // @synthesize axis=_axis;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)arrangedDescription;
 - (_Bool)layoutArrangedSubviewsInBounds:(struct CGRect)arg1;
 - (struct CGSize)calculateArrangedSizeFittingSize:(struct CGSize)arg1;
+- (struct CGSize)_calculateArrangedSizeFittingSize:(struct CGSize)arg1 forLayout:(_Bool)arg2;
+- (_Bool)isLayoutSizeDependentOnPerpendicularAxis;
 - (void)populateGridArrangementDimension:(vector_29d414c0 *)arg1 withCells:(const vector_f7a18e83 *)arg2 axis:(long long)arg3;
 - (void)populateGridArrangementCells:(vector_f7a18e83 *)arg1;
 - (long long)_effectiveAlignmentForArrangedSubview:(id)arg1;
 - (void)didRemoveArrangedSubview:(id)arg1 atIndex:(long long)arg2;
 - (void)didInsertArrangedSubview:(id)arg1 atIndex:(long long)arg2;
-- (void)invalidateIntrinsicContentSizeRequiringArrangedSubviewRemeasurement:(_Bool)arg1;
+- (_Bool)invalidateIntrinsicContentSizeRequiringArrangedSubviewRemeasurement:(_Bool)arg1;
 - (void)setBaselineRelativeArrangement:(_Bool)arg1;
 @property(nonatomic) __weak id <NUIContainerStackViewDelegate> delegate; // @dynamic delegate;
 - (id)viewForLastBaselineLayout;
 - (id)viewForFirstBaselineLayout;
 - (id)_baselineViewVendForFirstBaseline:(_Bool)arg1;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithArrangedSubviews:(id)arg1;
+- (double)customSpacingAfterView:(id)arg1;
+- (void)setCustomSpacing:(double)arg1 afterView:(id)arg2;
 - (double)spacingAfterArrangedSubviewAtIndex:(long long)arg1;
 - (void)setSpacing:(double)arg1 afterArrangedSubviewAtIndex:(long long)arg2;
 

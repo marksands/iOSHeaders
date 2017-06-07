@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)maxCellsToCheckForGridValueType;
 - (_Bool)supportsCategoryLabelsInChartRangeEditor;
 - (_Bool)supportsMoreThanOneLiveCategory;
-- (id)initialSceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_339a9a6e)arg2;
+- (id)initialSceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
 - (Class)presetImagerClass;
 - (_Bool)supportsPercentNumberFormatting;
 - (_Bool)supportsLabelExplosion;

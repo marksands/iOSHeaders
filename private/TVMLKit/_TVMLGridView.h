@@ -6,12 +6,12 @@
 
 #import <TVMLKit/_TVGridView.h>
 
-#import <TVMLKit/TVRowHosting-Protocol.h>
+#import <TVMLKit/TVRowHosting_Collection-Protocol.h>
 
 @class NSString, UIView;
 
 __attribute__((visibility("hidden")))
-@interface _TVMLGridView : _TVGridView <TVRowHosting>
+@interface _TVMLGridView : _TVGridView <TVRowHosting_Collection>
 {
     _Bool _configureForListTemplate;
     UIView *_headerView;
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool configureForListTemplate; // @synthesize configureForListTemplate=_configureForListTemplate;
 - (void).cxx_destruct;
 - (_Bool)_shouldFadeCellsForBoundChangeWhileRotating;
+- (id)rowMetricsForExpectedWidth:(double)arg1 withContentInset:(struct UIEdgeInsets)arg2 firstItemRowIndex:(long long *)arg3;
 - (id)rowMetricsForExpectedWidth:(double)arg1 firstItemRowIndex:(long long *)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 

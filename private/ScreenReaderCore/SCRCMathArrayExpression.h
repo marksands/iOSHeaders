@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     NSArray *_children;
 }
 
+- (void).cxx_destruct;
 - (id)suffixForChildAtIndex:(unsigned long long)arg1;
 - (id)prefixForChildAtIndex:(unsigned long long)arg1;
 - (id)localizableSuffixForChildAtIndex:(unsigned long long)arg1;
@@ -28,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (id)children;
 - (id)subExpressions;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 
 @end

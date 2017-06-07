@@ -26,6 +26,7 @@
     NSArray *_participants;
     NSString *_bundleID;
     NSString *_bundleVersion;
+    NSString *_shortBundleVersion;
     GKGameInternal *_game;
     NSArray *_exchanges;
     unsigned int _turnNumber;
@@ -37,6 +38,7 @@
 + (id)secureCodedPropertyKeys;
 @property(retain, nonatomic) GKGameInternal *game; // @synthesize game=_game;
 @property(retain, nonatomic) NSArray *exchanges; // @synthesize exchanges=_exchanges;
+@property(retain, nonatomic) NSString *shortBundleVersion; // @synthesize shortBundleVersion=_shortBundleVersion;
 @property(retain, nonatomic) NSString *bundleVersion; // @synthesize bundleVersion=_bundleVersion;
 @property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(retain, nonatomic) NSString *matchDataVersion; // @synthesize matchDataVersion=_matchDataVersion;

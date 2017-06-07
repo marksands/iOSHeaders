@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEORegionalResourceTileData, GEOResourceLoader, GEOResourceManifestConfiguration, NSLock;
 
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSLock *_lock;
 }
 
+- (void).cxx_destruct;
 - (void)cancel;
 - (void)loadResourcesForTileKey:(const struct _GEOTileKey *)arg1 manifestConfiguration:(id)arg2 auditToken:(id)arg3 finished:(CDUnknownBlockType)arg4 error:(CDUnknownBlockType)arg5;
 - (void)dealloc;

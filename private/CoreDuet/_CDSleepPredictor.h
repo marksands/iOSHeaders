@@ -14,7 +14,8 @@
 + (id)findSleepPeriodInDayStarting:(id)arg1 FromActivityProbabilities:(id)arg2;
 + (id)gatherBitmapHistoryFromStore:(id)arg1 forPeriod:(id)arg2;
 + (id)fetchFirstEventDateIntervalFromStore:(id)arg1 forStream:(id)arg2 sortDateAscending:(_Bool)arg3 intersectingInterval:(id)arg4;
-+ (id)fetchUnlockedDateIntervalsFromStore:(id)arg1 whichIntersectInterval:(id)arg2;
++ (id)fetchDeviceInUseDateIntervalsFromStore:(id)arg1 whichIntersectInterval:(id)arg2;
++ (id)predicateForInUseVaue;
 + (id)generateActivityBitmapFor:(id)arg1 unlockedIntervals:(id)arg2 eventsAvailableInterval:(id)arg3;
 + (void)mutableArray:(id)arg1 replaceObjectsAtIndexes:(id)arg2 withObjectFromBlock:(CDUnknownBlockType)arg3;
 + (id)array:(id)arg1 filter:(CDUnknownBlockType)arg2;

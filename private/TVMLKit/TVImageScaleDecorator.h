@@ -6,45 +6,43 @@
 
 #import <TVMLKit/TVImageDecorator.h>
 
+@class UIColor;
+
 @interface TVImageScaleDecorator : TVImageDecorator
 {
     _Bool _decoratedImageIsEquivalentToOriginal;
     _Bool _cornerContinuous;
-    _Bool _cropToFit;
-    long long _mode;
-    double _upscaleAdjustment;
+    long long _scaleMode;
+    double _focusedSizeIncrease;
+    UIColor *_bgColor;
     struct CGSize _scaleToSize;
     struct TVCornerRadii _cornerRadii;
 }
 
-+ (id)_decoratorIdentifierWithScaleToSize:(struct CGSize)arg1 mode:(long long)arg2 cornerRadii:(struct TVCornerRadii)arg3;
-+ (id)_decoratorIdentifierWithScaleToSize:(struct CGSize)arg1 mode:(long long)arg2;
-+ (id)decoratorIdentifierWithScaleToSize:(struct CGSize)arg1 cropToFit:(_Bool)arg2;
-@property(nonatomic) _Bool cropToFit; // @synthesize cropToFit=_cropToFit;
+@property(copy, nonatomic) UIColor *bgColor; // @synthesize bgColor=_bgColor;
 @property(nonatomic) _Bool cornerContinuous; // @synthesize cornerContinuous=_cornerContinuous;
 @property(nonatomic) struct TVCornerRadii cornerRadii; // @synthesize cornerRadii=_cornerRadii;
-@property(nonatomic) double upscaleAdjustment; // @synthesize upscaleAdjustment=_upscaleAdjustment;
-@property(nonatomic) long long mode; // @synthesize mode=_mode;
+@property(nonatomic) double focusedSizeIncrease; // @synthesize focusedSizeIncrease=_focusedSizeIncrease;
+@property(nonatomic) long long scaleMode; // @synthesize scaleMode=_scaleMode;
 @property(nonatomic) struct CGSize scaleToSize; // @synthesize scaleToSize=_scaleToSize;
-- (void)_doDrawInScaledContext:(struct CGContext *)arg1;
-- (id)_doDrawInScaledContextWithImage:(id)arg1;
-- (_Bool)_needsAlphaForImage:(id)arg1;
-- (double)_upscalingFactor;
-- (struct CGSize)_scaleToSizeAdjustedForUpscaling;
-- (id)_scaleImage:(id)arg1 toSize:(struct CGSize)arg2 forceImageSize:(_Bool)arg3 drawInScaledContext:(_Bool)arg4 ignoreCornerRadius:(_Bool)arg5;
+- (void).cxx_destruct;
 - (void)_applyCornerMaskForRect:(struct CGRect)arg1 toContext:(struct CGContext *)arg2;
-- (id)_mapImageWithSourceRect:(struct CGRect)arg1 toSize:(struct CGSize)arg2 image:(id)arg3 drawInContextBlock:(CDUnknownBlockType)arg4;
-- (id)_scaleAndCropImage:(id)arg1 toSize:(struct CGSize)arg2;
-- (id)_scaleImage:(id)arg1 toSize:(struct CGSize)arg2 mode:(long long)arg3;
+- (struct CGSize)_scaleToSizeAdjustedForUpscaling;
+- (id)_imageFixedForRotation:(id)arg1;
 - (void)_setDecoratedImageIsEquivalentToOriginal:(_Bool)arg1;
+- (_Bool)needsAlphaForImage:(id)arg1;
+- (double)_focusedSizeIncreaseFactor;
+- (id)decorate:(id)arg1 scaledWithSize:(struct CGSize)arg2 croppedToFit:(_Bool)arg3;
 - (struct CGSize)expectedSize;
 - (_Bool)loaderCropToFit;
 - (struct CGSize)loaderScaleToSize;
 - (id)decoratorIdentifier;
-- (id)decorate:(id)arg1 scaledWithSize:(struct CGSize)arg2 croppedToFit:(_Bool)arg3;
-- (id)initWithScaleToSize:(struct CGSize)arg1 mode:(long long)arg2;
+@property(nonatomic) double upscaleAdjustment;
+@property(nonatomic) _Bool cropToFit;
 - (id)initWithScaleToSize:(struct CGSize)arg1 cropToFit:(_Bool)arg2;
+- (id)initWithScaleToSize:(struct CGSize)arg1 scaleMode:(long long)arg2;
 - (id)initWithScaleToSize:(struct CGSize)arg1;
+- (id)init;
 
 @end
 

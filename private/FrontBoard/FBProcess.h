@@ -27,6 +27,8 @@
     FBWorkspace *_workspace;
     NSHashTable *_observers;
     id <FBProcessDelegate> _delegate;
+    long long _backgroundingPolicy;
+    _Bool _supportsSuspendOnLock;
     int _pid;
     _Bool _running;
     BSProcessDeathWatcher *_processDeathObserver;
@@ -35,6 +37,7 @@
 }
 
 @property(readonly, retain, nonatomic) FBWorkspace *workspace; // @synthesize workspace=_workspace;
+@property(readonly, nonatomic) long long backgroundingPolicy; // @synthesize backgroundingPolicy=_backgroundingPolicy;
 @property(readonly, nonatomic, getter=isRunning) _Bool running; // @synthesize running=_running;
 @property(readonly, nonatomic) int pid; // @synthesize pid=_pid;
 - (void).cxx_destruct;
@@ -60,7 +63,13 @@
 - (id)_createWorkspace;
 - (void)_queue_configureWithHandle:(id)arg1;
 - (id)_queue;
+@property(nonatomic, getter=_queue_supportsSuspendOnLock, setter=_queue_setSupportsSuspendOnLock:) _Bool supportsSuspendOnLock; // @synthesize supportsSuspendOnLock=_supportsSuspendOnLock;
+- (void)_queue_sceneLifecycleStateChanged:(id)arg1;
 @property(nonatomic, getter=_queue_visibility, setter=_queue_setVisibility:) int queue_visibility;
+- (int)_effectiveVisibilityForSceneSettings:(id)arg1;
+- (_Bool)_isEffectivelyForegroundForSceneSettings:(id)arg1;
+- (_Bool)_queue_consideredUnderLock;
+- (int)_effectiveVisibilityForVisibility:(int)arg1 underLock:(_Bool)arg2;
 - (int)_queue_effectiveVisibilityForVisibility:(int)arg1;
 - (id)_queue_newWatchdogForContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(nonatomic, getter=_queue_taskState, setter=_queue_setTaskState:) int queue_taskState;

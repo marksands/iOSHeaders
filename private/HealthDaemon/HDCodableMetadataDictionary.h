@@ -15,6 +15,7 @@
     NSMutableArray *_keyValuePairs;
 }
 
++ (Class)keyValuePairsType;
 @property(retain, nonatomic) NSMutableArray *keyValuePairs; // @synthesize keyValuePairs=_keyValuePairs;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;

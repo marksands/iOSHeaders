@@ -13,17 +13,17 @@
 __attribute__((visibility("hidden")))
 @interface TSTLocalStylesKey : NSObject <NSCopying>
 {
-    TSTCellStyle *mCellStyle;
-    TSWPParagraphStyle *mTextStyle;
+    TSTCellStyle *_cellStyle;
+    TSWPParagraphStyle *_textStyle;
 }
 
-@property(retain) TSWPParagraphStyle *textStyle; // @synthesize textStyle=mTextStyle;
-@property(retain) TSTCellStyle *cellStyle; // @synthesize cellStyle=mCellStyle;
+@property(retain, nonatomic) TSWPParagraphStyle *textStyle; // @synthesize textStyle=_textStyle;
+@property(retain, nonatomic) TSTCellStyle *cellStyle; // @synthesize cellStyle=_cellStyle;
+- (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (void)dealloc;
 
 @end
 

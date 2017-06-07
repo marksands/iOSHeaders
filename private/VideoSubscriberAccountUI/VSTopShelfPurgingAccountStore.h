@@ -6,13 +6,12 @@
 
 #import <VideoSubscriberAccount/VSAccountStore.h>
 
-__attribute__((visibility("hidden")))
 @interface VSTopShelfPurgingAccountStore : VSAccountStore
 {
 }
 
-- (void)removeAccount:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)saveAccount:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)removeAccounts:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)saveAccounts:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_purgeTopShelfContent;
 
 @end

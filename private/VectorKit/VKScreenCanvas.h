@@ -4,59 +4,51 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-#import <VectorKit/VKAnimationRunner-Protocol.h>
 #import <VectorKit/VKCameraControllerDelegate-Protocol.h>
-#import <VectorKit/VKCameraDelegate-Protocol.h>
-#import <VectorKit/VKWorldDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, VKCamera, VKCameraController, VKDispatch, VKScene, VKWorld;
+@class NSString, VKCamera, VKCameraController, VKWorld;
 @protocol MDMapControllerDelegate, MDRenderTarget;
 
 __attribute__((visibility("hidden")))
-@interface VKScreenCanvas : NSObject <VKWorldDelegate, VKAnimationRunner, VKCameraControllerDelegate, VKCameraDelegate>
+@interface VKScreenCanvas : NSObject <VKCameraControllerDelegate>
 {
-    VKDispatch *_dispatch;
+    // Error parsing type: ^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B}, name: _mapEngine
+    struct RunLoopController *_runLoopController;
+    struct AnimationRunner *_animationRunner;
+    shared_ptr_e963992e _taskContext;
     VKWorld *_world;
     VKCamera *_camera;
-    VKScene *_scene;
     id <MDRenderTarget> _displayTarget;
-    _Bool _needsLayout;
-    unsigned int _wantsLayout;
-    unsigned int _needsRepaint;
     _Bool _userIsGesturing;
-    _Bool _iconsShouldAlignToPixels;
     VKCameraController *_cameraController;
     float _debugFramesPerSecond;
-    _Bool _rendersInBackground;
-    NSMutableArray *_animations[2];
-    _Bool _isInBackground;
-    _Bool _isHidden;
     struct VKEdgeInsets _edgeInsets;
     struct VKEdgeInsets _fullyOccludedEdgeInsets;
     struct VKEdgeInsets _labelEdgeInsets;
     _Bool _deallocing;
-    _Bool _needsInitialization;
     struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> _renderQueue;
-    struct RenderTree *_mapScene;
+    Renderer_e10ca448 *_mapRenderer;
     struct LayoutContext *_layoutContext;
     Matrix_5173352a _bgColor;
     id <MDMapControllerDelegate> _mapDelegate;
     struct PerspectiveView<double> _view;
 }
 
+// Error parsing type for property mapEngine:
+// Property attributes: T^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B},R,N,V_mapEngine
+
 @property(readonly, nonatomic) Matrix_5173352a bgColor; // @synthesize bgColor=_bgColor;
-@property(readonly, nonatomic) _Bool needsInitialization; // @synthesize needsInitialization=_needsInitialization;
 @property(nonatomic) id <MDMapControllerDelegate> mapDelegate; // @synthesize mapDelegate=_mapDelegate;
 @property(nonatomic) struct VKEdgeInsets fullyOccludedEdgeInsets; // @synthesize fullyOccludedEdgeInsets=_fullyOccludedEdgeInsets;
-@property(nonatomic) _Bool iconsShouldAlignToPixels; // @synthesize iconsShouldAlignToPixels=_iconsShouldAlignToPixels;
 @property(readonly, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 @property(nonatomic) float debugFramesPerSecond; // @synthesize debugFramesPerSecond=_debugFramesPerSecond;
 @property(readonly, nonatomic) VKWorld *world; // @synthesize world=_world;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)puckAnimator:(id)arg1 updatedPosition:(const Mercator3_d8bb135c *)arg2 course:(double)arg3;
+- (long long)tileSize;
+- (void)puckAnimator:(id)arg1 updatedPosition:(const Coordinate3D_bc242218 *)arg2 course:(const Unit_3d259e8a *)arg3;
 - (_Bool)restoreViewportFromInfo:(id)arg1;
 - (id)viewportInfo;
 - (void)transferStateFromCanvas:(id)arg1;
@@ -67,7 +59,10 @@ __attribute__((visibility("hidden")))
 - (vector_8bf6b0e5)roadMarkersForSelectionAtScreenPoint:(struct CGPoint)arg1;
 - (shared_ptr_430519ce)featureMarkerAtScreenPoint:(struct CGPoint)arg1;
 - (shared_ptr_430519ce)buildingMarkerAtScreenPoint:(struct CGPoint)arg1;
-@property(nonatomic) _Bool rendersInBackground;
+- (void)cameraControllerDidReturnToDefaultZoom:(id)arg1;
+- (void)cameraControllerDidLeaveDefaultZoom:(id)arg1;
+- (void)cameraControllerHasStoppedPanning:(id)arg1;
+- (void)cameraControllerHasStartedPanning:(id)arg1;
 - (void)cameraControllerDidFinishInitialTrackingAnimation:(id)arg1;
 - (void)cameraController:(id)arg1 canZoomOutDidChange:(_Bool)arg2;
 - (void)cameraController:(id)arg1 canZoomInDidChange:(_Bool)arg2;
@@ -85,46 +80,24 @@ __attribute__((visibility("hidden")))
 - (id)cameraController;
 - (void)setCameraController:(id)arg1;
 @property(nonatomic) unsigned char applicationUILayout;
+@property(nonatomic) unsigned char emphasis;
 @property(nonatomic) struct VehicleState vehicleState;
 @property(nonatomic) unsigned char targetDisplay;
 @property(nonatomic, getter=isGesturing) _Bool gesturing;
-- (void)cameraDidChange:(id)arg1;
-- (void)animationDidResume:(id)arg1;
-- (void)animationDidStop:(id)arg1;
-- (void)runOrAdoptAnimation:(id)arg1 run:(_Bool)arg2;
 - (void)runAnimation:(id)arg1;
-- (void)worldDisplayDidChange:(id)arg1;
-- (void)worldLayoutDidChange:(id)arg1;
-- (void)_queueUpdateDisplayLinkStatus;
+- (void)setWantsLayout;
 - (void)setContentsScale:(double)arg1;
-- (void)forceLayout;
-- (void)resetRenderQueue:(shared_ptr_06328420)arg1;
 - (void)updateCameraForFrameResize;
 - (void)didPresent;
-- (void)layoutRenderQueue:(shared_ptr_06328420)arg1;
 - (void)gglWillDrawWithTimestamp;
-- (void)animateWithTimestamp:(double)arg1;
 @property(nonatomic) struct VKEdgeInsets labelEdgeInsets;
 @property(nonatomic) struct VKEdgeInsets edgeInsets;
 - (void)updateWithTimestamp:(double)arg1;
-- (void)didEnterBackground;
-- (void)willEnterForeground;
 - (_Bool)currentSceneRequiresMSAA;
-- (void)setNeedsDisplay;
 - (void)setNeedsLayout;
-- (_Bool)isHidden;
-- (void)setHidden:(_Bool)arg1;
-- (_Bool)updateDisplayLinkStatus;
 - (_Bool)wantsTimerTick;
-- (_Bool)wantsRender;
-- (_Bool)canRender;
-- (void)clearSceneIsEffectivelyHidden:(_Bool)arg1;
-- (void)stopNonTransferableAnimations;
-- (void)transferAnimationsTo:(id)arg1;
-- (void)adoptAnimation:(id)arg1;
 - (void)dealloc;
-- (void)initializeWithRenderer:(struct Renderer *)arg1;
-- (id)initWithTarget:(id)arg1 inBackground:(_Bool)arg2;
+-     // Error parsing type: @28@0:8^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B}16B24, name: initWithMapEngine:inBackground:
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

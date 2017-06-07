@@ -9,5 +9,6 @@
 @interface UIView (HUAdditions)
 - (void)hu_autoSizeByConstrainingWidth:(double)arg1;
 - (void)hu_traverseViewHierarchy:(CDUnknownBlockType)arg1;
+- (void)hu_setFramePreservingTransform:(struct CGRect)arg1;
 @end
 

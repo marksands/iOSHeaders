@@ -8,7 +8,7 @@
 
 #import <PDFKit/NSCopying-Protocol.h>
 
-@class PDFActionPrivate;
+@class NSString, PDFActionPrivate;
 
 @interface PDFAction : NSObject <NSCopying>
 {
@@ -30,7 +30,7 @@
 - (struct __CFDictionary *)createDictionaryRef;
 - (id)initWithActionDictionary:(struct CGPDFDictionary *)arg1 forDocument:(id)arg2 forPage:(id)arg3;
 - (void)commonInit;
-- (id)type;
+@property(readonly, nonatomic) NSString *type;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

@@ -6,18 +6,20 @@
 
 #import <iWorkImport/TSTTableDataObject.h>
 
+@class TSKFormat;
+
 __attribute__((visibility("hidden")))
 @interface TSTTableDataFormat : TSTTableDataObject
 {
-    CDStruct_28403e59 mFormat;
+    TSKFormat *_format;
 }
 
-@property(readonly, nonatomic) CDStruct_28403e59 format; // @synthesize format=mFormat;
-- (void)dealloc;
+@property(readonly, nonatomic) TSKFormat *format; // @synthesize format=_format;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initObjectWithFormat:(CDStruct_28403e59)arg1 refCount:(unsigned int)arg2;
+- (id)initObjectWithFormat:(id)arg1 refCount:(unsigned int)arg2;
 
 @end
 

@@ -18,6 +18,7 @@
 + (id)sharedInstance;
 - (id)_simulateQueue;
 - (void)simulateIfAccessPromptDisplayedThenUserGrantedAccess:(_Bool)arg1 withDelay:(unsigned int)arg2;
+- (void)simulateIfAccessPromptDisplayedThenUserGrantedAccess:(_Bool)arg1;
 - (void)simulate:(long long)arg1;
 - (void)accessRequestWithCompletion:(CDUnknownBlockType)arg1;
 - (void)callExternalChangeCallbacks:(_Bool)arg1;

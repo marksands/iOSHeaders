@@ -26,7 +26,6 @@
 @property(readonly, nonatomic) UIView *matteView; // @synthesize matteView=_matteView;
 @property(nonatomic) long long validity; // @synthesize validity=_validity;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_generateMatteRect:(struct CGRect *)arg1 barcodeRect:(struct CGRect *)arg2 altTextRect:(struct CGRect *)arg3 boundingSize:(struct CGSize)arg4;

@@ -6,11 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <VisualVoicemail/NSCopying-Protocol.h>
 #import <VisualVoicemail/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSString;
 
-@interface VMVoicemailTranscript : NSObject <NSSecureCoding>
+@interface VMVoicemailTranscript : NSObject <NSCopying, NSSecureCoding>
 {
     float _confidence;
     NSString *_transcriptionString;
@@ -21,13 +22,15 @@
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) unsigned long long confidenceRating; // @synthesize confidenceRating=_confidenceRating;
 @property(readonly, nonatomic) float confidence; // @synthesize confidence=_confidence;
-@property(readonly, nonatomic) NSArray *segments; // @synthesize segments=_segments;
-@property(readonly, nonatomic) NSString *transcriptionString; // @synthesize transcriptionString=_transcriptionString;
+@property(readonly, copy, nonatomic) NSArray *segments; // @synthesize segments=_segments;
+@property(readonly, copy, nonatomic) NSString *transcriptionString; // @synthesize transcriptionString=_transcriptionString;
 - (void).cxx_destruct;
-- (id)packTranscript;
+- (id)archivedData;
+- (id)debugDescription;
+- (id)description;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)debugDescription;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithTranscription:(id)arg1;
 - (id)init;
 

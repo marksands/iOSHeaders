@@ -8,7 +8,7 @@
 
 #import <TVMLKit/IKApplication-Protocol.h>
 
-@class IKAppDataStorage, NSDictionary, NSString, TVApplicationControllerContext, UIWindow, _TVAppNavigationController, _TVRootMenuBarController;
+@class IKAppDataStorage, NSDictionary, NSString, TVApplicationControllerContext, UIView, UIWindow, _TVAppNavigationController, _TVRootMenuBarController;
 
 __attribute__((visibility("hidden")))
 @interface _TVMLKitApplication : NSObject <IKApplication>
@@ -19,11 +19,13 @@ __attribute__((visibility("hidden")))
     _TVAppNavigationController *_navigationController;
     _TVRootMenuBarController *_menuBarController;
     UIWindow *_keyWindow;
+    UIView *_viewServiceKeyView;
     NSDictionary *_javaScriptLaunchOptions;
 }
 
 @property(nonatomic) _Bool headless; // @synthesize headless=_headless;
 @property(copy, nonatomic) NSDictionary *javaScriptLaunchOptions; // @synthesize javaScriptLaunchOptions=_javaScriptLaunchOptions;
+@property(nonatomic) __weak UIView *viewServiceKeyView; // @synthesize viewServiceKeyView=_viewServiceKeyView;
 @property(nonatomic) __weak UIWindow *keyWindow; // @synthesize keyWindow=_keyWindow;
 @property(nonatomic) __weak _TVRootMenuBarController *menuBarController; // @synthesize menuBarController=_menuBarController;
 @property(nonatomic) __weak _TVAppNavigationController *navigationController; // @synthesize navigationController=_navigationController;

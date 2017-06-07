@@ -30,6 +30,7 @@
     _Bool _allowsNotifications;
     _Bool _displaysCriticalBulletins;
     _Bool _iconsStripped;
+    _Bool _phoneAllowsNotifications;
     _Bool _showsInLockScreen;
     _Bool _showsInNotificationCenter;
     _Bool _showsMessagePreview;
@@ -47,6 +48,7 @@
         unsigned int allowsNotifications:1;
         unsigned int displaysCriticalBulletins:1;
         unsigned int iconsStripped:1;
+        unsigned int phoneAllowsNotifications:1;
         unsigned int showsInLockScreen:1;
         unsigned int showsInNotificationCenter:1;
         unsigned int showsMessagePreview:1;
@@ -55,6 +57,8 @@
     } _has;
 }
 
++ (Class)subsectionsType;
+@property(nonatomic) _Bool phoneAllowsNotifications; // @synthesize phoneAllowsNotifications=_phoneAllowsNotifications;
 @property(nonatomic) _Bool iconsStripped; // @synthesize iconsStripped=_iconsStripped;
 @property(retain, nonatomic) BLTPBSectionIcon *icon; // @synthesize icon=_icon;
 @property(retain, nonatomic) NSString *universalSectionID; // @synthesize universalSectionID=_universalSectionID;
@@ -88,6 +92,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPhoneAllowsNotifications;
 @property(nonatomic) _Bool hasIconsStripped;
 @property(readonly, nonatomic) _Bool hasIcon;
 @property(readonly, nonatomic) _Bool hasUniversalSectionID;

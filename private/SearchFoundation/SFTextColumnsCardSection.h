@@ -6,22 +6,63 @@
 
 #import <SearchFoundation/SFCardSection.h>
 
-@class NSArray, NSString;
+#import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFTextColumnsCardSection-Protocol.h>
 
-@interface SFTextColumnsCardSection : SFCardSection
+@class NSArray, NSData, NSDictionary, NSString, SFCard, SFColor;
+
+@interface SFTextColumnsCardSection : SFCardSection <SFTextColumnsCardSection, NSSecureCoding>
 {
+    CDStruct_9787ad25 _has;
+    _Bool _canBeHidden;
+    _Bool _hasTopPadding;
+    _Bool _hasBottomPadding;
+    int _separatorStyle;
+    NSArray *_punchoutOptions;
+    NSString *_punchoutPickerTitle;
+    NSString *_punchoutPickerDismissText;
+    NSString *_type;
+    SFColor *_backgroundColor;
     NSString *_title;
-    long long _titleWeight;
+    unsigned long long _titleWeight;
     NSArray *_columns;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *columns; // @synthesize columns=_columns;
-@property(nonatomic) long long titleWeight; // @synthesize titleWeight=_titleWeight;
+@property(nonatomic) unsigned long long titleWeight; // @synthesize titleWeight=_titleWeight;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
+@property(retain, nonatomic) SFColor *backgroundColor;
+@property(nonatomic) int separatorStyle;
+@property(copy, nonatomic) NSString *type;
+@property(nonatomic) _Bool hasBottomPadding;
+@property(nonatomic) _Bool hasTopPadding;
+@property(nonatomic) _Bool canBeHidden;
+@property(copy, nonatomic) NSString *punchoutPickerDismissText;
+@property(copy, nonatomic) NSString *punchoutPickerTitle;
+@property(copy, nonatomic) NSArray *punchoutOptions;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasTitleWeight;
+- (_Bool)hasSeparatorStyle;
+- (_Bool)hasHasBottomPadding;
+- (_Bool)hasHasTopPadding;
+- (_Bool)hasCanBeHidden;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(copy, nonatomic) NSString *cardSectionId;
+@property(copy, nonatomic) NSArray *commands;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(nonatomic) _Bool hideDivider;
+@property(retain, nonatomic) SFCard *nextCard;
+@property(copy, nonatomic) NSArray *parameterKeyPaths;
+@property(readonly) Class superclass;
 
 @end
 

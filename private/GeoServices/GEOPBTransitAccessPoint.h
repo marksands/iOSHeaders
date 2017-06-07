@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLatLng, NSMutableArray, NSString;
+@class GEOLatLng, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPBTransitAccessPoint : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _muid;
     unsigned int _accessPointIndex;
     NSString *_entranceNameDisplayString;
@@ -37,6 +38,8 @@
 @property(retain, nonatomic) GEOLatLng *location; // @synthesize location=_location;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 @property(nonatomic) unsigned int accessPointIndex; // @synthesize accessPointIndex=_accessPointIndex;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -60,7 +63,7 @@
 @property(readonly, nonatomic) _Bool hasLocation;
 @property(nonatomic) _Bool hasMuid;
 @property(nonatomic) _Bool hasAccessPointIndex;
-- (void)dealloc;
+- (id)identifier;
 - (id)bestExitNameWithLocale:(out id *)arg1;
 - (id)bestExitName;
 - (id)bestEntranceNameWithLocale:(out id *)arg1;

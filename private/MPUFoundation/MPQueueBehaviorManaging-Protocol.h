@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) _Bool canSkipToPreviousItem;
 @property(readonly, nonatomic) _Bool canSeek;
 @property(readonly, nonatomic) _Bool allowsUserVisibleUpcomingItems;
+- (_Bool)canSkipToPreviousItemForItem:(MPAVItem *)arg1;
 - (_Bool)canSkipItem:(MPAVItem *)arg1;
 @end
 

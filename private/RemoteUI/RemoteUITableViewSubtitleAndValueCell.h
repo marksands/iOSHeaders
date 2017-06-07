@@ -14,9 +14,13 @@
 }
 
 - (void).cxx_destruct;
+- (void)_adjustFrameOfView:(id)arg1 distance:(double)arg2;
+- (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setBackgroundColor:(id)arg1;
-@property(readonly, nonatomic) UILabel *valueLabel;
-- (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+- (id)valueLabel;
+- (id)effectiveValueTextLabel;
+- (id)effectiveDetailTextLabel;
 
 @end
 

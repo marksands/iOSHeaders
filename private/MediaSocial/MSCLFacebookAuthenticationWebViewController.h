@@ -4,48 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIViewController.h>
+#import <MediaSocial/MSCLOAuthWebViewController.h>
 
-#import <MediaSocial/UIWebViewDelegate-Protocol.h>
+@class NSArray, NSString;
 
-@class NSArray, NSString, UIActivityIndicatorView, UIWebView;
-
-@interface MSCLFacebookAuthenticationWebViewController : UIViewController <UIWebViewDelegate>
+@interface MSCLFacebookAuthenticationWebViewController : MSCLOAuthWebViewController
 {
-    _Bool _didInterruptRedirect;
-    NSString *_token;
-    _Bool _authenticating;
     NSString *_clientID;
     NSArray *_writePermissions;
-    CDUnknownBlockType _authenticationCompletionBlock;
-    UIWebView *_webView;
-    UIActivityIndicatorView *_activityIndicator;
 }
 
-+ (id)authenticationURLWithClientID:(id)arg1 permissions:(id)arg2;
-@property(retain, nonatomic) UIActivityIndicatorView *activityIndicator; // @synthesize activityIndicator=_activityIndicator;
-@property(retain, nonatomic) UIWebView *webView; // @synthesize webView=_webView;
-@property(copy, nonatomic) CDUnknownBlockType authenticationCompletionBlock; // @synthesize authenticationCompletionBlock=_authenticationCompletionBlock;
-@property(readonly, nonatomic, getter=isAuthenticating) _Bool authenticating; // @synthesize authenticating=_authenticating;
++ (id)_authenticationURLWithClientID:(id)arg1 permissions:(id)arg2;
++ (id)authTokenFromRedirectURL:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *writePermissions; // @synthesize writePermissions=_writePermissions;
 @property(readonly, copy, nonatomic) NSString *clientID; // @synthesize clientID=_clientID;
 - (void).cxx_destruct;
-- (_Bool)webView:(id)arg1 shouldStartLoadWithRequest:(id)arg2 navigationType:(long long)arg3;
-- (void)webViewDidStartLoad:(id)arg1;
-- (void)webViewDidFinishLoad:(id)arg1;
-- (void)webView:(id)arg1 didFailLoadWithError:(id)arg2;
-- (void)viewDidLoad;
-- (void)viewDidLayoutSubviews;
-- (void)startAuthenticationProcess;
-- (void)endAuthenticationProcessWithError:(id)arg1;
-- (void)cancelAuthenticationProcess;
 - (id)initWithClientID:(id)arg1 writePermissions:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

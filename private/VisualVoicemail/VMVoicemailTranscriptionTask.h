@@ -20,9 +20,7 @@
 @property(nonatomic, getter=isTaskRunning) _Bool taskRunning; // @synthesize taskRunning=_taskRunning;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *taskQueue; // @synthesize taskQueue=_taskQueue;
 - (void).cxx_destruct;
-- (void)endRetranscribingTask;
 - (void)retranscribeAllVoicemails;
-- (void)startRetranscribingVoicemailsIfNecessary;
 - (void)_endRetranscribingTask;
 - (void)_startRetranscribingVoicemailsIfNecessaryTranscribingAllVoicemails:(_Bool)arg1;
 - (void)processTranscriptForVoicemail:(id)arg1;

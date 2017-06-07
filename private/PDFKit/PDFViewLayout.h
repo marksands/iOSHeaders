@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class PDFViewLayoutPrivate;
+@class PDFDocument, PDFViewLayoutPrivate;
 
 @interface PDFViewLayout : NSObject
 {
@@ -29,10 +29,8 @@
 - (id)visiblePagesInBounds:(struct CGRect)arg1 currentPage:(id)arg2;
 - (struct _NSRange)visiblePageRangeInBounds:(struct CGRect)arg1 currentPage:(id)arg2;
 - (struct CGSize)contentSizeWithCurrentPage:(id)arg1;
-- (id)document;
-- (void)setDocument:(id)arg1;
-- (id)delegate;
-- (void)setDelegate:(id)arg1;
+@property(nonatomic) __weak PDFDocument *document;
+@property(nonatomic) __weak id delegate;
 - (void)dealloc;
 - (id)init;
 

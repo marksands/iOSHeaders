@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 
@@ -15,7 +15,8 @@
     int _token;
 }
 
-@property(readonly, retain, nonatomic) NSString *service;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *service;
 - (long long)serviceAvailability;
 - (void)updateAvailability;
 - (void)_updateAvailability;

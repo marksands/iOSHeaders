@@ -8,19 +8,23 @@
 
 #import <PassKitUI/PKPassbookSettingsDataSource-Protocol.h>
 
-@class NSString, PKPassLibraryDefaultDataProvider, PKPaymentDefaultDataProvider, PKPaymentOptionsDefaults;
+@class NSString, PKPassLibraryDefaultDataProvider, PKPassbookPeerPaymentSettingsDefaultBehavior, PKPaymentDefaultDataProvider, PKPaymentOptionsDefaults;
 
 @interface PKPassbookSettingsDefaultBehavior : NSObject <PKPassbookSettingsDataSource>
 {
     PKPassLibraryDefaultDataProvider *_passLibraryDataProvider;
     PKPaymentDefaultDataProvider *_paymentDataProvider;
     PKPaymentOptionsDefaults *_options;
+    PKPassbookPeerPaymentSettingsDefaultBehavior *_peerPaymentDefaultBehavior;
 }
 
 - (void).cxx_destruct;
 - (_Bool)secureElementIsProductionSigned;
 - (id)deviceName;
 - (_Bool)hasFelicaSecureElement;
+- (id)peerPaymentDataSource;
+- (id)peerPaymentDelegate;
+- (_Bool)canRegisterForPeerPayment;
 - (id)setupFeaturedNetworksForDevice;
 - (id)secureElementID;
 - (id)optionsDelegate;

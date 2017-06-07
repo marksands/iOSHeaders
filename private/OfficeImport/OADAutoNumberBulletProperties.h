@@ -13,6 +13,7 @@ __attribute__((visibility("hidden")))
     unsigned long long mStartIndex;
 }
 
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)startIndex;
 - (int)autoNumberSchemeType;

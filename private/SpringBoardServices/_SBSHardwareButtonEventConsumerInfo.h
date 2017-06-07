@@ -16,6 +16,7 @@
     _Bool _valid;
     SBSHardwareButtonService *_service;
     id <SBSHardwareButtonEventConsuming> _consumer;
+    long long _buttonKind;
     unsigned long long _eventMask;
     long long _eventPriority;
 }
@@ -23,6 +24,7 @@
 + (id)infoWithConsumer:(id)arg1;
 @property(nonatomic) long long eventPriority; // @synthesize eventPriority=_eventPriority;
 @property(nonatomic) unsigned long long eventMask; // @synthesize eventMask=_eventMask;
+@property(nonatomic) long long buttonKind; // @synthesize buttonKind=_buttonKind;
 @property(retain, nonatomic) id <SBSHardwareButtonEventConsuming> consumer; // @synthesize consumer=_consumer;
 @property(nonatomic) __weak SBSHardwareButtonService *service; // @synthesize service=_service;
 @property(nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;

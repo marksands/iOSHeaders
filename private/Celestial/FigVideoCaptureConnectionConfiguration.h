@@ -15,8 +15,10 @@
     _Bool _mirroringEnabled;
     int _orientation;
     int _retainedBufferCount;
+    _Bool _cameraIntrinsicMatrixDeliveryEnabled;
 }
 
+@property(nonatomic) _Bool cameraIntrinsicMatrixDeliveryEnabled; // @synthesize cameraIntrinsicMatrixDeliveryEnabled=_cameraIntrinsicMatrixDeliveryEnabled;
 @property(nonatomic) int retainedBufferCount; // @synthesize retainedBufferCount=_retainedBufferCount;
 @property(nonatomic) int orientation; // @synthesize orientation=_orientation;
 @property(nonatomic) _Bool mirroringEnabled; // @synthesize mirroringEnabled=_mirroringEnabled;

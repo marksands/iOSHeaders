@@ -8,16 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEOPDRoadAccessInfo : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSMutableArray *_roadAccessPoints;
 }
 
 + (Class)roadAccessPointType;
 + (id)roadAccessInfoForPlaceData:(id)arg1;
 @property(retain, nonatomic) NSMutableArray *roadAccessPoints; // @synthesize roadAccessPoints=_roadAccessPoints;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,7 +34,6 @@
 - (unsigned long long)roadAccessPointsCount;
 - (void)addRoadAccessPoint:(id)arg1;
 - (void)clearRoadAccessPoints;
-- (void)dealloc;
 
 @end
 

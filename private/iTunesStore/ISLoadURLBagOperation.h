@@ -18,6 +18,7 @@
 
 + (void)_addStoreFrontHeaderSuffix:(id)arg1 forBundleIdentifier:(id)arg2;
 + (id)storeFrontHeaderSuffixForBundleIdentifier:(id)arg1;
++ (id)storeFrontHeaderSuffix;
 @property(readonly) SSURLBagContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (_Bool)_setURLBagWithDictionary:(id)arg1 response:(id)arg2 error:(id *)arg3;

@@ -9,7 +9,7 @@
 #import <ToneLibrary/TLAlertPlaybackBackEndController-Protocol.h>
 
 @class AVQueuePlayer, NSString, TLAlert;
-@protocol OS_dispatch_queue;
+@protocol OS_dispatch_queue, TLAlertPlaybackObserver;
 
 @interface TLAlertQueuePlayerController : NSObject <TLAlertPlaybackBackEndController>
 {
@@ -20,6 +20,7 @@
     TLAlert *_playingAlert;
     NSString *_playingToneIdentifier;
     CDUnknownBlockType _playingAlertCompletionHandler;
+    id <TLAlertPlaybackObserver> _playbackObserver;
     _Bool _isAudioEnvironmentSetup;
     _Bool _isAlertActivationAssertionAcquired;
     TLAlert *_alertForAudioEnvironmentSetup;
@@ -61,21 +62,21 @@
 - (void)_prepareAudioEnvironment;
 - (void)_didEndPlayingAlert;
 - (void)_willBeginPlayingAlert;
-- (void)_stopPlaybackWithOptions:(CDStruct_2418a849)arg1 playerWasAlreadyPausedExternally:(_Bool)arg2;
+- (void)_stopPlaybackWithOptions:(id)arg1 playerWasAlreadyPausedExternally:(_Bool)arg2;
 - (void)_stopPlayback;
 - (void)_startPlaybackForAssetWithLoadedProperties:(id)arg1 alert:(id)arg2;
 - (void)_reloadPlaybackForPlayingAlertWithToneIdentifier:(id)arg1;
 - (_Bool)_canPlayToneAsset:(id)arg1;
 - (void)_handleActivationAssertionStatusChangeForAlert:(id)arg1 updatedStatus:(_Bool)arg2;
 - (void)_updateAudioVolumeDynamicallyForAlert:(id)arg1 toValue:(float)arg2;
-- (void)_stopPlayingAlerts:(id)arg1 withOptions:(CDStruct_2418a849)arg2 playbackCompletionType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_stopPlayingAlerts:(id)arg1 withOptions:(id)arg2 playbackCompletionType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_playAlert:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)handleActivationAssertionStatusChangeForAlert:(id)arg1 updatedStatus:(_Bool)arg2;
 - (void)updateAudioVolumeDynamicallyForAlert:(id)arg1 toValue:(float)arg2;
-- (void)stopPlayingAlerts:(id)arg1 withOptions:(CDStruct_2418a849)arg2 playbackCompletionType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)stopPlayingAlerts:(id)arg1 withOptions:(id)arg2 playbackCompletionType:(long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)playAlert:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_assertRunningOnAudioEventQueue;
-- (void)performBlockOnAudioEventQueue:(CDUnknownBlockType)arg1;
+- (void)_performBlockOnAudioEventQueue:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)init;

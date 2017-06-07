@@ -14,7 +14,6 @@
 @interface HUIconView : UIView <HUIconContentViewDelegate>
 {
     _Bool _disableContinuousAnimation;
-    _Bool _useEffectContentView;
     UIVisualEffect *_vibrancyEffect;
     unsigned long long _iconSize;
     unsigned long long _displayContext;
@@ -25,7 +24,6 @@
 
 @property(retain, nonatomic) HUIconContentView *currentIconContentView; // @synthesize currentIconContentView=_currentIconContentView;
 @property(retain, nonatomic) UIVisualEffectView *effectView; // @synthesize effectView=_effectView;
-@property(nonatomic) _Bool useEffectContentView; // @synthesize useEffectContentView=_useEffectContentView;
 @property(readonly, nonatomic) unsigned long long displayStyle; // @synthesize displayStyle=_displayStyle;
 @property(nonatomic) _Bool disableContinuousAnimation; // @synthesize disableContinuousAnimation=_disableContinuousAnimation;
 @property(nonatomic) unsigned long long displayContext; // @synthesize displayContext=_displayContext;
@@ -33,7 +31,7 @@
 - (void).cxx_destruct;
 - (void)iconContentView:(id)arg1 didChangeAspectRatio:(double)arg2;
 @property(readonly, nonatomic) id <HFIconDescriptor> iconDescriptor;
-- (void)_updateVisualEffect;
+- (void)_updateVisualEffectStateForVibrancyEffectChange:(_Bool)arg1;
 - (id)_defaultVibrancyEffect;
 @property(retain, nonatomic) UIVisualEffect *vibrancyEffect; // @synthesize vibrancyEffect=_vibrancyEffect;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

@@ -29,6 +29,7 @@
     } _has;
 }
 
++ (Class)visitsType;
 @property(retain, nonatomic) NSMutableArray *visits; // @synthesize visits=_visits;
 @property(retain, nonatomic) NSData *geoData; // @synthesize geoData=_geoData;
 @property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
@@ -51,6 +52,8 @@
 - (void)addVisits:(id)arg1;
 - (void)clearVisits;
 @property(readonly, nonatomic) _Bool hasGeoData;
+- (int)StringAsLocationOfInterestType:(id)arg1;
+- (id)locationOfInterestTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasLocationOfInterestType;
 @property(nonatomic) int locationOfInterestType; // @synthesize locationOfInterestType=_locationOfInterestType;
 @property(readonly, nonatomic) _Bool hasUuid;
@@ -58,7 +61,6 @@
 @property(nonatomic) _Bool hasUncertainty;
 @property(nonatomic) _Bool hasLongitude;
 @property(nonatomic) _Bool hasLatitude;
-- (id)initWithLocationOfInterest:(id)arg1;
 
 @end
 

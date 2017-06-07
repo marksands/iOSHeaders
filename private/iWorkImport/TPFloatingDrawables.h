@@ -40,9 +40,9 @@ __attribute__((visibility("hidden")))
 - (id)allDrawables;
 - (unsigned long long)countOfAllDrawables;
 - (_Bool)hasAnyDrawables;
-- (id)description;
+- (id)debugDescription;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1;
 

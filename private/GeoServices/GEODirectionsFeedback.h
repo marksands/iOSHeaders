@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSMutableArray *trafficRerouteFeedbacks; // @synthesize trafficRerouteFeedbacks=_trafficRerouteFeedbacks;
 @property(retain, nonatomic) NSMutableArray *stepFeedbacks; // @synthesize stepFeedbacks=_stepFeedbacks;
 @property(retain, nonatomic) NSData *directionResponseID; // @synthesize directionResponseID=_directionResponseID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -47,7 +48,6 @@
 - (void)addStepFeedback:(id)arg1;
 - (void)clearStepFeedbacks;
 @property(readonly, nonatomic) _Bool hasDirectionResponseID;
-- (void)dealloc;
 
 @end
 

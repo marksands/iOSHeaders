@@ -11,14 +11,15 @@
 @interface BRCSharedServerZone : BRCServerZone
 {
     NSString *_ownerName;
-    NSString *_mangledID;
 }
 
-@property(readonly, nonatomic) NSString *mangledID; // @synthesize mangledID=_mangledID;
 - (void).cxx_destruct;
+- (_Bool)allocateRanks;
+- (_Bool)_propagateFolderDeletesToTheirChildren;
+- (long long)_propagateDeleteToChildrenOfItemID:(id)arg1;
 - (_Bool)validateItemsLoggingToFile:(struct __sFILE *)arg1 db:(id)arg2;
 - (_Bool)validateStructureLoggingToFile:(struct __sFILE *)arg1 db:(id)arg2;
-- (id)initWithZoneName:(id)arg1 ownerName:(id)arg2 dbRowID:(id)arg3 plist:(id)arg4 session:(id)arg5;
+- (id)initWithMangledID:(id)arg1 dbRowID:(id)arg2 plist:(id)arg3 session:(id)arg4;
 - (id)ownerName;
 @property(readonly, nonatomic) BRCSharedClientZone *clientZone;
 - (id)asSharedZone;

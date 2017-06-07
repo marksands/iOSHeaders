@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDCameraGetSnapshotProtocol-Protocol.h>
 #import <HomeKitDaemon/HMDCameraSnapshotReceiverProtocol-Protocol.h>
@@ -13,10 +13,10 @@
 #import <HomeKitDaemon/HMDCameraSnapshotSenderProtocol-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDCameraSnapshotRemoteRelayReceiver, HMDCameraSnapshotRemoteStreamSender, NSString;
+@class HMDCameraSnapshotRemoteRelayReceiver, HMDCameraSnapshotRemoteStreamSender, NSObject, NSString;
 @protocol HMDCameraSnapshotRemoteRelayStreamDelegate, OS_dispatch_queue;
 
-@interface HMDCameraSnapshotRemoteRelayStream : NSObject <HMDCameraGetSnapshotProtocol, HMDCameraSnapshotSenderProtocol, HMDCameraSnapshotReceiverProtocol, HMDCameraSnapshotRemoteStreamSenderDelegate, HMDCameraSnapshotRemoteRelayReceiverDelegate, HMFLogging>
+@interface HMDCameraSnapshotRemoteRelayStream : HMFObject <HMDCameraGetSnapshotProtocol, HMDCameraSnapshotSenderProtocol, HMDCameraSnapshotReceiverProtocol, HMDCameraSnapshotRemoteStreamSenderDelegate, HMDCameraSnapshotRemoteRelayReceiverDelegate, HMFLogging>
 {
     NSObject<OS_dispatch_queue> *_workQueue;
     HMDCameraSnapshotRemoteStreamSender *_streamSender;

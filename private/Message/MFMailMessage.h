@@ -10,15 +10,16 @@
 #import <Message/MFBaseMessage-Protocol.h>
 #import <Message/MFMailboxPredictionMessage-Protocol.h>
 
-@class MFMessageInfo, NSArray, NSDate, NSString;
+@class MFMessageInfo, NSArray, NSDate, NSString, NSURL;
 @protocol ECMailbox, ECMimePart;
 
-@interface MFMailMessage : MFMessage <ECMessage, MFBaseMessage, MFMailboxPredictionMessage>
+@interface MFMailMessage : MFMessage <MFMailboxPredictionMessage, ECMessage, MFBaseMessage>
 {
     unsigned long long _messageFlags;
     unsigned char _subjectPrefixLength;
     unsigned long long _modSequenceNumber;
     MFMessageInfo *_info;
+    NSURL *_globalMessageURL;
     _Bool _shouldUseMailDrop;
 }
 
@@ -27,6 +28,7 @@
 + (Class)dataMessageStoreToUse;
 + (id)forwardedMessagePrefixWithSpacer:(_Bool)arg1;
 @property(nonatomic) _Bool shouldUseMailDrop; // @synthesize shouldUseMailDrop=_shouldUseMailDrop;
+- (_Bool)isSearchResultWithBogusRemoteId;
 - (id)bestAlternativePart:(_Bool *)arg1;
 - (id)bestAlternativePart;
 - (void)dealloc;
@@ -37,6 +39,7 @@
 - (void)setSubject:(id)arg1 to:(id)arg2 cc:(id)arg3 bcc:(id)arg4 sender:(id)arg5 dateReceived:(double)arg6 dateSent:(double)arg7 messageIDHash:(long long)arg8 conversationIDHash:(long long)arg9 summary:(id)arg10 withOptions:(unsigned int)arg11;
 - (void)setMutableInfoFromMessage:(id)arg1;
 - (unsigned short)numberOfAttachments;
+- (id)globalMessageURL;
 - (id)URL;
 - (id)originalMailboxURL;
 - (void)setConversationFlags:(unsigned long long)arg1;
@@ -66,8 +69,13 @@
 @property unsigned long long modSequenceNumber;
 - (id)mailMessageStore;
 - (id)messageStore;
+- (_Bool)messageNeedsReindexForFlagsUpdateFromOldFlags:(unsigned long long)arg1 toNewFlags:(unsigned long long)arg2;
+- (id)ccAddressList;
+- (id)toAddressList;
+- (id)firstSenderAddress;
 @property(readonly, nonatomic, getter=isKnownToHaveAttachments) _Bool knownToHaveAttachments;
 @property(readonly, nonatomic) _Bool deleted;
+@property(readonly, nonatomic) long long conversationHash; // @dynamic conversationHash;
 @property(readonly, nonatomic) _Bool conversationMuted;
 @property(readonly, nonatomic) _Bool conversationVIP;
 @property(readonly, nonatomic) _Bool senderVIP;
@@ -77,13 +85,9 @@
 @property(readonly, nonatomic) _Bool flagged;
 @property(readonly, copy, nonatomic) NSArray *from;
 @property(readonly, copy, nonatomic) NSArray *listUnsubscribe;
-- (id)ccAddressList;
-- (id)toAddressList;
-- (id)firstSenderAddress;
 
 // Remaining properties
 @property(readonly, copy, nonatomic) NSArray *cc;
-@property(readonly, nonatomic) long long conversationHash; // @dynamic conversationHash;
 @property(readonly, nonatomic) long long conversationID;
 @property(readonly, nonatomic) NSDate *dateReceived;
 @property(readonly, nonatomic) unsigned int dateReceivedInterval; // @dynamic dateReceivedInterval;

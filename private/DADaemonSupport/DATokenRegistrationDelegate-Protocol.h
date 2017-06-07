@@ -7,6 +7,6 @@
 @class DATokenRegistrationRequest, NSError;
 
 @protocol DATokenRegistrationDelegate
-- (void)tokenRegistrationRequest:(DATokenRegistrationRequest *)arg1 finishedWithError:(NSError *)arg2 shouldRetry:(_Bool)arg3;
+- (void)tokenRegistrationRequest:(DATokenRegistrationRequest *)arg1 finishedWithError:(NSError *)arg2;
 @end
 

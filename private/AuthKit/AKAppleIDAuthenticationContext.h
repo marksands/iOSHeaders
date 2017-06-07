@@ -10,7 +10,7 @@
 #import <AuthKit/CDPAuthProvider-Protocol.h>
 #import <AuthKit/NSSecureCoding-Protocol.h>
 
-@class AKAnisetteData, AKDevice, CDPRecoveryController, NSArray, NSDictionary, NSNumber, NSSet, NSString, NSUUID;
+@class AKAccountRecoveryContext, AKAnisetteData, AKDevice, CDPRecoveryController, NSArray, NSDictionary, NSNumber, NSSet, NSString, NSUUID;
 @protocol AKAnisetteServiceProtocol, CDPStateUIProvider, OS_dispatch_queue;
 
 @interface AKAppleIDAuthenticationContext : NSObject <AKAppleIDAuthenticationLimitedUIProvider, CDPAuthProvider, NSSecureCoding>
@@ -28,7 +28,8 @@
     CDPRecoveryController *_recoveryController;
     AKDevice *_proxiedDevice;
     AKDevice *_companionDevice;
-    NSDictionary *_recoveryInfo;
+    AKAccountRecoveryContext *_inProgressRecoveryContext;
+    NSString *_interpolatedReason;
     _Bool _isProxyingForApp;
     _Bool _shouldSendIdentityTokenForRemoteUI;
     _Bool _isPasswordEditable;
@@ -122,7 +123,7 @@
 @property(nonatomic) _Bool needsCredentialRecovery; // @synthesize needsCredentialRecovery=_needsCredentialRecovery;
 @property(nonatomic) _Bool shouldAllowAppleIDCreation; // @synthesize shouldAllowAppleIDCreation=_shouldAllowAppleIDCreation;
 @property(nonatomic) _Bool isUsernameEditable; // @synthesize isUsernameEditable=_isUsernameEditable;
-@property(copy) NSString *username; // @synthesize username=_username;
+@property(copy, nonatomic) NSString *username; // @synthesize username=_username;
 @property(retain, nonatomic) id <CDPStateUIProvider> cdpUiProvider; // @synthesize cdpUiProvider=_cdpUiProvider;
 @property(copy, nonatomic, setter=_setMessage:) NSString *_message; // @synthesize _message;
 @property(copy, nonatomic, setter=_setShortLivedToken:) NSString *_shortLivedToken; // @synthesize _shortLivedToken;
@@ -146,15 +147,17 @@
 - (void)dismissBasicLoginUIWithCompletion:(CDUnknownBlockType)arg1;
 - (void)presentBasicLoginUIWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_mapICSCRecoveryResultsToAuthKit:(id)arg1;
+- (void)cdpContext:(id)arg1 verifyMasterKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cdpContext:(id)arg1 performSilentRecoveryTokenRenewal:(CDUnknownBlockType)arg2;
-- (void)dismissICSCRecoveryUIWithCompletion:(CDUnknownBlockType)arg1;
-- (void)presentICSCRecoveryUIWithInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)dismissNativeRecoveryUIWithCompletion:(CDUnknownBlockType)arg1;
+- (void)presentNativeRecoveryUIWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) AKDevice *companionDevice;
 @property(copy, nonatomic) AKDevice *proxiedDevice;
 @property(copy, nonatomic) NSString *serviceIdentifier;
+@property(readonly, nonatomic) NSString *_interpolatedReason;
 @property(readonly, nonatomic) unsigned long long _capabilityForUIDisplay; // @synthesize _capabilityForUIDisplay;
+@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSString *_detailedDescription;
 - (_Bool)_localUserHasEmptyPassword;
 - (void)_updateWithValuesFromContext:(id)arg1;
 - (id)_sanitizedCopy;
@@ -170,7 +173,6 @@
 @property(copy, nonatomic) NSNumber *latitude;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

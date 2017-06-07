@@ -13,11 +13,14 @@
 @interface _MRNotificationMessageProtobuf : PBCodable <NSCopying>
 {
     NSMutableArray *_notifications;
+    NSMutableArray *_playerPaths;
     NSMutableArray *_userInfos;
 }
 
++ (Class)playerPathType;
 + (Class)userInfoType;
 + (Class)notificationType;
+@property(retain, nonatomic) NSMutableArray *playerPaths; // @synthesize playerPaths=_playerPaths;
 @property(retain, nonatomic) NSMutableArray *userInfos; // @synthesize userInfos=_userInfos;
 @property(retain, nonatomic) NSMutableArray *notifications; // @synthesize notifications=_notifications;
 - (void)mergeFrom:(id)arg1;
@@ -29,6 +32,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)playerPathAtIndex:(unsigned long long)arg1;
+- (unsigned long long)playerPathsCount;
+- (void)addPlayerPath:(id)arg1;
+- (void)clearPlayerPaths;
 - (id)userInfoAtIndex:(unsigned long long)arg1;
 - (unsigned long long)userInfosCount;
 - (void)addUserInfo:(id)arg1;

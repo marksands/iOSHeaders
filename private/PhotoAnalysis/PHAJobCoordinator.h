@@ -51,7 +51,7 @@
 @property(retain, nonatomic) PHAWorkerJob *currentBackgroundJob; // @synthesize currentBackgroundJob=_currentBackgroundJob;
 @property(readonly, nonatomic) NSMutableArray *waitingForegroundJobs; // @synthesize waitingForegroundJobs=_waitingForegroundJobs;
 @property(retain, nonatomic) PHAWorkerJob *currentForegroundJob; // @synthesize currentForegroundJob=_currentForegroundJob;
-@property(copy, nonatomic) PHAJobConstraints *currentConstraints; // @synthesize currentConstraints=_currentConstraints;
+@property(copy) PHAJobConstraints *currentConstraints; // @synthesize currentConstraints=_currentConstraints;
 @property(nonatomic) __weak PHAManager *manager; // @synthesize manager=_manager;
 @property(readonly, nonatomic) PHAWorkerWarmer *warmer; // @synthesize warmer=_warmer;
 @property(readonly, nonatomic) PHAJobGenerator *jobGenerator; // @synthesize jobGenerator=_jobGenerator;
@@ -80,13 +80,13 @@
 @property(nonatomic) _Bool activityGovernorOverride; // @dynamic activityGovernorOverride;
 - (void)didFinishJob:(id)arg1;
 - (void)jobCoalescer:(id)arg1 didProduceJob:(id)arg2;
-- (void)coalescer:(id)arg1 didCoalesce:(id)arg2 forWorkerType:(short)arg3;
+- (void)coalescer:(id)arg1 didCoalesce:(id)arg2;
 - (void)analysisStateObserver:(id)arg1 didChangeAnalysisStateTo:(int)arg2 from:(int)arg3 assetIdentifier:(id)arg4 workerFlags:(int)arg5 workerType:(short)arg6;
 - (void)governorDidRevokeForegroundAccess:(id)arg1;
 - (void)governorDidGrantForegroundAccess:(id)arg1;
 - (void)governorDidRevokeBackgroundAccess:(id)arg1;
 - (void)governorDidGrantBackgroundAccess:(id)arg1;
-- (void)jobConstraintsObserver:(id)arg1 constraintsDidChange:(id)arg2 mask:(id)arg3;
+- (void)jobConstraintsObserver:(id)arg1 constraintsDidChange:(id)arg2 mask:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_inq_reconsiderWantsFGActivityBasedOnConstraints:(id)arg1;
 - (void)_inq_stopJobsAfterConstraintOrActivityChange;
 - (void)_inq_stopJobDueToConstraintOrActivityChange:(id)arg1;

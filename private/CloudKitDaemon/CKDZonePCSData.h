@@ -6,22 +6,29 @@
 
 #import <CloudKitDaemon/CKDPCSData.h>
 
-@class CKRecordZoneID;
+@class CKRecordZoneID, NSData;
 
 __attribute__((visibility("hidden")))
 @interface CKDZonePCSData : CKDPCSData
 {
+    struct _OpaquePCSShareProtection *_zoneishPCS;
     CKRecordZoneID *_zoneID;
+    NSData *_zoneishPCSData;
+    NSData *_zoneishPublicKeyID;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)dataWithZoneID:(id)arg1 pcsData:(id)arg2;
++ (id)dataWithZone:(id)arg1;
+@property(retain, nonatomic) NSData *zoneishPublicKeyID; // @synthesize zoneishPublicKeyID=_zoneishPublicKeyID;
+@property(copy, nonatomic) NSData *zoneishPCSData; // @synthesize zoneishPCSData=_zoneishPCSData;
 @property(retain, nonatomic) CKRecordZoneID *zoneID; // @synthesize zoneID=_zoneID;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)itemID;
-- (id)initWithZoneID:(id)arg1 pcsData:(id)arg2;
+@property(nonatomic) struct _OpaquePCSShareProtection *zoneishPCS;
+- (void)dealloc;
+- (id)initWithZone:(id)arg1;
 
 @end
 

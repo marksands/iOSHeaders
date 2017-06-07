@@ -14,7 +14,7 @@
 {
 }
 
-+ (void)beginSessionForProxy:(id)arg1 knownVersion:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
++ (void)beginSessionForProxy:(id)arg1 knownVersion:(id)arg2 context:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)commitChangeBatch:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 
 // Remaining properties

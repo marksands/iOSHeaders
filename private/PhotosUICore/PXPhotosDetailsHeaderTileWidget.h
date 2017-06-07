@@ -23,7 +23,7 @@
 #import <PhotosUICore/UIGestureRecognizerDelegate-Protocol.h>
 
 @class NSMutableSet, NSString, OKPresentationViewController, PHAssetCollection, PHFetchResult, PXBasicUIViewTileAnimator, PXImageRequester, PXMovieProvider, PXOneUpPresentation, PXPhotoKitUIMediaProvider, PXPhotosDataSource, PXPhotosDetailsContext, PXPhotosDetailsHeaderSpec, PXPhotosDetailsHeaderSpecManager, PXPhotosDetailsLoadCoordinationToken, PXReusableObjectPool, PXSectionedSelectionManager, PXSlideshowSession, PXTilingController, PXTitleSubtitleUILabelTile, PXUIPlayButtonTile, PXUISlideshowViewTile, PXUITapGestureRecognizer, PXWidgetSpec;
-@protocol OS_dispatch_queue, PXAnonymousView, PXWidgetDelegate;
+@protocol OS_dispatch_queue, PXAnonymousView, PXWidgetDelegate, PXWidgetUnlockDelegate;
 
 @interface PXPhotosDetailsHeaderTileWidget : NSObject <PXTileSource, PXTilingControllerTransitionDelegate, PXReusableObjectPoolDelegate, UIGestureRecognizerDelegate, PXChangeObserver, PXPhotosDataSourceChangeObserver, PXPhotosDetailsHeaderTileLayoutDelegate, PXSlideshowSessionDelegate, PXTilingControllerZoomAnimationCoordinatorDelegate, PXUISlideshowViewTileDelegate, PXZoomAnimationObserverCoordinatorDelegate, PXMovieProviderDelegate, PXScrollViewControllerObserver, PXUIWidget, PXDiagnosticsEnvironment>
 {
@@ -106,6 +106,7 @@
 - (void)tilingControllerZoomAnimationCoordinator:(id)arg1 enumerateTilesToAnimateInLayerWithType:(long long)arg2 layout:(id)arg3 zoomAnimationContext:(id)arg4 usingBlock:(CDUnknownBlockType)arg5;
 - (id)slideshowViewTileHostViewController:(id)arg1;
 - (_Bool)movieProvider:(id)arg1 navigateToMemory:(id)arg2;
+- (void)playMiroMovieWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)containsPoint:(struct CGPoint)arg1 forCoordinateSpace:(id)arg2;
 - (id)zoomAnimationCoordinatorForContext:(id)arg1;
 - (void)preloadWithSourceRegionOfInterest:(id)arg1 forContext:(id)arg2;
@@ -188,6 +189,7 @@
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) _Bool supportsFaceMode;
 @property(readonly, nonatomic) _Bool supportsSelection;
+@property(nonatomic) __weak id <PXWidgetUnlockDelegate> widgetUnlockDelegate;
 
 @end
 

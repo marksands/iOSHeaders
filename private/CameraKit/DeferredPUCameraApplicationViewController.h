@@ -19,8 +19,8 @@
 - (void).cxx_destruct;
 - (void)presentViewController:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)definesPresentationContext;
-- (id)navigationController:(id)arg1 animatorForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
-- (id)navigationController:(id)arg1 interactionControllerUsingAnimator:(id)arg2;
+- (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
+- (id)navigationController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
 - (_Bool)_navigationControllerShouldCrossFadeBottomBars:(id)arg1;
 - (void)reloadAlbumNavigationController:(id)arg1 withCameraRoll:(id)arg2;
 - (void)prepareAlbumNavigationControllerForReuse:(id)arg1 withCameraRoll:(id)arg2;

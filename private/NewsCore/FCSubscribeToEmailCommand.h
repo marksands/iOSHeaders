@@ -19,7 +19,7 @@
 @property(copy, nonatomic) NSString *storeFrontID; // @synthesize storeFrontID=_storeFrontID;
 @property(copy, nonatomic) NSString *DSID; // @synthesize DSID=_DSID;
 - (void).cxx_destruct;
-- (void)executeWithContext:(id)arg1 delegate:(id)arg2;
+- (void)executeWithContext:(id)arg1 delegate:(id)arg2 qualityOfService:(long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDSID:(id)arg1 storeFrontID:(id)arg2 primaryLanguage:(id)arg3;

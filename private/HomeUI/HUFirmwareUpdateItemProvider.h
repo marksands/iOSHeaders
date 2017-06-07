@@ -6,12 +6,13 @@
 
 #import <Home/HFItemProvider.h>
 
-@class HUInstructionsItem, HULinkedApplicationItemProvider, NSSet, NSString;
+@class HMHome, HUInstructionsItem, HULinkedApplicationItemProvider, NSSet, NSString;
 
 @interface HUFirmwareUpdateItemProvider : HFItemProvider
 {
     _Bool _hasProvidedInstructionsItem;
     _Bool _instructionsHidden;
+    HMHome *_home;
     CDUnknownBlockType _filter;
     unsigned long long _style;
     HUInstructionsItem *_instructionsItem;
@@ -32,14 +33,16 @@
 @property(retain, nonatomic) HUInstructionsItem *instructionsItem; // @synthesize instructionsItem=_instructionsItem;
 @property(readonly, nonatomic) unsigned long long style; // @synthesize style=_style;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 - (id)_instructionsItemResultsWithSampleLinkedApplicationItem:(id)arg1 numberOfLinkedApplicationItems:(long long)arg2;
 - (CDUnknownBlockType)_effectiveFilter;
 - (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1 style:(unsigned long long)arg2;
-- (id)initWithHome:(id)arg1;
+- (id)init;
 
 @end
 

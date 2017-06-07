@@ -7,6 +7,6 @@
 #import <TelephonyUtilities/NSObject-Protocol.h>
 
 @protocol TUCallCapabilitiesXPCServerState <NSObject>
-- (void)callCapabilitiesState:(void (^)(TUCallCapabilitiesState *))arg1;
+- (oneway void)callCapabilitiesState:(void (^)(TUCallCapabilitiesState *))arg1;
 @end
 

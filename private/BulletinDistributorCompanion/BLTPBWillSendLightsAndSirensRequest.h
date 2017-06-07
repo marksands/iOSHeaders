@@ -15,8 +15,13 @@
     NSString *_publisherBulletinID;
     NSString *_recordID;
     NSString *_sectionID;
+    _Bool _systemApp;
+    struct {
+        unsigned int systemApp:1;
+    } _has;
 }
 
+@property(nonatomic) _Bool systemApp; // @synthesize systemApp=_systemApp;
 @property(retain, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;
 @property(retain, nonatomic) NSString *recordID; // @synthesize recordID=_recordID;
 @property(retain, nonatomic) NSString *publisherBulletinID; // @synthesize publisherBulletinID=_publisherBulletinID;
@@ -30,6 +35,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSystemApp;
 @property(readonly, nonatomic) _Bool hasSectionID;
 @property(readonly, nonatomic) _Bool hasRecordID;
 @property(readonly, nonatomic) _Bool hasPublisherBulletinID;

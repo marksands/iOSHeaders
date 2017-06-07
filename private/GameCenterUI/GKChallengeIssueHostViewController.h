@@ -16,10 +16,9 @@
 }
 
 + (id)challengeExtension;
-- (void)setChallenge:(id)arg1 withPlayers:(id)arg2 defaultMessage:(id)arg3 forcePicker:(_Bool)arg4;
-- (id)contextForRequestIdentifier;
-- (void)didFinishWithPlayerIDs:(id)arg1 message:(id)arg2;
-- (void)remoteViewControllerIsCanceling;
+- (id)extensionObjectProxy;
+- (void)extensionIsCanceling;
+- (void)messageFromExtension:(id)arg1;
 @property(nonatomic) GKHostedChallengeIssueController *delegate; // @synthesize delegate=_delegateWeak;
 - (void)dealloc;
 

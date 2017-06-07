@@ -31,13 +31,13 @@
 @property(readonly, nonatomic) NSDictionary *hrefToETag; // @synthesize hrefToETag=_hrefToETag;
 @property(readonly, nonatomic) NSDictionary *uuidToHREF; // @synthesize uuidToHREF=_uuidToHREF;
 @property(readonly, nonatomic) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
+- (void).cxx_destruct;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (void)fillOutDataWithUUIDsToAddActions:(id)arg1 hrefsToModDeleteActions:(id)arg2;
 - (id)requestBody;
 - (id)httpMethod;
 - (id)additionalHeaderValues;
-- (void)dealloc;
 - (id)initWithURL:(id)arg1 checkCTag:(id)arg2 uuidsToAddActions:(id)arg3 hrefsToModDeleteActions:(id)arg4;
 
 @end

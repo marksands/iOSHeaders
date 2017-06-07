@@ -7,7 +7,7 @@
 #import <VectorKit/NSObject-Protocol.h>
 
 @protocol VKTrackableAnnotationPresentation <NSObject>
-@property(nonatomic, getter=isTracking) _Bool tracking;
+@property(nonatomic) _Bool tracking;
 @property(nonatomic) CDStruct_c3b9c2ee presentationCoordinate;
 @end
 

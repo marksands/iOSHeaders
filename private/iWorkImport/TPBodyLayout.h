@@ -9,8 +9,8 @@
 #import <iWorkImport/TPAttachmentLayoutParent-Protocol.h>
 #import <iWorkImport/TSWPLayoutTarget-Protocol.h>
 
-@class NSMutableArray, NSMutableSet, NSString, TPFootnoteHeightMeasurer, TSDCanvas, TSPObject;
-@protocol TSDHint, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPOffscreenColumn;
+@class NSMutableArray, NSMutableSet, NSObject, NSString, TPFootnoteHeightMeasurer, TSDCanvas, TSPObject, TSWPStorage;
+@protocol TSDHint, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPOffscreenColumn, TSWPTopicNumberHints;
 
 __attribute__((visibility("hidden")))
 @interface TPBodyLayout : TSDLayout <TSWPLayoutTarget, TPAttachmentLayoutParent>
@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (struct CGSize)minimumBodySize;
 @property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 @property(retain, nonatomic) NSMutableArray *anchoredDrawablesForRelayout; // @synthesize anchoredDrawablesForRelayout=_anchoredDrawablesForRelayout;
+- (void).cxx_destruct;
 - (_Bool)siblingTargetIsManipulatingDrawable:(id)arg1;
 @property(readonly, nonatomic) _Bool textIsVertical;
 - (_Bool)invalidateForPageCountChange;
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (struct CGPoint)calculatePointFromSearchReference:(id)arg1;
 - (void)addAttachmentLayout:(id)arg1;
 - (id)existingAttachmentLayoutForInfo:(id)arg1;
+@property(readonly, nonatomic) _Bool shouldWrapAroundExternalDrawables;
 @property(readonly, nonatomic) _Bool layoutIsValid;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
 @property(readonly, nonatomic) TSDCanvas *canvas;
@@ -62,10 +64,11 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
+@property(readonly, nonatomic) TSWPStorage *storage;
 - (id)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 - (_Bool)shouldProvideSizingGuides;
 - (void)p_addLayoutIfAttached:(id)arg1;
@@ -81,7 +84,7 @@ __attribute__((visibility("hidden")))
 - (double)contentHeight;
 - (_Bool)processWidowAndInflation;
 - (void)updateStartCharIndexWithDirtyRanges:(const struct TSWPDirtyRangeVector *)arg1;
-- (void)resetColumnsAndLayouts;
+- (void)setNeedsInflation;
 - (void)p_killDrawableLayouts:(id)arg1;
 - (_Bool)needsInflation;
 - (struct CGRect)p_rectForSelection:(id)arg1 useParagraphModeRects:(_Bool)arg2;
@@ -92,7 +95,6 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)rectInRootForSelectionPath:(id)arg1;
 - (struct CGRect)rectInRootOfAutoZoomContextOfSelectionPath:(id)arg1;
 - (double)viewScaleForZoomingToSelectionPath:(id)arg1 targetPointSize:(double)arg2;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
@@ -100,6 +102,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) struct CGRect maskRect;
+@property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) _Bool shouldHyphenate;
 @property(readonly) Class superclass;
 

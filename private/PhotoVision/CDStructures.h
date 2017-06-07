@@ -25,12 +25,17 @@ struct CGSize {
     double height;
 };
 
+struct _NSRange {
+    unsigned long long _field1;
+    unsigned long long _field2;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned long long eligibleFacesCount;
-    unsigned long long pendingFacesCount;
+    unsigned long long countOfEligibleFaces;
+    unsigned long long countOfFacesPendingToAdd;
     _Bool isClustering;
     _Bool rebuildRequired;
-} CDStruct_56d3ddf4;
+} CDStruct_6069b02b;
 

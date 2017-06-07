@@ -8,7 +8,7 @@
 
 #import <AssistantServices/AFNetworkAvailabilityObserver-Protocol.h>
 
-@class AFSpeechRequestOptions, NSData, NSMutableData, NSSet, NSString, NSXPCConnection;
+@class AFAudioPowerUpdater, AFSpeechRequestOptions, NSMutableData, NSSet, NSString, NSXPCConnection;
 @protocol AFDictationDelegate, OS_dispatch_group, OS_dispatch_queue, OS_dispatch_source;
 
 @interface AFDictationConnection : NSObject <AFNetworkAvailabilityObserver>
@@ -17,7 +17,7 @@
     NSString *_lastUsedLanguage;
     NSSet *_knownOfflineInstalledLanguages;
     id <AFDictationDelegate> _delegate;
-    NSData *_levelsSharedData;
+    AFAudioPowerUpdater *_inputAudioPowerUpdater;
     _Bool _isCapturingSpeech;
     _Bool _hasActiveRequest;
     _Bool _isWaitingForAudioFile;
@@ -76,8 +76,8 @@
 - (void)_availabilityChanged;
 - (_Bool)forcedOfflineDictationIsAvailableForLanguage:(id)arg1;
 - (_Bool)dictationIsAvailableForLanguage:(id)arg1;
-- (void)_stopLevelUpdates;
-- (void)_setLevelsWithSharedMem:(id)arg1;
+- (void)_stopInputAudioPowerUpdates;
+- (void)_startInputAudioPowerUpdatesWithXPCWrapper:(id)arg1;
 - (void)_extendRequestTimeout;
 - (void)_invokeRequestTimeout;
 - (void)_cancelRequestTimeout;

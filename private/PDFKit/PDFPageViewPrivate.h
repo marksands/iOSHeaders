@@ -6,25 +6,38 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, NSMapTable, NSMutableSet, PDFAnnotation, PDFPage, PDFPageLayer, PDFPageSearchLayer, PDFPageSelectionLayer;
+@class CALayer, NSMapTable, NSMutableArray, NSMutableSet, PDFAccessibilityEffectLayer, PDFPage, PDFPageLayer, PDFPagePopupLayer, PDFPageSearchLayer, PDFPageSelectionLayer, PDFRenderingProperties, UIImage, UITextView;
+@protocol PDFPageLayerGeometryInterface;
 
+__attribute__((visibility("hidden")))
 @interface PDFPageViewPrivate : NSObject
 {
+    NSObject<PDFPageLayerGeometryInterface> *geometryInterface;
+    PDFRenderingProperties *renderingProperties;
     PDFPage *page;
     PDFPageLayer *pageLayer;
     PDFPageSearchLayer *searchLayer;
     PDFPageSelectionLayer *selectionLayer;
+    PDFAccessibilityEffectLayer *accessibilityLayer;
     CALayer *backgroundLayer;
     _Bool hasBackgroundImage;
-    _Bool shouldAntiAlias;
-    long long displayBox;
     NSMutableSet *coachMarks;
+    NSMutableArray *pageMarkups;
+    PDFPagePopupLayer *popupLayer;
     NSMapTable *pageWidgetMapTable;
+    NSMutableArray *pageSignatures;
+    NSMutableArray *pageAnnotationEffects;
     unsigned long long visibilityDelegateIndex;
-    PDFAnnotation *activeAnnotation;
-    PDFAnnotation *controlAnnotation;
-    id activeControl;
-    id control;
+    _Bool isPerformingUndo;
+    CALayer *bookmarkLayer;
+    struct CGSize bookmarkSize;
+    UITextView *activeTextView;
+    struct CGRect lastMagnifierRect;
+    CALayer *magnifierLayer;
+    UIImage *magnifierImage;
+    struct CGImage *magnifierImageMask;
+    struct CGSize magnifierSize;
+    struct CGRect lastActiveSpanFrame;
 }
 
 - (void).cxx_destruct;

@@ -21,6 +21,8 @@
 @property(readonly, nonatomic) _Bool isFavorite;
 @property(readonly, nonatomic) _Bool isScreenshot;
 @property(readonly, nonatomic) _Bool isUtility;
+@property(readonly, nonatomic) float clsSharpnessScore;
+@property(readonly, nonatomic) float clsExposureScore;
 @property(readonly, nonatomic) double clsContentScore;
 @property(readonly, nonatomic) long long clsShareCount;
 @property(readonly, nonatomic) long long clsPlayCount;
@@ -28,6 +30,7 @@
 @property(readonly, nonatomic) NSArray *peopleNames;
 @property(readonly, nonatomic) CLLocation *location;
 @property(readonly, nonatomic) NSDate *date;
+@property(readonly, nonatomic) unsigned long long clsPeopleCount;
 @property(readonly, nonatomic) NSArray *clsUnprefetchedPeopleNames;
 @property(readonly, nonatomic) NSArray *clsPeopleNames;
 @property(readonly, nonatomic) CLLocation *clsLocation;

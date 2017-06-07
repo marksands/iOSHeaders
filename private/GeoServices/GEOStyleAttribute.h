@@ -8,8 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOStyleAttribute : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned int _key;
     unsigned int _value;
     struct {
@@ -20,6 +23,8 @@
 
 @property(nonatomic) unsigned int value; // @synthesize value=_value;
 @property(nonatomic) unsigned int key; // @synthesize key=_key;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

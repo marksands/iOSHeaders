@@ -51,6 +51,7 @@
     int _supportsMessageFlagging;
     int _supportsConversations;
     int _supportsServerDrafts;
+    int _supportsUniqueServerId;
     unsigned int _daysToSync;
     NSMutableDictionary *_requestQueuesByFolderID;
     NSLock *_watchedFolderIdsLock;
@@ -119,11 +120,14 @@
 - (void)invalidate;
 - (id)accountPropertyForKey:(id)arg1;
 - (_Bool)isActive;
+- (id)uniqueServerIdForMessage:(id)arg1;
+- (_Bool)needsRemoteSearchResultsVerification;
 - (_Bool)shouldFetchAgainWithError:(id)arg1 foregroundRequest:(_Bool)arg2;
 - (_Bool)_isUnitTesting;
 - (_Bool)sourceIsManaged;
 - (_Bool)shouldArchiveByDefault;
 - (_Bool)supportsServerDrafts;
+- (_Bool)supportsUniqueServerId;
 - (_Bool)supportsThreadOperations;
 - (_Bool)supportsMessageFlagging;
 - (id)primaryMailboxUid;
@@ -133,6 +137,8 @@
 - (id)_relativePathSpecialMailboxUidWithType:(int)arg1 create:(_Bool)arg2;
 - (id)_relativePathForType:(int)arg1;
 - (id)moveMessages:(id)arg1 fromMailbox:(id)arg2 toMailbox:(id)arg3 markAsRead:(_Bool)arg4;
+- (_Bool)_synchronizeMailbox:(id)arg1;
+- (_Bool)_performRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3 hasConflicts:(_Bool *)arg4;
 - (_Bool)performRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;
 - (void)processRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;
 - (void)addRequests:(id)arg1 mailbox:(id)arg2 consumers:(id)arg3;

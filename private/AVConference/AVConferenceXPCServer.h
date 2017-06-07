@@ -20,10 +20,6 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *clientConnectionsQueue;
 }
 
-+ (void)setupVideoConfig:(id)arg1 fromDictionary:(id)arg2;
-+ (void)setupAudioConfig:(id)arg1 fromDictionary:(id)arg2;
-+ (void)setupCommonStreamConfig:(id)arg1 fromDictionary:(id)arg2;
-+ (id)newMediaStreamConfigFromDictionary:(id)arg1;
 + (id)AVConferenceXPCServerSingleton;
 @property(readonly) NSMutableDictionary *registeredBlocks; // @synthesize registeredBlocks;
 @property(readonly) NSObject<OS_xpc_object> *listener; // @synthesize listener;

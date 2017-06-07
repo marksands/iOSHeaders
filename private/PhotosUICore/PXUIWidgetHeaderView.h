@@ -97,6 +97,7 @@
 - (id)_visualEffectViewCreateIfNeeded:(_Bool)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (_Bool)_hasAccessibilityLargeText;
 
 @end
 

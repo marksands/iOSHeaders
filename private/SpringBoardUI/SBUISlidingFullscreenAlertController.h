@@ -19,7 +19,6 @@
 @property(readonly, nonatomic) UIView *bottomBar; // @synthesize bottomBar=_bottomBar;
 @property(readonly, nonatomic) UIView *topBar; // @synthesize topBar=_topBar;
 - (void).cxx_destruct;
-- (void)updateSpringBoardInPreparationForTransparentDismiss;
 - (void)finishedAnimatingIn;
 - (void)_updateLayoutForStatusBarAndInterfaceOrientation;
 - (_Bool)viewIsReadyToBeRemoved;

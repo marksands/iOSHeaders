@@ -26,11 +26,11 @@ __attribute__((visibility("hidden")))
 - (void)pushStencilItems:(struct CommandBuffer *)arg1 tiles:(id)arg2 minZ:(int)arg3 maxZ:(int)arg4 fullyLoaded:(_Bool)arg5 items:(vector_87190c80 *)arg6 layoutContext:(struct LayoutContext *)arg7 sourceTileOffset:(int)arg8;
 - (void)pushStencilItems:(struct CommandBuffer *)arg1 tiles:(id)arg2 minZ:(int)arg3 maxZ:(int)arg4 fullyLoaded:(_Bool)arg5 layoutContext:(struct LayoutContext *)arg6 sourceTileOffset:(int)arg7;
 - (void)resetStencilState;
-- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(RenderQueue_70f64fd3 *)arg3;
 - (void)_updateTilesInScene:(id)arg1 context:(struct LayoutContext *)arg2;
 - (void)_layoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2;
 - (_Bool)wantsCategorizedSourceTiles;
-- (unsigned long long)mapLayerPosition;
+- (unsigned char)mapLayerPosition;
 - (id)initWithTarget:(id)arg1 sharedResources:(id)arg2;
 - (id)init;
 

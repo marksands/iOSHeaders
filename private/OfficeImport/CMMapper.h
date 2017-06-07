@@ -14,7 +14,8 @@ __attribute__((visibility("hidden")))
     CMMapper *mParent;
 }
 
-@property(readonly) CMMapper *parent; // @synthesize parent=mParent;
+@property(readonly) __weak CMMapper *parent; // @synthesize parent=mParent;
+- (void).cxx_destruct;
 - (void)finishMappingWithState:(id)arg1;
 - (void)mapElement:(id)arg1 atIndex:(unsigned long long)arg2 withState:(id)arg3 isLastElement:(_Bool)arg4;
 - (void)startMappingWithState:(id)arg1;

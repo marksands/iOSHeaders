@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class NSDate, NSMutableDictionary, NSNumber, NSString;
+@class NSData, NSDate, NSMutableDictionary, NSNumber, NSString;
 @protocol OS_dispatch_queue;
 
 @interface IDSMessageContext : NSObject
@@ -16,17 +16,19 @@
     NSObject<OS_dispatch_queue> *_ivarQueue;
 }
 
+- (void).cxx_destruct;
+@property(nonatomic) _Bool usedEngram;
 @property(nonatomic) long long connectionType;
 @property(nonatomic) _Bool fromServerStorage;
 @property(nonatomic) _Bool wantsManualAck;
 @property(nonatomic) long long broadcastID;
 @property(nonatomic) _Bool wantsAppAck;
 @property(nonatomic) _Bool expectsPeerResponse;
-- (id)serverTimestamp;
-- (void)setServerTimestamp:(id)arg1;
-@property(nonatomic) NSNumber *priority;
-@property(nonatomic) NSNumber *broadcastTime;
-@property(nonatomic) NSNumber *originalCommand;
+@property(copy, nonatomic) NSNumber *serverTimestamp;
+@property(retain, nonatomic) NSNumber *priority;
+@property(retain, nonatomic) NSNumber *broadcastTime;
+@property(copy, nonatomic) NSNumber *originalCommand;
+@property(copy, nonatomic) NSData *engramGroupID;
 @property(copy, nonatomic) NSString *originalDestinationDevice;
 @property(copy, nonatomic) NSString *toID;
 @property(copy, nonatomic) NSString *fromID;
@@ -34,6 +36,9 @@
 @property(copy, nonatomic) NSString *serviceIdentifier;
 @property(copy, nonatomic) NSString *incomingResponseIdentifier;
 @property(copy, nonatomic) NSString *outgoingResponseIdentifier;
+@property(readonly, nonatomic) _Bool deviceBlackedOut;
+@property(readonly, nonatomic) long long localMessageState;
+@property(readonly, nonatomic) double averageLocalRTT;
 @property(readonly, nonatomic) NSDate *serverReceivedTime;
 @property(retain, nonatomic) id boostContext;
 - (void)setObject:(id)arg1 forKey:(id)arg2;

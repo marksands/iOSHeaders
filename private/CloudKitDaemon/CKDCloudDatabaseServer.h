@@ -6,15 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <CloudKitDaemon/NSXPCListenerDelegate-Protocol.h>
-
-@class NSMutableArray, NSMutableDictionary, NSOperationQueue, NSString, NSXPCListener;
+@class NSMutableArray, NSMutableDictionary, NSOperationQueue, NSXPCListener;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
-@interface CKDCloudDatabaseServer : NSObject <NSXPCListenerDelegate>
+@interface CKDCloudDatabaseServer : NSObject
 {
     int _tccToken;
-    NSXPCListener *_anonymousListener;
     NSXPCListener *_xpcListener;
     NSMutableArray *_connectedClients;
     NSMutableDictionary *_recentClientsByProcessName;
@@ -39,7 +36,6 @@
 @property(retain, nonatomic) NSMutableDictionary *recentClientsByProcessName; // @synthesize recentClientsByProcessName=_recentClientsByProcessName;
 @property(retain, nonatomic) NSMutableArray *connectedClients; // @synthesize connectedClients=_connectedClients;
 @property(retain, nonatomic) NSXPCListener *xpcListener; // @synthesize xpcListener=_xpcListener;
-@property(retain, nonatomic) NSXPCListener *anonymousListener; // @synthesize anonymousListener=_anonymousListener;
 - (void).cxx_destruct;
 - (void)kickOffPendingLongLivedOperations;
 - (void)statusReportWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -52,12 +48,6 @@
 - (void)resume;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

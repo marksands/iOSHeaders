@@ -4,26 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <FrontBoardUIServices/BSDescriptionProviding-Protocol.h>
 #import <FrontBoardUIServices/FBUISceneWorkspace-Protocol.h>
 
-@class FBSScene, NSMutableDictionary, NSSet, NSString;
+@class NSMutableDictionary, NSSet, NSString;
 
 @interface FBUISceneWorkspace : NSObject <BSDescriptionProviding, FBUISceneWorkspace>
 {
     _Bool _valid;
-    FBSScene *_parentScene;
     NSString *_identifier;
-    NSMutableDictionary *_scenes;
+    NSMutableDictionary *_scenesByName;
 }
 
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
-- (id)sceneManager:(id)arg1 surrogateForSceneWithIdentity:(id)arg2;
+- (id)sceneManager:(id)arg1 surrogateForSceneWithIdentifier:(id)arg2;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)deactivateScene:(id)arg1;
 - (void)activateScene:(id)arg1 withTransitionContext:(id)arg2;
@@ -33,10 +32,9 @@
 - (id)createSceneWithName:(id)arg1 specification:(id)arg2;
 - (id)sceneWithName:(id)arg1;
 @property(readonly, copy, nonatomic) NSSet *scenes;
-- (id)display;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithIdentifier:(id)arg1 parentScene:(id)arg2;
+- (id)_initWithIdentifier:(id)arg1;
 - (id)initWithIdentifier:(id)arg1;
 - (id)init;
 

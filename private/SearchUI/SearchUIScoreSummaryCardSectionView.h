@@ -6,14 +6,19 @@
 
 #import <SearchUI/SearchUILayoutFreeSectionView.h>
 
+@class TLKSplitHeaderView;
+
 @interface SearchUIScoreSummaryCardSectionView : SearchUILayoutFreeSectionView
 {
+    TLKSplitHeaderView *_headerView;
 }
 
-- (id)labelForTeamRecord:(id)arg1;
-- (id)secondRowOfViewsForSection:(id)arg1;
-- (id)firstRowOfViewsForSection:(id)arg1;
-- (id)gridOfViewsForSection:(id)arg1;
++ (id)dragTitleForCardSection:(id)arg1;
++ (id)titleForScoreBoard:(id)arg1 forDisplay:(_Bool)arg2;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
+@property(retain) TLKSplitHeaderView *headerView; // @synthesize headerView=_headerView;
+- (void).cxx_destruct;
+- (void)updateWithCardSection:(id)arg1;
 - (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
 
 @end

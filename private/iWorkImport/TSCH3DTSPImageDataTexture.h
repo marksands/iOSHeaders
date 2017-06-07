@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSCH3DTexture.h>
 
-@class NSNumber, TSCH3DTSPImageData, TSCH3DTSPMipmapData, TSPData;
+@class NSNumber, NSString, TSCH3DTSPImageData, TSCH3DTSPMipmapData, TSDColorFill, TSPData, TSUOnce;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DTSPImageDataTexture : TSCH3DTexture
@@ -14,13 +14,20 @@ __attribute__((visibility("hidden")))
     TSCH3DTSPImageData *mData;
     TSCH3DTSPMipmapData *mOptimizedMipmapData;
     NSNumber *mCachedHash;
+    TSDColorFill *mColorFill;
+    NSString *mTextureSetId;
+    NSString *mImageName;
+    TSUOnce *mCachedHashOnce;
 }
 
-+ (id)textureWithImageData:(id)arg1 optimizedMipmapData:(id)arg2;
++ (id)textureWithImageData:(id)arg1 optimizedMipmapData:(id)arg2 textureSetId:(id)arg3 imageName:(id)arg4;
++ (id)textureWithImageData:(id)arg1 colorFill:(id)arg2 textureSetId:(id)arg3 imageName:(id)arg4;
++ (id)textureWithImageData:(id)arg1 colorFill:(id)arg2 optimizedMipmapData:(id)arg3 textureSetId:(id)arg4 imageName:(id)arg5;
 + (id)instanceWithArchive:(const struct Chart3DTSPImageDataTextureArchive *)arg1 unarchiver:(id)arg2;
 @property(readonly, nonatomic) TSCH3DTSPImageData *data; // @synthesize data=mData;
 - (void)setChanged:(_Bool)arg1;
 - (id)optimizedMipmapBuffer;
+- (id)representativeColorBuffer;
 - (_Bool)canLoadCachedFullMipmapBufferForDataCache:(id)arg1;
 - (id)databufferForDataCache:(id)arg1;
 @property(readonly, nonatomic) TSPData *imageData;
@@ -28,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
-- (id)initWithImageData:(id)arg1 optimizedMipmapData:(id)arg2;
+- (id)initWithImageData:(id)arg1 colorFill:(id)arg2 optimizedMipmapData:(id)arg3 textureSetId:(id)arg4 imageName:(id)arg5;
 - (void)saveToArchive:(struct Chart3DTSPImageDataTextureArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct Chart3DTSPImageDataTextureArchive *)arg1 unarchiver:(id)arg2;
 - (void)p_setOptimizedMipMapData:(id)arg1;

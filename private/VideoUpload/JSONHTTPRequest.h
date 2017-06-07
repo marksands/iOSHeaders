@@ -8,7 +8,7 @@
 
 #import <VideoUpload/NSURLConnectionDelegate-Protocol.h>
 
-@class NSData, NSDictionary, NSHTTPURLResponse, NSMutableData, NSMutableURLRequest, NSString, NSURLConnection, OAURLRequestSigner;
+@class NSData, NSDictionary, NSHTTPURLResponse, NSMutableData, NSMutableURLRequest, NSString, NSURLConnection;
 @protocol JSONHTTPRequestDelegate;
 
 @interface JSONHTTPRequest : NSObject <NSURLConnectionDelegate>
@@ -19,15 +19,12 @@
     NSData *_overridePostBody;
     id <JSONHTTPRequestDelegate> _delegate;
     _Bool _receivedValidResponse;
-    OAURLRequestSigner *_signer;
     NSString *_HTTPRequestBoundary;
-    _Bool _signsMultipartPOSTData;
     _Bool _allowsCellularAccess;
     int _HTTPMethod;
     int _responseType;
     NSDictionary *_getParams;
     NSDictionary *_postParams;
-    NSDictionary *_unsignedPostParams;
     NSHTTPURLResponse *_response;
 }
 
@@ -36,8 +33,6 @@
 @property(nonatomic) _Bool allowsCellularAccess; // @synthesize allowsCellularAccess=_allowsCellularAccess;
 @property(nonatomic) int HTTPMethod; // @synthesize HTTPMethod=_HTTPMethod;
 @property(readonly, nonatomic) NSHTTPURLResponse *response; // @synthesize response=_response;
-@property(nonatomic) _Bool signsMultipartPOSTData; // @synthesize signsMultipartPOSTData=_signsMultipartPOSTData;
-@property(retain, nonatomic) NSDictionary *unsignedPostParams; // @synthesize unsignedPostParams=_unsignedPostParams;
 @property(retain, nonatomic) NSDictionary *postParams; // @synthesize postParams=_postParams;
 @property(retain, nonatomic) NSDictionary *getParams; // @synthesize getParams=_getParams;
 - (void).cxx_destruct;
@@ -54,7 +49,6 @@
 - (void)dealloc;
 - (id)HTTPRequestBoundary;
 - (id)initWithURL:(id)arg1 delegate:(id)arg2;
-- (id)initWithURL:(id)arg1 delegate:(id)arg2 signer:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

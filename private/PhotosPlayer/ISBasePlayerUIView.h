@@ -9,7 +9,7 @@
 #import <PhotosPlayer/ISBasePlayerOutput-Protocol.h>
 #import <PhotosPlayer/ISChangeObserver-Protocol.h>
 
-@class AVAudioSession, ISBasePlayer, ISPlayerOutputContent, ISVideoPlayerUIView, NSObject, NSString, UIImageView;
+@class AVAudioSession, ISBasePlayer, ISPlayerOutputContent, ISVideoPlayerUIView, NSObject, NSString, UIImage, UIImageView;
 @protocol OS_dispatch_queue;
 
 @interface ISBasePlayerUIView : UIView <ISChangeObserver, ISBasePlayerOutput>
@@ -18,6 +18,7 @@
     ISPlayerOutputContent *_content;
     ISBasePlayer *_player;
     UIView *_customPhotoView;
+    UIImage *_overrideImage;
     UIImageView *__photoView;
     ISVideoPlayerUIView *__videoView;
     UIView *__containerView;
@@ -30,6 +31,7 @@
 @property(readonly, nonatomic) UIView *_containerView; // @synthesize _containerView=__containerView;
 @property(readonly, nonatomic) ISVideoPlayerUIView *_videoView; // @synthesize _videoView=__videoView;
 @property(readonly, nonatomic) UIImageView *_photoView; // @synthesize _photoView=__photoView;
+@property(retain, nonatomic) UIImage *overrideImage; // @synthesize overrideImage=_overrideImage;
 @property(retain, nonatomic) UIView *customPhotoView; // @synthesize customPhotoView=_customPhotoView;
 @property(nonatomic) struct CGPoint scaleAnchorOffset; // @synthesize scaleAnchorOffset=_scaleAnchorOffset;
 @property(retain, nonatomic) ISBasePlayer *player; // @synthesize player=_player;
@@ -37,6 +39,8 @@
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_updatePhotoView;
 - (void)contentDidChange;
+@property(readonly, nonatomic, getter=isDisplayingPhoto) _Bool displayingPhoto;
+- (id)generateSnapshotImage;
 - (void)setContent:(id)arg1;
 - (void)applyOutputInfo:(id)arg1 withTransitionOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)applyScale:(double)arg1 withTransitionOptions:(id)arg2 completion:(CDUnknownBlockType)arg3;

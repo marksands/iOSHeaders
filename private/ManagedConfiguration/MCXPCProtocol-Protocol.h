@@ -9,6 +9,8 @@
 @class NSArray, NSData, NSDate, NSDictionary, NSString;
 
 @protocol MCXPCProtocol <NSObject>
+- (void)mayShareToAirDropForOriginatingAppBundleID:(NSString *)arg1 originatingAccountIsManaged:(_Bool)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)mayShareToMessagesForOriginatingAppBundleID:(NSString *)arg1 originatingAccountIsManaged:(_Bool)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)cancelFeaturePromptWithIdentifier:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)showFeaturePromptForSetting:(NSString *)arg1 configurationUUID:(NSString *)arg2 promptOptions:(NSDictionary *)arg3 promptIdentifier:(NSString *)arg4 completion:(void (^)(int, NSError *))arg5;
 - (void)shutDownWithCompletion:(void (^)(NSError *))arg1;
@@ -63,8 +65,6 @@
 - (void)installProfileData:(NSData *)arg1 interactive:(_Bool)arg2 options:(NSDictionary *)arg3 completion:(void (^)(NSString *, NSError *))arg4;
 - (void)isProfileInstalledWithIdentifier:(NSString *)arg1 completion:(void (^)(NSError *, _Bool))arg2;
 - (void)defaultAppBundleIDForCommunicationServiceType:(NSString *)arg1 forAccountWithIdentifier:(NSString *)arg2 completion:(void (^)(NSString *, NSError *))arg3;
-- (void)mayShareToAirDropAndOriginatingAccountIsManaged:(_Bool)arg1 completion:(void (^)(_Bool, NSError *))arg2;
-- (void)mayShareToMessagesAndOriginatingAccountIsManaged:(_Bool)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)notifyDeviceUnlockedWithCompletion:(void (^)(NSError *))arg1;
 - (void)waitForMigrationIncludingPostRestoreMigration:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (void)addBookmark:(NSDictionary *)arg1 completion:(void (^)(NSError *))arg2;
@@ -74,6 +74,7 @@
 - (void)setSpellCheckAllowed:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (void)setKeyboardShortcutsAllowed:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (void)setPredictiveKeyboardAllowed:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
+- (void)setSmartPunctuationAllowed:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (void)setAutoCorrectionAllowed:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (void)allowedImportFromAppBundleIDs:(NSArray *)arg1 importingAppBundleID:(NSString *)arg2 importingIsManaged:(_Bool)arg3 completion:(void (^)(NSArray *, NSError *))arg4;
 - (void)allowedOpenInAppBundleIDs:(NSArray *)arg1 originatingAppBundleID:(NSString *)arg2 originatingIsManaged:(_Bool)arg3 completion:(void (^)(NSArray *, NSError *))arg4;

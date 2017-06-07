@@ -7,6 +7,7 @@
 #import <Foundation/NSMutableArray.h>
 
 @interface NSMutableArray (PhotoLibraryServices)
+- (unsigned long long)_pl_insertObject:(id)arg1 atBinarySearchingInsertionIndexWithComparator:(CDUnknownBlockType)arg2;
 - (void)_pl_addNonNilObject:(id)arg1;
 @end
 

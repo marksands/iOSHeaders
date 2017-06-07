@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <HomeUI/ABPeoplePickerNavigationControllerDelegate-Protocol.h>
+#import <HomeUI/CNContactPickerDelegate-Protocol.h>
 #import <HomeUI/HUUserManagementDelegate-Protocol.h>
 #import <HomeUI/MFComposeRecipientViewDelegate-Protocol.h>
 #import <HomeUI/MFContactsSearchConsumer-Protocol.h>
@@ -16,7 +16,7 @@
 @class HMHome, MFComposeRecipientView, MFContactsSearchManager, MFContactsSearchResultsModel, MFSearchShadowView, NSArray, NSNumber, NSString, UIScrollView, UITableView;
 @protocol HUAddUserViewControllerDelegate;
 
-@interface HUAddUserViewController : UIViewController <MFComposeRecipientViewDelegate, MFContactsSearchConsumer, UITableViewDataSource, UITableViewDelegate, ABPeoplePickerNavigationControllerDelegate, HUUserManagementDelegate>
+@interface HUAddUserViewController : UIViewController <MFComposeRecipientViewDelegate, MFContactsSearchConsumer, UITableViewDataSource, UITableViewDelegate, CNContactPickerDelegate, HUUserManagementDelegate>
 {
     _Bool _showingSearchField;
     _Bool _addressBookAccessDenied;
@@ -46,9 +46,10 @@
 @property(retain, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 - (void)updateHome:(id)arg1;
-- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void *)arg2 property:(int)arg3 identifier:(int)arg4;
-- (void)peoplePickerNavigationController:(id)arg1 didSelectPerson:(void *)arg2;
-- (void)peoplePickerNavigationControllerDidCancel:(id)arg1;
+- (void)contactPicker:(id)arg1 didSelectContactProperty:(id)arg2;
+- (void)contactPicker:(id)arg1 didSelectContact:(id)arg2;
+- (void)contactPickerDidCancel:(id)arg1;
+- (void)_addRecipientFromSelectedContactProperty:(id)arg1;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;

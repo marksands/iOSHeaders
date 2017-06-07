@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) _Bool acquire; // @synthesize acquire=_acquire;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSString *type; // @synthesize type=_type;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithType:(id)arg1 identifier:(id)arg2 isAcquisition:(_Bool)arg3;
 
 @end

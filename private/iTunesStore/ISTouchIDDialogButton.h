@@ -11,7 +11,7 @@
     long long _buttonType;
 }
 
-@property(nonatomic) long long buttonType; // @synthesize buttonType=_buttonType;
+@property long long buttonType; // @synthesize buttonType=_buttonType;
 
 @end
 

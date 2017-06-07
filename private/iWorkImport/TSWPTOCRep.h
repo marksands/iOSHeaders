@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)TOCReferenceNameWithParagraphIndex:(unsigned long long)arg1;
 - (unsigned long long)i_indexOfHitTOCEntryAtPoint:(struct CGPoint)arg1;
 - (id)i_paragraphStyleAtPoint:(struct CGPoint)arg1;
 - (id)hyperlinkRegions;

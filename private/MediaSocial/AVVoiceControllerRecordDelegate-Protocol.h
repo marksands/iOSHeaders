@@ -9,9 +9,9 @@
 @class AVVCAudioBuffer, AVVoiceController, NSDictionary, NSError;
 
 @protocol AVVoiceControllerRecordDelegate <NSObject>
-- (void)voiceControllerRecordBufferAvailable:(AVVoiceController *)arg1 buffer:(AVVCAudioBuffer *)arg2;
 
 @optional
+- (void)voiceControllerRecordBufferAvailable:(AVVoiceController *)arg1 buffer:(AVVCAudioBuffer *)arg2;
 - (void)voiceControllerEndRecordInterruption:(AVVoiceController *)arg1;
 - (void)voiceControllerBeginRecordInterruption:(AVVoiceController *)arg1 withContext:(NSDictionary *)arg2;
 - (void)voiceControllerBeginRecordInterruption:(AVVoiceController *)arg1;

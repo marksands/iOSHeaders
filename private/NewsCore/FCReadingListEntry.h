@@ -13,13 +13,15 @@
     NSString *_identifier;
     NSString *_articleID;
     NSDate *_dateAdded;
+    unsigned long long _origin;
 }
 
+@property(readonly, nonatomic) unsigned long long origin; // @synthesize origin=_origin;
 @property(readonly, nonatomic) NSDate *dateAdded; // @synthesize dateAdded=_dateAdded;
 @property(readonly, copy, nonatomic) NSString *articleID; // @synthesize articleID=_articleID;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
-- (id)initWithEntryID:(id)arg1 articleID:(id)arg2 dateAdded:(id)arg3;
+- (id)initWithEntryID:(id)arg1 articleID:(id)arg2 dateAdded:(id)arg3 origin:(unsigned long long)arg4;
 - (id)dictionaryRepresentation;
 - (id)initWithEntryID:(id)arg1 dictionaryRepresentation:(id)arg2;
 

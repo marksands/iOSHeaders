@@ -6,26 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class MDAgentDelegate, NSString;
-@protocol NSXPCProxyCreating;
-
 @interface MDAgent : NSObject
 {
-    MDAgentDelegate *_delegate;
-    id <NSXPCProxyCreating> _clientLink;
-    NSString *_processDescription;
 }
 
-+ (id)clientBundleIDForConnection:(id)arg1;
-+ (id)clientXPCInterface;
-+ (id)xpcInterface;
-+ (id)machServiceName;
-@property(retain, nonatomic) NSString *processDescription; // @synthesize processDescription=_processDescription;
-@property(retain) id <NSXPCProxyCreating> clientLink; // @synthesize clientLink=_clientLink;
-@property __weak MDAgentDelegate *delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
-- (id)_clientForBundleID:(id)arg1;
-- (id)initWithClientConnection:(id)arg1 clientLink:(id)arg2 indexer:(id)arg3;
++ (id)sharedAgent;
+- (id)init;
+- (void)handleLogInOut;
 
 @end
 

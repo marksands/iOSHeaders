@@ -19,7 +19,7 @@
 @property(copy, nonatomic) NSString *deviceToken; // @synthesize deviceToken=_deviceToken;
 @property(copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
 - (void).cxx_destruct;
-- (void)executeWithContext:(id)arg1 delegate:(id)arg2;
+- (void)executeWithContext:(id)arg1 delegate:(id)arg2 qualityOfService:(long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithUserID:(id)arg1 deviceToken:(id)arg2 storefrontID:(id)arg3;

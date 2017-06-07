@@ -38,13 +38,13 @@
 @property(readonly, nonatomic) NSURL *folderURL; // @synthesize folderURL=_folderURL;
 @property(nonatomic) unsigned long long multiPutBatchMaxSize; // @synthesize multiPutBatchMaxSize=_multiPutBatchMaxSize;
 @property(nonatomic) unsigned long long multiPutBatchMaxNumResources; // @synthesize multiPutBatchMaxNumResources=_multiPutBatchMaxNumResources;
+- (void).cxx_destruct;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)syncAway;
 - (void)startTaskGroup;
 - (void)_sendNextBatch;
 - (Class)multiPutTaskClass;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithFolderURL:(id)arg1 checkCTag:(id)arg2 uuidsToAddActions:(id)arg3 hrefsToModDeleteActions:(id)arg4 context:(id)arg5 accountInfoProvider:(id)arg6 taskManager:(id)arg7;
 
 // Remaining properties

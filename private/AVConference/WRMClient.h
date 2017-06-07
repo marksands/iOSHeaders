@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 {
     NSObject<OS_xpc_object> *_connection;
     NSObject<OS_dispatch_queue> *_connectionQueue;
-    id <WRMClientDelegate> _wrmClientDelegate;
+    id _wrmClientDelegate;
 }
 
 - (void)processNotificationList:(id)arg1;

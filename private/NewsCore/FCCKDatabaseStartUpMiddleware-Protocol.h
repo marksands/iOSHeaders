@@ -6,9 +6,9 @@
 
 #import <NewsCore/NSObject-Protocol.h>
 
-@class CKDatabase, FCCKDatabase;
+@class FCCKPrivateDatabase;
 
 @protocol FCCKDatabaseStartUpMiddleware <NSObject>
-- (void)performStartUpForDatabase:(FCCKDatabase *)arg1 cloudKitDatabase:(CKDatabase *)arg2 completion:(void (^)(long long))arg3;
+- (void)performStartUpForDatabase:(FCCKPrivateDatabase *)arg1 completion:(void (^)(NSError *))arg2;
 @end
 

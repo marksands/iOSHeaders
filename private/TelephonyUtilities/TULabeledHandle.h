@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/NSCopying-Protocol.h>
 #import <TelephonyUtilities/NSSecureCoding-Protocol.h>
@@ -14,11 +14,11 @@
 @interface TULabeledHandle : NSObject <NSCopying, NSSecureCoding>
 {
     TUHandle *_handle;
-    NSString *_localizedLabel;
+    NSString *_label;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, copy, nonatomic) NSString *localizedLabel; // @synthesize localizedLabel=_localizedLabel;
+@property(readonly, copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(readonly, nonatomic) TUHandle *handle; // @synthesize handle=_handle;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
@@ -29,7 +29,7 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)init;
-- (id)initWithHandle:(id)arg1 localizedLabel:(id)arg2;
+- (id)initWithHandle:(id)arg1 label:(id)arg2;
 
 @end
 

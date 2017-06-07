@@ -6,20 +6,44 @@
 
 #import <SearchFoundation/SFTitleCardSection.h>
 
-@class NSNumber, NSString, NSURL, SFImage, SFText;
+#import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFDescriptionCardSection-Protocol.h>
 
-@interface SFDescriptionCardSection : SFTitleCardSection
+@class NSArray, NSData, NSDictionary, NSNumber, NSString, NSURL, SFCard, SFColor, SFImage, SFText;
+
+@interface SFDescriptionCardSection : SFTitleCardSection <SFDescriptionCardSection, NSSecureCoding>
 {
+    struct {
+        unsigned int canBeHidden:1;
+        unsigned int hasTopPadding:1;
+        unsigned int hasBottomPadding:1;
+        unsigned int separatorStyle:1;
+        unsigned int titleNoWrap:1;
+        unsigned int descriptionExpand:1;
+        unsigned int imageAlign:1;
+        unsigned int textAlign:1;
+    } _has;
+    _Bool _canBeHidden;
+    _Bool _hasTopPadding;
+    _Bool _hasBottomPadding;
     _Bool _titleNoWrap;
     _Bool _descriptionExpand;
+    int _separatorStyle;
+    int _imageAlign;
+    int _textAlign;
+    NSArray *_punchoutOptions;
+    NSString *_punchoutPickerTitle;
+    NSString *_punchoutPickerDismissText;
+    NSString *_type;
+    SFColor *_backgroundColor;
+    NSString *_title;
+    NSString *_subtitle;
     SFText *_descriptionText;
     NSString *_expandText;
     SFImage *_image;
     NSNumber *_titleWeight;
     NSNumber *_descriptionSize;
     NSNumber *_descriptionWeight;
-    unsigned long long _imageAlign;
-    unsigned long long _textAlign;
     NSString *_attributionText;
     NSURL *_attributionURL;
     SFImage *_attributionGlyph;
@@ -29,8 +53,8 @@
 @property(retain, nonatomic) SFImage *attributionGlyph; // @synthesize attributionGlyph=_attributionGlyph;
 @property(copy, nonatomic) NSURL *attributionURL; // @synthesize attributionURL=_attributionURL;
 @property(copy, nonatomic) NSString *attributionText; // @synthesize attributionText=_attributionText;
-@property(nonatomic) unsigned long long textAlign; // @synthesize textAlign=_textAlign;
-@property(nonatomic) unsigned long long imageAlign; // @synthesize imageAlign=_imageAlign;
+@property(nonatomic) int textAlign; // @synthesize textAlign=_textAlign;
+@property(nonatomic) int imageAlign; // @synthesize imageAlign=_imageAlign;
 @property(nonatomic) _Bool descriptionExpand; // @synthesize descriptionExpand=_descriptionExpand;
 @property(copy, nonatomic) NSNumber *descriptionWeight; // @synthesize descriptionWeight=_descriptionWeight;
 @property(copy, nonatomic) NSNumber *descriptionSize; // @synthesize descriptionSize=_descriptionSize;
@@ -39,9 +63,42 @@
 @property(retain, nonatomic) SFImage *image; // @synthesize image=_image;
 @property(copy, nonatomic) NSString *expandText; // @synthesize expandText=_expandText;
 @property(retain, nonatomic) SFText *descriptionText; // @synthesize descriptionText=_descriptionText;
+@property(copy, nonatomic) NSString *subtitle;
+@property(copy, nonatomic) NSString *title;
+@property(retain, nonatomic) SFColor *backgroundColor;
+@property(nonatomic) int separatorStyle;
+@property(copy, nonatomic) NSString *type;
+@property(nonatomic) _Bool hasBottomPadding;
+@property(nonatomic) _Bool hasTopPadding;
+@property(nonatomic) _Bool canBeHidden;
+@property(copy, nonatomic) NSString *punchoutPickerDismissText;
+@property(copy, nonatomic) NSString *punchoutPickerTitle;
+@property(copy, nonatomic) NSArray *punchoutOptions;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasTextAlign;
+- (_Bool)hasImageAlign;
+- (_Bool)hasDescriptionExpand;
+- (_Bool)hasTitleNoWrap;
+- (_Bool)hasSeparatorStyle;
+- (_Bool)hasHasBottomPadding;
+- (_Bool)hasHasTopPadding;
+- (_Bool)hasCanBeHidden;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(copy, nonatomic) NSString *cardSectionId;
+@property(copy, nonatomic) NSArray *commands;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(nonatomic) _Bool hideDivider;
+@property(retain, nonatomic) SFCard *nextCard;
+@property(copy, nonatomic) NSArray *parameterKeyPaths;
+@property(readonly) Class superclass;
 
 @end
 

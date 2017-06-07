@@ -29,6 +29,7 @@
 @property(nonatomic) int detourDistance; // @synthesize detourDistance=_detourDistance;
 @property(nonatomic) unsigned int timeToPlace; // @synthesize timeToPlace=_timeToPlace;
 @property(nonatomic) int detourTime; // @synthesize detourTime=_detourTime;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -43,7 +44,6 @@
 @property(nonatomic) _Bool hasDetourDistance;
 @property(nonatomic) _Bool hasTimeToPlace;
 @property(nonatomic) _Bool hasDetourTime;
-- (void)dealloc;
 
 @end
 

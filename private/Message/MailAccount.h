@@ -154,6 +154,7 @@
 - (id)_copyMailboxWithParent:(id)arg1 name:(id)arg2 attributes:(unsigned int)arg3 dictionary:(id)arg4;
 - (id)_deliveryAccountCreateIfNeeded:(_Bool)arg1;
 - (_Bool)_cleanInboxDuplication:(id)arg1;
+- (id)uniqueServerIdForMessage:(id)arg1;
 - (id)URLForMessage:(id)arg1;
 - (void)_writeCustomInfoToMailboxCache:(id)arg1;
 - (void)_readCustomInfoFromMailboxCache:(id)arg1;
@@ -178,7 +179,6 @@
 - (void)_loadEntriesFromFileSystemPath:(id)arg1 parent:(id)arg2;
 - (void)setMailboxCachePath:(id)arg1;
 - (id)mailboxCachePath;
-- (_Bool)_usesMailboxCache;
 - (void)_mailboxesWereRemovedFromTree:(id)arg1 withFileSystemPaths:(id)arg2;
 - (_Bool)_loadMailboxListingIntoCache:(id)arg1 attributes:(unsigned int)arg2 children:(id)arg3 parent:(id)arg4;
 - (void)_synchronouslyLoadListingForParent:(id)arg1;
@@ -207,7 +207,9 @@
 - (_Bool)reconstituteOrphanedMeetingInMessage:(id)arg1;
 - (id)meetingStorePersistentID;
 - (id)loggingIdentifier;
+@property(readonly, nonatomic) _Bool needsRemoteSearchResultsVerification;
 - (id)statisticsKind;
+- (id)persistentNameForMailbox:(id)arg1;
 - (id)displayNameUsingSpecialNamesForMailboxUid:(id)arg1;
 - (_Bool)deleteInPlaceForMailbox:(id)arg1;
 - (_Bool)deleteInPlaceForAllMailboxes;
@@ -235,6 +237,7 @@
 - (void)stopListeningForNotifications;
 - (void)startListeningForNotifications;
 - (void)emptyTrash;
+- (_Bool)ownsMailboxUidWithURL:(id)arg1;
 - (id)mailboxUidForURL:(id)arg1;
 - (id)mailboxUidForInfo:(id)arg1;
 - (id)URLString;
@@ -284,6 +287,7 @@
 - (id)allMailMailboxUid;
 - (id)primaryMailboxUid;
 - (_Bool)canAppendMessages;
+- (void)forceFetchMailboxList;
 - (void)fetchMailboxList;
 - (void)nowWouldBeAGoodTimeToStartBackgroundSynchronization;
 - (void)_synchronizeMailboxListWithFileSystem;

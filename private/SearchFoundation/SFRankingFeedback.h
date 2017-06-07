@@ -8,15 +8,21 @@
 
 #import <SearchFoundation/NSCopying-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface SFRankingFeedback : SFFeedback <NSCopying>
 {
     double _blendingDuration;
     NSArray *_sections;
+    NSString *_l2ModelVersion;
+    NSString *_l3ModelVersion;
+    NSString *_l2ShadowModelVersion;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *l2ShadowModelVersion; // @synthesize l2ShadowModelVersion=_l2ShadowModelVersion;
+@property(copy, nonatomic) NSString *l3ModelVersion; // @synthesize l3ModelVersion=_l3ModelVersion;
+@property(copy, nonatomic) NSString *l2ModelVersion; // @synthesize l2ModelVersion=_l2ModelVersion;
 @property(copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(nonatomic) double blendingDuration; // @synthesize blendingDuration=_blendingDuration;
 - (void).cxx_destruct;

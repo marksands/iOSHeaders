@@ -36,6 +36,8 @@
 - (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (void)_updateZoomFactorLabel;
 - (void)_performHighlightAnimation;
+- (struct CGAffineTransform)_targetTransformForHighlighted:(_Bool)arg1 orientation:(long long)arg2;
+- (struct CGAffineTransform)_highlightingTransformForHighlighted:(_Bool)arg1;
 - (void)setHighlighted:(_Bool)arg1;
 - (void)tintColorDidChange;
 - (void)layoutSubviews;

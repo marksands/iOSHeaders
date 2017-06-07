@@ -18,7 +18,6 @@
 - (void).cxx_destruct;
 - (struct NSDictionary *)overridenInstructionsMapping;
 - (id)instructionSet;
-- (id)timeZoneForFormattedString;
 - (id)initWithWalkingLeg:(id)arg1 context:(long long)arg2;
 
 @end

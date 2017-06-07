@@ -6,14 +6,15 @@
 
 #import <VisualVoicemail/NSObject-Protocol.h>
 
-@class NSString, VMVoicemailGreeting;
+@class NSArray, NSString, VMVoicemailGreeting;
 
 @protocol VMServerXPCProtocol <NSObject>
 - (void)changePassword:(NSString *)arg1 completionBlock:(void (^)(NSError *))arg2;
-- (void)reportTranscriptionRatedAccurate:(_Bool)arg1 forIdentifier:(long long)arg2;
-- (void)reportTranscriptionProblemForIdentifier:(long long)arg1;
 - (void)removeAllVoicemails;
+- (void)retrieveDataForIdentifier:(long long)arg1;
+- (void)setReadForIdentifiers:(NSArray *)arg1;
 - (void)setReadForIdentifier:(long long)arg1;
+- (void)setDeletedForIdentifiers:(NSArray *)arg1;
 - (void)setDeletedForIdentifier:(long long)arg1;
 - (void)removeVoicemailFromTrashWithIdentifier:(long long)arg1;
 - (void)setTrashedForIdentifier:(long long)arg1;

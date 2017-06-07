@@ -22,6 +22,7 @@
     id _delegate;
     _Bool _shouldExportToPhotoDataDirectory;
     CDUnknownBlockType _progressHandler;
+    NSString *_exportPresetOverride;
     NSString *_customAccessibilityLabel;
     PFVideoAVObjectBuilder *__videoAVObjectBuilder;
 }
@@ -33,6 +34,7 @@
 + (long long)fileLengthLimitForRemakerMode:(int)arg1;
 @property(readonly, retain, nonatomic) PFVideoAVObjectBuilder *_videoAVObjectBuilder; // @synthesize _videoAVObjectBuilder=__videoAVObjectBuilder;
 @property(copy, nonatomic) NSString *customAccessibilityLabel; // @synthesize customAccessibilityLabel=_customAccessibilityLabel;
+@property(copy, nonatomic) NSString *exportPresetOverride; // @synthesize exportPresetOverride=_exportPresetOverride;
 @property(nonatomic) _Bool shouldExportToPhotoDataDirectory; // @synthesize shouldExportToPhotoDataDirectory=_shouldExportToPhotoDataDirectory;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
 - (void)_exportCompletedWithSuccess:(_Bool)arg1;
@@ -48,6 +50,7 @@
 - (double)trimEndTime;
 - (void)setTrimStartTime:(double)arg1;
 - (double)trimStartTime;
+@property(readonly, nonatomic) NSString *exportPreset;
 - (void)setMode:(int)arg1;
 - (int)mode;
 - (void)setDuration:(double)arg1;

@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSString *osBuild; // @synthesize osBuild=_osBuild;
 @property(retain, nonatomic) NSString *osVersion; // @synthesize osVersion=_osVersion;
 @property(retain, nonatomic) NSString *hardwareIdentifier; // @synthesize hardwareIdentifier=_hardwareIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 @property(readonly, nonatomic) _Bool hasOsBuild;
 @property(readonly, nonatomic) _Bool hasOsVersion;
 @property(readonly, nonatomic) _Bool hasHardwareIdentifier;
-- (void)dealloc;
 
 @end
 

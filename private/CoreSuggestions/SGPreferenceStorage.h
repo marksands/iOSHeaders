@@ -11,6 +11,7 @@
 }
 
 + (id)defaultsForTests;
++ (void)setUseMLModelForSelfIdForTests:(_Bool)arg1;
 + (void)setMessagesToProcessImmediatelyForTests:(long long)arg1;
 + (void)setSyncHistoryToCloudForTests:(_Bool)arg1;
 + (void)setAllowGeocodeForTests:(_Bool)arg1;
@@ -22,6 +23,8 @@
 + (void)setProactiveEnabledForTests:(_Bool)arg1;
 + (void)setShowCancelledEventsForTests:(_Bool)arg1;
 + (void)setHidePastEventsForTests:(_Bool)arg1;
++ (void)setCloudKitPersistedState:(id)arg1;
++ (id)cloudKitPersistedState;
 + (_Bool)shouldHarvestEvents;
 + (void)setFirstPartyMailAppIsInstalled:(_Bool)arg1;
 + (void)setFirstPartyCalendarAppIsInstalled:(_Bool)arg1;
@@ -31,6 +34,10 @@
 + (_Bool)detectStructuredEvents;
 + (_Bool)detectNLEvents;
 + (_Bool)detectContacts;
++ (void)setUseMLModelForSelfId:(_Bool)arg1;
++ (_Bool)useMLModelForSelfId;
++ (void)setUseMLModelForContacts:(_Bool)arg1;
++ (_Bool)useMLModelForContacts;
 + (void)setAllowAgeBasedPruning:(_Bool)arg1;
 + (_Bool)allowAgeBasedPruning;
 + (void)setAllowGeocode:(_Bool)arg1;
@@ -45,10 +52,11 @@
 + (void)removeDeprecatedDefaults;
 + (void)registerBlockOnSuggestionsSettingsChange:(CDUnknownBlockType)arg1;
 + (_Bool)showSuggestionsCalendar;
-+ (void)setHashedSessionsLogging:(long long)arg1;
 + (long long)hashedSessionsLogging;
 + (_Bool)showEventsFoundInMail;
 + (_Bool)showContactsFoundInMail;
++ (void)setHarvestNLEvents:(_Bool)arg1;
++ (_Bool)harvestNLEvents;
 + (void)setOnlyShowSignificantNLEvents:(_Bool)arg1;
 + (_Bool)onlyShowSignificantNLEvents;
 + (void)setOnlyShowSignificantPseudoContacts:(_Bool)arg1;

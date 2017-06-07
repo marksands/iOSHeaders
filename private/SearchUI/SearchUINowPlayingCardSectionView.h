@@ -10,7 +10,7 @@
 {
 }
 
-- (id)initWithCardSection:(id)arg1 controller:(id)arg2;
+- (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
 
 @end
 

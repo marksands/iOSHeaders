@@ -10,6 +10,7 @@
 {
 }
 
+- (void)transcodeFileTransferContents:(id)arg1 utiType:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)transcodeFileTransferData:(id)arg1 balloonBundleID:(id)arg2 attachments:(id)arg3 inFileURL:(id)arg4 fallBack:(_Bool)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (id)_findPluginFallbackEncoder:(id)arg1 withBalloonBundleID:(id)arg2;
 

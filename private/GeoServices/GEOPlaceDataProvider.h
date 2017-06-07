@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface GEOPlaceDataProvider : NSObject
 {
@@ -16,6 +16,7 @@
 @property(copy, nonatomic) CDUnknownBlockType errorHandler; // @synthesize errorHandler=_errorHandler;
 @property(copy, nonatomic) CDUnknownBlockType finishedHandler; // @synthesize finishedHandler=_finishedHandler;
 @property(nonatomic) _Bool isLoading; // @synthesize isLoading=_isLoading;
+- (void).cxx_destruct;
 - (void)providerDidCancel;
 - (void)providerReceivedErrorCode:(long long)arg1 userInfo:(id)arg2;
 - (void)providerReceivedResponse:(id)arg1 userInfo:(id)arg2;

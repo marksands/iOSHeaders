@@ -6,16 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class HKLocationSeriesSample, NSArray;
+@class HKWorkoutRoute, NSArray;
 
 @interface HDSmoothingTask : NSObject
 {
-    HKLocationSeriesSample *_sample;
+    HKWorkoutRoute *_sample;
     NSArray *_unsmoothedLocations;
 }
 
 @property(retain, nonatomic) NSArray *unsmoothedLocations; // @synthesize unsmoothedLocations=_unsmoothedLocations;
-@property(retain, nonatomic) HKLocationSeriesSample *sample; // @synthesize sample=_sample;
+@property(retain, nonatomic) HKWorkoutRoute *sample; // @synthesize sample=_sample;
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;

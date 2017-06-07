@@ -40,6 +40,7 @@
 - (id)nextUnicodeBase64Line:(_Bool *)arg1;
 - (int)tokenAtCursonIgnoringLineFolding;
 - (id)nextArraySeperatedByToken:(int)arg1 stoppingAt:(int)arg2 inEncoding:(unsigned long long)arg3;
+- (id)dataWithRange:(struct _NSRange)arg1;
 - (id)stringWithRange:(struct _NSRange)arg1 encoding:(unsigned long long)arg2;
 - (unsigned short)charAtPosition:(unsigned long long)arg1 withOffset:(long long)arg2;
 - (int)tokenAtCursor;

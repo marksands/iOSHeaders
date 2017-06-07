@@ -7,25 +7,15 @@
 #import <GameCenterUI/GKExtensionHostContext.h>
 
 #import <GameCenterUI/GKTurnBasedMatchmakerHostProtocol-Protocol.h>
-#import <GameCenterUI/GKTurnBasedMatchmakerServiceProtocol-Protocol.h>
 
 @class GKGame, NSString;
 
-@interface GKTurnBasedMatchmakerExtensionHostContext : GKExtensionHostContext <GKTurnBasedMatchmakerHostProtocol, GKTurnBasedMatchmakerServiceProtocol>
+@interface GKTurnBasedMatchmakerExtensionHostContext : GKExtensionHostContext <GKTurnBasedMatchmakerHostProtocol>
 {
 }
 
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
-- (void)playerQuitMatch:(id)arg1;
-- (void)finishWithError:(id)arg1;
-- (void)finishWithMatch:(id)arg1;
-- (void)refreshMatches;
-- (void)setShowQuit:(_Bool)arg1;
-- (void)setShowPlay:(_Bool)arg1;
-- (void)setShowExistingMatches:(_Bool)arg1;
-- (void)setMatchRequestInternal:(id)arg1;
-- (id)extensionObjectProxy;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

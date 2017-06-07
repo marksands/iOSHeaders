@@ -6,11 +6,11 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class CKQueryCursor, FCCKDatabase, NSArray, NSError, NSString;
+@class CKQueryCursor, FCCKContentDatabase, NSArray, NSError, NSString;
 
 @interface FCCKTagSearchQueryOperation : FCOperation
 {
-    FCCKDatabase *_database;
+    FCCKContentDatabase *_database;
     unsigned long long _resultsLimit;
     NSString *_searchString;
     long long _tagType;
@@ -35,7 +35,7 @@
 @property(nonatomic) long long tagType; // @synthesize tagType=_tagType;
 @property(nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;
-@property(retain, nonatomic) FCCKDatabase *database; // @synthesize database=_database;
+@property(retain, nonatomic) FCCKContentDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
 - (id)_constructTagSearchQuery;
 - (void)operationWillFinishWithError:(id)arg1;

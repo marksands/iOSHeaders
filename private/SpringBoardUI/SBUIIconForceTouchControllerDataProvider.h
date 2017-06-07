@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class SBFParallaxSettings, SBUIForceTouchGestureRecognizer, SBUIIconForceTouchController, UIView, UIViewController;
+@class SBFParallaxSettings, SBUIForceTouchGestureRecognizer, SBUIIconForceTouchController, UIView, UIViewController, UIWindow;
 @protocol SBUIIconForceTouchControllerDataSource;
 
 @interface SBUIIconForceTouchControllerDataProvider : NSObject
@@ -29,6 +29,8 @@
 @property(readonly, nonatomic) id <SBUIIconForceTouchControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (id)newIconViewCopy;
+@property(readonly, nonatomic) long long interfaceOrientation;
+@property(readonly, nonatomic) UIWindow *gestureRecognizerWindow;
 @property(readonly, nonatomic) struct CGPoint zoomDownCenter;
 @property(readonly, nonatomic) UIView *zoomDownView;
 @property(readonly, nonatomic) SBFParallaxSettings *parallaxSettings;

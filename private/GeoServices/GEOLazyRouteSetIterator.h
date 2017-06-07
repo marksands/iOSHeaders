@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEORouteSet;
 
@@ -14,6 +14,7 @@
     unsigned long long _contingencyRouteIndex;
 }
 
+- (void).cxx_destruct;
 - (void)setContingencyRouteIndex:(unsigned long long)arg1;
 - (id)nextLazyRoute;
 - (void)dealloc;

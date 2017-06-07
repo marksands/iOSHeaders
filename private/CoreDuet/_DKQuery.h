@@ -13,7 +13,7 @@
 }
 
 + (id)queryNotExecutableError;
-+ (id)exectuableQueryForQuery:(id)arg1;
++ (id)executableQueryForQuery:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)predicateForEventsWithSourceID:(id)arg1 bundleID:(id)arg2 itemIDs:(id)arg3;
 + (id)predicateForEventsWithSourceID:(id)arg1 bundleID:(id)arg2 groupIDs:(id)arg3;
@@ -21,6 +21,13 @@
 + (id)predicateForEventsWithSourceID:(id)arg1;
 + (id)endDateSortDescriptorAscending:(_Bool)arg1;
 + (id)startDateSortDescriptorAscending:(_Bool)arg1;
++ (id)predicateForObjectsWithMetadataKey:(id)arg1 andDoubleValueBetween:(double)arg2 andValue:(double)arg3;
++ (id)predicateForObjectsWithMetadataKey:(id)arg1 andDoubleValue:(double)arg2;
++ (id)predicateForObjectsWithMetadataKey:(id)arg1 andIntegerValue:(long long)arg2;
++ (id)predicateForObjectsWithMetadataKey:(id)arg1 andStringValue:(id)arg2;
++ (id)predicateForObjectsWithStructuredMetadataKey:(id)arg1 andValue:(id)arg2;
++ (id)predicateForObjectsWithMetadataKey:(id)arg1;
++ (id)structuredMetadataKeyPathForMetadataKey:(id)arg1;
 + (id)predicateForEventsWithStringValue:(id)arg1;
 + (id)predicateForEventsWithDoubleValueBetween:(double)arg1 and:(double)arg2;
 + (id)predicateForEventsWithDoubleValue:(double)arg1;

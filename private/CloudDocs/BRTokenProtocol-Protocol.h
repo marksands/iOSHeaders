@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol BRTokenProtocol <BRFileCoordinationProvider>
+- (void)getPrimaryiCloudAccountStatus:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)currentAccountCopyTokenWithBundleID:(NSString *)arg1 version:(NSString *)arg2 reply:(void (^)(NSData *, NSError *))arg3;
 @end
 

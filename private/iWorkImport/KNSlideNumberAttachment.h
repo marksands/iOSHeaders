@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (id)newObjectForUnarchiver:(id)arg1;
++ (Class)classForUnarchiver:(id)arg1;
 + (const struct TextualAttachmentArchive *)textualAttachmentArchiveFromUnarchiver:(id)arg1;
 - (id)stringWithPageNumber:(unsigned long long)arg1 pageCount:(unsigned long long)arg2 charIndex:(unsigned long long)arg3;
 - (_Bool)shouldArchiveStringEquivalent;

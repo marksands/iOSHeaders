@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) GEODownloadMetadata *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) GEOSupportedTileSets *tileSets; // @synthesize tileSets=_tileSets;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -27,7 +28,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)dealloc;
 
 @end
 

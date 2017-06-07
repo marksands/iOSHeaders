@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class FBSDisplay, NSOrderedSet, UIImage;
+@class FBSDisplayConfiguration, NSOrderedSet, UIImage;
 
 @interface XBDisplaySnapshot : NSObject
 {
-    FBSDisplay *_display;
+    FBSDisplayConfiguration *_displayConfiguration;
     NSOrderedSet *_layers;
     _Bool _opaque;
     struct CGSize _snapshotSize;
@@ -24,18 +24,19 @@
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic, getter=isOpaque) _Bool opaque; // @synthesize opaque=_opaque;
 @property(readonly, copy, nonatomic) NSOrderedSet *layers; // @synthesize layers=_layers;
-@property(readonly, retain, nonatomic) FBSDisplay *display; // @synthesize display=_display;
+@property(readonly, nonatomic) FBSDisplayConfiguration *displayConfiguration; // @synthesize displayConfiguration=_displayConfiguration;
+- (void).cxx_destruct;
 - (struct CGSize)_scaledSnapshotSize;
 - (double)_scale;
 - (void)_synchronizedCaptureWithCompletion:(CDUnknownBlockType)arg1;
-@property(readonly, retain, nonatomic) UIImage *UIImage;
+@property(readonly, nonatomic) UIImage *UIImage;
 @property(readonly, nonatomic) struct CGImage *CGImage;
 @property(readonly, nonatomic, getter=isDataLoaded) _Bool dataLoaded;
 @property(readonly, nonatomic) void *IOSurface;
 - (_Bool)capture;
 - (void)dealloc;
-- (id)initWithDisplay:(id)arg1 layers:(id)arg2;
-- (id)initWithDisplay:(id)arg1 layer:(id)arg2;
+- (id)initWithDisplayConfiguration:(id)arg1 layers:(id)arg2;
+- (id)initWithDisplayConfiguration:(id)arg1 layer:(id)arg2;
 
 @end
 

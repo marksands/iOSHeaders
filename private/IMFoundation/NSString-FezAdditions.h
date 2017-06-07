@@ -23,6 +23,7 @@
 - (id)stringByRemovingWhitespace;
 - (struct _NSRange)__rangeOfNewlineInRange:(struct _NSRange)arg1;
 - (id)stringByResolvingAndStandardizingPath;
+- (_Bool)_appearsToBeBusinessID;
 - (_Bool)_appearsToBeDSID;
 - (_Bool)_appearsToBePhoneNumber;
 - (id)_md5Hash;
@@ -33,10 +34,12 @@
 - (id)_URIFromCanonicalizedFZIDType:(long long)arg1;
 - (long long)_FZBestGuessFZIDType;
 - (id)_bestGuessURIFromCanicalizedID;
+- (id)_URIFromCanonicalizedBusinessID;
 - (id)_URIFromCanonicalizedDSID;
 - (id)_URIFromCanonicalizedPhoneNumber;
 - (id)_URIFromCanonicalizedEmail;
 - (id)_bestGuessURI;
+- (id)_URIFromBusinessID;
 - (id)_URIFromDSID;
 - (id)_URIFromPhoneNumber;
 - (id)_URIFromEmail;

@@ -58,6 +58,8 @@
 - (void)coreDAVLogDiagnosticMessage:(id)arg1 atLevel:(long long)arg2;
 - (long long)coreDAVOutputLevel;
 - (long long)coreDAVLogLevel;
+- (void)removeFromCoreDAVLoggingDelegates;
+- (void)addToCoreDAVLoggingDelegates;
 - (id)onBehalfOfBundleIdentifier;
 - (id)localizedInvalidPasswordMessage;
 - (id)localizedIdenticalAccountFailureMessage;
@@ -89,6 +91,8 @@
 - (void)_clearOrphanedChangesWithChangesCall:(CDUnknownFunctionPointerType)arg1 entityType:(int)arg2 withContext:(id)arg3;
 - (void)_clearOrphanedCalendarItemChangesOfType:(int)arg1 withContext:(id)arg2 goodCalendarIds:(id)arg3;
 - (void)cancelRefreshWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_syncEndedWithError:(id)arg1;
+- (void)_syncStarted;
 - (void)_setSpinning:(_Bool)arg1;
 - (id)spinnerIdentifiers;
 - (void)_updateCalendarStore:(_Bool)arg1;

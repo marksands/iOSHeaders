@@ -33,9 +33,13 @@
 - (void)getPrivilegedSenderTypesWithHandler:(void (^)(NSNumber *, NSError *))arg1;
 - (void)getBehaviorOverridesEnabledWithHandler:(void (^)(NSNumber *, NSError *))arg1;
 - (void)getBehaviorOverridesWithHandler:(void (^)(NSArray *, NSError *))arg1;
+- (void)getEffectiveSectionInfoForSectionIDs:(NSSet *)arg1 withHandler:(void (^)(NSArray *))arg2;
 - (void)getSectionInfoForSectionIDs:(NSSet *)arg1 withHandler:(void (^)(NSArray *))arg2;
+- (void)getEffectiveSectionInfoForSectionID:(NSString *)arg1 withHandler:(void (^)(BBSectionInfo *))arg2;
 - (void)getSectionInfoForSectionID:(NSString *)arg1 withHandler:(void (^)(BBSectionInfo *))arg2;
 - (void)getSectionInfoForActiveSectionsWithHandler:(void (^)(NSArray *, NSError *))arg1;
 - (void)getSectionInfoWithHandler:(void (^)(NSArray *, NSError *))arg1;
+- (void)setEffectiveGlobalContentPreviewsSetting:(long long)arg1;
+- (void)getEffectiveGlobalContentPreviewsSettingWithHandler:(void (^)(long long, NSError *))arg1;
 @end
 

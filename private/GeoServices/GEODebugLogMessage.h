@@ -8,14 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
-
 @interface GEODebugLogMessage : PBCodable <NSCopying>
 {
-    NSString *_callStack;
 }
 
-@property(retain, nonatomic) NSString *callStack; // @synthesize callStack=_callStack;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -25,8 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasCallStack;
-- (void)dealloc;
 
 @end
 

@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) const struct __EmojiTokenWrapper *emojiTokenRef; // @synthesize emojiTokenRef=_emojiTokenRef;
 - (void)_createEmojiTokenRefIfNecessary;
 @property(readonly, nonatomic) NSString *_baseString;
+- (unsigned long long)hash;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

@@ -20,12 +20,12 @@
 @property(copy) NSNumber *version; // @synthesize version=_version;
 @property(copy) NSDictionary *deliveryStatusContext; // @synthesize deliveryStatusContext=_deliveryStatusContext;
 @property(copy) NSNumber *wantsDeliveryStatus; // @synthesize wantsDeliveryStatus=_wantsDeliveryStatus;
+- (void).cxx_destruct;
 - (_Bool)wantsUserAgentInHeaders;
 - (id)userAgentHeaderString;
 - (id)messageBody;
 - (_Bool)wantsHTTPHeaders;
 - (_Bool)wantsAPSRetries;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

@@ -6,7 +6,7 @@
 
 #import <HomeUI/NSObject-Protocol.h>
 
-@class HFItem, HFItemManager, NSDictionary, NSIndexPath, NSIndexSet, NSSet;
+@class HFItem, HFItemManager, HFItemManagerDelegateUpdateRequest, NAFuture, NSDictionary, NSIndexPath, NSIndexSet, NSSet;
 
 @protocol HFItemManagerDelegate <NSObject>
 
@@ -21,7 +21,7 @@
 - (void)itemManager:(HFItemManager *)arg1 didInsertItem:(HFItem *)arg2 atIndexPath:(NSIndexPath *)arg3;
 - (void)itemManager:(HFItemManager *)arg1 didRemoveItem:(HFItem *)arg2 atIndexPath:(NSIndexPath *)arg3;
 - (void)itemManager:(HFItemManager *)arg1 didUpdateResultsForItem:(HFItem *)arg2 atIndexPath:(NSIndexPath *)arg3;
-- (_Bool)itemManager:(HFItemManager *)arg1 performBatchUpdateBlock:(void (^)(void))arg2;
-- (_Bool)itemManager:(HFItemManager *)arg1 shouldUpdateItems:(NSSet *)arg2 itemUpdateOptions:(NSDictionary *)arg3;
+- (void)itemManager:(HFItemManager *)arg1 performUpdateRequest:(HFItemManagerDelegateUpdateRequest *)arg2;
+- (NAFuture *)itemManager:(HFItemManager *)arg1 futureToUpdateItems:(NSSet *)arg2 itemUpdateOptions:(NSDictionary *)arg3;
 @end
 

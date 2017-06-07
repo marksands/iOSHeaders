@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSMutableArray *detailFormatteds; // @synthesize detailFormatteds=_detailFormatteds;
 @property(retain, nonatomic) NSMutableArray *commandFormatteds; // @synthesize commandFormatteds=_commandFormatteds;
 @property(retain, nonatomic) NSMutableArray *noticeFormatteds; // @synthesize noticeFormatteds=_noticeFormatteds;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -51,7 +52,6 @@
 - (unsigned long long)noticeFormattedsCount;
 - (void)addNoticeFormatted:(id)arg1;
 - (void)clearNoticeFormatteds;
-- (void)dealloc;
 @property(readonly, nonatomic) NSArray *serverFormattedPrices;
 @property(readonly, nonatomic) NSArray *serverFormattedNotices;
 @property(readonly, nonatomic) NSArray *serverFormattedDetails;

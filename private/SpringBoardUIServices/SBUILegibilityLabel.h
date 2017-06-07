@@ -17,6 +17,7 @@
     _Bool _isDirty;
     double _strength;
     long long _options;
+    double _scale;
     NSArray *_legibilityConstraints;
     UILayoutGuide *_firstBaselineLayoutGuide;
     UILayoutGuide *_lastBaselineLayoutGuide;

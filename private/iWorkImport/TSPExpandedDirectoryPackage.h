@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)hasZipArchive;
 - (void)prepareForDocumentReplacementWithSuccess:(_Bool)arg1 forSafeSave:(_Bool)arg2 originalURL:(id)arg3;
 - (id)newRawReadChannelForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
-- (unsigned long long)encodedLengthForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
+- (id)packageEntryInfoForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
 
 @end
 

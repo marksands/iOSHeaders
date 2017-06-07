@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 + (id)supportedTypes;
 + (id)animationFilter;
 + (id)animationName;
-+ (int)animationCategory;
++ (long long)animationCategory;
 - (id)animationsWithContext:(id)arg1;
 
 @end

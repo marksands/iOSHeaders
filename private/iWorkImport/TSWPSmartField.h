@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithContext:(id)arg1;
 - (void)i_setTextAttributeUUIDString:(id)arg1;
 - (void)dealloc;
+- (id)initFromSmartField:(id)arg1;
 - (id)initWithContext:(id)arg1;
 
 // Remaining properties

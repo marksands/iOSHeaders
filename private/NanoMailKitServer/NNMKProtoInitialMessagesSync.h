@@ -8,7 +8,7 @@
 
 #import <NanoMailKitServer/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray, NSString;
+@class NNMKProtoMailbox, NSData, NSMutableArray, NSString;
 
 @interface NNMKProtoInitialMessagesSync : PBCodable <NSCopying>
 {
@@ -16,16 +16,22 @@
     NSData *_dateSynced;
     unsigned int _fullSyncVersion;
     NSMutableArray *_initialMessages;
+    NNMKProtoMailbox *_mailbox;
+    unsigned int _mailboxSyncVersion;
     NSString *_syncedMailboxAccountId;
     NSString *_syncedMailboxCustomName;
     unsigned int _syncedMailboxType;
     NSString *_syncedMailboxURL;
     struct {
         unsigned int fullSyncVersion:1;
+        unsigned int mailboxSyncVersion:1;
         unsigned int syncedMailboxType:1;
     } _has;
 }
 
++ (Class)initialMessageType;
+@property(nonatomic) unsigned int mailboxSyncVersion; // @synthesize mailboxSyncVersion=_mailboxSyncVersion;
+@property(retain, nonatomic) NNMKProtoMailbox *mailbox; // @synthesize mailbox=_mailbox;
 @property(retain, nonatomic) NSString *syncedMailboxCustomName; // @synthesize syncedMailboxCustomName=_syncedMailboxCustomName;
 @property(retain, nonatomic) NSString *syncedMailboxURL; // @synthesize syncedMailboxURL=_syncedMailboxURL;
 @property(retain, nonatomic) NSString *syncedMailboxAccountId; // @synthesize syncedMailboxAccountId=_syncedMailboxAccountId;
@@ -44,6 +50,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMailboxSyncVersion;
+@property(readonly, nonatomic) _Bool hasMailbox;
 @property(readonly, nonatomic) _Bool hasSyncedMailboxCustomName;
 @property(readonly, nonatomic) _Bool hasSyncedMailboxURL;
 @property(readonly, nonatomic) _Bool hasSyncedMailboxAccountId;

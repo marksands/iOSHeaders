@@ -17,9 +17,9 @@
 
 + (_Bool)dismissAutomaticallyAfterExtensionCompletion;
 + (id)authenticateExtension;
-- (void)unlockRotation;
-- (void)remoteViewControllerIsCanceling;
-- (void)remoteViewControllerIsFinishing;
+- (void)extensionIsCanceling;
+- (void)extensionIsFinishing;
+- (void)messageFromExtension:(id)arg1;
 @property(nonatomic) GKHostedAuthenticateViewController *delegate; // @synthesize delegate=_delegateWeak;
 - (void)dealloc;
 

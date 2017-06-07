@@ -22,6 +22,7 @@
     long long _textLevel;
 }
 
+- (void).cxx_destruct;
 - (long long)textLevel;
 - (void)popTextLevel;
 - (void)pushTextLevel;
@@ -45,7 +46,6 @@
 - (void)setResourceUrlPrefix:(id)arg1;
 - (void)setComponentWithName:(id)arg1 value:(id)arg2;
 - (id)componentByName:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

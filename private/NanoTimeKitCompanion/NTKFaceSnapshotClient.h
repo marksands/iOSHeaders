@@ -22,6 +22,7 @@
 - (void)_handleCustomMonogramChangedNotification;
 - (void)_updateAllSnapshots;
 - (void)faceSnapshotChangedForKey:(id)arg1;
+- (void)performAfterCompletingCurrentlyPendingSnapshots:(CDUnknownBlockType)arg1;
 - (void)requestSnapshotOfFace:(id)arg1;
 - (void)createFaceForPerformanceTesting:(long long)arg1;
 - (void)synchronouslyUpdateAllSnapshots;

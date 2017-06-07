@@ -144,8 +144,8 @@
 - (id)textContainerForGlyphAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
 - (id)textContainerForGlyphAtIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2 withoutAdditionalLayout:(_Bool)arg3;
 - (void)getFirstUnlaidCharacterIndex:(unsigned long long *)arg1 glyphIndex:(unsigned long long *)arg2;
-@property(readonly, nonatomic) unsigned long long firstUnlaidGlyphIndex;
-@property(readonly, nonatomic) unsigned long long firstUnlaidCharacterIndex;
+- (unsigned long long)firstUnlaidGlyphIndex;
+- (unsigned long long)firstUnlaidCharacterIndex;
 - (void)setEllipsisGlyphAttribute:(_Bool)arg1 forGlyphAtIndex:(unsigned long long)arg2;
 - (void)setAttachmentSize:(struct CGSize)arg1 forGlyphRange:(struct _NSRange)arg2;
 - (void)setDrawsOutsideLineFragment:(_Bool)arg1 forGlyphAtIndex:(unsigned long long)arg2;
@@ -218,7 +218,7 @@
 - (void)addTextContainer:(id)arg1;
 - (struct _NSRange)_characterRangeCurrentlyInAndAfterContainer:(id)arg1;
 @property(readonly, nonatomic) NSArray *textContainers;
-@property(nonatomic) id <NSLayoutManagerDelegate> delegate;
+@property(nonatomic) __weak id <NSLayoutManagerDelegate> delegate;
 - (void)setTypesetter:(id)arg1;
 - (id)typesetter;
 - (void)_setGlyphGenerator:(id)arg1;
@@ -243,6 +243,16 @@
 - (id)circleImageWithSize:(struct CGSize)arg1 bufferWidth:(double)arg2 usingColor:(id)arg3;
 - (void)_showAttachmentCell:(id)arg1 inRect:(struct CGRect)arg2 characterIndex:(unsigned long long)arg3;
 - (void)_showCGGlyphs:(const unsigned short *)arg1 positions:(const struct CGPoint *)arg2 count:(unsigned long long)arg3 font:(id)arg4 matrix:(struct CGAffineTransform)arg5 attributes:(id)arg6 inContext:(struct CGContext *)arg7;
+- (void)setUnderlineColorForSpelling:(id)arg1;
+- (id)underlineColorForSpelling;
+- (void)setUnderlineColorForTextAlternatives:(id)arg1;
+- (id)underlineColorForTextAlternatives;
+- (struct CGRect)prepareLayoutForBoundingRect:(struct CGRect)arg1 textContainer:(id)arg2;
+@property(readonly, getter=isScrolling) _Bool scrolling;
+- (void)endScrollingForView:(id)arg1 textContainer:(id)arg2;
+- (void)beginScrollingForView:(id)arg1 textContainer:(id)arg2;
+- (void)setViewProvider:(id)arg1 forTextAttachment:(id)arg2 characterIndex:(unsigned long long)arg3;
+- (id)viewProviderForTextAttachment:(id)arg1 characterIndex:(unsigned long long)arg2;
 @property(copy) CUIStyleEffectConfiguration *styleEffectConfiguration;
 @property(retain) NSParagraphArbitrator *paragraphArbitrator;
 - (void)_setTextContainer:(id)arg1 forGlyphRange:(struct _NSRange)arg2;
@@ -356,6 +366,8 @@
 - (void)_mergeGlyphHoles;
 - (id)linkAttributesForLink:(id)arg1 forCharacterAtIndex:(unsigned long long)arg2;
 - (void)coordinateAccess:(CDUnknownBlockType)arg1;
+- (id)layoutFragmentsForReplacingCharactersInRange:(struct _NSRange)arg1 withAttributedString:(id)arg2 rect:(struct CGRect)arg3 textContainer:(id)arg4;
+- (id)destinationTextContainerForRange:(struct _NSRange)arg1 inTextContainer:(id)arg2;
 
 @end
 

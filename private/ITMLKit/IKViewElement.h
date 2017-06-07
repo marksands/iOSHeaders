@@ -6,22 +6,21 @@
 
 #import <objc/NSObject.h>
 
-#import <ITMLKit/IKAppDocumentStyleChangeObserving-Protocol.h>
 #import <ITMLKit/IKDOMBindingControllerDelegate-Protocol.h>
 #import <ITMLKit/IKStyleableElement-Protocol.h>
 
-@class IKAppDocument, IKDOMBindingController, IKElementChangeSet, IKViewElementStyle, IKViewElementStyleComposer, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString;
+@class IKAppDocument, IKDOMBindingController, IKElementChangeSet, IKViewElementStyle, IKViewElementStyleComposer, NSArray, NSDictionary, NSMapTable, NSMutableDictionary, NSMutableSet, NSString;
 @protocol IKStyleableElement;
 
-@interface IKViewElement : NSObject <IKStyleableElement, IKAppDocumentStyleChangeObserving, IKDOMBindingControllerDelegate>
+@interface IKViewElement : NSObject <IKStyleableElement, IKDOMBindingControllerDelegate>
 {
     NSArray *_unfilteredChildren;
     NSArray *_visibleChildren;
-    IKViewElement *_prototypesElement;
+    _Bool _isPartOfPrototypeElement;
+    _Bool _isProxyElement;
     _Bool _disabled;
     _Bool _impressionable;
     _Bool _didUpdateAutoHighlightIdentifier;
-    _Bool _partOfPrototype;
     _Bool _prototypesUpdated;
     IKAppDocument *_appDocument;
     IKViewElementStyleComposer *_styleComposer;
@@ -41,18 +40,18 @@
     NSMutableSet *_activeSingularEvents;
     NSString *_itmlID;
     IKDOMBindingController *_bindingController;
-    NSDictionary *_prototypesByType;
+    NSMapTable *_prototypesByType;
 }
 
 + (unsigned long long)evaluateElementUpdateTypeAndReset:(id)arg1;
 + (id)_prototypesByTypeForDOMElement:(id)arg1 prototypesDOMElement:(id *)arg2;
++ (unsigned long long)updateTypeForChangeInAttribute:(id)arg1 fromValue:(id)arg2 toValue:(id)arg3;
 + (id)supportedFeatures;
 + (_Bool)shouldParseChildDOMElement:(id)arg1;
 + (_Bool)shouldParseChildDOMElements;
 + (void)willParseDOMElement:(id)arg1;
-@property(readonly, nonatomic) NSDictionary *prototypesByType; // @synthesize prototypesByType=_prototypesByType;
+@property(readonly, nonatomic) NSMapTable *prototypesByType; // @synthesize prototypesByType=_prototypesByType;
 @property(readonly, nonatomic) _Bool prototypesUpdated; // @synthesize prototypesUpdated=_prototypesUpdated;
-@property(readonly, nonatomic, getter=isPartOfPrototype) _Bool partOfPrototype; // @synthesize partOfPrototype=_partOfPrototype;
 @property(readonly, nonatomic) IKDOMBindingController *bindingController; // @synthesize bindingController=_bindingController;
 @property(readonly, retain, nonatomic) NSString *itmlID; // @synthesize itmlID=_itmlID;
 @property(retain, nonatomic) NSMutableSet *activeSingularEvents; // @synthesize activeSingularEvents=_activeSingularEvents;
@@ -72,21 +71,22 @@
 @property(readonly, copy, nonatomic) NSString *elementName; // @synthesize elementName=_elementName;
 @property(readonly, nonatomic) unsigned long long elementType; // @synthesize elementType=_elementType;
 @property(readonly, copy, nonatomic) NSString *elementID; // @synthesize elementID=_elementID;
+@property(readonly, nonatomic) _Bool isPartOfPrototypeElement; // @synthesize isPartOfPrototypeElement=_isPartOfPrototypeElement;
 @property(retain, nonatomic) IKViewElementStyleComposer *styleComposer; // @synthesize styleComposer=_styleComposer;
 - (void).cxx_destruct;
-- (void)_resetUpdates;
 - (void)_updateSubtreeWithElement:(id)arg1;
-- (void)_setAppDocument:(id)arg1;
+- (void)appDocumentDidMarkStylesDirty;
 @property(readonly, nonatomic) __weak id <IKStyleableElement> parentStyleableElement; // @synthesize parentStyleableElement=_parentStyleableElement;
+- (void)resetUpdates;
 - (void)disperseUpdateType:(unsigned long long)arg1;
-- (void)propagateUpdateType:(unsigned long long)arg1;
 - (id)childImageElementWithType:(unsigned long long)arg1;
 - (id)childTextElementWithStyle:(unsigned long long)arg1;
 - (id)childElementsWithType:(unsigned long long)arg1;
 - (id)childElementWithType:(unsigned long long)arg1;
+- (id)actualElementForProxyElement:(id)arg1 jsContext:(id)arg2;
 @property(readonly, retain, nonatomic) NSArray *children;
 @property(readonly, nonatomic, getter=isHidden) _Bool hidden;
-- (void)appDocumentDidMarkStylesDirty;
+@property(readonly, nonatomic) _Bool isProxyElement; // @synthesize isProxyElement=_isProxyElement;
 - (_Bool)shouldResolveDataForDOMBindingController:(id)arg1;
 - (void)dispatchEvent:(id)arg1 eventAttribute:(id)arg2 canBubble:(_Bool)arg3 isCancelable:(_Bool)arg4 extraInfo:(id)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (void)dispatchEventOfType:(unsigned long long)arg1 canBubble:(_Bool)arg2 isCancelable:(_Bool)arg3 extraInfo:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;

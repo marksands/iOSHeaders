@@ -6,28 +6,29 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, NSMutableDictionary, PDFPage, PDFPageView;
+@class CALayer, NSDate, NSMutableArray, NSMutableDictionary, PDFPage, PDFRenderingProperties;
+@protocol PDFPageLayerGeometryInterface;
 
+__attribute__((visibility("hidden")))
 @interface PDFPageLayerPrivate : NSObject
 {
     PDFPage *page;
-    long long displayBox;
-    PDFPageView *parentView;
-    NSMutableDictionary *tiles;
-    struct CGDisplayList *displayList;
+    NSObject<PDFPageLayerGeometryInterface> *geometryInterface;
+    PDFRenderingProperties *renderingProperties;
+    long long oldPageRotation;
+    struct CGRect oldBoundsForBox;
     CALayer *tilesLayer;
-    _Bool isZooming;
-    _Bool hasZoomed;
-    long long oldRotation;
+    int generationCount;
+    double lastLayoutZoomFactor;
+    NSDate *lastZoomChange;
+    _Bool zoomChangeScheduled;
+    unsigned long long visibilityDelegateIndex;
     _Bool tileLayerHidden;
-    // Error parsing type: AB, name: requestedLayout
-    // Error parsing type: AB, name: requestedLayoutDuringLayout
-    unsigned long long layoutStartTime;
-    unsigned long long layoutEndTime;
-    int layoutExpectedTileCount;
-    int layoutUpdateCount;
-    struct CGRect oldPageRect;
-    _Bool shouldAntiAlias;
+    NSMutableArray *tiles;
+    NSMutableDictionary *pageLayerEffects;
+    _Bool allowUpdate;
+    // Error parsing type: AB, name: isTiling
+    // Error parsing type: AB, name: requestedTiling
 }
 
 - (void).cxx_destruct;

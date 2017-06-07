@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *region; // @synthesize region=_region;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasRegion;
 @property(readonly, nonatomic) _Bool hasCountryCode;
-- (void)dealloc;
 
 @end
 

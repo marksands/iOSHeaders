@@ -6,27 +6,27 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, TSULRUCache;
+@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, TSULRUCache;
 
 __attribute__((visibility("hidden")))
 @interface TSWPFontCache : NSObject
 {
     TSULRUCache *_fontCache;
-    NSArray *_familyNames;
+    NSMutableSet *_missingFonts;
+    NSMutableArray *_familyNames;
     NSMutableDictionary *_familyDisplayNames;
-    NSArray *_familyFonts;
+    NSMutableDictionary *_familyNameToFontNameMap;
+    NSMutableArray *_familyFonts;
     NSMutableArray *_cachedAvailableMembers;
     NSString *_cachedMembersFamilyName;
     NSArray *_cachedRecentFontNames;
-    NSDictionary *_familyToFontLookup;
-    NSMutableSet *_missingFonts;
 }
 
-+ (void)reset;
-+ (id)allocWithZone:(struct _NSZone *)arg1;
++ (id)recentFonts;
++ (id)p_fontNameForFamilyName:(id)arg1;
++ (id)p_excludedFamilyNames;
 + (id)sharedCache;
-+ (id)_singletonAlloc;
-- (void)p_FontWasDownloaded:(id)arg1;
+- (void).cxx_destruct;
 - (void)removeMissingFonts:(id)arg1;
 - (_Bool)isFontMissing:(id)arg1;
 - (void)addMissingFonts:(id)arg1;
@@ -35,20 +35,11 @@ __attribute__((visibility("hidden")))
 - (id)recentFonts;
 - (id)recentFontNames;
 - (id)availableMembersOfFontFamily:(id)arg1;
-- (id)fontNameForFailyName:(id)arg1;
+- (id)fontNameForFamilyName:(id)arg1;
 - (id)displayNameForFontFamily:(id)arg1;
-- (id)fontFamilyToTSWPFontLookup;
-- (id)sortedFontFamilyEntriesForStylesheet:(id)arg1;
 - (id)sortedFontFamilies;
-- (id)p_excludedFamilyNames;
-- (struct __CTFont *)createFontWithName:(id)arg1 size:(double)arg2;
-- (void)dealloc;
+- (const struct __CTFont *)createFontWithName:(id)arg1 size:(double)arg2 options:(unsigned long long)arg3;
 - (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned long long)retainCount;
-- (id)retain;
 
 @end
 

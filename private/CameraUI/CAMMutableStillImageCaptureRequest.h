@@ -6,15 +6,16 @@
 
 #import <CameraUI/CAMStillImageCaptureRequest.h>
 
+#import <CameraUI/CAMMutableCaptureRequestEncodingBehavior-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestLocation-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestOrigin-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestPersistence-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestPower-Protocol.h>
 
-@class CLLocation, NSString, NSURL;
+@class CLHeading, CLLocation, NSArray, NSString, NSURL;
 @protocol CAMStillImageCaptureRequestDelegate;
 
-@interface CAMMutableStillImageCaptureRequest : CAMStillImageCaptureRequest <CAMMutableCaptureRequestPersistence, CAMMutableCaptureRequestLocation, CAMMutableCaptureRequestPower, CAMMutableCaptureRequestOrigin>
+@interface CAMMutableStillImageCaptureRequest : CAMStillImageCaptureRequest <CAMMutableCaptureRequestPersistence, CAMMutableCaptureRequestLocation, CAMMutableCaptureRequestPower, CAMMutableCaptureRequestOrigin, CAMMutableCaptureRequestEncodingBehavior>
 {
 }
 
@@ -25,10 +26,13 @@
 @property(nonatomic) unsigned int assertionIdentifier;
 @property(nonatomic) long long origin;
 - (void)setCapturedFromPhotoBooth:(_Bool)arg1;
+@property(retain, nonatomic) CLHeading *heading;
 @property(retain, nonatomic) CLLocation *location;
+@property(nonatomic) long long videoEncodingBehavior;
+@property(nonatomic) long long photoEncodingBehavior;
 @property(nonatomic) double loggingVideoZoomFactor; // @dynamic loggingVideoZoomFactor;
 @property(nonatomic) unsigned long long userInitiationTime; // @dynamic userInitiationTime;
-@property(copy, nonatomic) NSString *originalPersistenceUUID; // @dynamic originalPersistenceUUID;
+@property(copy, nonatomic) NSString *EV0PersistenceUUID; // @dynamic EV0PersistenceUUID;
 @property(nonatomic) _Bool shouldDelayRemotePersistence;
 @property(nonatomic) _Bool shouldPersistDiagnosticsToSidecar;
 @property(nonatomic) _Bool shouldExtractDiagnosticsFromMetadata;
@@ -39,9 +43,9 @@
 @property(copy, nonatomic) NSString *persistenceUUID;
 @property(nonatomic) __weak id <CAMStillImageCaptureRequestDelegate> delegate; // @dynamic delegate;
 @property(nonatomic) unsigned short sessionIdentifier; // @dynamic sessionIdentifier;
-@property(copy, nonatomic) NSString *originalVideoPersistenceUUID; // @dynamic originalVideoPersistenceUUID;
-@property(copy, nonatomic) NSURL *originalLocalVideoDestinationURL; // @dynamic originalLocalVideoDestinationURL;
-@property(copy, nonatomic) NSString *originalIrisIdentifier; // @dynamic originalIrisIdentifier;
+@property(copy, nonatomic) NSString *EV0VideoPersistenceUUID; // @dynamic EV0VideoPersistenceUUID;
+@property(copy, nonatomic) NSURL *EV0LocalVideoDestinationURL; // @dynamic EV0LocalVideoDestinationURL;
+@property(copy, nonatomic) NSString *EV0IrisIdentifier; // @dynamic EV0IrisIdentifier;
 @property(copy, nonatomic) NSString *videoPersistenceUUID; // @dynamic videoPersistenceUUID;
 @property(copy, nonatomic) NSURL *localVideoDestinationURL; // @dynamic localVideoDestinationURL;
 @property(copy, nonatomic) NSString *irisIdentifier; // @dynamic irisIdentifier;
@@ -51,11 +55,12 @@
 @property(nonatomic) _Bool wantsAudioForCapture; // @dynamic wantsAudioForCapture;
 @property(nonatomic) _Bool wantsAutoDualCameraFusion; // @dynamic wantsAutoDualCameraFusion;
 @property(nonatomic) _Bool usesStillImageStabilization; // @dynamic usesStillImageStabilization;
+@property(retain, nonatomic) NSArray *filters; // @dynamic filters;
 @property(nonatomic) _Bool wantsPortraitEffect; // @dynamic wantsPortraitEffect;
 @property(nonatomic) long long irisMode; // @dynamic irisMode;
 @property(nonatomic) long long hdrMode; // @dynamic hdrMode;
 @property(nonatomic) long long flashMode; // @dynamic flashMode;
-@property(nonatomic) long long physicalButtonType; // @dynamic physicalButtonType;
+@property(nonatomic) long long pressType; // @dynamic pressType;
 @property(nonatomic) long long captureMode; // @dynamic captureMode;
 @property(nonatomic) long long captureDevice; // @dynamic captureDevice;
 @property(nonatomic) long long captureOrientation; // @dynamic captureOrientation;

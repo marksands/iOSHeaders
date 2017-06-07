@@ -28,6 +28,7 @@
 @property(retain, nonatomic) GEOPDPlace *place; // @synthesize place=_place;
 @property(retain, nonatomic) NSString *singleLineAddressString; // @synthesize singleLineAddressString=_singleLineAddressString;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,7 +47,6 @@
 @property(readonly, nonatomic) _Bool hasPlace;
 @property(readonly, nonatomic) _Bool hasSingleLineAddressString;
 @property(readonly, nonatomic) _Bool hasSearchString;
-- (void)dealloc;
 
 @end
 

@@ -4,25 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-#import <HomeKitDaemon/HMDMerging-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
+#import <HomeKitDaemon/HMFMerging-Protocol.h>
+#import <HomeKitDaemon/HMFObject-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDAccount, HMDHomeKitVersion, HMFProductInfo, NSString, NSUUID;
+@class HMDAccount, HMDDeviceCapabilities, HMDHomeKitVersion, HMFProductInfo, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDDevice : NSObject <HMFLogging, HMDMerging, NSSecureCoding>
+@interface HMDDevice : HMFObject <HMFObject, HMFLogging, HMFMerging, NSSecureCoding>
 {
-    _Bool _supportsKeychainSync;
-    _Bool _supportsCloudDataSync;
-    _Bool _residentCapable;
-    _Bool _remoteGatewayCapable;
     NSString *_name;
     HMFProductInfo *_productInfo;
     HMDHomeKitVersion *_version;
-    NSUUID *_accountIdentifier;
+    HMDDeviceCapabilities *_capabilities;
+    NSUUID *_idsIdentifierHash;
+    NSUUID *_idsIdentifier;
     NSUUID *_identifier;
     HMDAccount *_account;
     NSObject<OS_dispatch_queue> *_propertyQueue;
@@ -31,14 +30,8 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)logCategory;
-+ (id)shortDescription;
-+ (_Bool)isRemoteGatewayCapableDevice:(id)arg1;
-+ (_Bool)isResidentCapableDevice:(id)arg1;
-+ (_Bool)deviceSupportsCloudDataSync:(id)arg1;
-+ (_Bool)deviceSupportsKeychainSync:(id)arg1;
-+ (id)versionForDevice:(id)arg1;
-+ (id)accountIdentifierFromDevice:(id)arg1 error:(id *)arg2;
-+ (id)accountIdentifierFromDeviceUniqueIdentifier:(id)arg1 error:(id *)arg2;
++ (id)idsIdentifierHashFromDevice:(id)arg1 error:(id *)arg2;
++ (id)idsIdentifierHashFromDeviceUniqueIdentifier:(id)arg1 error:(id *)arg2;
 + (id)identifierFromDeviceDestination:(id)arg1 error:(id *)arg2;
 + (id)destinationForDevice:(id)arg1;
 + (id)deviceDestinationForDevice:(id)arg1;
@@ -53,33 +46,30 @@
 @property(readonly) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(nonatomic) __weak HMDAccount *account; // @synthesize account=_account;
 @property(readonly, copy) NSUUID *identifier; // @synthesize identifier=_identifier;
-@property _Bool supportsCloudDataSync; // @synthesize supportsCloudDataSync=_supportsCloudDataSync;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)mergeObject:(id)arg1;
 - (id)logIdentifier;
-- (void)setAccountIdentifier:(id)arg1;
-@property(readonly, copy, nonatomic) NSUUID *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
-@property(getter=isRemoteGatewayCapable) _Bool remoteGatewayCapable; // @synthesize remoteGatewayCapable=_remoteGatewayCapable;
-@property(getter=isResidentCapable) _Bool residentCapable; // @synthesize residentCapable=_residentCapable;
-@property _Bool supportsKeychainSync; // @synthesize supportsKeychainSync=_supportsKeychainSync;
+@property(copy, setter=setIDSIdentifier:) NSUUID *idsIdentifier; // @synthesize idsIdentifier=_idsIdentifier;
+@property(copy, setter=setIDSIdentifierHash:) NSUUID *idsIdentifierHash; // @synthesize idsIdentifierHash=_idsIdentifierHash;
 @property(readonly, getter=isCurrentDevice) _Bool currentDevice;
-@property(retain, nonatomic) HMDHomeKitVersion *version; // @synthesize version=_version;
-@property(retain) HMFProductInfo *productInfo; // @synthesize productInfo=_productInfo;
+@property(copy) HMDDeviceCapabilities *capabilities; // @synthesize capabilities=_capabilities;
+@property(copy, nonatomic) HMDHomeKitVersion *version; // @synthesize version=_version;
+@property(copy) HMFProductInfo *productInfo; // @synthesize productInfo=_productInfo;
 - (void)setName:(id)arg1;
 @property(readonly, copy) NSString *name; // @synthesize name=_name;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-@property(readonly, copy) NSString *description;
-@property(readonly, copy) NSString *debugDescription;
-- (id)descriptionWithPointer:(_Bool)arg1;
+@property(readonly, copy) NSString *propertyDescription;
 - (id)shortDescription;
-- (id)initWithIdentifier:(id)arg1 accountIdentifier:(id)arg2 name:(id)arg3 productInfo:(id)arg4 destination:(id)arg5 version:(id)arg6 supportsKeychainSync:(_Bool)arg7 supportsCloudDataSync:(_Bool)arg8 isResidentCapable:(_Bool)arg9 isRemoteGatewayCapable:(_Bool)arg10;
+- (id)initWithIdentifier:(id)arg1 idsIdentifier:(id)arg2 idsIdentifierHash:(id)arg3 name:(id)arg4 productInfo:(id)arg5 destination:(id)arg6 version:(id)arg7 capabilities:(id)arg8;
 - (id)initWithIDSDevice:(id)arg1;
 - (id)init;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) Class superclass;
 
 @end

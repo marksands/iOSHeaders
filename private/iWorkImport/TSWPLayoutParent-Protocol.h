@@ -17,7 +17,7 @@
 - (unsigned int)autosizeFlagsForTextLayout:(TSWPLayout *)arg1;
 
 @optional
-- (struct CGRect)adjustRect:(struct CGRect)arg1 forScrollingToSelectionPath:(TSKSelectionPath *)arg2;
+- (struct CGRect)adjustRect:(struct CGRect)arg1 forScrollingToSelectionPath:(TSKSelectionPath *)arg2 forZoom:(_Bool)arg3;
 - (unsigned long long)pageNumberForAttachment:(TSWPAttachment *)arg1;
 - (unsigned long long)pageCountForAttachment:(TSWPAttachment *)arg1;
 - (struct CGSize)initialTextSize;

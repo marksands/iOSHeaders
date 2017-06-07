@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (_Bool)_shouldUseRoundStyle;
 - (void)badgeWithInteger:(long long)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;

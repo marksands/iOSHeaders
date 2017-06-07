@@ -8,7 +8,7 @@
 
 @protocol VCMediaStreamSyncSourceDelegate <NSObject>
 - (void)updateSourceNTPTime:(double)arg1 withRTPTimeStamp:(unsigned int)arg2;
-- (void)updateSourcePlayoutSampleRTPTimestamp:(unsigned int)arg1;
+- (void)updateSourcePlayoutSampleRTPTimestamp:(unsigned int)arg1 systemTime:(double)arg2;
 - (void)updateSourceState:(int)arg1;
 @end
 

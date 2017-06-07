@@ -17,6 +17,7 @@
         unsigned long long count;
         unsigned long long size;
     } _trafficIncidentOffsets;
+    int _alternateRouteIndex;
     GEOTransitDecoderData *_decoderData;
     GEOComposedWaypoint *_destination;
     int _navigationType;
@@ -31,6 +32,7 @@
     NSMutableArray *_trafficIncidents;
     int _transportType;
     struct {
+        unsigned int alternateRouteIndex:1;
         unsigned int navigationType:1;
         unsigned int reconnectionRouteIndex:1;
         unsigned int routeIndex:1;
@@ -39,6 +41,8 @@
 }
 
 + (Class)trafficIncidentsType;
++ (id)activeRouteDetailsForActiveRouteInfo:(id)arg1;
++ (id)activeRouteDetailsForRoute:(id)arg1;
 @property(nonatomic) unsigned int routeIndex; // @synthesize routeIndex=_routeIndex;
 @property(retain, nonatomic) NSMutableArray *trafficIncidents; // @synthesize trafficIncidents=_trafficIncidents;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
@@ -61,6 +65,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasAlternateRouteIndex;
+@property(nonatomic) int alternateRouteIndex; // @synthesize alternateRouteIndex=_alternateRouteIndex;
 @property(nonatomic) _Bool hasRouteIndex;
 - (void)setTrafficIncidentOffsets:(unsigned int *)arg1 count:(unsigned long long)arg2;
 - (unsigned int)trafficIncidentOffsetsAtIndex:(unsigned long long)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class AXIPCClient, AXIPCServer, NSMapTable, NSMutableArray, _AXAssertionServer;
 @protocol AXSpringBoardServerInstanceDelegate;
@@ -18,6 +18,7 @@
     NSMutableArray *_reachabilityHandlers;
     NSMapTable *_assertionClients;
     AXIPCClient *_currentSpeakerClient;
+    struct __IOHIDManager *_hidManager;
     _Bool _disableNotificationCenterAssertionHeld;
     _Bool _disableControlCenterAssertionHeld;
     _AXAssertionServer *_assertionServer;
@@ -28,8 +29,10 @@
 @property(nonatomic) _Bool disableControlCenterAssertionHeld; // @synthesize disableControlCenterAssertionHeld=_disableControlCenterAssertionHeld;
 @property(nonatomic) _Bool disableNotificationCenterAssertionHeld; // @synthesize disableNotificationCenterAssertionHeld=_disableNotificationCenterAssertionHeld;
 @property(retain, nonatomic) _AXAssertionServer *assertionServer; // @synthesize assertionServer=_assertionServer;
-@property(nonatomic) id <AXSpringBoardServerInstanceDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <AXSpringBoardServerInstanceDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (id)_activateSOSMode:(id)arg1;
+- (id)_medusaApps:(id)arg1;
 - (id)_performMedusaGesture:(id)arg1;
 - (id)_allowedMedusaGestures:(id)arg1;
 - (id)_handleIsMultitaskingActive:(id)arg1;
@@ -50,12 +53,15 @@
 - (id)_areSystemGesturesDisabledByAccessibility:(id)arg1;
 - (id)_areSystemGesturesDisabledNatively:(id)arg1;
 - (id)_isSyncingRestoringResettingOrUpdating:(id)arg1;
-- (id)_isSideSwitcherVisible:(id)arg1;
+- (id)_isDockVisible:(id)arg1;
 - (id)_isAppSwitcherVisible:(id)arg1;
+- (id)_isShowingHomescreen:(id)arg1;
 - (id)_isSiriVisible:(id)arg1;
 - (id)_copyStringToPasteboard:(id)arg1;
 - (id)_isControlCenterVisible:(id)arg1;
 - (id)_showNotificationCenter:(id)arg1;
+- (id)_armApplePay:(id)arg1;
+- (id)_toggleDock:(id)arg1;
 - (id)_showControlCenter:(id)arg1;
 - (id)_startHearingAidServer:(id)arg1;
 - (id)_resetDimTimer:(id)arg1;
@@ -95,6 +101,7 @@
 - (id)_toggleNotificationCenter:(id)arg1;
 - (id)_dismissSiri:(id)arg1;
 - (id)_openSiri:(id)arg1;
+- (id)_rebootDevice:(id)arg1;
 - (id)_unlockDevice:(id)arg1;
 - (id)_wakeUpDeviceIfNecessary:(id)arg1;
 - (id)_simulateEdgePressHaptics:(id)arg1;

@@ -33,6 +33,7 @@
 @property(retain, nonatomic) GEOMapRegion *featureRegion; // @synthesize featureRegion=_featureRegion;
 @property(retain, nonatomic) NSString *correctedValue; // @synthesize correctedValue=_correctedValue;
 @property(retain, nonatomic) NSString *originalValue; // @synthesize originalValue=_originalValue;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -52,7 +53,6 @@
 @property(readonly, nonatomic) _Bool hasFeatureRegion;
 @property(readonly, nonatomic) _Bool hasCorrectedValue;
 @property(readonly, nonatomic) _Bool hasOriginalValue;
-- (void)dealloc;
 
 @end
 

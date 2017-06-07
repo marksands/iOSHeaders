@@ -9,7 +9,7 @@
 #import <HealthDaemon/HDHealthServicesServerInterface-Protocol.h>
 
 @class HDHealthServiceManager, HDIdentifierTable, NSMutableDictionary, NSMutableSet, NSString, NSUUID;
-@protocol HKClientInterface;
+@protocol HKHealthStoreClientInterface;
 
 @interface HDHealthServicesServer : HDSubserver <HDHealthServicesServerInterface>
 {
@@ -21,10 +21,10 @@
     NSMutableSet *_healthServiceClosedSessionServerIDs;
     NSMutableSet *_healthServiceClosedSessionClientIDs;
     NSUUID *_subserverUUID;
-    id <HKClientInterface> _clientRemoteObjectProxy;
+    id <HKHealthStoreClientInterface> _clientRemoteObjectProxy;
 }
 
-@property(retain, nonatomic) id <HKClientInterface> clientRemoteObjectProxy; // @synthesize clientRemoteObjectProxy=_clientRemoteObjectProxy;
+@property(retain, nonatomic) id <HKHealthStoreClientInterface> clientRemoteObjectProxy; // @synthesize clientRemoteObjectProxy=_clientRemoteObjectProxy;
 @property(retain, nonatomic) NSUUID *subserverUUID; // @synthesize subserverUUID=_subserverUUID;
 @property(retain, nonatomic) NSMutableSet *healthServiceClosedSessionClientIDs; // @synthesize healthServiceClosedSessionClientIDs=_healthServiceClosedSessionClientIDs;
 @property(retain, nonatomic) NSMutableSet *healthServiceClosedSessionServerIDs; // @synthesize healthServiceClosedSessionServerIDs=_healthServiceClosedSessionServerIDs;

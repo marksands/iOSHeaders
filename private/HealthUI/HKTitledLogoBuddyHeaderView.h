@@ -6,16 +6,19 @@
 
 #import <HealthUI/HKTitledBuddyHeaderView.h>
 
-@class UIImage, UIImageView;
+@class NSLayoutConstraint, UIImage, UIImageView;
 
 @interface HKTitledLogoBuddyHeaderView : HKTitledBuddyHeaderView
 {
     UIImageView *_logoImageView;
+    NSLayoutConstraint *_titleLabelFirstBaselineAnchor;
 }
 
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)logoImageView;
 @property(retain, nonatomic) UIImage *logoImage;
+- (void)_updateForCurrentSizeCategory;
 - (id)initWithTopInset:(double)arg1 linkButtonTitle:(id)arg2;
 
 @end

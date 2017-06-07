@@ -22,6 +22,7 @@
 }
 
 @property(retain, nonatomic) GEOMultiTabsState *multiTabsState; // @synthesize multiTabsState=_multiTabsState;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,7 +41,6 @@
 - (id)layoutInfoAsString:(int)arg1;
 @property(nonatomic) _Bool hasLayoutInfo;
 @property(nonatomic) int layoutInfo; // @synthesize layoutInfo=_layoutInfo;
-- (void)dealloc;
 
 @end
 

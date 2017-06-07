@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <CoreMediaStream/NSCopying-Protocol.h>
+#import <CoreMediaStream/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSDate, NSDictionary, NSString;
 @protocol NSCoding;
 
-@interface MSASAssetCollection : NSObject <NSCopying>
+@interface MSASAssetCollection : NSObject <NSCopying, NSSecureCoding>
 {
     _Bool _hasComments;
     _Bool _isDeletable;
@@ -57,6 +58,7 @@
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mediaAssetType;
+- (_Bool)isAutoloopVideo;
 - (_Bool)isPhotoIris;
 - (_Bool)isVideo;
 - (_Bool)hasVideoAsset;

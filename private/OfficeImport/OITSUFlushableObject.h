@@ -14,8 +14,8 @@
 __attribute__((visibility("hidden")))
 @interface OITSUFlushableObject : NSObject <TSUFlushable>
 {
-    int _retainCount;
-    int _ownerCount;
+    // Error parsing type: Ai, name: _retainCount
+    // Error parsing type: Ai, name: _ownerCount
     OITSUFlushingManager *_flushingManager;
     NSObject<NSLocking> *_flushingManagerIvarLock;
 }

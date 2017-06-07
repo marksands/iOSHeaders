@@ -16,8 +16,10 @@
     NSString *_lastName;
     NSURL *_address;
     NSString *_emailAddress;
+    NSString *_phoneNumber;
 }
 
+@property(retain, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(retain, nonatomic) NSString *emailAddress; // @synthesize emailAddress=_emailAddress;
 @property(retain, nonatomic) NSURL *address; // @synthesize address=_address;
 @property(retain, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
@@ -26,6 +28,7 @@
 @property(retain, nonatomic) ICSDateValue *dtstamp; // @synthesize dtstamp=_dtstamp;
 - (void).cxx_destruct;
 - (id)copyParseRules;
+- (void)setPhoneNumberItem:(id)arg1;
 - (void)setDtstampItem:(id)arg1;
 - (void)setLastNameItem:(id)arg1;
 - (void)setFirstNameItem:(id)arg1;

@@ -16,6 +16,7 @@
 {
     _Bool _keyDown;
     unsigned short _keyCode;
+    unsigned short _alternativeKeyCode;
     unsigned int _usagePage;
     unsigned int _modifierState;
     NSString *_unmodifiedInput;
@@ -30,13 +31,14 @@
 @property(retain, nonatomic) NSString *unmodifiedInput; // @synthesize unmodifiedInput=_unmodifiedInput;
 @property(nonatomic) _Bool keyDown; // @synthesize keyDown=_keyDown;
 @property(nonatomic) unsigned int usagePage; // @synthesize usagePage=_usagePage;
+@property(nonatomic) unsigned short alternativeKeyCode; // @synthesize alternativeKeyCode=_alternativeKeyCode;
 @property(nonatomic) unsigned short keyCode; // @synthesize keyCode=_keyCode;
+- (void).cxx_destruct;
 - (id)accessibilityEventRepresentationTabularDescription;
 - (void)translateKeycode;
 - (void)translateStringToKeycode;
+- (struct __GSKeyboard *)_getUIKitKeyboardRef;
 @property(readonly, copy) NSString *description;
-- (id)_hardwareKeyboardLayout;
-- (void)dealloc;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;

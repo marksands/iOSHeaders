@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 - (void)saveToArchive:(struct PrototypeForUndoMasterChangeArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (double)CGFloatValueForProperty:(int)arg1;
 - (double)doubleValueForProperty:(int)arg1;
 - (float)floatValueForProperty:(int)arg1;

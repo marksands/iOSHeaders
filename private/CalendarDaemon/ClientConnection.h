@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CADOperationProxy, ClientIdentity, NSLock, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSSet, NSString, NSXPCConnection;
+@class CADDatabaseInitializationOptions, CADOperationProxy, ClientIdentity, NSLock, NSMutableDictionary, NSMutableSet, NSOperationQueue, NSSet, NSString, NSXPCConnection;
 @protocol ClientConnectionDelegate, OS_dispatch_queue;
 
 @interface ClientConnection : NSObject
@@ -17,26 +17,27 @@
     NSLock *_restrictionsLock;
     NSSet *_restrictedStoreRowIDs;
     NSSet *_restrictedCalendarRowIDs;
-    int _sourceAccountManagement;
-    struct CalDatabase *_database;
+    // Error parsing type: ^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}, name: _database
     NSObject<OS_dispatch_queue> *_dbQueue;
     NSOperationQueue *_operations;
     NSMutableDictionary *_insertedObjects;
     NSMutableSet *_canceledRequests;
     NSObject<OS_dispatch_queue> *_canceledRequestsLock;
-    int _databaseInitializationOptions;
+    _Bool _initializationOptionsSet;
     CADOperationProxy *_cadOperationProxy;
     id <ClientConnectionDelegate> _delegate;
     ClientIdentity *_identity;
     NSXPCConnection *_xpcConnection;
-    NSString *_databasePath;
+    CADDatabaseInitializationOptions *_databaseInitializationOptions;
 }
 
-@property(copy, nonatomic) NSString *databasePath; // @synthesize databasePath=_databasePath;
-@property(nonatomic) int databaseInitializationOptions; // @synthesize databaseInitializationOptions=_databaseInitializationOptions;
+@property(readonly) _Bool initializationOptionsSet; // @synthesize initializationOptionsSet=_initializationOptionsSet;
+@property(retain, nonatomic) CADDatabaseInitializationOptions *databaseInitializationOptions; // @synthesize databaseInitializationOptions=_databaseInitializationOptions;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 @property(readonly, nonatomic) ClientIdentity *identity; // @synthesize identity=_identity;
-@property(nonatomic) struct CalDatabase *database; // @synthesize database=_database;
+// Error parsing type for property database:
+// Property attributes: T^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B},N,V_database
+
 @property(nonatomic) __weak id <ClientConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) CADOperationProxy *cadOperationProxy; // @synthesize cadOperationProxy=_cadOperationProxy;
 - (void).cxx_destruct;
@@ -48,10 +49,9 @@
 - (id)_restrictedStoreRowIDs;
 - (_Bool)_shouldUseMCToBlacklist;
 - (id)restrictedStoreRowIDs;
-- (void)setSourceAccountManagement:(int)arg1;
-- (_Bool)isObjectWithObjectIDAJunkEvent:(CDStruct_1ef3fb1f)arg1;
-- (_Bool)_hasTCCAccessToEntityWithObjectIDUsingDeepInspection:(CDStruct_1ef3fb1f)arg1;
-- (_Bool)hasTCCAccessToEntityWithObjectID:(CDStruct_1ef3fb1f)arg1;
+- (_Bool)isObjectWithObjectIDAJunkEvent:(id)arg1;
+- (_Bool)_hasTCCAccessToEntityWithObjectIDUsingDeepInspection:(id)arg1;
+- (_Bool)hasTCCAccessToEntityWithObjectID:(id)arg1;
 - (_Bool)reminderAccessGranted;
 - (_Bool)eventAccessGranted;
 - (void)clearCachedAuthorizationStatus;
@@ -64,6 +64,7 @@
 - (void)insertObject:(void *)arg1 key:(id)arg2;
 - (id)operations;
 - (void)addOperation:(id)arg1;
+@property(readonly, nonatomic) NSString *changeTrackingID;
 - (void)dealloc;
 - (id)initWithXPCConnection:(id)arg1;
 

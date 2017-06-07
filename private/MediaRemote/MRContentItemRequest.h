@@ -11,17 +11,17 @@
 __attribute__((visibility("hidden")))
 @interface MRContentItemRequest : NSObject <NSCoding>
 {
-    struct _MRContentItem *_item;
+    void *_item;
     void *_request;
 }
 
 @property(nonatomic) void *request; // @synthesize request=_request;
-@property(nonatomic) struct _MRContentItem *item; // @synthesize item=_item;
+@property(nonatomic) void *item; // @synthesize item=_item;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
-- (id)initWithItem:(struct _MRContentItem *)arg1 request:(void *)arg2;
+- (id)initWithItem:(void *)arg1 request:(void *)arg2;
 
 @end
 

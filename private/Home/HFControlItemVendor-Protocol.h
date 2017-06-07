@@ -6,12 +6,13 @@
 
 #import <Home/NSObject-Protocol.h>
 
-@class HFIncrementalStateControlItem, HFPrimaryStateControlItem, NSArray, NSSet;
+@class HFControlItem, HFIncrementalStateControlItem, NSArray, NSSet;
+@protocol HFPrimaryStateWriter;
 
 @protocol HFControlItemVendor <NSObject>
 - (NSArray *)controlPanelItems;
 - (NSSet *)allControlItems;
 - (HFIncrementalStateControlItem *)incrementalStateControlItem;
-- (HFPrimaryStateControlItem *)primaryStateControlItem;
+- (HFControlItem<HFPrimaryStateWriter> *)primaryStateControlItem;
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/_GEONetworkDefaultsServerProxyDelegate-Protocol.h>
 
@@ -22,6 +22,7 @@
 + (id)sharedNetworkDefaults;
 + (void)_ib_disableServerConnection;
 + (void)setUseLocalProxy:(_Bool)arg1;
+- (void).cxx_destruct;
 - (void)serverProxy:(id)arg1 networkDefaultsDidChange:(id)arg2;
 - (id)allKeys;
 - (id)valueForKey:(id)arg1;

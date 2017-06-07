@@ -6,14 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class UIButton, UIImageView, UILabel, UIView;
+@class PXUIButton, UIImageView, UILabel, UIView;
 
 @interface _PXUIAssetBadgeTopLeftGroup : NSObject
 {
     UIView *_backgroundView;
     UIImageView *_imageView;
     UILabel *_label;
-    UIButton *_button;
+    PXUIButton *_button;
     struct PXAssetBadgeInfo _badgeInfo;
     struct CGRect _frame;
     struct CGRect _imageFrame;
@@ -26,7 +26,7 @@
 @property(nonatomic) struct CGRect imageFrame; // @synthesize imageFrame=_imageFrame;
 @property(nonatomic) struct CGRect frame; // @synthesize frame=_frame;
 @property(nonatomic) struct PXAssetBadgeInfo badgeInfo; // @synthesize badgeInfo=_badgeInfo;
-@property(retain, nonatomic) UIButton *button; // @synthesize button=_button;
+@property(retain, nonatomic) PXUIButton *button; // @synthesize button=_button;
 @property(retain, nonatomic) UILabel *label; // @synthesize label=_label;
 @property(retain, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;

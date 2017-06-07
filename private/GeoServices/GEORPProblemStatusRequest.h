@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOABSecondPartyPlaceRequestClientMetaData, GEOPDAnalyticMetadata, GEORPClientCapabilities, GEORPUserCredentials, NSMutableArray, NSString;
+@class GEOABSecondPartyPlaceRequestClientMetaData, GEOPDAnalyticMetadata, GEORPClientCapabilities, GEORPUserCredentials, GEOServicesState, NSMutableArray, NSString;
 
 @interface GEORPProblemStatusRequest : PBRequest <NSCopying>
 {
@@ -16,17 +16,20 @@
     GEOPDAnalyticMetadata *_analyticMetadata;
     GEORPClientCapabilities *_clientCapabilities;
     NSMutableArray *_problemIds;
+    GEOServicesState *_servicesState;
     NSString *_statusNotificationId;
     GEORPUserCredentials *_userCredentials;
 }
 
 + (Class)problemIdType;
+@property(retain, nonatomic) GEOServicesState *servicesState; // @synthesize servicesState=_servicesState;
 @property(retain, nonatomic) GEOABSecondPartyPlaceRequestClientMetaData *abAssignmentMetadata; // @synthesize abAssignmentMetadata=_abAssignmentMetadata;
 @property(retain, nonatomic) GEOPDAnalyticMetadata *analyticMetadata; // @synthesize analyticMetadata=_analyticMetadata;
 @property(retain, nonatomic) GEORPClientCapabilities *clientCapabilities; // @synthesize clientCapabilities=_clientCapabilities;
 @property(retain, nonatomic) NSMutableArray *problemIds; // @synthesize problemIds=_problemIds;
 @property(retain, nonatomic) NSString *statusNotificationId; // @synthesize statusNotificationId=_statusNotificationId;
 @property(retain, nonatomic) GEORPUserCredentials *userCredentials; // @synthesize userCredentials=_userCredentials;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,6 +41,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasServicesState;
 @property(readonly, nonatomic) _Bool hasAbAssignmentMetadata;
 @property(readonly, nonatomic) _Bool hasAnalyticMetadata;
 @property(readonly, nonatomic) _Bool hasClientCapabilities;
@@ -47,7 +51,6 @@
 - (void)clearProblemIds;
 @property(readonly, nonatomic) _Bool hasStatusNotificationId;
 @property(readonly, nonatomic) _Bool hasUserCredentials;
-- (void)dealloc;
 - (void)populateAnalyticsMetadata;
 
 @end

@@ -26,6 +26,8 @@
 - (void)naui_removeConstraint:(id)arg1;
 - (void)naui_reloadDynamicFontWithTextStyleDescriptor:(id)arg1;
 - (_Bool)naui_isProperDescendantOfView:(id)arg1;
+- (void)naui_addAutoLayoutSubviews:(id)arg1;
+- (void)naui_addAutoLayoutSubview:(id)arg1;
 - (void)naui_performAnimateableConstraintChanges:(CDUnknownBlockType)arg1;
 - (_Bool)naui_canAnimate;
 @property(retain, nonatomic, setter=naui_setDynamicFontTextStyleDescriptor:) NAUITextStyleDescriptor *naui_dynamicFontTextStyleDescriptor;

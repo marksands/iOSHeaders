@@ -9,7 +9,6 @@
 @protocol BBObserverServerInterface
 - (void)getBulletinsForPublisherMatchIDs:(NSArray *)arg1 sectionID:(NSString *)arg2 withHandler:(void (^)(NSArray *, NSError *))arg3;
 - (void)getPublisherMatchIDsOfBulletinsPublishedAfterDate:(NSDate *)arg1 withHandler:(void (^)(NSDictionary *, NSError *))arg2;
-- (void)getBulletinsPublishedAfterDate:(NSDate *)arg1 withHandler:(void (^)(NSArray *, NSError *))arg2;
 - (void)getBulletinsWithHandler:(void (^)(NSArray *, NSError *))arg1;
 - (void)getUniversalSectionIDForSectionID:(NSString *)arg1 withHandler:(void (^)(NSString *, NSError *))arg2;
 - (void)getPrivilegedSenderTypesWithHandler:(void (^)(NSNumber *, NSError *))arg1;

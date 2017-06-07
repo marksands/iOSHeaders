@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) UIView *remoteContentView; // @synthesize remoteContentView=_remoteContentView;
 - (void).cxx_destruct;
+- (void)layoutSubviews;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

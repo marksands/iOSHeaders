@@ -11,16 +11,16 @@
 
 @interface FCStreamingResults : NSObject
 {
-    NSMutableArray *_results;
-    FCAsyncSerialQueue *_serialQueue;
     NSHashTable *_observers;
     id <FCStreaming> _underlyingStream;
+    NSMutableArray *_results;
+    FCAsyncSerialQueue *_serialQueue;
 }
 
+@property(readonly, nonatomic) FCAsyncSerialQueue *serialQueue; // @synthesize serialQueue=_serialQueue;
+@property(readonly, nonatomic) NSMutableArray *results; // @synthesize results=_results;
 @property(readonly, nonatomic) id <FCStreaming> underlyingStream; // @synthesize underlyingStream=_underlyingStream;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
-@property(retain, nonatomic) FCAsyncSerialQueue *serialQueue; // @synthesize serialQueue=_serialQueue;
-@property(retain, nonatomic) NSMutableArray *results; // @synthesize results=_results;
 - (void).cxx_destruct;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;

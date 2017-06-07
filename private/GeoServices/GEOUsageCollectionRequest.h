@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSMutableArray *timeToLeaveInitialTravelTimeFeedbackCollections; // @synthesize timeToLeaveInitialTravelTimeFeedbackCollections=_timeToLeaveInitialTravelTimeFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *timeToLeaveHypothesisFeedbackCollections; // @synthesize timeToLeaveHypothesisFeedbackCollections=_timeToLeaveHypothesisFeedbackCollections;
 @property(retain, nonatomic) NSMutableArray *abExperimentAssignments; // @synthesize abExperimentAssignments=_abExperimentAssignments;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -49,7 +50,6 @@
 - (unsigned long long)abExperimentAssignmentsCount;
 - (void)addAbExperimentAssignment:(id)arg1;
 - (void)clearAbExperimentAssignments;
-- (void)dealloc;
 
 @end
 

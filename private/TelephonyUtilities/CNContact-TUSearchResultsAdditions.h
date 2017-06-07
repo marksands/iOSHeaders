@@ -13,12 +13,12 @@
 @interface CNContact (TUSearchResultsAdditions) <TUSearchResult>
 @property(readonly) NSArray *idsCanonicalDestinations;
 @property(readonly) NSString *idsCanonicalDestination;
-@property(readonly) NSString *idsUniqueId;
 @property(readonly) _Bool mostRecentCallWasMissed;
 @property(readonly) long long mostRecentCallType;
 @property(readonly) NSArray *handles;
 @property(readonly) NSString *isoCountryCode;
 @property(readonly) NSString *destinationId;
+@property(readonly) NSString *backingContactIdentifier;
 @property(readonly) NSString *backingContactId;
 @property(readonly) CNContact *backingContact;
 @property(readonly) NSString *callerId;

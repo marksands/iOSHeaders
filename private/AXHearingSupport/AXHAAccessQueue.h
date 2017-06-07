@@ -21,6 +21,7 @@
 @property(nonatomic) unsigned long long specialBehaviors; // @synthesize specialBehaviors=_specialBehaviors;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *concurrentQueue; // @synthesize concurrentQueue=_concurrentQueue;
 @property(copy, nonatomic) NSString *threadLocalStorageKey; // @synthesize threadLocalStorageKey=_threadLocalStorageKey;
+- (void).cxx_destruct;
 - (void)_performBlock:(CDUnknownBlockType)arg1 withDispatchFunction:(CDUnknownFunctionPointerType)arg2 synchronously:(_Bool)arg3 accessQueueContext:(unsigned long long)arg4;
 - (unsigned long long)_accessQueueContextInCurrentExecutionThread;
 - (id)description;
@@ -36,7 +37,6 @@
 @property(readonly, nonatomic) _Bool behavesWithoutErrorReporting;
 @property(readonly, nonatomic) _Bool behavesAsMainQueue;
 @property(readonly, copy, nonatomic) NSString *label;
-- (void)dealloc;
 - (id)initWithParentClass:(Class)arg1 description:(id)arg2 appendUUIDToLabel:(_Bool)arg3;
 - (id)_initWithLabel:(id)arg1 appendUUIDToLabel:(_Bool)arg2 specialBehaviors:(unsigned long long)arg3;
 - (id)initWithLabel:(id)arg1 appendUUIDToLabel:(_Bool)arg2;

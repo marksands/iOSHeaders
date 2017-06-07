@@ -12,6 +12,7 @@
 }
 
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithHandler:(CDUnknownBlockType)arg1 queue:(id)arg2;
 

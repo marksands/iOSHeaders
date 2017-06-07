@@ -8,11 +8,12 @@
 
 #import <MediaServices/NSStreamDelegate-Protocol.h>
 
-@class NSInputStream, NSOutputStream, NSString;
+@class NSInputStream, NSMutableArray, NSOutputStream, NSString;
 @protocol OS_dispatch_queue;
 
 @interface MSVStreamWriter : NSObject <NSStreamDelegate>
 {
+    NSMutableArray *_pendingWriteDataList;
     _Bool _stopped;
     _Bool _closeOnStop;
     struct z_stream_s *_zstreamp;
@@ -39,10 +40,12 @@
 @property(nonatomic, getter=isCompressed) _Bool compressed; // @synthesize compressed=_compressed;
 @property(nonatomic) unsigned long long maximumBufferSize; // @synthesize maximumBufferSize=_maximumBufferSize;
 - (void).cxx_destruct;
+- (void)_writeAvailablePendingData;
 - (id)_decompressData:(id)arg1;
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 - (void)writeStreamError:(CDStruct_87dc826d)arg1;
 - (_Bool)writeAllData:(id)arg1 error:(id *)arg2;
+- (void)writeData:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)writeAllData:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)stop;
 - (void)start;

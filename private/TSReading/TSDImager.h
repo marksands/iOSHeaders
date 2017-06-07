@@ -28,13 +28,11 @@
     struct CGRect mActualScaledClipRect;
     _Bool mDrawingIntoPDF;
     _Bool mIsPrinting;
-    _Bool mShouldUseSRGBColorSpace;
     struct CGContext *mReusableBitmapContext;
     struct CGRect mReusableBounds;
     struct CGRect mReusableIntegralBounds;
     struct CGRect mReusableActualScaledClipRect;
     struct CGSize mReusableScaledImageSize;
-    _Bool mReusableShouldUseSRGBColorSpace;
     CDUnknownBlockType mPostRenderAction;
 }
 

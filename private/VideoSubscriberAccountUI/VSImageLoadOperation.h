@@ -6,22 +6,25 @@
 
 #import <VideoSubscriberAccount/VSAsyncOperation.h>
 
-@class NSItemProvider, VSOptional;
+@class NSItemProvider, VSAuditToken, VSOptional;
 
-__attribute__((visibility("hidden")))
 @interface VSImageLoadOperation : VSAsyncOperation
 {
     NSItemProvider *_itemProvider;
+    VSAuditToken *_auditToken;
     VSOptional *_result;
     struct CGSize _preferredImageSize;
 }
 
 @property(retain, nonatomic) VSOptional *result; // @synthesize result=_result;
+@property(copy, nonatomic) VSAuditToken *auditToken; // @synthesize auditToken=_auditToken;
 @property(readonly, nonatomic) struct CGSize preferredImageSize; // @synthesize preferredImageSize=_preferredImageSize;
 @property(readonly, nonatomic) NSItemProvider *itemProvider; // @synthesize itemProvider=_itemProvider;
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)executionDidBegin;
+- (void)_beginFetchingDataFromURL:(id)arg1;
+- (void)_finishWithImageData:(id)arg1 orError:(id)arg2;
 - (id)initWithItemProvider:(id)arg1 preferredImageSize:(struct CGSize)arg2;
 - (id)init;
 

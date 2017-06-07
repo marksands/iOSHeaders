@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSNumber, NSString;
 
@@ -31,7 +31,6 @@
 - (id)description;
 - (id)initWithSessionEntityString:(id)arg1;
 - (id)initWithSessionID:(struct GEOSessionID)arg1 sessionCreationTime:(double)arg2 sequenceNumber:(unsigned int)arg3;
-- (id)init;
 @property(readonly) double sessionRelativeTimestamp;
 - (unsigned int)rawSequenceNumber;
 

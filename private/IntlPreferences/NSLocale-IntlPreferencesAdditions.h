@@ -9,6 +9,8 @@
 @class NSString;
 
 @interface NSLocale (IntlPreferencesAdditions)
++ (void)setArchivedPreferences:(id)arg1;
++ (id)archivedPreferences;
 + (void)registerPreferredLanguageForAddedKeyboardLanguage:(id)arg1;
 + (void)enableDefaultKeyboardForPreferredLanguages;
 + (void)setLanguageToPreferredLanguages:(id)arg1 fallback:(id)arg2;

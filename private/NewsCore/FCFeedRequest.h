@@ -14,6 +14,7 @@
 {
     _Bool _cachedOnly;
     NSString *_feedID;
+    long long _feedBin;
     FCFeedRange *_feedRange;
     unsigned long long _maxCount;
     FCFeedItemFeature *_requiredFeature;
@@ -23,6 +24,7 @@
 @property(nonatomic) _Bool cachedOnly; // @synthesize cachedOnly=_cachedOnly;
 @property(nonatomic) unsigned long long maxCount; // @synthesize maxCount=_maxCount;
 @property(copy, nonatomic) FCFeedRange *feedRange; // @synthesize feedRange=_feedRange;
+@property(nonatomic) long long feedBin; // @synthesize feedBin=_feedBin;
 @property(copy, nonatomic) NSString *feedID; // @synthesize feedID=_feedID;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

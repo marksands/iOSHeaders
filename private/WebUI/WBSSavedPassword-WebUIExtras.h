@@ -8,6 +8,8 @@
 
 @interface WBSSavedPassword (WebUIExtras)
 - (void)webui_getTitle:(id *)arg1 detail:(id *)arg2 forTableViewCell:(id)arg3 withSearchPattern:(id)arg4;
+- (_Bool)_webui_matchesSearchPattern:(id)arg1 matchAgainstUser:(_Bool)arg2;
+- (_Bool)webui_matchesDomain:(id)arg1;
 - (_Bool)webui_matchesSearchPattern:(id)arg1;
 @end
 

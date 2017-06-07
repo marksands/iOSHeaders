@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (void)computeRemainingScoresWithManager:(id)arg1 controller:(id)arg2 previousPotentialMemory:(id)arg3;
-- (id)initWithCategory:(unsigned long long)arg1 subcategory:(long long)arg2 momentNodes:(id)arg3 sourceType:(long long)arg4;
+- (id)initWithCategory:(long long)arg1 subcategory:(long long)arg2 momentNodes:(id)arg3 sourceType:(long long)arg4;
 - (id)initWithAssetCollection:(id)arg1 momentNode:(id)arg2 subcategory:(long long)arg3;
 
 @end

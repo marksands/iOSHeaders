@@ -6,9 +6,10 @@
 
 #import <PassKitCore/PDXPCServiceExportedInterface-Protocol.h>
 
-@class NSData, NSSet, NSString, PKDisplayProfile;
+@class NSArray, NSData, NSSet, NSString, PKDisplayProfile;
 
 @protocol PDPassLibraryExportedInterface <PDXPCServiceExportedInterface>
+- (void)peerPaymentPassUniqueIDWithHandler:(void (^)(NSString *))arg1;
 - (void)expressFelicaTransitPassWithHandler:(void (^)(PKPass *))arg1;
 - (void)canAddFelicaPassWithHandler:(void (^)(_Bool))arg1;
 - (void)defaultPaymentPassWithHandler:(void (^)(PKPaymentPass *))arg1;
@@ -25,6 +26,7 @@
 - (void)getPassesOfType:(unsigned long long)arg1 handler:(void (^)(NSSet *))arg2;
 - (void)getPassesWithHandler:(void (^)(NSSet *))arg1;
 - (void)getPassesAndCatalogOfPassTypes:(unsigned long long)arg1 limitResults:(_Bool)arg2 withHandler:(void (^)(NSSet *, PKCatalog *))arg3;
+- (void)removePassesWithUniqueIDs:(NSArray *)arg1 diagnosticReason:(NSString *)arg2 handler:(void (^)(void))arg3;
 - (void)removePassWithUniqueID:(NSString *)arg1 diagnosticReason:(NSString *)arg2 handler:(void (^)(void))arg3;
 - (void)addPassesWithData:(NSSet *)arg1 handler:(void (^)(unsigned long long))arg2;
 - (void)replacePassWithPassData:(NSData *)arg1 handler:(void (^)(_Bool))arg2;

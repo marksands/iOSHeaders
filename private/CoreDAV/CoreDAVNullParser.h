@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <CoreDAV/CoreDAVResponseBodyParser-Protocol.h>
 
@@ -16,9 +16,9 @@
 }
 
 + (_Bool)canHandleContentType:(id)arg1;
+- (void).cxx_destruct;
 - (_Bool)processData:(id)arg1 forTask:(id)arg2;
 @property(readonly) NSError *parserError;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

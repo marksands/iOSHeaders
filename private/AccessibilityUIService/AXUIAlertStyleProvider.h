@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AccessibilityUIService/AXUIAlertStyleProvider-Protocol.h>
 
@@ -17,6 +17,7 @@
 
 + (id)styleProvider;
 @property(retain, nonatomic) NSBundle *bundle; // @synthesize bundle=_bundle;
+- (void).cxx_destruct;
 - (double)alertFadeAnimationDurationForType:(unsigned long long)arg1;
 - (int)alertPositionForType:(unsigned long long)arg1;
 - (struct UIEdgeInsets)alertEdgeInsetsForType:(unsigned long long)arg1;
@@ -33,7 +34,6 @@
 - (struct CGSize)alertBackgroundSizeForType:(unsigned long long)arg1;
 - (double)alertBackgroundCornerRadiusForType:(unsigned long long)arg1;
 - (int)alertBackgroundStyleForType:(unsigned long long)arg1;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

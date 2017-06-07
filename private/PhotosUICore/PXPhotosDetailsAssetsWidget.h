@@ -18,12 +18,13 @@
 #import <PhotosUICore/PXTilingControllerTransitionDelegate-Protocol.h>
 #import <PhotosUICore/PXUIPlayButtonTileDelegate-Protocol.h>
 #import <PhotosUICore/PXUIWidget-Protocol.h>
+#import <PhotosUICore/UIDragInteractionDelegate-Protocol.h>
 #import <PhotosUICore/UIGestureRecognizerDelegate-Protocol.h>
 
 @class NSDate, NSMutableSet, NSSet, NSString, PXAssetReference, PXBasicUIViewTileAnimator, PXLayoutGenerator, PXOneUpPresentation, PXPhotoKitAssetsDataSourceManager, PXPhotoKitUIMediaProvider, PXPhotosDataSource, PXPhotosDataSourceStressTest, PXPhotosDetailsAssetsSpecManager, PXPhotosDetailsContext, PXPhotosDetailsLoadCoordinationToken, PXSectionedLayoutEngine, PXSectionedSelectionManager, PXSwipeSelectionManager, PXTilingController, PXTouchingUIGestureRecognizer, PXUIAssetsScene, PXUITapGestureRecognizer, PXWidgetSpec, UIPinchGestureRecognizer;
-@protocol PXAnonymousView, PXWidgetDelegate;
+@protocol PXAnonymousView, PXWidgetDelegate, PXWidgetUnlockDelegate, UIDragSession;
 
-@interface PXPhotosDetailsAssetsWidget : NSObject <PXAssetsSceneDelegate, PXTileSource, PXTilingControllerTransitionDelegate, PXScrollViewControllerObserver, PXTilingControllerScrollDelegate, PXChangeObserver, PXEngineDrivenAssetsTilingLayoutDelegate, PXSwipeSelectionManagerDelegate, PXUIPlayButtonTileDelegate, UIGestureRecognizerDelegate, PXActionPerformerDelegate, PXUIWidget, PXOneUpPresentationDelegate>
+@interface PXPhotosDetailsAssetsWidget : NSObject <PXAssetsSceneDelegate, PXTileSource, PXTilingControllerTransitionDelegate, PXScrollViewControllerObserver, PXTilingControllerScrollDelegate, PXChangeObserver, PXEngineDrivenAssetsTilingLayoutDelegate, PXSwipeSelectionManagerDelegate, PXUIPlayButtonTileDelegate, UIGestureRecognizerDelegate, PXActionPerformerDelegate, UIDragInteractionDelegate, PXUIWidget, PXOneUpPresentationDelegate>
 {
     NSMutableSet *_tilesInUse;
     NSDate *_loadStartDate;
@@ -53,6 +54,7 @@
     PXSectionedLayoutEngine *__layoutEngine;
     PXAssetReference *__navigatedAssetReference;
     NSSet *__hiddenAssetReferences;
+    NSSet *__draggingAssetReferences;
     PXSwipeSelectionManager *__swipeSelectionManager;
     PXUITapGestureRecognizer *__tapGesture;
     UIPinchGestureRecognizer *__pinchGesture;
@@ -61,9 +63,11 @@
     PXAssetReference *__focusedAssetReference;
     PXPhotosDetailsLoadCoordinationToken *__loadCoordinationToken;
     PXPhotosDataSourceStressTest *__currentDataSourceStressTest;
+    id <UIDragSession> _dragSession;
     struct CGPoint __visibleOriginScrollTarget;
 }
 
+@property(retain, nonatomic) id <UIDragSession> dragSession; // @synthesize dragSession=_dragSession;
 @property(nonatomic, setter=_setNeedsAggdLoggingForUncuratedAssetsCount:) _Bool _needsAggdLoggingForUncuratedAssetsCount; // @synthesize _needsAggdLoggingForUncuratedAssetsCount=__needsAggdLoggingForUncuratedAssetsCount;
 @property(nonatomic, setter=_setNeedsAggdLoggingForCuratedAssetsCount:) _Bool _needsAggdLoggingForCuratedAssetsCount; // @synthesize _needsAggdLoggingForCuratedAssetsCount=__needsAggdLoggingForCuratedAssetsCount;
 @property(retain, nonatomic, setter=_setCurrentDataSourceStressTest:) PXPhotosDataSourceStressTest *_currentDataSourceStressTest; // @synthesize _currentDataSourceStressTest=__currentDataSourceStressTest;
@@ -79,6 +83,7 @@
 @property(readonly, nonatomic) PXSwipeSelectionManager *_swipeSelectionManager; // @synthesize _swipeSelectionManager=__swipeSelectionManager;
 @property(nonatomic, setter=_setShowDisclosureButton:) _Bool _showDisclosureButton; // @synthesize _showDisclosureButton=__showDisclosureButton;
 @property(nonatomic, setter=_setCurate:) _Bool _curate; // @synthesize _curate=__curate;
+@property(retain, nonatomic, setter=_setDraggingAssetReferences:) NSSet *_draggingAssetReferences; // @synthesize _draggingAssetReferences=__draggingAssetReferences;
 @property(retain, nonatomic, setter=_setHiddenAssetReferences:) NSSet *_hiddenAssetReferences; // @synthesize _hiddenAssetReferences=__hiddenAssetReferences;
 @property(readonly, nonatomic) _Bool _autoPlayVideoInOneUp; // @synthesize _autoPlayVideoInOneUp=__autoPlayVideoInOneUp;
 @property(readonly, nonatomic) PXAssetReference *_navigatedAssetReference; // @synthesize _navigatedAssetReference=__navigatedAssetReference;
@@ -101,6 +106,21 @@
 - (void).cxx_destruct;
 - (_Bool)actionPerformer:(id)arg1 dismissViewController:(struct NSObject *)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)actionPerformer:(id)arg1 presentViewController:(struct NSObject *)arg2;
+- (id)dragInteraction:(id)arg1 sessionForAddingItems:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
+- (void)_api_dragInteraction:(id)arg1 session:(id)arg2 didEndWithOperation:(unsigned long long)arg3;
+- (void)dragInteraction:(id)arg1 sessionWillBegin:(id)arg2;
+- (unsigned long long)dragInteraction:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2 session:(id)arg3;
+- (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
+- (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
+- (id)dragInteraction:(id)arg1 itemsForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
+- (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
+- (void)_presentConfidentialityWarning;
+- (_Bool)_canDragAssetReferences:(id)arg1;
+- (void)_updateDraggingAssetReferencesWithDataSource:(id)arg1;
+- (_Bool)_addAssetReferencesToDrag:(id)arg1;
+- (id)_dragItemForSimpleIndexPath:(struct PXSimpleIndexPath)arg1;
+- (id)_imageTileForDragItem:(id)arg1;
+- (_Bool)_canDragOut;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (struct PXSimpleIndexPath)swipeSelectionManager:(id)arg1 itemIndexPathClosestAboveLocation:(struct CGPoint)arg2;
@@ -187,6 +207,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *localizedCaption;
 @property(readonly) Class superclass;
+@property(nonatomic) __weak id <PXWidgetUnlockDelegate> widgetUnlockDelegate;
 
 @end
 

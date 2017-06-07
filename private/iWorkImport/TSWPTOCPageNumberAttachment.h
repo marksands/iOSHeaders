@@ -19,9 +19,8 @@ __attribute__((visibility("hidden")))
 - (id)stringEquivalent;
 - (int)elementKind;
 - (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
-- (const struct TextualAttachmentArchive *)textualAttachmentArchiveFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
 @property(copy, nonatomic) NSString *bookmarkName;
 @property(copy, nonatomic) NSString *pageNumber;
 

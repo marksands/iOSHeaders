@@ -9,11 +9,12 @@
 #import <PhotoLibraryServices/PLAlbumProtocol-Protocol.h>
 #import <PhotoLibraryServices/PLDerivedAlbumOrigin-Protocol.h>
 #import <PhotoLibraryServices/PLIndexMappersDataOrigin-Protocol.h>
+#import <PhotoLibraryServices/PLSyncableObject-Protocol.h>
 
 @class NSArray, NSDate, NSDictionary, NSMutableOrderedSet, NSNumber, NSObject, NSOrderedSet, NSString, NSURL, PLManagedAsset, PLPhotoLibrary, UIImage;
 @protocol PLIndexMappingCache;
 
-@interface PLGenericAlbum : _PLGenericAlbum <PLAlbumProtocol, PLDerivedAlbumOrigin, PLIndexMappersDataOrigin>
+@interface PLGenericAlbum : _PLGenericAlbum <PLSyncableObject, PLAlbumProtocol, PLDerivedAlbumOrigin, PLIndexMappersDataOrigin>
 {
     NSObject<PLIndexMappingCache> *_derivededAlbums[5];
     _Bool isRegisteredForChanges;
@@ -46,7 +47,7 @@
 + (void)removeTrashedAlbumsAndFoldersForCloudResetInLibrary:(id)arg1;
 + (void)removeEmptyAlbumsForCloudResetInLibrary:(id)arg1;
 + (void)removeAllUserAlbumsAndFoldersInLibrary:(id)arg1;
-+ (void)resetAlbumStateForCloudInLibrary:(id)arg1;
++ (void)resetAlbumStateForCloudInLibrary:(id)arg1 hardReset:(_Bool)arg2;
 + (id)albumsToUploadInitiallyInLibrary:(id)arg1 limit:(unsigned long long)arg2;
 + (id)includeUnpushedParentsForAlbums:(id)arg1 limit:(unsigned long long)arg2;
 + (id)_unpushedParentsOfAlbums:(id)arg1;
@@ -156,6 +157,8 @@
 - (id)childKeyForOrdering;
 - (id)childManagedObject;
 - (void)dealloc;
+- (id)cplFullRecord;
+@property(readonly, retain, nonatomic) id localID;
 - (void)applyPropertiesFromAlbumChange:(id)arg1;
 - (id)cplAlbumChangeInPhotoLibrary:(id)arg1;
 - (id)_itemIdentifier;

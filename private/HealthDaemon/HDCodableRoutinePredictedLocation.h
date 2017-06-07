@@ -41,14 +41,17 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasGeoData;
+- (int)StringAsSourceType:(id)arg1;
+- (id)sourceTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasSourceType;
 @property(nonatomic) int sourceType; // @synthesize sourceType=_sourceType;
+- (int)StringAsModeOfTransportation:(id)arg1;
+- (id)modeOfTransportationAsString:(int)arg1;
 @property(nonatomic) _Bool hasModeOfTransportation;
 @property(nonatomic) int modeOfTransportation; // @synthesize modeOfTransportation=_modeOfTransportation;
 @property(nonatomic) _Bool hasNextEntryTime;
 @property(nonatomic) _Bool hasConfidence;
 @property(readonly, nonatomic) _Bool hasLocationOfInterest;
-- (id)initWithPredictedLocationOfInterest:(id)arg1;
 
 @end
 

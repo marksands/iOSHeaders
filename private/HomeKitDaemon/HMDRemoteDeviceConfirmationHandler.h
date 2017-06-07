@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMFTimer, NSString;
+@class HMFTimer, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDRemoteDeviceConfirmationHandler : NSObject <HMFTimerDelegate>
+@interface HMDRemoteDeviceConfirmationHandler : HMFObject <HMFTimerDelegate>
 {
     double _timeout;
     CDUnknownBlockType _completionHandler;

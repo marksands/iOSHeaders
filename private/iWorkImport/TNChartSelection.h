@@ -12,21 +12,21 @@ __attribute__((visibility("hidden")))
 @interface TNChartSelection : TSDDrawableSelection
 {
     TSCHChartDrawableInfo *mChart;
-    CDStruct_fc93c73e mReference;
+    struct TSCERangeRef mReference;
 }
 
 + (Class)archivedSelectionClass;
 @property(readonly, nonatomic) TSCHChartDrawableInfo *chart; // @synthesize chart=mChart;
-@property(readonly, nonatomic) CDStruct_fc93c73e reference; // @synthesize reference=mReference;
+@property(readonly, nonatomic) struct TSCERangeRef reference; // @synthesize reference=mReference;
+- (id).cxx_construct;
 - (void)saveToArchive:(struct ChartSelectionArchive *)arg1 archiver:(id)arg2;
 - (id)initFromArchive:(const struct ChartSelectionArchive *)arg1 unarchiver:(id)arg2;
 - (_Bool)returnChartFrameForAutoscroll;
-- (void)setReference:(CDStruct_fc93c73e)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithChartInfo:(id)arg1;
-- (id)initWithChartInfo:(id)arg1 reference:(CDStruct_fc93c73e)arg2;
+- (id)initWithChartInfo:(id)arg1 reference:(struct TSCERangeRef)arg2;
 
 @end
 

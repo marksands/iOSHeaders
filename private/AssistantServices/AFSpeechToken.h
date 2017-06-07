@@ -17,6 +17,7 @@
     NSString *_text;
     long long _confidenceScore;
     double _startTime;
+    double _silenceStartTime;
     double _endTime;
 }
 
@@ -24,10 +25,12 @@
 @property(nonatomic) _Bool removeSpaceAfter; // @synthesize removeSpaceAfter=_removeSpaceAfter;
 @property(nonatomic) _Bool removeSpaceBefore; // @synthesize removeSpaceBefore=_removeSpaceBefore;
 @property(nonatomic) double endTime; // @synthesize endTime=_endTime;
+@property(nonatomic) double silenceStartTime; // @synthesize silenceStartTime=_silenceStartTime;
 @property(nonatomic) double startTime; // @synthesize startTime=_startTime;
 @property(nonatomic) long long confidenceScore; // @synthesize confidenceScore=_confidenceScore;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
+- (id)aceToken;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;

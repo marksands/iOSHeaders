@@ -16,16 +16,25 @@ __attribute__((visibility("hidden")))
 {
     struct tagVCMediaStreamSyncTime _source;
     struct tagVCMediaStreamSyncTime _destination;
+    unsigned int _destinationPlayoutSampleRTPTimestamp;
+    int _destinationRTPTimestampWraps;
     double _sourcePlayoutSampleSystemTime;
     unsigned int _sourcePlayoutSampleRTPTimestamp;
+    int _sourceRTPTimestampWraps;
     int _sourceState;
     NSObject<OS_dispatch_queue> *_mediaStreamSynchronizerQueue;
+    struct tagHANDLE *_hSoundPlayer;
+    CDUnknownBlockType _destinationHandler;
 }
 
 + (long long)differenceBetweenRtpTimestamp:(unsigned int)arg1 rtpTimestamp:(unsigned int)arg2;
 - (void)updateSourceNTPTime:(double)arg1 withRTPTimeStamp:(unsigned int)arg2;
-- (void)updateSourcePlayoutSampleRTPTimestamp:(unsigned int)arg1;
+- (void)updateSourcePlayoutSampleRTPTimestamp:(unsigned int)arg1 systemTime:(double)arg2;
 - (void)updateSourceState:(int)arg1;
+- (void)callDestinationAlarmHandlerWithTimestamp:(unsigned int)arg1 pending:(int)arg2 behind:(double)arg3;
+- (double)sourceTimeForDestinationRTPTimestamp:(unsigned int)arg1;
+- (void)setDestinationAlarmHandler:(CDUnknownBlockType)arg1;
+- (void)scheduleDestinationPlaybackWithRTPTimestamp:(unsigned int)arg1;
 - (void)updateDestinationNTPTime:(double)arg1 withRTPTimeStamp:(unsigned int)arg2;
 - (CDStruct_1b6d18a9)calculatePlayoutTimeWithRTPTimestamp:(unsigned int)arg1;
 - (void)dealloc;

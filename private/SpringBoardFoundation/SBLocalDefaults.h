@@ -6,7 +6,7 @@
 
 #import <SpringBoardFoundation/SBAbstractDefaults.h>
 
-@class SBAccessibilityDefaults, SBAppIconForceTouchDefaults, SBAppSwitcherDefaults, SBApplicationDefaults, SBBootDefaults, SBCarPlayDefaults, SBDemoDefaults, SBGestureDefaults, SBHardwareDefaults, SBIconDefaults, SBIdleTimerDefaults, SBLockScreenDefaults, SBMesaDefaults, SBMiscellaneousDefaults, SBMultiUserDefaults, SBNotificationCenterDefaults, SBNotificationDefaults, SBPIPDefaults, SBPowerDefaults, SBPrototypingDefaults, SBRotationDefaults, SBSOSDefaults, SBSecurityDefaults, SBSetupDefaults, SBSoftwareUpdateDefaults, SBSoundDefaults, SBStatusBarDefaults, SBThermalDefaults, SBUsageDefaults, SBVoiceControlDefaults, SBWallpaperDefaults, SBWorkspaceDefaults;
+@class SBAccessibilityDefaults, SBAppIconForceTouchDefaults, SBAppSwitcherDefaults, SBApplicationDefaults, SBBiometricAuthenticationDefaults, SBBootDefaults, SBCarPlayDefaults, SBDemoDefaults, SBGestureDefaults, SBHardwareDefaults, SBIconDefaults, SBIdleTimerDefaults, SBLockScreenDefaults, SBMiscellaneousDefaults, SBMultiUserDefaults, SBNotificationCenterDefaults, SBNotificationDefaults, SBPIPDefaults, SBPowerDefaults, SBPrototypingDefaults, SBRecentDisplayItemsDefaults, SBRotationDefaults, SBSOSDefaults, SBSecurityDefaults, SBSetupDefaults, SBSoftwareUpdateDefaults, SBSoundDefaults, SBStatusBarDefaults, SBThermalDefaults, SBUsageDefaults, SBVoiceControlDefaults, SBWallpaperDefaults, SBWorkspaceDefaults;
 
 @interface SBLocalDefaults : SBAbstractDefaults
 {
@@ -14,15 +14,16 @@
     SBAppIconForceTouchDefaults *_lazy_appIconForceTouchDefaults;
     SBApplicationDefaults *_lazy_applicationDefaults;
     SBAppSwitcherDefaults *_lazy_appSwitcherDefaults;
+    SBBiometricAuthenticationDefaults *_lazy_biometricAuthenticationDefaults;
     SBBootDefaults *_lazy_bootDefaults;
     SBCarPlayDefaults *_lazy_carPlayDefaults;
+    SBRecentDisplayItemsDefaults *_lazy_recentDisplayItemsDefaults;
     SBDemoDefaults *_lazy_demoDefaults;
     SBGestureDefaults *_lazy_gestureDefaults;
     SBHardwareDefaults *_lazy_hardwareDefaults;
     SBIconDefaults *_lazy_iconDefaults;
     SBIdleTimerDefaults *_lazy_idleTimerDefaults;
     SBLockScreenDefaults *_lazy_lockScreenDefaults;
-    SBMesaDefaults *_lazy_mesaDefaults;
     SBMiscellaneousDefaults *_lazy_miscellaneousDefaults;
     SBMultiUserDefaults *_lazy_multiUserDefaults;
     SBNotificationDefaults *_lazy_notificationDefaults;
@@ -34,6 +35,7 @@
     SBSecurityDefaults *_lazy_securityDefaults;
     SBSetupDefaults *_lazy_setupDefaults;
     SBSoftwareUpdateDefaults *_lazy_softwareUpdateDefaults;
+    SBSOSDefaults *_lazy_sosDefaults;
     SBSoundDefaults *_lazy_soundDefaults;
     SBStatusBarDefaults *_lazy_statusBarDefaults;
     SBThermalDefaults *_lazy_thermalDefaults;
@@ -41,12 +43,10 @@
     SBVoiceControlDefaults *_lazy_voiceControlDefaults;
     SBWallpaperDefaults *_lazy_wallpaperDefaults;
     SBWorkspaceDefaults *_lazy_workspaceDefaults;
-    SBSOSDefaults *_lazy_sosDefaults;
 }
 
 - (void).cxx_destruct;
 - (void)migrateAndRemoveOldDefaults;
-@property(readonly, retain, nonatomic) SBSOSDefaults *sosDefaults;
 @property(readonly, retain, nonatomic) SBWorkspaceDefaults *workspaceDefaults;
 @property(readonly, retain, nonatomic) SBWallpaperDefaults *wallpaperDefaults;
 @property(readonly, retain, nonatomic) SBVoiceControlDefaults *voiceControlDefaults;
@@ -54,6 +54,7 @@
 @property(readonly, retain, nonatomic) SBThermalDefaults *thermalDefaults;
 @property(readonly, retain, nonatomic) SBStatusBarDefaults *statusBarDefaults;
 @property(readonly, retain, nonatomic) SBSoundDefaults *soundDefaults;
+@property(readonly, retain, nonatomic) SBSOSDefaults *sosDefaults;
 @property(readonly, retain, nonatomic) SBSoftwareUpdateDefaults *softwareUpdateDefaults;
 @property(readonly, retain, nonatomic) SBSetupDefaults *setupDefaults;
 @property(readonly, retain, nonatomic) SBSecurityDefaults *securityDefaults;
@@ -65,7 +66,6 @@
 @property(readonly, retain, nonatomic) SBNotificationDefaults *notificationDefaults;
 @property(readonly, retain, nonatomic) SBMultiUserDefaults *multiUserDefaults;
 @property(readonly, retain, nonatomic) SBMiscellaneousDefaults *miscellaneousDefaults;
-@property(readonly, retain, nonatomic) SBMesaDefaults *mesaDefaults;
 @property(readonly, retain, nonatomic) SBLockScreenDefaults *lockScreenDefaults;
 @property(readonly, retain, nonatomic) SBIdleTimerDefaults *idleTimerDefaults;
 @property(readonly, retain, nonatomic) SBIconDefaults *iconDefaults;
@@ -73,7 +73,9 @@
 @property(readonly, retain, nonatomic) SBGestureDefaults *gestureDefaults;
 @property(readonly, retain, nonatomic) SBDemoDefaults *demoDefaults;
 @property(readonly, retain, nonatomic) SBCarPlayDefaults *carPlayDefaults;
+@property(readonly, retain, nonatomic) SBRecentDisplayItemsDefaults *recentDisplayItemsDefaults;
 @property(readonly, retain, nonatomic) SBBootDefaults *bootDefaults;
+@property(readonly, retain, nonatomic) SBBiometricAuthenticationDefaults *biometricAuthenticationDefaults;
 @property(readonly, retain, nonatomic) SBAppSwitcherDefaults *appSwitcherDefaults;
 @property(readonly, retain, nonatomic) SBApplicationDefaults *applicationDefaults;
 @property(readonly, retain, nonatomic) SBAppIconForceTouchDefaults *appIconForceTouchDefaults;

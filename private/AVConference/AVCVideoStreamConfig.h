@@ -23,6 +23,10 @@
     _Bool _isVideoProtected;
 }
 
++ (long long)clientVideoResolutionFromResolution:(long long)arg1;
++ (long long)videoResolutionFromClientResolution:(long long)arg1;
++ (long long)clientCodecTypeWithCodecType:(long long)arg1;
++ (long long)codecTypeWithClientCodecType:(long long)arg1;
 @property(nonatomic) _Bool isVideoProtected; // @synthesize isVideoProtected=_isVideoProtected;
 @property(nonatomic) unsigned long long cvoExtensionID; // @synthesize cvoExtensionID=_cvoExtensionID;
 @property(nonatomic) _Bool enableCVO; // @synthesize enableCVO=_enableCVO;
@@ -36,6 +40,8 @@
 @property(nonatomic) long long videoResolution; // @synthesize videoResolution=_videoResolution;
 @property(nonatomic) long long rxCodecType; // @synthesize rxCodecType=_rxCodecType;
 @property(nonatomic) long long txCodecType; // @synthesize txCodecType=_txCodecType;
+- (id)dictionary;
+- (void)setUpWithDictionary:(id)arg1;
 - (_Bool)isValid;
 
 @end

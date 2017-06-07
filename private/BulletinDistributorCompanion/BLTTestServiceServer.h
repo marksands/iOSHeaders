@@ -32,7 +32,7 @@
 - (void)spoolSectionInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)sendAllSectionInfoWithSpool:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sendSectionInfoWithSectionID:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)addBulletin:(id)arg1 forFeed:(unsigned long long)arg2 playLightsAndSirens:(_Bool)arg3 attachment:(id)arg4 attachmentType:(long long)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)addBulletin:(id)arg1 forFeed:(unsigned long long)arg2 playLightsAndSirens:(_Bool)arg3 attachment:(id)arg4 attachmentType:(long long)arg5 alwaysSend:(_Bool)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)_removeClientConnection:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)resume;

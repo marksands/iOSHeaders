@@ -6,6 +6,9 @@
 
 #import <MapsSupport/MSPIdentifiable-Protocol.h>
 
+@protocol MSPIdentifiableFavorite;
+
 @protocol MSPIdentifiableFavorite <MSPIdentifiable>
+- (_Bool)isUserVisibleDuplicateOfFavorite:(id <MSPIdentifiableFavorite>)arg1;
 @end
 

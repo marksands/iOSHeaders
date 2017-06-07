@@ -16,7 +16,6 @@
     NSDate *_sleepEndDate;
     NSMutableArray *_lastUpdatedDataTypes;
     NSMutableDictionary *_calculatorByTypes;
-    NSMutableDictionary *_lastIntervalInfoByTypes;
     NSMutableDictionary *_statisticsByTypes;
     NSMutableDictionary *_summariesByTypes;
     NSMutableDictionary *_quantitiesByDataType;
@@ -44,8 +43,10 @@
 - (_Bool)_setIfLatestTimestamp:(double)arg1 forObjectType:(id)arg2;
 - (_Bool)_setIfLatestDate:(id)arg1 forObjectType:(id)arg2;
 - (_Bool)_enumerateSamplesWithDatabase:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (unsigned long long)mergeStrategyForType:(id)arg1;
 - (id)collectionCalculatorForType:(id)arg1 from:(double)arg2 to:(double)arg3;
 - (id)timeIntervalCalculatorForType:(id)arg1;
+- (id)discreteCollectionCalculatorForType:(id)arg1;
 - (void)_updateStatisticsForDataType:(id)arg1;
 - (void)_updateStatisticsForAllCalculators;
 - (_Bool)_resetCalculatorForDataType:(long long)arg1 bucketStartTime:(double)arg2 bucketEndTime:(double)arg3;

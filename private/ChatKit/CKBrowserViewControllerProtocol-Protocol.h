@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) _Bool shouldShowChatChrome;
 @property(readonly, nonatomic) long long browserPresentationStyle;
 @property(readonly, nonatomic) _Bool mayBeKeptInViewHierarchy;
+@property(readonly, nonatomic) _Bool shouldSuppressEntryView;
 @property(readonly, nonatomic) _Bool supportsQuickView;
 @property(readonly, nonatomic) _Bool wantsOpaqueUI;
 @property(readonly, nonatomic) _Bool wantsDarkUI;
@@ -29,14 +30,17 @@
 - (id)initWithBalloonPlugin:(IMBalloonPlugin *)arg1 dataSource:(IMBalloonPluginDataSource *)arg2;
 
 @optional
-+ (_Bool)isVisibleInBrowser;
 @property(readonly, nonatomic) __weak id <UIViewControllerTransitioningDelegate> parentTransitioningDelegate;
 @property(readonly, nonatomic) long long parentModalPresentationStyle;
 @property(retain, nonatomic) NSNumber *adamID;
 @property(readonly, nonatomic) _Bool canReplaceDataSource;
+@property(readonly, nonatomic) struct CGRect horizontalSwipeExclusionRect;
+@property(readonly, nonatomic) UIViewController *remoteViewController;
 @property(nonatomic) long long currentBrowserConsumer;
 @property(readonly, nonatomic) CKBrowserDragManager *browserDragManager;
 @property(readonly, nonatomic) unsigned long long badgeValue;
+@property(retain, nonatomic) NSData *conversationEngramID;
+@property(readonly, nonatomic) _Bool wasExpandedPresentation;
 - (void)killExtensionProcess;
 - (void)setStoreLaunchURL:(NSURL *)arg1 sourceApplication:(NSString *)arg2;
 - (void)messageAddedWithDataSource:(IMBalloonPluginDataSource *)arg1;

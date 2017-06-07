@@ -17,6 +17,7 @@
 + (id)defaultSourceGetCompletedWithAceCalendarSource:(id)arg1;
 + (id)defaultSourceGetCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)defaultSourceGetCompleted;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SACalendarSource *aceCalendarSource;
 - (id)initWithAceCalendarSource:(id)arg1;
 - (id)encodedClassName;

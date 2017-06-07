@@ -4,28 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-#import <GeoServices/GEOMapAccessRestrictions-Protocol.h>
-
-@class GEOMapAccess, NSString;
+@class GEOMapFeatureAccess;
 
 __attribute__((visibility("hidden")))
-@interface GEORouteRoadMatcher : NSObject <GEOMapAccessRestrictions>
+@interface GEORouteRoadMatcher : NSObject
 {
-    GEOMapAccess *_mapAccess;
+    GEOMapFeatureAccess *_mapFeatureAccess;
 }
 
-@property(readonly, nonatomic) _Bool allowsNetworkTileLoad;
-- (CDStruct_2244da21 *)findRoadOnCoordinate:(CDStruct_c3b9c2ee)arg1 withCourse:(double)arg2;
-- (void)dealloc;
+- (void).cxx_destruct;
+- (_Bool)allowsNetworkTileLoad;
+- (CDStruct_a2ef2718 *)findRoadOnCoordinate:(CDStruct_c3b9c2ee)arg1 withCourse:(double)arg2;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

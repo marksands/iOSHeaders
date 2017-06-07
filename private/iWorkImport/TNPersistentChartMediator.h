@@ -18,7 +18,8 @@ __attribute__((visibility("hidden")))
 
 - (id)objectToArchiveInDependencyTracker;
 - (_Bool)registerLast;
-- (struct __CFUUID *)formulaOwnerID;
+- (id)nsFormulaOwnerUID;
+- (UUIDData_5fbc143e)formulaOwnerUID;
 - (void)unregisterFromCalculationEngine:(id)arg1;
 - (void)registerWithCalculationEngineForDocumentLoad:(id)arg1;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
@@ -27,7 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willModify;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

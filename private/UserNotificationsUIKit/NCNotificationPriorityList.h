@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableOrderedSet;
+#import <UserNotificationsUIKit/NCNotificationList-Protocol.h>
 
-@interface NCNotificationPriorityList : NSObject
+@class NSMutableOrderedSet, NSString;
+
+@interface NCNotificationPriorityList : NSObject <NCNotificationList>
 {
     NSMutableOrderedSet *_requests;
 }
@@ -23,6 +25,7 @@
 - (unsigned long long)insertionIndexForNotificationRequest:(id)arg1;
 - (unsigned long long)indexOfNotificationRequestMatchingRequest:(id)arg1;
 - (_Bool)containsNotificationRequestMatchingRequest:(id)arg1;
+- (id)clearRequestsPassingTest:(CDUnknownBlockType)arg1;
 - (id)clearNonPersistentRequests;
 - (id)clearAllRequests;
 - (unsigned long long)removeNotificationRequest:(id)arg1;
@@ -31,6 +34,12 @@
 - (id)requestAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long count;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 #import <CoreHAP/HAPHTTPClientDelegate-Protocol.h>
 #import <CoreHAP/HMFTimerDelegate-Protocol.h>
 
-@class HAPAccessory, HAPAccessoryServerBrowserIP, HAPHTTPClient, HAPWACClient, HMFBlockOperation, HMFTimer, NSArray, NSDictionary, NSMutableArray, NSString;
+@class HAPAccessory, HAPAccessoryServerBrowserIP, HAPHTTPClient, HAPWACClient, HMFBlockOperation, HMFTimer, NSArray, NSDictionary, NSMutableArray, NSOperationQueue, NSString;
 
 @interface HAPAccessoryServerIP : HAPAccessoryServer <HAPHTTPClientDelegate, HAPHTTPClientDebugDelegate, HMFTimerDelegate>
 {
@@ -24,8 +24,8 @@
     _Bool _continuingLegacyWACpairing;
     _Bool _wacStarted;
     _Bool _hasStartedPairing;
+    _Bool _supportsTimedWrite;
     NSString *_model;
-    NSString *_protocolVersion;
     NSString *_sourceVersion;
     unsigned long long _statusFlags;
     NSDictionary *_bonjourDeviceInfo;
@@ -38,18 +38,21 @@
     NSString *_controllerUsername;
     CDUnknownBlockType _netServiceResolveCompletionBlock;
     HMFBlockOperation *_pairOperation;
+    NSOperationQueue *_clientOperationQueue;
     NSDictionary *_wacDeviceInfo;
     HAPWACClient *_pairUsingWAC;
     HMFTimer *_bonjourEventTimer;
 }
 
 + (id)sharedPairOperationQueue;
+@property(nonatomic) _Bool supportsTimedWrite; // @synthesize supportsTimedWrite=_supportsTimedWrite;
 @property(nonatomic) _Bool hasStartedPairing; // @synthesize hasStartedPairing=_hasStartedPairing;
 @property(retain, nonatomic) HMFTimer *bonjourEventTimer; // @synthesize bonjourEventTimer=_bonjourEventTimer;
 @property(nonatomic, getter=isWacStarted) _Bool wacStarted; // @synthesize wacStarted=_wacStarted;
 @property(nonatomic, getter=isContinuingLegacyWACpairing) _Bool continuingLegacyWACpairing; // @synthesize continuingLegacyWACpairing=_continuingLegacyWACpairing;
 @property(retain, nonatomic) HAPWACClient *pairUsingWAC; // @synthesize pairUsingWAC=_pairUsingWAC;
 @property(readonly, copy, nonatomic) NSDictionary *wacDeviceInfo; // @synthesize wacDeviceInfo=_wacDeviceInfo;
+@property(readonly, nonatomic) NSOperationQueue *clientOperationQueue; // @synthesize clientOperationQueue=_clientOperationQueue;
 @property(retain, nonatomic) HMFBlockOperation *pairOperation; // @synthesize pairOperation=_pairOperation;
 @property(nonatomic) _Bool econnresetRetryInProgress; // @synthesize econnresetRetryInProgress=_econnresetRetryInProgress;
 @property(nonatomic) _Bool hasTunnelService; // @synthesize hasTunnelService=_hasTunnelService;
@@ -67,21 +70,21 @@
 @property(nonatomic, getter=isWacComplete) _Bool wacComplete; // @synthesize wacComplete=_wacComplete;
 @property(nonatomic) unsigned long long statusFlags; // @synthesize statusFlags=_statusFlags;
 @property(copy, nonatomic) NSString *sourceVersion; // @synthesize sourceVersion=_sourceVersion;
-@property(copy, nonatomic) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
 - (void).cxx_destruct;
-- (_Bool)_bridgeDelegateRespondsToSelector:(SEL)arg1;
 - (_Bool)_delegateRespondsToSelector:(SEL)arg1;
 - (void)identifyWithCompletion:(CDUnknownBlockType)arg1;
 - (void)httpClient:(id)arg1 willSendHTTPMessageWithHeaders:(id)arg2 body:(id)arg3;
 - (void)httpClient:(id)arg1 didReceiveHTTPMessageWithHeaders:(id)arg2 body:(id)arg3;
+- (void)_handleListPairingsResponseObject:(id)arg1 type:(unsigned long long)arg2 httpStatus:(int)arg3 httpError:(id)arg4 completionQueue:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)_listPairingsWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)listPairingsWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)removePairingForCurrentControllerOnQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handlePairingsResponseObject:(id)arg1 type:(unsigned long long)arg2 httpStatus:(int)arg3 httpError:(id)arg4 removeRequest:(_Bool)arg5 completionQueue:(id)arg6 completionBlock:(CDUnknownBlockType)arg7;
 - (void)_removePairingWithIdentifier:(id)arg1 publicKey:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (_Bool)removePairingWithIdentifier:(id)arg1 publicKey:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)removePairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_startAddPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (_Bool)addPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)addPairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)timerDidFire:(id)arg1;
 - (int)_handlePairVerifyCompletionWithData:(id)arg1;
 - (int)_pairVerifyStart;
@@ -99,22 +102,11 @@
 - (_Bool)isSessionEstablised;
 - (_Bool)_mergeExistingService:(id)arg1 withNewService:(id)arg2;
 - (_Bool)_mergeExistingAccessory:(id)arg1 withNewAccessory:(id)arg2;
-- (_Bool)_updatewithNewAccessories:(id)arg1 associated:(_Bool)arg2;
 - (_Bool)_updateAccessories:(id)arg1;
+- (void)_updateProtocolVersionFromPrimaryAccessory:(id)arg1;
 - (void)__registerForInternalCharacteristicNotifications;
-- (id)_parseAccessories:(id)arg1 andDiscoveredAccessories:(id)arg2;
-- (id)_parseDiscoveredAccessories:(id)arg1 withError:(id)arg2;
-- (id)_parsewithAssociated:(id)arg1 withError:(id)arg2;
-- (id)_parseSerializedDiscoveredAccessories:(id)arg1 andInstanceIDs:(id)arg2 withError:(id *)arg3;
-- (id)_parseSerializedAccessories:(id)arg1 andInstanceIDs:(id)arg2 withError:(id *)arg3;
-- (void)_parseDiscoveredAttributeDatabase:(id)arg1 transaction:(id)arg2;
 - (void)_parseAttributeDatabase:(id)arg1 transaction:(id)arg2;
-- (void)_getDiscoveredAccessoriesAttributeDatabase;
 - (void)_getAttributeDatabase;
-- (void)_fetchDiscoveredAccessoriesAttributeDatabase;
-- (void)fetchDiscoveredAccessoriesAttributeDatabase;
-- (void)_fetchEntireAttributeDatabase;
-- (void)fetchEntireAttributeDatabase;
 - (_Bool)_parseTXTRecordDictionary:(id)arg1;
 - (_Bool)_parseAndValidateTXTRecord;
 - (void)_handleHTTPClientErrors;
@@ -123,9 +115,12 @@
 - (void)_handleEventResponseObject:(id)arg1 type:(unsigned long long)arg2 httpStatus:(int)arg3 error:(id)arg4 characteristics:(id)arg5 requestedEventState:(_Bool)arg6 completion:(CDUnknownBlockType)arg7 queue:(id)arg8;
 - (void)_enableEvents:(_Bool)arg1 forCharacteristics:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 queue:(id)arg4;
 - (void)enableEvents:(_Bool)arg1 forCharacteristics:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 queue:(id)arg4;
-- (void)_handleUpdatesForCharacteristics:(id)arg1;
-- (void)handleUpdatesForCharacteristics:(id)arg1;
+- (void)_handleUpdatesForCharacteristics:(id)arg1 stateNumber:(id)arg2;
+- (void)handleUpdatesForCharacteristics:(id)arg1 stateNumber:(id)arg2;
 - (void)_handleWriteResponseObject:(id)arg1 type:(unsigned long long)arg2 httpStatus:(int)arg3 error:(id)arg4 requestTuples:(id)arg5 queue:(id)arg6 completion:(CDUnknownBlockType)arg7;
+- (void)_handlePrepareWriteResponseObject:(id)arg1 type:(unsigned long long)arg2 prepareIdentifier:(id)arg3 httpStatus:(int)arg4 error:(id)arg5 requestTuples:(id)arg6 timeout:(double)arg7 queue:(id)arg8 completion:(CDUnknownBlockType)arg9;
+- (void)_performTimedWriteValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_performWriteValues:(id)arg1 prepareIdentifier:(id)arg2 timeout:(double)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)_writeCharacteristicValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)writeCharacteristicValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_handleReadResponseObject:(id)arg1 type:(unsigned long long)arg2 httpStatus:(int)arg3 error:(id)arg4 characteristics:(id)arg5 queue:(id)arg6 completion:(CDUnknownBlockType)arg7;
@@ -133,6 +128,7 @@
 - (void)readCharacteristicValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_processQueuedOperationsWithError:(id)arg1;
 - (void)_queueEnableEvents:(_Bool)arg1 forCharacteristics:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3 queue:(id)arg4;
+- (void)_queueListPairingWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_queueAddPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_insertWriteCharacteristicValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
 - (void)_queueWriteCharacteristicValues:(id)arg1 timeout:(double)arg2 queue:(id)arg3 withCompletionHandler:(CDUnknownBlockType)arg4;
@@ -158,12 +154,14 @@
 - (void)_continuePairingAfterWAC:(id)arg1;
 - (int)_continuePairingWithSetupCode:(id)arg1;
 - (void)_continuePairingAfterConfirmingLegacyWAC;
+- (void)_pairVerifyContinueWAC;
+- (void)_pairVerifyStartWAC;
 - (void)_pairSetupContinueWAC;
 - (void)_pairSetupStartWAC;
 - (void)_invalidateWAC;
+- (void)startReprovisioning;
 @property(readonly, nonatomic, getter=isWacAccessory) _Bool wacAccessory;
 - (void)updateWithWACDevice:(id)arg1;
-@property(readonly, nonatomic, getter=isAddingViaWAC) _Bool addingViaWAC;
 - (id)initWithWACDeviceDictionary:(id)arg1 keyStore:(id)arg2 browser:(id)arg3;
 - (void)_updateWithBonjourDeviceInfo:(id)arg1;
 - (void)updateWithBonjourDeviceInfo:(id)arg1;

@@ -8,15 +8,16 @@
 
 #import <HealthDaemon/HDDatabaseProtectedDataObserver-Protocol.h>
 
-@class HDAppAssertionManager, HDDaemon, NSMutableDictionary, NSMutableSet, NSString;
+@class HDAppAssertionManager, HDBackgroundTaskScheduler, HDProfile, NSMutableDictionary, NSMutableSet, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HDAppSubscriptionManager : NSObject <HDDatabaseProtectedDataObserver>
 {
     _Bool _shouldScheduleLaunches;
     int _backgroundAppRefreshNotifyToken;
-    HDDaemon *_healthDaemon;
+    HDProfile *_profile;
     HDAppAssertionManager *_appAssertionManager;
+    HDBackgroundTaskScheduler *_backgroundTaskScheduler;
     NSObject<OS_dispatch_queue> *_launchQueue;
     NSMutableSet *_pendingTypeCodes;
     NSMutableDictionary *_launchTimers;
@@ -31,8 +32,9 @@
 @property(retain, nonatomic) NSMutableDictionary *launchTimers; // @synthesize launchTimers=_launchTimers;
 @property(retain, nonatomic) NSMutableSet *pendingTypeCodes; // @synthesize pendingTypeCodes=_pendingTypeCodes;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *launchQueue; // @synthesize launchQueue=_launchQueue;
+@property(retain, nonatomic) HDBackgroundTaskScheduler *backgroundTaskScheduler; // @synthesize backgroundTaskScheduler=_backgroundTaskScheduler;
 @property(retain, nonatomic) HDAppAssertionManager *appAssertionManager; // @synthesize appAssertionManager=_appAssertionManager;
-@property(nonatomic) __weak HDDaemon *healthDaemon; // @synthesize healthDaemon=_healthDaemon;
+@property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)ackForBundleID:(id)arg1 dataCode:(long long)arg2 anchor:(id)arg3 ackTime:(id)arg4;
 - (void)setAnchor:(id)arg1 forDataCode:(long long)arg2;
@@ -55,7 +57,7 @@
 - (id)_queue_subscriptionForActivityName:(id)arg1;
 - (void)_queue_launchSubscription:(id)arg1;
 - (void)dealloc;
-- (id)initWithDaemon:(id)arg1;
+- (id)initWithProfile:(id)arg1;
 - (id)init;
 
 // Remaining properties

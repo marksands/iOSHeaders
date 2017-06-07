@@ -43,7 +43,6 @@ __attribute__((visibility("hidden")))
 - (void)removePersistingExitingTiles:(id)arg1;
 - (void)willStopDrawingTiles:(id)arg1;
 - (void)willStartDrawingTiles:(id)arg1;
-- (void)didMoveToSupermodel;
 - (void)reset;
 - (void)dealloc;
 - (void)createCollections;
@@ -55,7 +54,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldLayoutWithoutStyleManager;
 - (id)initWithTarget:(id)arg1 sharedResources:(id)arg2;
 - (id)init;
-- (unsigned long long)mapLayerPosition;
+- (unsigned char)mapLayerPosition;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

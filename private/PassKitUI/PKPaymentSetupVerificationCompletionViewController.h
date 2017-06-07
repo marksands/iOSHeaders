@@ -6,21 +6,28 @@
 
 #import <PassKitUI/PKPaymentSetupTableViewController.h>
 
+#import <PassKitUI/PKPaymentVerificationObserverDelegate-Protocol.h>
 #import <PassKitUI/UITextFieldDelegate-Protocol.h>
 
-@class NSString, PKActivityTableCell, PKPaymentVerificationController, PKTableHeaderView, UIColor;
+@class NSString, PKActivityTableCell, PKPaymentProvisioningController, PKPaymentVerificationController, PKPaymentVerificationObserver, PKTableHeaderView, UIColor;
+@protocol PKPaymentSetupViewControllerDelegate;
 
-@interface PKPaymentSetupVerificationCompletionViewController : PKPaymentSetupTableViewController <UITextFieldDelegate>
+@interface PKPaymentSetupVerificationCompletionViewController : PKPaymentSetupTableViewController <UITextFieldDelegate, PKPaymentVerificationObserverDelegate>
 {
     PKActivityTableCell *_verificationCodeCell;
     _Bool _verificationCodeAccepted;
     _Bool _resignedResponder;
+    PKPaymentVerificationObserver *_verificationObserver;
     PKTableHeaderView *_tableHeader;
     UIColor *_editableTextFieldColor;
     long long _mode;
     PKPaymentVerificationController *_verificationController;
+    PKPaymentProvisioningController *_provisioningController;
+    id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
 }
 
+@property(nonatomic) __weak id <PKPaymentSetupViewControllerDelegate> setupDelegate; // @synthesize setupDelegate=_setupDelegate;
+@property(retain, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 @property(readonly, nonatomic) PKPaymentVerificationController *verificationController; // @synthesize verificationController=_verificationController;
 - (void).cxx_destruct;
 - (void)_showActivationError:(id)arg1;
@@ -29,10 +36,15 @@
 - (void)_enableUI;
 - (void)_disableUI;
 - (void)_submitVerificationCode;
+- (void)_showCompletedUIWithNextHandler:(CDUnknownBlockType)arg1;
+- (void)_performAddToWatchFlow;
 - (void)_showValidatedUI;
 - (void)_showAddToWatchOfferForPass:(id)arg1;
+- (void)verificationObserverDidTimeout:(id)arg1;
+- (void)verificationObserver:(id)arg1 didObserveVerificationCode:(id)arg2;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)textFieldDidChange:(id)arg1;
+- (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (void)textFieldDidBeginEditing:(id)arg1;
 - (void)next:(id)arg1;
 - (void)cancel:(id)arg1;
@@ -44,6 +56,7 @@
 - (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (void)dealloc;
+- (void)_handlePassVerifiedNotification:(id)arg1;
 - (id)initWithVerificationController:(id)arg1 mode:(long long)arg2;
 
 // Remaining properties

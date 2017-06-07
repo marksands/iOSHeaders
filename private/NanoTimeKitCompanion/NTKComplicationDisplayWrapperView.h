@@ -25,6 +25,7 @@
     NSDate *_timeTravelDate;
     _Bool _didChangeLayoutOverride;
     _Bool _isAnimating;
+    _Bool _hasTemplateDisplay;
     _Bool _paused;
     _Bool _editing;
     _Bool _tapEnabled;
@@ -34,7 +35,8 @@
     NSString *_complicationSlotIdentifier;
     UIView<NTKComplicationDisplay> *_display;
     CDUnknownBlockType _displayConfigurationHandler;
-    CDUnknownBlockType _tapHandler;
+    CDUnknownBlockType _touchDownHandler;
+    CDUnknownBlockType _touchUpInsideHandler;
     CDUnknownBlockType _needsResizeHandler;
     CLKComplicationTemplate *_complicationTemplate;
     double _alphaForDimmedState;
@@ -49,7 +51,8 @@
 @property(readonly, nonatomic) CLKComplicationTemplate *complicationTemplate; // @synthesize complicationTemplate=_complicationTemplate;
 @property(copy, nonatomic) CDUnknownBlockType needsResizeHandler; // @synthesize needsResizeHandler=_needsResizeHandler;
 @property(nonatomic) struct CGSize maxSize; // @synthesize maxSize=_maxSize;
-@property(copy, nonatomic) CDUnknownBlockType tapHandler; // @synthesize tapHandler=_tapHandler;
+@property(copy, nonatomic) CDUnknownBlockType touchUpInsideHandler; // @synthesize touchUpInsideHandler=_touchUpInsideHandler;
+@property(copy, nonatomic) CDUnknownBlockType touchDownHandler; // @synthesize touchDownHandler=_touchDownHandler;
 @property(nonatomic) _Bool tapEnabled; // @synthesize tapEnabled=_tapEnabled;
 @property(nonatomic) _Bool editing; // @synthesize editing=_editing;
 @property(nonatomic) _Bool paused; // @synthesize paused=_paused;
@@ -75,13 +78,15 @@
 - (void)_tryToSetDisplayHighlighted:(_Bool)arg1;
 - (void)_invokeNeedsResizeHandler;
 - (void)needsResize;
-- (void)_invokeTapHandler;
+- (void)_invokeTouchDownHandler;
+- (void)_invokeTouchUpInsideHandler;
 - (void)_setDimmed:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setDimmed:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_didSetDisplayFromDisplay:(id)arg1 withComplicationAnimation:(unsigned long long)arg2;
 - (void)_prepareToSetDisplay:(id)arg1 withComplicationAnimation:(inout unsigned long long *)arg2;
 - (void)setComplicationTemplate:(id)arg1 withComplicationAnimation:(unsigned long long)arg2;
 - (void)dealloc;
+- (id)initWithDetachedTemplateDisplay:(id)arg1;
 - (id)initWithLegacyDisplay:(id)arg1;
 - (id)initWithLegacyDisplay:(id)arg1 layoutOverride:(long long)arg2;
 - (id)initWithFamily:(long long)arg1;

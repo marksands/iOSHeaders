@@ -18,6 +18,7 @@
     NSMutableDictionary *_displayResultsByValue;
 }
 
++ (id)binaryValueSetWithCharacteristicMetadata:(id)arg1 firstValue:(id)arg2 firstTitle:(id)arg3 secondValue:(id)arg4 secondTitle:(id)arg5;
 @property(readonly, nonatomic) NSMutableDictionary *displayResultsByValue; // @synthesize displayResultsByValue=_displayResultsByValue;
 @property(copy, nonatomic) CDUnknownBlockType valueComparator; // @synthesize valueComparator=_valueComparator;
 @property(readonly, nonatomic) HMCharacteristicMetadata *characteristicMetadata; // @synthesize characteristicMetadata=_characteristicMetadata;
@@ -30,6 +31,7 @@
 - (void)addValuesFromArray:(id)arg1 displayResultsGenerator:(CDUnknownBlockType)arg2;
 - (_Bool)isEqual:(id)arg1;
 - (void)removeValue:(id)arg1;
+- (_Bool)addValue:(id)arg1 displayResults:(id)arg2 addOnlyIfValid:(_Bool)arg3;
 - (_Bool)addValue:(id)arg1 displayResults:(id)arg2;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (id)objectForKeyedSubscript:(id)arg1;

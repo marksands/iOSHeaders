@@ -9,6 +9,8 @@
 @interface IKViewElementStyle (TVMLKitAdditions)
 - (id)tv_group;
 - (unsigned long long)tv_maxLines;
+- (_Bool)tv_acceptsFocus;
+- (id)tv_overflow;
 - (id)tv_progressStyle;
 - (unsigned long long)tv_focusSizeIncrease;
 - (id)tv_focusAlign;
@@ -32,9 +34,11 @@
 - (id)tv_visualEffect;
 - (id)tv_ratingStyle;
 - (id)tv_transition;
+- (double)tv_textHyphenationFactor;
 - (id)tv_textStyle;
 - (id)tv_textHighlightStyle;
 - (id)tv_imageTreatment;
+- (unsigned int)tv_fontStretch;
 - (id)tv_fontWeight;
 - (id)tv_textTransform;
 - (id)tv_textShadow;

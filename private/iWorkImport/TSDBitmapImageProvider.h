@@ -6,36 +6,40 @@
 
 #import <iWorkImport/TSDImageProvider.h>
 
-@class NSObject;
-@protocol OS_dispatch_semaphore;
+@class NSMutableDictionary, NSObject, TSUOnce;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 __attribute__((visibility("hidden")))
 @interface TSDBitmapImageProvider : TSDImageProvider
 {
     struct CGImageSource *mImageSource;
     struct CGImage *mImage;
+    NSMutableDictionary *mResampledImages;
+    unsigned long long mImageGamut;
     struct CGSize mNaturalSize;
     long long mOrientation;
     _Bool mIsOpaque;
     _Bool mIsValid;
-    unsigned long long mImageGamut;
     unsigned long long mValidationStatus;
     unsigned long long mDPI;
-    NSObject<OS_dispatch_semaphore> *mImageLock;
-    long long mCheckIfValidToken;
-    struct CGImage *mHalfSizeImage;
-    struct CGImage *mQuarterSizeImage;
+    NSObject<OS_dispatch_queue> *mImageQueue;
+    TSUOnce *mCheckIfValidOnce;
+    NSObject<OS_dispatch_semaphore> *mFlushableContentLock;
+    _Bool mHasFlushableContent;
+    unsigned long long mEstimatedSize;
 }
 
 + (struct CGImageSource *)p_newImageSourceFromFilePath:(id)arg1;
 + (struct CGImageSource *)p_newImageSourceFromCacheForData:(id)arg1 withFilenameSuffix:(id)arg2;
 + (void)clearCacheForData:(id)arg1;
 + (id)p_cacheStringForData:(id)arg1;
++ (id)p_cacheDirectoryForData:(id)arg1;
 + (void)initialize;
 + (struct CGSize)naturalSizeForImageData:(id)arg1;
 + (id)TSUImageForImageData:(id)arg1;
 + (struct CGImage *)CGImageForImageData:(id)arg1;
 @property(readonly, nonatomic) unsigned long long validationStatus; // @synthesize validationStatus=mValidationStatus;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGImageSource *CGImageSource;
 - (struct CGImageSource *)p_newImageOfSize:(struct CGSize)arg1 andWriteToCacheWithSuffix:(id)arg2;
 - (struct CGImageSource *)p_newCGImageSourceForTemporaryUse;
@@ -45,17 +49,22 @@ __attribute__((visibility("hidden")))
 - (void)p_loadSourceRefIfNecessary;
 - (void)p_loadFullSizedImageIfNecessary;
 - (void)p_loadImageMetadata;
+- (void)p_updateEstimatedSize;
+- (unsigned long long)i_flushableMemoryEstimate;
+- (_Bool)i_hasFlushableContent;
 - (void)flush;
-- (_Bool)hasFlushableContent;
+- (_Bool)p_shouldScaleRetinaScreenshots;
 - (struct CGSize)dpiAdjustedNaturalSize;
 @property(readonly, nonatomic) struct CGSize dpiAdjustedFillSize;
 @property(readonly, nonatomic) unsigned long long imageDPI;
 - (unsigned long long)imageGamut;
 @property(readonly, nonatomic) _Bool isOpaque;
 @property(readonly, nonatomic) long long orientation;
-- (struct CGImage *)p_resampledImageOfSizeType:(int)arg1;
-- (struct CGImage *)p_loadOrCreateResampledImageWithScale:(unsigned long long)arg1 andCGImage:(struct CGImage **)arg2;
+- (struct CGImage *)p_resampledImageOfReciprocalScale:(unsigned long long)arg1;
+- (struct CGImage *)p_loadOrCreateResampledImageWithReciprocalScale:(unsigned long long)arg1;
 - (struct CGImage *)CGImageResampledToSize:(struct CGSize)arg1 lowQuality:(_Bool)arg2;
+- (id)p_cacheSuffixForScale:(unsigned long long)arg1;
+- (long long)p_reciprocalScaleForImageSize:(struct CGSize)arg1;
 - (struct CGImage *)CGImageForSize:(struct CGSize)arg1 inContext:(struct CGContext *)arg2 orLayer:(id)arg3;
 - (struct CGImage *)CGImageForNaturalSize;
 - (void)drawImageInContext:(struct CGContext *)arg1 rect:(struct CGRect)arg2;

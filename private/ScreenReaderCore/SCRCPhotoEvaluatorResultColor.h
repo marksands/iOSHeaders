@@ -6,7 +6,6 @@
 
 #import <ScreenReaderCore/SCRCPhotoEvaluatorResult.h>
 
-__attribute__((visibility("hidden")))
 @interface SCRCPhotoEvaluatorResultColor : SCRCPhotoEvaluatorResult
 {
     double _redLevel;

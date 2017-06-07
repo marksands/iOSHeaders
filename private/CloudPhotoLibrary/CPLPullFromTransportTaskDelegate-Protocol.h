@@ -12,6 +12,5 @@
 @protocol CPLPullFromTransportTaskDelegate <CPLEngineSyncTaskDelegate>
 - (id <CPLEngineTransportDownloadBatchTask>)task:(CPLPullFromTransportTask *)arg1 wantsToDownloadBatchesFromSyncAnchor:(NSData *)arg2 progressHandler:(void (^)(CPLChangeBatch *, NSData *))arg3 completionHandler:(void (^)(NSData *, _Bool, NSError *))arg4;
 - (id <CPLEngineTransportQueryTask>)task:(CPLPullFromTransportTask *)arg1 wantsToQueryTaskForCursor:(NSData *)arg2 class:(Class)arg3 progressHandler:(void (^)(CPLChangeBatch *, NSData *))arg4 completionHandler:(void (^)(NSError *))arg5;
-- (_Bool)taskSupportsBatchDownloadPipelining:(CPLPullFromTransportTask *)arg1;
 @end
 

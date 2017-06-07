@@ -6,12 +6,13 @@
 
 #import <PhotoLibraryServices/PLCloudSharingJob.h>
 
-@class AssetCollectionInfo, MSASAssetCollection, NSArray, NSDictionary, NSString;
+@class AssetCollectionInfo, MSASAssetCollection, NSArray, NSDictionary, NSMutableArray, NSString;
 
 @interface PLCloudSharedAssetSaveJob : PLCloudSharingJob
 {
     _Bool _replacingOriginalWithDerivative;
     AssetCollectionInfo *_currentAssetCollectionInfo;
+    NSMutableArray *_pendingDownloadNotifications;
     _Bool _isVideo;
     NSString *_currentFilePath;
     NSString *_currentCloudAssetGUID;
@@ -50,8 +51,14 @@
 - (unsigned long long)_insertionIndexForAsset:(id)arg1 inAlbum:(id)arg2;
 - (void)executeDaemonOperationReplaceRecentlyUploadedOriginalJobType;
 - (void)executeDaemonOperationDeleteAssetJobType;
+- (void)_incrementDerivativesCount:(long long)arg1 thumbnailsCount:(long long)arg2;
+- (void)_prefetchLimitForDerivatives:(long long *)arg1 thumbnails:(long long *)arg2;
+- (_Bool)_shouldPrefetchSharedAssets;
+- (_Bool)_processInflightAsset:(id)arg1 mediaAssetType:(unsigned long long)arg2;
 - (void)executeDaemonOperationDownloadPendingAssetsJobType;
 - (void)executeDaemonOperationSaveAssetMetadataForCollectionsJobType;
+- (void)_performSaveTransactionAndWaitOnLibrary:(id)arg1 transaction:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_addDownloadNotification:(id)arg1;
 - (short)attemptLightweightReimportAssetData;
 - (void)saveJobAssetWithPlaceholderKind:(short)arg1;
 - (void)_updatePhotoIrisPropertiesIfNecessaryForAsset:(id)arg1 inManagedObjectContext:(id)arg2;

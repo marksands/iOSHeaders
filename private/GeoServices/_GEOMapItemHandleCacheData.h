@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSData, NSDate;
 
@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) NSData *data; // @synthesize data=_data;
 @property(readonly, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
-- (void)dealloc;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long cost;
 - (id)initWithTimestamp:(id)arg1 data:(id)arg2;
 

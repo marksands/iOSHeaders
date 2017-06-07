@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSString *storeFrontIdentifier; // @synthesize storeFrontIdentifier=_storeFrontIdentifier;
 @property(retain, nonatomic) NSString *DSID; // @synthesize DSID=_DSID;
 - (void).cxx_destruct;
+- (id)description;
 - (unsigned long long)_hashForStoreStuff;
 - (unsigned long long)hash;
 - (_Bool)isEqualToEnvironment:(id)arg1;

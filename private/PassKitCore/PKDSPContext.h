@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSCopying-Protocol.h>
 
@@ -15,6 +15,7 @@
     NSString *_secureElementID;
     NSData *_cryptogram;
     NSData *_challengeResponse;
+    NSString *_serverEndpointIdentifier;
     NSString *_cardholderName;
     NSString *_phoneNumber;
     NSString *_primaryAppleAccountFirstName;
@@ -25,6 +26,7 @@
 @property(copy, nonatomic) NSString *primaryAppleAccountFirstName; // @synthesize primaryAppleAccountFirstName=_primaryAppleAccountFirstName;
 @property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(copy, nonatomic) NSString *cardholderName; // @synthesize cardholderName=_cardholderName;
+@property(copy, nonatomic) NSString *serverEndpointIdentifier; // @synthesize serverEndpointIdentifier=_serverEndpointIdentifier;
 @property(copy, nonatomic) NSData *challengeResponse; // @synthesize challengeResponse=_challengeResponse;
 @property(copy, nonatomic) NSData *cryptogram; // @synthesize cryptogram=_cryptogram;
 @property(copy, nonatomic) NSString *secureElementID; // @synthesize secureElementID=_secureElementID;

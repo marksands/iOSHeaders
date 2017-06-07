@@ -7,12 +7,12 @@
 #import <objc/NSObject.h>
 
 #import <SafariShared/WBSHistoryClientProtocol-Protocol.h>
-#import <SafariShared/WBSHistoryConnectionProtocol-Protocol.h>
+#import <SafariShared/WBSHistoryConnectionProxy-Protocol.h>
 
 @class NSXPCConnection;
 @protocol OS_dispatch_queue;
 
-@interface WBSHistoryConnectionProxy : NSObject <WBSHistoryClientProtocol, WBSHistoryConnectionProtocol>
+@interface WBSHistoryConnectionProxy : NSObject <WBSHistoryClientProtocol, WBSHistoryConnectionProxy>
 {
     NSXPCConnection *_connection;
     _Bool _registeredForHistoryNotifications;
@@ -27,19 +27,12 @@
 - (void)unregisterForHistoryNotifications;
 - (void)_registerForHistoryNotifications;
 - (void)registerForHistoryNotifications;
-- (void)removeAllTestDriveHistoryWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)makePermanentAllTestDriveHistoryWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)removeItemsWithURLsInResponseToUserAction:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)clearHistoryVisitsAddedAfterDate:(id)arg1 endDate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)clearHistoryWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)updateTitle:(id)arg1 forVisitWithUUID:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)recordRedirectFromVisitWithUUID:(id)arg1 destinationURL:(id)arg2 origin:(long long)arg3 date:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)recordVisitToURL:(id)arg1 title:(id)arg2 wasHTTPNonGet:(_Bool)arg3 visitWasFailure:(_Bool)arg4 increaseVisitCount:(_Bool)arg5 origin:(long long)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)beginHistoryAccessSession:(CDUnknownBlockType)arg1;
 - (void)beginURLCompletionSession:(CDUnknownBlockType)arg1;
 - (void)debugGetDatabaseURLWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)groupVisitsIntoSessionsBetweenStartDate:(id)arg1 endDate:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getVisitedLinksWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)ensureConnected:(CDUnknownBlockType)arg1;
 - (CDUnknownBlockType)_defaultProxyErrorHandlerWithSimpleReplyCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)init;

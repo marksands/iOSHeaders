@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSArray, NSData, NSDictionary;
 
@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) NSData *instructionsData; // @synthesize instructionsData=_instructionsData;
 - (void).cxx_destruct;
 - (id)_imageDataForImageWithKey:(id)arg1 format:(id *)arg2;
-- (struct CGDataProvider *)_imageDataProviderForImageKey:(id)arg1;
+- (struct CGDataProvider *)_createImageDataProviderForImageKey:(id)arg1;
 - (void)_pruneDirectoryAtURL:(id)arg1;
 - (_Bool)archiveToDirectoryAtURL:(id)arg1 error:(id *)arg2;
 - (struct CGImage *)imageForKey:(id)arg1;

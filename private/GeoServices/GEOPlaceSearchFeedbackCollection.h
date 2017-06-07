@@ -31,6 +31,7 @@
 @property(nonatomic) long long placeID; // @synthesize placeID=_placeID;
 @property(nonatomic) unsigned long long businessID; // @synthesize businessID=_businessID;
 @property(nonatomic) struct GEOSessionID sessionID; // @synthesize sessionID=_sessionID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,7 +49,6 @@
 @property(nonatomic) _Bool hasPlaceID;
 @property(nonatomic) _Bool hasBusinessID;
 @property(nonatomic) _Bool hasSessionID;
-- (void)dealloc;
 
 @end
 

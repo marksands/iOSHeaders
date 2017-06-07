@@ -6,6 +6,7 @@
 
 #import <objc/NSObject.h>
 
+#import <CoreDuet/_DKCoreDataStorageDelegate-Protocol.h>
 #import <CoreDuet/_DKKnowledgeDeleting-Protocol.h>
 #import <CoreDuet/_DKKnowledgeEventStreamDeleting-Protocol.h>
 #import <CoreDuet/_DKKnowledgeQuerying-Protocol.h>
@@ -14,17 +15,32 @@
 @class _DKCoreDataStorage;
 @protocol OS_dispatch_queue;
 
-@interface _DKKnowledgeStorage : NSObject <_DKKnowledgeEventStreamDeleting, _DKKnowledgeSaving, _DKKnowledgeDeleting, _DKKnowledgeQuerying>
+@interface _DKKnowledgeStorage : NSObject <_DKCoreDataStorageDelegate, _DKKnowledgeEventStreamDeleting, _DKKnowledgeSaving, _DKKnowledgeDeleting, _DKKnowledgeQuerying>
 {
     NSObject<OS_dispatch_queue> *_executionQueue;
     NSObject<OS_dispatch_queue> *_defaultResponseQueue;
+    unsigned long long _insertsAndDeletesObserverCount;
     _DKCoreDataStorage *_storage;
 }
 
++ (id)storageWithDirectory:(id)arg1 readOnly:(_Bool)arg2 localOnly:(_Bool)arg3;
 + (id)storageWithDirectory:(id)arg1 readOnly:(_Bool)arg2;
 + (id)storeWithDirectory:(id)arg1 readOnly:(_Bool)arg2;
 @property(readonly, nonatomic) _DKCoreDataStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
+- (void)cd_fetchChangesAndUpdateObservedStore;
+- (void)decrementInsertsAndDeletesObserverCount;
+- (void)incrementInsertsAndDeletesObserverCount;
+- (void)_sendInsertsAndDeletesNotificationWithNotification:(id)arg1;
+- (void)_databaseChangedWithNotification:(id)arg1;
+- (void)saveChangeForSync:(id)arg1 responseQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (id)fetchChangesSinceDate:(id)arg1;
+- (id)_requestForChangeSinceDate:(id)arg1;
+- (unsigned long long)deleteHistogram:(id)arg1;
+- (void)saveHistogram:(id)arg1 responseQueue:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (_Bool)coreDataStorage:(id)arg1 didAutoMigratePersistentStore:(id)arg2 toManagedObjectModel:(id)arg3 havingVersion:(unsigned long long)arg4 error:(id *)arg5;
+- (id)coreDataStorage:(id)arg1 needsManagedObjectModelNameForVersion:(unsigned long long)arg2;
+- (_Bool)coreDataStorage:(id)arg1 shouldCallDelegateAfterAutoMigrationToManagedObjectModelHavingVersion:(unsigned long long)arg2;
 - (void)closeStorage;
 - (unsigned long long)deleteAllEventsMatchingPredicate:(id)arg1 error:(id *)arg2;
 - (unsigned long long)deleteAllEventsInEventStream:(id)arg1 error:(id *)arg2;
@@ -32,6 +48,7 @@
 - (unsigned long long)deleteObjectsInEventStreams:(id)arg1 olderThanDate:(id)arg2 limit:(unsigned long long)arg3;
 - (id)eventCountPerStreamName;
 - (unsigned long long)eventCount;
+- (unsigned long long)deleteOrphanedEntities;
 - (unsigned long long)deleteOldObjectsIfNeededToLimitTotalNumber:(unsigned long long)arg1 limit:(unsigned long long)arg2;
 - (unsigned long long)deleteEventsMatchingPredicate:(id)arg1 limit:(unsigned long long)arg2;
 - (unsigned long long)deleteEventsStartingEarlierThanDate:(id)arg1 limit:(unsigned long long)arg2;
@@ -47,7 +64,11 @@
 - (void)handleNilArrayError:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (id)removeBadObjects:(id)arg1;
 - (_Bool)deleteStorage;
-- (id)initWithDirectory:(id)arg1 readOnly:(_Bool)arg2;
+- (id)initWithDirectory:(id)arg1 readOnly:(_Bool)arg2 localOnly:(_Bool)arg3;
+- (_Bool)copyValueToManagedObject:(id)arg1;
+- (_Bool)updateDataAfterAutoMigrationToVersion12InPersistentStore:(id)arg1 error:(id *)arg2;
+@property(readonly, nonatomic) unsigned long long finalMigrationVersion;
+- (void)updateToFinalMetadata:(id)arg1;
 
 @end
 

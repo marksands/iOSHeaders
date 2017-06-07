@@ -20,8 +20,8 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CKRecord *uploadedAssets; // @synthesize uploadedAssets=_uploadedAssets;
 - (void).cxx_destruct;
 - (void)sqliteBind:(struct sqlite3_stmt *)arg1 index:(int)arg2;
-- (void)updateLocationAndMetaFromFSAtPath:(id)arg1 updateFilename:(_Bool)arg2;
-- (void)updateFromFSAtPath:(id)arg1;
+- (void)updateLocationAndMetaFromFSAtPath:(id)arg1 updateFilename:(_Bool)arg2 filenameOverride:(id)arg3;
+- (void)updateFromFSAtPath:(id)arg1 filenameOverride:(id)arg2;
 - (void)_clearSignatures:(unsigned long long)arg1 isPackage:(_Bool)arg2;
 - (_Bool)isMissingUploadsWithDiffs:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

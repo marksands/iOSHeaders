@@ -25,7 +25,9 @@
 @property(nonatomic) __weak id <CKConversationResultsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
+- (void)_updateTableViewRowHeights;
 - (void)_selectChatGUID:(id)arg1;
+- (Class)_conversationListCellClass;
 - (void)searchEnded;
 - (void)cancelCurrentQuery;
 - (void)setCurrentSearchResultSelected:(_Bool)arg1;

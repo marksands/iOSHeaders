@@ -13,6 +13,7 @@
 @interface AWDHomeKitAccessoryPairing : PBCodable <NSCopying>
 {
     unsigned long long _timestamp;
+    int _certified;
     unsigned int _duration;
     int _errorCode;
     int _transportType;
@@ -21,6 +22,7 @@
     _Bool _isAddedViaWAC;
     struct {
         unsigned int timestamp:1;
+        unsigned int certified:1;
         unsigned int duration:1;
         unsigned int errorCode:1;
         unsigned int transportType:1;
@@ -45,6 +47,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsCertified:(id)arg1;
+- (id)certifiedAsString:(int)arg1;
+@property(nonatomic) _Bool hasCertified;
+@property(nonatomic) int certified; // @synthesize certified=_certified;
 @property(readonly, nonatomic) _Bool hasVendorDetails;
 - (int)StringAsTransportType:(id)arg1;
 - (id)transportTypeAsString:(int)arg1;

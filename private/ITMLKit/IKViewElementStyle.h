@@ -20,6 +20,7 @@
 + (id)elementStyleWithParentStyle:(id)arg1 elementStyle:(id)arg2 elementStyleOverrides:(id)arg3;
 + (id)elementStyleWithSelector:(id)arg1 aggregatingStyles:(id)arg2;
 + (id)elementStyleWithSelector:(id)arg1 cssRule:(id)arg2 filterBlockedStyles:(_Bool)arg3;
++ (id)elementStyleWithSelector:(id)arg1 inlineStyleString:(id)arg2 filterBlockedStyles:(_Bool)arg3 inlineStyleRangeCorrect:(_Bool)arg4;
 + (id)elementStyleWithSelector:(id)arg1 inlineStyleString:(id)arg2 filterBlockedStyles:(_Bool)arg3;
 + (id)normalizeClassSelectorString:(id)arg1;
 + (unsigned long long)imageTreatmentFromString:(id)arg1;
@@ -38,9 +39,10 @@
 + (void)initialize;
 @property(retain, nonatomic) NSMutableDictionary *styleDict; // @synthesize styleDict=_styleDict;
 @property(retain, nonatomic) NSArray *mediaQueryList; // @synthesize mediaQueryList=_mediaQueryList;
-@property(retain, nonatomic) IKCSSRule *cssRule; // @synthesize cssRule=_cssRule;
+@property(readonly, copy, nonatomic) IKCSSRule *cssRule; // @synthesize cssRule=_cssRule;
 - (void).cxx_destruct;
 - (id)_styleNameForAlias:(id)arg1;
+- (void)_setDeclaration:(id)arg1 forKey:(id)arg2;
 - (void)_addElementStyle:(id)arg1;
 - (void)_addParentStyle:(id)arg1;
 - (struct UIEdgeInsets)_edgeInsetsForStyleKey:(id)arg1;
@@ -99,8 +101,8 @@
 - (id)debugDescription;
 - (id)description;
 - (id)initWithClassSelector:(id)arg1;
-- (id)initWithStyle:(id)arg1 classSelector:(id)arg2;
 - (id)initWithCSSRule:(id)arg1 filterBlockedStyles:(_Bool)arg2 selStr:(id)arg3;
+- (id)initWithStyle:(id)arg1 classSelector:(id)arg2;
 @property(readonly, nonatomic) NSString *classDescriptorString;
 
 @end

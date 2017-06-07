@@ -8,7 +8,7 @@
 
 #import <CloudKitDaemon/CKDURLRequestPipelining-Protocol.h>
 
-@class CKQuery, CKRecordZoneID, NSArray, NSData, NSMutableArray, NSString;
+@class CKQuery, CKRecordZoneID, NSArray, NSData, NSMutableArray, NSSet, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDQueryURLRequest : CKDURLRequest <CKDURLRequestPipelining>
@@ -20,12 +20,14 @@ __attribute__((visibility("hidden")))
     unsigned long long _limit;
     CKRecordZoneID *_zoneID;
     NSArray *_requestedFields;
+    NSSet *_desiredAssetKeys;
     CDUnknownBlockType _recordResponseBlock;
     NSData *_resultsCursor;
 }
 
 @property(retain, nonatomic) NSData *resultsCursor; // @synthesize resultsCursor=_resultsCursor;
 @property(copy, nonatomic) CDUnknownBlockType recordResponseBlock; // @synthesize recordResponseBlock=_recordResponseBlock;
+@property(retain, nonatomic) NSSet *desiredAssetKeys; // @synthesize desiredAssetKeys=_desiredAssetKeys;
 @property(nonatomic) _Bool shouldFetchAssetContent; // @synthesize shouldFetchAssetContent=_shouldFetchAssetContent;
 @property(retain, nonatomic) NSArray *requestedFields; // @synthesize requestedFields=_requestedFields;
 @property(retain, nonatomic) CKRecordZoneID *zoneID; // @synthesize zoneID=_zoneID;

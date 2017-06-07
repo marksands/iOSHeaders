@@ -8,7 +8,6 @@
 
 @class NSError;
 
-__attribute__((visibility("hidden")))
 @interface CNFutureResult : NSObject
 {
     id _result;

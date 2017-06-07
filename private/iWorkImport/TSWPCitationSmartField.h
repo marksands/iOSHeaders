@@ -25,10 +25,10 @@ __attribute__((visibility("hidden")))
 - (id)bibliographySmartField;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)supportsDeepCopyForUndo;
 - (int)smartFieldKind;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
 @property(nonatomic) _Bool isLocalizable;
 @property(copy, nonatomic) NSArray *citationRecords;
 

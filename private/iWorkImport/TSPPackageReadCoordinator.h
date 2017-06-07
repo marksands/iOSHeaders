@@ -9,7 +9,7 @@
 #import <iWorkImport/TSPPersistedObjectUUIDMapDelegate-Protocol.h>
 #import <iWorkImport/TSPReadCoordinator-Protocol.h>
 
-@class NSError, NSMapTable, NSMutableArray, NSMutableSet, NSObject, NSSet, NSString, NSURL, NSUUID, TSPDocumentResourceDataProvider, TSPDocumentRevision, TSPFinalizeHandlerQueue, TSPObject, TSPObjectContext, TSPPackage, TSPPackageMetadata, TSPPersistedObjectUUIDMap;
+@class NSMapTable, NSMutableArray, NSMutableSet, NSObject, NSSet, NSString, NSURL, NSUUID, TSPDocumentRevision, TSPFinalizeHandlerQueue, TSPObject, TSPObjectContainer, TSPObjectContext, TSPPackage, TSPPackageMetadata, TSPPersistedObjectUUIDMap;
 @protocol OS_dispatch_group, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -21,7 +21,6 @@ __attribute__((visibility("hidden")))
     TSPPackage *_package;
     NSURL *_packageURL;
     TSPFinalizeHandlerQueue *_finalizeHandlerQueue;
-    TSPDocumentResourceDataProvider *_documentResourceDataProvider;
     _Bool _areExternalDataReferencesAllowed;
     _Bool _skipDocumentUpgrade;
     unsigned long long _readVersion;
@@ -30,8 +29,6 @@ __attribute__((visibility("hidden")))
     struct vector<std::__1::auto_ptr<TSP::PersistedObjectUUIDMapOperation>, std::__1::allocator<std::__1::auto_ptr<TSP::PersistedObjectUUIDMapOperation>>> _persistedUUIDMapOperations;
     NSMutableSet *_duplicatedUUIDs;
     NSMutableSet *_componentIdentifiersWithDuplicatedUUIDs;
-    NSObject<OS_dispatch_queue> *_errorQueue;
-    NSError *_error;
     NSObject<OS_dispatch_group> *_completionGroup;
     NSObject<OS_dispatch_queue> *_ioQueue;
     NSObject<OS_dispatch_queue> *_ioCompletionQueue;
@@ -48,11 +45,13 @@ __attribute__((visibility("hidden")))
     TSPDocumentRevision *_documentRevision;
     unsigned long long _saveToken;
     long long _preferredPackageType;
+    TSPObjectContainer *_objectContainer;
     TSPObject *_metadataObject;
 }
 
 @property(readonly, nonatomic) _Bool didRequireUpgrade; // @synthesize didRequireUpgrade=_didRequireUpgrade;
 @property(readonly, nonatomic) TSPObject *metadataObject; // @synthesize metadataObject=_metadataObject;
+@property(readonly, nonatomic) TSPObjectContainer *objectContainer; // @synthesize objectContainer=_objectContainer;
 @property(readonly, nonatomic) long long preferredPackageType; // @synthesize preferredPackageType=_preferredPackageType;
 @property(readonly, nonatomic) unsigned long long saveToken; // @synthesize saveToken=_saveToken;
 @property(readonly, nonatomic) TSPDocumentRevision *documentRevision; // @synthesize documentRevision=_documentRevision;
@@ -86,7 +85,6 @@ __attribute__((visibility("hidden")))
 - (void)preprocessMetadata:(id)arg1;
 - (unsigned long long)fileFormatVersionFromMetadataMessage:(const struct PackageMetadata *)arg1;
 - (id)newObjectUUIDForObjectIdentifier:(long long)arg1;
-- (_Bool)requestDocumentResourcesUsingDataProvider:(id)arg1;
 - (id)readPackageMetadataWithError:(id *)arg1;
 - (void)readPackageMetadataWithComponent:(id)arg1 completionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (long long)metadataObjectIdentifier;
@@ -101,9 +99,7 @@ __attribute__((visibility("hidden")))
 - (void)readRootObjectWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)didUpdateLazyReferenceDelegate:(id)arg1;
 - (_Bool)endReading;
-- (id)error;
-- (void)setError:(id)arg1;
-- (id)initWithContext:(id)arg1 package:(id)arg2 packageURLOrNil:(id)arg3 finalizeHandlerQueue:(id)arg4 documentResourceDataProvider:(id)arg5 areExternalDataReferencesAllowed:(_Bool)arg6 skipDocumentUpgrade:(_Bool)arg7;
+- (id)initWithContext:(id)arg1 package:(id)arg2 packageURLOrNil:(id)arg3 finalizeHandlerQueue:(id)arg4 areExternalDataReferencesAllowed:(_Bool)arg5 skipDocumentUpgrade:(_Bool)arg6;
 - (id)init;
 
 // Remaining properties

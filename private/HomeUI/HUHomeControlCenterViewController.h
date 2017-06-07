@@ -48,9 +48,10 @@
 - (void)_setupChecksForHomeAppRemoval;
 - (void)gridViewControllerDidEndApplyingDynamicBackgrounds:(id)arg1;
 - (void)gridViewControllerWillBeginApplyingDynamicBackgrounds:(id)arg1;
+- (_Bool)gridViewControllerShouldUsePunchOutBackgrounds:(id)arg1;
 - (id)prepareForActionRequiringDeviceUnlockForGridViewController:(id)arg1;
 - (_Bool)isDeviceUnlockedForGridViewController:(id)arg1;
-- (_Bool)itemManager:(id)arg1 performBatchUpdateBlock:(CDUnknownBlockType)arg2;
+- (void)itemManager:(id)arg1 performUpdateRequest:(id)arg2;
 - (void)homeManager:(id)arg1 didUpdateAccessAllowedWhenLocked:(_Bool)arg2;
 - (void)homeManagerDidFinishInitialDatabaseLoad:(id)arg1;
 - (_Bool)dismissModalFullScreenIfNeeded;

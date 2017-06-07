@@ -8,16 +8,17 @@
 
 #import <HealthDaemon/HDDiagnosticObject-Protocol.h>
 #import <HealthDaemon/HKExtendedServerInterface-Protocol.h>
+#import <HealthDaemon/_HKXPCExportable-Protocol.h>
 
-@class HDClient, HDProfile, NSString;
+@class HDProfile, HDXPCClient, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HDHealthExtensionsServer : NSObject <HDDiagnosticObject, HKExtendedServerInterface>
+@interface HDHealthExtensionsServer : NSObject <HDDiagnosticObject, HKExtendedServerInterface, _HKXPCExportable>
 {
     _Bool _registeredForAchievementNotifications;
     _Bool _registeredForAchievementDefinitionUnviewedCountChangeNotifications;
     NSObject<OS_dispatch_queue> *_queue;
-    HDClient *_client;
+    HDXPCClient *_client;
     HDProfile *_profile;
 }
 
@@ -26,7 +27,7 @@
 @property(nonatomic) _Bool registeredForAchievementDefinitionUnviewedCountChangeNotifications; // @synthesize registeredForAchievementDefinitionUnviewedCountChangeNotifications=_registeredForAchievementDefinitionUnviewedCountChangeNotifications;
 @property(nonatomic) _Bool registeredForAchievementNotifications; // @synthesize registeredForAchievementNotifications=_registeredForAchievementNotifications;
 @property(retain, nonatomic) HDProfile *profile; // @synthesize profile=_profile;
-@property(retain, nonatomic) HDClient *client; // @synthesize client=_client;
+@property(retain, nonatomic) HDXPCClient *client; // @synthesize client=_client;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (id)diagnosticDescription;
@@ -40,11 +41,15 @@
 - (void)remote_registerForAchievementDefinitionNotificationsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_setCurrentActivityCacheOverrideDate:(id)arg1 timeZone:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_fetchHiddenUnearnedAchievementDefinitionIdentifiersAmongIdentifiers:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)remote_runCompanionAchievementManagerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_runAchievementsFixupAsDryRun:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_updateAllAchievementAssetsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_deleteAllAchievementsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_deleteAchievementWithUUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_addAchievement:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)remote_fetchDynamicAchievementDefinitionsWithCompletion:(CDUnknownBlockType)arg1;
+- (void)remote_progressAchievementWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)remote_createMonthlyChallengeAchievementForMonth:(long long)arg1 year:(long long)arg2 predicateString:(id)arg3 progressExpressionString:(id)arg4 goalExpressionString:(id)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)remote_markAchievementAsViewed:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_fetchNumberOfUnviewedAchievementsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_markAchievementsAlerted:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -54,11 +59,11 @@
 - (void)_callClientRemoteAchievementDefinitionUnviewedCountChanged;
 - (void)_achievementDefinitionAvailabilityChanged:(id)arg1;
 - (void)_achievementDefinitionUnviewedCountChanged:(id)arg1;
-- (void)_achievementsAdded:(id)arg1;
+- (void)_achievementsAddedOrRemoved:(id)arg1;
 - (id)remoteObjectProxyWithErrorHandler:(CDUnknownBlockType)arg1;
-- (void)invalidate;
-- (id)clientInterface;
-- (id)serverInterface;
+- (void)connectionInvalidated;
+- (id)remoteInterface;
+- (id)exportedInterface;
 - (void)dealloc;
 - (id)initWithClient:(id)arg1 profile:(id)arg2;
 

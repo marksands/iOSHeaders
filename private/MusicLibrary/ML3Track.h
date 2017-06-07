@@ -81,6 +81,8 @@
 - (id)absoluteFilePath;
 - (void)createVideoSnapshotAtTime:(double)arg1;
 - (_Bool)needsVideoSnapshot;
+- (_Bool)_populateLocationPropertiesWithPath:(id)arg1 protectionType:(long long)arg2 fromLibrary:(id)arg3 usingConnection:(id)arg4;
+- (void)populateLocationPropertiesWithPath:(id)arg1 protectionType:(long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)populateLocationPropertiesWithPath:(id)arg1 protectionType:(long long)arg2;
 - (void)populateLocationPropertiesWithPath:(id)arg1 isProtected:(_Bool)arg2;
 - (void)populateLocationPropertiesWithPath:(id)arg1;

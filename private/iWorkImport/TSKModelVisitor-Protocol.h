@@ -6,13 +6,13 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class TSCHChartDrawableInfo, TSDConnectionLineInfo, TSDGroupInfo, TSDImageInfo, TSDMovieInfo, TSDShapeInfo, TSTTableInfo, TSWPShapeInfo, TSWPStorage, TSWPTOCInfo;
+@class TSCHChartDrawableInfo, TSDConnectionLineInfo, TSDGroupInfo, TSDImageInfo, TSDMovieInfo, TSDShapeInfo, TSTInfo, TSWPShapeInfo, TSWPStorage, TSWPTOCInfo;
 
 @protocol TSKModelVisitor <NSObject>
 - (void)visitTSWPTOCInfo:(TSWPTOCInfo *)arg1;
 - (void)visitTSWPStorage:(TSWPStorage *)arg1;
 - (void)visitTSWPShapeInfo:(TSWPShapeInfo *)arg1;
-- (void)visitTSTTableInfo:(TSTTableInfo *)arg1;
+- (void)visitTSTInfo:(TSTInfo *)arg1;
 - (void)visitTSDShapeInfo:(TSDShapeInfo *)arg1;
 - (void)visitTSDMovieInfo:(TSDMovieInfo *)arg1;
 - (void)visitTSDImageInfo:(TSDImageInfo *)arg1;

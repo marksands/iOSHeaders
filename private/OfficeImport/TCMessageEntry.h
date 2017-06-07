@@ -24,7 +24,6 @@ __attribute__((visibility("hidden")))
 - (void)addAffectedObject:(id)arg1;
 - (void)mergeEntries:(id)arg1;
 - (id)description;
-- (void)logWithCat:(id)arg1;
 - (long long)timeStampCompare:(id)arg1;
 - (int)getCount;
 - (id)affectedObjects;

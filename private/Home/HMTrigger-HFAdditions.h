@@ -7,6 +7,7 @@
 #import <HomeKit/HMTrigger.h>
 
 @interface HMTrigger (HFAdditions)
++ (id)hf_localizedStringForSignficantEvent:(id)arg1 offset:(id)arg2;
 - (id)hf_forceDisableReasons;
 @property(readonly, nonatomic) _Bool hf_requiresConfirmationToRun;
 @end

@@ -29,7 +29,7 @@
 @property(retain, nonatomic) AXReplayableGesture *gesture; // @synthesize gesture=_gesture;
 @property(copy, nonatomic) NSString *longPressAction; // @synthesize longPressAction=_longPressAction;
 @property(copy, nonatomic) NSString *action; // @synthesize action=_action;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (id)init;
 - (id)dictionaryRepresentation;

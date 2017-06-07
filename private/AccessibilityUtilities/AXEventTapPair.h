@@ -24,6 +24,7 @@
 @property(nonatomic) int priority; // @synthesize priority;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier;
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler;
+- (void).cxx_destruct;
 - (id)description;
 - (void)dealloc;
 

@@ -23,13 +23,16 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak IKDataSourceElement *dataSourceElement; // @synthesize dataSourceElement=_dataSourceElement;
 - (void).cxx_destruct;
 - (long long)indexOfItemForChildElement:(id)arg1;
+- (id)actualElementForProxyElement:(id)arg1;
+- (void)resetUpdates;
 - (void)updateStylesUsingUpdater:(CDUnknownBlockType)arg1;
 - (void)applyUpdatesWithImplementation:(id)arg1 usingUpdater:(CDUnknownBlockType)arg2;
 - (void)configureUpdatesWithImplementation:(id)arg1;
 - (void)teardown;
-- (void)initialize;
+- (void)initializeWithElementFactory:(id)arg1;
 - (void)unloadIndex:(long long)arg1;
-- (id)elementForItemAtIndex:(long long)arg1 loadIfNeeded:(_Bool)arg2;
+- (void)loadIndex:(long long)arg1;
+- (id)elementForItemAtIndex:(long long)arg1;
 - (id)prototypeForItemAtIndex:(long long)arg1;
 - (long long)numberOfItems;
 @property(readonly, nonatomic) NSArray *prototypes;

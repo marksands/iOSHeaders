@@ -40,6 +40,7 @@
     NSDate *_startTime;
     NSArray *_from;
     NSNumber *_disallowNewTimeProposal;
+    NSString *_onlineMeetingExternalLink;
     NSDate *_tombstoneEndTime;
     ASEventUID *_eventUID;
     NSArray *_attendees;
@@ -85,6 +86,7 @@
 @property(nonatomic) _Bool doNotSendBody; // @synthesize doNotSendBody=_doNotSendBody;
 @property(retain, nonatomic) ASEventUID *eventUID; // @synthesize eventUID=_eventUID;
 @property(retain, nonatomic) NSDate *tombstoneEndTime; // @synthesize tombstoneEndTime=_tombstoneEndTime;
+@property(retain, nonatomic) NSString *onlineMeetingExternalLink; // @synthesize onlineMeetingExternalLink=_onlineMeetingExternalLink;
 @property(retain, nonatomic) NSNumber *disallowNewTimeProposal; // @synthesize disallowNewTimeProposal=_disallowNewTimeProposal;
 @property(retain, nonatomic) NSArray *from; // @synthesize from=_from;
 @property(retain, nonatomic) NSDate *startTime; // @synthesize startTime=_startTime;

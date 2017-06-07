@@ -24,6 +24,7 @@
     UIImage *_image;
     PXImageViewSpec *_spec;
     UIView *_contentView;
+    long long _contentMode;
     PXFocusableUIImageView *__imageView;
     PXRoundedCornerOverlayView *__cornerView;
     NSArray *__overlaySpecs;
@@ -35,6 +36,7 @@
 @property(readonly, nonatomic) PXFocusableUIImageView *_imageView; // @synthesize _imageView=__imageView;
 @property(nonatomic, getter=isFloatingRotationEnabled) _Bool floatingRotationEnabled; // @synthesize floatingRotationEnabled=_floatingRotationEnabled;
 @property(nonatomic, getter=isAnimating) _Bool animating; // @synthesize animating=_animating;
+@property(nonatomic) long long contentMode; // @synthesize contentMode=_contentMode;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) _Bool floatingViewEnabled; // @synthesize floatingViewEnabled=_floatingViewEnabled;
 @property(retain, nonatomic) PXImageViewSpec *spec; // @synthesize spec=_spec;
@@ -49,7 +51,6 @@
 - (void)setFloatingOverlay:(id)arg1 withInsets:(struct UIEdgeInsets)arg2 parallax:(_Bool)arg3;
 - (void)_PXUIImageViewInitialization;
 @property(nonatomic) _Bool allowsFocus;
-- (void)setContentMode:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

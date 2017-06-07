@@ -4,38 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Home/HFControlItem.h>
+#import <Home/HFRangeControlItem.h>
 
-@class NSNumber, NSSet, NSString;
-
-@interface HFTemperatureThresholdControlItem : HFControlItem
+@interface HFTemperatureThresholdControlItem : HFRangeControlItem
 {
-    NSString *_minimumCharacteristicType;
-    NSString *_maximumCharacteristicType;
-    NSSet *_thresholdCharacteristicsSet;
 }
 
-+ (Class)valueClass;
-@property(retain, nonatomic) NSSet *thresholdCharacteristicsSet; // @synthesize thresholdCharacteristicsSet=_thresholdCharacteristicsSet;
-@property(retain, nonatomic) NSString *maximumCharacteristicType; // @synthesize maximumCharacteristicType=_maximumCharacteristicType;
-@property(retain, nonatomic) NSString *minimumCharacteristicType; // @synthesize minimumCharacteristicType=_minimumCharacteristicType;
-- (void).cxx_destruct;
-- (id)_targetCharacteristicTypeMetadata;
-- (id)_maximumCharacteristicTypeMetadata;
-- (id)_minimumCharacteristicTypeMetadata;
-- (unsigned long long)temperatureMode;
-@property(readonly, copy, nonatomic) NSNumber *minimumCharacteristicTypeStepValue;
-@property(readonly, copy, nonatomic) NSNumber *maximumCharacteristicTypeStepValue;
-@property(readonly, copy, nonatomic) NSNumber *stepValue;
-@property(readonly, copy, nonatomic) NSNumber *maximumValue;
-@property(readonly, copy, nonatomic) NSNumber *minimumValue;
-- (id)characteristicValuesForValue:(id)arg1;
-- (id)valueForCharacteristicValues:(id)arg1;
+- (id)targetCharacteristicTypeWithCharacteristicValuesKeyedByType:(id)arg1;
+- (unsigned long long)rangeModeWithCharacteristicValuesKeyedByType:(id)arg1;
 - (id)readOnlyCharacteristicTypes;
-@property(readonly, copy, nonatomic) NSString *targetCharacteristicType;
-- (id)copyWithCharacteristicTypes:(id)arg1 valueSource:(id)arg2;
-- (id)initWithValueSource:(id)arg1 characteristicTypes:(id)arg2 displayResults:(id)arg3;
-- (id)initWithValueSource:(id)arg1 minimumCharacteristicType:(id)arg2 maximumCharacteristicType:(id)arg3 displayResults:(id)arg4;
+- (id)initWithValueSource:(id)arg1 displayResults:(id)arg2;
 
 @end
 

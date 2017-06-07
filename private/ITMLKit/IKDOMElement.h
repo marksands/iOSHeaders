@@ -26,6 +26,7 @@
     id <IKStyleableElement> parentStyleableElement;
 }
 
++ (id)_filteredAttributes;
 @property(retain, nonatomic) IKViewElementStyleComposer *styleComposer; // @synthesize styleComposer;
 - (void).cxx_destruct;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
@@ -37,7 +38,9 @@
 - (id)textContent;
 - (long long)nodeType;
 - (id)nodeName;
+- (void)_markUpdatedForChangeInAttribute:(id)arg1 fromValue:(id)arg2 toValue:(id)arg3;
 - (id)_attributes;
+@property(readonly, nonatomic) _Bool _isPrototypeElement;
 @property(readonly, nonatomic) unsigned long long childElementCount;
 @property(readonly, nonatomic) IKDOMElement *lastElementChild;
 @property(readonly, nonatomic) IKDOMElement *firstElementChild;
@@ -58,6 +61,10 @@
 - (void)insertAdjacentHTML:(id)arg1:(id)arg2;
 @property(retain, nonatomic) NSString *outerHTML;
 @property(retain, nonatomic) NSString *innerHTML;
+- (id)dse_usedPrototypesByType;
+- (void)dse_setUsedPrototypesByType:(id)arg1;
+- (id)dse_jsDataItems;
+- (void)dse_setJSDataItems:(id)arg1;
 - (id)dse_appDataSet;
 - (void)dse_setAppDataSet:(id)arg1;
 - (id)domb_dataBinding;

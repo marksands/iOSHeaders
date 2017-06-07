@@ -16,6 +16,7 @@
     NSURL *_directoryURL;
 }
 
++ (id)defaultDirectoryURL;
 @property(readonly, copy, nonatomic) NSURL *directoryURL; // @synthesize directoryURL=_directoryURL;
 - (void).cxx_destruct;
 - (id)succinctDescriptionBuilder;
@@ -23,6 +24,10 @@
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 @property(readonly, copy) NSString *description;
+- (void)removeWallpaperColorForVariants:(long long)arg1;
+- (_Bool)setWallpaperColorName:(id)arg1 forVariants:(long long)arg2;
+- (_Bool)setWallpaperColor:(id)arg1 forVariants:(long long)arg2;
+- (id)wallpaperColorForVariant:(long long)arg1;
 - (void)removeWallpaperOptionsForVariants:(long long)arg1;
 - (_Bool)setWallpaperOptions:(id)arg1 forVariants:(long long)arg2;
 - (id)wallpaperOptionsForVariant:(long long)arg1;
@@ -30,8 +35,12 @@
 - (_Bool)setProceduralWallpaperInfo:(id)arg1 forVariants:(long long)arg2;
 - (id)proceduralWallpaperInfoForVariant:(long long)arg1;
 - (void)removeVideoForVariant:(long long)arg1;
+- (_Bool)setOriginalVideoURL:(id)arg1 forVariant:(long long)arg2;
 - (_Bool)setVideoURL:(id)arg1 forVariant:(long long)arg2;
+- (_Bool)copyVideoAtURL:(id)arg1 toURL:(id)arg2;
+- (id)verifiedOriginalVideoURLForVariant:(long long)arg1;
 - (id)verifiedVideoURLForVariant:(long long)arg1;
+- (id)unverifiedVideoURLForVariant:(long long)arg1;
 - (id)wallpaperOriginalVideoURLForVariant:(long long)arg1;
 - (id)wallpaperVideoURLForVariant:(long long)arg1;
 - (void)removeWallpaperImageDataTypes:(unsigned long long)arg1 forVariants:(long long)arg2;

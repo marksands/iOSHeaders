@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 + (id)serviceViewControllerInterface;
 @property(nonatomic) __weak id <VSViewServiceRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_didChooseProviderWithIdentifier:(id)arg1 vetoHandler:(CDUnknownBlockType)arg2;
 - (void)_didCancelRequest:(id)arg1;
 - (void)_didChooseAdditionalProvidersForRequest:(id)arg1;
 - (void)_request:(id)arg1 didFailWithError:(id)arg2;

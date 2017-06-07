@@ -37,7 +37,7 @@
 + (id)personWithPHIdentifier:(id)arg1;
 + (id)personWithCNIdentifier:(id)arg1;
 + (id)person;
-@property(readonly) NSArray *sourceURLs; // @synthesize sourceURLs=_sourceURLs;
+@property(readonly, nonatomic) NSArray *sourceURLs; // @synthesize sourceURLs=_sourceURLs;
 @property(nonatomic) unsigned long long relationship; // @synthesize relationship=_relationship;
 @property(retain, nonatomic) NSSet *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
 @property(retain, nonatomic) NSMutableDictionary *socialProfiles; // @synthesize socialProfiles=_socialProfiles;

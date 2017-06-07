@@ -10,15 +10,13 @@
 #import <FuseUI/MusicEntityProductHeaderLockupViewDelegate-Protocol.h>
 #import <FuseUI/MusicMediaDetailHeaderContentViewController-Protocol.h>
 
-@class MPAVController, MusicClientContext, MusicContextualLibraryUpdateAlertAction, MusicEntityProductHeaderLockupView, MusicEntityValueContext, MusicEntityViewProductHeaderLockupContentDescriptor, MusicHairlineView, MusicMediaDetailTintInformation, NSArray, NSString, SKUIClientContext, UIButton, UIImage;
+@class MPAVController, MusicClientContext, MusicEntityProductHeaderLockupView, MusicEntityValueContext, MusicEntityViewProductHeaderLockupContentDescriptor, MusicHairlineView, MusicMediaDetailTintInformation, NSArray, NSString, SKUIClientContext, UIButton, UIImage;
 @protocol MusicEntityProviding, MusicMediaProductHeaderContentViewControllerDelegate;
 
 @interface MusicMediaProductHeaderContentViewController : UIViewController <MusicEntityProductHeaderLockupViewDelegate, MusicMediaDetailHeaderContentViewController, MusicClientContextConsuming>
 {
-    MusicContextualLibraryUpdateAlertAction *_addRemoveLibraryAlertAction;
     NSArray *_addRemoveNotificationObservers;
     MusicHairlineView *_hairlineView;
-    MusicContextualLibraryUpdateAlertAction *_keepLocalAlertAction;
     _Bool _needToMakeTitleFirstResponder;
     MPAVController *_player;
     MusicEntityProductHeaderLockupView *_productHeaderLockupView;
@@ -32,7 +30,6 @@
     MusicEntityValueContext *_containerEntityValueContext;
     MusicClientContext *_clientContext;
     id <MusicEntityProviding> _containerEntityProvider;
-    id <MusicEntityProviding> _contextualActionsOverrideTracklistEntityProvider;
     id <MusicMediaProductHeaderContentViewControllerDelegate> _delegate;
     UIImage *_editedContentArtworkImage;
     NSString *_lockupArtworkProperty;
@@ -48,7 +45,6 @@
 @property(nonatomic, getter=isHairlineVisible) _Bool hairlineVisible; // @synthesize hairlineVisible=_hairlineVisible;
 @property(retain, nonatomic) UIImage *editedContentArtworkImage; // @synthesize editedContentArtworkImage=_editedContentArtworkImage;
 @property(nonatomic) __weak id <MusicMediaProductHeaderContentViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) id <MusicEntityProviding> contextualActionsOverrideTracklistEntityProvider; // @synthesize contextualActionsOverrideTracklistEntityProvider=_contextualActionsOverrideTracklistEntityProvider;
 @property(readonly, nonatomic) id <MusicEntityProviding> containerEntityProvider; // @synthesize containerEntityProvider=_containerEntityProvider;
 @property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
 @property(retain, nonatomic) SKUIClientContext *clientContext;
@@ -63,7 +59,6 @@
 - (void)_reloadAddRemoveLibraryAndKeepLocalActions;
 - (void)_reloadContainerEntityValueContextProperties;
 - (id)_productHeaderLockupContentDescriptor;
-- (void)_presentContextualActionsFromButton:(id)arg1;
 - (struct CGRect)_hairlineViewFrame;
 - (void)_configureWithTintInformation;
 - (_Bool)_calculateWantsRefreshButton;
@@ -80,12 +75,10 @@
 @property(readonly, copy, nonatomic) NSString *editableText;
 - (void)setMediaDetailHeaderHeight:(double)arg1 withMaximumHeaderHeight:(double)arg2 transitionProgress:(double)arg3;
 - (void)productHeaderLockupViewTintColorDidChange:(id)arg1;
-- (void)productHeaderLockupView:(id)arg1 didSelectPlayButtonAction:(unsigned long long)arg2;
 - (void)productHeaderLockupViewDidSelectLikeDislikeButton:(id)arg1;
 - (void)productHeaderLockupViewDidSelectRefreshButton:(id)arg1;
 - (void)productHeaderLockupViewDidSelectEditButton:(id)arg1;
 - (void)productHeaderLockupViewDidSelectShareButton:(id)arg1;
-- (void)productHeaderLockupViewDidSelectContextualActionsButton:(id)arg1;
 - (void)productHeaderLockupViewDidSelectDownloadProgressButton:(id)arg1;
 - (void)productHeaderLockupViewDidUpdateEditableText:(id)arg1;
 - (void)productHeaderLockupView:(id)arg1 didSelectCameraButton:(id)arg2;

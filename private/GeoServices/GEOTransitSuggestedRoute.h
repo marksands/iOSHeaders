@@ -50,6 +50,7 @@
 @property(retain, nonatomic) NSMutableArray *steps; // @synthesize steps=_steps;
 @property(nonatomic) unsigned int absEndTime; // @synthesize absEndTime=_absEndTime;
 @property(nonatomic) unsigned int absStartTime; // @synthesize absStartTime=_absStartTime;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

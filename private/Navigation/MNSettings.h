@@ -17,6 +17,7 @@
     _Bool _pauseSpokenAudio;
     _Bool _muteSpeechOverride;
     _Bool _speechEnabled;
+    unsigned long long _maxAlternateRoutesCount;
     _Bool _drivingVoiceGuidance;
     _Bool _walkingVoiceGuidance;
     _Bool _beepBeforeInstruction;
@@ -25,24 +26,23 @@
     double _initialRequestDelay;
     double _backgroundTimeWindow;
     long long _fakeTrafficIncidentAlert;
-    long long _acceptFasterReroute;
     double _alightSignalTimeBuffer;
     double _initialTraceSpeedMultiplier;
     _Bool _shouldLoadInitialRouteFromTrace;
     _Bool _shouldLoadReroutesFromTrace;
     _Bool _shouldLoadETAUpdatesFromTrace;
     _Bool _isTracePlaybackCameraTestMode;
+    _Bool _shouldUseGuidanceEventManager;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)_mapsSettings;
+@property(readonly, nonatomic) _Bool shouldUseGuidanceEventManager; // @synthesize shouldUseGuidanceEventManager=_shouldUseGuidanceEventManager;
 @property(readonly, nonatomic) _Bool isTracePlaybackCameraTestMode; // @synthesize isTracePlaybackCameraTestMode=_isTracePlaybackCameraTestMode;
 @property(readonly, nonatomic) _Bool shouldLoadETAUpdatesFromTrace; // @synthesize shouldLoadETAUpdatesFromTrace=_shouldLoadETAUpdatesFromTrace;
 @property(readonly, nonatomic) _Bool shouldLoadReroutesFromTrace; // @synthesize shouldLoadReroutesFromTrace=_shouldLoadReroutesFromTrace;
 @property(readonly, nonatomic) _Bool shouldLoadInitialRouteFromTrace; // @synthesize shouldLoadInitialRouteFromTrace=_shouldLoadInitialRouteFromTrace;
 @property(readonly, nonatomic) double initialTraceSpeedMultiplier; // @synthesize initialTraceSpeedMultiplier=_initialTraceSpeedMultiplier;
 @property(readonly, nonatomic) double alightSignalTimeBuffer; // @synthesize alightSignalTimeBuffer=_alightSignalTimeBuffer;
-@property(readonly, nonatomic) long long acceptFasterReroute; // @synthesize acceptFasterReroute=_acceptFasterReroute;
 @property(readonly, nonatomic) long long fakeTrafficIncidentAlert; // @synthesize fakeTrafficIncidentAlert=_fakeTrafficIncidentAlert;
 @property(readonly, nonatomic) double backgroundTimeWindow; // @synthesize backgroundTimeWindow=_backgroundTimeWindow;
 @property(readonly, nonatomic) double initialRequestDelay; // @synthesize initialRequestDelay=_initialRequestDelay;
@@ -51,6 +51,7 @@
 @property(readonly, nonatomic) _Bool beepBeforeInstruction; // @synthesize beepBeforeInstruction=_beepBeforeInstruction;
 @property(readonly, nonatomic) _Bool walkingVoiceGuidance; // @synthesize walkingVoiceGuidance=_walkingVoiceGuidance;
 @property(readonly, nonatomic) _Bool drivingVoiceGuidance; // @synthesize drivingVoiceGuidance=_drivingVoiceGuidance;
+@property(readonly, nonatomic) unsigned long long maxAlternateRoutesCount; // @synthesize maxAlternateRoutesCount=_maxAlternateRoutesCount;
 @property(readonly, nonatomic) _Bool speechEnabled; // @synthesize speechEnabled=_speechEnabled;
 @property(readonly, nonatomic) _Bool muteSpeechOverride; // @synthesize muteSpeechOverride=_muteSpeechOverride;
 @property(readonly, nonatomic) _Bool pauseSpokenAudio; // @synthesize pauseSpokenAudio=_pauseSpokenAudio;

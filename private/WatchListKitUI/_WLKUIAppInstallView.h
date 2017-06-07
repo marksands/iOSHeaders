@@ -8,37 +8,32 @@
 
 #import <WatchListKitUI/SBIconProgressViewDelegate-Protocol.h>
 
-@class NSString, SBIconProgressView, TVImageProxy, UIImage, UILabel, UIVisualEffectView, _TVImageView;
+@class NSString, SBIconProgressView, UIImage, UIImageView, UILabel;
 
 @interface _WLKUIAppInstallView : UIView <SBIconProgressViewDelegate>
 {
-    _TVImageView *_appIconImageView;
-    UIView *_backgroundContainerView;
-    UIVisualEffectView *_backgroundView;
+    UIImageView *_appIconImageView;
     UIView *_backgroundKnockoutView;
     CDUnknownBlockType _completion;
     SBIconProgressView *_progressView;
     UILabel *_subtitleLabel;
     UILabel *_titleLabel;
-    TVImageProxy *_appIconImageProxy;
-    UIImage *_placeholderAppIcon;
-    NSString *_title;
-    NSString *_subtitle;
+    UIImage *_appIcon;
     double _installProgress;
 }
 
++ (struct CGSize)_appIconSize;
++ (double)_appIconRadius;
 + (id)_progressMaskImage;
 @property(nonatomic) double installProgress; // @synthesize installProgress=_installProgress;
-@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-@property(retain, nonatomic) UIImage *placeholderAppIcon; // @synthesize placeholderAppIcon=_placeholderAppIcon;
-@property(retain, nonatomic) TVImageProxy *appIconImageProxy; // @synthesize appIconImageProxy=_appIconImageProxy;
+@property(retain, nonatomic) UIImage *appIcon; // @synthesize appIcon=_appIcon;
 - (void).cxx_destruct;
-- (_Bool)shouldDismissForTapLocation:(struct CGPoint)arg1;
+- (void)setWaiting;
 - (void)finishInstallationWithCompletion:(CDUnknownBlockType)arg1;
-- (void)layoutSubviews;
 - (void)progressViewCanBeRemoved:(id)arg1;
 - (void)dealloc;
+- (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

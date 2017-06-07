@@ -10,6 +10,7 @@
 {
     _Bool _mustContainMePerson;
     unsigned long long _type;
+    unsigned long long _category;
     struct _NSRange _peopleRange;
 }
 
@@ -17,6 +18,7 @@
 + (id)_locationTraitDebugStringForTrait:(unsigned long long)arg1;
 @property(nonatomic) struct _NSRange peopleRange; // @synthesize peopleRange=_peopleRange;
 @property(nonatomic) _Bool mustContainMePerson; // @synthesize mustContainMePerson=_mustContainMePerson;
+@property(nonatomic) unsigned long long category; // @synthesize category=_category;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) _Bool isCelebration;
 - (_Bool)peopleCountRangeIsRequired;

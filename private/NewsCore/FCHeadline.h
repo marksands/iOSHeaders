@@ -9,8 +9,8 @@
 #import <NewsCore/FCFeedElement-Protocol.h>
 #import <NewsCore/FCHeadlineProviding-Protocol.h>
 
-@class FCCoverArt, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL;
-@protocol FCChannelProviding;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, FCCoverArt, FCHeadlineThumbnail, FCTopStoriesStyleConfiguration, NSArray, NSDate, NSString, NSURL;
+@protocol FCChannelProviding, FCNativeAdProviding;
 
 @interface FCHeadline : NSObject <FCHeadlineProviding, FCFeedElement>
 {
@@ -20,11 +20,12 @@
     _Bool _deleted;
     _Bool _isDraft;
     _Bool _usesImageOnTopLayout;
-    _Bool _topStory;
+    _Bool _isTopStory;
     _Bool _needsRapidUpdates;
     _Bool _paid;
     _Bool _showSubscriptionRequiredText;
     _Bool _canBePurchased;
+    _Bool _displayAsNativeAd;
     FCHeadlineThumbnail *_thumbnailLQ;
     FCHeadlineThumbnail *_thumbnail;
     FCHeadlineThumbnail *_thumbnailMedium;
@@ -39,13 +40,12 @@
     NSString *_clusterID;
     NSString *_primaryAudience;
     NSString *_shortExcerpt;
+    NSArray *_topics;
     NSArray *_topicIDs;
-    NSArray *_topicScores;
-    NSArray *_topicFlags;
     NSArray *_endOfArticleTopicIDs;
     NSDate *_publishDate;
-    unsigned long long _publisherArticleVersion;
-    unsigned long long _backendArticleVersion;
+    long long _publisherArticleVersion;
+    long long _backendArticleVersion;
     NSObject<FCChannelProviding> *_sourceChannel;
     NSString *_sourceName;
     NSURL *_contentURL;
@@ -66,6 +66,7 @@
     NSString *_accessoryText;
     NSString *_localDraftPath;
     double _personalizedScore;
+    unsigned long long _topStoryType;
     NSArray *_relatedArticleIDs;
     NSArray *_moreFromPublisherArticleIDs;
     unsigned long long _storyType;
@@ -75,17 +76,25 @@
     unsigned long long _feedOrder;
     double _globalUserFeedback;
     NSDate *_displayDate;
+    COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_globalCohort;
+    COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_publisherCohort;
     NSString *_identifier;
     NSURL *_headlineURL;
+    NSString *_sponsoredBy;
+    id <FCNativeAdProviding> _associatedAd;
     NSString *_excerpt;
-    struct CGSize _largestThumbnailSize;
     struct CGRect _thumbnailFocalFrame;
 }
 
 @property(copy, nonatomic) NSString *excerpt; // @synthesize excerpt=_excerpt;
 @property(nonatomic) struct CGRect thumbnailFocalFrame; // @synthesize thumbnailFocalFrame=_thumbnailFocalFrame;
+@property(retain, nonatomic) id <FCNativeAdProviding> associatedAd; // @synthesize associatedAd=_associatedAd;
+@property(copy, nonatomic) NSString *sponsoredBy; // @synthesize sponsoredBy=_sponsoredBy;
+@property(nonatomic, getter=isDisplayingAsNativeAd) _Bool displayAsNativeAd; // @synthesize displayAsNativeAd=_displayAsNativeAd;
 @property(copy, nonatomic) NSURL *headlineURL; // @synthesize headlineURL=_headlineURL;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *publisherCohort; // @synthesize publisherCohort=_publisherCohort;
+@property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort; // @synthesize globalCohort=_globalCohort;
 @property(copy, nonatomic) NSDate *displayDate; // @synthesize displayDate=_displayDate;
 @property(readonly, nonatomic) _Bool canBePurchased; // @synthesize canBePurchased=_canBePurchased;
 @property(nonatomic) double globalUserFeedback; // @synthesize globalUserFeedback=_globalUserFeedback;
@@ -99,7 +108,8 @@
 @property(nonatomic) unsigned long long storyType; // @synthesize storyType=_storyType;
 @property(readonly, copy, nonatomic) NSArray *moreFromPublisherArticleIDs; // @synthesize moreFromPublisherArticleIDs=_moreFromPublisherArticleIDs;
 @property(readonly, copy, nonatomic) NSArray *relatedArticleIDs; // @synthesize relatedArticleIDs=_relatedArticleIDs;
-@property(nonatomic, getter=isTopStory) _Bool topStory; // @synthesize topStory=_topStory;
+@property(nonatomic) unsigned long long topStoryType; // @synthesize topStoryType=_topStoryType;
+@property(readonly, nonatomic) _Bool isTopStory; // @synthesize isTopStory=_isTopStory;
 @property(nonatomic) _Bool usesImageOnTopLayout; // @synthesize usesImageOnTopLayout=_usesImageOnTopLayout;
 @property(nonatomic) double tileProminenceScore; // @synthesize tileProminenceScore=_personalizedScore;
 @property(readonly, copy, nonatomic) NSString *localDraftPath; // @synthesize localDraftPath=_localDraftPath;
@@ -115,7 +125,7 @@
 @property(readonly, copy, nonatomic) NSArray *iAdSectionIDs; // @synthesize iAdSectionIDs=_iAdSectionIDs;
 @property(readonly, copy, nonatomic) NSArray *iAdKeywords; // @synthesize iAdKeywords=_iAdKeywords;
 @property(readonly, copy, nonatomic) NSArray *iAdCategories; // @synthesize iAdCategories=_iAdCategories;
-@property(readonly, nonatomic, getter=isSponsored) _Bool sponsored; // @synthesize sponsored=_sponsored;
+@property(nonatomic, getter=isSponsored) _Bool sponsored; // @synthesize sponsored=_sponsored;
 @property(readonly, nonatomic, getter=isFeatureCandidate) _Bool featureCandidate; // @synthesize featureCandidate=_featureCandidate;
 @property(readonly, nonatomic) double videoDuration; // @synthesize videoDuration=_videoDuration;
 @property(readonly, nonatomic) NSURL *videoURL; // @synthesize videoURL=_videoURL;
@@ -125,13 +135,12 @@
 @property(readonly, copy, nonatomic) NSURL *contentURL; // @synthesize contentURL=_contentURL;
 @property(copy, nonatomic) NSString *sourceName; // @synthesize sourceName=_sourceName;
 @property(copy, nonatomic) NSObject<FCChannelProviding> *sourceChannel; // @synthesize sourceChannel=_sourceChannel;
-@property(readonly, nonatomic) unsigned long long backendArticleVersion; // @synthesize backendArticleVersion=_backendArticleVersion;
-@property(readonly, nonatomic) unsigned long long publisherArticleVersion; // @synthesize publisherArticleVersion=_publisherArticleVersion;
+@property(readonly, nonatomic) long long backendArticleVersion; // @synthesize backendArticleVersion=_backendArticleVersion;
+@property(readonly, nonatomic) long long publisherArticleVersion; // @synthesize publisherArticleVersion=_publisherArticleVersion;
 @property(copy, nonatomic) NSDate *publishDate; // @synthesize publishDate=_publishDate;
 @property(readonly, copy, nonatomic) NSArray *endOfArticleTopicIDs; // @synthesize endOfArticleTopicIDs=_endOfArticleTopicIDs;
-@property(readonly, copy, nonatomic) NSArray *topicFlags; // @synthesize topicFlags=_topicFlags;
-@property(readonly, copy, nonatomic) NSArray *topicScores; // @synthesize topicScores=_topicScores;
 @property(copy, nonatomic) NSArray *topicIDs; // @synthesize topicIDs=_topicIDs;
+@property(readonly, copy, nonatomic) NSArray *topics; // @synthesize topics=_topics;
 @property(copy, nonatomic) NSString *shortExcerpt; // @synthesize shortExcerpt=_shortExcerpt;
 @property(readonly, copy, nonatomic) NSString *primaryAudience; // @synthesize primaryAudience=_primaryAudience;
 @property(readonly, copy, nonatomic) NSString *clusterID;
@@ -141,18 +150,14 @@
 @property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailWidgetHQ; // @synthesize thumbnailWidgetHQ=_thumbnailWidgetHQ;
 @property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailWidget; // @synthesize thumbnailWidget=_thumbnailWidget;
 @property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailWidgetLQ; // @synthesize thumbnailWidgetLQ=_thumbnailWidgetLQ;
-@property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailUltraHQ; // @synthesize thumbnailUltraHQ=_thumbnailUltraHQ;
-@property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailHQ; // @synthesize thumbnailHQ=_thumbnailHQ;
-@property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailMedium; // @synthesize thumbnailMedium=_thumbnailMedium;
-@property(readonly, nonatomic) FCHeadlineThumbnail *thumbnail; // @synthesize thumbnail=_thumbnail;
-@property(readonly, nonatomic) FCHeadlineThumbnail *thumbnailLQ; // @synthesize thumbnailLQ=_thumbnailLQ;
-@property(readonly, nonatomic) struct CGSize largestThumbnailSize; // @synthesize largestThumbnailSize=_largestThumbnailSize;
-@property(readonly, nonatomic) _Bool hasThumbnail; // @synthesize hasThumbnail=_hasThumbnail;
+@property(retain, nonatomic) FCHeadlineThumbnail *thumbnailUltraHQ; // @synthesize thumbnailUltraHQ=_thumbnailUltraHQ;
+@property(retain, nonatomic) FCHeadlineThumbnail *thumbnailHQ; // @synthesize thumbnailHQ=_thumbnailHQ;
+@property(retain, nonatomic) FCHeadlineThumbnail *thumbnailMedium; // @synthesize thumbnailMedium=_thumbnailMedium;
+@property(retain, nonatomic) FCHeadlineThumbnail *thumbnail; // @synthesize thumbnail=_thumbnail;
+@property(retain, nonatomic) FCHeadlineThumbnail *thumbnailLQ; // @synthesize thumbnailLQ=_thumbnailLQ;
+@property(nonatomic) _Bool hasThumbnail; // @synthesize hasThumbnail=_hasThumbnail;
 - (void).cxx_destruct;
-- (void)applyHeadlineMetadata:(id)arg1 appConfig:(id)arg2;
-- (void)assignStoryType:(unsigned long long)arg1 withAppConfig:(id)arg2;
-- (void)overrideDisplayDate:(id)arg1;
-@property(readonly, nonatomic) unsigned long long articleRecordModificationDateMilliseconds;
+- (void)enumerateTopicCohortsWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic, getter=isExplicitContent) _Bool explicitContent;
 @property(readonly, nonatomic, getter=isFromBlockedStorefront) _Bool fromBlockedStorefront;
 @property(readonly, nonatomic) unsigned long long feedHalfLifeMilliseconds;
@@ -165,7 +170,11 @@
 @property(readonly, copy, nonatomic) NSString *publisherID;
 @property(readonly, nonatomic) unsigned long long halfLife;
 @property(readonly, copy, nonatomic) NSString *sourceFeedID;
+- (void)applyHeadlineMetadata:(id)arg1 appConfig:(id)arg2;
+- (void)assignStoryType:(unsigned long long)arg1 withAppConfig:(id)arg2;
+- (void)overrideDisplayDate:(id)arg1;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool hasVideo;
 @property(readonly, nonatomic) _Bool isBlockedExplicitContent;
 - (_Bool)isGap;
 @property(readonly, nonatomic) long long feedElementType;

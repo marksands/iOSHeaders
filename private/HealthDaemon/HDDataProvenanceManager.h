@@ -42,10 +42,12 @@
 - (id)_localTimeZoneName;
 - (void)_loadDefaults;
 - (id)originProvenanceForPersistentID:(long long)arg1 database:(id)arg2 error:(id *)arg3;
-- (id)dataProvenanceDefaultsWithSyncProvenance:(long long)arg1 productType:(id)arg2 systemBuild:(id)arg3 sourceVersion:(id)arg4 timeZoneName:(id)arg5 sourceID:(id)arg6 deviceID:(id)arg7;
-- (id)defaultLocalDataProvenance;
+- (id)_localDataProvenanceWithSourceID:(id)arg1 sourceVersion:(id)arg2 deviceID:(id)arg3;
 - (id)localDataProvenanceForSourceEntity:(id)arg1 version:(id)arg2 deviceEntity:(id)arg3;
-- (id)_lookupOrInsertProvenance:(id)arg1 error:(id *)arg2;
+- (id)defaultLocalDataProvenanceWithDeviceEntity:(id)arg1;
+- (id)defaultLocalDataProvenance;
+- (id)_lookupOrInsertProvenance:(id)arg1 database:(id)arg2 error:(id *)arg3;
+- (id)provenanceEntityForProvenance:(id)arg1 database:(id)arg2 error:(id *)arg3;
 - (id)provenanceEntityForProvenance:(id)arg1 error:(id *)arg2;
 - (id)initWithProfile:(id)arg1;
 

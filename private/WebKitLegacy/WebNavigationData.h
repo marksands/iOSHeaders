@@ -8,7 +8,6 @@
 
 @class WebNavigationDataPrivate;
 
-__attribute__((visibility("hidden")))
 @interface WebNavigationData : NSObject
 {
     WebNavigationDataPrivate *_private;

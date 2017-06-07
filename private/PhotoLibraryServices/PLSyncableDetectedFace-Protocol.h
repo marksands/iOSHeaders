@@ -4,19 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PhotoLibraryServices/CVMLPhotosFaceRepresentation-Protocol.h>
 #import <PhotoLibraryServices/NSObject-Protocol.h>
+#import <PhotoLibraryServices/PFPhotosFaceRepresentation-Protocol.h>
+#import <PhotoLibraryServices/PLSyncableObject-Protocol.h>
 
 @class NSDate, NSSet;
 @protocol PLSyncablePerson;
 
-@protocol PLSyncableDetectedFace <NSObject, CVMLPhotosFaceRepresentation>
-@property(nonatomic) short cloudLocalState;
-@property(nonatomic) _Bool nameSourceUser;
+@protocol PLSyncableDetectedFace <NSObject, PFPhotosFaceRepresentation, PLSyncableObject>
+@property(nonatomic) int cloudNameSource;
+@property(nonatomic) int nameSource;
 @property(nonatomic) _Bool hidden;
 @property(nonatomic) _Bool manual;
-@property(nonatomic) int sourceHeight;
-@property(nonatomic) int sourceWidth;
+@property(nonatomic) long long sourceHeight;
+@property(nonatomic) long long sourceWidth;
 @property(retain, nonatomic) id <PLSyncablePerson> personBeingKeyFace;
 @property(retain, nonatomic) NSSet *rejectedPersons;
 @property(retain, nonatomic) id <PLSyncablePerson> person;

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
 
-@class NSInputStream, NSMutableDictionary, NSOutputStream, NSString;
+@class NSDictionary, NSInputStream, NSMutableDictionary, NSNumber, NSOutputStream, NSString;
 @protocol OS_dispatch_queue;
 
 @interface _IDSDeviceConnection : NSObject <IDSDaemonListenerProtocol>
@@ -27,10 +27,11 @@
     NSInputStream *_inputStreamForSocket;
     NSOutputStream *_outputStreamForSocket;
     _Bool _hasTimedOut;
+    NSNumber *_clientTimeout;
     NSMutableDictionary *_awdMetrics;
 }
 
-@property(readonly, nonatomic) unsigned long long mtu; // @synthesize mtu=_mtu;
+- (void).cxx_destruct;
 - (id)deviceConnectionKey;
 - (void)_daemonDied:(id)arg1;
 - (void)_cleanupCompletionBlock;
@@ -39,8 +40,10 @@
 - (void)close;
 - (_Bool)updateConnectionWithOptions:(id)arg1 error:(id *)arg2;
 - (void)setStreamPairWithInputStream:(id)arg1 outputStream:(id)arg2;
-@property(readonly, retain, nonatomic) NSOutputStream *outputStream;
-@property(readonly, retain, nonatomic) NSInputStream *inputStream;
+@property(readonly, nonatomic) NSDictionary *metrics;
+@property(readonly, nonatomic) unsigned long long mtu;
+@property(readonly, nonatomic) NSOutputStream *outputStream;
+@property(readonly, nonatomic) NSInputStream *inputStream;
 @property(readonly, nonatomic) int socket;
 - (void)_connect;
 - (void)dealloc;

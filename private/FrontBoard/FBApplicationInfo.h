@@ -22,7 +22,6 @@
     NSString *_signerIdentity;
     NSDictionary *_environmentVariables;
     NSDictionary *_lazy_entitlements;
-    long long _once_entitlements;
     _Bool _provisioningProfileValidated;
     _Bool _isManaged;
     NSString *_sdkVersion;
@@ -51,11 +50,12 @@
     NSNumber *_downloaderDSID;
     NSArray *_lazy_folderNames;
     NSString *_lazy_fallbackFolderName;
-    long long _once_folderNames;
     _Bool _installing;
     _Bool _uninstalling;
+    struct os_unfair_lock_s _lock;
     _Bool _initialized;
     FBProfileManager *_profileManager;
+    _Bool _pendingUninstall;
 }
 
 + (id)_genreNameForID:(long long)arg1;
@@ -65,6 +65,7 @@
 + (unsigned long long)_applicationTypeForProxy:(id)arg1;
 @property(nonatomic, getter=_profileManager, setter=_setProfileManager:) FBProfileManager *profileManager; // @synthesize profileManager=_profileManager;
 @property(readonly, nonatomic) unsigned long long supportedInterfaceOrientations; // @synthesize supportedInterfaceOrientations=_supportedInterfaceOrientations;
+@property(nonatomic, getter=_isPendingUninstall, setter=_setPendingUninstall:) _Bool pendingUninstall; // @synthesize pendingUninstall=_pendingUninstall;
 @property(nonatomic, getter=_isUninstalling, setter=_setUninstalling:) _Bool uninstalling; // @synthesize uninstalling=_uninstalling;
 @property(nonatomic, getter=_isInstalling, setter=_setInstalling:) _Bool installing; // @synthesize installing=_installing;
 @property(readonly, copy, nonatomic, getter=_appIDEntitlement) NSString *appIDEntitlement; // @synthesize appIDEntitlement=_appIDEntitlement;
@@ -103,8 +104,9 @@
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
-- (void)_once_loadFolderNamesIfNecessary;
+- (void)_lock_loadFolderNamesIfNecessary;
 - (void)_loadFromProxy:(id)arg1;
+- (void)_synchronize:(CDUnknownBlockType)arg1;
 - (void)_overrideTags:(id)arg1;
 - (long long)_mapSignatureStateFromTrustState:(unsigned long long)arg1;
 - (id)_applicationTrustData;

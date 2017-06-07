@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 + (id)emptyIdentifier;
 @property(readonly, nonatomic) int chunkID; // @synthesize chunkID=_chunkID;
 @property(readonly, nonatomic) NSUUID *buildUUID; // @synthesize buildUUID=_buildUUID;
+- (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

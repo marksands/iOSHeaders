@@ -10,6 +10,8 @@
 {
 }
 
++ (_Bool)_restoreAppWithBundleIdentifier:(id)arg1;
++ (void)setTVAppVisible:(_Bool)arg1 force:(_Bool)arg2;
 + (void)setTVAppAllowed:(_Bool)arg1;
 
 @end

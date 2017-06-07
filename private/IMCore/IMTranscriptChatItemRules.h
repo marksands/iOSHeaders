@@ -18,6 +18,7 @@
     IMChatItem *_nextStaleChatItem;
 }
 
++ (_Bool)testShouldShowSMSSpamForChat:(id)arg1 chatItems:(id)arg2;
 + (_Bool)testShouldShowReportSpamForChat:(id)arg1 chatItems:(id)arg2;
 - (void).cxx_destruct;
 - (id)_initWithChat:(id)arg1;
@@ -25,6 +26,8 @@
 - (_Bool)_shouldReloadChatItem:(id)arg1 oldChatItem:(id)arg2;
 - (_Bool)_shouldReloadChatItemWithAssociatedChatItems:(id)arg1 oldAssociatedChatItems:(id)arg2;
 - (void)_processChatItemsForAttribution:(id)arg1;
+- (void)_processChatItemsForReplayButton:(id)arg1;
+- (id)_effectControlForChatItem:(id)arg1;
 - (id)_attributionChatItemForChatItem:(id)arg1;
 - (_Bool)_shouldDisplayAttributionInfo:(id)arg1;
 - (void)_processChatItemsForBreadcrumbs:(id)arg1;

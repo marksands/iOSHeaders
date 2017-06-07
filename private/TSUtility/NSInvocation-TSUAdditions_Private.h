@@ -7,6 +7,6 @@
 #import <Foundation/NSInvocation.h>
 
 @interface NSInvocation (TSUAdditions_Private)
-+ (void)executeBlock:(CDUnknownBlockType)arg1;
++ (void)tsu_executeBlock:(CDUnknownBlockType)arg1;
 @end
 

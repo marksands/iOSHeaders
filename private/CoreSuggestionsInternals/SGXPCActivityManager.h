@@ -21,8 +21,6 @@
 }
 
 + (id)nameForActivityId:(int)arg1;
-+ (void)stopUsingMockSharedInstance;
-+ (void)useMockSharedInstance:(id)arg1;
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (id)copyCriteria:(id)arg1;

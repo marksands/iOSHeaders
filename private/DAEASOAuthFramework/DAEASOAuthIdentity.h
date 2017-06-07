@@ -14,8 +14,10 @@
     NSString *_displayName;
     NSString *_token;
     NSString *_refreshToken;
+    NSString *_tokenRequestURI;
 }
 
+@property(copy, nonatomic) NSString *tokenRequestURI; // @synthesize tokenRequestURI=_tokenRequestURI;
 @property(copy, nonatomic) NSString *refreshToken; // @synthesize refreshToken=_refreshToken;
 @property(copy, nonatomic) NSString *token; // @synthesize token=_token;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;

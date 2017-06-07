@@ -43,9 +43,6 @@
 - (id)markAsCompletedActionWithAlertInfo:(id)arg1;
 - (id)customActionWithAlertInfo:(id)arg1 forBulletin:(id)arg2;
 - (id)supplementaryActionsForAlertInfo:(id)arg1 bulletin:(id)arg2 compactLayout:(_Bool)arg3;
-- (id)modalMessageForAlertInfo:(id)arg1;
-- (id)modalSubtitleForAlertInfo:(id)arg1;
-- (id)modalTitleForAlertInfo:(id)arg1;
 - (id)titleStringForAlertInfo:(id)arg1;
 - (id)defaultURLForAlertInfo:(id)arg1;
 - (id)viewActionForAlertInfo:(id)arg1;

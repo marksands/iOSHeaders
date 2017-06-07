@@ -26,11 +26,11 @@
 @property(readonly, nonatomic) unsigned short priority; // @synthesize priority=_priority;
 @property(readonly, nonatomic) unsigned char versionNumber; // @synthesize versionNumber=_versionNumber;
 @property(readonly, nonatomic) _Bool encrypted; // @synthesize encrypted=_encrypted;
+- (void).cxx_destruct;
 - (id)_nonHeaderData;
-@property(readonly, retain, nonatomic) NSData *data;
+@property(readonly, nonatomic) NSData *data;
 - (unsigned char)command;
 - (id)description;
-- (void)dealloc;
 - (id)initWithVersion:(unsigned char)arg1 encrypted:(_Bool)arg2 streamID:(unsigned short)arg3 priority:(unsigned short)arg4 sequenceNumber:(unsigned int)arg5 fileXfer:(_Bool)arg6 data:(id)arg7;
 - (id)initWithCommand:(unsigned char)arg1 underlyingData:(id)arg2;
 

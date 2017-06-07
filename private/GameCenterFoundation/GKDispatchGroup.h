@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GKThreadsafeDictionary, NSError, NSString;
 @protocol OS_dispatch_group;
@@ -30,7 +30,6 @@
 @property(nonatomic, getter=isLoggingEnabled) _Bool loggingEnabled; // @synthesize loggingEnabled=_loggingEnabled;
 @property(retain) id result; // @synthesize result=_result;
 @property(retain) NSError *error; // @synthesize error=_error;
-@property NSObject<OS_dispatch_group> *group; // @synthesize group=_group;
 - (id)allValues;
 - (id)objectForKeyedSubscript:(id)arg1;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;

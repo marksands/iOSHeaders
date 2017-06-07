@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (id)_mappedStyleForStyle:(id)arg1 depth:(unsigned long long)arg2;
 - (_Bool)shouldMapParentOfStyle:(id)arg1;
 - (id)targetParentForStyle:(id)arg1;
+- (id)targetParentByPropertyMapMatchForUnidentifiedStyle:(id)arg1;
 - (id)targetParentByNameMatchForStyle:(id)arg1;
 - (id)targetParentByContentTagMatchForStyle:(id)arg1;
 - (id)targetParentByIdentifierPackageDescriptorFallbackMatchForStyle:(id)arg1;

@@ -22,7 +22,6 @@
 @optional
 - (_Bool)likedForNowPlayingViewController:(MCDNowPlayingViewController *)arg1;
 - (long long)repeatTypeForNowPlayingViewController:(MCDNowPlayingViewController *)arg1;
-- (NSString *)shuffleStringForNowPlayingViewController:(MCDNowPlayingViewController *)arg1;
 - (long long)shuffleTypeForNowPlayingViewController:(MCDNowPlayingViewController *)arg1;
 @end
 

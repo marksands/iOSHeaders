@@ -8,10 +8,14 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class GEORouteTrafficDetail, PBUnknownFields;
+
 @interface GEOPDETA : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned int _distance;
     unsigned int _historicTravelTime;
+    GEORouteTrafficDetail *_routeTrafficDetail;
     unsigned int _time;
     int _transportType;
     struct {
@@ -24,9 +28,12 @@
 
 + (int)recommendedTransportTypeForPlaceData:(id)arg1;
 + (id)etaForPlaceData:(id)arg1 transportType:(int)arg2;
+@property(retain, nonatomic) GEORouteTrafficDetail *routeTrafficDetail; // @synthesize routeTrafficDetail=_routeTrafficDetail;
 @property(nonatomic) unsigned int historicTravelTime; // @synthesize historicTravelTime=_historicTravelTime;
 @property(nonatomic) unsigned int distance; // @synthesize distance=_distance;
 @property(nonatomic) unsigned int time; // @synthesize time=_time;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -36,6 +43,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasRouteTrafficDetail;
 @property(nonatomic) _Bool hasHistoricTravelTime;
 - (int)StringAsTransportType:(id)arg1;
 - (id)transportTypeAsString:(int)arg1;

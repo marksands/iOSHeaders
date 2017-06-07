@@ -8,29 +8,22 @@
 
 #import <CoreParsec/NSSecureCoding-Protocol.h>
 
-@class NSURL, NSXPCListenerEndpoint, PARSessionConfiguration;
+@class NSURL;
 
 @interface PARAsyncCard : SFCard <NSSecureCoding>
 {
-    NSXPCListenerEndpoint *_endpoint;
-    PARSessionConfiguration *_configuration;
     double _scale;
-    NSURL *_cardURL;
-    long long _queryId;
+    unsigned long long _queryId;
     unsigned long long _clientQueryId;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)cardWithTitle:(id)arg1 url:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(long long)arg5 clientQueryId:(unsigned long long)arg6;
-+ (id)cardWithTitle:(id)arg1 url:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(long long)arg5;
++ (id)cardWithTitle:(id)arg1 url:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(unsigned long long)arg5 clientQueryId:(unsigned long long)arg6;
++ (id)cardWithTitle:(id)arg1 url:(id)arg2 session:(id)arg3 scale:(double)arg4 queryId:(unsigned long long)arg5;
 @property(readonly, nonatomic) unsigned long long clientQueryId; // @synthesize clientQueryId=_clientQueryId;
-@property(readonly, nonatomic) long long queryId; // @synthesize queryId=_queryId;
-@property(copy, nonatomic) NSURL *cardURL; // @synthesize cardURL=_cardURL;
+@property(readonly, nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(retain, nonatomic) PARSessionConfiguration *configuration; // @synthesize configuration=_configuration;
-@property(retain, nonatomic) NSXPCListenerEndpoint *endpoint; // @synthesize endpoint=_endpoint;
-- (void).cxx_destruct;
-- (void)loadCardSectionsWithCompletionAndErrorHandler:(CDUnknownBlockType)arg1;
+@property(readonly, copy, nonatomic) NSURL *cardURL;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

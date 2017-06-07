@@ -17,9 +17,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) shared_ptr_887a193f dataOverrideManager; // @synthesize dataOverrideManager=_dataOverrideManager;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (unsigned long long)mapLayerForZoomLevelRange;
+- (unsigned char)mapLayerForZoomLevelRange;
 - (id)tileForData:(id)arg1 downloadKey:(const struct _GEOTileKey *)arg2 sourceKey:(const struct VKTileKey *)arg3;
-- (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4 labelExternalObjectsModerator:(struct LabelExternalObjectsModerator *)arg5 transitLineSharedResources:(const shared_ptr_f4e206f4 *)arg6;
+- (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4 taskContext:(shared_ptr_e963992e)arg5 labelExternalObjectsModerator:(struct LabelExternalObjectsModerator *)arg6 transitLineSharedResources:(const shared_ptr_f4e206f4 *)arg7;
 
 @end
 

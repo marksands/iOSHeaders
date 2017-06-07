@@ -21,6 +21,8 @@
 - (id)_basicAnimationForView:(id)arg1 withKeyPath:(id)arg2;
 - (void)_updateDuration;
 - (double)interpolatedProgressForProgress:(double)arg1;
+- (void)setRepeatCount:(float)arg1;
+- (float)repeatCount;
 - (void)setSpeed:(double)arg1;
 - (double)speed;
 - (void)setDelay:(double)arg1;

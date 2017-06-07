@@ -41,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSTStrokeLayer *customUnorderedStrokeLayer; // @synthesize customUnorderedStrokeLayer=_customUnorderedStrokeLayer;
 @property(retain, nonatomic) TSTStrokeLayer *defaultMajorStrokeLayer; // @synthesize defaultMajorStrokeLayer=_defaultMajorStrokeLayer;
 @property(retain, nonatomic) TSTStrokeLayer *defaultMinorStrokeLayer; // @synthesize defaultMinorStrokeLayer=_defaultMinorStrokeLayer;
+- (void).cxx_destruct;
 - (void)lockForWrite;
 - (void)lockForRead;
 - (void)unlock;
@@ -48,8 +49,8 @@ __attribute__((visibility("hidden")))
 - (double)p_maxWidthOfStrokesInRange:(struct TSTSimpleRange)arg1 cachedMax:(double)arg2;
 - (void)invalidateSpillStrokes;
 - (id)portalledStrokeLayer;
-- (id)strokeLayerEnumeration;
-- (void)dealloc;
+- (unsigned long long)count;
+- (id)p_strokeLayerEnumeration;
 - (id)initWithReferenceOfMajorStrokes:(id)arg1 andMinorStrokes:(id)arg2;
 - (id)initWithCopyOfMajorStrokes:(id)arg1 andMinorStrokes:(id)arg2;
 

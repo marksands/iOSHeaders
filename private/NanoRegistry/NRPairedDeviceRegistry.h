@@ -84,7 +84,14 @@
 @property(retain, nonatomic) NSMutableDictionary *mutableDeviceDictionary; // @synthesize mutableDeviceDictionary=_mutableDeviceDictionary;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
+- (void)setMigrationConsented:(_Bool)arg1 forDevice:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
+- (void)stopWatchSetupPush;
+- (_Bool)isWatchSetupPushActive;
+- (void)startWatchSetupPush;
+- (void)applyDiff:(id)arg1;
 - (void)_pingActiveGizmoWithPriority:(long long)arg1 withMessageSize:(unsigned long long)arg2 withBlock:(CDUnknownBlockType)arg3;
+- (void)putMigrationChallengeCharacteristicWriteData:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)getMigrationPairingCharacteristicReadDataWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)serverRequestReporterWithType:(id)arg1;
 - (void)_submitServerRequestReportWithRequestType:(id)arg1 duration:(double)arg2 errorCode:(unsigned int)arg3;
 - (id)_synchronousPrivateDaemonProxyWithErrorString:(id)arg1;
@@ -198,7 +205,7 @@
 - (id)_getChangeHistory;
 - (id)retrieveSecurePropertiesWithIDs:(id)arg1;
 - (void)postNotification:(id)arg1 forDeviceID:(id)arg2 withUserInfo:(id)arg3;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
+- (id)queue;
 - (void)initNotifyTokens;
 - (_Bool)isDaemonIdle;
 - (int)registerNotifyTokenWithName:(id)arg1 withQueue:(id)arg2 withBlock:(CDUnknownBlockType)arg3;

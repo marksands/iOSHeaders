@@ -23,6 +23,7 @@
 - (void)_interactionStoppedFromPreviewItemController:(id)arg1;
 - (void)_interactionStartedFromPreviewItemController:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2 isSingleLine:(_Bool *)arg3;
+- (id)_textWithHyphenationAppliedForAttributedText:(id)arg1;
 - (id)initReadonlyAndUnselectableWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 - (void)didMoveToWindow;
 @property(readonly, copy) NSString *description;

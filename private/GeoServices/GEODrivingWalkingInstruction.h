@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSMutableArray *continueCommands; // @synthesize continueCommands=_continueCommands;
 @property(retain, nonatomic) NSMutableArray *normalCommands; // @synthesize normalCommands=_normalCommands;
 @property(retain, nonatomic) GEOFormattedString *distance; // @synthesize distance=_distance;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -47,7 +48,6 @@
 - (void)addNormalCommand:(id)arg1;
 - (void)clearNormalCommands;
 @property(readonly, nonatomic) _Bool hasDistance;
-- (void)dealloc;
 
 @end
 

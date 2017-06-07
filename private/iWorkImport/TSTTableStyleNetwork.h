@@ -13,18 +13,18 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableStyleNetwork : TSPObject <NSFastEnumeration>
 {
-    int mPresetIndex;
-    TSTTableStyle *mTableStyle;
-    TSTCellStyle *mBodyCellStyle;
-    TSTCellStyle *mHeaderRowCellStyle;
-    TSTCellStyle *mHeaderColumnCellStyle;
-    TSTCellStyle *mFooterRowCellStyle;
-    TSWPParagraphStyle *mBodyTextStyle;
-    TSWPParagraphStyle *mHeaderRowTextStyle;
-    TSWPParagraphStyle *mHeaderColumnTextStyle;
-    TSWPParagraphStyle *mFooterRowTextStyle;
-    TSWPParagraphStyle *mTableNameStyle;
-    TSWPShapeStyle *mTableNameShapeStyle;
+    int _presetIndex;
+    TSTTableStyle *_tableStyle;
+    TSTCellStyle *_bodyCellStyle;
+    TSTCellStyle *_headerRowCellStyle;
+    TSTCellStyle *_headerColumnCellStyle;
+    TSTCellStyle *_footerRowCellStyle;
+    TSWPParagraphStyle *_bodyTextStyle;
+    TSWPParagraphStyle *_headerRowTextStyle;
+    TSWPParagraphStyle *_headerColumnTextStyle;
+    TSWPParagraphStyle *_footerRowTextStyle;
+    TSWPParagraphStyle *_tableNameStyle;
+    TSWPShapeStyle *_tableNameShapeStyle;
 }
 
 + (id)identifiersForPresetID:(unsigned long long)arg1;
@@ -39,17 +39,16 @@ __attribute__((visibility("hidden")))
 + (id)createStylesInStylesheet:(id)arg1 presetID:(unsigned long long)arg2 colors:(id)arg3 alternate:(int)arg4;
 + (id)networkWithContext:(id)arg1 presetID:(unsigned long long)arg2 colors:(id)arg3 alternate:(int)arg4;
 + (id)networkFromTableModel:(id)arg1;
+- (void).cxx_destruct;
 - (void)upgradeIfNecessary;
 - (void)saveToArchive:(struct TableStyleNetworkArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (void)loadFromArchive:(const struct TableStyleNetworkArchive *)arg1 withUnarchiver:(id)arg2;
-- (id)initWithArchive:(const struct TableStyleNetworkArchive *)arg1 unarchiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromArchive:(const struct TableStyleNetworkArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1 fromDictionary:(id)arg2 withPreset:(unsigned long long)arg3;
 - (_Bool)valid;
 - (id)dictionaryWithPreset:(unsigned long long)arg1;
 - (id)styleArray;
-- (void)setStylesFromTableModel:(id)arg1;
 - (void)setTextStyle:(id)arg1 forTableArea:(unsigned long long)arg2;
 - (void)setCellStyle:(id)arg1 forTableArea:(unsigned long long)arg2;
 - (id)textStyleForTableArea:(unsigned long long)arg1;
@@ -59,11 +58,11 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1 styleComparisonBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)copy;
 - (id)copyWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1 context:(id)arg2;
+- (id)initWithContext:(id)arg1 fromTableModel:(id)arg2;
 - (id)initWithContext:(id)arg1 fromArray:(id)arg2 presetID:(unsigned long long)arg3;
 - (id)initWithContext:(id)arg1;
 @property(nonatomic) unsigned long long presetID;

@@ -16,6 +16,8 @@
 - (void)isUserVisibleKeychainSyncEnabledWithCompletion:(void (^)(_Bool))arg1;
 - (void)hasLocalSecretWithCompletion:(void (^)(_Bool))arg1;
 - (void)isICDPEnabledForDSID:(NSString *)arg1 checkWithServer:(_Bool)arg2 completion:(void (^)(_Bool))arg3;
+- (void)generateRandomRecoveryKeyWithContext:(CDPContext *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
+- (void)deleteRecoveryKeyWithContext:(CDPContext *)arg1 uiProvider:(id <CDPStateUIProviderInternal>)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)generateNewRecoveryKeyWithContext:(CDPContext *)arg1 uiProvider:(id <CDPStateUIProviderInternal>)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)finishOfflineLocalSecretChangeWithContext:(CDPContext *)arg1 uiProvider:(id <CDPStateUIProviderInternal>)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)localSecretChangedTo:(NSString *)arg1 secretType:(unsigned long long)arg2 context:(CDPContext *)arg3 uiProvider:(id <CDPStateUIProviderInternal>)arg4 completion:(void (^)(_Bool, NSError *))arg5;
@@ -23,6 +25,8 @@
 - (void)recoverAndSynchronizeSquirrelWithContext:(CDPContext *)arg1 uiProvider:(id <CDPStateUIProviderInternal>)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)shouldPerformRepairForContext:(CDPContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)repairCloudDataProtectionStateWithContext:(CDPContext *)arg1 uiProvider:(id <CDPStateUIProviderInternal>)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)startCircleApplicationApprovalServerWithContext:(CDPContext *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)handleCloudDataProtectionStateWithContext:(CDPContext *)arg1 uiProvider:(id <CDPStateUIProviderInternal>)arg2 completion:(void (^)(_Bool, _Bool, NSError *))arg3;
+- (void)fetchManateeAvailabilityWithCompletion:(void (^)(_Bool, NSError *))arg1;
 @end
 

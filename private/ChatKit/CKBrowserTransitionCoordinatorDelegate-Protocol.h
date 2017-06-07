@@ -6,7 +6,7 @@
 
 #import <ChatKit/NSObject-Protocol.h>
 
-@class CKBrowserSwitcherFooterView, CKBrowserTransitionCoordinator, CKMessageEntryView, IMBalloonPlugin, UIViewController;
+@class CKBrowserSwitcherFooterView, CKBrowserTransitionCoordinator, IMBalloonPlugin, UIViewController;
 @protocol CKBrowserViewControllerProtocol;
 
 @protocol CKBrowserTransitionCoordinatorDelegate <NSObject>
@@ -14,7 +14,7 @@
 @optional
 - (void)reinsertSwitcherFooterViewForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
 - (CKBrowserSwitcherFooterView *)switcherFooterViewForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
-- (CKMessageEntryView *)transcriptEntryViewForBrowserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1;
+- (void)browserTransitionCoordinatorWantsPresentationOfAppManager:(CKBrowserTransitionCoordinator *)arg1;
 - (void)browserTransitionCoordinatorWantsPresentationOfAppStore:(CKBrowserTransitionCoordinator *)arg1;
 - (struct CGRect)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 preferredBoundsForBrowser:(UIViewController<CKBrowserViewControllerProtocol> *)arg2;
 - (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 wantsToSwitchToPlugin:(IMBalloonPlugin *)arg2;
@@ -25,6 +25,5 @@
 - (void)browserTransitionCoordinatorDidTransitionOrPresentToFullscreen:(CKBrowserTransitionCoordinator *)arg1 withReason:(long long)arg2;
 - (void)browserTransitionCoordinatorWillTransitionOrPresentToFullscreen:(CKBrowserTransitionCoordinator *)arg1 withReason:(long long)arg2;
 - (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 expandedStateDidChange:(_Bool)arg2 withReason:(long long)arg3;
-- (void)browserTransitionCoordinator:(CKBrowserTransitionCoordinator *)arg1 currentConsumerDidChange:(long long)arg2;
 @end
 

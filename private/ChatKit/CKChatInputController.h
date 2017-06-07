@@ -17,15 +17,17 @@
 #import <ChatKit/CKMessageEntryViewInputDelegate-Protocol.h>
 #import <ChatKit/CKPhotoBrowserViewControllerSendDelegate-Protocol.h>
 #import <ChatKit/CKPluginEntryViewControllerDelegate-Protocol.h>
+#import <ChatKit/DDMoneyActionDelegate-Protocol.h>
+#import <ChatKit/UITextInputPayloadDelegate-Protocol.h>
 
-@class CKBrowserSwitcherViewController, CKBrowserTransitionCoordinator, CKDeviceOrientationManager, CKHandwritingPresentationController, CKKeyboardContentViewController, CKMessageEntryView, CKScheduledUpdater, IMBalloonPlugin, IMBalloonPluginDataSource, IMScheduledUpdater, NSString, UINavigationController, UIViewController, UIWindow;
+@class CKBrowserSwitcherViewController, CKDeviceOrientationManager, CKHandwritingPresentationController, CKKeyboardContentViewController, CKMessageEntryView, CKScheduledUpdater, IMBalloonPlugin, IMBalloonPluginDataSource, IMScheduledUpdater, NSDate, NSString, UINavigationController, UIViewController;
 @protocol CKBrowserViewControllerProtocol, CKChatInputControllerDelegate;
 
-@interface CKChatInputController : NSObject <CKMessageEntryViewInputDelegate, CKBrowserViewControllerSendDelegate, CKPhotoBrowserViewControllerSendDelegate, CKHandwritingViewControllerSendDelegate, CKBrowserViewControllerStoreSendDelegate, CKPluginEntryViewControllerDelegate, CKFullScreenAppViewControllerDelegate, CKDeviceOrientationManagerDelegate, CKBrowserSwitcherViewControllerDelegate, CKBrowserTransitionCoordinatorDelegate, CKHandwritingPresentationControllerDelegate>
+@interface CKChatInputController : NSObject <UITextInputPayloadDelegate, DDMoneyActionDelegate, CKMessageEntryViewInputDelegate, CKBrowserViewControllerSendDelegate, CKPhotoBrowserViewControllerSendDelegate, CKHandwritingViewControllerSendDelegate, CKBrowserViewControllerStoreSendDelegate, CKPluginEntryViewControllerDelegate, CKFullScreenAppViewControllerDelegate, CKDeviceOrientationManagerDelegate, CKBrowserSwitcherViewControllerDelegate, CKBrowserTransitionCoordinatorDelegate, CKHandwritingPresentationControllerDelegate>
 {
     _Bool _shouldSuppressStatusBarForHandwriting;
+    _Bool __isRunningPPT;
     _Bool _inputViewVisible;
-    _Bool _invalidateDigitalTouchTransitionCoordinatorOnDTDismissal;
     _Bool _keyboardIsHiding;
     _Bool _inCollapseOrExpandAnimation;
     _Bool _shouldRestoreAppSwitcher;
@@ -35,9 +37,9 @@
     UIViewController *_statusBarStyleViewController;
     CKMessageEntryView *_entryView;
     CKKeyboardContentViewController *_currentInputViewController;
-    CKBrowserTransitionCoordinator *_digitalTouchTransitionCoordinator;
     CKKeyboardContentViewController *_switcherInputViewController;
     CKBrowserSwitcherViewController *_browserSwitcher;
+    NSDate *_switcherLastTouchDate;
     CKDeviceOrientationManager *_orientationManager;
     long long _lastSeenOrientation;
     UINavigationController *_presentedBrowserNavigationController;
@@ -45,10 +47,10 @@
     IMScheduledUpdater *_dismissEntryViewShelfUpdater;
     CKScheduledUpdater *_orientationUpdater;
     CKHandwritingPresentationController *_handwritingPresentationController;
-    UIWindow *_dimmingWindow;
+    CDUnknownBlockType _insertPayloadCompletionHandler;
 }
 
-@property(retain, nonatomic) UIWindow *dimmingWindow; // @synthesize dimmingWindow=_dimmingWindow;
+@property(copy, nonatomic) CDUnknownBlockType insertPayloadCompletionHandler; // @synthesize insertPayloadCompletionHandler=_insertPayloadCompletionHandler;
 @property(nonatomic) _Bool shouldRestoreAppSwitcher; // @synthesize shouldRestoreAppSwitcher=_shouldRestoreAppSwitcher;
 @property(retain, nonatomic) CKHandwritingPresentationController *handwritingPresentationController; // @synthesize handwritingPresentationController=_handwritingPresentationController;
 @property(retain, nonatomic) CKScheduledUpdater *orientationUpdater; // @synthesize orientationUpdater=_orientationUpdater;
@@ -59,13 +61,13 @@
 @property(retain, nonatomic) UINavigationController *presentedBrowserNavigationController; // @synthesize presentedBrowserNavigationController=_presentedBrowserNavigationController;
 @property(nonatomic) long long lastSeenOrientation; // @synthesize lastSeenOrientation=_lastSeenOrientation;
 @property(retain, nonatomic) CKDeviceOrientationManager *orientationManager; // @synthesize orientationManager=_orientationManager;
+@property(retain, nonatomic) NSDate *switcherLastTouchDate; // @synthesize switcherLastTouchDate=_switcherLastTouchDate;
 @property(retain, nonatomic) CKBrowserSwitcherViewController *browserSwitcher; // @synthesize browserSwitcher=_browserSwitcher;
 @property(retain, nonatomic) CKKeyboardContentViewController *switcherInputViewController; // @synthesize switcherInputViewController=_switcherInputViewController;
-@property(nonatomic) _Bool invalidateDigitalTouchTransitionCoordinatorOnDTDismissal; // @synthesize invalidateDigitalTouchTransitionCoordinatorOnDTDismissal=_invalidateDigitalTouchTransitionCoordinatorOnDTDismissal;
-@property(retain, nonatomic) CKBrowserTransitionCoordinator *digitalTouchTransitionCoordinator; // @synthesize digitalTouchTransitionCoordinator=_digitalTouchTransitionCoordinator;
-@property(nonatomic, getter=isInputViewVisible) _Bool inputViewVisible; // @synthesize inputViewVisible=_inputViewVisible;
 @property(retain, nonatomic) CKKeyboardContentViewController *currentInputViewController; // @synthesize currentInputViewController=_currentInputViewController;
 @property(retain, nonatomic) CKMessageEntryView *entryView; // @synthesize entryView=_entryView;
+@property(nonatomic, getter=isInputViewVisible) _Bool inputViewVisible; // @synthesize inputViewVisible=_inputViewVisible;
+@property(nonatomic) _Bool _isRunningPPT; // @synthesize _isRunningPPT=__isRunningPPT;
 @property(nonatomic) _Bool shouldSuppressStatusBarForHandwriting; // @synthesize shouldSuppressStatusBarForHandwriting=_shouldSuppressStatusBarForHandwriting;
 @property(retain, nonatomic) UIViewController *statusBarStyleViewController; // @synthesize statusBarStyleViewController=_statusBarStyleViewController;
 @property(retain, nonatomic) IMBalloonPluginDataSource *browserPluginDataSource; // @synthesize browserPluginDataSource=_browserPluginDataSource;
@@ -73,6 +75,7 @@
 @property(nonatomic) __weak id <CKChatInputControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)deviceOrientationManager:(id)arg1 orientationDidChange:(long long)arg2;
+- (void)openAppExtensionWithAdamID:(id)arg1;
 - (void)didBeginInstallingAppWithBundleIdentifier:(id)arg1;
 - (void)handwritingPresentationControllerWillHideHandwriting:(id)arg1;
 - (void)handwritingPresentationControllerDidShowHandwriting:(id)arg1;
@@ -80,21 +83,22 @@
 - (id)workingDirForDraft;
 - (void)dismissEntryViewShelf;
 - (void)showEntryViewShelf:(id)arg1;
+- (void)fullscreenAppViewControllerDidTransitionFromOrientation:(long long)arg1 toOrientation:(long long)arg2;
+- (void)fullscreenAppViewControllerSwitcherDidSelectAppManager:(id)arg1;
+- (void)fullscreenAppViewControllerSwitcherDidSelectAppStore:(id)arg1;
+- (void)fullscreenAppViewController:(id)arg1 wantsToSwitchToPlugin:(id)arg2;
 - (void)fullscreenAppViewControllerWantsToCollapse:(id)arg1;
 - (void)setLocalUserIsTyping:(_Bool)arg1;
 - (id)pluginBundleID;
 - (_Bool)_shouldSendTypingIndicatorDataForPluginIdentifier:(id)arg1;
 - (void)_startEditingPayload:(id)arg1;
+- (void)startEditingPayload:(id)arg1 dismiss:(_Bool)arg2 forPlugin:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)startEditingPayload:(id)arg1 dismiss:(_Bool)arg2 forPlugin:(id)arg3;
 - (void)startEditingPayload:(id)arg1 dismiss:(_Bool)arg2;
 - (void)startEditingPayload:(id)arg1;
 - (void)_deferredRequestPresentationStyleExpanded:(id)arg1;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1 forPlugin:(id)arg2;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;
-- (void)_addGesturesToDimmingWindow:(id)arg1;
-- (id)_createDimmingWindow;
-- (void)_restoreDimmingWindow;
-- (void)_flashDimmingWindowWithFadeDuration:(double)arg1 initialAlpha:(double)arg2;
 - (void)_deferredDismissToKeyboardAndFocusEntryView:(id)arg1;
 - (void)dismissAndReloadInputViews:(_Bool)arg1 forPlugin:(id)arg2;
 - (void)dismissAndReloadInputViews:(_Bool)arg1;
@@ -107,27 +111,32 @@
 - (void)commitSticker:(id)arg1;
 - (void)commitSticker:(id)arg1 forPlugin:(id)arg2;
 - (void)_deferredCommitPayload:(id)arg1;
+- (_Bool)commitPayload:(id)arg1 forPlugin:(id)arg2 allowAllCommits:(_Bool)arg3 error:(id *)arg4;
 - (void)commitPayload:(id)arg1;
 - (void)_openContainingBundleID:(id)arg1 applicationService:(id)arg2 withURL:(id)arg3 pluginID:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)openURL:(id)arg1 applicationIdentifier:(id)arg2 pluginID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)openURL:(id)arg1 pluginID:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)entryViewDidChangeSize;
+- (void)messageEntryView:(id)arg1 didSelectPluginAtIndex:(id)arg2;
 - (long long)messageEntryViewHighLightInputButton:(id)arg1;
 - (_Bool)messageEntryShouldHideCaret:(id)arg1;
 - (void)messageEntryViewBrowserButtonHit:(id)arg1;
 - (void)messageEntryViewHandwritingButtonHit:(id)arg1;
-- (void)messageEntryViewDigitalTouchButtonHit:(id)arg1;
 - (void)messageEntryViewPhotoButtonHit:(id)arg1;
 - (void)messageEntryViewDidTakeFocus:(id)arg1;
+- (void)messageEntryViewDidCollapse:(id)arg1;
+- (void)messageEntryViewDidExpand:(id)arg1;
 - (void)setEntryViewHidden:(_Bool)arg1;
 - (void)_handleOrientation;
 @property(readonly, nonatomic) unsigned long long browserSupportedInterfaceOrientations;
 @property(readonly, nonatomic) _Bool browserShouldAutorotate;
 - (id)_browserViewControllerForInterfaceOrientationMethods;
 @property(readonly, nonatomic) _Bool presentsHandwritingOnRotation;
+@property(readonly, nonatomic) _Bool appManagerIsDisplayed;
 @property(readonly, nonatomic) _Bool appStoreIsDisplayed;
 - (_Bool)handwritingIsDisplayed;
 - (void)showHandwritingBrowserWithExistingPayload:(id)arg1;
+- (_Bool)_switcherPluginHasTouchTokenForDirectSend;
 - (_Bool)_switcherPluginCanMessageAPI;
 - (_Bool)_switcherPluginCanMessageAPIOnBehalfOfPlugin:(id)arg1;
 - (_Bool)_currentPluginIsPhotos;
@@ -138,23 +147,21 @@
 - (void)showBrowserForPlugin:(id)arg1 dataSource:(id)arg2 expanded:(_Bool)arg3;
 - (void)_setupObserverForLaunchAppExtensionForDebugging;
 - (void)_launchAppExtensionForDebugging;
+- (void)switcherViewController:(id)arg1 hasUpdatedLastTouchDate:(id)arg2;
 - (void)switcherViewController:(id)arg1 willHideSelectionViewWithAnimations:(CDUnknownBlockType *)arg2 completion:(CDUnknownBlockType *)arg3;
 - (void)switcherViewController:(id)arg1 willShowSelectionViewWithAnimations:(CDUnknownBlockType *)arg2 completion:(CDUnknownBlockType *)arg3;
+- (void)switcherViewControllerDidSelectAppManager:(id)arg1 shouldRestoreAppSwitcher:(_Bool)arg2;
 - (void)switcherViewControllerDidSelectAppStore:(id)arg1 shouldRestoreAppSwitcher:(_Bool)arg2;
 - (void)switcherViewControllerDidCollapse:(id)arg1;
 - (void)switcherViewControllerDidFinishSwitching:(id)arg1 toViewController:(id)arg2;
 - (id)_senderIdentifier;
 - (void)switcherViewControllerDidStartSwitching:(id)arg1;
-- (id)transcriptEntryViewForBrowserTransitionCoordinator:(id)arg1;
 - (void)browserTransitionCoordinatorDidCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
 - (void)_reconfigurePluginDataSourceWithBalloonControllerIfNecessary;
 - (void)browserTransitionCoordinatorWillCollapseOrDismiss:(id)arg1 withReason:(long long)arg2;
 - (void)browserTransitionCoordinatorDidTransitionOrPresentToFullscreen:(id)arg1 withReason:(long long)arg2;
 - (void)browserTransitionCoordinatorWillTransitionOrPresentToFullscreen:(id)arg1 withReason:(long long)arg2;
-- (void)browserTransitionCoordinator:(id)arg1 expandedStateDidChange:(_Bool)arg2 withReason:(long long)arg3;
 - (void)setInputViewVisible:(_Bool)arg1 entryFieldCollapsed:(_Bool)arg2 animated:(_Bool)arg3;
-- (void)_dimmingWindowSwiped:(id)arg1;
-- (void)_dimmingWindowTapped:(id)arg1;
 - (void)composeRecipientViewDidBecomeFirstResponder:(id)arg1;
 - (void)keyboardWillShow:(id)arg1;
 - (void)keyboardDidHide:(id)arg1;
@@ -167,6 +174,7 @@
 - (void)notifyBrowserViewControllerOfMatchingNewMessages:(id)arg1;
 - (void)presentAppStoreToManagedTabForPlugin:(id)arg1;
 - (void)presentAppStoreForURL:(id)arg1;
+- (void)presentAppManager;
 - (void)presentAppStoreForAdamID:(id)arg1;
 - (void)presentViewControllerWithPluginChatItem:(id)arg1 expanded:(_Bool)arg2;
 - (id)_adamIDFromPluginPayloadData:(id)arg1;
@@ -184,6 +192,15 @@
 - (id)inputViewController;
 - (id)init;
 - (void)dealloc;
+- (id)_entryViewSnapshotWithFrame:(struct CGRect)arg1;
+- (void)_dismissCompactSwitcherOverKeyboardWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_presentCompactSwitcherOverKeyboardWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_presentPluginWithBundleID:(id)arg1 sendingTextInputPayload:(id)arg2 withPayloadID:(id)arg3;
+- (void)handlePayload:(id)arg1 withPayloadId:(id)arg2;
+- (void)presentPluginWithBundleID:(id)arg1 appLaunchPayload:(id)arg2;
+- (void)unregisterForTextInputPayloadHandling;
+- (void)registerForTextInputPayloadHandling;
+- (void)handleMoneyActionWithAmount:(id)arg1 currencies:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

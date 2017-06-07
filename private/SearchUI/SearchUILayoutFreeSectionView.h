@@ -13,10 +13,12 @@
     UIView *_containerView;
 }
 
-@property(retain) UIView *containerView; // @synthesize containerView=_containerView;
+@property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 - (void).cxx_destruct;
 - (_Bool)isAutoLayoutFree;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+- (_Bool)supportsAsynchronousMeasurement;
+- (_Bool)isLayoutSizeDependentOnPerpendicularAxis;
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

@@ -33,6 +33,7 @@
 @property(retain, nonatomic) NSString *osRelease; // @synthesize osRelease=_osRelease;
 @property(retain, nonatomic) NSString *hwMachine; // @synthesize hwMachine=_hwMachine;
 @property(retain, nonatomic) NSMutableArray *requestElements; // @synthesize requestElements=_requestElements;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -56,7 +57,6 @@
 - (unsigned long long)requestElementsCount;
 - (void)addRequestElement:(id)arg1;
 - (void)clearRequestElements;
-- (void)dealloc;
 
 @end
 

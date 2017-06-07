@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString, NSURLRequest;
 @protocol OS_xpc_object;
@@ -39,6 +39,7 @@
 @property _Bool requireIDSHost; // @synthesize requireIDSHost=_requireIDSHost;
 @property(retain) NSString *bundleIdentifierForDataUsage; // @synthesize bundleIdentifierForDataUsage=_bundleIdentifierForDataUsage;
 @property _Bool forceCellularIfPossible; // @synthesize forceCellularIfPossible=_forceCellularIfPossible;
+- (void).cxx_destruct;
 - (void)cancel;
 - (void)load;
 - (void)dealloc;

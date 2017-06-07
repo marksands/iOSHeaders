@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOPBTransitZoomRangeString : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_labelLanguage;
     NSString *_labelText;
     unsigned int _minZoom;
@@ -23,6 +24,8 @@
 @property(retain, nonatomic) NSString *labelText; // @synthesize labelText=_labelText;
 @property(retain, nonatomic) NSString *labelLanguage; // @synthesize labelLanguage=_labelLanguage;
 @property(nonatomic) unsigned int minZoom; // @synthesize minZoom=_minZoom;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +38,6 @@
 @property(readonly, nonatomic) _Bool hasLabelText;
 @property(readonly, nonatomic) _Bool hasLabelLanguage;
 @property(nonatomic) _Bool hasMinZoom;
-- (void)dealloc;
 
 @end
 

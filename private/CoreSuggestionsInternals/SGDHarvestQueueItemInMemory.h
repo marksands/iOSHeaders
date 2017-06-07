@@ -13,10 +13,12 @@
     _Bool _highPriority;
     SGDHarvestQueueInMemory *_parentQueue;
     _Bool _inProgress;
+    _Bool _beingDeleted;
     NSString *_sourceKey;
     NSString *_messageId;
 }
 
+@property _Bool beingDeleted; // @synthesize beingDeleted=_beingDeleted;
 @property _Bool inProgress; // @synthesize inProgress=_inProgress;
 @property(readonly, nonatomic) NSString *messageId; // @synthesize messageId=_messageId;
 @property(readonly, nonatomic) NSString *sourceKey; // @synthesize sourceKey=_sourceKey;

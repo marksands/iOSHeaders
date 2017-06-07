@@ -15,13 +15,12 @@
     PBUnknownFields *_unknownFields;
     unsigned long long _featureId;
     GEOLatLng *_location;
-    struct {
-        unsigned int featureId:1;
-    } _has;
+    CDStruct_b1448a5c _has;
 }
 
 @property(retain, nonatomic) GEOLatLng *location; // @synthesize location=_location;
 @property(nonatomic) unsigned long long featureId; // @synthesize featureId=_featureId;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -34,7 +33,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasLocation;
 @property(nonatomic) _Bool hasFeatureId;
-- (void)dealloc;
 
 @end
 

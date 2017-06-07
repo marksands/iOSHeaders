@@ -15,6 +15,7 @@
 @interface CAMTimelapseStabilizationMovieWriter : NSObject <AVOfflineVideoStabilizerDataProvider, CAMTimelapseMovieWriterProtocol>
 {
     _Bool _suspended;
+    _Bool __preferHEVC;
     NSArray *__frameFilePaths;
     NSArray *__visMetadataFilePaths;
     NSObject<OS_dispatch_queue> *__movieWritingQueue;
@@ -62,6 +63,7 @@
 @property(readonly, nonatomic) AVAssetWriterInput *_videoInput; // @synthesize _videoInput=__videoInput;
 @property(readonly, nonatomic) AVAssetWriter *_writer; // @synthesize _writer=__writer;
 @property(readonly, nonatomic) AVOfflineVideoStabilizer *_stabilizer; // @synthesize _stabilizer=__stabilizer;
+@property(readonly, nonatomic) _Bool _preferHEVC; // @synthesize _preferHEVC=__preferHEVC;
 @property(readonly, nonatomic) long long _movieFramesPerSecond; // @synthesize _movieFramesPerSecond=__movieFramesPerSecond;
 @property(readonly, nonatomic) struct CGAffineTransform _movieTransform; // @synthesize _movieTransform=__movieTransform;
 @property(readonly, nonatomic) NSString *_movieOutputPath; // @synthesize _movieOutputPath=__movieOutputPath;
@@ -85,7 +87,7 @@
 - (void)_finishMovieWithRestartUnstabilized;
 - (_Bool)_appendPixelBufferToMovie:(struct __CVBuffer *)arg1;
 - (void)_setMetadataOnVideoTrackAssetWriterInput:(id)arg1;
-- (int)_startWritingWithOutputPath:(id)arg1 width:(long long)arg2 height:(long long)arg3 videoFormatDescription:(struct opaqueCMFormatDescription *)arg4 transform:(struct CGAffineTransform)arg5 framesPerSecond:(long long)arg6 frameCount:(long long)arg7 visMetadataCount:(long long)arg8 videoMetadata:(id)arg9;
+- (int)_startWritingWithOutputPath:(id)arg1 width:(long long)arg2 height:(long long)arg3 videoFormatDescription:(struct opaqueCMFormatDescription *)arg4 transform:(struct CGAffineTransform)arg5 framesPerSecond:(long long)arg6 frameCount:(long long)arg7 preferHEVC:(_Bool)arg8 visMetadataCount:(long long)arg9 videoMetadata:(id)arg10;
 - (int)_copySourcePixelBufferForNextFrame:(struct __CVBuffer **)arg1 skipBadFrames:(_Bool)arg2;
 - (void)_requestNextFrameReadDecode;
 - (int)_copyNextSampleBufferFromStabilizer:(struct opaqueCMSampleBuffer **)arg1;
@@ -93,7 +95,7 @@
 - (void)_startAsyncDecoding;
 - (struct __CVBuffer *)_decodeFirstFrameAgain;
 - (struct __CVBuffer *)_cropPixelBufferIfNeeded:(struct __CVBuffer *)arg1;
-- (void)writeMovieFromImageFiles:(id)arg1 visMetadataFiles:(id)arg2 startDate:(id)arg3 location:(id)arg4 outputPath:(id)arg5 transform:(struct CGAffineTransform)arg6 framesPerSecond:(long long)arg7 completionHandler:(CDUnknownBlockType)arg8;
+- (void)writeMovieFromImageFiles:(id)arg1 visMetadataFiles:(id)arg2 startDate:(id)arg3 location:(id)arg4 outputPath:(id)arg5 transform:(struct CGAffineTransform)arg6 framesPerSecond:(long long)arg7 preferHEVC:(_Bool)arg8 completionHandler:(CDUnknownBlockType)arg9;
 - (void)_restartUnstabilized;
 - (void)_reset;
 - (void)_cleanup;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSXPCCoding-Protocol.h>
 #import <SplashBoard/NSCoding-Protocol.h>
@@ -25,9 +25,9 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic, getter=_isDefault) _Bool _default; // @synthesize _default;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isXIB;
 @property(readonly, nonatomic) _Bool isStoryboard;
-- (void)dealloc;
 @property(readonly, copy) NSString *description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

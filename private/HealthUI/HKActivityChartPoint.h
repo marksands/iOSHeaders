@@ -23,9 +23,9 @@
 }
 
 - (void).cxx_destruct;
-- (id)maxXValue;
-- (id)minXValue;
-- (id)xValue;
+- (id)maxXValueAsGenericType;
+- (id)minXValueAsGenericType;
+- (id)xValueAsGenericType;
 - (id)maxYValue;
 - (id)minYValue;
 - (id)yValue;

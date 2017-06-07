@@ -42,7 +42,7 @@
 @property(readonly, nonatomic, getter=isExpired) _Bool expired;
 - (id)alertSpecificationAtIndex:(unsigned long long)arg1;
 - (id)alertSpecificationForAlertKey:(id)arg1;
-- (id)keybagForBuyStorage;
+- (id)storagePurchaseKeybagForButtonId:(id)arg1;
 @property(readonly, nonatomic, getter=isBuddyOffer) _Bool buddyOffer;
 @property(readonly, nonatomic) double _callbackInterval;
 - (id)initWithServerDictionary:(id)arg1 accountAltDSID:(id)arg2 notificationID:(id)arg3 retrievalDate:(id)arg4 callbackInterval:(double)arg5 bundleIdentifier:(id)arg6;

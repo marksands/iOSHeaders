@@ -14,11 +14,13 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedInstance;
+- (struct _VCBitrateConfiguration *)bitrateConfiguration;
 - (void)resetEncodingRulesForCameraIsHD:(_Bool)arg1 isWVGA:(_Bool)arg2;
 - (_Bool)getBestPreviewFrameWidth:(int *)arg1 frameHeight:(int *)arg2 frameRate:(float *)arg3;
 - (_Bool)useSoftFramerateSwitching;
 - (_Bool)isHiDefCapable;
-- (_Bool)getBestFrameWidth:(int *)arg1 frameHeight:(int *)arg2 frameRate:(float *)arg3 encodingType:(unsigned char)arg4 aspectRatio:(double)arg5 forPayload:(int)arg6;
+- (id)bestVideoRuleForEncodingType:(unsigned char)arg1 aspectRatio:(double)arg2;
+- (id)bestVideoRuleForEncodingType:(unsigned char)arg1 aspectRatio:(double)arg2 payload:(int)arg3;
 - (_Bool)setupH264CellularRules;
 - (double)preferredAspectRatio;
 

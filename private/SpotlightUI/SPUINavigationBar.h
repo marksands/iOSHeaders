@@ -21,7 +21,7 @@
 - (void)performShowSeparator:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)showSeparator:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)performUpdateBlurProgress:(double)arg1 animated:(_Bool)arg2;
-- (void)setRoundedCornerVisible:(_Bool)arg1;
+@property(getter=isRoundedCornerVisible) _Bool roundedCornerVisible;
 - (void)updateBlurProgress:(double)arg1 animated:(_Bool)arg2;
 - (void)didAddSubview:(id)arg1;
 - (id)_popNavigationItemWithTransition:(int)arg1;

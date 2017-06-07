@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) _Bool includeFootnoteSeparatorLine; // @synthesize includeFootnoteSeparatorLine=_includeFootnoteSeparatorLine;
+- (id)markStringForFootnoteReferenceStorage:(id)arg1 ignoreDeletedFootnotes:(_Bool)arg2 forceDocumentEndnotes:(_Bool)arg3;
 - (id)markStringForFootnoteReferenceStorage:(id)arg1;
 - (_Bool)textIsVertical;
 @property(readonly, nonatomic) _Bool shrinkTextToFit;

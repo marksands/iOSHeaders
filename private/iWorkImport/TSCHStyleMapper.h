@@ -15,12 +15,14 @@ __attribute__((visibility("hidden")))
 @interface TSCHStyleMapper : NSObject <TSKStyleMapper>
 {
     id <TSKStyleMapper> mUnderlyingMapper;
+    _Bool mForceMatchStyle;
 }
 
 + (id)mapperWithMapper:(id)arg1;
 + (id)mappedStylesWithMapper:(id)arg1 forStyles:(id)arg2 bakeComputable:(_Bool)arg3;
 + (id)mappedStyleWithMapper:(id)arg1 forStyle:(id)arg2 bakeComputable:(_Bool)arg3;
 + (void)replaceReferencedStylesInMap:(id)arg1 withMapper:(id)arg2;
+@property(nonatomic) _Bool forceMatchStyle; // @synthesize forceMatchStyle=mForceMatchStyle;
 @property(readonly) id <TSKStyleMapper> underlyingMapper; // @synthesize underlyingMapper=mUnderlyingMapper;
 @property(readonly, nonatomic) _Bool clientsMustRemap;
 - (id)mappedStyleForStyle:(id)arg1;

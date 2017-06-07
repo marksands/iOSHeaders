@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_accessQueue;
     TSPDocumentProperties *_documentProperties;
     TSUZipFileArchive *_zipArchive;
+    unsigned long long _additionalZipArchiveOptions;
     NSError *_lastReloadError;
     NSHashTable *_packageDatas;
     id <TSPFileCoordinatorDelegate> _fileCoordinatorDelegate;
@@ -30,9 +31,10 @@ __attribute__((visibility("hidden")))
 
 + (unsigned long long)zipArchiveOptions;
 + (id)zipArchiveURLFromPackageURL:(id)arg1;
++ (_Bool)isZeroLengthFileOrEmptyDirectory:(id)arg1;
 + (_Bool)hasZipArchive;
 + (id)newLazyPackageWithURL:(id)arg1 packageIdentifier:(unsigned char)arg2 decryptionKey:(id)arg3 fileCoordinatorDelegate:(id)arg4;
-+ (id)newPackageWithURL:(id)arg1 packageIdentifier:(unsigned char)arg2 decryptionKey:(id)arg3 fileCoordinatorDelegate:(id)arg4 error:(id *)arg5;
++ (id)newPackageWithURL:(id)arg1 options:(unsigned long long)arg2 packageIdentifier:(unsigned char)arg3 decryptionKey:(id)arg4 fileCoordinatorDelegate:(id)arg5 error:(id *)arg6;
 + (id)dataEntryPathForFilename:(id)arg1;
 + (id)objectArchiveEntryPathForPackageLocator:(id)arg1;
 + (_Bool)isValidPackageAtURL:(id)arg1;
@@ -45,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (void)prepareForDocumentReplacementWithSuccess:(_Bool)arg1 forSafeSave:(_Bool)arg2 originalURL:(id)arg3;
 - (id)newDocumentPropertiesWithURL:(id)arg1 zipProvider:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (id)newRawDataReadChannelAtRelativePath:(id)arg1;
-- (id)newDataStorageAtRelativePath:(id)arg1 decryptionInfo:(id)arg2;
+- (id)newDataStorageAtRelativePath:(id)arg1 decryptionInfo:(id)arg2 packageURL:(id)arg3 lastModificationDate:(out id *)arg4;
 - (_Bool)checkPassword:(id)arg1;
 - (id)keyFromPassword:(id)arg1 passwordVerifier:(id)arg2;
 - (id)keyFromPassword:(id)arg1;
@@ -54,6 +56,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isPasswordProtected;
 - (_Bool)hasDataAtRelativePath:(id)arg1;
 - (id)dataAtRelativePath:(id)arg1 allowDecryption:(_Bool)arg2 error:(id *)arg3;
+- (id)packageEntryInfoAtRelativePath:(id)arg1 error:(id *)arg2;
 - (void)removeAllDataReferences;
 - (void)enumerateDatasUsingBlock:(CDUnknownBlockType)arg1;
 - (_Bool)containsData:(id)arg1;
@@ -61,7 +64,7 @@ __attribute__((visibility("hidden")))
 - (void)copyComponent:(id)arg1 toPackageURL:(id)arg2 packageLocator:(id)arg3 zipFileWriter:(id)arg4 encryptionKey:(id)arg5 canLink:(_Bool)arg6 completion:(CDUnknownBlockType)arg7;
 - (id)newRawReadChannelForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
 - (id)newReadChannelForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
-- (unsigned long long)encodedLengthForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
+- (id)packageEntryInfoForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
 @property(readonly) TSUZipFileArchive *componentZipArchive;
 @property(readonly) NSError *lastReloadError;
 - (_Bool)didReloadZipArchive:(id)arg1 error:(id *)arg2;
@@ -75,7 +78,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSPDocumentProperties *documentProperties;
 @property(readonly, nonatomic) long long packageType;
 - (id)initWithPackageIdentifier:(unsigned char)arg1 documentProperties:(id)arg2 fileFormatVersion:(unsigned long long)arg3 decryptionKey:(id)arg4 fileCoordinatorDelegate:(id)arg5 isLazyLoading:(_Bool)arg6;
-- (id)initWithURL:(id)arg1 zipArchiveOrNil:(id)arg2 packageIdentifier:(unsigned char)arg3 documentProperties:(id)arg4 decryptionKey:(id)arg5 fileCoordinatorDelegate:(id)arg6 error:(id *)arg7;
+- (id)initWithURL:(id)arg1 zipArchiveOrNil:(id)arg2 zipArchiveOptions:(unsigned long long)arg3 packageIdentifier:(unsigned char)arg4 documentProperties:(id)arg5 decryptionKey:(id)arg6 fileCoordinatorDelegate:(id)arg7 error:(id *)arg8;
 - (id)init;
 
 @end

@@ -6,16 +6,16 @@
 
 #import <Foundation/NSObject.h>
 
-@class MPContext;
+@class CVMLMPContext;
 
 __attribute__((visibility("hidden")))
 @interface MomentProcessor : NSObject
 {
-    MPContext *_context;
+    CVMLMPContext *_context;
 }
 
 + (id)sortImageDescriptorsChronologically:(id)arg1;
-@property(retain, nonatomic) MPContext *context; // @synthesize context=_context;
+@property(retain, nonatomic) CVMLMPContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (id)getKey:(id)arg1 fromDictionary:(id)arg2 withDefault:(id)arg3;
 - (id)computeNaturalClusteringForClusteringTree:(id)arg1 error:(id *)arg2;

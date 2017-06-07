@@ -6,8 +6,14 @@
 
 #import <PassKitUI/NSObject-Protocol.h>
 
+@class UIView, UIViewController;
+@protocol PKPerformActionView;
+
 @protocol PKPerformActionViewDelegate <NSObject>
 - (void)setRightBarButtonEnabled:(_Bool)arg1;
 - (void)shakeCard;
+
+@optional
+- (void)performActionView:(UIView<PKPerformActionView> *)arg1 requestsPresentViewController:(UIViewController *)arg2;
 @end
 

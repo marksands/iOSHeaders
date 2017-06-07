@@ -20,7 +20,7 @@
     _Bool _delegateStreamErrorLess;
     _Bool _delegateStreamWithError;
     _Bool _delegateHasDidFail;
-    id <OSDeviceDelegate> deviceDelegate;
+    id <OSDeviceDelegate> _deviceDelegate;
     id <OSActivityStreamDelegate> _delegate;
     unsigned long long _options;
     unsigned long long _eventFilter;
@@ -35,10 +35,10 @@
 @property(nonatomic) unsigned long long eventFilter; // @synthesize eventFilter=_eventFilter;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(nonatomic) __weak id <OSActivityStreamDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <OSDeviceDelegate> deviceDelegate; // @synthesize deviceDelegate=_deviceDelegate;
 - (void).cxx_destruct;
 - (_Bool)establishTrust:(id)arg1;
 - (id)getInfoForDevice:(id)arg1 andKey:(id)arg2;
-@property(nonatomic) __weak id <OSDeviceDelegate> deviceDelegate; // @synthesize deviceDelegate;
 - (void)stopRemote;
 - (void)stopLocal;
 - (void)stop;

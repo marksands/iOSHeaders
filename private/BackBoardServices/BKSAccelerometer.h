@@ -14,7 +14,7 @@
     id <BKSAccelerometerDelegate> _delegate;
     struct __CFRunLoopSource *_accelerometerEventsSource;
     struct __CFRunLoop *_accelerometerEventsRunLoop;
-    double _interval;
+    double _updateInterval;
     NSLock *_lock;
     int _orientationCheckToken;
     int _orientationNotificationsToken;
@@ -25,7 +25,6 @@
     float _xThreshold;
     float _yThreshold;
     float _zThreshold;
-    double _updateInterval;
 }
 
 @property(nonatomic) _Bool orientationEventsEnabled; // @synthesize orientationEventsEnabled=_orientationEventsEnabled;

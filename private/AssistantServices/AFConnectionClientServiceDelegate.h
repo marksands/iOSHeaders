@@ -9,13 +9,19 @@
 #import <AssistantServices/AFClientServiceDelegate-Protocol.h>
 
 @class AFConnection, NSString;
+@protocol OS_dispatch_queue;
 
 @interface AFConnectionClientServiceDelegate : NSObject <AFClientServiceDelegate>
 {
     AFConnection *_connection;
+    NSObject<OS_dispatch_queue> *_targetQueue;
 }
 
 - (void).cxx_destruct;
+- (oneway void)audioPlaybackRequestDidStop:(id)arg1 error:(id)arg2;
+- (oneway void)audioPlaybackRequestDidNotStart:(id)arg1 error:(id)arg2;
+- (oneway void)audioPlaybackRequestDidStart:(id)arg1;
+- (oneway void)audioPlaybackRequestWillStart:(id)arg1;
 - (oneway void)audioSessionDidEndInterruption:(_Bool)arg1;
 - (oneway void)audioSessionDidBeginInterruption;
 - (oneway void)speechRecognitionDidFail:(id)arg1;
@@ -32,11 +38,12 @@
 - (oneway void)speechRecordingPerformTwoShotPromptWithType:(long long)arg1 reply:(CDUnknownBlockType)arg2;
 - (oneway void)speechRecordingStartpointDetected;
 - (oneway void)speechRecordingDidChangeAVRecordRoute:(id)arg1;
-- (oneway void)speechRecordingDidBeginOnAVRecordRoute:(id)arg1;
-- (oneway void)speechRecordingWillBeginWithLevelsSharedMem:(id)arg1;
+- (oneway void)speechRecordingDidBeginOnAVRecordRoute:(id)arg1 audioSessionID:(unsigned int)arg2;
+- (oneway void)speechRecordingWillBeginWithInputAudioPowerXPCWrapper:(id)arg1;
 - (oneway void)aceConnectionWillRetryOnError:(id)arg1;
 - (oneway void)audioSessionIDChanged:(unsigned int)arg1;
 - (oneway void)shouldSpeakChanged:(_Bool)arg1;
+- (oneway void)handleIntent:(id)arg1 inBackgroundAppWithBundleId:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (oneway void)extensionRequestFinishedForApplication:(id)arg1 error:(id)arg2;
 - (oneway void)extensionRequestWillStartForApplication:(id)arg1;
 - (oneway void)cacheImage:(id)arg1;
@@ -46,15 +53,13 @@
 - (oneway void)musicWasDetected;
 - (oneway void)acousticIDRequestWillStart;
 - (oneway void)getBulletinContext:(CDUnknownBlockType)arg1;
-- (oneway void)requestDidFailWithError:(id)arg1 requestClass:(id)arg2;
 - (oneway void)requestRequestedDismissAssistant;
 - (oneway void)requestRequestedOpenURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (oneway void)requestRequestedOpenApplicationWithBundleID:(id)arg1 URL:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (oneway void)requestDidFinish;
 - (oneway void)requestDidReceiveCommand:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (oneway void)startUIRequestWithText:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_connectionDelegate;
-- (id)initWithConnection:(id)arg1;
+- (id)initWithConnection:(id)arg1 targetQueue:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

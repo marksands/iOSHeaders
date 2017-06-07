@@ -8,15 +8,17 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, NTPBWidgetEngagement;
 
 @interface NTPBAppSessionStart : PBCodable <NSCopying>
 {
     long long _lastAppSessionTimestamp;
+    NSMutableArray *_autoSubscribedFeedIds;
     NSString *_campaignId;
     NSString *_campaignType;
     int _channelSubscriptionCount;
     NSString *_creativeId;
+    NSMutableArray *_groupableFeedIds;
     NSString *_notificationArticleId;
     NSMutableArray *_notificationChannelIds;
     int _notificationEnabledChannelsCount;
@@ -33,6 +35,7 @@
     NSString *_userActivityType;
     NSMutableArray *_visibleViews;
     int _widgetArticleRank;
+    NTPBWidgetEngagement *_widgetEngagement;
     int _widgetSection;
     int _widgetSectionArticleRank;
     _Bool _startedFromNotification;
@@ -50,10 +53,15 @@
     } _has;
 }
 
++ (Class)groupableFeedIdsType;
++ (Class)autoSubscribedFeedIdsType;
 + (Class)subscribedFeedIdsType;
 + (Class)notificationChannelIdsType;
 + (Class)paidSubscriptionChannelIdsType;
 + (Class)visibleViewsType;
+@property(retain, nonatomic) NSMutableArray *groupableFeedIds; // @synthesize groupableFeedIds=_groupableFeedIds;
+@property(retain, nonatomic) NSMutableArray *autoSubscribedFeedIds; // @synthesize autoSubscribedFeedIds=_autoSubscribedFeedIds;
+@property(retain, nonatomic) NTPBWidgetEngagement *widgetEngagement; // @synthesize widgetEngagement=_widgetEngagement;
 @property(nonatomic) int widgetArticleRank; // @synthesize widgetArticleRank=_widgetArticleRank;
 @property(nonatomic) int widgetSectionArticleRank; // @synthesize widgetSectionArticleRank=_widgetSectionArticleRank;
 @property(retain, nonatomic) NSMutableArray *subscribedFeedIds; // @synthesize subscribedFeedIds=_subscribedFeedIds;
@@ -85,6 +93,15 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)groupableFeedIdsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)groupableFeedIdsCount;
+- (void)addGroupableFeedIds:(id)arg1;
+- (void)clearGroupableFeedIds;
+- (id)autoSubscribedFeedIdsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)autoSubscribedFeedIdsCount;
+- (void)addAutoSubscribedFeedIds:(id)arg1;
+- (void)clearAutoSubscribedFeedIds;
+@property(readonly, nonatomic) _Bool hasWidgetEngagement;
 @property(nonatomic) _Bool hasWidgetArticleRank;
 @property(nonatomic) _Bool hasWidgetSectionArticleRank;
 - (int)StringAsWidgetSection:(id)arg1;

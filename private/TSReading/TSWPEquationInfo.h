@@ -13,8 +13,6 @@
     EQKitEquation *_equation;
 }
 
-+ (void)registerMathMLFontsWithWP;
-+ (void)forceLoadAllMathMLFonts;
 @property(retain, nonatomic) EQKitEquation *equation; // @synthesize equation=_equation;
 - (Class)repClass;
 - (Class)layoutClass;

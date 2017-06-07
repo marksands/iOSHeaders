@@ -20,10 +20,11 @@
 @property(readonly, nonatomic) long long maxFailedStateReadAttempts;
 - (double)waitTimeBeforeNextWriteForNumberOfPreviousAttempts:(long long)arg1;
 @property(readonly, nonatomic) long long maxMovieWriteAttempts;
-- (id)outputSettingsPresetForWidth:(long long)arg1 height:(long long)arg2;
-- (long long)minAvailableBytesNeededForCaptureForWidth:(long long)arg1 height:(long long)arg2;
-- (long long)maxMovieFileLengthForWidth:(long long)arg1 height:(long long)arg2;
-- (long long)averageMovieBitrateForWidth:(long long)arg1 height:(long long)arg2;
+- (id)outputSettingsForWidth:(long long)arg1 height:(long long)arg2 videoFormatDescription:(struct opaqueCMFormatDescription *)arg3 framesPerSecond:(long long)arg4 frameCount:(long long)arg5 useHEVC:(_Bool)arg6;
+- (id)_outputSettingsPresetForWidth:(long long)arg1 height:(long long)arg2;
+- (long long)minAvailableBytesNeededForCaptureForWidth:(long long)arg1 height:(long long)arg2 useHEVC:(_Bool)arg3;
+- (long long)maxMovieFileLengthForWidth:(long long)arg1 height:(long long)arg2 useHEVC:(_Bool)arg3;
+- (long long)_averageMovieBitrateForWidth:(long long)arg1 height:(long long)arg2 useHEVC:(_Bool)arg3;
 - (double)outputFPSForFrameCount:(long long)arg1;
 @property(readonly, nonatomic) long long maxOutputFrames;
 - (id)init;

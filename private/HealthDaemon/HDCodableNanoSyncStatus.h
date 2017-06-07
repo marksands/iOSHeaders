@@ -22,6 +22,7 @@
     } _has;
 }
 
++ (Class)anchorsType;
 + (id)statusWithStatusCode:(int)arg1;
 + (id)persistentUserInfoKey;
 + (id)retreiveFromPersistentUserInfo:(id)arg1;
@@ -40,6 +41,8 @@
 - (unsigned long long)anchorsCount;
 - (void)addAnchors:(id)arg1;
 - (void)clearAnchors;
+- (int)StringAsStatusCode:(id)arg1;
+- (id)statusCodeAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatusCode;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
 - (id)nanoSyncDescription;

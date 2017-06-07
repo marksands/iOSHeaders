@@ -11,14 +11,12 @@
 #import <NanoRegistry/NSSecureCoding-Protocol.h>
 
 @class NRMutableDeviceCollection, NSMutableArray, NSMutableDictionary, NSMutableOrderedSet;
-@protocol OS_dispatch_queue;
 
 @interface NRDeviceCollectionHistory : NSObject <NRMutableStateParentDelegate, NSSecureCoding, NSFastEnumeration>
 {
     NSMutableOrderedSet *_observers;
     _Bool _dirty;
     NRMutableDeviceCollection *_deviceCollection;
-    NSObject<OS_dispatch_queue> *_queue;
     unsigned long long _startIndex;
     NSMutableArray *_history;
     NSMutableDictionary *_historyStateCache;
@@ -32,7 +30,6 @@
 @property(retain, nonatomic) NSMutableDictionary *historyStateCache; // @synthesize historyStateCache=_historyStateCache;
 @property(retain, nonatomic) NSMutableArray *history; // @synthesize history=_history;
 @property(nonatomic) unsigned long long startIndex; // @synthesize startIndex=_startIndex;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) NRMutableDeviceCollection *deviceCollection; // @synthesize deviceCollection=_deviceCollection;
 @property(readonly, nonatomic) _Bool dirty; // @synthesize dirty=_dirty;
 - (void).cxx_destruct;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMapAccessRestrictions-Protocol.h>
 
@@ -17,6 +17,7 @@
     NSData *_pointData;
     _Bool _usesZilch;
     NSArray *_legs;
+    NSArray *_composedGuidanceEvents;
     NSArray *_steps;
     NSString *_name;
     NSData *_routeID;
@@ -27,14 +28,13 @@
     NSArray *_trafficIncidentOffsets;
     NSString *_trafficDescription;
     NSString *_longTrafficDescription;
+    NSArray *_enrouteNotices;
     GEORoute *_geoRoute;
     GEORouteSet *_routeSet;
     NSArray *_maneuverDisplaySteps;
     _Bool _maneuverDisplayEnabled;
     unsigned long long _currentDisplayStep;
-    unsigned int _maneuverDisplayCount;
     double *_pointLengths;
-    CDStruct_dc7a564b *_currentManeuverDisplayEndPoints;
     unsigned long long _selectedLegIndex;
     unsigned int _firstVisiblePoint;
     GEOMapRegion *_boundingMapRegion;
@@ -49,13 +49,15 @@
     _Bool _shouldShowSchedule;
     NSArray *_rideSelections;
     NSArray *_currentSectionOptions;
+    id <GEOServerFormattedString> _launchAndGoCardTitle;
+    id <GEOServerFormattedString> _launchAndGoRouteTitle;
+    id <GEOServerFormattedString> _launchAndGoRouteDescription;
     id <GEOServerFormattedString> _previewDurationFormatString;
     id <GEOServerFormattedString> _pickingDurationFormatString;
     id <GEOServerFormattedString> _planningDescriptionFormatString;
-    id <GEOServerFormattedString> _overviewSubtitleFormatString;
     id <GEOServerFormattedString> _transitDescriptionFormatString;
     NSArray *_transitAdvisories;
-    unsigned long long _transitRouteBadge;
+    id <GEOServerFormattedString> _transitRouteBadge;
     _Bool _hasCheckedIsWalkingOnlyTransitRoute;
     _Bool _isWalkingOnlyTransitRoute;
     GEOComposedWaypoint *_origin;
@@ -63,19 +65,19 @@
 }
 
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(retain, nonatomic) GEOComposedWaypoint *destination; // @synthesize destination=_destination;
-@property(retain, nonatomic) GEOComposedWaypoint *origin; // @synthesize origin=_origin;
 @property(readonly, nonatomic) _Bool isWalkingOnlyTransitRoute; // @synthesize isWalkingOnlyTransitRoute=_isWalkingOnlyTransitRoute;
 @property(nonatomic) _Bool shouldShowSchedule; // @synthesize shouldShowSchedule=_shouldShowSchedule;
-@property(readonly, nonatomic) unsigned long long transitRouteBadge; // @synthesize transitRouteBadge=_transitRouteBadge;
+@property(readonly, nonatomic) id <GEOServerFormattedString> transitRouteBadge; // @synthesize transitRouteBadge=_transitRouteBadge;
 @property(readonly, nonatomic) NSArray *transitAdvisories; // @synthesize transitAdvisories=_transitAdvisories;
 @property(readonly, nonatomic) id <GEOServerFormattedString> transitDescriptionFormatString; // @synthesize transitDescriptionFormatString=_transitDescriptionFormatString;
-@property(readonly, nonatomic) id <GEOServerFormattedString> overviewSubtitleFormatString; // @synthesize overviewSubtitleFormatString=_overviewSubtitleFormatString;
 @property(readonly, nonatomic) id <GEOServerFormattedString> planningDescriptionFormatString; // @synthesize planningDescriptionFormatString=_planningDescriptionFormatString;
 @property(readonly, nonatomic) id <GEOServerFormattedString> pickingDurationFormatString; // @synthesize pickingDurationFormatString=_pickingDurationFormatString;
 @property(readonly, nonatomic) id <GEOServerFormattedString> previewDurationFormatString; // @synthesize previewDurationFormatString=_previewDurationFormatString;
+@property(readonly, nonatomic) id <GEOServerFormattedString> launchAndGoRouteDescription; // @synthesize launchAndGoRouteDescription=_launchAndGoRouteDescription;
+@property(readonly, nonatomic) id <GEOServerFormattedString> launchAndGoRouteTitle; // @synthesize launchAndGoRouteTitle=_launchAndGoRouteTitle;
+@property(readonly, nonatomic) id <GEOServerFormattedString> launchAndGoCardTitle; // @synthesize launchAndGoCardTitle=_launchAndGoCardTitle;
 @property(readonly, nonatomic) NSArray *rideSelections; // @synthesize rideSelections=_rideSelections;
-@property(readonly, retain, nonatomic) id <GEOTransitRoutingIncidentMessage> transitRoutingIncidentMessage; // @synthesize transitRoutingIncidentMessage=_transitRoutingIncidentMessage;
+@property(readonly, nonatomic) id <GEOTransitRoutingIncidentMessage> transitRoutingIncidentMessage; // @synthesize transitRoutingIncidentMessage=_transitRoutingIncidentMessage;
 @property(readonly, copy, nonatomic) NSArray *routePlanningArtworks; // @synthesize routePlanningArtworks=_routePlanningArtworks;
 @property(readonly, nonatomic) GEOTransitSuggestedRoute *originalSuggestedRoute; // @synthesize originalSuggestedRoute=_originalSuggestedRoute;
 @property(retain, nonatomic) GEOTransitSuggestedRoute *suggestedRoute; // @synthesize suggestedRoute=_suggestedRoute;
@@ -83,23 +85,25 @@
 @property(readonly, nonatomic) GEOMapRegion *boundingMapRegion; // @synthesize boundingMapRegion=_boundingMapRegion;
 @property(readonly, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(readonly, nonatomic) unsigned int distance; // @synthesize distance=_distance;
+@property(readonly, nonatomic) NSArray *enrouteNotices; // @synthesize enrouteNotices=_enrouteNotices;
 @property(readonly, nonatomic) NSString *longTrafficDescription; // @synthesize longTrafficDescription=_longTrafficDescription;
 @property(readonly, nonatomic) NSString *trafficDescription; // @synthesize trafficDescription=_trafficDescription;
 @property(retain, nonatomic) NSArray *trafficIncidentOffsets; // @synthesize trafficIncidentOffsets=_trafficIncidentOffsets;
 @property(retain, nonatomic) NSArray *trafficIncidents; // @synthesize trafficIncidents=_trafficIncidents;
 @property(retain, nonatomic) NSData *routeID; // @synthesize routeID=_routeID;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) NSArray *composedGuidanceEvents; // @synthesize composedGuidanceEvents=_composedGuidanceEvents;
 @property(readonly, nonatomic) NSArray *legs; // @synthesize legs=_legs;
 @property(readonly, nonatomic) NSArray *steps; // @synthesize steps=_steps;
 @property(readonly, nonatomic) _Bool usesZilch; // @synthesize usesZilch=_usesZilch;
 @property(nonatomic) unsigned long long selectedLegIndex; // @synthesize selectedLegIndex=_selectedLegIndex;
 @property(nonatomic) unsigned int firstVisiblePoint; // @synthesize firstVisiblePoint=_firstVisiblePoint;
-@property(readonly, nonatomic) unsigned int maneuverDisplayCount; // @synthesize maneuverDisplayCount=_maneuverDisplayCount;
 @property(retain, nonatomic) NSArray *maneuverDisplaySteps; // @synthesize maneuverDisplaySteps=_maneuverDisplaySteps;
 @property(nonatomic) _Bool maneuverDisplayEnabled; // @synthesize maneuverDisplayEnabled=_maneuverDisplayEnabled;
 @property(nonatomic) unsigned long long currentDisplayStep; // @synthesize currentDisplayStep=_currentDisplayStep;
 @property(nonatomic) __weak GEORouteSet *routeSet; // @synthesize routeSet=_routeSet;
 @property(readonly, nonatomic) GEORoute *geoRoute; // @synthesize geoRoute=_geoRoute;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool allowsNetworkTileLoad;
 - (void)updateRouteWithRideSelections:(id)arg1;
 - (void)_rebuildRouteForRideChange;
@@ -129,7 +133,6 @@
 - (void)_addSnappedPolylinePathsForSection:(id)arg1 toPaths:(id)arg2 rects:(CDStruct_90e2a262 *)arg3 rectsCount:(unsigned long long)arg4;
 - (_Bool)_meetsMinimumPathLengthBetweenStart:(unsigned int)arg1 end:(unsigned int)arg2;
 - (void)roadFeaturesForRouteCoordinate:(struct PolylineCoordinate)arg1 distanceAhead:(double)arg2 handler:(CDUnknownBlockType)arg3;
-- (void)setupRoadSegmentIdsForRouteHintFromMatch:(id)arg1 distanceAhead:(double)arg2 roadSegmentIdGenerator:(CDUnknownBlockType)arg3 handler:(CDUnknownBlockType)arg4;
 - (struct PolylineCoordinate)_findRouteCoordinateWithOffset:(float)arg1 aPos:(const Matrix_8746f91e *)arg2 aCoord:(const struct PolylineCoordinate *)arg3 bCoord:(const struct PolylineCoordinate *)arg4 pointOnSegment:(const Matrix_8746f91e *)arg5 bounds:(const CDStruct_90e2a262 *)arg6;
 - (id)routeMatchAtDistance:(double)arg1 from:(id)arg2 stopAtEndOfTunnel:(_Bool)arg3 stopAtEndOfManeuver:(_Bool)arg4 date:(id)arg5;
 - (CDStruct_c3b9c2ee)locationAtDistance:(double)arg1 from:(id)arg2;
@@ -143,8 +146,7 @@
 @property(readonly, nonatomic) int routeType;
 - (id)zilchDataFromStepIndex:(unsigned long long)arg1;
 - (int)transportTypeForStep:(id)arg1;
-@property(readonly, nonatomic) NSArray *routeNames;
-- (CDStruct_2244da21 *)roadFeatureAtPointIndex:(unsigned int)arg1;
+- (CDStruct_a2ef2718 *)roadFeatureAtPointIndex:(unsigned int)arg1;
 - (double)approximateRoadWidthAtPointIndex:(unsigned int)arg1;
 - (int)formOfWayAt:(unsigned int)arg1;
 - (void)getFormOfWay:(int *)arg1 roadClass:(int *)arg2 at:(unsigned int)arg3;
@@ -167,6 +169,7 @@
 - (id)stepForPointIndex:(unsigned int)arg1;
 - (id)stepAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long stepsCount;
+- (struct PolylineCoordinate)closestPointOnRoute:(CDStruct_c3b9c2ee)arg1;
 - (double)stepDistanceFromPoint:(struct PolylineCoordinate)arg1 toPoint:(struct PolylineCoordinate)arg2;
 - (double)distanceFromPointIndex:(unsigned long long)arg1 toPointIndex:(unsigned long long)arg2;
 - (double)distanceFromPoint:(struct PolylineCoordinate)arg1 toPoint:(struct PolylineCoordinate)arg2;
@@ -180,24 +183,25 @@
 @property(readonly, nonatomic) void *controlPoints;
 @property(readonly, nonatomic) unsigned long long indexOfSuggestedRoute;
 @property(readonly, nonatomic) GEOTransitDecoderData *decoderData; // @synthesize decoderData=_decoderData;
-- (CDStruct_dc7a564b)maneuverDisplayEndpointsAtIndex:(unsigned long long)arg1;
-- (_Bool)_needsCornerOffsetAt:(unsigned int)arg1;
-- (void)updateManeuverDisplayEndpointsAtMetersPerPoint:(double)arg1 startOffsetInPoints:(double)arg2 endOffsetInPoints:(double)arg3 roadWidthInPoints:(double)arg4;
-- (void)updateManeuverDisplayEndpointsAtMetersPerPoint:(double)arg1;
 - (void)initializePointLengths;
 - (void)_initializeManeuverDisplaySteps;
 @property(readonly, nonatomic) NSArray *baseTransitFares;
 @property(readonly, nonatomic) unsigned long long numberOfTransitStops;
 @property(readonly, nonatomic) NSArray *routeDescriptions;
 @property(readonly, nonatomic) NSArray *advisoryNotices;
+- (id)enrouteNoticeWithIdentifier:(id)arg1;
+- (void)setEnrouteNotices:(id)arg1;
 - (void)setBoundingMapRegion:(id)arg1;
 - (void)setSections:(id)arg1;
 - (id)pointData;
 - (void)setPointData:(id)arg1;
 - (void)setSteps:(id)arg1;
+- (void)setComposedGuidanceEvents:(id)arg1;
 - (void)setLegs:(id)arg1;
 - (void)setUsesZilch:(_Bool)arg1;
 - (void)setIsWalkingOnlyTransitRoute:(_Bool)arg1;
+@property(readonly, nonatomic) GEOComposedWaypoint *destination; // @synthesize destination=_destination;
+@property(readonly, nonatomic) GEOComposedWaypoint *origin; // @synthesize origin=_origin;
 @property(readonly, nonatomic) NSData *directionsResponseID;
 @property(readonly, nonatomic) _Bool isNavigable;
 @property(readonly, nonatomic) GEOStyleAttributes *styleAttributes;
@@ -208,10 +212,12 @@
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (void)_populateArtworkForSuggestedRoute:(id)arg1 decoderData:(id)arg2;
+- (id)initWithSuggestedRoute:(id)arg1 decoderData:(id)arg2 origin:(id)arg3 destination:(id)arg4;
 - (id)initWithSuggestedRoute:(id)arg1 decoderData:(id)arg2;
+- (void)updateRouteWithOrigin:(id)arg1 destination:(id)arg2;
+- (id)initWithRoute:(id)arg1 origin:(id)arg2 destination:(id)arg3;
 - (id)initWithRoute:(id)arg1;
 - (id)initWithCompanionRoute:(id)arg1;
-- (id)firstDepartureTimeOfNextRouteStepAfterCurrentStep;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

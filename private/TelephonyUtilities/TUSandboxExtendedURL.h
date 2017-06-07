@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/NSSecureCoding-Protocol.h>
 
@@ -26,6 +26,9 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (unsigned long long)hash;
+- (_Bool)isEqualToSandboxExtendedURL:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)init;

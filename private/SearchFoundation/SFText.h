@@ -7,11 +7,13 @@
 #import <objc/NSObject.h>
 
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFText-Protocol.h>
 
-@class NSString;
+@class NSData, NSDictionary, NSString;
 
-@interface SFText : NSObject <NSSecureCoding>
+@interface SFText : NSObject <SFText, NSSecureCoding>
 {
+    CDStruct_6afdaceb _has;
     NSString *_text;
     unsigned long long _maxLines;
 }
@@ -19,13 +21,22 @@
 + (_Bool)supportsSecureCoding;
 + (id)textWithString:(id)arg1;
 @property(nonatomic) unsigned long long maxLines; // @synthesize maxLines=_maxLines;
-@property(copy, nonatomic) NSString *text; // @synthesize text=_text;
+@property(copy) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)description;
+- (_Bool)hasMaxLines;
 - (unsigned short)characterAtIndex:(unsigned long long)arg1;
 - (unsigned long long)length;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

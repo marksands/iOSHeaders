@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOSuggestionEntryList : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_localizedSectionHeader;
     NSMutableArray *_suggestionEntries;
 }
@@ -19,6 +20,8 @@
 + (Class)suggestionEntriesType;
 @property(retain, nonatomic) NSString *localizedSectionHeader; // @synthesize localizedSectionHeader=_localizedSectionHeader;
 @property(retain, nonatomic) NSMutableArray *suggestionEntries; // @synthesize suggestionEntries=_suggestionEntries;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +36,6 @@
 - (unsigned long long)suggestionEntriesCount;
 - (void)addSuggestionEntries:(id)arg1;
 - (void)clearSuggestionEntries;
-- (void)dealloc;
 
 @end
 

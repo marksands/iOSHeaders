@@ -13,6 +13,8 @@
 + (id)_searchGlyph;
 + (id)_clearGlyph;
 + (id)_tvmlKitBundle;
+- (void)setSemanticContentAttribute:(long long)arg1;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)_updateRightView;

@@ -6,15 +6,21 @@
 
 #import <objc/NSObject.h>
 
+#import <ITMLKit/IKNetworkRequestLoader-Protocol.h>
 #import <ITMLKit/RWIProtocolPageDomainHandler-Protocol.h>
 
-@class IKJSInspectorController, NSString;
+@class IKJSInspectorController, NSString, RWIProtocolPageFrameResourceTree;
 
-@interface IKJSInspectorPageAgent : NSObject <RWIProtocolPageDomainHandler>
+@interface IKJSInspectorPageAgent : NSObject <IKNetworkRequestLoader, RWIProtocolPageDomainHandler>
 {
     IKJSInspectorController *_controller;
+    RWIProtocolPageFrameResourceTree *_resourceTree;
+    NSString *_currentFrameIdentifier;
 }
 
++ (id)_pageFromDOMDocument:(id)arg1;
+@property(retain, nonatomic) NSString *currentFrameIdentifier; // @synthesize currentFrameIdentifier=_currentFrameIdentifier;
+@property(readonly, nonatomic) RWIProtocolPageFrameResourceTree *resourceTree; // @synthesize resourceTree=_resourceTree;
 @property(readonly, nonatomic) __weak IKJSInspectorController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
 - (void)archiveWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
@@ -37,6 +43,7 @@
 - (void)addScriptToEvaluateOnLoadWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 scriptSource:(id)arg3;
 - (void)disableWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
 - (void)enableWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
+- (void)documentDidChange;
 - (id)initWithInspectorController:(id)arg1;
 
 // Remaining properties

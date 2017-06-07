@@ -17,10 +17,12 @@
     _Bool spaceConfirmation;
     _Bool hardwareKeyboardMode;
     _Bool _hasAutocorrection;
+    _Bool _userSelectedCurrentCandidate;
     _Bool _showsCandidatesInLayout;
 }
 
 @property(nonatomic) _Bool showsCandidatesInLayout; // @synthesize showsCandidatesInLayout=_showsCandidatesInLayout;
+@property(nonatomic) _Bool userSelectedCurrentCandidate; // @synthesize userSelectedCurrentCandidate=_userSelectedCurrentCandidate;
 @property(nonatomic) _Bool hasAutocorrection; // @synthesize hasAutocorrection=_hasAutocorrection;
 @property(nonatomic) _Bool hardwareKeyboardMode; // @synthesize hardwareKeyboardMode;
 @property(nonatomic) _Bool spaceConfirmation; // @synthesize spaceConfirmation;

@@ -44,6 +44,7 @@
 - (NSData *)signingIdentityPersistentReference;
 - (oneway void)setGeneratesBulletins:(_Bool)arg1;
 - (_Bool)generatesBulletins;
+- (int)supportsUniqueServerId;
 - (int)supportsSmartForwardReply;
 - (int)supportsDraftFolderSync;
 - (int)supportsConversations;

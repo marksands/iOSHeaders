@@ -6,9 +6,10 @@
 
 #import <HealthDaemon/NSObject-Protocol.h>
 
-@class NSDate, NSError, _HKWorkoutEvent, _HKWorkoutSession;
+@class NSDate, NSDictionary, NSError, _HKWorkoutEvent, _HKWorkoutSession;
 
 @protocol _HKWorkoutSessionDelegate <NSObject>
+- (void)workoutSession:(_HKWorkoutSession *)arg1 didUpdateMetrics:(NSDictionary *)arg2;
 - (void)workoutSession:(_HKWorkoutSession *)arg1 didGenerateEvent:(_HKWorkoutEvent *)arg2;
 - (void)workoutSession:(_HKWorkoutSession *)arg1 didFailWithError:(NSError *)arg2;
 - (void)workoutSession:(_HKWorkoutSession *)arg1 didChangeToState:(long long)arg2 fromState:(long long)arg3 date:(NSDate *)arg4;

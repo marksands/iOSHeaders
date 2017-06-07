@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *messageTitle; // @synthesize messageTitle=_messageTitle;
 @property(nonatomic) __weak id <VSAutoAuthenticationViewModelDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)configureWithRequest:(id)arg1;
 - (void)didSelectManualSignInButton;
 - (id)init;
 

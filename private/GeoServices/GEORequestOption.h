@@ -23,6 +23,7 @@
 
 @property(retain, nonatomic) GEOFormattedString *name; // @synthesize name=_name;
 @property(nonatomic) int enumValue; // @synthesize enumValue=_enumValue;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,7 +35,6 @@
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool hasName;
 @property(nonatomic) _Bool hasEnumValue;
-- (void)dealloc;
 @property(readonly, nonatomic) id <GEOServerFormattedString> formattedName;
 @property(readonly, nonatomic) int value;
 

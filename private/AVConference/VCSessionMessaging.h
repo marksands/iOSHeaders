@@ -15,6 +15,8 @@ __attribute__((visibility("hidden")))
     unsigned int p2pID;
 }
 
+- (id)newDictionaryFromUnpackedMomentsMessage:(id)arg1;
+- (id)newPackedMessageFromMomentsDictionary:(id)arg1;
 - (id)newDictionaryFromUnpackedMessage:(id)arg1;
 - (id)newPackedMessageFromDictionary:(id)arg1;
 - (void)sendMessage:(id)arg1 withTopic:(id)arg2;

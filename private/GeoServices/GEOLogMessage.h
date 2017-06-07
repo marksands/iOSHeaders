@@ -12,11 +12,11 @@
 
 @interface GEOLogMessage : PBCodable <NSCopying>
 {
-    int _logMessageSubType;
+    unsigned int _groupRetryCount;
     int _logMessageType;
     NSMutableArray *_logMsgEvents;
     struct {
-        unsigned int logMessageSubType:1;
+        unsigned int groupRetryCount:1;
         unsigned int logMessageType:1;
     } _has;
 }
@@ -28,6 +28,7 @@
 + (id)acceptedLogMsgEvents;
 + (void)initializeAcceptedLogMsgEventTypes;
 @property(retain, nonatomic) NSMutableArray *logMsgEvents; // @synthesize logMsgEvents=_logMsgEvents;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -37,10 +38,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (int)StringAsLogMessageSubType:(id)arg1;
-- (id)logMessageSubTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasLogMessageSubType;
-@property(nonatomic) int logMessageSubType; // @synthesize logMessageSubType=_logMessageSubType;
 - (int)StringAsLogMessageType:(id)arg1;
 - (id)logMessageTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasLogMessageType;
@@ -49,7 +46,11 @@
 - (unsigned long long)logMsgEventsCount;
 - (void)addLogMsgEvent:(id)arg1;
 - (void)clearLogMsgEvents;
-- (void)dealloc;
+@property(nonatomic) _Bool hasGroupRetryCount;
+@property(nonatomic) unsigned int groupRetryCount;
+- (unsigned int)groupItemIdHash;
+- (long long)groupItemQueuedTime;
+- (unsigned int)groupItemCount;
 - (unsigned int)groupSequenceNumber;
 - (id)groupIdentifier;
 - (_Bool)acceptsLogMsgEventType:(int)arg1;

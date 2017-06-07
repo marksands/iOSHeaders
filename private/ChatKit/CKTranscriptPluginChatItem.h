@@ -6,7 +6,7 @@
 
 #import <ChatKit/CKMessagePartChatItem.h>
 
-@class IMTranscriptPluginChatItem, UIView, UIViewController;
+@class IMTranscriptPluginChatItem, NSString, UIView, UIViewController;
 @protocol CKTranscriptBalloonPluginController, CKTranscriptPluginView;
 
 @interface CKTranscriptPluginChatItem : CKMessagePartChatItem
@@ -30,10 +30,12 @@
 @property(readonly, nonatomic) _Bool wantsOutline;
 @property(readonly, nonatomic) _Bool wantsBalloonGradient;
 @property(readonly, nonatomic) _Bool isInteractive;
+- (id)dragItemProvider;
 - (struct UIEdgeInsets)contentInsets;
 - (id)loadTranscriptDrawerText;
 - (struct CGSize)loadSizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(out struct UIEdgeInsets *)arg2;
 - (void)pluginContentViewDidDisappear;
+- (void)pluginContentViewWillDisappear;
 - (void)pluginContentViewWillAppear;
 - (_Bool)wantsDrawerLayout;
 - (BOOL)transcriptOrientation;
@@ -45,13 +47,16 @@
 - (id)contact;
 - (id)sender;
 - (id)pasteboardItems;
+- (id)pluginDisplayContainer;
 - (id)message;
 - (_Bool)hasTail;
 - (id)menuTitle;
 - (_Bool)canForward;
 - (_Bool)canCopy;
+@property(readonly, nonatomic) NSString *bundleIdentifier;
 - (_Bool)handlePresentationAction;
 @property(readonly, nonatomic) UIViewController *contentViewController;
+@property(readonly, nonatomic) UIViewController *extensibleViewController;
 @property(readonly, nonatomic) UIView<CKTranscriptPluginView> *extensableView;
 - (id)initWithIMChatItem:(id)arg1 maxWidth:(double)arg2;
 - (id)composition;

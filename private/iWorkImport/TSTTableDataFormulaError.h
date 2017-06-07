@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataFormulaError : TSTTableDataObject
 {
-    TSWPStorage *mFormulaError;
+    TSWPStorage *_formulaError;
 }
 
-@property(readonly, nonatomic) TSWPStorage *formulaError; // @synthesize formulaError=mFormulaError;
-- (void)dealloc;
+@property(readonly, nonatomic) TSWPStorage *formulaError; // @synthesize formulaError=_formulaError;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

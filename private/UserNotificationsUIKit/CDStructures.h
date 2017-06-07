@@ -49,11 +49,28 @@ struct UIView {
     Class _field1;
 };
 
+struct _NSRange {
+    unsigned long long _field1;
+    unsigned long long _field2;
+};
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
     unsigned int significantUserInteraction:1;
     unsigned int didScroll:1;
     unsigned int didEndScrolling:1;
-} CDStruct_8a64f050;
+    unsigned int scrollViewDidScroll:1;
+    unsigned int scrollViewDidZoom:1;
+    unsigned int scrollViewWillBeginDragging:1;
+    unsigned int scrollViewWillEndDragging:1;
+    unsigned int scrollViewDidEndDragging:1;
+    unsigned int scrollViewWillBeginDecelerating:1;
+    unsigned int scrollViewDidEndDecelerating:1;
+    unsigned int scrollViewDidEndScrollingAnimation:1;
+    unsigned int scrollViewWillBeginZooming:1;
+    unsigned int scrollViewDidEndZooming:1;
+    unsigned int scrollViewShouldScrollToTop:1;
+    unsigned int scrollViewDidScrollToTop:1;
+} CDStruct_2eb613e6;
 

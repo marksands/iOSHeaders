@@ -16,6 +16,7 @@
 
 + (id)getSessionCertificateWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getSessionCertificate;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

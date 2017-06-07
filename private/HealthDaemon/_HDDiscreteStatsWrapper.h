@@ -12,6 +12,7 @@
 }
 
 - (id)description;
+- (void)incorporateStats:(const CDStruct_23c51cd0 *)arg1;
 - (id)initWithStats:(const CDStruct_23c51cd0 *)arg1;
 
 @end

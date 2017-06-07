@@ -6,41 +6,48 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPErrorFeedback-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 
 @class NSData, NSString;
 
-@interface _CPErrorFeedback : PBCodable <NSCopying>
+@interface _CPErrorFeedback : PBCodable <_CPProcessableFeedback, _CPErrorFeedback, NSSecureCoding>
 {
-    unsigned long long _timestamp;
-    int _code;
-    NSString *_domain;
-    NSString *_reason;
-    NSData *_userInfo;
     struct {
+        unsigned int timestamp:1;
         unsigned int code:1;
     } _has;
+    int _code;
+    unsigned long long _timestamp;
+    NSString *_reason;
+    NSString *_domain;
 }
 
-@property(retain, nonatomic) NSData *userInfo; // @synthesize userInfo=_userInfo;
-@property(retain, nonatomic) NSString *domain; // @synthesize domain=_domain;
+@property(copy, nonatomic) NSString *domain; // @synthesize domain=_domain;
 @property(nonatomic) int code; // @synthesize code=_code;
-@property(retain, nonatomic) NSString *reason; // @synthesize reason=_reason;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(copy, nonatomic) NSString *reason; // @synthesize reason=_reason;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(readonly, nonatomic) _Bool hasUserInfo;
 @property(readonly, nonatomic) _Bool hasDomain;
-@property(nonatomic) _Bool hasCode;
+@property(readonly, nonatomic) _Bool hasCode;
 @property(readonly, nonatomic) _Bool hasReason;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

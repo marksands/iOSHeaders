@@ -8,6 +8,7 @@
 
 @class NSURL, PDFDocument;
 
+__attribute__((visibility("hidden")))
 @interface PDFActionURLPrivateVars : NSObject
 {
     NSURL *url;

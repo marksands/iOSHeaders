@@ -51,6 +51,7 @@
     NSMutableDictionary *_calendarUserAddressesPerCalendar;
     NSURL *_preferredCalendarUserAddress;
     NSString *_preferredCalendarEmailAddress;
+    NSString *_preferredCalendarPhoneNumber;
     NSMutableSet *_addedCalendars;
     NSMutableSet *_modifiedCalendars;
     CalDAVRefreshContext *_refreshContext;
@@ -63,6 +64,7 @@
 @property(nonatomic) int calendarChangeIndex; // @synthesize calendarChangeIndex=_calendarChangeIndex;
 @property(retain, nonatomic) NSMutableSet *modifiedCalendars; // @synthesize modifiedCalendars=_modifiedCalendars;
 @property(retain, nonatomic) NSMutableSet *addedCalendars; // @synthesize addedCalendars=_addedCalendars;
+@property(retain, nonatomic) NSString *preferredCalendarPhoneNumber; // @synthesize preferredCalendarPhoneNumber=_preferredCalendarPhoneNumber;
 @property(retain, nonatomic) NSString *preferredCalendarEmailAddress; // @synthesize preferredCalendarEmailAddress=_preferredCalendarEmailAddress;
 @property(retain, nonatomic) NSURL *preferredCalendarUserAddress; // @synthesize preferredCalendarUserAddress=_preferredCalendarUserAddress;
 @property(retain, nonatomic) NSMutableDictionary *calendarUserAddressesPerCalendar; // @synthesize calendarUserAddressesPerCalendar=_calendarUserAddressesPerCalendar;

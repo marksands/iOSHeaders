@@ -51,7 +51,6 @@
 - (id)defaultHeaderViewTitle;
 - (void)scrollViewDidScroll:(id)arg1;
 - (void)scrollViewWillBeginDragging:(id)arg1;
-- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)dealloc;

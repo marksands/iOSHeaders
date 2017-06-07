@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSMutableDictionary;
+@class IMAccount, NSArray, NSMutableDictionary;
 
 @interface IMAccountController : NSObject
 {
@@ -88,6 +88,8 @@
 - (void)dealloc;
 - (id)init;
 - (void)autoLogin;
+@property(readonly, nonatomic) IMAccount *activeSMSAccount;
+@property(readonly, nonatomic) IMAccount *activeIMessageAccount;
 - (id)_bestOperationalAccountForSendingForService:(id)arg1;
 - (id)__iCloudSystemAccountForService:(id)arg1;
 - (id)_bestAccountForAddresses:(id)arg1;

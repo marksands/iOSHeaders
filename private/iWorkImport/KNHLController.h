@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)isExternalHyperlinkURL:(id)arg1;
 + (id)smartFieldForRep:(id)arg1 atUnscaledPoint:(struct CGPoint)arg2 outRep:(id *)arg3;
 + (_Bool)allowEditingOfDisplayText:(id)arg1;
-+ (int)hyperlinkTypeFromHyperlinkURL:(id)arg1;
++ (long long)hyperlinkTypeFromHyperlinkURL:(id)arg1;
 + (_Bool)URLContainsKeynoteSpecificHyperlink:(id)arg1;
 + (id)uniqueIdentifierFromHyperlinkURL:(id)arg1;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOPlannedDestination, GEORouteHypothesis, NSError, NSUUID;
 @protocol OS_dispatch_queue, OS_dispatch_source;
@@ -23,6 +23,7 @@
     NSObject<OS_dispatch_source> *_delayDispatchTimer;
 }
 
++ (void)didDismissUINotification:(unsigned long long)arg1 forPlannedDestination:(id)arg2 dismissalType:(unsigned long long)arg3;
 + (_Bool)transitTTLSupportedInCurrentCountry;
 + (id)hypothesizerForPlannedDestination:(id)arg1;
 @property(readonly, nonatomic) _Bool unableToFindRouteForOriginalTransportType; // @synthesize unableToFindRouteForOriginalTransportType=_unableToFindRouteForOriginalTransportType;
@@ -30,8 +31,10 @@
 @property(readonly, nonatomic) GEOPlannedDestination *plannedDestination; // @synthesize plannedDestination=_plannedDestination;
 @property(readonly, nonatomic) GEORouteHypothesis *currentHypothesis; // @synthesize currentHypothesis=_currentHypothesis;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
+- (void).cxx_destruct;
 - (id)description;
 - (void)dealloc;
+- (void)didDismissUINotification:(unsigned long long)arg1 dismissalType:(unsigned long long)arg2;
 - (void)didPostUINotification:(unsigned long long)arg1;
 - (void)onlyPerformLocalUpdates;
 - (void)stopHypothesizing;

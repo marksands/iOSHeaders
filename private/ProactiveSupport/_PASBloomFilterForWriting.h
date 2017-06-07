@@ -11,7 +11,7 @@
 }
 
 + (id)bloomFilterInMemoryWithNumberOfValuesN:(unsigned long long)arg1 errorRateP:(float)arg2;
-- (void)saveToFile:(id)arg1;
+- (_Bool)saveToFile:(id)arg1;
 - (void)setWithHashes:(id)arg1;
 
 @end

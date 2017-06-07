@@ -14,19 +14,21 @@ __attribute__((visibility("hidden")))
 @interface CKDPAssetUploadTokenRetrieveRequest : PBRequest <NSCopying>
 {
     NSMutableArray *_assets;
+    NSData *_authCopyRequest;
     NSData *_authPutRequest;
-    NSMutableArray *_authPutRequestHeaders;
+    NSMutableArray *_contentRequestHeaders;
     CKDPRecordFieldIdentifier *_field;
     CKDPRecordType *_type;
     NSMutableArray *_uploads;
 }
 
-+ (Class)authPutRequestHeadersType;
++ (Class)contentRequestHeadersType;
 + (Class)uploadsType;
 + (Class)assetsType;
 + (id)options;
+@property(retain, nonatomic) NSData *authCopyRequest; // @synthesize authCopyRequest=_authCopyRequest;
 @property(retain, nonatomic) NSData *authPutRequest; // @synthesize authPutRequest=_authPutRequest;
-@property(retain, nonatomic) NSMutableArray *authPutRequestHeaders; // @synthesize authPutRequestHeaders=_authPutRequestHeaders;
+@property(retain, nonatomic) NSMutableArray *contentRequestHeaders; // @synthesize contentRequestHeaders=_contentRequestHeaders;
 @property(retain, nonatomic) NSMutableArray *uploads; // @synthesize uploads=_uploads;
 @property(retain, nonatomic) NSMutableArray *assets; // @synthesize assets=_assets;
 @property(retain, nonatomic) CKDPRecordFieldIdentifier *field; // @synthesize field=_field;
@@ -43,11 +45,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAuthCopyRequest;
 @property(readonly, nonatomic) _Bool hasAuthPutRequest;
-- (id)authPutRequestHeadersAtIndex:(unsigned long long)arg1;
-- (unsigned long long)authPutRequestHeadersCount;
-- (void)addAuthPutRequestHeaders:(id)arg1;
-- (void)clearAuthPutRequestHeaders;
+- (id)contentRequestHeadersAtIndex:(unsigned long long)arg1;
+- (unsigned long long)contentRequestHeadersCount;
+- (void)addContentRequestHeaders:(id)arg1;
+- (void)clearContentRequestHeaders;
 - (id)uploadsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)uploadsCount;
 - (void)addUploads:(id)arg1;

@@ -14,16 +14,17 @@
 {
 }
 
+- (void)remote_stopObservingDataCollectionForType:(id)arg1;
+- (void)remote_observeDataCollectionForType:(id)arg1 interval:(double)arg2 inBackground:(_Bool)arg3 hasWorkout:(_Bool)arg4;
 - (void)remote_resetAWDTask:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_runAWDTask:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_setShouldIgnoreUnlockedState:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)remote_restoreEntitlement:(id)arg1;
-- (void)remote_dropEntitlement:(id)arg1;
+- (void)remote_restoreEntitlement:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)remote_dropEntitlement:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_select:(id)arg1 from:(id)arg2 where:(id)arg3 groupBy:(id)arg4 orderBy:(id)arg5 limit:(long long)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)remote_saveDataObjects:(id)arg1 sourceBundleIdentifier:(id)arg2 sourceVersion:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void)remote_fetchAllDevicesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_createFakeAppleSourceWithBundleIdentifier:(id)arg1 name:(id)arg2 productType:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)remote_createBluetoothSourceWithBundleIdentifier:(id)arg1 name:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_fetchDiagnosticsWithKeys:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_generateFakeDataForActivityType:(long long)arg1 minutes:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_stopFakingDataWithCompletion:(CDUnknownBlockType)arg1;

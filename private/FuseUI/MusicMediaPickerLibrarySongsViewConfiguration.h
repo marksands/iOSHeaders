@@ -8,13 +8,17 @@
 
 @interface MusicMediaPickerLibrarySongsViewConfiguration : MusicLibrarySongsViewConfiguration
 {
+    _Bool _isMultipleSelectionAllowed;
 }
 
+- (void)_multipleSelectionAllowanceDidChange:(id)arg1;
 - (id)previewViewControllerForEntityValueContext:(id)arg1 fromViewController:(id)arg2;
 - (_Bool)canPreviewEntityValueContext:(id)arg1;
 - (id)loadEntityViewDescriptor;
 - (void)handleSelectionOfAddButtonForEntityValueProvider:(id)arg1 inEntityProvider:(id)arg2 fromViewController:(id)arg3;
 - (long long)handleSelectionOfEntityValueContext:(id)arg1 fromViewController:(id)arg2;
+- (void)dealloc;
+- (id)initWithMultipleSelectionAllowed:(_Bool)arg1;
 - (id)init;
 
 @end

@@ -21,7 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)dealloc;
 
 @end
 

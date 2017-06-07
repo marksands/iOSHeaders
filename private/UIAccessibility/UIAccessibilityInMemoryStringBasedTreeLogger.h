@@ -18,11 +18,11 @@
     NSString *_descriptionKey;
 }
 
+- (void).cxx_destruct;
 - (void)pop;
 - (void)push;
 - (void)logElement:(id)arg1;
 - (id)stringRepresentation;
-- (void)dealloc;
 - (id)initWithPrefix:(id)arg1 elementDescriptionKey:(id)arg2;
 - (id)initWithElementDescriptionKey:(id)arg1;
 - (id)initWithPrefix:(id)arg1;

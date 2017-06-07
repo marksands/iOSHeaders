@@ -23,6 +23,7 @@
 }
 
 @property(retain, nonatomic) GEOPDViewportInfo *viewportInfo; // @synthesize viewportInfo=_viewportInfo;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -40,7 +41,6 @@
 - (id)sortOrderAsString:(int)arg1;
 @property(nonatomic) _Bool hasSortOrder;
 @property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
-- (void)dealloc;
 
 @end
 

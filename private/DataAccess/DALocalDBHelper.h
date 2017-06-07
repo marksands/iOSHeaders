@@ -20,7 +20,7 @@
     int _bookmarkConnectionCount;
     int _noteConnectionCount;
     void *_abDB;
-    struct CalDatabase *_calDB;
+    // Error parsing type: ^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}, name: _calDB
     NSString *_clientIdentifier;
     void *_bookmarkDB;
     NoteContext *_noteDB;
@@ -39,7 +39,9 @@
 @property(nonatomic) void *bookmarkDB; // @synthesize bookmarkDB=_bookmarkDB;
 @property(retain, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 @property(nonatomic) int calConnectionCount; // @synthesize calConnectionCount=_calConnectionCount;
-@property(nonatomic) struct CalDatabase *calDB; // @synthesize calDB=_calDB;
+// Error parsing type for property calDB:
+// Property attributes: T^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B},N,V_calDB
+
 @property(nonatomic) int abConnectionCount; // @synthesize abConnectionCount=_abConnectionCount;
 @property(nonatomic) void *abDB; // @synthesize abDB=_abDB;
 - (void).cxx_destruct;

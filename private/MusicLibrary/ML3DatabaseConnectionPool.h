@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @class NSMutableDictionary, NSString, NSUUID, _ML3DatabaseConnectionSubPool;
-@protocol ML3DatabaseConnectionPoolDelegate, OS_dispatch_queue, OS_dispatch_semaphore;
+@protocol ML3DatabaseConnectionPoolDelegate, OS_dispatch_queue;
 
 @interface ML3DatabaseConnectionPool : NSObject
 {
@@ -15,11 +15,17 @@
     _ML3DatabaseConnectionSubPool *_writersSubPool;
     NSMutableDictionary *_identifiersConnectionsMap;
     NSObject<OS_dispatch_queue> *_serialQueue;
-    NSObject<OS_dispatch_semaphore> *_lockedSemaphore;
     NSUUID *_poolStorageKey;
     int _connectionsProfilingLevel;
     _Bool _useDistantWriterConnections;
-    _Bool _waitingForUnlock;
+    struct _opaque_pthread_cond_t {
+        long long __sig;
+        char __opaque[40];
+    } _poolLockCondition;
+    struct _opaque_pthread_mutex_t {
+        long long __sig;
+        char __opaque[56];
+    } _poolLockMutex;
     _Bool _locked;
     NSString *_databasePath;
     id <ML3DatabaseConnectionPoolDelegate> _delegate;
@@ -39,6 +45,7 @@
 - (id)_localConnectionForThread:(id)arg1;
 - (void)_setConnection:(id)arg1 forIdentifier:(id)arg2;
 - (id)_connectionForIdentifier:(id)arg1;
+- (id)_generateDiagnostic;
 - (void)_closeAllConnectionsAndWaitForBusyConnections:(_Bool)arg1;
 - (void)unlock;
 - (void)lock;

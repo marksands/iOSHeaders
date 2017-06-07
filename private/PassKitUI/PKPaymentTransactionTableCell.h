@@ -6,7 +6,7 @@
 
 #import <PassKitUI/PKTableViewCell.h>
 
-@class NSString, UIColor, UILabel;
+@class CNAvatarViewController, NSString, UIColor, UILabel;
 
 @interface PKPaymentTransactionTableCell : PKTableViewCell
 {
@@ -15,6 +15,8 @@
     UILabel *_secondaryLabel;
     UILabel *_tertiaryLabel;
     UILabel *_transactionValueLabel;
+    _Bool _deviceSupports3DTouch;
+    _Bool _avatar3DTouchEnabled;
     UIColor *_primaryColor;
     UIColor *_secondaryColor;
     UIColor *_tertiaryColor;
@@ -23,6 +25,8 @@
     NSString *_secondaryString;
     NSString *_tertiaryString;
     NSString *_transactionValueString;
+    NSString *_transactionIdentifier;
+    CNAvatarViewController *_avatarViewController;
 }
 
 + (id)transactionValueLabelFont;
@@ -30,6 +34,8 @@
 + (id)secondaryLabelFont;
 + (id)primaryLabelFont;
 + (double)rowHeight;
+@property(retain, nonatomic) CNAvatarViewController *avatarViewController; // @synthesize avatarViewController=_avatarViewController;
+@property(retain, nonatomic) NSString *transactionIdentifier; // @synthesize transactionIdentifier=_transactionIdentifier;
 @property(retain, nonatomic) NSString *transactionValueString; // @synthesize transactionValueString=_transactionValueString;
 @property(retain, nonatomic) NSString *tertiaryString; // @synthesize tertiaryString=_tertiaryString;
 @property(retain, nonatomic) NSString *secondaryString; // @synthesize secondaryString=_secondaryString;
@@ -41,6 +47,8 @@
 - (void).cxx_destruct;
 - (void)prepareForReuse;
 - (void)layoutSubviews;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setEditing:(_Bool)arg1;
 - (id)defaultTransactionValueColor;
 - (id)defaultTertiaryColor;
 - (id)defaultSecondaryColor;

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)tintColor;
 - (id)colorForTouchFocusLayer;
 - (id)colorForTouchFocusLayerSelected;
 - (id)colorForKnobContentSelected;

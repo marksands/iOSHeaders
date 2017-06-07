@@ -27,7 +27,9 @@
 - (void)_tokenDidComplete:(id)arg1;
 - (void)performBlockWhenReadyToFetchSuggestions:(CDUnknownBlockType)arg1;
 - (void)performBlockWhenReadyToFetchRelated:(CDUnknownBlockType)arg1;
+- (id)tokenForLivePhotoVariations;
 - (id)tokenForCuratedFetch;
+- (id)_createToken;
 - (id)init;
 
 @end

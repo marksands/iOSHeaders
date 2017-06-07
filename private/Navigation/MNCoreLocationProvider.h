@@ -27,8 +27,10 @@ __attribute__((visibility("hidden")))
     NSBundle *_effectiveBundle;
     NSString *_effectiveBundleIdentifier;
     CDUnknownBlockType _authorizationRequestBlock;
+    _Bool _updatingLocations;
 }
 
+@property _Bool updatingLocations; // @synthesize updatingLocations=_updatingLocations;
 @property(nonatomic) __weak id <MNLocationProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(nonatomic) long long activityType;

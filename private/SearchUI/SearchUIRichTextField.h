@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchUI/SearchUIStackView.h>
+#import <TemplateKit/TLKStackView.h>
 
 #import <SearchUI/NUIContainerStackViewDelegate-Protocol.h>
 
-@class NSString, SFRichText, SearchUIContentAdvisoryView, SearchUIImageView, SearchUIStarView, SearchUIVibrantLabel;
+@class NSString, SFRichText, SearchUIContentAdvisoryView, SearchUIEmojiableVibrantLabel, SearchUIImageView, SearchUIStarView;
 
-@interface SearchUIRichTextField : SearchUIStackView <NUIContainerStackViewDelegate>
+@interface SearchUIRichTextField : TLKStackView <NUIContainerStackViewDelegate>
 {
     unsigned long long _style;
     SFRichText *_richText;
-    SearchUIVibrantLabel *_textLabel;
+    SearchUIEmojiableVibrantLabel *_textLabel;
     SearchUIContentAdvisoryView *_contentAdvisoryView;
     SearchUIStarView *_starRatingView;
     SearchUIImageView *_iconView;
@@ -24,7 +24,7 @@
 @property(retain) SearchUIImageView *iconView; // @synthesize iconView=_iconView;
 @property(retain) SearchUIStarView *starRatingView; // @synthesize starRatingView=_starRatingView;
 @property(retain) SearchUIContentAdvisoryView *contentAdvisoryView; // @synthesize contentAdvisoryView=_contentAdvisoryView;
-@property(retain) SearchUIVibrantLabel *textLabel; // @synthesize textLabel=_textLabel;
+@property(retain) SearchUIEmojiableVibrantLabel *textLabel; // @synthesize textLabel=_textLabel;
 @property(retain) SFRichText *richText; // @synthesize richText=_richText;
 @property unsigned long long style; // @synthesize style=_style;
 - (void).cxx_destruct;
@@ -33,6 +33,7 @@
 - (void)updateIcon:(id)arg1;
 - (void)updateContentRating:(id)arg1;
 - (void)updateStarViewWithRating:(double)arg1;
+- (void)setFont:(id)arg1;
 - (void)updateWithRichText:(id)arg1;
 - (id)initWithStyle:(unsigned long long)arg1;
 

@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLatLng;
+@class GEOLatLng, PBUnknownFields;
 
 @interface GEOLocation : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _course;
     double _courseAccuracy;
     double _heading;
@@ -25,6 +26,7 @@
     int _altitude;
     int _formOfWay;
     GEOLatLng *_latLng;
+    int _levelOrdinal;
     int _matchQuality;
     GEOLatLng *_rawCoordinate;
     int _referenceFrame;
@@ -46,6 +48,7 @@
         unsigned int verticalAccuracy:1;
         unsigned int altitude:1;
         unsigned int formOfWay:1;
+        unsigned int levelOrdinal:1;
         unsigned int matchQuality:1;
         unsigned int referenceFrame:1;
         unsigned int roadClass:1;
@@ -56,6 +59,7 @@
     } _has;
 }
 
+@property(nonatomic) int levelOrdinal; // @synthesize levelOrdinal=_levelOrdinal;
 @property(nonatomic) double course; // @synthesize course=_course;
 @property(nonatomic) double heading; // @synthesize heading=_heading;
 @property(nonatomic) double speed; // @synthesize speed=_speed;
@@ -64,6 +68,8 @@
 @property(nonatomic) int altitude; // @synthesize altitude=_altitude;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(retain, nonatomic) GEOLatLng *latLng; // @synthesize latLng=_latLng;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -73,6 +79,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasLevelOrdinal;
 @property(nonatomic) _Bool hasCourse;
 @property(nonatomic) _Bool hasHeading;
 @property(nonatomic) _Bool hasSpeed;
@@ -84,7 +91,6 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (void)dealloc;
 - (int)StringAsTransportType:(id)arg1;
 - (id)transportTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasTransportType;
@@ -121,8 +127,11 @@
 @property(nonatomic) double courseAccuracy;
 @property(readonly, nonatomic) _Bool hasAccurateCourse;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate;
+- (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1 floorOrdinal:(int)arg2;
 - (id)initWithGEOCoordinate:(CDStruct_c3b9c2ee)arg1;
+- (id)initWithLatitude:(double)arg1 longitude:(double)arg2 floorOrdinal:(int)arg3;
 - (id)initWithLatitude:(double)arg1 longitude:(double)arg2;
+- (id)initWithLocation:(id)arg1 floorOrdinal:(int)arg2;
 - (id)initWithLocation:(id)arg1;
 
 @end

@@ -8,7 +8,6 @@
 
 @protocol CNSchedulerProvider;
 
-__attribute__((visibility("hidden")))
 @interface _CNFlatMapObservable : CNObservable
 {
     CNObservable *_observable;

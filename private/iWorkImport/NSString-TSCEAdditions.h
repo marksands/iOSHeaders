@@ -8,7 +8,6 @@
 
 @interface NSString (TSCEAdditions)
 + (id)tsce_stringWithCellRange:(struct TSCERangeCoordinate)arg1 stickyBits:(unsigned char)arg2;
-+ (id)tsce_stringWithCellReference:(CDStruct_de21cb60)arg1 stickyBits:(unsigned char)arg2;
 + (id)tsce_stringWithCellID:(struct TSUCellCoord)arg1;
 + (id)tsce_stringWithCellID:(struct TSUCellCoord)arg1 stickyBits:(unsigned char)arg2;
 + (id)tsce_stringWithSignedCellID:(CDStruct_f2a491fb)arg1 stickyBits:(unsigned char)arg2;

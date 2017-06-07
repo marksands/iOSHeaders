@@ -26,10 +26,17 @@ __attribute__((visibility("hidden")))
 - (void)p_updateFileDescriptorLimit;
 - (unsigned long long)p_removeProvidersWithZeroInterest;
 - (void)p_didReceiveMemoryWarning:(id)arg1;
+- (void)flushProvidersToFreeMemoryIfNecessaryExcludingProvider:(id)arg1;
+- (unsigned long long)p_estimatedSizeOfAllProviders;
+- (unsigned long long)p_imageProviderMemoryThreshold;
 - (void)p_freeFileDescriptorsWithProviderCount:(unsigned long long)arg1;
 - (unsigned long long)p_providerLimitForFileDescriptorLimit:(unsigned long long)arg1;
+- (void)p_clearCacheForData:(id)arg1;
+- (void)didReplaceContentsOfData:(id)arg1;
 - (void)willCullData:(id)arg1;
 - (void)flushImageProviders;
+- (void)p_flushRandomImageProvidersExcludingProvider:(id)arg1;
+- (_Bool)p_rngSaysToFlush;
 - (void)willCloseDocumentContext:(id)arg1;
 - (void)removeInterestInProviderForData:(id)arg1;
 - (void)addInterestInProviderForData:(id)arg1;

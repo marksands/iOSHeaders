@@ -8,12 +8,11 @@
 
 #import <CameraUI/CAMNebulaDaemonTimelapseClientProtocol-Protocol.h>
 #import <CameraUI/CAMStillImageCaptureRequestDelegate-Protocol.h>
-#import <CameraUI/UIAlertViewDelegate-Protocol.h>
 
 @class CAMFocusResult, CAMLocationController, CAMMotionController, CAMNebulaDaemonProxyManager, CAMPersistenceController, CAMTimelapseState, CUCaptureController, NSCountedSet, NSDate, NSMutableSet, NSString;
 @protocol CAMTimelapseControllerDelegate, OS_dispatch_source;
 
-@interface CAMTimelapseController : NSObject <CAMStillImageCaptureRequestDelegate, UIAlertViewDelegate, CAMNebulaDaemonTimelapseClientProtocol>
+@interface CAMTimelapseController : NSObject <CAMStillImageCaptureRequestDelegate, CAMNebulaDaemonTimelapseClientProtocol>
 {
     _Bool __ignoringTimerCallbacksForTearDown;
     _Bool __ignoringTimerCallbacksWaitingForCaptureResponse;
@@ -78,7 +77,7 @@
 - (void)_teardownCaptureTimer;
 - (void)_startCaptureTimer;
 @property(readonly, nonatomic) NSDate *captureStartTime;
-- (void)_reserveDiskSpaceForTimelapseUUID:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)_reserveDiskSpaceForTimelapseUUID:(id)arg1 preferHEVC:(_Bool)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (void)_restoreCaptureStateFromDisk;
 - (void)_setNewCaptureStateForCaptureDevice:(long long)arg1 captureSession:(unsigned short)arg2;
 - (void)_stopCapturingWithReasons:(long long)arg1;

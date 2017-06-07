@@ -21,6 +21,7 @@
 @property __weak SearchUITableViewCell *cell; // @synthesize cell=_cell;
 @property(retain) UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
+- (_Bool)shouldTopAlignForAccessibilityContentSizes;
 - (void)buttonPressed;
 - (void)updateWithResult:(id)arg1;
 - (void)updateWithResult:(id)arg1 resultForFeedback:(id)arg2;

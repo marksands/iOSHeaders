@@ -7,6 +7,7 @@
 #import <Foundation/NSObject.h>
 
 @class SCRCTargetSelectorTimer;
+@protocol SCRCGestureFactoryCallback;
 
 @interface SCRCGestureFactory : NSObject
 {
@@ -50,13 +51,11 @@
     unsigned long long _tapCount;
     struct CGRect _tapFrame;
     struct CGRect _tapMultiFrame;
-    struct {
-        id track;
-        id tap;
-        id gutterUp;
-        id splitTap;
-        id canSplitTap;
-    } _delegate;
+    id <SCRCGestureFactoryCallback> _trackDelegate;
+    id <SCRCGestureFactoryCallback> _tapDelegate;
+    id <SCRCGestureFactoryCallback> _gutterUpDelegate;
+    id <SCRCGestureFactoryCallback> _splitTapDelegate;
+    id <SCRCGestureFactoryCallback> _canSplitTapDelegate;
     SCRCTargetSelectorTimer *_trackingTimer;
     struct {
         _Bool isFingerCurrentlyDown;
@@ -73,8 +72,8 @@
     } _tap;
     SCRCTargetSelectorTimer *_tapTimer;
     SCRCTargetSelectorTimer *_gutterUpTimer;
+    SCRCGestureFactory *_splitFactory;
     struct {
-        SCRCGestureFactory *factory;
         _Bool isSplitting;
         _Bool isTapping;
         _Bool fastTrack;
@@ -92,6 +91,7 @@
 }
 
 @property(nonatomic) _Bool thumbRejectionEnabled; // @synthesize thumbRejectionEnabled=_thumbRejectionEnabled;
+- (void).cxx_destruct;
 - (id)gestureStateString;
 - (double)tapInterval;
 - (struct CGPoint)tapPointWeightedToSides;
@@ -115,12 +115,12 @@
 - (int)direction;
 - (int)gestureState;
 - (double)directionalSlope;
-- (CDStruct_28ddac4e)captureCurrentState;
+- (CDStruct_ddbe7a84)captureCurrentState;
 - (void)reset;
 - (void)_up;
 - (void)_drag:(id)arg1;
 - (void)_down:(id)arg1;
-- (CDStruct_28ddac4e)handleGestureEvent:(id)arg1;
+- (CDStruct_ddbe7a84)handleGestureEvent:(id)arg1;
 - (_Bool)_handleSplitEvent:(id)arg1;
 - (_Bool)_handleSplitTap;
 - (void)_updateStartWithPoint:(struct CGPoint)arg1 time:(double)arg2;

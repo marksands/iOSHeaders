@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -14,6 +14,7 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (long long)availabilityForListenerID:(id)arg1 forService:(id)arg2;
 - (_Bool)removeListenerID:(id)arg1 forService:(id)arg2;
 - (_Bool)addListenerID:(id)arg1 forService:(id)arg2;

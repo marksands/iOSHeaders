@@ -8,19 +8,24 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOPDSource : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     int _resultProviderId;
     NSString *_sourceId;
     NSString *_version;
-    CDStruct_08086d5c _has;
+    struct {
+        unsigned int resultProviderId:1;
+    } _has;
 }
 
 @property(retain, nonatomic) NSString *version; // @synthesize version=_version;
 @property(retain, nonatomic) NSString *sourceId; // @synthesize sourceId=_sourceId;
 @property(nonatomic) int resultProviderId; // @synthesize resultProviderId=_resultProviderId;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +38,6 @@
 @property(readonly, nonatomic) _Bool hasVersion;
 @property(readonly, nonatomic) _Bool hasSourceId;
 @property(nonatomic) _Bool hasResultProviderId;
-- (void)dealloc;
 
 @end
 

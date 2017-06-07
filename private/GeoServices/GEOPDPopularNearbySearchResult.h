@@ -22,6 +22,7 @@
 @property(nonatomic) _Bool isChainResultSet; // @synthesize isChainResultSet=_isChainResultSet;
 @property(retain, nonatomic) NSString *sectionHeader; // @synthesize sectionHeader=_sectionHeader;
 @property(retain, nonatomic) GEOMapRegion *displayMapRegion; // @synthesize displayMapRegion=_displayMapRegion;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -35,7 +36,6 @@
 @property(nonatomic) _Bool hasIsChainResultSet;
 @property(readonly, nonatomic) _Bool hasSectionHeader;
 @property(readonly, nonatomic) _Bool hasDisplayMapRegion;
-- (void)dealloc;
 
 @end
 

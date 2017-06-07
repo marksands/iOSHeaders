@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UserNotificationsUIKit/NCLookView-Protocol.h>
+#import <UserNotificationsUIKit/MTPlatter-Protocol.h>
+#import <UserNotificationsUIKit/MTTitled-Protocol.h>
 
 @class UIScrollView, UITapGestureRecognizer;
 
-@protocol NCCustomContentContainingLookView <NCLookView>
+@protocol NCCustomContentContainingLookView <MTPlatter, MTTitled>
 @property(readonly, nonatomic) UITapGestureRecognizer *lookViewTapGestureRecognizer;
 @property(nonatomic, getter=isActionsHidden) _Bool actionsHidden;
 @property(readonly, nonatomic, getter=_scrollView) UIScrollView *scrollView;

@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/BBRemoteDataProvider-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
 @class BBDataProviderProxy, HMDHomeManager, NSMutableDictionary, NSString;
 
-@interface HMDBulletinProvider : NSObject <NSSecureCoding, BBRemoteDataProvider>
+@interface HMDBulletinProvider : HMFObject <NSSecureCoding, BBRemoteDataProvider>
 {
     BBDataProviderProxy *_proxy;
     NSMutableDictionary *_bulletins;

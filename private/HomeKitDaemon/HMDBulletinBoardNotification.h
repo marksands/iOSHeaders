@@ -4,19 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDBulletinBoardNotificationServiceGroup, HMDService, HMFMessageDispatcher, NSString, NSUUID;
+@class HMDBulletinBoardNotificationServiceGroup, HMDService, HMFMessageDispatcher, NSObject, NSPredicate, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDBulletinBoardNotification : NSObject <NSSecureCoding, HMFMessageReceiver, HMFLogging, HMFDumpState>
+@interface HMDBulletinBoardNotification : HMFObject <NSSecureCoding, HMFMessageReceiver, HMFLogging, HMFDumpState>
 {
     _Bool _enabled;
+    NSPredicate *_condition;
     HMDBulletinBoardNotificationServiceGroup *_notificationServiceGroup;
     NSUUID *_targetUUID;
     HMDService *_service;
@@ -32,6 +33,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) __weak HMDService *service; // @synthesize service=_service;
+@property(retain, nonatomic) NSPredicate *condition; // @synthesize condition=_condition;
 - (void).cxx_destruct;
 - (id)dumpState;
 @property(retain, nonatomic) HMDBulletinBoardNotificationServiceGroup *notificationServiceGroup; // @synthesize notificationServiceGroup=_notificationServiceGroup;

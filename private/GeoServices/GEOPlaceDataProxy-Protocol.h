@@ -6,7 +6,7 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOMapServiceTraits, GEOPDPlace, GEOPDPlaceRequest, NSArray, NSData, NSDictionary;
+@class GEOApplicationAuditToken, GEOMapItemIdentifier, GEOMapServiceTraits, GEOPDPlace, GEOPDPlaceRequest, NSArray, NSDictionary;
 
 @protocol GEOPlaceDataProxy <NSObject>
 - (void)clearCache;
@@ -14,11 +14,11 @@
 - (void)shrinkBySize:(unsigned long long)arg1 finished:(void (^)(unsigned long long))arg2;
 - (void)calculateFreeableSpaceWithHandler:(void (^)(unsigned long long))arg1;
 - (void)cancelRequest:(GEOPDPlaceRequest *)arg1;
-- (void)performPlaceDataRequest:(GEOPDPlaceRequest *)arg1 traits:(GEOMapServiceTraits *)arg2 timeout:(double)arg3 auditToken:(NSData *)arg4 networkActivity:(void (^)(_Bool))arg5 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg6;
+- (void)performPlaceDataRequest:(GEOPDPlaceRequest *)arg1 traits:(GEOMapServiceTraits *)arg2 cachePolicy:(unsigned long long)arg3 timeout:(double)arg4 auditToken:(GEOApplicationAuditToken *)arg5 networkActivity:(void (^)(_Bool))arg6 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg7;
 - (void)trackPlaceData:(GEOPDPlace *)arg1;
 - (void)fetchAllCacheEntriesWithRequesterHandler:(void (^)(NSDictionary *, NSError *))arg1;
-- (void)requestPhoneNumbers:(NSArray *)arg1 allowCellularDataForLookup:(_Bool)arg2 traits:(GEOMapServiceTraits *)arg3 auditToken:(NSData *)arg4 requesterHandler:(void (^)(NSArray *, NSError *, _Bool))arg5;
-- (void)requestComponentsFromNetwork:(NSDictionary *)arg1 muid:(unsigned long long)arg2 resultProviderID:(int)arg3 traits:(GEOMapServiceTraits *)arg4 auditToken:(NSData *)arg5 requesterHandler:(void (^)(NSArray *, NSError *, _Bool))arg6;
-- (void)requestMUIDs:(NSArray *)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(GEOMapServiceTraits *)arg4 options:(unsigned long long)arg5 auditToken:(NSData *)arg6 requesterHandler:(void (^)(NSArray *, NSError *, _Bool))arg7;
+- (void)requestPhoneNumbers:(NSArray *)arg1 allowCellularDataForLookup:(_Bool)arg2 traits:(GEOMapServiceTraits *)arg3 auditToken:(GEOApplicationAuditToken *)arg4 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg5;
+- (void)requestComponentsFromNetwork:(NSDictionary *)arg1 identifier:(GEOMapItemIdentifier *)arg2 resultProviderID:(int)arg3 traits:(GEOMapServiceTraits *)arg4 auditToken:(GEOApplicationAuditToken *)arg5 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg6;
+- (void)requestIdentifiers:(NSArray *)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(GEOMapServiceTraits *)arg4 options:(unsigned long long)arg5 auditToken:(GEOApplicationAuditToken *)arg6 requesterHandler:(void (^)(GEOPDPlaceResponse *, NSError *, NSDictionary *))arg7;
 @end
 

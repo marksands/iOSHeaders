@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSNumber, NSString;
 
-@interface HMDCharacteristicMetadata : NSObject <NSSecureCoding, HMFDumpState>
+@interface HMDCharacteristicMetadata : HMFObject <NSSecureCoding, HMFDumpState>
 {
     NSNumber *_minimumValue;
     NSNumber *_maximumValue;
@@ -36,11 +36,12 @@
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)getMetadataDictionary;
 - (id)_descriptionDetails;
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
 - (id)initWithCharacteristicMetadata:(id)arg1;
-- (void)configureWithCharacteristicMetadata:(id)arg1;
+- (_Bool)configureWithCharacteristicMetadata:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

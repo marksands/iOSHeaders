@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
+#import <PassKitCore/PKCloudStoreCoding-Protocol.h>
 
-@class CLLocation, NSString, NSURL;
+@class CLLocation, CNPostalAddress, NSString, NSURL;
 
-@interface PKMerchant : NSObject <NSSecureCoding>
+@interface PKMerchant : NSObject <NSSecureCoding, PKCloudStoreCoding>
 {
     int _resultProviderIdentifier;
     NSString *_displayName;
@@ -24,9 +25,11 @@
     NSURL *_url;
     double _locationLatitude;
     double _locationLongitude;
+    CNPostalAddress *_postalAddress;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) CNPostalAddress *postalAddress; // @synthesize postalAddress=_postalAddress;
 @property(nonatomic) double locationLongitude; // @synthesize locationLongitude=_locationLongitude;
 @property(nonatomic) double locationLatitude; // @synthesize locationLatitude=_locationLatitude;
 @property(copy, nonatomic, setter=setURL:) NSURL *url; // @synthesize url=_url;
@@ -39,6 +42,7 @@
 @property(nonatomic) int resultProviderIdentifier; // @synthesize resultProviderIdentifier=_resultProviderIdentifier;
 @property(nonatomic) unsigned long long mapsIdentifier; // @synthesize mapsIdentifier=_mapsIdentifier;
 - (void).cxx_destruct;
+- (id)_jsonEncodedPostalAddressString;
 - (void)_regenerateDisplayName;
 @property(readonly, nonatomic) _Bool isValid;
 @property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
@@ -47,6 +51,9 @@
 - (_Bool)isEqualToMerchant:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)recordName;
+- (void)encodeWithCloudStoreCoder:(id)arg1;
+- (id)initWithCloudStoreCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

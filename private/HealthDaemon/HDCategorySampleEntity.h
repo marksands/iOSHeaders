@@ -15,7 +15,7 @@
 + (id)codableObjectsFromObjectCollection:(id)arg1;
 + (id)insertDataObject:(id)arg1 withProvenance:(id)arg2 inDatabase:(id)arg3 persistentID:(id)arg4 error:(id *)arg5;
 + (id)columnsDefinition;
-+ (id)_databaseTable;
++ (id)databaseTable;
 
 @end
 

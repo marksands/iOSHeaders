@@ -68,6 +68,7 @@
 - (long long)_baseWritingDirection;
 - (void)_doBidiProcessing;
 - (void)dealloc;
+- (id)init;
 
 @end
 

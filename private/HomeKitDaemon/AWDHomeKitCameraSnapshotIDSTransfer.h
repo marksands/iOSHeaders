@@ -10,16 +10,16 @@
 
 @interface AWDHomeKitCameraSnapshotIDSTransfer : PBCodable <NSCopying>
 {
-    unsigned long long _receivedImage;
-    unsigned long long _sentImage;
+    unsigned int _receivedImage;
+    unsigned int _sentImage;
     struct {
         unsigned int receivedImage:1;
         unsigned int sentImage:1;
     } _has;
 }
 
-@property(nonatomic) unsigned long long receivedImage; // @synthesize receivedImage=_receivedImage;
-@property(nonatomic) unsigned long long sentImage; // @synthesize sentImage=_sentImage;
+@property(nonatomic) unsigned int receivedImage; // @synthesize receivedImage=_receivedImage;
+@property(nonatomic) unsigned int sentImage; // @synthesize sentImage=_sentImage;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

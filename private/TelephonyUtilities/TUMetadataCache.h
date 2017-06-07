@@ -4,19 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray;
 @protocol OS_dispatch_queue;
 
 @interface TUMetadataCache : NSObject
 {
-    NSObject<OS_dispatch_queue> *_cache_queue;
     NSArray *_providers;
+    NSObject<OS_dispatch_queue> *_cache_queue;
 }
 
-@property(retain, nonatomic) NSArray *providers; // @synthesize providers=_providers;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *cache_queue; // @synthesize cache_queue=_cache_queue;
+@property(readonly, nonatomic) NSArray *providers; // @synthesize providers=_providers;
 - (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEmpty;

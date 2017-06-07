@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *trafficIncidents; // @synthesize trafficIncidents=_trafficIncidents;
 @property(retain, nonatomic) NSMutableArray *trafficSegments; // @synthesize trafficSegments=_trafficSegments;
 @property(retain, nonatomic) NSData *vertices; // @synthesize vertices=_vertices;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -41,7 +42,6 @@ __attribute__((visibility("hidden")))
 - (void)addTrafficSegment:(id)arg1;
 - (void)clearTrafficSegments;
 @property(readonly, nonatomic) _Bool hasVertices;
-- (void)dealloc;
 - (CDStruct_912cb5d2 *)createUnpackedVerticesWithGutterSize:(long long)arg1;
 
 @end

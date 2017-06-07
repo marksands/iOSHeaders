@@ -10,10 +10,10 @@
 
 @protocol CAMIrisRequest <NSObject>
 - (_Bool)shouldPersistToLivePhotoDirectory;
-- (_Bool)isOriginalLocalVideoDestinationURL:(NSURL *)arg1;
-- (NSURL *)irisLocalVideoDestinationURLForOriginal:(_Bool)arg1;
-- (NSString *)irisVideoPersistenceUUIDForOriginal:(_Bool)arg1;
-- (NSString *)irisStillImagePersistenceUUIDForOriginal:(_Bool)arg1;
-- (NSString *)irisIdentifierForOriginal:(_Bool)arg1;
+- (_Bool)isEV0LocalVideoDestinationURL:(NSURL *)arg1;
+- (NSURL *)irisLocalVideoDestinationURLForEV0:(_Bool)arg1;
+- (NSString *)irisVideoPersistenceUUIDForEV0:(_Bool)arg1;
+- (NSString *)irisStillImagePersistenceUUIDForEV0:(_Bool)arg1;
+- (NSString *)irisIdentifierForEV0:(_Bool)arg1;
 @end
 

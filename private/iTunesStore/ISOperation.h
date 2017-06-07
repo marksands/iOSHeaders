@@ -24,7 +24,6 @@
     _Bool _shouldRunWithBackgroundPriority;
     _Bool _stopped;
     _Bool _success;
-    id _threadSafeDelegate;
 }
 
 @property _Bool success; // @synthesize success=_success;
@@ -50,12 +49,12 @@
 - (void)releasePowerAssertionsDuringBlock:(CDUnknownBlockType)arg1;
 - (void)lock;
 - (void)dispatchCompletionBlock;
+- (void)delegateDispatch:(CDUnknownBlockType)arg1;
 - (id)copySerializationLocks;
 - (id)copyActivePowerAssertionIdentifiers;
 - (void)main;
 - (void)cancel;
 @property(readonly) NSString *uniqueKey;
-@property(readonly) id threadSafeDelegate;
 @property _Bool shouldMessageMainThread;
 - (_Bool)shouldFailAfterUniquePredecessorError:(id)arg1;
 @property __weak id <ISOperationDelegate> delegate;

@@ -8,22 +8,17 @@
 
 #import <SiriCore/AFSpeechServiceDelegate-Protocol.h>
 
-@class NSArray, NSError, NSString, NSXPCConnection, SiriCoreLocalSpeechDESRecord;
+@class NSError, NSString, NSXPCConnection, SiriCoreLocalSpeechDESRecord;
 @protocol OS_dispatch_queue, SiriCoreLocalSpeechRecognizerDelegate;
 
 @interface SiriCoreLocalSpeechRecognizer : NSObject <AFSpeechServiceDelegate>
 {
     SiriCoreLocalSpeechDESRecord *_desRecord;
+    _Bool _shouldCreateRecordSPIv1;
+    _Bool _shouldCreateRecordSPIv2;
     _Bool _recognitionActive;
     NSObject<OS_dispatch_queue> *_queue;
     NSXPCConnection *_esConnection;
-    NSArray *_serverPhrases;
-    NSArray *_serverUtterances;
-    NSString *_refId;
-    NSArray *_localPhrases;
-    NSArray *_localUtterances;
-    _Bool _hasReceivedServerSpeechRecognized;
-    _Bool _hasReceivedLocalSpeechRecognized;
     _Bool _hasRecognizedAnything;
     unsigned char _instanceUUID[16];
     NSString *_currentLanguage;
@@ -34,10 +29,11 @@
 + (id)speechProfileDataLastModifiedDataForLanguage:(id)arg1;
 @property(readonly, nonatomic) __weak id <SiriCoreLocalSpeechRecognizerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_readProfileAndUserDataWithLanguage:(id)arg1 allowOverride:(_Bool)arg2 tryLastDESRecipe:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_readProfileAndUserDataWithLanguage:(id)arg1 allowOverride:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (oneway void)speechServiceDidFinishRecognitionWithError:(id)arg1;
 - (void)_writeDESRecord;
 - (oneway void)speechServiceDidRecognizePackage:(id)arg1;
+- (oneway void)speechServiceDidRecognizeRawEagerRecognitionCandidate:(id)arg1;
 - (oneway void)speechServiceDidProcessAudioDuration:(double)arg1;
 - (oneway void)speechServiceDidRecognizeTokens:(id)arg1;
 - (void)writeDESRecord;
@@ -46,15 +42,12 @@
 - (void)addAudioPacket:(id)arg1;
 - (void)fetchAssetsForLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)disableDESWithCompletion:(CDUnknownBlockType)arg1;
-- (void)runAdaptationRecipeEvaluation:(id)arg1 localSpeechDESRecord:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)runAdaptationRecipeEvaluation:(id)arg1 localSpeechDESRecord:(id)arg2 attachments:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)getOfflineDictationStatusWithCompletion:(CDUnknownBlockType)arg1;
-- (void)updateSpeechProfileWithLanguage:(id)arg1 userData:(id)arg2 localSpeechDESRecord:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)updateSpeechProfileWithLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)updateSpeechProfileWithLanguage:(id)arg1 userData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)createSpeechProfileWithLanguage:(id)arg1 JSONData:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)startSpeechRecognitionWithLanguage:(id)arg1 task:(id)arg2 context:(id)arg3 narrowband:(_Bool)arg4 detectUtterances:(_Bool)arg5 maximumRecognitionDuration:(double)arg6 secureOfflineOnly:(_Bool)arg7 censorSpeech:(_Bool)arg8 originalAudioFileURL:(id)arg9 didStartHandler:(CDUnknownBlockType)arg10;
-- (void)_combineResultsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)combineWithLocalPhrases:(id)arg1 utterances:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)combineWithServerPhrases:(id)arg1 utterances:(id)arg2 refId:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_resetCombiner;
+- (void)startSpeechRecognitionWithLanguage:(id)arg1 task:(id)arg2 context:(id)arg3 narrowband:(_Bool)arg4 detectUtterances:(_Bool)arg5 maximumRecognitionDuration:(double)arg6 secureOfflineOnly:(_Bool)arg7 censorSpeech:(_Bool)arg8 originalAudioFileURL:(id)arg9 overrides:(id)arg10 modelOverrideURL:(id)arg11 didStartHandler:(CDUnknownBlockType)arg12;
 - (id)_serviceWithFunctionName:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (id)_service;
 - (id)_connection;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CAMPanoramaCaptureRequest;
+@class CAMPanoramaCaptureRequest, NSMutableDictionary;
 @protocol CAMPanoramaProcessorDelegate;
 
 @interface CAMPanoramaProcessor : NSObject
@@ -14,23 +14,27 @@
     _Bool _capturingPanorama;
     id <CAMPanoramaProcessorDelegate> _delegate;
     CAMPanoramaCaptureRequest *_request;
+    long long _photoEncodingBehavior;
     long long _direction;
+    NSMutableDictionary *__initialMetadataByRequestUUID;
     struct CGSize _previewSize;
 }
 
+@property(readonly, nonatomic) NSMutableDictionary *_initialMetadataByRequestUUID; // @synthesize _initialMetadataByRequestUUID=__initialMetadataByRequestUUID;
 @property(nonatomic, getter=isCapturingPanorama, setter=_setCapturingPanorama:) _Bool capturingPanorama; // @synthesize capturingPanorama=_capturingPanorama;
 @property(nonatomic) long long direction; // @synthesize direction=_direction;
 @property(readonly, nonatomic) struct CGSize previewSize; // @synthesize previewSize=_previewSize;
+@property(readonly, nonatomic) long long photoEncodingBehavior; // @synthesize photoEncodingBehavior=_photoEncodingBehavior;
 @property(retain, nonatomic, setter=_setRequest:) CAMPanoramaCaptureRequest *request; // @synthesize request=_request;
 @property(readonly, nonatomic) __weak id <CAMPanoramaProcessorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)invalidate;
 - (void)processSampleBuffer:(struct opaqueCMSampleBuffer *)arg1;
-- (void)processPanoramaCaptureWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)processPanoramaCaptureWithRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)stopPanoramaCapture;
 - (void)startPanoramaCaptureWithRequest:(id)arg1;
 - (void)dealloc;
-- (id)initWithDelegate:(id)arg1;
+- (id)initWithDelegate:(id)arg1 encodingBehavior:(long long)arg2;
 
 @end
 

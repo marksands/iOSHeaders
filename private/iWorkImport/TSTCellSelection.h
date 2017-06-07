@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct _NSRange range;
 - (_Bool)intersectsPartialMergeRangeInTable:(id)arg1;
 @property(readonly, copy) NSString *description;
+- (_Bool)canEditWithStockCellSubselectionInTable:(id)arg1;
 - (_Bool)canEditWithControlCellSubselectionInTable:(id)arg1;
 - (_Bool)canEditWithCellSubselectionInTable:(id)arg1;
 - (_Bool)containsSingleCellOrMergeInTable:(id)arg1;
@@ -62,7 +63,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithTableModel:(id)arg1 columnIndices:(id)arg2;
 - (id)initWithTableModel:(id)arg1 rowIndices:(id)arg2;
 - (id)initWithTableModel:(id)arg1 cellRegion:(id)arg2;
-- (id)initWithTableModel:(id)arg1 andPreviousSelection:(id)arg2 offsetBy:(CDStruct_1ef3fb1f)arg3;
+- (id)initWithTableModel:(id)arg1 andPreviousSelection:(id)arg2 offsetBy:(CDStruct_945081a1)arg3;
 - (id)initWithTableModel:(id)arg1 rowOrColumn:(long long)arg2 index:(unsigned int)arg3 count:(unsigned int)arg4;
 - (id)initWithTableModel:(id)arg1 startingColumnIndex:(unsigned short)arg2 numberOfColumns:(unsigned short)arg3;
 - (id)initWithTableModel:(id)arg1 startingRowIndex:(unsigned short)arg2 numberOfRows:(unsigned short)arg3;

@@ -7,8 +7,14 @@
 #import <Foundation/NSDictionary.h>
 
 @interface NSDictionary (SFExtras)
+- (id)sf_asSuggestionCardSection:(id)arg1;
+- (id)sf_asFlightCardSection:(id)arg1;
+- (id)sf_asWebCardSection:(id)arg1;
 - (id)sf_asStockChartCardSection:(id)arg1;
 - (id)sf_asTextColumnsCardSection:(id)arg1;
+- (id)sf_asDetailedRowCardSection:(id)arg1;
+- (id)sf_asColor:(id)arg1;
+- (id)sf_asButton:(id)arg1;
 - (id)sf_asTableRowCardSection:(id)arg1;
 - (id)sf_asTableAlignmentSchema;
 - (id)sf_asKeyValueDataCardSection:(id)arg1;
@@ -30,13 +36,16 @@
 - (id)sf_asRichTitleCardSection:(id)arg1;
 - (id)sf_asRowCardSection:(id)arg1;
 - (void)sf_baseCardSection:(id)arg1 reply:(id)arg2;
+- (id)sf_asFlight;
+- (id)sf_asAirport;
 - (id)sf_asActionItem:(id)arg1;
 - (id)sf_asPunchout;
 - (id)sf_asPunchout:(id)arg1;
 - (id)sf_asRichText:(id)arg1;
 - (id)sf_asFormattedText:(id)arg1;
-- (unsigned long long)sf_textColorForKey:(id)arg1;
+- (int)sf_textColorForKey:(id)arg1;
 - (id)sf_imageForKey:(id)arg1 reply:(id)arg2;
 - (id)sf_asImage:(id)arg1;
+- (id)sf_asSearchResult:(id)arg1 factory:(id)arg2;
 @end
 

@@ -16,16 +16,16 @@
 
 @property(nonatomic) _Bool forceNoCache; // @synthesize forceNoCache=_forceNoCache;
 @property(retain, nonatomic) id appSpecificDataItemResult; // @synthesize appSpecificDataItemResult=_appSpecificDataItemResult;
+- (void).cxx_destruct;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;
 - (unsigned long long)cachePolicy;
 - (id)httpMethod;
 - (id)description;
-- (void)dealloc;
 
 // Remaining properties
-@property(nonatomic) id <CoreDAVTaskDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <CoreDAVTaskDelegate> delegate; // @dynamic delegate;
 
 @end
 

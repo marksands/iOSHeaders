@@ -13,6 +13,7 @@
 + (id)informantDependenciesIdentifiers;
 + (id)classIdentifier;
 + (id)familyIdentifier;
+- (double)_confidenceForCount:(unsigned long long)arg1 mu:(double)arg2 sigma:(double)arg3;
 - (id)gatherCluesOperationForInvestigation:(id)arg1;
 - (id)init;
 

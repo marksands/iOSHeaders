@@ -15,6 +15,7 @@
 + (id)settingsControllerModule;
 @property(nonatomic) _Bool flipLayoutsHorizontally; // @synthesize flipLayoutsHorizontally=_flipLayoutsHorizontally;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

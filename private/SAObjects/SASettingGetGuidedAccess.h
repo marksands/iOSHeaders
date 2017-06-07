@@ -12,6 +12,7 @@
 
 + (id)getGuidedAccessWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getGuidedAccess;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;

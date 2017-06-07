@@ -13,6 +13,7 @@
 
 + (_Bool)_isSecure;
 @property(nonatomic) _Bool isHandlingFullScreenPresentation; // @synthesize isHandlingFullScreenPresentation=_isHandlingFullScreenPresentation;
+- (id)description;
 - (id)accessibilityLabel;
 - (id)_accessibilityElementCommunityIdentifier;
 - (_Bool)_accessibilityIsIsolatedWindow;

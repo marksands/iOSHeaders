@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFNetMonitorDelegate-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegate-Protocol.h>
 
-@class HMDAccountRegistry, HMFNetMonitor, HMFTimer, IDSService, NSArray, NSMapTable, NSString;
+@class HMDAccountRegistry, HMFNetMonitor, HMFTimer, IDSService, NSArray, NSMapTable, NSObject, NSString;
 @protocol HMDRemoteDeviceMonitorDelegate, OS_dispatch_queue;
 
-@interface HMDRemoteDeviceMonitor : NSObject <HMFLogging, HMFNetMonitorDelegate, HMFTimerDelegate, IDSServiceDelegate>
+@interface HMDRemoteDeviceMonitor : HMFObject <HMFLogging, HMFNetMonitorDelegate, HMFTimerDelegate, IDSServiceDelegate>
 {
     NSMapTable *_devices;
     _Bool _reachable;

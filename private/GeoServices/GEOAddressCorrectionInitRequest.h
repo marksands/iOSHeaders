@@ -23,6 +23,7 @@
 @property(nonatomic) _Bool supportsMultipleAddresses; // @synthesize supportsMultipleAddresses=_supportsMultipleAddresses;
 @property(retain, nonatomic) NSString *personID; // @synthesize personID=_personID;
 @property(retain, nonatomic) NSString *token; // @synthesize token=_token;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -37,7 +38,6 @@
 @property(nonatomic) _Bool hasSupportsMultipleAddresses;
 @property(readonly, nonatomic) _Bool hasPersonID;
 @property(readonly, nonatomic) _Bool hasToken;
-- (void)dealloc;
 
 @end
 

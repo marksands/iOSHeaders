@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 @class HAPBTLEControlOutputStream, HAPBTLETransactionIdentifier, HAPCharacteristic, HAPService, HMFBlockOperation, HMFTimer, NSData;
 
-@interface HAPBTLERequest : NSObject
+@interface HAPBTLERequest : HMFObject
 {
     unsigned char _type;
     _Bool _encrypted;

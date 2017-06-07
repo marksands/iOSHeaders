@@ -7,67 +7,75 @@
 #import <objc/NSObject.h>
 
 #import <Navigation/MNNavigationServiceClientInterface-Protocol.h>
-#import <Navigation/MNNavigationServiceDaemonInterface-Protocol.h>
+#import <Navigation/MNNavigationServiceProxy-Protocol.h>
 #import <Navigation/MNNavigationServiceReconnectorDelegate-Protocol.h>
 
-@class MNNavigationServiceReconnector, MNSettings, NSDate, NSString, NSXPCConnection;
+@class MNNavigationServiceReconnector, MNSettings, NSDate, NSHashTable, NSString, NSXPCConnection;
 @protocol MNNavigationServiceRemoteProxyDelegate;
 
 __attribute__((visibility("hidden")))
-@interface MNNavigationServiceRemoteProxy : NSObject <MNNavigationServiceClientInterface, MNNavigationServiceReconnectorDelegate, MNNavigationServiceDaemonInterface>
+@interface MNNavigationServiceRemoteProxy : NSObject <MNNavigationServiceClientInterface, MNNavigationServiceReconnectorDelegate, MNNavigationServiceProxy>
 {
+    _Bool _applicationActive;
     NSXPCConnection *_connection;
     MNNavigationServiceReconnector *_reconnector;
     NSDate *_lastReconnectionDate;
     MNSettings *_settings;
-    _Bool _navigationStopCalled;
+    NSHashTable *_clients;
     id <MNNavigationServiceRemoteProxyDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <MNNavigationServiceRemoteProxyDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)navigationServiceReconnector:(id)arg1 didReconnectWithDetails:(id)arg2;
-- (void)didUpdateAudioOutputRouteSelection:(unsigned long long)arg1;
-- (void)didUpdateAudioOutputCurrentSettingForVoicePrompt:(id)arg1;
-- (void)didUpdateAudioOutputCurrentSetting:(id)arg1;
-- (void)didUpdateAudioOutputSettings:(id)arg1;
-- (void)didStartUsingVoiceLanguage:(id)arg1;
-- (void)didStartSpeakingPrompt:(id)arg1;
-- (void)didActivateAudioSession:(_Bool)arg1;
-- (void)didUpdateFeedback:(id)arg1 forAlightingStepAtIndex:(unsigned long long)arg2;
-- (void)didSignalAlightForStepAtIndex:(unsigned long long)arg1;
-- (void)didUpdateTracePlaybackDetails:(id)arg1;
-- (void)didInvalidateTrafficIncidentAlert:(id)arg1;
-- (void)didUpdateTrafficIncidentAlert:(id)arg1;
-- (void)didReceiveTrafficIncidentAlert:(id)arg1;
-- (void)failedRerouteWithErrorCode:(long long)arg1;
-- (void)didSwitchToNewTransportType:(int)arg1 newRoute:(id)arg2;
-- (void)didCancelReroute;
-- (void)didRerouteWithDetails:(id)arg1 withLocationDetails:(id)arg2;
-- (void)willReroute;
-- (void)didUpdateHeading:(double)arg1 accuracy:(double)arg2;
-- (void)didUpdateTrafficForETARoute:(id)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3 withRouteDetails:(id)arg4;
-- (void)didUpdateRemainingTime:(double)arg1 remainingDistance:(double)arg2;
-- (void)didEnableGuidancePrompts:(_Bool)arg1;
-- (void)didArrive;
-- (void)hideSecondaryStep;
-- (void)displaySecondaryStep:(id)arg1 instructions:(id)arg2 shieldType:(int)arg3 shieldText:(id)arg4 drivingSide:(int)arg5;
-- (void)displayManeuverAlertForAnnouncementStage:(unsigned long long)arg1;
-- (void)displayPrimaryStep:(id)arg1 instructions:(id)arg2 shieldType:(int)arg3 shieldText:(id)arg4 drivingSide:(int)arg5 maneuverStepIndex:(unsigned long long)arg6 isSynthetic:(_Bool)arg7;
-- (void)didUpdateDistanceUntilManeuver:(double)arg1 timeUntilManeuver:(double)arg2 forStepIndex:(unsigned long long)arg3;
-- (void)didUpdateDistanceUntilSign:(double)arg1 timeUntilSign:(double)arg2 forStepIndex:(unsigned long long)arg3;
-- (void)didUpdateProceedToRouteDistance:(double)arg1 displayString:(id)arg2 closestStepIndex:(unsigned long long)arg3;
-- (void)didUpdateStepIndex:(unsigned long long)arg1 legIndex:(unsigned long long)arg2;
-- (void)didUpdateMatchedLocation:(id)arg1;
-- (void)didChangeGuidanceLevel:(int)arg1;
-- (void)didChangeGuidanceState:(id)arg1;
-- (void)didChangeNavigationState:(int)arg1;
-- (void)didFailWithError:(id)arg1;
-- (void)willResumeFromPauseNavigation;
-- (void)willPauseNavigation;
-- (void)didUpdateActiveRouteDetails:(id)arg1;
-- (void)didChangeFromState:(unsigned long long)arg1 toState:(unsigned long long)arg2;
-- (void)willChangeFromState:(unsigned long long)arg1 toState:(unsigned long long)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateAudioOutputRouteSelection:(unsigned long long)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateAudioOutputCurrentSettingForVoicePrompt:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateAudioOutputCurrentSetting:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateAudioOutputSettings:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didStartUsingVoiceLanguage:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didStartSpeakingPrompt:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didActivateAudioSession:(_Bool)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateFeedback:(id)arg2 forAlightingStepAtIndex:(unsigned long long)arg3;
+- (void)navigationServiceProxy:(id)arg1 didSignalAlightForStepAtIndex:(unsigned long long)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateTracePlaybackDetails:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdatePossibleCommuteDestinations:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateIsInVehicle:(_Bool)arg2;
+- (void)navigationServiceProxy:(id)arg1 didInvalidateTrafficIncidentAlert:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateTrafficIncidentAlert:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didReceiveTrafficIncidentAlert:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didUpdateAlternateRoutes:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 failedRerouteWithErrorCode:(long long)arg2;
+- (void)navigationServiceProxy:(id)arg1 didSwitchToNewTransportType:(int)arg2 newRoute:(id)arg3;
+- (void)navigationServiceProxyDidCancelReroute:(id)arg1;
+- (void)navigationServiceProxy:(id)arg1 didRerouteWithDetails:(id)arg2 withLocationDetails:(id)arg3;
+- (void)navigationServiceProxyWillReroute:(id)arg1;
+- (void)navigationServiceProxy:(id)arg1 didUpdateHeading:(double)arg2 accuracy:(double)arg3;
+- (void)navigationServiceProxy:(id)arg1 didUpdateTrafficForETARoute:(id)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4 withRouteDetails:(id)arg5;
+- (void)navigationServiceProxy:(id)arg1 didUpdateRemainingTime:(double)arg2 remainingDistance:(double)arg3;
+- (void)navigationServiceProxy:(id)arg1 didUpdateDisplayETA:(id)arg2 displayRemainingMinutes:(unsigned long long)arg3 forRouteDetails:(id)arg4;
+- (void)navigationServiceProxy:(id)arg1 didEnableGuidancePrompts:(_Bool)arg2;
+- (void)navigationServiceProxyDidArrive:(id)arg1;
+- (void)navigationServiceProxy:(id)arg1 hideLaneDirectionsForId:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 showLaneDirections:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 updateSignsWithInfo:(id)arg2;
+- (void)navigationServiceProxyHideSecondaryStep:(id)arg1;
+- (void)navigationServiceProxy:(id)arg1 displaySecondaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6;
+- (void)navigationServiceProxy:(id)arg1 displayManeuverAlertForAnnouncementStage:(unsigned long long)arg2;
+- (void)navigationServiceProxy:(id)arg1 displayPrimaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6 maneuverStepIndex:(unsigned long long)arg7 isSynthetic:(_Bool)arg8;
+- (void)navigationServiceProxy:(id)arg1 willAnnounce:(unsigned long long)arg2 inSeconds:(double)arg3;
+- (void)navigationServiceProxy:(id)arg1 didUpdateDistanceUntilManeuver:(double)arg2 timeUntilManeuver:(double)arg3 forStepIndex:(unsigned long long)arg4;
+- (void)navigationServiceProxy:(id)arg1 didUpdateDistanceUntilSign:(double)arg2 timeUntilSign:(double)arg3 forStepIndex:(unsigned long long)arg4;
+- (void)navigationServiceProxy:(id)arg1 didUpdateProceedToRouteDistance:(double)arg2 displayString:(id)arg3 closestStepIndex:(unsigned long long)arg4;
+- (void)navigationServiceProxy:(id)arg1 didUpdateStepIndex:(unsigned long long)arg2 legIndex:(unsigned long long)arg3;
+- (void)navigationServiceProxy:(id)arg1 didUpdateMatchedLocation:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didChangeNavigationState:(int)arg2;
+- (void)navigationServiceProxy:(id)arg1 didFailWithError:(id)arg2;
+- (void)navigationServiceProxyWillResumeFromPauseNavigation:(id)arg1;
+- (void)navigationServiceProxyWillPauseNavigation:(id)arg1;
+- (void)navigationServiceProxy:(id)arg1 didUpdateActiveRouteDetails:(id)arg2;
+- (void)navigationServiceProxy:(id)arg1 didChangeFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
+- (void)navigationServiceProxy:(id)arg1 willChangeFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
+- (void)interfaceHashesWithHandler:(CDUnknownBlockType)arg1;
 - (void)recordTraceBookmarkAtCurrentPositionWthScreenshotData:(id)arg1;
 - (void)setTracePosition:(double)arg1;
 - (void)setTracePlaybackSpeed:(double)arg1;
@@ -76,26 +84,33 @@ __attribute__((visibility("hidden")))
 - (void)setRideIndex:(unsigned long long)arg1 forLegIndex:(unsigned long long)arg2;
 - (void)setDisplayedStepIndex:(unsigned long long)arg1;
 - (void)setIsConnectedToCarplay:(_Bool)arg1;
-@property(nonatomic) _Bool guidancePromptsEnabled;
-@property(nonatomic) int headingOrientation;
+- (void)setGuidancePromptsEnabled:(_Bool)arg1;
+- (void)setHeadingOrientation:(int)arg1;
 - (void)setCurrentAudioOutputSetting:(id)arg1;
 - (void)setHFPPreference:(_Bool)arg1 forSetting:(id)arg2;
-- (void)resumeGuidanceLevelUpdates;
-- (void)pauseGuidanceLevelUpdates;
 - (void)stopCurrentGuidancePrompt;
 - (void)vibrateForPrompt:(unsigned long long)arg1 withReply:(CDUnknownBlockType)arg2;
 - (void)repeatCurrentTrafficAlertWithReply:(CDUnknownBlockType)arg1;
 - (void)repeatCurrentGuidanceWithReply:(CDUnknownBlockType)arg1;
 - (void)changeSettings:(id)arg1;
+- (void)setFullGuidanceMode:(_Bool)arg1;
+- (void)switchToRouteWithDetails:(id)arg1;
 - (void)resumeOriginalDestination;
 - (void)updateDestination:(id)arg1;
+- (void)stopPredictingDestinations;
+- (void)startPredictingDestinationsWithHandler:(CDUnknownBlockType)arg1;
 - (void)stopNavigation;
 - (void)startNavigationForRouteDetails:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)prepareNavigationWithRouteDetails:(id)arg1;
 - (void)_cleanupReconnector;
 - (void)_initializeReconnectorWithDetails:(id)arg1 shouldPrepare:(_Bool)arg2;
-- (id)remoteObjectProxyThreadUnsafe;
-- (void)_connectToDaemonIfNeededThreadUnsafe;
+- (id)_remoteObjectProxy;
+- (void)_closeConnection;
+- (void)_openConnection;
+- (void)_updateConnection;
+- (void)closeForClient:(id)arg1;
+- (void)openForClient:(id)arg1;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSWPSelection *selection; // @synthesize selection=_selection;
 - (void)dealloc;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 
 // Remaining properties

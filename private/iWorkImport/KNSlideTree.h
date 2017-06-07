@@ -20,13 +20,12 @@ __attribute__((visibility("hidden")))
     TSUPointerKeyDictionary *mFormulaReferenceNamesForSlideNodesCache;
 }
 
++ (_Bool)areMultipleMasterTypesInCollection:(id)arg1;
 + (id)slideNodeDepthMapToCleanUpSlideNodes:(id)arg1 atDepths:(id)arg2 minimumValidDepth:(unsigned long long)arg3 canExceedSlideTreeMaxDepth:(_Bool)arg4;
 + (id)slideNodeDepthMapToCleanUpSlideNodes:(id)arg1 minimumValidDepth:(unsigned long long)arg2 canExceedSlideTreeMaxDepth:(_Bool)arg3;
 + (id)slideNodeDepthMapToCleanUpSlideNodes:(id)arg1 atDepths:(id)arg2 minimumValidDepth:(unsigned long long)arg3;
 + (id)slideNodeDepthMapToCleanUpSlideNodes:(id)arg1 minimumValidDepth:(unsigned long long)arg2;
 @property(retain, nonatomic) NSArray *displayedSlideNodes; // @synthesize displayedSlideNodes=mDisplayedSlideNodeCache;
-- (void)p_logSlideTreeErrorWithMessage:(id)arg1 slideNodesOrderBeforeEdit:(id)arg2 depthsBeforeEdit:(id)arg3;
-- (void)p_checkTargetIndexForError:(unsigned long long)arg1 reason:(id)arg2;
 - (void)p_cacheSlideNodes;
 - (void)p_clearSlideNodeCache;
 - (void)addSlideNodeForDocumentUpgrade:(id)arg1 atDepth:(unsigned long long)arg2;

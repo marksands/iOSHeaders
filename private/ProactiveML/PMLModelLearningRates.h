@@ -6,24 +6,27 @@
 
 #import <objc/NSObject.h>
 
-#import <ProactiveML/DictionarySerializableProtocol-Protocol.h>
+#import <ProactiveML/PMLDictionarySerializableProtocol-Protocol.h>
+#import <ProactiveML/PMLPlistAndChunksSerializableProtocol-Protocol.h>
 
-@class NSMutableData, NSString;
+@class NSString, PMLMutableDenseVector;
 
-@interface PMLModelLearningRates : NSObject <DictionarySerializableProtocol>
+@interface PMLModelLearningRates : NSObject <PMLDictionarySerializableProtocol, PMLPlistAndChunksSerializableProtocol>
 {
-    NSMutableData *_data;
-    unsigned long long _length;
+    PMLMutableDenseVector *_data;
 }
 
-+ (id)modelLearningRatesFromDoubles:(id)arg1;
-+ (id)fromDictionary:(id)arg1;
++ (id)modelLearningRatesFromFloats:(id)arg1;
 - (void).cxx_destruct;
 - (unsigned long long)length;
-- (double *)values;
-- (id)initModelLearningRatesFromDoubles:(id)arg1;
+- (float *)values;
+- (id)init;
+- (id)initModelLearningRatesFromFloats:(id)arg1;
 - (id)toDictionary;
 - (id)initFromDictionary:(id)arg1;
+- (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
+- (id)migrateDenseDoubleVectorToDenseFloatVector:(id)arg1;
+- (id)toPlistWithChunks:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

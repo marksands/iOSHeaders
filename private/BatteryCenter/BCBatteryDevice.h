@@ -9,7 +9,7 @@
 #import <BatteryCenter/NSCoding-Protocol.h>
 #import <BatteryCenter/NSCopying-Protocol.h>
 
-@class NSDictionary, NSString, UIImage;
+@class NSString, UIImage;
 
 @interface BCBatteryDevice : NSObject <NSCopying, NSCoding>
 {
@@ -17,8 +17,9 @@
     NSString *_matchIdentifier;
     long long _percentCharge;
     _Bool _charging;
-    NSDictionary *_glyphs;
+    UIImage *_glyph;
     _Bool _connected;
+    _Bool _batterySaverModeActive;
     _Bool _lowBattery;
     _Bool _internal;
     _Bool _powerSource;
@@ -27,28 +28,31 @@
     long long _vendor;
     long long _powerSourceState;
     long long _productIdentifier;
+    NSString *_accessoryIdentifier;
     NSString *_name;
     unsigned long long _parts;
+    unsigned long long _accessoryCategory;
     NSString *_groupName;
-    NSString *_baseIdentifier;
     long long _transportType;
 }
 
-+ (id)batteryDeviceWithIdentifier:(id)arg1 vendor:(long long)arg2 productIdentifier:(long long)arg3 baseIdentifier:(id)arg4 parts:(unsigned long long)arg5 matchIdentifier:(id)arg6;
++ (id)batteryDeviceWithIdentifier:(id)arg1 vendor:(long long)arg2 productIdentifier:(long long)arg3 parts:(unsigned long long)arg4 matchIdentifier:(id)arg5;
 @property(nonatomic, getter=isFake) _Bool fake; // @synthesize fake=_fake;
 @property(nonatomic) long long transportType; // @synthesize transportType=_transportType;
-@property(copy, nonatomic) NSString *baseIdentifier; // @synthesize baseIdentifier=_baseIdentifier;
 @property(readonly, copy, nonatomic) NSString *matchIdentifier; // @synthesize matchIdentifier=_matchIdentifier;
 @property(copy, nonatomic) NSString *groupName; // @synthesize groupName=_groupName;
+@property(nonatomic) unsigned long long accessoryCategory; // @synthesize accessoryCategory=_accessoryCategory;
 @property(nonatomic) unsigned long long parts; // @synthesize parts=_parts;
 @property(nonatomic) _Bool approximatesPercentCharge; // @synthesize approximatesPercentCharge=_approximatesPercentCharge;
 @property(nonatomic, getter=isPowerSource) _Bool powerSource; // @synthesize powerSource=_powerSource;
 @property(nonatomic, getter=isInternal) _Bool internal; // @synthesize internal=_internal;
 @property(nonatomic, getter=isLowBattery) _Bool lowBattery; // @synthesize lowBattery=_lowBattery;
+@property(nonatomic, getter=isBatterySaverModeActive) _Bool batterySaverModeActive; // @synthesize batterySaverModeActive=_batterySaverModeActive;
 @property(nonatomic, getter=isCharging) _Bool charging; // @synthesize charging=_charging;
 @property(nonatomic, getter=isConnected) _Bool connected; // @synthesize connected=_connected;
 @property(nonatomic) long long percentCharge; // @synthesize percentCharge=_percentCharge;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(copy, nonatomic) NSString *accessoryIdentifier; // @synthesize accessoryIdentifier=_accessoryIdentifier;
 @property(readonly, nonatomic) long long productIdentifier; // @synthesize productIdentifier=_productIdentifier;
 @property(nonatomic) long long powerSourceState; // @synthesize powerSourceState=_powerSourceState;
 @property(readonly, nonatomic) long long vendor; // @synthesize vendor=_vendor;
@@ -56,12 +60,11 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)glyphForPartKey:(id)arg1;
 @property(readonly, nonatomic) UIImage *glyph;
-- (id)_lazyGlyphs;
+- (id)_lazyGlyph;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithIdentifier:(id)arg1 vendor:(long long)arg2 productIdentifier:(long long)arg3 baseIdentifier:(id)arg4 parts:(unsigned long long)arg5 matchIdentifier:(id)arg6;
+- (id)initWithIdentifier:(id)arg1 vendor:(long long)arg2 productIdentifier:(long long)arg3 parts:(unsigned long long)arg4 matchIdentifier:(id)arg5;
 
 @end
 

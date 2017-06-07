@@ -35,6 +35,7 @@
 @property(retain, nonatomic) NSMutableArray *versionDomains; // @synthesize versionDomains=_versionDomains;
 @property(retain, nonatomic) NSMutableArray *batchPlaceResults; // @synthesize batchPlaceResults=_batchPlaceResults;
 @property(retain, nonatomic) NSMutableArray *clusters; // @synthesize clusters=_clusters;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -64,9 +65,6 @@
 - (id)statusCodeAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatusCode;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
-- (void)dealloc;
-- (void)setHttpHeaders:(id)arg1;
-- (id)httpHeaders;
 
 @end
 

@@ -8,17 +8,25 @@
 
 #import <ITMLKit/RWIProtocolDOMDomainHandler-Protocol.h>
 
-@class IKJSInspectorController, NSString;
+@class IKJSInspectorController, NSMutableDictionary, NSString, RWIProtocolDOMNode;
 
 @interface IKJSInspectorDOMAgent : NSObject <RWIProtocolDOMDomainHandler>
 {
+    NSMutableDictionary *_searches;
+    RWIProtocolDOMNode *_rootNode;
     IKJSInspectorController *_controller;
 }
 
++ (id)_nodeIDsFromNodePaths:(id)arg1;
++ (id)_searchNode:(id)arg1 query:(id)arg2 currentPath:(id)arg3;
++ (void)_updateProtocolNode:(id)arg1 withDOMNode:(id)arg2 dispatcher:(id)arg3;
++ (id)_parseAttributeString:(id)arg1;
++ (id)_procotolNodeForDOMNode:(id)arg1;
++ (void)_buildNodePath:(id)arg1 rootProtocolNode:(id)arg2 rootDOMNode:(id)arg3 withDispatcher:(id)arg4;
++ (id)_buildNodeTreeForNode:(id)arg1 depth:(int)arg2;
++ (id)_findNodeWithNodeId:(int)arg1 node:(id)arg2;
 @property(readonly, nonatomic) __weak IKJSInspectorController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
-- (void)setChildNodesWithParentId:(int)arg1 nodes:(id)arg2;
-- (void)documentUpdated;
 - (void)focusWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3;
 - (void)markUndoableStateWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
 - (void)redoWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
@@ -54,8 +62,8 @@
 - (void)querySelectorWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 selector:(id)arg4;
 - (void)requestChildNodesWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2 nodeId:(int)arg3 depth:(int *)arg4;
 - (void)getDocumentWithErrorCallback:(CDUnknownBlockType)arg1 successCallback:(CDUnknownBlockType)arg2;
-- (id)_parseAttributeString:(id)arg1;
-- (id)_buildNodeTreeForNode:(id)arg1 depth:(int)arg2;
+- (void)documentDidChange;
+- (void)documentDidUpdate;
 - (id)initWithInspectorController:(id)arg1;
 
 // Remaining properties

@@ -7,7 +7,7 @@
 #import <Intents/INStartAudioCallIntent.h>
 
 @interface INStartAudioCallIntent (_CDInteractionAdditions)
-- (long long)_cdInteractionMechanism;
-- (id)_cdRecipients;
+- (long long)cd_interactionMechanism;
+- (id)cd_recipients;
 @end
 

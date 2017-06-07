@@ -46,10 +46,6 @@ typedef struct {
 
 // Ambiguous groups
 typedef struct {
-    unsigned int changeType:1;
-} CDStruct_f5f6ac14;
-
-typedef struct {
     unsigned int limit:1;
 } CDStruct_88fc3008;
 

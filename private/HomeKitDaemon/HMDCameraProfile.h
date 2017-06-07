@@ -34,7 +34,6 @@
 @property(readonly, nonatomic, getter=isMicrophonePresent) _Bool microphonePresent; // @synthesize microphonePresent=_microphonePresent;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (void)monitorForEventsForServices:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,7 +47,7 @@
 - (void)dealloc;
 @property(readonly, copy) NSString *description;
 - (id)logIdentifier;
-- (id)initWithAccessory:(id)arg1 uuid:(id)arg2 services:(id)arg3 msgDispatcher:(id)arg4;
+- (id)initWithAccessory:(id)arg1 services:(id)arg2 msgDispatcher:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

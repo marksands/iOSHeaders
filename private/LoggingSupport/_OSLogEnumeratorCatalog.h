@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     struct _NSRange _chunkRange;
     _OSLogIndex *_index;
     struct catalog_s *_catalog;
+    struct tracev3_chunk_s *_chunk;
     struct tracev3_chunk_s *_fileHeader;
     _OSLogChunkStore *_store;
     unsigned long long _ot;
@@ -24,6 +25,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long oldestTime; // @synthesize oldestTime=_ot;
 @property(readonly, nonatomic) _OSLogChunkStore *store; // @synthesize store=_store;
 @property(readonly, nonatomic) struct tracev3_chunk_s *fileHeader; // @synthesize fileHeader=_fileHeader;
+@property(readonly, nonatomic) struct tracev3_chunk_s *chunk; // @synthesize chunk=_chunk;
 @property(readonly, nonatomic) struct catalog_s *catalog; // @synthesize catalog=_catalog;
 @property(readonly, nonatomic) __weak _OSLogIndex *index; // @synthesize index=_index;
 - (void).cxx_destruct;

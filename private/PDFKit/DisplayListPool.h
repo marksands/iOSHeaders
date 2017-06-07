@@ -8,6 +8,7 @@
 
 @class DisplayListPoolPrivate;
 
+__attribute__((visibility("hidden")))
 @interface DisplayListPool : NSObject
 {
     DisplayListPoolPrivate *_private;

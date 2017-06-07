@@ -20,6 +20,8 @@
     NSObject<OS_dispatch_source> *_observerReEstablishTimer;
 }
 
++ (void)_removeFilesAtURL:(id)arg1;
++ (void)performUninstallationCleanup;
 + (id)sharedDeviceConnection;
 @property(retain) NSObject<OS_dispatch_source> *observerReEstablishTimer; // @synthesize observerReEstablishTimer=_observerReEstablishTimer;
 @property(readonly) NSObject<OS_dispatch_queue> *internalQueue; // @synthesize internalQueue=_internalQueue;
@@ -48,6 +50,7 @@
 - (void)installApplication:(id)arg1 withProvisioningProfiles:(id)arg2 completionWithError:(CDUnknownBlockType)arg3;
 - (void)installApplication:(id)arg1 onPairedDevice:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)installApplication:(id)arg1 completionWithError:(CDUnknownBlockType)arg2;
+- (void)retryPendingAppInstallationsForPairedDevice:(id)arg1;
 - (void)cancelPendingInstallations;
 - (void)installAllApplications;
 - (void)fetchWatchAppBundleIDForCompanionAppBundleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -60,12 +63,11 @@
 - (void)activeComplicationsWithErrorCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchInstalledComplicationsForPairedDevice:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchInstalledComplicationsWithErrorCompletion:(CDUnknownBlockType)arg1;
-- (void)fetchInstalledGlancesForPairedDevice:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)fetchInstalledGlancesWithErrorCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchInstalledApplicationsForPairedDevice:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchInstalledApplicationsWithErrorCompletion:(CDUnknownBlockType)arg1;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+- (void)updateInstallProgressForApplication:(id)arg1 progress:(double)arg2 phase:(unsigned long long)arg3;
 - (void)updatedInstallStateForApplicationsWithInfo:(id)arg1;
 - (id)_proxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (void)_invalidateXPCConnection;

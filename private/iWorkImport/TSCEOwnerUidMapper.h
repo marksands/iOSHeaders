@@ -25,7 +25,6 @@ __attribute__((visibility("hidden")))
     UUIDData_5fbc143e _pbTableUid;
 }
 
-+ (struct __CFUUID *)CFUUIDRefForUID:(const UUIDData_5fbc143e *)arg1;
 @property(nonatomic) UUIDData_5fbc143e nextMergeOwnerUID; // @synthesize nextMergeOwnerUID=_nextMergeOwnerUid;
 @property(nonatomic) UUIDData_5fbc143e nextSortRuleReferenceTrackerOwnerUID; // @synthesize nextSortRuleReferenceTrackerOwnerUID=_nextSortRuleReferenceTrackerOwnerUid;
 @property(nonatomic) UUIDData_5fbc143e nextConditionalStyleOwnerUID; // @synthesize nextConditionalStyleOwnerUID=_nextConditionalStyleOwnerUid;

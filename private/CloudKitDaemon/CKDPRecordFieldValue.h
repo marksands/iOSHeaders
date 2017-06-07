@@ -23,14 +23,17 @@
     CKDPRecordReference *_referenceValue;
     NSString *_stringValue;
     int _type;
+    _Bool _isEncrypted;
     struct {
         unsigned int doubleValue:1;
         unsigned int signedValue:1;
         unsigned int type:1;
+        unsigned int isEncrypted:1;
     } _has;
 }
 
 + (Class)listValueType;
+@property(nonatomic) _Bool isEncrypted; // @synthesize isEncrypted=_isEncrypted;
 @property(retain, nonatomic) CKDPPackage *packageValue; // @synthesize packageValue=_packageValue;
 @property(retain, nonatomic) NSMutableArray *listValues; // @synthesize listValues=_listValues;
 @property(retain, nonatomic) CKDPAsset *assetValue; // @synthesize assetValue=_assetValue;
@@ -51,6 +54,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsEncrypted;
 @property(readonly, nonatomic) _Bool hasPackageValue;
 - (id)listValueAtIndex:(unsigned long long)arg1;
 - (unsigned long long)listValuesCount;
@@ -68,6 +72,7 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 
 @end
 

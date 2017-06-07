@@ -44,6 +44,7 @@
 - (id)succinctDescription;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
+- (_Bool)containsNotificationRequest:(id)arg1;
 - (id)notificationRequestsAtIndexPaths:(id)arg1;
 - (id)notificationRequestAtIndexPath:(id)arg1;
 - (id)dateForSectionIdentifier:(id)arg1;

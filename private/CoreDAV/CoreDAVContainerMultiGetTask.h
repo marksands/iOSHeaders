@@ -31,11 +31,11 @@
 @property(readonly, nonatomic) NSSet *parsedContents; // @synthesize parsedContents=_parsedContents;
 @property(nonatomic) _Bool shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
 @property(retain, nonatomic) NSSet *additionalPropElements; // @synthesize additionalPropElements=_additionalPropElements;
+- (void).cxx_destruct;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)requestBody;
 - (id)httpMethod;
-- (void)dealloc;
 - (void)setAdditionalProperties:(id)arg1 onDataItem:(id)arg2;
 - (id)copyAdditionalPropElements;
 - (id)initWithURLs:(id)arg1 atContainerURL:(id)arg2 appSpecificDataItemClass:(Class)arg3;

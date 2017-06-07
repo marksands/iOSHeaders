@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GSAddition;
 
@@ -16,10 +16,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain) GSAddition *addition; // @synthesize addition=_addition;
+- (void).cxx_destruct;
 - (_Bool)isStillValid;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithAddition:(id)arg1;
 
 @end

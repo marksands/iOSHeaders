@@ -8,22 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOMapRegion;
-
 @interface GEOAppState : PBCodable <NSCopying>
 {
-    double _zoomLevel;
-    GEOMapRegion *_mapRegion;
-    _Bool _transitNotAvailableAdvisoryShowing;
-    struct {
-        unsigned int zoomLevel:1;
-        unsigned int transitNotAvailableAdvisoryShowing:1;
-    } _has;
 }
 
-@property(nonatomic) _Bool transitNotAvailableAdvisoryShowing; // @synthesize transitNotAvailableAdvisoryShowing=_transitNotAvailableAdvisoryShowing;
-@property(nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
-@property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,10 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasTransitNotAvailableAdvisoryShowing;
-@property(nonatomic) _Bool hasZoomLevel;
-@property(readonly, nonatomic) _Bool hasMapRegion;
-- (void)dealloc;
 
 @end
 

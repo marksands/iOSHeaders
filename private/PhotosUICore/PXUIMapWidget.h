@@ -7,15 +7,13 @@
 #import <objc/NSObject.h>
 
 #import <PhotosUICore/PXPhotosDataSourceChangeObserver-Protocol.h>
-#import <PhotosUICore/PXWidget-Protocol.h>
+#import <PhotosUICore/PXUIWidget-Protocol.h>
 
-@class NSMutableArray, NSMutableDictionary, NSString, PXPhotosDetailsContext, PXPlacesMapFetchResultViewController, PXPlacesMapViewPort, PXPlacesSnapshotFactory, PXSectionedSelectionManager, PXTilingController, PXWidgetSpec, UIView;
-@protocol PXAnonymousView, PXWidgetDelegate;
+@class NSMutableArray, NSMutableDictionary, NSString, PHAsset, PXOneUpPresentation, PXPhotosDetailsContext, PXPlacesMapFetchResultViewController, PXPlacesMapViewPort, PXPlacesSnapshotFactory, PXSectionedSelectionManager, PXTilingController, PXUIImageView, PXWidgetSpec, UIButton, UIFont, UIView;
+@protocol PXAnonymousView, PXWidgetDelegate, PXWidgetUnlockDelegate;
 
-@interface PXUIMapWidget : NSObject <PXPhotosDataSourceChangeObserver, PXWidget>
+@interface PXUIMapWidget : NSObject <PXPhotosDataSourceChangeObserver, PXUIWidget>
 {
-    double _height;
-    struct CGSize _minimumInitialSize;
     struct CGSize _contentSize;
     PXPlacesMapViewPort *_viewPort;
     _Bool _didDisplayContentView;
@@ -23,30 +21,43 @@
     NSMutableDictionary *_fetchedImages;
     long long _lastFetchedBoundingRectAssetCount;
     _Bool _showAddressLink;
+    UIFont *_footerFont;
     id <PXWidgetDelegate> _widgetDelegate;
+    id <PXWidgetUnlockDelegate> _widgetUnlockDelegate;
     PXPhotosDetailsContext *_context;
     PXWidgetSpec *_spec;
     UIView *__containerView;
     UIView *__contentView;
+    PXUIImageView *__imageView;
     PXPlacesMapFetchResultViewController *__mapViewController;
     NSString *__cachedLocalizedTitle;
-    NSString *__cachedLocalizedSubtitle;
     NSString *__cachedDisclosureTitle;
+    UIButton *_footerButton;
+    PHAsset *_assetUsedForFooterTitle;
+    NSString *_cachedFooterTitle;
+    double _footerHeight;
+    double _height;
     NSMutableArray *__nearbyCountCompletionBlocks;
     PXPlacesSnapshotFactory *__factory;
 }
 
 @property(retain, nonatomic) PXPlacesSnapshotFactory *_factory; // @synthesize _factory=__factory;
 @property(retain, nonatomic) NSMutableArray *_nearbyCountCompletionBlocks; // @synthesize _nearbyCountCompletionBlocks=__nearbyCountCompletionBlocks;
+@property(nonatomic) double height; // @synthesize height=_height;
+@property(nonatomic) double footerHeight; // @synthesize footerHeight=_footerHeight;
+@property(retain, nonatomic) NSString *cachedFooterTitle; // @synthesize cachedFooterTitle=_cachedFooterTitle;
+@property(retain, nonatomic) PHAsset *assetUsedForFooterTitle; // @synthesize assetUsedForFooterTitle=_assetUsedForFooterTitle;
+@property(readonly, nonatomic) UIButton *footerButton; // @synthesize footerButton=_footerButton;
 @property(retain, nonatomic) NSString *_cachedDisclosureTitle; // @synthesize _cachedDisclosureTitle=__cachedDisclosureTitle;
-@property(retain, nonatomic) NSString *_cachedLocalizedSubtitle; // @synthesize _cachedLocalizedSubtitle=__cachedLocalizedSubtitle;
 @property(retain, nonatomic) NSString *_cachedLocalizedTitle; // @synthesize _cachedLocalizedTitle=__cachedLocalizedTitle;
 @property(readonly, nonatomic) PXPlacesMapFetchResultViewController *_mapViewController; // @synthesize _mapViewController=__mapViewController;
+@property(readonly, nonatomic) PXUIImageView *_imageView; // @synthesize _imageView=__imageView;
 @property(readonly, nonatomic) UIView *_contentView; // @synthesize _contentView=__contentView;
 @property(readonly, nonatomic) UIView *_containerView; // @synthesize _containerView=__containerView;
 @property(nonatomic) _Bool showAddressLink; // @synthesize showAddressLink=_showAddressLink;
 @property(retain, nonatomic) PXWidgetSpec *spec; // @synthesize spec=_spec;
 @property(retain, nonatomic) PXPhotosDetailsContext *context; // @synthesize context=_context;
+@property(nonatomic) __weak id <PXWidgetUnlockDelegate> widgetUnlockDelegate; // @synthesize widgetUnlockDelegate=_widgetUnlockDelegate;
 @property(nonatomic) __weak id <PXWidgetDelegate> widgetDelegate; // @synthesize widgetDelegate=_widgetDelegate;
 - (void).cxx_destruct;
 - (_Bool)_hasCachedSnapshotImageForKey:(id)arg1;
@@ -59,26 +70,29 @@
 - (void)_showPlacesWithContentMode:(unsigned long long)arg1;
 - (void)_handleTapGestureRecognizer:(id)arg1;
 - (void)userDidSelectDisclosureControl;
+- (void)userDidSelectFooter:(id)arg1;
 - (id)_firstAsset;
 - (id)_localizedGeoDescriptionForAsset:(id)arg1;
-- (void)_updateTitle:(id)arg1 subtitle:(id)arg2;
-- (void)_loadAndUpdateLabelsUsingAsset:(id)arg1;
-- (void)_refreshLabelsUsingAsset:(id)arg1;
-- (void)userDidSelectSubtitle;
+- (void)_updateFooterButton;
+- (void)_handleFooterTitleUpdateCompleteForAsset:(id)arg1 footerTitle:(id)arg2;
+- (void)_updateFooterTitle;
+- (void)_updateHeight;
+- (void)_updateFooterHeight;
+@property(readonly, nonatomic) UIFont *footerFont; // @synthesize footerFont=_footerFont;
 @property(readonly, nonatomic) _Bool allowUserInteractionWithSubtitle;
 @property(readonly, nonatomic) NSString *localizedDisclosureTitle;
-@property(readonly, nonatomic) NSString *localizedSubtitle;
 @property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) NSObject<PXAnonymousView> *contentView;
 - (double)preferredContentHeightForWidth:(double)arg1;
 @property(readonly, nonatomic) _Bool hasContentForCurrentInput;
 - (void)_showPlaceholder;
+- (void)_layoutSubviews;
 - (void)_updateContentViewFrame;
 - (long long)_fetchCountOfAssetsWithLocation;
 - (id)_fetchResultsForSections;
+- (void)_handleContentSizeCategoryDidChange:(id)arg1;
 - (void)unloadContentData;
 - (void)loadContentData;
-- (id)_imageView;
 - (void)_loadContainerView;
 - (void)setContentSize:(struct CGSize)arg1;
 - (id)standaloneMapViewController;
@@ -95,6 +109,8 @@
 @property(readonly, nonatomic) _Bool hasLoadedContentData;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *localizedCaption;
+@property(readonly, nonatomic) NSString *localizedSubtitle;
+@property(retain, nonatomic) PXOneUpPresentation *oneUpPresentation;
 @property(nonatomic, getter=isSelecting) _Bool selecting;
 @property(readonly, nonatomic) PXSectionedSelectionManager *selectionManager;
 @property(readonly) Class superclass;

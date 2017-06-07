@@ -9,6 +9,7 @@
 @class NSArray, SBLockScreenLegibilitySettings;
 
 @protocol SBLockScreenPluginMutableAppearance <SBLockScreenPluginAppearance>
+@property(nonatomic) struct CGRect presentationRegion;
 @property(retain, nonatomic) SBLockScreenLegibilitySettings *legibilitySettings;
 @property(copy, nonatomic) NSArray *elementOverrides;
 @property(nonatomic) long long notificationBehavior;

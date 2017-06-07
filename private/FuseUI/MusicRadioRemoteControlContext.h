@@ -6,19 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class MPAVController, MPAVItem, RadioStation;
+@class MPAVController, MPAVItem, NSString;
 
 @interface MusicRadioRemoteControlContext : NSObject
 {
     MPAVController *_player;
-    RadioStation *_radioStation;
+    NSString *_stationHash;
     long long _trackID;
     MPAVItem *_currentlyPlayingItem;
 }
 
 @property(readonly, nonatomic) MPAVItem *currentlyPlayingItem; // @synthesize currentlyPlayingItem=_currentlyPlayingItem;
 @property(readonly, nonatomic) long long trackID; // @synthesize trackID=_trackID;
-@property(readonly, nonatomic) RadioStation *radioStation; // @synthesize radioStation=_radioStation;
+@property(readonly, copy, nonatomic) NSString *stationHash; // @synthesize stationHash=_stationHash;
 @property(readonly, nonatomic) MPAVController *player; // @synthesize player=_player;
 - (void).cxx_destruct;
 - (id)initWithPlayer:(id)arg1 mediaRemoteOptions:(id)arg2;

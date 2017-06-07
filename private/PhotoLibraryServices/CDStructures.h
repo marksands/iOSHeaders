@@ -93,6 +93,10 @@ struct flock {
     short _field5;
 };
 
+struct os_unfair_lock_s {
+    unsigned int _os_unfair_lock_opaque;
+};
+
 struct tokenOutput_t {
     id _field1;
     id _field2;
@@ -124,6 +128,11 @@ typedef struct {
     double _field1;
     double _field2;
 } CDStruct_c3b9c2ee;
+
+typedef struct {
+    int _field1;
+    int _field2;
+} CDStruct_1ef3fb1f;
 
 typedef struct {
     long long value;

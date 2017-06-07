@@ -28,13 +28,11 @@ __attribute__((visibility("hidden")))
 + (id)cellDiffProperties;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
-- (SEL)mapThemePropertyMapSelector;
-- (void)tstMapCellStylePropertyMap:(id)arg1;
 - (void)upgradeIfNecessary;
 - (void)dealloc;
 - (void)validate;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveCellStyleToArchive:(struct CellStyleArchive *)arg1 archiver:(id)arg2;
 - (void)loadCellStyleFromArchive:(const struct CellStyleArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveCellStylePropertiesToArchive:(struct CellStylePropertiesArchive *)arg1 archiver:(id)arg2;

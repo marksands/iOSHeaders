@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSXPCListenerDelegate-Protocol.h>
 
@@ -18,6 +18,7 @@
     GEONavigationServer *_navigationServer;
 }
 
+- (void).cxx_destruct;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)dealloc;
 - (id)init;

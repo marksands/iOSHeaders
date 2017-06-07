@@ -30,7 +30,9 @@
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
 - (id)description;
+- (_Bool)_renderTextInContext:(struct CGContext *)arg1 frame:(struct CGRect)arg2;
 - (id)snapshotWithSize:(struct CGSize)arg1 scale:(double)arg2 options:(id)arg3;
+- (id)stringAttributesForDiameter:(double)arg1;
 - (void)_takeValuesFromDataRepresentation:(id)arg1;
 - (id)dataRepresentation;
 - (void)setFontIndexToUnsupportedValue;

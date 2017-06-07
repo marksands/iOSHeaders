@@ -41,6 +41,7 @@
 @property(nonatomic) int HIDEventTapPriority; // @synthesize HIDEventTapPriority=_HIDEventTapPriority;
 @property(retain, nonatomic) NSString *HIDEventTapIdentifier; // @synthesize HIDEventTapIdentifier=_HIDEventTapIdentifier;
 @property(nonatomic) _Bool shouldNotifyUserEventOccurred; // @synthesize shouldNotifyUserEventOccurred=_shouldNotifyUserEventOccurred;
+- (void).cxx_destruct;
 - (void)_uninstallSystemEventFilter;
 - (void)_installSystemEventFilter;
 - (void)_uninstallHIDEventFilter;
@@ -50,13 +51,12 @@
 - (void)raiseSystemEventTapPriorityToMaximum;
 - (void)endHandlingSystemEventsForReason:(id)arg1;
 - (void)beginHandlingSystemEventsForReason:(id)arg1;
-@property(readonly, nonatomic) NSArray *systemEventTapEnabledReasons;
+@property(readonly, nonatomic) __weak NSArray *systemEventTapEnabledReasons;
 - (void)restoreHIDEventTapPriorityToDefault;
 - (void)raiseHIDEventTapPriorityToMaximum;
 - (void)endHandlingHIDEventsForReason:(id)arg1;
 - (void)beginHandlingHIDEventsForReason:(id)arg1;
 @property(readonly, nonatomic) NSArray *hidEventTapEnabledReasons;
-- (void)dealloc;
 - (id)initWithHIDTapIdentifier:(id)arg1 HIDEventTapPriority:(int)arg2 systemEventTapIdentifier:(id)arg3 systemEventTapPriority:(int)arg4;
 - (id)init;
 

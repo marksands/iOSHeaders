@@ -6,19 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class TLSystemSound;
+@class NSString, TLAlertPlaybackCompletionContext, TLSystemSound;
+@protocol TLAlertPlaybackObserver;
 
 @interface TLAlertSystemSoundContext : NSObject
 {
+    _Bool _hasPlaybackStarted;
     _Bool _beingInterrupted;
+    _Bool _beingDeemphasized;
+    _Bool _deemphasized;
     TLSystemSound *_sound;
-    CDUnknownBlockType _completionHandler;
-    long long _playbackCompletionType;
+    TLAlertPlaybackCompletionContext *_playbackCompletionContext;
+    id <TLAlertPlaybackObserver> _playbackObserver;
+    NSString *_toneIdentifierForDeemphasizingAlert;
 }
 
+@property(nonatomic, getter=isDeemphasized) _Bool deemphasized; // @synthesize deemphasized=_deemphasized;
+@property(nonatomic, getter=isBeingDeemphasized) _Bool beingDeemphasized; // @synthesize beingDeemphasized=_beingDeemphasized;
+@property(copy, nonatomic) NSString *toneIdentifierForDeemphasizingAlert; // @synthesize toneIdentifierForDeemphasizingAlert=_toneIdentifierForDeemphasizingAlert;
 @property(nonatomic, getter=isBeingInterrupted) _Bool beingInterrupted; // @synthesize beingInterrupted=_beingInterrupted;
-@property(nonatomic) long long playbackCompletionType; // @synthesize playbackCompletionType=_playbackCompletionType;
-@property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
+@property(nonatomic) _Bool hasPlaybackStarted; // @synthesize hasPlaybackStarted=_hasPlaybackStarted;
+@property(nonatomic) __weak id <TLAlertPlaybackObserver> playbackObserver; // @synthesize playbackObserver=_playbackObserver;
+@property(retain, nonatomic) TLAlertPlaybackCompletionContext *playbackCompletionContext; // @synthesize playbackCompletionContext=_playbackCompletionContext;
 @property(retain, nonatomic) TLSystemSound *sound; // @synthesize sound=_sound;
 - (void).cxx_destruct;
 

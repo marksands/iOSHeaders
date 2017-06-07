@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, NSDictionary, NSURL;
+@class NSArray, NSDictionary, NSObject, NSString, NSURL;
 
 @protocol ClientSessionInterface
+- (void)updateSharedDataForKey:(NSString *)arg1 value:(NSObject *)arg2;
+- (void)updateSharedDataWithDictionary:(NSDictionary *)arg1;
 - (void)sendMessageWithSessionInfo:(NSDictionary *)arg1 userInfo:(NSDictionary *)arg2 category:(unsigned short)arg3 type:(unsigned short)arg4 payload:(NSDictionary *)arg5 reply:(void (^)(NSString *))arg6;
 - (void)uploadLogData:(NSArray *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
 - (void)uploadFileAtPath:(NSURL *)arg1 extensionToken:(char *)arg2 completionHandler:(void (^)(_Bool))arg3;
-- (void)finishSessionWithReply:(void (^)(NSString *))arg1;
+- (void)finishSessionGracefully;
 - (void)flushMessagesWithCompletion:(void (^)(NSString *, NSError *))arg1;
 - (void)sendMessageWithDictionary:(NSDictionary *)arg1 reply:(void (^)(NSString *))arg2;
-- (void)sendMessageWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(NSDictionary *)arg3 reply:(void (^)(NSString *))arg4;
 - (void)fetchDisplayURL:(void (^)(NSString *))arg1;
 - (void)fetchStatesWithUserInfo:(NSDictionary *)arg1 completionHandler:(void (^)(NSArray *))arg2;
 - (void)startConfigWithCompletionHandler:(void (^)(NSArray *))arg1;

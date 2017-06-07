@@ -12,7 +12,7 @@
 {
     NSMutableArray *_observers;
     NSMutableDictionary *_appearanceHandlers;
-    long long _pendingWillShowOperation;
+    long long _pendingShowOperation;
     _Bool _animating;
 }
 

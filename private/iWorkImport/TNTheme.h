@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 + (void)initialize;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ThemeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ThemeArchive *)arg1 unarchiver:(id)arg2;
 - (void)bootstrapBlackHardCodedTheme;
 - (void)bootstrapWhiteHardCodedTheme;

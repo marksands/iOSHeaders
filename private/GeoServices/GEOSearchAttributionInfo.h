@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) GEOSearchAttributionSource *source; // @synthesize source=_source;
 @property(readonly, nonatomic) unsigned int requirementsMask; // @synthesize requirementsMask=_attributionRequirementsMask;
 @property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)addLogoPath:(id)arg1;
 - (id)snippetLogoPathForScale:(double)arg1;
 - (id)logoPathForScale:(double)arg1;

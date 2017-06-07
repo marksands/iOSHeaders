@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSKApplicationDelegate.h>
 
-@class NSArray, NSString, TSADocumentRoot;
+@class NSArray, NSSet, NSString, TSADocumentRoot;
 @protocol TSADownloadDelegate;
 
 __attribute__((visibility("hidden")))
@@ -14,12 +14,17 @@ __attribute__((visibility("hidden")))
 {
     TSADocumentRoot *mDocumentRoot;
     id <TSADownloadDelegate> _downloadDelegate;
+    NSSet *_resourcePreinstalledTags;
 }
 
 + (void)resetSharedConfigurations;
 + (id)sharedDelegate;
+@property(readonly, copy, nonatomic) NSSet *resourcePreinstalledTags; // @synthesize resourcePreinstalledTags=_resourcePreinstalledTags;
 @property(retain, nonatomic) id <TSADownloadDelegate> downloadDelegate; // @synthesize downloadDelegate=_downloadDelegate;
 @property(nonatomic) TSADocumentRoot *documentRoot; // @synthesize documentRoot=mDocumentRoot;
+- (void)setAppTextDefaults:(id)arg1;
+- (id)appTextDefaults;
+- (id)appTextDefaultsKey;
 - (id)iWorkAuthorPrivateID;
 @property(readonly, nonatomic) NSArray *iWorkAuthorPrivateIDs;
 - (void)generateIWorkAuthorPrivateIDIfNecessary;
@@ -39,14 +44,16 @@ __attribute__((visibility("hidden")))
 - (id)iCloudPreferenceKeys;
 - (unsigned long long)collaboratorColorIndexForDocumentShareID:(id)arg1;
 - (id)collaboratorPersonIDForDocumentShareID:(id)arg1;
-- (id)collaboratorNameForDocumentShareID:(id)arg1;
+- (id)collaboratorNameForDocumentShareID:(id)arg1 firstName:(id *)arg2 lastName:(id *)arg3;
 - (void)clearIWorkAuthorColorIndex;
 - (void)clearIWorkAuthorName;
+- (void)clearICloudDocumentPreferences;
 - (id)documentPreferenceKeyPrefix;
 - (void)registerICloudPreferences;
-- (_Bool)shouldShowLogMenu;
 - (id)existingNestedDocumentPathForPath:(id)arg1;
-- (_Bool)URLIsValidForImportedHyperlink:(id)arg1;
+- (_Bool)showChineseNamedPointSizes;
+- (_Bool)URLIsValidForImportedHyperlink:(id)arg1 targetDocumentRoot:(id)arg2;
+- (_Bool)openURL:(id)arg1 withDocumentRoot:(id)arg2;
 - (_Bool)openURL:(id)arg1;
 - (id)invalidURLSchemes;
 - (double)maximumAspectRatioForPreviewImage;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString, _IDSSession;
 
@@ -13,6 +13,7 @@
     _IDSSession *_internal;
 }
 
+- (void).cxx_destruct;
 - (unsigned long long)MTUForAddressFamily:(unsigned long long)arg1;
 - (_Bool)shouldUseSocketForTransport;
 - (void)setPreferences:(id)arg1;
@@ -21,6 +22,7 @@
 - (_Bool)sendData:(id)arg1 error:(id *)arg2;
 @property(nonatomic) _Bool isMuted;
 @property(nonatomic) _Bool isAudioEnabled;
+- (void)sendAllocationRequest:(id)arg1;
 - (void)sendSessionMessage:(id)arg1;
 - (void)endSessionWithData:(id)arg1;
 - (void)endSession;
@@ -37,6 +39,7 @@
 - (void)sendInvitationWithData:(id)arg1;
 - (void)sendInvitationWithOptions:(id)arg1;
 - (void)sendInvitation;
+- (unsigned long long)initialLinkType;
 - (id)_internal;
 - (void)setDelegate:(id)arg1 queue:(id)arg2;
 - (unsigned int)state;

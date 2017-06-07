@@ -98,11 +98,11 @@
 - (void)listPairingsWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)removePairingForCurrentControllerOnQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_removePairingWithIdentifier:(id)arg1 publicKey:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (_Bool)removePairingWithIdentifier:(id)arg1 publicKey:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)removePairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_handlePairingsReadForCharacteristic:(id)arg1 readError:(id)arg2 removing:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_handlePairingsWriteForCharacteristic:(id)arg1 writeError:(id)arg2 removing:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_addPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
-- (_Bool)addPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)addPairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)identifyWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_handleConnectionLifetimeTimeout;
 - (void)_cancelConnectionLifetimeTimer;
@@ -183,12 +183,14 @@
 - (void)_checkForAuthPrompt;
 - (void)continuePairingAfterAuthPrompt;
 - (void)startPairing;
+- (void)configureCharacteristics:(id)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)generateBroadcastKey:(unsigned char)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_createPrimaryAccessoryFromAdvertisementData;
 - (unsigned long long)hapBLEProtocolVersion;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (void)_resetState;
-- (id)initWithPeripheral:(id)arg1 name:(id)arg2 pairingUsername:(id)arg3 statusFlags:(id)arg4 stateNumber:(id)arg5 stateChanged:(_Bool)arg6 configNumber:(id)arg7 category:(id)arg8 connectionIdleTime:(unsigned char)arg9 browser:(id)arg10 keyStore:(id)arg11;
+- (id)initWithPeripheral:(id)arg1 name:(id)arg2 pairingUsername:(id)arg3 statusFlags:(id)arg4 stateNumber:(id)arg5 stateChanged:(_Bool)arg6 configNumber:(id)arg7 category:(id)arg8 setupHash:(id)arg9 connectionIdleTime:(unsigned char)arg10 browser:(id)arg11 keyStore:(id)arg12;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

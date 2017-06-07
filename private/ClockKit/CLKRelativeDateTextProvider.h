@@ -16,7 +16,9 @@
     NSString *_sessionCacheKey;
     long long _sessionTimePeriod;
     double _elapsedTime;
+    _Bool _sessionInProgress;
     _Bool _disableSmallCapUnits;
+    _Bool _disableOffsetPrefix;
     _Bool _twoDigitMinuteZeroPadding;
     _Bool _wantsSubseconds;
     NSDate *_date;
@@ -29,6 +31,7 @@
 + (id)textProviderWithDate:(id)arg1 style:(long long)arg2 units:(unsigned long long)arg3;
 @property(nonatomic) _Bool wantsSubseconds; // @synthesize wantsSubseconds=_wantsSubseconds;
 @property(nonatomic) _Bool twoDigitMinuteZeroPadding; // @synthesize twoDigitMinuteZeroPadding=_twoDigitMinuteZeroPadding;
+@property(nonatomic) _Bool disableOffsetPrefix; // @synthesize disableOffsetPrefix=_disableOffsetPrefix;
 @property(nonatomic) _Bool disableSmallCapUnits; // @synthesize disableSmallCapUnits=_disableSmallCapUnits;
 @property(retain, nonatomic) NSDate *overrideDate; // @synthesize overrideDate=_overrideDate;
 @property(nonatomic) unsigned long long calendarUnits; // @synthesize calendarUnits=_calendarUnits;

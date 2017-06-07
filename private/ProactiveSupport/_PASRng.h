@@ -13,6 +13,7 @@
     } _state;
 }
 
+- (float)nextFloat;
 - (unsigned long long)next;
 - (id)initWithSeed:(unsigned long long)arg1;
 - (id)init;

@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
+- (struct TSUCellCoord)advanceToCellID:(struct TSUCellCoord)arg1;
 - (struct TSUCellCoord)getNext;
 - (id)initWithCellRegion:(id)arg1;
 

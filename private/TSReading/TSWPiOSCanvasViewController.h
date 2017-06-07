@@ -6,11 +6,13 @@
 
 #import <TSReading/TSDiOSCanvasViewController.h>
 
+#import <TSReading/UIDragInteractionDelegate-Protocol.h>
+#import <TSReading/UIDropInteractionDelegate-Protocol.h>
 #import <TSReading/_UINonEditableTextSelectionForceGestureDelegate-Protocol.h>
 
 @class NSMutableArray, NSString, TSUColor, TSWPHardPressGestureRecognizer, TSWPInteractiveCanvasController, TSWPSwipeGestureRecognizer, TSWPTwoPartAction, UIGestureRecognizer, UITapGestureRecognizer;
 
-@interface TSWPiOSCanvasViewController : TSDiOSCanvasViewController <_UINonEditableTextSelectionForceGestureDelegate>
+@interface TSWPiOSCanvasViewController : TSDiOSCanvasViewController <_UINonEditableTextSelectionForceGestureDelegate, UIDragInteractionDelegate, UIDropInteractionDelegate>
 {
     UIGestureRecognizer *_hyperlinkGestureRecognizer;
     TSWPSwipeGestureRecognizer *_rightSwipeGestureRecognizer;
@@ -29,6 +31,13 @@
 - (id)p_newSwipeGestureRecognizerWithDirection:(int)arg1 numberOfTouchesRequired:(unsigned int)arg2;
 - (void)p_addSwipeGestureRecognizer:(id)arg1 failRequiredFor:(id)arg2;
 @property(readonly) TSWPInteractiveCanvasController *interactiveCanvasController;
+- (id)dragInteraction:(id)arg1 previewForCancellingItem:(id)arg2 withDefault:(id)arg3;
+- (id)_api_dropInteraction:(id)arg1 sessionDidUpdate:(id)arg2;
+- (_Bool)dropInteraction:(id)arg1 canHandleSession:(id)arg2;
+- (id)_api_dragInteraction:(id)arg1 previewForLiftingItem:(id)arg2 session:(id)arg3;
+- (id)dragInteraction:(id)arg1 itemsForAddingToSession:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
+- (id)dragInteraction:(id)arg1 itemsForBeginningSession:(id)arg2;
+- (id)_dragItemsForInteraction:(id)arg1 session:(id)arg2 withTouchAtPoint:(struct CGPoint)arg3;
 - (id)hyperlinkUICustomStringForURLString:(id)arg1;
 - (void)hyperlinkUIShowCustomUIforRep:(id)arg1 field:(id)arg2;
 - (_Bool)hyperlinkUIShouldShow;

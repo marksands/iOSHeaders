@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (void)onqueue_connectionInvalidated;
 - (void)onqueue_connectionInterrupted;
 - (void)onqueue_connectionEstablished;
-- (_Bool)shouldAutomaticallyDispatchIncomingInvocations;
+- (_Bool)shouldEscapeXpcTryCatch;
 - (id)remoteObjectInterface;
 - (id)exportedInterface;
 - (id)machServiceName;

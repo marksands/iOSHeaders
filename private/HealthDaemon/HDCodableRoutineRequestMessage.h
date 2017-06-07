@@ -35,6 +35,8 @@
 @property(readonly, nonatomic) _Bool hasScenarioTriggeredRequest;
 @property(readonly, nonatomic) _Bool hasFetchLocationRequest;
 @property(readonly, nonatomic) _Bool hasRequestIdentifier;
+- (int)StringAsRequestType:(id)arg1;
+- (id)requestTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasRequestType;
 @property(nonatomic) int requestType; // @synthesize requestType=_requestType;
 

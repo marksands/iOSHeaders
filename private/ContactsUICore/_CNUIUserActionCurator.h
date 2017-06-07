@@ -9,16 +9,19 @@
 #import <ContactsUICore/CNUIUserActionCurator-Protocol.h>
 
 @class CNContactStore, NSString;
+@protocol CNLSApplicationWorkspace;
 
 @interface _CNUIUserActionCurator : NSObject <CNUIUserActionCurator>
 {
     CNContactStore *_contactStore;
+    id <CNLSApplicationWorkspace> _applicationWorkspace;
 }
 
+@property(retain, nonatomic) id <CNLSApplicationWorkspace> applicationWorkspace; // @synthesize applicationWorkspace=_applicationWorkspace;
 @property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
 - (void).cxx_destruct;
 - (id)curateUserAction:(id)arg1;
-- (id)initWithContactStore:(id)arg1;
+- (id)initWithContactStore:(id)arg1 applicationWorkspace:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

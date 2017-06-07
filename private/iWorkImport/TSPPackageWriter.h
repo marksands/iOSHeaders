@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
     NSProgress *_progress;
 }
 
-+ (id)newPackageWriterWithPackageType:(long long)arg1 URL:(id)arg2 documentTargetURL:(id)arg3 relativeURLForExternalData:(id)arg4 packageIdentifier:(unsigned char)arg5 documentProperties:(id)arg6 fileFormatVersion:(unsigned long long)arg7 updateType:(long long)arg8 encryptionKey:(id)arg9 originalDocumentPackage:(id)arg10 originalSuppportPackage:(id)arg11 fileCoordinatorDelegate:(id)arg12 progress:(id)arg13 error:(id *)arg14;
++ (id)newPackageWriterWithPackageType:(long long)arg1 URL:(id)arg2 documentTargetURL:(id)arg3 relativeURLForExternalData:(id)arg4 packageIdentifier:(unsigned char)arg5 documentProperties:(id)arg6 fileFormatVersion:(unsigned long long)arg7 updateType:(long long)arg8 apfsMode:(_Bool)arg9 encryptionKey:(id)arg10 originalDocumentPackage:(id)arg11 originalSuppportPackage:(id)arg12 fileCoordinatorDelegate:(id)arg13 progress:(id)arg14 error:(id *)arg15;
 @property(readonly, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(readonly, nonatomic) TSUZipFileWriter *zipArchiveWriter; // @synthesize zipArchiveWriter=_zipArchiveWriter;
 @property(readonly, nonatomic) SFUCryptoKey *encryptionKey; // @synthesize encryptionKey=_encryptionKey;
@@ -39,27 +39,31 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSURL *documentTargetURL; // @synthesize documentTargetURL=_documentTargetURL;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
-- (id)newRawDataWriteChannelForRelativePath:(id)arg1 originalSize:(unsigned long long)arg2 originalCRC:(unsigned int)arg3;
+- (id)newRawDataWriteChannelForRelativePath:(id)arg1 originalLastModificationDate:(id)arg2 originalSize:(unsigned long long)arg3 originalCRC:(unsigned int)arg4 forceCalculatingSizeAndCRCForPreservingLastModificationDate:(_Bool)arg5;
 - (id)newPackageWithPackageIdentifier:(unsigned char)arg1 documentProperties:(id)arg2 fileFormatVersion:(unsigned long long)arg3 decryptionKey:(id)arg4 fileCoordinatorDelegate:(id)arg5;
 - (id)writtenPackageWithURL:(id)arg1;
 - (_Bool)closeAndReturnError:(id *)arg1;
 - (void)closeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)finalizeComponentAndDataSectionWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (struct CGDataConsumer *)newCGDataConsumerAtRelativePath:(id)arg1;
 - (_Bool)writeData:(id)arg1 toRelativePath:(id)arg2 allowEncryption:(_Bool)arg3 error:(id *)arg4;
 - (id)copyData:(id)arg1 withReadChannel:(id)arg2 decryptionInfo:(id)arg3 size:(unsigned long long)arg4 preferredFilename:(id)arg5 error:(id *)arg6;
 - (id)linkOrCopyData:(id)arg1 fromURL:(id)arg2 decryptionInfo:(id)arg3 preferredFilename:(id)arg4 error:(id *)arg5;
 - (_Bool)addData:(id)arg1 infoMessage:(struct DataInfo *)arg2 saveOperationState:(id)arg3;
 - (id)filenameForData:(id)arg1 preferredFilename:(id)arg2;
+- (void)willWriteDataWithTotalLength:(unsigned long long)arg1;
+- (_Bool)flushPendingWritesReturningError:(id *)arg1;
 - (void)copyComponent:(id)arg1 locator:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)newRawComponentWriteChannelWithPackageLocator:(id)arg1 storeOutsideObjectArchive:(_Bool)arg2;
 - (id)newComponentWriteChannelWithPackageLocator:(id)arg1 storeOutsideObjectArchive:(_Bool)arg2;
 - (void)closeCurrentChannel;
-- (unsigned long long)encodedLengthForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2 packageURL:(id)arg3;
+- (id)packageEntryInfoForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2 packageURL:(id)arg3;
+- (id)componentZipArchiveWriter;
 - (void)setError:(id)arg1;
 @property(readonly, nonatomic) TSPPackage *originalPackage;
 @property(readonly, nonatomic) _Bool canLinkData;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1 documentTargetURL:(id)arg2 relativeURLForExternalData:(id)arg3 packageIdentifier:(unsigned char)arg4 documentProperties:(id)arg5 fileFormatVersion:(unsigned long long)arg6 updateType:(long long)arg7 encryptionKey:(id)arg8 originalDocumentPackage:(id)arg9 originalSuppportPackage:(id)arg10 fileCoordinatorDelegate:(id)arg11 progress:(id)arg12 error:(id *)arg13;
+- (id)initWithURL:(id)arg1 documentTargetURL:(id)arg2 relativeURLForExternalData:(id)arg3 packageIdentifier:(unsigned char)arg4 documentProperties:(id)arg5 fileFormatVersion:(unsigned long long)arg6 updateType:(long long)arg7 apfsMode:(_Bool)arg8 encryptionKey:(id)arg9 originalDocumentPackage:(id)arg10 originalSuppportPackage:(id)arg11 fileCoordinatorDelegate:(id)arg12 progress:(id)arg13 error:(id *)arg14;
 - (id)init;
 
 // Remaining properties

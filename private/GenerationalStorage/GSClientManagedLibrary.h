@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GenerationalStorage/GSLibraryProtocol-Protocol.h>
 
@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
     GSTemporaryStorage *_ts;
 }
 
+- (void).cxx_destruct;
 - (_Bool)generationsRemove:(id)arg1 error:(id *)arg2;
-- (void)dealloc;
 - (id)initWithURL:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) NSString *nameSpace;
 @property(readonly, nonatomic) NSObject<GSAdditionStoring> *storage;

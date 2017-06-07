@@ -6,7 +6,7 @@
 
 #import <GeoServices/GEORoutePreloader.h>
 
-@class GEOTileKeyList, NSMapTable, NSMutableArray, NSTimer;
+@class GEOTileKeyList, NSMapTable, NSMutableArray, NSMutableDictionary, NSTimer;
 @protocol GEORoutePreloadCamera;
 
 @interface GEONavRoutePreloader : GEORoutePreloader
@@ -16,6 +16,8 @@
     GEOTileKeyList *_tilesReceived;
     GEOTileKeyList *_tilesMissed;
     NSMutableArray *_steps;
+    NSMutableArray *_failedSubscriptions;
+    NSMutableDictionary *_subscriptions;
     unsigned int _stepGeneration;
     _Bool _tooFarFromRoute;
     long long _currentLoadingSteps;
@@ -31,6 +33,7 @@
 }
 
 @property(retain, nonatomic) id <GEORoutePreloadCamera> camera; // @synthesize camera=_camera;
+- (void).cxx_destruct;
 - (void)getPreloadSetCoordinates:(CDStruct_c3b9c2ee *)arg1 maxLength:(unsigned long long)arg2 actualLength:(unsigned long long *)arg3;
 - (int)preloadStateForTile:(const struct _GEOTileKey *)arg1;
 - (void)setTraits:(id)arg1;
@@ -39,6 +42,8 @@
 - (void)beginLoading;
 - (void)preloaderLog:(id)arg1;
 - (void)_performNextRequests;
+- (void)_performTileRequestsPreemptedStepIndex:(long long)arg1 currentRoutePositionStepIndex:(long long)arg2 firstErrorStepIndex:(long long)arg3 firstLoadStepIndex:(long long)arg4 loadStepsAhead:(long long)arg5 loadStepsAheadIfNoWiFi:(long long)arg6;
+- (void)_performSubscriptionRequestsPreemptedStepIndex:(long long)arg1 currentRoutePositionStepIndex:(long long)arg2 firstErrorStepIndex:(long long)arg3 firstLoadStepIndex:(long long)arg4 loadStepsAhead:(long long)arg5 loadStepsAheadIfNoWiFi:(long long)arg6;
 - (void)_cancelRequestsInPast;
 - (id)_descriptionForStep:(id)arg1;
 - (void)_incrementErrorForStep:(id)arg1;

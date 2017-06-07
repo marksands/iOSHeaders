@@ -13,8 +13,11 @@
     RTLocationOfInterest *_locationOfInterest;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) RTLocationOfInterest *locationOfInterest; // @synthesize locationOfInterest=_locationOfInterest;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)initWithLocationOfInterest:(id)arg1;
 - (id)init;

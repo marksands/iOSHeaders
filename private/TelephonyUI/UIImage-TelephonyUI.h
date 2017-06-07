@@ -7,6 +7,15 @@
 #import <UIKit/UIImage.h>
 
 @interface UIImage (TelephonyUI)
++ (id)telephonyUI_speakerAudioRouteGlyphImage;
++ (id)telephonyUI_BluetoothAudioRouteGlyphImage;
++ (id)telephonyUI_muteAudioRouteGlyphImage;
++ (id)telephonyUI_CarPlayAudioRouteGlyphImage;
++ (id)telephonyUI_headphonesAudioRouteGlyphImage;
++ (id)telephonyUI_AirPodsAudioRouteGlyphImage;
++ (id)telephonyUI_iPodAudioRouteGlyphImage;
++ (id)telephonyUI_iPadAudioRouteGlyphImage;
++ (id)telephonyUI_iPhoneAudioRouteGlyphImage;
 + (id)favoritesWidgetVideoGlyphImage;
 + (id)favoritesWidgetTTYRelayGlyphImage;
 + (id)favoritesWidgetTTYDirectGlyphImage;
@@ -20,5 +29,9 @@
 + (id)favoritesMailGlyphImage;
 + (id)favoritesAudioGlyphImage;
 + (id)telephonyUIImageNamed:(id)arg1;
++ (id)telephonyUIUnreadIndicatorGlyphImage;
++ (id)telephonyUIActionButtonGlyphImage;
+- (id)imageWithShadow:(id)arg1;
+- (id)imageWithEtchedBorderOfColor:(id)arg1 radius:(double)arg2;
 @end
 

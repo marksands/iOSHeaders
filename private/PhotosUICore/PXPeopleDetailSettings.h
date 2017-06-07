@@ -13,6 +13,7 @@
 + (id)settingsControllerModule;
 + (id)sharedInstance;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

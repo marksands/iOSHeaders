@@ -6,7 +6,7 @@
 
 #import <ContactsUICore/NSObject-Protocol.h>
 
-@class CNContact, NSSet, NSString;
+@class CNContact, CNHandle, NSSet, NSString;
 @protocol CNTUDialRequest;
 
 @protocol CNTUCallProvider <NSObject>
@@ -15,6 +15,6 @@
 @property(readonly, nonatomic) _Bool supportsAudio;
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier;
 @property(readonly, copy, nonatomic) NSString *localizedName;
-- (id <CNTUDialRequest>)dialRequestForDestinationID:(NSString *)arg1 customIdentifier:(NSString *)arg2 contact:(CNContact *)arg3 video:(_Bool)arg4;
+- (id <CNTUDialRequest>)dialRequestForHandle:(CNHandle *)arg1 contact:(CNContact *)arg2 video:(_Bool)arg3;
 @end
 

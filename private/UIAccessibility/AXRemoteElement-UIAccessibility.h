@@ -9,8 +9,8 @@
 @interface AXRemoteElement (UIAccessibility)
 - (id)_ancestorElementThatSupportsActivationAction;
 - (_Bool)accessibilityActivate;
-- (id)accessibilityAttributeValue:(int)arg1;
-- (id)accessibilityAttributeValue:(int)arg1 forParameter:(id)arg2;
+- (id)accessibilityAttributeValue:(long long)arg1;
+- (id)accessibilityAttributeValue:(long long)arg1 forParameter:(id)arg2;
 - (_Bool)_accessibilityIsRemoteElement;
 - (_Bool)accessibilityViewIsModal;
 - (void)platformCleanup;

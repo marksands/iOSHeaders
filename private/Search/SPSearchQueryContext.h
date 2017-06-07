@@ -6,12 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, SFSearchSuggestion;
 
 @interface SPSearchQueryContext : NSObject
 {
+    _Bool _allowInternet;
+    _Bool _isPasscodeLocked;
     _Bool _forceQueryEvenIfSame;
+    _Bool _promoteLocalResults;
+    _Bool _promoteParsecResults;
+    _Bool _noTokenize;
     NSString *_searchString;
+    SFSearchSuggestion *_engagedSuggestion;
     NSArray *_markedTextArray;
     NSString *_keyboardLanguage;
     NSString *_keyboardPrimaryLanguage;
@@ -21,9 +27,14 @@
     unsigned long long _whyQuery;
     unsigned long long _whyClear;
     unsigned long long _queryIdent;
+    NSArray *_searchEntities;
 }
 
 + (id)queryContextWithSearchString:(id)arg1;
+@property(nonatomic) _Bool noTokenize; // @synthesize noTokenize=_noTokenize;
+@property(nonatomic) _Bool promoteParsecResults; // @synthesize promoteParsecResults=_promoteParsecResults;
+@property(nonatomic) _Bool promoteLocalResults; // @synthesize promoteLocalResults=_promoteLocalResults;
+@property(retain, nonatomic) NSArray *searchEntities; // @synthesize searchEntities=_searchEntities;
 @property(nonatomic) unsigned long long queryIdent; // @synthesize queryIdent=_queryIdent;
 @property(nonatomic) unsigned long long whyClear; // @synthesize whyClear=_whyClear;
 @property(nonatomic) unsigned long long whyQuery; // @synthesize whyQuery=_whyQuery;
@@ -34,8 +45,12 @@
 @property(retain, nonatomic) NSString *keyboardPrimaryLanguage; // @synthesize keyboardPrimaryLanguage=_keyboardPrimaryLanguage;
 @property(retain, nonatomic) NSString *keyboardLanguage; // @synthesize keyboardLanguage=_keyboardLanguage;
 @property(retain, nonatomic) NSArray *markedTextArray; // @synthesize markedTextArray=_markedTextArray;
+@property(retain, nonatomic) SFSearchSuggestion *engagedSuggestion; // @synthesize engagedSuggestion=_engagedSuggestion;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+@property(nonatomic) _Bool isPasscodeLocked; // @synthesize isPasscodeLocked=_isPasscodeLocked;
+@property(nonatomic) _Bool allowInternet; // @synthesize allowInternet=_allowInternet;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *displayedText;
 @property(readonly, nonatomic) _Bool hasMarkedText;
 - (id)initWithSearchString:(id)arg1;
 

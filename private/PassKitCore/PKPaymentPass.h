@@ -9,13 +9,15 @@
 #import <PassKitCore/NSCopying-Protocol.h>
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSSet, NSString, NSURL, PKFelicaPassProperties, PKPaymentApplication;
+@class NSArray, NSSet, NSString, NSURL, PKCurrencyAmount, PKFelicaPassProperties, PKPaymentApplication;
 
 @interface PKPaymentPass : PKPass <NSCopying, NSSecureCoding>
 {
     _Bool _supportsDPANNotifications;
     _Bool _supportsFPANNotifications;
     _Bool _supportsDefaultCardSelection;
+    _Bool _hasAssociatedPeerPaymentAccount;
+    _Bool _supportsPeerPayment;
     _Bool _supportsSerialNumberBasedProvisioning;
     _Bool _paymentOptionSelectable;
     _Bool _cobranded;
@@ -25,6 +27,7 @@
     NSSet *_associatedApplicationIdentifiers;
     NSSet *_associatedWebDomains;
     NSString *_sanitizedPrimaryAccountNumber;
+    NSString *_issuerCountryCode;
     NSSet *_paymentApplications;
     NSSet *_devicePaymentApplications;
     PKPaymentApplication *_devicePrimaryPaymentApplication;
@@ -60,6 +63,9 @@
 @property(copy, nonatomic) NSSet *paymentApplications; // @synthesize paymentApplications=_paymentApplications;
 @property(nonatomic, getter=isPaymentOptionSelectable) _Bool paymentOptionSelectable; // @synthesize paymentOptionSelectable=_paymentOptionSelectable;
 @property(nonatomic) _Bool supportsSerialNumberBasedProvisioning; // @synthesize supportsSerialNumberBasedProvisioning=_supportsSerialNumberBasedProvisioning;
+@property(copy, nonatomic) NSString *issuerCountryCode; // @synthesize issuerCountryCode=_issuerCountryCode;
+@property(nonatomic) _Bool supportsPeerPayment; // @synthesize supportsPeerPayment=_supportsPeerPayment;
+@property(nonatomic) _Bool hasAssociatedPeerPaymentAccount; // @synthesize hasAssociatedPeerPaymentAccount=_hasAssociatedPeerPaymentAccount;
 @property(nonatomic) _Bool supportsDefaultCardSelection; // @synthesize supportsDefaultCardSelection=_supportsDefaultCardSelection;
 @property(nonatomic) _Bool supportsFPANNotifications; // @synthesize supportsFPANNotifications=_supportsFPANNotifications;
 @property(nonatomic) _Bool supportsDPANNotifications; // @synthesize supportsDPANNotifications=_supportsDPANNotifications;
@@ -69,6 +75,7 @@
 @property(copy, nonatomic) NSString *primaryAccountNumberSuffix; // @synthesize primaryAccountNumberSuffix=_primaryAccountNumberSuffix;
 @property(copy, nonatomic) NSString *primaryAccountIdentifier; // @synthesize primaryAccountIdentifier=_primaryAccountIdentifier;
 - (void).cxx_destruct;
+- (id)_launchURLForPassAction:(id)arg1;
 - (id)addValueURL;
 @property(readonly, copy, nonatomic) PKFelicaPassProperties *felicaProperties;
 - (id)notificationCenterTitle;
@@ -85,6 +92,7 @@
 @property(readonly) __weak NSString *deviceAccountIdentifier;
 - (_Bool)availableForAutomaticPresentationUsingBeaconContext;
 - (_Bool)availableForAutomaticPresentationUsingVASContext;
+- (_Bool)isAccessPass;
 @property(readonly, nonatomic, getter=isPrivateLabel) _Bool privateLabel;
 - (_Bool)isDevicePrimaryPaymentApplicationPersonalized;
 - (id)paymentApplicationForAID:(id)arg1;
@@ -94,6 +102,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1 bundle:(id)arg2;
+@property(retain, nonatomic) PKCurrencyAmount *peerPaymentBalance;
 - (_Bool)canPerformAction:(id)arg1 unableReason:(unsigned long long *)arg2 displayableError:(id *)arg3;
 
 @end

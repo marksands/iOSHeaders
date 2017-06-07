@@ -18,6 +18,7 @@
     BLPEModel *_model;
 }
 
+- (void).cxx_destruct;
 - (id)ciImageWithPhotoEffectsForCIImage:(id)arg1 inDestRect:(struct CGRect)arg2 withPadding:(double)arg3;
 - (id)ciImageWithPhotoEffectsForImageBuffer:(id)arg1 inDestRect:(struct CGRect)arg2 withPadding:(double)arg3;
 - (id)imageWithPhotoEffectsForImageBuffer:(id)arg1 inDestRect:(struct CGRect)arg2 withPadding:(double)arg3;
@@ -29,7 +30,6 @@
 - (_Bool)needsPadding;
 - (_Bool)hasInkEffects;
 - (_Bool)hasPhotoEffects;
-- (void)dealloc;
 - (id)initWithAdjustmentsDictionary:(id)arg1 andAnalysisDictionary:(id)arg2 ignoreEdgeEffects:(_Bool)arg3;
 - (id)initWithAdjustmentsDictionary:(id)arg1 andAnalysisDictionary:(id)arg2;
 

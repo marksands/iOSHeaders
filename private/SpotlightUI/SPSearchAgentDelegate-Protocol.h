@@ -4,11 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, SPSearchAgent;
+@class SPUISearchModel;
 
 @protocol SPSearchAgentDelegate
-- (void)searchAgentReceivedSuggestions:(NSArray *)arg1;
-- (void)searchAgentClearedResults:(SPSearchAgent *)arg1;
-- (void)searchAgentUpdatedResults:(SPSearchAgent *)arg1;
+- (void)searchAgentClearedResults:(SPUISearchModel *)arg1;
+- (void)searchAgentUpdatedResults:(SPUISearchModel *)arg1;
 @end
 

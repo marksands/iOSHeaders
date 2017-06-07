@@ -15,13 +15,15 @@
 {
     AVConferenceXPCClient *_connection;
     AVCMediaStreamConfig *_configuration;
-    id <AVCVideoStreamDelegate> _delegate;
+    id _delegate;
     VCVideoStream *_opaqueStream;
     long long _streamToken;
     NSDictionary *_capabilities;
 }
 
 + (id)capabilities;
++ (id)extractClientUplinkQualityInfoDictionary:(id)arg1;
++ (id)extractClientDownlinkQualityInfoDictionary:(id)arg1;
 @property(retain, nonatomic) AVCMediaStreamConfig *configuration; // @synthesize configuration=_configuration;
 @property(retain, nonatomic) NSDictionary *capabilities; // @synthesize capabilities=_capabilities;
 @property(readonly, nonatomic) long long streamToken; // @synthesize streamToken=_streamToken;

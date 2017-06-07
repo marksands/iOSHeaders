@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSCopying-Protocol.h>
 #import <PassKitCore/NSSecureCoding-Protocol.h>
@@ -25,6 +25,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithRSACertificate:(id)arg1 ECDSACertificate:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
 - (id)init;
 

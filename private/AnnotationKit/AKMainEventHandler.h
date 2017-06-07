@@ -71,6 +71,7 @@
 - (void)applyToAllSelectedAnnotationsRotateEvent:(id)arg1 orRecognizer:(id)arg2;
 - (void)finishTranslationOfAllSelectedAnnotations;
 - (void)applyTranslationToAllSelectedAnnotations:(struct CGPoint)arg1;
+- (_Bool)hitTestAnnotationsIncludingPOI:(_Bool)arg1 ignoreIfDeselected:(_Bool)arg2 atPointInWindow:(struct CGPoint)arg3 outAnnotation:(id *)arg4;
 - (_Bool)hitTestPointsOfInterestsAtPoint:(struct CGPoint)arg1 onPageController:(id)arg2 inAnnotations:(id)arg3 event:(id)arg4 recognizer:(id)arg5 cursorUpdateOnly:(_Bool)arg6;
 - (id)topmostAnnotationForBorderAndInteriorHitTestAtPoint:(struct CGPoint)arg1 inAnnotations:(id)arg2 onPageController:(id)arg3 wasOnBorder:(_Bool *)arg4 wasOnText:(_Bool *)arg5;
 - (id)annotationsPassingBoundingBoxHitTestsWithPoint:(struct CGPoint)arg1 onPageController:(id)arg2;

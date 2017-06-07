@@ -20,6 +20,7 @@
 - (id)valueAtIndex:(unsigned long long)arg1;
 - (id)keyAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long count;
+- (id)init;
 - (id)initWithKeys:(id)arg1 values:(id)arg2;
 
 @end

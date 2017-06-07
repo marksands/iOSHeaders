@@ -48,6 +48,7 @@
 - (void)hourlyForecastForLocation:(id)arg1 requestIdentifier:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)forecastForLocation:(id)arg1 atDate:(id)arg2 requestIdentifier:(id)arg3 options:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)cancelTaskWithIdentifier:(id)arg1;
+- (void)invalidateCacheWithIdentifier:(id)arg1;
 - (id)initWithConfiguration:(id)arg1 error:(id *)arg2;
 - (id)initWithConfiguration:(id)arg1;
 - (id)init;

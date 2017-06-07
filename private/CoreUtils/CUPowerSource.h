@@ -6,15 +6,18 @@
 
 #import <Foundation/NSObject.h>
 
+#import <CoreUtils/NSSecureCoding-Protocol.h>
+
 @class NSDictionary, NSString;
 
-@interface CUPowerSource : NSObject
+@interface CUPowerSource : NSObject <NSSecureCoding>
 {
     struct OpaqueIOPSPowerSourceID *_psID;
     _Bool _charging;
     _Bool _present;
     NSString *_accessoryID;
     double _chargeLevel;
+    long long _familyCode;
     NSString *_groupID;
     NSString *_name;
     NSString *_partID;
@@ -27,6 +30,7 @@
     NSDictionary *_ioKitDescription;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(nonatomic) _Bool present; // @synthesize present=_present;
 @property(copy, nonatomic) NSDictionary *ioKitDescription; // @synthesize ioKitDescription=_ioKitDescription;
 @property(nonatomic) long long vendorID; // @synthesize vendorID=_vendorID;
@@ -38,16 +42,22 @@
 @property(copy, nonatomic) NSString *partID; // @synthesize partID=_partID;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
+@property(nonatomic) long long familyCode; // @synthesize familyCode=_familyCode;
 @property(nonatomic) double chargeLevel; // @synthesize chargeLevel=_chargeLevel;
 @property(nonatomic) _Bool charging; // @synthesize charging=_charging;
 @property(copy, nonatomic) NSString *accessoryID; // @synthesize accessoryID=_accessoryID;
 - (void).cxx_destruct;
 - (unsigned int)updateWithPowerSourceDescription:(id)arg1;
+- (unsigned int)updateWithPowerAdapterDetails:(id)arg1;
 - (void)invalidate;
 - (int)publish;
 - (id)detailedDescription;
 - (id)description;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

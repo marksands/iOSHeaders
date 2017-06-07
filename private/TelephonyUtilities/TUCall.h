@@ -4,19 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/NSSecureCoding-Protocol.h>
 
-@class NSData, NSDictionary, NSString, NSUUID, TUCallCenter, TUCallDisplayContext, TUCallModel, TUCallNotificationManager, TUCallProvider, TUCallServicesInterface, TUDialRequest, TUHandle, TUProxyCall;
+@class NSArray, NSData, NSDictionary, NSString, NSUUID, TUCallCenter, TUCallDisplayContext, TUCallModel, TUCallNotificationManager, TUCallProvider, TUCallServicesInterface, TUDialRequest, TUHandle, TUProxyCall, TUVideoCallAttributes;
 @protocol OS_dispatch_queue;
 
 @interface TUCall : NSObject <NSSecureCoding>
 {
-    struct {
-        unsigned int joiningConference:1;
-        unsigned int leavingConference:1;
-    } _phoneCallFlags;
     _Bool _endpointOnCurrentDevice;
     _Bool _shouldSuppressRingtone;
     _Bool _wantsHoldMusic;
@@ -26,7 +22,6 @@
     _Bool _wasDialAssisted;
     _Bool _hasBegunAudioInterruption;
     _Bool _hasUpdatedAudio;
-    _Bool _hasAudioFinished;
     _Bool _expectedEndpointOnPairedClientDevice;
     _Bool _ringtoneSuppressedRemotely;
     _Bool _wasPulledToCurrentDevice;
@@ -41,12 +36,12 @@
     TUProxyCall *_comparativeCall;
     NSObject<OS_dispatch_queue> *_queue;
     TUCallServicesInterface *_callServicesInterface;
+    TUVideoCallAttributes *_videoCallAttributes;
     long long _provisionalHoldStatus;
     NSString *_isoCountryCode;
     NSString *_prematurelySelectedAudioRouteUID;
     long long _soundRegion;
     NSDictionary *_providerContext;
-    long long _videoStreamToken;
     double _hostCreationTime;
     double _hostMessageSendTime;
     double _clientMessageReceiveTime;
@@ -66,18 +61,17 @@
 @property(nonatomic) double hostMessageSendTime; // @synthesize hostMessageSendTime=_hostMessageSendTime;
 @property(nonatomic) double hostCreationTime; // @synthesize hostCreationTime=_hostCreationTime;
 @property(readonly, nonatomic) struct CGSize remoteScreenAspectRatio; // @synthesize remoteScreenAspectRatio=_remoteScreenAspectRatio;
-@property(readonly, nonatomic) long long videoStreamToken; // @synthesize videoStreamToken=_videoStreamToken;
 @property(readonly, nonatomic) NSDictionary *providerContext; // @synthesize providerContext=_providerContext;
 @property(nonatomic) _Bool ringtoneSuppressedRemotely; // @synthesize ringtoneSuppressedRemotely=_ringtoneSuppressedRemotely;
 @property(nonatomic, getter=isExpectedEndpointOnPairedClientDevice) _Bool expectedEndpointOnPairedClientDevice; // @synthesize expectedEndpointOnPairedClientDevice=_expectedEndpointOnPairedClientDevice;
 @property(nonatomic) long long soundRegion; // @synthesize soundRegion=_soundRegion;
-@property(nonatomic) _Bool hasAudioFinished; // @synthesize hasAudioFinished=_hasAudioFinished;
 @property(nonatomic) _Bool hasUpdatedAudio; // @synthesize hasUpdatedAudio=_hasUpdatedAudio;
 @property(retain, nonatomic) NSString *prematurelySelectedAudioRouteUID; // @synthesize prematurelySelectedAudioRouteUID=_prematurelySelectedAudioRouteUID;
 @property(nonatomic) _Bool hasBegunAudioInterruption; // @synthesize hasBegunAudioInterruption=_hasBegunAudioInterruption;
 @property(nonatomic) int transitionStatus; // @synthesize transitionStatus=_transitionStatus;
 @property(copy, nonatomic) NSString *isoCountryCode; // @synthesize isoCountryCode=_isoCountryCode;
 @property(nonatomic) long long provisionalHoldStatus; // @synthesize provisionalHoldStatus=_provisionalHoldStatus;
+@property(retain, nonatomic) TUVideoCallAttributes *videoCallAttributes; // @synthesize videoCallAttributes=_videoCallAttributes;
 @property(nonatomic) __weak TUCallServicesInterface *callServicesInterface; // @synthesize callServicesInterface=_callServicesInterface;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(retain, nonatomic) TUProxyCall *comparativeCall; // @synthesize comparativeCall=_comparativeCall;
@@ -107,6 +101,7 @@
 @property(readonly, nonatomic) long long cameraType;
 @property(nonatomic) _Bool requiresRemoteVideo;
 - (void)setRemoteVideoLayer:(id)arg1 forMode:(long long)arg2;
+- (void)setLocalVideoLayer:(id)arg1 forMode:(long long)arg2;
 @property(readonly, nonatomic) NSString *endedReasonString;
 @property(readonly, nonatomic) NSString *endedErrorString;
 @property(readonly, nonatomic) NSDictionary *callStats;
@@ -120,17 +115,17 @@
 @property(readonly, copy, nonatomic) NSDictionary *endedReasonUserInfo;
 - (_Bool)hasRelaySupport:(int)arg1;
 @property(readonly, nonatomic) int callRelaySupport;
-- (id)contactImageDataWithFormat:(int)arg1;
+@property(readonly, nonatomic) int callIdentifier;
 @property(readonly, nonatomic) int abUID;
 @property(readonly, copy, nonatomic) NSString *companyName;
 @property(readonly, copy, nonatomic) NSString *localizedLabel;
-@property(readonly, copy) NSString *suggestedDisplayName;
+@property(readonly, copy, nonatomic) NSString *suggestedDisplayName;
 @property(readonly, copy, nonatomic) NSString *displayFirstName;
 @property(readonly, copy, nonatomic) NSString *displayName;
 @property(readonly, copy, nonatomic) NSString *contactIdentifier;
 @property(readonly, copy, nonatomic) TUCallDisplayContext *displayContext;
-@property(readonly, retain, nonatomic) NSData *remoteFrequency;
-@property(readonly, retain, nonatomic) NSData *localFrequency;
+@property(readonly, nonatomic) NSData *remoteFrequency;
+@property(readonly, nonatomic) NSData *localFrequency;
 @property(nonatomic, getter=isDownlinkMuted) _Bool downlinkMuted;
 @property(nonatomic, getter=isUplinkMuted) _Bool uplinkMuted;
 - (_Bool)setMuted:(_Bool)arg1;
@@ -153,7 +148,6 @@
 @property(readonly, copy, nonatomic) NSUUID *callGroupUUID;
 @property(readonly, copy, nonatomic) NSString *callHistoryIdentifier;
 @property(readonly, copy, nonatomic) NSString *callUUID;
-@property(readonly, nonatomic) int callIdentifier;
 @property(readonly, nonatomic, getter=isHostedOnCurrentDevice) _Bool hostedOnCurrentDevice;
 @property(readonly, nonatomic) _Bool shouldDisplayLocationIfAvailable;
 @property(readonly, nonatomic) TUHandle *handle;
@@ -161,6 +155,9 @@
 @property(readonly, copy, nonatomic) NSString *destinationID;
 - (void)ungroup;
 - (void)groupWithOtherCall:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *activeRemoteParticipantHandles;
+@property(readonly, copy, nonatomic) NSArray *remoteParticipantHandles;
+@property(readonly, copy, nonatomic) NSUUID *conversationGroupUUID;
 @property(readonly, copy, nonatomic) TUDialRequest *dialRequestForRedial;
 @property(readonly, nonatomic) int ttyType;
 @property(readonly, nonatomic) long long faceTimeTransportType;
@@ -182,7 +179,7 @@
 @property(readonly, nonatomic) TUCallProvider *backingProvider;
 @property(readonly, nonatomic) TUCallProvider *provider;
 @property(readonly, copy, nonatomic) NSUUID *uniqueProxyIdentifierUUID;
-@property(readonly, retain, nonatomic) NSString *hardPauseDigitsDisplayString;
+@property(readonly, nonatomic) NSString *hardPauseDigitsDisplayString;
 - (void)sendHardPauseDigits;
 - (void)playDTMFToneForKey:(unsigned char)arg1;
 - (void)resetProvisionalState;
@@ -193,6 +190,12 @@
 @property(readonly, nonatomic) _Bool isOnHold;
 - (void)answerWithRequest:(id)arg1;
 - (void)_handleStatusChange;
+@property(readonly, nonatomic) long long remoteVideoContextSlotIdentifier;
+@property(readonly, nonatomic) long long localVideoContextSlotIdentifier;
+@property(readonly, nonatomic) long long videoContextSlotIdentifier;
+@property(readonly, nonatomic) long long videoStreamToken;
+@property(readonly, nonatomic, getter=isRemoteUplinkMuted) _Bool remoteUplinkMuted;
+@property(readonly, nonatomic) _Bool supportsTTYWithVoice;
 @property(readonly, nonatomic, getter=isVideoPaused) _Bool videoPaused;
 @property(readonly, nonatomic, getter=isVideoDegraded) _Bool videoDegraded;
 @property(readonly, nonatomic, getter=isMediaStalled) _Bool mediaStalled;
@@ -201,6 +204,7 @@
 @property(readonly, nonatomic, getter=isOutgoing) _Bool outgoing;
 @property(readonly, nonatomic, getter=isThirdPartyVideo) _Bool thirdPartyVideo;
 @property(readonly, nonatomic) _Bool isVideo;
+@property(readonly, nonatomic) _Bool prefersExclusiveAccessToCellularNetwork;
 @property(readonly, nonatomic, getter=isUsingBaseband) _Bool usingBaseband;
 @property(readonly, nonatomic, getter=isVoicemail) _Bool voicemail;
 @property(readonly, nonatomic, getter=isSOS) _Bool sos;

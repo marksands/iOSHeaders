@@ -10,6 +10,7 @@
 @protocol CKSendAnimationContext;
 
 @protocol CKTranscriptCollectionViewControllerDelegate <NSObject>
+- (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 balloonViewDidRequestPresentationStyleExpanded:(_Bool)arg2 forChatItem:(CKChatItem *)arg3;
 - (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 didEndImpactEffectAnimationWithSendAnimationContext:(id <CKSendAnimationContext>)arg2;
 - (void)transcriptCollectionViewController:(CKTranscriptCollectionViewController *)arg1 willBeginImpactEffectAnimationWithSendAnimationContext:(id <CKSendAnimationContext>)arg2;
 - (NSArray *)transcriptCollectionViewControllerAdditionalFullscreenEffectViews:(CKTranscriptCollectionViewController *)arg1;

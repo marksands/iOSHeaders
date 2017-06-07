@@ -27,8 +27,8 @@
     int _referencingCount;
 }
 
-+ (void)initialize;
 @property(retain, nonatomic) VMUClassInfoMap *indexedClassInfos; // @synthesize indexedClassInfos=_knownClassInfos;
+- (void).cxx_destruct;
 - (void *)createMapForIntersectGraph:(id)arg1;
 - (void *)createMapForMinusGraph:(id)arg1;
 - (void *)_compareWithGraph:(id)arg1 andMarkOnMatch:(_Bool)arg2;
@@ -44,6 +44,7 @@
 - (unsigned int)enumerateMarkedObjects:(void *)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (unsigned int)enumerateObjectsOfGroupNode:(unsigned int)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (unsigned int)enumerateObjectsWithBlock:(CDUnknownBlockType)arg1;
+- (unsigned int)nodeForAddress:(unsigned long long)arg1;
 - (void)_renameWithNodeMap:(unsigned int *)arg1 nodeNamespace:(unsigned int)arg2 edgeMap:(unsigned int *)arg3 edgeNamespace:(unsigned int)arg4;
 - (unsigned int)addEdgeFromNode:(unsigned int)arg1 toNode:(unsigned int)arg2;
 - (unsigned int)addEdgeFromNode:(unsigned int)arg1 sourceOffset:(unsigned long long)arg2 withScanType:(unsigned int)arg3 toNode:(unsigned int)arg4 destinationOffset:(unsigned long long)arg5;

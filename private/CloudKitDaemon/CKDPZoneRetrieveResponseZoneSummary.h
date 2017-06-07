@@ -8,24 +8,29 @@
 
 #import <CloudKitDaemon/NSCopying-Protocol.h>
 
-@class CKDPZone, NSData;
+@class CKDPZone, CKDPZoneCapabilities, NSData;
 
 __attribute__((visibility("hidden")))
 @interface CKDPZoneRetrieveResponseZoneSummary : PBCodable <NSCopying>
 {
     long long _assetQuotaUsage;
     long long _metadataQuotaUsage;
+    CKDPZoneCapabilities *_capabilities;
     NSData *_clientChangeToken;
     NSData *_currentServerContinuationToken;
     int _deviceCount;
     CKDPZone *_targetZone;
+    _Bool _zoneishPcsNeedsRolled;
     struct {
         unsigned int assetQuotaUsage:1;
         unsigned int metadataQuotaUsage:1;
         unsigned int deviceCount:1;
+        unsigned int zoneishPcsNeedsRolled:1;
     } _has;
 }
 
+@property(nonatomic) _Bool zoneishPcsNeedsRolled; // @synthesize zoneishPcsNeedsRolled=_zoneishPcsNeedsRolled;
+@property(retain, nonatomic) CKDPZoneCapabilities *capabilities; // @synthesize capabilities=_capabilities;
 @property(nonatomic) long long metadataQuotaUsage; // @synthesize metadataQuotaUsage=_metadataQuotaUsage;
 @property(nonatomic) long long assetQuotaUsage; // @synthesize assetQuotaUsage=_assetQuotaUsage;
 @property(nonatomic) int deviceCount; // @synthesize deviceCount=_deviceCount;
@@ -42,6 +47,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasZoneishPcsNeedsRolled;
+@property(readonly, nonatomic) _Bool hasCapabilities;
 @property(nonatomic) _Bool hasMetadataQuotaUsage;
 @property(nonatomic) _Bool hasAssetQuotaUsage;
 @property(nonatomic) _Bool hasDeviceCount;

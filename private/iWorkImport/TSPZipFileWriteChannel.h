@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isValid;
+- (void)flushWithCompletion:(CDUnknownBlockType)arg1;
 - (void)addBarrier:(CDUnknownBlockType)arg1;
 - (void)setLowWater:(unsigned long long)arg1;
 - (void)close;

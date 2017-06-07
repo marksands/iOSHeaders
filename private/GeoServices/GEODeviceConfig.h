@@ -8,16 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
-
 @interface GEODeviceConfig : PBCodable <NSCopying>
 {
-    NSString *_deviceHwIdentifier;
-    NSString *_deviceOsVersion;
 }
 
-@property(retain, nonatomic) NSString *deviceHwIdentifier; // @synthesize deviceHwIdentifier=_deviceHwIdentifier;
-@property(retain, nonatomic) NSString *deviceOsVersion; // @synthesize deviceOsVersion=_deviceOsVersion;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -27,9 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasDeviceHwIdentifier;
-@property(readonly, nonatomic) _Bool hasDeviceOsVersion;
-- (void)dealloc;
 
 @end
 

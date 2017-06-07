@@ -13,6 +13,7 @@
 @interface GEOPDClientMetadata : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
+    CDStruct_95bda58d _knownClientResolvedTypes;
     GEOABSecondPartyPlaceRequestClientMetaData *_abClientMetadata;
     GEOAdditionalEnabledMarkets *_additionalEnabledMarkets;
     unsigned int _dayOfWeek;
@@ -27,12 +28,14 @@
     int _requiredVersion;
     int _resultListAttributionSupport;
     unsigned int _timeSinceMapEnteredForeground;
+    _Bool _enablePreflightVenues;
     struct {
         unsigned int dayOfWeek:1;
         unsigned int hourOfDay:1;
         unsigned int requiredVersion:1;
         unsigned int resultListAttributionSupport:1;
         unsigned int timeSinceMapEnteredForeground:1;
+        unsigned int enablePreflightVenues:1;
     } _has;
 }
 
@@ -48,6 +51,7 @@
 @property(retain, nonatomic) NSString *deviceKeyboardLanguage; // @synthesize deviceKeyboardLanguage=_deviceKeyboardLanguage;
 @property(retain, nonatomic) NSString *deviceDisplayLanguage; // @synthesize deviceDisplayLanguage=_deviceDisplayLanguage;
 @property(retain, nonatomic) NSString *deviceCountryCode; // @synthesize deviceCountryCode=_deviceCountryCode;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -58,6 +62,16 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasEnablePreflightVenues;
+@property(nonatomic) _Bool enablePreflightVenues; // @synthesize enablePreflightVenues=_enablePreflightVenues;
+- (int)StringAsKnownClientResolvedTypes:(id)arg1;
+- (id)knownClientResolvedTypesAsString:(int)arg1;
+- (void)setKnownClientResolvedTypes:(int *)arg1 count:(unsigned long long)arg2;
+- (int)knownClientResolvedTypeAtIndex:(unsigned long long)arg1;
+- (void)addKnownClientResolvedType:(int)arg1;
+- (void)clearKnownClientResolvedTypes;
+@property(readonly, nonatomic) int *knownClientResolvedTypes;
+@property(readonly, nonatomic) unsigned long long knownClientResolvedTypesCount;
 @property(readonly, nonatomic) _Bool hasDebugApiKey;
 - (int)StringAsRequiredVersion:(id)arg1;
 - (id)requiredVersionAsString:(int)arg1;

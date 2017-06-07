@@ -29,6 +29,10 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *mModelManagedCaches;
     NSMutableDictionary *mSeriesDimensionsByGridIndex;
     NSMutableDictionary *mGridIndexesBySeriesDimension;
+    NSDictionary *mAxisIDToDataFormatterPersistableStyleObjectsMap;
+    NSDictionary *mSeriesIndexToDataFormatterPersistableStyleObjectsMap;
+    _Bool mDisableCachingMediatorData;
+    int mCachedChartMediatorGridDirection;
 }
 
 @property(readonly, nonatomic) _Bool isTransient; // @synthesize isTransient=mIsTransient;
@@ -59,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (id)dataSetNameForMultiDataModel;
 - (unsigned long long)p_multiDataSetCategoryIndexForCategory:(unsigned long long)arg1;
 - (id)nameForSeries:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long analyticsDataSize;
 @property(readonly, nonatomic) unsigned long long numberOfValues;
 @property(readonly, nonatomic) unsigned long long numberOfMultiDataSets;
 @property(readonly, nonatomic) unsigned long long numberOfChunkableMultiDataSets;
@@ -70,6 +75,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long numberOfSeries;
 - (id)noSyncSeriesList;
 @property(readonly, retain, nonatomic) NSDictionary *referenceLinesMap;
+- (int)cachedChartMediatorGridDirection;
+- (id)cachedDataFormatterPersistableStyleObjectAtSeriesIndex:(unsigned long long)arg1;
+- (id)cachedDataFormatterPersistableStyleObjectForID:(id)arg1;
+- (void)setShouldCacheMediatorData:(_Bool)arg1;
 @property(readonly, retain, nonatomic) NSArray *seriesList;
 - (id)axisForID:(id)arg1;
 @property(readonly, retain, nonatomic) NSArray *categoryAxisList;
@@ -86,6 +95,10 @@ __attribute__((visibility("hidden")))
 - (void)p_synchronizeModelWithSeriesNonStyleMigration:(_Bool)arg1;
 - (void)p_synchronizeModel;
 - (void)p_synchronizeReferenceLines;
+- (void)p_cacheMediatorChartGridDirection;
+- (void)p_cacheSeriesDataFormatters;
+- (void)p_cacheAxisDataFormatters;
+- (_Bool)p_disableCachingMediatorData;
 - (void)p_postSynchronizeAxisList;
 - (void)p_synchronizeSeriesListWithSeriesNonStyleMigration:(_Bool)arg1;
 - (void)p_synchronizeSeriesList;

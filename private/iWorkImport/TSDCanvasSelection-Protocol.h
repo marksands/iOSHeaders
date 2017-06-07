@@ -7,18 +7,17 @@
 #import <iWorkImport/NSCopying-Protocol.h>
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class NSObject, NSSet;
-@protocol TSDInfo;
+@class NSSet;
 
 @protocol TSDCanvasSelection <NSObject, NSCopying>
 + (id)emptySelection;
 @property(readonly, nonatomic) unsigned long long unlockedInfoCount;
 @property(readonly, nonatomic) NSSet *unlockedInfos;
+@property(readonly, nonatomic) NSSet *nonInteractiveInfos;
+@property(readonly, nonatomic) NSSet *infosWithNonInteractiveInfos;
 @property(readonly, nonatomic) _Bool isEmpty;
 @property(readonly, nonatomic) unsigned long long infoCount;
 @property(readonly, nonatomic) NSSet *infos;
-- (id)copyExcludingInfo:(NSObject<TSDInfo> *)arg1;
-- (id)copyIncludingInfo:(NSObject<TSDInfo> *)arg1;
 - (NSSet *)infosOfClass:(Class)arg1;
 - (_Bool)containsUnlockedKindOfClass:(Class)arg1;
 - (_Bool)containsKindOfClass:(Class)arg1;

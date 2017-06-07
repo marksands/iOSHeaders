@@ -42,6 +42,7 @@
 - (void)operationThrottlerPerformOperation:(id)arg1;
 - (void)enableFlushingWithPolicy:(id)arg1;
 - (id)persistableHints;
+- (void)didRemoveKeysFromCache:(id)arg1;
 - (void)didInsertKeysIntoCache:(id)arg1 withLifetimeHints:(id)arg2;
 - (void)didInsertKeyIntoCache:(id)arg1 withLifetimeHint:(long long)arg2;
 - (_Bool)cacheContainsKey:(id)arg1;

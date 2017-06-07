@@ -30,7 +30,6 @@
 - (void)layoutSubviews;
 - (void)itemButtonTapped:(id)arg1;
 - (void)configureWithMessageAcknowledgmentDescriptor:(id)arg1 initiallySelected:(_Bool)arg2;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *comment; // @synthesize comment=_comment;
 @property(retain, nonatomic) NSString *language; // @synthesize language=_language;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasComment;
 @property(readonly, nonatomic) _Bool hasLanguage;
-- (void)dealloc;
 
 @end
 

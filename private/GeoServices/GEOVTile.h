@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *points; // @synthesize points=_points;
 @property(retain, nonatomic) NSMutableArray *polygons; // @synthesize polygons=_polygons;
 @property(retain, nonatomic) NSMutableArray *lines; // @synthesize lines=_lines;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -80,7 +81,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)linesCount;
 - (void)addLine:(id)arg1;
 - (void)clearLines;
-- (void)dealloc;
 
 @end
 

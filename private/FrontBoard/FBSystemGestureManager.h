@@ -8,18 +8,22 @@
 
 #import <FrontBoard/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSMapTable, NSString;
+@class NSMutableDictionary, NSString;
 
 @interface FBSystemGestureManager : NSObject <UIGestureRecognizerDelegate>
 {
-    NSMapTable *_displayToManagerMap;
+    NSMutableDictionary *_displayIdentityToManagerMap;
 }
 
 + (id)sharedInstance;
-- (id)windowForSystemGesturesForDisplay:(id)arg1;
-- (void)_defaultsDidChange:(id)arg1;
 - (void)removeGestureRecognizer:(id)arg1 fromDisplay:(id)arg2;
 - (void)addGestureRecognizer:(id)arg1 toDisplay:(id)arg2;
+- (id)_systemGestureManagerForDisplayWithIdentityCreatingIfNeeded:(id)arg1;
+- (void)_defaultsDidChange:(id)arg1;
+- (id)windowForSystemGesturesForDisplayWithIdentity:(id)arg1;
+- (void)removeGestureRecognizer:(id)arg1 fromDisplayWithIdentity:(id)arg2;
+- (void)addGestureRecognizer:(id)arg1 recognitionEvent:(long long)arg2 toDisplayWithIdentity:(id)arg3;
+- (void)addGestureRecognizer:(id)arg1 toDisplayWithIdentity:(id)arg2;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)init;

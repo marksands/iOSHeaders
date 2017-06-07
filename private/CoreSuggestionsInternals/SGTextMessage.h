@@ -21,6 +21,8 @@
 @property(retain) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(retain) CSPerson *sender; // @synthesize sender=_sender;
 - (void).cxx_destruct;
+- (id)spotlightDomainIdentifier;
+- (id)spotlightBundleIdentifier;
 - (id)initWithDictionary:(id)arg1;
 - (id)initWithSearchableItem:(id)arg1;
 

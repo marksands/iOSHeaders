@@ -4,18 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDSFoundation/NSCopying-Protocol.h>
 
-@class NSArray, NSData, NSDate, NSDictionary, NSMutableDictionary, NSNumber, NSString;
+@class IDSDestination, NSArray, NSData, NSDate, NSDictionary, NSMutableDictionary, NSNumber, NSString;
 
 @interface IDSSendParameters : NSObject <NSCopying>
 {
     NSMutableDictionary *_params;
 }
 
-@property(readonly, retain, nonatomic) NSDate *expirationDate;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSDate *expirationDate;
+@property(nonatomic) _Bool disallowRefresh;
 @property(nonatomic) _Bool alwaysSkipSelf;
 @property(nonatomic) _Bool allowCloudDelivery;
 @property(nonatomic) _Bool forceEncryptionOff;
@@ -26,6 +28,7 @@
 @property(nonatomic) _Bool fireAndForget;
 @property(nonatomic) _Bool bypassSizeCheck;
 @property(nonatomic) _Bool daemonDeathResend;
+@property(nonatomic) _Bool nonCloudWaking;
 @property(nonatomic) _Bool nonWaking;
 @property(nonatomic) _Bool activityContinuation;
 @property(nonatomic) _Bool bypassStorage;
@@ -43,6 +46,7 @@
 @property(nonatomic) _Bool useDictAsTopLevel;
 @property(nonatomic) _Bool compressed;
 @property(nonatomic) _Bool expectsPeerResponse;
+@property(retain, nonatomic) NSData *groupData;
 @property(retain, nonatomic) NSString *sessionID;
 @property(retain, nonatomic) NSNumber *messageType;
 @property(retain, nonatomic) NSString *localDestinationDeviceUUID;
@@ -65,18 +69,18 @@
 @property(retain, nonatomic) NSNumber *command;
 @property(retain, nonatomic) NSData *dataToEncrypt;
 @property(retain, nonatomic) NSString *accountUUID;
-@property(retain, nonatomic) NSArray *destinations;
+@property(retain, nonatomic) NSArray *finalDestinations;
+@property(retain, nonatomic) IDSDestination *destinations;
 @property(retain, nonatomic) NSString *fromID;
 @property(retain, nonatomic) NSDictionary *resourceMetadata;
 @property(retain, nonatomic) NSString *resourcePath;
 @property(retain, nonatomic) NSDictionary *protobuf;
 @property(retain, nonatomic) NSDictionary *message;
 @property(retain, nonatomic) NSData *data;
-@property(readonly, retain, nonatomic) NSDictionary *dictionaryRepresentation;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1;
-- (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;

@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 
 + (id)pathSourceWithBezierPath:(id)arg1;
 @property(nonatomic) struct CGSize naturalSize; // @synthesize naturalSize=mNaturalSize;
+- (void).cxx_destruct;
 - (void)p_setBezierPath:(id)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
@@ -33,7 +34,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)init;
 - (id)initWithNaturalSize:(struct CGSize)arg1;
 - (id)initWithBezierPath:(id)arg1;

@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/NSCopying-Protocol.h>
 
 @class NSData, NSDictionary;
 
-@interface HMFHTTPResponseInternal : NSObject <NSCopying>
+@interface HMFHTTPResponseInternal : HMFObject <NSCopying>
 {
     long long _statusCode;
     NSDictionary *_headerFields;

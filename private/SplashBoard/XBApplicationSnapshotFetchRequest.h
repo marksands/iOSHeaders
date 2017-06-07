@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSDescriptionProviding-Protocol.h>
 
@@ -21,13 +21,13 @@
 @property(retain, nonatomic) XBApplicationSnapshotGenerationContext *fallbackGenerationContext; // @synthesize fallbackGenerationContext=_fallbackGenerationContext;
 @property(copy, nonatomic) NSArray *sortDescriptors; // @synthesize sortDescriptors=_sortDescriptors;
 @property(retain, nonatomic) XBApplicationSnapshotPredicate *predicate; // @synthesize predicate=_predicate;
+- (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
 @property(readonly, copy, nonatomic) NSArray *NSSortDescriptors;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,14 +8,17 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOTimezone : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_identifier;
 }
 
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -25,7 +28,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)dealloc;
 
 @end
 

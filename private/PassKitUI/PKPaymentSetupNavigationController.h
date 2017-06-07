@@ -35,12 +35,11 @@
 - (void)viewController:(id)arg1 didShowProvisioningError:(id)arg2;
 - (void)viewControllerDidTerminateSetupFlow:(id)arg1;
 - (void)cancel:(id)arg1;
+- (void)setCustomFormSheetPresentationStyleForiPad;
 - (void)_reconfigureRootViewController;
-- (void)_handleAssociatedCredentialsDidChangeNotification:(id)arg1;
 - (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(_Bool)arg2;
 - (void)viewDidLoad;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithProvisioningController:(id)arg1 context:(long long)arg2;
 
 // Remaining properties

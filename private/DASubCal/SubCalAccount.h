@@ -25,6 +25,7 @@
 @property(nonatomic) _Bool isHolidaySubscribedCalendar; // @synthesize isHolidaySubscribedCalendar=_isHolidaySubscribedCalendar;
 @property(nonatomic) _Bool isManagedCalendar; // @synthesize isManagedCalendar=_isManagedCalendar;
 - (void).cxx_destruct;
+- (void)handleTrustChallenge:(id)arg1 forTask:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)handleTrustChallenge:(id)arg1 forTask:(id)arg2;
 - (_Bool)hasSubscribedCalendarAtURL:(id)arg1;
 - (id)onBehalfOfBundleIdentifier;

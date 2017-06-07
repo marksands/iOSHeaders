@@ -18,11 +18,11 @@
 - (long long)dataCount;
 - (id)statsBySource;
 - (void)getCurrentBucketStats:(CDStruct_23c51cd0 *)arg1;
+- (void)_didAddFirstValue;
 - (_Bool)hasData;
 - (_Bool)advanceBucket;
 - (void)addValue:(double)arg1 startTime:(double)arg2 endTime:(double)arg3 sourceID:(long long)arg4;
 - (id)description;
-- (id)initWithBucketBoundaries:(id)arg1;
 
 @end
 

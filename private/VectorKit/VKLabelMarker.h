@@ -23,7 +23,6 @@
 - (id)clusterContentBounds;
 - (_Bool)isLeafCluster;
 - (_Bool)isCluster;
-- (_Bool)shouldActivateFeatureSelectionMode;
 - (id)debugAnchorPointString;
 - (unsigned long long)elementCount;
 - (int)sortKey;
@@ -40,9 +39,18 @@
 @property(readonly, nonatomic) NSArray *relatedTexts;
 - (id)featureHandles;
 - (id)featureAnnotation;
+- (id)routeInfo;
+- (id)trafficCamera;
 - (id)incident;
 - (id)featureTile;
 - (int)featureType;
+- (_Bool)positionOfInterest:(CDStruct_c3b9c2ee *)arg1 zoom:(float *)arg2;
+- (unsigned char)venueComponentType;
+- (short)venueFloorOrdinal;
+- (unsigned long long)venueComponentID;
+- (unsigned long long)venueLevelID;
+- (unsigned long long)venueBuildingID;
+- (unsigned long long)venueID;
 - (unsigned long long)countFeatureIDs;
 - (const unsigned long long *)featureIDs;
 - (unsigned long long)businessID;
@@ -50,12 +58,16 @@
 - (_Bool)isTransitLine;
 - (_Bool)isTransit;
 - (_Bool)isFlyoverTour;
+- (_Bool)isVenueButton;
+- (_Bool)isRouteEta;
+- (_Bool)isTrafficCamera;
 - (_Bool)isTrafficIncident;
 - (_Bool)isOneWayArrow;
 - (_Bool)isTextVisible;
 - (_Bool)isVisible;
 - (_Bool)isAlongSelectedTransitLine;
 - (_Bool)isOnRoute;
+@property(nonatomic) _Bool isDragged;
 - (_Bool)isSelectable;
 - (struct CGRect)calloutAnchorRect;
 - (id)mapRegion;
@@ -64,10 +76,9 @@
 @property(readonly, nonatomic) NSArray *transitSystems;
 @property(readonly, nonatomic) NSArray *iconImageKeys;
 @property(readonly, nonatomic) NSArray *dataIconImageKeys;
-- (id)iconNameAsNSString;
 - (id)subtext;
 - (id)text;
-- (const shared_ptr_2d33c5e4 *)actualLabelMarker;
+- (const shared_ptr_2d33c5e4 *)labelMarkerImpl;
 - (id)initWithFeatureMarkerPtr:(const shared_ptr_430519ce *)arg1;
 - (id)initWithLabelMarkerPtr:(const shared_ptr_2d33c5e4 *)arg1;
 

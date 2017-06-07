@@ -6,8 +6,7 @@
 
 #import <iWorkImport/TSKDocumentRootDelegate-Protocol.h>
 
-@class NSObject, NSString, TSADocumentRoot, TSAUbiquitousRefreshQueue, TSKMailboxDocStatusMessage;
-@protocol OS_dispatch_queue, TSKCOPasswordProvider;
+@class NSString, TSADocumentRoot, TSAUbiquitousRefreshQueue, TSKMailboxDocStatusMessage;
 
 @protocol TSADocumentRootDelegate <TSKDocumentRootDelegate>
 @property(readonly, nonatomic) NSString *name;
@@ -16,9 +15,8 @@
 @property(readonly, nonatomic) TSAUbiquitousRefreshQueue *refreshQueue;
 @property(readonly, nonatomic) NSString *documentCachePath;
 @property(readonly, nonatomic) NSString *defaultDraftName;
-- (void)refreshSharingStateWithQueue:(NSObject<OS_dispatch_queue> *)arg1 completionBlock:(void (^)(TSKSharingState *, NSError *))arg2;
+- (_Bool)hasPersistenceWarningsOfKind:(long long)arg1;
 - (void)documentRoot:(TSADocumentRoot *)arg1 didReceiveDocumentStatusNotification:(TSKMailboxDocStatusMessage *)arg2;
-- (id <TSKCOPasswordProvider>)collaborationPasswordProvider;
 - (void)willRemoveICloudTeardownObserver:(id)arg1;
 - (void)didAddObserverForICloudTeardown:(id)arg1;
 - (void)continueActivityUsingBlock:(void (^)(void))arg1;

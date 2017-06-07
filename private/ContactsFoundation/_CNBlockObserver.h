@@ -10,7 +10,6 @@
 
 @class CNObservableContractEnforcement, NSString;
 
-__attribute__((visibility("hidden")))
 @interface _CNBlockObserver : NSObject <CNObserver>
 {
     CDUnknownBlockType _resultBlock;

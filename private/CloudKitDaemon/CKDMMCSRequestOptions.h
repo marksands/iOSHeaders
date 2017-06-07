@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSData, NSDictionary, NSString;
+@class CKOperationMMCSRequestOptions, NSArray, NSData, NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDMMCSRequestOptions : NSObject
@@ -14,6 +14,10 @@ __attribute__((visibility("hidden")))
     _Bool _usesBackgroundSession;
     _Bool _allowsCellularAccess;
     _Bool _allowsPowerNapScheduling;
+    long long _databaseScope;
+    long long _containerEnvironment;
+    NSString *_topmostParentOperationID;
+    NSString *_topmostParentOperationGroupID;
     NSString *_applicationBundleID;
     NSString *_applicationSecondaryID;
     NSString *_containerID;
@@ -22,10 +26,12 @@ __attribute__((visibility("hidden")))
     NSData *_authPutResponse;
     NSDictionary *_authPutResponseHeaders;
     long long _qualityOfService;
-    NSDictionary *_MMCSRequestOptions;
+    unsigned long long _networkServiceType;
+    CKOperationMMCSRequestOptions *_MMCSRequestOptions;
 }
 
-@property(retain, nonatomic) NSDictionary *MMCSRequestOptions; // @synthesize MMCSRequestOptions=_MMCSRequestOptions;
+@property(retain, nonatomic) CKOperationMMCSRequestOptions *MMCSRequestOptions; // @synthesize MMCSRequestOptions=_MMCSRequestOptions;
+@property(nonatomic) unsigned long long networkServiceType; // @synthesize networkServiceType=_networkServiceType;
 @property(nonatomic) long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;
 @property(nonatomic) _Bool allowsPowerNapScheduling; // @synthesize allowsPowerNapScheduling=_allowsPowerNapScheduling;
 @property(nonatomic) _Bool allowsCellularAccess; // @synthesize allowsCellularAccess=_allowsCellularAccess;
@@ -37,6 +43,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *containerID; // @synthesize containerID=_containerID;
 @property(retain, nonatomic) NSString *applicationSecondaryID; // @synthesize applicationSecondaryID=_applicationSecondaryID;
 @property(retain, nonatomic) NSString *applicationBundleID; // @synthesize applicationBundleID=_applicationBundleID;
+@property(retain, nonatomic) NSString *topmostParentOperationGroupID; // @synthesize topmostParentOperationGroupID=_topmostParentOperationGroupID;
+@property(retain, nonatomic) NSString *topmostParentOperationID; // @synthesize topmostParentOperationID=_topmostParentOperationID;
+@property(nonatomic) long long containerEnvironment; // @synthesize containerEnvironment=_containerEnvironment;
+@property(nonatomic) long long databaseScope; // @synthesize databaseScope=_databaseScope;
 - (void).cxx_destruct;
 - (id)MMCSOptions;
 - (id)description;

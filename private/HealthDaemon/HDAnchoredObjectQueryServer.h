@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HealthDaemon/HDQueryServer.h>
+#import <HealthDaemon/HDBatchedQueryServer.h>
 
 @class HKQueryAnchor, NSMutableArray, NSObject;
 @protocol OS_dispatch_queue;
 
-@interface HDAnchoredObjectQueryServer : HDQueryServer
+@interface HDAnchoredObjectQueryServer : HDBatchedQueryServer
 {
     _Bool _deliversUpdates;
     _Bool _initialResultsSent;
@@ -35,10 +35,14 @@
 - (_Bool)_queue_shouldAcceptUpdates;
 - (_Bool)_queue_shouldAccumulateUpdates;
 - (id)_maxRowIDInDatabaseWithError:(id *)arg1;
+- (void)_queue_startForUpdate;
+- (void)_queue_startForInitialResults;
 - (void)_queue_start;
 - (_Bool)_shouldObserveOnPause;
 - (_Bool)_shouldListenForUpdates;
-- (id)initWithQueryUUID:(id)arg1 dataObject:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
+- (id)requiredEntitlements;
+- (id)anchoredObjectQueryClient;
+- (id)initWithQueryUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
 
 @end
 

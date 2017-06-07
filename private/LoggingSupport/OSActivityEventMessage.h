@@ -10,14 +10,10 @@
 
 @interface OSActivityEventMessage : OSActivityEvent
 {
-    NSMutableArray *_argumentData;
     NSData *_bufferPrivateData;
     NSData *_bufferData;
 }
 
-@property(retain, nonatomic) NSData *bufferData; // @synthesize bufferData=_bufferData;
-@property(retain, nonatomic) NSData *bufferPrivateData; // @synthesize bufferPrivateData=_bufferPrivateData;
-@property(retain, nonatomic) NSMutableArray *argumentData; // @synthesize argumentData=_argumentData;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *format;
 @property(readonly, nonatomic) NSMutableArray *arguments;

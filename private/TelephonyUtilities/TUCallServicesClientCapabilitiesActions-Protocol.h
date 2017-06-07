@@ -9,6 +9,6 @@
 @class TUCallServicesClientCapabilities;
 
 @protocol TUCallServicesClientCapabilitiesActions <NSObject>
-- (void)setClientCapabilities:(TUCallServicesClientCapabilities *)arg1;
+- (oneway void)setClientCapabilities:(TUCallServicesClientCapabilities *)arg1;
 @end
 

@@ -8,5 +8,6 @@
 
 @interface CAFilter (PhotosUICore)
 + (id)px_filterWithPXCompositingFilterType:(long long)arg1;
+@property(readonly, nonatomic, getter=px_isSnapshotCompatible) _Bool px_snapshotCompatible;
 @end
 

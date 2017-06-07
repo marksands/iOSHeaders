@@ -19,25 +19,25 @@ __attribute__((visibility("hidden")))
 }
 
 + (vector_2bba1c52)persistentFormulaTypes;
-- (id)areaFormulaWithCalcEngine:(id)arg1 inOwner:(struct __CFUUID *)arg2;
+- (id)areaFormulaWithCalcEngine:(id)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
 - (void)saveToArchive:(struct ChartMediatorFormulaStorage *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct ChartMediatorFormulaStorage *)arg1 unarchiver:(id)arg2;
 - (void)clearCachesForCalculationEngine:(id)arg1;
-- (_Bool)dataFormulaAreRegularForSeriesInsertionWithCalcEngine:(id)arg1 inOwner:(struct __CFUUID *)arg2;
+- (_Bool)dataFormulaAreRegularForSeriesInsertionWithCalcEngine:(id)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
 - (unsigned long long)categoryLabelFormulaType;
 - (unsigned long long)seriesLabelFormulaType;
 - (unsigned long long)numberOfSeries;
 - (unsigned long long)numberOfDataFormulas;
-- (_Bool)labelFormulasAreAllStaticWithCalcEngine:(id)arg1 inEntity:(struct __CFUUID *)arg2;
-- (_Bool)formulasOfType:(unsigned long long)arg1 areAllStaticWithCalcEngine:(id)arg2 inEntity:(struct __CFUUID *)arg3;
-- (unsigned long long)numberOfGroupsWithCalcEngine:(id)arg1 inEntity:(struct __CFUUID *)arg2;
-- (unsigned long long)p_calculateNumberOfGroupsWithCalcEngine:(id)arg1 inEntity:(struct __CFUUID *)arg2;
+- (_Bool)labelFormulasAreAllStaticWithCalcEngine:(id)arg1 inEntity:(const UUIDData_5fbc143e *)arg2;
+- (_Bool)formulasOfType:(unsigned long long)arg1 areAllStaticWithCalcEngine:(id)arg2 inEntity:(const UUIDData_5fbc143e *)arg3;
+- (unsigned long long)numberOfGroupsWithCalcEngine:(id)arg1 inEntity:(const UUIDData_5fbc143e *)arg2;
+- (unsigned long long)p_calculateNumberOfGroupsWithCalcEngine:(id)arg1 inEntity:(const UUIDData_5fbc143e *)arg2;
 - (id)description;
 - (struct __CFDictionary *)p_cfDictionary;
 - (id)formulaTypeEnumerator;
 - (id)formulaListForType:(unsigned long long)arg1;
 - (id)formulaForID:(CDStruct_a91f2c80)arg1;
-- (id)copyByRewriting:(_Bool)arg1 withCalcEngine:(id)arg2 andHostID:(struct __CFUUID *)arg3;
+- (id)copyByRewriting:(_Bool)arg1 withCalcEngine:(id)arg2 andHostUID:(const UUIDData_5fbc143e *)arg3;
 - (unsigned long long)count;
 - (_Bool)isEqualToFormulaStorage:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

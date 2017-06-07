@@ -6,11 +6,10 @@
 
 #import <PassKitCore/PKPaymentPreference.h>
 
-@class NSNumberFormatter, NSString;
+@class NSString;
 
 @interface PKPaymentPreferenceShippingMethod : PKPaymentPreference
 {
-    NSNumberFormatter *_formatter;
     NSString *_currency;
 }
 

@@ -8,12 +8,13 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDDatasetABStatus, GEOPDPlaceGlobalResult, NSMutableArray, NSString, PBUnknownFields;
+@class GEOClientMetrics, GEOPDDatasetABStatus, GEOPDPlaceGlobalResult, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDPlaceResponse : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     unsigned long long _debugLatencyMs;
+    GEOClientMetrics *_clientMetrics;
     GEOPDDatasetABStatus *_datasetAbStatus;
     NSString *_debugApiKey;
     NSMutableArray *_displayLanguages;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) NSMutableArray *displayLanguages; // @synthesize displayLanguages=_displayLanguages;
 @property(retain, nonatomic) NSMutableArray *placeResults; // @synthesize placeResults=_placeResults;
 @property(retain, nonatomic) GEOPDPlaceGlobalResult *globalResult; // @synthesize globalResult=_globalResult;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -74,11 +76,12 @@
 - (id)statusAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatus;
 @property(nonatomic) int status; // @synthesize status=_status;
-- (void)dealloc;
 - (id)_disambiguationLabels;
 - (id)initWithPlace:(id)arg1 forRequestType:(int)arg2;
 @property(nonatomic) _Bool hasDebugLatencyMs;
 @property(nonatomic) unsigned long long debugLatencyMs;
+@property(retain, nonatomic) GEOClientMetrics *clientMetrics;
+@property(readonly, nonatomic) _Bool hasClientMetrics;
 
 @end
 

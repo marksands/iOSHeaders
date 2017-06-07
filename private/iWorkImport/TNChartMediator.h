@@ -14,7 +14,7 @@
 __attribute__((visibility("hidden")))
 @interface TNChartMediator : TSCHChartMediator <TSCECalculationEngineRegistration, TSCEFormulaOwning>
 {
-    struct __CFUUID *mEntityId;
+    UUIDData_5fbc143e mEntityUID;
     TNChartFormulaStorage *mFormulaStorage;
     TNChartFormulaStorage *mCleanFormulaStorage;
     NSMutableArray *mFormulasToRewrite;
@@ -36,9 +36,11 @@ __attribute__((visibility("hidden")))
 
 + (id)defaultErrorBarFormulaWrapper;
 + (id)propertiesThatInvalidateMediator;
+@property(retain) TNChartFormulaStorage *rawFormulaStorage; // @synthesize rawFormulaStorage=mFormulaStorage;
 @property(nonatomic) _Bool isEditing; // @synthesize isEditing=mIsEditing;
 @property(readonly, nonatomic) _Bool hasBlittedSinceConditionVarSet; // @synthesize hasBlittedSinceConditionVarSet=mHasBlittedSinceConditionVarSet;
-@property(readonly, nonatomic) struct __CFUUID *entityID; // @synthesize entityID=mEntityId;
+@property(readonly, nonatomic) UUIDData_5fbc143e entityUID; // @synthesize entityUID=mEntityUID;
+- (id).cxx_construct;
 - (void)localizeFormulaLiteralsWithBundle:(id)arg1;
 - (id)customNegScatterXFormulas;
 - (id)customPosScatterXFormulas;
@@ -50,11 +52,11 @@ __attribute__((visibility("hidden")))
 - (id)dataFormulas;
 - (void)replaceReferencesInFormulasWithOwnerIDMap:(id)arg1;
 - (void)replaceReferencesInFormulas:(id)arg1 withOwnerIDMap:(id)arg2;
-- (_Bool)p_tableHasCell:(CDStruct_de21cb60)arg1 withCalcEngine:(id)arg2;
-- (_Bool)p_tableHasRange:(CDStruct_fc93c73e)arg1 withCalcEngine:(id)arg2;
+- (_Bool)p_tableHasCell:(struct TSCECellRef)arg1 withCalcEngine:(id)arg2;
+- (_Bool)p_tableHasRange:(struct TSCERangeRef)arg1 withCalcEngine:(id)arg2;
 - (id)referencedEntities;
 - (id)referencedEntitiesInMap:(id)arg1;
-- (id)expandSingleRangeForProposedCategoryLabels:(CDStruct_fc93c73e)arg1;
+- (vector_5a16d233)expandSingleRangeForProposedCategoryLabels:(const struct TSCERangeRef *)arg1;
 - (void)p_transposeSeriesAndCategoryLabelsInMap:(id)arg1;
 - (void)repairMissingSeriesLabelsInMap:(id)arg1;
 - (void)repairMissingCategoryLabelsInMap:(id)arg1;
@@ -102,17 +104,14 @@ __attribute__((visibility("hidden")))
 - (CDStruct_22e7ec3e)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
-- (void)releaseForCalculationEngine:(id)arg1;
-- (void)retainForCalculationEngine:(id)arg1;
-- (void)p_copyValuesIntoChartModelFromPair:(id)arg1;
 - (void)p_copyValuesIntoToChartModel:(id)arg1 formulaMap:(id)arg2;
 - (id)untitledLabelOfType:(unsigned long long)arg1 formulaMap:(id)arg2 existingLabels:(id)arg3 runningIndex:(unsigned long long *)arg4;
 - (id)p_untitledLabelWithIndex:(unsigned long long)arg1;
 - (void)synchronizeModelFromFormulaStorage;
 - (void)setFormulaStorage:(id)arg1;
 - (void)setFormulaStorage:(id)arg1 doRegistration:(_Bool)arg2;
-- (id)formulaStorage;
-- (id)rawFormulaStorage;
+@property(readonly, nonatomic) TNChartFormulaStorage *formulaStorage;
+- (void)clearFormulasToRecalculate;
 - (void)p_hackSetCalcEngineLegacyGlobalID;
 - (id)seriesDataFormulaForSeriesDimension:(id)arg1;
 - (id)commandToSetSeriesDataFormula:(id)arg1 seriesDimension:(id)arg2;
@@ -138,6 +137,8 @@ __attribute__((visibility("hidden")))
 - (void)clearEditingIsPhantomOverride;
 - (void)setEditingIsPhantomOverride:(_Bool)arg1;
 - (void)synchronizeModelFromFormulaStorage:(id)arg1;
+- (void)resumeCalculationEngine;
+- (void)pauseCalculationEngine;
 - (id)formulaStorageFromTable:(id)arg1 selection:(id)arg2 direction:(int)arg3;
 @property(readonly, nonatomic) TSCECalculationEngine *calculationEngine;
 - (_Bool)isPhantom;
@@ -152,8 +153,8 @@ __attribute__((visibility("hidden")))
 - (id)initWithChartInfo:(id)arg1 withTable:(id)arg2 selection:(id)arg3 direction:(int)arg4;
 - (id)initWithChartInfo:(id)arg1;
 - (id)ownerUIDMapper;
-- (void)setFormulaOwnerID:(struct __CFUUID *)arg1;
-- (struct __CFUUID *)formulaOwnerID;
+- (void)setFormulaOwnerUID:(const UUIDData_5fbc143e *)arg1;
+- (UUIDData_5fbc143e)formulaOwnerUID;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

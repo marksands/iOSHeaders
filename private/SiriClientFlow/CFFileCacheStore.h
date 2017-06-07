@@ -23,11 +23,12 @@
 - (void).cxx_destruct;
 - (id)init;
 - (_Bool)createCacheDirectoryIfNeeded;
+- (void)removeAllScriptsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)removeScriptWithIdentifier:(id)arg1;
 - (id)cachedScriptDomainsAndCheckSums;
 - (id)scriptForDomain:(id)arg1 scriptLoadType:(long long *)arg2;
-- (void)cacheScriptForDomain:(id)arg1 script:(id)arg2 scriptLoadType:(long long)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)cacheScriptForDomain:(id)arg1 script:(id)arg2 scriptLoadType:(long long)arg3;
+- (void)cacheScriptForDomain:(id)arg1 script:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)cacheScriptForDomain:(id)arg1 script:(id)arg2;
 
 @end
 

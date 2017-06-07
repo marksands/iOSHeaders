@@ -25,6 +25,7 @@
 - (void)queue_remoteAlertControllerDidChangeActivationState:(id)arg1;
 - (void)noteDidReceiveMessage:(id)arg1 withType:(long long)arg2 fromClient:(id)arg3;
 - (void)noteClientDidDisconnect:(id)arg1;
+- (id)prerequisiteMilestones;
 - (void)_queue_notifyClients:(id)arg1 remoteAlertForToken:(id)arg2 didInvalidateWithReason:(long long)arg3 underlyingError:(id)arg4;
 - (id)_queue_addControllerWithDefinition:(id)arg1 token:(id)arg2 context:(id)arg3 forClient:(id)arg4;
 - (void)dealloc;

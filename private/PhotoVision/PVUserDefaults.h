@@ -10,31 +10,24 @@
 {
 }
 
++ (_Bool)personBuilderMergeCandidatesDisabled;
++ (_Bool)personBuildingDisabled;
 + (_Bool)suggestionsLogEnabled;
-+ (_Bool)faceClusteringPerfLogEnabled;
-+ (_Bool)faceClusteringLogEnabled;
-+ (long long)faceGroupCountToEnableFacesNamingFlow;
-+ (long long)faceCountToEnableFacesNamingFlow;
 + (long long)maxFaceCountForClustering;
 + (long long)minFaceCountToTriggerClustering;
 + (long long)percentRenameToThreshold;
 + (long long)countRenameToThreshold;
 + (long long)percentRenameFromThreshold;
 + (long long)countRenameFromThreshold;
-+ (_Bool)personMergingEnabled;
-+ (_Bool)faceAutonamingEnabled;
++ (_Bool)quarantineTwinsOnAssetEnabled;
 + (float)facePrimarySuggestionsThreshold;
 + (float)faceMergeFaceOverlapThreshold;
 + (float)faceMergeFaceprintDistanceThreshold;
-+ (float)faceRecallThreshold;
-+ (float)faceAutonamingThreshold;
 + (float)faceClusteringThreshold;
-+ (long long)faceClusteringDelay;
 + (double)_doubleValueForKey:(id)arg1 defaultValue:(double)arg2;
 + (float)_floatValueForKey:(id)arg1 defaultValue:(float)arg2;
 + (int)_intValueForKey:(id)arg1 defaultValue:(int)arg2;
 + (_Bool)_boolValueForKey:(id)arg1 defaultValue:(_Bool)arg2;
-+ (void)initialize;
 
 @end
 

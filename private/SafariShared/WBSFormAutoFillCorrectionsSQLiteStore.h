@@ -6,20 +6,24 @@
 
 #import <objc/NSObject.h>
 
+#import <SafariShared/WBSCrowdsourcedFeedbackWhitelist-Protocol.h>
 #import <SafariShared/WBSFormAutoFillCorrectionsStore-Protocol.h>
 
-@class NSString, NSURL, WBSFormAutoFillCorrectionsDomainNormalizer, WBSSQLiteDatabase;
+@class NSString, NSURL, WBSCrowdsourcedFeedbackDomainNormalizer, WBSSQLiteDatabase;
 @protocol OS_dispatch_queue;
 
-@interface WBSFormAutoFillCorrectionsSQLiteStore : NSObject <WBSFormAutoFillCorrectionsStore>
+@interface WBSFormAutoFillCorrectionsSQLiteStore : NSObject <WBSFormAutoFillCorrectionsStore, WBSCrowdsourcedFeedbackWhitelist>
 {
-    NSURL *_databaseURL;
-    WBSSQLiteDatabase *_database;
+    NSURL *_localDatabaseURL;
+    NSURL *_parsecDatabaseURL;
+    WBSSQLiteDatabase *_localDatabase;
+    WBSSQLiteDatabase *_parsecDatabase;
     NSObject<OS_dispatch_queue> *_databaseQueue;
-    WBSFormAutoFillCorrectionsDomainNormalizer *_domainNormalizer;
+    WBSCrowdsourcedFeedbackDomainNormalizer *_domainNormalizer;
 }
 
-+ (id)_defaultDatabaseURL;
++ (id)_defaultParsecDatabaseURL;
++ (id)_defaultLocalDatabaseURL;
 + (id)standardStore;
 - (void).cxx_destruct;
 - (_Bool)_removeAllLocalClassifications;
@@ -29,22 +33,26 @@
 - (_Bool)_setCrowdsourcedClassification:(id)arg1 forFieldWithFingerprint:(id)arg2 onDomain:(id)arg3;
 - (_Bool)_replaceCrowdsourcedCorrectionSetsWithCorrectionSets:(id)arg1 retrievalURLString:(id)arg2;
 - (_Bool)_setLocalClassification:(id)arg1 forFieldWithFingerprint:(id)arg2 onDomain:(id)arg3 dateReclassified:(id)arg4;
-- (_Bool)_setMetadataStringValue:(id)arg1 forKey:(id)arg2;
-- (id)_metadataStringValueForKey:(id)arg1;
+- (_Bool)_setParsecMetadataStringValue:(id)arg1 forKey:(id)arg2;
+- (id)_parsecMetadataStringValueForKey:(id)arg1;
 - (_Bool)_setDomain:(id)arg1 isWhitelistedForFeedback:(_Bool)arg2;
 - (_Bool)_replaceDomainWhitelistWithDomains:(id)arg1 retrievalURLString:(id)arg2;
-- (_Bool)_tryToPerformTransactionInBlock:(CDUnknownBlockType)arg1;
-- (_Bool)_isDatabaseOpen;
-- (void)_closeDatabase;
-- (void)_openDatabase;
-- (void)_openDatabaseIfNeeded;
+- (_Bool)_tryToPerformTransactionOnDatabase:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (_Bool)_isDatabaseOpen:(id)arg1;
+- (void)_closeDatabases;
+- (void)_openLocalDatabase;
+- (void)_openParsecDatabase;
+- (void)_openDatabaseAtURL:(id)arg1;
+- (void)_openDatabasesIfNeeded;
 - (id)_normalizeDomain:(id)arg1;
+- (int)_migrateToSchemaVersion_3;
 - (int)_migrateToSchemaVersion_2;
-- (int)_createFreshDatabaseSchema;
-- (int)_setDatabaseSchemaVersion:(int)arg1;
-- (_Bool)_migrateToSchemaVersion:(int)arg1;
-- (int)_migrateToCurrentSchemaVersionIfNeeded;
-- (int)_schemaVersion;
+- (int)_createFreshParsecDatabaseSchema;
+- (int)_createFreshLocalDatabaseSchema;
+- (int)_setDatabaseSchemaVersion:(int)arg1 forDatabase:(id)arg2;
+- (_Bool)_migrateToSchemaVersion:(int)arg1 forDatabase:(id)arg2;
+- (int)_migrateToCurrentSchemaVersionIfNeededForDatabase:(id)arg1;
+- (int)_schemaVersionForDatabase:(id)arg1;
 - (void)removeAllLocalClassificationsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)removeLocalClassificationsForDomain:(id)arg1 recordedOnOrAfter:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getClassificationForFieldWithFingerprint:(id)arg1 onDomain:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -59,9 +67,8 @@
 - (void)getWhitelistStatusForDomain:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)replaceDomainWhitelistWithDomains:(id)arg1 retrievalURLString:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)closeDatabase;
-- (void)dealloc;
 - (id)init;
-- (id)initWithDatabaseURL:(id)arg1;
+- (id)initWithLocalDatabaseURL:(id)arg1 parsecDatabaseURL:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

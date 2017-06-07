@@ -9,8 +9,6 @@
 @class TSCECalculationEngine, TSCEFormulaRewriteSpec;
 
 @protocol TSCEFormulaOwning <NSObject>
-- (void)releaseForCalculationEngine:(TSCECalculationEngine *)arg1;
-- (void)retainForCalculationEngine:(TSCECalculationEngine *)arg1;
 - (void)beginRewriteForCalculationEngine:(TSCECalculationEngine *)arg1 spec:(TSCEFormulaRewriteSpec *)arg2;
 - (void)rewriteForCalculationEngine:(TSCECalculationEngine *)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(TSCEFormulaRewriteSpec *)arg3;
 - (void)invalidateForCalculationEngine:(TSCECalculationEngine *)arg1;

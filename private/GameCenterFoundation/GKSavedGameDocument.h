@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GameCenterFoundation/NSFilePresenter-Protocol.h>
 
-@class NSDate, NSFileVersion, NSOperationQueue, NSString, NSURL;
+@class NSDate, NSFileVersion, NSOperationQueue, NSSet, NSString, NSURL;
 
 @interface GKSavedGameDocument : NSObject <NSFilePresenter>
 {
@@ -52,6 +52,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

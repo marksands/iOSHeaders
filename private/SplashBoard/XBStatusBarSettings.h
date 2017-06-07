@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSSettingDescriptionProvider-Protocol.h>
 #import <SplashBoard/NSCoding-Protocol.h>
@@ -18,6 +18,7 @@
     BSMutableSettings *_settings;
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEORouteMatch;
 
@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) GEORouteMatch *projectedRouteMatch; // @synthesize projectedRouteMatch=_projectedRouteMatch;
 @property(retain, nonatomic) GEORouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
 - (id).cxx_construct;
+- (id)detailedDescription;
 @property(readonly, nonatomic) _Bool projectedLocationOnRoute;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee projectedLocation;
 - (void)projectFromLocation:(id)arg1 routeMatch:(id)arg2 speedMultiplier:(double)arg3;

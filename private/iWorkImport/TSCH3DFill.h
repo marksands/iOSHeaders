@@ -17,14 +17,15 @@ __attribute__((visibility("hidden")))
     NSNumber *_percentage;
     TSDFill *_cachedImageFill;
     struct CGSize _cachedImageFillSize;
+    TSDFill *_swatchFill;
 }
 
 + (id)fillWithIdentifier:(id)arg1;
 + (id)fill;
 + (id)fillWithLightingModel:(id)arg1 identifier:(id)arg2;
++ (id)instanceWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
 + (id)lightingModelWithSageFillData:(id)arg1;
 + (id)fillWithSageFillData:(id)arg1;
-+ (id)instanceWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
 @property(retain, nonatomic) NSNumber *percentage; // @synthesize percentage=_percentage;
 @property(retain, nonatomic) TSCH3DFillSetIdentifier *identifier; // @synthesize identifier=_identifier;
 - (void)didInitFromSOS;
@@ -46,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) TSCH3DLightingModel *lightingModel;
 - (_Bool)identifierReferencesUnavailableLocalBundle;
 - (id)p_lazyLightingModel;
+- (void)nonatomicallyClearLightingModel;
 @property(readonly, nonatomic) float percentageValue;
 - (id)lightenByPercent:(float)arg1;
 - (_Bool)isOpaque;
@@ -56,10 +58,13 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithLightingModel:(id)arg1 identifier:(id)arg2;
 - (id)init;
-- (void)assignQuicklookColorToMaterialDiffuseColorForLightingModel:(id)arg1;
-- (id)sageFillData;
+@property(readonly) TSDFill *swatchFill; // @synthesize swatchFill=_swatchFill;
+- (id)convertForChartSeriesType:(id)arg1 context:(id)arg2;
 - (void)saveToArchive:(struct FillArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
+- (void)assignQuicklookColorToMaterialDiffuseColorForLightingModel:(id)arg1;
+- (id)representativeDiffuseColor;
+- (id)sageFillData;
 - (_Bool)tsch_hasAllResources;
 
 @end

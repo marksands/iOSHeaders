@@ -16,6 +16,8 @@
 
 + (id)resolveAppForIntentResponseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)resolveAppForIntentResponse;
+- (_Bool)requiresResponse;
+@property(copy, nonatomic) NSString *resolutionType;
 @property(copy, nonatomic) NSNumber *needsConfirmation;
 @property(copy, nonatomic) NSArray *appsList;
 - (id)encodedClassName;

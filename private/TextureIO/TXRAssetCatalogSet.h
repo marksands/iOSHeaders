@@ -6,21 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableArray, NSString;
+@class NSArray, NSMutableArray, NSString;
 
 @interface TXRAssetCatalogSet : NSObject
 {
     unsigned long long _interpretation;
     unsigned long long _origin;
     NSString *_name;
+    _Bool _cubemap;
     NSMutableArray *_configs;
 }
 
-@property(readonly) NSMutableArray *configs; // @synthesize configs=_configs;
+@property(readonly, nonatomic) _Bool cubemap; // @synthesize cubemap=_cubemap;
+@property(readonly) NSArray *configs; // @synthesize configs=_configs;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) unsigned long long origin; // @synthesize origin=_origin;
 @property(nonatomic) unsigned long long interpretation; // @synthesize interpretation=_interpretation;
 - (void).cxx_destruct;
+- (_Bool)addConfig:(id)arg1 error:(id *)arg2;
 - (id)exportAtLocation:(id)arg1 error:(id *)arg2;
 - (id)initWithName:(id)arg1;
 - (id)init;

@@ -26,7 +26,8 @@ __attribute__((visibility("hidden")))
 - (void)_performAfterPreparingSharingIdentityIfNecessaryWhenWantRoutingKey:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_performAfterFetchingiWorkSharingIdentityOnItem:(id)arg1 wantRoutingKey:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_performAfterFetchingiWorkRoutingTokenIfNecessary:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_performAfterFetchingSharingIdentityOnItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_performAfterFetchingSharingIdentityOnDirectoryItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_performAfterFetchingSharingIdentityOnDocumentItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_performAfterGettingPublicSharingKeyForRecord:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_performAfterCopyingPublicSharingKeyWithRecordID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_updateDBAndSyncDownIfNeededWithShare:(id)arg1;

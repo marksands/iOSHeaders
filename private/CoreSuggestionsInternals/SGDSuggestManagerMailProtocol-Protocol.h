@@ -8,17 +8,16 @@
 #import <CoreSuggestionsInternals/_SGDSuggestManagerContactsConfirmRejectProtocol-Protocol.h>
 #import <CoreSuggestionsInternals/_SGDSuggestManagerEventsConfirmRejectProtocol-Protocol.h>
 
-@class CSSearchableItem, NSArray, NSData, NSString;
+@class CSSearchableItem, NSArray;
 
 @protocol SGDSuggestManagerMailProtocol <_SGDSuggestManagerBaseProtocol, _SGDSuggestManagerEventsConfirmRejectProtocol, _SGDSuggestManagerContactsConfirmRejectProtocol>
-- (void)resolveFullDownloadRequests:(NSArray *)arg1 withCompletion:(void (^)(NSError *))arg2;
-- (void)fullDownloadRequestBatch:(unsigned long long)arg1 withCompletion:(void (^)(NSArray *, NSError *))arg2;
-- (void)reportMessagesFound:(NSArray *)arg1 lost:(NSArray *)arg2 withCompletion:(void (^)(NSError *))arg3;
-- (void)updateMessages:(NSArray *)arg1 state:(unsigned long long)arg2 completion:(void (^)(NSError *))arg3;
-- (void)messagesToRefreshWithCompletion:(void (^)(NSArray *, NSError *))arg1;
-- (void)suggestionsFromEmailContent:(NSString *)arg1 headers:(NSData *)arg2 source:(NSString *)arg3 options:(unsigned long long)arg4 withCompletion:(void (^)(NSArray *, NSError *))arg5;
-- (void)harvestedSuggestionsFromSearchableItem:(CSSearchableItem *)arg1 options:(unsigned long long)arg2 withCompletion:(void (^)(NSArray *, NSError *))arg3;
-- (void)suggestionsFromSearchableItem:(CSSearchableItem *)arg1 options:(unsigned long long)arg2 withCompletion:(void (^)(NSArray *, NSError *))arg3;
-- (void)prepareForRealtimeExtraction:(void (^)(NSError *))arg1;
+- (void)resolveFullDownloadRequests:(NSArray *)arg1 withCompletion:(void (^)(SGXPCResponse *))arg2;
+- (void)fullDownloadRequestBatch:(unsigned long long)arg1 withCompletion:(void (^)(SGXPCResponse1 *))arg2;
+- (void)reportMessagesFound:(NSArray *)arg1 lost:(NSArray *)arg2 withCompletion:(void (^)(SGXPCResponse *))arg3;
+- (void)updateMessages:(NSArray *)arg1 state:(unsigned long long)arg2 completion:(void (^)(SGXPCResponse *))arg3;
+- (void)messagesToRefreshWithCompletion:(void (^)(SGXPCResponse1 *))arg1;
+- (void)harvestedSuggestionsFromSearchableItem:(CSSearchableItem *)arg1 options:(unsigned long long)arg2 withCompletion:(void (^)(SGXPCResponse1 *))arg3;
+- (void)suggestionsFromSearchableItem:(CSSearchableItem *)arg1 options:(unsigned long long)arg2 withCompletion:(void (^)(SGXPCResponse1 *))arg3;
+- (void)prepareForRealtimeExtraction:(void (^)(SGXPCResponse *))arg1;
 @end
 

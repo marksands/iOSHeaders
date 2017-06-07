@@ -19,6 +19,7 @@
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
 - (id)pk_childrenForAppearance;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)buttonTapped:(id)arg1;
 - (void)layoutSubviews;
 - (void)dealloc;

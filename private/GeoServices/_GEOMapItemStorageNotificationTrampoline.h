@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOMapItemStorage;
 @protocol GEOMapItem, NSObject;
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     id <NSObject> _notificationToken;
 }
 
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)initWithMapItem:(id)arg1 mapItemStorage:(id)arg2;
 

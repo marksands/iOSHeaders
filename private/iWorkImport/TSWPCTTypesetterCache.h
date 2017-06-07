@@ -9,7 +9,7 @@
 __attribute__((visibility("hidden")))
 @interface TSWPCTTypesetterCache : NSObject
 {
-    struct map<unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, boost::shared_ptr<TSWPParagraphTypesetter>>>> _typesetters;
+    struct map<unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>, std::__1::less<unsigned long>, std::__1::allocator<std::__1::pair<const unsigned long, std::__1::shared_ptr<TSWPParagraphTypesetter>>>> _typesetters;
 }
 
 - (id).cxx_construct;
@@ -17,8 +17,8 @@ __attribute__((visibility("hidden")))
 - (void)p_limitCacheSize:(unsigned long long)arg1;
 - (void)clearCache;
 - (void)removeTypesetterForParagraphIndex:(unsigned long long)arg1;
-- (void)addTypesetterForParagraphIdentifier:(unsigned long long)arg1 typesetter:(shared_ptr_6f812b7d)arg2;
-- (shared_ptr_6f812b7d)cachedTypesetterForParagraphIdentifier:(unsigned long long)arg1;
+- (void)addTypesetterForParagraphIdentifier:(unsigned long long)arg1 typesetter:(shared_ptr_b124cf66)arg2;
+- (shared_ptr_b124cf66)cachedTypesetterForParagraphIdentifier:(unsigned long long)arg1;
 - (void)dealloc;
 
 @end

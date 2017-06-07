@@ -8,45 +8,34 @@
 
 #import <iWorkImport/TSTCellIteratorData-Protocol.h>
 
-@class NSString, TSTCell, TSTTableDataStore;
+@class NSString, TSTCell;
 
 __attribute__((visibility("hidden")))
 @interface TSTMutableCellIteratorData : NSObject <TSTCellIteratorData>
 {
-    _Bool _styleOnly;
-    _Bool _commentStorageOnly;
-    _Bool _rowHidden;
-    _Bool _columnHidden;
+    _Bool _cellIDIsValid;
+    _Bool _cellIsValid;
+    _Bool _mergeRangeIsValid;
     struct TSUCellCoord _cellID;
     TSTCell *_cell;
-    struct TSTCellStorage *_cellRef;
     struct TSUCellRect _mergeRange;
-    TSTTableDataStore *_tableDataStore;
-    TSTCell *_cellForExpanding;
 }
 
-@property(retain, nonatomic) TSTCell *cellForExpanding; // @synthesize cellForExpanding=_cellForExpanding;
-@property(retain, nonatomic) TSTTableDataStore *tableDataStore; // @synthesize tableDataStore=_tableDataStore;
-@property(nonatomic) _Bool columnHidden; // @synthesize columnHidden=_columnHidden;
-@property(nonatomic) _Bool rowHidden; // @synthesize rowHidden=_rowHidden;
-@property(nonatomic) _Bool commentStorageOnly; // @synthesize commentStorageOnly=_commentStorageOnly;
-@property(nonatomic) _Bool styleOnly; // @synthesize styleOnly=_styleOnly;
-@property(nonatomic) struct TSUCellRect mergeRange; // @synthesize mergeRange=_mergeRange;
-@property(nonatomic) struct TSTCellStorage *cellRef; // @synthesize cellRef=_cellRef;
-@property(retain, nonatomic) TSTCell *cell; // @synthesize cell=_cell;
-@property(nonatomic) struct TSUCellCoord cellID; // @synthesize cellID=_cellID;
-- (void)takeValuesFromCellIteratorData:(id)arg1;
-- (void)expandCell;
-- (void)expandCellSuppressingFormulaInflation:(_Bool)arg1;
+@property(nonatomic) _Bool mergeRangeIsValid; // @synthesize mergeRangeIsValid=_mergeRangeIsValid;
+@property(nonatomic) _Bool cellIsValid; // @synthesize cellIsValid=_cellIsValid;
+@property(nonatomic) _Bool cellIDIsValid; // @synthesize cellIDIsValid=_cellIDIsValid;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool cellIsEmpty;
 @property(readonly, nonatomic) _Bool cellHasCommentStorage;
 @property(readonly, nonatomic) _Bool cellHasCustomFormat;
 @property(readonly, nonatomic) _Bool cellHasConditionalStyle;
 @property(readonly, nonatomic) _Bool cellHasFormula;
 @property(readonly, nonatomic) int cellValueType;
-@property(readonly, nonatomic) _Bool hidden;
 - (void)reset;
-- (void)dealloc;
-- (id)initWithTableModel:(id)arg1;
+@property(nonatomic) struct TSUCellRect mergeRange; // @synthesize mergeRange=_mergeRange;
+@property(retain, nonatomic) TSTCell *cell; // @synthesize cell=_cell;
+@property(nonatomic) struct TSUCellCoord cellID; // @synthesize cellID=_cellID;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

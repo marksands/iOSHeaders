@@ -20,11 +20,11 @@
 @property(copy, nonatomic) NSArray *localRecords; // @synthesize localRecords=_localRecords;
 @property(copy, nonatomic) CDUnknownBlockType localRecordsGenerator; // @synthesize localRecordsGenerator=_localRecordsGenerator;
 - (void).cxx_destruct;
-- (void)handleBatchOfLocalRecords:(id)arg1 internalPrivateDataContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)handleLocalRecordsFromStream:(id)arg1 internalPrivateDataContext:(id)arg2 delegate:(id)arg3;
+- (void)handleBatchOfLocalRecords:(id)arg1 internalPrivateDataContext:(id)arg2 qualityOfService:(long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)handleLocalRecordsFromStream:(id)arg1 internalPrivateDataContext:(id)arg2 delegate:(id)arg3 qualityOfService:(long long)arg4;
 - (void)coalesceWithCommand:(id)arg1;
 - (_Bool)canCoalesceWithCommand:(id)arg1;
-- (void)executeWithContext:(id)arg1 delegate:(id)arg2;
+- (void)executeWithContext:(id)arg1 delegate:(id)arg2 qualityOfService:(long long)arg3;
 @property(readonly, nonatomic) NSArray *t_localRecords;
 - (_Bool)mergeLocalRecord:(id)arg1 withRemoteRecord:(id)arg2;
 - (id)recordZoneName;

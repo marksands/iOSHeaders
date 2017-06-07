@@ -34,7 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)close;
 - (void)dealloc;
 @property(readonly, nonatomic) TSADocumentRoot *documentRoot;
-- (id)initWithURL:(id)arg1 appDocumentResourcesURL:(id)arg2 appDocumentResourcesMetadataURL:(id)arg3 registry:(id)arg4 error:(id *)arg5 passphrase:(id)arg6;
+- (id)initWithURL:(id)arg1 registry:(id)arg2 error:(id *)arg3 passphrase:(id)arg4;
 
 // Remaining properties
 @property(readonly, nonatomic) NSDictionary *additionalDocumentPropertiesForWrite;

@@ -12,7 +12,9 @@
 @protocol PLMomentData <PLMomentRefreshable>
 @property(retain, nonatomic) NSArray *userTitles;
 @property(retain, nonatomic) NSString *uuid;
+@property(nonatomic) _Bool usedLocationsOfInterest;
 @property(nonatomic) short generationType;
+@property(nonatomic) _Bool reverseLocationDataContainsLocation;
 @property(nonatomic) _Bool reverseLocationDataIsValid;
 @property(retain, nonatomic) NSData *reverseLocationData;
 @property(nonatomic) int cachedCount;

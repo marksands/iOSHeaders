@@ -4,35 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HealthUI/HKSimpleDataEntryItem.h>
 
 #import <HealthUI/HKSimpleDataEntryCellDelegate-Protocol.h>
-#import <HealthUI/HKSimpleDataEntryItemType-Protocol.h>
 
 @class HKSimpleDataEntryPlainTextCell, NSString;
-@protocol HKSimpleDataEntryItemDelegate;
 
-@interface HKSimpleDataEntryPlainTextItem : NSObject <HKSimpleDataEntryCellDelegate, HKSimpleDataEntryItemType>
+@interface HKSimpleDataEntryPlainTextItem : HKSimpleDataEntryItem <HKSimpleDataEntryCellDelegate>
 {
     HKSimpleDataEntryPlainTextCell *_cell;
     NSString *_title;
     NSString *_registrantModelKey;
     NSString *_text;
     long long _intention;
-    id <HKSimpleDataEntryItemDelegate> _delegate;
-    unsigned long long _placeholderType;
 }
 
-@property(nonatomic) unsigned long long placeholderType; // @synthesize placeholderType=_placeholderType;
-@property(nonatomic) __weak id <HKSimpleDataEntryItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)textFieldDidEndEditing:(id)arg1 forCell:(id)arg2;
 - (void)textFieldDidChangeValue:(id)arg1 forCell:(id)arg2;
-- (void)textFieldDidBeginEditing:(id)arg1 forCell:(id)arg2;
 - (void)doneButtonTapped:(id)arg1;
-- (void)localeDidChange:(id)arg1;
 - (void)updateCellDisplay;
-- (void)beginEditing;
 - (id)cell;
 - (id)formattedKeyAndValue;
 - (id)initWithTitle:(id)arg1 registrantModelKey:(id)arg2 defaultText:(id)arg3 intention:(long long)arg4;

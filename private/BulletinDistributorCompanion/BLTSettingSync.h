@@ -10,7 +10,7 @@
 #import <BulletinDistributorCompanion/BLTSectionConfigurationDelegate-Protocol.h>
 #import <BulletinDistributorCompanion/BLTSectionInfoListDelegate-Protocol.h>
 
-@class BBObserver, BLTSectionInfoList, BLTSectionInfoSyncCoordinator, BLTSettingSyncSendQueue, NSObject, NSString;
+@class BBObserver, BLTSectionInfoList, BLTSectionInfoListBridgeProvider, BLTSectionInfoSyncCoordinator, BLTSettingSyncSendQueue, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @interface BLTSettingSync : BLTSettingSyncInternal <BBObserverDelegate, BLTSectionInfoListDelegate, BLTSectionConfigurationDelegate>
@@ -21,6 +21,7 @@
     BLTSectionInfoSyncCoordinator *_sectionInfoSyncCoordinator;
     NSObject<OS_dispatch_queue> *_sectionInfoSyncCoordinatorQueue;
     _Bool _initialSyncPerformed;
+    BLTSectionInfoListBridgeProvider *_bridgeProvider;
     BBObserver *_observer;
 }
 
@@ -30,6 +31,7 @@
 - (void)sectionInfoList:(id)arg1 receivedRemoveSectionWithSectionID:(id)arg2;
 - (void)sectionInfoList:(id)arg1 receivedUpdatedSectionInfoForSectionID:(id)arg2;
 - (void)observer:(id)arg1 noteSectionParametersChanged:(id)arg2 forSectionID:(id)arg3;
+- (void)enableNotifications:(_Bool)arg1 sectionID:(id)arg2 mirror:(_Bool)arg3 fromRemote:(_Bool)arg4;
 - (void)setSectionInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_willSectionIDAlert:(id)arg1;
 - (id)overriddenSettings;
@@ -57,7 +59,7 @@
 - (unsigned long long)_fetchSettingSyncMaxCountOverride;
 - (unsigned long long)_fetchSyncState;
 - (void)_storeSyncState:(unsigned long long)arg1;
-- (id)initWithSectionConfiguration:(id)arg1;
+- (id)initWithSectionConfiguration:(id)arg1 queue:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

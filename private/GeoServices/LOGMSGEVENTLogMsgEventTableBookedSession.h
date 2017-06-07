@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 + (Class)bookedTableType;
 @property(retain, nonatomic) NSMutableArray *bookedTables; // @synthesize bookedTables=_bookedTables;
 @property(retain, nonatomic) NSString *bookedTableSessionId; // @synthesize bookedTableSessionId=_bookedTableSessionId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (void)addBookedTable:(id)arg1;
 - (void)clearBookedTables;
 @property(readonly, nonatomic) _Bool hasBookedTableSessionId;
-- (void)dealloc;
 
 @end
 

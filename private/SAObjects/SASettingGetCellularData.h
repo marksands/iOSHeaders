@@ -12,6 +12,7 @@
 
 + (id)getCellularDataWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getCellularData;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;

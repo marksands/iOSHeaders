@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) NSDictionary *attributeMap; // @synthesize attributeMap;
 - (id)description;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)setDisplay:(_Bool)arg1;
 - (_Bool)display;

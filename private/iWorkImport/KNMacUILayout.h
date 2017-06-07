@@ -19,10 +19,12 @@ __attribute__((visibility("hidden")))
     _Bool mShowingPresenterNotes;
     _Bool mShowingLightTable;
     _Bool mShowingMasterSlides;
+    _Bool mShowingElementList;
     long long mInspectorPaneViewMode;
 }
 
 + (id)uiLayoutFromArchive:(const struct DesktopUILayoutArchive *)arg1 unarchiver:(id)arg2 context:(id)arg3;
+@property(readonly, nonatomic, getter=isShowingElementList) _Bool showingElementList; // @synthesize showingElementList=mShowingElementList;
 @property(readonly, nonatomic, getter=isShowingMasterSlides) _Bool showingMasterSlides; // @synthesize showingMasterSlides=mShowingMasterSlides;
 @property(readonly, nonatomic) long long inspectorPaneViewMode; // @synthesize inspectorPaneViewMode=mInspectorPaneViewMode;
 @property(readonly, nonatomic, getter=isShowingLightTable) _Bool showingLightTable; // @synthesize showingLightTable=mShowingLightTable;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <CoreDAV/CoreDAVItem-Protocol.h>
 
@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSMutableSet *attributes; // @synthesize attributes=_attributes;
 @property(retain, nonatomic) NSString *nameSpace; // @synthesize nameSpace=_nameSpace;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (id)generateXMLString;
 - (void)parserSuggestsBaseURL:(id)arg1;
 - (void)setPayloadAsString:(id)arg1;
@@ -41,7 +42,6 @@
 - (id)copyParseRules;
 - (id)hashString;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithNameSpace:(id)arg1 andName:(id)arg2;
 - (id)init;
 

@@ -29,6 +29,7 @@
     struct sqlite3_stmt *_logFileActivity;
     struct sqlite3_stmt *_updateFileOutgoing;
     long long _lastIncomingRowID;
+    NSObject<OS_dispatch_queue> *_preemption_queue;
     NSObject<OS_dispatch_queue> *_operations_queue;
     NSOperationQueue *_presenterOperationQueue;
 }

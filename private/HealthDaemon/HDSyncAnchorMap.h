@@ -7,17 +7,23 @@
 #import <objc/NSObject.h>
 
 #import <HealthDaemon/HDSyncAnchorMap-Protocol.h>
+#import <HealthDaemon/NSSecureCoding-Protocol.h>
 
 @class NSMutableDictionary, NSString;
 
-@interface HDSyncAnchorMap : NSObject <HDSyncAnchorMap>
+@interface HDSyncAnchorMap : NSObject <HDSyncAnchorMap, NSSecureCoding>
 {
     NSMutableDictionary *_anchorsByObjectType;
 }
 
++ (_Bool)supportsSecureCoding;
++ (id)syncAnchorMapWithSyncAnchorRangeMap:(id)arg1;
 @property(retain, nonatomic) NSMutableDictionary *anchorsByObjectType; // @synthesize anchorsByObjectType=_anchorsByObjectType;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 @property(readonly, copy) NSString *description;
+- (_Bool)isAllZero;
 - (unsigned long long)anchorCount;
 - (void)enumerateAnchorsAndSyncEntitiesWithBlock:(CDUnknownBlockType)arg1;
 - (long long)anchorForSyncEntityClass:(Class)arg1;

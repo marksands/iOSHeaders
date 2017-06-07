@@ -13,13 +13,12 @@
 @interface SGRemoteObjectProxy : NSObject <SGDSuggestManagerAllProtocol>
 {
     SGDaemonConnection *_connection;
+    _Bool _queuesRequestsIfBusy;
 }
 
-+ (void)initialize;
 - (void).cxx_destruct;
 - (void)forwardInvocation:(id)arg1;
-- (_Bool)isTooBusy;
-- (id)initWithConnection:(id)arg1;
+- (id)initWithConnection:(id)arg1 queuesRequestsIfBusy:(_Bool)arg2;
 
 @end
 

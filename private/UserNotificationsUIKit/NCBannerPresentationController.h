@@ -13,6 +13,7 @@
 {
     id <UIViewControllerTransitionCoordinator> _activeTransitionCoordinator;
     long long _transitionState;
+    struct CGSize _childPreferredContentSize;
     _Bool _wantsUseableContainerHeight;
     NSArray *_additionalBackgroundViews;
 }

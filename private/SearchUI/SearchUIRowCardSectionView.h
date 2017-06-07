@@ -6,40 +6,19 @@
 
 #import <SearchUI/SearchUILayoutFreeSectionView.h>
 
-#import <SearchUI/NUIContainerStackViewDelegate-Protocol.h>
+@class TLKSimpleRowView;
 
-@class NSString, UIImageView, UIView;
-@protocol SearchUIWidthLimitedView;
-
-@interface SearchUIRowCardSectionView : SearchUILayoutFreeSectionView <NUIContainerStackViewDelegate>
+@interface SearchUIRowCardSectionView : SearchUILayoutFreeSectionView
 {
-    _Bool _onlyLeftAndRightLabel;
-    _Bool _imageIsLarge;
-    UIView<SearchUIWidthLimitedView> *_leftLabel;
-    UIView<SearchUIWidthLimitedView> *_rightLabel;
-    UIImageView *_leftImageView;
+    TLKSimpleRowView *_rowView;
 }
 
-@property _Bool imageIsLarge; // @synthesize imageIsLarge=_imageIsLarge;
-@property _Bool onlyLeftAndRightLabel; // @synthesize onlyLeftAndRightLabel=_onlyLeftAndRightLabel;
-@property(retain) UIImageView *leftImageView; // @synthesize leftImageView=_leftImageView;
-@property(retain) UIView<SearchUIWidthLimitedView> *rightLabel; // @synthesize rightLabel=_rightLabel;
-@property(retain) UIView<SearchUIWidthLimitedView> *leftLabel; // @synthesize leftLabel=_leftLabel;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
+@property(retain) TLKSimpleRowView *rowView; // @synthesize rowView=_rowView;
 - (void).cxx_destruct;
-- (double)separatorLeftInset;
-- (id)makeImageView:(id)arg1 formatter:(id)arg2;
-- (_Bool)isLTR;
-- (id)makeLabel:(id)arg1 primaryText:(_Bool)arg2 formatter:(id)arg3;
-- (void)shrinkLabel:(id)arg1 withGrowingLabel:(id)arg2 sizeOfResizeLabel:(struct CGSize)arg3 leftLabel:(_Bool)arg4;
-- (void)containerViewDidLayoutArrangedSubviews:(id)arg1;
-- (void)containerView:(id)arg1 willMeasureArrangedSubviewsFittingSize:(struct CGSize)arg2 forReason:(long long)arg3;
+- (double)separatorInsetForLeadingImage;
+- (void)updateWithCardSection:(id)arg1;
 - (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

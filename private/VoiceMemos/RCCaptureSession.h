@@ -9,7 +9,7 @@
 #import <VoiceMemos/RCCaptureOutputWriterDelegate-Protocol.h>
 #import <VoiceMemos/RCWaveformDataSourceObserver-Protocol.h>
 
-@class NSDate, NSHashTable, NSString, RCAVState, RCAudioSessionRoutingAssertion, RCCaptureInputDevice, RCCaptureInputWaveformDataSource, RCCaptureOutputWriter;
+@class NSDate, NSHashTable, NSString, RCAVState, RCAudioSessionRoutingAssertion, RCCaptureInputDevice, RCCaptureInputWaveformDataSource, RCCaptureOutputWriter, SBSSecureAppAssertion;
 @protocol OS_dispatch_group;
 
 @interface RCCaptureSession : NSObject <RCCaptureOutputWriterDelegate, RCWaveformDataSourceObserver>
@@ -30,14 +30,16 @@
     NSHashTable *_weakObservers;
     RCCaptureInputDevice *_inputDevice;
     RCCaptureInputWaveformDataSource *_captureWaveformDataSource;
+    SBSSecureAppAssertion *_assertion;
 }
 
 + (void)playCaptureDidFinishSoundEffectWithCompletionBlock:(CDUnknownBlockType)arg1;
 + (void)playCaptureWillStartSoundEffectWithCompletionBlock:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) SBSSecureAppAssertion *assertion; // @synthesize assertion=_assertion;
 @property(readonly, nonatomic) RCCaptureInputWaveformDataSource *captureWaveformDataSource; // @synthesize captureWaveformDataSource=_captureWaveformDataSource;
 @property(readonly, nonatomic) RCCaptureInputDevice *inputDevice; // @synthesize inputDevice=_inputDevice;
 - (void).cxx_destruct;
-- (void)_setDisableSBMediaHUD:(_Bool)arg1;
+- (void)_takeSBSecureAppAssertion:(_Bool)arg1;
 - (_Bool)_openAVCaptureSessionAndWaitUntilRunning;
 - (_Bool)_attachInputToCaptureSession:(id)arg1;
 - (void)_closeCaptureSession;

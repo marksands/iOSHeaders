@@ -9,6 +9,12 @@
 @class IMItem, IMMessageItem, NSArray, NSData, NSDictionary, NSError, NSNumber, NSString;
 
 @protocol IMDaemonListenerProtocol <NSObject>
+- (void)receivedUrgentRequestForMessages:(NSArray *)arg1;
+- (void)didAttemptToDisableiCloudBackups:(long long)arg1 error:(NSError *)arg2;
+- (void)didFetchSyncStateStats:(NSDictionary *)arg1;
+- (void)didAttemptToDisableAllDevicesResult:(_Bool)arg1;
+- (void)didAttemptToSetEnabledTo:(_Bool)arg1 result:(_Bool)arg2;
+- (void)updateCloudKitState;
 - (void)qosClassWhileServicingRequestsResponse:(unsigned int)arg1 identifier:(NSString *)arg2;
 - (void)stickerPackRemoved:(NSArray *)arg1;
 - (void)stickerPackUpdated:(NSDictionary *)arg1;
@@ -41,6 +47,8 @@
 - (void)account:(NSString *)arg1 conference:(NSString *)arg2 receivedCancelInvitationFrom:(NSDictionary *)arg3 properties:(NSDictionary *)arg4;
 - (void)account:(NSString *)arg1 conference:(NSString *)arg2 receivedResponseToInvitationFrom:(NSDictionary *)arg3 properties:(NSDictionary *)arg4;
 - (void)account:(NSString *)arg1 conference:(NSString *)arg2 receivedInvitationFrom:(NSDictionary *)arg3 properties:(NSDictionary *)arg4;
+- (void)fileTransferHighQualityDownloadFailed:(NSString *)arg1;
+- (void)fileTransfer:(NSString *)arg1 highQualityDownloadSucceededWithPath:(NSString *)arg2;
 - (void)fileTransfer:(NSString *)arg1 updatedWithCurrentBytes:(unsigned long long)arg2 totalBytes:(unsigned long long)arg3 averageTransferRate:(unsigned long long)arg4;
 - (void)fileTransfers:(NSArray *)arg1 createdWithLocalPaths:(NSArray *)arg2;
 - (void)fileTransfer:(NSString *)arg1 updatedWithProperties:(NSDictionary *)arg2;
@@ -51,20 +59,24 @@
 - (void)historicalMessageGUIDsDeleted:(NSArray *)arg1 chatGUIDs:(NSArray *)arg2 queryID:(NSString *)arg3;
 - (void)markAsSpamQuery:(NSString *)arg1 chatID:(NSString *)arg2 services:(NSArray *)arg3 finishedWithResult:(NSNumber *)arg4;
 - (void)attachmentQuery:(NSString *)arg1 chatID:(NSString *)arg2 services:(NSArray *)arg3 finishedWithResult:(NSArray *)arg4;
+- (void)pagedHistoryQuery:(NSString *)arg1 chatID:(NSString *)arg2 services:(NSArray *)arg3 numberOfMessagesBefore:(unsigned long long)arg4 numberOfMessagesAfter:(unsigned long long)arg5 finishedWithResult:(NSArray *)arg6;
 - (void)historyQuery:(NSString *)arg1 chatID:(NSString *)arg2 services:(NSArray *)arg3 finishedWithResult:(NSArray *)arg4 limit:(unsigned long long)arg5;
 - (void)messageQuery:(NSString *)arg1 finishedWithResult:(IMMessageItem *)arg2 chatGUIDs:(NSArray *)arg3;
 - (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 member:(NSDictionary *)arg5 statusChanged:(int)arg6;
-- (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 statusChanged:(int)arg5 handleInfo:(NSArray *)arg6;
+- (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 chatPersonCentricID:(NSString *)arg5 statusChanged:(int)arg6 handleInfo:(NSArray *)arg7;
 - (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 error:(NSError *)arg5;
 - (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 messagesUpdated:(NSArray *)arg5;
 - (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 notifySentMessage:(IMMessageItem *)arg5 sendTime:(NSNumber *)arg6;
 - (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 messageUpdated:(IMItem *)arg5;
-- (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 messagesReceived:(NSArray *)arg5;
-- (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 messageReceived:(IMItem *)arg5;
-- (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 messageSent:(IMMessageItem *)arg5;
+- (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 chatPersonCentricID:(NSString *)arg5 messagesReceived:(NSArray *)arg6;
+- (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 chatPersonCentricID:(NSString *)arg5 messageReceived:(IMItem *)arg6;
+- (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 chatPersonCentricID:(NSString *)arg5 messageSent:(IMMessageItem *)arg6;
 - (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 updateProperties:(NSDictionary *)arg5;
 - (void)account:(NSString *)arg1 chat:(NSString *)arg2 style:(unsigned char)arg3 chatProperties:(NSDictionary *)arg4 invitationReceived:(IMMessageItem *)arg5;
+- (void)loadedChats:(NSArray *)arg1;
+- (void)engroupParticipantsUpdatedForChat:(NSString *)arg1;
 - (void)leftChat:(NSString *)arg1;
+- (void)chat:(NSString *)arg1 engramIDUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 isFilteredUpdated:(_Bool)arg2;
 - (void)chat:(NSString *)arg1 displayNameUpdated:(NSString *)arg2;
 - (void)chat:(NSString *)arg1 propertiesUpdated:(NSDictionary *)arg2;

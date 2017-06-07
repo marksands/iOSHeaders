@@ -13,8 +13,11 @@
     NSData *_data;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSData *data; // @synthesize data=_data;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (void)preheatWallpaperData;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

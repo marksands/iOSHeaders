@@ -44,6 +44,7 @@
 @property(nonatomic) _Bool invalidateTileCache; // @synthesize invalidateTileCache=_invalidateTileCache;
 @property(retain, nonatomic) NSMutableArray *assignments; // @synthesize assignments=_assignments;
 @property(retain, nonatomic) NSString *requestGuid; // @synthesize requestGuid=_requestGuid;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -67,7 +68,6 @@
 - (void)addAssignment:(id)arg1;
 - (void)clearAssignments;
 @property(readonly, nonatomic) _Bool hasRequestGuid;
-- (void)dealloc;
 - (id)_clientConfigValueForKey:(id)arg1;
 - (id)_querySubstringForServiceType:(int)arg1 placeRequestType:(int)arg2;
 - (id)_experimentAssignmentForServiceType:(int)arg1 placeRequestType:(int)arg2;

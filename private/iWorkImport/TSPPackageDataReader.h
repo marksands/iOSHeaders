@@ -9,7 +9,7 @@
 #import <iWorkImport/TSPFileCoordinatorDelegate-Protocol.h>
 #import <iWorkImport/TSPPassphraseConsumer-Protocol.h>
 
-@class NSData, NSString, NSURL, TSPDocumentProperties, TSPPackage;
+@class NSData, NSString, NSURL, SFUCryptoKey, TSPDocumentProperties, TSPPackage;
 
 __attribute__((visibility("hidden")))
 @interface TSPPackageDataReader : NSObject <TSPFileCoordinatorDelegate, TSPPassphraseConsumer>
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (struct CGDataProvider *)newCGDataProviderAtRelativePath:(id)arg1;
 - (_Bool)hasDataAtRelativePath:(id)arg1;
 - (_Bool)checkPassword:(id)arg1;
+@property(readonly, nonatomic) SFUCryptoKey *lastDecryptionKeyAttempted;
 @property(readonly, nonatomic) NSString *lastPasswordAttempted;
 - (_Bool)setPassphrase:(id)arg1;
 @property(readonly, nonatomic) NSString *passwordHint;
@@ -42,7 +43,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSData *keychainGenericItem;
 @property(readonly, nonatomic) NSString *passphraseHint;
-@property(readonly, nonatomic) NSString *service;
+@property(readonly, nonatomic) _Bool requiresNetworkValidation;
 @property(readonly) Class superclass;
 
 @end

@@ -22,6 +22,7 @@
     _Bool _allowsMultipleSelection;
     _Bool _includeStoreItemsInSearch;
     _Bool _allowsCollectionsInSelectedEntities;
+    _Bool _picksSingleCollectionEntity;
     _Bool _showsOnlyStoreItems;
     MusicClientContext *_clientContext;
     id <MusicMediaPickerDelegate> _mediaPickerDelegate;
@@ -38,6 +39,7 @@
 @property(copy, nonatomic) NSString *prompt; // @synthesize prompt=_prompt;
 @property(readonly, nonatomic) NSArray *pickedEntities; // @synthesize pickedEntities=_pickedEntities;
 @property(nonatomic) __weak id <MusicMediaPickerDelegate> mediaPickerDelegate; // @synthesize mediaPickerDelegate=_mediaPickerDelegate;
+@property(nonatomic) _Bool picksSingleCollectionEntity; // @synthesize picksSingleCollectionEntity=_picksSingleCollectionEntity;
 @property(nonatomic) _Bool allowsCollectionsInSelectedEntities; // @synthesize allowsCollectionsInSelectedEntities=_allowsCollectionsInSelectedEntities;
 @property(nonatomic) _Bool includeStoreItemsInSearch; // @synthesize includeStoreItemsInSearch=_includeStoreItemsInSearch;
 @property(nonatomic) _Bool allowsMultipleSelection; // @synthesize allowsMultipleSelection=_allowsMultipleSelection;

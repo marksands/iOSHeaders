@@ -8,20 +8,20 @@
 
 #import <FrontBoard/BSDescriptionProviding-Protocol.h>
 
-@class FBSDisplay, NSString;
+@class FBSDisplayIdentity, NSString;
 
 @interface FBUIApplicationSceneDeactivationAssertion : NSObject <BSDescriptionProviding>
 {
-    FBSDisplay *_display;
+    FBSDisplayIdentity *_displayIdentity;
     double _sceneLevel;
     long long _reason;
     CDUnknownBlockType _predicate;
     _Bool _acquired;
 }
 
+@property(readonly, nonatomic) FBSDisplayIdentity *displayIdentity; // @synthesize displayIdentity=_displayIdentity;
 @property(readonly, nonatomic, getter=isAcquired) _Bool acquired; // @synthesize acquired=_acquired;
 @property(readonly, copy, nonatomic) CDUnknownBlockType predicate; // @synthesize predicate=_predicate;
-@property(readonly, retain, nonatomic) FBSDisplay *display; // @synthesize display=_display;
 @property(readonly, nonatomic) long long reason; // @synthesize reason=_reason;
 @property(readonly, nonatomic) double sceneLevel; // @synthesize sceneLevel=_sceneLevel;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
@@ -35,7 +35,7 @@
 - (void)acquireWithPredicate:(CDUnknownBlockType)arg1;
 - (void)acquire;
 - (void)dealloc;
-- (id)_initWithReason:(long long)arg1 sceneLevel:(double)arg2 forDisplay:(id)arg3;
+- (id)_initWithReason:(long long)arg1 sceneLevel:(double)arg2 forDisplayWithIdentity:(id)arg3;
 - (id)initWithReason:(long long)arg1 sceneLevel:(double)arg2;
 - (id)initWithReason:(long long)arg1;
 

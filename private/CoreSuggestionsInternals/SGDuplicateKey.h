@@ -6,20 +6,23 @@
 
 #import <objc/NSObject.h>
 
+#import <CoreSuggestionsInternals/NSCopying-Protocol.h>
+
 @class NSData;
 @protocol SGEntityKey;
 
-@interface SGDuplicateKey : NSObject
+@interface SGDuplicateKey : NSObject <NSCopying>
 {
     long long _entityType;
     NSObject<SGEntityKey> *_entityKey;
     SGDuplicateKey *_parentKey;
 }
 
++ (id)duplicateKeyForWebPageFromSource:(id)arg1;
 + (id)duplicateKeyForSchemaOrg;
 + (id)duplicateKeyForSearchableItem:(id)arg1;
 + (id)duplicateKeyForUnrecognizedContactWithIdentity:(id)arg1;
-+ (id)duplicateKeyForNaturalLanguageEventWithStartDate:(id)arg1 endDate:(id)arg2 title:(id)arg3 parentKey:(id)arg4;
++ (id)duplicateKeyForNaturalLanguageEventWithStartDate:(id)arg1 endDate:(id)arg2 title:(id)arg3 participants:(id)arg4 parentKey:(id)arg5;
 + (id)duplicateKeyForPseudoEventWithGroupId:(id)arg1 parentKey:(id)arg2;
 + (id)duplicateKeyForCuratedEventWithExternalID:(id)arg1;
 + (id)duplicateKeyForPseudoContactWithIdentity:(id)arg1 parentKey:(id)arg2;
@@ -35,6 +38,7 @@
 @property(readonly, nonatomic) NSData *compositeHash;
 - (id)pseudoEventKey;
 - (id)interactionKey;
+- (id)webPageKey;
 - (id)textMessageKey;
 - (id)emailKey;
 - (id)messageKey;

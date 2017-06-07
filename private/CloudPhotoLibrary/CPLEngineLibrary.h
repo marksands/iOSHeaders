@@ -9,7 +9,7 @@
 #import <CloudPhotoLibrary/CPLAbstractObject-Protocol.h>
 
 @class CPLConfiguration, CPLEngineFeedbackManager, CPLEngineScheduler, CPLEngineStore, CPLEngineSyncManager, CPLEngineSystemMonitor, CPLEngineTransport, CPLPlatformObject, CPLStatus, NSArray, NSDate, NSError, NSHashTable, NSString, NSURL;
-@protocol OS_dispatch_queue;
+@protocol CPLEngineLibraryOwner, OS_dispatch_queue;
 
 @interface CPLEngineLibrary : NSObject <CPLAbstractObject>
 {
@@ -28,6 +28,7 @@
     NSURL *_cloudLibraryStateStorageURL;
     NSURL *_cloudLibraryResourceStorageURL;
     NSString *_libraryIdentifier;
+    id <CPLEngineLibraryOwner> _owner;
     CPLEngineStore *_store;
     CPLEngineScheduler *_scheduler;
     CPLEngineSyncManager *_syncManager;
@@ -46,6 +47,7 @@
 @property(readonly, nonatomic) CPLEngineSyncManager *syncManager; // @synthesize syncManager=_syncManager;
 @property(readonly, nonatomic) CPLEngineScheduler *scheduler; // @synthesize scheduler=_scheduler;
 @property(readonly, nonatomic) CPLEngineStore *store; // @synthesize store=_store;
+@property(nonatomic) __weak id <CPLEngineLibraryOwner> owner; // @synthesize owner=_owner;
 @property(readonly, copy, nonatomic) NSString *libraryIdentifier; // @synthesize libraryIdentifier=_libraryIdentifier;
 @property(readonly, copy, nonatomic) NSURL *cloudLibraryResourceStorageURL; // @synthesize cloudLibraryResourceStorageURL=_cloudLibraryResourceStorageURL;
 @property(readonly, copy, nonatomic) NSURL *cloudLibraryStateStorageURL; // @synthesize cloudLibraryStateStorageURL=_cloudLibraryStateStorageURL;
@@ -59,6 +61,7 @@
 - (void)notifyAttachedObjectsUploadTaskDidStart:(id)arg1;
 - (void)notifyAttachedObjectsResourceDidFailBackgroundDownloadOfResource:(id)arg1;
 - (void)notifyAttachedObjectsResourceDidDowloadInBackground:(id)arg1;
+- (void)notifyAttachedObjectsHasStatusChanges;
 - (void)notifyAttachedObjectsPullQueueIsFull;
 - (void)requestAttachedLibrary;
 - (void)_performBlockWithLibrary:(_Bool)arg1 enumerateAttachedObjects:(CDUnknownBlockType)arg2;
@@ -72,6 +75,8 @@
 - (unsigned long long)totalAssetCountOnServer;
 - (void)updateAssetCountsFromServer:(id)arg1;
 - (void)_updateTotalAssetCountWithAssetCounts:(id)arg1;
+- (void)setHasCellularBudget:(_Bool)arg1 hasBatteryBudget:(_Bool)arg2 isBudgetValid:(_Bool)arg3;
+@property(nonatomic) _Bool iCloudLibraryClientVersionTooOld;
 @property(copy, nonatomic) NSDate *exitDeleteTime;
 @property(nonatomic) _Bool isExceedingQuota;
 @property(nonatomic) _Bool hasChangesToProcess;
@@ -89,7 +94,9 @@
 - (void)reportLibraryCorrupted;
 - (id)initWithClientLibraryBaseURL:(id)arg1 cloudLibraryStateStorageURL:(id)arg2 cloudLibraryResourceStorageURL:(id)arg3 libraryIdentifier:(id)arg4;
 - (void)getStatusArrayForComponents:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_fillStatusArray:(id)arg1 forComponents:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getStatusForComponents:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_fillStatus:(id)arg1 forComponents:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)getListOfComponentsWithCompletionHandler:(CDUnknownBlockType)arg1;
 
 // Remaining properties

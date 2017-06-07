@@ -40,6 +40,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)initWithStartComponents:(id)arg1 endComponents:(id)arg2 calendarIdentifier:(id)arg3 repeatInterval:(unsigned long long)arg4 identifier:(id)arg5;
 - (id)initWithStartComponents:(id)arg1 endComponents:(id)arg2 calendarIdentifier:(id)arg3 repeatInterval:(unsigned long long)arg4;
@@ -47,7 +49,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

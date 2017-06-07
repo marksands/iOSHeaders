@@ -7,6 +7,9 @@
 @class NSArray, NSPredicate, NSString, _DKQuery;
 
 @protocol _DKDaemonInterface
+- (void)confirmDatabaseConnectionWithReply:(void (^)(_Bool, NSError *))arg1;
+- (void)deleteRemoteState:(void (^)(_Bool, NSError *))arg1;
+- (void)synchronizeWithReply:(void (^)(_Bool, NSError *))arg1;
 - (void)deleteAllEventsMatchingPredicate:(NSPredicate *)arg1 reply:(void (^)(unsigned long long, NSError *))arg2;
 - (void)deleteAllEventsInEventStreamNamed:(NSString *)arg1 reply:(void (^)(unsigned long long, NSError *))arg2;
 - (void)executeQuery:(_DKQuery *)arg1 reply:(void (^)(NSObject *, NSError *))arg2;

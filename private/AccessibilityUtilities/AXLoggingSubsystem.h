@@ -8,6 +8,7 @@
 
 @interface AXLoggingSubsystem : NSObject
 {
+    _Bool _ignoreLogging;
 }
 
 + (_Bool)willLogDebug;
@@ -25,6 +26,8 @@
 + (id)subsystems;
 + (void)initializeSubsytem;
 + (void)initialize;
++ (id)sharedInstance;
+@property(nonatomic) _Bool ignoreLogging;
 
 @end
 

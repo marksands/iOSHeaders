@@ -15,21 +15,21 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)chartFormulaForCellRegion:(id)arg1 inTable:(id)arg2;
-+ (id)chartFormulaForCellReference:(CDStruct_de21cb60)arg1;
-+ (id)chartFormulaForRangeReference:(CDStruct_fc93c73e)arg1;
++ (id)chartFormulaForCellReference:(struct TSCECellRef)arg1;
++ (id)chartFormulaForRangeReference:(struct TSCERangeRef)arg1;
 + (id)chartFormulaForString:(id)arg1;
 + (id)emptyChartFormula;
 + (id)chartFormulaWithCopyOfTSCEFormula:(const struct TSCEFormula *)arg1;
-- (id)formulaByRewriting:(_Bool)arg1 withCalcEngine:(id)arg2 andHostID:(struct __CFUUID *)arg3;
-- (id)formulaByProcessingArgumentsWithCalcEngine:(id)arg1 inOwner:(struct __CFUUID *)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (_Bool)isAllStaticValuesWithCalcEngine:(id)arg1 inOwner:(struct __CFUUID *)arg2;
-- (CDStruct_fc93c73e)rangeCircumscribingPrecedentsWithCalcEngine:(id)arg1 inOwner:(struct __CFUUID *)arg2;
-- (id)stringValueForFormulaWithCalcEngine:(id)arg1 inOwner:(struct __CFUUID *)arg2;
-- (struct TSCEValue)valueAtIndex:(unsigned long long)arg1 withCalcEngine:(id)arg2 inTable:(struct __CFUUID *)arg3;
-- (id)argumentCollectionWithCalcEngine:(id)arg1 inTable:(struct __CFUUID *)arg2 storeBadRef:(_Bool)arg3;
-- (id)argumentCollectionWithCalcEngine:(id)arg1 inTable:(struct __CFUUID *)arg2;
-- (unsigned long long)numberOfValuesWithCalcEngine:(id)arg1 inTable:(struct __CFUUID *)arg2;
-- (struct TSCEVector *)outputValueVectorWithCalcEngine:(id)arg1 inTable:(struct __CFUUID *)arg2;
+- (id)formulaByRewriting:(_Bool)arg1 withCalcEngine:(id)arg2 andHostUID:(const UUIDData_5fbc143e *)arg3;
+- (id)formulaByProcessingArgumentsWithCalcEngine:(id)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (_Bool)isAllStaticValuesWithCalcEngine:(id)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
+- (struct TSCERangeRef)rangeCircumscribingPrecedentsWithCalcEngine:(id)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
+- (id)stringValueForFormulaWithCalcEngine:(id)arg1 inOwner:(const UUIDData_5fbc143e *)arg2;
+- (struct TSCEValue)valueAtIndex:(unsigned long long)arg1 withCalcEngine:(id)arg2 inTable:(const UUIDData_5fbc143e *)arg3;
+- (id)argumentCollectionWithCalcEngine:(id)arg1 inTable:(const UUIDData_5fbc143e *)arg2 storeBadRef:(_Bool)arg3;
+- (id)argumentCollectionWithCalcEngine:(id)arg1 inTable:(const UUIDData_5fbc143e *)arg2;
+- (unsigned long long)numberOfValuesWithCalcEngine:(id)arg1 inTable:(const UUIDData_5fbc143e *)arg2;
+- (struct TSCEVector *)outputValueVectorWithCalcEngine:(id)arg1 inTable:(const UUIDData_5fbc143e *)arg2;
 - (id)description;
 @property(readonly) struct TSCEFormula *formula;
 - (unsigned long long)hash;

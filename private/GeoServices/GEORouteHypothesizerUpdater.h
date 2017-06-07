@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSSecureCoding-Protocol.h>
 
@@ -47,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 @property(retain, nonatomic) GEODirectionsRequestFeedback *feedback; // @synthesize feedback=_feedback;
 @property(nonatomic) __weak id <GEORouteHypothesizerUpdaterDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (int)_transportType;
 - (void)_updateScoreForLocation:(id)arg1;
 - (_Bool)_checkForArrival:(id)arg1 routeMatch:(id)arg2;

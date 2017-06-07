@@ -9,6 +9,7 @@
 @class NSString, TSWPStorage;
 
 @protocol TSWPFootnoteMarkProvider <NSObject>
+- (NSString *)markStringForFootnoteReferenceStorage:(TSWPStorage *)arg1 ignoreDeletedFootnotes:(_Bool)arg2 forceDocumentEndnotes:(_Bool)arg3;
 - (NSString *)markStringForFootnoteReferenceStorage:(TSWPStorage *)arg1;
 @end
 

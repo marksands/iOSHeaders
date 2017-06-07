@@ -9,7 +9,7 @@
 #import <iWorkImport/TSDContainerInfo-Protocol.h>
 
 @class NSString, TPPageHint, TPPageInfo, TSDInfoGeometry, TSPObject, TSWPStorage;
-@protocol TSDContainerInfo, TSDHint, TSDOwningAttachment, TSWPOffscreenColumn;
+@protocol TSDContainerInfo, TSDHint, TSDOwningAttachment, TSWPOffscreenColumn, TSWPTopicNumberHints;
 
 __attribute__((visibility("hidden")))
 @interface TPBodyInfo : NSObject <TSDContainerInfo>
@@ -40,9 +40,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSWPStorage *storage;
 @property(readonly, nonatomic) TSWPStorage *bodyStorage;
 @property(readonly, nonatomic) id <TSDHint> nextTargetFirstChildHint;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
 @property(readonly, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
 @property(readonly, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 
 // Remaining properties

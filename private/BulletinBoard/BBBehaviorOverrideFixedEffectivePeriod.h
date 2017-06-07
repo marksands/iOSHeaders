@@ -25,6 +25,8 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)nextTransitionDateAfterDate:(id)arg1;
 - (_Bool)containsDate:(id)arg1;
 - (id)initWithStartDate:(id)arg1 effectiveInterval:(double)arg2 identifier:(id)arg3;
@@ -32,7 +34,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

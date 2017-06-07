@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOTileCacheReserved;
 @protocol OS_dispatch_source;
@@ -15,6 +15,7 @@
     NSObject<OS_dispatch_source> *_memoryNotificationEventSource;
 }
 
+- (void).cxx_destruct;
 - (void)_enteredBackground:(id)arg1;
 - (void)removeTilesMatchingPredicate:(CDUnknownBlockType)arg1;
 - (void)enumerate:(CDUnknownBlockType)arg1;

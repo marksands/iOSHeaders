@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class CKMessageEntryViewLayoutMetrics, CKUITheme, NSArray, NSAttributedString, NSDateFormatter, NSDictionary, NSString, UIActivityIndicatorView, UIFont, UIImage;
+@class CKMessageEntryViewLayoutMetrics, CKUITheme, NSArray, NSAttributedString, NSDateFormatter, NSDictionary, NSParagraphStyle, NSString, UIActivityIndicatorView, UIFont, UIImage;
 
 @interface CKUIBehavior : NSObject
 {
@@ -16,11 +16,17 @@
     UIImage *_messageReplyImage;
     UIImage *_digitalTouchReplyImage;
     UIImage *_arouetReplyImage;
+    UIImage *_surfReplyImage;
     double _waveformMaxWidth;
+    UIImage *_whiteQuestionMarkDotAckImage;
 }
 
++ (id)fontWithStyle:(id)arg1 adjustedForMaxSizeCategory:(id)arg2;
++ (id)orderedContentSizeCategories;
 + (id)sharedBehaviors;
+@property(readonly, nonatomic) UIImage *whiteQuestionMarkDotAckImage; // @synthesize whiteQuestionMarkDotAckImage=_whiteQuestionMarkDotAckImage;
 @property(readonly, nonatomic) double waveformMaxWidth; // @synthesize waveformMaxWidth=_waveformMaxWidth;
+@property(readonly, nonatomic) UIImage *surfReplyImage; // @synthesize surfReplyImage=_surfReplyImage;
 @property(readonly, nonatomic) UIImage *arouetReplyImage; // @synthesize arouetReplyImage=_arouetReplyImage;
 @property(readonly, nonatomic) UIImage *digitalTouchReplyImage; // @synthesize digitalTouchReplyImage=_digitalTouchReplyImage;
 @property(readonly, nonatomic) UIImage *messageReplyImage; // @synthesize messageReplyImage=_messageReplyImage;
@@ -28,6 +34,9 @@
 @property(readonly, nonatomic) UIImage *emojiReplyImage; // @synthesize emojiReplyImage=_emojiReplyImage;
 @property(nonatomic) long long HUDStyle; // @synthesize HUDStyle=_HUDStyle;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) UIFont *businessDescriptionVCTextViewFont;
+@property(readonly, nonatomic) UIFont *businessInfoViewTitleLabelFont;
+@property(readonly, nonatomic) UIFont *businessInfoViewDescriptionTextFont;
 @property(readonly, nonatomic) _Bool shouldPopoverSuggestionsBanner;
 @property(readonly, nonatomic) UIFont *stickerDetailsTimestampFont;
 @property(readonly, nonatomic) UIFont *stickerDetailsStickerPackFont;
@@ -44,8 +53,12 @@
 @property(readonly, nonatomic) UIFont *appLabelFont;
 - (struct UIEdgeInsets)pluginBalloonInsetsForMessageFromMe:(_Bool)arg1;
 @property(readonly, nonatomic) double browserSwitcherScrollerHeight;
+@property(readonly, nonatomic) double chatMagnifiedChromeBottomInset;
 @property(readonly, nonatomic) double chatChromeBottomInset;
 @property(readonly, nonatomic) double browserSwitcherGutterWidth;
+@property(readonly, nonatomic) double browserSwitcherGrabberHeaderHeight;
+@property(readonly, nonatomic) double appStripToEntryViewBottomSpace;
+@property(readonly, nonatomic) unsigned long long appIconPrefetchLimit;
 @property(readonly, nonatomic) NSString *aggregateAcknowledgmentTopName;
 @property(readonly, nonatomic) NSString *aggregateAcknowledgmentMiddleName;
 @property(readonly, nonatomic) NSString *aggregateAcknowledgmentStackName2;
@@ -78,6 +91,33 @@
 - (id)fullscreenPickerActionLayoutAxisPrioritiesForWidth:(double)arg1;
 @property(readonly, nonatomic) Class acknowledgementPickerBarClass;
 @property(readonly, nonatomic) unsigned long long messageAcknowledgmentVotingStackSize;
+@property(readonly, nonatomic) UIImage *businessVerifiedImageSmall;
+@property(readonly, nonatomic) UIImage *businessVerifiedImageLarge;
+@property(readonly, nonatomic) UIImage *whiteA2AckImage;
+@property(readonly, nonatomic) UIImage *whiteA1AckImage;
+@property(readonly, nonatomic) UIImage *whiteH2AckImage;
+@property(readonly, nonatomic) UIImage *whiteH1AckImage;
+@property(readonly, nonatomic) UIImage *whiteHaAckImage;
+- (id)whiteQuestionDotAckImage;
+@property(readonly, nonatomic) UIImage *whiteQuestionMarkAckImage;
+@property(readonly, nonatomic) UIImage *whiteExclamationLeftAckImage;
+@property(readonly, nonatomic) UIImage *whiteExclamationRightAckImage;
+@property(readonly, nonatomic) UIImage *whiteThumbsDownAckImage;
+@property(readonly, nonatomic) UIImage *whiteThumbsUpAckImage;
+@property(readonly, nonatomic) UIImage *redHeartAckImage;
+@property(readonly, nonatomic) UIImage *grayA2AckImage;
+@property(readonly, nonatomic) UIImage *grayH2AckImage;
+@property(readonly, nonatomic) UIImage *grayA1AckImage;
+@property(readonly, nonatomic) UIImage *grayH1AckImage;
+@property(readonly, nonatomic) UIImage *grayHaAckImage;
+@property(readonly, nonatomic) UIImage *grayQuestionMarkDotAckImage;
+@property(readonly, nonatomic) UIImage *grayQuestionMarkAckImage;
+@property(readonly, nonatomic) UIImage *grayExclamationRightAckImage;
+@property(readonly, nonatomic) UIImage *grayExclamationLeftAckImage;
+@property(readonly, nonatomic) UIImage *grayThumbsDownAckImage;
+@property(readonly, nonatomic) UIImage *grayThumbsUpAckImage;
+@property(readonly, nonatomic) UIImage *grayHeartAckImage;
+- (void)prewarmAcknowledgementsImage;
 @property(readonly, nonatomic) UIFont *avatarNameFont;
 @property(readonly, nonatomic) UIFont *avatarStackTitleFont;
 @property(readonly, nonatomic) double avatarPancakeOffset;
@@ -135,6 +175,8 @@
 @property(readonly, nonatomic) _Bool shouldAutomaticallyCheckAvailabilityOfAlternateAddresses;
 @property(readonly, nonatomic) _Bool shouldShowDisclosureChevronInRecipientAtoms;
 @property(readonly, nonatomic) _Bool shouldHomogenizeAtomsForPreferredService;
+@property(readonly, nonatomic) UIImage *unmuteButtonImage;
+@property(readonly, nonatomic) UIImage *muteButtonImage;
 @property(readonly, nonatomic) UIImage *playButtonArrowImage;
 @property(readonly, nonatomic) UIImage *playButtonImage;
 @property(readonly, nonatomic) UIImage *textDocumentIcon;
@@ -194,6 +236,8 @@
 - (id)imageNameForBalloonDescriptor:(struct CKBalloonDescriptor_t)arg1;
 - (id)imageNameForBalloonDescriptorWithStrokedStyle:(struct CKBalloonDescriptor_t)arg1;
 - (id)imageNameForBalloonDescriptorWithFilledStyle:(struct CKBalloonDescriptor_t)arg1;
+- (id)business_chevronImage;
+- (id)black_chevronImage;
 - (id)white_chevronImage;
 - (id)red_chevronImage;
 - (id)siri_chevronImage;
@@ -212,6 +256,7 @@
 @property(readonly, nonatomic) NSString *skinnyBalloonName;
 @property(readonly, nonatomic) NSString *taillessBallonName;
 @property(readonly, nonatomic) NSString *balloonName;
+@property(readonly, nonatomic) NSParagraphStyle *balloonParagraphStyle;
 @property(readonly, nonatomic) UIFont *audioBalloonTimeFont;
 @property(readonly, nonatomic) UIFont *bigEmojiFont;
 @property(readonly, nonatomic) UIFont *balloonSubjectFont;
@@ -219,6 +264,8 @@
 @property(readonly, nonatomic) double horizontalBalloonBadgeInset;
 @property(readonly, nonatomic) double verticalBalloonBadgeInset;
 @property(readonly, nonatomic) double nanoNoteSenderContentSpace;
+@property(readonly, nonatomic) struct UIEdgeInsets audioBalloonAlignmentInsets;
+@property(readonly, nonatomic) double audioBalloonProgressInset;
 @property(readonly, nonatomic) double audioBalloonTimeInset;
 @property(readonly, nonatomic) double audioBalloonWaveformTimeSpace;
 - (double)audioBalloonTimeWidthForDuration:(double)arg1;
@@ -229,6 +276,7 @@
 @property(readonly, nonatomic) struct UIEdgeInsets balloonTextContainerInset;
 - (struct UIEdgeInsets)attachmentBalloonAlignmentRectInsetsWithTailShape:(BOOL)arg1;
 - (struct UIEdgeInsets)balloonMaskAlignmentRectInsetsWithTailShape:(BOOL)arg1;
+@property(readonly, nonatomic) double textAlignmentRectInsetsScaleFactor;
 @property(readonly, nonatomic) struct UIEdgeInsets bigEmojiAlignmentRectInsets;
 - (struct UIEdgeInsets)taillessAttachmentBalloonAlignmentRectInsets;
 - (struct UIEdgeInsets)attachmentBalloonAlignmentRectInsets;
@@ -245,9 +293,9 @@
 - (struct CGSize)skinnyBalloonMaskSizeWithTailShape:(BOOL)arg1;
 - (struct CGSize)balloonMaskSizeWithTailShape:(BOOL)arg1;
 - (struct CGSize)balloonMaskTailSizeForTailShape:(BOOL)arg1;
+@property(readonly, nonatomic) double extensionBalloonMaximumHeight;
 - (struct UIEdgeInsets)extensionBalloonContentInsetsForOrientation:(BOOL)arg1;
 - (struct CGRect)extensionIconBadgeRectForOrientation:(BOOL)arg1;
-@property(readonly, nonatomic) CDStruct_cb14c188 typingIndicatorSpec;
 - (struct CGSize)taillessSkinnyBalloonMaskSize;
 - (struct CGSize)skinnyBalloonMaskSize;
 - (struct CGSize)taillessBalloonMaskSize;
@@ -255,6 +303,7 @@
 @property(readonly, nonatomic) double skinnyBalloonWidthDifference;
 - (double)balloonMaskTailHeight;
 - (double)balloonMaskTailWidth;
+@property(readonly, nonatomic) long long maxNumExtensionRemoteViewControllers;
 @property(readonly, nonatomic) _Bool showsBalloonBadges;
 @property(readonly, nonatomic) _Bool modifiesSingleLineBalloonLayout;
 @property(readonly, nonatomic) _Bool opensLocationsInMapsApp;
@@ -305,6 +354,7 @@
 - (double)transcriptDrawerMaxContentOffsetXForMarginInsets:(struct UIEdgeInsets)arg1;
 - (double)transcriptDrawerWidthForMarginInsets:(struct UIEdgeInsets)arg1;
 - (double)transcriptDrawerOverlapForMarginInsets:(struct UIEdgeInsets)arg1;
+@property(readonly, nonatomic) double transcriptDrawerGestureAcceleration;
 - (double)transcriptDrawerSpace;
 @property(readonly, nonatomic) struct UIEdgeInsets contactPhotoTranscriptInsets;
 @property(readonly, nonatomic) struct UIEdgeInsets stampTranscriptInsets;
@@ -355,10 +405,13 @@
 @property(readonly, nonatomic) _Bool showsProgressInNavigationBar;
 @property(readonly, nonatomic) _Bool shouldUseSendAnimation;
 @property(readonly, nonatomic) _Bool shouldBackfillTranscript;
+@property(readonly, nonatomic) Class businessChatControllerClass;
 @property(readonly, nonatomic) Class chatControllerClass;
 @property(readonly, nonatomic) UIImage *defaultWaveformImage;
 @property(readonly, nonatomic) UIImage *trashImage;
 @property(readonly, nonatomic) UIImage *detailsImage;
+@property(readonly, nonatomic) UIImage *readPinnedImage;
+@property(readonly, nonatomic) UIImage *unreadPinnedImage;
 @property(readonly, nonatomic) UIImage *unreadDNDImage;
 @property(readonly, nonatomic) UIImage *readDNDImage;
 @property(readonly, nonatomic) UIImage *unreadImage;
@@ -383,18 +436,23 @@
 @property(readonly, nonatomic) Class navigationBarClass;
 @property(readonly, nonatomic) Class conversationListNavigationControllerClass;
 @property(readonly, nonatomic) Class conversationListTableViewClass;
+@property(readonly, nonatomic) NSArray *acceptableUTIs;
 @property(readonly, nonatomic) UIImage *chevronImage;
 @property(readonly, nonatomic) unsigned long long conversationListCellMaxSummaryLength;
 @property(readonly, nonatomic) unsigned long long conversationListCellSummaryNumberOfLines;
 @property(readonly, nonatomic) double conversationListCellRightMargin;
+@property(readonly, nonatomic) double conversationListCellLargeTextLeftMargin;
 @property(readonly, nonatomic) double conversationListCellLeftMargin;
 @property(readonly, nonatomic) struct UIEdgeInsets conversationListFilterSegmentInset;
 @property(readonly, nonatomic) double conversationListEditingTableMarginWidth;
 @property(readonly, nonatomic) double conversationListTableMarginWidth;
+@property(readonly, nonatomic) _Bool conversationListCellUsesLargeTextLayout;
 @property(readonly, nonatomic) double conversationListCellBackgroundPadding;
 @property(readonly, nonatomic) double summaryDateConversationListSpace;
 @property(readonly, nonatomic) double senderSummaryConversationListSpace;
+@property(readonly, nonatomic) double accessibilityBottomConversationListSpace;
 @property(readonly, nonatomic) double bottomConversationListSpace;
+@property(readonly, nonatomic) double largeTextTopConversationListSpace;
 @property(readonly, nonatomic) double topConversationListSpace;
 - (double)conversationListSummaryBodyLeading;
 - (double)conversationListSenderBodyLeading;
@@ -433,10 +491,11 @@
 @property(readonly, nonatomic) double transcriptHeaderViewMaxRows;
 @property(readonly, nonatomic) _Bool isAccessibilityPreferredContentSizeCategory;
 @property(readonly, nonatomic) double navigationBarMaxHeight;
+@property(readonly, nonatomic) double minNavigationBarHeightValue;
+@property(readonly, nonatomic) double maxNavigationBarHeightValue;
 @property(readonly, nonatomic) double navigationBarMinHeight;
 @property(readonly, nonatomic) double resumeToConversationListTimeInterval;
 @property(readonly, nonatomic) _Bool shouldOnlyResumeToConversationListAfterTimeout;
-@property(readonly, nonatomic) _Bool hideUnreadCountInTitleBar;
 @property(readonly, nonatomic) _Bool usesNavigationBarControls;
 @property(readonly, nonatomic) _Bool usesEntryView;
 @property(readonly, nonatomic) _Bool isProximityMonitoringSupported;

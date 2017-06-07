@@ -12,7 +12,7 @@
 
 - (id)previewViewControllerForEntityValueContext:(id)arg1 fromViewController:(id)arg2;
 - (_Bool)canPreviewEntityValueContext:(id)arg1;
-- (id)initWithFilterPredicate:(id)arg1 multipleSelectionAllowed:(_Bool)arg2 includeCompilations:(_Bool)arg3;
+- (id)initWithFilterPredicate:(id)arg1 multipleSelectionAllowed:(_Bool)arg2 includeCompilations:(_Bool)arg3 picksSingleCollection:(_Bool)arg4;
 - (id)init;
 
 @end

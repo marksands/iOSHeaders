@@ -8,11 +8,13 @@
 
 #import <MediaRemote/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSMutableArray, NSString;
 
 @interface _MRCommandInfoProtobuf : PBCodable <NSCopying>
 {
     CDStruct_82f37d05 _preferredIntervals;
+    CDStruct_95bda58d _supportedInsertionPositions;
+    CDStruct_95bda58d _supportedPlaybackQueueTypes;
     struct {
         float *list;
         unsigned long long count;
@@ -30,8 +32,10 @@
     int _shuffleMode;
     int _skipFrequency;
     int _skipInterval;
+    NSMutableArray *_supportedCustomQueueIdentifiers;
     _Bool _active;
     _Bool _enabled;
+    _Bool _supportsSharedQueue;
     struct {
         unsigned int canScrub:1;
         unsigned int command:1;
@@ -45,9 +49,13 @@
         unsigned int skipInterval:1;
         unsigned int active:1;
         unsigned int enabled:1;
+        unsigned int supportsSharedQueue:1;
     } _has;
 }
 
++ (Class)supportedCustomQueueIdentifierType;
+@property(nonatomic) _Bool supportsSharedQueue; // @synthesize supportsSharedQueue=_supportsSharedQueue;
+@property(retain, nonatomic) NSMutableArray *supportedCustomQueueIdentifiers; // @synthesize supportedCustomQueueIdentifiers=_supportedCustomQueueIdentifiers;
 @property(nonatomic) int canScrub; // @synthesize canScrub=_canScrub;
 @property(nonatomic) int skipFrequency; // @synthesize skipFrequency=_skipFrequency;
 @property(nonatomic) int numAvailableSkips; // @synthesize numAvailableSkips=_numAvailableSkips;
@@ -68,6 +76,23 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSupportsSharedQueue;
+- (void)setSupportedInsertionPositions:(int *)arg1 count:(unsigned long long)arg2;
+- (int)supportedInsertionPositionsAtIndex:(unsigned long long)arg1;
+- (void)addSupportedInsertionPositions:(int)arg1;
+- (void)clearSupportedInsertionPositions;
+@property(readonly, nonatomic) int *supportedInsertionPositions;
+@property(readonly, nonatomic) unsigned long long supportedInsertionPositionsCount;
+- (id)supportedCustomQueueIdentifierAtIndex:(unsigned long long)arg1;
+- (unsigned long long)supportedCustomQueueIdentifiersCount;
+- (void)addSupportedCustomQueueIdentifier:(id)arg1;
+- (void)clearSupportedCustomQueueIdentifiers;
+- (void)setSupportedPlaybackQueueTypes:(int *)arg1 count:(unsigned long long)arg2;
+- (int)supportedPlaybackQueueTypeAtIndex:(unsigned long long)arg1;
+- (void)addSupportedPlaybackQueueType:(int)arg1;
+- (void)clearSupportedPlaybackQueueTypes;
+@property(readonly, nonatomic) int *supportedPlaybackQueueTypes;
+@property(readonly, nonatomic) unsigned long long supportedPlaybackQueueTypesCount;
 @property(nonatomic) _Bool hasCanScrub;
 @property(nonatomic) _Bool hasSkipFrequency;
 @property(nonatomic) _Bool hasNumAvailableSkips;

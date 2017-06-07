@@ -14,7 +14,12 @@
     double _newCoverage;
     double _oldCoverage;
     int _tileSetStateType;
-    CDStruct_8081ba47 _has;
+    struct {
+        unsigned int durationInOldState:1;
+        unsigned int newCoverage:1;
+        unsigned int oldCoverage:1;
+        unsigned int tileSetStateType:1;
+    } _has;
 }
 
 @property(nonatomic) double newCoverage; // @synthesize newCoverage=_newCoverage;

@@ -28,6 +28,7 @@
 @property(retain, nonatomic) NSLinguisticTagger *linguisticTagger; // @synthesize linguisticTagger=_linguisticTagger;
 @property(nonatomic, getter=isTagged) _Bool tagged; // @synthesize tagged=_tagged;
 @property(retain, nonatomic) NSMutableArray *tags; // @synthesize tags=_tags;
+- (void).cxx_destruct;
 - (void)updateTagsForLocalePrefChange;
 - (id)primaryUnambiguousDialect;
 - (id)primaryAmbiguousDialect;
@@ -40,12 +41,12 @@
 - (id)significantAmbiguousLangMapsForUserKeyboards;
 - (id)significantAmbiguousLangMaps;
 - (_Bool)langMapIsSignificant:(id)arg1;
+- (_Bool)_isStringCombinationOfCommonAndEmoji:(id)arg1;
 - (void)tagContent;
 - (void)enumeratePredictedTags:(CDUnknownBlockType)arg1;
 - (void)enumerateUnpredictedTags:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSString *content;
 - (id)description;
-- (void)dealloc;
 - (id)initWithContent:(id)arg1;
 
 @end

@@ -14,6 +14,7 @@
 {
     NSString *_appIdentifier;
     int _purpose;
+    NSString *_requestingAppId;
     int _source;
     struct {
         unsigned int purpose:1;
@@ -21,7 +22,9 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *requestingAppId; // @synthesize requestingAppId=_requestingAppId;
 @property(retain, nonatomic) NSString *appIdentifier; // @synthesize appIdentifier=_appIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,6 +34,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasRequestingAppId;
 @property(readonly, nonatomic) _Bool hasAppIdentifier;
 - (int)StringAsSource:(id)arg1;
 - (id)sourceAsString:(int)arg1;
@@ -40,7 +44,6 @@
 - (id)purposeAsString:(int)arg1;
 @property(nonatomic) _Bool hasPurpose;
 @property(nonatomic) int purpose; // @synthesize purpose=_purpose;
-- (void)dealloc;
 - (id)initWithPurpose:(int)arg1 andSource:(int)arg2 andIdentifier:(id)arg3;
 - (id)initWithPurpose:(int)arg1 andSource:(int)arg2;
 - (id)initWithPurpose:(int)arg1;

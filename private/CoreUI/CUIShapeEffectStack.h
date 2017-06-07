@@ -61,9 +61,11 @@
 + (id)sharedCIContext;
 + (id)preferredCIContextOptions;
 @property(readonly) unsigned int outputBlendMode; // @synthesize outputBlendMode;
+- (id)cacheKey;
 - (id)processedImageFromShapePath:(struct CGPath *)arg1 inRect:(struct CGRect)arg2;
 - (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1;
 - (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(double)arg2 ciContext:(id)arg3;
+- (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(double)arg2 cache:(_Bool)arg3;
 - (struct CGImage *)newFlattenedImageFromShapeCGImage:(struct CGImage *)arg1 withScale:(double)arg2;
 - (id)processedImageFromShapeImage:(id)arg1 withScale:(double)arg2;
 - (id)processedImageFromShapeImage:(id)arg1;

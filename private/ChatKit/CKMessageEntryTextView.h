@@ -17,8 +17,10 @@
     _Bool _preventingResignFirstResponder;
     UIColor *_placeholderColor;
     double _placeHolderWidth;
+    double _placeholderExpandedWidth;
     NSString *_autocorrectionContext;
     NSString *_responseContext;
+    double _adjustedLineFragmentPadding;
     UILabel *_placeholderLabel;
     UIKeyboardInputMode *_savedKeyboardInputMode;
 }
@@ -26,12 +28,14 @@
 @property(retain, nonatomic) UIKeyboardInputMode *savedKeyboardInputMode; // @synthesize savedKeyboardInputMode=_savedKeyboardInputMode;
 @property(retain, nonatomic) UILabel *placeholderLabel; // @synthesize placeholderLabel=_placeholderLabel;
 @property(nonatomic, getter=isPreventingResignFirstResponder) _Bool preventingResignFirstResponder; // @synthesize preventingResignFirstResponder=_preventingResignFirstResponder;
+@property(nonatomic) double adjustedLineFragmentPadding; // @synthesize adjustedLineFragmentPadding=_adjustedLineFragmentPadding;
 @property(nonatomic) _Bool hideCaret; // @synthesize hideCaret=_hideCaret;
 @property(nonatomic) _Bool updatesFontOnTextChange; // @synthesize updatesFontOnTextChange=_updatesFontOnTextChange;
 @property(nonatomic) _Bool sendCurrentLocationFromKeyboardEnabled; // @synthesize sendCurrentLocationFromKeyboardEnabled=_sendCurrentLocationFromKeyboardEnabled;
 @property(copy, nonatomic) NSString *responseContext; // @synthesize responseContext=_responseContext;
 @property(copy, nonatomic) NSString *autocorrectionContext; // @synthesize autocorrectionContext=_autocorrectionContext;
 @property(nonatomic, getter=isShowingDictationPlaceholder) _Bool showingDictationPlaceholder; // @synthesize showingDictationPlaceholder=_showingDictationPlaceholder;
+@property(nonatomic) double placeholderExpandedWidth; // @synthesize placeholderExpandedWidth=_placeholderExpandedWidth;
 @property(nonatomic) double placeHolderWidth; // @synthesize placeHolderWidth=_placeHolderWidth;
 @property(copy, nonatomic) UIColor *placeholderColor; // @synthesize placeholderColor=_placeholderColor;
 - (void).cxx_destruct;

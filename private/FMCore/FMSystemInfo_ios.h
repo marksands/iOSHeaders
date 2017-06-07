@@ -13,9 +13,9 @@ __attribute__((visibility("hidden")))
 
 - (_Bool)hasSEP;
 - (_Bool)isDeviceSecured;
-- (_Bool)isInternalBuild;
 - (id)btMacAddress;
 - (id)wifiMacAddress;
+- (id)chipId;
 - (id)ecid;
 - (id)meid;
 - (id)imei;

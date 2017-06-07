@@ -15,6 +15,8 @@
     NSDictionary *_propertyListDictionary;
 }
 
++ (id)fingerprintWithAssetAdjustmentFingerprintData:(id)arg1;
++ (id)fingerPrintForData:(id)arg1 error:(id *)arg2;
 @property(retain, nonatomic) NSDictionary *propertyListDictionary; // @synthesize propertyListDictionary=_propertyListDictionary;
 - (void).cxx_destruct;
 - (id)description;

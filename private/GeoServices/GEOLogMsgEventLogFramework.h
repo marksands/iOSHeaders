@@ -8,19 +8,29 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class NSMutableArray;
+
 @interface GEOLogMsgEventLogFramework : PBCodable <NSCopying>
 {
     unsigned long long _messageSize;
-    unsigned int _messageCount;
+    NSMutableArray *_logFrameworkItems;
+    int _messageType;
     int _metricState;
     int _metricType;
-    unsigned int _retryCount;
-    CDStruct_86e90cf6 _has;
+    int _purgeReason;
+    struct {
+        unsigned int messageSize:1;
+        unsigned int messageType:1;
+        unsigned int metricState:1;
+        unsigned int metricType:1;
+        unsigned int purgeReason:1;
+    } _has;
 }
 
-@property(nonatomic) unsigned int retryCount; // @synthesize retryCount=_retryCount;
++ (Class)logFrameworkItemType;
+@property(retain, nonatomic) NSMutableArray *logFrameworkItems; // @synthesize logFrameworkItems=_logFrameworkItems;
 @property(nonatomic) unsigned long long messageSize; // @synthesize messageSize=_messageSize;
-@property(nonatomic) unsigned int messageCount; // @synthesize messageCount=_messageCount;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,9 +40,19 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasRetryCount;
+- (int)StringAsPurgeReason:(id)arg1;
+- (id)purgeReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasPurgeReason;
+@property(nonatomic) int purgeReason; // @synthesize purgeReason=_purgeReason;
+- (id)logFrameworkItemAtIndex:(unsigned long long)arg1;
+- (unsigned long long)logFrameworkItemsCount;
+- (void)addLogFrameworkItem:(id)arg1;
+- (void)clearLogFrameworkItems;
+- (int)StringAsMessageType:(id)arg1;
+- (id)messageTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasMessageType;
+@property(nonatomic) int messageType; // @synthesize messageType=_messageType;
 @property(nonatomic) _Bool hasMessageSize;
-@property(nonatomic) _Bool hasMessageCount;
 - (int)StringAsMetricState:(id)arg1;
 - (id)metricStateAsString:(int)arg1;
 @property(nonatomic) _Bool hasMetricState;

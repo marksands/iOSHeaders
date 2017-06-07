@@ -23,6 +23,7 @@
 - (void)addConnectionInterruptedHandler:(CDUnknownBlockType)arg1;
 - (id)waitUntilReturn:(CDUnknownBlockType)arg1 error:(id *)arg2;
 - (id)xpcConnection;
+- (void)_callAbortBlocks;
 - (void)_connectToServer;
 - (void)disconnect;
 - (void)dealloc;

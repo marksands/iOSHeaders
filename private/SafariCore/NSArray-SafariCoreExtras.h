@@ -18,6 +18,7 @@
 - (id)safari_reduceObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)safari_filterObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)safari_mapObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (id)safari_setByApplyingBlock:(CDUnknownBlockType)arg1;
 - (id)safari_mapAndFilterObjectsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)safari_mapAndFilterObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)safari_arrayAtIndex:(unsigned long long)arg1;

@@ -11,6 +11,8 @@
 }
 
 + (id)monogrammerWithDiameter:(double)arg1 style:(long long)arg2 useAppTintColor:(_Bool)arg3 customFont:(id)arg4;
++ (void)flushMonogrammers;
++ (id)monogrammerProvider;
 + (id)locationSharingContactImageOfDiameter:(double)arg1 forRecordID:(int)arg2 useCustomFont:(_Bool)arg3;
 + (id)transcriptContactImageOfDiameter:(double)arg1 forRecordID:(int)arg2;
 + (id)placeholderContactImageOfDiameter:(double)arg1 monogramStyle:(long long)arg2 tintMonogramText:(_Bool)arg3;

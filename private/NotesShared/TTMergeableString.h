@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSHashTable, NSMutableAttributedString, NSUUID, TTVectorMultiTimestamp;
+#import <NotesShared/CRDataType-Protocol.h>
+
+@class CRTTCompatibleDocument, NSHashTable, NSMutableAttributedString, NSString, NSUUID, TTVectorMultiTimestamp;
 @protocol TTMergeableStringDelegate;
 
-@interface TTMergeableString : NSObject
+@interface TTMergeableString : NSObject <CRDataType>
 {
     vector_6c07be0f _startNodes;
     vector_6c07be0f _endNodes;
@@ -40,18 +42,20 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)dotDescription:(unsigned long long)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (_Bool)graphIsEqual:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)traverseUnordered:(CDUnknownBlockType)arg1;
 - (void)sortSplitNodes;
+- (unsigned long long)mergeWithString:(id)arg1 mergeTimestamps:(_Bool)arg2;
 - (unsigned long long)mergeWithString:(id)arg1;
 - (void)dumpMergeData:(id)arg1;
 - (void)checkTimestampLogStyleErrors:(_Bool)arg1;
 - (_Bool)check:(id *)arg1;
 - (void)updateClock;
 - (_Bool)canMergeString:(id)arg1;
+- (void)generateIdsForLocalChangesSafeForSharedTimestamp:(_Bool)arg1;
 - (void)generateIdsForLocalChanges;
 - (void)cleanupObjectsNeedingUpdatedRanges;
 - (void)updateTopoIDRange:(struct TopoIDRange)arg1 toNewRangeID:(struct TopoIDRange)arg2;
@@ -81,6 +85,7 @@
 - (vector_6c07be0f *)startNodes;
 - (_Bool)isFragment;
 - (void)_testSetTextTimestamp:(unsigned long long)arg1;
+- (void)resetLocalReplicaClocksToTimestampValues;
 - (id)characterRangesForSelection:(id)arg1 selectedSubstringsBlock:(CDUnknownBlockType)arg2;
 - (id)characterRangesForSelection:(id)arg1;
 - (id)selectionForCharacterRanges:(id)arg1 selectionAffinity:(unsigned long long)arg2;
@@ -106,9 +111,21 @@
 - (id)serialize;
 - (void)saveSubstrings:(vector_6c07be0f *)arg1 archiveSet:(unordered_set_0f32d0a8 *)arg2 linkSet:(unordered_set_0f32d0a8 *)arg3 archivedString:(id *)arg4 toArchive:(struct String *)arg5;
 - (void)saveToArchive:(struct String *)arg1;
+- (id)initWithArchive:(const struct String *)arg1 andReplicaID:(id)arg2 withOrderedSubstrings:(vector_6c07be0f *)arg3 timestamp:(id)arg4;
 - (id)initWithArchive:(const struct String *)arg1 andReplicaID:(id)arg2 withOrderedSubstrings:(vector_6c07be0f *)arg3;
+- (id)initWithArchive:(const struct String *)arg1 andReplicaID:(id)arg2 andSharedTimestamp:(id)arg3;
 - (id)initWithArchive:(const struct String *)arg1 andReplicaID:(id)arg2;
 - (id)initWithData:(id)arg1 andReplicaID:(id)arg2;
+- (void)walkGraph:(CDUnknownBlockType)arg1;
+- (id)tombstone;
+- (void)realizeLocalChangesIn:(id)arg1;
+- (id)deltaSince:(id)arg1 in:(id)arg2;
+- (void)mergeWith:(id)arg1;
+@property(retain, nonatomic) CRTTCompatibleDocument *document;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

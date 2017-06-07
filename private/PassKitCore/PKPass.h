@@ -92,7 +92,7 @@
 - (id)backgroundImage;
 - (id)logoImage;
 @property(readonly, nonatomic) PKImage *personalizationLogoImage;
-@property(readonly, nonatomic) PKImage *backFaceImage;
+@property(readonly, nonatomic) PKImage *cardHolderPicture;
 @property(readonly, nonatomic) struct CGRect stripRect;
 @property(readonly, nonatomic) struct CGRect thumbnailRect;
 @property(readonly, nonatomic) PKImage *partialFrontFaceImage;
@@ -115,7 +115,6 @@
 - (id)localizedDescriptionForDiff:(id)arg1;
 - (id)fieldForKey:(id)arg1;
 - (id)localizedValueForFieldKey:(id)arg1;
-@property(readonly, nonatomic, getter=isNFCPayloadEncrypted) _Bool nfcPayloadEncrypted;
 - (_Bool)supportsSharing;
 - (_Bool)isExpired;
 - (_Bool)isUpdatable;

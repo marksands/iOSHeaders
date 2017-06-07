@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSHashTable, NSLock;
 @protocol OS_dispatch_queue;
@@ -18,12 +18,12 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+- (void).cxx_destruct;
 - (unsigned long long)observersCount;
 - (void)forEachObserver:(CDUnknownBlockType)arg1 finished:(CDUnknownBlockType)arg2;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

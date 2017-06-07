@@ -6,37 +6,21 @@
 
 #import <objc/NSObject.h>
 
-#import <AppleAccountUI/AAUIFamilySetupDelegate-Protocol.h>
+#import <AppleAccountUI/FAFamilySetupPrompterDelegate-Protocol.h>
 
-@class ACAccount, ACAccountStore, NSOperationQueue, NSString, SSAccount, UIViewController;
+@class FAFamilySetupPrompter, NSString;
 @protocol AAUIFamilySetupPrompterDelegate;
 
-@interface AAUIFamilySetupPrompter : NSObject <AAUIFamilySetupDelegate>
+@interface AAUIFamilySetupPrompter : NSObject <FAFamilySetupPrompterDelegate>
 {
-    ACAccountStore *_accountStore;
-    ACAccount *_appleAccount;
-    ACAccount *_grandSlamAccount;
-    SSAccount *_iTunesAccount;
-    UIViewController *_presentingViewController;
-    NSOperationQueue *_networkingQueue;
-    _Bool _isRequestInFlight;
+    FAFamilySetupPrompter *_familySetupPrompter;
     id <AAUIFamilySetupPrompterDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <AAUIFamilySetupPrompterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)familySetupViewController:(id)arg1 didCompleteWithSuccess:(_Bool)arg2;
-- (void)_startFamilySetupFlowWithEligibilityResponse:(id)arg1;
-- (void)_goToFamilySetup;
-- (void)_goToInvitations;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
-- (void)_showUnderageAlertWithEligibilityResponse:(id)arg1;
-- (void)_showPendingInvitesDialog;
-- (void)_showConfirmationForStartingFamilySetupWithPendingInvite;
-- (void)_showConfirmationForStartingFamilySetup;
-- (void)_handleFamilyEligibilityResponse:(id)arg1 isFirstRun:(_Bool)arg2;
+- (void)familySetupPrompterDidFinish:(id)arg1;
 - (void)promptIfEligibleWithPresentingViewController:(id)arg1 isFirstRun:(_Bool)arg2;
-- (void)dealloc;
 - (id)initWithiTunesAccount:(id)arg1;
 - (id)init;
 

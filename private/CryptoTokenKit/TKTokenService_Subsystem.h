@@ -8,22 +8,13 @@
 
 #import <CryptoTokenKit/PKModularService-Protocol.h>
 
-@class NSDictionary, NSString, TKTokenDriver;
+@class NSString;
 
 @interface TKTokenService_Subsystem : NSObject <PKModularService>
 {
-    // Error parsing type: Ai, name: _usingCounter
-    TKTokenDriver *_driver;
-    NSDictionary *_extensionAttributes;
 }
 
-+ (id)sharedSubsystem;
 + (id)initForPlugInKit;
-@property(readonly, copy) NSDictionary *extensionAttributes; // @synthesize extensionAttributes=_extensionAttributes;
-@property(readonly) TKTokenDriver *driver; // @synthesize driver=_driver;
-- (void).cxx_destruct;
-- (void)endUsing:(id)arg1;
-- (void)beginUsing:(id)arg1 withBundle:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

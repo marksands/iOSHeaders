@@ -6,18 +6,26 @@
 
 #import <objc/NSObject.h>
 
+#import <ITMLKit/NSCopying-Protocol.h>
+
 @class NSMutableArray;
 
-@interface IKCSSDeclarationList : NSObject
+@interface IKCSSDeclarationList : NSObject <NSCopying>
 {
-    NSMutableArray *declarations;
+    NSMutableArray *_declarations;
+    struct _NSRange _range;
 }
 
+@property(readonly, nonatomic) NSMutableArray *declarations; // @synthesize declarations=_declarations;
+@property(nonatomic) struct _NSRange range; // @synthesize range=_range;
 - (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)count;
+- (id)lastDeclaration;
+- (id)firstDeclaration;
 - (id)declarationAtIndex:(unsigned long long)arg1;
 - (void)addDeclaration:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 
 @end

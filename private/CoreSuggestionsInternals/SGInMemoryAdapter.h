@@ -29,8 +29,10 @@
 - (void)confirmContact:(id)arg1;
 - (void)confirmOrRejectContact:(id)arg1;
 - (void)confirmEvent:(id)arg1;
+- (void)cancelEvents:(id)arg1;
 - (void)cancelEvent:(id)arg1;
 - (void)addContact:(id)arg1;
+- (void)addEvents:(id)arg1;
 - (void)addEvent:(id)arg1;
 - (id)init;
 

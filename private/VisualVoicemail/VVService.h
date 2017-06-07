@@ -6,9 +6,11 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSError, NSRecursiveLock, NSString, VMVoicemailTranscriptionTask;
+#import <VisualVoicemail/VMTranscriptionService-Protocol.h>
 
-@interface VVService : NSObject
+@class NSArray, NSError, NSRecursiveLock, NSString, VMVoicemailTranscriptionController, VMVoicemailTranscriptionTask;
+
+@interface VVService : NSObject <VMTranscriptionService>
 {
     NSRecursiveLock *_lock;
     long long _capabilities;
@@ -35,8 +37,8 @@
         unsigned int capabilitiesLoaded:1;
     } _serviceFlags;
     NSString *_serviceIdentifier;
+    VMVoicemailTranscriptionController *_transcriptionController;
     VMVoicemailTranscriptionTask *_transcriptionTask;
-    NSString *_retranscriptionTaskIdentifier;
     unsigned long long _numFailedAttemptsToSyncOverWifi;
     struct __CFString *_lastConnectionTypeUsed;
 }
@@ -55,16 +57,14 @@
 + (_Bool)_vvmAssertionReady;
 + (_Bool)_waitingForInsomniaStateToBecomeActive;
 + (void)initialize;
++ (id)transcriptionLanguageCodes;
 @property(nonatomic) struct __CFString *lastConnectionTypeUsed; // @synthesize lastConnectionTypeUsed=_lastConnectionTypeUsed;
 @property(nonatomic) unsigned long long numFailedAttemptsToSyncOverWifi; // @synthesize numFailedAttemptsToSyncOverWifi=_numFailedAttemptsToSyncOverWifi;
-@property(readonly, copy, nonatomic) NSString *retranscriptionTaskIdentifier; // @synthesize retranscriptionTaskIdentifier=_retranscriptionTaskIdentifier;
 @property(retain, nonatomic) VMVoicemailTranscriptionTask *transcriptionTask; // @synthesize transcriptionTask=_transcriptionTask;
+@property(retain, nonatomic) VMVoicemailTranscriptionController *transcriptionController; // @synthesize transcriptionController=_transcriptionController;
 @property(retain, nonatomic) NSString *serviceIdentifier; // @synthesize serviceIdentifier=_serviceIdentifier;
 - (void).cxx_destruct;
-- (void)_handleDataAvailableNotificationForMetricCollection:(id)arg1;
-- (void)_handleDataAvailableNotificationForDictation:(id)arg1;
-- (void)_processTranscriptForRecord:(void *)arg1 priority:(long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_processTranscriptForRecord:(void *)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)handleVVServiceDataAvailableNotification:(id)arg1;
 - (struct __CFString *)dataConnectionServiceTypeOverride;
 - (void)scheduleImmediateSynchronizeRetryOverCellular;
 - (_Bool)lastUsedConnectionTypeWasCellular;
@@ -83,8 +83,6 @@
 - (void)resetDelayedSynchronizationAttemptCount;
 - (void)cancelDelayedSynchronize;
 - (void)reportError:(id)arg1;
-- (void)reportTranscriptionRatedAccurate:(_Bool)arg1 forRecord:(void *)arg2;
-- (void)reportTranscriptionProblemForRecord:(void *)arg1;
 - (void)moveRecordFromTrash:(void *)arg1;
 - (void)moveRecordToTrash:(void *)arg1;
 - (void)setGreetingType:(long long)arg1 withData:(id)arg2 duration:(unsigned long long)arg3;
@@ -167,8 +165,6 @@
 - (_Bool)isSubscribed;
 - (long long)capabilities;
 - (void)retranscribeAllVoicemails;
-- (void)scheduleRetranscriptionTaskActivity;
-- (void)cancelRetranscriptionTaskActivity;
 - (void)dealloc;
 - (id)init;
 - (void)_callStatusChanged;
@@ -177,6 +173,20 @@
 - (_Bool)doTrashCompaction;
 - (_Bool)shouldTrashCompactRecord:(void *)arg1;
 - (double)trashCompactionAge;
+- (void)handleAFPreferencesDidChangeNotification:(id)arg1;
+- (_Bool)isSupportedTranscriptionLanguageCode:(id)arg1;
+- (void)reportTranscriptionRatedAccurate:(_Bool)arg1 forRecord:(const void *)arg2;
+- (void)reportTranscriptionProblemForRecord:(const void *)arg1;
+- (void)processTranscriptForRecord:(const void *)arg1 priority:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic, getter=isTranscriptionAvailable) _Bool transcriptionAvailable;
+- (void)unloadTranscriptionService;
+- (void)loadTranscriptionService;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

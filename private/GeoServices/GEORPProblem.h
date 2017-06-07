@@ -26,6 +26,7 @@
 @property(retain, nonatomic) GEORPProblemContext *problemContext; // @synthesize problemContext=_problemContext;
 @property(retain, nonatomic) GEORPProblemCorrections *problemCorrections; // @synthesize problemCorrections=_problemCorrections;
 @property(nonatomic) unsigned int protocolVersion; // @synthesize protocolVersion=_protocolVersion;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

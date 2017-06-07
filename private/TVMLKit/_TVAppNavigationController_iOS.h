@@ -16,25 +16,13 @@
 @property(nonatomic) _Bool originalValueForNavigationBarForceFullHeightInLandscape; // @synthesize originalValueForNavigationBarForceFullHeightInLandscape=_originalValueForNavigationBarForceFullHeightInLandscape;
 @property(nonatomic) _Bool shouldPreventContentFromShiftingVertically; // @synthesize shouldPreventContentFromShiftingVertically=_shouldPreventContentFromShiftingVertically;
 @property(nonatomic) _Bool shouldFakeStatusBarVisible; // @synthesize shouldFakeStatusBarVisible=_shouldFakeStatusBarVisible;
-- (void)_updateNavigationBarUserInteractionEnabledWithBackgroundViewAlpha:(double)arg1;
-- (void)_updateNavigationBarWithBackgroundViewAlpha:(double)arg1 shadowAlpha:(double)arg2;
-- (void)_viewControllerNeedsNavigationBarAppearanceUpdate:(id)arg1;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
 - (double)_statusBarHeightAdjustmentForCurrentOrientation;
-- (void)_setNavigationPalette:(id)arg1 hidesPaletteShadow:(_Bool)arg2;
-- (void)_configureNavigationBarForViewController:(id)arg1 shouldIgnoreTransitionCoordinator:(_Bool)arg2;
-- (void)_configureNavigationBar:(id)arg1 withTintColor:(id)arg2 tintAdjustmentMode:(long long)arg3 titleTextTintColor:(id)arg4 shouldTintTitleText:(_Bool)arg5 accessibilityButtonBackgroundTintColor:(id)arg6;
 - (id)_accessibilityButtonBackgroundDefaultTintColor;
-- (void)_scheduleConfigurationOfNavigationBar;
 - (void)didShowViewController:(id)arg1 animated:(_Bool)arg2;
-- (void)attachPalette:(id)arg1 isPinned:(_Bool)arg2;
 - (void)didPresentTraitsOverridingViewController;
 - (void)willPresentTraitsOverridingViewController;
-- (void)setViewControllers:(id)arg1 animated:(_Bool)arg2;
-- (id)popToRootViewControllerAnimated:(_Bool)arg1;
-- (id)popToViewController:(id)arg1 animated:(_Bool)arg2;
-- (id)popViewControllerAnimated:(_Bool)arg1;
-- (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
+- (void)viewDidLoad;
 - (long long)preferredStatusBarStyle;
 
 @end

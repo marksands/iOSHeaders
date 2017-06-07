@@ -7,12 +7,19 @@
 #import <IMCore/IMBalloonPlugin.h>
 
 @interface IMBalloonPlugin (ImageLoading)
+- (id)recentsBadgeIcon;
+- (id)appStoreBadgeIcon;
+- (id)recentsBrowserIcon;
+- (id)moreBrowserIcon;
+- (id)appStoreBrowserIcon;
 - (id)description;
 - (id)_scaledImage:(id)arg1 xscale:(double)arg2 yscale:(double)arg3;
 - (id)__ck_statusJPEGImageDataForTransportWithCompressionFactor:(double)arg1;
 - (id)__ck_statusImageForTransport;
 - (id)__ck_breadcrumbImage;
 - (id)__ck_statusImage;
+- (id)__ck_badgeImage;
 - (id)__ck_browserImage;
+- (id)iconCache;
 @end
 

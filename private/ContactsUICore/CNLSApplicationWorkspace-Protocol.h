@@ -6,11 +6,12 @@
 
 #import <ContactsUICore/NSObject-Protocol.h>
 
-@class CNObservable, NSArray, NSString;
-@protocol CNLSApplicationProxy, CNSchedulerProvider;
+@class CNApplicationProxy, CNObservable, NSArray, NSDictionary, NSString, NSUserActivity;
+@protocol CNSchedulerProvider;
 
 @protocol CNLSApplicationWorkspace <NSObject>
-- (id <CNLSApplicationProxy>)applicationForBundleIdentifier:(NSString *)arg1;
+- (void)openUserActivity:(NSUserActivity *)arg1 inApplication:(CNApplicationProxy *)arg2 options:(NSDictionary *)arg3 completionHandler:(void (^)(_Bool, NSError *))arg4;
+- (CNApplicationProxy *)applicationForBundleIdentifier:(NSString *)arg1;
 - (NSArray *)applicationsForUserActivityType:(NSString *)arg1;
 - (NSArray *)applicationsAvailableForHandlingURLScheme:(NSString *)arg1;
 - (CNObservable *)observableForApplicationsChangedWithSchedulerProvider:(id <CNSchedulerProvider>)arg1;

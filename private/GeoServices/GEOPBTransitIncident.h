@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPBTransitIncident : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _incidentMuid;
     NSMutableArray *_affectedEntitys;
     unsigned int _creationDatetime;
@@ -54,6 +55,8 @@
 @property(nonatomic) unsigned int startDatetime; // @synthesize startDatetime=_startDatetime;
 @property(nonatomic) unsigned long long incidentMuid; // @synthesize incidentMuid=_incidentMuid;
 @property(nonatomic) unsigned int incidentIndex; // @synthesize incidentIndex=_incidentIndex;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -84,7 +87,6 @@
 @property(nonatomic) int iconEnum; // @synthesize iconEnum=_iconEnum;
 @property(nonatomic) _Bool hasIncidentMuid;
 @property(nonatomic) _Bool hasIncidentIndex;
-- (void)dealloc;
 
 @end
 

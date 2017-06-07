@@ -6,12 +6,12 @@
 
 #import <PhotosGraph/PGPotentialMemory.h>
 
-@class NSArray, NSMutableSet, NSSet, PGGraphNode;
+@class NSArray, NSMutableSet, NSSet, PGGraphSocialGroupNode;
 
 @interface PGPotentialSocialGroupMemory : PGPotentialMemory
 {
     NSMutableSet *_mutableMomentNodes;
-    PGGraphNode *_socialGroupNode;
+    PGGraphSocialGroupNode *_socialGroupNode;
     long long _year;
     NSArray *_facedAssets;
     NSSet *_peopleUUIDs;
@@ -20,7 +20,7 @@
 @property(retain) NSSet *peopleUUIDs; // @synthesize peopleUUIDs=_peopleUUIDs;
 @property(retain) NSArray *facedAssets; // @synthesize facedAssets=_facedAssets;
 @property(readonly) long long year; // @synthesize year=_year;
-@property(readonly) PGGraphNode *socialGroupNode; // @synthesize socialGroupNode=_socialGroupNode;
+@property(readonly) PGGraphSocialGroupNode *socialGroupNode; // @synthesize socialGroupNode=_socialGroupNode;
 - (void).cxx_destruct;
 - (void)addMomentNode:(id)arg1;
 - (id)initWithSocialGroupNode:(id)arg1 year:(long long)arg2;

@@ -29,13 +29,13 @@
 @property(retain, nonatomic) NSMutableSet *propStats; // @synthesize propStats=_propStats;
 @property(retain, nonatomic) CoreDAVLeafItem *status; // @synthesize status=_status;
 @property(retain, nonatomic) NSMutableArray *hrefs; // @synthesize hrefs=_hrefs;
+- (void).cxx_destruct;
 - (_Bool)hasPropertyError;
 - (id)successfulPropertiesToValues;
 - (id)firstHref;
 - (void)addHref:(id)arg1;
 - (void)addPropStat:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

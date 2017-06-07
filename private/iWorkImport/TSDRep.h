@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSDMagicMoveMatching-Protocol.h>
 
-@class CALayer, NSArray, NSDictionary, TSDCanvas, TSDKnobTracker, TSDLayout, TSDLayoutGeometry, TSDTextureContext, TSDTextureSet;
+@class CALayer, NSArray, NSDictionary, TSDCanvas, TSDKnobTracker, TSDLayout, TSDLayoutGeometry, TSDTextureContext, TSDTextureSet, TSDTilingBackgroundQueue, TSUOnce;
 @protocol OS_dispatch_queue, TSDContainerRep;
 
 __attribute__((visibility("hidden")))
@@ -24,7 +24,6 @@ __attribute__((visibility("hidden")))
     unsigned long long mTextureDeliveryStyle;
     int mTextureByGlyphStyle;
     TSDTextureContext *mTextureContext;
-    unsigned long long mTextureStage;
     NSDictionary *mTextureActionAttributes;
     NSDictionary *mTextureAnimationInfo;
     _Bool mShowTemporaryHighlight;
@@ -39,21 +38,28 @@ __attribute__((visibility("hidden")))
     struct CGColor *mDefaultSelectionHighlightColor;
     TSDLayoutGeometry *mLastGeometryInRoot;
     struct CGRect mOriginalLayerFrameInScaledCanvas;
+    TSDTilingBackgroundQueue *mTileQueue;
+    TSUOnce *mTileQueueOnce;
+    NSObject<OS_dispatch_queue> *mKnobsAccessQueue;
+    NSArray *mKnobs;
+    _Bool mKnobPositionsInvalid;
+    _Bool mShowKnobsWhenManipulated;
+    _Bool mKnobsAreShowing;
     _Bool mHasBeenRemoved;
+    unsigned long long mTextureStage;
 }
 
-@property(retain, nonatomic) NSDictionary *textureAnimationInfo; // @synthesize textureAnimationInfo=mTextureAnimationInfo;
-@property(retain, nonatomic) NSDictionary *textureActionAttributes; // @synthesize textureActionAttributes=mTextureActionAttributes;
+@property(copy, nonatomic) NSDictionary *textureAnimationInfo; // @synthesize textureAnimationInfo=mTextureAnimationInfo;
+@property(copy, nonatomic) NSDictionary *textureActionAttributes; // @synthesize textureActionAttributes=mTextureActionAttributes;
 @property(nonatomic) unsigned long long textureStage; // @synthesize textureStage=mTextureStage;
 @property(copy) TSDTextureContext *textureContext; // @synthesize textureContext=mTextureContext;
 @property(nonatomic) int textureByGlyphStyle; // @synthesize textureByGlyphStyle=mTextureByGlyphStyle;
 @property(nonatomic) unsigned long long textureDeliveryStyle; // @synthesize textureDeliveryStyle=mTextureDeliveryStyle;
-@property(nonatomic) TSDRep<TSDContainerRep> *parentRep; // @synthesize parentRep=mParentRep;
+@property(nonatomic) __weak TSDRep<TSDContainerRep> *parentRep; // @synthesize parentRep=mParentRep;
 @property(retain, nonatomic) TSDLayout *temporaryMixingLayout; // @synthesize temporaryMixingLayout=mTemporaryMixingLayout;
-@property(readonly, nonatomic) TSDCanvas *canvas; // @synthesize canvas=mCanvas;
-- (void)i_applicationDidBecomeActive;
-- (void)i_willEnterForeground;
-- (void)willBeginEyedropperMode;
+@property(readonly, nonatomic) __weak TSDCanvas *canvas; // @synthesize canvas=mCanvas;
+@property(readonly, nonatomic, getter=isCollaboratorCursorLayerValid) _Bool collaboratorCursorLayerValid; // @synthesize collaboratorCursorLayerValid=mCollaboratorCursorLayerValid;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *hyperlinkRegions;
 - (_Bool)wantsToDistortWithImagerContext;
 - (_Bool)directlyManagesLayerContent;
@@ -61,10 +67,6 @@ __attribute__((visibility("hidden")))
 - (id)infoForTransforming;
 - (_Bool)resizeFromCenterOnly;
 - (double)opacity;
-- (id)resizedGeometryForTransform:(struct CGAffineTransform)arg1;
-- (struct CGRect)targetRectForEditMenu;
-- (id)itemsToAddToEditMenu;
-- (_Bool)handlesEditMenu;
 - (_Bool)isLocked;
 - (_Bool)isPlaceholder;
 - (_Bool)isOpaque;
@@ -78,6 +80,7 @@ __attribute__((visibility("hidden")))
 - (id)textureForContext:(id)arg1;
 - (void)setTextureAttributes:(id)arg1 textureBounds:(struct CGRect)arg2;
 - (struct CGAffineTransform)unRotatedTransform:(struct CGAffineTransform)arg1;
+- (_Bool)shouldSetTextureStage:(unsigned long long)arg1;
 - (void)markTextureDirty;
 @property(readonly, nonatomic) double textureAngle;
 @property(retain) TSDTextureSet *texture; // @synthesize texture=mTexture;
@@ -93,13 +96,12 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)i_originalLayerFrameInScaledCanvas;
 - (double)contentsScale;
 - (void)i_configureFontSmoothingForContext:(struct CGContext *)arg1 layer:(id)arg2;
-- (void)endDrawingOperation;
-- (void)beginDrawingOperation;
 - (void)recursivelyDrawChildrenInContext:(struct CGContext *)arg1;
 - (void)recursivelyDrawInContext:(struct CGContext *)arg1;
 - (void)addBitmapsToRenderingQualityInfo:(id)arg1 inContext:(struct CGContext *)arg2;
 - (struct CGRect)clipRect;
 - (_Bool)isDrawingInFlippedContext;
+- (void)setNeedsDisplay;
 - (void)computeDirectLayerFrame:(struct CGRect *)arg1 andTransform:(struct CGAffineTransform *)arg2 basedOnLayoutGeometry:(id)arg3;
 - (void)computeDirectLayerFrame:(struct CGRect *)arg1 andTransform:(struct CGAffineTransform *)arg2;
 - (void)computeDirectLayerFrame:(struct CGRect *)arg1 andTransform:(struct CGAffineTransform *)arg2 basedOnTransform:(struct CGAffineTransform)arg3 andSize:(struct CGSize)arg4;
@@ -157,7 +159,7 @@ __attribute__((visibility("hidden")))
 - (void)recursivelyPerformSelectorIfImplemented:(SEL)arg1 withObject:(id)arg2 withObject:(id)arg3;
 - (void)recursivelyPerformSelectorIfImplemented:(SEL)arg1 withObject:(id)arg2;
 - (void)recursivelyPerformSelectorIfImplemented:(SEL)arg1;
-- (id)connectedReps;
+- (void)setWantsToRedrawWithOpenGL;
 - (id)info;
 @property(readonly, nonatomic) TSDLayout *layout; // @synthesize layout=mLayout;
 - (id)interactiveCanvasController;

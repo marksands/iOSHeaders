@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDUser, NSMutableArray, NSString;
+@class GEOPDUser, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDTip : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _tipTime;
     NSMutableArray *_snippets;
     NSString *_tipId;
@@ -27,6 +28,8 @@
 @property(retain, nonatomic) GEOPDUser *tipster; // @synthesize tipster=_tipster;
 @property(nonatomic) double tipTime; // @synthesize tipTime=_tipTime;
 @property(retain, nonatomic) NSMutableArray *snippets; // @synthesize snippets=_snippets;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +46,6 @@
 - (unsigned long long)snippetsCount;
 - (void)addSnippet:(id)arg1;
 - (void)clearSnippets;
-- (void)dealloc;
 
 @end
 

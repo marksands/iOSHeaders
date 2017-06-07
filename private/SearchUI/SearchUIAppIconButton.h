@@ -16,6 +16,7 @@
 @property(retain) SearchUIAppIconImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 - (void)appIconImageDidChange:(id)arg1;
+- (void)updateWithBundleID:(id)arg1 webClipID:(id)arg2;
 - (void)updateWithBundleID:(id)arg1;
 - (void)dealloc;
 - (id)init;

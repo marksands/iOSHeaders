@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSData, NSString, VKResourceManager;
 
@@ -13,14 +13,16 @@
     struct CGImage *_imageRef;
     NSData *_data;
     NSString *_name;
-    struct CGSize _size;
-    double _scale;
-    _Bool _usedAsTextureAndImage;
     struct Texture2D *_gglTexture;
     struct CGRect _collisionRect;
     struct CGPoint _anchorPoint;
+    struct CGSize _size;
+    double _scale;
     _Bool _hasCollisionRect;
     _Bool _hasAnchorPoint;
+    _Bool _usedAsTextureAndImage;
+    _Bool _isTextureReady;
+    // Error parsing type: {atomic<bool>="__a_"AB}, name: _isImageReady
     VKResourceManager *_resourceManager;
     unsigned char _imageHash[16];
 }
@@ -32,7 +34,9 @@
 - (struct CGPoint)anchorPoint;
 - (double)scale;
 - (struct CGSize)size;
+- (void)_prepareImage;
 - (struct CGImage *)image;
+- (void)prepareTexture;
 - (struct Texture2D *)gglTexture;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 scale:(double)arg2 resourceManager:(id)arg3;

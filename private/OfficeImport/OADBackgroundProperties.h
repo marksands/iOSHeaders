@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSArray *mEffects;
 }
 
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)setEffects:(id)arg1;
 - (id)effects;

@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 + (id)localizedMenuString:(long long)arg1;
 + (id)animationFilter;
 + (id)animationName;
-+ (int)animationCategory;
++ (long long)animationCategory;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

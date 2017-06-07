@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     TSKAccessController *mAccessController;
 }
 
-- (void)warm;
+- (void).cxx_destruct;
 - (void)main;
 - (id)initWithStyle:(id)arg1 property:(int)arg2 accessController:(id)arg3;
 

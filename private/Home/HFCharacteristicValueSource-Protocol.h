@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Home/NSObject-Protocol.h>
+#import <Home/HFCharacteristicValueOperationBatching-Protocol.h>
+#import <Home/NAIdentifiable-Protocol.h>
 
 @class HFCharacteristicValueSet, HMActionSet, HMCharacteristic, NAFuture, NSError, NSSet;
 @protocol HFCharacteristicOperationContextProviding;
 
-@protocol HFCharacteristicValueSource <NSObject>
+@protocol HFCharacteristicValueSource <HFCharacteristicValueOperationBatching, NAIdentifiable>
 - (id)cachedValueForCharacteristic:(HMCharacteristic *)arg1;
 - (NAFuture *)writeValuesForCharacteristics:(HFCharacteristicValueSet *)arg1;
 - (NAFuture *)readValuesForCharacteristicTypes:(NSSet *)arg1 inServices:(NSSet *)arg2;

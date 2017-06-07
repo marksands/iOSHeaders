@@ -24,13 +24,12 @@
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 @property(readonly, nonatomic) unsigned long long biometricLockoutState;
-@property(readonly, nonatomic) unsigned long long matchMode;
 @property(readonly, nonatomic, getter=isMatchingEnabled) _Bool matchingEnabled;
 @property(readonly, nonatomic, getter=isMatchingAllowed) _Bool matchingAllowed;
 @property(readonly, nonatomic, getter=isFingerDetectEnabled) _Bool fingerDetectEnabled;
 @property(readonly, nonatomic, getter=isFingerOn) _Bool fingerOn;
 @property(readonly, nonatomic) _Bool hasBiometricAuthenticationCapabilityEnabled;
-@property(readonly, nonatomic) _Bool hasEnrolledFingers;
+@property(readonly, nonatomic) _Bool hasEnrolledIdentities;
 - (id)initWithBiometricResource:(id)arg1 overrideMatchingAssertionFactory:(id)arg2;
 
 // Remaining properties

@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSMutableArray *actionHandlers; // @synthesize actionHandlers=_actionHandlers;
 @property(copy, nonatomic) CDUnknownBlockType currentAlertHandler; // @synthesize currentAlertHandler=_currentAlertHandler;
 @property(retain, nonatomic) AXAccessQueue *accessQueue; // @synthesize accessQueue=_accessQueue;
+- (void).cxx_destruct;
 - (id)runningAppProcesses;
 - (id)focusedAppProcess;
 - (id)applicationWithIdentifier:(id)arg1;
@@ -49,6 +50,7 @@
 - (id)focusedAppPID;
 - (_Bool)isSystemAppShowingAnAlert;
 - (void)systemAppInfoWithQuery:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)medusaApps;
 - (_Bool)performMedusaGesture:(unsigned long long)arg1;
 - (id)allowedMedusaGestures;
 - (_Bool)isSpeakThisTemporarilyDisabled;
@@ -60,13 +62,15 @@
 - (_Bool)isSiriVisible;
 - (_Bool)dismissSiri;
 - (_Bool)openSiri;
-- (_Bool)clearSideAppState;
-- (_Bool)isSideSwitcherVisible;
 - (void)revealSpotlight;
 - (void)simulateEdgePressHaptics;
 - (void)dismissAppSwitcher;
 - (void)openAppSwitcher;
 - (_Bool)isAppSwitcherVisible;
+- (_Bool)isShowingHomescreen;
+- (_Bool)isDockVisible;
+- (void)toggleDock;
+- (void)armApplePay;
 - (void)showControlCenter:(_Bool)arg1;
 - (_Bool)showNotificationCenter:(_Bool)arg1;
 - (_Bool)isControlCenterVisible;
@@ -87,6 +91,7 @@
 - (_Bool)isMediaPlayingForApp:(id)arg1;
 - (id)_messageForMediaPlayingQueryForBundleID:(id)arg1;
 - (_Bool)isMediaPlaying;
+- (void)rebootDevice;
 - (void)unlockDevice;
 - (void)wakeUpDeviceIfNecessary;
 - (id)installedApps;
@@ -145,7 +150,6 @@
 - (id)_handleReachabilityResult:(id)arg1;
 - (id)_handleReplyResult:(id)arg1;
 - (id)_serviceName;
-- (void)dealloc;
 - (id)init;
 - (_Bool)_shouldDispatchLocally;
 - (id)_axSpringBoardServerInstanceDelegate;

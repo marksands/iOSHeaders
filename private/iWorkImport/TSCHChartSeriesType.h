@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsFillSetFill;
 - (int)specificFillSetFillProperty;
 - (int)fillSetFillProperty;
+- (_Bool)supportsCalloutLines;
 - (id)supportedValueLabelsAxisCombinations;
 - (id)axisTypesForValueLabels;
 - (int)defaultSymbolType;
@@ -102,6 +103,8 @@ __attribute__((visibility("hidden")))
 - (oneway void)release;
 - (unsigned long long)retainCount;
 - (id)retain;
+- (int)fillPropertyType;
+- (id)fillPropertyTypeName;
 - (_Bool)canUseEstimatedValueLabelsDrawingRect;
 - (_Bool)floatValueForLabelExplosion:(float *)arg1 series:(id)arg2;
 

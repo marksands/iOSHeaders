@@ -12,8 +12,8 @@
 
 + (id)aggdNameForType:(long long)arg1;
 + (id)displayNameForType:(long long)arg1;
-+ (id)newFilterForType:(long long)arg1;
-+ (id)ciFilterNameForType:(long long)arg1;
++ (id)ciFilterNameForFilterType:(long long)arg1;
++ (id)filtersForFilterType:(long long)arg1 applyDepthEffect:(_Bool)arg2;
 
 @end
 

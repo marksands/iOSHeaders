@@ -10,6 +10,7 @@
 
 @protocol PKPassLibraryDataProvider <NSObject>
 @property(readonly, nonatomic) _Bool canAddPaymentPass;
+- (NSString *)peerPaymentPassUniqueID;
 - (PKPass *)passWithPassTypeIdentifier:(NSString *)arg1 serialNumber:(NSString *)arg2;
 - (PKPass *)passWithUniqueID:(NSString *)arg1;
 - (NSArray *)paymentPasses;

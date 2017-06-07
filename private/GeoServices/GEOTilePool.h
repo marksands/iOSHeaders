@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOTileCache;
 @protocol OS_dispatch_source;
@@ -31,7 +31,6 @@
 - (void)setNullForKey:(const struct _GEOTileKey *)arg1;
 - (void)setTile:(id)arg1 forKey:(const struct _GEOTileKey *)arg2 cost:(unsigned long long)arg3;
 - (id)tileForKey:(const struct _GEOTileKey *)arg1;
-- (void)dealloc;
 - (id)init;
 - (id)initWithSideCacheEnabled:(_Bool)arg1;
 @property(readonly, nonatomic) unsigned long long currentCost;

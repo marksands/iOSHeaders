@@ -9,16 +9,16 @@
 __attribute__((visibility("hidden")))
 @interface _VKPOIIconArtwork : VKIconArtwork
 {
-    struct CGImage *_glyphImage;
-    struct VKIconStyleInfo _style;
+    struct _retain_ptr<CGImage *, geo::_retain_cf<CGImage *>, geo::_release_cf, geo::_hash_cf, geo::_equal_cf> _glyphImage;
     _Bool _hasText;
 }
 
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)_cleanUpAfterDrawing;
 - (id)_newImage;
 - (void)dealloc;
-- (id)initWithGlyph:(struct CGImage *)arg1 style:(struct VKIconStyleInfo *)arg2 contentScale:(double)arg3 hasText:(_Bool)arg4;
+- (id)initWithGlyph:(struct CGImage *)arg1 style:(const struct Style *)arg2 extraStyle:(const struct ExtraStyle *)arg3 contentScale:(double)arg4 hasText:(_Bool)arg5;
 
 @end
 

@@ -13,9 +13,9 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)saveToArchive:(struct BooleanNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct BooleanNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct BooleanNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)exportString;
 - (void)buildASTNodeArray:(struct TSCEASTNodeArray *)arg1 hostCell:(struct TSUCellCoord)arg2 symbolTable:(struct TSCESymbolTable *)arg3;
 - (void)insertFormulaText:(id)arg1 includeWhitespace:(_Bool)arg2;

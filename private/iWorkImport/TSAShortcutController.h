@@ -20,7 +20,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) TSADocumentRoot *documentRoot; // @synthesize documentRoot=_documentRoot;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ShortcutControllerArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ShortcutControllerArchive *)arg1 unarchiver:(id)arg2;
 - (void)removeStylesNotInTheme;
 - (void)setStyle:(id)arg1 forShortcut:(id)arg2;

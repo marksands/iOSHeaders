@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class HMDAccessoryBrowser, HMDCentralMessageDispatcher, HMDCloudDataSyncManager, HMDHomeManager, HMDMessageFilterChain, HMDRemoteIdentityRegistry, HMDXpcServer, HMFMessageDispatcher;
+@class HMDAccessoryBrowser, HMDCentralMessageDispatcher, HMDCloudManager, HMDHomeManager, HMDMessageFilterChain, HMDRemoteIdentityRegistry, HMDXpcServer;
 @protocol OS_dispatch_queue;
 
 @interface HMDMainDriver : NSObject
@@ -16,8 +16,7 @@
     HMDAccessoryBrowser *_accessoryBrowser;
     HMDXpcServer *_xpcServer;
     HMDCentralMessageDispatcher *_messageDispatcher;
-    HMFMessageDispatcher *_notificationRelayDispatcher;
-    HMDCloudDataSyncManager *_cloudDataSyncManager;
+    HMDCloudManager *_cloudDataSyncManager;
     HMDMessageFilterChain *_msgFilterChain;
     HMDRemoteIdentityRegistry *_identityRegistry;
 }
@@ -25,8 +24,7 @@
 + (id)driver;
 @property(retain, nonatomic) HMDRemoteIdentityRegistry *identityRegistry; // @synthesize identityRegistry=_identityRegistry;
 @property(retain, nonatomic) HMDMessageFilterChain *msgFilterChain; // @synthesize msgFilterChain=_msgFilterChain;
-@property(retain, nonatomic) HMDCloudDataSyncManager *cloudDataSyncManager; // @synthesize cloudDataSyncManager=_cloudDataSyncManager;
-@property(retain, nonatomic) HMFMessageDispatcher *notificationRelayDispatcher; // @synthesize notificationRelayDispatcher=_notificationRelayDispatcher;
+@property(retain, nonatomic) HMDCloudManager *cloudDataSyncManager; // @synthesize cloudDataSyncManager=_cloudDataSyncManager;
 @property(retain, nonatomic) HMDCentralMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
 @property(retain, nonatomic) HMDXpcServer *xpcServer; // @synthesize xpcServer=_xpcServer;
 @property(retain, nonatomic) HMDAccessoryBrowser *accessoryBrowser; // @synthesize accessoryBrowser=_accessoryBrowser;

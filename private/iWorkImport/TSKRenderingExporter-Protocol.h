@@ -7,7 +7,7 @@
 #import <iWorkImport/TSKExporter-Protocol.h>
 
 @class NSURL;
-@protocol TSKImportExportDelegate;
+@protocol TSDImportExportDelegate;
 
 @protocol TSKRenderingExporter <TSKExporter>
 - (_Bool)paginate;
@@ -23,6 +23,6 @@
 - (_Bool)preparePage:(unsigned long long)arg1;
 - (void)teardown;
 - (void)setup;
-- (_Bool)exportToURL:(NSURL *)arg1 pageNumber:(unsigned long long)arg2 delegate:(id <TSKImportExportDelegate>)arg3 error:(id *)arg4;
+- (_Bool)exportToURL:(NSURL *)arg1 pageNumber:(unsigned long long)arg2 delegate:(id <TSDImportExportDelegate>)arg3 error:(id *)arg4;
 @end
 

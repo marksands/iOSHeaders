@@ -7,14 +7,17 @@
 #import <PassKitUI/PKTableViewCell.h>
 
 #import <PassKitUI/PKDatePickerDelegate-Protocol.h>
+#import <PassKitUI/UIPickerViewDataSource-Protocol.h>
+#import <PassKitUI/UIPickerViewDelegate-Protocol.h>
 #import <PassKitUI/UITextFieldDelegate-Protocol.h>
 
-@class NSArray, NSString, PKDatePicker, PKPaymentSetupField, UIColor;
+@class NSArray, NSString, PKDatePicker, PKPaymentSetupField, UIColor, UIPickerView;
 @protocol PKPaymentSetupFieldCellDelegate;
 
-@interface PKPaymentSetupFieldCell : PKTableViewCell <UITextFieldDelegate, PKDatePickerDelegate>
+@interface PKPaymentSetupFieldCell : PKTableViewCell <UITextFieldDelegate, PKDatePickerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
     PKDatePicker *_dateInputView;
+    UIPickerView *_pickerInputView;
     _Bool _ignoreCurrentValueChangedNotifications;
     NSArray *_defaultLeadingBarButtonGroups;
     NSArray *_defaultTrailingBarButtonGroups;
@@ -45,6 +48,10 @@
 @property(retain, nonatomic) PKPaymentSetupField *paymentSetupField; // @synthesize paymentSetupField=_paymentSetupField;
 @property(nonatomic) id <PKPaymentSetupFieldCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)pickerView:(id)arg1 didSelectRow:(long long)arg2 inComponent:(long long)arg3;
+- (id)pickerView:(id)arg1 titleForRow:(long long)arg2 forComponent:(long long)arg3;
+- (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
+- (long long)numberOfComponentsInPickerView:(id)arg1;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (_Bool)textFieldShouldClear:(id)arg1;
@@ -62,6 +69,7 @@
 - (double)heightForWidth:(double)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_paymentSetupFieldCurrentValueChangedNotification:(id)arg1;
+- (void)_updateDisplayForFieldTypePicker:(id)arg1;
 - (void)_updateDisplayForFieldTypeDate:(id)arg1;
 - (void)_updateDisplayForFieldTypeText:(id)arg1;
 - (void)_applyDefaultValues;

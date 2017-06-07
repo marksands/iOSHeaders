@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/NSCopying-Protocol.h>
 
 @class HMDDevice, NSMutableDictionary, NSString;
 
-@interface HMDCameraSessionID : NSObject <NSCopying>
+@interface HMDCameraSessionID : HMFObject <NSCopying>
 {
     _Bool _spiClient;
     NSString *_sessionID;

@@ -16,6 +16,7 @@
 
 + (id)endpointStatusWithDictionary:(id)arg1 context:(id)arg2;
 + (id)endpointStatus;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSNumber *endpointConfirmationTimestamp;
 @property(nonatomic) _Bool confirmed;
 - (id)encodedClassName;

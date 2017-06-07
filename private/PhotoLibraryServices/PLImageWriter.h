@@ -19,6 +19,7 @@
     NSCountedSet *_unfinishedLowPriorityJobs;
     NSRecursiveLock *_jobsLock;
     int _unfinishedJobCount;
+    int _unfinishedJobsRequiringIndicatorCount;
     int _jobQueueAvailabilityToken;
     _Bool _writerThreadRunning;
     _Bool _databaseIsCorrupt;
@@ -28,7 +29,12 @@
 
 + (void)decorateThumbnailInRect:(struct CGRect)arg1 size:(struct CGSize)arg2 duration:(id)arg3 inContext:(struct CGContext *)arg4 format:(id)arg5;
 + (void)decorateThumbnail:(id)arg1 inContext:(struct CGContext *)arg2;
-+ (_Bool)setAdjustmentsForNewPhoto:(id)arg1 withEffectFilterName:(id)arg2 filteredImagePath:(id)arg3 isSubstandardRender:(_Bool)arg4;
++ (_Bool)setAdjustmentsForNewPhoto:(id)arg1 withEffectFilterName:(id)arg2 adjustmentDataPath:(id)arg3 filteredImagePath:(id)arg4 isSubstandardRender:(_Bool)arg5;
++ (id)_assetAdjustmentsFromCameraAdjustmentsFileAtPath:(id)arg1 exportProperties:(id)arg2;
++ (id)_assetAdjustmentsFromCameraFilters:(id)arg1 portraitMetadata:(id)arg2 exportProperties:(id)arg3;
++ (id)_assetAdjustmentsFromPhotoEditModel:(id)arg1 exportProperties:(id)arg2;
++ (id)_assetAdjustmentsWithEffectFilterName:(id)arg1 exportProperties:(id)arg2;
++ (_Bool)_requiresIndicatorFileForJobType:(id)arg1;
 + (id)sharedWriter;
 - (void)_writerThread;
 - (void)_processJob:(id)arg1;
@@ -60,8 +66,8 @@
 - (void)_processBatchImageJob:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_removeInProgressExtendedAttributesForFileAtURL:(id)arg1;
 - (void)_processImageJob:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)_pathForFilteredPreviewWithBaseName:(id)arg1 imageData:(id)arg2 orImage:(id)arg3;
 - (void)setAvalancheInProgress:(_Bool)arg1 uuid:(id)arg2;
-- (id)uuidFromIncomingFilename:(id)arg1;
 - (void)_removeTransientKeys:(id)arg1;
 - (id)pathForNewAssetPathAtAlbumDirectoryPath:(id)arg1 assetType:(unsigned int)arg2 extension:(id)arg3;
 - (id)cameraAssetPathForNewAssetWithExtension:(id)arg1;

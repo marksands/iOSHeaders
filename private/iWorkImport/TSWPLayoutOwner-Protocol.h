@@ -6,8 +6,8 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class TSUColor, TSULocale, TSWPLayoutManager, TSWPLayoutMetricsCache, TSWPStorage;
-@protocol TSWPStyleProvider, TSWPTextWrap;
+@class NSObject, TSUColor, TSULocale, TSWPLayoutManager, TSWPLayoutMetricsCache, TSWPStorage;
+@protocol TSWPLayoutTarget, TSWPOffscreenColumn, TSWPStyleProvider, TSWPTextWrap, TSWPTopicNumberHints;
 
 @protocol TSWPLayoutOwner <NSObject>
 - (id <TSWPTextWrap>)textWrapper;
@@ -17,6 +17,10 @@
 - (_Bool)caresAboutStorageChanges;
 
 @optional
+- (NSObject<TSWPTopicNumberHints> *)nextTargetTopicNumbersForTarget:(id <TSWPLayoutTarget>)arg1;
+- (id <TSWPOffscreenColumn>)nextTargetFirstColumnForTarget:(id <TSWPLayoutTarget>)arg1;
+- (NSObject<TSWPTopicNumberHints> *)previousTargetTopicNumbersForTarget:(id <TSWPLayoutTarget>)arg1;
+- (id <TSWPOffscreenColumn>)previousTargetLastColumnForTarget:(id <TSWPLayoutTarget>)arg1;
 - (TSWPLayoutMetricsCache *)metricsCacheForStorage:(TSWPStorage *)arg1;
 - (void)didLayoutWithLayoutManager:(TSWPLayoutManager *)arg1;
 - (TSUColor *)textColorOverride;

@@ -13,10 +13,8 @@
     NSArray *_contacts;
     NSArray *_events;
     NSArray *_invalidatedIdentifiers;
-    NSArray *_handles;
 }
 
-@property(retain) NSArray *handles; // @synthesize handles=_handles;
 @property(retain) NSArray *invalidatedIdentifiers; // @synthesize invalidatedIdentifiers=_invalidatedIdentifiers;
 @property(retain) NSArray *events; // @synthesize events=_events;
 @property(retain) NSArray *contacts; // @synthesize contacts=_contacts;

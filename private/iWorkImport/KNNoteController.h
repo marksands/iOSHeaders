@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)slideNodeForNoteSearchTarget:(id)arg1;
-+ (unsigned long long)rootSearchTargetIndexForSlideNodeIndex:(unsigned long long)arg1 isEditingNote:(_Bool)arg2;
++ (unsigned long long)rootSearchTargetIndexForSlideNodeIndex:(unsigned long long)arg1;
 + (unsigned long long)slideNodeIndexForRootSearchTargetIndex:(unsigned int)arg1;
 + (_Bool)isNoteAtRootSearchTargetIndex:(unsigned int)arg1;
 + (_Bool)isNoteSearchTarget:(id)arg1;

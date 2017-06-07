@@ -13,11 +13,15 @@
 @interface CAMTransientAsset : NSObject <PUTransientDisplayAsset>
 {
     _Bool _canPlayPhotoIris;
+    _Bool _canPlayLoopingVideo;
     _Bool _isPhotoIrisPlaceholder;
     _Bool _HDR;
     _Bool _representsBurst;
     NSString *_uuid;
     unsigned long long _mediaType;
+    unsigned long long _mediaSubtypes;
+    long long _playbackStyle;
+    long long _playbackVariation;
     unsigned long long _pixelWidth;
     unsigned long long _pixelHeight;
     double _duration;
@@ -40,12 +44,16 @@
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisVideoDuration; // @synthesize photoIrisVideoDuration=_photoIrisVideoDuration;
 @property(readonly, nonatomic) CDStruct_1b6d18a9 photoIrisStillDisplayTime; // @synthesize photoIrisStillDisplayTime=_photoIrisStillDisplayTime;
 @property(readonly, nonatomic) _Bool isPhotoIrisPlaceholder; // @synthesize isPhotoIrisPlaceholder=_isPhotoIrisPlaceholder;
+@property(readonly, nonatomic) _Bool canPlayLoopingVideo; // @synthesize canPlayLoopingVideo=_canPlayLoopingVideo;
 @property(readonly, nonatomic) _Bool canPlayPhotoIris; // @synthesize canPlayPhotoIris=_canPlayPhotoIris;
 @property(readonly, nonatomic) NSDate *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(readonly, nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) unsigned long long pixelHeight; // @synthesize pixelHeight=_pixelHeight;
 @property(readonly, nonatomic) unsigned long long pixelWidth; // @synthesize pixelWidth=_pixelWidth;
+@property(readonly, nonatomic) long long playbackVariation; // @synthesize playbackVariation=_playbackVariation;
+@property(readonly, nonatomic) long long playbackStyle; // @synthesize playbackStyle=_playbackStyle;
+@property(readonly, nonatomic) unsigned long long mediaSubtypes; // @synthesize mediaSubtypes=_mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType; // @synthesize mediaType=_mediaType;
 @property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
@@ -59,8 +67,10 @@
 - (id)init;
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic, getter=isLivePhoto) _Bool livePhoto;
+@property(readonly, nonatomic) _Bool isAnimatedImage;
 @property(readonly, nonatomic) CLLocation *location;
-@property(readonly, nonatomic) unsigned long long fullsizeDataFormat;
+@property(readonly, nonatomic) NSString *uniformTypeIdentifier;
 @property(readonly, nonatomic) _Bool isTemporaryPlaceholder;
 @property(readonly, nonatomic) NSString *localizedGeoDescription;
 @property(readonly, nonatomic) double aspectRatio;
@@ -69,6 +79,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) _Bool isLivePhoto;
 @property(readonly) Class superclass;
 
 @end

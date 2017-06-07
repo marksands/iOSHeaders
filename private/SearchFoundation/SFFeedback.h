@@ -16,7 +16,6 @@
 
 + (_Bool)supportsSecureCoding;
 @property(readonly) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
-- (void)setTimestamp:(unsigned long long)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

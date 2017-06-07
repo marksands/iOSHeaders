@@ -6,10 +6,12 @@
 
 #import <iWorkImport/TSDRep.h>
 
-@class CALayer, TSDMutableReflection, TSDReflection, TSDShadow;
+#import <iWorkImport/CALayerDelegate-Protocol.h>
+
+@class CALayer, NSString, TSDMutableReflection, TSDReflection, TSDShadow;
 
 __attribute__((visibility("hidden")))
-@interface TSDStyledRep : TSDRep
+@interface TSDStyledRep : TSDRep <CALayerDelegate>
 {
     CALayer *mShadowLayer;
     CALayer *mReflectionLayer;
@@ -62,8 +64,13 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)clipRectWithoutEffects;
 - (id)styledLayout;
 - (id)styledInfo;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

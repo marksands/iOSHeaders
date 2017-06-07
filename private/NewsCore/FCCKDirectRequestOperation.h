@@ -27,6 +27,7 @@
     NSError *_resultError;
 }
 
++ (id)_headersImpactingEdgeCache;
 + (_Bool)_enableDebugLogLevel;
 + (id)URLSession;
 @property(retain, nonatomic) NSError *resultError; // @synthesize resultError=_resultError;
@@ -47,6 +48,7 @@
 - (void).cxx_destruct;
 - (id)_errorFromOperationResultError:(id)arg1;
 - (id)_errorFromHTTPResponse:(id)arg1;
+- (id)_bundleIDToReport;
 - (id)_mmeClientInfo;
 - (id)_requestHeadersWithBaseURL:(id)arg1;
 - (id)_requestBodyData;
@@ -54,6 +56,7 @@
 - (void)_processResponseData:(id)arg1;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
+- (void)prepareOperation;
 - (_Bool)validateOperation;
 - (id)init;
 

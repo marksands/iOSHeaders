@@ -10,18 +10,15 @@
 
 @interface HKUIDateLabel : UILabel
 {
-    long long _formatTemplate;
     _Bool _useUppercase;
     HKValueRange *_dateRange;
 }
 
++ (id)_formattedTextFromDate:(id)arg1 formatTemplate:(long long)arg2 useUppercase:(_Bool)arg3;
++ (id)dateStringForDateRange:(id)arg1 formatTemplate:(long long)arg2 useUppercase:(_Bool)arg3;
 @property(nonatomic) _Bool useUppercase; // @synthesize useUppercase=_useUppercase;
-@property(readonly, nonatomic) long long formatTemplate; // @synthesize formatTemplate=_formatTemplate;
 @property(readonly, nonatomic) HKValueRange *dateRange; // @synthesize dateRange=_dateRange;
 - (void).cxx_destruct;
-- (id)_formattedTextFromDate:(id)arg1;
-- (id)_formattedText;
-- (_Bool)_setFormatTemplate:(long long)arg1;
 - (_Bool)_setDateRange:(id)arg1;
 - (void)setDateRange:(id)arg1 formatTemplate:(long long)arg2;
 - (void)setDate:(id)arg1 formatTemplate:(long long)arg2;

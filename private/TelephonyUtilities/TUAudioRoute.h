@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray, NSDictionary, NSString, TUAudioRoutePreferredRouteOptions;
 
@@ -20,9 +20,14 @@
 @property(readonly, nonatomic) NSArray *identifiersOfOtherConnectedDevices;
 - (void)_updatePreferredRouteOptions;
 - (_Bool)_routeNameEqualTo:(id)arg1;
+@property(readonly, nonatomic, getter=isHeadphoneJackConnected) _Bool headphoneJackConnected;
+@property(readonly, copy, nonatomic) NSString *bluetoothProductIdentifier;
+@property(readonly, nonatomic) long long deviceModelType;
 @property(readonly, nonatomic, getter=isPreferred) _Bool preferred;
 @property(readonly, nonatomic) long long bluetoothEndpointType;
 @property(readonly, nonatomic, getter=isWirelessHeadset) _Bool wirelessHeadset;
+@property(readonly, nonatomic, getter=isWiredHeadset) _Bool wiredHeadset;
+@property(readonly, nonatomic, getter=isWiredHeadphones) _Bool wiredHeadphones;
 @property(readonly, nonatomic, getter=isBluetooth) _Bool bluetooth;
 @property(readonly, nonatomic, getter=isCarAudio) _Bool carAudio;
 @property(readonly, nonatomic, getter=isAirTunes) _Bool airTunes;

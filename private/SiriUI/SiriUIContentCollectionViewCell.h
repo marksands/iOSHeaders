@@ -6,7 +6,7 @@
 
 #import <SiriUI/SiriUIClearBackgroundCell.h>
 
-@class NSLayoutConstraint, NSMutableArray, SiriUIKeyline, UIImageView, UILabel, UIView;
+@class NSLayoutConstraint, NSMutableArray, SiriUIKeyline, UIColor, UIImageView, UILabel, UIView;
 
 @interface SiriUIContentCollectionViewCell : SiriUIClearBackgroundCell
 {
@@ -21,14 +21,18 @@
     long long _verticalAlignment;
     UIView *_accessoryView;
     UILabel *_textLabel;
+    UIView *_customView;
     long long _keylineType;
     struct UIOffset _textOffset;
     struct UIOffset _accessoryOffset;
     struct UIOffset _chevronOffset;
     struct UIEdgeInsets _textAndAccessoryInsets;
+    struct UIEdgeInsets _customViewEdgeInsets;
 }
 
 + (id)reuseIdentifier;
++ (_Bool)chevronBlendEffectEnabled;
++ (double)chevronTrailingMargin;
 + (struct UIEdgeInsets)defaultInsets;
 @property(nonatomic) _Bool hasChevron; // @synthesize hasChevron=_hasChevron;
 @property(nonatomic) long long keylineType; // @synthesize keylineType=_keylineType;
@@ -36,6 +40,8 @@
 @property(nonatomic) struct UIOffset chevronOffset; // @synthesize chevronOffset=_chevronOffset;
 @property(nonatomic) struct UIOffset accessoryOffset; // @synthesize accessoryOffset=_accessoryOffset;
 @property(nonatomic) struct UIOffset textOffset; // @synthesize textOffset=_textOffset;
+@property(nonatomic) struct UIEdgeInsets customViewEdgeInsets; // @synthesize customViewEdgeInsets=_customViewEdgeInsets;
+@property(retain, nonatomic) UIView *customView; // @synthesize customView=_customView;
 @property(retain, nonatomic) UILabel *textLabel; // @synthesize textLabel=_textLabel;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(nonatomic) struct UIEdgeInsets textAndAccessoryInsets; // @synthesize textAndAccessoryInsets=_textAndAccessoryInsets;
@@ -47,6 +53,7 @@
 - (void)layoutSubviews;
 - (void)updateConstraints;
 - (void)_updateSubviewConstraints;
+@property(retain, nonatomic) UIColor *keylineCustomBackgroundColor;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

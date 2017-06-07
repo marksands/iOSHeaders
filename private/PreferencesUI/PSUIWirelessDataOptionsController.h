@@ -31,9 +31,7 @@
 - (id)specifierForSystemApp:(id)arg1 bytesUsed:(id)arg2;
 - (id)specifierForSpecialCategory:(id)arg1 bytesUsed:(id)arg2;
 - (id)_specifierForApp:(id)arg1 enabled:(_Bool)arg2;
-- (id)_dataUsageWithHeaderForApplicationSpecifier:(id)arg1;
 - (id)_dataUsageForApplicationSpecifier:(id)arg1;
-- (id)_dataUsageStringForAppSpecifier:(id)arg1 includeHeader:(_Bool)arg2;
 - (id)_groupSpecifier;
 - (void)_createAppSpecifiersForVisibleApps:(id)arg1 hiddenApps:(id)arg2 unknownApps:(id)arg3 internalProcesses:(id)arg4;
 - (id)specifiers;

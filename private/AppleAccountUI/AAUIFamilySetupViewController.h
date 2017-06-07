@@ -6,13 +6,13 @@
 
 #import <AppleAccountUI/AAUIBleachedNavigationController.h>
 
-#import <AppleAccountUI/AAUIFamilySetupPageDelegate-Protocol.h>
+#import <AppleAccountUI/FAFamilySetupPageDelegate-Protocol.h>
 #import <AppleAccountUI/RemoteUIControllerDelegate-Protocol.h>
 
 @class AAGrandSlamSigner, ACAccount, ACAccountStore, NSArray, NSMutableURLRequest, NSString, RemoteUIController, UIActivityIndicatorView, UINavigationItem;
 @protocol AAUIFamilySetupDelegate;
 
-@interface AAUIFamilySetupViewController : AAUIBleachedNavigationController <AAUIFamilySetupPageDelegate, RemoteUIControllerDelegate>
+@interface AAUIFamilySetupViewController : AAUIBleachedNavigationController <FAFamilySetupPageDelegate, RemoteUIControllerDelegate>
 {
     ACAccount *_account;
     ACAccountStore *_accountStore;

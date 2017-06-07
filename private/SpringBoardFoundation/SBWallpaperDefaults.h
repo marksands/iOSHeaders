@@ -6,7 +6,7 @@
 
 #import <SpringBoardFoundation/SBAbstractSpringBoardDefaultDomain.h>
 
-@class NSDate, NSDictionary, NSString;
+@class NSData, NSDate, NSDictionary, NSString;
 
 @interface SBWallpaperDefaults : SBAbstractSpringBoardDefaultDomain
 {
@@ -17,6 +17,8 @@
 
 // Remaining properties
 @property(retain, nonatomic) NSDate *dateIrisWallpaperLastPlayed; // @dynamic dateIrisWallpaperLastPlayed;
+@property(retain, nonatomic) NSData *homeScreenColorData; // @dynamic homeScreenColorData;
+@property(retain, nonatomic) NSString *homeScreenColorName; // @dynamic homeScreenColorName;
 @property(retain, nonatomic) NSString *homeScreenCropRectString; // @dynamic homeScreenCropRectString;
 @property(nonatomic) _Bool homeScreenMagnifyEnabled; // @dynamic homeScreenMagnifyEnabled;
 @property(nonatomic) double homeScreenParallaxFactor; // @dynamic homeScreenParallaxFactor;
@@ -29,6 +31,8 @@
 @property(nonatomic) double homeScreenZoomScale; // @dynamic homeScreenZoomScale;
 @property(nonatomic) unsigned long long irisWallpaperPlayCount; // @dynamic irisWallpaperPlayCount;
 @property(readonly, nonatomic) _Bool legacyUsesUniqueHomeScreenWallpaper; // @dynamic legacyUsesUniqueHomeScreenWallpaper;
+@property(retain, nonatomic) NSData *lockScreenColorData; // @dynamic lockScreenColorData;
+@property(retain, nonatomic) NSString *lockScreenColorName; // @dynamic lockScreenColorName;
 @property(retain, nonatomic) NSString *lockScreenCropRectString; // @dynamic lockScreenCropRectString;
 @property(nonatomic) _Bool lockScreenHasVideo; // @dynamic lockScreenHasVideo;
 @property(nonatomic) _Bool lockScreenMagnifyEnabled; // @dynamic lockScreenMagnifyEnabled;

@@ -6,7 +6,7 @@
 
 #import <CloudDocs/BRQueryItem.h>
 
-@class BRCAppLibrary, BRCItemID, BRFileObjectID, NSMutableSet, NSSet, NSString, NSURL;
+@class BRCAppLibrary, BRCItemGlobalID, BRFileObjectID, NSMutableSet, NSSet, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface BRCNotification : BRQueryItem
@@ -14,10 +14,10 @@ __attribute__((visibility("hidden")))
     _Bool _isInDocumentScope;
     _Bool _isInDataScope;
     _Bool _isInTrashScope;
-    BRCItemID *_itemID;
-    BRCItemID *_parentID;
+    BRCItemGlobalID *_itemGlobalID;
+    BRCItemGlobalID *_parentGlobalID;
     unsigned long long _oldParentFileID;
-    NSSet *_parentIDs;
+    NSSet *_parentGlobalIDs;
     NSMutableSet *_appLibraryIDsWithReverseAliases;
     BRCAppLibrary *_appLibrary;
     NSString *_oldAppLibraryID;
@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)notificationWithAliasItem:(id)arg1 targetItemNotification:(id)arg2;
++ (id)notificationFromItem:(id)arg1 relpath:(id)arg2;
 + (id)notificationGatheredFromItem:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) _Bool isInTrashScope; // @synthesize isInTrashScope=_isInTrashScope;
@@ -36,10 +37,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *oldAppLibraryID; // @synthesize oldAppLibraryID=_oldAppLibraryID;
 @property(readonly, nonatomic) BRCAppLibrary *appLibrary; // @synthesize appLibrary=_appLibrary;
 @property(retain, nonatomic) NSMutableSet *appLibraryIDsWithReverseAliases; // @synthesize appLibraryIDsWithReverseAliases=_appLibraryIDsWithReverseAliases;
-@property(retain, nonatomic) NSSet *parentIDs; // @synthesize parentIDs=_parentIDs;
+@property(retain, nonatomic) NSSet *parentGlobalIDs; // @synthesize parentGlobalIDs=_parentGlobalIDs;
 @property(readonly, nonatomic) unsigned long long oldParentFileID; // @synthesize oldParentFileID=_oldParentFileID;
-@property(readonly, nonatomic) BRCItemID *parentID; // @synthesize parentID=_parentID;
-@property(readonly, nonatomic) BRCItemID *itemID; // @synthesize itemID=_itemID;
+@property(readonly, nonatomic) BRCItemGlobalID *parentGlobalID; // @synthesize parentGlobalID=_parentGlobalID;
+@property(readonly, nonatomic) BRCItemGlobalID *itemGlobalID; // @synthesize itemGlobalID=_itemGlobalID;
 - (void).cxx_destruct;
 - (void)generateLogicalExtension:(id)arg1 physicalExtension:(id)arg2;
 - (void)merge:(id)arg1;

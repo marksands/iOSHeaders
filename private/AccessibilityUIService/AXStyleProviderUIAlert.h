@@ -16,9 +16,9 @@
 
 @property(retain, nonatomic) id <AXUIAlertStyleProvider> styleProvider; // @synthesize styleProvider=_styleProvider;
 @property(nonatomic) unsigned long long alertType; // @synthesize alertType=_alertType;
+- (void).cxx_destruct;
 - (void)_appendParagraphWithText:(id)arg1 withTextColor:(id)arg2 font:(id)arg3 textAlignment:(long long)arg4 lineSpacing:(double)arg5 paragraphSpacingBefore:(double)arg6 toAttributedString:(id)arg7;
 - (void)addToContainerView:(id)arg1;
-- (void)dealloc;
 - (id)initWithType:(unsigned long long)arg1 text:(id)arg2 subtitleText:(id)arg3 iconImage:(id)arg4 styleProvider:(id)arg5;
 
 @end

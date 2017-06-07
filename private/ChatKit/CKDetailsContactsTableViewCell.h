@@ -6,7 +6,7 @@
 
 #import <ChatKit/CKDetailsCell.h>
 
-@class CKAvatarView, CNContact, NSMutableArray, NSString, UIButton, UILabel;
+@class CKAvatarView, CKLabel, CNContact, NSString, UIActivityIndicatorView, UIButton, UILabel;
 @protocol CKDetailsContactsTableViewCellDelegate;
 
 @interface CKDetailsContactsTableViewCell : CKDetailsCell
@@ -18,8 +18,7 @@
     _Bool _showInfoButton;
     CKAvatarView *_contactAvatarView;
     id <CKDetailsContactsTableViewCellDelegate> _delegate;
-    NSMutableArray *_visibleButtons;
-    UILabel *_nameLabel;
+    CKLabel *_nameLabel;
     UILabel *_locationLabel;
     NSString *_entityName;
     NSString *_locationString;
@@ -27,11 +26,15 @@
     UIButton *_phoneButton;
     UIButton *_facetimeVideoButton;
     CNContact *_contact;
+    UIActivityIndicatorView *_updatingParticipantSpinner;
 }
 
 + (double)marginWidth;
 + (double)preferredHeight;
++ (double)estimatedHeight;
 + (id)reuseIdentifier;
++ (Class)cellClass;
+@property(retain, nonatomic) UIActivityIndicatorView *updatingParticipantSpinner; // @synthesize updatingParticipantSpinner=_updatingParticipantSpinner;
 @property(retain, nonatomic) CNContact *contact; // @synthesize contact=_contact;
 @property(retain, nonatomic) UIButton *facetimeVideoButton; // @synthesize facetimeVideoButton=_facetimeVideoButton;
 @property(retain, nonatomic) UIButton *phoneButton; // @synthesize phoneButton=_phoneButton;
@@ -44,15 +47,16 @@
 @property(copy, nonatomic) NSString *locationString; // @synthesize locationString=_locationString;
 @property(copy, nonatomic) NSString *entityName; // @synthesize entityName=_entityName;
 @property(retain, nonatomic) UILabel *locationLabel; // @synthesize locationLabel=_locationLabel;
-@property(retain, nonatomic) UILabel *nameLabel; // @synthesize nameLabel=_nameLabel;
-@property(retain, nonatomic) NSMutableArray *visibleButtons; // @synthesize visibleButtons=_visibleButtons;
+@property(retain, nonatomic) CKLabel *nameLabel; // @synthesize nameLabel=_nameLabel;
 @property(nonatomic) __weak id <CKDetailsContactsTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) CKAvatarView *contactAvatarView; // @synthesize contactAvatarView=_contactAvatarView;
 - (void).cxx_destruct;
+- (void)_configureButtonLayer:(id)arg1;
 - (void)_updateVisibleButtons;
 - (void)_handleCommunicationAction:(id)arg1;
+- (void)_dismissUpdatingParticipantSpinner;
+- (void)_showUpdatingParticipantSpinner;
 - (void)configureWithViewModel:(id)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

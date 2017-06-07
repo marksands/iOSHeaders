@@ -10,10 +10,13 @@
 
 @interface PLMomentClustering : NSObject
 {
+    _Bool _hasLocationsOfInterestInformation;
     _Bool _dirty;
     _Bool _shouldApplyUserInfluenceBeforeClustering;
+    _Bool _shouldRunUserInfluence;
     _Bool _accumulatesSmallClusters;
     _Bool _spatialJoinsAdjacentClusters;
+    NSArray *_locationsOfInterest;
     CDUnknownBlockType _progressBlock;
     NSArray *_clusters;
     NSSet *_insertedClusters;
@@ -56,6 +59,7 @@
 @property(nonatomic) double accumulationTimeInterval; // @synthesize accumulationTimeInterval=_accumulationTimeInterval;
 @property(nonatomic) unsigned long long accumulationSize; // @synthesize accumulationSize=_accumulationSize;
 @property(nonatomic) _Bool accumulatesSmallClusters; // @synthesize accumulatesSmallClusters=_accumulatesSmallClusters;
+@property(nonatomic) _Bool shouldRunUserInfluence; // @synthesize shouldRunUserInfluence=_shouldRunUserInfluence;
 @property(nonatomic) _Bool shouldApplyUserInfluenceBeforeClustering; // @synthesize shouldApplyUserInfluenceBeforeClustering=_shouldApplyUserInfluenceBeforeClustering;
 @property(nonatomic, getter=isDirty, setter=_setDirty:) _Bool dirty; // @synthesize dirty=_dirty;
 @property(nonatomic) double theta; // @synthesize theta=_theta;
@@ -65,11 +69,16 @@
 @property(copy, nonatomic, setter=_setInsertedClusters:) NSSet *insertedClusters; // @synthesize insertedClusters=_insertedClusters;
 @property(copy, nonatomic, setter=_setClusters:) NSArray *clusters; // @synthesize clusters=_clusters;
 @property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
+@property(nonatomic) _Bool hasLocationsOfInterestInformation; // @synthesize hasLocationsOfInterestInformation=_hasLocationsOfInterestInformation;
+@property(retain, nonatomic) NSArray *locationsOfInterest; // @synthesize locationsOfInterest=_locationsOfInterest;
 - (void)markNodeForDiagnosis:(id)arg1;
 @property(readonly, nonatomic) _Bool hasMarkedNodes;
 - (id)_clustersByMergingUserInfluencedClusters:(id)arg1;
 - (id)_clustersBySplittingUserInfluencedClusters:(id)arg1;
 - (id)clustersByApplyingUserInfluenceToClusters:(id)arg1;
+- (id)_clustersSplitByLocationsOfInterest:(id)arg1;
+- (double)smallestDurationBetweenMomentNode:(id)arg1 andCluster:(id)arg2;
+- (double)smallestDistanceBetweenMomentNode:(id)arg1 andCluster:(id)arg2;
 - (id)spatialJoinClustersFromClusters:(id)arg1;
 - (id)accumulateSmallClustersFromClusters:(id)arg1;
 - (id)neighborsOfTaggedNode:(id)arg1;

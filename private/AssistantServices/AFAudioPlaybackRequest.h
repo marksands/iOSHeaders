@@ -27,12 +27,15 @@
 @property(readonly, nonatomic) long long numberOfLoops; // @synthesize numberOfLoops=_numberOfLoops;
 @property(readonly, copy, nonatomic) NSURL *itemURL; // @synthesize itemURL=_itemURL;
 - (void).cxx_destruct;
-- (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
+- (id)_descriptionWithIndent:(unsigned long long)arg1;
+- (id)description;
 - (id)initWithItemURL:(id)arg1 numberOfLoops:(long long)arg2 volume:(float)arg3 fadeInDuration:(double)arg4 fadeOutDuration:(double)arg5;
+- (id)builder;
 
 @end
 

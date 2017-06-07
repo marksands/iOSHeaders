@@ -23,7 +23,7 @@
 @property int turdsize;
 - (struct CGPath *)CGPath;
 - (void)dealloc;
-- (id)initWithCGImage:(struct CGImage *)arg1 flipped:(_Bool)arg2;
+- (id)initWithCGImage:(struct CGImage *)arg1 flipped:(_Bool)arg2 whiteIsInside:(_Bool)arg3;
 
 @end
 

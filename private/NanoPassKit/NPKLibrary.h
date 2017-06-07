@@ -79,13 +79,13 @@
 - (void)setExpressTransitUniqueID:(id)arg1 applicationIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)preferredPaymentApplicationForPaymentPass:(id)arg1;
 - (void)setPreferredPaymentApplication:(id)arg1 forPaymentPass:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)setSharedWebServiceContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)getSharedWebServiceContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getDeviceHasAnyPaymentPassesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)deletePassWithID:(id)arg1;
 - (void)getDiffForPassWithID:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)getPassWithID:(id)arg1 reply:(CDUnknownBlockType)arg2 queue:(id)arg3;
 - (void)getPassWithID:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (id)cachedPaymentPasses;
+- (id)cachedPaymentPassWithDPANIdentifier:(id)arg1;
 - (id)cachedPassWithID:(id)arg1;
 @property(readonly, nonatomic) NSArray *nfcPassDescriptions;
 @property(readonly, nonatomic) NSArray *nonPaymentPassDescriptions; // @dynamic nonPaymentPassDescriptions;

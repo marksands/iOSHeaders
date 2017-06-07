@@ -20,6 +20,7 @@
     NSString *_storedEventVocabularyIgnoreDateKeyword;
 }
 
++ (id)humanReadableFeaturePolarity:(unsigned long long)arg1;
 + (unsigned long long)numberOfMatchesForEventVocabularySubjectTitleInString:(id)arg1 languageID:(id)arg2;
 + (id)eventVocabularySubjectTitleInString:(id)arg1 languageID:(id)arg2;
 + (id)eventVocabularyIgnoreDateKeywordInString:(id)arg1 languageID:(id)arg2;

@@ -25,13 +25,15 @@
 @property(nonatomic) __weak id <AFUISiriRemoteViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak id <AFUISiriRemoteViewControllerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)setAudioRoutePickerBluetoothOn:(_Bool)arg1;
+- (void)setShowAudioRoutePicker:(_Bool)arg1;
 - (void)applicationDidBecomeActive;
 - (void)applicationWillEnterForeground;
 - (void)applicationWillResignActive;
 - (void)didReceiveShortTapAction;
 - (void)didReceiveBugButtonLongPress;
 - (void)didReceiveReportBugAction;
-- (void)setKeyboardEnabled:(_Bool)arg1;
+- (void)setShowKeyboardIfTextInputEnabled:(_Bool)arg1;
 - (void)didReceiveHelpAction;
 - (void)setSpeechSynthesis:(id)arg1;
 - (void)setSession:(id)arg1;
@@ -43,9 +45,11 @@
 - (void)siriWillShowPasscodeUnlock;
 - (void)siriDidDeactivate;
 - (void)showPresentationWithIdentifier:(id)arg1 properties:(id)arg2 lockState:(unsigned long long)arg3;
+- (void)preloadPresentationBundleWithIdentifier:(id)arg1;
 - (void)setRequestOptions:(id)arg1;
 - (void)siriDidActivateFromSource:(long long)arg1;
 - (void)siriWillActivateFromSource:(long long)arg1;
+- (void)serviceDidDetectAudioRoutePickerTap;
 - (void)serviceDidPresentConversationFromBreadcrumb;
 - (void)servicePresentationDidChangePeekMode:(unsigned long long)arg1;
 - (void)serviceDidDetectMicButtonLongPressEnded;
@@ -67,7 +71,7 @@
 - (void)getScreenshotWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)setBugReportingAvailable:(_Bool)arg1;
 - (void)setHelpButtonEmphasized:(_Bool)arg1;
-- (void)setStatusBarHidden:(_Bool)arg1;
+- (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)serviceWillDismissViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)serviceWillPresentViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)setStatusViewUserInteractionEnabled:(_Bool)arg1;
@@ -85,6 +89,7 @@
 - (void)serviceBulletinWithIdentifier:(id)arg1 replyHandler:(CDUnknownBlockType)arg2;
 - (void)serviceStartGuidedAccess;
 - (void)serviceRequestsDismissal:(_Bool)arg1;
+- (void)serviceRequestsActivationSourceWithReplyHandler:(CDUnknownBlockType)arg1;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 - (void)dismissViewControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)viewWillDisappear:(_Bool)arg1;

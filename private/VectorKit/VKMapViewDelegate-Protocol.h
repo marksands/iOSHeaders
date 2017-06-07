@@ -6,12 +6,15 @@
 
 #import <VectorKit/NSObject-Protocol.h>
 
-@class NSError, NSString, VKLabelMarker, VKMapView, VKOverlayPainter;
-@protocol VKOverlay, VKTrackableAnnotation, VKTrackableAnnotationPresentation;
+@class NSError, NSString, VKLabelMarker, VKMapView, VKVenueBuildingFeatureMarker, VKVenueFeatureMarker;
+@protocol VKTrackableAnnotation, VKTrackableAnnotationPresentation;
 
 @protocol VKMapViewDelegate <NSObject>
 
 @optional
+- (void)mapLayer:(VKMapView *)arg1 venueWithFocusDidChange:(VKVenueFeatureMarker *)arg2 building:(VKVenueBuildingFeatureMarker *)arg3;
+- (void)mapLayerNavigationCameraDidReturnToDefaultZoom:(VKMapView *)arg1;
+- (void)mapLayerNavigationCameraDidLeaveDefaultZoom:(VKMapView *)arg1;
 - (void)mapLayerNavigationCameraHasStoppedPanning:(VKMapView *)arg1;
 - (void)mapLayerNavigationCameraHasStartedPanning:(VKMapView *)arg1;
 - (void)mapLayer:(VKMapView *)arg1 didUpdateVerticalYawTo:(double)arg2;
@@ -31,7 +34,6 @@
 - (void)mapLayer:(VKMapView *)arg1 canZoomInDidChange:(_Bool)arg2;
 - (void)mapLayer:(VKMapView *)arg1 canEnter3DModeDidChange:(_Bool)arg2;
 - (void)mapLayer:(VKMapView *)arg1 didBecomePitched:(_Bool)arg2;
-- (VKOverlayPainter *)mapLayer:(VKMapView *)arg1 painterForOverlay:(id <VKOverlay>)arg2;
 - (id <VKTrackableAnnotationPresentation>)mapLayer:(VKMapView *)arg1 presentationForAnnotation:(id <VKTrackableAnnotation>)arg2;
 - (void)mapLayerDidBecomeFullyDrawn:(VKMapView *)arg1 hasFailedTiles:(_Bool)arg2;
 - (void)mapLayerDidBecomePartiallyDrawn:(VKMapView *)arg1;

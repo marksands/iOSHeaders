@@ -8,7 +8,7 @@
 
 #import <PhotoLibraryServices/PLBBPendingBulletinsBatchDelegate-Protocol.h>
 
-@class NSArray, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSString;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableIndexSet, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface PLBBBulletinsManager : NSObject <PLBBPendingBulletinsBatchDelegate>
@@ -18,6 +18,7 @@
     NSObject<OS_dispatch_source> *_pendingChangesTimerSource;
     NSMutableDictionary *_dirtyPlist;
     NSMutableArray *_pendingBulletins;
+    NSDictionary *_timeDelayedBulletinInfo;
     NSMutableArray *_pendingBatches;
     NSMutableIndexSet *_pendingDeleteRecordIDs;
     _Bool _badgeCountIsInvalid;
@@ -26,6 +27,8 @@
     int _alertFiltrationEnabled;
 }
 
++ (id)_bestDateForDeliveringNotificationWithError:(id *)arg1;
++ (id)_notificationDeliveryDate;
 + (id)sharedManager;
 - (void)_resetAlertFiltration;
 - (_Bool)_alertFiltrationEnabled;
@@ -48,11 +51,20 @@
 - (id)_currentPendingBatch;
 - (unsigned long long)_generateUniqueRecordID;
 - (void)_processPendingChanges;
+- (id)_indexesOfOutdatedMemoryBulletinsInDescriptions:(id)arg1;
 - (void)_scheduleProcessPendingChanges;
 - (void)_deleteBulletinsForAssetWithUUID:(id)arg1 shouldDeleteCommentsOrLikeBulletins:(_Bool)arg2 shouldDeletePhotosAddedToAlbumBulletins:(_Bool)arg3;
 - (_Bool)_bulletinType:(long long)arg1 matchesCommentsOrLikeBulletins:(_Bool)arg2 andPhotosAddedToAlbumBulletins:(_Bool)arg3;
 - (void)_deleteBulletinsForAlbumWithUUID:(id)arg1 bulletinTypes:(id)arg2;
+- (void)_deleteBulletinsForMemoriesWithUUID:(id)arg1 bulletinTypes:(id)arg2;
+- (void)_deleteBulletinsForObjectWithUUID:(id)arg1 bulletinDictionaryKey:(id)arg2 bulletinTypes:(id)arg3;
 - (void)_addPendingBulletins:(id)arg1;
+- (void)postInterestingMemoryBulletinInfosImmediately:(id)arg1;
+- (void)_addBulletinForDelayedScheduling:(id)arg1;
+- (void)removeNotificationForInterestingMemoryWithUUID:(id)arg1;
+- (void)postNotificationForInterestingMemoryWithUUID:(id)arg1 keyAssetUUID:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4 notificationDeliveryDate:(id)arg5;
+- (id)_generatMemoryBulletinRepresentationWithMemoryUUID:(id)arg1 keyAssetUUID:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4 notificationDeliveryDate:(id)arg5;
+- (id)_memoryBulletinFromDictionaryRepresentation:(id)arg1;
 - (void)userViewedBulletinWithRecordID:(unsigned long long)arg1;
 - (id)_albumCloudGUIDForRecordID:(unsigned long long)arg1;
 - (void)clearAllBulletinsUpToRecordID:(unsigned long long)arg1;
@@ -76,6 +88,7 @@
 - (void)noteDidDeleteSharedAlbum:(id)arg1;
 - (void)noteDidReceiveInvitationForSharedAlbum:(id)arg1;
 @property(readonly) NSArray *currentBulletinDictionaries;
+- (id)getInterestingMemoryBulletinInfoToBeScheduled;
 - (void)setEnableTemporaryDebugMode:(_Bool)arg1;
 - (_Bool)enableTemporaryDebugMode;
 - (void)dealloc;

@@ -13,11 +13,11 @@
     NSMutableArray *_items;
 }
 
+- (void).cxx_destruct;
 - (void)dequeueImportItem;
 - (void)enqueueImportItem:(id)arg1;
 - (id)currentItem;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -8,10 +8,11 @@
 
 #import <CoreSuggestions/NSCopying-Protocol.h>
 #import <CoreSuggestions/NSSecureCoding-Protocol.h>
+#import <CoreSuggestions/SGRealtimeSuggestion-Protocol.h>
 
 @class NSString, SGEvent;
 
-@interface SGRealtimeEvent : NSObject <NSSecureCoding, NSCopying>
+@interface SGRealtimeEvent : NSObject <NSSecureCoding, NSCopying, SGRealtimeSuggestion>
 {
     _Bool _isHarvested;
     int _state;
@@ -35,14 +36,18 @@
 @property(readonly, nonatomic) SGEvent *event; // @synthesize event=_event;
 @property(readonly, nonatomic) int state; // @synthesize state=_state;
 - (void).cxx_destruct;
-- (id)description;
-- (unsigned long long)hash;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqualToRealtimeEvent:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithState:(int)arg1 event:(id)arg2 eventIdentifier:(id)arg3 harvested:(_Bool)arg4;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

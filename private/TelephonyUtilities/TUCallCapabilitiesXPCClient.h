@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/TUCallCapabilitiesXPCClient-Protocol.h>
 #import <TelephonyUtilities/TUCallCapabilitiesXPCServerActions-Protocol.h>
@@ -31,20 +31,20 @@
 - (void).cxx_destruct;
 - (void)_updateState:(id)arg1;
 - (void)_retrieveStateForInitialUpdate:(_Bool)arg1;
-- (void)capabilityStateUpdated:(id)arg1;
-- (void)cancelPinRequestFromPrimaryDevice;
-- (void)requestPinFromPrimaryDevice;
-- (void)invalidateAndRefreshThumperCallingProvisioningURL;
-- (void)invalidateAndRefreshWiFiCallingProvisioningURL;
-- (void)endEmergencyCallbackMode;
-- (void)setRelayCallingEnabled:(_Bool)arg1 forDeviceWithID:(id)arg2;
-- (void)setThumperCallingAllowedOnDefaultPairedDevice:(_Bool)arg1;
-- (void)setThumperCallingAllowed:(_Bool)arg1 onSecondaryDeviceWithID:(id)arg2;
-- (void)setRelayCallingEnabled:(_Bool)arg1;
-- (void)setThumperCallingEnabled:(_Bool)arg1;
-- (void)setVoLTECallingEnabled:(_Bool)arg1;
-- (void)setWiFiCallingRoamingEnabled:(_Bool)arg1;
-- (void)setWiFiCallingEnabled:(_Bool)arg1;
+- (oneway void)capabilityStateUpdated:(id)arg1;
+- (oneway void)cancelPinRequestFromPrimaryDevice;
+- (oneway void)requestPinFromPrimaryDevice;
+- (oneway void)invalidateAndRefreshThumperCallingProvisioningURL;
+- (oneway void)invalidateAndRefreshWiFiCallingProvisioningURL;
+- (oneway void)endEmergencyCallbackMode;
+- (oneway void)setRelayCallingEnabled:(_Bool)arg1 forDeviceWithID:(id)arg2;
+- (oneway void)setThumperCallingAllowedOnDefaultPairedDevice:(_Bool)arg1;
+- (oneway void)setThumperCallingAllowed:(_Bool)arg1 onSecondaryDeviceWithID:(id)arg2;
+- (oneway void)setRelayCallingEnabled:(_Bool)arg1;
+- (oneway void)setThumperCallingEnabled:(_Bool)arg1;
+- (oneway void)setVoLTECallingEnabled:(_Bool)arg1;
+- (oneway void)setWiFiCallingRoamingEnabled:(_Bool)arg1;
+- (oneway void)setWiFiCallingEnabled:(_Bool)arg1;
 - (id)serverWithErrorHandler:(CDUnknownBlockType)arg1;
 - (void)invalidateXPCConnection;
 - (void)dealloc;

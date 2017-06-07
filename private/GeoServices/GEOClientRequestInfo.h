@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDictionary, NSMutableDictionary, NSString;
 
@@ -17,10 +17,10 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) NSDictionary *requests; // @synthesize requests=_requests;
 @property(readonly, nonatomic) NSString *clientID; // @synthesize clientID=_clientID;
+- (void).cxx_destruct;
 - (void)incrementCountForRequestType:(unsigned char)arg1;
 - (unsigned long long)countForRequestType:(unsigned char)arg1;
 - (id)initWithClientID:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

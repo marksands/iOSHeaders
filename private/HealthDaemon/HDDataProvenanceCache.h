@@ -36,7 +36,7 @@
 @property(retain, nonatomic) HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (id)deviceForPersistentID:(id)arg1 profile:(id)arg2 error:(id *)arg3;
-- (id)sourceRevisionForPersistentID:(id)arg1 sourceVersion:(id)arg2 profile:(id)arg3 error:(id *)arg4;
+- (id)sourceRevisionForPersistentID:(id)arg1 sourceVersion:(id)arg2 productType:(id)arg3 operatingSystemVersion:(CDStruct_f6aba300)arg4 profile:(id)arg5 error:(id *)arg6;
 - (id)_sourceForPersistentID:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 - (id)allCodableObjectCollections;
 - (void)clearCodableObjectCollections;

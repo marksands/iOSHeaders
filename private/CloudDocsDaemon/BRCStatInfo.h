@@ -9,7 +9,7 @@
 #import <CloudDocsDaemon/NSCopying-Protocol.h>
 #import <CloudDocsDaemon/NSSecureCoding-Protocol.h>
 
-@class BRCItemID, BRFieldCKInfo, NSData, NSString;
+@class BRCItemID, BRFieldCKInfo, BRMangledID, NSData, NSString;
 
 @interface BRCStatInfo : NSObject <NSCopying, NSSecureCoding>
 {
@@ -19,7 +19,10 @@
     BOOL _type;
     BOOL _mode;
     long long _birthtime;
-    NSString *_filenameOrAliasTarget;
+    long long _lastUsedTime;
+    long long _favoriteRank;
+    NSString *_logicalName;
+    NSString *_aliasTarget;
     _Bool _hiddenExt;
     NSData *_xattrSignature;
     NSData *_lazyXattr;
@@ -29,22 +32,24 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)_aliasTargetMangledIDForAliasTarget:(id)arg1;
-+ (id)_aliasTargetContainerIDAndOwnerForItemType:(BOOL)arg1 aliasTarget:(id)arg2;
 @property(retain, nonatomic) BRCItemID *trashPutBackParentID; // @synthesize trashPutBackParentID=_trashPutBackParentID;
 @property(retain, nonatomic) NSString *trashPutBackPath; // @synthesize trashPutBackPath=_trashPutBackPath;
-@property(retain, nonatomic) NSString *logicalName; // @synthesize logicalName=_filenameOrAliasTarget;
+@property(readonly, nonatomic) NSString *aliasTarget; // @synthesize aliasTarget=_aliasTarget;
+@property(retain, nonatomic) NSString *logicalName; // @synthesize logicalName=_logicalName;
 @property(retain, nonatomic) NSData *finderTags; // @synthesize finderTags=_finderTags;
 @property(retain, nonatomic) NSData *lazyXattr; // @synthesize lazyXattr=_lazyXattr;
 @property(retain, nonatomic) NSData *xattrSignature; // @synthesize xattrSignature=_xattrSignature;
 @property(nonatomic, getter=isHiddenExt) _Bool hiddenExt; // @synthesize hiddenExt=_hiddenExt;
 @property(retain, nonatomic) BRCItemID *parentID; // @synthesize parentID=_parentID;
+@property(nonatomic) long long favoriteRank; // @synthesize favoriteRank=_favoriteRank;
+@property(nonatomic) long long lastUsedTime; // @synthesize lastUsedTime=_lastUsedTime;
 @property(nonatomic) long long birthtime; // @synthesize birthtime=_birthtime;
 @property(nonatomic) BOOL mode; // @synthesize mode=_mode;
 @property(nonatomic) BOOL type; // @synthesize type=_type;
 @property(nonatomic) BOOL state; // @synthesize state=_state;
 @property(retain, nonatomic) BRFieldCKInfo *ckInfo; // @synthesize ckInfo=_ckInfo;
 - (void).cxx_destruct;
+- (_Bool)isEtagEqual:(id)arg1;
 - (id)displayName;
 - (_Bool)isWritable;
 - (_Bool)isExecutable;
@@ -59,11 +64,10 @@
 - (id)description;
 - (id)descriptionWithContext:(id)arg1 origName:(id)arg2;
 @property(readonly, nonatomic) _Bool iWorkShareable;
+@property(readonly, nonatomic) NSString *representableName;
 - (void)_updateAliasTarget:(id)arg1;
-- (id)_aliasTargetShareItemIDWithLibraryRowID:(id)arg1;
 - (id)_aliasTargetItemID;
-@property(readonly, nonatomic) NSString *_aliasTargetMangledID;
-@property(readonly, nonatomic) NSString *_aliasTargetContainerIDAndOwner;
+@property(readonly, nonatomic) BRMangledID *_aliasTargetMangledID;
 
 @end
 

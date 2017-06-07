@@ -13,8 +13,6 @@
 + (id)serviceFacilityIdentifier;
 - (void)updateDynamicApplicationShortcutItems:(id)arg1 bundleIdentifier:(id)arg2;
 - (void)fetchApplicationShortcutItemsOfTypes:(unsigned long long)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)setRemovalAllowed:(_Bool)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
-- (void)fetchRemovabilityForBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchWhitePointAdaptivityStyleForDisplayId:(unsigned int)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchCarApplicationInformationForBundleIdentifier:(id)arg1 inVehicle:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)resetIconStateForVehicleId:(id)arg1;

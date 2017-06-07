@@ -45,8 +45,8 @@
 @property(retain, nonatomic) CoreDAVItemWithNoChildren *noUIDConflict; // @synthesize noUIDConflict=_noUIDConflict;
 @property(retain, nonatomic) CoreDAVItemWithNoChildren *validSyncToken; // @synthesize validSyncToken=_validSyncToken;
 @property(retain, nonatomic) CoreDAVItemWithNoChildren *numberOfMatchesWithinLimits; // @synthesize numberOfMatchesWithinLimits=_numberOfMatchesWithinLimits;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

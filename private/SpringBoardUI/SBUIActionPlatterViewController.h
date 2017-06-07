@@ -8,7 +8,7 @@
 
 #import <SpringBoardUI/UIGestureRecognizerDelegate-Protocol.h>
 
-@class NSArray, NSString, UILongPressGestureRecognizer, UIStackView, UIView, _UIFeedbackRetargetBehavior;
+@class NSArray, NSString, UILongPressGestureRecognizer, UISelectionFeedbackGenerator, UIStackView, UIView;
 @protocol SBUIActionPlatterViewControllerDelegate;
 
 @interface SBUIActionPlatterViewController : UIViewController <UIGestureRecognizerDelegate>
@@ -18,7 +18,7 @@
     } _delegateRespondsTo;
     UIStackView *_stackView;
     UIView *_keylinesContainerView;
-    _UIFeedbackRetargetBehavior *_feedbackRetargetBehavior;
+    UISelectionFeedbackGenerator *_feedbackRetargetBehavior;
     _Bool _reversesActions;
     NSArray *_actions;
     UILongPressGestureRecognizer *_gestureRecognizer;

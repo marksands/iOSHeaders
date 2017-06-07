@@ -9,7 +9,6 @@
 @class CNSuspendableSchedulerDecorator;
 @protocol CNCancelable;
 
-__attribute__((visibility("hidden")))
 @interface _CNFlatMapInnerSubscriptionContext : NSObject
 {
     CNSuspendableSchedulerDecorator *_decorator;

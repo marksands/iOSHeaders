@@ -9,6 +9,7 @@
 #import <HomeUI/HUGridCellProtocol-Protocol.h>
 
 @class HFItem, HUGridCellBackgroundView, HUGridCellLayoutOptions, NSString, UIView, UIVisualEffect, UIVisualEffectView;
+@protocol HUResizableCellDelegate;
 
 @interface HUGridCell : UICollectionViewCell <HUGridCellProtocol>
 {
@@ -18,6 +19,7 @@
     long long _primaryState;
     UIVisualEffect *_contentEffect;
     double _secondaryContentDimmingFactor;
+    HFItem *_item;
     HUGridCellBackgroundView *_gridBackgroundView;
     UIVisualEffectView *_gridForegroundView;
 }
@@ -27,6 +29,7 @@
 + (Class)layoutOptionsClass;
 @property(retain, nonatomic) UIVisualEffectView *gridForegroundView; // @synthesize gridForegroundView=_gridForegroundView;
 @property(retain, nonatomic) HUGridCellBackgroundView *gridBackgroundView; // @synthesize gridBackgroundView=_gridBackgroundView;
+@property(retain, nonatomic) HFItem *item; // @synthesize item=_item;
 @property(nonatomic) double secondaryContentDimmingFactor; // @synthesize secondaryContentDimmingFactor=_secondaryContentDimmingFactor;
 @property(retain, nonatomic) UIVisualEffect *contentEffect; // @synthesize contentEffect=_contentEffect;
 @property(nonatomic) long long primaryState; // @synthesize primaryState=_primaryState;
@@ -36,14 +39,13 @@
 - (void).cxx_destruct;
 - (void)_updateTintColorSettingsForSubviewsOfView:(id)arg1 desiredDisplayStyle:(unsigned long long)arg2;
 - (void)updateUIWithAnimation:(_Bool)arg1;
-@property(retain, nonatomic) HFItem *item;
-- (unsigned long long)iconDisplayStyleForPrimaryState:(long long)arg1;
+@property(readonly, nonatomic) unsigned long long iconDisplayStyle;
 - (void)_updateForegroundStyle;
 - (void)layoutOptionsDidChange;
 - (void)setHighlighted:(_Bool)arg1;
-- (void)updateUIWithPrimaryState:(long long)arg1 animate:(_Bool)arg2;
 - (void)displayStyleDidChange;
 @property(readonly, nonatomic) UIView *gridForegroundContentView;
+@property(readonly, nonatomic) unsigned long long backgroundState;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 - (void)_setupCommonCellAppearance;
@@ -56,6 +58,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @property(readonly) Class superclass;
 
 @end

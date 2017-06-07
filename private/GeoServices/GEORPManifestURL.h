@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *urlValue; // @synthesize urlValue=_urlValue;
 @property(retain, nonatomic) NSString *urlName; // @synthesize urlName=_urlName;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasUrlValue;
 @property(readonly, nonatomic) _Bool hasUrlName;
-- (void)dealloc;
 
 @end
 

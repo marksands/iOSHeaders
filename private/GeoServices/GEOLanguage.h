@@ -19,6 +19,7 @@
 + (Class)languageType;
 @property(retain, nonatomic) NSMutableArray *languages; // @synthesize languages=_languages;
 @property(nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 - (unsigned long long)languagesCount;
 - (void)addLanguage:(id)arg1;
 - (void)clearLanguages;
-- (void)dealloc;
 
 @end
 

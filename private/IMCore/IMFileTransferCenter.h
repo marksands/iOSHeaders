@@ -17,6 +17,8 @@
     NSMutableArray *_preauthorizedGUIDs;
     NSMutableSet *_activeTransfers;
     NSMutableSet *_pendingTransfers;
+    _Bool _disconnectionListenerSetUp;
+    NSMutableDictionary *_fetchHighQualityVariantCompletionHandlers;
 }
 
 + (Class)fileTransferClass;
@@ -24,9 +26,15 @@
 + (void)setTransferCenterClass:(Class)arg1;
 + (id)sharedInstance;
 - (void).cxx_destruct;
+- (void)_daemonRestarted:(id)arg1;
+- (void)_initiateHighQualityVariantDownloadWithDaemonForGUID:(id)arg1;
+- (void)_fetchHighQualityVariantForTransferGUID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)fetchHighQualityVariantForTransfer:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)guidsForStoredAttachmentPayloadData:(id)arg1 messageGUID:(id)arg2;
 - (void)setAuxVideoForTransfer:(id)arg1 value:(_Bool)arg2;
 - (void)setAuxImageForTransfer:(id)arg1 value:(_Bool)arg2;
+- (void)_handleFileTransferHighQualityDownloadFailed:(id)arg1;
+- (void)_handleFileTransfer:(id)arg1 highQualityDownloadSucceededWithPath:(id)arg2;
 - (void)_handleFileTransfer:(id)arg1 updatedWithCurrentBytes:(unsigned long long)arg2 totalBytes:(unsigned long long)arg3 averageTransferRate:(unsigned long long)arg4;
 - (void)_handleFileTransfer:(id)arg1 updatedWithProperties:(id)arg2;
 - (void)_handleFileTransfers:(id)arg1 createdWithLocalPaths:(id)arg2;
@@ -73,6 +81,7 @@
 - (void)_removePendingTransfer:(id)arg1;
 - (void)_addPendingTransfer:(id)arg1;
 @property(readonly, nonatomic) _Bool hasPendingFileTransfers;
+- (void)dealloc;
 
 @end
 

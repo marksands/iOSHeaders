@@ -10,6 +10,7 @@
 @protocol TSDInfo;
 
 @protocol TSDConnectedInfoReplacing <TSDCanvasDelegate>
+- (_Bool)isInfoAKeynoteMasterObject:(NSObject<TSDInfo> *)arg1;
 - (NSObject<TSDInfo> *)infoToConnectToForConnectionLineConnectedToInfo:(NSObject<TSDInfo> *)arg1;
 @end
 

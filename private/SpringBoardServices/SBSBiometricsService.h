@@ -10,6 +10,8 @@
 {
 }
 
+- (void)_acquireBiometricAssertionOfType:(unsigned char)arg1 assertionName:(id)arg2 reason:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)acquireWalletPreArmSuppressionAssertionForReason:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)acquireUnlockSuppressionAssertionForReason:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchUnlockCredentialSetWithCompletion:(CDUnknownBlockType)arg1;
 

@@ -6,19 +6,12 @@
 
 #import <HomeKitDaemon/HMDMessageFilter.h>
 
-@class NSMutableSet;
-
 @interface HMDBackgroundAppMessageFilter : HMDMessageFilter
 {
-    NSMutableSet *_pidOfAppsRunningInBackground;
 }
 
 + (_Bool)isWhitelistedMessage:(id)arg1;
-@property(retain, nonatomic) NSMutableSet *pidOfAppsRunningInBackground; // @synthesize pidOfAppsRunningInBackground=_pidOfAppsRunningInBackground;
-- (void).cxx_destruct;
 - (_Bool)acceptMessage:(id)arg1 target:(id)arg2 errorReason:(id *)arg3;
-- (void)updateAppWithPid:(int)arg1 runningInBackground:(_Bool)arg2;
-- (id)initWithName:(id)arg1;
 
 @end
 

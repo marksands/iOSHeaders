@@ -10,6 +10,10 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct NSMapTable {
+    Class _field1;
+};
+
 struct NSMutableDictionary {
     Class _field1;
 };
@@ -68,10 +72,10 @@ typedef struct {
 } CDStruct_82f37d05;
 
 typedef struct {
-    double x;
-    double y;
-    double z;
-} CDStruct_31142d93;
+    int *list;
+    unsigned long long count;
+    unsigned long long size;
+} CDStruct_95bda58d;
 
 typedef struct {
     double timestamp;
@@ -79,47 +83,9 @@ typedef struct {
 } CDStruct_ace97b7a;
 
 typedef struct {
-    float buttonA;
-    float buttonX;
-    float buttonPause;
-} CDStruct_af4f530f;
-
-typedef struct {
     float width;
     float height;
 } CDStruct_643d22a7;
-
-typedef struct {
-    int type;
-    union {
-        struct {
-            CDStruct_31142d93 gravity;
-            CDStruct_31142d93 userAcceleration;
-        } motion;
-        CDStruct_af4f530f buttons;
-        struct {
-            CDStruct_af4f530f buttons;
-            float dpadX;
-            float dpadY;
-            float buttonB;
-            float buttonY;
-            float leftShoulder;
-            float rightShoulder;
-            float leftThumbstickX;
-            float leftThumbstickY;
-            float rightThumbstickX;
-            float rightThumbstickY;
-            float leftTrigger;
-            float rightTrigger;
-        } extendedButtons;
-        struct {
-            float x;
-            float y;
-            _Bool touchDown;
-            unsigned long long timestamp;
-        } digitizer;
-    } ;
-} CDStruct_06eb3966;
 
 // Ambiguous groups
 typedef struct {
@@ -135,6 +101,16 @@ typedef struct {
 } CDStruct_5accba53;
 
 #pragma mark Named Unions
+
+union _MRColor {
+    struct {
+        float red;
+        float green;
+        float blue;
+        float alpha;
+    } ;
+    float data[4];
+};
 
 union _MRHIDPoint {
     CDStruct_643d22a7 _field1;

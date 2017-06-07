@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class IDSService, NSMutableDictionary;
+@class NSMutableDictionary;
 
 __attribute__((visibility("hidden")))
 @interface VCDatagramChannelManager : NSObject
@@ -16,20 +16,16 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _readHandler;
     NSMutableDictionary *_datagramChannels;
     NSMutableDictionary *_destinations;
-    NSMutableDictionary *_VFDs;
-    IDSService *_service;
 }
 
 + (id)sharedInstance;
 @property(copy) CDUnknownBlockType readHandler; // @synthesize readHandler=_readHandler;
-- (void)removeDatagramChannelWithToken:(unsigned int)arg1;
-- (void)closeDatagramChannelWithToken:(unsigned int)arg1;
-- (void)closeVFDWithToken:(unsigned int)arg1;
+- (void)removeDatagramChannel:(id)arg1;
+- (id)datagramChannelWithIDSDestination:(id)arg1;
 - (id)datagramChannelWithToken:(unsigned int)arg1;
-- (int)setupVTPForDatagramChannel:(id)arg1 withToken:(unsigned int)arg2;
-- (int)setupDatagramChannel:(id)arg1 withToken:(unsigned int *)arg2 eventHandler:(CDUnknownBlockType)arg3;
-- (id)addDatagramChannelWithDestination:(id)arg1 eventHandler:(CDUnknownBlockType)arg2 token:(unsigned int *)arg3 error:(id *)arg4;
-- (id)addDatagramChannelWithDescriptor:(int)arg1 eventHandler:(CDUnknownBlockType)arg2 token:(unsigned int *)arg3 error:(id *)arg4;
+- (_Bool)setupDatagramChannel:(id)arg1 eventHandler:(CDUnknownBlockType)arg2 error:(id *)arg3;
+- (id)addDatagramChannelWithDestination:(id)arg1 eventHandler:(CDUnknownBlockType)arg2 error:(id *)arg3;
+- (id)addDatagramChannelWithDescriptor:(int)arg1 eventHandler:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (void)dealloc;
 - (id)init;
 

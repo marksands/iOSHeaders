@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <WebKitLegacy/WebTextIterator.h>
+#import <WebKit/WebTextIterator.h>
 
 @interface WebTextIterator (DDExtensions_Private)
 - (_Bool)dd_checkCurrentRangeAgainstString:(struct __CFString *)arg1;

@@ -15,6 +15,7 @@
 @property(readonly, nonatomic) long long maxNumberOfSlots;
 - (float)defaultUpGainForType:(long long)arg1;
 - (float)defaultDownGainForType:(long long)arg1;
+- (_Bool)hapticAssetType:(long long)arg1 hasAudio:(_Bool *)arg2 hasHaptic:(_Bool *)arg3 error:(id *)arg4;
 - (_Bool)loadButtonHapticOfType:(long long)arg1 withParameters:(id)arg2 atSlot:(long long)arg3 error:(id *)arg4;
 - (_Bool)loadButtonHapticOfType:(long long)arg1 atSlot:(long long)arg2 error:(id *)arg3;
 - (void)dealloc;

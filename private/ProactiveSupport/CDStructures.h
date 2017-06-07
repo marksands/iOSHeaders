@@ -4,11 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#pragma mark Blocks
+#pragma mark Function Pointers and Blocks
+
+typedef void (*CDUnknownFunctionPointerType)(void); // return type and parameters are unknown
 
 typedef void (^CDUnknownBlockType)(void); // return type and parameters are unknown
 
 #pragma mark Named Structures
+
+struct _PASDeviceStateSystemCallbacks {
+    CDUnknownFunctionPointerType _field1;
+    CDUnknownFunctionPointerType _field2;
+    CDUnknownFunctionPointerType _field3;
+    CDUnknownFunctionPointerType _field4;
+    CDUnknownFunctionPointerType _field5;
+    CDUnknownFunctionPointerType _field6;
+    CDUnknownFunctionPointerType _field7;
+    CDUnknownFunctionPointerType _field8;
+};
+
+struct _PASTuple2 {
+    Class _field1;
+};
 
 struct _opaque_pthread_mutex_t {
     long long __sig;

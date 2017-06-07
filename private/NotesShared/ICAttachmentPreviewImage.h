@@ -6,26 +6,26 @@
 
 #import <NotesShared/ICCloudSyncingObject.h>
 
-@class ICAttachment, NSData, NSDate, NSObject;
+#import <NotesShared/ICAttachmentPreviewImageUI-Protocol.h>
+
+@class ICAttachment, NSData, NSDate, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface ICAttachmentPreviewImage : ICCloudSyncingObject
+@interface ICAttachmentPreviewImage : ICCloudSyncingObject <ICAttachmentPreviewImageUI>
 {
-    unsigned long long _imageID;
     NSObject<OS_dispatch_queue> *_fileQueue;
+    unsigned long long _imageID;
 }
 
 + (id)previewImageURLsForIdentifier:(id)arg1;
 + (id)identifierForContentIdentifier:(id)arg1 scale:(double)arg2 width:(double)arg3 height:(double)arg4;
 + (id)previewImageDirectoryURL;
-+ (struct UIImage *)orientedImage:(struct UIImage *)arg1 withTransform:(struct CGAffineTransform)arg2 background:(int)arg3 backgroundTransform:(struct CGAffineTransform)arg4;
 + (void)waitUntilAllFileWritesAreFinished;
 + (id)fileQueueGroup;
 + (id)fileGlobalQueue;
 + (id)concurrentFileLoadLimitSemaphore;
 + (void)purgePreviewImageFilesForIdentifiers:(id)arg1;
 + (void)purgeAllPreviewImageFiles;
-+ (id)imageCache;
 + (void)deleteStrandedAttachmentPreviewImagesInContext:(id)arg1;
 + (id)attachmentPreviewImagesMatchingPredicate:(id)arg1 inContext:(id)arg2;
 + (id)allAttachmentPreviewImagesInContext:(id)arg1;
@@ -33,12 +33,12 @@
 + (id)attachmentPreviewImageIdentifiersForAccount:(id)arg1;
 + (id)attachmentPreviewImageWithIdentifier:(id)arg1 inContext:(id)arg2;
 + (void)purgeAllAttachmentPreviewImagesInContext:(id)arg1;
-+ (id)newAttachmentPreviewImageInContext:(id)arg1;
++ (id)newAttachmentPreviewImageWithIdentifier:(id)arg1 inContext:(id)arg2;
+@property(nonatomic) unsigned long long imageID; // @synthesize imageID=_imageID;
 - (void).cxx_destruct;
 - (void)saveAndClearDecryptedData;
 - (id)_decryptedImageData;
 - (id)decryptedImageData;
-- (_Bool)_writeEncryptedImageFromData:(id)arg1;
 - (_Bool)writeEncryptedImageFromData:(id)arg1;
 - (id)parentEncryptableObject;
 - (void)deleteFromLocalDatabase;
@@ -52,47 +52,41 @@
 - (id)ic_loggingValues;
 - (_Bool)shouldSyncToCloud;
 @property(retain, nonatomic) NSData *metadata; // @dynamic metadata;
-- (id)oldPreviewImageURL;
-- (id)orientedPreviewImageURLCreateIfNeeded:(_Bool)arg1;
+- (void)createOrientedPreviewIfNeeded;
 - (id)orientedPreviewImageURL;
+- (_Bool)hasAnyPNGPreviewImageFiles;
+- (id)orientedPreviewImageURLWithoutCreating;
 - (id)encryptedPreviewImageURL;
 - (id)previewImageURL;
+- (id)previewImagePathExtension;
 - (_Bool)makeSurePreviewImageDirectoryExists:(id *)arg1;
 - (void)saveScaledImageFromImageSrc:(struct CGImageSource *)arg1 typeUTI:(struct __CFString *)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)setImage:(struct UIImage *)arg1 withScale:(double)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)setImageData:(id)arg1 withSize:(struct CGSize)arg2 scale:(double)arg3 completion:(CDUnknownBlockType)arg4;
 - (_Bool)imageIsValid;
-- (struct UIImage *)image;
-- (CDUnknownBlockType)asyncImage:(CDUnknownBlockType)arg1 aboutToLoadHandler:(CDUnknownBlockType)arg2;
-- (id)newImageLoaderForUpdatingImageOnCompletion:(_Bool)arg1 asyncDataLoading:(_Bool)arg2;
-- (id)newImageLoaderForUpdatingImageOnCompletion:(_Bool)arg1;
-- (struct UIImage *)orientedImageWithBackground:(int)arg1;
-- (struct UIImage *)imageWithBackground:(int)arg1;
-- (long long)previewImageOrientation;
-- (struct UIImage *)orientedImage;
 - (struct CGAffineTransform)orientedImageTransform;
 - (void)invalidateCache;
 - (void)invalidateImage;
 - (void)invalidateOrientedImage;
 - (void)removeItemAtURL:(id)arg1;
+- (void)willTurnIntoFault;
 - (void)prepareForDeletion;
 @property(readonly) NSObject<OS_dispatch_queue> *fileQueue; // @synthesize fileQueue=_fileQueue;
 - (struct CGSize)size;
-- (void)setCachedOrientedImage:(struct UIImage *)arg1;
-- (struct UIImage *)cachedOrientedImage;
-- (id)orientedImageID;
-- (void)setCachedImage:(struct UIImage *)arg1;
-- (struct UIImage *)cachedImage;
 - (id)initWithEntity:(id)arg1 insertIntoManagedObjectContext:(id)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) ICAttachment *attachment; // @dynamic attachment;
 @property(retain, nonatomic) NSData *cryptoMetadataInitializationVector; // @dynamic cryptoMetadataInitializationVector;
 @property(retain, nonatomic) NSData *cryptoMetadataTag; // @dynamic cryptoMetadataTag;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(retain, nonatomic) NSData *encryptedMetadata; // @dynamic encryptedMetadata;
+@property(readonly) unsigned long long hash;
 @property(nonatomic) double height; // @dynamic height;
 @property(retain, nonatomic) NSDate *modifiedDate; // @dynamic modifiedDate;
 @property(nonatomic) double scale; // @dynamic scale;
 @property(nonatomic) _Bool scaleWhenDrawing; // @dynamic scaleWhenDrawing;
+@property(readonly) Class superclass;
 @property(nonatomic) short version; // @dynamic version;
 @property(nonatomic) _Bool versionOutOfDate; // @dynamic versionOutOfDate;
 @property(nonatomic) double width; // @dynamic width;

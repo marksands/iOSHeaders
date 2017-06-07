@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 
 @property(copy, nonatomic) NSString *closeString; // @synthesize closeString=_closeString;
 @property(copy, nonatomic) NSString *openString; // @synthesize openString=_openString;
+- (void).cxx_destruct;
 - (id)latexDescriptionInMathMode:(_Bool)arg1;
 - (id)mathMLAttributes;
 - (id)mathMLTag;
@@ -28,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (id)_binomialCoefficientContent;
 - (_Bool)_isBinomialCoefficient;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 
 @end

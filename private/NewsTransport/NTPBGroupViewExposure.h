@@ -16,18 +16,26 @@
     int _groupArticleCountInForYou;
     int _groupDisplayRankInForYou;
     NSString *_groupFeedId;
+    int _groupPresentationReason;
     int _groupType;
     NSMutableArray *_groupedArticleIds;
+    int _topStoryMandatoryArticleCount;
+    int _topStoryOptionalArticleCount;
     _Bool _isSubscribedToGroupFeed;
     struct {
         unsigned int groupArticleCountInForYou:1;
         unsigned int groupDisplayRankInForYou:1;
+        unsigned int groupPresentationReason:1;
         unsigned int groupType:1;
+        unsigned int topStoryMandatoryArticleCount:1;
+        unsigned int topStoryOptionalArticleCount:1;
         unsigned int isSubscribedToGroupFeed:1;
     } _has;
 }
 
 + (Class)groupedArticleIdsType;
+@property(nonatomic) int topStoryOptionalArticleCount; // @synthesize topStoryOptionalArticleCount=_topStoryOptionalArticleCount;
+@property(nonatomic) int topStoryMandatoryArticleCount; // @synthesize topStoryMandatoryArticleCount=_topStoryMandatoryArticleCount;
 @property(retain, nonatomic) NSData *feedViewExposureId; // @synthesize feedViewExposureId=_feedViewExposureId;
 @property(nonatomic) _Bool isSubscribedToGroupFeed; // @synthesize isSubscribedToGroupFeed=_isSubscribedToGroupFeed;
 @property(nonatomic) int groupArticleCountInForYou; // @synthesize groupArticleCountInForYou=_groupArticleCountInForYou;
@@ -43,6 +51,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsGroupPresentationReason:(id)arg1;
+- (id)groupPresentationReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasGroupPresentationReason;
+@property(nonatomic) int groupPresentationReason; // @synthesize groupPresentationReason=_groupPresentationReason;
+@property(nonatomic) _Bool hasTopStoryOptionalArticleCount;
+@property(nonatomic) _Bool hasTopStoryMandatoryArticleCount;
 @property(readonly, nonatomic) _Bool hasFeedViewExposureId;
 @property(nonatomic) _Bool hasIsSubscribedToGroupFeed;
 - (int)StringAsGroupType:(id)arg1;

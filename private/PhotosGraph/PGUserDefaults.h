@@ -10,6 +10,8 @@
 {
 }
 
++ (_Bool)isMemoriesLivingOnFeedbackEnabled;
++ (_Bool)isMemoriesNotificationDisabled;
 + (unsigned long long)minimumNumberOfCuratedAssetsForInterestingMoments;
 + (unsigned long long)minimumNumberOfCuratedAssetsForMemories;
 + (_Bool)isAlwaysShowingHolidayCalendarEvents;

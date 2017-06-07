@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_semaphore> *_semaphore;
     NSRunLoop *_runLoop;
     NSString *_runLoopMode;
-    NSString *_protocolVersion;
     NSMutableIndexSet *_inMemoryItemsIDs;
 }
 
@@ -35,7 +34,6 @@ __attribute__((visibility("hidden")))
 + (id)_appID;
 @property(retain, nonatomic) NSMutableIndexSet *inMemoryItemsIDs; // @synthesize inMemoryItemsIDs=_inMemoryItemsIDs;
 @property(nonatomic) unsigned int maxChunkCountForSection; // @synthesize maxChunkCountForSection=_maxChunkCountForSection;
-@property(retain, nonatomic) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(retain, nonatomic) NSString *runLoopMode; // @synthesize runLoopMode=_runLoopMode;
 @property(retain, nonatomic) NSRunLoop *runLoop; // @synthesize runLoop=_runLoop;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *semaphore; // @synthesize semaphore=_semaphore;

@@ -8,7 +8,6 @@
 
 @protocol CNObservable;
 
-__attribute__((visibility("hidden")))
 @interface _CNDistinctUntilChangedObservable : CNObservable
 {
     id <CNObservable> _observable;

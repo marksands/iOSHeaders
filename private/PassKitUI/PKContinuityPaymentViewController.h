@@ -41,6 +41,7 @@
 - (void)dismissPasscodeViewController;
 - (void)presentPasscodeViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)authenticatorDidEncounterMatchMiss:(id)arg1;
+- (void)authenticator:(id)arg1 didRequestUserAction:(long long)arg2;
 - (void)authenticatorDidEncounterFingerOff:(id)arg1;
 - (void)authenticatorDidEncounterFingerOn:(id)arg1;
 - (void)_invalidPaymentDataWithParam:(id)arg1;
@@ -53,7 +54,7 @@
 - (void)_startEvaluation;
 - (void)_suspendAuthentication;
 - (void)_resumeAuthenticationWithPreviousError:(id)arg1;
-- (void)authorizationDidAuthorizePaymentCompleteWithStatus:(long long)arg1;
+- (void)authorizationDidAuthorizePaymentCompleteWithResult:(id)arg1;
 - (void)_processClientCallback:(id)arg1;
 - (_Bool)paymentAuthorizationStateMachine:(id)arg1 didTransitionFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3 withParam:(id)arg4;
 - (void)updatePaymentWithClientUpdate:(id)arg1;
@@ -61,7 +62,7 @@
 - (void)_resetAndScheduleTimeout;
 - (void)_payWithPasscodePressed:(id)arg1;
 - (void)_cancelPassphrasePressed;
-- (void)cancelPressed;
+- (void)cancelPressed:(id)arg1;
 - (void)viewDidLoad;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

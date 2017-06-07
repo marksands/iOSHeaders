@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <PersistentConnection/PCInterfaceUsabilityMonitorDelegate-Protocol.h>
 #import <PersistentConnection/PCInterfaceUsabilityMonitorProtocol-Protocol.h>
@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_interfaceMonitors;
 }
 
+- (void).cxx_destruct;
 - (void)interfaceReachabilityChanged:(id)arg1;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)_callDelegateOnIvarQueueWithBlock:(CDUnknownBlockType)arg1;

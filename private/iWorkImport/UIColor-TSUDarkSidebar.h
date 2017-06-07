@@ -30,6 +30,10 @@
 + (id)tsu_sidebarInactiveTintColor;
 + (id)tsu_sidebarActiveTintColor;
 + (id)tsu_sidebarNavigationBarTitleColor;
++ (id)tsu_mediaBrowserSecondaryContentColor;
++ (id)tsu_mediaBrowserPrimaryContentColor;
++ (id)tsu_mediaBrowserNavigationBarTintColor;
++ (id)tsu_mediaBrowserNavigationBarTitleColor;
 + (id)tsu_rowItemDividersColor;
 + (id)tsu_sidebarCellBackgroundColor;
 + (id)tsu_darkInsertSwatchBackgroundColor;

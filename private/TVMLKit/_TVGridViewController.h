@@ -6,24 +6,19 @@
 
 #import <TVMLKit/_TVMLCollectionViewController.h>
 
-@class UIView;
-
 __attribute__((visibility("hidden")))
 @interface _TVGridViewController : _TVMLCollectionViewController
 {
     _Bool _configureForListTemplate;
-    UIView *_headerView;
 }
 
-- (void).cxx_destruct;
-- (void)_adjustViewportScrollingInScrollView:(id)arg1 forCell:(id)arg2;
-- (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
-- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
+- (_Bool)shouldHeaderFloatByDefault;
 - (void)updateViewLayoutAnimated:(_Bool)arg1 relayout:(_Bool)arg2;
 - (_Bool)contentFlowsVertically;
 - (id)makeCollectionViewWithFrame:(struct CGRect)arg1;
+- (void)viewDidLoad;
 - (void)updateWithViewElement:(id)arg1 cellMetrics:(struct TVCellMetrics)arg2;
 
 @end

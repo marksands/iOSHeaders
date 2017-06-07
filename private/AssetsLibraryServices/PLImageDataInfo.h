@@ -12,7 +12,6 @@
 {
     _Bool _deliveredPlaceholder;
     _Bool _canDownloadFromCloud;
-    _Bool _isOptimizedForSharing;
     long long _deliveredFormat;
     NSURL *_URL;
     NSString *_sandboxExtensionToken;
@@ -20,7 +19,6 @@
     long long _EXIFOrientation;
 }
 
-@property _Bool isOptimizedForSharing; // @synthesize isOptimizedForSharing=_isOptimizedForSharing;
 @property long long EXIFOrientation; // @synthesize EXIFOrientation=_EXIFOrientation;
 @property(retain) NSString *UTI; // @synthesize UTI=_UTI;
 @property(retain) NSString *sandboxExtensionToken; // @synthesize sandboxExtensionToken=_sandboxExtensionToken;

@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 
 @property(copy, nonatomic) NSString *name; // @synthesize name=mName;
 - (id)description;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)validateColorScheme;
 - (_Bool)isEmpty;

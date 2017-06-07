@@ -74,7 +74,7 @@ __attribute__((visibility("hidden")))
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)i_setDocumentRoot:(id)arg1;
 - (id)initWithSection:(id)arg1;
 

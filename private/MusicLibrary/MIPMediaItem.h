@@ -34,7 +34,10 @@
     long long _subscriptionStoreItemId;
     NSString *_artworkId;
     NSString *_chapterMetadataUrl;
+    int _cloudMatchedStatus;
+    int _cloudPlaybackEndpointType;
     int _cloudStatus;
+    NSString *_cloudUniversalLibraryId;
     NSString *_comment;
     int _contentRating;
     int _contentRatingLevel;
@@ -50,10 +53,13 @@
     MIPMovie *_movie;
     int _playCount;
     int _playCountDelta;
+    int _playbackEndpointType;
     MIPPodcast *_podcast;
     NSString *_purchaseHistoryRedownloadParams;
     int _purchaseHistoryToken;
     NSString *_sagaRedownloadParams;
+    NSString *_secondaryArtworkId;
+    int _secondaryArtworkSourceType;
     NSString *_shortDescription;
     int _skipCount;
     int _skipCountDelta;
@@ -69,6 +75,7 @@
     _Bool _explicitContent;
     _Bool _hasLocalAsset;
     _Bool _hidden;
+    _Bool _inUsersCloudLibrary;
     _Bool _isInUsersLibrary;
     _Bool _likedStateChanged;
     _Bool _needsReporting;
@@ -95,6 +102,8 @@
         unsigned int storePlaylistId:1;
         unsigned int storefrontId:1;
         unsigned int subscriptionStoreItemId:1;
+        unsigned int cloudMatchedStatus:1;
+        unsigned int cloudPlaybackEndpointType:1;
         unsigned int cloudStatus:1;
         unsigned int contentRating:1;
         unsigned int contentRatingLevel:1;
@@ -104,7 +113,9 @@
         unsigned int mediaType:1;
         unsigned int playCount:1;
         unsigned int playCountDelta:1;
+        unsigned int playbackEndpointType:1;
         unsigned int purchaseHistoryToken:1;
+        unsigned int secondaryArtworkSourceType:1;
         unsigned int skipCount:1;
         unsigned int skipCountDelta:1;
         unsigned int storeProtectionType:1;
@@ -113,6 +124,7 @@
         unsigned int explicitContent:1;
         unsigned int hasLocalAsset:1;
         unsigned int hidden:1;
+        unsigned int inUsersCloudLibrary:1;
         unsigned int isInUsersLibrary:1;
         unsigned int likedStateChanged:1;
         unsigned int needsReporting:1;
@@ -126,6 +138,7 @@
 @property(retain, nonatomic) MIPTVShow *tvShow; // @synthesize tvShow=_tvShow;
 @property(retain, nonatomic) MIPMovie *movie; // @synthesize movie=_movie;
 @property(retain, nonatomic) MIPSong *song; // @synthesize song=_song;
+@property(retain, nonatomic) NSString *cloudUniversalLibraryId; // @synthesize cloudUniversalLibraryId=_cloudUniversalLibraryId;
 @property(nonatomic) long long subscriptionStoreItemId; // @synthesize subscriptionStoreItemId=_subscriptionStoreItemId;
 @property(retain, nonatomic) NSString *storeXID; // @synthesize storeXID=_storeXID;
 @property(retain, nonatomic) NSString *sagaRedownloadParams; // @synthesize sagaRedownloadParams=_sagaRedownloadParams;
@@ -137,6 +150,12 @@
 @property(nonatomic) long long storefrontId; // @synthesize storefrontId=_storefrontId;
 @property(nonatomic) long long storeId; // @synthesize storeId=_storeId;
 @property(retain, nonatomic) NSMutableArray *libraryIdentifiers; // @synthesize libraryIdentifiers=_libraryIdentifiers;
+@property(retain, nonatomic) NSString *secondaryArtworkId; // @synthesize secondaryArtworkId=_secondaryArtworkId;
+@property(nonatomic) int secondaryArtworkSourceType; // @synthesize secondaryArtworkSourceType=_secondaryArtworkSourceType;
+@property(nonatomic) _Bool inUsersCloudLibrary; // @synthesize inUsersCloudLibrary=_inUsersCloudLibrary;
+@property(nonatomic) int cloudMatchedStatus; // @synthesize cloudMatchedStatus=_cloudMatchedStatus;
+@property(nonatomic) int playbackEndpointType; // @synthesize playbackEndpointType=_playbackEndpointType;
+@property(nonatomic) int cloudPlaybackEndpointType; // @synthesize cloudPlaybackEndpointType=_cloudPlaybackEndpointType;
 @property(nonatomic) _Bool userDisabled; // @synthesize userDisabled=_userDisabled;
 @property(nonatomic) int storeProtectionType; // @synthesize storeProtectionType=_storeProtectionType;
 @property(nonatomic) _Bool cloudAssetAvailable; // @synthesize cloudAssetAvailable=_cloudAssetAvailable;
@@ -197,6 +216,7 @@
 @property(readonly, nonatomic) _Bool hasTvShow;
 @property(readonly, nonatomic) _Bool hasMovie;
 @property(readonly, nonatomic) _Bool hasSong;
+@property(readonly, nonatomic) _Bool hasCloudUniversalLibraryId;
 @property(nonatomic) _Bool hasSubscriptionStoreItemId;
 @property(readonly, nonatomic) _Bool hasStoreXID;
 @property(readonly, nonatomic) _Bool hasSagaRedownloadParams;
@@ -211,6 +231,12 @@
 - (unsigned long long)libraryIdentifiersCount;
 - (void)addLibraryIdentifiers:(id)arg1;
 - (void)clearLibraryIdentifiers;
+@property(readonly, nonatomic) _Bool hasSecondaryArtworkId;
+@property(nonatomic) _Bool hasSecondaryArtworkSourceType;
+@property(nonatomic) _Bool hasInUsersCloudLibrary;
+@property(nonatomic) _Bool hasCloudMatchedStatus;
+@property(nonatomic) _Bool hasPlaybackEndpointType;
+@property(nonatomic) _Bool hasCloudPlaybackEndpointType;
 @property(nonatomic) _Bool hasUserDisabled;
 @property(nonatomic) _Bool hasStoreProtectionType;
 @property(nonatomic) _Bool hasCloudAssetAvailable;

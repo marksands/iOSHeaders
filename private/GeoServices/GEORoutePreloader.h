@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
 #import <GeoServices/GEORoutePreloadSession-Protocol.h>
@@ -34,6 +34,7 @@
 @property(nonatomic) unsigned long long networkQuality; // @synthesize networkQuality=_networkQuality;
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 @property __weak id <GEORoutePreloadSessionDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)resourceManifestManagerDidChangeActiveTileGroup:(id)arg1;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)tilesChanged;

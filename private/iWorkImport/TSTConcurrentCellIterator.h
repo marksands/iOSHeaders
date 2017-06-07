@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableArray, TSTCellRegion, TSTTableDataStore, TSTTableModel, TSUWidthLimitedQueue;
+@class NSMutableArray, TSTCellRegion, TSTInfo, TSTTableDataStore, TSUWidthLimitedQueue;
 
 __attribute__((visibility("hidden")))
 @interface TSTConcurrentCellIterator : NSObject
@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     _Bool _returnCellBorder;
     _Bool _waitedForCompletion;
     _Bool _collectedRowRocks;
-    TSTTableModel *_tableModel;
+    TSTInfo *_tableInfo;
     TSTCellRegion *_region;
     TSTCellRegion *_forcingRegion;
     TSTTableDataStore *_tableDataStore;
@@ -27,23 +27,24 @@ __attribute__((visibility("hidden")))
 + (id)p_sharedQueue;
 @property(nonatomic) _Bool collectedRowRocks; // @synthesize collectedRowRocks=_collectedRowRocks;
 @property(nonatomic) _Bool waitedForCompletion; // @synthesize waitedForCompletion=_waitedForCompletion;
+@property(retain, nonatomic) NSMutableArray *arrayOfArraysOfRowRocks; // @synthesize arrayOfArraysOfRowRocks=_arrayOfArraysOfRowRocks;
+@property(nonatomic) __weak TSUWidthLimitedQueue *queue; // @synthesize queue=_queue;
+@property(nonatomic) __weak TSTTableDataStore *tableDataStore; // @synthesize tableDataStore=_tableDataStore;
+@property(retain, nonatomic) TSTCellRegion *forcingRegion; // @synthesize forcingRegion=_forcingRegion;
+@property(retain, nonatomic) TSTCellRegion *region; // @synthesize region=_region;
+@property(retain, nonatomic) TSTInfo *tableInfo; // @synthesize tableInfo=_tableInfo;
 @property(nonatomic) _Bool returnCellBorder; // @synthesize returnCellBorder=_returnCellBorder;
 @property(nonatomic) _Bool returnEmptyCells; // @synthesize returnEmptyCells=_returnEmptyCells;
 @property(nonatomic) _Bool returnHiddenCells; // @synthesize returnHiddenCells=_returnHiddenCells;
-@property(retain, nonatomic) NSMutableArray *arrayOfArraysOfRowRocks; // @synthesize arrayOfArraysOfRowRocks=_arrayOfArraysOfRowRocks;
-@property(nonatomic) TSUWidthLimitedQueue *queue; // @synthesize queue=_queue;
-@property(nonatomic) TSTTableDataStore *tableDataStore; // @synthesize tableDataStore=_tableDataStore;
-@property(retain, nonatomic) TSTCellRegion *forcingRegion; // @synthesize forcingRegion=_forcingRegion;
-@property(retain, nonatomic) TSTCellRegion *region; // @synthesize region=_region;
-@property(retain, nonatomic) TSTTableModel *tableModel; // @synthesize tableModel=_tableModel;
+- (void).cxx_destruct;
 - (id)collectRowRocks;
 - (void)waitForConcurrentEnumerationToComplete;
 - (void)enumerateConcurrentlyUsingRowBeginBlock:(CDUnknownBlockType)arg1 concurrentBlock:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initWithTableModel:(id)arg1 region:(id)arg2 forcingRegion:(id)arg3 clampingRange:(struct TSUCellRect)arg4;
-- (id)initWithTableModel:(id)arg1 region:(id)arg2 forcingRegion:(id)arg3;
-- (id)initWithTableModel:(id)arg1 region:(id)arg2;
-- (id)initWithTableModel:(id)arg1;
+- (id)initWithTableInfo:(id)arg1 region:(id)arg2 forcingRegion:(id)arg3 clampingRange:(struct TSUCellRect)arg4;
+- (id)initWithTableInfo:(id)arg1 region:(id)arg2 forcingRegion:(id)arg3;
+- (id)initWithTableInfo:(id)arg1 region:(id)arg2;
+- (id)initWithTableInfo:(id)arg1;
 
 @end
 

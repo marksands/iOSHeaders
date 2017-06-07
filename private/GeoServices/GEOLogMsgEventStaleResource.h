@@ -17,6 +17,7 @@
 
 + (Class)staleResourceType;
 @property(retain, nonatomic) NSMutableArray *staleResources; // @synthesize staleResources=_staleResources;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (unsigned long long)staleResourcesCount;
 - (void)addStaleResource:(id)arg1;
 - (void)clearStaleResources;
-- (void)dealloc;
 
 @end
 

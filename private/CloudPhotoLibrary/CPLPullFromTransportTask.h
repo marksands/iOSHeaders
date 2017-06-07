@@ -7,7 +7,7 @@
 #import <CloudPhotoLibrary/CPLEngineSyncTask.h>
 
 @class CPLFeatureVersionHistory, NSData, NSObject, NSString;
-@protocol CPLEngineTransportDownloadBatchTask, CPLEngineTransportGetLibraryInfoTask, CPLEngineTransportQueryTask, CPLPullFromTransportTaskDelegate, OS_dispatch_queue;
+@protocol CPLEngineTransportDownloadBatchTask, CPLEngineTransportGetLibraryInfoTask, CPLEngineTransportGroup, CPLEngineTransportQueryTask, CPLPullFromTransportTaskDelegate, OS_dispatch_queue;
 
 @interface CPLPullFromTransportTask : CPLEngineSyncTask
 {
@@ -26,6 +26,7 @@
     unsigned long long _rewindFeatureVersion;
     NSData *_rewindSyncAnchor;
     CPLFeatureVersionHistory *_versionHistory;
+    id <CPLEngineTransportGroup> _transportGroup;
     _Bool _isPrePushPhase;
 }
 

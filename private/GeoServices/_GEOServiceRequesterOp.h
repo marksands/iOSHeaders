@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOPBSessionRequesterDelegate-Protocol.h>
 
-@class GEOMapServiceTraits, GEORequester, NSData, NSNumber, NSString, PBRequest;
+@class GEOApplicationAuditToken, GEOMapServiceTraits, NSArray, NSDictionary, NSNumber, NSString, PBRequest;
 
 __attribute__((visibility("hidden")))
 @interface _GEOServiceRequesterOp : NSObject <GEOPBSessionRequesterDelegate>
@@ -16,10 +16,10 @@ __attribute__((visibility("hidden")))
     PBRequest *_request;
     NSString *_debugRequestName;
     unsigned long long _urlType;
+    NSArray *_additionalURLQueryItems;
+    NSDictionary *_additionalHTTPHeaders;
     CDUnknownBlockType _completionHandler;
-    _Bool _cancelled;
-    GEORequester *_requester;
-    NSData *_auditToken;
+    GEOApplicationAuditToken *_auditToken;
     NSNumber *_serviceTypeNumber;
     double _timeout;
     long long _experimentType;
@@ -29,14 +29,12 @@ __attribute__((visibility("hidden")))
     GEOMapServiceTraits *_traits;
 }
 
-- (void)requester:(id)arg1 didFailWithError:(id)arg2;
-- (void)requesterDidCancel:(id)arg1;
-- (void)requesterDidFinish:(id)arg1;
+- (void).cxx_destruct;
 - (void)cancel;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_cleanup;
 - (void)dealloc;
-- (id)initWithRequest:(id)arg1 auditToken:(id)arg2 urlType:(unsigned long long)arg3 debugRequestName:(id)arg4 serviceType:(id)arg5 experimentType:(long long)arg6 experimentDispatcherRequestType:(int)arg7 timeout:(double)arg8 shouldThrottleRequests:(_Bool)arg9 throttleKey:(id)arg10 traits:(id)arg11;
+- (id)initWithRequest:(id)arg1 auditToken:(id)arg2 urlType:(unsigned long long)arg3 additionalURLQueryItems:(id)arg4 additionalHTTPHeaders:(id)arg5 debugRequestName:(id)arg6 serviceType:(id)arg7 experimentType:(long long)arg8 experimentDispatcherRequestType:(int)arg9 timeout:(double)arg10 shouldThrottleRequests:(_Bool)arg11 throttleKey:(id)arg12 traits:(id)arg13;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

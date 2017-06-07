@@ -17,10 +17,11 @@
 @property(nonatomic) _Bool preventsAutomaticLock; // @dynamic preventsAutomaticLock;
 @property(nonatomic) _Bool coalescesWhenLocked; // @dynamic coalescesWhenLocked;
 @property(nonatomic) unsigned long long contentPreviewSetting; // @dynamic contentPreviewSetting;
+@property(nonatomic) _Bool suppressesBodyWhenLocked; // @dynamic suppressesBodyWhenLocked;
 @property(nonatomic) _Bool suppressesSubtitleWhenLocked; // @dynamic suppressesSubtitleWhenLocked;
+@property(nonatomic) _Bool suppressesTitleWhenLocked; // @dynamic suppressesTitleWhenLocked;
 @property(nonatomic) _Bool revealsAdditionalContentOnPresentation; // @dynamic revealsAdditionalContentOnPresentation;
 @property(nonatomic) _Bool preemptsPresentedNotification; // @dynamic preemptsPresentedNotification;
-@property(nonatomic) _Bool ignoreAttachmentImageThumbnailCrop; // @dynamic ignoreAttachmentImageThumbnailCrop;
 @property(nonatomic) unsigned long long messageNumberOfLines; // @dynamic messageNumberOfLines;
 @property(nonatomic) _Bool hideClearActionInList; // @dynamic hideClearActionInList;
 @property(nonatomic) _Bool requestsFullScreenPresentation; // @dynamic requestsFullScreenPresentation;

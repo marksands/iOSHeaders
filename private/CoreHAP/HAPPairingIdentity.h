@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <CoreHAP/NSSecureCoding-Protocol.h>
 
 @class HAPPairingKey, NSString;
 
-@interface HAPPairingIdentity : NSObject <NSSecureCoding>
+@interface HAPPairingIdentity : HMFObject <NSSecureCoding>
 {
     NSString *_identifier;
     HAPPairingKey *_publicKey;
@@ -18,12 +18,15 @@
     unsigned long long _permissions;
 }
 
++ (id)pairingIdentityWithDictionary:(id)arg1;
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) unsigned long long permissions; // @synthesize permissions=_permissions;
 @property(readonly, nonatomic) HAPPairingKey *privateKey; // @synthesize privateKey=_privateKey;
 @property(readonly, nonatomic) HAPPairingKey *publicKey; // @synthesize publicKey=_publicKey;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)dictionaryEncoding;
+- (void)updateWithDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)isEqual:(id)arg1;

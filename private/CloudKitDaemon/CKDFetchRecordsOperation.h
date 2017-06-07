@@ -6,7 +6,7 @@
 
 #import <CloudKitDaemon/CKDDatabaseOperation.h>
 
-@class CKDDecryptRecordsOperation, CKDRecordCache, NSArray, NSDictionary, NSMapTable, NSMutableDictionary, NSObject, NSSet;
+@class CKDDecryptRecordsOperation, CKDRecordCache, NSArray, NSDictionary, NSMapTable, NSMutableArray, NSMutableDictionary, NSObject, NSSet;
 @protocol OS_dispatch_group;
 
 __attribute__((visibility("hidden")))
@@ -36,10 +36,12 @@ __attribute__((visibility("hidden")))
     unsigned long long _requestedTTL;
     unsigned long long _URLOptions;
     CKDRecordCache *_cache;
+    NSMutableArray *_recordIDsToRefetch;
     NSDictionary *_webSharingIdentityDataByRecordID;
 }
 
 @property(retain, nonatomic) NSDictionary *webSharingIdentityDataByRecordID; // @synthesize webSharingIdentityDataByRecordID=_webSharingIdentityDataByRecordID;
+@property(retain, nonatomic) NSMutableArray *recordIDsToRefetch; // @synthesize recordIDsToRefetch=_recordIDsToRefetch;
 @property(retain, nonatomic) CKDRecordCache *cache; // @synthesize cache=_cache;
 @property(nonatomic) unsigned long long URLOptions; // @synthesize URLOptions=_URLOptions;
 @property(nonatomic) unsigned long long requestedTTL; // @synthesize requestedTTL=_requestedTTL;
@@ -73,13 +75,13 @@ __attribute__((visibility("hidden")))
 - (void)_addDownloadTaskForRecord:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (_Bool)_prepareAsset:(id)arg1 record:(id)arg2 recordKey:(id)arg3 signature:(id)arg4 assetTransferOptions:(id)arg5;
 - (void)_handleRecordFetch:(id)arg1 recordID:(id)arg2 etagMatched:(_Bool)arg3 responseCode:(id)arg4;
-- (void)_decryptPropertiesOnRecord:(id)arg1;
+- (void)_decryptPropertiesOnRecord:(id)arg1 recordID:(id)arg2;
 @property(readonly, nonatomic) _Bool hasRecordDecryptOperation;
 @property(readonly, nonatomic) CKDDecryptRecordsOperation *recordDecryptOperation;
-- (void)_continueHandleFetchedRecord:(id)arg1;
+- (void)_continueHandleFetchedRecord:(id)arg1 recordID:(id)arg2;
 - (void)setError:(id)arg1 forRecordID:(id)arg2;
 - (id)errorForRecordID:(id)arg1;
-- (void)_fetchRecords;
+- (void)fetchRecordsWithIDs:(id)arg1 andFullRecords:(id)arg2;
 - (void)_findCurrentUserParticipantOnShare:(id)arg1 identityDelegate:(id)arg2;
 - (id)nameForState:(unsigned long long)arg1;
 - (_Bool)makeStateTransition;

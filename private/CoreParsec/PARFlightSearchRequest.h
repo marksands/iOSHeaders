@@ -8,19 +8,19 @@
 
 #import <CoreParsec/NSSecureCoding-Protocol.h>
 
-@class NSDateComponents, NSString, NSTimeZone;
+@class NSDate, NSString;
 
 @interface PARFlightSearchRequest : PARRequest <NSSecureCoding>
 {
-    NSTimeZone *_timezone;
-    NSDateComponents *_dateComponents;
+    NSDate *_date;
     NSString *_flightQuery;
+    NSString *_appBundleId;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *appBundleId; // @synthesize appBundleId=_appBundleId;
 @property(copy, nonatomic) NSString *flightQuery; // @synthesize flightQuery=_flightQuery;
-@property(copy, nonatomic) NSDateComponents *dateComponents; // @synthesize dateComponents=_dateComponents;
-@property(copy, nonatomic) NSTimeZone *timezone; // @synthesize timezone=_timezone;
+@property(copy, nonatomic) NSDate *date; // @synthesize date=_date;
 - (void).cxx_destruct;
 - (Class)responseClass;
 - (id)initWithCoder:(id)arg1;

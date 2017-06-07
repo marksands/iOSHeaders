@@ -80,6 +80,8 @@
 - (id)_remoteSecretControllerForDevice:(id)arg1;
 - (id)_remoteSecretControllerForNewestDevice:(id)arg1;
 - (void)cdpContext:(id)arg1 promptForRemoteSecretWithDevices:(id)arg2 offeringRemoteApproval:(_Bool)arg3 validator:(id)arg4;
+- (id)_recoveryKeyControllerWithContext:(id)arg1 validator:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)cdpContext:(id)arg1 promptForRecoveryKeyWithValidator:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cdpContext:(id)arg1 confirmRecoveryKeyWithValidator:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cdpContext:(id)arg1 presentRecoveryKeyWithValidator:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)cdpContext:(id)arg1 beginRemoteApprovalWithValidator:(id)arg2;

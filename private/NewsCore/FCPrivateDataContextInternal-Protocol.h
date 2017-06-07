@@ -6,7 +6,8 @@
 
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCCKDatabase, FCCKRecordZone, NSString;
+@class FCCKPrivateDatabase, FCCKRecordZone, NSString;
+@protocol FCAppActivityMonitor;
 
 @protocol FCPrivateDataContextInternal <NSObject>
 @property(readonly, nonatomic) FCCKRecordZone *userInfoRecordZone;
@@ -14,7 +15,8 @@
 @property(readonly, nonatomic) FCCKRecordZone *readingHistoryRecordZone;
 @property(readonly, nonatomic) FCCKRecordZone *subscriptionsRecordZone;
 @property(readonly, nonatomic) FCCKRecordZone *readingListRecordZone;
-@property(readonly, nonatomic) FCCKDatabase *privateDatabase;
+@property(readonly, nonatomic) id <FCAppActivityMonitor> appActivityMonitor;
+@property(readonly, nonatomic) FCCKPrivateDatabase *privateDatabase;
 - (FCCKRecordZone *)recordZoneWithName:(NSString *)arg1;
 @end
 

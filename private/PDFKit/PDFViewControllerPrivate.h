@@ -6,21 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, PDFPage, PDFSelection, PDFView, UIMenuController;
+@class CALayer, PDFAnnotation, PDFSelection, PDFView;
 
+__attribute__((visibility("hidden")))
 @interface PDFViewControllerPrivate : NSObject
 {
     PDFView *view;
     struct CGRect viewMarquee;
     CALayer *marqueeEffect;
-    UIMenuController *menuController;
-    PDFSelection *touchSelection;
-    PDFPage *touchLeftPage;
-    struct CGPoint touchLeftPoint;
-    PDFPage *touchRightPage;
-    struct CGPoint touchRightPoint;
-    _Bool isWordSelecting;
-    int draggingHandleState;
+    PDFAnnotation *activeAnnotation;
+    int textSelectionState;
+    int textSelectionHandle;
+    PDFSelection *textSelection;
 }
 
 - (void).cxx_destruct;

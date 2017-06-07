@@ -8,6 +8,7 @@
 
 @class PDFKitButtonPrivateVars;
 
+__attribute__((visibility("hidden")))
 @interface PDFKitButton : UIButton
 {
     PDFKitButtonPrivateVars *_private;

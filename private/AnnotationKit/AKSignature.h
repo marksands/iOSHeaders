@@ -8,10 +8,11 @@
 
 #import <AnnotationKit/NSSecureCoding-Protocol.h>
 
-@class NSDate, NSUUID;
+@class NSDate, NSUUID, PKDrawing;
 
 @interface AKSignature : NSObject <NSSecureCoding>
 {
+    PKDrawing *_drawing;
     struct CGPath *_path;
     struct CGRect _strokesBounds;
     _Bool _shouldPersist;
@@ -32,10 +33,12 @@
 @property(readonly) struct CGPath *path;
 - (void)setPath:(struct CGPath *)arg1;
 @property(readonly) struct CGRect pathBounds;
+@property(readonly) PKDrawing *drawing;
 - (void)dealloc;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithPath:(struct CGPath *)arg1 baselineOffset:(double)arg2;
-- (id)initWithPath:(struct CGPath *)arg1 baselineOffset:(double)arg2 creationDate:(id)arg3;
+- (id)init;
+- (id)initWithDrawing:(id)arg1 path:(struct CGPath *)arg2 baselineOffset:(double)arg3;
+- (id)initWithDrawing:(id)arg1 path:(struct CGPath *)arg2 baselineOffset:(double)arg3 creationDate:(id)arg4;
 
 @end
 

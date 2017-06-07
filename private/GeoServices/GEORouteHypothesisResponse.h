@@ -23,6 +23,7 @@
 @property(nonatomic) double updatedTimeStamp; // @synthesize updatedTimeStamp=_updatedTimeStamp;
 @property(retain, nonatomic) GEOETAResponse *etaResponse; // @synthesize etaResponse=_etaResponse;
 @property(retain, nonatomic) GEODirectionsResponse *directionsResponse; // @synthesize directionsResponse=_directionsResponse;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(nonatomic) _Bool hasUpdatedTimeStamp;
 @property(readonly, nonatomic) _Bool hasEtaResponse;
 @property(readonly, nonatomic) _Bool hasDirectionsResponse;
-- (void)dealloc;
 
 @end
 

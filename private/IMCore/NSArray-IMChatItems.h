@@ -20,5 +20,6 @@
 @property(readonly, nonatomic) IMMessage *lastIncomingMessage;
 @property(readonly, nonatomic) IMMessage *lastFinishedMessage;
 @property(readonly, nonatomic) IMMessage *lastMessage;
+@property(readonly, nonatomic) IMMessage *firstMessage;
 @end
 

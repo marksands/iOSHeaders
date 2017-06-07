@@ -8,8 +8,6 @@
 
 @interface NSData (CompressionAdditions)
 - (id)_FTCopyGzippedData;
-- (id)_FTOptionallyDecompressData;
-- (id)_FTDecompressData;
 - (id)_FTStringFromBaseData;
 @end
 

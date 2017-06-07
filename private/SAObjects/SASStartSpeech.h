@@ -16,6 +16,7 @@
 
 + (id)startSpeechWithDictionary:(id)arg1 context:(id)arg2;
 + (id)startSpeech;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSDictionary *voiceTriggerEventInfo;
 @property(copy, nonatomic) NSNumber *noiseReductionLevel;
 @property(copy, nonatomic) NSNumber *motionConfidence;

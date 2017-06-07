@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsCore/FCCloudKitCacheClearing-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
 @class FCKeyValueStore, FCNetworkBehaviorMonitor, FCPersonalizationData, FCPrivateChannelMembershipController, FCReadingHistory, FCReadingList, FCSubscriptionList, FCTagSettings, FCUserInfo, NSString;
 @protocol FCPrivateDataContextInternal, FCPushNotificationHandling;
 
-@protocol FCPrivateDataContext <NSObject, FCCloudKitCacheClearing>
+@protocol FCPrivateDataContext <NSObject>
 @property(readonly, nonatomic) id <FCPrivateDataContextInternal> internalPrivateDataContext;
 @property(readonly, copy, nonatomic) NSString *privateDataDirectory;
+@property(readonly, nonatomic, getter=isABTestingEnabled) _Bool abTestingEnabled;
+@property(readonly, nonatomic, getter=isPersonalizationEnabled) _Bool personalizationEnabled;
 @property(readonly, nonatomic, getter=isPrivateDataSyncingEnabled) _Bool privateDataSyncingEnabled;
 @property(readonly, nonatomic) id <FCPushNotificationHandling> privatePushNotificationHandler;
 @property(readonly, nonatomic) FCNetworkBehaviorMonitor *networkBehaviorMonitor;

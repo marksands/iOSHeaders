@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class FTMessageDelivery, NSArray;
 
@@ -15,10 +15,10 @@
 }
 
 + (id)sharedInstance;
-@property(retain) FTMessageDelivery *_delivery; // @synthesize _delivery;
-@property(retain) NSArray *_regions; // @synthesize _regions;
+@property(retain) FTMessageDelivery *delivery; // @synthesize delivery=_delivery;
+@property(retain) NSArray *regions; // @synthesize regions=_regions;
+- (void).cxx_destruct;
 - (id)regionForID:(id)arg1;
-@property(readonly) NSArray *regions;
 @property(readonly) _Bool isLoading;
 @property(readonly) _Bool isLoaded;
 - (void)flushRegions;

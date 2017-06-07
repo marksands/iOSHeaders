@@ -8,12 +8,11 @@
 
 #import <ITMLKit/NSCopying-Protocol.h>
 
-@class IKDataBinding, IKJSDataItem, NSDictionary, NSString;
+@class IKDataBinding, NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface IKAppDataItem : NSObject <NSCopying>
 {
-    IKJSDataItem *_jsDataItem;
     NSString *_type;
     NSString *_identifier;
     IKDataBinding *_binding;
@@ -24,14 +23,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) IKDataBinding *binding; // @synthesize binding=_binding;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSString *type; // @synthesize type=_type;
-@property(readonly, nonatomic) __weak IKJSDataItem *jsDataItem; // @synthesize jsDataItem=_jsDataItem;
 - (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isDisabled) _Bool disabled;
 - (id)dataItemByUpdatingProperties:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithJSDataItem:(id)arg1 type:(id)arg2 identifier:(id)arg3 binding:(id)arg4;
+- (id)initWithType:(id)arg1 identifier:(id)arg2 binding:(id)arg3;
 
 @end
 

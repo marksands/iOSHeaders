@@ -7,6 +7,7 @@
 #import <BackBoardServices/NSObject-Protocol.h>
 
 @protocol BKEventFocusManagerServerInterface <NSObject>
+- (void)setObservesTouchDelivery:(_Bool)arg1 forTouchIdentifier:(unsigned int)arg2;
 - (void)setObservesFocusDeferralChanges:(_Bool)arg1;
 @end
 

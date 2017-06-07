@@ -8,12 +8,14 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAutocompleteEntry, GEOPDSearchLocationParameters, GEOPDSearchStructureIntentRequestType, GEOPDViewportInfo, NSData, NSString, PBUnknownFields;
+@class GEOPDAutocompleteEntry, GEOPDRecentRouteInfo, GEOPDSearchFilter, GEOPDSearchLocationParameters, GEOPDSearchStructureIntentRequestType, GEOPDViewportInfo, NSData, NSString, PBUnknownFields;
 
 @interface GEOPDSearchParameters : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     unsigned int _maxResults;
+    GEOPDRecentRouteInfo *_recentRouteInfo;
+    GEOPDSearchFilter *_searchFilter;
     GEOPDSearchLocationParameters *_searchLocationParameters;
     NSString *_searchString;
     GEOPDSearchStructureIntentRequestType *_searchStructureIntentType;
@@ -23,9 +25,21 @@
     NSData *_suggestionEntryMetadata;
     NSData *_suggestionMetadata;
     GEOPDViewportInfo *_viewportInfo;
-    CDStruct_aa0bba6c _has;
+    _Bool _supportDirectionIntentSearch;
+    _Bool _supportDymSuggestion;
+    struct {
+        unsigned int maxResults:1;
+        unsigned int searchType:1;
+        unsigned int sortOrder:1;
+        unsigned int supportDirectionIntentSearch:1;
+        unsigned int supportDymSuggestion:1;
+    } _has;
 }
 
+@property(nonatomic) _Bool supportDymSuggestion; // @synthesize supportDymSuggestion=_supportDymSuggestion;
+@property(nonatomic) _Bool supportDirectionIntentSearch; // @synthesize supportDirectionIntentSearch=_supportDirectionIntentSearch;
+@property(retain, nonatomic) GEOPDSearchFilter *searchFilter; // @synthesize searchFilter=_searchFilter;
+@property(retain, nonatomic) GEOPDRecentRouteInfo *recentRouteInfo; // @synthesize recentRouteInfo=_recentRouteInfo;
 @property(retain, nonatomic) GEOPDSearchLocationParameters *searchLocationParameters; // @synthesize searchLocationParameters=_searchLocationParameters;
 @property(retain, nonatomic) GEOPDSearchStructureIntentRequestType *searchStructureIntentType; // @synthesize searchStructureIntentType=_searchStructureIntentType;
 @property(retain, nonatomic) GEOPDAutocompleteEntry *suggestionEntry; // @synthesize suggestionEntry=_suggestionEntry;
@@ -33,6 +47,7 @@
 @property(retain, nonatomic) NSData *suggestionMetadata; // @synthesize suggestionMetadata=_suggestionMetadata;
 @property(retain, nonatomic) GEOPDViewportInfo *viewportInfo; // @synthesize viewportInfo=_viewportInfo;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -43,6 +58,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSupportDymSuggestion;
+@property(nonatomic) _Bool hasSupportDirectionIntentSearch;
+@property(readonly, nonatomic) _Bool hasSearchFilter;
+@property(readonly, nonatomic) _Bool hasRecentRouteInfo;
 @property(readonly, nonatomic) _Bool hasSearchLocationParameters;
 @property(readonly, nonatomic) _Bool hasSearchStructureIntentType;
 - (int)StringAsSearchType:(id)arg1;
@@ -60,7 +79,6 @@
 - (id)sortOrderAsString:(int)arg1;
 @property(nonatomic) _Bool hasSortOrder;
 @property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
-- (void)dealloc;
 - (id)initWithSearchQuery:(id)arg1 entryMetadata:(id)arg2 metadata:(id)arg3 autocompleteEntry:(id)arg4 maxResults:(unsigned int)arg5 traits:(id)arg6;
 
 @end

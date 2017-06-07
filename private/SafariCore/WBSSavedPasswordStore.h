@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSMutableDictionary;
+@class NSArray, NSMutableDictionary, NSString;
 
 @interface WBSSavedPasswordStore : NSObject
 {
     NSMutableDictionary *_domainToUsers;
     NSArray *_savedPasswords;
+    NSString *_identifier;
 }
 
 + (void)removePassword:(id)arg1;
@@ -19,6 +20,7 @@
 + (id)sharedStore;
 - (void).cxx_destruct;
 - (void)reset;
+- (void)_passwordStoreDidChange:(id)arg1;
 - (id)saveUser:(id)arg1 password:(id)arg2 forProtectionSpace:(id)arg3 highLevelDomain:(id)arg4;
 - (_Bool)canSaveUser:(id)arg1 password:(id)arg2 forProtectionSpace:(id)arg3 highLevelDomain:(id)arg4;
 - (_Bool)changeSavedPassword:(id)arg1 toUser:(id)arg2 password:(id)arg3;
@@ -27,6 +29,8 @@
 - (void)removePassword:(id)arg1;
 - (void)_removePassword:(id)arg1;
 @property(readonly, nonatomic) NSArray *savedPasswords;
+- (id)_allInternetPasswordEntriesFromKeychain;
+- (id)init;
 
 @end
 

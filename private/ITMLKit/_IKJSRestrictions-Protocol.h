@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ITMLKit/IKJSRestrictions-Protocol.h>
 #import <ITMLKit/JSExport-Protocol.h>
 
 @class NSString;
 
-@protocol _IKJSRestrictions <JSExport>
+@protocol _IKJSRestrictions <IKJSRestrictions, JSExport>
 @property(readonly, nonatomic) _Bool allowsShowingUndownloadedMovies;
 @property(readonly, nonatomic) _Bool allowsShowingUndownloadedTVShows;
 @property(readonly, nonatomic) _Bool allowsITunes;

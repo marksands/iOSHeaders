@@ -17,6 +17,7 @@
 }
 
 @property(retain, nonatomic) NSString *displayString; // @synthesize displayString=_displayString;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -28,7 +29,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasDisplayString;
-- (void)dealloc;
 
 @end
 

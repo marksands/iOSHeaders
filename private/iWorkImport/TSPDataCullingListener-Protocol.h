@@ -9,6 +9,7 @@
 @class TSPData;
 
 @protocol TSPDataCullingListener <NSObject>
+- (void)didReplaceContentsOfData:(TSPData *)arg1;
 - (void)willCullData:(TSPData *)arg1;
 @end
 

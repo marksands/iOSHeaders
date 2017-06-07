@@ -43,8 +43,10 @@
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 @property(readonly) unsigned long long count;
 - (id)initWithCRCoder:(id)arg1 dictionary:(const struct Dictionary *)arg2 elementValueDecoder:(CDUnknownBlockType)arg3;
+- (id)initWithCRCoder:(id)arg1 dictionary:(const struct Dictionary *)arg2;
 - (id)initWithCRCoder:(id)arg1;
 - (void)encodeWithCRCoder:(id)arg1 dictionary:(struct Dictionary *)arg2 elementValueCoder:(CDUnknownBlockType)arg3;
+- (void)encodeWithCRCoder:(id)arg1 dictionary:(struct Dictionary *)arg2;
 - (void)encodeWithCRCoder:(id)arg1;
 - (id)initWithDocument:(id)arg1;
 - (id)init;

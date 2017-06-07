@@ -21,8 +21,8 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)terminate;
+- (struct TSUCellCoord)advanceToCellID:(struct TSUCellCoord)arg1;
 - (struct TSUCellCoord)getNext;
-- (void)dealloc;
 - (id)initWithCellRegion:(id)arg1;
 
 // Remaining properties

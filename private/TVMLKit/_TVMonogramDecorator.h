@@ -17,8 +17,8 @@
 @property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
 @property(retain, nonatomic) UIColor *borderColor; // @synthesize borderColor=_borderColor;
 - (void).cxx_destruct;
-- (void)_drawInScaledContext:(struct CGContext *)arg1;
-- (_Bool)_needsAlphaForImage:(id)arg1;
+- (void)drawInContext:(id)arg1 imageRect:(struct CGRect)arg2;
+- (_Bool)needsAlphaForImage:(id)arg1;
 - (id)decoratorIdentifier;
 
 @end

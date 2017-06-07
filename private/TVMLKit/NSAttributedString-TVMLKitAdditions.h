@@ -6,7 +6,10 @@
 
 #import <Foundation/NSAttributedString.h>
 
+@class NSDictionary;
+
 @interface NSAttributedString (TVMLKitAdditions)
+@property(copy, nonatomic, setter=tv_setDefaultAttributes:) NSDictionary *tv_defaultAttributes;
 - (struct CGRect)boundingRectWithWidth:(double)arg1 lines:(unsigned long long)arg2;
 @end
 

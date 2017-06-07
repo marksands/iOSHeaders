@@ -7,6 +7,7 @@
 #import <Foundation/NSCountedSet.h>
 
 @interface NSCountedSet (PGExtensions)
+- (unsigned long long)pg_countForRange:(struct _NSRange)arg1;
 - (id)pg_sortedArrayByCountAscending:(_Bool)arg1;
 - (id)pg_objectWithMinCount;
 - (id)pg_objectWithMaxCount;

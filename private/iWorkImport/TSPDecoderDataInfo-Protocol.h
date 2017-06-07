@@ -6,9 +6,10 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class NSString, TSPDigest;
+@class NSString, TSPDataMetadata, TSPDigest;
 
 @protocol TSPDecoderDataInfo <NSObject>
+@property(readonly, nonatomic) TSPDataMetadata *dataMetadata;
 @property(readonly, nonatomic) NSString *externalFilePath;
 @property(readonly, nonatomic) NSString *documentResourceLocator;
 @property(readonly, nonatomic) NSString *preferredFilename;

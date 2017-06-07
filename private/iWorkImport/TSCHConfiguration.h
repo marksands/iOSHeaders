@@ -44,6 +44,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool supportsChartRangeEditingMode; // @synthesize supportsChartRangeEditingMode=mSupportsChartRangeEditingMode;
 @property(nonatomic) _Bool supportsChartDataEditor; // @synthesize supportsChartDataEditor=mSupportsChartDataEditor;
 @property(readonly) TSSPropertyMap *appSpecificPropertyOverrides;
+- (void)dealloc;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)autorelease;

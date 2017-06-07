@@ -8,6 +8,7 @@
 
 #import <iWorkImport/TSDCompatibilityAwareMediaContainer-Protocol.h>
 #import <iWorkImport/TSDDrawableContainerInfo-Protocol.h>
+#import <iWorkImport/TSDMutableContainerInfo-Protocol.h>
 #import <iWorkImport/TSDReducibleImageContainer-Protocol.h>
 #import <iWorkImport/TSDReplaceableMediaContainer-Protocol.h>
 #import <iWorkImport/TSKDocumentObject-Protocol.h>
@@ -19,7 +20,7 @@
 @protocol TSDContainerInfo, TSDOwningAttachment;
 
 __attribute__((visibility("hidden")))
-@interface KNAbstractSlide : TSPObject <TSSPropertySource, TSKDocumentObject, TSDDrawableContainerInfo, TSKTransformableObject, TSSStyleClient, TSDReplaceableMediaContainer, TSDReducibleImageContainer, TSDCompatibilityAwareMediaContainer>
+@interface KNAbstractSlide : TSPObject <TSSPropertySource, TSKDocumentObject, TSDDrawableContainerInfo, TSDMutableContainerInfo, TSKTransformableObject, TSSStyleClient, TSDReplaceableMediaContainer, TSDReducibleImageContainer, TSDCompatibilityAwareMediaContainer>
 {
     KNSlideNode *mSlideNode;
     KNTitlePlaceholderInfo *mTitlePlaceholder;
@@ -46,7 +47,7 @@ __attribute__((visibility("hidden")))
 + (_Bool)chunk:(id)arg1 isFirstInDeliveryGroupForChunks:(id)arg2;
 + (unsigned long long)deliveryGroupIndexForBuildChunk:(id)arg1 inBuildChunks:(id)arg2;
 + (id)parentSlideForInfo:(id)arg1;
-+ (id)newObjectForUnarchiver:(id)arg1;
++ (Class)classForUnarchiver:(id)arg1;
 + (_Bool)needsObjectUUID;
 @property(readonly, nonatomic) _Bool inDocument; // @synthesize inDocument=mInDocument;
 @property(retain, nonatomic) KNSlideNumberPlaceholderInfo *slideNumberPlaceholder; // @synthesize slideNumberPlaceholder=mSlideNumberPlaceholder;
@@ -80,6 +81,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) NSObject<TSDContainerInfo> *parentInfo;
 - (void)setPrimitiveGeometry:(id)arg1;
 @property(copy, nonatomic) TSDInfoGeometry *geometry;
+- (double)highestScaleFactorForRenderingDrawableInfo:(id)arg1;
 - (id)infoForSelectionPath:(id)arg1;
 - (id)infoCorrespondingToInfo:(id)arg1;
 - (void)replaceChildInfo:(id)arg1 with:(id)arg2;
@@ -171,10 +173,12 @@ __attribute__((visibility("hidden")))
 - (void)insertDrawable:(id)arg1 atIndex:(unsigned long long)arg2 dolcContext:(id)arg3;
 - (void)addDrawable:(id)arg1 dolcContext:(id)arg2;
 @property(readonly, nonatomic) NSArray *infosToDisplay;
+@property(readonly, nonatomic) _Bool isMasterSlide;
 @property(readonly, nonatomic) KNSlideBackgroundInfo *background; // @synthesize background=mBackground;
 @property(readonly, nonatomic) NSArray *ownedChildInfos;
 - (_Bool)p_isChildPlaceholderInfo:(id)arg1;
 - (void)p_setChildInfosAsOrderedSet:(id)arg1 usingDOLC:(_Bool)arg2 dolcContext:(id)arg3;
+- (void)p_checkChildInfosForDuplicates:(id)arg1;
 - (void)setChildInfosWithoutDOLC:(id)arg1;
 - (void)setChildInfos:(id)arg1;
 - (id)childInfos;
@@ -195,13 +199,12 @@ __attribute__((visibility("hidden")))
 - (void)p_updateStartAndEndOffsetsIfNecessaryForFileVersion:(unsigned long long)arg1;
 - (void)p_updateChunkCount;
 - (void)loadFromArchive:(const struct SlideArchive *)arg1 unarchiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
 - (void)p_updateBuildsReplacingPlaceholder:(id)arg1 withPlaceholder:(id)arg2;
-- (id)imageUsingDocumentRoot:(id)arg1;
-- (id)pdfDataUsingDocumentRoot:(id)arg1;
 - (void)i_primitiveInsertBuildChunk:(id)arg1 afterChunk:(id)arg2 generateIdentifier:(_Bool)arg3;
 - (void)i_primitiveAddBuild:(id)arg1;
 - (void)i_invalidateActiveChunkCache;
+- (id)imageUsingDocumentRoot:(id)arg1;
+- (id)pdfDataUsingDocumentRoot:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

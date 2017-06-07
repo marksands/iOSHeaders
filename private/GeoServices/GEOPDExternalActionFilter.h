@@ -8,11 +8,16 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOPDExternalActionFilter : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     CDStruct_95bda58d _componentTypes;
 }
 
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

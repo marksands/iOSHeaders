@@ -29,9 +29,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) TSTWPTokenAttachment *tokenAttachment; // @synthesize tokenAttachment=mTokenAttachment;
 - (id)description;
 - (void)saveToArchive:(struct ExpressionNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct ExpressionNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct ExpressionNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)isEqualToExpressionNode:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (struct TSTCSENodeData)recordHashesForSubexpressions:(id)arg1;
@@ -46,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (id)largestCommonSubexpression;
 - (void)addVariablesMatchingPrefix:(id)arg1 forFormulaIndex:(unsigned long long)arg2 toDictionary:(id)arg3 symbolTable:(struct TSCESymbolTable *)arg4;
 - (unsigned int)symbol;
+- (_Bool)isFunctionNode;
 - (struct _NSRange)range;
 - (unsigned long long)lastIndexOfSubtree;
 - (unsigned long long)firstIndexOfSubtree;

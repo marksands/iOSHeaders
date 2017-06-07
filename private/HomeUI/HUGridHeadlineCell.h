@@ -9,6 +9,7 @@
 #import <HomeUI/HUGridCellProtocol-Protocol.h>
 
 @class HFItem, HUGridCellBackgroundView, HUGridHeadlineCellLayoutOptions, NSArray, NSString, UIImageView, UILabel, UIView;
+@protocol HUResizableCellDelegate;
 
 @interface HUGridHeadlineCell : UICollectionViewCell <HUGridCellProtocol>
 {
@@ -54,6 +55,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(nonatomic, getter=isRearranging) _Bool rearranging;
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @property(readonly) Class superclass;
 
 @end

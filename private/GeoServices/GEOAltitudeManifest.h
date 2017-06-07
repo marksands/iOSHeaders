@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
 #import <GeoServices/NSXMLParserDelegate-Protocol.h>
@@ -17,6 +17,7 @@
 }
 
 + (id)sharedManager;
+- (void).cxx_destruct;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
 - (void)parseManifest:(id)arg1;
 - (id)availableRegions;

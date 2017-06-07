@@ -4,20 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 @class NSString;
 
-@interface HAPMetadataTuple : NSObject
+@interface HAPMetadataTuple : HMFObject
 {
-    NSString *_characteristicName;
-    NSString *_serviceName;
+    NSString *_characteristicType;
+    NSString *_serviceType;
+    NSString *_index;
 }
 
-@property(readonly, nonatomic) NSString *serviceName; // @synthesize serviceName=_serviceName;
-@property(readonly, nonatomic) NSString *characteristicName; // @synthesize characteristicName=_characteristicName;
+@property(readonly, nonatomic) NSString *index; // @synthesize index=_index;
+@property(readonly, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
+@property(readonly, nonatomic) NSString *characteristicType; // @synthesize characteristicType=_characteristicType;
 - (void).cxx_destruct;
-- (id)initWithCharacteristic:(id)arg1 service:(id)arg2;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
+- (id)initWithCharacteristicType:(id)arg1 serviceType:(id)arg2;
 
 @end
 

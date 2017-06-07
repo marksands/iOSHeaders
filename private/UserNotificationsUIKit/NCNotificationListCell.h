@@ -6,83 +6,36 @@
 
 #import <UIKit/UICollectionViewCell.h>
 
-#import <UserNotificationsUIKit/NCContentSizeCategoryAdjusting-Protocol.h>
+#import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
 #import <UserNotificationsUIKit/UIScrollViewDelegate-Protocol.h>
 
-@class NCNotificationListCellActionButtonsView, NCNotificationListCellScrollView, NCNotificationViewController, NSString, UIView;
+@class NCNotificationViewController, NSString;
 @protocol NCNotificationListCellDelegate;
 
-@interface NCNotificationListCell : UICollectionViewCell <UIScrollViewDelegate, NCContentSizeCategoryAdjusting>
+@interface NCNotificationListCell : UICollectionViewCell <UIScrollViewDelegate, MTContentSizeCategoryAdjusting>
 {
     _Bool _adjustsFontForContentSizeCategory;
-    _Bool _backgroundBlurred;
-    _Bool _supportsSwipeToDefaultAction;
     _Bool _configured;
-    _Bool _actionButtonsFullyRevealed;
     _Bool _executingDefaultAction;
     NCNotificationViewController *_contentViewController;
     id <NCNotificationListCellDelegate> _delegate;
-    NCNotificationListCellScrollView *_cellScrollView;
-    NCNotificationListCellActionButtonsView *_actionButtonsView;
-    UIView *_clippingRevealView;
     struct CGPoint _initialContentOffset;
     struct CGPoint _fullActionsRevealContentOffset;
-    struct UIEdgeInsets _insetMargins;
 }
 
 @property(nonatomic, getter=isExecutingDefaultAction) _Bool executingDefaultAction; // @synthesize executingDefaultAction=_executingDefaultAction;
 @property(nonatomic) struct CGPoint fullActionsRevealContentOffset; // @synthesize fullActionsRevealContentOffset=_fullActionsRevealContentOffset;
 @property(nonatomic) struct CGPoint initialContentOffset; // @synthesize initialContentOffset=_initialContentOffset;
-@property(nonatomic, getter=isActionButtonsFullyRevealed) _Bool actionButtonsFullyRevealed; // @synthesize actionButtonsFullyRevealed=_actionButtonsFullyRevealed;
-@property(retain, nonatomic) UIView *clippingRevealView; // @synthesize clippingRevealView=_clippingRevealView;
-@property(retain, nonatomic) NCNotificationListCellActionButtonsView *actionButtonsView; // @synthesize actionButtonsView=_actionButtonsView;
-@property(retain, nonatomic) NCNotificationListCellScrollView *cellScrollView; // @synthesize cellScrollView=_cellScrollView;
 @property(nonatomic, getter=isConfigured) _Bool configured; // @synthesize configured=_configured;
-@property(nonatomic) struct UIEdgeInsets insetMargins; // @synthesize insetMargins=_insetMargins;
-@property(nonatomic) _Bool supportsSwipeToDefaultAction; // @synthesize supportsSwipeToDefaultAction=_supportsSwipeToDefaultAction;
-@property(nonatomic, getter=isBackgroundBlurred) _Bool backgroundBlurred; // @synthesize backgroundBlurred=_backgroundBlurred;
 @property(nonatomic) __weak id <NCNotificationListCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NCNotificationViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory; // @synthesize adjustsFontForContentSizeCategory=_adjustsFontForContentSizeCategory;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
-- (void)_revealActionButtonsViewForContentOffset:(struct CGPoint)arg1;
-- (void)_configureActionButtonsViewHierarchyForPercentRevealed:(double)arg1;
-- (double)_actionButtonsViewAlphaForPercentRevealed:(double)arg1;
-- (double)_actionButtonsViewPercentRevealedForContentOffset:(struct CGPoint)arg1;
-- (void)_executeDefaultActionIfCompleted;
-- (void)_adjustCellScrollViewAfterLayout;
-- (void)_layoutClippingRevealView;
-- (void)_layoutActionButtonsView;
 - (void)_layoutContentView;
-- (void)_layoutScrollView;
-- (void)_configureClippingRevealViewIfNecessary;
-- (void)_configureActionButtonsViewIfNecessary;
-- (void)_configureCellScrollViewIfNecessary;
-- (void)_scrollViewDidFinishScrolling:(id)arg1;
-- (struct CGPoint)_absoluteContentOffsetForLogicalOffset:(double)arg1;
-- (double)_logicalContentOffsetForAbsoluteOffset:(struct CGPoint)arg1;
-- (double)_defaultActionOvershootContentOffset;
-- (double)_defaultActionExecuteThreshold;
-- (double)_defaultActionTriggerThreshold;
-- (double)_cellWidth;
-- (void)_configureFullActionsRevealContentOffset;
-- (void)_configureInitialContentOffset;
-- (void)_configureContentOffsets;
-- (double)_actionButtonsViewWidthWithMargin;
-- (void)scrollViewDidScroll:(id)arg1;
-- (void)scrollViewDidEndScrollingAnimation:(id)arg1;
-- (void)scrollViewDidEndDecelerating:(id)arg1;
-- (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
-- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
-- (void)scrollViewWillBeginDragging:(id)arg1;
 - (_Bool)_disableRasterizeInAnimations;
-- (void)resetCellScrollPositionAnimated:(_Bool)arg1;
 - (void)prepareForReuse;
-- (void)cellClearButtonPressed:(id)arg1;
-- (void)cellOpenButtonPressed:(id)arg1;
-- (void)cellActionButtonPressed:(id)arg1;
 - (void)layoutSubviews;
 - (void)updateCellForContentViewController:(id)arg1;
 - (void)dealloc;

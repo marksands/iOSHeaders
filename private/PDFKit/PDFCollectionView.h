@@ -9,6 +9,7 @@
 @class UIColor;
 @protocol PDFCollectionViewDataSource, PDFCollectionViewDelegate;
 
+__attribute__((visibility("hidden")))
 @interface PDFCollectionView : UICollectionView
 {
     id <PDFCollectionViewDelegate> _pdfDelegate;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) id <PDFCollectionViewDataSource> pdfDataSource; // @synthesize pdfDataSource=_pdfDataSource;
 @property(retain, nonatomic) id <PDFCollectionViewDelegate> pdfDelegate; // @synthesize pdfDelegate=_pdfDelegate;
 - (void).cxx_destruct;
+- (void)reloadDataAndRecenter;
 
 @end
 

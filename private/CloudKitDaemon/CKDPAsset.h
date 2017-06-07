@@ -16,8 +16,8 @@ __attribute__((visibility("hidden")))
     long long _downloadTokenExpiration;
     long long _downloadURLExpiration;
     long long _size;
+    NSData *_assetCopyMetadata;
     NSString *_contentBaseURL;
-    NSData *_data;
     NSString *_derivedContentType;
     NSString *_downloadBaseURL;
     NSData *_downloadRequest;
@@ -37,12 +37,12 @@ __attribute__((visibility("hidden")))
     } _has;
 }
 
+@property(retain, nonatomic) NSData *assetCopyMetadata; // @synthesize assetCopyMetadata=_assetCopyMetadata;
 @property(nonatomic) long long downloadTokenExpiration; // @synthesize downloadTokenExpiration=_downloadTokenExpiration;
 @property(retain, nonatomic) NSData *referenceSignature; // @synthesize referenceSignature=_referenceSignature;
 @property(retain, nonatomic) CKDPProtectionInfo *protectionInfo; // @synthesize protectionInfo=_protectionInfo;
 @property(nonatomic) long long downloadURLExpiration; // @synthesize downloadURLExpiration=_downloadURLExpiration;
 @property(retain, nonatomic) NSString *downloadBaseURL; // @synthesize downloadBaseURL=_downloadBaseURL;
-@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) NSString *uploadReceipt; // @synthesize uploadReceipt=_uploadReceipt;
 @property(retain, nonatomic) CKDPRecordIdentifier *recordId; // @synthesize recordId=_recordId;
 @property(retain, nonatomic) NSString *requestor; // @synthesize requestor=_requestor;
@@ -64,12 +64,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAssetCopyMetadata;
 @property(nonatomic) _Bool hasDownloadTokenExpiration;
 @property(readonly, nonatomic) _Bool hasReferenceSignature;
 @property(readonly, nonatomic) _Bool hasProtectionInfo;
 @property(nonatomic) _Bool hasDownloadURLExpiration;
 @property(readonly, nonatomic) _Bool hasDownloadBaseURL;
-@property(readonly, nonatomic) _Bool hasData;
 @property(readonly, nonatomic) _Bool hasUploadReceipt;
 @property(readonly, nonatomic) _Bool hasRecordId;
 @property(readonly, nonatomic) _Bool hasRequestor;

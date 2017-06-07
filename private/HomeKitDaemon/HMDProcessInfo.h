@@ -4,23 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class HMDApplicationInfo, NSHashTable;
+@class HMDApplicationInfo, NSArray, NSHashTable, NSObject;
 @protocol OS_dispatch_queue;
 
-@interface HMDProcessInfo : NSObject
+@interface HMDProcessInfo : HMFObject
 {
     _Bool _viewService;
     int _pid;
     unsigned long long _state;
     HMDApplicationInfo *_appInfo;
+    NSArray *_runningReasons;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSHashTable *_connectionProxies;
 }
 
 @property(readonly, nonatomic) NSHashTable *connectionProxies; // @synthesize connectionProxies=_connectionProxies;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
+@property(retain, nonatomic) NSArray *runningReasons; // @synthesize runningReasons=_runningReasons;
 @property(readonly, nonatomic) __weak HMDApplicationInfo *appInfo; // @synthesize appInfo=_appInfo;
 @property(readonly, nonatomic, getter=isViewService) _Bool viewService; // @synthesize viewService=_viewService;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;

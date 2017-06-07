@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(readonly, nonatomic) TSPPackage *package; // @synthesize package=_package;
 - (void).cxx_destruct;
-- (id)newWriteChannelAtPath:(id)arg1 size:(unsigned long long)arg2 CRC:(unsigned int)arg3 packageWriter:(id)arg4 error:(id *)arg5;
+- (id)newWriteChannelAtPath:(id)arg1 lastModificationDate:(id)arg2 size:(unsigned long long)arg3 CRC:(unsigned int)arg4 packageWriter:(id)arg5 error:(id *)arg6;
 - (_Bool)enumeratePackageEntriesWithZipArchive:(id)arg1 accessor:(CDUnknownBlockType)arg2;
 - (unsigned long long)progressTotalUnitCountWithZipArchive:(id)arg1;
 - (_Bool)isObjectArchivePath:(id)arg1;

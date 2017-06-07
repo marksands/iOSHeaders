@@ -9,10 +9,11 @@
 #import <GeoServices/GEOURLSerializable-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOStructuredAddress : PBCodable <GEOURLSerializable, NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     CDStruct_5df41632 _geoIds;
     NSString *_administrativeArea;
     NSString *_administrativeAreaCode;
@@ -59,6 +60,8 @@
 @property(retain, nonatomic) NSString *administrativeArea; // @synthesize administrativeArea=_administrativeArea;
 @property(retain, nonatomic) NSString *countryCode; // @synthesize countryCode=_countryCode;
 @property(retain, nonatomic) NSString *country; // @synthesize country=_country;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;

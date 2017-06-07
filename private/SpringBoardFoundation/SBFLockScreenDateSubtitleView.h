@@ -20,13 +20,13 @@
     double _strength;
 }
 
++ (id)labelFont;
 @property(nonatomic) double strength; // @synthesize strength=_strength;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(retain, nonatomic) UIView<SBFScreenFadeReplicatable> *accessoryView; // @synthesize accessoryView=_accessoryView;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) double baselineOffsetFromBottom;
 @property(readonly, nonatomic) double baselineOffsetFromOrigin;
-- (id)_labelFont;
 - (double)interItemSpacing;
 - (void)_enumerateReplicateViews:(CDUnknownBlockType)arg1;
 - (id)_createReplicateView;
@@ -35,8 +35,10 @@
 - (struct CGRect)accessoryViewFrame;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
+- (void)_updateForCurrentSizeCategory;
 @property(retain, nonatomic) UIFont *font;
 @property(retain, nonatomic) NSString *string;
+- (void)dealloc;
 - (id)initWithString:(id)arg1 accessoryView:(id)arg2;
 - (id)init;
 

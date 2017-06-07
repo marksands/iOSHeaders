@@ -25,7 +25,9 @@
 - (id)_authenticationServiceConnection;
 - (id)emailsForAltDSID:(id)arg1;
 - (void)validateVettingToken:(id)arg1 forAltDSID:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)renewRecoveryTokenWithRecoveryInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)persistMasterKeyVerifier:(id)arg1 context:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)verifyMasterKey:(id)arg1 context:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)renewRecoveryTokenWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)teardownFollowUpWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)synchronizeFollowUpItemsForContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)synchronizeFollowUpItemsForContext:(id)arg1 error:(id *)arg2;
@@ -44,6 +46,8 @@
 - (void)checkSecurityUpgradeEligibilityForAppleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)configurationInfoWithIdentifiers:(id)arg1 forAltDSID:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setConfigurationInfo:(id)arg1 forIdentifier:(id)arg2 forAltDSID:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (id)fetchDeviceListWithContext:(id)arg1 error:(id *)arg2;
+- (void)fetchDeviceListWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchUserInformationForAltDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setAppleIDWithDSID:(id)arg1 inUse:(_Bool)arg2 forService:(long long)arg3;
 - (void)setAppleIDWithAltDSID:(id)arg1 inUse:(_Bool)arg2 forService:(long long)arg3;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
 
@@ -20,6 +20,7 @@
 }
 
 @property(readonly) long long state; // @synthesize state=_state;
+- (void).cxx_destruct;
 - (void)continuityDidStopTrackingPeer:(id)arg1 forType:(long long)arg2;
 - (void)continuityDidStopTrackingPeer:(id)arg1;
 - (void)continuityDidStartTrackingPeer:(id)arg1 forType:(long long)arg2 error:(id)arg3;

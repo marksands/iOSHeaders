@@ -7,11 +7,14 @@
 #import <NewsCore/NSCopying-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCAssetHandle, NSArray, NSDate, NSString, NSURL;
+@class FCAssetHandle, NSArray, NSDate, NSString, NSURL, NTPBPublisherPaidDescriptionStrings;
 @protocol FCChannelProviding, FCFeedTheming, FCSectionProviding, FCTagProviding, FCTopicProviding;
 
 @protocol FCTagProviding <NSObject, NSCopying>
+@property(readonly, nonatomic) unsigned long long groupingEligibility;
+@property(readonly, nonatomic) NTPBPublisherPaidDescriptionStrings *publisherPaidDescriptionStrings;
 @property(readonly, nonatomic) _Bool isBlockedExplicitContent;
+@property(readonly, nonatomic) FCAssetHandle *nameImageCompactAssetHandle;
 @property(readonly, nonatomic) FCAssetHandle *nameImageMaskWidgetHQAssetHandle;
 @property(readonly, nonatomic) FCAssetHandle *nameImageMaskWidgetLQAssetHandle;
 @property(readonly, nonatomic) _Bool publisherPaidWebAccessOptIn;
@@ -46,6 +49,7 @@
 @property(readonly, nonatomic) _Bool isPublic;
 @property(readonly, nonatomic) long long contentProvider;
 @property(readonly, copy, nonatomic) NSString *versionKey;
+@property(readonly, copy, nonatomic) NSString *nameCompact;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, copy, nonatomic) NSString *identifier;
 @property(readonly, nonatomic) NSDate *loadDate;
@@ -59,6 +63,7 @@
 - (NSString *)feedIDForBin:(long long)arg1;
 - (NSString *)paidFeedIDForBin:(long long)arg1;
 - (NSString *)freeFeedIDForBin:(long long)arg1;
+- (_Bool)shouldPrefetchPurchase;
 - (_Bool)isAuthenticationSetup;
 - (_Bool)isPurchaseSetup;
 - (_Bool)isEqualToTag:(id <FCTagProviding>)arg1;

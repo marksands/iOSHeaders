@@ -11,21 +11,21 @@
 __attribute__((visibility("hidden")))
 @interface KNClassicThemeRecord : TSPObject
 {
-    NSString *mUUID;
-    KNClassicStylesheetRecord *mStylesheetRecord;
-    NSMutableArray *mMasters;
+    NSString *_UUID;
+    KNClassicStylesheetRecord *_stylesheetRecord;
+    NSMutableArray *_masters;
 }
 
-@property(readonly, nonatomic) NSArray *masters; // @synthesize masters=mMasters;
+- (void).cxx_destruct;
+- (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
+- (void)saveToArchive:(struct ClassicThemeRecordArchive *)arg1 archiver:(id)arg2;
+- (void)loadFromArchive:(const struct ClassicThemeRecordArchive *)arg1 unarchiver:(id)arg2;
 - (void)addMaster:(id)arg1;
-- (void)dealloc;
+@property(readonly, nonatomic) NSArray *masters;
 - (id)initWithContext:(id)arg1;
 @property(retain, nonatomic) KNClassicStylesheetRecord *stylesheetRecord;
 @property(copy, nonatomic) NSString *UUID;
-- (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
-- (void)saveToArchive:(struct ClassicThemeRecordArchive *)arg1 archiver:(id)arg2;
-- (void)loadFromArchive:(const struct ClassicThemeRecordArchive *)arg1 unarchiver:(id)arg2;
 
 @end
 

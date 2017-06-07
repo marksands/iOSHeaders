@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 + (id)mipmapsWithWidth:(int)arg1 height:(int)arg2 components:(unsigned long long)arg3 mipmapData:(id)arg4;
 + (struct CGSize)mipmapSizeForTexturableSize:(struct CGSize)arg1;
 + (struct CGSize)optimizedMipmapLevel0Size;
-+ (id)mipmapPathFromPath:(id)arg1;
++ (id)mipmapNameFromImageName:(id)arg1;
 @property(readonly, nonatomic) NSData *data; // @synthesize data=mData;
 @property(readonly, nonatomic) unsigned long long components; // @synthesize components=mComponents;
 @property(readonly, nonatomic) int height; // @synthesize height=mHeight;

@@ -4,10 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <GeoServices/NSObject-Protocol.h>
+
 @class NSString;
 @protocol GEOTransitRoutingIncidentMessage;
 
-@protocol GEODirectionsError
+@protocol GEODirectionsError <NSObject>
 @property(readonly, nonatomic) long long firstDirectionsErrorCode;
 @property(readonly, nonatomic) id <GEOTransitRoutingIncidentMessage> incidentMessage;
 @property(readonly, nonatomic) NSString *localizedDescription;

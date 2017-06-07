@@ -6,6 +6,9 @@
 
 #import <CameraUI/NSObject-Protocol.h>
 
+@class CAMVideoLocalPersistenceResult;
+
 @protocol CAMNebulaDaemonIrisClientProtocol <NSObject>
+- (void)nebulaDaemonDidCompleteLocalVideoPersistenceWithResult:(CAMVideoLocalPersistenceResult *)arg1;
 @end
 

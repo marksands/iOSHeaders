@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)requestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
+- (long long)databaseScope;
 - (id)initWithLookupInfos:(id)arg1;
 
 @end

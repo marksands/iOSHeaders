@@ -18,12 +18,14 @@ __attribute__((visibility("hidden")))
     NSString *_text;
     long long _autocapitalizationType;
     long long _autocorrectionType;
+    long long _returnKeyType;
     NSString *_recentsTitle;
     NSString *_recentsMessage;
 }
 
 @property(copy, nonatomic) NSString *recentsMessage; // @synthesize recentsMessage=_recentsMessage;
 @property(copy, nonatomic) NSString *recentsTitle; // @synthesize recentsTitle=_recentsTitle;
+@property(nonatomic) long long returnKeyType; // @synthesize returnKeyType=_returnKeyType;
 @property(nonatomic) long long autocorrectionType; // @synthesize autocorrectionType=_autocorrectionType;
 @property(nonatomic) long long autocapitalizationType; // @synthesize autocapitalizationType=_autocapitalizationType;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;

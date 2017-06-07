@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) CNContact *billingAddress;
 @property(readonly, nonatomic) PKPaymentApplication *paymentApplication;
 @property(readonly, nonatomic) PKPaymentPass *pass;
+- (id)errors;
 
 @end
 

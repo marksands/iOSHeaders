@@ -6,18 +6,21 @@
 
 #import <Foundation/NSObject.h>
 
-#import <AVConference/VCAudioIOClient-Protocol.h>
+#import <AVConference/VCAudioIODelegate-Protocol.h>
+#import <AVConference/VCAudioIOSink-Protocol.h>
+#import <AVConference/VCAudioIOSource-Protocol.h>
 
-@class NSString;
+@class NSString, VCAudioIO;
 
 __attribute__((visibility("hidden")))
-@interface VCVoIPRelayInternal : NSObject <VCAudioIOClient>
+@interface VCVoIPRelayInternal : NSObject <VCAudioIOSource, VCAudioIOSink, VCAudioIODelegate>
 {
     struct AudioStreamBasicDescription _audioFormat;
     unsigned long long _blockSizeSamples;
     _Bool _canProcessAudio;
     CDUnknownBlockType _clientCaptureBlock;
     CDUnknownBlockType _clientRenderBlock;
+    VCAudioIO *_audioIO;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType clientRenderBlock; // @synthesize clientRenderBlock=_clientRenderBlock;
@@ -25,10 +28,15 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool canProcessAudio; // @synthesize canProcessAudio=_canProcessAudio;
 @property(nonatomic) unsigned long long blockSizeSamples; // @synthesize blockSizeSamples=_blockSizeSamples;
 @property(nonatomic) struct AudioStreamBasicDescription audioFormat; // @synthesize audioFormat=_audioFormat;
-- (_Bool)onCaptureSound:(char *)arg1 numBytes:(int)arg2 numSamples:(int)arg3 timeStamp:(unsigned int)arg4 timeStampDelta:(int)arg5 bufferedSamples:(int)arg6 hostTime:(double)arg7 averagePower:(float)arg8 voiceActivity:(unsigned int)arg9;
-- (_Bool)onPlaySound:(char *)arg1 numBytes:(int)arg2 numSamples:(int)arg3 timeStamp:(unsigned int)arg4 averagePower:(float)arg5;
+- (void)didResumeAudioIO:(id)arg1;
+- (void)didSuspendAudioIO:(id)arg1;
+- (void)pushAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
+- (void)pullAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
+- (void)stopWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (int)deviceRole;
 - (void)dealloc;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

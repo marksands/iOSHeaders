@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface BirthdayCalendarUpdater : NSOperation
 {
-    struct CalDatabase *_database;
+    // Error parsing type: ^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}, name: _database
     void *_calendar;
     void *_facebookCalendar;
     void *_addressBook;

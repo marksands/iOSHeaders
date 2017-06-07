@@ -24,6 +24,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) TSDPathSource *pathSource; // @synthesize pathSource=mPathSource;
 - (id)style;
+- (void).cxx_destruct;
 - (_Bool)isOpenPath;
 - (_Bool)isLine;
 - (_Bool)shouldFlipLineEndsForStyle:(id)arg1 isStyleTailEndOnLeft:(int)arg2;
@@ -42,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) TSDLineEnd *tailLineEnd;
 @property(copy, nonatomic) TSDLineEnd *headLineEnd;
 - (void)setStyle:(id)arg1;
+- (_Bool)allowsParentGroupToBeResizedWithoutAspectRatioLock;
 @property(readonly, nonatomic) _Bool supportsShrinkTextToFit;
 @property(readonly, nonatomic) _Bool supportsTextInset;
 @property(readonly, nonatomic) TSDShapeStyle *shapeStyle;
@@ -49,17 +51,15 @@ __attribute__((visibility("hidden")))
 - (Class)repClass;
 - (Class)layoutClass;
 - (id)copyWithContext:(id)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 style:(id)arg3;
 - (id)initWithContext:(id)arg1 geometry:(id)arg2 style:(id)arg3 pathSource:(id)arg4;
+- (void)p_correctNearZeroWidthLines;
+- (void)p_correctLineSegmentGeometry;
 - (void)saveToArchive:(struct ShapeArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ShapeArchive *)arg1 unarchiver:(id)arg2;
-- (id)subclassInitFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
-- (void)p_correctNearZeroWidthLines;
-- (void)p_correctLineSegmentGeometry;
+- (void)loadFromUnarchiver:(id)arg1;
 - (int)elementKind;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 

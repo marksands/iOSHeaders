@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)setParentStorage:(id)arg1;
 - (void)setContainedStorageParentInfoToStorage:(id)arg1;
 - (id)copyWithContext:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (int)elementKind;
 - (void)applyMark;
@@ -40,8 +41,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsUUID;
 - (_Bool)shouldArchiveStringEquivalent;
 - (void)saveToArchiver:(id)arg1;
-- (const struct TextualAttachmentArchive *)textualAttachmentArchiveFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

@@ -8,20 +8,23 @@
 
 #import <NanoPassKit/NPKPaymentWebServiceCompanionTargetDeviceDelegate-Protocol.h>
 
-@class NPKCompanionAgentConnection, NPKPaymentWebServiceCompanionTargetDevice, NSString, PKPaymentWebService;
+@class NPKCompanionAgentConnection, NPKPaymentWebServiceCompanionTargetDevice, NSString, PKPaymentWebService, PKPeerPaymentWebService;
 
 @interface NPKSharedWebServiceProvider : NSObject <NPKPaymentWebServiceCompanionTargetDeviceDelegate>
 {
     PKPaymentWebService *_webService;
     NPKPaymentWebServiceCompanionTargetDevice *_targetDevice;
+    PKPeerPaymentWebService *_peerPaymentWebService;
     NPKCompanionAgentConnection *_companionAgentConnection;
 }
 
 + (id)sharedWebServiceProvider;
 @property(retain, nonatomic) NPKCompanionAgentConnection *companionAgentConnection; // @synthesize companionAgentConnection=_companionAgentConnection;
+@property(retain, nonatomic) PKPeerPaymentWebService *peerPaymentWebService; // @synthesize peerPaymentWebService=_peerPaymentWebService;
 @property(retain, nonatomic) NPKPaymentWebServiceCompanionTargetDevice *targetDevice; // @synthesize targetDevice=_targetDevice;
 @property(retain, nonatomic) PKPaymentWebService *webService; // @synthesize webService=_webService;
 - (void).cxx_destruct;
+- (void)handleUpdatedPeerPaymentWebServiceContext:(id)arg1;
 - (void)setNewAuthRandom:(CDUnknownBlockType)arg1;
 - (void)sendPaymentOptionsDefaultsToWatch;
 - (void)showPaymentSetupForAppDisplayName:(id)arg1;
@@ -36,6 +39,7 @@
 - (void)handlePreconditionNotMetWithUniqueIDs:(id)arg1 shouldUnregister:(_Bool)arg2;
 - (void)handlePushToken:(id)arg1;
 - (void)_deviceFailedToPair:(id)arg1;
+- (id)_peerPaymentWebServiceContext;
 - (id)_webServiceContext;
 - (void)loadWebService;
 - (void)dealloc;

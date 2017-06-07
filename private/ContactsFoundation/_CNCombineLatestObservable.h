@@ -9,7 +9,6 @@
 @class NSArray, NSMutableArray, NSMutableIndexSet;
 @protocol CNScheduler;
 
-__attribute__((visibility("hidden")))
 @interface _CNCombineLatestObservable : CNObservable
 {
     NSMutableArray *_observables;

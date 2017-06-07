@@ -14,8 +14,10 @@
 {
     NSString *_key;
     NSData *_value;
+    NSData *_valueNulls;
 }
 
+@property(retain, nonatomic) NSData *valueNulls; // @synthesize valueNulls=_valueNulls;
 @property(retain, nonatomic) NSData *value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *key; // @synthesize key=_key;
 - (void).cxx_destruct;
@@ -28,6 +30,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasValueNulls;
 @property(readonly, nonatomic) _Bool hasValue;
 
 @end

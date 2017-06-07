@@ -8,54 +8,61 @@
 
 #import <Search/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSData, NSDictionary, NSMutableArray, NSNumber, NSString, PRSFeatureVector, PRSRankingProperties;
+@class NSArray, NSData, NSDate, NSMutableArray, NSNumber, NSString, PRSL2FeatureVector, PRSL3FeatureVector, PRSRankingItem;
 
 @interface SFSearchResult_SpotlightExtras : SFSearchResult <NSSecureCoding>
 {
     _Bool _coreSpotlightSourced;
     _Bool _isParsecResult;
-    _Bool _collectAnonymousFeatures;
     NSString *_queryString;
     NSString *_protectionClass;
     NSNumber *_fileIdentifier;
     NSNumber *_parentFileIdentifier;
     NSString *_filename;
     NSNumber *_documentIdentifier;
-    unsigned long long _topHitScore;
-    double _rank;
-    unsigned long long _originalScore;
     unsigned long long _score;
+    double _l3score;
+    double _l2score;
     NSString *_launchString;
     NSArray *_launchDates;
-    PRSFeatureVector *_featureVector;
+    PRSL2FeatureVector *_L2FeatureVector;
+    PRSL3FeatureVector *_L3FeatureVector;
     NSString *_userActivityType;
     NSString *_userActivitySecondaryString;
     NSData *_userActivityData;
-    double _categoryProbabilityUsed;
-    NSDictionary *_searchThroughCEPData;
+    NSDate *_contentCreationDate;
     NSMutableArray *_duplicatedItems;
-    PRSRankingProperties *_rankingProperties;
     NSString *_contentURL;
+    PRSRankingItem *_rankingItem;
+    NSDate *_lastUsedDate;
+    NSString *_mailSubject;
+    NSString *_mailAuthor;
+    NSArray *_contactAlternateNames;
+    NSString *_mailConversationIdentifier;
 }
 
++ (void)initialize;
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool collectAnonymousFeatures; // @synthesize collectAnonymousFeatures=_collectAnonymousFeatures;
+@property(retain) NSString *mailConversationIdentifier; // @synthesize mailConversationIdentifier=_mailConversationIdentifier;
+@property(retain) NSArray *contactAlternateNames; // @synthesize contactAlternateNames=_contactAlternateNames;
+@property(retain) NSString *mailAuthor; // @synthesize mailAuthor=_mailAuthor;
+@property(retain) NSString *mailSubject; // @synthesize mailSubject=_mailSubject;
+@property(retain) NSDate *lastUsedDate; // @synthesize lastUsedDate=_lastUsedDate;
+@property(retain) PRSRankingItem *rankingItem; // @synthesize rankingItem=_rankingItem;
 @property(retain, nonatomic) NSString *contentURL; // @synthesize contentURL=_contentURL;
-@property(retain, nonatomic) PRSRankingProperties *rankingProperties; // @synthesize rankingProperties=_rankingProperties;
 @property(retain, nonatomic) NSMutableArray *duplicatedItems; // @synthesize duplicatedItems=_duplicatedItems;
-@property(retain, nonatomic) NSDictionary *searchThroughCEPData; // @synthesize searchThroughCEPData=_searchThroughCEPData;
-@property(nonatomic) double categoryProbabilityUsed; // @synthesize categoryProbabilityUsed=_categoryProbabilityUsed;
+@property(retain, nonatomic) NSDate *contentCreationDate; // @synthesize contentCreationDate=_contentCreationDate;
 @property(retain, nonatomic) NSData *userActivityData; // @synthesize userActivityData=_userActivityData;
 @property(retain, nonatomic) NSString *userActivitySecondaryString; // @synthesize userActivitySecondaryString=_userActivitySecondaryString;
 @property(retain, nonatomic) NSString *userActivityType; // @synthesize userActivityType=_userActivityType;
-@property(retain, nonatomic) PRSFeatureVector *featureVector; // @synthesize featureVector=_featureVector;
+@property(retain, nonatomic) PRSL3FeatureVector *L3FeatureVector; // @synthesize L3FeatureVector=_L3FeatureVector;
+@property(retain, nonatomic) PRSL2FeatureVector *L2FeatureVector; // @synthesize L2FeatureVector=_L2FeatureVector;
 @property(retain, nonatomic) NSArray *launchDates; // @synthesize launchDates=_launchDates;
 @property(retain, nonatomic) NSString *launchString; // @synthesize launchString=_launchString;
 @property(nonatomic) _Bool isParsecResult; // @synthesize isParsecResult=_isParsecResult;
+@property(nonatomic) double l2score; // @synthesize l2score=_l2score;
+@property(nonatomic) double l3score; // @synthesize l3score=_l3score;
 @property(nonatomic) unsigned long long score; // @synthesize score=_score;
-@property(nonatomic) unsigned long long originalScore; // @synthesize originalScore=_originalScore;
-@property(nonatomic) double rank; // @synthesize rank=_rank;
-@property(nonatomic) unsigned long long topHitScore; // @synthesize topHitScore=_topHitScore;
 @property(retain, nonatomic) NSNumber *documentIdentifier; // @synthesize documentIdentifier=_documentIdentifier;
 @property(retain, nonatomic) NSString *filename; // @synthesize filename=_filename;
 @property(retain, nonatomic) NSNumber *parentFileIdentifier; // @synthesize parentFileIdentifier=_parentFileIdentifier;
@@ -66,6 +73,7 @@
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (void)setUrl:(id)arg1;
+- (long long)compare:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

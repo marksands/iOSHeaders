@@ -12,6 +12,8 @@
 - (void)deleteThisDevice:(NSDictionary *)arg1 withReply:(void (^)(NSError *))arg2;
 - (void)triggerUserRegistryCheck:(NSDictionary *)arg1 withReply:(void (^)(NSError *))arg2;
 - (void)fetchAllDeviceKeys:(NSDictionary *)arg1 withReply:(void (^)(NSString *, NSData *, NSData *, NSArray *, NSError *))arg2;
+- (void)triggerSyncingWithEscrowProxy:(void (^)(_Bool, NSError *))arg1;
+- (void)triggerWatchSyncing:(void (^)(void))arg1;
 - (void)triggerDaily:(NSDictionary *)arg1 withReply:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)requestKeys:(NSDictionary *)arg1 withReply:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)syncKeys:(NSDictionary *)arg1 withReply:(void (^)(NSDictionary *, NSError *))arg2;

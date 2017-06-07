@@ -8,20 +8,28 @@
 
 #import <VoiceServices/VSSpeechServiceDelegate-Protocol.h>
 
-@class NSString, VSSpeechConnection, VSSpeechRequest;
+@class NSString, VSPresynthesizedAudioRequest, VSSpeechConnection, VSSpeechRequest;
 @protocol VSSpeechConnectionDelegate;
 
 @interface VSSpeechConnectionDelegateWrapper : NSObject <VSSpeechServiceDelegate>
 {
     id <VSSpeechConnectionDelegate> _delegate;
     VSSpeechRequest *_request;
+    VSSpeechRequest *_synthesisRequest;
+    VSPresynthesizedAudioRequest *_presynthesizedAudioRequest;
     VSSpeechConnection *_connection;
 }
 
 @property(nonatomic) __weak VSSpeechConnection *connection; // @synthesize connection=_connection;
+@property(retain, nonatomic) VSPresynthesizedAudioRequest *presynthesizedAudioRequest; // @synthesize presynthesizedAudioRequest=_presynthesizedAudioRequest;
+@property(retain, nonatomic) VSSpeechRequest *synthesisRequest; // @synthesize synthesisRequest=_synthesisRequest;
 @property(retain, nonatomic) VSSpeechRequest *request; // @synthesize request=_request;
 @property(nonatomic) __weak id <VSSpeechConnectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (oneway void)presynthesizedAudioRequestSuccessWithInstrumentMetrics:(id)arg1 error:(id)arg2;
+- (oneway void)presynthesizedAudioRequestDidStopAtEnd:(_Bool)arg1 error:(id)arg2;
+- (oneway void)presynthesizedAudioRequestDidStart;
+- (oneway void)synthesisRequestDidFinishWithInstrumentMetrics:(id)arg1 error:(id)arg2;
 - (oneway void)speechRequestDidStopWithSuccess:(_Bool)arg1 phonemesSpoken:(id)arg2 error:(id)arg3;
 - (oneway void)speechRequestSuccessWithInstrumentMetrics:(id)arg1;
 - (oneway void)speechRequestMark:(long long)arg1 didStartForRange:(struct _NSRange)arg2;

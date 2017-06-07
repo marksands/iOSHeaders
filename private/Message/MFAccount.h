@@ -84,7 +84,6 @@
 - (_Bool)allowsTrustPrompt;
 - (void)setUsesSSL:(_Bool)arg1;
 - (_Bool)usesSSL;
-- (void)validateConnections;
 - (void)releaseAllForcedConnections;
 - (void)releaseAllConnections;
 - (struct __CFString *)connectionServiceType;
@@ -99,7 +98,7 @@
 @property(readonly) ACAccount *accountForRenewingCredentials;
 - (_Bool)promptUserForWebLoginWithURL:(id)arg1 shouldConfirm:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)promptUserForPasswordWithTitle:(id)arg1 message:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (_Bool)renewCredentialsWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)renewCredentialsWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_renewCredentialsWithOptions:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)setOAuth2Token:(id)arg1 refreshToken:(id)arg2 error:(id *)arg3;
 - (id)oauth2Token;

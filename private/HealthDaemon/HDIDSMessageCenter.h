@@ -25,7 +25,7 @@
     HDIDSPersistentDictionary *_persistentContextStore;
     double _nextExpireTimerFireDate;
     NSObject<OS_dispatch_source> *_expireTimer;
-    _Bool _invalidated;
+    int _invalidated;
     id <HDIDSMessageCenterDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
 }
@@ -53,6 +53,7 @@
 - (void)addErrorHandler:(SEL)arg1 forMessageID:(unsigned short)arg2;
 - (void)addRequestHandler:(SEL)arg1 forMessageID:(unsigned short)arg2;
 - (id)_logPrefix;
+- (void)obliterateWithReason:(id)arg1 preserveCopy:(_Bool)arg2;
 - (void)invalidate;
 - (void)dealloc;
 - (id)initWithIDSServiceIdentifier:(id)arg1 persistentDictionary:(id)arg2 queue:(id)arg3 daemon:(id)arg4;

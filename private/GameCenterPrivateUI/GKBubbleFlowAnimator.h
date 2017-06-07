@@ -7,11 +7,10 @@
 #import <Foundation/NSObject.h>
 
 #import <GameCenterPrivateUI/UINavigationControllerDelegate-Protocol.h>
-#import <GameCenterPrivateUI/UITabBarControllerDelegate-Protocol.h>
 
 @class GKBubbleSet, NSString;
 
-@interface GKBubbleFlowAnimator : NSObject <UINavigationControllerDelegate, UITabBarControllerDelegate>
+@interface GKBubbleFlowAnimator : NSObject <UINavigationControllerDelegate>
 {
     GKBubbleSet *_mostRecentOverlayBubbleSet;
 }
@@ -52,7 +51,6 @@
 - (void)_moveBubblesToTransitionView:(id)arg1 forTransitionWithInfo:(id)arg2;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)overlayViewNeedsUpdateForRotationToInterfaceOrientation:(long long)arg1 duration:(double)arg2;
-- (id)tabBarController:(id)arg1 animatorForFromViewController:(id)arg2 toViewController:(id)arg3;
 - (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
 
 // Remaining properties

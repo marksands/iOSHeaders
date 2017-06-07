@@ -9,6 +9,6 @@
 @class PXActionRowTile;
 
 @protocol PXActionRowTileDelegate <NSObject>
-- (void)actionRowTileSelected:(PXActionRowTile *)arg1;
+- (void)actionRowTileSelected:(PXActionRowTile *)arg1 tapPositionInTile:(struct CGPoint)arg2;
 @end
 

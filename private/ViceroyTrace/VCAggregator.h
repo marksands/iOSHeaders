@@ -6,23 +6,31 @@
 
 #import <Foundation/NSObject.h>
 
-@class CallSegment, NSString;
+#import <ViceroyTrace/VCAdaptiveLearningDelegate-Protocol.h>
+
+@class CallSegment, NSString, VCAdaptiveLearning;
 @protocol OS_dispatch_queue, VCAggregatorDelegate;
 
 __attribute__((visibility("hidden")))
-@interface VCAggregator : NSObject
+@interface VCAggregator : NSObject <VCAdaptiveLearningDelegate>
 {
     _Bool _isDuplicationEnabled;
     NSString *_localInterfaceType;
     NSString *_remoteInterfaceType;
     NSString *_connectionType;
     NSString *_currentSegmentKey;
+    NSString *_relayServer;
+    int _relayType;
+    NSString *_accessToken;
     CallSegment *_currentSegment;
     int _interval;
     int _frequency;
     unsigned int _currentWidth;
-    _Bool _degradedVideo;
-    unsigned int _degradedVideoCounter;
+    _Bool _currentDegradedVideoState;
+    double _degradedVideoStartTime;
+    double _degradedVideoDuration;
+    _Bool _currentNoRemoteState;
+    double _noRemoteStartTime;
     int _callTotalDurationTicks;
     int _callAggregatedDurationTicks;
     double _callAverageAudioErasuresRate;
@@ -37,6 +45,7 @@ __attribute__((visibility("hidden")))
     double _callTotalAudioStallTime;
     double _callMaxAudioStallInterval;
     double _lastReportedAudioStallTime;
+    double _lastReportedVideoStallTime;
     unsigned int _callMode;
     unsigned int _callDeviceRole;
     unsigned int _callTransportType;
@@ -44,16 +53,23 @@ __attribute__((visibility("hidden")))
     unsigned int _callDetailedErrorCode;
     unsigned int _numberOfSegments;
     unsigned int _switchIntoDupCount;
+    unsigned int _REDState;
     unsigned long long _lastReportedAudioPacketSent;
     unsigned long long _lastReportedVideoPacketSent;
+    VCAdaptiveLearning *_adaptiveLearning;
     NSObject<OS_dispatch_queue> *_stateQueue;
     id <VCAggregatorDelegate> _delegate;
 }
 
+- (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
+- (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
+- (int)adaptiveLearningState;
 - (void)processEventWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(id)arg3;
+- (void)updateNoRemoteState:(_Bool)arg1;
+- (void)updateRedState:(id)arg1;
 - (void)updateErrorCode:(id)arg1;
 - (void)updateRoleModeTransport:(unsigned short)arg1 deviceRole:(unsigned short)arg2 transportType:(unsigned short)arg3;
-- (void)updatePauseVideo:(id)arg1;
+- (void)updatePauseVideo:(_Bool)arg1;
 - (void)updateVideoResolution:(id)arg1;
 - (void)updateRTStats:(id)arg1;
 - (void)startNewSegment;
@@ -66,9 +82,18 @@ __attribute__((visibility("hidden")))
 - (void)reset;
 - (void)flushCurrentSegment;
 - (id)aggregatedCallReport;
+- (id)aggregatedSegmentQRReport;
 - (id)aggregatedSegmentReport;
+- (void)saveCallSegmentHistory;
+- (void)initAdaptiveLearningWithParameters:(id)arg1;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

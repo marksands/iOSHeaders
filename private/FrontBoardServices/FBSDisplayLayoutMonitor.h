@@ -15,7 +15,7 @@
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_calloutQueue;
-    unsigned long long _displayType;
+    long long _displayType;
     _Bool _queue_invalidated;
     NSHashTable *_queue_observers;
     FBSDisplayLayout *_queue_currentLayout;
@@ -25,12 +25,12 @@
     unsigned long long _qualityOfService;
 }
 
-+ (id)sharedMonitorForDisplayType:(unsigned long long)arg1;
++ (id)sharedMonitorForDisplayType:(long long)arg1;
 @property(readonly, nonatomic) unsigned long long qualityOfService; // @synthesize qualityOfService=_qualityOfService;
-@property(readonly, nonatomic) unsigned long long displayType; // @synthesize displayType=_displayType;
+@property(readonly, nonatomic) long long displayType; // @synthesize displayType=_displayType;
 - (void)client:(id)arg1 handleNewDisplayLayout:(id)arg2 withContext:(id)arg3;
 - (unsigned long long)clientQualityOfService:(id)arg1;
-- (unsigned long long)clientDisplayType:(id)arg1;
+- (long long)clientDisplayType:(id)arg1;
 - (void)_calloutQueue_postLayout:(id)arg1 withContext:(id)arg2 toObserver:(id)arg3;
 - (void)_queue_updateLayout:(id)arg1 withContext:(id)arg2;
 - (void)_queue_updateClient;
@@ -41,9 +41,9 @@
 @property(copy, nonatomic) CDUnknownBlockType handler;
 - (void)invalidate;
 - (void)dealloc;
-- (id)initWithDisplayType:(unsigned long long)arg1 qualityOfService:(unsigned long long)arg2 handler:(CDUnknownBlockType)arg3;
-- (id)initWithDisplayType:(unsigned long long)arg1 handler:(CDUnknownBlockType)arg2;
-- (id)initWithDisplayType:(unsigned long long)arg1;
+- (id)initWithDisplayType:(long long)arg1 qualityOfService:(unsigned long long)arg2 handler:(CDUnknownBlockType)arg3;
+- (id)initWithDisplayType:(long long)arg1 handler:(CDUnknownBlockType)arg2;
+- (id)initWithDisplayType:(long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

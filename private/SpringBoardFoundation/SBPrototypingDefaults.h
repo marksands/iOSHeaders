@@ -13,7 +13,7 @@
 - (void)_bindAndRegisterDefaults;
 
 // Remaining properties
-@property(readonly, nonatomic) _Bool allowPrototypeSettings; // @dynamic allowPrototypeSettings;
+@property(nonatomic) _Bool allowPrototypeSettings; // @dynamic allowPrototypeSettings;
 @property(nonatomic) _Bool prototypeSettingsNeedsMigration; // @dynamic prototypeSettingsNeedsMigration;
 
 @end

@@ -25,9 +25,9 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSDDrawableInfo *connectedToInfo; // @synthesize connectedToInfo=mConnectedToInfo;
 @property(retain, nonatomic) NSUUID *connectedToID; // @synthesize connectedToID=mConnectedToID;
 @property(retain, nonatomic) NSUUID *connectedFromID; // @synthesize connectedFromID=mConnectedFromID;
+- (void).cxx_destruct;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (void)acceptVisitor:(id)arg1;
-- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned long long)arg3;
 - (void)performBlockWithTemporaryLayout:(CDUnknownBlockType)arg1;
 - (void)didCopy;
 - (void)willCopyWithOtherDrawables:(id)arg1;
@@ -35,19 +35,19 @@ __attribute__((visibility("hidden")))
 - (struct CGAffineTransform)computeLayoutFullTransform;
 - (void)computeLayoutInfoGeometry:(id *)arg1 andPathSource:(id *)arg2;
 - (id)computeLayoutInfoGeometry;
-@property(nonatomic) TSDDrawableInfo *connectedFrom;
-@property(nonatomic) TSDDrawableInfo *connectedTo;
+@property(retain, nonatomic) TSDDrawableInfo *connectedFrom;
+@property(retain, nonatomic) TSDDrawableInfo *connectedTo;
 - (_Bool)isLine;
 - (id)presetKind;
 - (Class)repClass;
 - (Class)layoutClass;
 - (id)copyWithContext:(id)arg1;
-- (void)dealloc;
 - (void)saveGeometryToArchive:(struct GeometryArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ConnectionLineArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ConnectionLineArchive *)arg1 unarchiver:(id)arg2;
+- (int)elementKind;
 
 @end
 

@@ -23,6 +23,7 @@
 + (_Bool)isCertificateError:(id)arg1;
 + (_Bool)isFileNotFoundError:(id)arg1;
 + (_Bool)isCanceledError:(id)arg1;
++ (id)userCanceledError;
 + (_Bool)isTimeoutError:(id)arg1;
 + (id)timeoutError;
 

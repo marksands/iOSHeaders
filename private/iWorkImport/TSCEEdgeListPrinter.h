@@ -14,10 +14,10 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_edgesForOwner;
 }
 
+- (void).cxx_destruct;
 - (id)stringForEdgesWithLimit:(unsigned long long)arg1;
 - (id)stringForOwnerID:(id)arg1 withLimit:(unsigned long long)arg2;
 - (void)addEdge:(id)arg1 forOwner:(id)arg2;
-- (void)dealloc;
 
 @end
 

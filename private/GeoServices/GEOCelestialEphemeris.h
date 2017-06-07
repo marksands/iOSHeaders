@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOEquatorialCelestialBodyData, GEOHorizontalCelestialBodyData, GEOSolarEclipticCelestialBodyData, NSDate;
 
@@ -32,9 +32,9 @@
 @property(readonly, nonatomic) NSDate *set; // @synthesize set=_set;
 @property(readonly, nonatomic) NSDate *transit; // @synthesize transit=_transit;
 @property(readonly, nonatomic) NSDate *rise; // @synthesize rise=_rise;
+- (void).cxx_destruct;
 - (struct CAARiseTransitSetDetails)_riseTransitSetForBody:(long long)arg1;
 - (void)_getRightAscension:(double *)arg1 declination:(double *)arg2 forJulianDay:(double)arg3 forBody:(long long)arg4;
-- (void)dealloc;
 - (id)initWithLocation:(CDStruct_c3b9c2ee)arg1 date:(id)arg2 body:(long long)arg3;
 @property(readonly, nonatomic) GEOHorizontalCelestialBodyData *horizontalCoord;
 @property(readonly, nonatomic) GEOEquatorialCelestialBodyData *equatorialCoord;

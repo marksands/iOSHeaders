@@ -23,6 +23,7 @@
 @property(copy, nonatomic) NSArray *devices; // @synthesize devices=_devices;
 - (void).cxx_destruct;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;

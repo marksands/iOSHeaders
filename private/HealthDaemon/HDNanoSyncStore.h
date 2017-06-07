@@ -9,7 +9,7 @@
 #import <HealthDaemon/HDSyncStore-Protocol.h>
 #import <HealthDaemon/NRDevicePropertyObserver-Protocol.h>
 
-@class HDNanoPairingEntity, HDNanoSyncRestoreSession, HDProfile, IDSDevice, NRDevice, NSDate, NSError, NSMutableArray, NSMutableDictionary, NSString, NSUUID;
+@class HDNanoPairingEntity, HDNanoSyncRestoreSession, HDProfile, IDSDevice, NRDevice, NSArray, NSDate, NSError, NSMutableArray, NSMutableDictionary, NSString, NSUUID;
 @protocol HDNanoSyncStoreDelegate;
 
 @interface HDNanoSyncStore : NSObject <NRDevicePropertyObserver, HDSyncStore>
@@ -27,6 +27,7 @@
     NSDate *_lastCompleteIncomingSyncDate;
     NSError *_lastCompleteIncomingSyncError;
     NSMutableDictionary *_expectedSequenceNumbers;
+    NSArray *_orderedSyncEntities;
     _Bool _master;
     _Bool _needsSyncOnUnlock;
     HDProfile *_profile;
@@ -38,10 +39,8 @@
 }
 
 + (id)_observedDeviceProperties;
-+ (id)_daytonaVersionSyncEntityClassesForCompanion:(_Bool)arg1;
-+ (id)_coralVersionSyncEntityClassesForCompanion:(_Bool)arg1;
-+ (id)_orderedNanoSyncEntitiesForProtocolVersion:(int)arg1 direction:(unsigned long long)arg2;
 + (id)orderedSyncEntitiesForProtocolVersion:(int)arg1 companion:(_Bool)arg2;
++ (id)_allOrderedNanoSyncEntities;
 + (id)nanoSyncStoreWithProfile:(id)arg1 device:(id)arg2 delegate:(id)arg3;
 @property(nonatomic) _Bool needsSyncOnUnlock; // @synthesize needsSyncOnUnlock=_needsSyncOnUnlock;
 @property(readonly, nonatomic) HDNanoSyncRestoreSession *restoreSession; // @synthesize restoreSession=_restoreSession;
@@ -60,8 +59,8 @@
 - (_Bool)enforceSyncEntityOrdering;
 - (id)orderedSyncEntities;
 - (id)syncStoreDefaultSourceBundleIdentifier;
-- (id)syncStoreDefaultSourceUUID;
 - (id)syncStoreIdentifier;
+- (id)syncStoreTypeIdentifier;
 - (long long)syncProvenance;
 - (_Bool)validatePairingUUIDsWithIncomingMessage:(id)arg1;
 - (_Bool)validateVersionWithIncomingMessage:(id)arg1;
@@ -80,6 +79,7 @@
 - (id)beginRestoreSessionWithUUID:(id)arg1 timeout:(double)arg2 timeoutHandler:(CDUnknownBlockType)arg3;
 - (void)setExpectedSequenceNumber:(long long)arg1 forSyncEntityClass:(Class)arg2;
 - (long long)expectedSequenceNumberForSyncEntityClass:(Class)arg1;
+- (_Bool)shouldEnforceSequenceOrdering;
 - (_Bool)_savePairingEntity;
 @property(retain, nonatomic) NSUUID *persistentUUID;
 @property(retain, nonatomic) NSUUID *healthUUID;
@@ -92,6 +92,7 @@
 @property(readonly, copy) NSString *remoteSystemBuildVersion;
 @property(readonly) NSUUID *nanoRegistryUUID;
 @property(readonly) IDSDevice *device;
+- (id)deviceInfo;
 @property(readonly, getter=isInvalidated) _Bool invalidated;
 - (void)invalidate;
 - (void)dealloc;

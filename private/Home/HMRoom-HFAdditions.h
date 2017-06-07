@@ -6,9 +6,11 @@
 
 #import <HomeKit/HMRoom.h>
 
-@class HMHome;
+@class HMHome, NSSet;
 
 @interface HMRoom (HFAdditions)
+@property(readonly, nonatomic) NSSet *hf_allVisibleServices;
+- (id)hf_allZones;
 - (id)hf_allServices;
 
 // Remaining properties

@@ -26,7 +26,6 @@ __attribute__((visibility("hidden")))
 - (void)resizeTemporaryBuffer:(unsigned long long)arg1;
 - (long long)writeRootObject:(id)arg1 toStream:(id)arg2 options:(unsigned long long)arg3 error:(id *)arg4;
 - (id)dataWithRootObject:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
-- (void)finalize;
 - (void)dealloc;
 - (id)init;
 

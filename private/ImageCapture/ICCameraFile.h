@@ -27,8 +27,16 @@
 - (id)metadata;
 - (struct CGImage *)thumbnail;
 - (void)setKeywordPropertiesFromMetadata;
-- (id)handleCommandCompletionNotification:(id)arg1;
+- (_Bool)setMetadata:(id)arg1;
+- (_Bool)setThumbnailData:(struct __CFData *)arg1 withOrientation:(id)arg2;
+- (void)handleCommandCompletionNotification:(id)arg1;
 - (void)overrideOrientation:(unsigned long long)arg1;
+@property(readonly) NSString *relatedUUID;
+@property(readonly) NSString *createdFilename;
+@property(readonly) NSString *groupUUID;
+@property(readonly) NSString *originalFilename;
+- (_Bool)firstPicked;
+@property(readonly) NSString *originatingAssetID;
 @property _Bool fetchingMetadata;
 @property _Bool fetchingThumbnail;
 - (void)setHasMetadata:(_Bool)arg1;

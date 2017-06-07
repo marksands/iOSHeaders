@@ -6,33 +6,38 @@
 
 #import <Foundation/NSObject.h>
 
+#import <ViceroyTrace/RTCReportingMessageSentNotifier-Protocol.h>
 #import <ViceroyTrace/VCAggregatorDelegate-Protocol.h>
 
 @class NSArray, NSString, RTCReporting, VCAggregator;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
-@interface RTCReportingAgent : NSObject <VCAggregatorDelegate>
+@interface RTCReportingAgent : NSObject <VCAggregatorDelegate, RTCReportingMessageSentNotifier>
 {
+    unsigned int _callID;
     RTCReporting *_reportingObject;
-    int _client;
+    void *_symptomReporter;
     NSObject<OS_dispatch_queue> *_reportingQueue;
     NSArray *_backends;
-    _Bool _isUserInfoSet;
     VCAggregator *_aggregator;
-    CDUnknownBlockType _aggregationBlock;
+    int _clientType;
 }
 
+@property int clientType; // @synthesize clientType=_clientType;
 @property(retain) VCAggregator *aggregator; // @synthesize aggregator=_aggregator;
-@property _Bool isUserInfoSet; // @synthesize isUserInfoSet=_isUserInfoSet;
 @property(copy) NSArray *backends; // @synthesize backends=_backends;
 @property(readonly) NSObject<OS_dispatch_queue> *reportingQueue; // @synthesize reportingQueue=_reportingQueue;
-@property int client; // @synthesize client=_client;
 @property(retain) RTCReporting *reportingObject; // @synthesize reportingObject=_reportingObject;
+- (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
+- (void)reportingSymptom:(unsigned int)arg1 withOptionalDict:(struct __CFDictionary *)arg2;
 - (void)sendAggregatedReport;
 - (void)releaseReportingObject;
+- (void)didSendMessageForReportingClient:(id)arg1 event:(id)arg2;
+- (void)reportQR:(id)arg1;
 - (void)report:(id)arg1;
 - (void)dealloc;
+- (void)initAdaptiveLearningWithParameters:(id)arg1;
 - (id)initWithCallID:(unsigned int)arg1 clientType:(int)arg2;
 
 // Remaining properties

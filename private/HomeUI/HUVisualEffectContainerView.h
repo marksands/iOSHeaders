@@ -18,6 +18,8 @@
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
+- (id)initWithInnerContentView:(id)arg1;
 
 @end
 

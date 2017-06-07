@@ -23,7 +23,8 @@ __attribute__((visibility("hidden")))
 
 + (_Bool)tsp_isTransientObjectIdentifier:(long long)arg1;
 + (_Bool)needsObjectUUID;
-+ (id)newObjectForUnarchiver:(id)arg1;
++ (Class)classForUnarchiver:(id)arg1;
++ (void)performUpgradeUsingBlock:(CDUnknownBlockType)arg1;
 + (id)tsp_deserializeFromData:(id)arg1 options:(id)arg2 context:(id)arg3 error:(id *)arg4;
 @property(nonatomic) __weak id <TSPObjectDelegate> tsp_delegate; // @synthesize tsp_delegate=_delegate;
 @property(nonatomic) __weak TSPComponent *tsp_component; // @synthesize tsp_component=_component;
@@ -39,9 +40,10 @@ __attribute__((visibility("hidden")))
 - (void)setObjectUUID:(id)arg1 updatingObjectUUIDMap:(_Bool)arg2;
 @property(copy, nonatomic) NSUUID *objectUUID;
 - (void)didFinishUnarchiving;
+- (_Bool)validatedLoadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initBaseObjectFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
 @property(readonly, nonatomic) _Bool tsp_isPersisted;
 @property(readonly, nonatomic) _Bool isCommandObject;
 - (void)didLoadChildObjectFromDocumentSupport:(id)arg1;
@@ -58,9 +60,10 @@ __attribute__((visibility("hidden")))
 - (void)willModify;
 - (void)performBlockIgnoringModifications:(CDUnknownBlockType)arg1;
 - (id)initDocumentObjectWithContext:(id)arg1;
+- (void)tsp_commonInitBaseObjectWithContext:(id)arg1;
+- (void)commonInit;
 - (id)initBaseObjectWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1;
-- (id)initCommon;
 - (void)dealloc;
 @property(readonly, nonatomic) TSPObjectContext *context;
 - (id)init;
@@ -75,7 +78,6 @@ __attribute__((visibility("hidden")))
 - (id)tsp_referencedObjects;
 - (id)tsp_referencedData;
 - (id)tsp_objectInfoWithDepth:(unsigned long long)arg1;
-- (void)deallocSOS;
 - (void)didInitFromSOS;
 - (void)willBeRemovedFromDocumentWithContext:(id)arg1;
 - (void)wasAddedToDocumentDuringImportWithContext:(id)arg1;

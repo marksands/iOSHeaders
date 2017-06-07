@@ -22,6 +22,7 @@
 
 @property(retain, nonatomic) NSString *userActionEventValue; // @synthesize userActionEventValue=_userActionEventValue;
 @property(retain, nonatomic) NSString *userActionEventKey; // @synthesize userActionEventKey=_userActionEventKey;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -37,7 +38,6 @@
 @property(nonatomic) int userActionEventTarget; // @synthesize userActionEventTarget=_userActionEventTarget;
 @property(readonly, nonatomic) _Bool hasUserActionEventValue;
 @property(readonly, nonatomic) _Bool hasUserActionEventKey;
-- (void)dealloc;
 
 @end
 

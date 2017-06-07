@@ -10,34 +10,34 @@
 #import <PhotosUICore/UICollectionViewDelegate-Protocol.h>
 #import <PhotosUICore/UICollectionViewDelegateFlowLayout-Protocol.h>
 
-@class NSArray, NSString, PXPeopleDetailSettingsDataSource, PXPeoplePersonDataSource, UICollectionView, UIImage;
+@class NSArray, NSString, PXPersonItem, UICollectionView, UIImage;
 
 @interface PXPeopleDetailSettingsSuggestionViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
+    PXPersonItem *_personItem;
     UICollectionView *_collectionView;
-    PXPeopleDetailSettingsDataSource *_detailSettingsDataSource;
+    NSArray *_detailSettingsDataSources;
     NSArray *_members;
     UIImage *_image;
-    PXPeoplePersonDataSource *_peopleDataSource;
 }
 
-@property(retain) PXPeoplePersonDataSource *peopleDataSource; // @synthesize peopleDataSource=_peopleDataSource;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(readonly, nonatomic) NSArray *members; // @synthesize members=_members;
-@property(retain) PXPeopleDetailSettingsDataSource *detailSettingsDataSource; // @synthesize detailSettingsDataSource=_detailSettingsDataSource;
+@property(retain) NSArray *detailSettingsDataSources; // @synthesize detailSettingsDataSources=_detailSettingsDataSources;
 @property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
+@property(readonly, nonatomic) PXPersonItem *personItem; // @synthesize personItem=_personItem;
 - (void).cxx_destruct;
-- (void)loadFacesForSuggestion:(id)arg1;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
-- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
+- (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
+- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (void)viewDidLoad;
-- (void)setSuggestions:(id)arg1;
-- (id)initWithSuggestions:(id)arg1 andKeyFace:(id)arg2;
-- (id)initWithSuggestions:(id)arg1;
-- (id)init;
+- (void)loadDataSource;
+- (id)initWithPersonItem:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

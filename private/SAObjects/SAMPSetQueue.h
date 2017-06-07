@@ -14,14 +14,17 @@
 
 + (id)setQueueWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setQueue;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSNumber *startPlaying;
 @property(copy, nonatomic) NSArray *sort;
 @property(nonatomic) _Bool shouldShuffle;
+@property(nonatomic) _Bool shouldReloadQueue;
 @property(nonatomic) _Bool shouldOverrideManuallyCuratedUpNext;
+@property(copy, nonatomic) NSString *recommendationId;
 @property(retain, nonatomic) SAMPCollection *mediaItems;
+@property(copy, nonatomic) NSArray *hashedRouteUIDs;
 @property(copy, nonatomic) NSArray *filters;
-@property(copy, nonatomic) NSString *airplayRouteUID;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

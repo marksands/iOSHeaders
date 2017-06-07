@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CoreDuet/_DKObjectCache.h>
+#import <Foundation/NSCache.h>
 
-@interface _DKCategoryCache : _DKObjectCache
+@interface _DKCategoryCache : NSCache
 {
 }
 

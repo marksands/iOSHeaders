@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString, NSUUID;
+@class NSString, NSUUID, PBUnknownFields;
 
 @interface GEOMapItemRoutineAttributes : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _eventDate;
     NSString *_eventName;
     NSString *_loiIdentifierString;
@@ -28,6 +29,8 @@
 @property(nonatomic) _Bool isEventAllDay; // @synthesize isEventAllDay=_isEventAllDay;
 @property(nonatomic) double eventDate; // @synthesize eventDate=_eventDate;
 @property(retain, nonatomic) NSString *eventName; // @synthesize eventName=_eventName;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -45,8 +48,7 @@
 - (id)loiTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasLoiType;
 @property(nonatomic) int loiType; // @synthesize loiType=_loiType;
-- (void)dealloc;
-@property(nonatomic) NSUUID *loiIdentifier;
+@property(retain, nonatomic) NSUUID *loiIdentifier;
 
 @end
 

@@ -8,38 +8,23 @@
 
 #import <TVMLKit/IKAppTabBarController-Protocol.h>
 #import <TVMLKit/UITabBarControllerDelegate-Protocol.h>
-#import <TVMLKit/_TVMenuBarStackViewDelegate-Protocol.h>
 
-@class IKAppTabBar, NSArray, NSString, UIView, UIVisualEffectView, _TVMenuBarStackView;
+@class IKAppTabBar, NSArray, NSString;
 @protocol _TVAppNavigationControllerDelegate;
 
-@interface _TVRootMenuBarController : UITabBarController <UITabBarControllerDelegate, IKAppTabBarController, _TVMenuBarStackViewDelegate>
+@interface _TVRootMenuBarController : UITabBarController <UITabBarControllerDelegate, IKAppTabBarController>
 {
     IKAppTabBar *_appTabBar;
     id <_TVAppNavigationControllerDelegate> _appNavigationControllerDelegate;
     NSArray *_appTabBarItems;
     unsigned long long _previousSelectedIndex;
-    unsigned long long _layoutType;
-    NSArray *_paletteViewContraints;
-    UIVisualEffectView *_paletteView;
-    _TVMenuBarStackView *_stackView;
-    UIView *_tabBarSeparator;
 }
 
-@property(retain, nonatomic) UIView *tabBarSeparator; // @synthesize tabBarSeparator=_tabBarSeparator;
-@property(retain, nonatomic) _TVMenuBarStackView *stackView; // @synthesize stackView=_stackView;
-@property(retain, nonatomic) UIVisualEffectView *paletteView; // @synthesize paletteView=_paletteView;
-@property(retain, nonatomic) NSArray *paletteViewContraints; // @synthesize paletteViewContraints=_paletteViewContraints;
-@property(nonatomic) unsigned long long layoutType; // @synthesize layoutType=_layoutType;
 @property(nonatomic) unsigned long long previousSelectedIndex; // @synthesize previousSelectedIndex=_previousSelectedIndex;
 @property(retain, nonatomic) NSArray *appTabBarItems; // @synthesize appTabBarItems=_appTabBarItems;
 @property(nonatomic) __weak id <_TVAppNavigationControllerDelegate> appNavigationControllerDelegate; // @synthesize appNavigationControllerDelegate=_appNavigationControllerDelegate;
 @property(retain, nonatomic) IKAppTabBar *appTabBar; // @synthesize appTabBar=_appTabBar;
 - (void).cxx_destruct;
-- (void)_updateVisibilityLayoutType:(unsigned long long)arg1;
-- (void)_setSelectedViewController:(id)arg1;
-- (void)stackView:(id)arg1 poppedToRootForIndex:(unsigned long long)arg2;
-- (void)stackView:(id)arg1 selectedIndex:(unsigned long long)arg2;
 - (id)transientTabItemForTabBar:(id)arg1;
 - (void)tabBar:(id)arg1 setSelectedTabItem:(id)arg2;
 - (id)selectedTabItemForTabBar:(id)arg1;
@@ -47,9 +32,7 @@
 - (id)tabBar:(id)arg1 tabItemAtIndex:(unsigned long long)arg2;
 - (unsigned long long)numberOfTabsInTabBar:(id)arg1;
 - (void)tabBarController:(id)arg1 didSelectViewController:(id)arg2;
-- (void)setSelectedIndex:(unsigned long long)arg1;
 - (unsigned long long)tabBarControllerSupportedInterfaceOrientations:(id)arg1;
-- (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)init;

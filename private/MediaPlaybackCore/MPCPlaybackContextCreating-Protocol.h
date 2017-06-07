@@ -9,6 +9,7 @@
 @protocol MPCPlaybackContextCreating <NSObject>
 
 @optional
+- (void)getPlaybackContextWithCompletion:(void (^)(MPPlaybackContext *, NSError *))arg1;
 - (void)createPlaybackContextWithCompletion:(void (^)(MPPlaybackContext *, NSError *))arg1;
 @end
 

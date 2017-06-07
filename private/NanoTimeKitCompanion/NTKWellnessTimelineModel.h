@@ -32,6 +32,7 @@
     _HKDelayedOperation *_delayedProcessingOperation;
     NSObject<OS_dispatch_queue> *_subscriber_queue;
     NSHashTable *_subscribers;
+    _Bool _queue_ignoreLoadingSummary;
 }
 
 + (id)sharedModel;
@@ -57,10 +58,11 @@
 - (id)_queue_calorieGoalSampleForDate:(id)arg1;
 - (id)_queue_standHourForDate:(id)arg1;
 - (id)_wellnessEntryModelFromActivitySummary:(id)arg1;
+- (_Bool)_loadingStateForActivitySummary:(id)arg1;
 - (void)_queue_restartQueries;
 - (void)_queue_restartQueriesIfQueryInUse:(id)arg1;
 - (void)_restartQueriesIfQueryInUse:(id)arg1;
-- (void)_queue_stopQueries;
+- (void)_queue_stopQueriesPreservingHistoricalData:(_Bool)arg1;
 - (void)_queue_startQueries;
 - (void)getWellnessEntriesBeforeDate:(id)arg1 limit:(unsigned long long)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)getWellnessEntriesAfterDate:(id)arg1 limit:(unsigned long long)arg2 handler:(CDUnknownBlockType)arg3;

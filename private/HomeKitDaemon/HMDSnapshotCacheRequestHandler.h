@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMDSnapshotRequestHandlerProtocol-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDSnapshotCacheRequestHandler : NSObject <HMFLogging, HMFTimerDelegate, HMDSnapshotRequestHandlerProtocol>
+@interface HMDSnapshotCacheRequestHandler : HMFObject <HMFLogging, HMFTimerDelegate, HMDSnapshotRequestHandlerProtocol>
 {
     NSObject<OS_dispatch_queue> *_workQueue;
     NSString *_logString;

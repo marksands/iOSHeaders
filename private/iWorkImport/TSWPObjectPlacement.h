@@ -11,16 +11,16 @@
 __attribute__((visibility("hidden")))
 @interface TSWPObjectPlacement : NSObject
 {
-    TSUUUIDPath *_uuidPath;
     int _index;
+    TSUUUIDPath *_uuidPath;
     NSObject *_object;
 }
 
 + (id)objectPlacementWithObject:(id)arg1 uuidPath:(id)arg2 index:(int)arg3;
-@property(readonly, nonatomic) NSObject *object; // @synthesize object=_object;
-@property(readonly, nonatomic) TSUUUIDPath *uuidPath; // @synthesize uuidPath=_uuidPath;
 @property(nonatomic) int index; // @synthesize index=_index;
-- (void)dealloc;
+@property(retain, nonatomic) NSObject *object; // @synthesize object=_object;
+@property(retain, nonatomic) TSUUUIDPath *uuidPath; // @synthesize uuidPath=_uuidPath;
+- (void).cxx_destruct;
 - (id)initWithObject:(id)arg1 uuidPath:(id)arg2 index:(int)arg3;
 
 @end

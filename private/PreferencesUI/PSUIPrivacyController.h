@@ -24,7 +24,6 @@
 - (void)updateLocationServicesVisibility;
 - (id)capabilityEnabled:(id)arg1;
 - (void)setCapabilityEnabled:(id)arg1 specifier:(id)arg2;
-- (_Bool)hasSocialSpecifiers:(id)arg1;
 - (id)specifiers;
 - (id)_accountStore;
 

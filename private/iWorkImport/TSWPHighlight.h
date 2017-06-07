@@ -6,59 +6,60 @@
 
 #import <iWorkImport/TSPObject.h>
 
-#import <iWorkImport/TSDAnnotationHosting-Protocol.h>
+#import <iWorkImport/TSDComment-Protocol.h>
 #import <iWorkImport/TSKDocumentObject-Protocol.h>
 #import <iWorkImport/TSPCopying-Protocol.h>
+#import <iWorkImport/TSWPOverlappingField-Protocol.h>
 #import <iWorkImport/TSWPTextSpanningObject-Protocol.h>
 
 @class NSDate, NSString, TSDCommentStorage, TSKAnnotationAuthor, TSWPStorage;
 
 __attribute__((visibility("hidden")))
-@interface TSWPHighlight : TSPObject <TSDAnnotationHosting, TSPCopying, TSKDocumentObject, TSWPTextSpanningObject>
+@interface TSWPHighlight : TSPObject <TSDComment, TSPCopying, TSKDocumentObject, TSWPTextSpanningObject, TSWPOverlappingField>
 {
-    NSString *_textAttributeUUIDString;
     TSDCommentStorage *_commentStorage;
     TSWPStorage *_parentStorage;
+    NSString *_textAttributeUUIDString;
 }
 
 + (id)defaultHighlightWithContext:(id)arg1 includeCommentWithAuthor:(id)arg2;
+@property(copy, nonatomic) NSString *textAttributeUUIDString; // @synthesize textAttributeUUIDString=_textAttributeUUIDString;
 @property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
 @property(retain, nonatomic) TSDCommentStorage *commentStorage; // @synthesize commentStorage=_commentStorage;
+- (void).cxx_destruct;
+- (_Bool)isInDocument;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)commentWillBeAddedToDocumentRoot;
 - (void)p_invalidateAnnotationResultsForDocumentRoot:(id)arg1 key:(id)arg2;
-@property(readonly, nonatomic) TSPObject *hostingModel;
+@property(readonly, nonatomic) _Bool isHighlight;
 @property(readonly, nonatomic) int annotationDisplayStringType;
 @property(readonly, nonatomic) int annotationType;
 @property(readonly, nonatomic) NSDate *date;
-- (void)setAuthor:(id)arg1;
-@property(readonly, nonatomic) TSKAnnotationAuthor *author;
+@property(retain, nonatomic) TSKAnnotationAuthor *author;
+@property(readonly, nonatomic) NSString *annotationUUID;
+- (_Bool)wantsAnnotationPopover;
 @property(copy, nonatomic) TSDCommentStorage *storage;
-- (void)i_setCommentStorage:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct HighlightArchive *)arg1 unarchiver:(id)arg2;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
 - (_Bool)isEquivalentToObject:(id)arg1;
 - (void)resetTextAttributeUUIDString;
-@property(readonly, nonatomic) NSString *textAttributeUUIDString;
 - (_Bool)isCommentEmpty;
 @property(readonly, copy) NSString *description;
 - (void)i_setTextAttributeUUIDString:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithContext:(id)arg1;
-- (void)dealloc;
+- (id)initWithContext:(id)arg1 commentStorage:(id)arg2 annotationUUID:(id)arg3;
 - (id)initWithContext:(id)arg1 commentStorage:(id)arg2;
 - (id)initWithContext:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
-@property(readonly, nonatomic) NSString *changeTrackingContentString;
-@property(readonly, nonatomic) NSString *changeTrackingTitleString;
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

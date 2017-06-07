@@ -30,7 +30,7 @@
 - (void)_nextTapped:(id)arg1;
 - (id)_nextItems;
 - (id)_currentItem;
-- (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (void)loadView;
 - (unsigned long long)edgesForExtendedLayout;

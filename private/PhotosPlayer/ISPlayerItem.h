@@ -110,7 +110,6 @@
 @property(nonatomic, setter=_setVideoPlayerItemRequestID:) long long _videoPlayerItemRequestID;
 - (void)_cancelLoading;
 @property(copy) AVVideoComposition *videoComposition;
-@property CDStruct_e83c9415 trimmedTimeRange;
 @property CDStruct_1b6d18a9 scrubbingPhotoTime;
 @property long long loadingTarget;
 - (void)performChanges:(CDUnknownBlockType)arg1;

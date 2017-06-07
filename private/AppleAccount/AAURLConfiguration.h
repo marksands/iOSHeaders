@@ -18,6 +18,11 @@
 + (id)itemForKey:(id)arg1 error:(id *)arg2;
 + (id)urlConfiguration;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *acceptFamilyInviteV2URL;
+@property(readonly, nonatomic) NSString *fetchFamilyInviteV2URL;
+@property(readonly, nonatomic) NSString *familyInviteSentV2URL;
+@property(readonly, nonatomic) NSString *startFamilyInviteV2URL;
+@property(readonly, nonatomic) NSString *initiateFamilyV2URL;
 @property(readonly, nonatomic) NSString *repairCloudAccountUIURL;
 @property(readonly, nonatomic) NSString *getDeviceListURL;
 @property(readonly, nonatomic) NSString *dismissAlertURL;

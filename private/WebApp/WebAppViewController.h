@@ -6,16 +6,16 @@
 
 #import <UIKit/UIViewController.h>
 
-@class WebAppController;
+@class WebAppControllerWK1;
 
 @interface WebAppViewController : UIViewController
 {
     _Bool _setupRootViewColor;
     unsigned long long _statusBarStyle;
-    WebAppController *_webAppController;
+    WebAppControllerWK1 *_webAppController;
 }
 
-@property(nonatomic) __weak WebAppController *webAppController; // @synthesize webAppController=_webAppController;
+@property(nonatomic) __weak WebAppControllerWK1 *webAppController; // @synthesize webAppController=_webAppController;
 @property(nonatomic) unsigned long long statusBarStyle; // @synthesize statusBarStyle=_statusBarStyle;
 - (void).cxx_destruct;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;

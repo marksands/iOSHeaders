@@ -18,6 +18,8 @@
 @property(readonly, nonatomic) long long category; // @synthesize category=_category;
 @property(readonly, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
 - (void).cxx_destruct;
+- (id)description;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

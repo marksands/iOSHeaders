@@ -9,7 +9,7 @@
 #import <AnnotationKit/NSCopying-Protocol.h>
 #import <AnnotationKit/NSSecureCoding-Protocol.h>
 
-@class NSString;
+@class NSDate, NSString;
 
 @interface AKAnnotation : NSObject <NSSecureCoding, NSCopying>
 {
@@ -31,6 +31,8 @@
     NSString *_customPlaceholderText;
     double _originalModelBaseScaleFactor;
     long long _originalExifOrientation;
+    NSDate *_modificationDate;
+    NSString *_author;
     long long _akSerializationVersion;
     long long _akSerializationPlatform;
     AKAnnotation *_parentAnnotation;
@@ -56,6 +58,8 @@
 @property long long akSerializationVersion; // @synthesize akSerializationVersion=_akSerializationVersion;
 @property _Bool isDraggingHandle; // @synthesize isDraggingHandle=_isDraggingHandle;
 @property _Bool isTranslating; // @synthesize isTranslating=_isTranslating;
+@property(copy) NSString *author; // @synthesize author=_author;
+@property(retain) NSDate *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property _Bool isEdited; // @synthesize isEdited=_isEdited;
 @property _Bool editsDisableAppearanceOverride; // @synthesize editsDisableAppearanceOverride=_editsDisableAppearanceOverride;
 @property(nonatomic) long long originalExifOrientation; // @synthesize originalExifOrientation=_originalExifOrientation;
@@ -79,6 +83,7 @@
 - (id)keysForValuesToObserveForAdornments;
 - (id)keysForValuesToObserveForRedrawing;
 - (id)keysForValuesToObserveForUndo;
+@property(readonly) _Bool shouldBurnIn;
 @property(readonly) NSString *displayName;
 - (id)dataRepresentation;
 - (id)copyWithZone:(struct _NSZone *)arg1;

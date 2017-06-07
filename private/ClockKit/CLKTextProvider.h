@@ -23,6 +23,7 @@
     struct NSNumber *_30fpsTimerToken;
     _Bool _finalized;
     _Bool _paused;
+    _Bool _italicized;
     _Bool _useMonospacedNumbersForTimeTravel;
     UIColor *_tintColor;
     long long _shrinkTextPreference;
@@ -39,6 +40,7 @@
 @property(nonatomic) long long timeTravelUpdateFrequency; // @synthesize timeTravelUpdateFrequency=_timeTravelUpdateFrequency;
 @property(nonatomic) _Bool useMonospacedNumbersForTimeTravel; // @synthesize useMonospacedNumbersForTimeTravel=_useMonospacedNumbersForTimeTravel;
 @property(nonatomic) long long shrinkTextPreference; // @synthesize shrinkTextPreference=_shrinkTextPreference;
+@property(nonatomic) _Bool italicized; // @synthesize italicized=_italicized;
 @property(nonatomic) _Bool paused; // @synthesize paused=_paused;
 @property(retain, nonatomic) UIColor *tintColor; // @synthesize tintColor=_tintColor;
 - (void).cxx_destruct;
@@ -55,6 +57,7 @@
 - (void)_pruneCacheKeysIfNecessary;
 - (id)_cacheForKey:(id)arg1;
 - (id)_defaultCache;
+- (id)_italicize:(id)arg1;
 - (id)_localizedTextProviderWithBundle:(id)arg1 forLocalization:(id)arg2;
 - (long long)_updateFrequency;
 - (id)_description;

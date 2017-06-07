@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HAPPairingIdentity, HMDHome, NSMutableArray, NSString, NSUUID;
+@class HAPPairingIdentity, HMDHome, HMUserPresenceAuthorization, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDUser : NSObject <HMFDumpState, NSSecureCoding>
+@interface HMDUser : HMFObject <HMFDumpState, HMDBackingStoreObjectProtocol, NSSecureCoding>
 {
     NSMutableArray *_relayAccessTokens;
     _Bool _remoteAccessAllowed;
@@ -20,18 +21,28 @@
     unsigned long long _privilege;
     HMDHome *_home;
     NSString *_userID;
+    HMUserPresenceAuthorization *_presenceAuthStatus;
     NSString *_relayIdentifier;
     HAPPairingIdentity *_pairingIdentity;
     NSUUID *_uuid;
     NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
++ (id)userWithDictionary:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)destinationWithUserID:(id)arg1;
++ (id)userWithName:(id)arg1 userID:(id)arg2 publicKey:(id)arg3;
 + (id)currentUserWithPrivilege:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(copy, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;
+- (id)dictionaryEncoding;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)_transactionUserUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (void)updateRelayAccessTokens:(id)arg1;
 - (_Bool)mergeFromUser:(id)arg1 dataVersion:(long long)arg2;
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *encodingRemoteDisplayName;
@@ -58,17 +69,20 @@
 - (id)pairingUsername;
 @property(retain, nonatomic) HAPPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
 @property(readonly, copy, nonatomic) NSString *displayName;
+@property(copy, nonatomic) HMUserPresenceAuthorization *presenceAuthStatus; // @synthesize presenceAuthStatus=_presenceAuthStatus;
 @property(copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
 @property(nonatomic) unsigned long long privilege; // @synthesize privilege=_privilege;
+@property(readonly) unsigned long long hash;
+- (_Bool)isEqual:(id)arg1;
 - (unsigned long long)_compatiblePrivilege;
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
 @property(readonly, copy) NSString *debugDescription;
 - (id)initWithUserID:(id)arg1 pairingIdentity:(id)arg2 privilege:(unsigned long long)arg3;
+- (id)initWithModelObject:(id)arg1;
 
 // Remaining properties
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

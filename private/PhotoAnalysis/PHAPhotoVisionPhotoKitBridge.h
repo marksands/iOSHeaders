@@ -33,8 +33,9 @@
 + (id)pvFaceFromPHFace:(id)arg1 copyPropertiesOption:(long long)arg2;
 + (id)phFacesFromPVFaces:(id)arg1 withFetchOptions:(id)arg2;
 + (id)phFaceFromPVFace:(id)arg1 withFetchOptions:(id)arg2;
-+ (id)newVerifiedPersonsFetchOptionsWithPhotoLibrary:(id)arg1;
-+ (id)newAllPersonsFetchOptionsWithPhotoLibrary:(id)arg1;
++ (id)newFacesDeterministicOrderFetchOptionsWithPhotoLibrary:(id)arg1;
++ (id)newVerifiedPersonsWithAtleastOneFaceFetchOptionsWithPhotoLibrary:(id)arg1;
++ (id)newAllPersonsWithAtleastOneFaceFetchOptionsWithPhotoLibrary:(id)arg1;
 + (id)newFaceCropsFetchOptionsWithPhotoLibrary:(id)arg1;
 + (id)newFaceGroupsFetchOptionsWithPhotoLibrary:(id)arg1;
 + (id)newFacesRequiringFaceCropGenerationFetchOptionsWithPhotoLibrary:(id)arg1;

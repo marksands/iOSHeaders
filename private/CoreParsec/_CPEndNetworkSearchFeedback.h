@@ -6,47 +6,52 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
-#import <CoreParsec/SFEndNetworkSearchFeedback-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPEndNetworkSearchFeedback-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 
-@class NSDictionary, NSString, _CPNetworkTimingData;
+@class NSData, NSDictionary, NSString;
 
-@interface _CPEndNetworkSearchFeedback : PBCodable <SFEndNetworkSearchFeedback, NSCopying>
+@interface _CPEndNetworkSearchFeedback : PBCodable <_CPProcessableFeedback, _CPEndNetworkSearchFeedback, NSSecureCoding>
 {
-    long long _responseSize;
-    unsigned long long _timestamp;
-    _CPNetworkTimingData *_networkTiming;
-    int _statusCode;
-    NSString *_uuid;
     struct {
+        unsigned int timestamp:1;
         unsigned int responseSize:1;
         unsigned int statusCode:1;
     } _has;
+    int _statusCode;
+    unsigned long long _timestamp;
+    long long _responseSize;
+    NSDictionary *_networkTimingData;
+    NSString *_uuid;
 }
 
-@property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
-@property(retain, nonatomic) _CPNetworkTimingData *networkTiming; // @synthesize networkTiming=_networkTiming;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
+@property(copy, nonatomic) NSDictionary *networkTimingData; // @synthesize networkTimingData=_networkTimingData;
 @property(nonatomic) int statusCode; // @synthesize statusCode=_statusCode;
 @property(nonatomic) long long responseSize; // @synthesize responseSize=_responseSize;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool hasUuid;
-@property(readonly, nonatomic) _Bool hasNetworkTiming;
-@property(nonatomic) _Bool hasStatusCode;
-@property(nonatomic) _Bool hasResponseSize;
-@property(copy, nonatomic) NSDictionary *networkTimingData;
+- (void)setNetworkTimingData:(id)arg1 forKey:(id)arg2;
+- (_Bool)getNetworkTimingData:(id *)arg1 forKey:(id)arg2;
+@property(readonly, nonatomic) _Bool hasStatusCode;
+@property(readonly, nonatomic) _Bool hasResponseSize;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) Class superclass;
 
 @end

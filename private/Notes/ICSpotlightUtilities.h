@@ -10,12 +10,7 @@
 {
 }
 
-+ (id)noteTitleFromSearchIndexableTitle:(id)arg1 contentText:(id)arg2 suffix:(id)arg3;
-+ (id)contentTextUsingBlockingOperationIfNeededFromSearchIndexable:(id)arg1;
-+ (id)contentTextFromSearchStrings:(id)arg1;
-+ (id)attributeSetWithoutPerformingAdditionalOperationsFromSearchIndexable:(id)arg1;
-+ (id)attributeSetFromSearchIndexable:(id)arg1;
-+ (id)attributeSetFromSearchIndexable:(id)arg1 contentText:(id)arg2;
++ (id)stringByEscapingSearchString:(id)arg1;
 
 @end
 

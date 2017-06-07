@@ -10,8 +10,9 @@
 {
 }
 
-+ (struct CGRect)boundsForNoteAnnotationHavingParent:(id)arg1;
-+ (id)newNoteAnnotationWithParent:(id)arg1;
++ (struct CGRect)_boundsForOpenPopupAnnotation:(id)arg1 onPageController:(id)arg2;
++ (struct CGRect)boundsForPopupAnnotationHavingParent:(id)arg1 onPageController:(id)arg2;
++ (id)newPopupAnnotationWithParent:(id)arg1 onPageController:(id)arg2;
 
 @end
 

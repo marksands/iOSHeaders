@@ -15,6 +15,7 @@
     _Bool _isHiddenFeed;
     _Bool _isTopStories;
     _Bool _isEditorial;
+    _Bool _isEditorialGems;
     _Bool _isCoverArticles;
     NSString *_sectionID;
     NSString *_channelID;
@@ -23,6 +24,7 @@
 
 + (id)feedContextForHiddenFeed;
 + (id)feedContextForCoverArticlesFeed;
++ (id)feedContextForEditorialChannel:(id)arg1 editorialGemsSectionID:(id)arg2;
 + (id)feedContextForEditorialChannel:(id)arg1 sectionID:(id)arg2;
 + (id)feedContextForTopStoriesChannel:(id)arg1 sectionID:(id)arg2;
 + (id)feedContextForChannel:(id)arg1 sectionID:(id)arg2;
@@ -30,6 +32,7 @@
 + (id)feedContextForTopStoriesTag:(id)arg1;
 + (id)feedContextForTag:(id)arg1;
 @property(nonatomic) _Bool isCoverArticles; // @synthesize isCoverArticles=_isCoverArticles;
+@property(nonatomic) _Bool isEditorialGems; // @synthesize isEditorialGems=_isEditorialGems;
 @property(nonatomic) _Bool isEditorial; // @synthesize isEditorial=_isEditorial;
 @property(nonatomic) _Bool isTopStories; // @synthesize isTopStories=_isTopStories;
 @property(nonatomic) _Bool isHiddenFeed; // @synthesize isHiddenFeed=_isHiddenFeed;

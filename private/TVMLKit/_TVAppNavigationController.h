@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 - (void)navigationController:(id)arg1 didShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (id)popToRootViewControllerAnimated:(_Bool)arg1;
 - (id)activeDocument;
+- (id)_activeViewController;
 - (void)replaceDocument:(id)arg1 withDocument:(id)arg2 options:(id)arg3;
 - (void)removeDocument:(id)arg1;
 - (void)popToRootDocument;

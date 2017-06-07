@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 @class HMDAccount, HMDApplicationData, NSArray, NSString, NSUUID;
 
-@interface HMDHomeData : NSObject
+@interface HMDHomeData : HMFObject
 {
     _Bool _accessAllowedWhenLocked;
     NSArray *_homes;
@@ -16,8 +16,10 @@
     NSUUID *_primaryHomeUUID;
     NSUUID *_lastCurrentHomeUUID;
     long long _dataVersion;
+    long long _schemaVersion;
     NSUUID *_dataTag;
     NSArray *_uuidsOfRemovedHomes;
+    NSArray *_cloudZones;
     NSArray *_incomingInvitations;
     unsigned long long _assistantGenerationCounter;
     NSString *_currentDevice;
@@ -37,15 +39,17 @@
 @property(readonly, copy, nonatomic) NSString *currentDevice; // @synthesize currentDevice=_currentDevice;
 @property(readonly, nonatomic) unsigned long long assistantGenerationCounter; // @synthesize assistantGenerationCounter=_assistantGenerationCounter;
 @property(readonly, copy, nonatomic) NSArray *incomingInvitations; // @synthesize incomingInvitations=_incomingInvitations;
+@property(readonly, copy, nonatomic) NSArray *cloudZones; // @synthesize cloudZones=_cloudZones;
 @property(readonly, copy, nonatomic) NSArray *uuidsOfRemovedHomes; // @synthesize uuidsOfRemovedHomes=_uuidsOfRemovedHomes;
 @property(readonly, copy, nonatomic) NSUUID *dataTag; // @synthesize dataTag=_dataTag;
-@property(readonly, nonatomic) long long dataVersion; // @synthesize dataVersion=_dataVersion;
+@property(readonly, nonatomic) long long schemaVersion; // @synthesize schemaVersion=_schemaVersion;
+@property(nonatomic) long long dataVersion; // @synthesize dataVersion=_dataVersion;
 @property(readonly, copy, nonatomic) NSUUID *lastCurrentHomeUUID; // @synthesize lastCurrentHomeUUID=_lastCurrentHomeUUID;
 @property(readonly, copy, nonatomic) NSUUID *primaryHomeUUID; // @synthesize primaryHomeUUID=_primaryHomeUUID;
 @property(readonly, copy, nonatomic) NSArray *accessories; // @synthesize accessories=_accessories;
 @property(readonly, copy, nonatomic) NSArray *homes; // @synthesize homes=_homes;
 - (void).cxx_destruct;
-- (id)initWithHomes:(id)arg1 accessories:(id)arg2 primaryHomeUUID:(id)arg3 lastCurrentHomeUUID:(id)arg4 dataVersion:(long long)arg5 dataTag:(id)arg6 uuidsOfRemovedHomes:(id)arg7 incomingInvitations:(id)arg8 assistantGenerationCounter:(unsigned long long)arg9 currentDevice:(id)arg10 pendingReasonSaved:(id)arg11 pendingUserManagementOperations:(id)arg12 applicationData:(id)arg13 residentEnabledState:(long long)arg14 account:(id)arg15 accessAllowedWhenLocked:(_Bool)arg16;
+- (id)initWithHomes:(id)arg1 accessories:(id)arg2 primaryHomeUUID:(id)arg3 lastCurrentHomeUUID:(id)arg4 dataVersion:(long long)arg5 schemaVersion:(long long)arg6 dataTag:(id)arg7 uuidsOfRemovedHomes:(id)arg8 cloudZones:(id)arg9 incomingInvitations:(id)arg10 assistantGenerationCounter:(unsigned long long)arg11 currentDevice:(id)arg12 pendingReasonSaved:(id)arg13 pendingUserManagementOperations:(id)arg14 applicationData:(id)arg15 residentEnabledState:(long long)arg16 account:(id)arg17 accessAllowedWhenLocked:(_Bool)arg18;
 
 @end
 

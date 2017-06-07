@@ -10,9 +10,21 @@
 {
 }
 
+- (id)businessNavTintColor;
+- (id)businessNavBarTintColor;
+- (id)businessInfoViewDescriptionTextColor;
+- (id)businessDescriptionViewControllerBackgroundColor;
 - (id)browserLabelColor;
 - (id)browserContentBackgroundColor;
 - (id)browserBackgroundColor;
+- (id)messageAcknowledgmentSelectedBalloonColorForStyle:(long long)arg1;
+- (id)messageAcknowledgmentBalloonColorForStyle:(long long)arg1;
+- (BOOL)messageAcknowledgmentBalloonColorTypeForStyle:(long long)arg1;
+- (id)messageAcknowledgment:(long long)arg1 selectedAcknowledgmentImageColor:(long long)arg2;
+- (id)messageAcknowledgment:(long long)arg1 acknowledgmentImageColor:(long long)arg2;
+- (id)messageAcknowledgmentBalloonBorderColor;
+- (id)messageAcknowledgmentPickerBackgroundColor;
+- (double)contactTableViewContactBackgroundAlpha;
 - (id)contactTableViewHeaderBackgroundColor;
 - (id)contactTableViewCellContentTextColor;
 - (id)contactTableViewCellBackgroundColor;
@@ -43,6 +55,7 @@
 - (id)conversationListSelectedCellColor;
 - (id)conversationListCellColor;
 - (id)conversationListBackgroundColor;
+- (long long)entryViewStyle;
 - (id)red_balloonTextColor;
 - (id)siri_balloonTextColor;
 - (id)blue_balloonTextColor;
@@ -50,17 +63,22 @@
 - (id)gray_balloonTextColor;
 - (id)balloonTextColorForColorType:(BOOL)arg1;
 - (id)typingIndicatorDotColor;
+- (id)white_balloonColors;
 - (id)red_balloonColors;
 - (id)siri_balloonColors;
 - (id)blue_balloonColors;
 - (id)green_balloonColors;
 - (id)gray_balloonColors;
 - (id)balloonColorsForColorType:(BOOL)arg1;
+- (long long)transcriptLoadingIndicatorStyle;
 - (id)transcriptBigEmojiColor;
 - (id)transcriptTextColor;
 - (id)transcriptBackgroundColor;
+- (id)transcriptNavBarTextColor;
+- (id)contactStyle;
 - (long long)scrollIndicatorStyle;
 - (id)messagesControllerBackgroundColor;
+- (long long)businessStatusBarStyle;
 - (long long)statusBarStyle;
 - (long long)defaultBarStyle;
 - (long long)navBarStyle;

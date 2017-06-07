@@ -36,6 +36,7 @@
 @property(retain, nonatomic) NSMutableArray *localizedChangeLists; // @synthesize localizedChangeLists=_localizedChangeLists;
 @property(retain, nonatomic) GEOMapRegion *displayRegion; // @synthesize displayRegion=_displayRegion;
 @property(nonatomic) double resolutionDate; // @synthesize resolutionDate=_resolutionDate;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -62,7 +63,6 @@
 - (void)clearLocalizedChangeLists;
 @property(readonly, nonatomic) _Bool hasDisplayRegion;
 @property(nonatomic) _Bool hasResolutionDate;
-- (void)dealloc;
 
 @end
 

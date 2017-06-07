@@ -36,8 +36,8 @@ __attribute__((visibility("hidden")))
 - (void)addVideoPayloadCollections:(id)arg1;
 - (void)clearVideoPayloadCollections;
 - (void)dealloc;
-- (void)printScreen;
-- (void)printVideo;
+- (void)printScreenWithLogFile:(void *)arg1;
+- (void)printVideoWithLogFile:(void *)arg1;
 - (id)parameterSetStringFromPayloadSettings:(id)arg1;
 - (id)newVideoRuleCollectionsForScreen:(_Bool)arg1;
 - (_Bool)setVideoRuleCollections:(id)arg1 featureStrings:(id)arg2 isScreen:(_Bool)arg3;

@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDAttribution : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_actionUrlComponent;
     NSMutableArray *_attributionUrls;
     NSString *_externalComponentId;
@@ -30,6 +31,8 @@
 @property(retain, nonatomic) NSString *externalComponentId; // @synthesize externalComponentId=_externalComponentId;
 @property(retain, nonatomic) NSString *externalItemId; // @synthesize externalItemId=_externalItemId;
 @property(retain, nonatomic) NSString *vendorId; // @synthesize vendorId=_vendorId;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -47,7 +50,6 @@
 @property(readonly, nonatomic) _Bool hasExternalComponentId;
 @property(readonly, nonatomic) _Bool hasExternalItemId;
 @property(readonly, nonatomic) _Bool hasVendorId;
-- (void)dealloc;
 - (_Bool)_isYelp;
 
 @end

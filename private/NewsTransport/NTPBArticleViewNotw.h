@@ -18,12 +18,14 @@
     NSString *_referringSite;
     NSString *_referringUrl;
     NSString *_sourceChannelId;
+    NSString *_windowId;
     struct {
         unsigned int articleViewType:1;
         unsigned int maxScrollDepth:1;
     } _has;
 }
 
+@property(retain, nonatomic) NSString *windowId; // @synthesize windowId=_windowId;
 @property(retain, nonatomic) NSString *referringSite; // @synthesize referringSite=_referringSite;
 @property(retain, nonatomic) NSString *referringUrl; // @synthesize referringUrl=_referringUrl;
 @property(nonatomic) float maxScrollDepth; // @synthesize maxScrollDepth=_maxScrollDepth;
@@ -38,6 +40,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasWindowId;
 @property(readonly, nonatomic) _Bool hasReferringSite;
 @property(readonly, nonatomic) _Bool hasReferringUrl;
 @property(nonatomic) _Bool hasMaxScrollDepth;

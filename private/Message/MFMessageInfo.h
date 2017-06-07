@@ -42,6 +42,7 @@
 @property(nonatomic) long long conversationHash; // @synthesize conversationHash=_conversationHash;
 @property(nonatomic) unsigned int dateSentInterval; // @synthesize dateSentInterval=_dateSentInterval;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_flagDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -54,6 +55,7 @@
 @property(nonatomic) _Bool deleted;
 @property(nonatomic) _Bool flagged;
 @property(nonatomic) _Bool read;
+- (id)copyMessageInfo;
 @property(readonly, nonatomic) _Bool senderVIP;
 
 // Remaining properties

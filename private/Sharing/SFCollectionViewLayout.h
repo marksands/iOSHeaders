@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)invalidateGroupViewLayoutAnimated:(_Bool)arg1;
 - (id)_layoutAttributesForItemAtIndexPath:(id)arg1 numberOfItemsInSection:(unsigned long long)arg2;
 - (_Bool)_shouldScrollToContentBeginningInRightToLeft;
-- (double)_evaluateHorizontalItemOffsetForItemSize:(struct CGSize)arg1 containerWidth:(double)arg2 inset:(struct UIEdgeInsets)arg3;
+- (double)_evaluateHorizontalItemOffsetForItemSize:(struct CGSize)arg1 inset:(struct UIEdgeInsets)arg2 containerWidth:(double)arg3 offscreenPeekInFactor:(float)arg4;
 - (id)_indexPathsForItemsInSection:(long long)arg1;
 - (struct UIEdgeInsets)_evaluateInsetForSectionAtIndex:(long long)arg1;
 - (struct CGSize)_evaluatePreferredItemSizeForItemsAtIndexPaths:(id)arg1;

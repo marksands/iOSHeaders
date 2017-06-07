@@ -11,7 +11,7 @@
 #import <HomeUI/HUEditableTextCellProtocol-Protocol.h>
 
 @class HFItem, HUIconButton, NSLayoutConstraint, NSString, UIFont, UITextField, UIView;
-@protocol HUNameAndIconEditorCellDelegate;
+@protocol HUNameAndIconEditorCellDelegate, HUResizableCellDelegate;
 
 @interface HUNameAndIconEditorCell : UITableViewCell <HUCellProtocol, HUEditableTextCellProtocol, HUDisableableCellProtocol>
 {
@@ -38,6 +38,7 @@
 - (void).cxx_destruct;
 - (void)updateUIWithAnimation:(_Bool)arg1;
 - (void)_handleIconButtonTap:(id)arg1;
+- (void)_updateFullWidthAppearance;
 @property(retain, nonatomic) UIFont *textFieldFont;
 - (void)_setupConstraints;
 - (void)prepareForReuse;
@@ -47,6 +48,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @property(readonly) Class superclass;
 
 @end

@@ -6,10 +6,13 @@
 
 #import <objc/NSObject.h>
 
+@protocol OS_dispatch_queue;
+
 @interface TTYUtilities : NSObject
 {
     _Bool _inUnitTestMode;
     _Bool _headphoneJackSupportsTTY;
+    NSObject<OS_dispatch_queue> *_callCenterQueue;
 }
 
 + (void)cancelCallPromptDisplay;
@@ -23,9 +26,13 @@
 + (void)contactIsTTYContact:(id)arg1 resultBlock:(CDUnknownBlockType)arg2;
 + (_Bool)contactIsTTYContact:(id)arg1;
 + (_Bool)isAppleInternalBuild;
++ (void)performCallCenterTask:(CDUnknownBlockType)arg1;
++ (id)sharedCallCenter;
 + (id)sharedUtilityProvider;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *callCenterQueue; // @synthesize callCenterQueue=_callCenterQueue;
 @property(nonatomic) _Bool headphoneJackSupportsTTY; // @synthesize headphoneJackSupportsTTY=_headphoneJackSupportsTTY;
 @property(nonatomic) _Bool inUnitTestMode; // @synthesize inUnitTestMode=_inUnitTestMode;
+- (void).cxx_destruct;
 - (void)setTTYDictionaryAvailability:(_Bool)arg1;
 - (_Bool)contactIsTTYContact:(id)arg1;
 - (_Bool)deleteConversationWithCallUID:(id)arg1;
@@ -40,6 +47,7 @@
 - (long long)textAlignmentForMe:(_Bool)arg1;
 - (id)ttyMeContact;
 - (id)myPhoneNumber;
+- (id)init;
 - (unsigned long long)currentPreferredTransportMethod;
 
 @end

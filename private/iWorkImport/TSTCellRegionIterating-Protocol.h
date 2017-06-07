@@ -6,11 +6,9 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class TSTCellRegion;
-
 @protocol TSTCellRegionIterating <NSObject>
 - (void)terminate;
+- (struct TSUCellCoord)advanceToCellID:(struct TSUCellCoord)arg1;
 - (struct TSUCellCoord)getNext;
-- (id)initWithCellRegion:(TSTCellRegion *)arg1;
 @end
 

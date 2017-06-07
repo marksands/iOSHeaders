@@ -6,10 +6,14 @@
 
 #import <Preferences/PSTableCell.h>
 
+@class UIColor;
+
 @interface _PSDeleteButtonCell : PSTableCell
 {
+    UIColor *_buttonColor;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
 

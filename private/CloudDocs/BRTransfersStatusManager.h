@@ -21,15 +21,16 @@
 
 + (id)defaultManager;
 - (void).cxx_destruct;
+- (void)_progressSubscription;
+- (void)_setGlobalProgress:(id)arg1 forIvar:(id *)arg2;
 - (void)insertTransfer:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addTransfer:(id)arg1;
 - (void)removeTransfer:(id)arg1;
-- (void)downloadAndObserveItemAtURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)stopObservingItemDownloadProgress:(id)arg1;
 - (id)startObservingItemDownloadProgressAtURL:(id)arg1;
-- (void)resume;
-- (void)_setGlobalProgress:(id)arg1 forIvar:(id *)arg2;
+- (void)downloadAndObserveItemAtURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly, copy) NSArray *transfers; // @synthesize transfers=_transfers;
+- (void)dealloc;
 - (id)init;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <BulletinBoard/IDSServiceDelegate-Protocol.h>
 
-@class IDSService, NSMutableArray, NSMutableDictionary, NSString, NSTimer;
+@class IDSService, NSMutableArray, NSString;
 @protocol BBSyncServiceDelegate, OS_dispatch_queue;
 
 @interface BBSyncService : NSObject <IDSServiceDelegate>
@@ -20,18 +20,11 @@
     unsigned long long _queuedFeed;
     NSString *_queuedSectionID;
     NSString *_queuedUniversalSectionID;
-    NSMutableDictionary *_deferredDismissalsBySectionID;
-    NSTimer *_deferredTimer;
-    int _lockNotifyToken;
     id <BBSyncServiceDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <BBSyncServiceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_sendDeferredDismissals;
-- (void)_deferredTimerFired:(id)arg1;
-- (void)_clearDeferredTimer;
-- (void)_addDeferredDismissalForBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (id)_dismissalDictionaryForBulletin:(id)arg1;
 - (void)_sendSyncMessage:(id)arg1;
 - (id)_syncLocalDevices;
@@ -39,14 +32,13 @@
 - (void)_reallyEnqueueBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (_Bool)_hasDestination;
 - (id)_syncAccount;
-- (void)sendDeferredDismissals;
 - (void)sendSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (void)enqueueSyncedRemovalForBulletin:(id)arg1 feeds:(unsigned long long)arg2;
 - (void)sendPendingSyncedRemovals;
 - (id)dismissalSectionIdentifierForIncomingMessage:(id)arg1;
 - (void)service:(id)arg1 account:(id)arg2 incomingMessage:(id)arg3 fromID:(id)arg4;
 - (void)service:(id)arg1 activeAccountsChanged:(id)arg2;
-- (void)dealloc;
+@property(readonly, nonatomic) unsigned long long pairedDeviceCount; // @dynamic pairedDeviceCount;
 - (id)initWithQueue:(id)arg1;
 
 // Remaining properties

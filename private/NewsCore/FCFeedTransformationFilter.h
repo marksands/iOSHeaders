@@ -16,14 +16,16 @@
     NSSet *_otherArticleIDs;
     NSSet *_otherClusterIDs;
     NSSet *_mutedChannelTagIDs;
+    NSSet *_subscribedTagIDs;
     NSSet *_purchasedTagIDs;
     NSString *_briefingsTagID;
 }
 
 + (id)transformationWithFilterOptions:(long long)arg1 context:(id)arg2;
-+ (id)transformationWithFilterOptions:(long long)arg1 otherArticleIDs:(id)arg2 otherClusterIDs:(id)arg3 mutedChannelTagIDs:(id)arg4 purchasedTagIDs:(id)arg5 briefingsTagID:(id)arg6;
++ (id)transformationWithFilterOptions:(long long)arg1 otherArticleIDs:(id)arg2 otherClusterIDs:(id)arg3 subscribedTagIDs:(id)arg4 mutedChannelTagIDs:(id)arg5 purchasedTagIDs:(id)arg6 briefingsTagID:(id)arg7;
 @property(copy, nonatomic) NSString *briefingsTagID; // @synthesize briefingsTagID=_briefingsTagID;
 @property(copy, nonatomic) NSSet *purchasedTagIDs; // @synthesize purchasedTagIDs=_purchasedTagIDs;
+@property(copy, nonatomic) NSSet *subscribedTagIDs; // @synthesize subscribedTagIDs=_subscribedTagIDs;
 @property(copy, nonatomic) NSSet *mutedChannelTagIDs; // @synthesize mutedChannelTagIDs=_mutedChannelTagIDs;
 @property(copy, nonatomic) NSSet *otherClusterIDs; // @synthesize otherClusterIDs=_otherClusterIDs;
 @property(copy, nonatomic) NSSet *otherArticleIDs; // @synthesize otherArticleIDs=_otherArticleIDs;

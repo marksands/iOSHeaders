@@ -11,7 +11,6 @@
 }
 
 - (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1;
-- (id)init;
 
 @end
 

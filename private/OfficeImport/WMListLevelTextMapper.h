@@ -14,8 +14,8 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_tokens;
 }
 
+- (void).cxx_destruct;
 - (id)listLevelTextForOutline:(id)arg1;
-- (void)dealloc;
 - (id)initWithText:(id)arg1 levelDescriptions:(id)arg2 language:(int)arg3;
 - (id)initWithText:(id)arg1;
 - (id)token:(unsigned int)arg1;

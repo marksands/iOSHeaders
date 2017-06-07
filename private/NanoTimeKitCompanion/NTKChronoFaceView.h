@@ -26,7 +26,6 @@
     double _lastStartTime;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 + (id)_swatchColorForColorOption:(id)arg1;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1;
 + (Class)_timeViewClass;
@@ -70,6 +69,7 @@
 - (void)_setZoomFraction:(double)arg1 iconDiameter:(double)arg2;
 - (void)_prepareToZoomWithIconView:(id)arg1 minDiameter:(double)arg2 maxDiameter:(double)arg3;
 - (_Bool)_usesCustomZoom;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (void)_applyDataMode;
 - (void)fadeStartSessionButtonToAlpha:(double)arg1 animated:(_Bool)arg2;
 - (void)setUserInteractionForButtonsEnabled:(_Bool)arg1;

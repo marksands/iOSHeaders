@@ -6,58 +6,63 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPStartNetworkSearchFeedback-Protocol.h>
 
-@class NSString, _CPHTTPHeader;
+@class NSData, NSDictionary, NSString;
 
-@interface _CPStartNetworkSearchFeedback : PBCodable <NSCopying>
+@interface _CPStartNetworkSearchFeedback : PBCodable <_CPProcessableFeedback, _CPStartNetworkSearchFeedback, NSSecureCoding>
 {
-    unsigned long long _queryId;
-    unsigned long long _timestamp;
-    int _endpoint;
-    _CPHTTPHeader *_header;
-    NSString *_input;
-    int _triggerEvent;
-    NSString *_url;
-    NSString *_uuid;
     struct {
+        unsigned int timestamp:1;
+        unsigned int triggerEvent:1;
         unsigned int queryId:1;
         unsigned int endpoint:1;
-        unsigned int triggerEvent:1;
     } _has;
+    int _triggerEvent;
+    int _endpoint;
+    unsigned long long _timestamp;
+    NSString *_input;
+    NSString *_uuid;
+    unsigned long long _queryId;
+    NSString *_url;
+    NSDictionary *_headers;
 }
 
-@property(retain, nonatomic) _CPHTTPHeader *header; // @synthesize header=_header;
-@property(retain, nonatomic) NSString *url; // @synthesize url=_url;
+@property(nonatomic) int endpoint; // @synthesize endpoint=_endpoint;
+@property(copy, nonatomic) NSDictionary *headers; // @synthesize headers=_headers;
+@property(copy, nonatomic) NSString *url; // @synthesize url=_url;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
-@property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
-@property(retain, nonatomic) NSString *input; // @synthesize input=_input;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
+@property(copy, nonatomic) NSString *input; // @synthesize input=_input;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (int)StringAsEndpoint:(id)arg1;
-- (id)endpointAsString:(int)arg1;
-@property(nonatomic) _Bool hasEndpoint;
-@property(nonatomic) int endpoint; // @synthesize endpoint=_endpoint;
-@property(readonly, nonatomic) _Bool hasHeader;
+@property(readonly, nonatomic) _Bool hasEndpoint;
+- (void)setHeaders:(id)arg1 forKey:(id)arg2;
+- (_Bool)getHeaders:(id *)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) _Bool hasUrl;
-@property(nonatomic) _Bool hasQueryId;
-- (int)StringAsTriggerEvent:(id)arg1;
-- (id)triggerEventAsString:(int)arg1;
-@property(nonatomic) _Bool hasTriggerEvent;
-@property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
+@property(readonly, nonatomic) _Bool hasQueryId;
+@property(readonly, nonatomic) _Bool hasTriggerEvent;
 @property(readonly, nonatomic) _Bool hasUuid;
 @property(readonly, nonatomic) _Bool hasInput;
-- (void)setHeaders:(id)arg1;
-- (id)headers;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

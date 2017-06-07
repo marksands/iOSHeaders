@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOResourceManifestServerProxyDelegate-Protocol.h>
 
@@ -33,18 +33,27 @@
     NSLock *_resourceNamesToPathsLock;
     GEOResourceManifestConfiguration *_configuration;
     NSObject<OS_dispatch_source> *_cachedResourceInfoPurgeTimer;
+    unsigned long long _handle;
 }
 
++ (struct os_state_data_s *)stateDataForDictionary:(id)arg1 title:(id)arg2;
 + (id)modernManagerForConfiguration:(id)arg1;
 + (id)modernManagerForTileGroupIdentifier:(unsigned int)arg1;
 + (id)modernManager;
 + (id)sharedManager;
 + (void)setHiDPI:(_Bool)arg1;
++ (void)setAdditionalMigrationTaskClasses:(id)arg1;
++ (id)additionalMigrationTaskClasses;
 + (void)useLocalProxy;
 + (void)useRemoteProxy;
 + (void)setServerProxyClass:(Class)arg1;
 + (void)disableServerConnection;
 @property(readonly, nonatomic) id <GEOResourceManifestServerProxy> serverProxy; // @synthesize serverProxy=_serverProxy;
+- (void).cxx_destruct;
+- (struct os_state_data_s *)_stateCapture;
+- (void)_unregisterHandlerForStateCapture;
+- (void)_registerHandlerForStateCapture;
+- (void)removeDevResources;
 - (void)devResourcesFolderDidChange;
 - (void)_notifyObserversOfResourcesChange;
 - (void)stopObservingDevResources;
@@ -55,6 +64,7 @@
 - (unsigned int)activeTileGroupIdentifier;
 - (void)getResourceManifestWithHandler:(CDUnknownBlockType)arg1;
 - (_Bool)hasResourceManifest;
+- (id)_detailedDescriptionDictionaryRepresentationForTileGroup:(id)arg1;
 - (id)detailedDescriptionDictionaryRepresentation;
 - (id)detailedDescription;
 - (void)deactivateResourceScenario:(int)arg1;

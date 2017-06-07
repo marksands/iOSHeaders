@@ -38,9 +38,10 @@
 @property(retain) NSMutableDictionary *managersByLibraryPath; // @synthesize managersByLibraryPath=_managersByLibraryPath;
 @property(retain) NSMutableSet *clients; // @synthesize clients=_clients;
 - (void).cxx_destruct;
-- (void)_stopBackgroundActivity;
+- (void)_cleanupAfterBackgroundActivityFinishedForDefer:(_Bool)arg1 skipActivityStateCheck:(_Bool)arg2 message:(id)arg3;
 - (void)_registerBackgroundActivity;
 - (void)_installBackgroundAnalysisMonitor;
+- (void)_stopAllBackgroundAnalysisWithCompletion:(CDUnknownBlockType)arg1 queue:(id)arg2;
 - (void)photoLibraryDidBecomeUnavailable:(id)arg1;
 - (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
 - (void)stopBackgroundActivity;
@@ -49,6 +50,7 @@
 - (void)dumpAnalysisStatusWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)_localeDidChangeNotification:(id)arg1;
 - (void)dispatchAsyncToExecutiveStateQueue:(CDUnknownBlockType)arg1;
+- (void)_dispatchAsyncToQueue:(id)arg1 withTransactionBlock:(CDUnknownBlockType)arg2;
 - (void)terminateManagerIfQuiescentAndNoConnectedClients:(id)arg1;
 - (void)removeClientHandler:(id)arg1;
 - (id)clientInfoForManager:(id)arg1;

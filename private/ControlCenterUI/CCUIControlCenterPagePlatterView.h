@@ -6,17 +6,14 @@
 
 #import <UIKit/UIView.h>
 
-#import <ControlCenterUI/_UISettingsKeyObserver-Protocol.h>
-
-@class MTMaterialSettings, MTMaterialView, NSLayoutConstraint, NSSet, NSString, UIImageView;
+@class MTMaterialView, NSLayoutConstraint, NSSet, UIImageView;
 @protocol CCUIControlCenterPagePlatterViewDelegate;
 
-@interface CCUIControlCenterPagePlatterView : UIView <_UISettingsKeyObserver>
+@interface CCUIControlCenterPagePlatterView : UIView
 {
     id <CCUIControlCenterPagePlatterViewDelegate> _delegate;
     MTMaterialView *_baseMaterialView;
     UIImageView *_whiteLayerView;
-    MTMaterialSettings *_materialSettings;
     UIView *_contentView;
     NSSet *_renderedPunchOutMasks;
     NSLayoutConstraint *_topMargin;
@@ -27,7 +24,6 @@
 
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 - (void).cxx_destruct;
-- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)_reduceTransparencyStatusDidChange;
 - (void)_rerenderPunchThroughMaskIfNecessary;
 - (id)_renderAlphaOnlyPunchThroughMaskForPlatterSize:(struct CGSize)arg1;
@@ -40,12 +36,6 @@
 @property(nonatomic) struct UIEdgeInsets marginInsets;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

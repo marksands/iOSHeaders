@@ -17,7 +17,7 @@
 
 + (void)deleteMemoriesWithObjectIDs:(id)arg1 inPhotoLibrary:(id)arg2;
 + (void)deletePendingMemoriesCreatedBefore:(id)arg1 inPhotoLibrary:(id)arg2;
-+ (void)resetCloudStateInPhotoLibrary:(id)arg1;
++ (void)resetCloudStateInPhotoLibrary:(id)arg1 hardReset:(_Bool)arg2;
 + (id)memoriesWithUUID:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)memoriesMatchingPredicate:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)memoriesWithUUIDs:(id)arg1 inPhotoLibrary:(id)arg2;
@@ -32,7 +32,9 @@
 - (void)persistMetadataToFileSystem;
 - (_Bool)isValidForPersistence;
 - (id)cplMemoryChange;
-- (id)updatedKeyAsset;
+- (id)cplFullRecord;
+@property(retain, nonatomic) PLManagedAsset *keyAsset; // @dynamic keyAsset;
+- (id)calculateKeyAsset;
 - (void)updateWithCPLMemoryChange:(id)arg1 inPhotoLibrary:(id)arg2;
 - (void)prepareForDeletion;
 - (void)didSave;
@@ -46,32 +48,40 @@
 
 // Remaining properties
 @property(retain, nonatomic) NSData *assetListPredicate; // @dynamic assetListPredicate;
+@property(retain, nonatomic) NSData *blacklistedFeature; // @dynamic blacklistedFeature;
 @property(nonatomic) short category; // @dynamic category;
 @property(nonatomic) short cloudLocalState; // @dynamic cloudLocalState;
 @property(retain, nonatomic) NSDate *creationDate; // @dynamic creationDate;
 @property(retain, nonatomic) NSSet *curatedAssets; // @dynamic curatedAssets;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(retain, nonatomic) NSSet *extendedCuratedAssets; // @dynamic extendedCuratedAssets;
 @property(nonatomic) _Bool favorite; // @dynamic favorite;
 @property(readonly) unsigned long long hash;
-@property(retain, nonatomic) PLManagedAsset *keyAsset; // @dynamic keyAsset;
 @property(retain, nonatomic) NSDate *lastMoviePlayedDate; // @dynamic lastMoviePlayedDate;
 @property(retain, nonatomic) NSDate *lastViewedDate; // @dynamic lastViewedDate;
 @property(retain, nonatomic) NSDictionary *movieAssetState; // @dynamic movieAssetState;
 @property(retain, nonatomic) NSSet *movieCuratedAssets; // @dynamic movieCuratedAssets;
 @property(retain, nonatomic) NSData *movieData; // @dynamic movieData;
+@property(nonatomic) short notificationState; // @dynamic notificationState;
 @property(nonatomic) _Bool pending; // @dynamic pending;
+@property(nonatomic) long long pendingPlayCount; // @dynamic pendingPlayCount;
+@property(nonatomic) long long pendingShareCount; // @dynamic pendingShareCount;
+@property(nonatomic) long long pendingViewCount; // @dynamic pendingViewCount;
 @property(retain, nonatomic) NSData *photosGraphData; // @dynamic photosGraphData;
 @property(nonatomic) long long photosGraphVersion; // @dynamic photosGraphVersion;
+@property(nonatomic) long long playCount; // @dynamic playCount;
 @property(nonatomic) _Bool rejected; // @dynamic rejected;
 @property(retain, nonatomic) NSSet *representativeAssets; // @dynamic representativeAssets;
 @property(nonatomic) double score; // @dynamic score;
+@property(nonatomic) long long shareCount; // @dynamic shareCount;
 @property(nonatomic) short subcategory; // @dynamic subcategory;
 @property(retain, nonatomic) NSString *subtitle; // @dynamic subtitle;
 @property(readonly) Class superclass;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
 @property(nonatomic) _Bool userCreated; // @dynamic userCreated;
 @property(retain, nonatomic) NSString *uuid; // @dynamic uuid;
+@property(nonatomic) long long viewCount; // @dynamic viewCount;
 
 @end
 

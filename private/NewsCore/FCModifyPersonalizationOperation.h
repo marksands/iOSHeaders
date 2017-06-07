@@ -6,11 +6,11 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class CKRecord, FCCKDatabase, FCPersonalizationTreatment, NSArray, NSError, NTPBPersonalizationProfile;
+@class CKRecord, FCCKPrivateDatabase, FCPersonalizationTreatment, NSArray, NSError, NTPBPersonalizationProfile;
 
 @interface FCModifyPersonalizationOperation : FCOperation
 {
-    FCCKDatabase *_database;
+    FCCKPrivateDatabase *_database;
     NSArray *_changeGroups;
     FCPersonalizationTreatment *_treatment;
     CKRecord *_remoteRecord;
@@ -31,7 +31,7 @@
 @property(retain, nonatomic) CKRecord *remoteRecord; // @synthesize remoteRecord=_remoteRecord;
 @property(retain, nonatomic) FCPersonalizationTreatment *treatment; // @synthesize treatment=_treatment;
 @property(retain, nonatomic) NSArray *changeGroups; // @synthesize changeGroups=_changeGroups;
-@property(retain, nonatomic) FCCKDatabase *database; // @synthesize database=_database;
+@property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
 - (void)resetForRetry;
 - (_Bool)canRetryWithError:(id)arg1 retryAfter:(double *)arg2;

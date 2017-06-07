@@ -9,7 +9,7 @@
 #import <AssistantServices/Endpointer-Protocol.h>
 
 @class NSDictionary, NSMutableData, NSString;
-@protocol AFAudioAnalyzerDelegate;
+@protocol AFAudioAnalyzerDelegate, OS_dispatch_queue;
 
 @interface AFAudioAnalyzer : NSObject <Endpointer>
 {
@@ -35,6 +35,7 @@
     _Bool _isConfigured;
     _Bool _saveSampleSeenInReset;
     double _previousSamplesSeen;
+    NSObject<OS_dispatch_queue> *_queue;
     int _endpointMode;
     double _startWaitTime;
     double _interspeechWaitTime;

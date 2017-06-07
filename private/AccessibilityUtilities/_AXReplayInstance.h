@@ -29,18 +29,18 @@
 @property(retain, nonatomic) id underlyingResult; // @synthesize underlyingResult=_underlyingResult;
 @property(retain, nonatomic) NSError *underlyingError; // @synthesize underlyingError=_underlyingError;
 @property(nonatomic) _Bool didSucceed; // @synthesize didSucceed=_didSucceed;
-@property(nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(nonatomic) __weak NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) _Bool async; // @synthesize async=_async;
 @property(nonatomic) long long attemptsRemaining; // @synthesize attemptsRemaining=_attemptsRemaining;
 @property(nonatomic) long long maxAttempts; // @synthesize maxAttempts=_maxAttempts;
 @property(nonatomic) double interval; // @synthesize interval=_interval;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(copy, nonatomic) CDUnknownBlockType replayBlock; // @synthesize replayBlock=_replayBlock;
+- (void).cxx_destruct;
 - (id)_genericFailError;
 - (void)_dispatchAsynchronously;
 - (void)_dispatchSynchronously;
 - (void)dispatch;
-- (void)dealloc;
 
 @end
 

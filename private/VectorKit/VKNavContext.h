@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOComposedRoute, GEORouteMatch, GEORouteMatcher, NSArray, NSHashTable;
 
@@ -17,19 +17,22 @@
     struct vector<GEOLocationCoordinate2D, std::__1::allocator<GEOLocationCoordinate2D>> _pointsToFrame;
     NSHashTable *_observers;
     NSArray *_groupedManeuverCounts;
-    unsigned int _alternateRouteStartPointIndex;
-    GEOComposedRoute *_alternateRoute;
+    unsigned long long _navCameraHeadingOverride;
+    struct vector<AdditionalRouteInfo, std::__1::allocator<AdditionalRouteInfo>> _additionalRoutesToFrame;
+    unsigned long long _navigationCameraHeadingOverride;
 }
 
 @property(retain, nonatomic) GEORouteMatch *routeMatch; // @synthesize routeMatch=_routeMatch;
 @property(copy, nonatomic) NSArray *groupedManeuverCounts; // @synthesize groupedManeuverCounts=_groupedManeuverCounts;
-@property(nonatomic) unsigned int alternateRouteStartPointIndex; // @synthesize alternateRouteStartPointIndex=_alternateRouteStartPointIndex;
-@property(retain, nonatomic) GEOComposedRoute *alternateRoute; // @synthesize alternateRoute=_alternateRoute;
 @property(nonatomic) unsigned long long currentStepIndex; // @synthesize currentStepIndex=_currentStepIndex;
 @property(readonly, nonatomic) GEORouteMatcher *routeMatcher; // @synthesize routeMatcher=_routeMatcher;
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 - (id).cxx_construct;
 - (void).cxx_destruct;
+- (void)enumerateAdditionalRoutesToFrameUsingBlock:(CDUnknownBlockType)arg1;
+- (void)addRouteToFrame:(id)arg1 divergenceCoord:(struct PolylineCoordinate)arg2 convergenceCoord:(struct PolylineCoordinate)arg3;
+- (void)clearAdditionalRoutesToFrame;
+@property(nonatomic) unsigned long long navigationCameraHeadingOverride; // @synthesize navigationCameraHeadingOverride=_navigationCameraHeadingOverride;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)_notifyObserversStateChanged;

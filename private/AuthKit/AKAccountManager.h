@@ -30,6 +30,7 @@
 - (_Bool)isPrimaryiCloudAccount:(id)arg1;
 - (id)iCloudAccountForAltDSID:(id)arg1;
 - (id)iCloudAccountForAppleID:(id)arg1;
+- (_Bool)hasPrimaryiCloudAccountForAltDSID:(id)arg1;
 - (_Bool)hasPrimaryiCloudAccountForAppleID:(id)arg1;
 - (void)removeUnusedAuthKitAccounts;
 - (id)stringRepresentationForService:(long long)arg1;

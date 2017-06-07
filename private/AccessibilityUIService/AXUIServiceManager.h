@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-#import <AccessibilityUIService/AXUIMessageSenderDelegate_ServiceFramework-Protocol.h>
+#import <AccessibilityUIService/AXUIMessageSenderDelegate-Protocol.h>
 
-@class AXAccessQueue, AXUIDisplayManager, AXUIMessageSender_ServiceFramework, BSProcessDeathWatcher, NSMutableArray, NSMutableDictionary, NSString;
+@class AXAccessQueue, AXUIDisplayManager, AXUIMessageSender, BSProcessDeathWatcher, NSMutableArray, NSMutableDictionary, NSString;
 
-@interface AXUIServiceManager : NSObject <AXUIMessageSenderDelegate_ServiceFramework>
+@interface AXUIServiceManager : NSObject <AXUIMessageSenderDelegate>
 {
     BSProcessDeathWatcher *_springBoardReaper;
     _Bool _didEncounterError;
@@ -20,7 +20,7 @@
     NSMutableArray *_pausedConnections;
     AXAccessQueue *_entitlementsCheckersAccessQueue;
     NSMutableDictionary *_entitlementsCheckers;
-    AXUIMessageSender_ServiceFramework *_messageSender;
+    AXUIMessageSender *_messageSender;
     NSMutableArray *_serviceContexts;
     AXAccessQueue *_servicesAccessQueue;
     unsigned long long _lastUsedServiceIdentifier;
@@ -32,13 +32,14 @@
 @property(nonatomic) unsigned long long lastUsedServiceIdentifier; // @synthesize lastUsedServiceIdentifier=_lastUsedServiceIdentifier;
 @property(retain, nonatomic) AXAccessQueue *servicesAccessQueue; // @synthesize servicesAccessQueue=_servicesAccessQueue;
 @property(retain, nonatomic) NSMutableArray *serviceContexts; // @synthesize serviceContexts=_serviceContexts;
-@property(retain, nonatomic) AXUIMessageSender_ServiceFramework *messageSender; // @synthesize messageSender=_messageSender;
+@property(retain, nonatomic) AXUIMessageSender *messageSender; // @synthesize messageSender=_messageSender;
 @property(nonatomic) _Bool didEncounterError; // @synthesize didEncounterError=_didEncounterError;
 @property(retain, nonatomic) NSMutableDictionary *entitlementsCheckers; // @synthesize entitlementsCheckers=_entitlementsCheckers;
 @property(retain, nonatomic) AXAccessQueue *entitlementsCheckersAccessQueue; // @synthesize entitlementsCheckersAccessQueue=_entitlementsCheckersAccessQueue;
 @property(retain, nonatomic) NSMutableArray *pausedConnections; // @synthesize pausedConnections=_pausedConnections;
 @property(retain, nonatomic) AXAccessQueue *resumingConnectionsQueue; // @synthesize resumingConnectionsQueue=_resumingConnectionsQueue;
 @property(retain, nonatomic) AXUIDisplayManager *displayManager; // @synthesize displayManager=_displayManager;
+- (void).cxx_destruct;
 - (id)_servicesForUniqueIdentifiers:(id)arg1;
 - (id)_uniqueIdentifierForService:(id)arg1;
 - (id)_serviceContextForService:(id)arg1;

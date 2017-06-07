@@ -33,6 +33,7 @@
 @property(readonly, copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(readonly, copy, nonatomic) NSString *guid; // @synthesize guid=_guid;
 - (void).cxx_destruct;
+- (void)fetchHighQualityFile:(CDUnknownBlockType)arg1;
 - (void)mediaObjectRemoved;
 - (void)mediaObjectAdded;
 @property(readonly, nonatomic, getter=isRestoring) _Bool restoring;

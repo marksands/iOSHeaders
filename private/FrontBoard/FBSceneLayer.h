@@ -34,7 +34,6 @@
 @property(readonly, copy) NSString *description;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) unsigned int identifier;
 - (void)dealloc;
 - (id)initWithContextID:(unsigned int)arg1;
 - (id)initWithExternalSceneID:(id)arg1;

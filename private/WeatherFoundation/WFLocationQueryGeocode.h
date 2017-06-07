@@ -25,6 +25,7 @@
 }
 
 + (id)queryWithSearchString:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;
++ (void)invalidateCaches;
 + (id)queryWithSearchCompletion:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;
 + (id)queryWithCoordinate:(struct CLLocationCoordinate2D)arg1 resultHandler:(CDUnknownBlockType)arg2;
 + (id)queryWithDictionaryRepresentation:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;

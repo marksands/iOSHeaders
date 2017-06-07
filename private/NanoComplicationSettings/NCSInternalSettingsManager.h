@@ -22,7 +22,6 @@
 - (void).cxx_destruct;
 - (id)_localizedNameForComplication:(id)arg1;
 - (unsigned long long)_numberOfActiveComplications;
-- (_Bool)hasMaximumNumberOfActiveComplications;
 - (void)loadSettings;
 - (id)complicationIdentifierForComplicationDefinitionAtIndex:(unsigned long long)arg1;
 - (void)_saveSettings;

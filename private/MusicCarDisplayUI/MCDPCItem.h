@@ -10,12 +10,12 @@
 
 @interface MCDPCItem : NSObject
 {
-    struct _MRContentItem *_contentItem;
+    void *_contentItem;
     _Bool _currentlyPlaying;
     MCDPCModel *_model;
 }
 
-@property(nonatomic) struct _MRContentItem *contentItem; // @synthesize contentItem=_contentItem;
+@property(nonatomic) void *contentItem; // @synthesize contentItem=_contentItem;
 @property(readonly, nonatomic) __weak MCDPCModel *model; // @synthesize model=_model;
 @property(nonatomic) _Bool currentlyPlaying; // @synthesize currentlyPlaying=_currentlyPlaying;
 - (void).cxx_destruct;
@@ -31,7 +31,7 @@
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *identifier;
 - (void)dealloc;
-- (id)_initWithModel:(id)arg1 MRContentItem:(struct _MRContentItem *)arg2;
+- (id)_initWithModel:(id)arg1 MRContentItem:(void *)arg2;
 
 @end
 

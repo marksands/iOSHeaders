@@ -9,12 +9,13 @@
 #import <MapsSupport/GEOTransitLine-Protocol.h>
 #import <MapsSupport/NSCopying-Protocol.h>
 
-@class MSPTransitStorageArtwork, MSPTransitStorageSystem, NSArray, NSString, PBUnknownFields;
+@class GEOMapItemIdentifier, MSPTransitStorageArtwork, MSPTransitStorageSystem, NSArray, NSString, PBUnknownFields;
 
 @interface MSPTransitStorageLine : PBCodable <GEOTransitLine, NSCopying>
 {
     PBUnknownFields *_unknownFields;
     unsigned long long _muid;
+    MSPTransitStorageArtwork *_alternateArtwork;
     MSPTransitStorageArtwork *_artwork;
     NSString *_lineColorString;
     MSPTransitStorageArtwork *_modeArtwork;
@@ -23,7 +24,7 @@
     CDStruct_e99c65f7 _has;
 }
 
-+ (id)__test_mtaLineR;
+@property(retain, nonatomic) MSPTransitStorageArtwork *alternateArtwork; // @synthesize alternateArtwork=_alternateArtwork;
 @property(retain, nonatomic) MSPTransitStorageSystem *system; // @synthesize system=_system;
 @property(retain, nonatomic) MSPTransitStorageArtwork *modeArtwork; // @synthesize modeArtwork=_modeArtwork;
 @property(retain, nonatomic) MSPTransitStorageArtwork *artwork; // @synthesize artwork=_artwork;
@@ -41,6 +42,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool hasAlternateArtwork;
 @property(readonly, nonatomic) _Bool hasSystem;
 @property(readonly, nonatomic) _Bool hasModeArtwork;
 @property(readonly, nonatomic) _Bool hasArtwork;
@@ -51,6 +53,7 @@
 @property(readonly, nonatomic) _Bool showVehicleNumber;
 @property(readonly, nonatomic) NSArray *operatingHours;
 @property(readonly, nonatomic) unsigned long long departureTimeDisplayStyle;
+@property(readonly, nonatomic) GEOMapItemIdentifier *identifier;
 - (id)initWithLine:(id)arg1;
 
 // Remaining properties

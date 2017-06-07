@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class NSArray, NSString;
+@class NSArray, NSMutableDictionary, NSString;
 
 @interface PKPaymentPreference : NSObject
 {
+    NSMutableDictionary *_errors;
     _Bool _isReadOnly;
     _Bool _supportsDeletion;
     NSString *_title;
@@ -18,13 +19,17 @@
     unsigned long long _selectedIndex;
 }
 
+@property(retain, nonatomic) NSMutableDictionary *errors; // @synthesize errors=_errors;
 @property(readonly, nonatomic) _Bool supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
+@property(nonatomic) _Bool isReadOnly; // @synthesize isReadOnly=_isReadOnly;
 @property(nonatomic) unsigned long long selectedIndex; // @synthesize selectedIndex=_selectedIndex;
 @property(copy, nonatomic) NSArray *preferences; // @synthesize preferences=_preferences;
-@property(nonatomic) _Bool isReadOnly; // @synthesize isReadOnly=_isReadOnly;
 @property(copy, nonatomic) NSString *footer; // @synthesize footer=_footer;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (void)clearAllErrors;
+- (id)errorsForPreference:(id)arg1;
+- (void)setErrors:(id)arg1 forPreference:(id)arg2;
 - (id)initWithTitle:(id)arg1 preferences:(id)arg2 selectedIndex:(unsigned long long)arg3 readOnly:(_Bool)arg4;
 
 @end

@@ -49,6 +49,7 @@
 - (void)deregisterCallback:(id)arg1;
 - (void)cleanupInternalReferencesToRegistration:(id)arg1;
 - (void)registerCallback:(id)arg1;
+- (void)retryTimes:(int)arg1 block:(CDUnknownBlockType)arg2;
 - (void)removeKeyPathsWithRegistrationsForAnyChangeFromRegistration:(id)arg1;
 - (void)addKeyPathsWithRegistrationsForAnyChangeFromRegistration:(id)arg1;
 - (id)lastModifiedDateForContextualKeyPath:(id)arg1;

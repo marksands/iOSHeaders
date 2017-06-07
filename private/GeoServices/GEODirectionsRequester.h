@@ -4,21 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class NSLock, NSMapTable;
+@protocol _GEODirectionsRequesterServerProxy;
 
 @interface GEODirectionsRequester : NSObject
 {
-    NSMapTable *_pendingRequests;
-    NSLock *_pendingRequestsLock;
+    id <_GEODirectionsRequesterServerProxy> _serverProxy;
 }
 
 + (id)sharedRequester;
++ (void)useRemoteProxy;
++ (void)useLocalProxy;
++ (void)useProxy:(Class)arg1;
+- (void).cxx_destruct;
 - (void)cancelRequest:(id)arg1;
+- (void)startRequest:(id)arg1 auditToken:(id)arg2 isDoomRequest:(_Bool)arg3 requestPriority:(id)arg4 finished:(CDUnknownBlockType)arg5 networkActivity:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
+- (void)startRequest:(id)arg1 auditToken:(id)arg2 skipFinalize:(_Bool)arg3 finished:(CDUnknownBlockType)arg4 networkActivity:(CDUnknownBlockType)arg5 error:(CDUnknownBlockType)arg6;
 - (void)startRequest:(id)arg1 finished:(CDUnknownBlockType)arg2 networkActivity:(CDUnknownBlockType)arg3 error:(CDUnknownBlockType)arg4;
 - (void)finalizeRequest:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

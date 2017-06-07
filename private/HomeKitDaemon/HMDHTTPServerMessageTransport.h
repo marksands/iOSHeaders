@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFHTTPServerDelegate-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMFHTTPServer, NSArray, NSDictionary, NSMutableArray, NSString, NSUUID;
+@class HMFHTTPServer, NSArray, NSDictionary, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol HMDHTTPServerMessageTransportDelegate, OS_dispatch_queue;
 
-@interface HMDHTTPServerMessageTransport : NSObject <HMFHTTPServerDelegate, HMFTimerDelegate>
+@interface HMDHTTPServerMessageTransport : HMFObject <HMFHTTPServerDelegate, HMFTimerDelegate>
 {
     NSMutableArray *_clientConnections;
     HMFHTTPServer *_server;

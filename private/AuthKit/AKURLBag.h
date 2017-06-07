@@ -36,9 +36,10 @@
 - (id)configurationAtKey:(id)arg1;
 @property(readonly, nonatomic) unsigned long long IDMSEnvironment;
 @property(readonly, nonatomic) NSString *APSEnvironment;
+@property(readonly, nonatomic, getter=isPhoneNumberSupportedConfig) _Bool phoneNumberSupportedConfig;
+@property(readonly, nonatomic) NSURL *storeModernRecoveryURL;
 @property(readonly, nonatomic) NSURL *fetchUserInfoURL;
 @property(readonly, nonatomic) NSURL *fetchFollowUps;
-@property(readonly, nonatomic) NSURL *fetchEmailsURL;
 @property(readonly, nonatomic) NSURL *circleURL;
 @property(readonly, nonatomic) NSURL *renewRecoveryTokenURL;
 @property(readonly, nonatomic) NSURL *validateVettingTokenURL;
@@ -50,6 +51,7 @@
 @property(readonly, nonatomic) NSURL *absintheCertURL;
 @property(readonly, nonatomic) NSURL *trustedDevicesSummaryURL;
 @property(readonly, nonatomic) NSURL *trustedDevicesURL;
+@property(readonly, nonatomic) NSURL *deviceListURL;
 @property(readonly, nonatomic) NSURL *createAppleIDURL;
 @property(readonly, nonatomic) NSURL *iForgotContinuationURL;
 @property(readonly, nonatomic) NSURL *iForgotURL;

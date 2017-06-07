@@ -29,7 +29,7 @@
 @property unsigned long long cachePolicy; // @synthesize cachePolicy=_cachePolicy;
 @property _Bool wifiOnly; // @synthesize wifiOnly=_wifiOnly;
 - (void).cxx_destruct;
-- (void)finishFromEarlyCancelation;
+- (void)finishFromEarlyCancellation;
 - (void)operationDidFinishWithError:(id)arg1;
 - (void)takeInputsFromFetchOperation:(id)arg1;
 - (void)finishExecutingWithError:(id)arg1;

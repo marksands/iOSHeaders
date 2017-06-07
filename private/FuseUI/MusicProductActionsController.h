@@ -19,7 +19,6 @@
 
 @property(retain, nonatomic) SKUIClientContext *clientContext;
 - (void).cxx_destruct;
-- (void)presentContextualActionsWithModalController:(id)arg1 productEntityValueProviderData:(id)arg2 modalSourceViewProvider:(id)arg3;
 - (id)initWithTemplateViewElement:(id)arg1 clientContext:(id)arg2 extraInfo:(id)arg3;
 
 // Remaining properties

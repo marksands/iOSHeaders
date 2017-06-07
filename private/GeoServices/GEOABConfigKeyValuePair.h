@@ -23,6 +23,7 @@
 
 @property(retain, nonatomic) GEOABConfigValue *abConfigValue; // @synthesize abConfigValue=_abConfigValue;
 @property(retain, nonatomic) NSString *abConfigKey; // @synthesize abConfigKey=_abConfigKey;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -39,7 +40,6 @@
 @property(nonatomic) _Bool hasAbConfigValueType;
 @property(nonatomic) int abConfigValueType; // @synthesize abConfigValueType=_abConfigValueType;
 @property(readonly, nonatomic) _Bool hasAbConfigKey;
-- (void)dealloc;
 
 @end
 

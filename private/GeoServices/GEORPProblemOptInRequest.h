@@ -27,6 +27,7 @@
 @property(retain, nonatomic) GEORPUserCredentials *userCredentials; // @synthesize userCredentials=_userCredentials;
 @property(nonatomic) _Bool didOptIn; // @synthesize didOptIn=_didOptIn;
 @property(retain, nonatomic) NSString *problemId; // @synthesize problemId=_problemId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +44,6 @@
 @property(readonly, nonatomic) _Bool hasUserCredentials;
 @property(nonatomic) _Bool hasDidOptIn;
 @property(readonly, nonatomic) _Bool hasProblemId;
-- (void)dealloc;
 - (id)initWithSubmissionID:(id)arg1 allowContactBackAtEmailAddress:(id)arg2 traits:(id)arg3;
 
 @end

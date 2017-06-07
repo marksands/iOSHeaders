@@ -22,10 +22,13 @@
     NSDate *_lastReadDate;
     IMSPIHandle *_sender;
     long long _messageID;
+    NSArray *_attachments;
     _Bool _isOutgoing;
     _Bool _isRead;
     _Bool _isAudioMessage;
+    _Bool _isGroupChat;
     NSString *_groupID;
+    NSString *_chatIdentifier;
     NSString *_displayName;
     IMSPIMessage *_referencedMessage;
     NSString *_bundleId;
@@ -41,7 +44,10 @@
 @property(retain) NSDate *dateRead; // @synthesize dateRead=_dateRead;
 @property(retain) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain) NSString *effect; // @synthesize effect=_effect;
+@property _Bool isGroupChat; // @synthesize isGroupChat=_isGroupChat;
+@property(retain) NSString *chatIdentifier; // @synthesize chatIdentifier=_chatIdentifier;
 @property(retain) NSString *groupID; // @synthesize groupID=_groupID;
+@property(retain) NSArray *attachments; // @synthesize attachments=_attachments;
 @property(retain) NSArray *chatGuids; // @synthesize chatGuids=_chatGuids;
 @property _Bool isAudioMessage; // @synthesize isAudioMessage=_isAudioMessage;
 @property(retain) NSDate *date; // @synthesize date=_date;

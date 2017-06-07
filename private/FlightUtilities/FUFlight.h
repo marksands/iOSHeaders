@@ -15,9 +15,10 @@
 {
     NSString *_queriedAirlineTitle;
     FUAirline *_displayAirline;
-    long long _displayFlightNumber;
+    unsigned long long _displayFlightNumber;
     FUAirline *_airline;
-    long long _flightNumber;
+    unsigned long long _flightNumber;
+    NSString *_flightIdentifier;
     NSString *_cancellationMessage;
     NSArray *_legs;
     NSArray *_codeShares;
@@ -41,9 +42,10 @@
 @property(retain) NSArray *codeShares; // @synthesize codeShares=_codeShares;
 @property(retain) NSArray *legs; // @synthesize legs=_legs;
 @property(retain) NSString *cancellationMessage; // @synthesize cancellationMessage=_cancellationMessage;
-@property long long flightNumber; // @synthesize flightNumber=_flightNumber;
+@property(retain) NSString *flightIdentifier; // @synthesize flightIdentifier=_flightIdentifier;
+@property unsigned long long flightNumber; // @synthesize flightNumber=_flightNumber;
 @property(retain) FUAirline *airline; // @synthesize airline=_airline;
-@property long long displayFlightNumber; // @synthesize displayFlightNumber=_displayFlightNumber;
+@property unsigned long long displayFlightNumber; // @synthesize displayFlightNumber=_displayFlightNumber;
 @property(retain) FUAirline *displayAirline; // @synthesize displayAirline=_displayAirline;
 @property(retain) NSString *queriedAirlineTitle; // @synthesize queriedAirlineTitle=_queriedAirlineTitle;
 - (void).cxx_destruct;

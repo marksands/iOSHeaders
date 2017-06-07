@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <DataDetectorsUI/NSSecureCoding-Protocol.h>
 
@@ -33,7 +33,7 @@
 @property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(copy, nonatomic) NSString *eventTypeIdentifier; // @synthesize eventTypeIdentifier=_eventTypeIdentifier;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

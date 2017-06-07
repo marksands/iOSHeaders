@@ -6,13 +6,16 @@
 
 #import <TelephonyUtilities/NSObject-Protocol.h>
 
-@class NSDictionary;
+@class NSDictionary, NSURL, TUDialRequest;
 @protocol TUCallProviderManagerDataSourceDelegate;
 
 @protocol TUCallProviderManagerDataSource <NSObject>
 @property(nonatomic) __weak id <TUCallProviderManagerDataSourceDelegate> delegate;
 @property(readonly, copy, nonatomic) NSDictionary *providersByIdentifier;
+@property(readonly, nonatomic) _Bool currentProcessCanAccessInitialState;
 - (void)invalidate;
 - (void)blockUntilInitialStateReceived;
+- (void)launchAppForDialRequest:(TUDialRequest *)arg1 completion:(void (^)(NSError *))arg2;
+- (_Bool)openURL:(NSURL *)arg1 isSensitive:(_Bool)arg2 error:(id *)arg3;
 @end
 

@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (void)applyToContext:(struct CGContext *)arg1 insideStroke:(_Bool)arg2;
 - (struct CGAffineTransform)transformInContext:(struct CGContext *)arg1;
 - (struct CGRect)boundsForPath:(id)arg1;
+- (struct CGRect)p_superBoundsForPath:(id)arg1;
 - (_Bool)drawsOutsideStrokeBounds;
 - (_Bool)drawsInOneStep;
 - (_Bool)prefersToApplyToCAShapeLayerDuringManipulation;

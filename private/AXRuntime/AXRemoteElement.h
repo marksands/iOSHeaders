@@ -41,13 +41,13 @@
 - (void)_accessibilityIncreaseSelection:(id)arg1;
 - (struct CGRect)accessibilityFrame;
 - (void)unregister;
-- (id)accessibilityContainerElements;
+- (id)accessibilityElements;
 - (id)_accessibilitySortedElementsWithin;
 - (id)_accessibilityLastElement;
 - (id)_accessibilityFirstElement;
 - (id)_accessibilityResponderElement;
 - (id)_accessibilityActiveKeyboard;
-- (id)_remoteElementWithAttribute:(int)arg1 limitToRemoteSubviews:(_Bool)arg2;
+- (id)_remoteElementWithAttribute:(long long)arg1 limitToRemoteSubviews:(_Bool)arg2;
 @property(readonly, nonatomic) unsigned long long uuidHash;
 - (void)dealloc;
 - (id)_accessibilityTextViewTextOperationResponder;

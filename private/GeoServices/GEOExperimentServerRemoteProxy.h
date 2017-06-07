@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOExperimentServerProxy-Protocol.h>
 
@@ -19,6 +19,8 @@
     int _experimentsChangedToken;
 }
 
+@property(nonatomic) __weak id <GEOExperimentServerProxyDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)_debug_setBucketIdDictionaryRepresentation:(id)arg1;
 - (void)_debug_setActiveExperimentBranchDictionaryRepresentation:(id)arg1;
 - (void)_debug_fetchAllAvailableExperiments:(CDUnknownBlockType)arg1;
@@ -28,7 +30,6 @@
 @property(readonly, nonatomic) GEOABAssignmentResponse *experimentsInfo;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1;
-@property(nonatomic) __weak id <GEOExperimentServerProxyDelegate> delegate;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

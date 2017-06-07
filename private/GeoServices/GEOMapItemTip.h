@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOPDTip, NSString;
 
@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) GEOPDTip *geoTip; // @synthesize geoTip=_geoTip;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *tipId;
 @property(readonly, nonatomic) _Bool hasTipId;
 @property(readonly, nonatomic) NSString *bestImageURL;
@@ -22,7 +23,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) double tipTime;
 @property(readonly, nonatomic) _Bool hasTipTime;
 @property(readonly, nonatomic) NSString *localizedSnippet;
-- (void)dealloc;
 - (id)initWithGEOPDTip:(id)arg1;
 
 @end

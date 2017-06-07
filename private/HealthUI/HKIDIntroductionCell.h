@@ -6,11 +6,20 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class NSString, UIButton, UIImage, UIImageView, UILabel;
+@class NSLayoutConstraint, NSString, UIButton, UIImage, UIImageView, UILabel, UIStackView;
 @protocol HKIDIntroductionCellDelegate;
 
 @interface HKIDIntroductionCell : UITableViewCell
 {
+    NSLayoutConstraint *_linkButtonHeightConstraint;
+    NSLayoutConstraint *_actionButtonHeightConstraint;
+    UIStackView *_titleLogoStack;
+    UIStackView *_buttonStack;
+    NSLayoutConstraint *_titleFirstBaselineConstraint;
+    NSLayoutConstraint *_titleStackTopConstraint;
+    NSLayoutConstraint *_bodyFirstBaselineConstraint;
+    NSLayoutConstraint *_buttonStackFirstBaselineConstraint;
+    NSLayoutConstraint *_buttonStackLastBaselineConstraint;
     id <HKIDIntroductionCellDelegate> _delegate;
     long long _cellType;
     UIImageView *_logoImageView;
@@ -28,6 +37,7 @@
 @property(nonatomic) long long cellType; // @synthesize cellType=_cellType;
 @property(nonatomic) __weak id <HKIDIntroductionCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)actionButtonTapped:(id)arg1;
 - (void)linkButtonTapped:(id)arg1;
 @property(retain, nonatomic) NSString *actionButtonTitleText;
@@ -35,6 +45,8 @@
 @property(retain, nonatomic) NSString *bodyText;
 @property(retain, nonatomic) NSString *titleText;
 @property(retain, nonatomic) UIImage *logoImage;
+- (void)updateConstraints;
+- (void)_updateFontAndTextConstraints;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

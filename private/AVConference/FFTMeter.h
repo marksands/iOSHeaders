@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
     float adjust0DB;
 }
 
-- (id)computeWithSampleBuffer:(char *)arg1 numSamples:(unsigned long long)arg2 voiceActive:(_Bool)arg3;
+- (id)computeWithSampleBuffer:(struct opaqueVCAudioBufferList *)arg1;
 - (void)dealloc;
 - (id)init;
 

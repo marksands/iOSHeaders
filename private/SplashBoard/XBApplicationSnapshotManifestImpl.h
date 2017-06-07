@@ -17,6 +17,7 @@
     XBSnapshotManifestIdentity *_identity;
     NSMutableDictionary *_snapshotGroupsByID;
     NSFileManager *_imageAccessFileManger;
+    // Error parsing type: AQ, name: _bytesWaitingToWriteOut
     BSTimer *_reapingTimer;
     BSAtomicSignal *_invalidatedSignal;
     unsigned long long _clientCount;
@@ -29,11 +30,13 @@
 + (long long)_defaultOutputFormat;
 + (void)_configureSnapshot:(id)arg1 withCompatibilityInfo:(id)arg2 forLaunchRequest:(id)arg3;
 + (id)_snapshotPredicateForRequest:(id)arg1;
++ (void)_flushManifestQueue;
 + (void)_queue_noteManifestInvalidated:(id)arg1;
 + (void)relinquishManifest:(id)arg1;
 + (id)acquireManifestForContainerIdentity:(id)arg1 store:(id)arg2 creatingIfNecessary:(_Bool)arg3;
 @property(readonly, copy, nonatomic) XBSnapshotManifestIdentity *identity; // @synthesize identity=_identity;
 @property(readonly, copy, nonatomic) XBSnapshotContainerIdentity *containerIdentity; // @synthesize containerIdentity=_containerIdentity;
+- (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
@@ -45,7 +48,7 @@
 - (void)_queue_checkClientCount;
 - (void)_queue_decrementClientCount;
 - (void)_queue_incrementClientCount;
-- (_Bool)_imageAccessQueue_saveData:(id)arg1 withContentType:(long long)arg2 toPath:(id)arg3;
+- (_Bool)_imageAccessQueue_saveData:(id)arg1 forSnapshot:(id)arg2;
 - (id)_queue_snapshotGroupForID:(id)arg1 creatingIfNeeded:(_Bool)arg2;
 - (id)_queue_snapshotsForGroupID:(id)arg1 matchingPredicate:(id)arg2;
 - (id)_queue_snapshotsMatchingPredicate:(id)arg1;
@@ -85,7 +88,7 @@
 - (void)dealloc;
 - (id)_initWithContainerIdentity:(id)arg1;
 - (id)init;
-- (id)_commonInit;
+- (void)_commonInit;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

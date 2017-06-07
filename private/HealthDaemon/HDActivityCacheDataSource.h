@@ -50,7 +50,7 @@
 - (void)_samplesAddedToWorkoutNotification:(id)arg1;
 - (id)activityCacheStatisticsBuilder:(id)arg1 sourceOrderForObjectType:(id)arg2;
 - (_Bool)_primeQuantitySamplesWithError:(id *)arg1;
-- (id)_quantitySamplesQueryStringWithQuatityTypes:(id)arg1;
+- (id)_quantitySamplesQueryStringWithQuantityTypes:(id)arg1;
 - (id)_parameterStringWithCount:(long long)arg1;
 - (_Bool)_primeNonQuantitySamplesWithError:(id *)arg1;
 - (id)_nonQuantitySamplesQueryStringWithSampleTypes:(id)arg1;

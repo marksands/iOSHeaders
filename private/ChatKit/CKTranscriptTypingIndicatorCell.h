@@ -7,7 +7,7 @@
 #import <ChatKit/CKTranscriptMessageCell.h>
 
 @class CALayer, CKTypingView;
-@protocol CKTypingIndicatorLayerProtocol;
+@protocol IMTypingIndicatorLayerProtocol;
 
 @interface CKTranscriptTypingIndicatorCell : CKTranscriptMessageCell
 {
@@ -20,7 +20,7 @@
 - (void)stopPulseAnimation;
 - (void)startPulseAnimation;
 - (void)startGrowAnimation;
-@property(retain, nonatomic) CALayer<CKTypingIndicatorLayerProtocol> *indicatorLayer;
+@property(retain, nonatomic) CALayer<IMTypingIndicatorLayerProtocol> *indicatorLayer;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)performRemoval:(CDUnknownBlockType)arg1;

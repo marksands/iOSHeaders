@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 __attribute__((visibility("hidden")))
 @interface VKMapTileList : NSObject
@@ -16,7 +16,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) float maximumStyleZ; // @synthesize maximumStyleZ=_maximumStyleZ;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)consolidateList;
 - (void)clearList;
 - (void)addTileToList:(id)arg1;
 @property(readonly, nonatomic) unsigned long long numTiles;

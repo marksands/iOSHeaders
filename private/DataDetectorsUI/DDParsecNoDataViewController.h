@@ -23,6 +23,8 @@
 @property(retain) NSString *searchWebQuery; // @synthesize searchWebQuery=_searchWebQuery;
 @property(retain, nonatomic) NSString *reason; // @synthesize reason=_reason;
 - (void).cxx_destruct;
+- (void)manageDictionaries:(id)arg1;
+- (id)manageDictionariesURL;
 - (void)searchWeb:(id)arg1;
 - (void)loadView;
 

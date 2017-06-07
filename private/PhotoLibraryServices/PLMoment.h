@@ -27,6 +27,7 @@
 + (id)allAssetsIncludedInMomentsInManagedObjectContext:(id)arg1 IDsOnly:(_Bool)arg2 error:(id *)arg3;
 + (id)predicateForAssetsIncludedInMoments;
 + (id)allMomentsRequiringAnalysisInManagedObjectContext:(id)arg1 error:(id *)arg2;
++ (unsigned long long)numberOfMomentsGeneratedWithoutLocationsOfInterestInformation:(id)arg1 error:(id *)arg2;
 + (id)allMomentsInManagedObjectContext:(id)arg1 error:(id *)arg2;
 + (id)insertNewMomentInManagedObjectContext:(id)arg1 error:(id *)arg2;
 @property(nonatomic) _Bool didRegisteredWithUserInterfaceContext; // @synthesize didRegisteredWithUserInterfaceContext;
@@ -97,12 +98,14 @@
 @property(retain, nonatomic) PLMomentLibrary *momentLibrary; // @dynamic momentLibrary;
 @property(retain, nonatomic) NSDate *representativeDate; // @dynamic representativeDate;
 @property(retain, nonatomic) NSData *reverseLocationData; // @dynamic reverseLocationData;
+@property(nonatomic) _Bool reverseLocationDataContainsLocation; // @dynamic reverseLocationDataContainsLocation;
 @property(nonatomic) _Bool reverseLocationDataIsValid; // @dynamic reverseLocationDataIsValid;
 @property(retain, nonatomic) NSDate *startDate; // @dynamic startDate;
 @property(readonly) Class superclass;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
 @property(retain, nonatomic) NSString *title2; // @dynamic title2;
 @property(retain, nonatomic) NSString *title3; // @dynamic title3;
+@property(nonatomic) _Bool usedLocationsOfInterest; // @dynamic usedLocationsOfInterest;
 @property(retain, nonatomic) NSString *uuid; // @dynamic uuid;
 @property(retain, nonatomic) PLMomentList *yearMomentList; // @dynamic yearMomentList;
 

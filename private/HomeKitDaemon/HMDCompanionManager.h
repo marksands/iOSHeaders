@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegate-Protocol.h>
 
-@class HMDDevice, IDSService, NSString;
+@class HMDDevice, IDSService, NSObject, NSString;
 @protocol HMDCompanionManagerDelegate, OS_dispatch_queue;
 
-@interface HMDCompanionManager : NSObject <HMFLogging, IDSServiceDelegate>
+@interface HMDCompanionManager : HMFObject <HMFLogging, IDSServiceDelegate>
 {
     HMDDevice *_companion;
     id <HMDCompanionManagerDelegate> _delegate;

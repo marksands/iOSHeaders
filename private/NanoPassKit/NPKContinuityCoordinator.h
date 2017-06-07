@@ -16,11 +16,15 @@
     NSUserActivity *_getPaymentPassesUserActivity;
     NSUserActivity *_passListUserActivity;
     NSUserActivity *_individualPassUserActivity;
+    NSUserActivity *_setUpPeerPaymentUserActivity;
+    NSUserActivity *_viewPeerPaymentUserActivity;
     NSUserActivity *_currentUserActivity;
 }
 
 + (id)sharedContinuityCoordinator;
 @property(nonatomic) __weak NSUserActivity *currentUserActivity; // @synthesize currentUserActivity=_currentUserActivity;
+@property(retain, nonatomic) NSUserActivity *viewPeerPaymentUserActivity; // @synthesize viewPeerPaymentUserActivity=_viewPeerPaymentUserActivity;
+@property(retain, nonatomic) NSUserActivity *setUpPeerPaymentUserActivity; // @synthesize setUpPeerPaymentUserActivity=_setUpPeerPaymentUserActivity;
 @property(retain, nonatomic) NSUserActivity *individualPassUserActivity; // @synthesize individualPassUserActivity=_individualPassUserActivity;
 @property(retain, nonatomic) NSUserActivity *passListUserActivity; // @synthesize passListUserActivity=_passListUserActivity;
 @property(retain, nonatomic) NSUserActivity *getPaymentPassesUserActivity; // @synthesize getPaymentPassesUserActivity=_getPaymentPassesUserActivity;
@@ -31,6 +35,8 @@
 - (id)_skeletonBridgeUserActivity;
 - (void)invalidateAllActivities;
 - (id)userActivityForPassWithUniqueID:(id)arg1;
+- (void)userNeedsToViewPeerPaymentForHandle:(id)arg1;
+- (void)userNeedsToSetUpPeerPayment;
 - (void)userNeedsPaymentPasses;
 - (void)userNeedsToProvisionPassWithUniqueID:(id)arg1;
 - (void)userViewingPassWithUniqueID:(id)arg1 isPaymentPass:(_Bool)arg2;

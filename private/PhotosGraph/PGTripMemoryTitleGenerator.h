@@ -15,7 +15,6 @@
 - (id)_typeString;
 - (_Bool)_triggerDefaultTitleGenerationIfNil;
 - (id)_timeTitleForTripAndWeekend;
-- (id)_timeTitleForSpecialEvent;
 - (id)_timeTitleForWeekend;
 - (id)_timeTitleForTrip;
 - (id)_locationTitle;

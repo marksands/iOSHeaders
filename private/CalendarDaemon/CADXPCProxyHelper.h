@@ -6,20 +6,26 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSXPCConnection, Protocol;
+@class CADDatabaseInitializationOptions, NSXPCConnection, Protocol;
 
 @interface CADXPCProxyHelper : NSObject
 {
     NSXPCConnection *_connection;
     Protocol *_protocol;
+    _Bool _synchronous;
+    CADDatabaseInitializationOptions *_initializationOptions;
 }
 
+@property(retain) CADDatabaseInitializationOptions *initializationOptions; // @synthesize initializationOptions=_initializationOptions;
+- (void).cxx_destruct;
 - (void)_callReplyHandler:(id)arg1 ofInvocation:(id)arg2 withError:(id)arg3;
-- (id)_copyReplyBlockFromInvocation:(id)arg1;
+- (long long)replyBlockArgumentIndex:(id)arg1;
+- (id)_getReplyBlockFromInvocation:(id)arg1;
+- (id)_replaceReplyBlockInInvocation:(id)arg1 retryingAfterInitializationWithProxy:(id)arg2;
+- (_Bool)shouldReplaceReplyBlockForInvocation:(id)arg1;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
-- (void)dealloc;
-- (id)initWithXPCConnection:(id)arg1 protocol:(id)arg2;
+- (id)initWithXPCConnection:(id)arg1 protocol:(id)arg2 synchronous:(_Bool)arg3;
 
 @end
 

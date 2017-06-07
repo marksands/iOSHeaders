@@ -25,6 +25,19 @@ struct CGSize {
     double height;
 };
 
+struct SBFDashBoardOrientationLeadingInsets {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+};
+
+struct SBFDashBoardPadPageInsets {
+    struct SBFDashBoardOrientationLeadingInsets _field1;
+    struct SBFDashBoardOrientationLeadingInsets _field2;
+    struct SBFDashBoardOrientationLeadingInsets _field3;
+};
+
 struct UIEdgeInsets {
     double _field1;
     double _field2;

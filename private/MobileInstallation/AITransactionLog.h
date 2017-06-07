@@ -14,6 +14,7 @@
 }
 
 + (id)_defaultLog;
++ (void)logStep:(unsigned long long)arg1 byParty:(unsigned long long)arg2 phase:(unsigned long long)arg3 success:(_Bool)arg4 forBundleID:(id)arg5 description:(id)arg6;
 + (void)logScenario:(id)arg1 step:(unsigned long long)arg2 success:(_Bool)arg3 forBundleID:(id)arg4 description:(id)arg5;
 + (void)initializeWithLog:(id)arg1;
 - (void).cxx_destruct;

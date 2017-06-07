@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *logo; // @synthesize logo=_logo;
 @property(retain, nonatomic) NSString *badge; // @synthesize badge=_badge;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

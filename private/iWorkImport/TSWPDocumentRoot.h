@@ -8,6 +8,8 @@
 
 #import <iWorkImport/TSWPObjectIndex-Protocol.h>
 
+@class EQKitEnvironment;
+
 __attribute__((visibility("hidden")))
 @interface TSWPDocumentRoot : TSKDocumentRoot <TSWPObjectIndex>
 {
@@ -15,13 +17,18 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) _Bool didRemoveMissingAttachments; // @synthesize didRemoveMissingAttachments=_didRemoveMissingAttachments;
+- (double)bodyWidth;
 @property(readonly, nonatomic) _Bool supportHeaderFooterParagraphAlignmentInInspectors;
 - (int)verticalAlignmentForTextStorage:(id)arg1;
 - (int)naturalAlignmentAtCharIndex:(unsigned long long)arg1 inTextStorage:(id)arg2;
 @property(readonly, nonatomic, getter=isChangeTrackingEnabled) _Bool changeTrackingEnabled;
+- (id)flowInfoContainer;
 - (_Bool)cellCommentsAllowedOnInfo:(id)arg1;
+@property(readonly, nonatomic) EQKitEnvironment *equationEnvironment;
 - (id)unavailableDocumentFonts;
+- (id)documentTSWPFontObjects;
 - (id)documentFonts;
+- (id)p_fontsInStylesheetUsingBlock:(CDUnknownBlockType)arg1;
 - (_Bool)useLigatures;
 - (struct __CFLocale *)hyphenationLocale;
 - (_Bool)shouldHyphenate;

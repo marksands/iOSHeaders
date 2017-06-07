@@ -10,6 +10,25 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct CATransform3D {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+    double _field5;
+    double _field6;
+    double _field7;
+    double _field8;
+    double _field9;
+    double _field10;
+    double _field11;
+    double _field12;
+    double _field13;
+    double _field14;
+    double _field15;
+    double _field16;
+};
+
 struct CGAffineTransform {
     double a;
     double b;
@@ -69,13 +88,6 @@ typedef struct {
 } CDStruct_4bcfbbae;
 
 typedef struct {
-    double r;
-    double g;
-    double b;
-    double temperature;
-} CDStruct_dbd0f16f;
-
-typedef struct {
     double minScrollPercentage;
     double maxScrollPercentage;
     double maxValue;
@@ -85,5 +97,17 @@ typedef struct {
 typedef struct {
     double _field1;
     double _field2;
+    double _field3;
+    double _field4;
+} CDStruct_d2b197d1;
+
+typedef struct {
+    double _field1;
+    double _field2;
 } CDStruct_c3b9c2ee;
+
+typedef struct {
+    double minimum;
+    double maximum;
+} CDStruct_ef18196a;
 

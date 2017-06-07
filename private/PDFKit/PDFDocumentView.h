@@ -6,11 +6,14 @@
 
 #import <UIKit/UIView.h>
 
+#import <PDFKit/PDFAccessibilityNodeParent-Protocol.h>
 #import <PDFKit/PDFDocumentPageChangeDelegate-Protocol.h>
+#import <PDFKit/PageImagePoolDelegate-Protocol.h>
 
 @class NSString, PDFDocumentViewPrivate;
 
-@interface PDFDocumentView : UIView <PDFDocumentPageChangeDelegate>
+__attribute__((visibility("hidden")))
+@interface PDFDocumentView : UIView <PDFAccessibilityNodeParent, PageImagePoolDelegate, PDFDocumentPageChangeDelegate>
 {
     PDFDocumentViewPrivate *_private;
 }
@@ -22,31 +25,25 @@
 - (void)didSwapPage:(id)arg1 atIndex:(unsigned long long)arg2 forPage:(id)arg3 atIndex:(unsigned long long)arg4;
 - (void)didRemovePage:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)didInsertPage:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)_callPageVisibilityDelegateMethod:(int)arg1 forPageView:(id)arg2 atPageIndex:(unsigned long long)arg3;
 - (id)_createPageView:(id)arg1;
-- (id)getPDFView;
-- (void)forceWebKitMainThread:(_Bool)arg1;
-- (void)setShouldAntiAlias:(_Bool)arg1;
+- (void)enableTextSelectionHandles;
+- (void)clearTextSelectionHandles;
 - (void)forceUpdateWithDuration:(double)arg1;
 - (void)setWillForceUpdateWithDuration;
-- (double)lastLayoutDuration;
 - (void)previewRotateShiftPages:(double)arg1;
-- (void)setEnablePageShadows:(_Bool)arg1;
 - (void)setSelection:(id)arg1;
 - (void)updateVisibilityWithWaitDuration:(double)arg1;
-- (void)magnificationDidChange;
-- (void)magnificationWillChange;
 - (void)updateVisibility;
 - (struct CGSize)documentViewSize;
 - (void)layoutDocumentView;
 - (id)pageViews;
-- (void)setPageViewVisibilityDelegate:(id)arg1;
+- (void)removePageViewForPageAtIndex:(unsigned long long)arg1;
+- (id)createPageViewForPageAtIndex:(unsigned long long)arg1;
 - (id)pageViewForPageAtIndex:(unsigned long long)arg1;
-- (void)setDisplayBox:(long long)arg1;
 - (id)document;
 - (void)setDocument:(id)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithPDFView:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

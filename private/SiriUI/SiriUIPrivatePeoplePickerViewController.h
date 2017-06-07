@@ -21,11 +21,12 @@
 - (void)pickerViewController:(id)arg1 didSelectObject:(id)arg2 fromPicker:(id)arg3;
 - (void)pickerViewController:(id)arg1 willPresentPicker:(id)arg2;
 - (id)viewControllerForPickerPresentation:(id)arg1;
-- (double)desiredHeightForTransparentFooterView;
+- (double)desiredHeightForFooterView;
 - (void)_showPicker:(id)arg1;
-- (void)configureReusableTransparentFooterView:(id)arg1;
+- (void)configureReusableFooterView:(id)arg1;
 - (id)_pickerController;
-- (Class)transparentFooterViewClass;
+- (Class)footerViewClass;
+- (_Bool)usePlatterStyle;
 - (double)desiredHeightForWidth:(double)arg1;
 - (void)loadView;
 - (id)initWithSnippet:(id)arg1;

@@ -6,18 +6,20 @@
 
 #import <CalendarNotification/CALNRemoteDataProvider.h>
 
-@class NSMutableDictionary;
+@class NSArray, NSMutableDictionary;
 
 @interface CALNRemoteEventProvider : CALNRemoteDataProvider
 {
     NSMutableDictionary *_alertRecordIDsToAlertInfos;
     NSMutableDictionary *_alertRecordIDsToRefreshTimes;
+    NSArray *_suggestionAddedMessages;
     CDUnknownBlockType _countOfSuggestedNotificationsToIgnoreBlock;
     CDUnknownBlockType _reloadNotificationsBlock;
     CDUnknownBlockType _requestHypothesisRefresh;
     CDUnknownBlockType _cancelHypothesisRefreshRequest;
     CDUnknownBlockType _ceaseTravelMonitoringEvent;
     CDUnknownBlockType _sendTravelAdviceFeedback;
+    CDUnknownBlockType _notifyHypothesizerNotificationDismissed;
 }
 
 + (_Bool)_date:(id)arg1 isWithinEightMinutesOfDate:(id)arg2;
@@ -32,6 +34,7 @@
 + (id)_launchOptionsDirectionsModeForLocationRoutingMode:(long long)arg1;
 + (id)_launchOptionsDirectionsModeForTransportType:(int)arg1;
 + (id)_directionsModeForAlertInfo:(id)arg1;
+@property(copy, nonatomic) CDUnknownBlockType notifyHypothesizerNotificationDismissed; // @synthesize notifyHypothesizerNotificationDismissed=_notifyHypothesizerNotificationDismissed;
 @property(copy, nonatomic) CDUnknownBlockType sendTravelAdviceFeedback; // @synthesize sendTravelAdviceFeedback=_sendTravelAdviceFeedback;
 @property(copy, nonatomic) CDUnknownBlockType ceaseTravelMonitoringEvent; // @synthesize ceaseTravelMonitoringEvent=_ceaseTravelMonitoringEvent;
 @property(copy, nonatomic) CDUnknownBlockType cancelHypothesisRefreshRequest; // @synthesize cancelHypothesisRefreshRequest=_cancelHypothesisRefreshRequest;
@@ -55,6 +58,7 @@
 - (void)_updateRefreshTimerForEventWithExternalURL:(id)arg1;
 - (void)handleBTAJob:(id)arg1 named:(const char *)arg2;
 - (id)btaJobNameForEvent:(id)arg1;
+- (void)_updateNotificationTypeForAlertInfo:(id)arg1 withDate:(id)arg2;
 - (void)_receivedHypothesis:(id)arg1 forEventWithExternalURL:(id)arg2;
 @property(readonly, nonatomic) CDUnknownBlockType eventSignficantlyChangedBlock;
 @property(readonly, nonatomic) CDUnknownBlockType authorizationChangedBlock;
@@ -62,6 +66,7 @@
 - (void)protectedAcknowledgeAlarm:(_Bool)arg1 forBulletinWithEntityID:(id)arg2 externalID:(id)arg3 extraActions:(CDUnknownBlockType)arg4;
 - (void)bulletinAcknowledgedWithResponse:(id)arg1 acknowledgeAlarm:(_Bool)arg2 extraActions:(CDUnknownBlockType)arg3;
 - (id)_resourceChangeURIFromBulletin:(id)arg1;
+- (void)_acknowledgeSuggestedEventForRecordID:(id)arg1 accept:(_Bool)arg2;
 - (void)_reportJunkCalendarItemForRecordID:(id)arg1;
 - (void)_deleteCalendarItemForRecordID:(id)arg1 span:(long long)arg2;
 - (void)_setParticipantStatus:(long long)arg1 recordID:(id)arg2;
@@ -84,6 +89,7 @@
 - (id)dateTimeStringForEventDate:(id)arg1 alwaysIncludeDate:(_Bool)arg2 allDayEvent:(_Bool)arg3;
 - (id)messageStringForAlertInfo:(id)arg1;
 - (id)titleStringForAlertInfo:(id)arg1;
+- (id)_conferenceCallActionWithAlertInfo:(id)arg1;
 - (id)_snoozeActionWithAlertInfo:(id)arg1;
 - (id)_reportAProblemActionForAlertInfo:(id)arg1;
 - (id)_snoozeOrReportAProblemActionForAlertInfo:(id)arg1;
@@ -94,12 +100,19 @@
 - (id)_expirationDateForResourceChange:(id)arg1;
 - (id)_expirationDateForEventInvitation:(id)arg1;
 - (void)_setEventRepresentationForNotification:(id)arg1 bulletin:(id)arg2;
-- (id)_representationForRequest:(id)arg1 timeToLeaveString:(id)arg2 eventIfExists:(id)arg3 displayTimeZone:(id)arg4;
+- (void)_setEventRepresentationForAlertBulletin:(id)arg1 timeToLeaveString:(id)arg2 eventIfExists:(id)arg3;
 - (void)_setPropertiesOnBulletinRequest:(id)arg1 fromResourceChange:(id)arg2 contactIdentifier:(id *)arg3;
+- (id)bulletinRequestWithSuggestionNotifications:(id)arg1;
+- (id)_getDisplayNameForJunkIdentity:(id)arg1;
+- (id)_getContactPredicateForIdentity:(id)arg1;
+- (id)_getContactIdentifierForIdentity:(id)arg1 withStore:(id)arg2;
+- (id)_getContactIdentifierForIdentity:(id)arg1;
+- (id)_getContactIdentifiersForAttendees:(id)arg1 includeBlock:(CDUnknownBlockType)arg2;
 - (id)bulletinRequestWithCalendarNotification:(id)arg1;
 - (id)_iconImageDataForDate:(id)arg1 calendar:(id)arg2;
 - (id)_iconForDate:(id)arg1 calendar:(id)arg2;
 - (id)bulletinRequestForAlertInfo:(id)arg1;
+- (void)unalertedNotificationsReceived:(id)arg1 withNotificationReferences:(id)arg2;
 - (void)notificationCountChanged:(id)arg1;
 - (_Bool)shouldWithdrawBulletin:(id)arg1 forItem:(id)arg2;
 - (void)willPostBulletinForAlertInfo:(id)arg1;

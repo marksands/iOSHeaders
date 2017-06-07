@@ -11,7 +11,7 @@
 #import <iWorkImport/TSDMixing-Protocol.h>
 #import <iWorkImport/TSSPresetSource-Protocol.h>
 
-@class NSObject, TSPData, TSUColor, TSUFlushableCachedImage;
+@class NSObject, TSDImageFillCachedImage, TSPData, TSUColor;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -20,9 +20,9 @@ __attribute__((visibility("hidden")))
     TSPData *mImageData;
     int mTechnique;
     TSUColor *mTintColor;
-    TSUFlushableCachedImage *mStandardSizeTintedImage;
-    TSUFlushableCachedImage *mHalfSizeTintedImage;
-    TSUFlushableCachedImage *mQuarterSizeTintedImage;
+    TSDImageFillCachedImage *mStandardSizeTintedImage;
+    TSDImageFillCachedImage *mHalfSizeTintedImage;
+    TSDImageFillCachedImage *mQuarterSizeTintedImage;
     TSUColor *mReferenceColor;
     struct CGSize mFillSize;
     _Bool mHasIndicatedInterestInProvider;
@@ -34,11 +34,14 @@ __attribute__((visibility("hidden")))
 
 + (void)bootstrapPresetsOfKind:(id)arg1 inTheme:(id)arg2 alternate:(int)arg3;
 + (id)presetKinds;
++ (void)p_makeCompatibleImageDataForFill:(_Bool)arg1 fromURL:(id)arg2 withContext:(id)arg3 modalOperationPresenter:(id)arg4 compatibilityAlertPresenter:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 + (void)makeCompatibleImageFillDataFromURL:(id)arg1 withContext:(id)arg2 modalOperationPresenter:(id)arg3 compatibilityAlertPresenter:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
++ (void)makeCompatibleImageDataFromURL:(id)arg1 withContext:(id)arg2 modalOperationPresenter:(id)arg3 compatibilityAlertPresenter:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (id)instanceWithArchive:(const struct FillArchive *)arg1 unarchiver:(id)arg2;
 @property(readonly, copy, nonatomic) TSUColor *tintColor; // @synthesize tintColor=mTintColor;
 @property(nonatomic) int technique; // @synthesize technique=mTechnique;
 @property(readonly, retain, nonatomic) TSPData *imageData; // @synthesize imageData=mImageData;
+- (void).cxx_destruct;
 - (void)p_drawPDFWithProvider:(id)arg1 inContext:(struct CGContext *)arg2 bounds:(struct CGRect)arg3;
 - (void)p_drawBitmapImage:(struct CGImage *)arg1 withOrientation:(long long)arg2 inContext:(struct CGContext *)arg3 bounds:(struct CGRect)arg4;
 - (struct CGRect)p_drawnRectForImageSize:(struct CGSize)arg1 destRect:(struct CGRect)arg2 inContext:(struct CGContext *)arg3;
@@ -48,12 +51,9 @@ __attribute__((visibility("hidden")))
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (id)p_quarterSizeCachedImage;
-- (struct CGImage *)p_newQuarterSizeImage;
 - (id)p_halfSizeCachedImage;
-- (struct CGImage *)p_newHalfSizeImage;
 - (id)p_standardSizeCachedImage;
-- (struct CGImage *)p_newStandardSizeImage;
-- (struct CGImage *)p_newTintedImageWithScale:(double)arg1;
+- (id)p_tintedImageWithScale:(double)arg1;
 - (void)paintPath:(struct CGPath *)arg1 naturalBounds:(struct CGRect)arg2 inContext:(struct CGContext *)arg3 isPDF:(_Bool)arg4;
 - (void)paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
 - (void)p_paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
@@ -77,9 +77,15 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGSize fillSize; // @synthesize fillSize=mFillSize;
 @property(readonly, nonatomic) double scale;
 - (id)copyWithNewImageData:(id)arg1;
+@property(nonatomic, setter=p_setFillSize:) struct CGSize p_fillSize;
+@property(retain, nonatomic, setter=p_setTintColor:) TSUColor *p_tintColor;
+@property(nonatomic, setter=p_setTechnique:) int p_technique;
+@property(retain, nonatomic, setter=p_setImageData:) TSPData *p_imageData;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (void)p_clearTintedImageCache;
 - (void)dealloc;
+- (void)i_commonInit;
 - (id)initWithImageData:(id)arg1 technique:(int)arg2 tintColor:(id)arg3 size:(struct CGSize)arg4;
 - (_Bool)tsch_hasAllResources;
 - (void)saveToArchive:(struct FillArchive *)arg1 archiver:(id)arg2;

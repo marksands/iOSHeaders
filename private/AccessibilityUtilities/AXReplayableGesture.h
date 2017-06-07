@@ -17,6 +17,7 @@
 }
 
 + (id)tapGestureForInterfaceOrientedPoint:(struct CGPoint)arg1;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
@@ -27,7 +28,6 @@
 - (double)timeAtEventIndex:(unsigned long long)arg1;
 - (id)fingerIdentifiersAtEventIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfEvents;
-- (void)dealloc;
 
 @end
 

@@ -18,7 +18,6 @@
 @property(readonly, nonatomic) NSArray *countryCodesShowingEmergencyOnlyStatus; // @dynamic countryCodesShowingEmergencyOnlyStatus;
 @property(readonly, nonatomic) _Bool showBatteryLevel; // @dynamic showBatteryLevel;
 @property(readonly, nonatomic) _Bool showBatteryPercentage; // @dynamic showBatteryPercentage;
-@property(readonly, nonatomic) _Bool showGSMRSSI; // @dynamic showGSMRSSI;
 @property(readonly, nonatomic) _Bool showOptimalCellDataForCarPlay; // @dynamic showOptimalCellDataForCarPlay;
 @property(readonly, nonatomic) _Bool showRSSI; // @dynamic showRSSI;
 @property(readonly, nonatomic) _Bool showTapToRadarForCarPlay; // @dynamic showTapToRadarForCarPlay;

@@ -6,7 +6,7 @@
 
 #import <UIKit/UIViewController.h>
 
-@class NSArray, PGPlaybackProgress, PGPlaybackProgressIndicator, PGTimer, UIButton;
+@class NSArray, NSTimer, PGPlaybackProgress, PGPlaybackProgressIndicator, UIButton;
 @protocol PGPictureInPictureControlsViewControllerDelegate;
 
 @interface PGPictureInPictureControlsViewController : UIViewController
@@ -21,7 +21,7 @@
     long long _controlsSize;
     _Bool _controlsVisibilityNeedsUpdate;
     long long _controlsVisibilityCounter;
-    PGTimer *_controlsVisibilityTimer;
+    NSTimer *_controlsVisibilityTimer;
     _Bool _shouldShowControlsIfNeeded;
     _Bool _shouldShowControlsForUserInteraction;
     _Bool _shouldShowControlsAfterUserInteraction;
@@ -41,9 +41,9 @@
 
 @property(readonly, nonatomic) long long controlsStyle; // @synthesize controlsStyle=_controlsStyle;
 - (void).cxx_destruct;
-- (void)_handleDoubleDoubleTapGesture:(id)arg1;
-- (void)_handleDoubleTapGesture:(id)arg1;
-- (void)_handleSingleTapGesture:(id)arg1;
+- (void)_handleDoubleDoubleTapGestureRecognizer:(id)arg1;
+- (void)_handleDoubleTapGestureRecognizer:(id)arg1;
+- (void)_handleSingleTapGestureRecognizer:(id)arg1;
 - (void)_cancelButtonTapped:(id)arg1;
 - (void)_actionButtonTapped:(id)arg1;
 - (void)_stopButtonTapped:(id)arg1;
@@ -56,6 +56,7 @@
 - (void)_updateControlsVisibility;
 - (void)_updateControlsVisibilityIfNeeded;
 - (void)_setControlsVisibilityNeedsUpdate;
+- (void)_toggleControlsVisibilityForUserInteraction;
 - (void)_hideControlsIfPossibleUntilFurtherUserInteraction;
 - (void)_showControlsIfNeededAndHideIfPossibleAfterDelayIfPlayingWithDelay:(double)arg1;
 - (void)_showControlsIfNeededAndHideIfPossibleAfterDelayIfPlaying;

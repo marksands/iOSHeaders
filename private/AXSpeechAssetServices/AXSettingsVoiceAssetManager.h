@@ -18,6 +18,7 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (void)playSample:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)speechSynthesizer:(id)arg1 didFinishSpeechUtterance:(id)arg2;
 - (_Bool)allowedToDownloadVoiceAssets;

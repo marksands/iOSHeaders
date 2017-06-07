@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
 {
     unsigned int _captionsLastUtteranceNumber;
     unsigned int _captionsLastUpdateNumber;
-    id <VCCaptionsReceiverDelegate> _delegate;
+    id _delegate;
     VCCaptionsTranscription *_currentTranscription;
 }
 

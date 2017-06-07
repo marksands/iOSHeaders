@@ -63,6 +63,7 @@
 @property(readonly, nonatomic) _Bool hasOnlyProactiveCandidates;
 @property(readonly, nonatomic) _Bool hasCandidates;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

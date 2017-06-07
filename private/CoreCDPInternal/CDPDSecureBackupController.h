@@ -33,11 +33,12 @@
 - (void).cxx_destruct;
 - (void)_accountLockoutInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)accountLockoutInfoWithCompletion:(CDUnknownBlockType)arg1;
-- (void)isAccountLockedWithShouldReset:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_setBackoffDate:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)setBackoffDate:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)resetAccountLockOutWithCompletion:(CDUnknownBlockType)arg1;
 - (void)lockAccountOutWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_disableRecoveryKey:(id *)arg1;
+- (void)disableRecoveryKeyWithCompletion:(CDUnknownBlockType)arg1;
 - (_Bool)_disableSecureBackup:(id *)arg1;
 - (void)disableSecureBackupWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_deleteSingleICSCBackupWithCompletion:(CDUnknownBlockType)arg1;
@@ -55,11 +56,12 @@
 - (_Bool)authenticatedEnableSecureBackupWithRecoveryKey:(id)arg1 error:(id *)arg2;
 - (void)enableSecureBackupWithRecoveryKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_enableSecureBackupWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (_Bool)supportsRecoveryKeyRecovery;
+- (_Bool)supportsRecoveryKey;
 - (void)checkForExistingRecordMatchingPredicate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)checkForExistingRecordWithPeerId:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)checkForExistingRecord:(CDUnknownBlockType)arg1;
-- (void)enableSecureBackupRemovingExistingRecordWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)checkAndRemoveExistingThenEnableSecureBackupRecordWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)upgradeICSCRecordsThenEnableSecureBackupWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)enableSecureBackupWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)cdpBackupRecordsArePresentWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_dateWithSecureBackupDateString:(id)arg1;

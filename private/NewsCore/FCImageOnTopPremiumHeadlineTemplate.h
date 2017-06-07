@@ -6,19 +6,11 @@
 
 #import <NewsCore/FCHeadlineTemplate.h>
 
-@class FCTextInfo;
-
 @interface FCImageOnTopPremiumHeadlineTemplate : FCHeadlineTemplate
 {
-    FCTextInfo *_headlineSubtitleTextInfo;
 }
 
-+ (id)_defaultSubtitleTextColor;
 + (id)debug_templateForHash:(unsigned long long)arg1;
-@property(copy, nonatomic) FCTextInfo *headlineSubtitleTextInfo; // @synthesize headlineSubtitleTextInfo=_headlineSubtitleTextInfo;
-- (void).cxx_destruct;
-- (id)loadableFonts;
-- (id)_allThemePropertyNames;
 - (id)initWithJSONDictionary:(id)arg1 versionNumber:(long long)arg2 allowNil:(_Bool)arg3;
 - (id)initWithJSONDictionary:(id)arg1 versionNumber:(long long)arg2;
 

@@ -19,6 +19,7 @@
 
 + (id)speechActsForCategory:(unsigned long long)arg1 platform:(id)arg2;
 + (id)responsesForFullScreenMoments:(id)arg1 withLanguage:(id)arg2;
++ (id)responsesForFullScreenMoments:(id)arg1;
 + (id)responsesForFixedPhrase:(id)arg1 withLanguage:(id)arg2;
 @property(readonly) id <RKDisplayStringsProvider> displayStringsProvider; // @synthesize displayStringsProvider=_displayStringsProvider;
 @property(readonly) NSURL *dynamicDataURL; // @synthesize dynamicDataURL=_dynamicDataURL;

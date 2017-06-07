@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString, TSKWarning;
+@class NSString, TSUWarning;
 
 __attribute__((visibility("hidden")))
 @interface TSWPCharacterStyleValidateFontResult : NSObject
@@ -14,12 +14,12 @@ __attribute__((visibility("hidden")))
     NSString *_mappedName;
     int _bold;
     int _italic;
-    TSKWarning *_warning;
+    TSUWarning *_warning;
 }
 
 @property(nonatomic) int italic; // @synthesize italic=_italic;
 @property(nonatomic) int bold; // @synthesize bold=_bold;
-@property(retain, nonatomic) TSKWarning *warning; // @synthesize warning=_warning;
+@property(retain, nonatomic) TSUWarning *warning; // @synthesize warning=_warning;
 @property(retain, nonatomic) NSString *mappedName; // @synthesize mappedName=_mappedName;
 - (void)dealloc;
 

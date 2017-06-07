@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class NSMutableArray;
+@class NSMutableArray, NSObject;
 @protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
-@interface HMDUIDialogPresenter : NSObject
+@interface HMDUIDialogPresenter : HMFObject
 {
     _Bool _selectedByPeerDevice;
     _Bool _peerDeviceAcceptedSelection;
@@ -50,8 +50,8 @@
 - (void)requestUserPermissionForLegacyWACAccessory:(id)arg1 withContext:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_requestUserPermissionForUnauthenticatedAccessory:(id)arg1 withContext:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)requestUserPermissionForUnauthenticatedAccessory:(id)arg1 withContext:(id)arg2 queue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_requestPairingPasswordForAccessory:(id)arg1 home:(id)arg2 bridge:(id)arg3 withContext:(id)arg4 queue:(id)arg5 numeric:(_Bool)arg6 completionHandler:(CDUnknownBlockType)arg7;
-- (void)requestPairingPasswordForAccessory:(id)arg1 home:(id)arg2 bridge:(id)arg3 withContext:(id)arg4 queue:(id)arg5 numeric:(_Bool)arg6 completionHandler:(CDUnknownBlockType)arg7;
+- (void)_requestPairingPasswordForAccessory:(id)arg1 home:(id)arg2 withContext:(id)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)requestPairingPasswordForAccessory:(id)arg1 home:(id)arg2 withContext:(id)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (_Bool)_removeCurrentNotification:(struct __CFUserNotification *)arg1 currentSelection:(_Bool)arg2 selectedByPeerDevice:(_Bool *)arg3 andContext:(id)arg4;
 - (_Bool)_addCurrentNotification:(struct __CFUserNotification *)arg1 withContext:(id)arg2;
 - (_Bool)_addToPendingContext:(id)arg1;

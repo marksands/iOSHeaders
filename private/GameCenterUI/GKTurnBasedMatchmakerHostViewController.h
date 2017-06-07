@@ -18,16 +18,14 @@
 
 + (_Bool)dismissAutomaticallyAfterExtensionCompletion;
 + (id)turnBasedMatchmakerExtension;
-- (void)remoteViewControllerIsCanceling;
-- (void)playerQuitMatch:(id)arg1;
-- (void)finishWithError:(id)arg1;
-- (void)finishWithMatch:(id)arg1;
+- (void)extensionIsCanceling;
+- (void)messageFromExtension:(id)arg1;
 - (void)refreshMatches;
 - (void)setShowQuit:(_Bool)arg1;
 - (void)setShowPlay:(_Bool)arg1;
 - (void)setShowExistingMatches:(_Bool)arg1;
 - (void)setMatchRequestInternal:(id)arg1;
-- (id)contextForRequestIdentifier;
+- (id)extensionObjectProxy;
 @property(nonatomic) GKTurnBasedMatchmakerViewController *delegate; // @synthesize delegate=_delegateWeak;
 - (void)dealloc;
 

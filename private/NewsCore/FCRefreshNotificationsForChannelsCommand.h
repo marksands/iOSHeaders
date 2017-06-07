@@ -23,7 +23,7 @@
 @property(copy, nonatomic) NSArray *paidChannelIDs; // @synthesize paidChannelIDs=_paidChannelIDs;
 @property(copy, nonatomic) NSArray *channelIDs; // @synthesize channelIDs=_channelIDs;
 - (void).cxx_destruct;
-- (void)executeWithContext:(id)arg1 delegate:(id)arg2;
+- (void)executeWithContext:(id)arg1 delegate:(id)arg2 qualityOfService:(long long)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithChannelIDs:(id)arg1 paidChannelIDs:(id)arg2 userID:(id)arg3 deviceToken:(id)arg4 storefrontID:(id)arg5;

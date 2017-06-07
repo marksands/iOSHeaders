@@ -7,63 +7,109 @@
 #import <UIKit/UIView.h>
 
 #import <PDFKit/PDFCoachMarkDelegate-Protocol.h>
-#import <PDFKit/PageImagePoolDelegate-Protocol.h>
+#import <PDFKit/PDFPageLayerInterface-Protocol.h>
+#import <PDFKit/UITextViewDelegate-Protocol.h>
 
 @class NSString, PDFPageViewPrivate;
 
-@interface PDFPageView : UIView <PDFCoachMarkDelegate, PageImagePoolDelegate>
+__attribute__((visibility("hidden")))
+@interface PDFPageView : UIView <UITextViewDelegate, PDFPageLayerInterface, PDFCoachMarkDelegate>
 {
     PDFPageViewPrivate *_private;
 }
 
 - (void).cxx_destruct;
+- (void)_renderingPropertyUpdate:(id)arg1;
 - (void)setState:(long long)arg1 onButtonWidgetAnnotation:(id)arg2 withButton:(id)arg3;
+- (void)setStringValue:(id)arg1 onChoiceWidgetAnnotation:(id)arg2 withTableView:(id)arg3;
 - (void)setStringValue:(id)arg1 onChoiceWidgetAnnotation:(id)arg2 withTextField:(id)arg3;
 - (void)setStringValue:(id)arg1 onTextWidgetAnnotation:(id)arg2 withTextView:(id)arg3;
+- (_Bool)_shouldReplaceStringOnAnnotation:(id)arg1 withTextView:(id)arg2;
+- (void)_setAttributedStringForAnnotation:(id)arg1 stringValue:(id)arg2 textView:(id)arg3;
+- (_Bool)_allowsFormFieldEntry;
+- (void)_resetWidgetsForFields:(id)arg1 fieldsIncludedAreCleared:(_Bool)arg2;
+- (void)_formChanged:(id)arg1;
 - (void)buttonWidgetChanged:(id)arg1;
-- (void)textWidgetChangedTextView:(id)arg1;
-- (void)textWidgetDidEndEditingTextField:(id)arg1;
-- (void)textWidgetChangedTextField:(id)arg1;
-- (void)textWidgetDidBeginEditingTextField:(id)arg1;
 - (long long)numberOfComponentsInPickerView:(id)arg1;
 - (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
 - (id)pickerView:(id)arg1 viewForRow:(long long)arg2 forComponent:(long long)arg3 reusingView:(id)arg4;
 - (void)pickerView:(id)arg1 didSelectRow:(long long)arg2 inComponent:(long long)arg3;
-- (_Bool)textFieldShouldEndEditing:(id)arg1;
-- (_Bool)textFieldShouldBeginEditing:(id)arg1;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)textWidgetChangedTextView:(id)arg1;
+- (void)textWidgetDidEndEditingTextField:(id)arg1;
+- (void)textWidgetChangedTextField:(id)arg1;
+- (void)textWidgetDidBeginEditingTextField:(id)arg1;
+- (id)getPDFPageLayerEffectForAnnotation:(id)arg1;
+- (void)_addPDFAnnotation:(id)arg1;
+- (void)_addPDFAnnotationStampSignature:(id)arg1;
+- (void)_addPDFAnnotationMarkup:(id)arg1;
 - (void)_addPDFAnnotationButtonWidget:(id)arg1;
+- (void)_choiceWidgetDone;
 - (void)_addPDFAnnotationChoiceWidget:(id)arg1;
-- (void)_addPDFAnnotationTextWidgetTextView:(id)arg1;
-- (void)_setupPageAnnotations;
-- (void)recievePageImage:(id)arg1;
+- (void)_keyboardWillHide:(id)arg1;
+- (void)_keyboardWillShow:(id)arg1;
+- (void)_textWidgetDone;
+- (_Bool)textView:(id)arg1 shouldChangeTextInRange:(struct _NSRange)arg2 replacementText:(id)arg3;
+- (_Bool)textViewShouldBeginEditing:(id)arg1;
+- (void)_addPDFAnnotationTextWidget:(id)arg1;
+- (struct CGPoint)convertPointToPageView:(struct CGPoint)arg1;
+- (struct CGRect)convertRectToPageView:(struct CGRect)arg1;
+- (void)_setuppageAnnotationEffects;
+- (void)updateBookmark;
+- (void)removeBookmark;
+- (void)addBookmark;
+- (void)_setupBookmarkLayer;
 - (void)setHidden:(_Bool)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)PDFCoachMarkComplete:(id)arg1;
 - (_Bool)hasBackgroundImage;
-- (double)lastLayoutDuration;
-- (_Bool)isTouchingRightHandle:(struct CGPoint)arg1;
-- (_Bool)isTouchingLeftHandle:(struct CGPoint)arg1;
+- (struct CGImage *)_createMagnifierContentsImageAtPagePoint:(struct CGPoint)arg1 forSize:(struct CGSize)arg2;
+- (void)_updateMagnifierGraphics:(struct CGPoint)arg1;
+- (id)_createMagnifier;
+- (void)enableTextSelectionHandles;
+- (void)clearTextSelectionHandles;
+- (void)setTextSelectionMagnifierPagePoint:(struct CGPoint)arg1;
+- (void)clearTextSelectionMagnifier;
+- (void)setAnnotation:(id)arg1 isSelected:(_Bool)arg2;
+- (void)removeAnnotation:(id)arg1;
+- (void)updateAnnotation:(id)arg1;
+- (void)addAnnotation:(id)arg1;
+- (void)updateAccessibility;
+- (void)drawAccessibilityTags:(_Bool)arg1;
+- (void)colorWidgetBackgrounds:(_Bool)arg1;
+- (void)removeWidgetAnnotation:(id)arg1;
+- (void)addWidgetAnnotation:(id)arg1;
 - (void)hideTileLayer:(_Bool)arg1;
 - (void)previewRotatePage:(double)arg1;
-- (void)setEnablePageShadows:(_Bool)arg1;
-- (void)appendDebugDotFile:(id)arg1;
 - (void)removeCoachMark:(id)arg1;
 - (void)addCoachMark:(id)arg1;
+- (void)addSearchSelection:(id)arg1;
 - (void)setSearchSelection:(id)arg1;
+- (void)setEnableSelectionDrawing:(_Bool)arg1;
+- (id)selection;
 - (void)setSelection:(id)arg1;
-- (_Bool)isPageVisible;
-- (void)magnificationDidChange;
-- (void)magnificationWillChange;
-- (void)updateVisibility;
+- (void)recievePageImage:(id)arg1;
+- (id)page;
 - (unsigned long long)visibilityDelegateIndex;
 - (void)setVisibilityDelegateIndex:(unsigned long long)arg1;
-- (void)setShouldAntiAlias:(_Bool)arg1;
-- (void)setPage:(id)arg1;
-- (id)page;
-- (long long)displayBox;
-- (void)setDisplayBox:(long long)arg1;
+- (void)applyTileLayoutScale:(double)arg1;
+- (void)restoreOriginalTileLayout;
+- (void)saveOriginalTileLayout;
+- (void)clearTiles;
+- (_Bool)enablesTileUpdates;
+- (void)setEnableTileUpdates:(_Bool)arg1;
+- (id)pageLayerEffects;
+- (void)removePageLayerEffectByUUID:(id)arg1;
+- (void)removePageLayerEffect:(id)arg1;
+- (id)getPageLayerEffectByUUID:(id)arg1;
+- (id)addPageLayerEffect:(id)arg1;
+- (_Bool)isVisible;
+- (void)setNeedsTilesUpdate;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithPage:(id)arg1 geometryInterface:(id)arg2 andRenderingProperties:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

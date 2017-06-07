@@ -6,12 +6,14 @@
 
 #import <DataDetectorsUI/DDAction.h>
 
-__attribute__((visibility("hidden")))
 @interface DDTrackShipmentAction : DDAction
 {
 }
 
 - (_Bool)canBePerformedByOpeningURL;
+- (id)notificationURL;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
 - (void)performFromView:(id)arg1;
 - (id)localizedName;
 

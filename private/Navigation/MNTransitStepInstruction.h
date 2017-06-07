@@ -20,7 +20,6 @@
 @property(readonly, nonatomic) GEOComposedRouteStep *step; // @synthesize step=_step;
 - (void).cxx_destruct;
 - (id)instructionSet;
-- (id)timeZoneForFormattedString;
 - (id)initWithStep:(id)arg1 overrides:(struct NSDictionary *)arg2 context:(long long)arg3;
 
 @end

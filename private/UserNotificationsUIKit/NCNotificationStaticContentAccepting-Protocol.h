@@ -22,7 +22,6 @@
 @optional
 @property(nonatomic) unsigned long long messageNumberOfLines;
 @property(retain, nonatomic) UIView *accessoryView;
-@property(copy, nonatomic) NSString *hintText;
 @property(retain, nonatomic) UIImage *thumbnail;
 @end
 

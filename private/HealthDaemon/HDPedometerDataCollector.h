@@ -31,7 +31,7 @@
 - (void)fetchHistoricalSensorDataSinceDatum:(id)arg1 databaseIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)beginUpdatesFromDatum:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initWithPrimaryProfile:(id)arg1;
+- (id)initWithProfile:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

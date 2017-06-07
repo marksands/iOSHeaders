@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *deviceHwIdentifier; // @synthesize deviceHwIdentifier=_deviceHwIdentifier;
 @property(retain, nonatomic) NSString *deviceOsVersion; // @synthesize deviceOsVersion=_deviceOsVersion;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasDeviceHwIdentifier;
 @property(readonly, nonatomic) _Bool hasDeviceOsVersion;
-- (void)dealloc;
 
 @end
 

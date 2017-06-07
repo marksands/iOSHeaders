@@ -6,7 +6,7 @@
 
 #import <ChatKit/CKBalloonChatItem.h>
 
-@class IMMessage, NSArray;
+@class IMMessage, NSArray, UIItemProvider;
 
 @interface CKMessagePartChatItem : CKBalloonChatItem
 {
@@ -15,6 +15,7 @@
 
 @property(readonly, nonatomic) NSArray *visibleAssociatedMessageChatItems; // @synthesize visibleAssociatedMessageChatItems=_visibleAssociatedMessageChatItems;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) UIItemProvider *dragItemProvider;
 @property(readonly, nonatomic) _Bool hasStickers;
 @property(readonly, nonatomic) _Bool hasMessageAcknowledgment;
 @property(readonly, nonatomic) struct _NSRange messagePartRange;
@@ -23,6 +24,7 @@
 @property(readonly, copy, nonatomic) NSArray *pasteboardItems;
 @property(readonly, nonatomic) BOOL color;
 @property(readonly, nonatomic) IMMessage *message;
+- (_Bool)_isSURFRelatedMessage;
 - (void)configureBalloonView:(id)arg1;
 - (id)sender;
 - (id)time;

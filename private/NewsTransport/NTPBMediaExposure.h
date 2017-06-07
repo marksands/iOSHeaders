@@ -8,11 +8,14 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray, NSString;
+@class NSData, NSMutableArray, NSString, NTPBWidgetEngagement;
 
 @interface NTPBMediaExposure : PBCodable <NSCopying>
 {
+    long long _backendArticleVersionInt64;
     long long _personalizationTreatmentId;
+    long long _previousArticlePublisherArticleVersion;
+    long long _publisherArticleVersionInt64;
     NSString *_articleId;
     NSData *_articleSessionId;
     int _articleType;
@@ -24,11 +27,15 @@
     NSString *_feedId;
     int _feedType;
     NSData *_feedViewExposureId;
+    NSMutableArray *_fractionalCohortMemberships;
     int _galleryType;
     NSString *_mediaId;
     int _mediaLocation;
     int _mediaType;
+    NSString *_metadata;
     NSMutableArray *_namedEntities;
+    NSString *_previousArticleId;
+    NSString *_previousArticleVersion;
     int _publisherArticleVersion;
     NSString *_referencedArticleId;
     NSString *_sectionHeadlineId;
@@ -36,12 +43,18 @@
     NSString *_surfacedByChannelId;
     NSString *_surfacedBySectionId;
     NSString *_surfacedByTopicId;
+    int _videoType;
+    NTPBWidgetEngagement *_widgetEngagement;
     _Bool _adSupportedChannel;
     _Bool _isDigitalReplicaAd;
+    _Bool _isNativeAd;
     _Bool _isUserSubscribedToFeed;
     _Bool _isVideoInFeed;
     struct {
+        unsigned int backendArticleVersionInt64:1;
         unsigned int personalizationTreatmentId:1;
+        unsigned int previousArticlePublisherArticleVersion:1;
+        unsigned int publisherArticleVersionInt64:1;
         unsigned int articleType:1;
         unsigned int backendArticleVersion:1;
         unsigned int countOfImagesExposed:1;
@@ -52,14 +65,26 @@
         unsigned int mediaLocation:1;
         unsigned int mediaType:1;
         unsigned int publisherArticleVersion:1;
+        unsigned int videoType:1;
         unsigned int adSupportedChannel:1;
         unsigned int isDigitalReplicaAd:1;
+        unsigned int isNativeAd:1;
         unsigned int isUserSubscribedToFeed:1;
         unsigned int isVideoInFeed:1;
     } _has;
 }
 
++ (Class)fractionalCohortMembershipType;
 + (Class)namedEntitiesType;
+@property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
+@property(nonatomic) long long backendArticleVersionInt64; // @synthesize backendArticleVersionInt64=_backendArticleVersionInt64;
+@property(nonatomic) long long publisherArticleVersionInt64; // @synthesize publisherArticleVersionInt64=_publisherArticleVersionInt64;
+@property(nonatomic) _Bool isNativeAd; // @synthesize isNativeAd=_isNativeAd;
+@property(retain, nonatomic) NSMutableArray *fractionalCohortMemberships; // @synthesize fractionalCohortMemberships=_fractionalCohortMemberships;
+@property(retain, nonatomic) NTPBWidgetEngagement *widgetEngagement; // @synthesize widgetEngagement=_widgetEngagement;
+@property(retain, nonatomic) NSString *previousArticleVersion; // @synthesize previousArticleVersion=_previousArticleVersion;
+@property(retain, nonatomic) NSString *previousArticleId; // @synthesize previousArticleId=_previousArticleId;
+@property(retain, nonatomic) NSString *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) int countOfImagesInGallery; // @synthesize countOfImagesInGallery=_countOfImagesInGallery;
 @property(nonatomic) int countOfImagesExposed; // @synthesize countOfImagesExposed=_countOfImagesExposed;
 @property(nonatomic) long long personalizationTreatmentId; // @synthesize personalizationTreatmentId=_personalizationTreatmentId;
@@ -91,6 +116,22 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;
+@property(nonatomic) _Bool hasBackendArticleVersionInt64;
+@property(nonatomic) _Bool hasPublisherArticleVersionInt64;
+@property(nonatomic) _Bool hasIsNativeAd;
+- (int)StringAsVideoType:(id)arg1;
+- (id)videoTypeAsString:(int)arg1;
+@property(nonatomic) _Bool hasVideoType;
+@property(nonatomic) int videoType; // @synthesize videoType=_videoType;
+- (id)fractionalCohortMembershipAtIndex:(unsigned long long)arg1;
+- (unsigned long long)fractionalCohortMembershipsCount;
+- (void)addFractionalCohortMembership:(id)arg1;
+- (void)clearFractionalCohortMemberships;
+@property(readonly, nonatomic) _Bool hasWidgetEngagement;
+@property(readonly, nonatomic) _Bool hasPreviousArticleVersion;
+@property(readonly, nonatomic) _Bool hasPreviousArticleId;
+@property(readonly, nonatomic) _Bool hasMetadata;
 @property(nonatomic) _Bool hasCountOfImagesInGallery;
 @property(nonatomic) _Bool hasCountOfImagesExposed;
 @property(nonatomic) _Bool hasPersonalizationTreatmentId;

@@ -6,8 +6,10 @@
 
 #import <HealthUI/NSObject-Protocol.h>
 
+@protocol HKGraphSeriesBlockCoordinateInfo;
+
 @protocol HKGraphSeriesBlockCoordinate <NSObject>
-@property(readonly, nonatomic) id userInfo;
+@property(readonly, nonatomic) id <HKGraphSeriesBlockCoordinateInfo> userInfo;
 @property(readonly, nonatomic) double endXValue;
 @property(readonly, nonatomic) double startXValue;
 - (id)copyWithTransform:(struct CGAffineTransform)arg1 roundToViewScale:(_Bool)arg2;

@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 - (void)fetchPCSDataForRecordWithID:(id)arg1 databaseScope:(long long)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (id)_lockedFetchPCSDataForID:(id)arg1 databaseScope:(long long)arg2 itemType:(unsigned long long)arg3 ofClass:(Class)arg4;
 @property(readonly, nonatomic) double earliestValidDate;
-- (id)upgradeInfoForVersion:(unsigned long long)arg1;
+- (id)infoToUpgradeFromVersion:(unsigned long long)arg1;
 - (id)createInitialTablesSQL;
 - (id)path;
 

@@ -9,8 +9,6 @@
 @interface GKGame (UI)
 + (void)preloadIconsForGames:(id)arg1 style:(long long)arg2 handler:(CDUnknownBlockType)arg3;
 + (struct CGSize)serverImageSizeForIconStyle:(long long)arg1;
-- (void)uninstallApplicationWithBundleIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)removeGameWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)logoImageWithMaximumSize:(struct CGSize)arg1;
 - (id)loadIconForStyle:(long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)loadIconForSize:(struct CGSize)arg1 scale:(double)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;

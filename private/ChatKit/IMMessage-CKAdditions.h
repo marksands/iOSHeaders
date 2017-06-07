@@ -10,13 +10,9 @@
 - (_Bool)__ck_isAcknowledgmentMessage;
 - (id)__ck_undowngradedMessage;
 - (id)__ck_downgradedMessage;
-- (id)__ck_attachmentText:(_Bool)arg1;
-- (id)mediaObjects;
+- (id)__ck_mediaObjects;
 - (id)__ck_attachmentPreviewTextForAttachmentAtIndex:(long long)arg1;
 - (id)__ck_previewTextWithChat:(id)arg1;
-- (id)__ck_subjectOrBodyPreviewText;
-- (id)__ck_audioMessagePreviewForMessageFlags;
-- (id)__ck_balloonPreviewTextForBalloonBundleID;
 - (_Bool)__ck_isSMS;
 - (_Bool)__ck_isiMessage;
 - (id)__ck_service;

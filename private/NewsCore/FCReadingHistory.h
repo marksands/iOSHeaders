@@ -37,6 +37,7 @@
 - (void)clearHistory;
 - (void)removeArticleFromHistory:(id)arg1;
 - (void)markArticleAsReadWithHeadline:(id)arg1;
+- (void)markArticleAsReadWithHeadline:(id)arg1 swipedToArticle:(_Bool)arg2 onScreenChecker:(CDUnknownBlockType)arg3;
 - (void)markArticle:(id)arg1 asArticleConsumed:(_Bool)arg2;
 - (_Bool)toggleArticleHasBeenConsumed:(id)arg1;
 - (_Bool)hasArticleBeenConsumed:(id)arg1;
@@ -51,6 +52,7 @@
 - (_Bool)hasArticleBeenVisited:(id)arg1;
 - (_Bool)hasArticleBeenRead:(id)arg1;
 - (id)lastVisitedDateForArticleID:(id)arg1;
+- (id)allReadingHistoryItems;
 @property(readonly, nonatomic) NSSet *allConsumedArticleIDs;
 @property(readonly, nonatomic) NSSet *allSeenArticleIDs;
 @property(readonly, nonatomic) NSSet *allReadArticleIDs;

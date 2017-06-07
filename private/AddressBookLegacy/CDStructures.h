@@ -18,6 +18,7 @@ struct CPSqliteStatement {
     struct CPSqliteConnection *_field1;
     struct sqlite3_stmt *_field2;
     double _field3;
+    _Bool _field4;
 };
 
 struct _NSRange {

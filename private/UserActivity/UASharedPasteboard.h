@@ -23,6 +23,7 @@
 - (void)prefetchRemotePasteboardTypes:(id)arg1;
 - (void)requestRemotePasteboardDataForProcess:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)requestRemotePasteboardTypesForProcess:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (_Bool)returnPasteboardDataBeforeArchives;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSPDataStorage-Protocol.h>
 
-@class NSString;
+@class NSString, TSUColor;
 @protocol TSPCryptoInfo;
 
 __attribute__((visibility("hidden")))
@@ -40,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) id <TSPCryptoInfo> decryptionInfo;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) TSUColor *fallbackColor;
 @property(nonatomic) _Bool gilligan_isRemote;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) _Bool needsDownload;

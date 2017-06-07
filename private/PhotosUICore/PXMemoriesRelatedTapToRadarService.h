@@ -10,9 +10,6 @@
 {
 }
 
-+ (id)getSummaryFromProviderItem:(id)arg1;
-+ (id)_sanitizeGraphDataDictionaryForArchiving:(id)arg1 memoryLocalIdentifier:(id)arg2;
-+ (id)extractDatesAndAssetCounts:(id)arg1;
 + (_Bool)isServiceAvailableForProviders:(id)arg1;
 - (id)contextualViewController;
 - (id)settingsViewController;

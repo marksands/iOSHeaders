@@ -6,17 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class NSDate, PDFDocument, PDFDocumentView;
+@class NSDate, PDFDocument, PDFDocumentView, PDFTimer, PDFView;
 
+__attribute__((visibility("hidden")))
 @interface PDFScrollViewPrivate : NSObject
 {
+    PDFView *pdfView;
     PDFDocument *document;
     PDFDocumentView *documentView;
     double oldMagnification;
-    // Error parsing type: AB, name: hasQueuedUpdate
-    _Bool allowScrolling;
-    _Bool allowUpdates;
-    _Bool allowBoundsUpdates;
+    PDFTimer *boundsUpdateTimer;
+    struct CGRect oldBounds;
     _Bool isZooming;
     _Bool scheduledPageSync;
     NSDate *pageSyncDate;

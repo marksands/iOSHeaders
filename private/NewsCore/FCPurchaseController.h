@@ -6,19 +6,20 @@
 
 #import <objc/NSObject.h>
 
+#import <NewsCore/FCAppActivityObserving-Protocol.h>
 #import <NewsCore/FCUserInfoObserving-Protocol.h>
 #import <NewsCore/NSURLSessionDelegate-Protocol.h>
 
 @class FCCloudContext, FCKeyValueStore, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSSet, NSString, NSURLSession;
 @protocol OS_dispatch_queue;
 
-@interface FCPurchaseController : NSObject <FCUserInfoObserving, NSURLSessionDelegate>
+@interface FCPurchaseController : NSObject <FCUserInfoObserving, NSURLSessionDelegate, FCAppActivityObserving>
 {
     NSArray *_purchasesDiscoveredTagIDs;
     NSMutableDictionary *_purchaseLookUpEntriesByTagID;
     NSMutableDictionary *_webAccessEntriesByTagID;
     NSMutableDictionary *_ongoingPurchaseEntriesByProductID;
-    NSMutableDictionary *_paymenQueueByProductID;
+    NSMutableDictionary *_paymentQueueByProductID;
     FCCloudContext *_cloudContext;
     NSURLSession *_session;
     FCKeyValueStore *_localStore;
@@ -33,7 +34,7 @@
 @property(retain, nonatomic) FCKeyValueStore *localStore; // @synthesize localStore=_localStore;
 @property(retain, nonatomic) NSURLSession *session; // @synthesize session=_session;
 @property(retain, nonatomic) FCCloudContext *cloudContext; // @synthesize cloudContext=_cloudContext;
-@property(retain, nonatomic) NSMutableDictionary *paymenQueueByProductID; // @synthesize paymenQueueByProductID=_paymenQueueByProductID;
+@property(retain, nonatomic) NSMutableDictionary *paymentQueueByProductID; // @synthesize paymentQueueByProductID=_paymentQueueByProductID;
 @property(retain, nonatomic) NSMutableDictionary *ongoingPurchaseEntriesByProductID; // @synthesize ongoingPurchaseEntriesByProductID=_ongoingPurchaseEntriesByProductID;
 @property(retain, nonatomic) NSMutableDictionary *webAccessEntriesByTagID; // @synthesize webAccessEntriesByTagID=_webAccessEntriesByTagID;
 @property(retain, nonatomic) NSMutableDictionary *purchaseLookUpEntriesByTagID; // @synthesize purchaseLookUpEntriesByTagID=_purchaseLookUpEntriesByTagID;
@@ -52,6 +53,7 @@
 - (void)handleAccessTokenChangeWithTagID:(id)arg1 addToPurchasedDiscoverdList:(_Bool)arg2;
 - (void)userInfo:(id)arg1 didChangeAccessTokenForTagID:(id)arg2;
 - (void)userInfo:(id)arg1 didAddAccessTokenForTagID:(id)arg2;
+- (void)activityObservingApplicationDidEnterBackground;
 - (void)removeOngoingPurchaseEntryForProductID:(id)arg1;
 - (void)cleanupExpiredPurchaseLookupEntriesIfNeeded;
 - (void)cleanupStaleOngoingPurchaseEntries;
@@ -81,6 +83,7 @@
 - (void)addAppStoreDiscoveredChannelsToFavorites:(id)arg1;
 - (void)feldsparEntitlementCheckWithCallbackQueue:(id)arg1 ignoreCache:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)checkIntegrityOfPurchaseWithID:(id)arg1 callbackQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)webAccessOptedInTagIDs;
 - (id)subscriptionNotSupportedChannelIDs;
 - (id)expiredPurchaseChannelIDs;
 - (void)forceExpireAllSubscriptionsIfNeeded;
@@ -105,10 +108,13 @@
 - (void)clearAllAppStorePurchases;
 - (void)shouldShowiTunesSignedOutAlertWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)shouldShowSignedInWithDifferentiTunesAccountAlertWithAccount:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)removeFromWebAccessOptedInListWithTagID:(id)arg1;
+- (void)addToWebAccessOptedInListWithTagID:(id)arg1;
+- (void)notifyWebAccessOptedInListChanged;
 - (void)notifyPurchaseListChanged;
 - (void)saveToDisk;
 - (void)loadLocalCachesFromStore;
-- (void)_applicationDidEnterBackground:(id)arg1;
+- (void)_applicationDidEnterBackground;
 - (void)_initializeAppStorePurchaseDiscoveredList;
 - (void)dealloc;
 - (id)initWithCloudContext:(id)arg1;

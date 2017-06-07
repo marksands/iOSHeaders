@@ -21,14 +21,18 @@
     CDUnknownBlockType _requestCompletionHandler;
     CDUnknownBlockType _requestCompletionHandlerWithInterestToken;
     NSMutableArray *_mutableNetworkEvents;
+    NSDictionary *_feedRequestsByFeedID;
     NSDictionary *_databaseLookupsByFeedID;
     NSMutableDictionary *_resultFeedResponses;
     NSMutableArray *_resultHeldArticleAndTagRecords;
 }
 
++ (_Bool)_orderFeedTopKEnabled;
++ (void)initialize;
 @property(retain, nonatomic) NSMutableArray *resultHeldArticleAndTagRecords; // @synthesize resultHeldArticleAndTagRecords=_resultHeldArticleAndTagRecords;
 @property(retain, nonatomic) NSMutableDictionary *resultFeedResponses; // @synthesize resultFeedResponses=_resultFeedResponses;
 @property(retain, nonatomic) NSDictionary *databaseLookupsByFeedID; // @synthesize databaseLookupsByFeedID=_databaseLookupsByFeedID;
+@property(retain, nonatomic) NSDictionary *feedRequestsByFeedID; // @synthesize feedRequestsByFeedID=_feedRequestsByFeedID;
 @property(retain, nonatomic) NSMutableArray *mutableNetworkEvents; // @synthesize mutableNetworkEvents=_mutableNetworkEvents;
 @property(copy, nonatomic) CDUnknownBlockType requestCompletionHandlerWithInterestToken; // @synthesize requestCompletionHandlerWithInterestToken=_requestCompletionHandlerWithInterestToken;
 @property(copy, nonatomic) CDUnknownBlockType requestCompletionHandler; // @synthesize requestCompletionHandler=_requestCompletionHandler;
@@ -40,6 +44,8 @@
 @property(retain, nonatomic) FCFeedDatabase *feedDatabase; // @synthesize feedDatabase=_feedDatabase;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (unsigned long long)_orderFeedTopKFromBin:(long long)arg1 timeInterval:(double)arg2;
+- (id)_orderFeedIDFromFeedID:(id)arg1;
 - (id)_failureResponseForRequest:(id)arg1 error:(id)arg2;
 - (void)_gatherAllOrderFeedResponsesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_gatherAllFeedResponsesWithCompletionHandler:(CDUnknownBlockType)arg1;

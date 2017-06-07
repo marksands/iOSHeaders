@@ -5,15 +5,17 @@
 //
 
 #import <PersistentConnection/NSObject-Protocol.h>
-#import <PersistentConnection/PCLoggingDelegate-Protocol.h>
 
 @class NSDictionary, NSString;
 
-@protocol PCGrowthAlgorithm <PCLoggingDelegate, NSObject>
+@protocol PCGrowthAlgorithm <NSObject>
 @property(readonly, copy, nonatomic) NSDictionary *cacheInfo;
 @property(readonly, nonatomic) unsigned long long countOfGrowthActions;
+@property(nonatomic) _Bool minimumIntervalFallbackEnabled;
+@property(nonatomic) double lastSuccessfulKeepAliveInterval;
 @property(nonatomic) double maximumKeepAliveInterval;
 @property(nonatomic) double minimumKeepAliveInterval;
+@property(nonatomic) _Bool isServerOriginatedKeepAlive;
 @property(readonly, nonatomic) double currentKeepAliveInterval;
 - (void)processNextAction:(int)arg1;
 - (_Bool)useIntervalIfImprovement:(double)arg1;

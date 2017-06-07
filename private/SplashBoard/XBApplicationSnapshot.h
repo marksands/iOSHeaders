@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSDescriptionProviding-Protocol.h>
 #import <SplashBoard/NSCoding-Protocol.h>
@@ -19,6 +19,7 @@
     NSMutableDictionary *_variantsByID;
     _Bool _invalidated;
     NSString *_identifier;
+    NSString *_logIdentifier;
     NSString *_groupID;
     NSString *_variantID;
     NSString *_launchInterfaceIdentifier;
@@ -59,9 +60,10 @@
 @property(nonatomic) long long imageOrientation; // @synthesize imageOrientation=_imageOrientation;
 @property(nonatomic, getter=isImageOpaque) _Bool imageOpaque; // @synthesize imageOpaque=_imageOpaque;
 @property(nonatomic) double imageScale; // @synthesize imageScale=_imageScale;
+@property(readonly, nonatomic) NSString *logIdentifier; // @synthesize logIdentifier=_logIdentifier;
 @property(copy) XBSnapshotContainerIdentity *containerIdentity; // @synthesize containerIdentity=_containerIdentity;
-@property(readonly, retain, nonatomic, getter=_store) id <XBSnapshotManifestStore> store; // @synthesize store=_store;
-@property(readonly, retain, nonatomic) XBApplicationSnapshotGenerationContext *generationContext; // @synthesize generationContext=_generationContext;
+@property(readonly, nonatomic, getter=_store) id <XBSnapshotManifestStore> store; // @synthesize store=_store;
+@property(readonly, nonatomic) XBApplicationSnapshotGenerationContext *generationContext; // @synthesize generationContext=_generationContext;
 @property(nonatomic) long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
 @property(nonatomic) long long compatibilityMode; // @synthesize compatibilityMode=_compatibilityMode;
 @property(nonatomic) long long classicMode; // @synthesize classicMode=_classicMode;
@@ -71,11 +73,9 @@
 @property(nonatomic, getter=isFullScreen) _Bool fullScreen; // @synthesize fullScreen=_fullScreen;
 @property(nonatomic) long long contentType; // @synthesize contentType=_contentType;
 @property(retain, nonatomic) NSDate *lastUsedDate; // @synthesize lastUsedDate=_lastUsedDate;
-@property(readonly, retain, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
+@property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(readonly, nonatomic) long long fileFormat; // @synthesize fileFormat=_fileFormat;
 @property(nonatomic) long long fileLocation; // @synthesize fileLocation=_fileLocation;
-@property(readonly, copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
-@property(readonly, copy, nonatomic) NSString *path; // @synthesize path=_path;
 @property(copy, nonatomic) NSString *requiredOSVersion; // @synthesize requiredOSVersion=_requiredOSVersion;
 @property(copy, nonatomic) NSString *scheme; // @synthesize scheme=_scheme;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -83,6 +83,7 @@
 @property(copy, nonatomic) NSString *variantID; // @synthesize variantID=_variantID;
 @property(readonly, copy, nonatomic) NSString *groupID; // @synthesize groupID=_groupID;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (id)_descriptionBuilderWithMultilinePrefix:(id)arg1 includeVariants:(_Bool)arg2;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
@@ -124,6 +125,8 @@
 @property(readonly, nonatomic) struct CGSize naturalSize;
 @property(readonly, nonatomic, getter=isExpired) _Bool expired;
 @property(readonly, nonatomic) _Bool fileExists;
+@property(readonly, copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
+@property(readonly, copy, nonatomic) NSString *path; // @synthesize path=_path;
 @property(retain, nonatomic) NSDate *expirationDate; // @dynamic expirationDate;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;

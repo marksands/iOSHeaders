@@ -6,13 +6,15 @@
 
 #import <AppSupportUI/NUIContainerView.h>
 
+#import <AppSupportUI/_NUIBoxArrangementContainer-Protocol.h>
 #import <AppSupportUI/_UIMultilineTextContentSizing-Protocol.h>
 
 @class NSString;
 @protocol NUIContainerBoxViewDelegate;
 
-@interface NUIContainerBoxView : NUIContainerView <_UIMultilineTextContentSizing>
+@interface NUIContainerBoxView : NUIContainerView <_NUIBoxArrangementContainer, _UIMultilineTextContentSizing>
 {
+    struct _NUIBoxArrangement _visibleArrangement;
     struct {
         unsigned int delegateHorizontal:1;
         unsigned int delegateVertical:1;
@@ -23,13 +25,18 @@
 
 @property(nonatomic) long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
 @property(nonatomic) long long horizontalAlignment; // @synthesize horizontalAlignment=_horizontalAlignment;
-- (void)_positionSizeOfArrangedView:(id)arg1 inRect:(struct CGRect *)arg2 verticallyInBounds:(struct CGRect)arg3;
-- (void)_positionSizeOfArrangedView:(id)arg1 inRect:(struct CGRect *)arg2 horizontallyInBounds:(struct CGRect)arg3;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)arrangedDescription;
 - (_Bool)layoutArrangedSubviewsInBounds:(struct CGRect)arg1;
 - (struct CGSize)calculateArrangedSizeFittingSize:(struct CGSize)arg1;
+- (_Bool)invalidateIntrinsicContentSizeRequiringArrangedSubviewRemeasurement:(_Bool)arg1;
+- (void)populateBoxArrangementCells:(vector_0b89710d *)arg1;
 - (long long)_effectiveVerticalAlignmentForArrangedSubview:(id)arg1;
 - (long long)_effectiveHorizontalAlignmentForArrangedSubview:(id)arg1;
+- (void)setBaselineRelativeArrangement:(_Bool)arg1;
+- (void)dealloc;
+- (id)initWithArrangedSubviews:(id)arg1;
 @property(nonatomic) __weak id <NUIContainerBoxViewDelegate> delegate; // @dynamic delegate;
 
 // Remaining properties

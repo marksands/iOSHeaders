@@ -8,21 +8,21 @@
 
 #import <iWorkImport/NSCopying-Protocol.h>
 
-@class NSString, TSCECalculationEngine, TSTExpressionNode, TSTTableInfo;
+@class NSString, TSCECalculationEngine, TSTExpressionNode, TSTInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSTFormula : NSObject <NSCopying>
 {
-    TSTExpressionNode *mExpressionTree;
-    TSCECalculationEngine *mCalculationEngine;
-    TSTTableInfo *mHostInfo;
-    NSString *mInitialWhitespace;
-    struct TSUCellCoord mHostCell;
-    _Bool mSyntaxError;
-    _Bool mFixupFormulas;
-    _Bool mFormulaWasFixable;
-    _Bool mFormulaFixupsShouldStick;
-    _Bool mEmpty;
+    TSTExpressionNode *_expressionTree;
+    TSCECalculationEngine *_calculationEngine;
+    TSTInfo *_hostInfo;
+    NSString *_initialWhitespace;
+    struct TSUCellCoord _hostCell;
+    _Bool _syntaxError;
+    _Bool _fixupFormulas;
+    _Bool _formulaWasFixable;
+    _Bool _formulaFixupsShouldStick;
+    _Bool _empty;
 }
 
 + (id)p_charactersToTemporarilyChopOffEndToFixSyntaxError;
@@ -37,14 +37,15 @@ __attribute__((visibility("hidden")))
 + (id)leadingSingleQuoteEscapeCharacters;
 + (id)singleQuoteCharacters;
 + (id)formulaForCell:(id)arg1 atCellID:(struct TSUCellCoord)arg2 inTable:(id)arg3;
-@property(copy, nonatomic) NSString *initialWhitespace; // @synthesize initialWhitespace=mInitialWhitespace;
-@property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=mEmpty;
-@property(readonly, nonatomic) _Bool formulaFixupsShouldStick; // @synthesize formulaFixupsShouldStick=mFormulaFixupsShouldStick;
-@property(readonly, nonatomic) _Bool formulaWasFixable; // @synthesize formulaWasFixable=mFormulaWasFixable;
-@property(nonatomic) _Bool fixupFormulas; // @synthesize fixupFormulas=mFixupFormulas;
-@property(nonatomic, getter=isSyntaxError) _Bool syntaxError; // @synthesize syntaxError=mSyntaxError;
-@property(retain, nonatomic) TSCECalculationEngine *calculationEngine; // @synthesize calculationEngine=mCalculationEngine;
-@property(retain, nonatomic) TSTExpressionNode *expressionTree; // @synthesize expressionTree=mExpressionTree;
+@property(copy, nonatomic) NSString *initialWhitespace; // @synthesize initialWhitespace=_initialWhitespace;
+@property(nonatomic, getter=isEmpty) _Bool empty; // @synthesize empty=_empty;
+@property(readonly, nonatomic) _Bool formulaFixupsShouldStick; // @synthesize formulaFixupsShouldStick=_formulaFixupsShouldStick;
+@property(readonly, nonatomic) _Bool formulaWasFixable; // @synthesize formulaWasFixable=_formulaWasFixable;
+@property(nonatomic) _Bool fixupFormulas; // @synthesize fixupFormulas=_fixupFormulas;
+@property(nonatomic, getter=isSyntaxError) _Bool syntaxError; // @synthesize syntaxError=_syntaxError;
+@property(nonatomic) TSCECalculationEngine *calculationEngine; // @synthesize calculationEngine=_calculationEngine;
+@property(retain, nonatomic) TSTExpressionNode *expressionTree; // @synthesize expressionTree=_expressionTree;
+- (void).cxx_destruct;
 - (id)simplify;
 - (_Bool)canSimplify;
 - (id)p_formulaAsTextReturningTokenValues:(_Bool)arg1;
@@ -61,10 +62,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct TSCEFormula formula;
 @property(readonly, nonatomic) struct TSCEFormula geometricFormula;
 - (void)reset;
-- (void)dealloc;
 - (id)initWithCalculationEngine:(id)arg1 hostCell:(struct TSUCellCoord)arg2 hostTable:(id)arg3;
-- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 hostCell:(struct TSUCellCoord)arg3 TSCEFormula:(const struct TSCEFormula *)arg4 ownerID:(struct __CFUUID *)arg5;
-- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 hostCell:(struct TSUCellCoord)arg3 TSCEFormula:(const struct TSCEFormula *)arg4 ownerID:(struct __CFUUID *)arg5 suppressAutomaticNamedReferenceInvalidation:(_Bool)arg6;
+- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 hostCell:(struct TSUCellCoord)arg3 TSCEFormula:(const struct TSCEFormula *)arg4 ownerUID:(const UUIDData_5fbc143e *)arg5;
+- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 hostCell:(struct TSUCellCoord)arg3 TSCEFormula:(const struct TSCEFormula *)arg4 ownerUID:(const UUIDData_5fbc143e *)arg5 suppressAutomaticNamedReferenceInvalidation:(_Bool)arg6;
 - (id)initWithCalculationEngine:(id)arg1 expressionTree:(id)arg2 hostCell:(struct TSUCellCoord)arg3 hostTable:(id)arg4;
 
 @end

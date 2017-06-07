@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class IMConnectionMonitor, IMRemoteURLConnection, NSData, NSDate, NSDictionary, NSMutableURLRequest, NSNumber, NSString, NSURL;
 @protocol OS_dispatch_queue;
@@ -47,7 +47,7 @@
 @property(retain) NSData *_certData; // @synthesize _certData;
 @property(setter=_setTrustStatus:) int _trustStatus; // @synthesize _trustStatus;
 @property(retain, setter=_setCachedURLString:) NSString *_cachedURLString; // @synthesize _cachedURLString;
-@property NSObject<OS_dispatch_queue> *_bagQueue; // @synthesize _bagQueue;
+@property(retain) NSObject<OS_dispatch_queue> *_bagQueue; // @synthesize _bagQueue;
 @property(retain) IMRemoteURLConnection *_remoteURLConnection; // @synthesize _remoteURLConnection;
 @property(retain) NSMutableURLRequest *_urlRequest; // @synthesize _urlRequest;
 @property(retain, setter=_setCachedBag:) NSDictionary *_cachedBag; // @synthesize _cachedBag;
@@ -55,6 +55,7 @@
 @property(retain) NSString *apsEnvironmentName; // @synthesize apsEnvironmentName=_apsEnvironmentName;
 @property(retain) NSURL *bagURL; // @synthesize bagURL=_bagURL;
 @property(retain) IMConnectionMonitor *_connectionMonitor; // @synthesize _connectionMonitor;
+- (void).cxx_destruct;
 - (void)connectionMonitorDidUpdate:(id)arg1;
 @property(readonly) _Bool isServerAvailable;
 - (id)urlWithKey:(id)arg1;
@@ -74,6 +75,7 @@
 - (void)dealloc;
 - (id)_initWithURL:(id)arg1 apsEnvironmentName:(id)arg2 allowSelfSignedCertificates:(_Bool)arg3 allowUnsignedBags:(_Bool)arg4;
 - (void)_generateURLRequest;
+- (_Bool)shouldForceDevicesToCarry;
 - (void)_bagExternallyReloaded;
 - (void)_saveToCache;
 - (void)_saveCacheToPrefs;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class CUTWeakReference, NSArray, NSData, NSMutableArray, NSMutableDictionary, NSString;
 @protocol APSConnectionDelegate, OS_dispatch_queue, OS_dispatch_source, OS_xpc_object;
@@ -46,6 +46,7 @@
 + (id)geoRegion;
 + (double)serverTime;
 + (void)_blockingXPCCallWithArgumentBlock:(CDUnknownBlockType)arg1 resultHandler:(CDUnknownBlockType)arg2;
++ (void)_flushIdentityCache;
 + (struct __SecIdentity *)copyIdentity;
 + (void)_safelyCancelAndReleaseConnection:(id)arg1;
 + (void)_safelyCancelAndReleaseAfterBarrierConnection:(id)arg1;
@@ -67,6 +68,7 @@
 - (void)_deliverPublicTokenOnIvarQueue:(id)arg1;
 - (void)_deliverDidReconnectOnIvarQueue;
 - (void)_deliverMessage:(id)arg1;
+- (void)_dispatch_async_to_ivarQueue:(CDUnknownBlockType)arg1;
 - (void)_addEnableStatusNotificationsToXPCMessage:(id)arg1;
 - (void)_addUsesAppLaunchStatsToXPCMessage:(id)arg1;
 - (void)_addEnableCriticalReliabilityToXPCMessage:(id)arg1;

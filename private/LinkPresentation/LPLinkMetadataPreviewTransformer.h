@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class LPLinkMetadata, NSURL;
+@class LPImage, LPLinkMetadata, NSString, NSURL;
 
 @interface LPLinkMetadataPreviewTransformer : NSObject
 {
@@ -14,9 +14,11 @@
     NSURL *_URL;
 }
 
+@property(readonly, copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(readonly, copy, nonatomic) LPLinkMetadata *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
-- (id)previewImage;
-- (id)previewSummary;
+@property(readonly, retain, nonatomic) LPImage *previewImage;
+@property(readonly, copy, nonatomic) NSString *previewSummary;
 - (id)initWithMetadata:(id)arg1 URL:(id)arg2;
 
 @end

@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
     CKDAssetRequestPlanner *_assetRequestPlanner;
 }
 
++ (long long)isPredominatelyDownload;
 @property(retain, nonatomic) CKDAssetRequestPlanner *assetRequestPlanner; // @synthesize assetRequestPlanner=_assetRequestPlanner;
 @property(nonatomic) unsigned long long maxPackageUploadsPerBatch; // @synthesize maxPackageUploadsPerBatch=_maxPackageUploadsPerBatch;
 @property(retain, nonatomic) CKDCancelTokenGroup *cancelTokens; // @synthesize cancelTokens=_cancelTokens;

@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <CoreMediaStream/NSSecureCoding-Protocol.h>
+
 @class NSDate, NSString;
 
-@interface MSASComment : NSObject
+@interface MSASComment : NSObject <NSSecureCoding>
 {
     _Bool _isLike;
     _Bool _isCaption;

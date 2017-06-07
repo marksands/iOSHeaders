@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GenerationalStorage/GSAdditionStoring-Protocol.h>
 #import <GenerationalStorage/GSAdditionStoringPrivate-Protocol.h>
@@ -22,6 +22,7 @@
 
 @property(retain) NSURL *documentURL; // @synthesize documentURL=_documentURL;
 @property(readonly, nonatomic) NSURL *libraryURL; // @synthesize libraryURL=_libraryURL;
+- (void).cxx_destruct;
 - (void)removeAllAdditionsForNamespaces:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeAdditions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_enumerateItemsAtURL:(id)arg1;

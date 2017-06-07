@@ -8,11 +8,12 @@
 
 #import <SpringBoardFoundation/SBFUserAuthenticationModel-Protocol.h>
 
-@class NSDictionary, NSString, SBSecurityDefaults;
+@class MCProfileConnection, NSDictionary, NSString, SBSecurityDefaults;
 @protocol OS_dispatch_queue, SBFUserAuthenticationModelDelegate;
 
 @interface SBFUserAuthenticationModelJournaledDefaults : NSObject <SBFUserAuthenticationModel>
 {
+    MCProfileConnection *_profileConnection;
     SBSecurityDefaults *_securityDefaults;
     NSString *_journalPath;
     NSObject<OS_dispatch_queue> *_persistentStateQueue;
@@ -32,6 +33,7 @@
 - (void)_updateLockControllerDefaultsJournal;
 - (id)_copyLockControllerDefaults;
 - (id)updateLockControllerDefaultsWithBlock:(CDUnknownBlockType)arg1 journaled:(_Bool)arg2;
+- (void)test_reloadState;
 - (void)_persistentStateQueue_clearBlockedState;
 - (void)_persistentStateQueue_evaluatePendingWipe;
 - (void)_persistentStateQueue_loadLockState;
@@ -51,7 +53,7 @@
 - (void)notePasscodeEntryCancelled;
 - (void)notePasscodeEntryBegan;
 - (void)synchronize;
-- (id)initWithJournalPath:(id)arg1;
+- (id)_initWithJournalPath:(id)arg1 securityDefaults:(id)arg2 profileConnection:(id)arg3;
 - (id)init;
 
 // Remaining properties

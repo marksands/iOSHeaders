@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) KNMacUILayout *uiLayout; // @synthesize uiLayout=mUILayout;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
 - (id)initWithUILayout:(id)arg1 context:(id)arg2;
 

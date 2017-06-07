@@ -24,7 +24,6 @@
 
 + (id)_productVersion;
 + (double)maximumContentHeightForCompactDisplayMode;
-+ (double)rowHeight;
 + (void)_updateRowHeightForContentSizeCategory;
 + (id)widgetInfoWithExtension:(id)arg1;
 @property(retain, nonatomic, setter=_setSettingsIcon:) UIImage *settingsIcon; // @synthesize settingsIcon=_settingsIcon;

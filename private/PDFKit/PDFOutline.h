@@ -36,14 +36,14 @@
 @property(retain, nonatomic) PDFAction *action;
 @property(retain, nonatomic) PDFDestination *destination;
 @property(nonatomic) _Bool isOpen;
-@property(retain, nonatomic) NSString *label;
+@property(copy, nonatomic) NSString *label;
 - (void)removeFromParent;
 - (void)insertChild:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)childAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) unsigned long long index;
 @property(readonly, nonatomic) unsigned long long numberOfChildren;
 @property(readonly, nonatomic) PDFOutline *parent;
-@property(readonly, nonatomic) PDFDocument *document;
+@property(readonly, nonatomic) __weak PDFDocument *document;
 - (id)init;
 
 @end

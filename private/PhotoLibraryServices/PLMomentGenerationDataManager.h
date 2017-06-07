@@ -8,7 +8,7 @@
 
 #import <PhotoLibraryServices/PLMomentGenerationDataManagement_Private-Protocol.h>
 
-@class NSDictionary, NSManagedObjectContext, NSString, PLMomentAnalyzer, PLMomentGeneration, PLPhotoLibrary, PLXPCTransaction;
+@class NSArray, NSDictionary, NSManagedObjectContext, NSString, PLMomentAnalyzer, PLMomentGeneration, PLPhotoLibrary, PLXPCTransaction;
 
 @interface PLMomentGenerationDataManager : NSObject <PLMomentGenerationDataManagement_Private>
 {
@@ -17,6 +17,7 @@
     void *_addressBook;
     PLMomentGeneration *_generator;
     PLMomentAnalyzer *_analyzer;
+    NSArray *_locationsOfInterest;
     NSDictionary *_generationOptions;
     _Bool _observingReachability;
     _Bool _isLightweightMigrationManager;
@@ -31,6 +32,11 @@
 + (id)sharedMomentGenerationDataManager;
 @property(retain, nonatomic) PLPhotoLibrary *momentGenerationLibrary; // @synthesize momentGenerationLibrary=_momentGenerationLibrary;
 @property(retain, nonatomic) NSManagedObjectContext *managedObjectContext; // @synthesize managedObjectContext=_managedObjectContext;
+- (id)_locationsOfInterest;
+- (id)locationsOfInterest;
+- (_Bool)needsLocationsOfInterestProcessing;
+- (_Bool)hasLocationsOfInterestInformation;
+- (void)invalidateLocationsOfInterest;
 - (id)replayLogPath;
 - (_Bool)wantsMomentReplayLogging;
 - (void)verifyAndRepairOrphanedAssets:(id)arg1;

@@ -7,17 +7,14 @@
 #import <CameraUI/NSObject-Protocol.h>
 
 @protocol CAMControlVisibilityDelegate <NSObject>
+@property(readonly, nonatomic) _Bool shouldShiftPreviewForUtilityBar;
+@property(readonly, nonatomic) _Bool shouldHideFilterNameBadge;
 @property(readonly, nonatomic) _Bool shouldHidePortraitModeInstructionLabel;
-@property(readonly, nonatomic) _Bool shouldHideShallowDepthOfFieldBadge;
-@property(readonly, nonatomic) _Bool shouldHideLivePhotoBadge;
 @property(readonly, nonatomic) _Bool shouldHideIrisButton;
 @property(readonly, nonatomic) _Bool shouldHideElapsedTimeView;
 @property(readonly, nonatomic) _Bool shouldHideFlipButton;
 @property(readonly, nonatomic) _Bool shouldHideTimerButton;
-@property(readonly, nonatomic) _Bool shouldHideFocusAndExposureLockBadge;
-@property(readonly, nonatomic) _Bool shouldHideHDRBadge;
 @property(readonly, nonatomic) _Bool shouldHideHDRButton;
-@property(readonly, nonatomic) _Bool shouldHideFlashBadge;
 @property(readonly, nonatomic) _Bool shouldHideFlashButton;
 @property(readonly, nonatomic) _Bool shouldHideTopBar;
 @end

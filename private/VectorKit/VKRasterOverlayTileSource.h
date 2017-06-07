@@ -7,14 +7,13 @@
 #import <VectorKit/VKTileSource.h>
 
 @class NSArray, NSMutableArray, NSMutableSet, NSObject;
-@protocol OS_dispatch_group, OS_dispatch_queue;
+@protocol OS_dispatch_group;
 
 __attribute__((visibility("hidden")))
 @interface VKRasterOverlayTileSource : VKTileSource
 {
     NSMutableArray *_overlays;
     NSObject<OS_dispatch_group> *_renderGroup;
-    NSObject<OS_dispatch_queue> *_homeQ;
     _Bool _overrideMaxZoomLevel;
     NSMutableSet *_worldSizedOverlays;
 }
@@ -40,7 +39,7 @@ __attribute__((visibility("hidden")))
 - (long long)tileSize;
 - (_Bool)canFetchTileForKey:(const struct VKTileKey *)arg1;
 - (void)dealloc;
-- (id)init;
+- (id)initWithTaskContext:(shared_ptr_e963992e)arg1;
 
 @end
 

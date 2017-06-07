@@ -11,13 +11,9 @@
 - (void)__openTransactionForAppearanceCallWithState:(int)arg1 withIdentifier:(NSUUID *)arg2;
 - (void)__performUpdateWithReplyHandler:(void (^)(unsigned long long, _Bool))arg1;
 - (void)__requestEncodedLayerTreeToURL:(NSURL *)arg1 withCodingImageFormat:(NSString *)arg2 withReplyHandler:(void (^)(NSError *))arg3;
-- (void)__performOutstandingCompletionForRequestWithIdentifier:(NSUUID *)arg1;
-- (void)__prepareForAnimationsForRequestWithIdentifier:(NSUUID *)arg1 withReplyHandler:(void (^)(void))arg2;
-- (void)__viewWillTransitionToSize:(struct CGSize)arg1 requestIdentifier:(NSUUID *)arg2;
 
 @optional
-- (void)__closeTransactionForPreferredHeightChangeWithIdentifier:(NSUUID *)arg1;
 - (void)__setMaximumSize:(struct CGSize)arg1 forDisplayMode:(long long)arg2;
-- (void)__setActiveDisplayMode:(long long)arg1 requestIdentifier:(NSUUID *)arg2;
+- (void)__setActiveDisplayMode:(long long)arg1;
 @end
 

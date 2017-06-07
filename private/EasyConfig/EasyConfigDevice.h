@@ -42,6 +42,7 @@
     NSDictionary *_configuration;
     NSDictionary *_configResponse;
     _Bool _pausesAfterApply;
+    _Bool _skipPairSetup;
     _Bool _supportsHAP;
     _Bool _supportsHAP2;
     _Bool _supportsMFi;
@@ -81,6 +82,7 @@
 + (id)deviceWithInfo:(id)arg1;
 + (_Bool)supportedScanRecord:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
+@property(nonatomic) _Bool skipPairSetup; // @synthesize skipPairSetup=_skipPairSetup;
 @property(nonatomic) _Bool pausesAfterApply; // @synthesize pausesAfterApply=_pausesAfterApply;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
@@ -97,17 +99,17 @@
 - (void)_postNote:(id)arg1 info:(id)arg2;
 - (void)_logEnded;
 - (void)_handleError:(int)arg1;
-- (void)_postConfigCheckCompletion:(struct HTTPMessagePrivate *)arg1;
+-     // Error parsing type: v24@0:8^{HTTPMessagePrivate={__CFRuntimeBase=QAQ}^{HTTPMessagePrivate}{?=[8192c]Q*Q*Qi*Q{?=*Q*Q*Q*Q*Q*Q*Q***Q*Q}*Qi*QCQCi}CiC*QQQ[32000C]*^{?}*Q[2{iovec=^vQ}]^{iovec}iQiii^v^v^v^v^v^v^?^?@?iCq*iQ}16, name: _postConfigCheckCompletion:
 - (void)_postConfigCheckStart:(id)arg1;
 - (void)_findDevicePostConfigEvent:(unsigned int)arg1 info:(id)arg2;
 - (int)_findDevicePostConfigStart;
-- (void)_applyConfigCompletion:(struct HTTPMessagePrivate *)arg1;
+-     // Error parsing type: v24@0:8^{HTTPMessagePrivate={__CFRuntimeBase=QAQ}^{HTTPMessagePrivate}{?=[8192c]Q*Q*Qi*Q{?=*Q*Q*Q*Q*Q*Q*Q***Q*Q}*Qi*QCQCi}CiC*QQQ[32000C]*^{?}*Q[2{iovec=^vQ}]^{iovec}iQiii^v^v^v^v^v^v^?^?@?iCq*iQ}16, name: _applyConfigCompletion:
 - (int)_applyConfigStart;
-- (int)_pairVerifyNext:(struct HTTPMessagePrivate *)arg1;
+-     // Error parsing type: i24@0:8^{HTTPMessagePrivate={__CFRuntimeBase=QAQ}^{HTTPMessagePrivate}{?=[8192c]Q*Q*Qi*Q{?=*Q*Q*Q*Q*Q*Q*Q***Q*Q}*Qi*QCQCi}CiC*QQQ[32000C]*^{?}*Q[2{iovec=^vQ}]^{iovec}iQiii^v^v^v^v^v^v^?^?@?iCq*iQ}16, name: _pairVerifyNext:
 - (int)_pairVerifyStart;
-- (int)_pairSetupNext:(struct HTTPMessagePrivate *)arg1;
+-     // Error parsing type: i24@0:8^{HTTPMessagePrivate={__CFRuntimeBase=QAQ}^{HTTPMessagePrivate}{?=[8192c]Q*Q*Qi*Q{?=*Q*Q*Q*Q*Q*Q*Q***Q*Q}*Qi*QCQCi}CiC*QQQ[32000C]*^{?}*Q[2{iovec=^vQ}]^{iovec}iQiii^v^v^v^v^v^v^?^?@?iCq*iQ}16, name: _pairSetupNext:
 - (int)_pairSetupStart;
-- (int)_mfiSAPNext:(struct HTTPMessagePrivate *)arg1;
+-     // Error parsing type: i24@0:8^{HTTPMessagePrivate={__CFRuntimeBase=QAQ}^{HTTPMessagePrivate}{?=[8192c]Q*Q*Qi*Q{?=*Q*Q*Q*Q*Q*Q*Q***Q*Q}*Qi*QCQCi}CiC*QQQ[32000C]*^{?}*Q[2{iovec=^vQ}]^{iovec}iQiii^v^v^v^v^v^v^?^?@?iCq*iQ}16, name: _mfiSAPNext:
 - (int)_mfiSAPStart;
 - (int)_configureStart:(id)arg1;
 - (void)_findDevicePreConfigEvent:(unsigned int)arg1 info:(id)arg2;

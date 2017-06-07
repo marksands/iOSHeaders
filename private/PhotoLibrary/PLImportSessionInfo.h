@@ -11,28 +11,28 @@
 @interface PLImportSessionInfo : NSObject
 {
     NSMutableIndexSet *_importIndexes;
-    NSMutableIndexSet *_importInProgressIndexes;
-    NSMutableIndexSet *_importErrorIndexes;
-    NSMutableIndexSet *_importCompleteIndexes;
+    NSMutableIndexSet *_inProgressIndexes;
+    NSMutableIndexSet *_errorIndexes;
+    NSMutableIndexSet *_completedIndexes;
     _Bool _importComplete;
     _Bool _importStopped;
     _Bool _importingSelection;
 }
 
 @property(nonatomic) _Bool importingSelection; // @synthesize importingSelection=_importingSelection;
-@property(readonly, retain, nonatomic) NSIndexSet *completedIndexes; // @synthesize completedIndexes=_importCompleteIndexes;
-@property(readonly, retain, nonatomic) NSIndexSet *errorIndexes; // @synthesize errorIndexes=_importErrorIndexes;
-@property(readonly, retain, nonatomic) NSIndexSet *inProgressIndexes; // @synthesize inProgressIndexes=_importInProgressIndexes;
+@property(readonly, retain, nonatomic) NSIndexSet *completedIndexes; // @synthesize completedIndexes=_completedIndexes;
+@property(readonly, retain, nonatomic) NSIndexSet *errorIndexes; // @synthesize errorIndexes=_errorIndexes;
+@property(readonly, retain, nonatomic) NSIndexSet *inProgressIndexes; // @synthesize inProgressIndexes=_inProgressIndexes;
 @property(readonly, retain, nonatomic) NSIndexSet *importIndexes; // @synthesize importIndexes=_importIndexes;
 @property(nonatomic) _Bool importStopped; // @synthesize importStopped=_importStopped;
 @property(nonatomic) _Bool importComplete; // @synthesize importComplete=_importComplete;
+- (void).cxx_destruct;
 - (void)shiftIndexesStartingAtIndex:(unsigned long long)arg1 by:(unsigned long long)arg2;
 - (void)removeIndex:(unsigned long long)arg1;
 - (void)completeImportForIndex:(unsigned long long)arg1 error:(_Bool)arg2;
 - (void)beginImportForIndex:(unsigned long long)arg1;
 - (_Bool)_isImportCompleteForIndex:(unsigned long long)arg1;
 - (void)addIndexToImport:(unsigned long long)arg1;
-- (void)dealloc;
 - (id)initWithImportIndexes:(id)arg1;
 
 @end

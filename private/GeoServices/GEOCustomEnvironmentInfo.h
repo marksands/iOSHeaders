@@ -14,6 +14,7 @@
     NSString *_uuid;
 }
 
+- (void).cxx_destruct;
 - (_Bool)isActive;
 - (void)makeActive;
 - (id)overrideURLs;

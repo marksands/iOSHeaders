@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long rootObjectIdentifier; // @synthesize rootObjectIdentifier=_rootObjectIdentifier;
 - (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithRootObject:(id)arg1 version:(unsigned long long)arg2 componentObjectUUIDMap:(id)arg3 cachedDataMap:(id)arg4;
 - (id)initWithContext:(id)arg1;
 

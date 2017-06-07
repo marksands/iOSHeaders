@@ -33,9 +33,10 @@
 - (_Bool)_workerUnavailableForWorkerType:(short)arg1 defaultsDisabledKey:(id)arg2 unavailableReason:(id *)arg3;
 - (id)_transformWorkInfoByUUIDToWorkInfoByLocalIdentifier:(id)arg1;
 - (void)_incrementGeneratedJobCountForWorkerType:(short)arg1;
+- (void)_jumpToGoalJobCountForWorkerType:(short)arg1;
+- (void)_increaseGoalLevelIfNeeeded;
 - (_Bool)_anyWorkerIsLoadBalanceSkipping;
 - (_Bool)_shouldLoadBalanceSkipForWorkerType:(short)arg1;
-- (void)_increaseJobGeneratedGoalLevel;
 - (id)_workerTypesEligibleForLoadBalanceSkipping;
 
 @end

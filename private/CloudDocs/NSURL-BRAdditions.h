@@ -9,10 +9,15 @@
 @interface NSURL (BRAdditions)
 + (void)br_containerIDsWithExternalReferencesTo:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)br_documentURLFromBookmarkableString:(id)arg1 completion:(CDUnknownBlockType)arg2;
++ (id)br_documentURLFromFileObjectID:(id)arg1 error:(id *)arg2;
+- (unsigned short)br_capabilityToMoveToURL:(id)arg1 error:(id *)arg2;
+- (_Bool)br_isPCSChained;
+- (_Bool)br_isSymLink;
 - (_Bool)br_wouldBeExcludedFromSync;
 - (id)br_typeIdentifierWithError:(id *)arg1;
 - (_Bool)br_setAccessTime:(unsigned long long)arg1 error:(id *)arg2;
 - (void)br_addPhysicalProperty;
+- (_Bool)br_isPromiseURL;
 - (id)br_logicalURL;
 - (id)br_physicalURL;
 - (id)br_itemID;
@@ -21,12 +26,10 @@
 - (id)br_externalDocumentPropertiesWithError:(id *)arg1;
 - (_Bool)br_isExternalDocumentReference;
 - (id)br_cloudDocsContainer;
-- (id)br_cloudDocsContainerWithResolveInnerSharedContainerID:(_Bool)arg1;
 - (_Bool)br_mightBeBRAlias;
 - (_Bool)br_isDocumentsContainer;
 - (id)br_containerIDIfIsDesktopOrDocumentsURL;
 - (id)br_containerIDIfIsDocumentsContainerURL;
-- (id)br_containerIDWithResolveInnerSharedContainerID:(_Bool)arg1;
 - (id)br_containerID;
 - (_Bool)br_isInSharedDocsContainer;
 - (void)br_isConflictedWithHandler:(CDUnknownBlockType)arg1;
@@ -45,7 +48,9 @@
 - (id)br_pathRelativeToSyncedRootURLForContainerID:(id)arg1;
 - (void)br_containerIDsWithExternalReferencesWithHandler:(CDUnknownBlockType)arg1;
 - (void)br_bookmarkableStringForRemoteOpeningAppWithBundleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)br_bookmarkableStringWithEtag:(_Bool)arg1 onlyAllowItemKnowByServer:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)br_bookmarkableStringWithEtag:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)br_cachedBookmarkData;
 - (void)br_preCacheBookmarkData:(id)arg1 versionEtag:(id)arg2;
 - (_Bool)br_isParentOfURL:(id)arg1;
 - (_Bool)br_isParentOfURL:(id)arg1 strictly:(_Bool)arg2;

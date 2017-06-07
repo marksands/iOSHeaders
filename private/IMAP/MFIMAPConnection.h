@@ -7,12 +7,13 @@
 #import <Message/MFConnection.h>
 
 @class MFInvocationQueue, MFWeakReferenceHolder, NSArray, NSMutableData, NSMutableSet, NSString;
-@protocol MFIMAPMailboxListFilter;
+@protocol MFCancelable, MFIMAPConnectionDelegate, MFIMAPMailboxListFilter;
 
 @interface MFIMAPConnection : MFConnection
 {
     id <MFIMAPMailboxListFilter> _mailboxListFilter;
-    unsigned int _capabilityFlags:20;
+    unsigned int _capabilityFlags:23;
+    _Bool _verifiedESearchResponse;
     _Bool _gotBadResponse;
     int _tag;
     double _connectTime;
@@ -28,9 +29,11 @@
     unsigned int _readBufferSize;
     double _expirationTime;
     MFInvocationQueue *_streamEventQueue;
+    NSArray *_additionalHeadersForFetch;
+    unsigned int _noModSequence:1;
     struct {
         MFWeakReferenceHolder *holder;
-        id delegate;
+        void *delegate;
         unsigned int shouldHandleUntaggedResponse:1;
         unsigned int didReceiveResponse:1;
         unsigned int didFinishSelect:1;
@@ -42,14 +45,17 @@
         unsigned int setServerMessageCount:1;
         unsigned int setHighestModSequence:1;
         unsigned int willRemoveDelegation:1;
+        unsigned int shouldStartIdle:1;
     } _delegateState;
-    NSArray *_additionalHeadersForFetch;
-    unsigned int _noModSequence:1;
+    unsigned long long _idleCommandSequenceNumber;
+    id <MFCancelable> _idleSubscriptionCancelable;
 }
 
 + (void)setReadSizeParameters;
 + (void)initialize;
 + (id)_UIDPlusInfoFromIMAPResponses:(id)arg1;
+@property(retain, nonatomic) id <MFCancelable> idleSubscriptionCancelable; // @synthesize idleSubscriptionCancelable=_idleSubscriptionCancelable;
+@property(nonatomic) unsigned long long idleCommandSequenceNumber; // @synthesize idleCommandSequenceNumber=_idleCommandSequenceNumber;
 @property(readonly, nonatomic) _Bool gotBadResponse; // @synthesize gotBadResponse=_gotBadResponse;
 @property(readonly, nonatomic) double connectTime; // @synthesize connectTime=_connectTime;
 @property(nonatomic) int tag; // @synthesize tag=_tag;
@@ -111,7 +117,6 @@
 - (_Bool)_sendMailboxCommand:(int)arg1 withArguments:(id)arg2;
 - (id)quotaPercentagesForMailbox:(id)arg1;
 - (_Bool)getQuotaForRootName:(id)arg1;
-- (void)fetchQuotaRootNamesForMailboxes:(id)arg1;
 - (_Bool)unsubscribeMailbox:(id)arg1;
 - (_Bool)subscribeMailbox:(id)arg1;
 - (_Bool)renameMailbox:(id)arg1 toMailbox:(id)arg2;
@@ -123,16 +128,22 @@
 - (void)fetchStatusForMailboxes:(id)arg1 args:(id)arg2;
 - (_Bool)expungeUids:(id)arg1;
 - (_Bool)expunge;
+- (void)locked_scheduleIdleResetAfterDelay:(double)arg1;
+- (void)scheduleIdleReset;
+- (void)locked_scheduleIdle;
+@property(readonly, nonatomic, getter=isIdle) _Bool idle;
+- (void)finishIdle;
+- (void)locked_finishIdle;
+- (void)locked_startIdle;
 - (void)handleBytesAvailable;
 - (void)handleStreamEvent:(unsigned long long)arg1;
 - (void)unselect;
 - (_Bool)closeAndLogout;
 - (void)close;
-- (id)extendedListingForMailbox:(id)arg1 options:(int)arg2;
 - (id)subscribedListingForMailbox:(id)arg1 options:(int)arg2;
-- (id)listingForMailbox:(id)arg1 options:(int)arg2;
-- (id)_listingForMailbox:(id)arg1 options:(int)arg2 withCommand:(int)arg3;
-- (id)_doListCommand:(int)arg1 withReference:(id)arg2 mailboxName:(id)arg3 options:(int)arg4;
+- (id)listingForMailbox:(id)arg1 options:(int)arg2 getSpecialUse:(_Bool)arg3 statusDataItems:(id)arg4 statusEntriesByMailbox:(id *)arg5;
+- (id)_listingForMailbox:(id)arg1 options:(int)arg2 getSpecialUse:(_Bool)arg3 statusDataItems:(id)arg4 statusEntriesByMailbox:(id *)arg5 withCommand:(int)arg6;
+- (id)_doListCommand:(int)arg1 withReference:(id)arg2 mailboxName:(id)arg3 options:(int)arg4 getSpecialUse:(_Bool)arg5 statusDataItems:(id)arg6 statusEntriesByMailbox:(id *)arg7;
 - (id)_doNamespaceCommand;
 - (id)serverPathPrefix;
 - (id)separatorChar;
@@ -149,8 +160,9 @@
 - (id)_copyNextTaggedOrContinuationResponseForCommand:(CDStruct_1f207a6d *)arg1;
 - (id)_copyNextServerResponseForCommand:(CDStruct_1f207a6d *)arg1;
 - (unsigned long long)_sendCommands:(CDStruct_1f207a6d *)arg1 count:(unsigned long long)arg2 response:(id *)arg3;
+- (int)fillLiteralBuffer:(char *)arg1 count:(unsigned long long)arg2 dataLength:(unsigned long long)arg3 nonSynchronizingLiteral:(_Bool *)arg4;
 - (_Bool)loginDisabled;
-- (_Bool)isValid;
+@property(readonly, nonatomic, getter=isValid) _Bool valid;
 - (int)connectionState;
 - (void)disconnect;
 - (void)disconnectAndNotifyDelegate:(_Bool)arg1;
@@ -165,14 +177,11 @@
 - (void)_clearCapabilities;
 - (void)setMailboxListFilter:(id)arg1;
 - (id)mailboxListFilter;
-- (void)setDelegate:(id)arg1;
-- (void)_setDelegate:(id)arg1 delegateIsDeallocated:(_Bool)arg2;
-- (id)delegate;
+@property(nonatomic) __weak id <MFIMAPConnectionDelegate> delegate;
+- (id)copyDiagnosticInformation;
 - (void)dealloc;
 - (id)init;
-- (long long)_moveMessageSet:(id)arg1 toMailboxName:(id)arg2 command:(int)arg3 newMessageInfo:(id *)arg4;
-- (long long)moveSequenceSet:(id)arg1 toMailboxName:(id)arg2 newMessageInfo:(id *)arg3;
-- (long long)moveUIDSet:(id)arg1 toMailboxNamed:(id)arg2 newMessageInfo:(id *)arg3;
+- (_Bool)sendResponsesForCondStoreFlagFetchForUIDs:(id)arg1 withSequenceIdentifier:(id *)arg2 toQueue:(id)arg3;
 - (void)parseESearchResponseWithContext:(id)arg1;
 - (void)parseSearchReturn:(id)arg1;
 - (id)parseIndexSetFromSequenceSet:(id)arg1;
@@ -184,7 +193,9 @@
 - (id)_searchUidsForMessageIDs:(id)arg1 excludeDeleted:(_Bool)arg2;
 - (id)_getReferencesForMessageSet:(id)arg1;
 - (id)_messageIDsFromFetchResultData:(id)arg1;
-- (_Bool)sendResponsesForCondStoreFlagFetchForUIDs:(id)arg1 withSequenceIdentifier:(id *)arg2 toQueue:(id)arg3;
+- (long long)_moveMessageSet:(id)arg1 toMailboxName:(id)arg2 command:(int)arg3 newMessageInfo:(id *)arg4;
+- (long long)moveSequenceSet:(id)arg1 toMailboxName:(id)arg2 newMessageInfo:(id *)arg3;
+- (long long)moveUIDSet:(id)arg1 toMailboxNamed:(id)arg2 newMessageInfo:(id *)arg3;
 
 @end
 

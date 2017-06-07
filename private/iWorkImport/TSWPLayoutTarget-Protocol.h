@@ -6,11 +6,12 @@
 
 #import <iWorkImport/NSObject-Protocol.h>
 
-@class NSArray, NSMutableArray, NSObject, TSDCanvas, TSDDrawableInfo, TSDLayout, TSPObject, TSUBezierPath;
-@protocol TSDHint, TSDInfo, TSWPColumnMetrics, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPOffscreenColumn;
+@class NSArray, NSMutableArray, NSObject, TSDCanvas, TSDDrawableInfo, TSDLayout, TSPObject, TSUBezierPath, TSWPStorage;
+@protocol TSDHint, TSDInfo, TSWPColumnMetrics, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPOffscreenColumn, TSWPTopicNumberHints;
 
 @protocol TSWPLayoutTarget <NSObject>
 @property(readonly, nonatomic) double maxAnchorY;
+@property(readonly, nonatomic) _Bool shouldWrapAroundExternalDrawables;
 @property(readonly, nonatomic) _Bool layoutIsValid;
 @property(readonly, nonatomic) _Bool textIsVertical;
 @property(readonly, nonatomic) unsigned long long pageCount;
@@ -26,12 +27,13 @@
 @property(readonly, nonatomic) struct CGSize maxSize;
 @property(readonly, nonatomic) struct CGSize minSize;
 @property(readonly, nonatomic) _Bool isInstructional;
+@property(readonly, nonatomic) TSWPStorage *storage;
 @property(readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
 @property(readonly, nonatomic) id <TSWPFootnoteMarkProvider> footnoteMarkProvider;
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 @property(readonly, retain, nonatomic) NSMutableArray *columns;
 - (_Bool)isLayoutOffscreen;
@@ -46,6 +48,7 @@
 - (NSObject<TSWPColumnMetrics> *)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 
 @optional
+@property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) _Bool shouldHyphenate;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;

@@ -8,11 +8,11 @@
 
 #import <NewsCore/FCCKRecordZoneDelegate-Protocol.h>
 
-@class FCAsyncSerialQueue, FCCKDatabase, NSArray, NSDictionary, NSString;
+@class FCAsyncSerialQueue, FCCKPrivateDatabase, NSArray, NSDictionary, NSString;
 
 @interface FCCKRecordZoneManager : NSObject <FCCKRecordZoneDelegate>
 {
-    FCCKDatabase *_database;
+    FCCKPrivateDatabase *_database;
     NSArray *_recordZoneIDs;
     NSDictionary *_fcRecordZonesByName;
     NSDictionary *_ckRecordZonesByID;
@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSDictionary *ckRecordZonesByID; // @synthesize ckRecordZonesByID=_ckRecordZonesByID;
 @property(retain, nonatomic) NSDictionary *fcRecordZonesByName; // @synthesize fcRecordZonesByName=_fcRecordZonesByName;
 @property(retain, nonatomic) NSArray *recordZoneIDs; // @synthesize recordZoneIDs=_recordZoneIDs;
-@property(retain, nonatomic) FCCKDatabase *database; // @synthesize database=_database;
+@property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
 - (void)ensureRecordZoneExistsWithID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)recordZoneWithName:(id)arg1;

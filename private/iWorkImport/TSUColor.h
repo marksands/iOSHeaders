@@ -47,7 +47,6 @@ __attribute__((visibility("hidden")))
 + (id)presetKinds;
 + (id)p_defaultPresetColors:(int)arg1;
 @property(readonly, nonatomic) unsigned long long colorRGBSpace; // @synthesize colorRGBSpace=mColorRGBSpace;
-@property(readonly) struct CGColor *CGColor; // @synthesize CGColor=mCGColor;
 - (id)hexString;
 - (void)paintPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2;
 - (void)paintRect:(struct CGRect)arg1 inContext:(struct CGContext *)arg2;
@@ -87,6 +86,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)initWithCGColor:(struct CGColor *)arg1;
 - (id)initWithCGColor:(struct CGColor *)arg1 colorSpace:(unsigned long long)arg2;
+@property(readonly) struct CGColor *CGColor;
 - (void)saveToMessage:(struct Color *)arg1;
 - (id)initWithMessage:(const struct Color *)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;

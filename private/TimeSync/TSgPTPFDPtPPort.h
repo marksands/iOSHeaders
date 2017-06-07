@@ -4,16 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <TimeSync/TSgPTPPort.h>
+#import <TimeSync/TSgPTPNetworkPort.h>
 
-@class NSDictionary;
+@class TSgPTPPortStatistics;
 
-@interface TSgPTPFDPtPPort : TSgPTPPort
+@interface TSgPTPFDPtPPort : TSgPTPNetworkPort
 {
 }
 
 + (id)diagnosticDescriptionForService:(unsigned int)arg1 withIndent:(id)arg2;
-@property(readonly, nonatomic) NSDictionary *statistics; // @dynamic statistics;
+@property(readonly, nonatomic) BOOL remotePDelayLogMeanInterval; // @dynamic remotePDelayLogMeanInterval;
+@property(readonly, nonatomic) BOOL localPDelayLogMeanInterval; // @dynamic localPDelayLogMeanInterval;
+@property(readonly, nonatomic) TSgPTPPortStatistics *statistics; // @dynamic statistics;
 
 @end
 

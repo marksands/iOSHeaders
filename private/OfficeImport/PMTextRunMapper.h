@@ -13,6 +13,7 @@
     OADTextRun *mTextRun;
 }
 
+- (void).cxx_destruct;
 - (void)mapAt:(id)arg1 withState:(id)arg2;
 - (void)addFontForLanguageType:(int)arg1 toCharacterStyle:(id)arg2;
 - (id)initWithOadTextRun:(id)arg1 parent:(id)arg2;

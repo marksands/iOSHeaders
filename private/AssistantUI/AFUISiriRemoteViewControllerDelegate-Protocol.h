@@ -9,6 +9,7 @@
 @class AFUIRequestOptions, AFUISiriRemoteViewController, NSError, NSString, NSURL;
 
 @protocol AFUISiriRemoteViewControllerDelegate <NSObject>
+- (void)siriRemoteViewControllerDidDetectAudioRoutePickerTap:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewControllerDidExitUITrackingMode:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewControllerDidEnterUITrackingMode:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewControllerDidPresentConversationFromBreadcrumb:(AFUISiriRemoteViewController *)arg1;
@@ -30,7 +31,7 @@
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 setHelpButtonEmphasized:(_Bool)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 willDismissViewControllerWithStatusBarStyle:(long long)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 willPresentViewControllerWithStatusBarStyle:(long long)arg2;
-- (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 setStatusBarHidden:(_Bool)arg2;
+- (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 setStatusBarHidden:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 setStatusViewDisabled:(_Bool)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 setStatusViewUserInteractionEnabled:(_Bool)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 setCarDisplayGatekeeperVisible:(_Bool)arg2;
@@ -42,6 +43,7 @@
 - (void)userRelevantEventDidOccurInSiriRemoteViewController:(AFUISiriRemoteViewController *)arg1;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 startRequestWithOptions:(AFUIRequestOptions *)arg2;
 - (void)startGuidedAccessForRemoteViewController:(AFUISiriRemoteViewController *)arg1;
+- (long long)siriRemoteViewControllerRequestsActivationSource:(AFUISiriRemoteViewController *)arg1;
 - (void)dismissSiriRemoteViewController:(AFUISiriRemoteViewController *)arg1 delayForTTS:(_Bool)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 viewServiceDidTerminateWithError:(NSError *)arg2;
 - (void)siriRemoteViewController:(AFUISiriRemoteViewController *)arg1 didEncounterUnexpectedServiceError:(NSError *)arg2;

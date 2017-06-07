@@ -49,7 +49,18 @@ struct _ipp_s {
 
 struct fd_set;
 
-struct http_addrlist_s;
+struct http_addrlist_s {
+    struct http_addrlist_s *_field1;
+    union _http_addr_u _field2;
+};
+
+struct in6_addr {
+    union {
+        unsigned char _field1[16];
+        unsigned short _field2[8];
+        unsigned int _field3[4];
+    } _field1;
+};
 
 struct in_addr {
     unsigned int _field1;
@@ -72,12 +83,33 @@ struct pwg_size_s {
     int _field7;
 };
 
+struct sockaddr {
+    unsigned char _field1;
+    unsigned char _field2;
+    char _field3[14];
+};
+
 struct sockaddr_in {
     unsigned char _field1;
     unsigned char _field2;
     unsigned short _field3;
     struct in_addr _field4;
     char _field5[8];
+};
+
+struct sockaddr_in6 {
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned short _field3;
+    unsigned int _field4;
+    struct in6_addr _field5;
+    unsigned int _field6;
+};
+
+struct sockaddr_un {
+    unsigned char _field1;
+    unsigned char _field2;
+    char _field3[104];
 };
 
 struct z_stream_s {
@@ -104,4 +136,14 @@ typedef struct {
     int _field2;
     int _field3;
 } CDStruct_2892ad96;
+
+#pragma mark Named Unions
+
+union _http_addr_u {
+    struct sockaddr _field1;
+    struct sockaddr_in _field2;
+    struct sockaddr_in6 _field3;
+    struct sockaddr_un _field4;
+    char _field5[256];
+};
 

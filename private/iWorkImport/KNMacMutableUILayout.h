@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long inspectorPaneViewMode; // @dynamic inspectorPaneViewMode;
 @property(nonatomic) long long inspectorPaneHiddenState; // @dynamic inspectorPaneHiddenState;
 @property(nonatomic, getter=isShowingLightTable) _Bool showingLightTable; // @dynamic showingLightTable;
+@property(nonatomic, getter=isShowingElementList) _Bool showingElementList; // @dynamic showingElementList;
 @property(nonatomic, getter=isShowingPresenterNotes) _Bool showingPresenterNotes; // @dynamic showingPresenterNotes;
 @property(nonatomic) long long sidebarViewMode; // @dynamic sidebarViewMode;
 @property(nonatomic, getter=isShowingSidebar) _Bool showingSidebar; // @dynamic showingSidebar;

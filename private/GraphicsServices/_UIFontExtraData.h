@@ -6,11 +6,10 @@
 
 #import <objc/NSObject.h>
 
-@class NSCharacterSet, NSData;
+@class NSCharacterSet, NSString;
 
 @interface _UIFontExtraData : NSObject
 {
-    NSData *_latin1MappingTable;
     NSCharacterSet *_coveredCharacterSet;
     double _ascender;
     double _descender;
@@ -20,9 +19,13 @@
         unsigned int _initialized:1;
         unsigned int _isSystemFont:1;
         unsigned int _hasKernPair:1;
-        unsigned int _checkedLatin1Table:1;
+        unsigned int _unused:1;
         unsigned int _isIBTextStyleFont:1;
+        unsigned int _isIBScaledFont:1;
     } _fFlags;
+    NSString *_textStyleForScaling;
+    double _pointSizeForScaling;
+    double _maximumPointSizeAfterScaling;
 }
 
 - (void)dealloc;

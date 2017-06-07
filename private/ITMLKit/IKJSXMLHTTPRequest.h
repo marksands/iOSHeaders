@@ -7,13 +7,15 @@
 #import <ITMLKit/IKJSEventListenerObject.h>
 
 #import <ITMLKit/IKJSXMLHTTPRequest-Protocol.h>
+#import <ITMLKit/IKNetworkRequestLoader-Protocol.h>
 #import <ITMLKit/ISStoreURLOperationDelegate-Protocol.h>
 #import <ITMLKit/NSURLSessionDataDelegate-Protocol.h>
 #import <ITMLKit/NSURLSessionTaskDelegate-Protocol.h>
 
-@class IKDOMDocument, ISURLOperation, JSManagedValue, NSData, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableURLRequest, NSString, NSURLConnection, NSURLSession, NSURLSessionConfiguration;
+@class IKDOMDocument, ISURLOperation, JSManagedValue, NSData, NSDictionary, NSError, NSHTTPURLResponse, NSMutableArray, NSMutableURLRequest, NSString, NSURL, NSURLConnection, NSURLSession, NSURLSessionConfiguration;
+@protocol IKNetworkRequestRecord;
 
-@interface IKJSXMLHTTPRequest : IKJSEventListenerObject <ISStoreURLOperationDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, IKJSXMLHTTPRequest>
+@interface IKJSXMLHTTPRequest : IKJSEventListenerObject <ISStoreURLOperationDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, IKNetworkRequestLoader, IKJSXMLHTTPRequest>
 {
     _Bool _shouldSquashOnReadyStateEvents;
     struct os_unfair_lock_s _onReadyStateChangeMessageQueueLock;
@@ -25,6 +27,9 @@
     unsigned int _readyState;
     unsigned int _status;
     unsigned long long timeout;
+    NSURL *_requestURL;
+    NSString *_requestId;
+    id <IKNetworkRequestRecord> _networkRequestRecord;
     NSString *_dataToSend;
     ISURLOperation *_jingleOperation;
     NSMutableArray *_onReadyStateChangeMessageQueue;
@@ -44,11 +49,13 @@
     NSError *_requestError;
     NSString *_statusText;
     NSDictionary *_performanceMetrics;
+    NSHTTPURLResponse *_cachedURLResponse;
     JSManagedValue *_managedSelf;
 }
 
 + (id)xhrOperationQueue;
 @property(retain, nonatomic) JSManagedValue *managedSelf; // @synthesize managedSelf=_managedSelf;
+@property(retain) NSHTTPURLResponse *cachedURLResponse; // @synthesize cachedURLResponse=_cachedURLResponse;
 @property(retain) NSDictionary *performanceMetrics; // @synthesize performanceMetrics=_performanceMetrics;
 @property(retain) NSString *statusText; // @synthesize statusText=_statusText;
 @property unsigned int status; // @synthesize status=_status;
@@ -73,6 +80,9 @@
 @property(nonatomic) __weak ISURLOperation *jingleOperation; // @synthesize jingleOperation=_jingleOperation;
 @property(nonatomic) _Bool jingleRequest; // @synthesize jingleRequest=_jingleRequest;
 @property(copy, nonatomic) NSString *dataToSend; // @synthesize dataToSend=_dataToSend;
+@property(readonly, nonatomic) id <IKNetworkRequestRecord> networkRequestRecord; // @synthesize networkRequestRecord=_networkRequestRecord;
+@property(retain, nonatomic) NSString *requestId; // @synthesize requestId=_requestId;
+@property(retain, nonatomic) NSURL *requestURL; // @synthesize requestURL=_requestURL;
 @property unsigned long long timeout; // @synthesize timeout;
 - (void).cxx_destruct;
 - (id)_timeIntervalSince1970;
@@ -89,7 +99,7 @@
 - (void)_loadingDidFinish;
 - (void)_loadingDidFailWithError:(id)arg1;
 - (void)_loadingDidReceiveData:(id)arg1;
-- (void)_loadingDidReceiveResponse:(id)arg1;
+- (void)_loadingDidReceiveResponse:(id)arg1 timingData:(id)arg2;
 - (id)_loadingWillSendRequest:(id)arg1 redirectResponse:(id)arg2;
 - (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -112,6 +122,7 @@
 @property(retain) NSString *responseType;
 - (id)responseArrayBuffer;
 - (id)responseBlob;
+- (id)responseJSON;
 @property(readonly) IKDOMDocument *responseXML;
 @property(readonly) NSString *responseText;
 - (id)getAllResponseHeaders;

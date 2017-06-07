@@ -9,7 +9,6 @@
 @class NSMutableArray;
 @protocol CNObservable, _CNBufferingStrategy;
 
-__attribute__((visibility("hidden")))
 @interface _CNBufferingObservable : CNObservable
 {
     id <_CNBufferingStrategy> _strategy;

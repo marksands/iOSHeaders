@@ -19,6 +19,7 @@
 @property(retain) ASAsset *asset; // @synthesize asset=_asset;
 @property(retain) VSVoiceAsset *voiceData; // @synthesize voiceData=_voiceData;
 - (void).cxx_destruct;
+- (id)voicePath;
 - (id)key;
 
 @end

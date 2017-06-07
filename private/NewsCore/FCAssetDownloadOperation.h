@@ -24,6 +24,7 @@
     NSString *_requestUUID;
     double _taskStartTime;
     NSDictionary *_timingData;
+    NSString *_responseMIMEType;
     NSHTTPURLResponse *_httpResponse;
     unsigned long long _responseSize;
     NSError *_error;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) unsigned long long responseSize; // @synthesize responseSize=_responseSize;
 @property(retain, nonatomic) NSHTTPURLResponse *httpResponse; // @synthesize httpResponse=_httpResponse;
+@property(retain, nonatomic) NSString *responseMIMEType; // @synthesize responseMIMEType=_responseMIMEType;
 @property(retain, nonatomic) NSDictionary *timingData; // @synthesize timingData=_timingData;
 @property(nonatomic) double taskStartTime; // @synthesize taskStartTime=_taskStartTime;
 @property(retain, nonatomic) NSString *requestUUID; // @synthesize requestUUID=_requestUUID;

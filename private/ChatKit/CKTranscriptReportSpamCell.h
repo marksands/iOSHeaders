@@ -10,12 +10,10 @@
 
 @interface CKTranscriptReportSpamCell : CKTranscriptLabelCell
 {
-    _Bool _wasReportedAsSpam;
     UIButton *_reportSpamButton;
 }
 
 + (id)reportSpamButton;
-@property(nonatomic) _Bool wasReportedAsSpam; // @synthesize wasReportedAsSpam=_wasReportedAsSpam;
 @property(retain, nonatomic) UIButton *reportSpamButton; // @synthesize reportSpamButton=_reportSpamButton;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSAttributedString *attributedButtonText;

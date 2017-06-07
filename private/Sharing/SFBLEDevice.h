@@ -21,6 +21,7 @@
     NSData *_bluetoothAddress;
     NSUUID *_counterpartIdentifier;
     long long _distance;
+    unsigned long long _foundTicks;
     NSUUID *_identifier;
     NSString *_name;
     long long _rssi;
@@ -42,6 +43,7 @@
 @property(nonatomic) long long rssi; // @synthesize rssi=_rssi;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
+@property(nonatomic) unsigned long long foundTicks; // @synthesize foundTicks=_foundTicks;
 @property(nonatomic) long long distance; // @synthesize distance=_distance;
 @property(copy, nonatomic) NSUUID *counterpartIdentifier; // @synthesize counterpartIdentifier=_counterpartIdentifier;
 @property(copy, nonatomic) NSData *bluetoothAddress; // @synthesize bluetoothAddress=_bluetoothAddress;

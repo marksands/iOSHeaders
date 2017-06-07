@@ -6,10 +6,12 @@
 
 #import <iWorkImport/KNAnimationRenderer.h>
 
-@class CALayer, KNAnimatedBuild, KNAnimationInfo, KNBuildChunk, NSArray, NSDictionary, NSMutableArray, TSDDrawableInfo, TSDFPSCounter, TSDRep, TSDTextureContext, TSDTextureSet;
+#import <iWorkImport/CAAnimationDelegate-Protocol.h>
+
+@class CALayer, KNAnimatedBuild, KNAnimationInfo, KNBuildChunk, NSArray, NSDictionary, NSMutableArray, NSString, TSDDrawableInfo, TSDFPSCounter, TSDRep, TSDTextureContext, TSDTextureSet;
 
 __attribute__((visibility("hidden")))
-@interface KNBuildRenderer : KNAnimationRenderer
+@interface KNBuildRenderer : KNAnimationRenderer <CAAnimationDelegate>
 {
     long long mNumberOfAnimationsStarted;
     NSDictionary *mAnimatedLayers;
@@ -83,9 +85,14 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSDRep *rep;
 - (void)setupPluginContext;
 - (id)loadPluginIfNeeded;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)initWithAnimatedBuild:(id)arg1 info:(id)arg2 buildStage:(id)arg3 session:(id)arg4 animatedSlideView:(id)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

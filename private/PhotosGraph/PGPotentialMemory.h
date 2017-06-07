@@ -14,7 +14,7 @@
     PGGraphNode *_momentNode;
     NSSet *_momentNodes;
     long long _sourceType;
-    unsigned long long _category;
+    long long _category;
     long long _subcategory;
     double _score;
     NSDate *_localDate;
@@ -24,6 +24,7 @@
     double _contentScore;
     NSDate *_universalStartDate;
     NSDate *_universalEndDate;
+    NSSet *_features;
     NSSet *_momentIDs;
     NSDictionary *_numberOfAssetsByMomentIDs;
     PGPotentialMemory *_upgradedPotentialMemory;
@@ -34,6 +35,7 @@
 @property(retain, nonatomic) PGPotentialMemory *upgradedPotentialMemory; // @synthesize upgradedPotentialMemory=_upgradedPotentialMemory;
 @property(readonly) NSDictionary *numberOfAssetsByMomentIDs; // @synthesize numberOfAssetsByMomentIDs=_numberOfAssetsByMomentIDs;
 @property(readonly) NSSet *momentIDs; // @synthesize momentIDs=_momentIDs;
+@property(retain) NSSet *features; // @synthesize features=_features;
 @property double contentScore; // @synthesize contentScore=_contentScore;
 @property(retain) NSString *eventName; // @synthesize eventName=_eventName;
 @property(retain) NSSet *peopleUUIDs; // @synthesize peopleUUIDs=_peopleUUIDs;
@@ -41,7 +43,7 @@
 @property(retain) NSDate *localDate; // @synthesize localDate=_localDate;
 @property double score; // @synthesize score=_score;
 @property long long subcategory; // @synthesize subcategory=_subcategory;
-@property unsigned long long category; // @synthesize category=_category;
+@property long long category; // @synthesize category=_category;
 @property long long sourceType; // @synthesize sourceType=_sourceType;
 @property(retain) NSSet *momentNodes; // @synthesize momentNodes=_momentNodes;
 @property(retain) PGGraphNode *momentNode; // @synthesize momentNode=_momentNode;
@@ -55,8 +57,9 @@
 @property(readonly) NSDate *universalStartDate; // @synthesize universalStartDate=_universalStartDate;
 @property(readonly) NSDate *localEndDate;
 @property(readonly) NSDate *localStartDate;
-- (id)initWithCategory:(unsigned long long)arg1 subcategory:(long long)arg2 momentNodes:(id)arg3 sourceType:(long long)arg4;
-- (id)initWithCategory:(unsigned long long)arg1 subcategory:(long long)arg2 momentNode:(id)arg3;
+- (id)initWithCategory:(long long)arg1 subcategory:(long long)arg2 momentNodes:(id)arg3 sourceType:(long long)arg4;
+- (id)initWithCategory:(long long)arg1 subcategory:(long long)arg2 momentNode:(id)arg3;
+- (id)initWithCategory:(long long)arg1 subcategory:(long long)arg2;
 
 @end
 

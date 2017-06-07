@@ -21,6 +21,7 @@
 }
 
 @property(retain, nonatomic) GEOPDTransportHint *searchTransportHint; // @synthesize searchTransportHint=_searchTransportHint;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -36,7 +37,6 @@
 - (id)searchLocationParametersTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasSearchLocationParametersType;
 @property(nonatomic) int searchLocationParametersType; // @synthesize searchLocationParametersType=_searchLocationParametersType;
-- (void)dealloc;
 
 @end
 

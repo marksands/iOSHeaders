@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSWPParagraphStyle *cachedTextStyle; // @synthesize cachedTextStyle=_cachedTextStyle;
 @property(retain, nonatomic) TSTCellStyle *cachedCellStyle; // @synthesize cachedCellStyle=_cachedCellStyle;
 @property(nonatomic) struct TSUCellCoord cachedCellID; // @synthesize cachedCellID=_cachedCellID;
+- (_Bool)invalidateForPageCountChange;
 - (void)validate;
 - (void)invalidate;
 - (void)dealloc;

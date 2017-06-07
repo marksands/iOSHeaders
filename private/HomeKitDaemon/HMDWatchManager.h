@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegate-Protocol.h>
 
-@class IDSService, NSArray, NSMutableSet, NSString;
+@class IDSService, NSArray, NSMutableSet, NSObject, NSString;
 @protocol HMDWatchManagerDelegate, OS_dispatch_queue;
 
-@interface HMDWatchManager : NSObject <HMFLogging, IDSServiceDelegate>
+@interface HMDWatchManager : HMFObject <HMFLogging, IDSServiceDelegate>
 {
     NSMutableSet *_connectedWatches;
     _Bool _pairedWithWatch;
@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (void)service:(id)arg1 connectedDevicesChanged:(id)arg2;
 - (void)service:(id)arg1 devicesChanged:(id)arg2;
+- (id)connectedWatchFromDeviceID:(id)arg1;
 - (void)_updateConnectedDevices:(id)arg1;
 - (void)notifyDelegateOfRemovedConnectedWatch:(id)arg1;
 - (void)removeConnectedWatch:(id)arg1;

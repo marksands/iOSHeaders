@@ -7,6 +7,9 @@
 #import <ITMLKit/IKViewElement.h>
 
 @interface IKViewElement (TVMLKitAdditions)
+- (id)tv_indexesByIndexTitle;
+@property(readonly, nonatomic) long long tv_scaleMode;
+- (long long)tv_semanticContentAttribute;
 - (id)itemElementsOfType:(unsigned long long)arg1;
 - (unsigned long long)tv_elementType;
 - (id)tv_associatedViewElementWithDefaultClass:(Class)arg1;

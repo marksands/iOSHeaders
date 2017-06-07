@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)setSingleBlackBorder;
 - (void)setNullBorder;
 - (void)setBorder:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToBorder:(id)arg1;
 - (void)dealloc;

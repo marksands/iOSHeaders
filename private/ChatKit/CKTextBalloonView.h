@@ -21,6 +21,8 @@
 @property(copy, nonatomic) NSAttributedString *attributedText; // @synthesize attributedText=_attributedText;
 @property(retain, nonatomic) CKBalloonTextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
+- (void)restoreFromLargeTextTruncation;
+- (void)truncateForLargeText;
 - (void)detachInvisibleInkEffectView;
 - (void)attachInvisibleInkEffectView;
 - (void)invisibleInkEffectViewWasUncovered;
@@ -36,6 +38,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(struct UIEdgeInsets *)arg2;
 - (void)prepareForReuse;
 - (void)prepareForDisplay;
+- (struct UIEdgeInsets)alignmentRectInsets;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(readonly, copy) NSString *description;

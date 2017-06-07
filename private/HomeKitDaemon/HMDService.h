@@ -4,44 +4,63 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/HMDBulletinIdentifiers-Protocol.h>
 #import <HomeKitDaemon/HMFDumpState-Protocol.h>
+#import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDAccessory, HMDApplicationData, HMDBulletinBoardNotification, NSArray, NSNumber, NSString, NSUUID;
+@class HMDApplicationData, HMDBulletinBoardNotification, HMDHAPAccessory, HMDHome, HMFMessageDispatcher, NSArray, NSNumber, NSObject, NSString, NSUUID;
+@protocol OS_dispatch_queue;
 
-@interface HMDService : NSObject <HMDBulletinIdentifiers, NSSecureCoding, HMFDumpState>
+@interface HMDService : HMFObject <HMDBulletinIdentifiers, NSSecureCoding, HMFDumpState, HMDBackingStoreObjectProtocol, HMFMessageReceiver>
 {
     _Bool _hidden;
     _Bool _primary;
-    HMDAccessory *_accessory;
+    HMDApplicationData *_appData;
+    HMDHAPAccessory *_accessory;
     NSString *_name;
     NSString *_associatedServiceType;
     NSArray *_characteristics;
     NSString *_serviceType;
-    HMDApplicationData *_appData;
     HMDBulletinBoardNotification *_bulletinBoardNotification;
-    NSString *_providedName;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
+    HMFMessageDispatcher *_messageDispatcher;
     NSNumber *_instanceID;
     NSArray *_linkedServices;
+    NSString *_providedName;
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)generateUUIDWithAccessoryUUID:(id)arg1 serviceID:(id)arg2;
+@property(retain, nonatomic) NSString *providedName; // @synthesize providedName=_providedName;
 @property(retain, nonatomic) NSArray *linkedServices; // @synthesize linkedServices=_linkedServices;
 @property(getter=isPrimary) _Bool primary; // @synthesize primary=_primary;
 @property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
-@property(retain, nonatomic) NSString *providedName; // @synthesize providedName=_providedName;
+@property(readonly, nonatomic) HMFMessageDispatcher *messageDispatcher; // @synthesize messageDispatcher=_messageDispatcher;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) HMDBulletinBoardNotification *bulletinBoardNotification; // @synthesize bulletinBoardNotification=_bulletinBoardNotification;
-@property(retain, nonatomic) HMDApplicationData *appData; // @synthesize appData=_appData;
 @property(retain, nonatomic) NSString *serviceType; // @synthesize serviceType=_serviceType;
 @property(copy, nonatomic) NSArray *characteristics; // @synthesize characteristics=_characteristics;
 @property(readonly, nonatomic) NSString *associatedServiceType; // @synthesize associatedServiceType=_associatedServiceType;
 @property(nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
-@property(copy, nonatomic, getter=getName) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) __weak HMDAccessory *accessory; // @synthesize accessory=_accessory;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) __weak HMDHAPAccessory *accessory; // @synthesize accessory=_accessory;
 - (void).cxx_destruct;
+- (id)backingStoreObjects:(long long)arg1;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (void)_registerForMessages;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+@property(readonly, nonatomic) NSUUID *messageTargetUUID;
+- (_Bool)updateCharacteristics:(id)arg1;
+- (void)appDataRemoved:(id)arg1 message:(id)arg2;
+- (void)appDataUpdated:(id)arg1 message:(id)arg2;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)_transactionServiceUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (_Bool)listsEqual:(id)arg1 to:(id)arg2;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (_Bool)shouldEnableDaemonRelaunch;
@@ -50,23 +69,31 @@
 - (void)configureMsgDispatcher:(id)arg1;
 - (void)updateLastKnownValues;
 - (id)getConfiguredName;
-- (void)updateName:(id)arg1;
+- (id)updateName:(id)arg1;
 - (_Bool)updateAssociatedServiceType:(id)arg1 error:(id *)arg2;
 - (id)findCharacteristicWithType:(id)arg1;
 - (id)findCharacteristic:(id)arg1;
-@property(readonly, copy, nonatomic) NSString *serviceIdentifier;
-@property(readonly, copy, nonatomic) NSString *type;
-- (id)initWithService:(id)arg1 accessory:(id)arg2;
 - (void)_readRequiredBTLECharacteristicValuesForceReadName:(_Bool)arg1 forceReadFWVersion:(_Bool)arg2;
-- (void)_updateProvidedName:(id)arg1;
-- (void)_updateName:(id)arg1;
+- (id)gatherRequiredReadRequestsForceReadName:(_Bool)arg1 forceReadFWVersion:(_Bool)arg2;
+- (id)_updateProvidedName:(id)arg1;
 - (void)_setServiceProperties:(id)arg1;
 - (void)_shouldServiceBeHidden;
 - (_Bool)_supportsBulletinNotification;
 - (void)_createNotification;
+- (id)configureWithService:(id)arg1 accessory:(id)arg2 shouldRead:(_Bool)arg3;
 - (id)configureWithService:(id)arg1 accessory:(id)arg2;
+- (void)_handleSetAppData:(id)arg1;
+@property(retain, nonatomic) HMDApplicationData *appData; // @synthesize appData=_appData;
+@property(readonly, nonatomic) HMDHome *home;
+@property(readonly, copy, nonatomic) NSString *serviceIdentifier;
+@property(readonly, copy, nonatomic) NSString *type;
 - (id)dumpState;
 @property(readonly, copy) NSString *description;
+- (id)initWithAccessory:(id)arg1;
+- (id)initWithTransaction:(id)arg1 accessory:(id)arg2;
+- (id)initWithService:(id)arg1 accessory:(id)arg2;
+- (id)init;
+@property(readonly, nonatomic) NSUUID *uuid; // @dynamic uuid;
 @property(readonly, copy, nonatomic) NSUUID *contextSPIUniqueIdentifier;
 @property(readonly, copy, nonatomic) NSString *contextID;
 - (id)assistantObject;

@@ -34,9 +34,6 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIViewController *focusedController; // @synthesize focusedController=_focusedController;
 - (void).cxx_destruct;
 - (id)impressionableElementsContainedInDocument:(id)arg1;
-- (void)_recordImpressionsForVisibleView;
-- (void)_cancelImpressionsUpdate;
-- (void)_updateImpressions;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;
 - (id)_backgroundImageProxy;
 - (struct CGSize)_backgroundImageProxySize;
@@ -49,7 +46,6 @@ __attribute__((visibility("hidden")))
 - (id)preferredFocusEnvironments;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (void)loadView;
-- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (_Bool)setNeedsFocusUpdateToList;
 - (void)updateWithViewElement:(id)arg1;

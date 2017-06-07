@@ -46,6 +46,7 @@
 - (_Bool)_setValue:(id)arg1 forProperty:(id)arg2;
 - (_Bool)setValue:(id)arg1 forProperty:(id)arg2;
 - (id)queueValueForProperty:(id)arg1;
+- (id)objectForKeyedSubscript:(id)arg1;
 - (id)valueForProperty:(id)arg1;
 - (void)queueRemovePropertyObserver:(id)arg1 forPropertyChanges:(id)arg2;
 - (void)removePropertyObserver:(id)arg1 forPropertyChanges:(id)arg2;
@@ -56,6 +57,9 @@
 - (id)initWithQueue:(id)arg1;
 - (id)init;
 - (_Bool)supportsCapability:(id)arg1;
+- (_Bool)migrationConfirmed;
+- (id)migrationError;
+- (_Bool)archived;
 
 @end
 

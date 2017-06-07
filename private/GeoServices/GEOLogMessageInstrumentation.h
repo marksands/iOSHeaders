@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class GEOLogMessageCacheManager, NSMutableArray, NSMutableDictionary, NSString;
+@class GEOLogMessageCacheManager, NSLock, NSMutableArray, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface GEOLogMessageInstrumentation : NSObject
@@ -19,19 +19,21 @@
     unsigned long long _logMessageNothingToFlushCounter;
     NSString *_msgCountUserDefaultsKey;
     GEOLogMessageCacheManager *_cacheManager;
+    unsigned int _logMsgInstrumentationEnableCounter;
+    NSLock *_logMsgInstrumentationEnableLock;
 }
 
 + (void)disableDefaultInstrumentation;
 + (id)createDefaultInstrumentation;
 + (id)defaultInstrumentation;
+- (void).cxx_destruct;
 - (void)waitForEmptyInstrumentationQueue:(CDUnknownBlockType)arg1;
 - (void)captureLogMessageCollectionRequest:(id)arg1 forEventName:(id)arg2 fromLogFrameworkAdaptor:(_Bool)arg3;
 - (void)captureLogMsgCountForEventName:(id)arg1 logMsgCount:(long long)arg2 fromLogFrameworkAdaptor:(_Bool)arg3;
 - (void)captureLogMessage:(id)arg1 forEventName:(id)arg2 fromLogFrameworkAdaptor:(_Bool)arg3;
 - (void)_registerEventName:(id)arg1;
-- (void)disableLogMsgInstrumentation;
+- (_Bool)disableLogMsgInstrumentation;
 - (void)enableLogMsgInstrumentation;
-- (void)dealloc;
 - (id)init;
 @property(readonly, nonatomic) GEOLogMessageCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 

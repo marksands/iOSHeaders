@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEONavdServerProxy, NSLock, NSMutableArray;
 
@@ -18,6 +18,7 @@
 + (id)navdManagerClientIdentifier:(id)arg1;
 + (void)setProxyClass:(Class)arg1;
 + (id)navdManager;
+- (void).cxx_destruct;
 - (void)forceCacheRefresh;
 - (void)didPostUINotification:(unsigned long long)arg1 forDestination:(id)arg2 fromClient:(id)arg3;
 - (void)stopMonitoringDestination:(id)arg1 forClient:(id)arg2 uuid:(id)arg3;
@@ -27,7 +28,6 @@
 - (void)statusWithCallback:(CDUnknownBlockType)arg1;
 - (void)closeForClient:(id)arg1;
 - (void)openForClient:(id)arg1;
-- (void)dealloc;
 - (void)shouldPostDarwinNotificationForNextUpdate:(_Bool)arg1;
 - (id)init;
 

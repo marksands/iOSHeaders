@@ -15,19 +15,22 @@ struct CLLocationCoordinate2D {
     double longitude;
 };
 
-struct GEOJunctionElement {
-    int _field1;
-    int _field2;
-    int _field3;
-    struct {
-        unsigned int :1;
-        unsigned int :1;
-        unsigned int :1;
-    } _field4;
+struct LineSegment<double, 2> {
+    Matrix_2bdd42a3 _origin;
+    Matrix_2bdd42a3 _direction;
+};
+
+struct Matrix<double, 2, 1> {
+    double _e[2];
 };
 
 struct NSDictionary {
     Class _field1;
+};
+
+struct PolylineCoordinate {
+    unsigned int _field1;
+    float _field2;
 };
 
 struct _NSRange {
@@ -145,5 +148,16 @@ typedef struct {
     unsigned char _field19;
     struct _NSRange _field20;
     _Bool _field21;
-} CDStruct_6ac9d495;
+    unsigned int _field22;
+} CDStruct_c707fdd0;
+
+// Template types
+typedef struct LineSegment<double, 2> {
+    Matrix_2bdd42a3 _origin;
+    Matrix_2bdd42a3 _direction;
+} LineSegment_ede69d4d;
+
+typedef struct Matrix<double, 2, 1> {
+    double _e[2];
+} Matrix_2bdd42a3;
 

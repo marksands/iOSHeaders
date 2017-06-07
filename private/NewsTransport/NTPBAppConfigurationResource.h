@@ -18,12 +18,14 @@
     NTPBDate *_lastFetchedDate;
     NTPBDate *_lastModifiedDate;
     NSString *_lastModifiedString;
+    NSString *_resourceID;
     NSString *_sourceURL;
     struct {
         unsigned int maxAge:1;
     } _has;
 }
 
+@property(retain, nonatomic) NSString *resourceID; // @synthesize resourceID=_resourceID;
 @property(nonatomic) long long maxAge; // @synthesize maxAge=_maxAge;
 @property(retain, nonatomic) NSString *lastModifiedString; // @synthesize lastModifiedString=_lastModifiedString;
 @property(retain, nonatomic) NTPBDate *lastModifiedDate; // @synthesize lastModifiedDate=_lastModifiedDate;
@@ -39,6 +41,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasResourceID;
 @property(nonatomic) _Bool hasMaxAge;
 @property(readonly, nonatomic) _Bool hasLastModifiedString;
 @property(readonly, nonatomic) _Bool hasLastModifiedDate;

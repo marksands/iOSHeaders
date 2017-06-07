@@ -13,6 +13,7 @@
 @interface SiriUIAceObjectControllerCell : SiriUIClearBackgroundCell <CAAnimationDelegate>
 {
     UIView *_animationView;
+    double _topPadding;
     SiriUIAceObjectViewController *_aceViewController;
     long long _insertionAnimationType;
     long long _replacementAnimationType;
@@ -25,6 +26,7 @@
 @property(nonatomic) long long insertionAnimationType; // @synthesize insertionAnimationType=_insertionAnimationType;
 @property(retain, nonatomic) SiriUIAceObjectViewController *aceViewController; // @synthesize aceViewController=_aceViewController;
 - (void).cxx_destruct;
+- (void)setTopPadding:(double)arg1;
 - (id)_flyInAnimationForAceViewController:(id)arg1;
 - (void)_animateInsertionFlyIn;
 - (void)_animateReplacementCrossFade;

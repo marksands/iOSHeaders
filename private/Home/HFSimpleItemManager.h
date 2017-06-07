@@ -6,25 +6,21 @@
 
 #import <Home/HFItemManager.h>
 
-@class NSArray;
-
 @interface HFSimpleItemManager : HFItemManager
 {
-    NSArray *_itemProviders;
     CDUnknownBlockType _itemComparator;
     CDUnknownBlockType _itemProvidersCreator;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType itemProvidersCreator; // @synthesize itemProvidersCreator=_itemProvidersCreator;
+@property(readonly, copy, nonatomic) CDUnknownBlockType itemProvidersCreator; // @synthesize itemProvidersCreator=_itemProvidersCreator;
 @property(copy, nonatomic) CDUnknownBlockType itemComparator; // @synthesize itemComparator=_itemComparator;
-@property(retain, nonatomic) NSArray *itemProviders; // @synthesize itemProviders=_itemProviders;
 - (void).cxx_destruct;
 - (CDUnknownBlockType)_comparatorForSectionIdentifier:(id)arg1;
-- (id)_itemProviders;
-- (void)_createItemProvidersWithHome:(id)arg1;
-- (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2 itemProvidersCreator:(CDUnknownBlockType)arg3;
+- (id)_buildItemProvidersForHome:(id)arg1;
+- (id)initWithDelegate:(id)arg1;
+- (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2;
 - (id)initWithDelegate:(id)arg1 itemProvidersCreator:(CDUnknownBlockType)arg2;
-- (id)initWithDelegate:(id)arg1 itemStyle:(id)arg2 itemProvidersCreator:(CDUnknownBlockType)arg3;
+- (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2 itemProvidersCreator:(CDUnknownBlockType)arg3;
 
 @end
 

@@ -28,7 +28,10 @@
         _Bool respondsToImageForReveal;
         _Bool respondsToRevealWillBegin;
         _Bool respondsToRevealDidEnd;
+        _Bool respondsToWillPresentCameraRoll;
+        _Bool respondsToPrefersPresentingStatusbarHiddenDidChange;
     } _presentationDelegateFlags;
+    _Bool _prefersPresentingStatusbarHidden;
     _Bool _shouldPauseAudioSessionUpdatesForCapture;
     _Bool __allowUpdating;
     _Bool __updateIsScheduled;
@@ -68,6 +71,7 @@
 @property(readonly, nonatomic) CAMTransientDataSource *_transientDataSource; // @synthesize _transientDataSource=__transientDataSource;
 @property(readonly, nonatomic) PUOneUpPresentationHelper *_oneUpPresentationHelper; // @synthesize _oneUpPresentationHelper=__oneUpPresentationHelper;
 @property(nonatomic) _Bool shouldPauseAudioSessionUpdatesForCapture; // @synthesize shouldPauseAudioSessionUpdatesForCapture=_shouldPauseAudioSessionUpdatesForCapture;
+@property(nonatomic, setter=_setPrefersPresentingStatusbarHidden:) _Bool prefersPresentingStatusbarHidden; // @synthesize prefersPresentingStatusbarHidden=_prefersPresentingStatusbarHidden;
 @property(retain, nonatomic, setter=_setPreviewGestureRecognizer:) UIGestureRecognizer *previewGestureRecognizer; // @synthesize previewGestureRecognizer=_previewGestureRecognizer;
 @property(nonatomic) __weak id <CAMCameraRollControllerPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate=_presentationDelegate;
 @property(nonatomic) __weak id <CAMCameraRollControllerImageWellDelegate> imageWellDelegate; // @synthesize imageWellDelegate=_imageWellDelegate;
@@ -79,6 +83,7 @@
 - (void)_registerBrowsingViewModelChangeObserver;
 - (void)oneUpPresentationHelper:(id)arg1 shouldHideAssetReferences:(id)arg2;
 - (struct CGRect)oneUpPresentationHelper:(id)arg1 rectForAssetReference:(id)arg2 cropInsets:(struct UIEdgeInsets *)arg3 contentsRect:(struct CGRect *)arg4;
+- (void)oneUpPresentationHelper:(id)arg1 willPresentOneUpViewController:(id)arg2;
 - (void)oneUpPresentationHelper:(id)arg1 previewScrubberDidBecomeAvailable:(id)arg2;
 - (_Bool)oneUpPresentationHelperShouldLeaveContentOnSecondScreen:(id)arg1;
 - (long long)oneUpPresentationHelperPreferredBarStyle:(id)arg1;
@@ -88,7 +93,7 @@
 - (void)_update;
 - (void)_ensureCameraRollViewController;
 - (void)_startNewSession;
-- (void)interactionProgressDidUpdate:(id)arg1;
+- (_Bool)_isPasscodeLocked;
 - (_Bool)shouldStartPreviewingSimultaneouslyWithGestureRecognizer:(id)arg1;
 - (void)interactionProgress:(id)arg1 didEnd:(_Bool)arg2;
 - (void)animateRevealWithInteractionProgress:(id)arg1 forPreviewingAtLocation:(struct CGPoint)arg2 inSourceView:(id)arg3 containerView:(id)arg4;

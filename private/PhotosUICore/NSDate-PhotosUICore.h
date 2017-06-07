@@ -7,6 +7,7 @@
 #import <Foundation/NSDate.h>
 
 @interface NSDate (PhotosUICore)
++ (void)px_unionStartDate:(id *)arg1 endDate:(id *)arg2 withDate:(id)arg3;
 - (_Bool)px_isSameDayAsDate:(id)arg1;
 @end
 

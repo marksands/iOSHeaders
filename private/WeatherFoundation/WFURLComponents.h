@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <WeatherFoundation/NSCopying-Protocol.h>
+#import <WeatherFoundation/NSSecureCoding-Protocol.h>
 
 @class CLLocation, NSLocale, NSString, NSURL;
 
-@interface WFURLComponents : NSObject <NSCopying>
+@interface WFURLComponents : NSObject <NSSecureCoding, NSCopying>
 {
     _Bool _showHourlyWeatherOnly;
     _Bool _isLocalWeatherCity;
@@ -22,6 +23,7 @@
     NSString *_platform;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)componentsForLocation:(id)arg1;
 + (id)componentsForURL:(id)arg1;
 + (void)locationForURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -41,6 +43,8 @@
 - (_Bool)isEqualToComponents:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithLocation:(id)arg1;
 - (id)init;
 

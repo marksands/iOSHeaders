@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEORouteInformation, NSData, NSMutableArray, NSString;
+@class GEOAlertNonRecommendedRouteText, GEOLaunchAndGoCardText, GEORouteInformation, NSData, NSMutableArray, NSString;
 
 @interface GEORoute : PBCodable <NSCopying>
 {
@@ -18,6 +18,7 @@
     CDStruct_9f2792e4 _trafficColorOffsets;
     CDStruct_9f2792e4 _trafficColors;
     NSMutableArray *_advisoryNotices;
+    GEOAlertNonRecommendedRouteText *_alertNonRecommendedRouteText;
     NSData *_arrivalRouteID;
     unsigned int _arrivalStepID;
     NSData *_basicPoints;
@@ -26,8 +27,11 @@
     unsigned int _distance;
     int _drivingSide;
     NSMutableArray *_endingRouteInstructions;
+    NSMutableArray *_enrouteNotices;
     unsigned int _expectedTime;
+    NSMutableArray *_guidanceEvents;
     unsigned int _historicTravelTime;
+    GEOLaunchAndGoCardText *_launchAndGoCardText;
     NSString *_name;
     NSString *_phoneticName;
     NSMutableArray *_routeDescriptions;
@@ -66,12 +70,17 @@
     } _has;
 }
 
++ (Class)guidanceEventType;
 + (Class)endingRouteInstructionType;
 + (Class)startingRouteInstructionType;
 + (Class)routeDescriptionType;
++ (Class)enrouteNoticeType;
 + (Class)routeNameType;
 + (Class)advisoryNoticeType;
 + (Class)stepType;
+@property(retain, nonatomic) GEOLaunchAndGoCardText *launchAndGoCardText; // @synthesize launchAndGoCardText=_launchAndGoCardText;
+@property(retain, nonatomic) NSMutableArray *guidanceEvents; // @synthesize guidanceEvents=_guidanceEvents;
+@property(retain, nonatomic) GEOAlertNonRecommendedRouteText *alertNonRecommendedRouteText; // @synthesize alertNonRecommendedRouteText=_alertNonRecommendedRouteText;
 @property(retain, nonatomic) NSString *trafficDescriptionLong; // @synthesize trafficDescriptionLong=_trafficDescriptionLong;
 @property(retain, nonatomic) NSString *trafficDescription; // @synthesize trafficDescription=_trafficDescription;
 @property(retain, nonatomic) NSMutableArray *endingRouteInstructions; // @synthesize endingRouteInstructions=_endingRouteInstructions;
@@ -79,6 +88,7 @@
 @property(retain, nonatomic) NSMutableArray *routeDescriptions; // @synthesize routeDescriptions=_routeDescriptions;
 @property(retain, nonatomic) GEORouteInformation *routePlanningDescription; // @synthesize routePlanningDescription=_routePlanningDescription;
 @property(retain, nonatomic) NSData *unpackedLatLngVertices; // @synthesize unpackedLatLngVertices=_unpackedLatLngVertices;
+@property(retain, nonatomic) NSMutableArray *enrouteNotices; // @synthesize enrouteNotices=_enrouteNotices;
 @property(nonatomic) _Bool avoidsTraffic; // @synthesize avoidsTraffic=_avoidsTraffic;
 @property(nonatomic) _Bool avoidsHighways; // @synthesize avoidsHighways=_avoidsHighways;
 @property(nonatomic) _Bool avoidsTolls; // @synthesize avoidsTolls=_avoidsTolls;
@@ -100,6 +110,7 @@
 @property(retain, nonatomic) NSString *phoneticName; // @synthesize phoneticName=_phoneticName;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSMutableArray *steps; // @synthesize steps=_steps;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -109,6 +120,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasLaunchAndGoCardText;
+- (id)guidanceEventAtIndex:(unsigned long long)arg1;
+- (unsigned long long)guidanceEventsCount;
+- (void)addGuidanceEvent:(id)arg1;
+- (void)clearGuidanceEvents;
+@property(readonly, nonatomic) _Bool hasAlertNonRecommendedRouteText;
 @property(readonly, nonatomic) _Bool hasTrafficDescriptionLong;
 @property(readonly, nonatomic) _Bool hasTrafficDescription;
 - (id)endingRouteInstructionAtIndex:(unsigned long long)arg1;
@@ -137,6 +154,10 @@
 @property(readonly, nonatomic) unsigned int *incidentIndices;
 @property(readonly, nonatomic) unsigned long long incidentIndicesCount;
 @property(readonly, nonatomic) _Bool hasUnpackedLatLngVertices;
+- (id)enrouteNoticeAtIndex:(unsigned long long)arg1;
+- (unsigned long long)enrouteNoticesCount;
+- (void)addEnrouteNotice:(id)arg1;
+- (void)clearEnrouteNotices;
 @property(nonatomic) _Bool hasAvoidsTraffic;
 @property(nonatomic) _Bool hasAvoidsHighways;
 @property(nonatomic) _Bool hasAvoidsTolls;

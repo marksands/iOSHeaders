@@ -12,6 +12,8 @@
 {
 }
 
++ (void)batchFetchFaceGroupByFaceUUIDWithFaceUUIDs:(id)arg1 predicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (id)detectedFaceGroupWithUUID:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)entityInManagedObjectContext:(id)arg1;
 + (id)entityName;
 + (id)insertInManagedObjectContext:(id)arg1;
@@ -23,7 +25,7 @@
 @property(retain, nonatomic) PLPerson *associatedPerson; // @dynamic associatedPerson;
 @property(retain, nonatomic) NSSet *detectedFaces; // @dynamic detectedFaces;
 @property(nonatomic) PLDetectedFace *keyFace; // @dynamic keyFace;
-@property(nonatomic) short personBuilderState; // @dynamic personBuilderState;
+@property(nonatomic) int personBuilderState; // @dynamic personBuilderState;
 @property(nonatomic) int unnamedFaceCount; // @dynamic unnamedFaceCount;
 @property(retain, nonatomic) NSString *uuid; // @dynamic uuid;
 

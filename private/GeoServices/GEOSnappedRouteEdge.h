@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface GEOSnappedRouteEdge : NSObject
 {
@@ -23,15 +23,14 @@
 @property(readonly, nonatomic) shared_ptr_92bc9970 mapEdge; // @synthesize mapEdge=_mapEdge;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) CDStruct_2244da21 *feature;
+@property(readonly, nonatomic) CDStruct_a2ef2718 *feature;
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffsetB;
 @property(readonly, nonatomic) struct PolylineCoordinate routeOffsetA;
 @property(readonly, nonatomic) struct PolylineCoordinate *routeOffsets;
 - (id)description;
 @property(readonly, nonatomic) unsigned long long pointCount;
-@property(readonly, nonatomic) CDStruct_b2fbf00d *points;
+@property(readonly, nonatomic) CDStruct_6e3f967a *points;
 - (void)calculateRouteOffsetsBetweenA:(struct PolylineCoordinate)arg1 andB:(struct PolylineCoordinate)arg2 overLength:(float)arg3 onRoute:(id)arg4;
-- (void)dealloc;
 - (id)initWithRoadPath:(const RoadPathElement_1a15aef6 *)arg1 sectionRect:(const CDStruct_90e2a262 *)arg2;
 
 @end

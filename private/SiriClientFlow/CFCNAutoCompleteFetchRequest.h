@@ -6,11 +6,12 @@
 
 #import <SAObjects/SADomainCommand.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
 #import <SiriClientFlow/SAAceSerializable-Protocol.h>
 
 @class CFCNAutoCompleteFetchContext, NSArray, NSString;
 
-@interface CFCNAutoCompleteFetchRequest : SADomainCommand <SAAceSerializable>
+@interface CFCNAutoCompleteFetchRequest : SADomainCommand <CFLocalAceHandling, SAAceSerializable>
 {
 }
 
@@ -25,6 +26,11 @@
 @property(retain, nonatomic) CFCNAutoCompleteFetchContext *fetchContext;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (id)commandFailedWithError:(id)arg1;
+- (id)errorWithReason:(id)arg1 code:(long long)arg2;
+- (void)handleWithCompletion:(CDUnknownBlockType)arg1;
+- (id)autoCompeleteFetchContext;
+- (unsigned long long)autoCompleteSearchTypeWithError:(id *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

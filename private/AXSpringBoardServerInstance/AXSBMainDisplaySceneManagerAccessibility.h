@@ -13,7 +13,7 @@
 + (void)_accessibilityPerformValidations:(id)arg1;
 + (Class)safeCategoryBaseClass;
 + (id)safeCategoryTargetClassName;
-- (_Bool)_shouldBreadcrumbApplication:(id)arg1 withTransitionContext:(id)arg2;
+- (_Bool)_shouldBreadcrumbApplicationSceneEntity:(id)arg1 withTransitionContext:(id)arg2;
 
 @end
 

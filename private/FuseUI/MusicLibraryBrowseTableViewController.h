@@ -78,7 +78,6 @@
 - (void)_reloadTableViewData;
 - (void)_recycleSectionCoalescingEntityValueProvider:(id)arg1;
 - (void)_recycleItemCoalescingEntityValueProvider:(id)arg1;
-- (void)_presentContextualActionsWithEntityValueContext:(id)arg1 fromButton:(id)arg2;
 - (id)_itemEntityValueContext;
 - (void)_invalidateIndexBarDataSource;
 - (id)_effectiveEntityProvider;
@@ -124,11 +123,7 @@
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (void)tableViewTintColorDidChange:(id)arg1;
 - (_Bool)tableView:(id)arg1 shouldForceBottomSeparatorVisibleForSection:(long long)arg2;
-- (void)tableView:(id)arg1 didSelectPlayButtonAction:(unsigned long long)arg2 forSectionHeaderView:(id)arg3;
-- (void)tableView:(id)arg1 didSelectPlayButtonAction:(unsigned long long)arg2 forCell:(id)arg3;
 - (void)tableView:(id)arg1 didSelectHeaderViewForSection:(long long)arg2;
-- (void)tableView:(id)arg1 didSelectContextualActionsButton:(id)arg2 forSectionHeaderView:(id)arg3;
-- (void)tableView:(id)arg1 didSelectContextualActionsButton:(id)arg2 forCell:(id)arg3;
 - (void)tableView:(id)arg1 didSelectAddButtonForCell:(id)arg2 events:(unsigned long long)arg3;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;

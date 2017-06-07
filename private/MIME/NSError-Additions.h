@@ -7,6 +7,8 @@
 #import <Foundation/NSError.h>
 
 @interface NSError (Additions)
++ (void)mf_setDecoder:(CDUnknownBlockType)arg1 forDomain:(id)arg2;
+- (id)mf_publicDescription;
 - (CDUnknownBlockType)mf_match;
 @end
 

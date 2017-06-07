@@ -6,11 +6,11 @@
 
 #import <AuthKit/NSObject-Protocol.h>
 
-@class NSDictionary, NSError, NSString;
+@class AKAccountRecoveryContext, NSError, NSString;
 
 @protocol AKAppleIDAuthenticationLimitedUIProvider <NSObject>
-- (void)dismissICSCRecoveryUIWithCompletion:(void (^)(_Bool, NSError *))arg1;
-- (void)presentICSCRecoveryUIWithInfo:(NSDictionary *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
+- (void)dismissNativeRecoveryUIWithCompletion:(void (^)(_Bool, NSError *))arg1;
+- (void)presentNativeRecoveryUIWithContext:(AKAccountRecoveryContext *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)presentSecondFactorAlertWithError:(NSError *)arg1 title:(NSString *)arg2 message:(NSString *)arg3 completion:(void (^)(NSNumber *, NSError *))arg4;
 - (void)dismissSecondFactorUIWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)presentSecondFactorUIWithCompletion:(void (^)(NSNumber *, NSError *))arg1;

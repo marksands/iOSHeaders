@@ -13,6 +13,7 @@
 @property(retain, nonatomic) NSArray *userTitles;
 @property(retain, nonatomic) NSOrderedSet *moments;
 @property(nonatomic) short generationType;
+@property(nonatomic) _Bool reverseLocationDataContainsLocation;
 @property(nonatomic) _Bool reverseLocationDataIsValid;
 @property(retain, nonatomic) NSData *reverseLocationData;
 @property(nonatomic) int sortIndex;

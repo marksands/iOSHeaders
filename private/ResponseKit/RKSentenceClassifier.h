@@ -17,6 +17,7 @@
     _Bool _sentenceHasQuestionTerminator;
     _Bool _sentenceHasAlternativeConjunction;
     NSArray *_sentenceEntities;
+    NSArray *_matchedRanges;
     NSString *_languageIdentifier;
     NSString *_sentenceStringOriginal;
     NSString *_sentenceString;
@@ -59,6 +60,7 @@
 @property(readonly) _Bool lemmaAvailable; // @synthesize lemmaAvailable=_lemmaAvailable;
 @property(readonly) _Bool lexicalClassAvailable; // @synthesize lexicalClassAvailable=_lexicalClassAvailable;
 @property(readonly) NSString *languageIdentifier; // @synthesize languageIdentifier=_languageIdentifier;
+@property(retain) NSArray *matchedRanges; // @synthesize matchedRanges=_matchedRanges;
 @property(retain) NSArray *sentenceEntities; // @synthesize sentenceEntities=_sentenceEntities;
 - (void).cxx_destruct;
 - (id)classifySentence;

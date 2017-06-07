@@ -18,6 +18,8 @@
 }
 
 + (void)purgeCacheOfPassSnapshotsWithUinqueID:(id)arg1;
++ (void)purgeCache;
++ (id)sharedInstance;
 - (void).cxx_destruct;
 - (_Bool)_cachedImageWithKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_cacheItem:(id)arg1 withKey:(id)arg2;

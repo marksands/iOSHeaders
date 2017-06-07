@@ -14,6 +14,7 @@
 
 + (id)backgroundUpdateRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)backgroundUpdateRequest;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) id <SAAceSerializable> attachment;
 - (id)encodedClassName;
 - (id)groupIdentifier;

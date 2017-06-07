@@ -24,12 +24,12 @@ __attribute__((visibility("hidden")))
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(RenderQueue_70f64fd3 *)arg3;
 - (void)reset;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 sharedResources:(id)arg2 level:(unsigned long long)arg3;
 - (_Bool)shouldLayoutWithoutStyleManager;
-- (unsigned long long)mapLayerPosition;
+- (unsigned char)mapLayerPosition;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

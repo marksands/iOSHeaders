@@ -50,6 +50,7 @@
 @property(retain, nonatomic) GEOPlaceActionDetails *placeActionDetails; // @synthesize placeActionDetails=_placeActionDetails;
 @property(nonatomic) double sessionRelativeTimestamp; // @synthesize sessionRelativeTimestamp=_sessionRelativeTimestamp;
 @property(nonatomic) struct GEOSessionID sessionID; // @synthesize sessionID=_sessionID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -81,7 +82,6 @@
 @property(nonatomic) _Bool hasActionType;
 @property(nonatomic) int actionType; // @synthesize actionType=_actionType;
 @property(nonatomic) _Bool hasSessionID;
-- (void)dealloc;
 - (id)initWithTraits:(id)arg1;
 - (id)initWithTraits:(id)arg1 placeActionDetails:(id)arg2 uiTarget:(int)arg3;
 - (id)initWithTraits:(id)arg1 placeActionDetails:(id)arg2 routeDetails:(id)arg3;

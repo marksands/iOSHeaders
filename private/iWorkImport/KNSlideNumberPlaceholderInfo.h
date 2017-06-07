@@ -13,13 +13,12 @@ __attribute__((visibility("hidden")))
 
 - (void)acceptVisitor:(id)arg1;
 - (id)textureDeliveryStylesLocalized:(_Bool)arg1 animationFilter:(id)arg2;
-- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned long long)arg3;
 - (id)instructionalText;
 - (_Bool)isSelectable;
 - (Class)layoutClass;
 - (Class)repClass;
 - (int)kind;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

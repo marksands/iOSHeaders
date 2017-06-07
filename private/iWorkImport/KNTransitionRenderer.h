@@ -6,10 +6,12 @@
 
 #import <iWorkImport/KNAnimationRenderer.h>
 
+#import <iWorkImport/CAAnimationDelegate-Protocol.h>
+
 @class CALayer, NSDictionary, NSMutableArray, NSString, TSDFPSCounter;
 
 __attribute__((visibility("hidden")))
-@interface KNTransitionRenderer : KNAnimationRenderer
+@interface KNTransitionRenderer : KNAnimationRenderer <CAAnimationDelegate>
 {
     NSMutableArray *mTextures;
     long long mNumberOfAnimationsStarted;
@@ -45,7 +47,7 @@ __attribute__((visibility("hidden")))
 - (void)waitUntilAsyncRenderingIsComplete;
 - (void)setupLayerTreeForTransition;
 - (void)p_generateLayers;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)p_checkForNullTransitions:(Class)arg1;
 - (void)registerForTransitionImmediateEndCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForTransitionEndCallback:(SEL)arg1 target:(id)arg2;
@@ -55,6 +57,11 @@ __attribute__((visibility("hidden")))
 - (void)teardown;
 - (void)dealloc;
 - (id)initWithEffectClass:(Class)arg1 direction:(unsigned long long)arg2 duration:(double)arg3 session:(id)arg4 attributes:(id)arg5 animatedSlideView:(id)arg6;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,6 @@
 
 #import <ScreenReaderCore/SCRCGestureFinger.h>
 
-__attribute__((visibility("hidden")))
 @interface SCRCGestureStylus : SCRCGestureFinger
 {
     double _altitude;

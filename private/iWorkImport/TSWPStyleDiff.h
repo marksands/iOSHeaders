@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <iWorkImport/TSPObject.h>
+#import <iWorkImport/TSSStyleDiff.h>
 
-@class TSSStyle, TSSStylePropertyChangeSet, TSWPCharacterStylePropertyChangeSet;
+@class TSSStyle, TSSStylePropertyChangeSet;
 
 __attribute__((visibility("hidden")))
-@interface TSWPStyleDiff : TSPObject
+@interface TSWPStyleDiff : TSSStyleDiff
 {
-    TSWPCharacterStylePropertyChangeSet *_changeSet;
+    TSSStylePropertyChangeSet *_changeSet;
     TSSStyle *_style;
     _Bool _definedChangeSet;
     _Bool _definedStyle;
@@ -21,17 +21,17 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSSStylePropertyChangeSet *previouslyAppliedChangeSet; // @synthesize previouslyAppliedChangeSet=_previouslyAppliedChangeSet;
 @property(retain, nonatomic) TSSStylePropertyChangeSet *changeSet; // @synthesize changeSet=_changeSet;
 @property(retain, nonatomic) TSSStyle *style; // @synthesize style=_style;
+- (void).cxx_destruct;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToStyleDiff:(id)arg1;
-- (id)changedPropertyNames;
+- (id)changedPropertyNames:(id)arg1;
 - (id)styleDiffForTable:(int)arg1 storage:(id)arg2 currentObject:(id)arg3;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct StyleDiffArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct StyleDiffArchive *)arg1 unarchiver:(id)arg2;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 changeSet:(id)arg2;
 - (id)initWithContext:(id)arg1 style:(id)arg2;
 - (void)didInitFromSOS;

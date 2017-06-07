@@ -11,29 +11,28 @@
 #import <Widgets/WGWidgetExtensionVisibilityProviding-Protocol.h>
 #import <Widgets/WGWidgetListViewControllerDelegatePrivate-Protocol.h>
 
-@class NSArray, NSMapTable, NSString, UIScrollView, WGWidgetDiscoveryController;
+@class NSString, UIScrollView, WGMajorListViewController, WGWidgetDiscoveryController;
 @protocol WGWidgetGroupViewControllerDelegate;
 
 @interface WGWidgetGroupViewController : UIViewController <WGWidgetDebugging, WGWidgetDiscoveryObserving, WGWidgetListViewControllerDelegatePrivate, WGWidgetExtensionVisibilityProviding>
 {
     WGWidgetDiscoveryController *_discoveryController;
-    NSArray *_widgetListViewControllers;
+    WGMajorListViewController *_majorColumnListViewController;
     unsigned long long _lastWidgetCount;
-    NSMapTable *_transitionCoordinatorToTargetColumnMode;
     _Bool _shouldBlurContent;
     id <WGWidgetGroupViewControllerDelegate> _delegate;
     unsigned long long _location;
+    struct UIEdgeInsets _contentOccludingInset;
 }
 
+@property(nonatomic) struct UIEdgeInsets contentOccludingInset; // @synthesize contentOccludingInset=_contentOccludingInset;
 @property(nonatomic) _Bool shouldBlurContent; // @synthesize shouldBlurContent=_shouldBlurContent;
 @property(nonatomic) unsigned long long location; // @synthesize location=_location;
 @property(nonatomic) __weak id <WGWidgetGroupViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)isWidgetExtensionVisible:(id)arg1;
-- (id)materialSettingsForWidgetListViewController:(id)arg1;
+- (struct UIEdgeInsets)contentOccludingInsetForWidgetListViewController:(id)arg1;
 - (id)widgetListViewController:(id)arg1 newCustomBackgroundViewForItemInList:(id)arg2;
-- (long long)widgetListViewController:(id)arg1 columnModeForTransitionToSize:(struct CGSize)arg2 withCoordinator:(id)arg3;
-- (long long)activeColumnModeForWidgetListViewController:(id)arg1;
 - (void)widgetDiscoveryController:(id)arg1 widgetWithIdentifier:(id)arg2 shouldBecomeHiddenInGroup:(id)arg3;
 - (void)widgetDiscoveryController:(id)arg1 widgetWithIdentifier:(id)arg2 shouldBecomeVisibleInGroup:(id)arg3;
 - (void)scrollViewDidScrollToTop:(id)arg1;
@@ -49,21 +48,9 @@
 - (void)editViewWillDisappear:(id)arg1;
 - (void)editViewDidAppear:(id)arg1;
 - (void)editViewWillAppear:(id)arg1;
-- (struct CGRect)_minorColumnFrameForBounds:(struct CGRect)arg1 columnMode:(long long)arg2;
-- (struct CGRect)_minorColumnFrameForBounds:(struct CGRect)arg1 targetBounds:(struct CGRect)arg2 columnMode:(long long)arg3;
-- (struct CGRect)_majorColumnFrameForBounds:(struct CGRect)arg1 columnMode:(long long)arg2;
-- (id)_minorColumnListViewController;
-- (id)_majorColumnListViewController;
-- (void)_loadWidgetListViewControllersForColumnModes:(long long)arg1;
-- (long long)_activeColumnMode;
-- (long long)_columnModeForSize:(struct CGSize)arg1;
-- (long long)_columnModeForLayoutMode:(long long)arg1;
-- (_Bool)_supportedColumnModesIncludesTwoColumns;
+- (void)_loadWidgetListViewController;
 - (long long)_activeLayoutMode;
 - (long long)_layoutModeForSize:(struct CGSize)arg1;
-- (struct CGSize)sizeForChildContentContainer:(id)arg1 withParentContainerSize:(struct CGSize)arg2;
-- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (void)viewWillLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
@@ -73,7 +60,6 @@
 - (void)invalidateVisibleWidgets;
 - (void)setLegibilitySettings:(id)arg1;
 @property(readonly, nonatomic) unsigned long long widgetCount;
-@property(readonly, nonatomic) UIScrollView *minorScrollView;
 @property(readonly, nonatomic) UIScrollView *majorScrollView;
 - (id)_scrollViewForListViewController:(id)arg1;
 - (id)initWithWidgetDiscoveryController:(id)arg1;

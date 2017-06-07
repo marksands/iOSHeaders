@@ -15,7 +15,7 @@
 {
     NSMutableSet *mObservers;
     int mState;
-    NSObject<OS_dispatch_queue> *mObserverQueue;
+    NSObject<OS_dispatch_queue> *mQueue;
     NSObject<OS_dispatch_source> *mProgressSource;
     CATOperation *mOperation;
     _Bool mIsObserving;

@@ -10,24 +10,23 @@
 
 @interface NTKEditOptionCollection : NSObject
 {
-    _Bool _isColor;
-    _Bool _isPosition;
-    _Bool _isShowSeconds;
     long long _mode;
     NSString *_localizedName;
     NSArray *_options;
+    unsigned long long _collectionType;
 }
 
-+ (id)editOptionCollectionWithEditMode:(long long)arg1 localizedName:(id)arg2 options:(id)arg3;
-@property(nonatomic) _Bool isShowSeconds; // @synthesize isShowSeconds=_isShowSeconds;
-@property(nonatomic) _Bool isPosition; // @synthesize isPosition=_isPosition;
-@property(nonatomic) _Bool isColor; // @synthesize isColor=_isColor;
++ (id)editOptionCollectionWithEditMode:(long long)arg1 localizedName:(id)arg2 options:(id)arg3 collectionType:(unsigned long long)arg4;
+@property(nonatomic) unsigned long long collectionType; // @synthesize collectionType=_collectionType;
 @property(copy, nonatomic) NSArray *options; // @synthesize options=_options;
 @property(copy, nonatomic) NSString *localizedName; // @synthesize localizedName=_localizedName;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithEditMode:(long long)arg1 localizedName:(id)arg2 options:(id)arg3;
+- (id)prunedCollectionForOSVersion:(unsigned int)arg1;
+- (id)initWithEditMode:(long long)arg1 localizedName:(id)arg2 options:(id)arg3 collectionType:(unsigned long long)arg4;
+@property(readonly, nonatomic) NSString *optionsDescription;
+@property(readonly, nonatomic) long long swatchStyle;
 
 @end
 

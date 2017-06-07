@@ -6,16 +6,17 @@
 
 #import <objc/NSObject.h>
 
-#import <CoreMediaStream/NSCoding-Protocol.h>
+#import <CoreMediaStream/NSSecureCoding-Protocol.h>
 
 @class NSString;
 
-@interface MSSubscribedStream : NSObject <NSCoding>
+@interface MSSubscribedStream : NSObject <NSSecureCoding>
 {
     NSString *_streamID;
     NSString *_ctag;
 }
 
++ (_Bool)supportsSecureCoding;
 + (id)subscribedStreamWithStreamID:(id)arg1;
 @property(retain, nonatomic) NSString *ctag; // @synthesize ctag=_ctag;
 @property(retain, nonatomic) NSString *streamID; // @synthesize streamID=_streamID;

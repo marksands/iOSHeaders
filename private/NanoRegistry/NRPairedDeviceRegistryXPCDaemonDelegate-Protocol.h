@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSSet, NSUUID;
+@class NSData, NSSet, NSUUID;
 
 @protocol NRPairedDeviceRegistryXPCDaemonDelegate
+- (void)xpcPutMigrationChallengeCharacteristicWriteData:(NSData *)arg1 completion:(void (^)(_Bool))arg2;
+- (void)xpcGetMigrationPairingCharacteristicReadDataWithCompletion:(void (^)(NSData *))arg1;
 - (void)xpcSwitchToSimulator:(NSUUID *)arg1 withCompletion:(void (^)(NSError *))arg2;
 - (void)xpcUnpairWithSimulator:(NSUUID *)arg1 withCompletion:(void (^)(NSError *))arg2;
 - (void)xpcPairWithSimulator:(NSUUID *)arg1 withCompletion:(void (^)(NSError *))arg2;

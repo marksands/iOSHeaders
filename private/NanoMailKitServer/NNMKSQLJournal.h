@@ -29,6 +29,7 @@
 - (void)mergeUsingBlock:(CDUnknownBlockType)arg1;
 - (void)flushIfNeeded;
 - (void)appendSQLStatement:(id)arg1;
+- (void)dealloc;
 - (id)initWithPath:(id)arg1;
 
 @end

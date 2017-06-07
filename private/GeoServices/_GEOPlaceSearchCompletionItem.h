@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOCompletionItemPrivate-Protocol.h>
 
-@class GEOMapServiceTraits, GEOPDAutocompleteEntry, GEOSearchCategory, NSArray, NSData, NSString;
+@class GEOMapItemIdentifier, GEOMapServiceTraits, GEOPDAutocompleteEntry, GEOSearchCategory, NSArray, NSData, NSString;
 @protocol GEOMapItem;
 
 __attribute__((visibility("hidden")))
@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) GEOPDAutocompleteEntry *entry; // @synthesize entry=_entry;
 @property(readonly, nonatomic) NSArray *displayLines; // @synthesize displayLines=_displayLines;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) GEOMapItemIdentifier *identifier;
 @property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic, getter=_placeDataAutocompleteEntry) GEOPDAutocompleteEntry *placeDataAutocompleteEntry;
 @property(readonly) unsigned long long hash;
@@ -39,7 +41,6 @@ __attribute__((visibility("hidden")))
 - (id)calloutTitle;
 - (id)queryLine;
 - (id)highlightsForLine:(unsigned long long)arg1;
-- (void)dealloc;
 - (id)initWithEntry:(id)arg1 traits:(id)arg2 entryListIndex:(int)arg3 entryIndex:(int)arg4 mapItems:(id)arg5;
 
 // Remaining properties

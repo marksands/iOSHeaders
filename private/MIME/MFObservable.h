@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface MFObservable : NSObject
 {
@@ -14,6 +14,7 @@
 + (id)neverObservable;
 + (id)merge:(id)arg1;
 + (id)concatenate:(id)arg1;
++ (id)combineLatest:(id)arg1;
 + (id)observableOnDefaultNotificationCenterWithName:(id)arg1 object:(id)arg2;
 + (id)observableOnNotificationCenter:(id)arg1 name:(id)arg2 object:(id)arg3;
 + (id)observableWithTimeInterval:(double)arg1 scheduler:(id)arg2;
@@ -36,6 +37,8 @@
 - (id)publish;
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)filter:(CDUnknownBlockType)arg1;
+- (id)take:(unsigned long long)arg1;
+- (id)first;
 - (id)distinctUntilChanged;
 - (id)doOnTerminate:(CDUnknownBlockType)arg1;
 - (id)doOnCancel:(CDUnknownBlockType)arg1;

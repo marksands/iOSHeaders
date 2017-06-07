@@ -41,6 +41,7 @@
 @property(readonly, nonatomic) NSDate *captureDate;
 @property(readonly, copy, nonatomic) NSURL *persistenceURL;
 @property(readonly, nonatomic) NSString *uuid;
+@property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType;
 - (void)dealloc;
 - (id)initWithAssetUUID:(id)arg1 captureSession:(unsigned short)arg2 creationDate:(id)arg3 captureOrientation:(long long)arg4 captureDevice:(long long)arg5 videoDimensions:(struct CGSize)arg6 previewImageSurface:(void *)arg7;

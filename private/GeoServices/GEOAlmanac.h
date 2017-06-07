@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOAlmanacRiseTransitSet, NSDate;
 
@@ -15,6 +15,7 @@
     GEOAlmanacRiseTransitSet *_nextRiseTransitSet;
 }
 
+- (void).cxx_destruct;
 - (_Bool)isDayLightForDate:(id)arg1;
 - (_Bool)isDayLightForTime:(double)arg1;
 @property(readonly, nonatomic) _Bool isDayLight;
@@ -36,7 +37,6 @@
 - (void)calculateAstronomicalTimeForLocation:(CDStruct_c3b9c2ee)arg1 time:(double)arg2;
 - (void)calculateAstronomicalTimeForLocation:(CDStruct_c3b9c2ee)arg1 altitudeInDegrees:(double)arg2;
 - (void)calculateAstronomicalTimeForLocation:(CDStruct_c3b9c2ee)arg1;
-- (void)dealloc;
 
 @end
 

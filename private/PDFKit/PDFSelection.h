@@ -18,10 +18,6 @@
 - (void).cxx_destruct;
 - (struct _NSRange)previewRangeAtIndex:(unsigned long long)arg1 onPage:(id)arg2;
 - (id)description;
-- (void)setHasMagnifier:(_Bool)arg1;
-- (_Bool)hasMagnifier;
-- (void)setHasHandles:(_Bool)arg1;
-- (_Bool)hasHandles;
 - (void)normalize;
 - (void)drawForPage:(id)arg1 withBox:(int)arg2 active:(_Bool)arg3 inContext:(struct CGContext *)arg4;
 - (void)setForceBreaks:(_Bool)arg1;
@@ -30,7 +26,6 @@
 - (id)inactiveColor;
 - (void)setActiveColor:(id)arg1;
 - (id)activeColor;
-- (void)addRichTypesToPasteboard:(id)arg1;
 - (id)rtfdData;
 - (id)webArchive;
 - (id)html;
@@ -64,6 +59,7 @@
 - (void)dealloc;
 - (void)drawForPage:(id)arg1 withBox:(long long)arg2 active:(_Bool)arg3;
 - (void)drawForPage:(id)arg1 active:(_Bool)arg2;
+- (void)extendSelectionForLineBoundaries;
 - (void)extendSelectionAtStart:(long long)arg1;
 - (void)extendSelectionAtEnd:(long long)arg1;
 - (void)addSelections:(id)arg1;
@@ -71,10 +67,13 @@
 - (id)selectionsByLine;
 - (struct _NSRange)rangeAtIndex:(unsigned long long)arg1 onPage:(id)arg2;
 - (unsigned long long)numberOfTextRangesOnPage:(id)arg1;
+- (struct CGRect)lastSpanBoundsForPage:(id)arg1;
+- (struct CGRect)firstSpanBoundsForPage:(id)arg1;
+- (struct CGRect)spanBoundsForPage:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (struct CGRect)boundsForPage:(id)arg1;
 @property(readonly, nonatomic) NSAttributedString *attributedString;
 @property(readonly, nonatomic) NSString *string;
-@property(retain, nonatomic) UIColor *color;
+@property(copy, nonatomic) UIColor *color;
 @property(readonly, nonatomic) NSArray *pages;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithDocument:(id)arg1;

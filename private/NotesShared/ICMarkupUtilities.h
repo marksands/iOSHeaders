@@ -10,15 +10,12 @@
 {
 }
 
++ (id)markupModelDataFromData:(id)arg1;
 + (id)markupModelDataFromDataAtURL:(id)arg1;
 + (void)applyMarkupModelData:(id)arg1 attachment:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (void)extractReturnedMarkupURL:(id)arg1 attachment:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (void)embedReturnedMarkupURL:(id)arg1 attachment:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (void)applyReturnedMarkupURL:(id)arg1 attachment:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-+ (struct UIImage *)fullSizeImageWithMarkupAndFilterForAttachment:(id)arg1;
-+ (id)dataToEditForAttachment:(id)arg1 embedData:(_Bool)arg2;
-+ (id)dataToEditForAttachment:(id)arg1;
-+ (struct UIImage *)imageWithMarkupModelData:(id)arg1 sourceImage:(struct UIImage *)arg2;
 + (id)imageDataWithMarkupModelData:(id)arg1 sourceImageURL:(id)arg2;
 + (id)imageDataWithMarkupModelData:(id)arg1 sourceImageData:(id)arg2 embedData:(_Bool)arg3;
 + (id)imageDataWithMarkupModelData:(id)arg1 sourceImageData:(id)arg2;

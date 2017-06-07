@@ -37,6 +37,7 @@
 - (id)formatVersion;
 - (id)init;
 - (id)initWithDiskCacheName:(id)arg1;
+- (id)urlForGraphApplicationData;
 - (id)initWithDiskCacheName:(id)arg1 dataModelName:(id)arg2;
 
 @end

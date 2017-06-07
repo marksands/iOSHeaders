@@ -31,6 +31,7 @@
             unsigned int inputStringIsExemptFromChecker:1;
             unsigned int suppressPlaceholderCandidate:1;
             unsigned int usesAutocorrectionLists:1;
+            unsigned int autoquoteType:2;
         } fields;
     } _mask;
     _Bool _shouldAddModifierSymbolsToWordCharacters;
@@ -80,6 +81,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)dealloc;
+@property(nonatomic) unsigned long long autoquoteType;
 @property(nonatomic) _Bool suppressPlaceholderCandidate;
 @property(nonatomic) _Bool usesAutocorrectionLists;
 @property(nonatomic) _Bool usesCandidateSelection;

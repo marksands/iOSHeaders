@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSString *albumName; // @synthesize albumName=_albumName;
 @property(retain, nonatomic) NSString *albumCloudGUID; // @synthesize albumCloudGUID=_albumCloudGUID;
 @property(retain, nonatomic) NSArray *mediaSources; // @synthesize mediaSources=_mediaSources;
+- (void)dealloc;
 - (void)executeDaemonOperation;
 - (id)description;
 - (_Bool)shouldArchiveXPCToDisk;

@@ -6,23 +6,25 @@
 
 #import <CoreSuggestionsInternals/SGEntity.h>
 
-@class NSArray, NSData, NSIndexSet, NSMutableArray, NSMutableDictionary, NSString, SGMessage;
+@class NSArray, NSData, NSIndexSet, NSMutableArray, NSMutableDictionary, NSNumber, NSSet, NSString, SGMessage;
 
 @interface SGPipelineEntity : SGEntity
 {
     NSMutableArray *_enrichments;
+    NSMutableArray *_externalEnrichments;
     NSString *_plainTextContentCache;
     _Bool _plainTextContentCacheGenerated;
     struct _opaque_pthread_mutex_t _plainTextContentCacheLock;
     _Bool _fullDownloadRequested;
     CDStruct_f96224e3 _inhumanFeatures;
     struct _opaque_pthread_mutex_t _dissectorLock;
+    NSNumber *_isAppleInternalConversation;
     _Bool _contactInformationExtracted;
     _Bool _pendingGeocode;
     NSIndexSet *_plainTextQuotedRegions;
     NSIndexSet *_plainTextTabularRegions;
     NSIndexSet *_plainTextSigHtmlBlockRegions;
-    struct __DDResult *_dataDetectorsSignature;
+    // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}, name: _dataDetectorsSignature
     NSArray *_instantMessageAddresses;
     NSArray *_plainTextLines;
     unsigned long long *_htmlOffsets;
@@ -31,12 +33,19 @@
     SGMessage *_message;
     NSData *_contentHash;
     NSArray *_invalidatedMessageIdentifiers;
+    NSArray *_authorMatchingContacts;
+    NSSet *_authorMatchingContactsKeys;
     struct _NSRange _plainTextSigRange;
 }
 
++ (id)socialProfile:(id)arg1 forIdentity:(id)arg2 parent:(id)arg3 curated:(_Bool)arg4 context:(id)arg5 contextRangeOfInterest:(struct _NSRange)arg6 extractionType:(unsigned long long)arg7;
++ (id)instantMessageAddress:(id)arg1 forIdentity:(id)arg2 parent:(id)arg3 curated:(_Bool)arg4 context:(id)arg5 contextRangeOfInterest:(struct _NSRange)arg6 extractionType:(unsigned long long)arg7;
 + (id)emailAddress:(id)arg1 forIdentity:(id)arg2 parent:(id)arg3 curated:(_Bool)arg4 context:(id)arg5 contextRangeOfInterest:(struct _NSRange)arg6 extractionType:(unsigned long long)arg7;
 + (id)phoneNumber:(id)arg1 forIdentity:(id)arg2 parent:(id)arg3 curated:(_Bool)arg4 context:(id)arg5 contextRangeOfInterest:(struct _NSRange)arg6 extractionType:(unsigned long long)arg7;
 + (id)address:(id)arg1 forIdentity:(id)arg2 parent:(id)arg3 curated:(_Bool)arg4 context:(id)arg5 contextRangeOfInterest:(struct _NSRange)arg6 extractionType:(unsigned long long)arg7;
++ (id)fromCloudKitRecord:(id)arg1 parentEntity:(id)arg2;
+@property(retain, nonatomic) NSSet *authorMatchingContactsKeys; // @synthesize authorMatchingContactsKeys=_authorMatchingContactsKeys;
+@property(retain, nonatomic) NSArray *authorMatchingContacts; // @synthesize authorMatchingContacts=_authorMatchingContacts;
 @property(retain) NSArray *invalidatedMessageIdentifiers; // @synthesize invalidatedMessageIdentifiers=_invalidatedMessageIdentifiers;
 @property(nonatomic) _Bool pendingGeocode; // @synthesize pendingGeocode=_pendingGeocode;
 @property(retain, nonatomic) NSData *contentHash; // @synthesize contentHash=_contentHash;
@@ -47,13 +56,19 @@
 @property(readonly, nonatomic) NSArray *plainTextLines; // @synthesize plainTextLines=_plainTextLines;
 @property(readonly, nonatomic) NSArray *instantMessageAddresses; // @synthesize instantMessageAddresses=_instantMessageAddresses;
 @property(nonatomic) _Bool contactInformationExtracted; // @synthesize contactInformationExtracted=_contactInformationExtracted;
-@property(nonatomic) struct __DDResult *dataDetectorsSignature; // @synthesize dataDetectorsSignature=_dataDetectorsSignature;
+// Error parsing type for property dataDetectorsSignature:
+// Property attributes: T^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf},N,V_dataDetectorsSignature
+
 @property(nonatomic) struct _NSRange plainTextSigRange; // @synthesize plainTextSigRange=_plainTextSigRange;
 @property(retain, nonatomic) NSIndexSet *plainTextSigHtmlBlockRegions; // @synthesize plainTextSigHtmlBlockRegions=_plainTextSigHtmlBlockRegions;
 @property(retain, nonatomic) NSIndexSet *plainTextTabularRegions; // @synthesize plainTextTabularRegions=_plainTextTabularRegions;
 @property(retain, nonatomic) NSIndexSet *plainTextQuotedRegions; // @synthesize plainTextQuotedRegions=_plainTextQuotedRegions;
+@property(retain, nonatomic) NSArray *externalEnrichments; // @synthesize externalEnrichments=_externalEnrichments;
 @property(retain, nonatomic) NSArray *enrichments; // @synthesize enrichments=_enrichments;
 - (void).cxx_destruct;
+- (_Bool)isAuthorKnownAppleContact;
+- (_Bool)isAppleInternalConversation;
+- (void)runWithDissectorLock:(CDUnknownBlockType)arg1;
 - (void)releaseDissectorLock;
 - (void)acquireDissectorLock;
 - (unsigned long long)eventEnrichmentsCount;
@@ -76,6 +91,10 @@
 - (id)contactDetailsWithType:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSString *authorEmail;
 - (void)setAuthor:(id)arg1;
+- (void)addDetectedSocialProfile:(id)arg1 forIdentity:(id)arg2 context:(id)arg3 contextRangeOfInterest:(struct _NSRange)arg4 extractionType:(unsigned long long)arg5;
+- (void)addSocialProfileEnrichment:(id)arg1;
+- (void)addDetectedInstantMessageAddress:(id)arg1 forIdentity:(id)arg2 context:(id)arg3 contextRangeOfInterest:(struct _NSRange)arg4 extractionType:(unsigned long long)arg5;
+- (void)addInstantMessageAddressEnrichment:(id)arg1;
 - (void)addUnrecognizedLookupEmailAddress:(id)arg1;
 - (void)addCuratedEmailAddress:(id)arg1;
 - (void)addDetectedEmailAddress:(id)arg1 forIdentity:(id)arg2 context:(id)arg3 contextRangeOfInterest:(struct _NSRange)arg4 extractionType:(unsigned long long)arg5;
@@ -90,6 +109,7 @@
 - (void)setCreationTimestamp:(struct SGUnixTimestamp_)arg1;
 - (void)stripEventInformation;
 - (void)stripContactInformation;
+- (void)addExternalEnrichment:(id)arg1;
 - (void)addEnrichment:(id)arg1;
 - (void)dealloc;
 - (id)initWithContactDetailWithKey:(id)arg1 type:(unsigned long long)arg2 extractionType:(unsigned long long)arg3 curated:(_Bool)arg4 parent:(id)arg5 value:(id)arg6 context:(id)arg7 contextRangeOfInterest:(struct _NSRange)arg8;
@@ -100,6 +120,7 @@
 - (id)initWithUnrecognizedContactWithKey:(id)arg1;
 - (id)initWithPseudoContactWithKey:(id)arg1 parent:(id)arg2 name:(id)arg3;
 - (id)initWithDuplicateKey:(id)arg1 title:(id)arg2 parent:(id)arg3;
+- (id)toCloudKitRecordWithId:(id)arg1;
 
 @end
 

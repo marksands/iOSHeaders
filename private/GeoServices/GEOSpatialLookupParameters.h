@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray;
 
@@ -18,7 +18,7 @@
 @property(readonly, nonatomic) NSArray *categories; // @synthesize categories=_categories;
 @property(readonly, nonatomic) double radius; // @synthesize radius=_radius;
 @property(readonly, nonatomic) CDStruct_c3b9c2ee coordinate; // @synthesize coordinate=_coordinate;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithCoordinate:(CDStruct_c3b9c2ee)arg1 radius:(double)arg2 categories:(id)arg3;
 
 @end

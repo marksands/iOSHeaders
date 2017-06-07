@@ -19,6 +19,7 @@
     unsigned long long _state;
 }
 
++ (id)shortDescription;
 + (id)platformImplementationProtocol;
 + (id)stateDescriptionForState:(unsigned long long)arg1;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
@@ -29,11 +30,11 @@
 - (void).cxx_destruct;
 - (void)tearDownWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)finalizeWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)beginSessionWithKnownLibraryVersion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)beginSessionWithKnownLibraryVersion:(id)arg1 resetTracker:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)createSessionContext;
 - (void)resume;
 - (void)pause;
 - (void)dealloc;
-- (id)_sessionLogDomain;
 - (id)initWithLibraryManager:(id)arg1;
 - (id)init;
 

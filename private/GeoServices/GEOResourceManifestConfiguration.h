@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 
@@ -42,13 +42,14 @@
 @property(copy, nonatomic) NSString *osVersion; // @synthesize osVersion=_osVersion;
 @property(copy, nonatomic) NSString *os; // @synthesize os=_os;
 @property(nonatomic) unsigned int tileGroupIdentifier; // @synthesize tileGroupIdentifier=_tileGroupIdentifier;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *directorySuffix;
 - (_Bool)isDefaultConfiguration;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)manifestDictionaryRepresentation;
 - (id)conciseDictionaryRepresentation;
 - (id)initWithConciseDictionaryRepresentation:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

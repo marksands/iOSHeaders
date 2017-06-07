@@ -17,11 +17,13 @@
 - (_Bool)setViewsWithEnableSet:(NSSet *)arg1 disableSet:(NSSet *)arg2;
 - (_Bool)anyPeerHasEnabledViewsInSet:(NSSet *)arg1 error:(id *)arg2;
 - (_Bool)viewMemberForAutofillPasswords:(id *)arg1;
+- (_Bool)viewMemberForPCSMaster:(id *)arg1;
 - (_Bool)requestToResetCircle:(id *)arg1;
 - (_Bool)requestToJoinCircleAfterRestore:(id *)arg1;
 - (_Bool)requestToJoinCircle:(id *)arg1;
 - (_Bool)removeThisDeviceFromCircle:(id *)arg1;
 - (_Bool)synchronizeCircleViews;
+- (NSDictionary *)generateVerifierWithRcoveryKey:(NSString *)arg1 error:(id *)arg2;
 - (NSString *)generateRecoveryKeyWithInfo:(NSDictionary *)arg1 error:(id *)arg2;
 - (NSDictionary *)peerDeviceNamesByPeerID;
 - (unsigned long long)peerCount;

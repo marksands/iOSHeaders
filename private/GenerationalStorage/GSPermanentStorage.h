@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GenerationalStorage/GSAdditionStoring-Protocol.h>
 #import <GenerationalStorage/GSAdditionStoringPrivate-Protocol.h>
@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) id <NSCopying><NSSecureCoding> persistentIdentifier; // @synthesize persistentIdentifier=_documentID;
 @property(retain, nonatomic) GSStagingPrefix *stagingPrefix; // @synthesize stagingPrefix=_stagingPrefix;
 @property(retain) NSURL *documentURL; // @synthesize documentURL=_documentURL;
+- (void).cxx_destruct;
 - (_Bool)transferToItemAtURL:(id)arg1 error:(id *)arg2;
 - (void)removeAllAdditionsForNamespaces:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)removeAdditions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

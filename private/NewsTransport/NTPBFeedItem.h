@@ -8,7 +8,7 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLArticleScores, NSMutableArray, NSString;
 
 @interface NTPBFeedItem : PBCodable <NSCopying>
 {
@@ -22,10 +22,12 @@
     NSString *_articleID;
     NSString *_clusterID;
     NSString *_feedID;
+    COMAPPLEFELDSPARPROTOCOLLIVERPOOLArticleScores *_scores;
     NSString *_sourceChannelID;
     NSMutableArray *_topicIDs;
     _Bool _hasCoverArt;
     _Bool _hasThumbnail;
+    _Bool _hasVideo;
     _Bool _isExplicitContent;
     _Bool _isFromBlockedStorefront;
     _Bool _isPaid;
@@ -39,6 +41,7 @@
         unsigned int publisherArticleVersion:1;
         unsigned int hasCoverArt:1;
         unsigned int hasThumbnail:1;
+        unsigned int hasVideo:1;
         unsigned int isExplicitContent:1;
         unsigned int isFromBlockedStorefront:1;
         unsigned int isPaid:1;
@@ -46,7 +49,9 @@
 }
 
 + (Class)topicIDsType;
+@property(retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLArticleScores *scores; // @synthesize scores=_scores;
 @property(nonatomic) long long publisherArticleVersion; // @synthesize publisherArticleVersion=_publisherArticleVersion;
+@property(nonatomic) _Bool hasVideo; // @synthesize hasVideo=_hasVideo;
 @property(nonatomic) _Bool isPaid; // @synthesize isPaid=_isPaid;
 @property(nonatomic) _Bool hasCoverArt; // @synthesize hasCoverArt=_hasCoverArt;
 @property(retain, nonatomic) NSMutableArray *topicIDs; // @synthesize topicIDs=_topicIDs;
@@ -71,7 +76,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasScores;
 @property(nonatomic) _Bool hasPublisherArticleVersion;
+@property(nonatomic) _Bool hasHasVideo;
 @property(nonatomic) _Bool hasIsPaid;
 @property(nonatomic) _Bool hasHasCoverArt;
 - (id)topicIDsAtIndex:(unsigned long long)arg1;

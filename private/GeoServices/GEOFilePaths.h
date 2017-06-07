@@ -4,16 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface GEOFilePaths : NSObject
 {
 }
 
-+ (id)locationShifterDBFilePath;
++ (id)traceExtension;
++ (id)navTracesDirectoryPath;
++ (id)geodLibraryDirectoryURL;
++ (id)aleStringsCacheDirectoryPath;
 + (id)mapsSuggestionsCacheDirectoryPath;
 + (id)logMessageCacheDirectoryPath;
++ (id)locationShifterDBFilePath;
++ (id)layerDataTrackerDBFilePath;
 + (id)requestCountsDBFilePath;
++ (id)mapLayerDataDirectoryPath;
 + (id)tileCacheDirectoryPath;
 + (id)navdCacheDirectoryPath;
 + (id)placeDataCacheDirectoryPath;

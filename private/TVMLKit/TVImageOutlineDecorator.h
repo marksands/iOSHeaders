@@ -18,7 +18,7 @@
 @property(readonly, nonatomic) struct UIEdgeInsets outlineWidths; // @synthesize outlineWidths=_outlineWidths;
 @property(readonly, copy, nonatomic) UIColor *outlineColor; // @synthesize outlineColor=_outlineColor;
 - (void).cxx_destruct;
-- (void)_drawInScaledContext:(struct CGContext *)arg1;
+- (void)drawInContext:(id)arg1 imageRect:(struct CGRect)arg2;
 - (id)decoratorIdentifier;
 - (id)initWithOutlineColor:(id)arg1 outlineWidths:(struct UIEdgeInsets)arg2;
 

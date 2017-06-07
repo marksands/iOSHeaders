@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOLocation, GEOQuickETATransitDeparturesInfo, NSMutableArray, NSString;
 
@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int responseETASeconds; // @synthesize responseETASeconds=_responseETASeconds;
 @property(readonly, nonatomic) GEOLocation *destinationLocation; // @synthesize destinationLocation=_destinationLocation;
 @property(readonly, nonatomic) GEOLocation *sourceLocation; // @synthesize sourceLocation=_sourceLocation;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithDirectionsResponse:(id)arg1 fromRequest:(id)arg2;
 - (id)initWithETAResult:(id)arg1 fromRequest:(id)arg2;
 

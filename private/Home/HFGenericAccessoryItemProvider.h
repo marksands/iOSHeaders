@@ -6,21 +6,25 @@
 
 #import <Home/HFItemProvider.h>
 
-@class NSMutableSet;
+@class HMHome, NSMutableSet;
 
 @interface HFGenericAccessoryItemProvider : HFItemProvider
 {
     CDUnknownBlockType _filter;
+    HMHome *_home;
     NSMutableSet *_genericItems;
 }
 
 @property(retain, nonatomic) NSMutableSet *genericItems; // @synthesize genericItems=_genericItems;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
 - (void).cxx_destruct;
 - (id)invalidationReasons;
 - (id)items;
 - (_Bool)_supportsCreatingAccessoryItemForAccessory:(id)arg1;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 - (id)initWithHome:(id)arg1;
 
 @end

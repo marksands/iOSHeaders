@@ -8,7 +8,7 @@
 
 #import <iWorkImport/NSCopying-Protocol.h>
 
-@class NSDate, NSNumber, NSString;
+@class NSDate, NSNumber, NSString, TSTUidRangeRef;
 
 __attribute__((visibility("hidden")))
 @interface TSTFormulaPredArg : NSObject <NSCopying>
@@ -18,6 +18,8 @@ __attribute__((visibility("hidden")))
     struct TSCECellRef _cellRef;
     struct TSCERelativeCellRef _relativeCellRef;
     _Bool _hasRelativeCellRef;
+    TSTUidRangeRef *_uidRangeRef;
+    struct TSUCellCoord _hostCellCoord;
     union {
         _Bool _boolValue;
         struct {
@@ -32,6 +34,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)defaultPredicateArg;
+@property(nonatomic) struct TSUCellCoord hostCellCoord; // @synthesize hostCellCoord=_hostCellCoord;
 @property(readonly, nonatomic) _Bool hasRelativeCellRef; // @synthesize hasRelativeCellRef=_hasRelativeCellRef;
 @property(readonly, nonatomic) int type; // @synthesize type=_type;
 - (id).cxx_construct;
@@ -45,15 +48,19 @@ __attribute__((visibility("hidden")))
 - (id)initWithDuration:(double)arg1 units:(int)arg2;
 @property(nonatomic) _Bool rowIsAbsolute;
 @property(nonatomic) _Bool columnIsAbsolute;
-- (void)setCellReference:(CDStruct_de21cb60)arg1 columnIsAbsolute:(_Bool)arg2 rowIsAbsolute:(_Bool)arg3;
-- (void)setCellReference:(CDStruct_de21cb60)arg1;
-- (CDStruct_de21cb60)cellReferenceForHostCoord:(struct TSUCellCoord)arg1;
-- (CDStruct_de21cb60)cellReference;
-- (id)initWithCellReference:(CDStruct_de21cb60)arg1 columnIsAbsolute:(_Bool)arg2 rowIsAbsolute:(_Bool)arg3;
+- (void)setCellReference:(id)arg1 columnIsAbsolute:(_Bool)arg2 rowIsAbsolute:(_Bool)arg3;
+- (void)setCellRef:(const struct TSCECellRef *)arg1 columnIsAbsolute:(_Bool)arg2 rowIsAbsolute:(_Bool)arg3;
+- (void)setCellReference:(id)arg1;
+- (id)cellReferenceForHostCoord:(struct TSUCellCoord)arg1;
+- (id)cellReference;
+- (id)initWithCellReference:(id)arg1 columnIsAbsolute:(_Bool)arg2 rowIsAbsolute:(_Bool)arg3;
 - (void)setCellRef:(const struct TSCECellRef *)arg1;
 - (struct TSCECellRef)cellRefForHostCoord:(struct TSUCellCoord)arg1;
 - (const struct TSCECellRef *)cellRef;
 - (id)initWithCellRef:(const struct TSCECellRef *)arg1 columnIsAbsolute:(_Bool)arg2 rowIsAbsolute:(_Bool)arg3;
+@property(retain, nonatomic) TSTUidRangeRef *uidRangeRef;
+- (_Bool)hasUidRangeRef;
+- (id)initWithUidRangeRef:(id)arg1;
 - (void)setRelativeCellRef:(const struct TSCERelativeCellRef *)arg1;
 - (const struct TSCERelativeCellRef *)relativeCellRef;
 - (id)initWithRelativeCellRef:(const struct TSCERelativeCellRef *)arg1;

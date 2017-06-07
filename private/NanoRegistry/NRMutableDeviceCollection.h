@@ -9,8 +9,7 @@
 #import <NanoRegistry/NRMutableStateParentDelegate-Protocol.h>
 #import <NanoRegistry/NSFastEnumeration-Protocol.h>
 
-@class NRMutableDevice, NSMutableDictionary, NSObject, NSUUID;
-@protocol OS_dispatch_queue;
+@class NRMutableDevice, NSMutableDictionary, NSUUID;
 
 @interface NRMutableDeviceCollection : NRMutableStateBase <NRMutableStateParentDelegate, NSFastEnumeration>
 {
@@ -46,9 +45,6 @@
 - (void)removeDeviceForPairingID:(id)arg1;
 - (void)setDevice:(id)arg1 forPairingID:(id)arg2;
 - (id)init;
-
-// Remaining properties
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
 
 @end
 

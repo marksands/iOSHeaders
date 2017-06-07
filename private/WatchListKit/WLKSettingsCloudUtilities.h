@@ -10,13 +10,16 @@
 {
 }
 
++ (id)_queue;
++ (id)_connection;
 + (void)_postChangeDictionaryToCloud:(id)arg1 completion:(CDUnknownBlockType)arg2;
-+ (id)_fetchSyncDictionary;
++ (void)_fetchSyncDictionary:(CDUnknownBlockType)arg1;
 + (id)_syncDictionaryForAppSettings:(id)arg1;
 + (id)_syncDictionaryForLocalStore;
 + (_Bool)synchronizeSettingsFromCloudIfNeeded;
 + (void)updateLocalStoreWithCompletion:(CDUnknownBlockType)arg1;
 + (_Bool)cloudSyncEnabled;
++ (void)resetAccountWithCompletion:(CDUnknownBlockType)arg1;
 + (void)issueDeleteAllRequestWithCompletion:(CDUnknownBlockType)arg1;
 + (void)updateCloudStoreAccountLevelSetting:(id)arg1 value:(id)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)updateCloudStoreAppSettings:(id)arg1 deleteHistory:(_Bool)arg2 removeEntry:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;

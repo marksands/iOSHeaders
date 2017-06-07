@@ -12,7 +12,7 @@
 
 + (_Bool)hasPendingWork;
 + (_Bool)removeDummyFileForTimelapseUUID:(id)arg1;
-+ (_Bool)reserveDummyFileForTimelapseUUID:(id)arg1 width:(long long)arg2 height:(long long)arg3;
++ (_Bool)reserveDummyFileForTimelapseUUID:(id)arg1 width:(long long)arg2 height:(long long)arg3 useHEVC:(_Bool)arg4;
 + (id)dummyFilePathForTimelapseUUID:(id)arg1;
 + (id)dummyFileName;
 + (id)sortedArrayFromFilePathDictionary:(id)arg1 reverse:(_Bool)arg2;

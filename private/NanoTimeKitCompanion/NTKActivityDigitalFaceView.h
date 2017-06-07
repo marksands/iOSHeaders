@@ -26,12 +26,14 @@
     double _lastBriskPercentage;
     double _lastSedentaryPercentage;
     double _blinkerAndSecondsWidth;
+    long long _energyStringMetricWidth;
+    long long _briskStringMetricWidth;
+    long long _standStringMetricWidth;
     _Bool _useTimeTravelStyleForTimeLabel;
     _Bool _showSeconds;
     double _rightTimeViewInset;
 }
 
-+ (id)_additionalPrelaunchApplicationIdentifiers;
 + (id)_newRingsView;
 + (id)_swatchColorForColorOption:(id)arg1;
 + (void)_prewarm;
@@ -39,6 +41,7 @@
 @property(nonatomic) double rightTimeViewInset; // @synthesize rightTimeViewInset=_rightTimeViewInset;
 @property(nonatomic) _Bool useTimeTravelStyleForTimeLabel; // @synthesize useTimeTravelStyleForTimeLabel=_useTimeTravelStyleForTimeLabel;
 - (void).cxx_destruct;
+- (id)_additionalPrelaunchApplicationIdentifiers;
 - (id)_ringGroupController;
 - (void)_recenterTimeView;
 - (double)_blinkerAndSecondsWidth;

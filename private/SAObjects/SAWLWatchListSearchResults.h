@@ -16,6 +16,7 @@
 
 + (id)watchListSearchResultsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)watchListSearchResults;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *matchedResults;
 - (id)encodedClassName;
 - (id)groupIdentifier;

@@ -30,6 +30,7 @@
 - (void)terminate;
 - (_Bool)handleOperation:(long long)arg1 event:(id)arg2 reply:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)handleCopyIdentitiesEvent:(id)arg1 reply:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (_Bool)handleCopyItemsEvent:(id)arg1 reply:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)handleControlEvent:(id)arg1 reply:(id)arg2 attributes:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)handleDeleteObjectEvent:(id)arg1 reply:(id)arg2 objectID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)handleUpdateObjectEvent:(id)arg1 reply:(id)arg2 objectID:(id)arg3 attributes:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
@@ -40,8 +41,9 @@
 - (_Bool)handleGetPublicKeyEvent:(id)arg1 reply:(id)arg2 objectID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)handleGetObjectAccessControlEvent:(id)arg1 reply:(id)arg2 objectID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (_Bool)handleEvaluateAccessControlEvent:(id)arg1 reply:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)evaluateAuthOperation:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)finalizeAuthOperation:(id)arg1 evaluatedAuthOperation:(id)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)evaluateAuthOperation:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)evaluateAuthOperation:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)endRequest;
 - (_Bool)beginRequest:(long long)arg1 error:(id *)arg2;
 - (void)controlWithAttributes:(id)arg1 reply:(CDUnknownBlockType)arg2;

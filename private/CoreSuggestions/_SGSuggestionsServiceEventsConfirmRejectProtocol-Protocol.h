@@ -9,13 +9,11 @@
 @protocol _SGSuggestionsServiceEventsConfirmRejectProtocol
 - (void)waitForEventWithIdentifier:(NSString *)arg1 toAppearInEventStoreWithCompletion:(void (^)(_Bool, NSError *))arg2;
 - (void)waitForEventWithIdentifier:(NSString *)arg1 toAppearInEventStoreWithLastModificationDate:(NSDate *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
-- (void)rejectEventByRecordId:(SGRecordId *)arg1 withCompletion:(void (^)(NSError *))arg2;
 - (_Bool)rejectEventByRecordId:(SGRecordId *)arg1 error:(id *)arg2;
-- (void)confirmEventByRecordId:(SGRecordId *)arg1 withCompletion:(void (^)(NSError *))arg2;
+- (void)rejectEventByRecordId:(SGRecordId *)arg1 withCompletion:(void (^)(NSError *))arg2;
 - (_Bool)confirmEventByRecordId:(SGRecordId *)arg1 error:(id *)arg2;
+- (void)confirmEventByRecordId:(SGRecordId *)arg1 withCompletion:(void (^)(NSError *))arg2;
 - (void)rejectEvent:(SGRealtimeEvent *)arg1 withCompletion:(void (^)(NSError *))arg2;
-- (_Bool)rejectEvent:(SGRealtimeEvent *)arg1 error:(id *)arg2;
 - (void)confirmEvent:(SGRealtimeEvent *)arg1 withCompletion:(void (^)(NSError *))arg2;
-- (_Bool)confirmEvent:(SGRealtimeEvent *)arg1 error:(id *)arg2;
 @end
 

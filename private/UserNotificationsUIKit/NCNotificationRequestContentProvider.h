@@ -21,6 +21,7 @@
 @property(nonatomic) __weak id <NCNotificationStaticContentProvidingDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)_appBundleIdentifer;
+@property(readonly, nonatomic) _Bool showsTextInputOnAppearance;
 @property(readonly, copy, nonatomic) CDUnknownBlockType closeAction;
 @property(readonly, copy, nonatomic) CDUnknownBlockType clearAction;
 @property(readonly, copy, nonatomic) CDUnknownBlockType cancelAction;
@@ -28,7 +29,6 @@
 - (CDUnknownBlockType)_actionForNotificationAction:(id)arg1;
 @property(readonly, nonatomic) NSArray *interfaceActions;
 @property(readonly, nonatomic) UIImage *thumbnail;
-@property(readonly, copy, nonatomic) NSString *hintText;
 @property(readonly, nonatomic) unsigned long long messageNumberOfLines;
 @property(readonly, copy, nonatomic) NSString *secondaryText;
 @property(readonly, copy, nonatomic) NSString *primarySubtitleText;

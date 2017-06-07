@@ -23,6 +23,7 @@
 @property(retain, nonatomic) GEOStructuredAddress *structuredAddress; // @synthesize structuredAddress=_structuredAddress;
 @property(retain, nonatomic) GEOPDViewportInfo *viewportInfo; // @synthesize viewportInfo=_viewportInfo;
 @property(retain, nonatomic) NSString *queryString; // @synthesize queryString=_queryString;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -38,7 +39,6 @@
 @property(nonatomic) _Bool hasMaxResults;
 @property(nonatomic) unsigned int maxResults; // @synthesize maxResults=_maxResults;
 @property(readonly, nonatomic) _Bool hasQueryString;
-- (void)dealloc;
 - (id)initWithForwardGeocodeAddressString:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
 - (id)initWithForwardGeocodeAddress:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
 - (id)initWithForwardGeocodeAddress:(id)arg1 addressString:(id)arg2 maxResults:(unsigned int)arg3 traits:(id)arg4;

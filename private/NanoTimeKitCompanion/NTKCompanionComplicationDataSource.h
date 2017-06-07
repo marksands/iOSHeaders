@@ -16,6 +16,9 @@
 + (_Bool)acceptsComplicationType:(unsigned long long)arg1 withFamily:(long long)arg2;
 - (void).cxx_destruct;
 - (void)_localeDidChange:(id)arg1;
+- (id)_siriTemplate;
+- (id)_newsTemplate;
+- (id)_messagesTemplate;
 - (id)_stocksTemplate;
 - (id)_breathingTemplate;
 - (id)_reminderTemplate;
@@ -29,6 +32,7 @@
 - (id)_nextEventTemplate;
 - (id)_wellnessTemplate;
 - (id)_sunriseTemplate;
+- (id)_heartrateTemplate;
 - (id)_batteryTemplate;
 - (id)_weatherConditionsTemplate;
 - (id)_weatherTemplate;

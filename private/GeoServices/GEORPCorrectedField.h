@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSString *correctedValue; // @synthesize correctedValue=_correctedValue;
 @property(retain, nonatomic) NSString *originalValue; // @synthesize originalValue=_originalValue;
 @property(retain, nonatomic) NSString *fieldName; // @synthesize fieldName=_fieldName;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -44,7 +45,6 @@
 - (id)fieldAsString:(int)arg1;
 @property(nonatomic) _Bool hasField;
 @property(nonatomic) int field; // @synthesize field=_field;
-- (void)dealloc;
 
 @end
 

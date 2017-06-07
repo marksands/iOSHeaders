@@ -6,41 +6,36 @@
 
 #import <objc/NSObject.h>
 
-#import <HealthDaemon/HDDatabaseProtectedDataObserver-Protocol.h>
 #import <HealthDaemon/HDDiagnosticObject-Protocol.h>
-#import <HealthDaemon/HDHealthDaemonReadyObserver-Protocol.h>
+#import <HealthDaemon/HDNanoSyncManagerObserver-Protocol.h>
+#import <HealthDaemon/HDPeriodicActivityDelegate-Protocol.h>
 
-@class HDAchievementDoctor, HDProfile, NSNumber, NSString;
+@class HDAchievementDoctor, HDPeriodicActivity, HDProfile, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HDAchievementDoctorManager : NSObject <HDDiagnosticObject, HDHealthDaemonReadyObserver, HDDatabaseProtectedDataObserver>
+@interface HDAchievementDoctorManager : NSObject <HDDiagnosticObject, HDPeriodicActivityDelegate, HDNanoSyncManagerObserver>
 {
     HDProfile *_profile;
+    HDPeriodicActivity *_scheduler;
     HDAchievementDoctor *_achievementDoctor;
-    NSObject<OS_dispatch_queue> *_fixupWaitQueue;
-    NSNumber *_waitingToRun;
+    NSObject<OS_dispatch_queue> *_doctorQueue;
 }
 
 + (id)_definitionIdentifiersModifiedPerFixupVersion;
 - (void).cxx_destruct;
-- (id)diagnosticDescription;
-- (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
 - (void)_setLastSuccessfulFixupVersion:(long long)arg1;
 - (long long)_lastSuccessfulFixupVersion;
-- (void)_setLastSuccessfulFixupDate:(id)arg1;
-- (id)_lastSuccessfulFixupDate;
-- (void)_queue_setWaitingToRun:(_Bool)arg1;
-- (_Bool)_queue_isWaitingToRun;
 - (void)_generateCrashReportForMissingAchievements:(id)arg1;
-- (void)_queue_performAchievementsFixupWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_performAchievementsFixupIfWaiting;
-- (void)_setNeedsFixupWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_performAchievementsFixupActivity:(id)arg1;
-- (void)_registerActivity;
+- (void)_performAchievementsFixupWithCompletion:(CDUnknownBlockType)arg1;
 - (long long)_activityInterval;
 - (_Bool)_multipleWatchesArePaired;
 - (void)requestAchievementDoctorRun;
-- (void)daemonReady:(id)arg1;
+- (id)diagnosticDescription;
+- (_Bool)periodicActivityRequiresProtectedData:(id)arg1;
+- (void)performPeriodicActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)periodicActivity:(id)arg1 configureXPCActivityCriteria:(id)arg2;
+- (void)nanoSyncManager:(id)arg1 pairedDevicesChanged:(id)arg2;
+- (void)_queue_setupSchedulerIfNecessaryWithPairedDevicesSnapshot:(id)arg1;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1;
 

@@ -14,6 +14,7 @@
 
 + (id)setSiriAuthorizationForAppWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setSiriAuthorizationForApp;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *bundleId;
 - (id)encodedClassName;

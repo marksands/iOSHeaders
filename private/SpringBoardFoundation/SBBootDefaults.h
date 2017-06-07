@@ -16,7 +16,6 @@
 
 // Remaining properties
 @property(nonatomic) NSDictionary *bootTransitionContext; // @dynamic bootTransitionContext;
-@property(nonatomic) _Bool comingFromUserPowerDown; // @dynamic comingFromUserPowerDown;
 @property(readonly, nonatomic) _Bool dontLockAfterCrash; // @dynamic dontLockAfterCrash;
 @property(nonatomic) _Bool hasCompletedSynchronizingCloudCriticalData; // @dynamic hasCompletedSynchronizingCloudCriticalData;
 @property(retain, nonatomic) NSString *lastRestoreIdentifier; // @dynamic lastRestoreIdentifier;

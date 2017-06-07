@@ -12,16 +12,12 @@
 
 + (id)_predicateForEntityWithObjectID:(id)arg1;
 + (id)_predicateForEntityWithKeyID:(id)arg1;
-+ (_Bool)_deleteMetadataValuesWithObjectID:(id)arg1 database:(id)arg2 error:(id *)arg3;
 + (id)_insertMetadataValueWithKeyID:(id)arg1 objectID:(id)arg2 value:(id)arg3 database:(id)arg4 error:(id *)arg5;
 + (id)deleteStatementForObjectMetadataWithDatabase:(id)arg1;
-+ (id)metadataValueStatementWithDatabase:(id)arg1;
-+ (id)insertMetadataValueWithKeyID:(id)arg1 objectID:(id)arg2 value:(id)arg3 healthDatabase:(id)arg4 error:(id *)arg5;
 + (long long)protectionClass;
 + (id)indices;
 + (id)columnsDefinition;
 + (id)databaseTable;
-- (id)valueWithDatabase:(id)arg1 error:(id *)arg2;
 
 @end
 

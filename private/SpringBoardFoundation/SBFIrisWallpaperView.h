@@ -31,8 +31,12 @@
 
 + (void)initialize;
 @property(readonly, nonatomic) long long currentIrisMode; // @synthesize currentIrisMode=_currentMode;
+@property(readonly, copy, nonatomic) NSURL *videoFileURL; // @synthesize videoFileURL=_videoFileURL;
+@property(readonly, nonatomic) double stillTimeInVideo; // @synthesize stillTimeInVideo=_stillTimeInVideo;
 @property(nonatomic) __weak id <SBFIrisWallpaperViewDelegate> irisDelegate; // @synthesize irisDelegate=_irisDelegate;
 - (void).cxx_destruct;
+- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 cacheGroup:(id)arg3 variant:(long long)arg4 options:(unsigned long long)arg5 wallpaperSettingsProvider:(id)arg6;
+- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 cacheGroup:(id)arg3 wallpaperVideoURL:(id)arg4 stillTimeInVideo:(double)arg5 staticImageOptions:(unsigned long long)arg6 variant:(long long)arg7 prewireMemory:(_Bool)arg8 useRewindPlaybackStyle:(_Bool)arg9 wallpaperSettingsProvider:(id)arg10;
 - (id)videoPlayerForPlayerView:(id)arg1;
 - (void)playerViewIsInteractingDidChange:(id)arg1;
 - (void)playerViewPlaybackStateDidChange:(id)arg1;
@@ -50,9 +54,6 @@
 - (long long)wallpaperType;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 variant:(long long)arg3;
-@property(readonly, nonatomic) double stillTimeInVideo;
-@property(readonly, copy, nonatomic) NSURL *videoFileURL;
-- (id)initWithFrame:(struct CGRect)arg1 wallpaperImage:(id)arg2 cacheGroup:(id)arg3 wallpaperVideoURL:(id)arg4 stillTimeInVideo:(double)arg5 staticImageOptions:(unsigned long long)arg6 variant:(long long)arg7 prewireMemory:(_Bool)arg8 useRewindPlaybackStyle:(_Bool)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

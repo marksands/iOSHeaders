@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <Navigation/MNTimeProvider-Protocol.h>
 #import <Navigation/MNTracePlayerSchedulerDelegate-Protocol.h>
-#import <Navigation/MNTracePlayerTimelineStreamDelegate-Protocol.h>
 
 @class GEOETAUpdater, MNLocation, MNTrace, MNTracePlayerETAUpdater, MNTracePlayerScheduler, MNTracePlayerTimelineStream, NSData, NSDate, NSHashTable, NSString;
 
-@interface MNTracePlayer : NSObject <MNTracePlayerSchedulerDelegate, MNTracePlayerTimelineStreamDelegate>
+@interface MNTracePlayer : NSObject <MNTracePlayerSchedulerDelegate, MNTimeProvider>
 {
     MNTrace *_trace;
     NSHashTable *_observers;
@@ -47,6 +47,7 @@
 @property(readonly, nonatomic) unsigned long long selectedRouteIndex;
 @property(readonly, nonatomic) NSData *selectedRouteID;
 @property(readonly, nonatomic) NSDate *currentLocationDate;
+@property(readonly, nonatomic) double currentTime;
 @property(readonly, nonatomic) double position;
 - (void)jumpToBookmarkAtIndex:(unsigned long long)arg1;
 - (void)skipByTimeInterval:(double)arg1;
@@ -63,6 +64,7 @@
 - (void)addObserver:(id)arg1;
 - (void)dealloc;
 - (id)initWithTrace:(id)arg1;
+- (id)initWithPath:(id)arg1 outError:(id *)arg2;
 - (id)initWithPath:(id)arg1;
 
 // Remaining properties

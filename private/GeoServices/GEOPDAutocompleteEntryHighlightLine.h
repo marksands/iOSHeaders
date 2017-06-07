@@ -20,6 +20,7 @@
 + (Class)spanType;
 @property(retain, nonatomic) NSMutableArray *spans; // @synthesize spans=_spans;
 @property(retain, nonatomic) NSString *line; // @synthesize line=_line;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -35,7 +36,6 @@
 - (void)addSpan:(id)arg1;
 - (void)clearSpans;
 @property(readonly, nonatomic) _Bool hasLine;
-- (void)dealloc;
 
 @end
 

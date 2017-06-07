@@ -35,6 +35,11 @@
     AVCVideoStreamConfig *_video;
 }
 
++ (id)dictionaryForCommonStreamConfig:(id)arg1;
++ (long long)clientCipherSuiteWithCipherSuite:(long long)arg1;
++ (long long)cipherSuiteWithClientCipherSuite:(long long)arg1;
++ (long long)clientStreamDirectionWithDirection:(long long)arg1;
++ (long long)streamDirectionWithClientDirection:(long long)arg1;
 @property(retain, nonatomic) AVCVideoStreamConfig *video; // @synthesize video=_video;
 @property(retain, nonatomic) AVCAudioStreamConfig *audio; // @synthesize audio=_audio;
 @property(nonatomic) long long SRTCPCipherSuite; // @synthesize SRTCPCipherSuite=_SRTCPCipherSuite;
@@ -59,6 +64,8 @@
 @property(retain, nonatomic) AVCNetworkAddress *remoteAddress; // @synthesize remoteAddress=_remoteAddress;
 @property(retain, nonatomic) AVCNetworkAddress *localAddress; // @synthesize localAddress=_localAddress;
 - (_Bool)isAudioCodecValid;
+- (id)dictionary;
+- (void)setUpWithDictionary:(id)arg1;
 - (id)description;
 - (_Bool)isValidVideoConfig;
 - (_Bool)isValidAudioConfig;

@@ -20,7 +20,8 @@
 - (void).cxx_destruct;
 - (id)_queue_fetchStatisticsWithError:(id *)arg1;
 - (void)_queue_start;
-- (id)initWithQueryUUID:(id)arg1 dataObject:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
+- (id)requiredEntitlements;
+- (id)initWithQueryUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
 
 @end
 

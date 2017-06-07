@@ -34,6 +34,7 @@
 - (void)_fireCompletionHandlers;
 - (void)_locationManagerTimedOut;
 - (void)_locationUpdateTimerFired:(id)arg1;
+- (_Bool)_shouldSendLocation:(id)arg1 timeIntervalSinceStart:(double)arg2;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
 @property(readonly, nonatomic) _Bool locationAuthorizationDenied;

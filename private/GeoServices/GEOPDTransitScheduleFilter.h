@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDDeparturePredicate;
+@class GEOPDDeparturePredicate, PBUnknownFields;
 
 @interface GEOPDTransitScheduleFilter : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     struct GEOPDTimeRange _operatingHoursRange;
     GEOPDDeparturePredicate *_departurePredicateCountdown;
     GEOPDDeparturePredicate *_departurePredicateStamp;
@@ -21,6 +22,8 @@
 @property(nonatomic) struct GEOPDTimeRange operatingHoursRange; // @synthesize operatingHoursRange=_operatingHoursRange;
 @property(retain, nonatomic) GEOPDDeparturePredicate *departurePredicateStamp; // @synthesize departurePredicateStamp=_departurePredicateStamp;
 @property(retain, nonatomic) GEOPDDeparturePredicate *departurePredicateCountdown; // @synthesize departurePredicateCountdown=_departurePredicateCountdown;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +36,6 @@
 @property(nonatomic) _Bool hasOperatingHoursRange;
 @property(readonly, nonatomic) _Bool hasDeparturePredicateStamp;
 @property(readonly, nonatomic) _Bool hasDeparturePredicateCountdown;
-- (void)dealloc;
 
 @end
 

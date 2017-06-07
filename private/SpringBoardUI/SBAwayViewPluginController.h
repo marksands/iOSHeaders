@@ -60,7 +60,6 @@
 - (_Bool)allowsLockScreenHint;
 - (_Bool)allowsTimer;
 - (_Bool)allowsControlCenter;
-- (_Bool)allowsNotificationCenter;
 - (_Bool)shouldAutoHideNotifications;
 - (_Bool)shouldShowLockStatusBarTime;
 - (_Bool)shouldDisableOnUnlock;

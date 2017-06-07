@@ -40,6 +40,7 @@
 @property(nonatomic) float endOffset; // @synthesize endOffset=_endOffset;
 @property(nonatomic) float startOffset; // @synthesize startOffset=_startOffset;
 @property(nonatomic) long long geoid; // @synthesize geoid=_geoid;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

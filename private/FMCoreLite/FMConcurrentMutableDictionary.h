@@ -21,6 +21,7 @@
 - (id)replaceObject:(id)arg1 forKey:(id)arg2;
 - (id)objectForKey:(id)arg1 withConstructor:(CDUnknownBlockType)arg2;
 - (id)nativeDictionary;
+- (void)removeAllObjects;
 - (void)removeObjectForKey:(id)arg1;
 - (void)setObject:(id)arg1 forKeyedSubscript:(id)arg2;
 - (void)setObject:(id)arg1 forKey:(id)arg2;

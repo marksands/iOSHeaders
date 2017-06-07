@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(nonatomic) id <SFAutoUnlockManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)authPromptInfoWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)autoUnlockStateWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)failedUnlockWithError:(id)arg1;
 - (void)completedUnlockWithDevice:(id)arg1;

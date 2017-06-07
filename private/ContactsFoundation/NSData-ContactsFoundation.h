@@ -14,5 +14,6 @@
 - (id)_cn_SHA256HashDataWithSalt:(id)arg1;
 - (id)_cn_decodeBase64IgnoringWhitespace;
 - (id)_cn_decodeBase64;
+- (_Bool)_cn_containsData:(id)arg1;
 @end
 

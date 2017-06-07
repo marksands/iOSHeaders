@@ -14,12 +14,17 @@
 @interface HDCodableObject : PBCodable <HDDecoding, NSCopying>
 {
     double _creationDate;
+    long long _externalSyncObjectCode;
     HDCodableMetadataDictionary *_metadataDictionary;
     NSString *_sourceBundleIdentifier;
     NSData *_uuid;
-    CDStruct_dc48a425 _has;
+    struct {
+        unsigned int creationDate:1;
+        unsigned int externalSyncObjectCode:1;
+    } _has;
 }
 
+@property(nonatomic) long long externalSyncObjectCode; // @synthesize externalSyncObjectCode=_externalSyncObjectCode;
 @property(nonatomic) double creationDate; // @synthesize creationDate=_creationDate;
 @property(retain, nonatomic) NSString *sourceBundleIdentifier; // @synthesize sourceBundleIdentifier=_sourceBundleIdentifier;
 @property(retain, nonatomic) HDCodableMetadataDictionary *metadataDictionary; // @synthesize metadataDictionary=_metadataDictionary;
@@ -34,6 +39,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+@property(nonatomic) _Bool hasExternalSyncObjectCode;
 @property(nonatomic) _Bool hasCreationDate;
 @property(readonly, nonatomic) _Bool hasSourceBundleIdentifier;
 @property(readonly, nonatomic) _Bool hasMetadataDictionary;

@@ -4,27 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class BKSApplicationStateMonitor, HMDApplicationRegistry, HMFTimer, NSMutableSet, NSSet, NSString;
+@class BKSApplicationStateMonitor, HMDApplicationRegistry, HMFTimer, NSMutableSet, NSObject, NSSet, NSString;
 @protocol HMDApplicationMonitorDelegate, OS_dispatch_queue;
 
-@interface HMDApplicationMonitor : NSObject <HMFTimerDelegate>
+@interface HMDApplicationMonitor : HMFObject <HMFTimerDelegate>
 {
-    _Bool _sendHomeUIServiceTerminatedNotification;
     id <HMDApplicationMonitorDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_workQueue;
     NSMutableSet *_processes;
     BKSApplicationStateMonitor *_monitor;
     HMDApplicationRegistry *_appRegistry;
-    HMFTimer *_homeUIServiceTerminationDelayTimer;
+    HMFTimer *_spiClientTerminationDelayTimer;
+    NSMutableSet *_pendingTerminatedApplications;
 }
 
 + (id)applicationStateDescription:(unsigned long long)arg1;
-@property(nonatomic) _Bool sendHomeUIServiceTerminatedNotification; // @synthesize sendHomeUIServiceTerminatedNotification=_sendHomeUIServiceTerminatedNotification;
-@property(retain, nonatomic) HMFTimer *homeUIServiceTerminationDelayTimer; // @synthesize homeUIServiceTerminationDelayTimer=_homeUIServiceTerminationDelayTimer;
+@property(readonly, nonatomic) NSMutableSet *pendingTerminatedApplications; // @synthesize pendingTerminatedApplications=_pendingTerminatedApplications;
+@property(retain, nonatomic) HMFTimer *spiClientTerminationDelayTimer; // @synthesize spiClientTerminationDelayTimer=_spiClientTerminationDelayTimer;
 @property(nonatomic) __weak HMDApplicationRegistry *appRegistry; // @synthesize appRegistry=_appRegistry;
 @property(readonly, nonatomic) BKSApplicationStateMonitor *monitor; // @synthesize monitor=_monitor;
 @property(readonly, nonatomic) NSMutableSet *processes; // @synthesize processes=_processes;

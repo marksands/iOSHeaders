@@ -23,8 +23,8 @@
 - (void)noteClientDidConnect:(id)arg1 withMessage:(id)arg2;
 - (id)prerequisiteMilestones;
 - (void)_sendDisplayLayout:(id)arg1 toClients:(id)arg2 withQualityOfService:(unsigned long long)arg3;
-- (id)_utilityQOSClientsForDisplayType:(unsigned long long)arg1;
-- (id)_defaultQOSClientsForDisplayType:(unsigned long long)arg1;
+- (id)_utilityQOSClientsForDisplayType:(long long)arg1;
+- (id)_defaultQOSClientsForDisplayType:(long long)arg1;
 - (id)_calloutQueueForQOS:(unsigned long long)arg1;
 - (void)publishDisplayLayout:(id)arg1;
 - (void)dealloc;

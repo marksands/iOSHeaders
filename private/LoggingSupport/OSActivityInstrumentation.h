@@ -11,28 +11,21 @@
 
 @interface OSActivityInstrumentation : NSObject
 {
-    _Bool _receivedHeader;
-    unsigned long long _eventFilter;
-    unsigned long long _options;
-    NSMutableData *_capturedData;
-    id <OSActivityInstrumentationDelegate> _delegate;
     NSObject<OS_xpc_object> *_stream;
     NSObject<OS_xpc_object> *_daemon_conn;
+    _Bool _receivedHeader;
     NSObject<OS_xpc_object> *_pidList;
     unsigned long long _state;
     unsigned long long _mode;
     long long _timeWindow;
+    unsigned long long _eventFilter;
+    unsigned long long _options;
+    NSMutableData *_capturedData;
+    id <OSActivityInstrumentationDelegate> _delegate;
 }
 
 + (void)evaluateBuffer:(id)arg1 usingPredicate:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
 + (_Bool)blessProcess:(int)arg1 processID:(unsigned long long)arg2;
-@property(nonatomic) long long timeWindow; // @synthesize timeWindow=_timeWindow;
-@property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
-@property(retain, nonatomic) NSObject<OS_xpc_object> *pidList; // @synthesize pidList=_pidList;
-@property(nonatomic) _Bool receivedHeader; // @synthesize receivedHeader=_receivedHeader;
-@property(retain, nonatomic) NSObject<OS_xpc_object> *daemon_conn; // @synthesize daemon_conn=_daemon_conn;
-@property(retain, nonatomic) NSObject<OS_xpc_object> *stream; // @synthesize stream=_stream;
 @property(nonatomic) __weak id <OSActivityInstrumentationDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSMutableData *capturedData; // @synthesize capturedData=_capturedData;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;

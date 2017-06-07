@@ -10,43 +10,50 @@
 #import <Home/HFCameraObserver-Protocol.h>
 #import <Home/HFHomeManagerObserver-Protocol.h>
 #import <Home/HFHomeObserver-Protocol.h>
+#import <Home/HFItemUpdating-Protocol.h>
+#import <Home/HFMediaProfileObserver-Protocol.h>
+#import <Home/HFMediaSessionObserver-Protocol.h>
 #import <Home/HFResidentDeviceObserver-Protocol.h>
 #import <Home/HFStateDumpSerializable-Protocol.h>
 #import <Home/HFTemperatureUnitObserver-Protocol.h>
 
-@class HFItem, HFItemManagerBatchedDelegateAdapter, HMHome, NAFuture, NSArray, NSMutableDictionary, NSMutableSet, NSSet, NSString;
-@protocol HFItemManagerDelegate;
+@class HFItem, HFItemManagerBatchedDelegateAdapter, HMHome, NAFuture, NSArray, NSMapTable, NSMutableDictionary, NSMutableSet, NSSet, NSString;
+@protocol HFCharacteristicReadPolicy, HFItemManagerDelegate;
 
-@interface HFItemManager : NSObject <HFStateDumpSerializable, HFHomeManagerObserver, HFHomeObserver, HFAccessoryObserver, HFResidentDeviceObserver, HFCameraObserver, HFTemperatureUnitObserver>
+@interface HFItemManager : NSObject <HFStateDumpSerializable, HFHomeManagerObserver, HFHomeObserver, HFAccessoryObserver, HFResidentDeviceObserver, HFCameraObserver, HFMediaSessionObserver, HFMediaProfileObserver, HFTemperatureUnitObserver, HFItemUpdating>
 {
-    _Bool _isRunningFastInitialUpdate;
-    _Bool _hasCreatedItemProviders;
+    _Bool _hasRequestedFirstUpdate;
     id <HFItemManagerDelegate> _delegate;
     HFItem *_sourceItem;
     HMHome *_home;
+    NSArray *_itemProviders;
+    id <HFCharacteristicReadPolicy> _readPolicy;
     unsigned long long _overallLoadingState;
     NAFuture *_firstFastUpdateFuture;
     HMHome *_lastUpdatedHome;
-    NSArray *_sectionInfos;
+    NSArray *_sections;
+    NSMapTable *_childItemsByParentItem;
     NSMutableDictionary *_suppressedCharacteristicUpdatesByReason;
-    NAFuture *_firstFullUpdateFuture;
     NSMutableSet *_disableUpdateReasons;
     HFItemManagerBatchedDelegateAdapter *_batchedDelegateAdapterAllowingReads;
     HFItemManagerBatchedDelegateAdapter *_batchedDelegateAdapterDisallowingReads;
+    NAFuture *_firstFullUpdateFuture;
 }
 
 + (_Bool)_canReloadDuringUnitTests;
+@property(readonly, nonatomic) NAFuture *firstFullUpdateFuture; // @synthesize firstFullUpdateFuture=_firstFullUpdateFuture;
 @property(retain, nonatomic) HFItemManagerBatchedDelegateAdapter *batchedDelegateAdapterDisallowingReads; // @synthesize batchedDelegateAdapterDisallowingReads=_batchedDelegateAdapterDisallowingReads;
 @property(retain, nonatomic) HFItemManagerBatchedDelegateAdapter *batchedDelegateAdapterAllowingReads; // @synthesize batchedDelegateAdapterAllowingReads=_batchedDelegateAdapterAllowingReads;
-@property(nonatomic, getter=_hasCreatedItemProviders, setter=_setHasCreatedItemProviders:) _Bool hasCreatedItemProviders; // @synthesize hasCreatedItemProviders=_hasCreatedItemProviders;
 @property(readonly, nonatomic) NSMutableSet *disableUpdateReasons; // @synthesize disableUpdateReasons=_disableUpdateReasons;
-@property(readonly, nonatomic) NAFuture *firstFullUpdateFuture; // @synthesize firstFullUpdateFuture=_firstFullUpdateFuture;
-@property(nonatomic) _Bool isRunningFastInitialUpdate; // @synthesize isRunningFastInitialUpdate=_isRunningFastInitialUpdate;
+@property(nonatomic) _Bool hasRequestedFirstUpdate; // @synthesize hasRequestedFirstUpdate=_hasRequestedFirstUpdate;
 @property(retain, nonatomic) NSMutableDictionary *suppressedCharacteristicUpdatesByReason; // @synthesize suppressedCharacteristicUpdatesByReason=_suppressedCharacteristicUpdatesByReason;
-@property(retain, nonatomic) NSArray *sectionInfos; // @synthesize sectionInfos=_sectionInfos;
+@property(retain, nonatomic) NSMapTable *childItemsByParentItem; // @synthesize childItemsByParentItem=_childItemsByParentItem;
+@property(retain, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(retain, nonatomic) HMHome *lastUpdatedHome; // @synthesize lastUpdatedHome=_lastUpdatedHome;
 @property(readonly, nonatomic) NAFuture *firstFastUpdateFuture; // @synthesize firstFastUpdateFuture=_firstFastUpdateFuture;
 @property(nonatomic) unsigned long long overallLoadingState; // @synthesize overallLoadingState=_overallLoadingState;
+@property(retain, nonatomic) id <HFCharacteristicReadPolicy> readPolicy; // @synthesize readPolicy=_readPolicy;
+@property(retain, nonatomic) NSArray *itemProviders; // @synthesize itemProviders=_itemProviders;
 @property(retain, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) HFItem *sourceItem; // @synthesize sourceItem=_sourceItem;
 @property(nonatomic) __weak id <HFItemManagerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -57,8 +64,11 @@
 - (id)_indexPathForItem:(id)arg1 inDisplayedItemsArray:(id)arg2;
 - (id)_allDisplayedItemsIncludingInternalItems;
 @property(readonly, nonatomic) NSSet *allDisplayedItems;
+- (id)_invalidationReasonsForAddedOrRemovedAccessory:(id)arg1;
+- (id)_itemsToUpdateForMediaSessionChange:(id)arg1;
 - (id)_itemsToUpdateForAllowAccessWhileLockedSettingChange;
 - (id)_itemsToUpdateForRemoteAccessChange;
+- (id)_itemsToUpdateForModifiedSharingDevices:(id)arg1;
 - (id)_itemsToUpdateForModifiedCameras:(id)arg1;
 - (id)_itemsToUpdateForModifiedResidentDevices:(id)arg1;
 - (id)_itemsToUpdateForModifiedCharacteristics:(id)arg1;
@@ -78,39 +88,40 @@
 - (id)_itemsToUpdateForModifiedMetadataForHomes:(id)arg1;
 - (id)_directItemDependenciesForHomeKitObjects:(id)arg1 class:(Class)arg2;
 - (id)_dependentHomeKitObjectsOfClass:(Class)arg1 inHomeKitObjects:(id)arg2;
+- (id)_itemsWithDependenciesPassingTest:(CDUnknownBlockType)arg1 forItems:(id)arg2;
 - (unsigned long long)_sectionForItem:(id)arg1 assertOnNotFound:(_Bool)arg2;
 - (unsigned long long)_sectionForItem:(id)arg1;
-- (unsigned long long)_sectionForSectionIdentifier:(id)arg1 assertOnNotFound:(_Bool)arg2;
-- (unsigned long long)_sectionForSectionIdentifier:(id)arg1;
 - (id)_serviceGroupItemForServiceGroup:(id)arg1 inItems:(id)arg2;
 - (id)_itemsOfClass:(Class)arg1 inItems:(id)arg2 allowTransformedItems:(_Bool)arg3;
-- (void)_handleAssertionFailureForComparatorMovingUnchangedItemsFrom:(id)arg1 to:(id)arg2;
 - (id)_allSuppressedCharacteristics;
-- (_Bool)_notifyDelegateOfMoveIfNeededForItem:(id)arg1 oldDisplayedItemArray:(id)arg2 updatedDisplayedItemArray:(id)arg3 addedItems:(id)arg4 removedItems:(id)arg5 logger:(id)arg6;
 - (_Bool)_shouldHideServiceItem:(id)arg1 containedInServiceGroupItem:(id)arg2;
 - (id)_serviceItemsToHideInSet:(id)arg1 allServiceGroupItems:(id)arg2;
 - (id)_itemsToHideInSet:(id)arg1;
-- (void)_actuallyPerformExternalUpdateForItemsToRemove:(id)arg1 itemsToAdd:(id)arg2 itemsToUpdate:(id)arg3 logger:(id)arg4;
-- (void)_updateSectionsWithLogger:(id)arg1 returningAddedSectionIndices:(id *)arg2 removedSectionIndicies:(id *)arg3;
-- (void)_updateSections;
-- (void)_updateRepresentationForExternalItems:(id)arg1 updatedOrAddedItems:(id)arg2 removedItems:(id)arg3 logger:(id)arg4;
-- (void)_updateRepresentationForInternalItems:(id)arg1 updatedItems:(id)arg2;
-- (id)_performUpdateForItem:(id)arg1 isInternal:(_Bool)arg2 logger:(id)arg3 options:(id)arg4;
+- (void)_notifyDelegateOfItemOperations:(id)arg1 logger:(id)arg2;
+- (void)_notifyDelegateOfSectionOperations:(id)arg1 logger:(id)arg2;
+- (void)_notifyDelegateOfChangesFromDiff:(id)arg1 logger:(id)arg2;
+- (id)_buildSectionsWithDisplayedItems:(id)arg1;
+- (void)_updateRepresentationForExternalItemsWithUpdatedOrAddedItems:(id)arg1 logger:(id)arg2;
+- (void)_updateRepresentationForInternalItemsWithUpdatedItems:(id)arg1;
+- (id)_performUpdateForChildItemsOfItem:(id)arg1 withContext:(id)arg2 isInternal:(_Bool)arg3;
+- (id)_performUpdateForItem:(id)arg1 withContext:(id)arg2 isInternal:(_Bool)arg3 isChild:(_Bool)arg4;
 - (void)_batchItemUpdateFutureWrappers:(id)arg1 removedItems:(id)arg2 batchingIntervals:(id)arg3 logger:(id)arg4;
-- (id)_updateResultsForItems:(id)arg1 removedItems:(id)arg2 senderSelector:(SEL)arg3 logger:(id)arg4 options:(id)arg5 readValidator:(CDUnknownBlockType)arg6;
-- (id)_updateResultsForItems:(id)arg1 senderSelector:(SEL)arg2 readValidator:(CDUnknownBlockType)arg3;
-- (CDUnknownBlockType)_standardReadValidator;
+- (id)_updateResultsForItems:(id)arg1 removedItems:(id)arg2 context:(id)arg3 allowDelaying:(_Bool)arg4;
+- (id)_updateResultsForItems:(id)arg1 context:(id)arg2;
+- (void)resetItemProviders;
 - (id)updateResultsForItems:(id)arg1 senderSelector:(SEL)arg2;
 - (void)_updateOverallLoadingStateAndNotifyDelegate;
 - (unsigned long long)_loadingStateForItem:(id)arg1;
 - (void)_updateLoadingStateAndNotifyDelegateForItems:(id)arg1 canFinishTransaction:(_Bool)arg2;
-- (id)_reloadItemProviders:(id)arg1 updateItems:(id)arg2 shouldUpdateExistingItems:(_Bool)arg3 senderSelector:(SEL)arg4 readValidator:(CDUnknownBlockType)arg5;
+- (id)_reloadItemProviders:(id)arg1 updateItems:(id)arg2 shouldUpdateExistingItems:(_Bool)arg3 senderSelector:(SEL)arg4 readPolicy:(id)arg5 fastInitialUpdatePromise:(id)arg6;
+- (id)_reloadItemProviders:(id)arg1 updateItems:(id)arg2 shouldUpdateExistingItems:(_Bool)arg3 senderSelector:(SEL)arg4 readPolicy:(id)arg5;
 - (id)_reloadAndUpdateItemsForProviders:(id)arg1 updateItems:(id)arg2 senderSelector:(SEL)arg3;
 - (id)reloadAndUpdateItemsForProviders:(id)arg1 senderSelector:(SEL)arg2;
 - (id)_reloadAllItemProvidersFromSenderSelector:(SEL)arg1;
 - (id)reloadAndUpdateAllItemsFromSenderSelector:(SEL)arg1;
 - (void)recalculateVisibilityAndSortAllItems;
 - (void)sortDisplayedItemsInSection:(long long)arg1;
+- (id)performItemUpdateRequest:(id)arg1;
 - (void)_unregisterForExternalUpdates;
 - (void)_registerForExternalUpdates;
 - (_Bool)_requiresNotificationsForCharacteristic:(id)arg1;
@@ -118,8 +129,6 @@
 - (_Bool)_shouldPerformFastInitialUpdates;
 - (id)_itemForSorting;
 - (void)_didFinishUpdateTransactionWithAffectedItems:(id)arg1;
-- (void)_didUpdateResultsForItem:(id)arg1;
-- (id)_styleForItem:(id)arg1;
 - (id)_sortedItems:(id)arg1 forSectionIdentifier:(id)arg2;
 - (CDUnknownBlockType)_comparatorForSectionIdentifier:(id)arg1;
 - (id)_sectionIdentifierForItem:(id)arg1;
@@ -128,13 +137,15 @@
 - (id)_identifierForSection:(unsigned long long)arg1;
 - (unsigned long long)_numberOfSections;
 - (void)_willUpdateSections;
-- (id)_itemProviders;
-- (void)_createItemProvidersWithHome:(id)arg1;
+- (id)_buildItemProvidersForHome:(id)arg1;
 - (void)endSuppressingUpdatesForCharacteristicsWithReason:(id)arg1 updateAffectedItems:(_Bool)arg2;
 - (void)beginSuppressingUpdatesForCharacteristics:(id)arg1 withReason:(id)arg2;
 - (void)endDisableExternalUpdatesWithReason:(id)arg1;
 - (void)disableExternalUpdatesWithReason:(id)arg1;
 - (void)_updateExternalUpdatesEnabled:(_Bool)arg1 reloadItems:(_Bool)arg2;
+- (id)childItemsForItem:(id)arg1 ofClass:(Class)arg2 conformingToProtocol:(id)arg3;
+- (id)childItemsForItem:(id)arg1 ofClass:(Class)arg2;
+- (id)childItemsForItem:(id)arg1;
 - (id)indexPathForItem:(id)arg1;
 - (id)displayedItemAtIndexPath:(id)arg1;
 - (id)displayedSectionIdentifierForSectionIndex:(unsigned long long)arg1;
@@ -145,7 +156,6 @@
 - (unsigned long long)numberOfSections;
 - (id)_allItemsIncludingInternalItems;
 - (id)_internalItems;
-- (id)_sectionInfosEnsuringLoaded;
 @property(readonly, nonatomic) NSSet *allItems;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2;
@@ -155,6 +165,7 @@
 - (id)_debug_itemDescriptions;
 - (id)_debug_itemProviderDescriptions;
 - (void)_debug_registerForStateDump;
+- (void)mediaSession:(id)arg1 didUpdatePlaybackState:(long long)arg2;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)home:(id)arg1 didExecuteActionSets:(id)arg2 failedActionSets:(id)arg3;
@@ -164,6 +175,7 @@
 - (void)home:(id)arg1 willWriteValuesForCharacteristics:(id)arg2;
 - (void)home:(id)arg1 willReadValuesForCharacteristics:(id)arg2;
 - (void)cameraStream:(id)arg1 didUpdateAudioStreamSettingWithError:(id)arg2;
+- (void)cameraStreamControlDidUpdateManagerState:(id)arg1;
 - (void)cameraStreamControlDidUpdateStreamState:(id)arg1;
 - (void)cameraStreamControl:(id)arg1 didStopStreamWithError:(id)arg2;
 - (void)cameraStreamControlDidStartStream:(id)arg1;

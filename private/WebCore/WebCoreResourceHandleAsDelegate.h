@@ -22,7 +22,6 @@ __attribute__((visibility("hidden")))
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didSendBodyData:(long long)arg2 totalBytesWritten:(long long)arg3 totalBytesExpectedToWrite:(long long)arg4;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2 lengthReceived:(long long)arg3;
-- (void)connection:(id)arg1 didReceiveDataArray:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
 - (_Bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
 - (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;

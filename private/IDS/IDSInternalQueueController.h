@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol OS_dispatch_queue;
 
@@ -15,13 +15,13 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (id)queue;
 - (_Bool)isQueueCurrent;
 - (void)assertQueueIsNotCurrent;
 - (void)assertQueueIsCurrent;
 - (void)performBlock:(CDUnknownBlockType)arg1 waitUntilDone:(_Bool)arg2;
 - (void)performBlock:(CDUnknownBlockType)arg1;
-- (void)dealloc;
 - (id)initWithName:(char *)arg1 contextKey:(void *)arg2;
 - (id)init;
 

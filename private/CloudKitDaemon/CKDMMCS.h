@@ -33,6 +33,7 @@ __attribute__((visibility("hidden")))
 + (long long)_errorCodeWithMMCSGetError:(id)arg1;
 + (long long)_commonErrorCodeWithMMCSError:(id)arg1;
 + (id)_userInfoFromMMCSRetryableError:(id)arg1;
++ (id)protocolHeaders;
 + (id)protocolVersion;
 + (id)zeroSizeFileSignature;
 @property(retain, nonatomic) CKDMMCSEngineContext *MMCSEngineContext; // @synthesize MMCSEngineContext=_MMCSEngineContext;

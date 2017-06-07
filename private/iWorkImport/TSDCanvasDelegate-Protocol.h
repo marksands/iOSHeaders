@@ -7,11 +7,13 @@
 #import <iWorkImport/NSObject-Protocol.h>
 
 @class NSSet, TSDCanvas, TSDRep, TSKDocumentRoot;
+@protocol TSDCanvasProxyDelegate;
 
 @protocol TSDCanvasDelegate <NSObject>
 - (TSKDocumentRoot *)documentRoot;
 
 @optional
+@property(readonly, nonatomic) id <TSDCanvasProxyDelegate> canvasProxyDelegate;
 - (_Bool)imageIsRenderingForMovie;
 - (_Bool)isRenderingForKPF;
 - (_Bool)supportsAdaptiveLayout;

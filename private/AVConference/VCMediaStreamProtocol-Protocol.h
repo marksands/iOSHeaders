@@ -6,14 +6,14 @@
 
 #import <AVConference/NSObject-Protocol.h>
 
-@class NSDictionary, NSObject;
+@class NSDictionary, NSObject, NSString, VCMediaStreamConfig;
 @protocol OS_xpc_object;
 
 @protocol VCMediaStreamProtocol <NSObject>
 - (void)setPause:(_Bool)arg1;
 - (void)stop;
 - (void)start;
-- (_Bool)setStreamConfig:(NSDictionary *)arg1 withError:(id *)arg2;
+- (_Bool)setStreamConfig:(VCMediaStreamConfig *)arg1 withError:(id *)arg2;
 
 @optional
 - (void)setRtcpSendInterval:(double)arg1;
@@ -25,5 +25,8 @@
 - (long long)streamDirection;
 - (void)setStreamDirection:(long long)arg1;
 - (NSDictionary *)setLocalParticipantInfo:(NSDictionary *)arg1 networkSockets:(NSObject<OS_xpc_object> *)arg2 withError:(id *)arg3;
+- (NSDictionary *)setupRTPWithError:(id *)arg1;
+- (NSDictionary *)setupRTPWithSockets:(NSObject<OS_xpc_object> *)arg1 error:(id *)arg2;
+- (NSDictionary *)setupRTPWithIDSDestination:(NSString *)arg1 error:(id *)arg2;
 @end
 

@@ -12,7 +12,6 @@ __attribute__((visibility("hidden")))
 }
 
 - (void)acceptVisitor:(id)arg1;
-- (id)defaultBuildChunkTitle;
 - (id)initWithKNPlaceholderInfo:(id)arg1;
 - (int)kind;
 

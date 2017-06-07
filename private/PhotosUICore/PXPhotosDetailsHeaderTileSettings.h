@@ -16,10 +16,14 @@
     double _maximumHeightRelativeToScreenHeight;
     double _maximumAbsoluteHeight;
     double _movieLessTVHeight;
+    double _fakeMiroViewAspectRatio;
+    double _fakeMiroViewLoadingDuration;
 }
 
 + (id)sharedInstance;
 + (id)settingsControllerModule;
+@property(nonatomic) double fakeMiroViewLoadingDuration; // @synthesize fakeMiroViewLoadingDuration=_fakeMiroViewLoadingDuration;
+@property(nonatomic) double fakeMiroViewAspectRatio; // @synthesize fakeMiroViewAspectRatio=_fakeMiroViewAspectRatio;
 @property(nonatomic) _Bool fakeMiroViewController; // @synthesize fakeMiroViewController=_fakeMiroViewController;
 @property(nonatomic) _Bool forceMiroCompelling; // @synthesize forceMiroCompelling=_forceMiroCompelling;
 @property(nonatomic) _Bool showSlideshow; // @synthesize showSlideshow=_showSlideshow;
@@ -29,6 +33,7 @@
 @property(nonatomic) double maximumHeightRelativeToScreenHeight; // @synthesize maximumHeightRelativeToScreenHeight=_maximumHeightRelativeToScreenHeight;
 @property(nonatomic) double aspectRatio; // @synthesize aspectRatio=_aspectRatio;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

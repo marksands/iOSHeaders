@@ -15,15 +15,18 @@
     NSString *_userAgent;
     NSString *_clientName;
     NSDictionary *_rawBag;
+    NSDictionary *_maximumCustomFeedbackSizes;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSDictionary *maximumCustomFeedbackSizes; // @synthesize maximumCustomFeedbackSizes=_maximumCustomFeedbackSizes;
 @property(readonly, copy, nonatomic) NSDictionary *rawBag; // @synthesize rawBag=_rawBag;
 @property(readonly, copy, nonatomic) NSString *clientName; // @synthesize clientName=_clientName;
 @property(readonly, copy, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)description;
 - (id)urlForIdentifier:(id)arg1;
 - (id)bag_URLForKey:(id)arg1;
 - (id)bag_dictionaryForKey:(id)arg1;
@@ -38,7 +41,19 @@
 @property(readonly, nonatomic) _Bool collectAnonymousMetadata;
 @property(readonly, nonatomic) _Bool collectScores;
 @property(readonly, nonatomic) _Bool sampleFeatures;
+@property(readonly, nonatomic) unsigned long long smartHistoryMaxRows;
+@property(readonly, nonatomic) unsigned long long smartHistoryTimeout;
+@property(readonly, nonatomic) _Bool smartHistoryEnabled;
+@property(readonly, nonatomic) double minThresholdToSend;
+@property(readonly, nonatomic) double safariMostRecent;
+@property(readonly, nonatomic) double safariDecay;
+@property(readonly, nonatomic) double safariAll;
+@property(readonly, nonatomic) double safariLast1month;
+@property(readonly, nonatomic) double safariLast1week;
+@property(readonly, nonatomic) double safariLast1day;
+@property(readonly, nonatomic) double safariLast1hour;
 @property(readonly, nonatomic) double timeoutIntervalForRequest;
+- (unsigned long long)maximumSizeForFeedbackType:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *firstUseContinueText;
 @property(readonly, copy, nonatomic) NSString *firstUseLearnMoreURL;
 @property(readonly, copy, nonatomic) NSString *firstUseLearnMoreText;
@@ -50,6 +65,7 @@
 @property(readonly, nonatomic) unsigned long long maximumCachedResultsToSend;
 @property(readonly, nonatomic) unsigned long long minimumQueryLength;
 @property(readonly, copy, nonatomic) NSString *customFlight;
+@property(readonly, nonatomic) NSURL *flightURL;
 - (id)personalizationParameters;
 @property(readonly, nonatomic) NSURL *crowdsourcingURL;
 @property(readonly, nonatomic) NSURL *feedbackURL;

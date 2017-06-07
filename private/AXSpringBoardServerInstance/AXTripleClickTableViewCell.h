@@ -14,6 +14,7 @@
     UIView *_bottomLine;
 }
 
+- (void).cxx_destruct;
 - (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

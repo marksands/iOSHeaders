@@ -7,6 +7,6 @@
 #import <Foundation/NSURL.h>
 
 @interface NSURL (BRCUbiquitousAttributes)
-- (id)brc_attributesValues:(id)arg1 container:(id)arg2 lookup:(id)arg3;
+- (id)brc_attributesValues:(id)arg1 lookup:(id)arg2;
 @end
 

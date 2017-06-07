@@ -8,8 +8,8 @@
 
 @interface NSKeyedUnarchiver (MSUtilities)
 + (id)MSSafeUnarchiveObjectWithFile:(id)arg1 outError:(id *)arg2;
-+ (id)MSSafeUnarchiveObjectWithFile:(id)arg1;
 + (id)MSSafeUnarchiveObjectWithData:(id)arg1 outError:(id *)arg2;
 + (id)MSSafeUnarchiveObjectWithData:(id)arg1;
++ (id)allowedClasses;
 @end
 

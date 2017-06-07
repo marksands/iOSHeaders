@@ -8,6 +8,7 @@
 
 @class NSMutableArray, PDFDocument;
 
+__attribute__((visibility("hidden")))
 @interface PDFFormPrivateVars : NSObject
 {
     PDFDocument *document;

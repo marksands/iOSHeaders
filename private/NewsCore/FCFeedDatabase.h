@@ -8,14 +8,17 @@
 
 #import <NewsCore/FCOperationThrottlerDelegate-Protocol.h>
 
-@class NSEntityDescription, NSManagedObjectContext, NSMutableDictionary, NSMutableSet, NSPersistentStore, NSString;
-@protocol FCOperationThrottler;
+@class NSEntityDescription, NSManagedObjectContext, NSMutableDictionary, NSMutableSet, NSPersistentStore, NSString, NSURL;
+@protocol FCOperationThrottler, OS_dispatch_queue;
 
 @interface FCFeedDatabase : NSObject <FCOperationThrottlerDelegate>
 {
+    unsigned short _version;
     int _nextFeedLookupID;
-    long long _endpoint;
+    NSURL *_parentDirectoryURL;
     long long _usage;
+    long long _endpoint;
+    NSObject<OS_dispatch_queue> *_initQueue;
     NSManagedObjectContext *_managedObjectContext;
     NSPersistentStore *_persistentStore;
     NSEntityDescription *_feedEntity;
@@ -40,8 +43,11 @@
 @property(retain, nonatomic) NSEntityDescription *feedEntity; // @synthesize feedEntity=_feedEntity;
 @property(retain, nonatomic) NSPersistentStore *persistentStore; // @synthesize persistentStore=_persistentStore;
 @property(retain, nonatomic) NSManagedObjectContext *managedObjectContext; // @synthesize managedObjectContext=_managedObjectContext;
-@property(nonatomic) long long usage; // @synthesize usage=_usage;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *initQueue; // @synthesize initQueue=_initQueue;
+@property(nonatomic) unsigned short version; // @synthesize version=_version;
 @property(readonly, nonatomic) long long endpoint; // @synthesize endpoint=_endpoint;
+@property(nonatomic) long long usage; // @synthesize usage=_usage;
+@property(readonly, copy, nonatomic) NSURL *parentDirectoryURL; // @synthesize parentDirectoryURL=_parentDirectoryURL;
 - (void).cxx_destruct;
 - (void)d_sanityCheckFeed:(id)arg1;
 - (id)_feedItemsForLookups:(id)arg1 withFeedsByID:(id)arg2 boundedByCount:(unsigned long long)arg3;
@@ -49,10 +55,13 @@
 - (id)_shortCircuitLookup:(id)arg1 withFeed:(id)arg2;
 - (id)_feedItemsForLookups:(id)arg1 withFeedsByID:(id)arg2;
 - (id)_feedsForLookups:(id)arg1;
+- (void)_initMOC;
+- (void)_performWithMOCAndWait:(CDUnknownBlockType)arg1;
 - (void)operationThrottlerPerformOperation:(id)arg1;
 - (void)saveFeedItems:(id)arg1 forFeedID:(id)arg2 insertionToken:(id)arg3 requestDate:(id)arg4 followingCKCursor:(id)arg5 reachedToOrder:(_Bool)arg6 extent:(unsigned long long)arg7 reachedEnd:(_Bool)arg8;
 - (id)performDatabaseLookups:(id)arg1 boundedByCount:(unsigned long long)arg2;
 - (id)performDatabaseLookups:(id)arg1;
+- (void)teardown;
 - (id)initWithParentDirectoryURL:(id)arg1 usage:(long long)arg2 endpoint:(long long)arg3;
 
 // Remaining properties

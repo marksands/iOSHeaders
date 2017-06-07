@@ -15,11 +15,12 @@
 + (void)didDeleteEntityWithPersistentID:(long long)arg1 database:(id)arg2;
 + (_Bool)performPostJournalMergeCleanupForDatabase:(id)arg1 error:(id *)arg2;
 + (_Bool)insertLocationData:(id)arg1 seriesIdentifier:(id)arg2 profile:(id)arg3 error:(id *)arg4;
-+ (id)mergeDataObject:(id)arg1 provenance:(id)arg2 database:(id)arg3 error:(id *)arg4 insertHandler:(CDUnknownBlockType)arg5;
++ (id)mergeDataObject:(id)arg1 provenance:(id)arg2 profile:(id)arg3 database:(id)arg4 error:(id *)arg5 insertHandler:(CDUnknownBlockType)arg6;
 + (_Bool)supportsObjectMerging;
 + (id)insertDataObject:(id)arg1 withProvenance:(id)arg2 inDatabase:(id)arg3 persistentID:(id)arg4 error:(id *)arg5;
 + (_Bool)_insertCodableSeriesDataFromObject:(id)arg1 persistentID:(id)arg2 database:(id)arg3 error:(id *)arg4;
 + (id)entityEncoderForProfile:(id)arg1 database:(id)arg2 purpose:(long long)arg3 encodingOptions:(id)arg4 authorizationFilter:(CDUnknownBlockType)arg5;
++ (long long)_seriesSampleExternalSyncObjectCode;
 + (id)createTableSQL;
 + (_Bool)participatesInInsertion;
 + (_Bool)isBackedByTable;

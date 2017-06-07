@@ -9,11 +9,11 @@
 #import <NanoTimeKitCompanion/NSCopying-Protocol.h>
 #import <NanoTimeKitCompanion/NSSecureCoding-Protocol.h>
 #import <NanoTimeKitCompanion/NTKEditModeMapping-Protocol.h>
-#import <NanoTimeKitCompanion/NTKRestrictedApplicationsChangeObserver-Protocol.h>
+#import <NanoTimeKitCompanion/NTKInstalledSystemApplicationsChangeObserver-Protocol.h>
 
 @class NSArray, NSDictionary, NSHashTable, NSMutableDictionary, NSString, NTKFaceConfiguration;
 
-@interface NTKFace : NSObject <NSSecureCoding, NSCopying, NTKRestrictedApplicationsChangeObserver, NTKEditModeMapping>
+@interface NTKFace : NSObject <NSSecureCoding, NSCopying, NTKInstalledSystemApplicationsChangeObserver, NTKEditModeMapping>
 {
     NTKFaceConfiguration *_configuration;
     NSHashTable *_observers;
@@ -32,37 +32,39 @@
 }
 
 + (id)PPTBlankFace;
++ (_Bool)isFaceStyleAvailableInternal:(long long)arg1;
++ (id)availableInternalFaceStyles;
++ (long long)_convertFaceStyleToValidFaceStyleForCurrentDevice:(long long)arg1;
 + (Class)_faceClassForStyle:(long long)arg1;
 + (id)faceWithJSONObjectRepresentation:(id)arg1;
 + (_Bool)supportsSecureCoding;
++ (_Bool)_isInternalOnly;
 + (unsigned long long)_dateComplicationSlotSupportedStyles;
 + (id)_monogramComplicationSlot;
 + (id)_dateComplicationSlot;
 + (_Bool)_complication:(id)arg1 isValidForSlot:(id)arg2;
++ (_Bool)_customEditMode:(long long)arg1 hasActionForOption:(id)arg2;
 + (_Bool)_customEditModeIsShowSeconds:(long long)arg1;
-+ (_Bool)_customEditModeIsPosition:(long long)arg1;
++ (_Bool)_customEditModeIsRows:(long long)arg1;
 + (_Bool)_customEditModeIsColor:(long long)arg1;
 + (id)_localizedNameOverrideForCustomEditMode:(long long)arg1;
 + (id)_defaultSelectedComplicationSlot;
 + (id)monogramSlot;
 + (id)dateSlot;
 + (id)fixedComplicationSlots;
-+ (id)_complicationSlotDescriptors;
-+ (long long)_customEditModeForUniqueConfiguration;
-+ (id)_defaultOptionForCustomEditMode:(long long)arg1 slot:(id)arg2;
 + (id)_defaultSelectedSlotForCustomEditMode:(long long)arg1;
 + (id)_slotsForCustomEditMode:(long long)arg1;
-+ (id)_customEditModes;
 + (id)_sampleFaceDifferentFromFaces:(id)arg1;
 + (id)_initialDefaultComplicationForSlot:(id)arg1;
 + (unsigned long long)maximumRemoteComplicationsOnAnyFace;
 + (id)sampleFaceOfStyle:(long long)arg1 differentFromFaces:(id)arg2;
++ (id)defaultFaceOfStyle:(long long)arg1 initCustomization:(CDUnknownBlockType)arg2;
 + (id)defaultFaceOfStyle:(long long)arg1;
++ (_Bool)customEditMode:(long long)arg1 hasActionForOption:(id)arg2;
 + (_Bool)customEditModeIsShowSeconds:(long long)arg1;
-+ (_Bool)customEditModeIsPosition:(long long)arg1;
++ (_Bool)customEditModeIsRows:(long long)arg1;
 + (_Bool)customEditModeIsColor:(long long)arg1;
 + (id)localizedNameForCustomEditMode:(long long)arg1;
-+ (id)customEditModes;
 + (id)_linkedResourceRootDirectory;
 @property(readonly, nonatomic) long long complicationPickerStyle; // @synthesize complicationPickerStyle=_complicationPickerStyle;
 @property(nonatomic) _Bool beingEdited; // @synthesize beingEdited=_beingEdited;
@@ -76,17 +78,19 @@
 - (id)_sortedComplicationSlots;
 - (_Bool)_verifyCompatibilityOfConfiguration:(id)arg1;
 - (_Bool)_applyConfiguration:(id)arg1 allowFailure:(_Bool)arg2;
-- (Class)editOptionClassFromEditMode:(long long)arg1;
-- (void)restrictedApplicationsDidChange;
+- (Class)editOptionClassFromEditMode:(long long)arg1 resourceDirectoryExists:(_Bool)arg2;
+- (void)installedSystemApplicationsDidChange;
 - (id)JSONObjectRepresentation;
 - (id)_configurationFromOldEncodingWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)_customizeWithJSONDescription:(id)arg1;
 - (id)_resourceDirectorySnapshotKey;
 - (id)_defaultName;
 - (id)_localizedNameForComplicationSlot:(id)arg1;
 - (id)_orderedComplicationSlots;
+- (Class)_optionClassForCustomEditMode:(long long)arg1 resourceDirectoryExists:(_Bool)arg2;
 - (Class)_optionClassForCustomEditMode:(long long)arg1;
 - (_Bool)_snapshotContext:(id)arg1 isStaleRelativeToContext:(id)arg2;
 - (void)_prepareForDeletion;
@@ -106,6 +110,10 @@
 - (id)_defaultComplicationOfType:(unsigned long long)arg1 forSlot:(id)arg2;
 - (id)displayNameForComplicationSlot:(id)arg1;
 - (id)orderedComplicationSlots;
+- (id)_complicationSlotDescriptors;
+- (long long)_customEditModeForUniqueConfiguration;
+- (id)_defaultOptionForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (id)_customEditModes;
 - (_Bool)isEquivalentToFace:(id)arg1;
 - (_Bool)snapshotContext:(id)arg1 isStaleRelativeToContext:(id)arg2;
 - (void)prepareForDeletion;
@@ -135,7 +143,8 @@
 - (void)clearComplicationTombstones;
 - (id)allowedComplicationsForSlot:(id)arg1 includingComplication:(id)arg2;
 - (id)allowedComplicationsForSlot:(id)arg1;
-- (unsigned long long)allowedComplicationTypesForSlot:(id)arg1;
+- (id)possibleComplicationTypesForSlot:(id)arg1;
+- (id)allowedComplicationTypesForSlot:(id)arg1;
 - (long long)complicationFamilyForSlot:(id)arg1;
 - (void)enumerateComplicationSlotsWithBlock:(CDUnknownBlockType)arg1;
 - (void)setComplication:(id)arg1 forSlot:(id)arg2;
@@ -146,17 +155,20 @@
 - (id)selectedOptionsForCustomEditModes;
 - (void)selectOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (id)selectedOptionForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (id)customEditModes;
 @property(copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *unadornedSnapshotKey;
 - (_Bool)_wantsUnadornedSnapshot;
 @property(readonly, nonatomic) _Bool wantsUnadornedSnapshot;
 - (_Bool)_complication:(id)arg1 appearsInDailySnapshotForSlot:(id)arg2;
 @property(readonly, nonatomic) NSString *dailySnapshotKey;
+- (void)_notifyObserversFaceUpgradeOccurred;
 - (void)_notifyObserversOptionsDidChangeForEditMode:(long long)arg1;
 - (void)_notifyObserversFaceConfigurationDidChange;
-- (void)_updateForResourceDirectoryChange;
+- (void)_updateForResourceDirectoryChange:(id)arg1;
 - (void)_setResourceDirectory:(id)arg1;
 - (void)_deleteResourceDirectoryHardLinkIfNecessary;
+- (void)setComplicationSlotDescriptors:(id)arg1;
 - (void)setResourceDirectoryByHardLinkingDirectory:(id)arg1;
 - (void)setResourceDirectory:(id)arg1;
 - (void)removeObserver:(id)arg1;
@@ -164,6 +176,7 @@
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
+- (id)_initWithFaceStyle:(long long)arg1;
 - (id)init;
 - (void)_commonInit;
 - (id)_complicationMigrationPaths;

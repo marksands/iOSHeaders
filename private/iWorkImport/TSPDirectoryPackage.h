@@ -21,10 +21,11 @@ __attribute__((visibility("hidden")))
 - (_Bool)hasDataAtRelativePath:(id)arg1;
 - (id)newRawDataReadChannelAtRelativePath:(id)arg1;
 - (id)dataAtRelativePath:(id)arg1 allowDecryption:(_Bool)arg2 error:(id *)arg3;
-- (id)newDataStorageAtRelativePath:(id)arg1 decryptionInfo:(id)arg2;
+- (id)packageEntryInfoAtRelativePath:(id)arg1 error:(id *)arg2;
+- (id)newDataStorageAtRelativePath:(id)arg1 decryptionInfo:(id)arg2 packageURL:(id)arg3 lastModificationDate:(out id *)arg4;
 - (void)copyComponent:(id)arg1 toPackageURL:(id)arg2 packageLocator:(id)arg3 zipFileWriter:(id)arg4 encryptionKey:(id)arg5 canLink:(_Bool)arg6 completion:(CDUnknownBlockType)arg7;
 - (id)newRawReadChannelForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
-- (unsigned long long)encodedLengthForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
+- (id)packageEntryInfoForComponentLocator:(id)arg1 isStoredOutsideObjectArchive:(_Bool)arg2;
 - (long long)packageType;
 
 @end

@@ -16,8 +16,10 @@ __attribute__((visibility("hidden")))
 + (_Bool)requiresEventOrReminderAccess;
 + (_Bool)requiresReminderAccess;
 + (_Bool)requiresEventAccess;
-- (void)CADSourceRefresh:(CDStruct_1ef3fb1f)arg1 isUserRequested:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
-- (void)CADSourceGetConstraints:(CDStruct_1ef3fb1f)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)CADCountCalendarItemsOfType:(int)arg1 inSource:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)CADSourceRefresh:(id)arg1 isUserRequested:(_Bool)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)CADSourceGetConstraints:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)CADDatabaseGetLocalSource:(CDUnknownBlockType)arg1;
 - (void)CADDatabaseGetSources:(CDUnknownBlockType)arg1;
 
 @end

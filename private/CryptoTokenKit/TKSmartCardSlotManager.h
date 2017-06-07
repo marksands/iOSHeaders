@@ -21,6 +21,7 @@
 
 + (id)defaultManager;
 - (void).cxx_destruct;
+- (id)slotNamed:(id)arg1;
 - (void)getSlotWithName:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)setSlotWithName:(id)arg1 endpoint:(id)arg2 type:(id)arg3 reply:(CDUnknownBlockType)arg4;
 @property(readonly) NSArray *slotNames;

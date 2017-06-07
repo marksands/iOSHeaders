@@ -9,13 +9,14 @@
 #import <VideosExtras/UIGestureRecognizerDelegate-Protocol.h>
 #import <VideosExtras/VideosExtrasCarouselCollectionViewCell-Protocol.h>
 
-@class MPUContentSizeLayoutConstraint, NSLayoutConstraint, NSString, UILabel, UIPinchGestureRecognizer, UIView, VideosExtrasConstrainedArtworkContainerView, VideosExtrasZoomingImageInteractiveTransitionSourceContext;
+@class MPUContentSizeLayoutConstraint, NSArray, NSLayoutConstraint, NSString, UILabel, UIPinchGestureRecognizer, UIView, VideosExtrasConstrainedArtworkContainerView, VideosExtrasZoomingImageInteractiveTransitionSourceContext;
 
 @interface VideosExtrasCarouselCollectionViewCell : UICollectionViewCell <UIGestureRecognizerDelegate, VideosExtrasCarouselCollectionViewCell>
 {
     _Bool _allowsPinchingThumbnailImageForInteractiveZoomingImageTransition;
     VideosExtrasConstrainedArtworkContainerView *_thumbnailImageContainerView;
     NSLayoutConstraint *_thumbnailImageContainerViewHeightConstraint;
+    NSArray *_thumbnailImageContainerViewConstraints;
     MPUContentSizeLayoutConstraint *_subtitleBaselineConstraint;
     MPUContentSizeLayoutConstraint *_descriptionLabelBaselineConstraint;
     UIView *_textContainer;
@@ -41,6 +42,7 @@
 @property(retain, nonatomic) UIView *textContainer; // @synthesize textContainer=_textContainer;
 @property(retain, nonatomic) MPUContentSizeLayoutConstraint *descriptionLabelBaselineConstraint; // @synthesize descriptionLabelBaselineConstraint=_descriptionLabelBaselineConstraint;
 @property(retain, nonatomic) MPUContentSizeLayoutConstraint *subtitleBaselineConstraint; // @synthesize subtitleBaselineConstraint=_subtitleBaselineConstraint;
+@property(retain, nonatomic) NSArray *thumbnailImageContainerViewConstraints; // @synthesize thumbnailImageContainerViewConstraints=_thumbnailImageContainerViewConstraints;
 @property(retain, nonatomic) NSLayoutConstraint *thumbnailImageContainerViewHeightConstraint; // @synthesize thumbnailImageContainerViewHeightConstraint=_thumbnailImageContainerViewHeightConstraint;
 @property(retain, nonatomic) VideosExtrasConstrainedArtworkContainerView *thumbnailImageContainerView; // @synthesize thumbnailImageContainerView=_thumbnailImageContainerView;
 - (void).cxx_destruct;
@@ -55,11 +57,13 @@
 - (id)descriptionTextStyle;
 - (id)subtitleTextStyle;
 - (id)titleTextStyle;
+- (struct CGSize)thumbnailMaxSize;
 - (void)setThumbnailMaxSize:(struct CGSize)arg1;
 - (id)lockupElement;
 - (void)setDescriptionText:(id)arg1;
 - (id)descriptionText;
 - (void)setSubtitleText:(id)arg1;
+- (id)subtitleText;
 - (void)setTitleText:(id)arg1;
 - (id)titleText;
 - (void)setThumbnailImageAccessibilityText:(id)arg1;

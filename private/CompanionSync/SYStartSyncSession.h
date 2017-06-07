@@ -15,12 +15,14 @@
     double _sessionTimeout;
     SYMessageHeader *_header;
     NSData *_metadata;
+    NSString *_reason;
     NSString *_sessionID;
     _Bool _expectsRestartSupport;
     _Bool _expectsRollbackSupport;
     _Bool _isResetSync;
 }
 
+@property(retain, nonatomic) NSString *reason; // @synthesize reason=_reason;
 @property(retain, nonatomic) NSData *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) double sessionTimeout; // @synthesize sessionTimeout=_sessionTimeout;
 @property(nonatomic) _Bool expectsRestartSupport; // @synthesize expectsRestartSupport=_expectsRestartSupport;
@@ -38,6 +40,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasReason;
 @property(readonly, nonatomic) _Bool hasMetadata;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <ChatKit/NSObject-Protocol.h>
 
-@class CKBrowserSwitcherViewController, UIViewController;
+@class CKBrowserSwitcherViewController, NSDate, UIViewController;
 @protocol CKBrowserViewControllerProtocol;
 
 @protocol CKBrowserSwitcherViewControllerDelegate <NSObject>
@@ -14,9 +14,11 @@
 - (void)switcherViewControllerDidFinishSwitching:(CKBrowserSwitcherViewController *)arg1 toViewController:(UIViewController<CKBrowserViewControllerProtocol> *)arg2;
 
 @optional
+- (void)switcherViewController:(CKBrowserSwitcherViewController *)arg1 hasUpdatedLastTouchDate:(NSDate *)arg2;
 - (void)switcherViewController:(CKBrowserSwitcherViewController *)arg1 willHideSelectionViewWithAnimations:(CDUnknownBlockType *)arg2 completion:(CDUnknownBlockType *)arg3;
 - (void)switcherViewController:(CKBrowserSwitcherViewController *)arg1 willShowSelectionViewWithAnimations:(CDUnknownBlockType *)arg2 completion:(CDUnknownBlockType *)arg3;
 - (void)switcherViewControllerDidStartSwitching:(CKBrowserSwitcherViewController *)arg1;
+- (void)switcherViewControllerDidSelectAppManager:(CKBrowserSwitcherViewController *)arg1 shouldRestoreAppSwitcher:(_Bool)arg2;
 - (void)switcherViewControllerDidSelectAppStore:(CKBrowserSwitcherViewController *)arg1 shouldRestoreAppSwitcher:(_Bool)arg2;
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
++ (id)_locationNodesForTimeTitleFromLocationNodes:(id)arg1;
 + (id)_significantDateNodesFromEventNodes:(id)arg1 dateFormatterType:(unsigned long long)arg2;
 + (id)_dateNodesFromEventNodes:(id)arg1;
 + (id)_commonLocationLabelForLocationNodes:(id)arg1;
@@ -22,14 +23,13 @@
 + (unsigned long long)_dateIntervalFormatterTypeWithEventNodes:(id)arg1 allowedFormats:(unsigned long long)arg2;
 + (_Bool)yearIsNeededForDisplayingDate:(id)arg1;
 + (_Bool)_yearIsNeededForDisplayingDate:(id)arg1;
++ (id)ordinalYearsAgoWithEventNodes:(id)arg1 relativeToDateComponents:(id)arg2;
 + (id)peopleTimeTitleWithEventNodes:(id)arg1;
-+ (id)timeTitleWithDateInterval:(id)arg1 allowedFormats:(unsigned long long)arg2;
-+ (id)_splitTimeTitleWithLocalStartDate:(id)arg1 endDate:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4 allowedFormats:(unsigned long long)arg5;
++ (id)_splitTimeTitleWithLocalStartDate:(id)arg1 endDate:(id)arg2 startDateNode:(id)arg3 endDateNode:(id)arg4 allowedFormats:(unsigned long long)arg5 locale:(id)arg6;
 + (id)splitTimeTitleWithDateInterval:(id)arg1 allowedFormats:(unsigned long long)arg2;
-+ (id)splitTimeTitleWithEventNodes:(id)arg1 allowedFormats:(unsigned long long)arg2;
-+ (id)timeTitleWithEventNodes:(id)arg1 locationNodes:(id)arg2 allowedFormats:(unsigned long long)arg3 filterDates:(_Bool)arg4;
-+ (id)timeTitleWithEventNodes:(id)arg1 allowedFormats:(unsigned long long)arg2 filterDates:(_Bool)arg3;
-+ (id)timeTitleWithEventNode:(id)arg1 locationNodes:(id)arg2 allowedFormats:(unsigned long long)arg3 filterDates:(_Bool)arg4;
++ (id)splitTimeTitleWithOptions:(id)arg1;
++ (id)timeTitleWithDateInterval:(id)arg1 allowedFormats:(unsigned long long)arg2;
++ (id)timeTitleWithOptions:(id)arg1;
 
 @end
 

@@ -18,11 +18,16 @@ __attribute__((visibility("hidden")))
     NSData *_clientChangeToken;
     int _status;
     NSData *_syncContinuationToken;
-    CDStruct_47fe53f2 _has;
+    _Bool _pendingArchivedRecords;
+    struct {
+        unsigned int status:1;
+        unsigned int pendingArchivedRecords:1;
+    } _has;
 }
 
 + (Class)changedShareType;
 + (Class)changedRecordType;
+@property(nonatomic) _Bool pendingArchivedRecords; // @synthesize pendingArchivedRecords=_pendingArchivedRecords;
 @property(retain, nonatomic) NSMutableArray *changedShares; // @synthesize changedShares=_changedShares;
 @property(retain, nonatomic) NSData *clientChangeToken; // @synthesize clientChangeToken=_clientChangeToken;
 @property(retain, nonatomic) NSData *syncContinuationToken; // @synthesize syncContinuationToken=_syncContinuationToken;
@@ -37,6 +42,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPendingArchivedRecords;
 - (id)changedShareAtIndex:(unsigned long long)arg1;
 - (unsigned long long)changedSharesCount;
 - (void)addChangedShare:(id)arg1;

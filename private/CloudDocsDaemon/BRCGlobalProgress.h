@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak BRCAccountSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
 - (void)_deleteDocument:(id)arg1 reason:(BOOL)arg2;
+- (void)_updateDocument:(id)arg1 inline:(_Bool)arg2;
 - (void)_updateDocument:(id)arg1;
 - (void)_updateAppLibraryID:(id)arg1;
 - (void)_resumeProgressForAnotherOperationIfNeeded;
@@ -58,13 +59,14 @@ __attribute__((visibility("hidden")))
 - (void)clearOutOfQuotaState;
 - (void)didDeleteDocument:(id)arg1;
 - (void)didUpdateDocument:(id)arg1;
-- (void)willResumeDocumentUpload:(id)arg1;
+- (void)resumeProgressForZones:(id)arg1;
 - (void)willScheduleDocumentForDownload:(id)arg1;
 - (void)didUpdateClientZone:(id)arg1;
 - (void)networkReachabilityChanged:(_Bool)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithSession:(id)arg1;
+- (id)_t_globalProgressInfo;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

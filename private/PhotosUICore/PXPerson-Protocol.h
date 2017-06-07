@@ -7,10 +7,16 @@
 #import <PhotosUICore/NSObject-Protocol.h>
 
 @class NSString;
+@protocol NSFastEnumeration;
 
 @protocol PXPerson <NSObject>
-- (NSString *)name;
-- (unsigned long long)numberOfAssets;
++ (void)px_loadRepresentativeFacesForPersons:(id <NSFastEnumeration>)arg1;
+@property(readonly) _Bool isPersonModel;
+@property(readonly) _Bool isVerified;
+@property(readonly) NSString *px_localIdentifier;
+@property(readonly) NSString *px_displayName;
+@property(readonly) NSString *name;
+@property(readonly) unsigned long long numberOfAssets;
 - (void)requestFaceTileImageWithTargetSize:(struct CGSize)arg1 cropFactor:(unsigned long long)arg2 round:(_Bool)arg3 cacheResult:(_Bool)arg4 completionBlock:(void (^)(UIImage *, struct CGRect, NSError *))arg5;
 @end
 

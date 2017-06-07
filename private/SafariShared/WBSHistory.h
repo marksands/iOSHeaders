@@ -8,8 +8,8 @@
 
 #import <SafariShared/WBSHistoryStoreDelegate-Protocol.h>
 
-@class NSArray, NSCountedSet, NSData, NSMutableDictionary, NSString, WBSHistorySQLiteStore;
-@protocol OS_dispatch_queue;
+@class NSArray, NSCountedSet, NSData, NSMutableDictionary, NSString;
+@protocol OS_dispatch_queue, WBSHistoryStore;
 
 @interface WBSHistory : NSObject <WBSHistoryStoreDelegate>
 {
@@ -19,7 +19,7 @@
     double _historyAgeLimit;
     _Bool _hasStartedLoadingHistory;
     NSObject<OS_dispatch_queue> *_waitUntilHistoryHasLoadedQueue;
-    WBSHistorySQLiteStore *_historyStore;
+    id <WBSHistoryStore> _historyStore;
 }
 
 + (void)clearExistingSharedHistory;
@@ -55,6 +55,7 @@
 - (void)performBlockAfterHistoryHasLoaded:(CDUnknownBlockType)arg1;
 - (void)waitUntilHistoryHasLoaded;
 - (void)_waitUntilHistoryHasLoadedMainThread;
+- (void)_startLoading;
 - (void)_loadHistory;
 - (void)_loadHistoryAsynchronouslyIfNeeded;
 - (void)close;
@@ -107,7 +108,6 @@
 - (void)_removeHistoryItemsInResponseToUserAction:(id)arg1;
 - (void)removeItemsInResponseToUserAction:(id)arg1;
 - (id)itemForURLString:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

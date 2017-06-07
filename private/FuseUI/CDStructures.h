@@ -48,22 +48,6 @@ struct _NSRange {
     unsigned long long _field2;
 };
 
-struct __tree_end_node<std::__1::__tree_node_base<void *>*> {
-    struct __tree_node_base<void *> *__left_;
-};
-
-struct map<MusicStoreBrowseDetailedContentItemType, unsigned long, std::__1::less<MusicStoreBrowseDetailedContentItemType>, std::__1::allocator<std::__1::pair<const MusicStoreBrowseDetailedContentItemType, unsigned long>>> {
-    struct __tree<std::__1::__value_type<MusicStoreBrowseDetailedContentItemType, unsigned long>, std::__1::__map_value_compare<MusicStoreBrowseDetailedContentItemType, std::__1::__value_type<MusicStoreBrowseDetailedContentItemType, unsigned long>, std::__1::less<MusicStoreBrowseDetailedContentItemType>, true>, std::__1::allocator<std::__1::__value_type<MusicStoreBrowseDetailedContentItemType, unsigned long>>> {
-        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *__begin_node_;
-        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<MusicStoreBrowseDetailedContentItemType, unsigned long>, void *>>> {
-            struct __tree_end_node<std::__1::__tree_node_base<void *>*> __first_;
-        } __pair1_;
-        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<MusicStoreBrowseDetailedContentItemType, std::__1::__value_type<MusicStoreBrowseDetailedContentItemType, unsigned long>, std::__1::less<MusicStoreBrowseDetailedContentItemType>, true>> {
-            unsigned long long __first_;
-        } __pair3_;
-    } __tree_;
-};
-
 struct shared_ptr<std::__1::vector<Music::EditingEntityProviderEntry, std::__1::allocator<Music::EditingEntityProviderEntry>>>;
 
 struct vector<_NSRange, std::__1::allocator<_NSRange>> {
@@ -85,28 +69,11 @@ struct vector<std::__1::shared_ptr<std::__1::vector<Music::EditingEntityProvider
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    _Bool useCarPlayBrowseTopLevelContentOnly;
-    _Bool useCarPlayBrowseTopLevelRequestReorderingHeuristics;
-} CDStruct_d2d88407;
-
-typedef struct {
-    unsigned long long _field1;
-    id *_field2;
-    unsigned long long *_field3;
-    unsigned long long _field4[5];
-} CDStruct_70511ce9;
-
-typedef struct {
     double titleBaselineOffsetFromBottom;
     double titleBaselineOffsetFromTop;
     long long titleFontTextStyle;
     long long titleFontWeight;
 } CDStruct_4a0565dd;
-
-typedef struct {
-    long long _field1;
-    unsigned long long _field2;
-} CDStruct_1dee9796;
 
 typedef struct {
     struct CGRect _field1;

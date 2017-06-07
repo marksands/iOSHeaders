@@ -8,7 +8,7 @@
 
 #import <NewsCore/FCUserInfoObserving-Protocol.h>
 
-@class FCCommandQueue, FCUserInfo, NSString;
+@class FCAppConfiguration, FCCommandQueue, FCUserInfo, NSString;
 
 @interface FCNotificationController : NSObject <FCUserInfoObserving>
 {
@@ -16,21 +16,24 @@
     NSString *_deviceToken;
     FCUserInfo *_userInfo;
     FCCommandQueue *_commandQueue;
+    FCAppConfiguration *_appConfig;
 }
 
+@property(retain, nonatomic) FCAppConfiguration *appConfig; // @synthesize appConfig=_appConfig;
 @property(retain, nonatomic) FCCommandQueue *commandQueue; // @synthesize commandQueue=_commandQueue;
 @property(retain, nonatomic) FCUserInfo *userInfo; // @synthesize userInfo=_userInfo;
 @property(copy, nonatomic) NSString *deviceToken; // @synthesize deviceToken=_deviceToken;
 @property(copy, nonatomic) NSString *notificationsUserID; // @synthesize notificationsUserID=_notificationsUserID;
 - (void).cxx_destruct;
 - (void)userInfoDidChangeNotificationsUserID:(id)arg1;
+- (id)appendBreakingNewsIfNeededToChannelIDs:(id)arg1;
 - (_Bool)refreshNotificationsForChannelIDs:(id)arg1 paidChannelIDs:(id)arg2;
 - (_Bool)unregisterNotificationsForTagID:(id)arg1;
 - (_Bool)registerNotificationsForTagID:(id)arg1 isPaid:(_Bool)arg2;
 - (void)_registerDeviceToken:(id)arg1;
 - (void)registerDeviceToken:(id)arg1;
 - (void)dealloc;
-- (id)initWithUserInfo:(id)arg1 commandQueue:(id)arg2;
+- (id)initWithUserInfo:(id)arg1 commandQueue:(id)arg2 appConfiguration:(id)arg3;
 - (id)init;
 
 // Remaining properties

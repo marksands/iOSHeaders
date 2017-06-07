@@ -6,12 +6,13 @@
 
 #import <iWorkImport/TSPObject.h>
 
+#import <iWorkImport/TSKModel-Protocol.h>
 #import <iWorkImport/TSSPreset-Protocol.h>
 
 @class NSString, TSWPListStyle, TSWPParagraphStyle;
 
 __attribute__((visibility("hidden")))
-@interface TSWPTextStylePreset : TSPObject <TSSPreset>
+@interface TSWPTextStylePreset : TSPObject <TSSPreset, TSKModel>
 {
     NSString *_presetIdentifier;
     TSWPParagraphStyle *_paragraphStyle;
@@ -21,13 +22,20 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSWPListStyle *listStyle; // @synthesize listStyle=_listStyle;
 @property(retain, nonatomic) TSWPParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=_paragraphStyle;
 @property(copy, nonatomic) NSString *presetIdentifier; // @synthesize presetIdentifier=_presetIdentifier;
+- (id)referencedStyles;
 @property(readonly, nonatomic) NSString *presetKind;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct TextStylePresetArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct TextStylePresetArchive *)arg1 unarchiver:(id)arg2;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 presetIdentifier:(id)arg2 paragraphStyle:(id)arg3 listStyle:(id)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

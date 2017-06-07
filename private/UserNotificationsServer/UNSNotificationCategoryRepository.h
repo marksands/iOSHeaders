@@ -6,14 +6,23 @@
 
 #import <objc/NSObject.h>
 
+@class UNSKeyedObservable;
+
 @interface UNSNotificationCategoryRepository : NSObject
 {
+    UNSKeyedObservable *_observable;
 }
 
+- (void).cxx_destruct;
 - (void)performMigrationForBundleIdentifier:(id)arg1;
 - (void)performMigration;
+- (void)applicationsDidUninstall:(id)arg1;
 - (void)setCategories:(id)arg1 forBundleIdentifier:(id)arg2;
 - (id)categoriesForBundleIdentifier:(id)arg1;
+- (void)removeObserver:(id)arg1 forBundleIdentifier:(id)arg2;
+- (void)addObserver:(id)arg1 forBundleIdentifier:(id)arg2;
+- (id)initWithObservable:(id)arg1;
+- (id)init;
 
 @end
 

@@ -26,6 +26,7 @@
 @property(copy, nonatomic) CDUnknownBlockType queueCallback; // @synthesize queueCallback=_queueCallback;
 @property(retain, nonatomic) NSDate *dateOverride; // @synthesize dateOverride=_dateOverride;
 @property(retain, nonatomic) NSLocale *localeOverride; // @synthesize localeOverride=_localeOverride;
+- (void).cxx_destruct;
 - (void)_dequeueSound;
 - (void)_handleTestingQueueCallback;
 - (id)_convertSoundToStringName:(unsigned int)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSLock, NSMutableArray;
 @protocol OS_dispatch_source;
@@ -18,9 +18,9 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedListener;
-- (void)waitForManifestWithHandler:(CDUnknownBlockType)arg1;
+- (void).cxx_destruct;
+- (void)waitForManifestWithCallback:(id)arg1;
 - (void)_finish:(_Bool)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

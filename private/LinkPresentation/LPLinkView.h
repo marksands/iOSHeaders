@@ -11,7 +11,7 @@
 #import <LinkPresentation/LPThemeClient-Protocol.h>
 #import <LinkPresentation/UIGestureRecognizerDelegate-Protocol.h>
 
-@class LPAnimationMaskView, LPCaptionBarPresentationProperties, LPCaptionBarView, LPComponentView, LPImage, LPLinkMetadata, LPMetadataProvider, LPTextView, LPTheme, LPVideo, LPiTunesPlaybackInformation, NSMutableArray, NSString, NSURL, UIColor;
+@class LPAnimationMaskView, LPCaptionBarPresentationProperties, LPImage, LPLinkMetadata, LPLinkViewComponents, LPMetadataProvider, LPTheme, LPVideo, LPiTunesPlaybackInformation, NSMutableArray, NSString, NSURL, UIColor;
 @protocol LPLinkViewDelegate;
 
 @interface LPLinkView : UIView <UIGestureRecognizerDelegate, CAAnimationDelegate, LPTapToLoadViewDelegate, LPThemeClient>
@@ -35,23 +35,24 @@
     UIColor *_backgroundColor;
     UIColor *_overrideBackgroundColor;
     LPiTunesPlaybackInformation *_iTunesPlaybackInformation;
+    LPLinkViewComponents *_components;
+    LPLinkViewComponents *_componentsForSizing;
     UIView *_contentView;
     UIView *_animationView;
-    LPCaptionBarView *_captionBarView;
-    LPComponentView *_mediaView;
     UIView *_mediaViewBackground;
-    LPCaptionBarView *_mediaTopCaptionBarView;
-    LPCaptionBarView *_mediaBottomCaptionBarView;
-    LPTextView *_quoteView;
     LPAnimationMaskView *_animationMaskView;
     _Bool _hasEverBuilt;
     _Bool _needsRebuild;
     _Bool _usesDeferredLayout;
     _Bool _shouldAnimateDuringNextBuild;
     _Bool _hasValidPresentationProperties;
+    _Bool _hasSetDisableHighlightGesture;
     _Bool _disableAnimations;
     _Bool _disableTapGesture;
+    _Bool _disableHighlightGesture;
+    _Bool _disableAutoPlay;
     _Bool _disablePlayback;
+    _Bool _disablePlaybackControls;
     _Bool _allowsTapToLoad;
     _Bool _forceFlexibleWidth;
     _Bool _applyCornerRadius;
@@ -71,7 +72,9 @@
 @property(nonatomic, setter=_setUsesDeferredLayout:) _Bool _usesDeferredLayout; // @synthesize _usesDeferredLayout;
 @property(nonatomic, setter=_setAllowsTapToLoad:) _Bool _allowsTapToLoad; // @synthesize _allowsTapToLoad;
 @property(nonatomic, setter=_setAnimationOrigin:) long long _animationOrigin; // @synthesize _animationOrigin;
+@property(nonatomic, setter=_setDisablePlaybackControls:) _Bool _disablePlaybackControls; // @synthesize _disablePlaybackControls;
 @property(nonatomic, setter=_setDisablePlayback:) _Bool _disablePlayback; // @synthesize _disablePlayback;
+@property(nonatomic, setter=_setDisableAutoPlay:) _Bool _disableAutoPlay; // @synthesize _disableAutoPlay;
 @property(nonatomic, setter=_setDisableTapGesture:) _Bool _disableTapGesture; // @synthesize _disableTapGesture;
 @property(nonatomic, setter=_setDisableAnimations:) _Bool _disableAnimations; // @synthesize _disableAnimations;
 - (void).cxx_destruct;
@@ -83,12 +86,18 @@
 - (_Bool)gestureRecognizer:(id)arg1 shouldRequireFailureOfGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 canPreventGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
-- (void)_addHighlightRecognizersToView:(id)arg1;
+- (void)_addHighlightRecognizerToView:(id)arg1;
 - (void)_addTapRecognizerToView:(id)arg1;
+@property(nonatomic, setter=_setDisableHighlightGesture:) _Bool _disableHighlightGesture; // @synthesize _disableHighlightGesture;
+- (void)_rebuildGestureRecognizersIfNeeded;
+- (void)_uninstallTapGestureRecognizers;
+- (void)_uninstallHighlightGestureRecognizers;
 - (void)_installTapGestureRecognizers;
+- (void)_installHighlightGestureRecognizers;
 - (struct CGSize)_layoutLinkViewForSize:(struct CGSize)arg1 applyingLayout:(_Bool)arg2;
 - (id)_createQuotedTextView;
 - (id)_createMediaView;
+- (id)_videoViewConfiguration;
 - (id)_createTapToLoadView;
 - (id)_createMediaBottomCaptionBarView;
 - (id)_createMediaTopCaptionBarView;
@@ -97,6 +106,7 @@
 - (void)_invalidateLayout;
 - (void)_layoutLinkView;
 - (void)_rebuildSubviewsWithAnimation:(_Bool)arg1;
+- (id)_createComponents;
 - (void)animateBackgroundColor;
 - (void)setSuppressMask:(_Bool)arg1;
 - (void)animateFromOldFrame:(struct CGRect)arg1 oldMediaBackgroundFrame:(struct CGRect)arg2 oldCaptionBarView:(id)arg3;
@@ -107,6 +117,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)layoutSubviews;
+@property(readonly, nonatomic) long long _style;
 - (void)_setPresentationProperties:(id)arg1;
 - (void)_computePresentationPropertiesFromMetadataIfNeeded;
 - (void)_invalidatePresentationProperties;

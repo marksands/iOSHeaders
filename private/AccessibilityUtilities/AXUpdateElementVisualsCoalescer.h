@@ -26,6 +26,7 @@
 @property(copy, nonatomic) CDUnknownBlockType updateVisualsSequenceDidBeginHandler; // @synthesize updateVisualsSequenceDidBeginHandler=_updateVisualsSequenceDidBeginHandler;
 @property(nonatomic) double progressInterval; // @synthesize progressInterval=_progressInterval;
 @property(nonatomic) double threshold; // @synthesize threshold=_threshold;
+- (void).cxx_destruct;
 - (void)_timerDidFire:(id)arg1;
 - (void)notifyUpdateElementVisualsEventDidOccur;
 - (void)dealloc;

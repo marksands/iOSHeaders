@@ -44,8 +44,7 @@
 - (void)updateLocalAdministratorName;
 @property(readonly, nonatomic) HMDSecureRemoteMessageTransport *secureRemoteTransport;
 - (void)dealloc;
-- (id)initWithSecureRemoteTransport:(id)arg1 messageFilterChain:(id)arg2 notificationRelayDispatcher:(id)arg3;
-- (void)disableRemoteSessionForAddresses:(id)arg1;
+- (id)initWithSecureRemoteTransport:(id)arg1 messageFilterChain:(id)arg2;
 - (void)redispatchMessage:(id)arg1 target:(id)arg2 responseQueue:(id)arg3 toResidentForHomeWithUUID:(id)arg4;
 - (void)relayMessage:(id)arg1;
 - (id)prepareAnswerForRequestedCapabilities:(id)arg1;
@@ -56,6 +55,7 @@
 - (id)remoteAccessDeviceForHome:(id)arg1;
 - (void)_setRemoteAccessDevice:(id)arg1 forHome:(id)arg2 sendNotification:(_Bool)arg3;
 - (void)setRemoteAccessDevice:(id)arg1 forHome:(id)arg2;
+- (void)setCompanionDevice:(id)arg1 forHome:(id)arg2;
 - (void)handleSecureSessionError:(id)arg1;
 
 @end

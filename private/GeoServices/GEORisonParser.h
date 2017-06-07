@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableCharacterSet, NSNumberFormatter;
 
@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     NSMutableCharacterSet *_risonEscapes;
 }
 
+- (void).cxx_destruct;
 - (id)stringFromNull:(id)arg1;
 - (id)stringFromNumber:(id)arg1;
 - (id)stringFromString:(id)arg1;
@@ -31,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (id)dictionaryWithReaderInfo:(CDStruct_8bf61218 *)arg1;
 - (id)objectWithReaderInfo:(CDStruct_8bf61218 *)arg1;
 - (id)objectFromRisonString:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

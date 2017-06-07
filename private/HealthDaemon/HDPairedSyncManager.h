@@ -9,13 +9,13 @@
 #import <HealthDaemon/HDDiagnosticObject-Protocol.h>
 #import <HealthDaemon/PSYSyncCoordinatorDelegate-Protocol.h>
 
-@class HDDaemon, NSHashTable, NSString, PSYSyncCoordinator;
+@class HDProfile, NSHashTable, NSString, PSYSyncCoordinator;
 @protocol OS_dispatch_queue;
 
 @interface HDPairedSyncManager : NSObject <PSYSyncCoordinatorDelegate, HDDiagnosticObject>
 {
     PSYSyncCoordinator *_pairedSyncCoordinator;
-    HDDaemon *_daemon;
+    HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
     NSHashTable *_unfinishedSyncSessions;
 }
@@ -23,7 +23,7 @@
 + (id)syncCoordinatorWithServiceName:(id)arg1;
 @property(retain, nonatomic) NSHashTable *unfinishedSyncSessions; // @synthesize unfinishedSyncSessions=_unfinishedSyncSessions;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(nonatomic) __weak HDDaemon *daemon; // @synthesize daemon=_daemon;
+@property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(retain, nonatomic) PSYSyncCoordinator *pairedSyncCoordinator; // @synthesize pairedSyncCoordinator=_pairedSyncCoordinator;
 - (void).cxx_destruct;
 - (id)diagnosticDescription;
@@ -38,7 +38,7 @@
 - (_Bool)permitSynchronization;
 @property(readonly) PSYSyncCoordinator *syncCoordinator;
 - (void)dealloc;
-- (id)initWithDaemon:(id)arg1 queue:(id)arg2;
+- (id)initWithProfile:(id)arg1 queue:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

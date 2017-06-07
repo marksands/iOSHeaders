@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
 
@@ -20,6 +20,7 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (void)refreshUserAccessTokens:(id)arg1 error:(id)arg2;
 - (void)userAccessTokens:(id)arg1 error:(id)arg2;
 - (void)consentTokens:(id)arg1 error:(id)arg2;

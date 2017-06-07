@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLatLng, GEOStructuredAddress, NSMutableArray, NSString;
+@class GEOLatLng, GEOStructuredAddress, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOWaypointID : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _muid;
     unsigned long long _resultProviderId;
     int _addressGeocodeAccuracyHint;
@@ -35,6 +36,8 @@
 @property(retain, nonatomic) GEOLatLng *locationHint; // @synthesize locationHint=_locationHint;
 @property(nonatomic) unsigned long long resultProviderId; // @synthesize resultProviderId=_resultProviderId;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -61,7 +64,6 @@
 @property(readonly, nonatomic) _Bool hasLocationHint;
 @property(nonatomic) _Bool hasResultProviderId;
 @property(nonatomic) _Bool hasMuid;
-- (void)dealloc;
 
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOLocation, NSDate, NSString;
 
@@ -35,13 +35,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSDate *estimatedArrivalDate; // @synthesize estimatedArrivalDate=_estimatedArrivalDate;
 @property(readonly, nonatomic) NSDate *suggestedDepartureDate; // @synthesize suggestedDepartureDate=_suggestedDepartureDate;
 @property(retain, nonatomic) GEOLocation *lastLocation; // @synthesize lastLocation=_lastLocation;
+- (void).cxx_destruct;
 - (id)description;
 - (void)updateTravelState:(id)arg1;
 - (void)updateTrafficIncidents:(id)arg1;
 - (void)updateHistoricTrafficDensity:(double)arg1 staticTravelTime:(double)arg2;
 - (void)updateCurrentTrafficDensity:(double)arg1 staticTravelTime:(double)arg2;
 - (void)updateDepartureAndArrivalSuggestions:(id)arg1 arrivalDate:(id)arg2 travelTimeWithTraffic:(double)arg3;
-- (void)dealloc;
 
 @end
 

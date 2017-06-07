@@ -45,15 +45,19 @@
     EKTravelEngineHypothesis *_latestHypothesis;
     NSDate *_lastFireTimeOfAlertOffsetFromTravelTime;
     NSDate *_lastTimeBulletinAdded;
+    NSURL *_conferenceURL;
+    unsigned long long _currentRouteHypothesizerNotificationType;
     NSDate *_fireDate;
     struct CLLocationCoordinate2D _geoLocationCoordinates;
 }
 
 @property(retain, nonatomic) NSDate *fireDate; // @synthesize fireDate=_fireDate;
+@property(nonatomic) unsigned long long currentRouteHypothesizerNotificationType; // @synthesize currentRouteHypothesizerNotificationType=_currentRouteHypothesizerNotificationType;
 @property(nonatomic) _Bool hasDisplayedRunningLateMessage; // @synthesize hasDisplayedRunningLateMessage=_hasDisplayedRunningLateMessage;
 @property(nonatomic) _Bool hasDisplayedLeaveNowMessage; // @synthesize hasDisplayedLeaveNowMessage=_hasDisplayedLeaveNowMessage;
 @property(nonatomic) _Bool hasDisplayedLeaveByMessage; // @synthesize hasDisplayedLeaveByMessage=_hasDisplayedLeaveByMessage;
 @property(nonatomic) _Bool isOnSharedCalendar; // @synthesize isOnSharedCalendar=_isOnSharedCalendar;
+@property(retain, nonatomic) NSURL *conferenceURL; // @synthesize conferenceURL=_conferenceURL;
 @property(nonatomic) _Bool isSuggestedLocation; // @synthesize isSuggestedLocation=_isSuggestedLocation;
 @property(retain, nonatomic) NSDate *lastTimeBulletinAdded; // @synthesize lastTimeBulletinAdded=_lastTimeBulletinAdded;
 @property(retain, nonatomic) NSDate *lastFireTimeOfAlertOffsetFromTravelTime; // @synthesize lastFireTimeOfAlertOffsetFromTravelTime=_lastFireTimeOfAlertOffsetFromTravelTime;

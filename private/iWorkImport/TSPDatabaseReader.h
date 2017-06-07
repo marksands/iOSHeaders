@@ -29,6 +29,8 @@ __attribute__((visibility("hidden")))
 - (id)dataForOldDataArchive:(const struct DatabaseDataArchive *)arg1;
 - (struct Message *)newImageDataMessageForDatabaseObject:(id)arg1;
 - (struct Message *)newDataMessageForDatabaseObject:(id)arg1;
+- (void)enumerateDataAppRelativePathsUsingBlock:(CDUnknownBlockType)arg1;
+- (id)appRelativePathForOldDataArchive:(const struct DatabaseDataArchive *)arg1;
 - (_Bool)validateObjectIdentifierForObject:(id)arg1;
 - (void)didUnarchiveObject:(id)arg1 withUnarchiver:(id)arg2;
 - (id)newUnarchiverWithDatabaseObject:(id)arg1;
@@ -40,6 +42,7 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, nonatomic) _Bool canRetainObjectReferencedByWeakLazyReference;
+@property(readonly, nonatomic) long long componentIdentifier;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool didFinishResolvingReferences;

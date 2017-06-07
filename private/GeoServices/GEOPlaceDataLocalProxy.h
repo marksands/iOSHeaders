@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOPlaceDataProxy-Protocol.h>
 
@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
     NSMutableOrderedSet *_placeHashes;
 }
 
+- (void).cxx_destruct;
 - (void)_privacyAndLocationSettingsResetObserver:(id)arg1;
 - (void)_callHistoryRecentsClearedObserver:(id)arg1;
 - (void)_resetPhoneNumberMapper;
@@ -30,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (void)shrinkBySize:(unsigned long long)arg1 finished:(CDUnknownBlockType)arg2;
 - (void)calculateFreeableSpaceWithHandler:(CDUnknownBlockType)arg1;
 - (void)applyRAPUpdatedMapItems:(id)arg1;
-- (void)performPlaceDataRequest:(id)arg1 traits:(id)arg2 timeout:(double)arg3 auditToken:(id)arg4 networkActivity:(CDUnknownBlockType)arg5 requesterHandler:(CDUnknownBlockType)arg6;
+- (void)performPlaceDataRequest:(id)arg1 traits:(id)arg2 cachePolicy:(unsigned long long)arg3 timeout:(double)arg4 auditToken:(id)arg5 networkActivity:(CDUnknownBlockType)arg6 requesterHandler:(CDUnknownBlockType)arg7;
 - (void)_cachePlaceData:(id)arg1 forKey:(struct _GEOTileKey)arg2 shouldOptimizeWritesToDisk:(_Bool)arg3 shouldUseDefaultProviderId:(_Bool)arg4;
 - (void)_cachePlaceData:(id)arg1 forKey:(struct _GEOTileKey)arg2 shouldOptimizeWritesToDisk:(_Bool)arg3;
 - (id)_cachedPlacedForRequest:(id)arg1;
@@ -39,10 +40,11 @@ __attribute__((visibility("hidden")))
 - (void)trackPlaceData:(id)arg1;
 - (void)fetchAllCacheEntriesWithRequesterHandler:(CDUnknownBlockType)arg1;
 - (long long)_invalidationStateForPlace:(id)arg1;
+- (id)_placeResponseFromPlaces:(id)arg1;
 - (void)requestPhoneNumbers:(id)arg1 allowCellularDataForLookup:(_Bool)arg2 traits:(id)arg3 auditToken:(id)arg4 requesterHandler:(CDUnknownBlockType)arg5;
-- (void)requestComponentsFromNetwork:(id)arg1 muid:(unsigned long long)arg2 resultProviderID:(int)arg3 traits:(id)arg4 auditToken:(id)arg5 requesterHandler:(CDUnknownBlockType)arg6;
-- (void)_requestMUIDsFromNetwork:(id)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(id)arg4 auditToken:(id)arg5 finished:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
-- (void)requestMUIDs:(id)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(id)arg4 options:(unsigned long long)arg5 auditToken:(id)arg6 requesterHandler:(CDUnknownBlockType)arg7;
+- (void)requestComponentsFromNetwork:(id)arg1 identifier:(id)arg2 resultProviderID:(int)arg3 traits:(id)arg4 auditToken:(id)arg5 requesterHandler:(CDUnknownBlockType)arg6;
+- (void)_requestIdentifiersFromNetwork:(id)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(id)arg4 auditToken:(id)arg5 finished:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
+- (void)requestIdentifiers:(id)arg1 resultProviderID:(int)arg2 includeETA:(_Bool)arg3 traits:(id)arg4 options:(unsigned long long)arg5 auditToken:(id)arg6 requesterHandler:(CDUnknownBlockType)arg7;
 - (void)cancelRequest:(id)arg1;
 - (void)startRequest:(id)arg1 traits:(id)arg2 timeout:(double)arg3 auditToken:(id)arg4 finished:(CDUnknownBlockType)arg5 networkActivity:(CDUnknownBlockType)arg6 error:(CDUnknownBlockType)arg7;
 - (id)cacheRegister;

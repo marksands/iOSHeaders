@@ -15,6 +15,7 @@
     CDUnknownBlockType _dateNameBlock;
     long long _dateNameFormatType;
     long long _format;
+    UIFont *_dateNameFont;
     struct CGSize _canvasSize;
 }
 
@@ -23,6 +24,7 @@
 + (id)colorForDayOfWeek;
 + (_Bool)isBlackDayOfWeekRequiredForLocale:(id)arg1;
 + (id)countriesRequiringBlackDayOfWeek;
+@property(readonly, nonatomic) UIFont *dateNameFont; // @synthesize dateNameFont=_dateNameFont;
 @property long long format; // @synthesize format=_format;
 @property struct CGSize canvasSize; // @synthesize canvasSize=_canvasSize;
 @property long long dateNameFormatType; // @synthesize dateNameFormatType=_dateNameFormatType;
@@ -35,7 +37,8 @@
 @property(readonly, nonatomic) double minFullDateNameFontScale;
 @property(readonly, nonatomic) double dateNameHorizontalInset;
 @property(readonly, nonatomic) double dateNameBaselineVerticalInset;
-@property(readonly, nonatomic) UIFont *dateNameFont;
+- (_Bool)_useSmallerFont:(id)arg1;
+- (id)dateNameFont:(id)arg1;
 @property(readonly, nonatomic) double dayNumberTrackingValue;
 @property(readonly, nonatomic) double dayNumberBaselineVerticalInset;
 @property(readonly, nonatomic) UIFont *dayNumberFont;

@@ -6,20 +6,29 @@
 
 #import <iWorkImport/TSCHChartBodyLayoutItem.h>
 
-@class TSCHPieBodyLayoutItemPathCache;
+@class NSArray, NSDictionary, TSCHPieBodyLayoutItemPathCache;
 
 __attribute__((visibility("hidden")))
 @interface TSCHChartPieBodyLayoutItem : TSCHChartBodyLayoutItem
 {
     TSCHPieBodyLayoutItemPathCache *mPathCache;
+    NSArray *mWedgeLayoutInfosInLocalSpace;
 }
 
 @property(retain) TSCHPieBodyLayoutItemPathCache *p_pathCache; // @synthesize p_pathCache=mPathCache;
 - (id)pathCacheForSeries:(unsigned long long)arg1;
 - (id)knobsOfElementForSeries:(unsigned long long)arg1;
 - (struct CGPath *)pathOfElementForSeries:(unsigned long long)arg1 outWedgeCenterPoint:(struct CGPoint *)arg2;
+- (id)labelStringForType:(long long)arg1 seriesModelCache:(id)arg2;
+- (struct CGRect)calloutLineBoundingBoxForSeries:(unsigned long long)arg1;
+- (id)newPathsForRenderingCalloutLineForSeries:(unsigned long long)arg1 outStartLineEndPath:(id *)arg2 outEndLineEndPath:(id *)arg3 stroke:(id)arg4 outStroke:(id *)arg5 context:(struct CGContext *)arg6 contextScale:(float)arg7;
+- (id)defaultPieWedgeLayoutInfoForSeriesModelCache:(id)arg1 pieLabels:(id)arg2 combinedLabelTransform:(struct CGAffineTransform)arg3;
+- (id)defaultPieWedgeElementForSeriesModelCache:(id)arg1;
 - (struct CGAffineTransform)transformForRenderingElementForSeries:(unsigned long long)arg1 outElementSize:(struct CGSize *)arg2 outClipRect:(struct CGRect *)arg3;
-- (struct CGAffineTransform)transformForRenderingLabelForSeries:(unsigned long long)arg1 outElementSize:(struct CGSize *)arg2 outClipRect:(struct CGRect *)arg3;
+- (struct CGAffineTransform)transformToMaintainLabelSameDistanceAwayFromWedge:(struct CGRect)arg1 wedgeElement:(id)arg2;
+- (struct CGAffineTransform)transformToShiftStraightLineLabelRectOutForEnableCalloutLineONSetting:(struct CGRect)arg1 wedgeElement:(id)arg2;
+- (struct TSCHChartPieLabelGeometries)labelGeometriesForRenderingLabelsForSeriesModelCache:(id)arg1 topLabelType:(long long)arg2 bottomLabelType:(long long)arg3;
+- (struct TSCHChartPieLabelGeometry)labelGeometryForRenderingLabelForSeriesModelCache:(id)arg1 labelType:(long long)arg2;
 - (id)renderersWithRep:(id)arg1;
 - (struct CGRect)calcDrawingRect;
 - (struct CGRect)calcOverhangRect;
@@ -28,6 +37,15 @@ __attribute__((visibility("hidden")))
 - (void)p_collectMaxRatio:(double *)arg1 maxLabelOverhang:(double *)arg2 maxWedgeExplosion:(float *)arg3 maxComboExplosion:(float *)arg4;
 - (void)setLayoutSize:(struct CGSize)arg1;
 - (void)dealloc;
+- (id)optimizedWedgeLayoutInfoPlacementForWedgeLayoutInfos:(id)arg1;
+- (id)createWedgeLayoutInfos;
+- (id)createAndOptimallyPlaceWedgeLayoutInfos;
+- (id)seriesIndexToWedgeLayoutInfoMapWithWedgeLayoutInfos:(id)arg1;
+- (id)wedgeLayoutInfosInLocalSpaceForSeriesIndex;
+@property(readonly, nonatomic) NSDictionary *wedgeLayoutInfosInChartCoordinateSpaceForSeriesIndex;
+- (id)wedgeLayoutInfosInChartCoordinateSpace;
+- (double)normalizedLabelDistanceFromWedgeTipForSeries:(id)arg1;
+- (id)seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
 
 @end
 

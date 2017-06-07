@@ -6,36 +6,39 @@
 
 #import <objc/NSObject.h>
 
-@class MFSQLiteConnectionPool, MFWeakReferenceHolder, NSString;
+@class MFSQLiteConnectionConfiguration, MFSQLiteConnectionPool, NSString;
 
 @interface MFSQLiteConnection : NSObject
 {
-    NSString *_path;
     struct sqlite3 *_db;
-    MFWeakReferenceHolder *_poolHolder;
     NSString *_databaseName;
     struct __CFDictionary *_statementCache;
     void *_ICUSearchContext;
     void *_CPSearchContext;
-    int _transactionType;
+    long long _transactionType;
     unsigned long long _transactionCount;
+    MFSQLiteConnectionPool *_pool;
+    MFSQLiteConnectionConfiguration *_configuration;
 }
 
-@property(readonly, nonatomic) NSString *databaseName; // @synthesize databaseName=_databaseName;
+@property(copy, nonatomic) MFSQLiteConnectionConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(readonly, nonatomic) struct sqlite3 *db; // @synthesize db=_db;
+@property(nonatomic) __weak MFSQLiteConnectionPool *pool; // @synthesize pool=_pool;
+- (void).cxx_destruct;
 - (int)rollbackTransaction;
 - (int)commitTransaction;
-- (int)beginTransactionWithType:(int)arg1;
+- (int)beginTransactionWithType:(long long)arg1;
 - (int)beginTransaction;
 - (struct sqlite3_stmt *)preparedStatementForPattern:(id)arg1;
 - (void)flush;
 - (_Bool)isOpen;
 - (void)close;
 - (int)open;
+- (void)_fixFilePermission;
+- (void)_makeCompletePath;
 - (const char *)_vfsModuleName;
-@property(nonatomic) __weak MFSQLiteConnectionPool *pool;
+- (id)initWithConfiguration:(id)arg1;
 - (void)dealloc;
-- (id)initWithPath:(id)arg1 databaseName:(id)arg2;
 
 @end
 

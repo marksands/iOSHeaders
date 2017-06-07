@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (double)contentWidthForString:(id)arg1 style:(id)arg2;
+- (void).cxx_destruct;
 - (void)mapTextRunsAt:(id)arg1;
 - (void)mapAt:(id)arg1 withState:(id)arg2 columnWidth:(double)arg3 height:(double)arg4 spreadLeft:(_Bool)arg5;
 - (double)contentWidth;

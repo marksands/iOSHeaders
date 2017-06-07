@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, NSManagedObject, NSManagedObjectID;
+@class NSArray, NSManagedObject, NSManagedObjectContext, NSManagedObjectID;
 @protocol ICLegacyContext;
 
 @protocol ICLegacyContext
@@ -13,6 +13,7 @@
 - (NSManagedObject *)existingObjectWithID:(NSManagedObjectID *)arg1 error:(id *)arg2;
 - (void)performBlockAndWait:(void (^)(void))arg1;
 - (void)performBlock:(void (^)(void))arg1;
+- (NSManagedObjectContext *)managedObjectContext;
 - (NSArray *)allVisibleNoteObjectIDsForAccountWithObjectID:(NSManagedObjectID *)arg1;
 - (unsigned long long)countOfVisibleNotesForAccountWithObjectID:(NSManagedObjectID *)arg1;
 - (NSArray *)allVisibleNotesForAccountWithObjectID:(NSManagedObjectID *)arg1;

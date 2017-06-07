@@ -17,6 +17,8 @@
 - (id)description;
 - (unsigned long long)count;
 - (id)ruleAtIndex:(unsigned long long)arg1;
+- (id)lastRule;
+- (id)firstRule;
 - (void)addRule:(id)arg1;
 - (id)init;
 

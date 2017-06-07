@@ -6,7 +6,7 @@
 
 #import <FrontBoard/NSObject-Protocol.h>
 
-@class FBSSceneClientSettings, FBSSceneDefinition, FBSSceneParameters, FBSSceneSettings, FBSSceneSettingsDiff, FBSSceneTransitionContext, NSSet;
+@class FBSSceneDefinition, FBSSceneParameters, FBSSceneSettings, FBSSceneSettingsDiff, FBSSceneTransitionContext, NSSet;
 @protocol FBSceneHost;
 
 @protocol FBSceneClient <NSObject>
@@ -14,8 +14,5 @@
 - (void)host:(id <FBSceneHost>)arg1 didInvalidateWithTransitionContext:(FBSSceneTransitionContext *)arg2 completion:(void (^)(_Bool))arg3;
 - (void)host:(id <FBSceneHost>)arg1 didUpdateSettings:(FBSSceneSettings *)arg2 withDiff:(FBSSceneSettingsDiff *)arg3 transitionContext:(FBSSceneTransitionContext *)arg4 completion:(void (^)(_Bool))arg5;
 - (void)host:(id <FBSceneHost>)arg1 configureWithDefinition:(FBSSceneDefinition *)arg2 parameters:(FBSSceneParameters *)arg3;
-
-@optional
-- (void)host:(id <FBSceneHost>)arg1 configureWithInitialClientSettings:(FBSSceneClientSettings *)arg2;
 @end
 

@@ -8,7 +8,8 @@
 
 #import <GeoServices/NSURLSessionDataDelegate-Protocol.h>
 
-@class GEONSURLSharedSession, GEOTileKeyMap, NSMutableArray, NSMutableSet, NSOperationQueue, NSString;
+@class GEOTileKeyMap, NSMutableArray, NSMutableSet, NSObject, NSString;
+@protocol OS_dispatch_queue, OS_os_activity;
 
 @interface GEOSimpleTileRequester : GEOTileRequester <NSURLSessionDataDelegate>
 {
@@ -18,14 +19,14 @@
     _Bool _cancelled;
     _Bool _subclassImplementsTileEdition;
     NSMutableArray *_errors;
-    NSOperationQueue *_delegateQueue;
-    GEONSURLSharedSession *_session;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_os_activity> *_activity;
 }
 
 + (long long)eTagType;
-- (id)_runningOperationForTask:(id)arg1;
+- (void).cxx_destruct;
 - (void)dealloc;
-- (_Bool)_verifyDataIntegrity:(id)arg1 checksumMethod:(int)arg2;
+- (id)_verifyDataIntegrity:(id)arg1 checksumMethod:(int)arg2;
 - (void)_reprioritizeKey:(struct _GEOTileKey)arg1 newPriority:(unsigned int)arg2;
 - (void)reprioritizeKey:(const struct _GEOTileKey *)arg1 newPriority:(unsigned int)arg2;
 - (void)_cancelKey:(struct _GEOTileKey)arg1;
@@ -35,6 +36,8 @@
 - (void)_releaseEverything;
 - (void)_cleanup;
 - (unsigned int)tileEditionForKey:(struct _GEOTileKey *)arg1;
+- (id)newRequestWithType:(int)arg1 URL:(id)arg2 xpcRequest:(id)arg3 entityTag:(id)arg4 cachedData:(id)arg5 allowedRequestMode:(BOOL)arg6;
+- (void)createRequest:(id *)arg1 localizationRequest:(id *)arg2 forKey:(struct _GEOTileKey *)arg3;
 - (void)start;
 - (_Bool)isRunning;
 - (void)_startNextPendingOperation:(id)arg1;
@@ -45,12 +48,13 @@
 - (id)editionHeader;
 - (id)mergeBaseTile:(id)arg1 withLocalizationTile:(id)arg2;
 - (id)mergeBaseTileEtag:(id)arg1 withLocalizationTileEtag:(id)arg2;
+- (_Bool)tileDataIsCacheableForTileKey:(struct _GEOTileKey *)arg1;
 - (int)checksumMethodForIncomingTileDataWithKey:(struct _GEOTileKey *)arg1;
 - (id)localizationURLForTileKey:(struct _GEOTileKey *)arg1;
+- (id)newXPCDataRequestForTileKey:(struct _GEOTileKey *)arg1;
 - (id)urlForTileKey:(struct _GEOTileKey *)arg1;
 - (_Bool)allowsCookies;
-- (id)_delegateGCDQueue;
-- (id)initWithKeyList:(id)arg1 manifestConfiguration:(id)arg2 locale:(id)arg3 cachedEtags:(id)arg4 cachedData:(id)arg5 priorities:(id)arg6;
+- (id)initWithTileRequest:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

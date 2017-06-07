@@ -8,6 +8,7 @@
 
 @class PDFDestination;
 
+__attribute__((visibility("hidden")))
 @interface PDFActionGoToPrivateVars : NSObject
 {
     PDFDestination *destination;

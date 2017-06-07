@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOETAUpdaterDelegate-Protocol.h>
 #import <GeoServices/GEORouteHypothesizerUpdaterDelegate-Protocol.h>
@@ -44,7 +44,8 @@
 @property(readonly, nonatomic) GEOComposedWaypoint *destination; // @synthesize destination=_destination;
 @property(readonly, nonatomic) GEOComposedWaypoint *source; // @synthesize source=_source;
 @property(retain, nonatomic) GEODirectionsRequestFeedback *feedback; // @synthesize feedback=_feedback;
-@property(nonatomic) id <GEORouteHypothesizerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <GEORouteHypothesizerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)etaUpdaterReceivedInvalidRoute:(id)arg1 newRoute:(id)arg2 incidentsOnRoute:(id)arg3 incidentsOffRoute:(id)arg4;
 - (void)etaUpdaterUpdatedETA:(id)arg1;
 - (void)etaUpdater:(id)arg1 receivedError:(id)arg2;

@@ -21,9 +21,7 @@
 + (id)containerDirectoryURLForMediaWithIdentifier:(id)arg1;
 + (id)exportableMediaDirectoryURL;
 + (id)mediaDirectoryURL;
-+ (id)mediaFileWritingQueue;
 + (void)purgeMediaFilesForIdentifiers:(id)arg1;
-+ (id)allCloudObjectsInContext:(id)arg1;
 + (id)newCloudObjectForRecord:(id)arg1 context:(id)arg2;
 + (id)existingCloudObjectForRecordID:(id)arg1 context:(id)arg2;
 + (id)allMediaInContext:(id)arg1;
@@ -34,10 +32,9 @@
 + (void)purgeMedia:(id)arg1;
 + (void)undeleteMedia:(id)arg1;
 + (void)deleteMedia:(id)arg1;
-+ (id)newMediaWithAttachment:(id)arg1 forURL:(id)arg2 context:(id)arg3 waitUntilDone:(_Bool)arg4 completionBlock:(CDUnknownBlockType)arg5;
-+ (id)newMediaWithAttachment:(id)arg1 forURL:(id)arg2 context:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
-+ (id)newMediaWithAttachment:(id)arg1 forFileWrapper:(id)arg2 context:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
-+ (id)newMediaWithAttachment:(id)arg1 forData:(id)arg2 filename:(id)arg3 forceAsynchronous:(_Bool)arg4 forceSynchronous:(_Bool)arg5 context:(id)arg6 completionBlock:(CDUnknownBlockType)arg7;
++ (id)newMediaWithAttachment:(id)arg1 forURL:(id)arg2 context:(id)arg3 error:(id *)arg4;
++ (id)newMediaWithAttachment:(id)arg1 forFileWrapper:(id)arg2 context:(id)arg3 error:(id *)arg4;
++ (id)newMediaWithAttachment:(id)arg1 forData:(id)arg2 filename:(id)arg3 context:(id)arg4 error:(id *)arg5;
 + (id)newMediaWithAttachment:(id)arg1 context:(id)arg2;
 + (id)newMediaWithIdentifier:(id)arg1 context:(id)arg2;
 - (id)parentCloudObject;
@@ -58,20 +55,20 @@
 - (id)containerDirectoryURL;
 - (_Bool)makeSureExportableMediaDirectoryExists:(id *)arg1;
 - (_Bool)makeSureMediaDirectoryExists:(id *)arg1;
-- (void)writeDataWithFileSize:(unsigned long long)arg1 writeBlock:(CDUnknownBlockType)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)writeDataFromFileWrapper:(id)arg1 waitUntilDone:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)writeData:(id)arg1 forceAsynchronous:(_Bool)arg2 forceSynchronous:(_Bool)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (_Bool)writeDataWithBlock:(CDUnknownBlockType)arg1 error:(id *)arg2;
+- (_Bool)writeDataFromFileWrapper:(id)arg1 error:(id *)arg2;
+- (_Bool)writeData:(id)arg1 error:(id *)arg2;
 - (id)dataWithoutImageMarkupMetadata:(_Bool)arg1;
 - (id)data;
 - (void)writeDataFromItemProvider:(id)arg1 checkForMarkupData:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)writeDataFromAsset:(id)arg1 isArchivedDirectory:(_Bool)arg2;
-- (void)writeDataFromFileURL:(id)arg1 waitUntilDone:(_Bool)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)writeDataFromFileURL:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (_Bool)writeDataFromAsset:(id)arg1 isArchivedDirectory:(_Bool)arg2 error:(id *)arg3;
+- (_Bool)writeDataFromFileURL:(id)arg1 error:(id *)arg2;
 - (void)updateFlagToExcludeFromBackupTouchFileIfNecessary:(_Bool)arg1;
 - (void)updateFlagToExcludeFromBackup;
 - (_Bool)isArchivedDirectory;
 - (_Bool)hasFile;
 - (_Bool)isValid;
+@property(retain, nonatomic) ICAttachment *attachment; // @dynamic attachment;
 - (void)prepareForDeletion;
 - (void)resetUniqueIdentifier;
 - (_Bool)supportsDeletionByTTL;
@@ -89,7 +86,6 @@
 // Remaining properties
 @property(retain, nonatomic) NSData *assetCryptoInitializationVector; // @dynamic assetCryptoInitializationVector;
 @property(retain, nonatomic) NSData *assetCryptoTag; // @dynamic assetCryptoTag;
-@property(retain, nonatomic) ICAttachment *attachment; // @dynamic attachment;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

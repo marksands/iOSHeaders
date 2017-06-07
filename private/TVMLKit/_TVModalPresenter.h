@@ -11,12 +11,13 @@
 #import <TVMLKit/UIPopoverPresentationControllerDelegate-Protocol.h>
 #import <TVMLKit/UIViewControllerTransitioningDelegate-Protocol.h>
 
-@class NSString, UINavigationController, UIViewController, _UIProgressiveBlurPresentationAnimator;
+@class NSString, UINavigationController, UIViewController, _TVPlaybackFadeAnimator, _UIProgressiveBlurPresentationAnimator;
 
 @interface _TVModalPresenter : NSObject <UIGestureRecognizerDelegate, UINavigationControllerDelegate, UIViewControllerTransitioningDelegate, UIPopoverPresentationControllerDelegate>
 {
     _UIProgressiveBlurPresentationAnimator *_presentingAnimator;
     _UIProgressiveBlurPresentationAnimator *_dismissingAnimator;
+    _TVPlaybackFadeAnimator *_playbackAnimator;
     UINavigationController *_modalRootViewController;
 }
 

@@ -18,6 +18,7 @@
     NSObject<OS_nw_endpoint> *_internalEndpoint;
 }
 
++ (id)endpointWithProtocolBufferData:(id)arg1;
 + (_Bool)supportsResolverCallback;
 + (id)endpointWithCEndpoint:(id)arg1;
 + (id)endpointWithInternalEndpoint:(id)arg1;
@@ -28,6 +29,7 @@
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)createProtocolBufferObject;
 @property(retain, nonatomic) NSString *parentEndpointDomain;
 @property(retain, nonatomic) NSData *txtRecord;
 @property(retain, nonatomic) NWInterface *interface;

@@ -63,6 +63,7 @@ __attribute__((visibility("hidden")))
 - (void)_adjustKeyboardContainerPositionForContentOffset:(struct CGPoint)arg1;
 - (void)_handleMenuAction:(id)arg1;
 - (void)layoutSubviews;
+- (void)safeAreaInsetsDidChange;
 - (void)updateConstraints;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;

@@ -9,7 +9,7 @@
 #import <BulletinDistributorCompanion/BLTBulletinSendQueueDelegate-Protocol.h>
 #import <BulletinDistributorCompanion/BLTGizmoClient-Protocol.h>
 
-@class BLTBulletinSendQueuePassthrough, BLTSendDebugMetricsRatioOnInterval, NSString;
+@class BLTBulletinSendQueuePassthrough, NSString;
 @protocol BLTCompanionServer;
 
 @interface BLTRemoteGizmoClient : BLTRemoteObject <BLTBulletinSendQueueDelegate, BLTGizmoClient>
@@ -17,10 +17,8 @@
     BLTBulletinSendQueuePassthrough *_bulletinSendQueue;
     _Bool _pairedDeviceReady;
     id <BLTCompanionServer> _server;
-    BLTSendDebugMetricsRatioOnInterval *_sendFailureDebugMetric;
 }
 
-@property(retain, nonatomic) BLTSendDebugMetricsRatioOnInterval *sendFailureDebugMetric; // @synthesize sendFailureDebugMetric=_sendFailureDebugMetric;
 @property(getter=isPairedDeviceReady) _Bool pairedDeviceReady; // @synthesize pairedDeviceReady=_pairedDeviceReady;
 @property(nonatomic) __weak id <BLTCompanionServer> server; // @synthesize server=_server;
 - (void).cxx_destruct;

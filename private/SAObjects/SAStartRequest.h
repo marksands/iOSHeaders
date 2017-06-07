@@ -16,6 +16,7 @@
 
 + (id)startRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)startRequest;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *utterance;
 @property(nonatomic) _Bool textToSpeechIsMuted;
 @property(nonatomic) _Bool talkOnly;

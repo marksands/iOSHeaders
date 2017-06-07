@@ -4,26 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SearchFoundation/SFImage.h>
+#import <SearchFoundation/SFURLImage.h>
 
-@class NSString, NSURL, NSXPCListenerEndpoint;
+@class NSURL, NSXPCListenerEndpoint;
 
-@interface PARImage : SFImage
+@interface PARImage : SFURLImage
 {
-    NSXPCListenerEndpoint *_endpoint;
-    NSString *_identifier;
-    NSURL *_url;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)imageWithData:(id)arg1;
-@property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
-@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(retain, nonatomic) NSXPCListenerEndpoint *endpoint; // @synthesize endpoint=_endpoint;
-- (void).cxx_destruct;
-- (void)loadImageDataWithCompletionAndErrorHandler:(CDUnknownBlockType)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+@property(retain, nonatomic) NSXPCListenerEndpoint *endpoint;
+@property(retain, nonatomic) NSURL *url;
 
 @end
 

@@ -22,6 +22,7 @@
 }
 
 @property(retain, nonatomic) NSData *zilchPoints; // @synthesize zilchPoints=_zilchPoints;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,7 +41,6 @@
 - (id)statusAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatus;
 @property(nonatomic) int status; // @synthesize status=_status;
-- (void)dealloc;
 
 @end
 

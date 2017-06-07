@@ -9,11 +9,12 @@
 #import <ChatKit/CKMessageEntryViewDelegate-Protocol.h>
 #import <ChatKit/CKMessageEntryViewInputDelegate-Protocol.h>
 #import <ChatKit/UIPreviewInteractionDelegate-Protocol.h>
+#import <ChatKit/UITextInputPayloadDelegate-Protocol.h>
 
 @class CKMessageEntryView, CKRaiseGesture, CKScheduledUpdater, NSExtensionContext, NSString;
 @protocol CKNotificationChatControllerDelegate;
 
-@interface CKNotificationChatController : CKCoreChatController <CKMessageEntryViewDelegate, CKMessageEntryViewInputDelegate, UIPreviewInteractionDelegate>
+@interface CKNotificationChatController : CKCoreChatController <UITextInputPayloadDelegate, CKMessageEntryViewDelegate, CKMessageEntryViewInputDelegate, UIPreviewInteractionDelegate>
 {
     _Bool _shouldAllowReplyFromLockScreen;
     CKMessageEntryView *_entryView;
@@ -38,10 +39,10 @@
 - (void)messageEntryViewDidTakeFocus:(id)arg1;
 - (void)messageEntryViewHandwritingButtonHit:(id)arg1;
 - (void)messageEntryViewBrowserButtonHit:(id)arg1;
-- (void)messageEntryViewDigitalTouchButtonHit:(id)arg1;
 - (void)messageEntryViewPhotoButtonHit:(id)arg1;
 - (long long)messageEntryViewHighLightInputButton:(id)arg1;
 - (void)sendCurrentLocationMessage:(id)arg1;
+- (struct CGSize)messageEntryViewMaxShelfPluginViewSize:(id)arg1;
 - (double)messageEntryViewMaxHeight:(id)arg1;
 - (void)messageEntryViewRaiseGestureAutoSend:(id)arg1;
 - (void)messageEntryView:(id)arg1 sendButtonLongPressEnded:(struct CGPoint)arg2;
@@ -78,11 +79,15 @@
 - (double)_maxEntryViewHeight;
 - (void)setSendingMessage:(_Bool)arg1;
 - (id)inputAccessoryView;
+- (_Bool)_shouldDisplayTextEntry;
 - (void)_setConversationDeferredSetup;
 - (id)launchURLForInputMode:(id)arg1;
 - (double)balloonMaxWidth;
 - (void)dealloc;
 - (id)initWithConversation:(id)arg1;
+- (void)handlePayload:(id)arg1 withPayloadId:(id)arg2;
+- (void)unregisterForTextInputPayloadHandling;
+- (void)registerForTextInputPayloadHandling;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,12 +6,15 @@
 
 #import <objc/NSObject.h>
 
+#import <ProgressUI/CALayerDelegate-Protocol.h>
+
 @class CAContext, CALayer, NSString;
 
-@interface PUIProgressWindow : NSObject
+@interface PUIProgressWindow : NSObject <CALayerDelegate>
 {
     _Bool _weCreatedTheContext;
     CAContext *_context;
+    int _deviceClass;
     struct CGSize _displaySize;
     struct CGSize _framebufferSize;
     struct CGSize _layerPositioningSize;
@@ -28,9 +31,6 @@
     _Bool _white;
     _Bool _showsProgressBar;
     CALayer *_progressLayer;
-    _Bool _showPluginName;
-    CALayer *_pluginNameLayer;
-    NSString *_pluginName;
     CALayer *_layer;
 }
 
@@ -40,7 +40,6 @@
 - (void).cxx_destruct;
 - (struct CGImage *)_createImageWithName:(const char *)arg1 scale:(int)arg2 displayHeight:(int)arg3;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
-- (void)_drawPluginNameLayerInContext:(struct CGContext *)arg1;
 - (void)_drawProgressLayerInContext:(struct CGContext *)arg1;
 - (void)_layoutScreen;
 - (int)_nanoMaterial;
@@ -48,7 +47,6 @@
 - (unsigned long long)_nanoDeviceType;
 - (const char *)_appleTVProductSuffix;
 - (const char *)_productSuffix;
-- (void)setPluginName:(id)arg1;
 - (void)setProgressValue:(float)arg1;
 - (void)setVisible:(_Bool)arg1;
 - (void)_updateIOSurface;
@@ -64,6 +62,12 @@
 - (id)initWithProgressBarVisibility:(_Bool)arg1;
 - (id)initWithForceInverted:(_Bool)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

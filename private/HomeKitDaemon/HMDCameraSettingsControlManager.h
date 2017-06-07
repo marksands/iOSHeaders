@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 
-@class HMDAccessory, HMDNotificationRegistration, HMDService, HMFMessageDispatcher, NSArray, NSDictionary, NSString, NSUUID;
+@class HMDAccessory, HMDNotificationRegistration, HMDService, HMFMessageDispatcher, NSArray, NSDictionary, NSObject, NSString, NSUUID;
 @protocol HMDCameraSettingsControlManagerDelegate, OS_dispatch_queue;
 
-@interface HMDCameraSettingsControlManager : NSObject <HMFMessageReceiver, HMFLogging>
+@interface HMDCameraSettingsControlManager : HMFObject <HMFMessageReceiver, HMFLogging>
 {
     NSDictionary *_characteristicsValues;
     NSObject<OS_dispatch_queue> *_delegateQueue;

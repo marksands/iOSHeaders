@@ -12,6 +12,7 @@
 
 + (id)setMidnightModeWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setMidnightMode;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;

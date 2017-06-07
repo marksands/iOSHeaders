@@ -14,6 +14,7 @@
 
 + (id)flowCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)flowCompleted;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SACFProvideContext *updateContext;
 - (id)encodedClassName;
 - (id)groupIdentifier;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class MFIMAPResponseConsumer, NSArray, NSDictionary, NSString;
 
@@ -43,7 +43,6 @@
 - (void)setFetchResults:(id)arg1;
 - (id)fetchResults;
 - (id)fetchResultWithType:(int)arg1;
-- (id)permanentTag;
 - (id)extraAttributes;
 - (void)setMailboxAttributes:(unsigned long long)arg1 separator:(id)arg2 mailboxName:(id)arg3 extraAttributes:(id)arg4;
 - (id)separator;

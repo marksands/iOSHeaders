@@ -10,6 +10,7 @@
 #import <iWorkImport/TSKSearchCanvasDelegate-Protocol.h>
 
 @class NSString, TSDCanvas, TSKDocumentRoot;
+@protocol TSDCanvasProxyDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TSASearchCanvasDelegate : NSObject <TSDCanvasDelegate, TSKSearchCanvasDelegate>
@@ -27,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) id <TSDCanvasProxyDelegate> canvasProxyDelegate;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

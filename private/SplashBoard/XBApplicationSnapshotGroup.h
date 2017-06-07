@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSDescriptionProviding-Protocol.h>
 #import <SplashBoard/NSCoding-Protocol.h>
@@ -21,6 +21,7 @@
 @property(readonly, copy, nonatomic) NSSet *snapshots; // @synthesize snapshots=_snapshots;
 @property(copy) XBSnapshotContainerIdentity *containerIdentity; // @synthesize containerIdentity=_containerIdentity;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+- (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
@@ -34,9 +35,8 @@
 - (void)addSnapshot:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *containerPath; // @dynamic containerPath;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)_initWithIdentifier:(id)arg1 containerIdentity:(id)arg2;
-- (id)_commonInit;
+- (void)_commonInit;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

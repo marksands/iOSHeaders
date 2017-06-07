@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/HMFLogging-Protocol.h>
 #import <HMFoundation/HMFNetServiceBrowserDelegate-Protocol.h>
 
-@class HMFNetService, HMFNetServiceBrowser, NSString;
+@class HMFNetService, HMFNetServiceBrowser, NSObject, NSString;
 @protocol OS_dispatch_queue, _HMFNetServiceMonitorDelegate;
 
-@interface _HMFNetServiceMonitor : NSObject <HMFNetServiceBrowserDelegate, HMFLogging>
+@interface _HMFNetServiceMonitor : HMFObject <HMFNetServiceBrowserDelegate, HMFLogging>
 {
     _Bool _reachable;
     HMFNetService *_netService;

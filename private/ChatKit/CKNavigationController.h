@@ -10,7 +10,6 @@
 {
 }
 
-- (long long)preferredStatusBarStyle;
 - (_Bool)shouldAutorotate;
 
 @end

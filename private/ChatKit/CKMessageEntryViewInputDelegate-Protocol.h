@@ -6,7 +6,7 @@
 
 #import <ChatKit/NSObject-Protocol.h>
 
-@class CKMessageEntryView;
+@class CKMessageEntryView, NSIndexPath;
 
 @protocol CKMessageEntryViewInputDelegate <NSObject>
 - (long long)messageEntryViewHighLightInputButton:(CKMessageEntryView *)arg1;
@@ -14,7 +14,11 @@
 - (void)messageEntryViewDidTakeFocus:(CKMessageEntryView *)arg1;
 - (void)messageEntryViewHandwritingButtonHit:(CKMessageEntryView *)arg1;
 - (void)messageEntryViewBrowserButtonHit:(CKMessageEntryView *)arg1;
-- (void)messageEntryViewDigitalTouchButtonHit:(CKMessageEntryView *)arg1;
 - (void)messageEntryViewPhotoButtonHit:(CKMessageEntryView *)arg1;
+
+@optional
+- (void)messageEntryViewDidCollapse:(CKMessageEntryView *)arg1;
+- (void)messageEntryViewDidExpand:(CKMessageEntryView *)arg1;
+- (void)messageEntryView:(CKMessageEntryView *)arg1 didSelectPluginAtIndex:(NSIndexPath *)arg2;
 @end
 

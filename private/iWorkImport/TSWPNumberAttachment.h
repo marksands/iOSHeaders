@@ -11,22 +11,22 @@
 __attribute__((visibility("hidden")))
 @interface TSWPNumberAttachment : TSWPTextualAttachment
 {
-    int _numberFormat;
+    NSString *_numberFormat;
     NSString *_stringValue;
 }
 
-+ (id)newObjectForUnarchiver:(id)arg1;
++ (Class)classForUnarchiver:(id)arg1;
 @property(copy, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
-@property(nonatomic) int numberFormat; // @synthesize numberFormat=_numberFormat;
+@property(copy, nonatomic) NSString *numberFormat; // @synthesize numberFormat=_numberFormat;
+- (void)performTemplateLocalization:(id)arg1;
 - (id)stringWithNumber:(unsigned long long)arg1;
 - (id)stringEquivalentWithLayoutParent:(id)arg1;
 - (id)stringEquivalent;
-- (const struct TextualAttachmentArchive *)textualAttachmentArchiveFromUnarchiver:(id)arg1;
-- (const struct NumberAttachmentArchive *)numberAttachmentArchiveFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)copyWithContext:(id)arg1;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
+- (id)initWithContext:(id)arg1;
 
 @end
 

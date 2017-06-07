@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOAddress, GEOLatLng, NSString;
+@class GEOAddress, GEOLatLng, NSString, PBUnknownFields;
 
 @interface GEOMapItemCorrectedLocationAttributes : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _lastUpdateDate;
     GEOAddress *_correctedAddress;
     NSString *_correctedAddressSecondaryStreetLine;
@@ -30,6 +31,8 @@
 @property(retain, nonatomic) NSString *correctedAddressSecondaryStreetLine; // @synthesize correctedAddressSecondaryStreetLine=_correctedAddressSecondaryStreetLine;
 @property(retain, nonatomic) GEOAddress *correctedAddress; // @synthesize correctedAddress=_correctedAddress;
 @property(retain, nonatomic) GEOLatLng *correctedCoordinate; // @synthesize correctedCoordinate=_correctedCoordinate;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -45,7 +48,6 @@
 @property(readonly, nonatomic) _Bool hasCorrectedAddressSecondaryStreetLine;
 @property(readonly, nonatomic) _Bool hasCorrectedAddress;
 @property(readonly, nonatomic) _Bool hasCorrectedCoordinate;
-- (void)dealloc;
 
 @end
 

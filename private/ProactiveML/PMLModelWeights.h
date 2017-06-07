@@ -6,26 +6,36 @@
 
 #import <objc/NSObject.h>
 
-#import <ProactiveML/DictionarySerializableProtocol-Protocol.h>
+#import <ProactiveML/PMLDictionarySerializableProtocol-Protocol.h>
+#import <ProactiveML/PMLPlistAndChunksSerializableProtocol-Protocol.h>
 
-@class NSMutableData, NSString;
+@class NSString, PMLMutableDenseVector;
 
-@interface PMLModelWeights : NSObject <DictionarySerializableProtocol>
+@interface PMLModelWeights : NSObject <PMLDictionarySerializableProtocol, PMLPlistAndChunksSerializableProtocol>
 {
-    NSMutableData *_data;
-    int _length;
+    PMLMutableDenseVector *_data;
 }
 
++ (id)weightsFromNumbers:(id)arg1;
++ (id)constWeightsOfLength:(int)arg1 value:(float)arg2;
++ (id)zeroWeightsOfLength:(int)arg1;
++ (id)modelWeightsOfLength:(int)arg1 rngSeed:(unsigned long long)arg2;
 + (id)modelWeightsOfLength:(int)arg1;
-+ (id)modelWeightsFromDoubles:(id)arg1 ofLength:(int)arg2;
-+ (id)fromDictionary:(id)arg1;
-@property(readonly, nonatomic) int length; // @synthesize length=_length;
++ (id)modelWeightsOfLength:(int)arg1 rng:(id)arg2;
++ (id)modelWeightsFromFloats:(id)arg1;
 - (void).cxx_destruct;
-- (double *)values;
-- (id)initModelWeightsOfLength:(int)arg1;
-- (id)initModelWeightsFromDoubles:(id)arg1 ofLength:(int)arg2;
+- (id)sliceFrom:(int)arg1 to:(int)arg2;
+- (id)weightsByAppendingWeights:(id)arg1;
+- (void)processValuesInPlaceWithBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) int length;
+- (float *)values;
+- (id)initWithCount:(int)arg1;
+- (id)initModelWeightsFromFloats:(id)arg1;
 - (id)toDictionary;
 - (id)initFromDictionary:(id)arg1;
+- (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
+- (id)migrateDenseDoubleVectorToDenseFloatVector:(id)arg1;
+- (id)toPlistWithChunks:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

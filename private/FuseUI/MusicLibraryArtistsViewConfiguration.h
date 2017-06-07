@@ -30,7 +30,6 @@
 - (id)previewViewControllerForEntityValueContext:(id)arg1 fromViewController:(id)arg2;
 - (_Bool)canPreviewEntityValueContext:(id)arg1;
 - (void)configureContentDescriptorForSearchResults:(id)arg1;
-- (id)newContextualActionsEntityValueContext;
 - (id)loadEntityViewDescriptor;
 - (long long)handleSelectionFromUserActivityContext:(id)arg1 containerItem:(id)arg2 entityValueContext:(id)arg3 viewController:(id)arg4;
 - (long long)handleSelectionOfEntityValueContext:(id)arg1 fromViewController:(id)arg2;

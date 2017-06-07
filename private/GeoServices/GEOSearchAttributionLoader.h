@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOSearchAttributionManifest;
 
@@ -14,8 +14,8 @@ __attribute__((visibility("hidden")))
     GEOSearchAttributionManifest *_attributionManifest;
 }
 
+- (void).cxx_destruct;
 - (void)loadAttributionInfoForIdentifier:(id)arg1 version:(unsigned int)arg2 allowNetwork:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)dealloc;
 - (id)initWithAttributionManifest:(id)arg1;
 
 @end

@@ -6,9 +6,11 @@
 
 #import <AXRuntime/AXUIElement.h>
 
+#import <AXRuntime/NSCopying-Protocol.h>
+
 @class NSMutableDictionary;
 
-@interface AXUIMockElement : AXUIElement
+@interface AXUIMockElement : AXUIElement <NSCopying>
 {
     NSMutableDictionary *_attributes;
     NSMutableDictionary *_writableAttributes;
@@ -16,71 +18,73 @@
     _Bool _usesCarriageReturnAsLinesSeparator;
 }
 
-+ (id)uiElementAtCoordinate:(struct CGPoint)arg1 hitTestOrientation:(int)arg2;
 + (id)uiElementAtCoordinate:(struct CGPoint)arg1;
 + (void)applyElementAttributeCacheScheme:(int)arg1;
 @property(nonatomic) _Bool usesCarriageReturnAsLinesSeparator; // @synthesize usesCarriageReturnAsLinesSeparator=_usesCarriageReturnAsLinesSeparator;
+- (void).cxx_destruct;
+- (unsigned long long)hash;
 - (unsigned long long)_lineNumberForPoint:(struct CGPoint)arg1;
 - (struct CGPoint)pointForLineNumber:(unsigned long long)arg1;
-- (void)setAXAttribute:(int)arg1 withObject:(id)arg2 synchronous:(_Bool)arg3;
-- (void)setAXAttribute:(int)arg1 withObject:(id)arg2;
-- (void)setAXAttribute:(int)arg1 withArray:(id)arg2;
-- (void)setAXAttribute:(int)arg1 withUIElementArray:(id)arg2;
-- (void)setAXAttribute:(int)arg1 withUIElement:(id)arg2;
-- (void)setAXAttribute:(int)arg1 withRange:(struct _NSRange)arg2;
-- (void)setAXAttribute:(int)arg1 withSize:(struct CGSize)arg2;
-- (void)setAXAttribute:(int)arg1 withPoint:(struct CGPoint)arg2;
-- (void)setAXAttribute:(int)arg1 withNumber:(id)arg2;
-- (void)setAXAttribute:(int)arg1 withFloat:(float)arg2;
-- (void)setAXAttribute:(int)arg1 withLong:(long long)arg2;
-- (void)setAXAttribute:(int)arg1 withString:(id)arg2;
-- (void)setAXAttribute:(int)arg1 withBOOL:(_Bool)arg2;
-- (void)updateCache:(int)arg1;
+- (void)setAXAttribute:(long long)arg1 withObject:(id)arg2 synchronous:(_Bool)arg3;
+- (void)setAXAttribute:(long long)arg1 withObject:(id)arg2;
+- (void)setAXAttribute:(long long)arg1 withArray:(id)arg2;
+- (void)setAXAttribute:(long long)arg1 withUIElementArray:(id)arg2;
+- (void)setAXAttribute:(long long)arg1 withUIElement:(id)arg2;
+- (void)setAXAttribute:(long long)arg1 withRange:(struct _NSRange)arg2;
+- (void)setAXAttribute:(long long)arg1 withSize:(struct CGSize)arg2;
+- (void)setAXAttribute:(long long)arg1 withPoint:(struct CGPoint)arg2;
+- (void)setAXAttribute:(long long)arg1 withNumber:(id)arg2;
+- (void)setAXAttribute:(long long)arg1 withFloat:(float)arg2;
+- (void)setAXAttribute:(long long)arg1 withLong:(long long)arg2;
+- (void)setAXAttribute:(long long)arg1 withString:(id)arg2;
+- (void)setAXAttribute:(long long)arg1 withBOOL:(_Bool)arg2;
+- (void)updateCache:(long long)arg1;
 - (void)updateCacheWithAttributes:(id)arg1;
 - (int)pid;
 - (_Bool)isValidForApplication:(id)arg1;
 - (_Bool)isValid;
-- (id)uiElementsWithAttribute:(int)arg1 parameter:(void *)arg2 fetchAttributes:(_Bool)arg3;
+- (id)uiElementsWithAttribute:(long long)arg1 parameter:(void *)arg2 fetchAttributes:(_Bool)arg3;
 - (id)nextElementsWithCount:(unsigned long long)arg1;
 - (id)previousElementsWithCount:(unsigned long long)arg1;
 - (_Bool)performAXAction:(int)arg1 withValue:(id)arg2;
 - (_Bool)performAXAction:(int)arg1;
-- (id)uiElementsWithAttribute:(int)arg1 parameter:(void *)arg2;
-- (id)uiElementsWithAttribute:(int)arg1;
-- (id)objectWithAXAttribute:(int)arg1 parameter:(void *)arg2;
+- (id)uiElementsWithAttribute:(long long)arg1 parameter:(void *)arg2;
+- (id)uiElementsWithAttribute:(long long)arg1;
+- (id)objectWithAXAttribute:(long long)arg1 parameter:(void *)arg2;
 - (void)fillStaticCache;
-- (unsigned long long)arrayCountWithAXAttribute:(int)arg1;
-- (id)uiElementArrayForAXAttribute:(int)arg1;
-- (id)urlWithAXAttribute:(int)arg1;
-- (struct CGRect)rectWithAXAttribute:(int)arg1;
-- (struct CGPath *)pathWithAXAttribute:(int)arg1;
-- (struct _NSRange)rangeWithAXAttribute:(int)arg1;
-- (struct CGSize)sizeWithAXAttribute:(int)arg1;
-- (struct CGPoint)pointWithAXAttribute:(int)arg1;
-- (id)numberWithAXAttribute:(int)arg1;
-- (long long)longWithAXAttribute:(int)arg1;
-- (float)floatWithAXAttribute:(int)arg1;
-- (_Bool)boolWithAXAttribute:(int)arg1;
-- (id)objectWithAXAttribute:(int)arg1;
-- (id)stringWithAXAttribute:(int)arg1;
-- (id)arrayWithAXAttribute:(int)arg1;
-- (void)setValue:(id)arg1 forAXAttribute:(int)arg2;
+- (unsigned long long)arrayCountWithAXAttribute:(long long)arg1;
+- (id)uiElementArrayForAXAttribute:(long long)arg1;
+- (id)urlWithAXAttribute:(long long)arg1;
+- (struct CGRect)rectWithAXAttribute:(long long)arg1;
+- (struct CGPath *)pathWithAXAttribute:(long long)arg1;
+- (struct _NSRange)rangeWithAXAttribute:(long long)arg1;
+- (struct CGSize)sizeWithAXAttribute:(long long)arg1;
+- (struct CGPoint)pointWithAXAttribute:(long long)arg1;
+- (id)numberWithAXAttribute:(long long)arg1;
+- (long long)longWithAXAttribute:(long long)arg1;
+- (float)floatWithAXAttribute:(long long)arg1;
+- (_Bool)boolWithAXAttribute:(long long)arg1;
+- (id)objectWithAXAttribute:(long long)arg1;
+- (id)stringWithAXAttribute:(long long)arg1;
+- (id)arrayWithAXAttribute:(long long)arg1;
+- (void)setValue:(id)arg1 forAXParameterizedAttribute:(long long)arg2;
+- (void)setValue:(id)arg1 forAXAttribute:(long long)arg2;
 - (_Bool)canPerformAXAction:(int)arg1;
-- (id)uiElementWithAXAttribute:(int)arg1;
-- (_Bool)canSetAXAttribute:(int)arg1;
-- (void)setWritable:(_Bool)arg1 forAXAttribute:(int)arg2;
+- (id)uiElementWithAXAttribute:(long long)arg1;
+- (_Bool)canSetAXAttribute:(long long)arg1;
+- (void)setWritable:(_Bool)arg1 forAXAttribute:(long long)arg2;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isKindOfClass:(Class)arg1;
 - (void)disableCache;
 - (void)enableCache:(_Bool)arg1;
-- (id)_valueForAttribute:(int)arg1;
+- (id)_valueForAttribute:(long long)arg1;
 - (id)description;
 - (id)performBlockWhileLoggingPerformedActions:(CDUnknownBlockType)arg1;
 - (id)visibleElements;
 - (struct __AXUIElement *)axElement;
 - (_Bool)isMockElement;
-- (void)dealloc;
 - (id)init;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end
 

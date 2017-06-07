@@ -36,6 +36,7 @@
     _Bool _supportsCalendarRecurrenceSplit;
     _Bool _alwaysSupportsFreebusyOnOutbox;
     _Bool _supportsCalendarAudit;
+    _Bool _supportsTelephone;
     double _version;
     NSString *_supportedCalendarComponentSets;
     NSSet *_complianceClasses;
@@ -47,6 +48,7 @@
 + (id)_prototypeMatchingServerHeaders:(id)arg1;
 @property(copy, nonatomic) NSString *serverHeader; // @synthesize serverHeader=_serverHeader;
 @property(retain, nonatomic) NSSet *complianceClasses; // @synthesize complianceClasses=_complianceClasses;
+@property(nonatomic) _Bool supportsTelephone; // @synthesize supportsTelephone=_supportsTelephone;
 @property(nonatomic) _Bool supportsCalendarAudit; // @synthesize supportsCalendarAudit=_supportsCalendarAudit;
 @property(nonatomic) _Bool alwaysSupportsFreebusyOnOutbox; // @synthesize alwaysSupportsFreebusyOnOutbox=_alwaysSupportsFreebusyOnOutbox;
 @property(nonatomic) _Bool supportsCalendarRecurrenceSplit; // @synthesize supportsCalendarRecurrenceSplit=_supportsCalendarRecurrenceSplit;

@@ -25,6 +25,8 @@
 - (_Bool)isDeviceIDOnCloudBlacklist:(id)arg1;
 - (void)removeDeviceIDFromCloudBlacklist:(id)arg1;
 - (void)addDeviceIDToCloudBlacklist:(id)arg1;
+@property(nonatomic) _Bool multideviceAudioEnabled;
+@property(nonatomic) _Bool multideviceSettingsEnabled;
 @property(nonatomic) _Bool exportsLiveListenToFile;
 @property(nonatomic) long long mediaAudioRoute;
 @property(nonatomic) long long callAudioRoute;

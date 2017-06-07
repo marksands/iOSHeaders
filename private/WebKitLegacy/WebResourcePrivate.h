@@ -9,12 +9,14 @@
 __attribute__((visibility("hidden")))
 @interface WebResourcePrivate : NSObject
 {
-    struct ArchiveResource *coreResource;
+    struct RefPtr<WebCore::ArchiveResource> coreResource;
 }
 
 + (void)initialize;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)dealloc;
-- (id)initWithCoreResource:(PassRefPtr_43de0ce5)arg1;
+- (id)initWithCoreResource:(Ref_e6cb3a5e *)arg1;
 - (id)init;
 
 @end

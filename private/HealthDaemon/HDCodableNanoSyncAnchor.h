@@ -29,6 +29,8 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) _Bool hasAnchor;
+- (int)StringAsObjectType:(id)arg1;
+- (id)objectTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasObjectType;
 @property(nonatomic) int objectType; // @synthesize objectType=_objectType;
 - (id)nanoSyncDescription;

@@ -9,6 +9,6 @@
 @class CPLChangeBatch;
 
 @protocol CPLPushChangeSessionImplementation <CPLChangeSessionImplementation>
-- (void)commitChangeBatch:(CPLChangeBatch *)arg1 withCompletionHandler:(void (^)(NSError *, unsigned long long, NSString *))arg2;
+- (void)commitChangeBatch:(CPLChangeBatch *)arg1 withCompletionHandler:(void (^)(NSError *, unsigned long long, CPLPushChangeTasks *, NSString *))arg2;
 @end
 

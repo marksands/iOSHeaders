@@ -38,6 +38,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *logo; // @synthesize logo=_logo;
 @property(retain, nonatomic) NSItemProvider *logoProvider; // @synthesize logoProvider=_logoProvider;
 - (void).cxx_destruct;
+- (void)configureWithRequest:(id)arg1;
 - (id)init;
 
 // Remaining properties

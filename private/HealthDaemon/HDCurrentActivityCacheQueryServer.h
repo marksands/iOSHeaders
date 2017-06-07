@@ -21,7 +21,7 @@
 }
 
 - (void).cxx_destruct;
-- (void)activityCacheManager:(id)arg1 changedTodayActivityCache:(id)arg2 currentStatisticsBuilder:(id)arg3 updatedFields:(unsigned long long)arg4 error:(id)arg5;
+- (void)activityCacheManager:(id)arg1 changedTodayActivityCache:(id)arg2;
 - (_Bool)_shouldExecuteWhenProtectedDataIsUnavailable;
 - (_Bool)_shouldListenForUpdates;
 - (void)_queue_stop;

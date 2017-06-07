@@ -12,15 +12,80 @@ typedef struct {
     unsigned long long size;
 } CDStruct_95bda58d;
 
+typedef struct {
+    unsigned int backendArticleVersionInt64:1;
+    unsigned int personalizationScore:1;
+    unsigned int personalizationTreatmentId:1;
+    unsigned int previousArticlePublisherArticleVersion:1;
+    unsigned int publisherArticleVersionInt64:1;
+    unsigned int activeTimeSpent:1;
+    unsigned int articleDisplayRankInGroup:1;
+    unsigned int articleHostViewType:1;
+    unsigned int articleType:1;
+    unsigned int articleViewPresentationReason:1;
+    unsigned int backendArticleVersion:1;
+    unsigned int breakingNewsArticleCount:1;
+    unsigned int breakingNewsArticlePosition:1;
+    unsigned int characterCount:1;
+    unsigned int coverArticleDisplayRank:1;
+    unsigned int coverArticleFeatureType:1;
+    unsigned int displayRank:1;
+    unsigned int feedCellHostType:1;
+    unsigned int feedPresentationReason:1;
+    unsigned int feedSubscriptionOrigin:1;
+    unsigned int groupArticleCountInForYou:1;
+    unsigned int groupDisplayRankInForYou:1;
+    unsigned int groupPresentationReason:1;
+    unsigned int groupType:1;
+    unsigned int loadFailureReason:1;
+    unsigned int maxActiveTimeSpent:1;
+    unsigned int maxVerticalScrollPositionEnding:1;
+    unsigned int nextArticleAffordanceType:1;
+    unsigned int paidSubscriberToFeedType:1;
+    unsigned int parentFeedType:1;
+    unsigned int previousArticleHostViewTypeIfSwipe:1;
+    unsigned int publisherArticleVersion:1;
+    unsigned int topStoryMandatoryArticleCount:1;
+    unsigned int topStoryOptionalArticleCount:1;
+    unsigned int topStoryType:1;
+    unsigned int widgetArticleRank:1;
+    unsigned int widgetSection:1;
+    unsigned int widgetSectionArticleRank:1;
+    unsigned int adSupportedChannel:1;
+    unsigned int articleLoaded:1;
+    unsigned int badgeExposure:1;
+    unsigned int didBounce:1;
+    unsigned int didOpenInSafari:1;
+    unsigned int isBreakingNewsArticle:1;
+    unsigned int isCoverArticle:1;
+    unsigned int isDigitalReplicaAd:1;
+    unsigned int isExplorationArticle:1;
+    unsigned int isFreeArticle:1;
+    unsigned int isGroupedArticle:1;
+    unsigned int isNativeAd:1;
+    unsigned int isNewUserToArticle:1;
+    unsigned int isPaidSubscriberToFeed:1;
+    unsigned int isPaidSubscriberToSourceChannel:1;
+    unsigned int isSharedSubscriptionOnlyArticle:1;
+    unsigned int isSubscribedToGroupFeed:1;
+    unsigned int isSubscribedToSourceChannel:1;
+    unsigned int isTopStoryArticle:1;
+    unsigned int isUserSubscribedToParentFeed:1;
+    unsigned int isVideoInFeed:1;
+    unsigned int subscriptionOnlyArticle:1;
+    unsigned int viewFromNotificationDirectOpen:1;
+} CDStruct_7ed1b072;
+
 // Ambiguous groups
 typedef struct {
-    unsigned int paidSubscriptionConversionPointType:1;
-    unsigned int parentFeedType:1;
-    unsigned int resultType:1;
-    unsigned int userAction:1;
-    unsigned int arrivedFromAd:1;
-    unsigned int subscriptionOnlyArticlePreview:1;
-} CDStruct_945473b1;
+    unsigned int widgetArticleCount:1;
+    unsigned int widgetArticleCountInSection:1;
+    unsigned int widgetArticleRank:1;
+    unsigned int widgetArticleRankInSection:1;
+    unsigned int widgetEngagementType:1;
+    unsigned int widgetSectionDisplayRank:1;
+    unsigned int widgetVideoPresentationReason:1;
+} CDStruct_80f27018;
 
 typedef struct {
     unsigned int coverArticleWidgetArticleCount:1;

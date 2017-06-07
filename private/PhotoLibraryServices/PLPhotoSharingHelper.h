@@ -45,7 +45,7 @@
 + (id)temporaryVideoPosterFramePathForCollectionGUID:(id)arg1;
 + (id)temporaryVideoPathForCollectionGUID:(id)arg1;
 + (id)temporaryThumbnailPathForCollectionGUID:(id)arg1;
-+ (id)temporaryDerivativePathForCollectionGUID:(id)arg1;
++ (id)temporaryDerivativePathForCollectionGUID:(id)arg1 uti:(id)arg2;
 + (double)derivedAssetSmallDimensionLimitForType:(int)arg1;
 + (id)derivativesForMasterAsset:(id)arg1 withSpecifications:(id)arg2;
 + (id)videoDerivativesForAssetCollection:(id)arg1 withSpecifications:(id)arg2;
@@ -86,7 +86,10 @@
 + (_Bool)canCreateStreamInPhotoLibrary:(id)arg1 error:(id *)arg2;
 + (_Bool)hasReachedLimitOfSubscribedStreamsInLibrary:(id)arg1;
 + (_Bool)hasReachedLimitOfOwnedStreamsInLibrary:(id)arg1;
++ (long long)maxGIFSizeForPublishing;
 + (long long)maxVideoLengthForPublishing;
++ (long long)maxNumThumbnailsToPrefetchPerDay;
++ (long long)maxNumDerivativesToPrefetchPerDay;
 + (long long)maxNumDerivativesToDownloadPerPush;
 + (long long)maxCharactersPerComment;
 + (long long)maxCommentsPerAsset;

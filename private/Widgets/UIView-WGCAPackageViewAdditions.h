@@ -7,7 +7,7 @@
 #import <UIKit/UIView.h>
 
 @interface UIView (WGCAPackageViewAdditions)
-- (_Bool)wg_supportsBottomCornerRadiusGivenRootView:(id)arg1 withCornerRadius:(double)arg2 supportedCorners:(unsigned int *)arg3;
+- (_Bool)wg_supportsBottomCornerRadiusGivenRootView:(id)arg1 withCornerRadius:(double)arg2 supportedCorners:(unsigned long long *)arg3;
 - (_Bool)wg_imageContentsDrawWithinBounds;
 - (void)wg_walkSubviewTreeWithBlock:(CDUnknownBlockType)arg1;
 - (void)_wg_innerWalkSubviewTreeWithBlock:(CDUnknownBlockType)arg1 stop:(_Bool *)arg2;

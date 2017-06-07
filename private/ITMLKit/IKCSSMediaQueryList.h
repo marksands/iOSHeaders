@@ -10,6 +10,7 @@
 {
 }
 
+- (id)expressionAsString;
 - (unsigned long long)count;
 - (id)subQueryAtIndex:(unsigned long long)arg1;
 - (_Bool)evaluate;

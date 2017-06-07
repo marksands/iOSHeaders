@@ -13,6 +13,7 @@
 - (void)_dismissWithOption:(NSString *)arg1;
 - (void)_didSelectPicker;
 - (void)_dismissViewController;
+- (void)_didSelectURLBookmark:(NSString *)arg1;
 - (void)_didSelectURLWrapper:(_UIDocumentPickerNSURLWrapper *)arg1;
 @end
 

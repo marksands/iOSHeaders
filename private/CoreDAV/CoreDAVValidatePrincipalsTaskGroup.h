@@ -22,13 +22,13 @@
 @property(retain, nonatomic) NSURL *urlBeingExamined; // @synthesize urlBeingExamined=_urlBeingExamined;
 @property(retain, nonatomic) NSMutableSet *principalURLs; // @synthesize principalURLs=_principalURLs;
 @property(retain, nonatomic) NSMutableSet *urlsToExamine; // @synthesize urlsToExamine=_urlsToExamine;
+- (void).cxx_destruct;
 - (void)cancelTaskGroup;
 - (void)startTaskGroup;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)_fetchNextURL;
 - (void)_finishWithError:(id)arg1;
 @property(readonly, nonatomic) NSSet *resultPrincipalURLs;
-- (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 urls:(id)arg2 taskManager:(id)arg3;
 
 // Remaining properties

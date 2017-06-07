@@ -35,6 +35,7 @@
 - (void)_updateTimersForPendingNotificationRecords:(id)arg1;
 - (void)_invalidatePendingNotificationRecordTimers;
 - (void)_setLastLocalNotificationFireDate:(id)arg1;
+- (void)_queue_triggerDidFireForDate:(id)arg1;
 - (void)_queue_triggerDidFireForTimer:(id)arg1;
 - (void)_invalidateNotificationRecordTimersAndRegionMonitors;
 - (void)_updateTimersAndRegionMonitorsForPendingNotificationRecords:(id)arg1;

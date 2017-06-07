@@ -20,6 +20,7 @@
 }
 
 @property(retain, nonatomic) NSString *sectionHeader; // @synthesize sectionHeader=_sectionHeader;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;

@@ -16,6 +16,7 @@
     _Bool _userCreated;
     short _category;
     short _subcategory;
+    short _notificationState;
     NSString *_uuid;
     NSString *_title;
     NSString *_subtitle;
@@ -23,6 +24,7 @@
     NSString *_keyAssetUUID;
     NSSet *_representativeAssetUUIDs;
     NSSet *_curatedAssetUUIDs;
+    NSSet *_extendedCuratedAssetUUIDs;
     NSSet *_movieCuratedAssetUUIDs;
     NSData *_movieData;
     NSDictionary *_movieAssetState;
@@ -31,6 +33,13 @@
     NSData *_assetListPredicate;
     double _score;
     long long _version;
+    NSData *_blacklistedFeature;
+    long long _playCount;
+    long long _shareCount;
+    long long _viewCount;
+    long long _pendingPlayCount;
+    long long _pendingShareCount;
+    long long _pendingViewCount;
     PLMemory *_memory;
     NSURL *_metadataURL;
 }
@@ -38,7 +47,15 @@
 + (_Bool)isValidPath:(id)arg1;
 @property(retain, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
 @property(retain, nonatomic) PLMemory *memory; // @synthesize memory=_memory;
+@property(nonatomic) long long pendingViewCount; // @synthesize pendingViewCount=_pendingViewCount;
+@property(nonatomic) long long pendingShareCount; // @synthesize pendingShareCount=_pendingShareCount;
+@property(nonatomic) long long pendingPlayCount; // @synthesize pendingPlayCount=_pendingPlayCount;
+@property(nonatomic) long long viewCount; // @synthesize viewCount=_viewCount;
+@property(nonatomic) long long shareCount; // @synthesize shareCount=_shareCount;
+@property(nonatomic) long long playCount; // @synthesize playCount=_playCount;
+@property(retain, nonatomic) NSData *blacklistedFeature; // @synthesize blacklistedFeature=_blacklistedFeature;
 @property(nonatomic) long long version; // @synthesize version=_version;
+@property(nonatomic) short notificationState; // @synthesize notificationState=_notificationState;
 @property(nonatomic) double score; // @synthesize score=_score;
 @property(retain, nonatomic) NSData *assetListPredicate; // @synthesize assetListPredicate=_assetListPredicate;
 @property(retain, nonatomic) NSData *photosGraphData; // @synthesize photosGraphData=_photosGraphData;
@@ -46,6 +63,7 @@
 @property(retain, nonatomic) NSDictionary *movieAssetState; // @synthesize movieAssetState=_movieAssetState;
 @property(retain, nonatomic) NSData *movieData; // @synthesize movieData=_movieData;
 @property(retain, nonatomic) NSSet *movieCuratedAssetUUIDs; // @synthesize movieCuratedAssetUUIDs=_movieCuratedAssetUUIDs;
+@property(retain, nonatomic) NSSet *extendedCuratedAssetUUIDs; // @synthesize extendedCuratedAssetUUIDs=_extendedCuratedAssetUUIDs;
 @property(retain, nonatomic) NSSet *curatedAssetUUIDs; // @synthesize curatedAssetUUIDs=_curatedAssetUUIDs;
 @property(retain, nonatomic) NSSet *representativeAssetUUIDs; // @synthesize representativeAssetUUIDs=_representativeAssetUUIDs;
 @property(retain, nonatomic) NSString *keyAssetUUID; // @synthesize keyAssetUUID=_keyAssetUUID;

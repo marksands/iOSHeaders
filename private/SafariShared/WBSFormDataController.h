@@ -28,6 +28,7 @@
 + (id)localizedLowercaseContactProperty:(id)arg1;
 + (_Bool)isNameProperty:(id)arg1;
 + (id)controlsConsideredByAutoFillInForm:(id)arg1;
++ (id)lastFieldInControls:(id)arg1 inForm:(id)arg2;
 + (id)nextFieldAfterControls:(id)arg1 inForm:(id)arg2;
 + (id)domainFromURL:(id)arg1;
 + (long long)availableManualAutoFillActionForTextField:(id)arg1 form:(id)arg2 outUsernameElementUniqueID:(id *)arg3 outPasswordElementUniqueID:(id *)arg4 outConfirmPasswordElementUniqueID:(id *)arg5;

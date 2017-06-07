@@ -16,8 +16,6 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (id)description;
-- (void)applicationDidEnterBackground:(id)arg1;
-- (void)applicationWillEnterForeground:(id)arg1;
 @property(readonly, copy) NSURL *URL;
 - (void)stop;
 - (void)start;

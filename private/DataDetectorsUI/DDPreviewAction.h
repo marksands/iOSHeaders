@@ -6,22 +6,17 @@
 
 #import <DataDetectorsUI/DDAction.h>
 
-@class UIViewController;
-
 @interface DDPreviewAction : DDAction
 {
-    UIViewController *_viewController;
 }
 
-+ (id)previewActionForURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
-- (void).cxx_destruct;
++     // Error parsing type: @40@0:8@16^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@32, name: previewActionForURL:result:context:
 - (id)platterSubtitle;
 - (id)platterTitle;
 - (void)setPreviewMode:(_Bool)arg1;
 - (_Bool)requiresEmbeddingNavigationController;
 - (_Bool)wantsSeamlessCommit;
 - (id)commitURL;
-- (id)contact;
 - (id)viewController;
 - (id)createViewController;
 - (void)dealloc;

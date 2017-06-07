@@ -16,6 +16,7 @@
 
 + (id)setCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)setCompleted;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

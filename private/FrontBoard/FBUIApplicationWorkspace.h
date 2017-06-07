@@ -11,7 +11,7 @@
 }
 
 - (id)_applicationServer;
-- (Class)_sceneClassForIdentity:(id)arg1;
+- (Class)_sceneClassForSpecification:(id)arg1;
 - (Class)_serverClass;
 
 @end

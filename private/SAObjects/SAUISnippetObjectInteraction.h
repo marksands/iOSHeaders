@@ -14,6 +14,7 @@
 
 + (id)snippetObjectInteractionWithDictionary:(id)arg1 context:(id)arg2;
 + (id)snippetObjectInteraction;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SADomainObject *object;
 - (id)encodedClassName;
 - (id)groupIdentifier;

@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long mode;
 @property(nonatomic) float volume;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

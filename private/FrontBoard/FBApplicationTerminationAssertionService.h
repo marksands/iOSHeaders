@@ -6,30 +6,33 @@
 
 #import <Foundation/NSObject.h>
 
-@class FBApplicationTerminationAssertionServiceServer, NSMutableDictionary;
-@protocol FBApplicationTerminationAssertionServiceDelegate, OS_dispatch_queue;
+#import <FrontBoard/BKSTerminationAssertionObserver-Protocol.h>
 
-@interface FBApplicationTerminationAssertionService : NSObject
+@class NSString;
+@protocol FBApplicationTerminationAssertionServiceDelegate;
+
+@interface FBApplicationTerminationAssertionService : NSObject <BKSTerminationAssertionObserver>
 {
-    NSMutableDictionary *_terminationAssertionsByBundleID;
-    NSObject<OS_dispatch_queue> *_queue;
-    FBApplicationTerminationAssertionServiceServer *_server;
     id <FBApplicationTerminationAssertionServiceDelegate> _delegate;
 }
 
 + (id)sharedInstance;
 @property(nonatomic) id <FBApplicationTerminationAssertionServiceDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)removeTerminationAssertion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)addTerminationAssertion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)canAcquireTerminationAssertion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_reasonForEfficacy:(unsigned long long)arg1;
+- (unsigned long long)_efficacyForReason:(id)arg1;
+- (void)_notifyDelegateOfRelinquishForBundleID:(id)arg1;
+- (void)_notifyDelegateOfAcquisitionForBundleID:(id)arg1 efficacy:(unsigned long long)arg2;
+- (void)noteTerminationAssertionEfficacyChangedTo:(unsigned long long)arg1 forBundleIdentifier:(id)arg2;
 - (id)terminationAssertionsForBundleID:(id)arg1 withReason:(id)arg2;
 - (id)terminationAssertionsForBundleID:(id)arg1;
-- (void)_queue_continueAcquisition:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)_queue_removeTerminationAssertion:(id)arg1;
-- (void)_queue_addTerminationAssertion:(id)arg1;
-- (id)_requestPluginHoldForAppInfo:(id)arg1;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -18,12 +18,12 @@
     _Bool _didUpdate;
     _Bool _blacklisted;
     _Bool _ignoringParentAppearState;
-    unsigned int _maskedCorners;
     WGWidgetInfo *_widgetInfo;
     id <WGWidgetHostingViewControllerDelegate> _delegate;
     id <WGWidgetHostingViewControllerHost> _host;
     long long _activeDisplayMode;
     double _cornerRadius;
+    unsigned long long _maskedCorners;
     NSString *_appBundleID;
     WGWidgetLifeCycleSequence *_activeLifeCycleSequence;
     long long _connectionState;
@@ -41,7 +41,6 @@
     CDUnknownBlockType _remoteViewControllerDisconnectionHandler;
     NSDate *_lastUnanticipatedDisconnectionDate;
     NSMapTable *_openAppearanceTransactions;
-    NSMapTable *_openActiveDisplayModeChangeTransactions;
     _WGBrokenWidgetView *_brokenView;
     NSMutableDictionary *_sequenceIDsToOutstandingWidgetUpdateCompletionHandlers;
     struct CGRect _snapshotViewBounds;
@@ -60,7 +59,6 @@
 @property(retain, nonatomic, getter=_brokenView, setter=_setBrokenView:) _WGBrokenWidgetView *brokenView; // @synthesize brokenView=_brokenView;
 @property(nonatomic, getter=_isBlacklisted, setter=_setBlacklisted:) _Bool blacklisted; // @synthesize blacklisted=_blacklisted;
 @property(nonatomic, getter=_didUpdate, setter=_setDidUpdate:) _Bool didUpdate; // @synthesize didUpdate=_didUpdate;
-@property(readonly, nonatomic, getter=_openActiveDisplayModeChangeTransactions) NSMapTable *openActiveDisplayModeChangeTransactions; // @synthesize openActiveDisplayModeChangeTransactions=_openActiveDisplayModeChangeTransactions;
 @property(readonly, nonatomic, getter=_openAppearanceTransactions) NSMapTable *openAppearanceTransactions; // @synthesize openAppearanceTransactions=_openAppearanceTransactions;
 @property(retain, nonatomic, getter=_lastUnanticipatedDisconnectionDate, setter=_setLastUnanticipatedDisconnectionDate:) NSDate *lastUnanticipatedDisconnectionDate; // @synthesize lastUnanticipatedDisconnectionDate=_lastUnanticipatedDisconnectionDate;
 @property(copy, nonatomic, getter=_remoteViewControllerDisconnectionHandler, setter=_setRemoteViewControllerDisconnectionHandler:) CDUnknownBlockType remoteViewControllerDisconnectionHandler; // @synthesize remoteViewControllerDisconnectionHandler=_remoteViewControllerDisconnectionHandler;
@@ -82,7 +80,7 @@
 @property(readonly, nonatomic, getter=_activeLifeCycleSequence) WGWidgetLifeCycleSequence *activeLifeCycleSequence; // @synthesize activeLifeCycleSequence=_activeLifeCycleSequence;
 @property(copy, nonatomic) NSString *appBundleID; // @synthesize appBundleID=_appBundleID;
 @property(nonatomic) _Bool disconnectsImmediately; // @synthesize disconnectsImmediately=_disconnectsImmediately;
-@property(nonatomic) unsigned int maskedCorners; // @synthesize maskedCorners=_maskedCorners;
+@property(nonatomic) unsigned long long maskedCorners; // @synthesize maskedCorners=_maskedCorners;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic, setter=_setImplementsPerformUpdate:) _Bool implementsPerformUpdate; // @synthesize implementsPerformUpdate=_implementsPerformUpdate;
 @property(readonly, nonatomic) long long activeDisplayMode; // @synthesize activeDisplayMode=_activeDisplayMode;
@@ -100,7 +98,6 @@
 - (_Bool)_hasOutstandingUpdateRequestForSequence:(id)arg1;
 - (void)_noteOutstandingUpdateRequestForSequence:(id)arg1;
 - (void)_setLargestAvailableDisplayMode:(long long)arg1;
-- (void)_handleRequestedViewHeight:(double)arg1 usingAutolayout:(_Bool)arg2 requestIdentifier:(id)arg3;
 - (double)_updatePreferredContentSizeWithHeight:(double)arg1;
 - (double)_validatedHeightForHeight:(double)arg1 enforcingDisplayMode:(_Bool)arg2;
 - (double)_contentWidth;
@@ -117,6 +114,7 @@
 - (void)_enqueueDisconnectionRequestForSequence:(id)arg1 endTransitionBlock:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_disconnectRemoteViewControllerForReason:(id)arg1 sequence:(id)arg2 coalesce:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_endSequence:(id)arg1 withReason:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)_managingContainerIsVisible;
 - (void)_insertSnapshotWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_synchronizeGeometryWithSnapshot;
 - (void)_requestInsertionOfRemoteViewAfterViewWillAppearForSequence:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -153,15 +151,16 @@
 - (void)_abortActiveSequence;
 - (void)_initiateNewSequenceIfNecessary;
 - (_Bool)_isActiveSequence:(id)arg1;
+- (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
 - (void)setPreferredContentSize:(struct CGSize)arg1;
 - (_Bool)shouldAutomaticallyForwardAppearanceMethods;
 - (void)viewDidLoad;
-- (void)parentContainerDidDisappear:(id)arg1;
+- (void)managingContainerDidDisappear:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)parentContainerWillAppear:(id)arg1;
+- (void)managingContainerWillAppear:(id)arg1;
 - (void)_endRemoteViewControllerAppearanceTransitionIfNecessary;
 - (void)_endRemoteViewControllerAppearanceTransitionIfNecessaryWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_beginRemoteViewControllerAppearanceTransitionIfNecessary:(_Bool)arg1 semaphore:(id)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;

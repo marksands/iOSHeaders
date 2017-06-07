@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 
@@ -18,8 +18,8 @@
 @property(nonatomic) Class parseClass; // @synthesize parseClass=_parseClass;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *nameSpace; // @synthesize nameSpace=_nameSpace;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)initWithNameSpace:(id)arg1 name:(id)arg2 parseClass:(Class)arg3;
 
 @end

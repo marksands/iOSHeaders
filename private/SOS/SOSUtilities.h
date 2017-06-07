@@ -16,6 +16,13 @@
 + (_Bool)shouldPlayAudioDuringCountdown;
 + (void)setAutomaticCallCountdownEnabled:(_Bool)arg1;
 + (_Bool)isAutomaticCallCountdownEnabled;
++ (long long)SOSSelectableTriggerMechanismCapability;
++ (long long)defaultSOSTriggerMechanism;
++ (long long)SOSTriggerMechanismForClickCount:(long long)arg1;
++ (long long)currentSOSTriggerMechanism;
++ (long long)SOSTriggerClickCount;
++ (_Bool)canTriggerSOSWithClicks;
++ (_Bool)canTriggerSOSWithVolumeLockHold;
 + (_Bool)mustAllowThreeClickTrigger;
 + (void)setLongPressTriggersEmergencySOS:(_Bool)arg1;
 + (_Bool)longPressTriggersEmergencySOS;

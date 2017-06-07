@@ -8,7 +8,7 @@
 
 #import <AVConference/VideoConferenceDelegate-Protocol.h>
 
-@class ICEResultWaitQueue, NSMutableArray, VCNetworkAgent, VCVTPWrapper, VideoConference;
+@class ICEResultWaitQueue, NSMutableArray, VideoConference;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
@@ -24,9 +24,9 @@ __attribute__((visibility("hidden")))
     ICEResultWaitQueue *resultQueue;
     struct tagHANDLE *hSIP;
     int sipRefCount;
-    VCVTPWrapper *_vtpWrapper;
+    id _vtpWrapper;
     _Bool isVTPInitialized;
-    VCNetworkAgent *_networkAgent;
+    id _networkAgent;
 }
 
 + (void)addNSError:(id)arg1 toConferenceXPCArgumentDictionary:(id)arg2;
@@ -46,12 +46,6 @@ __attribute__((visibility("hidden")))
 - (void)addVideoConference:(id)arg1;
 - (void)stopSIPWithTransportType:(unsigned int)arg1;
 - (void)cleanupVTP;
-- (id)defaultNetworkAgent;
-- (void)unassertNetworkAgent;
-- (void)assertNetworkAgent;
-@property(readonly) VCVTPWrapper *vtpWrapper;
-- (void)stopVTP;
-- (void)startVTP;
 - (_Bool)isSIPHandleValid:(struct tagHANDLE *)arg1;
 - (void)startSIPWithPacketMultiplexMode:(int)arg1 transportType:(unsigned int)arg2;
 - (void)createSIPWithPacketMultiplexMode:(int)arg1;

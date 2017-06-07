@@ -26,13 +26,14 @@
 - (void)authorizationDidSelectShippingMethod:(id)arg1;
 - (void)authorizationDidSelectShippingAddress:(id)arg1;
 - (void)authorizationDidSelectPaymentMethod:(id)arg1;
+- (void)authorizationDidAuthorizePeerPaymentQuote:(id)arg1;
 - (void)authorizationDidAuthorizePurchase:(id)arg1;
 - (void)authorizationDidAuthorizePayment:(id)arg1;
 - (void)authorizationDidFinishWithError:(id)arg1;
 - (void)authorizationWillStart;
 - (void)didReceiveCancellationForRemotePaymentRequest:(id)arg1;
 - (void)didReceivePaymentClientUpdate:(id)arg1 forRemotePaymentRequest:(id)arg2;
-- (void)didReceivePaymentStatus:(long long)arg1 forRemotePaymentRequest:(id)arg2;
+- (void)didReceivePaymentResult:(id)arg1 forRemotePaymentRequest:(id)arg2;
 - (void)_dismiss;
 - (void)handleLockButtonPressed;
 - (void)handleHomeButtonPressed;

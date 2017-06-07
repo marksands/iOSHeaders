@@ -14,6 +14,7 @@
 
 + (id)recipientSearchWithDictionary:(id)arg1 context:(id)arg2;
 + (id)recipientSearch;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *recipients;
 @property(nonatomic) _Bool clientShouldResolvePhonesAndEmails;

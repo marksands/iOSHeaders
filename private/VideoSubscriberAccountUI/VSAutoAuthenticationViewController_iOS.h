@@ -8,7 +8,7 @@
 
 #import <VideoSubscriberAccountUI/VSAutoAuthenticationViewController-Protocol.h>
 
-@class NSString, UIBarButtonItem, UIButton, UILabel, UIScrollView, VSAutoAuthenticationViewModel, VSIdentityProviderLogoView, VSViewModel;
+@class NSString, UIButton, UILabel, UIScrollView, VSAutoAuthenticationViewModel, VSFontCenter, VSIdentityProviderLogoView, VSViewModel;
 @protocol VSAuthenticationViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
@@ -25,14 +25,10 @@ __attribute__((visibility("hidden")))
     UILabel *_noticeLabel;
     UILabel *_manualSignInTitleLabel;
     UIButton *_manualSignInButton;
-    UIBarButtonItem *_signInButtonItem;
-    UIBarButtonItem *_cancelButtonItem;
-    id _contentSizeCategoryObserver;
+    VSFontCenter *_fontCenter;
 }
 
-@property(nonatomic) __weak id contentSizeCategoryObserver; // @synthesize contentSizeCategoryObserver=_contentSizeCategoryObserver;
-@property(retain, nonatomic) UIBarButtonItem *cancelButtonItem; // @synthesize cancelButtonItem=_cancelButtonItem;
-@property(retain, nonatomic) UIBarButtonItem *signInButtonItem; // @synthesize signInButtonItem=_signInButtonItem;
+@property(retain, nonatomic) VSFontCenter *fontCenter; // @synthesize fontCenter=_fontCenter;
 @property(retain, nonatomic) UIButton *manualSignInButton; // @synthesize manualSignInButton=_manualSignInButton;
 @property(retain, nonatomic) UILabel *manualSignInTitleLabel; // @synthesize manualSignInTitleLabel=_manualSignInTitleLabel;
 @property(retain, nonatomic) UILabel *noticeLabel; // @synthesize noticeLabel=_noticeLabel;
@@ -52,17 +48,10 @@ __attribute__((visibility("hidden")))
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)traitCollectionDidChange:(id)arg1;
 @property(readonly, nonatomic) struct CGSize preferredLogoSize;
 - (void)setViewModel:(id)arg1;
-- (void)_hideNavigationBarButtons;
-- (void)_showNavigationBarButtons;
-- (void)_stopValidationAndShowButtons:(_Bool)arg1;
-- (void)_startValidation;
-- (void)_showValidationAlertForError:(id)arg1;
-- (void)_updateFonts;
-- (void)_cancelButtonPressed:(id)arg1;
 - (void)_manualSignInButtonPressed:(id)arg1;
-- (void)_signInButtonPressed:(id)arg1;
 - (void)_stopObservingViewModel:(id)arg1;
 - (void)_startObservingViewModel:(id)arg1;
 - (void)dealloc;

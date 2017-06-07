@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     NSMutableSet *_hostedPids;
     _Bool _checkingShowability;
     int _suppressionCount;
+    _Bool _wantsFence;
     BKSProcessAssertion *_remoteKeepAliveAssertion;
     unsigned long long _remoteKeepAliveAssertionCount;
     unsigned long long _remoteKeepAliveTimerCount;
@@ -32,6 +33,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)handlerWithArbiter:(id)arg1 forConnection:(id)arg2;
+@property(readonly) _Bool wantsFence; // @synthesize wantsFence=_wantsFence;
 @property(readonly) double level; // @synthesize level=_level;
 @property(readonly) _Bool wantedActive; // @synthesize wantedActive=_wantedActive;
 @property(readonly) _Bool active; // @synthesize active=_active;
@@ -41,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSXPCConnection *connection; // @synthesize connection=_connection;
 @property(readonly, retain) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (void).cxx_destruct;
+- (void)setKeyboardTotalDisable:(_Bool)arg1 withFence:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)applicationShouldFocusWithBundle:(id)arg1 onCompletion:(CDUnknownBlockType)arg2;
 - (void)invalidate;
 - (void)releaseProcessAssertion;
@@ -54,9 +57,11 @@ __attribute__((visibility("hidden")))
 - (void)setWindowHostingPID:(int)arg1 active:(_Bool)arg2;
 - (void)signalKeyboardChangeComplete;
 - (void)signalKeyboardChanged:(id)arg1 onCompletion:(CDUnknownBlockType)arg2;
+- (void)setWantsFencing:(_Bool)arg1;
+- (void)checkActivation:(_Bool)arg1;
 - (void)setWindowContextID:(unsigned int)arg1 sceneIdentifier:(id)arg2 forKeyboard:(_Bool)arg3 withLevel:(double)arg4;
 - (void)_deactivateScene;
-- (void)startArbitrationWithExpectedState:(id)arg1 hostingPIDs:(id)arg2 withSuppression:(int)arg3 onConnected:(CDUnknownBlockType)arg4;
+- (void)startArbitrationWithExpectedState:(id)arg1 hostingPIDs:(id)arg2 usingFence:(_Bool)arg3 withSuppression:(int)arg4 onConnected:(CDUnknownBlockType)arg5;
 @property(readonly) int processIdentifier;
 - (void)dealloc;
 

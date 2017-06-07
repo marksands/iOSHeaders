@@ -23,6 +23,8 @@
     CATTaskClient *_taskClient;
 }
 
++ (id)sandboxExtensionForPath:(id)arg1;
++ (id)sandboxExtensionsForFileURLs:(id)arg1;
 @property(retain, nonatomic) CATTaskClient *taskClient; // @synthesize taskClient=_taskClient;
 @property(nonatomic) _Bool supportsFileURLs; // @synthesize supportsFileURLs=_supportsFileURLs;
 @property(nonatomic, getter=isInstructor) _Bool instructor; // @synthesize instructor=_instructor;
@@ -39,8 +41,6 @@
 - (_Bool)isEqualToShareTarget:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)sandboxExtensionForPath:(id)arg1;
-- (id)sandboxExtensionsForFileURLs:(id)arg1;
 - (id)operationToSendItems:(id)arg1 fromBundleIdentifier:(id)arg2 description:(id)arg3 previewImageData:(id)arg4;
 @property(readonly, copy, nonatomic) NSDictionary *dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;

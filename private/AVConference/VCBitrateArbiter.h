@@ -40,11 +40,11 @@ __attribute__((visibility("hidden")))
 - (unsigned int)maxAllowedScreenShareCellularBitrate;
 - (unsigned int)maxAllowedCellularBitrate;
 - (void)readCarrierBundleValues;
-- (void)readStoreBagValues;
+- (void)readStoreBagValues:(void *)arg1;
 - (void)readHardwareValues;
 - (void)createSupportedBitrateRuleSets;
 - (void)dealloc;
-- (id)initWithDeviceRole:(int)arg1;
+- (id)initWithDeviceRole:(int)arg1 callLogFile:(void *)arg2;
 
 @end
 

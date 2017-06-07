@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOResourceManifestConfiguration, NSError, NSLocale, NSString, VKSharedResources, VKTileKeyList, VKTileKeyMap, VKTilePool;
-@protocol OS_dispatch_queue, VKTileSourceClient;
+@protocol VKTileSourceClient, VKTileSourceZoomDelegate;
 
 __attribute__((visibility("hidden")))
 @interface VKTileSource : NSObject
@@ -29,7 +29,8 @@ __attribute__((visibility("hidden")))
     _Bool _requireWiFi;
     long long _mapType;
     unsigned char _targetDisplay;
-    NSObject<OS_dispatch_queue> *_homeQueue;
+    shared_ptr_e963992e _taskContext;
+    id <VKTileSourceZoomDelegate> _zoomDelegate;
 }
 
 @property(nonatomic) unsigned char targetDisplay; // @synthesize targetDisplay=_targetDisplay;
@@ -39,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double contentScale; // @synthesize contentScale=_contentScale;
 @property(retain, nonatomic) VKSharedResources *sharedResources; // @synthesize sharedResources=_sharedResources;
 @property(nonatomic) shared_ptr_a3c46825 styleManager; // @synthesize styleManager=_styleManager;
+@property(nonatomic) id <VKTileSourceZoomDelegate> zoomDelegate; // @synthesize zoomDelegate=_zoomDelegate;
 @property(nonatomic) id <VKTileSourceClient> client; // @synthesize client=_client;
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -71,6 +73,7 @@ __attribute__((visibility("hidden")))
 - (struct _GEOTileKey)downloadKeyForSourceKey:(const struct VKTileKey *)arg1;
 - (struct VKTileKey)sourceKeyForRenderKey:(const struct VKTileKey *)arg1;
 - (struct VKTileKey)nativeKeyForRenderKey:(const struct VKTileKey *)arg1;
+@property(readonly, nonatomic) long long maximumZoomLevelWithoutOverride;
 @property(readonly, nonatomic) long long maximumZoomLevel;
 @property(readonly, nonatomic) _Bool maximumZoomLevelBoundsCamera;
 @property(readonly, nonatomic) long long minimumZoomLevel;
@@ -86,8 +89,8 @@ __attribute__((visibility("hidden")))
 - (void)foreachTileInPool:(CDUnknownBlockType)arg1;
 - (void)clearCaches;
 - (void)dealloc;
-- (id)init;
-- (id)initWithResourceManifestConfiguration:(id)arg1 locale:(id)arg2 sharedResources:(id)arg3;
+- (id)initWithTaskContext:(shared_ptr_e963992e)arg1;
+- (id)initWithResourceManifestConfiguration:(id)arg1 locale:(id)arg2 sharedResources:(id)arg3 taskContext:(shared_ptr_e963992e)arg4;
 @property(readonly, nonatomic) struct Device *device;
 - (id)tileLoader;
 

@@ -11,12 +11,18 @@
 
 @interface MSMessageLoadingAnalyticController : NSObject
 {
-    NSMutableDictionary *_messageLoadTime;
+    NSMutableDictionary *_messageLoadTimes;
     MSDiagnosticManager *_diagnosticManager;
     NSObject<OS_dispatch_queue> *_serialMessageLoadingTimerQueue;
+    unsigned long long _maxLoadingTimeSeconds;
+    CDUnknownBlockType _startedRecordingHandler;
+    CDUnknownBlockType _endedRecordingHandler;
 }
 
-@property(readonly, copy, nonatomic) NSDictionary *messageLoadTime; // @synthesize messageLoadTime=_messageLoadTime;
+@property(copy, nonatomic) CDUnknownBlockType endedRecordingHandler; // @synthesize endedRecordingHandler=_endedRecordingHandler;
+@property(copy, nonatomic) CDUnknownBlockType startedRecordingHandler; // @synthesize startedRecordingHandler=_startedRecordingHandler;
+@property(readonly, copy, nonatomic) NSDictionary *messageLoadTimes; // @synthesize messageLoadTimes=_messageLoadTimes;
+@property(nonatomic) unsigned long long maxLoadingTimeSeconds; // @synthesize maxLoadingTimeSeconds=_maxLoadingTimeSeconds;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *serialMessageLoadingTimerQueue; // @synthesize serialMessageLoadingTimerQueue=_serialMessageLoadingTimerQueue;
 @property(retain, nonatomic) MSDiagnosticManager *diagnosticManager; // @synthesize diagnosticManager=_diagnosticManager;
 - (void).cxx_destruct;
@@ -24,9 +30,11 @@
 - (void)_calculateAndSubmitTimeForLoadingInfo:(id)arg1;
 - (void)_startTimeoutForMessage:(id)arg1;
 - (void)_endRecordingForMessage:(id)arg1;
+- (void)_commonInitWithDiagnosticManager:(id)arg1 maxLoadingTimeSeconds:(unsigned long long)arg2;
 - (void)endAllRecording;
 - (void)endRecordingForMessage:(id)arg1;
 - (void)startRecordingForMessage:(id)arg1;
+- (id)initWithDiagnosticManager:(id)arg1 maxLoadingTimeSeconds:(unsigned long long)arg2;
 - (id)initWithDiagnosticManager:(id)arg1;
 
 @end

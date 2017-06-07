@@ -8,48 +8,45 @@
 
 #import <iWorkImport/TSCEFormulaOwning-Protocol.h>
 
-@class NSMutableArray, NSObject, NSString, TSCECalculationEngine, TSTTableFilterSet, TSTTableInfo;
+@class NSMutableArray, NSObject, NSString, TSCECalculationEngine, TSTInfo, TSTTableFilterSet;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface TSTHiddenStateFormulaOwner : TSPObject <TSCEFormulaOwning>
 {
-    struct __CFUUID *mOwnerID;
-    TSTTableInfo *mTableInfo;
-    TSCECalculationEngine *mCalculationEngine;
-    struct vector<std::__1::pair<unsigned short, bool>, std::__1::allocator<std::__1::pair<unsigned short, bool>>> mPendingComputedShowRowResults;
-    NSObject<OS_dispatch_queue> *mPendingComputedShowRowResultsQueue;
-    vector_db509b29 mCellRangesToInvalidate;
-    vector_eef16772 mHiddenRowIndices;
-    TSTTableFilterSet *mRewrittenFilterSet;
-    NSMutableArray *mThresholdCellValues;
-    _Bool mNeedsToUpdateFilterSetForImport;
+    UUIDData_5fbc143e _ownerUID;
+    TSTInfo *_tableInfo;
+    TSCECalculationEngine *_calculationEngine;
+    struct vector<std::__1::pair<unsigned short, bool>, std::__1::allocator<std::__1::pair<unsigned short, bool>>> _pendingComputedShowRowResults;
+    NSObject<OS_dispatch_queue> *_pendingComputedShowRowResultsQueue;
+    vector_db509b29 _cellRangesToInvalidate;
+    vector_eef16772 _hiddenRowIndices;
+    TSTTableFilterSet *_rewrittenFilterSet;
+    NSMutableArray *_thresholdCellValues;
+    _Bool _needsToUpdateFilterSetForImport;
 }
 
+@property(nonatomic) __weak TSTInfo *tableInfo; // @synthesize tableInfo=_tableInfo;
+@property(nonatomic) UUIDData_5fbc143e ownerUID; // @synthesize ownerUID=_ownerUID;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)releaseForCalculationEngine:(id)arg1;
-- (void)retainForCalculationEngine:(id)arg1;
 - (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;
 - (void)writeResultsForCalculationEngine:(id)arg1;
 - (CDStruct_22e7ec3e)recalculateForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 isInCycle:(_Bool)arg3 hasCalculatedPrecedents:(_Bool)arg4;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dirtyFilterState;
 - (void)filterSetUpdated;
 - (void)p_registerAllFormulaToCalculationEngine;
 - (void)p_removeAllFormulaFromCalculationEngine;
 - (int)registerWithCalculationEngine:(id)arg1;
 - (void)hiddenStateChangedForIndex:(unsigned short)arg1;
-- (CDStruct_fc93c73e)rangeReferenceFromIndex:(unsigned short)arg1 toIndex:(unsigned short)arg2;
-- (CDStruct_de21cb60)cellReferenceForIndex:(unsigned short)arg1;
+- (struct TSCERangeRef)rangeReferenceFromIndex:(unsigned short)arg1 toIndex:(unsigned short)arg2;
+- (struct TSCECellRef)cellReferenceForIndex:(unsigned short)arg1;
+- (id)thresholdCellValues;
 - (id)calculationEngine;
-- (id)tableInfo;
-- (void)setTableInfo:(id)arg1;
-- (void)setOwnerID:(struct __CFUUID *)arg1;
-- (struct __CFUUID *)ownerID;
 - (void)dealloc;
 - (id)initWithContext:(id)arg1 tableInfo:(id)arg2;
 

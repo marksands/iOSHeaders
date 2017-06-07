@@ -10,8 +10,6 @@
 
 @interface GEOTimeToLeaveInitialTravelTimeLogMessage : PBCodable <NSCopying>
 {
-    int _travelTime;
-    CDStruct_36597415 _has;
 }
 
 - (void)mergeFrom:(id)arg1;
@@ -23,10 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (int)StringAsTravelTime:(id)arg1;
-- (id)travelTimeAsString:(int)arg1;
-@property(nonatomic) _Bool hasTravelTime;
-@property(nonatomic) int travelTime; // @synthesize travelTime=_travelTime;
 
 @end
 

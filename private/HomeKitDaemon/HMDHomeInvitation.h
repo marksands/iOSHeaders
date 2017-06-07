@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDHome, HMFTimer, HMHomeInvitationData, NSDate, NSString, NSUUID;
+@class HMDHome, HMFTimer, HMHomeInvitationData, NSDate, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDHomeInvitation : NSObject <HMFTimerDelegate, NSSecureCoding>
+@interface HMDHomeInvitation : HMFObject <HMFTimerDelegate, NSSecureCoding>
 {
     long long _invitationState;
     HMDHome *_home;

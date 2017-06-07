@@ -17,7 +17,9 @@
     _Bool _contentSynced;
     _Bool _contentRequestedByUser;
     _Bool _resendRequested;
+    _Bool _isThreadSpecific;
     NSString *_messageId;
+    NSString *_sanitizedMessageId;
     unsigned long long _status;
     unsigned long long _statusVersion;
     NSDate *_dateReceived;
@@ -25,8 +27,13 @@
     NSString *_conversationId;
     unsigned long long _resendInterval;
     unsigned long long _contentResendInterval;
+    NSString *_mailboxId;
+    unsigned long long _isSpecialMailboxSpecific;
 }
 
+@property(nonatomic) unsigned long long isSpecialMailboxSpecific; // @synthesize isSpecialMailboxSpecific=_isSpecialMailboxSpecific;
+@property(nonatomic) _Bool isThreadSpecific; // @synthesize isThreadSpecific=_isThreadSpecific;
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(nonatomic) unsigned long long contentResendInterval; // @synthesize contentResendInterval=_contentResendInterval;
 @property(nonatomic) unsigned long long resendInterval; // @synthesize resendInterval=_resendInterval;
 @property(nonatomic) _Bool resendRequested; // @synthesize resendRequested=_resendRequested;
@@ -41,9 +48,12 @@
 @property(retain, nonatomic) NSDate *dateReceived; // @synthesize dateReceived=_dateReceived;
 @property(nonatomic) unsigned long long statusVersion; // @synthesize statusVersion=_statusVersion;
 @property(nonatomic) unsigned long long status; // @synthesize status=_status;
+@property(retain, nonatomic) NSString *sanitizedMessageId; // @synthesize sanitizedMessageId=_sanitizedMessageId;
 @property(retain, nonatomic) NSString *messageId; // @synthesize messageId=_messageId;
 - (void).cxx_destruct;
+- (_Bool)isContentCompletelySynced;
 - (id)init;
+- (id)initWithMessage:(id)arg1 useDefaultMailbox:(_Bool)arg2;
 - (id)initWithMessage:(id)arg1;
 
 @end

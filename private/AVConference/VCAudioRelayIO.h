@@ -17,10 +17,12 @@
     struct AudioStreamBasicDescription _micFormat;
     CDUnknownFunctionPointerType _micCallback;
     void *_micCallbackContext;
+    struct opaqueVCAudioBufferList *_micBuffer;
     unsigned int _speakerTimestamp;
     struct AudioStreamBasicDescription _speakerFormat;
     CDUnknownFunctionPointerType _speakerCallback;
     void *_speakerCallbackContext;
+    struct opaqueVCAudioBufferList *_speakerBuffer;
     float _micPowerRMS;
     float _speakerPowerRMS;
     CDUnknownBlockType _startCompletionHandler;
@@ -34,9 +36,11 @@
 @property(copy) CDUnknownBlockType startCompletionHandler; // @synthesize startCompletionHandler=_startCompletionHandler;
 @property unsigned int micTimestamp; // @synthesize micTimestamp=_micTimestamp;
 @property unsigned int speakerTimestamp; // @synthesize speakerTimestamp=_speakerTimestamp;
+@property(readonly, nonatomic) struct opaqueVCAudioBufferList *speakerBuffer; // @synthesize speakerBuffer=_speakerBuffer;
 @property void *speakerCallbackContext; // @synthesize speakerCallbackContext=_speakerCallbackContext;
 @property CDUnknownFunctionPointerType speakerCallback; // @synthesize speakerCallback=_speakerCallback;
 @property struct AudioStreamBasicDescription speakerFormat; // @synthesize speakerFormat=_speakerFormat;
+@property(readonly, nonatomic) struct opaqueVCAudioBufferList *micBuffer; // @synthesize micBuffer=_micBuffer;
 @property void *micCallbackContext; // @synthesize micCallbackContext=_micCallbackContext;
 @property CDUnknownFunctionPointerType micCallback; // @synthesize micCallback=_micCallback;
 @property struct AudioStreamBasicDescription micFormat; // @synthesize micFormat=_micFormat;
@@ -44,7 +48,8 @@
 - (void)closeRecordings;
 - (void)createRecordingsWithName:(id)arg1;
 - (void)destroyPacketThread;
-- (_Bool)createPacketThreadWithIOBufferDuration:(float)arg1 name:(id)arg2 error:(id *)arg3;
+- (_Bool)createPacketThreadWithIOBufferDuration:(double)arg1 name:(id)arg2 error:(id *)arg3;
+- (void)createAudioBuffersWithIOBufferDuration:(double)arg1;
 - (void)dealloc;
 - (_Bool)isEqualToRelayIO:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

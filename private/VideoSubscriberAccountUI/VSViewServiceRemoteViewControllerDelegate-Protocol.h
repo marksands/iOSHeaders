@@ -6,9 +6,10 @@
 
 #import <VideoSubscriberAccountUI/NSObject-Protocol.h>
 
-@class NSError, NSUUID, VSViewServiceRemoteViewController, VSViewServiceResponse;
+@class NSError, NSString, NSUUID, VSViewServiceRemoteViewController, VSViewServiceResponse;
 
 @protocol VSViewServiceRemoteViewControllerDelegate <NSObject>
+- (void)viewServiceRemoteViewController:(VSViewServiceRemoteViewController *)arg1 didSelectProviderWithIdentifier:(NSString *)arg2 vetoHandler:(void (^)(_Bool))arg3;
 - (void)viewServiceRemoteViewController:(VSViewServiceRemoteViewController *)arg1 didCancelRequest:(NSUUID *)arg2;
 - (void)viewServiceRemoteViewController:(VSViewServiceRemoteViewController *)arg1 didChooseAdditionalProvidersForRequest:(NSUUID *)arg2;
 - (void)viewServiceRemoteViewController:(VSViewServiceRemoteViewController *)arg1 request:(NSUUID *)arg2 didFailWithError:(NSError *)arg3;

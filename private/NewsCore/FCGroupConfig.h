@@ -6,20 +6,22 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSString, UIColor;
+@class FCColor, NSDictionary, NSString;
 
 @interface FCGroupConfig : NSObject
 {
-    UIColor *_groupTitleColor;
+    FCColor *_groupTitleColor;
     unsigned long long _cutoffTimeSecs;
     unsigned long long _cutoffCount;
+    NSDictionary *_articleMetadataByArticleID;
     NSDictionary *_dictionary;
 }
 
 @property(retain, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
+@property(retain, nonatomic) NSDictionary *articleMetadataByArticleID; // @synthesize articleMetadataByArticleID=_articleMetadataByArticleID;
 @property(nonatomic) unsigned long long cutoffCount; // @synthesize cutoffCount=_cutoffCount;
 @property(nonatomic) unsigned long long cutoffTimeSecs; // @synthesize cutoffTimeSecs=_cutoffTimeSecs;
-@property(retain, nonatomic) UIColor *groupTitleColor; // @synthesize groupTitleColor=_groupTitleColor;
+@property(retain, nonatomic) FCColor *groupTitleColor; // @synthesize groupTitleColor=_groupTitleColor;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *feedID;
 @property(readonly, nonatomic) NSString *channelID;

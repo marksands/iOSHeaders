@@ -16,6 +16,7 @@
 
 + (id)getActiveWorkoutApplicationIdentifierResponseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getActiveWorkoutApplicationIdentifierResponse;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *appBundleId;
 - (id)encodedClassName;
 - (id)groupIdentifier;

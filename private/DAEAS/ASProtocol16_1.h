@@ -10,6 +10,7 @@
 {
 }
 
+- (_Bool)supportsUniqueServerId;
 - (_Bool)supportsForwarderTracking;
 - (_Bool)supportsMailboxEnhancedSearch;
 - (_Bool)supportsProposeNewTime;

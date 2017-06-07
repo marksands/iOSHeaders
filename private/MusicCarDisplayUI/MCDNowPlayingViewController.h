@@ -41,10 +41,12 @@
     UIFocusContainerGuide *_controlsFocusContainerGuide;
     NSString *_previousTransportButtonImageIdentifier;
     NSString *_forwardTransportButtonImageIdentifier;
+    NSString *_playPauseTransportButtonImageIdentifier;
     NSLayoutConstraint *_artistAlbumLabelConstraint;
 }
 
 @property(retain, nonatomic) NSLayoutConstraint *artistAlbumLabelConstraint; // @synthesize artistAlbumLabelConstraint=_artistAlbumLabelConstraint;
+@property(retain, nonatomic) NSString *playPauseTransportButtonImageIdentifier; // @synthesize playPauseTransportButtonImageIdentifier=_playPauseTransportButtonImageIdentifier;
 @property(retain, nonatomic) NSString *forwardTransportButtonImageIdentifier; // @synthesize forwardTransportButtonImageIdentifier=_forwardTransportButtonImageIdentifier;
 @property(retain, nonatomic) NSString *previousTransportButtonImageIdentifier; // @synthesize previousTransportButtonImageIdentifier=_previousTransportButtonImageIdentifier;
 @property(retain, nonatomic) UIFocusContainerGuide *controlsFocusContainerGuide; // @synthesize controlsFocusContainerGuide=_controlsFocusContainerGuide;
@@ -71,6 +73,7 @@
 - (void)pressesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_updateTransportControl:(id)arg1 withDefaultImage:(id)arg2 actionType:(long long)arg3;
 - (void)_initializeTransportControls;
+- (void)_playbackButtonTouchUp:(id)arg1;
 - (void)_addToLibraryButtonTouchUp:(id)arg1;
 - (void)_moreButtonTouchUp:(id)arg1;
 - (void)_repeatButtonTouchUp:(id)arg1;
@@ -91,6 +94,7 @@
 - (void)albumArtistButtonTapped:(id)arg1;
 - (void)reloadData;
 - (void)_didUpdateSupportedCommandsNotification:(id)arg1;
+- (void)_updatePlaybackRate;
 - (void)_updateShuffleStateWithType:(long long)arg1;
 - (void)_updateRepeatStateWithType:(long long)arg1;
 - (void)_updatePlayModesState;
@@ -101,7 +105,6 @@
 - (void)_handleWillAppear;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

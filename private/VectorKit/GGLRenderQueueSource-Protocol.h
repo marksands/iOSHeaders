@@ -7,10 +7,6 @@
 #import <VectorKit/NSObject-Protocol.h>
 
 @protocol GGLRenderQueueSource <NSObject>
-- (RenderQueue_e4212455 *)renderQueue;
-
-@optional
-- (void)didReadPixels:(shared_ptr_4ce39eb2 *)arg1;
-- (void)didPresent;
+- (RenderQueue_5bbf3210 *)renderQueueForTimestamp:(double)arg1;
 @end
 

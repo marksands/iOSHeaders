@@ -6,19 +6,21 @@
 
 #import <UserNotificationsUIKit/NCAttachmentViewController.h>
 
-@class NCAnimatedImageView;
+@class ISAnimatedImageView;
 
 @interface NCImageAttachmentViewController : NCAttachmentViewController
 {
-    NCAnimatedImageView *_imageView;
+    ISAnimatedImageView *_imageView;
     struct CGSize _contentSize;
+    struct CGSize _imageSize;
 }
 
-@property(retain, nonatomic) NCAnimatedImageView *imageView; // @synthesize imageView=_imageView;
-@property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
+@property(retain, nonatomic) ISAnimatedImageView *imageView; // @synthesize imageView=_imageView;
+@property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
 - (void).cxx_destruct;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
+- (struct CGSize)contentSize;
 - (void)dealloc;
 - (id)initWithAttachment:(id)arg1 forNotificationRequest:(id)arg2;
 

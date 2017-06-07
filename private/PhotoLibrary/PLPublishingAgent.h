@@ -7,12 +7,11 @@
 #import <Foundation/NSObject.h>
 
 #import <PhotoLibrary/PLDataArrayInputStreamProgressDelegate-Protocol.h>
-#import <PhotoLibrary/UIAlertViewDelegate-Protocol.h>
 
 @class NSData, NSMutableArray, NSString, PLVideoRemaker;
 @protocol PLPublishingAgentDelegate;
 
-@interface PLPublishingAgent : NSObject <PLDataArrayInputStreamProgressDelegate, UIAlertViewDelegate>
+@interface PLPublishingAgent : NSObject <PLDataArrayInputStreamProgressDelegate>
 {
     id _userInfo;
     id _delegate;
@@ -65,7 +64,6 @@
 @property(nonatomic) long long approximateHDUploadSize; // @synthesize approximateHDUploadSize=_approximateHDUploadSize;
 @property(nonatomic) _Bool ownerIsCamera; // @synthesize ownerIsCamera=_ownerIsCamera;
 @property(nonatomic) id <PLPublishingAgentDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)showAlertWithError:(id)arg1;
 - (int)_remakerModeForSelectedOption;
 - (id)progressViewMessageDuringRemake;
@@ -122,12 +120,6 @@
 - (void)_startNetworkObservation;
 - (void)_networkReachabilityDidChange:(id)arg1;
 @property(readonly, nonatomic) _Bool allowsCellularAccessForRequests;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -14,6 +14,7 @@
 
 + (id)signalWithDictionary:(id)arg1 context:(id)arg2;
 + (id)signal;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *flowScriptHint;
 - (id)encodedClassName;

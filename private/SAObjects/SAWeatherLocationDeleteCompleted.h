@@ -16,6 +16,7 @@
 
 + (id)locationDeleteCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)locationDeleteCompleted;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

@@ -20,6 +20,7 @@
 - (void)finishRequestLog;
 - (void)logPartialResponseObjectData:(id)arg1;
 - (void)logResponseConfiguration:(unsigned long long)arg1 withMessageClassString:(id)arg2;
+- (void)logRequestBodyStreamReset;
 - (void)logPartialRequestObjectData:(id)arg1;
 - (void)logResponse:(id)arg1;
 - (void)logRequest:(id)arg1 toURL:(id)arg2 withMethod:(id)arg3;

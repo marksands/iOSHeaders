@@ -15,14 +15,14 @@
 {
     CDUnknownBlockType _completion;
     unsigned long long _oauthType;
-    NSString *_tokenRequestURI;
     NSString *_oauthURI;
+    NSString *_tokenRequestURI;
     NSString *_username;
 }
 
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
-@property(copy, nonatomic) NSString *oauthURI; // @synthesize oauthURI=_oauthURI;
 @property(retain, nonatomic) NSString *tokenRequestURI; // @synthesize tokenRequestURI=_tokenRequestURI;
+@property(copy, nonatomic) NSString *oauthURI; // @synthesize oauthURI=_oauthURI;
 @property(nonatomic) unsigned long long oauthType; // @synthesize oauthType=_oauthType;
 - (void).cxx_destruct;
 - (id)_urlRequestForOAuthTokenFromAuthCode:(id)arg1;

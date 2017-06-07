@@ -28,8 +28,6 @@
 @property(retain, nonatomic) NSString *attachmentsName; // @synthesize attachmentsName=_attachmentsName;
 - (void).cxx_destruct;
 - (id)description;
-- (void)getAttachmentsWithParameters:(id)arg1 andHandler:(CDUnknownBlockType)arg2;
-- (void)loadExtendedInfo;
 - (void)attachmentsForParameters:(id)arg1 andHandler:(CDUnknownBlockType)arg2;
 - (void)attachmentListWithHandler:(CDUnknownBlockType)arg1;
 - (void)performWithHostContext:(CDUnknownBlockType)arg1;

@@ -8,28 +8,29 @@
 
 #import <NotesShared/NSCopying-Protocol.h>
 #import <NotesShared/NSMutableCopying-Protocol.h>
+#import <NotesShared/NSSecureCoding-Protocol.h>
 #import <NotesShared/TTModelAttributeComparable-Protocol.h>
 
 @class NSString, NSUUID, TTTodo;
 
-@interface TTParagraphStyle : NSObject <NSCopying, NSMutableCopying, TTModelAttributeComparable>
+@interface TTParagraphStyle : NSObject <NSSecureCoding, NSCopying, NSMutableCopying, TTModelAttributeComparable>
 {
     _Bool _needsParagraphCleanup;
     _Bool _needsListCleanup;
     unsigned int _style;
     unsigned int _hints;
+    long long _alignment;
     long long _writingDirection;
     unsigned long long _indent;
     unsigned long long _startingItemNumber;
     TTTodo *_todo;
-    long long _alignment;
 }
 
 + (id)paragraphStyleNamed:(unsigned int)arg1;
 + (id)defaultParagraphStyle;
++ (_Bool)supportsSecureCoding;
 + (int)paragraphStyleAlignmentForTextAlignment:(long long)arg1;
 + (long long)textAlignmentForParagraphStyleAlignment:(int)arg1;
-@property(nonatomic) long long alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) _Bool needsListCleanup; // @synthesize needsListCleanup=_needsListCleanup;
 @property(nonatomic) _Bool needsParagraphCleanup; // @synthesize needsParagraphCleanup=_needsParagraphCleanup;
 @property(nonatomic) unsigned int hints; // @synthesize hints=_hints;
@@ -37,6 +38,7 @@
 @property(nonatomic) unsigned long long startingItemNumber; // @synthesize startingItemNumber=_startingItemNumber;
 @property(nonatomic) unsigned long long indent; // @synthesize indent=_indent;
 @property(nonatomic) long long writingDirection; // @synthesize writingDirection=_writingDirection;
+@property(nonatomic) long long alignment; // @synthesize alignment=_alignment;
 @property(nonatomic) unsigned int style; // @synthesize style=_style;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
@@ -48,7 +50,6 @@
 @property(readonly, nonatomic) _Bool isHeader;
 @property(readonly, nonatomic) _Bool isList;
 @property(readonly, nonatomic) _Bool canIndent;
-@property(readonly, nonatomic) long long layoutWritingDirection;
 - (_Bool)isUnknownStyle;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqualToModelParagraphStyle:(id)arg1;
@@ -58,6 +59,8 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)serialize;
 - (void)saveToArchive:(struct ParagraphStyle *)arg1;
 - (id)initWithArchive:(const struct ParagraphStyle *)arg1;

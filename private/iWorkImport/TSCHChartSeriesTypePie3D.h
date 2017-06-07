@@ -12,6 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (Class)sceneObjectClass;
+- (_Bool)supportsCalloutLines;
 - (id)genericToSpecificPropertyMap;
 - (id)coordinateAxisForSeries:(id)arg1;
 - (id)valueAxisForSeries:(id)arg1;

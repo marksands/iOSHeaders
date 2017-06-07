@@ -19,10 +19,11 @@
 
 @property(retain, nonatomic) HKChartCache *chartCache; // @synthesize chartCache=_chartCache;
 - (void).cxx_destruct;
-- (void)chartCacheDidUpdate:(id)arg1;
 - (void)_resetCachedPaths;
+- (void)chartCacheDidUpdate:(id)arg1;
+- (void)invalidateCache;
 - (void)blocksRequestedFromPath:(CDStruct_6ca94699)arg1 toPath:(CDStruct_6ca94699)arg2;
-- (id)cachedBlockForPath:(CDStruct_6ca94699)arg1;
+- (id)cachedBlockForPath:(CDStruct_6ca94699)arg1 context:(id)arg2;
 - (id)init;
 
 // Remaining properties

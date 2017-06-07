@@ -16,7 +16,6 @@
 - (_Bool)canHandleRequest:(WBSSiteMetadataRequest *)arg1;
 
 @optional
-@property(nonatomic, getter=isCachingDisabled) _Bool cachingDisabled;
 - (void)purgeUnneededCacheEntries;
 - (void)savePendingChangesBeforeTermination;
 - (void)emptyCaches;

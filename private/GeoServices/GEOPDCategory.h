@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, PBUnknownFields;
 
 @interface GEOPDCategory : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     int _level;
     NSMutableArray *_localizedNames;
     struct {
@@ -25,6 +26,8 @@
 + (id)_allCategoriesForPlaceData:(id)arg1 type:(unsigned int)arg2;
 @property(retain, nonatomic) NSMutableArray *localizedNames; // @synthesize localizedNames=_localizedNames;
 @property(nonatomic) int level; // @synthesize level=_level;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -39,7 +42,6 @@
 - (void)addLocalizedName:(id)arg1;
 - (void)clearLocalizedNames;
 @property(nonatomic) _Bool hasLevel;
-- (void)dealloc;
 
 @end
 

@@ -16,6 +16,7 @@
     NSMutableDictionary *_frameworkPayload;
     NSString *_title;
     NSURL *_webpageURL;
+    NSURL *_referrerURL;
     SFCompanionAdvertiser *_advertiser;
     SFCompanionAdvertiser *_resumerAdvertiser;
     NSMutableSet *_dirtyPayloadIdentifiers;
@@ -71,7 +72,6 @@
 + (id)observers;
 + (void)removeDynamicUserActivity:(id)arg1 matching:(id)arg2;
 + (void)addDynamicUserActivity:(id)arg1 matching:(id)arg2;
-+ (void)initialize;
 + (id)fetchUserActivityWithUUID:(id)arg1 intervalToWaitForDocumentSynchronizationToComplete:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)fetchUserActivityWithUUID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)userActivityFromUUID:(id)arg1 withError:(id *)arg2;
@@ -148,6 +148,7 @@
 @property _Bool needsSave; // @dynamic needsSave;
 @property _Bool dirty; // @dynamic dirty;
 - (void)addUserInfoEntriesFromDictionary:(id)arg1;
+@property(copy) NSURL *referrerURL; // @dynamic referrerURL;
 @property(copy) NSURL *webpageURL; // @dynamic webpageURL;
 @property(copy) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(copy) NSString *title; // @dynamic title;

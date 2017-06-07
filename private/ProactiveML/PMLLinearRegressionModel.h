@@ -6,25 +6,24 @@
 
 #import <objc/NSObject.h>
 
+#import <ProactiveML/PMLPlistAndChunksSerializableProtocol-Protocol.h>
 #import <ProactiveML/PMLRegressionModelProtocol-Protocol.h>
 
-@class NSMutableArray, NSString, PMLGradientSolver, PMLModelMatrix;
+@class NSString, PMLGradientSolver;
 
-@interface PMLLinearRegressionModel : NSObject <PMLRegressionModelProtocol>
+@interface PMLLinearRegressionModel : NSObject <PMLRegressionModelProtocol, PMLPlistAndChunksSerializableProtocol>
 {
     PMLGradientSolver *_solver;
-    PMLModelMatrix *_runningOuterProductMatrix;
-    PMLModelMatrix *_runningOutcomeCovariateMatrix;
-    NSMutableArray *_covariates;
-    NSMutableArray *_outcomes;
 }
 
 + (id)withWeights:(id)arg1;
-+ (id)regression;
++ (id)solverWithWeights:(id)arg1 andIntercept:(_Bool)arg2;
++ (id)solverWithWeights:(id)arg1;
 - (void).cxx_destruct;
-- (id)fitForCovariates:(id)arg1 andOutcome:(id)arg2;
-- (id)updateForCovariates:(id)arg1 andOutcome:(id)arg2;
-- (double)predict:(id)arg1;
+- (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
+- (id)toPlistWithChunks:(id)arg1;
+- (float)predict:(id)arg1;
+- (id)initWithSolver:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,16 +8,15 @@
 
 #import <TVMLKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <TVMLKit/UIPopoverPresentationControllerDelegate-Protocol.h>
-#import <TVMLKit/_TVAppNavigationBarDisplayConfiguring-Protocol.h>
 #import <TVMLKit/_TVIKAppDocumentDelegate-Protocol.h>
 #import <TVMLKit/_TVModalPresenterFocusing-Protocol.h>
+#import <TVMLKit/_TVPagePerformanceDelegate-Protocol.h>
 
-@class CABackdropLayer, IKAppDocument, NSArray, NSString, TVMediaQueryEvaluator, UITapGestureRecognizer, UIView, _TVAppNavigationControllerStatusBlur;
+@class CABackdropLayer, IKAppDocument, NSArray, NSString, TVMediaQueryEvaluator, UITapGestureRecognizer, UIView, _TVPagePerformanceController;
 @protocol _TVAppDocumentControllerDelegate;
 
-@interface _TVAppDocumentController : UIViewController <_TVIKAppDocumentDelegate, UIGestureRecognizerDelegate, _TVModalPresenterFocusing, _TVAppNavigationBarDisplayConfiguring, UIPopoverPresentationControllerDelegate>
+@interface _TVAppDocumentController : UIViewController <_TVIKAppDocumentDelegate, UIGestureRecognizerDelegate, _TVModalPresenterFocusing, _TVPagePerformanceDelegate, UIPopoverPresentationControllerDelegate>
 {
-    _TVAppNavigationControllerStatusBlur *_statusBarEffectView;
     struct {
         unsigned int mediaQueryEvaluatorForAppDocumentController:1;
     } _delegateFlags;
@@ -25,7 +24,6 @@
     _Bool _opaque;
     _Bool _dismissAppOnMenu;
     _Bool _applicationDeactivatedOnMenu;
-    _Bool _avoidsFocusingTemplate;
     _Bool _transitioning;
     _Bool _backdropLayerNeeded;
     IKAppDocument *_appDocument;
@@ -35,13 +33,16 @@
     TVMediaQueryEvaluator *_mediaQueryEvaluator;
     UITapGestureRecognizer *_menuGestureRecognizer;
     CABackdropLayer *_backdropLayer;
+    _TVPagePerformanceController *_pagePerformance;
+    UIView *_pagePerformanceView;
 }
 
+@property(retain, nonatomic) UIView *pagePerformanceView; // @synthesize pagePerformanceView=_pagePerformanceView;
+@property(retain, nonatomic) _TVPagePerformanceController *pagePerformance; // @synthesize pagePerformance=_pagePerformance;
 @property(nonatomic, getter=isBackdropLayerNeeded) _Bool backdropLayerNeeded; // @synthesize backdropLayerNeeded=_backdropLayerNeeded;
 @property(nonatomic) __weak CABackdropLayer *backdropLayer; // @synthesize backdropLayer=_backdropLayer;
 @property(nonatomic) __weak UITapGestureRecognizer *menuGestureRecognizer; // @synthesize menuGestureRecognizer=_menuGestureRecognizer;
 @property(nonatomic, getter=isTransitioning) _Bool transitioning; // @synthesize transitioning=_transitioning;
-@property(nonatomic) _Bool avoidsFocusingTemplate; // @synthesize avoidsFocusingTemplate=_avoidsFocusingTemplate;
 @property(retain, nonatomic) TVMediaQueryEvaluator *mediaQueryEvaluator; // @synthesize mediaQueryEvaluator=_mediaQueryEvaluator;
 @property(readonly, nonatomic) _Bool applicationDeactivatedOnMenu; // @synthesize applicationDeactivatedOnMenu=_applicationDeactivatedOnMenu;
 @property(nonatomic) _Bool dismissAppOnMenu; // @synthesize dismissAppOnMenu=_dismissAppOnMenu;
@@ -51,13 +52,9 @@
 @property(nonatomic) __weak id <_TVAppDocumentControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) IKAppDocument *appDocument; // @synthesize appDocument=_appDocument;
 - (void).cxx_destruct;
+- (void)pagePerformanceController:(id)arg1 didUpdateMetrics:(id)arg2;
 - (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
 - (void)popoverPresentationController:(id)arg1 willRepositionPopoverToRect:(inout struct CGRect *)arg2 inView:(inout id *)arg3;
-- (id)navigationBarTintColor;
-- (_Bool)prefersStatusBarBlurHidden;
-- (_Bool)prefersNavigationBarBackgroundViewHidden;
-- (_Bool)prefersStatusBarDarkTheme;
-- (_Bool)animateAppearanceUpdate;
 - (void)_menuGestureHandler:(id)arg1;
 - (void)tvmlkit_handleEvent:(id)arg1 forElement:(id)arg2 andSourceView:(id)arg3;
 - (void)updatePreferredFocusedViewStateForFocus:(_Bool)arg1;
@@ -71,27 +68,23 @@
 - (id)_alertControllerWithError:(id)arg1;
 - (void)_updateIdleModeStatus;
 - (void)_markAndNotifyStylesDirty;
-- (void)_configureStatusBarBlur;
 - (void)scrollToTop;
 - (id)impressionableViewElementsForDocument:(id)arg1;
 - (_Bool)document:(id)arg1 evaluateStyleMediaQuery:(id)arg2;
 - (void)documentDidUpdate:(id)arg1;
 - (void)documentNeedsUpdate:(id)arg1;
 - (struct CGSize)tv_adjustedWindowSizeForDocument:(id)arg1;
-@property(readonly, nonatomic) _TVAppNavigationControllerStatusBlur *statusBarEffectView;
+- (id)childViewControllerForStatusBarHidden;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)overrideTraitCollectionForChildViewController:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (unsigned long long)supportedInterfaceOrientations;
 - (id)customAnimatorForNavigationControllerOperation:(long long)arg1 toViewController:(id)arg2;
 - (id)customAnimatorForNavigationControllerOperation:(long long)arg1 fromViewController:(id)arg2;
+- (long long)preferredStatusBarStyle;
 - (void)viewDidLayoutSubviews;
 - (void)didMoveToParentViewController:(id)arg1;
 - (void)willMoveToParentViewController:(id)arg1;
-- (void)removeChildViewController:(id)arg1;
-- (void)addChildViewController:(id)arg1;
-- (long long)preferredStatusBarStyle;
-- (id)childViewControllerForStatusBarHidden;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

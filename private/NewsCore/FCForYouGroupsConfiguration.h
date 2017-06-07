@@ -6,34 +6,27 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class NSDictionary, NSMutableDictionary, NSString;
 
 @interface FCForYouGroupsConfiguration : NSObject
 {
     NSString *_configuration;
-    unsigned long long _topStoriesPosition;
-    unsigned long long _topStoriesPrecedingGroupsCount;
-    unsigned long long _trendingStoriesPosition;
-    unsigned long long _trendingStoriesPrecedingGroupsCount;
-    unsigned long long _coverArticlesPosition;
-    unsigned long long _coverArticlesPrecedingGroupsCount;
-    unsigned long long _editorialPosition;
-    unsigned long long _editorialPrecedingGroupsCount;
     double _weekendGreatStoriesYouMissedTimeRange;
+    NSDictionary *_groupConfiguration;
+    NSMutableDictionary *_cachedGroupConfigurations;
 }
 
+@property(copy, nonatomic) NSMutableDictionary *cachedGroupConfigurations; // @synthesize cachedGroupConfigurations=_cachedGroupConfigurations;
+@property(copy, nonatomic) NSDictionary *groupConfiguration; // @synthesize groupConfiguration=_groupConfiguration;
 @property(readonly, nonatomic) double weekendGreatStoriesYouMissedTimeRange; // @synthesize weekendGreatStoriesYouMissedTimeRange=_weekendGreatStoriesYouMissedTimeRange;
-@property(readonly, nonatomic) unsigned long long editorialPrecedingGroupsCount; // @synthesize editorialPrecedingGroupsCount=_editorialPrecedingGroupsCount;
-@property(readonly, nonatomic) unsigned long long editorialPosition; // @synthesize editorialPosition=_editorialPosition;
-@property(readonly, nonatomic) unsigned long long coverArticlesPrecedingGroupsCount; // @synthesize coverArticlesPrecedingGroupsCount=_coverArticlesPrecedingGroupsCount;
-@property(readonly, nonatomic) unsigned long long coverArticlesPosition; // @synthesize coverArticlesPosition=_coverArticlesPosition;
-@property(readonly, nonatomic) unsigned long long trendingStoriesPrecedingGroupsCount; // @synthesize trendingStoriesPrecedingGroupsCount=_trendingStoriesPrecedingGroupsCount;
-@property(readonly, nonatomic) unsigned long long trendingStoriesPosition; // @synthesize trendingStoriesPosition=_trendingStoriesPosition;
-@property(readonly, nonatomic) unsigned long long topStoriesPrecedingGroupsCount; // @synthesize topStoriesPrecedingGroupsCount=_topStoriesPrecedingGroupsCount;
-@property(readonly, nonatomic) unsigned long long topStoriesPosition; // @synthesize topStoriesPosition=_topStoriesPosition;
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)_identifierForGroupType:(long long)arg1;
+- (_Bool)_defaultAllowsNativeAdsValueForGroupType:(long long)arg1;
+- (unsigned long long)_defaultGroupPositionValueForGroupType:(long long)arg1;
+- (unsigned long long)_defaultProceedingGroupsCount:(long long)arg1;
+- (id)configurationForGroupType:(long long)arg1;
 - (id)initWithJSONConfiguration:(id)arg1;
 
 @end

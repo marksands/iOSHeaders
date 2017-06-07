@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class DOMNode;
 
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long endOffset; // @synthesize endOffset=_endOffset;
 @property(nonatomic) long long startOffset; // @synthesize startOffset=_startOffset;
 @property(retain, nonatomic) DOMNode *node; // @synthesize node=_node;
+- (void).cxx_destruct;
 - (id)description;
 - (void)dealloc;
 - (id)initWithDOMRange:(id)arg1;

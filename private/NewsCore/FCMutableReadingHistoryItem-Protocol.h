@@ -14,10 +14,10 @@
 @property(nonatomic) _Bool hasArticleBeenMarkedOffensive;
 @property(nonatomic) _Bool hasArticleBeenSeen;
 @property(nonatomic) _Bool hasArticleBeenRead;
-@property(nonatomic) unsigned long long maxVersionSeen;
+@property(nonatomic) long long maxVersionSeen;
 @property(copy, nonatomic) NSDate *firstSeenAtOfMaxVersionSeen;
 @property(copy, nonatomic) NSDate *firstSeenAt;
-@property(nonatomic) unsigned long long maxVersionRead;
+@property(nonatomic) long long maxVersionRead;
 @property(copy, nonatomic) NSDate *lastVisitedAt;
 @property(copy, nonatomic) NSString *articleID;
 @property(readonly, copy, nonatomic) NSString *identifier;

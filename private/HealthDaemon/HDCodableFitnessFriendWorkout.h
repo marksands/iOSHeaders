@@ -23,6 +23,8 @@
     double _totalEnergyBurnedInCanonicalUnit;
     long long _type;
     NSString *_bundleID;
+    NSString *_deviceManufacturer;
+    NSString *_deviceModel;
     NSData *_friendUUID;
     HDCodableSample *_sample;
     struct {
@@ -38,6 +40,8 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *deviceModel; // @synthesize deviceModel=_deviceModel;
+@property(retain, nonatomic) NSString *deviceManufacturer; // @synthesize deviceManufacturer=_deviceManufacturer;
 @property(nonatomic) long long isIndoorWorkout; // @synthesize isIndoorWorkout=_isIndoorWorkout;
 @property(nonatomic) long long isWatchWorkout; // @synthesize isWatchWorkout=_isWatchWorkout;
 @property(retain, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
@@ -60,6 +64,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) _Bool hasDeviceModel;
+@property(readonly, nonatomic) _Bool hasDeviceManufacturer;
 @property(nonatomic) _Bool hasIsIndoorWorkout;
 @property(nonatomic) _Bool hasIsWatchWorkout;
 @property(readonly, nonatomic) _Bool hasBundleID;

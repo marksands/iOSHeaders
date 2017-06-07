@@ -7,12 +7,11 @@
 #import <objc/NSObject.h>
 
 @class HDAchievementDataStore, HDAchievementDefinitions, NSCalendar, NSDate;
-@protocol HDAchievementEngineDelegate, HDDailyGoalDetectionDelegate;
+@protocol HDAchievementEngineDelegate;
 
 @interface HDAchievementEngine : NSObject
 {
     NSCalendar *_cachedCalendar;
-    id <HDDailyGoalDetectionDelegate> _dailyGoalDetectionDelegate;
     id <HDAchievementEngineDelegate> _delegate;
     HDAchievementDataStore *_dataStore;
     HDAchievementDefinitions *_achievementDefinitions;
@@ -27,7 +26,6 @@
 @property(readonly, nonatomic) HDAchievementDefinitions *achievementDefinitions; // @synthesize achievementDefinitions=_achievementDefinitions;
 @property(nonatomic) __weak HDAchievementDataStore *dataStore; // @synthesize dataStore=_dataStore;
 @property(nonatomic) __weak id <HDAchievementEngineDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) __weak id <HDDailyGoalDetectionDelegate> dailyGoalDetectionDelegate; // @synthesize dailyGoalDetectionDelegate=_dailyGoalDetectionDelegate;
 - (void).cxx_destruct;
 - (id)_calendar;
 - (id)_now;

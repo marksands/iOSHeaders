@@ -13,6 +13,7 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)_snapshotKeyForValue:(unsigned long long)arg1;
++ (id)_localizedNameForActionForValue:(unsigned long long)arg1;
 + (id)_nameLocalizationKeyForValue:(unsigned long long)arg1;
 + (id)_localizedNameForValue:(unsigned long long)arg1;
 + (_Bool)_valueIsValid:(unsigned long long)arg1;
@@ -27,6 +28,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isValidOption;
+- (id)localizedNameForAction;
 - (id)localizedName;
 - (id)dailySnapshotKey;
 

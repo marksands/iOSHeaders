@@ -11,6 +11,7 @@
 @protocol NTKFaceObserver <NSObject>
 
 @optional
+- (void)faceUpgradeOccurred:(NTKFace *)arg1;
 - (void)face:(NTKFace *)arg1 didChangeOptionsForEditMode:(long long)arg2;
 - (void)faceResourceDirectoryDidChange:(NTKFace *)arg1;
 - (void)faceConfigurationDidChange:(NTKFace *)arg1;

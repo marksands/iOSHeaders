@@ -10,6 +10,9 @@
 @protocol CKBrowserDragControllerTranscriptDelegate;
 
 @protocol CKChatInputControllerDelegate <NSObject>
+- (void)sendCurrentLocation;
+- (void)chatInputControllerWillDismissCompactBrowserViewController:(CKChatInputController *)arg1;
+- (void)chatInputControllerDidDismissCompactBrowserViewController:(CKChatInputController *)arg1;
 - (void)chatInputControllerDidTransitionCollapsed:(CKChatInputController *)arg1;
 - (void)chatInputControllerWillTransitionCollapsed:(CKChatInputController *)arg1;
 - (void)chatInputControllerDidTransitionExpanded:(CKChatInputController *)arg1;
@@ -21,11 +24,13 @@
 - (void)chatInputControllerWillHideHandwriting:(CKChatInputController *)arg1;
 - (void)chatInputControllerDidShowHandwriting:(CKChatInputController *)arg1;
 - (void)chatInputDidChangeSize;
+- (void)chatInputWillChangeHeightForCompactPresentation:(double)arg1;
 - (void)chatInputDidSelectPhotoPicker;
 - (void)setLocalUserIsComposing:(_Bool)arg1 withPluginBundleID:(NSString *)arg2 typingIndicatorData:(NSData *)arg3;
 - (void)chatInputDidUpdateWithNewInputViewController:(UIInputViewController *)arg1;
 - (void)chatInputDidUpdateInputViewShowingBrowser:(_Bool)arg1 entryFieldCollapsed:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)chatInputSentComposition:(CKComposition *)arg1;
+- (_Bool)keyboardIsVisibleForChatInputController:(CKChatInputController *)arg1;
 - (id <CKBrowserDragControllerTranscriptDelegate>)dragControllerTranscriptDelegate;
 - (void)sendSticker:(IMSticker *)arg1 withDragTarget:(CKBrowserDragControllerTarget *)arg2;
 - (void)sendSticker:(IMSticker *)arg1;

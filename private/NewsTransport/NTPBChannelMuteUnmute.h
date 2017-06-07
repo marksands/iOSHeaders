@@ -12,6 +12,7 @@
 
 @interface NTPBChannelMuteUnmute : PBCodable <NSCopying>
 {
+    long long _previousArticlePublisherArticleVersion;
     NSString *_articleId;
     NSData *_articleSessionId;
     NSString *_articleSessionIdDeprecated;
@@ -24,21 +25,32 @@
     int _feedType;
     NSData *_feedViewExposureId;
     NSString *_feedViewExposureIdDeprecated;
+    int _feedViewPresentationReason;
     int _groupType;
     int _muteUnmuteLocation;
+    NSString *_previousArticleId;
+    NSString *_previousArticleVersion;
     NSString *_referencedArticleId;
     NSString *_sourceChannelId;
     int _userAction;
+    _Bool _isSearchResultArticle;
     _Bool _isUserSubscribedToFeed;
     struct {
+        unsigned int previousArticlePublisherArticleVersion:1;
         unsigned int feedType:1;
+        unsigned int feedViewPresentationReason:1;
         unsigned int groupType:1;
         unsigned int muteUnmuteLocation:1;
         unsigned int userAction:1;
+        unsigned int isSearchResultArticle:1;
         unsigned int isUserSubscribedToFeed:1;
     } _has;
 }
 
+@property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
+@property(retain, nonatomic) NSString *previousArticleVersion; // @synthesize previousArticleVersion=_previousArticleVersion;
+@property(retain, nonatomic) NSString *previousArticleId; // @synthesize previousArticleId=_previousArticleId;
+@property(nonatomic) _Bool isSearchResultArticle; // @synthesize isSearchResultArticle=_isSearchResultArticle;
 @property(retain, nonatomic) NSString *creativeId; // @synthesize creativeId=_creativeId;
 @property(retain, nonatomic) NSString *campaignType; // @synthesize campaignType=_campaignType;
 @property(retain, nonatomic) NSString *campaignId; // @synthesize campaignId=_campaignId;
@@ -62,6 +74,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;
+@property(readonly, nonatomic) _Bool hasPreviousArticleVersion;
+@property(readonly, nonatomic) _Bool hasPreviousArticleId;
+@property(nonatomic) _Bool hasIsSearchResultArticle;
+- (int)StringAsFeedViewPresentationReason:(id)arg1;
+- (id)feedViewPresentationReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasFeedViewPresentationReason;
+@property(nonatomic) int feedViewPresentationReason; // @synthesize feedViewPresentationReason=_feedViewPresentationReason;
 @property(readonly, nonatomic) _Bool hasCreativeId;
 @property(readonly, nonatomic) _Bool hasCampaignType;
 @property(readonly, nonatomic) _Bool hasCampaignId;

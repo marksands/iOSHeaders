@@ -7,20 +7,23 @@
 #import <objc/NSObject.h>
 
 @class NSArray;
-@protocol AFUIDisambiguationAnalyticsManagerDataSource;
+@protocol AFDisambiguationAssistance, AFUIDisambiguationAnalyticsManagerDataSource;
 
 @interface AFUIDisambiguationAnalyticsManager : NSObject
 {
     id <AFUIDisambiguationAnalyticsManagerDataSource> _dataSource;
     NSArray *_listItems;
+    id <AFDisambiguationAssistance> _disambiguationAssistance;
 }
 
 + (id)sharedManager;
+@property(retain, nonatomic) id <AFDisambiguationAssistance> disambiguationAssistance; // @synthesize disambiguationAssistance=_disambiguationAssistance;
 @property(retain, nonatomic) NSArray *listItems; // @synthesize listItems=_listItems;
 @property(nonatomic) __weak id <AFUIDisambiguationAnalyticsManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (id)_allListItems;
 - (id)listItemMatchingText:(id)arg1;
+- (void)logDisambiguationDismissedEvent;
 - (void)logDisambiguationSelectedEventWithListItem:(id)arg1;
 
 @end

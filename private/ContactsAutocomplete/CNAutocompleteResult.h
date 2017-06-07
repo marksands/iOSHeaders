@@ -19,6 +19,7 @@
     CNAutocompleteResultValue *_value;
     NSDictionary *_userInfo;
     NSString *_lastSendingAddress;
+    NSString *_descriptionMemo;
     CDUnknownBlockType _membersProvider;
     CDUnknownBlockType _contactProvider;
     NSArray *_diagnosticLogs;

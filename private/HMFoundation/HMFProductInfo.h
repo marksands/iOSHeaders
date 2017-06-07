@@ -4,25 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
+#import <HMFoundation/NSCopying-Protocol.h>
 #import <HMFoundation/NSSecureCoding-Protocol.h>
 
-@interface HMFProductInfo : NSObject <NSSecureCoding>
+@class HMFSoftwareVersion;
+
+@interface HMFProductInfo : HMFObject <NSCopying, NSSecureCoding>
 {
     long long _productPlatform;
     long long _productClass;
-    CDStruct_f6aba300 _operatingSystemVersion;
+    HMFSoftwareVersion *_softwareVersion;
 }
 
-+ (void)encodeOperatingSystemVersion:(CDStruct_f6aba300)arg1 withCoder:(id)arg2;
-+ (CDStruct_f6aba300)decodeOperatingSystemVersionWithCoder:(id)arg1;
++ (void)encodeSoftwareVersion:(id)arg1 withCoder:(id)arg2;
++ (id)decodeSoftwareVersionWithCoder:(id)arg1;
 + (_Bool)supportsSecureCoding;
 + (id)shortDescription;
 + (id)productInfo;
-@property(readonly, nonatomic) CDStruct_f6aba300 operatingSystemVersion; // @synthesize operatingSystemVersion=_operatingSystemVersion;
+@property(readonly, nonatomic) HMFSoftwareVersion *softwareVersion; // @synthesize softwareVersion=_softwareVersion;
+- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) long long productClass; // @synthesize productClass=_productClass;
 @property(readonly, nonatomic) long long productPlatform; // @synthesize productPlatform=_productPlatform;
 - (_Bool)isEqual:(id)arg1;
@@ -31,7 +36,7 @@
 - (id)debugDescription;
 - (id)descriptionWithPointer:(_Bool)arg1;
 - (id)shortDescription;
-- (id)initWithPlatform:(long long)arg1 class:(long long)arg2 operatingSystemVersion:(CDStruct_f6aba300)arg3;
+- (id)initWithPlatform:(long long)arg1 class:(long long)arg2 softwareVersion:(id)arg3;
 - (id)init;
 
 @end

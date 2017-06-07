@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/CLLocationManagerDelegate-Protocol.h>
 
-@class CLLocationManager, HMFMessageDispatcher, NSHashTable, NSMapTable, NSString;
+@class CLLocationManager, HMFMessageDispatcher, NSHashTable, NSMapTable, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDLocation : NSObject <CLLocationManagerDelegate>
+@interface HMDLocation : HMFObject <CLLocationManagerDelegate>
 {
     _Bool _beingConfigured;
     int _locationAuthorized;

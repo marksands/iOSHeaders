@@ -9,7 +9,7 @@
 @interface _TtC13CoreKnowledge20CKAbstractWriteBatch : SwiftObject
 {
     // Error parsing type: , name: buffer
-    // Error parsing type: , name: storage
+    // Error parsing type: , name: backingStore
 }
 
 - (void)setObject:(id)arg1 forKey:(id)arg2;

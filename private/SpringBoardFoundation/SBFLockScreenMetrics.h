@@ -29,6 +29,8 @@
 + (double)dateViewSideMargin;
 + (double)dateBaselineOffsetFromTime;
 + (double)dateViewBaselineY;
++ (double)pinKeypadStatusSubtitleTitleExtraOffset;
++ (double)pinKeypadStatusTitleExtraOffsetIncludingSubtitle;
 + (double)pinKeypadStatusTitleBaselineOffsetFromTitle;
 + (double)_subTitleHeight;
 + (double)pinKeypadStatusTitleBaselineOffsetIncludingSubtitle:(_Bool)arg1;

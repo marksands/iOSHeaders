@@ -8,13 +8,18 @@
 
 #import <MediaRemote/NSCopying-Protocol.h>
 
+@class NSMutableArray;
+
 @interface _MRSendCommandResultMessageProtobuf : PBCodable <NSCopying>
 {
     CDStruct_9f2792e4 _handlerReturnStatus;
     unsigned int _errorCode;
+    NSMutableArray *_handlerReturnStatusDatas;
     CDStruct_70a7dc3e _has;
 }
 
++ (Class)handlerReturnStatusDataType;
+@property(retain, nonatomic) NSMutableArray *handlerReturnStatusDatas; // @synthesize handlerReturnStatusDatas=_handlerReturnStatusDatas;
 @property(nonatomic) unsigned int errorCode; // @synthesize errorCode=_errorCode;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -25,6 +30,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)handlerReturnStatusDataAtIndex:(unsigned long long)arg1;
+- (unsigned long long)handlerReturnStatusDatasCount;
+- (void)addHandlerReturnStatusData:(id)arg1;
+- (void)clearHandlerReturnStatusDatas;
 - (void)setHandlerReturnStatus:(unsigned int *)arg1 count:(unsigned long long)arg2;
 - (unsigned int)handlerReturnStatusAtIndex:(unsigned long long)arg1;
 - (void)addHandlerReturnStatus:(unsigned int)arg1;

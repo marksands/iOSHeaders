@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @interface PKPaymentRegistrationUtilities : NSObject
 {
 }
 
++ (void)configureWebServiceIfNecessary:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)registrationIsSupportedInCurrentRegionWithWebService:(id)arg1 completion:(CDUnknownBlockType)arg2;
 
 @end

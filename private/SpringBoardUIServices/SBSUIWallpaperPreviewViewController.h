@@ -8,11 +8,12 @@
 
 #import <SpringBoardUIServices/SBFLegibilitySettingsProvider-Protocol.h>
 #import <SpringBoardUIServices/SBFLegibilitySettingsProviderDelegate-Protocol.h>
+#import <SpringBoardUIServices/SBFWallpaperViewSettingsProvider-Protocol.h>
 
-@class AVURLAsset, NSDictionary, NSString, NSTimer, SBFWallpaperConfigurationManager, UIImage, _UILegibilitySettings;
+@class AVURLAsset, NSDictionary, NSString, NSTimer, SBFHomeScreenWallpaperParallaxSettings, SBFLockScreenWallpaperParallaxSettings, SBFWallpaperConfigurationManager, SBFWallpaperSettings, UIImage, _UILegibilitySettings;
 @protocol SBFLegibilitySettingsProviderDelegate;
 
-@interface SBSUIWallpaperPreviewViewController : UIViewController <SBFLegibilitySettingsProviderDelegate, SBFLegibilitySettingsProvider>
+@interface SBSUIWallpaperPreviewViewController : UIViewController <SBFLegibilitySettingsProviderDelegate, SBFWallpaperViewSettingsProvider, SBFLegibilitySettingsProvider>
 {
     NSTimer *_dateTimer;
     SBFWallpaperConfigurationManager *_wallpaperConfigurationManager;
@@ -27,9 +28,15 @@
     double _stillTimeInVideo;
     _Bool _motionEnabled;
     id <SBFLegibilitySettingsProviderDelegate> _delegate;
+    SBFWallpaperSettings *_wallpaperSettings;
+    SBFLockScreenWallpaperParallaxSettings *_lockScreenParallaxSettings;
+    SBFHomeScreenWallpaperParallaxSettings *_homeScreenParallaxSettings;
 }
 
+@property(retain, nonatomic) SBFHomeScreenWallpaperParallaxSettings *homeScreenParallaxSettings; // @synthesize homeScreenParallaxSettings=_homeScreenParallaxSettings;
+@property(retain, nonatomic) SBFLockScreenWallpaperParallaxSettings *lockScreenParallaxSettings; // @synthesize lockScreenParallaxSettings=_lockScreenParallaxSettings;
 @property(nonatomic) _Bool motionEnabled; // @synthesize motionEnabled=_motionEnabled;
+@property(retain, nonatomic) SBFWallpaperSettings *wallpaperSettings; // @synthesize wallpaperSettings=_wallpaperSettings;
 @property(nonatomic) __weak id <SBFLegibilitySettingsProviderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)colorSamplingEnabled;
@@ -47,6 +54,7 @@
 - (id)_wallpaperViewWithFrame:(struct CGRect)arg1 variant:(long long)arg2 options:(id)arg3;
 - (id)_wallpaperViewWithFrame:(struct CGRect)arg1 image:(id)arg2 video:(id)arg3 videoURL:(id)arg4 stillTimeInVideo:(double)arg5 supportsCropping:(_Bool)arg6 variant:(long long)arg7;
 - (id)_wallpaperViewWithFrame:(struct CGRect)arg1;
+- (id)wallpaperParallaxSettingsForVariant:(long long)arg1;
 - (void)providerLegibilitySettingsChanged:(id)arg1;
 @property(readonly, nonatomic) _UILegibilitySettings *legibilitySettings;
 - (void)setMotionEnabled:(_Bool)arg1 updateParallaxOnWallpaperView:(_Bool)arg2;

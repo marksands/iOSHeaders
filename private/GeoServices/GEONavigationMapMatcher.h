@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOComposedRoute, GEOLocationShifter, GEONavigationMatchResult, GEORoadMatcher, GEORouteMatcher;
 
@@ -21,12 +21,13 @@
 @property(nonatomic) _Bool isSimulation; // @synthesize isSimulation=_isSimulation;
 @property(retain, nonatomic) GEONavigationMatchResult *previousMatchResult; // @synthesize previousMatchResult=_previousMatchResult;
 @property(retain, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
+- (void).cxx_destruct;
 - (id)_routeMatcherForRoute:(id)arg1;
+- (void)setShouldSnapRouteMatchToRoute:(_Bool)arg1;
 - (void)resetToLocation:(id)arg1;
 - (int)transportType;
 - (id)updateForReroute:(id)arg1 location:(id)arg2;
 - (id)matchLocation:(id)arg1 transportType:(int)arg2;
-- (void)dealloc;
 - (id)initWithRoute:(id)arg1;
 
 @end

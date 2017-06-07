@@ -16,6 +16,7 @@
 
 + (id)getAnchorsResponseWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getAnchorsResponse;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *anchors;
 - (id)encodedClassName;

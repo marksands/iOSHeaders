@@ -8,12 +8,11 @@
 
 #import <TVMLKit/TVAppTemplateImpressionable-Protocol.h>
 
-@class NSArray, NSMutableArray, NSString, UIView;
+@class NSArray, NSString, UIView;
 
 __attribute__((visibility("hidden")))
 @interface _TVRowView : _TVFocusRedirectView <TVAppTemplateImpressionable>
 {
-    NSMutableArray *_constraints;
     NSArray *_components;
     UIView *_preferredFocusedComponent;
     long long _contentVerticalAlignment;
@@ -42,7 +41,6 @@ __attribute__((visibility("hidden")))
 - (void)_addSubview:(id)arg1 maxViewWidth:(double)arg2;
 - (struct CGSize)_sizeThatFitsComponents:(id)arg1 boundingSize:(struct CGSize)arg2;
 - (void)_lineUpComponents:(id)arg1 alignment:(long long)arg2 attribute:(long long)arg3;
-- (void)_applyConstraints;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;

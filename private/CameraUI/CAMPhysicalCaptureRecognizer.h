@@ -13,15 +13,15 @@
     _Bool _suspended;
     long long _activeButton;
     NSArray *_desiredButtons;
-    long long _physicalButtonType;
+    long long _pressType;
 }
 
-@property(nonatomic) long long physicalButtonType; // @synthesize physicalButtonType=_physicalButtonType;
+@property(nonatomic) long long pressType; // @synthesize pressType=_pressType;
 @property(nonatomic, getter=isSuspended) _Bool suspended; // @synthesize suspended=_suspended;
 @property(copy, nonatomic) NSArray *desiredButtons; // @synthesize desiredButtons=_desiredButtons;
 @property(nonatomic) long long activeButton; // @synthesize activeButton=_activeButton;
 - (void).cxx_destruct;
-- (long long)_captureButtonForPhysicalButtonType:(long long)arg1;
+- (long long)_captureButtonForPressType:(long long)arg1;
 - (void)reset;
 - (void)pressesCancelled:(id)arg1 withEvent:(id)arg2;
 - (void)pressesEnded:(id)arg1 withEvent:(id)arg2;

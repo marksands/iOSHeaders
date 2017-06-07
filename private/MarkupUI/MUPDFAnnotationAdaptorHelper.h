@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 + (id)newAKAnnotationFromCGPDFAnnotation:(struct CGPDFAnnotation *)arg1;
 + (void)addQuaddingOfAnnotation:(id)arg1 toDictionary:(id)arg2;
 + (void)addDefaultAppearanceStreamOfAnnotation:(id)arg1 toDictionary:(id)arg2;
-+ (void)addAppearanceStreamOfAnnotation:(id)arg1 toDictionary:(id)arg2;
++ (void)addAppearanceStreamOfAnnotation:(id)arg1 forPage:(struct CGPDFPage *)arg2 toDictionary:(id)arg3;
 + (void)addRGBColor:(id)arg1 forKey:(id)arg2 toDictionary:(id)arg3;
 + (void)addBorderStyleOfAnnotation:(id)arg1 toDictionary:(id)arg2;
 + (void)addString:(id)arg1 toDictionary:(id)arg2 forKey:(id)arg3;
@@ -32,7 +32,7 @@ __attribute__((visibility("hidden")))
 + (void)addFlagsOfAnnotation:(id)arg1 toDictionary:(id)arg2;
 + (void)addTextLabelOfAnnotation:(id)arg1 toDictionary:(id)arg2;
 + (void)addModificationDateOfAnnotation:(id)arg1 toDictionary:(id)arg2;
-+ (void)addBoundsOfAnnotation:(id)arg1 toDictionary:(id)arg2;
++ (void)addBoundsOfAnnotation:(id)arg1 forPage:(struct CGPDFPage *)arg2 toDictionary:(id)arg3;
 + (void)readQuaddingFromPDFDictionary:(struct CGPDFDictionary *)arg1 toDictionary:(id)arg2;
 + (void)readDefaultAppearanceStringFromPDFDictionary:(struct CGPDFDictionary *)arg1 ofPage:(struct CGPDFPage *)arg2 toDictionary:(id)arg3;
 + (id)getFullFieldNameFromAnnotationDictionary:(struct CGPDFDictionary *)arg1;

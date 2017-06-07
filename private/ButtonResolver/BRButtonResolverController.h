@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSSet;
 
@@ -15,6 +15,7 @@
 
 + (id)sharedInstance;
 - (void)scheduleReadyNotificationOnDispatchQueue:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (_Bool)playState:(unsigned long long)arg1 forSpeed:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)disableStates:(id)arg1 clearAsset:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)enableStates:(id)arg1 error:(id *)arg2;
 - (_Bool)setConfigs:(id)arg1 withAssets:(id)arg2 forStates:(id)arg3 error:(id *)arg4;

@@ -10,6 +10,8 @@
 
 @interface CPLMasterChange : CPLItemChange
 {
+    short _importedBy;
+    short _videoFrameRate;
     NSArray *_resources;
     NSDate *_creationDate;
     NSString *_itemType;
@@ -21,8 +23,12 @@
     long long _originalOrientation;
     unsigned long long _fullSizeJPEGSource;
     NSString *_originatingFingerprint;
+    NSString *_codec;
 }
 
+@property(copy, nonatomic) NSString *codec; // @synthesize codec=_codec;
+@property(nonatomic) short videoFrameRate; // @synthesize videoFrameRate=_videoFrameRate;
+@property(nonatomic) short importedBy; // @synthesize importedBy=_importedBy;
 @property(copy, nonatomic) NSString *originatingFingerprint; // @synthesize originatingFingerprint=_originatingFingerprint;
 @property(nonatomic) unsigned long long fullSizeJPEGSource; // @synthesize fullSizeJPEGSource=_fullSizeJPEGSource;
 @property(nonatomic) long long originalOrientation; // @synthesize originalOrientation=_originalOrientation;
@@ -35,6 +41,7 @@
 @property(copy, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(copy, nonatomic) NSArray *resources; // @synthesize resources=_resources;
 - (void).cxx_destruct;
+- (_Bool)isResourceTypeAGeneratedDerivative:(unsigned long long)arg1;
 - (unsigned long long)dataClassType;
 - (_Bool)supportsDeletion;
 - (_Bool)supportsResources;
@@ -49,6 +56,7 @@
 @property(readonly, nonatomic) _Bool isVideo;
 @property(readonly, nonatomic) _Bool isImage;
 - (id)init;
+- (_Bool)validateRecordForTracker:(id)arg1;
 
 @end
 

@@ -8,18 +8,24 @@
 
 #import <NotesShared/CLLocationManagerDelegate-Protocol.h>
 
-@class CLGeocoder, NSString;
+@class CLGeocoder, CLLocationManager, NSString;
 
 @interface ICLocationContext : NSObject <CLLocationManagerDelegate>
 {
+    CLLocationManager *_locationManager;
+    _Bool _requestedAuthorization;
     CLGeocoder *_geocoder;
 }
 
 + (id)sharedContext;
+@property(nonatomic) _Bool requestedAuthorization; // @synthesize requestedAuthorization=_requestedAuthorization;
 @property(retain, nonatomic) CLGeocoder *geocoder; // @synthesize geocoder=_geocoder;
 - (void).cxx_destruct;
+- (void)requestAuthorizationIfNeeded;
+@property(readonly, nonatomic) CLLocationManager *locationManager;
+- (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
 - (void)lookupPlaceAtLatitude:(double)arg1 longitude:(double)arg2 handler:(CDUnknownBlockType)arg3;
-- (id)init;
+@property(readonly, nonatomic) _Bool canGetLocation;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

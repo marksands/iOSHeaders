@@ -36,9 +36,9 @@
 - (id)faceProcessingServiceWorker;
 - (id)sceneClassificationServiceWorker;
 - (id)taxonomyServiceWorker;
+- (id)autoloopServiceWorker;
 - (id)graphServiceWorker;
 - (void)dumpAnalysisStatusWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)notifyPhotoLibraryOpenedWithContext:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)backgroundActivityDidBegin;
 - (void)stopBackgroundActivity;
 - (void)triggerBackgroundActivity;

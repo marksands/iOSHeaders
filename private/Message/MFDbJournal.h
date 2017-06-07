@@ -6,33 +6,35 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableData, NSString;
+@class MFMailboxUid, NSMutableArray, NSString;
 
 @interface MFDbJournal : NSObject
 {
     NSString *_path;
+    MFMailboxUid *_mailbox;
     struct _opaque_pthread_mutex_t {
         long long __sig;
         char __opaque[56];
     } _lock;
     int _fd;
-    NSMutableData *_buffer;
-    CDUnknownBlockType _checkpointBlock;
-    CDUnknownBlockType _rollbackBlock;
+    NSMutableArray *_journalStatements;
+    NSMutableArray *_onMergeEnvelopeUpdates;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType rollbackBlock; // @synthesize rollbackBlock=_rollbackBlock;
-@property(copy, nonatomic) CDUnknownBlockType checkpointBlock; // @synthesize checkpointBlock=_checkpointBlock;
-- (_Bool)mergeWithDatabase:(struct sqlite3 *)arg1;
-- (_Bool)_rollback;
-- (_Bool)_checkpoint;
++ (long long)mergeWithLibrary:(id)arg1;
++ (id)legacyJournal;
++ (id)journalForMailbox:(id)arg1;
++ (void)initialize;
+- (_Bool)_markMailboxForReconciliation:(_Bool)arg1 db:(struct sqlite3 *)arg2;
+- (long long)mergeWithLibrary:(id)arg1;
 - (_Bool)_processJournalFile:(id)arg1 db:(struct sqlite3 *)arg2;
 - (void)clear;
-- (_Bool)flush;
-- (_Bool)append:(const char *)arg1;
-- (void)_resetBuffer;
+- (_Bool)_writeToDisk:(struct sqlite3 *)arg1;
+- (int)_executeStatements:(id)arg1 db:(struct sqlite3 *)arg2;
+- (int)commit:(struct sqlite3 *)arg1 isProtectedDataAvailable:(_Bool)arg2;
+- (_Bool)append:(const char *)arg1 mergeUpdateStatement:(const char *)arg2;
 - (void)dealloc;
-- (id)initWithPath:(id)arg1;
+- (id)initWithMailbox:(id)arg1;
 
 @end
 

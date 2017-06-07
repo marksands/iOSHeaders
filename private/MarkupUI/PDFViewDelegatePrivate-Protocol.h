@@ -6,10 +6,9 @@
 
 #import <MarkupUI/PDFViewDelegate-Protocol.h>
 
-@class NSArray, PDFPage, PDFView;
+@class NSArray, PDFPage;
 
 @protocol PDFViewDelegatePrivate <PDFViewDelegate>
 - (NSArray *)menuItems:(NSArray *)arg1 forPage:(PDFPage *)arg2;
-- (_Bool)pdfViewShouldPopulateMenu:(PDFView *)arg1;
 @end
 

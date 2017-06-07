@@ -30,6 +30,7 @@
 - (id)derivedAssetForMasterAsset:(id)arg1;
 - (struct CGSize)derivedAssetSizeForMasterSizeWidth:(double)arg1 height:(double)arg2;
 - (id)temporaryPathForRecentlyUploadedAsset:(id)arg1;
+- (id)temporaryPathForConvertedAssetWithUUID:(id)arg1;
 - (long long)friendsLimit;
 - (long long)imageLimitForFriendStream;
 - (long long)imageLimitForOwnStream;
@@ -41,7 +42,7 @@
 - (void)pollForNewSubscriptionContentOncePerAppForegroundSession;
 - (void)pollForNewSubscriptionContent;
 - (_Bool)dequeueAssetsForPSPublishing:(id)arg1;
-- (_Bool)enqueueAssetForPSPublishing:(id)arg1 assetHash:(id)arg2 fullPath:(id)arg3 fileSize:(id)arg4 type:(id)arg5 reenqueueCount:(id)arg6 publicGlobalUUID:(id *)arg7;
+- (_Bool)enqueueAssetForPSPublishing:(id)arg1 fullPath:(id)arg2 fileSize:(id)arg3 reenqueueCount:(unsigned long long)arg4 publicGlobalUUID:(id *)arg5;
 - (_Bool)isValidUploadAsset:(id)arg1 type:(id)arg2 fileSize:(id)arg3;
 - (void)writeDidPublishBreadcrumbforHash:(id)arg1 imagePath:(id)arg2;
 - (void)writeDidEnqueueBreadcrumbForHash:(id)arg1 imagePath:(id)arg2;

@@ -34,6 +34,8 @@
 - (id)lockedTemplate;
 - (id)currentSwitcherTemplate;
 - (id)complicationApplicationIdentifier;
+- (void)didTouchUpInside;
+- (void)didTouchDown;
 - (void)getLaunchURLForTimelineEntryDate:(id)arg1 timeTravelDate:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)resume;
 - (void)pause;

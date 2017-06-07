@@ -30,7 +30,6 @@
 + (double)atvImageToTextBaselineConstantForViewSizeSubclass:(long long)arg1;
 + (double)scrollViewTopToATVImageConstant;
 + (double)subtitleBaselineToATVImageConstant;
-+ (double)titleToSubtitleBaselineConstant;
 @property(retain, nonatomic) UILabel *iPadTextLabel; // @synthesize iPadTextLabel=_iPadTextLabel;
 @property(retain, nonatomic) UIImageView *iPadImageView; // @synthesize iPadImageView=_iPadImageView;
 @property(retain, nonatomic) UILabel *atvTextLabel; // @synthesize atvTextLabel=_atvTextLabel;

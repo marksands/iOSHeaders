@@ -30,7 +30,6 @@
 - (_Bool)_fetchDataForMimePart:(id)arg1 range:(struct _NSRange)arg2 isComplete:(_Bool *)arg3 consumer:(id)arg4;
 - (id)_downloadHeadersForMessages:(id)arg1;
 - (id)_fetchBodyDataForMessage:(id)arg1 andHeaderDataIfReadilyAvailable:(id *)arg2 downloadIfNecessary:(_Bool)arg3 partial:(_Bool *)arg4;
-- (_Bool)_messageIsSearchResultWithBogusRemoteId:(id)arg1;
 - (id)_fetchBodyDataForNormalMessage:(id)arg1 format:(int)arg2 part:(id)arg3 streamConsumer:(id)arg4;
 - (id)_fetchBodyDataForSearchResult:(id)arg1 folderID:(id)arg2 format:(int)arg3 streamConsumer:(id)arg4;
 - (_Bool)bodyFetchRequiresNetworkActivity;
@@ -51,9 +50,9 @@
 - (id)willSetFlagsFromDictionary:(id)arg1 forMessages:(id)arg2;
 - (void)setServerFlagsFromDictionary:(id)arg1 forMessages:(id)arg2;
 - (void)issueFlagUpdates:(id)arg1 forMessages:(id)arg2;
-- (id)storeSearchResultMatchingSearchText:(id)arg1 criterion:(id)arg2 limit:(unsigned int)arg3 error:(id *)arg4;
+- (id)storeSearchResultMatchingSearchText:(id)arg1 criterion:(id)arg2 limit:(unsigned int)arg3 offset:(id)arg4 error:(id *)arg5;
 - (long long)fetchMessagesMatchingCriterion:(id)arg1 limit:(unsigned int)arg2;
-- (void)_remoteIDsMatchingSearchText:(id)arg1 predicate:(id)arg2 limit:(unsigned int)arg3 filterByDate:(_Bool)arg4 handler:(CDUnknownBlockType)arg5;
+- (void)_remoteIDsMatchingSearchText:(id)arg1 predicate:(id)arg2 limit:(unsigned int)arg3 offset:(id)arg4 filterByDate:(_Bool)arg5 handler:(CDUnknownBlockType)arg6;
 - (long long)fetchNumMessages:(unsigned long long)arg1 preservingUID:(id)arg2 options:(unsigned long long)arg3;
 - (id)_folderIDForFetching;
 - (id)initWithMailboxUid:(id)arg1 readOnly:(_Bool)arg2;

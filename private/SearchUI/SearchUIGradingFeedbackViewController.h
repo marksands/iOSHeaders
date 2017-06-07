@@ -9,16 +9,16 @@
 #import <SearchUI/MFMailComposeViewControllerDelegate-Protocol.h>
 
 @class NSString, SFSearchResult, UIViewController;
-@protocol SearchUIFeedbackDelegate;
+@protocol SFFeedbackListener;
 
 @interface SearchUIGradingFeedbackViewController : UIAlertController <MFMailComposeViewControllerDelegate>
 {
     SFSearchResult *_result;
     UIViewController *_viewControllerForPresenting;
-    id <SearchUIFeedbackDelegate> _feedbackDelegate;
+    id <SFFeedbackListener> _feedbackDelegate;
 }
 
-@property __weak id <SearchUIFeedbackDelegate> feedbackDelegate; // @synthesize feedbackDelegate=_feedbackDelegate;
+@property __weak id <SFFeedbackListener> feedbackDelegate; // @synthesize feedbackDelegate=_feedbackDelegate;
 @property(retain) UIViewController *viewControllerForPresenting; // @synthesize viewControllerForPresenting=_viewControllerForPresenting;
 @property(retain) SFSearchResult *result; // @synthesize result=_result;
 - (void).cxx_destruct;

@@ -12,6 +12,7 @@
 @interface PXPeopleProgressManager : NSObject
 {
     _Bool _monitoringProgress;
+    _Bool _processingComplete;
     id <PXPeopleProgressDatasource> _datasource;
     double _updateInterval;
     double _progress;
@@ -20,20 +21,19 @@
 }
 
 @property(retain, nonatomic) NSTimer *statusTimer; // @synthesize statusTimer=_statusTimer;
-@property unsigned long long processingStatus; // @synthesize processingStatus=_processingStatus;
+@property(nonatomic) unsigned long long processingStatus; // @synthesize processingStatus=_processingStatus;
+@property(readonly) _Bool processingComplete; // @synthesize processingComplete=_processingComplete;
 @property double progress; // @synthesize progress=_progress;
 @property(nonatomic) double updateInterval; // @synthesize updateInterval=_updateInterval;
 @property(nonatomic, getter=isMonitoringProgress) _Bool monitoringProgress; // @synthesize monitoringProgress=_monitoringProgress;
 @property(retain, nonatomic) id <PXPeopleProgressDatasource> datasource; // @synthesize datasource=_datasource;
 - (void).cxx_destruct;
 - (_Bool)_progressComplete:(double)arg1;
-- (_Bool)_homeMeetsThresholdForProgress:(double)arg1;
-- (unsigned long long)_homeAndPlusCount:(unsigned long long)arg1;
 - (void)_updateStatusForProgress:(double)arg1 processCount:(unsigned long long)arg2;
-- (void)_handleMonitorUpdateWithProgress:(double)arg1;
-- (void)_updateProgress;
+- (void)_scheduleNextUpdate;
+- (void)updateProgressWithForce:(_Bool)arg1;
 - (void)_updateWithStatus:(unsigned long long)arg1 progress:(double)arg2;
-@property(readonly) _Bool processingComplete;
+- (_Bool)hasFaceProcessingTodo;
 - (_Bool)hasSubstantialProcessingTodo;
 - (_Bool)featureUnlocked;
 - (id)initWithDatasource:(id)arg1;

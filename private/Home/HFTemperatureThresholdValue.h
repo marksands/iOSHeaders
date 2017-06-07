@@ -4,28 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Home/HFRangeControlItemValue.h>
 
-@class NSNumber;
-
-@interface HFTemperatureThresholdValue : NSObject
+@interface HFTemperatureThresholdValue : HFRangeControlItemValue
 {
-    unsigned long long _mode;
-    NSNumber *_minimumValue;
-    NSNumber *_maximumValue;
-    NSNumber *_targetValue;
 }
-
-+ (id)targetValueWithValue:(id)arg1;
-+ (id)thresholdValueWithMinimumValue:(id)arg1 maximumValue:(id)arg2;
-@property(copy, nonatomic) NSNumber *targetValue; // @synthesize targetValue=_targetValue;
-@property(copy, nonatomic) NSNumber *maximumValue; // @synthesize maximumValue=_maximumValue;
-@property(copy, nonatomic) NSNumber *minimumValue; // @synthesize minimumValue=_minimumValue;
-@property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
-- (void).cxx_destruct;
-- (id)description;
-- (unsigned long long)hash;
-- (_Bool)isEqual:(id)arg1;
 
 @end
 

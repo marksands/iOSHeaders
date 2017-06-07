@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <CloudDocsDaemon/BRCJobsMatching-Protocol.h>
 #import <CloudDocsDaemon/BRCZone-Protocol.h>
 
-@class BRCAccountSession, BRCClientZone, BRCPQLConnection, BRCServerChangeState, BRCSyncContext, BRCZoneRowID, CKRecordZoneID, NSMutableDictionary, NSString;
+@class BRCAccountSession, BRCClientZone, BRCPQLConnection, BRCServerChangeState, BRCSyncContext, BRCZoneRowID, BRMangledID, CKRecordZoneID, NSMutableDictionary, NSString;
 
-@interface BRCServerZone : NSObject <BRCZone>
+@interface BRCServerZone : NSObject <BRCJobsMatching, BRCZone>
 {
     BRCServerChangeState *_changeState;
     BRCAccountSession *_session;
@@ -37,8 +38,10 @@
 - (_Bool)validateStructureLoggingToFile:(struct __sFILE *)arg1 db:(id)arg2;
 - (_Bool)dumpTablesToContext:(id)arg1 error:(id *)arg2;
 - (_Bool)dumpStatusToContext:(id)arg1 error:(id *)arg2;
+- (struct PQLResultSet *)directDirectoryChildItemIDsOfParentEnumerator:(id)arg1;
 - (struct PQLResultSet *)itemsEnumeratorWithDB:(id)arg1;
 - (id)itemByItemID:(id)arg1;
+- (id)itemByItemID:(id)arg1 db:(id)arg2;
 - (void)removeForegroundClient:(id)arg1;
 - (void)addForegroundClient:(id)arg1;
 @property(readonly) _Bool isCloudDocsZone;
@@ -56,6 +59,8 @@
 - (unsigned long long)didSyncDownRequestID:(unsigned long long)arg1 serverChangeToken:(id)arg2 editedRecords:(id)arg3 deletedRecordIDs:(id)arg4 deletedShareRecordIDs:(id)arg5 movedZoneNames:(id)arg6 syncStatus:(long long)arg7;
 - (void)handleBrokenStructure;
 - (_Bool)allocateRanks;
+- (_Bool)fixupLocalSharingOptions;
+- (long long)_fixupSharingOptions:(unsigned long long)arg1 underParentID:(id)arg2;
 - (id)_structurePrefixForType:(BOOL)arg1;
 - (struct PQLResultSet *)_enumeratePendingFetchDeletedShareRecordIDs;
 - (struct PQLResultSet *)_enumeratePendingFetchDeletedNormalRecordIDs;
@@ -83,12 +88,13 @@
 - (id)xattrForSignature:(id)arg1;
 - (_Bool)storeXattr:(id)arg1;
 - (_Bool)hasXattrWithSignature:(id)arg1;
-- (id)initWithZoneName:(id)arg1 dbRowID:(id)arg2 plist:(id)arg3 session:(id)arg4;
+- (id)initWithMangledID:(id)arg1 dbRowID:(id)arg2 plist:(id)arg3 session:(id)arg4;
 @property(readonly, nonatomic) NSMutableDictionary *plist;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)descriptionWithContext:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BRMangledID *mangledID;
 @property(readonly, nonatomic) CKRecordZoneID *zoneID;
 @property(readonly, nonatomic) NSString *ownerName;
 @property(readonly, nonatomic) BRCSyncContext *metadataSyncContextIfExists;
@@ -99,6 +105,12 @@
 @property(readonly, nonatomic) _Bool isPrivateZone;
 @property(readonly, nonatomic) _Bool isSharedZone;
 - (void)scheduleMoveToCloudDocs;
+- (id)matchingJobsWhereSQLClause;
+- (id)jobsDescription;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

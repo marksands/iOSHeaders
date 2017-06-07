@@ -11,17 +11,20 @@
 @interface WBSAnalyticsSafariPageLoadCompleteEvent : PBCodable <NSCopying>
 {
     unsigned long long _configurationID;
+    long long _errorCode;
     unsigned long long _pageID;
     unsigned long long _pageLoadTime;
     unsigned long long _timestamp;
     struct {
         unsigned int configurationID:1;
+        unsigned int errorCode:1;
         unsigned int pageID:1;
         unsigned int pageLoadTime:1;
         unsigned int timestamp:1;
     } _has;
 }
 
+@property(nonatomic) long long errorCode; // @synthesize errorCode=_errorCode;
 @property(nonatomic) unsigned long long pageLoadTime; // @synthesize pageLoadTime=_pageLoadTime;
 @property(nonatomic) unsigned long long pageID; // @synthesize pageID=_pageID;
 @property(nonatomic) unsigned long long configurationID; // @synthesize configurationID=_configurationID;
@@ -35,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasErrorCode;
 @property(nonatomic) _Bool hasPageLoadTime;
 @property(nonatomic) _Bool hasPageID;
 @property(nonatomic) _Bool hasConfigurationID;

@@ -6,15 +6,16 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, PKPassPaymentSummaryHeaderView, PKPaymentApplication, PKPaymentPass, PKPaymentService;
+@class NSArray, PKPassPaymentSummaryHeaderView, PKPaymentApplication, PKPaymentPass, PKPaymentService, UISegmentedControl;
 @protocol PKPassPaymentApplicationViewDelegate;
 
 @interface PKPassPaymentApplicationView : UIView
 {
-    NSArray *_paymentButtons;
     PKPassPaymentSummaryHeaderView *_headerView;
     UIView *_horizontalSeparator;
+    UISegmentedControl *_segmentedControl;
     PKPaymentService *_paymentService;
+    NSArray *_paymentApplications;
     _Bool _showHeader;
     PKPaymentPass *_pass;
     PKPaymentApplication *_selectedApplication;
@@ -27,8 +28,7 @@
 @property(retain, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)buttonPressed:(id)arg1;
-- (void)enableBlendedColors:(_Bool)arg1;
+- (void)_selectedApplicationDidChange:(id)arg1;
 - (id)initWithPass:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -23,8 +23,8 @@
 @property(readonly, nonatomic) _Bool alternate; // @synthesize alternate=_alternate;
 @property(retain, nonatomic) NSArray *groupSizes; // @synthesize groupSizes=_groupSizes;
 - (void).cxx_destruct;
-- (double)computeScoreWithSelectedTag:(id)arg1 remainingArticles:(id)arg2 remainingTags:(id)arg3 articlesByTag:(id)arg4;
-- (id)fillGroupsWithSelectedTag:(id)arg1 remainingArticles:(id)arg2 remainingTags:(id)arg3 articlesByTag:(id)arg4 groupSizes:(id)arg5;
+- (double)computeScoreWithSelectedGroup:(id)arg1 remainingArticles:(id)arg2 remainingTags:(id)arg3 articlesByTag:(id)arg4;
+- (id)fillGroupsWithSelectedGroup:(id)arg1 remainingArticles:(id)arg2 remainingTags:(id)arg3 articlesByTag:(id)arg4 groupSizes:(id)arg5;
 - (id)initWithOption:(long long)arg1 minClusterSize:(long long)arg2 maxClusterSize:(long long)arg3 minIdealClusterSize:(long long)arg4 maxIdealClusterSize:(long long)arg5 heuristicSampleSize:(long long)arg6 utilityBlock:(CDUnknownBlockType)arg7;
 
 @end

@@ -16,6 +16,7 @@
 
 + (id)getCurrentDisplayRouteClientStateWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getCurrentDisplayRouteClientState;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(retain, nonatomic) SACurrentDisplayRouteClientState *clientState;
 - (id)encodedClassName;

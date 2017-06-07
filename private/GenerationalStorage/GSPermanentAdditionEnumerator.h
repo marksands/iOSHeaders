@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
+- (void).cxx_destruct;
 - (id)nextObject;
 - (void)_fetchNextBatch;
 - (void)dealloc;

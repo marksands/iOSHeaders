@@ -28,6 +28,7 @@ __attribute__((visibility("hidden")))
 - (void)setDataSetIndex:(unsigned long long)arg1;
 - (unsigned long long)dataSetIndex;
 - (id)model;
+@property(readonly, copy, nonatomic) NSDictionary *seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
 @property(copy, nonatomic) NSDictionary *seriesIndexedPieWedgeExplosions;
 - (void)setLegendSize:(struct CGSize)arg1;
 - (void)layoutForResizingSize:(struct CGSize)arg1;
@@ -43,7 +44,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutForChartAreaSize:(struct CGSize)arg1;
 - (void)layoutForCircumscribingSize:(struct CGSize)arg1;
 @property(readonly) TSCHChartRootLayoutItem *p_layoutTree;
-- (void)setLayoutSettings:(CDStruct_339a9a6e)arg1;
+- (void)setLayoutSettings:(CDStruct_44ada6bf)arg1;
 - (struct CGRect)chartBodyFrame;
 - (void)setLegendModelGeometryFrame:(struct CGRect)arg1;
 - (struct CGRect)legendModelGeometryFrame;

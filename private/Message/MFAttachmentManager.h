@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSLock, NSMutableDictionary;
+@class MFFileCompressionQueue, NSLock, NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
 @interface MFAttachmentManager : NSObject
@@ -17,6 +17,7 @@
     NSMutableDictionary *_metadata;
     NSLock *_metaDataLock;
     NSObject<OS_dispatch_queue> *_imageScalingQueue;
+    MFFileCompressionQueue *_compressionQueue;
 }
 
 + (id)supportedDocumentUTIs;
@@ -50,6 +51,7 @@
 - (id)_dataProviderForAttachmentURL:(id)arg1 error:(id *)arg2;
 - (id)_filePathForAttachment:(id)arg1;
 - (_Bool)_setupAttachment:(id)arg1 withMimeBody:(id)arg2 error:(id *)arg3;
+- (id)compressionQueue;
 - (id)imageScalingQueue;
 - (void)removeProvider:(id)arg1;
 - (void)removeProviderForBaseURL:(id)arg1;

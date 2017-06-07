@@ -27,6 +27,7 @@
 - (void)_scheduleTimeoutTimerWithTimeout:(double)arg1;
 - (void)_stopObserving;
 - (void)_startObserving;
+- (void)stopWaiting;
 - (void)waitWithTimeout:(double)arg1;
 @property(copy) CDUnknownBlockType timeoutHandler;
 @property(copy) CDUnknownBlockType notificationHandler;

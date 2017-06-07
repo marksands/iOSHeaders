@@ -7,6 +7,6 @@
 #import <NanoTimeKitCompanion/NSObject-Protocol.h>
 
 @protocol NTKEditModeMapping <NSObject>
-- (Class)editOptionClassFromEditMode:(long long)arg1;
+- (Class)editOptionClassFromEditMode:(long long)arg1 resourceDirectoryExists:(_Bool)arg2;
 @end
 

@@ -6,11 +6,9 @@
 
 #import <UIKit/_UITableViewCellActionButton.h>
 
-#import <ChatKit/SBBulletinCellButton-Protocol.h>
+@class CKAudioProgressView, UILabel;
 
-@class CKAudioProgressView, NSString, UILabel;
-
-@interface CKAudioProgressTableViewActionButton : _UITableViewCellActionButton <SBBulletinCellButton>
+@interface CKAudioProgressTableViewActionButton : _UITableViewCellActionButton
 {
     CKAudioProgressView *_progressView;
     double _duration;
@@ -35,12 +33,6 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)labelSizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

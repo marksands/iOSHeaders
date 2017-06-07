@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSData *_chainParentPublicKeyID;
     CKDZonePCSData *_zonePCSData;
     CKRecordZoneID *_zoneID;
+    NSData *_zoneishPublicKeyID;
     CKDSharePCSData *_sharePCSData;
     CKRecordID *_shareID;
     CKDChainPCSData *_chainPCSData;
@@ -30,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CKDChainPCSData *chainPCSData; // @synthesize chainPCSData=_chainPCSData;
 @property(retain, nonatomic) CKRecordID *shareID; // @synthesize shareID=_shareID;
 @property(retain, nonatomic) CKDSharePCSData *sharePCSData; // @synthesize sharePCSData=_sharePCSData;
+@property(retain, nonatomic) NSData *zoneishPublicKeyID; // @synthesize zoneishPublicKeyID=_zoneishPublicKeyID;
 @property(retain, nonatomic) CKRecordZoneID *zoneID; // @synthesize zoneID=_zoneID;
 @property(retain, nonatomic) CKDZonePCSData *zonePCSData; // @synthesize zonePCSData=_zonePCSData;
 @property(retain, nonatomic) NSData *chainParentPublicKeyID; // @synthesize chainParentPublicKeyID=_chainParentPublicKeyID;
@@ -41,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)CKPropertiesDescription;
+- (_Bool)shouldEncodePCSData;
 - (id)itemID;
 - (id)initWithRecord:(id)arg1;
 - (id)initWithPCSData:(id)arg1 recordID:(id)arg2;

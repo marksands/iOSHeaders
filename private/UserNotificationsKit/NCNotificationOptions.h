@@ -31,10 +31,11 @@
     _Bool _requestsFullScreenPresentation;
     _Bool _hideClearActionInList;
     unsigned long long _messageNumberOfLines;
-    _Bool _ignoreAttachmentImageThumbnailCrop;
     _Bool _preemptsPresentedNotification;
     _Bool _revealsAdditionalContentOnPresentation;
+    _Bool _suppressesTitleWhenLocked;
     _Bool _suppressesSubtitleWhenLocked;
+    _Bool _suppressesBodyWhenLocked;
     unsigned long long _contentPreviewSetting;
     _Bool _coalescesWhenLocked;
     _Bool _preventsAutomaticLock;
@@ -45,10 +46,11 @@
 @property(readonly, nonatomic) _Bool preventsAutomaticLock; // @synthesize preventsAutomaticLock=_preventsAutomaticLock;
 @property(readonly, nonatomic) _Bool coalescesWhenLocked; // @synthesize coalescesWhenLocked=_coalescesWhenLocked;
 @property(readonly, nonatomic) unsigned long long contentPreviewSetting; // @synthesize contentPreviewSetting=_contentPreviewSetting;
+@property(readonly, nonatomic) _Bool suppressesBodyWhenLocked; // @synthesize suppressesBodyWhenLocked=_suppressesBodyWhenLocked;
 @property(readonly, nonatomic) _Bool suppressesSubtitleWhenLocked; // @synthesize suppressesSubtitleWhenLocked=_suppressesSubtitleWhenLocked;
+@property(readonly, nonatomic) _Bool suppressesTitleWhenLocked; // @synthesize suppressesTitleWhenLocked=_suppressesTitleWhenLocked;
 @property(readonly, nonatomic) _Bool revealsAdditionalContentOnPresentation; // @synthesize revealsAdditionalContentOnPresentation=_revealsAdditionalContentOnPresentation;
 @property(readonly, nonatomic) _Bool preemptsPresentedNotification; // @synthesize preemptsPresentedNotification=_preemptsPresentedNotification;
-@property(readonly, nonatomic) _Bool ignoreAttachmentImageThumbnailCrop; // @synthesize ignoreAttachmentImageThumbnailCrop=_ignoreAttachmentImageThumbnailCrop;
 @property(readonly, nonatomic) unsigned long long messageNumberOfLines; // @synthesize messageNumberOfLines=_messageNumberOfLines;
 @property(readonly, nonatomic) _Bool hideClearActionInList; // @synthesize hideClearActionInList=_hideClearActionInList;
 @property(readonly, nonatomic) _Bool overridesPocketMode; // @synthesize overridesPocketMode=_overridesPocketMode;

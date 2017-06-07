@@ -17,12 +17,12 @@
     double _subtitleAlpha;
     SBFLockScreenDateSubtitleDateView *_dateSubtitleView;
     SBFLockScreenDateSubtitleView *_customSubtitleView;
-    _Bool _useDashBoardValues;
     NSHashTable *_replicatedViews;
     NSDate *_date;
     UIColor *_overrideTextColor;
     _UILegibilitySettings *_legibilitySettings;
     double _alignmentPercent;
+    double _dateToTimeStretch;
     double _timeLegibilityStrength;
     double _subtitleLegibilityStrength;
 }
@@ -31,21 +31,18 @@
 @property(retain, nonatomic) SBFLockScreenDateSubtitleView *customSubtitleView; // @synthesize customSubtitleView=_customSubtitleView;
 @property(nonatomic) double subtitleLegibilityStrength; // @synthesize subtitleLegibilityStrength=_subtitleLegibilityStrength;
 @property(nonatomic) double timeLegibilityStrength; // @synthesize timeLegibilityStrength=_timeLegibilityStrength;
+@property(nonatomic) double dateToTimeStretch; // @synthesize dateToTimeStretch=_dateToTimeStretch;
 @property(nonatomic) double alignmentPercent; // @synthesize alignmentPercent=_alignmentPercent;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_overrideTextColor;
 @property(retain, nonatomic) NSDate *date; // @synthesize date=_date;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 @property(readonly, nonatomic) double subtitleBaselineOffsetFromOrigin;
 @property(readonly, nonatomic) double timeBaselineOffsetFromOrigin;
-- (void)_layoutLegacyDateLabel;
-- (void)_layoutLegacyTimeLabel;
-- (id)_legacyTimeFont;
 - (id)_timeFont;
 - (struct CGRect)_subtitleViewFrameForView:(id)arg1 alignmentPercent:(double)arg2;
 - (struct CGRect)_timeLabelFrameForAlignmentPercent:(double)arg1;
-- (void)_layoutSubtitleViews;
-- (void)_layoutDateView;
 - (void)layoutSubviews;
 - (void)_updateLabelAlpha;
 - (void)_setSubtitleAlpha:(double)arg1;
@@ -58,7 +55,6 @@
 @property(readonly, nonatomic) double contentAlpha;
 - (void)updateFormat;
 @property(nonatomic, getter=isSubtitleHidden) _Bool subtitleHidden;
-- (id)initForDashBoard:(_Bool)arg1 withFrame:(struct CGRect)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

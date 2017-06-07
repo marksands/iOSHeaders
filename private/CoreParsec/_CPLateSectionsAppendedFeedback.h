@@ -6,33 +6,42 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPLateSectionsAppendedFeedback-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
 
-@class NSMutableArray;
+@class NSArray, NSData, NSString;
 
-@interface _CPLateSectionsAppendedFeedback : PBCodable <NSCopying>
+@interface _CPLateSectionsAppendedFeedback : PBCodable <_CPProcessableFeedback, _CPLateSectionsAppendedFeedback, NSSecureCoding>
 {
+    CDStruct_b5306035 _has;
     unsigned long long _timestamp;
-    NSMutableArray *_sections;
+    NSArray *_sections;
 }
 
-+ (Class)sectionsType;
-@property(retain, nonatomic) NSMutableArray *sections; // @synthesize sections=_sections;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
 - (id)sectionsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)sectionsCount;
 - (void)addSections:(id)arg1;
 - (void)clearSections;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

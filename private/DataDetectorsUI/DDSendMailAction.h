@@ -20,6 +20,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)canBePerformedByOpeningURL;
 - (void)performFromView:(id)arg1;
 - (int)interactionType;
+- (id)notificationURL;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
 - (id)localizedName;
 - (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 

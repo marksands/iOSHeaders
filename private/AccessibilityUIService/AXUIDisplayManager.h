@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AccessibilityUIService/UICollisionBehaviorDelegate-Protocol.h>
 #import <AccessibilityUIService/UIDynamicAnimatorDelegate-Protocol.h>
@@ -40,10 +40,11 @@
 @property(retain, nonatomic) NSMutableDictionary *activeWindows; // @synthesize activeWindows=_activeWindows;
 @property(retain, nonatomic) NSMutableDictionary *visibleAlertContexts; // @synthesize visibleAlertContexts=_visibleAlertContexts;
 @property(retain, nonatomic) NSMutableDictionary *alertQueues; // @synthesize alertQueues=_alertQueues;
-@property(nonatomic) AXUIServiceManager *serviceManager; // @synthesize serviceManager=_serviceManager;
+@property(nonatomic) __weak AXUIServiceManager *serviceManager; // @synthesize serviceManager=_serviceManager;
 @property(nonatomic) unsigned long long numberOfAttemptsToInitializeActiveInterfaceOrientation; // @synthesize numberOfAttemptsToInitializeActiveInterfaceOrientation=_numberOfAttemptsToInitializeActiveInterfaceOrientation;
 @property(nonatomic) long long activeInterfaceOrientation; // @synthesize activeInterfaceOrientation=_activeInterfaceOrientation;
 @property(retain, nonatomic) AXUIAlertStyleProvider *defaultAlertStyleProvider; // @synthesize defaultAlertStyleProvider=_defaultAlertStyleProvider;
+- (void).cxx_destruct;
 - (void)_didReceiveMemoryWarning:(id)arg1;
 - (void)_resetServiceManager;
 - (void)collisionBehavior:(id)arg1 beganContactForItem:(id)arg2 withBoundaryIdentifier:(id)arg3 atPoint:(struct CGPoint)arg4;

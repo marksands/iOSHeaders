@@ -4,12 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
+@class NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
 @interface BRInterface : NSObject
 {
+    NSMutableDictionary *_timestampDict;
     _Bool _isReady;
     NSObject<OS_dispatch_queue> *_queue;
     unsigned long long _maxAssetSlots;
@@ -23,10 +25,12 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) _Bool isReady; // @synthesize isReady=_isReady;
 - (void)scheduleReadyNotificationWithBlock:(CDUnknownBlockType)arg1;
+- (_Bool)playState:(unsigned long long)arg1 forSpeed:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)disableStates:(id)arg1 clearAsset:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)enableStates:(id)arg1 error:(id *)arg2;
 - (_Bool)setConfigs:(id)arg1 withAssets:(id)arg2 forStates:(id)arg3 error:(id *)arg4;
 - (_Bool)setGlobalConfigs:(id)arg1 error:(id *)arg2;
+- (void)timestampWithLabel:(id)arg1;
 @property(readonly, nonatomic) id propertyList;
 - (id)description;
 - (void)dealloc;

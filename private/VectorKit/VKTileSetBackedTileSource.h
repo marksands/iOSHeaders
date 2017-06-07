@@ -22,11 +22,12 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) GEOActiveTileSet *tileSet; // @synthesize tileSet=_tileSet;
+- (long long)maximumZoomLevelWithoutOverride;
 - (long long)maximumZoomLevel;
 - (long long)minimumZoomLevel;
 - (long long)defaultMaximumZoomLevel;
 - (long long)defaultMinimumZoomLevel;
-- (unsigned long long)mapLayerForZoomLevelRange;
+- (unsigned char)mapLayerForZoomLevelRange;
 - (void)setStyleManager:(shared_ptr_a3c46825)arg1;
 - (void)populateVisibleTileSets:(id)arg1 withTiles:(id)arg2;
 - (void)_expireTiles;
@@ -47,7 +48,7 @@ __attribute__((visibility("hidden")))
 - (void)setClient:(id)arg1;
 - (void)clearCaches;
 - (void)dealloc;
-- (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4;
+- (id)initWithTileSet:(id)arg1 resourceManifestConfiguration:(id)arg2 locale:(id)arg3 sharedResources:(id)arg4 taskContext:(shared_ptr_e963992e)arg5;
 
 @end
 

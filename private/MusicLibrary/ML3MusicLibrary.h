@@ -35,6 +35,8 @@
     NSArray *_libraryPublicContainerFilterPredicates;
 }
 
++ (id)assistantSyncDataChangedNotificationName;
++ (id)widthLimitedSetValuesQueue;
 + (_Bool)updateTrackIntegrityOnConnection:(id)arg1;
 + (void)enumerateSortMapTablesUsingBlock:(CDUnknownBlockType)arg1;
 + (id)sectionIndexTitleForSectionHeader:(id)arg1;
@@ -181,6 +183,7 @@
 - (_Bool)validateDatabase;
 - (_Bool)automaticDatabaseValidationDisabled;
 - (_Bool)isCurrentThreadInTransaction;
+- (void)performAsyncDatabaseWriteTransactionWithBlock:(CDUnknownBlockType)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)performReadOnlyDatabaseTransactionWithBlock:(CDUnknownBlockType)arg1;
 - (void)performDatabaseTransactionWithBlock:(CDUnknownBlockType)arg1;
 - (void)databaseConnectionAllowingWrites:(_Bool)arg1 withBlock:(CDUnknownBlockType)arg2;

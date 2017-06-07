@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol GKTurnBasedEventHandlerDelegate, OS_dispatch_queue;
 
@@ -16,7 +16,7 @@
 }
 
 + (id)sharedTurnBasedEventHandler;
-@property(nonatomic) NSObject<OS_dispatch_queue> *lookForEventQueue; // @synthesize lookForEventQueue=_lookForEventQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *lookForEventQueue; // @synthesize lookForEventQueue=_lookForEventQueue;
 @property(nonatomic) _Bool didBecomeActive; // @synthesize didBecomeActive=_didBecomeActive;
 - (void)lookForEvent;
 - (void)callTurnEventForMatch:(id)arg1 userTapped:(_Bool)arg2;

@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) __weak VideosExtrasContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)_installBackButtonOnNavigationItem:(id)arg1 withTitle:(id)arg2;
+- (void)_popViewControllerFromBackButton;
 - (void)_installDoneButtonOnNavigationItem:(id)arg1;
 - (void)pushViewController:(id)arg1 animated:(_Bool)arg2;
 - (void)willShowViewController:(id)arg1 animated:(_Bool)arg2;

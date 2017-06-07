@@ -6,25 +6,46 @@
 
 #import <HomeKitDaemon/HMDEvent.h>
 
+#import <HomeKitDaemon/HMDLocationDelegate-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class CLRegion;
+@class CLRegion, NSString;
 
-@interface HMDLocationEvent : HMDEvent <NSSecureCoding>
+@interface HMDLocationEvent : HMDEvent <HMDLocationDelegate, NSSecureCoding>
 {
     CLRegion *_region;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)locationEventWithDictionary:(id)arg1 error:(id *)arg2;
++ (id)logCategory;
 @property(retain, nonatomic) CLRegion *region; // @synthesize region=_region;
 - (void).cxx_destruct;
+- (void)didExitRegion:(id)arg1;
+- (void)didEnterRegion:(id)arg1;
+- (void)informLocationEventOccuranceToResident;
+- (void)_handleLocationEventOccured:(id)arg1;
+- (void)locationEventOccured;
+- (void)_activate:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)createPayload;
 @property(readonly, copy, nonatomic) CLRegion *uniqueRegion;
-- (_Bool)setRegionIfValid:(id)arg1;
 - (id)dumpState;
-- (id)initWithRegion:(id)arg1;
+- (void)_handleRetrieveLocationEventForEventTrigger:(id)arg1;
+- (void)_handleUpdateRequest:(id)arg1;
+- (void)_registerForMessages;
+- (id)emptyModelObject;
+- (_Bool)isActive;
+@property(readonly, copy) NSString *description;
+- (id)initWithModel:(id)arg1 home:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -23,6 +23,7 @@
 @property(retain, nonatomic) GEOPDPlaceRequest *autocompleteRequest; // @synthesize autocompleteRequest=_autocompleteRequest;
 @property(retain, nonatomic) NSMutableArray *entrys; // @synthesize entrys=_entrys;
 @property(retain, nonatomic) NSString *query; // @synthesize query=_query;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -39,7 +40,6 @@
 - (void)addEntry:(id)arg1;
 - (void)clearEntrys;
 @property(readonly, nonatomic) _Bool hasQuery;
-- (void)dealloc;
 
 @end
 

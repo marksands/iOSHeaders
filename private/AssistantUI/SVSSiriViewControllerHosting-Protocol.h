@@ -9,6 +9,7 @@
 @class AFUIRequestOptions, NSString, NSURL;
 
 @protocol SVSSiriViewControllerHosting <NSObject>
+- (void)serviceDidDetectAudioRoutePickerTap;
 - (void)serviceDidExitUITrackingMode;
 - (void)serviceDidEnterUITrackingMode;
 - (void)serviceDidFinishTest:(NSString *)arg1;
@@ -28,7 +29,7 @@
 - (void)setBugReportingAvailable:(_Bool)arg1;
 - (void)pulseHelpButton;
 - (void)setHelpButtonEmphasized:(_Bool)arg1;
-- (void)setStatusBarHidden:(_Bool)arg1;
+- (void)setStatusBarHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)serviceWillDismissViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)serviceWillPresentViewControllerWithStatusBarStyle:(long long)arg1;
 - (void)setStatusViewDisabled:(_Bool)arg1;
@@ -46,5 +47,6 @@
 - (void)serviceBulletinWithIdentifier:(NSString *)arg1 replyHandler:(void (^)(AFBulletin *))arg2;
 - (void)serviceStartGuidedAccess;
 - (void)serviceRequestsDismissal:(_Bool)arg1;
+- (void)serviceRequestsActivationSourceWithReplyHandler:(void (^)(long long))arg1;
 @end
 

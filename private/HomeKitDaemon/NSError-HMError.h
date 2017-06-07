@@ -7,6 +7,8 @@
 #import <Foundation/NSError.h>
 
 @interface NSError (HMError)
++ (id)hmPrivateErrorWithCode:(long long)arg1 underlyingError:(id)arg2;
++ (id)hmPrivateErrorWithCode:(long long)arg1;
 + (id)hmInternalErrorWithCode:(long long)arg1 underlyingError:(id)arg2;
 + (id)hmInternalErrorWithCode:(long long)arg1;
 + (id)hmErrorWithCode:(long long)arg1 userInfo:(id)arg2;

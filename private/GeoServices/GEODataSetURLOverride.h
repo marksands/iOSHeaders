@@ -48,6 +48,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *etaURL; // @synthesize etaURL=_etaURL;
 @property(retain, nonatomic) NSString *directionsURL; // @synthesize directionsURL=_directionsURL;
 @property(nonatomic) unsigned int dataSet; // @synthesize dataSet=_dataSet;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -73,7 +74,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool hasEtaURL;
 @property(readonly, nonatomic) _Bool hasDirectionsURL;
 @property(nonatomic) _Bool hasDataSet;
-- (void)dealloc;
 
 @end
 

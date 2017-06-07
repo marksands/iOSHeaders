@@ -16,6 +16,7 @@
 
 + (id)handleIntentCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)handleIntentCompleted;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SAIntentGroupProtobufMessage *intentResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;

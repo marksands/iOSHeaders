@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (unsigned char)styleOwnerPathType;
 - (double)doubleModelToAxisValue:(double)arg1 forSeries:(id)arg2;
 - (void)updateGridValueTypeInterceptInAnalysis:(id)arg1;
 - (id)computeMinorGridlinesFromMajorGridlinesInAnalysis:(id)arg1;

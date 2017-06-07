@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSMutableArray *entries; // @synthesize entries=_entries;
 @property(retain, nonatomic) NSMutableArray *queryTokens; // @synthesize queryTokens=_queryTokens;
 @property(retain, nonatomic) NSString *query; // @synthesize query=_query;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,7 +47,6 @@
 - (void)addQueryTokens:(id)arg1;
 - (void)clearQueryTokens;
 @property(readonly, nonatomic) _Bool hasQuery;
-- (void)dealloc;
 
 @end
 

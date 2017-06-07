@@ -6,11 +6,12 @@
 
 #import <SAObjects/SABaseCommand.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
 #import <SiriClientFlow/SAServerBoundCommand-Protocol.h>
 
 @class NSString;
 
-@interface CFMGGetMobileGestaltStringResponse : SABaseCommand <SAServerBoundCommand>
+@interface CFMGGetMobileGestaltStringResponse : SABaseCommand <SAServerBoundCommand, CFLocalAceHandling>
 {
 }
 

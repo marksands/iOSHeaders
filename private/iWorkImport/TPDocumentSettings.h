@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     _Bool _hasBody;
     _Bool _hasHeaders;
     _Bool _hasFooters;
+    _Bool _hasLlamaPanda;
     _Bool _qlPreview;
     _Bool _copyMovies;
     _Bool _copyAssets;
@@ -47,7 +48,7 @@ __attribute__((visibility("hidden")))
 - (id)stringWithCurrentDate;
 - (void)resetForNewDocumentFromTemplate:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 - (void)dealloc;
 @property(nonatomic) _Bool hasBody;
@@ -79,6 +80,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool copyTemplateAssets;
 @property(nonatomic) _Bool copyMovies;
 @property(nonatomic) _Bool quickLookPreview;
+@property(nonatomic) _Bool hasLlamaPanda;
 @property(nonatomic) _Bool hasFooters;
 @property(nonatomic) _Bool hasHeaders;
 

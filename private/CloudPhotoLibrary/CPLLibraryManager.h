@@ -8,8 +8,8 @@
 
 #import <CloudPhotoLibrary/CPLAbstractObject-Protocol.h>
 
-@class CPLChangeSession, CPLConfiguration, CPLPlatformObject, CPLStatus, NSError, NSString, NSURL;
-@protocol CPLLibraryManagerDelegate, CPLResourceProgressDelegate, OS_dispatch_queue;
+@class CPLChangeSession, CPLConfiguration, CPLPlatformObject, CPLStatus, NSError, NSString, NSURL, _CPLWeakLibraryManager;
+@protocol CPLLibraryManagerDelegate, CPLLibraryManagerOwner, CPLResourceProgressDelegate, OS_dispatch_queue;
 
 @interface CPLLibraryManager : NSObject <CPLAbstractObject>
 {
@@ -17,16 +17,19 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_sessionLock;
     _Bool _sizeOfResourcesToUploadIsSet;
-    long long _configurationOnce;
-    long long _statusOnce;
+    NSObject<OS_dispatch_queue> *_initLock;
     CPLConfiguration *_configuration;
     CPLStatus *_syncStatus;
+    _CPLWeakLibraryManager *_weakSelf;
+    _Bool _preventObserving;
     CPLPlatformObject *_platformObject;
     NSURL *_clientLibraryBaseURL;
     NSURL *_cloudLibraryStateStorageURL;
     NSURL *_cloudLibraryResourceStorageURL;
     NSString *_libraryIdentifier;
     NSString *_libraryVersion;
+    unsigned long long _estimatedInitialSizeForLocalLibrary;
+    unsigned long long _estimatedInitialAssetCountForLocalLibrary;
     unsigned long long _sizeOfResourcesToUpload;
     unsigned long long _sizeOfOriginalResourcesToUpload;
     unsigned long long _numberOfImagesToUpload;
@@ -34,6 +37,7 @@
     unsigned long long _numberOfOtherItemsToUpload;
     id <CPLLibraryManagerDelegate> _delegate;
     id <CPLResourceProgressDelegate> _resourceProgressDelegate;
+    id <CPLLibraryManagerOwner> _owner;
     unsigned long long _status;
     NSError *_statusError;
     unsigned long long _state;
@@ -49,6 +53,7 @@
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) NSError *statusError; // @synthesize statusError=_statusError;
 @property(readonly, nonatomic) unsigned long long status; // @synthesize status=_status;
+@property(nonatomic) __weak id <CPLLibraryManagerOwner> owner; // @synthesize owner=_owner;
 @property(nonatomic) __weak id <CPLResourceProgressDelegate> resourceProgressDelegate; // @synthesize resourceProgressDelegate=_resourceProgressDelegate;
 @property(nonatomic) __weak id <CPLLibraryManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) unsigned long long numberOfOtherItemsToUpload; // @synthesize numberOfOtherItemsToUpload=_numberOfOtherItemsToUpload;
@@ -56,6 +61,8 @@
 @property(readonly, nonatomic) unsigned long long numberOfImagesToUpload; // @synthesize numberOfImagesToUpload=_numberOfImagesToUpload;
 @property(readonly, nonatomic) unsigned long long sizeOfOriginalResourcesToUpload; // @synthesize sizeOfOriginalResourcesToUpload=_sizeOfOriginalResourcesToUpload;
 @property(readonly, nonatomic) unsigned long long sizeOfResourcesToUpload; // @synthesize sizeOfResourcesToUpload=_sizeOfResourcesToUpload;
+@property(nonatomic) unsigned long long estimatedInitialAssetCountForLocalLibrary; // @synthesize estimatedInitialAssetCountForLocalLibrary=_estimatedInitialAssetCountForLocalLibrary;
+@property(nonatomic) unsigned long long estimatedInitialSizeForLocalLibrary; // @synthesize estimatedInitialSizeForLocalLibrary=_estimatedInitialSizeForLocalLibrary;
 @property(readonly, copy, nonatomic) NSString *libraryVersion; // @synthesize libraryVersion=_libraryVersion;
 @property(readonly, copy, nonatomic) NSString *libraryIdentifier; // @synthesize libraryIdentifier=_libraryIdentifier;
 @property(readonly, copy, nonatomic) NSURL *cloudLibraryResourceStorageURL; // @synthesize cloudLibraryResourceStorageURL=_cloudLibraryResourceStorageURL;
@@ -65,19 +72,27 @@
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)addInfoToLog:(id)arg1;
+- (void)resetCacheWithOption:(unsigned long long)arg1 reason:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)resetCacheWithOption:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)downloadOriginalsOfType:(id)arg1 localIdentifiers:(id)arg2 destinationURL:(id)arg3 progressIdentifier:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)compactFileCacheWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)getResourcesForItemWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)deleteResourcesIfSafe:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)deleteResources:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)deleteResources:(id)arg1 checkServerIfNecessary:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(nonatomic) _Bool diagnosticsEnabled;
 - (void)takeStatisticsSnapshotSinceDate:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)enableMingling;
 - (void)disableMingling;
+- (void)addStatusChangesForRecordsWithIdentifiers:(id)arg1 persist:(_Bool)arg2;
+- (void)acknowledgeChangedStatuses:(id)arg1;
+- (void)getChangedStatusesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)getStatusForRecordsWithIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)checkHasBackgroundDownloadOperationsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)noteClientIsEndingSignificantWork;
 - (void)noteClientIsBeginningSignificantWork;
+- (void)setShouldOverride:(_Bool)arg1 forSystemBudgets:(unsigned long long)arg2;
+- (void)setShouldOverrideSystemBudgetsForSyncSession:(_Bool)arg1;
+- (void)getSystemBudgetsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)enableSynchronizationWithReason:(id)arg1;
 - (void)disableSynchronizationWithReason:(id)arg1;
 - (void)noteClientIsInBackground;
@@ -97,6 +112,8 @@
 - (void)beginDownloadForResource:(id)arg1 highPriority:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)beginDownloadForResource:(id)arg1 clientBundleID:(id)arg2 highPriority:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)beginDownloadForResource:(id)arg1 clientBundleID:(id)arg2 highPriority:(_Bool)arg3 proposedTaskIdentifier:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)beginPullChangeSessionWithKnownLibraryVersion:(id)arg1 resetTracker:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)beginPushChangeSessionWithKnownLibraryVersion:(id)arg1 resetTracker:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)beginPullChangeSessionWithKnownLibraryVersion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)beginPushChangeSessionWithKnownLibraryVersion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_setLibraryVersion:(id)arg1;
@@ -116,6 +133,9 @@
 - (void)barrier;
 - (id)initForManagement;
 - (id)initWithClientLibraryBaseURL:(id)arg1 cloudLibraryStateStorageURL:(id)arg2 cloudLibraryResourceStorageURL:(id)arg3 libraryIdentifier:(id)arg4;
+- (void)unblockEngineElementOnce:(id)arg1;
+- (void)unblockEngineElement:(id)arg1;
+- (void)blockEngineElement:(id)arg1;
 - (void)cloudCacheGetDescriptionForRecordWithIdentifier:(id)arg1 related:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)cloudCacheGetDescriptionForRecordWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)getCloudCacheForRecordWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

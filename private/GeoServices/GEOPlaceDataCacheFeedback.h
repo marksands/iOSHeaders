@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(retain, nonatomic) GEOPDPlaceRequest *request; // @synthesize request=_request;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasBundleIdentifier;
 @property(readonly, nonatomic) _Bool hasRequest;
-- (void)dealloc;
 
 @end
 

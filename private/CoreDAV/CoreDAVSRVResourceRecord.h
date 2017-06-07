@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSNumber, NSString;
 
@@ -22,8 +22,8 @@
 @property(retain, nonatomic) NSNumber *weight; // @synthesize weight=_weight;
 @property(retain, nonatomic) NSNumber *priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) NSString *serviceString; // @synthesize serviceString=_serviceString;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 
 @end
 

@@ -64,6 +64,7 @@
 @property(copy, nonatomic) UIColor *titleBackgroundColor; // @synthesize titleBackgroundColor=_titleBackgroundColor;
 @property(copy, nonatomic) UIColor *titleTextColor; // @synthesize titleTextColor=_titleTextColor;
 - (void).cxx_destruct;
+- (void)confirmSnippet;
 - (void)confirmButtonTapped:(id)arg1;
 - (void)cancelButtonTapped:(id)arg1;
 - (void)headerTapped:(id)arg1;
@@ -93,6 +94,8 @@
 - (void)siriWillLayoutSnippetView;
 - (void)willConfirm;
 - (void)willCancel;
+- (void)_resumeTouchesIfNecessary;
+- (void)_cancelTouchesIfNecessary;
 - (id)alternativeAceCommandsToPerformIfNotExposingViews;
 - (void)_snippetViewControllerWillBeRemoved;
 - (id)_privateDelegate;
@@ -102,6 +105,7 @@
 - (long long)_insertionAnimation;
 - (long long)_pinAnimationType;
 - (void)_setVirgin:(_Bool)arg1;
+@property(readonly, nonatomic, getter=isIndicatingActivity) _Bool indicatingActivity;
 - (_Bool)usePlatterStyle;
 - (_Bool)isMemoryIntensive;
 - (_Bool)removedAfterDialogProgresses;

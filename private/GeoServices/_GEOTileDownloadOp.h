@@ -4,82 +4,73 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-#import <GeoServices/NSURLSessionDataDelegate-Protocol.h>
+#import <GeoServices/GEODataSessionTaskDelegate-Protocol.h>
 
-@class GEONSURLSharedSession, GEOSimpleTileRequester, NSData, NSMutableData, NSOperationQueue, NSString, NSURL, NSURLSessionTask, NSURLSessionTaskMetrics;
+@class GEOClientMetrics, GEODataRequest, GEODataSessionTask, GEOSimpleTileRequester, NSData, NSString, NSURL;
+@protocol OS_dispatch_queue, OS_os_activity;
 
 __attribute__((visibility("hidden")))
-@interface _GEOTileDownloadOp : NSObject <NSURLSessionDataDelegate>
+@interface _GEOTileDownloadOp : NSObject <GEODataSessionTaskDelegate>
 {
-    NSURL *_url;
-    _Bool _requireWiFi;
-    NSMutableData *_data;
-    NSString *_cachedEtag;
-    NSData *_cachedData;
-    GEONSURLSharedSession *_session;
-    NSURLSessionTask *_task;
+    GEODataRequest *_request;
+    NSData *_data;
+    GEODataSessionTask *_task;
     NSString *_responseEtag;
     unsigned int _priority;
     struct _GEOTileKey _key;
     _Bool _finished;
     NSString *_editionHeader;
     unsigned int _tileEdition;
-    NSString *_userAgent;
-    NSData *_auditToken;
-    _Bool _useCookies;
     _GEOTileDownloadOp *_baseTile;
     _GEOTileDownloadOp *_localizationTile;
-    unsigned long long _contentLength;
     GEOSimpleTileRequester *_delegate;
-    NSOperationQueue *_delegateQueue;
-    _Bool _gotData;
+    NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_os_activity> *_activity;
     int _attempts;
-    double _startTime;
     double _timeout;
+    double _startTime;
     int _checksumMethod;
     long long _eTagType;
-    NSURLSessionTaskMetrics *_taskMetrics;
-    int _httpResponseStatusCode;
+    GEOClientMetrics *_clientMetrics;
 }
 
-@property(readonly, nonatomic) double startTime; // @synthesize startTime=_startTime;
-@property(retain, nonatomic) NSURLSessionTaskMetrics *taskMetrics; // @synthesize taskMetrics=_taskMetrics;
+@property(retain, nonatomic) GEOClientMetrics *clientMetrics; // @synthesize clientMetrics=_clientMetrics;
 @property(retain, nonatomic) NSString *responseEtag; // @synthesize responseEtag=_responseEtag;
 @property(nonatomic) unsigned int priority; // @synthesize priority=_priority;
-@property(retain, nonatomic) NSData *cachedData; // @synthesize cachedData=_cachedData;
-@property(retain, nonatomic) NSString *cachedEtag; // @synthesize cachedEtag=_cachedEtag;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
-@property(nonatomic) _Bool requireWiFi; // @synthesize requireWiFi=_requireWiFi;
-@property(retain, nonatomic) NSOperationQueue *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
+@property(nonatomic) __weak GEOSimpleTileRequester *delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) _Bool finished; // @synthesize finished=_finished;
-@property(readonly, nonatomic) unsigned long long contentLength; // @synthesize contentLength=_contentLength;
 @property(retain, nonatomic) _GEOTileDownloadOp *localizationTile; // @synthesize localizationTile=_localizationTile;
 @property(retain, nonatomic) _GEOTileDownloadOp *baseTile; // @synthesize baseTile=_baseTile;
-@property(nonatomic) _Bool useCookies; // @synthesize useCookies=_useCookies;
-@property(retain, nonatomic) NSData *auditToken; // @synthesize auditToken=_auditToken;
-@property(retain, nonatomic) NSString *userAgent; // @synthesize userAgent=_userAgent;
 @property unsigned int tileEdition; // @synthesize tileEdition=_tileEdition;
 @property(retain, nonatomic) NSString *editionHeader; // @synthesize editionHeader=_editionHeader;
-@property(retain, nonatomic) NSURLSessionTask *task; // @synthesize task=_task;
-@property(retain, nonatomic) GEONSURLSharedSession *session; // @synthesize session=_session;
-@property(retain, nonatomic) NSMutableData *data; // @synthesize data=_data;
+@property(retain, nonatomic) GEODataSessionTask *task; // @synthesize task=_task;
+@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property struct _GEOTileKey key; // @synthesize key=_key;
-@property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(nonatomic) long long eTagType; // @synthesize eTagType=_eTagType;
+@property(retain, nonatomic) NSObject<OS_os_activity> *activity; // @synthesize activity=_activity;
+@property(readonly, nonatomic) GEODataRequest *request; // @synthesize request=_request;
+- (void).cxx_destruct;
 - (void)_reportNetworkError:(id)arg1;
-- (void)URLSession:(id)arg1 task:(id)arg2 didFinishCollectingMetrics:(id)arg3;
-- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
-- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
-- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)taskFailed:(id)arg1 withError:(id)arg2;
+- (_Bool)validateTileIntegrityForTask:(id)arg1;
+- (void)dataSession:(id)arg1 didCompleteTask:(id)arg2;
+@property(readonly, nonatomic) _Bool responseIsCacheable;
+@property(readonly, nonatomic) long long responseSource;
 @property(readonly, nonatomic) int httpResponseStatusCode;
+- (double)startTime;
 - (double)elapsed;
 - (void)cancel;
 - (void)start;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-@property(nonatomic) GEOSimpleTileRequester *delegate;
+@property(readonly, nonatomic) unsigned long long contentLength;
+@property(readonly, nonatomic) NSURL *URL;
+- (id)initWithRequest:(id)arg1 delegateQueue:(id)arg2;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

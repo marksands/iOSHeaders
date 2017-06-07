@@ -20,8 +20,12 @@ __attribute__((visibility("hidden")))
 - (struct TiledBacking *)tiledBacking;
 - (double)contentsScale;
 - (void)setContentsScale:(double)arg1;
-- (_Bool)acceleratesDrawing;
-- (void)setAcceleratesDrawing:(_Bool)arg1;
+- (_Bool)supportsSubpixelAntialiasedText;
+- (void)setSupportsSubpixelAntialiasedText:(_Bool)arg1;
+- (_Bool)wantsDeepColorBackingStore;
+- (void)setWantsDeepColorBackingStore:(_Bool)arg1;
+- (_Bool)drawsAsynchronously;
+- (void)setDrawsAsynchronously:(_Bool)arg1;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)setNeedsDisplay;
 - (_Bool)isOpaque;

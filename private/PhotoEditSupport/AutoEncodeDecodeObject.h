@@ -16,6 +16,7 @@
 }
 
 @property(retain, nonatomic) NSArray *keysToEncode; // @synthesize keysToEncode=_keysToEncode;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

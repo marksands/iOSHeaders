@@ -35,7 +35,7 @@
 - (id)tsu_stringWithPathRelativeTo:(id)arg1 allowBacktracking:(_Bool)arg2;
 - (id)tsu_stringWithPathRelativeTo:(id)arg1;
 - (id)tsu_substringWithComposedCharacterSequencesToFileSystemLength:(unsigned long long)arg1;
-- (id)tsu_substringWithComposedCharacterSequencesToIndex:(unsigned long long)arg1;
+- (id)tsu_substringWithComposedCharacterSequencesTruncatedToLength:(unsigned long long)arg1;
 - (id)tsu_stringWithRealpath;
 - (_Bool)tsu_isChildOfPath:(id)arg1;
 - (_Bool)tsu_isDescendantOfPath:(id)arg1;

@@ -21,13 +21,11 @@
     _Bool _isContainedWithinSplitViewPrimary;
     struct {
         unsigned int didSelectAddButton:1;
-        unsigned int didSelectContextualActionsButton:1;
         unsigned int didSelectPlayButton:1;
         unsigned int didLayoutSubviews:1;
         unsigned int shouldLayoutAsEditing:1;
     } _delegateRespondsToSelector;
     id <MusicEntityHorizontalLockupViewDelegate> _delegate;
-    UIButton *_contextualActionsButton;
     double _textContentLeadingInset;
 }
 
@@ -36,11 +34,9 @@
 + (double)maximumHeightForContentDescriptor:(id)arg1 width:(double)arg2 traitCollection:(id)arg3;
 + (double)defaultTextDescriptorHeightAdditionsForContentDescriptor:(id)arg1 width:(double)arg2 traitCollection:(id)arg3;
 @property(readonly, nonatomic) double textContentLeadingInset; // @synthesize textContentLeadingInset=_textContentLeadingInset;
-@property(readonly, nonatomic) UIButton *contextualActionsButton; // @synthesize contextualActionsButton=_contextualActionsButton;
 @property(nonatomic) __weak id <MusicEntityHorizontalLockupViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)_shouldLayoutAsEditing;
-- (void)_contextualActionsButtonTapped:(id)arg1;
 - (void)_addButtonTouchEntered:(id)arg1;
 - (void)_addButtonTouchExited:(id)arg1;
 - (void)_addButtonTouchUpInside:(id)arg1;

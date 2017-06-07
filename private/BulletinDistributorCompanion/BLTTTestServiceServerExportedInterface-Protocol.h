@@ -20,6 +20,6 @@
 - (void)spoolSectionInfoWithCompletion:(void (^)(void))arg1;
 - (void)sendAllSectionInfoWithSpool:(_Bool)arg1 completion:(void (^)(void))arg2;
 - (void)sendSectionInfoWithSectionID:(NSString *)arg1 completion:(void (^)(void))arg2;
-- (void)addBulletin:(BBBulletin *)arg1 forFeed:(unsigned long long)arg2 playLightsAndSirens:(_Bool)arg3 attachment:(NSData *)arg4 attachmentType:(long long)arg5 completion:(void (^)(_Bool))arg6;
+- (void)addBulletin:(BBBulletin *)arg1 forFeed:(unsigned long long)arg2 playLightsAndSirens:(_Bool)arg3 attachment:(NSData *)arg4 attachmentType:(long long)arg5 alwaysSend:(_Bool)arg6 completion:(void (^)(_Bool))arg7;
 @end
 

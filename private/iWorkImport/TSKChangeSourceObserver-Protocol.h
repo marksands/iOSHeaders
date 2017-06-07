@@ -12,7 +12,7 @@
 
 @optional
 - (void)didProcessAllChanges;
-- (void)asyncProcessChanges:(NSArray *)arg1 forChangeSource:(id)arg2;
-- (void)syncProcessChanges:(NSArray *)arg1 forChangeSource:(id)arg2;
+- (void)processChanges:(NSArray *)arg1 forChangeSource:(id)arg2;
+- (void)preprocessChanges:(NSArray *)arg1 forChangeSource:(id)arg2;
 @end
 

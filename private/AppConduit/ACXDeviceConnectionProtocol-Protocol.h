@@ -19,6 +19,7 @@
 - (void)getAlwaysInstallForDeviceWithPairingID:(NSUUID *)arg1 completion:(void (^)(_Bool))arg2;
 - (void)removeApplication:(NSString *)arg1 fromDeviceWithPairingID:(NSUUID *)arg2 completion:(void (^)(long long))arg3;
 - (void)installApplication:(NSString *)arg1 withProvisioningProfileInfo:(NSDictionary *)arg2 forTestFlight:(_Bool)arg3 onDeviceWithPairingID:(NSUUID *)arg4 completion:(void (^)(long long, NSError *))arg5;
+- (void)retryPendingAppInstallationsOnDeviceWithPairingID:(NSUUID *)arg1;
 - (void)cancelPendingInstallations;
 - (void)installAllApplications;
 - (void)fetchWatchAppBundleIDForCompanionAppBundleID:(NSString *)arg1 completion:(void (^)(NSString *, NSError *))arg2;
@@ -28,7 +29,6 @@
 - (void)fetchInstalledCompatibleApplicationsForDeviceWithPairingID:(NSUUID *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)activeComplicationsForDeviceWithPairingID:(NSUUID *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)fetchInstalledComplicationsForDeviceWithPairingID:(NSUUID *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
-- (void)fetchInstalledGlancesForDeviceWithPairingID:(NSUUID *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)fetchInstalledApplicationsForDeviceWithPairingID:(NSUUID *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 @end
 

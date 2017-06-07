@@ -20,8 +20,6 @@
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) _Bool recordedInNotes; // @synthesize recordedInNotes=_recordedInNotes;
 - (void).cxx_destruct;
-- (CDUnknownBlockType)genericBrickThumbnailCreator;
-- (CDUnknownBlockType)genericListThumbnailCreator;
 - (void)updateFileBasedAttributes;
 - (id)initWithAttachment:(id)arg1;
 

@@ -18,6 +18,7 @@
 
 + (Class)searchResultsForCategoryEntryType;
 @property(retain, nonatomic) NSMutableArray *searchResultsForCategoryEntrys; // @synthesize searchResultsForCategoryEntrys=_searchResultsForCategoryEntrys;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -32,7 +33,6 @@
 - (unsigned long long)searchResultsForCategoryEntrysCount;
 - (void)addSearchResultsForCategoryEntry:(id)arg1;
 - (void)clearSearchResultsForCategoryEntrys;
-- (void)dealloc;
 
 @end
 

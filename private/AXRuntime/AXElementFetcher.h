@@ -34,10 +34,12 @@
     AXElementGroup *_keyboardGroupCache;
     NSMutableDictionary *_postFetchFilters;
     AXVisualElementGrouper *_visualElementGrouper;
+    NSArray *_customCurrentApps;
 }
 
 + (id)springBoardElement;
 + (id)systemWideElement;
+@property(retain, nonatomic) NSArray *customCurrentApps; // @synthesize customCurrentApps=_customCurrentApps;
 @property(nonatomic) _Bool didSendFakeScreenChangeOnLastFetch; // @synthesize didSendFakeScreenChangeOnLastFetch=_didSendFakeScreenChangeOnLastFetch;
 @property(retain, nonatomic) AXVisualElementGrouper *visualElementGrouper; // @synthesize visualElementGrouper=_visualElementGrouper;
 @property(retain, nonatomic) NSMutableDictionary *postFetchFilters; // @synthesize postFetchFilters=_postFetchFilters;
@@ -54,14 +56,16 @@
 @property(nonatomic, getter=isEventManagementEnabled) _Bool eventManagementEnabled; // @synthesize eventManagementEnabled=_eventManagementEnabled;
 @property(nonatomic, getter=isFetchingElements) _Bool fetchingElements; // @synthesize fetchingElements=_fetchingElements;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
+- (void).cxx_destruct;
 - (void)_debugLogElementCache;
 - (id)_debugStringForFetchEvents:(unsigned long long)arg1;
+- (void)clearCache;
 - (_Bool)_fetchGroups:(_Bool)arg1;
 - (id)_fetchUnprocessedAppGroups;
 - (id)_processAppGroup:(id)arg1 keyboardGroup:(id *)arg2;
 @property(readonly, nonatomic) AXElementGroupPruner *elementGroupPruner;
 - (id)_filterGroup:(id)arg1 withFilter:(CDUnknownBlockType)arg2;
-- (id)_groupWithItems:(id)arg1 groupTraits:(int)arg2 scanningBehaviorTraits:(int)arg3 label:(id)arg4 currentPid:(int)arg5;
+- (id)_groupWithItems:(id)arg1 groupTraits:(unsigned long long)arg2 scanningBehaviorTraits:(unsigned long long)arg3 label:(id)arg4 currentPid:(int)arg5;
 - (id)_groupWithDictionary:(id)arg1 currentPid:(int)arg2;
 - (id)findGroupableMatchingBlock:(CDUnknownBlockType)arg1;
 - (id)_findGroupableMatchingBlock:(CDUnknownBlockType)arg1 inElementGroup:(id)arg2;
@@ -97,6 +101,7 @@
 - (void)_scheduleFetchEvent:(unsigned long long)arg1;
 - (void)_tearDownEventCoalesceTimer;
 - (void)_handleMediaDidBegin:(struct __CFData *)arg1;
+- (void)_handleScreenWillChange:(struct __CFData *)arg1;
 - (void)_handleApplicationWasActivated:(id)arg1;
 - (void)_handleUpdateElementVisuals:(struct __CFData *)arg1;
 - (void)_handleNativeFocusItemDidChange:(struct __CFData *)arg1;
@@ -108,6 +113,7 @@
 - (void)_notifyObserversDidScheduleFetchEvent:(unsigned long long)arg1;
 - (void)_notifyObserversDidFetchElementsForEvent:(unsigned long long)arg1 foundNewElements:(_Bool)arg2;
 - (void)_notifyObserversMediaDidBegin:(struct __CFData *)arg1;
+- (void)_notifyObserversScreenWillChange:(struct __CFData *)arg1;
 - (void)_notifyObserversApplicationWasActivated:(id)arg1;
 - (void)_notifyObserversUpdateElementVisuals:(id)arg1;
 - (void)_notifyObserversNativeFocusElementDidChange:(id)arg1;
@@ -123,6 +129,7 @@
 @property(readonly, nonatomic) _Bool willFetchElements;
 - (_Bool)_updateCurrentApps;
 @property(readonly, nonatomic) AXElement *nativeFocusElement;
+- (void)_setCurrentApplications:(id)arg1;
 - (id)description;
 - (void)dealloc;
 - (id)initWithDelegate:(id)arg1 fetchEvents:(unsigned long long)arg2 enableEventManagement:(_Bool)arg3 enableGrouping:(_Bool)arg4 shouldIncludeNonScannerElements:(_Bool)arg5 beginEnabled:(_Bool)arg6;

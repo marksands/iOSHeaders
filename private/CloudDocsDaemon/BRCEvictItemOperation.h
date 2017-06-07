@@ -9,13 +9,13 @@
 #import <CloudDocsDaemon/BRCOperationSubclass-Protocol.h>
 #import <CloudDocsDaemon/BRItemNotificationReceiving-Protocol.h>
 
-@class BRCAccountSession, BRCNotificationPipe, NSString, NSURL, _BRCLogSection, brc_task_tracker;
+@class BRCAccountSession, BRCNotificationPipe, NSString, NSURL, brc_task_tracker;
 
 __attribute__((visibility("hidden")))
 @interface BRCEvictItemOperation : _BRCFrameworkOperation <BRItemNotificationReceiving, BRCOperationSubclass>
 {
     BRCAccountSession *_session;
-    _BRCLogSection *_section;
+    unsigned long long _section;
     NSURL *_url;
     brc_task_tracker *_tracker;
     BRCNotificationPipe *_pipe;

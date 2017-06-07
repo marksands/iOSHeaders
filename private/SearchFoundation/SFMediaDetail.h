@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFMediaDetail-Protocol.h>
 
-@class NSString, SFText;
+@class NSData, NSDictionary, NSString, SFText;
 
-@interface SFMediaDetail : NSObject <NSSecureCoding>
+@interface SFMediaDetail : NSObject <SFMediaDetail, NSSecureCoding>
 {
     NSString *_title;
     SFText *_content;
@@ -20,8 +21,17 @@
 @property(retain, nonatomic) SFText *content; // @synthesize content=_content;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)adjustScrollForListView:(id)arg1;
 - (id)preferredFocusEnvironments;
 - (void)setOverlayBlurOffset:(double)arg1;
+- (void)setSemanticContentAttribute:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

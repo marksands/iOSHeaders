@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -14,8 +14,9 @@
 }
 
 + (id)sharedInstance;
-- (id)_createLogAdaptorWithOptions:(id)arg1;
-- (id)logAdaptorWithOptions:(id)arg1;
+- (void).cxx_destruct;
+- (id)_createLogAdaptorWithPolicy:(id)arg1;
+- (id)logAdaptorWithPolicy:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

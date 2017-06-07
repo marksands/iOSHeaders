@@ -16,6 +16,7 @@
 }
 
 + (_Bool)canAuthenticate;
++ (_Bool)registerCredentialsFromContext:(id)arg1 force:(_Bool)arg2;
 + (_Bool)registerCredentialsFromContext:(id)arg1;
 @property(retain, nonatomic) CDPContext *cdpContext; // @synthesize cdpContext=_cdpContext;
 - (void).cxx_destruct;
@@ -25,12 +26,15 @@
 - (_Bool)removeNonViewAwarePeers:(id *)arg1;
 - (_Bool)hasNonViewAwarePeers;
 - (_Bool)anyPeerHasEnabledViewsInSet:(id)arg1 error:(id *)arg2;
+- (_Bool)_viewMemberForView:(struct __CFString *)arg1 error:(id *)arg2;
 - (_Bool)viewMemberForAutofillPasswords:(id *)arg1;
+- (_Bool)viewMemberForPCSMaster:(id *)arg1;
 - (_Bool)requestToResetCircle:(id *)arg1;
 - (_Bool)requestToJoinCircleAfterRestore:(id *)arg1;
 - (_Bool)requestToJoinCircle:(id *)arg1;
 - (_Bool)removeThisDeviceFromCircle:(id *)arg1;
 - (_Bool)synchronizeCircleViews;
+- (id)generateVerifierWithRcoveryKey:(id)arg1 error:(id *)arg2;
 - (id)generateRecoveryKeyWithInfo:(id)arg1 error:(id *)arg2;
 - (id)peerDeviceNamesByPeerID;
 - (unsigned long long)peerCount;

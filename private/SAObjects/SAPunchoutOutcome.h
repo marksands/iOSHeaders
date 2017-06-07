@@ -16,6 +16,7 @@
 
 + (id)punchoutOutcomeWithDictionary:(id)arg1 context:(id)arg2;
 + (id)punchoutOutcome;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSDictionary *outcomes;
 @property(copy, nonatomic) NSString *originalCommandId;
 - (id)encodedClassName;

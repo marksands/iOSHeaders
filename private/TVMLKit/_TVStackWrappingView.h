@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)preferredFocusEnvironments;
 - (void)configureSupplementaryCellLayoutAttributesWithAutomaticInsets:(struct UIEdgeInsets)arg1;
+- (void)safeAreaInsetsDidChange;
 
 @end
 

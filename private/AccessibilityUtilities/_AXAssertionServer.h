@@ -18,10 +18,10 @@
 @property(retain, nonatomic) NSMutableDictionary *healdAssertionMap; // @synthesize healdAssertionMap=_healdAssertionMap;
 @property(copy, nonatomic) CDUnknownBlockType assertionWasReleasedHandler; // @synthesize assertionWasReleasedHandler=_assertionWasReleasedHandler;
 @property(copy, nonatomic) CDUnknownBlockType assertionWasAcquiredHandler; // @synthesize assertionWasAcquiredHandler=_assertionWasAcquiredHandler;
+- (void).cxx_destruct;
 - (void)removeHeldAssertionOfType:(id)arg1 byClient:(id)arg2;
 - (void)addHeldAssertionOfType:(id)arg1 byClient:(id)arg2;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

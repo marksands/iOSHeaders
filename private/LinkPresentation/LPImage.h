@@ -8,7 +8,7 @@
 
 #import <LinkPresentation/NSSecureCoding-Protocol.h>
 
-@class NSData, NSString, NSURL, UIImage;
+@class LPImageProperties, NSArray, NSData, NSString, NSURL, UIImage;
 @protocol OS_dispatch_group;
 
 @interface LPImage : NSObject <NSSecureCoding>
@@ -16,22 +16,27 @@
     UIImage *_originalPlatformImage;
     NSData *_data;
     NSString *_MIMEType;
+    LPImageProperties *_properties;
     NSObject<OS_dispatch_group> *_asynchronousLoadGroup;
     _Bool _placeholderIcon;
+    NSArray *_remoteURLsForEmailCompatibleOutput;
     NSURL *_fileURL;
     UIImage *_platformImage;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)_PNGImageNamed:(id)arg1;
-@property(nonatomic, getter=isPlaceholderIcon) _Bool placeholderIcon; // @synthesize placeholderIcon=_placeholderIcon;
 @property(retain, nonatomic) UIImage *platformImage; // @synthesize platformImage=_platformImage;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
+@property(retain, nonatomic) NSArray *_remoteURLsForEmailCompatibleOutput; // @synthesize _remoteURLsForEmailCompatibleOutput;
+@property(nonatomic, getter=_isPlaceholderIcon) _Bool _placeholderIcon; // @synthesize _placeholderIcon;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) struct CGSize _pixelSize;
 - (_Bool)_shouldEncodeData;
 @property(readonly, nonatomic) unsigned long long _encodedSize;
 - (void)_mapDataFromFileURL;
 - (void)_createDataFromPlatformImage;
+@property(readonly, copy, nonatomic) LPImageProperties *properties;
 @property(readonly, copy, nonatomic) NSString *MIMEType;
 @property(readonly, copy, nonatomic) NSData *data;
 - (void)_preparePlatformImageWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -39,8 +44,11 @@
 - (id)initWithCoder:(id)arg1;
 - (void)_waitForAsynchronouslyLoadedImageIfNeeded;
 - (id)_initWithPlatformImageGenerator:(CDUnknownBlockType)arg1;
+- (id)initWithPlatformImage:(id)arg1 properties:(id)arg2;
 - (id)initWithPlatformImage:(id)arg1;
+- (id)initByReferencingFileURL:(id)arg1 MIMEType:(id)arg2 properties:(id)arg3;
 - (id)initByReferencingFileURL:(id)arg1 MIMEType:(id)arg2;
+- (id)initWithData:(id)arg1 MIMEType:(id)arg2 properties:(id)arg3;
 - (id)initWithData:(id)arg1 MIMEType:(id)arg2;
 - (id)_initWithImage:(id)arg1;
 - (id)init;

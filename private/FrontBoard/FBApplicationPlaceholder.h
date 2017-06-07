@@ -13,7 +13,6 @@
 {
     LSApplicationProxy *_proxy;
     NSObject<OS_dispatch_queue> *_queue;
-    _Bool _queue_isNewsstand;
     _Bool _queue_isRestricted;
     _Bool _queue_installType;
     double _queue_cachedPercentComplete;
@@ -21,6 +20,7 @@
     NSMutableSet *_queue_observers;
 }
 
++ (id)_sharedQueue;
 - (void)_noteChangedSignificantly;
 - (void)_setProxy:(id)arg1 force:(_Bool)arg2;
 @property(retain, nonatomic, getter=_proxy, setter=_setProxy:) LSApplicationProxy *proxy;
@@ -43,6 +43,10 @@
 - (id)description;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+- (void)resumeWithResult:(CDUnknownBlockType)arg1;
+- (void)pauseWithResult:(CDUnknownBlockType)arg1;
+- (void)cancelWithResult:(CDUnknownBlockType)arg1;
+- (void)prioritizeWithResult:(CDUnknownBlockType)arg1;
 - (void)resume;
 - (void)pause;
 - (void)cancel;
@@ -55,7 +59,6 @@
 @property(readonly, nonatomic) unsigned long long installType;
 @property(readonly, nonatomic) double percentComplete;
 @property(readonly, nonatomic, getter=isRestricted) _Bool restricted;
-@property(readonly, nonatomic, getter=isNewsstand) _Bool newsstand;
 @property(readonly, copy, nonatomic) NSString *displayName;
 - (void)dealloc;
 - (id)_initWithApplicationProxy:(id)arg1;

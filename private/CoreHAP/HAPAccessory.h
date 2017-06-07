@@ -4,18 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class HAPAccessoryServer, NSArray, NSNumber, NSString;
+#import <CoreHAP/HMFMerging-Protocol.h>
+
+@class HAPAccessoryServer, NSArray, NSNumber, NSObject, NSString;
 @protocol HAPAccessoryDelegate, OS_dispatch_queue;
 
-@interface HAPAccessory : NSObject
+@interface HAPAccessory : HMFObject <HMFMerging>
 {
     _Bool _reachable;
-    _Bool _supportsBridgeConfiguration;
     _Bool _primary;
     _Bool _supportsRelay;
-    NSNumber *_category;
     id <HAPAccessoryDelegate> _delegate;
     HAPAccessoryServer *_server;
     NSString *_identifier;
@@ -53,6 +53,8 @@
 @property(nonatomic) __weak HAPAccessoryServer *server; // @synthesize server=_server;
 @property(nonatomic) __weak id <HAPAccessoryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (_Bool)mergeObject:(id)arg1;
+- (_Bool)shouldMergeObject:(id)arg1;
 - (id)characteristicOfType:(id)arg1 serviceType:(id)arg2;
 - (id)characteristicsOfType:(id)arg1;
 - (id)servicesOfType:(id)arg1;
@@ -65,19 +67,21 @@
 - (void)writeCharacteristicValue:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)readCharacteristicValues:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)readValueForCharacteristic:(id)arg1 timeout:(double)arg2 completionQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-@property(copy, nonatomic) NSNumber *category; // @synthesize category=_category;
-- (void)_setCategory:(id)arg1;
+@property(readonly, copy, nonatomic) NSNumber *category;
 - (void)_setReachable:(_Bool)arg1;
 @property(nonatomic, getter=isReachable) _Bool reachable; // @synthesize reachable=_reachable;
 - (_Bool)_isReachable;
-- (void)_setSupportsBridgeConfiguration:(_Bool)arg1;
-@property(nonatomic) _Bool supportsBridgeConfiguration; // @synthesize supportsBridgeConfiguration=_supportsBridgeConfiguration;
-- (_Bool)_supportsBridgeConfiguration;
 @property(readonly, nonatomic, getter=isPaired) _Bool paired;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (id)initWithServer:(id)arg1 instanceID:(id)arg2;
 - (id)initWithServer:(id)arg1 instanceID:(id)arg2 parsedServices:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

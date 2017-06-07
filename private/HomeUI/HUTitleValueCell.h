@@ -6,23 +6,30 @@
 
 #import <HomeUI/HUIconCell.h>
 
-@class NSArray, NSString, UIFont, UILabel;
+@class NSArray, NSString, UIFont, UILabel, UIStackView;
 
 @interface HUTitleValueCell : HUIconCell
 {
     _Bool _hideTitle;
     _Bool _hideValue;
     _Bool _valueColorFollowsTintColor;
+    _Bool _allowCopyValueToPasteboard;
     UILabel *_titleLabel;
     UILabel *_valueLabel;
     NSString *_titleText;
     UIFont *_titleFont;
     NSString *_valueText;
     UIFont *_valueFont;
-    NSArray *_horizontalConstraints;
+    long long _compressionResistancePolicy;
+    NSArray *_stackViewConstraints;
+    UIStackView *_labelsStackView;
 }
 
-@property(retain, nonatomic) NSArray *horizontalConstraints; // @synthesize horizontalConstraints=_horizontalConstraints;
++ (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) UIStackView *labelsStackView; // @synthesize labelsStackView=_labelsStackView;
+@property(retain, nonatomic) NSArray *stackViewConstraints; // @synthesize stackViewConstraints=_stackViewConstraints;
+@property(nonatomic) long long compressionResistancePolicy; // @synthesize compressionResistancePolicy=_compressionResistancePolicy;
+@property(nonatomic) _Bool allowCopyValueToPasteboard; // @synthesize allowCopyValueToPasteboard=_allowCopyValueToPasteboard;
 @property(nonatomic) _Bool valueColorFollowsTintColor; // @synthesize valueColorFollowsTintColor=_valueColorFollowsTintColor;
 @property(nonatomic) _Bool hideValue; // @synthesize hideValue=_hideValue;
 @property(retain, nonatomic) UIFont *valueFont; // @synthesize valueFont=_valueFont;
@@ -30,16 +37,21 @@
 @property(nonatomic) _Bool hideTitle; // @synthesize hideTitle=_hideTitle;
 @property(retain, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
 @property(retain, nonatomic) NSString *titleText; // @synthesize titleText=_titleText;
-- (void).cxx_destruct;
-- (void)updateValue;
-- (void)updateTitle;
-- (void)addValueLabel;
-- (void)addTitleLabel;
-- (void)updateUIWithAnimation:(_Bool)arg1;
-- (void)updateConstraints;
-- (void)setDisabled:(_Bool)arg1;
 @property(readonly, nonatomic) UILabel *valueLabel; // @synthesize valueLabel=_valueLabel;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
+- (void).cxx_destruct;
+- (void)_updateCompressionResistance;
+- (void)_updateValue;
+- (void)_updateTitle;
+- (void)_addValueLabel;
+- (void)_addTitleLabel;
+- (void)updateUIWithAnimation:(_Bool)arg1;
+- (void)ensureCorrectHeaderViewOrientation;
+- (void)updateConstraints;
+- (void)setDisabled:(_Bool)arg1;
+- (void)copy:(id)arg1;
+- (_Bool)canPerformAction:(SEL)arg1 withSender:(id)arg2;
+- (_Bool)canBecomeFirstResponder;
 - (void)tintColorDidChange;
 - (void)prepareForReuse;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

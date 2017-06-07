@@ -10,6 +10,7 @@
 {
 }
 
++ (_Bool)_documentSettingsNeededForBundleID:(id)arg1;
 + (_Bool)_notificationSettingsNeededForBundleID:(id)arg1;
 + (void)_populateBBSectionIDs;
 + (_Bool)_cellularDataSettingsNeededForBundleID:(id)arg1;

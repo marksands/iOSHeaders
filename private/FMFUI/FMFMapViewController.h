@@ -28,6 +28,7 @@
     _Bool __isRenderingInitialMap;
     _Bool _viewWillAppearCalled;
     _Bool _alwaysShowAccuracy;
+    _Bool _wasToobarPreviouslyHidden;
     _Bool _mapTypeLoaded;
     id <FMFMapViewControllerDelegate> _delegate;
     MKMapView *_mapView;
@@ -68,6 +69,7 @@
 @property(nonatomic) void *addressBook; // @synthesize addressBook=_addressBook;
 @property(retain, nonatomic) FMFTitleView *titleView; // @synthesize titleView=_titleView;
 @property(retain, nonatomic) FMFMapOptionsViewController *mapOptionsVC; // @synthesize mapOptionsVC=_mapOptionsVC;
+@property(nonatomic) _Bool wasToobarPreviouslyHidden; // @synthesize wasToobarPreviouslyHidden=_wasToobarPreviouslyHidden;
 @property(nonatomic) _Bool alwaysShowAccuracy; // @synthesize alwaysShowAccuracy=_alwaysShowAccuracy;
 @property(nonatomic) _Bool viewWillAppearCalled; // @synthesize viewWillAppearCalled=_viewWillAppearCalled;
 @property(nonatomic) _Bool _isRenderingInitialMap; // @synthesize _isRenderingInitialMap=__isRenderingInitialMap;
@@ -160,6 +162,7 @@
 - (id)openInAppURL;
 - (void)_updateLocationButtonEnabled;
 - (void)addFloatingToolbar;
+- (void)setupToolbarItems;
 - (void)viewDidLoad;
 - (void)loadView;
 - (void)_authorizeMonitoringLocation;

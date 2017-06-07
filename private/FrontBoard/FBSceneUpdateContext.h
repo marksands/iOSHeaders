@@ -18,9 +18,9 @@
 }
 
 + (id)contextWithSceneID:(id)arg1 transactionID:(unsigned long long)arg2 settingsDiff:(id)arg3;
-@property(retain, nonatomic) FBSSceneSettingsDiff *settingsDiff; // @synthesize settingsDiff=_settingsDiff;
-@property(nonatomic) unsigned long long transactionID; // @synthesize transactionID=_transactionID;
-@property(copy, nonatomic) NSString *sceneID; // @synthesize sceneID=_sceneID;
+@property(readonly, retain, nonatomic) FBSSceneSettingsDiff *settingsDiff; // @synthesize settingsDiff=_settingsDiff;
+@property(readonly, nonatomic) unsigned long long transactionID; // @synthesize transactionID=_transactionID;
+@property(readonly, copy, nonatomic) NSString *sceneID; // @synthesize sceneID=_sceneID;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
@@ -29,6 +29,7 @@
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (void)dealloc;
+- (id)_initWithSceneID:(id)arg1 transactionID:(unsigned long long)arg2 settingsDiff:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

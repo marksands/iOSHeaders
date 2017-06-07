@@ -20,7 +20,7 @@
 @property(nonatomic) struct CGPoint point; // @synthesize point=_point;
 @property(nonatomic) int destinationWidth; // @synthesize destinationWidth=_destinationWidth;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 - (id)keysToEncode;
 

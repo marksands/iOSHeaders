@@ -13,21 +13,25 @@
 @interface NTPBForYouConfigRecord : PBCodable <NSCopying>
 {
     NTPBRecordBase *_base;
+    NSMutableArray *_breakingNewsArticleIDs;
     NSString *_configuration;
     NSString *_coverArticlesArticleListID;
     NSMutableArray *_editorialArticleListIDs;
     NSMutableArray *_editorialSectionTagIDs;
-    NSString *_topStoriesArticleListID;
+    NSMutableArray *_topStoriesCombinedArticleIDs;
     NSString *_trendingArticleListID;
 }
 
++ (Class)topStoriesCombinedArticleIDsType;
++ (Class)breakingNewsArticleIDsType;
 + (Class)editorialSectionTagIDsType;
 + (Class)editorialArticleListIDsType;
+@property(retain, nonatomic) NSMutableArray *topStoriesCombinedArticleIDs; // @synthesize topStoriesCombinedArticleIDs=_topStoriesCombinedArticleIDs;
+@property(retain, nonatomic) NSMutableArray *breakingNewsArticleIDs; // @synthesize breakingNewsArticleIDs=_breakingNewsArticleIDs;
 @property(retain, nonatomic) NSMutableArray *editorialSectionTagIDs; // @synthesize editorialSectionTagIDs=_editorialSectionTagIDs;
 @property(retain, nonatomic) NSMutableArray *editorialArticleListIDs; // @synthesize editorialArticleListIDs=_editorialArticleListIDs;
 @property(retain, nonatomic) NSString *coverArticlesArticleListID; // @synthesize coverArticlesArticleListID=_coverArticlesArticleListID;
 @property(retain, nonatomic) NSString *trendingArticleListID; // @synthesize trendingArticleListID=_trendingArticleListID;
-@property(retain, nonatomic) NSString *topStoriesArticleListID; // @synthesize topStoriesArticleListID=_topStoriesArticleListID;
 @property(retain, nonatomic) NSString *configuration; // @synthesize configuration=_configuration;
 @property(retain, nonatomic) NTPBRecordBase *base; // @synthesize base=_base;
 - (void)mergeFrom:(id)arg1;
@@ -38,6 +42,14 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)topStoriesCombinedArticleIDsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)topStoriesCombinedArticleIDsCount;
+- (void)addTopStoriesCombinedArticleIDs:(id)arg1;
+- (void)clearTopStoriesCombinedArticleIDs;
+- (id)breakingNewsArticleIDsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)breakingNewsArticleIDsCount;
+- (void)addBreakingNewsArticleIDs:(id)arg1;
+- (void)clearBreakingNewsArticleIDs;
 - (id)editorialSectionTagIDsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)editorialSectionTagIDsCount;
 - (void)addEditorialSectionTagIDs:(id)arg1;
@@ -48,7 +60,6 @@
 - (void)clearEditorialArticleListIDs;
 @property(readonly, nonatomic) _Bool hasCoverArticlesArticleListID;
 @property(readonly, nonatomic) _Bool hasTrendingArticleListID;
-@property(readonly, nonatomic) _Bool hasTopStoriesArticleListID;
 @property(readonly, nonatomic) _Bool hasConfiguration;
 @property(readonly, nonatomic) _Bool hasBase;
 - (void)dealloc;

@@ -16,7 +16,7 @@
 }
 
 + (Class)homeKitRepresentationClass;
-@property(readonly, nonatomic) HFMutableSetDiff *accessoryUUIDs; // @synthesize accessoryUUIDs=_accessoryUUIDs;
+@property(retain, nonatomic) HFMutableSetDiff *accessoryUUIDs; // @synthesize accessoryUUIDs=_accessoryUUIDs;
 @property(retain, nonatomic) HFWallpaperEditCollectionBuilder *wallpaperBuilder; // @synthesize wallpaperBuilder=_wallpaperBuilder;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
@@ -27,6 +27,7 @@
 - (id)_createRoom;
 - (id)commitItem;
 - (id)_performValidation;
+- (id)description;
 @property(readonly, nonatomic) NSSet *accessories;
 - (void)removeAccessory:(id)arg1;
 - (void)addAccessory:(id)arg1;

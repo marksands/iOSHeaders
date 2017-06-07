@@ -6,18 +6,21 @@
 
 #import <UIKit/UIView.h>
 
+#import <SpotlightUI/MFAtomTextViewDelegate-Protocol.h>
 #import <SpotlightUI/UITextFieldDelegate-Protocol.h>
 
-@class NSLayoutConstraint, NSString, SPSearchQueryContext, SPUITextField, UIButton, _UILegibilitySettings;
+@class NSLayoutConstraint, NSString, SPSearchEntity, SPSearchQueryContext, SPUITextField, UIButton, _UILegibilitySettings;
 @protocol SPUISearchHeaderDelegate;
 
-@interface SPUISearchHeader : UIView <UITextFieldDelegate>
+@interface SPUISearchHeader : UIView <UITextFieldDelegate, MFAtomTextViewDelegate>
 {
+    _Bool _offersCompletions;
+    _Bool _roundedCornerVisible;
     _Bool _willClear;
-    _Bool _isShowingCornerRadius;
     id <SPUISearchHeaderDelegate> _delegate;
     unsigned long long _suggestionID;
     _UILegibilitySettings *_legibilitySettings;
+    SPSearchEntity *_searchEntity;
     SPUITextField *_searchField;
     UIButton *_cancelButton;
     NSLayoutConstraint *_searchFieldTrailingConstraint;
@@ -26,20 +29,23 @@
 }
 
 + (_Bool)isJ99;
-@property(nonatomic) _Bool isShowingCornerRadius; // @synthesize isShowingCornerRadius=_isShowingCornerRadius;
 @property _Bool willClear; // @synthesize willClear=_willClear;
 @property(retain) NSLayoutConstraint *widthConstraint; // @synthesize widthConstraint=_widthConstraint;
 @property(retain) NSLayoutConstraint *cancelButtonTrailingConstraint; // @synthesize cancelButtonTrailingConstraint=_cancelButtonTrailingConstraint;
 @property(retain) NSLayoutConstraint *searchFieldTrailingConstraint; // @synthesize searchFieldTrailingConstraint=_searchFieldTrailingConstraint;
 @property(retain) UIButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain) SPUITextField *searchField; // @synthesize searchField=_searchField;
+@property(nonatomic, getter=isRoundedCornerVisible) _Bool roundedCornerVisible; // @synthesize roundedCornerVisible=_roundedCornerVisible;
+@property _Bool offersCompletions; // @synthesize offersCompletions=_offersCompletions;
+@property(retain, nonatomic) SPSearchEntity *searchEntity; // @synthesize searchEntity=_searchEntity;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property unsigned long long suggestionID; // @synthesize suggestionID=_suggestionID;
 @property __weak id <SPUISearchHeaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)updateKeyboardSuggestions:(id)arg1;
 - (double)topPadding;
-- (void)searchForSuggestedQuery:(id)arg1;
+- (void)performTestSearchWithQuery:(id)arg1 event:(unsigned long long)arg2 phraseSearch:(_Bool)arg3 sourcePreference:(long long)arg4;
+- (void)searchForQuery:(id)arg1 forSuggestions:(_Bool)arg2;
+- (void)searchForSuggestion:(id)arg1;
 - (void)showCancelButton:(_Bool)arg1 animated:(_Bool)arg2;
 - (_Bool)cancelButtonIsVisible;
 - (void)updateColors;
@@ -48,22 +54,26 @@
 - (_Bool)searchFieldIsFocused;
 - (void)unfocusSearchField;
 - (void)focusSearchField;
+- (_Bool)atomTextView:(id)arg1 storeRepresentedObjects:(id)arg2 onPasteboard:(id)arg3;
+- (id)atomTextView:(id)arg1 representedObjectsFromPasteboard:(id)arg2;
+- (id)supportedPasteboardTypesForAtomTextView:(id)arg1;
+- (id)atomTextView:(id)arg1 atomViewForRepresentedObject:(id)arg2;
+- (void)_searchWithSearchEntity:(id)arg1 fromSuggestion:(_Bool)arg2;
+- (void)setSearchEntity:(id)arg1 fromSuggestion:(_Bool)arg2;
 @property(readonly, nonatomic) SPSearchQueryContext *currentQueryContext;
 @property(readonly, nonatomic) NSString *currentQuery;
-- (_Bool)textFieldShouldReturn:(id)arg1;
+- (_Bool)textFieldShouldReturn;
 - (void)cancelButtonClicked:(id)arg1;
-- (void)textFieldDidBeginEditing:(id)arg1;
-- (_Bool)textFieldShouldBeginEditing:(id)arg1;
+- (void)textFieldDidBeginEditing;
 - (void)textDidChange:(id)arg1 whyQuery:(unsigned long long)arg2 allowZKW:(_Bool)arg3;
+- (void)textDidChange:(id)arg1 whyQuery:(unsigned long long)arg2 phraseSearch:(_Bool)arg3 allowZKW:(_Bool)arg4 sourcePreference:(unsigned long long)arg5 engagedSuggestion:(id)arg6;
 - (void)textDidChange:(id)arg1;
 - (_Bool)textFieldShouldClear:(id)arg1;
 - (void)addInputMethodInformationToQueryContext:(id)arg1;
-- (void)linkWithKeyboardController:(id)arg1;
-- (id)nextResponder;
+- (void)setupKeyboardSupportForResultViewController:(id)arg1;
 - (void)enableDictationIfRequired;
 - (void)textInputModeChanged:(id)arg1;
 - (id)backdropVisualEffectView;
-- (void)setRoundedCornerVisible:(_Bool)arg1;
 - (void)updateBlurProgress:(double)arg1;
 - (id)init;
 

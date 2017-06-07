@@ -7,10 +7,8 @@
 #import <GeoServices/GEOComposedWaypoint.h>
 
 @interface GEOComposedWaypoint (MNExtras)
-- (id)navSpokenAnnouncementAtArrival:(_Bool)arg1;
-- (id)navSpokenAnnouncementAtStartForTransportType:(int)arg1;
 - (id)navAnnouncementAddress;
-- (id)navAnnouncementNameWithSpecialContacts:(_Bool)arg1;
+- (id)navAnnouncementName;
 - (id)localeIdentifier;
 - (id)navDisplayNameWithSpecialContacts:(_Bool)arg1;
 - (id)navDisplayName;

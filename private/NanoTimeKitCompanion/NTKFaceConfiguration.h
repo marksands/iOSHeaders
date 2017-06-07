@@ -15,10 +15,12 @@
 {
     NSMutableDictionary *_complications;
     NSMutableDictionary *_editModeConfigurations;
+    _Bool _resourceDirectoryExists;
     NSString *_name;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool resourceDirectoryExists; // @synthesize resourceDirectoryExists=_resourceDirectoryExists;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (void)_applyComplicationsDescription:(id)arg1;

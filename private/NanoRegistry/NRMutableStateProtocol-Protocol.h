@@ -10,12 +10,10 @@
 #import <NanoRegistry/NSObject-Protocol.h>
 #import <NanoRegistry/NSSecureCoding-Protocol.h>
 
-@class NSObject;
-@protocol NRDiffProtocol, NRMutableStateProtocol, OS_dispatch_queue;
+@protocol NRDiffProtocol, NRMutableStateProtocol;
 
 @protocol NRMutableStateProtocol <NSObject, NSSecureCoding, NSCopying, NRMutableStateObserverProtocol, NRMutableStateParentProtocol>
 + (id <NRDiffProtocol>)diffFrom:(id <NRMutableStateProtocol>)arg1 to:(id <NRMutableStateProtocol>)arg2;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue;
 - (id <NRDiffProtocol>)applyDiff:(id <NRDiffProtocol>)arg1 upOnly:(_Bool)arg2 notifyParent:(_Bool)arg3 unconditional:(_Bool)arg4;
 - (id <NRDiffProtocol>)applyDiff:(id <NRDiffProtocol>)arg1;
 @end

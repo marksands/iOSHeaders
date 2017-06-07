@@ -8,34 +8,34 @@
 
 #import <iWorkImport/TSCEReferenceTrackerDelegate-Protocol.h>
 
-@class NSMutableSet, NSString, TSCEReferenceTracker, TSTTableInfo;
+@class NSMutableSet, NSString, TSCEReferenceTracker, TSTInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSTSortRuleReferenceTracker : NSObject <TSCEReferenceTrackerDelegate>
 {
-    TSTTableInfo *mTableInfo;
+    TSTInfo *mTableInfo;
     NSMutableSet *mReferences;
     TSCEReferenceTracker *mReferenceTracker;
 }
 
-@property(nonatomic) TSTTableInfo *tableInfo; // @synthesize tableInfo=mTableInfo;
+@property(nonatomic) TSTInfo *tableInfo; // @synthesize tableInfo=mTableInfo;
 - (id)initFromArchive:(const struct SortRuleReferenceTrackerArchive *)arg1 unarchiver:(id)arg2;
 - (void)encodeToArchive:(struct SortRuleReferenceTrackerArchive *)arg1 archiver:(id)arg2;
 - (void)referencedCellWasModified:(id)arg1;
-- (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerID:(struct __CFUUID *)arg2;
-- (id)cellRangeWasInserted:(CDStruct_fc93c73e)arg1;
+- (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerUID:(const UUIDData_5fbc143e *)arg2;
+- (id)cellRangeWasInserted:(const struct TSCERangeRef *)arg1;
 - (_Bool)shouldRewriteOnTableIDReassignment;
 - (_Bool)shouldRewriteOnTranspose;
 - (_Bool)shouldRewriteOnCellMerge;
 - (_Bool)shouldRewriteOnTectonicShift;
 - (_Bool)shouldRewriteOnRangeMove;
 - (_Bool)shouldRewriteOnSort;
-- (void)setOwnerID:(struct __CFUUID *)arg1;
-- (struct __CFUUID *)ownerID;
+- (void)setOwnerUID:(const UUIDData_5fbc143e *)arg1;
+- (UUIDData_5fbc143e)ownerUID;
 - (void)updateForSortRules:(id)arg1;
 - (id)p_ruleReferenceForTrackedReference:(id)arg1;
 - (unsigned char)p_columnForTrackedReference:(id)arg1;
-- (struct TSCECReference)p_cReferenceForColumnIndex:(unsigned char)arg1;
+- (struct TSCESpanningRangeRef)p_referenceForColumnIndex:(unsigned char)arg1;
 - (void)unregisterFromCalculationEngine;
 - (void)registerWithCalculationEngine:(id)arg1;
 - (void)dealloc;

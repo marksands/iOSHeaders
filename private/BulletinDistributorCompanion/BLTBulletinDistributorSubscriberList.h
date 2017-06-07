@@ -24,6 +24,7 @@
 - (void)subscriber:(id)arg1 subscribedWithMachServiceName:(id)arg2;
 - (_Bool)hasSubscribersForSectionID:(id)arg1;
 - (id)subscribedSectionIDs;
+- (void)pingWithRecordID:(id)arg1 forSectionID:(id)arg2;
 - (void)pingWithBulletin:(id)arg1 ack:(CDUnknownBlockType)arg2;
 - (void)removeSubscriber:(id)arg1;
 - (void)addSubscriber:(id)arg1;

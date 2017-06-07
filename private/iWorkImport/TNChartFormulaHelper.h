@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)p_rangeListsForFormulas:(id)arg1 byRow:(_Bool)arg2 resolveSpanning:(_Bool)arg3;
 - (id)p_rangeListsForFormula:(id)arg1 argumentIndexes:(id)arg2 byRow:(_Bool)arg3 resolveSpanning:(_Bool)arg4;
 - (void)p_rangeListsForFormula:(id)arg1 argumentIndexes:(id)arg2 byRow:(_Bool)arg3 resolveSpanning:(_Bool)arg4 orderedListOfOwnerIDs:(id)arg5 ownerIDToRangeList:(id)arg6;
-- (id)chartFormulaByAppendingRangeReference:(CDStruct_fc93c73e)arg1 toFormula:(id)arg2 andLocale:(id)arg3;
+- (id)chartFormulaByAppendingRangeReference:(struct TSCERangeRef)arg1 toFormula:(id)arg2 andLocale:(id)arg3;
 - (_Bool)p_hasOneValuePerSeries;
 - (id)formulaStorageForChartGridDirection:(int)arg1;
 - (void)dealloc;

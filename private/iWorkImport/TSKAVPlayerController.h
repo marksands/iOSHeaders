@@ -28,7 +28,6 @@ __attribute__((visibility("hidden")))
     _Bool mIsObservingStatus;
 }
 
-+ (void)p_patchPropertyGettersForPlayer:(id)arg1;
 + (id)keyPathsForValuesAffectingCanFastForward;
 + (id)keyPathsForValuesAffectingCanFastReverse;
 + (id)keyPathsForValuesAffectingRate;

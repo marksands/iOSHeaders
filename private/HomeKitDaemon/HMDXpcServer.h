@@ -23,14 +23,12 @@
     HMDApplicationMonitor *_appMonitor;
     NSObject<OS_dispatch_group> *_activeMessageTracker;
     HMDCentralMessageDispatcher *_recvDispatcher;
-    HMFMessageDispatcher *_notificationRelayDispatcher;
     HMDBackgroundAppMessageFilter *_backgroundAppMsgFilter;
     HMDLostModeMessageFilter *_lostModeMessageFilter;
 }
 
 @property(retain, nonatomic) HMDLostModeMessageFilter *lostModeMessageFilter; // @synthesize lostModeMessageFilter=_lostModeMessageFilter;
 @property(retain, nonatomic) HMDBackgroundAppMessageFilter *backgroundAppMsgFilter; // @synthesize backgroundAppMsgFilter=_backgroundAppMsgFilter;
-@property(retain, nonatomic) HMFMessageDispatcher *notificationRelayDispatcher; // @synthesize notificationRelayDispatcher=_notificationRelayDispatcher;
 @property(retain, nonatomic) HMDCentralMessageDispatcher *recvDispatcher; // @synthesize recvDispatcher=_recvDispatcher;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *activeMessageTracker; // @synthesize activeMessageTracker=_activeMessageTracker;
 @property(nonatomic) __weak HMDApplicationMonitor *appMonitor; // @synthesize appMonitor=_appMonitor;
@@ -60,7 +58,7 @@
 - (_Bool)stop;
 - (_Bool)start;
 - (void)dealloc;
-- (id)initWithQueue:(id)arg1 receiveDispatcher:(id)arg2 notificationRelayDispatcher:(id)arg3 messageFilterChain:(id)arg4 registerAsMachService:(_Bool)arg5;
+- (id)initWithQueue:(id)arg1 receiveDispatcher:(id)arg2 messageFilterChain:(id)arg3 registerAsMachService:(_Bool)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

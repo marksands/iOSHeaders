@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) NSMutableArray *junctions; // @synthesize junctions=_junctions;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -29,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)junctionsCount;
 - (void)addJunction:(id)arg1;
 - (void)clearJunctions;
-- (void)dealloc;
 
 @end
 

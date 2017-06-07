@@ -20,17 +20,17 @@ __attribute__((visibility("hidden")))
 + (_Bool)chartTypeUsesSeriesLimiting:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType willModifyBlock; // @synthesize willModifyBlock=mWillModifyBlock;
 - (void)upgradeForSpice:(_Bool)arg1 naturalSize:(struct CGSize)arg2;
-- (void)mutateInfoByAdjustingScaleFromLayoutSettings:(const CDStruct_339a9a6e *)arg1 toLayoutSettings:(const CDStruct_339a9a6e *)arg2;
-- (id)adjustedScaleFromLayoutSettings:(const CDStruct_339a9a6e *)arg1 toLayoutSettings:(const CDStruct_339a9a6e *)arg2;
+- (void)mutateInfoByAdjustingScaleFromLayoutSettings:(const CDStruct_44ada6bf *)arg1 toLayoutSettings:(const CDStruct_44ada6bf *)arg2;
+- (id)adjustedScaleFromLayoutSettings:(const CDStruct_44ada6bf *)arg1 toLayoutSettings:(const CDStruct_44ada6bf *)arg2;
 - (unsigned long long)numberOfSeries;
 - (void)mutateInfoWithContainingViewport:(id)arg1 scene:(id)arg2;
 - (id)constantDepthInfoChartScaleForInfoChartScale:(id)arg1;
 - (void)mutateInfoWithMutations:(id)arg1;
-- (id)configuredSceneWithLayoutSettings:(CDStruct_339a9a6e)arg1;
+- (id)configuredSceneWithLayoutSettings:(CDStruct_44ada6bf)arg1;
 - (void)configureScene:(id)arg1;
-- (CDStruct_339a9a6e)upgradedLayoutSettings;
-- (CDStruct_339a9a6e)oldLayoutSettings;
-- (CDStruct_339a9a6e)p_oldLayoutSettingsForSpice:(_Bool)arg1;
+- (CDStruct_44ada6bf)upgradedLayoutSettings;
+- (CDStruct_44ada6bf)oldLayoutSettings;
+- (CDStruct_44ada6bf)p_oldLayoutSettingsForSpice:(_Bool)arg1;
 - (void)dealloc;
 - (id)initWithChartInfo:(id)arg1;
 

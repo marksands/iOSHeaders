@@ -12,9 +12,7 @@
 
 @interface PXNumberFilter : PXObservable <PXMutableNumberFilter>
 {
-    struct {
-        _Bool output;
-    } _needsUpdateFlags;
+    CDStruct_db2bc502 _needsUpdateFlags;
     double _input;
     double _time;
     double _output;

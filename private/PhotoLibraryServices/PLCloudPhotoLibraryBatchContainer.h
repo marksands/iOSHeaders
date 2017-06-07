@@ -12,10 +12,12 @@
 {
     _Bool _wasSplit;
     _Bool _reachedMinSplit;
+    _Bool _wasFixed;
     CPLChangeBatch *_batch;
     unsigned long long _retryCount;
 }
 
+@property(nonatomic) _Bool wasFixed; // @synthesize wasFixed=_wasFixed;
 @property(nonatomic) _Bool reachedMinSplit; // @synthesize reachedMinSplit=_reachedMinSplit;
 @property(nonatomic) _Bool wasSplit; // @synthesize wasSplit=_wasSplit;
 @property(nonatomic) unsigned long long retryCount; // @synthesize retryCount=_retryCount;

@@ -20,8 +20,8 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) _Bool suspendedCollaboration; // @synthesize suspendedCollaboration=_suspendedCollaboration;
 @property(readonly, nonatomic) long long identifer; // @synthesize identifer=_identifer;
+- (void).cxx_destruct;
 - (void)invokeWithDocumentRoot:(id)arg1;
-- (void)dealloc;
 - (id)initWithSuspendedCollaboration:(_Bool)arg1 block:(CDUnknownBlockType)arg2;
 
 @end

@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, retain, nonatomic) IKColor *tintColor; // @synthesize tintColor=_tintColor;
 - (void).cxx_destruct;
-- (void)_drawInScaledContext:(struct CGContext *)arg1;
+- (void)drawInContext:(id)arg1 imageRect:(struct CGRect)arg2;
 - (id)decoratorIdentifier;
 - (id)initWithTintColor:(id)arg1;
 

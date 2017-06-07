@@ -49,6 +49,8 @@
     long long _playCount;
     long long _shareCount;
     long long _viewCount;
+    NSString *_groupingUUID;
+    unsigned long long _groupingState;
     NSData *_facesData;
 }
 
@@ -59,6 +61,8 @@
 + (_Bool)supportsSecureCoding;
 + (_Bool)serverSupportsVision;
 @property(copy, nonatomic) NSData *facesData; // @synthesize facesData=_facesData;
+@property(nonatomic) unsigned long long groupingState; // @synthesize groupingState=_groupingState;
+@property(copy, nonatomic) NSString *groupingUUID; // @synthesize groupingUUID=_groupingUUID;
 @property(nonatomic) long long viewCount; // @synthesize viewCount=_viewCount;
 @property(nonatomic) long long shareCount; // @synthesize shareCount=_shareCount;
 @property(nonatomic) long long playCount; // @synthesize playCount=_playCount;
@@ -99,6 +103,9 @@
 @property(copy, nonatomic) NSDate *lastSharedDate; // @synthesize lastSharedDate=_lastSharedDate;
 @property(copy, nonatomic) NSString *masterIdentifier; // @synthesize masterIdentifier=_masterIdentifier;
 - (void).cxx_destruct;
+- (id)identifiersForQuarantine;
+- (unsigned long long)fullChangeTypeForFullRecord;
+- (_Bool)_canLowerQuota;
 @property(copy, nonatomic) CPLFaceAnalysisReference *faces;
 - (_Bool)validateChangeWithError:(id *)arg1;
 - (_Bool)validateFullRecord;
@@ -119,8 +126,8 @@
 - (id)translateToCloudChangeUsingIDMapping:(id)arg1 error:(id *)arg2;
 - (id)identifiersForMapping;
 - (id)proposedCloudIdentifierWithError:(id *)arg1;
+- (_Bool)validateRecordForTracker:(id)arg1;
 - (id)compactedChangeWithRelatedChanges:(id)arg1 isOnlyChange:(_Bool)arg2 fullRecord:(id)arg3 usingClientCache:(id)arg4;
-- (_Bool)addExpandedChangesToChangeBatch:(id)arg1 andApplyToClientCache:(id)arg2 error:(id *)arg3;
 
 @end
 

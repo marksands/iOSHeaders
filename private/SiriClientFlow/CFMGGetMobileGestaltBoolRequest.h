@@ -6,9 +6,11 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
+
 @class NSString;
 
-@interface CFMGGetMobileGestaltBoolRequest : SABaseClientBoundCommand
+@interface CFMGGetMobileGestaltBoolRequest : SABaseClientBoundCommand <CFLocalAceHandling>
 {
 }
 
@@ -19,6 +21,13 @@
 @property(copy, nonatomic) NSString *key;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (void)handleWithCompletion:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

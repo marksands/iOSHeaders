@@ -18,8 +18,11 @@
     long long _indexOfLastStepWithPreparedBatch;
     NSTimer *_geodCrashTimer;
     double _radialDistanceToImplicateTilesMeters;
+    long long _tilesRequested;
+    _Bool _shouldPreloadEntireRoute;
 }
 
+- (void).cxx_destruct;
 - (void)_geodCrashed:(id)arg1;
 - (void)_loadPlacecardsForBatch:(id)arg1;
 - (void)_loadTilesForBatch:(id)arg1;
@@ -32,6 +35,7 @@
 - (void)_makeBatchForTilesAroundStationsForSteps:(id)arg1;
 - (void)_ignoreAlreadyRequestedTilesAndUpdateGlobalListWithNonDuplicatesForTileKeyList:(id)arg1;
 - (void)_makeBatchesForSteps:(id)arg1;
+- (void)_performSubscriptionRequests;
 - (void)_performNextRequests;
 - (struct PolylineCoordinate)_polylineCoordinateForDouble:(double)arg1;
 - (void)_cancelAllBatches;
@@ -46,6 +50,8 @@
 - (_Bool)fullDebuggingEnabled;
 - (_Bool)minimalDebuggingEnabled;
 - (_Bool)loggingEnabled;
+- (void)setShouldPreloadEntireRoute:(_Bool)arg1;
+- (long long)tilesRequested;
 - (void)setTraits:(id)arg1;
 - (void)dealloc;
 - (void)_cancelPreloadTasks;

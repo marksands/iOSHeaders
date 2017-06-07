@@ -9,7 +9,7 @@
 @class BRCAccountSession, CKShareMetadata, NSURL;
 
 @protocol BRCUserNotifier <NSObject>
-- (void)showErroriCloudDriveAppNotVisibleForShareURL:(NSURL *)arg1 reply:(void (^)(void))arg2;
+- (void)showErrorDocumentsAppNotVisibleForShareURL:(NSURL *)arg1 reply:(void (^)(void))arg2;
 - (void)showErrorParticipantLimitReachedForShareURL:(NSURL *)arg1 reply:(void (^)(_Bool))arg2;
 - (void)showErrorItemUnavailableOrAccessRestrictedForShareURL:(NSURL *)arg1 reply:(void (^)(void))arg2;
 - (void)showErrorServerNotReachableForShareURL:(NSURL *)arg1 reply:(void (^)(void))arg2;

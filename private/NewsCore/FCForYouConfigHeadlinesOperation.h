@@ -24,8 +24,10 @@
     FCForYouConfig *_resultForYouConfig;
     NSDictionary *_resultArticleListsByID;
     NSDictionary *_resultHeadlinesByArticleListID;
+    NSDictionary *_resultHeadlinesByArticleID;
 }
 
+@property(retain, nonatomic) NSDictionary *resultHeadlinesByArticleID; // @synthesize resultHeadlinesByArticleID=_resultHeadlinesByArticleID;
 @property(retain, nonatomic) NSDictionary *resultHeadlinesByArticleListID; // @synthesize resultHeadlinesByArticleListID=_resultHeadlinesByArticleListID;
 @property(retain, nonatomic) NSDictionary *resultArticleListsByID; // @synthesize resultArticleListsByID=_resultArticleListsByID;
 @property(retain, nonatomic) FCForYouConfig *resultForYouConfig; // @synthesize resultForYouConfig=_resultForYouConfig;
@@ -40,6 +42,7 @@
 @property(copy, nonatomic) NSString *forYouConfigID; // @synthesize forYouConfigID=_forYouConfigID;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (long long)_requestTypeOverride;
 - (void)operationWillFinishWithError:(id)arg1;
 - (void)performOperation;
 - (_Bool)validateOperation;

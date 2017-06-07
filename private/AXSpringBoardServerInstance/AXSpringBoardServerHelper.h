@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <AXSpringBoardServerInstance/AXSpringBoardServerInstanceDelegate-Protocol.h>
 
@@ -17,9 +17,9 @@
     NSMutableArray *_visibleTripleClickItems;
     _Bool _shouldOverrideInterfaceOrientation;
     NSMutableArray *_notificationObservers;
+    AXSpringBoardServerSideAppManager *_sideAppManager;
     UIAlertController *_alertControllerToDismissAfterPresentation;
     AXAssertion *_disableSystemGesturesAssertionForAlert;
-    AXSpringBoardServerSideAppManager *_sideAppManager;
     UIAlertController *_zoomConflictController;
     UIAlertController *_zoomTripleClickController;
     UIAlertController *_zoomBuddyUsageController;
@@ -28,20 +28,22 @@
     UIAlertController *_touchAccommodationsUsageConfirmedController;
     UIAlertController *_tripleClickAlertController;
     UIAlertController *_brokenHomeButtonAlertController;
+    UIAlertController *_rebootDeviceAlertController;
 }
 
 + (id)_wallpaperController;
 + (id)_syncController;
-+ (id)_notificationCenterController;
 + (id)_assistantController;
 + (id)_iconController;
 + (id)_lockScreenManager;
 + (id)_awayController;
 + (id)_applicationController;
 + (id)_backlightController;
++ (id)_globalIdleTimeCoordinator;
 + (id)_uiController;
 + (id)sharedServerHelper;
 + (void)initialize;
+@property(retain, nonatomic) UIAlertController *rebootDeviceAlertController; // @synthesize rebootDeviceAlertController=_rebootDeviceAlertController;
 @property(retain, nonatomic) UIAlertController *brokenHomeButtonAlertController; // @synthesize brokenHomeButtonAlertController=_brokenHomeButtonAlertController;
 @property(retain, nonatomic) UIAlertController *tripleClickAlertController; // @synthesize tripleClickAlertController=_tripleClickAlertController;
 @property(retain, nonatomic) UIAlertController *touchAccommodationsUsageConfirmedController; // @synthesize touchAccommodationsUsageConfirmedController=_touchAccommodationsUsageConfirmedController;
@@ -50,36 +52,37 @@
 @property(retain, nonatomic) UIAlertController *zoomBuddyUsageController; // @synthesize zoomBuddyUsageController=_zoomBuddyUsageController;
 @property(retain, nonatomic) UIAlertController *zoomTripleClickController; // @synthesize zoomTripleClickController=_zoomTripleClickController;
 @property(retain, nonatomic) UIAlertController *zoomConflictController; // @synthesize zoomConflictController=_zoomConflictController;
-@property(retain, nonatomic) AXSpringBoardServerSideAppManager *sideAppManager; // @synthesize sideAppManager=_sideAppManager;
 @property(retain, nonatomic) AXAssertion *disableSystemGesturesAssertionForAlert; // @synthesize disableSystemGesturesAssertionForAlert=_disableSystemGesturesAssertionForAlert;
 @property(retain, nonatomic) UIAlertController *alertControllerToDismissAfterPresentation; // @synthesize alertControllerToDismissAfterPresentation=_alertControllerToDismissAfterPresentation;
+@property(retain, nonatomic) AXSpringBoardServerSideAppManager *sideAppManager; // @synthesize sideAppManager=_sideAppManager;
+- (void).cxx_destruct;
 - (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
 - (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
 - (_Bool)_accessibilityHandleHomeOrLockButtonPress;
+- (void)_handleConfirmRebootDevice;
 - (void)_handleZoomInBuddyAlert;
 - (void)handleBrokenHomeButtonAlert;
 - (void)_handleTouchAccommodationsUsageConfirmed;
+- (void)_handleDisableSwitchControlConfirmation;
 - (void)_handleSwitchUsageConfirmed;
 - (void)_handleVoiceOverUsageConfirmation;
-- (void)_handleUsageConfirmationDialogWithMessage:(id)arg1 storedController:(id *)arg2;
+- (id)_handleUsageConfirmationDialogWithMessage:(id)arg1 dismissBlock:(CDUnknownBlockType)arg2;
 - (void)_handleDisableBrightnessFiltersAlert:(id)arg1;
 - (void)_handleZoomTripleClickAfterConflict;
 - (void)_handleZoomConflictAlert:(id)arg1;
 - (void)_handleTripleClickAskAlert;
 - (void)dismissAlertWithCancel;
-- (void)_cleanupAlertController:(id)arg1;
+- (void)_cleanupAlertController;
 - (void)_dismissAlertController:(id)arg1;
 - (void)_displayAlertController:(id)arg1;
 - (void)_toggleTripleClickDisplay;
-- (void)_handleAlertActionPress:(id)arg1 controller:(id)arg2;
+- (void)_handleAlertActionPress:(id)arg1;
 - (void)_sortVisibleItems;
 - (_Bool)shouldOverrideInterfaceOrientation;
 - (_Bool)_shouldShowTCOption:(int)arg1;
 - (_Bool)isPasscodeLockVisible;
 - (_Bool)isPreferencesFrontmost;
 - (_Bool)isBuddyRunning;
-- (id)_titleForTripleClickOption:(int)arg1;
-- (_Bool)_valueForTripleClickOption:(int)arg1;
 - (id)_visibleTripleClickItems;
 - (_Bool)isMultiTaskingActive;
 - (id)runningAppProcessesWithServerInstance:(id)arg1;
@@ -94,11 +97,20 @@
 - (id)focusedAppPIDWithServerInstance:(id)arg1;
 - (_Bool)isSystemAppShowingAnAlertWithServerInstance:(id)arg1;
 - (_Bool)accessibilityShowControlCenter:(_Bool)arg1;
+- (_Bool)_useNewControlCenter;
+- (_Bool)_accessibilityShowNewControlCenter:(_Bool)arg1;
+- (_Bool)_isNewControlCenterVisible;
 - (_Bool)_accessibilityAllowShowNotificationGestureOverride;
 - (void)_accessibilitySetAllowShowNotificationGestureOverride:(_Bool)arg1;
-- (_Bool)accessibilityShowNotificationCenter:(_Bool)arg1;
+- (id)_accessibilityCoverSheetPresentationManagerSharedInstance;
+- (_Bool)_accessibilityShowNotificationCenter:(_Bool)arg1;
+- (void)_accessibilityShowCoverSheet:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)accessibilityIsNotificationVisible;
 - (_Bool)_accessibilityIsUILocked;
+- (void)launchFloatingApplication:(id)arg1;
+- (void)launchPinnedApplication:(id)arg1 onLeft:(_Bool)arg2;
+- (void)launchApplication:(id)arg1;
+- (void)rebootDeviceWithServerInstance:(id)arg1;
 - (void)activateSOSModeWithServerInstance:(id)arg1;
 - (void)setDashBoardSystemGesturesEnabled:(_Bool)arg1 withServerInstance:(id)arg2;
 - (void)setLockScreenDimTimerEnabled:(_Bool)arg1 withServerInstance:(id)arg2;
@@ -108,6 +120,7 @@
 - (void)launchMagnifierAppWithServerInstance:(id)arg1;
 - (void)forceLoadGAXBundleWithServerInstance:(id)arg1;
 - (void)revealSpotlightWithServerInstance:(id)arg1;
+- (id)medusaAppsWithServerInstance:(id)arg1;
 - (_Bool)serverInstance:(id)arg1 performMedusaGesture:(unsigned long long)arg2;
 - (id)allowedMedusaGesturesWithServerInstance:(id)arg1;
 - (void)setSiriIsTalking:(_Bool)arg1 withServerInstance:(id)arg2;
@@ -128,16 +141,19 @@
 - (_Bool)isSpeakThisTemporarilyDisabledWithServerInstance:(id)arg1;
 - (_Bool)isSyncingRestoringResettingOrUpdatingWithServerInstance:(id)arg1;
 - (void)dismissAppSwitcherWithServerInstance:(id)arg1;
-- (_Bool)clearSideAppStateWithServerInstance:(id)arg1;
-- (_Bool)isSideSwitcherVisibleWithServerInstance:(id)arg1;
 - (_Bool)isAppSwitcherVisibleWithServerInstance:(id)arg1;
+- (_Bool)isShowingHomescreenWithServerInstance:(id)arg1;
+- (_Bool)isDockVisibleWithServerInstance:(id)arg1;
 - (_Bool)isSiriVisibleWithServerInstance:(id)arg1;
+- (void)toggleDockWithServerInstance:(id)arg1;
 - (_Bool)isControlCenterVisibleWithServerInstance:(id)arg1;
 - (void)serverInstance:(id)arg1 showControlCenter:(_Bool)arg2;
 - (_Bool)serverInstance:(id)arg1 showNotificationCenter:(_Bool)arg2;
+- (_Bool)isCoverSheetVisibleWithServerInstance:(id)arg1;
 - (_Bool)isNotificationCenterVisibleWithServerInstance:(id)arg1;
 - (void)toggleNotificationCenterWithServerInstance:(id)arg1;
 - (_Bool)isNotificationVisibleWithServerInstance:(id)arg1;
+- (void)armApplePayWithServerInstance:(id)arg1;
 - (void)openVoiceControlWithServerInstance:(id)arg1;
 - (_Bool)dismissSiriWithServerInstance:(id)arg1;
 - (_Bool)openSiriWithServerInstance:(id)arg1;

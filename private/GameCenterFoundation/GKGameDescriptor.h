@@ -30,7 +30,7 @@
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 - (id)description;
 - (void)setDictionary:(id)arg1;
-- (id)dictionary;
+- (id)dictionaryForRequest;
 - (void)dealloc;
 - (id)initWithPushDictionary:(id)arg1;
 - (id)initWithDictionary:(id)arg1;

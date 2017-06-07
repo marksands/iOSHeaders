@@ -30,9 +30,25 @@
     _Bool _burstPicked;
     _Bool _highFramerate;
     _Bool _timeLapse;
+    NSString *_groupUUID;
+    NSString *_relatedUUID;
+    NSString *_originatingAssetID;
+    NSString *_originalFilename;
+    NSString *_createdFilename;
+    _Bool _retrievedThumbnail;
+    _Bool _retrievedMetadata;
+    _Bool _firstPicked;
     NSMutableArray *_sidecarFiles;
 }
 
+@property _Bool firstPicked; // @synthesize firstPicked=_firstPicked;
+@property _Bool retrievedMetadata; // @synthesize retrievedMetadata=_retrievedMetadata;
+@property _Bool retrievedThumbnail; // @synthesize retrievedThumbnail=_retrievedThumbnail;
+@property(retain) NSString *relatedUUID; // @synthesize relatedUUID=_relatedUUID;
+@property(retain) NSString *groupUUID; // @synthesize groupUUID=_groupUUID;
+@property(retain) NSString *createdFilename; // @synthesize createdFilename=_createdFilename;
+@property(retain) NSString *originalFilename; // @synthesize originalFilename=_originalFilename;
+@property(retain) NSString *originatingAssetID; // @synthesize originatingAssetID=_originatingAssetID;
 @property _Bool timeLapse; // @synthesize timeLapse=_timeLapse;
 @property _Bool highFramerate; // @synthesize highFramerate=_highFramerate;
 @property _Bool burstFavorite; // @synthesize burstFavorite=_burstFavorite;

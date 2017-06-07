@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOActiveResourceFilters, GEOResourceManifestConfiguration, NSLock, NSSet;
 @protocol GEOResourceFiltersManagerDelegate;
@@ -18,7 +18,8 @@ __attribute__((visibility("hidden")))
     id <GEOResourceFiltersManagerDelegate> _delegate;
 }
 
-@property(nonatomic) id <GEOResourceFiltersManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <GEOResourceFiltersManagerDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)deactivateScenario:(int)arg1;
 - (void)activateScenario:(int)arg1;
 - (void)deactivateScale:(int)arg1;
@@ -28,8 +29,8 @@ __attribute__((visibility("hidden")))
 - (void)_writeToDisk;
 @property(readonly, nonatomic) NSSet *activeScenarios;
 @property(readonly, nonatomic) NSSet *activeScales;
-- (void)dealloc;
 - (id)initWithConfiguration:(id)arg1;
+- (id)init;
 
 @end
 

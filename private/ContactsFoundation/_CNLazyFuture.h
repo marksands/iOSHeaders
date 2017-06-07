@@ -8,7 +8,6 @@
 
 @class CNFutureTask;
 
-__attribute__((visibility("hidden")))
 @interface _CNLazyFuture : CNFuture
 {
     CNFutureTask *_futureTask;

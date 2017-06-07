@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CDPDevice, NSString;
+@class CDPDCircleJoinResult, CDPDevice, NSString;
 
 @interface CDPDSecureBackupContext : NSObject
 {
@@ -17,8 +17,10 @@
     CDPDevice *_device;
     NSString *_recoverySecret;
     NSString *_recoveryKey;
+    CDPDCircleJoinResult *_circleJoinResult;
 }
 
+@property(retain, nonatomic) CDPDCircleJoinResult *circleJoinResult; // @synthesize circleJoinResult=_circleJoinResult;
 @property(nonatomic) _Bool usePreviouslyCachedSecret; // @synthesize usePreviouslyCachedSecret=_usePreviouslyCachedSecret;
 @property(copy, nonatomic) NSString *recoveryKey; // @synthesize recoveryKey=_recoveryKey;
 @property(nonatomic) _Bool silentRecovery; // @synthesize silentRecovery=_silentRecovery;

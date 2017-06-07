@@ -61,7 +61,7 @@
 @property(nonatomic) double strokeWidth; // @synthesize strokeWidth=_strokeWidth;
 @property(retain, nonatomic) UIColor *strokeColor; // @synthesize strokeColor=_strokeColor;
 @property(nonatomic) _Bool prestrokedOutputMode; // @synthesize prestrokedOutputMode=_prestrokedOutputMode;
-@property id <AKSmoothPathViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain) id <AKSmoothPathViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property __weak AKController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
 - (void)_updateInterpolatingFifoLineWidth;

@@ -34,7 +34,6 @@
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) int formatID; // @synthesize formatID=_formatID;
-- (struct CGRect)centeredRectForSourceSize:(struct CGSize)arg1;
 - (struct CGSize)scaledSizeForSourceSize:(struct CGSize)arg1 capLength:(_Bool)arg2;
 - (struct CGSize)scaledSizeForSourceSize:(struct CGSize)arg1;
 - (struct CGSize)_shortSideFormatScaledSizeForSourceSize:(struct CGSize)arg1 capLength:(_Bool)arg2;
@@ -63,6 +62,7 @@
 - (id)initWithName:(id)arg1 size:(struct CGSize)arg2 isCropped:(_Bool)arg3 version:(long long)arg4 isAlwaysFullScreen:(_Bool)arg5;
 - (id)initWithName:(id)arg1 size:(struct CGSize)arg2 isCropped:(_Bool)arg3;
 - (id)init;
+- (id)thumbnailSpecification;
 - (_Bool)_canDegradeToFormat:(id)arg1;
 - (_Bool)_isAcceptableForViewSize:(struct CGSize)arg1 contentMode:(long long)arg2 sourceAspectRatio:(double)arg3 desiredImageSize:(struct CGSize)arg4 demoteFactor:(double)arg5;
 

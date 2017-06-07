@@ -11,6 +11,7 @@
 @protocol HMHomeDelegate <NSObject>
 
 @optional
+- (void)home:(HMHome *)arg1 didUpdateHomeHubState:(unsigned long long)arg2;
 - (void)home:(HMHome *)arg1 didEncounterError:(NSError *)arg2 forAccessory:(HMAccessory *)arg3;
 - (void)home:(HMHome *)arg1 didUnblockAccessory:(HMAccessory *)arg2;
 - (void)home:(HMHome *)arg1 didUpdateTrigger:(HMTrigger *)arg2;
@@ -39,6 +40,7 @@
 - (void)home:(HMHome *)arg1 didAddUser:(HMUser *)arg2;
 - (void)home:(HMHome *)arg1 didRemoveAccessory:(HMAccessory *)arg2;
 - (void)home:(HMHome *)arg1 didAddAccessory:(HMAccessory *)arg2;
+- (void)homeDidUpdateAccessControlForCurrentUser:(HMHome *)arg1;
 - (void)homeDidUpdateName:(HMHome *)arg1;
 @end
 

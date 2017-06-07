@@ -24,11 +24,11 @@
 @property(retain, nonatomic) AXAccessQueue *connectionAccessQueue; // @synthesize connectionAccessQueue=_connectionAccessQueue;
 @property(retain, nonatomic) NSObject<OS_xpc_object> *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 @property(nonatomic, getter=isConnected) _Bool connected; // @synthesize connected=_connected;
+- (void).cxx_destruct;
 - (id)_clientWithIdentifier:(id)arg1;
 - (void)unregisterClient:(id)arg1 withIdentifier:(id)arg2;
 - (void)registerClient:(id)arg1 withIdentifier:(id)arg2;
 - (void)performBlockWithXPCConnection:(CDUnknownBlockType)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

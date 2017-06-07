@@ -11,7 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (_Bool)showLayerBorders;
++ (_Bool)showDebugIndicators;
 + (void)initialize;
 
 @end

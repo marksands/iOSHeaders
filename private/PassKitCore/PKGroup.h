@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSMutableDictionary, NSNumber, PKCatalogGroup;
 @protocol PKGroupDelegate;
@@ -36,6 +36,7 @@
 - (void)updateWithCatalogGroup:(id)arg1 passes:(id)arg2 notify:(_Bool)arg3;
 - (id)initWithCatalogGroup:(id)arg1 passes:(id)arg2;
 - (unsigned long long)indexForPassUniqueID:(id)arg1;
+- (id)passes;
 - (id)passAtIndex:(unsigned long long)arg1;
 - (unsigned long long)passCount;
 @property(readonly, nonatomic) NSNumber *groupID;

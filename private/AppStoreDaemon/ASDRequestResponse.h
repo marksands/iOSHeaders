@@ -13,11 +13,13 @@
 
 @interface ASDRequestResponse : NSObject <NSCopying, NSSecureCoding>
 {
+    _Bool _success;
     NSError *_error;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSError *error; // @synthesize error=_error;
+@property(copy) NSError *error; // @synthesize error=_error;
+@property _Bool success; // @synthesize success=_success;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @class NSArray;
-@protocol CKDZoneGatekeeperWaiter;
+@protocol CKDZoneGatekeeperWaiter, OS_os_activity;
 
 __attribute__((visibility("hidden")))
 @interface CKWaiterWrapper : NSObject
@@ -15,8 +15,10 @@ __attribute__((visibility("hidden")))
     id <CKDZoneGatekeeperWaiter> _waiter;
     NSArray *_zoneIDs;
     CDUnknownBlockType _completionHandler;
+    NSObject<OS_os_activity> *_activity;
 }
 
+@property(retain, nonatomic) NSObject<OS_os_activity> *activity; // @synthesize activity=_activity;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(retain, nonatomic) NSArray *zoneIDs; // @synthesize zoneIDs=_zoneIDs;
 @property(retain, nonatomic) id <CKDZoneGatekeeperWaiter> waiter; // @synthesize waiter=_waiter;

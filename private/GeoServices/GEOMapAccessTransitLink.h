@@ -29,7 +29,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned int minimumTravelTime;
 @property(readonly, nonatomic) NSString *internalLineName;
 @property(readonly, nonatomic) unsigned long long transitLineID;
-- (void)dealloc;
 - (id)initWithMap:(id)arg1 transitEdge:(shared_ptr_24ebf3c0)arg2;
 
 // Remaining properties

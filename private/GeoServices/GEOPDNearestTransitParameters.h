@@ -23,6 +23,7 @@
 
 @property(nonatomic) _Bool isTransitOnly; // @synthesize isTransitOnly=_isTransitOnly;
 @property(nonatomic) unsigned long long lineMuid; // @synthesize lineMuid=_lineMuid;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -35,7 +36,6 @@
 - (id)description;
 @property(nonatomic) _Bool hasIsTransitOnly;
 @property(nonatomic) _Bool hasLineMuid;
-- (void)dealloc;
 
 @end
 

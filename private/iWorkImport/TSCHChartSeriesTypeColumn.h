@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)useInBarGapCalculations;
 - (unsigned long long)valueDimensions;
 - (id)init;
+- (int)fillPropertyType;
+- (id)fillPropertyTypeName;
 - (id)g_genericToSpecificPropertyMapColumn;
 
 @end

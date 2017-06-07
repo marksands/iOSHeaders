@@ -17,9 +17,9 @@
 }
 
 @property(readonly, nonatomic) unsigned long long name; // @synthesize name=_name;
-- (void)removeOrigin:(struct _MROrigin *)arg1;
+- (void)removePlayer:(void *)arg1;
 @property(readonly, nonatomic, getter=isActive) _Bool active;
-- (void)sendPackets:(id)arg1 forOrigin:(struct _MROrigin *)arg2;
+- (void)sendPackets:(id)arg1 forPlayer:(void *)arg2;
 - (void)dealloc;
 - (id)initWithName:(unsigned long long)arg1;
 

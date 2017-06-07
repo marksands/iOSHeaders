@@ -21,6 +21,7 @@
 
 @property(retain, nonatomic) GEOCarInfo *carInfo; // @synthesize carInfo=_carInfo;
 @property(nonatomic) _Bool isConnected; // @synthesize isConnected=_isConnected;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasCarInfo;
 @property(nonatomic) _Bool hasIsConnected;
-- (void)dealloc;
 
 @end
 

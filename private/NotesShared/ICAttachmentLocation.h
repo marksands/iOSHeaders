@@ -14,8 +14,8 @@
 {
 }
 
++ (id)newAttachmentLocationWithContext:(id)arg1;
 @property(readonly, nonatomic) NSString *formattedAddressWithoutAttachmentTitle;
-- (id)authorsExcludingCurrentUser;
 - (id)targetSearchIndexable;
 
 // Remaining properties

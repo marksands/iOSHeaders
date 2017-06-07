@@ -30,6 +30,7 @@
 @property(nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 @property(nonatomic) _Bool automaticallyCancelPendingBlockUponSchedulingNewBlock; // @synthesize automaticallyCancelPendingBlockUponSchedulingNewBlock=_automaticallyCancelPendingBlockUponSchedulingNewBlock;
 @property(copy) NSString *label; // @synthesize label=_label;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)_warnAboutAsynchronousCancelling;
 - (void)_reallyCancel;

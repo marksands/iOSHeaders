@@ -10,17 +10,20 @@
 #import <CoreHAP/HAPBTLEControlOutputStreamDelegate-Protocol.h>
 #import <CoreHAP/HAPPairSetupSessionClientDelegate-Protocol.h>
 #import <CoreHAP/HAPSecuritySessionDelegate-Protocol.h>
+#import <CoreHAP/HMFLogging-Protocol.h>
 #import <CoreHAP/HMFTimerDelegate-Protocol.h>
 
-@class HAPCharacteristic, HAPPairSetupSession, HAPSecuritySession, HMFTimer, NSMapTable, NSMutableArray, NSOperationQueue, NSString, _HAPBTLEDiscoveryContext;
+@class HAPBLEAccessoryCache, HAPCharacteristic, HAPPairSetupSession, HAPSecuritySession, HMFTimer, NSMapTable, NSMutableArray, NSOperationQueue, NSString, _HAPBTLEDiscoveryContext;
 
-@interface _HAPAccessoryServerBTLE200 : HAPAccessoryServerBTLE <CBPeripheralDelegate, HAPBTLEControlOutputStreamDelegate, HAPPairSetupSessionClientDelegate, HAPSecuritySessionDelegate, HMFTimerDelegate>
+@interface _HAPAccessoryServerBTLE200 : HAPAccessoryServerBTLE <CBPeripheralDelegate, HAPBTLEControlOutputStreamDelegate, HAPPairSetupSessionClientDelegate, HAPSecuritySessionDelegate, HMFTimerDelegate, HMFLogging>
 {
+    _Bool _hasValidCache;
     _Bool _verified;
     _Bool _badPairSetupCode;
     _Bool _pairing;
     _Bool _supportsMFiPairSetup;
     HAPSecuritySession *_securitySession;
+    HAPBLEAccessoryCache *_accessoryCache;
     long long _connectionState;
     CDUnknownBlockType _connectionCompletionHandler;
     HMFTimer *_connectionIdleTimer;
@@ -42,6 +45,11 @@
     NSMapTable *_characteristicEnableEventCompletionHandlers;
 }
 
++ (id)logCategory;
++ (_Bool)parseCharacteristicConfigurationResponse:(id)arg1 error:(id *)arg2;
++ (id)configurationRequestForCharacteristic:(id)arg1 isBroadcasted:(_Bool)arg2 interval:(unsigned long long)arg3 error:(id *)arg4;
++ (_Bool)parseProtocolConfigurationResponse:(id)arg1 key:(id *)arg2 stateNumber:(id *)arg3 error:(id *)arg4;
++ (id)configurationRequestForService:(id)arg1 configRequestType:(unsigned char)arg2 error:(id *)arg3;
 + (_Bool)parseWriteResponse:(id)arg1 value:(id *)arg2 error:(id *)arg3;
 + (id)executeWriteRequestForCharacteristic:(id)arg1 options:(long long)arg2 error:(id *)arg3;
 + (id)prepareWriteRequestForCharacteristic:(id)arg1 value:(id)arg2 authorizationData:(id)arg3 options:(long long)arg4 error:(id *)arg5;
@@ -77,6 +85,8 @@
 @property(retain, nonatomic) HMFTimer *connectionIdleTimer; // @synthesize connectionIdleTimer=_connectionIdleTimer;
 @property(copy, nonatomic) CDUnknownBlockType connectionCompletionHandler; // @synthesize connectionCompletionHandler=_connectionCompletionHandler;
 @property(nonatomic) long long connectionState; // @synthesize connectionState=_connectionState;
+@property _Bool hasValidCache; // @synthesize hasValidCache=_hasValidCache;
+@property(retain) HAPBLEAccessoryCache *accessoryCache; // @synthesize accessoryCache=_accessoryCache;
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
 - (void)securitySession:(id)arg1 didCloseWithError:(id)arg2;
@@ -148,8 +158,8 @@
 - (void)_sendPairingRequestData:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)listPairingsWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)removePairingForCurrentControllerOnQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (_Bool)removePairingWithIdentifier:(id)arg1 publicKey:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (_Bool)addPairingWithIdentifier:(id)arg1 publicKey:(id)arg2 admin:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)removePairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)addPairing:(id)arg1 completionQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_pairingCompletedWithError:(id)arg1;
 - (_Bool)tryPairingPassword:(id)arg1 error:(id *)arg2;
 - (void)_handlePairingSetupCodeRequestWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -160,6 +170,12 @@
 - (void)_getPairingFeaturesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_checkForAuthPrompt;
 - (void)startPairing;
+- (void)_enableBroadcastEvent:(_Bool)arg1 interval:(unsigned long long)arg2 forCharacteristic:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_configureCharacteristics:(id)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)configureCharacteristics:(id)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)_configureBroadcastKeyGeneration:(unsigned char)arg1 service:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)_generateBroadcastKey:(unsigned char)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)generateBroadcastKey:(unsigned char)arg1 queue:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_handleEventIndicationForCharacteristic:(id)arg1;
 - (void)_handleHAPNotificationStateUpdateForCharacteristic:(id)arg1 error:(id)arg2;
 - (void)_enableEvent:(_Bool)arg1 toCharacteristic:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -186,6 +202,7 @@
 - (void)_handleReadCharacteristicSignature:(id)arg1 error:(id)arg2;
 - (void)_readServiceSignature:(id)arg1;
 - (void)_readCharacteristicSignature:(id)arg1;
+- (id)_getProtocolInfoService;
 - (id)_getServiceInstanceID:(id)arg1;
 - (id)_getCharacteristicInstanceID:(id)arg1 error:(id *)arg2;
 - (void)_readCharacteristicSignatures;
@@ -193,13 +210,20 @@
 - (void)_readDescriptorValue:(id)arg1;
 - (void)_handleReadCharacteristicValue:(id)arg1 error:(id)arg2;
 - (void)_readCharacteristicValue:(id)arg1;
+- (void)_handleDiscoveredDescriptors:(id)arg1;
 - (void)_handleDiscoveredCharactersitic:(id)arg1 error:(id)arg2;
 - (void)_discoverCharacteristic:(id)arg1;
 - (void)_handleReadServiceInstanceId:(id)arg1;
-- (void)_handleDiscoveredService:(id)arg1 error:(id)arg2;
-- (void)_discoverService:(id)arg1;
+- (void)_handleDiscoveredCharacteristicsForService:(id)arg1 error:(id)arg2;
+- (void)_discoverCharacteristicsForService:(id)arg1;
 - (void)_handleDiscoveredServices:(id)arg1 error:(id)arg2;
 - (void)_discoverServices;
+- (void)_cacheServices:(id)arg1;
+- (id)_serviceCacheFromHAPService:(id)arg1 serviceOrder:(unsigned long long)arg2;
+- (id)_hapServicesFromCache;
+- (id)_getCachedService:(id)arg1;
+- (id)_getCBService:(id)arg1 instanceOrder:(unsigned long long)arg2;
+- (id)_getCBCharacteristic:(id)arg1 instanceId:(id)arg2 service:(id)arg3;
 - (void)_handleCompletedDiscovery;
 - (void)_retryDiscovery;
 - (_Bool)_cancelDiscoveryWithError:(id)arg1;
@@ -216,7 +240,7 @@
 - (id)shortDescription;
 - (void)dealloc;
 - (void)_resetWithError:(id)arg1;
-- (id)initWithPeripheral:(id)arg1 name:(id)arg2 pairingUsername:(id)arg3 statusFlags:(id)arg4 stateNumber:(id)arg5 stateChanged:(_Bool)arg6 configNumber:(id)arg7 category:(id)arg8 connectionIdleTime:(unsigned char)arg9 browser:(id)arg10 keyStore:(id)arg11;
+- (id)initWithPeripheral:(id)arg1 name:(id)arg2 pairingUsername:(id)arg3 statusFlags:(id)arg4 stateNumber:(id)arg5 stateChanged:(_Bool)arg6 configNumber:(id)arg7 category:(id)arg8 setupHash:(id)arg9 connectionIdleTime:(unsigned char)arg10 browser:(id)arg11 keyStore:(id)arg12;
 
 // Remaining properties
 @property(readonly) unsigned long long hash;

@@ -10,12 +10,13 @@
 {
 }
 
-- (_Bool)hasIndiaConfiguration;
+- (_Bool)isAutomaticCallCountdownEnabled;
+- (_Bool)clawCanTriggerSOS;
+- (long long)lockButtonSOSTriggerCount;
 - (void)_bindAndRegisterDefaults;
 
 // Remaining properties
 @property(readonly, nonatomic) _Bool disablesForAccessibility; // @dynamic disablesForAccessibility;
-@property(readonly, nonatomic) unsigned long long numberOfPressesToTrigger; // @dynamic numberOfPressesToTrigger;
 
 @end
 

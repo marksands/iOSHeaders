@@ -18,6 +18,7 @@
 
 + (Class)clusterType;
 @property(retain, nonatomic) NSMutableArray *clusters; // @synthesize clusters=_clusters;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

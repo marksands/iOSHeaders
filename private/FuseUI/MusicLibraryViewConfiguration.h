@@ -34,8 +34,6 @@
 - (id)newSelectionEntityValueContext;
 - (id)newSectionEntityValueContext;
 - (id)newEntityValueContext;
-- (id)newContextualActionsSectionEntityValueContext;
-- (id)newContextualActionsEntityValueContext;
 - (id)loadEntityViewDescriptor;
 - (_Bool)isEntityViewDescriptorLoaded;
 - (void)handleSelectionOfAddButtonForEntityValueProvider:(id)arg1 inEntityProvider:(id)arg2 fromViewController:(id)arg3;

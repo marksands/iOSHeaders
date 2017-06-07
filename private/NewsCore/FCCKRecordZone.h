@@ -6,20 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class CKRecordZoneID, FCCKDatabase;
+@class CKRecordZoneID, FCCKPrivateDatabase;
 @protocol FCCKRecordZoneDelegate;
 
 @interface FCCKRecordZone : NSObject
 {
     _Bool _zoneReady;
     CKRecordZoneID *_recordZoneID;
-    FCCKDatabase *_database;
+    FCCKPrivateDatabase *_database;
     id <FCCKRecordZoneDelegate> _delegate;
 }
 
 @property(getter=isZoneReady) _Bool zoneReady; // @synthesize zoneReady=_zoneReady;
 @property(nonatomic) __weak id <FCCKRecordZoneDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) FCCKDatabase *database; // @synthesize database=_database;
+@property(retain, nonatomic) FCCKPrivateDatabase *database; // @synthesize database=_database;
 @property(retain, nonatomic) CKRecordZoneID *recordZoneID; // @synthesize recordZoneID=_recordZoneID;
 - (void).cxx_destruct;
 - (id)description;

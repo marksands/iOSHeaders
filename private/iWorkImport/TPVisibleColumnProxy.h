@@ -17,14 +17,14 @@ __attribute__((visibility("hidden")))
     TPPageController *_pageController;
 }
 
-- (const struct TSWPTargetHint *)p_targetLastHint;
-- (const struct TSWPTargetHint *)p_targetFirstHint;
+- (id)p_targetLastHint;
+- (id)p_targetFirstHint;
 - (void)trimToCharIndex:(unsigned long long)arg1 inTarget:(id)arg2 removeFootnoteReferenceCount:(unsigned long long)arg3 removeAutoNumberFootnoteCount:(unsigned long long)arg4;
 @property(readonly, nonatomic) unsigned long long nextWidowPullsDownFromCharIndex;
 @property(readonly, nonatomic) struct _NSRange anchoredRange;
-@property(readonly, nonatomic) unsigned long long startAnchoredCharIndex;
+- (unsigned long long)startAnchoredCharIndex;
 @property(readonly, nonatomic) struct _NSRange range;
-@property(readonly, nonatomic) unsigned long long startCharIndex;
+- (unsigned long long)startCharIndex;
 - (void)dealloc;
 - (id)initWithPageIndex:(unsigned long long)arg1 pageController:(id)arg2;
 

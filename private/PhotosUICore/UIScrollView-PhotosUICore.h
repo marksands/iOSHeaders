@@ -9,6 +9,7 @@
 @interface UIScrollView (PhotosUICore)
 @property(readonly, nonatomic) _Bool px_isPerformingScrollTest;
 - (_Bool)_px_isScrolledAtEdge:(unsigned int)arg1 tolerance:(double)arg2;
+- (struct CGPoint)px_contentOffsetForEdge:(unsigned int)arg1;
 - (void)px_scrollToEdge:(unsigned int)arg1 animated:(_Bool)arg2;
 - (_Bool)px_isScrolledAtEdge:(unsigned int)arg1 tolerance:(double)arg2;
 - (_Bool)px_isScrolledAtEdge:(unsigned int)arg1;

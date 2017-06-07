@@ -22,7 +22,9 @@
     NSString *_name;
     NSString *_softwareVersion;
     NSData *_uuid;
-    CDStruct_dc48a425 _has;
+    struct {
+        unsigned int creationDate:1;
+    } _has;
 }
 
 @property(nonatomic) double creationDate; // @synthesize creationDate=_creationDate;

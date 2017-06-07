@@ -14,6 +14,7 @@
 
 + (id)getAudioTracksAndSubtitleOptionsWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getAudioTracksAndSubtitleOptions;
+- (_Bool)mutatingCommand;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *desiredLanguage;
 - (id)encodedClassName;

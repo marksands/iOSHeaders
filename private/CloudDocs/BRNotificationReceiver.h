@@ -9,7 +9,7 @@
 #import <CloudDocs/BRItemNotificationReceiving-Protocol.h>
 
 @class BRNotificationQueue, NSMutableDictionary, NSString;
-@protocol BRItemNotificationSending, BRNotificationReceiverDelegate, OS_dispatch_queue, OS_dispatch_source;
+@protocol BRItemNotificationSending, BRNotificationReceiverDelegate, NSObject, OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
 @interface BRNotificationReceiver : NSObject <BRItemNotificationReceiving>
@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
     int _networkReachabilityToken;
     _Bool _isNetworkReachable;
     _Bool _isInvalidated;
+    id <NSObject> _accountTokenDidChangeNotificationObserver;
 }
 
 @property(retain, nonatomic) id <BRNotificationReceiverDelegate> delegate; // @synthesize delegate=_delegate;

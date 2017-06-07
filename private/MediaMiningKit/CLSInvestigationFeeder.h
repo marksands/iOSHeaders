@@ -8,15 +8,17 @@
 
 #import <MediaMiningKit/CLSInvestigationInterviewDelegate-Protocol.h>
 
-@class NSMutableSet, NSString;
+@class NSMutableSet, NSSet, NSString;
 
 @interface CLSInvestigationFeeder : NSObject <CLSInvestigationInterviewDelegate>
 {
     unsigned long long _locationClusteringAlgorithm;
     _Bool _allowsInterview;
     NSMutableSet *_focusItems;
+    NSSet *_focusPeopleUUIDs;
 }
 
+@property(retain, nonatomic) NSSet *focusPeopleUUIDs; // @synthesize focusPeopleUUIDs=_focusPeopleUUIDs;
 @property(readonly, nonatomic) NSMutableSet *focusItems; // @synthesize focusItems=_focusItems;
 @property(nonatomic) _Bool allowsInterview; // @synthesize allowsInterview=_allowsInterview;
 @property(nonatomic) unsigned long long locationClusteringAlgorithm; // @synthesize locationClusteringAlgorithm=_locationClusteringAlgorithm;
@@ -30,6 +32,7 @@
 - (void)enumerateLocationClustersWithGaussians:(id)arg1 enumerationBlock:(CDUnknownBlockType)arg2;
 - (id)itemMetadataAtIndex:(unsigned long long)arg1 withKeys:(id)arg2;
 - (struct CGImage *)itemThumbnailAtIndex:(unsigned long long)arg1 withResolution:(unsigned long long)arg2;
+- (void)enumerateItemsWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateItemsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)itemAtIndex:(unsigned long long)arg1;
 - (id)allItems;

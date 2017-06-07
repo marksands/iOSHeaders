@@ -33,6 +33,7 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
+- (unsigned long long)fastestEncoding;
 - (const char *)_fastCStringContents:(_Bool)arg1;
 - (id)dataUsingEncoding:(unsigned long long)arg1;
 - (void)getCharacters:(unsigned short *)arg1 range:(struct _NSRange)arg2;

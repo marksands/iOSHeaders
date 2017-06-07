@@ -44,6 +44,8 @@
 @property(copy, nonatomic) RTLocation *location; // @synthesize location=_location;
 @property(copy, nonatomic) NSDate *date; // @synthesize date=_date;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

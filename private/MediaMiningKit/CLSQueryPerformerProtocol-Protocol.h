@@ -7,15 +7,19 @@
 #import <MediaMiningKit/NSObject-Protocol.h>
 
 @class CLCircularRegion, NSArray;
+@protocol CLSQueryPerformerProtocol;
 
 @protocol CLSQueryPerformerProtocol <NSObject>
++ (double)defaultPrecision;
 + (unsigned long long)numberOfRegionsPerBatch;
-+ (_Bool)shouldQueryItemsForRegion:(CLCircularRegion *)arg1 selectedRegions:(NSArray *)arg2;
-+ (id)queryForRegions:(NSArray *)arg1;
++ (id)queryWithTemplate:(id <CLSQueryPerformerProtocol>)arg1 forRegions:(NSArray *)arg2;
+@property(nonatomic) double precision;
+@property(nonatomic) CDStruct_dd9df0da statistics;
 @property(readonly) _Bool isCancelled;
 - (void)cancel;
-- (void)cacheItems:(NSArray *)arg1;
+- (unsigned long long)cacheItems:(NSArray *)arg1;
 - (NSArray *)regions;
 - (void)submitWithHandler:(void (^)(NSArray *, NSError *))arg1;
+- (_Bool)shouldQueryItemsForRegion:(CLCircularRegion *)arg1 selectedRegions:(NSArray *)arg2;
 @end
 

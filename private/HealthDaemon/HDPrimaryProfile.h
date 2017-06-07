@@ -6,21 +6,44 @@
 
 #import <HealthDaemon/HDProfile.h>
 
-@class HDDataCollectionManager, HDWorkoutManager;
+@class HDAWDSubmissionManager, HDAppSubscriptionManager, HDCloudSyncManager, HDCurrentActivitySummaryHelper, HDDataCollectionManager, HDFitnessMachineManager, HDHealthServiceManager, HDNanoSyncManager, HDNotificationManager, HDServiceConnectionManager, HDWorkoutManager;
 
 @interface HDPrimaryProfile : HDProfile
 {
+    HDAppSubscriptionManager *_appSubscriptionManager;
+    HDAWDSubmissionManager *_awdSubmissionManager;
+    HDCloudSyncManager *_cloudSyncManager;
+    HDCurrentActivitySummaryHelper *_currentActivitySummaryHelper;
     HDDataCollectionManager *_dataCollectionManager;
+    HDFitnessMachineManager *_fitnessMachineManager;
+    HDNanoSyncManager *_nanoSyncManager;
+    HDNotificationManager *_notificationManager;
+    HDHealthServiceManager *_serviceManager;
+    HDServiceConnectionManager *_serviceConnectionManager;
     HDWorkoutManager *_workoutManager;
 }
 
 - (void).cxx_destruct;
-- (id)createActiveWorkoutServerWithClientServer:(id)arg1 serverConfiguration:(id)arg2 server:(id)arg3 client:(id)arg4 delegate:(id)arg5;
-- (void)terminationCleanup;
+- (void)_applyPPTUpdates;
+- (id)_newWorkoutManager;
+- (id)_newNotificationManager;
+- (id)_newNanoSyncManager;
+- (id)_newCloudSyncManager;
+- (id)_newAWDSubmissionManager;
+- (id)_newAppSubscriptionManager;
+- (id)serviceManager;
+- (id)serviceConnectionManager;
+- (id)notificationManager;
+- (id)nanoSyncManager;
+- (id)fitnessMachineManager;
 - (id)workoutManager;
-- (id)healthDataCollectionManager;
 - (id)dataCollectionManager;
-- (id)initWithHomeDirectory:(id)arg1 daemon:(id)arg2;
+- (id)currentActivitySummaryHelper;
+- (id)cloudSyncManager;
+- (id)awdSubmissionManager;
+- (id)appSubscriptionManager;
+- (void)terminationCleanup;
+- (id)initWithDirectoryPath:(id)arg1 daemon:(id)arg2;
 
 @end
 

@@ -16,9 +16,9 @@ __attribute__((visibility("hidden")))
 - (struct CGPDFDocument *)p_load;
 - (void)p_loadIfNecessary;
 - (void)flush;
-- (_Bool)hasFlushableContent;
 - (void)drawImageInContext:(struct CGContext *)arg1 rect:(struct CGRect)arg2;
 - (_Bool)isValid;
+- (unsigned long long)i_flushableMemoryEstimate;
 - (struct CGSize)naturalSize;
 @property(readonly, nonatomic) long long pageAngle;
 @property(readonly, nonatomic) struct CGPDFDocument *CGPDFDocument;

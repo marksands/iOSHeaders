@@ -18,8 +18,8 @@
 - (void).cxx_destruct;
 - (unsigned long long)navigationControllerSupportedInterfaceOrientations:(id)arg1;
 - (id)commonProfileBarButtonItem;
-- (id)initWithNavigationBarClass:(Class)arg1 toolbarClass:(Class)arg2;
 - (id)initWithRootViewController:(id)arg1;
+- (id)initLargeTitlesNavigationControllerWithRootViewController:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

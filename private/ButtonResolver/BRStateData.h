@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -16,8 +16,8 @@
     NSMutableDictionary *_speedSlots;
 }
 
-@property(copy, nonatomic) NSMutableDictionary *speedSlots; // @synthesize speedSlots=_speedSlots;
-@property(copy, nonatomic) NSMutableDictionary *speedConfigs; // @synthesize speedConfigs=_speedConfigs;
+@property(readonly, nonatomic) NSMutableDictionary *speedSlots; // @synthesize speedSlots=_speedSlots;
+@property(readonly, nonatomic) NSMutableDictionary *speedConfigs; // @synthesize speedConfigs=_speedConfigs;
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) id propertyList;

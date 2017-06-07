@@ -30,7 +30,10 @@
 - (void)scrollViewWillBeginDragging:(id)arg1;
 - (void)scrollViewDidZoom:(id)arg1;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)_reduceMotionDidChange:(id)arg1;
+- (_Bool)canPerformVitality;
 - (id)visibilityOffsetHelper;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

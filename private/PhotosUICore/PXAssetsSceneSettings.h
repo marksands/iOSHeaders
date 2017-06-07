@@ -17,6 +17,7 @@
 @property(nonatomic) _Bool enableImagePreheating; // @synthesize enableImagePreheating=_enableImagePreheating;
 @property(nonatomic) double transitionDuration; // @synthesize transitionDuration=_transitionDuration;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

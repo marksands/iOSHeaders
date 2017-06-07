@@ -21,6 +21,7 @@
     long long _idCounter;
     // Error parsing type: AQ, name: _count
     // Error parsing type: AQ, name: _maxQueueItems
+    id _lockStateChangeToken;
 }
 
 - (void).cxx_destruct;
@@ -35,6 +36,7 @@
 - (void)pop:(CDUnknownBlockType)arg1;
 - (void)_read:(CDStruct_beb4cc23)arg1 fileId:(int)arg2 callback:(CDUnknownBlockType)arg3;
 - (void)addItemWithSourceKey:(id)arg1 messageId:(id)arg2 highPriority:(_Bool)arg3 item:(id)arg4 callback:(CDUnknownBlockType)arg5;
+- (void)_openFilesForProcessingWhileLocked;
 - (void)_unlinkFileWithIdLocked:(int)arg1;
 - (void)_garbageCollectFilesAsync;
 - (void)close;
@@ -43,7 +45,9 @@
 - (unsigned long long)count;
 - (void)_initIdCounter;
 - (id)_getDb;
+- (id)_recreateDb;
 - (_Bool)_migrateDb:(id)arg1;
+- (void)dealloc;
 - (id)initWithDirectory:(id)arg1;
 
 @end

@@ -6,43 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, SFTableHeaderRowCardSection;
+@class NSMapTable, TLKGridLayoutManager;
 
 @interface SearchUIGridLayoutManager : NSObject
 {
-    _Bool _tableContainsRowHeaders;
     _Bool _isCompactTable;
-    long long _indexForFirstTrailingColumn;
-    NSArray *_spacings;
-    NSArray *_initialTruncationPriorities;
-    NSArray *_maxSizedWidthsForHeadersAndRows;
-    NSArray *_tableColumnAlignment;
-    long long _totalEqualColumns;
-    SFTableHeaderRowCardSection *_header;
-    NSArray *_sections;
+    TLKGridLayoutManager *_gridManager;
+    NSMapTable *_tableMapping;
 }
 
-+ (double)leadingSectionSpacingForView:(id)arg1 view2:(id)arg2 index:(unsigned long long)arg3 alignmentSchema:(id)arg4 allEqual:(_Bool)arg5;
-@property(retain) NSArray *sections; // @synthesize sections=_sections;
-@property(retain) SFTableHeaderRowCardSection *header; // @synthesize header=_header;
-@property long long totalEqualColumns; // @synthesize totalEqualColumns=_totalEqualColumns;
++ (id)itemsForDataItems:(id)arg1;
++ (id)alignmentsForSFHeaderRow:(id)arg1;
++ (_Bool)shouldHideViewForSection:(id)arg1;
+@property(retain) NSMapTable *tableMapping; // @synthesize tableMapping=_tableMapping;
 @property _Bool isCompactTable; // @synthesize isCompactTable=_isCompactTable;
-@property _Bool tableContainsRowHeaders; // @synthesize tableContainsRowHeaders=_tableContainsRowHeaders;
-@property(retain) NSArray *tableColumnAlignment; // @synthesize tableColumnAlignment=_tableColumnAlignment;
-@property(retain) NSArray *maxSizedWidthsForHeadersAndRows; // @synthesize maxSizedWidthsForHeadersAndRows=_maxSizedWidthsForHeadersAndRows;
-@property(retain) NSArray *initialTruncationPriorities; // @synthesize initialTruncationPriorities=_initialTruncationPriorities;
-@property(retain) NSArray *spacings; // @synthesize spacings=_spacings;
-@property long long indexForFirstTrailingColumn; // @synthesize indexForFirstTrailingColumn=_indexForFirstTrailingColumn;
+@property(retain) TLKGridLayoutManager *gridManager; // @synthesize gridManager=_gridManager;
 - (void).cxx_destruct;
-- (_Bool)hasManyTrailingColumns;
-- (id)truncationPriorities:(unsigned long long)arg1 alignments:(id)arg2;
-- (double)trailingSectionSpacingBasedOnTotalViewsInSection:(long long)arg1;
-- (long long)numberOfColumns;
-- (_Bool)allEqualColumns;
-- (id)spacingsForViewsInSection;
-- (void)maxWidthColumsForSection:(id)arg1 widths:(double *)arg2 attributes:(id)arg3;
-- (id)maxSizes;
-- (id)fastPathSizing;
+- (id)tableRowForTableRowCardSection:(id)arg1;
+- (_Bool)computeCompactTableForSections:(id)arg1;
 - (id)initWithHeaderSection:(id)arg1 dataSections:(id)arg2;
 
 @end

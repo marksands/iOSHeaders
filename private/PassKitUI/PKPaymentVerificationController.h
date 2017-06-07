@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <PassKitUI/SKStoreProductViewControllerDelegate-Protocol.h>
 #import <PassKitUI/UINavigationControllerDelegate-Protocol.h>
 
-@class NSNumber, NSString, PKPassView, PKPaymentPass, PKPaymentWebService, PKVerificationRequestRecord, UIImage;
+@class NSNumber, NSString, PKPassView, PKPaymentPass, PKPaymentProvisioningController, PKPaymentWebService, PKVerificationRequestRecord, UIImage;
 @protocol PKPaymentSetupViewControllerDelegate, PKPaymentVerificationControllerDelegate;
 
-@interface PKPaymentVerificationController : NSObject <SKStoreProductViewControllerDelegate, UINavigationControllerDelegate>
+@interface PKPaymentVerificationController : NSObject <UINavigationControllerDelegate>
 {
     NSString *_installedBankAppBundleID;
     NSString *_installedBankAppTitle;
@@ -27,10 +26,12 @@
     long long _context;
     long long _verificationContext;
     PKVerificationRequestRecord *_verificationRecord;
+    PKPaymentProvisioningController *_provisioningController;
     PKPassView *_passView;
 }
 
 @property(retain, nonatomic) PKPassView *passView; // @synthesize passView=_passView;
+@property(retain, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 @property(readonly, nonatomic) PKVerificationRequestRecord *verificationRecord; // @synthesize verificationRecord=_verificationRecord;
 @property(nonatomic) long long verificationContext; // @synthesize verificationContext=_verificationContext;
 @property(nonatomic) long long context; // @synthesize context=_context;
@@ -43,7 +44,6 @@
 - (void)submitVerificationCode:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performVerificationUpdateRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performVerificationOptionsRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)fetchVerificationOptionsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)_requestDelegatePresentationOfViewController:(id)arg1;
 - (void)_wrapViewControllerAndRequestDelegatePresentationOfView:(id)arg1;

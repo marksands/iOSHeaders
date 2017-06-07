@@ -13,11 +13,14 @@
 @interface NTPBPersonalizationWhitelist : PBCodable <NSCopying>
 {
     NSMutableArray *_defaultTags;
+    NSMutableArray *_disabledPortraitTags;
     NSMutableArray *_optionalTags;
 }
 
++ (Class)disabledPortraitTagsType;
 + (Class)optionalTagsType;
 + (Class)defaultTagsType;
+@property(retain, nonatomic) NSMutableArray *disabledPortraitTags; // @synthesize disabledPortraitTags=_disabledPortraitTags;
 @property(retain, nonatomic) NSMutableArray *optionalTags; // @synthesize optionalTags=_optionalTags;
 @property(retain, nonatomic) NSMutableArray *defaultTags; // @synthesize defaultTags=_defaultTags;
 - (void).cxx_destruct;
@@ -29,6 +32,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)disabledPortraitTagsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)disabledPortraitTagsCount;
+- (void)addDisabledPortraitTags:(id)arg1;
+- (void)clearDisabledPortraitTags;
 - (id)optionalTagsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)optionalTagsCount;
 - (void)addOptionalTags:(id)arg1;

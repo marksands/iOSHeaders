@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOCompletionGroup-Protocol.h>
 
@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) NSString *localizedSectionHeader; // @synthesize localizedSectionHeader=_localizedSectionHeader;
 @property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithSection:(id)arg1 traits:(id)arg2 entryListIndex:(int)arg3 mapItems:(id)arg4;
 
 // Remaining properties

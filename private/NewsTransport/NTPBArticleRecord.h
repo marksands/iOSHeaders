@@ -8,20 +8,10 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString, NTPBDate, NTPBRecordBase;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, NSMutableArray, NSString, NTPBDate, NTPBRecordBase;
 
 @interface NTPBArticleRecord : PBCodable <NSCopying>
 {
-    struct {
-        unsigned long long *list;
-        unsigned long long count;
-        unsigned long long size;
-    } _topicFlags;
-    struct {
-        double *list;
-        unsigned long long count;
-        unsigned long long size;
-    } _topicScores;
     long long _backendArticleVersion;
     long long _behaviorFlags;
     long long _minimumNewsVersion;
@@ -48,6 +38,7 @@
     NSString *_excerptURL;
     NSString *_flintDocumentURL;
     NSMutableArray *_flintFontResourceIDs;
+    COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_globalCohort;
     NSMutableArray *_iAdCategories;
     NSMutableArray *_iAdKeywords;
     NSMutableArray *_iAdSectionIDs;
@@ -57,6 +48,7 @@
     NSString *_referencedArticleID;
     NSMutableArray *_relatedArticleIDs;
     NSString *_shortExcerpt;
+    COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *_sourceChannelCohort;
     NSString *_sourceChannelTagID;
     int _storyType;
     NSString *_subtitle;
@@ -72,7 +64,7 @@
     NSString *_thumbnailWidgetTaggedURL;
     NSString *_thumbnailWidgetURL;
     NSString *_title;
-    NSMutableArray *_topicIDs;
+    NSMutableArray *_topics;
     NSString *_videoURL;
     _Bool _isDraft;
     _Bool _isFeatureCandidate;
@@ -102,6 +94,7 @@
     } _has;
 }
 
++ (Class)topicsType;
 + (Class)moreFromPublisherArticleIDsType;
 + (Class)relatedArticleIDsType;
 + (Class)allowedStorefrontIDsType;
@@ -110,7 +103,9 @@
 + (Class)iAdKeywordsType;
 + (Class)iAdCategoriesType;
 + (Class)flintFontResourceIDsType;
-+ (Class)topicIDsType;
+@property(retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort; // @synthesize globalCohort=_globalCohort;
+@property(retain, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *sourceChannelCohort; // @synthesize sourceChannelCohort=_sourceChannelCohort;
+@property(retain, nonatomic) NSMutableArray *topics; // @synthesize topics=_topics;
 @property(nonatomic) long long thumbnailWidgetHQMetadata; // @synthesize thumbnailWidgetHQMetadata=_thumbnailWidgetHQMetadata;
 @property(retain, nonatomic) NSString *thumbnailWidgetHQTaggedURL; // @synthesize thumbnailWidgetHQTaggedURL=_thumbnailWidgetHQTaggedURL;
 @property(retain, nonatomic) NSString *thumbnailWidgetHQURL; // @synthesize thumbnailWidgetHQURL=_thumbnailWidgetHQURL;
@@ -156,7 +151,6 @@
 @property(retain, nonatomic) NSString *primaryAudience; // @synthesize primaryAudience=_primaryAudience;
 @property(nonatomic) long long thumbnailLQMetadata; // @synthesize thumbnailLQMetadata=_thumbnailLQMetadata;
 @property(retain, nonatomic) NSString *thumbnailLQURL; // @synthesize thumbnailLQURL=_thumbnailLQURL;
-@property(retain, nonatomic) NSMutableArray *topicIDs; // @synthesize topicIDs=_topicIDs;
 @property(nonatomic) long long backendArticleVersion; // @synthesize backendArticleVersion=_backendArticleVersion;
 @property(nonatomic) long long publisherArticleVersion; // @synthesize publisherArticleVersion=_publisherArticleVersion;
 @property(retain, nonatomic) NTPBDate *publishDate; // @synthesize publishDate=_publishDate;
@@ -173,12 +167,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (void)setTopicScores:(double *)arg1 count:(unsigned long long)arg2;
-- (double)topicScoresAtIndex:(unsigned long long)arg1;
-- (void)addTopicScores:(double)arg1;
-- (void)clearTopicScores;
-@property(readonly, nonatomic) double *topicScores;
-@property(readonly, nonatomic) unsigned long long topicScoresCount;
+@property(readonly, nonatomic) _Bool hasGlobalCohort;
+@property(readonly, nonatomic) _Bool hasSourceChannelCohort;
+- (id)topicsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)topicsCount;
+- (void)addTopics:(id)arg1;
+- (void)clearTopics;
 @property(nonatomic) _Bool hasThumbnailWidgetHQMetadata;
 @property(readonly, nonatomic) _Bool hasThumbnailWidgetHQTaggedURL;
 @property(readonly, nonatomic) _Bool hasThumbnailWidgetHQURL;
@@ -252,16 +246,6 @@
 @property(readonly, nonatomic) _Bool hasPrimaryAudience;
 @property(nonatomic) _Bool hasThumbnailLQMetadata;
 @property(readonly, nonatomic) _Bool hasThumbnailLQURL;
-- (void)setTopicFlags:(unsigned long long *)arg1 count:(unsigned long long)arg2;
-- (unsigned long long)topicFlagsAtIndex:(unsigned long long)arg1;
-- (void)addTopicFlags:(unsigned long long)arg1;
-- (void)clearTopicFlags;
-@property(readonly, nonatomic) unsigned long long *topicFlags;
-@property(readonly, nonatomic) unsigned long long topicFlagsCount;
-- (id)topicIDsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)topicIDsCount;
-- (void)addTopicIDs:(id)arg1;
-- (void)clearTopicIDs;
 @property(nonatomic) _Bool hasBackendArticleVersion;
 @property(nonatomic) _Bool hasPublisherArticleVersion;
 @property(readonly, nonatomic) _Bool hasPublishDate;

@@ -10,7 +10,7 @@
 #import <iWorkImport/TSDPartitioner-Protocol.h>
 
 @class NSString, TSDCanvas, TSDLayout, TSUPointerKeyDictionary;
-@protocol TSDInfo;
+@protocol TSDCanvasProxyDelegate, TSDInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSDDefaultPartitioner : NSObject <TSDPartitioner, TSDCanvasDelegate>
@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithInfo:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) id <TSDCanvasProxyDelegate> canvasProxyDelegate;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

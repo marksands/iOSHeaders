@@ -7,9 +7,13 @@
 #import <HomeUI/NSObject-Protocol.h>
 
 @class HFItem;
+@protocol HUResizableCellDelegate;
 
 @protocol HUCellProtocol <NSObject>
 @property(retain, nonatomic) HFItem *item;
 - (void)updateUIWithAnimation:(_Bool)arg1;
+
+@optional
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @end
 

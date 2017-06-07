@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
 
@@ -23,6 +23,7 @@
     _Bool _isLocalAccountVisible;
 }
 
+- (void).cxx_destruct;
 - (void)accountDisabled:(id)arg1 onService:(id)arg2;
 - (void)accountEnabled:(id)arg1 onService:(id)arg2;
 - (void)setupCompleteForAccount:(id)arg1 transactionID:(id)arg2 setupError:(id)arg3;
@@ -55,10 +56,10 @@
 - (void)_callDelegatesWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
-@property(readonly, retain, nonatomic) NSString *serviceName;
-@property(readonly, retain, nonatomic) NSSet *enabledAccounts;
-@property(readonly, retain, nonatomic) NSSet *internalAccounts;
-@property(readonly, retain, nonatomic) NSSet *accounts;
+@property(readonly, nonatomic) NSString *serviceName;
+@property(readonly, nonatomic) NSSet *enabledAccounts;
+@property(readonly, nonatomic) NSSet *internalAccounts;
+@property(readonly, nonatomic) NSSet *accounts;
 - (void)dealloc;
 - (id)initWithService:(id)arg1 delegateContext:(id)arg2;
 

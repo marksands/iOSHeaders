@@ -26,10 +26,6 @@
     } _has;
 }
 
-+ (id)logMessageUsageMetricForFailedMsgWithCount:(int)arg1;
-+ (id)logMessageUsageMetricForPurgeWithState:(int)arg1 messageCount:(int)arg2;
-+ (id)logMessageUsageMetricForForcePurgeWithState:(int)arg1;
-+ (id)logMessageUsageMetricForNetworkWithState:(int)arg1 messageCount:(int)arg2 messageSize:(long long)arg3 retryCount:(int)arg4;
 @property(nonatomic) struct GEOSessionID sessionId; // @synthesize sessionId=_sessionId;
 @property(nonatomic) unsigned int retryCount; // @synthesize retryCount=_retryCount;
 @property(nonatomic) unsigned long long messageSize; // @synthesize messageSize=_messageSize;

@@ -21,6 +21,8 @@ __attribute__((visibility("hidden")))
     _Bool _canSeek;
     _Bool _hasEnabledAudio;
     _Bool _hasEnabledVideo;
+    _Bool _hasVideo;
+    _Bool _muted;
     _Bool _playingOnSecondScreen;
     _Bool _externalPlaybackActive;
     _Bool _allowsExternalPlayback;
@@ -62,6 +64,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, getter=isPlayingOnSecondScreen) _Bool playingOnSecondScreen; // @synthesize playingOnSecondScreen=_playingOnSecondScreen;
 @property(retain) NSArray *legibleMediaSelectionOptions; // @synthesize legibleMediaSelectionOptions=_legibleMediaSelectionOptions;
 @property(retain) NSArray *audioMediaSelectionOptions; // @synthesize audioMediaSelectionOptions=_audioMediaSelectionOptions;
+@property(getter=isMuted) _Bool muted; // @synthesize muted=_muted;
 @property(retain) NSArray *seekableTimeRanges; // @synthesize seekableTimeRanges=_seekableTimeRanges;
 @property(retain) AVValueTiming *timing; // @synthesize timing=_timing;
 @property long long status; // @synthesize status=_status;
@@ -69,6 +72,7 @@ __attribute__((visibility("hidden")))
 @property double contentDurationWithinEndTimes; // @synthesize contentDurationWithinEndTimes=_contentDurationWithinEndTimes;
 @property double maxTime; // @synthesize maxTime=_maxTime;
 @property double minTime; // @synthesize minTime=_minTime;
+@property _Bool hasVideo; // @synthesize hasVideo=_hasVideo;
 @property _Bool hasEnabledVideo; // @synthesize hasEnabledVideo=_hasEnabledVideo;
 @property _Bool hasEnabledAudio; // @synthesize hasEnabledAudio=_hasEnabledAudio;
 @property struct CGSize contentDimensions; // @synthesize contentDimensions=_contentDimensions;
@@ -82,6 +86,7 @@ __attribute__((visibility("hidden")))
 @property struct WebPlaybackSessionInterfaceAVKit *playbackSessionInterface; // @synthesize playbackSessionInterface=_playbackSessionInterface;
 @property struct WebPlaybackSessionModel *delegate; // @synthesize delegate=_delegate;
 @property(retain) AVPlayerController *playerControllerProxy; // @synthesize playerControllerProxy=_playerControllerProxy;
+- (void)toggleMuted:(id)arg1;
 @property(getter=isPictureInPictureInterrupted) _Bool pictureInPictureInterrupted;
 @property(readonly, getter=isPlayingOnExternalScreen) _Bool playingOnExternalScreen;
 @property(retain) WebAVMediaSelectionOption *currentLegibleMediaSelectionOption;

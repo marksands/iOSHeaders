@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GameCenterUI/GKServiceViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionHostProtocol-Protocol.h>
 
 @class GKChallengeInternal, GKTurnBasedMatchInternal, NSNumber, NSString;
 
-@protocol GKGameCenterDashboardHostProtocol <GKServiceViewControllerDelegate>
+@protocol GKGameCenterDashboardHostProtocol <GKExtensionHostProtocol>
+
+@optional
 - (void)requestImagesForLeaderboardsInSet:(NSString *)arg1 handler:(void (^)(NSError *))arg2;
 - (void)requestImagesForLeaderboardSetsWithHandler:(void (^)(NSError *))arg1;
 - (void)requestDashboardLogoImageWithHandler:(void (^)(NSError *))arg1;

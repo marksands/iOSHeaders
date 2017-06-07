@@ -17,10 +17,11 @@
     struct _NSRange _messagePartRange;
     NSArray *_visibleAssociatedMessageChatItems;
     NSArray *_messageEditChatItems;
+    _Bool _isBusiness;
 }
 
 + (id)_messageItemWithPartsDeleted:(id)arg1 fromMessageItem:(id)arg2;
-+ (id)_newMessagePartsForMessageItem:(id)arg1 shouldDisplayLink:(_Bool)arg2;
++ (id)_newMessagePartsForMessageItem:(id)arg1 shouldDisplayLink:(_Bool)arg2 isBusiness:(_Bool)arg3;
 + (_Bool)_isWhiteListedURL:(id)arg1;
 + (id)_defaultRichLinkWhiteList;
 + (id)_newMessagePartsForMessageItem:(id)arg1;
@@ -36,6 +37,7 @@
 - (void)_setMessageEditChatItems:(id)arg1;
 - (id)_initWithItem:(id)arg1 text:(id)arg2 index:(long long)arg3 messagePartRange:(struct _NSRange)arg4 visibleAssociatedMessageChatItems:(id)arg5;
 - (id)_initWithItem:(id)arg1 messagePartRange:(struct _NSRange)arg2;
+@property(nonatomic) _Bool isBusiness; // @synthesize isBusiness=_isBusiness;
 - (_Bool)canDelete;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, copy) NSString *description;

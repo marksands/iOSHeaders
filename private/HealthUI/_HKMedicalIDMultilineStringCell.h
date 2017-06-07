@@ -6,9 +6,11 @@
 
 #import <UIKit/UITableViewCell.h>
 
+#import <HealthUI/HKMultilineCellHeightEstimatable-Protocol.h>
+
 @class NSString, UILabel, UITextView;
 
-@interface _HKMedicalIDMultilineStringCell : UITableViewCell
+@interface _HKMedicalIDMultilineStringCell : UITableViewCell <HKMultilineCellHeightEstimatable>
 {
     UILabel *_titleLabel;
     UITextView *_textLabel;
@@ -17,6 +19,7 @@
 
 @property(retain, nonatomic) NSString *stringValue; // @synthesize stringValue=_stringValue;
 - (void).cxx_destruct;
+- (double)estimatedHeightWithWidth:(double)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 @property(nonatomic, getter=isBodyTextInteractive) _Bool bodyTextInteractive;
@@ -24,6 +27,12 @@
 - (void)_contentSizeCategoryDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,78 +6,72 @@
 
 #import <objc/NSObject.h>
 
-#import <Navigation/MNAudioOutputSettingsManagerObserver-Protocol.h>
-#import <Navigation/MNGuidanceLevelUpdaterDelegate-Protocol.h>
-#import <Navigation/MNNavigationServiceDaemonInterface-Protocol.h>
-#import <Navigation/MNNavigationSessionObserver-Protocol.h>
-#import <Navigation/MNNavigationTraceManagerDelegate-Protocol.h>
+#import <Navigation/MNNavigationServiceProxy-Protocol.h>
+#import <Navigation/MNNavigationSessionManagerDelegate-Protocol.h>
+#import <Navigation/MNNavigationStateObserver-Protocol.h>
 
-@class MNAudioOutputSettingsManager, MNGuidanceLevelUpdater, MNNavigationProxyUpdater, MNNavigationSession, MNNavigationTraceManager, MNRouteManager, MNSettings, MNSettingsManager, NSMutableDictionary, NSString;
-@protocol MNNavigationServiceClientInterface, OS_os_transaction;
+@class NSString;
+@protocol MNNavigationServiceClientInterface;
 
 __attribute__((visibility("hidden")))
-@interface MNNavigationServiceLocalProxy : NSObject <MNNavigationSessionObserver, MNGuidanceLevelUpdaterDelegate, MNNavigationTraceManagerDelegate, MNAudioOutputSettingsManagerObserver, MNNavigationServiceDaemonInterface>
+@interface MNNavigationServiceLocalProxy : NSObject <MNNavigationStateObserver, MNNavigationSessionManagerDelegate, MNNavigationServiceProxy>
 {
     id <MNNavigationServiceClientInterface> _delegate;
     unsigned long long _navigationServiceState;
-    MNSettings *_settings;
-    MNRouteManager *_routeManager;
-    MNNavigationSession *_navigationSession;
-    MNNavigationProxyUpdater *_proxyUpdater;
-    MNGuidanceLevelUpdater *_guidanceLevelUpdater;
-    MNNavigationTraceManager *_traceManager;
-    MNSettingsManager *_settingsManager;
-    MNAudioOutputSettingsManager *_audioOutputSettingsManager;
-    CDUnknownBlockType _activeNavigationHandler;
-    NSObject<OS_os_transaction> *_xpcTransaction;
-    NSMutableDictionary *_trafficIncidentAlertCallbacks;
+    CDUnknownBlockType _navigationServiceActiveBlock;
+    CDUnknownBlockType _navigationServiceActivePredictingBlock;
 }
 
-@property(readonly, nonatomic) MNNavigationSession *navigationSession; // @synthesize navigationSession=_navigationSession;
-@property(readonly, nonatomic) MNSettings *settings; // @synthesize settings=_settings;
 @property(nonatomic) __weak id <MNNavigationServiceClientInterface> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)audioOutputSettingsManager:(id)arg1 didUpdateRouteSelection:(unsigned long long)arg2;
-- (void)audioOutputSettingsManager:(id)arg1 didUpdateCurrentSettingForVoicePrompt:(id)arg2;
-- (void)audioOutputSettingsManager:(id)arg1 didUpdateCurrentSetting:(id)arg2;
-- (void)audioOutputSettingsManager:(id)arg1 didUpdateSettings:(id)arg2;
-- (void)navigationTraceManagerDidFailToRecordTrace:(id)arg1;
-- (void)navigationTraceManager:(id)arg1 didUpdateTracePlaybackDetails:(id)arg2;
-- (void)guidanceLevelUpdater:(id)arg1 didUpdateGuidanceLevel:(int)arg2;
-- (void)navigationSession:(id)arg1 didStartSpeakingPrompt:(id)arg2;
-- (void)navigationSession:(id)arg1 didActivateAudioSession:(_Bool)arg2;
-- (void)navigationSession:(id)arg1 didUpdateFeedback:(id)arg2 forAlightingStepAtIndex:(unsigned long long)arg3;
-- (void)navigationSession:(id)arg1 didSignalAlightForStepAtIndex:(unsigned long long)arg2;
-- (void)navigationSession:(id)arg1 didInvalidateTrafficIncidentAlert:(id)arg2;
-- (void)navigationSession:(id)arg1 didUpdateTrafficIncidentAlert:(id)arg2;
-- (void)navigationSession:(id)arg1 didReceiveTrafficIncidentAlert:(id)arg2 responseCallback:(CDUnknownBlockType)arg3;
-- (void)navigationSession:(id)arg1 didEnableGuidancePrompts:(_Bool)arg2;
-- (void)navigationSessionHideSecondaryStep:(id)arg1;
-- (void)navigationSession:(id)arg1 displaySecondaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6;
-- (void)navigationSession:(id)arg1 displayManeuverAlertForAnnouncementStage:(unsigned long long)arg2;
-- (void)navigationSession:(id)arg1 displayPrimaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6 maneuverStepIndex:(unsigned long long)arg7 isSynthetic:(_Bool)arg8;
-- (void)navigationSession:(id)arg1 currentStepIndex:(unsigned long long)arg2 didUpdateDistanceUntilManeuver:(double)arg3 timeUntilManeuver:(double)arg4;
-- (void)navigationSession:(id)arg1 currentStepIndex:(unsigned long long)arg2 didUpdateDistanceUntilSign:(double)arg3 timeUntilSign:(double)arg4;
-- (void)navigationSession:(id)arg1 proceedToRouteDistance:(double)arg2 displayString:(id)arg3 closestStepIndex:(unsigned long long)arg4;
-- (void)navigationSession:(id)arg1 failedRerouteWithErrorCode:(long long)arg2;
-- (void)navigationSession:(id)arg1 didSwitchToNewTransportType:(int)arg2 newRoute:(id)arg3;
-- (void)navigationSession:(id)arg1 didReroute:(id)arg2 withLocation:(id)arg3;
-- (void)navigationSessionDidCancelReroute:(id)arg1;
-- (void)navigationSessionWillReroute:(id)arg1;
-- (void)navigationSession:(id)arg1 didUpdateHeading:(double)arg2 accuracy:(double)arg3;
-- (void)navigationSession:(id)arg1 didUpdateTrafficForETARoute:(id)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4;
-- (void)navigationSession:(id)arg1 didUpdateRemainingTime:(double)arg2 remainingDistance:(double)arg3;
-- (void)navigationSessionWillResumeFromPause:(id)arg1;
-- (void)navigationSessionWillPause:(id)arg1;
-- (void)navigationSessionDidArrive:(id)arg1;
-- (void)navigationSession:(id)arg1 matchedToStepIndex:(unsigned long long)arg2 legIndex:(unsigned long long)arg3;
-- (void)navigationSession:(id)arg1 didUpdateMatchedLocation:(id)arg2;
-- (void)navigationSession:(id)arg1 didChangeGuidanceState:(id)arg2;
-- (void)navigationSession:(id)arg1 didChangeNavigationState:(int)arg2;
-- (void)_failWithError:(id)arg1;
-- (void)_transitionToState:(unsigned long long)arg1 withSuccessHandler:(CDUnknownBlockType)arg2;
-- (void)_endXPCTransaction;
-- (void)_startXPCTransaction;
+- (void)navigationSessionManager:(id)arg1 didUpdateTracePlaybackDetails:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didStartUsingVoiceLanguage:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didUpdateAudioRouteSelection:(unsigned long long)arg2;
+- (void)navigationSessionManager:(id)arg1 didUpdateCurrentAudioSettingForVoicePrompt:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didUpdateCurrentAudioSetting:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didUpdateAudioSettings:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didStartSpeakingPrompt:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didUpdateFeedback:(id)arg2 forAlightingStepAtIndex:(unsigned long long)arg3;
+- (void)navigationSessionManager:(id)arg1 didSignalAlightForStepAtIndex:(unsigned long long)arg2;
+- (void)navigationSessionManager:(id)arg1 didInvalidateTrafficIncidentAlert:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didUpdateTrafficIncidentAlert:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didReceiveTrafficIncidentAlert:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didEnableGuidancePrompts:(_Bool)arg2;
+- (void)navigationSessionManager:(id)arg1 hideLaneDirectionsForId:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 showLaneDirections:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 updateSignsWithInfo:(id)arg2;
+- (void)navigationSessionManagerHideSecondaryStep:(id)arg1;
+- (void)navigationSessionManager:(id)arg1 displaySecondaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6;
+- (void)navigationSessionManager:(id)arg1 displayManeuverAlertForAnnouncementStage:(unsigned long long)arg2;
+- (void)navigationSessionManager:(id)arg1 displayPrimaryStep:(id)arg2 instructions:(id)arg3 shieldType:(int)arg4 shieldText:(id)arg5 drivingSide:(int)arg6 maneuverStepIndex:(unsigned long long)arg7 isSynthetic:(_Bool)arg8;
+- (void)navigationSessionManager:(id)arg1 willAnnounce:(unsigned long long)arg2 inSeconds:(double)arg3;
+- (void)navigationSessionManager:(id)arg1 currentStepIndex:(unsigned long long)arg2 didUpdateDistanceUntilManeuver:(double)arg3 timeUntilManeuver:(double)arg4;
+- (void)navigationSessionManager:(id)arg1 currentStepIndex:(unsigned long long)arg2 didUpdateDistanceUntilSign:(double)arg3 timeUntilSign:(double)arg4;
+- (void)navigationSessionManager:(id)arg1 proceedToRouteDistance:(double)arg2 displayString:(id)arg3 closestStepIndex:(unsigned long long)arg4;
+- (void)navigationSessionManager:(id)arg1 didUpdateAlternateRoutes:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 failedRerouteWithErrorCode:(long long)arg2;
+- (void)navigationSessionManager:(id)arg1 didSwitchToNewTransportType:(int)arg2 newRoute:(id)arg3;
+- (void)navigationSessionManager:(id)arg1 didRerouteWithDetails:(id)arg2 locationDetails:(id)arg3;
+- (void)navigationSessionManagerDidCancelReroute:(id)arg1;
+- (void)navigationSessionManagerWillReroute:(id)arg1;
+- (void)navigationSessionManager:(id)arg1 didUpdateHeading:(double)arg2 accuracy:(double)arg3;
+- (void)navigationSessionManager:(id)arg1 didUpdateTrafficForETARoute:(id)arg2 from:(unsigned int)arg3 to:(unsigned int)arg4 withRouteDetails:(id)arg5;
+- (void)navigationSessionManager:(id)arg1 didUpdateRemainingTime:(double)arg2 remainingDistance:(double)arg3;
+- (void)navigationSessionManager:(id)arg1 didUpdateDisplayETA:(id)arg2 displayRemainingMinutes:(unsigned long long)arg3 withRouteDetails:(id)arg4;
+- (void)navigationSessionManagerWillResumeFromPause:(id)arg1;
+- (void)navigationSessionManagerWillPause:(id)arg1;
+- (void)navigationSessionManagerDidArrive:(id)arg1;
+- (void)navigationSessionManager:(id)arg1 didUpdateStepIndex:(unsigned long long)arg2 legIndex:(unsigned long long)arg3;
+- (void)navigationSessionManager:(id)arg1 didUpdateLocation:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didChangeNavigationState:(int)arg2;
+- (void)navigationSessionManager:(id)arg1 didFailWithError:(id)arg2;
+- (void)navigationSessionManager:(id)arg1 didUpdateActiveRouteDetails:(id)arg2;
+- (void)stateManager:(id)arg1 didUpdatePossibleDestinations:(id)arg2;
+- (void)stateManager:(id)arg1 didUpdateIsInVehicle:(_Bool)arg2;
+- (unsigned long long)_serviceStateForStateType:(unsigned long long)arg1;
+- (void)stateManager:(id)arg1 didChangeFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
+- (void)stateManager:(id)arg1 willChangeFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
+- (void)interfaceHashesWithHandler:(CDUnknownBlockType)arg1;
 - (void)recordTraceBookmarkAtCurrentPositionWthScreenshotData:(id)arg1;
 - (void)setTracePosition:(double)arg1;
 - (void)setTracePlaybackSpeed:(double)arg1;
@@ -86,26 +80,25 @@ __attribute__((visibility("hidden")))
 - (void)setRideIndex:(unsigned long long)arg1 forLegIndex:(unsigned long long)arg2;
 - (void)setDisplayedStepIndex:(unsigned long long)arg1;
 - (void)setIsConnectedToCarplay:(_Bool)arg1;
-@property(nonatomic) _Bool guidancePromptsEnabled;
-@property(nonatomic) int headingOrientation;
+- (void)setGuidancePromptsEnabled:(_Bool)arg1;
+- (void)setHeadingOrientation:(int)arg1;
 - (void)setCurrentAudioOutputSetting:(id)arg1;
 - (void)setHFPPreference:(_Bool)arg1 forSetting:(id)arg2;
-- (void)resumeGuidanceLevelUpdates;
-- (void)pauseGuidanceLevelUpdates;
 - (void)stopCurrentGuidancePrompt;
 - (void)vibrateForPrompt:(unsigned long long)arg1 withReply:(CDUnknownBlockType)arg2;
 - (void)repeatCurrentTrafficAlertWithReply:(CDUnknownBlockType)arg1;
 - (void)repeatCurrentGuidanceWithReply:(CDUnknownBlockType)arg1;
 - (void)changeSettings:(id)arg1;
+- (void)setFullGuidanceMode:(_Bool)arg1;
+- (void)switchToRouteWithDetails:(id)arg1;
 - (void)resumeOriginalDestination;
 - (void)updateDestination:(id)arg1;
+- (void)stopPredictingDestinations;
+- (void)startPredictingDestinationsWithHandler:(CDUnknownBlockType)arg1;
 - (void)stopNavigation;
 - (void)startNavigationForRouteDetails:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)prepareNavigationWithRouteDetails:(id)arg1;
-- (id)_guidanceLevelUpdater;
-- (id)_traceManager;
-- (id)_routeManager;
-- (void)_setupLocationManager;
+- (void)start;
 - (void)dealloc;
 - (id)init;
 

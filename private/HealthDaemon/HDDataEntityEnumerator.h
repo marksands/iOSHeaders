@@ -6,7 +6,7 @@
 
 #import <HealthDaemon/HDSQLiteQueryDescriptor.h>
 
-@class HDProfile, HKObjectType, NSArray, NSMutableDictionary, NSNumber, _HKFilter;
+@class HDProfile, HKObjectType, NSArray, NSMutableDictionary, NSNumber, NSSet, _HKFilter;
 
 @interface HDDataEntityEnumerator : HDSQLiteQueryDescriptor
 {
@@ -15,7 +15,7 @@
     _Bool _useLeftJoin;
     HKObjectType *_objectType;
     _HKFilter *_filter;
-    NSNumber *_sourceIdentifier;
+    NSSet *_restrictedSourceEntities;
     CDUnknownBlockType _authorizationFilter;
     NSNumber *_anchor;
     NSNumber *_deletedObjectsAnchor;
@@ -26,7 +26,7 @@
 @property(retain, nonatomic) NSNumber *deletedObjectsAnchor; // @synthesize deletedObjectsAnchor=_deletedObjectsAnchor;
 @property(retain, nonatomic) NSNumber *anchor; // @synthesize anchor=_anchor;
 @property(copy, nonatomic) CDUnknownBlockType authorizationFilter; // @synthesize authorizationFilter=_authorizationFilter;
-@property(retain, nonatomic) NSNumber *sourceIdentifier; // @synthesize sourceIdentifier=_sourceIdentifier;
+@property(retain, nonatomic) NSSet *restrictedSourceEntities; // @synthesize restrictedSourceEntities=_restrictedSourceEntities;
 @property(retain, nonatomic) _HKFilter *filter; // @synthesize filter=_filter;
 @property(readonly, nonatomic) HKObjectType *objectType; // @synthesize objectType=_objectType;
 - (void).cxx_destruct;

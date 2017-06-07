@@ -11,23 +11,23 @@
 __attribute__((visibility("hidden")))
 @interface KNShow : TSPObject
 {
-    KNUIState *mUIState;
-    KNTheme *mTheme;
-    KNSlideTree *mSlideTree;
-    TSSStylesheet *mStylesheet;
-    KNRecording *mRecording;
-    struct CGSize mSize;
-    double mAutoplayTransitionDelay;
-    double mAutoplayBuildDelay;
-    double mIdleTimerDelay;
-    int mMode;
-    _Bool mLoopPresentation;
-    _Bool mIdleTimerActive;
-    _Bool mAutomaticallyPlaysUponOpen;
-    _Bool mNeedsToUpdateThumbnails;
-    _Bool mWasImportedAsPreUFF;
-    _Bool mLocalizeDocument;
-    KNSoundtrack *mSoundtrack;
+    KNUIState *_uiState;
+    KNTheme *_theme;
+    KNSlideTree *_slideTree;
+    TSSStylesheet *_stylesheet;
+    KNRecording *_recording;
+    struct CGSize _size;
+    double _autoplayTransitionDelay;
+    double _autoplayBuildDelay;
+    double _idleTimerDelay;
+    long long _mode;
+    _Bool _loopPresentation;
+    _Bool _idleTimerActive;
+    _Bool _automaticallyPlaysUponOpen;
+    _Bool _needsToUpdateThumbnails;
+    _Bool _wasImportedAsPreUFF;
+    _Bool _localizeDocument;
+    KNSoundtrack *_soundtrack;
 }
 
 + (unsigned long long)maximumHeightForExport;
@@ -37,20 +37,20 @@ __attribute__((visibility("hidden")))
 + (unsigned long long)maximumWidth;
 + (unsigned long long)minimumWidth;
 + (id)showWithSize:(struct CGSize)arg1 context:(id)arg2;
-@property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=mStylesheet;
-@property(nonatomic) struct CGSize size; // @synthesize size=mSize;
-@property(retain, nonatomic) KNTheme *theme; // @synthesize theme=mTheme;
-@property(nonatomic) _Bool localizeDocument; // @synthesize localizeDocument=mLocalizeDocument;
-@property(readonly, nonatomic) _Bool wasImportedAsPreUFF; // @synthesize wasImportedAsPreUFF=mWasImportedAsPreUFF;
-@property(readonly, nonatomic) _Bool needsToUpdateThumbnails; // @synthesize needsToUpdateThumbnails=mNeedsToUpdateThumbnails;
-@property(retain, nonatomic) KNUIState *uiState; // @synthesize uiState=mUIState;
+@property(nonatomic) _Bool localizeDocument; // @synthesize localizeDocument=_localizeDocument;
+@property(readonly, nonatomic) _Bool wasImportedAsPreUFF; // @synthesize wasImportedAsPreUFF=_wasImportedAsPreUFF;
+@property(readonly, nonatomic) _Bool needsToUpdateThumbnails; // @synthesize needsToUpdateThumbnails=_needsToUpdateThumbnails;
+@property(readonly, nonatomic) TSSStylesheet *stylesheet; // @synthesize stylesheet=_stylesheet;
+@property(retain, nonatomic) KNTheme *theme; // @synthesize theme=_theme;
+@property(retain, nonatomic) KNUIState *uiState; // @synthesize uiState=_uiState;
+@property(nonatomic) struct CGSize size; // @synthesize size=_size;
+- (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isPlayable) _Bool playable;
 - (id)slideNodesAtIndexes:(id)arg1;
 - (id)slideNodeAtIndex:(unsigned long long)arg1;
 - (unsigned long long)indexOfSlideNode:(id)arg1;
 - (void)willModify;
 - (struct CGPoint)center;
-- (void)dealloc;
 - (id)initWithSize:(struct CGSize)arg1 context:(id)arg2;
 @property(readonly, nonatomic) _Bool slideNumbersVisible;
 - (void)setStylesheetForUpgradeToSingleStylesheet:(id)arg1;
@@ -59,13 +59,13 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool automaticallyPlaysUponOpen;
 @property(nonatomic) _Bool idleTimerActive;
 @property(nonatomic) _Bool loopPresentation;
-@property(nonatomic) int mode;
+@property(nonatomic) long long mode;
 @property(nonatomic) double idleTimerDelay;
 @property(nonatomic) double autoplayBuildDelay;
 @property(nonatomic) double autoplayTransitionDelay;
 @property(retain, nonatomic) KNSlideTree *slideTree;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchive:(struct ShowArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct ShowArchive *)arg1 unarchiver:(id)arg2;
 

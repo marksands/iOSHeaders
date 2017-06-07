@@ -11,18 +11,20 @@
 #import <FrontBoardServices/NSCopying-Protocol.h>
 #import <FrontBoardServices/NSMutableCopying-Protocol.h>
 
-@class BKSAnimationFenceHandle, BSAnimationSettings, BSMutableSettings, NSSet, NSString;
+@class BKSAnimationFenceHandle, BSAnimationSettings, BSMutableSettings, BSProcessHandle, NSSet, NSString;
 
 @interface FBSSceneTransitionContext : NSObject <BSXPCCoding, BSDescriptionProviding, NSCopying, NSMutableCopying>
 {
     BSAnimationSettings *_animationSettings;
     BKSAnimationFenceHandle *_animationFence;
     NSSet *_actions;
+    BSProcessHandle *_originatingProcess;
     BSMutableSettings *_otherSettings;
     BSMutableSettings *_transientLocalClientSettings;
 }
 
 + (id)transitionContext;
+@property(retain, nonatomic) BSProcessHandle *originatingProcess; // @synthesize originatingProcess=_originatingProcess;
 @property(copy, nonatomic) NSSet *actions; // @synthesize actions=_actions;
 @property(retain, nonatomic) BKSAnimationFenceHandle *animationFence; // @synthesize animationFence=_animationFence;
 @property(copy, nonatomic) BSAnimationSettings *animationSettings; // @synthesize animationSettings=_animationSettings;

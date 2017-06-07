@@ -9,15 +9,16 @@
 #import <HealthUI/HKGraphSeriesBlockCoordinate-Protocol.h>
 
 @class NSString;
+@protocol HKGraphSeriesBlockCoordinateInfo;
 
 @interface _HKStackedCategoryValueSeriesCoordinate : NSObject <HKGraphSeriesBlockCoordinate>
 {
-    id _userInfo;
+    id <HKGraphSeriesBlockCoordinateInfo> _userInfo;
     struct CGPoint _start;
     struct CGPoint _end;
 }
 
-@property(readonly, nonatomic) id userInfo; // @synthesize userInfo=_userInfo;
+@property(readonly, nonatomic) id <HKGraphSeriesBlockCoordinateInfo> userInfo; // @synthesize userInfo=_userInfo;
 @property(readonly, nonatomic) struct CGPoint end; // @synthesize end=_end;
 @property(readonly, nonatomic) struct CGPoint start; // @synthesize start=_start;
 - (void).cxx_destruct;

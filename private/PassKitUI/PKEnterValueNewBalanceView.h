@@ -6,24 +6,30 @@
 
 #import <UIKit/UIView.h>
 
-@class NSDecimalNumber, NSString, UILabel;
+@class NSDecimalNumber, NSNumberFormatter, NSString, UIActivityIndicatorView, UILabel;
 
 @interface PKEnterValueNewBalanceView : UIView
 {
-    NSString *_currencyCode;
     NSDecimalNumber *_additionalAmount;
+    _Bool _showSpinner;
+    NSNumberFormatter *_currentAmountFormatter;
     UILabel *_newBalancePrompt;
     UILabel *_newBalanceAmount;
+    UIActivityIndicatorView *_spinner;
+    NSString *_currencyCode;
     NSDecimalNumber *_cardBalance;
     NSDecimalNumber *_maxAmount;
 }
 
 @property(copy, nonatomic) NSDecimalNumber *maxAmount; // @synthesize maxAmount=_maxAmount;
 @property(copy, nonatomic) NSDecimalNumber *cardBalance; // @synthesize cardBalance=_cardBalance;
+@property(copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
 - (void).cxx_destruct;
 - (void)_addSubviews;
+- (void)_createAmountFormatter;
 - (void)_updateBalanceText;
 - (void)addAmountToBalance:(id)arg1;
+- (void)showSpinner:(_Bool)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithCurrencyCode:(id)arg1;

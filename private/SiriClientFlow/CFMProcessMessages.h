@@ -6,11 +6,12 @@
 
 #import <SAObjects/SADomainCommand.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
 #import <SiriClientFlow/SAAceSerializable-Protocol.h>
 
 @class NSArray, NSString;
 
-@interface CFMProcessMessages : SADomainCommand <SAAceSerializable>
+@interface CFMProcessMessages : SADomainCommand <CFLocalAceHandling, SAAceSerializable>
 {
 }
 
@@ -22,6 +23,7 @@
 @property(copy, nonatomic) NSArray *messagesIdentifiers;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (void)handleWithCompletion:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

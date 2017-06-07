@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFHTTPClientDelegate-Protocol.h>
 
 @class HMDHTTPDevice, HMFHTTPClient, HMFNetService, NSString, NSUUID;
 @protocol HMDHTTPClientMessageTransportDelegate;
 
-@interface HMDHTTPClientMessageTransport : NSObject <HMFHTTPClientDelegate>
+@interface HMDHTTPClientMessageTransport : HMFObject <HMFHTTPClientDelegate>
 {
     _Bool _running;
     id <HMDHTTPClientMessageTransportDelegate> _delegate;

@@ -8,14 +8,14 @@
 
 #import <Message/MFLibrarySearchableIndexTesting-Protocol.h>
 
-@class NSDictionary, NSString;
+@class MFLibrarySearchableIndexQueryContext, NSString;
 
 @interface MFLibrarySearchableIndexSubjectTester : NSObject <MFLibrarySearchableIndexTesting>
 {
 }
 
 - (_Bool)verifySearchableItem:(id)arg1 againstExpectedData:(id)arg2;
-@property(readonly, nonatomic) NSDictionary *queryOptions;
+@property(readonly, nonatomic) MFLibrarySearchableIndexQueryContext *context;
 - (id)spotlightQueryFromDataSamples:(id)arg1;
 - (id)transformDataForVerification:(id)arg1;
 - (id)_subjectFromSearchableItem:(id)arg1;

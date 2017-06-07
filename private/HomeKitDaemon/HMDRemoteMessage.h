@@ -18,6 +18,7 @@
     HMDHomeKitVersion *_sourceVersion;
 }
 
++ (id)secureMessageWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 messagePayload:(id)arg4;
 + (id)secureMessageWithName:(id)arg1 destination:(id)arg2 messagePayload:(id)arg3;
 @property(retain, nonatomic) HMDHomeKitVersion *sourceVersion; // @synthesize sourceVersion=_sourceVersion;
 @property(nonatomic) unsigned long long restriction; // @synthesize restriction=_restriction;
@@ -28,9 +29,12 @@
 - (void).cxx_destruct;
 - (void)setInternalResponseHandler:(CDUnknownBlockType)arg1;
 - (void)setResponseHandler:(CDUnknownBlockType)arg1;
-- (_Bool)isRemoteSource;
-- (id)initWithName:(id)arg1 destination:(id)arg2 payload:(id)arg3 type:(long long)arg4 timeout:(double)arg5 secure:(_Bool)arg6;
+- (_Bool)isRemote;
+- (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 payload:(id)arg4 type:(long long)arg5 timeout:(double)arg6 secure:(_Bool)arg7 restriction:(unsigned long long)arg8;
+- (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 payload:(id)arg4 type:(long long)arg5 timeout:(double)arg6 secure:(_Bool)arg7;
 - (id)initWithName:(id)arg1 destination:(id)arg2 payload:(id)arg3 type:(long long)arg4 timeout:(double)arg5 secure:(_Bool)arg6 restriction:(unsigned long long)arg7;
+- (id)initWithName:(id)arg1 destination:(id)arg2 payload:(id)arg3 type:(long long)arg4 timeout:(double)arg5 secure:(_Bool)arg6;
+- (id)initWithName:(id)arg1 qualityOfService:(long long)arg2 destination:(id)arg3 payload:(id)arg4;
 - (id)initWithName:(id)arg1 destination:(id)arg2 payload:(id)arg3;
 
 @end

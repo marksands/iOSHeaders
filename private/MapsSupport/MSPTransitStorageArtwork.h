@@ -29,8 +29,6 @@
     } _has;
 }
 
-+ (id)__test_mtaSystemArtwork;
-+ (id)__test_mtaLineRArtwork;
 @property(retain, nonatomic) NSString *accessibilityText; // @synthesize accessibilityText=_accessibilityText;
 @property(nonatomic) _Bool hasRoutingIncidentBadge; // @synthesize hasRoutingIncidentBadge=_hasRoutingIncidentBadge;
 @property(retain, nonatomic) MSPTransitStorageShield *iconFallbackShield; // @synthesize iconFallbackShield=_iconFallbackShield;

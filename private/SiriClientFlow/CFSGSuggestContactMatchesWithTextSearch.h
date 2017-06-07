@@ -6,11 +6,12 @@
 
 #import <SAObjects/SADomainCommand.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
 #import <SiriClientFlow/SAAceSerializable-Protocol.h>
 
 @class NSString;
 
-@interface CFSGSuggestContactMatchesWithTextSearch : SADomainCommand <SAAceSerializable>
+@interface CFSGSuggestContactMatchesWithTextSearch : SADomainCommand <CFLocalAceHandling, SAAceSerializable>
 {
 }
 
@@ -22,6 +23,11 @@
 @property(nonatomic) long long limit;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (void)handleWithCompletion:(CDUnknownBlockType)arg1;
+- (id)suggestedContactFromSuggestedContactMatches:(id)arg1 withService:(id)arg2 withOrigin:(_Bool)arg3;
+- (id)aceLocationsFromSuggestedLocations:(id)arg1;
+- (id)aceEmailsFromSuggestedEmails:(id)arg1;
+- (id)acePhoneNumbersFromSuggestedPhoneNumbers:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

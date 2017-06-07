@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (void)addEntry:(id)arg1;
 - (_Bool)readLocalFileHeaderFilenameAndExtraFieldsData:(id)arg1 forEntry:(id)arg2 error:(id *)arg3;
 - (void)readLocalFileHeaderData:(id)arg1 atOffset:(long long)arg2 channel:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)readLocalFileHeaderEntriesFromChannel:(id)arg1 offset:(long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)readLocalFileHeaderEntriesFromChannel:(id)arg1 offset:(long long)arg2 previousEntry:(id)arg3 seekAttempts:(unsigned int)arg4 seekForward:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;
 - (_Bool)readFileCommentFromBuffer:(const void **)arg1 fileCommentLength:(unsigned short)arg2 entry:(id)arg3 dataSize:(unsigned long long *)arg4 error:(id *)arg5;
 - (_Bool)readZip64ExtraFieldFromBuffer:(const void *)arg1 dataLength:(unsigned short)arg2 entry:(id)arg3 error:(id *)arg4;
 - (_Bool)readExtraFieldsFromBuffer:(const void **)arg1 extraFieldsLength:(unsigned short)arg2 entry:(id)arg3 dataSize:(unsigned long long *)arg4 error:(id *)arg5;
@@ -47,6 +47,8 @@ __attribute__((visibility("hidden")))
 - (void)readZip64EndOfCentralDirectoryLocatorWithChannel:(id)arg1 eocdOffset:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)readEndOfCentralDirectoryData:(id)arg1 eocdOffset:(long long)arg2 channel:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)readArchiveWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) _Bool hasNonEmptyEntries;
+@property(readonly, nonatomic) unsigned long long entriesCount;
 - (id)initWithOptions:(unsigned long long)arg1;
 - (id)init;
 - (id)tsp_dataForEntry:(id)arg1;

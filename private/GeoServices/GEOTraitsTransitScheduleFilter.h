@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOTraitsTransitScheduleModeFilter, GEOTraitsTransitScheduleTimeRange;
+@class GEOTraitsTransitScheduleModeFilter, GEOTraitsTransitScheduleTimeRange, PBUnknownFields;
 
 @interface GEOTraitsTransitScheduleFilter : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     GEOTraitsTransitScheduleModeFilter *_highFrequencyFilter;
     GEOTraitsTransitScheduleModeFilter *_lowFrequencyFilter;
     GEOTraitsTransitScheduleTimeRange *_operatingHoursRange;
@@ -20,6 +21,8 @@
 @property(retain, nonatomic) GEOTraitsTransitScheduleTimeRange *operatingHoursRange; // @synthesize operatingHoursRange=_operatingHoursRange;
 @property(retain, nonatomic) GEOTraitsTransitScheduleModeFilter *lowFrequencyFilter; // @synthesize lowFrequencyFilter=_lowFrequencyFilter;
 @property(retain, nonatomic) GEOTraitsTransitScheduleModeFilter *highFrequencyFilter; // @synthesize highFrequencyFilter=_highFrequencyFilter;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +35,6 @@
 @property(readonly, nonatomic) _Bool hasOperatingHoursRange;
 @property(readonly, nonatomic) _Bool hasLowFrequencyFilter;
 @property(readonly, nonatomic) _Bool hasHighFrequencyFilter;
-- (void)dealloc;
 
 @end
 

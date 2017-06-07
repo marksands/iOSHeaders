@@ -15,9 +15,9 @@
     NSString *_eventMessage;
 }
 
+- (void).cxx_destruct;
 - (void)stop;
 - (void)startWithMessage:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -10,7 +10,6 @@
 
 @class DOMStyleSheet;
 
-__attribute__((visibility("hidden")))
 @interface DOMObject : WebScriptObject <NSCopying>
 {
     struct DOMObjectInternal *_internal;

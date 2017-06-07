@@ -9,7 +9,6 @@
 @class NSArray;
 @protocol CNForkJoinResultReportingStrategy;
 
-__attribute__((visibility("hidden")))
 @interface _CNForkJoinObservable : CNObservable
 {
     NSArray *_observables;

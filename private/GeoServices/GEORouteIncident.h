@@ -47,6 +47,7 @@
 @property(retain, nonatomic) NSString *info; // @synthesize info=_info;
 @property(retain, nonatomic) NSString *incidentId; // @synthesize incidentId=_incidentId;
 @property(retain, nonatomic) GEOLatLng *position; // @synthesize position=_position;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -78,7 +79,6 @@
 @property(readonly, nonatomic) _Bool hasInfo;
 @property(readonly, nonatomic) _Bool hasIncidentId;
 @property(readonly, nonatomic) _Bool hasPosition;
-- (void)dealloc;
 
 @end
 

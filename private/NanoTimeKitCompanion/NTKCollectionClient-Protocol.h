@@ -11,6 +11,7 @@
 @protocol NTKCollectionClient <NSObject>
 - (void)flushCompleteForIdentifier:(NSString *)arg1;
 - (void)resetClientCollection;
+- (void)upgradeFace:(NTKFace *)arg1 forUUID:(NSUUID *)arg2 seqID:(NSNumber *)arg3;
 - (void)removeFaceForUUID:(NSUUID *)arg1 seqId:(NSNumber *)arg2 completion:(void (^)(void))arg3;
 - (void)addFace:(NTKFace *)arg1 forUUID:(NSUUID *)arg2 seqId:(NSNumber *)arg3;
 - (void)updateFaceForUUID:(NSUUID *)arg1 withResourceDirectory:(NSString *)arg2 seqId:(NSNumber *)arg3 completion:(void (^)(void))arg4;

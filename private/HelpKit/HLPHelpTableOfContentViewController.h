@@ -65,6 +65,7 @@
 - (void)showHelpBookInfo;
 - (void)scrollToHelpItem:(id)arg1 deselectImmediately:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)deselectCurrentRow;
+- (void)viewDidLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

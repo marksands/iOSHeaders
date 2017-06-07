@@ -6,22 +6,22 @@
 
 #import <objc/NSObject.h>
 
-@class HKGraphSeries, NSArray, NSNumber;
+@class HKGraphSeries, NSArray;
 
 @interface _HKGraphViewSelectionContext : NSObject
 {
     long long _selectionState;
+    NSArray *_touchPoints;
     NSArray *_selectionAreaMapping;
-    NSNumber *_selectedPointXValue;
+    NSArray *_selectedRangeBoundariesXValue;
     HKGraphSeries *_selectedSeries;
-    struct CGPoint _touchPoint;
     struct CGRect _seriesSelectionRect;
 }
 
 @property(retain, nonatomic) HKGraphSeries *selectedSeries; // @synthesize selectedSeries=_selectedSeries;
-@property(retain, nonatomic) NSNumber *selectedPointXValue; // @synthesize selectedPointXValue=_selectedPointXValue;
+@property(retain, nonatomic) NSArray *selectedRangeBoundariesXValue; // @synthesize selectedRangeBoundariesXValue=_selectedRangeBoundariesXValue;
 @property(retain, nonatomic) NSArray *selectionAreaMapping; // @synthesize selectionAreaMapping=_selectionAreaMapping;
-@property(nonatomic) struct CGPoint touchPoint; // @synthesize touchPoint=_touchPoint;
+@property(retain, nonatomic) NSArray *touchPoints; // @synthesize touchPoints=_touchPoints;
 @property(nonatomic) struct CGRect seriesSelectionRect; // @synthesize seriesSelectionRect=_seriesSelectionRect;
 @property(nonatomic) long long selectionState; // @synthesize selectionState=_selectionState;
 - (void).cxx_destruct;

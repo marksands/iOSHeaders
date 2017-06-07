@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 @protocol OS_xpc_object;
@@ -18,11 +18,11 @@
 + (id)clientMessengerWithIdentifier:(id)arg1;
 @property(retain, nonatomic) NSObject<OS_xpc_object> *connection; // @synthesize connection=_connection;
 @property(copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
+- (void).cxx_destruct;
 - (id)description;
 - (id)sendSynchronousMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 error:(id *)arg3;
 - (void)sendAsynchronousMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 targetAccessQueue:(id)arg3 completionRequiresWritingBlock:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)sendAsynchronousMessage:(id)arg1 withIdentifier:(unsigned long long)arg2 targetAccessQueue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)dealloc;
 - (id)initWithClientIdentifier:(id)arg1 connection:(id)arg2;
 - (id)init;
 

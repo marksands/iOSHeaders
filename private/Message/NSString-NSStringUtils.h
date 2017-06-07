@@ -12,6 +12,7 @@
 + (id)mf_stringRepresentationForBytes:(long long)arg1;
 + (id)mf_messageIDStringWithDomainHint:(id)arg1;
 + (id)mf_UUID;
+- (id)mf_prefixToString:(id)arg1;
 - (id)mf_stringByTrimmingWhitespaceAndNewlineCharacters;
 - (_Bool)mf_containsSubstring:(id)arg1;
 - (_Bool)mf_containsSubstring:(id)arg1 options:(unsigned long long)arg2;

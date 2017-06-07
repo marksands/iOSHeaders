@@ -16,12 +16,12 @@
 
 + (id)_uiaxBundle;
 @property(readonly, nonatomic) NSDictionary *mathDictionary; // @synthesize mathDictionary=_mathDictionary;
+- (void).cxx_destruct;
 - (void)_styleBarButtonItem:(id)arg1;
 - (void)_doneButtonTapped;
 - (id)_htmlString;
 - (void)viewDidLoad;
 - (void)loadView;
-- (void)dealloc;
 - (id)initWithMathDictionary:(id)arg1;
 
 @end

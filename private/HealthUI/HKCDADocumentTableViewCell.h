@@ -6,11 +6,16 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class HKAdjustableTapTargetButton;
+@class HKAdjustableTapTargetButton, NSArray, NSLayoutConstraint, UILabel, UIStackView, _HKDocumentImageView;
 @protocol HKCDADocumentTableViewCellDelegate;
 
 @interface HKCDADocumentTableViewCell : UITableViewCell
 {
+    _HKDocumentImageView *_documentImageView;
+    UILabel *_titleLabel;
+    NSArray *_cellLabels;
+    UIStackView *_imageLabelStack;
+    NSLayoutConstraint *_mainStackViewLeadingConstraint;
     _Bool _showsCheckbox;
     id <HKCDADocumentTableViewCellDelegate> _delegate;
     HKAdjustableTapTargetButton *_checkboxButton;
@@ -20,12 +25,15 @@
 @property(retain, nonatomic) id <HKCDADocumentTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool showsCheckbox; // @synthesize showsCheckbox=_showsCheckbox;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)_selectedCheckbox:(id)arg1;
 - (void)_setDocumentLabelWithTag:(long long)arg1 text:(id)arg2 view:(id)arg3;
 - (id)_createDocumentCellLabelWithTag:(long long)arg1 fontSizePts:(double)arg2 whiteLevel:(double)arg3 flexibleHeight:(_Bool)arg4;
+- (void)_updateForCurrentSizeCategory;
 - (void)_setupCellStructure;
 @property(nonatomic, getter=isChecked) _Bool checked;
 - (void)setCellValuesForDocumentSample:(id)arg1;
+- (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

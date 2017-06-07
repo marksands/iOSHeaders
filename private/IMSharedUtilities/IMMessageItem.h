@@ -17,6 +17,7 @@
     _Bool _blockingRichLinks;
     _Bool _updatingDataSourcePayload;
     _Bool _backwardsCompatibleVersion;
+    _Bool _isSOS;
     unsigned int _error;
     NSString *_subject;
     NSString *_plainBody;
@@ -35,11 +36,16 @@
     NSDate *_timeExpressiveSendPlayed;
     NSData *_typingIndicatorIcon;
     NSDictionary *_messageSummaryInfo;
+    NSDictionary *_bizIntent;
+    NSString *_locale;
 }
 
+@property(nonatomic) _Bool isSOS; // @synthesize isSOS=_isSOS;
 @property(nonatomic) _Bool backwardsCompatibleVersion; // @synthesize backwardsCompatibleVersion=_backwardsCompatibleVersion;
 @property(nonatomic, getter=isUpdatingDataSourcePayload) _Bool updatingDataSourcePayload; // @synthesize updatingDataSourcePayload=_updatingDataSourcePayload;
 @property(nonatomic) _Bool blockingRichLinks; // @synthesize blockingRichLinks=_blockingRichLinks;
+@property(retain, nonatomic) NSString *locale; // @synthesize locale=_locale;
+@property(retain, nonatomic) NSDictionary *bizIntent; // @synthesize bizIntent=_bizIntent;
 @property(retain, nonatomic) NSDictionary *messageSummaryInfo; // @synthesize messageSummaryInfo=_messageSummaryInfo;
 @property(retain, nonatomic) NSData *typingIndicatorIcon; // @synthesize typingIndicatorIcon=_typingIndicatorIcon;
 @property(retain, nonatomic) NSDate *timeExpressiveSendPlayed; // @synthesize timeExpressiveSendPlayed=_timeExpressiveSendPlayed;
@@ -59,6 +65,7 @@
 @property(retain, nonatomic) NSString *subject; // @synthesize subject=_subject;
 - (id)_localizedBackwardsCompatibleExpressiveSendText;
 - (_Bool)isLastMessageCandidate;
+- (_Bool)isFirstMessageCandidate;
 - (id)description;
 @property(readonly, copy, nonatomic) NSAttributedString *breadcrumbText;
 - (_Bool)isEqual:(id)arg1;
@@ -91,8 +98,8 @@
 @property(readonly, nonatomic) _Bool isAlert;
 - (id)sender;
 - (void)dealloc;
-- (id)initWithSenderInfo:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 timePlayed:(id)arg5 subject:(id)arg6 body:(id)arg7 bodyData:(id)arg8 attributes:(id)arg9 fileTransferGUIDs:(id)arg10 flags:(unsigned long long)arg11 guid:(id)arg12 messageID:(long long)arg13 account:(id)arg14 accountID:(id)arg15 service:(id)arg16 handle:(id)arg17 roomName:(id)arg18 unformattedID:(id)arg19 countryCode:(id)arg20 expireState:(long long)arg21 balloonBundleID:(id)arg22 payloadData:(id)arg23 expressiveSendStyleID:(id)arg24 timeExpressiveSendPlayed:(id)arg25 errorType:(unsigned int)arg26 type:(long long)arg27;
-- (id)initWithSenderInfo:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 timePlayed:(id)arg5 subject:(id)arg6 body:(id)arg7 bodyData:(id)arg8 attributes:(id)arg9 fileTransferGUIDs:(id)arg10 flags:(unsigned long long)arg11 guid:(id)arg12 messageID:(long long)arg13 account:(id)arg14 accountID:(id)arg15 service:(id)arg16 handle:(id)arg17 roomName:(id)arg18 unformattedID:(id)arg19 countryCode:(id)arg20 expireState:(long long)arg21 balloonBundleID:(id)arg22 payloadData:(id)arg23 expressiveSendStyleID:(id)arg24 timeExpressiveSendPlayed:(id)arg25 errorType:(unsigned int)arg26;
+- (id)initWithSenderInfo:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 timePlayed:(id)arg5 subject:(id)arg6 body:(id)arg7 bodyData:(id)arg8 attributes:(id)arg9 fileTransferGUIDs:(id)arg10 flags:(unsigned long long)arg11 guid:(id)arg12 messageID:(long long)arg13 account:(id)arg14 accountID:(id)arg15 service:(id)arg16 handle:(id)arg17 roomName:(id)arg18 unformattedID:(id)arg19 countryCode:(id)arg20 expireState:(long long)arg21 balloonBundleID:(id)arg22 payloadData:(id)arg23 expressiveSendStyleID:(id)arg24 timeExpressiveSendPlayed:(id)arg25 bizIntent:(id)arg26 locale:(id)arg27 errorType:(unsigned int)arg28 type:(long long)arg29;
+- (id)initWithSenderInfo:(id)arg1 time:(id)arg2 timeRead:(id)arg3 timeDelivered:(id)arg4 timePlayed:(id)arg5 subject:(id)arg6 body:(id)arg7 bodyData:(id)arg8 attributes:(id)arg9 fileTransferGUIDs:(id)arg10 flags:(unsigned long long)arg11 guid:(id)arg12 messageID:(long long)arg13 account:(id)arg14 accountID:(id)arg15 service:(id)arg16 handle:(id)arg17 roomName:(id)arg18 unformattedID:(id)arg19 countryCode:(id)arg20 expireState:(long long)arg21 balloonBundleID:(id)arg22 payloadData:(id)arg23 expressiveSendStyleID:(id)arg24 timeExpressiveSendPlayed:(id)arg25 bizIntent:(id)arg26 locale:(id)arg27 errorType:(unsigned int)arg28;
 - (id)initWithSenderInfo:(id)arg1 time:(id)arg2 guid:(id)arg3 messageID:(long long)arg4 account:(id)arg5 accountID:(id)arg6 service:(id)arg7 handle:(id)arg8 roomName:(id)arg9 unformattedID:(id)arg10 countryCode:(id)arg11;
 - (id)initWithSender:(id)arg1 time:(id)arg2 guid:(id)arg3 type:(long long)arg4;
 - (id)initWithSender:(id)arg1 time:(id)arg2 body:(id)arg3 attributes:(id)arg4 fileTransferGUIDs:(id)arg5 flags:(unsigned long long)arg6 error:(id)arg7 guid:(id)arg8 type:(long long)arg9;

@@ -26,6 +26,7 @@
 + (Class)routeInfoType;
 @property(retain, nonatomic) NSMutableArray *routeInfos; // @synthesize routeInfos=_routeInfos;
 @property(nonatomic) struct GEOSessionID responseUuid; // @synthesize responseUuid=_responseUuid;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,7 +47,6 @@
 @property(nonatomic) int status; // @synthesize status=_status;
 @property(nonatomic) _Bool hasResultsApplied;
 @property(nonatomic) _Bool resultsApplied; // @synthesize resultsApplied=_resultsApplied;
-- (void)dealloc;
 
 @end
 

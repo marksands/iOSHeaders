@@ -22,6 +22,7 @@
     PXExtendedTraitCollection *__extendedTraitCollection;
     PXLayoutMetricInterpolator *__horizontalContentGuideInsetsInterpolator;
     struct CGSize __layoutReferenceSize;
+    struct UIEdgeInsets _safeAreaInsets;
 }
 
 @property(readonly, nonatomic) _Bool _shouldUseMiniMargins; // @synthesize _shouldUseMiniMargins=__shouldUseMiniMargins;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) _Bool shouldInsetAllPhotoDetailsContent; // @synthesize shouldInsetAllPhotoDetailsContent=_shouldInsetAllPhotoDetailsContent;
 @property(readonly, nonatomic) NSArray *collectionTileImageOverlaySpecsHighlighted; // @synthesize collectionTileImageOverlaySpecsHighlighted=_collectionTileImageOverlaySpecsHighlighted;
 @property(readonly, nonatomic) NSArray *collectionTileImageOverlaySpecs; // @synthesize collectionTileImageOverlaySpecs=_collectionTileImageOverlaySpecs;
+@property(readonly, nonatomic) struct UIEdgeInsets safeAreaInsets; // @synthesize safeAreaInsets=_safeAreaInsets;
 @property(readonly, nonatomic) long long userInterfaceFeature; // @synthesize userInterfaceFeature=_userInterfaceFeature;
 @property(readonly, nonatomic) long long userInterfaceIdiom; // @synthesize userInterfaceIdiom=_userInterfaceIdiom;
 @property(readonly, nonatomic) long long sizeClass; // @synthesize sizeClass=_sizeClass;
@@ -43,6 +45,7 @@
 @property(readonly, nonatomic) double collectionTileImageCornerRadius;
 - (struct UIColor *)collectionTileImageOverlayColorHighlighted;
 - (struct UIColor *)collectionTileImageOverlayColor;
+@property(readonly, nonatomic) UIColor *defaultPlacesPlaceholderColor;
 @property(readonly, nonatomic) UIColor *defaultPlaceholderColor;
 @property(readonly, nonatomic) double defaultCornerRadius;
 @property(readonly, nonatomic) UIColor *defaultBackgroundColor;

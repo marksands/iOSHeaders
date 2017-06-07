@@ -29,6 +29,7 @@
 + (Class)sectionsType;
 + (Class)currentLanguageOptionsType;
 + (Class)availableLanguageOptionsType;
++ (void)initialize;
 @property(retain, nonatomic) NSString *requestIdentifier; // @synthesize requestIdentifier=_requestIdentifier;
 @property(retain, nonatomic) NSString *queueIdentifier; // @synthesize queueIdentifier=_queueIdentifier;
 @property(retain, nonatomic) NSString *ancestorIdentifier; // @synthesize ancestorIdentifier=_ancestorIdentifier;
@@ -72,7 +73,7 @@
 @property(readonly, nonatomic) _Bool hasMetadata;
 @property(readonly, nonatomic) _Bool hasIdentifier;
 - (void)dealloc;
-- (id)description;
+- (id)customDictionaryRepresentation;
 - (_Bool)hasAvailableLanguageOptions;
 - (_Bool)hasCurrentLanguageOptions;
 

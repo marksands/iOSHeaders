@@ -10,7 +10,7 @@
 #import <LinkPresentation/LPMediaPlayer-Protocol.h>
 #import <LinkPresentation/UIGestureRecognizerDelegate-Protocol.h>
 
-@class LPFullScreenVideoViewController, LPImage, LPImageViewStyle, LPStatisticsTimingToken, LPVideo, LPVideoViewStyle, NSString, UIImageView, UIView, UIWindow;
+@class CATextLayer, LPFullScreenVideoViewController, LPImage, LPImageViewStyle, LPStatisticsTimingToken, LPVideo, LPVideoViewConfiguration, LPVideoViewStyle, NSString, UIImageView, UIView, UIWindow;
 
 __attribute__((visibility("hidden")))
 @interface LPVideoView : LPComponentView <CALayerDelegate, UIGestureRecognizerDelegate, LPMediaPlayer>
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     LPVideoViewStyle *_style;
     LPImage *_posterFrame;
     LPImageViewStyle *_posterFrameStyle;
+    LPVideoViewConfiguration *_configuration;
     UIView *_playButtonContainerView;
     UIView *_playButtonView;
     UIView *_muteButtonContainerView;
@@ -27,25 +28,29 @@ __attribute__((visibility("hidden")))
     UIView *_visualEffectView;
     UIView *_pulsingLoadView;
     UIView *_containerView;
+    UIView *_playbackView;
+    CATextLayer *_debugIndicator;
     LPFullScreenVideoViewController *_fullScreenViewController;
     UIWindow *_fullScreenWindow;
     LPStatisticsTimingToken *_playbackDelayTimingToken;
     _Bool _playing;
     _Bool _hasBuilt;
-    _Bool _hasCreatedVideoView;
     _Bool _wasPlayingOrWaitingToPlayWhenUnparented;
     _Bool _wasPlayingWhenSuspended;
-    _Bool _disablePlayback;
-    _Bool _fullScreen;
     _Bool _showingPlayButton;
+    _Bool _waitingForPlaybackDueToAutoplay;
     unsigned long long _lastInteractionTimestamp;
+    unsigned long long _playbackWatchdogTimerID;
+    unsigned int _loggingID;
     _Bool _usesSharedAudioSession;
     _Bool _waitingForPlayback;
+    _Bool _fullScreen;
     _Bool _hasEverPlayed;
     double _volume;
 }
 
-@property(readonly, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
+@property(readonly, nonatomic) unsigned int loggingID; // @synthesize loggingID=_loggingID;
+@property(readonly, nonatomic) UIView *playbackView; // @synthesize playbackView=_playbackView;
 @property(readonly, nonatomic) LPVideo *video; // @synthesize video=_video;
 @property(nonatomic) double volume; // @synthesize volume=_volume;
 @property(nonatomic) _Bool hasEverPlayed; // @synthesize hasEverPlayed=_hasEverPlayed;
@@ -53,30 +58,34 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isWaitingForPlayback) _Bool waitingForPlayback; // @synthesize waitingForPlayback=_waitingForPlayback;
 @property(readonly, nonatomic) _Bool usesSharedAudioSession; // @synthesize usesSharedAudioSession=_usesSharedAudioSession;
 - (void).cxx_destruct;
+- (id)fullScreenBackgroundColor;
 @property(nonatomic, getter=isActive) _Bool active;
 - (void)_muteButtonTapRecognized:(id)arg1;
 - (void)_muteButtonHighlightLongPressRecognized:(id)arg1;
 - (void)fullScreenVideoDidDismiss;
 - (void)fullScreenVideoWillDismiss;
 - (void)fullScreenVideoDidPresent;
+- (void)enterFullScreen;
+- (void)recreateFullScreenViewControllerIfNeeded;
+- (void)destroyFullScreenViewController;
 - (void)tapRecognized:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)_buildVideoPlaceholderView;
 - (id)_createPosterFrameView;
 @property(nonatomic, getter=isMuted) _Bool muted;
-@property(readonly, nonatomic) _Bool isMuted;
 @property(readonly, nonatomic) _Bool shouldShowMuteButton;
 - (void)fadeInMuteButton;
 - (void)hideMuteButton;
 - (void)showMuteButton;
 - (void)hidePlayButtonAnimated:(_Bool)arg1;
 - (void)showPlayButtonAnimated:(_Bool)arg1;
-- (void)setShowPlayButton:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)updatePlayButtonVisibility;
 - (void)didChangeMutedState:(_Bool)arg1;
 - (void)updateMuteButtonImage;
 - (void)didEncounterPlaybackError;
 - (void)didChangePlayingState:(_Bool)arg1;
 - (void)removePlaceholderViews;
+- (void)resetToPlaceholderView;
 - (void)enterCustomFullScreen;
 - (_Bool)usesCustomFullScreenImplementation;
 - (id)createFullScreenVideoViewController;
@@ -87,18 +96,19 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long lastInteractionTimestamp;
 @property(readonly, nonatomic) _Bool shouldUnmuteWhenUserAdjustsVolume;
 @property(nonatomic, getter=isPlaying) _Bool playing;
-@property(readonly, nonatomic) _Bool isPlaying;
 - (void)_swapVideoPlaceholderForVideoForAutoPlay:(_Bool)arg1;
+- (void)_startPlaybackWatchdogTimer;
 - (id)_createPulsingLoadIndicator;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutComponentView;
 @property(readonly, nonatomic) _Bool shouldAutoPlay;
-- (void)applicationDidBecomeActive:(id)arg1;
-- (void)applicationWillResignActive:(id)arg1;
+- (void)applicationWillEnterForeground:(id)arg1;
+- (void)applicationDidEnterBackground:(id)arg1;
 - (void)componentViewDidMoveToWindow;
 - (_Bool)isParented;
+@property(readonly, copy, nonatomic) LPVideoViewConfiguration *configuration;
 - (void)dealloc;
-- (id)initWithVideo:(id)arg1 style:(id)arg2 posterFrame:(id)arg3 posterFrameStyle:(id)arg4 disablePlayback:(_Bool)arg5;
+- (id)initWithVideo:(id)arg1 style:(id)arg2 posterFrame:(id)arg3 posterFrameStyle:(id)arg4 configuration:(id)arg5;
 - (id)init;
 
 // Remaining properties

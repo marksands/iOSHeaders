@@ -9,17 +9,19 @@
 #import <iWorkImport/TSCH3DOptimizedTextureResource-Protocol.h>
 #import <iWorkImport/TSCHUnretainedParent-Protocol.h>
 
-@class NSNumber, TSCH3DTexture;
+@class NSNumber, TSCH3DTexture, TSUOnce;
 
 __attribute__((visibility("hidden")))
 @interface TSCH3DTextureResource : TSCH3DResource <TSCHUnretainedParent, TSCH3DOptimizedTextureResource>
 {
     TSCH3DTexture *mParent;
     NSNumber *mCachedHash;
+    TSUOnce *mCachedHashOnce;
 }
 
 - (id)databufferForDataCache:(id)arg1;
 - (id)optimizedMipmapBuffer;
+- (id)representativeColorBuffer;
 - (_Bool)canLoadCachedFullMipmapBufferForDataCache:(id)arg1;
 - (id)get;
 - (unsigned long long)hash;

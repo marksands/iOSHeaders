@@ -16,6 +16,8 @@
 + (id)tsu_stringByIndentingString:(id)arg1 times:(unsigned long long)arg2;
 + (id)tsu_stringWithFormat:(id)arg1 arguments:(struct __va_list_tag [1])arg2;
 + (id)tsu_stringWithUUID;
+- (_Bool)tsu_isEqualToString:(id)arg1;
+- (id)tsu_middleTruncateToLength:(unsigned long long)arg1;
 - (id)tsu_stringWithoutAttachmentCharacters;
 - (id)tsu_setOfContainedWordsIncludingPunctuationAndSymbols:(_Bool)arg1;
 - (_Bool)tsu_containsSubstring:(id)arg1;
@@ -33,7 +35,7 @@
 - (id)tsu_stringWithPathRelativeTo:(id)arg1 allowBacktracking:(_Bool)arg2;
 - (id)tsu_stringWithPathRelativeTo:(id)arg1;
 - (id)tsu_substringWithComposedCharacterSequencesToFileSystemLength:(unsigned long long)arg1;
-- (id)tsu_substringWithComposedCharacterSequencesToIndex:(unsigned long long)arg1;
+- (id)tsu_substringWithComposedCharacterSequencesTruncatedToLength:(unsigned long long)arg1;
 - (id)tsu_stringWithRealpath;
 - (_Bool)tsu_isChildOfPath:(id)arg1;
 - (_Bool)tsu_isDescendantOfPath:(id)arg1;

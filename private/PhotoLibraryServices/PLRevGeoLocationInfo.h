@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) _Bool isValid; // @synthesize isValid=_isValid;
 @property(readonly, copy, nonatomic) NSString *countryCode;
 - (void)_addNameInfo:(id)arg1 inPlaceInfoMap:(id)arg2 totalPlaceCount:(long long *)arg3;
+@property(readonly, nonatomic) _Bool hasLocation;
 - (id)localizedDescription;
 - (id)dataForInfo;
 - (id)description;

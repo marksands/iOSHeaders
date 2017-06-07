@@ -8,14 +8,17 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOPDPlacecardURL : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_url;
 }
 
 @property(retain, nonatomic) NSString *url; // @synthesize url=_url;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -26,7 +29,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasUrl;
-- (void)dealloc;
 
 @end
 

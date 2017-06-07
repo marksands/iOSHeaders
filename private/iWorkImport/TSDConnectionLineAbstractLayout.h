@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSDShapeLayout.h>
 
-@class NSObject, TSDConnectionLinePathSource, TSDInfoGeometry, TSDLayout, TSUBezierPath;
+@class NSObject, TSDConnectionLineInfo, TSDConnectionLinePathSource, TSDInfoGeometry, TSDLayout, TSUBezierPath;
 @protocol TSDInfo;
 
 __attribute__((visibility("hidden")))
@@ -46,14 +46,16 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double dynamicOutsetFrom; // @synthesize dynamicOutsetFrom=mDynamicOutsetFrom;
 @property(nonatomic) _Bool useDynamicOutsets; // @synthesize useDynamicOutsets=mUseDynamicOutsets;
 @property(readonly, nonatomic) _Bool validLine; // @synthesize validLine=mValidLine;
-@property(nonatomic) NSObject<TSDInfo> *connectedToInfo; // @synthesize connectedToInfo=mConnectedToInfo;
-@property(nonatomic) NSObject<TSDInfo> *connectedFromInfo; // @synthesize connectedFromInfo=mConnectedFromInfo;
-@property(nonatomic) TSDLayout *connectedTo; // @synthesize connectedTo=mConnectedTo;
-@property(nonatomic) TSDLayout *connectedFrom; // @synthesize connectedFrom=mConnectedFrom;
+@property(nonatomic) __weak NSObject<TSDInfo> *connectedToInfo; // @synthesize connectedToInfo=mConnectedToInfo;
+@property(nonatomic) __weak NSObject<TSDInfo> *connectedFromInfo; // @synthesize connectedFromInfo=mConnectedFromInfo;
+@property(nonatomic) __weak TSDLayout *connectedTo; // @synthesize connectedTo=mConnectedTo;
+@property(nonatomic) __weak TSDLayout *connectedFrom; // @synthesize connectedFrom=mConnectedFrom;
+- (void).cxx_destruct;
 - (id)p_infoForConnectingToInfo:(id)arg1;
+- (_Bool)p_isInfoAKeynoteMasterObject:(id)arg1;
 - (_Bool)shouldAdjustForStrokeWidthForCollabCursor;
 - (struct CGPoint)getControlKnobPosition:(unsigned long long)arg1;
-- (_Bool)isStraightLine;
+@property(readonly, nonatomic, getter=isStraightLine) _Bool straightLine;
 - (_Bool)shouldDisplayGuides;
 - (struct CGPoint)unclippedTailPoint;
 - (struct CGPoint)unclippedHeadPoint;
@@ -93,7 +95,7 @@ __attribute__((visibility("hidden")))
 - (id)additionalLayoutsForRepCreation;
 - (id)reliedOnLayouts;
 - (_Bool)shouldValidate;
-- (id)connectionLineInfo;
+@property(readonly, nonatomic) TSDConnectionLineInfo *connectionLineInfo;
 @property(readonly, nonatomic) double outsetTo;
 @property(readonly, nonatomic) double outsetFrom;
 - (void)dealloc;

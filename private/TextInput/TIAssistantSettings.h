@@ -10,6 +10,8 @@
 {
 }
 
++ (void)launchDictationSettings;
++ (void)launchKeyboardSettings;
 + (void)dismissEnableDictationPrompt;
 + (void)dismissDialog;
 + (void)promptToEnableDictationWithCompletionHandler:(CDUnknownBlockType)arg1;

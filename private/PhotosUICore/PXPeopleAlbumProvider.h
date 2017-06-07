@@ -31,6 +31,7 @@
     struct CGSize _imageSize;
 }
 
++ (id)_rootViewControllerWithProgressManager:(id)arg1;
 @property(retain) NSMutableDictionary *imageCache; // @synthesize imageCache=_imageCache;
 // Error parsing type for property currentRequestId:
 // Property attributes: TAi,V_currentRequestId

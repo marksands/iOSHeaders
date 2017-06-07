@@ -6,12 +6,11 @@
 
 #import <CoreHAP/NSObject-Protocol.h>
 
-@class HAPAccessory, NSNumber;
+@class HAPAccessory;
 
 @protocol HAPAccessoryDelegate <NSObject>
 
 @optional
-- (void)accessory:(HAPAccessory *)arg1 didUpdateCategory:(NSNumber *)arg2;
 - (void)accessoryDidBecomeUnreachable:(HAPAccessory *)arg1;
 - (void)accessoryDidBecomeReachable:(HAPAccessory *)arg1;
 @end

@@ -7,7 +7,6 @@
 #import <GeoServices/GEOComposedRouteStep.h>
 
 @interface GEOComposedRouteStep (MNInstructions)
-- (id)instructionForSpokenManeuverWithNextStep:(_Bool)arg1 withOptions:(CDStruct_61a83fd4 *)arg2;
 - (id)contentsForContext:(long long)arg1;
 @end
 

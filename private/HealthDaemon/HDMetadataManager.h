@@ -16,12 +16,16 @@
 }
 
 - (void).cxx_destruct;
-- (_Bool)_insertValueEntityWithKeyID:(id)arg1 healthEntityID:(id)arg2 value:(id)arg3 database:(id)arg4 error:(id *)arg5;
 - (id)_keyForKeyID:(id)arg1 database:(id)arg2 error:(id *)arg3;
 - (id)_keyEntityForKey:(id)arg1 createIfNecessary:(_Bool)arg2 database:(id)arg3 error:(id *)arg4;
-- (_Bool)insertMetadata:(id)arg1 forDataEntityWithID:(id)arg2 error:(id *)arg3;
-- (id)metadataForDataEntityWithPersistentID:(long long)arg1 keyFilter:(CDUnknownBlockType)arg2 error:(id *)arg3;
-- (id)metadataForDataEntityWithPersistentID:(long long)arg1 baseMetadata:(id)arg2 keyFilter:(CDUnknownBlockType)arg3 statement:(id)arg4 error:(id *)arg5;
+- (_Bool)_insertExternalSyncMetadata:(id)arg1 forObjectID:(id)arg2 sourceID:(id)arg3 externalSyncObjectCode:(long long)arg4 objectDeleted:(_Bool)arg5 error:(id *)arg6;
+- (id)_ignoredInsertedMetadataKeys;
+- (_Bool)_insertMetadata:(id)arg1 forObjectID:(id)arg2 database:(id)arg3 error:(id *)arg4;
+- (_Bool)insertMetadata:(id)arg1 forObjectID:(id)arg2 sourceID:(id)arg3 externalSyncObjectCode:(long long)arg4 objectDeleted:(_Bool)arg5 error:(id *)arg6;
+- (id)metadataForObjectID:(long long)arg1 keyFilter:(CDUnknownBlockType)arg2 error:(id *)arg3;
+- (id)_externalSyncMetadataForObjectID:(long long)arg1 baseMetadata:(id)arg2 keyFilter:(CDUnknownBlockType)arg3 error:(id *)arg4;
+- (id)_metadataForObjectID:(long long)arg1 baseMetadata:(id)arg2 keyFilter:(CDUnknownBlockType)arg3 statement:(id)arg4 error:(id *)arg5;
+- (id)metadataForObjectID:(long long)arg1 baseMetadata:(id)arg2 keyFilter:(CDUnknownBlockType)arg3 statement:(id)arg4 error:(id *)arg5;
 - (id)initWithProfile:(id)arg1;
 
 @end

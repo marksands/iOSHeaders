@@ -13,8 +13,8 @@
 
 + (id)copyParseRules;
 @property(retain, nonatomic) CoreDAVItem *prop; // @synthesize prop=_prop;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

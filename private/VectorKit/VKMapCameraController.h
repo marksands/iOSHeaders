@@ -76,8 +76,8 @@ __attribute__((visibility("hidden")))
 - (float)currentTopDownMinimumNormalizedZoomLevel;
 - (float)currentMinimumNormalizedZoomLevel;
 - (float)currentMaximumNormalizedZoomLevel;
-- (long long)maximumNormalizedZoomLevel;
-- (long long)minimumNormalizedZoomLevel;
+- (float)maximumNormalizedZoomLevel;
+- (float)minimumNormalizedZoomLevel;
 - (float)currentStyleZoomLevel;
 - (float)currentNormalizedZoomLevel;
 - (float)currentDisplayZoomLevel;

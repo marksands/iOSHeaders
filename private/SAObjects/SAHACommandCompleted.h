@@ -8,7 +8,7 @@
 
 #import <SAObjects/SAServerBoundCommand-Protocol.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, NSURL;
 
 @interface SAHACommandCompleted : SABaseCommand <SAServerBoundCommand>
 {
@@ -18,6 +18,7 @@
 + (id)commandCompleted;
 - (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *serverValidity;
+@property(copy, nonatomic) NSURL *homeIdentifier;
 @property(copy, nonatomic) NSString *commandOutcome;
 @property(copy, nonatomic) NSString *clientValidity;
 @property(copy, nonatomic) NSArray *actionResults;

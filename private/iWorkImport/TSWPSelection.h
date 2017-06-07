@@ -76,6 +76,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isRange;
 @property(readonly, nonatomic) _Bool isVisual;
 - (long long)compare:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (_Bool)p_isEqual:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
@@ -90,7 +91,6 @@ __attribute__((visibility("hidden")))
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

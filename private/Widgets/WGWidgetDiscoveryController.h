@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import <Widgets/NCWidgetDataSourceObserver-Protocol.h>
+#import <Widgets/WGWidgetDataSourceObserver-Protocol.h>
 #import <Widgets/WGWidgetListEditViewControllerDataSource-Protocol.h>
 #import <Widgets/WGWidgetListEditViewControllerDelegate-Protocol.h>
 #import <Widgets/WGWidgetViewControllerDelegate-Protocol.h>
@@ -14,7 +14,7 @@
 @class NSArray, NSMutableArray, NSMutableDictionary, NSMutableSet, NSPointerArray, NSString, WGWidgetListEditViewController, WGWidgetPersistentStateController;
 @protocol OS_dispatch_queue, WGWidgetDebugging, WGWidgetDiscoveryControllerDelegate;
 
-@interface WGWidgetDiscoveryController : NSObject <WGWidgetViewControllerDelegate, NCWidgetDataSourceObserver, WGWidgetListEditViewControllerDataSource, WGWidgetListEditViewControllerDelegate>
+@interface WGWidgetDiscoveryController : NSObject <WGWidgetViewControllerDelegate, WGWidgetDataSourceObserver, WGWidgetListEditViewControllerDataSource, WGWidgetListEditViewControllerDelegate>
 {
     struct NSMutableDictionary *_archive;
     NSObject<OS_dispatch_queue> *_archiveWriteQueue;
@@ -34,7 +34,6 @@
     _Bool _shouldPurgeNonCAMLSnapshots;
     _Bool _shouldPurgeNonASTCSnapshots;
     id <WGWidgetDiscoveryControllerDelegate> _delegate;
-    long long _columnModes;
     NSMutableDictionary *_widgetIDsToPendingTestCompletions;
     NSMutableDictionary *_widgetIDsToPendingTestTearDowns;
     id <WGWidgetDebugging> _debuggingHandler;
@@ -49,7 +48,6 @@
 @property(nonatomic) __weak id <WGWidgetDebugging> debuggingHandler; // @synthesize debuggingHandler=_debuggingHandler;
 @property(retain, nonatomic) NSMutableDictionary *widgetIDsToPendingTestTearDowns; // @synthesize widgetIDsToPendingTestTearDowns=_widgetIDsToPendingTestTearDowns;
 @property(retain, nonatomic) NSMutableDictionary *widgetIDsToPendingTestCompletions; // @synthesize widgetIDsToPendingTestCompletions=_widgetIDsToPendingTestCompletions;
-@property(nonatomic) long long columnModes; // @synthesize columnModes=_columnModes;
 @property(nonatomic) __weak id <WGWidgetDiscoveryControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)debugWidgetWithBundleID:(id)arg1 options:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -126,12 +124,10 @@
 - (id)_newWidgetWithIdentifier:(id)arg1 delegate:(id)arg2;
 - (void)removeDiscoveryObserver:(id)arg1;
 - (void)addDiscoveryObserver:(id)arg1;
-- (_Bool)_managesTwoColumns;
 - (void)setWidgetSnapshotTimestampsEnabled:(_Bool)arg1;
 - (void)setWidgetLoggingEnabled:(_Bool)arg1;
 - (unsigned long long)visibleWidgetsCount;
 - (id)init;
-- (id)initWithColumnModes:(long long)arg1;
 - (id)_widgetViewControllerWithBundleID:(id)arg1 containingBundleID:(id)arg2 didConnect:(CDUnknownBlockType)arg3 canTearDown:(CDUnknownBlockType)arg4;
 
 // Remaining properties

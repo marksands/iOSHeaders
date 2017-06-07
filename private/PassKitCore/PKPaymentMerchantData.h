@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSData, NSString, PKPaymentMerchantSession;
 
@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 - (id)encode;
 - (id)init;
+- (id)initWithMerchantIdentifier:(id)arg1 applicationData:(id)arg2;
 - (id)initWithPaymentRequest:(id)arg1;
 
 @end

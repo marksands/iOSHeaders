@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <IMAVCore/IMSystemMonitorListener-Protocol.h>
 
@@ -64,12 +64,10 @@
     _Bool _isAudioInterrupted;
     _Bool _connectionStarted;
     _Bool _relayed;
-    _Bool _isCallUpgrade;
     _Bool _mayRequireBreakBeforeMake;
     _Bool _terminating;
     _Bool _didRemoteMute;
     _Bool _didRemotePause;
-    _Bool _callUpgrade;
     _Bool _airplaneModeEnabled;
     _Bool _metadataFinalized;
     NSTimer *_inviteTimeoutTimer;
@@ -120,7 +118,6 @@
 + (id)_imHandleFromProxyRepresentation:(id)arg1;
 @property(nonatomic, setter=_setMetadataFinalized:) _Bool metadataFinalized; // @synthesize metadataFinalized=_metadataFinalized;
 @property(nonatomic, setter=_setAirplaneModeEnabled:) _Bool airplaneModeEnabled; // @synthesize airplaneModeEnabled=_airplaneModeEnabled;
-@property(nonatomic, getter=isCallUpgrade, setter=_setCallUpgrade:) _Bool callUpgrade; // @synthesize callUpgrade=_callUpgrade;
 @property(nonatomic, setter=_setDidRemotePause:) _Bool didRemotePause; // @synthesize didRemotePause=_didRemotePause;
 @property(nonatomic, setter=_setDidRemoteMute:) _Bool didRemoteMute; // @synthesize didRemoteMute=_didRemoteMute;
 @property(nonatomic, getter=isTerminating, setter=_setTerminating:) _Bool terminating; // @synthesize terminating=_terminating;
@@ -165,7 +162,6 @@
 @property(readonly, retain, nonatomic) IMHandle *initiatorIMHandle; // @synthesize initiatorIMHandle=_initiator;
 @property(retain, nonatomic, setter=_setCallerProperties:) NSDictionary *callerProperties; // @synthesize callerProperties=_callerProperties;
 @property(readonly, nonatomic) unsigned int sessionID; // @synthesize sessionID=_sessionID;
-@property(nonatomic, setter=_setIsCallUpgrade:) _Bool _isCallUpgrade; // @synthesize _isCallUpgrade;
 @property(retain, nonatomic, setter=_setCallStatisticsGUID:) NSString *_callStatisticsGUID; // @synthesize _callStatisticsGUID;
 @property(nonatomic, setter=_setConnectionType:) int _connectionType; // @synthesize _connectionType;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *_conferenceQueue; // @synthesize _conferenceQueue;

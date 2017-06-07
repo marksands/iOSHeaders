@@ -21,28 +21,26 @@
     _Bool _didFetchOwningContentString;
     float _score;
     NSArray *_searchTokens;
-    NSArray *_contentStrings;
-    NSArray *_matchRanges;
-    struct __CFArray *_categories;
     PSIGroupResult *_additionalGroupResult;
-    struct __CFArray *_owningGroupIds;
+    NSArray *_groups;
     struct __CFArray *_assetIds;
 }
 
 @property(nonatomic) __weak PSIDatabase *idx; // @synthesize idx=_idx;
 @property(retain, nonatomic) struct __CFArray *assetIds; // @synthesize assetIds=_assetIds;
-@property(retain, nonatomic) struct __CFArray *owningGroupIds; // @synthesize owningGroupIds=_owningGroupIds;
+@property(copy, nonatomic) NSArray *groups; // @synthesize groups=_groups;
 @property(nonatomic) float score; // @synthesize score=_score;
 @property(retain, nonatomic) PSIGroupResult *additionalGroupResult; // @synthesize additionalGroupResult=_additionalGroupResult;
-@property(retain, nonatomic) struct __CFArray *categories; // @synthesize categories=_categories;
-@property(retain, nonatomic) NSArray *matchRanges; // @synthesize matchRanges=_matchRanges;
-@property(retain, nonatomic) NSArray *contentStrings; // @synthesize contentStrings=_contentStrings;
 @property(retain, nonatomic) NSArray *searchTokens; // @synthesize searchTokens=_searchTokens;
 - (void).cxx_destruct;
 - (void)fetchNextAssetUUIDs:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)_prepareForFetchWithCount:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2 outFetchOwningContentString:(_Bool *)arg3;
 @property(readonly) NSArray *assetUUIDs;
 @property(readonly) NSString *owningContentString;
+- (long long)categoryAtIndex:(long long)arg1;
+- (unsigned long long)tokenCount;
+@property(readonly, retain, nonatomic) NSArray *matchRanges;
+@property(readonly, retain, nonatomic) NSArray *contentStrings;
 @property(readonly, nonatomic) unsigned long long matchCount;
 - (id)unitTestDescription;
 - (id)description;

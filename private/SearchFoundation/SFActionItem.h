@@ -7,11 +7,19 @@
 #import <objc/NSObject.h>
 
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFActionItem-Protocol.h>
 
-@class NSArray, NSData, NSString, SFImage, SFPunchout;
+@class NSArray, NSData, NSDictionary, NSString, NSURL, SFImage, SFLatLng, SFPunchout;
 
-@interface SFActionItem : NSObject <NSSecureCoding>
+@interface SFActionItem : NSObject <SFActionItem, NSSecureCoding>
 {
+    struct {
+        unsigned int isOverlay:1;
+        unsigned int requiresLocalMedia:1;
+        unsigned int latitude:1;
+        unsigned int longitude:1;
+        unsigned int isITunes:1;
+    } _has;
     _Bool _isOverlay;
     _Bool _requiresLocalMedia;
     _Bool _isITunes;
@@ -33,19 +41,25 @@
     NSString *_labelITunes;
     SFImage *_icon;
     SFImage *_baseIcon;
+    SFLatLng *_location;
+    NSString *_messageIdentifier;
+    NSURL *_messageURL;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSURL *messageURL; // @synthesize messageURL=_messageURL;
+@property(copy, nonatomic) NSString *messageIdentifier; // @synthesize messageIdentifier=_messageIdentifier;
+@property(retain, nonatomic) SFLatLng *location; // @synthesize location=_location;
 @property(retain, nonatomic) SFImage *baseIcon; // @synthesize baseIcon=_baseIcon;
 @property(retain, nonatomic) SFImage *icon; // @synthesize icon=_icon;
 @property(nonatomic) _Bool isITunes; // @synthesize isITunes=_isITunes;
-@property(retain, nonatomic) NSString *labelITunes; // @synthesize labelITunes=_labelITunes;
-@property(retain, nonatomic) NSString *type; // @synthesize type=_type;
-@property(retain, nonatomic) NSString *offerType; // @synthesize offerType=_offerType;
-@property(retain, nonatomic) NSString *provider; // @synthesize provider=_provider;
+@property(copy, nonatomic) NSString *labelITunes; // @synthesize labelITunes=_labelITunes;
+@property(copy, nonatomic) NSString *type; // @synthesize type=_type;
+@property(copy, nonatomic) NSString *offerType; // @synthesize offerType=_offerType;
+@property(copy, nonatomic) NSString *provider; // @synthesize provider=_provider;
 @property(nonatomic) double longitude; // @synthesize longitude=_longitude;
 @property(nonatomic) double latitude; // @synthesize latitude=_latitude;
-@property(retain, nonatomic) NSData *mapsData; // @synthesize mapsData=_mapsData;
+@property(copy, nonatomic) NSData *mapsData; // @synthesize mapsData=_mapsData;
 @property(copy, nonatomic) NSString *email; // @synthesize email=_email;
 @property(copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(copy, nonatomic) NSString *contactIdentifier; // @synthesize contactIdentifier=_contactIdentifier;
@@ -58,8 +72,22 @@
 @property(copy, nonatomic) NSString *labelForLocalMedia; // @synthesize labelForLocalMedia=_labelForLocalMedia;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasIsITunes;
+- (_Bool)hasLongitude;
+- (_Bool)hasLatitude;
+- (_Bool)hasRequiresLocalMedia;
+- (_Bool)hasIsOverlay;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

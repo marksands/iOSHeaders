@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSDescriptionProviding-Protocol.h>
 
@@ -19,13 +19,13 @@
 
 @property(readonly, nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(readonly, copy, nonatomic) XBLaunchStateRequest *launchRequest; // @synthesize launchRequest=_launchRequest;
-@property(readonly, retain, nonatomic) XBApplicationLaunchCompatibilityInfo *applicationCompatibilityInfo; // @synthesize applicationCompatibilityInfo=_applicationCompatibilityInfo;
+@property(readonly, nonatomic) XBApplicationLaunchCompatibilityInfo *applicationCompatibilityInfo; // @synthesize applicationCompatibilityInfo=_applicationCompatibilityInfo;
+- (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithApplicationCompatibilityInfo:(id)arg1 launchRequest:(id)arg2 timeout:(double)arg3;
 
 // Remaining properties

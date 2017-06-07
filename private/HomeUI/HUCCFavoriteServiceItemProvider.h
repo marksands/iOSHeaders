@@ -8,21 +8,25 @@
 
 #import <HomeUI/HUCCFavoriteItemProvider-Protocol.h>
 
-@class NSMutableSet, NSString;
+@class HMHome, NSMutableSet, NSString;
 
 @interface HUCCFavoriteServiceItemProvider : HFItemProvider <HUCCFavoriteItemProvider>
 {
     unsigned long long _maximumNumberOfItems;
+    HMHome *_home;
     NSMutableSet *_serviceLikeItems;
 }
 
 @property(retain, nonatomic) NSMutableSet *serviceLikeItems; // @synthesize serviceLikeItems=_serviceLikeItems;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(nonatomic) unsigned long long maximumNumberOfItems; // @synthesize maximumNumberOfItems=_maximumNumberOfItems;
 - (void).cxx_destruct;
 - (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -45,6 +45,8 @@
 - (void)performBackgroundDataRefresh;
 - (void)_openApp:(id)arg1 withURL:(id)arg2 result:(CDUnknownBlockType)arg3;
 - (void)_openAppWithURL:(id)arg1;
+- (void)didTouchUpInside;
+- (void)didTouchDown;
 - (void)performTapAction;
 - (_Bool)hasTapAction;
 - (void)handleFaceDefaultsChanged;

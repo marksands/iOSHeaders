@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSString *desiredName; // @synthesize desiredName=_desiredName;
 @property(retain, nonatomic) NSString *storedName; // @synthesize storedName=_storedName;
 @property(retain, nonatomic) NSString *canonicalName; // @synthesize canonicalName=_canonicalName;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +39,6 @@
 @property(readonly, nonatomic) _Bool hasDesiredName;
 @property(readonly, nonatomic) _Bool hasStoredName;
 @property(readonly, nonatomic) _Bool hasCanonicalName;
-- (void)dealloc;
 
 @end
 

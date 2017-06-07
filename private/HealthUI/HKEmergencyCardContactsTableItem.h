@@ -10,11 +10,10 @@
 #import <HealthUI/HKMedicalIDEditorCellEditDelegate-Protocol.h>
 #import <HealthUI/_HKEmergencyContactRelationshipPickerDelegate-Protocol.h>
 
-@class HKCoreTelephonyUtilities, NSMutableArray, NSString, UITableViewCell, _HKEmergencyContact;
+@class HKCoreTelephonyUtilities, NSString, UITableViewCell, _HKEmergencyContact;
 
 @interface HKEmergencyCardContactsTableItem : HKEmergencyCardTableItem <HKMedicalIDEditorCellEditDelegate, _HKEmergencyContactRelationshipPickerDelegate, CNContactPickerDelegate>
 {
-    NSMutableArray *_cells;
     UITableViewCell *_lastDequeuedAddContactCell;
     _HKEmergencyContact *_selectedContact;
     _Bool _selectedContactIsBeingAdded;
@@ -24,6 +23,7 @@
 @property(retain, nonatomic) HKCoreTelephonyUtilities *coreTelephonyUtilities; // @synthesize coreTelephonyUtilities=_coreTelephonyUtilities;
 - (void).cxx_destruct;
 - (id)titleForHeader;
+- (id)viewOnlyTitle;
 - (id)titleForFooter;
 - (id)_emergencyContactWithContact:(id)arg1 property:(id)arg2;
 - (void)_didSelectContact:(id)arg1 property:(id)arg2;
@@ -47,9 +47,12 @@
 - (id)tableView:(id)arg1 cellForRowAtIndex:(long long)arg2;
 - (void)_configureAddContactCellLayoutForRowIndex:(long long)arg1;
 - (id)_dequeueAndConfigureContactEditCellForIndex:(long long)arg1 inTableView:(id)arg2;
-- (id)_dequeueAndConfigureContactViewCellForIndex:(long long)arg1;
+- (id)_dequeueAndConfigureContactViewCellForIndex:(long long)arg1 inTableView:(id)arg2;
 - (_Bool)refreshFromData;
 - (long long)numberOfRows;
+- (void)callEmergencyContact:(id)arg1;
+- (long long)contactIndexForRowIndex:(long long)arg1;
+- (long long)itemTypeForRowIndex:(long long)arg1;
 - (_Bool)hasPresentableData;
 
 // Remaining properties

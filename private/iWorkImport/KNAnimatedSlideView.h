@@ -10,6 +10,7 @@
 #import <iWorkImport/TSDConnectedInfoReplacing-Protocol.h>
 
 @class KNAnimatedSlideModel, KNPlaybackSession, KNSlide, KNSlideNode, NSIndexSet, NSMutableArray, NSMutableSet, NSSet, NSString, TSDCanvas, TSDTexturedRectangle, TSUNoCopyDictionary;
+@protocol TSDCanvasProxyDelegate;
 
 __attribute__((visibility("hidden")))
 @interface KNAnimatedSlideView : NSObject <TSDCanvasDelegate, TSDConnectedInfoReplacing>
@@ -139,6 +140,7 @@ __attribute__((visibility("hidden")))
 - (void)registerForEventAnimationActiveCallback:(SEL)arg1 target:(id)arg2;
 - (void)registerForEventStartCallback:(SEL)arg1 target:(id)arg2;
 - (id)infoToConnectToForConnectionLineConnectedToInfo:(id)arg1;
+- (_Bool)isInfoAKeynoteMasterObject:(id)arg1;
 - (unsigned long long)slideNumber;
 - (_Bool)isRenderingForKPF;
 - (_Bool)isCanvasDrawingIntoPDF:(id)arg1;
@@ -148,10 +150,12 @@ __attribute__((visibility("hidden")))
 - (id)documentRoot;
 - (void)p_tearDownTexturesIsExitingShow:(_Bool)arg1;
 - (void)p_recursivelyRemoveCallbackObserversFromAnimatedBuilds:(id)arg1;
+- (void)p_loadPerformanceAnalysisFrameWork;
 - (void)dealloc;
 - (id)initForSlideNode:(id)arg1 session:(id)arg2;
 
 // Remaining properties
+@property(readonly, nonatomic) id <TSDCanvasProxyDelegate> canvasProxyDelegate;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

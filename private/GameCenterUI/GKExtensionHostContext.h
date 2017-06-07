@@ -6,28 +6,18 @@
 
 #import <Foundation/NSExtensionContext.h>
 
-#import <GameCenterUI/GKRemoteViewControllerDelegate-Protocol.h>
-#import <GameCenterUI/GKServiceViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionHostProtocol-Protocol.h>
 
 @class GKGame, GKUIRemoteViewController, NSString;
 
-@interface GKExtensionHostContext : NSExtensionContext <GKServiceViewControllerDelegate, GKRemoteViewControllerDelegate>
+@interface GKExtensionHostContext : NSExtensionContext <GKExtensionHostProtocol>
 {
     GKGame *_game;
     GKUIRemoteViewController *_remoteViewControllerWeak;
 }
 
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
-- (void)setValue:(id)arg1 forKeyPath:(id)arg2 withReply:(CDUnknownBlockType)arg3;
-- (void)hostApp:(id)arg1 grantingAccessExtensionSandbox:(id)arg2 replyWithEndpoint:(CDUnknownBlockType)arg3;
-- (void)setInitialState:(id)arg1 withReply:(CDUnknownBlockType)arg2;
-- (void)remoteViewControllerDidCancel;
-- (void)remoteViewControllerDidFinish;
-- (void)nudge;
-- (void)performActivityType:(id)arg1 withActivityItemsAndSharingInfo:(id)arg2;
-- (void)remoteViewControllerIsFinishing;
-- (void)remoteViewControllerIsCanceling;
-- (id)extensionObjectProxy;
+- (void)messageFromExtension:(id)arg1;
 @property(nonatomic) GKUIRemoteViewController *remoteViewController; // @synthesize remoteViewController=_remoteViewControllerWeak;
 - (void)dealloc;
 

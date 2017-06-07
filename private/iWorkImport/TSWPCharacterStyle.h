@@ -22,9 +22,10 @@ __attribute__((visibility("hidden")))
 + (id)emphasisProperties;
 + (id)properties;
 - (_Bool)transformsFontSizes;
+- (id)archivableRepresentationOfChangeSet:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct CharacterStyleArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (int)writingDirection;
 - (void)loadFromArchive:(const struct CharacterStyleArchive *)arg1 unarchiver:(id)arg2;
 @property(readonly, nonatomic) NSString *presetKind;

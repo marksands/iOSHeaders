@@ -17,22 +17,26 @@
     id _object;
     NSLock *_lock;
     _Bool _createdTimer;
+    CDUnknownBlockType _block;
 }
 
++ (void)_assignThreadPriority;
 + (void)_runThread;
 + (void)initialize;
+- (void).cxx_destruct;
 - (void)_dispatchSCRCThread;
 - (void)_dispatchMainThread;
 - (void)_dispatch;
+- (void)_dispatchThreadHelper:(CDUnknownBlockType)arg1;
 - (id)threadKey;
 - (_Bool)isPending;
 - (_Bool)isCancelled;
 - (_Bool)isCanceled;
 - (void)cancel;
 - (void)dispatchAfterDelay:(double)arg1 withObject:(id)arg2;
+- (void)dispatchAfterDelay:(double)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)dispatchAfterDelay:(double)arg1;
 - (void)dealloc;
-- (oneway void)release;
 - (void)invalidate;
 - (id)initWithTarget:(id)arg1 selector:(SEL)arg2 threadKey:(id)arg3;
 - (_Bool)_createdTimer;

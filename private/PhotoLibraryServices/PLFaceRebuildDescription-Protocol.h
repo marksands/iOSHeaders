@@ -7,8 +7,9 @@
 #import <PhotoLibraryServices/NSObject-Protocol.h>
 
 @protocol PLFaceRebuildDescription <NSObject>
-@property(readonly, nonatomic) int faceAlgorithmVersion;
-@property(readonly, nonatomic, getter=isNameSourceAuto) _Bool nameSourceAuto;
+@property(readonly, nonatomic, getter=isClusterRejected) _Bool clusterRejected;
+@property(readonly, nonatomic) int cloudNameSource;
+@property(readonly, nonatomic) int nameSource;
 @property(readonly, nonatomic, getter=isRepresentative) _Bool representative;
 @property(readonly, nonatomic, getter=isManual) _Bool manual;
 @property(readonly, nonatomic, getter=isHidden) _Bool hidden;

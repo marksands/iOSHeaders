@@ -20,8 +20,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1 intoMessage:(struct DrawableSelectionArchive *)arg2;
-- (id)subclassInitFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)dealloc;
 
 // Remaining properties

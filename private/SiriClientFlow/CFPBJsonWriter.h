@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@interface CFPBJsonWriter : NSObject
+@interface CFPBJSONWriter : NSObject
 {
 }
 

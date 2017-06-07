@@ -4,36 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <VectorKit/VKAnnotationMarkerLayer.h>
+#import <objc/NSObject.h>
 
-#import <VectorKit/VKTrackableAnnotationPresentation-Protocol.h>
-
-@class NSString;
-@protocol VKAnnotation;
-
-@interface VKAnnotationMarker : VKAnnotationMarkerLayer <VKTrackableAnnotationPresentation>
+@interface VKAnnotationMarker : NSObject
 {
-    id <VKAnnotation> _annotation;
-    _Bool _tracking;
-    _Bool _animatingToCoordinate;
     CDStruct_2c43369c _presentationCoordinate;
-    CDStruct_6bdb9208 _styleTransitionState;
 }
 
-@property(nonatomic) _Bool animatingToCoordinate; // @synthesize animatingToCoordinate=_animatingToCoordinate;
-@property(nonatomic) CDStruct_6bdb9208 styleTransitionState; // @synthesize styleTransitionState=_styleTransitionState;
-@property(retain, nonatomic) id <VKAnnotation> annotation; // @synthesize annotation=_annotation;
-@property(nonatomic, getter=isTracking) _Bool tracking;
-@property(nonatomic) CDStruct_c3b9c2ee presentationCoordinate;
-- (void)dealloc;
-- (id)initWithAnnotation:(id)arg1;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property(nonatomic) CDStruct_c3b9c2ee presentationCoordinate; // @synthesize presentationCoordinate=_presentationCoordinate;
 
 @end
 

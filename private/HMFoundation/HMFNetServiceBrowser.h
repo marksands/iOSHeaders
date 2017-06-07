@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/NSNetServiceBrowserDelegate-Protocol.h>
 
-@class NSArray, NSHashTable, NSNetServiceBrowser, NSString;
+@class NSArray, NSHashTable, NSNetServiceBrowser, NSObject, NSString;
 @protocol HMFNetServiceBrowserDelegate, OS_dispatch_queue;
 
-@interface HMFNetServiceBrowser : NSObject <NSNetServiceBrowserDelegate>
+@interface HMFNetServiceBrowser : HMFObject <NSNetServiceBrowserDelegate>
 {
     NSHashTable *_cachedNetServices;
     _Bool _shouldCache;

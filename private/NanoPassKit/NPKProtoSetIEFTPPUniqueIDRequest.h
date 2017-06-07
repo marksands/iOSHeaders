@@ -8,11 +8,12 @@
 
 #import <NanoPassKit/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSData, NSString;
 
 @interface NPKProtoSetIEFTPPUniqueIDRequest : PBRequest <NSCopying>
 {
     NSString *_applicationIdentifier;
+    NSData *_expressPassInformation;
     NSString *_uniqueID;
     _Bool _cancelOutstandingRequests;
     _Bool _requestAuthorization;
@@ -22,6 +23,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSData *expressPassInformation; // @synthesize expressPassInformation=_expressPassInformation;
 @property(nonatomic) _Bool requestAuthorization; // @synthesize requestAuthorization=_requestAuthorization;
 @property(retain, nonatomic) NSString *applicationIdentifier; // @synthesize applicationIdentifier=_applicationIdentifier;
 @property(nonatomic) _Bool cancelOutstandingRequests; // @synthesize cancelOutstandingRequests=_cancelOutstandingRequests;
@@ -36,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasExpressPassInformation;
 @property(nonatomic) _Bool hasRequestAuthorization;
 @property(readonly, nonatomic) _Bool hasApplicationIdentifier;
 @property(nonatomic) _Bool hasCancelOutstandingRequests;

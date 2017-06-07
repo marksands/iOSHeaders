@@ -34,7 +34,6 @@
 @property(readonly, nonatomic) _Bool isValid;
 - (void)_portDidBecomeInvalid;
 - (void)dealloc;
-- (void)finalize;
 - (void)_cleanupMachBitsCanPost:(_Bool)arg1;
 - (id)initWithConnection:(id)arg1 protocol:(id)arg2 alreadyConfigured:(_Bool)arg3;
 - (id)initWithConnection:(id)arg1 protocol:(id)arg2 alreadyConfigured:(_Bool)arg3 forceSecureCoding:(_Bool)arg4;

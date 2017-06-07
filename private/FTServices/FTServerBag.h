@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString, NSURL;
 
@@ -23,8 +23,8 @@
 @property(readonly) _Bool isInDebilitatedMode;
 @property(readonly) _Bool allowUnsignedBags;
 @property(readonly) _Bool allowSelfSignedCertificates;
-@property(readonly, retain) NSString *apsEnvironmentName;
-@property(readonly, retain) NSURL *bagURL;
+@property(readonly) NSString *apsEnvironmentName;
+@property(readonly) NSURL *bagURL;
 - (id)_bag;
 - (id)_cachedBag;
 @property(readonly) _Bool isLoaded;

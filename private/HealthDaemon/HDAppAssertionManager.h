@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class HDDaemon, NSMutableArray, NSMutableDictionary, NSMutableSet;
+@class HDProfile, NSMutableArray, NSMutableDictionary, NSMutableSet;
 @protocol OS_dispatch_queue;
 
 @interface HDAppAssertionManager : NSObject
 {
-    HDDaemon *_daemon;
+    HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_appAssertions;
     NSMutableSet *_activeAssertions;
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSMutableSet *activeAssertions; // @synthesize activeAssertions=_activeAssertions;
 @property(retain, nonatomic) NSMutableDictionary *appAssertions; // @synthesize appAssertions=_appAssertions;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(nonatomic) __weak HDDaemon *daemon; // @synthesize daemon=_daemon;
+@property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)_queue_assertionDidFinish:(id)arg1;
 - (id)_queue_pendingAssertionsReadyForLaunch;
@@ -32,7 +32,7 @@
 - (void)invalidateAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2;
 - (void)_queue_extendAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)extendAssertionWithBundleID:(id)arg1 dataCode:(long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (id)initWithDaemon:(id)arg1;
+- (id)initWithProfile:(id)arg1;
 - (id)init;
 
 @end

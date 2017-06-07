@@ -17,9 +17,16 @@ __attribute__((visibility("hidden")))
 }
 
 @property(nonatomic) __weak GEONavigationServer *delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (void)requestUpdates;
+- (void)requestNavigationVoiceVolume;
+- (void)requestTrafficIncidentDetailsData;
+- (void)requestPositionFromDestination;
+- (void)requestPositionFromManeuver;
+- (void)requestPositionFromSign;
 - (void)requestRideSelections;
+- (void)requestStepNameInfo;
 - (void)requestStepIndex;
 - (void)requestActiveRouteDetailsData;
 - (void)requestGuidanceState;

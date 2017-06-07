@@ -6,18 +6,19 @@
 
 #import <TVMLKit/_TVShelfView.h>
 
-#import <TVMLKit/TVRowHosting-Protocol.h>
+#import <TVMLKit/TVRowHosting_Collection-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface _TVMLShelfView : _TVShelfView <TVRowHosting>
+@interface _TVMLShelfView : _TVShelfView <TVRowHosting_Collection>
 {
 }
 
 - (_Bool)_shouldFadeCellsForBoundChangeWhileRotating;
 - (struct UIEdgeInsets)_selectionMarginsForCell:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldBindRowsTogether;
+- (id)rowMetricsForExpectedWidth:(double)arg1 withContentInset:(struct UIEdgeInsets)arg2 firstItemRowIndex:(long long *)arg3;
 - (id)rowMetricsForExpectedWidth:(double)arg1 firstItemRowIndex:(long long *)arg2;
 - (id)init;
 - (id)initWithFrame:(struct CGRect)arg1;

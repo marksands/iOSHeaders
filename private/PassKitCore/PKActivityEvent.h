@@ -4,39 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class NSDate, NSDecimalNumber, NSString;
+@class NSDate, NSString;
 
 @interface PKActivityEvent : NSObject
 {
     _Bool _unread;
+    NSString *_eventType;
     NSString *_identifier;
-    NSString *_name;
-    NSString *_email;
-    NSString *_phoneNumber;
-    NSString *_summary;
-    NSDecimalNumber *_amount;
-    NSString *_currencyCode;
     NSDate *_date;
 }
 
-@property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
++ (id)eventsWithTransactions:(id)arg1;
 @property(readonly, nonatomic, getter=isUnread) _Bool unread; // @synthesize unread=_unread;
-@property(readonly, copy, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
-@property(readonly, copy, nonatomic) NSDecimalNumber *amount; // @synthesize amount=_amount;
-@property(readonly, copy, nonatomic) NSString *summary; // @synthesize summary=_summary;
-@property(readonly, copy, nonatomic) NSString *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
-@property(readonly, copy, nonatomic) NSString *email; // @synthesize email=_email;
-@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, copy, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) NSString *eventType; // @synthesize eventType=_eventType;
 - (void).cxx_destruct;
 - (_Bool)isEqualToActivityEvent:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (void)dealloc;
-- (id)initWithDictionary:(id)arg1;
-- (id)init;
+- (id)initWithIdentifier:(id)arg1 date:(id)arg2 unread:(_Bool)arg3;
 
 @end
 

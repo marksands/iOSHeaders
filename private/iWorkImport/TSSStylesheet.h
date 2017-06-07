@@ -50,7 +50,7 @@ __attribute__((visibility("hidden")))
 - (id)variationOfStyle:(id)arg1 propertyMap:(id)arg2 context:(id)arg3;
 - (id)variationOfStyleMatchingStyle:(id)arg1 withNewParentStyle:(id)arg2;
 - (id)variationOfStyle:(id)arg1 propertyMap:(id)arg2;
-- (id)firstRootlessStyleOfClass:(Class)arg1 withOverridePropertyMap:(id)arg2;
+- (id)firstUnidentifiedRootStyleOfClass:(Class)arg1 withOverridePropertyMap:(id)arg2;
 - (id)namedStylesOfClass:(Class)arg1;
 - (id)firstCascadedStylePassingTest:(CDUnknownBlockType)arg1;
 - (id)cascadedStylesPassingTest:(CDUnknownBlockType)arg1;
@@ -99,12 +99,13 @@ __attribute__((visibility("hidden")))
 - (id)addDuplicateOfStyle:(id)arg1 withIdentifier:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveStyles:(id)arg1 toArchiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)packageLocator;
 - (unsigned int)delayedArchivingPriority;
 - (_Bool)shouldDelayArchiving;
 - (set_713dd2e1 *)p_allFilteredIdentifiersInArchive:(const struct StylesheetArchive *)arg1 unarchiver:(id)arg2;
 - (id)headerAndFooterStyle;
+- (id)defaultEquationStyle;
 - (id)defaultColumnStyle;
 - (id)defaultParagraphStyle;
 - (id)defaultListStyle;

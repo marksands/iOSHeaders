@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDPlaceResponse, NSString;
+@class GEOPDPlaceResponse, NSString, PBUnknownFields;
 
 @interface GEOCachedCategorySuggestionsPlaceResponse : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _timestamp;
     NSString *_countryCode;
     NSString *_language;
@@ -25,6 +26,8 @@
 @property(retain, nonatomic) NSString *sourceURL; // @synthesize sourceURL=_sourceURL;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(retain, nonatomic) GEOPDPlaceResponse *response; // @synthesize response=_response;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -39,7 +42,6 @@
 @property(readonly, nonatomic) _Bool hasSourceURL;
 @property(nonatomic) _Bool hasTimestamp;
 @property(readonly, nonatomic) _Bool hasResponse;
-- (void)dealloc;
 
 @end
 

@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 + (struct __MDPlistBytes *)createDictionaryPlistBytesUsingBlock:(CDUnknownBlockType)arg1;
 + (struct __MDPlistBytes *)createArrayPlistBytesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateObjectsUsingBlock:(CDUnknownBlockType)arg1;
-- (id)createDispatchData;
+- (void)dumpUIDs;
 - (struct __CFData *)copyDataWithBytesNoCopy;
 - (struct __CFData *)copyData;
 - (_Bool)isEqual:(id)arg1;
@@ -43,6 +43,8 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)initWithByteVector:(char *)arg1 count:(unsigned int)arg2 deallocator:(CDUnknownBlockType)arg3;
 - (id)initWithByteVector:(char *)arg1 count:(unsigned int)arg2 shouldDeallocate:(_Bool)arg3;
+- (void)enumerateQueryResults:(unsigned long long)arg1 stringCache:(CDStruct_6130f9a9 *)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (_Bool)enumerateQueryResults:(unsigned long long)arg1 attributeSize:(unsigned long long)arg2 stringCache:(CDStruct_6130f9a9 *)arg3 usingBlock:(CDUnknownBlockType)arg4;
 
 @end
 

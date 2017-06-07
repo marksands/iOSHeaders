@@ -67,7 +67,7 @@
 - (void)_adjustFastDormancyTokens;
 - (void)__adjustFastDormancyTokens;
 - (void)_setFastDormancySuspended:(_Bool)arg1;
-- (void)_adjustCelluarAutoAssociation;
+- (void)_lockedAdjustCellularAutoAssociation;
 - (void)_adjustCellularAutoAssociation;
 @property(readonly, nonatomic) _Bool isAirplaneModeEnabled;
 - (void)cutWiFiManagerLinkDidChange:(id)arg1 context:(id)arg2;

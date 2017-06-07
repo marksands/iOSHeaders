@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSAccountDelegate-Protocol.h>
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
@@ -24,10 +24,15 @@
     _Bool _indirectDelegateCallouts;
 }
 
+- (void).cxx_destruct;
+- (void)checkTransportLogWithReason:(long long)arg1;
+- (void)updateDeviceIdentity:(id)arg1 error:(id)arg2;
+- (void)groupShareReceived:(id)arg1 withGUID:(id)arg2 forTopic:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 context:(id)arg6;
 - (void)sessionInvitationReceivedWithPayload:(id)arg1 forTopic:(id)arg2 sessionID:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 transportType:(id)arg6;
 - (void)protobufReceived:(id)arg1 withGUID:(id)arg2 forTopic:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 context:(id)arg6;
 - (void)accessoryReportMessageReceived:(id)arg1 accessoryID:(id)arg2 controllerID:(id)arg3 withGUID:(id)arg4 forTopic:(id)arg5 toIdentifier:(id)arg6 fromID:(id)arg7 context:(id)arg8;
 - (void)accessoryDataReceived:(id)arg1 withGUID:(id)arg2 forTopic:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 context:(id)arg6;
+- (void)engramDataReceived:(id)arg1 withGUID:(id)arg2 forTopic:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 context:(id)arg6;
 - (void)dataReceived:(id)arg1 withGUID:(id)arg2 forTopic:(id)arg3 toIdentifier:(id)arg4 fromID:(id)arg5 context:(id)arg6;
 - (void)messageReceived:(id)arg1 withGUID:(id)arg2 withPayload:(id)arg3 forTopic:(id)arg4 toIdentifier:(id)arg5 fromID:(id)arg6 context:(id)arg7;
 - (_Bool)_shouldAcceptIncomingType:(id)arg1 forTopic:(id)arg2 toIdentifier:(id)arg3 fromID:(id)arg4 validateAliases:(_Bool)arg5;
@@ -58,7 +63,7 @@
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (id)_activeDevice;
 @property(readonly, nonatomic) _Bool isActive;
-@property(readonly, retain, nonatomic) IDSAccount *account;
+@property(readonly, nonatomic) IDSAccount *account;
 - (id)daemonListener;
 - (id)daemonController;
 - (void)dealloc;

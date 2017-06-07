@@ -22,6 +22,7 @@
 
 @property(retain, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
 @property(nonatomic) float amount; // @synthesize amount=_amount;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +34,6 @@
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) _Bool hasCurrencyCode;
 @property(nonatomic) _Bool hasAmount;
-- (void)dealloc;
 @property(readonly, nonatomic) double value;
 
 // Remaining properties

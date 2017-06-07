@@ -40,6 +40,7 @@
 - (id)targetsForVideo;
 - (id)targetsForVoice;
 - (id)targetsForEmail;
+- (id)targetsForPay;
 - (id)_targetsForActionType:(id)arg1;
 - (void)resetTargetsForActionType:(id)arg1;
 - (id)observableForTargetsChangedForActionType:(id)arg1 schedulerProvider:(id)arg2;

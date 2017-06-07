@@ -4,9 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSError, NSString, VSInstrumentMetrics, VSSpeechConnection, VSSpeechRequest;
+@class NSError, NSString, VSInstrumentMetrics, VSPresynthesizedAudioRequest, VSSpeechConnection, VSSpeechRequest;
 
 @protocol VSSpeechConnectionDelegate
+- (void)connection:(VSSpeechConnection *)arg1 presynthesizedAudioRequest:(VSPresynthesizedAudioRequest *)arg2 successWithInstrumentMetrics:(VSInstrumentMetrics *)arg3 error:(NSError *)arg4;
+- (void)connection:(VSSpeechConnection *)arg1 presynthesizedAudioRequest:(VSPresynthesizedAudioRequest *)arg2 didStopAtEnd:(_Bool)arg3 error:(NSError *)arg4;
+- (void)connection:(VSSpeechConnection *)arg1 presynthesizedAudioRequestDidStart:(VSPresynthesizedAudioRequest *)arg2;
+- (void)connection:(VSSpeechConnection *)arg1 synthesisRequest:(VSSpeechRequest *)arg2 didFinishWithInstrumentMetrics:(VSInstrumentMetrics *)arg3 error:(NSError *)arg4;
 - (void)connection:(VSSpeechConnection *)arg1 speechRequest:(VSSpeechRequest *)arg2 successWithInstrumentMetrics:(VSInstrumentMetrics *)arg3;
 - (void)connection:(VSSpeechConnection *)arg1 speechRequest:(VSSpeechRequest *)arg2 willSpeakMark:(long long)arg3 inRange:(struct _NSRange)arg4;
 - (void)connection:(VSSpeechConnection *)arg1 speechRequest:(VSSpeechRequest *)arg2 didStopAtEnd:(_Bool)arg3 phonemesSpoken:(NSString *)arg4 error:(NSError *)arg5;

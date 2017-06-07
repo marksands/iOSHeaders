@@ -15,6 +15,7 @@
 }
 
 + (id)subcommandWithName:(id)arg1;
+- (void).cxx_destruct;
 - (id)description;
 - (void)showHelp;
 - (void)stopDueToSigTerm;
@@ -29,7 +30,6 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)addOptions;
-- (void)dealloc;
 - (id)initWithName:(id)arg1;
 
 @end

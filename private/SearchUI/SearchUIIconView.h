@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSLayoutConstraint, SFSearchResult, SearchUIAppIconButton, SearchUIForceTouchGestureRecognizer, SearchUITableViewCell, UILabel;
+@class NSLayoutConstraint, SFSearchResult, SearchUIAppIconButton, SearchUIDragSource, SearchUIForceTouchGestureRecognizer, SearchUITableViewCell, UILabel;
 
 @interface SearchUIIconView : UIView
 {
@@ -17,9 +17,10 @@
     NSLayoutConstraint *_bottomConstraint;
     SearchUIForceTouchGestureRecognizer *_forceTouchRecognizer;
     SearchUITableViewCell *_cell;
+    SearchUIDragSource *_dragSource;
 }
 
-+ (id)labelFont;
+@property(retain) SearchUIDragSource *dragSource; // @synthesize dragSource=_dragSource;
 @property(retain) SearchUITableViewCell *cell; // @synthesize cell=_cell;
 @property(retain) SearchUIForceTouchGestureRecognizer *forceTouchRecognizer; // @synthesize forceTouchRecognizer=_forceTouchRecognizer;
 @property(retain) NSLayoutConstraint *bottomConstraint; // @synthesize bottomConstraint=_bottomConstraint;
@@ -28,11 +29,14 @@
 @property(retain) SearchUIAppIconButton *iconButton; // @synthesize iconButton=_iconButton;
 @property(retain) UIView *iconButtonContainer; // @synthesize iconButtonContainer=_iconButtonContainer;
 - (void).cxx_destruct;
+- (id)dragObject;
 - (void)updateWithResult:(id)arg1;
 - (id)viewForLastBaselineLayout;
+- (void)addForceTouchGestureRecognizerIfNecessaryForTraitCollection:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)viewForFirstBaselineLayout;
 - (void)iconButtonPressed;
+- (id)labelFont;
 - (id)initWithStyle:(unsigned long long)arg1 cell:(id)arg2;
 
 @end

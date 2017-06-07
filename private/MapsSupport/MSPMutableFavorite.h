@@ -19,7 +19,6 @@
     MSPBookmarkStorage *_bookmarkStorage;
 }
 
-+ (void)initialize;
 + (id)mutableFavoriteForBookmarkStorage:(id)arg1;
 + (id)mutableObjectProtocol;
 + (Class)mutableObjectClass;
@@ -29,7 +28,8 @@
 @property(readonly, nonatomic) MSPBookmarkStorage *bookmarkStorage; // @synthesize bookmarkStorage=_bookmarkStorage;
 @property(readonly, nonatomic) NSUUID *storageIdentifier; // @synthesize storageIdentifier=_storageIdentifier;
 - (void).cxx_destruct;
-- (void)_assertNotImmutable;
+- (_Bool)isUserVisibleDuplicateOfFavorite:(id)arg1;
+- (void)_noteWillMutate;
 - (void)_markImmutable;
 - (id)persisterOnlyBookmarkStorage;
 - (id)copyIfValidWithError:(out id *)arg1;

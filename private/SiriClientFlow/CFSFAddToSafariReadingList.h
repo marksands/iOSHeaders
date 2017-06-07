@@ -6,11 +6,12 @@
 
 #import <SAObjects/SADomainCommand.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
 #import <SiriClientFlow/SAAceSerializable-Protocol.h>
 
 @class NSArray, NSString;
 
-@interface CFSFAddToSafariReadingList : SADomainCommand <SAAceSerializable>
+@interface CFSFAddToSafariReadingList : SADomainCommand <SAAceSerializable, CFLocalAceHandling>
 {
 }
 

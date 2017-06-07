@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct CGPoint endPoint; // @synthesize endPoint=mEndPoint;
 @property(readonly, nonatomic) struct CGPath *path; // @synthesize path=mPath;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=mIdentifier;
+- (double)scaleForStrokeWidth:(double)arg1;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (id)description;

@@ -34,11 +34,12 @@
 @property(nonatomic) unsigned short streamID; // @synthesize streamID=_streamID;
 @property(nonatomic) unsigned long long nextByte; // @synthesize nextByte=_nextByte;
 @property(nonatomic) _Bool resumeResourceTransfers; // @synthesize resumeResourceTransfers=_resumeResourceTransfers;
-@property(readonly, retain, nonatomic) NSString *messageUUID; // @synthesize messageUUID=_messageUUID;
+@property(readonly, nonatomic) NSString *messageUUID; // @synthesize messageUUID=_messageUUID;
 @property(nonatomic) unsigned int sequenceNumber; // @synthesize sequenceNumber=_sequenceNumber;
 @property(nonatomic) unsigned int maxChunkSize; // @synthesize maxChunkSize=_maxChunkSize;
 @property(readonly, nonatomic) _Bool isDone; // @synthesize isDone=_done;
 @property(readonly, nonatomic) _Bool sentFirstMessage; // @synthesize sentFirstMessage=_sentFirstMessage;
+- (void).cxx_destruct;
 - (void)reset;
 - (id)nextMessage;
 - (id)nextMessage_old;

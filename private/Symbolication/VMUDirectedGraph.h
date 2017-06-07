@@ -39,6 +39,7 @@
 @property(readonly, nonatomic) unsigned int edgeNamespaceSize; // @synthesize edgeNamespaceSize=_nextEdgeName;
 @property(readonly, nonatomic) unsigned int nodeNamespaceSize; // @synthesize nodeNamespaceSize=_nextNodeName;
 @property(readonly, nonatomic) unsigned int nodeCount; // @synthesize nodeCount=_nodeCount;
+- (void).cxx_destruct;
 - (id)invertedGraph;
 - (id)renormalizedGraph;
 - (id)subgraphWithMarkedNodes:(void *)arg1;

@@ -33,6 +33,7 @@
     NSArray *_inlineItemList;
     NSString *_microphoneIdentifier;
     NSString *_orthography;
+    NSString *_keyboardIdentifier;
     NSString *_languageCodeOverride;
     NSString *_offlineLanguage;
     long long _voiceSearchTypeOptions;
@@ -42,9 +43,13 @@
     double _maximumRecognitionDuration;
     long long _taskHint;
     NSURL *_originalAudioFileURL;
+    NSDictionary *_recognitionOverrides;
+    NSURL *_modelOverrideURL;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSURL *modelOverrideURL; // @synthesize modelOverrideURL=_modelOverrideURL;
+@property(copy, nonatomic) NSDictionary *recognitionOverrides; // @synthesize recognitionOverrides=_recognitionOverrides;
 @property(copy, nonatomic) NSURL *originalAudioFileURL; // @synthesize originalAudioFileURL=_originalAudioFileURL;
 @property(nonatomic) long long taskHint; // @synthesize taskHint=_taskHint;
 @property(nonatomic) double maximumRecognitionDuration; // @synthesize maximumRecognitionDuration=_maximumRecognitionDuration;
@@ -58,6 +63,7 @@
 @property(nonatomic) long long voiceSearchTypeOptions; // @synthesize voiceSearchTypeOptions=_voiceSearchTypeOptions;
 @property(copy, nonatomic) NSString *offlineLanguage; // @synthesize offlineLanguage=_offlineLanguage;
 @property(copy, nonatomic) NSString *languageCodeOverride; // @synthesize languageCodeOverride=_languageCodeOverride;
+@property(copy, nonatomic) NSString *keyboardIdentifier; // @synthesize keyboardIdentifier=_keyboardIdentifier;
 @property(copy, nonatomic) NSString *orthography; // @synthesize orthography=_orthography;
 @property(copy, nonatomic) NSString *microphoneIdentifier; // @synthesize microphoneIdentifier=_microphoneIdentifier;
 @property(copy, nonatomic) NSArray *inlineItemList; // @synthesize inlineItemList=_inlineItemList;

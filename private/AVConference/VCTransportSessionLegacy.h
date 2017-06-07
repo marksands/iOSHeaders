@@ -52,9 +52,11 @@ __attribute__((visibility("hidden")))
     id <VCConnectionProtocol> _loopbackConnection;
     NSCondition *_connectionDataTimeoutCondVar;
     GKInterfaceListener *_interfaceListener;
-    id <VCTransportSessionLegacyDelegate> _delegate;
+    int _operatingMode;
+    id _delegate;
 }
 
+@property int operatingMode; // @synthesize operatingMode=_operatingMode;
 @property int NATType; // @synthesize NATType=_NATType;
 @property(retain, nonatomic) NSDictionary *remoteRelayUpdate; // @synthesize remoteRelayUpdate=_remoteRelayUpdate;
 @property(retain, nonatomic) NSDictionary *localRelayUpdate; // @synthesize localRelayUpdate=_localRelayUpdate;
@@ -74,6 +76,7 @@ __attribute__((visibility("hidden")))
 @property _Bool isCaller; // @synthesize isCaller=_isCaller;
 @property(nonatomic) _Bool initialSecondaryRelaySetupDone; // @synthesize initialSecondaryRelaySetupDone;
 @property(nonatomic) int pendingRelayCount; // @synthesize pendingRelayCount;
+- (void)setReportingAgent:(struct opaqueRTCReporting *)arg1;
 - (void)setIdentity:(struct __SecIdentity *)arg1;
 - (void)handleMediaReceivedOverRelayLink;
 - (void)handleMediaReceivedOverPeerToPeerLink;

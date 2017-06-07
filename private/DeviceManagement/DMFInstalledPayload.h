@@ -4,35 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <DeviceManagement/DMFProfilePayload.h>
 
-#import <DeviceManagement/NSSecureCoding-Protocol.h>
-
-@class NSString;
-
-@interface DMFInstalledPayload : NSObject <NSSecureCoding>
+@interface DMFInstalledPayload : DMFProfilePayload
 {
-    NSString *_type;
-    NSString *_identifier;
-    long long _payloadVersion;
-    NSString *_displayName;
-    NSString *_organization;
-    NSString *_payloadDescription;
 }
-
-+ (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSString *payloadDescription; // @synthesize payloadDescription=_payloadDescription;
-@property(copy, nonatomic) NSString *organization; // @synthesize organization=_organization;
-@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
-@property(nonatomic) long long payloadVersion; // @synthesize payloadVersion=_payloadVersion;
-@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(copy, nonatomic) NSString *type; // @synthesize type=_type;
-- (void).cxx_destruct;
-- (id)description;
-- (_Bool)isEqual:(id)arg1;
-- (unsigned long long)hash;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 
 @end
 

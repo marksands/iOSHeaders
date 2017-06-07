@@ -25,6 +25,7 @@
 + (id)viewportInfoForTraits:(id)arg1;
 @property(nonatomic) unsigned int timeSinceMapViewportChanged; // @synthesize timeSinceMapViewportChanged=_timeSinceMapViewportChanged;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -41,7 +42,6 @@
 @property(nonatomic) int mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) _Bool hasTimeSinceMapViewportChanged;
 @property(readonly, nonatomic) _Bool hasMapRegion;
-- (void)dealloc;
 - (id)initWithTraits:(id)arg1;
 
 @end

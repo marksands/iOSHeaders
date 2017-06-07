@@ -18,9 +18,9 @@ __attribute__((visibility("hidden")))
 + (id)argumentSpecForFunctionIndex:(int)arg1 argumentIndex:(int)arg2;
 @property(nonatomic) short mode; // @synthesize mode=mMode;
 - (void)saveToArchive:(struct ArgumentPlaceholderNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct ArgumentPlaceholderNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct ArgumentPlaceholderNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)hasMenu;
 - (id)exportString;
 - (void)buildASTNodeArray:(struct TSCEASTNodeArray *)arg1 hostCell:(struct TSUCellCoord)arg2 symbolTable:(struct TSCESymbolTable *)arg3;

@@ -6,7 +6,11 @@
 
 #import <SAObjects/SABaseClientBoundCommand.h>
 
-@interface CFBCGetDiagnosticsSubmissionAllowed : SABaseClientBoundCommand
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
+
+@class NSString;
+
+@interface CFBCGetDiagnosticsSubmissionAllowed : SABaseClientBoundCommand <CFLocalAceHandling>
 {
 }
 
@@ -16,6 +20,13 @@
 - (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (void)handleWithCompletion:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

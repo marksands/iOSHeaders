@@ -11,6 +11,7 @@
     _Bool _showHeaderWidget;
     _Bool _showAssetsWidget;
     _Bool _showDemoTilingViewWidget;
+    _Bool _showVariationsWidget;
     _Bool _showDemoViewWidget;
     _Bool _showDemoDynamicWidget;
     _Bool _showPlacesWidget;
@@ -18,6 +19,7 @@
     _Bool _showRelatedWidget;
     _Bool _showSuggestedFacesWidget;
     _Bool _showActionsWidget;
+    _Bool _showPeopleInlineCandidateWidget;
     _Bool _showFacesAreaRect;
     _Bool _allowWidgetsContentLoading;
     _Bool _loadAllWidgetsContentAfterDelay;
@@ -86,6 +88,7 @@
 @property(nonatomic) _Bool loadAllWidgetsContentAfterDelay; // @synthesize loadAllWidgetsContentAfterDelay=_loadAllWidgetsContentAfterDelay;
 @property(nonatomic) _Bool allowWidgetsContentLoading; // @synthesize allowWidgetsContentLoading=_allowWidgetsContentLoading;
 @property(nonatomic) _Bool showFacesAreaRect; // @synthesize showFacesAreaRect=_showFacesAreaRect;
+@property(nonatomic) _Bool showPeopleInlineCandidateWidget; // @synthesize showPeopleInlineCandidateWidget=_showPeopleInlineCandidateWidget;
 @property(nonatomic) _Bool showActionsWidget; // @synthesize showActionsWidget=_showActionsWidget;
 @property(nonatomic) _Bool showSuggestedFacesWidget; // @synthesize showSuggestedFacesWidget=_showSuggestedFacesWidget;
 @property(nonatomic) _Bool showRelatedWidget; // @synthesize showRelatedWidget=_showRelatedWidget;
@@ -93,10 +96,12 @@
 @property(nonatomic) _Bool showPlacesWidget; // @synthesize showPlacesWidget=_showPlacesWidget;
 @property(nonatomic) _Bool showDemoDynamicWidget; // @synthesize showDemoDynamicWidget=_showDemoDynamicWidget;
 @property(nonatomic) _Bool showDemoViewWidget; // @synthesize showDemoViewWidget=_showDemoViewWidget;
+@property(nonatomic) _Bool showVariationsWidget; // @synthesize showVariationsWidget=_showVariationsWidget;
 @property(nonatomic) _Bool showDemoTilingViewWidget; // @synthesize showDemoTilingViewWidget=_showDemoTilingViewWidget;
 @property(nonatomic) _Bool showAssetsWidget; // @synthesize showAssetsWidget=_showAssetsWidget;
 @property(nonatomic) _Bool showHeaderWidget; // @synthesize showHeaderWidget=_showHeaderWidget;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

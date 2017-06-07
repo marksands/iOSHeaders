@@ -11,9 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface TSCEFormulaRewrite_RegionInfo : NSObject
 {
-    struct __CFUUID *_tableID;
     UUIDData_5fbc143e _tableUID;
-    struct __CFUUID *_condStyleOwnerID;
     UUIDData_5fbc143e _condStyleOwnerUID;
     TSCEFormulaRewrite_Uids *_columnUids;
     TSCEFormulaRewrite_Uids *_rowUids;
@@ -22,9 +20,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSCEFormulaRewrite_Uids *rowUids; // @synthesize rowUids=_rowUids;
 @property(readonly, nonatomic) TSCEFormulaRewrite_Uids *columnUids; // @synthesize columnUids=_columnUids;
 @property(readonly, nonatomic) UUIDData_5fbc143e condStyleOwnerUID; // @synthesize condStyleOwnerUID=_condStyleOwnerUID;
-@property(readonly, nonatomic) struct __CFUUID *condStyleOwnerID; // @synthesize condStyleOwnerID=_condStyleOwnerID;
 @property(readonly, nonatomic) UUIDData_5fbc143e tableUID; // @synthesize tableUID=_tableUID;
-@property(readonly, nonatomic) struct __CFUUID *tableID; // @synthesize tableID=_tableID;
 - (id).cxx_construct;
 - (void)saveToMessage:(struct RegionInfoArchive *)arg1;
 - (id)initFromMessage:(const struct RegionInfoArchive *)arg1;
@@ -33,7 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)loadIndexesForTable:(id)arg1;
 - (id)description;
 - (void)dealloc;
-- (id)initWithTableID:(struct __CFUUID *)arg1 columnUids:(const vector_dadc1b26 *)arg2 rowUids:(const vector_dadc1b26 *)arg3;
+- (id)initWithTableUID:(const UUIDData_5fbc143e *)arg1 columnUids:(const vector_dadc1b26 *)arg2 rowUids:(const vector_dadc1b26 *)arg3;
 
 @end
 

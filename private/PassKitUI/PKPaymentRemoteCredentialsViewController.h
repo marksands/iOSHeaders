@@ -6,19 +6,28 @@
 
 #import <PassKitUI/PKPaymentSetupTableViewController.h>
 
+#import <PassKitUI/PKPaymentProvisioningControllerDelegate-Protocol.h>
 #import <PassKitUI/PKPaymentSetupViewControllerCanHideSetupLaterButton-Protocol.h>
 
-@class NSArray, NSString, PKPaymentProvisioningController, PKPaymentSetupCardDetailsFooterView, PKPaymentSetupProduct, PKTableHeaderView;
+@class NSMutableArray, NSString, PKPaymentProvisioningController, PKPaymentRemoteCredentialTableViewCell, PKPaymentSetupFooterView, PKPaymentSetupProduct, PKTableHeaderView, UIImage, _UIBackdropView;
 @protocol PKPaymentSetupViewControllerDelegate;
 
-@interface PKPaymentRemoteCredentialsViewController : PKPaymentSetupTableViewController <PKPaymentSetupViewControllerCanHideSetupLaterButton>
+@interface PKPaymentRemoteCredentialsViewController : PKPaymentSetupTableViewController <PKPaymentSetupViewControllerCanHideSetupLaterButton, PKPaymentProvisioningControllerDelegate>
 {
     PKPaymentProvisioningController *_provisioningController;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
-    NSArray *_remoteCredentials;
+    NSMutableArray *_remoteCredentialCaches;
     PKTableHeaderView *_tableHeader;
-    PKPaymentSetupCardDetailsFooterView *_tableFooter;
+    PKPaymentSetupFooterView *_tableFooter;
+    PKPaymentSetupFooterView *_continueFooter;
     _Bool _allowsManualEntry;
+    _UIBackdropView *_backdropView;
+    long long _backdropStyle;
+    double _backdropWeight;
+    _Bool _updatingBackdropSettings;
+    UIImage *_placeHolder;
+    PKPaymentRemoteCredentialTableViewCell *_sizingCell;
+    unsigned long long _maximumNumberOfSelectableCredentials;
     _Bool _hideSetupLaterButton;
     PKPaymentSetupProduct *_product;
 }
@@ -26,18 +35,28 @@
 @property(nonatomic) _Bool hideSetupLaterButton; // @synthesize hideSetupLaterButton=_hideSetupLaterButton;
 @property(retain, nonatomic) PKPaymentSetupProduct *product; // @synthesize product=_product;
 - (void).cxx_destruct;
+- (void)_createPassSnapshotFromPaymentPass:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)paymentPassUpdatedOnCredential:(id)arg1;
 - (void)_presentViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_presentCardDetailsControllerForCredential:(id)arg1;
+- (void)_setupLater;
+- (void)_startProvisioningForSelectedCards;
 - (void)_presentManualAddController;
 - (void)_setUserInteractionEnabled:(_Bool)arg1;
+- (void)_updateForSelectionCount;
+- (void)_accessibilitySettingsDidChange:(id)arg1;
+- (void)scrollViewDidScroll:(id)arg1;
+- (void)tableView:(id)arg1 didDeselectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 willSelectRowAtIndexPath:(id)arg2;
+- (void)_setPassSnapshotOnCell:(id)arg1 cell:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
-- (void)viewDidLayoutSubviews;
-- (id)_deviceSpecificLocalizedStringKeyForKey:(id)arg1;
+- (void)viewWillLayoutSubviews;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithProvisioningController:(id)arg1 context:(long long)arg2 delegate:(id)arg3 remoteCredentials:(id)arg4 allowsManualEntry:(_Bool)arg5;
 
 // Remaining properties

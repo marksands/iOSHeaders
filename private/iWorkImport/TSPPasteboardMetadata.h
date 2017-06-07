@@ -6,12 +6,13 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSHashTable;
+@class NSHashTable, TSPDataMetadataMap;
 
 __attribute__((visibility("hidden")))
 @interface TSPPasteboardMetadata : TSPObject
 {
     struct PasteboardMetadata _message;
+    TSPDataMetadataMap *_identifierToDataMetadataMap;
     _Bool _isCrossAppPaste;
     _Bool _isCrossDocumentPaste;
     NSHashTable *_dataReferences;
@@ -27,7 +28,9 @@ __attribute__((visibility("hidden")))
 - (long long)tsp_identifier;
 - (struct PasteboardMetadata *)message;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
+- (id)dataMetadataForDataIdentifier:(long long)arg1;
+- (void)setDataMetadata:(id)arg1 forDataIdentifier:(long long)arg2;
 - (id)initWithContext:(id)arg1 dataReferences:(id)arg2;
 - (id)initWithContext:(id)arg1;
 

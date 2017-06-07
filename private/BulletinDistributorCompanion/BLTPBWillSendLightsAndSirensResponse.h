@@ -10,12 +10,15 @@
 
 @interface BLTPBWillSendLightsAndSirensResponse : PBCodable <NSCopying>
 {
+    unsigned int _additionalWait;
     _Bool _willSend;
     struct {
+        unsigned int additionalWait:1;
         unsigned int willSend:1;
     } _has;
 }
 
+@property(nonatomic) unsigned int additionalWait; // @synthesize additionalWait=_additionalWait;
 @property(nonatomic) _Bool willSend; // @synthesize willSend=_willSend;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -26,6 +29,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasAdditionalWait;
 @property(nonatomic) _Bool hasWillSend;
 
 @end

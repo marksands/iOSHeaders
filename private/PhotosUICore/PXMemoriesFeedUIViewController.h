@@ -14,6 +14,7 @@
 #import <PhotosUICore/PXReusableObjectPoolDelegate-Protocol.h>
 #import <PhotosUICore/PXScrollViewControllerObserver-Protocol.h>
 #import <PhotosUICore/PXSectionedDataSourceManagerObserver-Protocol.h>
+#import <PhotosUICore/PXSettingsKeyObserver-Protocol.h>
 #import <PhotosUICore/PXTilingControllerZoomAnimationCoordinatorDelegate-Protocol.h>
 #import <PhotosUICore/PXUIViewControllerZoomTransitionEndPoint-Protocol.h>
 #import <PhotosUICore/PXUserInterfaceFeatureViewController-Protocol.h>
@@ -21,10 +22,10 @@
 #import <PhotosUICore/UIPopoverPresentationControllerDelegate-Protocol.h>
 #import <PhotosUICore/UIViewControllerPreviewingDelegate-Protocol.h>
 
-@class NSString, PXBasicUIViewTileAnimator, PXMemoriesFeedViewControllerHelper, PXMemoriesOnboardingUIViewController, PXMemoriesUITileSource, PXPhotoAnalysisStatusController, PXTouchingUIGestureRecognizer, PXUIScrollViewController, PXUITapGestureRecognizer, UIBarButtonItem, UILongPressGestureRecognizer, UIScrollView, _UIContentUnavailableView;
+@class NSString, PXBasicUIViewTileAnimator, PXMemoriesFeedViewControllerHelper, PXMemoriesOnboardingUIViewController, PXMemoriesUITileSource, PXPhotoAnalysisStatusController, PXSectionedDataSource, PXTouchingUIGestureRecognizer, PXUIScrollViewController, PXUITapGestureRecognizer, UIBarButtonItem, UILongPressGestureRecognizer, UIScrollView, _UIContentUnavailableView;
 @protocol UIViewControllerPreviewing;
 
-@interface PXMemoriesFeedUIViewController : UIViewController <PXReusableObjectPoolDelegate, PXChangeObserver, UIGestureRecognizerDelegate, PXActionPerformerDelegate, PXScrollViewControllerObserver, PXUIViewControllerZoomTransitionEndPoint, PXTilingControllerZoomAnimationCoordinatorDelegate, PXSectionedDataSourceManagerObserver, UIViewControllerPreviewingDelegate, UIPopoverPresentationControllerDelegate, PXMemoriesFeedViewControllerHelperDelegate, PXMemoriesOnboardingViewControllerDelegate, PXMemoriesUITileSourceDelegate, PXUserInterfaceFeatureViewController>
+@interface PXMemoriesFeedUIViewController : UIViewController <PXReusableObjectPoolDelegate, PXChangeObserver, UIGestureRecognizerDelegate, PXActionPerformerDelegate, PXScrollViewControllerObserver, PXUIViewControllerZoomTransitionEndPoint, PXTilingControllerZoomAnimationCoordinatorDelegate, PXSectionedDataSourceManagerObserver, UIViewControllerPreviewingDelegate, UIPopoverPresentationControllerDelegate, PXMemoriesFeedViewControllerHelperDelegate, PXMemoriesOnboardingViewControllerDelegate, PXMemoriesUITileSourceDelegate, PXUserInterfaceFeatureViewController, PXSettingsKeyObserver>
 {
     _Bool _isInitialized;
     struct {
@@ -34,25 +35,26 @@
     _Bool _hasAppeared;
     PXUIScrollViewController *__scrollViewController;
     PXBasicUIViewTileAnimator *__tileAnimator;
+    UIBarButtonItem *__refreshBarButtonItem;
     PXMemoriesFeedViewControllerHelper *__helper;
     PXPhotoAnalysisStatusController *__graphStatusController;
     PXMemoriesOnboardingUIViewController *__onboardingViewController;
     _UIContentUnavailableView *__contentUnavailableView;
     PXMemoriesUITileSource *__tileSource;
     UIBarButtonItem *__searchBarButtonItem;
-    UIBarButtonItem *__feedbackBarButtonItem;
     PXUITapGestureRecognizer *__tapRecognizer;
     UILongPressGestureRecognizer *__longPressRecognizer;
     PXTouchingUIGestureRecognizer *__touchRecognizer;
     id <UIViewControllerPreviewing> __previewingContext;
+    NSString *_scrollTargetMemoryUUID;
 }
 
 + (void)_setCurrentFeedViewController:(id)arg1;
+@property(retain, nonatomic, setter=setScrollTargetMemoryUUID:) NSString *scrollTargetMemoryUUID; // @synthesize scrollTargetMemoryUUID=_scrollTargetMemoryUUID;
 @property(retain, nonatomic, setter=_setPreviewingContext:) id <UIViewControllerPreviewing> _previewingContext; // @synthesize _previewingContext=__previewingContext;
 @property(readonly, nonatomic) PXTouchingUIGestureRecognizer *_touchRecognizer; // @synthesize _touchRecognizer=__touchRecognizer;
 @property(retain, nonatomic, setter=_setLongPressRecognizer:) UILongPressGestureRecognizer *_longPressRecognizer; // @synthesize _longPressRecognizer=__longPressRecognizer;
 @property(readonly, nonatomic) PXUITapGestureRecognizer *_tapRecognizer; // @synthesize _tapRecognizer=__tapRecognizer;
-@property(readonly, nonatomic) UIBarButtonItem *_feedbackBarButtonItem; // @synthesize _feedbackBarButtonItem=__feedbackBarButtonItem;
 @property(readonly, nonatomic) UIBarButtonItem *_searchBarButtonItem; // @synthesize _searchBarButtonItem=__searchBarButtonItem;
 @property(readonly, nonatomic) PXMemoriesUITileSource *_tileSource; // @synthesize _tileSource=__tileSource;
 @property(retain, nonatomic, setter=_setContentUnavailableView:) _UIContentUnavailableView *_contentUnavailableView; // @synthesize _contentUnavailableView=__contentUnavailableView;
@@ -62,9 +64,14 @@
 @property(readonly, nonatomic) PXBasicUIViewTileAnimator *_tileAnimator; // @synthesize _tileAnimator=__tileAnimator;
 @property(readonly, nonatomic) PXUIScrollViewController *_scrollViewController; // @synthesize _scrollViewController=__scrollViewController;
 - (void).cxx_destruct;
+- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)ppt_navigateToMemoryWithReference:(id)arg1 animated:(_Bool)arg2;
+- (void)ppt_revealMemoryWithReference:(id)arg1 animated:(_Bool)arg2;
+@property(readonly, nonatomic) PXSectionedDataSource *ppt_memoriesDataSource;
 - (void)ppt_navigateToLatestMemoryAnimated:(_Bool)arg1;
 @property(readonly, nonatomic) UIScrollView *ppt_scrollView;
 - (_Bool)pu_handleSecondTabTap;
+- (void)playMiroMovieWithMemoryUUID:(id)arg1;
 @property(readonly, nonatomic) long long userInterfaceFeature;
 - (id)memoriesTileSource:(id)arg1 memoryToPreheatForIndexPath:(struct PXSimpleIndexPath)arg2;
 - (id)memoriesFeedViewControllerHelperReloadedTileKindsOnObjectChanged:(id)arg1;
@@ -79,6 +86,7 @@
 - (void)memoriesOnboardingViewControllerDidTapContinueButton:(id)arg1;
 - (id)px_diagnosticsItemProvidersForPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (void)scrollViewControllerWillBeginScrolling:(id)arg1;
+- (void)scrollViewControllerWillLayoutSubviews:(id)arg1;
 - (void)_updateContentUnavailablePlaceholderIfNeeded;
 - (void)_invalidateContentUnavailablePlaceholder;
 - (void)_updateNavigationItemIfNeeded;
@@ -88,20 +96,20 @@
 - (void)_updateIfNeeded;
 - (void)_setNeedsUpdate;
 - (_Bool)_needsUpdate;
-- (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (void)prepareForPopoverPresentation:(id)arg1;
 - (_Bool)actionPerformer:(id)arg1 dismissViewController:(struct NSObject *)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)actionPerformer:(id)arg1 presentViewController:(struct NSObject *)arg2;
 - (struct PXSimpleIndexPath)_memoryIndexPathForViewController:(id)arg1;
-- (void)_startRefresh;
+- (void)_startRefreshWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_refreshBarButtonItemAction:(id)arg1;
 - (void)_searchBarButtonItemAction:(id)arg1;
 - (id)_sourceViewForMemoryActionsController;
 - (void)_presentActionsForMemoryReference:(id)arg1;
+@property(readonly, nonatomic) UIBarButtonItem *_refreshBarButtonItem; // @synthesize _refreshBarButtonItem=__refreshBarButtonItem;
 - (void)_handleTouch:(id)arg1;
 - (void)_handleScrollViewLongPress:(id)arg1;
 - (id)_memoryObjectReferenceForPhotosDetailsContext:(id)arg1;
 - (id)_photosDetailsContextForMemoryObjectReference:(id)arg1;
-- (id)_photosDetailsContextForMemory:(id)arg1;
 - (void)_navigateToMemoryAtSectionObjectReference:(id)arg1;
 - (void)_handleScrollViewTap:(id)arg1;
 - (id)showDetailsForMemoryWithLocalIdentifier:(id)arg1;
@@ -114,12 +122,15 @@
 - (void)_updatePreviewing;
 - (void)_updateLongPressGestureRecognizer;
 - (void)_updateScrollViewControllerContentInset;
+- (void)_applicationDidEnterBackground:(id)arg1;
+- (void)_applicationWillEnterForeground:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

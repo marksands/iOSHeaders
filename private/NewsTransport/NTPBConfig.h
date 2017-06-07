@@ -33,6 +33,7 @@
     long long _maxTimesHeadlineInPaidSubscriptionGroup;
     long long _minimumArticleUpdateInterval;
     long long _minimumDistanceBetweenImageOnTopTiles;
+    long long _minimumFollowCountToRemovePersonalizePlacardInFollowing;
     long long _newFavoriteNotificationAlertsFrequency;
     long long _notificationArticleCacheTimeout;
     long long _notificationArticleWithRapidUpdatesCacheTimeout;
@@ -62,13 +63,17 @@
     NTPBWidgetConfig *_butlerWidgetConfig;
     unsigned int _enabledPrivateDataEncryptionLevel;
     NSMutableArray *_endpointConfigs;
+    NSString *_experimentalizableFieldPostfix;
+    NSMutableArray *_externalAnalyticsConfigs;
     NSString *_fallbackLanguageTag;
     NSString *_forYouNonPersonalizedGroupsOrder;
     NTPBIAdConfig *_iadConfig;
     NSMutableArray *_languageConfigs;
+    int _orderFeedEnabledLevel;
     NTPBPaidSubscriptionConfig *_paidSubscriptionConfig;
     NSString *_personalizationBundleIdMappingResourceId;
     NTPBPersonalizationConfig *_personalizationConfig;
+    NSString *_personalizationPortraitConfigResourceId;
     NSString *_personalizationPublisherFavorabilityScoresResourceId;
     NTPBPersonalizationTreatment *_personalizationTreatment;
     NSString *_personalizationUrlMappingResourceId;
@@ -82,6 +87,8 @@
     _Bool _newsletterSubscriptionChecked;
     _Bool _orderFeedEndpointEnabled;
     _Bool _universalLinksEnabled;
+    _Bool _usUkUseAuWhatsNewFeatures;
+    _Bool _useSecureConnectionForAssets;
     struct {
         unsigned int analyticsEndpointMaxPayloadSize:1;
         unsigned int appConfigRefreshRate:1;
@@ -104,6 +111,7 @@
         unsigned int maxTimesHeadlineInPaidSubscriptionGroup:1;
         unsigned int minimumArticleUpdateInterval:1;
         unsigned int minimumDistanceBetweenImageOnTopTiles:1;
+        unsigned int minimumFollowCountToRemovePersonalizePlacardInFollowing:1;
         unsigned int newFavoriteNotificationAlertsFrequency:1;
         unsigned int notificationArticleCacheTimeout:1;
         unsigned int notificationArticleWithRapidUpdatesCacheTimeout:1;
@@ -128,16 +136,26 @@
         unsigned int treatmentId:1;
         unsigned int trendingTopicsRefreshRate:1;
         unsigned int enabledPrivateDataEncryptionLevel:1;
+        unsigned int orderFeedEnabledLevel:1;
         unsigned int alternativeButlerWidgetConfigEnabled:1;
         unsigned int corryBarHideDiscoverMoreInterstitialForNonOnboardedUsers:1;
         unsigned int newsletterSubscriptionChecked:1;
         unsigned int orderFeedEndpointEnabled:1;
         unsigned int universalLinksEnabled:1;
+        unsigned int usUkUseAuWhatsNewFeatures:1;
+        unsigned int useSecureConnectionForAssets:1;
     } _has;
 }
 
++ (Class)externalAnalyticsConfigType;
 + (Class)endpointConfigsType;
 + (Class)languageConfigsType;
+@property(nonatomic) _Bool usUkUseAuWhatsNewFeatures; // @synthesize usUkUseAuWhatsNewFeatures=_usUkUseAuWhatsNewFeatures;
+@property(nonatomic) _Bool useSecureConnectionForAssets; // @synthesize useSecureConnectionForAssets=_useSecureConnectionForAssets;
+@property(nonatomic) long long minimumFollowCountToRemovePersonalizePlacardInFollowing; // @synthesize minimumFollowCountToRemovePersonalizePlacardInFollowing=_minimumFollowCountToRemovePersonalizePlacardInFollowing;
+@property(retain, nonatomic) NSString *experimentalizableFieldPostfix; // @synthesize experimentalizableFieldPostfix=_experimentalizableFieldPostfix;
+@property(retain, nonatomic) NSString *personalizationPortraitConfigResourceId; // @synthesize personalizationPortraitConfigResourceId=_personalizationPortraitConfigResourceId;
+@property(retain, nonatomic) NSMutableArray *externalAnalyticsConfigs; // @synthesize externalAnalyticsConfigs=_externalAnalyticsConfigs;
 @property(nonatomic) _Bool corryBarHideDiscoverMoreInterstitialForNonOnboardedUsers; // @synthesize corryBarHideDiscoverMoreInterstitialForNonOnboardedUsers=_corryBarHideDiscoverMoreInterstitialForNonOnboardedUsers;
 @property(nonatomic) long long corryBarMaxArticleCountForSingleArticle; // @synthesize corryBarMaxArticleCountForSingleArticle=_corryBarMaxArticleCountForSingleArticle;
 @property(nonatomic) long long corryBarMaxArticleCountForArticleList; // @synthesize corryBarMaxArticleCountForArticleList=_corryBarMaxArticleCountForArticleList;
@@ -201,6 +219,17 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasUsUkUseAuWhatsNewFeatures;
+@property(nonatomic) _Bool hasUseSecureConnectionForAssets;
+@property(nonatomic) _Bool hasMinimumFollowCountToRemovePersonalizePlacardInFollowing;
+@property(readonly, nonatomic) _Bool hasExperimentalizableFieldPostfix;
+@property(nonatomic) _Bool hasOrderFeedEnabledLevel;
+@property(nonatomic) int orderFeedEnabledLevel; // @synthesize orderFeedEnabledLevel=_orderFeedEnabledLevel;
+@property(readonly, nonatomic) _Bool hasPersonalizationPortraitConfigResourceId;
+- (id)externalAnalyticsConfigAtIndex:(unsigned long long)arg1;
+- (unsigned long long)externalAnalyticsConfigsCount;
+- (void)addExternalAnalyticsConfig:(id)arg1;
+- (void)clearExternalAnalyticsConfigs;
 @property(nonatomic) _Bool hasCorryBarHideDiscoverMoreInterstitialForNonOnboardedUsers;
 @property(nonatomic) _Bool hasCorryBarMaxArticleCountForSingleArticle;
 @property(nonatomic) _Bool hasCorryBarMaxArticleCountForArticleList;

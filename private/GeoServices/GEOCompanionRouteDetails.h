@@ -27,6 +27,7 @@
     GEOTransitSuggestedRoute *_originalSuggestedRoute;
     GEODirectionsRequest *_request;
     GEODirectionsResponse *_response;
+    NSMutableArray *_routeDescriptions;
     NSData *_routeID;
     NSMutableArray *_steps;
     NSString *_trafficDescription;
@@ -43,7 +44,10 @@
     } _has;
 }
 
++ (Class)routeDescriptionsType;
 + (Class)stepType;
+@property(retain, nonatomic) NSMutableArray *routeDescriptions; // @synthesize routeDescriptions=_routeDescriptions;
+@property(retain, nonatomic) NSData *originalRouteID; // @synthesize originalRouteID=_originalRouteID;
 @property(retain, nonatomic) NSString *trafficDescription; // @synthesize trafficDescription=_trafficDescription;
 @property(retain, nonatomic) GEODirectionsResponse *response; // @synthesize response=_response;
 @property(retain, nonatomic) GEODirectionsRequest *request; // @synthesize request=_request;
@@ -55,11 +59,11 @@
 @property(nonatomic) unsigned int historicalDuration; // @synthesize historicalDuration=_historicalDuration;
 @property(retain, nonatomic) GEOMapItemStorage *origin; // @synthesize origin=_origin;
 @property(retain, nonatomic) GEOMapItemStorage *destination; // @synthesize destination=_destination;
-@property(retain, nonatomic) NSData *originalRouteID; // @synthesize originalRouteID=_originalRouteID;
 @property(retain, nonatomic) NSData *routeID; // @synthesize routeID=_routeID;
 @property(retain, nonatomic) NSMutableArray *steps; // @synthesize steps=_steps;
 @property(nonatomic) unsigned int originalDuration; // @synthesize originalDuration=_originalDuration;
 @property(retain, nonatomic) NSString *destinationName; // @synthesize destinationName=_destinationName;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -69,6 +73,11 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)routeDescriptionsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)routeDescriptionsCount;
+- (void)addRouteDescriptions:(id)arg1;
+- (void)clearRouteDescriptions;
+@property(readonly, nonatomic) _Bool hasOriginalRouteID;
 @property(readonly, nonatomic) _Bool hasTrafficDescription;
 @property(readonly, nonatomic) _Bool hasResponse;
 @property(readonly, nonatomic) _Bool hasRequest;
@@ -98,7 +107,6 @@
 @property(readonly, nonatomic) unsigned long long trafficColorsCount;
 @property(readonly, nonatomic) _Bool hasOrigin;
 @property(readonly, nonatomic) _Bool hasDestination;
-@property(readonly, nonatomic) _Bool hasOriginalRouteID;
 @property(readonly, nonatomic) _Bool hasRouteID;
 - (void)setCoordinates:(double *)arg1 count:(unsigned long long)arg2;
 - (double)coordinatesAtIndex:(unsigned long long)arg1;
@@ -115,6 +123,7 @@
 - (void)dealloc;
 - (_Bool)isSyntheticRoute;
 - (id)initWithRoute:(id)arg1 destinationName:(id)arg2 stringFormatter:(id)arg3;
+- (id)initWithRoute:(id)arg1 fallbackDestinationName:(id)arg2 stringFormatter:(id)arg3;
 
 @end
 

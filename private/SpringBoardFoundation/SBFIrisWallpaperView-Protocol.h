@@ -6,10 +6,12 @@
 
 #import <SpringBoardFoundation/NSObject-Protocol.h>
 
-@class UIGestureRecognizer;
+@class NSURL, UIGestureRecognizer;
 @protocol SBFIrisWallpaperViewDelegate;
 
 @protocol SBFIrisWallpaperView <NSObject>
+@property(readonly, nonatomic) double stillTimeInVideo;
+@property(readonly, copy, nonatomic) NSURL *videoFileURL;
 @property(readonly, nonatomic) _Bool isIrisInteracting;
 @property(readonly, nonatomic) long long irisPlaybackState;
 @property(nonatomic) __weak id <SBFIrisWallpaperViewDelegate> irisDelegate;

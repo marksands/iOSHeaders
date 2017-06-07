@@ -16,6 +16,7 @@
 
 @property(retain, nonatomic) _TVCollectionViewFlowLayout *gridFlowLayout; // @synthesize gridFlowLayout=_gridFlowLayout;
 - (void).cxx_destruct;
+- (struct CGSize)tv_sizeThatFits:(struct CGSize)arg1 withContentInset:(struct UIEdgeInsets)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 collectionViewLayout:(id)arg2;

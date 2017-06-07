@@ -20,6 +20,7 @@
 }
 
 @property(retain, nonatomic) GEOPDPlaceRefinementParameters *placeRefinementParameters; // @synthesize placeRefinementParameters=_placeRefinementParameters;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,7 +35,6 @@
 - (id)handleTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasHandleType;
 @property(nonatomic) int handleType; // @synthesize handleType=_handleType;
-- (void)dealloc;
 
 @end
 

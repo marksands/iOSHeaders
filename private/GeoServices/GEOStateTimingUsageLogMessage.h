@@ -8,18 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
-
 @interface GEOStateTimingUsageLogMessage : PBCodable <NSCopying>
 {
-    double _durationInOldState;
-    NSMutableArray *_stateTransitionLogMessages;
-    CDStruct_ef245c49 _has;
 }
 
-+ (Class)stateTransitionLogMessageType;
-@property(nonatomic) double durationInOldState; // @synthesize durationInOldState=_durationInOldState;
-@property(retain, nonatomic) NSMutableArray *stateTransitionLogMessages; // @synthesize stateTransitionLogMessages=_stateTransitionLogMessages;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,12 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasDurationInOldState;
-- (id)stateTransitionLogMessageAtIndex:(unsigned long long)arg1;
-- (unsigned long long)stateTransitionLogMessagesCount;
-- (void)addStateTransitionLogMessage:(id)arg1;
-- (void)clearStateTransitionLogMessages;
-- (void)dealloc;
 
 @end
 

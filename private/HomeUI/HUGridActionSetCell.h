@@ -33,16 +33,15 @@
 @property(retain, nonatomic) HUIconView *iconView; // @synthesize iconView=_iconView;
 @property(retain, nonatomic) UIView *accessoryView; // @synthesize accessoryView=_accessoryView;
 @property(retain, nonatomic) NAFuture *executeActionSetFuture; // @synthesize executeActionSetFuture=_executeActionSetFuture;
+- (void)setItem:(id)arg1;
 - (id)item;
 - (void).cxx_destruct;
 - (void)updateConstraints;
 - (void)_invalidateConstraints;
-- (void)_updateLabelsWithTitle:(id)arg1 description:(id)arg2 primaryState:(long long)arg3;
+- (void)_updateLabelsWithTitle:(id)arg1 description:(id)arg2;
 - (void)_updateLabels;
-- (void)displayStyleDidChange;
 - (void)layoutOptionsDidChange;
 - (void)updateUIWithAnimation:(_Bool)arg1;
-- (void)setItem:(id)arg1;
 - (void)_setupActionSetCell;
 - (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;

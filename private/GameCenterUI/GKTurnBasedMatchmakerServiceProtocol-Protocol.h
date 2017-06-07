@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GameCenterUI/GKRemoteViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionProtocol-Protocol.h>
 
 @class GKMatchRequestInternal;
 
-@protocol GKTurnBasedMatchmakerServiceProtocol <GKRemoteViewControllerDelegate>
+@protocol GKTurnBasedMatchmakerServiceProtocol <GKExtensionProtocol>
+
+@optional
 - (void)refreshMatches;
 - (void)setShowQuit:(_Bool)arg1;
 - (void)setShowPlay:(_Bool)arg1;

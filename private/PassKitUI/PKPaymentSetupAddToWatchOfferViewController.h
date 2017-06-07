@@ -6,10 +6,11 @@
 
 #import <UIKit/UIViewController.h>
 
-@class PKPaymentPass, PKPaymentSetupAddToWatchOfferView;
+@class PKPaymentPass, PKPaymentSetupAddToWatchOfferView, UIView;
 
 @interface PKPaymentSetupAddToWatchOfferViewController : UIViewController
 {
+    UIView *_interactionDisabledView;
     PKPaymentPass *_pass;
     long long _context;
     CDUnknownBlockType _dismissalHandler;
@@ -23,6 +24,7 @@
 @property(readonly, retain, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (void).cxx_destruct;
 - (void)_setIdleTimerDisabled:(_Bool)arg1;
+- (void)_clearInteractionDisabledView;
 - (void)_hideSpinner;
 - (void)_showSpinner;
 - (void)_handleDismissal:(_Bool)arg1;
@@ -30,9 +32,9 @@
 - (void)_addLaterTapped:(id)arg1;
 - (void)_openAppTapped:(id)arg1;
 - (void)_doneTapped:(id)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)viewDidLayoutSubviews;
-- (void)viewDidLoad;
+- (void)viewWillLayoutSubviews;
 - (void)loadView;
 - (unsigned long long)edgesForExtendedLayout;
 - (void)_configureNavigationItem;

@@ -16,6 +16,7 @@
 + (id)_preferredFileDisplayNameForSourceContent:(id)arg1;
 + (id)_uniqueTemporaryDirectory;
 + (_Bool)_flattenEXIFOrientationOfImage:(id)arg1 toDestination:(id)arg2;
++ (id)_flattenRotation:(_Bool)arg1 withDownsampling:(_Bool)arg2 sourceImage:(id)arg3;
 + (id)_flattenEXIFOrientation:(_Bool)arg1 withDownsampling:(_Bool)arg2 sourceContent:(id)arg3 withUTI:(id)arg4;
 + (void)_shouldFlattenEXIFOrientation:(_Bool *)arg1 andDownsample:(_Bool *)arg2 sourceContent:(id)arg3;
 + (struct CGImageSource *)_newImageSourceWithSourceContent:(id)arg1;

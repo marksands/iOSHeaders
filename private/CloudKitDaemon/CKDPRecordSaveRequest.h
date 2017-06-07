@@ -8,7 +8,7 @@
 
 #import <CloudKitDaemon/NSCopying-Protocol.h>
 
-@class CKDPRecord, CKDPRecordSaveRequestConflictLoserUpdate, CKDPRecordSaveRequestShareIdUpdate, CKDPRecordSaveRequestShareSaveInfo, NSMutableArray, NSString;
+@class CKDPRecord, CKDPRecordSaveRequestConflictLoserUpdate, CKDPRecordSaveRequestShareIdUpdate, CKDPRequestedFields, NSMutableArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface CKDPRecordSaveRequest : PBRequest <NSCopying>
@@ -17,10 +17,10 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_conflictLosersToResolves;
     NSString *_etag;
     NSMutableArray *_fieldsToDeleteIfExistOnMerges;
-    CKDPRecordSaveRequestShareSaveInfo *_oBSOLETEShareSaveInfo;
     NSString *_parentChainProtectionInfoTag;
     CKDPRecord *_record;
     NSString *_recordProtectionInfoTag;
+    CKDPRequestedFields *_requestedFields;
     int _saveSemantics;
     NSString *_shareEtag;
     CKDPRecordSaveRequestShareIdUpdate *_shareIDUpdate;
@@ -35,7 +35,7 @@ __attribute__((visibility("hidden")))
 + (Class)conflictLosersToResolveType;
 + (Class)fieldsToDeleteIfExistOnMergeType;
 + (id)options;
-@property(retain, nonatomic) CKDPRecordSaveRequestShareSaveInfo *oBSOLETEShareSaveInfo; // @synthesize oBSOLETEShareSaveInfo=_oBSOLETEShareSaveInfo;
+@property(retain, nonatomic) CKDPRequestedFields *requestedFields; // @synthesize requestedFields=_requestedFields;
 @property(retain, nonatomic) NSString *parentChainProtectionInfoTag; // @synthesize parentChainProtectionInfoTag=_parentChainProtectionInfoTag;
 @property(retain, nonatomic) CKDPRecordSaveRequestShareIdUpdate *shareIDUpdate; // @synthesize shareIDUpdate=_shareIDUpdate;
 @property(retain, nonatomic) NSString *shareEtag; // @synthesize shareEtag=_shareEtag;
@@ -59,7 +59,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasOBSOLETEShareSaveInfo;
+@property(readonly, nonatomic) _Bool hasRequestedFields;
 @property(readonly, nonatomic) _Bool hasParentChainProtectionInfoTag;
 @property(readonly, nonatomic) _Bool hasShareIDUpdate;
 @property(readonly, nonatomic) _Bool hasShareEtag;

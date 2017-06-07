@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class IMWeakReference, NSMutableArray;
 @protocol OS_dispatch_queue, OS_dispatch_source;
@@ -25,6 +25,7 @@
 }
 
 @property(readonly, nonatomic) int socket; // @synthesize socket=_connectedSocket;
+- (void).cxx_destruct;
 - (_Bool)sendData:(id)arg1;
 - (void)_setupWriteSource;
 - (void)_sendToConnectedSocket;

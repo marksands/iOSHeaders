@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) SCRCMathExpression *base; // @synthesize base=_base;
 @property(retain, nonatomic) SCRCMathExpression *over; // @synthesize over=_over;
 @property(retain, nonatomic) SCRCMathExpression *under; // @synthesize under=_under;
+- (void).cxx_destruct;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
 - (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
@@ -26,7 +27,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)fractionLevel;
 - (id)subExpressions;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 
 @end

@@ -10,12 +10,13 @@
 #import <HomeUI/HUQuickControlColorPickerViewInteractionDelegate-Protocol.h>
 #import <HomeUI/HUQuickControlInteractiveView-Protocol.h>
 
-@class HFColorPalette, HFColorPaletteColor, HUColorPaletteView, HUColorPickerView, HUQuickControlCircleButton, HUQuickControlSegmentedControl, HUQuickControlViewProfile, NSLayoutConstraint, NSString;
+@class HFColorPalette, HFColorPaletteColor, HUColorPaletteView, HUColorPickerView, HUQuickControlCircleButton, HUQuickControlColorViewProfile, HUQuickControlSegmentedControl, NSLayoutConstraint, NSString;
 @protocol HUQuickControlColorViewInteractionDelegate, HUQuickControlInteractiveView;
 
 @interface HUQuickControlColorView : UIView <HUQuickControlColorPickerViewInteractionDelegate, HUQuickControlColorPaletteViewInteractionDelegate, HUQuickControlInteractiveView>
 {
-    HUQuickControlViewProfile *_profile;
+    _Bool _showPickerModeControl;
+    HUQuickControlColorViewProfile *_profile;
     id <HUQuickControlColorViewInteractionDelegate> _interactionDelegate;
     HFColorPalette *_colorPalette;
     unsigned long long _activeMode;
@@ -36,11 +37,12 @@
 @property(retain, nonatomic) HUQuickControlCircleButton *switchButton; // @synthesize switchButton=_switchButton;
 @property(retain, nonatomic) HUColorPickerView *colorPickerView; // @synthesize colorPickerView=_colorPickerView;
 @property(retain, nonatomic) HUColorPaletteView *colorPaletteView; // @synthesize colorPaletteView=_colorPaletteView;
+@property(nonatomic) _Bool showPickerModeControl; // @synthesize showPickerModeControl=_showPickerModeControl;
 @property(retain, nonatomic) HFColorPaletteColor *selectedColor; // @synthesize selectedColor=_selectedColor;
 @property(nonatomic) unsigned long long activeMode; // @synthesize activeMode=_activeMode;
 @property(retain, nonatomic) HFColorPalette *colorPalette; // @synthesize colorPalette=_colorPalette;
 @property(nonatomic) __weak id <HUQuickControlColorViewInteractionDelegate> interactionDelegate; // @synthesize interactionDelegate=_interactionDelegate;
-@property(copy, nonatomic) HUQuickControlViewProfile *profile; // @synthesize profile=_profile;
+@property(copy, nonatomic) HUQuickControlColorViewProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
 - (void)controlView:(id)arg1 colorPaletteDidChange:(id)arg2;
 - (void)controlView:(id)arg1 colorPickerModeDidChange:(unsigned long long)arg2;

@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *filters; // @synthesize filters=_filters;
 @property(retain, nonatomic) NSData *checksum; // @synthesize checksum=_checksum;
 @property(retain, nonatomic) NSString *filename; // @synthesize filename=_filename;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

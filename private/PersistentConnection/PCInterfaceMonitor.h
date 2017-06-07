@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <PersistentConnection/PCInterfaceMonitorProtocol-Protocol.h>
 #import <PersistentConnection/PCInterfaceUsabilityMonitorDelegate-Protocol.h>
@@ -22,6 +22,7 @@
 + (_Bool)isPoorLinkQuality:(int)arg1;
 + (id)stringForLinkQuality:(int)arg1;
 + (id)sharedInstanceForIdentifier:(long long)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isLTEWithCDRX;
 @property(readonly, nonatomic) struct __CFString *wwanInterfaceName;
 @property(readonly, nonatomic) struct __CFString *currentRAT;

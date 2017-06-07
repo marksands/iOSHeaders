@@ -12,8 +12,10 @@
 {
     NSURL *_fileURL;
     CDUnknownBlockType _shareTokenCompletionBlock;
+    CDUnknownBlockType _shareAndBaseTokenCompletionBlock;
 }
 
+@property(copy) CDUnknownBlockType shareAndBaseTokenCompletionBlock; // @synthesize shareAndBaseTokenCompletionBlock=_shareAndBaseTokenCompletionBlock;
 @property(copy) CDUnknownBlockType shareTokenCompletionBlock; // @synthesize shareTokenCompletionBlock=_shareTokenCompletionBlock;
 - (void).cxx_destruct;
 - (void)finishWithResult:(id)arg1 error:(id)arg2;

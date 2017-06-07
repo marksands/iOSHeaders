@@ -13,12 +13,14 @@
     NSDictionary *_dissectorsAndDependencies;
 }
 
++ (id)retrainingPipeline;
 + (id)quotedRegionPipelineForIpsosTesting;
 + (id)quotedRegionPipeline;
 + (id)pipelineAfterBackgroundProcessing;
 + (id)pipelineForBackgroundProcessing;
 + (id)fullPipeline;
 + (id)dissectorsForBackgroundProcessing;
++ (id)emptyPipeline;
 + (id)customPipeline:(id)arg1;
 + (id)parallelPipeline:(id)arg1;
 + (id)dependencyClassesForDissectorClass:(Class)arg1;

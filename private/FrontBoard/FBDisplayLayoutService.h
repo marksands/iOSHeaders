@@ -19,11 +19,11 @@
 
 + (id)sharedInstance;
 - (void)publishDisplayLayout:(id)arg1;
-- (id)server:(id)arg1 displayLayoutForDisplayType:(unsigned long long)arg2;
-- (id)_displayLayoutForDisplayType:(unsigned long long)arg1;
-- (void)flushLayoutForDisplayType:(unsigned long long)arg1;
-- (id)layoutForDisplayType:(unsigned long long)arg1;
-- (_Bool)isTransitioningForDisplayType:(unsigned long long)arg1;
+- (id)server:(id)arg1 displayLayoutForDisplayType:(long long)arg2;
+- (id)_displayLayoutForDisplayType:(long long)arg1;
+- (void)flushLayoutForDisplayType:(long long)arg1;
+- (id)layoutForDisplayType:(long long)arg1;
+- (_Bool)isTransitioningForDisplayType:(long long)arg1;
 - (void)removeLayoutElementAssertion:(id)arg1;
 - (void)updateLayoutElementAssertion:(id)arg1;
 - (void)addLayoutElementAssertion:(id)arg1;

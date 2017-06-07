@@ -39,6 +39,7 @@
 - (void)setZoomingImageTransitionIdentifier:(id)arg1;
 - (void)updateConstraints;
 - (void)setThumbnailOverlayImage:(id)arg1;
+- (struct CGSize)thumbnailMaxSize;
 - (void)setThumbnailMaxSize:(struct CGSize)arg1;
 - (id)descriptionTextStyle;
 - (id)subtitleTextStyle;
@@ -52,8 +53,11 @@
 - (void)setThumbnailImagePlaceholder:(id)arg1;
 - (void)setThumbnailBorderColor:(id)arg1;
 - (void)setThumbnailImage:(id)arg1;
+- (id)descriptionText;
 - (void)setDescriptionText:(id)arg1;
+- (id)subtitleText;
 - (void)setSubtitleText:(id)arg1;
+- (id)titleText;
 - (void)setTitleText:(id)arg1;
 - (void)prepareForReuse;
 - (id)initWithFrame:(struct CGRect)arg1;

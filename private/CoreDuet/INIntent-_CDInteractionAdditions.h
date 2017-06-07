@@ -9,7 +9,7 @@
 @class NSArray;
 
 @interface INIntent (_CDInteractionAdditions)
-@property(readonly) long long _cdInteractionMechanism;
-@property(readonly) NSArray *_cdRecipients;
+@property(readonly) long long cd_interactionMechanism;
+@property(readonly) NSArray *cd_recipients;
 @end
 

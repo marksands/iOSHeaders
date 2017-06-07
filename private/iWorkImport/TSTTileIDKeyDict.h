@@ -14,7 +14,6 @@ __attribute__((visibility("hidden")))
 
 + (id)p_sharedQueue;
 - (long long)count;
-- (void)applyFunction:(CDUnknownFunctionPointerType)arg1 withState:(void *)arg2;
 - (void)enumerateTilesConcurrentlyUsingBlock:(CDUnknownBlockType)arg1 andWaitForAsyncBlocks:(_Bool)arg2;
 - (void)enumerateTilesWithBlock:(CDUnknownBlockType)arg1;
 - (void)removeAllTiles;

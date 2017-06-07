@@ -6,27 +6,34 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString;
+#import <iWorkImport/NSCopying-Protocol.h>
+
+@class NSSet, NSString, TSUColor;
 
 __attribute__((visibility("hidden")))
-@interface TSPDocumentResourceInfo : NSObject
+@interface TSPDocumentResourceInfo : NSObject <NSCopying>
 {
-    _Bool _isDownloadable;
     NSString *_digestString;
     NSString *_locator;
-    NSString *_extension;
-    long long _fileSize;
+    NSString *_fileExtension;
+    unsigned long long _fileSize;
+    NSSet *_tags;
+    TSUColor *_fallbackColor;
 }
 
-@property(readonly, nonatomic) _Bool isDownloadable; // @synthesize isDownloadable=_isDownloadable;
-@property(readonly, nonatomic) long long fileSize; // @synthesize fileSize=_fileSize;
-@property(readonly, nonatomic) NSString *extension; // @synthesize extension=_extension;
-@property(readonly, nonatomic) NSString *locator; // @synthesize locator=_locator;
-@property(readonly, nonatomic) NSString *digestString; // @synthesize digestString=_digestString;
+@property(readonly, copy, nonatomic) TSUColor *fallbackColor; // @synthesize fallbackColor=_fallbackColor;
+@property(readonly, copy, nonatomic) NSSet *tags; // @synthesize tags=_tags;
+@property(readonly, nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
+@property(readonly, copy, nonatomic) NSString *fileExtension; // @synthesize fileExtension=_fileExtension;
+@property(readonly, copy, nonatomic) NSString *locator; // @synthesize locator=_locator;
+@property(readonly, copy, nonatomic) NSString *digestString; // @synthesize digestString=_digestString;
 - (void).cxx_destruct;
+- (_Bool)isEqualToDocumentResourceInfo:(id)arg1;
+- (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)initWithDigestString:(id)arg1 locator:(id)arg2 extension:(id)arg3 fileSize:(long long)arg4 isDownloadable:(_Bool)arg5;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)initWithDigestString:(id)arg1 locator:(id)arg2 fileExtension:(id)arg3 fileSize:(unsigned long long)arg4 tags:(id)arg5 fallbackColor:(id)arg6;
 - (id)init;
 
 @end

@@ -6,18 +6,21 @@
 
 #import <ChatKit/CKMessagePartChatItem.h>
 
-@class NSAttributedString;
+@class NSAttributedString, UIItemProvider;
 
 @interface CKTextMessagePartChatItem : CKMessagePartChatItem
 {
+    UIItemProvider *_dragItemProvider;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool containsHyperlink;
 @property(readonly, copy, nonatomic) NSAttributedString *subject;
 @property(readonly, copy, nonatomic) NSAttributedString *text;
 - (_Bool)shouldUseBigEmoji;
 - (id)_time;
 - (id)pasteboardItems;
+- (id)dragItemProvider;
 - (Class)impactBalloonViewClass;
 - (Class)balloonViewClass;
 - (id)_attributedTextWithTextColor:(id)arg1;

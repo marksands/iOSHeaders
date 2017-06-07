@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) UIImage *placeholderImage;
 @property(readonly, nonatomic) NSDate *captureDate;
 @property(readonly, nonatomic) NSString *uuid;
+@property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType;
 - (id)initWithUUID:(id)arg1 captureSession:(unsigned short)arg2 url:(id)arg3 creationDate:(id)arg4 scubberImage:(id)arg5 duration:(CDStruct_1b6d18a9)arg6 stillPersistenceUUID:(id)arg7 stillDisplayTime:(CDStruct_1b6d18a9)arg8;
 - (id)initWithUUID:(id)arg1 captureSession:(unsigned short)arg2 url:(id)arg3 creationDate:(id)arg4 scubberImage:(id)arg5;

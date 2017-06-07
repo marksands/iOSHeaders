@@ -6,21 +6,31 @@
 
 #import <iWorkImport/TSPObject.h>
 
-@class NSDictionary;
+#import <iWorkImport/TSKModel-Protocol.h>
+
+@class NSDictionary, NSString;
 
 __attribute__((visibility("hidden")))
-@interface KNClassicStylesheetRecord : TSPObject
+@interface KNClassicStylesheetRecord : TSPObject <TSKModel>
 {
-    NSDictionary *mIdentifierToStyleMap;
+    NSDictionary *_identifierToStyleMap;
 }
 
-- (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
-- (void)dealloc;
-@property(retain, nonatomic) NSDictionary *identifierToStyleMap;
+@property(retain, nonatomic) NSDictionary *identifierToStyleMap; // @synthesize identifierToStyleMap=_identifierToStyleMap;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchive:(struct ClassicStylesheetRecordArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct ClassicStylesheetRecordArchive *)arg1 unarchiver:(id)arg2;
+- (id)childEnumerator;
+- (id)referencedStyles;
+- (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

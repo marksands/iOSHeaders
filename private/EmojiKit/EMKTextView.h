@@ -34,6 +34,7 @@
 - (void)replaceRange:(struct _NSRange)arg1 withEmojiToken:(id)arg2 language:(id)arg3;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
+- (void)deleteBackward;
 - (void)didMoveToSuperview;
 - (void)didMoveToWindow;
 - (void)keyboardDidShow:(id)arg1;

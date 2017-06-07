@@ -19,11 +19,11 @@ __attribute__((visibility("hidden")))
 
 + (id)cellDiffProperties;
 @property(readonly, nonatomic) TSDCommentStorage *commentStorage; // @synthesize commentStorage=_commentStorage;
+- (void).cxx_destruct;
 - (void)saveToPropertyCommandMessage:(struct Message *)arg1 archiver:(id)arg2;
 - (id)initFromPropertyCommandMessage:(const struct Message *)arg1 unarchiver:(id)arg2;
 - (id)objectByRemovingPropertiesInMap:(id)arg1 addingPropertiesInMap:(id)arg2 updateInverseResetPropertyMap:(id)arg3 updateInverseSetPropertyMap:(id)arg4;
 - (void)applyToCell:(id)arg1;
-- (void)dealloc;
 - (void)didInitFromSOS;
 - (id)initWithCommentStorage:(id)arg1;
 

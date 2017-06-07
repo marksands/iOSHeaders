@@ -11,9 +11,7 @@
 }
 
 - (CDUnknownBlockType)_isOpenTest;
-- (id)_multipleOpenRoomsFormatString;
-- (id)_singleOpenRoomFormatString;
-- (id)_entireHomeFormatString;
+- (id)_formatStringTypeComponent;
 - (id)_isOpenCharacteristicType;
 - (id)_serviceType;
 - (id)_subclass_updateWithOptions:(id)arg1;

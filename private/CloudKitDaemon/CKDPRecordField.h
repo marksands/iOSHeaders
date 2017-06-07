@@ -31,6 +31,7 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasValue;
 @property(readonly, nonatomic) _Bool hasIdentifier;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 
 @end
 

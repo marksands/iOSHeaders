@@ -23,6 +23,7 @@
 @property(nonatomic) _Bool enableGenericService; // @synthesize enableGenericService=_enableGenericService;
 @property(nonatomic) _Bool enableContextualGesture; // @synthesize enableContextualGesture=_enableContextualGesture;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

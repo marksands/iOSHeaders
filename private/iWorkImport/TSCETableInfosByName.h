@@ -6,10 +6,12 @@
 
 #import <Foundation/NSObject.h>
 
+#import <iWorkImport/NSCopying-Protocol.h>
+
 @class NSMutableDictionary, TSCECalculationEngine;
 
 __attribute__((visibility("hidden")))
-@interface TSCETableInfosByName : NSObject
+@interface TSCETableInfosByName : NSObject <NSCopying>
 {
     NSMutableDictionary *_tableInfosByTableNameByContainerName;
     TSCECalculationEngine *_calcEngine;
@@ -17,16 +19,19 @@ __attribute__((visibility("hidden")))
 
 + (id)tableNameForTableInfo:(id)arg1;
 + (id)containerNameForTableInfo:(id)arg1;
+- (void).cxx_destruct;
 - (_Bool)resolverNameIsUsed:(id)arg1;
 - (id)resolversMatchingPrefix:(id)arg1;
 - (id)resolverMatchingName:(id)arg1;
+- (id)anyTableInfoForTableName:(id)arg1;
 - (id)description;
 - (id)tableInfoForTableName:(id)arg1 containerName:(id)arg2;
 - (void)renameTableInfo:(id)arg1 fromName:(id)arg2;
 - (void)dropTableInfo:(id)arg1;
 - (void)dropTableInfo:(id)arg1 withTableName:(id)arg2 withContainerName:(id)arg3;
 - (void)addTableInfo:(id)arg1;
-- (void)dealloc;
+- (void)removeAllObjects;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCalcEngine:(id)arg1;
 
 @end

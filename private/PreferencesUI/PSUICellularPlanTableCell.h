@@ -15,12 +15,11 @@
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 - (void)setChecked:(_Bool)arg1;
 - (id)accessoryText;
-- (id)planStatus;
-- (id)planDescription;
 - (id)detailText;
 - (id)primaryText;
 - (_Bool)canBeChecked;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2 specifier:(id)arg3;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 
 @end
 

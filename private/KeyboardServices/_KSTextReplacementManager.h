@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <KeyboardServices/_KSTextReplacementStoreProtocol-Protocol.h>
+#import <KeyboardServices/_KSTextReplacementSyncProtocol-Protocol.h>
 
 @class NSString, _KSTextReplacementCKStore, _KSTextReplacementLegacyStore;
 @protocol OS_dispatch_queue, _KSMigrationDelegate, _KSTextReplacementStoreProtocol;
 
-@interface _KSTextReplacementManager : NSObject <_KSTextReplacementStoreProtocol>
+@interface _KSTextReplacementManager : NSObject <_KSTextReplacementSyncProtocol>
 {
     NSObject<OS_dispatch_queue> *_migrationQueue;
     _Bool _didMigrateForCurrentAccount;
@@ -38,6 +38,7 @@
 - (void).cxx_destruct;
 - (void)recordSyncStatus;
 - (double)minimumUptimeRemaining;
+- (void)requestSync:(unsigned long long)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
 - (void)requestSyncWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (_Bool)deviceDidMigrate;

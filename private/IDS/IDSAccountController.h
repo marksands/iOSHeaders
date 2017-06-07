@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSSet, _IDSAccountController;
 
@@ -13,6 +13,9 @@
     _IDSAccountController *_internal;
 }
 
+- (void).cxx_destruct;
+- (void)_disableAccount:(id)arg1;
+- (void)_enableAccount:(id)arg1;
 - (void)disableAccount:(id)arg1;
 - (void)enableAccount:(id)arg1;
 - (void)_removeAccount:(id)arg1;
@@ -27,7 +30,7 @@
 - (id)accountWithLoginID:(id)arg1 service:(id)arg2;
 - (id)serviceName;
 - (id)enabledAccounts;
-@property(readonly, retain, nonatomic) NSSet *accounts;
+@property(readonly, nonatomic) NSSet *accounts;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
 - (id)_internal;

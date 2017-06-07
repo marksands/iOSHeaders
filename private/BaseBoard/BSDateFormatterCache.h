@@ -15,6 +15,7 @@
     NSDateFormatter *_dayMonthYearFormatter;
     NSDateFormatter *_shortDayMonthFormatter;
     NSDateFormatter *_shortDayMonthTimeFormatter;
+    NSDateFormatter *_abbrevDayOfWeekWithMonthDayFormatter;
     NSDateFormatter *_abbrevDayMonthFormatter;
     NSDateFormatter *_abbrevDayMonthTimeFormatter;
     NSDateFormatter *_timeFormatter;
@@ -50,6 +51,7 @@
 - (id)formatDateAsTimeStyle:(id)arg1;
 - (id)formatDateAsAbbreviatedDayMonthWithTimeStyle:(id)arg1;
 - (id)formatDateAsAbbreviatedDayMonthStyle:(id)arg1;
+- (id)formatDateAsAbbreviatedDayOfWeekMonthDayStyle:(id)arg1;
 - (id)formatDateAsShortDayMonthWithTimeStyle:(id)arg1;
 - (id)formatDateAsDayMonthYearStyle:(id)arg1;
 - (id)formatDateAsAbbreviatedDayOfWeekWithTime:(id)arg1;

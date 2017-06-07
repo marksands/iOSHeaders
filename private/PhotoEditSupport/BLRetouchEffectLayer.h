@@ -25,6 +25,7 @@
 @property(nonatomic) float amount; // @synthesize amount=_amount;
 @property(nonatomic) struct CGRect area; // @synthesize area=_area;
 @property(retain, nonatomic) struct CGContext *layerMask; // @synthesize layerMask=_layerMask;
+- (void).cxx_destruct;
 - (struct CGContext *)edgeDetectContextRefForSize:(float)arg1;
 - (void)strokeDidFinish;
 @property(copy, nonatomic) NSMutableArray *brushStrokes;

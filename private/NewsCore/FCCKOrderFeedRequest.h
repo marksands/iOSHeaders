@@ -14,8 +14,10 @@
     unsigned long long _maxOrder;
     unsigned long long _minOrder;
     unsigned long long _resultsLimit;
+    unsigned long long _topK;
 }
 
+@property(nonatomic) unsigned long long topK; // @synthesize topK=_topK;
 @property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;
 @property(nonatomic) unsigned long long minOrder; // @synthesize minOrder=_minOrder;
 @property(nonatomic) unsigned long long maxOrder; // @synthesize maxOrder=_maxOrder;

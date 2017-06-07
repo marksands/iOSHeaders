@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, UIImage;
+@class NSNumber, NSString, PHPerson, UIImage;
 
 @interface PXPersonItem : NSObject
 {
@@ -14,22 +14,26 @@
     NSString *_name;
     NSString *_displayName;
     unsigned long long _photosCount;
-    id _modelObject;
+    PHPerson *_modelObject;
+    NSNumber *_personTypeNumber;
     CDUnknownBlockType _faceImageLoadingCompletionBlock;
     CDUnknownBlockType _fastDisplayBlock;
     UIImage *_faceImage;
 }
 
-+ (id)px_modelObjectsFromPersonItemArray:(id)arg1;
 @property __weak UIImage *faceImage; // @synthesize faceImage=_faceImage;
 @property(copy) CDUnknownBlockType fastDisplayBlock; // @synthesize fastDisplayBlock=_fastDisplayBlock;
 @property(copy) CDUnknownBlockType faceImageLoadingCompletionBlock; // @synthesize faceImageLoadingCompletionBlock=_faceImageLoadingCompletionBlock;
 @property int faceImageRequestID; // @synthesize faceImageRequestID=_faceImageRequestID;
-@property(retain, nonatomic) id modelObject; // @synthesize modelObject=_modelObject;
+@property(retain, nonatomic) NSNumber *personTypeNumber; // @synthesize personTypeNumber=_personTypeNumber;
+@property(retain, nonatomic) PHPerson *modelObject; // @synthesize modelObject=_modelObject;
 @property(nonatomic) unsigned long long photosCount; // @synthesize photosCount=_photosCount;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+@property(nonatomic) long long personType;
+- (void)updateWithModel:(id)arg1;
+- (id)initWithPerson:(id)arg1;
 
 @end
 

@@ -9,6 +9,7 @@
 @class NSString;
 
 @interface NSData (FezSecurityAdditions)
+@property(readonly, nonatomic) NSData *SHA256Data;
 @property(readonly, nonatomic) NSString *SHA1HexString;
 @property(readonly, nonatomic) NSData *SHA1Data;
 @end

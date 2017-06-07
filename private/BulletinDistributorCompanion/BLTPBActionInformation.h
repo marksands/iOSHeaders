@@ -13,8 +13,10 @@
 @interface BLTPBActionInformation : PBCodable <NSCopying>
 {
     NSData *_context;
+    NSData *_contextNulls;
 }
 
+@property(retain, nonatomic) NSData *contextNulls; // @synthesize contextNulls=_contextNulls;
 @property(retain, nonatomic) NSData *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -26,6 +28,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasContextNulls;
 @property(readonly, nonatomic) _Bool hasContext;
 
 @end

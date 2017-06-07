@@ -12,7 +12,7 @@
 
 @interface HMTimerTrigger (HFTimerTriggerAdditions) <HFTriggerProtocol>
 + (id)_hf_naturalLanguageNameWithHome:(id)arg1 timeString:(id)arg2 fireDate:(id)arg3 recurrences:(id)arg4 type:(unsigned long long)arg5;
-+ (id)hf_naturalLanguageNameWithHome:(id)arg1 significantEvent:(id)arg2 recurrences:(id)arg3 type:(unsigned long long)arg4;
++ (id)hf_naturalLanguageNameWithHome:(id)arg1 significantEvent:(id)arg2 offset:(id)arg3 recurrences:(id)arg4 type:(unsigned long long)arg5;
 + (id)hf_naturalLanguageNameWithHome:(id)arg1 fireDate:(id)arg2 recurrences:(id)arg3 type:(unsigned long long)arg4;
 - (unsigned long long)hf_triggerType;
 - (id)hf_naturalLanguageNameWithHome:(id)arg1 type:(unsigned long long)arg2;

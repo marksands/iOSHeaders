@@ -7,6 +7,7 @@
 #import <UIKit/UINavigationBar.h>
 
 @interface UINavigationBar (CKUtilities)
+- (void)setBizEffectStyle:(_Bool)arg1;
 - (void)setDarkEffectStyle:(_Bool)arg1;
 @end
 

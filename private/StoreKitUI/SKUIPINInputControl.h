@@ -69,6 +69,9 @@
 @property(readonly) unsigned long long hash;
 @property(nonatomic) long long keyboardAppearance;
 @property(nonatomic) long long returnKeyType;
+@property(nonatomic) long long smartDashesType;
+@property(nonatomic) long long smartInsertDeleteType;
+@property(nonatomic) long long smartQuotesType;
 @property(readonly) Class superclass;
 @property(copy, nonatomic) NSString *textContentType;
 

@@ -24,6 +24,7 @@
 
 @property(retain, nonatomic) NSString *placecardCategory; // @synthesize placecardCategory=_placecardCategory;
 @property(retain, nonatomic) GEOPlaceActionDetails *placeActionDetails; // @synthesize placeActionDetails=_placeActionDetails;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

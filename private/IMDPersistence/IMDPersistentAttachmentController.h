@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @interface IMDPersistentAttachmentController : NSObject
 {
@@ -12,9 +12,16 @@
 
 + (id)sharedInstance;
 - (_Bool)cleanseOrphanedFileTransfers;
-- (id)_persistentPathForTransfer:(id)arg1;
-- (_Bool)deleteAttachmentForTransfer:(id)arg1;
-- (id)saveAttachmentForTransfer:(id)arg1;
+- (id)_persistentPathForTransfer:(id)arg1 filename:(id)arg2 highQuality:(_Bool)arg3;
+- (_Bool)_deleteAttachmentForTransfer:(id)arg1 highQuality:(_Bool)arg2;
+- (_Bool)deleteAttachmentsForTransfer:(id)arg1;
+- (_Bool)isSafeToDeleteAttachmentPath:(id)arg1;
+- (id)_migrateSiblingAssetsInAttachmentStoreWithOriginalPath:(id)arg1 destinationPath:(id)arg2 withFileManager:(id)arg3;
+- (void)_removeLegacyAttachmentPathsInAttachmentStoreWithOriginalPath:(id)arg1 withFileManager:(id)arg2;
+- (_Bool)_canDeleteAttachmentPath:(id)arg1;
+- (id)_saveAttachmentForTransfer:(id)arg1 highQuality:(_Bool)arg2 copyWithinAttachmentStore:(_Bool)arg3;
+- (void)moveAttachmentsForTransfer:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)saveAttachmentsForTransfer:(id)arg1 completion:(CDUnknownBlockType)arg2;
 
 @end
 

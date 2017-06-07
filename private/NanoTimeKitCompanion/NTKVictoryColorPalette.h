@@ -21,6 +21,7 @@
 + (id)analogComplicationsColorForColor:(unsigned long long)arg1;
 + (id)secondHandColorForColor:(unsigned long long)arg1;
 + (id)platterColor;
++ (id)handInlayColorForColor:(unsigned long long)arg1;
 + (id)handsAndLogoColorForColor:(unsigned long long)arg1;
 + (id)numbersColorForColor:(unsigned long long)arg1;
 

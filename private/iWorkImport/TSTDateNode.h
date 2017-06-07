@@ -19,9 +19,9 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isBlank) _Bool blank; // @synthesize blank=mBlank;
 - (id)description;
 - (void)saveToArchive:(struct DateNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct DateNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct DateNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (struct TSTDurationWrapper)durationWrapper;
 - (id)date;
 - (id)exportString;

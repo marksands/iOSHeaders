@@ -68,6 +68,11 @@ struct UIEdgeInsets {
     double right;
 };
 
+struct UIOffset {
+    double horizontal;
+    double vertical;
+};
+
 struct __sFILE {
     char *_field1;
     int _field2;

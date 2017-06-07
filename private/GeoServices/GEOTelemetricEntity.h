@@ -23,6 +23,7 @@
 
 @property(retain, nonatomic) NSString *eventDetail; // @synthesize eventDetail=_eventDetail;
 @property(nonatomic) unsigned long long eventValue; // @synthesize eventValue=_eventValue;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +39,6 @@
 - (id)eventKeyAsString:(int)arg1;
 @property(nonatomic) _Bool hasEventKey;
 @property(nonatomic) int eventKey; // @synthesize eventKey=_eventKey;
-- (void)dealloc;
 
 @end
 

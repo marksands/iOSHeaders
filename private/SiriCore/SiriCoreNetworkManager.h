@@ -6,33 +6,59 @@
 
 #import <objc/NSObject.h>
 
-@class SiriCoreWiFiManagerClient;
-@protocol SiriCoreNetworkManagerDelegate;
+@class NSHashTable, SiriCoreWiFiManagerClient;
+@protocol OS_dispatch_queue;
 
 @interface SiriCoreNetworkManager : NSObject
 {
-    id <SiriCoreNetworkManagerDelegate> _delegate;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSHashTable *_observers;
     struct __SCNetworkReachability *_scReachability;
     unsigned int _flags;
     SiriCoreWiFiManagerClient *_wiFiManagerClient;
+    _Bool _hasSymptomsBasedInstantCellQuality;
+    _Bool _symptomsBasedInstantCellQualityIsGood;
+    _Bool _hasSymptomsBasedInstantWiFiQuality;
+    _Bool _symptomsBasedInstantWiFiQualityIsGood;
+    _Bool _hasSymptomsBasedHistoricalCellQuality;
+    _Bool _symptomsBasedHistoricalCellQualityIsGood;
+    _Bool _hasSymptomsBasedHistoricalWiFiQuality;
+    _Bool _symptomsBasedHistoricalWiFiQualityIsGood;
+    _Bool _lastFetchInProgress;
+    double _lastSuccessfulSymptomsFetch;
 }
 
++ (void)releaseDormancySuspendAssertion:(void *)arg1;
++ (void)acquireDormancySuspendAssertion:(const void **)arg1;
 + (long long)connectionTypeForInterface:(id)arg1;
-+ (id)connectionTypeForStream:(id)arg1 interfaceName:(id)arg2;
++ (id)connectionTypeForInterfaceName:(id)arg1 isCellular:(_Bool)arg2;
++ (void)getCarrierName:(id *)arg1 andSignalStrength:(id *)arg2;
 + (long long)connectionSubTypeForCellularInterface;
 + (void)_ifnameTypeForName:(char *)arg1 isWiFi:(_Bool *)arg2 isCellular:(_Bool *)arg3;
-@property(nonatomic) __weak id <SiriCoreNetworkManagerDelegate> delegate; // @synthesize delegate=_delegate;
++ (id)sharedInstance;
 - (void).cxx_destruct;
-- (void)releaseDormancySuspendAssertion:(void *)arg1;
-- (void)acquireDormancySuspendAssertion:(const void **)arg1;
+- (_Bool)_getConnectionSuccessRate:(id)arg1 hasMetric:(_Bool *)arg2;
 - (void)disableWiFiTimeout;
 - (void)enableWiFiTimeout;
 - (void)forceFastDormancy;
+- (int)_reportWiFiHistoricalQuality;
+- (int)_reportWiFiInstantQuality;
+- (int)_reportCellularHistoricalQuality;
+- (int)_reportCellularInstantQuality;
+- (id)qualityReport;
+- (_Bool)isWiFiNetworkCurrentlyAvailable;
+- (_Bool)isCellularNetworkCurrentlyAvailable;
+- (void)getNetworkPerformanceFeed;
+- (void)_getNetworkPerformanceFeed;
 - (void)stopMonitoringNetwork;
-- (void)startMonitoringNetworkForHost:(id)arg1 onQueue:(id)arg2;
+- (void)_stopMonitoringNetwork;
+- (void)startMonitoringNetworkForHost:(id)arg1;
 - (void)_setFlags:(unsigned int)arg1;
 - (id)_wiFiManagerClient;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
 - (void)dealloc;
+- (id)_init;
 
 @end
 

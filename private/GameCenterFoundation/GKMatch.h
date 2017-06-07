@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GameCenterFoundation/GKSessionDelegate-Protocol.h>
 #import <GameCenterFoundation/GKSessionPrivateDelegate-Protocol.h>
@@ -61,7 +61,7 @@
 @property(readonly, nonatomic) unsigned long long expectedPlayerCount; // @synthesize expectedPlayerCount=_expectedPlayerCount;
 @property(retain, nonatomic) GKConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) GKSession *session; // @synthesize session=_session;
-@property(nonatomic) NSObject<OS_dispatch_queue> *stateChangeQueue; // @synthesize stateChangeQueue=_stateChangeQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *stateChangeQueue; // @synthesize stateChangeQueue=_stateChangeQueue;
 @property(retain, nonatomic) NSMutableSet *connectedPlayerIDs; // @synthesize connectedPlayerIDs=_connectedPlayerIDs;
 @property(retain, nonatomic) GKThreadsafeDictionary *playersByIdentifier; // @synthesize playersByIdentifier=_playersByIdentifier;
 - (id)dataFromBase64String:(id)arg1;

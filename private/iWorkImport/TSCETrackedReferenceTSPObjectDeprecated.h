@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
 - (CDStruct_a91f2c80)formulaID;
 - (struct TSCEASTNodeArray *)ast;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
+- (_Bool)validatedLoadFromUnarchiver:(id)arg1;
 
 @end
 

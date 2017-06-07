@@ -8,12 +8,13 @@
 
 #import <PassKitUI/PKContactlessCardIngesterDelegate-Protocol.h>
 
-@class NSMutableDictionary, NSString, NSTimer, PKContactlessCardIngester, PKPaymentContactlessProductCredential, PKPaymentPass, PKPaymentProvisioningController, PKPaymentSetupFieldsModel, PKPaymentSetupProduct, PKPaymentWebService, PKReaderModeProvisioningView, UILabel;
+@class NSMutableDictionary, NSString, NSTimer, PKContactlessCardIngester, PKPaymentContactlessProductCredential, PKPaymentPass, PKPaymentProvisioningController, PKPaymentSetupFieldsModel, PKPaymentSetupProduct, PKPaymentWebService, PKReaderModeProvisioningView, UILabel, UIScrollView;
 @protocol PKPaymentSetupViewControllerDelegate;
 
 @interface PKPaymentReaderModeProvisioningViewController : UIViewController <PKContactlessCardIngesterDelegate>
 {
     PKReaderModeProvisioningView *_provisioningView;
+    UIScrollView *_scrollView;
     unsigned long long _state;
     unsigned long long _stateOnRetry;
     PKContactlessCardIngester *_cardIngester;

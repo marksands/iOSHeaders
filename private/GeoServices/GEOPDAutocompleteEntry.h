@@ -8,12 +8,13 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAutocompleteEntryAddress, GEOPDAutocompleteEntryBusiness, GEOPDAutocompleteEntryCategory, GEOPDAutocompleteEntryHighlightLine, GEOPDAutocompleteEntryQuery, PBUnknownFields;
+@class GEOPDAutocompleteEntryAddress, GEOPDAutocompleteEntryBrandProfile, GEOPDAutocompleteEntryBusiness, GEOPDAutocompleteEntryCategory, GEOPDAutocompleteEntryHighlightLine, GEOPDAutocompleteEntryQuery, PBUnknownFields;
 
 @interface GEOPDAutocompleteEntry : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     GEOPDAutocompleteEntryAddress *_address;
+    GEOPDAutocompleteEntryBrandProfile *_brandProfile;
     GEOPDAutocompleteEntryBusiness *_business;
     GEOPDAutocompleteEntryCategory *_category;
     GEOPDAutocompleteEntryHighlightLine *_highlightExtra;
@@ -25,12 +26,14 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEOPDAutocompleteEntryBrandProfile *brandProfile; // @synthesize brandProfile=_brandProfile;
 @property(retain, nonatomic) GEOPDAutocompleteEntryCategory *category; // @synthesize category=_category;
 @property(retain, nonatomic) GEOPDAutocompleteEntryAddress *address; // @synthesize address=_address;
 @property(retain, nonatomic) GEOPDAutocompleteEntryBusiness *business; // @synthesize business=_business;
 @property(retain, nonatomic) GEOPDAutocompleteEntryQuery *query; // @synthesize query=_query;
 @property(retain, nonatomic) GEOPDAutocompleteEntryHighlightLine *highlightExtra; // @synthesize highlightExtra=_highlightExtra;
 @property(retain, nonatomic) GEOPDAutocompleteEntryHighlightLine *highlightMain; // @synthesize highlightMain=_highlightMain;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -41,6 +44,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasBrandProfile;
 @property(readonly, nonatomic) _Bool hasCategory;
 @property(readonly, nonatomic) _Bool hasAddress;
 @property(readonly, nonatomic) _Bool hasBusiness;
@@ -51,7 +55,6 @@
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) _Bool hasHighlightExtra;
 @property(readonly, nonatomic) _Bool hasHighlightMain;
-- (void)dealloc;
 
 @end
 

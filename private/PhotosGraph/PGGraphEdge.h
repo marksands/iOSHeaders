@@ -6,14 +6,29 @@
 
 #import "MAEdge.h"
 
-@interface PGGraphEdge : MAEdge
+#import <PhotosGraph/PGGraphMeaningEdge-Protocol.h>
+#import <PhotosGraph/PGGraphPOIEdge-Protocol.h>
+
+@class NSString;
+
+@interface PGGraphEdge : MAEdge <PGGraphMeaningEdge, PGGraphPOIEdge>
 {
 }
 
 - (id)keywordDescription;
 - (id)name;
+@property(readonly, nonatomic) NSString *meaningLabel;
+@property(readonly, nonatomic) _Bool isReliable;
+@property(readonly, nonatomic) double reliabilityScore;
+- (_Bool)poiIsImproved;
 - (struct CLLocationCoordinate2D)photoCoordinate;
 - (double)timestampUTCStart;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

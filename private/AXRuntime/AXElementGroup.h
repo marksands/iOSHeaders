@@ -15,9 +15,9 @@
 {
     NSArray *_elementStore;
     _Bool _rootGroup;
-    int _groupTraits;
-    int _userDefinedScanningBehaviorTraits;
     id <AXElementGroupGenerator> _generator;
+    unsigned long long _groupTraits;
+    unsigned long long _userDefinedScanningBehaviorTraits;
     NSHashTable *_groupObservers;
     AXElementGroup *_parentGroup;
     AXElement *_elementCommunity;
@@ -32,9 +32,10 @@
 @property(nonatomic) AXElementGroup *parentGroup; // @synthesize parentGroup=_parentGroup;
 @property(retain, nonatomic) NSHashTable *groupObservers; // @synthesize groupObservers=_groupObservers;
 @property(nonatomic, getter=isRootGroup) _Bool rootGroup; // @synthesize rootGroup=_rootGroup;
-@property(nonatomic) int userDefinedScanningBehaviorTraits; // @synthesize userDefinedScanningBehaviorTraits=_userDefinedScanningBehaviorTraits;
-@property(nonatomic) int groupTraits; // @synthesize groupTraits=_groupTraits;
+@property(nonatomic) unsigned long long userDefinedScanningBehaviorTraits; // @synthesize userDefinedScanningBehaviorTraits=_userDefinedScanningBehaviorTraits;
+@property(nonatomic) unsigned long long groupTraits; // @synthesize groupTraits=_groupTraits;
 @property(nonatomic) id <AXElementGroupGenerator> generator; // @synthesize generator=_generator;
+- (void).cxx_destruct;
 - (id)_debugFullDescriptionWithIndent:(id)arg1;
 - (id)debugFullDescription;
 - (id)_debugBriefDescription;

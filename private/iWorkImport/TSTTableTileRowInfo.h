@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) unsigned short cellCount; // @synthesize cellCount=mCellCount;
 @property(nonatomic) unsigned short tileRowIndex; // @synthesize tileRowIndex=mTileRowIndex;
+- (_Bool)searchCellStorageRefAtColumnIndex:(unsigned char)arg1 searchMask:(unsigned long long)arg2;
 - (void)enumerateStoragesInColumnRange:(struct _NSRange)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (id)description;
 - (id)p_debugDumpCompact;

@@ -45,6 +45,10 @@
 + (void)sendNextTimestampFromQueue:(id)arg1 toObserver:(id)arg2 untilCanceled:(id)arg3 scheduler:(id)arg4;
 + (id)observableWithRelativeTimestamps:(id)arg1 schedulerProvider:(id)arg2;
 + (id)observableWithAbsoluteTimestamps:(id)arg1 schedulerProvider:(id)arg2;
++ (id)observableWithEmailAddressesInString:(id)arg1;
++ (id)binderTypeForResultType:(unsigned long long)arg1;
++ (id)observableWithScannerResultsOfType:(unsigned long long)arg1 inString:(id)arg2;
++ (id)observableWithScannerResultsInString:(id)arg1;
 + (id)observableOnNotificationCenter:(id)arg1 withName:(id)arg2 object:(id)arg3;
 + (id)observableOnDefaultNotificationCenterWithName:(id)arg1 object:(id)arg2;
 + (id)observableOnDarwinNotificationCenterWithName:(id)arg1;
@@ -57,7 +61,9 @@
 - (id)timeoutAfterDelay:(double)arg1 alternateObservable:(id)arg2 schedule:(id)arg3;
 - (id)timeIntervalWithScheduler:(id)arg1;
 - (id)timeInterval;
+- (id)throttleFirstAndLast:(double)arg1 schedulerProvider:(id)arg2;
 - (id)throttleFirst:(double)arg1 scheduler:(id)arg2;
+- (id)throttle:(double)arg1 options:(unsigned long long)arg2 schedulerProvider:(id)arg3;
 - (id)throttle:(double)arg1 schedulerProvider:(id)arg2;
 - (id)takeLast:(unsigned long long)arg1;
 - (id)take:(unsigned long long)arg1;

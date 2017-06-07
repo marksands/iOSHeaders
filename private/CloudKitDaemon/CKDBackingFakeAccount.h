@@ -32,21 +32,20 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *dsid; // @synthesize dsid=_dsid;
 - (void).cxx_destruct;
 - (void)validateVettingToken:(id)arg1 vettingEmail:(id)arg2 vettingPhone:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)updateAccountProperiesInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)saveVerifiedAccountInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateAccountPropertiesAndSaveAccountInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)renewAuthTokenInStore:(id)arg1 withOptions:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)accountPropertiesForDataclass:(id)arg1;
 - (_Bool)iCloudDriveAllowsCellularAccess;
 - (_Bool)isFakeAccount;
 - (_Bool)isDataclassEnabled:(id)arg1;
-- (_Bool)cloudPhotosIsEnabled;
-- (_Bool)cloudKitIsEnabled;
 - (_Bool)canAuthWithCloudKit;
 - (id)iCloudAuthTokenWithError:(id *)arg1;
 - (id)cloudKitAuthTokenWithError:(id *)arg1;
 - (id)username;
 - (id)ckAccount;
+- (void)dealloc;
 - (id)_initFakeAccountWithEmail:(id)arg1 password:(id)arg2;
+- (void)_checkAndLogIfAccountError;
 
 @end
 

@@ -40,6 +40,11 @@ struct __va_list_tag {
     void *_field4;
 };
 
+struct _opaque_pthread_mutex_t {
+    long long __sig;
+    char __opaque[56];
+};
+
 struct in_addr {
     unsigned int _field1;
 };
@@ -56,13 +61,4 @@ struct timeval {
     long long tv_sec;
     int tv_usec;
 };
-
-#pragma mark Typedef'd Structures
-
-typedef struct {
-    unsigned long long _field1;
-    id *_field2;
-    unsigned long long *_field3;
-    unsigned long long _field4[5];
-} CDStruct_70511ce9;
 

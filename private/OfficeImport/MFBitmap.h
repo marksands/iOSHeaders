@@ -23,20 +23,22 @@ __attribute__((visibility("hidden")))
 
 - (_Bool)isEmpty;
 - (void)setMonoPalette:(id)arg1;
+- (_Bool)isFlipped;
+- (const char *)pixelData;
 - (void)dealloc;
-- (id)initWithBitmap:(id)arg1:(int)arg2:(int)arg3:(int)arg4:(int)arg5:(const char *)arg6:(unsigned int)arg7;
-- (id)initWithDIBitmap:(id)arg1:(const char *)arg2:(unsigned int)arg3:(const char *)arg4:(unsigned int)arg5:(int)arg6;
-- (id)initWithDIBitmap:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
+- (id)initWithBitmap:(id)arg1 in_width:(int)arg2 in_height:(int)arg3 in_planes:(int)arg4 in_bitsPerPixel:(int)arg5 in_bitmap:(const char *)arg6 in_bitmapSize:(unsigned int)arg7;
+- (id)initWithDIBitmap:(id)arg1 in_header:(const char *)arg2 in_headerSize:(unsigned int)arg3 in_bitmap:(const char *)arg4 in_bitmapSize:(unsigned int)arg5 in_usage:(int)arg6;
+- (id)initWithDIBitmap:(id)arg1 in_dib:(const char *)arg2 in_dibSize:(unsigned int)arg3 in_usage:(int)arg4;
 - (id)init;
-- (_Bool)processDIBHeader:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
-- (void)appendDIBPalette:(id)arg1:(const char *)arg2:(unsigned int)arg3:(int)arg4;
-- (unsigned int)pixelDataOffset:(const char *)arg1:(unsigned int)arg2:(int)arg3;
-- (unsigned int)coloursUsed:(const char *)arg1:(unsigned int)arg2:(int)arg3;
+- (_Bool)processDIBHeader:(id)arg1 in_header:(const char *)arg2 in_headerSize:(unsigned int)arg3 in_usage:(int)arg4;
+- (void)appendDIBPalette:(id)arg1 in_header:(const char *)arg2 in_headerSize:(unsigned int)arg3 in_usage:(int)arg4;
+- (unsigned int)pixelDataOffset:(const char *)arg1 in_headerSize:(unsigned int)arg2 in_usage:(int)arg3;
+- (unsigned int)coloursUsed:(const char *)arg1 in_headerSize:(unsigned int)arg2 in_usage:(int)arg3;
 - (void)setNull;
 - (void)writeInfoHeader;
 - (void)writeFileHeader;
-- (void)writePaletteEntry:(id)arg1:(int)arg2;
-- (_Bool)parseHeader:(const char *)arg1:(unsigned int)arg2;
+- (void)writePaletteEntry:(id)arg1 in_index:(int)arg2;
+- (_Bool)parseHeader:(const char *)arg1 in_headerSize:(unsigned int)arg2;
 
 @end
 

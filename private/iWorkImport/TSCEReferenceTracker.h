@@ -14,43 +14,41 @@
 __attribute__((visibility("hidden")))
 @interface TSCEReferenceTracker : TSPObject <TSCEFormulaOwning>
 {
-    struct __CFUUID *mUUID;
-    TSCECalculationEngine *mCalculationEngine;
-    _Bool mIsRegisteredWithCalculationEngine;
-    id <TSCEReferenceTrackerDelegate> mDelegate;
-    NSLock *mTrackedRefsLock;
-    NSMutableArray *mTrackedReferences;
-    unsigned long long mNextEmptyTrackedReferencesIndex;
-    unsigned long long mNumberOfTrackedReferences;
-    struct vector<TSCEFormulaID, std::__1::allocator<TSCEFormulaID>> mFormulaIDsToRewrite;
+    UUIDData_5fbc143e _ownerUUID;
+    TSCECalculationEngine *_calculationEngine;
+    _Bool _isRegisteredWithCalculationEngine;
+    id <TSCEReferenceTrackerDelegate> _delegate;
+    NSLock *_trackedRefsLock;
+    NSMutableArray *_trackedReferences;
+    unsigned long long _nextEmptyTrackedReferencesIndex;
+    unsigned long long _numberOfTrackedReferences;
+    struct vector<TSCEFormulaID, std::__1::allocator<TSCEFormulaID>> _formulaIDsToRewrite;
 }
 
-@property(readonly, nonatomic) id <TSCEReferenceTrackerDelegate> delegate; // @synthesize delegate=mDelegate;
+@property(nonatomic) __weak id <TSCEReferenceTrackerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (_Bool)trackedReferencesExistForTable:(struct __CFUUID *)arg1;
-- (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerID:(struct __CFUUID *)arg2;
-- (id)cellRangeWasInserted:(CDStruct_fc93c73e)arg1;
+- (_Bool)trackedReferencesExistForTable:(const UUIDData_5fbc143e *)arg1;
+- (void)trackedReferenceWasDeleted:(id)arg1 fromOwnerUID:(const UUIDData_5fbc143e *)arg2;
+- (id)cellRangeWasInserted:(const struct TSCERangeRef *)arg1;
 - (id)trackedReferenceAtID:(CDStruct_a91f2c80)arg1;
-- (void)setFormulaOwnerID:(struct __CFUUID *)arg1;
-- (struct __CFUUID *)formulaOwnerID;
+- (void)setFormulaOwnerUID:(const UUIDData_5fbc143e *)arg1;
+- (UUIDData_5fbc143e)formulaOwnerUID;
 - (unsigned long long)numberOfTrackedReferences;
 - (id)allTrackedReferences;
 - (void)endTrackingReference:(id)arg1;
-- (id)beginTrackingReferenceWithCReference:(struct TSCECReference)arg1;
+- (id)beginTrackingReferenceWithSpanningRef:(const struct TSCESpanningRangeRef *)arg1;
+- (id)beginTrackingReferenceWithRangeRef:(const struct TSCERangeRef *)arg1;
+- (id)beginTrackingReferenceWithCellRef:(const struct TSCECellRef *)arg1;
 - (void)beginTrackingReference:(id)arg1;
-- (void)setDelegate:(id)arg1;
-- (id)calculationEngine;
+@property(readonly, nonatomic) __weak TSCECalculationEngine *calculationEngine;
 - (void)setCalculationEngine:(id)arg1;
 - (void)unregisterFromCalculationEngine;
 - (void)registerWithCalculationEngine:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 delegate:(id)arg3;
 - (id)objectToArchiveInDependencyTracker;
-- (void)releaseForCalculationEngine:(id)arg1;
-- (void)retainForCalculationEngine:(id)arg1;
 - (void)beginRewriteForCalculationEngine:(id)arg1 spec:(id)arg2;
 - (void)rewriteForCalculationEngine:(id)arg1 formulaID:(CDStruct_a91f2c80)arg2 rewriteSpec:(id)arg3;
 - (void)invalidateForCalculationEngine:(id)arg1;

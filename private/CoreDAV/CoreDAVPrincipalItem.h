@@ -25,10 +25,10 @@
 @property(retain, nonatomic) CoreDAVItemWithNoChildren *authenticated; // @synthesize authenticated=_authenticated;
 @property(retain, nonatomic) CoreDAVItemWithNoChildren *all; // @synthesize all=_all;
 @property(retain, nonatomic) CoreDAVHrefItem *href; // @synthesize href=_href;
+- (void).cxx_destruct;
 - (id)hashString;
 - (void)write:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)initTypeIsSelf;
 - (id)initTypeIsUnauthenticated;
 - (id)initTypeIsAuthenticated;

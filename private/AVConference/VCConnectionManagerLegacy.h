@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) id <VCConnectionProtocol> pendingSecondaryConnection; // @synthesize pendingSecondaryConnection=_pendingSecondaryConnection;
 @property(retain, nonatomic) id <VCConnectionProtocol> pendingPrimaryConnection; // @synthesize pendingPrimaryConnection=_pendingPrimaryConnection;
+- (_Bool)shouldHandoverWhenUpdateWRMDuplication:(int)arg1;
 - (id)getConnectionWithSourceDestinationInfo:(struct tagVCSourceDestinationInfo *)arg1 isPrimary:(_Bool *)arg2;
 - (_Bool)shouldAcceptDataFromSourceDestinationInfo:(struct tagVCSourceDestinationInfo *)arg1;
 - (void)sourceDestinationInfo:(struct tagVCSourceDestinationInfo *)arg1 isSourceOnCellular:(_Bool *)arg2 isSourceIPv6:(_Bool *)arg3;

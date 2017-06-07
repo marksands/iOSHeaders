@@ -6,21 +6,29 @@
 
 #import <UIKit/UINavigationController.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface WBUPasswordPickerViewController : UINavigationController
 {
     NSString *_prompt;
+    long long _minimumNumberOfCredentialsToShowLikelyMatchesSection;
     CDUnknownBlockType _completionHandler;
+    _Bool _forUserNamesOnly;
+    NSArray *_hintStrings;
 }
 
++ (_Bool)_preventsAppearanceProxyCustomization;
+@property(readonly, nonatomic) _Bool forUserNamesOnly; // @synthesize forUserNamesOnly=_forUserNamesOnly;
+@property(readonly, nonatomic) long long minimumNumberOfCredentialsToShowLikelyMatchesSection; // @synthesize minimumNumberOfCredentialsToShowLikelyMatchesSection=_minimumNumberOfCredentialsToShowLikelyMatchesSection;
+@property(readonly, copy, nonatomic) NSArray *hintStrings; // @synthesize hintStrings=_hintStrings;
 @property(readonly, copy, nonatomic) NSString *prompt; // @synthesize prompt=_prompt;
 - (void).cxx_destruct;
 - (void)_appDidEnterBackground:(id)arg1;
 - (void)_pickSavedPassword:(id)arg1;
 - (void)_cancel;
 - (void)dealloc;
-- (id)initWithPrompt:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)initWithPrompt:(id)arg1 forUserNamesOnly:(_Bool)arg2 hintStrings:(id)arg3 minimumNumberOfCredentialsToShowLikelyMatchesSection:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)initWithPrompt:(id)arg1 forUserNamesOnly:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end
 

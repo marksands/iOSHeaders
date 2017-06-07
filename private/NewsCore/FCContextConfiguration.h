@@ -12,9 +12,10 @@
 
 @interface FCContextConfiguration : NSObject <NSCopying>
 {
-    long long _containerEnvironment;
+    _Bool _isProductionEnvironment;
     NSString *_contentContainerIdentifier;
     NSString *_privateDataContainerIdentifier;
+    NSString *_privateDataSecureContainerIdentifier;
     NSString *_contentContainerCombinationIdentifier;
     NSString *_privateDataContainerCombinationIdentifier;
 }
@@ -22,11 +23,12 @@
 + (id)defaultConfiguration;
 @property(readonly, copy, nonatomic) NSString *privateDataContainerCombinationIdentifier; // @synthesize privateDataContainerCombinationIdentifier=_privateDataContainerCombinationIdentifier;
 @property(readonly, copy, nonatomic) NSString *contentContainerCombinationIdentifier; // @synthesize contentContainerCombinationIdentifier=_contentContainerCombinationIdentifier;
+@property(readonly, copy, nonatomic) NSString *privateDataSecureContainerIdentifier; // @synthesize privateDataSecureContainerIdentifier=_privateDataSecureContainerIdentifier;
 @property(readonly, copy, nonatomic) NSString *privateDataContainerIdentifier; // @synthesize privateDataContainerIdentifier=_privateDataContainerIdentifier;
 @property(readonly, copy, nonatomic) NSString *contentContainerIdentifier; // @synthesize contentContainerIdentifier=_contentContainerIdentifier;
-@property(readonly, nonatomic) long long containerEnvironment; // @synthesize containerEnvironment=_containerEnvironment;
+@property(readonly, nonatomic) _Bool isProductionEnvironment; // @synthesize isProductionEnvironment=_isProductionEnvironment;
 - (void).cxx_destruct;
-- (id)initWithContainerEnvironment:(long long)arg1 contentContainerIdentifier:(id)arg2 privateDataContainerIdentifier:(id)arg3 storeFrontID:(id)arg4;
+- (id)initWithProductionEnvironment:(_Bool)arg1 contentContainerIdentifier:(id)arg2 privateDataContainerIdentifier:(id)arg3 privateDataSecureContainerIdentifier:(id)arg4 storeFrontID:(id)arg5;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

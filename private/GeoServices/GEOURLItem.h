@@ -23,6 +23,7 @@
 @property(retain, nonatomic) GEOMapItemStorage *mapItemStorage; // @synthesize mapItemStorage=_mapItemStorage;
 @property(nonatomic) _Bool currentLocation; // @synthesize currentLocation=_currentLocation;
 @property(retain, nonatomic) GEOPlace *place; // @synthesize place=_place;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasMapItemStorage;
 @property(nonatomic) _Bool hasCurrentLocation;
 @property(readonly, nonatomic) _Bool hasPlace;
-- (void)dealloc;
 - (void)setMapItem:(id)arg1;
 - (id)mapItem;
 

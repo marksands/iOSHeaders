@@ -16,6 +16,7 @@
 
 + (id)disableServerEndpointerWithDictionary:(id)arg1 context:(id)arg2;
 + (id)disableServerEndpointer;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

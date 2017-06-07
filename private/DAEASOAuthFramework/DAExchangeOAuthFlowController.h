@@ -10,12 +10,15 @@
 
 @interface DAExchangeOAuthFlowController : DAEASOAuthFlowController
 {
+    NSString *_redirectURI;
     NSString *_easEndPoint;
 }
 
 @property(copy, nonatomic) NSString *easEndPoint; // @synthesize easEndPoint=_easEndPoint;
+@property(copy, nonatomic) NSString *redirectURI; // @synthesize redirectURI=_redirectURI;
 - (void).cxx_destruct;
 - (id)_urlRequestForOAuthTokenFromAuthCode:(id)arg1;
+- (void)exchangeAuthCode:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)_exchangeAuthCode:(id)arg1 forTokensAndUsernameWithCompletion:(CDUnknownBlockType)arg2;
 - (id)authURLForUsername:(id)arg1;
 - (id)_accountDescription;

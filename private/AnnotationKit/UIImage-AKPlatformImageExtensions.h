@@ -7,6 +7,7 @@
 #import <UIKit/UIImage.h>
 
 @interface UIImage (AKPlatformImageExtensions)
++ (id)akImageNamed:(id)arg1;
 - (struct CGImage *)akCGImage;
 @end
 

@@ -4,26 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIViewController.h>
+#import <AuthKitUI/AKBaseSignInViewController.h>
 
 #import <AuthKitUI/UITextFieldDelegate-Protocol.h>
 
-@class AKAppleIDAuthenticationController, AKAppleIDAuthenticationInAppContext, AKTextField, NSString, UIActivityIndicatorView, UIButton, UIView;
-@protocol AKInlineSignInViewControllerDelegate;
+@class AKAppleIDAuthenticationInAppContext, AKTextField, NSLayoutConstraint, NSString, UIActivityIndicatorView, UIButton, UIView, _AKInlineSignInScrollView;
 
-@interface AKInlineSignInViewController : UIViewController <UITextFieldDelegate>
+@interface AKInlineSignInViewController : AKBaseSignInViewController <UITextFieldDelegate>
 {
     _Bool _usesDarkMode;
-    _Bool _isAuthInProgress;
     _Bool _usesVibrancy;
     long long _blurEffectStyle;
-    AKAppleIDAuthenticationController *_authenticationController;
     NSString *_secondaryButtonTitle;
     NSString *_tertiaryButtonTitle;
     AKAppleIDAuthenticationInAppContext *_context;
+    NSLayoutConstraint *_loginContainerToSignInBaselineConstraint;
+    NSLayoutConstraint *_signInLastBaselineToIforgotFirstBaselineConstraint;
+    NSLayoutConstraint *_iforgotLastBaselineToCreateIDFirstBaselineConstraint;
+    NSLayoutConstraint *_iforgotButtonHeightConstraint;
+    NSLayoutConstraint *_createAppleIDButtonHeightConstraint;
     _Bool _wantsAuthenticationProgress;
     NSString *_primaryButtonTitle;
-    id <AKInlineSignInViewControllerDelegate> _delegate;
+    _AKInlineSignInScrollView *_viewScrollView;
+    UIView *_containerView;
     UIView *_loginFieldsContainer;
     AKTextField *_appleIDField;
     AKTextField *_passwordField;
@@ -40,15 +43,13 @@
 @property(retain) AKTextField *passwordField; // @synthesize passwordField=_passwordField;
 @property(retain) AKTextField *appleIDField; // @synthesize appleIDField=_appleIDField;
 @property(retain) UIView *loginFieldsContainer; // @synthesize loginFieldsContainer=_loginFieldsContainer;
-@property __weak id <AKInlineSignInViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property _Bool wantsAuthenticationProgress; // @synthesize wantsAuthenticationProgress=_wantsAuthenticationProgress;
+@property(retain) UIView *containerView; // @synthesize containerView=_containerView;
+@property(retain) _AKInlineSignInScrollView *viewScrollView; // @synthesize viewScrollView=_viewScrollView;
 @property(readonly) NSString *primaryButtonTitle; // @synthesize primaryButtonTitle=_primaryButtonTitle;
+@property _Bool wantsAuthenticationProgress; // @synthesize wantsAuthenticationProgress=_wantsAuthenticationProgress;
 - (void).cxx_destruct;
-- (_Bool)_isAccountModificationRestricted;
-- (_Bool)_isSignInAllowed;
 @property(nonatomic) long long blurEffectStyle;
 @property(nonatomic) _Bool usesVibrancy;
-@property(readonly) AKAppleIDAuthenticationController *authenticationController;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (void)_updateFonts:(id)arg1;
 - (void)_updateSignInButtonState;
@@ -56,25 +57,28 @@
 - (void)_appleIDTextFieldDidChange:(id)arg1;
 - (void)_hidebusyWorkUI;
 - (void)_startBusyWorkUI;
-- (void)provideDelegateWithAuthResults:(id)arg1 error:(id)arg2;
 - (void)_beginAuthenticationIfPossibleWithOption:(unsigned long long)arg1;
-- (_Bool)_canBeginAuthenticationWithOption:(unsigned long long)arg1;
 - (void)createAppleIDButtonWasTapped:(id)arg1;
 - (void)iForgotButtonWasTapped:(id)arg1;
 - (void)signInButtonWasTapped:(id)arg1;
 - (void)_updateVibrancyAndBlurInTextFields;
 - (void)_prefillAuthFields;
 - (void)_updateSignInFieldStatuses;
+- (void)updateViewConstraints;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-@property(retain) AKAppleIDAuthenticationInAppContext *context;
+- (void)loadView;
+- (void)setContext:(id)arg1;
+- (id)context;
 - (void)setTertiaryButtonTarget:(id)arg1 action:(SEL)arg2;
 - (void)setSecondaryButtonTarget:(id)arg1 action:(SEL)arg2;
 @property(copy) NSString *tertiaryButtonTitle;
 @property(copy) NSString *secondaryButtonTitle;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)init;
-@property(nonatomic) _Bool usesDarkMode; // @dynamic usesDarkMode;
+- (_Bool)usesDarkMode;
+- (void)setUsesDarkMode:(_Bool)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

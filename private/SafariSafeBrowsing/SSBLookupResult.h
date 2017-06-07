@@ -9,22 +9,26 @@
 #import <SafariSafeBrowsing/NSCopying-Protocol.h>
 #import <SafariSafeBrowsing/NSSecureCoding-Protocol.h>
 
+@class NSArray;
+
 @interface SSBLookupResult : NSObject <NSCopying, NSSecureCoding>
 {
-    struct LookupResult _lookupResult;
+    _Bool _URLContainsUserInfo;
+    NSArray *_serviceLookupResults;
 }
 
 + (_Bool)supportsSecureCoding;
-- (id).cxx_construct;
+@property(readonly, nonatomic) _Bool URLContainsUserInfo; // @synthesize URLContainsUserInfo=_URLContainsUserInfo;
+@property(readonly, nonatomic) NSArray *serviceLookupResults; // @synthesize serviceLookupResults=_serviceLookupResults;
+- (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isKnownToBeUnsafe) _Bool knownToBeUnsafe;
-@property(readonly, nonatomic) _Bool URLContainsUserInfo;
 @property(readonly, nonatomic, getter=isUnwantedSoftware) _Bool unwantedSoftware;
 @property(readonly, nonatomic, getter=isPhishing) _Bool phishing;
 @property(readonly, nonatomic, getter=isMalware) _Bool malware;
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)_initWithLookupResult:(struct LookupResult)arg1;
+- (id)_initWithServiceLookUpResults:(id)arg1 URLContainsUserInfo:(_Bool)arg2;
 
 @end
 

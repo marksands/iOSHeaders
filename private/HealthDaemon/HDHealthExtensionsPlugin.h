@@ -8,27 +8,25 @@
 
 #import <HealthDaemon/HDDiagnosticObject-Protocol.h>
 #import <HealthDaemon/HDHealthPlugin-Protocol.h>
-#import <HealthDaemon/NSXPCListenerDelegate-Protocol.h>
+#import <HealthDaemon/HDXPCListenerDelegate-Protocol.h>
 
-@class NSMutableArray, NSString, NSXPCListener;
+@class HDXPCListener, NSString;
 @protocol HDHealthDaemon;
 
-@interface HDHealthExtensionsPlugin : NSObject <NSXPCListenerDelegate, HDHealthPlugin, HDDiagnosticObject>
+@interface HDHealthExtensionsPlugin : NSObject <HDXPCListenerDelegate, HDHealthPlugin, HDDiagnosticObject>
 {
+    HDXPCListener *_listener;
     id <HDHealthDaemon> _healthDaemon;
-    NSXPCListener *_listener;
-    NSMutableArray *_servers;
 }
 
-@property(retain, nonatomic) NSMutableArray *servers; // @synthesize servers=_servers;
-@property(retain, nonatomic) NSXPCListener *listener; // @synthesize listener=_listener;
 @property(readonly, nonatomic) __weak id <HDHealthDaemon> healthDaemon; // @synthesize healthDaemon=_healthDaemon;
 - (void).cxx_destruct;
 - (id)diagnosticDescription;
 - (id)serverWithClient:(id)arg1 error:(id *)arg2;
-- (_Bool)listener:(id)arg1 shouldAcceptNewConnection:(id)arg2;
+- (id)exportObjectForListener:(id)arg1 client:(id)arg2 error:(id *)arg3;
 - (void)dealloc;
 - (void)activate;
+@property(readonly, copy, nonatomic) NSString *pluginIdentifier;
 - (id)initWithHealthDaemon:(id)arg1;
 
 // Remaining properties

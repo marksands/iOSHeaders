@@ -6,35 +6,38 @@
 
 #import <MediaPlaybackCore/MPCPlayer.h>
 
-#import <MediaPlaybackCore/MPNowPlayingPlaybackQueueDataSource-Protocol.h>
+#import <MediaPlaybackCore/MPNowPlayingPlaybackQueueDataSource_Private-Protocol.h>
 #import <MediaPlaybackCore/MPRemoteCommandDelegate_Private-Protocol.h>
 
-@class MPAVController, MPCMediaPlayerLegacyAVController, MPCMediaPlayerLegacyItem, MPCMediaPlayerLegacyItemContainer, MPCMediaPlayerLegacyNowPlayingObserver, MPCMediaPlayerLegacyReportingController, MPCPlaybackIntent, MPCRadioPlaybackCoordinator, NSMapTable, NSString, RadioRecentStationsController;
+@class MPAVController, MPCMediaPlayerLegacyAVController, MPCMediaPlayerLegacyItem, MPCMediaPlayerLegacyItemContainer, MPCMediaPlayerLegacyNowPlayingObserver, MPCMediaPlayerLegacyReportingController, MPCPlaybackIntent, NSMapTable, NSObject, NSString;
+@protocol OS_dispatch_queue;
 
-@interface MPCMediaPlayerLegacyPlayer : MPCPlayer <MPNowPlayingPlaybackQueueDataSource, MPRemoteCommandDelegate_Private>
+@interface MPCMediaPlayerLegacyPlayer : MPCPlayer <MPNowPlayingPlaybackQueueDataSource_Private, MPRemoteCommandDelegate_Private>
 {
     NSMapTable *_avItemToPlayerItemWeakMap;
     MPCMediaPlayerLegacyItemContainer *_currentContainer;
     MPCMediaPlayerLegacyItem *_currentItem;
+    _Bool _hasScheduledPlaybackStatePreservation;
     _Bool _isRestoringPlaybackState;
     _Bool _hasReceivedAddPlaybackIntent;
     _Bool _mediaRemoteSync;
+    NSObject<OS_dispatch_queue> *_stateRestorationSerialQueue;
     _Bool _iAmTheiPod;
     MPCPlaybackIntent *_fallbackPlaybackIntent;
     MPCMediaPlayerLegacyAVController *_player;
     MPCMediaPlayerLegacyNowPlayingObserver *_playerObserver;
     MPCMediaPlayerLegacyReportingController *_reportingController;
-    MPCRadioPlaybackCoordinator *_radioPlaybackCoordinator;
 }
 
 + (Class)queueRequestOperationClass;
 @property(nonatomic) _Bool iAmTheiPod; // @synthesize iAmTheiPod=_iAmTheiPod;
-@property(retain, nonatomic) MPCRadioPlaybackCoordinator *radioPlaybackCoordinator; // @synthesize radioPlaybackCoordinator=_radioPlaybackCoordinator;
 @property(retain, nonatomic) MPCMediaPlayerLegacyReportingController *reportingController; // @synthesize reportingController=_reportingController;
 @property(retain, nonatomic) MPCMediaPlayerLegacyNowPlayingObserver *playerObserver; // @synthesize playerObserver=_playerObserver;
 @property(retain, nonatomic) MPCMediaPlayerLegacyAVController *player; // @synthesize player=_player;
 @property(retain, nonatomic) MPCPlaybackIntent *fallbackPlaybackIntent; // @synthesize fallbackPlaybackIntent=_fallbackPlaybackIntent;
 - (void).cxx_destruct;
+- (void)stopMediaRemoteSync;
+- (void)startMediaRemoteSync;
 - (_Bool)remoteCommand:(id)arg1 isEnabledForContentItemIdentifier:(id)arg2;
 - (_Bool)remoteCommand:(id)arg1 isSupportedForContentItemIdentifier:(id)arg2;
 - (void)updateSupportedCommandsForCommandCenter:(id)arg1 muxer:(id)arg2 action:(SEL)arg3;
@@ -43,8 +46,10 @@
 - (void)_refreshIAmTheiPod;
 - (void)_repeatShuffleTypeChangedNotification:(id)arg1;
 - (void)_reloadPlayerWithPlaybackContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_adjustedPlaybackContextForContext:(id)arg1;
 - (void)_playerPlaybackErrorNotification:(id)arg1;
 - (void)_playerDidPausePlaybackForLeaseEndNotification:(id)arg1;
+- (void)_playerDidPauseForPlaybackPreventionNotification:(id)arg1;
 - (void)_currentItemInvalidedCommandsNotification:(id)arg1;
 - (void)_currentItemChangedNotification:(id)arg1;
 - (void)_contentsDidChangeNotification:(id)arg1;
@@ -54,6 +59,9 @@
 - (void)_handleCreateRadioStationCommandEvent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleSetQueueCommandEvent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleInsertIntoQueueCommandEvent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_getPlaybackContextForPlaybackQueue:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)nowPlayingContentItemForIdentifier:(id)arg1;
+- (id)nowPlayingContentItemsForRequest:(void *)arg1 range:(CDStruct_339ad95e *)arg2;
 - (_Bool)_shouldVendContentItemForOffset:(long long)arg1;
 - (id)contentItemIdentifierForOffset:(long long)arg1;
 - (id)contentItemForOffset:(long long)arg1;
@@ -62,12 +70,11 @@
 @property(readonly, nonatomic) unsigned long long hardQueueItemCount;
 - (id)_playerItemForAVItem:(id)arg1;
 - (void)startPictureInPicture;
-@property(retain, nonatomic) RadioRecentStationsController *recentStationsController;
 @property(readonly, nonatomic) MPAVController *avController;
 - (id)activeRouteName;
 - (id)videoLayer;
 - (_Bool)isSyncingNowPlayingInfo;
-- (_Bool)isMediaRemoteSyncing;
+@property(readonly, nonatomic, getter=isMediaRemoteSyncing) _Bool mediaRemoteSync;
 - (void)restorePlaybackStateCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)isRestoringPlaybackState;
 - (void)preservePlaybackStateImmediately;
@@ -82,6 +89,7 @@
 - (id)currentContainer;
 - (id)currentItem;
 - (void)dealloc;
+- (id)initWithOptions:(unsigned long long)arg1;
 - (id)init;
 
 // Remaining properties

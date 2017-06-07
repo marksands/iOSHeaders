@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HMFoundation/NSNetServiceDelegate-Protocol.h>
 
-@class HMFNetAddress, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNetService, NSString;
+@class HMFNetAddress, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSNetService, NSObject, NSString;
 @protocol HMFNetServiceDelegate, OS_dispatch_queue;
 
-@interface HMFNetService : NSObject <NSNetServiceDelegate>
+@interface HMFNetService : HMFObject <NSNetServiceDelegate>
 {
     NSString *_type;
     NSString *_name;

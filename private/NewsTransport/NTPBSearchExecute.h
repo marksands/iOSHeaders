@@ -12,6 +12,7 @@
 
 @interface NTPBSearchExecute : PBCodable <NSCopying>
 {
+    NSMutableArray *_articleResultIds;
     NSString *_campaignId;
     NSString *_campaignType;
     NSMutableArray *_channelResultFeedIds;
@@ -20,7 +21,10 @@
     int _searchLocation;
     NSString *_searchString;
     NSString *_storeFrontId;
+    NSString *_topResultArticleId;
+    NSString *_topResultChannelId;
     NSString *_topResultFeedId;
+    NSString *_topResultTopicId;
     NSMutableArray *_topicResultFeedIds;
     int _totalResults;
     struct {
@@ -30,8 +34,13 @@
     } _has;
 }
 
++ (Class)articleResultIdsType;
 + (Class)channelResultFeedIdsType;
 + (Class)topicResultFeedIdsType;
+@property(retain, nonatomic) NSMutableArray *articleResultIds; // @synthesize articleResultIds=_articleResultIds;
+@property(retain, nonatomic) NSString *topResultTopicId; // @synthesize topResultTopicId=_topResultTopicId;
+@property(retain, nonatomic) NSString *topResultChannelId; // @synthesize topResultChannelId=_topResultChannelId;
+@property(retain, nonatomic) NSString *topResultArticleId; // @synthesize topResultArticleId=_topResultArticleId;
 @property(retain, nonatomic) NSString *creativeId; // @synthesize creativeId=_creativeId;
 @property(retain, nonatomic) NSString *campaignType; // @synthesize campaignType=_campaignType;
 @property(retain, nonatomic) NSString *campaignId; // @synthesize campaignId=_campaignId;
@@ -50,6 +59,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)articleResultIdsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)articleResultIdsCount;
+- (void)addArticleResultIds:(id)arg1;
+- (void)clearArticleResultIds;
+@property(readonly, nonatomic) _Bool hasTopResultTopicId;
+@property(readonly, nonatomic) _Bool hasTopResultChannelId;
+@property(readonly, nonatomic) _Bool hasTopResultArticleId;
 @property(readonly, nonatomic) _Bool hasCreativeId;
 @property(readonly, nonatomic) _Bool hasCampaignType;
 @property(readonly, nonatomic) _Bool hasCampaignId;

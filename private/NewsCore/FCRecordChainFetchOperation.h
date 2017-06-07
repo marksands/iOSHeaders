@@ -17,18 +17,22 @@
     NSDictionary *_linkKeysByRecordType;
     NSDictionary *_cachePoliciesByRecordType;
     CDUnknownBlockType _dynamicCachePolicyBlock;
+    long long _requestTypeOverride;
     CDUnknownBlockType _recordChainCompletionHandler;
     FCHeldRecords *_cachedRecords;
     NSMutableSet *_actualTopLevelRecordIDs;
+    NSMutableSet *_skippedTopLevelRecordIDs;
     NSDictionary *_resultHeldRecordsByType;
     NSMutableArray *_mutableNetworkEvents;
 }
 
 @property(retain, nonatomic) NSMutableArray *mutableNetworkEvents; // @synthesize mutableNetworkEvents=_mutableNetworkEvents;
 @property(retain, nonatomic) NSDictionary *resultHeldRecordsByType; // @synthesize resultHeldRecordsByType=_resultHeldRecordsByType;
+@property(retain, nonatomic) NSMutableSet *skippedTopLevelRecordIDs; // @synthesize skippedTopLevelRecordIDs=_skippedTopLevelRecordIDs;
 @property(retain, nonatomic) NSMutableSet *actualTopLevelRecordIDs; // @synthesize actualTopLevelRecordIDs=_actualTopLevelRecordIDs;
 @property(retain, nonatomic) FCHeldRecords *cachedRecords; // @synthesize cachedRecords=_cachedRecords;
 @property(copy, nonatomic) CDUnknownBlockType recordChainCompletionHandler; // @synthesize recordChainCompletionHandler=_recordChainCompletionHandler;
+@property(nonatomic) long long requestTypeOverride; // @synthesize requestTypeOverride=_requestTypeOverride;
 @property(nonatomic) _Bool shouldReturnErrorWhenSomeRecordsMissing; // @synthesize shouldReturnErrorWhenSomeRecordsMissing=_shouldReturnErrorWhenSomeRecordsMissing;
 @property(copy, nonatomic) CDUnknownBlockType dynamicCachePolicyBlock; // @synthesize dynamicCachePolicyBlock=_dynamicCachePolicyBlock;
 @property(copy, nonatomic) NSDictionary *cachePoliciesByRecordType; // @synthesize cachePoliciesByRecordType=_cachePoliciesByRecordType;

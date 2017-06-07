@@ -26,12 +26,15 @@
 @property(nonatomic) __weak NSObject<CKTranscriptPreviewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 - (void).cxx_destruct;
+- (void)transcriptCollectionViewController:(id)arg1 balloonViewDidRequestPresentationStyleExpanded:(_Bool)arg2 forChatItem:(id)arg3;
 - (id)transcriptCollectionViewControllerAdditionalFullscreenEffectViews:(id)arg1;
 - (_Bool)transcriptCollectionViewController:(id)arg1 shouldCleanupFullscreenEffectUI:(id)arg2;
 - (_Bool)transcriptCollectionViewControllerShouldLayoutFullscreenEffects:(id)arg1;
-- (_Bool)transcriptCollectionViewControllerPlaybackForOutgoingEffectsIsAllowed:(id)arg1;
 - (_Bool)transcriptCollectionViewController:(id)arg1 shouldSetupFullscreenEffectUI:(id)arg2;
+- (_Bool)transcriptCollectionViewControllerPlaybackForOutgoingEffectsIsAllowed:(id)arg1;
 - (void)transcriptCollectionViewControllerDidInsertAssociatedChatItem:(id)arg1;
+- (void)transcriptCollectionViewController:(id)arg1 didTapPluginStatusButtonForChatItem:(id)arg2;
+- (void)transcriptCollectionViewController:(id)arg1 didTapAttributionButtonForChatItem:(id)arg2;
 - (void)transcriptCollectionViewController:(id)arg1 balloonView:(id)arg2 doubleTappedItemAtIndexPath:(id)arg3;
 - (void)transcriptCollectionViewController:(id)arg1 balloonView:(id)arg2 longPressedForItemWithIndexPath:(id)arg3;
 - (void)transcriptCollectionViewController:(id)arg1 collectionViewContentSizeDidChange:(struct CGSize)arg2;

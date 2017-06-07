@@ -20,8 +20,8 @@ __attribute__((visibility("hidden")))
 - (long long)metadataObjectIdentifier;
 - (void)prepareToReadComponentWithIdentifier:(long long)arg1 forObjectIdentifier:(long long)arg2 isWeakReference:(_Bool)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (_Bool)endReading;
-- (id)initWithContext:(id)arg1 package:(id)arg2 packageURLOrNil:(id)arg3 finalizeHandlerQueue:(id)arg4 documentResourceDataProvider:(id)arg5 areExternalDataReferencesAllowed:(_Bool)arg6 skipDocumentUpgrade:(_Bool)arg7 documentPackage:(id)arg8;
-- (id)initWithContext:(id)arg1 package:(id)arg2 packageURLOrNil:(id)arg3 finalizeHandlerQueue:(id)arg4 documentResourceDataProvider:(id)arg5 areExternalDataReferencesAllowed:(_Bool)arg6 skipDocumentUpgrade:(_Bool)arg7;
+- (id)initWithContext:(id)arg1 package:(id)arg2 packageURLOrNil:(id)arg3 finalizeHandlerQueue:(id)arg4 areExternalDataReferencesAllowed:(_Bool)arg5 skipDocumentUpgrade:(_Bool)arg6 documentPackage:(id)arg7;
+- (id)initWithContext:(id)arg1 package:(id)arg2 packageURLOrNil:(id)arg3 finalizeHandlerQueue:(id)arg4 areExternalDataReferencesAllowed:(_Bool)arg5 skipDocumentUpgrade:(_Bool)arg6;
 
 @end
 

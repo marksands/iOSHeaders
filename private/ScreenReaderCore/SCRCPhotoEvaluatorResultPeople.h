@@ -15,7 +15,7 @@
 }
 
 @property(readonly, nonatomic) NSArray *people; // @synthesize people=_people;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)humanReadableResult;
 - (id)initWithPeople:(id)arg1 inImageOfSize:(struct CGSize)arg2;
 

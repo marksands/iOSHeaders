@@ -13,7 +13,7 @@
 @interface PARRequest : NSObject <NSSecureCoding>
 {
     _Bool _verboseReply;
-    long long _queryId;
+    unsigned long long _queryId;
     unsigned long long _clientQueryId;
     double _scale;
     NSString *_keyboardLocale;
@@ -24,8 +24,8 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)flightRequestForId:(id)arg1;
-+ (id)flightRequestForQuery:(id)arg1 timezone:(id)arg2 dateComponents:(id)arg3;
++ (id)flightRequestForId:(id)arg1 appBundleId:(id)arg2;
++ (id)flightRequestForQuery:(id)arg1 date:(id)arg2 appBundleId:(id)arg3;
 + (id)lookupRequestWithString:(id)arg1 queryContext:(id)arg2 domain:(id)arg3 lookupSelectionType:(long long)arg4 appBundleId:(id)arg5 queryId:(unsigned long long)arg6;
 + (id)lookupRequestWithString:(id)arg1 queryContext:(id)arg2 domain:(id)arg3 lookupSelectionType:(long long)arg4 appBundleId:(id)arg5;
 + (id)zeroKeywordRequest:(unsigned long long)arg1;
@@ -34,6 +34,7 @@
 + (id)cardRequestWithURL:(id)arg1;
 + (id)moreResultsRequestWithURL:(id)arg1 queryId:(unsigned long long)arg2;
 + (id)moreResultsRequestWithURL:(id)arg1;
++ (id)searchRequestWithEngagedSuggestion:(id)arg1 queryId:(unsigned long long)arg2;
 + (id)searchRequestWithString:(id)arg1 triggerEvent:(unsigned long long)arg2 queryId:(unsigned long long)arg3;
 + (id)searchRequestWithString:(id)arg1 triggerEvent:(unsigned long long)arg2;
 + (id)searchRequestWithString:(id)arg1;
@@ -45,7 +46,7 @@
 @property(copy, nonatomic) NSString *keyboardLocale; // @synthesize keyboardLocale=_keyboardLocale;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) unsigned long long clientQueryId; // @synthesize clientQueryId=_clientQueryId;
-@property(nonatomic) long long queryId; // @synthesize queryId=_queryId;
+@property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 - (void).cxx_destruct;
 - (Class)responseClass;
 - (id)initWithCoder:(id)arg1;

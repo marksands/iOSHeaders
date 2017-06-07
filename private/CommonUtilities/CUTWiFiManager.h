@@ -4,13 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
-
-#import <CommonUtilities/CUTPowerMonitorDelegate-Protocol.h>
+#import <objc/NSObject.h>
 
 @class NSDictionary, NSHashTable, NSMutableSet, NSNumber, NSRecursiveLock, NSRunLoop, NSString, NSThread;
 
-@interface CUTWiFiManager : NSObject <CUTPowerMonitorDelegate>
+@interface CUTWiFiManager : NSObject
 {
     _Bool _shouldAutoAssociateAsForeground;
     _Bool _isHostingHotSpot;
@@ -48,6 +46,7 @@
 @property(retain, nonatomic) NSMutableSet *wiFiAutoAssociationTokens; // @synthesize wiFiAutoAssociationTokens=_wiFiAutoAssociationTokens;
 @property(readonly, nonatomic) _Bool isWoWSupported; // @synthesize isWoWSupported=_isWakeOnWiFiSupported;
 @property(nonatomic) _Bool autoAssociateWiFiAsForegroundClient; // @synthesize autoAssociateWiFiAsForegroundClient=_shouldAutoAssociateAsForeground;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isWoWEnabled; // @synthesize isWoWEnabled=_isWakeOnWiFiEnabled;
 - (void)showNetworkOptions;
 - (void)removeWiFiAutoAssociationClientToken:(id)arg1;
@@ -58,16 +57,16 @@
 - (void)_adjustWiFiAutoAssociationLocked;
 @property(readonly, nonatomic) _Bool isWiFiCaptive;
 - (_Bool)_isPrimaryCellular;
-@property(readonly, retain, nonatomic) NSString *currentSSID;
+@property(readonly, nonatomic) NSString *currentSSID;
 - (void)currentWiFiNetworkPowerUsageWithCompletion:(CDUnknownBlockType)arg1;
 - (double)_wifiMeasurementErrorForInterval:(double)arg1;
 @property(readonly, nonatomic) _Bool isWiFiEnabled; // @synthesize isWiFiEnabled=_isWifiEnabled;
 - (void)_updateIsWiFiEnabled;
 - (void)_updateIsWiFiAssociatedAsync:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool isWiFiAssociated;
-@property(readonly, retain, nonatomic) NSNumber *wiFiScaledRate;
-@property(readonly, retain, nonatomic) NSNumber *wiFiScaledRSSI;
-@property(readonly, retain, nonatomic) NSNumber *wiFiSignalStrength;
+@property(readonly, nonatomic) NSNumber *wiFiScaledRate;
+@property(readonly, nonatomic) NSNumber *wiFiScaledRSSI;
+@property(readonly, nonatomic) NSNumber *wiFiSignalStrength;
 @property(readonly, nonatomic) _Bool willTryToSearchForWiFiNetwork;
 @property(readonly, nonatomic) _Bool willTryToAutoAssociateWiFiNetwork;
 @property(readonly, nonatomic) _Bool isHostingWiFiHotSpot; // @synthesize isHostingWiFiHotSpot=_isHostingHotSpot;
@@ -81,12 +80,6 @@
 - (void)addDelegate:(id)arg1;
 - (void)dealloc;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

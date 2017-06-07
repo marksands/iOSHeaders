@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDEntity : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSMutableArray *_altFaxs;
     NSMutableArray *_altTelephones;
     NSMutableArray *_altUrls;
@@ -25,12 +26,14 @@
     _Bool _altTelephoneAdsOptOut;
     _Bool _isDisputed;
     _Bool _isPermanentlyClosed;
+    _Bool _isStandaloneBrand;
     _Bool _telephoneAdsOptOut;
     struct {
         unsigned int type:1;
         unsigned int altTelephoneAdsOptOut:1;
         unsigned int isDisputed:1;
         unsigned int isPermanentlyClosed:1;
+        unsigned int isStandaloneBrand:1;
         unsigned int telephoneAdsOptOut:1;
     } _has;
 }
@@ -42,6 +45,7 @@
 + (Class)altFaxType;
 + (Class)altTelephoneType;
 + (id)entityForPlaceData:(id)arg1;
+@property(nonatomic) _Bool isStandaloneBrand; // @synthesize isStandaloneBrand=_isStandaloneBrand;
 @property(nonatomic) _Bool altTelephoneAdsOptOut; // @synthesize altTelephoneAdsOptOut=_altTelephoneAdsOptOut;
 @property(nonatomic) _Bool telephoneAdsOptOut; // @synthesize telephoneAdsOptOut=_telephoneAdsOptOut;
 @property(retain, nonatomic) NSMutableArray *localizedCategorys; // @synthesize localizedCategorys=_localizedCategorys;
@@ -55,6 +59,8 @@
 @property(retain, nonatomic) NSString *fax; // @synthesize fax=_fax;
 @property(retain, nonatomic) NSMutableArray *altTelephones; // @synthesize altTelephones=_altTelephones;
 @property(retain, nonatomic) NSString *telephone; // @synthesize telephone=_telephone;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -64,6 +70,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsStandaloneBrand;
 @property(nonatomic) _Bool hasAltTelephoneAdsOptOut;
 @property(nonatomic) _Bool hasTelephoneAdsOptOut;
 - (id)localizedCategoryAtIndex:(unsigned long long)arg1;
@@ -99,7 +106,6 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (void)dealloc;
 - (id)bestLocalizedName;
 
 @end

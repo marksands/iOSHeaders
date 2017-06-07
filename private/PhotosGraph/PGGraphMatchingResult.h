@@ -8,11 +8,11 @@
 
 #import <PhotosGraph/NSCopying-Protocol.h>
 
-@class NSDictionary, NSMutableDictionary, PGGraphNode;
+@class NSDictionary, NSMutableDictionary, PGGraphMomentNode;
 
 @interface PGGraphMatchingResult : NSObject <NSCopying>
 {
-    PGGraphNode *_event;
+    PGGraphMomentNode *_event;
     NSDictionary *_keywords;
     double _score;
     NSMutableDictionary *_context;
@@ -20,7 +20,7 @@
 
 @property(readonly, nonatomic) NSMutableDictionary *context; // @synthesize context=_context;
 @property(nonatomic) double score; // @synthesize score=_score;
-@property(readonly, nonatomic) PGGraphNode *event; // @synthesize event=_event;
+@property(readonly, nonatomic) PGGraphMomentNode *event; // @synthesize event=_event;
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (id)description;

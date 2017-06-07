@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSKApplicationDelegate-Protocol.h>
 
-@class NSDate, NSString;
+@class NSDate, NSDictionary, NSString;
 @protocol TSKCompatibilityDelegate;
 
 __attribute__((visibility("hidden")))
@@ -23,11 +23,14 @@ __attribute__((visibility("hidden")))
 + (id)platform_sharedDelegate;
 @property(retain, nonatomic) id <TSKCompatibilityDelegate> compatibilityDelegate; // @synthesize compatibilityDelegate=_compatibilityDelegate;
 - (void).cxx_destruct;
+- (void)collectDocumentCreationAnalyticsWithLogger:(id)arg1;
 - (void)logDocumentCreationWithImportState:(_Bool)arg1;
-- (void)logLaunchTime;
+- (void)collectAppLaunchAnalyticsWithLogger:(id)arg1;
+- (void)logAppLaunchAnalytics;
 @property(readonly, nonatomic) NSDate *applicationLaunchTime;
 @property(readonly, nonatomic) NSString *bladerunnerContainerIdentifier;
 @property(readonly, nonatomic) NSString *cloudKitContainerIdentifier;
+@property(copy, nonatomic) NSDictionary *appTextDefaults;
 @property(readonly, nonatomic) NSString *iWorkAuthorPrivateID;
 @property(nonatomic) unsigned long long iWorkAuthorColorIndex;
 @property(copy, nonatomic) NSString *iWorkAuthorName;
@@ -36,14 +39,21 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool performanceModeEnabled;
 @property(readonly, nonatomic) _Bool designModeEnabled;
 - (id)defaultHyperlinkURL;
+- (_Bool)openURL:(id)arg1 withDocumentRoot:(id)arg2;
 - (_Bool)openURL:(id)arg1;
 - (id)invalidURLSchemes;
+- (Class)drawableInfoSubclassForClass:(Class)arg1 unarchiver:(id)arg2;
+@property(readonly, nonatomic) _Bool supportsNativeEquations;
 - (id)appChartPropertyOverrides;
+- (void)customizeHyperlinkViewController:(id)arg1;
 - (id)previewImageForType:(id)arg1;
 - (_Bool)shouldValidateMasterLayoutWhileInsertingRows;
+- (_Bool)supportsAutosizingTextboxes;
 - (_Bool)supportsShrinkTextToFit;
 - (_Bool)sidebarPositionRespectsUserInterfaceLayoutDirection;
 - (_Bool)supportsRTL;
+@property(readonly, nonatomic) _Bool supportsPastingIntoGroups;
+- (_Bool)shouldRenderLargeImages;
 - (_Bool)shouldRenderCurvedShadow;
 - (_Bool)shouldRenderContactShadow;
 - (struct CGRect)applicationToolbarFrame;
@@ -53,6 +63,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *documentTypeDisplayNameForSharingInvitation;
 @property(readonly, nonatomic) NSString *documentTypeDisplayName;
 - (id)applicationNameForTitleBar;
+@property(readonly, nonatomic) unsigned long long applicationType;
 @property(readonly, nonatomic) NSString *applicationName;
 - (void)dealloc;
 - (id)init;

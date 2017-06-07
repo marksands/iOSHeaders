@@ -9,12 +9,12 @@
 __attribute__((visibility("hidden")))
 @interface TSTLocalAccumulator : NSObject
 {
-    struct TSUCellCoord mIdOfFirstOccurence;
-    unsigned long long mCount;
+    struct TSUCellCoord _idOfFirstOccurence;
+    unsigned long long _count;
 }
 
-@property unsigned long long count; // @synthesize count=mCount;
-@property struct TSUCellCoord idOfFirstOccurence; // @synthesize idOfFirstOccurence=mIdOfFirstOccurence;
+@property(nonatomic) unsigned long long count; // @synthesize count=_count;
+@property(nonatomic) struct TSUCellCoord idOfFirstOccurence; // @synthesize idOfFirstOccurence=_idOfFirstOccurence;
 - (id)description;
 
 @end

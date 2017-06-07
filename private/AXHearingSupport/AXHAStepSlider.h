@@ -10,11 +10,12 @@
 
 @interface AXHAStepSlider : UISlider
 {
-    UIColor *_trackMarkersColor;
     _Bool _restrictsValuesToTicks;
     unsigned long long _segmentCount;
+    UIColor *_tickColor;
 }
 
+@property(retain, nonatomic) UIColor *tickColor; // @synthesize tickColor=_tickColor;
 @property(nonatomic) _Bool restrictsValuesToTicks; // @synthesize restrictsValuesToTicks=_restrictsValuesToTicks;
 @property(nonatomic) unsigned long long segmentCount; // @synthesize segmentCount=_segmentCount;
 - (void).cxx_destruct;

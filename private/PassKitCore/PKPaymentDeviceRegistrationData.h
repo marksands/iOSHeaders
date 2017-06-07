@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
@@ -24,7 +24,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSArray *legacyStateInformation; // @synthesize legacyStateInformation=_legacyStateInformation;
+@property(readonly, nonatomic) NSArray *legacyStateInformation; // @synthesize legacyStateInformation=_legacyStateInformation;
 @property(nonatomic) _Bool devSigned; // @synthesize devSigned=_devSigned;
 @property(copy, nonatomic) NSString *productType; // @synthesize productType=_productType;
 @property(copy, nonatomic) NSString *companionSerialNumber; // @synthesize companionSerialNumber=_companionSerialNumber;
@@ -34,7 +34,6 @@
 @property(copy, nonatomic) NSDictionary *secureElementStateInformation; // @synthesize secureElementStateInformation=_secureElementStateInformation;
 @property(copy, nonatomic) NSString *signedAuthToken; // @synthesize signedAuthToken=_signedAuthToken;
 - (void).cxx_destruct;
-- (id)stateInformation;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

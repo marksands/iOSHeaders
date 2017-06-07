@@ -14,13 +14,16 @@
     id <PLSyncableAsset> _currentAsset;
 }
 
-+ (void)applyFacesChangesFromAssetChange:(id)arg1 toAsset:(id)arg2 inPhotoLibrary:(id)arg3;
++ (id)_disjointSetsByAddingSet:(id)arg1 toSets:(id)arg2;
++ (id)_logDescriptionForFaceInstance:(id)arg1;
++ (void)applyFacesChangesFromAssetChange:(id)arg1 toAsset:(id)arg2 inSyncContext:(id)arg3;
 - (void)_applyPersonFromFaceReference:(id)arg1 toDetectedFace:(id)arg2;
+- (_Bool)_canReassignFaceFromPerson:(id)arg1 toPerson:(id)arg2 shouldDedupePersons:(_Bool *)arg3;
+- (void)_unlinkPersonIfVerifiedFromFace:(id)arg1;
 - (void)_applyDimensionAndStateFromFaceReference:(id)arg1 toDetectedFace:(id)arg2;
-- (id)_detectedFaceFromFaceRef:(id)arg1;
+- (id)_detectedFaceFromFaceRef:(id)arg1 facesVersion:(long long)arg2;
 - (id)_detectedFacesFromAssetChange:(id)arg1;
-- (id)_existingFacesToKeepWithAssetChange:(id)arg1;
-- (void)applyFaceReference:(id)arg1 toDetectedFace:(id)arg2;
+- (id)_existingFacesToKeep;
 - (void)applyFacesChangesFromAssetChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithSyncContext:(id)arg1 asset:(id)arg2;

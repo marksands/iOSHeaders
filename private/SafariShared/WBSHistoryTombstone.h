@@ -31,7 +31,7 @@
 - (_Bool)matchesVisitTime:(double)arg1 urlString:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
-- (id)initWithSQLiteRow:(id)arg1 historyStore:(id)arg2;
+- (id)initWithSQLiteRow:(id)arg1 crypto:(id)arg2;
 - (id)initWithURLString:(id)arg1 urlHash:(id)arg2 urlSalt:(id)arg3 startTime:(double)arg4 endTime:(double)arg5 generation:(long long)arg6;
 
 @end

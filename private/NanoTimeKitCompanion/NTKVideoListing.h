@@ -9,15 +9,14 @@
 #import <NanoTimeKitCompanion/NSCopying-Protocol.h>
 #import <NanoTimeKitCompanion/NTKAVListing-Protocol.h>
 
-@class NSString, NTKVideo, UIColor, UIImage;
+@class CLKVideo, NSString, UIColor, UIImage;
 
 @interface NTKVideoListing : NSObject <NSCopying, NTKAVListing>
 {
-    NTKVideo *_video;
+    CLKVideo *_video;
     UIImage *_image;
     NSString *_name;
     NSString *_videoName;
-    _Bool _loops;
     NSString *_transitionImageName;
     UIColor *_overlayColor;
     unsigned long long _theme;
@@ -36,9 +35,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)snapshotDiffers:(id)arg1;
 @property(readonly, nonatomic) UIImage *image;
-@property(readonly, nonatomic) NTKVideo *video;
+@property(readonly, nonatomic) CLKVideo *video;
 - (void)_setHasAssets;
-- (id)initWithName:(id)arg1 videoName:(id)arg2 loops:(_Bool)arg3 transitionImageName:(id)arg4 overlayColor:(id)arg5 theme:(unsigned long long)arg6 variant:(long long)arg7 clip:(long long)arg8 tags:(unsigned long long)arg9;
+- (id)initWithName:(id)arg1 videoName:(id)arg2 transitionImageName:(id)arg3 overlayColor:(id)arg4 theme:(unsigned long long)arg5 variant:(long long)arg6 clip:(long long)arg7 tags:(unsigned long long)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

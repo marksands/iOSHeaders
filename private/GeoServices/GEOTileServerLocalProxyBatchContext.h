@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOTileKeyList, GEOTileRequester;
 
@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) GEOTileKeyList *networkList; // @synthesize networkList=_networkList;
 @property(retain, nonatomic) GEOTileKeyList *interestList; // @synthesize interestList=_interestList;
 @property(retain, nonatomic) GEOTileKeyList *fullList; // @synthesize fullList=_fullList;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

@@ -4,15 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <PersistentConnection/PCInterfaceMonitorDelegate-Protocol.h>
-#import <PersistentConnection/PCLoggingDelegate-Protocol.h>
 
 @class NSRunLoop, NSString, PCPersistentTimer;
-@protocol OS_dispatch_queue, PCConnectionManagerDelegate, PCGrowthAlgorithm;
+@protocol OS_dispatch_queue, OS_os_log, PCConnectionManagerDelegate, PCGrowthAlgorithm;
 
-@interface PCConnectionManager : NSObject <PCLoggingDelegate, PCInterfaceMonitorDelegate>
+@interface PCConnectionManager : NSObject <PCInterfaceMonitorDelegate>
 {
     int _connectionClass;
     id <PCConnectionManagerDelegate> _delegate;
@@ -25,6 +24,7 @@
     unsigned long long _guidancePriority;
     NSRunLoop *_delegateRunLoop;
     NSObject<OS_dispatch_queue> *_delegateQueue;
+    NSObject<OS_os_log> *_logObject;
     id <PCGrowthAlgorithm> _wwanGrowthAlgorithm;
     id <PCGrowthAlgorithm> _wifiGrowthAlgorithm;
     id <PCGrowthAlgorithm> _lastScheduledGrowthAlgorithm;
@@ -35,11 +35,15 @@
     double _onTimeKeepAliveTime;
     double _lastResumeTime;
     double _lastStopTime;
+    double _lastStartTime;
     double _lastReachableTime;
     double _lastReconnectTime;
     double _lastScheduledIntervalTime;
     double _timerGuidance;
     double _keepAliveGracePeriod;
+    double _lastElapsedInterval;
+    _Bool _minimumIntervalFallbackEnabled;
+    _Bool _operatorMinimumIntervalFallbackAllowed;
     unsigned int _reconnectIteration;
     int _timerGuidanceToken;
     int _pushIsConnectedToken;
@@ -56,33 +60,38 @@
     _Bool _enableNonCellularConnections;
     _Bool _isReachable;
     _Bool _disableEarlyFire;
+    _Bool _alwaysWantsInterfaceChangeCallbacks;
+    int _lastProcessedAction;
+    _Bool _deviceUnderGoodCondition;
 }
 
 + (_Bool)_isCachedKeepAliveIntervalStillValid:(double)arg1 date:(id)arg2;
 + (id)_keepAliveCachePath;
 + (id)intervalCacheDictionaries;
 + (Class)growthAlgorithmClass;
-@property(readonly, nonatomic) NSString *loggingIdentifier; // @synthesize loggingIdentifier=_serviceIdentifier;
+@property(nonatomic) _Bool alwaysWantsInterfaceChangeCallbacks; // @synthesize alwaysWantsInterfaceChangeCallbacks=_alwaysWantsInterfaceChangeCallbacks;
+@property(readonly, nonatomic) int lastProcessedAction; // @synthesize lastProcessedAction=_lastProcessedAction;
+@property(nonatomic) long long interfaceIdentifier; // @synthesize interfaceIdentifier=_interfaceIdentifier;
 @property(nonatomic) double keepAliveGracePeriod; // @synthesize keepAliveGracePeriod=_keepAliveGracePeriod;
+- (void).cxx_destruct;
 - (id)_stringForEvent:(int)arg1;
 - (id)_stringForAction:(int)arg1;
 - (id)_stringForStyle:(int)arg1;
-- (void)logAtLevel:(int)arg1 format:(id)arg2 arguments:(struct __va_list_tag [1])arg3;
-- (void)logAtLevel:(int)arg1 format:(id)arg2;
-- (void)log:(id)arg1;
 - (id)_getCachedWWANKeepAliveInterval;
 - (void)_saveWWANKeepAliveInterval;
 - (void)_releasePowerAssertion;
 - (void)_takePowerAssertionWithTimeout:(double)arg1;
+- (id)persistentInterfaceManager;
 - (void)_adjustInterfaceAssertions;
 - (void)interfaceManagerInternetReachabilityChanged:(id)arg1;
 - (void)interfaceManagerInHomeCountryStatusChanged:(id)arg1;
 - (void)interfaceManagerWWANInterfaceStatusChanged:(id)arg1;
 - (void)interfaceLinkQualityChanged:(id)arg1 previousLinkQuality:(int)arg2;
 - (void)_setTimerGuidance:(double)arg1;
+- (void)_pauseTimers;
 - (void)_clearTimersReleasingPowerAssertion:(_Bool)arg1;
 - (void)_clearTimers;
-- (void)_calloutWithEvent:(id)arg1 context:(id)arg2;
+- (void)_calloutWithEvent:(int)arg1 context:(id)arg2;
 - (void)_callDelegateWithEventAndContext:(id)arg1;
 - (void)_delayTimerFired;
 - (void)_intervalTimerFired;
@@ -91,6 +100,10 @@
 - (void)_setupTimerForPollForAdjustment:(_Bool)arg1;
 - (void)_adjustPollTimerIfNecessary;
 - (void)_setupTimerForPushWithKeepAliveInterval:(double)arg1;
+- (void)_adjustMinimumIntervalFallback;
+- (void)setOperatorMinimumIntervalFallbackAllowed:(_Bool)arg1;
+- (_Bool)operatorMinimumIntervalFallbackAllowed;
+@property(nonatomic) _Bool minimumIntervalFallbackEnabled; // @synthesize minimumIntervalFallbackEnabled=_minimumIntervalFallbackEnabled;
 @property(nonatomic) _Bool disableEarlyFire;
 - (void)setEnableNonCellularConnections:(_Bool)arg1;
 - (_Bool)shouldClientScheduleReconnectDueToFailure;
@@ -113,11 +126,14 @@
 - (id)_currentGrowthAlgorithm;
 - (void)setOnlyAllowedStyle:(int)arg1;
 - (int)currentStyle;
+- (void)_processDeviceConditionChanges;
+- (void)_handleDeviceConditionChangeCallback;
+- (void)_registerForDeviceConditionsNotifications;
 - (void)_loadPreferencesGeneratingEvent:(_Bool)arg1;
 - (void)_preferencesChanged;
 - (void)dealloc;
 @property(copy, nonatomic) NSString *duetIdentifier;
-@property(nonatomic) id <PCConnectionManagerDelegate> delegate;
+@property(nonatomic) __weak id <PCConnectionManagerDelegate> delegate;
 - (id)initWithConnectionClass:(int)arg1 delegate:(id)arg2 serviceIdentifier:(id)arg3;
 - (id)initWithConnectionClass:(int)arg1 interfaceIdentifier:(long long)arg2 guidancePriority:(unsigned long long)arg3 delegate:(id)arg4 serviceIdentifier:(id)arg5;
 - (id)initWithConnectionClass:(int)arg1 delegate:(id)arg2 delegateQueue:(id)arg3 serviceIdentifier:(id)arg4;

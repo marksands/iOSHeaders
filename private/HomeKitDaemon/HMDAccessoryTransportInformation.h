@@ -4,17 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
 @class HAPAccessory, NSNumber, NSString;
 
-@interface HMDAccessoryTransportInformation : NSObject <NSSecureCoding>
+@interface HMDAccessoryTransportInformation : HMFObject <NSSecureCoding>
 {
     _Bool _reachable;
     HAPAccessory *_hapAccessory;
     NSString *_serverIdentifier;
+    NSString *_protocolVersion;
     NSNumber *_instanceID;
     long long _linkType;
 }
@@ -23,6 +24,7 @@
 @property _Bool reachable; // @synthesize reachable=_reachable;
 @property long long linkType; // @synthesize linkType=_linkType;
 @property(retain, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
+@property(retain, nonatomic) NSString *protocolVersion; // @synthesize protocolVersion=_protocolVersion;
 @property(retain, nonatomic) NSString *serverIdentifier; // @synthesize serverIdentifier=_serverIdentifier;
 @property(retain, nonatomic) HAPAccessory *hapAccessory; // @synthesize hapAccessory=_hapAccessory;
 - (void).cxx_destruct;

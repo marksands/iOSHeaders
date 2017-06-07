@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOMatchedToken : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     CDStruct_62a50c50 _geoIds;
     int _geoType;
     NSString *_matchedToken;
@@ -22,6 +23,8 @@
 
 @property(nonatomic) int geoType; // @synthesize geoType=_geoType;
 @property(retain, nonatomic) NSString *matchedToken; // @synthesize matchedToken=_matchedToken;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

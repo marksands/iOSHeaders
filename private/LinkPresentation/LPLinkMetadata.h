@@ -9,7 +9,7 @@
 #import <LinkPresentation/NSCopying-Protocol.h>
 #import <LinkPresentation/NSSecureCoding-Protocol.h>
 
-@class LPImage, LPSpecializationMetadata, LPVideo, NSArray, NSString, NSURL;
+@class LPIconMetadata, LPImage, LPImageMetadata, LPSpecializationMetadata, LPVideo, LPVideoMetadata, NSArray, NSString, NSURL;
 
 @interface LPLinkMetadata : NSObject <NSSecureCoding, NSCopying>
 {
@@ -26,8 +26,11 @@
     NSString *_creatorFacebookProfile;
     NSString *_creatorTwitterUsername;
     LPImage *_icon;
+    LPIconMetadata *_iconMetadata;
     LPImage *_image;
+    LPImageMetadata *_imageMetadata;
     LPVideo *_video;
+    LPVideoMetadata *_videoMetadata;
     NSArray *_icons;
     NSArray *_images;
     NSArray *_videos;
@@ -44,8 +47,11 @@
 @property(copy, nonatomic) NSArray *videos; // @synthesize videos=_videos;
 @property(copy, nonatomic) NSArray *images; // @synthesize images=_images;
 @property(copy, nonatomic) NSArray *icons; // @synthesize icons=_icons;
+@property(retain, nonatomic) LPVideoMetadata *videoMetadata; // @synthesize videoMetadata=_videoMetadata;
 @property(retain, nonatomic) LPVideo *video; // @synthesize video=_video;
+@property(retain, nonatomic) LPImageMetadata *imageMetadata; // @synthesize imageMetadata=_imageMetadata;
 @property(retain, nonatomic) LPImage *image; // @synthesize image=_image;
+@property(retain, nonatomic) LPIconMetadata *iconMetadata; // @synthesize iconMetadata=_iconMetadata;
 @property(retain, nonatomic) LPImage *icon; // @synthesize icon=_icon;
 @property(copy, nonatomic) NSString *creatorTwitterUsername; // @synthesize creatorTwitterUsername=_creatorTwitterUsername;
 @property(copy, nonatomic) NSString *creatorFacebookProfile; // @synthesize creatorFacebookProfile=_creatorFacebookProfile;
@@ -66,7 +72,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)_initWithDictionary:(id)arg1 originalURL:(id)arg2;
+- (id)_initWithDictionary:(id)arg1;
 - (id)init;
 
 @end

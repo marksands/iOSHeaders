@@ -69,6 +69,7 @@
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)setBackgroundColor:(id)arg1;
+- (double)_firstLineBaseline;
 @property(readonly, nonatomic) double _lastLineBaseline;
 @property(retain, nonatomic) UIColor *color;
 - (id)initWithFrame:(struct CGRect)arg1 options:(unsigned long long)arg2;

@@ -13,8 +13,11 @@
     NSString *_neighborhood;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *neighborhood; // @synthesize neighborhood=_neighborhood;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)initWithNeighborhood:(id)arg1;
 - (id)init;

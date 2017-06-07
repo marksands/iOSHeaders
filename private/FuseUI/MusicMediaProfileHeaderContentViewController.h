@@ -63,7 +63,6 @@
 - (void)profileDetailViewDidSelectTitle:(id)arg1;
 - (void)profileDetailViewDidSelectShareActionsButton:(id)arg1;
 - (void)profileDetailViewDidSelectEditButton:(id)arg1;
-- (void)profileDetailViewDidSelectContextualActionsButton:(id)arg1;
 - (void)profileDetailView:(id)arg1 didUpdateFollowingState:(_Bool)arg2;
 - (void)setMediaDetailHeaderHeight:(double)arg1 withMaximumHeaderHeight:(double)arg2 transitionProgress:(double)arg3;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;

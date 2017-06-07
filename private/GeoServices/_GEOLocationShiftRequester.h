@@ -11,9 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (unsigned long long)_urlType;
-+ (id)_serviceTypeNumber;
-- (id)_validateResponse:(id)arg1;
+- (id)_validateResponse:(id)arg1 userInfo:(id)arg2;
 - (void)cancelRequest:(id)arg1;
 - (void)startWithRequest:(id)arg1 traits:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 

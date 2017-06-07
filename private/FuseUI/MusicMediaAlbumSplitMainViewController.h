@@ -11,7 +11,6 @@
 }
 
 - (id)_loadProductTracklistTableViewConfigurationWithTracklistEntityProvider:(id)arg1;
-- (id)_contextualActionsOverrideTracklistEntityProvider;
 - (void)_configureProductAdditionalMetadataViewController:(id)arg1;
 
 @end

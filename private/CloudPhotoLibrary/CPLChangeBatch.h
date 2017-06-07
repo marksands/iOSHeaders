@@ -29,7 +29,6 @@
 - (void)appendLocalResources:(id)arg1 forItemWithCloudIdentifier:(id)arg2;
 - (id)localResourceOfType:(unsigned long long)arg1 forItemWithCloudIdentifier:(id)arg2;
 - (id)summaryDescription;
-- (id)extractDeletesFromBatchDeletedRecordIdentifiers:(id *)arg1 trashedRecordIdentifiers:(id *)arg2;
 - (void)_setRecords:(id)arg1;
 - (unsigned long long)count;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
@@ -39,6 +38,7 @@
 - (id)_additionalRecords;
 - (void)_setAdditionalRecords:(id)arg1;
 - (id)additionalRecordWithIdentifier:(id)arg1;
+- (_Bool)hasChangeWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *records;
 - (void)removeRecordWithIdentifier:(id)arg1;
 - (void)addRecordsFromBatch:(id)arg1;

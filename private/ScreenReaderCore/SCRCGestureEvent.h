@@ -18,6 +18,7 @@
 }
 
 @property(nonatomic) double time; // @synthesize time=_time;
+- (void).cxx_destruct;
 - (struct CGPoint)magneticLocation;
 - (_Bool)isCancelEvent;
 - (struct CGPoint)balancedLocation;

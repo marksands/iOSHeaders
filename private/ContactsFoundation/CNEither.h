@@ -13,14 +13,20 @@
     CNPair *_pair;
 }
 
++ (id)firstLeftInLazyChain:(id)arg1;
++ (id)eitherWithBlock:(CDUnknownBlockType)arg1;
 + (id)eitherWithBool:(_Bool)arg1 error:(id)arg2;
++ (id)eitherWithRight:(id)arg1;
++ (id)eitherWithLeft:(id)arg1;
 + (id)eitherWithLeft:(id)arg1 right:(id)arg2;
 @property(retain, nonatomic) CNPair *pair; // @synthesize pair=_pair;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)description;
+@property(readonly, nonatomic) _Bool isRight;
 @property(readonly, nonatomic) id right;
+@property(readonly, nonatomic) _Bool isLeft;
 @property(readonly, nonatomic) id left;
 - (id)initWithLeft:(id)arg1 right:(id)arg2;
 

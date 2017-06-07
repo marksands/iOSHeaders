@@ -18,6 +18,7 @@
 + (id)defaultExcludedFilenamesWorthWarningAtLogout;
 + (id)sharedDefaults;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) long long minFileSizeForThumbnailTransfer;
 @property(readonly, nonatomic) NSSet *excludedExtensionsWorthPreserving;
 @property(readonly, nonatomic) NSSet *excludedFilenamesWorthWarningAtLogout;
 - (id)init;

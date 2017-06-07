@@ -28,9 +28,9 @@
     int _keepAliveCell;
 }
 
+@property _Bool alwaysForceCellular; // @synthesize alwaysForceCellular=_alwaysForceCellular;
 @property(copy) CDUnknownBlockType block; // @synthesize block=_block;
 @property(retain) NSURLRequest *request; // @synthesize request=_request;
-@property _Bool alwaysForceCellular; // @synthesize alwaysForceCellular=_alwaysForceCellular;
 @property int keepAliveCell; // @synthesize keepAliveCell=_keepAliveCell;
 @property int keepAliveWifi; // @synthesize keepAliveWifi=_keepAliveWifi;
 @property _Bool disableKeepAlive; // @synthesize disableKeepAlive=_disableKeepAlive;

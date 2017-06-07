@@ -7,13 +7,13 @@
 #import <Foundation/NSError.h>
 
 @interface NSError (TSUAdditions)
-+ (id)errorWithDomain:(id)arg1 code:(long long)arg2 alertTitle:(id)arg3 alertMessage:(id)arg4 underlyingError:(id)arg5;
-+ (id)errorWithDomain:(id)arg1 code:(long long)arg2 alertTitle:(id)arg3 alertMessage:(id)arg4;
++ (id)tsu_errorWithDomain:(id)arg1 code:(long long)arg2 alertTitle:(id)arg3 alertMessage:(id)arg4 underlyingError:(id)arg5;
++ (id)tsu_errorWithDomain:(id)arg1 code:(long long)arg2 alertTitle:(id)arg3 alertMessage:(id)arg4;
 + (id)tsuErrorWithCode:(long long)arg1;
-+ (id)errorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3 recoverySuggestion:(id)arg4;
-- (_Bool)isCancelError;
-- (_Bool)isOutOfSpaceError;
-- (id)localizedAlertMessage;
-- (id)localizedAlertTitle;
++ (id)tsu_errorWithDomain:(id)arg1 code:(long long)arg2 description:(id)arg3 recoverySuggestion:(id)arg4;
+- (_Bool)tsu_isCancelError;
+- (_Bool)tsu_isOutOfSpaceError;
+- (id)tsu_localizedAlertMessage;
+- (id)tsu_localizedAlertTitle;
 @end
 

@@ -12,6 +12,7 @@
 + (id)hf_controlDescriptionFormatterForCharacteristicType:(id)arg1 withMetadata:(id)arg2 options:(id)arg3;
 + (id)hf_controlDescriptionFormatterForCharacteristic:(id)arg1 options:(id)arg2;
 + (id)_hf_lockMechanismLastKnownActionFormatter;
++ (id)_hf_currentAirPurifierStateFormatter;
 + (id)_hf_contactStateStateFormatter;
 + (id)_hf_targetSecuritySystemStateFormatter;
 + (id)_hf_currentSecuritySystemStateFormatter;
@@ -25,8 +26,9 @@
 + (id)_hf_doorStateFormatter;
 + (id)_hf_powerStateFormatter;
 + (id)_hf_valueSetFormatterForCharacteristicType:(id)arg1;
-+ (id)_hf_microgramsPerMeterSquaredFormatter;
++ (id)_hf_microgramsPerMeterCubedFormatter;
 + (id)_hf_partsPerMillionFormatter;
++ (id)_hf_filterChangeIndicationFormatter;
 + (id)_hf_positionFormatterWithOptions:(id)arg1;
 + (id)_hf_valueFormatterForCharacteristicMetadata:(id)arg1 options:(id)arg2;
 + (id)_hf_customValueFormatterForCharacteristicType:(id)arg1 metadata:(id)arg2 options:(id)arg3;

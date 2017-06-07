@@ -11,7 +11,6 @@
 @class CNSuspendableSchedulerDecorator, NSString;
 @protocol CNObserver;
 
-__attribute__((visibility("hidden")))
 @interface _CNBufferedObserver : NSObject <CNObserver>
 {
     CNSuspendableSchedulerDecorator *_observerScheduler;

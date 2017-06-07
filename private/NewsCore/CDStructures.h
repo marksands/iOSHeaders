@@ -25,6 +25,10 @@ struct CGSize {
     double height;
 };
 
+struct NSMutableDictionary {
+    Class _field1;
+};
+
 struct UIEdgeInsets {
     double top;
     double left;

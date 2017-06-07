@@ -28,6 +28,7 @@
 + (id)localizedDescriptionForPayloadCount:(unsigned long long)arg1;
 + (id)typeStrings;
 + (id)wrapperPayloadDictionary;
++ (id)conflictingFieldValueErrorWithUnderlyingError:(id)arg1;
 + (id)badFieldValueErrorWithField:(id)arg1 underlyingError:(id)arg2;
 + (id)badFieldValueErrorWithField:(id)arg1;
 + (id)badFieldTypeErrorWithField:(id)arg1;
@@ -36,6 +37,9 @@
 + (id)payloadsFromArray:(id)arg1 profile:(id)arg2 outError:(id *)arg3;
 + (id)unavailableUserPayloadsInEphemeralMultiUser;
 + (id)unavailableSystemPayloadsInEphemeralMultiUser;
++ (id)supervisedRequiredPayloads;
++ (id)cellularRequiredPayloads;
++ (id)minimumWatchVersionRequirementsForPayloads;
 + (id)unavailablePayloadsInEphemeralMultiUser;
 @property(nonatomic) _Bool mustInstallNonInteractively; // @synthesize mustInstallNonInteractively=_mustInstallNonInteractively;
 @property(retain, nonatomic) NSString *persistentResourceID; // @synthesize persistentResourceID=_persistentResourceID;

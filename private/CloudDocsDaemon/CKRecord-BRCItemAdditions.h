@@ -14,6 +14,7 @@
 + (id)desiredKeysWithMask:(unsigned short)arg1;
 + (id)rootAppLibraryRecordForAppLibraryID:(id)arg1 zoneID:(id)arg2;
 + (id)rootDirectoryRecordForZoneID:(id)arg1;
+- (void)sanitizeShortTokenFields;
 - (void)sqliteBind:(struct sqlite3_stmt *)arg1 index:(int)arg2;
 - (_Bool)brc_currentUserOwnsLastEditorDevice;
 - (id)brc_lastEditorDeviceName;

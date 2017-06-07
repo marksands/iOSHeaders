@@ -7,10 +7,10 @@
 #import <Foundation/NSMutableDictionary.h>
 
 @interface NSMutableDictionary (TSUAdditions)
-+ (id)dictionaryByInvertingDictionary:(id)arg1;
-+ (id)dictionaryByInvertingDictionaryIfPossible:(id)arg1;
-- (void)removeObjectsWithoutKeys:(id)arg1;
-- (id)objectForKey:(id)arg1 withDefaultOfClass:(Class)arg2;
-- (id)objectForKey:(id)arg1 withDefaultUsingBlock:(CDUnknownBlockType)arg2;
++ (id)tsu_dictionaryByInvertingDictionary:(id)arg1;
++ (id)tsu_dictionaryByInvertingDictionaryIfPossible:(id)arg1;
+- (void)tsu_removeObjectsWithoutKeys:(id)arg1;
+- (id)tsu_objectForKey:(id)arg1 withDefaultOfClass:(Class)arg2;
+- (id)tsu_objectForKey:(id)arg1 withDefaultUsingBlock:(CDUnknownBlockType)arg2;
 @end
 

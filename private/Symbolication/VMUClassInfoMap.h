@@ -26,6 +26,7 @@
 + (void)enableTestingVersion;
 + (void)initialize;
 + (void)_claimUnarchivingOfClass:(id)arg1;
+- (void).cxx_destruct;
 - (void)_applyTypeOverlay:(id)arg1;
 @property(readonly, nonatomic) unsigned int fieldInfoCount;
 - (void)memoizeSwiftField:(id)arg1 withName:(const char *)arg2 offset:(unsigned int)arg3 kind:(unsigned int)arg4 typeref:(unsigned long long)arg5;

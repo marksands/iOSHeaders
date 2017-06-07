@@ -22,6 +22,7 @@
 
 @property(nonatomic) int mapType; // @synthesize mapType=_mapType;
 @property(retain, nonatomic) GEOURLCamera *camera; // @synthesize camera=_camera;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -36,7 +37,6 @@
 - (id)mapTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasMapType;
 @property(readonly, nonatomic) _Bool hasCamera;
-- (void)dealloc;
 
 @end
 

@@ -17,6 +17,10 @@
 
 @property(copy, setter=_setLastModifiedProperties:) NSArray *_lastModifiedProperties; // @synthesize _lastModifiedProperties=__lastModifiedProperties;
 - (void).cxx_destruct;
+- (void)fillRelatedIdentifiersInChange:(id)arg1;
+@property(readonly, nonatomic) unsigned long long estimatedLocalLibraryAssetCount;
+@property(readonly, nonatomic) unsigned long long estimatedLocalLibrarySize;
+- (_Bool)storeEstimatedLocalLibrarySize:(unsigned long long)arg1 estimatedAssetCount:(unsigned long long)arg2 error:(id *)arg3;
 - (id)statusDictionary;
 - (id)status;
 - (id)resourceOfType:(unsigned long long)arg1 forRecordWithIdentifier:(id)arg2 error:(id *)arg3;
@@ -24,6 +28,9 @@
 - (id)localChangeBatchFromCloudBatch:(id)arg1 usingMapping:(id)arg2 withError:(id *)arg3;
 - (id)compactedBatchFromExpandedBatch:(id)arg1;
 - (_Bool)resetWithError:(id *)arg1;
+- (unsigned long long)countOfRecordsWithRelatedIdentifier:(id)arg1 class:(Class)arg2;
+- (_Bool)hasRecordWithRelatedIdentifier:(id)arg1 class:(Class)arg2;
+- (id)recordsWithRelatedIdentifier:(id)arg1 class:(Class)arg2;
 - (id)recordsWithRelatedIdentifier:(id)arg1;
 - (_Bool)hasRecordWithIdentifier:(id)arg1;
 - (id)relatedIdentifierForRecordWithIdentifier:(id)arg1;

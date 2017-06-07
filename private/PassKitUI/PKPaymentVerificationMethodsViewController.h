@@ -6,23 +6,26 @@
 
 #import <PassKitUI/PKPaymentSetupFieldsViewController.h>
 
-@class NSString, PKPaymentSetupVerificationMethodTableController, PKPaymentVerificationController;
+@class NSString, PKPaymentProvisioningController, PKPaymentSetupVerificationMethodTableController, PKPaymentVerificationController;
 
 @interface PKPaymentVerificationMethodsViewController : PKPaymentSetupFieldsViewController
 {
     PKPaymentSetupVerificationMethodTableController *_methodTableController;
     PKPaymentVerificationController *_verificationController;
+    PKPaymentProvisioningController *_provisioningController;
     NSString *_stepIdentifier;
 }
 
 @property(copy, nonatomic) NSString *stepIdentifier; // @synthesize stepIdentifier=_stepIdentifier;
+@property(retain, nonatomic) PKPaymentProvisioningController *provisioningController; // @synthesize provisioningController=_provisioningController;
 @property(readonly, nonatomic) PKPaymentVerificationController *verificationController; // @synthesize verificationController=_verificationController;
 - (void).cxx_destruct;
 - (id)_requestErrorAlertController:(id)arg1;
 - (id)_setupAssistantVerificationAlert;
 - (id)_newVerificationRequest;
 - (void)handleNextButtonTapped:(id)arg1;
-- (void)terminateFlow;
+- (void)_terminateSetupFlow;
+- (void)_handleVerificationFinished;
 - (void)cancel:(id)arg1;
 - (id)visibleFieldIdentifiers;
 - (id)defaultHeaderViewSubTitle;

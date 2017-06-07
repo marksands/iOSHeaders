@@ -17,6 +17,7 @@
 
 + (Class)targetLayoutType;
 @property(retain, nonatomic) NSMutableArray *targetLayouts; // @synthesize targetLayouts=_targetLayouts;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -30,7 +31,6 @@
 - (unsigned long long)targetLayoutsCount;
 - (void)addTargetLayout:(id)arg1;
 - (void)clearTargetLayouts;
-- (void)dealloc;
 
 @end
 

@@ -9,7 +9,7 @@
 #import <HomeUI/HUGridCellProtocol-Protocol.h>
 
 @class HFItem, HUChevronButton, HUColoredButton, HUGridCellLayoutOptions, NSArray, NSString, UILabel;
-@protocol HUGridEmptyHomeCellDelegate;
+@protocol HUGridEmptyHomeCellDelegate, HUResizableCellDelegate;
 
 @interface HUGridEmptyHomeCell : UICollectionViewCell <HUGridCellProtocol>
 {
@@ -51,6 +51,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(nonatomic, getter=isRearranging) _Bool rearranging;
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @property(readonly) Class superclass;
 
 @end

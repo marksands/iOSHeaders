@@ -16,7 +16,7 @@
     UIView<HKCalendarMonthTitleFormatting> *_monthTitleView;
     double _dateTopMargin;
     double _dateBottomMargin;
-    double _leftMargin;
+    double _leadingMargin;
     double _monthTitleTopMargin;
     double _monthTitleBottomMargin;
     double _dateDiameter;
@@ -39,11 +39,12 @@
 @property(nonatomic) double dateDiameter; // @synthesize dateDiameter=_dateDiameter;
 @property(nonatomic) double monthTitleBottomMargin; // @synthesize monthTitleBottomMargin=_monthTitleBottomMargin;
 @property(nonatomic) double monthTitleTopMargin; // @synthesize monthTitleTopMargin=_monthTitleTopMargin;
-@property(nonatomic) double leftMargin; // @synthesize leftMargin=_leftMargin;
+@property(nonatomic) double leadingMargin; // @synthesize leadingMargin=_leadingMargin;
 @property(nonatomic) double dateBottomMargin; // @synthesize dateBottomMargin=_dateBottomMargin;
 @property(nonatomic) double dateTopMargin; // @synthesize dateTopMargin=_dateTopMargin;
 @property(retain, nonatomic) UIView<HKCalendarMonthTitleFormatting> *monthTitleView; // @synthesize monthTitleView=_monthTitleView;
 - (void).cxx_destruct;
+- (_Bool)supportsRTL;
 - (Class)monthTitleClass;
 - (Class)cellClass;
 - (void)pressedOnCalendarDay:(long long)arg1 cell:(id)arg2 down:(_Bool)arg3;

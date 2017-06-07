@@ -8,7 +8,7 @@
 
 #import <iWorkImport/NSCopying-Protocol.h>
 
-@class NSBundle, NSMutableDictionary, NSString;
+@class NSBundle, NSMutableDictionary, NSString, TSUOnce;
 
 __attribute__((visibility("hidden")))
 @interface TSDFrameSpec : NSObject <NSCopying>
@@ -28,25 +28,25 @@ __attribute__((visibility("hidden")))
     _Bool mHasMask;
     _Bool mHasAdornment;
     NSMutableDictionary *mProvidersByKey;
-    _Bool mLoadedImageMetrics;
     double mLeftWidth;
     double mRightWidth;
     double mTopHeight;
     double mBottomHeight;
     struct CGSize mAdornmentSize;
+    TSUOnce *mLoadedImageMetricsOnce;
     // Error parsing type: Ai, name: mInterest
 }
 
 + (id)p_imageKeys;
 + (id)frameSpecWithName:(id)arg1;
-+ (id)frameSpecs;
++ (void)initialize;
 @property(readonly, nonatomic) _Bool displayInPicker; // @synthesize displayInPicker=mDisplayInPicker;
 @property(readonly, copy, nonatomic) NSString *frameName; // @synthesize frameName=mFrameName;
+- (void).cxx_destruct;
 - (void)p_loadImageMetrics;
 - (id)p_imageDataForKey:(id)arg1;
 - (id)p_infoDictionary;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithBundle:(id)arg1;
 - (int)i_tilingMode;
 - (struct CGPoint)i_adornmentPosition;

@@ -26,6 +26,7 @@
 - (id)steppingArtwork;
 @property(readonly, nonatomic) id <GEOTransitRoutingIncidentMessage> routeDetailsIncidentMessage; // @synthesize routeDetailsIncidentMessage=_routeDetailsIncidentMessage;
 @property(readonly, nonatomic) id <GEOTransitRoutingIncidentMessage> steppingIncidentMessage; // @synthesize steppingIncidentMessage=_steppingIncidentMessage;
+- (void).cxx_destruct;
 - (_Bool)isArrivalStep;
 - (unsigned int)distance;
 - (id)transitStep;
@@ -33,7 +34,6 @@
 - (CDStruct_c3b9c2ee)endGeoCoordinate;
 - (CDStruct_c3b9c2ee)startGeoCoordinate;
 - (void)_commonInitWithDecoderData:(id)arg1;
-- (void)dealloc;
 - (id)initWithComposedRoute:(id)arg1 transitStep:(id)arg2 stepIndex:(unsigned long long)arg3 startCoordinate:(CDStruct_c3b9c2ee)arg4 endCoordinate:(CDStruct_c3b9c2ee)arg5 pointRange:(struct _NSRange)arg6;
 - (id)initWithComposedRoute:(id)arg1 transitStep:(id)arg2 stepIndex:(unsigned long long)arg3 geoStep:(id)arg4 pointRange:(struct _NSRange)arg5 maneuverPointRange:(struct _NSRange)arg6;
 

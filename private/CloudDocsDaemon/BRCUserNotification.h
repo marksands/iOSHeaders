@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
-- (void)showErroriCloudDriveAppNotVisibleForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)showErrorDocumentsAppNotVisibleForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)showErrorParticipantLimitReachedForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)showErrorItemUnavailableOrAccessRestrictedForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)showErrorServerNotReachableForShareURL:(id)arg1 reply:(CDUnknownBlockType)arg2;

@@ -16,8 +16,8 @@
 
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) unsigned int port; // @synthesize port=_port;
+- (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 
 @end
 

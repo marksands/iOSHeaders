@@ -46,6 +46,7 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)contentSizeCategoryDidChange;
 - (void)viewDidLoad;
 - (id)initWithStyle:(long long)arg1;
 - (id)initWithCollectionType:(long long)arg1 namedSectionTitle:(id)arg2 delegate:(id)arg3;

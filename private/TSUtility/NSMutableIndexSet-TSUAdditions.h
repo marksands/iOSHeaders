@@ -7,7 +7,7 @@
 #import <Foundation/NSMutableIndexSet.h>
 
 @interface NSMutableIndexSet (TSUAdditions)
-- (void)intersectionWithIndexSet:(id)arg1;
-- (void)moveIndexesInRange:(struct _NSRange)arg1 toOffset:(unsigned long long)arg2;
+- (void)tsu_intersectionWithIndexSet:(id)arg1;
+- (void)tsu_moveIndexesInRange:(struct _NSRange)arg1 toOffset:(unsigned long long)arg2;
 @end
 

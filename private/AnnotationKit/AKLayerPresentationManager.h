@@ -11,6 +11,7 @@
 @interface AKLayerPresentationManager : NSObject
 {
     _Bool _shouldPixelate;
+    _Bool _adornmentsHidden;
     _Bool _isObservingModel;
     AKPageController *_pageController;
     CALayer *_rootLayer;
@@ -37,6 +38,7 @@
 @property(retain) NSMapTable *annotationsToAnnotationLayers; // @synthesize annotationsToAnnotationLayers=_annotationsToAnnotationLayers;
 @property(nonatomic) double alignmentGuidePositionY; // @synthesize alignmentGuidePositionY=_alignmentGuidePositionY;
 @property(nonatomic) double alignmentGuidePositionX; // @synthesize alignmentGuidePositionX=_alignmentGuidePositionX;
+@property(nonatomic) _Bool adornmentsHidden; // @synthesize adornmentsHidden=_adornmentsHidden;
 @property(nonatomic) _Bool shouldPixelate; // @synthesize shouldPixelate=_shouldPixelate;
 @property(retain) CALayer *rootLayer; // @synthesize rootLayer=_rootLayer;
 @property __weak AKPageController *pageController; // @synthesize pageController=_pageController;
@@ -50,6 +52,7 @@
 - (double)_hiDPIScaleFactor;
 - (void)_applyUpdatesWithScale:(double)arg1 toLayers:(id)arg2 isLiveUpdate:(_Bool)arg3 forceUpdate:(_Bool)arg4;
 - (void)_setNeedsDisplayOnNewLayer:(id)arg1;
+- (void)forceUpdateAnnotationLayer:(id)arg1;
 - (void)_updateLoupeAnnotationsIntersectingRemovedAnnotation:(id)arg1;
 - (void)_updateLoupeAnnotationsContributedToByAnnotation:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

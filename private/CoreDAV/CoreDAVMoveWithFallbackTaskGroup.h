@@ -30,11 +30,11 @@
 @property(nonatomic) int overwrite; // @synthesize overwrite=_overwrite;
 @property(readonly, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(readonly, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;
+- (void).cxx_destruct;
 - (void)_completedPutTask:(id)arg1;
 - (void)_completedMoveTask:(id)arg1;
 - (void)startTaskGroup;
 - (id)description;
-- (void)dealloc;
 - (id)initWithSourceURL:(id)arg1 destinationURL:(id)arg2 AccountInfoProvider:(id)arg3 taskManager:(id)arg4;
 
 @end

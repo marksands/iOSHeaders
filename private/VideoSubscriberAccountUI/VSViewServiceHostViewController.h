@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (void)_addRemoteViewControllerAsChildViewController;
 - (void)_removeRemoteViewControllerAsChildViewController;
 - (void)_connectToViewServiceForRequest:(id)arg1;
+- (void)viewServiceRemoteViewController:(id)arg1 didSelectProviderWithIdentifier:(id)arg2 vetoHandler:(CDUnknownBlockType)arg3;
 - (void)viewServiceRemoteViewController:(id)arg1 didCancelRequest:(id)arg2;
 - (void)viewServiceRemoteViewController:(id)arg1 didChooseAdditionalProvidersForRequest:(id)arg2;
 - (void)viewServiceRemoteViewController:(id)arg1 request:(id)arg2 didFailWithError:(id)arg3;
@@ -43,6 +44,7 @@ __attribute__((visibility("hidden")))
 - (void)presentViewServiceRemoteViewController:(id)arg1;
 - (long long)modalPresentationStyle;
 - (void)_cancelButtonPressed:(id)arg1;
+- (_Bool)_shouldAuthenticateAccountProviderWithIdentifier:(id)arg1;
 - (void)_dismissViewServiceHostViewController;
 - (void)_presentViewServiceHostViewController;
 - (void)_didChooseAdditionalProvidersForRequest:(id)arg1;
@@ -52,7 +54,7 @@ __attribute__((visibility("hidden")))
 - (void)_didCompleteRequest:(id)arg1;
 - (id)_requestForID:(id)arg1;
 - (void)enqueueViewServiceRequest:(id)arg1 withIdentifier:(id)arg2;
-- (id)init;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

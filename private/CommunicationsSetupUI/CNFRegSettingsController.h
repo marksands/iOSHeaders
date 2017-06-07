@@ -20,12 +20,10 @@
     NSArray *_accountGroupSpecifiers;
     NSArray *_aliasGroupSpecifiers;
     NSArray *_callerIdGroupSpecifiers;
-    PSSpecifier *_addAddressButtonSpecifier;
     NSArray *_replyWithMessageGroupSpecifiers;
     NSArray *_blacklistGroupSpecifiers;
     NSArray *_receiveRelayCallsGroupSpecifiers;
-    PSSpecifier *_blankAddressSpecifier;
-    NSString *_pendingAddress;
+    NSArray *_faceTimePhotosGroupSpecifiers;
     NSMutableArray *_addresses;
     NSNumber *_delayedRefreshAnimatedFlag;
     struct {
@@ -40,7 +38,6 @@
 
 + (_Bool)_shouldForwardViewWillTransitionToSize;
 @property(readonly, nonatomic) _Bool showReceiveRelayCalls; // @synthesize showReceiveRelayCalls=_showReceiveRelayCalls;
-@property(copy, nonatomic) NSString *pendingAddress; // @synthesize pendingAddress=_pendingAddress;
 - (void).cxx_destruct;
 - (void)_handleAccountRegistrarChanged;
 - (void)_handleOutgoingRelayCallerIDChanged;
@@ -79,30 +76,20 @@
 - (id)callerIdAliasSpecifiers;
 - (id)possibleCallerIdAliases;
 - (_Bool)showCallerId:(_Bool)arg1 animated:(_Bool)arg2;
+- (void)setFaceTimePhotosEnabled:(id)arg1 specifier:(id)arg2;
+- (id)getFaceTimePhotosEnabledForSpecifier:(id)arg1;
+- (_Bool)shouldShowFaceTimePhotosSpecifiers;
+- (void)refreshFaceTimePhotosSettingsAnimated:(_Bool)arg1;
+- (void)showFaceTimePhotosSettings:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)_showAliasValidationError:(id)arg1;
-- (id)aliasDetailControllerForSpecifier:(id)arg1;
 - (void)setAliasSelected:(id)arg1;
 - (id)createSpecifierForAlias:(id)arg1;
 - (_Bool)_canDeselectAlias:(id)arg1;
 - (id)aliasWithIdentifier:(id)arg1;
-- (void)setPendingAddress:(id)arg1 forSpecifier:(id)arg2;
-- (id)pendingAddressForSpecifier:(id)arg1;
-- (void)stopEditingTextField:(_Bool)arg1;
-- (void)_clearBlankAliasField;
-- (void)startEditingTextField;
-- (void)textFieldEmptyStateChanged:(id)arg1 forSpecifier:(id)arg2;
-- (id)blankAliasTextField;
-- (id)getAddAliasTextForSpecifier:(id)arg1;
-- (void)_updateAddAliasButtonText;
-- (void)addAddressTapped:(id)arg1;
 - (id)statusForAlias:(id)arg1;
 - (id)statusForSpecifier:(id)arg1;
 - (id)aliasForSpecifier:(id)arg1;
 - (_Bool)additionalAliasesAvailable;
-- (void)showAddAliasButton:(_Bool)arg1 animated:(_Bool)arg2;
-- (_Bool)isShowingAddButton;
-- (void)showBlankAlias:(_Bool)arg1 animated:(_Bool)arg2;
-- (_Bool)isShowingBlankAlias;
 - (_Bool)showAliases:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateSpecifier:(id)arg1 withAlias:(id)arg2;
 - (void)refreshAllAliasSpecifiers;
@@ -151,12 +138,7 @@
 - (void)_updateSwitch;
 - (id)_switchFooterText;
 - (void)_buildSpecifierCache:(id)arg1;
-- (void)_cacheIndividualSpecifier:(id)arg1 includeInGroup:(_Bool *)arg2;
 - (void)_cacheSpecifierGroup:(id)arg1 withSpecifiers:(id)arg2;
-- (void)keyboardDismissed:(id)arg1;
-- (void)returnKeyPressed:(id)arg1;
-- (void)stopListeningForFinishedEditingEventNotifications;
-- (void)startListeningForFinishedEditingEventNotifications;
 - (void)_tearDownAllListeners;
 - (void)_setupAllListeners;
 - (id)customTitle;
@@ -179,7 +161,6 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (_Bool)shouldReloadSpecifiersOnResume;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
-- (void)tableView:(id)arg1 accessoryButtonTappedForRowWithIndexPath:(id)arg2;
 - (id)specifierList;
 - (id)loadSpecifiersFromPlistName:(id)arg1 target:(id)arg2 bundle:(id)arg3;
 - (id)bundle;

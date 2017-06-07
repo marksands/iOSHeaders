@@ -25,7 +25,7 @@
 }
 
 @property(copy) CDUnknownBlockType _callback; // @synthesize _callback;
-@property NSObject<OS_dispatch_queue> *_queue; // @synthesize _queue;
+@property(retain) NSObject<OS_dispatch_queue> *_queue; // @synthesize _queue;
 @property void *_BOMCopier; // @synthesize _BOMCopier;
 @property unsigned long long operation; // @synthesize operation=_operation;
 @property _Bool inProgress; // @synthesize inProgress=_inProgress;

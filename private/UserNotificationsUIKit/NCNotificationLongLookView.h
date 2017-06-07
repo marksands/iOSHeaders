@@ -4,19 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UserNotificationsUIKit/NCAnimatableBlurringView.h>
+#import <UIKit/UIView.h>
 
-#import <UserNotificationsUIKit/NCContentSizeCategoryAdjusting-Protocol.h>
+#import <UserNotificationsUIKit/MTContentSizeCategoryAdjusting-Protocol.h>
 #import <UserNotificationsUIKit/NCCustomContentContainingLookView-Protocol.h>
+#import <UserNotificationsUIKit/NCNotificationContentViewDelegate-Protocol.h>
 #import <UserNotificationsUIKit/NCNotificationStaticContentAccepting-Protocol.h>
 #import <UserNotificationsUIKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <UserNotificationsUIKit/UIScrollViewDelegate-Protocol.h>
 
-@class NCKeyLineView, NCLookHeaderContentView, NCNotificationContentView, NSArray, NSDate, NSString, NSTimeZone, UIButton, UIImage, UIInterfaceActionGroupView, UIScrollView, UITapGestureRecognizer, UIView;
+@class MTMaterialView, MTPlatterHeaderContentView, NCKeyLineView, NCNotificationContentView, NSArray, NSDate, NSString, NSTimeZone, UIButton, UIImage, UIInterfaceActionGroupView, UIScrollView, UITapGestureRecognizer;
+@protocol NCNotificationLongLookViewDelegate;
 
-@interface NCNotificationLongLookView : NCAnimatableBlurringView <UIGestureRecognizerDelegate, UIScrollViewDelegate, NCNotificationStaticContentAccepting, NCCustomContentContainingLookView, NCContentSizeCategoryAdjusting>
+@interface NCNotificationLongLookView : UIView <UIGestureRecognizerDelegate, UIScrollViewDelegate, NCNotificationContentViewDelegate, NCNotificationStaticContentAccepting, NCCustomContentContainingLookView, MTContentSizeCategoryAdjusting>
 {
-    NCLookHeaderContentView *_headerContentView;
+    MTPlatterHeaderContentView *_headerContentView;
     UIView *_headerDivider;
     UIView *_contentView;
     UIView *_mainContentView;
@@ -24,16 +26,18 @@
     UIView *_customContentView;
     NCNotificationContentView *_notificationContentView;
     NCKeyLineView *_actionsKeyLineView;
-    UIView *_actionsBackgroundView;
+    MTMaterialView *_actionsBackgroundView;
     UIInterfaceActionGroupView *_actionsView;
     UITapGestureRecognizer *_lookViewTapGestureRecognizer;
     _Bool _actionsHidden;
     _Bool _hidesNotificationContent;
     unsigned long long _customContentLocation;
     UIScrollView *_scrollView;
+    id <NCNotificationLongLookViewDelegate> _delegate;
     struct CGSize _customContentSize;
 }
 
+@property(nonatomic) __weak id <NCNotificationLongLookViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic, getter=_scrollView) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(nonatomic) _Bool hidesNotificationContent; // @synthesize hidesNotificationContent=_hidesNotificationContent;
 @property(nonatomic) unsigned long long customContentLocation; // @synthesize customContentLocation=_customContentLocation;
@@ -42,8 +46,10 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory;
+- (void)notificationContentView:(id)arg1 willInteractWithURL:(id)arg2;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
+- (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (_Bool)_lookViewTapGestureRecognizerShouldReceiveTouch:(id)arg1;
 - (void)layoutSubviews;
@@ -85,7 +91,7 @@
 - (struct CGRect)scrollViewFrame;
 @property(readonly, nonatomic) UITapGestureRecognizer *lookViewTapGestureRecognizer;
 @property(nonatomic, getter=isActionsHidden) _Bool actionsHidden;
-@property(nonatomic, getter=isBanner) _Bool banner;
+@property(nonatomic) _Bool hasShadow;
 @property(nonatomic, getter=isBackgroundBlurred) _Bool backgroundBlurred;
 - (void)setDateAllDay:(_Bool)arg1;
 @property(readonly, nonatomic, getter=isDateAllDay) _Bool dateAllDay;
@@ -101,7 +107,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(copy, nonatomic) NSString *hintText;
 @property(nonatomic) unsigned long long messageNumberOfLines;
 @property(copy, nonatomic) NSString *preferredContentSizeCategory;
 @property(readonly) Class superclass;

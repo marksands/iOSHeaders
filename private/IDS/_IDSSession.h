@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSBaseSocketPairConnectionDelegate-Protocol.h>
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
@@ -24,6 +24,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     unsigned int _state;
     long long _transportType;
+    unsigned long long _initialLinkType;
     int _socket;
     _Bool _isAudioEnabled;
     _Bool _isMuted;
@@ -45,14 +46,17 @@
     NSMutableDictionary *_sessionConfig;
 }
 
+@property(readonly, nonatomic) unsigned long long initialLinkType; // @synthesize initialLinkType=_initialLinkType;
 @property(retain, nonatomic) id boostContext; // @synthesize boostContext=_boostContext;
 @property(readonly, nonatomic) unsigned int state; // @synthesize state=_state;
+- (void).cxx_destruct;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)xpcObject:(id)arg1 objectContext:(id)arg2;
 - (void)session:(id)arg1 muted:(_Bool)arg2;
 - (void)session:(id)arg1 audioEnabled:(_Bool)arg2;
 - (void)sessionEnded:(id)arg1 withReason:(unsigned int)arg2 error:(id)arg3;
 - (void)sessionStarted:(id)arg1;
+- (void)allocationDone:(id)arg1 sessionInfo:(id)arg2;
 - (void)session:(id)arg1 invitationSentToTokens:(id)arg2 shouldBreakBeforeMake:(_Bool)arg3;
 - (void)sessionEndReceived:(id)arg1 fromID:(id)arg2 withData:(id)arg3;
 - (void)sessionMessageReceived:(id)arg1 fromID:(id)arg2 withData:(id)arg3;
@@ -82,6 +86,7 @@
 - (void)cancelInvitation;
 - (void)sendInvitationWithData:(id)arg1 declineOnError:(_Bool)arg2;
 - (void)sendInvitationWithOptions:(id)arg1;
+- (void)sendAllocationRequest:(id)arg1;
 - (void)_cleanupSocketPairConnections;
 - (void)_setupSocketPairToDaemon;
 - (void)_setupUnreliableSocketPairConnection;
@@ -97,6 +102,8 @@
 - (id)initWithAccount:(id)arg1 destinations:(id)arg2 transportType:(long long)arg3 uniqueID:(id)arg4 delegateContext:(id)arg5;
 - (id)_initWithAccount:(id)arg1 destinations:(id)arg2 options:(id)arg3 delegateContext:(id)arg4;
 - (id)_initWithAccount:(id)arg1 destinations:(id)arg2 transportType:(long long)arg3 connectionCountHint:(unsigned long long)arg4 needsToWaitForPreConnectionData:(_Bool)arg5 uniqueID:(id)arg6 delegateContext:(id)arg7;
+- (id)daemonController;
+- (id)daemonListener;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,7 +6,7 @@
 
 #import <TVMLKit/NSObject-Protocol.h>
 
-@class NSArray, UIFocusAnimationCoordinator, UIFocusUpdateContext, UIView;
+@class NSArray, NSString, UIFocusAnimationCoordinator, UIFocusUpdateContext, UIView;
 
 @protocol UIFocusEnvironment <NSObject>
 @property(readonly, copy, nonatomic) NSArray *preferredFocusEnvironments;
@@ -17,5 +17,6 @@
 
 @optional
 @property(readonly, nonatomic) __weak UIView *preferredFocusedView;
+- (NSString *)soundIdentifierForFocusUpdateInContext:(UIFocusUpdateContext *)arg1;
 @end
 

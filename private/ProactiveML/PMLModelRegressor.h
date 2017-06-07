@@ -6,27 +6,33 @@
 
 #import <objc/NSObject.h>
 
-#import <ProactiveML/DictionarySerializableProtocol-Protocol.h>
+#import <ProactiveML/PMLDictionarySerializableProtocol-Protocol.h>
+#import <ProactiveML/PMLPlistAndChunksSerializableProtocol-Protocol.h>
 
-@class NSMutableData, NSString;
+@class NSString, PMLDenseVector;
 
-@interface PMLModelRegressor : NSObject <DictionarySerializableProtocol>
+@interface PMLModelRegressor : NSObject <PMLDictionarySerializableProtocol, PMLPlistAndChunksSerializableProtocol>
 {
-    NSMutableData *_data;
-    int _count;
+    PMLDenseVector *_data;
 }
 
-+ (id)modelRegressorFromDouble:(double)arg1;
-+ (id)modelRegressorFromDoubles:(id)arg1 andCount:(int)arg2;
-+ (id)fromDictionary:(id)arg1;
-@property(readonly, nonatomic) int count; // @synthesize count=_count;
++ (id)regressorVectorFrom:(id)arg1;
++ (id)modelRegressorFromFloat:(float)arg1;
++ (id)modelRegressorFromFloats:(id)arg1;
 - (void).cxx_destruct;
-- (const double *)values;
+@property(readonly, nonatomic) int count;
+- (const float *)inverseValues;
+- (const float *)values;
 - (id)regressorFor:(int)arg1;
-- (id)initWithRegressorFromDouble:(double)arg1;
-- (id)initModelRegressorFromDoubles:(id)arg1 andCount:(int)arg2;
+- (id)init;
+- (id)initWithRegressorFromFloat:(float)arg1;
+- (id)initModelRegressorFromFloats:(id)arg1;
+- (id)denseVector;
 - (id)toDictionary;
 - (id)initFromDictionary:(id)arg1;
+- (id)initWithPlist:(id)arg1 chunks:(id)arg2 context:(id)arg3;
+- (id)migrateDenseDoubleVectorToDenseFloatVector:(id)arg1;
+- (id)toPlistWithChunks:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

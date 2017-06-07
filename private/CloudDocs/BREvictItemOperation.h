@@ -6,11 +6,11 @@
 
 #import <CloudDocs/BROperation.h>
 
-@class NSURL, _BRCLogSection;
+@class NSURL;
 
 @interface BREvictItemOperation : BROperation
 {
-    _BRCLogSection *_section;
+    unsigned long long _section;
     NSURL *_url;
     CDUnknownBlockType _evictionCompletionBlock;
 }

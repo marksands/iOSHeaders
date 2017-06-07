@@ -27,6 +27,7 @@
 @property(nonatomic) unsigned int serverSearchCompletionEntryIndex; // @synthesize serverSearchCompletionEntryIndex=_serverSearchCompletionEntryIndex;
 @property(nonatomic) unsigned int serverSearchCompletionSectionIndex; // @synthesize serverSearchCompletionSectionIndex=_serverSearchCompletionSectionIndex;
 @property(retain, nonatomic) NSMutableArray *displayLines; // @synthesize displayLines=_displayLines;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -46,7 +47,6 @@
 - (id)typeAsString:(int)arg1;
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
-- (void)dealloc;
 
 @end
 

@@ -30,8 +30,8 @@
 @property(retain, nonatomic) NSString *customMomentUUID;
 @property(retain, nonatomic) NSString *customMomentName;
 @property(readonly, retain, nonatomic) NSString *cloudAssetGUID;
-@property(nonatomic) short width;
-@property(nonatomic) short height;
+@property(nonatomic) long long width;
+@property(nonatomic) long long height;
 @property(nonatomic) short kindSubtype;
 @property(nonatomic) short kind;
 @property(nonatomic) _Bool favorite;

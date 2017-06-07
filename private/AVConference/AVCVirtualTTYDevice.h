@@ -12,7 +12,7 @@
 @interface AVCVirtualTTYDevice : NSObject
 {
     AVConferenceXPCClient *_connection;
-    id <AVCVirtualTTYDeviceDelegate> _delegate;
+    id _delegate;
     _Bool _isStarted;
 }
 

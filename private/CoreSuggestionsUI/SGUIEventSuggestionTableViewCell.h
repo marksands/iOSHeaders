@@ -7,7 +7,7 @@
 #import <UIKit/UITableViewCell.h>
 
 @class NSLayoutConstraint, SGRealtimeEvent, UIButton, UIImageView, UILabel;
-@protocol SGUIEventSuggestionTableViewCellDelegate;
+@protocol SGUISuggestionTableViewCellDelegate;
 
 @interface SGUIEventSuggestionTableViewCell : UITableViewCell
 {
@@ -21,7 +21,7 @@
     NSLayoutConstraint *_interLabelAndButtonBaselineConstraint;
     NSLayoutConstraint *_bottomMarginConstraint;
     SGRealtimeEvent *_realtimeEvent;
-    id <SGUIEventSuggestionTableViewCellDelegate> _delegate;
+    id <SGUISuggestionTableViewCellDelegate> _delegate;
 }
 
 + (id)actionButtonTitleForEvent:(id)arg1;
@@ -32,7 +32,7 @@
 + (id)buttonTitleFont;
 + (id)descriptionFont;
 + (id)titleFont;
-@property(nonatomic) __weak id <SGUIEventSuggestionTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <SGUISuggestionTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SGRealtimeEvent *realtimeEvent; // @synthesize realtimeEvent=_realtimeEvent;
 - (void).cxx_destruct;
 - (void)_contentSizeCategoryDidChange:(id)arg1;

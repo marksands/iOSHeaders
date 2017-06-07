@@ -6,13 +6,13 @@
 
 #import <WatchListKitUI/JSExport-Protocol.h>
 
-@class JSValue, NSArray, NSString;
+@class JSValue, NSArray, NSDictionary, NSString;
 
 @protocol WLKUIAppLibraryInterface <JSExport>
 @property(readonly, nonatomic) NSArray *test;
 @property(readonly, nonatomic) NSArray *installed;
 @property(readonly, nonatomic) NSArray *subscribed;
-- (void)installAppForChannel:(NSString *)arg1:(JSValue *)arg2:(JSValue *)arg3;
-- (void)installAppForChannel:(NSString *)arg1:(JSValue *)arg2;
+- (void)presentPurchase:(NSDictionary *)arg1;
+- (void)installAppForChannel:(NSString *)arg1:(JSValue *)arg2:(JSValue *)arg3:(JSValue *)arg4;
 @end
 

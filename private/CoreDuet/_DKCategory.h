@@ -20,12 +20,14 @@
 
 + (_Bool)supportsSecureCoding;
 + (id)categoryWithInteger:(long long)arg1 type:(id)arg2;
++ (id)fromPBCodable:(id)arg1;
 + (id)_categoryFromManagedObject:(id)arg1 readMetadata:(_Bool)arg2 cache:(id)arg3;
 + (id)objectFromManagedObject:(id)arg1 readMetadata:(_Bool)arg2 cache:(id)arg3;
 + (id)entityName;
 @property(retain) _DKCategoryType *categoryType; // @synthesize categoryType=_categoryType;
 @property long long integerValue; // @synthesize integerValue=_integerValue;
 - (void).cxx_destruct;
+- (_Bool)isEqual:(id)arg1;
 - (id)stringValue;
 - (double)doubleValue;
 - (id)primaryValue;
@@ -35,7 +37,9 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithInteger:(long long)arg1 type:(id)arg2 cache:(id)arg3;
+- (id)toPBCodable;
 - (_Bool)copyToManagedObject:(id)arg1;
+- (long long)typeCode;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -17,6 +17,7 @@
 }
 
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
+- (void).cxx_destruct;
 - (id)image;
 - (void)readPixelsByAddressInBlock:(CDUnknownBlockType)arg1;
 - (void)renderCIImage:(id)arg1;

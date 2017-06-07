@@ -7,11 +7,14 @@
 #import <objc/NSObject.h>
 
 @class HKHealthStore, HKSource, NSArray, NSDictionary, NSMutableSet, NSSet;
+@protocol HKSourceAuthorizationControllerDelegate;
 
 @interface HKSourceAuthorizationController : NSObject
 {
+    _Bool _isUpdatingAllTypes;
     HKHealthStore *_healthStore;
     HKSource *_source;
+    id <HKSourceAuthorizationControllerDelegate> _delegate;
     NSArray *_orderedTypesForSharing;
     NSArray *_orderedTypesForReading;
     NSMutableSet *_typesEnabledForSharing;
@@ -21,6 +24,7 @@
     NSDictionary *_requestedDocumentAuths;
 }
 
+@property(nonatomic) _Bool isUpdatingAllTypes; // @synthesize isUpdatingAllTypes=_isUpdatingAllTypes;
 @property(retain, nonatomic) NSDictionary *requestedDocumentAuths; // @synthesize requestedDocumentAuths=_requestedDocumentAuths;
 @property(retain, nonatomic) NSSet *requestedTypesForReading; // @synthesize requestedTypesForReading=_requestedTypesForReading;
 @property(retain, nonatomic) NSSet *requestedTypesForSharing; // @synthesize requestedTypesForSharing=_requestedTypesForSharing;
@@ -28,6 +32,7 @@
 @property(retain, nonatomic) NSMutableSet *typesEnabledForSharing; // @synthesize typesEnabledForSharing=_typesEnabledForSharing;
 @property(retain, nonatomic) NSArray *orderedTypesForReading; // @synthesize orderedTypesForReading=_orderedTypesForReading;
 @property(retain, nonatomic) NSArray *orderedTypesForSharing; // @synthesize orderedTypesForSharing=_orderedTypesForSharing;
+@property(nonatomic) __weak id <HKSourceAuthorizationControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) HKSource *source; // @synthesize source=_source;
 @property(readonly, nonatomic) HKHealthStore *healthStore; // @synthesize healthStore=_healthStore;
 - (void).cxx_destruct;
@@ -39,6 +44,8 @@
 - (void)setEnabled:(_Bool)arg1 forAllTypesInSection:(long long)arg2 commit:(_Bool)arg3;
 - (_Bool)anyTypeEnabled;
 - (_Bool)allTypesEnabled;
+- (id)_enabledSubTypesForType:(id)arg1 inSection:(long long)arg2;
+- (_Bool)_parentTypeDisabledForType:(id)arg1 inSection:(long long)arg2;
 - (void)setEnabled:(_Bool)arg1 forType:(id)arg2 inSection:(long long)arg3 commit:(_Bool)arg4;
 - (_Bool)isTypeEnabled:(id)arg1 inSection:(long long)arg2;
 - (void)resetObjectAuthorizationStatuses;
@@ -47,6 +54,7 @@
 - (id)typesInSection:(long long)arg1;
 - (unsigned long long)countOfTypesInSection:(long long)arg1;
 - (_Bool)isRequestingDocumentAuthorization;
+- (id)_sortedTypes:(id)arg1;
 - (void)_reloadTypeAuthorizationRecords;
 - (void)_reloadDocumentAuthorizationRecords;
 - (void)reload;

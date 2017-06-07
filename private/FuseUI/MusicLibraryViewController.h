@@ -17,7 +17,7 @@
 #import <FuseUI/SKUITabBarItemRootViewController-Protocol.h>
 #import <FuseUI/UIViewControllerRestoration-Protocol.h>
 
-@class MusicActionableHeaderView, MusicClientContext, MusicHairlineView, MusicLibraryArtistsViewConfiguration, MusicLibraryBrowseCollectionViewController, MusicLibraryViewConfiguration, MusicStandaloneShuffleViewController, MusicSwitcherButtonContainerView, MusicVerticalScrollingContainerItem, MusicVerticalScrollingContainerViewController, NSArray, NSMutableArray, NSString, SKUIClientContext, SKUIIndexBarControl, SKUIProxyScrollView;
+@class MusicActionableHeaderView, MusicClientContext, MusicHairlineView, MusicLibraryArtistsViewConfiguration, MusicLibraryBrowseCollectionViewController, MusicLibraryViewConfiguration, MusicSwitcherButtonContainerView, MusicVerticalScrollingContainerItem, MusicVerticalScrollingContainerViewController, NSArray, NSMutableArray, NSString, SKUIClientContext, SKUIIndexBarControl, SKUIProxyScrollView;
 @protocol MusicIndexBarDataSource><MusicIndexBarScrollDelegate;
 
 @interface MusicLibraryViewController : UIViewController <MusicActionableHeaderViewDelegate, MusicClientContextConsuming, MusicLibraryBrowseCollectionViewControllerDelegate, MusicVerticalScrollingContainerViewControllerDelegate, SKUIIndexBarControlDataSource, SKUIIndexBarControlDelegate, SKUIProxyScrollViewDelegate, UIViewControllerRestoration, MusicSplitInitialStateProviding, SKUITabBarItemRootViewController>
@@ -42,7 +42,6 @@
     MusicLibraryBrowseCollectionViewController *_recentlyAddedViewController;
     MusicLibraryViewConfiguration *_selectedViewConfiguration;
     _Bool _shouldAnimatePendingIndexBarVisibilityUpdate;
-    MusicStandaloneShuffleViewController *_shuffleAllViewController;
     MusicVerticalScrollingContainerViewController *_verticalScrollingContainerViewController;
     NSArray *_viewConfigurations;
     MusicClientContext *_clientContext;

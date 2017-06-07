@@ -7,6 +7,7 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (GEOPlaceDataExtras)
+- (id)_geo_bestLocalizedStringLocaleValue;
 - (id)_geo_bestLocalizedStringValue;
 - (id)_geo_bestLocalizedString;
 @end

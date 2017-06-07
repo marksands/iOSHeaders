@@ -13,6 +13,7 @@
 @interface BBSectionSubtypeParameters : NSObject <NSSecureCoding>
 {
     BBSectionSubtypeParameters *_fallbackParameters;
+    NSString *_hiddenPreviewsBodyPlaceholder;
     NSString *_topic;
     NSString *_missedBannerDescriptionFormat;
     NSString *_fullUnlockActionLabel;
@@ -81,6 +82,7 @@
 @property(copy, nonatomic) NSString *fullUnlockActionLabel; // @synthesize fullUnlockActionLabel=_fullUnlockActionLabel;
 @property(copy, nonatomic) NSString *missedBannerDescriptionFormat; // @synthesize missedBannerDescriptionFormat=_missedBannerDescriptionFormat;
 @property(copy, nonatomic) NSString *topic; // @synthesize topic=_topic;
+@property(copy, nonatomic) NSString *hiddenPreviewsBodyPlaceholder; // @synthesize hiddenPreviewsBodyPlaceholder=_hiddenPreviewsBodyPlaceholder;
 @property(nonatomic) __weak BBSectionSubtypeParameters *fallbackParameters; // @synthesize fallbackParameters=_fallbackParameters;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;

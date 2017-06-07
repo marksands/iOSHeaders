@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @protocol OS_dispatch_queue;
 
@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)invalidateSessionWithCompletion:(CDUnknownBlockType)arg1;
 - (void)invalidateSession;
 - (_Bool)isFirstInQueue;
 

@@ -11,7 +11,7 @@
 __attribute__((visibility("hidden")))
 @interface TSTFormulaStore : NSObject
 {
-    struct __CFUUID *_ownerID;
+    UUIDData_5fbc143e _formulaOwnerUID;
     TSCECalculationEngine *_calcEngine;
     TSUSparseArray *_formulas;
     unsigned long long _nextIndex;
@@ -21,9 +21,12 @@ __attribute__((visibility("hidden")))
 + (struct TSUCellCoord)coordFromIndex:(unsigned long long)arg1;
 + (unsigned long long)indexFromCoord:(const struct TSUCellCoord *)arg1;
 @property(retain, nonatomic) TSCEOwnerFormulaMap *formulasForUndo; // @synthesize formulasForUndo=_formulasForUndo;
-@property(retain, nonatomic) TSCECalculationEngine *calcEngine; // @synthesize calcEngine=_calcEngine;
+@property(nonatomic) __weak TSCECalculationEngine *calcEngine; // @synthesize calcEngine=_calcEngine;
+@property(nonatomic) UUIDData_5fbc143e formulaOwnerUID; // @synthesize formulaOwnerUID=_formulaOwnerUID;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (void)saveToArchive:(struct FormulaStoreArchive *)arg1 archiver:(id)arg2;
-- (id)initWithOwnerID:(struct __CFUUID *)arg1 archive:(const struct FormulaStoreArchive *)arg2 unarchiver:(id)arg3;
+- (id)initWithOwnerUID:(const UUIDData_5fbc143e *)arg1 archive:(const struct FormulaStoreArchive *)arg2 unarchiver:(id)arg3;
 - (void)foreach:(CDUnknownBlockType)arg1;
 - (const struct TSCEFormula *)formulaAtIndex:(unsigned long long)arg1;
 - (void)registerAllFormulaToCalculationEngine;
@@ -36,10 +39,8 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)reserveNextIndex;
 - (id)description;
 - (struct TSUCellCoord)reserveNextCoordinate;
-- (void)dealloc;
-- (id)initWithOwnerID:(struct __CFUUID *)arg1;
+- (id)initWithOwnerUID:(UUIDData_5fbc143e)arg1;
 - (unsigned long long)formulaCount;
-@property(nonatomic) struct __CFUUID *formulaOwnerID;
 
 @end
 

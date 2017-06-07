@@ -11,37 +11,38 @@
 #import <ITMLKit/_IKJSITunesStore-Protocol.h>
 #import <ITMLKit/_IKJSITunesStoreProxy-Protocol.h>
 
-@class ISLoadURLBagOperation, NSDictionary, NSNumber, NSString, SSMetricsController;
+@class IKURLBagCache, NSDictionary, NSNumber, NSString, SSMetricsController;
 
 @interface IKJSITunesStore : IKJSObject <NSObject, IKJSITunesStore, _IKJSITunesStoreProxy, _IKJSITunesStore>
 {
     NSNumber *_lastAccountDSID;
     NSDictionary *_lastKnownStatusDictionary;
     SSMetricsController *_metricsController;
-    struct os_unfair_lock_s _bagOperationLock;
     NSString *_storeFrontSuffix;
     id _ssAccountStoreChangedToken;
-    id _isURLBagDidLoadToken;
     id _subscriptionStatusDidChangeToken;
+    id _urlBagCacheUpdateToken;
     NSString *_cookieURL;
-    ISLoadURLBagOperation *_pendingBagOperation;
+    IKURLBagCache *_bagCache;
 }
 
-+ (id)_URLBagContext;
 + (void)setHeadersForURL:(id)arg1 inRequestProperties:(id)arg2;
 + (void)setITunesStoreHeaders:(id)arg1;
-@property(nonatomic) __weak ISLoadURLBagOperation *pendingBagOperation; // @synthesize pendingBagOperation=_pendingBagOperation;
+@property(retain, nonatomic) IKURLBagCache *bagCache; // @synthesize bagCache=_bagCache;
 @property(retain, nonatomic) NSString *cookieURL; // @synthesize cookieURL=_cookieURL;
 - (void).cxx_destruct;
+- (void)_updateWithBag:(id)arg1 withMetrics:(_Bool)arg2;
+- (void)invalidateBag;
+- (id)getBag;
 - (void)_subscriptionStatusChanged;
-- (void)_updateWithBag:(id)arg1;
-- (void)_updateBag:(_Bool)arg1;
 - (id)_subscriptionStatusDictionaryWithStatus:(id)arg1 isFinal:(_Bool)arg2;
-- (void)_bagDidLoadNotification:(id)arg1;
 - (void)_accountStoreChanged;
-- (void)updateServiceEligibility:(id)arg1;
 - (void)signOut;
 - (void)authenticate:(id)arg1:(id)arg2;
+@property(readonly, nonatomic) NSDictionary *accountInfo;
+@property(readonly, nonatomic, getter=isManagedAppleID) _Bool managedAppleID;
+@property(readonly, nonatomic) NSString *DSID;
+- (void)updateServiceEligibility:(id)arg1;
 - (void)evaluateScripts:(id)arg1:(id)arg2;
 - (void)loadStoreContent:(id)arg1:(id)arg2;
 - (void)clearCookies;
@@ -49,17 +50,13 @@
 - (void)flushUnreportedEvents;
 - (void)recordEvent:(id)arg1:(id)arg2;
 - (id)makeStoreXMLHttpRequest;
-- (void)invalidateBag;
 - (void)getServiceEligibility:(id)arg1:(id)arg2;
 - (id)eligibilityForService:(id)arg1;
-- (id)getBag;
 @property(retain, nonatomic) NSString *storefront;
 @property(readonly, nonatomic) NSString *networkConnectionType;
 @property(readonly, nonatomic) NSString *userAgent;
-@property(readonly, nonatomic) NSDictionary *accountInfo;
-@property(readonly, nonatomic, getter=isManagedAppleID) _Bool managedAppleID;
-@property(readonly, nonatomic) NSString *DSID;
 - (void)dealloc;
+- (id)initWithAppContext:(id)arg1 urlBagCache:(id)arg2;
 - (id)initWithAppContext:(id)arg1;
 - (id)asPrivateIKJSITunesStore;
 

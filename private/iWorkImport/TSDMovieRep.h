@@ -26,6 +26,8 @@ __attribute__((visibility("hidden")))
     CALayer *mReflectionPlayerStrokeMaskLayer;
     CALayer *mPlayerStrokeLayer;
     CALayer *mReflectionPlayerStrokeLayer;
+    CALayer *mFrameMaskLayer;
+    struct CGRect mLastPictureFrameLayerRect;
     TSDFrameRep *mReflectionFrameRep;
     CALayer *mReflectionFrameMaskLayer;
     AVAsset *mAssetForPlayability;
@@ -45,6 +47,8 @@ __attribute__((visibility("hidden")))
 
 + (double)magicMoveAttributeMatchPercentBetweenOutgoingObject:(id)arg1 incomingObject:(id)arg2 mixingTypeContext:(id)arg3;
 @property(nonatomic) struct CGImage *alternatePosterImage; // @synthesize alternatePosterImage=mAlternatePosterImage;
+@property(readonly, nonatomic, getter=isPlayable) _Bool playable; // @synthesize playable=mIsPlayable;
+- (void).cxx_destruct;
 - (id)downloadProgressPlaceholderImage;
 - (_Bool)shouldShowCheckerboard;
 - (_Bool)isDataCurrentlyDownloading;
@@ -65,7 +69,6 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic, getter=isPlayable) _Bool playable;
 @property(readonly) Class superclass;
 
 @end

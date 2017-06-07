@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <DataDetectorsUI/DDActionDelegate-Protocol.h>
 #import <DataDetectorsUI/UIPopoverPresentationControllerDelegate-Protocol.h>
@@ -29,10 +29,17 @@ __attribute__((visibility("hidden")))
 @property(retain) DDAction *currentAction; // @synthesize currentAction=_currentAction;
 @property(retain, nonatomic) UIView *baseView; // @synthesize baseView=_baseView;
 @property(retain, nonatomic) id <DDDetectionControllerInteractionDelegate> interactionDelegate; // @synthesize interactionDelegate=_interactionDelegate;
+- (void).cxx_destruct;
+- (void)viewControllerRequiresModalInPopover:(_Bool)arg1;
 - (_Bool)isPresentingInPopover;
+- (void)cancelAction;
+- (_Bool)actionIsCancellable;
+- (_Bool)isPerformingAction;
 - (void)actionDidFinish:(id)arg1;
 - (void)failedToPrepareViewControllerForAction:(id)arg1;
+- (void)action:(id)arg1 becameCancellable:(_Bool)arg2;
 - (void)action:(id)arg1 viewControllerReady:(id)arg2;
+- (void)requireDeviceUnlock:(_Bool)arg1 andPerformBlock:(CDUnknownBlockType)arg2;
 - (void)performAction:(id)arg1;
 - (void)_dismissCurrentViewControllerOurselves;
 - (void)_presentCurrentViewControllerOurselves;
@@ -47,6 +54,7 @@ __attribute__((visibility("hidden")))
 - (id)defaultActionForURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 - (id)actionsForURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
 - (id)actionsForURL:(id)arg1 result:(struct __DDResult *)arg2 enclosingResult:(struct __DDResult *)arg3 context:(id)arg4;
+- (_Bool)facetimeAvailable;
 - (void)_cleanup;
 - (void)dealloc;
 - (id)init;

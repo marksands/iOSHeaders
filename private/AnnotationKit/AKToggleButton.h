@@ -22,7 +22,9 @@
 @property(nonatomic) _Bool shouldTintNormalImage; // @synthesize shouldTintNormalImage=_shouldTintNormalImage;
 @property(nonatomic) _Bool showsBackgroundColor; // @synthesize showsBackgroundColor=_showsBackgroundColor;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)tintColorDidChange;
+- (void)_updateStateColors;
 - (void)_setDeselectedStateColorImage;
 - (void)_setSelectedStateColorImage;
 - (void)setImage:(id)arg1 forState:(unsigned long long)arg2;
@@ -30,7 +32,7 @@
 - (void)setHighlighted:(_Bool)arg1;
 - (void)setSelected:(_Bool)arg1;
 - (void)_touchCommitted:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 templateImage:(id)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 templateImage:(id)arg2 autoUpdatesColor:(_Bool)arg3;
 
 @end
 

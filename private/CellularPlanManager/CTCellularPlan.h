@@ -32,6 +32,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) NSArray *dataUsage;
+@property(readonly, nonatomic) _Bool isDeleteNotAllowed;
+@property(readonly, nonatomic) _Bool isDisableNotAllowed;
 @property(readonly, nonatomic) NSString *accountURL;
 @property(readonly, nonatomic) int accountStatus;
 @property(readonly, nonatomic) int planStatus;

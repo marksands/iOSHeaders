@@ -10,14 +10,13 @@
 
 @interface CKTranscriptCollectionViewLayout : UICollectionViewLayout
 {
-    NSMutableDictionary *_initialParentLayoutAttributes;
-    NSMutableDictionary *_finalParentVerticalOffsets;
     _Bool _holdingBoundsInvalidation;
     _Bool _useInitialLayoutAttributesForRotation;
     _Bool _isResting;
     _Bool _easingUp;
     _Bool _hasLoadMore;
     _Bool _useFastQuanta;
+    _Bool _sizeCategoryIsAccessibilitySizeCategory;
     double _anchorYPosition;
     NSIndexSet *_indicesOfChatItemsToBeRemovedWithoutFading;
     NSIndexSet *_indicesOfChatItemsToBeInsertedWithoutFading;
@@ -28,6 +27,8 @@
     NSMutableIndexSet *_insertedAssociatedLayoutAttributes;
     CADisplayLink *_displayLink;
     double _prevTimestamp;
+    NSMutableDictionary *_initialParentLayoutAttributes;
+    NSMutableDictionary *_finalParentVerticalOffsets;
     struct CGPoint _targetContentOffset;
     struct CGSize _contentSize;
     struct CGRect _visibleBounds;
@@ -35,7 +36,10 @@
 
 + (Class)layoutAttributesClass;
 + (long long)translateLayoutIndexToEffectIndex:(long long)arg1;
+@property(nonatomic) _Bool sizeCategoryIsAccessibilitySizeCategory; // @synthesize sizeCategoryIsAccessibilitySizeCategory=_sizeCategoryIsAccessibilitySizeCategory;
 @property(nonatomic) _Bool useFastQuanta; // @synthesize useFastQuanta=_useFastQuanta;
+@property(retain, nonatomic) NSMutableDictionary *finalParentVerticalOffsets; // @synthesize finalParentVerticalOffsets=_finalParentVerticalOffsets;
+@property(retain, nonatomic) NSMutableDictionary *initialParentLayoutAttributes; // @synthesize initialParentLayoutAttributes=_initialParentLayoutAttributes;
 @property(nonatomic) _Bool hasLoadMore; // @synthesize hasLoadMore=_hasLoadMore;
 @property(nonatomic) _Bool easingUp; // @synthesize easingUp=_easingUp;
 @property(nonatomic) struct CGSize contentSize; // @synthesize contentSize=_contentSize;
@@ -55,7 +59,8 @@
 @property(nonatomic) struct CGPoint targetContentOffset; // @synthesize targetContentOffset=_targetContentOffset;
 @property(nonatomic) double anchorYPosition; // @synthesize anchorYPosition=_anchorYPosition;
 - (void).cxx_destruct;
-- (void)reduceMotionSettingChanged;
+- (void)reduceMotionSettingChanged:(id)arg1;
+- (void)sizeCategoryDidChange:(id)arg1;
 - (void)updateFrames;
 - (void)displayLinkFired:(id)arg1;
 - (double)bezierPointForPercentage:(double)arg1 anchor1:(double)arg2 anchor2:(double)arg3 control1:(double)arg4 control2:(double)arg5;
@@ -77,6 +82,7 @@
 - (id)initialLayoutAttributesForAppearingItemAtIndexPath:(id)arg1;
 - (void)prepareLayout;
 - (void)prepareLayoutForRotisserieScrolling;
+- (void)_dealloc;
 - (void)dealloc;
 - (id)init;
 - (long long)effectIndexForDecorationViewAtIndex:(long long)arg1;

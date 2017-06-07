@@ -35,6 +35,7 @@
 - (void)locationForSearchCompletion:(id)arg1 taskIdentifier:(id)arg2;
 - (void)locationForCoordinate:(struct CLLocationCoordinate2D)arg1 taskIdentifier:(id)arg2;
 - (void)locationForString:(id)arg1 taskIdentifier:(id)arg2;
+- (void)invalidateCache:(id)arg1;
 - (void)cancelTaskWithIdentifier:(id)arg1;
 - (void)reachabilityConfigurationForIdentifier:(id)arg1;
 - (void)airQualityForLocation:(id)arg1 locale:(id)arg2 options:(id)arg3 taskIdentifier:(id)arg4;
@@ -47,6 +48,7 @@
 - (void)removeClient:(id)arg1;
 - (void)addClient:(id)arg1 forPid:(int)arg2;
 - (void)addClient:(id)arg1;
+- (id)initWithStore:(id)arg1;
 - (id)init;
 
 // Remaining properties

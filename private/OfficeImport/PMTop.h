@@ -22,13 +22,13 @@ __attribute__((visibility("hidden")))
 + (void)fillHTMLArchiveForPowerPointData:(id)arg1 fileName:(id)arg2 xmlFlag:(_Bool)arg3 archiver:(id)arg4;
 + (void)fillHTMLArchiveForPowerPointFile:(id)arg1 xmlFlag:(_Bool)arg2 archiver:(id)arg3;
 + (void)fillHTMLArchiveForPowerPointFrom:(id)arg1 inMemory:(_Bool)arg2 xmlFlag:(_Bool)arg3 archiver:(id)arg4;
+- (void).cxx_destruct;
 - (void)readFile:(id)arg1 xmlFlag:(_Bool)arg2 archiver:(id)arg3;
 - (void)readData:(id)arg1 fileName:(id)arg2 xmlFlag:(_Bool)arg3 archiver:(id)arg4;
 - (_Bool)isCancelled;
 - (void)readerDidEndDocument:(id)arg1;
 - (void)readerDidReadElement:(id)arg1 atIndex:(unsigned long long)arg2 inDocument:(id)arg3 isLastElement:(_Bool)arg4;
 - (void)readerDidStartDocument:(id)arg1 withElementCount:(long long)arg2;
-- (void)dealloc;
 - (void)readFrom:(id)arg1 inMemory:(_Bool)arg2 xmlFlag:(_Bool)arg3 archiver:(id)arg4;
 
 @end

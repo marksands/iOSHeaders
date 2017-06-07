@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) _Bool needsUpdate; // @synthesize needsUpdate=_needsUpdate;
 - (void).cxx_destruct;
 - (void)_updateThirdPartySubscriptionsWithBundleIdentifierWhitelist:(id)arg1 domainWhitelist:(id)arg2 maximumExpirationLimit:(double)arg3;
-- (void)_updateFuseSubscription;
+- (void)_updateAppleMusicSubscription;
 - (id)_init;
 - (void)removeSubscriptionsAddedAfterDate:(id)arg1;
 - (void)registerSubscriptionServiceForURL:(id)arg1 withSubscriptionInfo:(id)arg2;

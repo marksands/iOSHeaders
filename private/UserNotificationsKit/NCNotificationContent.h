@@ -18,20 +18,22 @@
     NSString *_title;
     NSString *_subtitle;
     NSString *_message;
-    NSString *_topic;
+    NSString *_hiddenPreviewsBodyPlaceholder;
     UIImage *_icon;
     UIImage *_attachmentImage;
     NSDate *_date;
     _Bool _dateAllDay;
     NSTimeZone *_timeZone;
+    NSString *_topic;
 }
 
+@property(readonly, copy, nonatomic) NSString *topic; // @synthesize topic=_topic;
 @property(readonly, nonatomic) NSTimeZone *timeZone; // @synthesize timeZone=_timeZone;
 @property(readonly, nonatomic, getter=isDateAllDay) _Bool dateAllDay; // @synthesize dateAllDay=_dateAllDay;
 @property(readonly, nonatomic) NSDate *date; // @synthesize date=_date;
 @property(readonly, nonatomic) UIImage *attachmentImage; // @synthesize attachmentImage=_attachmentImage;
 @property(readonly, nonatomic) UIImage *icon; // @synthesize icon=_icon;
-@property(readonly, copy, nonatomic) NSString *topic; // @synthesize topic=_topic;
+@property(readonly, copy, nonatomic) NSString *hiddenPreviewsBodyPlaceholder; // @synthesize hiddenPreviewsBodyPlaceholder=_hiddenPreviewsBodyPlaceholder;
 @property(readonly, copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(readonly, copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;

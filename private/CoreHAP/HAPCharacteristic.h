@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
+
+#import <CoreHAP/HMFMerging-Protocol.h>
 
 @class CBCharacteristic, HAPCharacteristicMetadata, HAPService, NSDate, NSNumber, NSString;
 
-@interface HAPCharacteristic : NSObject
+@interface HAPCharacteristic : HMFObject <HMFMerging>
 {
     _Bool _eventNotificationsEnabled;
     _Bool _shouldValidateValueAfterReading;
@@ -35,15 +37,23 @@
 @property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
 - (void).cxx_destruct;
-- (_Bool)isEqualToCharacteristic:(id)arg1;
+- (_Bool)mergeObject:(id)arg1;
+- (_Bool)shouldMergeObject:(id)arg1;
 @property(readonly, nonatomic) _Bool supportsAdditionalAuthorizationData;
 - (id)propertiesDescription;
-- (id)description;
+@property(readonly, copy) NSString *description;
+- (_Bool)isEqualToCharacteristic:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+@property(readonly) unsigned long long hash;
 - (id)initWithType:(id)arg1 instanceID:(id)arg2 value:(id)arg3 stateNumber:(id)arg4 properties:(unsigned long long)arg5 eventNotificationsEnabled:(_Bool)arg6 metadata:(id)arg7;
 @property(retain, nonatomic, setter=setCBCharacteristic:) CBCharacteristic *cbCharacteristic;
 - (id)validateValue:(id)arg1 outValue:(id *)arg2;
 - (id)_generateValidMetadata:(id)arg1;
 - (void)_updateMetadata:(id)arg1 withProvidedMetadata:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

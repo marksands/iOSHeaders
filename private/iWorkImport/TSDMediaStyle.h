@@ -29,12 +29,11 @@ __attribute__((visibility("hidden")))
 - (id)boxedValueForProperty:(int)arg1 oldBoxedValue:(id)arg2 transformedByTransform:(struct CGAffineTransform)arg3;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
-- (SEL)mapThemePropertyMapSelector;
 @property(readonly, nonatomic) NSString *presetKind;
 - (void)saveToArchive:(struct MediaStyleArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct MediaStyleArchive *)arg1 unarchiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

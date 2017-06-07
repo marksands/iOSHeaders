@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)requestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
+- (_Bool)allowsAnonymousAccount;
 - (id)initWithServiceName:(id)arg1 functionName:(id)arg2 serializedParameters:(id)arg3;
 
 @end

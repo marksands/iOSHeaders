@@ -7,6 +7,6 @@
 @class NSXPCListenerEndpoint;
 
 @protocol TKProtocolTokenWatcherClient
-- (void)addWatcherWithEndpoint:(NSXPCListenerEndpoint *)arg1 reply:(void (^)(void))arg2;
+- (void)addWatcherWithEndpoint:(NSXPCListenerEndpoint *)arg1 reply:(void (^)(NSArray *))arg2;
 @end
 

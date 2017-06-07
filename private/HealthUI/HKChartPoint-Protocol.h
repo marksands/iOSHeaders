@@ -6,17 +6,18 @@
 
 #import <HealthUI/NSObject-Protocol.h>
 
-@class NSArray, NSDate, NSString;
+@class NSArray, NSString;
+@protocol HKGraphSeriesBlockCoordinateInfo;
 
 @protocol HKChartPoint <NSObject>
-- (id)userInfo;
+- (id <HKGraphSeriesBlockCoordinateInfo>)userInfo;
 - (id)maxYValue;
 - (id)minYValue;
 - (NSArray *)allYValues;
 - (id)yValueForKey:(NSString *)arg1;
 - (id)yValue;
-- (NSDate *)maxXValue;
-- (NSDate *)minXValue;
-- (NSDate *)xValue;
+- (id)maxXValueAsGenericType;
+- (id)minXValueAsGenericType;
+- (id)xValueAsGenericType;
 @end
 

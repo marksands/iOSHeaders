@@ -23,6 +23,7 @@
 
 @property(nonatomic) unsigned int datasetId; // @synthesize datasetId=_datasetId;
 @property(nonatomic) unsigned int bucketId; // @synthesize bucketId=_bucketId;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -35,7 +36,6 @@
 - (id)description;
 @property(nonatomic) _Bool hasDatasetId;
 @property(nonatomic) _Bool hasBucketId;
-- (void)dealloc;
 
 @end
 

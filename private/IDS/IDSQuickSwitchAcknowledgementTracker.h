@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableSet;
 
@@ -14,6 +14,7 @@
     struct _opaque_pthread_mutex_t _delegateIdentifiersMutex;
 }
 
+- (void).cxx_destruct;
 - (void)_accessDelegateIdentifiersInCriticalSectionWithBlock:(CDUnknownBlockType)arg1;
 - (void)stopAwaitingAcknowledgementFromAllServiceDelegates;
 - (void)stopAwaitingAcknowledgementFromServiceDelegateWithIdentifier:(id)arg1;

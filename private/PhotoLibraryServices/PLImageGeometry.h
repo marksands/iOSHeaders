@@ -10,13 +10,15 @@
 
 @interface PLImageGeometry : NSObject <NSCopying>
 {
-    long long _appliedOrientation;
+    long long _inputOrientation;
+    long long _userOrientation;
     struct CGRect _inputRect;
 }
 
 + (id)geometryWithOutputSize:(struct CGSize)arg1 appliedOrientation:(long long)arg2;
 + (id)geometryWithInputSize:(struct CGSize)arg1 initialOrientation:(long long)arg2;
-@property(nonatomic) long long appliedOrientation; // @synthesize appliedOrientation=_appliedOrientation;
+@property(nonatomic) long long userOrientation; // @synthesize userOrientation=_userOrientation;
+@property(readonly, nonatomic) long long inputOrientation; // @synthesize inputOrientation=_inputOrientation;
 @property(readonly, nonatomic) struct CGRect inputRect; // @synthesize inputRect=_inputRect;
 - (id)description;
 - (struct CGAffineTransform)_transformFromOrientation:(long long)arg1 toOrientation:(long long)arg2;
@@ -36,8 +38,9 @@
 @property(readonly, nonatomic, getter=isSizeInverted) _Bool sizeInverted;
 @property(readonly, nonatomic) struct CGAffineTransform appliedTransform;
 @property(readonly, nonatomic) struct CGRect outputRect;
+@property(nonatomic) long long appliedOrientation;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithInputSize:(struct CGSize)arg1;
+- (id)initWithInputSize:(struct CGSize)arg1 inputOrientation:(long long)arg2;
 - (id)init;
 
 @end

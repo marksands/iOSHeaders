@@ -8,20 +8,31 @@
 
 #import <CloudPhotoLibrary/CPLAbstractObject-Protocol.h>
 
-@class CPLEngineFileStorage, CPLPlatformObject, NSMutableSet, NSString, NSURL;
+@class CPLEngineFileStorage, CPLPlatformObject, NSCountedSet, NSDate, NSMutableSet, NSObject, NSString, NSURL;
+@protocol OS_dispatch_queue;
 
 @interface CPLEngineResourceStorage : CPLEngineStorage <CPLAbstractObject>
 {
     NSMutableSet *_identitiesToCommit;
     NSMutableSet *_identitiesToDelete;
     NSURL *_tempFolderURL;
+    NSObject<OS_dispatch_queue> *_pruneStatsQueue;
+    NSCountedSet *_successfulPruneStatsPerResourceType;
+    NSCountedSet *_failedPruneStatsPerResourceType;
+    unsigned long long _successfulPruneSize;
+    NSDate *_lastPruneRequestDate;
     CPLEngineFileStorage *_fileStorage;
 }
 
 @property(readonly, nonatomic) CPLEngineFileStorage *fileStorage; // @synthesize fileStorage=_fileStorage;
 - (void).cxx_destruct;
+- (void)notePruningRequestForResource:(id)arg1 successful:(_Bool)arg2;
+- (void)notePruningRequestForResource:(id)arg1 successful:(_Bool)arg2 prunedSize:(unsigned long long)arg3;
+- (id)statusDictionary;
+- (id)status;
 - (void)writeTransactionDidSucceed;
 - (void)writeTransactionDidFail;
+- (_Bool)checkIsEmpty;
 - (_Bool)compactWithError:(id *)arg1;
 - (_Bool)resetWithError:(id *)arg1;
 - (_Bool)storeDownloadedResource:(id)arg1 atURL:(id)arg2 error:(id *)arg3;
@@ -31,10 +42,7 @@
 - (id)retainFileURLForResource:(id)arg1 error:(id *)arg2;
 - (unsigned long long)sizeOfOriginalResourcesToUpload;
 - (unsigned long long)sizeOfResourcesToUpload;
-- (_Bool)markResourceFailedToUpload:(id)arg1 fromURL:(id)arg2 error:(id *)arg3;
-- (_Bool)markResourceAsUploaded:(id)arg1 fromURL:(id)arg2 error:(id *)arg3;
-- (_Bool)markResourceDoesNotNeedToBeUploaded:(id)arg1 error:(id *)arg2;
-- (id)createFileURLForUploadForResource:(id)arg1 error:(id *)arg2;
+- (_Bool)dropResourceForUpload:(id)arg1 error:(id *)arg2;
 - (_Bool)storeResourceForUpload:(id)arg1 error:(id *)arg2;
 - (_Bool)openWithError:(id *)arg1;
 - (id)initWithEngineStore:(id)arg1 name:(id)arg2;

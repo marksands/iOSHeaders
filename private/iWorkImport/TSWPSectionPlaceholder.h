@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (_Bool)needsObjectUUID;
+@property(nonatomic) TSWPStorage *parentStorage; // @synthesize parentStorage=_parentStorage;
 - (id)pageMasterOwningModel:(id)arg1;
 - (void)i_ensureHeaderFooterStoragesExistWithStylesheet:(id)arg1;
 - (void)wasRemovedFromDocumentRoot:(id)arg1;
@@ -26,12 +27,9 @@ __attribute__((visibility("hidden")))
 - (void)wasAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)willBeAddedToDocumentRoot:(id)arg1 dolcContext:(id)arg2;
 - (void)adoptStylesheet:(id)arg1 withMapper:(id)arg2;
-- (void)setParentStorage:(id)arg1;
-- (id)parentStorage;
 - (id)copyWithContext:(id)arg1;
-- (_Bool)isEqual:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 
 // Remaining properties

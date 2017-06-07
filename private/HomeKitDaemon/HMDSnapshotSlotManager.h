@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HMDAccessory, HMDNotificationRegistration, HMDSnapshotFile, HMFMessageDispatcher, NSMapTable, NSMutableArray, NSString, NSUUID;
+@class HMDAccessory, HMDNotificationRegistration, HMDSnapshotFile, HMFMessageDispatcher, NSMapTable, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDSnapshotSlotManager : NSObject <HMFLogging>
+@interface HMDSnapshotSlotManager : HMFObject <HMFLogging>
 {
     NSUUID *_uniqueIdentifier;
     HMDSnapshotFile *_mostRecentSnapshot;
@@ -44,6 +44,7 @@
 - (void)_updateMostRecentSnapshot:(id)arg1 updateGenerationCounter:(_Bool)arg2;
 - (id)createSlotForSnapshotFile:(id)arg1 requestMessages:(id)arg2 updateGenerationCounter:(_Bool)arg3;
 - (void)handleReleaseSnapshot:(id)arg1;
+- (void)backboardServicesRelaunched:(id)arg1;
 - (void)handleForegroundAppsNotification:(id)arg1;
 @property(readonly, nonatomic, getter=isMostRecentSnapshotValid) _Bool mostRecentSnapshotValid;
 - (void)setupMostRecentSnapshot;

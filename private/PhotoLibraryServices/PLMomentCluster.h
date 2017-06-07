@@ -11,6 +11,7 @@
 
 @interface PLMomentCluster : NSObject
 {
+    _Bool __usedLocationsOfInterest;
     short _generationType;
     NSString *__title;
     NSObject<NSCopying> *__objectID;
@@ -29,6 +30,7 @@
 @property(readonly, nonatomic) NSMutableSet *_nodesWithLocation; // @synthesize _nodesWithLocation=__nodesWithLocation;
 @property(copy, nonatomic, setter=_setNodes:) NSMutableArray *_mutableNodes; // @synthesize _mutableNodes=__mutableNodes;
 @property(nonatomic) short generationType; // @synthesize generationType=_generationType;
+@property(nonatomic) _Bool usedLocationsOfInterest; // @synthesize usedLocationsOfInterest=__usedLocationsOfInterest;
 @property(retain, nonatomic, setter=_setEndingDate:) NSDate *endingDate; // @synthesize endingDate=__endingDate;
 @property(retain, nonatomic, setter=_setStartingDate:) NSDate *startingDate; // @synthesize startingDate=__startingDate;
 @property(readonly, nonatomic) NSObject<NSCopying> *objectID; // @synthesize objectID=__objectID;

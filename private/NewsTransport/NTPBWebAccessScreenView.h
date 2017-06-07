@@ -24,9 +24,18 @@
     NSString *_sourceChannelId;
     NSData *_subscriptionPurchaseSessionId;
     int _userAction;
+    int _webAccessScreenPresentationReason;
     _Bool _arrivedFromAd;
     _Bool _subscriptionOnlyArticlePreview;
-    CDStruct_945473b1 _has;
+    struct {
+        unsigned int paidSubscriptionConversionPointType:1;
+        unsigned int parentFeedType:1;
+        unsigned int resultType:1;
+        unsigned int userAction:1;
+        unsigned int webAccessScreenPresentationReason:1;
+        unsigned int arrivedFromAd:1;
+        unsigned int subscriptionOnlyArticlePreview:1;
+    } _has;
 }
 
 @property(retain, nonatomic) NSData *subscriptionPurchaseSessionId; // @synthesize subscriptionPurchaseSessionId=_subscriptionPurchaseSessionId;
@@ -48,6 +57,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasWebAccessScreenPresentationReason;
+@property(nonatomic) int webAccessScreenPresentationReason; // @synthesize webAccessScreenPresentationReason=_webAccessScreenPresentationReason;
 @property(readonly, nonatomic) _Bool hasSubscriptionPurchaseSessionId;
 @property(readonly, nonatomic) _Bool hasIadQtoken;
 @property(nonatomic) _Bool hasArrivedFromAd;

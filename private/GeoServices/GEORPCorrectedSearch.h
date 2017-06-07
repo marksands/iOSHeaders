@@ -32,6 +32,7 @@
 @property(nonatomic) unsigned int originalSearchResultIndex; // @synthesize originalSearchResultIndex=_originalSearchResultIndex;
 @property(retain, nonatomic) GEOPlaceSearchResponse *placeSearchResponse; // @synthesize placeSearchResponse=_placeSearchResponse;
 @property(retain, nonatomic) GEOPlaceSearchRequest *placeSearchRequest; // @synthesize placeSearchRequest=_placeSearchRequest;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,7 +49,6 @@
 @property(nonatomic) _Bool hasOriginalSearchResultIndex;
 @property(readonly, nonatomic) _Bool hasPlaceSearchResponse;
 @property(readonly, nonatomic) _Bool hasPlaceSearchRequest;
-- (void)dealloc;
 - (_Bool)containsReportableData;
 
 @end

@@ -4,18 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HealthDaemon/HDSyncObjectCollection-Protocol.h>
+#import <HealthDaemon/NSObject-Protocol.h>
 
 @class NSArray, NSNumber;
 @protocol HDSyncAnchorMap;
 
-@protocol HDSyncChange <HDSyncObjectCollection>
+@protocol HDSyncChange <NSObject>
 @property(readonly, nonatomic) _Bool done;
 @property(readonly, nonatomic) NSNumber *sequenceNumber;
 @property(readonly, nonatomic) struct HDSyncAnchorRange syncAnchorRange;
 @property(readonly, nonatomic, getter=isSpeculative) _Bool speculative;
 - (id <HDSyncAnchorMap>)requiredAnchorMapWithError:(id *)arg1;
 - (void)setSequenceNumber:(long long)arg1 done:(_Bool)arg2;
+- (NSArray *)decodedObjects;
 - (void)setObjects:(NSArray *)arg1 syncAnchorRange:(struct HDSyncAnchorRange)arg2 requiredAnchorMap:(id <HDSyncAnchorMap>)arg3;
+- (Class)syncEntityClass;
 @end
 

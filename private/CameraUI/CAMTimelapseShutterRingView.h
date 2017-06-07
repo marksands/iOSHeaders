@@ -11,6 +11,7 @@
 @interface CAMTimelapseShutterRingView : UIView
 {
     _Bool _animating;
+    long long _layoutStyle;
     CALayer *__smallTickLayer;
     CALayer *__largeTickLayer;
     CAReplicatorLayer *__smallTickReplicatorLayer;
@@ -26,6 +27,7 @@
 @property(readonly, nonatomic) CALayer *_largeTickLayer; // @synthesize _largeTickLayer=__largeTickLayer;
 @property(readonly, nonatomic) CALayer *_smallTickLayer; // @synthesize _smallTickLayer=__smallTickLayer;
 @property(nonatomic, getter=isAnimating) _Bool animating; // @synthesize animating=_animating;
+@property(readonly, nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 - (void).cxx_destruct;
 - (double)_rotationZFromTransform:(struct CATransform3D)arg1;
 - (void)_addStopAnimations;
@@ -35,9 +37,14 @@
 - (void)_removeStartAnimations;
 - (void)_stopAnimating;
 - (void)_startAnimating;
+- (double)_tickRadiusForTickSize:(struct CGSize)arg1 ringSize:(struct CGSize)arg2;
+- (struct CGSize)_largeTickSizeForLayoutStyle:(long long)arg1;
+- (struct CGSize)_smallTickSizeForLayoutStyle:(long long)arg1;
 - (void)layoutSublayersOfLayer:(id)arg1;
-- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)_commonCAMTimelapseShutterRingViewInitializationWithLayoutStyle:(long long)arg1;
+- (id)initWithLayoutStyle:(long long)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

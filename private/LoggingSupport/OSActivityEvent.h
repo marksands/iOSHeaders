@@ -39,7 +39,6 @@
 @property(copy, nonatomic) NSString *eventMessage; // @synthesize eventMessage=_eventMessage;
 @property(readonly, copy, nonatomic) NSString *senderImagePath; // @synthesize senderImagePath=_senderImagePath;
 @property(readonly, copy, nonatomic) NSUUID *senderImageUUID; // @synthesize senderImageUUID=_senderImageUUID;
-@property(readonly, copy, nonatomic) NSTimeZone *timezone; // @synthesize timezone=_timezone;
 @property(readonly, copy, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) unsigned long long machTimestamp; // @synthesize machTimestamp=_machTimestamp;
 @property(readonly, nonatomic) unsigned long long threadID; // @synthesize threadID=_threadID;
@@ -58,7 +57,7 @@
 - (void)_initWithProperties:(id)arg1;
 - (id)properties;
 - (void)fillFromStreamEntry:(struct os_activity_stream_entry_s *)arg1 eventMessage:(const char *)arg2 persisted:(_Bool)arg3;
-- (id)timeZone;
+@property(readonly, copy, nonatomic) NSTimeZone *timezone; // @synthesize timezone=_timezone;
 - (id)description;
 
 @end

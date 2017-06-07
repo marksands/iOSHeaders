@@ -6,28 +6,35 @@
 
 #import <UIKit/UIView.h>
 
-@class NSURL, SFCardSection, SearchUICardViewController;
+@class NSURL, SFCardSection, SearchUITableViewController;
+@protocol SFFeedbackListener;
 
 @interface SearchUICardSectionView : UIView
 {
-    _Bool _hideSeparatorBelow;
-    _Bool _fullWidthSeparator;
-    SearchUICardViewController *_controller;
+    _Bool _spansFullWidth;
+    int _defaultSeparatorStyle;
+    SearchUITableViewController *_controller;
     unsigned long long _style;
     NSURL *_url;
     SFCardSection *_section;
+    id <SFFeedbackListener> _feedbackDelegate;
 }
 
-+ (Class)classForSection:(id)arg1;
++ (id)dragSubtitleForCardSection:(id)arg1;
++ (id)dragTitleForCardSection:(id)arg1;
++ (_Bool)supportsRecyclingForCardSection:(id)arg1;
+@property(nonatomic) __weak id <SFFeedbackListener> feedbackDelegate; // @synthesize feedbackDelegate=_feedbackDelegate;
+@property(readonly) _Bool spansFullWidth; // @synthesize spansFullWidth=_spansFullWidth;
 @property(retain, nonatomic) SFCardSection *section; // @synthesize section=_section;
-@property(nonatomic) _Bool fullWidthSeparator; // @synthesize fullWidthSeparator=_fullWidthSeparator;
-@property(nonatomic) _Bool hideSeparatorBelow; // @synthesize hideSeparatorBelow=_hideSeparatorBelow;
+@property(nonatomic) int defaultSeparatorStyle; // @synthesize defaultSeparatorStyle=_defaultSeparatorStyle;
 @property(retain) NSURL *url; // @synthesize url=_url;
 @property unsigned long long style; // @synthesize style=_style;
-@property __weak SearchUICardViewController *controller; // @synthesize controller=_controller;
+@property __weak SearchUITableViewController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
+- (void)updateWithCardSection:(id)arg1;
+- (_Bool)shouldDrawBackground;
 - (_Bool)isAutoLayoutFree;
-- (double)separatorLeftInset;
+- (double)separatorInsetForLeadingImage;
 - (id)initWithCardSection:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3;
 - (id)initWithCardSection:(id)arg1 style:(unsigned long long)arg2;
 - (id)initWithCardSection:(id)arg1 controller:(id)arg2;

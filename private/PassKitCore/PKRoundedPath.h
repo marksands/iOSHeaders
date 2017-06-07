@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSMutableArray;
 
@@ -25,6 +25,7 @@
 - (struct CGRect)boundingRect;
 - (void)closeSubpath;
 - (void)addLineToPointX:(double)arg1 y:(double)arg2;
+- (void)dealloc;
 - (id)initWithPoints:(struct CGPoint *)arg1 count:(long long)arg2;
 
 @end

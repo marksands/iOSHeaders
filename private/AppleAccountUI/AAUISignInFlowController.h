@@ -10,7 +10,7 @@
 #import <AppleAccountUI/AAUIGenericTermsRemoteUIDelegate-Protocol.h>
 #import <AppleAccountUI/AAUISignInOperationDelegate-Protocol.h>
 
-@class AAUIAccountRepairRemoteUI, AAUIGenericTermsRemoteUI, ACAccountStore, ACAccountType, NSLock, NSMutableDictionary, NSString, UIViewController;
+@class AAUIAccountRepairRemoteUI, AAUIGenericTermsRemoteUI, ACAccountStore, ACAccountType, CUMessageSession, NSLock, NSMutableDictionary, NSString, UIViewController;
 
 @interface AAUISignInFlowController : NSObject <AAUIAccountRepairRemoteUIDelegate, AAUIGenericTermsRemoteUIDelegate, AAUISignInOperationDelegate>
 {
@@ -22,11 +22,13 @@
     NSMutableDictionary *_cdpContextsByAccountID;
     NSLock *_cdpContextsByAccountIDLock;
     _Bool _shouldAutomaticallySaveSignInResults;
-    _Bool __shouldHideActivationLockAlert;
     UIViewController *_presentingViewController;
+    CUMessageSession *_messageSession;
+    unsigned long long _activationAction;
 }
 
-@property(nonatomic, setter=_setShouldHideActivationLockAlert:) _Bool _shouldHideActivationLockAlert; // @synthesize _shouldHideActivationLockAlert=__shouldHideActivationLockAlert;
+@property(nonatomic) unsigned long long activationAction; // @synthesize activationAction=_activationAction;
+@property(retain, nonatomic) CUMessageSession *messageSession; // @synthesize messageSession=_messageSession;
 @property(nonatomic) _Bool shouldAutomaticallySaveSignInResults; // @synthesize shouldAutomaticallySaveSignInResults=_shouldAutomaticallySaveSignInResults;
 @property(nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 - (void).cxx_destruct;
@@ -49,6 +51,7 @@
 - (void)_verifyLoginResponseForiCloudAccount:(id)arg1 withSuccess:(_Bool)arg2 response:(id)arg3 error:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)_updateAppleAccountIfNecessary:(id)arg1 withAltDSID:(id)arg2 rawPassword:(id)arg3;
 - (void)signInWithIDMSAuthenticationResults:(id)arg1 completion:(CDUnknownBlockType)arg2;
+@property(nonatomic, setter=setShouldHideActivationLockAlert:) _Bool shouldHideActivationLockAlert;
 - (id)init;
 
 // Remaining properties

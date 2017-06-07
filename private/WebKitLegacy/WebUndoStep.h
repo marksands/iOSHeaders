@@ -12,13 +12,13 @@ __attribute__((visibility("hidden")))
     struct RefPtr<WebCore::UndoStep> m_step;
 }
 
-+ (id)stepWithUndoStep:(PassRefPtr_f4b194ba)arg1;
++ (id)stepWithUndoStep:(struct UndoStep *)arg1;
 + (void)initialize;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (struct UndoStep *)step;
 - (void)dealloc;
-- (id)initWithUndoStep:(PassRefPtr_f4b194ba)arg1;
+- (id)initWithUndoStep:(struct UndoStep *)arg1;
 
 @end
 

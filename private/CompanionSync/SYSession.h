@@ -19,12 +19,14 @@
     NSMutableSet *_pendingMessageIDs;
     _Bool _rejectedNewSessionFromSamePeer;
     _Bool _sessionStarted;
+    struct NSMutableDictionary *_stateResponders;
     _Bool _isSending;
     long long _priority;
     id <SYSessionDelegate> _delegate;
     id <SYChangeSerializer> _serializer;
     NSString *_identifier;
     SYService *_service;
+    NSString *_reason;
     double _perMessageTimeout;
     double _fullSessionTimeout;
     NSDictionary *_options;
@@ -51,6 +53,7 @@
 @property(copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(nonatomic) double fullSessionTimeout; // @synthesize fullSessionTimeout=_fullSessionTimeout;
 @property(nonatomic) double perMessageTimeout; // @synthesize perMessageTimeout=_perMessageTimeout;
+@property(retain, nonatomic) NSString *reason; // @synthesize reason=_reason;
 @property(readonly, nonatomic) __weak SYService *service; // @synthesize service=_service;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) id <SYChangeSerializer> serializer; // @synthesize serializer=_serializer;
@@ -58,7 +61,7 @@
 @property(nonatomic) long long priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) PBCodable *stateForLogging;
-- (id)CPObfuscatedDescription;
+- (id)CPSafeDescription;
 - (void)_peerProcessedMessageWithIdentifier:(id)arg1 userInfo:(id)arg2;
 - (void)_sentMessageWithIdentifier:(id)arg1 userInfo:(id)arg2;
 - (void)_resolvedIdentifier:(id)arg1 forResponse:(id)arg2;
@@ -73,6 +76,8 @@
 - (void)_handleSyncBatch:(id)arg1 response:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_setStateQuietly:(long long)arg1;
 - (void)_supercededWithSession:(id)arg1;
+- (id)stateResponders;
+- (void)_onSessionStateChangedTo:(long long)arg1 do:(CDUnknownBlockType)arg2;
 - (void)setHasRejectedPeerSession:(_Bool)arg1;
 - (_Bool)hasRejectedPeerSession;
 - (_Bool)_willAcquiesceToNewSessionFromPeer:(id)arg1;

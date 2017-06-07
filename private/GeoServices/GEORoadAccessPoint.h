@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLatLng;
+@class GEOLatLng, PBUnknownFields;
 
 @interface GEORoadAccessPoint : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     int _drivingDirection;
     GEOLatLng *_location;
     int _walkingDirection;
@@ -25,6 +26,8 @@
 
 @property(nonatomic) _Bool isApproximate; // @synthesize isApproximate=_isApproximate;
 @property(retain, nonatomic) GEOLatLng *location; // @synthesize location=_location;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -44,7 +47,6 @@
 @property(nonatomic) int walkingDirection; // @synthesize walkingDirection=_walkingDirection;
 @property(nonatomic) _Bool hasIsApproximate;
 @property(readonly, nonatomic) _Bool hasLocation;
-- (void)dealloc;
 
 @end
 

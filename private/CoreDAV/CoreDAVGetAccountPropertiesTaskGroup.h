@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) NSURL *resourceID; // @synthesize resourceID=_resourceID;
 @property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly, nonatomic) NSURL *principalURL; // @synthesize principalURL=_principalURL;
+- (void).cxx_destruct;
 - (void)task:(id)arg1 didFinishWithError:(id)arg2;
 - (void)searchPropertySetTask:(id)arg1 completetWithPropertySearchSet:(id)arg2 error:(id)arg3;
 - (void)processPrincipalHeaders:(id)arg1;
@@ -50,12 +51,11 @@
 - (id)_copyAccountPropertiesPropFindElements;
 - (void)taskGroupWillCancelWithError:(id)arg1;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(nonatomic) id <CoreDAVGetAccountPropertiesTaskGroupDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <CoreDAVGetAccountPropertiesTaskGroupDelegate> delegate; // @dynamic delegate;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

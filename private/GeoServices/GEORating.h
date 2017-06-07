@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEORating : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _maxScore;
     double _score;
     int _numberOfRatings;
@@ -34,6 +35,8 @@
 @property(retain, nonatomic) NSString *provider; // @synthesize provider=_provider;
 @property(nonatomic) int numberOfRatings; // @synthesize numberOfRatings=_numberOfRatings;
 @property(nonatomic) double score; // @synthesize score=_score;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -54,7 +57,6 @@
 @property(nonatomic) _Bool hasMaxScore;
 @property(nonatomic) double maxScore; // @synthesize maxScore=_maxScore;
 @property(nonatomic) _Bool hasScore;
-- (void)dealloc;
 - (id)initWithSampleSizeForUserRatingScore:(unsigned int)arg1 normalizedUserRatingScore:(float)arg2;
 
 @end

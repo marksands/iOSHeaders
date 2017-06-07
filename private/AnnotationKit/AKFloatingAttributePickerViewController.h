@@ -40,7 +40,6 @@
 - (void)viewDidLayoutSubviews;
 - (void)setRightButtonItems:(id)arg1 animated:(_Bool)arg2;
 - (void)valueChanged:(id)arg1;
-- (id)_separatorColorForToolbarColor:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithController:(id)arg1;
 

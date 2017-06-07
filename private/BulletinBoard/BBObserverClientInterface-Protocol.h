@@ -16,7 +16,6 @@
 - (void)updateSectionInfo:(BBSectionInfo *)arg1;
 - (void)updateSectionOrder:(NSArray *)arg1;
 - (void)updateSectionOrderRule:(NSNumber *)arg1;
-- (void)updateBulletin:(BBBulletinUpdateTransaction *)arg1;
 - (void)updateBulletin:(BBBulletinUpdateTransaction *)arg1 withHandler:(void (^)(_Bool, NSError *))arg2;
 @end
 

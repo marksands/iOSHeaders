@@ -6,14 +6,15 @@
 
 #import <AssistantUI/NSObject-Protocol.h>
 
-@class NSDictionary, NSString;
+@class NSDictionary, NSString, SAUIAudioData;
 
 @protocol AFUISpeechSynthesis <NSObject>
 - (void)prewarmIfNeeded;
 - (void)invalidate;
 - (void)skipCurrentSynthesis;
 - (void)cancel;
-- (void)enqueueText:(NSString *)arg1 completion:(void (^)(long long))arg2;
-- (void)enqueueText:(NSString *)arg1 isPhonetic:(_Bool)arg2 provisionally:(_Bool)arg3 eligibleAfterDuration:(double)arg4 preparationIdentifier:(NSString *)arg5 completion:(void (^)(long long))arg6 animationIdentifier:(NSString *)arg7 analyticsContext:(NSDictionary *)arg8;
+- (void)enqueueAudioData:(SAUIAudioData *)arg1 identifier:(NSString *)arg2 provisionally:(_Bool)arg3 eligibleAfterDuration:(double)arg4 completion:(void (^)(long long))arg5;
+- (void)enqueueText:(NSString *)arg1 identifier:(NSString *)arg2 completion:(void (^)(long long))arg3;
+- (void)enqueueText:(NSString *)arg1 identifier:(NSString *)arg2 language:(NSString *)arg3 gender:(NSString *)arg4 isPhonetic:(_Bool)arg5 provisionally:(_Bool)arg6 eligibleAfterDuration:(double)arg7 preparationIdentifier:(NSString *)arg8 completion:(void (^)(long long))arg9 animationIdentifier:(NSString *)arg10 analyticsContext:(NSDictionary *)arg11 speakableContextInfo:(NSDictionary *)arg12;
 @end
 

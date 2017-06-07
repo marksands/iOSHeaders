@@ -14,6 +14,7 @@
 + (void)removePassphraseForNotesInAccount:(id)arg1;
 + (void)removePassphraseForAccount:(id)arg1;
 + (void)cachedKeyClearingTimerDidFire;
++ (void)startOrExtendCachedKeyClearingTimerForModes:(id)arg1;
 + (void)startOrExtendCachedKeyClearingTimer;
 + (double)timeIntervalBeforeClearingCachedKeys;
 + (void)rewrapKeyForObject:(id)arg1 newMasterKey:(id)arg2 salt:(id)arg3 iterationCount:(unsigned int)arg4 hint:(id)arg5;

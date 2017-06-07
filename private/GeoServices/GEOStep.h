@@ -12,15 +12,13 @@
 
 @interface GEOStep : PBCodable <NSCopying>
 {
-    struct GEOLaneGuidance *_laneGuidances;
-    unsigned long long _laneGuidancesCount;
-    unsigned long long _laneGuidancesSpace;
     struct GEOJunctionElement *_junctionElements;
     unsigned long long _junctionElementsCount;
     unsigned long long _junctionElementsSpace;
     unsigned int _distance;
     GEONameInfo *_exitNumber;
     unsigned int _expectedTime;
+    NSMutableArray *_guidanceEvents;
     int _hintFirstAnnouncementZilchIndex;
     GEOInstructionSet *_instructionSet;
     NSString *_instructions;
@@ -35,7 +33,6 @@
     int _overrideTransportType;
     NSMutableArray *_signposts;
     unsigned int _stepID;
-    NSMutableArray *_substeps;
     GEOTimeCheckpoints *_timeCheckpoints;
     _Bool _endsOnFwy;
     _Bool _shouldChainManeuver;
@@ -62,21 +59,22 @@
     } _has;
 }
 
-+ (Class)substepsType;
++ (Class)guidanceEventType;
 + (Class)signpostType;
 + (Class)maneuverNameType;
+@property(retain, nonatomic) NSMutableArray *guidanceEvents; // @synthesize guidanceEvents=_guidanceEvents;
 @property(nonatomic) _Bool shouldChainManeuver; // @synthesize shouldChainManeuver=_shouldChainManeuver;
 @property(retain, nonatomic) GEOInstructionSet *instructionSet; // @synthesize instructionSet=_instructionSet;
 @property(retain, nonatomic) GEOTimeCheckpoints *timeCheckpoints; // @synthesize timeCheckpoints=_timeCheckpoints;
 @property(retain, nonatomic) NSString *notice; // @synthesize notice=_notice;
 @property(retain, nonatomic) NSString *instructions; // @synthesize instructions=_instructions;
-@property(retain, nonatomic) NSMutableArray *substeps; // @synthesize substeps=_substeps;
 @property(retain, nonatomic) GEONameInfo *exitNumber; // @synthesize exitNumber=_exitNumber;
 @property(retain, nonatomic) NSMutableArray *signposts; // @synthesize signposts=_signposts;
 @property(retain, nonatomic) NSMutableArray *maneuverNames; // @synthesize maneuverNames=_maneuverNames;
 @property(nonatomic) unsigned int expectedTime; // @synthesize expectedTime=_expectedTime;
 @property(nonatomic) unsigned int distance; // @synthesize distance=_distance;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -86,6 +84,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)guidanceEventAtIndex:(unsigned long long)arg1;
+- (unsigned long long)guidanceEventsCount;
+- (void)addGuidanceEvent:(id)arg1;
+- (void)clearGuidanceEvents;
 @property(nonatomic) _Bool hasShouldChainManeuver;
 @property(readonly, nonatomic) _Bool hasInstructionSet;
 @property(readonly, nonatomic) _Bool hasTimeCheckpoints;
@@ -93,10 +95,6 @@
 @property(readonly, nonatomic) _Bool hasInstructions;
 @property(nonatomic) _Bool hasToFreeway;
 @property(nonatomic) _Bool toFreeway; // @synthesize toFreeway=_toFreeway;
-- (id)substepsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)substepsCount;
-- (void)addSubsteps:(id)arg1;
-- (void)clearSubsteps;
 @property(nonatomic) _Bool hasEndsOnFwy;
 @property(nonatomic) _Bool endsOnFwy; // @synthesize endsOnFwy=_endsOnFwy;
 @property(nonatomic) _Bool hasTollAhead;
@@ -128,12 +126,6 @@
 - (id)junctionTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasJunctionType;
 @property(nonatomic) int junctionType; // @synthesize junctionType=_junctionType;
-- (void)setLaneGuidances:(struct GEOLaneGuidance *)arg1 count:(unsigned long long)arg2;
-- (struct GEOLaneGuidance)laneGuidanceAtIndex:(unsigned long long)arg1;
-- (void)addLaneGuidance:(struct GEOLaneGuidance)arg1;
-- (void)clearLaneGuidances;
-@property(readonly, nonatomic) struct GEOLaneGuidance *laneGuidances;
-@property(readonly, nonatomic) unsigned long long laneGuidancesCount;
 - (id)maneuverNameAtIndex:(unsigned long long)arg1;
 - (unsigned long long)maneuverNamesCount;
 - (void)addManeuverName:(id)arg1;
@@ -161,7 +153,7 @@
 - (id)continueInstructionsForSignView;
 - (id)mergeInstructionsForSignView;
 - (id)distanceForSignView;
-- (id)instructionForListView;
+- (id)instructionsForListView;
 - (id)distanceForListView;
 - (id)maneuverDescription;
 - (_Bool)maneuverIsHighwayExit;

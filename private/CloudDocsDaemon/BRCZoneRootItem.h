@@ -4,19 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CloudDocsDaemon/BRCFSRootItem.h>
+#import <CloudDocsDaemon/BRCDirectoryItem.h>
+
+#import <CloudDocsDaemon/BRCFSRooted-Protocol.h>
 
 __attribute__((visibility("hidden")))
-@interface BRCZoneRootItem : BRCFSRootItem
+@interface BRCZoneRootItem : BRCDirectoryItem <BRCFSRooted>
 {
 }
 
 - (id)st;
-- (id)parentItemInZone;
+- (id)parentItemID;
 - (id)parentItemOnFS;
 - (id)fileID;
 - (_Bool)saveToDB;
 - (_Bool)isZoneRoot;
+- (struct BRCDirectoryItem *)asFSRoot;
+- (_Bool)isFSRoot;
 - (id)initWithZoneRootItemID:(id)arg1 session:(id)arg2;
 
 @end

@@ -50,6 +50,7 @@
 @property(retain, nonatomic) NSMutableArray *accessPoints; // @synthesize accessPoints=_accessPoints;
 @property(retain, nonatomic) NSMutableArray *lines; // @synthesize lines=_lines;
 @property(retain, nonatomic) NSMutableArray *stations; // @synthesize stations=_stations;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -107,7 +108,6 @@
 - (unsigned long long)stationsCount;
 - (void)addStation:(id)arg1;
 - (void)clearStations;
-- (void)dealloc;
 - (id)artworkFromIndices:(unsigned int *)arg1 count:(unsigned long long)arg2;
 
 @end

@@ -38,10 +38,8 @@
 - (void)updateSectionOrder:(id)arg1;
 - (void)updateSectionOrderRule:(id)arg1;
 - (void)updateBulletin:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-- (void)updateBulletin:(id)arg1;
 - (void)getBulletinsForPublisherMatchIDs:(id)arg1 sectionID:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)getPublisherMatchIDsOfBulletinsPublishedAfterDate:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-- (void)getBulletinsPublishedAfterDate:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)getBulletinsWithHandler:(CDUnknownBlockType)arg1;
 - (void)getUniversalSectionIDForSectionID:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)getPrivilegedSenderTypesWithHandler:(CDUnknownBlockType)arg1;
@@ -69,7 +67,7 @@
 - (_Bool)isValid;
 - (void)invalidate;
 - (void)dealloc;
-- (id)initWithObserver:(id)arg1 calloutQueue:(id)arg2;
+- (id)initWithObserver:(id)arg1 connection:(id)arg2 queue:(id)arg3 calloutQueue:(id)arg4;
 
 @end
 

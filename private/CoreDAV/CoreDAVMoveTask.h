@@ -15,6 +15,7 @@
 }
 
 @property(retain, nonatomic) NSString *previousETag; // @synthesize previousETag=_previousETag;
+- (void).cxx_destruct;
 - (void)_callBackToDelegateWithResponses:(id)arg1 error:(id)arg2;
 - (id)additionalHeaderValues;
 - (id)httpMethod;
@@ -22,7 +23,7 @@
 - (void)dealloc;
 
 // Remaining properties
-@property(nonatomic) id <CoreDAVMoveTaskDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <CoreDAVMoveTaskDelegate> delegate; // @dynamic delegate;
 
 @end
 

@@ -10,10 +10,11 @@
 #import <FrontBoardServices/NSCopying-Protocol.h>
 #import <FrontBoardServices/NSMutableCopying-Protocol.h>
 
-@class BSSettings, NSArray, NSSet, NSString;
+@class BSSettings, FBSDisplayConfiguration, FBSDisplayIdentity, NSArray, NSSet, NSString;
 
 @interface FBSSceneSettings : NSObject <BSDescriptionProviding, NSCopying, NSMutableCopying>
 {
+    FBSDisplayConfiguration *_displayConfiguration;
     struct CGRect _frame;
     double _level;
     long long _interfaceOrientation;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
 @property(readonly, nonatomic) double level; // @synthesize level=_level;
 @property(readonly, nonatomic) struct CGRect frame; // @synthesize frame=_frame;
+@property(readonly, copy, nonatomic) FBSDisplayConfiguration *displayConfiguration; // @synthesize displayConfiguration=_displayConfiguration;
 - (id)valueDescriptionForFlag:(long long)arg1 object:(id)arg2 ofSetting:(unsigned long long)arg3;
 - (id)keyDescriptionForSetting:(unsigned long long)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
@@ -50,6 +52,7 @@
 - (id)otherSettings;
 - (_Bool)isOccluded;
 - (struct CGRect)bounds;
+@property(readonly, copy, nonatomic) FBSDisplayIdentity *displayIdentity;
 - (void)dealloc;
 - (id)init;
 - (id)initWithSettings:(id)arg1;

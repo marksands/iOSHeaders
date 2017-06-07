@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <PassKitCore/PKPaymentOverlayableRequest.h>
+#import <PassKitCore/PKPaymentWebServiceRequest.h>
 
 @class NSString, PKPaymentPass, PKVerificationChannel;
 
-@interface PKPaymentVerificationUpdateRequest : PKPaymentOverlayableRequest
+@interface PKPaymentVerificationUpdateRequest : PKPaymentWebServiceRequest
 {
     NSString *_stepIdentifier;
     PKPaymentPass *_pass;

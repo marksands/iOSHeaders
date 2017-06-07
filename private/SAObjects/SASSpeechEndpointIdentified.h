@@ -16,6 +16,7 @@
 
 + (id)speechEndpointIdentifiedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)speechEndpointIdentified;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSNumber *endpointTimestamp;
 - (id)encodedClassName;
 - (id)groupIdentifier;

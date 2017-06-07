@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSMutableDictionary, NSRecursiveLock;
+@class IMDCNPersonAliasResolver, IMDMessageHistorySyncController, IMDMessageProcessingController, NSArray, NSCache, NSMutableDictionary, NSRecursiveLock;
 
 @interface IMDChatRegistry : NSObject
 {
@@ -14,9 +14,41 @@
     NSMutableDictionary *_chats;
     _Bool _isLoading;
     _Bool _doneLoadingAfterMerge;
+    NSCache *_allChatsByIDCache;
+    NSMutableDictionary *_chatsByGroupID;
+    IMDMessageProcessingController *_messageProcessingController;
+    IMDMessageHistorySyncController *_messageHistorySyncController;
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) IMDMessageHistorySyncController *messageHistorySyncController; // @synthesize messageHistorySyncController=_messageHistorySyncController;
+@property(readonly, nonatomic) IMDMessageProcessingController *messageProcessingController; // @synthesize messageProcessingController=_messageProcessingController;
+- (_Bool)isBeingSetup;
+- (void)clearPendingDeleteTable;
+- (id)copyRecordIDsAndGUIDsPendingCloudKitDelete;
+- (void)processMessageUsingCKRecord:(id)arg1;
+- (id)_lookupChatUsingID:(id)arg1;
+- (id)messagesToUploadToCloudKitWithLimit:(unsigned long long)arg1;
+- (void)__removeChatFromGroupIDChatIndex:(id)arg1;
+- (void)__addChatToGroupIDChatIndex:(id)arg1;
+- (void)resetChatSyncStateForRecord:(id)arg1;
+- (void)markDefferredChatsAsNeedingSync;
+- (void)markChatAsDeferredForSyncingUsingCKRecord:(id)arg1;
+- (void)updateChatUsingCKRecord:(id)arg1;
+- (void)_markForksAsSyncedForChat:(id)arg1;
+- (id)_existingChatForCKRecord:(id)arg1;
+- (id)_existingChatWithOriginalGroupID:(id)arg1 onService:(id)arg2;
+- (void)_insertChatUsingCKRecord:(id)arg1;
+- (void)updateChatWithGUID:(id)arg1 serverChangeToken:(id)arg2 CKSystemPropertiesBlob:(id)arg3;
+- (id)chatsToUploadToCloudKitWithLimit:(unsigned long long)arg1;
+- (id)personCentricGroupedChatsDictionary;
+- (id)_chatSortedByLastMessageID:(id)arg1;
+- (id)groupChatsBasedOnIdentity;
+- (void)startHandleIDPopulation;
+- (void)_populateCNRecordIDForHandles:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (id)_aliasToHandlesMap:(id)arg1;
+- (id)_allHandles;
+@property(readonly, nonatomic) IMDCNPersonAliasResolver *cnaliasResolver;
 - (_Bool)repairDuplicateChatsIfNeeded;
 - (_Bool)_mergeDuplicateGroupsIfNeeded;
 - (struct NSArray *)_createGroupChatsArray;
@@ -35,14 +67,18 @@
 - (_Bool)loadChatsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)_forceReloadChats:(_Bool)arg1;
 - (id)_chatInfoForSaving;
-- (id)_chatInfo;
+- (id)_chatInfoInRange:(struct _NSRange)arg1;
+- (id)_allChatInfo;
+- (id)_chatInfoForConnection;
 - (void)removeMessage:(id)arg1 fromChat:(id)arg2;
+- (void)addMessage:(id)arg1 toChat:(id)arg2 deferSpotlightIndexing:(_Bool)arg3;
 - (void)addMessage:(id)arg1 toChat:(id)arg2;
 - (void)removeItem:(id)arg1 fromChat:(id)arg2;
 - (void)addItem:(id)arg1 toChat:(id)arg2;
 - (void)removeChat:(id)arg1;
-- (void)addChat:(id)arg1 verbose:(_Bool)arg2;
+- (void)addChat:(id)arg1 firstLoad:(_Bool)arg2;
 - (void)addChat:(id)arg1;
+- (void)updateGroupIDForChat:(id)arg1 newGroupID:(id)arg2;
 - (void)updateStateForChat:(id)arg1 forcePost:(_Bool)arg2;
 - (void)updateStateForChat:(id)arg1 hintMessage:(id)arg2;
 - (void)updateStateForChat:(id)arg1 fromMessage:(id)arg2 toMessage:(id)arg3 forcePost:(_Bool)arg4 hintMessage:(id)arg5;
@@ -54,7 +90,9 @@
 - (id)existingChatForIDs:(id)arg1 account:(id)arg2 style:(unsigned char)arg3;
 - (id)existingChatsForIDs:(id)arg1 onService:(id)arg2 style:(unsigned char)arg3;
 - (id)existingChatForID:(id)arg1 account:(id)arg2;
+- (id)existingChatWithEngramID:(id)arg1;
 - (id)existingChatWithIdentifier:(id)arg1 account:(id)arg2;
+- (id)existingChatsWithGroupID:(id)arg1;
 - (id)existingChatWithGUID:(id)arg1;
 - (id)chatForRoom:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 guid:(id)arg4;
 - (id)chatForHandles:(id)arg1 account:(id)arg2 chatIdentifier:(id)arg3 style:(unsigned char)arg4 groupID:(id)arg5 displayName:(id)arg6 guid:(id)arg7;

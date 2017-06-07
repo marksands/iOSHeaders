@@ -18,9 +18,9 @@ __attribute__((visibility("hidden")))
 - (id)rendererForAttachment;
 - (int)elementKind;
 - (void)saveToArchive:(struct UIGraphicalAttachment *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct UIGraphicalAttachment *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct UIGraphicalAttachment *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 
 @end
 

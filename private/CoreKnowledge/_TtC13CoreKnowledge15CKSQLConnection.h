@@ -6,14 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, _TtC13CoreKnowledge8CKLogger;
+@class NSString;
 
 @interface _TtC13CoreKnowledge15CKSQLConnection : NSObject
 {
     // Error parsing type: , name: _handle
-    // Error parsing type: , name: name
     // Error parsing type: , name: path
-    // Error parsing type: , name: log
     // Error parsing type: , name: queue
     // Error parsing type: , name: queueContext.storage
 }
@@ -29,10 +27,8 @@
 - (void)dealloc;
 - (id)init:(id)arg1 readonly:(_Bool)arg2 error:(id *)arg3;
 - (id)initWithReadonlyFlag:(_Bool)arg1 error:(id *)arg2;
-@property(nonatomic, readonly) _TtC13CoreKnowledge8CKLogger *log; // @synthesize log;
 @property(nonatomic, readonly) _Bool readonly;
 @property(nonatomic, readonly) NSString *path; // @synthesize path;
-@property(nonatomic, readonly) NSString *name; // @synthesize name;
 @property(nonatomic, readonly) void *handle;
 
 @end

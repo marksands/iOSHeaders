@@ -15,12 +15,12 @@
     UISwitch *_controlSwitch;
 }
 
++ (double)estimatedHeight;
 + (double)preferredHeight;
 + (_Bool)shouldHighlight;
 + (id)reuseIdentifier;
 @property(retain, nonatomic) UISwitch *controlSwitch; // @synthesize controlSwitch=_controlSwitch;
 - (void).cxx_destruct;
-- (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 // Remaining properties

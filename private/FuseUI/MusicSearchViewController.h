@@ -36,6 +36,7 @@
     NSArray *_titleViewPaletteConstraints;
     _Bool _mediaPickerAllowsLocalSearchOnly;
     _Bool _mediaPickerAllowsMultipleSelection;
+    _Bool _mediaPickerPicksSingleCollection;
     _Bool _mediaPickerIncludePlaylists;
     _Bool _shouldUseMediaPickerViewConfiguration;
     _Bool _storeSearchViewIsVisible;
@@ -47,7 +48,7 @@
 + (id)_defaultSearchViewControllerForPresentingViewController:(id)arg1;
 + (id)_defaultSearchNavigationControllerWithSearchViewController:(id)arg1;
 + (id)searchViewControllerForPresentingViewController:(id)arg1 withSearchBar:(id)arg2;
-+ (id)mediaPickerSearchViewControllerWithSearchBar:(id)arg1 allowLocalSearchOnly:(_Bool)arg2 allowMultipleSelection:(_Bool)arg3 includePlaylists:(_Bool)arg4 presentingViewController:(id)arg5;
++ (id)mediaPickerSearchViewControllerWithSearchBar:(id)arg1 allowLocalSearchOnly:(_Bool)arg2 allowMultipleSelection:(_Bool)arg3 picksSingleCollection:(_Bool)arg4 includePlaylists:(_Bool)arg5 presentingViewController:(id)arg6;
 + (id)defaultSearchBarWithTraitCollection:(id)arg1;
 @property(nonatomic) _Bool storeSearchViewIsVisible; // @synthesize storeSearchViewIsVisible=_storeSearchViewIsVisible;
 @property(nonatomic) unsigned long long searchOptions; // @synthesize searchOptions=_searchOptions;
@@ -96,7 +97,7 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (id)initForMediaPickerUseAllowLocalSearchOnly:(_Bool)arg1 allowMultipleSelection:(_Bool)arg2 includePlaylists:(_Bool)arg3;
+- (id)initForMediaPickerUseAllowLocalSearchOnly:(_Bool)arg1 allowMultipleSelection:(_Bool)arg2 picksSingleCollection:(_Bool)arg3 includePlaylists:(_Bool)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

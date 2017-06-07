@@ -5,10 +5,11 @@
 //
 
 @class CDPContext, NSArray, NSError, NSNumber;
-@protocol CDPLocalDeviceSecretHandlerProtocol, CDPRecoveryKeyValidatorInernal, CDPRemoteDeviceSecretValidatorProtocol;
+@protocol CDPLocalDeviceSecretHandlerProtocol, CDPRecoveryKeyValidatorInternal, CDPRemoteDeviceSecretValidatorProtocol;
 
 @protocol CDPStateUIProviderInternal
-- (void)cdpContext:(CDPContext *)arg1 presentRecoveryKeyWithValidator:(id <CDPRecoveryKeyValidatorInernal>)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)cdpContext:(CDPContext *)arg1 promptForRecoveryKeyWithValidator:(id <CDPRecoveryKeyValidatorInternal>)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)cdpContext:(CDPContext *)arg1 presentRecoveryKeyWithValidator:(id <CDPRecoveryKeyValidatorInternal>)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)cdpContext:(CDPContext *)arg1 showError:(NSError *)arg2 withDefaultIndex:(long long)arg3 withCompletion:(void (^)(long long))arg4;
 - (void)cdpContext:(CDPContext *)arg1 showError:(NSError *)arg2 withCompletion:(void (^)(long long))arg3;
 - (void)cdpContext:(CDPContext *)arg1 promptForInteractiveAuthenticationWithCompletion:(void (^)(NSDictionary *, NSError *))arg2;

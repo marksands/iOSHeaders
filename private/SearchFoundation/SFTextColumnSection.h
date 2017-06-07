@@ -7,23 +7,36 @@
 #import <objc/NSObject.h>
 
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFTextColumnSection-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFTextColumnSection : NSObject <NSSecureCoding>
+@interface SFTextColumnSection : NSObject <SFTextColumnSection, NSSecureCoding>
 {
+    CDStruct_82065ba4 _has;
     _Bool _textNoWrap;
     NSArray *_textLines;
-    long long _textWeight;
+    unsigned long long _textWeight;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) long long textWeight; // @synthesize textWeight=_textWeight;
+@property(nonatomic) unsigned long long textWeight; // @synthesize textWeight=_textWeight;
 @property(nonatomic) _Bool textNoWrap; // @synthesize textNoWrap=_textNoWrap;
 @property(copy, nonatomic) NSArray *textLines; // @synthesize textLines=_textLines;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasTextWeight;
+- (_Bool)hasTextNoWrap;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

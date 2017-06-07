@@ -16,6 +16,7 @@
     long long _purchaseHistoryId;
     long long _sagaId;
     long long _storeId;
+    NSString *_cloudUniversalLibraryId;
     NSMutableArray *_libraryIdentifiers;
     int _mediaObjectType;
     int _mediaType;
@@ -32,6 +33,7 @@
 
 + (Class)libraryIdentifiersType;
 @property(retain, nonatomic) NSMutableArray *libraryIdentifiers; // @synthesize libraryIdentifiers=_libraryIdentifiers;
+@property(retain, nonatomic) NSString *cloudUniversalLibraryId; // @synthesize cloudUniversalLibraryId=_cloudUniversalLibraryId;
 @property(nonatomic) long long purchaseHistoryId; // @synthesize purchaseHistoryId=_purchaseHistoryId;
 @property(nonatomic) long long sagaId; // @synthesize sagaId=_sagaId;
 @property(nonatomic) long long storeId; // @synthesize storeId=_storeId;
@@ -51,6 +53,7 @@
 - (unsigned long long)libraryIdentifiersCount;
 - (void)addLibraryIdentifiers:(id)arg1;
 - (void)clearLibraryIdentifiers;
+@property(readonly, nonatomic) _Bool hasCloudUniversalLibraryId;
 @property(nonatomic) _Bool hasPurchaseHistoryId;
 @property(nonatomic) _Bool hasSagaId;
 @property(nonatomic) _Bool hasStoreId;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class FCAssetTransformer, FCInterestToken, FCMutexLock, NSDate, NSError, NSHashTable, NSString, NSURL;
+@class FCInterestToken, FCMutexLock, NSDate, NSError, NSHashTable, NSString, NSURL;
 @protocol FCAssetHandleDelegate, FCOperationCanceling><FCOperationPrioritizing, OS_dispatch_group;
 
 @interface FCAssetHandle : NSObject
@@ -23,12 +23,10 @@
     id <FCAssetHandleDelegate> _delegate;
     FCInterestToken *_holdToken;
     NSString *_assetKey;
-    FCAssetTransformer *_transformer;
     long long _lifetimeHint;
 }
 
 @property(nonatomic) long long lifetimeHint; // @synthesize lifetimeHint=_lifetimeHint;
-@property(retain, nonatomic) FCAssetTransformer *transformer; // @synthesize transformer=_transformer;
 @property(copy, nonatomic) NSString *assetKey; // @synthesize assetKey=_assetKey;
 @property(retain, nonatomic) FCInterestToken *holdToken; // @synthesize holdToken=_holdToken;
 @property(nonatomic) __weak id <FCAssetHandleDelegate> delegate; // @synthesize delegate=_delegate;
@@ -46,7 +44,7 @@
 - (void)_completeFetchWithFilePath:(id)arg1 cancelled:(_Bool)arg2 error:(id)arg3;
 - (void)_revisitDownloadRequestPriorities;
 - (void)_removeDownloadRequest:(id)arg1;
-@property(readonly) NSString *uniqueKey;
+@property(readonly, copy) NSString *uniqueKey;
 @property(readonly) NSURL *streamingURL;
 - (id)downloadIfNeededWithGroup:(id)arg1;
 - (id)downloadIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;

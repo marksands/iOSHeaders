@@ -6,15 +6,13 @@
 
 #import <UserNotificationsUIKit/NSObject-Protocol.h>
 
-@class NCLongLookPresentationController, UIView;
+@class UIPresentationController, UIView;
+@protocol NCLongLookPresentationController;
 
 @protocol NCLongLookPresentationControllerDelegate <NSObject>
-- (_Bool)longLookPresentationControllerShouldRestoreSourceView:(NCLongLookPresentationController *)arg1;
-- (_Bool)longLookPresentationControllerPreviewShouldIncludeShadow:(NCLongLookPresentationController *)arg1;
-- (struct CGRect)longLookPresentationController:(NCLongLookPresentationController *)arg1 frameForTransitionViewInPresentationSuperview:(UIView *)arg2;
+- (struct CGRect)longLookPresentationController:(UIPresentationController<NCLongLookPresentationController> *)arg1 frameForTransitionViewInPresentationSuperview:(UIView *)arg2;
 
 @optional
-- (unsigned long long)longLookPresentationControllerDismissalEdge:(NCLongLookPresentationController *)arg1;
-- (_Bool)longLookPresentationControllerShouldIncludePreview:(NCLongLookPresentationController *)arg1;
+- (_Bool)longLookPresentationControllerShouldAllowKeyboardOnAppearance:(UIPresentationController<NCLongLookPresentationController> *)arg1;
 @end
 

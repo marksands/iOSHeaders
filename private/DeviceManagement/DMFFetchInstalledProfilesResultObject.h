@@ -4,21 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Catalyst/CATTaskResultObject.h>
+#import <DeviceManagement/DMFFetchProfilesResultObject.h>
 
-@class NSArray;
-
-@interface DMFFetchInstalledProfilesResultObject : CATTaskResultObject
+@interface DMFFetchInstalledProfilesResultObject : DMFFetchProfilesResultObject
 {
-    NSArray *_profiles;
 }
-
-+ (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSArray *profiles; // @synthesize profiles=_profiles;
-- (void).cxx_destruct;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithProfiles:(id)arg1;
 
 @end
 

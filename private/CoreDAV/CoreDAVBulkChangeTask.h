@@ -28,13 +28,13 @@
 @property(readonly, nonatomic) NSString *nextCTag; // @synthesize nextCTag=_nextCTag;
 @property(readonly, nonatomic) NSDictionary *hrefsToModDeleteActions; // @synthesize hrefsToModDeleteActions=_hrefsToModDeleteActions;
 @property(readonly, nonatomic) NSDictionary *uuidsToAddActions; // @synthesize uuidsToAddActions=_uuidsToAddActions;
+- (void).cxx_destruct;
 - (void)finishCoreDAVTaskWithError:(id)arg1;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (void)fillOutDataWithUUIDsToAddActions:(id)arg1 hrefsToModDeleteActions:(id)arg2;
 - (id)requestBody;
 - (id)httpMethod;
 - (id)additionalHeaderValues;
-- (void)dealloc;
 - (id)initWithURL:(id)arg1 checkCTag:(id)arg2 simple:(_Bool)arg3 returnChangedData:(_Bool)arg4 uuidsToAddActions:(id)arg5 hrefsToModDeleteActions:(id)arg6;
 
 @end

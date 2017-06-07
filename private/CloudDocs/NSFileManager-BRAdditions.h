@@ -7,6 +7,8 @@
 #import <Foundation/NSFileManager.h>
 
 @interface NSFileManager (BRAdditions)
+- (void)br_setFavoriteRank:(id)arg1 onItemAtURL:(id)arg2;
+- (void)br_setLastOpenDate:(id)arg1 onItemAtURL:(id)arg2;
 - (_Bool)br_putBackTrashedItemAtURL:(id)arg1 resultingURL:(id *)arg2 error:(id *)arg3;
 - (_Bool)br_trashItemAtURL:(id)arg1 resultingURL:(id *)arg2 error:(id *)arg3;
 - (id)br_putBackURLForTrashedItemAtURL:(id)arg1 error:(id *)arg2;

@@ -7,6 +7,9 @@
 #import <CalendarDaemon/NSObject-Protocol.h>
 
 @protocol CADPermissionValidator <NSObject>
+@property(readonly) _Bool hasCalendarToolEntitlement;
+@property(readonly) _Bool hasSyncClientEntitlement;
+@property(readonly) _Bool hasMigrationEntitlement;
 @property(readonly) _Bool hasContactsUIEntitlement;
 @property(readonly) _Bool internalAccessLevelGranted;
 @property(readonly) _Bool testingAccessLevelGranted;

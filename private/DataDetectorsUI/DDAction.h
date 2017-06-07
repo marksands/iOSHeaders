@@ -4,57 +4,67 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <DataDetectorsUI/NSCoding-Protocol.h>
 #import <DataDetectorsUI/NSSecureCoding-Protocol.h>
 
-@class NSDictionary, NSURL, UIViewController;
+@class CNContact, NSDictionary, NSString, NSURL, UIViewController;
 @protocol DDActionDelegate;
 
 @interface DDAction : NSObject <NSCoding, NSSecureCoding>
 {
-    struct __DDResult *_result;
-    struct __DDResult *_coalescedResult;
+    // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}, name: _result
+    // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}, name: _coalescedResult
     struct __CFArray *_associatedResults;
+    CNContact *_contact;
+    NSString *_ics;
+    UIViewController *_viewController;
     NSDictionary *_context;
     NSURL *_url;
     _Bool _cachedCoalescedResult;
     _Bool _cachedAssociatedResults;
     _Bool _isDefaultAction;
     _Bool _companion;
-    id _delegate;
     int _hostApplication;
-    UIViewController *_viewController;
+    NSObject<DDActionDelegate> *_delegate;
 }
 
++ (_Bool)actionAvailableForContact:(id)arg1;
 + (_Bool)isAvailable;
-+ (id)defaultActionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
-+ (id)actionsWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
-+ (id)actionWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
++     // Error parsing type: @40@0:8@16^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@32, name: defaultActionWithURL:result:context:
++     // Error parsing type: @40@0:8@16^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@32, name: actionsWithURL:result:context:
++     // Error parsing type: @40@0:8@16^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@32, name: actionWithURL:result:context:
 + (_Bool)supportsSecureCoding;
 + (id)encodableContextWithContext:(id)arg1;
++ (id)contextByAddingValue:(id)arg1 toKey:(id)arg2 inContext:(id)arg3;
+@property(nonatomic) __weak NSObject<DDActionDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(retain) CNContact *contact; // @synthesize contact=_contact;
 @property int hostApplication; // @synthesize hostApplication=_hostApplication;
 @property(retain, nonatomic) UIViewController *viewController; // @synthesize viewController=_viewController;
 @property(nonatomic) _Bool companion; // @synthesize companion=_companion;
 @property _Bool isDefaultAction; // @synthesize isDefaultAction=_isDefaultAction;
-@property __weak NSObject<DDActionDelegate> *delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
 - (void)invalidate;
 - (void)adaptForPresentationInPopover:(_Bool)arg1;
 - (id)description;
 - (void)addToRecents;
 - (id)context;
-- (struct __CFArray *)associatedResults;
-- (struct __DDResult *)coalescedResult;
-- (struct __DDResult *)result;
+- (const struct __CFArray *)associatedResults;
+-     // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16@0:8, name: coalescedResult
+-     // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16@0:8, name: result
 - (id)url;
+- (id)notificationURL;
+- (id)notificationIconBundleIdentifier;
+- (id)notificationTitle;
 - (id)localizedName;
 - (void)_copyURL:(id)arg1;
 - (void)_copyURL:(id)arg1 andString:(id)arg2;
-@property(readonly, nonatomic) DDAction *companionAction;
+@property(readonly, nonatomic) __weak DDAction *companionAction;
 - (void)_performFromView:(id)arg1 byOpeningURL:(id)arg2;
 - (void)performFromView:(id)arg1;
 - (void)perform;
+- (_Bool)canBePerformedWhenDeviceIsLocked;
 - (_Bool)canBePerformedByOpeningURL;
 - (_Bool)hasUserInterface;
 - (int)interactionType;
@@ -62,7 +72,7 @@
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithURL:(id)arg1 result:(struct __DDResult *)arg2 context:(id)arg3;
+-     // Error parsing type: @40@0:8@16^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}24@32, name: initWithURL:result:context:
 
 @end
 

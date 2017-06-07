@@ -18,6 +18,7 @@
 + (void)pushSongsViewControllerForEntityValueProvider:(id)arg1 persistentIDPropertyName:(id)arg2 titlePropertyName:(id)arg3 predicatePersistentIDPropertyName:(id)arg4 fromViewController:(id)arg5;
 + (void)pushAlbumsViewControllerForEntityValueProvider:(id)arg1 persistentIDPropertyName:(id)arg2 titlePropertyName:(id)arg3 predicatePersistentIDPropertyName:(id)arg4 viewController:(id)arg5;
 + (void)includeDisclosureIndicatorInDescriptor:(id)arg1;
++ (void)includeDisclosureIndicatorInDescriptor:(id)arg1 conditionalOnPlaylistFolder:(_Bool)arg2;
 + (void)includeAddButtonInDescriptor:(id)arg1;
 + (void)handleSelectionOfMediaItemsInCollection:(id)arg1 fromViewController:(id)arg2;
 + (void)handleSelectionOfMediaItem:(id)arg1 fromViewController:(id)arg2;

@@ -12,6 +12,7 @@
 
 @interface NTPBUserOnboardingScreenView : PBCodable <NSCopying>
 {
+    int _channelPickerPresentationReason;
     int _countOfNotificationsSelected;
     int _onboardingScreenType;
     int _previouslyCompletedOnboardingOsVersion;
@@ -21,6 +22,7 @@
     NSString *_userActivityType;
     _Bool _fromPersonalizeNews;
     struct {
+        unsigned int channelPickerPresentationReason:1;
         unsigned int countOfNotificationsSelected:1;
         unsigned int onboardingScreenType:1;
         unsigned int previouslyCompletedOnboardingOsVersion:1;
@@ -43,6 +45,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasChannelPickerPresentationReason;
+@property(nonatomic) int channelPickerPresentationReason; // @synthesize channelPickerPresentationReason=_channelPickerPresentationReason;
 @property(nonatomic) _Bool hasFromPersonalizeNews;
 @property(nonatomic) _Bool hasPreviouslyCompletedOnboardingOsVersion;
 @property(nonatomic) int previouslyCompletedOnboardingOsVersion; // @synthesize previouslyCompletedOnboardingOsVersion=_previouslyCompletedOnboardingOsVersion;

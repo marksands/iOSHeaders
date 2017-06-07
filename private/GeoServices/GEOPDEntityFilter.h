@@ -8,15 +8,23 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOPDEntityFilter : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
+    _Bool _includeName;
     _Bool _includeSpokenNames;
     struct {
+        unsigned int includeName:1;
         unsigned int includeSpokenNames:1;
     } _has;
 }
 
+@property(nonatomic) _Bool includeName; // @synthesize includeName=_includeName;
 @property(nonatomic) _Bool includeSpokenNames; // @synthesize includeSpokenNames=_includeSpokenNames;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -26,6 +34,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIncludeName;
 @property(nonatomic) _Bool hasIncludeSpokenNames;
 
 @end

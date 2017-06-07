@@ -4,15 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UITableViewCell.h>
+#import <HealthUI/HKSimpleDataEntryCell.h>
 
-#import <HealthUI/HKSimpleDataEntryCellType-Protocol.h>
 #import <HealthUI/UITextFieldDelegate-Protocol.h>
 
 @class NSString, UIButton, UILabel, UITextField, UIView;
 @protocol HKSimpleDataEntryCellDelegate;
 
-@interface HKOrganDonationAddressCell : UITableViewCell <UITextFieldDelegate, HKSimpleDataEntryCellType>
+@interface HKOrganDonationAddressCell : HKSimpleDataEntryCell <UITextFieldDelegate>
 {
     UILabel *_titleLabel;
     UIView *_addressContainerView;
@@ -39,12 +38,11 @@
 @property(retain, nonatomic) UITextField *streetOneTextField; // @synthesize streetOneTextField=_streetOneTextField;
 @property(nonatomic) __weak id <HKSimpleDataEntryCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidChangeValue:(id)arg1;
-- (void)textFieldDidBeginEditing:(id)arg1;
 - (_Bool)textFieldShouldBeginEditing:(id)arg1;
-@property(nonatomic) _Bool editDisabled;
-- (void)toggleMissingState:(_Bool)arg1 forKey:(id)arg2;
+- (void)setEditDisabled:(_Bool)arg1;
+- (_Bool)editDisabled;
+- (void)beginEditing;
 - (void)_stateShadowButtonTapped:(id)arg1;
 - (void)_setupLayoutConstraints;
 - (void)_setupFonts;

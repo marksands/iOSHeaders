@@ -42,6 +42,7 @@
 @property(retain, nonatomic) NSString *userMessage; // @synthesize userMessage=_userMessage;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(nonatomic) unsigned int announcementID; // @synthesize announcementID=_announcementID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -69,7 +70,6 @@
 @property(readonly, nonatomic) _Bool hasUserMessage;
 @property(readonly, nonatomic) _Bool hasMapRegion;
 @property(nonatomic) _Bool hasAnnouncementID;
-- (void)dealloc;
 
 @end
 

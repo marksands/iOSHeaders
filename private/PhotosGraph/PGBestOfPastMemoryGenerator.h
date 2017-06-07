@@ -16,6 +16,7 @@
 
 @property(nonatomic) NSDate *localEndDate; // @synthesize localEndDate=_localEndDate;
 @property(nonatomic) NSDate *localStartDate; // @synthesize localStartDate=_localStartDate;
+- (id)_potentialMemoriesForDryTesting;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;
 - (id)_potentialMemories:(unsigned long long)arg1;
 

@@ -32,6 +32,7 @@
 - (void)doubleTapGestureRecognized:(id)arg1;
 - (void)updateAnimationTimerObserving;
 - (void)animationTimerFired:(unsigned long long)arg1;
+- (void)performReload:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performReveal:(CDUnknownBlockType)arg1;
 - (void)performHide:(CDUnknownBlockType)arg1;
 - (void)layoutSubviewsForDrawer;

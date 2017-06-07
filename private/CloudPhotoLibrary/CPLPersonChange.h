@@ -17,19 +17,24 @@
     long long _personType;
     long long _manualSortOrder;
     NSString *_displayName;
+    long long _verifiedType;
     NSData *_contactDescriptor;
 }
 
 + (_Bool)cplShouldIgnorePropertyForEquality:(id)arg1;
 + (_Bool)cplShouldIgnorePropertyForCoding:(id)arg1;
++ (_Bool)serverSupportsGraphPeopleHome;
 @property(copy, nonatomic) NSData *contactDescriptor; // @synthesize contactDescriptor=_contactDescriptor;
+@property(nonatomic) long long verifiedType; // @synthesize verifiedType=_verifiedType;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(nonatomic) long long manualSortOrder; // @synthesize manualSortOrder=_manualSortOrder;
 @property(nonatomic) long long personType; // @synthesize personType=_personType;
 @property(copy, nonatomic) NSString *fullName; // @synthesize fullName=_fullName;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSDictionary *contactMatchingDictionary;
+- (_Bool)supportsDirectDeletion;
 - (_Bool)supportsDeletion;
+- (_Bool)validateRecordForTracker:(id)arg1;
 
 @end
 

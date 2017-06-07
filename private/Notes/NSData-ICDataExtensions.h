@@ -9,6 +9,7 @@
 @class NSString;
 
 @interface NSData (ICDataExtensions)
+- (id)ic_stringValue;
 @property(readonly, nonatomic) NSString *md5;
 @end
 

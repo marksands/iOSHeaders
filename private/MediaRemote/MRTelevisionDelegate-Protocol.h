@@ -6,12 +6,12 @@
 
 #import <MediaRemote/NSObject-Protocol.h>
 
-@class MRTelevision, MRTelevisionController;
+@class MRTelevisionController, MRTelevisionDevice;
 
 @protocol MRTelevisionDelegate <NSObject>
 
 @optional
-- (void)televisionController:(MRTelevisionController *)arg1 didRemoveTelevision:(MRTelevision *)arg2;
-- (void)televisionController:(MRTelevisionController *)arg1 didDiscoverTelevision:(MRTelevision *)arg2;
+- (void)televisionController:(MRTelevisionController *)arg1 didRemoveTelevision:(MRTelevisionDevice *)arg2;
+- (void)televisionController:(MRTelevisionController *)arg1 didDiscoverTelevision:(MRTelevisionDevice *)arg2;
 @end
 

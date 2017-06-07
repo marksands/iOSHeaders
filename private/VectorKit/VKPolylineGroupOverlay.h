@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKOverlay-Protocol.h>
 
@@ -17,8 +17,10 @@
     struct __CFSet *_observers;
     VKPolylineOverlay *_selectedPolyline;
     _Bool _containsTransit;
+    _Bool _showTraffic;
 }
 
+@property(nonatomic) _Bool showTraffic; // @synthesize showTraffic=_showTraffic;
 @property(readonly, nonatomic) _Bool containsTransit; // @synthesize containsTransit=_containsTransit;
 @property(retain, nonatomic) VKPolylineOverlay *selectedPolyline; // @synthesize selectedPolyline=_selectedPolyline;
 @property(readonly, nonatomic) GEOMapRegion *boundingMapRegion; // @synthesize boundingMapRegion=_boundingMapRegion;

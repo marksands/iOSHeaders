@@ -9,15 +9,19 @@
 __attribute__((visibility("hidden")))
 @interface TSCENumberCellValue : TSCECellValue
 {
-    struct TSCENumberValue *mNumberValue;
+    struct TSCENumberValue *_numberValue;
 }
 
 - (void)encodeToArchive:(struct NumberCellValueArchive *)arg1;
 - (id)initWithArchive:(const struct NumberCellValueArchive *)arg1 locale:(id)arg2;
+- (long long)compareToCellValue:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqualToCellValue:(id)arg1;
 - (id)displayString;
-- (CDStruct_28403e59)formatStruct;
+- (id)format;
 - (struct TSCENumberValue *)numberValue;
+- (struct TSCEValue)tsceValue;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (id)initWithNumberValue:(struct TSCENumberValue *)arg1 locale:(id)arg2;

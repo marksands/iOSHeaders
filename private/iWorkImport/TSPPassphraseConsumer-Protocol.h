@@ -14,7 +14,7 @@
 - (_Bool)setPassphrase:(NSString *)arg1;
 
 @optional
-@property(readonly, nonatomic) NSString *service;
+@property(readonly, nonatomic) _Bool requiresNetworkValidation;
 @property(readonly, nonatomic) NSData *keychainGenericItem;
 @property(readonly, nonatomic) NSString *passphraseHint;
 - (void)cancel;

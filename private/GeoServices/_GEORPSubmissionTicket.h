@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <GeoServices/GEOAbstractTicket.h>
 
 #import <GeoServices/GEOMapServiceProblemReportTicket-Protocol.h>
 
@@ -12,26 +12,21 @@
 @protocol GEOMapItem;
 
 __attribute__((visibility("hidden")))
-@interface _GEORPSubmissionTicket : NSObject <GEOMapServiceProblemReportTicket>
+@interface _GEORPSubmissionTicket : GEOAbstractTicket <GEOMapServiceProblemReportTicket>
 {
     NSData *_resubmissionData;
     GEORPProblem *_problem;
     id <GEOMapItem> _place;
-    id <GEOMapItem> _startPlace;
-    id <GEOMapItem> _endPlace;
     GEORPProblemRequest *_problemRequest;
     NSData *_pushToken;
     NSString *_emailAddress;
-    GEOMapServiceTraits *_traits;
     _Bool _started;
-    _Bool _canceled;
 }
 
-@property(readonly, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
+- (void).cxx_destruct;
 - (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
 - (void)cancel;
-- (void)dealloc;
-- (id)initWithProblem:(id)arg1 placeForProblemContext:(id)arg2 placeForStartDirectionsSearchInput:(id)arg3 placeForEndDirectionsSearchInput:(id)arg4 pushToken:(id)arg5 allowContactBackAtEmailAddress:(id)arg6 traits:(id)arg7;
+- (id)initWithProblem:(id)arg1 placeForProblemContext:(id)arg2 pushToken:(id)arg3 allowContactBackAtEmailAddress:(id)arg4 traits:(id)arg5;
 - (id)initWithResubmissionData:(id)arg1 traits:(id)arg2;
 
 // Remaining properties
@@ -39,6 +34,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) GEOMapServiceTraits *traits;
 
 @end
 

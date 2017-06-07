@@ -23,14 +23,13 @@ __attribute__((visibility("hidden")))
 + (id)layoutProperties;
 + (id)properties;
 + (id)presetStyleDescriptor;
+- (id)archivableRepresentationOfChangeSet:(id)arg1;
 - (id)defaultParagraphStyle;
 - (void)setDefaultParagraphStyle:(id)arg1;
 - (id)boxedValueForProperty:(int)arg1 oldBoxedValue:(id)arg2 transformedByTransform:(struct CGAffineTransform)arg3;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct ShapeStyleArchive *)arg1 archiver:(id)arg2;
-- (const struct ShapeStyleArchive *)shapeStyleArchiveFromUnarchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
-- (SEL)mapThemePropertyMapSelector;
+- (void)loadFromUnarchiver:(id)arg1;
 @property(readonly, nonatomic) NSString *presetKind;
 
 @end

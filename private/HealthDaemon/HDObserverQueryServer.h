@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (void)_deliverDataWasUpdatedWithAnchor:(id)arg1;
 - (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
+- (id)requiredEntitlements;
 - (_Bool)_shouldExecuteWhenProtectedDataIsUnavailable;
 - (_Bool)_shouldListenForUpdates;
 - (void)samplesOfTypesWereRemoved:(id)arg1 anchor:(id)arg2;

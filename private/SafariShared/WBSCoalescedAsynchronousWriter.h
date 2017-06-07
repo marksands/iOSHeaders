@@ -35,7 +35,7 @@
 - (void)_writeDataAsynchronously:(id)arg1;
 - (void)_writeData:(id)arg1;
 - (void)_waitForWriteCompletion;
-- (id)_dataFromDataSource;
+- (void)_writeDataFromDataSourceAsynchronously;
 - (void)_scheduleTimer;
 - (void)_timerFired:(id)arg1;
 - (void)_invalidateTimer;

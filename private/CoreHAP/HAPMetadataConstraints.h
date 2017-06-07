@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <CoreHAP/NSCopying-Protocol.h>
+#import <CoreHAP/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSNumber;
 
-@interface HAPMetadataConstraints : NSObject <NSCopying>
+@interface HAPMetadataConstraints : HMFObject <NSCopying, NSSecureCoding>
 {
     NSNumber *_minimumValue;
     NSNumber *_maximumValue;
@@ -20,6 +21,7 @@
     NSArray *_validValues;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *validValues; // @synthesize validValues=_validValues;
 @property(retain, nonatomic) NSNumber *maxLength; // @synthesize maxLength=_maxLength;
 @property(retain, nonatomic) NSNumber *minLength; // @synthesize minLength=_minLength;
@@ -27,6 +29,8 @@
 @property(retain, nonatomic) NSNumber *maximumValue; // @synthesize maximumValue=_maximumValue;
 @property(retain, nonatomic) NSNumber *minimumValue; // @synthesize minimumValue=_minimumValue;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)isEqualToMetadataConstraints:(id)arg1;
 - (id)description;

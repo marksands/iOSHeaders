@@ -6,11 +6,12 @@
 
 #import <Home/HFItemProvider.h>
 
-@class HFActionSetValueSource, HFItemBuilder, HMActionSet, NSMutableSet;
+@class HFActionSetValueSource, HFItemBuilder, HMActionSet, HMHome, NSMutableSet;
 @protocol HFActionSetBuilderProtocol, HFActionSetValueSourceDelegate;
 
 @interface HFServiceActionItemProvider : HFItemProvider
 {
+    HMHome *_home;
     HMActionSet *_actionSet;
     HFItemBuilder<HFActionSetBuilderProtocol> *_actionSetBuilder;
     NSMutableSet *_actionItems;
@@ -21,6 +22,7 @@
 @property(retain, nonatomic) NSMutableSet *actionItems; // @synthesize actionItems=_actionItems;
 @property(retain, nonatomic) HFItemBuilder<HFActionSetBuilderProtocol> *actionSetBuilder; // @synthesize actionSetBuilder=_actionSetBuilder;
 @property(retain, nonatomic) HMActionSet *actionSet; // @synthesize actionSet=_actionSet;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 - (id)_addOrUpdateActionItemWithAction:(id)arg1 actionBuilder:(id)arg2 addedActionItems:(id)arg3 home:(id)arg4;
 - (id)_createActionItemForCharacteristic:(id)arg1 home:(id)arg2;
@@ -29,9 +31,10 @@
 - (id)items;
 - (id)reloadItems;
 @property(nonatomic) __weak id <HFActionSetValueSourceDelegate> actionSetValueSourceDelegate;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1 actionSetBuilder:(id)arg2;
 - (id)initWithHome:(id)arg1 actionSet:(id)arg2;
-- (id)initWithHome:(id)arg1;
+- (id)init;
 
 @end
 

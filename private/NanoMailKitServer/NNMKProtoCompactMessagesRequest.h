@@ -8,15 +8,17 @@
 
 #import <NanoMailKitServer/NSCopying-Protocol.h>
 
-@class NSData;
+@class NSData, NSString;
 
 @interface NNMKProtoCompactMessagesRequest : PBRequest <NSCopying>
 {
     NSData *_beforeDateReceived;
     unsigned int _fullSyncVersion;
+    NSString *_mailboxId;
     CDStruct_a125a100 _has;
 }
 
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(retain, nonatomic) NSData *beforeDateReceived; // @synthesize beforeDateReceived=_beforeDateReceived;
 @property(nonatomic) unsigned int fullSyncVersion; // @synthesize fullSyncVersion=_fullSyncVersion;
 - (void).cxx_destruct;
@@ -29,6 +31,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasMailboxId;
 @property(readonly, nonatomic) _Bool hasBeforeDateReceived;
 @property(nonatomic) _Bool hasFullSyncVersion;
 

@@ -47,6 +47,8 @@
 @property(readonly, copy) NSString *description;
 - (void)deferEventsForClientWithProperties:(id)arg1 toClientWithProperties:(id)arg2 withPriority:(int)arg3;
 - (void)deferEventsForClientWithProperties:(id)arg1 toClientWithProperties:(id)arg2;
+- (void)touchDetachedForIdentifier:(unsigned int)arg1 context:(unsigned int)arg2 pid:(int)arg3;
+- (void)touchUpOccuredForIdentifier:(unsigned int)arg1 detached:(_Bool)arg2 context:(unsigned int)arg3 pid:(int)arg4;
 - (void)focusedDeferralPropertiesUpdatedWithProperties:(id)arg1;
 - (void)_connectToEventFocusService;
 - (void)dealloc;

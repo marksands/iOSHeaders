@@ -6,11 +6,11 @@
 
 #import <FrontBoard/NSObject-Protocol.h>
 
-@class FBSDisplay, FBSSceneClientSettings, FBSSceneClientSettingsDiff, FBSSceneLayer, FBSSceneTransitionContext, NSSet, NSString;
+@class FBSSceneClientSettings, FBSSceneClientSettingsDiff, FBSSceneLayer, FBSSceneSpecification, FBSSceneTransitionContext, NSSet, NSString;
 @protocol FBSceneClient;
 
 @protocol FBSceneHost <NSObject>
-@property(readonly, retain, nonatomic) FBSDisplay *display;
+@property(readonly, copy, nonatomic) FBSSceneSpecification *specification;
 @property(readonly, copy, nonatomic) NSString *identifier;
 - (void)clientWillInvalidate:(id <FBSceneClient>)arg1;
 - (void)client:(id <FBSceneClient>)arg1 didReceiveActions:(NSSet *)arg2;

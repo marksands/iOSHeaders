@@ -9,6 +9,7 @@
 @class TSSStyle, TSSStylesheet;
 
 @protocol TSKStyleMapper <NSObject>
+@property(nonatomic) _Bool forceMatchStyle;
 @property(readonly, nonatomic) _Bool clientsMustRemap;
 - (TSSStyle *)mappedStyleForStyle:(TSSStyle *)arg1;
 - (void)popMappingContext:(id)arg1;

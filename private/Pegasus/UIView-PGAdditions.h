@@ -7,7 +7,6 @@
 #import <UIKit/UIView.h>
 
 @interface UIView (PGAdditions)
-+ (void)PG_transitionViews:(id)arg1 hidden:(_Bool)arg2 animated:(_Bool)arg3;
 + (void)PG_animateUsingDefaultDampedSpringWithInitialSpringVelocity:(double)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)PG_animateUsingDefaultTimingWithOptions:(unsigned long long)arg1 animations:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 + (void)PG_animateUsingDefaultTimingWithAnimations:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;

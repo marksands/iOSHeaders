@@ -22,6 +22,7 @@
 - (id)apsEnvironmentEntitlement;
 - (id)_clientPrefixEntitlement;
 - (id)applicationIdentifier;
+- (id)serviceNameForContainerMapEntitlement;
 - (_Bool)hasDisplaysSystemAcceptPromptEntitlement;
 - (_Bool)hasParticipantPIIEntitlement;
 - (_Bool)hasOutOfProcessUIEntitlement;
@@ -31,6 +32,7 @@
 - (_Bool)hasDarkWakeNetworkReachabilityEnabledEntitlement;
 - (_Bool)hasCloudKitSystemServiceEntitlement;
 - (_Bool)hasDeviceIdentifierEntitlement;
+- (_Bool)hasZoneProtectionDataEntitlement;
 - (_Bool)hasProtectionDataEntitlement;
 - (_Bool)_hasCustomAccountsEntitlement;
 - (_Bool)_hasEnvironmentEntitlement;

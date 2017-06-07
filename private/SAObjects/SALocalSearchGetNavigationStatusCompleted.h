@@ -9,7 +9,7 @@
 #import <SAObjects/SABackgroundContextObject-Protocol.h>
 #import <SAObjects/SAServerBoundCommand-Protocol.h>
 
-@class NSString, SALocalSearchAceNavigationEta, SALocalSearchRoute;
+@class NSString, SALocalSearchAceNavigationEta, SALocalSearchMapItem, SALocalSearchMapItemList, SALocalSearchRoute;
 
 @interface SALocalSearchGetNavigationStatusCompleted : SABaseCommand <SAServerBoundCommand, SABackgroundContextObject>
 {
@@ -17,11 +17,14 @@
 
 + (id)getNavigationStatusCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getNavigationStatusCompleted;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *volume;
 @property(copy, nonatomic) NSString *trafficIncidentAlertType;
 @property(retain, nonatomic) SALocalSearchRoute *route;
+@property(retain, nonatomic) SALocalSearchMapItemList *predictedDestinations;
 @property(retain, nonatomic) SALocalSearchAceNavigationEta *overallEta;
 @property(retain, nonatomic) SALocalSearchAceNavigationEta *nextManeuverEta;
+@property(retain, nonatomic) SALocalSearchMapItem *destination;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

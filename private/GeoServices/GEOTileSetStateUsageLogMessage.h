@@ -10,16 +10,8 @@
 
 @interface GEOTileSetStateUsageLogMessage : PBCodable <NSCopying>
 {
-    double _durationInOldState;
-    double _newCoverage;
-    double _oldCoverage;
-    int _tileSetStateType;
-    CDStruct_8081ba47 _has;
 }
 
-@property(nonatomic) double newCoverage; // @synthesize newCoverage=_newCoverage;
-@property(nonatomic) double oldCoverage; // @synthesize oldCoverage=_oldCoverage;
-@property(nonatomic) double durationInOldState; // @synthesize durationInOldState=_durationInOldState;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,13 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasNewCoverage;
-@property(nonatomic) _Bool hasOldCoverage;
-- (int)StringAsTileSetStateType:(id)arg1;
-- (id)tileSetStateTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasTileSetStateType;
-@property(nonatomic) int tileSetStateType; // @synthesize tileSetStateType=_tileSetStateType;
-@property(nonatomic) _Bool hasDurationInOldState;
 
 @end
 

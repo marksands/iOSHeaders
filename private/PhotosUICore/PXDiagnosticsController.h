@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <PhotosUICore/PXSettingsKeyObserver-Protocol.h>
 #import <PhotosUICore/UIGestureRecognizerDelegate-Protocol.h>
-#import <PhotosUICore/_UISettingsKeyObserver-Protocol.h>
 
 @class NSArray, NSString, UITapGestureRecognizer, UIWindow;
 
-@interface PXDiagnosticsController : NSObject <_UISettingsKeyObserver, UIGestureRecognizerDelegate>
+@interface PXDiagnosticsController : NSObject <PXSettingsKeyObserver, UIGestureRecognizerDelegate>
 {
     UIWindow *__window;
     NSArray *__diagnosticsServicesClasses;

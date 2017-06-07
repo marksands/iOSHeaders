@@ -8,36 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDAutocompleteEntry, NSData, NSMutableArray, NSString;
-
 @interface GEOSuggestionsUsageLogMessage : PBCodable <NSCopying>
 {
-    NSMutableArray *_displayedResults;
-    NSString *_prefix;
-    int _searchFieldType;
-    int _selectedIndex;
-    GEOPDAutocompleteEntry *_suggestionEntry;
-    int _suggestionEntryIndex;
-    int _suggestionEntryListIndex;
-    NSData *_suggestionEntryMetadata;
-    NSData *_suggestionMetadata;
-    struct {
-        unsigned int searchFieldType:1;
-        unsigned int selectedIndex:1;
-        unsigned int suggestionEntryIndex:1;
-        unsigned int suggestionEntryListIndex:1;
-    } _has;
 }
 
-+ (Class)displayedResultType;
-@property(nonatomic) int selectedIndex; // @synthesize selectedIndex=_selectedIndex;
-@property(retain, nonatomic) NSMutableArray *displayedResults; // @synthesize displayedResults=_displayedResults;
-@property(retain, nonatomic) NSString *prefix; // @synthesize prefix=_prefix;
-@property(retain, nonatomic) GEOPDAutocompleteEntry *suggestionEntry; // @synthesize suggestionEntry=_suggestionEntry;
-@property(retain, nonatomic) NSData *suggestionEntryMetadata; // @synthesize suggestionEntryMetadata=_suggestionEntryMetadata;
-@property(retain, nonatomic) NSData *suggestionMetadata; // @synthesize suggestionMetadata=_suggestionMetadata;
-@property(nonatomic) int suggestionEntryIndex; // @synthesize suggestionEntryIndex=_suggestionEntryIndex;
-@property(nonatomic) int suggestionEntryListIndex; // @synthesize suggestionEntryListIndex=_suggestionEntryListIndex;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -47,22 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-- (int)StringAsSearchFieldType:(id)arg1;
-- (id)searchFieldTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasSearchFieldType;
-@property(nonatomic) int searchFieldType; // @synthesize searchFieldType=_searchFieldType;
-@property(nonatomic) _Bool hasSelectedIndex;
-- (id)displayedResultAtIndex:(unsigned long long)arg1;
-- (unsigned long long)displayedResultsCount;
-- (void)addDisplayedResult:(id)arg1;
-- (void)clearDisplayedResults;
-@property(readonly, nonatomic) _Bool hasPrefix;
-@property(readonly, nonatomic) _Bool hasSuggestionEntry;
-@property(readonly, nonatomic) _Bool hasSuggestionEntryMetadata;
-@property(readonly, nonatomic) _Bool hasSuggestionMetadata;
-@property(nonatomic) _Bool hasSuggestionEntryIndex;
-@property(nonatomic) _Bool hasSuggestionEntryListIndex;
-- (void)dealloc;
 
 @end
 

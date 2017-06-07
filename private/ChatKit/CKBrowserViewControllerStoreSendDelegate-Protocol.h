@@ -6,9 +6,12 @@
 
 #import <ChatKit/CKBrowserViewControllerSendDelegate-Protocol.h>
 
-@class NSString;
+@class NSNumber, NSString;
 
 @protocol CKBrowserViewControllerStoreSendDelegate <CKBrowserViewControllerSendDelegate>
 - (void)didBeginInstallingAppWithBundleIdentifier:(NSString *)arg1;
+
+@optional
+- (void)openAppExtensionWithAdamID:(NSNumber *)arg1;
 @end
 

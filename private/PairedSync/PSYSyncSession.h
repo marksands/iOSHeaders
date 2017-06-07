@@ -14,6 +14,7 @@
 @interface PSYSyncSession : NSObject <NSCopying, NSSecureCoding>
 {
     NSDictionary *_activityMap;
+    _Bool _supportsMigrationSync;
     NSUUID *_pairingIdentifier;
     long long _switchIndex;
     NSUUID *_sessionIdentifier;
@@ -25,6 +26,7 @@
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned long long syncSessionState; // @synthesize syncSessionState=_syncSessionState;
 @property(retain, nonatomic) NSArray *activities; // @synthesize activities=_activities;
+@property(nonatomic) _Bool supportsMigrationSync; // @synthesize supportsMigrationSync=_supportsMigrationSync;
 @property(nonatomic) unsigned long long syncSessionType; // @synthesize syncSessionType=_syncSessionType;
 @property(retain, nonatomic) NSUUID *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(nonatomic) long long switchIndex; // @synthesize switchIndex=_switchIndex;
@@ -44,7 +46,7 @@
 - (id)firstIncompleteActivity;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithPairingIdentifier:(id)arg1 switchIndex:(long long)arg2 sessionIdentifier:(id)arg3 syncSessionType:(unsigned long long)arg4 activities:(id)arg5 state:(unsigned long long)arg6;
+- (id)initWithPairingIdentifier:(id)arg1 switchIndex:(long long)arg2 sessionIdentifier:(id)arg3 syncSessionType:(unsigned long long)arg4 supportsMigrationSync:(_Bool)arg5 activities:(id)arg6 state:(unsigned long long)arg7;
 - (id)_deepCopy;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

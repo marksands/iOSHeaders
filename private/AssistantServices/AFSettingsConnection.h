@@ -19,18 +19,24 @@
 }
 
 - (void).cxx_destruct;
+- (void)fetchExperimentContextWithCompletion:(CDUnknownBlockType)arg1;
+- (void)fetchExperimentConfigurationsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)sendMetricsToServerWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resetAnalyticsStoreWithCompletion:(CDUnknownBlockType)arg1;
 - (void)purgeAnalyticsStoreWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchEventRecordsFromAnalyticsStoreAtPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)setDESLotteryWinOverrideEnabled:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)setDESRecognitionEnabled:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)stopAllAudioPlaybackRequests:(_Bool)arg1;
+- (void)stopAudioPlaybackRequest:(id)arg1 immediately:(_Bool)arg2;
+- (void)startAudioPlaybackRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setDESPolicyCDNOverride:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)setDESRecordingEnabled:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setDESRecordingAlwaysIsEnabled:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)disableDESWithCompletion:(CDUnknownBlockType)arg1;
 - (void)runLiveAdaptationRecipeEvaluationWithBaseURL:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)runAdaptationRecipeEvaluation:(id)arg1 language:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)startRemoteRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)getPeerIdentifiers:(CDUnknownBlockType)arg1;
+- (void)startRemoteRequest:(id)arg1 onPeer:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)startUIRequestWithSpeechAudioFileURL:(id)arg1;
+- (void)startUIRequestWithText:(id)arg1;
 - (void)startUIRequest:(id)arg1;
 - (void)setLanguage:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)setLanguage:(id)arg1;
@@ -40,6 +46,7 @@
 - (void)setOfflineDictationProfileOverridePath:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)createOfflineSpeechProfileWithLanguage:(id)arg1 JSONData:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getOfflineDictationStatusWithCompletion:(CDUnknownBlockType)arg1;
+- (void)updateOfflineSpeechProfileWithLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getAvailableVoicesForSynthesisLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getAvailableVoicesForRecognitionLanguage:(id)arg1 includeAssetInfo:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getAvailableVoicesForRecognitionLanguage:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -47,6 +54,7 @@
 - (id)_filterVoices:(id)arg1 forLanguage:(id)arg2;
 - (id)_voices;
 - (void)_setVoices:(id)arg1;
+- (void)disableAndDeleteCloudSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)barrier;
 - (void)killDaemon;
 - (void)setDictationEnabled:(_Bool)arg1;
@@ -66,9 +74,12 @@
 - (void)_tellDelegatePartialVerificationResult:(id)arg1;
 @property(nonatomic, setter=_setDelegate:) __weak id <AFSettingsDelegate> _delegate;
 - (void)_runServiceMaintenance;
+- (void)_startDeepSyncVerificationForKeys:(id)arg1;
 - (void)_setSyncVerificationNeededAndFullReportNeeded:(_Bool)arg1 shouldPostNotification:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchPeerData:(CDUnknownBlockType)arg1;
 - (void)_syncDataWithAnchorKeys:(id)arg1 forceReset:(_Bool)arg2 reason:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_clearSyncNeededForKey:(id)arg1;
+- (void)_setSyncNeededForReason:(id)arg1;
 
 @end
 

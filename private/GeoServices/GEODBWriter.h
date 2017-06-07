@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSLock, NSMutableArray, NSMutableSet, NSString;
 @protocol OS_dispatch_queue;
@@ -54,6 +54,7 @@
 @property(nonatomic) unsigned long long maxDatabaseSize; // @synthesize maxDatabaseSize=_maxDatabaseSize;
 @property(readonly, nonatomic) unsigned long long databaseSize; // @synthesize databaseSize=_databaseSize;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (void)endPreloadSession;
 - (void)beginPreloadSessionOfSize:(unsigned long long)arg1;

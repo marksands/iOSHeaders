@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 - (id)requestOperations;
 - (id)requestOperationClasses;
 - (int)operationType;
+- (long long)databaseScope;
 
 @end
 

@@ -7,17 +7,14 @@
 #import <UIKit/UIViewController.h>
 
 #import <TVMLKit/TVAppTemplateController-Protocol.h>
-#import <TVMLKit/_TVAppNavigationBarDisplayConfiguring-Protocol.h>
 
-@class IKViewElement, NSString, TVImageProxy, UIColor;
+@class IKViewElement, NSString, TVImageProxy, UIView;
 
-@interface _TVBgImageLoadingViewController : UIViewController <TVAppTemplateController, _TVAppNavigationBarDisplayConfiguring>
+@interface _TVBgImageLoadingViewController : UIViewController <TVAppTemplateController>
 {
     TVImageProxy *_bgImageProxy;
-    _Bool _navigationBarHidden;
-    _Bool _prefersDarkTheme;
-    _Bool _statusBarBlurHidden;
-    UIColor *_navigationItemColor;
+    IKViewElement *_tmpDocumentBanner;
+    UIView *_rightLargeTitleButton;
     _Bool _appliedNavigationItem;
     IKViewElement *_navigationItemElement;
 }
@@ -25,16 +22,15 @@
 @property(nonatomic) _Bool appliedNavigationItem; // @synthesize appliedNavigationItem=_appliedNavigationItem;
 @property(retain, nonatomic) IKViewElement *navigationItemElement; // @synthesize navigationItemElement=_navigationItemElement;
 - (void).cxx_destruct;
-- (_Bool)prefersStatusBarDarkTheme;
-- (_Bool)prefersStatusBarBlurHidden;
-- (_Bool)prefersNavigationBarBackgroundViewHidden;
-- (id)navigationBarTintColor;
 - (void)_updateNavigationItem;
+- (void)_updateNavigationBarPadding;
 - (void)_reparentNavigationItem:(id)arg1;
+- (void)viewDidLayoutSubviews;
+- (void)updateNavigationItem:(id)arg1;
 - (void)loadFromViewController:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (void)didMoveToParentViewController:(id)arg1;
-- (void)willMoveToParentViewController:(id)arg1;
+- (void)configureAppearanceTransition;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)updateWithViewElement:(id)arg1;
 - (long long)preferredStatusBarStyle;
 - (void)_configureWithBgImage:(id)arg1 backdropImage:(id)arg2;

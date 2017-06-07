@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (id)oneBest;
 - (id)nBest;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)_initWithNBestList:(const vector_2c247c42 *)arg1;
 - (id)_initWithTokenSausage:(id)arg1 interpretationIndices:(id)arg2;
 
 @end

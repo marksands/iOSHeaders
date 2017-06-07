@@ -10,7 +10,6 @@
 
 @interface WBSHistoryItem : NSObject
 {
-    NSString *_urlString;
     WBSHistoryVisit *_lastVisit;
     NSMutableSet *_visitsPendingWriteToDataStore;
     long long _databaseID;
@@ -25,6 +24,7 @@
     float _cachedTopSitesVisitScore;
     NSURL *_url;
     NSString *_userVisibleURLString;
+    NSString *_urlString;
     unsigned long long _visitCountScore;
     double _lastTimeTopSitesScoreWasComputed;
 }
@@ -38,6 +38,7 @@
 @property(readonly, nonatomic) _Bool shouldRecomputeDerivedVisitCountScores; // @synthesize shouldRecomputeDerivedVisitCountScores=_shouldRecomputeDerivedVisitCountScores;
 @property(readonly, nonatomic) unsigned long long visitCountScore; // @synthesize visitCountScore=_visitCountScore;
 @property(readonly, nonatomic) NSArray *visits; // @synthesize visits=_visits;
+@property(readonly, nonatomic) NSString *urlString; // @synthesize urlString=_urlString;
 @property(nonatomic) long long databaseID; // @synthesize databaseID=_databaseID;
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -53,6 +54,7 @@
 @property(readonly, nonatomic) NSData *dailyVisitCountScoresDataOnSynchronizationQueue;
 - (void)clearVisitsPendingWriteToDataStoreFromSynchronizationQueue;
 @property(readonly, nonatomic) NSSet *visitsPendingWriteToDataStoreOnSynchronizationQueue;
+- (void)visitWasModified:(id)arg1;
 - (void)scoreOfVisit:(id)arg1 wasUpdatedFrom:(unsigned long long)arg2 to:(unsigned long long)arg3;
 - (void)removeVisitsOnSynchronizationQueue:(id)arg1 candidateLastVisit:(id)arg2;
 - (void)removeVisits:(id)arg1 candidateLastVisit:(id)arg2;
@@ -90,8 +92,6 @@
 @property(readonly, nonatomic) NSString *userVisibleURLString; // @synthesize userVisibleURLString=_userVisibleURLString;
 @property(readonly, nonatomic) NSURL *urlOnSynchronizationQueue;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
-@property(readonly, nonatomic) NSString *urlStringOnSynchronizationQueue;
-@property(readonly, nonatomic) NSString *urlString;
 @property(copy, nonatomic) NSString *title;
 - (id)initWithSQLiteRow:(id)arg1;
 - (id)initWithURLString:(id)arg1;

@@ -11,7 +11,12 @@
 }
 
 + (id)baseMaterialBlurView;
-+ (void)registerSystemAgent:(id)arg1;
++ (id)secondaryMaterialView;
++ (id)primaryMaterialView;
++ (id)moduleBackgroundMaterialView;
++ (id)_secondaryMaterialView;
++ (id)_primaryMaterialView;
++ (id)_moduleBackgroundMaterialView;
 
 @end
 

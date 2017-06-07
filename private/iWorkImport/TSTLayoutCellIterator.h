@@ -6,37 +6,40 @@
 
 #import <iWorkImport/TSTCellIterator.h>
 
-@class TSTCell, TSTMasterLayout, TSTMutableCellIteratorData, TSTTableModel;
+@class TSTCell, TSTMasterLayout, TSTMutableCellIteratorData;
 @protocol TSTCellIteratorData;
 
 __attribute__((visibility("hidden")))
 @interface TSTLayoutCellIterator : TSTCellIterator
 {
-    TSTMasterLayout *mMasterLayout;
-    struct TSUCellRect mLayoutRange;
-    struct TSUCellCoord mLayoutCellID;
-    TSTCell *mLayoutCell;
-    id <TSTCellIteratorData> mModelIteratorData;
-    _Bool mQueriedModel;
-    _Bool mModelIteratorHasCell;
-    unsigned short mNumberOfLayoutColumns;
-    unsigned short mNumberOfColumns;
-    unsigned short mNumberOfRows;
-    TSTMutableCellIteratorData *mCellData;
+    _Bool _queriedModel;
+    _Bool _modelIteratorHasCell;
+    unsigned short _numberOfLayoutColumns;
+    unsigned short _numberOfColumns;
+    unsigned short _numberOfRows;
+    struct TSUCellCoord _layoutCellID;
+    TSTMasterLayout *_masterLayout;
+    struct TSUCellRect _layoutRange;
+    TSTCell *_layoutCell;
+    TSTMutableCellIteratorData *_layoutCellData;
+    id <TSTCellIteratorData> _modelIteratorData;
 }
 
-@property(readonly, nonatomic) TSTMasterLayout *masterLayout; // @synthesize masterLayout=mMasterLayout;
+@property(nonatomic) id <TSTCellIteratorData> modelIteratorData; // @synthesize modelIteratorData=_modelIteratorData;
+@property(retain, nonatomic) TSTMutableCellIteratorData *layoutCellData; // @synthesize layoutCellData=_layoutCellData;
+@property(nonatomic) unsigned short numberOfRows; // @synthesize numberOfRows=_numberOfRows;
+@property(nonatomic) unsigned short numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
+@property(nonatomic) unsigned short numberOfLayoutColumns; // @synthesize numberOfLayoutColumns=_numberOfLayoutColumns;
+@property(nonatomic) _Bool modelIteratorHasCell; // @synthesize modelIteratorHasCell=_modelIteratorHasCell;
+@property(nonatomic) _Bool queriedModel; // @synthesize queriedModel=_queriedModel;
+@property(readonly, nonatomic) TSTCell *layoutCell; // @synthesize layoutCell=_layoutCell;
+@property(readonly, nonatomic) struct TSUCellCoord layoutCellID; // @synthesize layoutCellID=_layoutCellID;
+@property(readonly, nonatomic) struct TSUCellRect layoutRange; // @synthesize layoutRange=_layoutRange;
+@property(readonly, retain, nonatomic) TSTMasterLayout *masterLayout; // @synthesize masterLayout=_masterLayout;
+- (void).cxx_destruct;
 - (_Bool)getNextCellData:(id *)arg1;
-- (void)dealloc;
-- (id)initWithMasterLayout:(id)arg1 range:(struct TSUCellRect)arg2 flags:(unsigned long long)arg3;
-- (id)initWithLayout:(id)arg1 range:(struct TSUCellRect)arg2 flags:(unsigned long long)arg3;
-- (id)initWithMasterLayout:(id)arg1 range:(struct TSUCellRect)arg2;
-- (id)initWithLayout:(id)arg1 range:(struct TSUCellRect)arg2;
-- (id)initWithMasterLayout:(id)arg1;
-- (id)initWithLayout:(id)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) TSTTableModel *tableModel; // @dynamic tableModel;
+- (id)initWithMasterLayout:(id)arg1 range:(struct TSUCellRect)arg2 flags:(unsigned long long)arg3 searchFlags:(unsigned long long)arg4;
+- (id)initWithLayout:(id)arg1 range:(struct TSUCellRect)arg2 flags:(unsigned long long)arg3 searchFlags:(unsigned long long)arg4;
 
 @end
 

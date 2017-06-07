@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/LSApplicationWorkspaceObserverProtocol-Protocol.h>
 
-@class HMDApplicationMonitor, HMFMessageDispatcher, LSApplicationWorkspace, NSMutableDictionary, NSString, NSUUID;
+@class HMDApplicationMonitor, HMFMessageDispatcher, LSApplicationWorkspace, NSMutableDictionary, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDApplicationRegistry : NSObject <HMFMessageReceiver, LSApplicationWorkspaceObserverProtocol>
+@interface HMDApplicationRegistry : HMFObject <HMFMessageReceiver, LSApplicationWorkspaceObserverProtocol>
 {
     HMDApplicationMonitor *_monitor;
     NSObject<OS_dispatch_queue> *_workQueue;

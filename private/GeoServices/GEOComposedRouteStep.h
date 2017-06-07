@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class GEOComposedRoute, GEOComposedRouteLeg, GEOComposedTransitTripRouteStep, GEOInstructionSet, GEOPBTransitStop, GEOStep, GEOTransitStep, NSArray, NSString, NSTimeZone;
+@class GEOComposedRoute, GEOComposedRouteLeg, GEOComposedTransitTripRouteStep, GEOInstructionSet, GEOPBTransitStop, GEOStep, GEOTransitStep, NSArray, NSString;
 @protocol GEOTransitArtworkDataSource;
 
 @interface GEOComposedRouteStep : NSObject
@@ -22,13 +22,14 @@
     long long _routeLegType;
 }
 
-@property(nonatomic) GEOComposedRoute *composedRoute; // @synthesize composedRoute=_composedRoute;
+@property(nonatomic) __weak GEOComposedRoute *composedRoute; // @synthesize composedRoute=_composedRoute;
 @property(readonly, nonatomic) struct _NSRange maneuverPointRange; // @synthesize maneuverPointRange=_maneuverPointRange;
 @property(readonly, nonatomic) long long routeLegType; // @synthesize routeLegType=_routeLegType;
 @property(readonly, nonatomic) struct _NSRange pointRange; // @synthesize pointRange=_pointRange;
 @property(readonly, nonatomic) unsigned long long stepIndex; // @synthesize stepIndex=_stepIndex;
 @property(readonly, nonatomic) int drivingSide; // @synthesize drivingSide=_drivingSide;
 @property(readonly, nonatomic) GEOStep *geoStep; // @synthesize geoStep=_geoStep;
+- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> routeDetailsSecondaryArtwork;
 @property(readonly, nonatomic) NSArray *routeDetailsPrimaryArtwork;
@@ -36,8 +37,6 @@
 @property(readonly, nonatomic) GEOInstructionSet *instructions;
 @property(readonly, nonatomic) GEOTransitStep *transitStep;
 - (id)firstNameOrBranch;
-@property(readonly, nonatomic) NSTimeZone *timeZoneForFormattedString;
-@property(readonly, nonatomic) NSTimeZone *timeZoneForStartingOrEndingStop;
 @property(readonly, nonatomic) GEOComposedTransitTripRouteStep *closestLogicalBoardOrAlightStep;
 @property(readonly, nonatomic) GEOComposedTransitTripRouteStep *previousAlightingStep;
 @property(readonly, nonatomic) GEOComposedTransitTripRouteStep *nextAlightingStep;
@@ -67,7 +66,6 @@
 @property(readonly, nonatomic) unsigned int startPointIndex;
 @property(readonly, nonatomic) int transportType;
 @property(readonly, nonatomic) GEOComposedRouteLeg *leg;
-- (void)dealloc;
 - (id)initWithComposedRoute:(id)arg1 GEOStep:(id)arg2 routeLegType:(long long)arg3 stepIndex:(unsigned long long)arg4 pointRange:(struct _NSRange)arg5 maneuverPointRange:(struct _NSRange)arg6;
 - (id)initWithComposedRoute:(id)arg1 routeLegType:(long long)arg2 stepIndex:(unsigned long long)arg3 pointRange:(struct _NSRange)arg4;
 - (_Bool)shouldPreloadWithHighPriority;

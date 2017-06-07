@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (id)_startDateString;
 - (id)_runDurationString;
 - (id)description;
-- (id)CKPropertiesDescription;
+- (id)CKDescriptionPropertiesWithPublic:(_Bool)arg1 private:(_Bool)arg2 shouldExpand:(_Bool)arg3;
 - (id)ckShortDescription;
 - (void)cancel;
 - (_Bool)isConcurrent;

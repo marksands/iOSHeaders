@@ -33,9 +33,10 @@ __attribute__((visibility("hidden")))
 + (id)supportedAnimationInfosForDrawableInfo:(id)arg1 animationType:(long long)arg2;
 + (id)p_drawableFromInfo:(id)arg1;
 + (_Bool)p_shouldExcludeAnimationName:(id)arg1 forDrawable:(id)arg2;
-+ (_Bool)needsObjectUUID;
 + (void)i_repairBuildToDrawableReferencesFromUUIDsForBuilds:(id)arg1 drawables:(id)arg2;
-@property(nonatomic) KNAbstractSlide *slide; // @synthesize slide=_slide;
++ (_Bool)needsObjectUUID;
+@property(nonatomic) __weak KNAbstractSlide *slide; // @synthesize slide=_slide;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool canEditAnimations;
 - (_Bool)p_supportsCustomTextDeliveryOptionsForAttributes:(id)arg1;
 @property(readonly, nonatomic) NSSet *inspectableAttributes;
@@ -121,14 +122,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *effect;
 @property(retain, nonatomic) TSDDrawableInfo *drawable;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (void)didInitFromSOS;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithSlide:(id)arg1 effect:(id)arg2 buildType:(long long)arg3 context:(id)arg4;
-- (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
-- (void)saveToArchive:(struct BuildArchive *)arg1 archiver:(id)arg2;
-- (void)loadFromArchive:(const struct BuildArchive *)arg1 unarchiver:(id)arg2;
 - (void)i_deregisterBuildChunkWithChunkIdentifier:(id)arg1;
 - (id)i_buildChunkForChunkIdentifier:(id)arg1;
 - (id)p_buildChunkIDMap;
@@ -143,6 +139,10 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSUUID *i_drawableId;
 @property(readonly, nonatomic) TSDDrawableInfo *i_drawable;
 - (void)i_invalidateChunkCache;
+- (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
+- (void)saveToArchive:(struct BuildArchive *)arg1 archiver:(id)arg2;
+- (void)loadFromArchive:(const struct BuildArchive *)arg1 unarchiver:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

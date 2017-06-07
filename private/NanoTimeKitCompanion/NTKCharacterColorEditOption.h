@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) UIColor *colorValue;
 @property(readonly, nonatomic) unsigned long long color;
 - (id)_valueToFaceBundleStringDict;
+- (long long)swatchStyle;
 
 @end
 

@@ -23,6 +23,7 @@
 
 @property(retain, nonatomic) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
 @property(nonatomic) int amountInCents; // @synthesize amountInCents=_amountInCents;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -36,7 +37,6 @@
 @property(nonatomic) unsigned int subunit; // @synthesize subunit=_subunit;
 @property(readonly, nonatomic) _Bool hasCurrencyCode;
 @property(nonatomic) _Bool hasAmountInCents;
-- (void)dealloc;
 
 @end
 

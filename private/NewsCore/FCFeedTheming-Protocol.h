@@ -7,9 +7,10 @@
 #import <NewsCore/NSCopying-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
-@class FCAssetHandle, FCHeadlineTemplate, FCTagBanner, FCTextInfo, NSArray, NSString, UIColor;
+@class FCAssetHandle, FCColor, FCHeadlineTemplate, FCTagBanner, FCTextInfo, NSArray, NSString;
 
 @protocol FCFeedTheming <NSObject, NSCopying>
+@property(readonly, nonatomic) _Bool allowCustomBottomStyle;
 @property(readonly, nonatomic) FCHeadlineTemplate *defaultHeadlineTemplate;
 @property(readonly, nonatomic) NSArray *loadableFonts;
 @property(readonly, nonatomic) struct UIEdgeInsets nameImageMaskInsets;
@@ -20,18 +21,19 @@
 @property(readonly, nonatomic) FCAssetHandle *nameImageForDarkBackgroundAssetHandle;
 @property(readonly, nonatomic) struct UIEdgeInsets nameImageInsets;
 @property(readonly, nonatomic) struct CGSize nameImageSize;
+@property(readonly, nonatomic) FCAssetHandle *nameImageCompactAssetHandle;
 @property(readonly, nonatomic) FCAssetHandle *nameImageAssetHandle;
 @property(readonly, nonatomic) FCAssetHandle *logoImageAssetHandle;
-@property(readonly, nonatomic) UIColor *groupTitleColor;
-@property(readonly, nonatomic) long long statusBarStyle;
-@property(readonly, nonatomic) UIColor *foregroundColor;
-@property(readonly, nonatomic) UIColor *backgroundColor;
+@property(readonly, nonatomic) FCColor *groupTitleColor;
+@property(readonly, nonatomic) FCColor *foregroundColor;
+@property(readonly, nonatomic) FCColor *backgroundColor;
 @property(readonly, copy, nonatomic) FCTextInfo *headlineBylineTextInfo;
 @property(readonly, copy, nonatomic) FCTextInfo *headlineExcerptTextInfo;
 @property(readonly, copy, nonatomic) FCTextInfo *headlineTitleTextInfo;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) double bannerImageBaselineOffsetPercentage;
 @property(readonly, nonatomic) double bannerImageScale;
+@property(readonly, nonatomic) FCTagBanner *compactBannerImage;
 @property(readonly, nonatomic) FCTagBanner *bannerImageForMask;
 @property(readonly, nonatomic) FCTagBanner *bannerImageForThemeBackground;
 @property(readonly, nonatomic) FCTagBanner *bannerImageForWhiteBackground;

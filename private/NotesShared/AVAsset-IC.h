@@ -8,6 +8,6 @@
 
 @interface AVAsset (IC)
 - (struct CGImageSource *)newPreviewImageSource;
-- (struct UIImage *)previewImage;
+- (id)previewImageDataWithUTType:(id)arg1;
 @end
 

@@ -6,10 +6,10 @@
 
 #import <Message/NSObject-Protocol.h>
 
-@class CSSearchableItem, MFLibrarySearchableIndexVerificationData, NSDictionary, NSString;
+@class CSSearchableItem, MFLibrarySearchableIndexQueryContext, MFLibrarySearchableIndexVerificationData, NSDictionary, NSString;
 
 @protocol MFLibrarySearchableIndexTesting <NSObject>
-@property(readonly, nonatomic) NSDictionary *queryOptions;
+@property(readonly, nonatomic) MFLibrarySearchableIndexQueryContext *context;
 - (_Bool)verifySearchableItem:(CSSearchableItem *)arg1 againstExpectedData:(MFLibrarySearchableIndexVerificationData *)arg2;
 - (NSString *)spotlightQueryFromDataSamples:(NSDictionary *)arg1;
 - (MFLibrarySearchableIndexVerificationData *)transformDataForVerification:(MFLibrarySearchableIndexVerificationData *)arg1;

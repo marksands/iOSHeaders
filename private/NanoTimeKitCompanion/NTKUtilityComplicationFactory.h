@@ -52,6 +52,7 @@
 - (double)_maxBottomCornerWidthLeavingRoomForKeylines:(struct CGRect)arg1;
 - (double)_maxTopCornerWidthLeavingRoomForKeylines:(struct CGRect)arg1;
 - (void)_configureLayout:(id)arg1 withNormalSize:(struct CGSize)arg2 editingSize:(struct CGSize)arg3 addCircleOverrides:(_Bool)arg4 makeRuleBlock:(CDUnknownBlockType)arg5;
+- (void)_configureUpNextTopRightLayout:(id)arg1 withBounds:(struct CGRect)arg2;
 - (void)_configureBottomRightLongLayout:(id)arg1 withBounds:(struct CGRect)arg2;
 - (void)_configureBottomRightBelowLayout:(id)arg1 withBounds:(struct CGRect)arg2;
 - (void)_configureBottomRightAboveLayout:(id)arg1 withBounds:(struct CGRect)arg2;

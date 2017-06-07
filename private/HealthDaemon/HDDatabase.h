@@ -28,7 +28,7 @@
     HDDatabaseJournal *_journal;
     HDProfile *_profile;
     double _offsetTimeInterval;
-    NSString *_homeDirectoryPath;
+    NSString *_profileDirectoryPath;
     HDContentProtectionManager *_contentProtectionManager;
     NSString *_threadLocalActiveConnectionKey;
     NSLock *_schemaMigrationLock;
@@ -51,16 +51,13 @@
     HDSQLiteDatabasePool *_databasePool;
 }
 
-+ (_Bool)shouldEnableFutureMigrations;
 + (void)didPassIntegrityCheck;
 + (void)reportIntegrityCheckFailure;
 + (void)didEncounterUncorruptedDatabaseWithName:(id)arg1;
 + (void)reportDatabaseCorruptionForDatabaseWithName:(id)arg1;
 + (id)_databaseCorruptionDefaultKeyForDatabaseWithName:(id)arg1;
-+ (id)allEntityClassesWithProtectionClass:(long long)arg1;
-+ (id)allEntityClasses;
++ (id)allCurrentAndFutureEntityClasses;
 + (void)loadEntityClasses;
-+ (long long)currentSchemaVersionForProtectedDatabase:(_Bool)arg1;
 @property(readonly, nonatomic) HDSQLiteDatabasePool *databasePool; // @synthesize databasePool=_databasePool;
 @property(nonatomic) _Bool didRunPostMigrationUpdates; // @synthesize didRunPostMigrationUpdates=_didRunPostMigrationUpdates;
 @property(retain, nonatomic) NSMutableDictionary *extendedTransactions; // @synthesize extendedTransactions=_extendedTransactions;
@@ -88,14 +85,13 @@
 @property(retain, nonatomic) NSLock *schemaMigrationLock; // @synthesize schemaMigrationLock=_schemaMigrationLock;
 @property(retain, nonatomic) NSString *threadLocalActiveConnectionKey; // @synthesize threadLocalActiveConnectionKey=_threadLocalActiveConnectionKey;
 @property(retain, nonatomic) HDContentProtectionManager *contentProtectionManager; // @synthesize contentProtectionManager=_contentProtectionManager;
-@property(copy, nonatomic) NSString *homeDirectoryPath; // @synthesize homeDirectoryPath=_homeDirectoryPath;
+@property(copy, nonatomic) NSString *profileDirectoryPath; // @synthesize profileDirectoryPath=_profileDirectoryPath;
 @property(nonatomic) double offsetTimeInterval; // @synthesize offsetTimeInterval=_offsetTimeInterval;
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(readonly, nonatomic) HDDatabaseJournal *journal; // @synthesize journal=_journal;
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (void)invalidateAndObliterateWithReason:(id)arg1 preserveCopy:(_Bool)arg2;
-- (void)_invalidateAndWaitWithHandler:(CDUnknownBlockType)arg1;
+- (void)obliterateWithReason:(id)arg1 preserveCopy:(_Bool)arg2;
 - (void)invalidateAndWait;
 - (id)virtualFilesystemModuleForDatabase:(id)arg1;
 - (id)diagnosticDescription;
@@ -154,11 +150,14 @@
 - (void)_setActiveDatabase:(id)arg1;
 - (id)_activeDatabase;
 - (id)_journalDirectoryPath;
-- (id)initWithHomeDirectoryPath:(id)arg1 profile:(id)arg2;
+- (id)initWithProfile:(id)arg1;
+- (id)allEntityClassesWithProtectionClass:(long long)arg1;
+- (id)allEntityClasses;
 - (_Bool)_applyOffsetTimeInterval:(double)arg1 database:(id)arg2 error:(id *)arg3;
 - (_Bool)_runPostMigrationUpdatesWithDatabase:(id)arg1 error:(id *)arg2;
 - (long long)_migrateDatabase:(id)arg1 fromUserVersion:(long long)arg2 protectedDatabase:(_Bool)arg3 error:(id *)arg4;
 - (_Bool)_createDataTablesInDatabase:(id)arg1 entityClasses:(id)arg2 error:(id *)arg3;
+- (long long)currentSchemaVersionForProtectedDatabase:(_Bool)arg1;
 - (id)_databaseNameForProtectedDatabase:(_Bool)arg1;
 - (long long)_createEntitiesInDatabase:(id)arg1 protectedEntities:(_Bool)arg2 error:(id *)arg3;
 - (long long)_migrateOrCreateSchemaWithDatabase:(id)arg1 protectedDatabase:(_Bool)arg2 error:(id *)arg3;

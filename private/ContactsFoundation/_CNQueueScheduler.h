@@ -11,7 +11,6 @@
 @class NSString;
 @protocol OS_dispatch_queue;
 
-__attribute__((visibility("hidden")))
 @interface _CNQueueScheduler : NSObject <CNScheduler>
 {
     NSObject<OS_dispatch_queue> *_queue;

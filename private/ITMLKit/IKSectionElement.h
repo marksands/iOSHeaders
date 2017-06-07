@@ -6,11 +6,9 @@
 
 #import <ITMLKit/IKDataSourceElement.h>
 
-#import <ITMLKit/IKAppDocumentStyleChangeObserving-Protocol.h>
+@class IKHeaderElement, NSArray;
 
-@class IKHeaderElement, NSArray, NSString;
-
-@interface IKSectionElement : IKDataSourceElement <IKAppDocumentStyleChangeObserving>
+@interface IKSectionElement : IKDataSourceElement
 {
     NSArray *_items;
 }
@@ -21,12 +19,6 @@
 @property(readonly, retain, nonatomic) NSArray *items;
 @property(readonly, retain, nonatomic) IKHeaderElement *header;
 - (id)applyUpdatesWithElement:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

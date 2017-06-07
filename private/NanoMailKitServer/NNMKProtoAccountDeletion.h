@@ -13,8 +13,11 @@
 @interface NNMKProtoAccountDeletion : PBCodable <NSCopying>
 {
     NSString *_accountId;
+    unsigned int _fullSyncVersion;
+    CDStruct_a125a100 _has;
 }
 
+@property(nonatomic) unsigned int fullSyncVersion; // @synthesize fullSyncVersion=_fullSyncVersion;
 @property(retain, nonatomic) NSString *accountId; // @synthesize accountId=_accountId;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -26,6 +29,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasFullSyncVersion;
 @property(readonly, nonatomic) _Bool hasAccountId;
 
 @end

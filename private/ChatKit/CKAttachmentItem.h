@@ -15,6 +15,7 @@
     struct CGSize _size;
     NSURL *_appendedBundleURL;
     _Bool _isSticker;
+    _Bool _showDocumentIcon;
     _Bool _isIrisAsset;
     NSURL *_fileURL;
     NSString *_transferGUID;
@@ -32,6 +33,7 @@
 @property(retain, nonatomic) NSURL *previewURL; // @synthesize previewURL=_previewURL;
 @property(nonatomic) _Bool isIrisAsset; // @synthesize isIrisAsset=_isIrisAsset;
 @property(retain, nonatomic) NSString *irisVideoPath; // @synthesize irisVideoPath=_irisVideoPath;
+@property(nonatomic) _Bool showDocumentIcon; // @synthesize showDocumentIcon=_showDocumentIcon;
 @property(nonatomic) _Bool isSticker; // @synthesize isSticker=_isSticker;
 @property(retain, nonatomic) NSDate *createdDate; // @synthesize createdDate=_createdDate;
 @property(copy, nonatomic) NSString *guid; // @synthesize guid=_guid;
@@ -45,6 +47,7 @@
 - (id)_getTempIrisFolder;
 - (id)calculateIrisVideoPath;
 - (id)getIrisVideoPath;
+- (id)dragItem;
 - (id)pasteboardItem;
 - (id)UTIType;
 - (void)startDeferredSetup;
@@ -53,7 +56,7 @@
 - (_Bool)canShareItem;
 - (void)generatePreviewWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_savedPreviewFromURL:(id)arg1;
-- (id)_fileIcon;
+- (id)fileIcon;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;

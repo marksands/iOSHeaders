@@ -7,12 +7,14 @@
 #import <ContactsFoundation/NSObject-Protocol.h>
 
 @class NSString;
-@protocol CNScheduler;
+@protocol CNReaderWriterScheduler, CNScheduler;
 
 @protocol CNSchedulerProvider <NSObject>
 @property(readonly, nonatomic) id <CNScheduler> immediateScheduler;
+@property(readonly, nonatomic) id <CNScheduler> inlineScheduler;
 @property(readonly, nonatomic) id <CNScheduler> mainThreadScheduler;
 @property(readonly, nonatomic) id <CNScheduler> backgroundScheduler;
+- (id <CNReaderWriterScheduler>)newReaderWriterSchedulerWithName:(NSString *)arg1;
 - (id <CNScheduler>)newSynchronousSerialSchedulerWithName:(NSString *)arg1;
 - (id <CNScheduler>)newSerialSchedulerWithName:(NSString *)arg1;
 - (id <CNScheduler>)backgroundSchedulerWithQualityOfService:(unsigned long long)arg1;

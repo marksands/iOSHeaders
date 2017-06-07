@@ -34,7 +34,6 @@
     id <NACancelable> _enqueuedSourceItemUpdateCancellationToken;
 }
 
-+ (id)_prioritizedControlControllers;
 @property(retain, nonatomic) id <NACancelable> enqueuedSourceItemUpdateCancellationToken; // @synthesize enqueuedSourceItemUpdateCancellationToken=_enqueuedSourceItemUpdateCancellationToken;
 @property(readonly, nonatomic) HFSimpleItemManager *reachabilityItemManager; // @synthesize reachabilityItemManager=_reachabilityItemManager;
 @property(readonly, nonatomic) HFItem *reachabilityItem; // @synthesize reachabilityItem=_reachabilityItem;
@@ -68,9 +67,9 @@
 - (void)_updateIconDescriptorNotifyingDelegate:(_Bool)arg1;
 - (id)_itemToUseForIconAndStatus;
 @property(readonly, nonatomic) NSArray *allControllers;
-- (void)_createControlControllers;
+- (void)_createControlControllersForControlItems:(id)arg1;
 - (void)dealloc;
-- (id)initWithItem:(id)arg1 home:(id)arg2 delegate:(id)arg3;
+- (id)initWithItem:(id)arg1 controlItems:(id)arg2 home:(id)arg3 delegate:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

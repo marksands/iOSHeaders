@@ -15,7 +15,7 @@
     NSArray *_timestamps;
 }
 
-@property(readonly, nonatomic) NSArray *timestamps; // @synthesize timestamps=_timestamps;
+@property(retain, nonatomic) NSArray *timestamps; // @synthesize timestamps=_timestamps;
 - (void).cxx_destruct;
 - (id)description;
 - (void)mergeWithTimestamp:(id)arg1;
@@ -25,6 +25,7 @@
 - (void)setClock:(unsigned long long)arg1 forUUID:(id)arg2 atIndex:(unsigned long long)arg3;
 - (unsigned long long)clockForUUID:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)clockElementForUUID:(id)arg1 atIndex:(unsigned long long)arg2;
+@property(readonly, nonatomic) _Bool isDocumentShared;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithTimestamps:(id)arg1;

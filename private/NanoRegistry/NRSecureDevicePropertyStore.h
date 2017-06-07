@@ -10,20 +10,17 @@
 #import <NanoRegistry/NSSecureCoding-Protocol.h>
 
 @class NSMutableDictionary;
-@protocol OS_dispatch_queue;
 
 @interface NRSecureDevicePropertyStore : NSObject <NSSecureCoding, NSCopying>
 {
     NSMutableDictionary *_IDToProperty;
     NSMutableDictionary *_propertyToID;
     _Bool _dirty;
-    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)classTypes;
 + (id)enclosedClassTypes;
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) _Bool dirty; // @synthesize dirty=_dirty;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

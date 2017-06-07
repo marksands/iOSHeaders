@@ -4,11 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GameCenterUI/GKRemoteViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionProtocol-Protocol.h>
 
-@class GKChallenge, NSArray, NSString;
-
-@protocol GKChallengeIssueServiceProtocol <GKRemoteViewControllerDelegate>
-- (void)setChallenge:(GKChallenge *)arg1 playerInternals:(NSArray *)arg2 defaultMessage:(NSString *)arg3 forcePicker:(_Bool)arg4;
+@protocol GKChallengeIssueServiceProtocol <GKExtensionProtocol>
 @end
 

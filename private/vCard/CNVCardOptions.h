@@ -20,6 +20,7 @@
     _Bool _usePhotoReferencesIfAvailable;
     unsigned long long _maximumEncodingLength;
     unsigned long long _maximumImageEncodingLength;
+    struct CGSize _maximumImageSize;
     NSArray *_treatAsUnknownProperties;
     unsigned long long _outputVersion;
     NSArray *_availableEncodings;
@@ -29,6 +30,7 @@
 @property(copy) NSArray *availableEncodings; // @synthesize availableEncodings=_availableEncodings;
 @property unsigned long long outputVersion; // @synthesize outputVersion=_outputVersion;
 @property(copy) NSArray *treatAsUnknownProperties; // @synthesize treatAsUnknownProperties=_treatAsUnknownProperties;
+@property struct CGSize maximumImageSize; // @synthesize maximumImageSize=_maximumImageSize;
 @property unsigned long long maximumImageEncodingLength; // @synthesize maximumImageEncodingLength=_maximumImageEncodingLength;
 @property unsigned long long maximumEncodingLength; // @synthesize maximumEncodingLength=_maximumEncodingLength;
 @property _Bool usePhotoReferencesIfAvailable; // @synthesize usePhotoReferencesIfAvailable=_usePhotoReferencesIfAvailable;
@@ -40,6 +42,7 @@
 @property _Bool includePrivateBundleIdentifiers; // @synthesize includePrivateBundleIdentifiers=_includePrivateBundleIdentifiers;
 @property _Bool includePrivateFields; // @synthesize includePrivateFields=_includePrivateFields;
 - (void).cxx_destruct;
+- (id)init;
 
 @end
 

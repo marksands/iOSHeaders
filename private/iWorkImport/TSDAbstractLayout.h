@@ -28,7 +28,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)supportsCalloutAttributes;
 - (_Bool)canRotateChildLayout:(id)arg1;
 - (_Bool)supportsFlipping;
-- (_Bool)supportsParentRotation;
 - (_Bool)supportsRotation;
 - (_Bool)supportsInspectorPositioning;
 - (_Bool)supportsResize;

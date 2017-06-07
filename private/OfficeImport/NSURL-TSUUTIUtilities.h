@@ -9,6 +9,7 @@
 @class NSString;
 
 @interface NSURL (TSUUTIUtilities)
+- (_Bool)tsu_conformsToAnyUTI:(id)arg1;
 - (_Bool)tsu_conformsToUTI:(id)arg1;
 @property(readonly, nonatomic) NSString *tsu_UTI;
 @end

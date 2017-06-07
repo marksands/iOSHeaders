@@ -11,10 +11,12 @@
 @interface MusicDefaults : MPUApplicationDefaults
 {
     _Bool _internalInstall;
+    long long _playbackSpeed;
 }
 
 + (id)sharedDefaults;
 @property(nonatomic, getter=isInternalInstall) _Bool internalInstall; // @synthesize internalInstall=_internalInstall;
+@property(nonatomic) long long playbackSpeed; // @synthesize playbackSpeed=_playbackSpeed;
 - (void)ensureInvertedDefaultPlaybackSpeedHackIsInPlace;
 - (void)beginObservingDefaultsChanges;
 @property(nonatomic) float popularityIndicatorThreshold;
@@ -31,7 +33,6 @@
 @property(copy, nonatomic) NSString *selectedLibraryViewIdentifier;
 @property(nonatomic) _Bool searchShouldDefaultToMyMusic;
 @property(nonatomic) long long repeatType;
-@property(nonatomic) long long playbackSpeed;
 @property(nonatomic) _Bool playlistsOverviewShowsOnlyOfflinePlaylists;
 @property(retain, nonatomic) NSDate *lastMyMusicSearchDate;
 @property(nonatomic) unsigned long long lastModifiedPlaylistID;

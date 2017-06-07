@@ -6,7 +6,6 @@
 
 #import <ScreenReaderCore/SCRCPhotoEvaluatorResult.h>
 
-__attribute__((visibility("hidden")))
 @interface SCRCPhotoEvaluatorResultBlur : SCRCPhotoEvaluatorResult
 {
     double _blurLevel;

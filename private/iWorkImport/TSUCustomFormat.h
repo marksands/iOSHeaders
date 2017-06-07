@@ -14,23 +14,24 @@
 __attribute__((visibility("hidden")))
 @interface TSUCustomFormat : NSObject <NSCopying, NSMutableCopying>
 {
-    NSString *mFormatName;
-    NSString *mFormatNameStem;
-    NSString *mFormatNameTag;
-    int mFormatType;
-    TSUCustomFormatData *mDefaultFormatData;
-    NSMutableArray *mConditionList;
+    NSString *_formatNameStem;
+    NSString *_formatNameTag;
+    int _formatType;
+    TSUCustomFormatData *_defaultFormatData;
+    NSString *_formatName;
+    NSMutableArray *_conditionList;
 }
 
-@property(readonly, nonatomic) NSMutableArray *conditionList; // @synthesize conditionList=mConditionList;
+@property(readonly, nonatomic) NSMutableArray *conditionList; // @synthesize conditionList=_conditionList;
+@property(readonly, nonatomic) NSString *formatName; // @synthesize formatName=_formatName;
+@property(readonly, nonatomic) TSUCustomFormatData *defaultFormatData; // @synthesize defaultFormatData=_defaultFormatData;
+@property(readonly, nonatomic) int formatType; // @synthesize formatType=_formatType;
+- (void).cxx_destruct;
 - (id)description;
 - (id)conditionalFormatDataForKey:(unsigned long long)arg1;
 - (id)conditionalFormatAtIndex:(unsigned long long)arg1;
 - (id)conditionalFormatDataForValue:(double)arg1 outKey:(unsigned long long *)arg2;
 - (id)conditionalFormatDataForValue:(double)arg1;
-@property(readonly, nonatomic) TSUCustomFormatData *defaultFormatData;
-@property(readonly, nonatomic) int formatType;
-@property(readonly, nonatomic) NSString *formatName; // @synthesize formatName=mFormatName;
 - (_Bool)isEqualWithStemNameMatching:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)p_isEqual:(id)arg1 matchingFullName:(_Bool)arg2;
@@ -43,7 +44,6 @@ __attribute__((visibility("hidden")))
 - (id)customFormatWithNewName:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)initWithName:(id)arg1 formatType:(int)arg2 data:(id)arg3;
 - (id)initWithName:(id)arg1 formatType:(int)arg2 data:(id)arg3 conditionList:(id)arg4;
 - (id)formattedBodyStringForDoubleValue:(double)arg1 customFormatListKey:(id)arg2 formatType:(int)arg3 locale:(id)arg4;

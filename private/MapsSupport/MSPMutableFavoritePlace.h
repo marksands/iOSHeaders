@@ -19,6 +19,8 @@
 + (Class)mutableObjectClass;
 + (id)immutableObjectProtocol;
 + (Class)immutableObjectClass;
+- (_Bool)isUserVisibleDuplicateOfFavorite:(id)arg1;
+@property(nonatomic) int floorOrdinalOfDroppedPin;
 @property(nonatomic) struct CLLocationCoordinate2D coordinateOfDroppedPin;
 @property(retain, nonatomic) id <GEOMapItem> geoMapItem;
 @property(copy, nonatomic) NSString *title;

@@ -17,6 +17,7 @@
 - (void)unlockEnabledWithDevice:(NSString *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
 - (void)disableUnlockWithDevice:(NSString *)arg1 completionHandler:(void (^)(_Bool, NSError *))arg2;
 - (void)enableUnlockWithDevice:(NSString *)arg1 fromKey:(_Bool)arg2 withPasscode:(NSString *)arg3 completionHandler:(void (^)(_Bool, NSError *))arg4;
+- (void)authPromptInfoWithCompletionHandler:(void (^)(NSDictionary *, NSError *))arg1;
 - (void)autoUnlockStateWithCompletionHandler:(void (^)(NSNumber *, NSError *))arg1;
 - (void)cancelAutoUnlock;
 - (void)attemptAutoUnlockWithClientProxy:(id <SFUnlockClientProtocol>)arg1;

@@ -46,7 +46,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)_findEdgeAhead;
 @property(readonly, nonatomic) GEOMapAccess *map;
 - (void)cancel;
-- (void)dealloc;
 - (id)initWithMap:(id)arg1;
 
 @end

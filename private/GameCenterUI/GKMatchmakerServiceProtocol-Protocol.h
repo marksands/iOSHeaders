@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GameCenterUI/GKRemoteViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionProtocol-Protocol.h>
 
 @class GKInviteInternal, GKMatchRequestInternal, GKPlayerInternal, NSArray, NSData, NSError, NSString;
 
-@protocol GKMatchmakerServiceProtocol <GKRemoteViewControllerDelegate>
+@protocol GKMatchmakerServiceProtocol <GKExtensionProtocol>
+
+@optional
 - (void)setFailedWithError:(NSError *)arg1;
 - (void)applicationWillEnterForeground;
 - (void)setNearbyPlayer:(NSString *)arg1 reachable:(_Bool)arg2;

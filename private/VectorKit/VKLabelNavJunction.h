@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/VKLabelNavFeature-Protocol.h>
 
@@ -33,12 +33,19 @@ __attribute__((visibility("hidden")))
         CDStruct_58d0ca89 _field1;
         CDStruct_b2fbf00d _field2;
         CDStruct_b2fbf00d _field3;
-        CDStruct_183601bc *_field4;
-        float _field5;
-        unsigned int _field6;
-        unsigned char _field7;
-        _Bool _field8;
-        _Bool _field9;
+        unsigned long long _field4;
+        unsigned long long _field5;
+        unsigned long long _field6;
+        unsigned long long _field7;
+        short _field8;
+        unsigned char _field9;
+        CDStruct_183601bc *_field10;
+        float _field11;
+        float _field12;
+        unsigned int _field13;
+        unsigned char _field14;
+        _Bool _field15;
+        _Bool _field16;
     } *_labelFeature;
     NSString *_name;
     VKLabelNavRoadLabel *_junctionSign;
@@ -46,14 +53,16 @@ __attribute__((visibility("hidden")))
     unsigned long long _depthFromRoute;
     double _worldUnitsPerMeter;
     VKLabelNavJunction *_overpassJunction;
-    _Bool _cachedSignVisibility[2];
-    _Bool _isVisibilityCached[2];
+    _Bool _cachedSignVisibility[3];
+    _Bool _isVisibilityCached[3];
     _Bool _isVisible;
+    _Bool _isPicked;
     Matrix_6e1d3589 _worldCoordinate;
     double _sortValue;
     _Bool _isRouteRefineJunction;
 }
 
+@property(nonatomic) _Bool isPicked; // @synthesize isPicked=_isPicked;
 @property(readonly, nonatomic) VKLabelNavRoadLabel *junctionSign; // @synthesize junctionSign=_junctionSign;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) _Bool isRouteRefineJunction; // @synthesize isRouteRefineJunction=_isRouteRefineJunction;
@@ -73,6 +82,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) const CDStruct_3b01f0aa *geoJunction; // @synthesize geoJunction=_geoJunction;
 @property(readonly, nonatomic) VKLabelTile *tile; // @synthesize tile=_tile;
 - (id).cxx_construct;
+@property(readonly, nonatomic) _Bool isTrafficCameraFeature;
+@property(readonly, nonatomic) _Bool isEtaFeature;
 @property(readonly, nonatomic) _Bool isGuidanceStepStart;
 @property(readonly, nonatomic) NSString *shieldDisplayGroup;
 @property(readonly, nonatomic) _Bool isInGuidance;

@@ -13,7 +13,10 @@
     unsigned int _numAccessories;
     unsigned int _numAccessoryServiceGroups;
     unsigned int _numAdmins;
+    unsigned int _numBridgedAccessories;
+    unsigned int _numCertifiedAccessories;
     unsigned int _numEventTriggers;
+    unsigned int _numNotCertifiedAccessories;
     unsigned int _numRooms;
     unsigned int _numScenes;
     unsigned int _numServices;
@@ -27,7 +30,10 @@
         unsigned int numAccessories:1;
         unsigned int numAccessoryServiceGroups:1;
         unsigned int numAdmins:1;
+        unsigned int numBridgedAccessories:1;
+        unsigned int numCertifiedAccessories:1;
         unsigned int numEventTriggers:1;
+        unsigned int numNotCertifiedAccessories:1;
         unsigned int numRooms:1;
         unsigned int numScenes:1;
         unsigned int numServices:1;
@@ -40,6 +46,9 @@
     } _has;
 }
 
+@property(nonatomic) unsigned int numCertifiedAccessories; // @synthesize numCertifiedAccessories=_numCertifiedAccessories;
+@property(nonatomic) unsigned int numNotCertifiedAccessories; // @synthesize numNotCertifiedAccessories=_numNotCertifiedAccessories;
+@property(nonatomic) unsigned int numBridgedAccessories; // @synthesize numBridgedAccessories=_numBridgedAccessories;
 @property(nonatomic) _Bool isPrimaryResident; // @synthesize isPrimaryResident=_isPrimaryResident;
 @property(nonatomic) _Bool isResidentAvailable; // @synthesize isResidentAvailable=_isResidentAvailable;
 @property(nonatomic) unsigned int numZones; // @synthesize numZones=_numZones;
@@ -62,6 +71,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasNumCertifiedAccessories;
+@property(nonatomic) _Bool hasNumNotCertifiedAccessories;
+@property(nonatomic) _Bool hasNumBridgedAccessories;
 @property(nonatomic) _Bool hasIsPrimaryResident;
 @property(nonatomic) _Bool hasIsResidentAvailable;
 @property(nonatomic) _Bool hasNumZones;

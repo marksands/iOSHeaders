@@ -12,11 +12,12 @@
 #import <iWorkImport/TSCHDataFormatter-Protocol.h>
 #import <iWorkImport/TSCHDataFormatterPersistableStyleObject-Protocol.h>
 #import <iWorkImport/TSCHDataFormatterSupportedClientFormatObject-Protocol.h>
+#import <iWorkImport/TSCHFormatTypeSupport-Protocol.h>
 
 @class NSString;
 
 __attribute__((visibility("hidden")))
-@interface TSUFormatObject : NSObject <TSCHDataFormatter, TSCHDataFormatterPersistableStyleObject, TSCHDataFormatterSupportedClientFormatObject, TSCHCustomFormatSupport, NSCopying, NSMutableCopying>
+@interface TSUFormatObject : NSObject <TSCHDataFormatter, TSCHDataFormatterPersistableStyleObject, TSCHDataFormatterSupportedClientFormatObject, TSCHFormatTypeSupport, TSCHCustomFormatSupport, NSCopying, NSMutableCopying>
 {
     CDStruct_28403e59 mFormatStruct;
     _Bool mUseExpandedContents;
@@ -39,7 +40,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithArchive:(const struct FormatStructArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchive:(struct FormatStructArchive *)arg1 archiver:(id)arg2;
 - (long long)numberOfDecimalPlaces;
-- (int)formatType;
+@property(readonly, nonatomic) int formatType; // @dynamic formatType;
 - (id)convertToSupportedClientFormatObjectWithLocale:(id)arg1;
 - (id)convertToPersistableStyleObject;
 - (_Bool)isCompatibleWithDataFormatter:(id)arg1;

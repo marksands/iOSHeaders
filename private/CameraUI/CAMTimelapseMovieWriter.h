@@ -58,12 +58,12 @@
 - (void)_finishMovieWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (_Bool)_appendPixelBuffer:(struct __CVBuffer *)arg1;
 - (void)_setMetadataOnVideoTrackAssetWriterInput:(id)arg1;
-- (_Bool)_startWritingWithOutputPath:(id)arg1 width:(long long)arg2 height:(long long)arg3 videoFormatDescription:(struct opaqueCMFormatDescription *)arg4 transform:(struct CGAffineTransform)arg5 framesPerSecond:(long long)arg6 frameCount:(long long)arg7 videoMetadata:(id)arg8;
+- (_Bool)_startWritingWithOutputPath:(id)arg1 width:(long long)arg2 height:(long long)arg3 videoFormatDescription:(struct opaqueCMFormatDescription *)arg4 transform:(struct CGAffineTransform)arg5 framesPerSecond:(long long)arg6 frameCount:(long long)arg7 preferHEVC:(_Bool)arg8 videoMetadata:(id)arg9;
 - (struct CGSize)_desiredOutputSizeForFrameSize:(struct CGSize)arg1;
 - (void)_enqueueNextWrite;
 - (void)_enqueueNextDecode;
 - (void)_enqueueNextRead;
-- (void)writeMovieFromImageFiles:(id)arg1 visMetadataFiles:(id)arg2 startDate:(id)arg3 location:(id)arg4 outputPath:(id)arg5 transform:(struct CGAffineTransform)arg6 framesPerSecond:(long long)arg7 completionHandler:(CDUnknownBlockType)arg8;
+- (void)writeMovieFromImageFiles:(id)arg1 visMetadataFiles:(id)arg2 startDate:(id)arg3 location:(id)arg4 outputPath:(id)arg5 transform:(struct CGAffineTransform)arg6 framesPerSecond:(long long)arg7 preferHEVC:(_Bool)arg8 completionHandler:(CDUnknownBlockType)arg9;
 - (void)_reset;
 - (id)init;
 

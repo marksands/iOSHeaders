@@ -6,15 +6,46 @@
 
 #import <SearchFoundation/SFTitleCardSection.h>
 
-@class NSArray, NSNumber, NSString, SFActionItem, SFImage;
+#import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFRichTitleCardSection-Protocol.h>
 
-@interface SFRichTitleCardSection : SFTitleCardSection
+@class NSArray, NSData, NSDictionary, NSNumber, NSString, SFActionItem, SFCard, SFColor, SFImage;
+
+@interface SFRichTitleCardSection : SFTitleCardSection <SFRichTitleCardSection, NSSecureCoding>
 {
+    struct {
+        unsigned int canBeHidden:1;
+        unsigned int hasTopPadding:1;
+        unsigned int hasBottomPadding:1;
+        unsigned int separatorStyle:1;
+        unsigned int isCentered:1;
+        unsigned int reviewNewLine:1;
+        unsigned int auxiliaryBottomTextColor:1;
+        unsigned int hideVerticalDivider:1;
+        unsigned int titleAlign:1;
+        unsigned int titleNoWrap:1;
+        unsigned int thumbnailCropCircle:1;
+        unsigned int playActionAlign:1;
+    } _has;
+    _Bool _canBeHidden;
+    _Bool _hasTopPadding;
+    _Bool _hasBottomPadding;
     _Bool _isCentered;
     _Bool _reviewNewLine;
     _Bool _hideVerticalDivider;
     _Bool _titleNoWrap;
     _Bool _thumbnailCropCircle;
+    int _separatorStyle;
+    int _auxiliaryBottomTextColor;
+    int _titleAlign;
+    int _playActionAlign;
+    NSArray *_punchoutOptions;
+    NSString *_punchoutPickerTitle;
+    NSString *_punchoutPickerDismissText;
+    NSString *_type;
+    SFColor *_backgroundColor;
+    NSString *_title;
+    NSString *_subtitle;
     NSString *_contentAdvisory;
     SFImage *_titleImage;
     NSString *_descriptionText;
@@ -26,28 +57,25 @@
     NSString *_auxiliaryTopText;
     NSString *_auxiliaryMiddleText;
     NSString *_auxiliaryBottomText;
-    unsigned long long _auxiliaryBottomTextColor;
     NSNumber *_auxiliaryAlignment;
-    unsigned long long _titleAlign;
     NSNumber *_titleWeight;
     SFImage *_imageOverlay;
     SFActionItem *_playAction;
-    unsigned long long _playActionAlign;
     NSArray *_offers;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *offers; // @synthesize offers=_offers;
-@property(nonatomic) unsigned long long playActionAlign; // @synthesize playActionAlign=_playActionAlign;
+@property(nonatomic) int playActionAlign; // @synthesize playActionAlign=_playActionAlign;
 @property(retain, nonatomic) SFActionItem *playAction; // @synthesize playAction=_playAction;
 @property(retain, nonatomic) SFImage *imageOverlay; // @synthesize imageOverlay=_imageOverlay;
 @property(nonatomic) _Bool thumbnailCropCircle; // @synthesize thumbnailCropCircle=_thumbnailCropCircle;
 @property(nonatomic) _Bool titleNoWrap; // @synthesize titleNoWrap=_titleNoWrap;
 @property(copy, nonatomic) NSNumber *titleWeight; // @synthesize titleWeight=_titleWeight;
-@property(nonatomic) unsigned long long titleAlign; // @synthesize titleAlign=_titleAlign;
+@property(nonatomic) int titleAlign; // @synthesize titleAlign=_titleAlign;
 @property(nonatomic) _Bool hideVerticalDivider; // @synthesize hideVerticalDivider=_hideVerticalDivider;
 @property(copy, nonatomic) NSNumber *auxiliaryAlignment; // @synthesize auxiliaryAlignment=_auxiliaryAlignment;
-@property(nonatomic) unsigned long long auxiliaryBottomTextColor; // @synthesize auxiliaryBottomTextColor=_auxiliaryBottomTextColor;
+@property(nonatomic) int auxiliaryBottomTextColor; // @synthesize auxiliaryBottomTextColor=_auxiliaryBottomTextColor;
 @property(copy, nonatomic) NSString *auxiliaryBottomText; // @synthesize auxiliaryBottomText=_auxiliaryBottomText;
 @property(copy, nonatomic) NSString *auxiliaryMiddleText; // @synthesize auxiliaryMiddleText=_auxiliaryMiddleText;
 @property(copy, nonatomic) NSString *auxiliaryTopText; // @synthesize auxiliaryTopText=_auxiliaryTopText;
@@ -61,9 +89,46 @@
 @property(nonatomic) _Bool isCentered; // @synthesize isCentered=_isCentered;
 @property(retain, nonatomic) SFImage *titleImage; // @synthesize titleImage=_titleImage;
 @property(copy, nonatomic) NSString *contentAdvisory; // @synthesize contentAdvisory=_contentAdvisory;
+@property(copy, nonatomic) NSString *subtitle;
+@property(copy, nonatomic) NSString *title;
+@property(retain, nonatomic) SFColor *backgroundColor;
+@property(nonatomic) int separatorStyle;
+@property(copy, nonatomic) NSString *type;
+@property(nonatomic) _Bool hasBottomPadding;
+@property(nonatomic) _Bool hasTopPadding;
+@property(nonatomic) _Bool canBeHidden;
+@property(copy, nonatomic) NSString *punchoutPickerDismissText;
+@property(copy, nonatomic) NSString *punchoutPickerTitle;
+@property(copy, nonatomic) NSArray *punchoutOptions;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (_Bool)hasPlayActionAlign;
+- (_Bool)hasThumbnailCropCircle;
+- (_Bool)hasTitleNoWrap;
+- (_Bool)hasTitleAlign;
+- (_Bool)hasHideVerticalDivider;
+- (_Bool)hasAuxiliaryBottomTextColor;
+- (_Bool)hasReviewNewLine;
+- (_Bool)hasIsCentered;
+- (_Bool)hasSeparatorStyle;
+- (_Bool)hasHasBottomPadding;
+- (_Bool)hasHasTopPadding;
+- (_Bool)hasCanBeHidden;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(copy, nonatomic) NSString *cardSectionId;
+@property(copy, nonatomic) NSArray *commands;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(nonatomic) _Bool hideDivider;
+@property(retain, nonatomic) SFCard *nextCard;
+@property(copy, nonatomic) NSArray *parameterKeyPaths;
+@property(readonly) Class superclass;
 
 @end
 

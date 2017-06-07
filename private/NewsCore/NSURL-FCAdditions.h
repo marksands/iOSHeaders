@@ -8,9 +8,18 @@
 
 @interface NSURL (FCAdditions)
 + (id)fc_articleListDirectoryWithFileName:(id)arg1;
-+ (id)fc_urlForUserDomainLibraryDirectory;
-+ (id)fc_urlForUserDomainCachesDirectory;
-+ (id)fc_urlForUserDomainDocumentsDirectory;
 + (id)fc_safeURLWithString:(id)arg1;
+- (id)fc_URLByDeletingFragment;
+- (id)fc_URLByDeletingQuery;
+- (_Bool)_isFeldsparOldChannelURL;
+- (_Bool)_isFeldsparOldTopicURL;
+- (_Bool)fc_isEqualToURL:(id)arg1;
+- (id)fc_feldsparTagID;
+- (_Bool)fc_isFeldsparTagURL;
+- (_Bool)fc_isFeldsparInterstitialPreviewURL;
+- (_Bool)_isFeldsparOldArticleURL;
+- (_Bool)fc_isNewsURL;
+- (id)fc_NewsArticleID;
+- (_Bool)fc_isNewsArticleURL;
 @end
 

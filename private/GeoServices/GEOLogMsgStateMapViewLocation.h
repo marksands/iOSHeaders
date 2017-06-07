@@ -8,9 +8,12 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class GEOTouristInfo;
+
 @interface GEOLogMsgStateMapViewLocation : PBCodable <NSCopying>
 {
     int _locationBucket;
+    GEOTouristInfo *_touristInfo;
     _Bool _isCurrentLocationInViewport;
     struct {
         unsigned int locationBucket:1;
@@ -18,7 +21,9 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEOTouristInfo *touristInfo; // @synthesize touristInfo=_touristInfo;
 @property(nonatomic) _Bool isCurrentLocationInViewport; // @synthesize isCurrentLocationInViewport=_isCurrentLocationInViewport;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -28,6 +33,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasTouristInfo;
 @property(nonatomic) _Bool hasIsCurrentLocationInViewport;
 - (int)StringAsLocationBucket:(id)arg1;
 - (id)locationBucketAsString:(int)arg1;

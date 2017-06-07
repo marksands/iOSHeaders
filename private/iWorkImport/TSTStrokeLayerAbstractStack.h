@@ -21,7 +21,8 @@ __attribute__((visibility("hidden")))
 - (void)enumerateStrokesInRange:(struct TSTSimpleRange)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateStrokesFrom:(unsigned int)arg1 to:(unsigned int)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)lookupStrokeAtIndex:(long long)arg1;
-- (id)strokeLayerEnumeration;
+- (unsigned long long)count;
+- (id)p_strokeLayerEnumeration;
 - (void)dealloc;
 - (id)init;
 

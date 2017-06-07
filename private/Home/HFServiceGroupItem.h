@@ -10,27 +10,25 @@
 #import <Home/HFServiceLikeBuilderCreating-Protocol.h>
 #import <Home/HFServiceLikeItem-Protocol.h>
 
-@class HMServiceGroup, NSSet, NSString;
+@class HMServiceGroup, NSString;
 @protocol HFCharacteristicValueSource, HFHomeKitObject;
 
 @interface HFServiceGroupItem : HFItem <HFServiceLikeItem, HFCharacteristicWriteActionBuilderFactory, HFServiceLikeBuilderCreating>
 {
     id <HFCharacteristicValueSource> _valueSource;
     HMServiceGroup *_serviceGroup;
-    NSSet *_serviceItemUUIDs;
-    NSSet *_serviceItems;
-    NSSet *_controlItems;
 }
 
 + (id)_combinedWriteErrorForError:(id)arg1 serviceGroupTitle:(id)arg2;
-@property(retain, nonatomic) NSSet *controlItems; // @synthesize controlItems=_controlItems;
-@property(retain, nonatomic) NSSet *serviceItems; // @synthesize serviceItems=_serviceItems;
-@property(retain, nonatomic) NSSet *serviceItemUUIDs; // @synthesize serviceItemUUIDs=_serviceItemUUIDs;
++ (_Bool)_isControlItem:(id)arg1 identicalToControlItem:(id)arg2;
++ (_Bool)_isControlItem:(id)arg1 similarToControlItem:(id)arg2;
 @property(readonly, nonatomic) HMServiceGroup *serviceGroup; // @synthesize serviceGroup=_serviceGroup;
 @property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource; // @synthesize valueSource=_valueSource;
 - (void).cxx_destruct;
+- (id)_sortDescriptorsForServiceItems;
 - (id)_mostCommonValueInServiceItems:(id)arg1 valueProvider:(CDUnknownBlockType)arg2;
 - (id)_mergedIconDescriptorForServiceItems:(id)arg1;
+- (long long)_highestIntegerValueForResultsKey:(id)arg1 inServiceItems:(id)arg2;
 - (id)_mostCommonValueForResultsKey:(id)arg1 inServiceItems:(id)arg2;
 - (double)_averageNumericalValueForResultsKey:(id)arg1 inServiceItems:(id)arg2;
 - (id)_unanimousValueForResultsKey:(id)arg1 inServiceItems:(id)arg2;
@@ -41,21 +39,18 @@
 - (_Bool)actionsMayRequireDeviceUnlock;
 - (_Bool)containsActionableCharacteristics;
 - (id)controlPanelItems;
+- (id)allControlItems;
 - (id)incrementalStateControlItem;
 - (id)primaryStateControlItem;
-- (id)allControlItems;
 - (id)_aggregatedValueSource;
-- (_Bool)_isControlItem:(id)arg1 identicalToControlItem:(id)arg2;
-- (_Bool)_isControlItem:(id)arg1 similarToControlItem:(id)arg2;
-- (void)_updateControlItems;
-- (_Bool)_reloadServiceItems;
+- (id)_buildControlItemsForServiceItems:(id)arg1;
+- (id)_buildServiceItems;
 - (id)_subclass_updateWithOptions:(id)arg1;
 @property(readonly, nonatomic) id <HFHomeKitObject> homeKitObject;
 @property(readonly, copy) NSString *description;
 - (id)copyWithValueSource:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
-- (id)_initForCopyWithValueSource:(id)arg1 serviceGroup:(id)arg2 serviceItems:(id)arg3 controlItems:(id)arg4;
 - (id)initWithValueSource:(id)arg1 serviceGroup:(id)arg2;
 
 // Remaining properties

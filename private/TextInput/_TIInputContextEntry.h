@@ -14,13 +14,17 @@
 @interface _TIInputContextEntry : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_text;
+    NSString *_senderIdentifier;
     NSDate *_timestamp;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
+@property(copy, nonatomic) NSString *senderIdentifier; // @synthesize senderIdentifier=_senderIdentifier;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void)dealloc;
+- (id)description;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

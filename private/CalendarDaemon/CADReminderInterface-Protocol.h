@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class EKReminderPredicate, NSArray;
+@class CADObjectID, EKReminderPredicate, NSArray;
 
 @protocol CADReminderInterface
 - (void)CADScheduledTaskCacheGetDaysAndTaskCounts:(void (^)(int, NSArray *))arg1;
 - (void)CADDatabaseGetProperties:(NSArray *)arg1 forReminders:(NSArray *)arg2 reply:(void (^)(int, NSArray *))arg3;
 - (void)CADDatabaseGetCountOfRemindersWithPredicate:(EKReminderPredicate *)arg1 reply:(void (^)(int, int))arg2;
-- (void)CADDatabaseSetDefaultCalendarForNewReminders:(CDStruct_1ef3fb1f)arg1;
-- (void)CADDatabaseGetDefaultCalendarForNewRemindersWithReply:(void (^)(int, struct))arg1;
+- (void)CADDatabaseSetDefaultCalendarForNewReminders:(CADObjectID *)arg1;
+- (void)CADDatabaseGetDefaultCalendarForNewRemindersWithReply:(void (^)(int, CADObjectID *))arg1;
 @end
 

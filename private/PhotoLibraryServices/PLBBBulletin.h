@@ -35,6 +35,9 @@
     _Bool _allMultipleAssetIsMine;
     _Bool _isMixedType;
     _Bool _offerToReportAsJunk;
+    NSString *_interestingMemoryUUID;
+    NSString *_interestingMemoryNotificationTitle;
+    NSString *_interestingMemoryNotificationSubtitle;
     unsigned long long _recordID;
     unsigned long long _replacedBulletinRecordID;
     unsigned long long _originalRecordID;
@@ -43,8 +46,10 @@
     NSDate *_date;
     NSDate *_originalDate;
     NSDate *_expirationDate;
+    NSDate *_importantMemoryNotificationDeliveryDate;
 }
 
+@property(copy) NSDate *importantMemoryNotificationDeliveryDate; // @synthesize importantMemoryNotificationDeliveryDate=_importantMemoryNotificationDeliveryDate;
 @property _Bool suppressAlert; // @synthesize suppressAlert=_suppressAlert;
 @property(readonly, copy) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(copy) NSDate *originalDate; // @synthesize originalDate=_originalDate;
@@ -74,6 +79,7 @@
 - (id)bulletinByMergingWithBulletin:(id)arg1;
 @property(readonly) _Bool canMergeWithPersistedBulletins;
 - (void)dealloc;
+- (id)initWithInterestingMemoryNotificationWithMemoryUUID:(id)arg1 keyAssetUUID:(id)arg2 notificationTitle:(id)arg3 notificationSubtitle:(id)arg4;
 - (id)_initWithLikesCount:(long long)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(_Bool)arg6 mainAssetIsVideo:(_Bool)arg7 inAlbumWithTitle:(id)arg8 albumUUID:(id)arg9 albumCloudGUID:(id)arg10 assetUUIDs:(id)arg11 placeholderAssetUUIDs:(id)arg12 lowResThumbAssetUUIDs:(id)arg13 senderNames:(id)arg14 forMultipleAsset:(_Bool)arg15 allMultipleAssetIsMine:(_Bool)arg16 isMixedType:(_Bool)arg17;
 - (id)_initWithCommentsCount:(long long)arg1 commentDate:(id)arg2 firstCommentGUID:(id)arg3 toAssetWithUUID:(id)arg4 photosBatchID:(id)arg5 mainAssetIsMine:(_Bool)arg6 mainAssetIsVideo:(_Bool)arg7 inAlbumWithTitle:(id)arg8 albumUUID:(id)arg9 albumCloudGUID:(id)arg10 assetUUIDs:(id)arg11 placeholderAssetUUIDs:(id)arg12 lowResThumbAssetUUIDs:(id)arg13;
 - (id)initWithLikeAdded:(id)arg1;

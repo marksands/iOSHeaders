@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsCore/FCMultiTagFeedDescriptor.h>
+#import <NewsCore/FCFeedDescriptor.h>
 
 #import <NewsCore/FCFeedPaginating-Protocol.h>
 
 @class FCAppConfiguration, FCSubscriptionList, NSString;
 
-@interface FCForYouFeedDescriptor : FCMultiTagFeedDescriptor <FCFeedPaginating>
+@interface FCForYouFeedDescriptor : FCFeedDescriptor <FCFeedPaginating>
 {
     unsigned long long _trendingAndSavedStoriesCount;
     FCAppConfiguration *_appConfiguration;
@@ -21,6 +21,7 @@
 @property(retain, nonatomic) FCAppConfiguration *appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 @property(nonatomic) unsigned long long trendingAndSavedStoriesCount; // @synthesize trendingAndSavedStoriesCount=_trendingAndSavedStoriesCount;
 - (void).cxx_destruct;
+- (void)d_fetchAllHeadlinesWithCloudContext:(id)arg1 sinceDate:(id)arg2 filter:(_Bool)arg3 personalize:(_Bool)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)editionFollowingEdition:(id)arg1;
 - (id)editionAtDate:(id)arg1;
 - (long long)feedFilterOptions;

@@ -10,7 +10,6 @@
 + (id)stringWithFileSystemRepresentation:(const char *)arg1;
 + (id)stringWithContentsOfFile:(id)arg1 usingEncoding:(unsigned long long)arg2;
 + (id)ellipsisString;
-+ (id)_phoneURLScheme;
 - (id)stringByRemovingPrefixCaseInsensitive:(id)arg1;
 - (id)stringByReplacingCharactersInSet:(id)arg1 withString:(id)arg2;
 - (id)stringByRemovingCharactersInSet:(id)arg1;
@@ -37,6 +36,7 @@
 - (_Bool)isPathToAppleScript;
 - (id)stringByDecodingSlashes;
 - (id)stringByEncodingSlashes;
+- (id)directionalityIsolatedString;
 - (_Bool)isEqualAsURL:(id)arg1;
 - (id)CalAddressComment;
 - (id)CalUncommentedAddress;
@@ -46,6 +46,9 @@
 - (id)radarLink;
 - (_Bool)isAddressBookURL;
 - (_Bool)isMailURL;
+- (id)stringRemovingTel;
+- (id)stringAddingTel;
+- (_Bool)hasTel;
 - (id)stringRemovingMailto;
 - (id)stringAddingMailto;
 - (id)hostFromEmail;

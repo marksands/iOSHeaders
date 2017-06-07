@@ -18,5 +18,8 @@
 - (NSSet *)copyAllLocalURLsInFolderWithURL:(NSURL *)arg1;
 - (NSDictionary *)copyLocalETagsForURLs:(NSArray *)arg1;
 - (_Bool)getCTag:(id *)arg1 pTag:(id *)arg2 forFolderWithURL:(NSURL *)arg3;
+
+@optional
+- (void)moveTaskFromURL:(NSURL *)arg1 toURL:(NSURL *)arg2 finishedWithIgnoredError:(NSError *)arg3;
 @end
 

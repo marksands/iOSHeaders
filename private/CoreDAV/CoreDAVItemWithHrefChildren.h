@@ -17,12 +17,12 @@
 + (id)copyParseRules;
 @property(retain, nonatomic) CoreDAVItemWithNoChildren *unauthenticated; // @synthesize unauthenticated=_unauthenticated;
 @property(retain, nonatomic) NSMutableSet *hrefs; // @synthesize hrefs=_hrefs;
+- (void).cxx_destruct;
 - (id)hrefsAsStrings;
 - (id)hrefsAsOriginalURLs;
 - (id)hrefsAsFullURLs;
 - (void)addHref:(id)arg1;
 - (id)description;
-- (void)dealloc;
 
 @end
 

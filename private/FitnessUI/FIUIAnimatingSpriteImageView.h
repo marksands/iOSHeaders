@@ -14,8 +14,10 @@
     UIImage *_spriteImage;
     long long _spriteFrameCount;
     long long _spriteColumnCount;
+    unsigned long long _framesPerSecond;
 }
 
+@property(nonatomic) unsigned long long framesPerSecond; // @synthesize framesPerSecond=_framesPerSecond;
 @property(nonatomic) long long spriteColumnCount; // @synthesize spriteColumnCount=_spriteColumnCount;
 @property(nonatomic) long long spriteFrameCount; // @synthesize spriteFrameCount=_spriteFrameCount;
 @property(retain, nonatomic) UIImage *spriteImage; // @synthesize spriteImage=_spriteImage;
@@ -25,6 +27,7 @@
 - (void)startAnimating;
 - (struct CGSize)_spriteFrameSize;
 - (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <HealthUI/HKViewController.h>
+#import <UIKit/UITableViewController.h>
 
 #import <HealthUI/HKEmergencyCardDeletionDelegate-Protocol.h>
 #import <HealthUI/HKEmergencyCardLastUpdatedTableItemDelegate-Protocol.h>
@@ -13,38 +13,43 @@
 #import <HealthUI/UITableViewDataSource-Protocol.h>
 #import <HealthUI/UITableViewDelegate-Protocol.h>
 
-@class HKEmergencyCardContactsTableItem, HKEmergencyCardGroupTableItem, HKEmergencyCardNameAndPictureTableItem, HKHealthStore, NSArray, NSString, UITableView, _HKMedicalIDData;
+@class HKEmergencyCardContactsTableItem, HKEmergencyCardGroupTableItem, HKEmergencyCardNameAndPictureTableItem, HKHealthStore, HKNavigationController, NSArray, NSString, _HKMedicalIDData;
 @protocol HKMedicalIDViewControllerDelegate;
 
-@interface HKMedicalIDViewController : HKViewController <UITableViewDataSource, UITableViewDelegate, HKMedicalIDViewControllerDelegate, HKEmergencyCardDeletionDelegate, HKEmergencyCardRowHeightChangeDelegate, HKEmergencyCardLastUpdatedTableItemDelegate>
+@interface HKMedicalIDViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, HKMedicalIDViewControllerDelegate, HKEmergencyCardDeletionDelegate, HKEmergencyCardRowHeightChangeDelegate, HKEmergencyCardLastUpdatedTableItemDelegate>
 {
-    NSArray *_tableItems;
     NSArray *_presentableTableItems;
     NSArray *_footers;
     HKEmergencyCardGroupTableItem *_groupItem;
     HKEmergencyCardNameAndPictureTableItem *_nameAndPictureItem;
     HKEmergencyCardContactsTableItem *_contactsItem;
     long long _tableViewStyle;
-    _Bool _inEditMode;
     _Bool _inBuddy;
     NSArray *_localeItems;
     NSArray *_accumulatedNumberOfRowsForItems;
+    int _medicalIDChangedToken;
+    HKNavigationController *_medicalIDEditor;
     NSArray *_organDonationItems;
     _Bool _organDonationSignupAvailable;
-    int _emergencyContactsNotificationToken;
     _Bool _allowsEditing;
     _Bool _showsDismissButton;
     _Bool _showsDeleteButton;
+    _Bool _modernAppearance;
+    _Bool _shouldShowHints;
+    _Bool _inEditMode;
     _HKMedicalIDData *_medicalID;
     HKHealthStore *_healthStore;
     id <HKMedicalIDViewControllerDelegate> _delegate;
-    UITableView *_tableView;
+    NSArray *_tableItems;
 }
 
 + (_Bool)isSupportedOnThisDevice;
-@property(retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
+@property(nonatomic) _Bool inEditMode; // @synthesize inEditMode=_inEditMode;
+@property(retain, nonatomic) NSArray *tableItems; // @synthesize tableItems=_tableItems;
 @property(nonatomic) __weak id <HKMedicalIDViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) HKHealthStore *healthStore; // @synthesize healthStore=_healthStore;
+@property(nonatomic) _Bool shouldShowHints; // @synthesize shouldShowHints=_shouldShowHints;
+@property(nonatomic) _Bool modernAppearance; // @synthesize modernAppearance=_modernAppearance;
 @property(nonatomic) _Bool showsDeleteButton; // @synthesize showsDeleteButton=_showsDeleteButton;
 @property(nonatomic) _Bool showsDismissButton; // @synthesize showsDismissButton=_showsDismissButton;
 @property(nonatomic) _Bool allowsEditing; // @synthesize allowsEditing=_allowsEditing;
@@ -79,11 +84,13 @@
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (_Bool)_editable;
 - (_Bool)_shouldShowOrganDonation;
-- (void)reloadMedicalIDDataAndView;
+- (void)_dismissMedicalIDEditor;
 - (id)_fetchMedicalIDDataSynchronously:(_Bool *)arg1;
 - (id)_newViewForFooterInSection:(long long)arg1;
 - (void)_buildPresentableTableItems;
 - (long long)_preferredOrganDonationOrganization;
+- (void)_buildViewModeTableItems;
+- (void)_buildEditModeTableItems;
 - (void)_buildTableItems;
 - (void)_doneTapped:(id)arg1;
 - (void)_organDonationTapped:(id)arg1;
@@ -93,6 +100,7 @@
 - (void)_cancelEditingTapped:(id)arg1;
 - (void)_refreshEmergencyContactsAndReload:(_Bool)arg1;
 - (void)_contactStoreDidChange:(id)arg1;
+- (void)_reloadTableWithMedicalIDData:(id)arg1;
 - (void)_updateMedicalIDNameWithDemographicsInformation:(id)arg1;
 - (void)_fetchName;
 - (unsigned long long)supportedInterfaceOrientations;
@@ -102,8 +110,10 @@
 - (void)timeZoneDidChange:(id)arg1;
 - (void)localeDidChange:(id)arg1;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
+- (void)updateNavigationBar;
 - (void)dealloc;
 - (void)viewDidLoad;
+- (id)initWithStyle:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initInEditMode:(_Bool)arg1;

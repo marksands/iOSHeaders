@@ -7,10 +7,20 @@
 #import <UIKit/UIFont.h>
 
 @interface UIFont (UIKit_SiriUIFrameworkAdditions)
++ (id)siriui_dynamicMediumWeightBodySubtextSizeFont;
++ (id)siriui_dynamicThinWeightBodySubtextSizeFont;
++ (id)siriui_dynamicLightWeightBodySubtextSizeFont;
++ (id)siriui_dynamicMediumWeightBodySizeFont;
++ (id)siriui_dynamicThinWeightBodySizeFont;
++ (id)siriui_dynamicLightWeightBodySizeFont;
++ (id)siriui_dynamicTitle0Font;
 + (id)siriui_dynamicBodyFont;
 + (id)siriui_dynamicHeaderFont;
 + (id)siriui_userUtteranceFont;
 + (id)siriui_ratingFont;
++ (id)siriui_serverTipPrefixFont;
++ (id)siriui_serverTipFont;
++ (id)siriui_serverUtteranceCorrectionPromptFont;
 + (id)siriui_serverUtteranceFont;
 + (id)siriui_subtitleFont;
 + (id)siriui_largeHeaderFontWithSize:(double)arg1;

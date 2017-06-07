@@ -15,7 +15,7 @@
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (_Bool)shouldAttemptToClassifyFormsWithoutAPasswordFieldAsLoginForms;
-- (_Bool)shouldIncludeUnannotatedControls;
+- (_Bool)shouldIncludeNonEmptyFields;
 - (id)visibleNonEmptyTextFieldsInForm:(id)arg1 inFrame:(id)arg2;
 - (id)formSubmissionURLStringForSearchTextField:(id)arg1 inFrame:(id)arg2 useStrictDetection:(_Bool)arg3;
 - (id)formAutoFillNodeForField:(id)arg1 inFrame:(id)arg2;

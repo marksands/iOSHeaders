@@ -8,32 +8,44 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class GEOScreenDimension, NSString, PBUnknownFields;
 
 @interface GEOCarInfo : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     struct GEOScreenResolution _screenResolution;
     CDStruct_95bda58d _engineTypes;
+    CDStruct_95bda58d _inputMethods;
+    int _brightness;
+    NSString *_carName;
+    int _colorRange;
     int _deviceConnection;
-    int _interactionModel;
     NSString *_manufacturer;
     NSString *_model;
     int _navAidedDrivingStatus;
+    GEOScreenDimension *_screenDimension;
     _Bool _destinationSharingEnabled;
     struct {
         unsigned int screenResolution:1;
+        unsigned int brightness:1;
+        unsigned int colorRange:1;
         unsigned int deviceConnection:1;
-        unsigned int interactionModel:1;
         unsigned int navAidedDrivingStatus:1;
         unsigned int destinationSharingEnabled:1;
     } _has;
 }
 
 + (id)carInfoWithTraits:(id)arg1;
+@property(nonatomic) int brightness; // @synthesize brightness=_brightness;
+@property(nonatomic) int colorRange; // @synthesize colorRange=_colorRange;
+@property(retain, nonatomic) GEOScreenDimension *screenDimension; // @synthesize screenDimension=_screenDimension;
+@property(retain, nonatomic) NSString *carName; // @synthesize carName=_carName;
 @property(nonatomic) _Bool destinationSharingEnabled; // @synthesize destinationSharingEnabled=_destinationSharingEnabled;
 @property(nonatomic) struct GEOScreenResolution screenResolution; // @synthesize screenResolution=_screenResolution;
 @property(retain, nonatomic) NSString *model; // @synthesize model=_model;
 @property(retain, nonatomic) NSString *manufacturer; // @synthesize manufacturer=_manufacturer;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,6 +55,18 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsInputMethods:(id)arg1;
+- (id)inputMethodsAsString:(int)arg1;
+- (void)setInputMethods:(int *)arg1 count:(unsigned long long)arg2;
+- (int)inputMethodAtIndex:(unsigned long long)arg1;
+- (void)addInputMethod:(int)arg1;
+- (void)clearInputMethods;
+@property(readonly, nonatomic) int *inputMethods;
+@property(readonly, nonatomic) unsigned long long inputMethodsCount;
+@property(nonatomic) _Bool hasBrightness;
+@property(nonatomic) _Bool hasColorRange;
+@property(readonly, nonatomic) _Bool hasScreenDimension;
+@property(readonly, nonatomic) _Bool hasCarName;
 - (int)StringAsEngineTypes:(id)arg1;
 - (id)engineTypesAsString:(int)arg1;
 - (void)setEngineTypes:(int *)arg1 count:(unsigned long long)arg2;
@@ -63,10 +87,6 @@
 @property(nonatomic) _Bool hasScreenResolution;
 @property(readonly, nonatomic) _Bool hasModel;
 @property(readonly, nonatomic) _Bool hasManufacturer;
-- (int)StringAsInteractionModel:(id)arg1;
-- (id)interactionModelAsString:(int)arg1;
-@property(nonatomic) _Bool hasInteractionModel;
-@property(nonatomic) int interactionModel; // @synthesize interactionModel=_interactionModel;
 - (void)dealloc;
 - (id)initWithTraits:(id)arg1;
 

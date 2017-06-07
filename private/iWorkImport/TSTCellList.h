@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSPointerArray *cells; // @synthesize cells=_cells;
 - (id)lastCell;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)p_replaceCell:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)cellAtIndex:(unsigned long long)arg1;

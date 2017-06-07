@@ -23,9 +23,9 @@
 - (_Bool)is2DRepFor3DChartRep;
 - (_Bool)isDrawingIntoPDF;
 - (_Bool)forceRenderBlankBackground;
-- (_Bool)shadowsEnabled;
 - (double)viewScale;
 - (TSDLayoutGeometry *)geometry;
+- (_Bool)shadowsEnabled;
 - (TSCHChartLayout *)chartLayout;
 @end
 

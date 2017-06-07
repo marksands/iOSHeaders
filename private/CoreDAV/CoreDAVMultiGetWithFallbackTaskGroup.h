@@ -22,6 +22,7 @@
 }
 
 @property(nonatomic) _Bool shouldIgnoreResponseErrors; // @synthesize shouldIgnoreResponseErrors=_shouldIgnoreResponseErrors;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSSet *parsedContents;
 @property(readonly, nonatomic) NSSet *deletedURLs;
 @property(readonly, nonatomic) NSSet *missingURLs;
@@ -30,7 +31,6 @@
 - (void)_fetchOneItem;
 - (void)_switchToSingleGetMode;
 - (void)_configureAndSubmitTask:(id)arg1;
-- (void)dealloc;
 - (id)initWithURLs:(id)arg1 multiGetBlock:(CDUnknownBlockType)arg2 getBlock:(CDUnknownBlockType)arg3 accountInfoProvider:(id)arg4 taskManager:(id)arg5;
 
 // Remaining properties

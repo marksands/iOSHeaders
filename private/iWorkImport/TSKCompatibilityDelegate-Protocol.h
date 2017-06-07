@@ -17,11 +17,11 @@
 - (NSArray *)exportableTypes;
 - (Class)exportOptionsControllerClass;
 - (Class)exporterClassForType:(NSString *)arg1 options:(NSDictionary *)arg2;
-- (Class)importerClassForType:(NSString *)arg1;
+- (Class)importerClassForType:(NSString *)arg1 path:(NSString *)arg2;
 
 @optional
 - (NSString *)unsupportedExportMessageStringForType:(NSString *)arg1;
 - (NSString *)backwardsCompatibleTypeForType:(NSString *)arg1;
-- (_Bool)isExportSupportedForType:(NSString *)arg1 documentRoot:(TSKDocumentRoot *)arg2;
+- (_Bool)isExportSupportedForType:(NSString *)arg1 exporterOptions:(NSDictionary *)arg2 documentRoot:(TSKDocumentRoot *)arg3;
 @end
 

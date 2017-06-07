@@ -58,6 +58,7 @@
 @property(retain, nonatomic) NSString *requestErrorDomain; // @synthesize requestErrorDomain=_requestErrorDomain;
 @property(nonatomic) int responseDataSize; // @synthesize responseDataSize=_responseDataSize;
 @property(nonatomic) int requestDataSize; // @synthesize requestDataSize=_requestDataSize;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -86,7 +87,6 @@
 - (id)networkServiceAsString:(int)arg1;
 @property(nonatomic) _Bool hasNetworkService;
 @property(nonatomic) int networkService; // @synthesize networkService=_networkService;
-- (void)dealloc;
 
 @end
 

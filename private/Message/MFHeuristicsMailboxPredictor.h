@@ -26,7 +26,7 @@
 @property(retain, nonatomic) id <MFQueryableLibraryAdapter> library; // @synthesize library=_library;
 @property(retain, nonatomic) id <MFUserProfileProvider> userProfileProvider; // @synthesize userProfileProvider=_userProfileProvider;
 - (id)_allowedRecipientsForMessage:(id)arg1;
-- (_Bool)_isAllowedAddress:(id)arg1;
+- (_Bool)_isAllowedRecipient:(id)arg1;
 - (id)_normalizedTermFrequencyTopHitFromDictionary:(id)arg1 withThreshold:(double)arg2;
 - (id)_objectWithMeasure:(double)arg1 timesHigherThanFollowUpInMeasures:(id)arg2;
 - (id)_topHitFromMailboxDictionary:(id)arg1 message:(id)arg2;

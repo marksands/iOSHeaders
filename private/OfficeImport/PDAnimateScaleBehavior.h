@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     _Bool mHasBy;
 }
 
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)setBy:(struct CGPoint)arg1;
 - (struct CGPoint)by;

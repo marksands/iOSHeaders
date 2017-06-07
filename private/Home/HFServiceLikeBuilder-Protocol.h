@@ -7,7 +7,7 @@
 #import <Home/HFAccessoryVendor-Protocol.h>
 #import <Home/NSObject-Protocol.h>
 
-@class HFRoomBuilder, NSArray, NSString;
+@class HFRoomBuilder, NAFuture, NSArray, NSString;
 @protocol HFIconDescriptor;
 
 @protocol HFServiceLikeBuilder <HFAccessoryVendor, NSObject>
@@ -15,6 +15,7 @@
 @property(readonly, nonatomic) _Bool supportsFavoriting;
 @property(readonly, nonatomic) NSString *originalName;
 @property(copy, nonatomic) NSString *name;
+- (NAFuture *)removeItemFromHome;
 
 @optional
 @property(readonly, nonatomic) NSArray *availableIconDescriptors;

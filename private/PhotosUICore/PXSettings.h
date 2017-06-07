@@ -6,13 +6,31 @@
 
 #import <UIKit/_UISettings.h>
 
+@class NSMutableSet;
+
 @interface PXSettings : _UISettings
 {
+    NSMutableSet *_archivedSettings;
+    long long _version;
 }
 
++ (id)_signatureDictionaryWithDefaultSettings:(id *)arg1;
++ (id)_defaultsKey;
++ (id)_userDefaults;
++ (id)createSharedInstance;
 + (id)sharedInstance;
+@property(nonatomic) long long version; // @synthesize version=_version;
+- (void).cxx_destruct;
+- (void)removeKeyPathObserver:(id)arg1;
+- (void)addKeyPathObserver:(id)arg1;
+- (void)removeKeyObserver:(id)arg1;
+- (void)addKeyObserver:(id)arg1;
+- (void)defaultValueDidChangeForKey:(id)arg1;
 - (void)performPostSaveActions;
+- (id)archiveValueForKey:(id)arg1;
 - (void)save;
+- (void)_resetValuesThatChangedBetweenCurrentDefaultValues:(id)arg1 andArchivedDefaultValues:(id)arg2 defaultSettings:(id)arg3;
+- (id)parentSettings;
 
 @end
 

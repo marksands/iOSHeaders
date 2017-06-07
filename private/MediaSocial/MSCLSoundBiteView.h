@@ -8,7 +8,7 @@
 
 #import <MediaSocial/MSCLProximityObserver-Protocol.h>
 
-@class CMKShutterButton, MSCLSoundBiteViewButton, MSCLWaveformImageProducer, NSString, UIButton, UIImageView, UILabel;
+@class CUShutterButton, MSCLSoundBiteViewButton, MSCLWaveformImageProducer, NSString, UIButton, UIImageView, UILabel;
 @protocol MSCLSoundBiteViewDelegate;
 
 @interface MSCLSoundBiteView : UIView <MSCLProximityObserver>
@@ -27,7 +27,7 @@
     UILabel *_promptExplicitLabel;
     UIButton *_recordButton;
     double _recordingTimeLabelWidth;
-    CMKShutterButton *_stopRecordingIndicator;
+    CUShutterButton *_stopRecordingIndicator;
     UILabel *_timeLabel;
     UIView *_waveformBackgroundView;
     MSCLWaveformImageProducer *_waveformImageProducer;

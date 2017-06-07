@@ -16,9 +16,12 @@
     NSString *_accountId;
     NSString *_displayName;
     NSArray *_emailAddresses;
+    NSArray *_mailboxes;
 }
 
++ (id)inboxesFromAccounts:(id)arg1;
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSArray *mailboxes; // @synthesize mailboxes=_mailboxes;
 @property(retain, nonatomic) NSArray *emailAddresses; // @synthesize emailAddresses=_emailAddresses;
 @property(nonatomic) _Bool shouldArchive; // @synthesize shouldArchive=_shouldArchive;
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;

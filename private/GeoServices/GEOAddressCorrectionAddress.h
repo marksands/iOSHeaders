@@ -18,6 +18,7 @@
 
 @property(retain, nonatomic) NSString *addressID; // @synthesize addressID=_addressID;
 @property(retain, nonatomic) GEOLocation *addressLocation; // @synthesize addressLocation=_addressLocation;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +30,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasAddressID;
 @property(readonly, nonatomic) _Bool hasAddressLocation;
-- (void)dealloc;
 
 @end
 

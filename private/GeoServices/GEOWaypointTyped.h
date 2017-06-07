@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOWaypointID, GEOWaypointLocation, GEOWaypointPlace;
+@class GEOWaypointID, GEOWaypointLocation, GEOWaypointPlace, PBUnknownFields;
 
 @interface GEOWaypointTyped : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     GEOWaypointID *_waypointId;
     GEOWaypointLocation *_waypointLocation;
     GEOWaypointPlace *_waypointPlace;
@@ -30,6 +31,8 @@
 @property(retain, nonatomic) GEOWaypointLocation *waypointLocation; // @synthesize waypointLocation=_waypointLocation;
 @property(retain, nonatomic) GEOWaypointPlace *waypointPlace; // @synthesize waypointPlace=_waypointPlace;
 @property(retain, nonatomic) GEOWaypointID *waypointId; // @synthesize waypointId=_waypointId;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,7 +51,6 @@
 - (id)waypointTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasWaypointType;
 @property(nonatomic) int waypointType; // @synthesize waypointType=_waypointType;
-- (void)dealloc;
 - (id)locationForWaypoint;
 
 @end

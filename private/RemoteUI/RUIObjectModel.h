@@ -41,6 +41,7 @@
     NSString *_authPasswordEquivalent;
     NSString *_authPasswordFieldID;
     _Bool _parseFinished;
+    CDUnknownBlockType _webViewDoneHandler;
     id <RUIObjectModelDelegate> _delegate;
     NSString *_identifier;
     RUIStyle *_style;
@@ -82,6 +83,7 @@
 - (_Bool)tableViewOM:(id)arg1 deleteRowAtIndexPath:(id)arg2;
 - (void)alertView:(id)arg1 pressedButton:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remoteUIWebViewControllerDonePressed:(id)arg1;
+- (void)showModalWebViewWithLinkURL:(id)arg1 scaleToFit:(_Bool)arg2 loadCompletion:(CDUnknownBlockType)arg3 doneHandler:(CDUnknownBlockType)arg4;
 - (id)_pageContainingTableView:(id)arg1;
 - (void)_handleElementChange:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_handleLinkPress:(id)arg1 attributes:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -105,6 +107,7 @@
 - (void)startNavigationBarSpinnerWithTitle:(id)arg1;
 - (id)elementsWithName:(id)arg1;
 - (id)relativeURLWithString:(id)arg1;
+- (id)absoluteURLWithString:(id)arg1;
 - (id)rowForFormField:(id)arg1;
 - (id)tableFooterViewForAttributes:(id)arg1;
 - (id)tableHeaderViewForAttributes:(id)arg1;

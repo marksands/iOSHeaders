@@ -6,16 +6,23 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOMapRegion, GEOMapServiceTraits, GEORPCorrectedSearch, GEORPPlaceInfo, GEORelatedSearchSuggestion, NSArray, NSDictionary, NSObject, NSString;
+@class GEODirectionIntent, GEOMapRegion, GEOMapServiceTraits, GEORPCorrectedSearch, GEORPPlaceInfo, GEORelatedSearchSuggestion, NSArray, NSDictionary, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @protocol GEOMapServiceTicket <NSObject>
+@property(readonly, nonatomic, getter=isCancelled) _Bool cancelled;
+@property(nonatomic) unsigned long long cachePolicy;
+@property(readonly, nonatomic) _Bool showDymSuggestionCloseButton;
+@property(readonly, nonatomic) unsigned int dymSuggestionVisibleTime;
+@property(readonly, nonatomic) GEODirectionIntent *directionIntent;
 @property(readonly, nonatomic) _Bool shouldEnableRedoSearch;
+@property(readonly, nonatomic) NSArray *displayHeaderSubstitutes;
 @property(readonly, nonatomic) NSString *resultDisplayHeader;
 @property(readonly, nonatomic) int searchResultType;
 @property(readonly, nonatomic) NSString *resultSectionHeader;
 @property(readonly, nonatomic) NSDictionary *responseUserInfo;
 @property(readonly, nonatomic) GEORelatedSearchSuggestion *defaultRelatedSuggestion;
+@property(readonly, nonatomic) NSArray *browseCategories;
 @property(readonly, nonatomic) NSArray *relatedSearchSuggestions;
 @property(readonly, nonatomic, getter=isChainResultSet) _Bool chainResultSet;
 @property(readonly, nonatomic) GEOMapRegion *resultBoundingRegion;

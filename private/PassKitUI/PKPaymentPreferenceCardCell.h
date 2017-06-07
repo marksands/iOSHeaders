@@ -6,14 +6,14 @@
 
 #import <PassKitUI/PKPaymentPreferenceCell.h>
 
-@class NSString, PKPassSnapshotter, PKPaymentPass, UIColor, UIImageView, UILabel;
+@class NSString, PKPassSnapshotter, PKPaymentPass, UIColor, UIImageView, UILabel, UIStackView;
 
 @interface PKPaymentPreferenceCardCell : PKPaymentPreferenceCell
 {
     _Bool _isRightToLeft;
     UILabel *_displayLabel;
-    UILabel *_censoredPANLabel;
     UIImageView *_cardArtView;
+    UIStackView *_stackView;
     _Bool _showBillingAddress;
     _Bool _showAvailability;
     _Bool _dimCardArt;
@@ -23,6 +23,7 @@
     UIColor *_subTextLabelColor;
     UIColor *_disabledMainLabelColor;
     UIColor *_disabledSubTextLabelColor;
+    UILabel *_censoredPANLabel;
     NSString *_availabilityStringPrefix;
 }
 
@@ -30,6 +31,7 @@
 @property(nonatomic) _Bool showAvailability; // @synthesize showAvailability=_showAvailability;
 @property(nonatomic) _Bool showBillingAddress; // @synthesize showBillingAddress=_showBillingAddress;
 @property(copy, nonatomic) NSString *availabilityStringPrefix; // @synthesize availabilityStringPrefix=_availabilityStringPrefix;
+@property(readonly, nonatomic) UILabel *censoredPANLabel; // @synthesize censoredPANLabel=_censoredPANLabel;
 @property(retain, nonatomic) UIColor *disabledSubTextLabelColor; // @synthesize disabledSubTextLabelColor=_disabledSubTextLabelColor;
 @property(retain, nonatomic) UIColor *disabledMainLabelColor; // @synthesize disabledMainLabelColor=_disabledMainLabelColor;
 @property(retain, nonatomic) UIColor *subTextLabelColor; // @synthesize subTextLabelColor=_subTextLabelColor;
@@ -37,15 +39,13 @@
 @property(retain, nonatomic) PKPassSnapshotter *passSnapshotter; // @synthesize passSnapshotter=_passSnapshotter;
 @property(retain, nonatomic) PKPaymentPass *pass; // @synthesize pass=_pass;
 - (void).cxx_destruct;
-- (void)layoutSubviews;
-- (struct CGRect)_censoredPANLabelFrame;
-- (struct CGRect)_displayLabelFrame;
-- (struct CGRect)_cardArtFrame;
+- (void)_setupConstraints;
 - (void)_updateLabelTextColors;
 - (void)_updateCellContent;
 - (id)_passAvailabilityString;
+- (void)setEditing:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setUserInteractionEnabled:(_Bool)arg1;
-- (void)dealloc;
+- (void)setHasError:(_Bool)arg1;
 - (id)initWithReuseIdentifier:(id)arg1;
 - (void)pk_applyAppearance:(id)arg1;
 

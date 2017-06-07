@@ -16,6 +16,7 @@
     CIImage *_ciImage;
 }
 
+- (void).cxx_destruct;
 - (void)renderCIImage:(id)arg1;
 - (id)ciImage;
 - (void)readPixelsByAddressInBlock:(CDUnknownBlockType)arg1;

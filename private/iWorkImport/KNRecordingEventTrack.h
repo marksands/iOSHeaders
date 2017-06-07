@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1;
 - (id)initWithContext:(id)arg1 type:(id)arg2 events:(id)arg3;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchive:(struct RecordingEventTrackArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct RecordingEventTrackArchive *)arg1 unarchiver:(id)arg2;
 

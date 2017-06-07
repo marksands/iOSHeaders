@@ -6,14 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSError, NSMutableArray, NSMutableDictionary, TSUZipWriterEntry;
+@class NSDate, NSError, NSMutableArray, NSMutableDictionary, TSUZipWriterEntry;
 @protocol OS_dispatch_data, OS_dispatch_queue, OS_dispatch_semaphore, TSURandomWriteChannel;
 
 __attribute__((visibility("hidden")))
 @interface TSUZipWriter : NSObject
 {
     unsigned long long _options;
-    long long _writeChannelOnceToken;
+    NSObject<OS_dispatch_queue> *_channelQueue;
     id <TSURandomWriteChannel> _writeChannel;
     NSObject<OS_dispatch_semaphore> *_writeChannelCompletionSemaphore;
     NSMutableArray *_entries;
@@ -22,23 +22,24 @@ __attribute__((visibility("hidden")))
     _Bool _calculateSize;
     _Bool _force32BitSize;
     _Bool _calculateCRC;
-    unsigned short _entryTime;
-    unsigned short _entryDate;
+    unsigned long long _sizeToMatch;
+    unsigned int _CRCToMatch;
+    NSDate *_lastModificationDateIfSizeAndCRCMatches;
+    NSDate *_newEntryLastModificationDate;
     long long _currentOffset;
     NSObject<OS_dispatch_data> *_localFileHeaderData;
     NSMutableArray *_entryDatas;
     unsigned long long _entryDataSize;
-    NSObject<OS_dispatch_queue> *_channelQueue;
     NSObject<OS_dispatch_queue> *_writeQueue;
     long long _writtenOffset;
     NSError *_error;
     _Bool _isClosed;
 }
 
+@property(readonly, nonatomic) _Bool isClosed; // @synthesize isClosed=_isClosed;
 - (void).cxx_destruct;
-- (unsigned long long)encodedLengthForEntryWithName:(id)arg1;
+- (id)entryWithName:(id)arg1;
 - (void)enumerateEntriesUsingBlock:(CDUnknownBlockType)arg1;
-- (void)initEntryTime;
 - (void)handleWriteError:(id)arg1;
 @property(readonly, nonatomic) unsigned long long archiveLength;
 - (id)prepareWriteChannelWithCloseCompletionHandler:(CDUnknownBlockType)arg1;
@@ -55,17 +56,18 @@ __attribute__((visibility("hidden")))
 - (void)closeWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)addBarrier:(CDUnknownBlockType)arg1;
 - (void)writeEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 fromReadChannel:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)writeEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 size:(unsigned long long)arg3 CRC:(unsigned int)arg4 fromReadChannel:(id)arg5 writeHandler:(CDUnknownBlockType)arg6;
-- (void)writeEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 size:(unsigned long long)arg3 CRC:(unsigned int)arg4 fromReadChannel:(id)arg5 completion:(CDUnknownBlockType)arg6;
+- (void)writeEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 lastModificationDate:(id)arg3 size:(unsigned long long)arg4 CRC:(unsigned int)arg5 fromReadChannel:(id)arg6 writeHandler:(CDUnknownBlockType)arg7;
+- (void)writeEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 lastModificationDate:(id)arg3 size:(unsigned long long)arg4 CRC:(unsigned int)arg5 fromReadChannel:(id)arg6 completion:(CDUnknownBlockType)arg7;
 - (void)finishEntry;
+- (void)flushCurrentEntryWithQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)flushEntryData;
 - (void)addDataImpl:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addData:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)addData:(id)arg1;
-- (void)beginEntryWithNameImpl:(id)arg1 force32BitSize:(_Bool)arg2 size:(unsigned long long)arg3 CRC:(unsigned int)arg4;
-- (void)beginEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 size:(unsigned long long)arg3 CRC:(unsigned int)arg4;
-- (void)beginEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2;
-- (id)writeChannel;
+- (void)beginEntryWithNameImpl:(id)arg1 force32BitSize:(_Bool)arg2 lastModificationDate:(id)arg3 size:(unsigned long long)arg4 CRC:(unsigned int)arg5 forceCalculatingSizeAndCRCForPreservingLastModificationDate:(_Bool)arg6;
+- (void)beginEntryWithName:(id)arg1 force32BitSize:(_Bool)arg2 lastModificationDate:(id)arg3 size:(unsigned long long)arg4 CRC:(unsigned int)arg5 forceCalculatingSizeAndCRCForPreservingLastModificationDate:(_Bool)arg6;
+- (id)p_writeChannel;
+@property(readonly, nonatomic) unsigned long long entriesCount;
 - (id)initWithOptions:(unsigned long long)arg1;
 - (id)init;
 

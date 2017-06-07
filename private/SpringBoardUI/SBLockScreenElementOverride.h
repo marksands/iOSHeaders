@@ -6,19 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, UIColor;
+@class NSString;
 
 @interface SBLockScreenElementOverride : NSObject
 {
     _Bool _hidden;
     long long _element;
     NSString *_text;
-    UIColor *_color;
 }
 
 + (id)overrideForHiddenElement:(long long)arg1;
 + (id)overrideForElement:(long long)arg1;
-@property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(nonatomic, getter=isHidden) _Bool hidden; // @synthesize hidden=_hidden;
 @property(nonatomic) long long element; // @synthesize element=_element;

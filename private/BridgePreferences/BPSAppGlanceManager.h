@@ -6,35 +6,20 @@
 
 #import <objc/NSObject.h>
 
-#import <BridgePreferences/BPSInternalGlanceObserverDelegate-Protocol.h>
+@class PSListController;
 
-@class BPSInternalGlanceManager, NGSGlance, NSString, PSListController;
-
-@interface BPSAppGlanceManager : NSObject <BPSInternalGlanceObserverDelegate>
+@interface BPSAppGlanceManager : NSObject
 {
     PSListController *_listControllerDelegate;
-    NGSGlance *_glance;
-    BPSInternalGlanceManager *_manager;
 }
 
-@property(retain, nonatomic) BPSInternalGlanceManager *manager; // @synthesize manager=_manager;
-@property(retain, nonatomic) NGSGlance *glance; // @synthesize glance=_glance;
 @property(nonatomic) __weak PSListController *listControllerDelegate; // @synthesize listControllerDelegate=_listControllerDelegate;
 - (void).cxx_destruct;
 - (void)_logGlanceDescriptions;
 - (id)showsGlance:(id)arg1;
 - (void)setShowsGlance:(id)arg1 forSpecifier:(id)arg2;
 - (id)glanceSpecifierForIdentifier:(id)arg1;
-- (void)settingsManagerReloadedGlances:(id)arg1;
 - (void)loadSettings;
-- (void)dealloc;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

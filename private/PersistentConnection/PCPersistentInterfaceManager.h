@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <PersistentConnection/PCInterfaceMonitorDelegate-Protocol.h>
 
@@ -27,11 +27,11 @@
     _Bool _isWWANInterfaceDataActive;
     _Bool _ctIsWWANInHomeCountry;
     _Bool _hasWWANStatusIndicator;
+    _Bool _isWWANInterfaceSuspended;
     _Bool _isPowerStateDetectionSupported;
     _Bool _isWWANInterfaceInProlongedHighPowerState;
     _Bool _isWWANInterfaceActivationPermitted;
     double _lastActivationTime;
-    int _wwanRSSI;
     _Bool _isInCall;
     _Bool _isWakeOnWiFiSupported;
     _Bool _isWakeOnWiFiEnabled;
@@ -39,6 +39,7 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (id)urlConnectionBoundToWWANInterfaceWithRequest:(id)arg1 delegate:(id)arg2 usesCache:(_Bool)arg3 maxContentLength:(long long)arg4 startImmediately:(_Bool)arg5 connectionProperties:(id)arg6;
 - (id)urlConnectionBoundToWWANInterface:(_Bool)arg1 withRequest:(id)arg2 delegate:(id)arg3 usesCache:(_Bool)arg4 maxContentLength:(long long)arg5 startImmediately:(_Bool)arg6 connectionProperties:(id)arg7;
 - (void)bindCFStreamToWWANInterface:(struct __CFReadStream *)arg1;
@@ -68,13 +69,14 @@
 @property(readonly) _Bool isWWANInterfaceInProlongedHighPowerState;
 @property(readonly) _Bool isPowerStateDetectionSupported;
 @property(readonly) _Bool doesWWANInterfaceExist;
+@property(readonly) _Bool isWWANInterfaceSuspended;
 @property(readonly) NSString *WWANInterfaceName;
 @property(readonly) _Bool isWWANInterfaceUp;
 @property(readonly) _Bool isWWANBetterThanWiFi;
 - (void)_scheduleCalloutsForSelector:(SEL)arg1;
 - (_Bool)_wifiIsPoorLinkQuality;
 - (_Bool)_wwanIsPoorLinkQuality;
-@property(readonly, retain, nonatomic) NSString *currentLinkQualityString;
+@property(readonly, nonatomic) NSString *currentLinkQualityString;
 - (void)_updateCTIsWWANInHomeCountry:(_Bool)arg1 isWWANInterfaceDataActive:(_Bool)arg2;
 - (void)_updateWWANInterfaceUpState;
 - (void)_updateWWANInterfaceUpStateLocked;

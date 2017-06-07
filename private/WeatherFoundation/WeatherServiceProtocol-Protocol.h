@@ -9,6 +9,7 @@
 @class MKLocalSearchCompletion, NSDateComponents, NSDictionary, NSLocale, NSString, WFLocation, WFTaskIdentifier;
 
 @protocol WeatherServiceProtocol <WeatherServiceInternalProtocol>
+- (void)invalidateCache:(WFTaskIdentifier *)arg1;
 - (void)cancelTaskWithIdentifier:(WFTaskIdentifier *)arg1;
 - (void)reachabilityConfigurationForIdentifier:(WFTaskIdentifier *)arg1;
 - (void)replaceTemperatureUnitWith:(int)arg1 identifier:(WFTaskIdentifier *)arg2;

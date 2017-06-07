@@ -23,7 +23,6 @@
 - (_Bool)popNextBatchWithError:(id *)arg1;
 - (id)nextBatch;
 - (_Bool)popChangeBatch:(id *)arg1 error:(id *)arg2;
-- (_Bool)markChangesWithIdentifier:(id)arg1 withAlterationType:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)appendChangeBatch:(id)arg1 error:(id *)arg2;
 - (_Bool)hasQueuedBatches;
 - (unsigned long long)countOfQueuedBatches;

@@ -6,26 +6,28 @@
 
 #import <NanoTimeKitCompanion/NTKBackgroundImageFaceView.h>
 
-#import <NanoTimeKitCompanion/NTKVideoPlayerViewDelegate-Protocol.h>
+#import <NanoTimeKitCompanion/CLKVideoPlayerViewDelegate-Protocol.h>
 
-@class NSString, NTKVideoPlayerView, UIImageView;
+@class CLKVideoPlayerView, NSString, UIImageView;
 
-@interface NTKAVFaceBaseView : NTKBackgroundImageFaceView <NTKVideoPlayerViewDelegate>
+@interface NTKAVFaceBaseView : NTKBackgroundImageFaceView <CLKVideoPlayerViewDelegate>
 {
     UIImageView *_posterImageView;
-    NTKVideoPlayerView *_videoPlayerView;
+    CLKVideoPlayerView *_videoPlayerView;
 }
 
-@property(retain, nonatomic) NTKVideoPlayerView *videoPlayerView; // @synthesize videoPlayerView=_videoPlayerView;
+@property(retain, nonatomic) CLKVideoPlayerView *videoPlayerView; // @synthesize videoPlayerView=_videoPlayerView;
 @property(retain, nonatomic) UIImageView *posterImageView; // @synthesize posterImageView=_posterImageView;
 - (void).cxx_destruct;
+- (void)videoPlayerViewDidPauseAfterPlayingVideoToEnd:(id)arg1;
+- (void)videoPlayerViewDidBeginPlaying:(id)arg1;
 - (id)_posterImageView;
 - (void)_reset;
 - (void)_createVideoPlayerViewIfNeeded;
 - (void)pauseVideoPlayerViewIfItExists;
 - (void)layoutSubviews;
 - (void)_mediaServicesWereReset:(id)arg1;
-- (void)_cleanupAfterOptionTransitionForCustomEditMode:(long long)arg1 slot:(id)arg2;
+- (void)_cleanupAfterTransitionToOption:(id)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_beginTransitionToOption;
 - (void)_prepareForEditing;
 - (void)_transitionToPosterView:(id)arg1;

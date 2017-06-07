@@ -30,6 +30,7 @@
 @property(retain, nonatomic) GEOFormattedString *initialStage; // @synthesize initialStage=_initialStage;
 @property(retain, nonatomic) GEOFormattedString *continueStage; // @synthesize continueStage=_continueStage;
 @property(retain, nonatomic) GEOFormattedString *proceedStage; // @synthesize proceedStage=_proceedStage;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -48,7 +49,6 @@
 @property(readonly, nonatomic) _Bool hasInitialStage;
 @property(readonly, nonatomic) _Bool hasContinueStage;
 @property(readonly, nonatomic) _Bool hasProceedStage;
-- (void)dealloc;
 
 @end
 

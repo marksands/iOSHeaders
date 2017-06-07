@@ -37,7 +37,6 @@
 @property(readonly) NSDictionary *largeImageCropRects;
 @property(readonly) NSDictionary *imageCropRects;
 @property(readonly) NSArray *imageReferences;
-- (id)jpegImageDataOfAllowableKinds:(id)arg1 maximumLength:(unsigned long long)arg2 cropRects:(id *)arg3;
 - (id)filterItems:(id)arg1 property:(id)arg2;
 @property(readonly) NSDictionary *activityAlerts;
 @property(readonly) NSArray *calendarURIs;

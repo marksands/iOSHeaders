@@ -30,8 +30,6 @@
 + (_Bool)shouldHideAvalanchesFromPhotoStream;
 + (_Bool)shouldOnlyShowAvalanchePicks;
 + (struct CGRect)frameOfTopImageInStackForStackFrame:(struct CGRect)arg1;
-+ (id)partialAvalancheStackForImage:(id)arg1 backgroundColor:(id)arg2;
-+ (id)avalancheStackForImage:(id)arg1 backgroundColor:(id)arg2;
 + (void)removeFavoriteStatus:(id)arg1;
 + (unsigned long long)_calculateStackAssetForAssetCount:(unsigned long long)arg1 autoPicks:(id)arg2 userFavorites:(id)arg3;
 + (id)_assetAmongAssets:(id)arg1 fromIndexes:(id)arg2 excludingIndexes:(id)arg3;

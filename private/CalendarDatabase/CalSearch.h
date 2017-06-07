@@ -10,7 +10,7 @@
 
 @interface CalSearch : NSObject
 {
-    struct CalDatabase *_database;
+    // Error parsing type: ^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}, name: _database
     struct CalFilter *_filter;
     struct __CFString *_searchString;
     int _seed;
@@ -58,7 +58,7 @@
 - (void)stopSearching;
 - (void)startSearching;
 - (void)dealloc;
-- (id)initWithDatabase:(struct CalDatabase *)arg1 filter:(struct CalFilter *)arg2 dataSink:(id)arg3;
+-     // Error parsing type: @40@0:8^{CalDatabase={__CFRuntimeBase=QAQ}i^{CPRecordStore}^{CalEventOccurrenceCache}^{CalScheduledTaskCache}^{__CFDictionary}^{__CFDictionary}{_opaque_pthread_mutex_t=q[56c]}II^{__CFArray}^{__CFString}^{__CFArray}ii^{__CFString}^{__CFString}i@?{_opaque_pthread_mutex_t=q[56c]}B^{__CFArray}^{__CFArray}^{__CFArray}^{__CFArray}B@B}16^{CalFilter=}24@32, name: initWithDatabase:filter:dataSink:
 
 @end
 

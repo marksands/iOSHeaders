@@ -12,11 +12,14 @@
 #import <Home/HMCameraStreamControlDelegate-Protocol.h>
 #import <Home/HMHomeDelegatePrivate-Protocol.h>
 #import <Home/HMHomeManagerDelegatePrivate-Protocol.h>
+#import <Home/HMMediaProfileDelegate-Protocol.h>
+#import <Home/HMMediaSessionDelegate-Protocol.h>
 #import <Home/HMResidentDeviceDelegate-Protocol.h>
+#import <Home/LSApplicationWorkspaceObserverProtocol-Protocol.h>
 
 @class HFLocationSensingCoordinator, HMHome, HMHomeManager, NAFuture, NSHashTable, NSMutableArray, NSMutableDictionary, NSString, NSTimer;
 
-@interface HFHomeKitDispatcher : NSObject <HMResidentDeviceDelegate, HMCameraSnapshotControlDelegate, HMCameraStreamControlDelegate, HFLocationSensingCoordinatorDelegate, HMHomeManagerDelegatePrivate, HMHomeDelegatePrivate, HMAccessoryDelegatePrivate>
+@interface HFHomeKitDispatcher : NSObject <HMResidentDeviceDelegate, HMCameraSnapshotControlDelegate, HMCameraStreamControlDelegate, HFLocationSensingCoordinatorDelegate, LSApplicationWorkspaceObserverProtocol, HMHomeManagerDelegatePrivate, HMHomeDelegatePrivate, HMAccessoryDelegatePrivate, HMMediaProfileDelegate, HMMediaSessionDelegate>
 {
     _Bool _hasLoadedHomes;
     int _homeKitPreferencesChangedNotifyToken;
@@ -32,14 +35,24 @@
     NSHashTable *_accessoryObservers;
     NSHashTable *_residentDeviceObservers;
     NSHashTable *_cameraObservers;
+    NSHashTable *_mediaProfileObservers;
+    NSHashTable *_mediaSessionObservers;
     NSMutableArray *_homePromises;
+    NSMutableArray *_firstHomeAddedPromises;
     NSMutableArray *_allHomesPromises;
+    NAFuture *_homeAppIsInstalledFuture;
+    NAFuture *_locationCoordinatorSetupFuture;
 }
 
 + (id)sharedDispatcher;
 + (unsigned long long)_homeManagerCreationPolicy;
+@property(retain, nonatomic) NAFuture *locationCoordinatorSetupFuture; // @synthesize locationCoordinatorSetupFuture=_locationCoordinatorSetupFuture;
+@property(retain, nonatomic) NAFuture *homeAppIsInstalledFuture; // @synthesize homeAppIsInstalledFuture=_homeAppIsInstalledFuture;
 @property(retain, nonatomic) NSMutableArray *allHomesPromises; // @synthesize allHomesPromises=_allHomesPromises;
+@property(retain, nonatomic) NSMutableArray *firstHomeAddedPromises; // @synthesize firstHomeAddedPromises=_firstHomeAddedPromises;
 @property(retain, nonatomic) NSMutableArray *homePromises; // @synthesize homePromises=_homePromises;
+@property(retain, nonatomic) NSHashTable *mediaSessionObservers; // @synthesize mediaSessionObservers=_mediaSessionObservers;
+@property(retain, nonatomic) NSHashTable *mediaProfileObservers; // @synthesize mediaProfileObservers=_mediaProfileObservers;
 @property(retain, nonatomic) NSHashTable *cameraObservers; // @synthesize cameraObservers=_cameraObservers;
 @property(retain, nonatomic) NSHashTable *residentDeviceObservers; // @synthesize residentDeviceObservers=_residentDeviceObservers;
 @property(retain, nonatomic) NSHashTable *accessoryObservers; // @synthesize accessoryObservers=_accessoryObservers;
@@ -55,17 +68,23 @@
 @property(retain, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(retain, nonatomic) HMHomeManager *homeManager; // @synthesize homeManager=_homeManager;
 - (void).cxx_destruct;
+- (void)applicationsDidInstall:(id)arg1;
+- (void)applicationsWillUninstall:(id)arg1;
+- (void)_watchForAppUninstallation;
 - (void)startHomeSensingIdleTimer;
 - (void)updateStopHomeSensingIdleTimerState;
 - (id)homeSensingActiveFuture;
 - (void)_setDelegate:(id)arg1 forAccessoryHierarchy:(id)arg2;
-- (void)_setDelegate:(id)arg1 forObjectsInHome:(id)arg2;
+- (void)_setDelegateForObjectsInCurrentHome:(id)arg1;
 - (id)_primaryHome;
+- (void)_finishFirstHomeAddedPromises:(id)arg1;
 - (void)_finishAllHomesPromises:(id)arg1;
 - (void)_finishHomePromises:(id)arg1;
 - (void)_updateRemoteAccessStateForHome:(id)arg1 notifyingObservers:(_Bool)arg2;
 - (void)coordinator:(id)arg1 homeSensingStatusDidChange:(_Bool)arg2;
 - (void)coordinator:(id)arg1 locationSensingAvailabilityDidChange:(_Bool)arg2;
+- (void)mediaSession:(id)arg1 didUpdatePlaybackState:(long long)arg2;
+- (void)mediaProfile:(id)arg1 didUpdateMediaSession:(id)arg2;
 - (void)cameraStreamControl:(id)arg1 didStopStreamWithError:(id)arg2;
 - (void)cameraStreamControlDidStartStream:(id)arg1;
 - (void)cameraSnapshotControlDidUpdateMostRecentSnapshot:(id)arg1;
@@ -140,17 +159,24 @@
 - (void)homeManagerDidUpdatePrimaryHome:(id)arg1;
 - (void)homeManagerDidUpdateHomes:(id)arg1;
 - (void)updateSelectedHome;
+- (id)_setupLocationSensingCoordinator;
 @property(nonatomic) _Bool selectedHomeFollowsLocation;
 @property(readonly, nonatomic) NAFuture *locationSensingAvailableFuture;
 @property(readonly, nonatomic) NAFuture *allHomesFuture;
+@property(readonly, nonatomic) NAFuture *firstHomeAddedFuture;
 @property(readonly, nonatomic) NAFuture *homeFuture;
 - (void)_setSelectedHome:(id)arg1 notifyAndSaveIfNecessary:(_Bool)arg2;
 - (void)updateHome;
 - (void)warmup;
+- (void)dispatchMediaSessionObserverMessage:(CDUnknownBlockType)arg1 sender:(id)arg2;
 - (void)dispatchCameraObserverMessage:(CDUnknownBlockType)arg1 sender:(id)arg2;
 - (void)dispatchAccessoryObserverMessage:(CDUnknownBlockType)arg1 sender:(id)arg2;
 - (void)dispatchHomeObserverMessage:(CDUnknownBlockType)arg1 sender:(id)arg2;
 - (void)dispatchHomeManagerObserverMessage:(CDUnknownBlockType)arg1 sender:(id)arg2;
+- (void)removeMediaSessionObserver:(id)arg1;
+- (void)addMediaSessionObserver:(id)arg1;
+- (void)removeMediaProfileObserver:(id)arg1;
+- (void)addMediaProfileObserver:(id)arg1;
 - (void)removeCameraObserver:(id)arg1;
 - (void)addCameraObserver:(id)arg1;
 - (void)removeResidentDeviceObserver:(id)arg1;

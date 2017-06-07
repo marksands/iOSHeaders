@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/PKContinuityPaymentServiceDelegate-Protocol.h>
 
@@ -35,12 +35,12 @@
 - (void)_deviceUpdateTotalTimerDidTimeout;
 - (void)_deviceUpdateTimerDidTimeout;
 - (void)_resetRequest;
-- (void)_queue_sendPaymentStatus:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_queue_sendPaymentResult:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)didReceiveCancellationForRemotePaymentRequest:(id)arg1;
 - (void)didReceivePayment:(id)arg1 forRemotePaymentRequest:(id)arg2;
 - (void)didReceiveUpdatedPaymentDevices:(id)arg1;
 - (void)cancelRemotePaymentRequestWithCompletion:(CDUnknownBlockType)arg1;
-- (void)sendPaymentStatus:(long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)sendPaymentResult:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sendPaymentClientUpdate:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)sendRemotePaymentRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)updatePaymentDevices;

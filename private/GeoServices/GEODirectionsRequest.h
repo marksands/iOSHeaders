@@ -13,10 +13,7 @@
 @interface GEODirectionsRequest : PBRequest <NSCopying>
 {
     struct GEOSessionID _sessionID;
-    unsigned long long _maxDecoderVersion;
-    unsigned long long _maxGraphVersion;
     double _requestTime;
-    unsigned long long _sharedLibraryVersion;
     GEOPDABClientDatasetMetadata *_abClientMetadata;
     GEOAdditionalEnabledMarkets *_additionalEnabledMarkets;
     GEOClientCapabilities *_clientCapabilities;
@@ -24,15 +21,19 @@
     GEOMapRegion *_currentMapRegion;
     GEOLocation *_currentUserLocation;
     int _departureTime;
+    NSMutableArray *_deviceHistoricalLocations;
     GEODirectionsRequestFeedback *_feedback;
     GEOLocation *_lastKnownRoadLocation;
     NSString *_loggedAbExperiment;
     unsigned int _mainTransportTypeMaxRouteCount;
+    NSData *_nonRecommendedRoutesCache;
+    int _nonRecommendedRoutesOption;
     NSData *_originalDirectionsResponseID;
     GEOOriginalRoute *_originalRoute;
     NSData *_originalRouteID;
     int _originalRoutePurpose;
     NSData *_originalRouteZilchPoints;
+    int _requestMode;
     GEORouteAttributes *_routeAttributes;
     unsigned int _sequenceNumber;
     NSMutableArray *_serviceTags;
@@ -46,13 +47,12 @@
     _Bool _useLiveTrafficAsFallback;
     struct {
         unsigned int sessionID:1;
-        unsigned int maxDecoderVersion:1;
-        unsigned int maxGraphVersion:1;
         unsigned int requestTime:1;
-        unsigned int sharedLibraryVersion:1;
         unsigned int departureTime:1;
         unsigned int mainTransportTypeMaxRouteCount:1;
+        unsigned int nonRecommendedRoutesOption:1;
         unsigned int originalRoutePurpose:1;
+        unsigned int requestMode:1;
         unsigned int sequenceNumber:1;
         unsigned int timeSinceLastRerouteRequest:1;
         unsigned int getRouteForZilchPoints:1;
@@ -63,11 +63,11 @@
 }
 
 + (Class)serviceTagType;
++ (Class)deviceHistoricalLocationType;
 + (Class)waypointTypedType;
-@property(nonatomic) unsigned long long sharedLibraryVersion; // @synthesize sharedLibraryVersion=_sharedLibraryVersion;
-@property(nonatomic) unsigned long long maxGraphVersion; // @synthesize maxGraphVersion=_maxGraphVersion;
-@property(nonatomic) unsigned long long maxDecoderVersion; // @synthesize maxDecoderVersion=_maxDecoderVersion;
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
+@property(retain, nonatomic) NSData *nonRecommendedRoutesCache; // @synthesize nonRecommendedRoutesCache=_nonRecommendedRoutesCache;
+@property(retain, nonatomic) NSMutableArray *deviceHistoricalLocations; // @synthesize deviceHistoricalLocations=_deviceHistoricalLocations;
 @property(retain, nonatomic) GEOPDABClientDatasetMetadata *abClientMetadata; // @synthesize abClientMetadata=_abClientMetadata;
 @property(retain, nonatomic) GEOLocation *lastKnownRoadLocation; // @synthesize lastKnownRoadLocation=_lastKnownRoadLocation;
 @property(retain, nonatomic) NSString *loggedAbExperiment; // @synthesize loggedAbExperiment=_loggedAbExperiment;
@@ -88,6 +88,7 @@
 @property(retain, nonatomic) GEOMapRegion *currentMapRegion; // @synthesize currentMapRegion=_currentMapRegion;
 @property(retain, nonatomic) GEOLocation *currentUserLocation; // @synthesize currentUserLocation=_currentUserLocation;
 @property(retain, nonatomic) GEORouteAttributes *routeAttributes; // @synthesize routeAttributes=_routeAttributes;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -99,13 +100,19 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasSharedLibraryVersion;
-@property(nonatomic) _Bool hasMaxGraphVersion;
-@property(nonatomic) _Bool hasMaxDecoderVersion;
 - (id)serviceTagAtIndex:(unsigned long long)arg1;
 - (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(readonly, nonatomic) _Bool hasNonRecommendedRoutesCache;
+- (int)StringAsNonRecommendedRoutesOption:(id)arg1;
+- (id)nonRecommendedRoutesOptionAsString:(int)arg1;
+@property(nonatomic) _Bool hasNonRecommendedRoutesOption;
+@property(nonatomic) int nonRecommendedRoutesOption; // @synthesize nonRecommendedRoutesOption=_nonRecommendedRoutesOption;
+- (id)deviceHistoricalLocationAtIndex:(unsigned long long)arg1;
+- (unsigned long long)deviceHistoricalLocationsCount;
+- (void)addDeviceHistoricalLocation:(id)arg1;
+- (void)clearDeviceHistoricalLocations;
 @property(readonly, nonatomic) _Bool hasAbClientMetadata;
 - (int)StringAsOriginalRoutePurpose:(id)arg1;
 - (id)originalRoutePurposeAsString:(int)arg1;
@@ -139,13 +146,16 @@
 @property(nonatomic) _Bool hasMainTransportTypeMaxRouteCount;
 @property(nonatomic) unsigned int mainTransportTypeMaxRouteCount; // @synthesize mainTransportTypeMaxRouteCount=_mainTransportTypeMaxRouteCount;
 @property(readonly, nonatomic) _Bool hasRouteAttributes;
-- (void)dealloc;
 @property(nonatomic) _Bool hasUseLiveTrafficAsFallback;
 @property(nonatomic) _Bool useLiveTrafficAsFallback;
 @property(retain, nonatomic) GEOTFTrafficSnapshot *trafficSnapshot;
 @property(readonly, nonatomic) _Bool hasTrafficSnapshot;
 @property(nonatomic) _Bool hasNeedLatency;
 @property(nonatomic) _Bool needLatency;
+- (int)StringAsRequestMode:(id)arg1;
+- (id)requestModeAsString:(int)arg1;
+@property(nonatomic) _Bool hasRequestMode;
+@property(nonatomic) int requestMode;
 @property(nonatomic) _Bool hasRequestTime;
 @property(nonatomic) double requestTime;
 - (id)initWithFeedback:(id)arg1;

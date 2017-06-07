@@ -39,7 +39,8 @@
     id <PXMemoriesFeedViewControllerHelperDelegate> _delegate;
     PXSectionedObjectReference *_highlightedMemoryReference;
     PXSectionedObjectReference *_activatedMemoryReference;
-    PXSectionedObjectReference *_actionPresentationMemoryReference;
+    PXSectionedObjectReference *_lastActionPresentationMemoryReference;
+    NSString *_scrollTargetMemoryUUID;
     NSDate *__lastUserMemoryGenerationRequestDate;
     PXSectionedObjectReference *__memoryReferenceToScrollToVisible;
     PXSectionedObjectReference *_anchorMemoryReference;
@@ -63,7 +64,8 @@
 @property(retain, nonatomic, setter=_setAnchorMemoryReference:) PXSectionedObjectReference *anchorMemoryReference; // @synthesize anchorMemoryReference=_anchorMemoryReference;
 @property(retain, nonatomic, setter=_setMemoryReferenceToScrollToVisible:) PXSectionedObjectReference *_memoryReferenceToScrollToVisible; // @synthesize _memoryReferenceToScrollToVisible=__memoryReferenceToScrollToVisible;
 @property(retain, nonatomic, setter=_setLastUserMemoryGenerationRequestDate:) NSDate *_lastUserMemoryGenerationRequestDate; // @synthesize _lastUserMemoryGenerationRequestDate=__lastUserMemoryGenerationRequestDate;
-@property(retain, nonatomic) PXSectionedObjectReference *actionPresentationMemoryReference; // @synthesize actionPresentationMemoryReference=_actionPresentationMemoryReference;
+@property(retain, nonatomic, setter=setScrollTargetMemoryUUID:) NSString *scrollTargetMemoryUUID; // @synthesize scrollTargetMemoryUUID=_scrollTargetMemoryUUID;
+@property(retain, nonatomic) PXSectionedObjectReference *lastActionPresentationMemoryReference; // @synthesize lastActionPresentationMemoryReference=_lastActionPresentationMemoryReference;
 @property(retain, nonatomic) PXSectionedObjectReference *activatedMemoryReference; // @synthesize activatedMemoryReference=_activatedMemoryReference;
 @property(retain, nonatomic) PXSectionedObjectReference *highlightedMemoryReference; // @synthesize highlightedMemoryReference=_highlightedMemoryReference;
 @property(nonatomic) __weak id <PXMemoriesFeedViewControllerHelperDelegate> delegate; // @synthesize delegate=_delegate;
@@ -75,6 +77,7 @@
 @property(readonly, nonatomic) PXMemoriesFeedDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 @property(readonly, nonatomic) PXTilingController *tilingController; // @synthesize tilingController=_tilingController;
 - (void).cxx_destruct;
+- (void)_scrollToTargetMemoryUUIDWhenReady:(id)arg1;
 - (id)memoriesFeedTilingLayout:(id)arg1 titleFontNameForItemAtIndexPath:(struct PXSimpleIndexPath)arg2;
 - (struct CGRect)memoriesFeedTilingLayout:(id)arg1 contentsRectForItemAtIndexPath:(struct PXSimpleIndexPath)arg2 forAspectRatio:(double)arg3;
 - (struct CGPoint)tilingController:(id)arg1 targetVisibleOriginForLayout:(id)arg2 proposedVisibleOrigin:(struct CGPoint)arg3;
@@ -96,7 +99,7 @@
 - (void)_updateSelectedIndexPathsInLayout;
 - (void)_handleDataSourceChange;
 - (void)saveAnchorMemory;
-- (void)_scrollMemoryReferenceToVisible:(id)arg1 animated:(_Bool)arg2;
+- (void)scrollMemoryReferenceToVisible:(id)arg1 animated:(_Bool)arg2;
 - (void)_configureMetrics:(id)arg1;
 - (void)_updateLayoutEngineIfNeeded;
 - (_Bool)_needsUpdate;
@@ -110,6 +113,7 @@
 - (void)_generateMemoriesForReason:(unsigned long long)arg1;
 - (void)_generateMemoriesForReason:(unsigned long long)arg1 contextualMemoriesSettings:(id)arg2;
 - (void)invalidateMetrics;
+- (void)feedViewControllerDidDisappear;
 - (void)feedViewControllerDidAppear;
 - (void)feedViewControllerWillLayoutSubviews;
 @property(readonly, nonatomic) PXMemoriesFeedTilingLayout *targetLayout;

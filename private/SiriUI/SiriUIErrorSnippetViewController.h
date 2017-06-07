@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+- (id)snippet;
 - (void)loadView;
 - (id)initWithError:(id)arg1;
 

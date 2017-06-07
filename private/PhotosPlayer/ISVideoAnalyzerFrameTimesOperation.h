@@ -6,12 +6,14 @@
 
 #import <Foundation/NSOperation.h>
 
-@class AVAsset, AVAssetReader, AVAssetReaderSampleReferenceOutput;
+@class AVAsset, AVAssetReader, AVAssetReaderSampleReferenceOutput, NSObject;
+@protocol OS_dispatch_queue;
 
 @interface ISVideoAnalyzerFrameTimesOperation : NSOperation
 {
     AVAssetReader *_assetReader;
     AVAssetReaderSampleReferenceOutput *_assetReaderOutput;
+    NSObject<OS_dispatch_queue> *_workQueue;
     int _trackID;
     AVAsset *_asset;
     CDUnknownBlockType _resultHandler;

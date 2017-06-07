@@ -37,7 +37,7 @@
 - (void)_retryActivityFired;
 - (void)refreshCollections:(id)arg1 withReason:(int)arg2;
 - (void)performTokenRegistrationRequestsWithToken:(id)arg1 onBehalfOf:(id)arg2;
-- (void)tokenRegistrationRequest:(id)arg1 finishedWithError:(id)arg2 shouldRetry:(_Bool)arg3;
+- (void)tokenRegistrationRequest:(id)arg1 finishedWithError:(id)arg2;
 - (void)cancelAllTokenRegistrations;
 - (id)description;
 - (_Bool)isSetToSystemFetchInterval;
@@ -45,7 +45,8 @@
 - (void)startFetchActivityForPush;
 - (void)startFetchActivityForSystemPCStyle;
 - (void)startFetchActivityWithInterval:(long long)arg1;
-- (id)fetchActivityCriteriaWithInterval:(long long)arg1;
+- (id)_fetchActivityCriteriaInOnPowerMode;
+- (id)_fetchActivityCriteriaWithInterval:(long long)arg1;
 - (long long)XPCActivityIntervalFromSystemSetting;
 - (const char *)fetchActivityIdentifier;
 - (id)_stringForStyle:(int)arg1;

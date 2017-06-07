@@ -4,25 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UIViewController.h>
+#import <TVMLKit/_TVMLCollectionViewController.h>
 
 #import <TVMLKit/TVAppTemplateImpressionable-Protocol.h>
-#import <TVMLKit/UICollectionViewDataSource-Protocol.h>
 #import <TVMLKit/UICollectionViewDelegateFlowLayout-Protocol.h>
-#import <TVMLKit/_TVCollectionViewDelegate-Protocol.h>
 #import <TVMLKit/_TVListViewCellDelegate-Protocol.h>
 
-@class IKCollectionElement, IKViewElement, NSDictionary, NSIndexPath, NSMutableArray, NSString, UICollectionView, _TVListWrappingView, _TVShadowViewElement;
+@class IKViewElement, NSDictionary, NSIndexPath, NSMutableArray, NSString, UIViewController;
 @protocol _TVListViewControllerDelegate;
 
 __attribute__((visibility("hidden")))
-@interface _TVListViewController : UIViewController <_TVCollectionViewDelegate, _TVListViewCellDelegate, TVAppTemplateImpressionable, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface _TVListViewController : _TVMLCollectionViewController <_TVListViewCellDelegate, TVAppTemplateImpressionable, UICollectionViewDelegateFlowLayout>
 {
-    IKCollectionElement *_collectionElement;
-    IKViewElement *_headerElement;
-    UIViewController *_headerViewController;
-    _Bool _floatingHeader;
-    _TVListWrappingView *_wrappingView;
     _Bool _relatedContentElementValid;
     IKViewElement *_relatedContentElement;
     IKViewElement *_previewElement;
@@ -31,70 +24,59 @@ __attribute__((visibility("hidden")))
     double _cachedCellWidth;
     NSDictionary *_cachedListItemLockupHeightsBySection;
     NSMutableArray *_cachedListChildViewControllers;
-    _Bool _updateAutoHighlight;
-    NSIndexPath *_lastFocusedIndexPath;
     NSIndexPath *_pendingPreviewIndexPath;
     NSIndexPath *_lastPreviewedIndexPath;
     NSIndexPath *_secondCellIndexPath;
     _Bool _secondIndexPathFocused;
-    _TVShadowViewElement *_shadowCollectionElement;
     _Bool _indexDisplayEnabled;
     id <_TVListViewControllerDelegate> _delegate;
-    UICollectionView *_collectionView;
 }
 
 + (id)_shadowCollectionElementForCollectionElement:(id)arg1;
-@property(retain, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(nonatomic, getter=isIndexDisplayEnabled) _Bool indexDisplayEnabled; // @synthesize indexDisplayEnabled=_indexDisplayEnabled;
 @property(nonatomic) __weak id <_TVListViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (struct CGSize)_expectedHeaderCellSizeForElement:(id)arg1;
+- (struct UIEdgeInsets)_marginForHeaderCellForElement:(id)arg1 section:(long long)arg2;
+- (struct CGSize)_expectedHeaderCellSizeForElement:(id)arg1 section:(long long)arg2;
 - (struct CGSize)_expectedCellSizeForElement:(id)arg1 inSectionIndex:(long long)arg2;
 - (id)_cachedViewControllerForElement:(id)arg1;
 - (id)_viewControllerForElement:(id)arg1;
-- (void)_dispatchEventOfType:(unsigned long long)arg1 forItemAtIndexPath:(id)arg2;
-- (void)_updateHeaderView;
-- (_Bool)_updateListWithoutReloadingWithCollectionElement:(id)arg1;
 - (id)_previewControllerWithElement:(id)arg1 previewElement:(id *)arg2;
 - (void)_updatedPreviewWithItemAtIndexPath:(id)arg1;
 - (id)_relatedContentElementForIndexPath:(id)arg1;
 - (_Bool)_relatedElementIsGridAtIndexPath:(id)arg1;
 - (void)_delayedUpdatePreview;
 - (void)_updateCellMetrics;
-- (void)_updateViewLayout;
-- (void)_scrollToPreferredFocusView;
-- (void)_registerCellClassesInListView:(id)arg1;
 - (id)impressionableElementsContainedInDocument:(id)arg1;
 - (_Bool)listCell:(id)arg1 shouldAppearSelectedForPreviouslyFocusedView:(id)arg2;
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
-- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
-- (long long)numberOfSectionsInCollectionView:(id)arg1;
 - (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)scrollViewDidScroll:(id)arg1;
 - (_Bool)collectionView:(id)arg1 shouldHandleLongPressForItemAtIndexPath:(id)arg2;
-- (void)collectionView:(id)arg1 didReceiveLongPressForItemAtIndexPath:(id)arg2;
-- (void)collectionView:(id)arg1 didReceivePhysicalPlayForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didUnhighlightItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didHighlightItemAtIndexPath:(id)arg2;
-- (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
-- (id)indexPathForPreferredFocusedViewInCollectionView:(id)arg1;
-- (void)collectionView:(id)arg1 didUpdateFocusInContext:(id)arg2 withAnimationCoordinator:(id)arg3;
 - (void)templateControllerDidUpdateFocusFromView:(id)arg1;
 - (void)collectionView:(id)arg1 didEndDisplayingCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 willDisplayCell:(id)arg2 forItemAtIndexPath:(id)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
-- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
-- (id)preferredFocusEnvironments;
-- (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (void)didMoveToParentViewController:(id)arg1;
+- (void)updateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)didUpdateCollectionViewByNeedingReload:(_Bool)arg1 focusUpdate:(_Bool)arg2;
+- (void)updateSupplementaryViewsForSectionAtOldIndex:(long long)arg1 oldElement:(id)arg2 withNewIndex:(long long)arg3 newElement:(id)arg4 requiresReload:(_Bool *)arg5 requiresRelayout:(_Bool *)arg6;
+- (void)updateVisibleCell:(id)arg1 atIndexPath:(id)arg2 withElement:(id)arg3;
+- (struct CGSize)expectedCellSizeForElement:(id)arg1 atIndexPath:(id)arg2;
+- (Class)cellClassForElement:(id)arg1;
+- (void)updateViewLayoutAnimated:(_Bool)arg1 relayout:(_Bool)arg2;
+- (_Bool)contentFlowsVertically;
+- (id)makeCollectionViewWithFrame:(struct CGRect)arg1;
 - (void)viewDidLayoutSubviews;
+- (void)didMoveToParentViewController:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)loadView;
-- (void)updateWithViewElement:(id)arg1;
+- (void)viewDidLoad;
+- (void)updateWithViewElement:(id)arg1 cellMetrics:(struct TVCellMetrics)arg2;
 - (void)dealloc;
 
 // Remaining properties

@@ -32,6 +32,9 @@
 }
 
 - (void).cxx_destruct;
+- (id)_lastPageGlyphImageView;
+- (id)_middlePageGlyphImageView;
+- (id)_firstPageGlyphImageView;
 - (void)_didChangePreferredContentSize:(id)arg1;
 - (void)_applyFontsAndLeadingConstraintValues;
 - (void)_tappedContinueButton:(id)arg1;

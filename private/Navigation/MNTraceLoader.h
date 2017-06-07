@@ -8,16 +8,21 @@
 
 @class MNTrace;
 
-__attribute__((visibility("hidden")))
 @interface MNTraceLoader : NSObject
 {
     MNTrace *_trace;
 }
 
 - (void).cxx_destruct;
+- (id)_handleUpdateError;
 - (_Bool)_executeQuery:(id)arg1 rowHandler:(CDUnknownBlockType)arg2;
-- (_Bool)_updateTraceFromVersion:(unsigned long long)arg1;
+- (_Bool)_updateTraceFromVersion:(unsigned long long)arg1 outError:(id *)arg2;
 - (_Bool)_loadTraceVersion;
+- (_Bool)_loadCommuteDirectionsRequestsTable;
+- (_Bool)_loadCommuteDestinationsTable;
+- (_Bool)_loadSignificantEventsTable;
+- (_Bool)_loadAnnotatedUserEnvironmentTable;
+- (_Bool)_loadAnnotatedUserBehaviorTable;
 - (_Bool)_loadRouteSelectionsTable;
 - (_Bool)_loadVehicleDataTable;
 - (_Bool)_loadMotionDataTable;
@@ -26,7 +31,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)_loadDirectionsTable;
 - (_Bool)_loadLocationsTable;
 - (_Bool)_loadInfoTable;
-- (id)loadTraceWithPath:(id)arg1;
+- (id)loadTraceWithPath:(id)arg1 outError:(id *)arg2;
 
 @end
 

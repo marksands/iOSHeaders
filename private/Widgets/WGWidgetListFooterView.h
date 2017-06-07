@@ -27,6 +27,7 @@
 @property(nonatomic) long long layoutMode; // @synthesize layoutMode=_layoutMode;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
+- (_Bool)textView:(id)arg1 shouldInteractWithTextAttachment:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3 interaction:(long long)arg4;
 - (id)_referenceFont;
 - (void)_availableWidgetsUpdated:(id)arg1;

@@ -10,7 +10,7 @@
 #import <FrontBoard/FBSceneHost-Protocol.h>
 #import <FrontBoard/FBUISceneUpdater-Protocol.h>
 
-@class FBProcess, FBSDisplay, FBSMutableSceneSettings, FBSSceneClientSettings, FBSSceneDefinition, FBSSceneParameters, FBSSceneSettings, FBSceneHostManager, FBSceneLayerManager, FBWindowContextHostManager, FBWindowContextManager, NSHashTable, NSString;
+@class FBProcess, FBSDisplayConfiguration, FBSMutableSceneSettings, FBSSceneClientSettings, FBSSceneDefinition, FBSSceneParameters, FBSSceneSettings, FBSSceneSpecification, FBSceneHostManager, FBSceneLayerManager, NSHashTable, NSString;
 @protocol BSInvalidatable, FBSceneClient, FBSceneClientProvider, FBSceneDelegate;
 
 @interface FBScene : NSObject <BSDescriptionProviding, FBUISceneUpdater, FBSceneHost>
@@ -24,16 +24,15 @@
     FBProcess *_clientProcess;
     NSString *_identifier;
     NSString *_workspaceIdentifier;
-    FBSDisplay *_display;
     FBSMutableSceneSettings *_mutableSettings;
     FBSSceneSettings *_settings;
     FBSSceneClientSettings *_clientSettings;
     FBSSceneDefinition *_definition;
     NSHashTable *_geometryObservers;
     unsigned long long _transactionID;
-    _Bool _waitingForResponse;
     _Bool _lockedForMutation;
     id <BSInvalidatable> _stateCaptureAssertion;
+    unsigned long long _lastForegroundingTransitionID;
 }
 
 @property(readonly, retain, nonatomic) FBSMutableSceneSettings *mutableSettings; // @synthesize mutableSettings=_mutableSettings;
@@ -42,15 +41,13 @@
 @property(nonatomic) id <FBSceneDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, retain, nonatomic) id <FBSceneClientProvider> clientProvider; // @synthesize clientProvider=_clientProvider;
 @property(readonly, retain, nonatomic) id <FBSceneClient> client; // @synthesize client=_client;
-@property(readonly, nonatomic, getter=isWaitingForResponse) _Bool waitingForResponse; // @synthesize waitingForResponse=_waitingForResponse;
-@property(readonly, copy, nonatomic) FBSSceneDefinition *definition; // @synthesize definition=_definition;
 @property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 @property(readonly, retain, nonatomic) FBProcess *clientProcess; // @synthesize clientProcess=_clientProcess;
 @property(readonly, retain, nonatomic) FBSSceneClientSettings *clientSettings; // @synthesize clientSettings=_clientSettings;
 @property(readonly, retain, nonatomic) FBSSceneSettings *settings; // @synthesize settings=_settings;
 @property(readonly, retain, nonatomic) FBSceneHostManager *hostManager; // @synthesize hostManager=_hostManager;
 @property(readonly, retain, nonatomic) FBSceneLayerManager *layerManager; // @synthesize layerManager=_layerManager;
-@property(readonly, retain, nonatomic) FBSDisplay *display; // @synthesize display=_display;
+@property(readonly, copy, nonatomic) FBSSceneDefinition *definition; // @synthesize definition=_definition;
 @property(readonly, copy, nonatomic) NSString *workspaceIdentifier; // @synthesize workspaceIdentifier=_workspaceIdentifier;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void)_dispatchClientMessageWithBlock:(CDUnknownBlockType)arg1;
@@ -60,15 +57,13 @@
 - (void)client:(id)arg1 detachLayer:(id)arg2;
 - (void)client:(id)arg1 updateLayer:(id)arg2;
 - (void)client:(id)arg1 attachLayer:(id)arg2;
-@property(readonly, retain, nonatomic) FBWindowContextHostManager *contextHostManager;
-@property(readonly, retain, nonatomic) FBWindowContextManager *contextManager;
+@property(readonly, copy, nonatomic) FBSSceneSpecification *specification;
 - (void)_removeSceneGeometryObserver:(id)arg1;
 - (void)_addSceneGeometryObserver:(id)arg1;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
-@property(readonly, copy, nonatomic) NSString *sceneIdentifier;
 - (id)contentView;
 - (void)sendActions:(id)arg1;
 - (void)updateSettings:(id)arg1 withTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -90,6 +85,7 @@
 - (void)updateUISettingsWithBlock:(CDUnknownBlockType)arg1;
 - (id)uiClientSettings;
 - (id)uiSettings;
+@property(readonly, retain, nonatomic) FBSDisplayConfiguration *display;
 
 // Remaining properties
 @property(readonly) unsigned long long hash;

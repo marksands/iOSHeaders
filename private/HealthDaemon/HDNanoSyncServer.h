@@ -19,6 +19,7 @@
 - (void)remote_waitForLastChanceSyncWithDevicePairingID:(id)arg1 timeout:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_resetNanoSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)remote_forceNanoSyncWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)remote_fetchNanoSyncPairedDevicesWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithParentServer:(id)arg1;
 
 // Remaining properties

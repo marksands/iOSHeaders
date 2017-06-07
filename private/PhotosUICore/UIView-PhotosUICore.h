@@ -12,6 +12,8 @@
 + (void)px_animateView:(id)arg1 toCenter:(struct CGPoint)arg2 bounds:(struct CGRect)arg3 transform:(struct CGAffineTransform)arg4 usingDefaultDampedSpringWithDelay:(double)arg5 initialVelocity:(struct PXDisplayVelocity)arg6 options:(unsigned long long)arg7 completion:(CDUnknownBlockType)arg8;
 + (void)px_animateView:(id)arg1 toCenter:(struct CGPoint)arg2 bounds:(struct CGRect)arg3 transform:(struct CGAffineTransform)arg4 withDuration:(double)arg5 delay:(double)arg6 usingSpringWithDamping:(double)arg7 initialVelocity:(struct PXDisplayVelocity)arg8 options:(unsigned long long)arg9 completion:(CDUnknownBlockType)arg10;
 - (void)px_enumerateDescendantSubviewsWithBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) struct UIEdgeInsets px_peripheryInsets;
 @property(readonly, nonatomic) double px_screenScale;
+@property(readonly, nonatomic) _Bool px_intersectsWindowBounds;
 @end
 

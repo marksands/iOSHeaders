@@ -11,7 +11,7 @@
 
 @class NSString, NSUUID;
 
-@interface DMFControlGroupIdentifier : NSObject <NSSecureCoding, NSCopying>
+@interface DMFControlGroupIdentifier : NSObject <NSCopying, NSSecureCoding>
 {
     unsigned short _groupID;
     NSUUID *_organizationUUID;

@@ -17,11 +17,11 @@ __attribute__((visibility("hidden")))
 
 @property(readonly, nonatomic) unsigned long long linkCount; // @synthesize linkCount=_linkCount;
 @property(retain, nonatomic) NSUUID *tableInfoUUID; // @synthesize tableInfoUUID=_tableInfoUUID;
+- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) NSString *stringValue;
 - (void)decrement;
 - (void)increment;
-- (void)dealloc;
 - (id)initWithTableInfoUUID:(id)arg1 andLinkCount:(unsigned long long)arg2;
 
 @end

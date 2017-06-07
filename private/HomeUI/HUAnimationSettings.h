@@ -13,6 +13,7 @@
 
 @interface HUAnimationSettings : NSObject <NSCopying, _UIBasicAnimationFactory>
 {
+    float _repeatCount;
     double _duration;
     double _delay;
     double _speed;
@@ -22,6 +23,7 @@
 + (id)settingsWithDuration:(double)arg1 curve:(long long)arg2;
 + (id)settingsWithDuration:(double)arg1;
 @property(retain, nonatomic) CAMediaTimingFunction *timingFunction; // @synthesize timingFunction=_timingFunction;
+@property(nonatomic) float repeatCount; // @synthesize repeatCount=_repeatCount;
 @property(nonatomic) double speed; // @synthesize speed=_speed;
 @property(nonatomic) double delay; // @synthesize delay=_delay;
 @property(nonatomic) double duration; // @synthesize duration=_duration;

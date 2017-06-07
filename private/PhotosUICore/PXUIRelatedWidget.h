@@ -15,7 +15,7 @@
 #import <PhotosUICore/UIGestureRecognizerDelegate-Protocol.h>
 
 @class NSMutableSet, NSObject, NSString, PXOneUpPresentation, PXPhotoKitUIMediaProvider, PXPhotosDetailsContext, PXReusableObjectPool, PXSectionedSelectionManager, PXTilingController, PXTouchingUIGestureRecognizer, PXUITapGestureRecognizer, PXWidgetSpec, _PXUIRelatedPreviewOrbContext;
-@protocol PXAnonymousView, PXWidgetDelegate;
+@protocol PXAnonymousView, PXWidgetDelegate, PXWidgetUnlockDelegate;
 
 @interface PXUIRelatedWidget : PXRelatedWidget <PXReusableObjectPoolDelegate, UIGestureRecognizerDelegate, PXScrollViewControllerObserver, PXTilingControllerZoomAnimationCoordinatorDelegate, PXTilingControllerPreheatHandler, PXUIWidget, PXDiagnosticsEnvironment>
 {
@@ -95,6 +95,7 @@
 @property(readonly, nonatomic) _Bool supportsFaceMode;
 @property(readonly, nonatomic) _Bool supportsSelection;
 @property(nonatomic) __weak id <PXWidgetDelegate> widgetDelegate;
+@property(nonatomic) __weak id <PXWidgetUnlockDelegate> widgetUnlockDelegate;
 
 @end
 

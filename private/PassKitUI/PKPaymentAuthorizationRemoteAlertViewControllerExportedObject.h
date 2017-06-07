@@ -24,10 +24,12 @@
 @property(retain, nonatomic) NSMutableSet *completionHandlers; // @synthesize completionHandlers=_completionHandlers;
 - (void).cxx_destruct;
 - (void)authorizationDidSelectPaymentMethodCompleteWithPaymentSummaryItems:(id)arg1;
-- (void)authorizationDidSelectShippingAddressCompleteWithStatus:(long long)arg1 shippingMethods:(id)arg2 paymentSummaryItems:(id)arg3;
-- (void)authorizationDidSelectShippingMethodCompleteWithStatus:(long long)arg1 paymentSummaryItems:(id)arg2;
+- (void)authorizationDidSelectPaymentMethodCompleteWithUpdate:(id)arg1;
+- (void)authorizationDidSelectShippingAddressCompleteWithUpdate:(id)arg1;
+- (void)authorizationDidSelectShippingMethodCompleteWithUpdate:(id)arg1;
+- (void)authorizationDidAuthorizePeerPaymentQuoteCompleteWithResult:(id)arg1;
 - (void)authorizationDidAuthorizePurchaseCompleteWithStatus:(long long)arg1;
-- (void)authorizationDidAuthorizePaymentCompleteWithStatus:(long long)arg1;
+- (void)authorizationDidAuthorizePaymentCompleteWithResult:(id)arg1;
 - (void)authorizationDidRequestMerchantSessionCompleteWithSession:(id)arg1 error:(id)arg2;
 - (void)forceDismissDidComplete;
 - (void)handleDismissWithCompletion:(CDUnknownBlockType)arg1;

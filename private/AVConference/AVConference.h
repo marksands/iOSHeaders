@@ -14,12 +14,8 @@
     AVConferenceXPCClient *connection;
     id opaqueConf;
     _Bool useServer;
-    NSObject<AVConferenceDelegate> *_delegate;
+    id _delegate;
     NSDictionary *serverBag;
-    CALayer *remoteLayerFront;
-    CALayer *remoteLayerBack;
-    CALayer *remoteSubLayerFront;
-    CALayer *remoteSubLayerBack;
     _Bool _isUsingFrontCamera;
     _Bool _microphoneMuted;
     NSMutableDictionary *_stateCacheForCallID;
@@ -106,11 +102,8 @@
 - (long long)videoStreamTokenForCallID:(long long)arg1;
 - (void)setRemoteVideoBackLayer:(void *)arg1;
 - (void)setRemoteVideoLayer:(void *)arg1;
-- (void)insertSubLayerFrontInLayer:(id)arg1 videoSlot:(id)arg2;
-- (void)cleanupSubLayerFront;
 - (void *)remoteVideoBackLayer;
 - (void *)remoteVideoLayer;
-- (void)setActiveRemoteVideoLayerFront:(_Bool)arg1;
 - (void)stopNetworkQualityUpdateTimer;
 - (void)startNetworkQualityUpdateTimer;
 - (_Bool)updateNetworkQualityGraph;

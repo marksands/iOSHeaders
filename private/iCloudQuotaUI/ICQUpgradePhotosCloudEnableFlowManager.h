@@ -10,7 +10,7 @@
 {
 }
 
-- (void)_performPageButtonActionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_performPageButtonActionWithParameters:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)initSubclassWithOffer:(id)arg1;
 
 @end

@@ -12,7 +12,7 @@
 @interface AVCCaptionsClient : NSObject
 {
     long long _streamToken;
-    id <AVCCaptionsClientDelegate> _delegate;
+    id _delegate;
     AVConferenceXPCClient *_connection;
 }
 

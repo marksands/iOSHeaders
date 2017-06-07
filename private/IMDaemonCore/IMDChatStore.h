@@ -7,17 +7,21 @@
 #import <Foundation/NSObject.h>
 
 @class NSString;
+@protocol IMDMessagePTaskStore;
 
 @interface IMDChatStore : NSObject
 {
     NSString *_lastModificationStamp;
+    id <IMDMessagePTaskStore> _messagePTaskStore;
 }
 
 + (id)sharedInstance;
+@property(retain) id <IMDMessagePTaskStore> messagePTaskStore; // @synthesize messagePTaskStore=_messagePTaskStore;
 @property(retain) NSString *modificationStamp; // @synthesize modificationStamp=_lastModificationStamp;
 - (void)setChatIsFiltered:(_Bool)arg1 withChatGuid:(id)arg2;
 - (void)deleteChat:(id)arg1;
 - (void)removeMessageWithGUID:(id)arg1 fromChat:(id)arg2;
+- (void)addMessageWithGUID:(id)arg1 toChat:(id)arg2 deferSpotlightIndexing:(_Bool)arg3;
 - (void)addMessageWithGUID:(id)arg1 toChat:(id)arg2;
 - (id)chatsGUIDsForMessageWithGUID:(id)arg1;
 - (id)chatsWithRoomname:(id)arg1 onService:(id)arg2;

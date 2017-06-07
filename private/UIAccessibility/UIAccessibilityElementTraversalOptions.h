@@ -15,9 +15,10 @@
     _Bool _includeHiddenViews;
     _Bool _sorted;
     _Bool _ignoreObscuresScreen;
+    _Bool _includeAncestorsOfSelfInSiblingMatch;
     _Bool _forSpeakScreen;
     _Bool _shouldIncludeStatusBarWindow;
-    int _direction;
+    long long _direction;
     CDUnknownBlockType _leafNodePredicate;
 }
 
@@ -28,6 +29,7 @@
 + (id)options;
 @property(nonatomic) _Bool shouldIncludeStatusBarWindow; // @synthesize shouldIncludeStatusBarWindow=_shouldIncludeStatusBarWindow;
 @property(nonatomic) _Bool forSpeakScreen; // @synthesize forSpeakScreen=_forSpeakScreen;
+@property(nonatomic) _Bool includeAncestorsOfSelfInSiblingMatch; // @synthesize includeAncestorsOfSelfInSiblingMatch=_includeAncestorsOfSelfInSiblingMatch;
 @property(nonatomic) _Bool ignoreObscuresScreen; // @synthesize ignoreObscuresScreen=_ignoreObscuresScreen;
 @property(nonatomic) _Bool sorted; // @synthesize sorted=_sorted;
 @property(nonatomic) _Bool includeHiddenViews; // @synthesize includeHiddenViews=_includeHiddenViews;
@@ -35,9 +37,9 @@
 @property(nonatomic) _Bool shouldIncludeKeyboardObscuredElements; // @synthesize shouldIncludeKeyboardObscuredElements=_shouldIncludeKeyboardObscuredElements;
 @property(nonatomic) _Bool shouldOnlyIncludeElementsWithVisibleFrame; // @synthesize shouldOnlyIncludeElementsWithVisibleFrame=_shouldOnlyIncludeElementsWithVisibleFrame;
 @property(copy, nonatomic) CDUnknownBlockType leafNodePredicate; // @synthesize leafNodePredicate=_leafNodePredicate;
-@property(nonatomic) int direction; // @synthesize direction=_direction;
+@property(nonatomic) long long direction; // @synthesize direction=_direction;
 @property(nonatomic) _Bool shouldReturnScannerGroups; // @synthesize shouldReturnScannerGroups=_shouldReturnScannerGroups;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 - (id)init;
 

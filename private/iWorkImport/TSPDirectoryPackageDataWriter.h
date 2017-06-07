@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (void).cxx_destruct;
+- (_Bool)flushPendingWritesReturningError:(id *)arg1;
 - (struct CGDataConsumer *)newCGDataConsumerAtRelativePath:(id)arg1;
 - (_Bool)writeData:(id)arg1 toRelativePath:(id)arg2 allowEncryption:(_Bool)arg3 error:(id *)arg4;
 - (id)targetDataURLForPath:(id)arg1;

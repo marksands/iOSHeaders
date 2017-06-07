@@ -7,9 +7,6 @@
 #import <UIKit/UIColor.h>
 
 @interface UIColor (TSUAdditions)
-+ (id)tableViewCellDarkBlueTextColor;
-+ (id)transparentGrayCheckerboardColor;
-+ (id)grayCheckerboardColor;
-+ (id)checkerboardColorWithColor:(id)arg1 andColor:(id)arg2 squareSize:(struct CGSize)arg3;
++ (id)tsu_tableViewCellDarkBlueTextColor;
 @end
 

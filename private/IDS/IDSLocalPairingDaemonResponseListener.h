@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonListenerProtocol-Protocol.h>
 
@@ -16,10 +16,10 @@
 }
 
 + (id)_newNSUUIDArrayFromCBUUIDStrings:(id)arg1;
+- (void).cxx_destruct;
 - (void)localPairingResponseForRequestID:(id)arg1 withError:(id)arg2 pairedDevices:(id)arg3;
 - (void)localPairingResponseForRequestID:(id)arg1 withError:(id)arg2;
 - (id)initWithRequestTimer:(id)arg1;
-- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

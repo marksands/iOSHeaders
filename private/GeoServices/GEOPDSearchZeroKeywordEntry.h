@@ -24,6 +24,7 @@
 
 @property(nonatomic) unsigned int hourOfDay; // @synthesize hourOfDay=_hourOfDay;
 @property(nonatomic) unsigned int dayOfWeek; // @synthesize dayOfWeek=_dayOfWeek;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;

@@ -14,11 +14,7 @@
 }
 
 - (void).cxx_destruct;
-- (id)_hashAttachment:(id)arg1 forSectionID:(id)arg2 matchID:(id)arg3;
-- (_Bool)hasAttachmentForSectionID:(id)arg1 matchID:(id)arg2;
-- (_Bool)isAttachmentCached:(id)arg1 forSectionID:(id)arg2 matchID:(id)arg3;
-- (void)removeAttachmentForSectionID:(id)arg1 matchID:(id)arg2;
-- (void)cacheAttachment:(id)arg1 forSectionID:(id)arg2 matchID:(id)arg3;
+- (void)updateCacheWithItems:(id)arg1 forSectionID:(id)arg2 matchID:(id)arg3 result:(CDUnknownBlockType)arg4;
 - (id)init;
 
 @end

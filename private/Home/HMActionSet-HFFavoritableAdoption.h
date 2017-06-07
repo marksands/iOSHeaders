@@ -12,6 +12,7 @@
 
 @interface HMActionSet (HFFavoritableAdoption) <HFFavoritable>
 - (id)hf_updateIsFavorite:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool hf_shouldShowInFavorites;
 @property(readonly, nonatomic) _Bool hf_hasSetFavorite;
 @property(readonly, nonatomic) _Bool hf_isFavorite;
 

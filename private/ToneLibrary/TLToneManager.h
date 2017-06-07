@@ -6,14 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class NPSDomainAccessor, NSDictionary, NSMutableDictionary, NSString, TLAccessQueue;
+@class NPSDomainAccessor, NSDictionary, NSString, TLAccessQueue;
 
 @interface TLToneManager : NSObject
 {
     TLAccessQueue *_accessQueue;
-    NSMutableDictionary *_iTunesTonesByIdentifier;
-    NSMutableDictionary *_iTunesToneIdentifiersByPID;
-    NSMutableDictionary *_alertTonesByIdentifier;
+    NSDictionary *_tonesByIdentifier;
+    NSDictionary *_toneIdentifiersBySyncIdentifier;
+    NSDictionary *_alertTonesByIdentifier;
     NSDictionary *_toneIdentifierAliasMap;
     _Bool _cachedWatchPrefersSalientNotifications;
     _Bool _hasValidCachedWatchPrefersSalientNotifications;
@@ -25,7 +25,6 @@
 }
 
 + (_Bool)_checkForFileExistenceAtPath:(id)arg1 allowingTCCPreflight:(_Bool)arg2;
-+ (struct __CFString *)_copySharedResourcesPreferencesDomainForDomain:(struct __CFString *)arg1;
 + (_Bool)_migrateLegacyToneSettings;
 + (id)_defaultToneIdentifierForAlertType:(long long)arg1 topic:(id)arg2;
 + (id)_systemWideTonePreferenceKeyForAlertType:(long long)arg1;
@@ -34,10 +33,8 @@
 - (void)_handleDeviceRingtonesChangedNotification;
 - (void)_handleTonePreferencesChangedNotificationForPreferencesKinds:(unsigned long long)arg1;
 - (void)_didSetTonePreferenceSuccessfullyWithKey:(id)arg1 inDomain:(id)arg2 usingPreferencesOfKind:(unsigned long long)arg3;
-- (_Bool)_toneIsSettableForAlertType:(long long)arg1;
 - (_Bool)_ensureDirectoryExistsAtPath:(id)arg1;
 - (id)_localizedNameOfToneWithIdentifier:(id)arg1;
-- (_Bool)_filePathHasSupportedExtensionForRingtone:(id)arg1;
 - (id)_fileNameFromToneIdentifier:(id)arg1 withPrefix:(id)arg2;
 - (void)_performBlockInAccessQueue:(CDUnknownBlockType)arg1;
 - (void)_handleWatchPrefersSalientNotificationDidChange;
@@ -54,20 +51,18 @@
 - (long long)_evaluateOrphanEntriesCleanupStatusForcingReevaluationIfPreviouslyDone:(_Bool)arg1 returningFilePathsForFoundOrphans:(id *)arg2 wasAffectedByAccidentalToneDeletion:(_Bool *)arg3;
 - (id)_removeOrphanedPlistEntriesInManifestAtPath:(id)arg1 mediaDirectory:(id)arg2;
 - (void)_removeAllSyncedData;
-- (_Bool)_removeSyncedToneByPID:(id)arg1;
-- (_Bool)_insertSyncedToneMetadata:(id)arg1 fileName:(id)arg2;
-- (id)_iTunesToneForPID:(id)arg1;
+- (_Bool)_removeToneWithSyncIdentifier:(id)arg1;
+- (_Bool)_importSyncedToneWithMetadata:(id)arg1 fileName:(id)arg2;
+- (id)_toneForSyncIdentifier:(id)arg1;
 - (id)_allSyncedTones;
 - (_Bool)_wasAffectedByAccidentalToneDeletion;
 - (_Bool)_transferPurchasedToITunes:(id)arg1;
-- (_Bool)_insertPurchasedToneMetadata:(id)arg1 fileName:(id)arg2;
+- (id)_importPurchasedToneWithMetadata:(id)arg1 fileName:(id)arg2;
 - (void)removeImportedToneWithIdentifier:(id)arg1;
 - (void)importTone:(id)arg1 metadata:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)newAVItemForToneIdentifier:(id)arg1;
 - (_Bool)toneWithIdentifierIsValid:(id)arg1;
 - (_Bool)_toneWithIdentifierIsValid:(id)arg1;
 - (id)_toneIdentifierForFileAtPath:(id)arg1 isValid:(_Bool *)arg2;
-- (id)_toneIdentifierForFileAtPath:(id)arg1;
 - (id)_nameForToneIdentifier:(id)arg1 isValid:(_Bool *)arg2;
 - (id)nameForToneIdentifier:(id)arg1;
 - (id)_previewSoundForToneIdentifier:(id)arg1;
@@ -107,13 +102,14 @@
 - (int)_lockManifestAtPath:(id)arg1;
 - (_Bool)_removeTonesFromManifestAtPath:(id)arg1 fileNames:(id)arg2 shouldSkipReload:(_Bool)arg3 alreadyLockedManifest:(_Bool)arg4 removedEntries:(id *)arg5;
 - (_Bool)_removeToneFromManifestAtPath:(id)arg1 fileName:(id)arg2;
-- (_Bool)_addToneEntries:(id)arg1 toManifestAtPath:(id)arg2 mediaDirectory:(id)arg3 shouldSkipReload:(_Bool)arg4;
-- (_Bool)_addToneToManifestAtPath:(id)arg1 metadata:(id)arg2 fileName:(id)arg3 mediaDirectory:(id)arg4;
+- (id)_addToneEntries:(id)arg1 toManifestAtPath:(id)arg2 mediaDirectory:(id)arg3 shouldSkipReload:(_Bool)arg4;
+- (id)_addToneToManifestAtPath:(id)arg1 metadata:(id)arg2 fileName:(id)arg3 mediaDirectory:(id)arg4;
 - (unsigned long long)_installedTonesSize;
 - (id)_installedTones;
-- (id)_iTunesToneWithIdentifier:(id)arg1;
-- (void)_reloadITunesRingtonesAfterExternalChange;
-- (id)_copyITunesRingtonesFromManifestPath:(id)arg1 mediaDirectoryPath:(id)arg2;
+- (id)_toneWithIdentifier:(id)arg1;
+- (void)_reloadTones;
+- (void)_reloadTonesAfterExternalChange;
+- (id)_tonesFromManifestPath:(id)arg1 mediaDirectoryPath:(id)arg2;
 - (void)_loadITunesRingtoneInfoPlistAtPath:(id)arg1;
 @property(readonly, nonatomic) NSString *_systemRingtoneDirectory;
 @property(readonly, nonatomic) NSString *_iTunesRingtoneInformationPlist;

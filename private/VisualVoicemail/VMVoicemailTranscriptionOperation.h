@@ -6,38 +6,25 @@
 
 #import <Foundation/NSOperation.h>
 
-@class SFSpeechRecognitionTask, SFSpeechRecognizer, SFSpeechURLRecognitionRequest;
+@class NSObject, SFSpeechRecognizer, SFSpeechURLRecognitionRequest;
+@protocol OS_dispatch_queue;
 
 @interface VMVoicemailTranscriptionOperation : NSOperation
 {
-    _Bool _finished;
-    _Bool _executing;
+    NSObject<OS_dispatch_queue> *_completionQueue;
     SFSpeechRecognizer *_recognizer;
     SFSpeechURLRecognitionRequest *_request;
-    SFSpeechRecognitionTask *_task;
     CDUnknownBlockType _resultBlock;
-    CDUnknownBlockType _timeoutBlock;
     double _timeout;
-    double _timeSinceLastReceivedResult;
 }
 
-@property(nonatomic) double timeSinceLastReceivedResult; // @synthesize timeSinceLastReceivedResult=_timeSinceLastReceivedResult;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
-@property(copy, nonatomic) CDUnknownBlockType timeoutBlock; // @synthesize timeoutBlock=_timeoutBlock;
 @property(copy, nonatomic) CDUnknownBlockType resultBlock; // @synthesize resultBlock=_resultBlock;
-@property(retain, nonatomic) SFSpeechRecognitionTask *task; // @synthesize task=_task;
 @property(retain, nonatomic) SFSpeechURLRecognitionRequest *request; // @synthesize request=_request;
 @property(nonatomic) __weak SFSpeechRecognizer *recognizer; // @synthesize recognizer=_recognizer;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *completionQueue; // @synthesize completionQueue=_completionQueue;
 - (void).cxx_destruct;
-- (void)cancel;
-- (void)start;
-- (void)registerForTimeoutCancellingPreviousIfNecessary;
-- (void)cancelTimeout;
-- (void)_completeOperation;
-- (_Bool)isExecuting;
-- (_Bool)isFinished;
-- (_Bool)isAsynchronous;
-- (void)dealloc;
+- (void)main;
 - (id)initWithRecognizer:(id)arg1 URL:(id)arg2 forceOfflineRecognition:(_Bool)arg3 resultBlock:(CDUnknownBlockType)arg4;
 
 @end

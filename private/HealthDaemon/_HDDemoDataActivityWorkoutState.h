@@ -23,11 +23,11 @@
     double _totalDistanceCyclingInMeters;
     double _totalDistanceSwimmingInYards;
     double _totalSwimmingStrokes;
-    NSDate *_nextLapTime;
+    long long _swimmingStrokeStyle;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(retain, nonatomic) NSDate *nextLapTime; // @synthesize nextLapTime=_nextLapTime;
+@property(nonatomic) long long swimmingStrokeStyle; // @synthesize swimmingStrokeStyle=_swimmingStrokeStyle;
 @property(nonatomic) double totalSwimmingStrokes; // @synthesize totalSwimmingStrokes=_totalSwimmingStrokes;
 @property(nonatomic) double totalDistanceSwimmingInYards; // @synthesize totalDistanceSwimmingInYards=_totalDistanceSwimmingInYards;
 @property(nonatomic) double totalDistanceCyclingInMeters; // @synthesize totalDistanceCyclingInMeters=_totalDistanceCyclingInMeters;

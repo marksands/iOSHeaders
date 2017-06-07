@@ -4,14 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
-
-#import <PersistentConnection/PCLoggingDelegate-Protocol.h>
+#import <objc/NSObject.h>
 
 @class NSDate, NSRunLoop, NSString, PCDispatchTimer;
 @protocol OS_dispatch_queue;
 
-@interface PCSimpleTimer : NSObject <PCLoggingDelegate>
+@interface PCSimpleTimer : NSObject
 {
     double _fireTime;
     double _startTime;
@@ -38,9 +36,9 @@
 
 + (double)currentMachTimeInterval;
 + (id)lastSystemWakeDate;
-@property(readonly, nonatomic) NSString *loggingIdentifier; // @synthesize loggingIdentifier=_serviceIdentifier;
 @property(nonatomic) _Bool disableSystemWaking; // @synthesize disableSystemWaking=_disableSystemWaking;
-@property(readonly, copy) NSString *debugDescription;
+- (void).cxx_destruct;
+- (id)debugDescription;
 - (void)_setSignificantTimeChangeMonitoringEnabled:(_Bool)arg1;
 - (void)_significantTimeChange;
 - (void)_powerNotificationSleepIsImminent;
@@ -66,11 +64,6 @@
 - (id)initWithAbsoluteTime:(double)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5 triggerOnGMTChange:(_Bool)arg6;
 - (id)initWithTimeInterval:(double)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5;
 - (id)initWithFireDate:(id)arg1 serviceIdentifier:(id)arg2 target:(id)arg3 selector:(SEL)arg4 userInfo:(id)arg5;
-
-// Remaining properties
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

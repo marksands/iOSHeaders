@@ -22,11 +22,9 @@
     NSObject<OS_dispatch_queue> *_internalQueue;
     NSMutableSet *_tokens;
     NSMutableDictionary *_requestsToRequestInfos;
-    _Bool _providerCachesDisabled;
     NSURL *_injectedBundleURL;
 }
 
-@property(nonatomic, getter=areProviderCachesDisabled) _Bool providerCachesDisabled; // @synthesize providerCachesDisabled=_providerCachesDisabled;
 @property(readonly, copy, nonatomic) NSURL *injectedBundleURL; // @synthesize injectedBundleURL=_injectedBundleURL;
 - (void).cxx_destruct;
 - (void)siteMetadataProvider:(id)arg1 didFinishUsingWebView:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSBundle, NSString, NSURL, UIImage;
+@class NSBundle, NSSet, NSString, NSURL, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface TSATemplateInfo : NSObject
@@ -16,7 +16,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
-- (void)prepareForNewDocumentWithQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)prepareWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+@property(readonly, copy, nonatomic) NSSet *tags;
 @property(readonly, nonatomic) _Bool isUserTemplate;
 @property(readonly, nonatomic) _Bool isAvailable;
 @property(readonly, nonatomic) NSBundle *localizationBundle;
@@ -25,6 +26,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSURL *previewImageURL;
 - (id)makeIdentifier;
 @property(readonly, nonatomic) NSString *identifier;
+- (unsigned long long)hash;
+- (_Bool)isEqualToTemplateInfo:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)initWithDisplayName:(id)arg1;
 

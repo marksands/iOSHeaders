@@ -6,13 +6,16 @@
 
 #import <Foundation/NSObject.h>
 
+@class _SCRCStackNode;
+
 @interface SCRCStackQueue : NSObject
 {
-    struct _SCRCStackNode *_firstNode;
-    struct _SCRCStackNode *_lastNode;
+    _SCRCStackNode *_firstNode;
+    _SCRCStackNode *_lastNode;
     unsigned long long _count;
 }
 
+- (void).cxx_destruct;
 - (_Bool)isEmpty;
 - (id)objectEnumerator;
 - (id)description;

@@ -6,7 +6,7 @@
 
 #import <StoreKitUI/SKUIClientContext.h>
 
-@class MusicJSNativeViewEventRegistry, MusicJSNowPlayingController, MusicJSPlaybackCoordinator, MusicJSRecentStationsManager, MusicJSUserInterfaceStatusController, NSDictionary, RadioRecentStationsController, SKUILocalizedStringDictionary;
+@class MusicJSNativeViewEventRegistry, MusicJSNowPlayingController, MusicJSUserInterfaceStatusController, NSDictionary, RadioRecentStationsController, SKUILocalizedStringDictionary;
 
 @interface MusicClientContext : SKUIClientContext
 {
@@ -14,8 +14,6 @@
     NSDictionary *_updatableLocalizedStrings;
     MusicJSNativeViewEventRegistry *_jsNativeViewEventRegistry;
     MusicJSNowPlayingController *_jsNowPlayingController;
-    MusicJSPlaybackCoordinator *_jsPlaybackCoordinator;
-    MusicJSRecentStationsManager *_jsRecentStationsManager;
     MusicJSUserInterfaceStatusController *_jsUserInterfaceStatusController;
     RadioRecentStationsController *_recentStationsController;
 }
@@ -23,8 +21,6 @@
 + (id)_fallbackConfigurationDictionary;
 @property(retain, nonatomic) RadioRecentStationsController *recentStationsController; // @synthesize recentStationsController=_recentStationsController;
 @property(readonly, nonatomic) MusicJSUserInterfaceStatusController *jsUserInterfaceStatusController; // @synthesize jsUserInterfaceStatusController=_jsUserInterfaceStatusController;
-@property(readonly, nonatomic) MusicJSRecentStationsManager *jsRecentStationsManager; // @synthesize jsRecentStationsManager=_jsRecentStationsManager;
-@property(readonly, nonatomic) MusicJSPlaybackCoordinator *jsPlaybackCoordinator; // @synthesize jsPlaybackCoordinator=_jsPlaybackCoordinator;
 @property(readonly, nonatomic) MusicJSNowPlayingController *jsNowPlayingController; // @synthesize jsNowPlayingController=_jsNowPlayingController;
 @property(readonly, nonatomic) MusicJSNativeViewEventRegistry *jsNativeViewEventRegistry; // @synthesize jsNativeViewEventRegistry=_jsNativeViewEventRegistry;
 - (void).cxx_destruct;

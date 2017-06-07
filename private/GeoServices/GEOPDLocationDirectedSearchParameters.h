@@ -20,13 +20,18 @@
     int _searchType;
     int _sortOrder;
     GEOPDViewportInfo *_viewportInfo;
-    CDStruct_aa0bba6c _has;
+    struct {
+        unsigned int maxResults:1;
+        unsigned int searchType:1;
+        unsigned int sortOrder:1;
+    } _has;
 }
 
 @property(retain, nonatomic) GEOPDNearestTransitParameters *nearestTransitParameters; // @synthesize nearestTransitParameters=_nearestTransitParameters;
 @property(retain, nonatomic) GEOLatLng *searchLocation; // @synthesize searchLocation=_searchLocation;
 @property(retain, nonatomic) GEOPDViewportInfo *viewportInfo; // @synthesize viewportInfo=_viewportInfo;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -51,7 +56,6 @@
 - (id)sortOrderAsString:(int)arg1;
 @property(nonatomic) _Bool hasSortOrder;
 @property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
-- (void)dealloc;
 - (id)initWithSearchURLQuery:(id)arg1 coordinate:(CDStruct_c3b9c2ee)arg2 maxResults:(unsigned int)arg3 traits:(id)arg4;
 
 @end

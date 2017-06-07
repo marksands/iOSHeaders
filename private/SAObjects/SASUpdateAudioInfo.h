@@ -16,6 +16,7 @@
 
 + (id)updateAudioInfoWithDictionary:(id)arg1 context:(id)arg2;
 + (id)updateAudioInfo;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSString *vendorId;
 @property(nonatomic) _Bool triggeredTwoShotBorealis;
 @property(retain, nonatomic) SASRecordingInfo *recordingInfo;

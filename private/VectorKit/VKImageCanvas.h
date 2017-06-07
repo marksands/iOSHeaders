@@ -4,71 +4,48 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-#import <VectorKit/VKAnimationRunner-Protocol.h>
-#import <VectorKit/VKWorldDelegate-Protocol.h>
-
-@class GEOMapRegion, GGLImageCanvas, NSString, VKCamera, VKDispatch, VKScreenCameraController, VKTimer, VKWorld;
-@protocol VKImageCanvasDelegate;
+@class GEOMapRegion, VKScreenCameraController, VKWorld;
+@protocol MDRenderTarget, VKImageCanvasDelegate;
 
 __attribute__((visibility("hidden")))
-@interface VKImageCanvas : NSObject <VKWorldDelegate, VKAnimationRunner>
+@interface VKImageCanvas : NSObject
 {
     VKWorld *_world;
-    VKCamera *_camera;
     VKScreenCameraController *_cameraController;
-    VKDispatch *_dispatch;
+    shared_ptr_e963992e _taskContext;
     long long _mapType;
     struct DisplayStyle _mapDisplayStyle;
-    GGLImageCanvas *_displayTarget;
-    struct unique_ptr<md::RenderTree, std::__1::default_delete<md::RenderTree>> _mapScene;
-    struct unique_ptr<md::RenderQueue, std::__1::default_delete<md::RenderQueue>> _renderQueue;
-    struct unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext>> _layoutContext;
+    id <MDRenderTarget> _displayTarget;
+    Renderer_e10ca448 *_mapRenderer;
+    struct LayoutContext *_layoutContext;
     id <VKImageCanvasDelegate> _delegate;
-    VKTimer *_layoutTimer;
-    _Bool _shouldDrawWhileLoading;
-    double _frameTimestamp;
-    _Bool _needsLayout;
+    struct RunLoopController *_runLoopController;
 }
 
 @property(nonatomic) struct DisplayStyle mapDisplayStyle; // @synthesize mapDisplayStyle=_mapDisplayStyle;
 @property(nonatomic) long long mapType; // @synthesize mapType=_mapType;
 @property(nonatomic) id <VKImageCanvasDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) VKDispatch *dispatch; // @synthesize dispatch=_dispatch;
-@property(readonly, nonatomic) VKCamera *camera; // @synthesize camera=_camera;
 @property(readonly, nonatomic) VKWorld *world; // @synthesize world=_world;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)didReceiveMemoryWarning:(_Bool)arg1;
-- (void)animationDidResume:(id)arg1;
-- (void)animationDidStop:(id)arg1;
-- (void)runAnimation:(id)arg1;
-- (void)worldDisplayDidChange:(id)arg1;
-- (void)worldLayoutDidChange:(id)arg1;
-- (void)renderSceneWithRenderer:(struct Renderer *)arg1 completion:(CDUnknownBlockType)arg2;
+-     // Error parsing type: v72@0:8^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B}16{function<void ()>={type=[32C]}^{__base<void ()>}}24, name: renderSceneWithEngine:completion:
 - (void)cancelLoad;
 - (void)loadScene;
-- (void)_spinScene:(id)arg1;
 @property(readonly, nonatomic) double pitch;
 @property(readonly, nonatomic) double yaw;
 @property(readonly, nonatomic) GEOMapRegion *mapRegion;
 - (void)setCenterCoordinate:(CDStruct_c3b9c2ee)arg1 altitude:(double)arg2 yaw:(double)arg3 pitch:(double)arg4;
 - (void)setMapRegion:(id)arg1 pitch:(double)arg2 yaw:(double)arg3;
-- (void)_spinSceneWillRender:(_Bool)arg1;
 - (void)cancelTileRequests;
 - (void)clearScene;
 - (void)didLayout;
 - (void)update;
-- (void)setSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) shared_ptr_e963992e taskContext;
 - (void)dealloc;
-- (id)initWithTarget:(id)arg1 device:(struct Device *)arg2 homeQueue:(id)arg3;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+-     // Error parsing type: @24@0:8^{MapEngine=^^?{shared_ptr<md::TaskContext>=^{TaskContext}^{__shared_weak_count}}{_retain_ptr<_MapEngineRenderQueueSource *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{unique_ptr<ggl::DisplayLink, std::__1::default_delete<ggl::DisplayLink> >={__compressed_pair<ggl::DisplayLink *, std::__1::default_delete<ggl::DisplayLink> >=^{DisplayLink}}}{unique_ptr<ggl::SnapshotRunLoop, std::__1::default_delete<ggl::SnapshotRunLoop> >={__compressed_pair<ggl::SnapshotRunLoop *, std::__1::default_delete<ggl::SnapshotRunLoop> >=^{SnapshotRunLoop}}}^{RunLoop}{unique_ptr<md::AnimationManager, std::__1::default_delete<md::AnimationManager> >={__compressed_pair<md::AnimationManager *, std::__1::default_delete<md::AnimationManager> >=^{AnimationManager}}}{unique_ptr<md::AnimationRunner, std::__1::default_delete<md::AnimationRunner> >={__compressed_pair<md::AnimationRunner *, std::__1::default_delete<md::AnimationRunner> >=^{AnimationRunner}}}{shared_ptr<md::RunLoopController>=^{RunLoopController}^{__shared_weak_count}}@@@@{unique_ptr<md::CartographicRenderer, std::__1::default_delete<md::CartographicRenderer> >={__compressed_pair<md::CartographicRenderer *, std::__1::default_delete<md::CartographicRenderer> >=^{CartographicRenderer}}}{unique_ptr<md::realistic::RealisticRenderer, std::__1::default_delete<md::realistic::RealisticRenderer> >={__compressed_pair<md::realistic::RealisticRenderer *, std::__1::default_delete<md::realistic::RealisticRenderer> >=^{RealisticRenderer}}}^{Renderer}{unique_ptr<md::LayoutContext, std::__1::default_delete<md::LayoutContext> >={__compressed_pair<md::LayoutContext *, std::__1::default_delete<md::LayoutContext> >=^{LayoutContext}}}{_retain_ptr<VKCamera *, geo::_retain_objc, geo::_release_objc, geo::_hash_objc, geo::_equal_objc>=^^?@{_retain_objc=}{_release_objc=}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{shared_ptr<md::LabelManager>=^{LabelManager}^{__shared_weak_count}}{unique_ptr<md::LogicManager, std::__1::default_delete<md::LogicManager> >={__compressed_pair<md::LogicManager *, std::__1::default_delete<md::LogicManager> >=^{LogicManager}}}{unique_ptr<md::FlyoverAvailability, std::__1::default_delete<md::FlyoverAvailability> >={__compressed_pair<md::FlyoverAvailability *, std::__1::default_delete<md::FlyoverAvailability> >=^{FlyoverAvailability}}}BBB{atomic<bool>=AB}{atomic<bool>=AB}B}16, name: initWithMapEngine:
 
 @end
 

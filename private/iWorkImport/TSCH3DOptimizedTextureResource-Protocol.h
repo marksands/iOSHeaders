@@ -7,6 +7,7 @@
 @class TSCH3DDataBuffer, TSCH3DDocumentDataCache;
 
 @protocol TSCH3DOptimizedTextureResource
+- (TSCH3DDataBuffer *)representativeColorBuffer;
 - (TSCH3DDataBuffer *)databufferForDataCache:(TSCH3DDocumentDataCache *)arg1;
 - (TSCH3DDataBuffer *)optimizedMipmapBuffer;
 - (_Bool)canLoadCachedFullMipmapBufferForDataCache:(TSCH3DDocumentDataCache *)arg1;

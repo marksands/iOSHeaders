@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <NewsCore/FCMultiTagFeedDescriptor.h>
+#import <NewsCore/FCFeedDescriptor.h>
 
 @protocol FCTagProviding;
 
-@interface FCSingleTagFeedDescriptor : FCMultiTagFeedDescriptor
+@interface FCSingleTagFeedDescriptor : FCFeedDescriptor
 {
     id <FCTagProviding> _tag;
     long long _feedType;
@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (long long)feedFilterOptions;
 - (long long)feedSortMethod;
+- (id)feedGroupEmitters;
 - (id)iAdSectionID;
 - (id)iAdFeedID;
 - (id)iAdPrimaryAudience;

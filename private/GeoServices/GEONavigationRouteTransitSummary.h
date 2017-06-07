@@ -20,6 +20,7 @@
 + (Class)scheduledLinkType;
 @property(retain, nonatomic) NSMutableArray *possibleStops; // @synthesize possibleStops=_possibleStops;
 @property(retain, nonatomic) NSMutableArray *scheduledLinks; // @synthesize scheduledLinks=_scheduledLinks;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -37,7 +38,6 @@
 - (unsigned long long)scheduledLinksCount;
 - (void)addScheduledLink:(id)arg1;
 - (void)clearScheduledLinks;
-- (void)dealloc;
 - (id)initWithRoute:(id)arg1;
 
 @end

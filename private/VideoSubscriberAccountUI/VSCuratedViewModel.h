@@ -14,7 +14,6 @@ __attribute__((visibility("hidden")))
 @interface VSCuratedViewModel : VSViewModel <VSLogoImageViewModel>
 {
     _Bool _beginValidationButtonEnabled;
-    _Bool _showDeleteAccountButton;
     _Bool _showFooter;
     NSItemProvider *_logoProvider;
     UIImage *_logo;
@@ -31,13 +30,13 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *notice; // @synthesize notice=_notice;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(retain, nonatomic) VSOptional *identityProviderDisplayName; // @synthesize identityProviderDisplayName=_identityProviderDisplayName;
-@property(nonatomic) _Bool showDeleteAccountButton; // @synthesize showDeleteAccountButton=_showDeleteAccountButton;
 @property(copy, nonatomic) NSString *beginValidationButtonTitle; // @synthesize beginValidationButtonTitle=_beginValidationButtonTitle;
 @property(nonatomic, getter=isBeginValidationButtonEnabled) _Bool beginValidationButtonEnabled; // @synthesize beginValidationButtonEnabled=_beginValidationButtonEnabled;
 @property(copy, nonatomic) NSString *logoAccessibilityLabel; // @synthesize logoAccessibilityLabel=_logoAccessibilityLabel;
 @property(retain, nonatomic) UIImage *logo; // @synthesize logo=_logo;
 @property(retain, nonatomic) NSItemProvider *logoProvider; // @synthesize logoProvider=_logoProvider;
 - (void).cxx_destruct;
+- (void)configureWithRequest:(id)arg1;
 - (id)init;
 
 // Remaining properties

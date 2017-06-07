@@ -6,7 +6,7 @@
 
 #import <AnnotationKit/AKController.h>
 
-@class AKActionController, AKAttributeController, AKIntelligentSketchController, AKMainEventHandler, AKModelController, AKSignatureModelController, AKToolController, AKUndoController, UIView;
+@class AKActionController, AKAttributeController, AKLegacyDoodleController, AKMainEventHandler, AKModelController, AKSignatureModelController, AKToolController, AKUndoController, UIView;
 @protocol AKControllerDelegateProtocol;
 
 @interface AKControllerForTesting : AKController
@@ -20,13 +20,13 @@
     AKMainEventHandler *_testingMainEventHandler;
     UIView *_testingToolbarView;
     UIView *_testingOverlayView;
-    AKIntelligentSketchController *_testingIntelligentSketchController;
+    AKLegacyDoodleController *_testingIntelligentSketchController;
     AKSignatureModelController *_testingSignatureModelController;
 }
 
 + (void)renderAnnotation:(id)arg1 inContext:(struct CGContext *)arg2;
 @property(retain) AKSignatureModelController *testingSignatureModelController; // @synthesize testingSignatureModelController=_testingSignatureModelController;
-@property(retain) AKIntelligentSketchController *testingIntelligentSketchController; // @synthesize testingIntelligentSketchController=_testingIntelligentSketchController;
+@property(retain) AKLegacyDoodleController *testingIntelligentSketchController; // @synthesize testingIntelligentSketchController=_testingIntelligentSketchController;
 @property(retain) UIView *testingOverlayView; // @synthesize testingOverlayView=_testingOverlayView;
 @property(retain) UIView *testingToolbarView; // @synthesize testingToolbarView=_testingToolbarView;
 @property(retain) AKMainEventHandler *testingMainEventHandler; // @synthesize testingMainEventHandler=_testingMainEventHandler;
@@ -38,7 +38,7 @@
 @property(retain) id <AKControllerDelegateProtocol> testingDelegate; // @synthesize testingDelegate=_testingDelegate;
 - (void).cxx_destruct;
 - (id)signatureModelController;
-- (id)intelligentSketchController;
+- (id)legacyDoodleController;
 - (id)mainEventHandler;
 - (id)undoController;
 - (id)attributeController;

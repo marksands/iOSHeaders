@@ -12,6 +12,7 @@
 + (void)fc_walkArray:(id)arg1 andArray:(id)arg2 withBlock:(CDUnknownBlockType)arg3;
 + (id)fc_generatedArrayWithCount:(unsigned long long)arg1 generator:(CDUnknownBlockType)arg2;
 + (id)fc_array:(CDUnknownBlockType)arg1;
++ (id)fc_arrayByAddingUniqueObjectsFromArray:(id)arg1 toArray:(id)arg2;
 + (id)fc_arrayByAddingObjectsFromArray:(id)arg1 toArray:(id)arg2 inRelativeOrder:(unsigned long long)arg3;
 + (id)fc_arrayByAddingObjectsFromArray:(id)arg1 toArray:(id)arg2;
 - (_Bool)fc_isEqualToArray:(id)arg1 inRange:(struct _NSRange)arg2;
@@ -44,12 +45,14 @@
 - (id)fc_arrayByCollectingObjectsWithBlock:(CDUnknownBlockType)arg1;
 - (id)fc_indexesOfObjectsIdenticalTo:(id)arg1;
 - (unsigned long long)fc_indexOfFirstObjectWithValue:(id)arg1 forKey:(id)arg2;
+- (id)fc_arraysByPartitioningWithBudget:(id)arg1 indicesOfOverBudgetObjects:(id *)arg2 appraiser:(CDUnknownBlockType)arg3 accumulator:(CDUnknownBlockType)arg4 comparator:(CDUnknownBlockType)arg5;
 - (id)fc_arraysByPartitioningOnObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_arraysByExcisingRange:(struct _NSRange)arg1;
 - (id)fc_arrayByReplacingObjectsInRange:(struct _NSRange)arg1 withObject:(id)arg2;
 - (id)fc_arrayByRemovingObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_arrayByRemovingObjectsAtIndexes:(id)arg1;
 - (id)fc_arrayByRemovingObjectsInRange:(struct _NSRange)arg1;
+- (id)fc_arrayByRemovingFirstObject;
 - (id)fc_arrayByReplacingObjectAtIndex:(unsigned long long)arg1 withObject:(id)arg2;
 - (id)fc_arrayByReplacingObjectIdenticalTo:(id)arg1 withObject:(id)arg2;
 - (id)fc_arrayByRemovingObjectsInArray:(id)arg1;
@@ -59,8 +62,11 @@
 - (unsigned long long)fc_countOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_arrayOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_orderedSetByTransformingWithBlock:(CDUnknownBlockType)arg1;
+- (id)fc_setOfObjectsPassingTest:(CDUnknownBlockType)arg1;
 - (id)fc_setByTransformingWithBlock:(CDUnknownBlockType)arg1;
 - (id)fc_arrayByTransformingWithBlock:(CDUnknownBlockType)arg1;
+- (id)fc_arrayByTransformingWithBlockWithIndex:(CDUnknownBlockType)arg1;
+- (_Bool)fc_allObjectsPassTest:(CDUnknownBlockType)arg1;
 - (_Bool)fc_containsObjectsWithValue:(id)arg1 forKey:(id)arg2;
 - (_Bool)fc_containsObjectsAtBack:(id)arg1;
 - (_Bool)fc_containsObjectsAtFront:(id)arg1;

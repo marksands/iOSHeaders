@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)unserializeObject:(id)arg1 error:(id *)arg2;
-+ (id)serializeObject:(id)arg1 error:(id *)arg2;
++ (id)unserializeObject:(id)arg1 nulls:(id)arg2 error:(id *)arg3;
++ (id)serializeObject:(id)arg1 nulls:(id *)arg2 error:(id *)arg3;
 
 @end
 

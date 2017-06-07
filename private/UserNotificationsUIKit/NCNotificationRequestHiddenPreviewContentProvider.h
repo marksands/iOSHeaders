@@ -4,31 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UserNotificationsUIKit/NCNotificationRequestContentProvider.h>
+#import <UserNotificationsUIKit/NCNotificationRequestCoalescingContentProvider.h>
 
-@class NSMutableArray, NSString;
-
-@interface NCNotificationRequestHiddenPreviewContentProvider : NCNotificationRequestContentProvider
+@interface NCNotificationRequestHiddenPreviewContentProvider : NCNotificationRequestCoalescingContentProvider
 {
-    _Bool _deviceAuthenticated;
-    NSMutableArray *_coalescedNotificationRequests;
-    NSString *_topic;
 }
-
-@property(copy, nonatomic) NSString *topic; // @synthesize topic=_topic;
-@property(nonatomic, getter=isDeviceAuthenticated) _Bool deviceAuthenticated; // @synthesize deviceAuthenticated=_deviceAuthenticated;
-@property(retain, nonatomic) NSMutableArray *coalescedNotificationRequests; // @synthesize coalescedNotificationRequests=_coalescedNotificationRequests;
-- (void).cxx_destruct;
-- (id)hintText;
-- (id)interfaceActions;
-- (id)thumbnail;
-- (id)secondaryText;
-- (id)primarySubtitleText;
-- (void)removeCoalescedNotificationRequest:(id)arg1;
-- (void)coalesceHiddenNotificationRequest:(id)arg1;
-- (unsigned long long)coalesceCount;
-- (id)init;
-- (id)initWithNotificationRequest:(id)arg1;
 
 @end
 

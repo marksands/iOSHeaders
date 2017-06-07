@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <CoreMediaStream/NSCopying-Protocol.h>
+#import <CoreMediaStream/NSSecureCoding-Protocol.h>
 
 @class NSDate, NSDictionary, NSString;
 
-@interface MSASAlbum : NSObject <NSCopying>
+@interface MSASAlbum : NSObject <NSCopying, NSSecureCoding>
 {
     _Bool _ownerIsWhitelisted;
     _Bool _isFamilySharedAlbum;

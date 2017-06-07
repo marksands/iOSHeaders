@@ -4,26 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSOperation.h>
+#import <Foundation/NSBlockOperation.h>
 
 @class NSObject;
-@protocol OS_dispatch_group;
+@protocol OS_dispatch_semaphore;
 
-@interface _PASOperationForWithDbLock : NSOperation
+@interface _PASOperationForWithDbLock : NSBlockOperation
 {
-    NSObject<OS_dispatch_group> *_group;
-    _Bool _started;
-    _Bool _completed;
+    NSObject<OS_dispatch_semaphore> *_semaphoreStart;
+    NSObject<OS_dispatch_semaphore> *_semaphoreFinish;
 }
 
-+ (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
 - (void).cxx_destruct;
-- (_Bool)isFinished;
-- (_Bool)isExecuting;
-- (_Bool)isAsynchronous;
 - (void)complete;
 - (void)waitForStart;
-- (void)start;
+- (void)block;
 - (id)init;
 
 @end

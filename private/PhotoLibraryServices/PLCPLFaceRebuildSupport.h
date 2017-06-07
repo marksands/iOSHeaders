@@ -18,7 +18,7 @@
     int _hiddenFaceCount;
 }
 
-+ (void)rebuildDeferredFacesForAsset:(id)arg1 inPhotoLibrary:(id)arg2;
++ (void)rebuildDeferredFacesForAsset:(id)arg1 inManagedObjectContext:(id)arg2;
 - (id)fetchPersonForDeferredFace:(id)arg1;
 - (id)fetchDeferredFacesToRebuild;
 - (void)rebuildHiddenFace:(id)arg1;

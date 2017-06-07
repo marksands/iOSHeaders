@@ -10,6 +10,12 @@
 {
 }
 
++ (void)pluginEndDeletion:(id)arg1;
++ (void)pluginStartDeletion:(id)arg1;
++ (void)pluginEndProcessingSearchableItem:(id)arg1;
++ (void)pluginStartProcessingSearchableItem:(id)arg1;
++ (void)pluginEndSetup:(id)arg1;
++ (void)pluginStartSetup:(id)arg1;
 + (void)endIngestOfMessages:(unsigned long long)arg1;
 + (void)startIngestOfMessages:(unsigned long long)arg1;
 + (void)logPrewarmWithLastPrewarmTime:(double)arg1;

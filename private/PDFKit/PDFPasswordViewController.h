@@ -10,6 +10,7 @@
 
 @class PDFView, UIView;
 
+__attribute__((visibility("hidden")))
 @interface PDFPasswordViewController : UIViewController <UIDocumentPasswordViewDelegate>
 {
     UIView *_passwordView;

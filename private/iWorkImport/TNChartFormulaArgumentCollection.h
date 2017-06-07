@@ -19,8 +19,8 @@ __attribute__((visibility("hidden")))
     _Bool mStoreBadRef;
 }
 
-+ (id)argumentCollectionFromFormula:(struct TSCEFormula *)arg1 inOwner:(struct __CFUUID *)arg2 usingCalcEngine:(id)arg3 storeBadRef:(_Bool)arg4;
-+ (id)argumentCollectionFromFormula:(struct TSCEFormula *)arg1 inOwner:(struct __CFUUID *)arg2 usingCalcEngine:(id)arg3;
++ (id)argumentCollectionFromFormula:(struct TSCEFormula *)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 usingCalcEngine:(id)arg3 storeBadRef:(_Bool)arg4;
++ (id)argumentCollectionFromFormula:(struct TSCEFormula *)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 usingCalcEngine:(id)arg3;
 @property(nonatomic) _Bool storeBadRef; // @synthesize storeBadRef=mStoreBadRef;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -34,8 +34,8 @@ __attribute__((visibility("hidden")))
 - (id)wrappedChartFormulaWithID:(CDStruct_a91f2c80)arg1 andLocale:(id)arg2;
 - (id)description;
 - (void)dealloc;
-- (id)initWithFormula:(struct TSCEFormula *)arg1 inOwner:(struct __CFUUID *)arg2 usingCalcEngine:(id)arg3;
-- (id)initWithFormula:(struct TSCEFormula *)arg1 inOwner:(struct __CFUUID *)arg2 usingCalcEngine:(id)arg3 storeBadRef:(_Bool)arg4;
+- (id)initWithFormula:(struct TSCEFormula *)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 usingCalcEngine:(id)arg3;
+- (id)initWithFormula:(struct TSCEFormula *)arg1 inOwner:(const UUIDData_5fbc143e *)arg2 usingCalcEngine:(id)arg3 storeBadRef:(_Bool)arg4;
 - (id)initWithArray:(id)arg1;
 
 @end

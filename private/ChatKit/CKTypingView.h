@@ -7,14 +7,14 @@
 #import <UIKit/UIView.h>
 
 @class CALayer;
-@protocol CKTypingIndicatorLayerProtocol;
+@protocol IMTypingIndicatorLayerProtocol;
 
 @interface CKTypingView : UIView
 {
-    CALayer<CKTypingIndicatorLayerProtocol> *_indicatorLayer;
+    CALayer<IMTypingIndicatorLayerProtocol> *_indicatorLayer;
 }
 
-@property(retain, nonatomic) CALayer<CKTypingIndicatorLayerProtocol> *indicatorLayer; // @synthesize indicatorLayer=_indicatorLayer;
+@property(retain, nonatomic) CALayer<IMTypingIndicatorLayerProtocol> *indicatorLayer; // @synthesize indicatorLayer=_indicatorLayer;
 - (void).cxx_destruct;
 
 @end

@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+- (_Bool)shouldUseScrollView;
 - (void)_createSubviews;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1 context:(long long)arg2 heroImageController:(id)arg3 hasSupportingHardware:(_Bool)arg4 region:(id)arg5;

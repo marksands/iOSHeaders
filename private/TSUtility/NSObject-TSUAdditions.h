@@ -7,9 +7,8 @@
 #import <Foundation/NSObject.h>
 
 @interface NSObject (TSUAdditions)
-+ (_Bool)object:(id)arg1 isEqualToObject:(id)arg2;
-+ (_Bool)overridesClassSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
-+ (_Bool)overridesSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
-- (void)performSelector:(SEL)arg1 withValue:(id)arg2;
++ (_Bool)tsu_object:(id)arg1 isEqualToObject:(id)arg2;
++ (_Bool)tsu_overridesSelector:(SEL)arg1 ofBaseClass:(Class)arg2;
+- (void)tsu_performSelector:(SEL)arg1 withValue:(id)arg2;
 @end
 

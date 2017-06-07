@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFTextColumn-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSData, NSDictionary, NSString;
 
-@interface SFTextColumn : NSObject <NSSecureCoding>
+@interface SFTextColumn : NSObject <SFTextColumn, NSSecureCoding>
 {
     NSArray *_sections;
 }
@@ -18,8 +19,17 @@
 + (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithProtobuf:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

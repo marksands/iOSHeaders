@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOTileKeyList, NSMutableArray, NSMutableSet, _GEOTransitPreloadCamera;
 
@@ -14,7 +14,6 @@ __attribute__((visibility("hidden")))
     GEOTileKeyList *_tilesLoadingOrLoaded;
     GEOTileKeyList *_tilesReceived;
     GEOTileKeyList *_tilesMissed;
-    NSMutableSet *_placecardsLoadingOrLoaded;
     NSMutableSet *_placecardsReceived;
     NSMutableSet *_placecardsMissed;
     NSMutableArray *_preloadBatches;
@@ -29,11 +28,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSMutableArray *preloadBatches; // @synthesize preloadBatches=_preloadBatches;
 @property(retain, nonatomic) NSMutableSet *placecardsMissed; // @synthesize placecardsMissed=_placecardsMissed;
 @property(retain, nonatomic) NSMutableSet *placecardsReceived; // @synthesize placecardsReceived=_placecardsReceived;
-@property(retain, nonatomic) NSMutableSet *placecardsLoadingOrLoaded; // @synthesize placecardsLoadingOrLoaded=_placecardsLoadingOrLoaded;
 @property(retain, nonatomic) GEOTileKeyList *tilesMissed; // @synthesize tilesMissed=_tilesMissed;
 @property(retain, nonatomic) GEOTileKeyList *tilesReceived; // @synthesize tilesReceived=_tilesReceived;
 @property(retain, nonatomic) GEOTileKeyList *tilesLoadingOrLoaded; // @synthesize tilesLoadingOrLoaded=_tilesLoadingOrLoaded;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 
 @end

@@ -18,7 +18,16 @@
     int _departure;
     unsigned int _numberOfReroutes;
     int _ttlUiNotificationShown;
-    CDStruct_90e5f431 _has;
+    struct {
+        unsigned int earliestArrivalOffset:1;
+        unsigned int earliestDepartureOffset:1;
+        unsigned int latestArrivalOffset:1;
+        unsigned int latestDepartureOffset:1;
+        unsigned int arrival:1;
+        unsigned int departure:1;
+        unsigned int numberOfReroutes:1;
+        unsigned int ttlUiNotificationShown:1;
+    } _has;
 }
 
 @property(nonatomic) double latestArrivalOffset; // @synthesize latestArrivalOffset=_latestArrivalOffset;

@@ -11,19 +11,14 @@
 @interface GEORPSuggestedRouteIndex : PBCodable <NSCopying>
 {
     CDStruct_9f2792e4 _clusteredRouteRideSelections;
-    unsigned int _clientSuggestedRoutesIndex;
     unsigned int _directionsResponseIndex;
     unsigned int _directionsResponseSuggestedRoutesIndex;
-    int _origin;
     struct {
-        unsigned int clientSuggestedRoutesIndex:1;
         unsigned int directionsResponseIndex:1;
         unsigned int directionsResponseSuggestedRoutesIndex:1;
-        unsigned int origin:1;
     } _has;
 }
 
-@property(nonatomic) unsigned int clientSuggestedRoutesIndex; // @synthesize clientSuggestedRoutesIndex=_clientSuggestedRoutesIndex;
 @property(nonatomic) unsigned int directionsResponseSuggestedRoutesIndex; // @synthesize directionsResponseSuggestedRoutesIndex=_directionsResponseSuggestedRoutesIndex;
 @property(nonatomic) unsigned int directionsResponseIndex; // @synthesize directionsResponseIndex=_directionsResponseIndex;
 - (void)mergeFrom:(id)arg1;
@@ -41,13 +36,8 @@
 - (void)clearClusteredRouteRideSelections;
 @property(readonly, nonatomic) unsigned int *clusteredRouteRideSelections;
 @property(readonly, nonatomic) unsigned long long clusteredRouteRideSelectionsCount;
-@property(nonatomic) _Bool hasClientSuggestedRoutesIndex;
 @property(nonatomic) _Bool hasDirectionsResponseSuggestedRoutesIndex;
 @property(nonatomic) _Bool hasDirectionsResponseIndex;
-- (int)StringAsOrigin:(id)arg1;
-- (id)originAsString:(int)arg1;
-@property(nonatomic) _Bool hasOrigin;
-@property(nonatomic) int origin; // @synthesize origin=_origin;
 - (void)dealloc;
 
 @end

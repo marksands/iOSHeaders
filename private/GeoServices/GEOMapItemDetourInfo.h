@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOPDResultDetourInfo, NSData;
 
@@ -14,12 +14,12 @@
 }
 
 @property(readonly, nonatomic, getter=_detourInfo) GEOPDResultDetourInfo *detourInfo; // @synthesize detourInfo=_detourInfo;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSData *detourInfoAsData;
 @property(readonly, nonatomic) double distanceToPlace;
 @property(readonly, nonatomic) double detourDistance;
 @property(readonly, nonatomic) double timeToPlace;
 @property(readonly, nonatomic) double detourTime;
-- (void)dealloc;
 - (id)initWithResultDetourInfo:(id)arg1;
 - (id)init;
 

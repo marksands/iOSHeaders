@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 __attribute__((visibility("hidden")))
 @interface VKGGLDebugTileData : NSObject
@@ -12,6 +12,8 @@ __attribute__((visibility("hidden")))
     struct unique_ptr<ggl::Debug::BaseMesh, std::__1::default_delete<ggl::Debug::BaseMesh>> _namedLineMesh;
     struct unique_ptr<ggl::Debug::BaseMesh, std::__1::default_delete<ggl::Debug::BaseMesh>> _unnamedLineMesh;
     struct unique_ptr<ggl::Debug::BaseMesh, std::__1::default_delete<ggl::Debug::BaseMesh>> _polygonLineMesh;
+    struct unique_ptr<ggl::Debug::BaseMesh, std::__1::default_delete<ggl::Debug::BaseMesh>> _venueOutlineMesh;
+    struct unique_ptr<ggl::Debug::BaseMesh, std::__1::default_delete<ggl::Debug::BaseMesh>> _venueBuildingOutlineMesh;
     struct unique_ptr<ggl::Debug::BaseMesh, std::__1::default_delete<ggl::Debug::BaseMesh>> _coastLineMesh;
     struct unique_ptr<ggl::DebugPoints::BaseMesh, std::__1::default_delete<ggl::DebugPoints::BaseMesh>> _poiPointsMesh;
     struct unique_ptr<ggl::DebugPoints::BaseMesh, std::__1::default_delete<ggl::DebugPoints::BaseMesh>> _verticesPointsMesh;
@@ -24,6 +26,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _unnamedLineVertCount;
     unsigned long long _polygonCount;
     unsigned long long _polygonVertCount;
+    unsigned long long _venueOutlinesCount;
     unsigned long long _poiCount;
     unsigned long long _vertexCount;
     unsigned long long _junctionCount;
@@ -38,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long junctionCount; // @synthesize junctionCount=_junctionCount;
 @property(readonly, nonatomic) unsigned long long vertexCount; // @synthesize vertexCount=_vertexCount;
 @property(readonly, nonatomic) unsigned long long poiCount; // @synthesize poiCount=_poiCount;
+@property(readonly, nonatomic) unsigned long long venueOutlinesCount; // @synthesize venueOutlinesCount=_venueOutlinesCount;
 @property(readonly, nonatomic) unsigned long long polygonVertCount; // @synthesize polygonVertCount=_polygonVertCount;
 @property(readonly, nonatomic) unsigned long long polygonCount; // @synthesize polygonCount=_polygonCount;
 @property(readonly, nonatomic) unsigned long long unnamedLineVertCount; // @synthesize unnamedLineVertCount=_unnamedLineVertCount;
@@ -53,6 +57,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct BaseMesh *verticesPointsMesh;
 @property(readonly, nonatomic) struct BaseMesh *poiPointsMesh;
 @property(readonly, nonatomic) struct BaseMesh *coastLineMesh;
+@property(readonly, nonatomic) struct BaseMesh *venueBuildingOutlineMesh;
+@property(readonly, nonatomic) struct BaseMesh *venueOutlineMesh;
 @property(readonly, nonatomic) struct BaseMesh *polygonLineMesh;
 @property(readonly, nonatomic) struct BaseMesh *unnamedLineMesh;
 @property(readonly, nonatomic) struct BaseMesh *namedLineMesh;

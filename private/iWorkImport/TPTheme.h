@@ -15,7 +15,7 @@ __attribute__((visibility("hidden")))
 + (void)initialize;
 - (void)saveToArchiver:(id)arg1;
 - (void)p_saveToArchive:(struct ThemeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)footnoteStyle;
 - (id)headerAndFooterStyle;
 - (id)bodyStyle;

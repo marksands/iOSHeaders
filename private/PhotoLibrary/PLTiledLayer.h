@@ -6,7 +6,11 @@
 
 #import <QuartzCore/CALayer.h>
 
-@interface PLTiledLayer : CALayer
+#import <PhotoLibrary/PLTileableLayer-Protocol.h>
+
+@class NSString;
+
+@interface PLTiledLayer : CALayer <PLTileableLayer>
 {
     struct CGSize _jpegImageSize;
 }
@@ -15,6 +19,12 @@
 - (void)flushCache;
 - (void)setVisibleRectangle:(struct CGRect)arg1 zoomScale:(double)arg2;
 - (id)initWithJPEGData:(id)arg1 placeholderImage:(struct CGImage *)arg2 screenSize:(struct CGSize)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

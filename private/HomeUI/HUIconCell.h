@@ -10,6 +10,7 @@
 #import <HomeUI/HUDisableableCellProtocol-Protocol.h>
 
 @class HFItem, HUIconView, NSArray, NSString, UIColor, UILabel, UIView;
+@protocol HUResizableCellDelegate;
 
 @interface HUIconCell : UITableViewCell <HUCellProtocol, HUDisableableCellProtocol>
 {
@@ -20,17 +21,18 @@
     UIColor *_iconForegroundColor;
     double _iconAlpha;
     unsigned long long _iconDisplayStyle;
+    NSArray *_staticConstraints;
     NSArray *_dynamicConstraints;
     UIView *_containerView;
-    UIView *_iconContainerView;
     HUIconView *_iconView;
     struct CGSize _iconSize;
 }
 
++ (_Bool)requiresConstraintBasedLayout;
 @property(retain, nonatomic) HUIconView *iconView; // @synthesize iconView=_iconView;
-@property(retain, nonatomic) UIView *iconContainerView; // @synthesize iconContainerView=_iconContainerView;
 @property(retain, nonatomic) UIView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) NSArray *dynamicConstraints; // @synthesize dynamicConstraints=_dynamicConstraints;
+@property(retain, nonatomic) NSArray *staticConstraints; // @synthesize staticConstraints=_staticConstraints;
 @property(nonatomic) unsigned long long iconDisplayStyle; // @synthesize iconDisplayStyle=_iconDisplayStyle;
 @property(nonatomic) struct CGSize iconSize; // @synthesize iconSize=_iconSize;
 @property(nonatomic) double iconAlpha; // @synthesize iconAlpha=_iconAlpha;
@@ -41,11 +43,13 @@
 @property(retain, nonatomic) HFItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
 - (void)_updateIcon;
-- (void)_createIconViews;
-- (id)_immutableVerticalConstraintsForContentSubview:(id)arg1;
+- (void)_createIconView;
+- (void)_invalidateDynamicConstraints;
+- (id)_verticalConstraintsForContentSubview:(id)arg1;
 - (void)updateUIWithAnimation:(_Bool)arg1;
 - (void)layoutSubviews;
 - (void)updateConstraints;
+@property(nonatomic) _Bool disableContinuousIconAnimation;
 - (void)prepareForReuse;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
@@ -54,6 +58,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) UILabel *detailTextLabel; // @dynamic detailTextLabel;
 @property(readonly) unsigned long long hash;
+@property(nonatomic) __weak id <HUResizableCellDelegate> resizingDelegate;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) UILabel *textLabel; // @dynamic textLabel;
 

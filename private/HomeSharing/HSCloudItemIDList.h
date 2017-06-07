@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long count;
 - (void)enumerateCloudItemIDsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)insertCloudItemID:(unsigned long long)arg1 idType:(long long)arg2 atIndex:(unsigned long long)arg3;
 - (void)addCloudItemID:(unsigned long long)arg1 idType:(long long)arg2;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;

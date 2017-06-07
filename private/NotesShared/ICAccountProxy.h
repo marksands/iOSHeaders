@@ -30,10 +30,11 @@
 - (id)visibleNotes;
 - (id)predicateForSearchableAttachments;
 - (id)predicateForSearchableNotes;
+- (id)predicateForPinnedNotes;
 - (id)predicateForVisibleNotes;
 - (_Bool)supportsVisibilityTestingType:(long long)arg1;
 - (id)accountName;
-- (id)noteContainerAccount;
+@property(readonly, nonatomic) ICAccount *noteContainerAccount;
 - (_Bool)isLeaf;
 - (long long)compare:(id)arg1;
 - (id)initWithAccount:(id)arg1;

@@ -21,8 +21,6 @@
 + (double)maximumHeightForContentDescriptor:(id)arg1 width:(double)arg2 traitCollection:(id)arg3;
 @property(readonly, nonatomic) MusicEntityHorizontalLockupView *lockupView; // @synthesize lockupView=_lockupView;
 - (void).cxx_destruct;
-- (void)horizontalLockupViewDidSelectContextualActionsButton:(id)arg1;
-- (void)horizontalLockupView:(id)arg1 didSelectPlayButtonAction:(unsigned long long)arg2;
 - (void)updateForAsynchronousPropertyLoadCompleted;
 @property(retain, nonatomic) id <MusicEntityValueProviding> entityValueProvider;
 - (void)setEntityDisabled:(_Bool)arg1;

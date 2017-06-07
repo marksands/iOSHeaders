@@ -6,10 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class FCAssetHandle, FCInterestToken, NSDate, NSString, NSURL, NTPBResourceRecord;
+@class FCAssetHandle, FCInterestToken, NSString, NSURL, NTPBResourceRecord;
 
 @interface FCResource : NSObject
 {
+    NSString *_resourceID;
     FCAssetHandle *_assetHandle;
     NTPBResourceRecord *_resourceRecord;
     FCInterestToken *_interestToken;
@@ -18,14 +19,13 @@
 @property(retain, nonatomic) FCInterestToken *interestToken; // @synthesize interestToken=_interestToken;
 @property(retain, nonatomic) NTPBResourceRecord *resourceRecord; // @synthesize resourceRecord=_resourceRecord;
 @property(readonly, nonatomic) FCAssetHandle *assetHandle; // @synthesize assetHandle=_assetHandle;
+@property(readonly, nonatomic) NSString *resourceID; // @synthesize resourceID=_resourceID;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSString *changeTag;
-@property(readonly, nonatomic) NSDate *fetchedDate;
 @property(readonly, nonatomic, getter=isOnDisk) _Bool onDisk;
 @property(readonly, nonatomic) NSURL *fileURL;
-@property(readonly, nonatomic) NSString *mimeType;
-@property(readonly, nonatomic) NSString *resourceID;
+- (id)initWithPermanentURLForResourceID:(id)arg1 contentContext:(id)arg2;
 - (id)initWithRecord:(id)arg1 interestToken:(id)arg2 assetManager:(id)arg3;
+- (id)initWithResourceID:(id)arg1 assetHandle:(id)arg2;
 
 @end
 

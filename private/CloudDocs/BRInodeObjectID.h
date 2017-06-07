@@ -17,6 +17,7 @@
 - (_Bool)isFolderOrAliasID;
 - (id)folderID;
 - (unsigned long long)rawID;
+- (id)asString;
 - (id)description;
 - (id)initWithFileID:(unsigned long long)arg1;
 

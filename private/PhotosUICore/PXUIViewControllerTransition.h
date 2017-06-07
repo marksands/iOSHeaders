@@ -9,7 +9,7 @@
 #import <PhotosUICore/UIViewControllerAnimatedTransitioning-Protocol.h>
 #import <PhotosUICore/UIViewControllerInteractiveTransitioning-Protocol.h>
 
-@class NSString, UIViewController;
+@class NSString, PXRegionOfInterest, UIViewController;
 
 @interface PXUIViewControllerTransition : NSObject <UIViewControllerAnimatedTransitioning, UIViewControllerInteractiveTransitioning>
 {
@@ -18,10 +18,14 @@
     CDUnknownBlockType _transitionAnimationCompletionHandler;
     _Bool _supportsEdgeSwipeBackGesture;
     _Bool _interactive;
+    _Bool _transitioningToDetail;
     id __pauseToken;
+    PXRegionOfInterest *_masterRegionOfInterest;
 }
 
 + (_Bool)isTransitionSupportedWithMasterViewController:(id)arg1 detailViewController:(id)arg2;
+@property(nonatomic, getter=isTransitioningToDetail) _Bool transitioningToDetail; // @synthesize transitioningToDetail=_transitioningToDetail;
+@property(retain, nonatomic) PXRegionOfInterest *masterRegionOfInterest; // @synthesize masterRegionOfInterest=_masterRegionOfInterest;
 @property(readonly, nonatomic, getter=isInteractive) _Bool interactive; // @synthesize interactive=_interactive;
 @property(readonly, nonatomic) _Bool supportsEdgeSwipeBackGesture; // @synthesize supportsEdgeSwipeBackGesture=_supportsEdgeSwipeBackGesture;
 @property(retain, nonatomic, setter=_setPauseToken:) id _pauseToken; // @synthesize _pauseToken=__pauseToken;

@@ -79,7 +79,7 @@
 - (id)_attributesOfInterestForObject:(id)arg1;
 - (id)_orderedRelationshipsOfInterestForObject:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)processContextDidSaveNotification:(id)arg1;
+- (void)processContextDidSaveObjectIDsNotification:(id)arg1;
 - (void)processContextDidChangeNotification:(id)arg1;
 - (void)removeObserver:(id)arg1 name:(id)arg2 object:(id)arg3;
 - (void)removeObserver:(id)arg1;

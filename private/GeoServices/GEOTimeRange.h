@@ -8,21 +8,23 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOTimeRange : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned int _from;
     unsigned int _to;
-    _Bool _allDay;
     struct {
         unsigned int from:1;
         unsigned int to:1;
-        unsigned int allDay:1;
     } _has;
 }
 
-@property(nonatomic) _Bool allDay; // @synthesize allDay=_allDay;
 @property(nonatomic) unsigned int to; // @synthesize to=_to;
 @property(nonatomic) unsigned int from; // @synthesize from=_from;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +34,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(nonatomic) _Bool hasAllDay;
 @property(nonatomic) _Bool hasTo;
 @property(nonatomic) _Bool hasFrom;
 - (id)initWithPlaceDataTimeRange:(struct GEOPDLocalTimeRange *)arg1;

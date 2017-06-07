@@ -4,26 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOTransitRoutingIncidentMessage-Protocol.h>
+#import <GeoServices/NSSecureCoding-Protocol.h>
 
 @class GEOPBTransitRoutingIncidentMessage, NSArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface _GEOTransitRoutingIncidentMessage : NSObject <GEOTransitRoutingIncidentMessage>
+@interface _GEOTransitRoutingIncidentMessage : NSObject <GEOTransitRoutingIncidentMessage, NSSecureCoding>
 {
     GEOPBTransitRoutingIncidentMessage *_routingIncidentMessage;
     NSArray *_transitIncidents;
 }
 
++ (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSArray *transitIncidents;
 @property(readonly, nonatomic) NSString *routingMessage;
 - (id)_fakeTransitLineIncidentInLine:(id)arg1;
 - (void)_populateTransitIncidentsWithDecoderData:(id)arg1;
-- (void)dealloc;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 - (id)initFakeLineIncidentMessageInLine:(id)arg1;
 - (id)initWithIncidentMessage:(id)arg1 decoderData:(id)arg2;
 - (id)initWithIncidentMessageIndex:(unsigned long long)arg1 decoderData:(id)arg2;

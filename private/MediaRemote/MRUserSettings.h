@@ -11,32 +11,38 @@
 @interface MRUserSettings : NSObject
 {
     NSUserDefaults *_userDefaults;
-    _Bool _televisionPairingAllowed;
+    _Bool _externalDevicePairingAllowed;
 }
 
 + (id)currentSettings;
-@property(nonatomic, getter=isTelevisionPairingAllowed) _Bool televisionPairingAllowed; // @synthesize televisionPairingAllowed=_televisionPairingAllowed;
+@property(nonatomic, getter=isExternalDevicePairingAllowed) _Bool externalDevicePairingAllowed; // @synthesize externalDevicePairingAllowed=_externalDevicePairingAllowed;
+- (void)_removeValueForKey:(id)arg1;
 - (long long)_integerValueForKey:(id)arg1 usingDefaultValue:(long long)arg2;
 - (double)_doubleValueForKey:(id)arg1 usingDefaultValue:(double)arg2;
 - (_Bool)_boolValueForKey:(id)arg1 usingDefaultValue:(_Bool)arg2;
+@property(readonly, nonatomic) _Bool useSystemAudioContextForAirPlayTransport;
+@property(readonly, nonatomic) double sleepOnStartUpDuration;
 @property(readonly, nonatomic) double transactionWaitDurationOnNetworkSend;
 @property(readonly, nonatomic) double transactionWaitDurationOnXpcSend;
 @property(readonly, nonatomic) double transactionWaitDurationOnOutOfMemory;
 @property(readonly, nonatomic) long long maxTransactionMemorySize;
-@property(readonly, nonatomic) _Bool useTelevisionSystemPairing;
+@property(readonly, nonatomic) _Bool useExternalDeviceSystemPairing;
+@property(readonly, nonatomic) double airPlayOutputContextInitTimeoutDuration;
 @property(readonly, nonatomic) double broadcastCommandWaitDuration;
 @property(readonly, nonatomic) double bluetoothDeviceResumeDuration;
-@property(readonly, nonatomic) double televisionSleepAssertionOnClientConnectDuration;
-@property(readonly, nonatomic) double televisionDisconnectSleepDuration;
-@property(readonly, nonatomic) double televisionDisconnectWaitDuration;
-@property(readonly, nonatomic) double televisionNowPlayingInfoArtworkCoalesceDuration;
-@property(readonly, nonatomic) double televisionNowPlayingInfoCoalesceDuration;
-@property(readonly, nonatomic) double televisionTimeoutDuration;
-@property(readonly, nonatomic) long long televisionSocketQOSLevel;
-@property(readonly, nonatomic) _Bool hasTelevisionSocketQOSLevelSet;
+@property(readonly, nonatomic) double externalDeviceSleepAssertionOnClientConnectDuration;
+@property(readonly, nonatomic) double externalDeviceDisconnectSleepDuration;
+@property(readonly, nonatomic) double externalDeviceDisconnectWaitDuration;
+@property(readonly, nonatomic) double externalDeviceNowPlayingInfoArtworkCoalesceDuration;
+@property(readonly, nonatomic) double externalDeviceNowPlayingInfoCoalesceDuration;
+@property(readonly, nonatomic) double externalDeviceTimeoutDuration;
+@property(readonly, nonatomic) long long externalDeviceSocketQOSLevel;
+@property(readonly, nonatomic) _Bool hasExternalDeviceSocketQOSLevelSet;
+@property(readonly, nonatomic) _Bool shouldInitializeTelevisionBonjourService;
+@property(readonly, nonatomic) _Bool deviceSupportsExternalRemoteControl;
 @property(readonly, nonatomic) _Bool useDebugAVRouteWithoutVolumeControl;
-@property(readonly, nonatomic) _Bool useNoDelayOptionForTelevisionSockets;
-@property(readonly, nonatomic) _Bool usePeerToPeerTelevisionConnections;
+@property(readonly, nonatomic) _Bool useNoDelayOptionForExternalDeviceSockets;
+@property(readonly, nonatomic) _Bool usePeerToPeerExternalDeviceConnections;
 - (void)dealloc;
 - (id)init;
 

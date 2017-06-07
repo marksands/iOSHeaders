@@ -7,11 +7,12 @@
 #import <PhotosUICore/NSObject-Protocol.h>
 
 @class NSObject, NSString, PXPhotosDetailsContext, PXSectionedSelectionManager, PXTilingController, PXWidgetSpec;
-@protocol PXAnonymousView, PXWidgetContentViewTransitionCoordinator, PXWidgetDelegate;
+@protocol PXAnonymousView, PXWidgetContentViewTransitionCoordinator, PXWidgetDelegate, PXWidgetUnlockDelegate;
 
 @protocol PXWidget <NSObject>
 
 @optional
++ (void)preloadResources;
 @property(readonly, nonatomic) PXSectionedSelectionManager *selectionManager;
 @property(nonatomic, getter=isFaceModeEnabled) _Bool faceModeEnabled;
 @property(readonly, nonatomic) _Bool supportsFaceMode;
@@ -31,10 +32,14 @@
 @property(readonly, nonatomic) _Bool hasContentForCurrentInput;
 @property(retain, nonatomic) PXWidgetSpec *spec;
 @property(retain, nonatomic) PXPhotosDetailsContext *context;
+@property(nonatomic) __weak id <PXWidgetUnlockDelegate> widgetUnlockDelegate;
 @property(nonatomic) __weak id <PXWidgetDelegate> widgetDelegate;
+- (void)deviceDidBecomeUnlocked;
 - (void)userDidSelectDisclosureControl;
 - (void)userDidSelectSubtitle;
 - (void)contentViewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id <PXWidgetContentViewTransitionCoordinator>)arg2;
+- (void)contentViewDidDisappear;
+- (void)contentViewWillAppear;
 - (void)unloadContentData;
 - (void)loadContentData;
 - (void)setContentSize:(struct CGSize)arg1;

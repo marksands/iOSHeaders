@@ -18,7 +18,7 @@
 
 @property(nonatomic) __weak id <SFAirDropClassroomTransferDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (_Bool)shouldAutomaticallyDispatchIncomingInvocations;
+- (_Bool)shouldEscapeXpcTryCatch;
 - (id)remoteObjectInterface;
 - (id)exportedInterface;
 - (id)machServiceName;

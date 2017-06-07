@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 - (double)spiceMaxDepthRatio;
 - (double)sageMaxDepthRatio;
 - (double)maxDepthRatio;
-- (id)initialSceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_339a9a6e)arg2;
+- (id)initialSceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
 - (Class)stageClass;
 - (unsigned long long)gridOffsetToSeriesForScatterFormat:(int)arg1;
 - (unsigned long long)maxCellsToCheckForGridValueType;

@@ -8,13 +8,15 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class GEORouteTrafficDetail, GEOShortTrafficSummary, NSMutableArray;
 
 @interface GEOETAResultByType : PBCodable <NSCopying>
 {
     double _expectedTimeOfDeparture;
     unsigned int _distance;
     unsigned int _historicTravelTime;
+    GEORouteTrafficDetail *_routeTrafficDetail;
+    GEOShortTrafficSummary *_shortTrafficSummary;
     unsigned int _staticTravelTime;
     int _status;
     NSMutableArray *_summaryForPredictedDestinations;
@@ -36,6 +38,8 @@
 }
 
 + (Class)summaryForPredictedDestinationType;
+@property(retain, nonatomic) GEOShortTrafficSummary *shortTrafficSummary; // @synthesize shortTrafficSummary=_shortTrafficSummary;
+@property(retain, nonatomic) GEORouteTrafficDetail *routeTrafficDetail; // @synthesize routeTrafficDetail=_routeTrafficDetail;
 @property(retain, nonatomic) NSMutableArray *summaryForPredictedDestinations; // @synthesize summaryForPredictedDestinations=_summaryForPredictedDestinations;
 @property(nonatomic) unsigned int staticTravelTime; // @synthesize staticTravelTime=_staticTravelTime;
 @property(nonatomic) unsigned int travelTimeAggressiveEstimate; // @synthesize travelTimeAggressiveEstimate=_travelTimeAggressiveEstimate;
@@ -44,6 +48,7 @@
 @property(nonatomic) unsigned int distance; // @synthesize distance=_distance;
 @property(nonatomic) unsigned int historicTravelTime; // @synthesize historicTravelTime=_historicTravelTime;
 @property(nonatomic) unsigned int travelTimeBestEstimate; // @synthesize travelTimeBestEstimate=_travelTimeBestEstimate;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -53,6 +58,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasShortTrafficSummary;
+@property(readonly, nonatomic) _Bool hasRouteTrafficDetail;
 - (id)summaryForPredictedDestinationAtIndex:(unsigned long long)arg1;
 - (unsigned long long)summaryForPredictedDestinationsCount;
 - (void)addSummaryForPredictedDestination:(id)arg1;
@@ -72,7 +79,6 @@
 - (id)transportTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasTransportType;
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
-- (void)dealloc;
 
 @end
 

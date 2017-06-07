@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 
 + (unsigned long long)zipArchiveOptions;
 + (id)zipArchiveURLFromPackageURL:(id)arg1;
++ (_Bool)isValidOrEmptyPackageAtURL:(id)arg1 hasNativeUTI:(_Bool)arg2;
 + (_Bool)isValidPackageAtURL:(id)arg1;
 + (_Bool)isValidPackageAtZipArchive:(id)arg1;
 - (void).cxx_destruct;
@@ -23,7 +24,8 @@ __attribute__((visibility("hidden")))
 - (id)newDocumentPropertiesWithURL:(id)arg1 zipProvider:(CDUnknownBlockType)arg2 error:(id *)arg3;
 - (_Bool)hasDataAtRelativePath:(id)arg1;
 - (id)newRawDataReadChannelAtRelativePath:(id)arg1;
-- (id)newDataStorageAtRelativePath:(id)arg1 decryptionInfo:(id)arg2;
+- (id)packageEntryInfoAtRelativePath:(id)arg1 error:(id *)arg2;
+- (id)newDataStorageAtRelativePath:(id)arg1 decryptionInfo:(id)arg2 packageURL:(id)arg3 lastModificationDate:(out id *)arg4;
 - (id)componentZipArchive;
 - (_Bool)didReloadZipArchive:(id)arg1 error:(id *)arg2;
 - (long long)packageType;

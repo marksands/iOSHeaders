@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
@@ -16,22 +16,27 @@
     NSArray *_certificates;
     NSURL *_brokerURL;
     NSURL *_paymentServicesURL;
+    NSURL *_inAppPaymentServicesURL;
     NSURL *_paymentServicesMerchantURL;
     NSURL *_trustedServiceManagerURL;
     NSString *_trustedServiceManagerPushTopic;
     long long _consistencyCheckBackoffLevel;
+    NSURL *_peerPaymentServiceURL;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSURL *peerPaymentServiceURL; // @synthesize peerPaymentServiceURL=_peerPaymentServiceURL;
 @property(nonatomic) long long consistencyCheckBackoffLevel; // @synthesize consistencyCheckBackoffLevel=_consistencyCheckBackoffLevel;
 @property(retain, nonatomic) NSString *trustedServiceManagerPushTopic; // @synthesize trustedServiceManagerPushTopic=_trustedServiceManagerPushTopic;
 @property(retain, nonatomic) NSURL *trustedServiceManagerURL; // @synthesize trustedServiceManagerURL=_trustedServiceManagerURL;
 @property(retain, nonatomic) NSURL *paymentServicesMerchantURL; // @synthesize paymentServicesMerchantURL=_paymentServicesMerchantURL;
+@property(retain, nonatomic) NSURL *inAppPaymentServicesURL; // @synthesize inAppPaymentServicesURL=_inAppPaymentServicesURL;
 @property(retain, nonatomic) NSURL *paymentServicesURL; // @synthesize paymentServicesURL=_paymentServicesURL;
 @property(retain, nonatomic) NSURL *brokerURL; // @synthesize brokerURL=_brokerURL;
 @property(retain, nonatomic) NSArray *certificates; // @synthesize certificates=_certificates;
 @property(retain, nonatomic) NSString *lastUpdatedTag; // @synthesize lastUpdatedTag=_lastUpdatedTag;
 - (void).cxx_destruct;
+- (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 

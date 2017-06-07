@@ -25,6 +25,7 @@
 @property(nonatomic) float zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(retain, nonatomic) GEOLatLng *coordinate; // @synthesize coordinate=_coordinate;
 @property(retain, nonatomic) NSData *image; // @synthesize image=_image;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -38,7 +39,6 @@
 @property(nonatomic) _Bool hasZoomLevel;
 @property(readonly, nonatomic) _Bool hasCoordinate;
 @property(readonly, nonatomic) _Bool hasImage;
-- (void)dealloc;
 - (void)_setMapMode:(int)arg1 region:(id)arg2;
 
 @end

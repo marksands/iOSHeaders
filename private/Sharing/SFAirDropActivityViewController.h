@@ -12,32 +12,43 @@
 #import <Sharing/SFWirelessSettingsControllerDelegate-Protocol.h>
 #import <Sharing/UICollectionViewDataSource-Protocol.h>
 
-@class NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject, NSOperationQueue, NSString, SFAirDropActiveIconView, SFAirDropBrowser, SFAirDropIconView, SFCollectionViewLayout, SFPersonCollectionViewCell, SFWirelessSettingsController, UIButton, UICollectionView, UIFocusContainerGuide, UILabel, UIVisualEffectView;
+@class NSArray, NSCache, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject, NSOperationQueue, NSString, SFAirDropActiveIconView, SFAirDropBrowser, SFAirDropIconView, SFCollectionViewLayout, SFPersonCollectionViewCell, SFWirelessSettingsController, UIButton, UICollectionView, UIFocusContainerGuide, UILabel, UITextView, UIVisualEffectView;
 @protocol SFAirDropActivityViewControllerDelegate;
 
 @interface SFAirDropActivityViewController : UIViewController <UICollectionViewDataSource, SFCollectionViewDelegateLayout, SFAirDropBrowserDelegate, SFPersonCollectionViewCellDelegate, SFWirelessSettingsControllerDelegate>
 {
+    NSString *_sendingAppBundleID;
     long long _attachmentCount;
     NSString *_sessionID;
     long long _sharedItemsRequestID;
     UILabel *_titleLabel;
     UIButton *_reportBugButton;
+    NSLayoutConstraint *_titleLabelTopConstraint;
+    double _titleLabelTopConstraintDefaultConstant;
     SFAirDropIconView *_airDropIconView;
     NSLayoutConstraint *_airDropIconLeftConstraint;
-    UILabel *_noWifiLabel;
+    UITextView *_noWifiTextView;
     NSLayoutConstraint *_noWifiRightConstraint;
     SFAirDropActiveIconView *_airDropActiveIconView;
     NSLayoutConstraint *_airDropActiveIconLeftConstraint;
-    UILabel *_instructionsLabel;
+    UITextView *_instructionsTextView;
     NSLayoutConstraint *_instructionsRightConstraint;
     SFAirDropActiveIconView *_airDropInactiveIconView;
     NSLayoutConstraint *_airDropInactiveIconLeftConstraint;
-    UILabel *_noAWDLLabel;
+    UITextView *_noAWDLTextView;
     NSLayoutConstraint *_noAWDLRightConstraint;
+    NSLayoutConstraint *_largeTextAirdropViewYConstraint;
+    NSArray *_textViewConstraints;
+    NSArray *_largeTextTextViewConstraints;
+    NSArray *_airdropViewYConstraints;
+    NSArray *_largeTextAirdropViewYConstraints;
     UICollectionView *_collectionView;
+    UIButton *_showMoreButton;
+    _Bool _shouldExpandTextIfNeeded;
     SFCollectionViewLayout *_collectionViewLayout;
     SFPersonCollectionViewCell *_prototypeActivityCell;
-    NSMutableDictionary *_cachedPreferredItemSizesByString;
+    NSCache *_cachedPreferredItemSizesByString;
+    struct CGSize _cachedPreferredItemSize;
     SFAirDropBrowser *_browser;
     id _progressToken;
     NSMutableDictionary *_personToProgress;
@@ -57,6 +68,7 @@
     UIButton *_doneButton;
     UIFocusContainerGuide *_fcg;
     struct __SFOperation *_logger;
+    struct CGSize _minimumPreferredContentSize;
     _Bool _sharedItemsAvailable;
     _Bool _otherActivityViewPresented;
     _Bool _darkStyleOnLegacyApp;
@@ -65,10 +77,9 @@
     NSString *_overriddenNoWiFIBTText;
     NSString *_overriddenNoAWDLText;
     NSString *_overriddenInstructionsText;
+    CDStruct_4c969caf _sendingApplicationAuditToken;
 }
 
-+ (id)classesForItem:(id)arg1;
-+ (_Bool)airDropActivityCanPerformActivityWithItems:(id)arg1;
 + (_Bool)airDropActivityCanPerformActivityWithItemClasses:(id)arg1;
 + (_Bool)isAirDropAvailable;
 @property(copy, nonatomic) NSString *overriddenInstructionsText; // @synthesize overriddenInstructionsText=_overriddenInstructionsText;
@@ -79,13 +90,18 @@
 @property(nonatomic) _Bool otherActivityViewPresented; // @synthesize otherActivityViewPresented=_otherActivityViewPresented;
 @property(nonatomic) _Bool sharedItemsAvailable; // @synthesize sharedItemsAvailable=_sharedItemsAvailable;
 @property(nonatomic) __weak NSObject<SFAirDropActivityViewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) CDStruct_4c969caf sendingApplicationAuditToken; // @synthesize sendingApplicationAuditToken=_sendingApplicationAuditToken;
 - (void).cxx_destruct;
 - (void)cleanupWithSelectedActivityType:(id)arg1;
+- (void)handleOperationCallback:(struct __SFOperation *)arg1 event:(long long)arg2 withResults:(id)arg3;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
 - (void)doneButtonAction:(id)arg1;
 - (void)generateSpecialPreviewPhotoForRequestID:(long long)arg1;
-- (id)_tempPhotoIrisBundleFromLivePhoto:(id)arg1;
 - (_Bool)addItemProvider:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
+- (_Bool)addItemProvider:(id)arg1 withDataType:(id)arg2 attachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5;
+- (void)handleOtherItemProvider:(id)arg1 withDataType:(id)arg2 attachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5;
+- (void)handleImageItemProvider:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
+- (void)handleLivePhotoItemProvider:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
 - (_Bool)addAttributedString:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
 - (_Bool)addString:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
 - (_Bool)createURLPayloadForData:(id)arg1 ofType:(id)arg2 withAttachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5 completion:(CDUnknownBlockType)arg6;
@@ -100,6 +116,7 @@
 - (void)browser:(id)arg1 didDeletePersonAtIndex:(unsigned long long)arg2;
 - (void)browser:(id)arg1 didInsertPersonAtIndex:(unsigned long long)arg2;
 - (void)browserWillChangePeople:(id)arg1;
+- (void)showMore:(id)arg1;
 - (void)wirelessSettingsDidChange:(id)arg1;
 - (void)personCollectionViewCellDidFinishTransfer:(id)arg1;
 - (void)personCollectionViewCellDidStartTransfer:(id)arg1;
@@ -109,6 +126,7 @@
 - (void)unsubscribeToProgresses;
 - (void)subscribeToProgresses;
 - (struct CGSize)_cachedPreferredItemSizeForString:(id)arg1;
+- (struct CGSize)_cachedPreferredItemSize;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 preferredSizeForItemAtIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didDeselectItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
@@ -117,18 +135,26 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 @property(readonly, nonatomic) struct CGSize suggestedThumbnailSize;
+- (struct CGSize)calculatePreferredContentSize;
+- (id)_fontWithStyle:(id)arg1 maxSizeCategory:(id)arg2 traits:(unsigned int)arg3;
+- (void)_updateFontSizes;
+- (void)updatePreferredContentSize;
 - (void)updateContentAreaAnimated:(_Bool)arg1;
+- (void)updateShowMoreButtonForShowPeople:(_Bool)arg1 inactive:(_Bool)arg2 active:(_Bool)arg3 static:(_Bool)arg4;
 - (id)preferredFocusEnvironments;
 - (void)enableAirDropRequiredFeatures;
 - (_Bool)isBluetoothEnabled;
 - (_Bool)isWifiEnabled;
 - (_Bool)isTetheredModeEnabled;
+- (void)traitCollectionDidChange:(id)arg1;
 - (id)attributedStringWithTitle:(id)arg1 content:(id)arg2;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
 - (void)touchesMoved:(id)arg1 withEvent:(id)arg2;
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (void)_createtvOSLayoutConstraints;
 - (void)_createiOSLayoutConstraints;
+- (void)_updateExclusionPathsForTextViews;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (id)titleText;
 - (id)instructionsText;
@@ -141,6 +167,7 @@
 - (void)didEnterBackground:(id)arg1;
 - (void)stopBrowsing;
 - (void)startBrowsing;
+- (void)invalidate;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

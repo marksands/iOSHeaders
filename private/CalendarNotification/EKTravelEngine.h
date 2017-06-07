@@ -66,6 +66,7 @@
 - (void)_automaticGeocodingAllowedChanged;
 - (void)_calDatabaseChangedNotificationReceived;
 - (void)locationManager:(id)arg1 didChangeAuthorizationStatus:(int)arg2;
+- (void)notifyHypothesizerNotificationDismissedForEventWithExternalURL:(id)arg1 notificationType:(unsigned long long)arg2 dismissalReason:(unsigned long long)arg3;
 - (void)sendFeedbackForPostingLeaveNowNotificationForEventWithExternalURL:(id)arg1;
 - (void)sendFeedbackForPostingLeaveByNotificationForEventWithExternalURL:(id)arg1;
 @property(readonly, nonatomic) _Bool authorized;

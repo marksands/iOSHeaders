@@ -19,5 +19,9 @@
 - (UIViewController<_UIDocumentListControllerPreviewViewController> *)documentListController:(_UIDocumentListController *)arg1 viewControllerForPreviewingItemAtURL:(NSURL *)arg2;
 - (void)documentListControllerURLWasRemoved:(_UIDocumentListController *)arg1;
 - (void)documentListControllerItemsChanged:(_UIDocumentListController *)arg1;
+- (_Bool)documentListController:(_UIDocumentListController *)arg1 shouldSelectItemAtURL:(NSURL *)arg2;
+- (void)documentListController:(_UIDocumentListController *)arg1 didUnhighlightItemAtURL:(NSURL *)arg2;
+- (void)documentListController:(_UIDocumentListController *)arg1 didHighlightItemAtURL:(NSURL *)arg2;
+- (_Bool)documentListController:(_UIDocumentListController *)arg1 shouldHighlightItemAtURL:(NSURL *)arg2;
 @end
 

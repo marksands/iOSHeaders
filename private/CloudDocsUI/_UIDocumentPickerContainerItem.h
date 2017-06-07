@@ -23,7 +23,6 @@
     long long _type;
     NSMapTable *_thumbnailsBySize;
     _UIDocumentPickerContainerModel *_parentModel;
-    NSString *_pickabilityReason;
 }
 
 + (void)clearLRUThumbnailCache;
@@ -34,7 +33,6 @@
 + (id)_blockingIconForDocumentProxy:(id)arg1 withSize:(struct CGSize)arg2;
 + (id)_blockingIconForURL:(id)arg1 withSize:(struct CGSize)arg2;
 + (id)_blockingThumbnailForItem:(id)arg1 documentProxy:(id)arg2 withSize:(struct CGSize)arg3 scale:(double)arg4 wantsBorder:(_Bool *)arg5 generatedThumbnail:(_Bool *)arg6;
-@property(copy, nonatomic) NSString *pickabilityReason; // @synthesize pickabilityReason=_pickabilityReason;
 @property(nonatomic) __weak _UIDocumentPickerContainerModel *parentModel; // @synthesize parentModel=_parentModel;
 @property(retain, nonatomic) NSMapTable *thumbnailsBySize; // @synthesize thumbnailsBySize=_thumbnailsBySize;
 @property(nonatomic) _Bool pickable; // @synthesize pickable=_pickable;
@@ -51,9 +49,7 @@
 - (void)incrementModelDisplayCount;
 - (_Bool)isAlias;
 @property(readonly, copy) NSString *description;
-- (id)sortTag;
-- (id)modificationDate;
-@property(readonly, nonatomic) NSDate *sortDate;
+@property(readonly, nonatomic) NSDate *modificationDate;
 - (id)_blipWithTags:(id)arg1 height:(double)arg2 scale:(double)arg3;
 - (id)tagBlipsWithHeight:(double)arg1 scale:(double)arg2;
 - (id)tags;

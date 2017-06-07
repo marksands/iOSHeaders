@@ -18,6 +18,7 @@
 + (id)optionWithPaletteColor:(unsigned long long)arg1;
 - (id)_valueToFaceBundleStringDict;
 @property(readonly, nonatomic) unsigned long long paletteColor;
+- (long long)swatchStyle;
 
 @end
 

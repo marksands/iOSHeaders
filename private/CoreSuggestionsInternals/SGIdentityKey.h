@@ -21,6 +21,7 @@
 + (id)keyForContactUniqueId:(id)arg1;
 + (id)keyForContactExternalId:(int)arg1;
 + (id)keyForPersonHandle:(id)arg1;
++ (id)keyForSocialProfile:(id)arg1;
 + (id)keyForInstantMessageAddress:(id)arg1;
 + (id)keyForNormalizedPhone:(id)arg1;
 + (id)keyForNormalizedEmail:(id)arg1;
@@ -32,6 +33,8 @@
 - (id)phone;
 - (_Bool)hasPhone;
 - (id)uniqueIdentifier;
+- (id)socialProfile;
+- (_Bool)hasSocialProfile;
 - (id)instantMessageAddress;
 - (_Bool)hasInstantMessageAddress;
 - (id)emailAddress;

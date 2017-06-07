@@ -27,6 +27,7 @@
 @property(copy, nonatomic) NSString *serverIdentifier; // @synthesize serverIdentifier=_serverIdentifier;
 @property(retain, nonatomic) AXIPCClient *client; // @synthesize client=_client;
 @property(retain, nonatomic) AXIPCServer *server; // @synthesize server=_server;
+- (void).cxx_destruct;
 - (id)_serviceName;
 - (void)_connectServerIfNecessary;
 - (_Bool)_connectIfNecessary;

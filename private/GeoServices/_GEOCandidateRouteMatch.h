@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 __attribute__((visibility("hidden")))
 @interface _GEOCandidateRouteMatch : NSObject
@@ -39,7 +39,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool isGoodMatch; // @synthesize isGoodMatch=_isGoodMatch;
 - (id).cxx_construct;
 - (id)description;
-- (void)dealloc;
 - (id)initWithRoute:(id)arg1;
 
 @end

@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)needsUpgradeFromSchemaVersion:(int)arg1;
 - (id)objectFromStatement:(struct sqlite3_stmt *)arg1;
 - (id)queryFirstObjectWithStatement:(struct sqlite3_stmt *)arg1 error:(id *)arg2;
+- (id)queryObjectsWithMessageTypes:(const int *)arg1 messageTypesCount:(int)arg2 error:(id *)arg3;
 - (id)queryObjectWithIdentifier:(long long)arg1 error:(id *)arg2;
 - (struct sqlite3_blob *)openBlobForObject:(id)arg1 error:(id *)arg2;
 - (struct sqlite3_blob *)openDataStateBlobWithIdentifier:(long long)arg1 error:(id *)arg2;

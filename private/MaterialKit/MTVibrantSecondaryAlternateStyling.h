@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <MaterialKit/MTVibrantLightStyling.h>
+#import <MaterialKit/MTCompoundVibrantStyling.h>
 
-@interface MTVibrantSecondaryAlternateStyling : MTVibrantLightStyling
+@interface MTVibrantSecondaryAlternateStyling : MTCompoundVibrantStyling
 {
 }
 
@@ -15,6 +15,7 @@
 - (id)_burnColor;
 - (double)alpha;
 - (id)color;
+- (id)blendMode;
 - (long long)style;
 
 @end

@@ -21,8 +21,10 @@
 - (void)_sourcesForObjectsOfType:(id)arg1 filter:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)samplesAdded:(id)arg1 anchor:(id)arg2;
 - (void)_queue_start;
+- (id)requiredEntitlements;
 - (_Bool)_shouldListenForUpdates;
-- (id)initWithQueryUUID:(id)arg1 dataObject:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
+- (id)sourceClientProxy;
+- (id)initWithQueryUUID:(id)arg1 configuration:(id)arg2 clientProxy:(id)arg3 client:(id)arg4 delegate:(id)arg5 profile:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

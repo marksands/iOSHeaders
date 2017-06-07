@@ -75,6 +75,7 @@
 @property(retain, nonatomic) CIFilter *vibranceFilter; // @synthesize vibranceFilter=_vibranceFilter;
 @property(retain, nonatomic) CIFilter *colorFilter; // @synthesize colorFilter=_colorFilter;
 @property(retain, nonatomic) CIFilter *curvesFilter; // @synthesize curvesFilter=_curvesFilter;
+- (void).cxx_destruct;
 - (id)adjustedImageFromImage:(id)arg1;
 - (void)releaseChain;
 - (void)buildChain;
@@ -82,7 +83,6 @@
 - (_Bool)hasColor;
 - (_Bool)hasAdjustments;
 - (void)reset;
-- (void)dealloc;
 - (void)updateAdjustmentsDictionary:(id)arg1 andAnalysisDictionary:(id)arg2;
 - (id)init;
 - (id)initWithAdjustmentsDictionary:(id)arg1 andAnalysisDictionary:(id)arg2;

@@ -14,7 +14,6 @@
 {
 }
 
-+ (id)searchIndexableObjectWithIdentifier:(id)arg1 includeDeleted:(_Bool)arg2 inNoteContext:(id)arg3;
 + (_Bool)didChooseToMigrateNote:(id)arg1 context:(struct NoteContext *)arg2;
 - (_Bool)belongsToCollection:(id)arg1;
 @property(nonatomic) unsigned long long sequenceNumber;
@@ -34,7 +33,7 @@
 @property(retain, nonatomic) NSString *content;
 @property(retain, nonatomic) NSString *title; // @dynamic title;
 - (id)defaultTitleForEmptyNote;
-- (void)releaseMemoryForIndexing;
+- (id)dataForTypeIdentifier:(id)arg1;
 - (id)searchableItemAttributeSet;
 - (id)searchDomainIdentifier;
 - (id)searchableItemIdentifier;
@@ -42,19 +41,19 @@
 - (id)contentInfoText;
 - (id)noteAsPlainTextWithoutTitle;
 - (id)searchableContentKeyPaths;
-- (_Bool)shouldUpdateIndexForChangedValues:(id)arg1;
-- (id)searchIndexStringsOutHasAdditionalStrings:(_Bool *)arg1;
 - (_Bool)ignoreInSearchIndexer;
 - (id)authorsExcludingCurrentUser;
 - (_Bool)isHiddenFromSearch;
 - (_Bool)searchResultCanBeDeletedFromNoteContext;
+- (unsigned long long)searchResultType;
 - (unsigned long long)searchResultsSection;
-- (id)searchIndexableTitleUsingContentTextIfNecessary:(id)arg1;
-- (id)objectIdentifier;
 - (long long)visibilityTestingType;
 - (id)identifier;
+- (id)accountName;
+- (id)folderName;
 - (id)trimmedTitle;
 - (_Bool)isSharedViaICloud;
+@property(readonly, nonatomic) _Bool isModernNote;
 - (_Bool)isPasswordProtected;
 
 // Remaining properties

@@ -9,7 +9,10 @@
 @interface UIImage (PKUIUtilities)
 + (id)imageWithPKImage:(id)arg1;
 - (struct CGSize)alignmentSize;
+- (id)pkui_imageWithAlpha:(double)arg1;
 - (id)pkui_imageOverlaidWithColor:(id)arg1;
+- (id)pkui_resizableImageByTilingVertically;
+- (id)pkui_resizableImageByTilingHorizontally;
 - (id)pkui_resizableImageByTilingCenterPixel;
 @end
 

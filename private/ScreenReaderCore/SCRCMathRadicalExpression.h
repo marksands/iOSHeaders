@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) SCRCMathExpression *rootIndex; // @synthesize rootIndex=_rootIndex;
 @property(retain, nonatomic) SCRCMathExpression *radicand; // @synthesize radicand=_radicand;
+- (void).cxx_destruct;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
 - (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
@@ -25,7 +26,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)_isSquareRoot;
 - (id)subExpressions;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 
 @end

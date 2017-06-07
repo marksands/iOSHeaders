@@ -6,14 +6,15 @@
 
 #import <iWorkImport/TSDLayout.h>
 
+#import <iWorkImport/TSDWrapInvalidationParent-Protocol.h>
 #import <iWorkImport/TSWPLayoutOwner-Protocol.h>
 #import <iWorkImport/TSWPLayoutTarget-Protocol.h>
 
-@class NSMutableArray, NSString, TSDCanvas, TSPObject, TSUBezierPath, TSWPLayoutManager, TSWPStorage;
-@protocol TSDHint, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPLayoutParent, TSWPOffscreenColumn;
+@class NSMutableArray, NSObject, NSString, TSDCanvas, TSPObject, TSUBezierPath, TSWPLayoutManager, TSWPStorage;
+@protocol TSDHint, TSWPFootnoteHeightMeasurer, TSWPFootnoteMarkProvider, TSWPLayoutParent, TSWPOffscreenColumn, TSWPTopicNumberHints;
 
 __attribute__((visibility("hidden")))
-@interface TSWPLayout : TSDLayout <TSWPLayoutTarget, TSWPLayoutOwner>
+@interface TSWPLayout : TSDLayout <TSDWrapInvalidationParent, TSWPLayoutTarget, TSWPLayoutOwner>
 {
     TSWPLayoutManager *_layoutManager;
     NSMutableArray *_columns;
@@ -27,22 +28,23 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool optimizeSegmentationOfEmptyLines; // @synthesize optimizeSegmentationOfEmptyLines=_optimizeSegmentationOfEmptyLines;
 @property(readonly, retain, nonatomic) NSMutableArray *columns; // @synthesize columns=_columns;
 @property(readonly, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
-@property(readonly, nonatomic) _Bool shouldWrapAroundExternalDrawables;
 - (id)textColorOverride;
 @property(readonly, nonatomic) TSUBezierPath *interiorClippingPath;
 - (id)styleProvider;
-- (struct CGRect)p_rectInRootForSelectionPath:(id)arg1 useParagraphModeRects:(_Bool)arg2;
+- (struct CGRect)p_rectInRootForSelectionPath:(id)arg1 useParagraphModeRects:(_Bool)arg2 forZoom:(_Bool)arg3;
 - (struct CGRect)p_rectForSelectionPath:(id)arg1 useParagraphModeRects:(_Bool)arg2;
 - (_Bool)selectionMustBeEntirelyOnscreenToCountAsVisibleInSelectionPath:(id)arg1;
 - (double)viewScaleForZoomingToSelectionPath:(id)arg1 targetPointSize:(double)arg2;
 - (struct CGRect)rectInRootForPresentingAnnotationPopoverForSelectionPath:(id)arg1;
 - (struct CGRect)rectInRootOfAutoZoomContextOfSelectionPath:(id)arg1;
+- (struct CGRect)rectInRootForZoomingToSelectionPath:(id)arg1;
 - (struct CGRect)rectInRootForSelectionPath:(id)arg1;
 - (id)textWrapper;
 - (void)didLayoutWithLayoutManager:(id)arg1;
 - (void)didLayoutChangingDirtyRanges;
 - (void)layoutManager:(id)arg1 didClearDirtyRangeWithDelta:(long long)arg2 afterCharIndex:(unsigned long long)arg3;
 - (void)layoutManagerNeedsLayout:(id)arg1;
+@property(readonly, nonatomic) _Bool shouldWrapAroundExternalDrawables;
 @property(readonly, nonatomic) _Bool layoutIsValid;
 - (_Bool)isLayoutOffscreen;
 @property(readonly, nonatomic) struct CGRect maskRect;
@@ -74,11 +76,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <TSWPFootnoteHeightMeasurer> footnoteHeightMeasurer;
 @property(readonly, nonatomic) TSPObject<TSDHint> *nextTargetFirstChildHint;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> nextTargetFirstColumn;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *nextTargetTopicNumbers;
-@property(readonly, nonatomic) const struct TSWPTopicNumberHints *previousTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *nextTargetTopicNumbers;
+@property(readonly, nonatomic) NSObject<TSWPTopicNumberHints> *previousTargetTopicNumbers;
 @property(readonly, retain, nonatomic) id <TSWPOffscreenColumn> previousTargetLastColumn;
 - (id)columnMetricsForCharIndex:(unsigned long long)arg1 outRange:(struct _NSRange *)arg2;
 - (struct CGRect)p_protectedRectWithinLayoutForSelectionRect:(struct CGRect)arg1;
+- (void)endResizeWrapInvalidationCluster;
+- (void)beginResizeWrapInvalidationCluster;
 - (void)wrappableChildInvalidated:(id)arg1;
 - (void)parentDidChange;
 - (void)p_clearOutLayoutManager;
@@ -100,15 +104,20 @@ __attribute__((visibility("hidden")))
 - (id)computeLayoutGeometry;
 - (struct CGPoint)capturedInfoPositionForAttachment;
 - (void)validate;
-- (void)p_validateTextLayout;
+- (void)i_validateTextLayout;
+- (_Bool)p_hasEmptyParagraphFillOrBorders;
+- (_Bool)p_hasEmptyList;
+- (_Bool)p_hasVisibleContents;
 - (void)validateTextLayoutForcibly;
 - (id)reliedOnLayouts;
 - (id)dependentLayouts;
 - (_Bool)p_parentAutosizes;
 - (void)invalidateInlineSize;
 - (void)invalidateSize;
+@property(readonly, nonatomic) struct _NSRange containedTextRange;
 @property(readonly, nonatomic) _Bool isInstructional;
 - (_Bool)caresAboutStorageChanges;
+- (void)i_setTextLayoutValid:(_Bool)arg1;
 @property(readonly, nonatomic) _Bool textLayoutValid;
 @property(readonly, nonatomic) TSWPLayoutManager *layoutManager;
 - (void)dealloc;
@@ -124,6 +133,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) struct __CFLocale *hyphenationLocale;
 @property(readonly, nonatomic) TSDLayout *parentLayoutForInlineAttachments;
+@property(readonly, nonatomic) _Bool repShouldPreventCaret;
 @property(readonly, nonatomic) _Bool shouldHyphenate;
 @property(readonly) Class superclass;
 

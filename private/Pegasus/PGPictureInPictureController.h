@@ -23,6 +23,7 @@
     struct {
         unsigned int pictureInPictureController_didCreatePictureInPictureViewController:1;
         unsigned int pictureInPictureController_willDestroyPictureInPictureViewController:1;
+        unsigned int pictureInPictureController_willHidePictureInPictureViewController:1;
     } _delegateRespondsTo;
     _Bool _pictureInPictureActive;
     NSSet *_pictureInPictureApplications;

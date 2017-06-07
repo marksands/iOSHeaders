@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOPDFactoid : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_text;
     NSString *_title;
 }
@@ -20,6 +21,8 @@
 + (_Bool)factoidPairAvailableForPlaceData:(id)arg1;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,7 +34,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasText;
 @property(readonly, nonatomic) _Bool hasTitle;
-- (void)dealloc;
 
 @end
 

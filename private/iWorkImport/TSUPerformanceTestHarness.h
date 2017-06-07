@@ -35,7 +35,6 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (id)init;
 - (void)p_writeCsvResultsToDirectory:(id)arg1;
-- (void)p_writeConsoleMessagesToDirectory:(id)arg1;
 - (void)p_writeSystemConfigurationToDirectory:(id)arg1;
 - (id)p_createResultDirectory;
 

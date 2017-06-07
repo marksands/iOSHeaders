@@ -7,25 +7,29 @@
 #import <Home/HFItemProvider.h>
 
 @class HFItem, NSSet;
-@protocol HFControlItemVendor;
+@protocol HFCharacteristicValueSource, NSCopying;
 
 @interface HFControlPanelItemProvider : HFItemProvider
 {
-    HFItem<HFControlItemVendor> *_item;
+    HFItem<NSCopying> *_item;
+    id <HFCharacteristicValueSource> _valueSource;
     CDUnknownBlockType _filter;
     NSSet *_controlPanelItems;
 }
 
++ (_Bool)prefersNonBlockingReloads;
 @property(copy, nonatomic) NSSet *controlPanelItems; // @synthesize controlPanelItems=_controlPanelItems;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
-@property(retain, nonatomic) HFItem<HFControlItemVendor> *item; // @synthesize item=_item;
+@property(readonly, nonatomic) id <HFCharacteristicValueSource> valueSource; // @synthesize valueSource=_valueSource;
+@property(readonly, copy, nonatomic) HFItem<NSCopying> *item; // @synthesize item=_item;
 - (void).cxx_destruct;
 - (CDUnknownBlockType)controlPanelItemComparator;
 - (id)items;
 - (id)invalidationReasons;
 - (id)reloadItems;
-- (id)initWithHome:(id)arg1;
-- (id)initWithHome:(id)arg1 item:(id)arg2;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
+- (id)initWithItem:(id)arg1 valueSource:(id)arg2;
 
 @end
 

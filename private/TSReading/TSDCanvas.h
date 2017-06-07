@@ -22,6 +22,7 @@
     struct CGSize mUnscaledSize;
     double mViewScale;
     double mContentsScale;
+    _Bool mWideGamut;
     struct {
         unsigned int layout:1;
         unsigned int reps:1;
@@ -52,9 +53,9 @@
 - (void)p_layoutWithReadLock;
 - (struct CGRect)p_bounds;
 - (struct CGImage *)i_newImageInContext:(struct CGContext *)arg1 bounds:(struct CGRect)arg2 integralBounds:(struct CGRect)arg3 distortedToMatch:(_Bool)arg4;
-- (struct CGContext *)i_createContextToDrawImageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 returningBounds:(struct CGRect *)arg3 integralBounds:(struct CGRect *)arg4 forceSRGB:(_Bool)arg5;
-- (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 distortedToMatch:(_Bool)arg3 forceSRGB:(_Bool)arg4;
-- (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1 forceSRGB:(_Bool)arg2;
+- (struct CGContext *)i_createContextToDrawImageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 returningBounds:(struct CGRect *)arg3 integralBounds:(struct CGRect *)arg4;
+- (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 distortedToMatch:(_Bool)arg3;
+- (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1;
 - (struct CGImage *)i_image;
 - (void)i_clipsImagesToBounds:(_Bool)arg1;
 - (void)i_drawRepsInContext:(struct CGContext *)arg1;
@@ -77,7 +78,9 @@
 - (struct CGPoint)convertUnscaledToBoundsPoint:(struct CGPoint)arg1;
 - (struct CGRect)convertBoundsToUnscaledRect:(struct CGRect)arg1;
 - (struct CGRect)convertUnscaledToBoundsRect:(struct CGRect)arg1;
-- (double)contentsScale;
+@property(readonly, nonatomic) _Bool canvasIsWideGamut;
+- (void)i_setCanvasIsWideGamut:(_Bool)arg1;
+@property(readonly, nonatomic) double contentsScale;
 - (void)i_setContentsScale:(double)arg1;
 - (_Bool)isDrawingIntoPDF;
 - (_Bool)shouldSuppressBackgrounds;

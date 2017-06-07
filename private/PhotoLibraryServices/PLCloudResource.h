@@ -17,7 +17,7 @@
 + (_Bool)countOfLocalCloudResourcesOfType:(unsigned long long)arg1 inManagedObjectContext:(id)arg2 localCount:(unsigned long long *)arg3 unavailableCount:(unsigned long long *)arg4 error:(id *)arg5;
 + (_Bool)countNonLocalFullSizeResourcesInLibrary:(id)arg1 outCount:(unsigned long long *)arg2 photoCount:(unsigned long long *)arg3 videoCount:(unsigned long long *)arg4;
 + (_Bool)countNonLocalOriginalResourcesInLibrary:(id)arg1 outCount:(unsigned long long *)arg2 photoCount:(unsigned long long *)arg3 videoCount:(unsigned long long *)arg4;
-+ (long long)bytesNeededToDownloadOriginalResourcesInLibrary:(id)arg1;
++ (unsigned long long)bytesNeededToDownloadOriginalResourcesInLibrary:(id)arg1;
 + (void)resetPrefetchStateForResourcesWithResourceType:(long long)arg1 itemIdentifiers:(id)arg2 inLibrary:(id)arg3;
 + (void)resetCloudResourcesStateForCloudInManagedObjectContext:(id)arg1 hardReset:(_Bool)arg2;
 + (id)nonLocalResourcesInManagedObjectContext:(id)arg1 forAssetUUIDs:(id)arg2 cplResourceTypes:(id)arg3;
@@ -34,12 +34,13 @@
 // Remaining properties
 @property(retain, nonatomic) PLManagedAsset *asset; // @dynamic asset;
 @property(retain, nonatomic) NSString *assetUuid; // @dynamic assetUuid;
+@property(nonatomic) short cloudLocalState; // @dynamic cloudLocalState;
 @property(retain, nonatomic) PLCloudMaster *cloudMaster; // @dynamic cloudMaster;
 @property(retain, nonatomic) NSDate *dateCreated; // @dynamic dateCreated;
 @property(retain, nonatomic) NSString *filePath; // @dynamic filePath;
-@property(nonatomic) long long fileSize; // @dynamic fileSize;
+@property(nonatomic) unsigned long long fileSize; // @dynamic fileSize;
 @property(retain, nonatomic) NSString *fingerprint; // @dynamic fingerprint;
-@property(nonatomic) int height; // @dynamic height;
+@property(nonatomic) long long height; // @dynamic height;
 @property(nonatomic) _Bool isAvailable; // @dynamic isAvailable;
 @property(retain, nonatomic) NSString *itemIdentifier; // @dynamic itemIdentifier;
 @property(retain, nonatomic) NSDate *lastOnDemandDownloadDate; // @dynamic lastOnDemandDownloadDate;
@@ -48,7 +49,7 @@
 @property(retain, nonatomic) NSDate *prunedAt; // @dynamic prunedAt;
 @property(nonatomic) int type; // @dynamic type;
 @property(retain, nonatomic) NSString *uniformTypeIdentifier; // @dynamic uniformTypeIdentifier;
-@property(nonatomic) int width; // @dynamic width;
+@property(nonatomic) long long width; // @dynamic width;
 
 @end
 

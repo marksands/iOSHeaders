@@ -15,14 +15,13 @@
     struct GEOSessionID _sessionId;
     NSString *_sourceAppBundleId;
     NSString *_uriScheme;
-    struct {
-        unsigned int sessionId:1;
-    } _has;
+    CDStruct_a90a2ceb _has;
 }
 
 @property(retain, nonatomic) NSString *uriScheme; // @synthesize uriScheme=_uriScheme;
 @property(retain, nonatomic) NSString *sourceAppBundleId; // @synthesize sourceAppBundleId=_sourceAppBundleId;
 @property(nonatomic) struct GEOSessionID sessionId; // @synthesize sessionId=_sessionId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +34,6 @@
 @property(readonly, nonatomic) _Bool hasUriScheme;
 @property(readonly, nonatomic) _Bool hasSourceAppBundleId;
 @property(nonatomic) _Bool hasSessionId;
-- (void)dealloc;
 
 @end
 

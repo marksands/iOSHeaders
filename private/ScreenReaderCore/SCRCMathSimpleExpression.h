@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 }
 
 @property(copy, nonatomic) NSString *content; // @synthesize content=_content;
+- (void).cxx_destruct;
 - (id)latexMathModeDescription;
 - (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
 - (id)speakableDescriptionWithSpeakingStyle:(int)arg1 arePausesAllowed:(_Bool)arg2;
@@ -25,7 +26,6 @@ __attribute__((visibility("hidden")))
 - (long long)integerValue;
 - (_Bool)isInteger;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 
 @end

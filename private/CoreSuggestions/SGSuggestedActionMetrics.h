@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class SGMContactConfirmed, SGMContactDetailConfirmed, SGMContactDetailRejected, SGMContactDetailUsed, SGMContactInBanner, SGMContactRejected, SGMEventBannerConfirmed, SGMEventBannerRejected, SGMEventInBanner, SGMMaybeInformationShown, SGMNLEventBannerConfirmed, SGMNLEventBannerRejected, SGMNLEventInBanner, SGMUnknownContactInformationShown;
+@class SGMContactConfirmed, SGMContactDetailConfirmed, SGMContactDetailRejected, SGMContactDetailUsed, SGMContactInBanner, SGMContactRejected, SGMEventBannerConfirmed, SGMEventBannerRejected, SGMEventInBanner, SGMMaybeInformationShown, SGMUnknownContactInformationShown;
 
 @interface SGSuggestedActionMetrics : NSObject
 {
@@ -19,9 +19,6 @@
     SGMEventInBanner *_eventInBanner;
     SGMEventBannerConfirmed *_eventBannerConfirmed;
     SGMEventBannerRejected *_eventBannerRejected;
-    SGMNLEventInBanner *_nlEventInBanner;
-    SGMNLEventBannerConfirmed *_nlEventBannerConfirmed;
-    SGMNLEventBannerRejected *_nlEventBannerRejected;
     SGMMaybeInformationShown *_maybeInformationShown;
     SGMUnknownContactInformationShown *_unknownContactInformationShown;
 }
@@ -34,13 +31,9 @@
 + (void)recordBannerConfirmedWithContact:(id)arg1 proposedCNContact:(id)arg2 confirmedCNContact:(id)arg3 inApp:(struct SGMBannerDisplayApp_)arg4;
 + (void)recordBannerShownWithContacts:(id)arg1 events:(id)arg2 inApp:(struct SGMBannerDisplayApp_)arg3;
 + (void)recordMaybeContactFrom:(unsigned long long)arg1;
-+ (void)recordMaybeContactRequested;
 + (id)instance;
 @property(retain, nonatomic) SGMUnknownContactInformationShown *unknownContactInformationShown; // @synthesize unknownContactInformationShown=_unknownContactInformationShown;
 @property(retain, nonatomic) SGMMaybeInformationShown *maybeInformationShown; // @synthesize maybeInformationShown=_maybeInformationShown;
-@property(retain, nonatomic) SGMNLEventBannerRejected *nlEventBannerRejected; // @synthesize nlEventBannerRejected=_nlEventBannerRejected;
-@property(retain, nonatomic) SGMNLEventBannerConfirmed *nlEventBannerConfirmed; // @synthesize nlEventBannerConfirmed=_nlEventBannerConfirmed;
-@property(retain, nonatomic) SGMNLEventInBanner *nlEventInBanner; // @synthesize nlEventInBanner=_nlEventInBanner;
 @property(retain, nonatomic) SGMEventBannerRejected *eventBannerRejected; // @synthesize eventBannerRejected=_eventBannerRejected;
 @property(retain, nonatomic) SGMEventBannerConfirmed *eventBannerConfirmed; // @synthesize eventBannerConfirmed=_eventBannerConfirmed;
 @property(retain, nonatomic) SGMEventInBanner *eventInBanner; // @synthesize eventInBanner=_eventInBanner;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/NSCopying-Protocol.h>
 
@@ -27,6 +27,7 @@
 @property(readonly, copy, nonatomic) NSString *dataContainerPath; // @synthesize dataContainerPath=_dataContainerPath;
 @property(readonly, copy, nonatomic) NSString *bundlePath; // @synthesize bundlePath=_bundlePath;
 @property(readonly, copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+- (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
@@ -37,7 +38,6 @@
 - (unsigned long long)hash;
 - (id)snapshotContainerPathForSnapshot:(id)arg1;
 - (id)snapshotContainerPathForGroupID:(id)arg1;
-- (void)dealloc;
 - (id)_initWithBundleIdentifier:(id)arg1 bundlePath:(id)arg2 dataContainerPath:(id)arg3 bundleContainerPath:(id)arg4;
 - (id)init;
 

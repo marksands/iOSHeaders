@@ -8,6 +8,7 @@
 
 @interface MPStoreAVItem (MPCReportingAdditions)
 - (_Bool)mpcReporting_shouldReportPlayEventsToStore;
-- (_Bool)mpcReporting_isValidReportingItem;
+- (id)mpcReporting_siriInitiated;
+- (id)mpcReporting_privateListeningEnabled;
 @end
 

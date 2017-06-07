@@ -12,6 +12,7 @@
 
 + (id)cancelSnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)cancelSnippet;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

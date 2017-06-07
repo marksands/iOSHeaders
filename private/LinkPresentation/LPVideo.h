@@ -9,7 +9,7 @@
 #import <LinkPresentation/AVAssetResourceLoaderDelegate-Protocol.h>
 #import <LinkPresentation/NSSecureCoding-Protocol.h>
 
-@class AVAsset, NSData, NSString, NSURL;
+@class AVAsset, AVURLAsset, LPVideoProperties, NSData, NSString, NSURL;
 @protocol OS_dispatch_queue;
 
 @interface LPVideo : NSObject <AVAssetResourceLoaderDelegate, NSSecureCoding>
@@ -17,8 +17,9 @@
     NSData *_data;
     NSObject<OS_dispatch_queue> *_mediaLoadingQueue;
     struct CGSize _intrinsicSize;
-    AVAsset *_asset;
-    _Bool _hasAudio;
+    AVURLAsset *_asset;
+    id _mediaServicesResetNotificationHandler;
+    LPVideoProperties *_properties;
     NSURL *_streamingURL;
     NSURL *_youTubeURL;
     NSString *_MIMEType;
@@ -26,23 +27,31 @@
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) _Bool hasAudio; // @synthesize hasAudio=_hasAudio;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(readonly, copy, nonatomic) NSString *MIMEType; // @synthesize MIMEType=_MIMEType;
 @property(readonly, retain, nonatomic) NSURL *youTubeURL; // @synthesize youTubeURL=_youTubeURL;
 @property(readonly, retain, nonatomic) NSURL *streamingURL; // @synthesize streamingURL=_streamingURL;
 - (void).cxx_destruct;
 - (_Bool)resourceLoader:(id)arg1 shouldWaitForLoadingOfRequestedResource:(id)arg2;
+- (void)_uninstallMediaServicesResetNotificationHandler;
+- (void)_installMediaServicesResetNotificationHandler;
 @property(readonly, nonatomic) AVAsset *_asset;
 @property(readonly, nonatomic) struct CGSize _intrinsicSize;
 - (_Bool)_shouldEncodeData;
 - (void)_mapDataFromFileURL;
+@property(readonly, copy, nonatomic) LPVideoProperties *properties;
+@property(readonly, nonatomic) _Bool hasAudio;
 @property(readonly, copy, nonatomic) NSData *data;
 @property(readonly, nonatomic) unsigned long long _encodedSize;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)dealloc;
+- (id)initWithYouTubeURL:(id)arg1 properties:(id)arg2;
 - (id)initWithYouTubeURL:(id)arg1;
+- (id)initWithStreamingURL:(id)arg1 properties:(id)arg2;
 - (id)initWithStreamingURL:(id)arg1 hasAudio:(_Bool)arg2;
+- (id)initWithData:(id)arg1 MIMEType:(id)arg2 properties:(id)arg3;
+- (id)initByReferencingFileURL:(id)arg1 MIMEType:(id)arg2 properties:(id)arg3;
 - (id)initByReferencingFileURL:(id)arg1 MIMEType:(id)arg2 hasAudio:(_Bool)arg3;
 - (id)initWithData:(id)arg1 MIMEType:(id)arg2 hasAudio:(_Bool)arg3;
 - (id)_initWithVideo:(id)arg1;

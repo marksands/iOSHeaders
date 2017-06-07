@@ -45,8 +45,6 @@
 - (void)startSyncingNowPlayingInfo;
 - (void)updateSupportedCommandsForCommandCenter:(id)arg1 muxer:(id)arg2 action:(SEL)arg3;
 - (void)restorePlaybackStateCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)preservePlaybackStateImmediately;
-- (void)schedulePlaybackStatePreservation;
 @property(readonly, copy, nonatomic) NSArray *playbackIntentObservers;
 @property(readonly, copy, nonatomic) NSArray *playbackErrorObservers;
 @property(readonly, copy, nonatomic) NSArray *nowPlayingInfoHandlers;

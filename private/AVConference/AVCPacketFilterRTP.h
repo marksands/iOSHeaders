@@ -16,7 +16,6 @@
 - (_Bool)isPayloadTypeMatched:(_Bool)arg1;
 - (_Bool)isRTCPPayload:(unsigned short)arg1;
 - (id)initWithIncomingSSRC:(unsigned int)arg1 acceptPacketType:(unsigned char)arg2;
-- (id)initWithIncomingSSRC:(unsigned int)arg1 accecptPacketType:(unsigned char)arg2;
 
 @end
 

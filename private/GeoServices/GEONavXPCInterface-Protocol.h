@@ -4,10 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSData;
+@class NSArray, NSData;
 
 @protocol GEONavXPCInterface
 - (void)updateNavigationRouteStatus:(NSData *)arg1;
 - (void)updateNavigationRouteDetails:(NSData *)arg1 routeStatus:(NSData *)arg2 routeContext:(NSData *)arg3;
+- (void)updatePreviewRoutes:(NSArray *)arg1 expectedNumberOfRoutes:(unsigned long long)arg2 routeContext:(NSData *)arg3;
+- (void)anticipatePreviewRoute:(NSData *)arg1 routeContext:(NSData *)arg2;
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOComposedRoute, GEOComposedRouteStep, GEOComposedTransitStationRouteStep, GEOComposedTransitTripRouteStep, GEONavigationMatchInfo, NSArray, NSDate;
 
@@ -22,7 +22,7 @@
     unsigned long long _consecutiveProgressionsOffRoute;
     double _distanceTraveledOffRoute;
     _Bool _isGoodMatch;
-    CDStruct_2244da21 *_road;
+    CDStruct_a2ef2718 *_road;
     double _roadWidth;
     GEORouteMatch *_projectedFrom;
     NSDate *_timestamp;
@@ -43,7 +43,7 @@
 @property(nonatomic) double modifiedHorizontalAccuracy; // @synthesize modifiedHorizontalAccuracy=_modifiedHorizontalAccuracy;
 @property(nonatomic) double distanceFromRoute; // @synthesize distanceFromRoute=_distanceFromRoute;
 @property(readonly, nonatomic) double roadWidth; // @synthesize roadWidth=_roadWidth;
-@property(nonatomic) CDStruct_2244da21 *road; // @synthesize road=_road;
+@property(nonatomic) CDStruct_a2ef2718 *road; // @synthesize road=_road;
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
 @property(readonly, nonatomic) double matchedCourse; // @synthesize matchedCourse=_matchedCourse;
 @property(retain, nonatomic) NSArray *candidateSteps; // @synthesize candidateSteps=_candidateSteps;
@@ -51,6 +51,7 @@
 @property(nonatomic) CDStruct_c3b9c2ee locationCoordinate; // @synthesize locationCoordinate=_locationCoordinate;
 @property(readonly, nonatomic) struct PolylineCoordinate routeCoordinate; // @synthesize routeCoordinate=_routeCoordinate;
 - (id).cxx_construct;
+- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) GEOComposedTransitStationRouteStep *transitStationStep;
 @property(readonly, nonatomic) GEOComposedTransitTripRouteStep *transitTripStep;
@@ -61,7 +62,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqualIgnoringScore:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
-- (void)updateWithMinRouteCoordinate:(struct PolylineCoordinate)arg1;
+- (void)setRouteCoordinate:(struct PolylineCoordinate)arg1;
 - (void)updateOffRouteProgress:(id)arg1 minDistanceToGetOnRoute:(double)arg2;
 - (void)dealloc;
 - (id)initWithRoute:(id)arg1 routeCoordinate:(struct PolylineCoordinate)arg2 locationCoordinate:(CDStruct_c3b9c2ee)arg3 stepIndex:(unsigned long long)arg4 matchedCourse:(double)arg5 timestamp:(id)arg6;

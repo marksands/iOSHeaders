@@ -6,7 +6,7 @@
 
 #import <PassKitUI/PKTableViewCell.h>
 
-@class NSMutableArray, NSString, PKPaymentAuthorizationLayout, UIImageView, UILabel, UIView;
+@class NSAttributedString, NSMutableArray, NSString, PKPaymentAuthorizationLayout, UIImage, UIImageView, UILabel, UIView;
 
 @interface PKPaymentAuthorizationItemCell : PKTableViewCell
 {
@@ -16,17 +16,25 @@
     UIView *_separatorView;
     UIImageView *_arrowView;
     UIImageView *_alertView;
+    UIImageView *_labelImageView;
     NSMutableArray *_constraints;
-    NSString *_label;
-    NSString *_value;
+    _Bool _showsDisclosure;
+    NSAttributedString *_label;
+    UIImage *_labelImage;
+    NSString *_accessibilityLabel;
+    NSAttributedString *_value;
 }
 
-@property(copy, nonatomic) NSString *value; // @synthesize value=_value;
-@property(copy, nonatomic) NSString *label; // @synthesize label=_label;
+@property(nonatomic) _Bool showsDisclosure; // @synthesize showsDisclosure=_showsDisclosure;
+@property(copy, nonatomic) NSAttributedString *value; // @synthesize value=_value;
+@property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
+@property(copy, nonatomic) UIImage *labelImage; // @synthesize labelImage=_labelImage;
+@property(copy, nonatomic) NSAttributedString *label; // @synthesize label=_label;
 - (void).cxx_destruct;
 - (void)updateConstraints;
 - (void)setValue:(id)arg1 isPlaceholder:(_Bool)arg2;
 - (id)addValue:(id)arg1 isPlaceholder:(_Bool)arg2;
+- (id)_applyBoldStylingToValueString:(id)arg1;
 - (id)_createValueView;
 - (void)_createSubviews;
 - (void)prepareForReuse;

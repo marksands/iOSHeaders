@@ -6,11 +6,12 @@
 
 #import <SAObjects/AceObject.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
 #import <SiriClientFlow/SAAceSerializable-Protocol.h>
 
 @class NSNumber, NSString;
 
-@interface CFDDDataDetectorResult : AceObject <SAAceSerializable>
+@interface CFDDDataDetectorResult : AceObject <SAAceSerializable, CFLocalAceHandling>
 {
 }
 

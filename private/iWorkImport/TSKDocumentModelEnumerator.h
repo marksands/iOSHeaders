@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithEnumerator:(id)arg1 filter:(CDUnknownBlockType)arg2;
 - (id)initWithRootModelObject:(id)arg1 filter:(CDUnknownBlockType)arg2;
 - (void)enumerateReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateModelAndReferencedStylesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateStyleClientsUsingBlock:(CDUnknownBlockType)arg1;
 
 @end

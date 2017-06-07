@@ -35,6 +35,7 @@
 - (id)URLAttributeForImageName:(id)arg1 getScale:(double *)arg2;
 - (void)configureView:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *name;
+- (id)pageElement;
 - (id)sourceURL;
 - (void)dealloc;
 - (id)mutableAttributes;

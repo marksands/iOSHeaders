@@ -7,7 +7,7 @@
 #import <CFNetwork/NSURLSessionTaskMetrics.h>
 
 @interface NSURLSessionTaskMetrics (GEOExtras)
-- (id)_geo_defaultTransactionMetrics;
 - (id)_geo_remoteAddressAndPort;
+- (id)_geo_clientMetrics;
 @end
 

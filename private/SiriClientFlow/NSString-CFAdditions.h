@@ -7,6 +7,8 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (CFAdditions)
+- (_Bool)containsString:(id)arg1 ignoringCase:(_Bool)arg2;
+- (_Bool)containsString:(id)arg1;
 - (long long)messageAttributeEnum;
 - (id)SHA256;
 @end

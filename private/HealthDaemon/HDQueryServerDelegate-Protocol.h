@@ -6,15 +6,13 @@
 
 #import <HealthDaemon/NSObject-Protocol.h>
 
-@class HDQueryServer, HKObjectType, NSArray, NSSet;
+@class HDQueryServer, HDReadAuthorizationStatus, HKObjectType, NSArray, NSSet;
 
 @protocol HDQueryServerDelegate <NSObject>
-- (_Bool)queryServerClientIsInBackground:(HDQueryServer *)arg1;
-- (_Bool)queryServerClientHasActiveWorkout:(HDQueryServer *)arg1;
-- (_Bool)queryServerShouldObserveInBackground:(HDQueryServer *)arg1;
+- (unsigned int)clientSDKVersionForQueryServer:(HDQueryServer *)arg1;
 - (void)queryServerDidFinish:(HDQueryServer *)arg1;
 - (void)queryServer:(HDQueryServer *)arg1 requestsAuthorizationForSamples:(NSArray *)arg2 completion:(void (^)(NSArray *, NSError *))arg3;
-- (_Bool)queryServer:(HDQueryServer *)arg1 isAuthorizedToReadType:(HKObjectType *)arg2 withRestrictedSourceIdentifier:(id *)arg3 authorizationAnchor:(id *)arg4;
+- (HDReadAuthorizationStatus *)readAuthorizationStatusForQueryServer:(HDQueryServer *)arg1 type:(HKObjectType *)arg2 error:(id *)arg3;
 - (_Bool)queryServer:(HDQueryServer *)arg1 isAuthorizationStatusDeterminedForTypes:(NSSet *)arg2 error:(id *)arg3;
 - (NSArray *)queryServer:(HDQueryServer *)arg1 filterSamplesForReadAuthorization:(NSArray *)arg2;
 @end

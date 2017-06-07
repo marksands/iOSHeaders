@@ -6,16 +6,16 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSMutableArray;
+@class NSHashTable;
 
 @interface PLBatterySaverWatcher : NSObject
 {
     int _notifyBatterySaverModeToken;
-    NSMutableArray *_delegates;
+    NSHashTable *_delegates;
 }
 
 + (id)sharedBatterySaverWatcher;
-- (_Bool)batterySaverModeEnabled;
+@property(readonly, nonatomic) _Bool batterySaverModeEnabled;
 - (void)unregisterToBatterySaverModeNotification;
 - (unsigned int)registerToBatterySaverModeNotification;
 - (void)removeDelegate:(id)arg1;

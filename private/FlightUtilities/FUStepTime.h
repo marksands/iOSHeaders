@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <FlightUtilities/NSCopying-Protocol.h>
 #import <FlightUtilities/NSSecureCoding-Protocol.h>
 
 @class NSDate;
 
-@interface FUStepTime : NSObject <NSSecureCoding>
+@interface FUStepTime : NSObject <NSSecureCoding, NSCopying>
 {
     unsigned long long _type;
     NSDate *_date;

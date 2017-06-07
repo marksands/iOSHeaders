@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 @protocol VKAnimationRunner;
@@ -19,6 +19,8 @@
     _Bool _runsForever;
 }
 
+@property(readonly, nonatomic) long long state; // @synthesize state=_state;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) _Bool runsForever; // @synthesize runsForever=_runsForever;
 @property(readonly, nonatomic) long long priority; // @synthesize priority=_priority;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;

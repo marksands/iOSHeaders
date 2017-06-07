@@ -36,6 +36,7 @@
 - (void)drawImageInContext:(struct CGContext *)arg1 rect:(struct CGRect)arg2;
 - (_Bool)isError;
 - (_Bool)isValid;
+@property(readonly, nonatomic) unsigned long long imageGamut;
 - (struct CGSize)dpiAdjustedNaturalSize;
 - (struct CGSize)naturalSize;
 - (id)imageData;

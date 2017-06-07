@@ -4,35 +4,43 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/IDSBatchIDQueryControllerDelegate-Protocol.h>
 
-@class IDSBatchIDQueryController, NSMutableDictionary, NSString;
+@class NSMutableDictionary, NSMutableSet, NSString;
+@protocol OS_dispatch_queue, TUIDSBatchIDQueryController, TUIDSIDQueryController;
 
 @interface TUIDSLookupManager : NSObject <IDSBatchIDQueryControllerDelegate>
 {
+    NSObject<OS_dispatch_queue> *_queue;
+    id <TUIDSIDQueryController> _queryController;
+    NSMutableSet *_destinations;
     NSMutableDictionary *_idsFaceTimeVideoStatuses;
     NSMutableDictionary *_idsFaceTimeAudioStatuses;
-    IDSBatchIDQueryController *_batchQuerySearchVideoController;
-    IDSBatchIDQueryController *_batchQuerySearchAudioController;
+    id <TUIDSBatchIDQueryController> _batchQuerySearchVideoController;
+    id <TUIDSBatchIDQueryController> _batchQuerySearchAudioController;
+    CDUnknownBlockType _batchQueryControllerCreationBlock;
 }
 
++ (_Bool)isAnyDestinationAvailableForItem:(id)arg1 usingCache:(id)arg2;
 + (id)sharedManager;
-@property(retain, nonatomic) IDSBatchIDQueryController *batchQuerySearchAudioController; // @synthesize batchQuerySearchAudioController=_batchQuerySearchAudioController;
-@property(retain, nonatomic) IDSBatchIDQueryController *batchQuerySearchVideoController; // @synthesize batchQuerySearchVideoController=_batchQuerySearchVideoController;
-@property(retain, nonatomic) NSMutableDictionary *idsFaceTimeAudioStatuses; // @synthesize idsFaceTimeAudioStatuses=_idsFaceTimeAudioStatuses;
-@property(retain, nonatomic) NSMutableDictionary *idsFaceTimeVideoStatuses; // @synthesize idsFaceTimeVideoStatuses=_idsFaceTimeVideoStatuses;
+@property(copy, nonatomic) CDUnknownBlockType batchQueryControllerCreationBlock; // @synthesize batchQueryControllerCreationBlock=_batchQueryControllerCreationBlock;
+@property(retain, nonatomic) id <TUIDSBatchIDQueryController> batchQuerySearchAudioController; // @synthesize batchQuerySearchAudioController=_batchQuerySearchAudioController;
+@property(retain, nonatomic) id <TUIDSBatchIDQueryController> batchQuerySearchVideoController; // @synthesize batchQuerySearchVideoController=_batchQuerySearchVideoController;
+@property(readonly, nonatomic) NSMutableDictionary *idsFaceTimeAudioStatuses; // @synthesize idsFaceTimeAudioStatuses=_idsFaceTimeAudioStatuses;
+@property(readonly, nonatomic) NSMutableDictionary *idsFaceTimeVideoStatuses; // @synthesize idsFaceTimeVideoStatuses=_idsFaceTimeVideoStatuses;
+@property(readonly, nonatomic) NSMutableSet *destinations; // @synthesize destinations=_destinations;
+@property(readonly, nonatomic) id <TUIDSIDQueryController> queryController; // @synthesize queryController=_queryController;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 - (void).cxx_destruct;
 - (void)idStatusUpdatedForDestinations:(id)arg1 service:(id)arg2;
-- (void)_populateWithCachedDataForItems:(id)arg1;
-- (_Bool)allCurrentItemsAreKnown:(id)arg1;
 - (void)beginQueryWithItems:(id)arg1;
 - (void)cancelQueries;
-- (_Bool)_checkAvailabilityForItem:(id)arg1 withCache:(id)arg2;
-- (_Bool)audioAvailableForItem:(id)arg1;
-- (_Bool)videoAvailableForItem:(id)arg1;
+- (_Bool)isFaceTimeAudioAvailableForItem:(id)arg1;
+- (_Bool)isFaceTimeVideoAvailableForItem:(id)arg1;
 - (void)dealloc;
+- (id)initWithQueryController:(id)arg1;
 - (id)init;
 
 // Remaining properties

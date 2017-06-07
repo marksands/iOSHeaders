@@ -6,11 +6,12 @@
 
 #import <Home/HFItemProvider.h>
 
-@class NSArray, NSMutableSet;
+@class HMHome, NSArray, NSMutableSet;
 @protocol HFCharacteristicValueSource;
 
 @interface HFServiceItemProvider : HFItemProvider
 {
+    HMHome *_home;
     CDUnknownBlockType _filter;
     NSMutableSet *_serviceItems;
     NSArray *_serviceTypes;
@@ -22,11 +23,13 @@
 @property(retain, nonatomic) NSArray *serviceTypes; // @synthesize serviceTypes=_serviceTypes;
 @property(retain, nonatomic) NSMutableSet *serviceItems; // @synthesize serviceItems=_serviceItems;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 @property(retain, nonatomic) id <HFCharacteristicValueSource> valueSource;
 - (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1 serviceTypes:(id)arg2;
 - (id)initWithHome:(id)arg1;
 

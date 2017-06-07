@@ -6,7 +6,9 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <CameraUI/CAMCVCStillImageResultCoordinatorDelegate-Protocol.h>
 #import <CameraUI/CAMCaptureResultDelegate-Protocol.h>
+#import <CameraUI/CAMIrisVideoControllerDelegate-Protocol.h>
 #import <CameraUI/CAMPersistenceResultDelegate-Protocol.h>
 #import <CameraUI/CAMViewfinderReviewButtonSource-Protocol.h>
 #import <CameraUI/NSCoding-Protocol.h>
@@ -15,7 +17,7 @@
 @class CAMBurstController, CAMIrisVideoController, CAMKeepAliveController, CAMLocationController, CAMMotionController, CAMNebulaDaemonProxyManager, CAMPersistenceController, CAMPowerController, CAMProtectionController, CAMRemoteShutterController, CAMReviewButton, CAMThumbnailGenerator, CAMTimelapseController, CAMViewfinderViewController, CUCaptureController, NSMutableDictionary, NSObject, NSString;
 @protocol CAMCameraCaptureDelegate, CAMCameraConfigurationDelegate, CAMCameraViewControllerPresentationDelegate, OS_dispatch_queue;
 
-@interface CAMCameraViewController : UIViewController <CAMCaptureResultDelegate, CAMPersistenceResultDelegate, CAMViewfinderReviewButtonSource, NSCoding, NSSecureCoding>
+@interface CAMCameraViewController : UIViewController <CAMCaptureResultDelegate, CAMPersistenceResultDelegate, CAMCVCStillImageResultCoordinatorDelegate, CAMIrisVideoControllerDelegate, CAMViewfinderReviewButtonSource, NSCoding, NSSecureCoding>
 {
     _Bool _automaticallyManagesCameraSession;
     id <CAMCameraConfigurationDelegate> _configurationDelegate;
@@ -34,9 +36,8 @@
     CAMIrisVideoController *_irisVideoController;
     CAMReviewButton *__reviewButton;
     NSObject<OS_dispatch_queue> *__resultProcessingQueue;
-    NSMutableDictionary *__resultQueuePendingLivePhotoProperties;
+    NSMutableDictionary *__resultQueueStillImageResultCoordinators;
     CAMThumbnailGenerator *__resultQueueThumbnailGenerator;
-    NSMutableDictionary *__resultQueuePendingPortraitPhotoProperties;
     CAMViewfinderViewController *_viewfinderViewController;
     id <CAMCameraViewControllerPresentationDelegate> _presentationDelegate;
 }
@@ -46,9 +47,8 @@
 @property(nonatomic) __weak id <CAMCameraViewControllerPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate=_presentationDelegate;
 @property(nonatomic) _Bool automaticallyManagesCameraSession; // @synthesize automaticallyManagesCameraSession=_automaticallyManagesCameraSession;
 @property(readonly, nonatomic) CAMViewfinderViewController *viewfinderViewController; // @synthesize viewfinderViewController=_viewfinderViewController;
-@property(readonly, nonatomic) NSMutableDictionary *_resultQueuePendingPortraitPhotoProperties; // @synthesize _resultQueuePendingPortraitPhotoProperties=__resultQueuePendingPortraitPhotoProperties;
 @property(readonly, nonatomic) CAMThumbnailGenerator *_resultQueueThumbnailGenerator; // @synthesize _resultQueueThumbnailGenerator=__resultQueueThumbnailGenerator;
-@property(readonly, nonatomic) NSMutableDictionary *_resultQueuePendingLivePhotoProperties; // @synthesize _resultQueuePendingLivePhotoProperties=__resultQueuePendingLivePhotoProperties;
+@property(readonly, nonatomic) NSMutableDictionary *_resultQueueStillImageResultCoordinators; // @synthesize _resultQueueStillImageResultCoordinators=__resultQueueStillImageResultCoordinators;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_resultProcessingQueue; // @synthesize _resultProcessingQueue=__resultProcessingQueue;
 @property(readonly, nonatomic) CAMReviewButton *_reviewButton; // @synthesize _reviewButton=__reviewButton;
 @property(readonly, nonatomic) CAMIrisVideoController *irisVideoController; // @synthesize irisVideoController=_irisVideoController;
@@ -68,21 +68,25 @@
 - (void).cxx_destruct;
 - (id)reviewButton;
 - (void)handleReviewButtonReleased:(id)arg1;
+- (void)stillImagePersistenceCoordinator:(id)arg1 requestsDispatchForResultSpecifiers:(unsigned long long)arg2 photoProperties:(id)arg3 videoProperties:(id)arg4 unfilteredPhotoProperties:(id)arg5 unfilteredVideoProperties:(id)arg6 assetAdjustments:(id)arg7 error:(id)arg8;
+- (void)_resultQueue_removeStillImageResultCoordinatorForRequest:(id)arg1;
+- (id)_resultQueue_getStillImageResultCoordinatorForRequest:(id)arg1;
+- (id)_resultQueue_getOrCreateStillImageResultCoordinatorForRequest:(id)arg1 allExpectedResultSpecifiers:(id)arg2 isExpectingPairedVideo:(_Bool)arg3 isDisablingMultipleCaptures:(_Bool)arg4;
+- (void)irisVideoController:(id)arg1 didPersistVideoCaptureResult:(id)arg2 forCaptureResult:(id)arg3 request:(id)arg4;
+- (double)irisVideoController:(id)arg1 willPersistVideoCaptureResult:(id)arg2 forRequest:(id)arg3;
+- (void)_resultQueue_forceCompletionIfPossibleForRequest:(id)arg1;
 - (void)persistenceController:(id)arg1 didCompleteAllLocalPersistenceForRequest:(id)arg2;
+- (void)_handleVideoLocalPersistenceResult:(id)arg1 forCaptureResult:(id)arg2 fromRequest:(id)arg3;
+- (void)_handleLivePhotoVideoLocalPersistenceResult:(id)arg1 forCaptureResult:(id)arg2 fromRequest:(id)arg3;
 - (void)persistenceController:(id)arg1 didGenerateVideoLocalPersistenceResult:(id)arg2 forCaptureResult:(id)arg3 fromRequest:(id)arg4;
 - (void)persistenceController:(id)arg1 didGenerateStillImageLocalPersistenceResult:(id)arg2 forCaptureResult:(id)arg3 fromRequest:(id)arg4;
 - (id)_behaviorDefinedDestinationURLForRequest:(id)arg1 withLocalDestinationURL:(id)arg2 linkedDestinationURL:(id)arg3;
 - (void)captureController:(id)arg1 didGenerateStillImageCaptureResult:(id)arg2 fromRequest:(id)arg3;
-- (id)_clientPropertiesForVideoURL:(id)arg1 duration:(CDStruct_1b6d18a9)arg2 size:(struct CGSize)arg3 creationDate:(id)arg4 captureOrientation:(long long)arg5 previewSurface:(void *)arg6 previewOrientation:(long long)arg7 adjustments:(id)arg8 uniqueIdentifier:(id)arg9 forLivePhoto:(_Bool)arg10 savedToPhotoLibrary:(_Bool)arg11;
-- (id)_clientPropertiesForLivePhotoVideoURL:(id)arg1 duration:(CDStruct_1b6d18a9)arg2 uniqueIdentifier:(id)arg3;
-- (id)_clientPropertiesForStillImageWithURL:(id)arg1 metadata:(id)arg2 creationDate:(id)arg3 captureOrientation:(long long)arg4 fullsizeSurface:(void *)arg5 fullsizeSize:(unsigned long long)arg6 previewSurface:(void *)arg7 previewOrientation:(long long)arg8 uniqueIdentifier:(id)arg9 forOriginal:(_Bool)arg10 livePhoto:(_Bool)arg11 savedToPhotoLibrary:(_Bool)arg12;
-- (void)_resultQueueProcessSingleCapturePortraitResultForPersistenceUUID:(id)arg1;
-- (void)_resultQueueUpdateSingleCapturePortraitPhotoForPersistenceUUID:(id)arg1 properties:(id)arg2 captureError:(id)arg3;
+- (id)_clientPropertiesForVideoURL:(id)arg1 duration:(CDStruct_1b6d18a9)arg2 size:(struct CGSize)arg3 creationDate:(id)arg4 captureOrientation:(long long)arg5 previewSurface:(void *)arg6 previewOrientation:(long long)arg7 adjustments:(id)arg8 uniqueIdentifier:(id)arg9 savedToPhotoLibrary:(_Bool)arg10;
+- (id)_clientPropertiesForLivePhotoVideoURL:(id)arg1 duration:(CDStruct_1b6d18a9)arg2;
+- (id)_clientPropertiesForStillImageWithURL:(id)arg1 captureOrientation:(long long)arg2 previewSurface:(void *)arg3 previewOrientation:(long long)arg4 uniqueIdentifier:(id)arg5 savedToPhotoLibrary:(_Bool)arg6 captureResult:(id)arg7;
+- (id)_assetAdjustmentsFromFilters:(id)arg1 portraitMetadata:(id)arg2 properties:(id)arg3;
 - (void)_notifyCaptureDelegateOfCompletedCaptureOfLivePhoto:(id)arg1 withProperties:(id)arg2 error:(id)arg3;
-- (void)_resultQueueHandleFallbackPhotoForPairingIdentifierIfNecessary:(id)arg1;
-- (id)_resultQueueProcessLivePhotoForPairingIdentifier:(id)arg1 combinedProperties:(out id *)arg2 error:(id *)arg3;
-- (_Bool)_resultQueueUpdatePendingLivePhotoForPairingIdentifier:(id)arg1 withProperties:(id)arg2;
-- (_Bool)_couldProvidePendingLivePhotoUpdateForPairingIdentifier:(id)arg1 withProperties:(id)arg2;
 - (void)_notifyCaptureDelegateOfCompletedCaptureOfPhoto:(id)arg1 withProperties:(id)arg2 error:(id)arg3;
 - (id)_previewImageFromVideoURL:(id)arg1;
 - (id)_resultQueueSafeImageFromSurface:(void *)arg1 imageOrientation:(long long)arg2;

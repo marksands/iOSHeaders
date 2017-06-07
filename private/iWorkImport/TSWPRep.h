@@ -6,11 +6,13 @@
 
 #import <iWorkImport/TSDContainerRep.h>
 
-@class CALayer, CAShapeLayer, NSArray, NSTimer, TSDLayout, TSWPSearchReference, TSWPSelection, TSWPStorage, TSWPTextEditor;
+#import <iWorkImport/CAAnimationDelegate-Protocol.h>
+
+@class CALayer, CAShapeLayer, NSArray, NSString, NSTimer, TSDLayout, TSWPSearchReference, TSWPSelection, TSWPStorage, TSWPTextEditor;
 @protocol TSWPLayoutTarget;
 
 __attribute__((visibility("hidden")))
-@interface TSWPRep : TSDContainerRep
+@interface TSWPRep : TSDContainerRep <CAAnimationDelegate>
 {
     CALayer *_textLayers[2];
     CALayer *_caretLayer;
@@ -66,13 +68,12 @@ __attribute__((visibility("hidden")))
 @property(nonatomic, getter=isSelectionHighlightSuppressed) _Bool suppressSelectionHighlight; // @synthesize suppressSelectionHighlight=_suppressSelectionHighlight;
 @property(nonatomic) _Bool findIsShowing; // @synthesize findIsShowing=_findIsShowing;
 @property(retain, nonatomic) TSWPSearchReference *activeSearchReference; // @synthesize activeSearchReference=_activeSearchReference;
+- (_Bool)p_hasEmptyParagraphFillOrBorders;
 - (_Bool)p_hasEmptyList;
 - (_Bool)p_hasVisibleContents;
 - (void)p_drawTextInLayer:(id)arg1 context:(struct CGContext *)arg2 limitSelection:(id)arg3 rubyGlyphRange:(struct _NSRange)arg4 renderMode:(int)arg5 suppressInvisibles:(_Bool)arg6;
 - (void)p_teardown;
 @property(readonly, nonatomic) _Bool textIsVertical;
-- (_Bool)shouldLayoutTilingLayer:(id)arg1;
-- (_Bool)p_singleAnchoredDrawableAttachmentSelection:(id)arg1;
 - (struct CGPoint)p_pinPoint:(struct CGPoint)arg1 toRect:(struct CGRect)arg2;
 - (struct CGRect)p_paragraphModeRectangleForColumn:(id)arg1 selection:(id)arg2;
 - (_Bool)isOverflowing;
@@ -122,14 +123,13 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)p_caretRectForSelection:(id)arg1;
 - (struct CGRect)caretRectForSelection:(id)arg1;
 - (CDStruct_7e4c5a1e)wordMetricsAtCharIndex:(unsigned long long)arg1;
-- (CDStruct_50f584da)lineMetricsAtCharIndex:(unsigned long long)arg1;
-- (CDStruct_50f584da)lineMetricsAtPoint:(struct CGPoint)arg1;
+- (CDStruct_b7a3d57d)lineMetricsAtCharIndex:(unsigned long long)arg1;
+- (CDStruct_b7a3d57d)lineMetricsAtPoint:(struct CGPoint)arg1;
 - (struct CGRect)caretRectForCharIndex:(unsigned long long)arg1 leadingEdge:(_Bool)arg2 caretAffinity:(int)arg3;
 - (struct CGRect)caretRectForCharIndex:(unsigned long long)arg1 caretAffinity:(int)arg2;
 - (struct CGRect)naturalBoundsRectForHyperlinkField:(id)arg1;
 - (struct CGPath *)newPathForSelection:(id)arg1;
-- (struct CGRect)rectForSelection:(id)arg1 includeRuby:(_Bool)arg2;
-- (struct CGRect)rectForSelection:(id)arg1;
+- (struct CGRect)rectForSelection:(id)arg1 includeRuby:(_Bool)arg2 includePaginatedAttachments:(_Bool)arg3;
 - (_Bool)isPointInSelectedArea:(struct CGPoint)arg1;
 - (struct CGRect)selectionRect;
 - (struct CGRect)caretRect;
@@ -139,6 +139,12 @@ __attribute__((visibility("hidden")))
 - (void)willBeRemoved;
 - (void)dealloc;
 - (id)initWithLayout:(id)arg1 canvas:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

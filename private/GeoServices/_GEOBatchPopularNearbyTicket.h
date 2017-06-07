@@ -4,27 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <GeoServices/GEOAbstractRequestResponseTicket.h>
 
 #import <GeoServices/GEOMapServiceBatchNearbyTicket-Protocol.h>
 
-@class GEOMapServiceTraits, GEOPDPlaceRequest, GEOPDPlaceResponse, NSArray, NSString;
+@class GEOMapServiceTraits, NSArray, NSString;
 
 __attribute__((visibility("hidden")))
-@interface _GEOBatchPopularNearbyTicket : NSObject <GEOMapServiceBatchNearbyTicket>
+@interface _GEOBatchPopularNearbyTicket : GEOAbstractRequestResponseTicket <GEOMapServiceBatchNearbyTicket>
 {
-    GEOPDPlaceRequest *_request;
-    GEOPDPlaceResponse *_response;
-    GEOMapServiceTraits *_traits;
-    _Bool _canceled;
     NSArray *_categories;
 }
 
-@property(readonly, nonatomic) GEOMapServiceTraits *traits; // @synthesize traits=_traits;
+- (void).cxx_destruct;
 - (id)resultSectionHeaderForCategory:(id)arg1;
-- (void)cancel;
 - (void)submitWithHandler:(CDUnknownBlockType)arg1 networkActivity:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 - (id)initWithRequest:(id)arg1 traits:(id)arg2 categories:(id)arg3;
 
 // Remaining properties
@@ -32,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) GEOMapServiceTraits *traits;
 
 @end
 

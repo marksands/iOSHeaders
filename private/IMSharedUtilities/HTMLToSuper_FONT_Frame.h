@@ -8,8 +8,6 @@
 
 @interface HTMLToSuper_FONT_Frame : HTMLToSuper_Default_Frame
 {
-    _Bool _shouldPopBackgroundColor;
-    _Bool _shouldPopForegroundColor;
     _Bool _shouldPopFontName;
     _Bool _shouldPopFontSize;
 }

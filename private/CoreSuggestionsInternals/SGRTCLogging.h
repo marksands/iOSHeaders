@@ -8,44 +8,67 @@
 
 #import <CoreSuggestionsInternals/NSCoding-Protocol.h>
 
-@class NSMutableArray, NSString, NSThread, NSTimer;
+@class NSMutableArray, NSString;
+@protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface SGRTCLogging : NSObject <NSCoding>
 {
-    NSString *_path;
-    NSMutableArray *_loggedEvents;
-    long long _loggedEventsCount;
     struct _opaque_pthread_mutex_t _lock;
-    NSTimer *_persistenceTimer;
-    NSThread *_persistenceTimerThread;
+    NSString *_path;
+    NSMutableArray *_loggedExtractions;
+    NSMutableArray *_loggedInteractions;
+    NSMutableArray *_loggedInteractionsSummary;
+    long long _loggedExtractionsEventsCount;
+    NSObject<OS_dispatch_source> *_persistenceTimerSource;
     double _storeCreationDate;
+    NSObject<OS_dispatch_queue> *_interactionsWriteQueue;
 }
 
-+ (id)inMemoryLogger;
 + (_Bool)_createEmptyFileAtPath:(id)arg1;
 + (id)defaultLogger;
++ (unsigned long long)launchCountForApp:(id)arg1 afterDate:(id)arg2 lowerBucket:(unsigned long long)arg3 bucketSize:(unsigned long long)arg4 bucketLimit:(unsigned long long)arg5;
++ (unsigned long long)numberOfDaysBetweenDate:(id)arg1 andDate:(id)arg2;
++ (double)round:(double)arg1 toSignificantFigures:(long long)arg2;
++ (unsigned long long)bucketizeInteger:(unsigned long long)arg1 withBucketSize:(unsigned long long)arg2 limit:(unsigned long long)arg3;
 - (void).cxx_destruct;
-- (id)metricNameForShortName:(id)arg1;
-- (id)shortNameForMetricNamed:(id)arg1;
-- (id)getLoggingString;
+- (id)_descriptionForSGRTCCategory:(unsigned short)arg1;
+- (id)_descriptionForActionType:(unsigned short)arg1;
+- (id)_descriptionForInterface:(unsigned short)arg1;
+- (id)_descriptionForExtractionStatus:(unsigned short)arg1;
+- (id)loggedInteractionsSummaryDescription;
+- (id)loggedInteractionsDescription;
+- (id)loggedExtractionsDescription;
 - (double)storeAge;
 - (_Bool)storeToDisk;
+- (_Bool)removeInteractionsSummaryLogsFromLogs:(id)arg1;
+- (_Bool)resetInteractionsLogs;
+- (_Bool)resetInteractionsSummaryLogs;
+- (_Bool)resetExtractionLogs;
 - (_Bool)resetLogs;
 - (void)sendRTCLogsWithCompletion:(CDUnknownBlockType)arg1;
-- (void)_sendMessageToRTC:(id)arg1 category:(unsigned short)arg2 payload:(id)arg3;
-- (void)logOutputIssueFromTemplate:(id)arg1 latencyInMs:(unsigned long long)arg2 emailDateReceived:(id)arg3 outputIssueTypes:(id)arg4 outputInfos:(id)arg5 jsMessageLogs:(id)arg6 jsOutputLogs:(id)arg7;
-- (void)logExceptionFromTemplate:(id)arg1 templateExceptionMessage:(id)arg2 emailDateReceived:(id)arg3 jsMessageLogs:(id)arg4 jsOutputLogs:(id)arg5;
-- (void)logEventResponseWithTemplateShortName:(id)arg1 latencyInMs:(unsigned long long)arg2 emailDateReceived:(id)arg3 outputIssueTypes:(id)arg4 outputInfos:(id)arg5 jsMessageLogs:(id)arg6 jsOutputLogs:(id)arg7;
-- (void)_logKeyValuesFromDictionary:(id)arg1;
-- (void)_persistLogs;
+- (id)_createRTCReporting;
+- (id)logsToSend;
+- (id)whitelistedLogFromLog:(id)arg1;
+- (void)logEventInteractionForEntitySync:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
+- (void)logEventInteractionForEntity:(id)arg1 interface:(unsigned short)arg2 actionType:(unsigned short)arg3;
+- (void)logEventExtractionForTemplateName:(id)arg1 extractionStatus:(unsigned short)arg2 outputExceptions:(id)arg3 outputInfos:(id)arg4 jsMessageLogs:(id)arg5 jsOutputLogs:(id)arg6 timingProcessing:(unsigned long long)arg7;
+- (void)logNewInteractionWithDictionary:(id)arg1;
+- (void)logNewInteractionSummaryWithDictionary:(id)arg1;
+- (void)_logAndIncrementEventCountForDictionary:(id)arg1;
+- (_Bool)_incrementInteractionSummaryForEventDuplicateKey:(id)arg1 interactionKey:(id)arg2;
+- (void)enrichInteractionSummaryLog:(id)arg1;
+- (id)_createInteractionSummaryForEntity:(id)arg1 interactionKey:(id)arg2 interactionAttributes:(id)arg3;
+- (id)_createInteractionForEntity:(id)arg1 interactionKey:(id)arg2 interactionAttributes:(id)arg3;
+- (id)_interactionAttributesForEntity:(id)arg1 parentEntity:(id)arg2;
 - (void)updateAndScheduleDiskWrite;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (unsigned long long)loggedEventsCount;
-- (id)loggedEvents;
+- (unsigned long long)loggedExtractionsEventsCount;
+- (id)loggedInteractionsSummary;
+- (id)loggedInteractions;
+- (id)loggedExtractions;
 - (void)dealloc;
 - (id)initWithFilename:(id)arg1;
-- (id)initWithInMemoryStore;
 - (id)init;
 
 @end

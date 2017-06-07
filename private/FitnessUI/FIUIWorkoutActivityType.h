@@ -8,7 +8,7 @@
 
 #import <FitnessUI/NSCoding-Protocol.h>
 
-@class NSDictionary;
+@class HKQuantity, NSDictionary;
 
 @interface FIUIWorkoutActivityType : NSObject <NSCoding>
 {
@@ -38,6 +38,8 @@
 @property(readonly, nonatomic) unsigned long long effectiveTypeIdentifier;
 @property(readonly, nonatomic) _Bool isCategorizedOtherWorkout;
 @property(readonly, nonatomic) _Bool isIndoor;
+@property(readonly, nonatomic) HKQuantity *lapLength;
+@property(readonly, nonatomic) long long swimmingLocationType;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithActivityTypeIdentifier:(unsigned long long)arg1 isIndoor:(_Bool)arg2 metadata:(id)arg3 auxiliaryTypeIdentifier:(unsigned long long)arg4;
@@ -45,6 +47,8 @@
 - (id)initWithActivityTypeIdentifier:(unsigned long long)arg1 isIndoor:(_Bool)arg2;
 - (id)allAvailableMetrics;
 - (id)defaultEnabledMetrics;
+- (id)appendMachineMetricsIfPossibleToMetrics:(id)arg1 maxNumMetrics:(long long)arg2;
+- (id)_machineProvidedMetrics;
 - (id)_defaultEnabledMetricsForActivityType:(unsigned long long)arg1;
 - (id)_indoorDefaultEnabledMetricsForActivityType:(unsigned long long)arg1;
 - (id)_metricsForSwimmingWithLocationType:(long long)arg1;

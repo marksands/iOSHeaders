@@ -15,11 +15,11 @@
     NSMutableDictionary *_hyperlinks;
 }
 
-@property EDSheet *currentSheet; // @synthesize currentSheet=_currentSheet;
+@property __weak EDSheet *currentSheet; // @synthesize currentSheet=_currentSheet;
 @property(retain) EDWorkbook *workbook; // @synthesize workbook=_workbook;
+- (void).cxx_destruct;
 - (void)setHyperlink:(id)arg1 forRow:(unsigned long long)arg2 column:(unsigned long long)arg3;
 - (id)hyperlinkForRow:(unsigned long long)arg1 column:(unsigned long long)arg2;
-- (void)dealloc;
 
 @end
 

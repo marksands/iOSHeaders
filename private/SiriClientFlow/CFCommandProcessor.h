@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-#import <SiriClientFlow/CFCommandProcessor-Protocol.h>
+#import <SiriClientFlow/CFCommandProcessing-Protocol.h>
 
 @class CFCommandQueuer, CFServiceHelper, NSString;
 
-@interface CFCommandProcessor : NSObject <CFCommandProcessor>
+@interface CFCommandProcessor : NSObject <CFCommandProcessing>
 {
     CFServiceHelper *_serviceHelper;
     CFCommandQueuer *_commandQueuer;
@@ -20,9 +20,7 @@
 @property(retain, nonatomic) CFServiceHelper *serviceHelper; // @synthesize serviceHelper=_serviceHelper;
 - (void).cxx_destruct;
 - (id)initWithServiceHelper:(id)arg1 commandQueuer:(id)arg2;
-- (_Bool)isDeviceLockedWithPasscode;
-- (void)handleOneWayCommand:(id)arg1 replyWithMetrics:(CDUnknownBlockType)arg2;
-- (void)handleCommand:(id)arg1 replyWithMetrics:(CDUnknownBlockType)arg2;
+- (void)isDeviceLockedWithPasscodeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleOneWayCommand:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleCommand:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)handleOneWayCommand:(id)arg1;

@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDAccessory, HMDAccessoryInvitation, HMDUser, HMDUserManagementOperationManager, HMFTimer, NSArray, NSDate, NSDictionary, NSMutableArray, NSString, NSUUID;
+@class HMDAccessory, HMDAccessoryInvitation, HMDUser, HMDUserManagementOperationManager, HMFTimer, NSArray, NSDate, NSDictionary, NSMutableArray, NSObject, NSString, NSUUID;
 @protocol HMDUserManagementOperationDelegate, OS_dispatch_queue;
 
-@interface HMDUserManagementOperation : NSObject <HMFTimerDelegate, NSSecureCoding>
+@interface HMDUserManagementOperation : HMFObject <HMFTimerDelegate, NSSecureCoding>
 {
     NSMutableArray *_dependencies;
     _Bool _executing;
@@ -33,6 +33,7 @@
     HMFTimer *_backoffTimer;
 }
 
++ (id)operationWithDictionary:(id)arg1 home:(id)arg2;
 + (_Bool)supportsSecureCoding;
 + (id)shortDescription;
 + (id)removeUserManagementOperationForUser:(id)arg1 accessory:(id)arg2;
@@ -50,14 +51,15 @@
 @property __weak id <HMDUserManagementOperationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)timerDidFire:(id)arg1;
+- (id)dictionaryEncoding;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *accessoryInvitationInformation;
 @property(readonly, nonatomic) HMDAccessoryInvitation *accessoryInvitation;
 - (long long)_accessoryInvitationState;
 - (_Bool)mergeWithOperation:(id)arg1;
-- (void)_removePairingFromAccessory:(id)arg1 identifier:(id)arg2 publicKey:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_addPairingToAccessory:(id)arg1 identifier:(id)arg2 publicKey:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_removePairingFromAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_addPairingToAccessory:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)executeWithCompletionQueue:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)cancel;
 - (void)addDependency:(id)arg1;

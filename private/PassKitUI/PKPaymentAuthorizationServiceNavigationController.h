@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <UIKit/UINavigationController.h>
+#import <PassKitUI/PKBlurredNavigationController.h>
 
 #import <PassKitUI/UINavigationControllerDelegate-Protocol.h>
 
 @class NSString, PKPaymentAuthorizationLayout, PKPaymentAuthorizationServiceViewController;
 @protocol UIViewControllerTransitioningDelegate;
 
-@interface PKPaymentAuthorizationServiceNavigationController : UINavigationController <UINavigationControllerDelegate>
+@interface PKPaymentAuthorizationServiceNavigationController : PKBlurredNavigationController <UINavigationControllerDelegate>
 {
     PKPaymentAuthorizationLayout *_layout;
     PKPaymentAuthorizationServiceViewController *_authorizationViewController;
@@ -21,11 +21,7 @@
 @property(retain, nonatomic) id <UIViewControllerTransitioningDelegate> paymentTransitioningDelegate; // @synthesize paymentTransitioningDelegate=_paymentTransitioningDelegate;
 @property(readonly, nonatomic) PKPaymentAuthorizationServiceViewController *authorizationViewController; // @synthesize authorizationViewController=_authorizationViewController;
 - (void).cxx_destruct;
-- (void)_setPreferredContentSizeFromChildContentContainer:(id)arg1;
-- (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)preferredContentSizeDidChangeForChildContentContainer:(id)arg1;
-- (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

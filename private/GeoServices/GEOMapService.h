@@ -4,17 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class NSArray, NSCache, NSLock, NSMutableArray;
-@protocol NSCacheDelegate, OS_dispatch_queue;
+@class NSArray, NSCache, NSLock;
+@protocol NSCacheDelegate;
 
 @interface GEOMapService : NSObject
 {
     NSLock *_preferredLanguagesLock;
     NSArray *_preferredLanguages;
-    NSMutableArray *_placeDataObservers;
-    NSObject<OS_dispatch_queue> *_placeDataObserverQueue;
     int _overriddenResultProviderID;
     int _additionalEnabledMarketsChangedToken;
     int _experimentsChangedToken;
@@ -24,56 +22,63 @@
 
 + (void)_attributedGeoMapItemsForPlaceDatasWithType:(int)arg1 placeDatas:(id)arg2 disambiguationLabels:(id)arg3 handler:(CDUnknownBlockType)arg4;
 + (id)sharedService;
-- (void)notifyPlaceDataRequestObserversThatTicket:(id)arg1 didCompleteWithMapItems:(id)arg2;
-- (void)removePlaceDataRequestObserver:(id)arg1;
-- (void)addPlaceDataRequestObserver:(id)arg1;
+- (void).cxx_destruct;
 - (id)_geoMapItemsForPlacesInDetails:(id)arg1;
 - (id)_geoMapItemForData:(id)arg1 withSource:(unsigned long long)arg2;
 - (id)_geoMapItemForData:(id)arg1;
 - (void)_geoMapItemsForResponseData:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)resolveMapItemLocallyFromHandle:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)resolveMapItemFromHandle:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)resolveMapItemFromHandle:(id)arg1 withTraits:(id)arg2 useCache:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_resolveMapItemFromHandle:(id)arg1 withTraits:(id)arg2 cachePolicy:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)handleForMapItem:(id)arg1;
 - (void)trackMapItem:(id)arg1;
+- (void)trackSerializedPlaceData:(id)arg1;
 - (void)applyRAPUpdatedMapItems:(id)arg1;
+- (id)ticketForWifiFingerprintWithLocations:(id)arg1 wifiAccessPoints:(id)arg2 maxLabels:(unsigned int)arg3 traits:(id)arg4;
+- (id)ticketForBrandLookupWithIMessageUid:(id)arg1 traits:(id)arg2;
 - (id)ticketForBatchPopularNearbyForSearchCategories:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
 - (id)ticketForPopularNearbyForSearchCategory:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
+- (id)ticketForSearchCategory:(id)arg1 venueIdentifier:(id)arg2 maxResults:(unsigned int)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
 - (id)ticketForSearchCategory:(id)arg1 searchString:(id)arg2 maxResults:(unsigned int)arg3 traits:(id)arg4;
 - (id)ticketForSearchAlongRouteWithCategory:(id)arg1 zilchData:(id)arg2 sessionState:(id)arg3 routeId:(id)arg4 maxResults:(unsigned int)arg5 traits:(id)arg6;
 - (id)ticketforCategory:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
 - (id)ticketForDatasetCheckWithTraits:(id)arg1;
-- (id)ticketForNearestTransitStation:(unsigned long long)arg1 coordinate:(CDStruct_c3b9c2ee)arg2 includeETA:(_Bool)arg3 traits:(id)arg4;
+- (id)ticketForNearestTransitStation:(id)arg1 coordinate:(CDStruct_c3b9c2ee)arg2 includeETA:(_Bool)arg3 traits:(id)arg4;
 - (id)ticketForTransitLines:(id)arg1 withTraits:(id)arg2;
 - (id)ticketForSearchFieldPlaceholderWithTraits:(id)arg1;
 - (id)ticketForSpotlightCategoryListWithTraits:(id)arg1;
+- (id)ticketForCategoryListWithVenueID:(unsigned long long)arg1 componentIdentifier:(id)arg2 minimumNumberOfCategories:(int)arg3 traits:(id)arg4;
 - (id)ticketForCategoryListWithTraits:(id)arg1;
 - (id)ticketForSectionedLocalitiesAndLandmarksSearchFragment:(id)arg1 traits:(id)arg2;
 - (id)ticketForSectionedAutoCompleteSearchFragment:(id)arg1 traits:(id)arg2;
 - (id)ticketForSectionedInstantSearchFragment:(id)arg1 traits:(id)arg2;
+- (id)ticketForInterleavedAutoCompletePoiAddressOnly:(id)arg1 traits:(id)arg2;
 - (id)ticketForInterleavedAutoCompleteWithBrowseSearchFragment:(id)arg1 categoryFilter:(id)arg2 traits:(id)arg3;
 - (id)ticketForInterleavedLocalitiesAndLandmarksSearchFragment:(id)arg1 traits:(id)arg2;
 - (id)ticketForInterleavedAutoCompleteSearchFragment:(id)arg1 traits:(id)arg2;
 - (id)ticketForInterleavedInstantSearchFragment:(id)arg1 traits:(id)arg2;
 - (id)_ticketForAutocompleteFragment:(id)arg1 type:(int)arg2 traits:(id)arg3 categoryFilter:(id)arg4;
-- (id)ticketForURLQuery:(id)arg1 coordinate:(CDStruct_c3b9c2ee)arg2 muid:(unsigned long long)arg3 resultProviderId:(int)arg4 contentProvider:(id)arg5 maxResults:(unsigned int)arg6 traits:(id)arg7;
+- (id)ticketForURLQuery:(id)arg1 identifier:(id)arg2 resultProviderId:(int)arg3 contentProvider:(id)arg4 maxResults:(unsigned int)arg5 traits:(id)arg6;
 - (id)ticketForCanonicalLocationSearchQueryString:(id)arg1 traits:(id)arg2;
 - (id)ticketForVendorSpecificPlaceRefinementRequestParameters:(id)arg1 traits:(id)arg2;
-- (id)ticketForPlaceRefinementRequestForContentProvider:(id)arg1 coordinate:(CDStruct_c3b9c2ee *)arg2 addressLine:(id)arg3 placeName:(id)arg4 traits:(id)arg5;
 - (id)ticketForPlaceRefinementRequestParameters:(id)arg1 traits:(id)arg2;
 - (id)ticketForPlaceRefinementRequestWithCoordinate:(CDStruct_c3b9c2ee *)arg1 addressLine:(id)arg2 placeName:(id)arg3 traits:(id)arg4;
 - (id)ticketForMapItemToRefine:(id)arg1 traits:(id)arg2;
 - (id)ticketForSearchQuery:(id)arg1 completionItem:(id)arg2 maxResults:(unsigned int)arg3 suppressResultsRequiringAttribution:(_Bool)arg4 includeETA:(_Bool)arg5 traits:(id)arg6;
 - (id)ticketForSearchQuery:(id)arg1 completionItem:(id)arg2 relatedSearchSuggestion:(id)arg3 maxResults:(unsigned int)arg4 includeETA:(_Bool)arg5 traits:(id)arg6;
 - (id)ticketForSearchQuery:(id)arg1 completionItem:(id)arg2 maxResults:(unsigned int)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
-- (id)ticketForOptInToProblemSubmissionID:(id)arg1 allowContactBackAtEmailAddress:(id)arg2 traits:(id)arg3;
+- (id)ticketForSearchPoisForBrandMUID:(unsigned long long)arg1 traits:(id)arg2;
 - (id)ticketForProblemResubmission:(id)arg1 traits:(id)arg2;
-- (id)ticketForProblem:(id)arg1 placeForProblemContext:(id)arg2 placeForStartDirectionsSearchInput:(id)arg3 placeForEndDirectionsSearchInput:(id)arg4 pushToken:(id)arg5 allowContactBackAtEmailAddress:(id)arg6 traits:(id)arg7;
+- (id)ticketForProblem:(id)arg1 placeForProblemContext:(id)arg2 pushToken:(id)arg3 allowContactBackAtEmailAddress:(id)arg4 traits:(id)arg5;
 - (id)ticketForSpatialLookupParameters:(id)arg1 traits:(id)arg2;
 - (id)ticketForExternalTransitStationCodes:(id)arg1 sourceID:(id)arg2 transactionDate:(id)arg3 transactionLocation:(id)arg4 traits:(id)arg5;
 - (id)ticketForMerchantCode:(id)arg1 rawMerchantCode:(id)arg2 paymentNetwork:(id)arg3 transactionDate:(id)arg4 transactionLocation:(id)arg5 traits:(id)arg6;
 - (id)ticketForBatchReverseGeocodeLocations:(id)arg1 shiftLocationsIfNeeded:(_Bool)arg2 additionalPlaceTypes:(int *)arg3 additionalPlaceTypesCount:(unsigned int)arg4 traits:(id)arg5;
 - (id)ticketForBatchReverseGeocodeLocations:(id)arg1 shiftLocationsIfNeeded:(_Bool)arg2 traits:(id)arg3;
 - (id)_cl_ticketForReverseGeocodeLocation:(id)arg1 traits:(id)arg2;
+- (id)_searchable_ticketForReverseGeocodeCoordinate:(CDStruct_c3b9c2ee)arg1 floor:(int)arg2 includeEntryPoints:(_Bool)arg3 shiftLocationsIfNeeded:(_Bool)arg4 includeETA:(_Bool)arg5 preserveOriginalLocation:(_Bool)arg6 traits:(id)arg7;
+- (id)ticketForReverseGeocodeCoordinate:(CDStruct_c3b9c2ee)arg1 floor:(int)arg2 includeEntryPoints:(_Bool)arg3 shiftLocationsIfNeeded:(_Bool)arg4 includeETA:(_Bool)arg5 preserveOriginalLocation:(_Bool)arg6 traits:(id)arg7;
 - (id)ticketForReverseGeocodeCoordinate:(CDStruct_c3b9c2ee)arg1 includeEntryPoints:(_Bool)arg2 shiftLocationsIfNeeded:(_Bool)arg3 includeETA:(_Bool)arg4 preserveOriginalLocation:(_Bool)arg5 traits:(id)arg6;
 - (id)ticketForReverseGeocodeCoordinate:(CDStruct_c3b9c2ee)arg1 includeEntryPoints:(_Bool)arg2 shiftLocationsIfNeeded:(_Bool)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
 - (id)_searchable_ticketForReverseGeocodeCoordinate:(CDStruct_c3b9c2ee)arg1 includeEntryPoints:(_Bool)arg2 shiftLocationsIfNeeded:(_Bool)arg3 includeETA:(_Bool)arg4 preserveOriginalLocation:(_Bool)arg5 traits:(id)arg6;
@@ -84,13 +89,15 @@
 - (id)ticketForForwardGeocodeAddressDictionary:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
 - (id)ticketForForwardGeocodeAddress:(id)arg1 maxResults:(unsigned int)arg2 traits:(id)arg3;
 - (id)ticketForPhoneNumbers:(id)arg1 allowCellularDataForLookup:(_Bool)arg2 traits:(id)arg3;
-- (id)ticketForTransitMUIDs:(id)arg1 includeETA:(_Bool)arg2 endDateForPlacecardSchedulesForThisBatch:(id)arg3 traits:(id)arg4;
+- (id)ticketForTransitIdentifiers:(id)arg1 includeETA:(_Bool)arg2 endDateForPlacecardSchedulesForThisBatch:(id)arg3 traits:(id)arg4;
 - (id)ticketForExternalBusinessID:(id)arg1 contentProvider:(id)arg2 includeETA:(_Bool)arg3 traits:(id)arg4;
-- (id)ticketForFreshBusinessClaimComponentWithMUID:(unsigned long long)arg1 resultProviderID:(int)arg2 traits:(id)arg3;
-- (id)ticketForFreshComponents:(id)arg1 muid:(unsigned long long)arg2 resultProviderID:(int)arg3 contentProvider:(id)arg4 traits:(id)arg5;
-- (id)ticketForNonExpiredMUIDs:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
-- (id)ticketForFreshMUIDs:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
+- (id)ticketForFreshBusinessClaimComponentWithIdentifier:(id)arg1 resultProviderID:(int)arg2 traits:(id)arg3;
+- (id)ticketForFreshComponents:(id)arg1 identifier:(id)arg2 resultProviderID:(int)arg3 contentProvider:(id)arg4 traits:(id)arg5;
+- (id)ticketForNonExpiredIdentifier:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
+- (id)ticketForFreshIdentifier:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
 - (id)ticketForMUIDs:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
+- (id)ticketForIdentifiers:(id)arg1 resultProviderID:(int)arg2 contentProvider:(id)arg3 includeETA:(_Bool)arg4 traits:(id)arg5;
+- (id)ticketForIdentifiers:(id)arg1 includeETA:(_Bool)arg2 traits:(id)arg3;
 - (id)ticketForMUIDs:(id)arg1 includeETA:(_Bool)arg2 traits:(id)arg3;
 - (id)defaultTraits;
 - (id)_preferredLanguages;

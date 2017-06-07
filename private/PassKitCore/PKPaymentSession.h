@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @protocol OS_dispatch_queue;
 
@@ -13,6 +13,8 @@
     NSObject<OS_dispatch_queue> *_internalSessionSerialQueue;
 }
 
++ (id)startPeerPaymentSessionWithCompletion:(CDUnknownBlockType)arg1 targetQueue:(id)arg2;
++ (id)startPeerPaymentSessionWithCompletion:(CDUnknownBlockType)arg1;
 + (id)startReaderSessionWithCompletion:(CDUnknownBlockType)arg1 targetQueue:(id)arg2;
 + (id)startReaderSessionWithCompletion:(CDUnknownBlockType)arg1;
 + (id)startContactlessInterfaceSessionWithCompletion:(CDUnknownBlockType)arg1 targetQueue:(id)arg2;

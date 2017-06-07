@@ -25,10 +25,7 @@
     double _activeGestureValue;
     unsigned long long _activeGestureValueType;
     HUQuickControlViewProfile<HUQuickControlIncrementalConvertibleProfile> *_viewProfile;
-    struct {
-        double minimum;
-        double maximum;
-    } _modelValue;
+    CDStruct_ef18196a _modelValue;
 }
 
 @property(nonatomic, getter=isFirstTouchDown) _Bool firstTouchDown; // @synthesize firstTouchDown=_firstTouchDown;

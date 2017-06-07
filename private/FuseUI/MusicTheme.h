@@ -21,7 +21,6 @@
 + (id)subtitleColor;
 + (id)placeholderArtworkBackgroundColor;
 + (id)librarySwitcherContentColor;
-+ (id)contextualActionsButtonDefaultTintColor;
 + (id)availableOfflineBadgeDefaultTintColor;
 
 @end

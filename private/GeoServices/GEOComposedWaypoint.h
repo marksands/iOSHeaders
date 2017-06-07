@@ -31,6 +31,7 @@
 @property(retain, nonatomic) GEOLatLng *latLng; // @synthesize latLng=_latLng;
 @property(retain, nonatomic) GEOMapItemStorage *mapItemStorage; // @synthesize mapItemStorage=_mapItemStorage;
 @property(retain, nonatomic) GEOWaypointTyped *waypoint; // @synthesize waypoint=_waypoint;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +44,6 @@
 @property(readonly, nonatomic) _Bool hasLatLng;
 @property(readonly, nonatomic) _Bool hasMapItemStorage;
 @property(readonly, nonatomic) _Bool hasWaypoint;
-- (void)dealloc;
 - (_Bool)isLocationWaypointType;
 - (id)timezone;
 - (id)geoMapItem;

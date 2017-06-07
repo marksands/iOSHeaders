@@ -20,10 +20,13 @@
     NSMutableArray *_memoryRecords;
     NSMutableArray *_faceCropRecords;
     NSMutableArray *_deleteRecords;
+    NSMutableArray *_deletePersonRecords;
     NSMutableArray *_expungedRecords;
 }
 
++ (_Bool)records:(id)arg1 containsIdentifier:(id)arg2;
 @property(readonly) NSMutableArray *expungedRecords; // @synthesize expungedRecords=_expungedRecords;
+@property(readonly) NSMutableArray *deletePersonRecords; // @synthesize deletePersonRecords=_deletePersonRecords;
 @property(readonly) NSMutableArray *deleteRecords; // @synthesize deleteRecords=_deleteRecords;
 @property(readonly) NSMutableArray *faceCropRecords; // @synthesize faceCropRecords=_faceCropRecords;
 @property(readonly) NSMutableArray *memoryRecords; // @synthesize memoryRecords=_memoryRecords;

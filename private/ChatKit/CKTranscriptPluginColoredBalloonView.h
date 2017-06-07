@@ -6,10 +6,12 @@
 
 #import <ChatKit/CKColoredBalloonView.h>
 
-@class CKBalloonImageView, UIView;
+#import <ChatKit/CKTranscriptPluginViewDelegate-Protocol.h>
+
+@class CKBalloonImageView, NSString, UIView;
 @protocol CKTranscriptPluginView;
 
-@interface CKTranscriptPluginColoredBalloonView : CKColoredBalloonView
+@interface CKTranscriptPluginColoredBalloonView : CKColoredBalloonView <CKTranscriptPluginViewDelegate>
 {
     _Bool _isInteractive;
     _Bool _suppressMask;
@@ -34,14 +36,23 @@
 - (void)detachInvisibleInkEffectView;
 - (void)attachInvisibleInkEffectView;
 - (Class)invisibleInkEffectViewClass;
-- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
+- (void)pluginViewRequestsPresentationAction:(id)arg1;
 - (void)setCanUseOpaqueMask:(_Bool)arg1;
 - (void)prepareForReuse;
 - (void)prepareForDisplay;
 - (void)layoutSubviews;
+- (_Bool)canUseOpaqueMask;
+- (struct CKBalloonDescriptor_t)balloonDescriptor;
+- (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)configureForTranscriptPlugin:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

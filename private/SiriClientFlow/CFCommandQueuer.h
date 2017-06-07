@@ -19,9 +19,10 @@
 - (void).cxx_destruct;
 - (id)initWithCommandIdentifier:(id)arg1;
 - (void)initQueuesWithIdentifier:(id)arg1;
-- (void)dispatchCommand:(id)arg1 isOneWay:(_Bool)arg2 withServiceHelper:(id)arg3 replyWithMetrics:(CDUnknownBlockType)arg4;
-- (void)dispatchCommand:(id)arg1 withServiceHelper:(id)arg2 replyWithMetrics:(CDUnknownBlockType)arg3;
-- (void)dispatchOneWayCommand:(id)arg1 withServiceHelper:(id)arg2 replyWithMetrics:(CDUnknownBlockType)arg3;
+- (_Bool)isPluginTimeoutDisabled;
+- (void)dispatchCommand:(id)arg1 isOneWay:(_Bool)arg2 withServiceHelper:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)dispatchCommand:(id)arg1 withServiceHelper:(id)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)dispatchOneWayCommand:(id)arg1 withServiceHelper:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)dispatchBlock:(CDUnknownBlockType)arg1;
 
 @end

@@ -47,12 +47,6 @@
 - (id)resourceForSelector:(SEL)arg1 missingHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) double formSheetCornerRadius;
 @property(readonly, nonatomic) struct CGSize formSheetSize;
-- (id)tabbarIconTurnsSelected:(_Bool)arg1;
-- (id)tabbarIconChallengesSelected:(_Bool)arg1;
-- (id)tabbarIconMeSelected:(_Bool)arg1;
-- (id)tabbarIconGamesSelected:(_Bool)arg1;
-- (id)tabbarIconFriendsSelected:(_Bool)arg1;
-- (id)_tabBarIconImageNamed:(id)arg1 selectedName:(id)arg2 selected:(_Bool)arg3;
 - (id)achievementsDefaultIcon;
 - (id)achievementsNotStartedIcon;
 - (id)eventIconImage;

@@ -6,20 +6,16 @@
 
 #import <Home/HFItemManager.h>
 
-@class HFStaticItemProvider, NSSet;
+@class NSSet;
 
 @interface HUQuickControlSourceItemManager : HFItemManager
 {
     NSSet *_controlItems;
-    HFStaticItemProvider *_staticItemProvider;
 }
 
-@property(retain, nonatomic) HFStaticItemProvider *staticItemProvider; // @synthesize staticItemProvider=_staticItemProvider;
 @property(copy, nonatomic) NSSet *controlItems; // @synthesize controlItems=_controlItems;
 - (void).cxx_destruct;
-- (CDUnknownBlockType)_standardReadValidator;
-- (id)_itemProviders;
-- (void)_createItemProvidersWithHome:(id)arg1;
+- (id)_buildItemProvidersForHome:(id)arg1;
 - (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2 controlItems:(id)arg3;
 - (id)initWithDelegate:(id)arg1 sourceItem:(id)arg2;
 

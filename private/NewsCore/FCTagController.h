@@ -10,17 +10,15 @@
 #import <NewsCore/FCOperationThrottlerDelegate-Protocol.h>
 #import <NewsCore/FCTagsFetchOperationDelegate-Protocol.h>
 
-@class FCAppConfiguration, FCAssetManager, FCCKDatabase, FCOperationThrottler, FCTagRecordSource, FCTagsSearchOperation, NSCache, NSMutableDictionary, NSString;
+@class FCAppConfiguration, FCAssetManager, FCCKContentDatabase, FCOperationThrottler, FCTagRecordSource, NSCache, NSMutableDictionary, NSString;
 
 @interface FCTagController : NSObject <FCTagsFetchOperationDelegate, FCAppConfigurationObserving, FCOperationThrottlerDelegate>
 {
-    FCCKDatabase *_contentDatabase;
+    FCCKContentDatabase *_contentDatabase;
     FCAssetManager *_assetManager;
     FCTagRecordSource *_tagRecordSource;
     FCAppConfiguration *_appConfiguration;
     NSCache *_fastCache;
-    FCTagsSearchOperation *_topicSearchOperation;
-    FCTagsSearchOperation *_channelSearchOperation;
     FCOperationThrottler *_tagPrefetchThrottler;
     NSMutableDictionary *_prefetchedTags;
 }
@@ -29,38 +27,35 @@
 + (_Bool)isTagAllowed:(id)arg1;
 @property(retain, nonatomic) NSMutableDictionary *prefetchedTags; // @synthesize prefetchedTags=_prefetchedTags;
 @property(retain, nonatomic) FCOperationThrottler *tagPrefetchThrottler; // @synthesize tagPrefetchThrottler=_tagPrefetchThrottler;
-@property(retain, nonatomic) FCTagsSearchOperation *channelSearchOperation; // @synthesize channelSearchOperation=_channelSearchOperation;
-@property(retain, nonatomic) FCTagsSearchOperation *topicSearchOperation; // @synthesize topicSearchOperation=_topicSearchOperation;
 @property(retain, nonatomic) NSCache *fastCache; // @synthesize fastCache=_fastCache;
 @property(retain, nonatomic) FCAppConfiguration *appConfiguration; // @synthesize appConfiguration=_appConfiguration;
 @property(retain, nonatomic) FCTagRecordSource *tagRecordSource; // @synthesize tagRecordSource=_tagRecordSource;
 @property(retain, nonatomic) FCAssetManager *assetManager; // @synthesize assetManager=_assetManager;
-@property(retain, nonatomic) FCCKDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
+@property(retain, nonatomic) FCCKContentDatabase *contentDatabase; // @synthesize contentDatabase=_contentDatabase;
 - (void).cxx_destruct;
 - (void)operationThrottler:(id)arg1 performAsyncOperationWithCompletion:(CDUnknownBlockType)arg2;
 - (void)appConfigurationDidChange:(id)arg1;
 - (void)tagsFetchOperation:(id)arg1 didFetchTagsByID:(id)arg2;
 @property(nonatomic) _Bool shouldPrefetchGlobalTags;
 - (void)saveTagsToCache:(id)arg1;
-- (void)fetchChannelsForSearchString:(id)arg1 batchSize:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)fetchTopicsForSearchString:(id)arg1 batchSize:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchTagsForTagIDs:(id)arg1 qualityOfService:(long long)arg2 callbackQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)_fetchTagForTagID:(id)arg1 qualityOfService:(long long)arg2 callbackQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)refreshTagsBasedOnAgeForTagIDs:(id)arg1;
-- (id)_cachedTagsForTagIDs:(id)arg1;
-- (id)_cachedTagForTagID:(id)arg1;
+- (void)_refreshTagsBasedOnAgeForTagIDs:(id)arg1;
+- (id)_cachedTagsForTagIDs:(id)arg1 fastCacheOnly:(_Bool)arg2;
+- (id)_cachedTagForTagID:(id)arg1 fastCacheOnly:(_Bool)arg2;
 - (id)tagsForTagIDs:(id)arg1;
 - (id)tagsForTagIDs:(id)arg1 predicate:(CDUnknownBlockType)arg2;
 - (id)tagsForTagIDs:(id)arg1 maximumCachedAge:(double)arg2 predicate:(CDUnknownBlockType)arg3;
 - (void)fetchTagForTagID:(id)arg1 qualityOfService:(long long)arg2 callbackQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)fetchTagsForTagIDs:(id)arg1 callbackQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)fetchTagsForTagIDs:(id)arg1 qualityOfService:(long long)arg2 callbackQueue:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)fetchTagsForTagIDs:(id)arg1 maximumCachedAge:(double)arg2 qualityOfService:(long long)arg3 callbackQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)fetchTagForTagID:(id)arg1 maximumCachedAge:(double)arg2 qualityOfService:(long long)arg3 callbackQueue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)fetchOperationForTagsWithIDs:(id)arg1 includeChildren:(_Bool)arg2;
 - (id)fetchOperationForTagsWithIDs:(id)arg1;
-- (id)cachedTagsForIDs:(id)arg1;
-- (id)cachedTagForID:(id)arg1;
+- (id)expectedFastCachedTagForID:(id)arg1;
+- (id)slowCachedTagsForIDs:(id)arg1;
+- (id)fastCachedTagsForIDs:(id)arg1;
+- (id)fastCachedTagForID:(id)arg1;
 - (void)dealloc;
 - (id)initWithContentDatabase:(id)arg1 assetManager:(id)arg2 tagRecordSource:(id)arg3 appConfiguration:(id)arg4;
 - (id)init;

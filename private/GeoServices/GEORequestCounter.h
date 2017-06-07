@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEORequestCounterProtocol-Protocol.h>
 
@@ -17,14 +17,19 @@
 }
 
 + (id)sharedCounter;
-+ (void)setUseLocalProxy:(_Bool)arg1;
++ (void)useRemoteProxy;
++ (void)useLocalProxy;
++ (void)useProxy:(Class)arg1;
+- (void).cxx_destruct;
+- (void)incrementCountsForLogMsgCollection:(id)arg1 appId:(id)arg2 result:(unsigned char)arg3;
+- (void)fetchTrafficProbeCollectionsStartingFrom:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)recordTrafficProbeCollectionAt:(id)arg1 tripId:(id)arg2 locationCount:(int)arg3 result:(unsigned char)arg4;
 - (void)clearCounters;
 - (void)startPowerLogSessionWithName:(id)arg1;
 - (void)readRequestsPerAppSince:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)incrementAtTime:(id)arg1 app:(id)arg2 requestType:(unsigned char)arg3 result:(unsigned char)arg4;
 - (void)incrementForApp:(id)arg1 requestType:(unsigned char)arg2 result:(unsigned char)arg3;
 @property(nonatomic) _Bool countersEnabled;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

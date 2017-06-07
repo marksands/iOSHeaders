@@ -31,7 +31,7 @@
 - (_Bool)_disableState:(unsigned long long)arg1;
 - (_Bool)_enableState:(unsigned long long)arg1;
 - (_Bool)_setConfig:(id)arg1 forState:(unsigned long long)arg2 error:(id *)arg3;
-- (_Bool)_findServices;
+- (void)_findServices;
 - (void)scheduleReadyNotificationWithBlock:(CDUnknownBlockType)arg1;
 - (_Bool)disableStates:(id)arg1 clearAsset:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)enableStates:(id)arg1 error:(id *)arg2;

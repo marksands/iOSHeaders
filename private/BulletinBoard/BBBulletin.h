@@ -9,7 +9,7 @@
 #import <BulletinBoard/NSCopying-Protocol.h>
 #import <BulletinBoard/NSSecureCoding-Protocol.h>
 
-@class BBAccessoryIcon, BBAction, BBAttachmentMetadata, BBColor, BBContent, BBSectionIcon, BBSound, NSArray, NSDate, NSDictionary, NSHashTable, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSTimeZone;
+@class BBAccessoryIcon, BBAction, BBAttachmentMetadata, BBColor, BBContent, BBSectionIcon, BBSound, NSArray, NSDate, NSDictionary, NSMutableDictionary, NSSet, NSString, NSTimeZone;
 
 @interface BBBulletin : NSObject <NSCopying, NSSecureCoding>
 {
@@ -59,8 +59,6 @@
     NSDate *_lastInterruptDate;
     NSDate *_publicationDate;
     NSString *_bulletinVersionID;
-    NSMutableArray *_lifeAssertions;
-    NSHashTable *_observers;
     NSString *_parentSectionID;
     NSString *_universalSectionID;
     long long _contentPreviewSetting;
@@ -73,13 +71,13 @@
 + (id)bulletinWithBulletin:(id)arg1;
 + (id)validSortDescriptorsFromSortDescriptors:(id)arg1;
 + (void)vetSortDescriptor:(id)arg1;
++ (id)_observerAssociationSet;
++ (id)_lifeAssertionAssociationSet;
 @property(copy, nonatomic) NSSet *alertSuppressionAppIDs_deprecated; // @synthesize alertSuppressionAppIDs_deprecated;
 @property(nonatomic) unsigned long long realertCount_deprecated; // @synthesize realertCount_deprecated;
 @property(nonatomic) long long contentPreviewSetting; // @synthesize contentPreviewSetting=_contentPreviewSetting;
 @property(copy, nonatomic) NSString *universalSectionID; // @synthesize universalSectionID=_universalSectionID;
 @property(copy, nonatomic) NSString *parentSectionID; // @synthesize parentSectionID=_parentSectionID;
-@property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
-@property(retain, nonatomic) NSMutableArray *lifeAssertions; // @synthesize lifeAssertions=_lifeAssertions;
 @property(nonatomic, getter=isLoading) _Bool loading; // @synthesize loading=_loading;
 @property(nonatomic) _Bool usesExternalSync; // @synthesize usesExternalSync=_usesExternalSync;
 @property(copy, nonatomic) NSString *bulletinVersionID; // @synthesize bulletinVersionID=_bulletinVersionID;
@@ -93,7 +91,7 @@
 @property(nonatomic) _Bool expiresOnPublisherDeath; // @synthesize expiresOnPublisherDeath=_expiresOnPublisherDeath;
 @property(copy, nonatomic) NSArray *buttons; // @synthesize buttons=_buttons;
 @property(retain, nonatomic) NSMutableDictionary *supplementaryActionsByLayout; // @synthesize supplementaryActionsByLayout=_supplementaryActionsByLayout;
-@property(copy, nonatomic) NSMutableDictionary *actions; // @synthesize actions=_actions;
+@property(retain, nonatomic) NSMutableDictionary *actions; // @synthesize actions=_actions;
 @property(nonatomic) _Bool ignoresQuietMode; // @synthesize ignoresQuietMode=_ignoresQuietMode;
 @property(nonatomic) _Bool wantsFullscreenPresentation; // @synthesize wantsFullscreenPresentation=_wantsFullscreenPresentation;
 @property(copy, nonatomic) NSString *unlockActionLabelOverride; // @synthesize unlockActionLabelOverride=_unlockActionLabelOverride;
@@ -140,9 +138,6 @@
 - (void)setShowsMessagePreview:(_Bool)arg1;
 - (_Bool)showsMessagePreview;
 @property(readonly, copy, nonatomic) NSString *publisherMatchID;
-- (id)firstValidObserver;
-- (void)addObserver:(id)arg1;
-- (void)addLifeAssertion:(id)arg1;
 - (void)_fillOutCopy:(id)arg1 withZone:(struct _NSZone *)arg2;
 - (id)actionForResponse:(id)arg1;
 - (CDUnknownBlockType)responseSendBlock;
@@ -182,6 +177,11 @@
 - (unsigned long long)hash;
 - (void)dealloc;
 - (id)init;
+- (void)copyAssociationsForBulletin:(id)arg1;
+- (void)addObserver:(id)arg1;
+- (id)firstValidObserver;
+- (void)addLifeAssertion:(id)arg1;
+- (id)lifeAssertions;
 @property(readonly, nonatomic) unsigned long long privacySettings;
 @property(readonly, nonatomic) _Bool revealsAdditionalContentOnPresentation;
 @property(readonly, nonatomic) _Bool preemptsPresentedAlert;
@@ -217,6 +217,7 @@
 @property(readonly, nonatomic) NSString *fullUnlockActionLabel;
 @property(readonly, nonatomic) NSString *missedBannerDescriptionFormat;
 @property(readonly, nonatomic) NSString *topic;
+@property(readonly, nonatomic) NSString *hiddenPreviewsBodyPlaceholder;
 @property(readonly, nonatomic) _Bool showsDateInFloatingLockScreenAlert;
 @property(readonly, nonatomic) _Bool orderSectionUsingRecencyDate;
 @property(readonly, nonatomic) _Bool usesVariableLayout;

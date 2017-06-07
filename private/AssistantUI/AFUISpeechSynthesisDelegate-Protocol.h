@@ -9,8 +9,8 @@
 @class NSString;
 
 @protocol AFUISpeechSynthesisDelegate <NSObject>
-- (void)speechSynthesisDidStopSpeakingQueueIsEmpty:(_Bool)arg1;
-- (void)speechSynthesisDidStartSpeaking;
+- (void)speechSynthesisDidStopSpeakingWithIdentifier:(NSString *)arg1 queueIsEmpty:(_Bool)arg2;
+- (void)speechSynthesisDidStartSpeakingWithIdentifier:(NSString *)arg1;
 - (void)speechSynthesisExecuteAnimationForIdentifier:(NSString *)arg1;
 - (void)speechSynthesisGetPreparedTextForIdentifier:(NSString *)arg1 completion:(void (^)(NSString *))arg2;
 @end

@@ -21,6 +21,7 @@
 @property id delegate; // @synthesize delegate=_delegate;
 @property(retain) NSXPCConnection *connection; // @synthesize connection;
 - (void).cxx_destruct;
+- (_Bool)getAdvertisedBytes:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setLocalReflect:(_Bool)arg1;
 - (void)synchronize;
 - (void)replayCommands:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -42,6 +43,7 @@
 - (id)defaults:(_Bool)arg1;
 - (id)status:(id)arg1 options:(id)arg2;
 - (id)simulatorStatus;
+- (id)recentActions:(_Bool)arg1;
 - (id)status;
 - (id)dynamicUserActivities;
 - (id)debuggingInfo;

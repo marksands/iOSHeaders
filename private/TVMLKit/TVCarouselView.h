@@ -74,6 +74,7 @@
 - (id)collectionView:(id)arg1 cellForItemAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)indexPathForPreferredFocusedViewInCollectionView:(id)arg1;
+- (void)setSemanticContentAttribute:(long long)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)preferredFocusedView;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;

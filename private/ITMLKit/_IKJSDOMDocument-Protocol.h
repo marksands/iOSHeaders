@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ITMLKit/IKJSDOMDocument-Protocol.h>
 #import <ITMLKit/JSExport-Protocol.h>
 
 @class IKDOMDocument, JSValue, NSArray, NSDictionary, NSString;
 
-@protocol _IKJSDOMDocument <JSExport>
+@protocol _IKJSDOMDocument <IKJSDOMDocument, JSExport>
 - (NSArray *)matchingImpressions:(NSString *)arg1:(JSValue *)arg2;
 - (NSArray *)recordedImpressions:(JSValue *)arg1;
 - (NSArray *)snapshotImpressions;

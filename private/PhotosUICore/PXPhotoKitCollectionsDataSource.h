@@ -23,10 +23,12 @@
 @property(readonly, nonatomic) NSArray *_collectionsFetchResultBySection; // @synthesize _collectionsFetchResultBySection=__collectionsFetchResultBySection;
 @property(readonly, nonatomic) NSArray *_collectionListBySection; // @synthesize _collectionListBySection=__collectionListBySection;
 - (void).cxx_destruct;
+- (_Bool)collectionIsMemories:(id)arg1;
 - (_Bool)collectionIsScenes:(id)arg1;
 - (_Bool)collectionIsPlaces:(id)arg1;
 - (_Bool)collectionIsPeople:(id)arg1;
 - (_Bool)collectionIsPlaceholderCollection:(id)arg1;
+- (_Bool)collectionIsCameraRoll:(id)arg1;
 - (_Bool)collectionIsSmartFolder:(id)arg1;
 - (_Bool)collectionIsSynced:(id)arg1;
 - (_Bool)collectionIsRecentlyDeletedAlbum:(id)arg1;

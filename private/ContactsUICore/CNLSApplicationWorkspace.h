@@ -14,6 +14,9 @@
 {
 }
 
++ (id)launchServices;
++ (id)remoteAdapter;
+- (void)openUserActivity:(id)arg1 inApplication:(id)arg2 options:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)applicationForBundleIdentifier:(id)arg1;
 - (id)applicationsForUserActivityType:(id)arg1;
 - (id)applicationsAvailableForHandlingURLScheme:(id)arg1;

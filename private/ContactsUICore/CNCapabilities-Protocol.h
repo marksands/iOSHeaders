@@ -7,6 +7,7 @@
 #import <ContactsUICore/NSObject-Protocol.h>
 
 @protocol CNCapabilities <NSObject>
+@property(readonly, nonatomic) _Bool isPaySupported;
 @property(readonly, nonatomic) _Bool isFaceTimeAudioSupported;
 @property(readonly, nonatomic) _Bool isFaceTimeVideoSupported;
 @property(readonly, nonatomic) _Bool isiMessageSupported;

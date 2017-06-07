@@ -23,7 +23,8 @@
 @property(copy, nonatomic) NSString *specificLanguageID; // @synthesize specificLanguageID=_specificLanguageID;
 @property(retain, nonatomic) NSLocale *locale; // @synthesize locale=_locale;
 @property(copy, nonatomic) NSString *voiceName; // @synthesize voiceName=_voiceName;
-@property(nonatomic) AXLangMap *langMap; // @synthesize langMap=_langMap;
+@property(nonatomic) __weak AXLangMap *langMap; // @synthesize langMap=_langMap;
+- (void).cxx_destruct;
 - (_Bool)canSpeakString:(id)arg1;
 - (_Bool)canSpeakLongCharacter:(unsigned int)arg1;
 - (_Bool)canSpeakCharacter:(unsigned short)arg1;
@@ -38,7 +39,6 @@
 - (id)debugDescription;
 - (id)basicDescription;
 - (id)description;
-- (void)dealloc;
 - (id)initWithLocale:(id)arg1 voiceName:(id)arg2 specificLanguageID:(id)arg3 speakableCharacters:(id)arg4 secondaryLanguageRange:(id)arg5;
 
 @end

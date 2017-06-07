@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(copy) CDUnknownBlockType onTap; // @synthesize onTap=_onTap;
 - (void).cxx_destruct;
 - (void)setAttributedText:(id)arg1;
+- (void)setStyleProvider:(id)arg1 primaryStyle:(_Bool)arg2;
 - (void)setText:(id)arg1;
 - (void)layoutSubviews;
 - (id)_associatedScalingLabel;

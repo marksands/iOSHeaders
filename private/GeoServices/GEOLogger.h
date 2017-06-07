@@ -4,27 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOExperimentConfigurationObserver-Protocol.h>
 
 @class GEOLogContext, NSHashTable, NSLock, NSString;
-@protocol OS_dispatch_queue;
 
 @interface GEOLogger : NSObject <GEOExperimentConfigurationObserver>
 {
     GEOLogContext *_cachedLogContext;
     NSHashTable *_logContextDelegates;
     NSLock *_logContextDelegatesLock;
-    NSObject<OS_dispatch_queue> *_loggerQueue;
-    void *_loggerQueueIdentityKey;
-    void *_loggerQueueIdentityValue;
 }
 
-+ (void)registerGEOLogFacility;
 + (id)sharedLogger;
++ (void)executeLoggerBlock:(CDUnknownBlockType)arg1;
++ (id)loggerQueue;
+- (void).cxx_destruct;
 - (void)experimentConfigurationDidChange:(id)arg1;
-- (void)updateLogMsgStatesFromCachedContextInLogMessage:(id)arg1;
 - (void)unregisterAllLogContextDelegates;
 - (void)unregisterLogContextDelegate:(id)arg1;
 - (void)registerLogContextDelegate:(id)arg1;
@@ -36,7 +33,6 @@
 - (void)_captureLogMsgEvent:(id)arg1 withMergedContext:(id)arg2;
 - (void)captureLogMsgEvent:(id)arg1 withLogContext:(id)arg2;
 - (void)captureLogMsgEvent:(id)arg1;
-- (id)sharedLogMessageFactoryInstance;
 - (id)sharedLogManagerInstance;
 - (void)dealloc;
 - (id)init;

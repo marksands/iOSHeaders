@@ -26,9 +26,9 @@
 @property(retain, nonatomic) CoreDAVGrantItem *grant; // @synthesize grant=_grant;
 @property(retain, nonatomic) CoreDAVInvertItem *invert; // @synthesize invert=_invert;
 @property(retain, nonatomic) CoreDAVPrincipalItem *principal; // @synthesize principal=_principal;
+- (void).cxx_destruct;
 - (void)write:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)initWithPrincipal:(id)arg1 shouldInvert:(_Bool)arg2 action:(int)arg3 withPrivileges:(id)arg4;
 - (id)init;
 

@@ -7,6 +7,6 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (FormatFlowedSupport)
-- (id)mf_convertFromFlowedText:(unsigned int)arg1;
+- (id)mf_convertFromFlowedText:(unsigned int)arg1 visuallyEmpty:(_Bool *)arg2;
 @end
 

@@ -7,12 +7,12 @@
 #import <AVConference/GKNATObserver.h>
 
 @class GKNATObserver_SCContext, NSMutableDictionary, NSObject, NSRecursiveLock;
-@protocol GKNATObserverDelegate, OS_dispatch_group, OS_dispatch_queue, OS_dispatch_semaphore;
+@protocol OS_dispatch_group, OS_dispatch_queue, OS_dispatch_semaphore;
 
 __attribute__((visibility("hidden")))
 @interface GKNATObserverInternal : GKNATObserver
 {
-    id <GKNATObserverDelegate> _delegate;
+    id _delegate;
     struct __SCDynamicStore *_dynamicStore;
     NSRecursiveLock *_xNATCheck;
     int _lastReportedNATType;

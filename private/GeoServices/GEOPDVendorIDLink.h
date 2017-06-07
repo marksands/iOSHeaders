@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSString;
+@class NSString, PBUnknownFields;
 
 @interface GEOPDVendorIDLink : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     CDStruct_95bda58d _reservationTypes;
     NSString *_externalItemId;
     NSString *_vendorId;
@@ -19,6 +20,8 @@
 
 @property(retain, nonatomic) NSString *externalItemId; // @synthesize externalItemId=_externalItemId;
 @property(retain, nonatomic) NSString *vendorId; // @synthesize vendorId=_vendorId;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

@@ -6,17 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class PGTitle;
 
 @interface PGTitleTuple : NSObject
 {
-    NSString *_title;
-    NSString *_subtitle;
+    PGTitle *_title;
+    PGTitle *_subtitle;
 }
 
-@property(readonly, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) PGTitle *subtitle; // @synthesize subtitle=_subtitle;
+@property(readonly, nonatomic) PGTitle *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (id)description;
+- (_Bool)isEqual:(id)arg1;
 - (id)initWithWithTitle:(id)arg1 subtitle:(id)arg2;
 
 @end

@@ -23,7 +23,6 @@
     NSObject<OS_dispatch_queue> *_imageRequestQueue;
     _Bool _didAttemptRestartAfterAppContextFailure;
     VideosExtrasMainTemplateViewController *_mainTemplateViewController;
-    UITraitCollection *_overrideTraitCollection;
     VideosExtrasContext *_context;
     VideosExtrasFeatureContainerViewController *_featureContainer;
     IKAppContext *_applicationContext;
@@ -43,7 +42,6 @@
 @property(retain, nonatomic) IKAppContext *applicationContext; // @synthesize applicationContext=_applicationContext;
 @property(retain, nonatomic) VideosExtrasFeatureContainerViewController *featureContainer; // @synthesize featureContainer=_featureContainer;
 @property(readonly, nonatomic) __weak VideosExtrasContext *context; // @synthesize context=_context;
-@property(copy, nonatomic) UITraitCollection *overrideTraitCollection; // @synthesize overrideTraitCollection=_overrideTraitCollection;
 @property(retain, nonatomic) VideosExtrasMainTemplateViewController *mainTemplateViewController; // @synthesize mainTemplateViewController=_mainTemplateViewController;
 @property(readonly, nonatomic) UINavigationController *navigationController; // @synthesize navigationController=_navigationController;
 - (void).cxx_destruct;
@@ -63,6 +61,7 @@
 - (id)navigationController:(id)arg1 interactionControllerForAnimationController:(id)arg2;
 - (id)navigationController:(id)arg1 animationControllerForOperation:(long long)arg2 fromViewController:(id)arg3 toViewController:(id)arg4;
 - (_Bool)shouldAutorotate;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (unsigned long long)supportedInterfaceOrientations;
 - (void)viewDidLoad;
@@ -101,6 +100,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(copy, nonatomic) UITraitCollection *overrideTraitCollection; // @dynamic overrideTraitCollection;
 @property(readonly) Class superclass;
 
 @end

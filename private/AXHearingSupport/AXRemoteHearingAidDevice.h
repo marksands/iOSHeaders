@@ -115,7 +115,7 @@
 @property(nonatomic) _Bool isConnecting; // @synthesize isConnecting=_isConnecting;
 @property(nonatomic) _Bool isPaired; // @synthesize isPaired=_isPaired;
 @property(nonatomic) _Bool isBluetoothPaired; // @synthesize isBluetoothPaired=_isBluetoothPaired;
-@property(nonatomic) id <AXHARemoteUpdateProtocol> updateDelegate; // @synthesize updateDelegate=_updateDelegate;
+@property(nonatomic) __weak id <AXHARemoteUpdateProtocol> updateDelegate; // @synthesize updateDelegate=_updateDelegate;
 @property(nonatomic) double rightMixedVolume; // @synthesize rightMixedVolume=_rightMixedVolume;
 @property(nonatomic) double leftMixedVolume; // @synthesize leftMixedVolume=_leftMixedVolume;
 @property(nonatomic) BOOL rightBass; // @synthesize rightBass=_rightBass;
@@ -143,7 +143,10 @@
 - (id)programs;
 - (_Bool)showCombinedPrograms;
 - (_Bool)programsListsAreEqual;
+- (_Bool)shouldOnlyShowIndividualVolumesForProperty:(unsigned long long)arg1;
+- (_Bool)shouldDisplayCombinedVolume;
 - (_Bool)supportsCombinedVolumesForProperty:(unsigned long long)arg1;
+- (id)programAtIndex:(unsigned char)arg1 forEar:(int)arg2;
 - (void)writeVolumesForProperty:(unsigned long long)arg1;
 - (void)_delayWriteProperties;
 - (_Bool)propertyIsAvailable:(unsigned long long)arg1 forEar:(int)arg2;

@@ -10,6 +10,7 @@
 
 @protocol SubCalURLRequestDelegate <NSObject>
 - (void)subCalURLRequest:(SubCalURLRequest *)arg1 finishedWithData:(NSData *)arg2 error:(NSError *)arg3;
+- (void)handleTrustChallenge:(NSURLAuthenticationChallenge *)arg1 forSubCalURLRequest:(SubCalURLRequest *)arg2 completionHandler:(void (^)(long long, NSURLCredential *))arg3;
 - (void)handleTrustChallenge:(NSURLAuthenticationChallenge *)arg1 forSubCalURLRequest:(SubCalURLRequest *)arg2;
 
 @optional

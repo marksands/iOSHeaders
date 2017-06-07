@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface VKPlatform : NSObject
 {
@@ -31,14 +31,12 @@
 @property(readonly, nonatomic) _Bool lowPerformanceDevice;
 @property(readonly, nonatomic) _Bool supports3DBuildings;
 @property(readonly, nonatomic) _Bool supportsBuildingShadows;
+@property(readonly, nonatomic) unsigned char processingQueueWidth;
 @property(readonly, nonatomic) unsigned char tileDecodeQueueWidth;
 @property(readonly, nonatomic) _Bool shouldPregenerateLabelGlyphs;
 @property(readonly, nonatomic) _Bool shouldLayoutLabelsInParallel;
 @property(readonly, nonatomic) _Bool shouldStyleLabelsInParallel;
 @property(readonly, nonatomic) _Bool supportsHiResBuildings;
-@property(readonly, nonatomic) double mainScreenPPI;
-@property(readonly, nonatomic) double maxContentScaleForRendering;
-@property(readonly, nonatomic) double mainScreenScale;
 @property(readonly, nonatomic) _Bool shouldDrawWhenReady;
 @property(readonly, nonatomic) _Bool isPad;
 @property(readonly, nonatomic) _Bool canMakeSharingThumbnails;

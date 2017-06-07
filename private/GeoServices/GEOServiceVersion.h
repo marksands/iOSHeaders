@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 + (Class)versionDomainType;
 @property(nonatomic) unsigned int minimumVersion; // @synthesize minimumVersion=_minimumVersion;
 @property(retain, nonatomic) NSMutableArray *versionDomains; // @synthesize versionDomains=_versionDomains;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -37,7 +38,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)versionDomainsCount;
 - (void)addVersionDomain:(id)arg1;
 - (void)clearVersionDomains;
-- (void)dealloc;
 
 @end
 

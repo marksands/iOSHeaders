@@ -4,37 +4,36 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <iWorkImport/TSKSosBase.h>
 
-#import <iWorkImport/TSDAnnotationHosting-Protocol.h>
+#import <iWorkImport/TSDComment-Protocol.h>
 
-@class NSDate, NSString, TSDCommentStorage, TSDDrawableInfo, TSKAnnotationAuthor, TSPObject;
+@class NSDate, NSString, TSDCommentStorage, TSDDrawableInfo, TSKAnnotationAuthor;
 
 __attribute__((visibility("hidden")))
-@interface TSDDrawableComment : NSObject <TSDAnnotationHosting>
+@interface TSDDrawableComment : TSKSosBase <TSDComment>
 {
     TSDCommentStorage *mStorage;
-    TSDDrawableInfo *mParent;
+    TSDDrawableInfo *_parent;
 }
 
-@property(retain, nonatomic) TSDDrawableInfo *parent; // @synthesize parent=mParent;
+@property(nonatomic) __weak TSDDrawableInfo *parent; // @synthesize parent=_parent;
+- (void).cxx_destruct;
+- (_Bool)isInDocument;
 - (void)commentWillBeAddedToDocumentRoot;
+@property(readonly, nonatomic) _Bool isHighlight;
 @property(readonly, nonatomic) int annotationDisplayStringType;
 @property(readonly, nonatomic) int annotationType;
 @property(readonly, nonatomic) NSDate *date;
-- (void)setAuthor:(id)arg1;
-@property(readonly, nonatomic) TSKAnnotationAuthor *author;
-@property(readonly, nonatomic) TSPObject *hostingModel;
+@property(retain, nonatomic) TSKAnnotationAuthor *author;
+- (_Bool)wantsAnnotationPopover;
+@property(readonly, nonatomic) NSString *annotationUUID;
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) TSDCommentStorage *storage;
-- (void)dealloc;
 - (id)initWithParent:(id)arg1 storage:(id)arg2;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *changeTrackingContentFormatString;
-@property(readonly, nonatomic) NSString *changeTrackingContentString;
-@property(readonly, nonatomic) NSString *changeTrackingTitleString;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

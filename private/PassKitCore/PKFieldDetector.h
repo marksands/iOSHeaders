@@ -4,32 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSHashTable, PKFieldProperties;
-@protocol OS_dispatch_queue, OS_dispatch_source;
+@protocol OS_dispatch_queue, PKFieldDetectorDelegate;
 
 @interface PKFieldDetector : NSObject
 {
     NSHashTable *_observers;
     PKFieldProperties *_fieldProperties;
-    _Bool _fieldPresent;
-    unsigned long long _fieldDetectSessionRetryCount;
     NSObject<OS_dispatch_queue> *_fieldDetectorSerialQueue;
     NSObject<OS_dispatch_queue> *_observersConcurrentQueue;
     NSObject<OS_dispatch_queue> *_replyQueue;
-    NSObject<OS_dispatch_source> *_valueAddedServiceLookupTimer;
-    unsigned long long _valueAddedServiceLookupSynchronizer;
-    unsigned long long _valueAddedServiceLookupTechnology;
-    unsigned long long _valueAddedServiceLookupMode;
+    id <PKFieldDetectorDelegate> _delegate;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <PKFieldDetectorDelegate> delegate;
 @property(readonly, nonatomic) __weak PKFieldProperties *fieldProperties;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1;
 - (void)setPersistentFieldDetectionEnabled:(_Bool)arg1;
 - (void)dealloc;
+- (id)initWithDelegate:(id)arg1;
 - (id)init;
 
 @end

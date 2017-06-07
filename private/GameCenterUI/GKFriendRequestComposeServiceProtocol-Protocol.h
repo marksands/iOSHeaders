@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GameCenterUI/GKRemoteViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionProtocol-Protocol.h>
 
 @class NSArray, NSString;
 
-@protocol GKFriendRequestComposeServiceProtocol <GKRemoteViewControllerDelegate>
+@protocol GKFriendRequestComposeServiceProtocol <GKExtensionProtocol>
 - (void)setDefaultMessage:(NSString *)arg1;
 - (void)addRecipientsWithEmailAddresses:(NSArray *)arg1;
 - (void)addRecipientPlayerInternals:(NSArray *)arg1;

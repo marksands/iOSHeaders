@@ -11,11 +11,11 @@
 __attribute__((visibility("hidden")))
 @interface TSTTableDataConditionalStyleSet : TSTTableDataObject
 {
-    TSTConditionalStyleSet *mConditionalStyleSet;
+    TSTConditionalStyleSet *_conditionalStyleSet;
 }
 
-@property(readonly, nonatomic) TSTConditionalStyleSet *conditionalStyleSet; // @synthesize conditionalStyleSet=mConditionalStyleSet;
-- (void)dealloc;
+@property(retain, nonatomic) TSTConditionalStyleSet *conditionalStyleSet; // @synthesize conditionalStyleSet=_conditionalStyleSet;
+- (void).cxx_destruct;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

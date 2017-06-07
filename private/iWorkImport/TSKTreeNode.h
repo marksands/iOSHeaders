@@ -33,7 +33,7 @@ __attribute__((visibility("hidden")))
 - (id)nodeAtIndex:(unsigned long long)arg1;
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 @property(retain, nonatomic) id dataObject;
 @property(retain, nonatomic) NSMutableArray *children;
 @property(retain, nonatomic) NSString *name;

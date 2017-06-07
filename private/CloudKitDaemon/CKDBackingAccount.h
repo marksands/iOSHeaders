@@ -25,15 +25,13 @@
 @property(readonly, nonatomic) NSURL *privateDeviceServiceURL;
 @property(readonly, nonatomic) NSURL *privateShareServiceURL;
 @property(readonly, nonatomic) NSURL *privateCloudDBURL;
+- (id)urlForDataclass:(id)arg1;
 - (id)accountPropertiesForDataclass:(id)arg1;
 - (void)displayAuthenticationPromptWithReason:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)validateVettingToken:(id)arg1 vettingEmail:(id)arg2 vettingPhone:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)updateAccountProperiesInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)saveVerifiedAccountInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)updateAccountPropertiesAndSaveAccountInStore:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)renewAuthTokenInStore:(id)arg1 withOptions:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)isDataclassEnabled:(id)arg1;
-@property(readonly, nonatomic) _Bool cloudPhotosIsEnabled;
-@property(readonly, nonatomic) _Bool cloudKitIsEnabled;
 @property(readonly, nonatomic) _Bool iCloudDriveAllowsCellularAccess;
 @property(readonly, nonatomic) _Bool isFakeAccount;
 @property(readonly, nonatomic) NSString *serverPreferredPushEnvironment;

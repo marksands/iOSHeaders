@@ -12,21 +12,20 @@
 
 @interface HFCharacteristicNotificationManager : NSObject <HFHomeManagerObserver>
 {
+    NSDate *_lastNotificationsEnableRequestDate;
     NSMutableSet *_notificationsEnabledReasons;
     HMHome *_notificationsEnabledHome;
-    NSDate *_lastNotificationsEnableRequestDate;
 }
 
 + (id)sharedManager;
-@property(retain, nonatomic) NSDate *lastNotificationsEnableRequestDate; // @synthesize lastNotificationsEnableRequestDate=_lastNotificationsEnableRequestDate;
 @property(retain, nonatomic) HMHome *notificationsEnabledHome; // @synthesize notificationsEnabledHome=_notificationsEnabledHome;
 @property(readonly, nonatomic) NSMutableSet *notificationsEnabledReasons; // @synthesize notificationsEnabledReasons=_notificationsEnabledReasons;
+@property(retain, nonatomic) NSDate *lastNotificationsEnableRequestDate; // @synthesize lastNotificationsEnableRequestDate=_lastNotificationsEnableRequestDate;
 - (void).cxx_destruct;
 - (void)_updateNotificationsEnabled;
 - (void)homeKitDispatcher:(id)arg1 manager:(id)arg2 didChangeHome:(id)arg3;
 - (void)homeManagerDidFinishInitialDatabaseLoad:(id)arg1;
 @property(readonly, nonatomic) _Bool notificationsEnabled;
-- (_Bool)valueIsUpToDateForCharacteristic:(id)arg1;
 - (void)disableNotificationsForSelectedHomeWithReason:(id)arg1;
 - (void)enableNotificationsForSelectedHomeWithReason:(id)arg1;
 - (id)init;

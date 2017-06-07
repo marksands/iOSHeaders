@@ -10,12 +10,10 @@
 
 @interface ASDInstallManifestRequestResponse : ASDRequestResponse
 {
-    _Bool _success;
     NSArray *_results;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) _Bool success; // @synthesize success=_success;
 @property(readonly, nonatomic) NSArray *results; // @synthesize results=_results;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
@@ -23,6 +21,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithResults:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property _Bool success; // @dynamic success;
 
 @end
 

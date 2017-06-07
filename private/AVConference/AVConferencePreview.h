@@ -36,7 +36,10 @@
 - (void)setLocalScreenAttributes:(id)arg1;
 - (id)localVideoAttributes;
 - (void)setLocalVideoAttributes:(id)arg1;
+- (id)localCameraUID;
 - (unsigned int)localCamera;
+- (void)setLocalCameraWithPosition:(int)arg1;
+- (void)setLocalCameraWithUID:(id)arg1;
 - (void)setLocalCamera:(unsigned int)arg1;
 - (id)localVideoLayer:(_Bool)arg1;
 - (void)setLocalVideoLayer:(id)arg1 front:(_Bool)arg2;
@@ -56,13 +59,13 @@
 - (id)init;
 - (void)registerBlocksForDelegateNotifications;
 - (void)connectLayer:(id)arg1 withSlot:(unsigned int)arg2;
-- (void)cameraDidBecomeAvailable:(unsigned int)arg1;
+- (void)cameraDidBecomeAvailableForUniqueID:(id)arg1;
 - (void)didGetSnapshot:(id)arg1;
 - (void)didReceiveCommError;
-- (void)didReceiveErrorFromCamera:(unsigned int)arg1 error:(id)arg2;
+- (void)didReceiveErrorFromCameraUniqueID:(id)arg1 error:(id)arg2;
 - (void)didChangeLocalScreenAttributes:(id)arg1;
 - (void)didChangeLocalVideoAttributes:(id)arg1;
-- (void)didReceiveFirstPreviewFrameFromCamera:(unsigned int)arg1;
+- (void)didReceiveFirstPreviewFrameFromCameraUniqueID:(id)arg1;
 - (void)didStopPreview;
 - (void)didPausePreview;
 - (void)didStartPreview;

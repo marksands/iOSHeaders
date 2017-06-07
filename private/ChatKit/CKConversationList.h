@@ -19,6 +19,7 @@
 + (void)_handleRegistryDidLoadNotification:(id)arg1;
 + (void)initialize;
 + (id)sharedConversationList;
+@property(readonly, nonatomic) _Bool loadedConversations; // @synthesize loadedConversations=_loadedConversations;
 @property(readonly, nonatomic) _Bool loadingConversations; // @synthesize loadingConversations=_loadingConversations;
 @property(retain, nonatomic) CKConversation *pendingConversation; // @synthesize pendingConversation=_pendingConversation;
 - (void).cxx_destruct;
@@ -46,11 +47,13 @@
 - (id)_copyEntitiesForAddressStrings:(id)arg1;
 - (void)_handleRegistryWillUnregisterChatNotification:(id)arg1;
 - (void)_handleRegistryDidRegisterChatNotification:(id)arg1;
+- (void)_beginTrackingAllExistingChatsIfNeededAsync;
 - (void)_beginTrackingAllExistingChatsIfNeeded;
 - (void)stopTrackingConversation:(id)arg1;
 - (id)conversationForExistingChatWithGUID:(id)arg1;
 - (id)conversationForExistingChatWithGroupID:(id)arg1;
 - (id)_conversationForChat:(id)arg1;
+- (void)_beginTrackingConversationWithChat:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_beginTrackingConversationWithChat:(id)arg1;
 - (id)_alreadyTrackedConversationForChat:(id)arg1;
 - (id)description;

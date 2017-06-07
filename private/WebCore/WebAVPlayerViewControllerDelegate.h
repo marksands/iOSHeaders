@@ -25,7 +25,9 @@ __attribute__((visibility("hidden")))
 - (void)playerViewControllerFailedToStartPictureInPicture:(id)arg1 withError:(id)arg2;
 - (void)playerViewControllerDidStartPictureInPicture:(id)arg1;
 - (void)playerViewControllerWillStartPictureInPicture:(id)arg1;
-@property struct WebVideoFullscreenInterfaceAVKit *fullscreenInterface;
+// Error parsing type for property fullscreenInterface:
+// Property attributes: T^{WebVideoFullscreenInterfaceAVKit=^^?^^?^^?{atomic<unsigned int>=AI}{Ref<WebCore::WebPlaybackSessionInterfaceAVKit>=^{WebPlaybackSessionInterfaceAVKit}}{RetainPtr<WebAVPlayerViewControllerDelegate>=^v}{RetainPtr<AVPlayerViewController>=^v}^{WebVideoFullscreenModel}^{WebVideoFullscreenChangeObserver}{RetainPtr<UIWindow>=^v}{RetainPtr<UIViewController>=^v}{RetainPtr<UIView>=^v}{RetainPtr<UIWindow>=^v}{RetainPtr<WebAVPlayerLayerView>=^v}I{function<void (bool)>={type=[32C]}^{__base<void (bool)>}}{Timer=^^?{MonotonicTime=d}{MonotonicTime=d}{Seconds=d}iI^{Vector<WebCore::TimerBase *, 0, WTF::CrashOnOverflow, 16>}{function<void ()>={type=[32C]}^{__base<void ()>}}}BBBBBBB}
+
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

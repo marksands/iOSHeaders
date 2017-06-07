@@ -15,6 +15,7 @@
 {
     _Bool _zoomDialEnabled;
     _Bool __eligibleForTapInEmptySpace;
+    _Bool __eligibleForSwipeDownToDismiss;
     _Bool __shouldShowZoomDial;
     id <CAMZoomControlDelegate> _delegate;
     long long _layoutStyle;
@@ -34,6 +35,7 @@
 @property(retain, nonatomic, setter=_setStartTimeForHideAnimationInProgress:) NSDate *_startTimeForHideAnimationInProgress; // @synthesize _startTimeForHideAnimationInProgress=__startTimeForHideAnimationInProgress;
 @property(nonatomic, setter=_setShouldShowZoomDial:) _Bool _shouldShowZoomDial; // @synthesize _shouldShowZoomDial=__shouldShowZoomDial;
 @property(retain, nonatomic, setter=_setZoomDialVisibilityTimer:) NSTimer *_zoomDialVisibilityTimer; // @synthesize _zoomDialVisibilityTimer=__zoomDialVisibilityTimer;
+@property(nonatomic, getter=_isEligibleForSwipeDownToDismiss, setter=_setEligibleForSwipeDownToDismiss:) _Bool _eligibleForSwipeDownToDismiss; // @synthesize _eligibleForSwipeDownToDismiss=__eligibleForSwipeDownToDismiss;
 @property(nonatomic, getter=_isEligibleForTapInEmptySpace, setter=_setEligibleForTapInEmptySpace:) _Bool _eligibleForTapInEmptySpace; // @synthesize _eligibleForTapInEmptySpace=__eligibleForTapInEmptySpace;
 @property(nonatomic, setter=_setPreviousTouchTime:) double _previousTouchTime; // @synthesize _previousTouchTime=__previousTouchTime;
 @property(nonatomic, setter=_setPreviousTouchLocation:) struct CGPoint _previousTouchLocation; // @synthesize _previousTouchLocation=__previousTouchLocation;
@@ -49,6 +51,7 @@
 @property(nonatomic) __weak id <CAMZoomControlDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)zoomButtonDidLayout;
+- (void)_cleanupForCancelTracking;
 - (void)cancelTrackingWithEvent:(id)arg1;
 - (void)endTrackingWithTouch:(id)arg1 withEvent:(id)arg2;
 - (_Bool)continueTrackingWithTouch:(id)arg1 withEvent:(id)arg2;

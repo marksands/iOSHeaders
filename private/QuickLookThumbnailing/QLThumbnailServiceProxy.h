@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSXPCConnection;
 @protocol QLThumbnailAdditionIndexInterface, QLThumbnailsInterface;
@@ -18,6 +18,7 @@
 
 + (id)interface;
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (void)touchOrAddThumbnailAddition:(id)arg1 forURL:(id)arg2;
 - (void)askThumbnailAdditionIndex:(CDUnknownBlockType)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;

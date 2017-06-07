@@ -13,9 +13,9 @@ __attribute__((visibility("hidden")))
 
 + (id)inString;
 - (void)saveToArchive:(struct InNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct InNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct InNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)formulaPlainText;
 - (id)argumentSpec;
 - (id)string;

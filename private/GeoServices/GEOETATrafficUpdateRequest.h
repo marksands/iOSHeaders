@@ -21,6 +21,7 @@
     GEOLocation *_currentUserLocation;
     NSMutableArray *_destinationWaypointTypeds;
     NSData *_directionsResponseID;
+    unsigned int _maxAlternateRouteCount;
     unsigned int _previouslyRejectedRerouteSavings;
     int _rerouteStatus;
     GEORouteAttributes *_routeAttributes;
@@ -35,6 +36,7 @@
     struct {
         unsigned int sessionID:1;
         unsigned int clientTimepoint:1;
+        unsigned int maxAlternateRouteCount:1;
         unsigned int previouslyRejectedRerouteSavings:1;
         unsigned int rerouteStatus:1;
         unsigned int includeBetterRouteSuggestion:1;
@@ -60,6 +62,7 @@
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
 @property(retain, nonatomic) GEORouteAttributes *routeAttributes; // @synthesize routeAttributes=_routeAttributes;
 @property(retain, nonatomic) GEOLocation *currentUserLocation; // @synthesize currentUserLocation=_currentUserLocation;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -75,6 +78,8 @@
 - (unsigned long long)serviceTagsCount;
 - (void)addServiceTag:(id)arg1;
 - (void)clearServiceTags;
+@property(nonatomic) _Bool hasMaxAlternateRouteCount;
+@property(nonatomic) unsigned int maxAlternateRouteCount; // @synthesize maxAlternateRouteCount=_maxAlternateRouteCount;
 @property(readonly, nonatomic) _Bool hasAbClientMetadata;
 @property(readonly, nonatomic) _Bool hasCommonOptions;
 - (int)StringAsRerouteStatus:(id)arg1;
@@ -99,7 +104,6 @@
 @property(nonatomic) _Bool includeBetterRouteSuggestion; // @synthesize includeBetterRouteSuggestion=_includeBetterRouteSuggestion;
 @property(readonly, nonatomic) _Bool hasRouteAttributes;
 @property(readonly, nonatomic) _Bool hasCurrentUserLocation;
-- (void)dealloc;
 @property(nonatomic) _Bool hasNeedServerLatency;
 @property(nonatomic) _Bool needServerLatency;
 @property(nonatomic) _Bool hasUseClientTimepointAsNow;

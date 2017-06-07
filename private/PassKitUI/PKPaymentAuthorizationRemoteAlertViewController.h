@@ -7,27 +7,39 @@
 #import <SpringBoardUIServices/SBUIRemoteAlertServiceViewController.h>
 
 #import <PassKitUI/PKPaymentAuthorizationHostProtocol-Protocol.h>
+#import <PassKitUI/PKPaymentSetupDelegate-Protocol.h>
 
-@class NSString, NSXPCConnection, PKInAppPaymentService, PKPaymentAuthorizationRemoteAlertViewControllerExportedObject, PKPaymentAuthorizationServiceNavigationController, PKPaymentRequest;
+@class NSString, NSXPCConnection, PKCompactNavigationContainerController, PKInAppPaymentService, PKPaymentAuthorizationRemoteAlertViewControllerExportedObject, PKPaymentAuthorizationServiceNavigationController, PKPaymentProvisioningController, PKPaymentRequest, PKPaymentSetupNavigationController;
 
-@interface PKPaymentAuthorizationRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentAuthorizationHostProtocol>
+@interface PKPaymentAuthorizationRemoteAlertViewController : SBUIRemoteAlertServiceViewController <PKPaymentAuthorizationHostProtocol, PKPaymentSetupDelegate>
 {
     _Bool _didForceDismiss;
+    _Bool _didSendAuthorizationDidPresent;
     long long _hostAppInterfaceOrientation;
     NSString *_hostApplicationIdentifier;
+    int _statusBarVisibility;
+    NSString *_hostLocalizedAppName;
+    PKPaymentRequest *_paymentRequest;
+    PKPaymentProvisioningController *_paymentProvisioningController;
+    PKPaymentSetupNavigationController *_paymentSetupNavigationController;
+    _Bool _dismissAfterPaymentSetup;
+    _Bool _isPerformingPaymentSetup;
+    PKCompactNavigationContainerController *_navigationContainer;
     PKPaymentAuthorizationServiceNavigationController *_navigationController;
     PKPaymentAuthorizationRemoteAlertViewControllerExportedObject *_exportedObject;
     PKInAppPaymentService *_inAppPaymentService;
     NSXPCConnection *_hostConnection;
-    PKPaymentRequest *_paymentRequest;
 }
 
 + (_Bool)_shouldForwardViewWillTransitionToSize;
+@property(readonly, nonatomic) _Bool isPerformingPaymentSetup; // @synthesize isPerformingPaymentSetup=_isPerformingPaymentSetup;
+@property(nonatomic) _Bool dismissAfterPaymentSetup; // @synthesize dismissAfterPaymentSetup=_dismissAfterPaymentSetup;
 @property(retain, nonatomic) PKPaymentRequest *paymentRequest; // @synthesize paymentRequest=_paymentRequest;
 @property(retain, nonatomic) NSXPCConnection *hostConnection; // @synthesize hostConnection=_hostConnection;
 @property(retain, nonatomic) PKInAppPaymentService *inAppPaymentService; // @synthesize inAppPaymentService=_inAppPaymentService;
 @property(retain, nonatomic) PKPaymentAuthorizationRemoteAlertViewControllerExportedObject *exportedObject; // @synthesize exportedObject=_exportedObject;
 @property(retain, nonatomic) PKPaymentAuthorizationServiceNavigationController *navigationController; // @synthesize navigationController=_navigationController;
+@property(retain, nonatomic) PKCompactNavigationContainerController *navigationContainer; // @synthesize navigationContainer=_navigationContainer;
 - (void).cxx_destruct;
 - (void)_forceDismiss;
 - (void)_dismiss;
@@ -35,6 +47,7 @@
 - (void)authorizationDidSelectPaymentMethod:(id)arg1;
 - (void)authorizationDidSelectShippingAddress:(id)arg1;
 - (void)authorizationDidSelectShippingMethod:(id)arg1;
+- (void)authorizationDidAuthorizePeerPaymentQuote:(id)arg1;
 - (void)authorizationDidAuthorizePurchase:(id)arg1;
 - (void)authorizationDidAuthorizePayment:(id)arg1;
 - (void)authorizationDidFinishWithError:(id)arg1;
@@ -42,7 +55,24 @@
 - (void)authorizationWillStart;
 - (void)handleLockButtonPressed;
 - (void)handleHomeButtonPressed;
+- (void)sendAuthorizationDidPresentIfNecessary;
+- (void)_presentAlertWithTitle:(id)arg1 message:(id)arg2 cancelTitle:(id)arg3 actionTitle:(id)arg4 actionHandler:(CDUnknownBlockType)arg5;
+- (void)_presentAlertWithTitle:(id)arg1 message:(id)arg2 actionTitle:(id)arg3 actionHandler:(CDUnknownBlockType)arg4;
+- (void)_presentInvalidAlert;
+- (void)_presentPassNotSupportedAlertWithRelevantUniqueID:(id)arg1;
+- (void)_presentAddCardAlert;
+- (void)_presentLostModeAlertWithRelevantUniqueID:(id)arg1;
+- (void)_presentVerifyPassAlertWithRelevantUniqueID:(id)arg1;
+- (void)_presentActivatingPassAlertWithRelevantUniqueID:(id)arg1;
+- (void)_presentPaymentAuthorization;
+- (void)_presentPaymentSetup;
+- (void)_handlePaymentRequestPresentationResultType:(long long)arg1 relevantUniqueID:(id)arg2 firstAttempt:(_Bool)arg3;
 - (void)setUserInfo:(id)arg1;
+- (void)paymentSetupDidFinish:(id)arg1;
+- (id)_configuredPaymentSetupNavigationController;
+- (id)_provisioningController;
+- (void)_setStatusBarHidden:(_Bool)arg1;
+- (int)_preferredStatusBarVisibility;
 - (_Bool)_shouldRemoveViewFromHierarchyOnDisappear;
 - (void)_willAppearInRemoteViewController;
 - (void)viewWillDisappear:(_Bool)arg1;

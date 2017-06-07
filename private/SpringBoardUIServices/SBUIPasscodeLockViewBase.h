@@ -11,7 +11,7 @@
 #import <SpringBoardUIServices/SBUIPasscodeLockView-Protocol.h>
 #import <SpringBoardUIServices/SBUIPasscodeLockView_Internal-Protocol.h>
 
-@class NSMutableSet, NSString, NSTimer, SBUIPasscodeEntryField, UIColor, _UIFeedbackEventBehavior, _UIFeedbackKeyboardBehavior, _UILegibilitySettings;
+@class NSMutableSet, NSString, NSTimer, SBUIPasscodeEntryField, UIColor, UINotificationFeedbackGenerator, _UIKeyboardFeedbackGenerator, _UILegibilitySettings;
 @protocol BSInvalidatable, SBFLegibilitySettingsProvider, SBUIBiometricResource, SBUIPasscodeLockViewDelegate;
 
 @interface SBUIPasscodeLockViewBase : UIView <SBUIBiometricResourceObserver, SBFLegibilitySettingsProviderDelegate, SBUIPasscodeLockView_Internal, SBUIPasscodeLockView>
@@ -28,7 +28,6 @@
     double _currentBacklightLevel;
     _UILegibilitySettings *_legibilitySettings;
     _Bool _allowsStatusTextUpdatingOnResignFirstResponder;
-    _Bool _mesaLockedOut;
     _Bool _isBiometricAuthenticationAllowed;
     unsigned long long _biometricMatchingState;
     id <BSInvalidatable> _biometricMatchingAssertion;
@@ -42,28 +41,26 @@
     id <SBUIPasscodeLockViewDelegate> _delegate;
     SBUIPasscodeEntryField *_entryField;
     double _luminanceBoost;
-    unsigned long long _biometricMatchMode;
     id <SBUIBiometricResource> _biometricResource;
-    _UIFeedbackKeyboardBehavior *_keyboardFeedbackBehavior;
+    _UIKeyboardFeedbackGenerator *_keyboardFeedbackBehavior;
     unsigned long long _statusState;
     NSTimer *_screenBrightnessChangedTimer;
-    _UIFeedbackEventBehavior *_authenticationFeedbackBehavior;
+    UINotificationFeedbackGenerator *_authenticationFeedbackBehavior;
     NSString *_statusText;
     NSString *_statusSubtitleText;
 }
 
 @property(copy, nonatomic, getter=_statusSubtitleText, setter=_setStatusSubtitleText:) NSString *statusSubtitleText; // @synthesize statusSubtitleText=_statusSubtitleText;
 @property(copy, nonatomic, getter=_statusText, setter=_setStatusText:) NSString *statusText; // @synthesize statusText=_statusText;
-@property(retain, nonatomic) _UIFeedbackEventBehavior *authenticationFeedbackBehavior; // @synthesize authenticationFeedbackBehavior=_authenticationFeedbackBehavior;
+@property(retain, nonatomic) UINotificationFeedbackGenerator *authenticationFeedbackBehavior; // @synthesize authenticationFeedbackBehavior=_authenticationFeedbackBehavior;
 @property(retain, nonatomic) NSTimer *screenBrightnessChangedTimer; // @synthesize screenBrightnessChangedTimer=_screenBrightnessChangedTimer;
 @property(nonatomic, getter=_statusState, setter=_setStatusState:) unsigned long long statusState; // @synthesize statusState=_statusState;
 @property(nonatomic) _Bool shouldResetForFailedPasscodeAttempt; // @synthesize shouldResetForFailedPasscodeAttempt=_shouldResetForFailedPasscodeAttempt;
-@property(retain, nonatomic) _UIFeedbackKeyboardBehavior *keyboardFeedbackBehavior; // @synthesize keyboardFeedbackBehavior=_keyboardFeedbackBehavior;
+@property(retain, nonatomic) _UIKeyboardFeedbackGenerator *keyboardFeedbackBehavior; // @synthesize keyboardFeedbackBehavior=_keyboardFeedbackBehavior;
 @property(nonatomic) int style; // @synthesize style=_style;
 @property(retain, nonatomic) id <SBUIBiometricResource> biometricResource; // @synthesize biometricResource=_biometricResource;
 @property(nonatomic, getter=isBiometricAuthenticationAllowed) _Bool biometricAuthenticationAllowed; // @synthesize biometricAuthenticationAllowed=_isBiometricAuthenticationAllowed;
 @property(nonatomic, getter=isScreenOn) _Bool screenOn; // @synthesize screenOn=_screenOn;
-@property(nonatomic) unsigned long long biometricMatchMode; // @synthesize biometricMatchMode=_biometricMatchMode;
 @property(nonatomic, getter=_luminosityBoost, setter=_setLuminosityBoost:) double luminosityBoost; // @synthesize luminosityBoost=_luminanceBoost;
 @property(retain, nonatomic) id <SBFLegibilitySettingsProvider> backgroundLegibilitySettingsProvider; // @synthesize backgroundLegibilitySettingsProvider=_backgroundLegibilitySettingsProvider;
 @property(retain, nonatomic, getter=_entryField, setter=_setEntryField:) SBUIPasscodeEntryField *_entryField; // @synthesize _entryField;
@@ -80,7 +77,7 @@
 - (void)_updateStatusTextForBioEvent:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (void)_notifyDelegatePasscodeEnteredViaMesa;
 - (void)_handleBiometricAuthentication;
-- (void)_resetForFailedMesaAttempt;
+- (void)_resetForFailedBiometricAttempt;
 - (void)_resetStatusText;
 - (void)_evaluateLuminance;
 - (double)_luminanceBoostFromDisplayBrightness;
@@ -116,6 +113,7 @@
 - (void)_evaluateBiometricMatchingState;
 - (void)autofillForSuccessfulMesaAttemptWithCompletion:(CDUnknownBlockType)arg1;
 - (void)resetForFailedMesaAttemptWithStatusText:(id)arg1 andSubtitle:(id)arg2;
+- (void)setKeypadVisible:(_Bool)arg1 animated:(_Bool)arg2;
 @property(nonatomic) _Bool playsKeypadSounds; // @dynamic playsKeypadSounds;
 @property(readonly, nonatomic) NSString *passcode; // @dynamic passcode;
 - (void)setAllowsStatusTextUpdatingOnResignFirstResponder:(_Bool)arg1;

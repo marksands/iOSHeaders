@@ -16,5 +16,6 @@
 - (_Bool)tsu_isOutOfSpaceError;
 - (id)tsu_localizedAlertMessage;
 - (id)tsu_localizedAlertTitle;
+- (id)tsu_errorPreservingAlertTitle;
 @end
 

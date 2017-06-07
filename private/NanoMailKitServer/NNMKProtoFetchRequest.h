@@ -16,6 +16,7 @@
     NSData *_currentDateForRequestingMoreMessages;
     NSData *_currentMessageIdsAndStatus;
     unsigned int _fullSyncVersion;
+    NSString *_mailboxId;
     _Bool _wantsBatchedResponse;
     _Bool _willTrimDatabaseAfterResults;
     struct {
@@ -25,6 +26,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(nonatomic) _Bool willTrimDatabaseAfterResults; // @synthesize willTrimDatabaseAfterResults=_willTrimDatabaseAfterResults;
 @property(retain, nonatomic) NSData *currentDateForRequestingMoreMessages; // @synthesize currentDateForRequestingMoreMessages=_currentDateForRequestingMoreMessages;
 @property(retain, nonatomic) NSData *currentMessageIdsAndStatus; // @synthesize currentMessageIdsAndStatus=_currentMessageIdsAndStatus;
@@ -41,6 +43,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasMailboxId;
 @property(nonatomic) _Bool hasWillTrimDatabaseAfterResults;
 @property(readonly, nonatomic) _Bool hasCurrentDateForRequestingMoreMessages;
 @property(readonly, nonatomic) _Bool hasCurrentMessageIdsAndStatus;

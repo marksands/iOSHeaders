@@ -36,6 +36,8 @@ __attribute__((visibility("hidden")))
 - (void)invalidateForAutosizingTextLayout:(id)arg1;
 - (int)verticalAlignmentForTextLayout:(id)arg1;
 - (unsigned int)autosizeFlagsForTextLayout:(id)arg1;
+- (id)commandToClampModelToLayoutSize;
+- (void)transferLayoutGeometryToInfo:(id)arg1;
 - (_Bool)isDraggable;
 - (struct CGRect)boundsForStandardKnobs;
 - (id)computeLayoutGeometry;

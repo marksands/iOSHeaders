@@ -21,6 +21,7 @@
     id <CNVCardLineFactory> _lineFactory;
 }
 
++ (unsigned long long)estimatedBytesAvailableForPhotoWithOptions:(id)arg1 serializer:(id)arg2;
 + (id)builderWithPerson:(id)arg1;
 - (void).cxx_destruct;
 - (void)addPropertyLinesForValues:(id)arg1 generator:(id)arg2;

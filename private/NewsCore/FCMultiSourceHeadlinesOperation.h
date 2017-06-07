@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class NSArray, NSDictionary, NSSet;
+@class FCCachePolicy, NSArray, NSDictionary, NSSet;
 @protocol FCContentContext;
 
 @interface FCMultiSourceHeadlinesOperation : FCOperation
@@ -14,7 +14,7 @@
     id <FCContentContext> _context;
     NSArray *_articleListIDs;
     NSSet *_articleIDs;
-    double _maximumCachedAgeForArticleList;
+    FCCachePolicy *_cachePolicyForArticleLists;
     NSArray *_networkEvents;
     CDUnknownBlockType _headlinesCompletionHandler;
     NSDictionary *_resultArticleListHeadlinesByArticleListID;
@@ -27,7 +27,7 @@
 @property(retain, nonatomic) NSDictionary *resultArticleListHeadlinesByArticleListID; // @synthesize resultArticleListHeadlinesByArticleListID=_resultArticleListHeadlinesByArticleListID;
 @property(copy, nonatomic) CDUnknownBlockType headlinesCompletionHandler; // @synthesize headlinesCompletionHandler=_headlinesCompletionHandler;
 @property(copy, nonatomic) NSArray *networkEvents; // @synthesize networkEvents=_networkEvents;
-@property(nonatomic) double maximumCachedAgeForArticleList; // @synthesize maximumCachedAgeForArticleList=_maximumCachedAgeForArticleList;
+@property(retain, nonatomic) FCCachePolicy *cachePolicyForArticleLists; // @synthesize cachePolicyForArticleLists=_cachePolicyForArticleLists;
 @property(copy, nonatomic) NSSet *articleIDs; // @synthesize articleIDs=_articleIDs;
 @property(copy, nonatomic) NSArray *articleListIDs; // @synthesize articleListIDs=_articleListIDs;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;

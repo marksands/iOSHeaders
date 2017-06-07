@@ -8,32 +8,27 @@
 
 #import <PDFKit/NSCopying-Protocol.h>
 
-@class PDFAppearanceCharacteristicsPrivateVars;
+@class NSDictionary, NSString, PDFAppearanceCharacteristicsPrivate, UIColor;
 
 @interface PDFAppearanceCharacteristics : NSObject <NSCopying>
 {
-    PDFAppearanceCharacteristicsPrivateVars *_private;
+    PDFAppearanceCharacteristicsPrivate *_private;
 }
 
 - (void).cxx_destruct;
-- (void)setDownCaption:(id)arg1;
-- (id)downCaption;
-- (void)setRolloverCaption:(id)arg1;
-- (id)rolloverCaption;
-- (void)setCaption:(id)arg1;
-- (id)caption;
-- (void)setFlavor:(long long)arg1;
-- (long long)flavor;
+@property(readonly, copy, nonatomic) NSDictionary *appearanceCharacteristicsKeyValues;
+@property(copy, nonatomic) NSString *downCaption;
+@property(copy, nonatomic) NSString *rolloverCaption;
+@property(copy, nonatomic) NSString *caption;
+@property(nonatomic) long long controlType;
 - (void)addColor:(id)arg1 forKey:(struct __CFString *)arg2 toDictionaryRef:(struct __CFDictionary *)arg3;
 - (struct __CFDictionary *)createDictionaryRef;
-- (id)initWithAnnotationDictionary:(struct CGPDFDictionary *)arg1 forFlavor:(long long)arg2;
+- (id)initWithAnnotationDictionary:(struct CGPDFDictionary *)arg1 forControlType:(long long)arg2;
 - (_Bool)scaleProportional;
 - (struct CGPDFForm *)icon;
-- (void)setRotation:(int)arg1;
-- (int)rotation;
-- (id)borderColor;
-- (void)setBackgroundColor:(id)arg1;
-- (id)backgroundColor;
+@property(nonatomic) long long rotation;
+@property(copy, nonatomic) UIColor *borderColor;
+@property(copy, nonatomic) UIColor *backgroundColor;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

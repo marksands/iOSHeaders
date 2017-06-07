@@ -23,7 +23,7 @@
 - (id)items;
 - (id)reloadItems;
 - (id)initWithAccessoryBrowsingManager:(id)arg1;
-- (id)initWithHome:(id)arg1;
+- (id)init;
 
 @end
 

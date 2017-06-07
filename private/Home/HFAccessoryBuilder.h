@@ -28,6 +28,7 @@
 - (id)_lazilyUpdateName;
 - (id)commitItem;
 - (id)_performValidation;
+- (id)removeItemFromHome;
 @property(readonly, nonatomic) _Bool supportsFavoriting;
 - (id)accessories;
 @property(readonly, nonatomic) NSString *originalName;

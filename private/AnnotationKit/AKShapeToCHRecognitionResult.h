@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CHRecognitionResult, UIBezierPath;
+@class AKAnnotation, CHRecognitionResult, PKDrawing, UIBezierPath;
 
 @interface AKShapeToCHRecognitionResult : NSObject
 {
@@ -14,11 +14,15 @@
     long long _tag;
     CHRecognitionResult *_result;
     UIBezierPath *_doodlePath;
+    PKDrawing *_inkDrawing;
+    AKAnnotation *_annotation;
     struct CGRect _doodlePathBoundsInInputView;
 }
 
 @property _Bool doodlePathIsPrestroked; // @synthesize doodlePathIsPrestroked=_doodlePathIsPrestroked;
 @property struct CGRect doodlePathBoundsInInputView; // @synthesize doodlePathBoundsInInputView=_doodlePathBoundsInInputView;
+@property(retain) AKAnnotation *annotation; // @synthesize annotation=_annotation;
+@property(retain) PKDrawing *inkDrawing; // @synthesize inkDrawing=_inkDrawing;
 @property(retain) UIBezierPath *doodlePath; // @synthesize doodlePath=_doodlePath;
 @property(retain) CHRecognitionResult *result; // @synthesize result=_result;
 @property long long tag; // @synthesize tag=_tag;

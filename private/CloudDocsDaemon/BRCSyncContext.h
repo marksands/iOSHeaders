@@ -30,16 +30,19 @@ __attribute__((visibility("hidden")))
     BRCThrottleBase *_applyThrottle;
     BRCThrottleBase *_downloadThrottle;
     BRCThrottleBase *_uploadThrottle;
+    BRCThrottleBase *_uploadFileModifiedThrottle;
     BRCTransferStream *_uploadStream;
     BRCTransferStream *_downloadStream;
 }
 
-+ (id)_contextIdentifierForAppLibrary:(id)arg1;
-+ (id)_contextIdentifierForZone:(id)arg1 metadata:(_Bool)arg2;
-+ (id)_sourceAppIdentifierForZone:(id)arg1;
++ (id)transferContextForServerZone:(id)arg1 appLibrary:(id)arg2;
++ (id)contextIdentifierForMangledID:(id)arg1;
++ (id)_contextIdentifierForMangledID:(id)arg1 metadata:(_Bool)arg2;
++ (id)_sourceAppIdentifierForMangledID:(id)arg1;
 @property(readonly, nonatomic) _Bool isShared; // @synthesize isShared=_isShared;
 @property(readonly, nonatomic) BRCTransferStream *downloadStream; // @synthesize downloadStream=_downloadStream;
 @property(readonly, nonatomic) BRCTransferStream *uploadStream; // @synthesize uploadStream=_uploadStream;
+@property(readonly, nonatomic) BRCThrottleBase *uploadFileModifiedThrottle; // @synthesize uploadFileModifiedThrottle=_uploadFileModifiedThrottle;
 @property(readonly, nonatomic) BRCThrottleBase *uploadThrottle; // @synthesize uploadThrottle=_uploadThrottle;
 @property(readonly, nonatomic) BRCThrottleBase *downloadThrottle; // @synthesize downloadThrottle=_downloadThrottle;
 @property(readonly, nonatomic) BRCThrottleBase *applyThrottle; // @synthesize applyThrottle=_applyThrottle;

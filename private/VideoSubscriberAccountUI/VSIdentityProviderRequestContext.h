@@ -13,11 +13,9 @@ __attribute__((visibility("hidden")))
 {
     _Bool _attemptedVerificationStateReset;
     VSIdentityProviderRequest *_request;
-    CDUnknownBlockType _completionHandler;
 }
 
 @property(nonatomic) _Bool attemptedVerificationStateReset; // @synthesize attemptedVerificationStateReset=_attemptedVerificationStateReset;
-@property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(retain, nonatomic) VSIdentityProviderRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
 

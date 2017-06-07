@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSArray;
 @protocol CoreDAVAccountInfoProvider;
@@ -17,6 +17,7 @@
 }
 
 @property(retain, nonatomic) NSArray *headerSortDescriptors; // @synthesize headerSortDescriptors=_headerSortDescriptors;
+- (void).cxx_destruct;
 - (void)finishCoreDAVResponse;
 - (void)logCoreDAVResponseSnippet:(id)arg1 withTaskIdentifier:(id)arg2 isBody:(_Bool)arg3;
 - (void)logCoreDAVResponseSnippet:(id)arg1 withTaskIdentifier:(id)arg2;
@@ -24,7 +25,6 @@
 - (void)logCoreDAVResponseHeaders:(id)arg1 andStatusCode:(long long)arg2 withTaskIdentifier:(id)arg3;
 - (void)logCoreDAVRequest:(id)arg1 withTaskIdentifier:(id)arg2;
 - (id)_inflateRequestBody:(id)arg1;
-- (void)dealloc;
 - (id)initWithProvider:(id)arg1;
 
 @end

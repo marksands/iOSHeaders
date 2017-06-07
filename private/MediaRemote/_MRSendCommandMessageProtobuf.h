@@ -8,17 +8,19 @@
 
 #import <MediaRemote/NSCopying-Protocol.h>
 
-@class _MRCommandOptionsProtobuf;
+@class _MRCommandOptionsProtobuf, _MRNowPlayingPlayerPathProtobuf;
 
 @interface _MRSendCommandMessageProtobuf : PBCodable <NSCopying>
 {
     int _command;
     _MRCommandOptionsProtobuf *_options;
+    _MRNowPlayingPlayerPathProtobuf *_playerPath;
     struct {
         unsigned int command:1;
     } _has;
 }
 
+@property(retain, nonatomic) _MRNowPlayingPlayerPathProtobuf *playerPath; // @synthesize playerPath=_playerPath;
 @property(retain, nonatomic) _MRCommandOptionsProtobuf *options; // @synthesize options=_options;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -29,6 +31,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasPlayerPath;
 @property(readonly, nonatomic) _Bool hasOptions;
 - (int)StringAsCommand:(id)arg1;
 - (id)commandAsString:(int)arg1;

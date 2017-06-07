@@ -35,7 +35,7 @@
     WBUFormDataController *_dataController;
 }
 
-+ (void)getMatchesFromFormProtectionSpace:(id)arg1 matchesFromOtherProtectionSpaces:(id)arg2 withFormURL:(id)arg3 credentialMatches:(id)arg4 lastGeneratedPassword:(id)arg5 currentUser:(id)arg6 currentPassword:(id)arg7;
++ (void)getMatchesFromFormProtectionSpace:(id)arg1 matchesFromOtherProtectionSpaces:(id)arg2 withFormURL:(id)arg3 credentialMatches:(id)arg4 lastGeneratedPassword:(id)arg5 currentUser:(id)arg6 currentPassword:(id)arg7 forUserNamesOnly:(_Bool)arg8;
 + (_Bool)_shouldSaveCredentialsInProtectionSpace:(id)arg1;
 @property(nonatomic) __weak WBUFormDataController *dataController; // @synthesize dataController=_dataController;
 - (void).cxx_destruct;
@@ -67,11 +67,14 @@
 - (_Bool)_passwordGenerationAssistanceAutoFillButtonEnabled;
 - (_Bool)_shouldUsePasswordGenerationAssistanceForTextField;
 - (void)_autoFillCreditCardData;
+- (void)autoFillFormWithCreditCardDataAfterAuthenticationIfNeeded:(id)arg1;
+- (void)fillCredentialAfterAuthenticationIfNeeded:(id)arg1;
+- (void)autoFillValuesAfterAuthenticationIfNeeded:(id)arg1;
 - (void)_captureCreditCardDataWithCameraAndFill;
 @property(readonly, nonatomic) id <WBUFormAutoFillFrameHandle> frame;
 @property(readonly, nonatomic) UIView<WBUFormAutoFillWebView> *webView;
-- (void)_autoFillFormWithCreditCardData:(id)arg1;
-- (_Bool)_canAutoFillCreditCardData;
+- (void)autoFillFormWithCreditCardData:(id)arg1;
+@property(readonly, nonatomic) _Bool canAutoFillCreditCardData;
 - (_Bool)_textFieldLooksLikeCreditCardFormField;
 @property(readonly, nonatomic) _Bool textFieldLooksLikeCreditCardNumericFormField;
 - (id)_matchesForPartialString:(id)arg1;
@@ -82,6 +85,7 @@
 - (_Bool)hasCurrentSuggestions;
 @property(readonly, nonatomic) NSString *textFieldValue;
 - (void)_performAutoFill;
+- (void)updateCachedFormMetadataAfterFilling:(id)arg1;
 - (void)_setUpMultiRoundAutoFillManagerIfNecessary;
 - (void)_setUserAndPasswordFieldsAutoFilled:(_Bool)arg1 clearPasswordField:(_Bool)arg2;
 - (void)setFormControls:(id)arg1 areAutoFilled:(_Bool)arg2 clearField:(id)arg3;
@@ -92,6 +96,7 @@
 - (void)fetchFormMetadataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)textDidChangeInForm:(id)arg1 textField:(id)arg2;
 - (long long)_action;
+@property(readonly, nonatomic) _Bool shouldOfferToAutoFillCreditCardData;
 - (_Bool)_textFieldIsEmptyPasswordField;
 - (id)titleOfAutoFillButton;
 - (void)_updateAutoFillButton;

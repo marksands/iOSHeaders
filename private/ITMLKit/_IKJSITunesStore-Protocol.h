@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ITMLKit/IKJSITunesStore-Protocol.h>
 #import <ITMLKit/JSExport-Protocol.h>
 
 @class JSValue, NSArray, NSDictionary, NSString;
 
-@protocol _IKJSITunesStore <JSExport>
+@protocol _IKJSITunesStore <IKJSITunesStore, JSExport>
 @property(readonly, nonatomic, getter=isManagedAppleID) _Bool managedAppleID;
 @property(retain, nonatomic) id cookie;
 @property(retain, nonatomic) NSString *cookieURL;

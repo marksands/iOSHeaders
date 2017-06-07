@@ -6,7 +6,6 @@
 
 #import <objc/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface VSViewControllerFactory : NSObject
 {
 }
@@ -17,10 +16,7 @@ __attribute__((visibility("hidden")))
 - (id)viewControllerToConfirmDeveloperIdentityProviderDeletionWithConfirmationHandler:(CDUnknownBlockType)arg1;
 - (id)viewControllerToConfirmAccountDeletionForIdentityProviderDisplayName:(id)arg1 preferredStyle:(long long)arg2 confirmationHandler:(CDUnknownBlockType)arg3;
 - (id)loadingViewController;
-- (id)webAuthenticationViewController;
-- (id)onscreenCodeAuthenticationViewController;
-- (id)credentialEntryViewController;
-- (id)autoAuthenticationViewController;
+- (id)authenticationViewControllerForViewModel:(id)arg1;
 - (id)identityProviderPickerViewControllerWithIdentityProviders:(id)arg1;
 - (void)viewServiceRemoteViewControllerWithCompletion:(CDUnknownBlockType)arg1;
 

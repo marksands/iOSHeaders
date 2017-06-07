@@ -36,7 +36,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSString *cacheKey;
 - (id)copyWithContext:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)dealloc;
 @property(copy, nonatomic) NSString *type;

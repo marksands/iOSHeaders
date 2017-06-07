@@ -20,6 +20,7 @@
     unsigned long long _version;
     NSMutableDictionary *_nodesByIdentifier;
     NSMutableDictionary *_nodesByLabel;
+    NSMutableDictionary *_nodesByDomain;
     NSMutableDictionary *_edgesByIdentifier;
     NSMutableDictionary *_edgesByLabel;
     NSMutableIndexSet *_fragmentedNodeIdentifiers;
@@ -35,6 +36,7 @@
 + (void)initialize;
 + (Class)edgeClass;
 + (Class)nodeClass;
++ (id)graphJSONURLWithPath:(id)arg1 andName:(id)arg2;
 + (id)graphMLURLWithPath:(id)arg1 andName:(id)arg2;
 + (id)dataURLWithPath:(id)arg1 andName:(id)arg2;
 + (void)deleteMarker:(id)arg1;
@@ -64,6 +66,8 @@
 - (void)enumerateEdgesWithBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateEdgesWithLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)enumerateEdgesWithLabel:(id)arg1 domain:(unsigned short)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (unsigned long long)edgesCountForLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3;
+- (unsigned long long)edgesCountForLabel:(id)arg1 domain:(unsigned short)arg2;
 - (id)edgesLabels;
 - (unsigned long long)edgesCountForLabel:(id)arg1;
 - (unsigned long long)edgesCount;
@@ -71,6 +75,7 @@
 - (id)edgesForDomain:(unsigned short)arg1;
 - (id)addUniqueEdgeWithLabel:(id)arg1 sourceNode:(id)arg2 targetNode:(id)arg3 domain:(unsigned short)arg4 weight:(float)arg5 properties:(id)arg6;
 - (id)edgesForLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3;
+- (id)edgesForLabel:(id)arg1 domain:(unsigned short)arg2;
 - (id)edgesForLabel:(id)arg1;
 - (id)edgeForIdentifier:(unsigned int)arg1;
 - (void)_removeMemoryEdge:(id)arg1;
@@ -82,18 +87,24 @@
 - (id)addEdgeWithLabel:(id)arg1 sourceNode:(id)arg2 targetNode:(id)arg3 domain:(unsigned short)arg4 weight:(float)arg5 properties:(id)arg6;
 - (id)addEdgeWithLabel:(id)arg1 sourceNode:(id)arg2 targetNode:(id)arg3;
 - (void)_addEdge:(id)arg1 withIdentifier:(unsigned int)arg2 saveToDatabase:(_Bool)arg3;
+- (id)_nodesForDomain:(unsigned long long)arg1;
 - (id)_nodesForLabel:(id)arg1;
 - (id)_allNodes;
 - (void)enumerateNodesWithBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateNodesInDomain:(unsigned short)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateNodesWithLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)enumerateNodesWithLabel:(id)arg1 domain:(unsigned short)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (id)nodesDomains;
 - (id)nodesLabels;
 - (unsigned long long)nodesCount;
 - (id)addUniqueNodeWithLabel:(id)arg1 domain:(unsigned short)arg2 weight:(float)arg3 properties:(id)arg4 didCreate:(_Bool *)arg5;
 - (id)nodesForDomains:(id)arg1;
+- (unsigned long long)nodesCountForDomain:(unsigned short)arg1;
 - (id)nodesForDomain:(unsigned short)arg1;
 - (unsigned long long)nodesCountForLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3;
 - (id)nodesForLabel:(id)arg1 domain:(unsigned short)arg2 properties:(id)arg3;
+- (unsigned long long)nodesCountForLabel:(id)arg1 domain:(unsigned short)arg2;
+- (id)nodesForLabel:(id)arg1 domain:(unsigned short)arg2;
 - (unsigned long long)nodesCountForLabel:(id)arg1;
 - (id)nodesForLabel:(id)arg1;
 - (id)nodeForIdentifier:(unsigned int)arg1;
@@ -128,6 +139,10 @@
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
 - (id)init;
+- (_Bool)writeGraphJSONToURL:(id)arg1 error:(id *)arg2;
+- (id)_graphJSONDictionary;
+- (id)initWithGraphJSONURL:(id)arg1;
+- (void)_loadWithGraphJSONDictionary:(id)arg1;
 - (void)parser:(id)arg1 foundCharacters:(id)arg2;
 - (void)parser:(id)arg1 didEndElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4;
 - (void)parser:(id)arg1 didStartElement:(id)arg2 namespaceURI:(id)arg3 qualifiedName:(id)arg4 attributes:(id)arg5;
@@ -162,6 +177,10 @@
 - (void)traversingGraphBreadthFirstFromNode:(id)arg1 directed:(_Bool)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)traversingGraphDepthFirstFromNode:(id)arg1 directed:(_Bool)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)shortestPathBetweenStartNode:(id)arg1 andEndNode:(id)arg2 directed:(_Bool)arg3;
+- (id)schema;
+- (_Bool)conformsToGraphSchema:(id)arg1;
+- (id)edgeSchemeWithLabel:(id)arg1 domain:(unsigned short)arg2 sourceNode:(id)arg3 targetNode:(id)arg4;
+- (id)nodeSchemeWithLabel:(id)arg1 domain:(unsigned short)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

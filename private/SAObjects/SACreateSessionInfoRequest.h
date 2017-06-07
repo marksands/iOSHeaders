@@ -16,6 +16,7 @@
 
 + (id)createSessionInfoRequestWithDictionary:(id)arg1 context:(id)arg2;
 + (id)createSessionInfoRequest;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSData *sessionInfoRequest;
 - (id)encodedClassName;
 - (id)groupIdentifier;

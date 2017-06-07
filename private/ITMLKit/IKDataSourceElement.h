@@ -25,11 +25,14 @@
     id <IKDataSourceElementImplementing> _impl;
 }
 
++ (unsigned long long)updateTypeForChangeInAttribute:(id)arg1 fromValue:(id)arg2 toValue:(id)arg3;
 @property(readonly, nonatomic) id <IKDataSourceElementImplementing> impl; // @synthesize impl=_impl;
 @property(nonatomic) long long autoHighlightIndex; // @synthesize autoHighlightIndex=_autoHighlightIndex;
 @property(copy, nonatomic) NSArray *autoHighlightedChildElements; // @synthesize autoHighlightedChildElements=_autoHighlightedChildElements;
 - (void).cxx_destruct;
 - (_Bool)areItemsBound;
+- (id)actualElementForProxyElement:(id)arg1 jsContext:(id)arg2;
+- (void)resetUpdates;
 - (void)appDocumentDidMarkStylesDirty;
 - (void)domBindingController:(id)arg1 didResolveKeys:(id)arg2;
 - (_Bool)domBindingController:(id)arg1 applyValue:(id)arg2 forKey:(id)arg3;
@@ -38,7 +41,8 @@
 - (_Bool)domBindingController:(id)arg1 doKeysAffectChildren:(id)arg2;
 - (void)domBindingController:(id)arg1 didLoadBinding:(id)arg2;
 - (void)unloadIndex:(long long)arg1;
-- (id)elementForItemAtIndex:(long long)arg1 loadIfNeeded:(_Bool)arg2;
+- (void)loadIndex:(long long)arg1;
+- (id)elementForItemAtIndex:(long long)arg1;
 - (id)prototypeForItemAtIndex:(long long)arg1;
 - (long long)numberOfItems;
 @property(readonly, nonatomic) IKElementChangeSet *itemsChangeset;

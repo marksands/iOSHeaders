@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSString *transitSystemName; // @synthesize transitSystemName=_transitSystemName;
 @property(retain, nonatomic) NSString *transitLineName; // @synthesize transitLineName=_transitLineName;
 @property(nonatomic) unsigned long long transitLineMuid; // @synthesize transitLineMuid=_transitLineMuid;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasTransitSystemName;
 @property(readonly, nonatomic) _Bool hasTransitLineName;
 @property(nonatomic) _Bool hasTransitLineMuid;
-- (void)dealloc;
 
 @end
 

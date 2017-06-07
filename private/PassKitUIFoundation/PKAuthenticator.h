@@ -6,20 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@protocol BSInvalidatable, OS_dispatch_queue, PKAuthenticatorDelegate;
+@protocol OS_dispatch_queue, PKAuthenticatorDelegate;
 
 @interface PKAuthenticator : NSObject
 {
     unsigned long long _authenticationIdentifier;
     NSObject<OS_dispatch_queue> *_contextMutationQueue;
-    _Bool _acquiringHintSupressionAssertion;
-    id <BSInvalidatable> _hintSupressionAssertion;
     id <PKAuthenticatorDelegate> _delegate;
     double _fingerPresentTimeout;
 }
 
 + (id)viewServiceBundleID;
++ (unsigned long long)_currentStateForMechanisms:(id)arg1;
++ (unsigned long long)currentStateForAccessControl:(struct __SecAccessControl *)arg1;
 + (unsigned long long)currentStateForPolicy:(long long)arg1;
++ (void)resetSharedRootContextWithCompletion:(CDUnknownBlockType)arg1;
 + (void)preheatAuthenticator;
 @property(nonatomic) double fingerPresentTimeout; // @synthesize fingerPresentTimeout=_fingerPresentTimeout;
 @property(nonatomic) __weak id <PKAuthenticatorDelegate> delegate; // @synthesize delegate=_delegate;
@@ -34,8 +35,6 @@
 @property(readonly, nonatomic) _Bool fingerPresent;
 - (void)setFingerPresentTimeout:(double)arg1 preventRestart:(_Bool)arg2;
 @property(readonly, nonatomic) unsigned long long authenticationIdentifier;
-- (void)applyPaymentInstructions:(id)arg1;
-- (void)applyDynamicFunctionRowScene:(long long)arg1;
 - (void)accessExternalizedContextWithCompletion:(CDUnknownBlockType)arg1;
 - (void)restartEvaluation;
 - (void)cancelEvaluation;

@@ -27,6 +27,7 @@
 - (id)localizedDescription;
 - (id)userInfo;
 - (void)setUserInfoObject:(id)arg1 forKey:(id)arg2;
+- (id)initWithDomain:(id)arg1 code:(long long)arg2 userInfo:(id)arg3;
 
 @end
 

@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface VKSceneConfiguration : NSObject
 {
     shared_ptr_c37d6e02 _sceneManager;
+    shared_ptr_a3c46825 _styleManager;
     struct vector<GEOLocationCoordinate2D, std::__1::allocator<GEOLocationCoordinate2D>> _pointsOfInterest;
     unsigned char _navState;
     unsigned char _distanceToCurrentManeuver;
@@ -28,13 +29,18 @@
     unsigned char _roadSpeed;
     unsigned long long _roadSpeedZeroes;
     unsigned char _cameraMode;
+    unsigned char _navigationDestination;
     struct ManeveuverDistancesRange _distanceRanges;
+    shared_ptr_e963992e _taskContext;
 }
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)analyticsLogContextWithNavigationState;
 - (unsigned char)navigationState;
+- (unsigned long long)navigationDestination;
+- (void)setNavigationDestination:(unsigned long long)arg1;
+- (unsigned long long)navCameraMode;
 - (void)setNavCameraMode:(unsigned long long)arg1;
 - (void)setRoadSpeed:(double)arg1;
 - (void)setVehicleSpeed:(double)arg1;
@@ -52,9 +58,13 @@
 - (void)setDistanceToDestination:(double)arg1;
 - (void)setDistanceToCurrentManeuver:(double)arg1;
 - (void)setNavigationState:(int)arg1;
+- (shared_ptr_a3c46825)styleManager;
 - (void)setStyleManager:(shared_ptr_a3c46825)arg1;
+- (shared_ptr_c37d6e02)sceneManager;
+- (void)_updateStyleManager;
 - (void)setSceneManager:(shared_ptr_c37d6e02)arg1;
-- (id)init;
+- (void)resetState;
+- (id)initWithTaskContext:(shared_ptr_e963992e)arg1;
 
 @end
 

@@ -6,10 +6,12 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOComposedRoute, GEODirectionsRequest, NSArray, NSDictionary;
+@class GEOComposedRoute, GEODirectionsRequest, NSArray, NSDictionary, NSNumber;
 
 @protocol GEODirectionServiceTicket <NSObject>
+@property(readonly, nonatomic) _Bool isDoom;
 @property(readonly, nonatomic) NSDictionary *responseUserInfo;
+@property(readonly, copy, nonatomic) NSNumber *requestPriority;
 @property(readonly, nonatomic) NSArray *waypoints;
 @property(readonly, nonatomic) GEOComposedRoute *originalRoute;
 @property(readonly, nonatomic) _Bool isReroute;

@@ -73,6 +73,7 @@
 - (int)underline;
 - (void)setScript:(int)arg1;
 - (int)script;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)isEqualToFont:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -83,7 +84,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

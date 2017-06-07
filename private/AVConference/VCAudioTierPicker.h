@@ -6,28 +6,32 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSMutableArray, VCAudioTier;
+@class BitrateLimits, NSMutableArray, VCAudioTier;
 
 __attribute__((visibility("hidden")))
 @interface VCAudioTierPicker : NSObject
 {
-    NSMutableArray *audioTiers;
-    _Bool isUsingCellular;
+    NSMutableArray *tierTablesForRedNumPayloads;
     VCAudioTier *defaultTier;
     VCAudioTier *fallbackTier;
-    int mode;
+    _Bool usingCellular;
+    _Bool useCaseWatchContinuity;
+    int operatingMode;
+    BitrateLimits *bitrateLimits;
 }
 
-+ (_Bool)shouldFilterTierForPayload:(id)arg1 bitRate:(unsigned int)arg2 packetsPerBundle:(unsigned int)arg3 cellular:(_Bool)arg4 operatingMode:(int)arg5;
-@property(readonly) NSArray *audioTiers; // @synthesize audioTiers;
-@property(readonly) VCAudioTier *fallbackTier; // @synthesize fallbackTier;
++ (id)valueForNetworkBitrate:(id)arg1 networkBitrate:(unsigned int)arg2;
++ (_Bool)shouldFilterTierForPayloadConfig:(id)arg1 bitRate:(unsigned int)arg2 packetsPerBundle:(unsigned int)arg3 operatingMode:(int)arg4 redNumPayloads:(unsigned int)arg5 cellular:(_Bool)arg6;
++ (id)selectHighestQualityAudioTiers:(id)arg1 forBitrateLimits:(id)arg2;
++ (id)allPossibleCombinations:(id)arg1 supportedPacketsPerBundle:(id)arg2 redNumPayloads:(unsigned int)arg3 headerSize:(unsigned int)arg4 operatingMode:(int)arg5 usingCellular:(_Bool)arg6 useCaseWatchContinuity:(_Bool)arg7;
++ (_Bool)arrayHasObject:(id)arg1 withPayloadType:(int)arg2;
 @property(readonly) VCAudioTier *defaultTier; // @synthesize defaultTier;
-- (id)tierForNetworkBitrate:(unsigned int)arg1 duplication:(unsigned int)arg2;
-- (id)AudioTier:(unsigned int)arg1;
+- (id)allAudioTiers;
+- (id)tierForNetworkBitrate:(unsigned long long)arg1 withRedNumPayloads:(unsigned long long)arg2;
+- (id)tierForNetworkBitrate:(unsigned long long)arg1 withLegacyDuplication:(int)arg2;
+- (void)printCreatedAudioTiers:(id)arg1;
 - (void)dealloc;
-- (unsigned long long)LargestCapTier:(unsigned int)arg1;
-- (id)initWithOperatingMode:(int)arg1 payloads:(id)arg2 sampleRate:(unsigned int)arg3 packetsPerBundle:(id)arg4 headerSize:(unsigned int)arg5 usingCellular:(_Bool)arg6 defaultMaxCap:(unsigned int)arg7;
-- (id)newTierForPayload:(id)arg1 bitrate:(unsigned int)arg2 sampleRate:(unsigned int)arg3 packetsPerBundle:(unsigned int)arg4 headerSize:(unsigned int)arg5;
+- (id)initWithOperatingMode:(int)arg1 payloadConfigs:(id)arg2 packetsPerBundle:(id)arg3 supportedRedNumPayloads:(id)arg4 headerSize:(unsigned long long)arg5 usingCellular:(_Bool)arg6 useCaseWatchContinuity:(_Bool)arg7 defaultMaxCap:(unsigned long long)arg8;
 
 @end
 

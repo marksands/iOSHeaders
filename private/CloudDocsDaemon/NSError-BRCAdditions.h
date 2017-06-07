@@ -13,6 +13,7 @@
 - (id)brc_description;
 - (id)brc_wrappedError;
 - (id)brc_strippedError;
+- (id)brc_staleUpdateRecordIDs;
 - (_Bool)brc_isCloudKitErrorNeedsPCSPrep;
 - (_Bool)brc_isCloudKitErrorZoneMigrated;
 - (_Bool)brc_isCloudKitErrorZoneUndergoingMigration;

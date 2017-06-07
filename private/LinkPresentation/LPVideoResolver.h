@@ -6,22 +6,30 @@
 
 #import <objc/NSObject.h>
 
+#import <LinkPresentation/NSURLSessionDataDelegate-Protocol.h>
 #import <LinkPresentation/_LPResolver-Protocol.h>
 
-@class AVAsset, NSString, NSURLSession;
+@class AVURLAsset, NSMutableData, NSString, NSURLSession;
 @protocol _LPResolvable;
 
 __attribute__((visibility("hidden")))
-@interface LPVideoResolver : NSObject <_LPResolver>
+@interface LPVideoResolver : NSObject <NSURLSessionDataDelegate, _LPResolver>
 {
     id <_LPResolvable> _resolvable;
-    AVAsset *_asset;
+    AVURLAsset *_asset;
+    _Bool _hasAudio;
+    NSString *_MIMEType;
     NSURLSession *_session;
+    NSMutableData *_receivedData;
     CDUnknownBlockType _completionHandler;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 - (void).cxx_destruct;
+- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)videoProperties;
 - (void)_completedWithVideo:(id)arg1;
 - (void)cancel;
 - (void)_resolveVideo;

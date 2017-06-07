@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -13,6 +13,8 @@
     struct BTLocalDeviceImpl *_localDevice;
     struct BTSessionImpl *_session;
     int _available;
+    int _state;
+    _Bool _airplaneMode;
     _Bool _audioConnected;
     _Bool _scanningEnabled;
     _Bool _scanningInProgress;
@@ -29,6 +31,10 @@
 + (void)setSharedInstanceQueue:(id)arg1;
 - (void)enableTestMode;
 - (_Bool)isServiceSupported:(unsigned int)arg1;
+- (void)_updateBluetoothState;
+- (void)bluetoothStateActionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)bluetoothStateAction;
+- (int)bluetoothState;
 - (void)endVoiceCommand:(id)arg1;
 - (void)startVoiceCommand:(id)arg1;
 - (void)setAudioConnected:(_Bool)arg1;
@@ -70,6 +76,7 @@
 - (id)addDeviceIfNeeded:(struct BTDeviceImpl *)arg1;
 - (_Bool)isAnyoneAdvertising;
 - (_Bool)isAnyoneScanning;
+- (void)_updateAirplaneModeStatus;
 - (void)_powerChanged;
 - (_Bool)setEnabled:(_Bool)arg1;
 - (_Bool)setPowered:(_Bool)arg1;

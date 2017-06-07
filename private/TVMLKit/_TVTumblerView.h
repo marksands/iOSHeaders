@@ -70,7 +70,10 @@ __attribute__((visibility("hidden")))
 - (id)dequeueReusableItemView;
 - (void)registerItemViewClass:(Class)arg1;
 @property(readonly, retain, nonatomic) UIView *focusedItemView;
+- (void)setSemanticContentAttribute:(long long)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
+@property(readonly, retain, nonatomic) UIImageView *arrowTrailing;
+@property(readonly, retain, nonatomic) UIImageView *arrowLeading;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

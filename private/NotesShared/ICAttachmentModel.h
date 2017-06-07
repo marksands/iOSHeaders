@@ -6,28 +6,28 @@
 
 #import <objc/NSObject.h>
 
+#import <NotesShared/ICAttachmentModelUI-Protocol.h>
 #import <NotesShared/QLPreviewItem-Protocol.h>
 
-@class ICAttachment, NSArray, NSString, NSURL;
+@class ICAttachment, NSString, NSURL;
 
-@interface ICAttachmentModel : NSObject <QLPreviewItem>
+@interface ICAttachmentModel : NSObject <ICAttachmentModelUI, QLPreviewItem>
 {
-    NSArray *_searchStrings;
     _Bool _previewGenerationOperationCancelled;
     _Bool _mergeableDataDirty;
-    _Bool _hasAdditionalSearchIndexStrings;
     ICAttachment *_attachment;
 }
 
 + (void)deletePreviewItemHardLinkURLs;
-+ (void)populateLocationSearchStringsIfPossible:(id)arg1 forAttachment:(id)arg2;
-+ (struct UIImage *)fileIconForURL:(id)arg1 withPreferredSize:(struct CGSize)arg2;
 + (id)contentInfoTextWithAttachmentCount:(unsigned long long)arg1;
-@property _Bool hasAdditionalSearchIndexStrings; // @synthesize hasAdditionalSearchIndexStrings=_hasAdditionalSearchIndexStrings;
 @property(nonatomic, getter=isMergeableDataDirty) _Bool mergeableDataDirty; // @synthesize mergeableDataDirty=_mergeableDataDirty;
 @property(readonly, nonatomic) __weak ICAttachment *attachment; // @synthesize attachment=_attachment;
 @property _Bool previewGenerationOperationCancelled; // @synthesize previewGenerationOperationCancelled=_previewGenerationOperationCancelled;
 - (void).cxx_destruct;
+- (id)dataForTypeIdentifier:(id)arg1;
+- (id)fileURLForTypeIdentifier:(id)arg1;
+- (id)providerFileTypes;
+- (id)providerDataTypes;
 @property(readonly, nonatomic) _Bool supportsQuickLook;
 @property(readonly, nonatomic) NSString *previewItemTitle;
 - (id)generateHardLinkURLIfNecessaryForURL:(id)arg1 withFileName:(id)arg2;
@@ -35,18 +35,21 @@
 @property(readonly, nonatomic) NSURL *previewItemURL;
 - (id)titleForSubAttachment:(id)arg1;
 - (id)hardLinkFolderPath;
-@property(readonly, nonatomic) NSArray *quicklookPreviewItems;
+- (id)localizedFallbackSubtitleMac;
+- (id)localizedFallbackSubtitleIOS;
+- (id)localizedFallbackTitle;
 - (long long)previewImageOrientation;
 - (struct CGAffineTransform)previewImageOrientationTransform;
+- (void)addLocation;
 - (void)updateFileBasedAttributes;
 - (_Bool)isReadyToPresent;
 @property(readonly, nonatomic) struct CGSize intrinsicContentSize;
+- (void)willMarkAttachmentForDeletion;
 - (void)undeleteSubAttachments;
 - (void)deleteSubAttachments;
 - (void)updateAttachmentMarkedForDeletionStateAttachmentIsInNote:(_Bool)arg1;
 - (_Bool)shouldCropImage;
 - (void)updateAfterLoadWithSubAttachmentIdentifierMap:(id)arg1;
-- (id)previewImageTypeUTI;
 - (_Bool)shouldGeneratePreviewAfterChangeInSubAttachmentWithIdentifier:(id)arg1;
 - (_Bool)shouldSyncPreviewImageToCloud:(id)arg1;
 - (short)sectionForSubAttachments;
@@ -54,32 +57,31 @@
 - (void)attachmentDidRefresh:(_Bool)arg1;
 - (void)attachmentWillRefresh:(_Bool)arg1;
 - (void)attachmentWillTurnIntoFault;
+- (void)attachmentAwakeFromFetch;
 - (id)attachmentModelType;
-- (struct UIImage *)fileIconWithPreferredSize:(struct CGSize)arg1;
-- (id)itemProvider;
-- (id)activityItems;
-- (id)generateSearchIndexStringsOperation;
-- (int)populateSearchStrings:(id)arg1;
-- (void)invalidateSearchStrings;
-@property(readonly, copy) NSArray *searchStrings;
-- (void)didCancelPreviewGeneratorOperation;
-- (void)generatePreviewsInOperation:(id)arg1;
-@property(readonly, nonatomic) _Bool requiresNetworkToGeneratePreview;
-@property(readonly, nonatomic) _Bool generatePreviewsDuringCloudActivity;
-@property(readonly, nonatomic) _Bool generateAsynchronousPreviews;
-@property(readonly, nonatomic) _Bool needToGeneratePreviews;
-@property(readonly, nonatomic) CDUnknownBlockType genericBrickThumbnailCreator;
-@property(readonly, nonatomic) CDUnknownBlockType genericListThumbnailCreator;
+- (id)additionalIndexableTextContentInNote;
+- (id)standaloneTitleForNote;
+- (_Bool)providesStandaloneTitleForNote;
+- (id)textContentInNote;
+- (void)regenerateTextContentInNote;
+- (_Bool)providesTextContentInNote;
+- (id)searchableTextContentInNote;
+- (id)searchableTextContentForLocation;
+- (id)searchableTextContent;
 @property(readonly, nonatomic) _Bool canSaveURLWithOtherAttachments;
 @property(readonly, nonatomic) _Bool canSaveURL;
+@property(readonly, nonatomic) NSURL *saveURL;
 @property(readonly, nonatomic) _Bool canMarkup;
 @property(readonly, nonatomic) _Bool showThumbnailInNoteList;
 @property(readonly, nonatomic) _Bool hasThumbnailImage;
+@property(readonly, nonatomic) NSString *previewImageTypeUTI;
 @property(readonly, nonatomic) _Bool needsFullSizePreview;
 @property(readonly, nonatomic) _Bool hasPreviews;
 - (void)writeMergeableData;
-- (void)mergeWithMergeableData:(id)arg1;
+- (_Bool)mergeWithMergeableData:(id)arg1;
 - (id)initWithAttachment:(id)arg1;
+- (_Bool)shouldShowInContentInfoText;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

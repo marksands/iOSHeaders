@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSLock, NSMapTable;
 
@@ -15,11 +15,11 @@
 }
 
 + (id)sharedThrottler;
+- (void).cxx_destruct;
 - (id)_throttlePolicyForKey:(id)arg1;
 - (double)throttleStateResetTimeRemainingForKey:(id)arg1;
 - (unsigned long long)throttleStateLevelForKey:(id)arg1;
 - (_Bool)allowRequestForKey:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

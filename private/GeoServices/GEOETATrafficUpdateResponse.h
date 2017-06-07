@@ -13,6 +13,7 @@
 @interface GEOETATrafficUpdateResponse : PBCodable <NSCopying>
 {
     unsigned long long _debugServerLatencyMs;
+    NSMutableArray *_cameras;
     GEOPDDatasetABStatus *_datasetAbStatus;
     GEOETAServiceResponseSummary *_etaServiceSummary;
     NSMutableArray *_routes;
@@ -21,10 +22,13 @@
     CDStruct_00a28cb6 _has;
 }
 
++ (Class)cameraType;
 + (Class)routeType;
+@property(retain, nonatomic) NSMutableArray *cameras; // @synthesize cameras=_cameras;
 @property(retain, nonatomic) GEOPDDatasetABStatus *datasetAbStatus; // @synthesize datasetAbStatus=_datasetAbStatus;
 @property(retain, nonatomic) NSData *sessionState; // @synthesize sessionState=_sessionState;
 @property(retain, nonatomic) NSMutableArray *routes; // @synthesize routes=_routes;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,6 +38,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)cameraAtIndex:(unsigned long long)arg1;
+- (unsigned long long)camerasCount;
+- (void)addCamera:(id)arg1;
+- (void)clearCameras;
 @property(readonly, nonatomic) _Bool hasDatasetAbStatus;
 @property(readonly, nonatomic) _Bool hasSessionState;
 - (id)routeAtIndex:(unsigned long long)arg1;
@@ -44,7 +52,6 @@
 - (id)statusAsString:(int)arg1;
 @property(nonatomic) _Bool hasStatus;
 @property(nonatomic) int status; // @synthesize status=_status;
-- (void)dealloc;
 @property(nonatomic) _Bool hasDebugServerLatencyMs;
 @property(nonatomic) unsigned long long debugServerLatencyMs;
 @property(retain, nonatomic) GEOETAServiceResponseSummary *etaServiceSummary;

@@ -8,25 +8,21 @@
 
 #import <TelephonyUI/TPNumberPadButtonProtocol-Protocol.h>
 
-@class CALayer, NSString, TPRevealingRingView, UIColor;
+@class CALayer, NSString, TPRevealingRingView, UIColor, UIView;
 
 @interface TPNumberPadButton : UIControl <TPNumberPadButtonProtocol>
 {
-    TPRevealingRingView *_revealingRingView;
     unsigned int character;
     UIColor *_color;
     CALayer *_glyphLayer;
     CALayer *_highlightedGlyphLayer;
+    UIView *_circleView;
+    UIColor *_buttonColor;
+    TPRevealingRingView *_revealingRingView;
 }
 
-+ (double)unhighlightCrossfadeHighlightFadeDuration;
-+ (double)unhighlightCrossfadeNormalFadeDuration;
-+ (double)unhighlightCrossfadeHighlightBeginTime;
-+ (double)unhighlightCrossfadeNormalBeginTime;
-+ (double)highlightCrossfadeHighlightFadeDuration;
-+ (double)highlightCrossfadeNormalFadeDuration;
-+ (double)highlightCrossfadeHighlightBeginTime;
-+ (double)highlightCrossfadeNormalBeginTime;
++ (double)highlightedCircleViewAlpha;
++ (double)unhighlightedCircleViewAlpha;
 + (double)horizontalPadding;
 + (double)verticalPadding;
 + (void)resetLocale;
@@ -39,13 +35,16 @@
 + (_Bool)usesTelephonyGlyphsWhereAvailable;
 + (id)imageForCharacter:(unsigned int)arg1 highlighted:(_Bool)arg2;
 + (id)imageForCharacter:(unsigned int)arg1;
-+ (double)outerCircleDiameter;
 + (struct UIEdgeInsets)paddingOutsideRing;
++ (double)outerCircleDiameter;
++ (struct CGRect)circleBounds;
 + (struct CGSize)defaultSize;
+@property(readonly, nonatomic) TPRevealingRingView *revealingRingView; // @synthesize revealingRingView=_revealingRingView;
+@property(readonly, nonatomic) UIColor *buttonColor; // @synthesize buttonColor=_buttonColor;
+@property(retain) UIView *circleView; // @synthesize circleView=_circleView;
 @property(retain) CALayer *highlightedGlyphLayer; // @synthesize highlightedGlyphLayer=_highlightedGlyphLayer;
 @property(retain) CALayer *glyphLayer; // @synthesize glyphLayer=_glyphLayer;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
-@property(readonly, nonatomic) TPRevealingRingView *revealingRingView; // @synthesize revealingRingView=_revealingRingView;
 @property unsigned int character; // @synthesize character;
 - (void).cxx_destruct;
 - (void)touchCancelled;
@@ -53,10 +52,8 @@
 - (void)touchDown;
 - (id)defaultColor;
 - (void)setHighlighted:(_Bool)arg1;
+- (void)highlightCircleView:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
-@property(nonatomic) double alphaOutsideAndInsideRing; // @dynamic alphaOutsideAndInsideRing;
-- (void)setUsesColorBurnBlending;
-- (void)setUsesColorDodgeBlending;
 - (void)loadImagesForCurrentCharacter;
 - (id)initForCharacter:(unsigned int)arg1;
 

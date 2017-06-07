@@ -6,24 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, NSMutableDictionary, PDFPage, PDFSelection, UIImage;
+@class NSMutableDictionary, PDFPage, PDFSelection;
 
+__attribute__((visibility("hidden")))
 @interface PDFPageSearchLayerPrivate : NSObject
 {
     PDFPage *page;
     long long displayBox;
     PDFSelection *selection;
     NSMutableDictionary *selectionRects;
-    _Bool isOnFirstPage;
-    _Bool isOnLastPage;
-    struct CGRect firstPageRect;
-    struct CGRect lastPageRect;
-    CALayer *selectionStartHandle;
-    CALayer *selectionEndHandle;
-    UIImage *magnifierImage;
-    CALayer *magnifierLayer;
-    struct CGSize magnifierSize;
-    _Bool isZooming;
 }
 
 - (void).cxx_destruct;

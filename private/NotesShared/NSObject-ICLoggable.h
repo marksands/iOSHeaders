@@ -7,8 +7,9 @@
 #import <objc/NSObject.h>
 
 @interface NSObject (ICLoggable)
-+ (id)ic_loggingDescriptionFromLoggable:(id)arg1;
++ (id)ic_loggingDescriptionFromLoggable:(id)arg1 isPretty:(_Bool)arg2;
 - (id)ic_loggingIdentifier;
+- (id)ic_prettyLoggingDescription;
 - (id)ic_loggingDescription;
 @end
 

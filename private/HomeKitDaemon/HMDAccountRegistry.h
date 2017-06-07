@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegate-Protocol.h>
 
-@class HMDAccount, HMDDevice, HMFExponentialBackoffTimer, HMFTimer, IDSService, NSArray, NSMutableSet, NSString;
+@class HMDAccount, HMDDevice, HMFExponentialBackoffTimer, HMFTimer, IDSService, NSArray, NSMutableSet, NSObject, NSString;
 @protocol HMDAccountRegistryDelegate, OS_dispatch_queue;
 
-@interface HMDAccountRegistry : NSObject <HMFTimerDelegate, IDSServiceDelegate, HMFLogging>
+@interface HMDAccountRegistry : HMFObject <HMFTimerDelegate, IDSServiceDelegate, HMFLogging>
 {
     NSMutableSet *_accounts;
     _Bool _monitoring;
@@ -42,6 +42,7 @@
 - (void)service:(id)arg1 devicesChanged:(id)arg2;
 - (void)service:(id)arg1 activeAccountsChanged:(id)arg2;
 - (void)timerDidFire:(id)arg1;
+- (void)_cleanupDevices;
 - (void)_updateLocalDevices;
 - (void)_updateLocalAccount;
 - (void)stopMonitoring;

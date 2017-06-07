@@ -31,7 +31,9 @@
 - (id)siblingNodesThroughEdgesWithLabel:(id)arg1 domain:(unsigned short)arg2;
 - (void)enumerateSiblingNodesThroughEdgesWithLabel:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)siblingNodesThroughEdgesWithLabel:(id)arg1;
+- (id)anyNeighborNodeThroughInEdgesWithLabel:(id)arg1 domain:(unsigned short)arg2;
 - (id)anyNeighborNodeThroughInEdges;
+- (id)anyNeighborNodeThroughOutEdgesWithLabel:(id)arg1 domain:(unsigned short)arg2;
 - (id)anyNeighborNodeThroughOutEdges;
 - (id)anyNeighborNodeThroughEdgesWithLabel:(id)arg1 domain:(unsigned short)arg2;
 - (id)anyNeighborNodeThroughEdgesWithLabel:(id)arg1;
@@ -79,6 +81,7 @@
 - (id)shortDescription;
 - (id)description;
 - (id)init;
+- (_Bool)conformsToNodeSchema:(id)arg1;
 
 @end
 

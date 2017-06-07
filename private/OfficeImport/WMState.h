@@ -28,6 +28,7 @@
     float mTotalPageHeight;
 }
 
+- (void).cxx_destruct;
 - (_Bool)isHeaderOrFooter;
 - (void)setIsHeaderOrFooter:(_Bool)arg1;
 - (_Bool)isFrameEnd;

@@ -8,10 +8,11 @@
 
 #import <CoreThemeDefinition/NSCopying-Protocol.h>
 
-@class NSArray, NSDate, NSSet, NSString, NSURL;
+@class NSArray, NSDate, NSSet, NSString, NSURL, NSValue;
 
 @interface TDNamedAssetImportInfo : NSObject <NSCopying>
 {
+    _Bool _preservesVectorRepresentation;
     _Bool _optOutOfThinning;
     _Bool _isFlippable;
     _Bool _cubeMap;
@@ -45,12 +46,20 @@
     long long _texturePixelFormat;
     long long _textureInterpretation;
     NSArray *_textureInfos;
+    struct CGColor *_cgColor;
+    long long _colorSpaceID;
+    NSArray *_colorComponents;
+    NSValue *_iconSize;
     struct CGSize _resizableSliceSize;
     struct CGSize _canvasSize;
     CDStruct_3c058996 _sliceInsets;
     struct CGRect _alignmentRect;
 }
 
+@property(copy, nonatomic) NSValue *iconSize; // @synthesize iconSize=_iconSize;
+@property(copy, nonatomic) NSArray *colorComponents; // @synthesize colorComponents=_colorComponents;
+@property(nonatomic) long long colorSpaceID; // @synthesize colorSpaceID=_colorSpaceID;
+@property(readonly, nonatomic) struct CGColor *cgColor; // @synthesize cgColor=_cgColor;
 @property(copy, nonatomic) NSArray *textureInfos; // @synthesize textureInfos=_textureInfos;
 @property(nonatomic) long long textureInterpretation; // @synthesize textureInterpretation=_textureInterpretation;
 @property(nonatomic) long long texturePixelFormat; // @synthesize texturePixelFormat=_texturePixelFormat;
@@ -77,6 +86,7 @@
 @property(nonatomic) struct CGRect alignmentRect; // @synthesize alignmentRect=_alignmentRect;
 @property(nonatomic) _Bool optOutOfThinning; // @synthesize optOutOfThinning=_optOutOfThinning;
 @property(nonatomic) long long templateRenderingMode; // @synthesize templateRenderingMode=_templateRenderingMode;
+@property(nonatomic) _Bool preservesVectorRepresentation; // @synthesize preservesVectorRepresentation=_preservesVectorRepresentation;
 @property(nonatomic) struct CGSize resizableSliceSize; // @synthesize resizableSliceSize=_resizableSliceSize;
 @property(nonatomic) long long resizingMode; // @synthesize resizingMode=_resizingMode;
 @property(nonatomic) long long renditionType; // @synthesize renditionType=_renditionType;
@@ -91,6 +101,7 @@
 - (id)description;
 @property(nonatomic) _Bool isTemplate;
 - (long long)renditionSubtype;
+- (void)setCGColor:(struct CGColor *)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)copyWithZone:(struct _NSZone *)arg1;

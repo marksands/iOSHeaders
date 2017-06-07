@@ -45,6 +45,7 @@
 @property double sigmoidDegree; // @synthesize sigmoidDegree=_sigmoidDegree;
 @property double inputSmoothing; // @synthesize inputSmoothing=_inputSmoothing;
 @property unsigned long long frameInterval; // @synthesize frameInterval=_frameInterval;
+- (long long)preferredFramesPerSecond;
 - (void)setDefaultValues;
 
 @end

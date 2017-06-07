@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/PKPaymentOptionsProtocol-Protocol.h>
 
@@ -34,6 +34,8 @@
 @property(retain, nonatomic) CNContact *defaultContactEmail; // @synthesize defaultContactEmail=_defaultContactEmail;
 - (void)_hardDeleteDefaultBillingAddress;
 - (void)deleteDefaultBillingAddress:(id)arg1;
+- (void)setDefaultBillingAddress:(id)arg1 forPrimaryAccountIdentifier:(id)arg2;
+- (void)setDefaultBillingAddress:(id)arg1 forRemotePaymentInstrument:(id)arg2;
 - (void)setDefaultBillingAddress:(id)arg1 forPaymentPass:(id)arg2;
 - (id)defaultBillingAddressForPrimaryAccountIdentifier:(id)arg1;
 - (id)defaultBillingAddressForRemotePaymentInstrument:(id)arg1;

@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSMutableArray *iconChecksums; // @synthesize iconChecksums=_iconChecksums;
 @property(retain, nonatomic) NSMutableArray *attributions; // @synthesize attributions=_attributions;
 @property(retain, nonatomic) NSMutableArray *icons; // @synthesize icons=_icons;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

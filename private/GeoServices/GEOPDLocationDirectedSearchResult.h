@@ -20,6 +20,7 @@
 + (Class)disambiguationLabelType;
 @property(retain, nonatomic) NSMutableArray *disambiguationLabels; // @synthesize disambiguationLabels=_disambiguationLabels;
 @property(retain, nonatomic) GEOMapRegion *displayMapRegion; // @synthesize displayMapRegion=_displayMapRegion;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -35,7 +36,6 @@
 - (void)addDisambiguationLabel:(id)arg1;
 - (void)clearDisambiguationLabels;
 @property(readonly, nonatomic) _Bool hasDisplayMapRegion;
-- (void)dealloc;
 
 @end
 

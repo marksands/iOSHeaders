@@ -6,15 +6,16 @@
 
 #import <CameraUI/CAMVideoCaptureRequest.h>
 
+#import <CameraUI/CAMMutableCaptureRequestEncodingBehavior-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestLocation-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestOrigin-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestPersistence-Protocol.h>
 #import <CameraUI/CAMMutableCaptureRequestPower-Protocol.h>
 
-@class CLLocation, NSString, NSURL;
+@class CLHeading, CLLocation, NSString, NSURL;
 @protocol CAMVideoCaptureRequestDelegate;
 
-@interface CAMMutableVideoCaptureRequest : CAMVideoCaptureRequest <CAMMutableCaptureRequestPersistence, CAMMutableCaptureRequestLocation, CAMMutableCaptureRequestPower, CAMMutableCaptureRequestOrigin>
+@interface CAMMutableVideoCaptureRequest : CAMVideoCaptureRequest <CAMMutableCaptureRequestPersistence, CAMMutableCaptureRequestLocation, CAMMutableCaptureRequestPower, CAMMutableCaptureRequestOrigin, CAMMutableCaptureRequestEncodingBehavior>
 {
 }
 
@@ -25,7 +26,9 @@
 @property(nonatomic) long long remainingDiskUsageThreshold; // @dynamic remainingDiskUsageThreshold;
 @property(nonatomic) long long maximumRecordedFileSize; // @dynamic maximumRecordedFileSize;
 @property(nonatomic) double maximumRecordedDuration; // @dynamic maximumRecordedDuration;
+@property(retain, nonatomic) CLHeading *heading;
 @property(retain, nonatomic) CLLocation *location;
+@property(nonatomic) long long videoEncodingBehavior;
 @property(nonatomic) _Bool shouldDelayRemotePersistence;
 @property(nonatomic) _Bool shouldPersistDiagnosticsToSidecar;
 @property(nonatomic) _Bool shouldExtractDiagnosticsFromMetadata;
@@ -36,7 +39,7 @@
 @property(copy, nonatomic) NSString *persistenceUUID;
 @property(nonatomic) unsigned short sessionIdentifier; // @dynamic sessionIdentifier;
 @property(nonatomic) long long torchMode; // @dynamic torchMode;
-@property(nonatomic) long long physicalButtonType; // @dynamic physicalButtonType;
+@property(nonatomic) long long pressType; // @dynamic pressType;
 @property(nonatomic) long long captureVideoConfiguration; // @dynamic captureVideoConfiguration;
 @property(nonatomic) long long captureMode; // @dynamic captureMode;
 @property(nonatomic) long long captureDevice; // @dynamic captureDevice;
@@ -49,6 +52,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(nonatomic) long long photoEncodingBehavior;
 @property(readonly) Class superclass;
 
 @end

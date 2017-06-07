@@ -18,6 +18,9 @@
 }
 
 - (void).cxx_destruct;
+- (void)_removeAIMAccounts;
+- (void)_removeMessagesFromGoogleSupportedDataclasses;
+- (void)_setCloudKitAllowsMultipleAccounts;
 - (void)_setYahooAccountsProvisionedDataclassesToSupportedOnes;
 - (void)_removeMessengerFromYahooSupportedDataclasses;
 - (void)_addNotesDataclassToAASupportedDataclasses;

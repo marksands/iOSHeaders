@@ -9,7 +9,7 @@
 #import <TextInput/NSCopying-Protocol.h>
 #import <TextInput/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSString, TIKeyboardSecureCandidateLayoutTraits, TIKeyboardSecureCandidateRGBColor, TIKeyboardSecureCandidateTextTraits;
+@class NSArray, NSDictionary, NSString, TIKeyboardSecureCandidateLayoutTraits, TIKeyboardSecureCandidateRGBColor, TIKeyboardSecureCandidateTextTraits;
 
 @interface TIKeyboardSecureCandidateRenderTraits : NSObject <NSCopying, NSSecureCoding>
 {
@@ -20,11 +20,14 @@
     NSString *_prefixText;
     NSString *_suffixText;
     NSArray *_resultCountToSingleCellWidth;
+    NSDictionary *_cellWidthOptions;
     double _singleCellHeight;
     double _singleCellVerticalPadding;
     double _dividerLineWidth;
     long long _maxCellCount;
+    long long _sharedCellCount;
     double _screenScale;
+    long long _cellRenderingStyle;
     NSString *_fontName;
     double _fontSize;
     TIKeyboardSecureCandidateRGBColor *_textColor;
@@ -35,11 +38,14 @@
 @property(nonatomic) double fontSize; // @synthesize fontSize=_fontSize;
 @property(copy, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
 @property(nonatomic) _Bool isCandidateUI; // @synthesize isCandidateUI=_isCandidateUI;
+@property(nonatomic) long long cellRenderingStyle; // @synthesize cellRenderingStyle=_cellRenderingStyle;
 @property(nonatomic) double screenScale; // @synthesize screenScale=_screenScale;
+@property(nonatomic) long long sharedCellCount; // @synthesize sharedCellCount=_sharedCellCount;
 @property(nonatomic) long long maxCellCount; // @synthesize maxCellCount=_maxCellCount;
 @property(nonatomic) double dividerLineWidth; // @synthesize dividerLineWidth=_dividerLineWidth;
 @property(nonatomic) double singleCellVerticalPadding; // @synthesize singleCellVerticalPadding=_singleCellVerticalPadding;
 @property(nonatomic) double singleCellHeight; // @synthesize singleCellHeight=_singleCellHeight;
+@property(copy, nonatomic) NSDictionary *cellWidthOptions; // @synthesize cellWidthOptions=_cellWidthOptions;
 @property(copy, nonatomic) NSArray *resultCountToSingleCellWidth; // @synthesize resultCountToSingleCellWidth=_resultCountToSingleCellWidth;
 @property(copy, nonatomic) NSString *suffixText; // @synthesize suffixText=_suffixText;
 @property(copy, nonatomic) NSString *prefixText; // @synthesize prefixText=_prefixText;
@@ -53,6 +59,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(nonatomic) double singleCellWidth;
 - (void)dealloc;
+- (id)init;
 
 @end
 

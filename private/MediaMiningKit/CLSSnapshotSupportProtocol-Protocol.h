@@ -12,9 +12,14 @@
 @property(readonly, nonatomic) unsigned long long clsPeopleCount;
 - (double)duration;
 - (NSSet *)clsSceneClassifications;
+- (float)clsExposureScore;
 - (float)clsSharpnessScore;
+- (unsigned long long)clsVideoFaceCount;
+- (float)clsActivityLevel;
 - (float)clsVideoScore;
 - (NSData *)clsDistanceIdentity;
+- (long long)clsBlinkCount;
+- (long long)clsSmileCount;
 - (long long)clsShareCount;
 - (long long)clsPlayCount;
 - (long long)clsViewCount;

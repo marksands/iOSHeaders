@@ -6,9 +6,9 @@
 
 #import <NewsCore/NSObject-Protocol.h>
 
-@class CKDatabaseOperation, FCCKDatabase;
+@class CKDatabaseOperation, FCCKPrivateDatabase;
 
 @protocol FCCKDatabaseOperationMiddleware <NSObject>
-- (long long)database:(FCCKDatabase *)arg1 willEnqueueOperation:(CKDatabaseOperation *)arg2;
+- (long long)database:(FCCKPrivateDatabase *)arg1 willEnqueueOperation:(CKDatabaseOperation *)arg2;
 @end
 

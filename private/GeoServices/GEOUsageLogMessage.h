@@ -8,18 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLongSessionUsageLogMessage, GEOSessionlessUsageLogMessage, GEOShortSessionUsageLogMessage;
-
 @interface GEOUsageLogMessage : PBCodable <NSCopying>
 {
-    GEOLongSessionUsageLogMessage *_longSessionUsageLogMessage;
-    GEOSessionlessUsageLogMessage *_sessionlessUsageLogMessage;
-    GEOShortSessionUsageLogMessage *_shortSessionUsageLogMessage;
 }
 
-@property(retain, nonatomic) GEOSessionlessUsageLogMessage *sessionlessUsageLogMessage; // @synthesize sessionlessUsageLogMessage=_sessionlessUsageLogMessage;
-@property(retain, nonatomic) GEOLongSessionUsageLogMessage *longSessionUsageLogMessage; // @synthesize longSessionUsageLogMessage=_longSessionUsageLogMessage;
-@property(retain, nonatomic) GEOShortSessionUsageLogMessage *shortSessionUsageLogMessage; // @synthesize shortSessionUsageLogMessage=_shortSessionUsageLogMessage;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,10 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasSessionlessUsageLogMessage;
-@property(readonly, nonatomic) _Bool hasLongSessionUsageLogMessage;
-@property(readonly, nonatomic) _Bool hasShortSessionUsageLogMessage;
-- (void)dealloc;
 
 @end
 

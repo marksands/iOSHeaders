@@ -6,10 +6,13 @@
 
 #import <iTunesStore/ISOperation.h>
 
+@class WebScriptObject;
+
 @interface SUScriptOperation : ISOperation
 {
     id _options;
     ISOperation *_wrappedOperation;
+    WebScriptObject *_callbackFunction;
 }
 
 + (void)registerPostOperationClass:(Class)arg1 forType:(id)arg2;
@@ -20,6 +23,7 @@
 - (void)run;
 - (void)dealloc;
 - (id)initWithPostType:(id)arg1 options:(id)arg2;
+- (id)initWithOperation:(id)arg1 callback:(id)arg2;
 - (id)initWithOperation:(id)arg1 options:(id)arg2;
 
 @end

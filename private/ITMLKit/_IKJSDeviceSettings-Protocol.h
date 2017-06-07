@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ITMLKit/IKJSDeviceSettings-Protocol.h>
 #import <ITMLKit/JSExport-Protocol.h>
 
 @class IKJSRestrictions, NSString;
 
-@protocol _IKJSDeviceSettings <JSExport>
+@protocol _IKJSDeviceSettings <IKJSDeviceSettings, JSExport>
 @property(readonly, nonatomic) struct CGSize screen;
 @property(readonly, nonatomic) IKJSRestrictions *Restrictions;
 @property(readonly, nonatomic) struct CGSize Screen;

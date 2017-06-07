@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic, setter=p_setLegendStyle:) id <TSCHStyleActAlike> p_legendStyle; // @synthesize p_legendStyle=mLegendStyle;
 @property(retain, nonatomic, setter=p_setChartNonStyle:) id <TSCHStyleActAlike> p_chartNonStyle; // @synthesize p_chartNonStyle=mChartNonStyle;
 @property(retain, nonatomic, setter=p_setChartStyle:) id <TSCHStyleActAlike> p_chartStyle; // @synthesize p_chartStyle=mChartStyle;
+- (void).cxx_destruct;
 - (void)saveToArchive:(struct PropertyValueStorageContainerArchive *)arg1 archiver:(id)arg2;
 - (void)loadFromArchive:(const struct PropertyValueStorageContainerArchive *)arg1 unarchiver:(id)arg2;
 @property(copy, nonatomic, setter=p_setReferenceLineNonStyles:) NSDictionary *p_referenceLineNonStyles;
@@ -57,7 +58,6 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic, setter=p_setCategoryAxisStyles:) NSArray *p_categoryAxisStyles;
 @property(copy, nonatomic, setter=p_setValueAxisNonStyles:) NSArray *p_valueAxisNonStyles;
 @property(copy, nonatomic, setter=p_setValueAxisStyles:) NSArray *p_valueAxisStyles;
-- (void)dealloc;
 
 @end
 

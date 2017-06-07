@@ -13,6 +13,7 @@
 @interface GEOStepFeedback : PBCodable <NSCopying>
 {
     double _completionTimeStamp;
+    NSMutableArray *_guidanceFeedbacks;
     NSMutableArray *_instructionErrors;
     NSData *_routeID;
     unsigned int _routeIndex;
@@ -26,13 +27,16 @@
     } _has;
 }
 
++ (Class)guidanceFeedbackType;
 + (Class)instructionErrorType;
+@property(retain, nonatomic) NSMutableArray *guidanceFeedbacks; // @synthesize guidanceFeedbacks=_guidanceFeedbacks;
 @property(retain, nonatomic) NSMutableArray *instructionErrors; // @synthesize instructionErrors=_instructionErrors;
 @property(nonatomic) unsigned int routeIndex; // @synthesize routeIndex=_routeIndex;
 @property(retain, nonatomic) NSData *routeID; // @synthesize routeID=_routeID;
 @property(nonatomic) _Bool completedStep; // @synthesize completedStep=_completedStep;
 @property(nonatomic) double completionTimeStamp; // @synthesize completionTimeStamp=_completionTimeStamp;
 @property(nonatomic) unsigned int stepID; // @synthesize stepID=_stepID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -42,6 +46,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)guidanceFeedbackAtIndex:(unsigned long long)arg1;
+- (unsigned long long)guidanceFeedbacksCount;
+- (void)addGuidanceFeedback:(id)arg1;
+- (void)clearGuidanceFeedbacks;
 - (id)instructionErrorAtIndex:(unsigned long long)arg1;
 - (unsigned long long)instructionErrorsCount;
 - (void)addInstructionError:(id)arg1;
@@ -51,7 +59,6 @@
 @property(nonatomic) _Bool hasCompletedStep;
 @property(nonatomic) _Bool hasCompletionTimeStamp;
 @property(nonatomic) _Bool hasStepID;
-- (void)dealloc;
 
 @end
 

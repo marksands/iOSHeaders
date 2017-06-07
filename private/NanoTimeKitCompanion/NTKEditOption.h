@@ -15,14 +15,19 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)optionsDescription;
++ (struct CGSize)sizeForSwatchStyle:(long long)arg1;
+- (_Bool)optionExistsInOSVersion:(unsigned int)arg1;
 - (_Bool)isValidOption;
 - (id)initWithJSONObjectRepresentation:(id)arg1;
 - (id)JSONObjectRepresentation;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+@property(readonly, nonatomic) NSString *localizedNameForAction;
 @property(readonly, nonatomic) NSString *localizedName;
 @property(readonly, nonatomic) NSString *dailySnapshotKey;
+@property(readonly, nonatomic) long long swatchStyle;
 
 @end
 

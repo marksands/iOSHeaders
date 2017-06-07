@@ -8,7 +8,7 @@
 
 #import <PassKitUI/PKPaymentSetupViewControllerDelegate-Protocol.h>
 
-@class NSObject, NSString, UIButton;
+@class NSArray, NSObject, NSString, UIButton;
 @protocol OS_dispatch_group, PKPaymentSetupViewControllerDelegate;
 
 @interface PKPaymentSetupAssistantRegistrationViewController : PKPaymentSetupViewController <PKPaymentSetupViewControllerDelegate>
@@ -30,6 +30,7 @@
 - (void)_setExternalDelegate:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)delegate;
+@property(readonly, nonatomic) NSArray *requiredPaymentSetupFileURLs;
 - (id)_deviceSpecificLocalizedStringKeyForKey:(id)arg1;
 - (void)privacyButtonTouched:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;

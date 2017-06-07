@@ -6,15 +6,15 @@
 
 #import <Foundation/NSObject.h>
 
-@class TSUCache;
+@class TSUAtomicLRUCache;
 
 __attribute__((visibility("hidden")))
 @interface TSCHText : NSObject
 {
-    TSUCache *mTSWPTextCache;
-    TSUCache *mTSWPColumnCache;
-    TSUCache *mNumberWidthCache;
-    TSUCache *mDigitWidthFonts;
+    TSUAtomicLRUCache *mTSWPTextCache;
+    TSUAtomicLRUCache *mTSWPColumnCache;
+    TSUAtomicLRUCache *mNumberWidthCache;
+    TSUAtomicLRUCache *mDigitWidthFonts;
 }
 
 + (id)allocWithZone:(struct _NSZone *)arg1;

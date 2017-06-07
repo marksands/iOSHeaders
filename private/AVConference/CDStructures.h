@@ -14,6 +14,14 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct AVCRateControlConfig {
+    unsigned int mode;
+    unsigned int localRadioAccessTechnology;
+    unsigned int remoteRadioAccessTechnology;
+    unsigned int maxBitrate;
+    unsigned int minBitrate;
+};
+
 struct AudioBufferList;
 
 struct AudioStreamBasicDescription {
@@ -49,6 +57,20 @@ struct CGSize {
     double height;
 };
 
+struct ConnectionStats {
+    unsigned char totalPacketsReceived;
+    unsigned char connectionStats[2];
+    unsigned char currentIndex;
+    double startTime;
+};
+
+struct ConnectionStatsHistory {
+    unsigned char latestConnectionStatsIndex;
+    unsigned char totalPacketsReceived[5];
+    unsigned char connectionStats[2][5];
+    unsigned char connectionStatsRatio[2][5];
+};
+
 struct DSPSplitComplex {
     float *realp;
     float *imagp;
@@ -76,28 +98,132 @@ struct SoundDec_t {
     int _field7;
     struct AudioStreamPacketDescription _field8;
     struct AudioBufferList *_field9;
-    char *_field10;
+    struct AudioBufferList *_field10;
     char *_field11;
-    int _field12;
+    char *_field12;
     int _field13;
     int _field14;
     int _field15;
-    unsigned char _field16;
-    int _field17;
+    int _field16;
+    unsigned char _field17;
     int _field18;
-    unsigned int _field19;
+    int _field19;
     unsigned int _field20;
+    unsigned int _field21;
+};
+
+struct VCAudioClientSettings {
+    _Bool isValid;
+    _Bool enableAudioPreWarming;
+    int operatingMode;
+    int deviceRole;
+};
+
+struct VCRateControlAlgorithmConfig {
+    unsigned int *tierBitrates;
+    int initialTierIndex;
+    int maxTierIndex;
+    int minTierIndex;
+    int lowestNonEmergencyTierIndex;
+    int rampUpTierNumber;
+    int rampDownTierNumber;
+    int rampUpAdditionalTierAtInitial;
+    int rampDownAdditionalTierAtInitial;
+    double rampDownNOWRDThreshold;
+    double rampDownNOWRDAccThreshold;
+    double rampDownAggressiveNOWRDThreshold;
+    double rampDownAggressiveNOWRDAccThreshold;
+    double rampDownConstantOWRDDuration;
+    double rampDownOvershootDuration;
+    double rampDownOvershootNextTierRatio;
+    double rampUpFrozenDuration;
+    double rampUpSettleDuration;
+    double rampUpOWRDThreshold;
+    double rampUpNOWRDThreshold;
+    double rampUpNOWRDAccThreshold;
+    double rampUpOverBandwidthCalmDuration;
+    int rampUpOverBandwidthTierNumber;
+    double rampUpRateLimitedRatio;
+    double unstableRateLimitedDuration;
+    double congestionWaitDuration;
+    double owrdWindowDuration;
+    double owrdShortWindowDuration;
+    double minimumNOWRDTimeDifference;
+    double owrdInitialRampUpReadyDuration;
+    unsigned int owrdHistorySize;
+    unsigned int owrdMininumHistorySize;
+    unsigned int fastRampDownBitrateRange;
+    unsigned int fastRampUpBitrateRange;
+    _Bool receivedBandwidthEstimationEnabled;
+    int stabilizationScheme;
+    _Bool basebandAdaptationEnabled;
+    double rampDownNBDCDThreshold;
+    double rampDownAggressiveNBDCDThreshold;
+    double rampDownNormalizedQueuingDelayThreshold;
+    double rampDownMediumQueuingDelayThreshold;
+    double rampDownHighQueuingDelayThreshold;
+    double rampDownEmergencyTierCoolDownTime;
+    double rampUpNBDCDThreshold;
+    double rampUpQueuingDelayThreshold;
+    double rampUpNBDCDCoolDownTime;
+    double rampUpAudioFractionCoolDownTime;
+};
+
+struct VCRateControlMediaSuggestion {
+    _Bool _field1;
+    _Bool _field2;
+    _Bool _field3;
+    _Bool _field4;
+    _Bool _field5;
+    _Bool _field6;
+    _Bool _field7;
+};
+
+struct VCStatisticsPacketHistory {
+    unsigned int packetId;
+    unsigned int totalPacketCount;
+    double timestamp;
 };
 
 struct VoiceIOFarEndVersionInfo {
-    unsigned char _field1[64];
-    unsigned char _field2[64];
-    unsigned int _field3;
+    unsigned char farEndHwModel[64];
+    unsigned char farEndOSVersion[64];
+    unsigned int farEndAUVersion;
 };
 
 struct _METER_INFO {
     _Bool frequencyMeteringEnabled;
     FFTMeter *fftMeter;
+};
+
+struct _RTCPPacketList {
+    union tagNTP _field1;
+    unsigned char _field2;
+    struct tagRTCPPACKET *_field3[10];
+    unsigned char _field4[1472];
+    unsigned int _field5;
+    unsigned char _field6[1472];
+};
+
+struct _RTCP_RECEPTION_REPORT {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    unsigned int _field8;
+    unsigned char _field9;
+};
+
+struct _VCAudioEndpointData {
+    struct SoundDec_t *converter;
+    struct opaqueVCAudioBufferList *converterBuffer;
+    _Bool timestampInitialized;
+    _Bool controllerReset;
+    double lastHostTime;
+    unsigned int lastTimestamp;
 };
 
 struct _VCBitrateConfiguration {
@@ -154,6 +280,8 @@ struct in_addr {
     unsigned int s_addr;
 };
 
+struct opaqueVCAudioBufferList;
+
 struct sockaddr {
     unsigned char sa_len;
     unsigned char sa_family;
@@ -176,16 +304,37 @@ struct sockaddr_storage {
     char __ss_pad2[112];
 };
 
-struct tagAPP_RTCP {
+struct tagAFRCFB {
     unsigned int _field1;
-    char _field2[4];
-    int _field3;
-    int _field4;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+    unsigned int _field8;
 };
 
 struct tagAccessUnitHeaderInfo {
     unsigned short accessUnitCount;
     unsigned short accessUnitSize[3];
+};
+
+struct tagAudioHeaderData {
+    int _field1;
+    unsigned int _field2;
+    unsigned char _field3[16];
+    unsigned char _field4;
+    float _field5;
+    int _field6;
+    int _field7;
+    int _field8;
+};
+
+struct tagAudioPacketData {
+    struct tagAudioHeaderData _field1;
+    char *_field2;
+    int _field3;
 };
 
 struct tagBYE_RTCP {
@@ -268,14 +417,6 @@ struct tagCommNATInfo {
     unsigned int _field4;
 };
 
-struct tagEncodedAudio {
-    unsigned int _field1;
-    float _field2;
-    int _field3;
-    unsigned char _field4[16];
-    unsigned char _field5;
-};
-
 struct tagFIR_RTCP {
     unsigned int _field1;
     unsigned short _field2[10];
@@ -303,7 +444,7 @@ struct tagNACK_RTCP {
 
 struct tagRR_RTCP {
     unsigned int _field1;
-    struct tagRTCPRR _field2;
+    struct tagRTCP_RRB _field2[1];
 };
 
 struct tagRTCPCOMMON {
@@ -321,32 +462,75 @@ struct tagRTCPPACKET {
         struct tagRR_RTCP _field2;
         struct tagSDES_RTCP _field3;
         struct tagBYE_RTCP _field4;
-        struct tagAPP_RTCP _field5;
-        struct tagFIR_RTCP _field6;
-        struct tagNACK_RTCP _field7;
-        struct tagRTCP_PSFB_PLI _field8;
-        struct tagRTCP_PSFB_SLI _field9;
-        struct tagRTCP_PSFB_FIR _field10;
-        struct tagRTCP_RTPFB_GNACK _field11;
-        struct tagRTCP_RTPFB_TMMB _field12;
-        struct tagRTCP_RTPFB_TMMB _field13;
+        struct tagRTCP_APP _field5;
+        struct tagRTCP_APP_LTRP _field6;
+        struct tagFIR_RTCP _field7;
+        struct tagNACK_RTCP _field8;
+        struct tagRTCP_PSFB_PLI _field9;
+        struct tagRTCP_PSFB_SLI _field10;
+        struct tagRTCP_PSFB_FIR _field11;
+        struct tagRTCP_PSFB_TST _field12;
+        struct tagRTCP_PSFB_TST _field13;
+        struct tagRTCP_RTPFB_GNACK _field14;
+        struct tagRTCP_RTPFB_TMMB _field15;
+        struct tagRTCP_RTPFB_TMMB _field16;
+        struct tagRTCP_CUSTOM_SR _field17;
+        struct tagRTCP_CUSTOM_RR _field18;
     } _field2;
-};
-
-struct tagRTCPRR {
-    unsigned int _field1;
-    unsigned int :8;
-    unsigned int :24;
-    unsigned int _field2;
-    unsigned int _field3;
-    unsigned int _field4;
-    unsigned int _field5;
 };
 
 struct tagRTCPSDES {
     unsigned char _field1;
     unsigned char _field2;
     char _field3[258];
+};
+
+struct tagRTCP_APP {
+    unsigned int _field1;
+    unsigned int _field2;
+};
+
+struct tagRTCP_APP_LTRP {
+    struct tagRTCP_APP _field1;
+    unsigned int _field2;
+};
+
+struct tagRTCP_CUSTOM_RECEIVER_INFO {
+    unsigned int :4;
+    unsigned int :4;
+};
+
+struct tagRTCP_CUSTOM_RECEPTION_REPORT {
+    unsigned int _field1;
+    unsigned int :4;
+    unsigned int :12;
+    unsigned short _field2;
+    unsigned short _field3;
+    unsigned char _field4;
+    unsigned char _field5;
+};
+
+struct tagRTCP_CUSTOM_RR {
+    struct tagRTCP_APP _field1;
+    unsigned int _field2;
+    struct tagRTCP_CUSTOM_RECEIVER_INFO _field3;
+    struct tagRTCP_CUSTOM_RECEPTION_REPORT _field4[1];
+};
+
+struct tagRTCP_CUSTOM_SENDER_INFO {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int :4;
+    unsigned int :4;
+};
+
+struct tagRTCP_CUSTOM_SR {
+    struct tagRTCP_APP _field1;
+    unsigned int _field2;
+    struct tagRTCP_CUSTOM_SENDER_INFO _field3;
+    struct tagRTCP_CUSTOM_RECEPTION_REPORT _field4[1];
 };
 
 struct tagRTCP_FBCOMMON {
@@ -370,6 +554,22 @@ struct tagRTCP_PSFB_SLI {
     unsigned int _field2;
 };
 
+struct tagRTCP_PSFB_TST {
+    struct tagRTCP_FBCOMMON _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+};
+
+struct tagRTCP_RRB {
+    unsigned int _field1;
+    unsigned int :8;
+    unsigned int :24;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+};
+
 struct tagRTCP_RTPFB_GNACK {
     struct tagRTCP_FBCOMMON _field1;
     unsigned short _field2;
@@ -390,6 +590,7 @@ struct tagSDES_RTCP {
 struct tagSRTPExchangeInfo {
     char _field1[65];
     char _field2[29];
+    unsigned int _field3;
 };
 
 struct tagSR_RTCP {
@@ -399,7 +600,17 @@ struct tagSR_RTCP {
     unsigned int _field4;
     unsigned int _field5;
     unsigned int _field6;
-    struct tagRTCPRR _field7;
+    struct tagRTCP_RRB _field7[1];
+};
+
+struct tagVCAudioRedPayload {
+    int payloadType;
+    char *buffer;
+    int bufferLength;
+    unsigned int timestamp;
+    _Bool isRedAudio;
+    unsigned char redCount;
+    unsigned char sequenceOffset;
 };
 
 struct tagVCMediaStreamSyncTime {
@@ -448,13 +659,22 @@ struct tagVCSourceDestinationInfo {
         } _field2;
         struct {
             unsigned int _field1;
-            struct {
-                char _field1;
-                unsigned short _field2;
-            } _field2;
+            CDStruct_54fea20c _field2;
         } _field3;
     } _field2;
     struct tagVCSourceDestinationInfo *_field3;
+};
+
+struct tagVCStatisticsCollection {
+    CDStruct_173c856b _field1;
+    CDStruct_a561fd19 _field2;
+    CDStruct_7523a67d _field3;
+    CDStruct_0004415b _field4;
+    CDStruct_bb192e0a _field5;
+    CDStruct_5f4d9acf _field6;
+    CDStruct_1c8e0384 _field7;
+    CDStruct_1c8e0384 _field8;
+    CDStruct_7523a67d _field9;
 };
 
 struct tagWRMMetricsInfo {
@@ -501,6 +721,65 @@ struct timespec {
 #pragma mark Typedef'd Structures
 
 typedef struct {
+    _Bool _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    double _field4;
+    unsigned int _field5;
+} CDStruct_0004415b;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    unsigned int _field6;
+    unsigned int _field7;
+} CDStruct_a561fd19;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+    double _field6;
+    double _field7;
+    double _field8;
+    double _field9;
+    char _field10[64];
+} CDStruct_173c856b;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    double _field5;
+} CDStruct_bb192e0a;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+} CDStruct_7523a67d;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    double _field4;
+} CDStruct_5f4d9acf;
+
+typedef struct {
+    unsigned int _field1;
+    unsigned int _field2;
+    double _field3;
+} CDStruct_1c8e0384;
+
+typedef struct {
     unsigned long long _field1;
     unsigned long long _field2;
     unsigned long long _field3;
@@ -536,6 +815,37 @@ typedef struct {
 } CDStruct_69d7cc99;
 
 typedef struct {
+    char _field1[65];
+    int _field2;
+    char _field3[65];
+    int _field4;
+    unsigned int _field5;
+} CDStruct_839290c6;
+
+typedef struct {
+    char _field1;
+    unsigned short _field2;
+    unsigned short _field3;
+    unsigned char _field4;
+} CDStruct_54fea20c;
+
+typedef struct {
+    double lastReceivedPacketTimestamp;
+    double lastReportTimestamp;
+    double noPacketInterval;
+    _Bool isConnectionPaused;
+    int type;
+} CDStruct_b3143830;
+
+typedef struct {
+    double _field1;
+    int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+    unsigned int _field5;
+} CDStruct_475a354f;
+
+typedef struct {
     int _field1;
     unsigned char _field2[12];
 } CDStruct_c3d3b44c;
@@ -556,13 +866,64 @@ typedef struct {
 } CDStruct_8aeecdac;
 
 typedef struct {
-    int type;
-} CDStruct_bdecc0cd;
-
-typedef struct {
     long long value;
     int timescale;
     unsigned int flags;
     long long epoch;
 } CDStruct_1b6d18a9;
+
+typedef struct {
+    int _field1;
+    double _field2;
+    union {
+        CDStruct_173c856b _field1;
+        CDStruct_a561fd19 _field2;
+        CDStruct_7523a67d _field3;
+        CDStruct_0004415b _field4;
+        CDStruct_bb192e0a _field5;
+        CDStruct_5f4d9acf _field6;
+        CDStruct_1c8e0384 _field7;
+        CDStruct_1c8e0384 _field8;
+        CDStruct_7523a67d _field9;
+    } _field3;
+} CDStruct_5cb394a5;
+
+typedef struct {
+    int type;
+    unsigned short version;
+    double arrivalTime;
+    union {
+        struct {
+            unsigned short radioTechnology;
+            unsigned char transmissionAntenna;
+            unsigned short numberOfFlows;
+            unsigned char flowType;
+            char transmissionPower;
+            unsigned int queueDepth1;
+            unsigned int queueDepth2;
+            unsigned int basebandTransmissionBytes;
+            unsigned int lastTransmissionTimestamp;
+        } report;
+        struct {
+            unsigned short transactionID;
+            unsigned short totalNumDropped;
+            unsigned short numberOfPayloadTypes;
+            struct {
+                unsigned char payloadType;
+                unsigned short numberOfPacketDropped;
+                unsigned short awDroppedSN[500];
+            } PTSpecific[6];
+        } dropAck;
+    } notes;
+} CDStruct_f402fb06;
+
+#pragma mark Named Unions
+
+union tagNTP {
+    unsigned long long wide;
+    struct {
+        unsigned int frac;
+        unsigned int sec;
+    } time;
+};
 

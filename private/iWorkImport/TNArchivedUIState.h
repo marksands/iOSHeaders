@@ -11,13 +11,13 @@
 __attribute__((visibility("hidden")))
 @interface TNArchivedUIState : TSPObject
 {
-    TNUIState *mUIState;
+    TNUIState *_uiState;
 }
 
-@property(readonly, nonatomic) TNUIState *uiState; // @synthesize uiState=mUIState;
+@property(readonly, nonatomic) TNUIState *uiState; // @synthesize uiState=_uiState;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithUIState:(id)arg1 context:(id)arg2;
 
 @end

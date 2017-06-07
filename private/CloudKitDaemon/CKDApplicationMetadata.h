@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     _Bool _canSetEnvironment;
     _Bool _allowCustomAccounts;
     _Bool _canAccessProtectionData;
+    _Bool _canAccessZoneProtectionData;
     _Bool _canSetDeviceIdentifier;
     _Bool _hasAccessDuringBuddy;
     _Bool _hasLightweightPCS;
@@ -26,12 +27,14 @@ __attribute__((visibility("hidden")))
     _Bool _displaysSystemAcceptPrompt;
     NSString *_apsEnvironmentString;
     long long _isApplication;
+    NSString *_entitlementSpecifiedPCSServiceName;
     NSString *_applicationIdentifier;
     NSString *_clientPrefix;
 }
 
 @property(retain, nonatomic) NSString *clientPrefix; // @synthesize clientPrefix=_clientPrefix;
 @property(retain, nonatomic) NSString *applicationIdentifier; // @synthesize applicationIdentifier=_applicationIdentifier;
+@property(retain, nonatomic) NSString *entitlementSpecifiedPCSServiceName; // @synthesize entitlementSpecifiedPCSServiceName=_entitlementSpecifiedPCSServiceName;
 @property(nonatomic) _Bool displaysSystemAcceptPrompt; // @synthesize displaysSystemAcceptPrompt=_displaysSystemAcceptPrompt;
 @property(nonatomic) _Bool allowsParticipantPII; // @synthesize allowsParticipantPII=_allowsParticipantPII;
 @property(nonatomic) _Bool isOOPUI; // @synthesize isOOPUI=_isOOPUI;
@@ -40,6 +43,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasLightweightPCS; // @synthesize hasLightweightPCS=_hasLightweightPCS;
 @property(nonatomic) _Bool hasAccessDuringBuddy; // @synthesize hasAccessDuringBuddy=_hasAccessDuringBuddy;
 @property(nonatomic) _Bool canSetDeviceIdentifier; // @synthesize canSetDeviceIdentifier=_canSetDeviceIdentifier;
+@property(nonatomic) _Bool canAccessZoneProtectionData; // @synthesize canAccessZoneProtectionData=_canAccessZoneProtectionData;
 @property(nonatomic) _Bool canAccessProtectionData; // @synthesize canAccessProtectionData=_canAccessProtectionData;
 @property(nonatomic) _Bool allowCustomAccounts; // @synthesize allowCustomAccounts=_allowCustomAccounts;
 @property(nonatomic) _Bool canSetEnvironment; // @synthesize canSetEnvironment=_canSetEnvironment;

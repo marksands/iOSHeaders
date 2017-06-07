@@ -26,8 +26,9 @@
 
 + (_Bool)_allowsRasterization;
 + (_Bool)_allowsParallax;
+@property(readonly, copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
+@property(readonly, nonatomic) id <SBFProceduralWallpaper> proceduralWallpaper; // @synthesize proceduralWallpaper=_proceduralWallpaper;
 - (void).cxx_destruct;
-- (id)options;
 - (void)prepareToAppear;
 - (void)prepareToDisappear;
 - (void)_updateAnimating;
@@ -58,7 +59,7 @@
 - (void)invalidate;
 - (long long)wallpaperType;
 - (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1 proceduralWallpaper:(id)arg2 options:(id)arg3 variant:(long long)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 proceduralWallpaper:(id)arg2 options:(id)arg3 variant:(long long)arg4 wallpaperSettingsProvider:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

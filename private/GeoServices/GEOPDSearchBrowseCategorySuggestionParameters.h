@@ -8,7 +8,7 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDViewportInfo, PBUnknownFields;
+@class GEOPDVenueIdentifier, GEOPDViewportInfo, PBUnknownFields;
 
 @interface GEOPDSearchBrowseCategorySuggestionParameters : PBCodable <NSCopying>
 {
@@ -17,6 +17,7 @@
     double _requestLocalTimestamp;
     int _minimumNumberOfCategories;
     int _suggestionType;
+    GEOPDVenueIdentifier *_venueFilter;
     GEOPDViewportInfo *_viewportInfo;
     _Bool _isCarplayRequest;
     struct {
@@ -27,9 +28,11 @@
     } _has;
 }
 
+@property(retain, nonatomic) GEOPDVenueIdentifier *venueFilter; // @synthesize venueFilter=_venueFilter;
 @property(nonatomic) _Bool isCarplayRequest; // @synthesize isCarplayRequest=_isCarplayRequest;
 @property(nonatomic) double requestLocalTimestamp; // @synthesize requestLocalTimestamp=_requestLocalTimestamp;
 @property(retain, nonatomic) GEOPDViewportInfo *viewportInfo; // @synthesize viewportInfo=_viewportInfo;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -40,6 +43,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasVenueFilter;
 - (int)StringAsEngineTypes:(id)arg1;
 - (id)engineTypesAsString:(int)arg1;
 - (void)setEngineTypes:(int *)arg1 count:(unsigned long long)arg2;

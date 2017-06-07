@@ -8,16 +8,17 @@
 
 @class NSLayoutConstraint, PDFCollectionView, PDFView, UIColor;
 
+__attribute__((visibility("hidden")))
 @interface PDFThumbnailViewPrivateVars : NSObject
 {
-    PDFView *_PDFView;
-    UIColor *_backgroundColor;
-    struct CGSize _thumbnailSize;
-    PDFCollectionView *_collectionView;
-    NSLayoutConstraint *_topInsetConstraint;
-    NSLayoutConstraint *_bottomInsetConstraint;
-    NSLayoutConstraint *_leftInsetConstraint;
-    NSLayoutConstraint *_rightInsetConstraint;
+    PDFView *PDFView;
+    UIColor *backgroundColor;
+    struct CGSize thumbnailSize;
+    PDFCollectionView *collectionView;
+    NSLayoutConstraint *topInsetConstraint;
+    NSLayoutConstraint *bottomInsetConstraint;
+    NSLayoutConstraint *leftInsetConstraint;
+    NSLayoutConstraint *rightInsetConstraint;
 }
 
 - (void).cxx_destruct;

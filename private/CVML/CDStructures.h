@@ -580,6 +580,11 @@ typedef struct {
     unsigned long long _field2;
 } CDStruct_4bcfbbae;
 
+typedef struct {
+    float _field1;
+    float _field2;
+} CDStruct_b2fbf00d;
+
 // Template types
 typedef struct map<long long, std::__1::vector<long long, std::__1::allocator<long long>>, std::__1::less<long long>, std::__1::allocator<std::__1::pair<const long long, std::__1::vector<long long, std::__1::allocator<long long>>>>> {
     struct __tree<std::__1::__value_type<long long, std::__1::vector<long long, std::__1::allocator<long long>>>, std::__1::__map_value_compare<long long, std::__1::__value_type<long long, std::__1::vector<long long, std::__1::allocator<long long>>>, std::__1::less<long long>, true>, std::__1::allocator<std::__1::__value_type<long long, std::__1::vector<long long, std::__1::allocator<long long>>>>> {

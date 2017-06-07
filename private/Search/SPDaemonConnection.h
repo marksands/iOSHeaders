@@ -33,10 +33,8 @@
 - (void)deactivate;
 - (void)activate;
 - (void)cancelQuery:(id)arg1;
-- (id)startQuery:(id)arg1 withResponse:(id)arg2 isStable:(_Bool)arg3;
-- (id)startQuery:(id)arg1 withResponse:(id)arg2 isStable:(_Bool)arg3 queue:(id)arg4;
+- (id)startQuery:(id)arg1 withResponse:(id)arg2 isStable:(_Bool)arg3 queue:(id)arg4 delegate:(id)arg5;
 - (void)sendMessageForToken:(id)arg1 withResponse:(id)arg2 isStable:(_Bool)arg3;
-- (id)startQuery:(id)arg1;
 - (void)_sendMessage:(id)arg1 object:(id)arg2 info:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)_sendFeedbackMessage:(id)arg1 object:(id)arg2 info:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (id)_connection;

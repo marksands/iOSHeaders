@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
     struct shared_ptr<ggl::RenderState> _skyRenderState;
     struct RenderItem *_skyRenderItem;
     shared_ptr_696716c4 _fogViewConstantData;
-    shared_ptr_c062e934 _fogConstantData;
+    struct shared_ptr<ggl::ConstantDataTyped<ggl::Fog::Skyfog>> _fogConstantData;
     struct shared_ptr<ggl::Fog::FogPipelineState> _fogPipelineState;
     struct FogInfo _fogInfo;
     struct shared_ptr<ggl::PolygonBase::MeshMesh> _fogMesh;
@@ -44,13 +44,13 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)generateFogForScene:(id)arg1 context:(struct LayoutContext *)arg2 commandBuffer:(struct CommandBuffer *)arg3;
 - (void)generateSkyForScene:(id)arg1 context:(struct LayoutContext *)arg2 commandBuffer:(struct CommandBuffer *)arg3;
-- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(RenderQueue_70f64fd3 *)arg3;
 - (void)updateStyle;
 - (void)stylesheetDidChange;
 - (void)dealloc;
 - (id)initWithTarget:(id)arg1 sharedResources:(id)arg2;
 @property(readonly, nonatomic) shared_ptr_a3c46825 styleManager;
-- (unsigned long long)mapLayerPosition;
+- (unsigned char)mapLayerPosition;
 - (void)setHorizonColor:(Matrix_5173352a)arg1;
 - (Matrix_5173352a)horizonColor;
 - (void)setFillColor:(Matrix_5173352a)arg1;

@@ -11,6 +11,7 @@
 @protocol NTKCollectionServer <NSObject>
 - (void)flushUpdatesWithIdentifier:(NSString *)arg1;
 - (void)resetCollection;
+- (void)upgradeFace:(NTKFace *)arg1 forUUID:(NSUUID *)arg2;
 - (void)removeFaceForUUID:(NSUUID *)arg1;
 - (void)addFace:(NTKFace *)arg1 forUUID:(NSUUID *)arg2;
 - (void)updateFaceForUUID:(NSUUID *)arg1 withResourceDirectory:(NSString *)arg2;

@@ -31,8 +31,10 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (id)largestDateRangeWithValuesBetween:(double)arg1 and:(double)arg2 ofMinimumDuration:(double)arg3;
 - (id)valueAtDate:(id)arg1;
 @property(readonly, nonatomic) NSDate *endDate;
+- (_Bool)isUnavailable;
 - (id)initWithValues:(id)arg1 eachWithDuration:(double)arg2 startingAt:(id)arg3;
 - (id)initWithValues:(id)arg1 forDurations:(id)arg2 startingAt:(id)arg3;
 

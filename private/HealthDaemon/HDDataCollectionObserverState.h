@@ -15,8 +15,9 @@
 }
 
 + (id)dataCollectionObserverStateInBackground:(_Bool)arg1 hasActiveWorkout:(_Bool)arg2;
-@property(nonatomic) _Bool hasActiveWorkout; // @synthesize hasActiveWorkout=_hasActiveWorkout;
-@property(nonatomic) _Bool isInBackground; // @synthesize isInBackground=_isInBackground;
+@property(readonly, nonatomic) _Bool hasActiveWorkout; // @synthesize hasActiveWorkout=_hasActiveWorkout;
+@property(readonly, nonatomic) _Bool isInBackground; // @synthesize isInBackground=_isInBackground;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

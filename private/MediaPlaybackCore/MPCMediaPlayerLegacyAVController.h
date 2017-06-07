@@ -27,6 +27,7 @@
 - (void)_registerForPlaylistManager:(id)arg1;
 - (void)_connectAVPlayer;
 - (void)playWithOptions:(unsigned long long)arg1;
+- (void)_setState:(long long)arg1;
 - (void)dealloc;
 - (id)init;
 

@@ -13,7 +13,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (float)roadAlphaForLayoutContext:(struct LayoutContext *)arg1;
-- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(struct RenderQueue *)arg3;
+- (void)gglLayoutScene:(id)arg1 withContext:(struct LayoutContext *)arg2 renderQueue:(RenderQueue_70f64fd3 *)arg3;
 
 @end
 

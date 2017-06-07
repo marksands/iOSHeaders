@@ -31,6 +31,7 @@
 - (void).cxx_destruct;
 - (void)locationManager:(id)arg1 didFailWithError:(id)arg2;
 - (void)locationManager:(id)arg1 didUpdateLocations:(id)arg2;
+- (_Bool)shouldStopRequestingLocationAfterCallback;
 - (void)_sosPersistentTimerLocationManagerTic:(id)arg1;
 - (void)_sosPersistentTimerInitialRequest:(id)arg1;
 - (_Bool)isValid;
@@ -38,6 +39,7 @@
 - (void)invalidateTimer;
 - (void)fireAndStartTimertWithTimeInterval:(double)arg1;
 - (void)_startTimer;
+- (void)stopRequestingLocationUpdates;
 - (void)requestLocation;
 - (void)warmUpLocationRequest;
 - (void)dealloc;

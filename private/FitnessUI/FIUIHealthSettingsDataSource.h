@@ -8,7 +8,7 @@
 
 #import <FitnessUI/UITableViewDataSource-Protocol.h>
 
-@class FIUIActivitySettingsController, FIUIHealthSettingsBirthDatePickerController, FIUIHealthSettingsHeightPickerController, FIUIHealthSettingsSexPickerController, FIUIHealthSettingsTableViewCell, FIUIHealthSettingsWeightPickerController, FIUIHealthSettingsWheelchairUsePickerController, NSString;
+@class FIActivitySettingsController, FIUIHealthSettingsBirthDatePickerController, FIUIHealthSettingsHeightPickerController, FIUIHealthSettingsSexPickerController, FIUIHealthSettingsTableViewCell, FIUIHealthSettingsWeightPickerController, FIUIHealthSettingsWheelchairUsePickerController, NSString;
 
 @interface FIUIHealthSettingsDataSource : NSObject <UITableViewDataSource>
 {
@@ -17,9 +17,9 @@
     FIUIHealthSettingsTableViewCell *_heightCell;
     FIUIHealthSettingsTableViewCell *_weightCell;
     FIUIHealthSettingsTableViewCell *_wheelchairUseCell;
-    FIUIActivitySettingsController *_preEditSettingsController;
+    FIActivitySettingsController *_preEditSettingsController;
     _Bool _showWheelchair;
-    FIUIActivitySettingsController *_settingsController;
+    FIActivitySettingsController *_settingsController;
     FIUIHealthSettingsBirthDatePickerController *_birthDatePickerController;
     FIUIHealthSettingsHeightPickerController *_heightPickerController;
     FIUIHealthSettingsWeightPickerController *_weightPickerController;
@@ -32,9 +32,9 @@
 @property(retain, nonatomic) FIUIHealthSettingsWeightPickerController *weightPickerController; // @synthesize weightPickerController=_weightPickerController;
 @property(retain, nonatomic) FIUIHealthSettingsHeightPickerController *heightPickerController; // @synthesize heightPickerController=_heightPickerController;
 @property(retain, nonatomic) FIUIHealthSettingsBirthDatePickerController *birthDatePickerController; // @synthesize birthDatePickerController=_birthDatePickerController;
-@property(retain, nonatomic) FIUIActivitySettingsController *settingsController; // @synthesize settingsController=_settingsController;
+@property(retain, nonatomic) FIActivitySettingsController *settingsController; // @synthesize settingsController=_settingsController;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) FIUIActivitySettingsController *editedSettingsController;
+@property(readonly, nonatomic) FIActivitySettingsController *editedSettingsController;
 - (void)endEditingAndDiscardChanges:(_Bool)arg1;
 - (void)startEditing;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

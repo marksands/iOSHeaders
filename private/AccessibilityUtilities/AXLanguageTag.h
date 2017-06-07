@@ -23,8 +23,9 @@
 @property(nonatomic) _Bool wasPredicted; // @synthesize wasPredicted=_wasPredicted;
 @property(retain, nonatomic) NSMutableOrderedSet *ambiguousDialects; // @synthesize ambiguousDialects=_ambiguousDialects;
 @property(retain, nonatomic) NSMutableOrderedSet *unambiguousDialects; // @synthesize unambiguousDialects=_unambiguousDialects;
-@property(nonatomic) NSString *content; // @synthesize content=_content;
+@property(nonatomic) __weak NSString *content; // @synthesize content=_content;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (_Bool)canBeSpokenByLanguage:(id)arg1;
 - (_Bool)canBeSpokenByDialect:(id)arg1;
@@ -32,11 +33,10 @@
 - (void)addAmbiguousDialects:(id)arg1;
 - (void)addAmbiguousDialect:(id)arg1;
 - (void)addUnambiguousDialect:(id)arg1;
-- (void)dealloc;
-@property(readonly, nonatomic) AXDialectMap *dialect;
-@property(readonly, nonatomic) NSString *contentSubstring;
-@property(readonly, nonatomic) AXDialectMap *preferredUnambiguousDialect;
-@property(readonly, nonatomic) AXDialectMap *preferredAmbiguousDialect;
+@property(readonly, nonatomic) __weak AXDialectMap *dialect;
+@property(readonly, nonatomic) __weak NSString *contentSubstring;
+@property(readonly, nonatomic) __weak AXDialectMap *preferredUnambiguousDialect;
+@property(readonly, nonatomic) __weak AXDialectMap *preferredAmbiguousDialect;
 - (_Bool)hasAmbigiousDialects;
 
 @end

@@ -8,13 +8,13 @@
 
 #import <PassKitUI/PKPaymentSetupActivitySpinnerViewControllerProtocol-Protocol.h>
 
-@class NSArray, NSMutableArray, NSString, PKPaymentSetupCardDetailsFooterView, PKPaymentWebService, PKTableHeaderView;
+@class NSArray, NSMutableArray, NSString, PKPaymentSetupFooterView, PKPaymentWebService, PKTableHeaderView;
 @protocol PKPaymentSetupViewControllerDelegate;
 
 @interface PKPaymentSetupFlowPickerViewController : PKPaymentSetupTableViewController <PKPaymentSetupActivitySpinnerViewControllerProtocol>
 {
     PKTableHeaderView *_headerView;
-    PKPaymentSetupCardDetailsFooterView *_footerView;
+    PKPaymentSetupFooterView *_footerView;
     NSMutableArray *_pickerItems;
     PKPaymentWebService *_webService;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;

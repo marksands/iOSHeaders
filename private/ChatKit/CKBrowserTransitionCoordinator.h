@@ -44,6 +44,7 @@
 - (void).cxx_destruct;
 - (void)setExpanded:(_Bool)arg1 withReason:(long long)arg2;
 - (void)fullscreenAppViewControllerDidTransitionFromOrientation:(long long)arg1 toOrientation:(long long)arg2;
+- (void)fullscreenAppViewControllerSwitcherDidSelectAppManager:(id)arg1;
 - (void)fullscreenAppViewControllerSwitcherDidSelectAppStore:(id)arg1;
 - (void)fullscreenAppViewController:(id)arg1 wantsToSwitchToPlugin:(id)arg2;
 - (void)fullscreenAppViewControllerWantsToCollapse:(id)arg1;
@@ -54,8 +55,8 @@
 - (void)releaseOwnershipOfBrowserForConsumer:(long long)arg1;
 - (id)requestOwnershipOfBrowserForConsumer:(long long)arg1;
 - (_Bool)updateBrowserSessionForPlugin:(id)arg1 datasource:(id)arg2;
-- (id)_senderIdentifier;
 - (_Bool)isHostingRemoteKeyboardView;
+@property(readonly, nonatomic) _Bool wasCurrentBrowserExpanded;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,6 +8,6 @@
 
 @interface _HKSourceFilter (HealthDaemon)
 - (id)predicateWithProfile:(id)arg1;
-- (id)_sourceIdentifiersWithProfile:(id)arg1 error:(id *)arg2;
+- (id)_sourceEntitiesWithProfile:(id)arg1 error:(id *)arg2;
 @end
 

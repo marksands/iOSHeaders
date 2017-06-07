@@ -26,6 +26,7 @@
 - (_Bool)supportsSettingsCommand;
 - (int)supportsEmailFlagging;
 - (int)supportsMailboxSearch;
+- (_Bool)supportsUniqueServerId;
 - (_Bool)useEmptyAttendees;
 - (_Bool)supportsForwarderTracking;
 - (_Bool)supportsMailboxEnhancedSearch;

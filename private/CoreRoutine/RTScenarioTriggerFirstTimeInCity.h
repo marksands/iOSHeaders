@@ -13,8 +13,11 @@
     NSString *_city;
 }
 
++ (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSString *city; // @synthesize city=_city;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)initWithCity:(id)arg1;
 - (id)init;

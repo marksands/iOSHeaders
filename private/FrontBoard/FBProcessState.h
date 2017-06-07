@@ -32,8 +32,6 @@
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)_descriptionForVisibility:(int)arg1;
-- (id)_descriptionForTaskState:(int)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)initWithPid:(int)arg1;

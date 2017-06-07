@@ -68,14 +68,12 @@
 @property(readonly, nonatomic) NSString *companyName;
 @property(readonly, nonatomic) _Bool isCompany;
 - (void)dealloc;
-- (void)finalize;
 @property(readonly, copy, nonatomic) NSString *cnContactID;
 @property(readonly, nonatomic) void *_recordRef;
 @property(readonly, nonatomic) int recordID;
 - (id)initWithABRecordID:(int)arg1;
 - (id)init;
 - (id)idsAddresses;
-- (id)imHandleRegistrarGUID;
 
 @end
 

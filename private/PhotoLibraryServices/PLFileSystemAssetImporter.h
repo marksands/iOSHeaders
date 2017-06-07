@@ -15,7 +15,7 @@
     NSMutableIndexSet *_thumbIndexes;
     _Bool _hasProcessedAnyAssets;
     NSMutableSet *_existingUUIDs;
-    NSMutableDictionary *_existingUUIDsByPath;
+    NSMutableDictionary *_existingUUIDsByUppercasePath;
     NSMutableDictionary *_existingOIDsByUUID;
     unsigned long long _thumbnailBatchFetchSize;
 }
@@ -23,12 +23,13 @@
 + (id)_mediaDirectoryPath;
 @property(nonatomic) unsigned long long thumbnailBatchFetchSize; // @synthesize thumbnailBatchFetchSize=_thumbnailBatchFetchSize;
 @property(retain, nonatomic) NSMutableDictionary *existingOIDsByUUID; // @synthesize existingOIDsByUUID=_existingOIDsByUUID;
-@property(retain, nonatomic) NSMutableDictionary *existingUUIDsByPath; // @synthesize existingUUIDsByPath=_existingUUIDsByPath;
+@property(retain, nonatomic) NSMutableDictionary *existingUUIDsByUppercasePath; // @synthesize existingUUIDsByUppercasePath=_existingUUIDsByUppercasePath;
 @property(retain, nonatomic) NSMutableSet *existingUUIDs; // @synthesize existingUUIDs=_existingUUIDs;
 - (unsigned long long)nextThumbnailIndex;
 - (void)addAvailableThumbnailIndex:(unsigned long long)arg1;
 - (_Bool)_setupVideoAsset:(id)arg1 withURL:(id)arg2;
 - (_Bool)_setupPhotoAsset:(id)arg1 withURL:(id)arg2 unknownType:(_Bool)arg3;
+- (_Bool)_setupAdjustmentsFromAdjustmentFileForAsset:(id)arg1;
 - (_Bool)_setupUnknownAsset:(id)arg1 withURL:(id)arg2;
 - (_Bool)_setupPhotoAsset:(id)arg1 withURL:(id)arg2;
 - (_Bool)_setupPhotoAssetAsPhotoIrisIfNeeded:(id)arg1;

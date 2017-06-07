@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/NSCopying-Protocol.h>
 #import <GeoServices/NSSecureCoding-Protocol.h>
@@ -20,9 +20,11 @@
 }
 
 + (_Bool)supportsSecureCoding;
+- (void).cxx_destruct;
 - (void)sort;
 - (id)description;
 - (unsigned long long)hash;
+- (int)poiType;
 - (_Bool)hasAttributes;
 - (_Bool)isSuperset:(id)arg1;
 - (_Bool)isEqual:(id)arg1;

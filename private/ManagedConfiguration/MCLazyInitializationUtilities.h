@@ -10,6 +10,7 @@
 {
 }
 
++ (void)initAssertionServices;
 + (void)initUserManagement;
 + (void)initSpringBoardUIServices;
 + (void)initSpringBoardServices;
@@ -20,7 +21,6 @@
 + (void)initDAEAS;
 + (void)initDataAccess;
 + (void)initCoreText;
-+ (void)initCoreLocation;
 + (void)initImageIO;
 + (void)initAddressBook;
 + (void)loadNSBundleAtURL:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;

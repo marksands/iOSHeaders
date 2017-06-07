@@ -16,7 +16,7 @@
 
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier;
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

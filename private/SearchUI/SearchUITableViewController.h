@@ -6,18 +6,51 @@
 
 #import <SearchUI/SearchUIKeyboardableTableViewController.h>
 
+@class SearchUIPeekDelegate, SearchUITableView;
+@protocol SFFeedbackListener, UIViewControllerPreviewing;
+
 @interface SearchUITableViewController : SearchUIKeyboardableTableViewController
 {
-    _Bool _insetSectionsOverride;
-    _Bool _hasCheckedInsetSectionsOverride;
-    unsigned long long _style;
+    id <SFFeedbackListener> _feedbackListener;
+    SearchUIPeekDelegate *_peekDelegate;
+    id <UIViewControllerPreviewing> _previewingContext;
 }
 
-@property _Bool hasCheckedInsetSectionsOverride; // @synthesize hasCheckedInsetSectionsOverride=_hasCheckedInsetSectionsOverride;
-@property _Bool insetSectionsOverride; // @synthesize insetSectionsOverride=_insetSectionsOverride;
-@property unsigned long long style; // @synthesize style=_style;
-- (void)setAllowsHeaderViewsToFloat:(_Bool)arg1;
-- (id)initWithUIStyle:(unsigned long long)arg1;
+@property(retain) id <UIViewControllerPreviewing> previewingContext; // @synthesize previewingContext=_previewingContext;
+@property(retain) SearchUIPeekDelegate *peekDelegate; // @synthesize peekDelegate=_peekDelegate;
+@property(nonatomic) __weak id <SFFeedbackListener> feedbackListener; // @synthesize feedbackListener=_feedbackListener;
+- (void).cxx_destruct;
+- (void)updateTableForNewCellHeightAnimated:(_Bool)arg1;
+- (_Bool)shouldHandlePunchout:(id)arg1 fromSection:(id)arg2;
+- (void)sendFeedbackForPunchout:(id)arg1 fromCardSection:(id)arg2 triggerEvent:(unsigned long long)arg3;
+- (void)openPunchout:(id)arg1 fromCardSection:(id)arg2 triggerEvent:(unsigned long long)arg3;
+- (id)cardSectionForIndexPath:(id)arg1;
+- (id)resultForIndexPath:(id)arg1;
+- (id)punchoutPickerDismissText:(id)arg1;
+- (id)punchoutPickerTitleForIndexPath:(id)arg1;
+- (id)punchoutsForIndexPath:(id)arg1;
+- (id)nextCardForIndexPath:(id)arg1;
+- (id)preferredViewControllerForIndexPath:(id)arg1 isPreview:(_Bool)arg2;
+- (void)roundNecessaryCornersForTableCellSelectedBackground:(id)arg1;
+- (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (id)cellForIndexPath:(id)arg1 reuseIfPossible:(_Bool)arg2;
+- (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
+- (void)showViewController:(id)arg1;
+- (void)presentViewController:(id)arg1 animated:(_Bool)arg2;
+- (void)requestAuthIfNecessaryAndPresentViewController:(id)arg1 animated:(_Bool)arg2;
+- (unsigned long long)handleSelectionAtIndexPath:(id)arg1 wasPop:(_Bool)arg2;
+- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)fallbackPeekViewControllerForIndexPath:(id)arg1;
+- (id)viewControllerForIndexPath:(id)arg1 isPeek:(_Bool)arg2;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)unhideCellsForIndexPath:(id)arg1;
+- (void)customViewForInteractiveHighlightForIndexPath:(id)arg1 completion:(CDUnknownBlockType)arg2;
+@property(nonatomic) _Bool shouldUseInsetRoundedSections;
+@property(nonatomic) unsigned long long style;
+- (id)init;
+
+// Remaining properties
+@property(retain) SearchUITableView *tableView; // @dynamic tableView;
 
 @end
 

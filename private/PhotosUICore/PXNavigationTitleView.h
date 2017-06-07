@@ -8,7 +8,7 @@
 
 #import <PhotosUICore/PXPhotosDetailsBarsContentView-Protocol.h>
 
-@class NSArray, NSLayoutConstraint, NSString, UIColor, UIFont, UILabel;
+@class NSArray, NSString, UIColor, UIFont, UILabel;
 
 @interface PXNavigationTitleView : UIView <PXPhotosDetailsBarsContentView>
 {
@@ -30,18 +30,12 @@
     double _subviewsAlpha;
     UILabel *__titleLabel;
     UILabel *__subtitleLabel;
-    double __subtitleVerticalOffset;
     NSArray *__constraints;
-    NSLayoutConstraint *__subtitleBottomLayoutConstraint;
-    struct PXAssetBadgeInfo _badgeInfo;
     struct UIEdgeInsets __margins;
 }
 
-+ (id)_livePhotoBadgeImage;
-@property(retain, nonatomic, setter=_setSubtitleBottomLayoutConstraint:) NSLayoutConstraint *_subtitleBottomLayoutConstraint; // @synthesize _subtitleBottomLayoutConstraint=__subtitleBottomLayoutConstraint;
 @property(retain, nonatomic, setter=_setConstraints:) NSArray *_constraints; // @synthesize _constraints=__constraints;
 @property(nonatomic, setter=_setMargins:) struct UIEdgeInsets _margins; // @synthesize _margins=__margins;
-@property(nonatomic, setter=_setSubtitleVerticalOffset:) double _subtitleVerticalOffset; // @synthesize _subtitleVerticalOffset=__subtitleVerticalOffset;
 @property(nonatomic, getter=_isSubtitleVisible, setter=_setSubtitleVisible:) _Bool _subtitleVisible; // @synthesize _subtitleVisible=__subtitleVisible;
 @property(readonly, nonatomic) UILabel *_subtitleLabel; // @synthesize _subtitleLabel=__subtitleLabel;
 @property(readonly, nonatomic) UILabel *_titleLabel; // @synthesize _titleLabel=__titleLabel;
@@ -49,7 +43,6 @@
 @property(retain, nonatomic) UIFont *subtitleFont; // @synthesize subtitleFont=_subtitleFont;
 @property(retain, nonatomic) UIFont *titleFont; // @synthesize titleFont=_titleFont;
 @property(retain, nonatomic) UIColor *titleTextColor; // @synthesize titleTextColor=_titleTextColor;
-@property(nonatomic) struct PXAssetBadgeInfo badgeInfo; // @synthesize badgeInfo=_badgeInfo;
 @property(retain, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long verticalSizeClass; // @synthesize verticalSizeClass=_verticalSizeClass;
@@ -66,9 +59,6 @@
 - (void)_updateIfNeeded;
 - (_Bool)_needsUpdate;
 - (void)performChanges:(CDUnknownBlockType)arg1;
-- (id)_attributedStringWithBadgeInfo:(struct PXAssetBadgeInfo)arg1 font:(id)arg2 verticalOffset:(double *)arg3;
-- (id)attributedStringWithBadgeInfo:(struct PXAssetBadgeInfo)arg1 font:(id)arg2;
-- (void)_updateSubtitleBottomLayoutConstraint;
 - (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1;
 

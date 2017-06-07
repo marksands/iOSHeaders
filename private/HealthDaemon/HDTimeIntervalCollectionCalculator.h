@@ -4,22 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HealthDaemon/HDCollectionCalculator.h>
 
 @class NSMutableArray;
 
-@interface HDTimeIntervalCollectionCalculator : NSObject
+@interface HDTimeIntervalCollectionCalculator : HDCollectionCalculator
 {
     NSMutableArray *_timePeriods;
-    double _startInterval;
-    double _endInterval;
 }
 
 - (void).cxx_destruct;
 - (double)totalDuration;
 - (void)_shortenRangesConsideringPreferredSourceValue:(id)arg1 lesserRange:(id)arg2;
 - (void)addTimePeriodWithStartTime:(double)arg1 endTime:(double)arg2;
-- (id)initWithStartDate:(id)arg1 endDate:(id)arg2;
+- (id)initForSingleStatistics;
 
 @end
 

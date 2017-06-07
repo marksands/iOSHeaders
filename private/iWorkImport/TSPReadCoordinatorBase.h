@@ -9,12 +9,14 @@
 #import <iWorkImport/TSPLazyReferenceDelegate-Protocol.h>
 #import <iWorkImport/TSPReaderDelegate-Protocol.h>
 
-@class NSHashTable, NSMutableArray, NSString, NSUUID;
+@class NSError, NSHashTable, NSMutableArray, NSString, NSUUID;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface TSPReadCoordinatorBase : NSObject <TSPReaderDelegate, TSPLazyReferenceDelegate>
 {
+    NSObject<OS_dispatch_queue> *_errorQueue;
+    NSError *_error;
     NSObject<OS_dispatch_queue> *_lazyReferenceQueue;
     NSHashTable *_lazyReferences;
     NSHashTable *_lazyReferenceCopies;
@@ -55,7 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)didUpdateLazyReferenceDelegate:(id)arg1;
 - (void)setLazyReferencesDelegateToObjectContext;
 - (_Bool)resolveExternalReferences;
-- (void)readDidFail;
+@property(retain) NSError *error;
 - (id)init;
 
 // Remaining properties

@@ -14,7 +14,7 @@
 }
 
 @property(retain, nonatomic) CoreDAVAction *backingAction; // @synthesize backingAction=_backingAction;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <AVConference/VCMediaStreamDelegate-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue;
 
 @interface VCMediaStreamManager : NSObject <VCMediaStreamDelegate>
@@ -16,6 +16,7 @@
     struct _opaque_pthread_mutex_t stateLock;
     NSMutableArray *streamArray;
     NSObject<OS_dispatch_queue> *xpcQueue;
+    NSMutableDictionary *_vcMomentsCollectorDictionary;
 }
 
 + (void)addNSError:(id)arg1 toXPCArgumentDictionary:(id)arg2;

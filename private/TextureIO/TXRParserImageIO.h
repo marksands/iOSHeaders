@@ -16,7 +16,8 @@
     TXRImageInfo *_imageInfo;
 }
 
-+ (_Bool)exportImage:(id)arg1 url:(id)arg2 uttype:(struct __CFString *)arg3 error:(id *)arg4;
++ (struct CGImage *)newCGImageFromImage:(id)arg1 colorSpace:(struct CGColorSpace *)arg2 error:(id *)arg3;
++ (_Bool)exportImage:(id)arg1 url:(id)arg2 uttype:(const struct __CFString *)arg3 colorSpace:(struct CGColorSpace *)arg4 orientation:(unsigned char)arg5 error:(id *)arg6;
 + (_Bool)exportTexture:(id)arg1 url:(id)arg2 error:(id *)arg3;
 + (id)decodeCGImageNonIndexed:(struct CGImage *)arg1 desiredPixelFormat:(unsigned long long)arg2 bufferAllocator:(id)arg3 options:(id)arg4 error:(id *)arg5;
 + (id)decodeCGImage:(struct CGImage *)arg1 desiredPixelFormat:(unsigned long long)arg2 bufferAllocator:(id)arg3 options:(id)arg4 error:(id *)arg5;

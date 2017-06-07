@@ -6,19 +6,14 @@
 
 #import <FuseUI/UITableViewDelegate-Protocol.h>
 
-@class MusicTableView, UIButton, UITableViewCell, UIView;
-@protocol MusicEntityContentDescriptorViewConfiguring;
+@class MusicTableView, UITableViewCell;
 
 @protocol MusicTableViewDelegate <UITableViewDelegate>
 
 @optional
 - (void)tableViewTintColorDidChange:(MusicTableView *)arg1;
 - (_Bool)tableView:(MusicTableView *)arg1 shouldForceBottomSeparatorVisibleForSection:(long long)arg2;
-- (void)tableView:(MusicTableView *)arg1 didSelectContextualActionsButton:(UIButton *)arg2 forSectionHeaderView:(UIView<MusicEntityContentDescriptorViewConfiguring> *)arg3;
-- (void)tableView:(MusicTableView *)arg1 didSelectPlayButtonAction:(unsigned long long)arg2 forSectionHeaderView:(UIView<MusicEntityContentDescriptorViewConfiguring> *)arg3;
-- (void)tableView:(MusicTableView *)arg1 didSelectPlayButtonAction:(unsigned long long)arg2 forCell:(UITableViewCell *)arg3;
 - (void)tableView:(MusicTableView *)arg1 didSelectAddButtonForCell:(UITableViewCell *)arg2 events:(unsigned long long)arg3;
-- (void)tableView:(MusicTableView *)arg1 didSelectContextualActionsButton:(UIButton *)arg2 forCell:(UITableViewCell *)arg3;
 - (void)tableView:(MusicTableView *)arg1 willSelectHeaderViewForSection:(long long)arg2;
 - (void)tableView:(MusicTableView *)arg1 willDeselectHeaderViewForSection:(long long)arg2;
 - (void)tableView:(MusicTableView *)arg1 didSelectHeaderViewForSection:(long long)arg2;

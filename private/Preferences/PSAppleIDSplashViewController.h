@@ -8,7 +8,7 @@
 
 #import <Preferences/RemoteUIControllerDelegate-Protocol.h>
 
-@class ABMonogrammer, AKAppleIDAuthenticationController, NSString, NSTimer, PSSpecifier, RemoteUIController, UIActivityIndicatorView, UIBarButtonItem, UIImageView;
+@class AKAppleIDAuthenticationController, CNMonogrammer, NSString, NSTimer, PSSpecifier, RemoteUIController, UIActivityIndicatorView, UIBarButtonItem, UIImageView;
 
 @interface PSAppleIDSplashViewController : PSListController <RemoteUIControllerDelegate>
 {
@@ -18,7 +18,7 @@
     UIBarButtonItem *_spinnerBarItem;
     UIBarButtonItem *_nextButtonBarItem;
     UIBarButtonItem *_cancelButtonBarItem;
-    ABMonogrammer *_monogrammer;
+    CNMonogrammer *_monogrammer;
     PSSpecifier *_createNewAccountButtonSpecifier;
     PSSpecifier *_signInButtonSpecifier;
     NSString *_username;
@@ -53,6 +53,8 @@
 - (void)_iForgotButtonWasTapped:(id)arg1;
 - (void)_setInteractionEnabled:(_Bool)arg1;
 - (void)willMoveToParentViewController:(id)arg1;
+- (void)setUsernameEnabled:(_Bool)arg1;
+- (void)setUsername:(id)arg1;
 - (void)hideBusyUI;
 - (void)showBusyUI;
 - (void)handleAuthCompletionWithResults:(id)arg1;

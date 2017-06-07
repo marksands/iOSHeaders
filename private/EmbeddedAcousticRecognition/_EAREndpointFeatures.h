@@ -10,20 +10,28 @@
 
 @interface _EAREndpointFeatures : NSObject
 {
+    float _silencePosteriorNF;
+    float _serverFeaturesLatency;
     long long _wordCount;
-    long long _trailingSilenceFrames;
+    long long _trailingSilenceDuration;
     double _endOfSentenceLikelihood;
     NSArray *_pauseCounts;
     double _silencePosterior;
+    long long _eagerResultEndTime;
 }
 
+@property(nonatomic) long long eagerResultEndTime; // @synthesize eagerResultEndTime=_eagerResultEndTime;
+@property(nonatomic) float serverFeaturesLatency; // @synthesize serverFeaturesLatency=_serverFeaturesLatency;
+@property(nonatomic) float silencePosteriorNF; // @synthesize silencePosteriorNF=_silencePosteriorNF;
 @property(nonatomic) double silencePosterior; // @synthesize silencePosterior=_silencePosterior;
 @property(copy, nonatomic) NSArray *pauseCounts; // @synthesize pauseCounts=_pauseCounts;
 @property(nonatomic) double endOfSentenceLikelihood; // @synthesize endOfSentenceLikelihood=_endOfSentenceLikelihood;
-@property(nonatomic) long long trailingSilenceFrames; // @synthesize trailingSilenceFrames=_trailingSilenceFrames;
+@property(nonatomic) long long trailingSilenceDuration; // @synthesize trailingSilenceDuration=_trailingSilenceDuration;
 @property(nonatomic) long long wordCount; // @synthesize wordCount=_wordCount;
 - (void).cxx_destruct;
-- (id)initWithWordCount:(long long)arg1 trailingSilenceFrames:(long long)arg2 endOfSentenceLikelihood:(double)arg3 pauseCounts:(id)arg4 silencePosterior:(double)arg5;
+- (id)description;
+- (id)initWithWordCount:(long long)arg1 trailingSilenceDuration:(long long)arg2 endOfSentenceLikelihood:(double)arg3 pauseCounts:(id)arg4 silencePosterior:(double)arg5 silencePosteriorNF:(float)arg6 serverFeaturesLatency:(float)arg7 eagerResultEndTime:(long long)arg8;
+- (id)initWithWordCount:(long long)arg1 trailingSilenceDuration:(long long)arg2 endOfSentenceLikelihood:(double)arg3 pauseCounts:(id)arg4 silencePosterior:(double)arg5 silencePosteriorNF:(float)arg6 serverFeaturesLatency:(float)arg7;
 
 @end
 

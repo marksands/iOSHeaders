@@ -23,7 +23,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) __weak CKDClientContext *context; // @synthesize context=_context;
 @property(readonly, nonatomic) PQLConnection *database; // @synthesize database=_pdb;
 - (void).cxx_destruct;
-- (id)upgradeInfoForVersion:(unsigned long long)arg1;
+- (id)infoToUpgradeFromVersion:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *createInitialTablesSQL;
 @property(readonly, nonatomic) NSString *path;
 - (void)performOnDBQueue:(CDUnknownBlockType)arg1;

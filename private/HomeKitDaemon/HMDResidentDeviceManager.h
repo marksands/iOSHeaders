@@ -4,26 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-#import <HomeKitDaemon/HMDMerging-Protocol.h>
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/NSSecureCoding-Protocol.h>
 
-@class HMDCentralMessageDispatcher, HMDHome, HMDResidentDevice, HMFMessageDispatcher, HMFTimer, NSArray, NSMutableSet, NSString, NSUUID;
+@class HMDCentralMessageDispatcher, HMDHome, HMDResidentDevice, HMFMessageDispatcher, HMFTimer, NSArray, NSMutableSet, NSObject, NSString, NSUUID;
 @protocol HMDResidentDeviceManagerDelegate, OS_dispatch_queue;
 
-@interface HMDResidentDeviceManager : NSObject <HMFTimerDelegate, HMFLogging, HMFMessageReceiver, HMDMerging, NSSecureCoding>
+@interface HMDResidentDeviceManager : HMFObject <HMFTimerDelegate, HMFLogging, HMFMessageReceiver, NSSecureCoding, HMDBackingStoreObjectProtocol>
 {
     NSMutableSet *_residentDevices;
     _Bool _residentAvailable;
     _Bool _residentSupported;
     _Bool _confirming;
-    HMDResidentDevice *_primaryResidentDevice;
     HMFTimer *_residentMonitorTimer;
+    NSUUID *_primaryResidentUUID;
     id <HMDResidentDeviceManagerDelegate> _delegate;
+    NSUUID *_uuid;
     HMDHome *_home;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
@@ -43,8 +44,14 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(nonatomic) __weak HMDHome *home; // @synthesize home=_home;
+@property(readonly, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property __weak id <HMDResidentDeviceManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_removeResidentDeviceWithModel:(id)arg1 message:(id)arg2;
+- (void)_addResidentDeviceWithModel:(id)arg1 message:(id)arg2;
+- (void)updatePrimaryResidentWithUUID:(id)arg1;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)_updateChargingTimer;
 - (void)_updateDischargingTimer:(long long)arg1;
 - (void)atHomeLevelChanged:(long long)arg1;
@@ -54,7 +61,6 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (id)logIdentifier;
-- (_Bool)mergeObject:(id)arg1;
 - (void)handleBatteryLevelChange:(id)arg1;
 - (void)handleBatteryStateChange:(id)arg1;
 - (void)_pingResident;
@@ -66,7 +72,7 @@
 - (void)_handleResidentElectionParameters:(id)arg1;
 - (_Bool)_isAtHome;
 - (long long)compareResidentDevice:(id)arg1 electionParameters:(id)arg2;
-- (void)_confirmAsResident;
+- (void)confirmAsResident;
 - (void)_electResidentDevice;
 - (void)electResidentDevice;
 - (void)handleCurrentDeviceUpdated:(id)arg1;
@@ -78,23 +84,26 @@
 @property(nonatomic, getter=isResidentSupported) _Bool residentSupported; // @synthesize residentSupported=_residentSupported;
 - (void)setResidentAvailable:(_Bool)arg1;
 @property(readonly, nonatomic, getter=isResidentAvailable) _Bool residentAvailable; // @synthesize residentAvailable=_residentAvailable;
+- (void)_updateResidentAvailability;
 - (void)updateResidentAvailability;
-- (void)notifyClientsOfRemovedResidentDevice:(id)arg1;
+- (void)_notifyClientsOfRemovedResidentDevice:(id)arg1;
 - (void)removeResidentDevice:(id)arg1;
-- (void)notifyClientsOfAddedResidentDevice:(id)arg1;
-- (void)addResidentDevice:(id)arg1;
+- (void)_removeResidentDevice:(id)arg1;
+- (void)_notifyClientsOfAddedResidentDevice:(id)arg1;
+- (void)_addResidentDevice:(id)arg1;
 - (void)setResidentDevices:(id)arg1;
 - (id)residentDeviceForDevice:(id)arg1;
 @property(readonly, nonatomic, getter=isCurrentDeviceAvaliableResident) _Bool currentDeviceAvaliableResident;
-- (id)availableResidentDevices;
+@property(readonly, nonatomic) NSArray *availableResidentDevices;
 @property(readonly, copy, nonatomic) NSArray *residentDevices;
 - (id)ourSelf;
 @property(retain) HMFTimer *residentMonitorTimer; // @synthesize residentMonitorTimer=_residentMonitorTimer;
-- (void)setPrimaryResidentDevice:(id)arg1;
-@property(readonly, nonatomic) __weak HMDResidentDevice *primaryResidentDevice; // @synthesize primaryResidentDevice=_primaryResidentDevice;
+- (id)residentWithUUID:(id)arg1;
+@property(retain, nonatomic) NSUUID *primaryResidentUUID; // @synthesize primaryResidentUUID=_primaryResidentUUID;
+@property(readonly, nonatomic) __weak HMDResidentDevice *primaryResidentDevice;
 - (void)_teardownSessionWithPrimaryResidentDevice;
 - (void)_setupSessionWithPrimaryResidentDevice;
-- (void)_run;
+- (void)run;
 - (void)_registerForMessages;
 - (void)configureWithHome:(id)arg1;
 - (id)dumpState;

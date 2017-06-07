@@ -16,20 +16,24 @@
     _Bool _isVideo;
     _Bool _isPhotoIris;
     _Bool _isDeletable;
+    unsigned short _playbackVariation;
     NSString *_GUID;
     NSString *_personID;
     NSDictionary *_metaData;
     NSNumber *_width;
     NSNumber *_height;
     NSDate *_timestamp;
+    NSString *_derivativeUTI;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, retain, nonatomic) NSString *derivativeUTI; // @synthesize derivativeUTI=_derivativeUTI;
 @property(readonly, retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, retain, nonatomic) NSNumber *height; // @synthesize height=_height;
 @property(readonly, retain, nonatomic) NSNumber *width; // @synthesize width=_width;
 @property(readonly, retain, nonatomic) NSDictionary *metaData; // @synthesize metaData=_metaData;
 @property(readonly, nonatomic) _Bool isDeletable; // @synthesize isDeletable=_isDeletable;
+@property(readonly, nonatomic) unsigned short playbackVariation; // @synthesize playbackVariation=_playbackVariation;
 @property(readonly, nonatomic) _Bool isPhotoIris; // @synthesize isPhotoIris=_isPhotoIris;
 @property(readonly, nonatomic) _Bool isVideo; // @synthesize isVideo=_isVideo;
 @property(readonly, nonatomic) _Bool isMine; // @synthesize isMine=_isMine;

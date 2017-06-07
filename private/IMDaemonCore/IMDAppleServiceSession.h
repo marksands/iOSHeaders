@@ -20,7 +20,8 @@
 - (void)clearCallerIDForAccount:(id)arg1;
 - (void)clearCallerID;
 - (id)certForURI:(id)arg1;
-- (id)idsAccountForURI:(id)arg1;
+- (id)idsAccountForFromURI:(id)arg1 toURI:(id)arg2;
+- (id)idsAccountForURI:(id)arg1 IDSServiceName:(id)arg2;
 - (id)callerURIForIDSAccount:(id)arg1;
 @property(readonly, retain, nonatomic) NSString *callerURI;
 - (long long)validationStatusForAlias:(id)arg1 onAccount:(id)arg2;

@@ -26,6 +26,8 @@
 }
 
 + (id)_cachedFlagCategoryEmoji:(CDUnknownBlockType)arg1;
++ (id)_recentStringsInCharacterSet:(id)arg1;
++ (id)_allRecentStrings;
 + (id)_recentEmojiStrings;
 + (id)_cacheDomain;
 + (id)defaultsDomain;
@@ -53,11 +55,14 @@
 - (void)migrateFromMajorOSVersion:(long long)arg1;
 - (void)loadDefaultsIfNecessary;
 - (void)resetEmojiDefaults;
+- (void)writeEmojiDefaultsAndNotify:(_Bool)arg1;
 - (void)writeEmojiDefaults;
 - (void)_readPreferencesFromDefaults;
 - (void)readEmojiDefaults;
 @property(readonly, nonatomic) _Bool hasDisplayedSkinToneHelp;
 @property(readonly, nonatomic) NSString *previouslyUsedCategory;
+- (id)recentsInCharacterSet:(id)arg1;
+@property(readonly, nonatomic) NSArray *allRecents;
 @property(readonly, nonatomic) NSArray *recentEmojis;
 - (id)init;
 - (void)_setRecentStrings:(id)arg1;

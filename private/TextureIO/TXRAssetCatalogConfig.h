@@ -33,8 +33,8 @@
 @property(readonly, nonatomic) NSSet *fileAttributesList; // @synthesize fileAttributesList=_fileAttributesList;
 @property(retain, nonatomic) TXRAssetCatalogFileAttributes *baseFileAttributes; // @synthesize baseFileAttributes=_baseFileAttributes;
 - (void).cxx_destruct;
-- (void)addFileAttributesForLevel:(unsigned long long)arg1 face:(unsigned long long)arg2 withOrigin:(unsigned long long)arg3 fileFormat:(unsigned long long)arg4 colorSpace:(struct CGColorSpace *)arg5;
-- (void)addFileAttributesForLevel:(unsigned long long)arg1 withOrigin:(unsigned long long)arg2 fileFormat:(unsigned long long)arg3 colorSpace:(struct CGColorSpace *)arg4;
+- (void)addFileAttributesForLevel:(unsigned long long)arg1 face:(unsigned long long)arg2 fileFormat:(unsigned long long)arg3 colorSpace:(struct CGColorSpace *)arg4 exifOrientation:(unsigned char)arg5;
+- (void)addFileAttributesForLevel:(unsigned long long)arg1 fileFormat:(unsigned long long)arg2 colorSpace:(struct CGColorSpace *)arg3 exifOrientation:(unsigned char)arg4;
 - (void)addFileAttributesForLevel:(unsigned long long)arg1 face:(unsigned long long)arg2;
 - (void)addFileAttributesForLevel:(unsigned long long)arg1;
 - (id)initWithTexture:(id)arg1;

@@ -6,24 +6,10 @@
 
 #import <Foundation/NSObject.h>
 
-@class CIContext, CIFilter, CIImage, EAGLContext, NSDictionary, PLPhotoEditModel;
-@protocol OS_dispatch_queue;
+@class NSDictionary, PLEditSource, PLPhotoEditModel;
 
 @interface PLPhotoEditRenderer : NSObject
 {
-    NSObject<OS_dispatch_queue> *__renderingQueue;
-    CIContext *_generatingCIContext;
-    CIContext *_drawingCIContext;
-    EAGLContext *_lastUsedEAGLContext;
-    CIFilter *_effectFilter;
-    CIFilter *_smartToneFilter;
-    CIFilter *_localLightFilter;
-    CIFilter *_smartColorFilter;
-    CIFilter *_smartBWFilter;
-    CIFilter *_faceBalanceFilter;
-    CIFilter *_redEyeFilter;
-    CIImage *_cachedEditedImage;
-    PLPhotoEditModel *_photoEditModelInCachedEditedImage;
     NSDictionary *__smartToneAdjustments;
     double _smartToneLevelInCachedAdjustments;
     NSDictionary *_smartToneStatisticsInCachedAdjustments;
@@ -33,58 +19,48 @@
     NSDictionary *__smartBWAdjustments;
     double _smartBWLevelInCachedAdjustments;
     NSDictionary *_smartBWStatisticsInCachedAdjustments;
-    CIImage *_originalImage;
+    PLEditSource *_editSource;
     PLPhotoEditModel *_photoEditModel;
-    unsigned long long _renderMode;
     long long _smartFiltersCubeSize;
+    double _smartToneBaseBrightness;
+    double _smartToneBaseContrast;
+    double _smartToneBaseExposure;
+    double _smartToneBaseHighlights;
+    double _smartToneBaseShadows;
+    double _smartToneBaseBlackPoint;
+    double _smartToneBaseLocalLight;
+    double _smartColorBaseContrast;
+    double _smartColorBaseVibrancy;
+    double _smartColorBaseCast;
+    double _smartBWBaseStrength;
+    double _smartBWBaseNeutralGamma;
+    double _smartBWBaseTone;
+    double _smartBWBaseHue;
+    double _smartBWBaseGrain;
 }
 
-+ (_Bool)currentDeviceShouldAllowLocalLight;
-+ (id)_editedImagePropertiesFromOriginalImageProperties:(id)arg1 preserveRegions:(_Bool)arg2;
-+ (id)newImageDataFromCGImage:(struct CGImage *)arg1 withCompressionQuality:(double)arg2 metadataSourceImageURL:(id)arg3 preserveRegionsInMetadata:(_Bool)arg4;
++ (void)initialize;
+@property(readonly, nonatomic) double smartBWBaseGrain; // @synthesize smartBWBaseGrain=_smartBWBaseGrain;
+@property(readonly, nonatomic) double smartBWBaseHue; // @synthesize smartBWBaseHue=_smartBWBaseHue;
+@property(readonly, nonatomic) double smartBWBaseTone; // @synthesize smartBWBaseTone=_smartBWBaseTone;
+@property(readonly, nonatomic) double smartBWBaseNeutralGamma; // @synthesize smartBWBaseNeutralGamma=_smartBWBaseNeutralGamma;
+@property(readonly, nonatomic) double smartBWBaseStrength; // @synthesize smartBWBaseStrength=_smartBWBaseStrength;
+@property(readonly, nonatomic) double smartColorBaseCast; // @synthesize smartColorBaseCast=_smartColorBaseCast;
+@property(readonly, nonatomic) double smartColorBaseVibrancy; // @synthesize smartColorBaseVibrancy=_smartColorBaseVibrancy;
+@property(readonly, nonatomic) double smartColorBaseContrast; // @synthesize smartColorBaseContrast=_smartColorBaseContrast;
+@property(readonly, nonatomic) double smartToneBaseLocalLight; // @synthesize smartToneBaseLocalLight=_smartToneBaseLocalLight;
+@property(readonly, nonatomic) double smartToneBaseBlackPoint; // @synthesize smartToneBaseBlackPoint=_smartToneBaseBlackPoint;
+@property(readonly, nonatomic) double smartToneBaseShadows; // @synthesize smartToneBaseShadows=_smartToneBaseShadows;
+@property(readonly, nonatomic) double smartToneBaseHighlights; // @synthesize smartToneBaseHighlights=_smartToneBaseHighlights;
+@property(readonly, nonatomic) double smartToneBaseExposure; // @synthesize smartToneBaseExposure=_smartToneBaseExposure;
+@property(readonly, nonatomic) double smartToneBaseContrast; // @synthesize smartToneBaseContrast=_smartToneBaseContrast;
+@property(readonly, nonatomic) double smartToneBaseBrightness; // @synthesize smartToneBaseBrightness=_smartToneBaseBrightness;
 @property(nonatomic) long long smartFiltersCubeSize; // @synthesize smartFiltersCubeSize=_smartFiltersCubeSize;
-@property(nonatomic) unsigned long long renderMode; // @synthesize renderMode=_renderMode;
 @property(retain, nonatomic) PLPhotoEditModel *photoEditModel; // @synthesize photoEditModel=_photoEditModel;
-@property(retain, nonatomic) CIImage *originalImage; // @synthesize originalImage=_originalImage;
-- (id)_renderingQueue;
-- (id)_smartBWAdjustments;
-- (id)_smartColorAdjustments;
-- (id)_smartToneAdjustments;
-@property(readonly, nonatomic) double smartBWBaseGrain;
-@property(readonly, nonatomic) double smartBWBaseHue;
-@property(readonly, nonatomic) double smartBWBaseTone;
-@property(readonly, nonatomic) double smartBWBaseNeutralGamma;
-@property(readonly, nonatomic) double smartBWBaseStrength;
-- (double)_smartBWBaseValueForKey:(id)arg1 defaultValue:(double)arg2;
-@property(readonly, nonatomic) double smartColorBaseCast;
-@property(readonly, nonatomic) double smartColorBaseVibrancy;
-@property(readonly, nonatomic) double smartColorBaseContrast;
-@property(readonly, nonatomic) double smartToneBaseLocalLight;
-@property(readonly, nonatomic) double smartToneBaseBlackPoint;
-@property(readonly, nonatomic) double smartToneBaseShadows;
-@property(readonly, nonatomic) double smartToneBaseHighlights;
-@property(readonly, nonatomic) double smartToneBaseExposure;
-@property(readonly, nonatomic) double smartToneBaseContrast;
-@property(readonly, nonatomic) double smartToneBaseBrightness;
-@property(readonly, nonatomic) struct CGSize outputImageSize;
-@property(readonly, retain, nonatomic) CIImage *outputImage;
-- (void)drawEditedImageInContext:(id)arg1 inRect:(struct CGRect)arg2 viewportWidth:(int)arg3 viewportHeight:(int)arg4;
-- (struct CGImage *)_newCGImageFromEditedCIImage:(id)arg1;
-- (struct CGColorSpace *)_newOutputColorSpace;
-- (void)generateEditedImageDataWithCompressionQuality:(double)arg1 metadataSourceImageURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)createEditedImageWithCompletion:(CDUnknownBlockType)arg1;
-- (struct CGImage *)newEditedImage;
-- (void)_invalidateCachedFilters;
-- (_Bool)_isOrientationMirrored;
-- (id)_editedGeometryImageWithBaseImage:(id)arg1;
-- (id)_imageByApplyingEdits:(id)arg1 toImage:(id)arg2 randomSeed:(unsigned long long)arg3 isVideoFrame:(_Bool)arg4;
-- (id)_imageByApplyingEditsToImage:(id)arg1;
-- (void)_handleAssetDidLoadForVideoComposition:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (void)prepareVideoCompositionForAsset:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)_editedImage;
-- (id)_videoEditModel;
-- (void)dealloc;
-- (id)init;
+@property(readonly, retain, nonatomic) PLEditSource *editSource; // @synthesize editSource=_editSource;
+- (void).cxx_destruct;
+- (id)initWithEditSource:(id)arg1 renderPriority:(long long)arg2;
+- (id)initWithEditSource:(id)arg1;
 
 @end
 

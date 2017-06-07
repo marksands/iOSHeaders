@@ -16,6 +16,7 @@
 
 + (id)getContextConfigurationWithDictionary:(id)arg1 context:(id)arg2;
 + (id)getContextConfiguration;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

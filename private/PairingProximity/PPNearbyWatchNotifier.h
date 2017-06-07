@@ -21,6 +21,7 @@
 }
 
 + (id)sharedNotifier;
++ (_Bool)shouldScanForNearbyDevices;
 + (_Bool)isWatchAppRemoved;
 @property(retain, nonatomic) NSXPCConnection *notificationService; // @synthesize notificationService=_notificationService;
 @property(copy, nonatomic) CDUnknownBlockType discoveryCompletion; // @synthesize discoveryCompletion=_discoveryCompletion;

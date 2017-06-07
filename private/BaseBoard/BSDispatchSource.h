@@ -6,24 +6,33 @@
 
 #import <Foundation/NSObject.h>
 
-@protocol OS_dispatch_queue, OS_dispatch_source;
+#import <BaseBoard/BSInvalidatable-Protocol.h>
 
-@interface BSDispatchSource : NSObject
+@class NSString;
+@protocol OS_dispatch_source;
+
+@interface BSDispatchSource : NSObject <BSInvalidatable>
 {
+    struct dispatch_source_type_s *_type;
     NSObject<OS_dispatch_source> *_source;
-    NSObject<OS_dispatch_queue> *_queue;
-    _Bool _invalidated;
+    int _activated;
+    int _invalidated;
     CDUnknownBlockType _eventHandler;
     CDUnknownBlockType _cancelHandler;
 }
 
-@property(readonly, retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(copy, nonatomic) CDUnknownBlockType cancelHandler; // @synthesize cancelHandler=_cancelHandler;
 @property(copy, nonatomic) CDUnknownBlockType eventHandler; // @synthesize eventHandler=_eventHandler;
 - (void)invalidate;
 - (void)resume;
 - (void)dealloc;
 - (id)initWithType:(struct dispatch_source_type_s *)arg1 handle:(unsigned long long)arg2 mask:(unsigned long long)arg3 queue:(id)arg4 configureSourceBlock:(CDUnknownBlockType)arg5;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

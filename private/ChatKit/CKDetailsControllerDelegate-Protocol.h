@@ -4,9 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ChatKit/NSObject-Protocol.h>
+
 @class CKDetailsController;
 
-@protocol CKDetailsControllerDelegate
+@protocol CKDetailsControllerDelegate <NSObject>
 - (void)detailsControllerDidDismiss:(CKDetailsController *)arg1;
+- (void)detailsControllerWillDismiss:(CKDetailsController *)arg1;
 @end
 

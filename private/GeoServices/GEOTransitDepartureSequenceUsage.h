@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSString *headsign; // @synthesize headsign=_headsign;
 @property(retain, nonatomic) NSString *direction; // @synthesize direction=_direction;
 @property(nonatomic) unsigned long long lineId; // @synthesize lineId=_lineId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasHeadsign;
 @property(readonly, nonatomic) _Bool hasDirection;
 @property(nonatomic) _Bool hasLineId;
-- (void)dealloc;
 
 @end
 

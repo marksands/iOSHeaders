@@ -8,7 +8,6 @@
 
 @class NSData, WDCharacterProperties;
 
-__attribute__((visibility("hidden")))
 @interface WDFieldMarker : WDRun
 {
     WDCharacterProperties *mProperties;

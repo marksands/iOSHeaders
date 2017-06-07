@@ -9,7 +9,7 @@
 #import <PassKitUI/PKPaymentSetupFieldCellDelegate-Protocol.h>
 #import <PassKitUI/UITextFieldDelegate-Protocol.h>
 
-@class NSMapTable, NSString, PKPaymentSetupFieldsModel, PKPaymentWebService, PKTableHeaderView;
+@class NSArray, NSMapTable, NSString, PKPaymentSetupFieldsModel, PKPaymentWebService, PKTableHeaderView;
 @protocol PKPaymentSetupViewControllerDelegate;
 
 @interface PKPaymentSetupFieldsViewController : PKPaymentSetupTableViewController <UITextFieldDelegate, PKPaymentSetupFieldCellDelegate>
@@ -19,6 +19,10 @@
     PKPaymentSetupFieldsModel *_fieldsModel;
     NSMapTable *_fieldIdentifierToCellMap;
     id _currentNextActionBlock;
+    NSArray *_leftBarButtonItems;
+    NSArray *_rightBarButtonItems;
+    _Bool _navigationEnabled;
+    _Bool _rightBarButtonItemsEnabled;
     _Bool _showingActivitySpinner;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     PKPaymentWebService *_webService;
@@ -47,6 +51,12 @@
 - (id)readonlyFieldIdentifiers;
 - (id)visibleFieldIdentifiers;
 - (id)defaultFields;
+- (void)_updateRightBarButtonState;
+- (void)_updateNavigationItemAnimated:(_Bool)arg1;
+- (void)_destroyNavigationBarButtonItemsAnimated:(_Bool)arg1;
+- (void)_setRightBarButtonItems:(id)arg1 animated:(_Bool)arg2;
+- (void)_setLeftBarButtonItems:(id)arg1 animated:(_Bool)arg2;
+- (void)_setRightBarButtonItemsEnabled:(_Bool)arg1;
 - (void)_setNavigationBarEnabled:(_Bool)arg1;
 - (void)_setIdleTimerDisabled:(_Bool)arg1 title:(id)arg2 subtitle:(id)arg3;
 - (void)setHeaderViewTitle:(id)arg1 subtitle:(id)arg2;

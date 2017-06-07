@@ -38,7 +38,7 @@
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (_Bool)collectionView:(id)arg1 shouldHighlightItemAtIndexPath:(id)arg2;
-- (_Bool)itemManager:(id)arg1 performBatchUpdateBlock:(CDUnknownBlockType)arg2;
+- (void)itemManager:(id)arg1 performUpdateRequest:(id)arg2;
 - (void)configureCell:(id)arg1 forItem:(id)arg2;
 - (void)_removeAllServicesInSectionFromButton:(id)arg1;
 - (void)_addAllServicesInSectionFromButton:(id)arg1;

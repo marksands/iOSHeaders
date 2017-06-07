@@ -8,13 +8,14 @@
 
 #import <iWorkImport/TSDCanvasDelegate-Protocol.h>
 
-@class NSArray, NSSet, NSString, TSDCanvas, TSKDocumentRoot;
+@class NSArray, NSSet, NSString, TSDCanvas, TSKDocumentRoot, TSUColor;
+@protocol TSDCanvasProxyDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TSDImager : NSObject <TSDCanvasDelegate>
 {
     NSArray *mInfos;
-    struct CGColor *mBackgroundColor;
+    TSUColor *mBackgroundColor;
     struct CGRect mUnscaledClipRect;
     double mViewScale;
     struct CGSize mScaledImageSize;
@@ -23,7 +24,6 @@ __attribute__((visibility("hidden")))
     _Bool mDistortedToMatch;
     _Bool mImageMustHaveEvenDimensions;
     _Bool mShouldReuseBitmapContext;
-    struct UIEdgeInsets mContentInset;
     TSKDocumentRoot *mDocumentRoot;
     TSDCanvas *mCanvas;
     struct CGRect mActualScaledClipRect;
@@ -46,29 +46,36 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool imageMustHaveEvenDimensions; // @synthesize imageMustHaveEvenDimensions=mImageMustHaveEvenDimensions;
 @property(nonatomic) _Bool distortedToMatch; // @synthesize distortedToMatch=mDistortedToMatch;
 @property(readonly, nonatomic) struct CGRect actualScaledClipRect; // @synthesize actualScaledClipRect=mActualScaledClipRect;
-@property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=mContentInset;
 @property(nonatomic) struct CGRect unscaledClipRect; // @synthesize unscaledClipRect=mUnscaledClipRect;
-@property(nonatomic) struct CGColor *backgroundColor; // @synthesize backgroundColor=mBackgroundColor;
+@property(copy, nonatomic) TSUColor *backgroundColor; // @synthesize backgroundColor=mBackgroundColor;
 @property(retain, nonatomic) NSArray *infos; // @synthesize infos=mInfos;
-@property(readonly, retain, nonatomic) TSDCanvas *canvas; // @synthesize canvas=mCanvas;
+@property(readonly, nonatomic) TSDCanvas *canvas; // @synthesize canvas=mCanvas;
+- (void).cxx_destruct;
 - (struct CGImage *)p_newImageInReusableContext;
 - (void)p_drawPageInContext:(struct CGContext *)arg1 createPage:(_Bool)arg2;
+- (struct CGSize)p_evenDimensionsWithSize:(struct CGSize)arg1;
 - (_Bool)p_configureCanvas;
+- (void)p_assertHasReadLock;
 - (_Bool)isPrintingCanvas;
 - (_Bool)isCanvasDrawingIntoPDF:(id)arg1;
 - (struct CGRect)visibleScaledBoundsForClippingRepsOnCanvas:(id)arg1;
 - (id)documentRoot;
 - (_Bool)drawPageInContext:(struct CGContext *)arg1 createPage:(_Bool)arg2;
 - (id)pdfData;
+- (id)pngData;
 - (struct CGImage *)newImage;
 @property(nonatomic) struct CGSize maximumScaledImageSize;
 @property(nonatomic) struct CGSize scaledImageSize;
 @property(nonatomic) double viewScale;
+- (void)setInfos:(id)arg1 allowLayoutIfNeeded:(_Bool)arg2;
 - (void)setPostRenderAction:(CDUnknownBlockType)arg1;
 - (void)dealloc;
+- (id)init;
+- (id)initWithDocumentRoot:(id)arg1 renderForWideGamut:(_Bool)arg2;
 - (id)initWithDocumentRoot:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) id <TSDCanvasProxyDelegate> canvasProxyDelegate;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

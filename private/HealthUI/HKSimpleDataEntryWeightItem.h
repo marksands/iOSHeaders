@@ -4,16 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HealthUI/HKSimpleDataEntryItem.h>
 
-#import <HealthUI/HKSimpleDataEntryItemType-Protocol.h>
 #import <HealthUI/UIPickerViewDataSource-Protocol.h>
 #import <HealthUI/UIPickerViewDelegate-Protocol.h>
 
 @class HKSimpleDataEntryPlainTextCell, NSNumber, NSString, UIPickerView;
-@protocol HKSimpleDataEntryItemDelegate;
 
-@interface HKSimpleDataEntryWeightItem : NSObject <UIPickerViewDelegate, UIPickerViewDataSource, HKSimpleDataEntryItemType>
+@interface HKSimpleDataEntryWeightItem : HKSimpleDataEntryItem <UIPickerViewDelegate, UIPickerViewDataSource>
 {
     HKSimpleDataEntryPlainTextCell *_cell;
     NSString *_title;
@@ -23,19 +21,14 @@
     long long _numberOfRowsForPicker;
     NSNumber *_defaultValue;
     NSNumber *_kilogramValue;
-    id <HKSimpleDataEntryItemDelegate> _delegate;
-    unsigned long long _placeholderType;
 }
 
-@property(nonatomic) unsigned long long placeholderType; // @synthesize placeholderType=_placeholderType;
-@property(nonatomic) __weak id <HKSimpleDataEntryItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)pickerView:(id)arg1 didSelectRow:(long long)arg2 inComponent:(long long)arg3;
 - (id)pickerView:(id)arg1 titleForRow:(long long)arg2 forComponent:(long long)arg3;
 - (long long)pickerView:(id)arg1 numberOfRowsInComponent:(long long)arg2;
 - (long long)numberOfComponentsInPickerView:(id)arg1;
 - (void)_setWeightValueForSelectedRow:(long long)arg1;
-- (void)doneButtonTapped:(id)arg1;
 - (void)localeDidChange:(id)arg1;
 - (void)_updateLocaleDependentValues;
 - (double)_defaultKilogramValue;

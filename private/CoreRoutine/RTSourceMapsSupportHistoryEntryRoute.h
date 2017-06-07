@@ -15,6 +15,7 @@
 @property(readonly, nonatomic) _Bool navigationWasInterrupted; // @synthesize navigationWasInterrupted=_navigationWasInterrupted;
 - (id)description;
 - (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithUsageDate:(id)arg1 navigationWasInterrupted:(_Bool)arg2;

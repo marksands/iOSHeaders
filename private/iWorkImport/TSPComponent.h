@@ -8,7 +8,7 @@
 
 #import <iWorkImport/NSDiscardableContent-Protocol.h>
 
-@class NSArray, NSMapTable, NSMutableSet, NSString, TSPComponentExternalReferenceMap, TSPComponentObjectUUIDMap, TSPObject, TSPObjectReferenceMap;
+@class NSArray, NSDate, NSMapTable, NSMutableSet, NSString, TSPComponentExternalReferenceMap, TSPComponentObjectUUIDMap, TSPObject, TSPObjectReferenceMap;
 @protocol OS_dispatch_queue, TSPComponentDelegate;
 
 __attribute__((visibility("hidden")))
@@ -39,11 +39,13 @@ __attribute__((visibility("hidden")))
     } _flags;
     TSPComponentObjectUUIDMap *_componentObjectUUIDMap;
     unsigned long long _encodedLength;
+    NSDate *_lastModificationDate;
     TSPObjectReferenceMap *_objectReferenceMap;
 }
 
 + (id)componentsDiscardingContentOnCurrentThread;
 @property(readonly, nonatomic) TSPObjectReferenceMap *objectReferenceMap; // @synthesize objectReferenceMap=_objectReferenceMap;
+@property(readonly, nonatomic) NSDate *lastModificationDate; // @synthesize lastModificationDate=_lastModificationDate;
 @property(readonly, nonatomic) unsigned long long encodedLength; // @synthesize encodedLength=_encodedLength;
 @property(readonly, nonatomic) TSPComponentObjectUUIDMap *componentObjectUUIDMap; // @synthesize componentObjectUUIDMap=_componentObjectUUIDMap;
 @property(readonly, nonatomic) NSArray *featureInfos; // @synthesize featureInfos=_featureInfos;
@@ -69,7 +71,8 @@ __attribute__((visibility("hidden")))
 - (void)willDiscardComponent;
 - (void)setComponentObjectUUIDMap:(id)arg1;
 - (void)setReadVersion:(unsigned long long)arg1 writeVersion:(unsigned long long)arg2 componentObjectUUIDMap:(id)arg3;
-- (void)setPackageIdentifier:(unsigned char)arg1 preferredLocator:(id)arg2 locator:(id)arg3 isStoredOutsideObjectArchive:(_Bool)arg4 rootObjectOrNil:(id)arg5 archivedObjects:(id)arg6 externalReferenceMap:(id)arg7 dataReferences:(id)arg8 readVersion:(unsigned long long)arg9 writeVersion:(unsigned long long)arg10 featureInfos:(id)arg11 componentObjectUUIDMap:(id)arg12 objectReferenceMap:(id)arg13 saveToken:(unsigned long long)arg14 encodedLength:(unsigned long long)arg15 wasCopied:(_Bool)arg16 wasModifiedDuringWrite:(_Bool)arg17;
+- (void)setEncodedLength:(unsigned long long)arg1 lastModificationDate:(id)arg2;
+- (void)setPackageIdentifier:(unsigned char)arg1 preferredLocator:(id)arg2 locator:(id)arg3 isStoredOutsideObjectArchive:(_Bool)arg4 rootObjectOrNil:(id)arg5 archivedObjects:(id)arg6 externalReferenceMap:(id)arg7 dataReferences:(id)arg8 readVersion:(unsigned long long)arg9 writeVersion:(unsigned long long)arg10 featureInfos:(id)arg11 componentObjectUUIDMap:(id)arg12 objectReferenceMap:(id)arg13 saveToken:(unsigned long long)arg14 encodedLength:(unsigned long long)arg15 lastModificationDate:(id)arg16 wasCopied:(_Bool)arg17 wasModifiedDuringWrite:(_Bool)arg18;
 - (void)didReadObjects:(id)arg1;
 - (void)setArchivedObjectsImpl:(id)arg1;
 - (void)setModifiedImpl:(_Bool)arg1 forObject:(id)arg2;
@@ -92,9 +95,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldKeepStrongObjectImpl;
 - (_Bool)shouldForceCaching;
 - (_Bool)isCachingEnabled;
-- (id)initWithDelegate:(id)arg1 message:(const struct ComponentInfo *)arg2 packageIdentifier:(unsigned char)arg3 encodedLength:(unsigned long long)arg4;
+- (id)initWithDelegate:(id)arg1 message:(const struct ComponentInfo *)arg2 packageIdentifier:(unsigned char)arg3 encodedLength:(unsigned long long)arg4 lastModificationDate:(id)arg5;
 - (id)initWithDelegate:(id)arg1 rootObject:(id)arg2;
-- (id)initWithDelegate:(id)arg1 identifier:(long long)arg2 preferredLocator:(id)arg3 packageIdentifier:(unsigned char)arg4 isStoredOutsideObjectArchive:(_Bool)arg5 encodedLength:(unsigned long long)arg6;
+- (id)initWithDelegate:(id)arg1 identifier:(long long)arg2 preferredLocator:(id)arg3 packageIdentifier:(unsigned char)arg4 isStoredOutsideObjectArchive:(_Bool)arg5 encodedLength:(unsigned long long)arg6 lastModificationDate:(id)arg7;
 - (id)init;
 - (void)saveToMessage:(struct ComponentInfo *)arg1 saveToken:(unsigned long long)arg2 writtenComponentInfo:(const struct WrittenComponentInfo *)arg3;
 

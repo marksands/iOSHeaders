@@ -16,8 +16,6 @@
 + (id)sharedClient;
 @property(retain, nonatomic) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 - (void).cxx_destruct;
-- (void)processUserRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (id)processUserRequest:(id)arg1 outError:(id *)arg2;
 - (void)processDeviceRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)processDeviceRequest:(id)arg1 outError:(id *)arg2;
 - (int)accessRights;

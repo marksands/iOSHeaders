@@ -15,12 +15,12 @@ __attribute__((visibility("hidden")))
     _Bool _appLinkInitDone;
 }
 
+- (void).cxx_destruct;
 - (_Bool)canBePerformedByOpeningURL;
 - (void)performFromView:(id)arg1;
 - (id)localizedName;
 - (id)companionAction;
 - (id)appLink;
-- (void)dealloc;
 - (_Bool)useAppLink;
 
 @end

@@ -29,6 +29,8 @@ __attribute__((visibility("hidden")))
 - (unsigned int)filterChartLabelPosition:(unsigned int)arg1;
 - (id)legalChartLabelPositions;
 - (id)init;
+- (int)fillPropertyType;
+- (id)fillPropertyTypeName;
 - (id)g_genericToSpecificPropertyMapBubble;
 
 @end

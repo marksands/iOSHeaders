@@ -8,7 +8,7 @@
 
 #import <OfficeImport/OADDrawableContainer-Protocol.h>
 
-@class CHDDefaultTextProperties, CHDLegend, CHDPlotArea, CHDTitle, CHDView3D, EDSheet, EDWorkbook, NSMutableArray, NSString, OADGraphicProperties;
+@class CHDDefaultTextProperties, CHDLegend, CHDPlotArea, CHDTitle, CHDView3D, EDSheet, EDWorkbook, NSMutableArray, NSString, OADGraphicProperties, OADThemeOverrides;
 
 __attribute__((visibility("hidden")))
 @interface CHDChart : OADGraphic <OADDrawableContainer>
@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     int mChartDirection;
     struct CGRect mLogicalBounds;
     NSMutableArray *mDrawables;
+    OADThemeOverrides *mThemeOverrides;
 }
 
 + (id)binaryEffects:(_Bool)arg1;
@@ -67,6 +68,8 @@ __attribute__((visibility("hidden")))
 - (void)setParentTextListStyle:(id)arg1;
 - (void)removeChild:(id)arg1;
 - (void)replaceChild:(id)arg1 with:(id)arg2;
+- (void)setThemeOverrides:(id)arg1;
+- (id)themeOverrides;
 - (id)children;
 - (id)childAtIndex:(unsigned long long)arg1;
 - (void)addChildren:(id)arg1;

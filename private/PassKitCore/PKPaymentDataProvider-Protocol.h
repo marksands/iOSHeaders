@@ -6,7 +6,7 @@
 
 #import <PassKitCore/NSObject-Protocol.h>
 
-@class NSData, NSString, PKPass, PKPaymentApplication;
+@class NSData, NSSet, NSString, PKExpressPassInformation, PKPass, PKPaymentApplication;
 @protocol PKPaymentDataProviderDelegate;
 
 @protocol PKPaymentDataProvider <NSObject>
@@ -25,6 +25,7 @@
 - (void)addDelegate:(id <PKPaymentDataProviderDelegate>)arg1;
 - (void)deletePaymentTransactionWithIdentifier:(NSString *)arg1 forPassWithUniqueIdentifier:(NSString *)arg2;
 - (void)transactionsForPaymentPassWithUniqueIdentifier:(NSString *)arg1 withTransactionSource:(unsigned long long)arg2 withNotificationServiceData:(unsigned long long)arg3 limit:(long long)arg4 completion:(void (^)(NSSet *))arg5;
+- (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (_Bool)supportsInAppPaymentsForPass:(PKPass *)arg1;
 - (_Bool)supportsNotificationsForPass:(PKPass *)arg1;
 - (_Bool)supportsMessagesForPass:(PKPass *)arg1;
@@ -33,7 +34,10 @@
 - (NSString *)transactionsAppLaunchTokenForPassWithUniqueIdentifier:(NSString *)arg1;
 - (void)startServiceModeForPassWithUniqueIdentifier:(NSString *)arg1 visibleViewController:(id)arg2;
 - (void)felicaStateWithPassUniqueIdentifier:(NSString *)arg1 paymentApplication:(PKPaymentApplication *)arg2 completion:(void (^)(PKFelicaTransitAppletState *))arg3;
-- (void)setDefaultExpressFelicaTransitPassIdentifier:(NSString *)arg1 withCredential:(NSData *)arg2 completion:(void (^)(_Bool, NSString *))arg3;
+- (void)setExpressWithPassInformation:(PKExpressPassInformation *)arg1 visibleViewController:(id)arg2 completion:(void (^)(_Bool, PKExpressPassInformation *))arg3;
+- (void)setExpressWithPassInformation:(PKExpressPassInformation *)arg1 credential:(NSData *)arg2 completion:(void (^)(_Bool, PKExpressPassInformation *))arg3;
+- (PKExpressPassInformation *)expressPassInformationForMode:(NSString *)arg1;
+- (NSSet *)expressPassesInformation;
 - (NSString *)defaultExpressFelicaTransitPassIdentifier;
 @end
 

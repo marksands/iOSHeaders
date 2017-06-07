@@ -24,7 +24,6 @@
     _Bool _needToSendInitialMessage;
     NSUUID *_activeUserActivityUUID;
     NSMapTable *_activeUserActivitiesByUUID;
-    unsigned long long _osStateHandle;
 }
 
 + (id)_determineMatchingApplicationBundleIdentfierWithOptionsForActivityType:(id)arg1 dynamicType:(id)arg2 kind:(unsigned long long)arg3 teamIdentifier:(id)arg4;
@@ -32,7 +31,6 @@
 + (id)defaultManager;
 + (_Bool)userActivityContinuationSupported;
 + (_Bool)shouldSupportActivityContinuation;
-@property unsigned long long osStateHandle; // @synthesize osStateHandle=_osStateHandle;
 @property _Bool needToSendInitialMessage; // @synthesize needToSendInitialMessage=_needToSendInitialMessage;
 @property(retain) NSMapTable *activeUserActivitiesByUUID; // @synthesize activeUserActivitiesByUUID=_activeUserActivitiesByUUID;
 @property(retain) NSMapTable *userActivitiesByUUID; // @synthesize userActivitiesByUUID=_userActivitiesByUUID;

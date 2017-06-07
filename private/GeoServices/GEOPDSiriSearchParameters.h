@@ -43,6 +43,7 @@
 @property(retain, nonatomic) GEOAddress *address; // @synthesize address=_address;
 @property(retain, nonatomic) GEOPDViewportInfo *viewportInfo; // @synthesize viewportInfo=_viewportInfo;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -74,7 +75,6 @@
 - (id)sortOrderAsString:(int)arg1;
 @property(nonatomic) _Bool hasSortOrder;
 @property(nonatomic) int sortOrder; // @synthesize sortOrder=_sortOrder;
-- (void)dealloc;
 
 @end
 

@@ -6,27 +6,24 @@
 
 #import <Foundation/NSObject.h>
 
+@class NSMutableDictionary, NSOperationQueue;
+
 __attribute__((visibility("hidden")))
 @interface TSWPLoadableFonts : NSObject
 {
-    struct TSWPLoadableFontInfo *_loadableFonts;
-    unsigned int _loadableFontCount;
-    _Bool _allFontsLoaded;
+    NSOperationQueue *_fontQueue;
+    NSMutableDictionary *_loadableFonts;
+    NSMutableDictionary *_loadableFontFamilies;
 }
 
-+ (id)allocWithZone:(struct _NSZone *)arg1;
 + (id)sharedInstance;
-+ (id)_singletonAlloc;
-- (void)p_loadFontWithInfo:(struct TSWPLoadableFontInfo *)arg1;
+- (void).cxx_destruct;
+- (void)p_loadFontWithInfo:(id)arg1;
+- (void)registerFontName:(id)arg1 forPath:(id)arg2 forGroup:(id)arg3;
+- (void)loadFontsForGroup:(id)arg1;
 - (void)loadFontWithName:(id)arg1;
 - (void)loadAll;
-- (void)backgroundLoadAll;
 - (id)init;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)autorelease;
-- (oneway void)release;
-- (unsigned long long)retainCount;
-- (id)retain;
 
 @end
 

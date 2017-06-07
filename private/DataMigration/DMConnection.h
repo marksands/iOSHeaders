@@ -4,16 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <DataMigration/DMXPCConnection.h>
+#import <objc/NSObject.h>
 
-#import <DataMigration/DMMigratorServiceProtocol-Protocol.h>
+@class DMXPCConnection;
 
-@class NSString;
-
-@interface DMConnection : DMXPCConnection <DMMigratorServiceProtocol>
+@interface DMConnection : NSObject
 {
+    DMXPCConnection *_connection;
 }
 
++ (id)connection;
+- (void).cxx_destruct;
+- (void)migrationPhaseDescription:(CDUnknownBlockType)arg1;
 - (void)reportMigrationFailure;
 - (void)forceMigrationOnNextRebootWithCompletion:(CDUnknownBlockType)arg1;
 - (void)testMigrationUIWithProgress:(_Bool)arg1 forceInvert:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
@@ -23,12 +25,8 @@
 - (void)previousBuildVersion:(CDUnknownBlockType)arg1;
 - (void)userDataDisposition:(CDUnknownBlockType)arg1;
 - (void)isMigrationNeeded:(CDUnknownBlockType)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -14,11 +14,12 @@
 {
     double _previousZoomScale;
     long long _previousZoom;
-    HKValueRange *_valueRange;
+    HKValueRange *_unitZoomScaleValueRange;
 }
 
-@property(copy, nonatomic) HKValueRange *valueRange; // @synthesize valueRange=_valueRange;
 - (void).cxx_destruct;
+- (void)setUnitZoomScaleValueRangeForTimeInterval:(double)arg1;
+- (id)unitZoomScaleValueRange;
 - (double)zoomScaleForRange:(struct HKRange)arg1;
 - (long long)zoomForZoomScale:(double)arg1;
 - (id)maxDate;

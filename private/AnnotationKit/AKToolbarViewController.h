@@ -24,6 +24,7 @@
 - (void)setStrokeColorUIDisplayToColor:(id)arg1;
 - (void)setFillColorUIDisplayToColor:(id)arg1;
 - (void)revalidateItems;
+@property(readonly) _Bool isPresentingPopover;
 - (void)teardown;
 - (id)initWithController:(id)arg1;
 

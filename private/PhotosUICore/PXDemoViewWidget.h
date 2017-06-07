@@ -9,7 +9,7 @@
 #import <PhotosUICore/PXWidget-Protocol.h>
 
 @class NSString, PXPhotosDetailsContext, PXSectionedSelectionManager, PXTilingController, PXWidgetSpec, UIView;
-@protocol PXAnonymousView, PXWidgetDelegate;
+@protocol PXAnonymousView, PXWidgetDelegate, PXWidgetUnlockDelegate;
 
 @interface PXDemoViewWidget : NSObject <PXWidget>
 {
@@ -68,6 +68,7 @@
 @property(readonly, nonatomic) _Bool supportsFaceMode;
 @property(readonly, nonatomic) _Bool supportsSelection;
 @property(nonatomic, getter=isUserInteractionEnabled) _Bool userInteractionEnabled;
+@property(nonatomic) __weak id <PXWidgetUnlockDelegate> widgetUnlockDelegate;
 
 @end
 

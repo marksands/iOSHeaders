@@ -22,6 +22,7 @@
 @property(readonly, copy, nonatomic) NSURL *persistenceURL;
 @property(readonly, nonatomic) unsigned short sessionIdentifier;
 @property(readonly, nonatomic) NSString *uuid;
+@property(readonly, nonatomic) unsigned long long mediaSubtypes;
 @property(readonly, nonatomic) unsigned long long mediaType;
 @end
 

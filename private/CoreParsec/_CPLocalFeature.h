@@ -6,35 +6,38 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPLocalFeature-Protocol.h>
 
-@class NSString;
+@class NSData, NSString;
 
-@interface _CPLocalFeature : PBCodable <NSCopying>
+@interface _CPLocalFeature : PBCodable <_CPLocalFeature, NSSecureCoding>
 {
-    double _doubleValue;
-    NSString *_key;
-    NSString *_strValue;
-    struct {
-        unsigned int doubleValue:1;
-    } _has;
+    NSString *_stringFeature;
+    double _numericFeature;
+    unsigned long long _whichLocal_Feature;
 }
 
-@property(nonatomic) double doubleValue; // @synthesize doubleValue=_doubleValue;
-@property(retain, nonatomic) NSString *strValue; // @synthesize strValue=_strValue;
-@property(retain, nonatomic) NSString *key; // @synthesize key=_key;
+@property(readonly, nonatomic) unsigned long long whichLocal_Feature; // @synthesize whichLocal_Feature=_whichLocal_Feature;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasDoubleValue;
-@property(readonly, nonatomic) _Bool hasStrValue;
+@property(readonly, nonatomic) _Bool hasNumericFeature;
+@property(nonatomic) double numericFeature; // @synthesize numericFeature=_numericFeature;
+@property(readonly, nonatomic) _Bool hasStringFeature;
+@property(copy, nonatomic) NSString *stringFeature; // @synthesize stringFeature=_stringFeature;
+- (_Bool)requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

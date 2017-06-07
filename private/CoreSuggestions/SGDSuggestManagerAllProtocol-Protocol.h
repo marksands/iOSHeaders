@@ -4,10 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <CoreSuggestions/SGDSuggestManagerContactsProtocol-Protocol.h>
+#import <CoreSuggestions/SGDSuggestManagerEventsProtocol-Protocol.h>
+#import <CoreSuggestions/SGDSuggestManagerFidesProtocol-Protocol.h>
+#import <CoreSuggestions/SGDSuggestManagerInternalProtocol-Protocol.h>
+#import <CoreSuggestions/SGDSuggestManagerMailProtocol-Protocol.h>
 #import <CoreSuggestions/SGDSuggestManagerMessagesProtocol-Protocol.h>
-#import <CoreSuggestions/SGDSuggestManagerProtocol-Protocol.h>
-#import <CoreSuggestions/SGDSuggestManagerSearchToShareProtocol-Protocol.h>
+#import <CoreSuggestions/_SGDSuggestManagerBaseProtocol-Protocol.h>
 
-@protocol SGDSuggestManagerAllProtocol <SGDSuggestManagerProtocol, SGDSuggestManagerMessagesProtocol, SGDSuggestManagerSearchToShareProtocol>
+@protocol SGDSuggestManagerAllProtocol <_SGDSuggestManagerBaseProtocol, SGDSuggestManagerMailProtocol, SGDSuggestManagerContactsProtocol, SGDSuggestManagerEventsProtocol, SGDSuggestManagerInternalProtocol, SGDSuggestManagerMessagesProtocol, SGDSuggestManagerFidesProtocol>
 @end
 

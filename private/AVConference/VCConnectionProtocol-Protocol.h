@@ -6,7 +6,7 @@
 
 #import <AVConference/NSObject-Protocol.h>
 
-@class NSString;
+@class NSString, NSUUID;
 @protocol VCConnectionProtocol;
 
 @protocol VCConnectionProtocol <NSObject>
@@ -18,6 +18,7 @@
 @property int localCellTech;
 @property(readonly) int remoteConnectionType;
 @property(readonly) int localConnectionType;
+@property(readonly) NSUUID *connectionUUID;
 @property(readonly) _Bool isVPN;
 @property(readonly) _Bool isRelay;
 @property int cellularMTU;

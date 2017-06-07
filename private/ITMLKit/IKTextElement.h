@@ -19,8 +19,10 @@
 @property(readonly, nonatomic) unsigned long long textStyle; // @synthesize textStyle=_textStyle;
 - (void).cxx_destruct;
 - (unsigned long long)_styleForTagName:(id)arg1;
+- (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1 foregroundColor:(id)arg2 textAlignment:(long long)arg3 defaultAttributes:(id *)arg4;
 - (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1 foregroundColor:(id)arg2 textAlignment:(long long)arg3;
 - (id)attributedStringWithFont:(id)arg1 foregroundColor:(id)arg2 textAlignment:(long long)arg3;
+- (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1 defaultAttributes:(id *)arg2;
 - (id)attributedStringWithFontHandler:(CDUnknownBlockType)arg1;
 - (id)attributedStringWithFont:(id)arg1;
 - (id)accessibilityText;

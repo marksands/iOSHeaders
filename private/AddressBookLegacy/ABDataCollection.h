@@ -57,6 +57,7 @@
 - (void)logTotalGroups;
 - (void)logTotalContacts;
 - (void)logAllData;
+- (void)dealloc;
 - (id)initWithAddressBook:(void *)arg1;
 
 @end

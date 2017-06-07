@@ -4,20 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <ProactiveML/PMLAWDBaseTracker.h>
 
-@class AWDProactiveModelFittingModelInfo;
-
-@interface PMLAWDSessionTracker : NSObject
+@interface PMLAWDSessionTracker : PMLAWDBaseTracker
 {
-    AWDProactiveModelFittingModelInfo *_modelInfo;
 }
 
 + (id)trackerForModelName:(id)arg1 modelVersion:(id)arg2;
-- (void).cxx_destruct;
-- (void)_postMetricId:(unsigned int)arg1 message:(id)arg2;
+- (void)trackSessionWithCovariates:(id)arg1 label:(unsigned long long)arg2 locale:(id)arg3 supervisionType:(unsigned long long)arg4;
 - (void)trackSessionWithCovariates:(id)arg1 label:(unsigned long long)arg2 locale:(id)arg3;
-- (id)initWithModel:(id)arg1;
 
 @end
 

@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSMutableArray *noticeFormatteds; // @synthesize noticeFormatteds=_noticeFormatteds;
 @property(retain, nonatomic) NSMutableArray *detailFormatteds; // @synthesize detailFormatteds=_detailFormatteds;
 @property(retain, nonatomic) NSMutableArray *commandFormatteds; // @synthesize commandFormatteds=_commandFormatteds;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -51,7 +52,6 @@
 - (unsigned long long)commandFormattedsCount;
 - (void)addCommandFormatted:(id)arg1;
 - (void)clearCommandFormatteds;
-- (void)dealloc;
 
 @end
 

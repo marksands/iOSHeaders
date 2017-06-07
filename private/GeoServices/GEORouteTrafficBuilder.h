@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableData;
 
@@ -15,12 +15,12 @@
     unsigned int _trafficDistance;
 }
 
+- (void).cxx_destruct;
 - (void)copyTrafficToRoute:(id)arg1;
 - (void)_removeDuplicateTraffic;
 - (void)addTrafficFromETARoute:(id)arg1;
 - (void)addTrafficFromRoute:(id)arg1 from:(unsigned int)arg2 to:(unsigned int)arg3;
 - (void)addTrafficFromRoute:(id)arg1 withStepRange:(struct _NSRange)arg2;
-- (void)dealloc;
 - (id)init;
 
 @end

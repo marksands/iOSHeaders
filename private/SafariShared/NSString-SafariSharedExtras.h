@@ -11,6 +11,7 @@
 + (id)safari_stringAsHexWithData:(id)arg1;
 + (id)safari_stringByBase64EncodingData:(id)arg1;
 + (id)safari_stringWithUTF8Bytes:(const void *)arg1 length:(unsigned long long)arg2;
++ (id)safari_localizedStringFromComponents:(id)arg1 usingConjunctionForFinalJoiner:(_Bool)arg2;
 + (id)safari_stringWithJSValue:(struct OpaqueJSValue *)arg1 context:(struct OpaqueJSContext *)arg2;
 + (id)safari_stringWithJSValue:(struct OpaqueJSValue *)arg1 context:(struct OpaqueJSContext *)arg2 nullStringPolicy:(long long)arg3;
 @property(readonly, copy, nonatomic) NSString *safari_stringByRemovingExcessWhitespace;
@@ -41,6 +42,7 @@
 - (id)safari_stringByRemovingUnnecessaryCharactersFromUserTypedURLString;
 - (id)safari_stringByRemovingTopLevelDomainFromHost;
 - (id)safari_possibleTopLevelDomainCorrectionForUserTypedString;
+- (id)safari_stringByReplacingCharactersInSet:(id)arg1 withString:(id)arg2;
 - (id)safari_stringByRemovingCharactersInSet:(id)arg1;
 @end
 

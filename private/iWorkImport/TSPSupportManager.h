@@ -9,7 +9,7 @@
 #import <iWorkImport/NSFilePresenter-Protocol.h>
 #import <iWorkImport/TSPFileCoordinatorDelegate-Protocol.h>
 
-@class NSOperationQueue, NSRecursiveLock, NSString, NSURL, TSPObjectContext, TSPSupportSaveOperationState;
+@class NSOperationQueue, NSRecursiveLock, NSSet, NSString, NSURL, TSPObjectContext, TSPSupportSaveOperationState;
 @protocol OS_dispatch_group;
 
 __attribute__((visibility("hidden")))
@@ -49,6 +49,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly) NSSet *observedPresentedItemUbiquityAttributes;
 @property(readonly, copy) NSURL *primaryPresentedItemURL;
 @property(readonly) Class superclass;
 

@@ -6,17 +6,9 @@
 
 #import <UserNotificationsUIKit/NSObject-Protocol.h>
 
-@class NCNotificationAction, NCNotificationListCell, NCNotificationRequest, UIView;
+@class NCNotificationListCell;
 
 @protocol NCNotificationListCellDelegate <NSObject>
-- (UIView *)customBackgroundViewForNotificationListCell:(NCNotificationListCell *)arg1;
-- (_Bool)notificationListCellShouldShowActionsForNotificationRequest:(NCNotificationRequest *)arg1;
-- (void)notificationListCellHideCellActions:(NCNotificationListCell *)arg1 resetCellScrollPosition:(_Bool)arg2 animated:(_Bool)arg3;
-- (void)notificationListCellRevealCellActions:(NCNotificationListCell *)arg1;
-- (void)notificationListCellDidSignificantUserInteraction:(NCNotificationListCell *)arg1;
-- (void)notificationListCell:(NCNotificationListCell *)arg1 requestsClearingNotificationRequest:(NCNotificationRequest *)arg2;
-- (void)notificationListCell:(NCNotificationListCell *)arg1 requestsPresentingLongLookForNotificationRequest:(NCNotificationRequest *)arg2 completion:(void (^)(_Bool))arg3;
-- (void)notificationListCell:(NCNotificationListCell *)arg1 requestsPerformAction:(NCNotificationAction *)arg2 forNotificationRequest:(NCNotificationRequest *)arg3 completion:(void (^)(_Bool))arg4;
 - (void)willTearDownNotificationListCell:(NCNotificationListCell *)arg1;
 @end
 

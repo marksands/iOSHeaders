@@ -6,13 +6,14 @@
 
 #import <CoreKnowledge/_TtC13CoreKnowledge20CKAbstractWriteBatch.h>
 
-#import <CoreKnowledge/_TtP13CoreKnowledge26CKKnowledgeStoreWriteBatch_-Protocol.h>
+#import <CoreKnowledge/CKKnowledgeStoreWriteBatch-Protocol.h>
 
-@interface _TtC13CoreKnowledge20CKInMemoryWriteBatch : _TtC13CoreKnowledge20CKAbstractWriteBatch <_TtP13CoreKnowledge26CKKnowledgeStoreWriteBatch_>
+@interface _TtC13CoreKnowledge20CKInMemoryWriteBatch : _TtC13CoreKnowledge20CKAbstractWriteBatch <CKKnowledgeStoreWriteBatch>
 {
 }
 
 - (_Bool)writeAndReturnError:(id *)arg1;
+- (void)writeWithCompletionHandler:(CDUnknownBlockType)arg1;
 
 @end
 

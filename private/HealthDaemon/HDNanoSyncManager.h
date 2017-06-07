@@ -15,20 +15,19 @@
 #import <HealthDaemon/HDNanoSyncStoreDelegate-Protocol.h>
 #import <HealthDaemon/HDSyncSessionDelegate-Protocol.h>
 
-@class HDIDSMessageCenter, HDKeyValueDomain, HDNanoSyncStore, HDPairedSyncManager, HDProfile, HKNanoSyncPairedDevicesSnapshot, NSArray, NSDate, NSHashTable, NSMutableDictionary, NSSet, NSString;
+@class HDIDSMessageCenter, HDKeyValueDomain, HDNanoSyncStore, HDPairedSyncManager, HDProfile, HKNanoSyncPairedDevicesSnapshot, NSArray, NSDate, NSHashTable, NSMutableDictionary, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface HDNanoSyncManager : NSObject <HDDiagnosticObject, HDHealthDaemonReadyObserver, HDNanoSyncStoreDelegate, HDSyncSessionDelegate, HDDatabaseProtectedDataObserver, HDDataObserver, HDIDSMessageCenterDelegate, HDForegroundClientProcessObserver>
 {
     _Bool _isMaster;
     _Bool _invalidated;
-    _Bool _isPairingActivated;
     _Bool _waitingForFirstUnlock;
-    _Bool _allPairedDevicesAreCurrentVersion;
     _Bool _enablePeriodicSyncTimer;
     HKNanoSyncPairedDevicesSnapshot *_pairedDevicesSnapshot;
     HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_observerQueue;
     NSObject<OS_dispatch_queue> *_syncQueue;
     HDIDSMessageCenter *_messageCenter;
     NSHashTable *_observers;
@@ -36,7 +35,6 @@
     HDNanoSyncStore *_activeSyncStore;
     NSMutableDictionary *_syncStoresByDeviceIdentifier;
     NSArray *_pairedDevices;
-    NSSet *_pairedWatchSourceBundleIdentifiers;
     NSObject<OS_dispatch_source> *_periodicSyncTimer;
     NSDate *_lastPeriodicSyncDate;
     double _restoreTimeout;
@@ -48,9 +46,7 @@
 @property double restoreTimeout; // @synthesize restoreTimeout=_restoreTimeout;
 @property(retain, nonatomic) NSDate *lastPeriodicSyncDate; // @synthesize lastPeriodicSyncDate=_lastPeriodicSyncDate;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *periodicSyncTimer; // @synthesize periodicSyncTimer=_periodicSyncTimer;
-@property(nonatomic, setter=_setAllPairedDevicesAreCurrentVersion:) _Bool allPairedDevicesAreCurrentVersion; // @synthesize allPairedDevicesAreCurrentVersion=_allPairedDevicesAreCurrentVersion;
 @property(nonatomic) _Bool waitingForFirstUnlock; // @synthesize waitingForFirstUnlock=_waitingForFirstUnlock;
-@property(copy) NSSet *pairedWatchSourceBundleIdentifiers; // @synthesize pairedWatchSourceBundleIdentifiers=_pairedWatchSourceBundleIdentifiers;
 @property(retain, nonatomic) NSArray *pairedDevices; // @synthesize pairedDevices=_pairedDevices;
 @property(retain, nonatomic) NSMutableDictionary *syncStoresByDeviceIdentifier; // @synthesize syncStoresByDeviceIdentifier=_syncStoresByDeviceIdentifier;
 @property(retain, nonatomic) HDNanoSyncStore *activeSyncStore; // @synthesize activeSyncStore=_activeSyncStore;
@@ -58,16 +54,16 @@
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) HDIDSMessageCenter *messageCenter; // @synthesize messageCenter=_messageCenter;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *syncQueue; // @synthesize syncQueue=_syncQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *observerQueue; // @synthesize observerQueue=_observerQueue;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 @property(retain) HKNanoSyncPairedDevicesSnapshot *pairedDevicesSnapshot; // @synthesize pairedDevicesSnapshot=_pairedDevicesSnapshot;
-@property(setter=_setPairingActivated:) _Bool isPairingActivated; // @synthesize isPairingActivated=_isPairingActivated;
 - (void).cxx_destruct;
 - (void)foregroundClientProcessesDidChange:(id)arg1;
 - (void)_didReceiveChangeRequest;
 - (id)diagnosticDescription;
 - (id)_queue_nanoSyncKeyValueDomain;
-- (void)_queue_notifyObserversStateChanged;
+- (void)_notifyObserversPairedDevicesChanged:(id)arg1;
 - (void)nanoSyncStore:(id)arg1 restoreStateDidChange:(long long)arg2;
 - (void)_queue_updateDeviceNameIfNecessaryWithSyncStore:(id)arg1;
 - (void)nanoSyncStore:(id)arg1 deviceNameDidChange:(id)arg2;
@@ -86,10 +82,7 @@
 - (void)_queue_recieveStartWorkoutAppResponse:(id)arg1 syncStore:(id)arg2;
 - (void)_queue_recieveStartWorkoutAppRequest:(id)arg1 syncStore:(id)arg2;
 - (void)_queue_sendStartWorkoutAppRequest:(id)arg1 syncStore:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)_queue_routineRequestDidFailToSendWithError:(id)arg1 syncStore:(id)arg2;
-- (void)_queue_receiveRoutineResponse:(id)arg1 syncStore:(id)arg2;
 - (void)_queue_receiveRoutineRequest:(id)arg1 syncStore:(id)arg2;
-- (void)_queue_sendRoutineRequest:(id)arg1 syncStore:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_queue_waitForLastChanceSyncWithPairingID:(id)arg1 timeout:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_watchOffWristNotification:(id)arg1;
 - (void)samplesAdded:(id)arg1 anchor:(id)arg2;
@@ -107,7 +100,7 @@
 - (void)_queue_beginProactiveSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_queue_eligibleInactiveSyncStores;
 - (void)_queue_syncImmediatelyWithReason:(id)arg1 options:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
-- (_Bool)_queue_isReadyForSyncWithSyncStore:(id)arg1 error:(id *)arg2;
+- (_Bool)_queue_isRestoreCompleteForSyncStore:(id)arg1 error:(id *)arg2;
 - (void)_queue_cancelPeriodicSyncTimer;
 - (void)_queue_startPeriodicSyncTimerIfNecessary;
 - (void)_queue_periodicSyncTimerFired;
@@ -120,15 +113,16 @@
 - (_Bool)_syncQueue_applyActivationRestore:(id)arg1 request:(id)arg2 syncStore:(id)arg3 error:(id *)arg4;
 - (void)_queue_handleRestoreResponse:(id)arg1 syncStore:(id)arg2;
 - (void)_queue_handleRestoreRequest:(id)arg1 syncStore:(id)arg2;
+- (_Bool)_prepareForCompanionChangeWithStore:(id)arg1 error:(id *)arg2;
+- (long long)_actionForRestoreRequest:(id)arg1 syncStore:(id)arg2 error:(id *)arg3;
 - (void)_queue_sendRestoreMessageWithStore:(id)arg1 restoreUUID:(id)arg2 sequenceNumber:(long long)arg3 statusCode:(int)arg4;
 - (void)_queue_beginRestoreWithStore:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_queue_pairedSyncDidBeginForDevice:(id)arg1 messagesSentHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_queue_generateWatchActivationSamples;
-- (void)_queue_updatePairingActivated;
 - (void)_deviceDidBecomeActive:(id)arg1;
 - (void)_deviceDidUnpair:(id)arg1;
 - (void)_deviceDidPair:(id)arg1;
-- (void)_queue_resetPairingWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_queue_resetSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)restoreTimedOutWithSyncStore:(id)arg1;
 - (void)_queue_transitionToRestoreInProgressWithSyncStore:(id)arg1;
 - (void)_queue_transitionToRestoreCompleteWithSyncStore:(id)arg1;
@@ -143,8 +137,6 @@
 - (void)messageCenterDidReceiveStartWorkoutAppError:(id)arg1;
 - (void)messageCenterDidReceiveStartWorkoutAppResponse:(id)arg1;
 - (void)messageCenterDidReceiveStartWorkoutAppRequest:(id)arg1;
-- (void)messageCenterDidReceiveRoutineError:(id)arg1;
-- (void)messageCenterDidReceiveRoutineResponse:(id)arg1;
 - (void)messageCenterDidReceiveRoutineRequest:(id)arg1;
 - (void)messageCenterDidReceiveAuthorizationCompleteRequest:(id)arg1;
 - (void)messageCenterDidReceiveAuthorizationError:(id)arg1;
@@ -169,18 +161,17 @@
 - (void)_queue_sendRequest:(id)arg1 syncStore:(id)arg2;
 - (_Bool)_queue_permitSyncWithError:(id *)arg1;
 - (void)_addDaytonaVersionMessageHandlersToMessageCenter:(id)arg1;
-- (void)_addCoralVersionMessageHandlersToMessageCenter:(id)arg1;
 - (void)_queue_setUpMessageCentersIfNecessary;
 - (_Bool)_queue_finishInitializationAfterFirstUnlockIfNecessaryWithError:(id *)arg1;
 - (void)sendStartWorkoutAppRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)sendRoutineRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestAuthorizationForRequestRecord:(id)arg1 requestSentHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)updatePairedDevicesWithCompletion:(CDUnknownBlockType)arg1;
-- (void)resetPairingWithCompletion:(CDUnknownBlockType)arg1;
+- (void)resetSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)waitForLastChanceSyncWithDevicePairingID:(id)arg1 timeout:(double)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)syncHealthDataWithOptions:(unsigned long long)arg1 reason:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)syncHealthDataWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)pairedSyncDidBeginForDevice:(id)arg1 messagesSentHandler:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)_allObservers;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
@@ -188,7 +179,8 @@
 @property(readonly) _Bool isMaster;
 - (void)dealloc;
 - (void)_invalidate;
-- (void)invalidate;
+- (void)obliterateWithReason:(id)arg1 preserveCopy:(_Bool)arg2;
+- (void)invalidateAndWait;
 - (id)initWithProfile:(id)arg1 isMaster:(_Bool)arg2;
 
 // Remaining properties

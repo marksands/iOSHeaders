@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) TSUBezierPath *interiorClippingPath; // @synthesize interiorClippingPath=_interiorClippingPath;
 @property(nonatomic) double viewScale; // @synthesize viewScale=_viewScale;
 @property(nonatomic) _Bool flipShadows; // @synthesize flipShadows=_flipShadows;
+@property(readonly, nonatomic) struct CGContext *context; // @synthesize context=_context;
 - (void)p_setCTMAndTextPositionForFragment:(const struct TSWPLineFragment *)arg1;
 - (void)p_drawListLabelForFragment:(const struct TSWPLineFragment *)arg1 drawingState:(const struct TSWPDrawingState *)arg2 lineDrawFlags:(unsigned int)arg3;
 - (void)p_drawInvisiblesBreakLine:(const struct TSWPAdornmentLine *)arg1 lineFragment:(const struct TSWPLineFragment *)arg2 state:(const struct TSWPDrawingState *)arg3;

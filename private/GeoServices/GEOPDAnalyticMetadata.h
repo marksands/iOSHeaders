@@ -8,12 +8,13 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString, PBUnknownFields;
+@class GEOAbAssignInfo, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDAnalyticMetadata : PBCodable <NSCopying>
 {
     PBUnknownFields *_unknownFields;
     struct GEOSessionID _sessionId;
+    GEOAbAssignInfo *_abAssignInfo;
     NSString *_appIdentifier;
     NSString *_appMajorVersion;
     NSString *_appMinorVersion;
@@ -38,6 +39,7 @@
 }
 
 + (Class)serviceTagType;
+@property(retain, nonatomic) GEOAbAssignInfo *abAssignInfo; // @synthesize abAssignInfo=_abAssignInfo;
 @property(retain, nonatomic) NSString *loggedAbExperiment; // @synthesize loggedAbExperiment=_loggedAbExperiment;
 @property(retain, nonatomic) NSString *productName; // @synthesize productName=_productName;
 @property(retain, nonatomic) NSMutableArray *serviceTags; // @synthesize serviceTags=_serviceTags;
@@ -51,6 +53,7 @@
 @property(retain, nonatomic) NSString *appMinorVersion; // @synthesize appMinorVersion=_appMinorVersion;
 @property(retain, nonatomic) NSString *appMajorVersion; // @synthesize appMajorVersion=_appMajorVersion;
 @property(retain, nonatomic) NSString *appIdentifier; // @synthesize appIdentifier=_appIdentifier;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -61,6 +64,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasAbAssignInfo;
 @property(readonly, nonatomic) _Bool hasLoggedAbExperiment;
 @property(readonly, nonatomic) _Bool hasProductName;
 - (id)serviceTagAtIndex:(unsigned long long)arg1;
@@ -81,7 +85,6 @@
 @property(readonly, nonatomic) _Bool hasAppMinorVersion;
 @property(readonly, nonatomic) _Bool hasAppMajorVersion;
 @property(readonly, nonatomic) _Bool hasAppIdentifier;
-- (void)dealloc;
 - (id)initWithTraits:(id)arg1;
 
 @end

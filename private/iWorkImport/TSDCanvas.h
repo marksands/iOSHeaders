@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSMutableArray, NSSet, TSDInteractiveCanvasController, TSDLayoutController, TSKAccessController, TSKChangeNotifier, TSKDocumentRoot, TSPObjectContext;
+@class NSArray, NSMutableArray, NSSet, TSDInteractiveCanvasController, TSDLayoutController, TSKAccessController, TSKChangeNotifier, TSKDocumentRoot, TSPObjectContext, TSUColor, TSUPointerKeyDictionary;
 @protocol OS_dispatch_queue, TSDCanvasDelegate;
 
 __attribute__((visibility("hidden")))
@@ -17,7 +17,8 @@ __attribute__((visibility("hidden")))
     NSArray *mInfos;
     NSArray *mTopLevelReps;
     NSSet *mAllReps;
-    struct __CFDictionary *mRepsByLayout;
+    NSArray *mAllRepsOrdered;
+    TSUPointerKeyDictionary *mRepsByLayout;
     TSDLayoutController *mLayoutController;
     _Bool mIsTemporaryForLayout;
     struct CGSize mUnscaledSize;
@@ -35,34 +36,39 @@ __attribute__((visibility("hidden")))
     NSMutableArray *mBlocksToPerform;
     NSObject<OS_dispatch_queue> *mBlocksToPerformAccessQueue;
     _Bool mIgnoringClickThrough;
-    struct CGColor *mBackgroundColor;
+    TSUColor *mBackgroundColor;
     struct UIEdgeInsets mContentInset;
-    _Bool mClipToCanvas;
     _Bool mAllowsFontSubpixelQuantization;
     _Bool mSuppressesShadowsAndReflections;
+    _Bool mSuppressesShapeText;
 }
 
++ (void)p_recursivelyAddOrderedChildrenOfRep:(id)arg1 toArray:(id)arg2;
 @property(readonly, nonatomic) _Bool isTemporaryForLayout; // @synthesize isTemporaryForLayout=mIsTemporaryForLayout;
 @property(nonatomic) double viewScale; // @synthesize viewScale=mViewScale;
 @property(nonatomic) struct CGSize unscaledSize; // @synthesize unscaledSize=mUnscaledSize;
+@property(nonatomic) _Bool suppressesShapeText; // @synthesize suppressesShapeText=mSuppressesShapeText;
 @property(nonatomic) _Bool suppressesShadowsAndReflections; // @synthesize suppressesShadowsAndReflections=mSuppressesShadowsAndReflections;
 @property(nonatomic) _Bool allowsFontSubpixelQuantization; // @synthesize allowsFontSubpixelQuantization=mAllowsFontSubpixelQuantization;
 @property(nonatomic) struct UIEdgeInsets contentInset; // @synthesize contentInset=mContentInset;
-@property(nonatomic) struct CGColor *backgroundColor; // @synthesize backgroundColor=mBackgroundColor;
+@property(copy, nonatomic) TSUColor *backgroundColor; // @synthesize backgroundColor=mBackgroundColor;
 @property(readonly, nonatomic) TSDLayoutController *layoutController; // @synthesize layoutController=mLayoutController;
+@property(readonly, nonatomic) NSSet *allReps; // @synthesize allReps=mAllReps;
+@property(readonly, nonatomic) NSArray *topLevelReps; // @synthesize topLevelReps=mTopLevelReps;
 @property(copy, nonatomic) NSArray *infosToDisplay; // @synthesize infosToDisplay=mInfos;
-@property(nonatomic) id <TSDCanvasDelegate> delegate; // @synthesize delegate=mDelegate;
+@property(nonatomic) __weak id <TSDCanvasDelegate> delegate; // @synthesize delegate=mDelegate;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *allRepsOrdered;
 - (void)p_removeAllReps;
 - (void)orderRepsForLayout:(id)arg1;
 - (_Bool)p_updateRepsFromLayouts;
 - (void)p_layoutWithReadLock;
 - (struct CGRect)p_bounds;
 - (struct CGImage *)i_newImageInContext:(struct CGContext *)arg1 bounds:(struct CGRect)arg2 integralBounds:(struct CGRect)arg3 distortedToMatch:(_Bool)arg4;
-- (struct CGContext *)i_createContextToDrawImageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 returningBounds:(struct CGRect *)arg3 integralBounds:(struct CGRect *)arg4;
+- (struct CGContext *)i_createContextToDrawImageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 distortedToMatch:(_Bool)arg3 returningBounds:(struct CGRect *)arg4 integralBounds:(struct CGRect *)arg5;
 - (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1 withTargetIntegralSize:(struct CGSize)arg2 distortedToMatch:(_Bool)arg3;
 - (struct CGImage *)i_imageInScaledRect:(struct CGRect)arg1;
 - (struct CGImage *)i_image;
-- (void)i_clipsImagesToBounds:(_Bool)arg1;
 - (void)i_drawRepsInContext:(struct CGContext *)arg1;
 - (void)i_drawRepsInContext:(struct CGContext *)arg1 distort:(struct CGAffineTransform)arg2;
 - (void)addBitmapsToRenderingQualityInfo:(id)arg1 inContext:(struct CGContext *)arg2;
@@ -107,8 +113,6 @@ __attribute__((visibility("hidden")))
 - (void)invalidateReps;
 - (void)layoutInvalidated;
 - (void)recreateAllLayoutsAndReps;
-- (id)allReps;
-- (id)topLevelReps;
 - (id)repForLayout:(id)arg1;
 - (void)i_updateInfosInLayoutController;
 - (void)i_setInfosToDisplay:(id)arg1 updatingLayoutController:(_Bool)arg2;

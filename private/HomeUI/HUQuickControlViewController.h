@@ -6,16 +6,18 @@
 
 #import <UIKit/UIViewController.h>
 
+#import <HomeUI/HUItemPresentationContainer-Protocol.h>
 #import <HomeUI/HUPresentationDelegate-Protocol.h>
 #import <HomeUI/HUPresentationDelegateHost-Protocol.h>
 #import <HomeUI/HUQuickControlContainerViewDelegate-Protocol.h>
 #import <HomeUI/HUQuickControlControllerCoordinatorDelegate-Protocol.h>
 #import <HomeUI/HUQuickControlInteractionHost-Protocol.h>
+#import <HomeUI/HUViewControllerCustomDissmissing-Protocol.h>
 
 @class HFItem, HMHome, HUAnimationApplier, HUQuickControlContainerView, HUQuickControlController, HUQuickControlControllerCoordinator, HUQuickControlInteractionCoordinator, NSString, UITapGestureRecognizer, UIView;
 @protocol HUPresentationDelegate, HUQuickControlPresentableView, HUQuickControlViewControllerDelegate, NSCopying;
 
-@interface HUQuickControlViewController : UIViewController <HUPresentationDelegate, HUQuickControlContainerViewDelegate, HUQuickControlControllerCoordinatorDelegate, HUQuickControlInteractionHost, HUPresentationDelegateHost>
+@interface HUQuickControlViewController : UIViewController <HUPresentationDelegate, HUQuickControlContainerViewDelegate, HUQuickControlControllerCoordinatorDelegate, HUQuickControlInteractionHost, HUItemPresentationContainer, HUPresentationDelegateHost, HUViewControllerCustomDissmissing>
 {
     _Bool _presentedDetailView;
     id <HUPresentationDelegate> presentationDelegate;
@@ -51,6 +53,7 @@
 @property(readonly, nonatomic) HFItem<NSCopying> *item; // @synthesize item=_item;
 @property(nonatomic) __weak id <HUPresentationDelegate> presentationDelegate; // @synthesize presentationDelegate;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) HFItem *hu_presentedItem;
 - (void)hideAuxiliaryViewForInteractionCoordinator:(id)arg1;
 - (void)interactionCoordinator:(id)arg1 showAuxiliaryView:(id)arg2;
 - (void)interactionCoordinator:(id)arg1 updateControlHorizontalCompressionFactor:(double)arg2;
@@ -65,28 +68,29 @@
 - (id)containerView:(id)arg1 titleForControlType:(unsigned long long)arg2;
 - (_Bool)containerView:(id)arg1 hasControlOfType:(unsigned long long)arg2;
 - (id)_controlControllerOfType:(unsigned long long)arg1;
-- (void)finishPresentation:(id)arg1 animated:(_Bool)arg2;
+- (id)finishPresentation:(id)arg1 animated:(_Bool)arg2;
+- (id)hu_prepareForDismissalAnimated:(_Bool)arg1;
 - (void)beginReceivingTouchesWithGestureRecognizer:(id)arg1;
 - (void)_handleDismissGesture:(id)arg1;
+- (id)_dismissDetailViewControllerAnimated:(_Bool)arg1 dismissControl:(_Bool)arg2;
 - (id)_prepareDetailViewController;
 - (void)_controlDidDismiss;
 - (void)_createControlContainerViewWithSourceRect:(struct CGRect)arg1;
 - (void)_performTransitionToPresentationState:(unsigned long long)arg1 animated:(_Bool)arg2 initialProgress:(double)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)_dismissControlAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)dismissControlAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)dismissControlAnimated:(_Bool)arg1;
 - (_Bool)isControlDismissedOrDismissing;
 - (void)presentControlAnimatedFromSourceRect:(struct CGRect)arg1;
 - (struct CGAffineTransform)sourceViewTransformForPresentationProgress:(double)arg1;
 - (void)_updateUserInteractionEnabledForActiveInteractionCoordinator;
 - (void)_updateControlReachability;
-- (void)_updateIconDescriptor;
+- (void)_updateIconDescriptorAnimated:(_Bool)arg1;
 - (void)_updateControlStatusText;
 - (void)_presentDetailViewController;
 - (void)viewDidLoad;
 - (_Bool)isControlPresentedOrPresenting;
 @property(readonly, nonatomic) HUQuickControlInteractionCoordinator *activeInteractionCoordinator;
 @property(readonly, nonatomic) HUQuickControlController *activeControlController;
-- (id)initWithItem:(id)arg1 home:(id)arg2;
+- (id)initWithItem:(id)arg1 controlItems:(id)arg2 home:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
     TSCHChartInfo *mChartInfo;
     TSCHChartAbstractAreaLayoutItem *mChartArea;
     TSCHLegendAreaLayoutItem *mLegend;
-    CDStruct_339a9a6e mLayoutSettings;
+    CDStruct_44ada6bf mLayoutSettings;
     struct CGRect mLegendInnerFrame;
     struct CGRect mChartInnerFrame;
     _Bool mInResize;
@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (void)clearParent;
 - (void)invalidateTransientModel;
 @property(nonatomic) unsigned long long dataSetIndex;
+@property(readonly, copy, nonatomic) NSDictionary *seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
 - (void)p_updatePieWedgeExplosionsFromModel;
 - (void)invalidateSeriesIndexedPieWedgeExplosions;
 - (struct CGSize)startingSize;
@@ -52,8 +53,8 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSCHChartAbstractAreaLayoutItem *chartAreaLayoutItem;
 - (id)model;
 - (id)chartInfo;
-- (void)setLayoutSettings:(CDStruct_339a9a6e)arg1;
-- (CDStruct_339a9a6e)layoutSettings;
+- (void)setLayoutSettings:(CDStruct_44ada6bf)arg1;
+- (CDStruct_44ada6bf)layoutSettings;
 - (id)root;
 - (void)dealloc;
 - (id)initWithChartInfo:(id)arg1;

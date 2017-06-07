@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSCache, NSDictionary, NSMutableDictionary;
 
@@ -12,6 +12,7 @@
 {
     double _scale;
     NSCache *_imageCache;
+    struct mutex _imageCacheLock;
     NSDictionary *_stringAttributes;
     struct CGColor *_shadowColor;
     struct CGSize _shadowOffset;
@@ -32,6 +33,8 @@
 }
 
 @property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
+- (id).cxx_construct;
+- (void).cxx_destruct;
 - (struct CGImage *)newImageWithShieldText:(id)arg1 allowMultiline:(_Bool)arg2 widthPaddingMultiple:(double)arg3 centerPoint:(struct CGPoint *)arg4;
 - (id)imageWithShieldText:(id)arg1 allowMultiline:(_Bool)arg2 widthPaddingMultiple:(double)arg3;
 - (id)imageWithShieldText:(id)arg1 widthPaddingMultiple:(double)arg2;

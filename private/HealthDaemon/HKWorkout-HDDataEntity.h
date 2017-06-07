@@ -7,6 +7,6 @@
 #import <HealthKit/HKWorkout.h>
 
 @interface HKWorkout (HDDataEntity)
-- (_Bool)hd_insertRelatedDataWithProfile:(id)arg1 database:(id)arg2 entityPersistentID:(id)arg3 error:(id *)arg4;
+- (_Bool)hd_insertRelatedDataWithProfile:(id)arg1 database:(id)arg2 entityPersistentID:(id)arg3 sourceID:(id)arg4 externalSyncObjectCode:(long long)arg5 error:(id *)arg6;
 @end
 

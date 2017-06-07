@@ -19,19 +19,27 @@
     NSString *_localizedModelName;
     NSString *_name;
     NSString *_systemBuildVersion;
+    NSString *_systemMediaApplication;
     NSString *_uniqueIdentifier;
     _Bool _allowsPairing;
     _Bool _connected;
+    _Bool _supportsACL;
+    _Bool _supportsSharedQueue;
     _Bool _supportsSystemPairing;
     struct {
         unsigned int protocolVersion:1;
         unsigned int lastSupportedMessageType:1;
         unsigned int allowsPairing:1;
         unsigned int connected:1;
+        unsigned int supportsACL:1;
+        unsigned int supportsSharedQueue:1;
         unsigned int supportsSystemPairing:1;
     } _has;
 }
 
+@property(nonatomic) _Bool supportsSharedQueue; // @synthesize supportsSharedQueue=_supportsSharedQueue;
+@property(nonatomic) _Bool supportsACL; // @synthesize supportsACL=_supportsACL;
+@property(retain, nonatomic) NSString *systemMediaApplication; // @synthesize systemMediaApplication=_systemMediaApplication;
 @property(nonatomic) _Bool connected; // @synthesize connected=_connected;
 @property(nonatomic) _Bool allowsPairing; // @synthesize allowsPairing=_allowsPairing;
 @property(nonatomic) _Bool supportsSystemPairing; // @synthesize supportsSystemPairing=_supportsSystemPairing;
@@ -52,6 +60,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasSupportsSharedQueue;
+@property(nonatomic) _Bool hasSupportsACL;
+@property(readonly, nonatomic) _Bool hasSystemMediaApplication;
 @property(nonatomic) _Bool hasConnected;
 @property(nonatomic) _Bool hasAllowsPairing;
 @property(nonatomic) _Bool hasSupportsSystemPairing;

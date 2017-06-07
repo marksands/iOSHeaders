@@ -7,7 +7,7 @@
 #import <ChatKit/NSObject-Protocol.h>
 
 @class UIGestureRecognizer, UIInteractionProgress, UIView, UIViewController;
-@protocol UIViewControllerTransitioningDelegate;
+@protocol UIViewControllerPreviewing_Private, UIViewControllerTransitioningDelegate;
 
 @protocol UIViewControllerPreviewingDelegate_Private <NSObject>
 
@@ -19,5 +19,7 @@
 - (void)didDismissPreviewViewController:(UIViewController *)arg1 committing:(_Bool)arg2;
 - (void)willPresentPreviewViewController:(UIViewController *)arg1 forLocation:(struct CGPoint)arg2 inSourceView:(UIView *)arg3;
 - (UIViewController *)committedViewControllerForPreviewViewController:(UIViewController *)arg1;
+- (void)_previewingContext:(id <UIViewControllerPreviewing_Private>)arg1 willDismissViewController:(UIViewController *)arg2;
+- (void)_previewingContext:(id <UIViewControllerPreviewing_Private>)arg1 willPresentViewController:(UIViewController *)arg2;
 @end
 

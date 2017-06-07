@@ -7,33 +7,42 @@
 #import <objc/NSObject.h>
 
 #import <DeviceManagement/CATTaskClientDelegate-Protocol.h>
+#import <DeviceManagement/DMFTransportProvider-Protocol.h>
 
 @class CATOperationQueue, CATTaskClient, NSString;
+@protocol DMFTransportProvider;
 
-@interface DMFConnection : NSObject <CATTaskClientDelegate>
+@interface DMFConnection : NSObject <CATTaskClientDelegate, DMFTransportProvider>
 {
-    CATTaskClient *mTaskClient;
-    CATOperationQueue *mOperationQueue;
-    _Bool mConnected;
+    _Bool _isConnected;
+    id <DMFTransportProvider> _transportProvider;
+    CATTaskClient *_taskClient;
+    CATOperationQueue *_operationQueue;
 }
 
++ (id)watchOSRequestClasses;
++ (id)tvOSRequestClasses;
++ (id)macOSRequestClasses;
++ (id)iOSRequestClasses;
++ (id)currentPlatformRequestClasses;
 + (id)sharedConnection;
+@property(nonatomic) _Bool isConnected; // @synthesize isConnected=_isConnected;
+@property(retain, nonatomic) CATOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
+@property(retain, nonatomic) CATTaskClient *taskClient; // @synthesize taskClient=_taskClient;
+@property(nonatomic) __weak id <DMFTransportProvider> transportProvider; // @synthesize transportProvider=_transportProvider;
 - (void).cxx_destruct;
-- (void)operationDidFinish:(id)arg1 semaphore:(id)arg2;
-- (void)operationDidFinish:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_operationDidFinish:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)client:(id)arg1 didInterruptWithError:(id)arg2;
-- (void)client:(id)arg1 didDisconnectWithError:(id)arg2;
 - (void)clientDidInvalidate:(id)arg1;
+- (void)clientDidDisconnect:(id)arg1;
 - (void)clientDidConnect:(id)arg1;
+- (id)makeNewTransport;
 - (void)invalidate;
 - (id)progressForAllInflightRequests;
 - (id)prepareOperationForRequest:(id)arg1;
-- (id)runRequest:(id)arg1 error:(id *)arg2;
 - (void)performRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
-- (id)initWithTransport:(id)arg1;
-- (id)initWithXPCConnection:(id)arg1;
-- (id)initWithServiceName:(id)arg1;
+- (id)initWithTransportProvider:(id)arg1;
 - (id)init;
 
 // Remaining properties

@@ -62,6 +62,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)themeIndex;
 - (void)_setThemeIndex:(unsigned long long)arg1;
 - (id)gradientWithKeyAdjustment:(id)arg1 angle:(double *)arg2 style:(unsigned long long *)arg3;
+- (struct CGSize)sizeForSegmentOfType:(int)arg1;
 - (struct CGSize)imageSize;
 - (id)blendModeAsCAFilterString;
 - (id)blendModeAsCAFilterStringWithKeyAjustment:(id)arg1;
@@ -107,6 +108,7 @@ __attribute__((visibility("hidden")))
 - (void)drawMaskInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3 context:(struct CGContext *)arg4;
 - (void)drawHighlightInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3 context:(struct CGContext *)arg4;
 - (void)drawInFrame:(struct CGRect)arg1 owner:(id)arg2 userInfo:(id)arg3 context:(struct CGContext *)arg4;
+- (struct CGImage *)copySegmentLayerContents:(int)arg1 andCenter:(struct CGRect *)arg2 leftSeparatorWidth:(double)arg3 rightSeparatorWidth:(double)arg4 renditionKey:(id)arg5 effects:(id)arg6;
 - (void)drawSegmentInFrame:(struct CGRect)arg1 isFocused:(int)arg2 segmentType:(int)arg3 context:(struct CGContext *)arg4 effects:(id)arg5;
 - (void)drawAnimationFrameMappedFrom0_1RangedValue:(double)arg1 destinationFrame:(struct CGRect)arg2 isFocused:(int)arg3 context:(struct CGContext *)arg4;
 - (void)drawAbsoluteAnimationFrame:(double)arg1 destinationFrame:(struct CGRect)arg2 isFocused:(int)arg3 context:(struct CGContext *)arg4;

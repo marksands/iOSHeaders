@@ -12,16 +12,19 @@
 
 @interface GEOLogMsgStateDeviceConnection : PBCodable <NSCopying>
 {
+    int _cellularDataState;
     NSString *_deviceCarrierName;
     NSString *_deviceCountryCode;
     int _deviceNetworkConnectivity;
     struct {
+        unsigned int cellularDataState:1;
         unsigned int deviceNetworkConnectivity:1;
     } _has;
 }
 
 @property(retain, nonatomic) NSString *deviceCarrierName; // @synthesize deviceCarrierName=_deviceCarrierName;
 @property(retain, nonatomic) NSString *deviceCountryCode; // @synthesize deviceCountryCode=_deviceCountryCode;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,13 +34,16 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (int)StringAsCellularDataState:(id)arg1;
+- (id)cellularDataStateAsString:(int)arg1;
+@property(nonatomic) _Bool hasCellularDataState;
+@property(nonatomic) int cellularDataState; // @synthesize cellularDataState=_cellularDataState;
 @property(readonly, nonatomic) _Bool hasDeviceCarrierName;
 @property(readonly, nonatomic) _Bool hasDeviceCountryCode;
 - (int)StringAsDeviceNetworkConnectivity:(id)arg1;
 - (id)deviceNetworkConnectivityAsString:(int)arg1;
 @property(nonatomic) _Bool hasDeviceNetworkConnectivity;
 @property(nonatomic) int deviceNetworkConnectivity; // @synthesize deviceNetworkConnectivity=_deviceNetworkConnectivity;
-- (void)dealloc;
 
 @end
 

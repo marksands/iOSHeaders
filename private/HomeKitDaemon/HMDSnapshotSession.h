@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
 @class HMDCameraSessionID, HMDCameraSnapshotMetrics, HMDSnapshotCompletionTimer, NSMutableArray, NSString;
 @protocol HMDCameraGetSnapshotProtocol;
 
-@interface HMDSnapshotSession : NSObject <HMFLogging>
+@interface HMDSnapshotSession : HMFObject <HMFLogging>
 {
     HMDCameraSessionID *_sessionID;
     id <HMDCameraGetSnapshotProtocol> _snapshotGetter;

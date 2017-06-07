@@ -14,10 +14,8 @@
 {
 }
 
-- (id)_legacyAlternativeRepresentationForPlaybackIntent:(id)arg1 player:(id)arg2;
-- (void)populateRepresentationsForItem:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)populateContainer:(id)arg1 forPlaybackIntent:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)configureContainer:(id)arg1 forPlaybackIntent:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)getRemotePlaybackQueueForIntent:(id)arg1 playerPath:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
+- (void)getPlaybackContextForIntent:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

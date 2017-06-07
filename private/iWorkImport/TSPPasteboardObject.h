@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     TSPObject *_stylesheet;
     TSPObject *_wpStorage;
     TSPObject *_guideStorage;
+    NSArray *_topLevelObjects;
     TSPObject *_appNativeObject;
 }
 
@@ -28,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isCrossDocumentPaste; // @synthesize isCrossDocumentPaste=_isCrossDocumentPaste;
 @property(readonly, nonatomic) _Bool isCrossAppPaste; // @synthesize isCrossAppPaste=_isCrossAppPaste;
 @property(retain, nonatomic) TSPObject *appNativeObject; // @synthesize appNativeObject=_appNativeObject;
+@property(retain, nonatomic) NSArray *topLevelObjects; // @synthesize topLevelObjects=_topLevelObjects;
 @property(retain, nonatomic) TSPObject *guideStorage; // @synthesize guideStorage=_guideStorage;
 @property(retain, nonatomic) TSPObject *wpStorage; // @synthesize wpStorage=_wpStorage;
 @property(retain, nonatomic) TSPObject *stylesheet; // @synthesize stylesheet=_stylesheet;
@@ -36,7 +38,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (long long)tsp_identifier;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 
 @end

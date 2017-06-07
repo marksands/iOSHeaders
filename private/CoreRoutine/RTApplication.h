@@ -20,11 +20,12 @@
 
 + (id)capabilitiesToString:(long long)arg1;
 + (_Bool)supportsSecureCoding;
-+ (id)allowedKeys;
 @property(nonatomic) long long capabilities; // @synthesize capabilities=_capabilities;
 @property(readonly, nonatomic) NSString *localizedDisplayName; // @synthesize localizedDisplayName=_localizedDisplayName;
 @property(readonly, nonatomic) NSString *bundleId; // @synthesize bundleId=_bundleId;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

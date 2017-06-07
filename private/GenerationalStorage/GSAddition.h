@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSData, NSDictionary, NSNumber, NSString, NSURL;
 @protocol GSAdditionStoring, GSAdditionStoring><GSAdditionStoringPrivate, NSCopying><NSSecureCoding;
@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) NSString *nameSpace; // @synthesize nameSpace=_namespace;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
+- (void).cxx_destruct;
 - (id)replaceItemAtURL:(id)arg1 error:(id *)arg2;
 - (_Bool)copyAdditionContentToURL:(id)arg1 error:(id *)arg2;
 - (_Bool)internalStat:(struct stat *)arg1;
@@ -33,7 +34,6 @@
 - (_Bool)setNameSpace:(id)arg1 error:(id *)arg2;
 - (_Bool)setDisplayName:(id)arg1 error:(id *)arg2;
 - (_Bool)setOptions:(unsigned long long)arg1 error:(id *)arg2;
-- (void)dealloc;
 - (id)_initWithStorage:(id)arg1 andDictionary:(id)arg2;
 - (void)_refreshWithDictionary:(id)arg1;
 - (id)init;

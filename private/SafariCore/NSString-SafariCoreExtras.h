@@ -11,6 +11,7 @@
 - (_Bool)safari_hasLocalizedCaseInsensitivePrefix:(id)arg1;
 - (_Bool)safari_hasCaseInsensitiveSuffix:(id)arg1;
 - (_Bool)safari_hasCaseInsensitivePrefix:(id)arg1;
+- (_Bool)safari_isCaseAndDiacriticInsensitiveEqualToString:(id)arg1;
 - (_Bool)safari_isCaseInsensitiveEqualToString:(id)arg1;
 - (_Bool)safari_hasPrefix:(id)arg1;
 - (id)safari_simplifiedUserVisibleURLString;

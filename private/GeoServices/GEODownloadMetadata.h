@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSString *url; // @synthesize url=_url;
 @property(retain, nonatomic) NSString *etag; // @synthesize etag=_etag;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,7 +32,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasUrl;
 @property(readonly, nonatomic) _Bool hasEtag;
-- (void)dealloc;
 
 @end
 

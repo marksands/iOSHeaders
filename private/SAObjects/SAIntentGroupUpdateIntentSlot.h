@@ -17,6 +17,7 @@
 
 + (id)updateIntentSlotWithDictionary:(id)arg1 context:(id)arg2;
 + (id)updateIntentSlot;
+- (_Bool)requiresResponse;
 @property(retain, nonatomic) SAIntentGroupProtobufMessage *location; // @dynamic location;
 @property(copy, nonatomic) NSString *intentTypeName;
 @property(copy, nonatomic) NSNumber *intentSlotValueIndex;

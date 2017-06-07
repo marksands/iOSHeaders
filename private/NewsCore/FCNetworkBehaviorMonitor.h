@@ -33,6 +33,7 @@
 @property(readonly, nonatomic) NSArray *sessions;
 - (void)populateTelemetry:(id)arg1 withNetworkEventsFromDate:(id)arg2 toDate:(id)arg3;
 - (id)initWithCacheDirectory:(id)arg1;
+- (id)initTransient;
 - (id)init;
 
 // Remaining properties

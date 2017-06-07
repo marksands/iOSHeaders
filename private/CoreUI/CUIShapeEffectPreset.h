@@ -11,10 +11,12 @@
     CDStruct_c57d91d4 _parameterList[125];
     unsigned int _effectIndex[26];
     double _scaleFactor;
+    float _minimumShadowSpread;
 }
 
 + (unsigned int)cuiEffectBlendModeFromCGBlendMode:(int)arg1;
 + (id)requiredEffectParametersForEffectType:(unsigned int)arg1;
+@property float minimumShadowSpread; // @synthesize minimumShadowSpread=_minimumShadowSpread;
 - (id)debugDescription;
 - (void)addEffectsFromPreset:(id)arg1;
 - (void)addHueSaturationWithColorRed:(unsigned int)arg1 green:(unsigned int)arg2 blue:(unsigned int)arg3 angle:(int)arg4 width:(int)arg5 tintable:(_Bool)arg6;

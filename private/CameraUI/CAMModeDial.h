@@ -6,10 +6,12 @@
 
 #import <UIKit/UIControl.h>
 
-@class CAGradientLayer, NSArray, NSDictionary, UIView;
+#import <CameraUI/CAMAccessibilityHUDItemProvider-Protocol.h>
+
+@class CAGradientLayer, NSArray, NSDictionary, NSString, UIView;
 @protocol CAMModeDialDataSource;
 
-@interface CAMModeDial : UIControl
+@interface CAMModeDial : UIControl <CAMAccessibilityHUDItemProvider>
 {
     long long _layoutStyle;
     id <CAMModeDialDataSource> _dataSource;
@@ -33,6 +35,8 @@
 @property(nonatomic) id <CAMModeDialDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 - (void).cxx_destruct;
+- (void)selectedByAccessibilityHUDManager:(id)arg1;
+- (id)hudItemForAccessibilityHUDManager:(id)arg1;
 - (void)_updateSelectedItemBackgroundForLayoutStyle:(long long)arg1;
 - (void)_updateForLayoutStyle;
 - (void)updateToContentSize:(id)arg1;
@@ -41,14 +45,15 @@
 - (id)_meshTransformForLayoutStyle:(long long)arg1;
 - (id)_horizontalMeshTransform;
 - (void)_configureMaskForLayoutStyle:(long long)arg1;
+- (long long)_nearestCaptureModeForLocation:(struct CGPoint)arg1;
 - (void)reloadData;
 - (id)_selectedItem;
 - (void)_updateItemsForLayoutStyle:(long long)arg1;
 - (id)_fontForLayoutStyle:(long long)arg1;
 - (id)_titleForMode:(long long)arg1;
-- (void)_updateContainerOriginFromSelectedMode;
-- (struct CGPoint)_verticalContainerOriginForMode:(long long)arg1;
-- (struct CGPoint)_horizontalContainerOriginForMode:(long long)arg1;
+- (void)_updateContainerCenterFromSelectedModeAnimated:(_Bool)arg1;
+- (struct CGPoint)_verticalContainerCenterForMode:(long long)arg1;
+- (struct CGPoint)_horizontalContainerCenterForMode:(long long)arg1;
 - (double)_centeringNudgeForMode:(long long)arg1;
 - (void)setSelectedMode:(long long)arg1 animated:(_Bool)arg2;
 - (void)_layoutVerticalModeDial;
@@ -60,6 +65,12 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithLayoutStyle:(long long)arg1;
 - (void)_commonCAMModeDialInitializationWithLayoutStyle:(long long)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

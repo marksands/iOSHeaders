@@ -7,13 +7,13 @@
 #import <ChatKit/CKChatItem.h>
 
 @class CALayer;
-@protocol CKTypingIndicatorLayerProtocol;
+@protocol IMTypingIndicatorLayerProtocol;
 
 @interface CKTypingChatItem : CKChatItem
 {
 }
 
-@property(readonly, nonatomic) CALayer<CKTypingIndicatorLayerProtocol> *indicatorLayer;
+@property(readonly, nonatomic) CALayer<IMTypingIndicatorLayerProtocol> *indicatorLayer;
 @property(readonly, nonatomic, getter=isFromMe) _Bool fromMe;
 - (struct CGSize)loadSizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(out struct UIEdgeInsets *)arg2;
 - (_Bool)wantsDrawerLayout;

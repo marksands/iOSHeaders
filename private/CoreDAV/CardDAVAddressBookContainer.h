@@ -19,7 +19,7 @@
 @property(retain, nonatomic) NSURL *meCardURL; // @synthesize meCardURL=_meCardURL;
 @property(retain, nonatomic) NSString *maxImageSize; // @synthesize maxImageSize=_maxImageSize;
 @property(retain, nonatomic) NSString *maxResourceSize; // @synthesize maxResourceSize=_maxResourceSize;
-- (void)dealloc;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool isSharedAddressBook;
 @property(readonly, nonatomic) _Bool isSearchAddressBook;
 @property(readonly, nonatomic) _Bool isAddressBook;

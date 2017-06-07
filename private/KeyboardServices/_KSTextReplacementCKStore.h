@@ -6,36 +6,49 @@
 
 #import <objc/NSObject.h>
 
-#import <KeyboardServices/_KSTextReplacementStoreProtocol-Protocol.h>
+#import <KeyboardServices/_KSCloudKitManagerDelegate-Protocol.h>
+#import <KeyboardServices/_KSTextReplacementSyncProtocol-Protocol.h>
 
 @class NSString, _KSCloudKitManager, _KSTextReplacementCoreDataStore;
 @protocol OS_dispatch_queue;
 
-@interface _KSTextReplacementCKStore : NSObject <_KSTextReplacementStoreProtocol>
+@interface _KSTextReplacementCKStore : NSObject <_KSCloudKitManagerDelegate, _KSTextReplacementSyncProtocol>
 {
     NSObject<OS_dispatch_queue> *_syncQueue;
     NSObject<OS_dispatch_queue> *_dataQueue;
     _Bool _ckMigrationStatusOnCloud;
     _Bool _didRequestFirstPullForAccount;
-    _KSTextReplacementCoreDataStore *_coreDataStore;
     _KSCloudKitManager *_cloudKitManager;
+    _KSTextReplacementCoreDataStore *_coreDataStore;
+    unsigned long long _numPullRequests;
 }
 
 + (_Bool)isMigrationCompleted;
+@property(nonatomic) unsigned long long numPullRequests; // @synthesize numPullRequests=_numPullRequests;
 @property(nonatomic) _Bool didRequestFirstPullForAccount; // @synthesize didRequestFirstPullForAccount=_didRequestFirstPullForAccount;
 @property(nonatomic) _Bool ckMigrationStatusOnCloud; // @synthesize ckMigrationStatusOnCloud=_ckMigrationStatusOnCloud;
-@property(retain, nonatomic) _KSCloudKitManager *cloudKitManager; // @synthesize cloudKitManager=_cloudKitManager;
 @property(retain, nonatomic) _KSTextReplacementCoreDataStore *coreDataStore; // @synthesize coreDataStore=_coreDataStore;
+@property(retain, nonatomic) _KSCloudKitManager *cloudKitManager; // @synthesize cloudKitManager=_cloudKitManager;
 - (void).cxx_destruct;
+- (void)userDidDeleteRecordZone:(id)arg1;
 - (id)localEntriesFromCloudEntries:(id)arg1;
 - (id)cloudRecordIDsForLocalEntries:(id)arg1;
 - (id)cloudEntriesFromLocalEntries:(id)arg1;
 - (id)queryDeletedEntries;
 - (id)queryUpdatedLocalEntries;
+- (unsigned long long)countLocalEntriesToBeSynced;
 - (void)recordSyncStatus;
 - (void)pullRemoteDataWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (unsigned long long)totalPullRequestsUntilNow;
 - (void)pushLocalChangesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)requestSyncWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)_updateSyncCount:(unsigned long long)arg1 success:(_Bool)arg2;
+- (void)requestSync:(unsigned long long)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (unsigned long long)decayedSyncCountForTime:(id)arg1;
+- (unsigned long long)getSyncCountThrottleThreshold;
+- (unsigned long long)getSyncCountThresholdHalfLifeHours;
+- (unsigned long long)getSyncCount;
+- (void)requestSyncIfPendingLocalChanges;
 - (_Bool)isAccountAvailable;
 - (void)queryMigrationStatusOnCloudWithCallback:(CDUnknownBlockType)arg1;
 - (void)pushMigrationStatusToCloud:(_Bool)arg1;

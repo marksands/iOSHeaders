@@ -7,11 +7,13 @@
 #import <Foundation/NSObject.h>
 
 #import <DAEAS/DATask-Protocol.h>
-#import <DAEAS/NSURLConnectionDelegate-Protocol.h>
+#import <DAEAS/NSURLSessionDataDelegate-Protocol.h>
+#import <DAEAS/NSURLSessionDelegate-Protocol.h>
+#import <DAEAS/NSURLSessionTaskDelegate-Protocol.h>
 
-@class ASItem, ASParseContext, ASTaskManager, DATaskManager, NSDate, NSError, NSHTTPURLResponse, NSString, NSTimer, NSURLConnection, NSURLRequest;
+@class ASItem, ASParseContext, ASTaskManager, DATaskManager, NSDate, NSError, NSHTTPURLResponse, NSString, NSThread, NSTimer, NSURLRequest, NSURLSession, NSURLSessionDataTask;
 
-@interface ASTask : NSObject <DATask, NSURLConnectionDelegate>
+@interface ASTask : NSObject <DATask, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 {
     _Bool _haveSwitchedCodePage;
     _Bool _haveParsedCommand;
@@ -19,7 +21,8 @@
     id _delegate;
     NSHTTPURLResponse *_response;
     ASParseContext *_parseContext;
-    NSURLConnection *_connection;
+    NSURLSession *_session;
+    NSURLSessionDataTask *_dataTask;
     NSURLRequest *_request;
     _Bool _isFakingIt;
     _Bool _didSendRequest;
@@ -48,14 +51,18 @@
     NSDate *_dateConnectionWentOut;
     NSTimer *_timeoutEnforcer;
     _Bool _retry;
+    _Bool _isLoadedOnMainThread;
     long long _sentBytesCount;
     long long _receivedBytesCount;
     NSString *_sourceApplicationBundleIdentifier;
     DATaskManager *_strongTaskManagerDuringDelegateCallout;
+    NSThread *_thread;
 }
 
 + (void)_restoreDefaultTaskTimeout;
 + (void)_setDefaultTaskTimeout:(double)arg1 failureFallbackTimeout:(double)arg2;
+@property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
+@property(nonatomic) _Bool isLoadedOnMainThread; // @synthesize isLoadedOnMainThread=_isLoadedOnMainThread;
 @property(retain, nonatomic) DATaskManager *strongTaskManagerDuringDelegateCallout; // @synthesize strongTaskManagerDuringDelegateCallout=_strongTaskManagerDuringDelegateCallout;
 @property(copy, nonatomic) NSString *sourceApplicationBundleIdentifier; // @synthesize sourceApplicationBundleIdentifier=_sourceApplicationBundleIdentifier;
 @property(nonatomic) long long receivedBytesCount; // @synthesize receivedBytesCount=_receivedBytesCount;
@@ -73,7 +80,7 @@
 - (void).cxx_destruct;
 - (id)onBehalfOfBundleIdentifier;
 - (id)_requestForLogging;
-- (id)_connectionForLogging;
+- (id)_sessionForLogging;
 - (void)reportStatusWithError:(id)arg1;
 - (int)numDownloadedElements;
 - (_Bool)shouldStallAfterConnectionLost;
@@ -81,15 +88,21 @@
 - (void)reset;
 - (void)_initFakeParseContext;
 - (void)handleTopLevelErrorStatus:(id)arg1;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (void)connectionDidFinishLoading:(id)arg1;
-- (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
-- (_Bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
-- (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
-- (id)connection:(id)arg1 needNewBodyStream:(id)arg2;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
-- (void)connection:(id)arg1 didSendBodyData:(long long)arg2 totalBytesWritten:(long long)arg3 totalBytesExpectedToWrite:(long long)arg4;
+- (void)_handleCompletionError:(id)arg1;
+- (void)_handleCompletion;
+- (void)_handleAuthenticationChallenge:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_handleAuthenticationChallenge:(id)arg1;
+- (void)_URLSessionDataTaskDidReceiveData:(id)arg1;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)_URLSessionTaskDidCompleteWithError:(id)arg1;
+- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
+- (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)URLSession:(id)arg1 task:(id)arg2 needNewBodyStream:(CDUnknownBlockType)arg3;
+- (void)URLSession:(id)arg1 task:(id)arg2 didReceiveChallenge:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)_URLSessionDidBecomeInvalidWithError:(id)arg1;
+- (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 - (_Bool)shouldHandleServerErrorRetryLater;
 - (_Bool)shouldHandlePasswordErrors;
 - (_Bool)_handleRedirect:(id)arg1;
@@ -114,8 +127,12 @@
 - (void)_pushModalForReason:(int)arg1;
 - (void)performTask;
 - (void)_failImmediately;
+- (void)tearDownResourcesAndCancelTask;
+- (void)tearDownResourcesButLeaveSessionAlone;
 - (void)tearDownResources;
+- (void)_tearDownResourcesHelper;
 - (void)loadRequest:(id)arg1;
+- (void)_assignConnectionProperties:(id)arg1 toSessionConfiguration:(id)arg2;
 - (void)_timeoutEnforcerFired:(id)arg1;
 - (_Bool)shouldHoldPowerAssertion;
 - (_Bool)requiresEASVersionUpdate;

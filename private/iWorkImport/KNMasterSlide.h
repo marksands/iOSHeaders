@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 - (id)objectForProperty:(int)arg1;
 - (int)intValueForProperty:(int)arg1;
 - (_Bool)containsProperty:(int)arg1;
+- (id)childEnumerator;
 - (void)acceptVisitor:(id)arg1;
 - (void)removeBuildChunk:(id)arg1 rollbackGeneratedIdentifier:(_Bool)arg2;
 - (void)insertBuildChunk:(id)arg1 afterChunk:(id)arg2 generateIdentifier:(_Bool)arg3;
@@ -46,6 +47,7 @@ __attribute__((visibility("hidden")))
 - (id)buildChunks;
 - (unsigned long long)buildCount;
 - (id)builds;
+- (_Bool)isMasterSlide;
 - (void)updatePlaceholderText;
 - (void)willBeRemovedFromDocumentRoot:(id)arg1;
 - (void)flushClassicStylesheetRecord;
@@ -73,7 +75,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) NSString *name;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)hasBug16580905;
 - (void)generateObjectPlaceholderIfNecessary;
 - (id)packageLocator;

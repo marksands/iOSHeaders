@@ -24,7 +24,7 @@
 - (id)initWithActionDictionary:(struct CGPDFDictionary *)arg1 forDocument:(id)arg2 forPage:(id)arg3;
 - (id)description;
 @property(nonatomic) _Bool fieldsIncludedAreCleared;
-@property(nonatomic) NSArray *fields;
+@property(copy, nonatomic) NSArray *fields;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 

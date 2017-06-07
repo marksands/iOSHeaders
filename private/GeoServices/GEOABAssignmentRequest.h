@@ -21,6 +21,7 @@
 
 @property(retain, nonatomic) GEOPDClientMetadata *clientMetadata; // @synthesize clientMetadata=_clientMetadata;
 @property(retain, nonatomic) NSString *guid; // @synthesize guid=_guid;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -39,7 +40,6 @@
 @property(nonatomic) _Bool hasRequestType;
 @property(nonatomic) int requestType; // @synthesize requestType=_requestType;
 @property(readonly, nonatomic) _Bool hasGuid;
-- (void)dealloc;
 
 @end
 

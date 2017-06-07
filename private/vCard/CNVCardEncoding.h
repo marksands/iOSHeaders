@@ -22,6 +22,7 @@
 + (id)preferredEncodingInUserDefaults;
 + (id)encodingsFromUserDefaults;
 + (id)addPreferredEncoding:(id)arg1 toEncodings:(id)arg2;
++ (id)makeStandardEncodings;
 + (id)standardEncodings;
 @property(readonly) unsigned long long stringEncoding; // @synthesize stringEncoding=_stringEncoding;
 @property(readonly) NSString *name; // @synthesize name=_name;

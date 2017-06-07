@@ -6,12 +6,13 @@
 
 #import <MediaPlaybackCore/MPCRadioStationPlaybackMetadata.h>
 
-@class NSString, RadioArtworkCollection;
+@class NSString, NSURL, RadioArtworkCollection;
 
 @interface MPCMutableRadioStationPlaybackMetadata : MPCRadioStationPlaybackMetadata
 {
 }
 
+@property(copy, nonatomic) NSURL *stationURL; // @dynamic stationURL;
 @property(copy, nonatomic) NSString *stationStringID; // @dynamic stationStringID;
 @property(copy, nonatomic) NSString *stationName; // @dynamic stationName;
 @property(nonatomic) long long stationID; // @dynamic stationID;

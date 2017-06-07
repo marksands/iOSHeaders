@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSLock, NSMutableDictionary;
 @protocol OS_dispatch_source;
@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)sharedMonitor;
+- (void).cxx_destruct;
 - (void)flush;
 - (void)recordCacheMissForTileKey:(const struct _GEOTileKey *)arg1;
 - (void)recordCacheHitForTileKey:(const struct _GEOTileKey *)arg1;

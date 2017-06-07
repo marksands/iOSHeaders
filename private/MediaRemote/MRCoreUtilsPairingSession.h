@@ -26,6 +26,7 @@
     } _pairingDelegate;
     NSObject<OS_dispatch_queue> *_queue;
     _Bool _hasExchangedMessage;
+    unsigned int _pairingFlags;
     unsigned long long _state;
     NSData *_inputKey;
     NSMutableData *_inputNonce;
@@ -37,6 +38,7 @@
 @property(retain, nonatomic) NSData *outputKey; // @synthesize outputKey=_outputKey;
 @property(retain, nonatomic) NSMutableData *inputNonce; // @synthesize inputNonce=_inputNonce;
 @property(retain, nonatomic) NSData *inputKey; // @synthesize inputKey=_inputKey;
+@property(nonatomic) unsigned int pairingFlags; // @synthesize pairingFlags=_pairingFlags;
 @property(readonly, nonatomic) _Bool hasExchangedMessage; // @synthesize hasExchangedMessage=_hasExchangedMessage;
 @property(readonly, nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void)_onQueueDeriveEncryptionKeys;

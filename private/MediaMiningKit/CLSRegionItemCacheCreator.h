@@ -20,6 +20,7 @@
 
 + (id)createPlacesForBusinessItems:(id)arg1;
 + (id)businessItemsForRegion:(id)arg1;
+@property(readonly, nonatomic) NSArray *queryPerformers; // @synthesize queryPerformers=_queryPerformers;
 @property(nonatomic) unsigned long long numberOfRetries; // @synthesize numberOfRetries=_numberOfRetries;
 @property(nonatomic) double timeoutInterval; // @synthesize timeoutInterval=_timeoutInterval;
 @property(nonatomic, getter=isSimulatingTimeout) _Bool simulatesTimeout; // @synthesize simulatesTimeout=_simulatesTimeout;

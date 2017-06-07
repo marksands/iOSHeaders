@@ -8,6 +8,7 @@
 
 @class NSString, PDFDocument;
 
+__attribute__((visibility("hidden")))
 @interface PDFFormFieldPrivateVars : NSObject
 {
     PDFDocument *document;

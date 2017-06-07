@@ -6,26 +6,28 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class HKRingsView, HKWorkout, UILabel, UIView;
+@class HKRingsView, HKWorkout, UIImageView, UILabel, UIView;
 
 @interface FIUIWorkoutCompletionPercentageRingViewCell : UITableViewCell
 {
     HKWorkout *_workout;
     HKRingsView *_ringsView;
+    UIImageView *_iconImageView;
     UILabel *_typeLabel;
     UILabel *_percentCompleteLabel;
     UIView *_separatorView;
 }
 
++ (double)rowHeightForWorkout:(id)arg1 width:(double)arg2;
 + (double)_bottomLabelToSeparatorSpacing;
 + (double)_typeToPercentageSpacing;
 + (double)_ringToTypeSpacing;
 + (double)_ringDiameter;
-+ (double)rowHeightForWorkout:(id)arg1 width:(double)arg2;
 + (double)_ringTopPadding;
 @property(retain, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
 @property(retain, nonatomic) UILabel *percentCompleteLabel; // @synthesize percentCompleteLabel=_percentCompleteLabel;
 @property(retain, nonatomic) UILabel *typeLabel; // @synthesize typeLabel=_typeLabel;
+@property(retain, nonatomic) UIImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 @property(retain, nonatomic) HKRingsView *ringsView; // @synthesize ringsView=_ringsView;
 @property(retain, nonatomic) HKWorkout *workout; // @synthesize workout=_workout;
 - (void).cxx_destruct;

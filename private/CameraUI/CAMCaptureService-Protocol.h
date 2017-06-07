@@ -4,7 +4,6 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CameraUI/CAMLegacyStillImageCaptureDelegate-Protocol.h>
 #import <CameraUI/CAMMetadataDelegate-Protocol.h>
 #import <CameraUI/CAMPanoramaCaptureDelegate-Protocol.h>
 #import <CameraUI/CAMPanoramaConfigurationDelegate-Protocol.h>
@@ -14,6 +13,6 @@
 #import <CameraUI/CAMVideoCaptureDelegate-Protocol.h>
 #import <CameraUI/NSObject-Protocol.h>
 
-@protocol CAMCaptureService <NSObject, CAMLegacyStillImageCaptureDelegate, CAMStillImageCaptureDelegate, CAMVideoCaptureDelegate, CAMPanoramaCaptureDelegate, CAMPanoramaConfigurationDelegate, CAMMetadataDelegate, CAMRecoveryDelegate, CAMSessionDelegate>
+@protocol CAMCaptureService <NSObject, CAMStillImageCaptureDelegate, CAMVideoCaptureDelegate, CAMPanoramaCaptureDelegate, CAMPanoramaConfigurationDelegate, CAMMetadataDelegate, CAMRecoveryDelegate, CAMSessionDelegate>
 @end
 

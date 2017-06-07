@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSDescriptionProviding-Protocol.h>
 
@@ -18,7 +18,8 @@
 + (void)deleteAllSystemSnapshots;
 + (id)debugDescription;
 + (void)initialize;
-@property(readonly, nonatomic) XBApplicationSnapshotManifestImpl *manifestImpl; // @synthesize manifestImpl=_manifestImpl;
+@property(readonly, nonatomic) __weak XBApplicationSnapshotManifestImpl *manifestImpl; // @synthesize manifestImpl=_manifestImpl;
+- (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;

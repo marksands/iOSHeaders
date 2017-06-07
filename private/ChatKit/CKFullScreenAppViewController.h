@@ -6,42 +6,40 @@
 
 #import <UIKit/UIViewController.h>
 
-#import <ChatKit/CKBrowserSelectionControllerDelegate-Protocol.h>
+#import <ChatKit/CKBrowserSwitcherFooterViewDelegate-Protocol.h>
 #import <ChatKit/CKBrowserViewControllerProtocol-Protocol.h>
 #import <ChatKit/CKDismissViewDelegate-Protocol.h>
 #import <ChatKit/CKFullScreenAppNavbarManagerDelegate-Protocol.h>
-#import <ChatKit/CKMessageEntryViewDelegate-Protocol.h>
-#import <ChatKit/CKMessageEntryViewInputDelegate-Protocol.h>
 #import <ChatKit/UIInteractionProgressObserver-Protocol.h>
 
-@class CADisplayLink, CKBrowserDragManager, CKBrowserSelectionController, CKConversation, CKDismissView, CKFullScreenAppNavbarManager, CKMessageEntryView, IMBalloonPlugin, IMBalloonPluginDataSource, NSNumber, NSObject, NSString, UISimpleInteractionProgress, UIView, UIWindow;
+@class CADisplayLink, CKAppGrabberView, CKBrowserDragManager, CKBrowserSwitcherFooterView, CKConversation, CKDismissView, CKFullScreenAppNavbarManager, IMBalloonPlugin, IMBalloonPluginDataSource, NSData, NSNumber, NSObject, NSString, UISimpleInteractionProgress, UISwipeGestureRecognizer, UITapGestureRecognizer, UIView;
 @protocol CKBrowserViewControllerProtocol, CKBrowserViewControllerSendDelegate, CKFullScreenAppViewControllerDelegate, UIViewControllerTransitioningDelegate;
 
-@interface CKFullScreenAppViewController : UIViewController <CKBrowserViewControllerProtocol, CKMessageEntryViewDelegate, CKFullScreenAppNavbarManagerDelegate, CKDismissViewDelegate, CKMessageEntryViewInputDelegate, CKBrowserSelectionControllerDelegate, UIInteractionProgressObserver>
+@interface CKFullScreenAppViewController : UIViewController <CKBrowserViewControllerProtocol, CKFullScreenAppNavbarManagerDelegate, CKDismissViewDelegate, CKBrowserSwitcherFooterViewDelegate, UIInteractionProgressObserver>
 {
+    CKAppGrabberView *_grabberView;
+    UITapGestureRecognizer *_collapseTapRecognizer;
+    UISwipeGestureRecognizer *_collapseSwipeRecognizer;
     _Bool _inTransition;
     _Bool _inDragAndDrop;
     UIViewController<CKBrowserViewControllerProtocol> *_contentViewController;
-    CKMessageEntryView *_entryView;
-    UIView *_entryViewSnapshot;
-    double _entryViewSnapshotOffset;
     id <CKFullScreenAppViewControllerDelegate> _delegate;
     UIView *_contentView;
     CKDismissView *_dismissView;
     CKConversation *_conversation;
-    UIWindow *_appSelectionBrowserWindow;
-    CKBrowserSelectionController *_appSelectionBrowser;
     CKFullScreenAppNavbarManager *_navbarManager;
     IMBalloonPlugin *_plugin;
     unsigned long long _transitionDirection;
     CADisplayLink *_animationDisplayLink;
     UISimpleInteractionProgress *_interactionProgress;
     long long _lastKnownDeviceOrientation;
+    CKBrowserSwitcherFooterView *_footerSwitcherView;
     struct CGRect _initialBrowserFrame;
     struct CGRect _targetBrowserFrame;
 }
 
 + (double)navbarHeight;
+@property(retain, nonatomic) CKBrowserSwitcherFooterView *footerSwitcherView; // @synthesize footerSwitcherView=_footerSwitcherView;
 @property(nonatomic) long long lastKnownDeviceOrientation; // @synthesize lastKnownDeviceOrientation=_lastKnownDeviceOrientation;
 @property(nonatomic) _Bool inDragAndDrop; // @synthesize inDragAndDrop=_inDragAndDrop;
 @property(nonatomic) struct CGRect targetBrowserFrame; // @synthesize targetBrowserFrame=_targetBrowserFrame;
@@ -51,55 +49,23 @@
 @property(nonatomic) unsigned long long transitionDirection; // @synthesize transitionDirection=_transitionDirection;
 @property(retain, nonatomic) IMBalloonPlugin *plugin; // @synthesize plugin=_plugin;
 @property(retain, nonatomic) CKFullScreenAppNavbarManager *navbarManager; // @synthesize navbarManager=_navbarManager;
-@property(retain, nonatomic) CKBrowserSelectionController *appSelectionBrowser; // @synthesize appSelectionBrowser=_appSelectionBrowser;
-@property(retain, nonatomic) UIWindow *appSelectionBrowserWindow; // @synthesize appSelectionBrowserWindow=_appSelectionBrowserWindow;
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 @property(nonatomic) _Bool inTransition; // @synthesize inTransition=_inTransition;
 @property(retain, nonatomic) CKDismissView *dismissView; // @synthesize dismissView=_dismissView;
 @property(retain, nonatomic) UIView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) __weak id <CKFullScreenAppViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) double entryViewSnapshotOffset; // @synthesize entryViewSnapshotOffset=_entryViewSnapshotOffset;
-@property(retain, nonatomic) UIView *entryViewSnapshot; // @synthesize entryViewSnapshot=_entryViewSnapshot;
-@property(retain, nonatomic) CKMessageEntryView *entryView; // @synthesize entryView=_entryView;
 @property(retain, nonatomic) UIViewController<CKBrowserViewControllerProtocol> *contentViewController; // @synthesize contentViewController=_contentViewController;
 - (void).cxx_destruct;
-- (void)browserSelectionControllerSelectedBalloonPlugin:(id)arg1;
-- (void)messageEntryViewHandwritingButtonHit:(id)arg1;
-- (void)messageEntryViewDigitalTouchButtonHit:(id)arg1;
-- (void)messageEntryViewPhotoButtonHit:(id)arg1;
-- (void)messageEntryViewDidTakeFocus:(id)arg1;
-- (long long)messageEntryViewHighLightInputButton:(id)arg1;
-- (_Bool)messageEntryShouldHideCaret:(id)arg1;
-- (void)messageEntryViewBrowserButtonHit:(id)arg1;
-- (double)messageEntryViewMaxHeight:(id)arg1;
-- (void)messageEntryViewRaiseGestureAutoSend:(id)arg1;
-- (void)messageEntryViewDidEndEditing:(id)arg1;
-- (void)messageEntryViewDidBeginEditing:(id)arg1;
-- (void)messageEntryView:(id)arg1 sendButtonLongPressEnded:(struct CGPoint)arg2;
-- (void)messageEntryView:(id)arg1 sendButtonLongPressMoved:(struct CGPoint)arg2;
-- (void)messageEntryViewSendButtonLongPressBegan:(id)arg1;
-- (void)messageEntryViewSendButtonHitWhileDisabled:(id)arg1;
-- (void)messageEntryView:(id)arg1 didTapMediaObject:(id)arg2;
-- (void)messageEntryViewRecordingDidChange:(id)arg1;
-- (void)messageEntryViewSendButtonHit:(id)arg1;
-- (_Bool)messageEntryView:(id)arg1 shouldInsertMediaObjects:(id)arg2;
-- (_Bool)messageEntryViewShouldBeginEditing:(id)arg1;
-- (void)messageEntryViewDidChange:(id)arg1;
+- (void)switcherView:(id)arg1 didMagnify:(_Bool)arg2;
+- (id)indexPathOfCurrentlySelectedPluginInSwitcherView:(id)arg1;
+- (void)switcherView:(id)arg1 didSelectPluginAtIndex:(id)arg2;
+- (_Bool)_currentPluginIsAppManager;
 - (_Bool)_currentPluginIsAppStore;
-- (_Bool)_currentPluginIsDT;
 - (struct UIEdgeInsets)navigationBarInsetsWithoutPalette;
-- (void)_updateEntryViewFrame;
-- (double)_maxEntryViewHeight;
-- (void)_setupEntryView;
+- (void)collapse;
 - (void)dismissViewWasTapped:(id)arg1;
-- (void)_dismissAppSelectionBrowser;
-- (void)_presentAppSelectionBrowser;
-- (void)_dismissDismissView;
-- (void)_presentDismissView;
 - (void)_dismiss:(id)arg1;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (_Bool)_canOpenParentApp;
-- (_Bool)_shouldEnableAppButton;
 - (_Bool)canBecomeFirstResponder;
 - (id)inputAccessoryView;
 - (void)_dragEnded:(id)arg1;
@@ -109,21 +75,22 @@
 - (unsigned long long)supportedInterfaceOrientations;
 - (void)willMoveToParentViewController:(id)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
-- (void)viewDidLoad;
 - (void)dealloc;
-- (void)_openParentApp:(id)arg1;
 - (void)collapse:(id)arg1;
 - (void)navbarManagerDidReceiveMessage:(id)arg1;
 - (void)navbarManagerDidDismissAllMessages:(id)arg1;
 - (void)interactionProgress:(id)arg1 didEnd:(_Bool)arg2;
 - (void)interactionProgressDidUpdate:(id)arg1;
 - (void)_animationDisplayLinkFired;
-- (void)animateBrowserViewAfterFullScreenTransition;
 - (void)animateBrowserViewToTargetRect:(struct CGRect)arg1 switcherFooterView:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)animateBrowserViewFromSourceRect:(struct CGRect)arg1 interactive:(_Bool)arg2 switcherFooterView:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (struct CGRect)finalContentViewFrame;
+- (void)updateFooterViewFrame;
 - (void)viewDidLayoutSubviews;
 - (void)loadView;
 - (id)initWithConversation:(id)arg1 plugin:(id)arg2;
+@property(readonly, nonatomic) _Bool inExpandedPresentation;
+- (_Bool)isLoaded;
 - (void)dismiss;
 - (id)initWithBalloonPlugin:(id)arg1;
 - (id)initWithBalloonPlugin:(id)arg1 dataSource:(id)arg2;
@@ -135,6 +102,9 @@
 @property(readonly, nonatomic) IMBalloonPlugin *balloonPlugin;
 @property(nonatomic) __weak NSObject<CKBrowserViewControllerSendDelegate> *sendDelegate;
 @property(retain, nonatomic) UIViewController *presentationViewController;
+@property(readonly, nonatomic) _Bool shouldSuppressEntryView;
+@property(readonly, nonatomic) _Bool mayBeKeptInViewHierarchy;
+@property(readonly, nonatomic) _Bool supportsQuickView;
 @property(readonly, nonatomic) _Bool wantsOpaqueUI;
 @property(readonly, nonatomic) _Bool wantsDarkUI;
 
@@ -143,16 +113,17 @@
 @property(readonly, nonatomic) unsigned long long badgeValue;
 @property(readonly, nonatomic) CKBrowserDragManager *browserDragManager;
 @property(readonly, nonatomic) _Bool canReplaceDataSource;
+@property(retain, nonatomic) NSData *conversationEngramID;
 @property(nonatomic) long long currentBrowserConsumer;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) _Bool inExpandedPresentation;
-@property(readonly, nonatomic) _Bool mayBeKeptInViewHierarchy;
+@property(readonly, nonatomic) struct CGRect horizontalSwipeExclusionRect;
 @property(readonly, nonatomic) long long parentModalPresentationStyle;
 @property(readonly, nonatomic) __weak id <UIViewControllerTransitioningDelegate> parentTransitioningDelegate;
+@property(readonly, nonatomic) UIViewController *remoteViewController;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) _Bool supportsQuickView;
+@property(readonly, nonatomic) _Bool wasExpandedPresentation;
 
 @end
 

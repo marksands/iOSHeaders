@@ -6,12 +6,10 @@
 
 #import <objc/NSObject.h>
 
-#import <CloudKitDaemon/APSConnectionDelegate-Protocol.h>
-
 @class APSConnection, NSMapTable, NSMutableDictionary, NSMutableSet, NSString;
 @protocol OS_dispatch_queue;
 
-@interface CKDPushConnection : NSObject <APSConnectionDelegate>
+@interface CKDPushConnection : NSObject
 {
     _Bool _darkWakeEnabled;
     NSString *_apsEnvironmentString;
@@ -19,7 +17,6 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_tokensCache;
     NSMapTable *_callbacks;
-    NSMutableSet *_enabledTopics;
     NSMutableDictionary *_topicsToWaitingAppContainerTuples;
     NSMutableSet *_topicsAwaitingPublicToken;
     NSMutableSet *_topicsAwaitingPrivateToken;
@@ -29,7 +26,6 @@
 @property(retain, nonatomic) NSMutableSet *topicsAwaitingPrivateToken; // @synthesize topicsAwaitingPrivateToken=_topicsAwaitingPrivateToken;
 @property(retain, nonatomic) NSMutableSet *topicsAwaitingPublicToken; // @synthesize topicsAwaitingPublicToken=_topicsAwaitingPublicToken;
 @property(retain, nonatomic) NSMutableDictionary *topicsToWaitingAppContainerTuples; // @synthesize topicsToWaitingAppContainerTuples=_topicsToWaitingAppContainerTuples;
-@property(retain, nonatomic) NSMutableSet *enabledTopics; // @synthesize enabledTopics=_enabledTopics;
 @property(retain, nonatomic) NSMapTable *callbacks; // @synthesize callbacks=_callbacks;
 @property(retain, nonatomic) NSMutableDictionary *tokensCache; // @synthesize tokensCache=_tokensCache;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
@@ -48,12 +44,6 @@
 - (void)_addWaitingAppContainerTuple:(id)arg1 forTopic:(id)arg2;
 - (void)dealloc;
 - (id)initWithEnvironment:(id)arg1 darkWakeEnabled:(_Bool)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

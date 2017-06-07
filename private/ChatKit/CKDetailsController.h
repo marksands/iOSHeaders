@@ -8,6 +8,7 @@
 
 #import <ChatKit/CKAttachmentCollectionManagerDelegate-Protocol.h>
 #import <ChatKit/CKAvatarPickerViewControllerDelegate-Protocol.h>
+#import <ChatKit/CKBusinessInfoViewDelegate-Protocol.h>
 #import <ChatKit/CKDetailsAddGroupNameViewDelegate-Protocol.h>
 #import <ChatKit/CKDetailsContactsManagerDelegate-Protocol.h>
 #import <ChatKit/CKDetailsContactsTableViewCellDelegate-Protocol.h>
@@ -22,10 +23,10 @@
 #import <ChatKit/UITextViewDelegate-Protocol.h>
 #import <ChatKit/UIViewControllerPreviewingDelegate-Protocol.h>
 
-@class CKAttachmentCollectionManager, CKAvatarPickerViewController, CKConversation, CKDetailsContactsManager, CKDetailsGroupNameCell, CKDetailsLocationShareCell, CKDetailsMapViewCell, CKDetailsTableView, CKEntity, CKGroupRecipientSelectionController, CKTranscriptDetailsResizableCell, CNContactStore, FMFMapViewController, NSString, NSTimer, UITextView, UIViewController, UIVisualEffectView;
+@class CKAttachmentCollectionManager, CKAvatarPickerViewController, CKBusinessInfoView, CKConversation, CKDetailsContactsManager, CKDetailsGroupNameCell, CKDetailsLocationShareCell, CKDetailsMapViewCell, CKDetailsTableView, CKEntity, CKGroupRecipientSelectionController, CKTranscriptDetailsResizableCell, CNContactStore, FMFMapViewController, NSString, NSTimer, UITextView, UIViewController, UIVisualEffectView;
 @protocol CKDetailsControllerDelegate, CKSharedAssetsControllerProtocol;
 
-@interface CKDetailsController : CKScrollViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UIViewControllerPreviewingDelegate, CKSharedAssetsControllerDelegate, CKDetailsAddGroupNameViewDelegate, FMFMapViewControllerDelegate, UITextViewDelegate, CKAttachmentCollectionManagerDelegate, CKAvatarPickerViewControllerDelegate, UIAlertViewDelegate, CKDetailsContactsManagerDelegate, CNAvatarViewDelegate, CKDetailsContactsTableViewCellDelegate, UINavigationControllerDelegate>
+@interface CKDetailsController : CKScrollViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UIViewControllerPreviewingDelegate, CKSharedAssetsControllerDelegate, CKDetailsAddGroupNameViewDelegate, FMFMapViewControllerDelegate, UITextViewDelegate, CKAttachmentCollectionManagerDelegate, CKAvatarPickerViewControllerDelegate, UIAlertViewDelegate, CKDetailsContactsManagerDelegate, CNAvatarViewDelegate, CKDetailsContactsTableViewCellDelegate, CKBusinessInfoViewDelegate, UINavigationControllerDelegate>
 {
     _Bool _fmfEnabled;
     _Bool _fmfRestricted;
@@ -46,6 +47,7 @@
     CKDetailsContactsManager *_contactsManager;
     FMFMapViewController *_mapViewController;
     UITextView *_locationSharingTextView;
+    CKBusinessInfoView *_businessInfoView;
     NSTimer *_fmfUpdateTimer;
     CNContactStore *_suggestionsEnabledContactStore;
     CKEntity *_presentedEntity;
@@ -61,6 +63,7 @@
 @property(retain, nonatomic) CKEntity *presentedEntity; // @synthesize presentedEntity=_presentedEntity;
 @property(retain, nonatomic) CNContactStore *suggestionsEnabledContactStore; // @synthesize suggestionsEnabledContactStore=_suggestionsEnabledContactStore;
 @property(retain, nonatomic) NSTimer *fmfUpdateTimer; // @synthesize fmfUpdateTimer=_fmfUpdateTimer;
+@property(retain, nonatomic) CKBusinessInfoView *businessInfoView; // @synthesize businessInfoView=_businessInfoView;
 @property(retain, nonatomic) UITextView *locationSharingTextView; // @synthesize locationSharingTextView=_locationSharingTextView;
 @property(retain, nonatomic) FMFMapViewController *mapViewController; // @synthesize mapViewController=_mapViewController;
 @property(nonatomic) _Bool fmfRestricted; // @synthesize fmfRestricted=_fmfRestricted;
@@ -80,6 +83,7 @@
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 @property(nonatomic) __weak id <CKDetailsControllerDelegate> detailsControllerDelegate; // @synthesize detailsControllerDelegate=_detailsControllerDelegate;
 - (void).cxx_destruct;
+- (void)businessInfoView:(id)arg1 infoButtonTapped:(id)arg2;
 - (void *)annotationABRecordForHandle:(id)arg1;
 - (id)annotationImageForHandle:(id)arg1;
 - (id)fmfHandlesFromIMHandles:(id)arg1;
@@ -113,6 +117,7 @@
 - (_Bool)conversationHasLeft;
 - (_Bool)shouldShowGroupAddNameField;
 - (_Bool)shouldShowEnhancedGroupFeatures;
+- (_Bool)shouldShowBusinessInfoFooter;
 - (_Bool)shouldShowActiveDeviceSwitchFooter;
 - (_Bool)shouldShowFMFView;
 - (_Bool)isContactsSectionCollapsible;
@@ -146,22 +151,27 @@
 - (long long)rowForShowMoreContactsCell;
 - (id)contactsManagerCellForIndexPath:(id)arg1;
 - (void)initializeSharedAssetsViewControllerIfNecessary;
+- (void)initializeBusinessInfoViewIfNecessary;
 - (void)initializeLocationSharingTextViewIfNecessary;
 - (id)fmfViewControllerCellForIndexPath:(id)arg1;
 - (id)groupNameCellForIndexPath:(id)arg1;
 - (id)leaveCellForIndexPath:(id)arg1;
+- (id)businessInfoFooterViewForSection:(long long)arg1;
 - (id)locationFooterViewForSection:(long long)arg1;
+- (void)showMapkitBusinessData;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forRowAtIndexPath:(id)arg3;
-- (void)tableView:(id)arg1 commitEditingStyle:(long long)arg2 forRowAtIndexPath:(id)arg3;
+- (id)tableView:(id)arg1 editActionsForRowAtIndexPath:(id)arg2;
 - (_Bool)tableView:(id)arg1 canEditRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
 - (void)tableView:(id)arg1 willDisplayFooterView:(id)arg2 forSection:(long long)arg3;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
 - (void)tableView:(id)arg1 willDisplayHeaderView:(id)arg2 forSection:(long long)arg3;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
+- (_Bool)shouldDisplayFooterForSection:(unsigned long long)arg1;
 - (_Bool)shouldDisplayHeaderForSection:(unsigned long long)arg1;
 - (_Bool)tableView:(id)arg1 shouldHighlightRowAtIndexPath:(id)arg2;
+- (double)tableView:(id)arg1 estimatedHeightForRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
@@ -171,6 +181,7 @@
 - (void)navigationController:(id)arg1 willShowViewController:(id)arg2 animated:(_Bool)arg3;
 - (void)_handleKeyboardWillHideNotification:(id)arg1;
 - (void)_handleKeyboardWillShowNotification:(id)arg1;
+- (void)handleDoneButton:(id)arg1;
 - (id)inputAccessoryViewController;
 - (_Bool)canBecomeFirstResponder;
 - (void)viewDidDisappear:(_Bool)arg1;

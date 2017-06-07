@@ -9,7 +9,6 @@
 @class NSString;
 @protocol CNObserver;
 
-__attribute__((visibility("hidden")))
 @interface _CNKeyValueObserverHandler : NSObject
 {
     id _object;

@@ -55,6 +55,7 @@
 @property(nonatomic) unsigned long long maxIndependentTasks; // @synthesize maxIndependentTasks=_maxIndependentTasks;
 @property(nonatomic) unsigned long long multiGetBatchSize; // @synthesize multiGetBatchSize=_multiGetBatchSize;
 @property(retain, nonatomic) NSURL *addMemberURL; // @synthesize addMemberURL=_addMemberURL;
+- (void).cxx_destruct;
 - (void)_getTask:(id)arg1 finishedWithParsedContents:(id)arg2 deletedItems:(id)arg3 error:(id)arg4;
 - (void)getTask:(id)arg1 data:(id)arg2 error:(id)arg3;
 - (void)propFindTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
@@ -96,12 +97,11 @@
 - (id)copyMultiGetTaskWithURLs:(id)arg1;
 - (id)copyGetTaskWithURL:(id)arg1;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithFolderURL:(id)arg1 previousCTag:(id)arg2 previousSyncToken:(id)arg3 actions:(id)arg4 syncItemOrder:(_Bool)arg5 context:(id)arg6 accountInfoProvider:(id)arg7 taskManager:(id)arg8;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(nonatomic) id <CoreDAVLocalDBInfoProvider> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <CoreDAVLocalDBInfoProvider> delegate; // @dynamic delegate;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

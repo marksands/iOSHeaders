@@ -22,6 +22,7 @@ __attribute__((visibility("hidden")))
 - (void)validateFontScheme;
 - (id)fontForId:(int)arg1;
 - (_Bool)isEmpty;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)init;

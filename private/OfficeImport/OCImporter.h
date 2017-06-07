@@ -17,11 +17,11 @@ __attribute__((visibility("hidden")))
     TCImportTracing *mTracing;
     _Bool mTryAlternateReader;
     OITSUProgressContext *mProgressContext;
-    NSString *_docPassphrase;
+    NSString *_lastPasswordAttempted;
 }
 
 + (void)initialize;
-@property(retain, nonatomic) NSString *docPassphrase; // @synthesize docPassphrase=_docPassphrase;
+@property(copy, nonatomic) NSString *lastPasswordAttempted; // @synthesize lastPasswordAttempted=_lastPasswordAttempted;
 @property(readonly, nonatomic) TCImportTracing *tracing; // @synthesize tracing=mTracing;
 @property(retain) OITSUProgressContext *progressContext; // @synthesize progressContext=mProgressContext;
 - (void)finalizeWithDocumentState:(id)arg1;
@@ -32,6 +32,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isDocumentEncryptedUnsupportedVersionHelper:(_Bool *)arg1 errorMessage:(id *)arg2 readError:(_Bool *)arg3;
 - (_Bool)tryAlternateReader;
 - (void)setURL:(id)arg1;
+- (id)url;
 - (void)dealloc;
 - (id)initWithData:(id)arg1;
 - (id)initWithURL:(id)arg1;

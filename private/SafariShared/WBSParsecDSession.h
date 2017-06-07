@@ -16,19 +16,20 @@
 {
     NSObject<OS_dispatch_queue> *_requestProcessingQueue;
     WBSParsecDFeedbackDispatcher *_feedbackDispatcher;
-    long long _currentQueryID;
     GEOUserSessionEntity *_geoUserSessionEntity;
     _Bool _valid;
     id <WBSParsecSearchSessionDelegate> _delegate;
     WBSCompletionQuery *_currentQuery;
     double _uiScale;
     PARSession *_parsecdSession;
+    unsigned long long _currentQueryID;
 }
 
 + (_Bool)shouldUseSearchFoundation;
 + (id)sharedCorrectionsProcessor;
 + (id)sharedDomainPolicyProvider;
 + (id)sharedPARSession;
+@property unsigned long long currentQueryID; // @synthesize currentQueryID=_currentQueryID;
 @property(retain, nonatomic) PARSession *parsecdSession; // @synthesize parsecdSession=_parsecdSession;
 @property(nonatomic, setter=setUIScale:) double uiScale; // @synthesize uiScale=_uiScale;
 @property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;

@@ -18,6 +18,11 @@
 @property(retain, nonatomic) NSMutableSet *pendingSendGUIDs; // @synthesize pendingSendGUIDs=_pendingSendGUIDs;
 - (void).cxx_destruct;
 - (id)dictionaryFromGUID:(id)arg1;
+- (id)fileSizeForMessageGUID:(id)arg1 withFilePathIndex:(long long)arg2;
+- (id)uploadAttachmentToCloudkitWithMessageGUID:(id)arg1 andFilePathIndex:(long long)arg2;
+- (id)clearAttachmentsUploadedToCloudkit;
+- (id)deleteAttachmentWithMessageGUID:(id)arg1 andFilePathIndex:(long long)arg2;
+- (id)loadHighResolutionFileForMessageGUID:(id)arg1 withFilePathIndex:(long long)arg2;
 - (id)sendIMMessage:(id)arg1 chat:(id)arg2 timeOut:(double)arg3 resultDict:(id)arg4 error:(id *)arg5;
 - (id)sendMessage:(id)arg1 destinationID:(id)arg2 filePaths:(id)arg3 groupID:(id)arg4 service:(id)arg5 timeOut:(double)arg6 error:(id *)arg7;
 - (id)createIMMessageToSendWithMessage:(id)arg1 filePaths:(id)arg2;

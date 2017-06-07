@@ -22,10 +22,12 @@ __attribute__((visibility("hidden")))
     _Bool _setNeedsDisplay;
     _Bool _hideStepperHUD;
     _Bool _expandDirtyRegionForReferences;
+    _Bool _repositionStockPopover;
     struct TSUCellRect _dirtyCellRange;
     struct TSUCellRect _dirtyStrokeRange;
 }
 
+@property(nonatomic) _Bool repositionStockPopover; // @synthesize repositionStockPopover=_repositionStockPopover;
 @property(nonatomic) _Bool expandDirtyRegionForReferences; // @synthesize expandDirtyRegionForReferences=_expandDirtyRegionForReferences;
 @property(nonatomic) _Bool hideStepperHUD; // @synthesize hideStepperHUD=_hideStepperHUD;
 @property(nonatomic) _Bool setNeedsDisplay; // @synthesize setNeedsDisplay=_setNeedsDisplay;

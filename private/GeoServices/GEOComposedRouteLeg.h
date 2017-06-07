@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOComposedRoute, GEOPBTransitStop, NSArray;
 
@@ -16,10 +16,11 @@
     struct _NSRange _stepRange;
 }
 
-@property(nonatomic) GEOComposedRoute *composedRoute; // @synthesize composedRoute=_composedRoute;
+@property(nonatomic) __weak GEOComposedRoute *composedRoute; // @synthesize composedRoute=_composedRoute;
 @property(readonly, nonatomic) struct _NSRange pointRange; // @synthesize pointRange=_pointRange;
 @property(readonly, nonatomic) struct _NSRange stepRange; // @synthesize stepRange=_stepRange;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
+- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) NSArray *exitTransitAccessPoints;
 @property(readonly, nonatomic) NSArray *enterTransitAccessPoints;

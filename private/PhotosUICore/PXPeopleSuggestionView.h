@@ -6,7 +6,7 @@
 
 #import <PhotosUICore/PXSmartScaleView.h>
 
-@class CAShapeLayer, NSTimer, UIImageView, UIView;
+@class CAShapeLayer, PXPersonImageRequest, UIImageView, UIView;
 @protocol PXPerson;
 
 @interface PXPeopleSuggestionView : PXSmartScaleView
@@ -18,13 +18,13 @@
     UIView *_suggestionView;
     UIView *_dimView;
     CAShapeLayer *_spotlightLayer;
-    NSTimer *_imageLoadInvalidationTimer;
+    PXPersonImageRequest *_imageRequest;
     struct CGRect _faceRect;
 }
 
-@property(retain) NSTimer *imageLoadInvalidationTimer; // @synthesize imageLoadInvalidationTimer=_imageLoadInvalidationTimer;
-@property _Bool validSpotlight; // @synthesize validSpotlight=_validSpotlight;
-@property _Bool needsSpotlightUpdate; // @synthesize needsSpotlightUpdate=_needsSpotlightUpdate;
+@property(retain, nonatomic) PXPersonImageRequest *imageRequest; // @synthesize imageRequest=_imageRequest;
+@property(nonatomic) _Bool validSpotlight; // @synthesize validSpotlight=_validSpotlight;
+@property(nonatomic) _Bool needsSpotlightUpdate; // @synthesize needsSpotlightUpdate=_needsSpotlightUpdate;
 @property(retain, nonatomic) CAShapeLayer *spotlightLayer; // @synthesize spotlightLayer=_spotlightLayer;
 @property(retain, nonatomic) UIView *dimView; // @synthesize dimView=_dimView;
 @property(retain, nonatomic) UIView *suggestionView; // @synthesize suggestionView=_suggestionView;
@@ -35,12 +35,10 @@
 - (double)_faceScale;
 - (struct CGRect)_scaledFaceRect;
 - (void)_updateSpotlightAnimated:(_Bool)arg1;
-- (void)_fetchImageForSuggestion:(id)arg1 targetSize:(struct CGSize)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)_updateSuggestionImageWithAnimatedSpotlight:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)setSuggestion:(id)arg1 animated:(_Bool)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)viewScaleDidChange;
 - (void)layoutSubviews;
-- (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)init;
 - (void)commonInit;

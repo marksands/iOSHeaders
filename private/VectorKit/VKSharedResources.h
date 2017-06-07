@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOResourceManifestConfiguration, VKGGLTextureManager, VKIconManager, VKResourceManager, VKShieldManager;
 
@@ -17,12 +17,14 @@ __attribute__((visibility("hidden")))
     VKGGLTextureManager *_gglTextureManager;
     VKResourceManager *_resourceManager;
     shared_ptr_dd2d1f5e _stylesheetVendor;
+    struct unique_ptr<md::FontManager, std::__1::default_delete<md::FontManager>> _fontManager;
     shared_ptr_807ec9ac _device;
     struct unique_ptr<ggl::AlphaAtlas, std::__1::default_delete<ggl::AlphaAtlas>> _alphaAtlas;
     struct unique_ptr<ggl::IsoAlphaAtlas, std::__1::default_delete<ggl::IsoAlphaAtlas>> _highInflationAlphaAtlas;
     struct unique_ptr<ggl::IsoAlphaAtlas, std::__1::default_delete<ggl::IsoAlphaAtlas>> _isoAlphaAtlas;
     struct unique_ptr<ggl::DistanceAtlas, std::__1::default_delete<ggl::DistanceAtlas>> _distanceAtlas;
     shared_ptr_1ddd16cb _shaderLibrary;
+    struct shared_ptr<ggl::CommonLibrary> _commonLibrary;
     unsigned int _referenceCount;
 }
 
@@ -45,6 +47,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) struct IsoAlphaAtlas *highInflationAlphaAtlas;
 @property(readonly, nonatomic) struct AlphaAtlas *alphaAtlas;
 @property(readonly, nonatomic) struct Device *device;
+@property(readonly, nonatomic) struct FontManager *fontManager;
 
 @end
 

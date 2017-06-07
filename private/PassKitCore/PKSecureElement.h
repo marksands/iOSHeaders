@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
-@class NSArray, NSHashTable, NSNumber, NSString;
+@class NSArray, NSHashTable, NSLock, NSNumber, NSString;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 @interface PKSecureElement : NSObject
@@ -15,9 +15,12 @@
     NSObject<OS_dispatch_source> *_deletingAllAppletsTimer;
     NSObject<OS_dispatch_queue> *_deletingAllAppletsTimerConcurrentQueue;
     NSObject<OS_dispatch_queue> *_deletingAllAppletsPropertyConcurrentQueue;
-    NSObject<OS_dispatch_queue> *_observerConcurrentQueue;
     NSObject<OS_dispatch_queue> *_replyQueue;
+    NSObject<OS_dispatch_queue> *_sessionQueue;
+    CDUnknownBlockType _secureElementSessionPrelude;
+    CDUnknownBlockType _secureElementSessionPostlude;
     NSHashTable *_observers;
+    NSLock *_observersLock;
 }
 
 + (id)secureElementIdentifiers;
@@ -27,17 +30,21 @@
 @property(readonly, nonatomic) NSString *primarySecureElementIdentifier;
 @property(readonly, nonatomic) NSNumber *primaryJSBLSequenceCounter;
 @property(readonly, nonatomic) NSString *primaryRegionTopic;
+@property(readonly, nonatomic) unsigned long long hardwareVersion;
 @property(readonly, nonatomic) unsigned long long supportedTechnologies;
 @property(readonly, nonatomic) _Bool isDeletingAllApplets;
 @property(readonly, nonatomic) _Bool isInRestrictedMode;
 @property(readonly, nonatomic) _Bool isProductionSigned;
+@property(copy, nonatomic) CDUnknownBlockType secureElementSessionPostlude;
+@property(copy, nonatomic) CDUnknownBlockType secureElementSessionPrelude;
+- (_Bool)supportsExpressModeForExpressPassType:(long long)arg1;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1;
+- (void)peerPaymentEnrollmentDataWithAlternateDSID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)connectToServerWithPushTopic:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)queueConnectionToSeverForAppletIdentifiers:(id)arg1;
 - (_Bool)queueConnectionToSeverWithPushTopic:(id)arg1;
 - (void)stateInformationWithCompletion:(CDUnknownBlockType)arg1;
-- (void)legacyStateInformationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)signatureForAuthToken:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)signChallenge:(id)arg1 signatureEntanglementMode:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)signChallenge:(id)arg1 forPaymentApplication:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
@@ -50,6 +57,7 @@
 - (void)pairingStateWithCompletion:(CDUnknownBlockType)arg1;
 - (void)SEPPairingInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)initializeSecureElementQueuingServerConnection:(_Bool)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)dealloc;
 - (id)init;
 
 @end

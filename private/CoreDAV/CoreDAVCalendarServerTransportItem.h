@@ -29,8 +29,8 @@
 @property(retain, nonatomic) CoreDAVItemWithHrefChildItem *subscriptionURL; // @synthesize subscriptionURL=_subscriptionURL;
 @property(retain, nonatomic) CoreDAVLeafItem *courierServer; // @synthesize courierServer=_courierServer;
 @property(retain, nonatomic) CoreDAVLeafItem *apsBundleID; // @synthesize apsBundleID=_apsBundleID;
+- (void).cxx_destruct;
 - (id)description;
-- (void)dealloc;
 - (id)init;
 
 @end

@@ -6,16 +6,17 @@
 
 #import <iWorkImport/TSWPDocumentRoot.h>
 
+#import <iWorkImport/TSDImportExportDelegate-Protocol.h>
 #import <iWorkImport/TSDScrollingAwareChangeSource-Protocol.h>
-#import <iWorkImport/TSKImportExportDelegate-Protocol.h>
 
 @class NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSObject, NSSet, NSString, SFUCryptoKey, TSAFunctionBrowserState, TSAShortcutController, TSCECalculationEngine, TSKCustomFormatList, TSKViewState, TSPLazyReference, TSTCustomFormatList;
 @protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
-@interface TSADocumentRoot : TSWPDocumentRoot <TSKImportExportDelegate, TSDScrollingAwareChangeSource>
+@interface TSADocumentRoot : TSWPDocumentRoot <TSDImportExportDelegate, TSDScrollingAwareChangeSource>
 {
     // Error parsing type: Ai, name: _needsToCaptureViewState
+    // Error parsing type: Ai, name: _observingCloudResolvedNotification
     NSMutableDictionary *_upgradeState;
     TSPLazyReference *_viewStateReference;
     NSMutableSet *_warnings;
@@ -28,14 +29,15 @@ __attribute__((visibility("hidden")))
     TSAShortcutController *_shortcutController;
     _Bool _didLoadControllers;
     _Bool _needsMediaCompatibilityUpgrade;
+    _Bool _collaborativeMediaCompatibilityUpgradeDidFail;
     _Bool _isClosed;
     _Bool _documentLocaleWasUpdated;
     NSString *_templateIdentifier;
-    long long _documentCacheOnceToken;
-    NSObject<OS_dispatch_queue> *_documentCacheDecryptionKeyAccessQueue;
-    SFUCryptoKey *_documentCacheDecryptionKey;
+    NSObject<OS_dispatch_queue> *_accessQueue;
+    SFUCryptoKey *_accessQueue_documentCacheDecryptionKey;
     _Bool _documentCurrentlyImporting;
     _Bool _hasPreUFFVersion;
+    _Bool _didLoadDocumentFromTemplate;
     _Bool _didLoadDocumentFromRevert;
     NSArray *_buildVersionHistory;
 }
@@ -56,16 +58,18 @@ __attribute__((visibility("hidden")))
 + (id)supportedScalablePreviewNames;
 + (id)buildVersionHistoryPathPreUFF;
 + (id)buildVersionHistoryPath;
-+ (void)localizeChartInfo:(id)arg1 withTemplateBundle:(id)arg2;
-+ (void)localizeTextStorage:(id)arg1 withTemplateBundle:(id)arg2;
-+ (void)localizeTableInfo:(id)arg1 withTemplateBundle:(id)arg2;
-+ (void)localizeModelObject:(id)arg1 withTemplateBundle:(id)arg2;
++ (void)localizeChartInfo:(id)arg1 withTemplateBundle:(id)arg2 andLocale:(id)arg3;
++ (void)localizeTextStorage:(id)arg1 withTemplateBundle:(id)arg2 andLocale:(id)arg3;
++ (void)localizeTableInfo:(id)arg1 withTemplateBundle:(id)arg2 andLocale:(id)arg3;
++ (void)localizeModelObject:(id)arg1 withTemplateBundle:(id)arg2 andLocale:(id)arg3;
 @property(nonatomic) _Bool didLoadDocumentFromRevert; // @synthesize didLoadDocumentFromRevert=_didLoadDocumentFromRevert;
+@property(nonatomic) _Bool didLoadDocumentFromTemplate; // @synthesize didLoadDocumentFromTemplate=_didLoadDocumentFromTemplate;
 @property(nonatomic) _Bool hasPreUFFVersion; // @synthesize hasPreUFFVersion=_hasPreUFFVersion;
 @property(nonatomic, getter=isDocumentCurrentlyImporting) _Bool documentCurrentlyImporting; // @synthesize documentCurrentlyImporting=_documentCurrentlyImporting;
 @property(readonly, nonatomic) _Bool documentLocaleWasUpdated; // @synthesize documentLocaleWasUpdated=_documentLocaleWasUpdated;
 @property(readonly, nonatomic) _Bool isClosed; // @synthesize isClosed=_isClosed;
 @property(copy, nonatomic) NSArray *buildVersionHistory; // @synthesize buildVersionHistory=_buildVersionHistory;
+- (void).cxx_destruct;
 - (_Bool)isMultiPageForQuickLook;
 - (_Bool)hasICloudConflict;
 - (id)commandForPropagatingPresetChangeCommand:(id)arg1 alwaysPreserveAppearance:(_Bool)arg2;
@@ -80,12 +84,10 @@ __attribute__((visibility("hidden")))
 - (void)didSaveWithEncryptionChange;
 - (void)documentCacheWasInvalidated;
 - (id)dataFromDocumentCachePath:(id)arg1;
-- (id)p_documentCacheDecryptionKey;
-- (id)p_documentCacheDecryptionKeyAccessQueue;
-- (void)p_initializeDocumentCacheIfNeeded;
 - (id)documentCachePath;
 - (id)referencedStylesOfClass:(Class)arg1;
 - (_Bool)shouldAllowDrawableInGroups:(id)arg1 forImport:(_Bool)arg2;
+- (void)upgradeToFixNonVariationChildStylesWithFileFormatVersion:(unsigned long long)arg1;
 - (void)removeRedundantStyleOverridesAndEnsureReferencedStylesAreInStylesheet;
 - (void)upgradeToSingleStylesheet;
 - (void)upgradeCellStyles;
@@ -115,11 +117,13 @@ __attribute__((visibility("hidden")))
 - (void)importerDidFinish:(id)arg1;
 - (void)p_registerAllFormulasAfterImport;
 - (void)didDownloadRemoteData:(id)arg1;
-- (void)didDownloadDocumentResources:(id)arg1 failedOrCancelledDocumentResources:(id)arg2 error:(id)arg3;
+- (void)didDownloadDocumentResources:(id)arg1;
+- (_Bool)shouldShowFontWarningNotificationForWarnings:(id)arg1;
 - (id)warningLocationDescriptionForAffectedObjects:(id)arg1 sortingInfo:(id *)arg2;
 - (id)warningsByCombiningSortedWarnings:(id)arg1 withWarnings:(id)arg2;
 - (long long)compareLocationSortingInfo:(id)arg1 toSortingInfo:(id)arg2;
 - (id)consolidatedDocumentWarningsFromWarnings:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *missingFontNamesAndWarningMessages;
 @property(readonly, nonatomic) NSSet *missingFontWarningMessages;
 - (void)prepareToGeneratePreview;
 - (id)previewImageForSize:(struct CGSize)arg1;
@@ -153,17 +157,18 @@ __attribute__((visibility("hidden")))
 - (void)resumeRecalculation;
 - (void)pauseRecalculationSometimeSoon;
 - (void)pauseRecalculation;
-- (void)setCalculationEngine:(id)arg1;
-- (id)calculationEngine;
+@property(retain, nonatomic) TSCECalculationEngine *calculationEngine;
 - (void)willClose;
+- (void)cleanupForImportFailure;
+- (void)willUnload;
 - (void)fulfillPasteboardPromises;
 - (id)additionalDocumentPropertiesForWrite;
 - (id)packageDataForWrite;
 - (void)saveToArchive:(struct DocumentArchive *)arg1 archiver:(id)arg2;
-- (void)p_iterateDrawables:(id)arg1 removeDrawableCommentBlock:(CDUnknownBlockType)arg2 removeTextCommentsBlock:(CDUnknownBlockType)arg3 removeCellCommentBlock:(CDUnknownBlockType)arg4;
 - (void)loadFromArchive:(const struct DocumentArchive *)arg1 unarchiver:(id)arg2;
 - (void)stashUpgradeState:(const struct DocumentArchive *)arg1 unarchiver:(id)arg2;
 - (id)upgradeState;
+- (void)collectDocumentOpenAnalyticsWithLogger:(id)arg1;
 - (void)documentDidLoad;
 - (_Bool)objectsNeedToBeMigrated:(id)arg1;
 - (id)makeIsolatedStyleMapper;
@@ -172,12 +177,15 @@ __attribute__((visibility("hidden")))
 - (void)dealloc;
 - (unsigned long long)writingDirection;
 - (void)updateWritingDirection:(unsigned long long)arg1;
+@property(readonly, nonatomic) _Bool hasFloatingLocale;
 - (void)p_upgradeDocumentCreationLocale;
-- (void)p_updateDocumentLanguageToCurrent;
+- (_Bool)p_updateDocumentLanguageToCurrentIfNeeded;
 - (void)p_updateBuildVersionHistoryWithVersionOfTemplateBundle:(id)arg1;
-- (void)prepareNewDocumentWithTemplateBundle:(id)arg1;
+- (void)prepareNewDocumentWithTemplateBundle:(id)arg1 documentLocale:(id)arg2;
 - (id)init;
+- (void)commonInit;
 - (id)initWithContext:(id)arg1;
+@property(nonatomic) _Bool collaborativeMediaCompatibilityUpgradeDidFail;
 @property(nonatomic) _Bool needsMediaCompatibilityUpgrade;
 @property(copy, nonatomic) NSString *templateIdentifier;
 - (void)setDocumentCreationLocale:(id)arg1;

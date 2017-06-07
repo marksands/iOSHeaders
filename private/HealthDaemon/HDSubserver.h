@@ -6,28 +6,37 @@
 
 #import <objc/NSObject.h>
 
-@class HDClient, HDDaemon, HDProfile, HDServer;
+#import <HealthDaemon/HDDiagnosticObject-Protocol.h>
+
+@class HDDaemon, HDHealthStoreServer, HDProfile, HDXPCClient, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HDSubserver : NSObject
+@interface HDSubserver : NSObject <HDDiagnosticObject>
 {
     HDDaemon *_daemon;
-    HDServer *_server;
-    HDClient *_client;
+    HDHealthStoreServer *_server;
+    HDXPCClient *_client;
     HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) HDProfile *profile; // @synthesize profile=_profile;
-@property(readonly, nonatomic) HDClient *client; // @synthesize client=_client;
-@property(readonly, nonatomic) __weak HDServer *server; // @synthesize server=_server;
+@property(readonly, nonatomic) HDXPCClient *client; // @synthesize client=_client;
+@property(readonly, nonatomic) __weak HDHealthStoreServer *server; // @synthesize server=_server;
 @property(readonly, nonatomic) __weak HDDaemon *daemon; // @synthesize daemon=_daemon;
 - (void).cxx_destruct;
+- (id)diagnosticDescription;
 - (void)requirePrivateHealthKitEntitlementUsingBlock:(CDUnknownBlockType)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (void)requireEntitlement:(id)arg1 usingBlock:(CDUnknownBlockType)arg2 errorHandler:(CDUnknownBlockType)arg3;
 - (void)invalidate;
 - (id)initWithParentServer:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

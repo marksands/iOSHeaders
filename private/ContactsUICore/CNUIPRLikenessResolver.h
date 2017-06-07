@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) CNContactStore *contactStore;
 @property(nonatomic) long long prohibitedSources;
 - (id)likenessLookup;
+- (id)basicMonogramObservableFromString:(id)arg1;
 - (void)refreshCacheKey:(id)arg1;
 - (id)likenessesForContact:(id)arg1;
 - (id)resolveLikenessesForContacts:(id)arg1 withContentHandler:(CDUnknownBlockType)arg2;

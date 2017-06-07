@@ -41,9 +41,15 @@
 @property(nonatomic, setter=_setHidingDisconnect:) _Bool _hidingDisconnect; // @synthesize _hidingDisconnect;
 @property(readonly, nonatomic) NSMutableDictionary *_contexts; // @synthesize _contexts;
 - (void).cxx_destruct;
+- (void)receivedUrgentRequestForMessages:(id)arg1;
+- (void)updateCloudKitState;
+- (void)didAttemptToDisableAllDevicesResult:(_Bool)arg1;
+- (void)didAttemptToSetEnabledTo:(_Bool)arg1 result:(_Bool)arg2;
 - (void)qosClassWhileServicingRequestsResponse:(unsigned int)arg1 identifier:(id)arg2;
 - (void)forwardInvocation:(id)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
+- (void)didAttemptToDisableiCloudBackups:(long long)arg1 error:(id)arg2;
+- (void)didFetchSyncStateStats:(id)arg1;
 - (void)databaseChatSpamUpdated:(id)arg1;
 - (void)databaseNoLongerFull;
 - (void)databaseFull;
@@ -69,6 +75,8 @@
 - (void)account:(id)arg1 blockListChanged:(id)arg2;
 - (void)account:(id)arg1 handleSubscriptionRequestFrom:(id)arg2 withMessage:(id)arg3;
 - (void)account:(id)arg1 groupsChanged:(id)arg2 error:(id)arg3;
+- (void)fileTransferHighQualityDownloadFailed:(id)arg1;
+- (void)fileTransfer:(id)arg1 highQualityDownloadSucceededWithPath:(id)arg2;
 - (void)fileTransfer:(id)arg1 updatedWithCurrentBytes:(unsigned long long)arg2 totalBytes:(unsigned long long)arg3 averageTransferRate:(unsigned long long)arg4;
 - (void)fileTransfer:(id)arg1 updatedWithProperties:(id)arg2;
 - (void)fileTransfers:(id)arg1 createdWithLocalPaths:(id)arg2;

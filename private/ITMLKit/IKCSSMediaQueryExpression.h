@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (id)valueAsString;
+- (id)expressionAsString;
 - (_Bool)evaluate;
 
 @end

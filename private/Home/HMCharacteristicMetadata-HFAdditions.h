@@ -13,6 +13,7 @@
 - (id)hf_characteristicValueForPercentage:(double)arg1;
 @property(readonly, nonatomic) _Bool hf_isNumeric;
 - (_Bool)hf_isValidValue:(id)arg1;
+- (id)hf_valueRoundedToNearestStepValue:(id)arg1;
 - (id)hf_normalizedValueForValue:(id)arg1;
 @property(readonly, nonatomic) NSNumber *hf_effectiveStepValue;
 - (_Bool)hf_isEqualToMetadata:(id)arg1;

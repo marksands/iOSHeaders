@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) struct CGSize originalSize; // @synthesize originalSize=mOriginalSize;
 @property(readonly, nonatomic) TSPData *mediaDataForDragging;
+- (void)scaleDownSizeToFitWithinSize:(struct CGSize)arg1;
 - (struct CGPoint)centerForReplacingWithNewMedia;
 - (void)updateGeometryToReplaceMediaInfo:(id)arg1;
 - (void)takePropertiesFromReplacedMediaInfo:(id)arg1;

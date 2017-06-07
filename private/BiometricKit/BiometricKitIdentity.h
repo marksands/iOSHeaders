@@ -35,10 +35,10 @@
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) unsigned int userID; // @synthesize userID=_userID;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)dealloc;
 - (id)init;
 
 @end

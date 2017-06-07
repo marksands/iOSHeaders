@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/BSDescriptionProviding-Protocol.h>
 
@@ -16,6 +16,7 @@
 }
 
 + (id)predicate;
+- (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
@@ -36,7 +37,6 @@
 @property(copy, nonatomic) NSString *name;
 - (_Bool)evaluateWithObject:(id)arg1;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

@@ -6,23 +6,27 @@
 
 #import <Home/HFItemProvider.h>
 
-@class NSSet;
+@class HMHome, NSSet;
 @protocol HFRoomSuggestionVendor;
 
 @interface HFRoomSuggestionItemProvider : HFItemProvider
 {
     unsigned long long _suggestedRoomLimit;
+    HMHome *_home;
     NSSet *_suggestionItems;
     id <HFRoomSuggestionVendor> _suggestionVendor;
 }
 
 @property(retain, nonatomic) id <HFRoomSuggestionVendor> suggestionVendor; // @synthesize suggestionVendor=_suggestionVendor;
 @property(retain, nonatomic) NSSet *suggestionItems; // @synthesize suggestionItems=_suggestionItems;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(nonatomic) unsigned long long suggestedRoomLimit; // @synthesize suggestedRoomLimit=_suggestedRoomLimit;
 - (void).cxx_destruct;
 - (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)init;
 - (id)initWithHome:(id)arg1;
 
 @end

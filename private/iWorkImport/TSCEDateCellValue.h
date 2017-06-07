@@ -9,14 +9,18 @@
 __attribute__((visibility("hidden")))
 @interface TSCEDateCellValue : TSCECellValue
 {
-    struct TSCEDateValue *mDateValue;
+    struct TSCEDateValue *_dateValue;
 }
 
 - (void)encodeToArchive:(struct DateCellValueArchive *)arg1;
 - (id)initWithArchive:(const struct DateCellValueArchive *)arg1 locale:(id)arg2;
+- (long long)compareToCellValue:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (_Bool)isEqualToCellValue:(id)arg1;
 - (id)displayString;
-- (CDStruct_28403e59)formatStruct;
+- (id)format;
+- (struct TSCEValue)tsceValue;
 - (struct TSCEDateValue *)dateValue;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;

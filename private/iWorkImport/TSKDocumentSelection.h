@@ -6,19 +6,20 @@
 
 #import <iWorkImport/TSKSelection.h>
 
-@class TSKDocumentRoot;
+@class TSKDocumentRoot, TSUWeakReference;
 
 __attribute__((visibility("hidden")))
 @interface TSKDocumentSelection : TSKSelection
 {
-    TSKDocumentRoot *mDocumentRoot;
+    TSUWeakReference *mDocumentRootReference;
 }
 
 + (Class)archivedSelectionClass;
-@property(readonly, nonatomic) TSKDocumentRoot *documentRoot; // @synthesize documentRoot=mDocumentRoot;
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+@property(readonly, nonatomic) TSKDocumentRoot *documentRoot;
+- (void)dealloc;
 - (id)initWithDocumentRoot:(id)arg1;
 
 @end

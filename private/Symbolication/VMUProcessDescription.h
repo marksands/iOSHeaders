@@ -6,20 +6,17 @@
 
 #import <objc/NSObject.h>
 
-#import <Symbolication/VMULibraryLoadDelegate-Protocol.h>
+@class NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
 
-@class NSArray, NSDate, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, _VMULibraryLoadObserver;
-
-@interface VMUProcessDescription : NSObject <VMULibraryLoadDelegate>
+@interface VMUProcessDescription : NSObject
 {
     unsigned int _task;
     int _pid;
     _Bool _taskIsCorpse;
-    NSString *_hardwareModel;
     NSString *_processName;
     _Bool _processNameNeedsCorrection;
     NSString *_executablePath;
-    _VMULibraryLoadObserver *_loadUnloadObserver;
+    struct _CSTypeRef _symbolicator;
     _Bool _executablePathNeedsCorrection;
     unsigned long long _executableLoadAddress;
     int _cpuType;
@@ -43,8 +40,9 @@
 
 + (struct _CSTypeRef)symbolicatorFromBinaryImagesDescription:(id)arg1;
 + (id)parseBinaryImagesDescription:(id)arg1;
+- (void).cxx_destruct;
 - (void)dealloc;
-@property(readonly, copy) NSString *description;
+- (id)description;
 - (id)analysisToolDescription;
 - (id)dateAndVersionDescription;
 - (id)processDescriptionHeader;
@@ -84,15 +82,9 @@
 - (double)_extractDyldInfoFromSymbolOwner:(struct _CSTypeRef)arg1 withMemory:(struct mapped_memory_t *)arg2;
 - (_Bool)initFromCorpse;
 - (void)initFromLiveProcess;
-- (id)initWithPid:(int)arg1 orTask:(unsigned int)arg2;
-- (id)initWithPid:(int)arg1 orTask:(unsigned int)arg2 getBinariesList:(_Bool)arg3;
+- (id)initWithTask:(unsigned int)arg1 getBinariesList:(_Bool)arg2;
 - (void)clearCrashReporterInfo;
 - (void)setCrashReporterInfo;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

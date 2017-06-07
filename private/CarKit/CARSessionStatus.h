@@ -32,6 +32,7 @@
 - (void)_stopConnectingTimer;
 - (void)_startConnectingTimer;
 - (void)_updateSession;
+- (void)_handleSessionChanged;
 - (void)_handleInCarNotification;
 - (void)_handleAuthenticationSucceeded:(id)arg1;
 - (void)waitForSessionInitialization;

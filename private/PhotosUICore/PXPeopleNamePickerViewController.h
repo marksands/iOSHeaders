@@ -7,44 +7,48 @@
 #import <UIKit/UIViewController.h>
 
 #import <PhotosUICore/UIAdaptivePresentationControllerDelegate-Protocol.h>
-#import <PhotosUICore/UIPopoverPresentationControllerDelegate-Protocol.h>
 #import <PhotosUICore/UITableViewDelegate-Protocol.h>
 #import <PhotosUICore/UITextFieldDelegate-Protocol.h>
 
-@class NSArray, NSString, PXPeopleNamePickerResultsTableViewController, PXPeopleNamePickerTitleView;
+@class NSArray, NSLayoutConstraint, NSString, PXPeopleNamePickerResultsTableViewController, PXPeopleNamePickerTitleView;
 @protocol PXPeopleNamePickerViewControllerDelegate;
 
-@interface PXPeopleNamePickerViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UIPopoverPresentationControllerDelegate, UIAdaptivePresentationControllerDelegate>
+@interface PXPeopleNamePickerViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UIAdaptivePresentationControllerDelegate>
 {
     PXPeopleNamePickerTitleView *_titleView;
     id <PXPeopleNamePickerViewControllerDelegate> _delegate;
-    PXPeopleNamePickerResultsTableViewController *_resultsController;
     NSArray *_savedRightBarItems;
+    double _yOffset;
+    NSLayoutConstraint *_resultsViewBottomConstraint;
+    PXPeopleNamePickerResultsTableViewController *_resultsController;
 }
 
-@property(retain, nonatomic) NSArray *savedRightBarItems; // @synthesize savedRightBarItems=_savedRightBarItems;
 @property(retain, nonatomic) PXPeopleNamePickerResultsTableViewController *resultsController; // @synthesize resultsController=_resultsController;
+@property(retain, nonatomic) NSLayoutConstraint *resultsViewBottomConstraint; // @synthesize resultsViewBottomConstraint=_resultsViewBottomConstraint;
+@property(nonatomic) double yOffset; // @synthesize yOffset=_yOffset;
+@property(retain, nonatomic) NSArray *savedRightBarItems; // @synthesize savedRightBarItems=_savedRightBarItems;
 @property(nonatomic) __weak id <PXPeopleNamePickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) PXPeopleNamePickerTitleView *titleView; // @synthesize titleView=_titleView;
 - (void).cxx_destruct;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (void)textFieldDidEndEditing:(id)arg1;
+- (void)textFieldDidBeginEditing:(id)arg1;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;
 - (_Bool)textFieldShouldEndEditing:(id)arg1;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (_Bool)textFieldShouldBeginEditing:(id)arg1;
-- (long long)adaptivePresentationStyleForPresentationController:(id)arg1 traitCollection:(id)arg2;
-- (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
+- (void)_changePlaceholderTextOfTextField:(id)arg1 toColor:(id)arg2;
 - (void)_hideResultsView;
 - (void)_showResultsView;
-- (void)_refreshResultsViewSizeWithNewKeyboardHeight:(double)arg1;
 - (double)_titleViewMaxWidthForEditing:(_Bool)arg1;
-- (void)_setupNavigationBarForEditing:(_Bool)arg1 animated:(_Bool)arg2;
-- (_Bool)_shouldPresentResultsInPopover;
-- (void)_keyboardWillChangeFrame:(id)arg1;
+- (void)_keyboardWillShow:(id)arg1;
+- (void)_keyboardWillHide:(id)arg1;
 - (void)_applicationDidEnterBackground;
+- (void)endNamingSession;
+- (void)adjustForAccessoryViewYOffset:(double)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
-- (id)initWithPeople:(id)arg1;
+- (id)initWithPerson:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

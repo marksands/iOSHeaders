@@ -12,12 +12,12 @@
 }
 
 @property(retain, nonatomic, setter=_setOpaqueObserver:) id _opaqueObserver; // @synthesize _opaqueObserver;
+- (void).cxx_destruct;
 - (id)_notificationTypeDescription;
 - (void)_stopObserving;
 - (void)_startObserving;
 - (void)_stopObservingWithObject:(id)arg1;
 - (void)_startObservingWithObject:(id)arg1;
-- (void)dealloc;
 
 @end
 

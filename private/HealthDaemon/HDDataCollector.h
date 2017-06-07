@@ -8,12 +8,13 @@
 
 #import <HealthDaemon/HDHealthDataCollector-Protocol.h>
 
-@class HDDeviceEntity, HDPrimaryProfile, HDSourceEntity, HKObjectType, NSString;
+@class HDDeviceEntity, HDPrimaryProfile, HDProfile, HDSourceEntity, HKObjectType, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HDDataCollector : NSObject <HDHealthDataCollector>
 {
     HDPrimaryProfile *_primaryProfile;
+    HDProfile *_profile;
     NSObject<OS_dispatch_queue> *_queue;
     HKObjectType *_observedType;
     HDDeviceEntity *_deviceEntity;
@@ -28,7 +29,9 @@
 + (Class)sensorDatumClass;
 + (id)domain;
 + (id)observedType;
++ (id)_lastReceivedSensorDatumForProfile:(id)arg1;
 + (_Bool)_primaryContextExistsForDomain:(id)arg1 profile:(id)arg2;
++ (id)_sensorDatumFromContext:(id)arg1;
 + (double)defaultCollectionInterval;
 + (id)_retrieveContextForKey:(id)arg1 domain:(id)arg2 profile:(id)arg3;
 @property(readonly) HDSourceEntity *sourceEntity; // @synthesize sourceEntity=_sourceEntity;
@@ -71,6 +74,7 @@
 - (void)_performSync:(CDUnknownBlockType)arg1;
 - (void)_performAsync:(CDUnknownBlockType)arg1;
 - (id)initWithPrimaryProfile:(id)arg1;
+- (id)initWithProfile:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

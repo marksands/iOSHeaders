@@ -6,15 +6,15 @@
 
 #import <Foundation/NSObject.h>
 
-#import <FrontBoard/FBDisplayManagerObserver-Protocol.h>
+#import <FrontBoard/FBSDisplayObserving-Protocol.h>
 
-@class FBSDisplay, FBSDisplayLayout, FBSDisplayLayoutTransitionContext, NSMutableSet, NSString;
+@class FBSDisplayIdentity, FBSDisplayLayout, FBSDisplayLayoutTransitionContext, NSMutableSet, NSString;
 @protocol FBDisplayLayoutDelegate;
 
-@interface FBDisplayLayout : NSObject <FBDisplayManagerObserver>
+@interface FBDisplayLayout : NSObject <FBSDisplayObserving>
 {
-    FBSDisplay *_display;
-    unsigned long long _displayType;
+    long long _displayType;
+    FBSDisplayIdentity *_displayIdentity;
     long long _backlightLevel;
     long long _interfaceOrientation;
     FBSDisplayLayout *_currentLayout;
@@ -30,9 +30,9 @@
 @property(readonly, nonatomic) id <FBDisplayLayoutDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, retain, nonatomic) FBSDisplayLayout *currentLayout; // @synthesize currentLayout=_currentLayout;
 @property(readonly, nonatomic) long long interfaceOrientation; // @synthesize interfaceOrientation=_interfaceOrientation;
-@property(readonly, nonatomic) unsigned long long displayType; // @synthesize displayType=_displayType;
-- (void)displayManager:(id)arg1 didDisconnectDisplay:(id)arg2;
-- (void)displayManager:(id)arg1 didConnectDisplay:(id)arg2;
+@property(readonly, nonatomic) long long displayType; // @synthesize displayType=_displayType;
+- (void)displayMonitor:(id)arg1 willDisconnectIdentity:(id)arg2;
+- (void)displayMonitor:(id)arg1 didConnectIdentity:(id)arg2 withConfiguration:(id)arg3;
 - (void)_updateStateForTransition:(id)arg1;
 - (void)_updateTransitionContextForTransition:(id)arg1;
 - (void)_sendLayoutIfNotTransitioning;
@@ -49,7 +49,7 @@
 - (void)beginTransition:(id)arg1;
 @property(readonly, nonatomic, getter=isTransitioning) _Bool transitioning;
 - (void)dealloc;
-- (id)initWithDisplayType:(unsigned long long)arg1 delegate:(id)arg2;
+- (id)initWithDisplayType:(long long)arg1 delegate:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

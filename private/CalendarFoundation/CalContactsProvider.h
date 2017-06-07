@@ -14,11 +14,14 @@
     CNReputationStore *_reputationStore;
 }
 
++ (_Bool)shouldWhiteListOrganizerPhoneNumberFromJunkChecks:(id)arg1 inReputationStore:(id)arg2;
 + (_Bool)shouldWhiteListOrganizerEmailFromJunkChecks:(id)arg1 inReputationStore:(id)arg2;
++ (id)reputationForHandle:(id)arg1 inStore:(id)arg2;
 + (id)defaultProvider;
 @property(retain) CNReputationStore *reputationStore; // @synthesize reputationStore=_reputationStore;
 @property(retain) CNContactStore *store; // @synthesize store=_store;
 - (void).cxx_destruct;
+- (_Bool)shouldWhiteListOrganizerPhoneNumberFromJunkChecks:(id)arg1;
 - (_Bool)shouldWhiteListOrganizerEmailFromJunkChecks:(id)arg1;
 - (id)myFullName;
 - (id)myNameWithStyle:(long long)arg1;

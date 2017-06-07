@@ -76,7 +76,7 @@ __attribute__((visibility("hidden")))
 - (void)setTextCharExtra:(int)arg1;
 - (int)getTextBreakCount;
 - (int)getTextBreakExtra;
-- (void)setTextJustification:(int)arg1:(int)arg2;
+- (void)setTextJustification:(int)arg1 in_breakCount:(int)arg2;
 - (id)getTextColour;
 - (void)setTextColour:(id)arg1;
 - (int)getTextDirection;

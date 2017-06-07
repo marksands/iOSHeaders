@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)newABUnknownPersonViewControllerWithEmailAddress:(id)arg1;
++ (id)newCNUnknownPersonViewControllerWithEmailAddress:(id)arg1;
 + (Class)MFSearchShadowViewClass;
 + (Class)MFRecipientTableViewCellClass;
 + (Class)MFContactsSearchResultsModelClass;

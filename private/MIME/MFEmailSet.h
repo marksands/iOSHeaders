@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSMutableSet.h>
+#import <EmailAddressing/EAEmailAddressSet.h>
 
-@interface MFEmailSet : NSMutableSet
+@interface MFEmailSet : EAEmailAddressSet
 {
     struct __CFSet *_set;
 }
@@ -33,6 +33,7 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
 - (void)_setupSetWithCapacity:(unsigned long long)arg1;
+- (id)initWithSet:(id)arg1;
 - (id)initWithCapacity:(unsigned long long)arg1;
 - (id)init;
 

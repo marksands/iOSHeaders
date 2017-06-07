@@ -9,27 +9,30 @@
 #import <CoreRoutine/NSCopying-Protocol.h>
 #import <CoreRoutine/NSSecureCoding-Protocol.h>
 
-@class NSDate;
+@class NSDate, NSUUID;
 
 @interface RTLocationOfInterestVisit : NSObject <NSCopying, NSSecureCoding>
 {
-    NSDate *_entryTime;
-    NSDate *_exitTime;
+    NSDate *_entry;
+    NSDate *_exit;
+    NSUUID *_identifier;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, nonatomic) NSDate *exitTime; // @synthesize exitTime=_exitTime;
-@property(readonly, nonatomic) NSDate *entryTime; // @synthesize entryTime=_entryTime;
+@property(readonly, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) NSDate *exit; // @synthesize exit=_exit;
+@property(readonly, nonatomic) NSDate *entry; // @synthesize entry=_entry;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSDate *exitTime;
+@property(readonly, nonatomic) NSDate *entryTime;
 - (id)description;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithEntryTime:(id)arg1 exitTime:(id)arg2;
-- (id)localizedDateDetail;
-- (id)localizedTimeDetail;
-- (id)localizedDescription;
-- (_Bool)_enteredAndExitedOnSameDay;
+- (id)initWithIdentifier:(id)arg1 entry:(id)arg2 exit:(id)arg3;
+- (id)init;
 
 @end
 

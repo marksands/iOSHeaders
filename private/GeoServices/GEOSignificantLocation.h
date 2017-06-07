@@ -29,6 +29,7 @@
 @property(nonatomic) unsigned int numberOfVisitsBucket; // @synthesize numberOfVisitsBucket=_numberOfVisitsBucket;
 @property(nonatomic) unsigned int locationIndex; // @synthesize locationIndex=_locationIndex;
 @property(retain, nonatomic) GEOLocation *location; // @synthesize location=_location;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -43,7 +44,6 @@
 @property(nonatomic) _Bool hasNumberOfVisitsBucket;
 @property(nonatomic) _Bool hasLocationIndex;
 @property(readonly, nonatomic) _Bool hasLocation;
-- (void)dealloc;
 
 @end
 

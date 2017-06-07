@@ -4,15 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <PersistentConnection/CUTPowerMonitorDelegate-Protocol.h>
-#import <PersistentConnection/PCLoggingDelegate-Protocol.h>
 
 @class NSString, PCSimpleTimer;
-@protocol OS_dispatch_queue;
+@protocol OS_dispatch_queue, OS_os_log;
 
-@interface PCPersistentTimer : NSObject <PCLoggingDelegate, CUTPowerMonitorDelegate>
+@interface PCPersistentTimer : NSObject <CUTPowerMonitorDelegate>
 {
     double _fireTime;
     double _startTime;
@@ -27,6 +26,7 @@
     id _userInfo;
     PCSimpleTimer *_simpleTimer;
     NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_os_log> *_logObject;
 }
 
 + (void)_updateTime:(double)arg1 forGuidancePriority:(unsigned long long)arg2;
@@ -34,9 +34,9 @@
 + (double)currentMachTimeInterval;
 + (id)lastSystemWakeDate;
 + (id)_backgroundUpdateQueue;
-@property(readonly, nonatomic) NSString *loggingIdentifier; // @synthesize loggingIdentifier=_serviceIdentifier;
 @property(nonatomic) _Bool disableSystemWaking; // @synthesize disableSystemWaking=_disableSystemWaking;
 @property(nonatomic) double minimumEarlyFireProportion; // @synthesize minimumEarlyFireProportion=_minimumEarlyFireProportion;
+- (void).cxx_destruct;
 @property(readonly, copy) NSString *debugDescription;
 - (double)_nextForcedAlignmentAbsoluteTime;
 - (void)interfaceManagerInternetReachabilityChanged:(id)arg1;

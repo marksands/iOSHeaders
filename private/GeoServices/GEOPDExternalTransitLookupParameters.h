@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSString *sourceId; // @synthesize sourceId=_sourceId;
 @property(retain, nonatomic) GEOLocation *transactionLocation; // @synthesize transactionLocation=_transactionLocation;
 @property(nonatomic) double transactionTimestamp; // @synthesize transactionTimestamp=_transactionTimestamp;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -44,7 +45,6 @@
 @property(readonly, nonatomic) _Bool hasSourceId;
 @property(readonly, nonatomic) _Bool hasTransactionLocation;
 @property(nonatomic) _Bool hasTransactionTimestamp;
-- (void)dealloc;
 
 @end
 

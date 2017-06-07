@@ -15,9 +15,10 @@
 
 - (unsigned long long)type;
 @property(readonly, nonatomic) unsigned long long name;
+@property(readonly, nonatomic) void *playerPath;
 @property(readonly, nonatomic) NSArray *packets;
 - (void)dealloc;
-- (id)initWithName:(unsigned long long)arg1 packets:(id)arg2;
+- (id)initWithName:(unsigned long long)arg1 packets:(id)arg2 playerPath:(void *)arg3;
 
 @end
 

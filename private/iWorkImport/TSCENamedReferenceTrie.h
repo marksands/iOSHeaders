@@ -18,12 +18,11 @@ __attribute__((visibility("hidden")))
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)description;
-- (id)trackedReferencesExactlyMatchingString:(id)arg1 scopedToTable:(struct __CFUUID *)arg2;
-- (id)trackedReferencesMatchingString:(id)arg1 scopedToTable:(struct __CFUUID *)arg2;
-- (_Bool)replaceName:(id)arg1 withName:(id)arg2 inTable:(struct __CFUUID *)arg3 trackedReference:(id)arg4;
-- (void)deleteName:(id)arg1 inTable:(struct __CFUUID *)arg2 trackedReference:(id)arg3;
-- (_Bool)insertName:(id)arg1 inTable:(struct __CFUUID *)arg2 trackedReference:(id)arg3;
-- (void)dealloc;
+- (id)trackedReferencesExactlyMatchingString:(id)arg1 scopedToTable:(const UUIDData_5fbc143e *)arg2;
+- (id)trackedReferencesMatchingString:(id)arg1 scopedToTable:(const UUIDData_5fbc143e *)arg2;
+- (_Bool)replaceName:(id)arg1 withName:(id)arg2 inTable:(const UUIDData_5fbc143e *)arg3 trackedReference:(id)arg4;
+- (void)deleteName:(id)arg1 inTable:(const UUIDData_5fbc143e *)arg2 trackedReference:(id)arg3;
+- (_Bool)insertName:(id)arg1 inTable:(const UUIDData_5fbc143e *)arg2 trackedReference:(id)arg3;
 - (id)initWithLocale:(id)arg1;
 
 @end

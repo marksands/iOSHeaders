@@ -6,12 +6,12 @@
 
 #import <UIKit/_UIRemoteViewController.h>
 
-#import <GameCenterUI/GKRemoteViewControllerDelegate-Protocol.h>
-#import <GameCenterUI/GKServiceViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionHostProtocol-Protocol.h>
+#import <GameCenterUI/GKExtensionProtocol-Protocol.h>
 
 @class GKGame, NSExtension, NSString;
 
-@interface GKUIRemoteViewController : _UIRemoteViewController <GKRemoteViewControllerDelegate, GKServiceViewControllerDelegate>
+@interface GKUIRemoteViewController : _UIRemoteViewController <GKExtensionProtocol, GKExtensionHostProtocol>
 {
     GKGame *_game;
     NSExtension *_extension;
@@ -26,15 +26,14 @@
 @property(copy, nonatomic) id requestIdentifier; // @synthesize requestIdentifier=_requestIdentifier;
 @property(retain, nonatomic) NSExtension *extension; // @synthesize extension=_extension;
 @property(retain, nonatomic) GKGame *game; // @synthesize game=_game;
-- (void)remoteViewControllerIsFinishing;
-- (void)remoteViewControllerIsCanceling;
-- (void)setValue:(id)arg1 forKeyPath:(id)arg2 withReply:(CDUnknownBlockType)arg3;
+- (void)messageFromExtension:(id)arg1;
 - (void)hostApp:(id)arg1 grantingAccessExtensionSandbox:(id)arg2 replyWithEndpoint:(CDUnknownBlockType)arg3;
 - (void)setInitialState:(id)arg1 withReply:(CDUnknownBlockType)arg2;
-- (void)remoteViewControllerDidCancel;
-- (void)remoteViewControllerDidFinish;
-- (void)nudge;
-- (id)contextForRequestIdentifier;
+- (void)messageFromClient:(id)arg1;
+- (id)extensionObjectProxy;
+- (void)extensionIsFinishing;
+- (void)extensionIsCanceling;
+- (void)sendMessageToExtension:(id)arg1;
 - (void)cancelExtension;
 - (long long)_desiredStatusBarStyle;
 - (unsigned long long)supportedInterfaceOrientations;

@@ -18,11 +18,11 @@
 
 @property(readonly, nonatomic) NSURL *homeURL; // @synthesize homeURL=_homeURL;
 @property(readonly, nonatomic) NSURL *cardURL; // @synthesize cardURL=_cardURL;
+- (void).cxx_destruct;
 - (void)propPatchTask:(id)arg1 parsedResponses:(id)arg2 error:(id)arg3;
 - (void)startTaskGroup;
 - (id)_newPropPatchTask;
 @property(readonly, copy) NSString *description;
-- (void)dealloc;
 - (id)initWithAccountInfoProvider:(id)arg1 taskManager:(id)arg2 homeURL:(id)arg3 cardURL:(id)arg4;
 
 // Remaining properties

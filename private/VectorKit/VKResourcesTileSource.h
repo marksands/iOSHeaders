@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (id)tileLoader;
 - (void)setTargetDisplay:(unsigned char)arg1;
 - (void)dealloc;
-- (id)initWithResourceManifestConfiguration:(id)arg1 locale:(id)arg2 sharedResources:(id)arg3;
+- (id)initWithResourceManifestConfiguration:(id)arg1 locale:(id)arg2 sharedResources:(id)arg3 taskContext:(shared_ptr_e963992e)arg4;
 
 @end
 

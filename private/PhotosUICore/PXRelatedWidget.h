@@ -15,7 +15,7 @@
 #import <PhotosUICore/PXWidget-Protocol.h>
 
 @class NSDictionary, NSString, PXBasicTileAnimator, PXPhotosDetailsContext, PXRelatedDataSource, PXRelatedDataSourceManager, PXRelatedSpecManager, PXRelatedTilingLayout, PXSectionedObjectReference, PXSectionedSelectionManager, PXTilingController, PXWidgetSpec;
-@protocol PXAnonymousView, PXWidgetDelegate;
+@protocol PXAnonymousView, PXWidgetDelegate, PXWidgetUnlockDelegate;
 
 @interface PXRelatedWidget : NSObject <PXRelatedDataSourceManagerObserver, PXTilingControllerTransitionDelegate, PXTilingControllerScrollDelegate, PXRelatedTilingLayoutDelegate, PXTileSource, PXChangeObserver, PXWidget>
 {
@@ -35,6 +35,7 @@
     _Bool __canExpand;
     _Bool _hasLoadedContentData;
     id <PXWidgetDelegate> _widgetDelegate;
+    id <PXWidgetUnlockDelegate> _widgetUnlockDelegate;
     PXPhotosDetailsContext *_context;
     PXRelatedDataSourceManager *__dataSourceManager;
     PXRelatedSpecManager *__specManager;
@@ -69,6 +70,7 @@
 @property(readonly, nonatomic) PXRelatedSpecManager *_specManager; // @synthesize _specManager=__specManager;
 @property(readonly, nonatomic) PXRelatedDataSourceManager *_dataSourceManager; // @synthesize _dataSourceManager=__dataSourceManager;
 @property(retain, nonatomic) PXPhotosDetailsContext *context; // @synthesize context=_context;
+@property(nonatomic) __weak id <PXWidgetUnlockDelegate> widgetUnlockDelegate; // @synthesize widgetUnlockDelegate=_widgetUnlockDelegate;
 @property(nonatomic) __weak id <PXWidgetDelegate> widgetDelegate; // @synthesize widgetDelegate=_widgetDelegate;
 - (void).cxx_destruct;
 - (struct CGRect)relatedTilingLayout:(id)arg1 contentsRectForItemAtIndexPath:(struct PXSimpleIndexPath)arg2 forAspectRatio:(double)arg3;

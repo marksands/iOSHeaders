@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <SplashBoard/XBSnapshotManifestStore-Protocol.h>
 
@@ -19,6 +19,7 @@
 }
 
 + (id)sharedInstance;
+- (void).cxx_destruct;
 - (void)endAccessBlockForBundleIdentifier:(id)arg1;
 - (void)beginAccessBlockForBundleIdentifier:(id)arg1;
 - (void)synchronizeForBundleIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
@@ -29,7 +30,6 @@
 - (id)_loadCompatibilityInfoForBundleIdentifier:(id)arg1;
 - (void)_clearCompatibilityInfoForBundleIdentifier:(id)arg1;
 - (void)_persistCompatibilityInfo:(id)arg1 forBundleIdentifier:(id)arg2;
-- (void)dealloc;
 - (id)_init;
 - (id)init;
 

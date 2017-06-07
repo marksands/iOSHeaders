@@ -12,6 +12,10 @@
 
 + (long long)protectionClass;
 + (id)databaseTable;
++ (id)keyForNotificationDomain:(long long)arg1;
++ (id)modificationDateForNotificationDomain:(long long)arg1 profile:(id)arg2 error:(id *)arg3;
++ (_Bool)setBadgeCount:(long long)arg1 forDomain:(long long)arg2 profile:(id)arg3 error:(id *)arg4;
++ (long long)badgeCountForDomain:(long long)arg1 profile:(id)arg2 error:(id *)arg3;
 
 @end
 

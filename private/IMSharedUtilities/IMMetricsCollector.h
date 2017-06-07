@@ -6,28 +6,46 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSSet;
+@class NSMutableDictionary;
 @protocol OS_dispatch_queue;
 
 @interface IMMetricsCollector : NSObject
 {
     NSObject<OS_dispatch_queue> *_metricsQueue;
-    NSSet *_allowedEvents;
+    NSMutableDictionary *_onGoingEventsMap;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *metricsQueue; // @synthesize metricsQueue=_metricsQueue;
+@property(retain, nonatomic) NSMutableDictionary *onGoingEventsMap; // @synthesize onGoingEventsMap=_onGoingEventsMap;
+- (void)autoBugCaptureWithSubType:(id)arg1 errorPayload:(id)arg2;
+- (_Bool)finalizeEvent:(id)arg1 addingDicitonary:(id)arg2;
+- (void)_finalizeEvent:(id)arg1 addingDicitonary:(id)arg2;
+- (_Bool)updateEvent:(id)arg1 addToCount:(id)arg2 forKey:(id)arg3;
+- (_Bool)updateEvent:(id)arg1 updateValue:(id)arg2 forKey:(id)arg3;
+- (_Bool)startEvent:(id)arg1 initialDictionary:(id)arg2 timeout:(unsigned long long)arg3 autoBugCapture:(_Bool)arg4;
+- (void)_resetTimerEventIfNeedForEventID:(id)arg1;
+- (_Bool)startEvent:(id)arg1 initialDictionary:(id)arg2;
+- (_Bool)trackEvent:(id)arg1 withDictionary:(id)arg2;
 - (_Bool)trackEvent:(id)arg1 withCount:(id)arg2;
+- (void)_timeoutTimerFired:(id)arg1;
+- (id)_trimedEventID:(id)arg1;
+- (void)_trackEvent:(id)arg1 withDictionary:(id)arg2;
 - (void)_trackEvent:(id)arg1 withCount:(id)arg2;
 - (_Bool)trackEvent:(id)arg1 withStatistic:(id)arg2;
 - (void)_trackEvent:(id)arg1 withStatistic:(id)arg2;
 - (_Bool)trackEvent:(id)arg1;
-- (_Bool)_isAllowedEvent:(id)arg1;
 - (void)_trackEvent:(id)arg1;
 - (void *)_ADClientSetValueForScalarKeyApiInit;
 - (void *)_ADClientPushValueForDistributionKeyApiInit;
 - (void *)_ADClientAddValueForScalarKeyApiInit;
 - (void)dealloc;
 - (id)init;
+- (void)noteMeticsForSyncEndedWithSuccces:(_Bool)arg1 duration:(id)arg2;
+- (void)noteMeticsForSyncStartFrom:(id)arg1 fullSync:(_Bool)arg2;
+- (void)noteCompletedInitialSync;
+- (void)noteSyncError:(id)arg1;
+- (void)clearInitialCKSyncState;
 
 @end
 

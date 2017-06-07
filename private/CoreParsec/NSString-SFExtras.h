@@ -7,10 +7,10 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (SFExtras)
-- (unsigned long long)sf_asColumnAlignment;
-- (unsigned long long)sf_asImageAlignment;
-- (unsigned long long)sf_asButtonAlignment;
-- (unsigned long long)sf_asTextAlignment;
-- (unsigned long long)sf_asResultPlacement;
+- (int)sf_asColumnAlignment;
+- (int)sf_asImageAlignment;
+- (int)sf_asButtonAlignment;
+- (int)sf_asTextAlignment;
+- (int)sf_asResultPlacement;
 @end
 

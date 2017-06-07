@@ -7,6 +7,7 @@
 #import <QuartzCore/CALayer.h>
 
 @interface CALayer (PKCAUtilities)
+- (double)pkui_animateToOpacity:(double)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)_pkui_nextAdditiveAnimationKeyWithKeyPath:(id)arg1;
 - (id)pkui_addAdditiveAnimation:(id)arg1 withKeyPath:(id)arg2;
 - (id)pkui_addAdditiveAnimation:(id)arg1;

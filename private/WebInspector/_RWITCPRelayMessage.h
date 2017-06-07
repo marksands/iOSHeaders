@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
 + (id)TCPRelayMessageFromDataStream:(id)arg1 error:(id *)arg2;
 @property(readonly, copy, nonatomic) NSData *payload; // @synthesize payload=_payload;
 - (void).cxx_destruct;
+- (long long)writeInternal:(CDUnknownBlockType)arg1;
 - (long long)write:(int)arg1;
 @property(readonly, nonatomic) unsigned long long length;
 - (id)initWithPayload:(id)arg1;

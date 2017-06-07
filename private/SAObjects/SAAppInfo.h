@@ -20,6 +20,8 @@
 @property(retain, nonatomic) SAStarkSupport *starkSupport;
 @property(copy, nonatomic) NSDictionary *spotlightNameMap;
 @property(copy, nonatomic) NSString *spotlightName;
+@property(copy, nonatomic) NSDictionary *spokenNameMap;
+@property(copy, nonatomic) NSString *spokenName;
 @property(retain, nonatomic) SASiriSupport *siriSupport;
 @property(copy, nonatomic) NSString *providerName;
 @property(copy, nonatomic) NSNumber *nowPlayingAppWithBrowsableContent;
@@ -36,6 +38,7 @@
 @property(nonatomic) _Bool betaApp;
 @property(copy, nonatomic) NSString *appVersion;
 @property(copy, nonatomic) NSDictionary *appNameSynonymsMap;
+@property(copy, nonatomic) NSArray *appNameSynonyms;
 @property(copy, nonatomic) NSDictionary *appNameMap;
 @property(copy, nonatomic) NSString *appName;
 @property(retain, nonatomic) SASyncAppIdentifyingInfo *appIdentifyingInfo;

@@ -21,7 +21,7 @@
     _Bool _isHandlingTransactionEnd;
     NSMutableArray *_onCommitBlocks;
     NSMutableArray *_onRollbackBlocks;
-    _Bool _isWriter;
+    _Bool _writer;
     _Bool _checkpointRequired;
     NSURL *_fileURL;
     id <HDSQLiteDatabaseDelegate> _delegate;
@@ -29,24 +29,26 @@
 
 + (_Bool)_stepStatement:(struct sqlite3_stmt *)arg1 hasRow:(_Bool *)arg2 resultCode:(int *)arg3 error:(id *)arg4;
 + (id)virtualFilesystemModule;
-+ (id)highFrequencyDatabaseURLWithHomeDirectoryPath:(id)arg1;
-+ (id)protectedDatabaseURLWithHomeDirectoryPath:(id)arg1;
-+ (id)mainDatabaseURLWithHomeDirectoryPath:(id)arg1;
++ (id)highFrequencyDatabaseURLWithProfileDirectoryPath:(id)arg1;
++ (id)protectedDatabaseURLWithProfileDirectoryPath:(id)arg1;
++ (id)mainDatabaseURLWithProfileDirectoryPath:(id)arg1;
 @property(nonatomic) _Bool checkpointRequired; // @synthesize checkpointRequired=_checkpointRequired;
 @property(nonatomic) __weak id <HDSQLiteDatabaseDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) _Bool isWriter; // @synthesize isWriter=_isWriter;
+@property(nonatomic, getter=isWriter) _Bool writer; // @synthesize writer=_writer;
 @property(readonly, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)_assertNoActiveStatements;
-- (struct sqlite3_stmt *)_statementForSQL:(id)arg1 cache:(_Bool)arg2 error:(id *)arg3;
+- (struct sqlite3_stmt *)_statementForSQL:(id)arg1 shouldCache:(_Bool)arg2 didUseCache:(_Bool *)arg3 error:(id *)arg4;
 - (id)dumpSchemaWithError:(id *)arg1;
+- (id)_tableNamesForDatabaseWithName:(id)arg1 error:(id *)arg2;
 - (id)_schemaForDatabaseWithName:(id)arg1 error:(id *)arg2;
 - (id)_schemaForTableWithName:(id)arg1 database:(id)arg2 error:(id *)arg3;
 - (id)_schemaForIndexWithName:(id)arg1 database:(id)arg2 error:(id *)arg3;
 - (_Bool)isDatabaseWithNameAttached:(id)arg1;
 - (_Bool)detachDatabaseWithName:(id)arg1 error:(id *)arg2;
 - (_Bool)attachDatabaseWithName:(id)arg1 fileURL:(id)arg2 error:(id *)arg3;
+- (_Bool)performIntegrityCheckWithError:(id *)arg1 integrityErrorHandler:(CDUnknownBlockType)arg2;
 - (_Bool)incrementalVacuumDatabaseIfNeeded:(id)arg1 error:(id *)arg2;
 - (_Bool)enableIncrementalAutovacuumWithError:(id *)arg1;
 - (_Bool)columnIsNullable:(id)arg1 inTable:(id)arg2 error:(id *)arg3;
@@ -72,18 +74,24 @@
 - (_Bool)_executeSQL:(id)arg1 error:(id *)arg2;
 - (_Bool)_verifyDatabaseOpenAndReturnError:(id *)arg1;
 - (void)accessDatabaseUsingBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic, getter=isOpen) _Bool open;
 - (void)close;
 - (int)openForReadingWithError:(id *)arg1;
 - (int)openWithError:(id *)arg1;
 - (int)_openForWriting:(_Bool)arg1 error:(id *)arg2;
 - (void)dealloc;
+- (id)initMemoryDatabaseWithDelegate:(id)arg1;
 - (id)initWithDatabaseURL:(id)arg1 delegate:(id)arg2;
 - (_Bool)accessHFDForWritingWithError:(id *)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)accessHFDForReadingWithError:(id *)arg1 block:(CDUnknownBlockType)arg2;
-- (id)highFrequenceDatabaseURL;
+- (id)highFrequencyDatabaseURL;
 - (_Bool)isProtectedDatabaseAttached;
 - (_Bool)detachProtectedDatabaseWithError:(id *)arg1;
 - (_Bool)attachProtectedDatabaseWithURL:(id)arg1 error:(id *)arg2;
+- (_Bool)deleteDataEntitySubclassTable:(id)arg1 intermediateTables:(id)arg2 error:(id *)arg3;
+- (_Bool)deleteRowsFromDataEntitySubclassTable:(id)arg1 intermediateTables:(id)arg2 error:(id *)arg3;
+- (_Bool)correlationCountForDataEntitySubclassTable:(id)arg1 count:(long long *)arg2 error:(id *)arg3;
+- (id)statementsForDeleteRowsFromDataEntitySubclassTable:(id)arg1 intermediateTables:(id)arg2 error:(id *)arg3;
 
 @end
 

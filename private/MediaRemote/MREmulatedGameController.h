@@ -23,7 +23,7 @@
 @property(nonatomic) double buttonAUpDelay; // @synthesize buttonAUpDelay=_buttonAUpDelay;
 @property(readonly, nonatomic) int profile; // @synthesize profile=_profile;
 - (void)_handleGameControllerDidChange:(id)arg1;
-- (void)sendGameControllerEvent:(CDStruct_06eb3966 *)arg1;
+- (void)sendGameControllerEvent:(void *)arg1;
 - (void)dealloc;
 - (id)initWithProperties:(void *)arg1;
 

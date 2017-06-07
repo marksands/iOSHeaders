@@ -21,6 +21,7 @@
     } _has;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -39,7 +40,6 @@
 - (id)structureTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasStructureType;
 @property(nonatomic) int structureType; // @synthesize structureType=_structureType;
-- (void)dealloc;
 
 @end
 

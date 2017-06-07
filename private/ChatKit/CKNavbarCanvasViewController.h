@@ -8,7 +8,7 @@
 
 #import <ChatKit/CKAvatarPickerViewControllerDelegate-Protocol.h>
 
-@class CKAvatarPickerViewController, CKCanvasBackButtonView, CKConversation, CKNavigationBarCanvasView, CNContactStore, NSString, UIButton, UILabel, UINavigationController;
+@class CKAvatarPickerViewController, CKCanvasBackButtonView, CKConversation, CKLabel, CKNavigationBarCanvasView, CNContactStore, NSString, UIButton, UINavigationController;
 @protocol CKNavbarCanvasViewControllerDelegate;
 
 @interface CKNavbarCanvasViewController : UIViewController <CKAvatarPickerViewControllerDelegate>
@@ -20,7 +20,7 @@
     NSString *_navbarTitle;
     CKConversation *_conversation;
     CKAvatarPickerViewController *_avatarPickerViewController;
-    UILabel *_defaultTitleLabel;
+    CKLabel *_defaultLabel;
     CKCanvasBackButtonView *_backButtonView;
     UIButton *_detailsButton;
     UIButton *_clearAllButtonView;
@@ -36,7 +36,7 @@
 @property(retain, nonatomic) UIButton *clearAllButtonView; // @synthesize clearAllButtonView=_clearAllButtonView;
 @property(retain, nonatomic) UIButton *detailsButton; // @synthesize detailsButton=_detailsButton;
 @property(retain, nonatomic) CKCanvasBackButtonView *backButtonView; // @synthesize backButtonView=_backButtonView;
-@property(retain, nonatomic) UILabel *defaultTitleLabel; // @synthesize defaultTitleLabel=_defaultTitleLabel;
+@property(retain, nonatomic) CKLabel *defaultLabel; // @synthesize defaultLabel=_defaultLabel;
 @property(retain, nonatomic) CKAvatarPickerViewController *avatarPickerViewController; // @synthesize avatarPickerViewController=_avatarPickerViewController;
 @property(retain, nonatomic) CKConversation *conversation; // @synthesize conversation=_conversation;
 @property(retain, nonatomic) NSString *navbarTitle; // @synthesize navbarTitle=_navbarTitle;
@@ -46,10 +46,13 @@
 - (void).cxx_destruct;
 - (void)_buttonPressed:(id)arg1;
 - (void)_contactPhotosEnabledChangedNotification:(id)arg1;
+- (void)setUnreadCountTitleColor;
 - (void)_chatUnreadCountDidChange:(id)arg1;
 - (void)_updateUnreadCountForBackbuttonView:(long long)arg1;
 - (long long)_unreadCount;
 - (void)_showContactCardForEntity:(id)arg1;
+- (void)dismissModal;
+- (void)showMapkitBusinessData;
 - (void)avatarPickerViewControllerDidSelectEntity:(id)arg1;
 - (void)_configureForDefaultMode;
 - (void)_configureForEditMode;
@@ -59,6 +62,8 @@
 - (void)_initializeForTraitCollection:(id)arg1;
 - (void)updateTitle:(id)arg1 animated:(_Bool)arg2;
 - (void)configureForEditing:(_Bool)arg1;
+- (void)_notifyDelegateThatViewControllerWantsResize;
+- (void)accessibilitySizeCategoryDidChange:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (void)viewDidLayoutSubviews;

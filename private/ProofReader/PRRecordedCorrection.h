@@ -18,6 +18,7 @@
 @property _Bool hasRecordedResponse; // @synthesize hasRecordedResponse=_hasRecordedResponse;
 - (id)correctedString;
 - (id)correctionResult;
+- (id)description;
 - (void)dealloc;
 - (id)initWithCorrectionResult:(id)arg1 correctedString:(id)arg2;
 

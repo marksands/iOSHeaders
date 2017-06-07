@@ -38,7 +38,7 @@
 @property(nonatomic) int destinationWidth; // @synthesize destinationWidth=_destinationWidth;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)init;
 - (int)numberOfPoints;
 - (void)replayPointsWithScale:(float)arg1 pointBlock:(CDUnknownBlockType)arg2;

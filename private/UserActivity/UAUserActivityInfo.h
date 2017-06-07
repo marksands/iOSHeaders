@@ -30,6 +30,7 @@
     NSString *_dynamicActivityType;
     NSString *_teamIdentifier;
     NSURL *_webpageURL;
+    NSURL *_referrerURL;
     NSDictionary *_options;
     NSError *_encodedUserInfoError;
     NSSet *_requiredUserInfoKeys;
@@ -69,6 +70,7 @@
 @property(copy) NSSet *requiredUserInfoKeys; // @synthesize requiredUserInfoKeys=_requiredUserInfoKeys;
 @property(copy) NSError *encodedUserInfoError; // @synthesize encodedUserInfoError=_encodedUserInfoError;
 @property(copy) NSDictionary *options; // @synthesize options=_options;
+@property(copy) NSURL *referrerURL; // @synthesize referrerURL=_referrerURL;
 @property(copy) NSURL *webpageURL; // @synthesize webpageURL=_webpageURL;
 @property(copy) NSString *teamIdentifier; // @synthesize teamIdentifier=_teamIdentifier;
 @property(copy) NSString *dynamicActivityType; // @synthesize dynamicActivityType=_dynamicActivityType;

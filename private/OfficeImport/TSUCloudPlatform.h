@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (long long)sharingPlatformVersion;
 + (long long)ubiquityCloudPlatformVersion;
 + (void)setUbiquityPlatformVersionForContainerURL:(id)arg1;
 

@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) id value;
 - (void)layoutSubviews;
+- (struct CGSize)intrinsicContentSize;
 - (id)initWithProfile:(id)arg1;
 
 // Remaining properties

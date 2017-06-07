@@ -16,6 +16,7 @@
 
 + (id)cancelSessionWithDictionary:(id)arg1 context:(id)arg2;
 + (id)cancelSession;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

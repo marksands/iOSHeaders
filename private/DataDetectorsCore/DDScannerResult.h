@@ -13,13 +13,13 @@
 
 @interface DDScannerResult : NSObject <NSCoding, NSSecureCoding>
 {
-    struct __DDResult *_coreResult;
+    // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}, name: _coreResult
     NSArray *_subResultsCache;
 }
 
 + (_Bool)supportsSecureCoding;
 + (id)resultsFromCoreResults:(struct __CFArray *)arg1;
-+ (id)resultFromCoreResult:(struct __DDResult *)arg1;
++     // Error parsing type: @24@0:8^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16, name: resultFromCoreResult:
 - (void)offsetRangeBy:(long long)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
@@ -45,10 +45,10 @@
 - (long long)score;
 - (CDStruct_912cb5d2)cfRange;
 @property struct _NSRange range;
-- (struct __DDResult *)coreResult;
+-     // Error parsing type: ^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16@0:8, name: coreResult
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
-- (id)initWithCoreResult:(struct __DDResult *)arg1;
+-     // Error parsing type: @24@0:8^{__DDResult={__CFRuntimeBase=QAQ}{__DDQueryRange={__DDQueryOffset=b32b32}{__DDQueryOffset=b32b32}}{?=qq}q^{__CFArray}^{__CFString}^{__CFString}^v^{__CFDictionary}qCf}16, name: initWithCoreResult:
 - (id)init;
 
 @end

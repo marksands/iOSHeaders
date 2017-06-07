@@ -58,6 +58,7 @@
 @property(nonatomic) int mapCenterY; // @synthesize mapCenterY=_mapCenterY;
 @property(nonatomic) int mapCenterX; // @synthesize mapCenterX=_mapCenterX;
 @property(retain, nonatomic) NSString *query; // @synthesize query=_query;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -89,7 +90,6 @@
 @property(nonatomic) _Bool hasRequestType;
 @property(nonatomic) int requestType; // @synthesize requestType=_requestType;
 @property(readonly, nonatomic) _Bool hasQuery;
-- (void)dealloc;
 
 @end
 

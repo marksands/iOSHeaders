@@ -18,9 +18,9 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) TSKSelection *selection; // @synthesize selection=mSelection;
 - (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 @property(readonly, nonatomic) KNSlideCollectionSelection *slideCollectionSelection;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 
 // Remaining properties

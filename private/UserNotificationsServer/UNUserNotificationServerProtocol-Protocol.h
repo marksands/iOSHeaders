@@ -6,9 +6,12 @@
 
 #import <UserNotificationsServer/NSObject-Protocol.h>
 
-@class NSArray, NSSet, NSString, UNNotificationRequest;
+@class NSArray, NSNumber, NSSet, NSString, UNNotificationRequest;
 
 @protocol UNUserNotificationServerProtocol <NSObject>
+- (void)setBadgeString:(NSString *)arg1 forBundleIdentifier:(NSString *)arg2 withCompletionHandler:(void (^)(NSError *))arg3;
+- (void)setBadgeNumber:(NSNumber *)arg1 forBundleIdentifier:(NSString *)arg2 withCompletionHandler:(void (^)(NSError *))arg3;
+- (void)getBadgeNumberForBundleIdentifier:(NSString *)arg1 withCompletionHandler:(void (^)(NSNumber *))arg2;
 - (void)getAllowsRemoteNotificationsForBundleIdentifier:(NSString *)arg1 withCompletionHandler:(void (^)(_Bool))arg2;
 - (void)invalidateTokenForRemoteNotificationsForBundleIdentifier:(NSString *)arg1;
 - (void)requestTokenForRemoteNotificationsForBundleIdentifier:(NSString *)arg1 withCompletionHandler:(void (^)(_Bool, NSError *))arg2;

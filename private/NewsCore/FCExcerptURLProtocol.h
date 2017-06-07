@@ -6,11 +6,11 @@
 
 #import <Foundation/NSURLProtocol.h>
 
-@class FCCKFetchRecordsOperation;
+@class FCCKContentFetchOperation;
 
 @interface FCExcerptURLProtocol : NSURLProtocol
 {
-    FCCKFetchRecordsOperation *_fetchOperation;
+    FCCKContentFetchOperation *_fetchOperation;
 }
 
 + (_Bool)requestIsCacheEquivalent:(id)arg1 toRequest:(id)arg2;
@@ -20,7 +20,7 @@
 + (void)unregister;
 + (void)setupWithArticleDatabase:(id)arg1;
 + (void)initialize;
-@property(retain, nonatomic) FCCKFetchRecordsOperation *fetchOperation; // @synthesize fetchOperation=_fetchOperation;
+@property(retain, nonatomic) FCCKContentFetchOperation *fetchOperation; // @synthesize fetchOperation=_fetchOperation;
 - (void).cxx_destruct;
 - (void)stopLoading;
 - (void)startLoading;

@@ -6,98 +6,75 @@
 
 #import <objc/NSObject.h>
 
-#import <HealthDaemon/CBPeripheralDelegate-Protocol.h>
 #import <HealthDaemon/HDHSCharacteristicsDelegate-Protocol.h>
 
-@class CBCharacteristic, CBPeripheral, HDDeviceEntity, HDHealthServiceManager, HKDevice, NSMutableArray, NSString, NSUUID;
-@protocol HDHealthDaemon, OS_dispatch_queue;
+@class HDDeviceEntity, HDHealthPeripheral, HDHealthServiceManager, HDProfile, NSMutableArray, NSMutableDictionary, NSString, NSUUID;
+@protocol OS_dispatch_queue;
 
-@interface HDHealthService : NSObject <CBPeripheralDelegate, HDHSCharacteristicsDelegate>
+@interface HDHealthService : NSObject <HDHSCharacteristicsDelegate>
 {
     NSObject<OS_dispatch_queue> *_dataQueue;
     NSMutableArray *_pendingObjectBuffer;
+    NSMutableArray *_pendingCharacteristicBuffer;
     HDDeviceEntity *_deviceEntity;
     _Bool _deliverData;
     _Bool _characteristicsDiscovered;
     int _deviceInformationLoaded;
-    id <HDHealthDaemon> _healthDaemon;
-    CBPeripheral *_peripheral;
+    HDProfile *_profile;
+    HDHealthPeripheral *_healthPeripheral;
     NSUUID *_peripheralUUID;
     NSString *_serviceId;
     HDHealthServiceManager *_serviceManager;
-    CBCharacteristic *_writableCharacteristic;
+    NSMutableDictionary *_writableCharacteristics;
     NSObject<OS_dispatch_queue> *_writeQueue;
     NSMutableArray *_pendingWrites;
-    NSString *_peripheralName;
-    HKDevice *_deviceInformation;
 }
 
 + (id)implementedProperties;
-+ (_Bool)uint32:(unsigned int)arg1 toData:(char **)arg2 before:(const char *)arg3;
-+ (_Bool)uint16:(unsigned short)arg1 toData:(char **)arg2 before:(const char *)arg3;
-+ (_Bool)uint8:(unsigned char)arg1 toData:(char **)arg2 before:(const char *)arg3;
-+ (id)dateFromData:(const char **)arg1 before:(const char *)arg2;
-+ (double)doubleFromFLOATData:(const char **)arg1 before:(const char *)arg2;
-+ (float)floatFromSFLOATData:(const char **)arg1 before:(const char *)arg2;
-+ (unsigned int)uint32FromData:(const char **)arg1 before:(const char *)arg2;
-+ (unsigned short)uint16FromData:(const char **)arg1 before:(const char *)arg2;
-+ (short)int16FromData:(const char **)arg1 before:(const char *)arg2;
-+ (unsigned char)uint8FromData:(const char **)arg1 before:(const char *)arg2;
-+ (double)doubleFromFLOAT:(unsigned int)arg1;
-+ (float)floatFromSFLOAT:(unsigned short)arg1;
 + (id)serviceUUID;
 + (long long)serviceType;
 @property(nonatomic) int deviceInformationLoaded; // @synthesize deviceInformationLoaded=_deviceInformationLoaded;
-@property(retain, nonatomic) HKDevice *deviceInformation; // @synthesize deviceInformation=_deviceInformation;
-@property(copy, nonatomic) NSString *peripheralName; // @synthesize peripheralName=_peripheralName;
 @property(retain, nonatomic) NSMutableArray *pendingWrites; // @synthesize pendingWrites=_pendingWrites;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *writeQueue; // @synthesize writeQueue=_writeQueue;
-@property(retain, nonatomic) CBCharacteristic *writableCharacteristic; // @synthesize writableCharacteristic=_writableCharacteristic;
+@property(retain, nonatomic) NSMutableDictionary *writableCharacteristics; // @synthesize writableCharacteristics=_writableCharacteristics;
 @property(retain, nonatomic) HDHealthServiceManager *serviceManager; // @synthesize serviceManager=_serviceManager;
 @property(readonly, nonatomic) _Bool characteristicsDiscovered; // @synthesize characteristicsDiscovered=_characteristicsDiscovered;
 @property(retain, nonatomic) NSString *serviceId; // @synthesize serviceId=_serviceId;
 @property _Bool deliverData; // @synthesize deliverData=_deliverData;
 @property(readonly, nonatomic) NSUUID *peripheralUUID; // @synthesize peripheralUUID=_peripheralUUID;
-@property(readonly, nonatomic) __weak CBPeripheral *peripheral; // @synthesize peripheral=_peripheral;
-@property(nonatomic) __weak id <HDHealthDaemon> healthDaemon; // @synthesize healthDaemon=_healthDaemon;
+@property(readonly, nonatomic) __weak HDHealthPeripheral *healthPeripheral; // @synthesize healthPeripheral=_healthPeripheral;
+@property(nonatomic) __weak HDProfile *profile; // @synthesize profile=_profile;
 - (void).cxx_destruct;
-- (_Bool)_shouldPersistObjects;
+- (_Bool)processAdvertisementData:(id)arg1;
+- (_Bool)_shouldNotifyReceivedData;
+- (void)_bufferCharacteristicToBeNotified:(id)arg1;
 - (void)_bufferObjectToBePersisted:(id)arg1;
-- (void)_dataQueue_deviceUpdated;
-- (void)_loadDeviceWithPropertyManager:(id)arg1;
-@property(readonly, copy) NSString *description;
-- (void)peripheral:(id)arg1 didWriteValueForDescriptor:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didUpdateValueForDescriptor:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didDiscoverDescriptorsForCharacteristic:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didUpdateNotificationStateForCharacteristic:(id)arg2 error:(id)arg3;
+- (void)_dataQueue_deliverDataIfPossible;
+- (void)deviceInformationSetOnPeripheral;
+- (void)mfaSucceededOnPeripheral;
+- (id)description;
 - (void)peripheral:(id)arg1 didWriteValueForCharacteristic:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didDiscoverCharacteristicsForService:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didDiscoverIncludedServicesForService:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didDiscoverServices:(id)arg2;
-- (void)peripheral:(id)arg1 didReadRSSI:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didModifyServices:(id)arg2;
-- (void)peripheralDidUpdateName:(id)arg1;
-- (void)peripheral:(id)arg1 didWriteValueResponse:(id)arg2 error:(id)arg3;
+- (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 updateTime:(id)arg3 error:(id)arg4;
 - (void)peripheral:(id)arg1 didDiscoverCharacteristic:(id)arg2;
+- (void)peripheral:(id)arg1 didDiscoverCharacteristics:(id)arg2;
 - (void)readProperty:(id)arg1;
-- (void)writeValue:(id)arg1 onPeripheral:(id)arg2 expectResponse:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)writeCharacteristic:(id)arg1 expectResponse:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (_Bool)supportsWritingCharacteristic:(id)arg1;
+- (void)setWritableCharacteristic:(id)arg1;
 - (void)markCharacteristicsDiscovered;
 - (void)executeFirstWrite;
 - (void)respondFirstWriteWithData:(id)arg1 error:(id)arg2;
 - (void)performOperation:(id)arg1 onPeripheral:(id)arg2 withParameters:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)servicesInvalidatedWithError:(id)arg1;
+- (_Bool)supportsOperation:(id)arg1;
+- (void)_dataQueue_notifyCharacteristic:(id)arg1;
+- (void)characteristicDataReceived:(id)arg1;
 - (void)transitoryDataReceived:(id)arg1 withError:(id)arg2;
 - (void)_dataQueue_persistData:(id)arg1;
 - (void)serviceDataReceived:(id)arg1;
+- (id)servicesInProfile;
 - (void)deviceDisconnecting;
 - (id)_dataQueue_deviceEntity;
-- (id)initWithServiceManager:(id)arg1 propertyManager:(id)arg2 healthDaemon:(id)arg3 peripheral:(id)arg4;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initWithServiceManager:(id)arg1 peripheral:(id)arg2 advertisementData:(id)arg3 profile:(id)arg4;
 
 @end
 

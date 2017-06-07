@@ -13,6 +13,7 @@
 {
     struct CGImageSource *mImageSource;
     struct CGImage *mImage;
+    unsigned long long mImageGamut;
     struct CGSize mNaturalSize;
     long long mOrientation;
     _Bool mIsOpaque;
@@ -48,6 +49,7 @@
 - (struct CGSize)dpiAdjustedNaturalSize;
 - (struct CGSize)dpiAdjustedFillSize;
 - (unsigned long long)imageDPI;
+- (unsigned long long)imageGamut;
 - (_Bool)isOpaque;
 - (long long)orientation;
 - (struct CGImage *)p_resampledImageOfSizeType:(int)arg1;

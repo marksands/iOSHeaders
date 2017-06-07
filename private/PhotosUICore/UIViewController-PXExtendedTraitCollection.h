@@ -10,6 +10,7 @@
 
 @interface UIViewController (PXExtendedTraitCollection)
 + (void)_px_prepareClassForExtendedTraitCollection;
++ (void)px_preloadExtendedTraitCollection;
 - (void)_pxswizzled_viewControllerTraitCollection_traitCollectionDidChange:(id)arg1;
 - (void)_pxswizzled_viewControllerTraitCollection_viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)_pxswizzled_viewControllerTraitCollection_viewWillLayoutSubviews;

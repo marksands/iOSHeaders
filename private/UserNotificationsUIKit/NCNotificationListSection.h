@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
-- (id)_matchIdentifierForNotificationRequest:(id)arg1;
+- (_Bool)_isNotificationRequest:(id)arg1 matchingRequest:(id)arg2;
 - (unsigned long long)_insertionIndexForNotificationRequest:(id)arg1;
 - (unsigned long long)_indexOfRequestMatchingRequest:(id)arg1;
 - (id)succinctDescriptionBuilder;

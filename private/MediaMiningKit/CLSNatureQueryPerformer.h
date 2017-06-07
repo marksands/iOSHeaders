@@ -10,9 +10,9 @@
 {
 }
 
-+ (double)precision;
-+ (_Bool)shouldQueryItemsForRegion:(id)arg1 selectedRegions:(id)arg2;
-- (id)initWithRegions:(id)arg1;
++ (double)defaultPrecision;
+- (_Bool)shouldQueryItemsForRegion:(id)arg1 selectedRegions:(id)arg2;
+- (id)initWithRegions:(id)arg1 precision:(double)arg2;
 
 @end
 

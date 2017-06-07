@@ -18,7 +18,6 @@
     unsigned int _isComplicationColorApplied:1;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (void).cxx_destruct;
 - (void)videoPlayerViewDidPauseAfterPlayingVideoToEnd:(id)arg1;
 - (void)videoPlayerViewDidBeginPlaying:(id)arg1;
@@ -27,7 +26,7 @@
 - (id)_nextListing;
 - (id)_defaultListing;
 - (void)_selectDefaultListing;
-- (void)_addSubviewInOrder:(id)arg1;
+- (void)didAddSubview:(id)arg1;
 - (id)_onDeckPosterImageView;
 - (id)_posterImageView;
 - (void)_applyComplicationContentSpecificAttributesWithColor:(id)arg1 animated:(_Bool)arg2;
@@ -40,6 +39,7 @@
 - (double)_timeTravelYAdjustment;
 - (double)_rightSideMarginForDigitalTimeHeroPosition;
 - (id)_viewForEditOption:(id)arg1;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (_Bool)_keylineLabelShouldShowIndividualOptionNamesForCustomEditMode:(long long)arg1;
 - (unsigned long long)_keylineLabelAlignmentForComplicationSlot:(id)arg1;
 - (id)_keylineViewForCustomEditMode:(long long)arg1 slot:(id)arg2;

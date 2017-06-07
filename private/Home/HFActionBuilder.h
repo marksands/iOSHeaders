@@ -14,6 +14,7 @@
 
 + (id)actionBuilderForAction:(id)arg1 inHome:(id)arg2;
 + (Class)homeKitRepresentationClass;
+- (id)copyForCreatingNewAction;
 @property(readonly, nonatomic) _Bool requiresDeviceUnlock;
 - (_Bool)updateWithActionBuilder:(id)arg1;
 - (void)setAction:(id)arg1;

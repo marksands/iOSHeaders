@@ -8,7 +8,7 @@
 
 #import <Sharing/NSSecureCoding-Protocol.h>
 
-@class NSData, NSDictionary, NSMutableSet, NSUUID, SFDevice, SFSession;
+@class NSData, NSDictionary, NSSet, NSUUID, SFDevice, SFSession;
 
 @interface SFMessage : NSObject <NSSecureCoding>
 {
@@ -19,11 +19,11 @@
     CDUnknownBlockType _completionHandler;
     NSDictionary *_headerFields;
     SFSession *_session;
-    struct NSMutableSet *_deviceIDs;
+    struct NSSet *_deviceIDs;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSMutableSet *deviceIDs; // @synthesize deviceIDs=_deviceIDs;
+@property(copy, nonatomic) NSSet *deviceIDs; // @synthesize deviceIDs=_deviceIDs;
 @property(retain, nonatomic) SFSession *session; // @synthesize session=_session;
 @property(retain, nonatomic) SFDevice *peerDevice; // @synthesize peerDevice=_peerDevice;
 @property(copy, nonatomic) NSUUID *identifier; // @synthesize identifier=_identifier;

@@ -7,6 +7,7 @@
 #import <objc/NSObject.h>
 
 @class ICLRUCache, NSMapTable;
+@protocol OS_dispatch_source;
 
 @interface ICImageLRUCache : NSObject
 {
@@ -16,8 +17,10 @@
     ICLRUCache *_bigImageCache;
     ICLRUCache *_smallImageCache;
     NSMapTable *_weakImageMap;
+    NSObject<OS_dispatch_source> *_memoryWarningEventSource;
 }
 
+@property(retain, nonatomic) NSObject<OS_dispatch_source> *memoryWarningEventSource; // @synthesize memoryWarningEventSource=_memoryWarningEventSource;
 @property(readonly) NSMapTable *weakImageMap; // @synthesize weakImageMap=_weakImageMap;
 @property(readonly) ICLRUCache *smallImageCache; // @synthesize smallImageCache=_smallImageCache;
 @property(readonly) ICLRUCache *bigImageCache; // @synthesize bigImageCache=_bigImageCache;
@@ -25,7 +28,9 @@
 @property(readonly, nonatomic) unsigned long long smallImageCacheCount; // @synthesize smallImageCacheCount=_smallImageCacheCount;
 @property(readonly, nonatomic) unsigned long long bigImageCacheCount; // @synthesize bigImageCacheCount=_bigImageCacheCount;
 - (void).cxx_destruct;
-- (void)receivedMemoryWarning:(id)arg1;
+- (void)receivedMemoryWarning;
+- (void)unregisterForMemoryWarnings;
+- (void)registerForMemoryWarnings;
 - (void)dealloc;
 - (struct UIImage *)objectForKey:(id)arg1;
 - (void)removeAllObjects;

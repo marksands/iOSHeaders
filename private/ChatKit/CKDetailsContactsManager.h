@@ -43,6 +43,7 @@
 - (void)startCommunicationForEntity:(id)arg1 action:(unsigned long long)arg2 address:(id)arg3;
 - (void)_handleAddressBookChange:(id)arg1;
 - (_Bool)_conversationHasLeft;
+- (void)_handleConversationPendingRecipientsDidChange:(id)arg1;
 - (void)_conversationJoinStateDidChange:(id)arg1;
 - (void)_handleConversationRecipientsDidChange:(id)arg1;
 - (void)_handleLocationChanged:(id)arg1;

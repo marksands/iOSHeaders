@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 
-@class HAPOSTransaction, NSDate, NSNumber, NSString;
+@class HMFOSTransaction, NSDate, NSNumber, NSString;
 
-@interface HMDSnapshotFile : NSObject <HMFLogging>
+@interface HMDSnapshotFile : HMFObject <HMFLogging>
 {
     _Bool _externalFilePath;
     NSString *_directory;
@@ -18,11 +18,11 @@
     NSDate *_snapshotTimestamp;
     NSNumber *_slotIdentifier;
     NSNumber *_aspectRatio;
-    HAPOSTransaction *_snapshotCATransaction;
+    HMFOSTransaction *_snapshotCATransaction;
 }
 
 + (id)logCategory;
-@property(retain, nonatomic) HAPOSTransaction *snapshotCATransaction; // @synthesize snapshotCATransaction=_snapshotCATransaction;
+@property(retain, nonatomic) HMFOSTransaction *snapshotCATransaction; // @synthesize snapshotCATransaction=_snapshotCATransaction;
 @property(readonly, nonatomic) _Bool externalFilePath; // @synthesize externalFilePath=_externalFilePath;
 @property(readonly, nonatomic) NSNumber *aspectRatio; // @synthesize aspectRatio=_aspectRatio;
 @property(retain, nonatomic) NSNumber *slotIdentifier; // @synthesize slotIdentifier=_slotIdentifier;

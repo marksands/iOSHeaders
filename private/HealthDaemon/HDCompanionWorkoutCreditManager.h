@@ -35,7 +35,6 @@
 - (void)daemonReady:(id)arg1;
 - (void)stopObservingWorkouts;
 - (void)performWorkoutCreditFixup;
-- (id)_healthDataManager;
 - (void)dealloc;
 - (id)initWithProfile:(id)arg1;
 

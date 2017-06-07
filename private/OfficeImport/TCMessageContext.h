@@ -36,13 +36,13 @@ __attribute__((visibility("hidden")))
 + (void)createContextForCurrentThread;
 + (void)reportErrorException:(id)arg1;
 + (void)reportWarningException:(id)arg1;
-+ (void)reportError:(struct TCTaggedMessageStructure *)arg1;
-+ (void)reportWarning:(struct TCTaggedMessageStructure *)arg1;
-+ (void)reportObject:(id)arg1 withWarning:(struct TCTaggedMessageStructure *)arg2;
++ (void)reportError:(id)arg1;
++ (void)reportWarning:(id)arg1;
++ (void)reportObject:(id)arg1 withWarning:(id)arg2;
 + (id)currentObjectOrPlaceholder;
-+ (void)reportObjectOrPlaceholder:(id)arg1 withWarning:(struct TCTaggedMessageStructure *)arg2 parameters:(struct __va_list_tag [1])arg3;
++ (void)reportObjectOrPlaceholder:(id)arg1 withWarning:(id)arg2 parameters:(struct __va_list_tag [1])arg3;
 + (void)initialize;
-- (void)reportWarningForObject:(id)arg1 warning:(struct TCTaggedMessageStructure *)arg2 parameterList:(struct __va_list_tag [1])arg3;
+- (void)reportWarningForObject:(id)arg1 warning:(id)arg2 parameterList:(struct __va_list_tag [1])arg3;
 - (void)dealloc;
 - (id)init;
 - (void)reportWarningsToDelegate;

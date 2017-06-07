@@ -31,15 +31,9 @@
 - (void)_notificationWithNameReceived:(id)arg1;
 - (void)deactivate;
 - (void)activate;
-@property(readonly, nonatomic) _Bool active;
-@property(readonly, copy) NSString *description;
+- (id)description;
 - (void)dealloc;
 - (id)initWithNotificationName:(id)arg1 callback:(CDUnknownBlockType)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

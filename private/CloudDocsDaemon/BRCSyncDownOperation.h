@@ -23,6 +23,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)shouldRetryForError:(id)arg1;
 - (void)_startCreateZoneAndSubscriptionAndSyncDown;
 - (void)_startSyncDown;
+- (_Bool)handleZoneNotFoundIfSyncingDownForTheFirstTime:(id)arg1;
 - (void)_performAfterFetchingRecordChanges:(CDUnknownBlockType)arg1;
 - (id)createActivity;
 - (id)initWithServerZone:(id)arg1;

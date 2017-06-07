@@ -68,6 +68,7 @@
 - (void)_reportFolderItemsSyncResult:(id)arg1;
 - (void)_setFolderIdsThatExternalClientsCareAbout:(id)arg1;
 - (void)_resetCertWarnings:(id)arg1;
+- (void)_asyncProcessMeetingRequests:(id)arg1;
 - (void)_processMeetingRequests:(id)arg1;
 - (void)_cancelServerContactsSearch:(id)arg1;
 - (void)_openServerContactsSearch:(id)arg1;

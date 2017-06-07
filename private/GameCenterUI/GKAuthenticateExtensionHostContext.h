@@ -12,8 +12,6 @@
 
 + (id)_extensionAuxiliaryHostProtocol;
 + (id)_extensionAuxiliaryVendorProtocol;
-- (void)unlockRotation;
-- (id)extensionObjectProxy;
 
 @end
 

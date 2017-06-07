@@ -19,8 +19,6 @@
 }
 
 + (long long)compareMemoryInfo:(id)arg1 toMemoryInfo:(id)arg2;
-+ (unsigned long long)_categoryRankForMemoryInfo:(id)arg1;
-+ (id)_rankForCategory:(long long)arg1;
 @property(readonly, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(readonly, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(readonly, copy, nonatomic) NSArray *memories; // @synthesize memories=_memories;

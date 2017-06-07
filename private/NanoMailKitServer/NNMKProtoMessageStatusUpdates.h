@@ -8,16 +8,21 @@
 
 #import <NanoMailKitServer/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray;
+@class NSData, NSMutableArray, NSString;
 
 @interface NNMKProtoMessageStatusUpdates : PBCodable <NSCopying>
 {
     NSData *_dateSynced;
     unsigned int _fullSyncVersion;
+    NSString *_mailboxId;
+    unsigned int _mailboxSyncVersion;
     NSMutableArray *_messageStatusUpdates;
-    CDStruct_a125a100 _has;
+    CDStruct_8d07e858 _has;
 }
 
++ (Class)messageStatusUpdateType;
+@property(nonatomic) unsigned int mailboxSyncVersion; // @synthesize mailboxSyncVersion=_mailboxSyncVersion;
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(retain, nonatomic) NSMutableArray *messageStatusUpdates; // @synthesize messageStatusUpdates=_messageStatusUpdates;
 @property(retain, nonatomic) NSData *dateSynced; // @synthesize dateSynced=_dateSynced;
 @property(nonatomic) unsigned int fullSyncVersion; // @synthesize fullSyncVersion=_fullSyncVersion;
@@ -31,6 +36,8 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasMailboxSyncVersion;
+@property(readonly, nonatomic) _Bool hasMailboxId;
 - (id)messageStatusUpdateAtIndex:(unsigned long long)arg1;
 - (unsigned long long)messageStatusUpdatesCount;
 - (void)addMessageStatusUpdate:(id)arg1;

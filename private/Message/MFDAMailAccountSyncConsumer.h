@@ -21,6 +21,7 @@
     id _streamConsumer;
     NSMutableData *_bodyData;
     _Bool _moreAvailable;
+    _Bool _hasConflict;
     _Bool _receivedFirstItem;
     _Bool _firstSyncBatch;
     int _syncKeyResets;
@@ -29,6 +30,7 @@
     NSConditionLock *_accountHierarchyLock;
 }
 
+@property(readonly, nonatomic) _Bool hasConflict; // @synthesize hasConflict=_hasConflict;
 @property(readonly, nonatomic) _Bool moreAvailable; // @synthesize moreAvailable=_moreAvailable;
 @property(retain, nonatomic) id streamConsumer; // @synthesize streamConsumer=_streamConsumer;
 @property(readonly, nonatomic) NSString *tag; // @synthesize tag=_tag;

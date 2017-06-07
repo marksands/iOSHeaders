@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSString *incidentType; // @synthesize incidentType=_incidentType;
 @property(retain, nonatomic) GEOTransitDepartureSequenceUsage *transitDepartureSequenceUsage; // @synthesize transitDepartureSequenceUsage=_transitDepartureSequenceUsage;
 @property(retain, nonatomic) NSString *transitSystemName; // @synthesize transitSystemName=_transitSystemName;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,7 +41,6 @@
 - (id)transitCategoryAsString:(int)arg1;
 @property(nonatomic) _Bool hasTransitCategory;
 @property(nonatomic) int transitCategory; // @synthesize transitCategory=_transitCategory;
-- (void)dealloc;
 
 @end
 

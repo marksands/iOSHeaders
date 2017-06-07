@@ -18,6 +18,8 @@
 - (void)gizmoDidEndPasscodeCreation:(IDSProtobuf *)arg1;
 - (void)gizmoDidFinishActivating:(IDSProtobuf *)arg1;
 - (void)gizmoDidBeginActivating:(IDSProtobuf *)arg1;
+
+@optional
 - (void)gizmoBecameAvailableWantsConfirmation:(IDSProtobuf *)arg1;
 @end
 

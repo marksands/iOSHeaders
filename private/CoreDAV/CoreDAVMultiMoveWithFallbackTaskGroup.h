@@ -32,6 +32,7 @@
 @property(readonly, nonatomic) int overwrite; // @synthesize overwrite=_overwrite;
 @property(readonly, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(readonly, nonatomic) NSSet *sourceURLs; // @synthesize sourceURLs=_sourceURLs;
+- (void).cxx_destruct;
 - (void)_completedPutTask:(id)arg1 sourceURL:(id)arg2;
 - (void)_completedMoveTask:(id)arg1 sourceURL:(id)arg2;
 - (id)_eTagFromTaskResponseHeaders:(id)arg1;
@@ -41,7 +42,6 @@
 - (id)filenameFromURL:(id)arg1;
 - (id)fullDestinationURLFromSourceURL:(id)arg1;
 - (id)description;
-- (void)dealloc;
 - (id)initWithSourceURLs:(id)arg1 destinationURL:(id)arg2 overwrite:(_Bool)arg3 useFallback:(_Bool)arg4 sourceEntityDataPayloads:(id)arg5 sourceEntityDataContentTypes:(id)arg6 sourceEntityETags:(id)arg7 accountInfoProvider:(id)arg8 taskManager:(id)arg9;
 
 @end

@@ -50,8 +50,12 @@
         unsigned int drawsDebugBaselines:1;
         unsigned int mirrorsTextAlignment:1;
         unsigned int forcesTrackingFloor:1;
-        unsigned int reserved:11;
+        unsigned int isLiveScrolling:1;
+        unsigned int hasCustomUnderlineColor:1;
+        unsigned int reserved:9;
     } _lmFlags2;
+    struct _NSGlyphIndexForPointCache _glyphIndexForPointCache;
+    long long _currentChangeInLength;
 }
 
 @end

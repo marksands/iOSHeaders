@@ -4,24 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegate-Protocol.h>
 
-@class HAPOSTransaction, HMDCameraSessionID, IDSService, NSString;
+@class HMDCameraSessionID, HMFOSTransaction, IDSService, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDCameraSnapshotIDSStream : NSObject <IDSServiceDelegate, HMFLogging>
+@interface HMDCameraSnapshotIDSStream : HMFObject <IDSServiceDelegate, HMFLogging>
 {
     NSObject<OS_dispatch_queue> *_workQueue;
     HMDCameraSessionID *_sessionID;
     IDSService *_idsProxyService;
-    HAPOSTransaction *_snapshotStreamTransaction;
+    HMFOSTransaction *_snapshotStreamTransaction;
 }
 
 + (id)logCategory;
-@property(retain, nonatomic) HAPOSTransaction *snapshotStreamTransaction; // @synthesize snapshotStreamTransaction=_snapshotStreamTransaction;
+@property(retain, nonatomic) HMFOSTransaction *snapshotStreamTransaction; // @synthesize snapshotStreamTransaction=_snapshotStreamTransaction;
 @property(readonly, nonatomic) IDSService *idsProxyService; // @synthesize idsProxyService=_idsProxyService;
 @property(readonly, nonatomic) HMDCameraSessionID *sessionID; // @synthesize sessionID=_sessionID;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;

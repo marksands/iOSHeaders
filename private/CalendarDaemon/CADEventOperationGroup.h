@@ -13,10 +13,13 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)sharedContactStore;
 + (_Bool)requiresReminderAccess;
 + (_Bool)requiresEventAccess;
 + (_Bool)requiresEventOrReminderAccess;
+- (void)CADDatabaseShouldWhitelistOrganizerPhoneNumberFromJunkChecks:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)CADDatabaseShouldWhitelistOrganizerEmailFromJunkChecks:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)CADOccurrencesExistInRangeForEvent:(id)arg1 startDate:(id)arg2 endDate:(id)arg3 mustStartInInterval:(_Bool)arg4 timezone:(id)arg5 reply:(CDUnknownBlockType)arg6;
 - (void)CADOccurrenceCacheCancelSearchWithReplyID:(int)arg1;
 - (void)CADOccurrenceCacheSearchLocationsWithTerm:(id)arg1 inCalendars:(id)arg2 responseToken:(int)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)CADOccurrenceCacheSearchWithTerm:(id)arg1 inCalendars:(id)arg2 responseToken:(int)arg3 reply:(CDUnknownBlockType)arg4;
@@ -25,9 +28,9 @@ __attribute__((visibility("hidden")))
 - (void)CADOccurrenceCacheGetOccurrenceForCalendars:(id)arg1 onDay:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)CADOccurrenceCacheGetOccurrenceCountsForCalendars:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)CADOccurrenceCacheAreOccurrencesBeingGenerated:(CDUnknownBlockType)arg1;
-- (void)CADDatabaseGetBirthdayContactIdentifierForEvent:(CDStruct_1ef3fb1f)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)CADDatabaseActOnSuggestedEvent:(CDStruct_1ef3fb1f)arg1 action:(int)arg2 validator:(id)arg3 reply:(CDUnknownBlockType)arg4;
-- (void)CADDatabaseActOnSuggestedEvent:(CDStruct_1ef3fb1f)arg1 action:(int)arg2 reply:(CDUnknownBlockType)arg3;
+- (void)CADDatabaseGetBirthdayContactIdentifierForEvent:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)CADDatabaseActOnSuggestedEvent:(id)arg1 action:(int)arg2 validator:(id)arg3 reply:(CDUnknownBlockType)arg4;
+- (void)CADDatabaseActOnSuggestedEvent:(id)arg1 action:(int)arg2 reply:(CDUnknownBlockType)arg3;
 - (_Bool)_CADDatabaseCanModifySuggestedEventCalendar;
 - (void)CADDatabaseCanModifySuggestedEventCalendar:(CDUnknownBlockType)arg1;
 - (void)CADDatabaseSetShowsDeclinedEvents:(_Bool)arg1;
@@ -38,10 +41,12 @@ __attribute__((visibility("hidden")))
 - (void)CADDatabaseGetEventWithEventIdentifier:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)CADDatabaseRemoveSuggestedEventCalendarWithReply:(CDUnknownBlockType)arg1;
 - (void)CADDatabaseInsertSuggestedEventCalendarWithReply:(CDUnknownBlockType)arg1;
+- (void)CADDatabaseGetNaturalLanguageSuggestedEventCalendarWithReply:(CDUnknownBlockType)arg1;
 - (void)CADDatabaseGetSuggestedEventCalendarWithReply:(CDUnknownBlockType)arg1;
-- (void)CADDatabaseSetDefaultCalendarForNewEvents:(CDStruct_1ef3fb1f)arg1;
+- (void)CADDatabaseSetDefaultCalendarForNewEvents:(id)arg1;
 - (void)CADDatabaseGetDefaultCalendarForNewEventsWithReply:(CDUnknownBlockType)arg1;
-- (CDStruct_1ef3fb1f)_getDefaultCalendarIDForNewEvents;
+- (id)_getDefaultCalendarIDForNewEvents;
+- (void)CADDatabaseGetDefaultLocalCalendarWithReply:(CDUnknownBlockType)arg1;
 
 @end
 

@@ -17,10 +17,5 @@
 - (void)replaceCrowdsourcedCorrectionSetsWithCorrectionSets:(NSArray *)arg1 retrievalURLString:(NSString *)arg2 completionHandler:(void (^)(_Bool))arg3;
 - (void)setLastCrowdsourcedCorrectionsRetrievalURLString:(NSString *)arg1 completionHandler:(void (^)(_Bool))arg2;
 - (void)getLastCrowdsourcedCorrectionsRetrievalURLStringWithCompletionHandler:(void (^)(NSString *))arg1;
-- (void)setLastWhitelistRetrievalURLString:(NSString *)arg1 completionHandler:(void (^)(_Bool))arg2;
-- (void)getLastWhitelistRetrievalURLStringWithCompletionHandler:(void (^)(NSString *))arg1;
-- (void)setDomain:(NSString *)arg1 isWhitelistedForFeedback:(_Bool)arg2 completionHandler:(void (^)(_Bool))arg3;
-- (void)getWhitelistStatusForDomain:(NSString *)arg1 completionHandler:(void (^)(_Bool))arg2;
-- (void)replaceDomainWhitelistWithDomains:(NSArray *)arg1 retrievalURLString:(NSString *)arg2 completionHandler:(void (^)(_Bool))arg3;
 @end
 

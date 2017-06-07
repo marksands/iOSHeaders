@@ -6,16 +6,12 @@
 
 #import <Sharing/NSObject-Protocol.h>
 
-@class NSDictionary, NSNumber, NSString;
-@protocol SFActivityAdvertiserClient, SFAirDropTransferDataProviderClient, SFCompanionServiceManagerClient, SFContinuityScannerClient;
+@class NSDictionary, NSString;
+@protocol SFActivityAdvertiserClient, SFCompanionServiceManagerClient, SFContinuityScannerClient;
 
 @protocol SFCompanionXPCManagerProtocol <NSObject>
 - (void)appleAccountSignedOut;
 - (void)appleAccountSignedIn;
-- (void)userDidSelectAppWithIndex:(NSNumber *)arg1 forRecordID:(NSString *)arg2;
-- (void)userDidPerformActionWithType:(unsigned long long)arg1 andRecordID:(NSString *)arg2;
-- (void)addAirDropClientToManager:(id <SFAirDropTransferDataProviderClient>)arg1;
-- (void)createAirDropTransferDataProviderForClientProxy:(id <SFAirDropTransferDataProviderClient>)arg1 WithReply:(void (^)(id <SFAirDropTransferDataProviderProtocol>, NSError *))arg2;
 - (void)createUnlockManagerWithReply:(void (^)(id <SFUnlockProtocol>, NSError *))arg1;
 - (void)createContinuityScannerForClientProxy:(id <SFContinuityScannerClient>)arg1 reply:(void (^)(id <SFContinuityScannerProtocol>, NSError *))arg2;
 - (void)createActivityAdvertiserForClientProxy:(id <SFActivityAdvertiserClient>)arg1 reply:(void (^)(id <SFActivityAdvertiserProtocol>, NSError *))arg2;

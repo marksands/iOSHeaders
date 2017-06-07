@@ -4,10 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray, PARRequest, PARSessionConfiguration;
+@class PARRequest, PARSessionConfiguration;
 
 @protocol PAREndpointXPC
-- (void)loadImages:(NSArray *)arg1 timeout:(unsigned long long)arg2 completion:(void (^)(NSDictionary *))arg3;
-- (void)request:(PARRequest *)arg1 configuration:(PARSessionConfiguration *)arg2 reply:(void (^)(long long, PARReply *, NSError *))arg3;
+- (void)request:(PARRequest *)arg1 configuration:(PARSessionConfiguration *)arg2 reply:(void (^)(unsigned long long, PARReply *, NSError *))arg3;
 @end
 

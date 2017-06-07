@@ -90,6 +90,7 @@
 - (id)getProtectedConfiguration;
 - (void)cancel;
 - (_Bool)isFingerOn;
+- (int)detectPresenceWithOptions:(id)arg1;
 - (int)detectFingerWithOptions:(id)arg1;
 - (int)match:(id)arg1 withOptions:(id)arg2;
 - (int)match:(id)arg1;

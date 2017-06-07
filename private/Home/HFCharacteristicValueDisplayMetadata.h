@@ -13,22 +13,25 @@
     long long _primaryState;
     long long _priority;
     NSString *_sortKey;
-    HFCharacteristicValueDisplayError *_error;
     long long _transitioningPrimaryState;
+    HFCharacteristicValueDisplayError *_error;
 }
 
 + (long long)_unknownStatePriorityForServiceType:(id)arg1;
 + (id)displayMetadataForAccessory:(id)arg1 withContextProvider:(id)arg2;
 + (id)displayMetadataForServiceType:(id)arg1 characteristicReadResponse:(id)arg2;
-@property(nonatomic) long long transitioningPrimaryState; // @synthesize transitioningPrimaryState=_transitioningPrimaryState;
 @property(retain, nonatomic) HFCharacteristicValueDisplayError *error; // @synthesize error=_error;
+@property(nonatomic) long long transitioningPrimaryState; // @synthesize transitioningPrimaryState=_transitioningPrimaryState;
 @property(copy, nonatomic) NSString *sortKey; // @synthesize sortKey=_sortKey;
 @property(nonatomic) long long priority; // @synthesize priority=_priority;
 @property(nonatomic) long long primaryState; // @synthesize primaryState=_primaryState;
 - (void).cxx_destruct;
 - (void)parseProgammableSwitchOfType:(id)arg1 response:(id)arg2;
 - (void)parseCurrentTargetPositionForServiceType:(id)arg1 response:(id)arg2;
-- (void)parseThermostatResponse:(id)arg1;
+- (void)parseHumidifierDehumidifierResponse:(id)arg1;
+- (void)parseAirPurifierResponse:(id)arg1;
+- (void)parseThermostatResponse:(id)arg1 serviceType:(id)arg2;
+- (void)parseActiveStateForServiceType:(id)arg1 response:(id)arg2;
 - (void)parsePowerStateForServiceType:(id)arg1 response:(id)arg2;
 - (void)parseWarningSensorWithServiceType:(id)arg1 response:(id)arg2;
 - (void)parseInformationalSensorWithServiceType:(id)arg1 response:(id)arg2;

@@ -92,6 +92,7 @@
 - (void)refreshServiceForSending;
 - (void)_updateForNewPreferredService;
 - (struct CGRect)gradientFrameWithInsets:(struct UIEdgeInsets)arg1;
+- (void)transcriptCollectionViewController:(id)arg1 balloonViewDidRequestPresentationStyleExpanded:(_Bool)arg2 forChatItem:(id)arg3;
 - (void)transcriptCollectionViewController:(id)arg1 didEndImpactEffectAnimationWithSendAnimationContext:(id)arg2;
 - (void)transcriptCollectionViewController:(id)arg1 willBeginImpactEffectAnimationWithSendAnimationContext:(id)arg2;
 - (id)transcriptCollectionViewControllerAdditionalFullscreenEffectViews:(id)arg1;

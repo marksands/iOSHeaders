@@ -9,11 +9,9 @@
 __attribute__((visibility("hidden")))
 @interface _TVListView : _TVCollectionView
 {
-    double _topPaddingFactor;
 }
 
-@property(nonatomic) double topPaddingFactor; // @synthesize topPaddingFactor=_topPaddingFactor;
-- (void)_getGradientMaskBounds:(out struct CGRect *)arg1 startInsets:(out struct UIEdgeInsets *)arg2 endInsets:(out struct UIEdgeInsets *)arg3 intensities:(out struct UIEdgeInsets *)arg4;
+- (struct CGSize)tv_sizeThatFits:(struct CGSize)arg1 withContentInset:(struct UIEdgeInsets)arg2;
 
 @end
 

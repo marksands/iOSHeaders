@@ -16,7 +16,7 @@
 
 + (void)loadFlightsWithNumber:(unsigned long long)arg1 airlineCode:(id)arg2 date:(id)arg3 dateType:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)loadFlightWithIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-+ (void)loadFlightDataWithFlightNumber:(long long)arg1 airlineCode:(id)arg2 date:(id)arg3 dateType:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
++ (void)loadFlightDataWithFlightNumber:(unsigned long long)arg1 airlineCode:(id)arg2 date:(id)arg3 dateType:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (Class)flightFactoryClassWithProvider:(id)arg1;
 - (id)parseFlightData:(id)arg1 withError:(id *)arg2;
 

@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 
 @interface GEORoadMatch : NSObject
 {
-    CDStruct_2244da21 *_roadFeature;
+    CDStruct_a2ef2718 *_roadFeature;
     NSString *_roadName;
     CDStruct_2c43369c _coordinateOnRoad;
     double _courseOnRoad;
@@ -27,8 +27,9 @@
 @property(nonatomic) double courseOnRoad; // @synthesize courseOnRoad=_courseOnRoad;
 @property(nonatomic) CDStruct_c3b9c2ee coordinateOnRoad; // @synthesize coordinateOnRoad=_coordinateOnRoad;
 @property(copy, nonatomic) NSString *roadName; // @synthesize roadName=_roadName;
-@property(readonly, nonatomic) CDStruct_2244da21 *roadFeature; // @synthesize roadFeature=_roadFeature;
-- (void)setRoadFeature:(CDStruct_2244da21 *)arg1;
+@property(readonly, nonatomic) CDStruct_a2ef2718 *roadFeature; // @synthesize roadFeature=_roadFeature;
+- (void).cxx_destruct;
+- (void)setRoadFeature:(CDStruct_a2ef2718 *)arg1;
 - (void)dealloc;
 - (id)initWithCoordinateOnRoad:(CDStruct_c3b9c2ee)arg1 courseOnRoad:(double)arg2;
 

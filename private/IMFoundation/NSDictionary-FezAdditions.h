@@ -8,13 +8,9 @@
 
 @interface NSDictionary (FezAdditions)
 + (id)dictionaryWithKeyArray:(id)arg1 defaultValue:(id)arg2;
-+ (id)dictionaryWithArchiveData:(id)arg1;
-+ (id)dictionaryWithArchiveData:(id)arg1 allowedClasses:(id)arg2;
 + (id)dictionaryWithPlistData:(id)arg1;
-+ (id)_dictionaryWithData:(id)arg1 isPlist:(_Bool)arg2 allowedClasses:(id)arg3;
 - (id)__imDeepCopy;
 - (id)dictionaryFromChanges:(id)arg1;
-- (id)archiveData;
 - (id)plistData;
 - (id)keysOfChangedEntriesComparedTo:(id)arg1;
 - (_Bool)__imIsMutable;

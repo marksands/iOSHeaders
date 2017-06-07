@@ -6,13 +6,14 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSDate, NSMutableSet, PLCloudPhotoLibraryManager, PLPhotoLibrary;
+@class NSDate, NSMutableSet, PLCloudPhotoLibraryManager, PLCloudResourcePruneManager, PLPhotoLibrary;
 @protocol OS_dispatch_queue;
 
 @interface PLCloudResourcePrefetchManager : NSObject
 {
     PLPhotoLibrary *_photoLibrary;
     PLCloudPhotoLibraryManager *_cplManager;
+    PLCloudResourcePruneManager *_pruneManager;
     NSMutableSet *_inflightResources;
     long long _defaultPrefetchMode;
     NSDate *_lastCheckCPLBGDownloadDate;
@@ -27,6 +28,8 @@
 - (void)_resourcesToPrefetchWithPredicates:(id)arg1 budget:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)_resourcesWithPredicate:(id)arg1 limit:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)_predicatesForNonThumbnails;
+- (id)_predicateForKeyFacePrefetching;
+- (id)_predicatesForMemoriesPrefetching;
 - (id)_predicatesForThumbnails;
 - (id)_lastCompletePrefetchDate;
 - (id)_resourcePredicatesToPrefetchForMemory:(id)arg1;
@@ -61,7 +64,7 @@
 - (void)_checkCPLBackgroundDownloadOperations;
 - (void)startAutomaticPrefetch;
 - (void)dealloc;
-- (id)initWithCPLManager:(id)arg1;
+- (id)initWithCPLManager:(id)arg1 pruneManager:(id)arg2;
 - (id)init;
 
 @end

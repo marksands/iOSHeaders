@@ -9,10 +9,11 @@
 #import <GeoServices/GEOTransitNamedItem-Protocol.h>
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLatLng, GEOStyleAttributes, NSMutableArray, NSString;
+@class GEOLatLng, GEOStyleAttributes, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPBTransitStop : PBCodable <GEOTransitNamedItem, NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _muid;
     unsigned int _hallIndex;
     GEOLatLng *_latLng;
@@ -37,6 +38,8 @@
 @property(retain, nonatomic) GEOLatLng *latLng; // @synthesize latLng=_latLng;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 @property(nonatomic) unsigned int stopIndex; // @synthesize stopIndex=_stopIndex;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -57,7 +60,7 @@
 @property(readonly, nonatomic) _Bool hasLatLng;
 @property(nonatomic) _Bool hasMuid;
 @property(nonatomic) _Bool hasStopIndex;
-- (void)dealloc;
+- (id)identifier;
 - (id)bestNameWithLocale:(out id *)arg1;
 - (id)bestName;
 

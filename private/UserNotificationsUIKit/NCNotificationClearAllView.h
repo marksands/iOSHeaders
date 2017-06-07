@@ -16,8 +16,7 @@
 
 - (void).cxx_destruct;
 - (void)touchesEnded:(id)arg1 withEvent:(id)arg2;
-- (void)layoutSubviews;
-- (struct CGSize)intrinsicContentSize;
+- (struct CGSize)systemLayoutSizeFittingSize:(struct CGSize)arg1 withHorizontalFittingPriority:(float)arg2 verticalFittingPriority:(float)arg3;
 - (void)didMoveToSuperview;
 - (id)initWithClearAllHandler:(CDUnknownBlockType)arg1;
 

@@ -6,23 +6,21 @@
 
 #import <Home/NSObject-Protocol.h>
 
-@class HFAccessoryBrowsingManager, HFDiscoveredAccessory, HMHome, NAFuture, NSString;
+@class HFDiscoveredAccessory, HMHome, HMSetupAccessoryPayload, NAFuture, NSSet, NSString;
 @protocol HFSetupPairingObserver;
 
 @protocol HFSetupPairingController <NSObject>
-@property(readonly, nonatomic) HFAccessoryBrowsingManager *accessoryBrowser;
-@property(readonly, nonatomic) _Bool hasFailedAccessories;
-@property(readonly, nonatomic) NSString *statusText;
++ (_Bool)supportsSetupPayloadRetry;
+@property(readonly, nonatomic) HFDiscoveredAccessory *discoveredAccessoryToPair;
+@property(readonly, nonatomic) NSString *statusDescription;
+@property(readonly, nonatomic) NSString *statusTitle;
 @property(readonly, nonatomic) unsigned long long phase;
 @property(readonly, nonatomic) HMHome *home;
-@property(retain, nonatomic) NSString *setupCode;
-- (HFDiscoveredAccessory *)pairedDiscoveredAccessory;
+@property(retain, nonatomic) HMSetupAccessoryPayload *setupPayload;
+- (NSSet *)pairedAccessories;
 - (NAFuture *)cancel;
 - (void)startWithHome:(HMHome *)arg1;
 - (void)removePairingObserver:(id <HFSetupPairingObserver>)arg1;
 - (void)addPairingObserver:(id <HFSetupPairingObserver>)arg1;
-
-@optional
-@property(readonly, nonatomic) HFDiscoveredAccessory *discoveredAccessoryToPair;
 @end
 

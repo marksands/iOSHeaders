@@ -20,6 +20,7 @@
 + (Class)configKeyValueType;
 @property(retain, nonatomic) NSMutableArray *configKeyValues; // @synthesize configKeyValues=_configKeyValues;
 @property(retain, nonatomic) GEOABDebugPanelExperimentBranch *debugExperimentBranch; // @synthesize debugExperimentBranch=_debugExperimentBranch;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -35,7 +36,6 @@
 - (void)addConfigKeyValue:(id)arg1;
 - (void)clearConfigKeyValues;
 @property(readonly, nonatomic) _Bool hasDebugExperimentBranch;
-- (void)dealloc;
 
 @end
 

@@ -14,6 +14,7 @@
 }
 
 - (id)description;
+- (id)dictionaryRepresentation;
 - (id)URLStringWithAccount:(id)arg1;
 - (id)_folderID;
 @property(copy) NSString *folderID;

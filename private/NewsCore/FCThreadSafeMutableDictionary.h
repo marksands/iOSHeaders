@@ -15,7 +15,7 @@
 }
 
 - (void).cxx_destruct;
-@property(readonly, copy, nonatomic) NSDictionary *immutableDictionary;
+@property(readonly, copy, nonatomic) NSDictionary *readOnlyDictionary;
 @property(readonly, copy, nonatomic) NSArray *allValues;
 @property(readonly, copy, nonatomic) NSArray *allKeys;
 - (void)readWriteWithAccessor:(CDUnknownBlockType)arg1;

@@ -6,19 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSMutableDictionary, PDFAction, PDFAnnotationPopup, PDFPage;
+@class NSDictionary, NSLock, NSMutableDictionary, NSString, PDFAKAnnotationAdaptor, PDFAccessibilityNode, PDFAnnotation, PDFPage;
+@protocol NSCopying;
 
+__attribute__((visibility("hidden")))
 @interface PDFAnnotationPrivateVars : NSObject
 {
     _Bool loggingEnabled;
     _Bool export;
     PDFPage *page;
-    struct CGPDFDictionary *dictionary;
+    struct CGPDFDictionary *sourceDictionary;
     struct __CFDictionary *dictionaryRef;
+    NSString *pdfAnnotationUUID;
+    struct CGPDFAnnotation *cgAnnotation;
     NSMutableDictionary *PDFAnnotationDictionary;
     NSDictionary *PDFAnnotationKeyMapping;
-    PDFAction *mouseDownAction;
-    PDFAction *mouseUpAction;
     struct CGPDFForm *normalAppearance;
     struct CGPDFForm *rolloverAppearance;
     struct CGPDFForm *downAppearance;
@@ -27,8 +29,24 @@
     struct CGPDFForm *downOffAppearance;
     _Bool saveAppearance;
     _Bool isSelected;
-    PDFAnnotationPopup *popup;
+    _Bool isHighlighted;
+    PDFAnnotation *parent;
+    PDFAnnotation *popup;
     struct CGPDFDictionary *popupDictionary;
+    _Bool popupDrawCloseWidget;
+    _Bool popupDrawText;
+    struct CGPath **cgPaths;
+    NSLock *pathLock;
+    _Bool isSignature;
+    _Bool shouldBurnIn;
+    NSString *widgetOnStateString;
+    id control;
+    PDFAccessibilityNode *accessibilityNode;
+    double scaleFactor;
+    _Bool isFullyConstructed;
+    _Bool constructingDictionaryRef;
+    PDFAKAnnotationAdaptor *akAnnotationAdaptor;
+    id <NSCopying> akAnnotationForCopying;
 }
 
 - (void).cxx_destruct;

@@ -9,7 +9,7 @@
 #import <PhotosUICore/PXPeopleSuggestionManagerDelegate-Protocol.h>
 #import <PhotosUICore/PXPeopleSummaryDelegate-Protocol.h>
 
-@class NSString, NSTimer, PXAnimatedHeaderView, PXPeopleConfirmationSummaryViewController, PXPeopleSuggestionManager, PXPeopleSuggestionView, UIActivityIndicatorView, UILabel, UIView;
+@class NSString, NSTimer, PXAnimatedHeaderView, PXPeopleConfirmationLoadingView, PXPeopleConfirmationSummaryViewController, PXPeopleSuggestionManager, PXPeopleSuggestionView, UIActivityIndicatorView, UILabel;
 
 @interface PXPeopleConfirmationViewController : UIViewController <PXPeopleSuggestionManagerDelegate, PXPeopleSummaryDelegate>
 {
@@ -21,24 +21,18 @@
     UILabel *_interimLoadingLabel;
     UIActivityIndicatorView *_interimLoadingIndicator;
     unsigned long long _viewState;
-    UIView *_loadingView;
-    UIView *_loadingStatusView;
-    UILabel *_noneFoundStatusLabel;
-    UIActivityIndicatorView *_initialLoadingIndicator;
+    PXPeopleConfirmationLoadingView *_loadingView;
     PXPeopleConfirmationSummaryViewController *_summaryViewController;
     NSTimer *_loadingDelayTimer;
 }
 
-@property _Bool suggestionsPresented; // @synthesize suggestionsPresented=_suggestionsPresented;
-@property(retain) NSTimer *loadingDelayTimer; // @synthesize loadingDelayTimer=_loadingDelayTimer;
-@property(retain) PXPeopleConfirmationSummaryViewController *summaryViewController; // @synthesize summaryViewController=_summaryViewController;
-@property(retain) UIActivityIndicatorView *initialLoadingIndicator; // @synthesize initialLoadingIndicator=_initialLoadingIndicator;
-@property(retain) UILabel *noneFoundStatusLabel; // @synthesize noneFoundStatusLabel=_noneFoundStatusLabel;
-@property(retain) UIView *loadingStatusView; // @synthesize loadingStatusView=_loadingStatusView;
-@property(retain) UIView *loadingView; // @synthesize loadingView=_loadingView;
+@property(nonatomic) _Bool suggestionsPresented; // @synthesize suggestionsPresented=_suggestionsPresented;
+@property(retain, nonatomic) NSTimer *loadingDelayTimer; // @synthesize loadingDelayTimer=_loadingDelayTimer;
+@property(retain, nonatomic) PXPeopleConfirmationSummaryViewController *summaryViewController; // @synthesize summaryViewController=_summaryViewController;
+@property(retain, nonatomic) PXPeopleConfirmationLoadingView *loadingView; // @synthesize loadingView=_loadingView;
 @property(nonatomic) unsigned long long viewState; // @synthesize viewState=_viewState;
-@property(retain) UIActivityIndicatorView *interimLoadingIndicator; // @synthesize interimLoadingIndicator=_interimLoadingIndicator;
-@property(retain) UILabel *interimLoadingLabel; // @synthesize interimLoadingLabel=_interimLoadingLabel;
+@property(retain, nonatomic) UIActivityIndicatorView *interimLoadingIndicator; // @synthesize interimLoadingIndicator=_interimLoadingIndicator;
+@property(retain, nonatomic) UILabel *interimLoadingLabel; // @synthesize interimLoadingLabel=_interimLoadingLabel;
 @property(retain, nonatomic) UILabel *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(retain, nonatomic) PXAnimatedHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) PXPeopleSuggestionView *suggestionView; // @synthesize suggestionView=_suggestionView;
@@ -47,9 +41,9 @@
 - (unsigned long long)autoConfirmedCountForSummaryViewController:(id)arg1;
 - (unsigned long long)userConfirmedCountForSummaryViewController:(id)arg1;
 - (id)personForSummaryViewController:(id)arg1;
-- (void)loadingMoreSuggestionsForSuggestionManager:(id)arg1;
+- (void)willLoadMoreSuggestionsForSuggestionManager:(id)arg1;
 - (void)noMoreSuggestionsAvailableForSuggestionManager:(id)arg1;
-- (void)suggestionManager:(id)arg1 hasNewSuggestionAvailable:(id)arg2;
+- (void)suggestionManager:(id)arg1 hasNewSuggestionsAvailable:(id)arg2;
 - (void)confirmationCountUpdatedForSuggestionManager:(id)arg1;
 - (void)doneTapped:(id)arg1;
 - (void)performUndo:(id)arg1;

@@ -28,6 +28,7 @@
 + (id)akColorWithSRGBRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)akBlendedColorWithFraction:(double)arg1 ofColor:(id)arg2;
 - (id)colorUsingSRGBColorSpace;
+- (_Bool)akHasHueEqualToColor:(id)arg1 withTolerance:(double)arg2;
 - (_Bool)akIsEqualToColor:(id)arg1;
 - (double)akAlphaComponent;
 @end

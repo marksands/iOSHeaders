@@ -13,42 +13,54 @@
 
 @interface HFServiceGroupBuilder : HFItemBuilder <HFServiceLikeBuilder>
 {
+    _Bool isFavorite;
+    _Bool _hasSetRoom;
+    _Bool _hasSetIcon;
+    id <HFIconDescriptor> _iconDescriptor;
     NSString *_name;
     HFMutableSetDiff *_serviceUUIDs;
     HFRoomBuilder *_roomBuilder;
 }
 
 + (Class)homeKitRepresentationClass;
+@property(nonatomic) _Bool hasSetIcon; // @synthesize hasSetIcon=_hasSetIcon;
+@property(nonatomic) _Bool hasSetRoom; // @synthesize hasSetRoom=_hasSetRoom;
 @property(retain, nonatomic) HFRoomBuilder *roomBuilder; // @synthesize roomBuilder=_roomBuilder;
 @property(readonly, nonatomic) HFMutableSetDiff *serviceUUIDs; // @synthesize serviceUUIDs=_serviceUUIDs;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) _Bool isFavorite; // @synthesize isFavorite;
 - (void).cxx_destruct;
-@property(nonatomic) _Bool isFavorite;
+- (_Bool)_supportsCustomIcons;
+@property(readonly, nonatomic) NSArray *availableIconDescriptors;
+@property(retain, nonatomic) id <HFIconDescriptor> iconDescriptor; // @synthesize iconDescriptor=_iconDescriptor;
 @property(retain, nonatomic) HFRoomBuilder *room;
 - (id)accessories;
 @property(readonly, nonatomic) _Bool supportsFavoriting;
 @property(readonly, nonatomic) NSString *originalName;
 - (id)_rooms;
+- (id)_updateIcon;
+- (id)_updateRooms;
+- (id)_updateFavorite;
 - (id)_updateServices;
 - (id)_updateName;
 - (id)_createServiceGroup;
 - (id)_performValidation;
 - (id)commitItem;
+- (id)removeItemFromHome;
 @property(readonly, nonatomic) NSArray *services;
 - (void)removeService:(id)arg1;
 - (void)addService:(id)arg1;
 - (_Bool)shouldAllowAddingService:(id)arg1;
 - (void)setServiceGroup:(id)arg1;
+- (id)_mostCommonIconDescriptor;
 @property(readonly, nonatomic) NSString *primaryServiceType;
 @property(readonly, nonatomic) HMServiceGroup *serviceGroup;
 - (id)initWithExistingObject:(id)arg1 inHome:(id)arg2;
 
 // Remaining properties
-@property(readonly, nonatomic) NSArray *availableIconDescriptors;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(retain, nonatomic) id <HFIconDescriptor> iconDescriptor;
 @property(readonly) Class superclass;
 
 @end

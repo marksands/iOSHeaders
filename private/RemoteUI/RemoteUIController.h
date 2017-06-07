@@ -44,6 +44,9 @@
 @property(nonatomic) __weak UIViewController *hostViewController; // @synthesize hostViewController=_hostViewController;
 - (void).cxx_destruct;
 @property(nonatomic) __weak UINavigationController *navigationController;
+- (_Bool)isListeningForHSATokenAutoFill;
+- (void)stopListeningForHSATokenAutoFill;
+- (void)startListeningForHSATokenAutoFill;
 - (void)_stopListeningForSMSAutoFill;
 - (void)_beginListeningForSMSAutoFill;
 - (void)_objectModel:(id)arg1 receivedToken:(id)arg2;

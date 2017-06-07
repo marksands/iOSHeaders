@@ -6,9 +6,10 @@
 
 #import <AssistantServices/NSObject-Protocol.h>
 
-@class NSData;
+@class NSData, NSDictionary;
 
 @protocol AFSecurityService <NSObject>
+- (oneway void)processDataMap:(NSDictionary *)arg1 usingProcedure:(long long)arg2 completion:(void (^)(NSDictionary *, NSDictionary *))arg3;
 - (oneway void)processData:(NSData *)arg1 usingProcedure:(long long)arg2 completion:(void (^)(NSData *, NSError *))arg3;
 @end
 

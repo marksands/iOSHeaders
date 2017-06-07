@@ -6,54 +6,54 @@
 
 #import <objc/NSObject.h>
 
-@class NNMKSQLiteConnection, NNMKSyncedMailbox, NSDate, NSString;
+@class NNMKSQLiteConnection, NSDate, NSString;
 
 @interface NNMKDeviceSyncRegistry : NSObject
 {
-    _Bool _isMessagesSyncActive;
-    _Bool _isMessagesSyncSuspendedByUsage;
     _Bool _isMessagesSyncSuspendedByConnectivity;
     _Bool _organizeByThread;
     _Bool _protectedContentChannelSupported;
+    _Bool _recreatedFromScratch;
     NSString *_path;
-    unsigned long long _fullMessagesSyncVersion;
-    NSDate *_dateReceivedCapForAdding;
-    NNMKSyncedMailbox *_syncedMailbox;
+    unsigned long long _fullSyncVersion;
     double _deviceScreenWidth;
     double _deviceScreenScale;
     NSDate *_disconnectedSince;
+    unsigned long long _currentDatabaseSchemaVersion;
     NNMKSQLiteConnection *_database;
 }
 
 @property(retain, nonatomic) NNMKSQLiteConnection *database; // @synthesize database=_database;
+@property(readonly, nonatomic) _Bool recreatedFromScratch; // @synthesize recreatedFromScratch=_recreatedFromScratch;
+@property(nonatomic) unsigned long long currentDatabaseSchemaVersion; // @synthesize currentDatabaseSchemaVersion=_currentDatabaseSchemaVersion;
 @property(retain, nonatomic) NSDate *disconnectedSince; // @synthesize disconnectedSince=_disconnectedSince;
 @property(nonatomic) _Bool protectedContentChannelSupported; // @synthesize protectedContentChannelSupported=_protectedContentChannelSupported;
 @property(nonatomic) double deviceScreenScale; // @synthesize deviceScreenScale=_deviceScreenScale;
 @property(nonatomic) double deviceScreenWidth; // @synthesize deviceScreenWidth=_deviceScreenWidth;
 @property(nonatomic) _Bool organizeByThread; // @synthesize organizeByThread=_organizeByThread;
-@property(retain, nonatomic) NNMKSyncedMailbox *syncedMailbox; // @synthesize syncedMailbox=_syncedMailbox;
-@property(retain, nonatomic) NSDate *dateReceivedCapForAdding; // @synthesize dateReceivedCapForAdding=_dateReceivedCapForAdding;
 @property(nonatomic) _Bool isMessagesSyncSuspendedByConnectivity; // @synthesize isMessagesSyncSuspendedByConnectivity=_isMessagesSyncSuspendedByConnectivity;
-@property(nonatomic) _Bool isMessagesSyncSuspendedByUsage; // @synthesize isMessagesSyncSuspendedByUsage=_isMessagesSyncSuspendedByUsage;
-@property(nonatomic) _Bool isMessagesSyncActive; // @synthesize isMessagesSyncActive=_isMessagesSyncActive;
-@property(nonatomic) unsigned long long fullMessagesSyncVersion; // @synthesize fullMessagesSyncVersion=_fullMessagesSyncVersion;
+@property(nonatomic) unsigned long long fullSyncVersion; // @synthesize fullSyncVersion=_fullSyncVersion;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 - (void).cxx_destruct;
+- (_Bool)hasMailboxSyncedActive;
 - (void)_insureTransactionFor:(CDUnknownBlockType)arg1;
 - (id)_ungroupGroupedValue:(id)arg1;
 - (id)_selectSyncedAccountsWhere:(id)arg1 blockForBinding:(CDUnknownBlockType)arg2;
 - (id)_selectSyncedMessagesIdsWhere:(id)arg1 count:(unsigned long long)arg2 blockForBinding:(CDUnknownBlockType)arg3;
 - (id)_selectSyncedMessagesWhere:(id)arg1 blockForBinding:(CDUnknownBlockType)arg2;
+- (void)_deleteAllObjectsFromTable:(id)arg1 mailboxId:(id)arg2;
 - (void)_deleteAllObjectsFromTable:(id)arg1;
 - (void)_removeControlValueForKey:(id)arg1;
 - (void)_setControlValueForKey:(id)arg1 withBlockForBinding:(CDUnknownBlockType)arg2;
 - (void)_loadAllControlValues;
+- (id)_idsIdentifiersForObjectId:(id)arg1 type:(id)arg2;
 - (void)deleteObjectId:(id)arg1 fromIDSIdentifiersNotYetAckdOfType:(id)arg2;
 - (id)datesForIDSIdentifiersScheduledToBeResent;
 - (void)prepareIDSIdentifiersForResendForErrorCode:(long long)arg1;
 - (void)rescheduleIDSIdentifier:(id)arg1 resendInterval:(unsigned long long)arg2 withDateToResend:(id)arg3 errorCode:(long long)arg4;
 - (void)markIDSIdentifierAsAckd:(id)arg1;
 - (id)typeForIDSIdentifierNotYetAckd:(id)arg1;
+- (id)objectIdsForType:(id)arg1;
 - (id)objectIdsForIDSIdentifierNotYetAckd:(id)arg1 type:(id *)arg2 resendInterval:(unsigned long long *)arg3;
 - (void)addObjectIds:(id)arg1 type:(id)arg2 resendInterval:(unsigned long long)arg3 forIDSIdentifierNotYetAckd:(id)arg4;
 - (void)removeProgressForComposedMessageWithId:(id)arg1;
@@ -61,15 +61,36 @@
 - (id)pendingComposedMessageIds;
 - (long long)progressForComposedMessageWithId:(id)arg1;
 - (void)setProgress:(long long)arg1 forComposedMessageWithId:(id)arg2;
+- (id)_mailboxFromCurrentRowInStatement:(struct sqlite3_stmt *)arg1;
+- (id)_selectMailboxesWhere:(id)arg1 blockForBinding:(CDUnknownBlockType)arg2;
+- (void)updateSyncRequestedForMailbox:(id)arg1;
+- (void)updateSyncActiveForMailbox:(id)arg1;
+- (void)updateSyncEnabledForMailbox:(id)arg1;
+- (void)deleteAllMailboxes;
+- (id)mailboxIdForDeletedMessageId:(id)arg1;
+- (void)insertDeletedMessageId:(id)arg1 mailboxId:(id)arg2;
+- (void)updateSyncVersion:(unsigned long long)arg1 forMailboxId:(id)arg2;
+- (unsigned long long)syncVersionForMailboxId:(id)arg1;
+- (id)mailboxesForAccountId:(id)arg1;
+- (id)mailboxWithId:(id)arg1;
+- (void)resetSyncRequestedFromMailboxes;
+- (void)deleteMailboxWithId:(id)arg1 startTransaction:(_Bool)arg2;
+- (void)deleteMailboxWithId:(id)arg1;
+- (id)activeMailboxes;
+- (id)syncEnabledMailboxes;
+- (id)mailboxes;
+- (void)addOrUpdateMailbox:(id)arg1;
 - (id)syncedAccountIdsResendRequested;
 - (void)removeSyncedAccountForAccountWithId:(id)arg1;
 - (void)addOrUpdateSyncedAccount:(id)arg1;
 - (id)syncedAccountForAccountWithId:(id)arg1;
 - (id)allSyncedAccountsKeyedByAccountId;
-- (id)syncedMessagesKeyedByMessageIdAfterDateReceived:(id)arg1;
-- (void)removeSyncedMessagesBeforeDateReceived:(id)arg1 adjustDateReceivedCapForAdding:(_Bool)arg2;
+- (id)syncedMessagesKeyedByMessageIdAfterDateReceived:(id)arg1 mailboxId:(id)arg2;
+- (void)removeSyncedMessagesBeforeDateReceived:(id)arg1 mailbox:(id)arg2;
+- (id)messageIdForSanitizedMessageId:(id)arg1;
+- (unsigned long long)syncedMessagesCountForMailboxId:(id)arg1;
 - (unsigned long long)syncedMessagesCount;
-- (id)oldestDateReceived;
+- (id)oldestDateReceivedForMailboxId:(id)arg1;
 - (id)firstSyncedMessageIdsContentNotSyncedOrRequestedByUser:(unsigned long long)arg1;
 - (id)syncedMessageIdsContentRequestedByUser;
 - (id)syncedMessageIdsResendRequested;
@@ -78,8 +99,9 @@
 - (void)addOrUpdateSyncedMessage:(id)arg1;
 - (id)syncedMessageForMessageWithId:(id)arg1;
 - (_Bool)containsSyncedMessageForMessageWithId:(id)arg1;
-- (void)cleanUpForNewFullAccountsSync;
-- (void)cleanUpForNewFullMessagesSync;
+- (void)cleanUpForInitialSync;
+- (void)incrementSyncVersionForMailboxId:(id)arg1;
+- (void)cleanUpForFullSyncWithMailbox:(id)arg1;
 - (void)endUpdates;
 - (void)beginUpdates;
 - (id)initWithPath:(id)arg1;

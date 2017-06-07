@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 + (id)p_allNonLocalizedChartDeliveryStyles;
 + (id)p_allLocalizedChartDeliveryStyles;
 + (id)p_makeAllChartDeliveryStylesLocalized:(_Bool)arg1;
-- (id)containedTextForChartDeliveryStyle:(unsigned long long)arg1 chunkIndex:(unsigned long long)arg2;
+- (id)containedTextForChartDeliveryStyle:(unsigned long long)arg1 chunkIndex:(unsigned long long)arg2 displayName:(id)arg3;
 - (id)p_nameForMultiDataSetCategory:(unsigned long long)arg1 chart:(id)arg2;
 - (id)p_seriesNameForSeriesAtIndex:(unsigned long long)arg1 withPrefix:(id)arg2 chart:(id)arg3;
 - (id)p_backgroundStringForChartWithTitle:(id)arg1;

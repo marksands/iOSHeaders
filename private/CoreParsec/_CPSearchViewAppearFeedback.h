@@ -6,39 +6,49 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPSearchViewAppearFeedback-Protocol.h>
 
-@interface _CPSearchViewAppearFeedback : PBCodable <NSCopying>
+@class NSData, NSString;
+
+@interface _CPSearchViewAppearFeedback : PBCodable <_CPProcessableFeedback, _CPSearchViewAppearFeedback, NSSecureCoding>
 {
-    unsigned long long _timestamp;
-    int _viewAppearEvent;
-    _Bool _isOnLockScreen;
-    _Bool _isOverApp;
     struct {
+        unsigned int timestamp:1;
         unsigned int viewAppearEvent:1;
         unsigned int isOnLockScreen:1;
         unsigned int isOverApp:1;
     } _has;
+    _Bool _isOnLockScreen;
+    _Bool _isOverApp;
+    int _viewAppearEvent;
+    unsigned long long _timestamp;
 }
 
 @property(nonatomic) _Bool isOverApp; // @synthesize isOverApp=_isOverApp;
 @property(nonatomic) _Bool isOnLockScreen; // @synthesize isOnLockScreen=_isOnLockScreen;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+@property(nonatomic) int viewAppearEvent; // @synthesize viewAppearEvent=_viewAppearEvent;
+@property(nonatomic) unsigned long long timestamp;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasIsOverApp;
-@property(nonatomic) _Bool hasIsOnLockScreen;
-- (int)StringAsViewAppearEvent:(id)arg1;
-- (id)viewAppearEventAsString:(int)arg1;
-@property(nonatomic) _Bool hasViewAppearEvent;
-@property(nonatomic) int viewAppearEvent; // @synthesize viewAppearEvent=_viewAppearEvent;
+@property(readonly, nonatomic) _Bool hasIsOverApp;
+@property(readonly, nonatomic) _Bool hasIsOnLockScreen;
+@property(readonly, nonatomic) _Bool hasViewAppearEvent;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

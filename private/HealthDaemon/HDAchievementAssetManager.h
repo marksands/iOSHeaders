@@ -10,7 +10,7 @@
 #import <HealthDaemon/HDHealthDaemonReadyObserver-Protocol.h>
 #import <HealthDaemon/HDNanoSyncManagerObserver-Protocol.h>
 
-@class HDProfile, NSHashTable, NSNumber, NSString;
+@class HDProfile, HKNanoSyncPairedDevicesSnapshot, NSHashTable, NSNumber, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HDAchievementAssetManager : NSObject <HDHealthDaemonReadyObserver, HDDatabaseProtectedDataObserver, HDNanoSyncManagerObserver>
@@ -20,6 +20,7 @@
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_observerQueue;
     NSNumber *_waitingToRun;
+    HKNanoSyncPairedDevicesSnapshot *_previousDeviceSnapshot;
 }
 
 - (void).cxx_destruct;
@@ -38,7 +39,7 @@
 - (void)_performActivity:(id)arg1;
 - (void)_registerActivity;
 - (void)achievementsAdded:(id)arg1;
-- (void)nanoSyncManagerDidChangeState:(id)arg1;
+- (void)nanoSyncManager:(id)arg1 pairedDevicesChanged:(id)arg2;
 - (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
 - (void)daemonReady:(id)arg1;
 - (void)updateAllAssetsWithCompletion:(CDUnknownBlockType)arg1;

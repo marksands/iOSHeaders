@@ -8,7 +8,7 @@
 
 #import <iTunesStore/NSCopying-Protocol.h>
 
-@class ISBiometricAuthenticationContext, ISOperation, NSNumber, NSString, NSURL, SSAuthenticationContext, SSURLBagContext;
+@class ISOperation, NSNumber, NSString, NSURL, SSAuthenticationContext, SSBiometricAuthenticationContext, SSURLBagContext;
 @protocol ISBiometricSessionDelegate;
 
 @interface ISDataProvider : NSObject <NSCopying>
@@ -21,14 +21,14 @@
     id _output;
     ISOperation *_parentOperation;
     NSURL *_redirectURL;
-    ISBiometricAuthenticationContext *_biometricAuthenticationContext;
+    SSBiometricAuthenticationContext *_biometricAuthenticationContext;
     long long _errorHandlerResponseType;
     id <ISBiometricSessionDelegate> _biometricSessionDelegate;
 }
 
 + (id)provider;
 @property id <ISBiometricSessionDelegate> biometricSessionDelegate; // @synthesize biometricSessionDelegate=_biometricSessionDelegate;
-@property(retain) ISBiometricAuthenticationContext *biometricAuthenticationContext; // @synthesize biometricAuthenticationContext=_biometricAuthenticationContext;
+@property(retain) SSBiometricAuthenticationContext *biometricAuthenticationContext; // @synthesize biometricAuthenticationContext=_biometricAuthenticationContext;
 @property(retain) NSURL *redirectURL; // @synthesize redirectURL=_redirectURL;
 @property __weak ISOperation *parentOperation; // @synthesize parentOperation=_parentOperation;
 @property(retain) id output; // @synthesize output=_output;

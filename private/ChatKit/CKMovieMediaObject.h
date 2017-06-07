@@ -12,6 +12,10 @@
 {
     _Bool _hasVideoTrack;
     _Bool _checkedVideoInfo;
+    _Bool _isAutoloopVideo;
+    _Bool _isAppleAutoloopVideo;
+    _Bool _isAutoloopVideoInitialized;
+    _Bool _isAppleAutoloopVideoInitialized;
     UIImage *_thumbnail;
     AVURLAsset *_asset;
     struct CGSize _pxSize;
@@ -22,6 +26,10 @@
 + (id)fallbackFilenamePrefix;
 + (id)UTITypes;
 + (Class)__ck_attachmentItemClass;
+@property(nonatomic) _Bool isAppleAutoloopVideoInitialized; // @synthesize isAppleAutoloopVideoInitialized=_isAppleAutoloopVideoInitialized;
+@property(nonatomic) _Bool isAutoloopVideoInitialized; // @synthesize isAutoloopVideoInitialized=_isAutoloopVideoInitialized;
+@property(nonatomic) _Bool isAppleAutoloopVideo; // @synthesize isAppleAutoloopVideo=_isAppleAutoloopVideo;
+@property(nonatomic) _Bool isAutoloopVideo; // @synthesize isAutoloopVideo=_isAutoloopVideo;
 @property(retain, nonatomic) AVURLAsset *asset; // @synthesize asset=_asset;
 @property(nonatomic) _Bool checkedVideoInfo; // @synthesize checkedVideoInfo=_checkedVideoInfo;
 @property(nonatomic) struct CGSize pxSize; // @synthesize pxSize=_pxSize;

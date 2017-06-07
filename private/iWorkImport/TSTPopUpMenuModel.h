@@ -14,8 +14,8 @@
 __attribute__((visibility("hidden")))
 @interface TSTPopUpMenuModel : TSPObject <NSCopying, TSUMultipleChoiceListChoiceProviding>
 {
-    NSArray *mItems;
-    unsigned long long mCount;
+    NSArray *_items;
+    unsigned long long _count;
 }
 
 + (_Bool)needsObjectUUID;
@@ -27,19 +27,20 @@ __attribute__((visibility("hidden")))
 + (id)p_PopUpMenuModelDefaultWithContext:(id)arg1 locale:(id)arg2;
 + (void)p_appendChoices:(id)arg1 uniquelyToChoices:(id)arg2;
 + (id)popupMenuModelFromTable:(id)arg1 region:(id)arg2 initialValue:(int *)arg3 overflow:(_Bool *)arg4;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithContext:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
 - (void)saveToArchive:(struct PopUpMenuModel *)arg1 archiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)loadFromArchive:(const struct PopUpMenuModel *)arg1;
-- (id)popUpItemFromDate:(id)arg1 format:(CDStruct_28403e59)arg2;
+- (id)popUpItemFromDate:(id)arg1 format:(id)arg2;
 - (id)popUpItemFromString:(id)arg1;
 - (id)popUpItemFromBoolean:(_Bool)arg1;
-- (id)popUpItemFromNumber:(double)arg1 format:(CDStruct_28403e59)arg2;
+- (id)popUpItemFromNumber:(double)arg1 format:(id)arg2;
 - (id)displayStringAtIndex:(unsigned long long)arg1;
 - (_Bool)booleanAtIndex:(unsigned long long)arg1;
-- (CDStruct_28403e59)formatAtIndex:(unsigned long long)arg1;
+- (id)formatAtIndex:(unsigned long long)arg1;
 - (id)dateAtIndex:(unsigned long long)arg1;
 - (id)stringAtIndex:(unsigned long long)arg1;
 - (double)numberAtIndex:(unsigned long long)arg1;
@@ -56,7 +57,6 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (_Bool)isEqualToChoices:(id)arg1;
 - (id)choices;
-- (void)dealloc;
 - (void)didInitFromSOS;
 - (id)initWithItems:(id)arg1 context:(id)arg2;
 

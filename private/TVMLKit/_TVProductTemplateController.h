@@ -48,7 +48,9 @@ __attribute__((visibility("hidden")))
     UIView *_topHeroSeparatorView;
     UIImageView *_topHeroGradientView;
     _Bool _topHeroImageVisible;
+    _Bool _lightStatusBar;
     IKImageElement *_topHeroImageElement;
+    double _largeTitleHeight;
 }
 
 + (id)_backgroundImageProxyForProductTemplateElement:(id)arg1;
@@ -76,13 +78,12 @@ __attribute__((visibility("hidden")))
 - (void)_recordImpressionsForVisibleView;
 - (void)_cancelImpressionsUpdate;
 - (void)_updateImpressions;
-- (_Bool)prefersNavigationBarBackgroundViewHidden;
-- (id)navigationBarTintColor;
 - (long long)preferredStatusBarStyle;
-- (_Bool)animateAppearanceUpdate;
 - (long long)preferredStatusBarUpdateAnimation;
 - (void)_updateTopHeroImageVisibility:(id)arg1;
+- (double)_largeTitleHeight;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)scrollViewWillEndDragging:(id)arg1 withVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (struct CGSize)_topHeroImageViewSize;
 - (struct UIEdgeInsets)collectionView:(id)arg1 layout:(id)arg2 insetForSectionAtIndex:(long long)arg3;
@@ -101,6 +102,7 @@ __attribute__((visibility("hidden")))
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (_Bool)automaticallyAdjustsScrollViewInsets;
+- (void)configureAppearanceTransition;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
 - (void)viewDidAppear:(_Bool)arg1;

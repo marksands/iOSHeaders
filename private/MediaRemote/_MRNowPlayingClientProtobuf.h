@@ -13,6 +13,7 @@
 @interface _MRNowPlayingClientProtobuf : PBCodable <NSCopying>
 {
     NSString *_bundleIdentifier;
+    NSString *_displayName;
     int _nowPlayingVisibility;
     NSString *_parentApplicationBundleIdentifier;
     int _processIdentifier;
@@ -25,6 +26,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) _MRColorProtobuf *tintColor; // @synthesize tintColor=_tintColor;
 @property(nonatomic) int processUserIdentifier; // @synthesize processUserIdentifier=_processUserIdentifier;
 @property(retain, nonatomic) NSString *parentApplicationBundleIdentifier; // @synthesize parentApplicationBundleIdentifier=_parentApplicationBundleIdentifier;
@@ -39,6 +41,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasDisplayName;
 @property(readonly, nonatomic) _Bool hasTintColor;
 - (int)StringAsNowPlayingVisibility:(id)arg1;
 - (id)nowPlayingVisibilityAsString:(int)arg1;

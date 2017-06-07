@@ -22,7 +22,6 @@
 + (id)newDeviceMigrationStateWithDeviceIdentifier:(id)arg1 account:(id)arg2 context:(id)arg3;
 + (id)deviceMigrationStateWithDeviceIdentifier:(id)arg1 context:(id)arg2;
 + (id)deviceMigrationStatesMatchingPredicate:(id)arg1 context:(id)arg2;
-+ (id)allCloudObjectsInContext:(id)arg1;
 + (id)newCloudObjectForRecord:(id)arg1 context:(id)arg2;
 + (id)existingCloudObjectForRecordID:(id)arg1 context:(id)arg2;
 - (id)ic_loggingValues;

@@ -13,13 +13,22 @@
     struct CJKChar _drawing;
 }
 
++ (id)sortedArrayForPointIndices:(id)arg1;
 @property(nonatomic) struct CJKChar drawing; // @synthesize drawing=_drawing;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (struct CGRect)boundingBoxForDrawingSegmentFromIndexPath:(id)arg1 toIndexPath:(id)arg2 withFullStrokes:(_Bool)arg3;
+- (void)appendSegmentFromDrawing:(id)arg1 fromIndexPath:(id)arg2 toIndexPath:(id)arg3;
+- (id)subStrokeSegmentsFromSegmentationPoints:(id)arg1;
+- (id)findSubStrokeSegmentationPoints;
+- (id)filterPointsWithProximity:(double)arg1 fixedPoints:(id)arg2 points:(id)arg3;
+- (id)findLocalYMaximaWithWindowSize:(unsigned long long)arg1;
+- (id)initialSegmentationPointIndicesForDrawing;
 - (void)setLineHeight:(double)arg1;
 - (vector_eb9481f9)strokeIndicesSortedByMinXCoordinate;
-- (id)sortedDrawing;
+- (id)spatiallyResampledWithDistance:(double)arg1;
+- (id)sortedDrawingUsingMinXCoordinate;
 - (Matrix_273a43f8)orientationRepresentationForSampling:(unsigned long long)arg1 convolutionWidth:(unsigned long long)arg2;
 - (Matrix_273a43f8)bitmapRepresentationForSize:(struct CGSize)arg1 drawingAlgorithm:(int)arg2;
 - (Matrix_273a43f8)bitmapRepresentationForSize:(struct CGSize)arg1;
@@ -30,6 +39,8 @@
 - (void)endStroke;
 - (void)addPoint:(struct CGPoint)arg1;
 - (struct CGRect)bounds;
+- (struct CGRect)strokeBoundsAtIndex:(unsigned long long)arg1;
+- (_Bool)containsStrokeLessThanSize:(struct CGSize)arg1;
 - (unsigned long long)strokeCount;
 - (struct CGPoint)pointForStrokeIndex:(unsigned long long)arg1 pointIndex:(unsigned long long)arg2;
 - (unsigned long long)pointCountForStrokeIndex:(unsigned long long)arg1;

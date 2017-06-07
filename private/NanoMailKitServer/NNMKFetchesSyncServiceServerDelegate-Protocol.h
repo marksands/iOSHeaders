@@ -6,7 +6,7 @@
 
 #import <NanoMailKitServer/NSObject-Protocol.h>
 
-@class NNMKFetchesSyncServiceServer, NNMKProtoContentRequest, NNMKProtoFetchRequest, NNMKProtoFullSyncRequest, NNMKProtoHaltSyncRequest, NNMKProtoInitialSyncFinishedNotification, NNMKProtoMoreMessagesForConversationRequest, NNMKProtoMoreMessagesRequest, NSString;
+@class NNMKFetchesSyncServiceServer, NNMKProtoContentRequest, NNMKProtoFetchBatchRequest, NNMKProtoFetchRequest, NNMKProtoFullSyncRequest, NNMKProtoHaltSyncRequest, NNMKProtoInitialSyncFinishedNotification, NNMKProtoMoreMessagesBatchRequest, NNMKProtoMoreMessagesForConversationRequest, NNMKProtoMoreMessagesRequest, NSString;
 
 @protocol NNMKFetchesSyncServiceServerDelegate <NSObject>
 - (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didNotifyInitialSyncFinished:(NNMKProtoInitialSyncFinishedNotification *)arg2;
@@ -14,7 +14,9 @@
 - (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didRequestFullSync:(NNMKProtoFullSyncRequest *)arg2;
 - (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didRequestContent:(NNMKProtoContentRequest *)arg2;
 - (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didRequestMoreMessagesForConversation:(NNMKProtoMoreMessagesForConversationRequest *)arg2;
+- (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didRequestMoreMessagesInBatch:(NNMKProtoMoreMessagesBatchRequest *)arg2;
 - (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didRequestMoreMessages:(NNMKProtoMoreMessagesRequest *)arg2;
+- (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didRequestFetchInBatch:(NNMKProtoFetchBatchRequest *)arg2;
 - (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didRequestFetch:(NNMKProtoFetchRequest *)arg2;
 - (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didSendProtobufSuccessfullyWithIDSIdentifier:(NSString *)arg2;
 - (void)fetchesSyncServiceServer:(NNMKFetchesSyncServiceServer *)arg1 didFailSendingProtobufWithIDSIdentifier:(NSString *)arg2 errorCode:(long long)arg3;

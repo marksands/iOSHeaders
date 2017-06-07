@@ -12,7 +12,7 @@
 #import <PhotosUICore/UIGestureRecognizerDelegate-Protocol.h>
 
 @class NSString, PXPeopleStripCollectionViewController, PXPeopleWidgetDataSource, PXPhotosDetailsContext, PXSectionedSelectionManager, PXTilingController, PXUITapGestureRecognizer, PXWidgetSpec, UIFont, UIView;
-@protocol PXAnonymousView, PXWidgetDelegate;
+@protocol PXAnonymousView, PXWidgetDelegate, PXWidgetUnlockDelegate;
 
 @interface PXPeopleRelatedWidget : NSObject <PXPeopleStripCollectionViewControllerDelegate, PXPeopleDataSourceDelegate, UIGestureRecognizerDelegate, PXWidget>
 {
@@ -111,6 +111,7 @@
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) _Bool supportsFaceMode;
 @property(readonly, nonatomic) _Bool supportsSelection;
+@property(nonatomic) __weak id <PXWidgetUnlockDelegate> widgetUnlockDelegate;
 
 @end
 

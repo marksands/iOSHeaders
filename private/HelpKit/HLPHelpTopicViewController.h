@@ -11,7 +11,7 @@
 #import <HelpKit/UIGestureRecognizerDelegate-Protocol.h>
 #import <HelpKit/UIWebViewDelegate-Protocol.h>
 
-@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocale, HLPHelpTopicHistoryItem, HLPHelpUsageController, HLPURLSession, NSArray, NSCache, NSMutableArray, NSString, NSURL, UIBarButtonItem, UITapGestureRecognizer, UIWebView;
+@class HLPHelpBookController, HLPHelpLoadingView, HLPHelpLocale, HLPHelpTopicHistoryItem, HLPHelpUsageController, HLPURLSession, NSArray, NSCache, NSLayoutConstraint, NSMutableArray, NSString, NSURL, UIBarButtonItem, UITapGestureRecognizer, UIWebView;
 @protocol HLPHelpTopicViewControllerDelegate;
 
 @interface HLPHelpTopicViewController : UIViewController <UIGestureRecognizerDelegate, UIWebViewDelegate, HLPHelpTopicViewControllerDelegate, HLPHelpLoadingViewDelegate>
@@ -28,6 +28,7 @@
     UIBarButtonItem *_backBarButtonItem;
     UIBarButtonItem *_forwardBarButtonItem;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    NSLayoutConstraint *_loadingViewTopConstraint;
     _Bool _displayHelpTopicsOnly;
     _Bool _hideDoneButton;
     _Bool _showTopicNameAsTitle;
@@ -80,6 +81,8 @@
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)viewDidLayoutSubviews;
+- (void)contentSizeCategoryDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (id)init;
 - (void)dealloc;

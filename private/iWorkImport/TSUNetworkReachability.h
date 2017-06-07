@@ -17,8 +17,9 @@ __attribute__((visibility("hidden")))
     long long _enableCount;
     NSString *_hostName;
     _Bool _notifierActive;
+    CDUnknownBlockType _reachabilityUpdatedBlock;
     NSObject<OS_dispatch_queue> *_notificationQueue;
-    long long _lastKnownStatus;
+    long long _cachedStatus;
 }
 
 + (long long)networkStatusForFlags:(unsigned int)arg1;
@@ -33,15 +34,17 @@ __attribute__((visibility("hidden")))
 + (struct __SCNetworkReachability *)newNetworkReachabilityRefWithAddress:(const struct sockaddr_in *)arg1;
 + (struct __SCNetworkReachability *)newNetworkReachabilityRefWithHostName:(const char *)arg1;
 + (_Bool)synchronousHostLookup:(id)arg1;
-@property(nonatomic) long long lastKnownStatus; // @synthesize lastKnownStatus=_lastKnownStatus;
+@property long long cachedStatus; // @synthesize cachedStatus=_cachedStatus;
 @property(nonatomic) _Bool notifierActive; // @synthesize notifierActive=_notifierActive;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *notificationQueue; // @synthesize notificationQueue=_notificationQueue;
 @property(copy, nonatomic) NSString *hostName; // @synthesize hostName=_hostName;
+@property(copy, nonatomic) CDUnknownBlockType reachabilityUpdatedBlock; // @synthesize reachabilityUpdatedBlock=_reachabilityUpdatedBlock;
 - (void).cxx_destruct;
 - (void)enableNotifier;
 - (void)disableNotifier;
 - (void)stopNotifier;
 - (void)startNotifier;
+@property(readonly, nonatomic) long long lastKnownStatus;
 - (long long)statusFromFlags:(unsigned int)arg1;
 - (long long)localWiFiStatusForFlags:(unsigned int)arg1;
 - (struct sockaddr_in)hostAddress;

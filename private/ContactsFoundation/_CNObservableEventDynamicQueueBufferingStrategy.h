@@ -8,7 +8,6 @@
 
 @class CNQueue;
 
-__attribute__((visibility("hidden")))
 @interface _CNObservableEventDynamicQueueBufferingStrategy : _CNObservableEventBufferingStrategy
 {
     CNQueue *_queue;

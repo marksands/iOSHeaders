@@ -8,15 +8,14 @@
 
 #import <AVConference/VCConnectionManagerDelegate-Protocol.h>
 
-@class IDSDatagramChannel, NSString;
+@class NSString, VCDatagramChannelIDS;
 
 __attribute__((visibility("hidden")))
 @interface VCTransportSessionIDS : VCTransportSession <VCConnectionManagerDelegate>
 {
     int _socket;
     NSString *_destination;
-    IDSDatagramChannel *_datagramChannel;
-    unsigned int _datagramChannelToken;
+    VCDatagramChannelIDS *_datagramChannel;
 }
 
 @property(nonatomic) int socket; // @synthesize socket=_socket;

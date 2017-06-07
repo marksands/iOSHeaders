@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class GEOComposedRoute, GEONavigationGuidanceState, MNActiveRouteDetails, MNLocation, MNRoutePlanningDetails, NSArray, NSMutableDictionary, NSString;
+@class GEOComposedRoute, GEONavigationGuidanceState, MNActiveRouteDetails, MNLocation, MNRoutePlanningDetails, NSArray, NSDictionary, NSMapTable, NSMutableDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface MNNavigationDetails : NSObject
@@ -18,12 +18,17 @@ __attribute__((visibility("hidden")))
     _Bool _isDetour;
     GEONavigationGuidanceState *_guidanceState;
     NSMutableDictionary *_routes;
-    _Bool _isNavigating;
+    NSMutableDictionary *_alternateRoutes;
+    NSMapTable *_routeInfo;
+    NSArray *_possibleCommuteDestinations;
+    NSMutableDictionary *_trafficIncidentAlerts;
     _Bool _guidancePromptsEnabled;
+    _Bool _isPredictingDestination;
+    _Bool _isInVehicle;
     _Bool _traceIsPlaying;
     int _headingOrientation;
     int _navigationState;
-    int _guidanceLevel;
+    unsigned long long _state;
     MNRoutePlanningDetails *_routePlanningDetails;
     unsigned long long _reconnectionRouteIndex;
     double _proceedToRouteDistance;
@@ -40,13 +45,18 @@ __attribute__((visibility("hidden")))
     double _traceDuration;
     double _tracePosition;
     NSArray *_traceBookmarks;
+    NSMutableDictionary *_trackedCommuteDestinations;
 }
 
+@property(retain) NSMutableDictionary *trackedCommuteDestinations; // @synthesize trackedCommuteDestinations=_trackedCommuteDestinations;
 @property(retain, nonatomic) NSArray *traceBookmarks; // @synthesize traceBookmarks=_traceBookmarks;
 @property(nonatomic) double tracePosition; // @synthesize tracePosition=_tracePosition;
 @property(nonatomic) double traceDuration; // @synthesize traceDuration=_traceDuration;
 @property(nonatomic) _Bool traceIsPlaying; // @synthesize traceIsPlaying=_traceIsPlaying;
 @property(copy, nonatomic) NSString *tracePath; // @synthesize tracePath=_tracePath;
+@property(nonatomic) _Bool isInVehicle; // @synthesize isInVehicle=_isInVehicle;
+@property(readonly, nonatomic) NSArray *possibleCommuteDestinations; // @synthesize possibleCommuteDestinations=_possibleCommuteDestinations;
+@property(nonatomic) _Bool isPredictingDestination; // @synthesize isPredictingDestination=_isPredictingDestination;
 @property(retain, nonatomic) NSString *currentVoiceLanguage; // @synthesize currentVoiceLanguage=_currentVoiceLanguage;
 @property(nonatomic) double timeUntilManeuver; // @synthesize timeUntilManeuver=_timeUntilManeuver;
 @property(nonatomic) double distanceUntilManeuver; // @synthesize distanceUntilManeuver=_distanceUntilManeuver;
@@ -60,21 +70,27 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long reconnectionRouteIndex; // @synthesize reconnectionRouteIndex=_reconnectionRouteIndex;
 @property(readonly, nonatomic) unsigned long long routeIndex; // @synthesize routeIndex=_routeIndex;
 @property(readonly, nonatomic) GEOComposedRoute *route; // @synthesize route=_route;
-@property(nonatomic) int guidanceLevel; // @synthesize guidanceLevel=_guidanceLevel;
 @property(retain, nonatomic) GEONavigationGuidanceState *guidanceState; // @synthesize guidanceState=_guidanceState;
 @property(nonatomic) int navigationState; // @synthesize navigationState=_navigationState;
 @property(nonatomic) int headingOrientation; // @synthesize headingOrientation=_headingOrientation;
 @property(nonatomic) _Bool isDetour; // @synthesize isDetour=_isDetour;
 @property(nonatomic) _Bool guidancePromptsEnabled; // @synthesize guidancePromptsEnabled=_guidancePromptsEnabled;
-@property(nonatomic) _Bool isNavigating; // @synthesize isNavigating=_isNavigating;
 @property(retain, nonatomic) MNLocation *location; // @synthesize location=_location;
 @property(retain, nonatomic) MNRoutePlanningDetails *routePlanningDetails; // @synthesize routePlanningDetails=_routePlanningDetails;
 @property(retain, nonatomic) MNActiveRouteDetails *activeRouteDetails; // @synthesize activeRouteDetails=_activeRouteDetails;
+@property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
+- (id)removeTrafficIncidentAlertWithDetails:(id)arg1;
+- (id)updateWithTrafficIncidentAlertDetails:(id)arg1;
+- (id)routeInfoForRoute:(id)arg1;
+- (void)setAlternateRouteDetails:(id)arg1;
 - (id)routeForRouteDetailsID:(id)arg1;
+- (void)updatePossibleCommuteDestinations:(id)arg1;
 @property(readonly, nonatomic) unsigned long long legIndex;
 @property(readonly, nonatomic) unsigned long long stepIndex;
 @property(readonly, nonatomic) int navigationType;
+@property(readonly, nonatomic) NSDictionary *alternateRoutes;
+- (id)init;
 
 @end
 

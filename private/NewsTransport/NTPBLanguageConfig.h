@@ -22,6 +22,7 @@
     NSString *_forYouConfigId;
     NSString *_hiddenFeedId;
     NSString *_languageTag;
+    NSMutableArray *_mediaSharingBlacklistedChannelIds;
     NSMutableArray *_onboardingTagIds;
     NSMutableArray *_preSubscribedFeedIds;
     NSMutableArray *_preSubscribedNotificationsChannelIds;
@@ -33,10 +34,12 @@
     NSString *_widgetSectionConfigId;
 }
 
++ (Class)mediaSharingBlacklistedChannelIdsType;
 + (Class)recommendedNotificationChannelsType;
 + (Class)preSubscribedNotificationsChannelIdsType;
 + (Class)onboardingTagIdsType;
 + (Class)preSubscribedFeedIdsType;
+@property(retain, nonatomic) NSMutableArray *mediaSharingBlacklistedChannelIds; // @synthesize mediaSharingBlacklistedChannelIds=_mediaSharingBlacklistedChannelIds;
 @property(retain, nonatomic) NSString *breakingNewsChannelId; // @synthesize breakingNewsChannelId=_breakingNewsChannelId;
 @property(retain, nonatomic) NSString *exploreArticleId; // @synthesize exploreArticleId=_exploreArticleId;
 @property(retain, nonatomic) NSString *editorialGemsSectionId; // @synthesize editorialGemsSectionId=_editorialGemsSectionId;
@@ -65,6 +68,10 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+- (id)mediaSharingBlacklistedChannelIdsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)mediaSharingBlacklistedChannelIdsCount;
+- (void)addMediaSharingBlacklistedChannelIds:(id)arg1;
+- (void)clearMediaSharingBlacklistedChannelIds;
 @property(readonly, nonatomic) _Bool hasBreakingNewsChannelId;
 @property(readonly, nonatomic) _Bool hasExploreArticleId;
 @property(readonly, nonatomic) _Bool hasEditorialGemsSectionId;

@@ -23,7 +23,9 @@
 - (UIImage *)cameraRollControllerImageForReveal:(CAMCameraRollController *)arg1;
 - (struct CGRect)cameraRollControllerPreviewSourceRect:(CAMCameraRollController *)arg1;
 - (void)cameraRollControllerPreviewGestureDidBecomeAvailable:(CAMCameraRollController *)arg1;
+- (void)cameraRollControllerPrefersPresentingStatusbarHiddenDidChange:(CAMCameraRollController *)arg1;
 - (void)cameraRollController:(CAMCameraRollController *)arg1 shouldHideSourceAsset:(_Bool)arg2;
 - (struct CGRect)cameraRollControllerSourceAssetRect:(CAMCameraRollController *)arg1;
+- (void)cameraRollControllerWillPresentCameraRoll:(CAMCameraRollController *)arg1;
 @end
 

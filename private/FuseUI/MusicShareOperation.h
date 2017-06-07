@@ -33,7 +33,6 @@
 @property(readonly, nonatomic) MPUContentItemIdentifierCollection *identifierCollection; // @synthesize identifierCollection=_identifierCollection;
 @property(readonly, nonatomic) MusicEntityValueContext *entityValueContext; // @synthesize entityValueContext=_entityValueContext;
 - (void).cxx_destruct;
-- (void)_presentHUD:(id)arg1;
 - (void)_dispatchEvent;
 - (void)_dispatchEventForPlaylist;
 @property(readonly, nonatomic, getter=isSharingDisabled) _Bool sharingDisabled;

@@ -8,7 +8,7 @@
 
 #import <WatchListKit/LSApplicationWorkspaceObserverProtocol-Protocol.h>
 
-@class NSString, WLKChannelDetails;
+@class NSString, SSLookupItemOffer, WLKChannelDetails;
 @protocol OS_dispatch_queue;
 
 @interface _WLKAppInstallSession : NSObject <LSApplicationWorkspaceObserverProtocol>
@@ -17,13 +17,16 @@
     NSObject<OS_dispatch_queue> *_queue;
     CDUnknownBlockType _progressHandler;
     WLKChannelDetails *_channel;
+    SSLookupItemOffer *_offer;
 }
 
 + (id)_matchingAppProxyFromProxies:(id)arg1 forChannel:(id)arg2;
+@property(readonly, nonatomic) SSLookupItemOffer *offer; // @synthesize offer=_offer;
 @property(readonly, nonatomic) WLKChannelDetails *channel; // @synthesize channel=_channel;
 - (void).cxx_destruct;
 - (_Bool)_canOpenAppWithBundleID:(id)arg1;
 - (void)_sendCompletionWithError:(id)arg1;
+- (void)_doPurchaseWithAppAdamID:(id)arg1 offer:(id)arg2;
 - (void)beginInstallationWithProgressHandler:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)applicationsDidFailToInstall:(id)arg1;
 - (void)applicationsDidInstall:(id)arg1;
@@ -31,7 +34,7 @@
 - (void)applicationInstallsDidStart:(id)arg1;
 - (void)applicationsWillInstall:(id)arg1;
 - (void)dealloc;
-- (id)initWithChannel:(id)arg1;
+- (id)initWithChannel:(id)arg1 offer:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

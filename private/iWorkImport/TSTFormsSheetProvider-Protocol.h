@@ -5,8 +5,8 @@
 //
 
 @protocol TSTFormsSheetProvider
-- (void)tableID:(struct __CFUUID *)arg1 changedToTableID:(struct __CFUUID *)arg2;
-- (_Bool)isTableLinkedToAForm:(struct __CFUUID *)arg1;
+- (void)tableUID:(const UUIDData_5fbc143e *)arg1 changedToTableUID:(const UUIDData_5fbc143e *)arg2;
+- (_Bool)isTableLinkedToAForm:(const UUIDData_5fbc143e *)arg1;
 - (_Bool)containsForms;
 @end
 

@@ -31,6 +31,8 @@
 - (void)coreDAVLogDiagnosticMessage:(id)arg1 atLevel:(long long)arg2;
 - (long long)coreDAVOutputLevel;
 - (long long)coreDAVLogLevel;
+- (void)removeFromCoreDAVLoggingDelegates;
+- (void)addToCoreDAVLoggingDelegates;
 - (_Bool)handleTrustChallenge:(id)arg1;
 - (void)promptUserForNewCoreDAVPasswordWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)spinnerIdentifiers;

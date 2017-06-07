@@ -29,14 +29,21 @@
     id <NCNotificationListClearButtonDelegate> _delegate;
 }
 
++ (struct CGSize)_circleBoundingSize;
++ (double)_circleHorizontalPadding;
++ (double)_xCrossLength;
++ (double)_circleRadius;
 + (id)_textColor;
 + (id)_xImageWithGraphicsQuality:(long long)arg1;
 + (id)_circleImageWithGraphicsQuality:(long long)arg1;
 + (double)_screenScale;
++ (void)_clearImageCache;
++ (void)_observeContentSizeChange;
 @property(nonatomic) __weak id <NCNotificationListClearButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) CDUnknownBlockType clearAllHandler; // @synthesize clearAllHandler=_clearAllHandler;
 @property(readonly, nonatomic) long long clearButtonState; // @synthesize clearButtonState=_clearButtonState;
 - (void).cxx_destruct;
+- (_Bool)_shouldLayoutOnTheLeft;
 - (_Bool)iconForceTouchController:(id)arg1 shouldUseSecureWindowForGestureRecognizer:(id)arg2;
 - (double)iconForceTouchController:(id)arg1 iconImageCornerRadiusForGestureRecognizer:(id)arg2;
 - (id)iconForceTouchController:(id)arg1 secondaryViewControllerForGestureRecognizer:(id)arg2;

@@ -9,6 +9,5 @@
 @interface UIImage (NCAdditions)
 + (id)nc_imageWithPDDocument:(struct CGPDFDocument *)arg1 size:(struct CGSize)arg2;
 + (id)nc_imageFromPDFWithFileURL:(id)arg1 size:(struct CGSize)arg2;
-- (id)nc_alphaOnlyImageForMask;
 @end
 

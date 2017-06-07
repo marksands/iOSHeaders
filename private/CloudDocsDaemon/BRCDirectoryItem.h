@@ -6,17 +6,20 @@
 
 #import <CloudDocsDaemon/BRCLocalItem.h>
 
-@class BRCAliasItem, BRCDocumentItem;
+#import <CloudDocsDaemon/BRCTopLevelShareable-Protocol.h>
+
+@class BRCAliasItem, BRCDocumentItem, NSString;
 
 __attribute__((visibility("hidden")))
-@interface BRCDirectoryItem : BRCLocalItem
+@interface BRCDirectoryItem : BRCLocalItem <BRCTopLevelShareable>
 {
+    long long _mtime;
 }
 
+@property(readonly, nonatomic) long long mtime; // @synthesize mtime=_mtime;
+- (id)asShareableItem;
 - (_Bool)startDownloadInTask:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (_Bool)evictInTask:(id)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
-- (void)transformBackAsDirectoryInAppLibrary:(id)arg1;
-- (void)transformIntoFSRootWithAppLibrary:(id)arg1 zone:(id)arg2;
 - (_Bool)_deleteFromDB:(id)arg1 keepAliases:(_Bool)arg2;
 - (_Bool)_updateInDB:(id)arg1 diffs:(unsigned long long)arg2;
 - (_Bool)_insertInDB:(id)arg1 dbRowID:(unsigned long long)arg2;
@@ -25,20 +28,29 @@ __attribute__((visibility("hidden")))
 - (void)_markLostDirectoryAsAlmostDead;
 - (_Bool)_markChildrenLostForDeadParent;
 - (_Bool)markChildrenLost;
+- (id)clientZonesChildrenNeedingSyncUpAreIn;
 - (_Bool)hasPendingLostChildren;
 - (_Bool)hasLostChildren;
+- (unsigned long long)childItemCount;
 - (_Bool)hasLiveChildren;
 - (_Bool)hasDeadChildren;
 - (_Bool)changedAtRelativePath:(id)arg1 scanPackage:(_Bool)arg2;
-- (_Bool)updateLocationAndMetaFromFSAtPath:(id)arg1 parentID:(id)arg2;
-- (_Bool)updateFromFSAtPath:(id)arg1 parentID:(id)arg2;
+- (void)updateItemMetadataFromServerItem:(id)arg1 appliedSharingPermission:(_Bool)arg2;
+- (_Bool)updateLocationAndMetaFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
+- (_Bool)updateFromFSAtPath:(id)arg1 parentGlobalID:(id)arg2;
+- (id)_initWithRelativePath:(id)arg1 parentGlobalID:(id)arg2;
+- (id)_initWithServerItem:(id)arg1 dbRowID:(unsigned long long)arg2;
+- (id)_initFromPQLResultSet:(id)arg1 session:(id)arg2 db:(id)arg3 error:(id *)arg4;
+- (_Bool)hasShareIDAndIsOwnedByMe;
 @property(readonly, nonatomic) BRCDirectoryItem *asDirectory;
+- (unsigned long long)diffAgainstServerItem:(id)arg1;
+- (_Bool)isDirectoryWithPackageName;
 - (_Bool)isDirectory;
-- (float)prepareEditSyncUpWithOperation:(id)arg1 defaults:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) BRCAliasItem *asBRAlias; // @dynamic asBRAlias;
 @property(readonly, nonatomic) BRCDocumentItem *asDocument; // @dynamic asDocument;
+@property(readonly, nonatomic) NSString *unsaltedBookmarkData; // @dynamic unsaltedBookmarkData;
 
 @end
 

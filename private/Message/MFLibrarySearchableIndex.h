@@ -10,12 +10,13 @@
 #import <Message/MFDiagnosticsGenerator-Protocol.h>
 #import <Message/MFLibrarySearchableIndexVerifierDataSource-Protocol.h>
 
-@class CSSearchableIndex, MFCoalescer, MFLazyCache, MFWeakSet, NSMutableArray, NSMutableSet, NSString, _MFLibrarySearchableIndexPendingRemovals;
-@protocol MFLibrarySearchableIndexDataSource, OS_dispatch_queue, OS_dispatch_source, OS_os_activity;
+@class CSSearchableIndex, MFCancelationToken, MFCoalescer, MFLazyCache, MFWeakSet, NSMutableArray, NSMutableSet, NSString, _MFLibrarySearchableIndexPendingRemovals;
+@protocol MFLibrarySearchableIndexDataSource, MFScheduler, OS_dispatch_queue, OS_dispatch_source, OS_os_activity;
 
 @interface MFLibrarySearchableIndex : NSObject <MFDiagnosticsGenerator, CSSearchableIndexDelegate, MFLibrarySearchableIndexVerifierDataSource>
 {
     NSString *_indexName;
+    MFCancelationToken *_cancelationToken;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_source> *_coalescingTimer;
     long long _resumeCount;
@@ -32,6 +33,7 @@
     _MFLibrarySearchableIndexPendingRemovals *_pendingIdentifierRemovals;
     NSObject<OS_dispatch_queue> *_indexingQueue;
     NSObject<OS_dispatch_queue> *_dataSourceQueue;
+    id <MFScheduler> _indexingBatchScheduler;
     MFLazyCache *_searchResultsCache;
     MFWeakSet *_middleware;
     _Bool _isForeground;
@@ -59,10 +61,12 @@
 - (void)removeItemsWithIdentifiers:(id)arg1;
 - (void)_indexItems:(id)arg1 fromRefresh:(_Bool)arg2;
 - (void)indexItems:(id)arg1;
+- (void)reindexAllSearchableItemsWithAcknowledgementHandler:(CDUnknownBlockType)arg1;
+- (void)reindexSearchableItemsWithIdentifiers:(id)arg1 acknowledgementHandler:(CDUnknownBlockType)arg2;
 - (void)searchableIndex:(id)arg1 reindexAllSearchableItemsWithAcknowledgementHandler:(CDUnknownBlockType)arg2;
 - (void)searchableIndex:(id)arg1 reindexSearchableItemsWithIdentifiers:(id)arg2 acknowledgementHandler:(CDUnknownBlockType)arg3;
 - (id)indexedEmptySubjectIdentifers;
-- (void)requestSpotlightDiagnosticsForMessageRowId:(id)arg1;
+- (id)requestSpotlightDiagnosticsForMessageRowId:(id)arg1;
 - (void)_processSpotlightVerificationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_processRefreshRequestWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_processIdentifierRemovals:(id)arg1;
@@ -102,6 +106,7 @@
 - (double)_throttleRequestedSize:(unsigned long long *)arg1 action:(CDUnknownBlockType)arg2;
 - (void)_verifySpotlightIndex;
 - (void)_registerDistantFutureSpotlightVerification;
+- (void)_scheduleSpotlightVerificationOnIndexingQueueWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_scheduleSpotlightVerification;
 - (void)setRemainingIndexingBudget:(double)arg1 shouldPersist:(_Bool)arg2;
 - (void)_persistRemainingIndexingBudgetValue:(id)arg1;
@@ -109,13 +114,12 @@
 - (void)_resetIndexingBudgetTimer;
 - (double)persistedRemainingIndexingBudget;
 - (id)_budgetPersistenceKey;
-- (void)_powerStateChanged:(id)arg1;
+- (void)_powerStateChanged;
 @property(readonly, nonatomic) unsigned long long pendingIndexItemsCount;
 - (id)copyDiagnosticInformation;
 - (void)addMiddleware:(id)arg1;
 - (void)dealloc;
 - (id)initWithName:(id)arg1 dataSource:(id)arg2;
-- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

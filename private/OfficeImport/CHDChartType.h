@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)seriesCount;
 - (id)seriesCollection;
 - (id)axisForClass:(Class)arg1;
+- (void)switchAxes:(id)arg1;
 - (id)axes;
 - (_Bool)isPlotedOnSecondaryAxis;
 - (id)axisIds;

@@ -10,7 +10,6 @@
 
 @class WebSecurityOrigin;
 
-__attribute__((visibility("hidden")))
 @interface WebDatabaseQuotaManager : NSObject <WebQuotaManager>
 {
     WebSecurityOrigin *_origin;

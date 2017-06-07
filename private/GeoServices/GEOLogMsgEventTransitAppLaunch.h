@@ -23,6 +23,7 @@
 @property(retain, nonatomic) GEOLatLng *destination; // @synthesize destination=_destination;
 @property(retain, nonatomic) GEOLatLng *source; // @synthesize source=_source;
 @property(retain, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -36,7 +37,6 @@
 @property(readonly, nonatomic) _Bool hasDestination;
 @property(readonly, nonatomic) _Bool hasSource;
 @property(readonly, nonatomic) _Bool hasBundleIdentifier;
-- (void)dealloc;
 
 @end
 

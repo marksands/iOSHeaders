@@ -6,11 +6,6 @@
 
 #import <FuseUI/NSObject-Protocol.h>
 
-@class MusicEntityVerticalLockupView;
-
 @protocol MusicEntityVerticalLockupViewDelegate <NSObject>
-
-@optional
-- (void)verticalLockupView:(MusicEntityVerticalLockupView *)arg1 didSelectPlayButtonAction:(unsigned long long)arg2;
 @end
 

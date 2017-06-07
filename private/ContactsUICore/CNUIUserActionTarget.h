@@ -32,6 +32,7 @@
 + (id)targetForVoiceWithFaceTime;
 + (id)targetForVoiceWithTelephony;
 + (id)targetForEmailWithMail;
++ (id)targetForPayWithWallet;
 @property(retain) id <CNTUCallProvider> callProvider; // @synthesize callProvider=_callProvider;
 @property(readonly, nonatomic) NSString *actionType; // @synthesize actionType=_actionType;
 @property(copy, nonatomic) NSString *teamIdentifier; // @synthesize teamIdentifier=_teamIdentifier;

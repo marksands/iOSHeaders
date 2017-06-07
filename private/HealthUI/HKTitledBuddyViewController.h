@@ -18,12 +18,15 @@
     UIStackView *_containerStackView;
     HKTitledLogoBuddyHeaderView *_header;
     NSArray *_buttons;
+    NSArray *_buttonStackConstraints;
     UIActivityIndicatorView *_loadingIndicator;
 }
 
 + (id)embedView:(id)arg1 inContainerViewWithMinimumEdgeInsets:(struct UIEdgeInsets)arg2;
 @property(readonly, nonatomic) UIActivityIndicatorView *loadingIndicator; // @synthesize loadingIndicator=_loadingIndicator;
 - (void).cxx_destruct;
+- (void)traitCollectionDidChange:(id)arg1;
+- (void)_updateForCurrentSizeCategory;
 - (void)_anchoredButtonTapped:(id)arg1;
 - (void)buttonAtIndexTapped:(long long)arg1;
 - (void)_createAnchoredButtons;
@@ -40,6 +43,7 @@
 - (id)bodyString;
 - (id)titleString;
 - (id)titleImage;
+- (_Bool)shouldCustomizeNavigationBar;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;

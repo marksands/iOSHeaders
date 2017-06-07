@@ -6,14 +6,10 @@
 
 #import <MediaPlaybackCore/NSObject-Protocol.h>
 
-@class MPCPlaybackIntent, MPCPlayer, MPCPlayerItem, MPCPlayerItemContainer;
+@class MPCPlaybackIntent, MPCPlayerPath;
 
 @protocol MPCPlaybackIntentDataSource <NSObject>
-- (void)populateRepresentationsForItem:(MPCPlayerItem *)arg1 completionHandler:(void (^)(NSError *))arg2;
-- (void)populateContainer:(MPCPlayerItemContainer *)arg1 forPlaybackIntent:(MPCPlaybackIntent *)arg2 completionHandler:(void (^)(NSError *))arg3;
-- (void)configureContainer:(MPCPlayerItemContainer *)arg1 forPlaybackIntent:(MPCPlaybackIntent *)arg2 completionHandler:(void (^)(NSError *))arg3;
-
-@optional
-- (id)_legacyAlternativeRepresentationForPlaybackIntent:(MPCPlaybackIntent *)arg1 player:(MPCPlayer *)arg2;
+- (void)getRemotePlaybackQueueForIntent:(MPCPlaybackIntent *)arg1 playerPath:(MPCPlayerPath *)arg2 withCompletion:(void (^)(MPRemotePlaybackQueue *, NSError *))arg3;
+- (void)getPlaybackContextForIntent:(MPCPlaybackIntent *)arg1 withCompletion:(void (^)(MPPlaybackContext *, NSError *))arg2;
 @end
 

@@ -13,10 +13,12 @@
     _Bool _isRootSharedAlbum;
     _Bool _isRootFolder;
     _Bool _shouldHideEmptyCollections;
+    _Bool _shouldHideSmartAlbums;
     _Bool _canShowVirtualCollections;
     _Bool _isPickingSession;
     _Bool _canShowPeopleAlbum;
     _Bool _canShowScenesAlbum;
+    _Bool _canShowMemoriesAlbum;
     PHCollectionList *_collectionList;
     PHFetchResult *_collectionsFetchResult;
     NSPredicate *_assetFilteringPredicate;
@@ -25,10 +27,12 @@
 
 @property(nonatomic) long long filteringAssetTypes; // @synthesize filteringAssetTypes=_filteringAssetTypes;
 @property(retain) NSPredicate *assetFilteringPredicate; // @synthesize assetFilteringPredicate=_assetFilteringPredicate;
+@property _Bool canShowMemoriesAlbum; // @synthesize canShowMemoriesAlbum=_canShowMemoriesAlbum;
 @property _Bool canShowScenesAlbum; // @synthesize canShowScenesAlbum=_canShowScenesAlbum;
 @property _Bool canShowPeopleAlbum; // @synthesize canShowPeopleAlbum=_canShowPeopleAlbum;
 @property(readonly) _Bool isPickingSession; // @synthesize isPickingSession=_isPickingSession;
 @property _Bool canShowVirtualCollections; // @synthesize canShowVirtualCollections=_canShowVirtualCollections;
+@property _Bool shouldHideSmartAlbums; // @synthesize shouldHideSmartAlbums=_shouldHideSmartAlbums;
 @property _Bool shouldHideEmptyCollections; // @synthesize shouldHideEmptyCollections=_shouldHideEmptyCollections;
 @property _Bool isRootFolder; // @synthesize isRootFolder=_isRootFolder;
 @property _Bool isRootSharedAlbum; // @synthesize isRootSharedAlbum=_isRootSharedAlbum;

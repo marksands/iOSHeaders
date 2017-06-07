@@ -51,8 +51,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)setupNSForXMLFormat:(int)arg1;
 - (_Bool)isCancelled;
-- (void)reportWorksheetWarning:(struct TCTaggedMessageStructure *)arg1;
-- (void)reportWarning:(struct TCTaggedMessageStructure *)arg1;
+- (void)reportWorksheetWarning:(id)arg1;
+- (void)reportWarning:(id)arg1;
 - (id)legacyDrawables;
 - (id)columnWidthConvertor;
 - (void)relationshipNameSpaceForWorkbook:(struct _xmlNs *)arg1;

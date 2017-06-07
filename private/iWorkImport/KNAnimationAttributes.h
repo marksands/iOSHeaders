@@ -13,15 +13,16 @@
 __attribute__((visibility("hidden")))
 @interface KNAnimationAttributes : NSObject <NSCopying>
 {
-    NSString *mEffect;
-    NSDictionary *mAttributes;
+    NSString *_effect;
+    NSDictionary *_attributes;
 }
 
 + (_Bool)customAttributeKeyIsValid:(id)arg1;
 + (id)supportedCustomAttributes;
 + (id)attributesWithEffect:(id)arg1 attributes:(id)arg2;
-@property(readonly, nonatomic) NSDictionary *attributes; // @synthesize attributes=mAttributes;
-@property(readonly, nonatomic) NSString *effect; // @synthesize effect=mEffect;
+@property(readonly, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
+@property(readonly, nonatomic) NSString *effect; // @synthesize effect=_effect;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)description;
@@ -38,7 +39,6 @@ __attribute__((visibility("hidden")))
 - (id)attributesByAddingAttributes:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithEffect:(id)arg1 attributes:(id)arg2;
-- (void)dealloc;
 
 @end
 

@@ -57,7 +57,6 @@
 - (id)_sectionEntityValueContextForIndex:(unsigned long long)arg1;
 - (double)_secondaryReferenceMetricForQueryingLayoutInterpolators;
 - (void)_recycleCoalescingEntityValueProvider:(id)arg1;
-- (void)_presentContextualActionsWithEntityValueContext:(id)arg1 fromButton:(id)arg2;
 - (id)_layoutMetrics;
 - (id)_itemEntityValueContext;
 - (void)_invalidateLayoutMetrics;
@@ -95,8 +94,6 @@
 - (unsigned long long)numberOfIndexBarEntries;
 - (id)indexBarEntryAtIndex:(unsigned long long)arg1;
 - (void)collectionViewTintColorDidChange:(id)arg1;
-- (void)collectionView:(id)arg1 didSelectPlayButtonAction:(unsigned long long)arg2 forCell:(id)arg3;
-- (void)collectionView:(id)arg1 didSelectContextualActionsButton:(id)arg2 forCell:(id)arg3;
 - (void)collectionView:(id)arg1 didSelectAddButtonForCell:(id)arg2;
 - (_Bool)music_handleUserActivityContext:(id)arg1 containerItem:(id)arg2;
 - (void)traitCollectionDidChange:(id)arg1;

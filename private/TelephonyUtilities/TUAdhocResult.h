@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/TUSearchResult-Protocol.h>
 
@@ -21,12 +21,12 @@
 - (void).cxx_destruct;
 @property(readonly) NSArray *idsCanonicalDestinations;
 @property(readonly) NSString *idsCanonicalDestination;
-@property(readonly) NSString *idsUniqueId;
 @property(readonly) _Bool mostRecentCallWasMissed;
 @property(readonly) long long mostRecentCallType;
 @property(readonly) NSArray *handles;
 @property(readonly) NSString *isoCountryCode;
 @property(readonly) NSString *destinationId;
+@property(readonly) NSString *backingContactIdentifier;
 @property(readonly) NSString *backingContactId;
 @property(readonly) CNContact *backingContact;
 @property(readonly) NSString *callerId;

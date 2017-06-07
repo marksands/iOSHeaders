@@ -29,6 +29,7 @@
 @property(nonatomic) unsigned int absEndTime; // @synthesize absEndTime=_absEndTime;
 @property(nonatomic) unsigned int absStartTime; // @synthesize absStartTime=_absStartTime;
 @property(nonatomic) unsigned int appearsBeforeSuggestedRouteIndex; // @synthesize appearsBeforeSuggestedRouteIndex=_appearsBeforeSuggestedRouteIndex;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
@@ -42,7 +43,6 @@
 @property(nonatomic) _Bool hasAbsEndTime;
 @property(nonatomic) _Bool hasAbsStartTime;
 @property(nonatomic) _Bool hasAppearsBeforeSuggestedRouteIndex;
-- (void)dealloc;
 @property(readonly, nonatomic) id <GEOServerFormattedString> displayMessagFormatString;
 @property(readonly, nonatomic) unsigned long long routeListInsertBeforeIndex;
 @property(readonly, nonatomic) NSDate *endDate;

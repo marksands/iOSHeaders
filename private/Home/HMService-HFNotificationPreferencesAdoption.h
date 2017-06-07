@@ -8,10 +8,12 @@
 
 #import <Home/HFNotificationPreferences-Protocol.h>
 
-@class NSString;
+@class NSPredicate, NSString;
 
 @interface HMService (HFNotificationPreferencesAdoption) <HFNotificationPreferences>
+- (id)hf_updateNotificationsCondition:(id)arg1;
 - (id)hf_updateShowNotificationsStatus:(_Bool)arg1;
+@property(readonly, nonatomic) NSPredicate *hf_notificationsCondition;
 @property(readonly, nonatomic) _Bool hf_isShowNotificationsStatus;
 @property(readonly, nonatomic) _Bool hf_supportsNotifications;
 

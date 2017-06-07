@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
-@class PKContact, PKPaymentToken, PKShippingMethod;
+@class NSData, NSMutableDictionary, PKContact, PKPaymentToken, PKShippingMethod;
 
 @interface PKPayment : NSObject <NSSecureCoding>
 {
@@ -16,11 +16,17 @@
     PKContact *_billingContact;
     PKContact *_shippingContact;
     PKShippingMethod *_shippingMethod;
+    NSData *_credential;
+    NSMutableDictionary *_authKitAuthenticationResults;
+    long long _biometricAuthorizationAttempts;
 }
 
 + (_Bool)supportsSecureCoding;
 + (long long)version;
 + (id)paymentWithProtobuf:(id)arg1;
+@property(nonatomic) long long biometricAuthorizationAttempts; // @synthesize biometricAuthorizationAttempts=_biometricAuthorizationAttempts;
+@property(retain, nonatomic) NSMutableDictionary *authKitAuthenticationResults; // @synthesize authKitAuthenticationResults=_authKitAuthenticationResults;
+@property(retain, nonatomic) NSData *credential; // @synthesize credential=_credential;
 @property(retain, nonatomic) PKShippingMethod *shippingMethod; // @synthesize shippingMethod=_shippingMethod;
 @property(retain, nonatomic) PKContact *shippingContact; // @synthesize shippingContact=_shippingContact;
 @property(retain, nonatomic) PKContact *billingContact; // @synthesize billingContact=_billingContact;

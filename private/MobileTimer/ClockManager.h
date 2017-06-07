@@ -38,6 +38,7 @@
 - (void)_refreshScheduledLocalNotificationsCacheWithNotifications:(id)arg1;
 - (void)refreshScheduledLocalNotificationsCache;
 - (void)refreshScheduledLocalNotificationsCacheAsynchronouslyWithCompletion:(CDUnknownBlockType)arg1;
+- (void)cancelAllNotifications;
 - (void)cancelLocalNotifications:(id)arg1;
 - (void)cancelLocalNotification:(id)arg1;
 - (void)scheduleLocalNotifications:(id)arg1;

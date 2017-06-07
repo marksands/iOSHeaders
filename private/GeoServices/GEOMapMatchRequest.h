@@ -25,6 +25,7 @@
 @property(nonatomic) double searchThreshold; // @synthesize searchThreshold=_searchThreshold;
 @property(retain, nonatomic) NSMutableArray *locations; // @synthesize locations=_locations;
 @property(retain, nonatomic) NSMutableArray *waypoints; // @synthesize waypoints=_waypoints;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -45,7 +46,6 @@
 - (unsigned long long)waypointsCount;
 - (void)addWaypoint:(id)arg1;
 - (void)clearWaypoints;
-- (void)dealloc;
 
 @end
 

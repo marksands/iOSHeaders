@@ -6,11 +6,11 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCCKDatabase, NSArray, NSError;
+@class FCCKContentDatabase, NSArray, NSError;
 
 @interface FCCKMultiFeedQueryOperation : FCOperation
 {
-    FCCKDatabase *_database;
+    FCCKContentDatabase *_database;
     NSArray *_feedRequests;
     unsigned long long _resultsLimit;
     NSArray *_desiredKeys;
@@ -37,7 +37,7 @@
 @property(copy, nonatomic) NSArray *desiredKeys; // @synthesize desiredKeys=_desiredKeys;
 @property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;
 @property(copy, nonatomic) NSArray *feedRequests; // @synthesize feedRequests=_feedRequests;
-@property(retain, nonatomic) FCCKDatabase *database; // @synthesize database=_database;
+@property(retain, nonatomic) FCCKContentDatabase *database; // @synthesize database=_database;
 - (void).cxx_destruct;
 - (id)_feedRelativeDictionaryFromResultsArray:(id)arg1;
 - (void)_processResultsRecord:(id)arg1 feedItemAndArticleRecords:(id)arg2 tagRecords:(id)arg3;

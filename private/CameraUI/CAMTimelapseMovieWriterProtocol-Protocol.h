@@ -10,6 +10,6 @@
 
 @protocol CAMTimelapseMovieWriterProtocol <NSObject>
 @property(nonatomic, getter=isSuspended) _Bool suspended;
-- (void)writeMovieFromImageFiles:(NSArray *)arg1 visMetadataFiles:(NSArray *)arg2 startDate:(NSDate *)arg3 location:(CLLocation *)arg4 outputPath:(NSString *)arg5 transform:(struct CGAffineTransform)arg6 framesPerSecond:(long long)arg7 completionHandler:(void (^)(_Bool, struct, NSArray *))arg8;
+- (void)writeMovieFromImageFiles:(NSArray *)arg1 visMetadataFiles:(NSArray *)arg2 startDate:(NSDate *)arg3 location:(CLLocation *)arg4 outputPath:(NSString *)arg5 transform:(struct CGAffineTransform)arg6 framesPerSecond:(long long)arg7 preferHEVC:(_Bool)arg8 completionHandler:(void (^)(_Bool, struct, NSArray *))arg9;
 @end
 

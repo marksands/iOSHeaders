@@ -6,11 +6,12 @@
 
 #import <HomeUI/HUIconCell.h>
 
+#import <HomeUI/HUDisableableCellProtocol-Protocol.h>
 #import <HomeUI/HUEditableTextCellProtocol-Protocol.h>
 
 @class NSString, UITextField;
 
-@interface HUEditableTextCell : HUIconCell <HUEditableTextCellProtocol>
+@interface HUEditableTextCell : HUIconCell <HUEditableTextCellProtocol, HUDisableableCellProtocol>
 {
     UITextField *_textField;
 }
@@ -18,7 +19,7 @@
 @property(readonly, nonatomic) UITextField *textField; // @synthesize textField=_textField;
 - (void).cxx_destruct;
 - (void)prepareForReuse;
-- (void)setDisabled:(_Bool)arg1;
+@property(nonatomic, getter=isDisabled) _Bool disabled;
 - (void)setSelected:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)setHighlighted:(_Bool)arg1 animated:(_Bool)arg2;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

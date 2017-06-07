@@ -8,7 +8,7 @@
 
 #import <NewsTransport/NSCopying-Protocol.h>
 
-@class NSData, NSMutableArray, NSString, NTPBFeedConfiguration, NTPBRecordBase;
+@class NSData, NSMutableArray, NSString, NTPBFeedConfiguration, NTPBPublisherPaidDescriptionStrings, NTPBRecordBase;
 
 @interface NTPBTagRecord : PBCodable <NSCopying>
 {
@@ -29,10 +29,14 @@
     NSString *_coverArticleListID;
     NSString *_coverImageURL;
     NTPBFeedConfiguration *_feedConfiguration;
+    int _groupingAvailability;
     NSMutableArray *_iAdCategories;
     NSMutableArray *_iAdKeywords;
     NSString *_logoURL;
     NSString *_name;
+    NSString *_nameCompact;
+    NSData *_nameImageCompactMetadata;
+    NSString *_nameImageCompactURL;
     NSString *_nameImageForDarkBackgroundURL;
     NSString *_nameImageMaskURL;
     NSString *_nameImageMaskWidgetHQURL;
@@ -43,6 +47,7 @@
     NSMutableArray *_pinnedArticleIDs;
     NSString *_primaryAudience;
     NSString *_publisherPaidAuthorizationURL;
+    NTPBPublisherPaidDescriptionStrings *_publisherPaidDescriptionStrings;
     NSMutableArray *_publisherPaidFeldsparablePurchaseIDs;
     NSString *_publisherPaidVerificationURL;
     NSString *_publisherPaidWebaccessURL;
@@ -70,6 +75,7 @@
         unsigned int score:1;
         unsigned int tagNameImageBaselineShift:1;
         unsigned int tagNameImageScaleFactor:1;
+        unsigned int groupingAvailability:1;
         unsigned int type:1;
         unsigned int hideAccessoryText:1;
         unsigned int isDeprecated:1;
@@ -94,6 +100,10 @@
 + (Class)relatedTopicIDsForOnboardingType;
 + (Class)relatedChannelIDsType;
 + (Class)relatedTopicIDsType;
+@property(retain, nonatomic) NSData *nameImageCompactMetadata; // @synthesize nameImageCompactMetadata=_nameImageCompactMetadata;
+@property(retain, nonatomic) NSString *nameImageCompactURL; // @synthesize nameImageCompactURL=_nameImageCompactURL;
+@property(retain, nonatomic) NSString *nameCompact; // @synthesize nameCompact=_nameCompact;
+@property(retain, nonatomic) NTPBPublisherPaidDescriptionStrings *publisherPaidDescriptionStrings; // @synthesize publisherPaidDescriptionStrings=_publisherPaidDescriptionStrings;
 @property(nonatomic) _Bool hideAccessoryText; // @synthesize hideAccessoryText=_hideAccessoryText;
 @property(retain, nonatomic) NSString *nameImageMaskWidgetHQURL; // @synthesize nameImageMaskWidgetHQURL=_nameImageMaskWidgetHQURL;
 @property(retain, nonatomic) NSString *nameImageMaskWidgetLQURL; // @synthesize nameImageMaskWidgetLQURL=_nameImageMaskWidgetLQURL;
@@ -150,6 +160,12 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasGroupingAvailability;
+@property(nonatomic) int groupingAvailability; // @synthesize groupingAvailability=_groupingAvailability;
+@property(readonly, nonatomic) _Bool hasNameImageCompactMetadata;
+@property(readonly, nonatomic) _Bool hasNameImageCompactURL;
+@property(readonly, nonatomic) _Bool hasNameCompact;
+@property(readonly, nonatomic) _Bool hasPublisherPaidDescriptionStrings;
 @property(nonatomic) _Bool hasHideAccessoryText;
 @property(readonly, nonatomic) _Bool hasNameImageMaskWidgetHQURL;
 @property(readonly, nonatomic) _Bool hasNameImageMaskWidgetLQURL;

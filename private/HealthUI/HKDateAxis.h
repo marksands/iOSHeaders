@@ -6,30 +6,31 @@
 
 #import <HealthUI/HKAxis.h>
 
-@class HKDateIntervalCache, HKValueRange, NSArray;
+@class HKDateIntervalCache, NSArray;
 
 @interface HKDateAxis : HKAxis
 {
     HKDateIntervalCache *_intervalCache;
     NSArray *_cachedAxisLabels;
-    HKValueRange *_chartableDateRange;
+    long long _dayScopeType;
 }
 
-@property(retain, nonatomic) HKValueRange *chartableDateRange; // @synthesize chartableDateRange=_chartableDateRange;
+@property(nonatomic) long long dayScopeType; // @synthesize dayScopeType=_dayScopeType;
 - (void).cxx_destruct;
 - (void)_clearCachedAxisLabels;
-- (void)_updateIntervalCacheWithRange:(struct HKRange)arg1 zoomScale:(double)arg2;
-- (void)_enumerateCachedCoordinatesWithHandler:(CDUnknownBlockType)arg1;
-- (void)enumerateTickCoordinatesInChartRange:(struct HKRange)arg1 zoomScale:(double)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)_updateIntervalCacheWithModelRange:(id)arg1 zoomScale:(double)arg2;
+- (_Bool)_labelsOutsideStartDate:(id)arg1 endDate:(id)arg2;
+- (void)_enumerateCachedCoordinatesInModelRange:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
+- (id)findAxisLabelsInModelRange:(id)arg1 zoomScale:(double)arg2;
 - (id)_dateRangeForChartRange:(struct HKRange)arg1 zoomScale:(double)arg2;
-- (void)offsetForDateRange:(id)arg1 chartRect:(struct CGRect)arg2 zoomScaleOut:(double *)arg3 contentOffsetOut:(struct CGPoint *)arg4;
-- (id)dateRangeForChartRect:(struct CGRect)arg1 zoomScale:(double)arg2 contentOffset:(struct CGPoint)arg3;
-- (id)_axisLabelsWithChartRange:(struct HKRange)arg1 zoom:(long long)arg2;
-- (id)labelsForChartRange:(struct HKRange)arg1 zoomScale:(double)arg2;
+- (void)offsetForValueRange:(id)arg1 chartRect:(struct CGRect)arg2 zoomScaleOut:(double *)arg3 contentOffsetOut:(struct CGPoint *)arg4;
+- (id)rangeForChartRect:(struct CGRect)arg1 zoomScale:(double)arg2 contentOffset:(struct CGPoint)arg3;
+- (id)_axisLabelsWithModelRange:(id)arg1 zoom:(long long)arg2;
 - (long long)dateZoomForZoomScale:(double)arg1;
-- (id)dateZoomScale;
+- (id)zoomScaleEngine;
 - (unsigned long long)_anchorUnitForZoom:(long long)arg1;
-- (id)stringForDate:(id)arg1 chartRange:(struct HKRange)arg2 zoom:(long long)arg3 isMajorTick:(_Bool)arg4;
+- (void)_setRangeForDateRange:(id)arg1;
+- (id)stringForDate:(id)arg1 zoom:(long long)arg2 isMajorTick:(_Bool)arg3;
 - (id)_formattedStringForDate:(id)arg1 zoom:(long long)arg2;
 - (id)init;
 

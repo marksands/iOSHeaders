@@ -16,6 +16,7 @@
     NSData *_objectUUID;
 }
 
++ (Class)authorizationsType;
 @property(retain, nonatomic) NSMutableArray *authorizations; // @synthesize authorizations=_authorizations;
 @property(retain, nonatomic) NSData *objectUUID; // @synthesize objectUUID=_objectUUID;
 - (void).cxx_destruct;

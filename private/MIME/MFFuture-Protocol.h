@@ -12,6 +12,7 @@
 @protocol MFFuture <MFCancelable>
 @property(readonly, getter=isCancelled) _Bool cancelled;
 @property(readonly, getter=isFinished) _Bool finished;
+- (id <MFFuture>)onScheduler:(id <MFScheduler>)arg1 map:(id (^)(id))arg2;
 - (id <MFFuture>)map:(id (^)(id))arg1;
 - (id <MFFuture>)onScheduler:(id <MFScheduler>)arg1 recover:(id <MFFuture> (^)(NSError *))arg2;
 - (id <MFFuture>)recover:(id <MFFuture> (^)(NSError *))arg1;

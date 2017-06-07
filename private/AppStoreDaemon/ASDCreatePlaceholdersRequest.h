@@ -4,18 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppStoreDaemon/ASDRequest.h>
+#import <AppStoreDaemon/ASDEphemeralRequest.h>
 
-@class ASDCreatePlaceholdersRequestOptions;
-
-@interface ASDCreatePlaceholdersRequest : ASDRequest
+@interface ASDCreatePlaceholdersRequest : ASDEphemeralRequest
 {
-    CDUnknownBlockType _completionBlock;
-    ASDCreatePlaceholdersRequestOptions *_options;
 }
 
-- (void).cxx_destruct;
-- (void)_handleResponse:(id)arg1 error:(id)arg2;
++ (long long)requestType;
 - (void)startWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)initWithOptions:(id)arg1;
 

@@ -6,13 +6,13 @@
 
 #import <GeoServices/NSObject-Protocol.h>
 
-@class GEOMapServiceTraits, GEORPSuggestionEntry, GEORPSuggestionList, NSDictionary, NSString;
+@class GEOMapItemIdentifier, GEOMapServiceTraits, GEORPSuggestionEntry, GEORPSuggestionList, NSDictionary, NSString;
 
 @protocol GEOMapServiceCompletionTicket <NSObject>
 @property(readonly, nonatomic) NSDictionary *responseUserInfo;
 @property(readonly, nonatomic) GEOMapServiceTraits *traits;
 - (_Bool)isRapEnabled;
-- (void)applyToSuggestionEntry:(GEORPSuggestionEntry *)arg1 withAutocompleteSearchResultMuid:(unsigned long long)arg2;
+- (void)applyToSuggestionEntry:(GEORPSuggestionEntry *)arg1 withAutocompleteSearchResultIdentifier:(GEOMapItemIdentifier *)arg2;
 - (void)applyToSuggestionList:(GEORPSuggestionList *)arg1;
 - (_Bool)matchesFragment:(NSString *)arg1;
 - (void)cancel;

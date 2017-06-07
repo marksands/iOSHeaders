@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
     } mValue;
     NSString *mFormattedValue;
     TSWPStorage *mFormattedRichTextStorage;
-    int mExplicitFlags;
+    unsigned short mExplicitFlags;
     int mCurrentFormatType;
     TSUFormatObject *mNumberFormat;
     TSUFormatObject *mCurrencyFormat;
@@ -53,7 +53,7 @@ __attribute__((visibility("hidden")))
 - (id)objectByRemovingPropertiesInMap:(id)arg1 addingPropertiesInMap:(id)arg2 updateInverseResetPropertyMap:(id)arg3 updateInverseSetPropertyMap:(id)arg4;
 - (void)applyToCell:(id)arg1;
 - (_Bool)hasStringContentMatchingCell:(id)arg1;
-- (CDStruct_28403e59)getCurrentFormat;
+- (id)getCurrentFormat;
 - (_Bool)isFormulaSyntaxError;
 - (_Bool)isControl;
 - (int)valueType;

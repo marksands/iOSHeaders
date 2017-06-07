@@ -194,6 +194,7 @@
 - (void)writeInt:(unsigned char)arg1 toEar:(int)arg2 forProperty:(unsigned long long)arg3;
 - (void)delayWriteProperty:(unsigned long long)arg1 forPeripheral:(id)arg2;
 - (void)_sendDelayedWrites;
+- (void)writeValueForProperty:(unsigned long long)arg1;
 - (void)updateBatteryServiceForPeripheral:(id)arg1;
 - (void)updateName;
 - (_Bool)deviceSupportsProperty:(unsigned long long)arg1;

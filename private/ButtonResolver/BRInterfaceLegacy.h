@@ -13,6 +13,7 @@
     _Bool _isReady;
     struct __IOHIDEventSystemClient *_client;
     NSMutableArray *_services;
+    CDUnknownBlockType _block;
     unsigned long long _doublePressTimeoutUs;
     unsigned long long _triplePressTimeoutUs;
     unsigned long long _doubleTapTimeoutUs;
@@ -37,9 +38,10 @@
 - (_Bool)enableStates:(id)arg1 error:(id *)arg2;
 - (_Bool)setConfigs:(id)arg1 withAssets:(id)arg2 forStates:(id)arg3 error:(id *)arg4;
 - (_Bool)setGlobalConfigs:(id)arg1 error:(id *)arg2;
-- (_Bool)_setDefaultServiceProperties;
+- (_Bool)_setDefaultServicePropertiesOnService:(struct __IOHIDServiceClient *)arg1;
 - (_Bool)_servicesSetProperty:(void *)arg1 forKey:(struct __CFString *)arg2;
-- (_Bool)_findServices:(CDUnknownBlockType)arg1;
+- (void)serviceAddedHandler:(struct __IOHIDServiceClient *)arg1;
+- (void)_findServices;
 - (id)propertyList;
 - (id)description;
 - (void)dealloc;

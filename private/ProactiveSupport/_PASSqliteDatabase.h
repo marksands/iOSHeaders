@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @class NSCache, NSOperationQueue, NSString;
-@protocol OS_dispatch_queue;
+@protocol OS_dispatch_queue, _PASSqliteErrorHandlerProtocol;
 
 @interface _PASSqliteDatabase : NSObject
 {
@@ -15,6 +15,7 @@
     int _transactionDepth;
     _Bool _transactionRolledback;
     // Error parsing type: {atomic_flag="_Value"AB}, name: _isClosed
+    NSObject<_PASSqliteErrorHandlerProtocol> *_errorHandler;
     NSString *_filename;
     NSCache *_queryCache;
     NSObject<OS_dispatch_queue> *_queue;
@@ -25,33 +26,31 @@
         struct __darwin_pthread_handler_rec *_field2;
         char _field3[8176];
     } *_threadInQueue;
+    struct _opaque_pthread_mutex_t _threadInQueueLock;
     _Bool _currentExclusivity;
     _Bool _isInMemory;
 }
 
-+ (int)bindParam:(struct sqlite3_stmt *)arg1 name:(const char *)arg2 nscoding:(id)arg3;
-+ (int)bindParam:(struct sqlite3_stmt *)arg1 name:(const char *)arg2 nsdata:(id)arg3;
-+ (int)bindParam:(struct sqlite3_stmt *)arg1 name:(const char *)arg2 nsstring:(id)arg3;
-+ (int)bindParam:(struct sqlite3_stmt *)arg1 name:(const char *)arg2 double:(double)arg3;
-+ (int)bindParam:(struct sqlite3_stmt *)arg1 name:(const char *)arg2 int64:(long long)arg3;
-+ (int)bindParam:(struct sqlite3_stmt *)arg1 name:(const char *)arg2 int:(int)arg3;
-+ (int)bindParamToNull:(struct sqlite3_stmt *)arg1 name:(const char *)arg2;
++ (id)corruptionMarkerPathForPath:(id)arg1;
 + (_Bool)shouldCacheSql:(const char *)arg1;
 + (void)truncateDatabaseAtPath:(id)arg1;
-+ (id)corruptionMarkerPathForPath:(id)arg1;
-+ (id)corruptionMarkerFilename;
 + (id)randomlyNamedInMemoryPathWithBaseName:(id)arg1;
 + (id)inMemoryPath;
 + (_Bool)isInMemoryPath:(id)arg1;
 + (id)protectedDatabaseWithFilename:(id)arg1 error:(id *)arg2;
-+ (id)protectedDatabaseWithFilename:(id)arg1 flags:(int)arg2 error:(id *)arg3;
 + (id)sqliteDatabaseInMemoryWithError:(id *)arg1;
++ (id)sqliteDatabaseWithFilename:(id)arg1 contentProtection:(long long)arg2 error:(id *)arg3;
 + (id)sqliteDatabaseWithFilename:(id)arg1 error:(id *)arg2;
 + (id)sqliteDatabaseWithFilename:(id)arg1 flags:(int)arg2 error:(id *)arg3;
++ (id)recreateCorruptDatabase:(id)arg1 withContentProtection:(long long)arg2;
++ (id)initializeDatabase:(id)arg1 withProtection:(_Bool)arg2 newDatabaseCreated:(_Bool *)arg3;
++ (id)initializeDatabase:(id)arg1 withContentProtection:(long long)arg2 newDatabaseCreated:(_Bool *)arg3;
 @property(readonly, nonatomic) _Bool isInMemory; // @synthesize isInMemory=_isInMemory;
 @property(readonly, nonatomic) NSString *filename; // @synthesize filename=_filename;
 - (void).cxx_destruct;
 - (id)languageForFTSTable:(id)arg1;
+- (void)withDbLockExecuteBlock:(CDUnknownBlockType)arg1;
+- (void)withDbLockExecuteAsyncBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)numberOfRowsInTable:(id)arg1;
 - (_Bool)hasIndexNamed:(id)arg1;
 - (_Bool)hasColumnOnTable:(id)arg1 named:(id)arg2;
@@ -72,25 +71,26 @@
 - (void)writeTransaction:(CDUnknownBlockType)arg1;
 - (void)clearCaches;
 - (id)selectColumns:(id)arg1 fromTable:(id)arg2 whereClause:(id)arg3 onPrep:(CDUnknownBlockType)arg4 onError:(CDUnknownBlockType)arg5;
+- (void)insertIntoTable:(id)arg1 dictionary:(id)arg2;
 - (void)insertOrReplaceIntoTable:(id)arg1 dictionary:(id)arg2 onError:(CDUnknownBlockType)arg3;
 - (void)updateTable:(id)arg1 dictionary:(id)arg2 whereClause:(id)arg3 onError:(CDUnknownBlockType)arg4;
 - (_Bool)prepAndRunNonDataQueries:(id)arg1 onError:(CDUnknownBlockType)arg2;
 - (void)_prepAndRunQuery:(id)arg1 columns:(id)arg2 dictionary:(id)arg3 onError:(CDUnknownBlockType)arg4;
 - (_Bool)prepAndRunQuery:(id)arg1 onPrep:(CDUnknownBlockType)arg2 onRow:(CDUnknownBlockType)arg3 onError:(CDUnknownBlockType)arg4;
-- (void)prepQuery:(id)arg1 onPrep:(CDUnknownBlockType)arg2 onError:(CDUnknownBlockType)arg3;
-- (_Bool)runQuery:(struct sqlite3_stmt *)arg1 onRow:(CDUnknownBlockType)arg2;
-- (_Bool)runQuery:(struct sqlite3_stmt *)arg1 onRow:(CDUnknownBlockType)arg2 onError:(CDUnknownBlockType)arg3;
-- (id)dbErrorWithCode:(unsigned long long)arg1 sqliteReturnValue:(int)arg2 lastErrno:(int)arg3 query:(id)arg4;
-- (id)freeSpace;
+- (_Bool)prepQuery:(id)arg1 onPrep:(CDUnknownBlockType)arg2 onError:(CDUnknownBlockType)arg3;
+- (_Bool)runQuery:(id)arg1 onRow:(CDUnknownBlockType)arg2;
+- (_Bool)runQuery:(id)arg1 onRow:(CDUnknownBlockType)arg2 onError:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) struct sqlite3 *handle;
-- (void)placeCorruptionMarker;
-- (id)corruptionMarkerPath;
 - (long long)lastInsertRowId;
 - (void)simulateOnDiskDatabase;
 - (void)closePermanently;
 - (void)dealloc;
-- (void)withDbLockNonblocking:(CDUnknownBlockType)arg1;
+- (id)init;
 - (id)initWithFilename:(id)arg1 flags:(int)arg2 error:(id *)arg3;
+- (void)placeCorruptionMarker;
+- (_Bool)handleError:(long long)arg1 sqliteError:(int)arg2 forQuery:(id)arg3 onError:(CDUnknownBlockType)arg4;
+- (id)dbErrorWithCode:(unsigned long long)arg1 sqliteReturnValue:(int)arg2 lastErrno:(int)arg3 query:(id)arg4;
+- (id)freeSpace;
 
 @end
 

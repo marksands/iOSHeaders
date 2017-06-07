@@ -27,14 +27,12 @@
 @property(copy, nonatomic) NSString *stickerName; // @synthesize stickerName=_stickerName;
 @property(copy, nonatomic) NSString *moodCategory; // @synthesize moodCategory=_moodCategory;
 @property(copy, nonatomic) NSString *accessibilityLabel; // @synthesize accessibilityLabel=_accessibilityLabel;
-@property(readonly, copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(readonly, copy, nonatomic) NSString *stickerPackGUID; // @synthesize stickerPackGUID=_stickerPackGUID;
 @property(readonly, copy, nonatomic) NSString *stickerGUID; // @synthesize stickerGUID=_stickerGUID;
+@property(readonly, copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 - (id)initWithStickerPropertyDictionary:(id)arg1 stickerPackID:(struct NSString *)arg2 stickerPackBundlePath:(id)arg3;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)stickerDictionaryRepresentation;
-- (id)initWithDictionary:(id)arg1;
 - (void)dealloc;
 - (id)description;
 - (id)initWithStickerID:(struct NSString *)arg1 stickerPackID:(struct NSString *)arg2 fileURL:(id)arg3 accessibilityLabel:(id)arg4 moodCategory:(id)arg5 stickerName:(id)arg6;

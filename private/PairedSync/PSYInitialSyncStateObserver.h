@@ -22,6 +22,7 @@
     NSObject<OS_dispatch_queue> *_delegateQueue;
     int _daemonStartedNotifyToken;
     int _syncSwitchNotifyToken;
+    NSMutableDictionary *_nrDevices;
     id <PSYInitialSyncStateObserverDelegate> _delegate;
 }
 
@@ -32,11 +33,15 @@
 - (void)_queue_querySyncState;
 - (void)_handleConnectionInvalidated;
 - (id)syncProviderWithErrorHandler:(CDUnknownBlockType)arg1;
+- (void)requestInitialNonMigrationSyncStateForPairingIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestInitialSyncStateForPairingIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestSyncStateForPairingIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (void)_queue_initializeIfNotInitialized;
 @property __weak id <PSYInitialSyncStateObserverDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)_unregisterNRDeviceMonitors;
+- (void)_registerMonitorNRDevice:(id)arg1 forMigrationChanges:(CDUnknownBlockType)arg2;
+- (void)_registerMonitorAllNRDevicesForMigrationChanges:(CDUnknownBlockType)arg1;
 - (id)initWithDelegate:(id)arg1;
 - (id)init;
 

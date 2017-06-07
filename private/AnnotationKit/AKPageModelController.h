@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class AKCropAnnotation, NSArray, NSMutableOrderedSet, NSMutableSet, NSSet;
+@class AKCropAnnotation, AKInkAnnotation, AKStatistics, NSArray, NSMutableOrderedSet, NSMutableSet, NSSet;
 
 @interface AKPageModelController : NSObject
 {
@@ -14,18 +14,26 @@
     NSMutableSet *_mutableSelectedAnnotations;
     id _representedObject;
     AKCropAnnotation *_cropAnnotation;
+    AKInkAnnotation *_inkCanvasAnnotation;
+    AKStatistics *_statisticsLogger;
 }
 
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
+@property(nonatomic) __weak AKStatistics *statisticsLogger; // @synthesize statisticsLogger=_statisticsLogger;
+@property(retain) AKInkAnnotation *inkCanvasAnnotation; // @synthesize inkCanvasAnnotation=_inkCanvasAnnotation;
 @property(retain) AKCropAnnotation *cropAnnotation; // @synthesize cropAnnotation=_cropAnnotation;
 @property __weak id representedObject; // @synthesize representedObject=_representedObject;
 - (void).cxx_destruct;
+- (void)_postSelectedAnnotationsChangedNotification;
+- (void)_logAnnotationAdded:(id)arg1;
+- (void)_coalescedEnsureInkAnnotationIsInFront:(id)arg1;
+- (void)_ensureInkAnnotationIsInFrontWhenEditsAreDone;
 - (void)restoreSelectionStateForUndo:(id)arg1;
 - (id)selectionStateForUndo;
-- (void)establishAnnotationParentChildRelationships;
 - (id)initWithArchivableRepresentation:(id)arg1;
 - (id)archivableRepresentation;
 - (_Bool)hasMaskBorderAnnotation;
+- (void)setInkCanvasAnnotationOneTime:(id)arg1;
 - (void)removeCropToolAnnotation;
 - (void)addCropToolAnnotation;
 - (void)sendSelectedAnnotationsToBack;

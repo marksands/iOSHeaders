@@ -22,6 +22,7 @@
 @property(retain, nonatomic) NSData *zilchPoints; // @synthesize zilchPoints=_zilchPoints;
 @property(retain, nonatomic) NSData *routeID; // @synthesize routeID=_routeID;
 @property(retain, nonatomic) NSData *directionsResponseID; // @synthesize directionsResponseID=_directionsResponseID;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) _Bool hasZilchPoints;
 @property(readonly, nonatomic) _Bool hasRouteID;
 @property(readonly, nonatomic) _Bool hasDirectionsResponseID;
-- (void)dealloc;
 
 @end
 

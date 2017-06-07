@@ -23,6 +23,7 @@
 + (_Bool)cachedCoordinate:(struct CLLocationCoordinate2D)arg1 isMatchingOtherCoordinate:(struct CLLocationCoordinate2D)arg2;
 + (id)defaultCache;
 - (void).cxx_destruct;
+- (id)_placemarksFromLitePlacemarks:(id)arg1;
 - (id)fetchPlacemarkForLocation:(id)arg1 withAccuracy:(double)arg2;
 - (void)invalidateCacheItemsBeforeDateWithTimestamp:(double)arg1;
 - (void)invalidateCacheForMUID:(unsigned long long)arg1;

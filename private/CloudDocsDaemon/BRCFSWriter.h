@@ -34,13 +34,13 @@
 - (void)fixupItemsAtStartup;
 - (void)writeUnderCoordinationFromURL:(id)arg1 toURL:(id)arg2 canDelete:(_Bool)arg3;
 - (void)_writeUnderCoordinationFromURL:(id)arg1 toURL:(id)arg2 canDelete:(_Bool)arg3;
-- (void)applyChangesForServerItem:(id)arg1 localItem:(id)arg2 throttleID:(long long)arg3 zone:(id)arg4 activity:(id)arg5 hasFinished:(_Bool *)arg6;
-- (void)_applyChangesForServerAlias:(id)arg1 localAlias:(id)arg2 throttleID:(long long)arg3 zone:(id)arg4 diffs:(unsigned long long)arg5;
+- (void)applyChangesForServerItem:(id)arg1 localItem:(id)arg2 rank:(long long)arg3 zone:(id)arg4 activity:(id)arg5 hasFinished:(_Bool *)arg6;
+- (void)_applyChangesForServerAlias:(id)arg1 localAlias:(id)arg2 jobID:(long long)arg3 zone:(id)arg4 diffs:(unsigned long long)arg5;
 - (void)_stageCreationOfSymlink:(id)arg1;
 - (void)_stageCreationOfDirectory:(id)arg1;
-- (id)bouncePath:(id)arg1 toPreservePathMatch:(id)arg2;
+- (id)bouncePath:(id)arg1 forItemConflictingWithAnFSRoot:(id)arg2;
 - (_Bool)bouncePathMatch:(const CDStruct_177058d5 *)arg1 toApplyServerItem:(id)arg2 clientZone:(id)arg3;
-- (id)_generateGentleBounceForPathMatch:(const CDStruct_177058d5 *)arg1 dirfd:(int)arg2 lastBounceNo:(unsigned long long *)arg3;
+- (id)_generateGentlePhysicalBounceNameForPathMatch:(const CDStruct_177058d5 *)arg1 dirfd:(int)arg2 lastBounceNo:(unsigned long long *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

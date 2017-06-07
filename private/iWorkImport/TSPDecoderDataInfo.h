@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSPDecoderDataInfo-Protocol.h>
 
-@class NSString, TSPDigest;
+@class NSString, TSPDataMetadata, TSPDigest;
 
 __attribute__((visibility("hidden")))
 @interface TSPDecoderDataInfo : NSObject <TSPDecoderDataInfo>
@@ -17,10 +17,12 @@ __attribute__((visibility("hidden")))
     NSString *_preferredFilename;
     NSString *_externalFilePath;
     NSString *_documentResourceLocator;
+    TSPDataMetadata *_dataMetadata;
     long long _identifier;
 }
 
 @property(readonly, nonatomic) long long identifier; // @synthesize identifier=_identifier;
+@property(retain, nonatomic) TSPDataMetadata *dataMetadata; // @synthesize dataMetadata=_dataMetadata;
 @property(readonly, nonatomic) NSString *documentResourceLocator; // @synthesize documentResourceLocator=_documentResourceLocator;
 @property(readonly, nonatomic) NSString *externalFilePath; // @synthesize externalFilePath=_externalFilePath;
 @property(readonly, nonatomic) NSString *preferredFilename; // @synthesize preferredFilename=_preferredFilename;

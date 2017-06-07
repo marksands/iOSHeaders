@@ -19,9 +19,11 @@
     MPMediaPredicate *_storeItemsMediaLibraryPredicate;
     _Bool _invokedForPlaylistEditing;
     _Bool _showsOnlyStoreItems;
+    _Bool _picksSingleCollection;
     MusicClientContext *_clientContext;
 }
 
+@property(nonatomic) _Bool picksSingleCollection; // @synthesize picksSingleCollection=_picksSingleCollection;
 @property(nonatomic) _Bool showsOnlyStoreItems; // @synthesize showsOnlyStoreItems=_showsOnlyStoreItems;
 @property(nonatomic, getter=isInvokedForPlaylistEditing) _Bool invokedForPlaylistEditing; // @synthesize invokedForPlaylistEditing=_invokedForPlaylistEditing;
 @property(retain, nonatomic) SKUIClientContext *clientContext;
@@ -29,6 +31,7 @@
 - (void)_loadCategoryConfigurations;
 - (void)_filterAvailableCategoryConfigurations;
 - (void)_dataSourceDidInvalidate:(id)arg1;
+- (void)_reloadLibraryCategories;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;

@@ -6,12 +6,14 @@
 
 #import <TelephonyUtilities/TUCallServicesProtocol-Protocol.h>
 
-@class NSDictionary, TUDialRequest;
+@class NSDictionary, NSString, TUDialRequest, TUJoinConversationRequest;
 
 @protocol TUCallServicesDaemonDelegate <TUCallServicesProtocol>
-- (void)pullCallFromClientUsingHandoffActivityUserInfo:(NSDictionary *)arg1 reply:(void (^)(TUCall *, NSArray *))arg2;
-- (void)dialWithRequest:(TUDialRequest *)arg1 reply:(void (^)(TUCall *, NSArray *))arg2;
-- (void)dialWithRequest:(TUDialRequest *)arg1;
-- (void)requestInitialState:(void (^)(NSArray *))arg1;
+- (oneway void)reportLocalPreviewStoppedForCallWithUniqueProxyIdentifier:(NSString *)arg1;
+- (oneway void)pullCallFromClientUsingHandoffActivityUserInfo:(NSDictionary *)arg1 reply:(void (^)(TUCall *, NSArray *))arg2;
+- (oneway void)joinConversationWithRequest:(TUJoinConversationRequest *)arg1;
+- (oneway void)dialWithRequest:(TUDialRequest *)arg1 reply:(void (^)(TUCall *, NSArray *))arg2;
+- (oneway void)dialWithRequest:(TUDialRequest *)arg1;
+- (oneway void)requestInitialState:(void (^)(NSArray *))arg1;
 @end
 

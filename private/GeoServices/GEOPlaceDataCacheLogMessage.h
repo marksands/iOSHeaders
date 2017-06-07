@@ -8,16 +8,10 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOPDPlaceRequest, NSString;
-
 @interface GEOPlaceDataCacheLogMessage : PBCodable <NSCopying>
 {
-    GEOPDPlaceRequest *_placeDataRequest;
-    NSString *_placeDataRequestingAppIdentifier;
 }
 
-@property(retain, nonatomic) GEOPDPlaceRequest *placeDataRequest; // @synthesize placeDataRequest=_placeDataRequest;
-@property(retain, nonatomic) NSString *placeDataRequestingAppIdentifier; // @synthesize placeDataRequestingAppIdentifier=_placeDataRequestingAppIdentifier;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -27,9 +21,6 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
-@property(readonly, nonatomic) _Bool hasPlaceDataRequest;
-@property(readonly, nonatomic) _Bool hasPlaceDataRequestingAppIdentifier;
-- (void)dealloc;
 
 @end
 

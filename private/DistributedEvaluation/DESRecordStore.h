@@ -13,8 +13,9 @@
     NSString *_bundleId;
 }
 
-+ (id)_serviceProxyWithErrorHandler:(CDUnknownBlockType)arg1;
++ (void)_getServiceProxyWithErrorHandler:(CDUnknownBlockType)arg1 block:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
+- (void)deleteSavedRecordWithIdentfier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)deleteAllSavedRecordsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchSavedRecordInfoWithCompletion:(CDUnknownBlockType)arg1;
 - (void)saveRecordWithData:(id)arg1 recordInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class AVPlayer, AVPlayerItem, NSString, PLMoviePlayerView, PLTVOutWindow, UIAlertView;
+@class AVPlayer, AVPlayerItem, NSString, PLMoviePlayerView, PLTVOutWindow;
 @protocol PLMoviePlayerControllerDelegate;
 
 @interface PLMoviePlayerController : NSObject
@@ -14,7 +14,6 @@
     AVPlayerItem *_playerItem;
     AVPlayer *_player;
     PLMoviePlayerView *_view;
-    UIAlertView *_alertView;
     PLTVOutWindow *_tvOutWindow;
     _Bool _hasPendingTime;
     double _pendingTime;
@@ -48,7 +47,6 @@
 @property(readonly, retain, nonatomic) AVPlayer *player; // @synthesize player=_player;
 @property(readonly, retain, nonatomic) PLMoviePlayerView *view; // @synthesize view=_view;
 @property(nonatomic) id <PLMoviePlayerControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void)alertView:(id)arg1 clickedButtonAtIndex:(long long)arg2;
 - (void)_serverConnectionDidDie:(id)arg1;
 - (void)_exitPlayer:(int)arg1;
 - (void)_playbackFailedWithError:(id)arg1;

@@ -12,10 +12,11 @@
 {
 }
 
+@property(nonatomic) double payloadLength;
 @property(copy, nonatomic) NSString *payloadData;
 @property(nonatomic) _Bool mask;
 @property(nonatomic) double opcode;
-- (id)initWithOpcode:(double)arg1 mask:(_Bool)arg2 payloadData:(id)arg3;
+- (id)initWithOpcode:(double)arg1 mask:(_Bool)arg2 payloadData:(id)arg3 payloadLength:(double)arg4;
 
 @end
 

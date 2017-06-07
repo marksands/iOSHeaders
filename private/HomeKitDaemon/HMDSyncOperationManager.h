@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMDHomeManager, HMFExponentialBackoffTimer, NSMutableArray, NSString;
+@class HMDHomeManager, HMFExponentialBackoffTimer, NSMutableArray, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDSyncOperationManager : NSObject <HMFTimerDelegate>
+@interface HMDSyncOperationManager : HMFObject <HMFTimerDelegate>
 {
     _Bool _syncLoopDialogDisplayed;
     HMDHomeManager *_homeManager;
@@ -21,6 +21,8 @@
     NSMutableArray *_cloudPushOperations;
     NSMutableArray *_cloudMergeOperations;
     NSMutableArray *_idsMergeOperations;
+    NSMutableArray *_cloudZonePushOperations;
+    NSMutableArray *_cloudZoneFetchOperations;
     long long _pauseCloudPushLevel;
     HMFExponentialBackoffTimer *_cloudPushDelayTimer;
 }
@@ -28,6 +30,8 @@
 @property(nonatomic, getter=wasSyncLoopDialogDisplayed) _Bool syncLoopDialogDisplayed; // @synthesize syncLoopDialogDisplayed=_syncLoopDialogDisplayed;
 @property(retain, nonatomic) HMFExponentialBackoffTimer *cloudPushDelayTimer; // @synthesize cloudPushDelayTimer=_cloudPushDelayTimer;
 @property(nonatomic) long long pauseCloudPushLevel; // @synthesize pauseCloudPushLevel=_pauseCloudPushLevel;
+@property(retain, nonatomic) NSMutableArray *cloudZoneFetchOperations; // @synthesize cloudZoneFetchOperations=_cloudZoneFetchOperations;
+@property(retain, nonatomic) NSMutableArray *cloudZonePushOperations; // @synthesize cloudZonePushOperations=_cloudZonePushOperations;
 @property(retain, nonatomic) NSMutableArray *idsMergeOperations; // @synthesize idsMergeOperations=_idsMergeOperations;
 @property(retain, nonatomic) NSMutableArray *cloudMergeOperations; // @synthesize cloudMergeOperations=_cloudMergeOperations;
 @property(retain, nonatomic) NSMutableArray *cloudPushOperations; // @synthesize cloudPushOperations=_cloudPushOperations;

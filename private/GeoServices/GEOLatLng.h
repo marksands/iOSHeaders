@@ -8,14 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
+@class PBUnknownFields;
+
 @interface GEOLatLng : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     double _lat;
     double _lng;
 }
 
 @property(nonatomic) double lng; // @synthesize lng=_lng;
 @property(nonatomic) double lat; // @synthesize lat=_lat;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

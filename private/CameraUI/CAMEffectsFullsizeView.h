@@ -6,11 +6,11 @@
 
 #import <CameraUI/CAMGLView.h>
 
-@class CIFilter;
+@class NSArray;
 
 @interface CAMEffectsFullsizeView : CAMGLView
 {
-    CIFilter *_selectedFilter;
+    NSArray *_selectedFilters;
     long long _selectedFilterType;
     long long _filterType;
 }
@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (void)_renderWithInputImage:(id)arg1 ciContext:(id)arg2 mirrorRendering:(_Bool)arg3;
 - (void)renderPixelBuffer:(struct __CVBuffer *)arg1 ciContext:(id)arg2 mirrorRendering:(_Bool)arg3;
-- (id)_updateSelectedFilter;
+- (id)_updateSelectedFilters;
 - (void)setFixedSize:(struct CGSize)arg1;
 - (void)_layoutGLLayer;
 - (id)initWithFrame:(struct CGRect)arg1;

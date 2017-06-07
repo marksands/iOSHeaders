@@ -8,18 +8,22 @@
 
 #import <CallHistory/CHPhoneBookManagerProtocol-Protocol.h>
 
-@class NSString;
+@class CNContactStore, NSString;
 
 @interface CHPhoneBookIOSManager : NSObject <CHPhoneBookManagerProtocol>
 {
+    CNContactStore *_fContactsStore;
 }
 
 + (id)get;
+@property(retain, nonatomic) CNContactStore *fContactsStore; // @synthesize fContactsStore=_fContactsStore;
+- (void).cxx_destruct;
 - (_Bool)isABContactASuggestion;
-- (id)getLocalizedCallerIdLabelForRecord:(void *)arg1 withMultiValueId:(id)arg2 withCallerIdIsEmail:(_Bool)arg3;
-- (id)getPersonsNameForRecord:(void *)arg1;
-- (id)getRecordId:(id)arg1 andISOCountryCode:(id)arg2 isEmail:(_Bool)arg3;
-- (id)fetchABRecord:(id)arg1 andISOCountryCode:(id)arg2 isEmail:(_Bool)arg3;
+- (id)getLocalizedCallerIdLabelForContact:(id)arg1 forCallerId:(id)arg2 withCallerIdIsEmail:(_Bool)arg3;
+- (id)getPersonsNameForContact:(id)arg1;
+- (id)getRecordId:(id)arg1 isEmail:(_Bool)arg2;
+- (id)fetchCNContact:(id)arg1 isEmail:(_Bool)arg2;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

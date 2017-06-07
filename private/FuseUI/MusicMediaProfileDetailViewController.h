@@ -76,7 +76,6 @@
 - (void)mediaProfileSplitMainViewController:(id)arg1 needsContentForSegmentWithIdentifier:(id)arg2;
 - (void)mediaProfileHeaderContentViewControllerDidSelectProfileTitle:(id)arg1;
 - (void)mediaProfileHeaderContentViewController:(id)arg1 didSelectEditButton:(id)arg2;
-- (void)mediaProfileHeaderContentViewController:(id)arg1 didSelectContextualActionsButton:(id)arg2;
 - (void)mediaProfileHeaderContentViewController:(id)arg1 didSelectShareButton:(id)arg2;
 - (void)mediaProfileHeaderContentViewController:(id)arg1 didUpdateFollowingState:(_Bool)arg2 forStoreID:(long long)arg3;
 - (_Bool)jsProfileNativeViewControllerSupportsRelatedContentDocument:(id)arg1;

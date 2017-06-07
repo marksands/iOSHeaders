@@ -8,24 +8,27 @@
 
 #import <HomeUI/HUCCFavoriteItemProvider-Protocol.h>
 
-@class NSMutableSet, NSString;
+@class HMHome, NSMutableSet, NSString;
 
 @interface HUCCFavoriteActionSetItemProvider : HFItemProvider <HUCCFavoriteItemProvider>
 {
     unsigned long long _maximumNumberOfItems;
+    HMHome *_home;
     unsigned long long _actionSetItemStyle;
     NSMutableSet *_actionSetItems;
 }
 
 @property(retain, nonatomic) NSMutableSet *actionSetItems; // @synthesize actionSetItems=_actionSetItems;
 @property(readonly, nonatomic) unsigned long long actionSetItemStyle; // @synthesize actionSetItemStyle=_actionSetItemStyle;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 @property(nonatomic) unsigned long long maximumNumberOfItems; // @synthesize maximumNumberOfItems=_maximumNumberOfItems;
 - (void).cxx_destruct;
 - (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1 actionSetItemStyle:(unsigned long long)arg2;
-- (id)initWithHome:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

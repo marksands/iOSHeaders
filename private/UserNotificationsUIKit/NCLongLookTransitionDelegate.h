@@ -6,36 +6,26 @@
 
 #import <objc/NSObject.h>
 
-#import <UserNotificationsUIKit/NCLongLookAnimatorDelegate-Protocol.h>
-#import <UserNotificationsUIKit/NCViewControllerTransitioningDelegate-Protocol.h>
+#import <UserNotificationsUIKit/NCLongLookAnimatorObserving-Protocol.h>
+#import <UserNotificationsUIKit/UIViewControllerTransitioningDelegate-Protocol.h>
 
-@class NCLongLookPresentationController, NCNotificationViewController, NSString;
-@protocol NCLongLookAnimator, NCLongLookTransitionDelegateObserver;
+@class NSString, UIPresentationController;
+@protocol NCLongLookPresentationController;
 
-@interface NCLongLookTransitionDelegate : NSObject <NCLongLookAnimatorDelegate, NCViewControllerTransitioningDelegate>
+@interface NCLongLookTransitionDelegate : NSObject <NCLongLookAnimatorObserving, UIViewControllerTransitioningDelegate>
 {
-    NCNotificationViewController *_sourceShortLookVC;
-    NCLongLookPresentationController *_longLookPresentationController;
-    _Bool _interactive;
-    id <NCLongLookTransitionDelegateObserver> _transitioningDelegateObserver;
-    long long _transitionInitiator;
+    UIPresentationController<NCLongLookPresentationController> *_longLookPresentationController;
 }
 
-@property(readonly, nonatomic) long long transitionInitiator; // @synthesize transitionInitiator=_transitionInitiator;
-@property(readonly, nonatomic, getter=isInteractive) _Bool interactive; // @synthesize interactive=_interactive;
-@property(nonatomic) __weak id <NCLongLookTransitionDelegateObserver> transitioningDelegateObserver; // @synthesize transitioningDelegateObserver=_transitioningDelegateObserver;
+@property(retain, nonatomic, getter=_longLookPresentationController, setter=_setLongLookPresentationController:) UIPresentationController<NCLongLookPresentationController> *longLookPresentationController; // @synthesize longLookPresentationController=_longLookPresentationController;
 - (void).cxx_destruct;
-- (void)longLookAnimator:(id)arg1 animationEnded:(_Bool)arg2;
-- (void)longLookAnimatorAnimationBegan:(id)arg1;
-- (void)transitionAnimator:(id)arg1 didCommitToTransitionWithCoordinator:(id)arg2;
+- (void)longLookAnimator:(id)arg1 willBeginDismissalAnimationWithTransitionContext:(id)arg2;
+- (void)longLookAnimator:(id)arg1 willBeginPresentationAnimationWithTransitionContext:(id)arg2;
 - (id)presentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;
-- (id)interactionControllerForPresentation:(id)arg1;
 - (id)animationControllerForDismissedController:(id)arg1;
 - (id)animationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
-- (id)_longLookPresentationControllerForPresentedController:(id)arg1 presentingController:(id)arg2 sourceController:(id)arg3;
-- (void)_notifyObserverOfTransitionBegin:(_Bool)arg1 withAnimator:(id)arg2 completed:(_Bool)arg3;
-@property(readonly, nonatomic) id <NCLongLookAnimator> longLookAnimator;
-- (id)initForInteractiveTransition:(_Bool)arg1 withInitiator:(long long)arg2 andSourceShortLookViewController:(id)arg3;
+- (id)previewPresentationControllerForPresentedViewController:(id)arg1 presentingViewController:(id)arg2 sourceViewController:(id)arg3;
+- (id)_longLookPresentationControllerOfClass:(Class)arg1 presentedController:(id)arg2 presentingController:(id)arg3 sourceController:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

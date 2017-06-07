@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <ZoomServices/AXUIClientDelegate-Protocol.h>
 
@@ -22,6 +22,7 @@
 @property(nonatomic) _Bool registeredForZoomListener; // @synthesize registeredForZoomListener=_registeredForZoomListener;
 @property(nonatomic, getter=isShowingZoomLens) _Bool showingZoomLens; // @synthesize showingZoomLens=_showingZoomLens;
 @property(retain, nonatomic) AXUIClient *zoomWindowClient; // @synthesize zoomWindowClient=_zoomWindowClient;
+- (void).cxx_destruct;
 - (double)zoomLevel;
 - (struct CGRect)zoomFrame;
 - (double)appSwitcherRevealAnimationStartDelay;
@@ -41,6 +42,7 @@
 - (_Bool)notifyZoomAppDeactivationAnimationWillBegin;
 - (_Bool)notifyZoomAppActivationAnimationWillBegin;
 - (_Bool)notifyZoomIdleSlugOpacityChangedTo:(double)arg1;
+- (_Bool)notifyZoomDockPositionWasChangedInSettingsTo:(id)arg1;
 - (_Bool)notifyZoomLensModeWasChangedInSettingsTo:(id)arg1;
 - (_Bool)notifyZoomHomeButtonWasPressed;
 - (_Bool)notifyZoomDeviceWasUnlocked;

@@ -8,20 +8,28 @@
 
 @class NSString;
 
-__attribute__((visibility("hidden")))
 @interface CNTask : NSObject
 {
     _Bool _cancelled;
     NSString *_name;
 }
 
-+ (_Bool)isValidResult:(id)arg1;
++ (id)taskWithName:(id)arg1 error:(id)arg2;
++ (id)taskWithError:(id)arg1;
++ (id)taskWithName:(id)arg1 result:(id)arg2;
++ (id)taskWithResult:(id)arg1;
++ (id)taskWithName:(id)arg1 subtasks:(id)arg2;
++ (id)taskWithName:(id)arg1 block:(CDUnknownBlockType)arg2;
++ (id)taskWithBlock:(CDUnknownBlockType)arg1;
 @property(copy) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (id)description;
+- (id)recover:(CDUnknownBlockType)arg1;
+- (id)flatMap:(CDUnknownBlockType)arg1;
+- (id)run;
 - (id)run:(id *)arg1;
 - (_Bool)cancel;
 @property(readonly, getter=isCancelled) _Bool cancelled;
-- (void)dealloc;
 - (id)initWithName:(id)arg1;
 - (id)init;
 

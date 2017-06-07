@@ -16,10 +16,12 @@
     NSSet *_clusteredFaceIds;
     NSArray *_groupedClusteredFaceIdsForCluster;
     NSNumber *_distance;
+    NSDictionary *_distances;
     NSDictionary *_distancesById;
 }
 
 @property(retain) NSDictionary *distancesById; // @synthesize distancesById=_distancesById;
+@property(retain) NSDictionary *distances; // @synthesize distances=_distances;
 @property(retain) NSNumber *distance; // @synthesize distance=_distance;
 @property(retain) NSArray *groupedClusteredFaceIdsForCluster; // @synthesize groupedClusteredFaceIdsForCluster=_groupedClusteredFaceIdsForCluster;
 @property(retain) NSSet *clusteredFaceIds; // @synthesize clusteredFaceIds=_clusteredFaceIds;

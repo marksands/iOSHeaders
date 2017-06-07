@@ -8,12 +8,12 @@
 
 @interface FigCaptureSourceFESCompanionFormat : NSObject
 {
-    int _videoFormatIndex;
+    int _formatIndex;
     CDStruct_79c71658 _fesDimensions;
 }
 
 @property(readonly) CDStruct_79c71658 fesDimensions;
-@property(readonly) int videoFormatIndex;
+@property(readonly) int formatIndex;
 - (id)description;
 - (void)dealloc;
 - (id)initWithFESCompanionFormatDictionary:(id)arg1;

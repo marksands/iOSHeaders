@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSPSplitableData-Protocol.h>
 
-@class NSString, TSPDataAttributes, TSPDataManager, TSPDigest, TSPObjectContext;
+@class NSDate, NSString, TSPDataAttributes, TSPDataManager, TSPDataMetadata, TSPDigest, TSPObjectContext;
 @protocol OS_dispatch_queue, TSPDataStorage;
 
 __attribute__((visibility("hidden")))
@@ -23,6 +23,8 @@ __attribute__((visibility("hidden")))
     TSPDataAttributes *_attributes;
     _Bool _isDeallocating;
     TSPDataManager *_manager;
+    NSDate *_lastModificationDate;
+    TSPDataMetadata *_metadata;
 }
 
 + (_Bool)writeStorage:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
@@ -41,6 +43,7 @@ __attribute__((visibility("hidden")))
 + (id)dataFromURL:(id)arg1 useExternalReferenceIfAllowed:(_Bool)arg2 useFileCoordination:(_Bool)arg3 context:(id)arg4;
 + (id)dataFromURL:(id)arg1 useExternalReferenceIfAllowed:(_Bool)arg2 context:(id)arg3;
 + (id)dataFromURL:(id)arg1 context:(id)arg2;
++ (_Bool)isSupportedURL:(id)arg1;
 + (id)pasteboardTypeForIdentifier:(long long)arg1;
 + (id)nsDataWithPattern4:(const char *)arg1;
 + (id)digestStringForDataWithPattern4:(const char *)arg1;
@@ -48,10 +51,16 @@ __attribute__((visibility("hidden")))
 + (id)readOnlyDataWithPattern4:(const char *)arg1 filename:(id)arg2;
 + (id)dataWithPattern4:(const char *)arg1 filename:(id)arg2 context:(id)arg3;
 + (void)temporaryNSDataWithPattern4:(const char *)arg1 accessor:(CDUnknownBlockType)arg2;
+@property(retain, nonatomic) TSPDataMetadata *metadata; // @synthesize metadata=_metadata;
+@property(readonly, nonatomic) NSDate *lastModificationDate; // @synthesize lastModificationDate=_lastModificationDate;
 @property(readonly, nonatomic) __weak TSPDataManager *manager; // @synthesize manager=_manager;
 @property(readonly, nonatomic) long long identifier; // @synthesize identifier=_identifier;
 @property(copy, nonatomic) TSPDataAttributes *unsafeAttributes; // @synthesize unsafeAttributes=_attributes;
 - (void).cxx_destruct;
+- (void)upgradeFallbackColorIfNeeded;
+- (id)createMetadataIfNeeded;
+- (void)setFallbackColor:(id)arg1;
+- (id)fallbackColor;
 @property(readonly, nonatomic) _Bool gilligan_isRemote;
 - (_Bool)archiveInfoMessage:(struct DataInfo *)arg1 archiver:(id)arg2 packageWriter:(id)arg3;
 - (_Bool)isStorageInPackage:(id)arg1;
@@ -60,7 +69,7 @@ __attribute__((visibility("hidden")))
 - (void)setFilename:(id)arg1 storage:(id)arg2 ifStorageIs:(id)arg3;
 - (void)setFilename:(id)arg1 storage:(id)arg2;
 @property(retain, nonatomic) id <TSPDataStorage> storage;
-- (id)initWithIdentifier:(long long)arg1 digest:(id)arg2 filename:(id)arg3 storage:(id)arg4 manager:(id)arg5;
+- (id)initWithIdentifier:(long long)arg1 digest:(id)arg2 filename:(id)arg3 lastModificationDate:(id)arg4 storage:(id)arg5 manager:(id)arg6;
 - (id)init;
 @property(readonly, nonatomic) unsigned long long encodedLengthIfLocal;
 @property(readonly, nonatomic) unsigned long long encodedLength;
@@ -75,6 +84,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool needsDownload;
 - (void)performInputStreamReadWithAccessor:(CDUnknownBlockType)arg1;
 - (void)performIOChannelReadWithAccessor:(CDUnknownBlockType)arg1;
+- (void)setToCopyOfMetadataIfNil:(id)arg1;
 - (id)copyWithContext:(id)arg1;
 @property(readonly, nonatomic) NSString *digestString;
 @property(readonly, nonatomic) TSPObjectContext *context;
@@ -96,17 +106,16 @@ __attribute__((visibility("hidden")))
 - (_Bool)bookmarkDataNeedsWriteWithContext:(id)arg1;
 - (id)makeBookmarkDataWithContext:(id)arg1 filename:(id)arg2 error:(out id *)arg3;
 @property(copy) TSPDataAttributes *attributes;
+- (void)didReplaceDataContents;
 - (void)willCull;
 - (void)dealloc;
 @property(nonatomic, getter=isAcknowledgedByServer) _Bool acknowledgedByServer;
 - (id)UIImage;
 - (void)tsp_splitDataWithMaxSize:(unsigned long long)arg1 subdataHandlerBlock:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) unsigned long long tsp_length;
 - (id)pasteboardType;
-- (id)encodeToBase64String;
-@property(readonly, nonatomic) unsigned long long base64StringLength;
 @property(readonly, nonatomic) _Bool tsd_allowedToConvertDataAlreadyInDocument;
 @property(nonatomic, setter=tsd_setShouldBeInterpretedAsGenericIfUntagged:) _Bool tsd_shouldBeInterpretedAsGenericIfUntagged;
-- (void)tsk_addDownloadObserver:(id)arg1 lockMode:(long long)arg2 options:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 
 @end
 

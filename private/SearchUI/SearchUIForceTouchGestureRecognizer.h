@@ -7,7 +7,7 @@
 #import <SpringBoardUI/SBUIForceTouchGestureRecognizer.h>
 
 @class SBFApplication, SFSearchResult, UIView;
-@protocol SearchUIFeedbackDelegatePrivate;
+@protocol SearchUIFeedbackDelegate;
 
 @interface SearchUIForceTouchGestureRecognizer : SBUIForceTouchGestureRecognizer
 {
@@ -15,24 +15,26 @@
     UIView *_thumbnailView;
     SBFApplication *_application;
     SFSearchResult *_result;
-    id <SearchUIFeedbackDelegatePrivate> _selectionAndFeedbackDelegate;
+    id <SearchUIFeedbackDelegate> _selectionAndFeedbackDelegate;
 }
 
-@property __weak id <SearchUIFeedbackDelegatePrivate> selectionAndFeedbackDelegate; // @synthesize selectionAndFeedbackDelegate=_selectionAndFeedbackDelegate;
+@property __weak id <SearchUIFeedbackDelegate> selectionAndFeedbackDelegate; // @synthesize selectionAndFeedbackDelegate=_selectionAndFeedbackDelegate;
 @property _Bool canHaveSmallSpotlightIcons; // @synthesize canHaveSmallSpotlightIcons=_canHaveSmallSpotlightIcons;
 @property(retain) SFSearchResult *result; // @synthesize result=_result;
 @property(retain) SBFApplication *application; // @synthesize application=_application;
 @property(retain) UIView *thumbnailView; // @synthesize thumbnailView=_thumbnailView;
 - (void).cxx_destruct;
+- (id)engagementFeedbackForTriggerEvent:(unsigned long long)arg1;
 - (void)didPop;
 - (void)didPeek;
+- (void)iconButtonPressed;
 - (void)updateApplicationIfNecessary;
 - (double)cornerRadius;
 - (id)shortcutItems;
 - (id)widgetBundleID;
 - (id)bundleURL;
+- (id)webClipID;
 - (id)bundleID;
-- (void)iconButtonPressed;
 - (id)thumbnailViewCopy;
 - (void)updateWithResult:(id)arg1;
 - (id)initWithView:(id)arg1 canHaveSmallSpotlightIcons:(_Bool)arg2 selectionAndFeedbackDelegate:(id)arg3;

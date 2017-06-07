@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppStoreDaemon/ASDRequest.h>
+#import <AppStoreDaemon/ASDEphemeralRequest.h>
 
 @class ASDGatherLogsRequestOptions, NSObject, NSXPCConnection;
 @protocol OS_dispatch_queue;
 
-@interface ASDGatherLogsRequest : ASDRequest
+@interface ASDGatherLogsRequest : ASDEphemeralRequest
 {
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSObject<OS_dispatch_queue> *_calloutQueue;
@@ -17,6 +17,7 @@
     ASDGatherLogsRequestOptions *_options;
 }
 
++ (long long)requestType;
 - (void).cxx_destruct;
 - (id)_zippedDataForURL:(id)arg1;
 - (void)_sendHarFileRequestWithOptions:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;

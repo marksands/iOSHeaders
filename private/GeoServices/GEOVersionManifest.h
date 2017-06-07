@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 + (Class)serviceVersionType;
 @property(retain, nonatomic) NSMutableArray *serviceVersions; // @synthesize serviceVersions=_serviceVersions;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,7 +32,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)serviceVersionsCount;
 - (void)addServiceVersion:(id)arg1;
 - (void)clearServiceVersions;
-- (void)dealloc;
 
 @end
 

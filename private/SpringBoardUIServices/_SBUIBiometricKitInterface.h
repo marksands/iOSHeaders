@@ -6,30 +6,44 @@
 
 #import <objc/NSObject.h>
 
-@class BiometricKit;
+#import <SpringBoardUIServices/BKMatchOperationDelegate-Protocol.h>
+#import <SpringBoardUIServices/BKOperationDelegate-Protocol.h>
+
+@class BKDeviceTouchID, NSSet, NSString;
 @protocol _SBUIBiometricKitInterfaceDelegate;
 
-@interface _SBUIBiometricKitInterface : NSObject
+@interface _SBUIBiometricKitInterface : NSObject <BKOperationDelegate, BKMatchOperationDelegate>
 {
-    BiometricKit *_biometricKit;
+    NSSet *_biometricDevices;
     unsigned long long _enrolledIdentitiesCount;
     int _enrollmentChangedNotifyToken;
-    _Bool _isFingerOn;
+    _Bool _isFingerDetected;
+    BKDeviceTouchID *_mesaDevice;
     id <_SBUIBiometricKitInterfaceDelegate> _delegate;
 }
 
 @property(nonatomic) id <_SBUIBiometricKitInterfaceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)_createPresenceDetectOperationsForDeviceTypes:(id)arg1 error:(id *)arg2;
 - (void)_sendDelegateEvent:(unsigned long long)arg1;
+- (void)matchOperation:(id)arg1 matchedWithResult:(id)arg2;
+- (void)operation:(id)arg1 presenceStateChanged:(_Bool)arg2;
 - (_Bool)isFingerOn;
 - (_Bool)hasEnrolledIdentities;
 - (unsigned long long)lockoutState;
-- (int)matchWithMode:(unsigned long long)arg1 andCredentialSet:(id)arg2;
-- (int)enableBackgroundFdet:(_Bool)arg1;
-- (void)cancel;
-- (int)detectFingerWithOptions:(id)arg1;
+- (id)createFingerDetectOperationsWithError:(id *)arg1;
+- (id)createPresenceDetectOperationsWithError:(id *)arg1;
+- (id)createMatchOperationsWithMode:(unsigned long long)arg1 andCredentialSet:(id)arg2 error:(id *)arg3;
+- (_Bool)enableBackgroundFingerDetection:(_Bool)arg1 error:(id *)arg2;
+@property(readonly, nonatomic, getter=isTouchIDCapable) _Bool touchIDCapable;
 - (void)dealloc;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

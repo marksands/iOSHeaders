@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
     struct __CFRunLoop *_runLoop;
     NSOperationQueue *_queryQueue;
     // Error parsing type: Ai, name: _disableCount
+    int _receiverDisableCount;
 }
 
 + (void)initialize;
@@ -84,7 +85,7 @@ __attribute__((visibility("hidden")))
 - (id)attributeValueForName:(id)arg1 forResultAtIndex:(long long)arg2;
 - (unsigned char)executeWithOptions:(unsigned long long)arg1;
 - (void)_runQuery;
-- (void)_startReceiver;
+- (void)_watchScopes;
 - (void)stop;
 - (void)_performBlockAsync:(CDUnknownBlockType)arg1;
 - (void)enableUpdates;

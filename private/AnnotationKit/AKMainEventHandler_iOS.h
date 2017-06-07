@@ -27,7 +27,6 @@
 @property(retain) UITapGestureRecognizer *doubleTapRecognizer; // @synthesize doubleTapRecognizer=_doubleTapRecognizer;
 @property(retain) UITapGestureRecognizer *tapRecognizer; // @synthesize tapRecognizer=_tapRecognizer;
 - (void).cxx_destruct;
-- (_Bool)_hitTestAnnotationsIncludingPOI:(_Bool)arg1 atPointInWindow:(struct CGPoint)arg2 outAnnotation:(id *)arg3;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (void)applyToAllSelectedAnnotationsRotateEvent:(id)arg1 orRecognizer:(id)arg2;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;

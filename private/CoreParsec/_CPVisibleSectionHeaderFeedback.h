@@ -6,37 +6,45 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPVisibleSectionHeaderFeedback-Protocol.h>
 
-@class _CPResultSectionForFeedback;
+@class NSData, NSString, _CPResultSectionForFeedback;
 
-@interface _CPVisibleSectionHeaderFeedback : PBCodable <NSCopying>
+@interface _CPVisibleSectionHeaderFeedback : PBCodable <_CPProcessableFeedback, _CPVisibleSectionHeaderFeedback, NSSecureCoding>
 {
-    unsigned long long _timestamp;
-    int _headerType;
-    _CPResultSectionForFeedback *_section;
     struct {
+        unsigned int timestamp:1;
         unsigned int headerType:1;
     } _has;
+    int _headerType;
+    unsigned long long _timestamp;
+    _CPResultSectionForFeedback *_section;
 }
 
+@property(nonatomic) int headerType; // @synthesize headerType=_headerType;
 @property(retain, nonatomic) _CPResultSectionForFeedback *section; // @synthesize section=_section;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (int)StringAsHeaderType:(id)arg1;
-- (id)headerTypeAsString:(int)arg1;
-@property(nonatomic) _Bool hasHeaderType;
-@property(nonatomic) int headerType; // @synthesize headerType=_headerType;
+@property(readonly, nonatomic) _Bool hasHeaderType;
 @property(readonly, nonatomic) _Bool hasSection;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

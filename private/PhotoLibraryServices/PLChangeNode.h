@@ -16,14 +16,17 @@
     unsigned char _nodeUUID[16];
     int _notifyToken;
     NSObject<OS_dispatch_queue> *_isolationQueue;
+    NSObject<OS_dispatch_queue> *_hubConnectionQueue;
     unsigned long long _lastKnownChangeHubEventIndex;
     _Bool _isObservingOrderKeys;
     NSSet *_observedRelationships;
     NSMutableDictionary *_updatedOrderKeyObjectIDs;
 }
 
++ (unsigned int)handleNotifyGetStateForToken:(int)arg1 state:(unsigned long long *)arg2;
 + (id)localChangeEventFromChangeHubEvent:(id)arg1;
 + (id)_descriptionForEvent:(id)arg1;
++ (id)_createXPCObjectFromChangedObjectIDs:(id)arg1 redundantDeletes:(id)arg2 uuidsForCloudDeletion:(id)arg3 updatedAttributesByObjectID:(id)arg4 updatedRelationshipsByObjectID:(id)arg5 updatedOrderKeys:(id)arg6 changeSource:(int)arg7 syncChangeMarker:(_Bool)arg8;
 + (id)sharedNode;
 - (void)_processDelayedAssetsForAnalysis:(id)arg1 transaction:(id)arg2;
 - (void)_processDelayedAssetsForFileSystemPersistencyFromChangeHubEvent:(id)arg1 transaction:(id)arg2;
@@ -43,9 +46,9 @@
 - (void)processRemoteEvents:(id)arg1;
 - (void)fetchNewEventsFromChangeHub;
 - (void)handleRemoteChangeHubRequest:(id)arg1;
-- (void)setupHubConnection;
+- (void)_setupHubConnection;
 - (id)sendEventToChangeHub:(id)arg1 transaction:(id)arg2;
-- (void)sendChangeHubEventForDidSaveNotification:(id)arg1;
+- (void)sendChangeHubEventForDidSaveObjectIDsNotification:(id)arg1;
 - (id)getAndClearUpdatedOrderKeys;
 - (void)persistentStoreDidUpdateOrderKeys:(id)arg1;
 - (void)printChangeStore;
@@ -54,7 +57,6 @@
 - (_Bool)_inq_registerForStoreOrderKeyUpdateNotificationFromManagedObjectContext:(id)arg1;
 - (void)distributeRemoteChangeHubEvent:(id)arg1 withGroup:(id)arg2 transaction:(id)arg3;
 - (void)distributeRemoteContextDidSaveEvent:(id)arg1 withGroup:(id)arg2 transaction:(id)arg3;
-- (id)createXPCObjectFromDidSaveNotification:(id)arg1 updatedAttributesByObjectID:(id)arg2 updatedRelationshipsByObjectID:(id)arg3 updatedOrderKeys:(id)arg4;
 - (void)dealloc;
 - (id)init;
 

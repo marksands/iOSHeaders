@@ -60,6 +60,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
 @property(retain, nonatomic) NSString *bookTableAppId; // @synthesize bookTableAppId=_bookTableAppId;
 @property(retain, nonatomic) NSString *bookTableSessionId; // @synthesize bookTableSessionId=_bookTableSessionId;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -94,7 +95,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasEndState;
 @property(nonatomic) int endState; // @synthesize endState=_endState;
 @property(readonly, nonatomic) _Bool hasBookTableSessionId;
-- (void)dealloc;
 
 @end
 

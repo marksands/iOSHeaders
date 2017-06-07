@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 
 @property(retain, nonatomic) NSMutableArray *laneConnections; // @synthesize laneConnections=_laneConnections;
 @property(retain, nonatomic) NSMutableArray *connectingRoads; // @synthesize connectingRoads=_connectingRoads;
+- (void).cxx_destruct;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
@@ -35,7 +36,6 @@ __attribute__((visibility("hidden")))
 - (unsigned long long)connectingRoadsCount;
 - (void)addConnectingRoad:(id)arg1;
 - (void)clearConnectingRoads;
-- (void)dealloc;
 
 @end
 

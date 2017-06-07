@@ -6,7 +6,7 @@
 
 #import <UIKit/UIControl.h>
 
-@class UIImageView, UILabel, UIView;
+@class UIColor, UIImageView, UILabel, UIView;
 
 @interface CKCanvasBackButtonView : UIControl
 {
@@ -14,8 +14,10 @@
     UIImageView *_backButtonView;
     UILabel *_titleLabel;
     UIView *_titlePaddingView;
+    UIColor *_titleLabelColor;
 }
 
+@property(retain, nonatomic) UIColor *titleLabelColor; // @synthesize titleLabelColor=_titleLabelColor;
 @property(nonatomic) _Bool shouldShowTitlePaddingView; // @synthesize shouldShowTitlePaddingView=_shouldShowTitlePaddingView;
 @property(retain, nonatomic) UIView *titlePaddingView; // @synthesize titlePaddingView=_titlePaddingView;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;

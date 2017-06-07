@@ -23,13 +23,13 @@ __attribute__((visibility("hidden")))
 - (void)takeSnapshotWithCollaborationMode:(_Bool)arg1;
 - (id)packageLocator;
 - (long long)tsp_identifier;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)setData:(id)arg1 acknowledgedByServer:(_Bool)arg2;
 - (void)isDataAcknowledgedByServer:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)isDataAcknowledgedByServer:(id)arg1;
 - (void)resetAcknowledgedServerData;
 - (id)initWithContext:(id)arg1;
-- (id)initCommon;
+- (void)commonInit;
 
 @end
 

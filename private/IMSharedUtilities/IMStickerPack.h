@@ -10,8 +10,8 @@
 
 @interface IMStickerPack : NSObject
 {
-    struct NSString *_GUID;
     NSMutableSet *_stickers;
+    struct NSString *_GUID;
     NSString *_name;
     NSURL *_displayAssetURL;
     NSURL *_fileURL;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @protocol OS_dispatch_queue;
 
@@ -15,9 +15,9 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_callbackQueue;
 }
 
-@property(nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(copy, nonatomic) CDUnknownBlockType callback; // @synthesize callback=_callback;
-- (void)dealloc;
+- (void).cxx_destruct;
 
 @end
 

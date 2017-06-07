@@ -4,27 +4,33 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOMapItemPhoto-Protocol.h>
 
-@class GEOPDPhoto, GEOPhoto, NSString, NSURL;
+@class GEOPDCaptionedPhoto, GEOPDPhoto, NSArray, NSString, NSURL;
 
 __attribute__((visibility("hidden")))
 @interface _GEOPlaceDataPhoto : NSObject <GEOMapItemPhoto>
 {
     GEOPDPhoto *_photo;
-    GEOPhoto *_geoPhoto;
+    GEOPDCaptionedPhoto *_captionedPhoto;
+    NSArray *_sortedPhotoInfos;
 }
 
-@property(readonly, nonatomic) GEOPhoto *geoPhoto; // @synthesize geoPhoto=_geoPhoto;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) double sizeRatio;
+- (id)bestPhotoForSize:(struct CGSize)arg1 allowSmaller:(_Bool)arg2;
+- (id)largestPhoto;
+@property(readonly, nonatomic) NSString *uid;
+@property(readonly, nonatomic) _Bool useGallery;
 @property(readonly, nonatomic) _Bool displayFullPhotoInline;
 @property(readonly, nonatomic) NSURL *licenseURL;
 @property(readonly, nonatomic) NSString *licenseDescription;
 @property(readonly, nonatomic) NSString *caption;
 @property(readonly, nonatomic) NSString *author;
-- (void)dealloc;
 - (id)initWithPhoto:(id)arg1;
+- (id)initWithCaptionedPhoto:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

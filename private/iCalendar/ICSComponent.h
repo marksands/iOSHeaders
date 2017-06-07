@@ -53,7 +53,7 @@
 @property(retain) NSString *x_apple_relatedExternalID;
 @property(retain) NSString *x_apple_contactIdentifiers;
 @property(retain) NSString *x_apple_suggestionInfoUniqueKey;
-@property ICSDate *x_apple_suggestionInfoTimestamp;
+@property(retain) ICSDate *x_apple_suggestionInfoTimestamp;
 @property(retain) NSString *x_apple_suggestionInfoOpaqueKey;
 @property unsigned long long x_apple_suggestionInfoChangedFields;
 @property _Bool x_apple_suggestionInfoChangesAcknowledged;

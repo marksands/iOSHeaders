@@ -14,7 +14,7 @@ __attribute__((visibility("hidden")))
     MRTransactionPacketizer *_packetizer;
     NSMutableArray *_packets;
     _Bool _active;
-    struct _MROrigin *_origin;
+    void *_playerPath;
     unsigned long long _name;
     double _outOfMemoryWaitDuration;
 }
@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isActive) _Bool active;
 - (void)sendPackets:(id)arg1;
 - (void)dealloc;
-- (id)initWithName:(unsigned long long)arg1 forOrigin:(struct _MROrigin *)arg2;
+- (id)initWithName:(unsigned long long)arg1 forPlayer:(void *)arg2;
 
 @end
 

@@ -60,8 +60,8 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (void)p_copySelfTo:(id)arg1;
-- (id)init;
 - (void)dealloc;
+- (id)init;
 - (id)initWithCustomFormatData:(id)arg1;
 
 @end

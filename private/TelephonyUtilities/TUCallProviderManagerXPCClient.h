@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/TUCallProviderManagerDataSource-Protocol.h>
 #import <TelephonyUtilities/TUCallProviderManagerXPCClient-Protocol.h>
@@ -26,7 +26,9 @@
 + (id)callProviderManagerClientXPCInterface;
 + (id)callProviderManagerAllowedClasses;
 + (void)setSynchronousServer:(id)arg1;
++ (id)synchronousServer;
 + (void)setAsynchronousServer:(id)arg1;
++ (id)asynchronousServer;
 @property(copy, nonatomic) NSDictionary *providersByIdentifier; // @synthesize providersByIdentifier=_providersByIdentifier;
 @property(nonatomic) _Bool requestedInitialState; // @synthesize requestedInitialState=_requestedInitialState;
 @property(nonatomic) int token; // @synthesize token=_token;
@@ -41,6 +43,9 @@
 - (id)server;
 - (void)invalidate;
 - (void)blockUntilInitialStateReceived;
+- (void)launchAppForDialRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (_Bool)openURL:(id)arg1 isSensitive:(_Bool)arg2 error:(id *)arg3;
+@property(readonly, nonatomic) _Bool currentProcessCanAccessInitialState;
 @property(nonatomic) __weak id <TUCallProviderManagerDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)dealloc;
 - (id)init;

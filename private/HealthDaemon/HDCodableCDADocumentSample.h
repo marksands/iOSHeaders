@@ -46,6 +46,8 @@
 @property(readonly, nonatomic) _Bool hasPatientName;
 @property(readonly, nonatomic) _Bool hasTitle;
 @property(readonly, nonatomic) _Bool hasDocumentData;
+- (int)StringAsOmittedContent:(id)arg1;
+- (id)omittedContentAsString:(int)arg1;
 @property(nonatomic) _Bool hasOmittedContent;
 @property(nonatomic) int omittedContent; // @synthesize omittedContent=_omittedContent;
 @property(readonly, nonatomic) _Bool hasSample;

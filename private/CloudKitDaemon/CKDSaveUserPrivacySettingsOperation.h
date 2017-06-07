@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     NSString *_applicationBundleID;
 }
 
++ (long long)isPredominatelyDownload;
 @property(copy, nonatomic) NSString *applicationBundleID; // @synthesize applicationBundleID=_applicationBundleID;
 @property(nonatomic) long long discoverable; // @synthesize discoverable=_discoverable;
 - (void).cxx_destruct;

@@ -6,13 +6,11 @@
 
 #import <objc/NSObject.h>
 
-__attribute__((visibility("hidden")))
 @interface WebFixedPositionContent : NSObject
 {
     struct WebFixedPositionContentData *_private;
 }
 
-- (double)minimumOffsetFromFixedPositionLayersToAnchorEdge:(long long)arg1 ofRect:(struct CGRect)arg2 inLayer:(id)arg3;
 - (_Bool)hasFixedOrStickyPositionLayers;
 - (void)setViewportConstrainedLayers:(HashMap_8e3a669a *)arg1 stickyContainerMap:(HashMap_9d18c561 *)arg2;
 - (void)didFinishScrollingOrZooming;

@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)migrateStylesContext;
-+ (id)changeTrackingSubstorageForCopyContext;
++ (id)preserveParentStorageContext;
 + (id)exportFootnoteContext;
 + (id)undoDeleteContext;
 + (id)unhidingContext;
@@ -38,7 +38,7 @@ __attribute__((visibility("hidden")))
 - (void)addDrawables:(id)arg1;
 - (void)addDrawable:(id)arg1;
 - (id)undoContext;
-- (_Bool)changeTrackingSubstorage;
+- (_Bool)preserveParentStorage;
 - (_Bool)preserveChangeTracking;
 - (_Bool)matchStyle;
 - (_Bool)syncChanges;

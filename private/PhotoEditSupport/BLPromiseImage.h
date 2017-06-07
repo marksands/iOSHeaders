@@ -33,6 +33,7 @@
 + (struct CGSize)maximumSizeForFlattening;
 + (id)imageWithImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize sourceSize; // @synthesize sourceSize=_sourceSize;
+- (void).cxx_destruct;
 - (id)flattenedImageInBoundingSize:(struct CGSize)arg1;
 - (id)flattenedImageInBoundingSize:(struct CGSize)arg1 shouldScaleForScreen:(_Bool)arg2;
 - (id)flattenedPixelImageBufferInBoundingSize:(struct CGSize)arg1 shouldScaleForScreen:(_Bool)arg2;

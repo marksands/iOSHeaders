@@ -14,13 +14,16 @@
 {
     PBUnknownFields *_unknownFields;
     double _timestamp;
+    int _floorOrdinal;
     GEOLatLng *_latLng;
     GEOMapRegion *_mapRegion;
     struct {
         unsigned int timestamp:1;
+        unsigned int floorOrdinal:1;
     } _has;
 }
 
+@property(nonatomic) int floorOrdinal; // @synthesize floorOrdinal=_floorOrdinal;
 @property(nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 @property(retain, nonatomic) GEOMapRegion *mapRegion; // @synthesize mapRegion=_mapRegion;
 @property(retain, nonatomic) GEOLatLng *latLng; // @synthesize latLng=_latLng;
@@ -35,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasFloorOrdinal;
 @property(nonatomic) _Bool hasTimestamp;
 @property(readonly, nonatomic) _Bool hasMapRegion;
 @property(readonly, nonatomic) _Bool hasLatLng;

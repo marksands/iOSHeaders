@@ -8,29 +8,37 @@
 
 #import <AVConference/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString, VCMediaNegotiationBlobAudioSettings, VCMediaNegotiationBlobCaptionsSettings, VCMediaNegotiationBlobVideoSettings;
+@class NSMutableArray, NSString, VCMediaNegotiationBlobAudioSettings, VCMediaNegotiationBlobCaptionsSettings, VCMediaNegotiationBlobMomentsSettings, VCMediaNegotiationBlobVideoSettings;
 
 __attribute__((visibility("hidden")))
 @interface VCMediaNegotiationBlob : PBCodable <NSCopying>
 {
+    unsigned long long _ntpTime;
     VCMediaNegotiationBlobAudioSettings *_audioSettings;
     NSMutableArray *_bandwidthSettings;
     NSString *_basebandCodec;
     unsigned int _basebandCodecSampleRate;
     VCMediaNegotiationBlobCaptionsSettings *_captionsSettings;
+    VCMediaNegotiationBlobMomentsSettings *_momentsSettings;
+    NSMutableArray *_multiwayAudioStreams;
     VCMediaNegotiationBlobVideoSettings *_screenSettings;
     NSString *_userAgent;
     VCMediaNegotiationBlobVideoSettings *_videoSettings;
     _Bool _allowDynamicMaxBitrate;
     _Bool _allowsContentsChangeWithAspectPreservation;
     struct {
+        unsigned int ntpTime:1;
         unsigned int basebandCodecSampleRate:1;
         unsigned int allowDynamicMaxBitrate:1;
         unsigned int allowsContentsChangeWithAspectPreservation:1;
     } _has;
 }
 
++ (Class)multiwayAudioStreamsType;
 + (Class)bandwidthSettingsType;
+@property(nonatomic) unsigned long long ntpTime; // @synthesize ntpTime=_ntpTime;
+@property(retain, nonatomic) VCMediaNegotiationBlobMomentsSettings *momentsSettings; // @synthesize momentsSettings=_momentsSettings;
+@property(retain, nonatomic) NSMutableArray *multiwayAudioStreams; // @synthesize multiwayAudioStreams=_multiwayAudioStreams;
 @property(retain, nonatomic) VCMediaNegotiationBlobCaptionsSettings *captionsSettings; // @synthesize captionsSettings=_captionsSettings;
 @property(retain, nonatomic) NSMutableArray *bandwidthSettings; // @synthesize bandwidthSettings=_bandwidthSettings;
 @property(nonatomic) unsigned int basebandCodecSampleRate; // @synthesize basebandCodecSampleRate=_basebandCodecSampleRate;
@@ -50,6 +58,12 @@ __attribute__((visibility("hidden")))
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasNtpTime;
+@property(readonly, nonatomic) _Bool hasMomentsSettings;
+- (id)multiwayAudioStreamsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)multiwayAudioStreamsCount;
+- (void)addMultiwayAudioStreams:(id)arg1;
+- (void)clearMultiwayAudioStreams;
 @property(readonly, nonatomic) _Bool hasCaptionsSettings;
 - (id)bandwidthSettingsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)bandwidthSettingsCount;
@@ -64,9 +78,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasAllowsContentsChangeWithAspectPreservation;
 @property(nonatomic) _Bool hasAllowDynamicMaxBitrate;
 - (void)dealloc;
-- (void)printWithTitle:(id)arg1 blobSize:(unsigned int)arg2;
-- (void)printCaptionsSettings;
-- (void)printBandwidthSettings;
+- (void)printWithTitle:(id)arg1 blobSize:(unsigned int)arg2 logFile:(void *)arg3;
+- (void)printMomentsSettingsWithLogFile:(void *)arg1;
+- (void)printCaptionsSettingsWithLogFile:(void *)arg1;
+- (void)printBandwidthSettingsWithLogFile:(void *)arg1;
 
 @end
 

@@ -27,7 +27,7 @@
 + (id)_accessibilityBundlesForBundle:(id)arg1;
 + (void)_loadAXBundleForBundle:(id)arg1 didLoadCallback:(CDUnknownBlockType)arg2;
 + (void)_loadAXBundleForBundle:(id)arg1 didLoadCallback:(CDUnknownBlockType)arg2 forceLoad:(_Bool)arg3 loadSubbundles:(_Bool)arg4 loadAllAccessibilityInfo:(_Bool)arg5;
-+ (void)loadAccessibilityBundle:(id)arg1 didLoadCallback:(CDUnknownBlockType)arg2 force:(_Bool)arg3;
++ (void)loadAccessibilityBundle:(id)arg1 didLoadCallback:(CDUnknownBlockType)arg2 force:(_Bool)arg3 loadAllAccessibilityInfo:(_Bool)arg4;
 + (void)loadAccessibilityBundle:(id)arg1 didLoadCallback:(CDUnknownBlockType)arg2;
 + (void)loadActualAccessibilityBundle:(id)arg1 didLoadCallback:(CDUnknownBlockType)arg2 loadSubbundles:(_Bool)arg3;
 + (void)initialize;

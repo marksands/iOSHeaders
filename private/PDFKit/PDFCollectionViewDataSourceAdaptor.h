@@ -12,6 +12,7 @@
 @class NSString;
 @protocol PDFCollectionViewDataSource;
 
+__attribute__((visibility("hidden")))
 @interface PDFCollectionViewDataSourceAdaptor : NSObject <UICollectionViewDelegateFlowLayoutPrivate, UICollectionViewDataSource>
 {
     NSObject<PDFCollectionViewDataSource> *_wrappedDataSource;

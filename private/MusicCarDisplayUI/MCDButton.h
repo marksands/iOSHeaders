@@ -33,7 +33,7 @@
 - (void)setHidden:(_Bool)arg1;
 @property(nonatomic, getter=isSelected) _Bool selected; // @dynamic selected;
 - (void)willMoveToWindow:(id)arg1;
-- (void)focusedViewDidChange;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)canBecomeFocused;
 
 @end

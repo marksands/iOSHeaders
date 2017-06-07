@@ -16,6 +16,7 @@
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(copy, nonatomic) NSArray *occlusions; // @dynamic occlusions;
+- (void)_setDisplayConfiguration:(id)arg1;
 - (id)transientLocalSettings;
 - (id)ignoreOcclusionReasons;
 - (id)otherSettings;
@@ -23,6 +24,7 @@
 @property(nonatomic) long long interfaceOrientation; // @dynamic interfaceOrientation;
 @property(nonatomic) double level; // @dynamic level;
 @property(nonatomic) struct CGRect frame; // @dynamic frame;
+- (void)setDisplayConfiguration:(id)arg1;
 
 @end
 

@@ -15,9 +15,9 @@ __attribute__((visibility("hidden")))
     id <MFObservable> _sampler;
 }
 
+- (void).cxx_destruct;
 - (id)subscribe:(id)arg1;
 - (id)initWithObservable:(id)arg1 sampler:(id)arg2;
-- (void)dealloc;
 
 @end
 

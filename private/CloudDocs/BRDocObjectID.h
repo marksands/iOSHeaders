@@ -17,8 +17,10 @@
 - (_Bool)isDocumentID;
 - (id)documentID;
 - (unsigned long long)rawID;
+- (id)asString;
 - (id)description;
 - (id)initWithDocID:(unsigned int)arg1;
+- (id)initWithDocIDNumber:(id)arg1;
 
 @end
 

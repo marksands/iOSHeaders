@@ -17,6 +17,7 @@
 
 + (Class)requestType;
 @property(retain, nonatomic) NSMutableArray *requests; // @synthesize requests=_requests;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 - (unsigned long long)requestsCount;
 - (void)addRequest:(id)arg1;
 - (void)clearRequests;
-- (void)dealloc;
 
 @end
 

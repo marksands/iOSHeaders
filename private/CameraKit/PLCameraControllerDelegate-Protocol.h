@@ -24,8 +24,8 @@
 - (void)cameraControllerRemoteShutterToggleCameraDevice:(CMKCaptureController *)arg1;
 - (void)cameraControllerRemoteShutter:(CMKCaptureController *)arg1 setFlashMode:(long long)arg2;
 - (void)cameraControllerRemoteShutterNeedsReadiness:(CMKCaptureController *)arg1;
-- (void)cameraControllerRemoteShutterStopVideoCapture:(CMKCaptureController *)arg1;
-- (void)cameraControllerRemoteShutterStartVideoCapture:(CMKCaptureController *)arg1;
+- (_Bool)cameraControllerRemoteShutterStopVideoCapture:(CMKCaptureController *)arg1;
+- (_Bool)cameraControllerRemoteShutterStartVideoCapture:(CMKCaptureController *)arg1;
 - (void)cameraController:(CMKCaptureController *)arg1 remoteFocusTapped:(struct CGPoint)arg2;
 - (void)cameraControllerRemoteShutterCanceled:(CMKCaptureController *)arg1;
 - (void)cameraControllerRemoteShutterPressed:(CMKCaptureController *)arg1 countdown:(unsigned long long)arg2;

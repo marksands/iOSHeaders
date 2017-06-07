@@ -13,6 +13,7 @@
 
 @interface CPLResource : NSObject <NSSecureCoding, NSCopying>
 {
+    unsigned long long _backgroundDownloadTaskIdentifier;
     _Bool _generateDerivative;
     _Bool _canGenerateDerivative;
     CPLResourceIdentity *_identity;
@@ -34,6 +35,11 @@
 @property(copy, nonatomic) NSString *itemIdentifier; // @synthesize itemIdentifier=_itemIdentifier;
 @property(retain, nonatomic) CPLResourceIdentity *identity; // @synthesize identity=_identity;
 - (void).cxx_destruct;
+- (void)_setBackgroundDownloadTaskIdentifier:(unsigned long long)arg1;
+- (unsigned long long)_backgroundDownloadTaskIdentifier;
+- (_Bool)shouldApplyDataProtection;
+- (_Bool)shouldCopy;
+- (unsigned long long)estimatedResourceSize;
 - (_Bool)isTrackedForUpload;
 - (id)bestFileNameForResource;
 - (id)description;

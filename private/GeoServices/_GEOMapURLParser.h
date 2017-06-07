@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class GEOUserSessionEntity, NSString, NSURL;
+@class GEOURLExtraStorage, GEOUserSessionEntity, NSString, NSURL;
 
 @interface _GEOMapURLParser : NSObject
 {
@@ -42,11 +42,13 @@
     NSString *_lineName;
     long long _favoritesType;
     _Bool _tester;
+    GEOURLExtraStorage *_extraStorage;
 }
 
 + (_Bool)isValidMapsURLForAppendingSharedSessionID:(id)arg1;
 + (_Bool)isValidMapsCategoryURL:(id)arg1;
 + (_Bool)isValidMapURL:(id)arg1;
+@property(readonly) GEOURLExtraStorage *extraStorage; // @synthesize extraStorage=_extraStorage;
 @property(readonly) _Bool tester; // @synthesize tester=_tester;
 @property(readonly) long long favoritesType; // @synthesize favoritesType=_favoritesType;
 @property(readonly, copy) NSString *lineName; // @synthesize lineName=_lineName;
@@ -75,8 +77,8 @@
 @property(readonly) int trackingMode; // @synthesize trackingMode=_trackingMode;
 @property(readonly) int transportType; // @synthesize transportType=_transportType;
 @property(readonly) int mapType; // @synthesize mapType=_mapType;
+- (void).cxx_destruct;
 - (_Bool)parseIncludingCustomParameters:(_Bool)arg1;
-- (void)dealloc;
 - (id)initWithURL:(id)arg1;
 
 @end

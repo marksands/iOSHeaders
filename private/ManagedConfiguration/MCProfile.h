@@ -22,7 +22,6 @@
     _Bool _needsReboot;
     _Bool _isStub;
     _Bool _mustInstallNonInteractively;
-    _Bool _shouldHaveFullSSLTrust;
     NSString *_profileDescription;
     NSString *_displayName;
     NSString *_identifier;
@@ -60,7 +59,6 @@
 + (id)badFieldTypeErrorWithField:(id)arg1;
 + (id)_malformedProfileError;
 @property(readonly, nonatomic) NSString *localizedConsentText; // @synthesize localizedConsentText=_localizedConsentText;
-@property(readonly, nonatomic) _Bool shouldHaveFullSSLTrust; // @synthesize shouldHaveFullSSLTrust=_shouldHaveFullSSLTrust;
 @property(nonatomic) _Bool mustInstallNonInteractively; // @synthesize mustInstallNonInteractively=_mustInstallNonInteractively;
 @property(retain, nonatomic) NSDictionary *installOptions; // @synthesize installOptions=_installOptions;
 @property(readonly, nonatomic) NSDate *removalDate; // @synthesize removalDate=_removalDate;
@@ -78,6 +76,7 @@
 @property(retain, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly, retain, nonatomic) NSString *profileDescription; // @synthesize profileDescription=_profileDescription;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool shouldHaveFullSSLTrust;
 - (id)appAccessibilityParameters;
 - (id)restrictionsWithHeuristicsAppliedOutError:(id *)arg1;
 - (_Bool)mayInstallWithOptions:(id)arg1 hasInteractionClient:(_Bool)arg2 outError:(id *)arg3;
@@ -105,12 +104,12 @@
 @property(readonly, retain, nonatomic) NSArray *payloads;
 - (id)installationWarningsIncludeUnsignedProfileWarning:(_Bool)arg1;
 @property(readonly, retain, nonatomic) NSArray *installationWarnings;
-- (id)signatureVersion;
 @property(retain, nonatomic) NSArray *signerCertificates;
 @property(readonly, nonatomic) NSString *signerSummary;
 @property(readonly, nonatomic) struct __SecCertificate *signerCertificate;
 @property(readonly, nonatomic) int trustLevel;
 @property(retain, nonatomic) NSString *removalPasscode; // @synthesize removalPasscode=_removalPasscode;
+- (id)signatureVersion;
 - (unsigned long long)countOfPayloadsOfClass:(Class)arg1;
 - (_Bool)containsOnlyPayloadsOfClasses:(id)arg1;
 - (_Bool)containsAnyPayloadOfClasses:(id)arg1;

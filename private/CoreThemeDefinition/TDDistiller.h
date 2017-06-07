@@ -16,6 +16,7 @@
     NSArray *_changedProductions;
     NSArray *_mainThreadPerformRunLoopModes;
     int _fileCompression;
+    _Bool _dontPackRenditionsBeforeDistilling;
     _Bool _incremental;
     _Bool _cancelled;
     _Bool _successful;
@@ -25,15 +26,14 @@
     TDLogger *_logger;
     NSString *_accumulatedErrorDescription;
     NSThread *_callbackThread;
-    CDUnknownBlockType _oldCompletionHandler;
     CDUnknownBlockType _completionHandler;
 }
 
 @property(copy) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(copy) CDUnknownBlockType oldCompletionHandler; // @synthesize oldCompletionHandler=_oldCompletionHandler;
 @property(retain) NSThread *callbackThread; // @synthesize callbackThread=_callbackThread;
 @property(retain, nonatomic) NSString *accumulatedErrorDescription; // @synthesize accumulatedErrorDescription=_accumulatedErrorDescription;
 @property(getter=isFinished) _Bool finished; // @synthesize finished=_finished;
+@property(nonatomic) _Bool dontPackRenditionsBeforeDistilling; // @synthesize dontPackRenditionsBeforeDistilling=_dontPackRenditionsBeforeDistilling;
 @property(retain) TDLogger *logger; // @synthesize logger=_logger;
 @property(getter=isSuccessful) _Bool successful; // @synthesize successful=_successful;
 @property(getter=isCancelled) _Bool cancelled; // @synthesize cancelled=_cancelled;
@@ -45,8 +45,6 @@
 - (void)waitTimerDidFire:(id)arg1;
 - (void)waitUntilFinished;
 - (void)saveAndDistillWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)distillWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)beginDistillWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)_distill:(id)arg1;
 - (_Bool)assetStoreWriteToDisk;
 - (void)setAssetColorSpaceID:(unsigned int)arg1;
@@ -61,15 +59,12 @@
 - (void)setAssetStoreRenditionCount:(unsigned int)arg1;
 - (void)removeRenditionsFromAssetStoreWithKey:(id)arg1;
 - (void)_distillChanges:(id)arg1;
+- (id)dateOfLastDistill;
 - (void)_resetDocumentUuid:(id)arg1;
 - (void)markDistillationAsFinished;
 - (void)finishDistillationWithSuccess:(_Bool)arg1;
 - (_Bool)distillCursorFacetDefinitions;
 - (_Bool)_distillCursorFacetDefinitions:(id)arg1;
-- (_Bool)distillZeroCodeArtworkElementAndPartIdentifiers;
-- (_Bool)distillZeroCodeArtworkInfoOfType:(long long)arg1;
-- (_Bool)distillZeroCodeArtworkInfo:(id)arg1 ofType:(long long)arg2;
-- (id)zeroCodeArtworkInfoOfType:(long long)arg1 error:(id *)arg2;
 - (_Bool)distillNamedElements;
 - (_Bool)_distillNamedElements:(id)arg1;
 - (id)_copyStandardEffectDefinitions;

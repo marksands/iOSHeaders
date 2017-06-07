@@ -18,6 +18,7 @@
 
 + (id)storageForCompletionItem:(id)arg1;
 @property(retain, nonatomic) GEOPDAutocompleteEntry *autocompleteEntry; // @synthesize autocompleteEntry=_autocompleteEntry;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -29,7 +30,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasAutocompleteEntry;
-- (void)dealloc;
 - (void)applyToUserSearchInput:(id)arg1;
 
 @end

@@ -4,19 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <FrontBoardUIServices/FBUISceneContentManager-Protocol.h>
-#import <FrontBoardUIServices/FBUISceneIdentity-Protocol.h>
 #import <FrontBoardUIServices/FBUISceneSurrogate-Protocol.h>
 
-@class FBSSceneClientSettings, FBSSceneSettings, FBSSceneSpecification, FBUISceneIdentity, FBUISceneWorkspace, NSMutableArray, NSString, UIView;
+@class FBSSceneClientSettings, FBSSceneSettings, FBSSceneSpecification, FBUISceneWorkspace, NSMutableArray, NSString, UIView;
 @protocol FBUISceneClientProxy, FBUISceneContentManager, FBUISceneDelegate, FBUISceneHostProxy, FBUISceneUpdater;
 
-@interface FBUIScene : NSObject <FBUISceneContentManager, FBUISceneSurrogate, FBUISceneIdentity>
+@interface FBUIScene : NSObject <FBUISceneContentManager, FBUISceneSurrogate>
 {
     NSString *_name;
-    FBUISceneIdentity *_identity;
+    NSString *_identifier;
     FBSSceneSpecification *_specification;
     FBSSceneSettings *_settings;
     FBSSceneClientSettings *_clientSettings;
@@ -42,7 +41,7 @@
 @property(copy, nonatomic) FBSSceneClientSettings *clientSettings; // @synthesize clientSettings=_clientSettings;
 @property(copy, nonatomic) FBSSceneSettings *settings; // @synthesize settings=_settings;
 @property(readonly, copy, nonatomic) FBSSceneSpecification *specification; // @synthesize specification=_specification;
-@property(readonly, copy, nonatomic) FBUISceneIdentity *identity; // @synthesize identity=_identity;
+@property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (id)descriptionBuilderWithMultilinePrefix:(id)arg1;
@@ -52,7 +51,6 @@
 @property(readonly, copy) NSString *description;
 - (id)contentView;
 @property(readonly, nonatomic) _Bool hasContent;
-@property(readonly, copy, nonatomic) NSString *sceneIdentifier;
 - (void)didInvalidateSceneHost:(id)arg1;
 - (void)sceneHost:(id)arg1 didReceiveActions:(id)arg2;
 - (void)sceneHost:(id)arg1 destroySceneWithTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -63,9 +61,11 @@
 - (void)sceneClient:(id)arg1 didDetachLayer:(id)arg2;
 - (void)sceneClient:(id)arg1 didUpdateLayer:(id)arg2;
 - (void)sceneClient:(id)arg1 didAttachLayer:(id)arg2;
+- (id)sceneSpecification;
+- (id)sceneIdentifier;
 - (void)sceneHost:(id)arg1 registerSceneClient:(id)arg2 withInitialParameters:(id)arg3;
 - (void)registerSceneUpdater:(id)arg1;
-- (id)configureWithSceneIdentity:(id)arg1;
+- (id)configure;
 - (void)_performPendingUpdates;
 - (void)_performSceneUpdate:(CDUnknownBlockType)arg1;
 - (_Bool)_isReallyActive;
@@ -77,7 +77,7 @@
 - (void)activateWithCompletion:(CDUnknownBlockType)arg1;
 @property(readonly, retain, nonatomic) id <FBUISceneContentManager> contentManager; // @dynamic contentManager;
 - (void)dealloc;
-- (id)initWithName:(id)arg1 identity:(id)arg2 specification:(id)arg3;
+- (id)initWithName:(id)arg1 identifier:(id)arg2 specification:(id)arg3;
 - (id)init;
 
 // Remaining properties

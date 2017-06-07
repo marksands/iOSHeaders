@@ -8,15 +8,14 @@
 
 #import <CloudDocs/NSSecureCoding-Protocol.h>
 
-@class NSData, NSDate, NSDictionary, NSNumber, NSPurgeableData, NSSet, NSString, NSURL;
+@class BRMangledID, NSData, NSDate, NSDictionary, NSNumber, NSPurgeableData, NSSet, NSString, NSURL;
 
 @interface BRContainer : NSObject <NSSecureCoding>
 {
-    NSString *_containerID;
+    BRMangledID *_mangledID;
     NSSet *_bundleIDs;
     NSDictionary *_bundleIDVersions;
     NSString *_localizedName;
-    NSString *_supportedFolderLevels;
     NSSet *_documentsTypes;
     NSSet *_exportedTypes;
     NSSet *_importedTypes;
@@ -39,27 +38,27 @@
     NSPurgeableData *_purgeableDataRepresentation;
 }
 
-+ (id)_iconURLsWithProperties:(id)arg1 containerID:(id)arg2;
++ (id)_iconURLsWithProperties:(id)arg1 mangledID:(id)arg2;
 + (id)_iconGeneratorVersionWithProperties:(id)arg1;
 + (id)_iconMetadataWithProperties:(id)arg1;
 + (id)_importedTypesWithProperties:(id)arg1;
 + (id)_exportedTypesWithProperties:(id)arg1;
 + (id)_documentsTypesWithProperties:(id)arg1;
-+ (id)_supportedFolderLevelsWithProperties:(id)arg1;
-+ (id)_sanitizedContainerFallbackNameForContainerID:(id)arg1;
-+ (id)_localizedNameWithProperties:(id)arg1 containerID:(id)arg2 preferredLanguages:(id)arg3;
-+ (id)_localizedNameWithProperties:(id)arg1 containerID:(id)arg2;
-+ (id)_bundleIDVersionsWithProperties:(id)arg1 containerID:(id)arg2;
-+ (id)_isDocumentScopePublicAsNumberWithProperties:(id)arg1 containerID:(id)arg2;
++ (id)_sanitizedContainerFallbackNameForMangledID:(id)arg1;
++ (id)_localizedNameWithProperties:(id)arg1 mangledID:(id)arg2 preferredLanguages:(id)arg3;
++ (id)_localizedNameWithProperties:(id)arg1 mangledID:(id)arg2;
++ (id)_bundleIDVersionsWithProperties:(id)arg1 mangledID:(id)arg2;
++ (id)_isDocumentScopePublicAsNumberWithProperties:(id)arg1 mangledID:(id)arg2;
 + (id)_bundleIDsWithProperties:(id)arg1;
-+ (id)_URLForPlistOfContainerID:(id)arg1;
-+ (id)_pathForIconName:(id)arg1 containerID:(id)arg2;
-+ (id)_containerRepositoryURLForContainerID:(id)arg1;
++ (id)_URLForPlistOfMangledID:(id)arg1;
++ (id)_pathForIconName:(id)arg1 mangledID:(id)arg2;
++ (id)_containerRepositoryURLForMangledID:(id)arg1;
 + (id)bundlePropertyEnumerator:(id)arg1 valuesOfClass:(Class)arg2 forProperties:(id)arg3;
 + (id)bundleIdentifiersEnumeratorForProperties:(id)arg1;
 + (void)forceRefreshAllContainersWithCompletion:(CDUnknownBlockType)arg1;
 + (_Bool)canMoveFilesWithoutDownloadingFromContainer:(id)arg1 toContainer:(id)arg2;
 + (id)documentContainers;
++ (id)allContainersBlockIfNeeded:(_Bool)arg1;
 + (id)allContainers;
 + (id)allContainersByContainerID;
 + (id)containersRepositoryURL;
@@ -72,35 +71,24 @@
 + (id)containerInRepositoryURL:(id)arg1 error:(id *)arg2;
 + (id)containerInRepositoryURL:(id)arg1 createIfMissing:(_Bool)arg2 error:(id *)arg3;
 + (id)documentsContainersInBackupHomeAtURL:(id)arg1 error:(id *)arg2;
-+ (id)propertiesForContainerID:(id)arg1 usingBundle:(struct __CFBundle *)arg2 minimumBundleVersion:(id)arg3 bundleIcons:(id *)arg4;
-+ (void)_generateiOSIconsForContainerID:(id)arg1 usingBundle:(struct __CFBundle *)arg2 generatedIcons:(id)arg3;
++ (id)propertiesForMangledID:(id)arg1 usingBundle:(struct __CFBundle *)arg2 minimumBundleVersion:(id)arg3 bundleIcons:(id *)arg4;
++ (void)_generateiOSIconsForMangledID:(id)arg1 usingBundle:(struct __CFBundle *)arg2 generatedIcons:(id)arg3;
 + (void)postContainerStatusChangeNotificationWithID:(id)arg1 key:(id)arg2 value:(id)arg3;
 + (void)postContainerListUpdateNotification;
 + (void)forceRefreshContainers:(id)arg1 completion:(CDUnknownBlockType)arg2;
-+ (_Bool)isDocumentScopePublicWithProperties:(id)arg1 containerID:(id)arg2;
++ (_Bool)isDocumentScopePublicWithProperties:(id)arg1 mangledID:(id)arg2;
 + (_Bool)versionOfBundle:(id)arg1 changedFromVersion:(id)arg2;
 + (id)classesForDecoding;
-+ (id)ownerNameFromSharedMangledID:(id)arg1;
-+ (id)containerIDFromSharedMangledID:(id)arg1;
-+ (id)containerIDFromSharedContainerID:(id)arg1;
-+ (id)sharedMangledIDWithContainerID:(id)arg1 ownerName:(id)arg2;
-+ (_Bool)validateSharedMangledID:(id)arg1;
-+ (id)privateUnmangledContainerID:(id)arg1;
-+ (id)privateMangledContainerID:(id)arg1;
-+ (_Bool)validateOwnerName:(id)arg1;
-+ (_Bool)validateContainerID:(id)arg1;
-+ (id)containerForContainerID:(id)arg1;
++ (id)containerForMangledID:(id)arg1;
 + (void)unregisterCurrentProcessAsPriorityHint;
 @property(nonatomic) _Bool isInCloudDocsZone; // @synthesize isInCloudDocsZone=_isInCloudDocsZone;
 @property(nonatomic) _Bool isInInitialState; // @synthesize isInInitialState=_isInInitialState;
 @property(nonatomic) _Bool isCloudSyncTCCDisabled; // @synthesize isCloudSyncTCCDisabled=_isCloudSyncTCCDisabled;
-@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_containerID;
 - (void).cxx_destruct;
 - (void)_performWhileAccessingSecurityScopedContainer:(CDUnknownBlockType)arg1;
 - (id)_pathForIconName:(id)arg1;
 - (id)_pathForPlist;
 - (id)_containerRepositoryURL;
-- (id)_mangledID;
 - (void)_replaceDataRepresentationWithData:(id)arg1;
 - (void)forceRefreshWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_imageDataForSize:(struct CGSize)arg1 scale:(long long)arg2 isiOSIcon:(_Bool *)arg3 shouldTransformToAppIcon:(_Bool *)arg4;
@@ -125,12 +113,13 @@
 @property(readonly, nonatomic) _Bool isDocumentScopePublic;
 - (id)computedProperties;
 - (void)accessPropertiesInBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSString *identifier;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)description;
-- (id)initWithContainerID:(id)arg1 dataRepresentation:(id)arg2;
+- (id)initWithMangledID:(id)arg1 dataRepresentation:(id)arg2;
 - (id)initWithDocsOrDesktopContainerID:(id)arg1;
-- (id)initWithContainerID:(id)arg1;
+- (id)initWithMangledID:(id)arg1;
 - (unsigned int)currentStatus;
 - (id)lastServerUpdate;
 - (void)setCurrentStatus:(unsigned int)arg1;
@@ -144,6 +133,7 @@
 - (id)shortDescription;
 - (void)accessDataRepresentationInBlock:(CDUnknownBlockType)arg1;
 - (id)copyDataRepresentation;
+- (id)bestFittingImageDataForSize:(struct CGSize)arg1;
 - (id)iconURLs;
 - (_Bool)hasIconWithName:(id)arg1;
 - (id)versionNumberForBundleIdentifier:(id)arg1;

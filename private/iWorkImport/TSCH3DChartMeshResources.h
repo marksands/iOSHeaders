@@ -8,7 +8,7 @@
 
 #import <iWorkImport/TSCHUnretainedParent-Protocol.h>
 
-@class TSCH3DChartMeshSharedResource, TSCH3DChartTexcoordSharedResource, TSCH3DGeometry, TSCH3DResource, TSCHChartSeries;
+@class TSCH3DChartMeshSharedResource, TSCH3DChartTexcoordSharedResource, TSCH3DGeometry, TSCH3DResource, TSCHChartSeries, TSUOnce;
 @protocol TSCH3DChartMeshCreator;
 
 __attribute__((visibility("hidden")))
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     TSCH3DChartMeshSharedResource *mVertex;
     TSCH3DChartMeshSharedResource *mBounds;
     TSCH3DResource *mCachedBounds;
+    TSUOnce *mCachedBoundsOnce;
     TSCH3DChartMeshSharedResource *mNormal;
     TSCH3DChartTexcoordSharedResource *mTexcoord;
     struct GeometryArrays mArrays;

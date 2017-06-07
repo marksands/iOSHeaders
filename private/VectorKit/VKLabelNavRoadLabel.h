@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSString;
 @protocol VKLabelNavFeature;
@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     unsigned char _alignment;
     float _desiredOffsetDistance;
     unsigned int _displayID;
+    _Bool _isPicked;
 }
 
 @property(nonatomic) float desiredOffsetDistance; // @synthesize desiredOffsetDistance=_desiredOffsetDistance;
@@ -31,10 +32,14 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (id)displayGroup;
 - (void)layoutWithNavContext:(struct NavContext *)arg1;
+@property(readonly, nonatomic) _Bool isTrafficCameraLabel;
+@property(readonly, nonatomic) _Bool isEtaLabel;
 @property(readonly, nonatomic) _Bool isManeuverLabel;
 @property(readonly, nonatomic) _Bool isJunctionLabel;
 @property(readonly, nonatomic) _Bool isRoadLabel;
 @property(readonly, nonatomic) _Bool isShieldLabel;
+@property(nonatomic) unsigned short renderOrder;
+@property(nonatomic) Mercator2_57ec32b6 mercatorPoint;
 - (void)dealloc;
 - (id)initWithNavFeature:(id)arg1 label:(const shared_ptr_93ff9d4a *)arg2 navLabelType:(int)arg3;
 

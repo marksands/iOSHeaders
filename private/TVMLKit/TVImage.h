@@ -24,8 +24,11 @@
     _Bool _rotationEnabled;
 }
 
++ (long long)imageOrientationForExifOrientation:(int)arg1;
++ (int)exifOrientationForImageOrientation:(long long)arg1;
 + (id)imageWithRotationFromPath:(id)arg1;
 + (id)imageWithRotationFromURL:(id)arg1;
++ (id)imageWithCGImageRef:(struct CGImage *)arg1 imageOrientation:(long long)arg2 preserveAlpha:(_Bool)arg3;
 + (id)imageWithCGImageRef:(struct CGImage *)arg1 preserveAlpha:(_Bool)arg2;
 + (id)imageWithData:(id)arg1;
 + (id)imageWithPath:(id)arg1 cacheImmediately:(_Bool)arg2;
@@ -41,10 +44,6 @@
 - (_Bool)isImageBufferInMemory;
 - (id)squareImageFromNearSquareImageWithAspectRatioLimit:(float)arg1;
 - (struct CGRect)largestSquareRect;
-- (id)croppedImageForSize:(struct CGSize)arg1;
-- (id)mapImageWithSourceRect:(struct CGRect)arg1 toSize:(struct CGSize)arg2;
-- (id)mapImageWithSourceRect:(struct CGRect)arg1 toSize:(struct CGSize)arg2 drawInContextBlock:(CDUnknownBlockType)arg3;
-- (id)deletterboxedImage;
 - (_Bool)enableCache;
 - (void)setEnableCache:(_Bool)arg1;
 - (_Bool)sourceRequiresRotation;
@@ -60,6 +59,7 @@
 - (id)initWithData:(id)arg1;
 - (id)initWithURL:(id)arg1 cacheImmediately:(_Bool)arg2;
 - (id)initWithURL:(id)arg1;
+- (id)initWithCGImageRef:(struct CGImage *)arg1 imageOrientation:(long long)arg2 preserveAlpha:(_Bool)arg3;
 - (id)initWithCGImageRef:(struct CGImage *)arg1 preserveAlpha:(_Bool)arg2;
 
 @end

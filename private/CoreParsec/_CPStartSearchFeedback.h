@@ -6,44 +6,52 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPProcessableFeedback-Protocol.h>
+#import <CoreParsec/_CPStartSearchFeedback-Protocol.h>
 
-@class NSString;
+@class NSData, NSString;
 
-@interface _CPStartSearchFeedback : PBCodable <NSCopying>
+@interface _CPStartSearchFeedback : PBCodable <_CPProcessableFeedback, _CPStartSearchFeedback, NSSecureCoding>
 {
-    unsigned long long _queryId;
+    struct {
+        unsigned int timestamp:1;
+        unsigned int triggerEvent:1;
+        unsigned int queryId:1;
+    } _has;
+    int _triggerEvent;
     unsigned long long _timestamp;
     NSString *_input;
-    int _triggerEvent;
     NSString *_uuid;
-    struct {
-        unsigned int queryId:1;
-        unsigned int triggerEvent:1;
-    } _has;
+    unsigned long long _queryId;
 }
 
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
-@property(retain, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
-@property(retain, nonatomic) NSString *input; // @synthesize input=_input;
-@property(nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
+@property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
+@property(copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
+@property(copy, nonatomic) NSString *input; // @synthesize input=_input;
+@property(nonatomic) unsigned long long timestamp;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-@property(nonatomic) _Bool hasQueryId;
-- (int)StringAsTriggerEvent:(id)arg1;
-- (id)triggerEventAsString:(int)arg1;
-@property(nonatomic) _Bool hasTriggerEvent;
-@property(nonatomic) int triggerEvent; // @synthesize triggerEvent=_triggerEvent;
+@property(readonly, nonatomic) _Bool hasQueryId;
+@property(readonly, nonatomic) _Bool hasTriggerEvent;
 @property(readonly, nonatomic) _Bool hasUuid;
 @property(readonly, nonatomic) _Bool hasInput;
+@property(readonly, nonatomic) _Bool hasTimestamp;
+- (id)initWithFacade:(id)arg1;
+@property(readonly, nonatomic) _Bool requiresQueryId;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

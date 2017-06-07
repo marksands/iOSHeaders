@@ -19,7 +19,6 @@
 + (id)reuseIdentifier;
 @property(retain, nonatomic) CKDetailsAddGroupNameView *groupNameView; // @synthesize groupNameView=_groupNameView;
 - (void).cxx_destruct;
-- (void)layoutSubviews;
 - (void)dealloc;
 
 // Remaining properties

@@ -17,6 +17,7 @@
 @property(nonatomic) double delayChanges; // @synthesize delayChanges=_delayChanges;
 @property(nonatomic) _Bool slowBackgroundFetch; // @synthesize slowBackgroundFetch=_slowBackgroundFetch;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

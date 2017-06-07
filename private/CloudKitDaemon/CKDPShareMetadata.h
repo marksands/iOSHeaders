@@ -59,6 +59,9 @@
 @property(readonly, nonatomic) _Bool hasOwnerParticipant;
 @property(readonly, nonatomic) _Bool hasProtectedFullToken;
 @property(readonly, nonatomic) _Bool hasRoutingKey;
+- (id)_participantTypeCKLogValue;
+- (id)_participantStateCKLogValue;
+- (id)_participantPermissionCKLogValue;
 
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOPDAssociatedApp, NSArray, NSString;
 
@@ -15,10 +15,10 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) GEOPDAssociatedApp *geoAssociatedApp; // @synthesize geoAssociatedApp=_geoAssociatedApp;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *alternateAppAdamIds;
 @property(readonly, nonatomic) NSString *preferredAppAdamId;
 @property(readonly, nonatomic) _Bool hasPreferredAppAdamId;
-- (void)dealloc;
 - (id)initWithGEOPDAssociatedApp:(id)arg1;
 
 @end

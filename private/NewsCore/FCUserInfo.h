@@ -51,6 +51,9 @@
 - (void)maybeUpdateOnboardingVersion:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) _Bool mightNeedToUpdateOnboardingVersion;
 - (void)validateIsMeteredLimitReachedWithArticleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
+@property(nonatomic) _Bool userHasCompletedFavoritesSetup;
+@property(nonatomic) _Bool hasShownProgressivePersonalizationWelcomeBrick;
+@property(readonly, nonatomic) unsigned long long progressivePersonalization;
 - (void)incrementMonthlyMeteredCountByOneWithArticleID:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldShowDefaultForYou;
 @property(copy, nonatomic) NSDate *dateLastOpened;

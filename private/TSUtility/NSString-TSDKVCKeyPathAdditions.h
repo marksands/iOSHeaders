@@ -7,12 +7,12 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (TSDKVCKeyPathAdditions)
-- (unsigned long long)numberOfKeysInKeyPath;
-- (id)lastKey;
-- (id)firstKey;
-- (id)keyPathByAppendingKey:(id)arg1;
-- (id)keyPathByPrependingKey:(id)arg1;
-- (id)keyPathByRemovingFirstKey;
-- (id)keyPathByRemovingLastKey;
+- (unsigned long long)tsu_numberOfKeysInKeyPath;
+- (id)tsu_lastKey;
+- (id)tsu_firstKey;
+- (id)tsu_keyPathByAppendingKey:(id)arg1;
+- (id)tsu_keyPathByPrependingKey:(id)arg1;
+- (id)tsu_keyPathByRemovingFirstKey;
+- (id)tsu_keyPathByRemovingLastKey;
 @end
 

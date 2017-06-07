@@ -6,7 +6,7 @@
 
 #import <iWorkImport/TSDStyledLayout.h>
 
-@class TSDEditableBezierPathSource, TSDFill, TSDInfoGeometry, TSDMutableStroke, TSDPathSource, TSUBezierPath;
+@class TSDEditableBezierPathSource, TSDFill, TSDInfoGeometry, TSDLineEnd, TSDMutableStroke, TSDPathSource, TSDShapeInfo, TSUBezierPath;
 
 __attribute__((visibility("hidden")))
 @interface TSDShapeLayout : TSDStyledLayout
@@ -54,11 +54,11 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) TSDFill *dynamicFill; // @synthesize dynamicFill=mDynamicFill;
+- (void).cxx_destruct;
 - (void)p_updateResizeInfoGeometryFromResizePathSource;
 - (id)p_unitePath:(id)arg1 withLineEndForHead:(_Bool)arg2 stroke:(id)arg3;
 - (struct CGRect)p_boundsOfLineEndForHead:(_Bool)arg1 transform:(struct CGAffineTransform)arg2;
 - (id)p_createClippedPath;
-- (void)p_computeAngle:(double *)arg1 point:(struct CGPoint *)arg2 cutSegment:(long long *)arg3 cutT:(double *)arg4 forLineEndAtHead:(_Bool)arg5;
 - (void)p_validateTailLineEnd;
 - (void)p_validateHeadLineEnd;
 - (void)p_validateHeadAndTail;
@@ -70,12 +70,13 @@ __attribute__((visibility("hidden")))
 - (struct CGRect)p_cachedPathBoundsWithoutStroke;
 - (struct CGRect)p_cachedPathBounds;
 - (id)p_cachedPath;
+- (void)transferLayoutGeometryToInfo:(id)arg1;
 - (id)i_computeWrapPathClosed:(_Bool)arg1;
 - (id)i_computeWrapPath;
-- (id)strokeTailLineEnd;
-- (id)strokeHeadLineEnd;
-- (struct CGPoint)unclippedTailPoint;
-- (struct CGPoint)unclippedHeadPoint;
+@property(readonly, nonatomic) TSDLineEnd *strokeTailLineEnd;
+@property(readonly, nonatomic) TSDLineEnd *strokeHeadLineEnd;
+@property(readonly, nonatomic) struct CGPoint unclippedTailPoint;
+@property(readonly, nonatomic) struct CGPoint unclippedHeadPoint;
 - (_Bool)supportsRotation;
 - (id)initialInfoGeometry;
 - (struct CGSize)minimumSize;
@@ -84,8 +85,8 @@ __attribute__((visibility("hidden")))
 - (void)invalidatePath;
 - (void)invalidateFrame;
 - (_Bool)supportsCalloutAttributes;
-- (_Bool)canResetTextAndObjectHandles;
-- (_Bool)canBeIntersected;
+@property(readonly, nonatomic) _Bool canResetTextAndObjectHandles;
+@property(readonly, nonatomic) _Bool canBeIntersected;
 @property(readonly, nonatomic) TSDFill *fill;
 - (void)aliasPathForScale:(double)arg1 originalStroke:(id)arg2 adjustedStroke:(id *)arg3 adjustedPath:(id *)arg4 startDelta:(struct CGPoint *)arg5 endDelta:(struct CGPoint *)arg6;
 - (void)aliasPathForScale:(double)arg1 adjustedStroke:(id *)arg2 adjustedPath:(id *)arg3 startDelta:(struct CGPoint *)arg4 endDelta:(struct CGPoint *)arg5;
@@ -96,31 +97,30 @@ __attribute__((visibility("hidden")))
 - (_Bool)isInvisible;
 - (struct CGRect)shapeFrameWithTransform:(struct CGAffineTransform)arg1 strokeDrawOptions:(unsigned long long)arg2;
 - (struct CGRect)shapeFrameWithTransform:(struct CGAffineTransform)arg1;
-- (id)clippedPathForLineEnds;
-- (double)lineEndScale;
-- (_Bool)isTailEndOnLeft;
-- (double)tailLineEndAngle;
-- (double)headLineEndAngle;
-- (struct CGPoint)tailLineEndPoint;
-- (struct CGPoint)headLineEndPoint;
-- (struct CGPoint)tailPoint;
-- (struct CGPoint)headPoint;
-- (id)layoutInfoGeometry;
-- (_Bool)pathIsLineSegment;
-- (_Bool)pathIsOpen;
+@property(readonly, nonatomic) TSUBezierPath *clippedPathForLineEnds;
+- (double)lineEndScale:(_Bool)arg1;
+@property(readonly, nonatomic) _Bool isTailEndOnLeft;
+@property(readonly, nonatomic) double tailLineEndAngle;
+@property(readonly, nonatomic) double headLineEndAngle;
+@property(readonly, nonatomic) struct CGPoint tailLineEndPoint;
+@property(readonly, nonatomic) struct CGPoint headLineEndPoint;
+@property(readonly, nonatomic) struct CGPoint tailPoint;
+@property(readonly, nonatomic) struct CGPoint headPoint;
+@property(readonly, nonatomic) TSDInfoGeometry *layoutInfoGeometry;
+@property(readonly, nonatomic) _Bool pathIsLineSegment;
+@property(readonly, nonatomic) _Bool pathIsOpen;
 - (id)smartPathSource;
-- (struct CGRect)pathBoundsWithoutStroke;
-- (struct CGRect)pathBounds;
-- (id)path;
+@property(readonly, nonatomic) struct CGRect pathBoundsWithoutStroke;
+@property(readonly, nonatomic) struct CGRect pathBounds;
+@property(readonly, nonatomic) TSUBezierPath *path;
 - (id)editablePathSource;
-- (id)pathSource;
-- (id)shapeInfo;
+@property(readonly, nonatomic) TSDPathSource *pathSource;
+@property(readonly, nonatomic) TSDShapeInfo *shapeInfo;
 - (_Bool)isStrokeBeingManipulated;
 - (void)dynamicStrokeWidthChangeDidEnd;
-- (void)dynamicStrokeWidthUpdateToValue:(double)arg1;
 - (void)dynamicStrokeWidthChangeDidBegin;
 - (id)stroke;
-- (_Bool)shouldAdjustForStrokeWidthForCollabCursor;
+@property(readonly, nonatomic) _Bool shouldAdjustForStrokeWidthForCollabCursor;
 - (struct CGRect)frameForCulling;
 - (struct CGRect)boundsForStandardKnobs;
 - (void)processChangedProperty:(int)arg1;

@@ -19,6 +19,7 @@
 }
 
 + (_Bool)isContentEmpty:(id)arg1;
+- (void).cxx_destruct;
 - (float)leftMargin;
 - (void)setLeftMargin:(float)arg1;
 - (float)topMargin;

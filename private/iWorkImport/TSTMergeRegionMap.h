@@ -30,7 +30,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)remove:(struct TSUCellRect)arg1;
 - (_Bool)insert:(struct TSUCellRect)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)initWithContext:(id)arg1;
 - (id)initRegionMapFromMap:(id)arg1 intersectingRange:(struct TSUCellRect)arg2;
 - (id)initRegionMapFromMap:(id)arg1 rowRemapping:(id)arg2;

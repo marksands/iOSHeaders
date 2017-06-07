@@ -13,7 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface _TVInfoCellView : UIView <TVAppTemplateImpressionable>
 {
-    _Bool _headerOnLeft;
+    _Bool _headerOnLeading;
     UIView *_headerContentView;
     NSArray *_dataViews;
     double _headerWidth;
@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double headerMinWidth; // @synthesize headerMinWidth=_headerMinWidth;
 @property(nonatomic) double headerMaxWidth; // @synthesize headerMaxWidth=_headerMaxWidth;
 @property(nonatomic) double headerWidth; // @synthesize headerWidth=_headerWidth;
-@property(nonatomic) _Bool headerOnLeft; // @synthesize headerOnLeft=_headerOnLeft;
+@property(nonatomic) _Bool headerOnLeading; // @synthesize headerOnLeading=_headerOnLeading;
 @property(retain, nonatomic) NSArray *dataViews; // @synthesize dataViews=_dataViews;
 @property(retain, nonatomic) UIView *headerContentView; // @synthesize headerContentView=_headerContentView;
 - (void).cxx_destruct;

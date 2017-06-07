@@ -6,12 +6,13 @@
 
 #import <Home/HFItemProvider.h>
 
-@class HMRoom, NSMutableSet;
+@class HMHome, HMRoom, NSMutableSet;
 @protocol HFCharacteristicValueSource;
 
 @interface HFActionSetItemProvider : HFItemProvider
 {
     _Bool _onlyShowsFavorites;
+    HMHome *_home;
     HMRoom *_room;
     CDUnknownBlockType _filter;
     unsigned long long _actionSetItemStyle;
@@ -25,6 +26,7 @@
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
 @property(nonatomic) _Bool onlyShowsFavorites; // @synthesize onlyShowsFavorites=_onlyShowsFavorites;
 @property(retain, nonatomic) HMRoom *room; // @synthesize room=_room;
+@property(readonly, nonatomic) HMHome *home; // @synthesize home=_home;
 - (void).cxx_destruct;
 - (CDUnknownBlockType)_favoriteFilter;
 - (CDUnknownBlockType)_roomFilter;
@@ -32,6 +34,7 @@
 - (id)invalidationReasons;
 - (id)items;
 - (id)reloadItems;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithHome:(id)arg1 actionSetItemStyle:(unsigned long long)arg2;
 - (id)initWithHome:(id)arg1;
 

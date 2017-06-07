@@ -10,7 +10,6 @@
 
 @class NSMutableDictionary, NSString;
 
-__attribute__((visibility("hidden")))
 @interface CNDictionaryPrimitiveUserDefaults : NSObject <CNPrimitiveUserDefaults>
 {
     NSMutableDictionary *_preferences;

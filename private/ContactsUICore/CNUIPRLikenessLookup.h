@@ -25,6 +25,7 @@
 + (id)contactFuture:(id)arg1 contactStore:(id)arg2 scheduler:(id)arg3;
 + (id)photoObservableWithPhotoFuture:(id)arg1 scheduler:(id)arg2;
 + (id)observableFromLikenessProviderBlock:(CDUnknownBlockType)arg1 withScheduler:(id)arg2;
++ (id)basicMonogramObservableFromString:(id)arg1;
 + (id)basicMonogramObservableForContactFuture:(id)arg1;
 + (id)descriptorForRequiredKeys;
 @property(retain, nonatomic) id <CNUIPlaceholderProviderFactory> placeholderProviderFactory; // @synthesize placeholderProviderFactory=_placeholderProviderFactory;
@@ -40,6 +41,7 @@
 - (_Bool)isMeContact:(id)arg1;
 - (_Bool)mayIncludeSource:(long long)arg1;
 - (id)silhouetteWithPlaceholderProviderFactory:(id)arg1;
+- (id)basicMonogramObservableFromString:(id)arg1;
 - (id)basicMonogramObservableWithContactFuture:(id)arg1;
 - (id)remoteImagesObservableWithContactFuture:(id)arg1;
 - (id)personaLikenessObservableWithContactFuture:(id)arg1;

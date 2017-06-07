@@ -12,7 +12,7 @@
 
 + (Class)safeCategoryBaseClass;
 + (id)safeCategoryTargetClassName;
-- (void)updateProcessState:(id)arg1;
+- (void)_updateProcess:(id)arg1 withState:(id)arg2;
 
 @end
 

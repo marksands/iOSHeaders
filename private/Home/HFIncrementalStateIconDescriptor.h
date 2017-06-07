@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) NSNumber *incrementalState; // @synthesize incrementalState=_incrementalState;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)iconDescriptorByMergingWithIconDescriptor:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)initWithIdentifier:(id)arg1 incrementalState:(id)arg2;

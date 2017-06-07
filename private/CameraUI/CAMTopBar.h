@@ -6,12 +6,14 @@
 
 #import <UIKit/UIView.h>
 
+#import <CameraUI/CAMAccessibilityHUDItemProvider-Protocol.h>
+#import <CameraUI/CAMBarsAccessibilityHUDManagerGestureProvider-Protocol.h>
 #import <CameraUI/CAMExpandableMenuButtonDelegate-Protocol.h>
 
-@class CAMElapsedTimeView, CAMExpandableMenuButton, CAMFilterButton, CAMFlashButton, CAMFlipButton, CAMFramerateIndicatorView, CAMHDRButton, CAMIrisButton, CAMTimerButton, NSMutableArray;
+@class CAMElapsedTimeView, CAMExpandableMenuButton, CAMFilterButton, CAMFlashButton, CAMFlipButton, CAMFramerateIndicatorView, CAMHDRButton, CAMIrisButton, CAMTimerButton, NSMutableArray, NSString;
 @protocol CAMControlVisibilityUpdateDelegate;
 
-@interface CAMTopBar : UIView <CAMExpandableMenuButtonDelegate>
+@interface CAMTopBar : UIView <CAMExpandableMenuButtonDelegate, CAMAccessibilityHUDItemProvider, CAMBarsAccessibilityHUDManagerGestureProvider>
 {
     id <CAMControlVisibilityUpdateDelegate> _visibilityUpdateDelegate;
     long long _style;
@@ -48,6 +50,10 @@
 @property(nonatomic) long long style; // @synthesize style=_style;
 @property(nonatomic) __weak id <CAMControlVisibilityUpdateDelegate> visibilityUpdateDelegate; // @synthesize visibilityUpdateDelegate=_visibilityUpdateDelegate;
 - (void).cxx_destruct;
+- (void)selectedByAccessibilityHUDManager:(id)arg1;
+- (id)hudItemForAccessibilityHUDManager:(id)arg1;
+- (void)_iterateViewsInHUDManager:(id)arg1 forHUDItem:(CDUnknownBlockType)arg2;
+- (id)touchingRecognizersToCancel;
 - (void)expandMenuButton:(id)arg1 animated:(_Bool)arg2;
 - (struct CGRect)expandedFrameForMenuButton:(id)arg1;
 - (void)collapseMenuButton:(id)arg1 animated:(_Bool)arg2;
@@ -88,6 +94,12 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)_commonCAMTopBarInitialization;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

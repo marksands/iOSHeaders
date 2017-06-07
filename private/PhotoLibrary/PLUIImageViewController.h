@@ -10,7 +10,7 @@
 #import <PhotoLibrary/PLPhotoTileViewControllerDelegate-Protocol.h>
 #import <PhotoLibrary/PLVideoViewDelegate-Protocol.h>
 
-@class NSString, NSURL, PLCropOverlay, PLImageCache, PLImageLoadingQueue, PLImageSource, PLManagedAsset, PLPhotoTileViewController, PLVideoRemaker, PLVideoView, UIImage;
+@class NSString, NSURL, PLCropOverlay, PLImageCache, PLImageLoadingQueue, PLImageSource, PLManagedAsset, PLPhotoTileViewController, PLProgressView, PLVideoRemaker, PLVideoView, UIImage;
 
 @interface PLUIImageViewController : UIViewController <PLVideoViewDelegate, PLImageLoadingQueueDelegate, PLPhotoTileViewControllerDelegate>
 {
@@ -22,6 +22,7 @@
     PLPhotoTileViewController *_imageTile;
     PLVideoView *_videoView;
     PLVideoRemaker *_remaker;
+    PLProgressView *_progressView;
     NSURL *_videoURL;
     PLImageCache *_imageCache;
     PLImageLoadingQueue *_imageLoadingQueue;
@@ -35,6 +36,19 @@
     unsigned int _remaking:1;
 }
 
+- (unsigned long long)imagePickerSavingOptions;
+- (_Bool)imagePickerAllowsEditing;
+- (id)chooseButtonTitle;
+- (_Bool)force1XCroppedImage;
+- (_Bool)forceNativeScreenScale;
+- (_Bool)disableVideoTrimMessage;
+- (id)videoMaximumDuration;
+- (_Bool)viewImageBeforeSelecting;
+- (id)exportPreset;
+- (id)videoQuality;
+- (_Bool)doNotTranscode;
+- (void)handleVideoSelectionWithURL:(id)arg1 args:(id)arg2;
+- (void)handleMediaSelectionUsingTile:(id)arg1 managedAsset:(id)arg2 args:(id)arg3 includeEditing:(_Bool)arg4;
 - (void)imageLoadingQueue:(id)arg1 didLoadImage:(id)arg2 forAsset:(id)arg3 fromSource:(id)arg4;
 - (_Bool)photoTileViewControllerAllowsEditing:(id)arg1;
 - (void)photoTileViewControllerDidEndGesture:(id)arg1;
@@ -63,7 +77,11 @@
 - (void)cropOverlayPause:(id)arg1;
 - (void)cropOverlayPlay:(id)arg1;
 - (void)cropOverlay:(id)arg1 didFinishSaving:(id)arg2;
+- (void)handleAutoloopSelected;
+- (void)beginDisplayingProgress;
+- (void)_handleVideoSelected;
 - (void)cropOverlayWasOKed:(id)arg1;
+- (void)_enableCropOverlay;
 - (void)_enableCropOverlayIfNecessary;
 - (void)didChooseVideoAtURL:(id)arg1 options:(id)arg2;
 - (void)cropOverlayWasCancelled:(id)arg1;
@@ -77,6 +95,7 @@
 - (long long)_imagePickerStatusBarStyle;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (_Bool)isDisplayedInPhotoPicker;
 - (long long)preferredStatusBarUpdateAnimation;
 - (_Bool)prefersStatusBarHidden;
 - (long long)desiredStatusBarAnimation;
@@ -84,8 +103,10 @@
 - (void)loadView;
 - (Class)_viewClass;
 - (void)setupNavigationItem;
+- (_Bool)wantsAutoloopUI;
 - (_Bool)clientIsWallpaper;
-- (id)useButtonTitle;
+@property(readonly, nonatomic) NSString *localizedTitle;
+@property(readonly, nonatomic) NSString *localizedUseButtonTitle;
 - (unsigned long long)_tileAutoresizingMask;
 - (unsigned long long)_contentAutoresizingMask;
 - (struct CGRect)_viewFrame;

@@ -8,10 +8,11 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOCategory : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     long long _geoOntologyId;
     NSString *_alias;
     int _level;
@@ -26,6 +27,8 @@
 @property(nonatomic) long long geoOntologyId; // @synthesize geoOntologyId=_geoOntologyId;
 @property(nonatomic) int level; // @synthesize level=_level;
 @property(retain, nonatomic) NSString *alias; // @synthesize alias=_alias;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -40,7 +43,6 @@
 - (void)addLocalizedNames:(id)arg1;
 - (void)clearLocalizedNames;
 @property(nonatomic) _Bool hasGeoOntologyId;
-- (void)dealloc;
 - (id)initWithPlaceDataCategory:(id)arg1;
 
 @end

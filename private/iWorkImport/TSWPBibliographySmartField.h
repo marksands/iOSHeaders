@@ -24,7 +24,7 @@ __attribute__((visibility("hidden")))
 - (void)saveToArchiver:(id)arg1;
 - (int)smartFieldKind;
 - (void)dealloc;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 @property(nonatomic) _Bool isLocalizable;
 @property(copy, nonatomic) NSArray *citationRecords;
 

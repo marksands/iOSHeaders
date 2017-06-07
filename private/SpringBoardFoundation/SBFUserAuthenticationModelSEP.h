@@ -8,7 +8,7 @@
 
 #import <SpringBoardFoundation/SBFUserAuthenticationModel-Protocol.h>
 
-@class NSString, SBFMobileKeyBag, SBSecurityDefaults;
+@class MCProfileConnection, NSString, SBFMobileKeyBag, SBSecurityDefaults;
 @protocol SBFUserAuthenticationModelDelegate;
 
 @interface SBFUserAuthenticationModelSEP : NSObject <SBFUserAuthenticationModel>
@@ -18,12 +18,14 @@
     _Bool _permanentlyBlocked;
     _Bool _pendingWipe;
     SBSecurityDefaults *_securityDefaults;
+    MCProfileConnection *_profileConnection;
     id <SBFUserAuthenticationModelDelegate> _delegate;
 }
 
 @property(nonatomic) id <SBFUserAuthenticationModelDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_refreshStateForMkbState:(id)arg1 notify:(_Bool)arg2;
+- (_Bool)_isDeviceWipePreferenceEnabled;
 - (void)_refreshStateAndNotify:(_Bool)arg1;
 - (id)descriptionBuilder;
 @property(readonly, copy) NSString *description;
@@ -40,6 +42,7 @@
 - (void)notePasscodeEntryBegan;
 - (void)synchronize;
 - (id)initWithKeyBag:(id)arg1;
+- (id)_initWithKeyBag:(id)arg1 profileConnection:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

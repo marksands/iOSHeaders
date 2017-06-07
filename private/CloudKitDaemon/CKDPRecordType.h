@@ -27,6 +27,7 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasName;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 
 @end
 

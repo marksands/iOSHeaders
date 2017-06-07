@@ -4,17 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <FrontBoardUIServices/FBUISceneHost-Protocol.h>
 #import <FrontBoardUIServices/FBUISceneUpdater-Protocol.h>
 
-@class FBUISceneIdentity, NSString;
+@class FBSSceneSpecification, NSString;
 @protocol FBUISceneClientProxy;
 
 @interface FBUISceneHost : NSObject <FBUISceneHost, FBUISceneUpdater>
 {
-    FBUISceneIdentity *_identity;
+    NSString *_identifier;
+    FBSSceneSpecification *_specification;
     id <FBUISceneClientProxy> _sceneClient;
 }
 
@@ -22,13 +23,14 @@
 - (id)descriptionWithMultilinePrefix:(id)arg1;
 - (id)succinctDescriptionBuilder;
 - (id)succinctDescription;
-@property(readonly, copy, nonatomic) NSString *sceneIdentifier;
 - (void)didInvalidateSceneClient:(id)arg1;
 - (void)sceneClient:(id)arg1 didReceiveActions:(id)arg2;
 - (void)sceneClient:(id)arg1 didUpdateClientSettings:(id)arg2 withDiff:(id)arg3 transitionContext:(id)arg4;
 - (void)sceneClient:(id)arg1 didDetachLayer:(id)arg2;
 - (void)sceneClient:(id)arg1 didUpdateLayer:(id)arg2;
 - (void)sceneClient:(id)arg1 didAttachLayer:(id)arg2;
+- (id)sceneSpecification;
+- (id)sceneIdentifier;
 - (id)sceneClient;
 - (void)invalidateSceneClient;
 - (void)registerSceneClient:(id)arg1;
@@ -37,7 +39,7 @@
 - (void)updateSettings:(id)arg1 withTransitionContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;
-- (id)initWithIdentity:(id)arg1;
+- (id)initWithIdentifier:(id)arg1 specification:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

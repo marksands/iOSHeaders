@@ -12,7 +12,5 @@
 
 @optional
 - (_Bool)tracklistItemViewShouldLayoutAsEditing:(MusicEntityTracklistItemView *)arg1;
-- (void)tracklistItemView:(MusicEntityTracklistItemView *)arg1 didSelectPlayButtonAction:(unsigned long long)arg2;
-- (void)tracklistItemViewDidSelectContextualActionsButton:(MusicEntityTracklistItemView *)arg1;
 @end
 

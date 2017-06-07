@@ -12,6 +12,7 @@
 
 @interface NTPBFeedViewExposure : PBCodable <NSCopying>
 {
+    long long _previousArticlePublisherArticleVersion;
     int _areaPresentationReason;
     NSString *_campaignId;
     NSString *_campaignType;
@@ -26,6 +27,8 @@
     int _groupType;
     int _presentationReason;
     NSString *_presentationReasonSearchString;
+    NSString *_previousArticleId;
+    NSString *_previousArticleVersion;
     NSString *_referringSourceApplication;
     NSString *_referringUrl;
     NSString *_sourceChannelId;
@@ -38,6 +41,7 @@
     _Bool _isSubscribedToGroupFeed;
     _Bool _isUserSubscribedToFeed;
     struct {
+        unsigned int previousArticlePublisherArticleVersion:1;
         unsigned int areaPresentationReason:1;
         unsigned int countOfTotalGroupExposures:1;
         unsigned int countOfTotalGroupsExposed:1;
@@ -55,6 +59,9 @@
     } _has;
 }
 
+@property(nonatomic) long long previousArticlePublisherArticleVersion; // @synthesize previousArticlePublisherArticleVersion=_previousArticlePublisherArticleVersion;
+@property(retain, nonatomic) NSString *previousArticleVersion; // @synthesize previousArticleVersion=_previousArticleVersion;
+@property(retain, nonatomic) NSString *previousArticleId; // @synthesize previousArticleId=_previousArticleId;
 @property(retain, nonatomic) NSString *creativeId; // @synthesize creativeId=_creativeId;
 @property(retain, nonatomic) NSString *campaignType; // @synthesize campaignType=_campaignType;
 @property(retain, nonatomic) NSString *campaignId; // @synthesize campaignId=_campaignId;
@@ -83,6 +90,9 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasPreviousArticlePublisherArticleVersion;
+@property(readonly, nonatomic) _Bool hasPreviousArticleVersion;
+@property(readonly, nonatomic) _Bool hasPreviousArticleId;
 - (int)StringAsAreaPresentationReason:(id)arg1;
 - (id)areaPresentationReasonAsString:(int)arg1;
 @property(nonatomic) _Bool hasAreaPresentationReason;

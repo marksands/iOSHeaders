@@ -6,28 +6,29 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
-@protocol HDHealthDaemon;
+@class HDDaemon, NSArray, NSDictionary;
 
 @interface HDPluginManager : NSObject
 {
+    HDDaemon *_daemon;
     NSArray *_plugins;
-    id <HDHealthDaemon> _healthDaemon;
-    NSArray *_pluginClasses;
+    NSDictionary *_pluginsByIdentifier;
 }
 
-@property(retain, nonatomic) NSArray *pluginClasses; // @synthesize pluginClasses=_pluginClasses;
-@property(nonatomic) __weak id <HDHealthDaemon> healthDaemon; // @synthesize healthDaemon=_healthDaemon;
+@property(retain, nonatomic) NSDictionary *pluginsByIdentifier; // @synthesize pluginsByIdentifier=_pluginsByIdentifier;
 @property(retain, nonatomic) NSArray *plugins; // @synthesize plugins=_plugins;
+@property(nonatomic) __weak HDDaemon *daemon; // @synthesize daemon=_daemon;
 - (void).cxx_destruct;
 - (id)queryServerForUUID:(id)arg1 serverDataObject:(id)arg2 queryClass:(Class)arg3 clientProxy:(id)arg4 client:(id)arg5 profile:(id)arg6 queryDelegate:(id)arg7;
-- (Class)_loadPrincipalClassesConformingToProtocol:(id)arg1 withBundleAtPath:(id)arg2;
-- (id)_loadPrincipalClassesConformingToProtocol:(id)arg1 withBundleDirectoryPath:(id)arg2;
+- (Class)_loadPrincipalClassConformingToProtocol:(id)arg1 fromBundleAtPath:(id)arg2;
+- (id)_loadPrincipalClassesConformingToProtocol:(id)arg1 fromBundlesInDirectoryAtPath:(id)arg2 error:(id *)arg3;
 - (id)_internalPluginsPath;
 - (id)_pluginsPath;
+- (id)pluginsForProtocol:(id)arg1;
+- (id)pluginForIdentifier:(id)arg1;
 - (void)loadPlugins;
-- (void)_enumerateObjectsInArray:(id)arg1 conformingToProtocol:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (id)initWithHealthDaemon:(id)arg1;
+- (id)_pluginClasses;
+- (id)initWithDaemon:(id)arg1;
 
 @end
 

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class NSData;
+@class NSData, NSMutableArray, NSMutableDictionary;
 
 @interface CoreDAVXMLData : NSObject
 {
@@ -14,13 +14,14 @@
     struct _xmlTextWriter *_writer;
     struct _xmlDoc *_doc;
     _Bool _docHasEnded;
-    struct __CFDictionary *_seenURIsToPrefixes;
-    struct __CFDictionary *_seenURIsToDepth;
-    struct __CFArray *_elementStack;
+    NSMutableDictionary *_seenURIsToPrefixes;
+    NSMutableDictionary *_seenURIsToDepth;
+    NSMutableArray *_elementStack;
 }
 
 + (_Bool)string:(id)arg1 isEqualToXmlCharString:(const char *)arg2;
 @property(nonatomic) _Bool shouldAddFormattingSpaces; // @synthesize shouldAddFormattingSpaces=_shouldAddFormattingSpaces;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSData *data;
 - (void)appendElement:(id)arg1 inNamespace:(id)arg2 withStringContentAsCDATA:(id)arg3 withAttributeNamesAndValues:(id)arg4;
 - (void)appendElement:(id)arg1 inNamespace:(id)arg2 withStringContent:(id)arg3 withAttributeNamesAndValues:(id)arg4;

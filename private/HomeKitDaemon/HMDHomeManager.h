@@ -4,24 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HAPFragmentationStreamDelegate-Protocol.h>
 #import <HomeKitDaemon/HMDAccessoryBrowserDelegate-Protocol.h>
 #import <HomeKitDaemon/HMDAccountDelegate-Protocol.h>
 #import <HomeKitDaemon/HMDAccountRegistryDelegate-Protocol.h>
+#import <HomeKitDaemon/HMDBackingStoreObjectProtocol-Protocol.h>
 #import <HomeKitDaemon/HMDCompanionManagerDelegate-Protocol.h>
+#import <HomeKitDaemon/HMDDeviceSetupSessionDelegate-Protocol.h>
 #import <HomeKitDaemon/HMDPairedSyncDelegate-Protocol.h>
 #import <HomeKitDaemon/HMDWatchManagerDelegate-Protocol.h>
 #import <HomeKitDaemon/HMFMessageReceiver-Protocol.h>
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 #import <HomeKitDaemon/IDSServiceDelegate-Protocol.h>
 
-@class HMDAWDLogEventObserver, HMDAccessoryBrowser, HMDAccountRegistry, HMDApplicationData, HMDApplicationRegistry, HMDAssistantGather, HMDCentralMessageDispatcher, HMDClientConnection, HMDCloudDataSyncManager, HMDCloudDataSyncStateFilter, HMDCompanionManager, HMDKeyTransferAgent, HMDLocation, HMDMessageFilterChain, HMDNameValidator, HMDPairedSync, HMDPendingCloudSyncTransactions, HMDPowerManager, HMDRemoteIdentityRegistry, HMDResidentMesh, HMDSyncOperationManager, HMDTimeInformationMonitor, HMDWatchManager, HMFDumpCategory, HMFMessageDispatcher, HMFTimer, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSUUID;
+@class HMDAWDLogEventObserver, HMDAccessoryBrowser, HMDAccountRegistry, HMDApplicationData, HMDApplicationRegistry, HMDAssistantGather, HMDBackingStore, HMDCentralMessageDispatcher, HMDClientConnection, HMDCloudDataSyncStateFilter, HMDCloudManager, HMDCompanionManager, HMDHomeManagerObjectChangeHandler, HMDHomeManagerObjectLookup, HMDKeyTransferAgent, HMDLocation, HMDMessageFilterChain, HMDNameValidator, HMDPairedSync, HMDPendingCloudSyncTransactions, HMDPowerManager, HMDRemoteIdentityRegistry, HMDResidentMesh, HMDSyncOperationManager, HMDTimeInformationMonitor, HMDWatchManager, HMFDumpCategory, HMFMessageDispatcher, HMFTimer, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject, NSString, NSUUID;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
-@interface HMDHomeManager : NSObject <HMDAccountDelegate, HMDAccountRegistryDelegate, HMDCompanionManagerDelegate, HMDWatchManagerDelegate, HMFMessageReceiver, IDSServiceDelegate, HMDAccessoryBrowserDelegate, HMFTimerDelegate, HAPFragmentationStreamDelegate, HMDPairedSyncDelegate>
+@interface HMDHomeManager : HMFObject <HMDAccountDelegate, HMDAccountRegistryDelegate, HMDCompanionManagerDelegate, HMDDeviceSetupSessionDelegate, HMDWatchManagerDelegate, HMFMessageReceiver, IDSServiceDelegate, HMDAccessoryBrowserDelegate, HMFTimerDelegate, HAPFragmentationStreamDelegate, HMDPairedSyncDelegate, HMDBackingStoreObjectProtocol>
 {
+    _Bool _speakersAreConfigured;
     _Bool _deviceLost;
     _Bool _accessAllowedWhenLocked;
     _Bool _cacheUseAllowed;
@@ -30,6 +33,7 @@
     _Bool _backOffOperationInProgress;
     _Bool _uploadToCloudIsPending;
     _Bool _uploadHomeDataToCloud;
+    _Bool _forceFetchHomeManagerZone;
     _Bool _lastAnswerForShouldCloudSyncData;
     _Bool _uploadMetadataToCloud;
     _Bool _ignoreFirstTimeReachabilityChanged;
@@ -39,17 +43,20 @@
     _Bool _watchPerformVersionCheck;
     _Bool _cloudkitAccountStatusDetermined;
     _Bool _needToCleanUpKeys;
-    _Bool _iCloudSwitchEnabled;
     unsigned short _nextRequestTransactionIdentifier;
     int _assetUpdatedNotification;
     int _newAssetInstalledNotification;
     HMDKeyTransferAgent *_keyTransferAgent;
+    HMDHomeManagerObjectLookup *_lookup;
     HMDWatchManager *_watchManager;
     HMDCompanionManager *_companionManager;
     long long _residentEnabledState;
     NSMutableDictionary *_userPushCacheMap;
+    NSMutableArray *_deviceSetupSessions;
+    HMDHomeManagerObjectChangeHandler *_homeManagerObjectChangeHandler;
     NSUUID *_uuid;
     NSMutableArray *_homes;
+    NSMutableArray *_cloudZones;
     NSMutableDictionary *_homeNames;
     NSMutableArray *_uuidsOfRemovedHomes;
     NSUUID *_primaryHomeUUID;
@@ -72,7 +79,8 @@
     NSMutableArray *_pendingResponsesForAccessoryFinder;
     HMDPendingCloudSyncTransactions *_pendingTransactions;
     HMDPowerManager *_powerManager;
-    HMDCloudDataSyncManager *_cloudDataSyncManager;
+    HMDCloudManager *_cloudDataSyncManager;
+    HMDBackingStore *_backingStore;
     NSUUID *_dataTag;
     struct __SCNetworkReachability *_reachability;
     long long _networkConnectionAvailable;
@@ -102,6 +110,7 @@
     HMDApplicationData *_appData;
     HMDResidentMesh *_residentMesh;
     unsigned long long _stateHandle;
+    HMFTimer *_debouceHomesUpdateTimer;
     HMDSyncOperationManager *_syncManager;
     HMDAWDLogEventObserver *_awdLogEventObserver;
 }
@@ -109,7 +118,6 @@
 + (id)getCurrentAltDSID;
 + (id)getCurrentUserID;
 + (id)activeAccountIdentifier;
-+ (_Bool)readiCloudSwitchState;
 + (id)idsDeviceForDevice:(id)arg1;
 + (id)remotePeerDeviceAddress:(id)arg1;
 + (_Bool)isThisDeviceAdminOfHome:(id)arg1;
@@ -117,14 +125,16 @@
 + (id)createIdentifierSalt:(id)arg1 deviceSpecific:(_Bool)arg2;
 + (id)getSPIClientIdentifierSalt;
 + (id)getUniqueDeviceIdSalt;
++ (_Bool)doesSaveReasonNotAffectLocalData:(id)arg1;
 + (_Bool)doesSaveReasonAffectOnlyLocalData:(id)arg1;
 + (_Bool)doesSaveReasonAffectWatchVersionCheck:(id)arg1;
++ (_Bool)doesSaveReasonAffectHomeManager:(id)arg1;
 @property(retain, nonatomic) HMDAWDLogEventObserver *awdLogEventObserver; // @synthesize awdLogEventObserver=_awdLogEventObserver;
 @property(readonly, nonatomic) HMDSyncOperationManager *syncManager; // @synthesize syncManager=_syncManager;
+@property(retain, nonatomic) HMFTimer *debouceHomesUpdateTimer; // @synthesize debouceHomesUpdateTimer=_debouceHomesUpdateTimer;
 @property(nonatomic) unsigned long long stateHandle; // @synthesize stateHandle=_stateHandle;
 @property(retain, nonatomic) HMDResidentMesh *residentMesh; // @synthesize residentMesh=_residentMesh;
 @property(retain, nonatomic) HMDApplicationData *appData; // @synthesize appData=_appData;
-@property(nonatomic) _Bool iCloudSwitchEnabled; // @synthesize iCloudSwitchEnabled=_iCloudSwitchEnabled;
 @property(nonatomic) _Bool needToCleanUpKeys; // @synthesize needToCleanUpKeys=_needToCleanUpKeys;
 @property(retain, nonatomic) HMDTimeInformationMonitor *timeInformationMonitor; // @synthesize timeInformationMonitor=_timeInformationMonitor;
 @property(nonatomic) _Bool cloudkitAccountStatusDetermined; // @synthesize cloudkitAccountStatusDetermined=_cloudkitAccountStatusDetermined;
@@ -153,6 +163,7 @@
 @property(nonatomic) unsigned long long homeDatabaseSize; // @synthesize homeDatabaseSize=_homeDatabaseSize;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *cloudOperationRetryTimer; // @synthesize cloudOperationRetryTimer=_cloudOperationRetryTimer;
 @property(nonatomic) _Bool lastAnswerForShouldCloudSyncData; // @synthesize lastAnswerForShouldCloudSyncData=_lastAnswerForShouldCloudSyncData;
+@property(nonatomic) _Bool forceFetchHomeManagerZone; // @synthesize forceFetchHomeManagerZone=_forceFetchHomeManagerZone;
 @property(nonatomic) _Bool uploadHomeDataToCloud; // @synthesize uploadHomeDataToCloud=_uploadHomeDataToCloud;
 @property(nonatomic) _Bool uploadToCloudIsPending; // @synthesize uploadToCloudIsPending=_uploadToCloudIsPending;
 @property(nonatomic) unsigned long long cloudOperationRetryCount; // @synthesize cloudOperationRetryCount=_cloudOperationRetryCount;
@@ -168,7 +179,8 @@
 @property(nonatomic) long long networkConnectionAvailable; // @synthesize networkConnectionAvailable=_networkConnectionAvailable;
 @property(nonatomic) struct __SCNetworkReachability *reachability; // @synthesize reachability=_reachability;
 @property(retain, nonatomic) NSUUID *dataTag; // @synthesize dataTag=_dataTag;
-@property(retain, nonatomic) HMDCloudDataSyncManager *cloudDataSyncManager; // @synthesize cloudDataSyncManager=_cloudDataSyncManager;
+@property(retain, nonatomic) HMDBackingStore *backingStore; // @synthesize backingStore=_backingStore;
+@property(retain, nonatomic) HMDCloudManager *cloudDataSyncManager; // @synthesize cloudDataSyncManager=_cloudDataSyncManager;
 @property(retain, nonatomic) HMDPowerManager *powerManager; // @synthesize powerManager=_powerManager;
 @property(retain, nonatomic) HMDPendingCloudSyncTransactions *pendingTransactions; // @synthesize pendingTransactions=_pendingTransactions;
 @property(retain, nonatomic) NSMutableArray *pendingResponsesForAccessoryFinder; // @synthesize pendingResponsesForAccessoryFinder=_pendingResponsesForAccessoryFinder;
@@ -191,8 +203,11 @@
 @property(retain, nonatomic) NSUUID *primaryHomeUUID; // @synthesize primaryHomeUUID=_primaryHomeUUID;
 @property(retain, nonatomic) NSMutableArray *uuidsOfRemovedHomes; // @synthesize uuidsOfRemovedHomes=_uuidsOfRemovedHomes;
 @property(retain, nonatomic) NSMutableDictionary *homeNames; // @synthesize homeNames=_homeNames;
+@property(retain, nonatomic) NSMutableArray *cloudZones; // @synthesize cloudZones=_cloudZones;
 @property(retain, nonatomic) NSMutableArray *homes; // @synthesize homes=_homes;
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
+@property(readonly, nonatomic) HMDHomeManagerObjectChangeHandler *homeManagerObjectChangeHandler; // @synthesize homeManagerObjectChangeHandler=_homeManagerObjectChangeHandler;
+@property(readonly, nonatomic) NSMutableArray *deviceSetupSessions; // @synthesize deviceSetupSessions=_deviceSetupSessions;
 @property(readonly, nonatomic) NSMutableDictionary *userPushCacheMap; // @synthesize userPushCacheMap=_userPushCacheMap;
 @property(nonatomic, getter=isCacheUseAllowed) _Bool cacheUseAllowed; // @synthesize cacheUseAllowed=_cacheUseAllowed;
 @property(nonatomic) long long residentEnabledState; // @synthesize residentEnabledState=_residentEnabledState;
@@ -200,13 +215,22 @@
 @property(readonly, nonatomic) HMDWatchManager *watchManager; // @synthesize watchManager=_watchManager;
 @property(nonatomic, getter=isAccessAllowedWhenLocked) _Bool accessAllowedWhenLocked; // @synthesize accessAllowedWhenLocked=_accessAllowedWhenLocked;
 @property(nonatomic, getter=isDeviceLost) _Bool deviceLost; // @synthesize deviceLost=_deviceLost;
+@property(readonly, nonatomic) HMDHomeManagerObjectLookup *lookup; // @synthesize lookup=_lookup;
+@property(nonatomic) _Bool speakersAreConfigured; // @synthesize speakersAreConfigured=_speakersAreConfigured;
 @property(readonly, nonatomic) HMDKeyTransferAgent *keyTransferAgent; // @synthesize keyTransferAgent=_keyTransferAgent;
 - (void).cxx_destruct;
+- (id)emptyModelObjectWithChangeType:(unsigned long long)arg1;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (id)backingStoreObjects:(long long)arg1;
+- (void)transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)archiveServerToken:(id)arg1;
 - (void)_remoteAccessHealthMonitorTimerDidFire:(id)arg1;
 - (void)timerDidFire:(id)arg1;
 - (void)watchManager:(id)arg1 didRemoveConnectedWatch:(id)arg2;
 - (void)watchManager:(id)arg1 didAddConnectedWatch:(id)arg2;
+- (void)setupSession:(id)arg1 didCloseWithError:(id)arg2;
 - (void)companionManager:(id)arg1 didChangeCompanion:(id)arg2;
 - (void)accountRegistry:(id)arg1 didUpdateCurrentDevice:(id)arg2;
 - (void)accountRegistry:(id)arg1 didRemoveAccount:(id)arg2;
@@ -214,11 +238,11 @@
 - (void)account:(id)arg1 didUpdateDevice:(id)arg2;
 - (void)account:(id)arg1 didRemoveDevice:(id)arg2;
 - (void)account:(id)arg1 didAddDevice:(id)arg2;
-- (void)stopSearchingForBridgedAccessories;
-- (void)startSearchingForBridgedAccessories;
 - (void)accessoryBrowserDidFindNewAccessory:(id)arg1;
+- (void)mediaPlaybackStateChanged:(id)arg1;
 - (void)_updateAccessAllowedWhenLocked:(_Bool)arg1 message:(id)arg2;
 - (void)_handleAccessAllowedWhenLockedRequest:(id)arg1;
+- (void)_handleDeviceSetupSessionOpen:(id)arg1;
 - (void)pingDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleDevicePing:(id)arg1;
 - (void)_removeCurrentResidentDeviceFromHomes:(id)arg1;
@@ -230,14 +254,15 @@
 @property(readonly, nonatomic, getter=isResidentEnabled) _Bool residentEnabled;
 - (_Bool)isResidentCapable;
 - (id)remoteGatewayCapableDevices;
+- (void)processAppDataModelRemove:(id)arg1 message:(id)arg2;
+- (void)processAppDataModelUpdate:(id)arg1 message:(id)arg2;
 - (void)_handleSetAppData:(id)arg1;
 - (void)_postiCloudSigninState:(_Bool)arg1;
-- (void)_migrateiCloudSwitchPreferences;
-- (void)_teardownRemoteAccessForHomeCommon:(id)arg1;
+- (void)_teardownRemoteAccessForHomeCommon:(id)arg1 isCompanion:(_Bool)arg2;
 - (void)_teardownRemoteAccessForHomeThroughCompanion:(id)arg1;
 - (void)_teardownRemoteAccessForHome:(id)arg1;
 - (void)teardownRemoteAccessForHome:(id)arg1;
-- (void)_sendUpdateRequestToAdminForInvitation:(id)arg1 homeUUID:(id)arg2 invitationState:(long long)arg3;
+- (void)_sendUpdateRequestToAdminForInvitation:(id)arg1 homeUUID:(id)arg2 invitationState:(long long)arg3 authStatus:(id)arg4;
 - (_Bool)getControllerKey:(id *)arg1 controllerUsername:(id *)arg2 error:(id *)arg3;
 - (void)_handleRequestToUpdateHomeInvitationFromLocalUser:(id)arg1;
 - (void)_handleRequestToUpdateHomeInvitationFromInviter:(id)arg1;
@@ -246,6 +271,8 @@
 - (void)_dumpToLog:(id)arg1 withState:(id)arg2;
 - (void)registerStateHandler;
 - (void)_sendSysdiagnoseRequest;
+- (void)_dumpHomeConfigurationFile:(id)arg1;
+- (void)_restartWithHomeConfiguration:(id)arg1;
 - (void)_handleSysdiagnoseRequest:(id)arg1;
 - (void)honeybeeCollect:(id)arg1 identifier:(id)arg2;
 - (id)_dumpHomeManagerData;
@@ -255,18 +282,19 @@
 - (void)_handleLogAppViewEvent:(id)arg1;
 - (void)_handleEventIdentifierValidation:(id)arg1;
 - (void)_handleQueryVersionInformation:(id)arg1;
+- (void)processMetadataModel:(id)arg1 message:(id)arg2;
+- (void)handleMetadataDictionary:(id)arg1 message:(id)arg2;
 - (void)_handleMetadataAssetUpdated;
 - (void)_handleMetadataSync:(id)arg1;
 - (void)_handleSetMetadata:(id)arg1;
-- (void)_loadMetadataFromURL:(id)arg1 identifier:(id)arg2 remoteSource:(_Bool)arg3 responseHandler:(CDUnknownBlockType)arg4;
 - (_Bool)_acceptMetadataVersion:(id)arg1 schemaVersion:(id)arg2 error:(id *)arg3;
 - (void)_handleQueryMetadata:(id)arg1;
-- (void)_saveMetadata:(id)arg1 pushChangesToCloud:(_Bool)arg2;
-- (void)saveMetadata:(id)arg1 pushChangesToCloud:(_Bool)arg2;
 - (void)pushMetadataToCloud;
+- (void)_eraseLocalHomeData;
 - (void)eraseLocalHomeData;
 - (void)_handlePrimaryAccountDeleted:(id)arg1;
 - (void)_handleAccountAvailabilityChanged;
+- (void)updateAccountAvailabilityChanged;
 - (void)_handlePrimaryAccountModified:(id)arg1;
 - (void)_handleLogControl:(id)arg1;
 - (void)_handleRemoteSessionTornDown:(id)arg1;
@@ -280,7 +308,6 @@
 - (void)_findRemotePeerContainingAccessories:(id)arg1 forHome:(id)arg2;
 - (void)atHomeLevelChanged:(long long)arg1 formerLevel:(long long)arg2 home:(id)arg3;
 - (void)_accessoriesAreLocallyReachableOnTransientDevice:(_Bool)arg1 forHome:(id)arg2;
-- (id)_accessoryIdentifiersForHome:(id)arg1;
 - (void)_removeFromAssociatedPeers:(id)arg1 home:(id)arg2;
 - (void)_removeFromUnassociatedPeers:(id)arg1 home:(id)arg2;
 - (void)_checkForRemotePeersAndRegisterForRemoteNotifications:(_Bool)arg1;
@@ -310,22 +337,26 @@
 - (void)_eraseLocalHomeConfigurationCommon;
 - (void)_eraseConfiguration:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handleResetConfiguration:(id)arg1;
-- (void)_iCloudSwitchModified:(_Bool)arg1 success:(_Bool)arg2 error:(id)arg3;
-- (void)_updateiCloudSwitchState:(_Bool)arg1;
-- (void)updateiCloudSwitchState:(_Bool)arg1;
+- (void)cloudHomeSettingsUpdated:(id)arg1;
 - (void)_handleUpdateiCloudSwitchState:(id)arg1;
 - (void)_handleQueryiCloudSwitchState:(id)arg1;
 - (void)_handleShouldDisplayiCloudSwitch:(id)arg1;
 - (void)_handleRetrieveVendorIdentifier:(id)arg1;
 - (void)_handleRequestForCompanionKeysSync:(id)arg1;
 - (_Bool)_removeAndAddKeyPair:(id)arg1 userName:(id)arg2;
+- (_Bool)setLocalPairingIdentity:(id)arg1 error:(id *)arg2;
 - (void)_handleCompanionKeysSync:(id)arg1;
 - (void)_handleHomesConfigSync:(id)arg1;
 - (id)_prepareHomesVersionDict;
+- (void)processTransactionsFromHomeDataSync:(id)arg1 accessories:(id)arg2 version:(long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_processSharedHomeModel:(id)arg1 message:(id)arg2;
+- (void)processSharedHomeModelUpdate:(id)arg1 message:(id)arg2;
+- (id)_loadCloudTransactionForRemoteHome:(id)arg1 localHome:(id)arg2 version:(long long)arg3 cloudTransaction:(id)arg4 stagedTransaction:(id)arg5;
 - (void)_handleHomeDataSync:(id)arg1;
-- (void)_handleHomeDataFragmentedSync:(id)arg1;
+- (_Bool)_shouldHandleHomeDataSync:(id)arg1 remoteHome:(id)arg2 sourceDeviceVersion:(id)arg3;
 - (void)fragmentationStream:(id)arg1 didReceiveData:(id)arg2 transactionIdentifier:(unsigned short)arg3 error:(id)arg4;
 - (void)fragmentationStream:(id)arg1 didCloseWithError:(id)arg2;
+- (void)processSharedHomeModelRemoved:(id)arg1 message:(id)arg2;
 - (void)_handleUserRemoved:(id)arg1;
 - (void)_handleResetHome:(id)arg1;
 - (void)_removeAllUsersOfHome:(id)arg1;
@@ -351,17 +382,29 @@
 - (void)_sendInviteRequestToUser:(id)arg1 inviteIdentifier:(id)arg2 forHome:(id)arg3 confirm:(_Bool)arg4 expiryDate:(id)arg5 queue:(id)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)handleVendorInfoUpdated:(id)arg1;
 - (void)_handleRequestIsUserUsingHomeKit:(id)arg1;
+- (void)processCloudZoneModelRemoved:(id)arg1 message:(id)arg2;
+- (void)processCloudZoneModelAdd:(id)arg1 message:(id)arg2;
+- (void)_removeCloudZone:(id)arg1 updateHomeManager:(_Bool)arg2;
+- (void)_addCloudZone:(id)arg1 ownerName:(id)arg2 updateHomeManager:(_Bool)arg3;
+@property(readonly, nonatomic) _Bool zoneFetchFailed;
+- (void)processHomeManagerModelUpdate:(id)arg1 message:(id)arg2;
+- (id)_updatePrimaryHome:(id)arg1 message:(id *)arg2;
+- (void)_changePrimaryHome:(id)arg1;
 - (void)_handleRequestSetPrimaryHome:(id)arg1;
+- (void)processHomeModelRemoved:(id)arg1 message:(id)arg2;
 - (void)_handleRequestRemoveHome:(id)arg1;
-- (void)_removeHome:(id)arg1 withMessage:(id)arg2 saveToStore:(_Bool)arg3 removedByLocalUser:(_Bool)arg4;
+- (void)_removeHome:(id)arg1 withMessage:(id)arg2 saveToStore:(_Bool)arg3 notifyUsers:(_Bool)arg4;
+- (void)processHomeModelAdd:(id)arg1 message:(id)arg2;
 - (void)_handleRequestAddHome:(id)arg1;
+- (id)_findHomeModelAddObject:(id)arg1;
 - (void)_handleCurrentHomeChanged:(id)arg1;
 - (void)_handleAssistantTeamIdentifierChanged:(id)arg1;
 - (void)_sendCurrentHomeToWatch:(id)arg1;
 - (void)_notifyCurrentHomeUpdated:(id)arg1 isLocalUpdate:(_Bool)arg2;
 - (void)_notifyCurrentHomeUpdated;
+- (void)_writeAssistantCurrentHomeIdentifier;
 - (id)nominateCurrentHomeUUID;
-- (void)notifyPrimaryHomeUpdated:(id)arg1;
+- (void)notifyPrimaryHomeUpdated;
 - (void)_extractVendorIdentifierFor:(id)arg1 andRun:(CDUnknownBlockType)arg2;
 - (void)_handleRequestFetchHomeConfiguration:(id)arg1;
 - (void)_retryCloudOperationWithName:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -372,26 +415,25 @@
 - (void)_registerForLogging;
 - (void)_postHomesDidUpdateNotification;
 - (void)postHomesDidUpdateNotification;
+- (void)postDebouceHomesDidUpdateNotification;
 - (void)_detectGuestHomesAddedAndRemovedWithCloudHomes:(id)arg1;
 - (_Bool)_setPrimaryHome:(id)arg1 idsDataSync:(_Bool)arg2;
 - (void)_updateTransportInformationInstances:(id)arg1 remoteAccessories:(id)arg2;
-- (void)_handleDisabledResidentDevices;
-- (void)_mergeHomeDataWithRemoteHomes:(id)arg1 remotePrimaryHome:(id)arg2 remoteAccessories:(id)arg3 needConflictResolution:(_Bool)arg4 idsDataSync:(_Bool)arg5 idsSyncUser:(id)arg6 dataVersion:(long long)arg7 newResidentDevice:(_Bool *)arg8 newAppData:(id)arg9;
 - (_Bool)_associateAccessories:(id)arg1 withHomes:(id)arg2;
-- (void)_suspendXPCConnectionAndMergeRemoteHomes:(id)arg1 remotePrimaryHome:(id)arg2 remoteAccessories:(id)arg3 needConflictResolution:(_Bool)arg4 idsDataSync:(_Bool)arg5 idsSyncUser:(id)arg6 dataVersion:(long long)arg7 applicationData:(id)arg8 completionHandler:(CDUnknownBlockType)arg9;
 - (_Bool)_preferLocalHomesOverCloudHomes:(id)arg1 migrationOptions:(unsigned long long)arg2;
-- (void)_handleMergeWithCloudHomeData1:(id)arg1 cloudHomeData2:(id)arg2 cloudHomeData3:(id)arg3 migrationOptions:(unsigned long long)arg4 needConflictResolution:(_Bool)arg5 homeDataFetechedTransaction:(id)arg6 syncCompletion:(CDUnknownBlockType)arg7;
+- (void)_transactionalizeAndApplyHomeData:(id)arg1 syncCompletion:(CDUnknownBlockType)arg2;
+- (void)_transactionalizeAndApplyCloudHomeData:(id)arg1 version:(long long)arg2 migrationOptions:(unsigned long long)arg3 needConflictResolution:(_Bool)arg4 homeDataFetechedTransaction:(id)arg5 syncCompletion:(CDUnknownBlockType)arg6;
 - (id)_deviceForIdentifier:(id)arg1;
 - (void)_resumeXPCWithCompletionHanlder:(CDUnknownBlockType)arg1;
 - (void)_suspendXPCWithCompletionHanlder:(CDUnknownBlockType)arg1;
 - (id)_filterAccessories:(id)arg1 inHome:(id)arg2;
 - (id)_filterAccessories:(id)arg1 withIdentifiers:(id)arg2;
 - (id)identifiersOfAccessories:(id)arg1;
+- (id)identifiersOfAccessoriesForHome:(id)arg1;
 - (void)_updateCloudDataSyncWithAccountState:(_Bool)arg1;
 - (void)forceCloudFetch;
 - (void)_requestHomeDataSync;
 - (void)_fetchDataFromCloud;
-- (void)_postMergeDataFromCloud:(_Bool)arg1;
 - (void)_postMergeWatchPush;
 - (void)_checkForAccountChanged;
 - (_Bool)_configureHomesImpl:(id)arg1;
@@ -399,11 +441,13 @@
 - (void)stopLocalTransport;
 - (void)startLocalTransport;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+- (id)messageDestination;
 @property(readonly, nonatomic) NSUUID *messageTargetUUID;
 - (void)updateGenerationCounter;
 - (void)handleBackgroundTaskAgentJob:(const char *)arg1 forHomeWithUUID:(id)arg2;
 - (void)accessoriesAreLocallyReachableOnTransientDevice:(_Bool)arg1 forHome:(id)arg2;
-- (void)_notifySyncDataChanged;
+- (void)_notifySyncDataChanged:(id)arg1;
+- (void)notifySyncDataChanged:(id)arg1;
 - (unsigned long long)getDataMigrationOptions;
 - (void)_setDataMigrationOptions:(id)arg1;
 - (void)_setUniqueDeviceIdSalt:(id)arg1;
@@ -413,7 +457,7 @@
 - (void)_updateHomeKitInUsePreferences;
 - (void)updateIncomingInvitesPresent;
 - (void)updateHomesConfigured;
-- (void)_setHomeConfigurationKey:(struct __CFString *)arg1 value:(void *)arg2;
+- (void)_setHomeConfigurationKey:(id)arg1 value:(void *)arg2;
 - (void)_setAssistantTeamIdentifierKey:(id)arg1;
 - (void)_saveAssistantTeamIdentifierKey:(id)arg1;
 - (id)_getAssistantTeamIdentifierForKey;
@@ -423,8 +467,39 @@
 - (id)removeName:(id)arg1 namespace:(id)arg2;
 - (id)addName:(id)arg1 namespace:(id)arg2;
 - (id)_homeFromEventIdentifier:(id)arg1;
+- (id)_zoneInformationWithUUID:(id)arg1;
+- (id)_homeWithZoneID:(id)arg1;
 - (id)_homeWithUUID:(id)arg1;
 - (id)_homeWithName:(id)arg1;
+- (void)_determineLegacyLocalChanges:(CDUnknownBlockType)arg1;
+- (void)_determineLocalChangesAndSchedulePush;
+- (void)determineLocalChangesAndSchedulePush;
+- (void)_handleTransactionsFetched:(id)arg1 stagedTransaction:(id)arg2 zoneID:(id)arg3 cloudConflict:(_Bool)arg4 transactionError:(id)arg5 syncCompletion:(CDUnknownBlockType)arg6;
+- (void)_handleFetchObjectChange:(id)arg1 home:(id)arg2 isLegacyTransaction:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_handleFetchModifyHome:(id)arg1 isLegacyTransaction:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_runFetchHomeFromCloudZone:(id)arg1 cloudConflict:(_Bool)arg2 syncCompletion:(CDUnknownBlockType)arg3;
+- (void)_fetchHomeFromCloudZone:(id)arg1 cloudConflict:(_Bool)arg2;
+- (void)fetchHomeFromCloudZone:(id)arg1 cloudConflict:(_Bool)arg2;
+- (void)fetchAllZones;
+- (void)_runUploadHomeToCloud:(id)arg1 objectChange:(id)arg2 syncCompletion:(CDUnknownBlockType)arg3;
+- (void)_uploadTransaction:(id)arg1 home:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_updateModelChangesAsPushed:(id)arg1 home:(id)arg2 pushMask:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_loadHomeModelChanges:(id)arg1 legacyPush:(_Bool)arg2 home:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_loadHomeManagerHomeModelChanges:(id)arg1 legacyPush:(_Bool)arg2 home:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_uploadHomeToCloud:(id)arg1 objectChange:(id)arg2;
+- (void)uploadHomeToCloud:(id)arg1 objectChange:(id)arg2;
+- (void)uploadHomeToCloudZone:(id)arg1;
+- (void)_handleHomeManagerTransactionsFetched:(id)arg1 stagedTransaction:(id)arg2 cloudConflict:(_Bool)arg3 transactionError:(id)arg4 syncCompletion:(CDUnknownBlockType)arg5;
+- (void)_runFetchHomeManagerCloudConflict:(_Bool)arg1 syncCompletion:(CDUnknownBlockType)arg2;
+- (void)_fetchHomeManagerCloundConflict:(_Bool)arg1;
+- (void)fetchHomeManagerCloudConflict:(_Bool)arg1;
+- (void)_updateHomeManagerModelChangesAsPushed:(id)arg1 pushMask:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_updateHomeManagerModelChangesAsPushed:(id)arg1 legacyPush:(_Bool)arg2;
+- (void)_loadHomeManagerTransactionsToPush:(id)arg1 forLegacyPush:(_Bool)arg2 includeAllChanges:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)_uploadHomeManagerToCloudSyncCompletion:(CDUnknownBlockType)arg1;
+- (void)_processRemoveHomeModels:(id)arg1 processIndex:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_uploadHomeManagerToCloud;
+- (void)uploadHomeManagerToCloud;
 - (void)sendUnsecureMessage:(id)arg1 target:(id)arg2 userID:(id)arg3 responseQueue:(id)arg4 responseHandler:(CDUnknownBlockType)arg5;
 - (void)sendSecureMessage:(id)arg1 target:(id)arg2 userID:(id)arg3 destination:(id)arg4 responseQueue:(id)arg5 responseHandler:(CDUnknownBlockType)arg6;
 - (void)electDeviceForUser:(id)arg1 destination:(id)arg2 deviceCapabilities:(id)arg3 queue:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
@@ -439,21 +514,23 @@
 - (void)_resetCloudOperationRetryCounters;
 - (void)_stopCloudOperationRetryTimer;
 - (void)_startCloudOperationRetryWithTimeout:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_runUploadHomeConfigToCloudRowIDs:(id)arg1 forcePush:(_Bool)arg2 syncCompletion:(CDUnknownBlockType)arg3;
 - (void)_runUploadHomeConfigToCloudForcePush:(_Bool)arg1 syncCompletion:(CDUnknownBlockType)arg2;
 - (void)_uploadHomeConfigToCloud:(_Bool)arg1;
 - (void)_pushChangesToCloud:(_Bool)arg1;
 - (void)_removePendingDataSyncAcksForUser:(id)arg1 forHome:(id)arg2;
 - (void)_addPendingDataSyncAcksForUser:(id)arg1 forHome:(id)arg2;
+- (void)pushMetadataToAllWatches;
 - (void)_pushMetadataChangesToUsers;
 - (void)checkAndPushMetadataToUser:(id)arg1 destination:(id)arg2 userInfo:(id)arg3;
-- (void)_pushChangesForHome:(id)arg1 toRegularUsersOfHome:(id)arg2 adminUsersOfHome:(id)arg3 deviceDestinations:(id)arg4;
+- (void)_pushChangesForHome:(id)arg1 toRegularUsersOfHome:(id)arg2 adminUsersOfHome:(id)arg3;
 - (id)_compressHomeData:(id)arg1;
-- (id)_generatePayloadFromHome:(id)arg1 forAdmin:(_Bool)arg2;
+- (id)generatePayloadFromHome:(id)arg1 forAdmin:(_Bool)arg2 user:(id)arg3 supportedFeatures:(id)arg4;
+- (id)generateDataForSharedHomeModel:(id)arg1;
 - (void)_pushChangesToWatch:(id)arg1 paylod:(id)arg2 group:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)_prepareDataForDevicesOnSameAccountForHome:(id)arg1 remoteGateway:(_Bool)arg2;
 - (void)_pushChangesForHome:(id)arg1 toRemoteDevicesOnSameAccount:(id)arg2 addedUser:(id)arg3;
 - (unsigned short)_nextTransactionIdentifier;
-- (void)_sendFragmentedMessage:(id)arg1 messageIndex:(unsigned long long)arg2 messageIdentity:(id)arg3 userID:(id)arg4 destination:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)_pushUserRemovedForHome:(id)arg1;
 - (void)_pushChangesToUsers:(id)arg1 forHome:(id)arg2;
 - (void)_pushChangesToUsersThatHaveNotAcknowledged;
@@ -461,15 +538,19 @@
 - (id)_userPushCachedGetDeviceForUser:(id)arg1;
 - (void)_updateUserPushCachedForUser:(id)arg1 device:(id)arg2;
 - (void)updateUserPushCachedForUser:(id)arg1 device:(id)arg2;
-- (void)_saveMetadata:(_Bool)arg1;
 - (void)_pushMetadataToCloud;
-- (void)kickUploadForPendingTransactions;
+- (void)_saveWithRequest:(id)arg1;
+- (void)saveWithRequest:(id)arg1;
+- (void)_saveWithReason:(id)arg1 information:(id)arg2 postSyncNotification:(_Bool)arg3;
+- (void)saveWithReason:(id)arg1 information:(id)arg2 postSyncNotification:(_Bool)arg3;
 - (void)_saveWithReason:(id)arg1 information:(id)arg2 saveOptions:(unsigned long long)arg3;
 - (void)saveWithReason:(id)arg1 information:(id)arg2 saveOptions:(unsigned long long)arg3;
 - (void)_saveWithReason:(id)arg1 postSyncNotification:(_Bool)arg2;
-- (void)_saveWithReason:(id)arg1 information:(id)arg2 postSyncNotification:(_Bool)arg3;
-- (void)saveWithReason:(id)arg1 information:(id)arg2 postSyncNotification:(_Bool)arg3;
+- (void)saveToCurrentAccountWithRequest:(id)arg1;
 - (void)_handleSaveRequest:(id)arg1;
+- (void)removeAccessoryCacheForIdentifier:(id)arg1;
+- (id)getAccessoryCacheForIdentifer:(id)arg1;
+- (void)saveAccessoryCache:(id)arg1 forIdentifier:(id)arg2;
 - (long long)numberOfAccessoryWithNewFirmwareAvailable;
 - (void)relayMessage:(id)arg1;
 - (void)redispatchMessage:(id)arg1 target:(id)arg2 responseQueue:(id)arg3 toResidentForHome:(id)arg4;
@@ -483,11 +564,17 @@
 - (void)handleEducationAccountEnabled:(id)arg1;
 - (void)accountAvailabilityChanged:(id)arg1;
 - (void)startWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)_reloadHomeDataFromLocalStore;
-- (void)reloadHomeDataFromLocalStore;
+- (void)migrateModelObjectsToCloud:(long long)arg1 schemaVersion:(long long)arg2;
+- (void)_reloadHomeDataFromLocalStore:(_Bool)arg1;
+- (void)reloadHomeDataFromLocalStore:(_Bool)arg1;
 - (void)_deviceLostStateNotification:(id)arg1;
 - (void)_loadMessageDispatcher:(id)arg1 remoteMessageDispatcher:(id)arg2 accessoryBrowser:(id)arg3 messageFilterChain:(id)arg4 homeData:(id)arg5 localDataDecryptionFailed:(_Bool)arg6 identityRegistry:(id)arg7 appRegistry:(id)arg8 accountRegistry:(id)arg9 reloadData:(_Bool)arg10;
 - (id)initWithMessageDispatcher:(id)arg1 remoteMessageDispatcher:(id)arg2 accessoryBrowser:(id)arg3 messageFilterChain:(id)arg4 homeData:(id)arg5 localDataDecryptionFailed:(_Bool)arg6 identityRegistry:(id)arg7 appRegistry:(id)arg8 accountRegistry:(id)arg9;
+- (void)_sendFragmentedMessage:(id)arg1 messageIndex:(unsigned long long)arg2 messageIdentity:(id)arg3 userID:(id)arg4 destination:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)_fragmentationStream:(id)arg1 didReceiveData:(id)arg2 transactionIdentifier:(unsigned short)arg3 error:(id)arg4;
+- (void)_fragmentationStream:(id)arg1 didCloseWithError:(id)arg2;
+- (void)handleDataFragmentedSync:(id)arg1;
+- (void)sendFragmentedMessageForData:(id)arg1 objectUUID:(id)arg2 withMessageName:(id)arg3 toUser:(id)arg4 destination:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

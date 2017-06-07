@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
     TSDImageAdjustments *mDynamicImageAdjustments;
 }
 
+- (void).cxx_destruct;
 - (void)p_destroyDynamicCopies;
 - (void)p_setDynamicInfoGeometry:(id)arg1;
 - (void)p_createDynamicCopies;
@@ -53,8 +54,11 @@ __attribute__((visibility("hidden")))
 - (id)imageInfo;
 - (struct CGRect)pathBoundsWithoutStroke;
 - (id)smartPathSource;
+- (void)p_calculateClampModelValuesAndPerformBlock:(CDUnknownBlockType)arg1;
+- (void)transferLayoutGeometryToInfo:(id)arg1;
 - (_Bool)isInvisible;
 - (_Bool)hasAlpha;
+- (double)descentForInlineLayout;
 - (void)offsetGeometryBy:(struct CGPoint)arg1;
 - (struct CGRect)computeAlignmentFrameInRoot:(_Bool)arg1;
 - (void)updateChildrenFromInfo;

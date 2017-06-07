@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <TelephonyUtilities/TUCallProviderManagerDataSourceDelegate-Protocol.h>
 
@@ -13,23 +13,25 @@
 
 @interface TUCallProviderManager : NSObject <TUCallProviderManagerDataSourceDelegate>
 {
-    NSMapTable *_delegateToQueue;
     NSObject<OS_dispatch_queue> *_queue;
     id <TUCallProviderManagerDataSource> _dataSource;
+    NSMapTable *_delegateToQueue;
 }
 
 + (int)serviceForProvider:(id)arg1 video:(_Bool)arg2;
 + (id)defaultProviders;
+@property(retain, nonatomic) NSMapTable *delegateToQueue; // @synthesize delegateToQueue=_delegateToQueue;
 @property(readonly, nonatomic) id <TUCallProviderManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(retain, nonatomic) NSMapTable *delegateToQueue; // @synthesize delegateToQueue=_delegateToQueue;
 - (void).cxx_destruct;
 - (void)providersChangedForDataSource:(id)arg1;
+@property(readonly, copy, nonatomic) NSDictionary *providersByIdentifier;
+- (void)blockUntilInitialStateReceivedIfNecessary;
+- (void)launchAppForDialRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)providerForFavoritesEntryActionBundleIdentifier:(id)arg1;
 - (id)providerForFavoritesEntry:(id)arg1;
 - (id)providerForRecentCall:(id)arg1;
 - (id)providersPassingTest:(CDUnknownBlockType)arg1;
-@property(readonly, copy, nonatomic) NSDictionary *providersByIdentifier;
 - (id)providerWithIdentifier:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *providers;
 @property(readonly, nonatomic) TUCallProvider *emergencyProvider;

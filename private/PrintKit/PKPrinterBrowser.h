@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSMutableDictionary *printers; // @synthesize printers=_printers;
 @property(retain, nonatomic) NSXPCConnection *pkBrowseConnection; // @synthesize pkBrowseConnection=_pkBrowseConnection;
 @property(nonatomic) id <PKPrinterBrowserDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)aggdDiscoveredPrinterStatistics;
 - (void)btlePrinterFound:(id)arg1;
 - (void)printerRemoved:(id)arg1 more:(_Bool)arg2;
 - (void)printerAdded:(id)arg1 more:(_Bool)arg2;

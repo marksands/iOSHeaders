@@ -6,11 +6,12 @@
 
 #import <SAObjects/SADomainCommand.h>
 
+#import <SiriClientFlow/CFLocalAceHandling-Protocol.h>
 #import <SiriClientFlow/SAAceSerializable-Protocol.h>
 
 @class CFCBNightShiftSchedule, NSNumber, NSString;
 
-@interface CFCBSetNightShiftMode : SADomainCommand <SAAceSerializable>
+@interface CFCBSetNightShiftMode : SADomainCommand <CFLocalAceHandling, SAAceSerializable>
 {
 }
 
@@ -25,6 +26,7 @@
 @property(copy, nonatomic) NSNumber *active;
 - (id)encodedClassName;
 - (id)groupIdentifier;
+- (void)handleWithCompletion:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

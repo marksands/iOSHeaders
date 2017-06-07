@@ -49,7 +49,6 @@
 - (void)verticalScrollingContainerViewController:(id)arg1 willEndDraggingWithVelocity:(struct CGPoint)arg2 targetContentOffset:(inout struct CGPoint *)arg3;
 - (void)verticalScrollingContainerViewControllerContentSizeDidChange:(id)arg1;
 - (void)verticalScrollingContainerViewControllerDidScroll:(id)arg1;
-- (void)verticalLockupView:(id)arg1 didSelectPlayButtonAction:(unsigned long long)arg2;
 - (void)editableVerticalLockupView:(id)arg1 didSelectCameraButton:(id)arg2;
 - (void)_setContentOverlayInsets:(struct UIEdgeInsets)arg1;
 - (id)contentScrollView;

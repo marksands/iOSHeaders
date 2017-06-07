@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface IDSWRMMetricContainer : NSObject
 {
@@ -38,7 +38,6 @@
 @property(nonatomic) unsigned long long StreamBytesSent; // @synthesize StreamBytesSent=_StreamBytesSent;
 - (id)description;
 - (void)resetMetric;
-- (void)dealloc;
 - (id)init;
 
 @end

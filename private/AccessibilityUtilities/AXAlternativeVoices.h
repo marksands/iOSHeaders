@@ -21,6 +21,7 @@
 + (void)setInUnitTestMode:(_Bool)arg1;
 @property(retain, nonatomic) NSMutableDictionary *voiceNameMap; // @synthesize voiceNameMap=_voiceNameMap;
 @property(retain, nonatomic) NSDictionary *voiceClassesMap; // @synthesize voiceClassesMap=_voiceClassesMap;
+- (void).cxx_destruct;
 - (id)_siriBaseIdentifierFromIdentifier:(id)arg1;
 - (id)_siriIdentifierFromBaseIdentifier:(id)arg1 language:(id)arg2 quality:(long long)arg3;
 - (_Bool)_siriSupportsLanguage:(id)arg1;
@@ -31,8 +32,7 @@
 - (_Bool)isSiriVoiceIdentifier:(id)arg1;
 - (_Bool)isAlternativeVoice:(id)arg1;
 - (_Bool)isAlternativeVoiceIdentifier:(id)arg1 forLanguage:(id)arg2;
-- (void)dealloc;
-@property(readonly, nonatomic) NSSet *supportedSiriLanguages;
+@property(readonly, copy, nonatomic) NSSet *supportedSiriLanguages;
 
 @end
 

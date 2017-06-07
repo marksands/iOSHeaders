@@ -19,7 +19,7 @@
 }
 
 @property(nonatomic) _Bool cancelled; // @synthesize cancelled=_cancelled;
-@property(copy, nonatomic) NSMutableSet *gatewaysPlayedLightsAndSirens; // @synthesize gatewaysPlayedLightsAndSirens=_gatewaysPlayedLightsAndSirens;
+@property(retain, nonatomic) NSMutableSet *gatewaysPlayedLightsAndSirens; // @synthesize gatewaysPlayedLightsAndSirens=_gatewaysPlayedLightsAndSirens;
 @property(nonatomic) double gatewayTimeout; // @synthesize gatewayTimeout=_gatewayTimeout;
 @property(nonatomic) unsigned long long feeds; // @synthesize feeds=_feeds;
 @property(retain, nonatomic) BBBulletin *bulletin; // @synthesize bulletin=_bulletin;

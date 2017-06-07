@@ -16,11 +16,11 @@
 
 + (double)preferredHeight;
 + (id)reuseIdentifier;
++ (Class)cellClass;
 @property(retain, nonatomic) UIImageView *addIcon; // @synthesize addIcon=_addIcon;
 @property(retain, nonatomic) UILabel *addLabel; // @synthesize addLabel=_addLabel;
 - (void).cxx_destruct;
 - (void)setEnabled:(_Bool)arg1;
-- (void)layoutSubviews;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 
 @end

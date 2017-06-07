@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GEOMapRequestManager;
 
@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) _Bool isFinished; // @synthesize isFinished=_isFinished;
 @property(copy, nonatomic) CDUnknownBlockType cancellationHandler; // @synthesize cancellationHandler=_cancellationHandler;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
+- (void).cxx_destruct;
 - (void)_finishAndCallHandler:(CDUnknownBlockType)arg1;
 - (void)complete;
 - (void)cancel;

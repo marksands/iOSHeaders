@@ -10,6 +10,7 @@
 @protocol GEOMapItem;
 
 @protocol MSPFavoritePlace <MSPFavorite>
+- (int)floorOrdinalOfDroppedPin;
 - (struct CLLocationCoordinate2D)coordinateOfDroppedPin;
 - (id <GEOMapItem>)geoMapItem;
 - (NSString *)title;

@@ -28,6 +28,7 @@
 @property(retain, nonatomic) GEORPPhotoWithMetadata *photo; // @synthesize photo=_photo;
 @property(retain, nonatomic) NSString *comments; // @synthesize comments=_comments;
 @property(nonatomic) unsigned int routeStepIndex; // @synthesize routeStepIndex=_routeStepIndex;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -42,7 +43,6 @@
 @property(readonly, nonatomic) _Bool hasPhoto;
 @property(readonly, nonatomic) _Bool hasComments;
 @property(nonatomic) _Bool hasRouteStepIndex;
-- (void)dealloc;
 
 @end
 

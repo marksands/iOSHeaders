@@ -8,47 +8,49 @@
 
 #import <iWorkImport/NSCopying-Protocol.h>
 
-@class NSArray, NSMutableDictionary, TSKSelectionPath, TSURetainedPointerKeyDictionary;
+@class NSArray, NSMutableDictionary, TSKSelectionPath;
 @protocol TNUIStateDelegate;
 
 __attribute__((visibility("hidden")))
 @interface TNUIState : NSObject <NSCopying>
 {
-    TSURetainedPointerKeyDictionary *mSheetUIStates;
-    TSURetainedPointerKeyDictionary *mEditModeSheetUIStates;
-    _Bool mShowCanvasGuides;
-    _Bool mInspectorPaneVisible;
-    _Bool mInspectorPaneAutoHidden;
-    _Bool mRemovedAllQuickCalcFunctions;
-    _Bool mShowsComments;
-    _Bool mShowsSidebar;
-    _Bool mShowsRulers;
-    int mInspectorPaneViewMode;
-    TSKSelectionPath *mSelectionPath;
-    id <TNUIStateDelegate> mDelegate;
-    long long mDocumentMode;
-    NSArray *mSelectedQuickCalcFunctions;
-    NSMutableDictionary *mChartUIState;
-    struct CGSize mDesktopScreenSize;
-    struct CGRect mDesktopWindowFrame;
+    _Bool _removedAllQuickCalcFunctions;
+    _Bool _showsComments;
+    _Bool _showsRulers;
+    _Bool _showCanvasGuides;
+    _Bool _inspectorPaneIsVisible;
+    _Bool _inspectorPaneIsAutoHidden;
+    int _inspectorPaneViewMode;
+    TSKSelectionPath *_selectionPath;
+    id <TNUIStateDelegate> _delegate;
+    long long _documentMode;
+    NSArray *_selectedQuickCalcFunctions;
+    NSMutableDictionary *_chartUIState;
+    NSMutableDictionary *_sheetUIStates;
+    NSMutableDictionary *_editModeSheetUIStates;
+    struct CGSize _desktopScreenSize;
+    struct CGRect _desktopWindowFrame;
 }
 
-+ (id)p_copyOfSheetUIStates:(id)arg1;
 + (double)maximumViewScale;
 + (double)minimumViewScale;
-@property(readonly, nonatomic) NSMutableDictionary *chartUIState; // @synthesize chartUIState=mChartUIState;
-@property(nonatomic) struct CGSize desktopScreenSize; // @synthesize desktopScreenSize=mDesktopScreenSize;
-@property(nonatomic) struct CGRect desktopWindowFrame; // @synthesize desktopWindowFrame=mDesktopWindowFrame;
-@property(nonatomic) _Bool showsRulers; // @synthesize showsRulers=mShowsRulers;
-@property(nonatomic) _Bool showsSidebar; // @synthesize showsSidebar=mShowsSidebar;
-@property(nonatomic) _Bool showsComments; // @synthesize showsComments=mShowsComments;
-@property(nonatomic) _Bool showCanvasGuides; // @synthesize showCanvasGuides=mShowCanvasGuides;
-@property(nonatomic) _Bool removedAllQuickCalcFunctions; // @synthesize removedAllQuickCalcFunctions=mRemovedAllQuickCalcFunctions;
-@property(copy, nonatomic) NSArray *selectedQuickCalcFunctions; // @synthesize selectedQuickCalcFunctions=mSelectedQuickCalcFunctions;
-@property(nonatomic) int inspectorPaneViewMode; // @synthesize inspectorPaneViewMode=mInspectorPaneViewMode;
-@property(nonatomic) long long documentMode; // @synthesize documentMode=mDocumentMode;
-@property(nonatomic) id <TNUIStateDelegate> delegate; // @synthesize delegate=mDelegate;
-@property(retain, nonatomic) TSKSelectionPath *selectionPath; // @synthesize selectionPath=mSelectionPath;
+@property(nonatomic, getter=inspectorPaneIsAutoHidden) _Bool inspectorPaneIsAutoHidden; // @synthesize inspectorPaneIsAutoHidden=_inspectorPaneIsAutoHidden;
+@property(nonatomic, getter=inspectorPaneIsVisible) _Bool inspectorPaneIsVisible; // @synthesize inspectorPaneIsVisible=_inspectorPaneIsVisible;
+@property(readonly, nonatomic) NSMutableDictionary *editModeSheetUIStates; // @synthesize editModeSheetUIStates=_editModeSheetUIStates;
+@property(readonly, nonatomic) NSMutableDictionary *sheetUIStates; // @synthesize sheetUIStates=_sheetUIStates;
+@property(readonly, nonatomic) NSMutableDictionary *chartUIState; // @synthesize chartUIState=_chartUIState;
+@property(nonatomic) _Bool showCanvasGuides; // @synthesize showCanvasGuides=_showCanvasGuides;
+@property(nonatomic) struct CGSize desktopScreenSize; // @synthesize desktopScreenSize=_desktopScreenSize;
+@property(nonatomic) struct CGRect desktopWindowFrame; // @synthesize desktopWindowFrame=_desktopWindowFrame;
+@property(nonatomic) _Bool showsRulers; // @synthesize showsRulers=_showsRulers;
+@property(nonatomic) _Bool showsComments; // @synthesize showsComments=_showsComments;
+@property(nonatomic) _Bool removedAllQuickCalcFunctions; // @synthesize removedAllQuickCalcFunctions=_removedAllQuickCalcFunctions;
+@property(copy, nonatomic) NSArray *selectedQuickCalcFunctions; // @synthesize selectedQuickCalcFunctions=_selectedQuickCalcFunctions;
+@property(nonatomic) int inspectorPaneViewMode; // @synthesize inspectorPaneViewMode=_inspectorPaneViewMode;
+@property(nonatomic) long long documentMode; // @synthesize documentMode=_documentMode;
+@property(nonatomic) __weak id <TNUIStateDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) TSKSelectionPath *selectionPath; // @synthesize selectionPath=_selectionPath;
+- (void).cxx_destruct;
 - (id)p_fixedUpSelectionPathForRestoration:(id)arg1 forcingUnpagination:(_Bool)arg2;
 - (void)fixupSelectionPathsForRestorationForcingUnpagination:(_Bool)arg1;
 - (void)enumerateSheetUIStatesWithBlock:(CDUnknownBlockType)arg1;
@@ -59,7 +61,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithArchive:(const struct UIStateArchive *)arg1 unarchiver:(id)arg2;
 - (id)description;
 - (id)archivedUIStateInContext:(id)arg1;
-@property(nonatomic) long long inspectorPaneHiddenState; // @dynamic inspectorPaneHiddenState;
+@property(nonatomic) long long inspectorPaneHiddenState;
 - (void)p_exitPaginatedMode;
 - (void)p_enterPaginatedMode;
 @property(readonly, nonatomic) _Bool hasPreviousVisibleRect;
@@ -83,7 +85,6 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct CGRect visibleRect;
 - (void)setVisibleRect:(struct CGRect)arg1 forSheet:(id)arg2;
 @property(readonly, nonatomic) struct CGPoint scrollPosition;
-- (void)dealloc;
 - (id)init;
 
 @end

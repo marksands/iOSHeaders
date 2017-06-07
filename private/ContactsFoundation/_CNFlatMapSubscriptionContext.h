@@ -9,7 +9,6 @@
 @class CNQueue, NSMutableArray;
 @protocol CNScheduler;
 
-__attribute__((visibility("hidden")))
 @interface _CNFlatMapSubscriptionContext : NSObject
 {
     CNQueue *_decorators;

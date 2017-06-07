@@ -22,7 +22,12 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (id)getCalendar:(id)arg1;
 + (id)validateWholeMinuteDate:(id)arg1 onCalendar:(id)arg2;
++ (id)validateTriggerModel:(id)arg1 message:(id)arg2;
++ (id)validateRecurrences:(id)arg1;
++ (id)validateSignificantOffset:(id)arg1;
++ (id)validateRecurrence:(id)arg1 calendar:(id)arg2 fireDate:(id)arg3;
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
 @property(retain, nonatomic) NSDate *currentFireDate; // @synthesize currentFireDate=_currentFireDate;
 @property(retain, nonatomic) NSString *timerID; // @synthesize timerID=_timerID;
@@ -33,6 +38,9 @@
 @property(copy, nonatomic) NSTimeZone *fireDateTimeZone; // @synthesize fireDateTimeZone=_fireDateTimeZone;
 @property(copy, nonatomic) NSDate *fireDate; // @synthesize fireDate=_fireDate;
 - (void).cxx_destruct;
+- (void)timerFired:(id)arg1;
+- (void)_transactionObjectRemoved:(id)arg1 message:(id)arg2;
+- (void)_transactionObjectUpdated:(id)arg1 newValues:(id)arg2 message:(id)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)getFireInterval;
@@ -45,21 +53,24 @@
 - (id)_nextFireDate;
 - (void)_activateSignificantEventTrigger:(id *)arg1;
 - (void)_activateFireDateTrigger:(id *)arg1;
-- (void)activate:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_disableTimer:(id)arg1;
+- (void)activateWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)shouldActivateOnLocalDevice;
+- (void)_disableTimerOffReactivationFailure;
 - (_Bool)_reactivateSignificantEventTrigger:(id)arg1;
 - (_Bool)_reactivateFireDateTrigger:(id)arg1;
 - (_Bool)_reactivateTrigger:(id)arg1;
 - (id)_serializeForAdd;
+- (id)backingStoreObjects:(long long)arg1;
+- (id)emptyModelObject;
+- (id)modelObjectWithChangeType:(unsigned long long)arg1;
+- (void)_handleTimerTriggerUpdate:(id)arg1 message:(id)arg2;
+- (void)_handleUpdateTimerTriggerPropertiesModel:(id)arg1 message:(id)arg2;
 - (void)_handleUpdateTimerTriggerPropertiesRequest:(id)arg1;
 - (void)_registerForMessages;
 - (void)_stopTimer;
 - (void)_startTimer:(id)arg1;
 - (void)_startTimerWithSignificantEventDate:(id)arg1;
 - (void)_startTimerWithFireDate:(id)arg1;
-- (id)validateRecurrences:(id)arg1;
-- (id)validateSignificantOffset:(id)arg1;
-- (id)validateRecurrence:(id)arg1;
 - (void)nsTimerTriggered:(id)arg1;
 - (void)timerTriggered;
 - (void)dealloc;
@@ -69,10 +80,8 @@
 - (unsigned long long)triggerType;
 - (id)dumpState;
 - (id)description;
-- (id)initWithName:(id)arg1 significantEvent:(id)arg2 significantEventOffset:(id)arg3 recurrences:(id)arg4;
-- (id)initWithName:(id)arg1 fireDate:(id)arg2 timeZone:(id)arg3 recurrences:(id)arg4;
-- (id)initWithName:(id)arg1 fireDate:(id)arg2 timeZone:(id)arg3 recurrence:(id)arg4;
-- (id)initWithName:(id)arg1;
+- (id)initWithModel:(id)arg1 home:(id)arg2;
+- (id)initWithName:(id)arg1 uuid:(id)arg2;
 
 @end
 

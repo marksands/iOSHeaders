@@ -18,7 +18,6 @@
     long long _intValue;
     long long _workoutActivityType;
     NSString *_definitionIdentifier;
-    NSData *_extraData;
     NSData *_uuid;
     _Bool _alerted;
     struct {
@@ -34,7 +33,6 @@
 @property(nonatomic) long long workoutActivityType; // @synthesize workoutActivityType=_workoutActivityType;
 @property(retain, nonatomic) NSString *definitionIdentifier; // @synthesize definitionIdentifier=_definitionIdentifier;
 @property(nonatomic) _Bool alerted; // @synthesize alerted=_alerted;
-@property(retain, nonatomic) NSData *extraData; // @synthesize extraData=_extraData;
 @property(nonatomic) long long intValue; // @synthesize intValue=_intValue;
 @property(nonatomic) double doubleValue; // @synthesize doubleValue=_doubleValue;
 @property(nonatomic) double completedDate; // @synthesize completedDate=_completedDate;
@@ -53,7 +51,6 @@
 @property(nonatomic) _Bool hasWorkoutActivityType;
 @property(readonly, nonatomic) _Bool hasDefinitionIdentifier;
 @property(nonatomic) _Bool hasAlerted;
-@property(readonly, nonatomic) _Bool hasExtraData;
 @property(nonatomic) _Bool hasIntValue;
 @property(nonatomic) _Bool hasDoubleValue;
 @property(nonatomic) _Bool hasCompletedDate;

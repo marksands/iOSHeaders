@@ -9,13 +9,15 @@
 __attribute__((visibility("hidden")))
 @interface _MDMutablePlistBytes : _MDPlistBytes
 {
-    int _containerUID;
     int _currentUID;
-    struct __CFArray *_parentUIDStack;
+    int _parentSize;
+    int _parentCount;
+    int *_parentUIDs;
     struct __CFDictionary *_ptrUIDMap;
     unsigned long long *_fillPtr;
     unsigned long long *_limitPtr;
     unsigned long long *_rleTagPtr;
+    unsigned long long _curContainer;
 }
 
 + (struct __MDPlistBytes *)createDictionaryPlistBytesUsingBlock:(CDUnknownBlockType)arg1;

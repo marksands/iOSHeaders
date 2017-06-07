@@ -33,8 +33,9 @@
 - (void)show:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_logControl:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)logControl:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_getVersionWithCompletion:(CDUnknownBlockType)arg1;
-- (void)getVersionWithCompletion:(CDUnknownBlockType)arg1;
+- (void)diagnosticMockStop:(CDUnknownBlockType)arg1;
+- (void)diagnosticMockStart:(CDUnknownBlockType)arg1;
+- (void)diagnosticMock:(id)arg1 device:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)diagnosticControl:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)diagnosticBLEModeWithCompletion:(CDUnknownBlockType)arg1;
 - (void)bluetoothUserInteraction;

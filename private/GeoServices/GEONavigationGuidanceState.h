@@ -24,11 +24,6 @@
     } _has;
 }
 
-+ (int)routeGuidanceLevelForLocation:(id)arg1 route:(id)arg2 withCurrentGuidanceLevel:(int)arg3 ignoreTimeCriterion:(_Bool)arg4;
-+ (int)routeGuidanceLevelForLocation:(id)arg1 route:(id)arg2 withCurrentGuidanceLevel:(int)arg3;
-+ (_Bool)_currentTimeInsideTrackingRegionForRoute:(id)arg1 location:(id)arg2;
-+ (_Bool)_currentLocationInsideTrackingRegionForRoute:(id)arg1 location:(id)arg2;
-+ (_Bool)_currentLocationInsideTurnByTurnRegionForRoute:(id)arg1 location:(id)arg2;
 @property(nonatomic) _Bool shouldSuppressCellularDataAlerts; // @synthesize shouldSuppressCellularDataAlerts=_shouldSuppressCellularDataAlerts;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;

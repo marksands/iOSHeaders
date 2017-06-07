@@ -8,6 +8,7 @@
 
 @class MNNavigationAudioSession, NSBundle, NSHashTable, NSLocale, NSString;
 
+__attribute__((visibility("hidden")))
 @interface MNVoiceController : NSObject
 {
     MNNavigationAudioSession *_activeNavigationSession;
@@ -36,7 +37,6 @@
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)_setMaintainInactivePersistentConnection:(_Bool)arg1;
-- (void)_setLoggingEnabled:(_Bool)arg1;
 - (void)setAudioSessionProperties;
 - (void)setVolume:(double)arg1;
 - (void)endAnnounce;

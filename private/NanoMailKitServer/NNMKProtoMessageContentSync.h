@@ -28,6 +28,7 @@
     } _has;
 }
 
++ (Class)attachmentType;
 @property(retain, nonatomic) NNMKProtoMessage *notificationMessage; // @synthesize notificationMessage=_notificationMessage;
 @property(retain, nonatomic) NSMutableArray *attachments; // @synthesize attachments=_attachments;
 @property(nonatomic) _Bool partiallyLoaded; // @synthesize partiallyLoaded=_partiallyLoaded;

@@ -12,6 +12,7 @@
 
 + (id)confirmSnippetWithDictionary:(id)arg1 context:(id)arg2;
 + (id)confirmSnippet;
+- (_Bool)requiresResponse;
 - (id)encodedClassName;
 - (id)groupIdentifier;
 

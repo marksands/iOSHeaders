@@ -17,7 +17,7 @@
 + (long long)statusFromString:(id)arg1;
 + (id)extractTimeGate:(id)arg1 runwayTime:(id)arg2;
 + (void)extractTimeForFlightStep:(id)arg1 fromTimes:(id)arg2 departure:(_Bool)arg3;
-+ (void)loadFlightDataWithFlightNumber:(long long)arg1 airlineCode:(id)arg2 date:(id)arg3 dateType:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
++ (void)loadFlightDataWithFlightNumber:(unsigned long long)arg1 airlineCode:(id)arg2 date:(id)arg3 dateType:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)loadFlightsWithNumber:(unsigned long long)arg1 airlineCode:(id)arg2 date:(id)arg3 dateType:(long long)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)parseFlightData:(id)arg1 withError:(id *)arg2;
 

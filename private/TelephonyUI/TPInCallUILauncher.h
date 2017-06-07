@@ -10,6 +10,7 @@
 {
 }
 
++ (id)TPRemoteAlertActivationReasonForTPInCallUILaunchReason:(long long)arg1;
 + (void)launchInCallUIForReason:(long long)arg1 completion:(CDUnknownBlockType)arg2;
 
 @end

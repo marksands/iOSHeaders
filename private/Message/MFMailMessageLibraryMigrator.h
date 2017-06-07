@@ -8,11 +8,18 @@
 
 @interface MFMailMessageLibraryMigrator : NSObject
 {
+    _Bool _needsRebuildTriggers;
+    _Bool _needsRebuildMessageInfoIndex;
     int _needsSpotlightReindex;
 }
 
+- (void)resetTTRPromptAndForceReindex;
+- (_Bool)needsRebuildMessageInfoIndex;
+- (void)noteRebuildMessageInfoIndex;
 - (_Bool)needsSpotlightReindex;
 - (void)noteNeedsSpotlightReindex;
+- (_Bool)needsRebuildTriggers;
+- (void)noteNeedsRebuildTriggers;
 - (_Bool)migrateWithSQLiteConnection:(id)arg1;
 
 @end

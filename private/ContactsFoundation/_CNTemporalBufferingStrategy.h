@@ -11,7 +11,6 @@
 @class NSString;
 @protocol CNCancelable, CNScheduler;
 
-__attribute__((visibility("hidden")))
 @interface _CNTemporalBufferingStrategy : NSObject <_CNBufferingStrategy>
 {
     double _interval;

@@ -8,20 +8,25 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class NSMutableArray, NSString;
+@class GEOPDMapsIdentifier, NSMutableArray, NSString, PBUnknownFields;
 
 @interface GEOPDTransitConnection : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     unsigned long long _muid;
     NSString *_entityNameString;
+    GEOPDMapsIdentifier *_mapsId;
     NSMutableArray *_transitLabels;
     CDStruct_e99c65f7 _has;
 }
 
 + (Class)transitLabelType;
+@property(retain, nonatomic) GEOPDMapsIdentifier *mapsId; // @synthesize mapsId=_mapsId;
 @property(retain, nonatomic) NSString *entityNameString; // @synthesize entityNameString=_entityNameString;
 @property(retain, nonatomic) NSMutableArray *transitLabels; // @synthesize transitLabels=_transitLabels;
 @property(nonatomic) unsigned long long muid; // @synthesize muid=_muid;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -31,13 +36,13 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasMapsId;
 @property(readonly, nonatomic) _Bool hasEntityNameString;
 - (id)transitLabelAtIndex:(unsigned long long)arg1;
 - (unsigned long long)transitLabelsCount;
 - (void)addTransitLabel:(id)arg1;
 - (void)clearTransitLabels;
 @property(nonatomic) _Bool hasMuid;
-- (void)dealloc;
 
 @end
 

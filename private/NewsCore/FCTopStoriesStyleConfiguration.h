@@ -6,21 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, NTPBTopStoriesStyleConfig, UIColor;
+@class FCColor, NSString, NTPBTopStoriesStyleConfig;
 
 @interface FCTopStoriesStyleConfiguration : NSObject
 {
     NTPBTopStoriesStyleConfig *_pbConfig;
     unsigned long long _storyType;
     NSString *_label;
-    UIColor *_foreground_color;
-    UIColor *_background_color;
+    FCColor *_foreground_color;
+    FCColor *_background_color;
     NSString *_stringType;
 }
 
 @property(readonly, nonatomic) NSString *stringType; // @synthesize stringType=_stringType;
-@property(readonly, nonatomic) UIColor *background_color; // @synthesize background_color=_background_color;
-@property(readonly, nonatomic) UIColor *foreground_color; // @synthesize foreground_color=_foreground_color;
+@property(readonly, nonatomic) FCColor *background_color; // @synthesize background_color=_background_color;
+@property(readonly, nonatomic) FCColor *foreground_color; // @synthesize foreground_color=_foreground_color;
 @property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
 @property(readonly, nonatomic) unsigned long long storyType; // @synthesize storyType=_storyType;
 - (void).cxx_destruct;

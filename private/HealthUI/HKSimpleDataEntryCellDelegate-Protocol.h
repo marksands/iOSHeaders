@@ -6,12 +6,9 @@
 
 #import <HealthUI/NSObject-Protocol.h>
 
-@class UITableViewCell, UITextField;
-@protocol HKSimpleDataEntryCellType;
+@class HKSimpleDataEntryCell, UITextField;
 
 @protocol HKSimpleDataEntryCellDelegate <NSObject>
-- (void)textFieldDidEndEditing:(UITextField *)arg1 forCell:(UITableViewCell<HKSimpleDataEntryCellType> *)arg2;
-- (void)textFieldDidChangeValue:(UITextField *)arg1 forCell:(UITableViewCell<HKSimpleDataEntryCellType> *)arg2;
-- (void)textFieldDidBeginEditing:(UITextField *)arg1 forCell:(UITableViewCell<HKSimpleDataEntryCellType> *)arg2;
+- (void)textFieldDidChangeValue:(UITextField *)arg1 forCell:(HKSimpleDataEntryCell *)arg2;
 @end
 

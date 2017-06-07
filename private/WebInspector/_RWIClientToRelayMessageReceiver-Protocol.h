@@ -7,6 +7,7 @@
 @class NSDictionary;
 
 @protocol _RWIClientToRelayMessageReceiver
+- (void)_rpc_requestApplicationLaunch:(NSDictionary *)arg1;
 - (void)_rpc_forwardAutomationSessionRequest:(NSDictionary *)arg1;
 - (void)_rpc_getConnectedDrivers:(NSDictionary *)arg1;
 - (void)_rpc_forwardDriverStateChangeRequest:(NSDictionary *)arg1;

@@ -6,13 +6,15 @@
 
 #import <HealthDaemon/HDWorkoutEventCollector.h>
 
-@class CMSwimData, CMSwimTracker, NSObject;
+@class CMSwimData, CMSwimTracker, NSDate, NSObject;
 @protocol OS_dispatch_queue;
 
 @interface HDSwimmingWorkoutEventCollector : HDWorkoutEventCollector
 {
     CMSwimTracker *_swimTracker;
     CMSwimData *_referenceSwimData;
+    CMSwimData *_lastSwimData;
+    NSDate *_currentSegmentStartDate;
     NSObject<OS_dispatch_queue> *_workoutEventQueue;
 }
 
@@ -20,6 +22,8 @@
 - (void).cxx_destruct;
 - (void)_queue_errorOccurred:(id)arg1;
 - (void)_queue_addLapEventForSwimData:(id)arg1;
+- (void)_queue_addSegmentEventWithEndDate:(id)arg1;
+- (void)_queue_addSegmentEventForSwimData:(id)arg1;
 - (void)_queue_processSwimData:(id)arg1 error:(id)arg2;
 - (void)_queue_querySwimDataWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_queue_stopCollection;
@@ -28,7 +32,7 @@
 - (_Bool)supportsWorkoutActivityType:(unsigned long long)arg1;
 - (void)stop;
 - (void)startWithSessionId:(id)arg1;
-- (id)initWithDelegate:(id)arg1;
+- (id)initWithProfile:(id)arg1 delegate:(id)arg2;
 
 @end
 

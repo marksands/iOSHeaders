@@ -6,13 +6,12 @@
 
 #import <HealthDaemon/HDHealthService.h>
 
-@class HDHealthServicePropertyManager, NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject, NSString;
+@class NSMutableArray, NSMutableDictionary, NSMutableSet, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
 @interface HDDeviceInformationService : HDHealthService
 {
     _Bool _deviceInformationHasBeenLoaded;
-    HDHealthServicePropertyManager *_propertyManager;
     NSMutableDictionary *_characteristics;
     NSMutableDictionary *_propertyValues;
     NSMutableSet *_propertiesLeftToFetch;
@@ -29,11 +28,10 @@
 @property(retain, nonatomic) NSMutableSet *propertiesLeftToFetch; // @synthesize propertiesLeftToFetch=_propertiesLeftToFetch;
 @property(retain, nonatomic) NSMutableDictionary *propertyValues; // @synthesize propertyValues=_propertyValues;
 @property(retain, nonatomic) NSMutableDictionary *characteristics; // @synthesize characteristics=_characteristics;
-@property(nonatomic) __weak HDHealthServicePropertyManager *propertyManager; // @synthesize propertyManager=_propertyManager;
 - (void).cxx_destruct;
 - (id)_propertyValueForCharacteristic:(id)arg1;
 - (void)_queue_peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;
-- (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 error:(id)arg3;
+- (void)peripheral:(id)arg1 didUpdateValueForCharacteristic:(id)arg2 updateTime:(id)arg3 error:(id)arg4;
 - (void)_queue_peripheral:(id)arg1 didDiscoverCharacteristic:(id)arg2;
 - (void)peripheral:(id)arg1 didDiscoverCharacteristic:(id)arg2;
 - (void)_queue_readProperty:(id)arg1;
@@ -48,7 +46,7 @@
 @property(readonly) NSString *serialNumber;
 @property(readonly) NSString *modelNumber;
 @property(readonly) NSString *manufacturerName;
-- (id)initWithDevicePropertyManager:(id)arg1 healthDaemon:(id)arg2 peripheral:(id)arg3;
+- (id)initWithServiceManager:(id)arg1 peripheral:(id)arg2 advertisementData:(id)arg3 profile:(id)arg4;
 
 @end
 

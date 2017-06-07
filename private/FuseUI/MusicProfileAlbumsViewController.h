@@ -6,13 +6,12 @@
 
 #import <FuseUI/MusicProductTracklistTableViewController.h>
 
-@class MPAVController, MusicLibraryAlbumsViewConfiguration;
+@class MusicLibraryAlbumsViewConfiguration;
 
 @interface MusicProfileAlbumsViewController : MusicProductTracklistTableViewController
 {
     _Bool _collapseSections;
     MusicLibraryAlbumsViewConfiguration *_libraryAlbumsViewConfiguration;
-    MPAVController *_player;
 }
 
 - (void).cxx_destruct;
@@ -27,7 +26,6 @@
 - (void)tableViewDataDidReload;
 - (long long)handleSelectionOfSectionHeaderForSectionEntityValueContext:(id)arg1;
 - (void)viewDidLoad;
-- (id)initWithLibraryViewConfiguration:(id)arg1;
 
 @end
 

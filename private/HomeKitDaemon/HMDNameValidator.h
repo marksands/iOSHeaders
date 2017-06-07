@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
-@class NSMutableDictionary, NSPredicate, NSUUID;
+@class NSMutableDictionary, NSObject, NSPredicate, NSUUID;
 @protocol OS_dispatch_queue;
 
-@interface HMDNameValidator : NSObject
+@interface HMDNameValidator : HMFObject
 {
     NSMutableDictionary *_namespaceList;
     NSObject<OS_dispatch_queue> *_workQueue;
@@ -20,7 +20,7 @@
 @property(retain, nonatomic) NSPredicate *nonZeroLengthPredicate; // @synthesize nonZeroLengthPredicate=_nonZeroLengthPredicate;
 @property(retain, nonatomic) NSUUID *homeManagerUUID; // @synthesize homeManagerUUID=_homeManagerUUID;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
-@property(copy, nonatomic) NSMutableDictionary *namespaceList; // @synthesize namespaceList=_namespaceList;
+@property(retain, nonatomic) NSMutableDictionary *namespaceList; // @synthesize namespaceList=_namespaceList;
 - (void).cxx_destruct;
 - (id)replaceName:(id)arg1 withNewName:(id)arg2 inNamespaces:(id)arg3;
 - (id)removeName:(id)arg1 namespace:(id)arg2;

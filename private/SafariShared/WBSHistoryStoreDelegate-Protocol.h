@@ -6,16 +6,17 @@
 
 #import <SafariShared/WBSHistoryLoaderDelegate-Protocol.h>
 
-@class NSArray, WBSHistoryDeletionPlan, WBSHistorySQLiteStore;
+@class NSArray, WBSHistoryDeletionPlan;
+@protocol WBSHistoryStore;
 
 @protocol WBSHistoryStoreDelegate <WBSHistoryLoaderDelegate>
-- (void)historyStore:(WBSHistorySQLiteStore *)arg1 didRemoveVisits:(NSArray *)arg2;
-- (void)historyStore:(WBSHistorySQLiteStore *)arg1 didRemoveItems:(NSArray *)arg2;
-- (void)historyStoreDidFailDatabaseIntegrityCheck:(WBSHistorySQLiteStore *)arg1;
-- (_Bool)historyStoreShouldCheckDatabaseIntegrity:(WBSHistorySQLiteStore *)arg1;
-- (void)historyStore:(WBSHistorySQLiteStore *)arg1 didPrepareToDeleteWithDeletionPlan:(WBSHistoryDeletionPlan *)arg2;
+- (void)historyStore:(id <WBSHistoryStore>)arg1 didRemoveVisits:(NSArray *)arg2;
+- (void)historyStore:(id <WBSHistoryStore>)arg1 didRemoveItems:(NSArray *)arg2;
+- (void)historyStoreDidFailDatabaseIntegrityCheck:(id <WBSHistoryStore>)arg1;
+- (_Bool)historyStoreShouldCheckDatabaseIntegrity:(id <WBSHistoryStore>)arg1;
+- (void)historyStore:(id <WBSHistoryStore>)arg1 didPrepareToDeleteWithDeletionPlan:(WBSHistoryDeletionPlan *)arg2;
 
 @optional
-- (_Bool)historyStoreShouldScheduleMaintenance:(WBSHistorySQLiteStore *)arg1;
+- (_Bool)historyStoreShouldScheduleMaintenance:(id <WBSHistoryStore>)arg1;
 @end
 

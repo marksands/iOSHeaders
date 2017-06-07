@@ -94,6 +94,7 @@
 @property(nonatomic) double latitude; // @synthesize latitude=_latitude;
 @property(retain, nonatomic) NSString *incidentId; // @synthesize incidentId=_incidentId;
 @property(retain, nonatomic) NSMutableArray *infos; // @synthesize infos=_infos;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;

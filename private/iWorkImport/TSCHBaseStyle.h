@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
 }
 
 + (id)defaultPropertyMap;
++ (id)paragraphStyleIndexProperties;
 + (id)allSpecificsForGeneric:(int)arg1;
 + (id)g_genericToSpecificPropertySetMap;
 + (int)g_tangierPropertyFromGilliganPropertyString:(id)arg1;
@@ -47,7 +48,7 @@ __attribute__((visibility("hidden")))
 - (void)transformFormatObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateFormatObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)formatObjectPropertySet;
-- (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
+- (void)loadFromPreUFFArchiveWithUnarchiver:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

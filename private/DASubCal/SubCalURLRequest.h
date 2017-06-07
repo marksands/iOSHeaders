@@ -6,15 +6,19 @@
 
 #import <Foundation/NSObject.h>
 
-#import <DASubCal/NSURLConnectionDelegate-Protocol.h>
+#import <DASubCal/NSURLSessionDataDelegate-Protocol.h>
+#import <DASubCal/NSURLSessionDelegate-Protocol.h>
+#import <DASubCal/NSURLSessionTaskDelegate-Protocol.h>
 
-@class DAStatusReport, NSDate, NSFileHandle, NSMutableData, NSString, NSTimer, NSURL, NSURLConnection;
+@class DAStatusReport, NSDate, NSFileHandle, NSMutableData, NSString, NSTimer, NSURL, NSURLSession, NSURLSessionDataTask;
 @protocol SubCalURLRequestDelegate;
 
-@interface SubCalURLRequest : NSObject <NSURLConnectionDelegate>
+@interface SubCalURLRequest : NSObject <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 {
     _Bool _useFileCache;
+    _Bool _wasUserRequested;
     _Bool _sendDataUpdateCallback;
+    _Bool _finished;
     NSURL *_url;
     id <SubCalURLRequestDelegate> _delegate;
     NSString *_username;
@@ -22,7 +26,8 @@
     double _timestamp;
     NSString *_filePath;
     DAStatusReport *_statusReport;
-    NSURLConnection *_connection;
+    NSURLSession *_session;
+    NSURLSessionDataTask *_task;
     NSMutableData *_connectionData;
     NSFileHandle *_fileHandle;
     NSDate *_startTime;
@@ -32,13 +37,16 @@
 
 + (void)_initializeFileCache;
 + (id)_cachedICSFilesDirectory;
+@property(nonatomic) _Bool finished; // @synthesize finished=_finished;
 @property(retain, nonatomic) NSString *startRunloopDescriptionString; // @synthesize startRunloopDescriptionString=_startRunloopDescriptionString;
 @property(retain, nonatomic) NSTimer *idleTimer; // @synthesize idleTimer=_idleTimer;
 @property(retain, nonatomic) NSDate *startTime; // @synthesize startTime=_startTime;
 @property(nonatomic) _Bool sendDataUpdateCallback; // @synthesize sendDataUpdateCallback=_sendDataUpdateCallback;
 @property(retain, nonatomic) NSFileHandle *fileHandle; // @synthesize fileHandle=_fileHandle;
 @property(retain, nonatomic) NSMutableData *connectionData; // @synthesize connectionData=_connectionData;
-@property(retain, nonatomic) NSURLConnection *connection; // @synthesize connection=_connection;
+@property(retain, nonatomic) NSURLSessionDataTask *task; // @synthesize task=_task;
+@property(retain, nonatomic) NSURLSession *session; // @synthesize session=_session;
+@property(nonatomic) _Bool wasUserRequested; // @synthesize wasUserRequested=_wasUserRequested;
 @property(retain, nonatomic) DAStatusReport *statusReport; // @synthesize statusReport=_statusReport;
 @property(retain, nonatomic) NSString *filePath; // @synthesize filePath=_filePath;
 @property(nonatomic) _Bool useFileCache; // @synthesize useFileCache=_useFileCache;
@@ -48,16 +56,17 @@
 @property(nonatomic) __weak id <SubCalURLRequestDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
-- (void)connection:(id)arg1 didFailWithError:(id)arg2;
-- (void)connectionDidFinishLoading:(id)arg1;
-- (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)_receivedDataForFile:(id)arg1;
 - (void)_openFileHandle;
-- (id)connection:(id)arg1 willSendRequest:(id)arg2 redirectResponse:(id)arg3;
-- (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
-- (void)_respondToChallenge:(id)arg1 withCredential:(id)arg2 noCredentialBehavior:(int)arg3;
-- (_Bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
+- (void)_handleAuthenticationChallenge:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_respondToChallenge:(id)arg1 withCredential:(id)arg2 noCredentialBehavior:(int)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
+- (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
+- (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)URLSession:(id)arg1 task:(id)arg2 didReceiveChallenge:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)URLSession:(id)arg1 didReceiveChallenge:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 - (void)_finishWithError:(id)arg1;
 - (void)cancel;
 - (void)startConnection;
@@ -68,7 +77,7 @@
 - (void)_markEndTime;
 - (void)_markStartTime;
 - (void)_setHeadersOnRequest:(id)arg1;
-- (id)initWithURL:(id)arg1;
+- (id)initWithURL:(id)arg1 wasUserRequested:(_Bool)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

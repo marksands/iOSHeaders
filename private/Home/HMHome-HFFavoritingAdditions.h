@@ -7,7 +7,6 @@
 #import <HomeKit/HMHome.h>
 
 @interface HMHome (HFFavoritingAdditions)
-@property(readonly, nonatomic) _Bool hf_shouldNewCameraBeFavoritedByDefault;
-@property(readonly, nonatomic) _Bool hf_shouldNewServiceBeFavoritedByDefault;
+- (_Bool)hf_shouldFavoriteHomeKitObjectByDefault:(id)arg1;
 @end
 

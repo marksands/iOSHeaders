@@ -25,3 +25,8 @@ struct CGSize {
     double _field2;
 };
 
+struct SBSHardwareButtonServiceButtonConfiguration {
+    unsigned long long eventMask;
+    long long maximumPriority;
+};
+

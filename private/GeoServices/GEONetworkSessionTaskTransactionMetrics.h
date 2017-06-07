@@ -25,23 +25,7 @@
     int _resourceFetchType;
     _Bool _proxyConnection;
     _Bool _reusedConnection;
-    struct {
-        unsigned int connectEnd:1;
-        unsigned int connectStart:1;
-        unsigned int domainLookupEnd:1;
-        unsigned int domainLookupStart:1;
-        unsigned int fetchStart:1;
-        unsigned int requestEnd:1;
-        unsigned int requestStart:1;
-        unsigned int responseEnd:1;
-        unsigned int responseStart:1;
-        unsigned int secureConnectEnd:1;
-        unsigned int secureConnectStart:1;
-        unsigned int protocolName:1;
-        unsigned int resourceFetchType:1;
-        unsigned int proxyConnection:1;
-        unsigned int reusedConnection:1;
-    } _has;
+    CDStruct_63f2c340 _has;
 }
 
 @property(nonatomic) _Bool reusedConnection; // @synthesize reusedConnection=_reusedConnection;

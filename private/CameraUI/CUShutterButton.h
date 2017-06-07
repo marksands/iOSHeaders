@@ -6,55 +6,61 @@
 
 #import <UIKit/UIButton.h>
 
-@class CAMShutterButtonRingView, CAMTimelapseShutterRingView, UIActivityIndicatorView, UIImageView, UIView;
+@class CAMShutterButtonRingView, CAMTimelapseShutterRingView, UIColor, UIImageView, UIView;
 
 @interface CUShutterButton : UIButton
 {
-    _Bool _pulsing;
     _Bool _spinning;
     _Bool _showDisabled;
-    long long _layoutStyle;
     long long _mode;
+    UIColor *_contentColor;
+    UIColor *_stopModeBackgroundColor;
     CAMShutterButtonRingView *__outerView;
     UIImageView *__outerImageView;
     CAMTimelapseShutterRingView *__timelapseOuterView;
     UIView *__innerView;
-    UIActivityIndicatorView *__progressActivityIndicatorView;
+    UIView *__stopModeBackground;
+    UIImageView *__spinnerView;
+    long long _layoutStyle;
     struct UIEdgeInsets _tappableEdgeInsets;
     struct CAMShutterButtonSpec _spec;
 }
 
-+ (id)shutterButtonWithSpec:(struct CAMShutterButtonSpec)arg1 layoutStyle:(long long)arg2;
-+ (id)tinyShutterButtonWithLayoutStyle:(long long)arg1;
 + (id)smallShutterButtonWithLayoutStyle:(long long)arg1;
 + (id)shutterButtonWithLayoutStyle:(long long)arg1;
-@property(readonly, nonatomic) UIActivityIndicatorView *_progressActivityIndicatorView; // @synthesize _progressActivityIndicatorView=__progressActivityIndicatorView;
++ (id)shutterButtonWithSpec:(struct CAMShutterButtonSpec)arg1;
++ (id)shutterButton;
++ (id)smallShutterButton;
+@property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
+@property(retain, nonatomic) UIImageView *_spinnerView; // @synthesize _spinnerView=__spinnerView;
+@property(retain, nonatomic) UIView *_stopModeBackground; // @synthesize _stopModeBackground=__stopModeBackground;
 @property(readonly, nonatomic) UIView *_innerView; // @synthesize _innerView=__innerView;
 @property(readonly, nonatomic) CAMTimelapseShutterRingView *_timelapseOuterView; // @synthesize _timelapseOuterView=__timelapseOuterView;
 @property(readonly, nonatomic) UIImageView *_outerImageView; // @synthesize _outerImageView=__outerImageView;
 @property(readonly, nonatomic) CAMShutterButtonRingView *_outerView; // @synthesize _outerView=__outerView;
+@property(retain, nonatomic) UIColor *stopModeBackgroundColor; // @synthesize stopModeBackgroundColor=_stopModeBackgroundColor;
+@property(retain, nonatomic) UIColor *contentColor; // @synthesize contentColor=_contentColor;
 @property(nonatomic) struct UIEdgeInsets tappableEdgeInsets; // @synthesize tappableEdgeInsets=_tappableEdgeInsets;
 @property(nonatomic) _Bool showDisabled; // @synthesize showDisabled=_showDisabled;
 @property(nonatomic, getter=isSpinning) _Bool spinning; // @synthesize spinning=_spinning;
-@property(nonatomic, getter=isPulsing) _Bool pulsing; // @synthesize pulsing=_pulsing;
 @property(nonatomic) struct CAMShutterButtonSpec spec; // @synthesize spec=_spec;
 @property(nonatomic) long long mode; // @synthesize mode=_mode;
-@property(nonatomic) long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
 - (void).cxx_destruct;
-- (struct CAMShutterButtonSpec)_specForLayoutStyle:(long long)arg1;
 - (void)_updateSpinningAnimations;
 - (_Bool)_shouldShowSpinningAnimations;
 - (void)_performModeSwitchAnimationFromMode:(long long)arg1 toMode:(long long)arg2 animated:(_Bool)arg3;
 - (void)_performHighlightAnimation;
 - (void)_updateOuterAndInnerLayers;
+- (_Bool)_shouldShowBackgroundViewForMode:(long long)arg1;
 - (_Bool)_shouldShowContrastBorderForMode:(long long)arg1 layoutStyle:(long long)arg2;
 - (_Bool)_shouldUseTimelapseOuterViewForMode:(long long)arg1;
 - (_Bool)_shouldUseImageViewForMode:(long long)arg1;
 - (_Bool)_isStopMode:(long long)arg1;
-- (id)_outerImageForMode:(long long)arg1;
+- (id)_outerImageForMode:(long long)arg1 layoutStyle:(long long)arg2;
 - (double)_cornerRadiusForMode:(long long)arg1;
 - (struct CGSize)_sizeForMode:(long long)arg1;
-- (id)_colorForMode:(long long)arg1;
+- (id)_innerCircleColorForMode:(long long)arg1 spinning:(_Bool)arg2;
+- (id)_contentColor;
 - (double)_innerCircleDiameter;
 - (void)setMode:(long long)arg1 animated:(_Bool)arg2;
 - (void)setHighlighted:(_Bool)arg1;
@@ -64,8 +70,8 @@
 - (struct CGSize)intrinsicContentSize;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 layoutStyle:(long long)arg2;
-- (void)_commonCAMShutterButtonInitializationWithLayoutStyle:(long long)arg1;
+- (id)initWithFrame:(struct CGRect)arg1 layoutStyle:(long long)arg2 spec:(struct CAMShutterButtonSpec)arg3;
+- (void)_commonCAMShutterButtonInitializationWithLayoutStyle:(long long)arg1 spec:(struct CAMShutterButtonSpec)arg2;
 
 @end
 

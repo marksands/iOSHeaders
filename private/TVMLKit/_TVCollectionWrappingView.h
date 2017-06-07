@@ -20,23 +20,31 @@ __attribute__((visibility("hidden")))
         _Bool respondsToAugmentedSelectionFrameForFrame;
     } _collectionViewFlags;
     _Bool _headerCanBecomeFocused;
+    _Bool _headerAuxiliarySelecting;
+    _Bool _headerFloating;
     _Bool _headerHidden;
     _Bool _headerFocused;
     _TVCollectionView *_collectionView;
     double _collectionCenteredPadding;
     double _headerSelectionMargin;
+    long long _collectionGradientMask;
 }
 
 @property(nonatomic, getter=isHeaderFocused) _Bool headerFocused; // @synthesize headerFocused=_headerFocused;
+@property(nonatomic) long long collectionGradientMask; // @synthesize collectionGradientMask=_collectionGradientMask;
 @property(nonatomic, getter=isHeaderHidden) _Bool headerHidden; // @synthesize headerHidden=_headerHidden;
+@property(nonatomic, getter=isHeaderFloating) _Bool headerFloating; // @synthesize headerFloating=_headerFloating;
+@property(nonatomic, getter=isHeaderAuxiliarySelecting) _Bool headerAuxiliarySelecting; // @synthesize headerAuxiliarySelecting=_headerAuxiliarySelecting;
 @property(nonatomic) double headerSelectionMargin; // @synthesize headerSelectionMargin=_headerSelectionMargin;
 @property(nonatomic) _Bool headerCanBecomeFocused; // @synthesize headerCanBecomeFocused=_headerCanBecomeFocused;
 @property(nonatomic) double collectionCenteredPadding; // @synthesize collectionCenteredPadding=_collectionCenteredPadding;
 @property(retain, nonatomic) _TVCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) UIView *headerView; // @synthesize headerView=_headerView;
 - (void).cxx_destruct;
-- (struct CGRect)_headerFrameForAuxiliarySelection;
-- (void)_reevaluateAuxiliarySelection;
+- (void)_updateSubviews;
+- (id)_currentHeaderView;
+- (struct UIEdgeInsets)_adjustedPadding;
+- (struct CGRect)_adjustedHeaderFrame;
 @property(readonly, nonatomic) _Bool shouldBindRowsTogether;
 - (id)rowMetricsForExpectedWidth:(double)arg1 firstItemRowIndex:(long long *)arg2;
 - (id)preferredFocusEnvironments;
@@ -44,8 +52,7 @@ __attribute__((visibility("hidden")))
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)setValue:(id)arg1 forTVViewStyle:(id)arg2;
-- (void)_configureHeaderView;
-- (id)_currentHeaderView;
+- (void)reevaluateHeaderFrame;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

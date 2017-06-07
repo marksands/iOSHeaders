@@ -11,13 +11,15 @@
 @interface HUQuickControlSliderValueOverlayView : UIView
 {
     _Bool _off;
-    _Bool _showsSecondGrabber;
+    _Bool _hasSecondGrabber;
+    _Bool _showGrabbers;
     unsigned long long _primaryGrabberLocation;
 }
 
 + (Class)layerClass;
 @property(nonatomic) unsigned long long primaryGrabberLocation; // @synthesize primaryGrabberLocation=_primaryGrabberLocation;
-@property(nonatomic) _Bool showsSecondGrabber; // @synthesize showsSecondGrabber=_showsSecondGrabber;
+@property(nonatomic) _Bool showGrabbers; // @synthesize showGrabbers=_showGrabbers;
+@property(nonatomic) _Bool hasSecondGrabber; // @synthesize hasSecondGrabber=_hasSecondGrabber;
 @property(nonatomic, getter=isOff) _Bool off; // @synthesize off=_off;
 - (_Bool)_shouldAnimatePropertyWithKey:(id)arg1;
 - (void)layoutSubviews;

@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
     NSHashTable *mReferenceIdentifiers;
 }
 
++ (void)enumerateChangeRecords:(id)arg1 withType:(int)arg2 block:(CDUnknownBlockType)arg3;
 + (id)changeDescriptorWithType:(int)arg1 referenceIdentifiers:(id)arg2;
 + (id)changeDescriptorWithType:(int)arg1 cellRange:(struct TSUCellRect)arg2 strokeRange:(struct TSUCellRect)arg3;
 + (id)changeDescriptorWithType:(int)arg1 strokeRange:(struct TSUCellRect)arg2;

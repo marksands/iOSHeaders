@@ -23,18 +23,16 @@
     NSArray *_members;
     NSObject<OS_dispatch_queue> *_reloadQueue;
     PHFetchResult *_objects;
-    PHFetchResult *_originalObjects;
     CDUnknownBlockType _reloadBlock;
     NSArray *_originalMembers;
 }
 
-@property(retain, nonatomic) NSArray *originalMembers; // @synthesize originalMembers=_originalMembers;
+@property(copy, nonatomic) NSArray *originalMembers; // @synthesize originalMembers=_originalMembers;
 @property(copy, nonatomic) CDUnknownBlockType reloadBlock; // @synthesize reloadBlock=_reloadBlock;
-@property(retain, nonatomic) PHFetchResult *originalObjects; // @synthesize originalObjects=_originalObjects;
 @property(retain, nonatomic) PHFetchResult *objects; // @synthesize objects=_objects;
 @property(readonly, nonatomic) _Bool useAsynchronousLoad; // @synthesize useAsynchronousLoad=_useAsynchronousLoad;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *reloadQueue; // @synthesize reloadQueue=_reloadQueue;
-@property(retain, nonatomic) NSArray *members; // @synthesize members=_members;
+@property(copy, nonatomic) NSArray *members; // @synthesize members=_members;
 @property(copy, nonatomic) CDUnknownBlockType sortComparator; // @synthesize sortComparator=_sortComparator;
 @property(copy, nonatomic) NSPredicate *filterPredicate; // @synthesize filterPredicate=_filterPredicate;
 @property(getter=isDisclosed) _Bool disclosed; // @synthesize disclosed=_disclosed;
@@ -45,7 +43,6 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (void)_asyncLoadImageForItem:(id)arg1 targetSize:(struct CGSize)arg2 withCompletionBlock:(CDUnknownBlockType)arg3 fastDisplayBlock:(CDUnknownBlockType)arg4;
-- (void)_asyncLoadImageForItem:(id)arg1 targetSize:(struct CGSize)arg2 withCompletionBlock:(CDUnknownBlockType)arg3;
 - (id)_itemsArrayFromObjects:(id)arg1;
 - (void)stopListeningForChanges;
 - (void)startListeningForChanges;

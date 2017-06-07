@@ -6,14 +6,12 @@
 
 #import <UIKit/UITableViewCell.h>
 
-@class UIImageView, UILabel, UISwitch;
+@class UILabel, UISwitch;
 @protocol HKSwitchTableViewCellDelegate;
 
 @interface HKSwitchTableViewCell : UITableViewCell
 {
-    UILabel *_displayLabel;
     UILabel *_countLabel;
-    UIImageView *_iconImageView;
     UISwitch *_switch;
     _Bool _shouldHideSwitch;
     _Bool _enabled;
@@ -21,19 +19,23 @@
     id <HKSwitchTableViewCellDelegate> _delegate;
 }
 
++ (id)reuseIdentifier;
 @property(nonatomic) _Bool centersIcon; // @synthesize centersIcon=_centersIcon;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) _Bool shouldHideSwitch; // @synthesize shouldHideSwitch=_shouldHideSwitch;
 @property(nonatomic) __weak id <HKSwitchTableViewCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)switchValueChanged:(id)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 @property(nonatomic, getter=isOn) _Bool on;
 - (void)setIconImage:(id)arg1;
 - (void)setCountText:(id)arg1;
 - (void)setDisplayText:(id)arg1;
 - (void)layoutSubviews;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGSize iconSize;
 - (void)_contextSizeCategoryChanged;
+- (void)_updateFont;
 - (void)_setupUI;
 - (id)_displayLabelFont;
 @property(nonatomic) _Bool adjustsFontSizeToFitWidth;

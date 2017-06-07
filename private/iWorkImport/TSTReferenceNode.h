@@ -6,15 +6,12 @@
 
 #import <iWorkImport/TSTExpressionNode.h>
 
-#import <iWorkImport/TSKChangeSourceObserver-Protocol.h>
-
 @class NSString, TSCECalculationEngine, TSKChangeNotifier, TSKDocumentRoot, TSTReferenceColorHelper, TSTUidRangeRef;
 
 __attribute__((visibility("hidden")))
-@interface TSTReferenceNode : TSTExpressionNode <TSKChangeSourceObserver>
+@interface TSTReferenceNode : TSTExpressionNode
 {
     TSTUidRangeRef *mUidRangeRef;
-    struct __CFUUID *mHostTableID;
     _Bool mRangeWithFunction;
     unsigned char mRangeContext;
     NSString *mRefString;
@@ -22,17 +19,21 @@ __attribute__((visibility("hidden")))
     TSTReferenceColorHelper *mReferenceColorHelper;
     _Bool mBlankForKeyboardInsertion;
     _Bool mSuppressAutomaticNamedReferenceInvalidation;
+    UUIDData_5fbc143e mHostTableUID;
 }
 
++ (unsigned char)stickyBitsForReference:(const struct TSCERangeRef *)arg1 calcEngine:(id)arg2;
+@property(readonly, nonatomic) TSTUidRangeRef *uidRangeRef; // @synthesize uidRangeRef=mUidRangeRef;
 @property(retain, nonatomic) TSTReferenceColorHelper *referenceColorHelper; // @synthesize referenceColorHelper=mReferenceColorHelper;
 @property(nonatomic) unsigned char rangeContext; // @synthesize rangeContext=mRangeContext;
 @property(nonatomic, getter=isRangeWithFunction) _Bool rangeWithFunction; // @synthesize rangeWithFunction=mRangeWithFunction;
+- (id).cxx_construct;
 - (void)saveToArchive:(struct ReferenceNodeArchive *)arg1 archiver:(id)arg2;
-- (id)initFromArchive:(const struct ReferenceNodeArchive *)arg1 unarchiver:(id)arg2;
+- (void)loadFromArchive:(const struct ReferenceNodeArchive *)arg1 unarchiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)p_resetMenu;
-- (void)asyncProcessChanges:(id)arg1 forChangeSource:(id)arg2;
+- (void)processChanges:(id)arg1 forChangeSource:(id)arg2;
 - (_Bool)isValidReference;
 - (void)invalidate;
 - (id)exportString;
@@ -51,16 +52,16 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic, getter=isSingleASTNode) _Bool singleASTNode;
 @property(readonly, nonatomic, getter=isNonSpanningRange) _Bool nonSpanningRange;
 @property(readonly, nonatomic, getter=isRange) _Bool range;
-@property(nonatomic, setter=setHostTableID:) struct __CFUUID *hostTableID; // @synthesize hostTableID=mHostTableID;
-@property(readonly, nonatomic) struct __CFUUID *tableID;
+@property(nonatomic) UUIDData_5fbc143e hostTableUID; // @synthesize hostTableUID=mHostTableUID;
+@property(readonly, nonatomic) UUIDData_5fbc143e tableUID;
 @property(nonatomic) struct TSCERangeCoordinate rangeCoordinate; // @dynamic rangeCoordinate;
-@property(nonatomic) CDStruct_fc93c73e rangeReference; // @dynamic rangeReference;
-- (void)setRangeReference:(CDStruct_fc93c73e)arg1 stickyBits:(unsigned char)arg2;
+@property(nonatomic) struct TSCERangeRef rangeReference; // @dynamic rangeReference;
+- (void)setRangeReference:(struct TSCERangeRef)arg1 stickyBits:(unsigned char)arg2;
 @property(nonatomic) unsigned char stickyBits;
 @property(readonly, nonatomic) TSCECalculationEngine *calculationEngine;
 @property(readonly, nonatomic) TSKChangeNotifier *changeNotifier;
 @property(readonly, nonatomic) TSKDocumentRoot *documentRoot;
-@property(readonly) unsigned long long hash;
+- (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)dealloc;
@@ -68,13 +69,9 @@ __attribute__((visibility("hidden")))
 - (id)initWithContext:(id)arg1 children:(id)arg2 firstIndex:(unsigned long long)arg3 lastIndex:(unsigned long long)arg4;
 - (id)initWithReferenceStart:(id)arg1 referenceEnd:(id)arg2 firstIndex:(unsigned long long)arg3 lastIndex:(unsigned long long)arg4;
 - (id)initWithReferenceStart:(id)arg1 referenceEnd:(id)arg2 firstIndex:(unsigned long long)arg3 lastIndex:(unsigned long long)arg4 suppressAutomaticNamedReferenceInvalidation:(_Bool)arg5;
-- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 cellRange:(struct TSCERangeCoordinate)arg3 stickyBits:(unsigned char)arg4 hostTableID:(struct __CFUUID *)arg5 tableID:(struct __CFUUID *)arg6 referenceColorHelper:(id)arg7 firstIndex:(unsigned long long)arg8 lastIndex:(unsigned long long)arg9;
-- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 cellRange:(struct TSCERangeCoordinate)arg3 stickyBits:(unsigned char)arg4 hostTableID:(struct __CFUUID *)arg5 tableID:(struct __CFUUID *)arg6 referenceColorHelper:(id)arg7 firstIndex:(unsigned long long)arg8 lastIndex:(unsigned long long)arg9 suppressAutomaticNamedReferenceInvalidation:(_Bool)arg10;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) Class superclass;
+- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 cellRange:(struct TSCERangeCoordinate)arg3 stickyBits:(unsigned char)arg4 hostTableUID:(const UUIDData_5fbc143e *)arg5 tableUID:(const UUIDData_5fbc143e *)arg6 referenceColorHelper:(id)arg7 firstIndex:(unsigned long long)arg8 lastIndex:(unsigned long long)arg9;
+- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 cellRange:(struct TSCERangeCoordinate)arg3 stickyBits:(unsigned char)arg4 hostTableUID:(const UUIDData_5fbc143e *)arg5 tableUID:(const UUIDData_5fbc143e *)arg6 referenceColorHelper:(id)arg7 firstIndex:(unsigned long long)arg8 lastIndex:(unsigned long long)arg9 suppressAutomaticNamedReferenceInvalidation:(_Bool)arg10;
+- (id)initWithContext:(id)arg1 calculationEngine:(id)arg2 uidRangeRef:(id)arg3 hostTableUID:(const UUIDData_5fbc143e *)arg4 referenceColorHelper:(id)arg5 firstIndex:(unsigned long long)arg6 lastIndex:(unsigned long long)arg7 suppressAutomaticNamedReferenceInvalidation:(_Bool)arg8;
 
 @end
 

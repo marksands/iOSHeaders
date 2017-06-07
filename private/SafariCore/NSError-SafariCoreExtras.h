@@ -7,7 +7,9 @@
 #import <Foundation/NSError.h>
 
 @interface NSError (SafariCoreExtras)
++ (id)safari_errorWithDomain:(id)arg1 code:(long long)arg2 privacyPreservingDescription:(id)arg3;
 - (id)safari_privacyPreservingDescription;
+- (id)safari_initWithDomain:(id)arg1 code:(long long)arg2 privacyPreservingDescription:(id)arg3;
 - (_Bool)safari_isClientSideNetworkError;
 @end
 

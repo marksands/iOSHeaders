@@ -20,6 +20,7 @@
 }
 
 @property(retain, nonatomic) GEOPDPlaceRequest *placeDataRequest; // @synthesize placeDataRequest=_placeDataRequest;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -34,7 +35,6 @@
 - (id)placeRequestTypeAsString:(int)arg1;
 @property(nonatomic) _Bool hasPlaceRequestType;
 @property(nonatomic) int placeRequestType; // @synthesize placeRequestType=_placeRequestType;
-- (void)dealloc;
 
 @end
 

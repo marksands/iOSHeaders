@@ -9,7 +9,7 @@
 #import <Home/HFAccessoryObserver-Protocol.h>
 #import <Home/HFCameraObserver-Protocol.h>
 
-@class HMCameraProfile, NSError, NSHashTable, NSString;
+@class HMCameraProfile, NSDate, NSError, NSMapTable, NSString;
 @protocol NACancelable;
 
 @interface HFCameraManager : NSObject <HFAccessoryObserver, HFCameraObserver>
@@ -17,26 +17,29 @@
     _Bool _isRegisteredForEvents;
     NSError *_cachedStreamError;
     HMCameraProfile *_cameraProfile;
-    NSHashTable *_snapshotRequesters;
-    NSHashTable *_streamRequesters;
+    NSMapTable *_snapshotRequesters;
+    NSMapTable *_streamRequesters;
     id <NACancelable> _nextSnapshotEvent;
+    NSDate *_snapshotErrorDate;
+    unsigned long long _snapshotErrorCount;
 }
 
+@property(nonatomic) unsigned long long snapshotErrorCount; // @synthesize snapshotErrorCount=_snapshotErrorCount;
+@property(retain, nonatomic) NSDate *snapshotErrorDate; // @synthesize snapshotErrorDate=_snapshotErrorDate;
 @property(retain, nonatomic) id <NACancelable> nextSnapshotEvent; // @synthesize nextSnapshotEvent=_nextSnapshotEvent;
 @property(nonatomic) _Bool isRegisteredForEvents; // @synthesize isRegisteredForEvents=_isRegisteredForEvents;
-@property(readonly, nonatomic) NSHashTable *streamRequesters; // @synthesize streamRequesters=_streamRequesters;
-@property(readonly, nonatomic) NSHashTable *snapshotRequesters; // @synthesize snapshotRequesters=_snapshotRequesters;
+@property(readonly, nonatomic) NSMapTable *streamRequesters; // @synthesize streamRequesters=_streamRequesters;
+@property(readonly, nonatomic) NSMapTable *snapshotRequesters; // @synthesize snapshotRequesters=_snapshotRequesters;
 @property(readonly, nonatomic) __weak HMCameraProfile *cameraProfile; // @synthesize cameraProfile=_cameraProfile;
 @property(retain, nonatomic) NSError *cachedStreamError; // @synthesize cachedStreamError=_cachedStreamError;
 - (void).cxx_destruct;
 - (_Bool)_hasStreamRequesters;
 - (_Bool)_hasSnapshotRequesters;
-- (void)_handleApplicationWillEnterForegroundNotification;
+- (void)_handleApplicationDidBecomeActiveNotificationNotification;
 - (void)accessoryDidUpdateReachability:(id)arg1;
 - (void)_updateEventRegistration;
 - (void)cameraStreamControl:(id)arg1 didStopStreamWithError:(id)arg2;
 - (void)cameraStreamControlDidStartStream:(id)arg1;
-- (void)_dispatchStreamFailedToStartWithError:(id)arg1;
 - (void)_dispatchStreamStateUpdate;
 - (void)_stopStreaming;
 - (void)_startStreaming;
@@ -46,7 +49,8 @@
 - (void)cameraSnapshotControl:(id)arg1 didTakeSnapshot:(id)arg2 error:(id)arg3;
 - (double)_snapshotTimeInterval;
 - (void)_cancelNextSnapshotEvent;
-- (void)_scheduleNextSnapshotEvent;
+- (void)_scheduleNextSnapshotEventWithPreviousError:(id)arg1;
+- (id)_nextSnapshotDate;
 - (void)_endPeriodicSnapshots;
 - (void)_beginPeriodicSnapshots;
 - (void)endContinuousStreamingWithRequester:(id)arg1;

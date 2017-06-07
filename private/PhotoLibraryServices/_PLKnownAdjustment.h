@@ -20,7 +20,7 @@
 @property(nonatomic) long long supportLevel; // @synthesize supportLevel=_supportLevel;
 @property(copy, nonatomic) NSIndexSet *supportedVersions; // @synthesize supportedVersions=_supportedVersions;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)description;
 
 @end

@@ -31,6 +31,8 @@ __attribute__((visibility("hidden")))
     float mEffectiveWedgeExplosion;
     float mEffectiveLabelExplosion;
     NSString *mLabelString;
+    NSString *mValueLabelString;
+    NSString *mSeriesNameLabelString;
     TSWPParagraphStyle *mParagraphStyle;
     TSDShadow *mSeriesShadow;
     TSDStroke *mSeriesStroke;
@@ -47,6 +49,8 @@ __attribute__((visibility("hidden")))
 @property(readonly) TSDStroke *seriesStroke; // @synthesize seriesStroke=mSeriesStroke;
 @property(readonly) TSDShadow *seriesShadow; // @synthesize seriesShadow=mSeriesShadow;
 @property(readonly) TSWPParagraphStyle *paragraphStyle; // @synthesize paragraphStyle=mParagraphStyle;
+@property(readonly) NSString *seriesNameLabelString; // @synthesize seriesNameLabelString=mSeriesNameLabelString;
+@property(readonly) NSString *valueLabelString; // @synthesize valueLabelString=mValueLabelString;
 @property(readonly) NSString *labelString; // @synthesize labelString=mLabelString;
 @property(readonly) float effectiveLabelExplosion; // @synthesize effectiveLabelExplosion=mEffectiveLabelExplosion;
 @property(readonly) float effectiveWedgeExplosion; // @synthesize effectiveWedgeExplosion=mEffectiveWedgeExplosion;
@@ -61,8 +65,11 @@ __attribute__((visibility("hidden")))
 @property(readonly) double seriesAxisValue; // @synthesize seriesAxisValue=mCurrentSeriesAxisValue;
 @property(readonly) double totalValue; // @synthesize totalValue=mTotalValue;
 @property(readonly) unsigned long long seriesIndex; // @synthesize seriesIndex=mCurrentSeriesIndex;
+- (id)labelStringForType:(long long)arg1;
+@property(readonly) _Bool shouldRenderCalloutLine;
 @property(readonly) _Bool shouldRenderLabel;
 - (void)dealloc;
+- (id)labelStringWithValueLabelString:(id)arg1 seriesNameLabelString:(id)arg2;
 - (id)initWithPrior:(id)arg1 orChartModel:(id)arg2 forSeries:(unsigned long long)arg3;
 - (id)init;
 

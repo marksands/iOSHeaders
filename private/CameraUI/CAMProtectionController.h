@@ -43,10 +43,10 @@
 - (void)stopProtectingPersistenceForRequest:(id)arg1;
 - (void)startProtectingPersistenceForRequest:(id)arg1;
 - (void)_protectionQueueAbortProtectionForProtectionTypes;
-- (void)_protectionQueueStopProtectingPersistenceForType:(long long)arg1;
-- (void)_protectionQueueStartProtectingPersistenceForType:(long long)arg1;
-- (void)_protectionQueueRemovePersistenceProtectionIndicatorForType:(long long)arg1 unlinkFile:(_Bool)arg2;
-- (void)_addPersistenceProtectionIndicatorForType:(long long)arg1;
+- (void)_protectionQueueStopProtectingPersistenceForType:(long long)arg1 logIdentifier:(id)arg2;
+- (void)_protectionQueueStartProtectingPersistenceForType:(long long)arg1 logIdentifier:(id)arg2;
+- (void)_protectionQueueRemovePersistenceProtectionIndicatorForType:(long long)arg1 unlinkFile:(_Bool)arg2 logIdentifier:(id)arg3;
+- (void)_addPersistenceProtectionIndicatorForType:(long long)arg1 logIdentifier:(id)arg2;
 - (int)_persistenceProtectionFileDescriptorForType:(long long)arg1;
 - (id)_persistenceProtectionPathForType:(long long)arg1;
 - (long long)_persistenceProtectionTypeForRequest:(id)arg1;

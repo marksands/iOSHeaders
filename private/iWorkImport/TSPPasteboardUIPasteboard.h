@@ -34,6 +34,7 @@ __attribute__((visibility("hidden")))
 - (id)stringForPasteboardType:(id)arg1;
 - (id)dataForPasteboardType:(id)arg1;
 - (id)pasteboardTypes;
+- (id)richTextStrings;
 - (id)strings;
 - (void)setString:(id)arg1;
 - (id)string;

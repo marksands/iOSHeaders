@@ -5,18 +5,19 @@
 //
 
 #import <NewsCore/FCCacheFlushing-Protocol.h>
-#import <NewsCore/FCCloudKitCacheClearing-Protocol.h>
 #import <NewsCore/NSObject-Protocol.h>
 
 @class FCAppConfiguration, FCArticleController, FCAssetManager, FCFlintResourceManager, FCNetworkBehaviorMonitor, FCTagController, NSString, NSURL;
-@protocol FCContentContextInternal;
+@protocol FCBackgroundTaskable, FCContentContextInternal, FCPPTContext, FCVersionHelper;
 
-@protocol FCContentContext <NSObject, FCCacheFlushing, FCCloudKitCacheClearing>
+@protocol FCContentContext <NSObject, FCCacheFlushing>
+@property(readonly, nonatomic) __weak id <FCBackgroundTaskable> backgroundTaskable;
+@property(readonly, nonatomic) id <FCVersionHelper> versionHelper;
+@property(readonly, nonatomic) id <FCPPTContext> pptContext;
 @property(readonly, nonatomic) id <FCContentContextInternal> internalContentContext;
 @property(readonly, nonatomic) NSURL *webArchiveCacheDirectoryURL;
 @property(readonly, nonatomic) NSURL *assetCacheDirectoryURL;
 @property(readonly, copy, nonatomic) NSString *contentDirectory;
-@property(readonly, nonatomic) _Bool hasBeenRateLimited;
 @property(readonly, nonatomic) FCNetworkBehaviorMonitor *networkBehaviorMonitor;
 @property(readonly, nonatomic) FCFlintResourceManager *flintResourceManager;
 @property(readonly, nonatomic) FCTagController *tagController;
@@ -25,5 +26,6 @@
 @property(readonly, nonatomic) FCAppConfiguration *appConfiguration;
 @property(readonly, copy, nonatomic) NSString *supportedContentStoreFrontID;
 @property(readonly, copy, nonatomic) NSString *contentStoreFrontID;
+- (void)ppt_overrideFeedEndpoint:(long long)arg1;
 @end
 

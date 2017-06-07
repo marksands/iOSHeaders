@@ -12,9 +12,9 @@
 - (void)_accessibilityDecreaseAutoscrollSpeed;
 - (void)_accessibilityIncreaseAutoscrollSpeed;
 - (void)_accessibilityPauseAutoscrolling;
-- (void)_accessibilityAutoscrollInDirection:(int)arg1;
+- (void)_accessibilityAutoscrollInDirection:(unsigned long long)arg1;
 - (_Bool)_accessibilityIsAutoscrolling;
-- (int)_accessibilityAvailableAutoscrollDirections;
+- (unsigned long long)_accessibilityAvailableAutoscrollDirections;
 - (id)_accessibilityAutoscrollTarget;
 - (void)_accessibilitySetAutoscrollTarget:(id)arg1;
 @end

@@ -7,11 +7,14 @@
 #import <CoreSuggestionsInternals/_SGDSuggestManagerBaseProtocol-Protocol.h>
 #import <CoreSuggestionsInternals/_SGDSuggestManagerEventsConfirmRejectProtocol-Protocol.h>
 
-@class NSArray, NSString;
+@class NSArray, NSString, NSURL;
 
 @protocol SGDSuggestManagerEventsProtocol <_SGDSuggestManagerBaseProtocol, _SGDSuggestManagerEventsConfirmRejectProtocol>
-- (void)allEventsLimitedTo:(unsigned long long)arg1 withCompletion:(void (^)(NSArray *, NSError *))arg2;
-- (void)schemaOrgToEvents:(NSArray *)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
-- (void)eventFromUniqueId:(NSString *)arg1 completion:(void (^)(SGEvent *, NSError *))arg2;
+- (void)suggestionsFromURL:(NSURL *)arg1 title:(NSString *)arg2 HTMLPayload:(NSString *)arg3 withCompletion:(void (^)(SGXPCResponse1 *))arg4;
+- (void)isEventCandidateForURL:(NSURL *)arg1 title:(NSString *)arg2 withCompletion:(void (^)(SGXPCResponse1 *))arg3;
+- (void)pathForWebPageWhitelistWithCompletion:(void (^)(SGXPCResponse1 *))arg1;
+- (void)allEventsLimitedTo:(unsigned long long)arg1 withCompletion:(void (^)(SGXPCResponse1 *))arg2;
+- (void)schemaOrgToEvents:(NSArray *)arg1 completion:(void (^)(SGXPCResponse1 *))arg2;
+- (void)eventFromUniqueId:(NSString *)arg1 completion:(void (^)(SGXPCResponse1 *))arg2;
 @end
 

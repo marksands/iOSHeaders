@@ -25,7 +25,7 @@
 - (void)commonInit;
 - (id)initWithActionDictionary:(struct CGPDFDictionary *)arg1 forDocument:(id)arg2 forPage:(id)arg3;
 - (id)description;
-@property(retain, nonatomic) NSURL *URL;
+@property(copy, nonatomic) NSURL *URL;
 @property(nonatomic) struct CGPoint point;
 @property(nonatomic) unsigned long long pageIndex;
 - (id)copyWithZone:(struct _NSZone *)arg1;

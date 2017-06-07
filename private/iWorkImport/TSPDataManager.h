@@ -25,10 +25,10 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_group> *_externalReferenceRemovalGroup;
 }
 
-+ (_Bool)requestDocumentResourcesUsingDataProvider:(id)arg1 packageMetadata:(id)arg2;
 + (void)readWithChannelImpl:(id)arg1 handler:(CDUnknownBlockType)arg2;
 + (void)readWithChannel:(id)arg1 handler:(CDUnknownBlockType)arg2;
 + (void)readWithURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
++ (_Bool)isSupportedURL:(id)arg1;
 @property(readonly, nonatomic) __weak TSPObjectContext *context; // @synthesize context=_context;
 - (id).cxx_construct;
 - (void).cxx_destruct;
@@ -37,12 +37,13 @@ __attribute__((visibility("hidden")))
 - (void)addData:(id)arg1;
 - (id)addNewDataForStorage:(id)arg1 digest:(id)arg2 filename:(id)arg3;
 - (_Bool)attemptToMaterializeData:(id)arg1 dataURL:(id)arg2 dataURLType:(long long)arg3;
-- (_Bool)shouldAttemptToMaterializeData:(id)arg1;
+- (_Bool)shouldAttemptToMaterializeData:(id)arg1 expectedLength:(unsigned long long)arg2;
 - (id)dataWithStorage:(id)arg1 digest:(id)arg2 filename:(id)arg3 skipDocumentResourcesLookup:(_Bool)arg4 accessorBlock:(CDUnknownBlockType)arg5;
 - (void)dataForDigest:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)dataForDocumentResourceInfo:(id)arg1;
 - (id)dataForDigest:(id)arg1;
-- (id)dataForDigestImpl:(id)arg1 skipDocumentResourcesLookup:(_Bool)arg2 accessorBlock:(CDUnknownBlockType)arg3;
-- (id)dataForDigestImpl:(id)arg1 accessorBlock:(CDUnknownBlockType)arg2;
+- (id)preferredFilenameForDocumentResourceInfo:(id)arg1;
+- (id)dataForDigestImpl:(id)arg1 documentResourceInfo:(id)arg2 skipDocumentResourcesLookup:(_Bool)arg3 expectedLength:(unsigned long long)arg4 accessorBlock:(CDUnknownBlockType)arg5;
 - (void)removeExternalReferenceForData:(id)arg1 storage:(id)arg2;
 - (void)waitForRemoveExternalReferencesToComplete;
 - (void)removeExternalReferences;
@@ -55,15 +56,15 @@ __attribute__((visibility("hidden")))
 - (id)dataForIdentifier:(long long)arg1;
 - (id)dataOrNilForIdentifier:(long long)arg1;
 - (void)enumerateDatasUsingBlock:(CDUnknownBlockType)arg1;
-- (void)addDataFromPackage:(id)arg1 packageURL:(id)arg2 documentResourceDataProvider:(id)arg3 info:(const struct DataInfo *)arg4 areExternalReferencesAllowed:(_Bool)arg5;
+- (void)addDataFromPackage:(id)arg1 packageURL:(id)arg2 dataInfo:(const struct DataInfo *)arg3 packageMetadata:(id)arg4 documentResourceInfo:(id)arg5 areExternalReferencesAllowed:(_Bool)arg6;
 - (void)didSaveWithSaveOperationState:(id)arg1;
 - (_Bool)prepareTemporaryDataStorageForData:(id)arg1 temporaryDataStorage:(id *)arg2;
 - (_Bool)migrateDataToTemporaryStorageFromPackage:(id)arg1;
 - (_Bool)prepareSaveWithOldPackage:(id)arg1 saveOperationState:(id)arg2;
-- (void)loadFromPackage:(id)arg1 packageURL:(id)arg2 documentResourceDataProvider:(id)arg3 packageMetadata:(id)arg4 areExternalReferencesAllowed:(_Bool)arg5;
+- (void)loadFromPackage:(id)arg1 packageURL:(id)arg2 packageMetadata:(id)arg3 areExternalReferencesAllowed:(_Bool)arg4;
 - (id)copyData:(id)arg1;
 - (id)remoteDataWithURL:(id)arg1 digest:(id)arg2 filename:(id)arg3 canDownload:(_Bool)arg4 downloadPriority:(long long)arg5;
-- (id)documentResourceDataWithStorage:(id)arg1 digestString:(id)arg2 filename:(id)arg3;
+- (id)documentResourceDataForInfo:(id)arg1 withStorage:(id)arg2 filename:(id)arg3;
 - (id)dataFromNSData:(id)arg1 filename:(id)arg2;
 - (void)findExistingDataForReadChannel:(id)arg1 dataURL:(id)arg2 dataURLType:(long long)arg3 readHandler:(CDUnknownBlockType)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)findExistingDataForReadChannel:(id)arg1 dataURL:(id)arg2 dataURLType:(long long)arg3 temporaryDataStorageURL:(id)arg4 keepTemporaryFileOnSuccess:(_Bool)arg5 completion:(CDUnknownBlockType)arg6;

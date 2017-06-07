@@ -6,12 +6,13 @@
 
 #import <ChatKit/CKChatController.h>
 
+#import <ChatKit/CKBusinessInfoViewDelegate-Protocol.h>
 #import <ChatKit/CKComposeRecipientSelectionControllerDelegate-Protocol.h>
 
-@class CKComposeNavbarManager, CKComposeRecipientSelectionController, CKComposition, NSArray, NSString, UIBarButtonItem;
+@class CKBusinessInfoView, CKComposeNavbarManager, CKComposeRecipientSelectionController, CKComposition, NSArray, NSDictionary, NSString, UIBarButtonItem;
 @protocol CKComposeChatControllerDelegate;
 
-@interface CKComposeChatController : CKChatController <CKComposeRecipientSelectionControllerDelegate>
+@interface CKComposeChatController : CKChatController <CKComposeRecipientSelectionControllerDelegate, CKBusinessInfoViewDelegate>
 {
     _Bool _newComposeCancelled;
     CKComposeRecipientSelectionController *_composeRecipientSelectionController;
@@ -19,8 +20,12 @@
     CKComposition *_prepopulatedComposition;
     UIBarButtonItem *_composeCancelItem;
     CKComposeNavbarManager *_navbarManager;
+    NSDictionary *_bizIntent;
+    CKBusinessInfoView *_businessInfoView;
 }
 
+@property(retain, nonatomic) CKBusinessInfoView *businessInfoView; // @synthesize businessInfoView=_businessInfoView;
+@property(retain, nonatomic) NSDictionary *bizIntent; // @synthesize bizIntent=_bizIntent;
 @property(retain, nonatomic) CKComposeNavbarManager *navbarManager; // @synthesize navbarManager=_navbarManager;
 @property(retain, nonatomic) UIBarButtonItem *composeCancelItem; // @synthesize composeCancelItem=_composeCancelItem;
 @property(nonatomic) _Bool newComposeCancelled; // @synthesize newComposeCancelled=_newComposeCancelled;
@@ -28,6 +33,10 @@
 @property(retain, nonatomic) NSArray *prepopulatedRecipients; // @synthesize prepopulatedRecipients=_prepopulatedRecipients;
 @property(retain, nonatomic) CKComposeRecipientSelectionController *composeRecipientSelectionController; // @synthesize composeRecipientSelectionController=_composeRecipientSelectionController;
 - (void).cxx_destruct;
+- (void)handleAddressBookChange:(id)arg1;
+- (void)businessInfoView:(id)arg1 infoButtonTapped:(id)arg2;
+- (void)layoutBusinessInfoViewIfNecessary;
+- (void)setBusinessInfoViewInfoIfNecessary;
 - (_Bool)_chatShowsUnexpectedlyLoggedOutNotification;
 - (void)_saveDraftState;
 - (_Bool)hasFailedRecipients;
@@ -59,17 +68,20 @@
 - (double)topInsetPadding;
 - (_Bool)isSafeToMarkAsRead;
 - (id)outgoingComposeViewForSendAnimation;
+- (void)addBizIntentToConversation:(id)arg1;
 - (void)sendComposition:(id)arg1;
 - (void)_setConversationDeferredSetup;
 - (void)conversationLeft;
 @property(readonly, nonatomic) NSString *unatomizedRecipientText;
 @property(readonly, nonatomic) NSArray *proposedRecipients;
+- (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)parentControllerDidResume:(_Bool)arg1 animating:(_Bool)arg2;
 - (void)prepareForSuspend;
-- (id)initWithRecipientAddresses:(id)arg1 composition:(id)arg2;
+- (id)initWithRecipientAddresses:(id)arg1 composition:(id)arg2 bizIntent:(id)arg3;
 - (void)dealloc;
 
 // Remaining properties

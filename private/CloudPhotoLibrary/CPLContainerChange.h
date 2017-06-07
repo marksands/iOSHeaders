@@ -10,5 +10,7 @@
 {
 }
 
+- (_Bool)supportsDeletion;
+
 @end
 

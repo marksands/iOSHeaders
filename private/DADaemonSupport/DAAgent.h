@@ -38,6 +38,7 @@
 - (id)stateString;
 @property(readonly, nonatomic) DATrustHandler *trustHandler;
 - (id)initWithAccount:(id)arg1;
+- (void)saveXpcActivity:(id)arg1;
 - (int)preferredToDoDaysToSync;
 - (int)preferredEventDaysToSync;
 

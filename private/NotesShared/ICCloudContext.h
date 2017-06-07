@@ -110,8 +110,8 @@
 - (void)firePollingSyncRequest;
 - (void)syncIfNecessary;
 - (void)fetchRecordZoneChangesOperation:(id)arg1 zoneID:(id)arg2 changeTokenUpdated:(id)arg3;
-- (void)fetchRecordZoneChangesOperation:(id)arg1 recordWasDeletedWithRecordID:(id)arg2 recordType:(id)arg3;
-- (void)fetchRecordZoneChangesOperation:(id)arg1 recordChanged:(id)arg2;
+- (void)fetchRecordZoneChangesOperation:(id)arg1 recordWasDeletedWithRecordID:(id)arg2 recordType:(id)arg3 context:(id)arg4;
+- (void)fetchRecordZoneChangesOperation:(id)arg1 recordChanged:(id)arg2 context:(id)arg3;
 - (void)fetchRecordZoneChangesOperationDidComplete:(id)arg1 error:(id)arg2;
 - (void)fetchRecordZoneChangesOperation:(id)arg1 completedFetchForZoneID:(id)arg2 serverChangeToken:(id)arg3 error:(id)arg4;
 - (id)newOperationToFetchRecordZoneChangesWithZoneOptions:(id)arg1 database:(id)arg2;
@@ -121,8 +121,8 @@
 - (void)fetchRecordZoneChangesForZoneIDs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchRecordZoneChangesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)handleNotification:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_processCloudObjects:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)processObjectIDs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)_processCloudObjects:(id)arg1 operationQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)processObjectIDs:(id)arg1 operationQueue:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)retryProcessingCloudObjects;
 - (void)processAllCloudObjectsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)processPendingCloudObjectsWithCompletionHandler:(CDUnknownBlockType)arg1;

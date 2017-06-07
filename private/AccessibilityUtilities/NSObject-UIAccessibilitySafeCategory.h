@@ -13,6 +13,10 @@
 - (id)safeValueForKeyPath:(id)arg1;
 - (id)__axValueForKey:(id)arg1;
 - (id)safeValueForKey:(id)arg1;
+- (id)safeUIViewForKey:(id)arg1;
+- (id)safeDictionaryForKey:(id)arg1;
+- (id)safeArrayForKey:(id)arg1;
+- (id)safeStringForKey:(id)arg1;
 - (struct CGRect)safeCGRectForKey:(id)arg1;
 - (struct CGSize)safeCGSizeForKey:(id)arg1;
 - (struct CGPoint)safeCGPointForKey:(id)arg1;

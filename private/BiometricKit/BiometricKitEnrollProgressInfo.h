@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSDictionary *captureImage; // @synthesize captureImage=_captureImage;
 @property(nonatomic) long long currentPrimaryComponentID; // @synthesize currentPrimaryComponentID=_currentPrimaryComponentID;
 @property(nonatomic) long long progress; // @synthesize progress=_progress;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (id)init;
 

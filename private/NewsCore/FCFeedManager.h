@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-@class FCAsyncSerialQueue, FCCloudContext, FCKeyValueStore, FCMutexLock, NSMapTable;
-@protocol FCFeedPersonalizing, OS_dispatch_queue;
+@class FCAsyncSerialQueue, FCCloudContext, FCMutexLock, NSMapTable;
+@protocol FCFeedPersonalizing;
 
 @interface FCFeedManager : NSObject
 {
@@ -16,23 +16,18 @@
     NSMapTable *_feedDescriptorsByID;
     FCMutexLock *_feedDescriptorsLock;
     FCAsyncSerialQueue *_feedUpdateQueue;
-    FCKeyValueStore *_store;
-    NSObject<OS_dispatch_queue> *_storeQueue;
 }
 
 + (id)feedDescriptorNameForReadingList;
 + (id)feedDescriptorNameForReadingHistory;
 + (id)feedDescriptorNameForForYou;
 + (id)_identifierForFeedName:(id)arg1;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *storeQueue; // @synthesize storeQueue=_storeQueue;
-@property(retain, nonatomic) FCKeyValueStore *store; // @synthesize store=_store;
 @property(retain, nonatomic) FCAsyncSerialQueue *feedUpdateQueue; // @synthesize feedUpdateQueue=_feedUpdateQueue;
 @property(retain, nonatomic) FCMutexLock *feedDescriptorsLock; // @synthesize feedDescriptorsLock=_feedDescriptorsLock;
 @property(retain, nonatomic) NSMapTable *feedDescriptorsByID; // @synthesize feedDescriptorsByID=_feedDescriptorsByID;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
 - (void).cxx_destruct;
-- (void)_checkFilterForPreferredLanguages;
 - (void)prefetchForYouWithHighPriority:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)backgroundFetchFeedsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithCloudContext:(id)arg1;

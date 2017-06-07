@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSNumber, NSString, PKPaymentInstructions;
+@class NSData, NSNumber, NSString;
 
 @interface PKAuthenticatorEvaluationRequest : NSObject
 {
@@ -15,10 +15,12 @@
     NSNumber *_processIdentifier;
     NSString *_PINTitle;
     NSNumber *_PINLength;
-    PKPaymentInstructions *_instructions;
+    NSData *_externalizedContext;
+    struct __SecAccessControl *_accessControlRef;
 }
 
-@property(retain, nonatomic) PKPaymentInstructions *instructions; // @synthesize instructions=_instructions;
+@property(nonatomic) struct __SecAccessControl *accessControlRef; // @synthesize accessControlRef=_accessControlRef;
+@property(retain, nonatomic) NSData *externalizedContext; // @synthesize externalizedContext=_externalizedContext;
 @property(copy, nonatomic) NSNumber *PINLength; // @synthesize PINLength=_PINLength;
 @property(copy, nonatomic) NSString *PINTitle; // @synthesize PINTitle=_PINTitle;
 @property(copy, nonatomic) NSNumber *processIdentifier; // @synthesize processIdentifier=_processIdentifier;

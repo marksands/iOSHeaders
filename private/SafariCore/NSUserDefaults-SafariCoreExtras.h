@@ -7,5 +7,6 @@
 #import <Foundation/NSUserDefaults.h>
 
 @interface NSUserDefaults (SafariCoreExtras)
++ (id)safari_cloudBookmarksDefaults;
 @end
 

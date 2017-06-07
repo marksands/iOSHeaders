@@ -30,12 +30,13 @@
 + (id)emailAddressHostPart;
 + (id)accountTypeIdentifier;
 + (id)authSchemesForAccountClass;
+- (id)_childOfMailbox:(id)arg1 withComponentName:(id)arg2;
+- (id)persistentNameForMailbox:(id)arg1;
 - (id)displayNameUsingSpecialNamesForMailboxUid:(id)arg1;
-- (_Bool)isSpecialMailbox:(id)arg1;
+- (id)specialUseAttributesForMailbox:(id)arg1;
+- (id)specialUseAttributeForType:(int)arg1;
 - (id)allMailMailboxUid;
-- (id)_specialMailboxUidWithType:(int)arg1 create:(_Bool)arg2;
 - (_Bool)xListSupportedOnConnection:(id)arg1;
-- (id)permanentTagForType:(int)arg1;
 - (_Bool)shouldEnableAfterError:(id)arg1;
 - (_Bool)enableAccount;
 - (void)_removeCredential:(id)arg1;
@@ -54,7 +55,6 @@
 - (id)iconString;
 - (void)setPassword:(id)arg1;
 - (id)emailAddresses;
-- (id)_childOfMailbox:(id)arg1 withComponentName:(id)arg2;
 - (int)archiveDestinationForMailbox:(id)arg1;
 - (_Bool)supportsArchiving;
 - (_Bool)shouldArchiveByDefault;

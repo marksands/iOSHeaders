@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSString *branchLabel; // @synthesize branchLabel=_branchLabel;
 @property(retain, nonatomic) NSString *experimentName; // @synthesize experimentName=_experimentName;
 @property(retain, nonatomic) NSString *experimentId; // @synthesize experimentId=_experimentId;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -37,7 +38,6 @@
 @property(readonly, nonatomic) _Bool hasBranchLabel;
 @property(readonly, nonatomic) _Bool hasExperimentName;
 @property(readonly, nonatomic) _Bool hasExperimentId;
-- (void)dealloc;
 
 @end
 

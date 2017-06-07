@@ -16,8 +16,12 @@
     NSString *_authUsername;
     NSMutableDictionary *_accountInfo;
     NSError *_discoveryError;
+    _Bool _wasRedirectedThroughHTTP;
+    NSString *_originalURLScheme;
 }
 
+@property(nonatomic) _Bool wasRedirectedThroughHTTP; // @synthesize wasRedirectedThroughHTTP=_wasRedirectedThroughHTTP;
+@property(retain, nonatomic) NSString *originalURLScheme; // @synthesize originalURLScheme=_originalURLScheme;
 - (void).cxx_destruct;
 - (_Bool)shouldLogIncomingData;
 - (_Bool)requiresEASVersionInformaton;
@@ -33,6 +37,7 @@
 - (id)localizedErrorStringForCertificateErrorCode:(int)arg1 host:(id)arg2;
 - (_Bool)processContext:(id)arg1;
 - (id)requestBody;
+- (void)URLSession:(id)arg1 task:(id)arg2 willPerformHTTPRedirection:(id)arg3 newRequest:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (_Bool)_shouldRedirectToHTTPForRequest:(id)arg1;
 - (void)_addAuthToRequest:(id)arg1;
 - (_Bool)_shouldSendAuthForRequest:(id)arg1;

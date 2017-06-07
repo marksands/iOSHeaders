@@ -8,14 +8,17 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOLocation;
+@class GEOLocation, PBUnknownFields;
 
 @interface GEOWaypointLocation : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     GEOLocation *_location;
 }
 
 @property(retain, nonatomic) GEOLocation *location; // @synthesize location=_location;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -26,7 +29,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(readonly, nonatomic) _Bool hasLocation;
-- (void)dealloc;
 
 @end
 

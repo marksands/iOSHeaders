@@ -31,12 +31,12 @@
 @property(retain) NSXPCConnection *xpcConnection; // @synthesize xpcConnection=_xpcConnection;
 @property(retain) PHAManager *photoAnalysisManager; // @synthesize photoAnalysisManager=_photoAnalysisManager;
 - (void).cxx_destruct;
+- (void)cancelOperationsWithIdentifiers:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (id)libraryURLFromContextInformation:(id)arg1;
 - (id)contextInformationFromInvocation:(id)arg1;
 - (id)managerForInvocation:(id)arg1 contextInformation:(id)arg2;
 - (id)forwardingTargetForInvocation:(id)arg1 contextInformation:(id)arg2;
 - (id)cancelableOperationsById;
-- (void)cancelOperationsWithIdentifiers:(id)arg1 context:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)connection:(id)arg1 handleInvocation:(id)arg2 isReply:(_Bool)arg3;
 - (void)submitBlockToExecutiveStateQueue:(CDUnknownBlockType)arg1;
 - (void)shutdown;

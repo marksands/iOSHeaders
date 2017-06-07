@@ -6,7 +6,7 @@
 
 #import <PassKitCore/PKPaymentCredential.h>
 
-@class NSArray, NSString, NSURL;
+@class NSArray, NSString, NSURL, PKPaymentPass;
 
 @interface PKPaymentRemoteCredential : PKPaymentCredential
 {
@@ -17,8 +17,12 @@
     NSArray *_metadata;
     NSString *_summaryMetadataDescription;
     NSString *_statusDescription;
+    PKPaymentPass *_paymentPass;
+    unsigned long long _rank;
 }
 
+@property(nonatomic) unsigned long long rank; // @synthesize rank=_rank;
+@property(retain, nonatomic) PKPaymentPass *paymentPass; // @synthesize paymentPass=_paymentPass;
 @property(readonly, copy, nonatomic) NSString *statusDescription; // @synthesize statusDescription=_statusDescription;
 @property(readonly, copy, nonatomic) NSString *summaryMetadataDescription; // @synthesize summaryMetadataDescription=_summaryMetadataDescription;
 @property(readonly, copy, nonatomic) NSArray *metadata; // @synthesize metadata=_metadata;
@@ -27,6 +31,13 @@
 @property(nonatomic) long long status; // @synthesize status=_status;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (long long)compare:(id)arg1;
+- (id)description;
+- (unsigned long long)hash;
+- (_Bool)_isEqualToCredential:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
+- (void)updateWithDictionary:(id)arg1;
+- (id)initWithIdentifier:(id)arg1 status:(long long)arg2 credentialType:(long long)arg3 passURL:(id)arg4;
 - (id)initWithDictionary:(id)arg1;
 - (id)init;
 

@@ -4,24 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
-@class CNContactStore, NSArray, TUAudioDeviceController, TUCall, TUCallProviderManager, TUCallServicesInterface;
-@protocol OS_dispatch_queue;
+#import <TelephonyUtilities/TUCallContainer-Protocol.h>
 
-@interface TUCallCenter : NSObject
+@class CNContactStore, NSArray, NSString, TUAudioDeviceController, TUCall, TUCallProviderManager, TUCallServicesInterface, TUConversationManager, TUVideoDeviceController;
+@protocol OS_dispatch_queue, TUCallContainerPrivate;
+
+@interface TUCallCenter : NSObject <TUCallContainer>
 {
     NSObject<OS_dispatch_queue> *_queue;
     TUCallServicesInterface *_callServicesInterface;
     TUAudioDeviceController *_audioDeviceController;
+    TUVideoDeviceController *_videoDeviceController;
     CNContactStore *_contactStore;
     TUCallProviderManager *_providerManager;
+    TUConversationManager *_conversationManager;
     CDUnknownBlockType _disconnectCallPreflight;
     struct CGSize _localLandscapeAspectRatio;
     struct CGSize _localPortraitAspectRatio;
 }
 
-+ (id)displayedCallFromCalls:(id)arg1;
++ (id)callCenterWithQueue:(id)arg1 daemonDelegate:(id)arg2 shouldRegister:(_Bool)arg3;
 + (id)callCenterWithQueue:(id)arg1;
 + (id)sharedInstanceWithQueue:(id)arg1 daemonDelegate:(id)arg2 shouldRegister:(_Bool)arg3;
 + (id)sharedInstance;
@@ -31,8 +35,10 @@
 @property(copy, nonatomic) CDUnknownBlockType disconnectCallPreflight; // @synthesize disconnectCallPreflight=_disconnectCallPreflight;
 @property(nonatomic) struct CGSize localPortraitAspectRatio; // @synthesize localPortraitAspectRatio=_localPortraitAspectRatio;
 @property(nonatomic) struct CGSize localLandscapeAspectRatio; // @synthesize localLandscapeAspectRatio=_localLandscapeAspectRatio;
+@property(retain, nonatomic) TUConversationManager *conversationManager; // @synthesize conversationManager=_conversationManager;
 @property(retain, nonatomic) TUCallProviderManager *providerManager; // @synthesize providerManager=_providerManager;
 @property(retain, nonatomic) CNContactStore *contactStore; // @synthesize contactStore=_contactStore;
+@property(retain, nonatomic) TUVideoDeviceController *videoDeviceController; // @synthesize videoDeviceController=_videoDeviceController;
 @property(retain, nonatomic) TUAudioDeviceController *audioDeviceController; // @synthesize audioDeviceController=_audioDeviceController;
 @property(retain, nonatomic) TUCallServicesInterface *callServicesInterface; // @synthesize callServicesInterface=_callServicesInterface;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
@@ -51,13 +57,18 @@
 - (_Bool)isMergeable;
 - (_Bool)isSwappable;
 - (void)enteredBackgroundForAllCalls;
+- (void)willEnterBackgroundForAllCalls;
 - (void)enteredForegroundForCall:(id)arg1;
+- (void)joinConversationWithRequest:(id)arg1;
 - (void)pullHostedCallsFromPairedHostDevice;
 - (void)pushHostedCallsToPairedClientDevice;
 - (void)pullRelayingCallsFromClient;
 - (void)pushRelayingCallsToHostWithSourceIdentifier:(id)arg1;
 - (void)pushRelayingCallsToHost;
 - (void)pullCallFromClientUsingHandoffActivityUserInfo:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)setTTYType:(int)arg1 forCall:(id)arg2;
+- (void)handleActionForWiredHeadsetMiddleButtonLongPress;
+- (void)handleActionForWiredHeadsetMiddleButtonPress;
 - (void)disconnectAllCalls;
 - (void)disconnectCurrentCallAndActivateHeld;
 - (void)disconnectCall:(id)arg1 withReason:(int)arg2;
@@ -71,6 +82,7 @@
 - (void)holdCall:(id)arg1;
 - (void)updateCall:(id)arg1 withAnswerRequest:(id)arg2;
 - (void)answerWithRequest:(id)arg1;
+- (void)reportLocalPreviewStoppedForCall:(id)arg1;
 - (void)endActiveOrHeldAndAnswerCall:(id)arg1;
 - (void)endHeldAndAnswerCall:(id)arg1;
 - (void)endActiveAndAnswerCall:(id)arg1;
@@ -79,12 +91,10 @@
 - (void)answerCallWithHoldMusic:(id)arg1;
 - (void)answerCall:(id)arg1 withSourceIdentifier:(id)arg2;
 - (void)answerCall:(id)arg1;
-- (void)sendFieldModeDigits:(id)arg1;
+- (void)sendFieldModeDigits:(id)arg1 forProvider:(id)arg2;
 - (void)launchAppForDialRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)_dial:(id)arg1 callID:(int)arg2 provider:(id)arg3 video:(_Bool)arg4 sourceIdentifier:(id)arg5 dialType:(long long)arg6;
 - (id)_dial:(id)arg1 callID:(int)arg2 service:(int)arg3 sourceIdentifier:(id)arg4 dialType:(long long)arg5;
-- (id)dialVoicemailWithSourceIdentifier:(id)arg1;
-- (id)dialVoicemail;
 - (id)dialEmergency:(id)arg1 sourceIdentifier:(id)arg2;
 - (id)dialEmergency:(id)arg1;
 - (id)dial:(id)arg1 callID:(int)arg2 service:(int)arg3;
@@ -94,45 +104,44 @@
 - (id)dialWithRequest:(id)arg1;
 - (_Bool)canDialWithRequest:(id)arg1;
 - (_Bool)_canDialWithRequest:(id)arg1 shouldUseRelay:(_Bool *)arg2;
-- (_Bool)_isCallingAvailableOnSecondaryDeviceWithRelayCallingAvailability:(int)arg1 isProviderAvailable:(_Bool)arg2 isRelayAllowed:(_Bool)arg3 shouldUseRelay:(_Bool *)arg4;
+- (_Bool)_isCallingAvailableOnSecondaryDeviceWithRelayCallingAvailability:(int)arg1 isProviderAvailable:(_Bool)arg2 isRelayAllowed:(_Bool)arg3 isEmergency:(_Bool)arg4 shouldUseRelay:(_Bool *)arg5;
 - (_Bool)_existingCallsAllowDialRequest:(id)arg1 allowVoiceWithData:(_Bool)arg2;
 @property(readonly, copy, nonatomic) NSArray *callGroupsOnDefaultPairedDevice;
 @property(readonly, copy, nonatomic) NSArray *currentCallGroups;
-- (id)_callGroupsFromCalls:(id)arg1;
-- (_Bool)existingCallsHaveMultipleProviders;
 - (_Bool)allCallsAreOfService:(int)arg1;
+- (_Bool)allCallsPassTest:(CDUnknownBlockType)arg1;
+- (_Bool)anyCallPassesTest:(CDUnknownBlockType)arg1;
+- (_Bool)existingCallsHaveMultipleProviders;
 @property(readonly, nonatomic) _Bool anyCallIsEndpointOnCurrentDevice;
 @property(readonly, nonatomic) _Bool anyCallIsHostedOnCurrentDevice;
 @property(readonly, nonatomic) _Bool hasCurrentVideoCalls;
 @property(readonly, nonatomic) _Bool hasCurrentAudioCalls;
 @property(readonly, nonatomic) _Bool hasCurrentCalls;
-- (_Bool)allCallsPassTest:(CDUnknownBlockType)arg1;
-- (_Bool)anyCallPassesTest:(CDUnknownBlockType)arg1;
+- (unsigned long long)countOfCallsPassingTest:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) unsigned long long callCountOnDefaultPairedDevice;
 @property(readonly, nonatomic) unsigned long long currentAudioAndVideoCallCount;
 @property(readonly, nonatomic) unsigned long long currentVideoCallCount;
 @property(readonly, nonatomic) unsigned long long currentCallCount;
-- (unsigned long long)countOfCallsPassingTest:(CDUnknownBlockType)arg1;
 - (id)displayedCallFromCalls:(id)arg1;
-- (id)frontmostAudioOrVideoCall;
-- (id)frontmostCall;
-- (id)conferenceCall;
-- (id)displayedCall;
 - (id)callWithCallUUID:(id)arg1;
 - (id)callWithUniqueProxyIdentifier:(id)arg1;
 - (id)audioOrVideoCallWithStatus:(int)arg1;
 - (id)videoCallWithStatus:(int)arg1;
 - (id)callWithStatus:(int)arg1;
+- (id)callPassingTest:(CDUnknownBlockType)arg1 sortedUsingComparator:(CDUnknownBlockType)arg2;
+- (id)callPassingTest:(CDUnknownBlockType)arg1;
+- (id)frontmostAudioOrVideoCall;
+- (id)frontmostCall;
+- (id)conferenceCall;
+- (id)displayedCall;
 @property(readonly, nonatomic) TUCall *currentVideoCall;
 @property(readonly, nonatomic) TUCall *activeVideoCall;
 @property(readonly, nonatomic) TUCall *incomingVideoCall;
 @property(readonly, nonatomic) TUCall *incomingCall;
-- (id)callPassingTest:(CDUnknownBlockType)arg1 sortedUsingComparator:(CDUnknownBlockType)arg2;
-- (id)callPassingTest:(CDUnknownBlockType)arg1 withOptions:(unsigned long long)arg2;
-- (id)callPassingTest:(CDUnknownBlockType)arg1;
 - (id)callsWithGroupUUID:(id)arg1;
 - (id)audioAndVideoCallsWithStatus:(int)arg1;
 - (id)callsWithStatus:(int)arg1;
+- (id)callsPassingTest:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSArray *callsOnDefaultPairedDevice;
 @property(readonly, copy, nonatomic) NSArray *callsHostedOrAnEndpointElsewhere;
 @property(readonly, copy, nonatomic) NSArray *callsWithAnEndpointElsewhere;
@@ -143,18 +152,20 @@
 @property(readonly, copy, nonatomic) NSArray *currentAudioAndVideoCalls;
 @property(readonly, copy, nonatomic) NSArray *currentVideoCalls;
 @property(readonly, copy, nonatomic) NSArray *currentCalls;
-- (id)callsPassingTest:(CDUnknownBlockType)arg1 returningNilForEmpty:(_Bool)arg2;
-- (id)callsPassingTest:(CDUnknownBlockType)arg1;
 - (id)_allCalls;
-- (void)enumerateCallsWithOptions:(unsigned long long)arg1 invokingBlock:(CDUnknownBlockType)arg2 forCallsPassingTest:(CDUnknownBlockType)arg3;
-- (void)enumerateCallsInvokingBlock:(CDUnknownBlockType)arg1 forCallsPassingTest:(CDUnknownBlockType)arg2;
 - (_Bool)shouldPreferRelayOverDirectSecondaryCallingForProvider:(id)arg1;
 - (id)callServicesClientCapabilities;
+@property(readonly, nonatomic) id <TUCallContainerPrivate> callContainer;
 - (void)dealloc;
 - (void)registerWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)debugDescription;
+@property(readonly, copy) NSString *debugDescription;
 - (id)initWithQueue:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

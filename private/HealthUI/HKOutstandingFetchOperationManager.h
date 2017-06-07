@@ -18,6 +18,8 @@
     long long _maxConcurrentFetchOperations;
 }
 
++ (id)sharedOperationManager;
++ (void)setSharedOperationManager:(id)arg1;
 @property(nonatomic) long long maxConcurrentFetchOperations; // @synthesize maxConcurrentFetchOperations=_maxConcurrentFetchOperations;
 - (void).cxx_destruct;
 - (void)fetchOperationDidUpdatePriority:(id)arg1;

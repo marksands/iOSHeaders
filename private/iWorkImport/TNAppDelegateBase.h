@@ -17,6 +17,16 @@ __attribute__((visibility("hidden")))
 - (id)cloudKitContainerIdentifier;
 - (void)p_inputMethodsChanged:(id)arg1;
 - (_Bool)supportsRTL;
+- (id)resourcePreinstalledTags;
+- (id)stringForCouldntCreatePDFTitle;
+- (id)stringForCloseDocumentConfirmationWillContinueToUpdateInformativeText;
+- (id)stringForCloseDocumentConfirmationAlertMessage;
+- (id)stringForApplicationUpdateError;
+- (id)stringForCollaborationConnecting;
+- (id)stringForCollaborationOnline;
+- (id)stringForICloudUnreachable;
+- (id)stringForCollaborationOffline;
+- (id)stringForRemoveLastPrivateParticipantAlertConfirmationMessage;
 - (id)stringForRemoveSelfAlertConfirmationMessage;
 - (id)stringForRemoveSelfAlertConfirmationTitle;
 - (id)stringForStopSharingAlertConfirmationMessage;
@@ -46,6 +56,7 @@ __attribute__((visibility("hidden")))
 - (id)documentTypeDisplayName;
 - (id)defaultAppStoreURLString;
 - (id)applicationName;
+- (unsigned long long)applicationType;
 - (id)nativeSFFDocumentType;
 - (id)tangierEditingFormatDocumentType;
 - (id)templateSFFDocumentType;

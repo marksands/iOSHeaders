@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <CoreMediaStream/NSCopying-Protocol.h>
+#import <CoreMediaStream/NSSecureCoding-Protocol.h>
 
 @class NSArray, NSDate, NSString;
 
-@interface MSASSharingRelationship : NSObject <NSCopying>
+@interface MSASSharingRelationship : NSObject <NSCopying, NSSecureCoding>
 {
     _Bool _isMine;
     int _state;

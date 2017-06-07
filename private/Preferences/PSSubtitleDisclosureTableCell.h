@@ -14,7 +14,9 @@
 }
 
 + (long long)cellStyle;
+@property(retain, nonatomic) UILabel *valueLabel; // @synthesize valueLabel=_valueLabel;
 - (void).cxx_destruct;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
 - (_Bool)canReload;
 - (void)layoutSubviews;

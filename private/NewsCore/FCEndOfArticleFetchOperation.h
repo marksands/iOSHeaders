@@ -18,6 +18,7 @@
     unsigned long long _minimumRelatedHeadlineCount;
     unsigned long long _totalPublisherHeadlineCount;
     unsigned long long _totalRelatedHeadlineCount;
+    double _screenScale;
     FCCloudContext *_context;
     id <FCFeedPersonalizing> _feedPersonalizer;
     FCHeadline *_headline;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) FCHeadline *headline; // @synthesize headline=_headline;
 @property(retain, nonatomic) id <FCFeedPersonalizing> feedPersonalizer; // @synthesize feedPersonalizer=_feedPersonalizer;
 @property(retain, nonatomic) FCCloudContext *context; // @synthesize context=_context;
+@property(nonatomic) double screenScale; // @synthesize screenScale=_screenScale;
 @property unsigned long long totalRelatedHeadlineCount; // @synthesize totalRelatedHeadlineCount=_totalRelatedHeadlineCount;
 @property unsigned long long totalPublisherHeadlineCount; // @synthesize totalPublisherHeadlineCount=_totalPublisherHeadlineCount;
 @property unsigned long long minimumRelatedHeadlineCount; // @synthesize minimumRelatedHeadlineCount=_minimumRelatedHeadlineCount;

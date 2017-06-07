@@ -7,7 +7,7 @@
 #import <Intents/INStartVideoCallIntent.h>
 
 @interface INStartVideoCallIntent (_CDInteractionAdditions)
-- (long long)_cdInteractionMechanism;
-- (id)_cdRecipients;
+- (long long)cd_interactionMechanism;
+- (id)cd_recipients;
 @end
 

@@ -12,7 +12,6 @@
 
 + (id)sharedInstance;
 - (id)evaluateImage:(struct CGImage *)arg1 forCriteria:(int)arg2 inRect:(struct CGRect)arg3;
-- (void)dealloc;
 
 @end
 

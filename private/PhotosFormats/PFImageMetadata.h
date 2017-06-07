@@ -10,12 +10,12 @@
 {
 }
 
-+ (void)PFWriteOriginatingSignature:(id)arg1 cgImageProperties:(id)arg2;
-+ (id)PFReadOriginatingSignatureFromPath:(id)arg1;
-+ (id)PFReadOriginatingSignatureFromCgImageProperties:(id)arg1;
-+ (id)PFCGImagePropertiesByRemovingKey:(const void *)arg1 dictionaryKey:(const void *)arg2 imageProperties:(id)arg3;
-+ (id)PFReadValueFromImageAtPath:(id)arg1 dictionaryKey:(const void *)arg2 key:(const void *)arg3;
-+ (id)PFReadValueFromCGImageProperties:(id)arg1 dictionaryKey:(const void *)arg2 key:(const void *)arg3;
++ (_Bool)writeMetadataType:(unsigned char)arg1 value:(id)arg2 toCGImageProperties:(id)arg3 error:(id *)arg4;
++ (_Bool)readMetadataType:(unsigned char)arg1 fromCGImageProperties:(id)arg2 value:(id *)arg3 error:(id *)arg4;
++ (_Bool)readMetadataType:(unsigned char)arg1 fromFileURL:(id)arg2 value:(id *)arg3 error:(id *)arg4;
++ (id)imagePropertiesByRemovingKey:(const void *)arg1 dictionaryKey:(const void *)arg2 fromImageProperties:(id)arg3;
++ (_Bool)readMetadataValueFromImageAtFileURL:(id)arg1 dictionaryKey:(const void *)arg2 key:(const void *)arg3 value:(id *)arg4 error:(id *)arg5;
++ (id)valueFromCGImageProperties:(id)arg1 dictionaryKey:(const void *)arg2 key:(const void *)arg3;
 
 @end
 

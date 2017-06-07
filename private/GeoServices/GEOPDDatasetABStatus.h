@@ -20,6 +20,7 @@
 }
 
 @property(nonatomic) unsigned int datasetId; // @synthesize datasetId=_datasetId;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -31,7 +32,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) _Bool hasDatasetId;
-- (void)dealloc;
 
 @end
 

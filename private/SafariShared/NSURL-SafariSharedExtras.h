@@ -19,6 +19,8 @@
 - (id)safari_displayNameWithTitle:(id)arg1;
 - (_Bool)safari_hasCharactersBeyondPath;
 - (id)safari_canonicalURL;
+- (id)safari_URLByDeletingUserAndPassword;
+- (_Bool)safari_hasUserOrPassword;
 - (id)safari_URLByDeletingScheme;
 - (id)safari_URLByDeletingPort;
 - (id)safari_URLByReplacingQueryWithString:(id)arg1;

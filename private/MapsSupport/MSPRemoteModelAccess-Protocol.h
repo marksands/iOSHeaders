@@ -6,13 +6,19 @@
 
 #import <MapsSupport/NSObject-Protocol.h>
 
-@class NSData;
+@class NSData, NSDate, NSUUID;
 
 @protocol MSPRemoteModelAccess <NSObject>
+- (void)noteMapstoolChangedFavoritesOnDisk;
+- (void)noteMapstoolChangedHistoryOnDisk;
 - (void)testByNotingHistoryChangedOnDisk;
-- (void)commitHistorySerializedRepresentation:(NSData *)arg1 completion:(void (^)(NSError *))arg2;
-- (void)fetchHistorySerializedRepresentationFileHandleWithCompletion:(void (^)(NSFileHandle *, NSError *))arg1;
-- (void)commitFavoritesSerializedRepresentation:(NSData *)arg1 completion:(void (^)(NSError *))arg2;
-- (void)fetchFavoritesSerializedRepresentationFileHandleWithCompletion:(void (^)(NSFileHandle *, NSError *))arg1;
+- (void)eraseHistorySerializedRepresentationWithCompletion:(void (^)(NSError *))arg1;
+- (void)fetchLastKnownHistoryOperationIdentifier:(void (^)(NSUUID *))arg1;
+- (void)commitHistorySerializedRepresentation:(NSData *)arg1 earliestKnownSyncDate:(NSDate *)arg2 operationIdentifier:(NSUUID *)arg3 completion:(void (^)(NSError *))arg4;
+- (void)fetchHistorySerializedRepresentationWithCompletion:(void (^)(NSData *, NSError *))arg1;
+- (void)eraseFavoritesSerializedRepresentationWithCompletion:(void (^)(NSError *))arg1;
+- (void)fetchLastKnownFavoritesOperationIdentifier:(void (^)(NSUUID *))arg1;
+- (void)commitFavoritesSerializedRepresentation:(NSData *)arg1 operationIdentifier:(NSUUID *)arg2 completion:(void (^)(NSError *))arg3;
+- (void)fetchFavoritesSerializedRepresentationWithCompletion:(void (^)(NSData *, NSError *))arg1;
 @end
 

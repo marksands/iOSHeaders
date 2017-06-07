@@ -9,13 +9,16 @@
 #import <NewsCore/FCClassifiable-Protocol.h>
 #import <NewsCore/FCFeedTransformationItem-Protocol.h>
 
-@class NSArray, NSDate, NSString;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, NSArray, NSDate, NSString;
 
 @interface NTPBFeedItem (FCFeedItem) <FCClassifiable, FCFeedTransformationItem>
 + (id)feedItemWithCKFeedItemAndArticleRecord:(id)arg1 storefrontID:(id)arg2;
-+ (id)cloudKitKeys;
++ (id)cloudKitKeysWithStorefrontID:(id)arg1;
+- (void)enumerateTopicCohortsWithBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *publisherCohort;
+@property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort;
 @property(readonly, nonatomic) _Bool canBePurchased;
-@property(readonly, nonatomic) unsigned long long articleRecordModificationDateMilliseconds;
+@property(readonly, nonatomic) long long publisherArticleVersion;
 - (_Bool)mustShow;
 @property(readonly, nonatomic) unsigned long long articleContentType;
 @property(readonly, nonatomic) _Bool hasGlobalUserFeedback;
@@ -42,6 +45,7 @@
 @property(readonly, copy, nonatomic) NSString *feedID;
 @property(readonly, nonatomic, getter=isFromBlockedStorefront) _Bool fromBlockedStorefront;
 @property(readonly, nonatomic) double globalUserFeedback;
+@property(readonly, nonatomic) _Bool hasVideo;
 @property(readonly, nonatomic) long long minimumNewsVersion;
 @property(readonly, nonatomic) unsigned long long order;
 @property(readonly, nonatomic, getter=isPaid) _Bool paid;

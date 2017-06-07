@@ -16,6 +16,8 @@
     NSMutableDictionary *_eventsByMessageIdentifierDictionary;
 }
 
++ (id)collapseMessages:(id)arg1;
++ (id)collapsedMessagesFromMessages:(id)arg1;
 @property(retain) NSMutableDictionary *eventsByMessageIdentifierDictionary; // @synthesize eventsByMessageIdentifierDictionary=_eventsByMessageIdentifierDictionary;
 @property(retain) NSMutableDictionary *messageByMessageIdentifierDictionary; // @synthesize messageByMessageIdentifierDictionary=_messageByMessageIdentifierDictionary;
 @property(copy, nonatomic) NSArray *allMessages; // @synthesize allMessages=_allMessages;

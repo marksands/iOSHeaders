@@ -17,5 +17,6 @@
 - (void)dismiss;
 - (void)showForBids:(NSArray *)arg1:(JSValue *)arg2:(JSValue *)arg3;
 - (void)show:(JSValue *)arg1;
+- (void)setOptedIn:(_Bool)arg1:(JSValue *)arg2;
 @end
 

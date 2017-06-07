@@ -32,7 +32,6 @@
 - (void).cxx_destruct;
 - (void)getBulletinsForPublisherMatchIDs:(id)arg1 sectionID:(id)arg2 withHandler:(CDUnknownBlockType)arg3;
 - (void)getPublisherMatchIDsOfBulletinsPublishedAfterDate:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-- (void)getBulletinsPublishedAfterDate:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)getBulletinsWithHandler:(CDUnknownBlockType)arg1;
 - (void)getUniversalSectionIDForSectionID:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (void)getPrivilegedSenderTypesWithHandler:(CDUnknownBlockType)arg1;
@@ -65,7 +64,6 @@
 - (void)updateSectionInfo:(id)arg1;
 - (void)updateSectionOrder:(id)arg1;
 - (void)updateSectionOrderRule:(id)arg1;
-- (void)updateBulletin:(id)arg1;
 - (void)updateBulletin:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
 - (unsigned long long)incrementedTransactionIDForBulletinID:(id)arg1;
 - (id)currentTransactionForBulletinID:(id)arg1;
@@ -73,6 +71,7 @@
 - (void)removeTransaction:(id)arg1;
 - (id)description;
 - (void)dealloc;
+- (id)initWithServer:(id)arg1 connection:(id)arg2 queue:(id)arg3 calloutQueue:(id)arg4;
 - (id)initWithServer:(id)arg1 connection:(id)arg2 calloutQueue:(id)arg3;
 
 @end

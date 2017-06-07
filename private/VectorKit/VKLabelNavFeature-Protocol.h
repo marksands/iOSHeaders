@@ -7,6 +7,9 @@
 @class NSString;
 
 @protocol VKLabelNavFeature
+@property(nonatomic) _Bool isPicked;
+@property(readonly, nonatomic) _Bool isTrafficCameraFeature;
+@property(readonly, nonatomic) _Bool isEtaFeature;
 @property(readonly, nonatomic) _Bool isGuidanceStepStart;
 @property(readonly, nonatomic) long long intraRoadPriority;
 @property(readonly, nonatomic) _Bool isInGuidance;

@@ -10,7 +10,7 @@
 {
 }
 
-- (void)focusedViewDidChange;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)canBecomeFocused;
 
 @end

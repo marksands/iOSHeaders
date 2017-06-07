@@ -4,19 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @interface CUTWeakReference : NSObject
 {
-    id _object;
-    unsigned long long _objectAddress;
+    id _internal;
 }
 
 + (id)weakRefWithObject:(id)arg1;
+- (void).cxx_destruct;
+- (id)internal;
 - (id)object;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (void)dealloc;
+- (id)initWithObject:(id)arg1;
 
 @end
 

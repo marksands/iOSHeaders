@@ -7,10 +7,10 @@
 #import <iWorkImport/TSKImporter-Protocol.h>
 
 @class NSString;
-@protocol TSKImportExportDelegate;
+@protocol TSDImportExportDelegate;
 
 @protocol TSKFileImporter <TSKImporter>
-- (_Bool)importToPath:(NSString *)arg1 delegate:(id <TSKImportExportDelegate>)arg2 error:(id *)arg3;
+- (_Bool)importToPath:(NSString *)arg1 delegate:(id <TSDImportExportDelegate>)arg2 error:(id *)arg3;
 - (_Bool)canCreateFile;
 @end
 

@@ -8,16 +8,16 @@
 
 #import <FrontBoard/FBSSceneDelegate-Protocol.h>
 
-@class BSAction, FBSSceneImpl, NSString;
+@class FBSSceneImpl, NSString;
 @protocol FBSSceneDelegate;
 
 @interface FBSystemAppScene : FBSScene <FBSSceneDelegate>
 {
     FBSSceneImpl *_scene;
     id <FBSSceneDelegate> _delegate;
-    BSAction *_invalidationAction;
 }
 
+- (void).cxx_destruct;
 - (void)scene:(id)arg1 didReceiveActions:(id)arg2;
 - (void)scene:(id)arg1 didUpdateWithDiff:(id)arg2 transitionContext:(id)arg3 completion:(CDUnknownBlockType)arg4;
 @property(readonly, copy) NSString *description;
@@ -34,8 +34,6 @@
 - (void)updateClientSettingsWithTransitionBlock:(CDUnknownBlockType)arg1;
 - (void)updateClientSettingsWithBlock:(CDUnknownBlockType)arg1;
 - (void)updateClientSettings:(id)arg1 withTransitionContext:(id)arg2;
-- (id)fbsDisplay;
-- (id)display;
 - (id)layers;
 - (id)clientSettings;
 - (id)settings;
@@ -43,7 +41,7 @@
 - (id)delegate;
 - (id)identifier;
 - (void)dealloc;
-- (id)_initWithSceneImpl:(id)arg1 invalidationAction:(id)arg2;
+- (id)_initWithSceneImpl:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

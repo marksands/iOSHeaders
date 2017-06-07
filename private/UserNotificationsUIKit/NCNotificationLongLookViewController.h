@@ -7,21 +7,25 @@
 #import <UserNotificationsUIKit/NCNotificationViewController.h>
 
 #import <UserNotificationsUIKit/NCLongLookPresentationControllerDelegate-Protocol.h>
-#import <UserNotificationsUIKit/NCLongLookTransitionDelegateObserver-Protocol.h>
 #import <UserNotificationsUIKit/NCNotificationCustomContentDelegate-Protocol.h>
+#import <UserNotificationsUIKit/NCNotificationLongLookViewDelegate-Protocol.h>
 
 @class NCLongLookTransitionDelegate, NCNotificationShortLookViewController, NSString;
 
-@interface NCNotificationLongLookViewController : NCNotificationViewController <NCLongLookPresentationControllerDelegate, NCLongLookTransitionDelegateObserver, NCNotificationCustomContentDelegate>
+@interface NCNotificationLongLookViewController : NCNotificationViewController <NCNotificationLongLookViewDelegate, NCLongLookPresentationControllerDelegate, NCNotificationCustomContentDelegate>
 {
-    NCNotificationShortLookViewController *_presentingNotificationViewController;
     NCLongLookTransitionDelegate *_longLookTransitionDelegate;
+    NCNotificationShortLookViewController *_presentingNotificationViewController;
+    CDUnknownBlockType _notificationTapBlock;
 }
 
++ (void)initialize;
+@property(copy, nonatomic, getter=_notificationTapBlock, setter=_setNotificationTapBlock:) CDUnknownBlockType notificationTapBlock; // @synthesize notificationTapBlock=_notificationTapBlock;
+@property(nonatomic) __weak NCNotificationShortLookViewController *presentingNotificationViewController; // @synthesize presentingNotificationViewController=_presentingNotificationViewController;
 - (void).cxx_destruct;
 - (_Bool)isLookStyleLongLook;
-- (void)longLookTransitionDelegate:(id)arg1 didEndTransitionWithAnimator:(id)arg2 completed:(_Bool)arg3;
-- (void)longLookTransitionDelegate:(id)arg1 didBeginTransitionWithAnimator:(id)arg2;
+- (void)customContentDidLoadExtension:(id)arg1;
+- (void)notificationLongLookView:(id)arg1 willInteractWithURL:(id)arg2;
 - (_Bool)resignFirstResponder;
 - (_Bool)canResignFirstResponder;
 - (_Bool)becomeFirstResponder;
@@ -29,12 +33,10 @@
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (double)_translationWithVelocity:(double)arg1 acceleration:(double)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
-- (_Bool)longLookPresentationControllerShouldRestoreSourceView:(id)arg1;
-- (unsigned long long)longLookPresentationControllerDismissalEdge:(id)arg1;
-- (_Bool)longLookPresentationControllerPreviewShouldIncludeShadow:(id)arg1;
-- (_Bool)longLookPresentationControllerShouldIncludePreview:(id)arg1;
+- (_Bool)longLookPresentationControllerShouldAllowKeyboardOnAppearance:(id)arg1;
 - (struct CGRect)longLookPresentationController:(id)arg1 frameForTransitionViewInPresentationSuperview:(id)arg2;
 - (id)_presentingNotificationViewController;
+- (long long)longLookTransitionTypeForTransitionDelegate:(id)arg1;
 - (void)_handleBackgroundTap:(id)arg1;
 - (void)_handleCloseButton:(id)arg1;
 - (void)_handleNotificationTap:(id)arg1;

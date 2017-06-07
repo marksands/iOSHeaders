@@ -13,7 +13,7 @@
 {
     _Bool _activateCalled;
     CBCentralManager *_btCentral;
-    struct __channel *_btChannel;
+    struct channel *_btChannel;
     _Bool _btConnected;
     _Bool _btConnecting;
     _Bool _btEndpointRegistering;
@@ -23,7 +23,7 @@
     NSMutableData *_btReadPayload;
     unsigned long long _btReadLen;
     unsigned long long _btReadOffset;
-    struct __channel_ring_desc *_btReadRing;
+    struct channel_ring_desc *_btReadRing;
     NSObject<OS_dispatch_source> *_btReadSource;
     NSData *_btWriteData;
     SFBLEData *_btWriteItem;
@@ -31,7 +31,7 @@
     unsigned long long _btWriteOffset;
     const char *_btWritePtr;
     struct NSMutableArray *_btWriteQueue;
-    struct __channel_ring_desc *_btWriteRing;
+    struct channel_ring_desc *_btWriteRing;
     NSObject<OS_dispatch_source> *_btWriteSource;
     _Bool _btWriteSuspended;
     CBScalablePipe *_btPipe;

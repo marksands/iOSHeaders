@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GameCenterUI/GKRemoteViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionProtocol-Protocol.h>
 
 @class NSDictionary, NSNumber, NSString;
 
-@protocol GKGameCenterDashboardServiceProtocol <GKRemoteViewControllerDelegate>
+@protocol GKGameCenterDashboardServiceProtocol <GKExtensionProtocol>
 
 @optional
 - (void)hostDidParseDashboardImageNames:(NSDictionary *)arg1 leaderboardSetNames:(NSDictionary *)arg2 leaderboardNames:(NSDictionary *)arg3;

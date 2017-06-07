@@ -27,8 +27,8 @@
 - (id)succinctDescription;
 - (id)description;
 - (id)publicDescription;
-- (id)initForMesaWithSource:(long long)arg1 successful:(_Bool)arg2;
-- (id)initForMesaWithSource:(long long)arg1 successful:(_Bool)arg2 handler:(CDUnknownBlockType)arg3;
+- (id)initForBiometricAuthenticationWithSource:(long long)arg1 successful:(_Bool)arg2;
+- (id)initForBiometricAuthenticationWithSource:(long long)arg1 successful:(_Bool)arg2 handler:(CDUnknownBlockType)arg3;
 - (id)initForPasscode:(id)arg1 source:(long long)arg2;
 - (id)initForPasscode:(id)arg1 source:(long long)arg2 handler:(CDUnknownBlockType)arg3;
 - (id)initWithType:(unsigned long long)arg1 source:(long long)arg2 payload:(id)arg3;

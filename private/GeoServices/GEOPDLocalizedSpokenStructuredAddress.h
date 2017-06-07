@@ -8,16 +8,19 @@
 
 #import <GeoServices/NSCopying-Protocol.h>
 
-@class GEOStructuredAddress, NSString;
+@class GEOStructuredAddress, NSString, PBUnknownFields;
 
 @interface GEOPDLocalizedSpokenStructuredAddress : PBCodable <NSCopying>
 {
+    PBUnknownFields *_unknownFields;
     NSString *_language;
     GEOStructuredAddress *_spokenStructuredAddress;
 }
 
 @property(retain, nonatomic) GEOStructuredAddress *spokenStructuredAddress; // @synthesize spokenStructuredAddress=_spokenStructuredAddress;
 @property(retain, nonatomic) NSString *language; // @synthesize language=_language;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -29,7 +32,6 @@
 - (id)description;
 @property(readonly, nonatomic) _Bool hasSpokenStructuredAddress;
 @property(readonly, nonatomic) _Bool hasLanguage;
-- (void)dealloc;
 
 @end
 

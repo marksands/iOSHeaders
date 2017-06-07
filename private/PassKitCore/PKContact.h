@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <PassKitCore/NSSecureCoding-Protocol.h>
 
@@ -14,16 +14,16 @@
 {
     NSPersonNameComponents *_name;
     CNPostalAddress *_postalAddress;
-    NSString *_emailAddress;
     CNPhoneNumber *_phoneNumber;
+    NSString *_emailAddress;
     NSString *_supplementarySubLocality;
 }
 
 + (_Bool)supportsSecureCoding;
 + (long long)version;
 @property(retain, nonatomic) NSString *supplementarySubLocality; // @synthesize supplementarySubLocality=_supplementarySubLocality;
-@property(retain, nonatomic) CNPhoneNumber *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(retain, nonatomic) NSString *emailAddress; // @synthesize emailAddress=_emailAddress;
+@property(retain, nonatomic) CNPhoneNumber *phoneNumber; // @synthesize phoneNumber=_phoneNumber;
 @property(retain, nonatomic) CNPostalAddress *postalAddress; // @synthesize postalAddress=_postalAddress;
 @property(retain, nonatomic) NSPersonNameComponents *name; // @synthesize name=_name;
 - (void).cxx_destruct;

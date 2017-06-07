@@ -7,14 +7,15 @@
 #import <HMFoundation/HMFMessageTransport.h>
 
 #import <HomeKitDaemon/HMDRemoteDeviceMonitorDelegate-Protocol.h>
-#import <HomeKitDaemon/HMDSecureSessionDelegate-Protocol.h>
+#import <HomeKitDaemon/HMDSecureRemoteSessionDelegate-Protocol.h>
+#import <HomeKitDaemon/HMFDumpState-Protocol.h>
 #import <HomeKitDaemon/HMFLogging-Protocol.h>
 #import <HomeKitDaemon/HMFMessageTransportDelegate-Protocol.h>
 
-@class HMDAccountRegistry, HMDRemoteDeviceMonitor, HMDRemoteIdentityRegistry, HMDRemoteMessageNotifications, NSArray, NSMapTable, NSMutableDictionary, NSObject, NSString;
+@class HMDAccountRegistry, HMDRemoteDeviceMonitor, HMDRemoteIdentityRegistry, HMDRemoteMessageNotifications, NSArray, NSMutableDictionary, NSMutableSet, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDSecureRemoteMessageTransport : HMFMessageTransport <HMDRemoteDeviceMonitorDelegate, HMDSecureSessionDelegate, HMFLogging, HMFMessageTransportDelegate>
+@interface HMDSecureRemoteMessageTransport : HMFMessageTransport <HMDRemoteDeviceMonitorDelegate, HMDSecureRemoteSessionDelegate, HMFLogging, HMFMessageTransportDelegate, HMFDumpState>
 {
     NSArray *_transports;
     HMDRemoteIdentityRegistry *_identityRegistry;
@@ -22,8 +23,7 @@
     HMDRemoteDeviceMonitor *_deviceMonitor;
     NSObject<OS_dispatch_queue> *_clientQueue;
     NSObject<OS_dispatch_queue> *_propertyQueue;
-    NSMapTable *_activeClientSecureSessions;
-    NSMapTable *_activeServerSecureSessions;
+    NSMutableSet *_secureRemoteSessions;
     HMDRemoteMessageNotifications *_sessionNotifications;
     NSMutableDictionary *_currentHomeConfigurations;
 }
@@ -32,8 +32,7 @@
 + (id)shortDescription;
 @property(retain, nonatomic) NSMutableDictionary *currentHomeConfigurations; // @synthesize currentHomeConfigurations=_currentHomeConfigurations;
 @property(retain, nonatomic) HMDRemoteMessageNotifications *sessionNotifications; // @synthesize sessionNotifications=_sessionNotifications;
-@property(readonly, nonatomic) NSMapTable *activeServerSecureSessions; // @synthesize activeServerSecureSessions=_activeServerSecureSessions;
-@property(readonly, nonatomic) NSMapTable *activeClientSecureSessions; // @synthesize activeClientSecureSessions=_activeClientSecureSessions;
+@property(readonly, nonatomic) NSMutableSet *secureRemoteSessions; // @synthesize secureRemoteSessions=_secureRemoteSessions;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *clientQueue; // @synthesize clientQueue=_clientQueue;
 @property(readonly, nonatomic) HMDRemoteDeviceMonitor *deviceMonitor; // @synthesize deviceMonitor=_deviceMonitor;
@@ -42,21 +41,22 @@
 @property(readonly, copy, nonatomic) NSArray *transports; // @synthesize transports=_transports;
 - (void).cxx_destruct;
 - (void)messageTransport:(id)arg1 didReceiveMessage:(id)arg2;
-- (void)secureSession:(id)arg1 receivedRequestToSendMessage:(id)arg2;
-- (void)_updateDeviceInformationFromMessage:(id)arg1;
-- (void)_handleElectDeviceForIDSSession:(id)arg1;
-- (void)_handleSecureClientMessage:(id)arg1 fromDevice:(id)arg2 transport:(id)arg3;
-- (void)_handleSecureServerMessage:(id)arg1 fromDevice:(id)arg2 transport:(id)arg3;
-- (void)_reallyOpenSecureSessionToDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)dumpState;
+- (void)secureRemoteSession:(id)arg1 receivedRequestToSendMessage:(id)arg2;
+- (void)secureRemoteSession:(id)arg1 didCloseWithError:(id)arg2;
+- (void)_handleSecureMessage:(id)arg1 fromDevice:(id)arg2 transport:(id)arg3;
 - (void)_openSecureSessionToDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)openSecureSessionToDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_sendSecureMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)_secureRemoteSessionForDevice:(id)arg1;
 - (void)_handleNotificationResponseForMessage:(id)arg1 responsePayload:(id)arg2 responseError:(id)arg3 responseHandler:(CDUnknownBlockType)arg4;
 - (void)_handleNotificationMessage:(id)arg1;
 - (void)_sendPingToDevice:(id)arg1 timeout:(double)arg2 restriction:(unsigned long long)arg3 responseHandler:(CDUnknownBlockType)arg4;
 - (void)_pingDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)pingDevice:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_handlePingMessage:(id)arg1;
+- (void)_updateDeviceInformationFromMessage:(id)arg1;
+- (void)_handleElectDeviceForIDSSession:(id)arg1;
 - (_Bool)_haveAllCapabilities:(id)arg1;
 - (id)prepareAnswerForRequestedCapabilities:(id)arg1;
 - (void)_handleElectDeviceForUserResponse:(id)arg1 error:(id)arg2 responseQueue:(id)arg3 completion:(CDUnknownBlockType)arg4;

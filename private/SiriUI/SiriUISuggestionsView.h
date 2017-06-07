@@ -6,7 +6,7 @@
 
 #import <UIKit/UIView.h>
 
-@class NSArray, NSMutableOrderedSet, NSString, NSTimer, SiriUIAcousticIDSpinner, UIColor, UILabel;
+@class NSArray, NSMutableOrderedSet, NSTimer, SiriUIAcousticIDSpinner, SiriUISuggestionsHeaderText, UIColor, UILabel;
 @protocol SiriUISuggestionsViewDelegate;
 
 @interface SiriUISuggestionsView : UIView
@@ -22,9 +22,10 @@
     NSMutableOrderedSet *_pendedSuggestions;
     SiriUIAcousticIDSpinner *_acousticIDSpinner;
     unsigned long long _numberOfSuggestions;
-    NSString *_headerText;
-    NSString *_subheaderText;
-    NSString *_largeSubheaderText;
+    UIView *_guideView;
+    SiriUISuggestionsHeaderText *_headerText;
+    SiriUISuggestionsHeaderText *_subheaderText;
+    SiriUISuggestionsHeaderText *_largeSubheaderText;
     UIColor *_textColor;
     id <SiriUISuggestionsViewDelegate> _delegate;
     long long _orientation;
@@ -35,15 +36,15 @@
 @property(nonatomic) __weak id <SiriUISuggestionsViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) struct CGPoint contentOffset; // @synthesize contentOffset=_contentOffset;
 @property(copy, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
-@property(copy, nonatomic) NSString *largeSubheaderText; // @synthesize largeSubheaderText=_largeSubheaderText;
-@property(copy, nonatomic) NSString *subheaderText; // @synthesize subheaderText=_subheaderText;
-@property(copy, nonatomic) NSString *headerText; // @synthesize headerText=_headerText;
+@property(copy, nonatomic) SiriUISuggestionsHeaderText *largeSubheaderText; // @synthesize largeSubheaderText=_largeSubheaderText;
+@property(copy, nonatomic) SiriUISuggestionsHeaderText *subheaderText; // @synthesize subheaderText=_subheaderText;
+@property(copy, nonatomic) SiriUISuggestionsHeaderText *headerText; // @synthesize headerText=_headerText;
+@property(retain, nonatomic) UIView *guideView; // @synthesize guideView=_guideView;
 - (void).cxx_destruct;
 - (void)acousticIDSpinnerDidHide:(id)arg1;
-- (double)_headerFontSize;
+- (id)_createSpringAnimation:(double)arg1;
+- (struct NSDirectionalEdgeInsets)_directionalLayoutMargins;
 - (double)_suggestionFontSize;
-- (double)_largeSubheaderFontSize;
-- (double)_subheaderFontSize;
 - (double)_headerToLargeSubheaderOffset;
 - (double)_headerToSubheaderOffset;
 - (unsigned long long)_numberOfSuggestionsToDisplay;
@@ -61,6 +62,11 @@
 - (void)stopSuggesting;
 - (void)startSuggesting;
 - (void)_setSuggestionTexts:(id)arg1;
+- (void)_setLargeSubheaderText:(id)arg1;
+- (void)_setSubheaderText:(id)arg1;
+- (void)_setHeaderText:(id)arg1;
+@property(nonatomic, getter=isGuideHidden) _Bool guideHidden;
+- (void)setGuideHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)animateOutWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_animateOutSuggestionAtIndex:(unsigned long long)arg1;
 - (void)_animateInSuggestionAtIndex:(unsigned long long)arg1;

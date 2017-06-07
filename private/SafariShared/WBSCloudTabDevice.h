@@ -15,6 +15,7 @@
     _Bool _closeRequestSupported;
     _Bool _hasDuplicateName;
     _Bool _ephemeralDevice;
+    _Bool _cloudKitBookmarkSyncingSupported;
     NSString *_name;
     NSString *_uuid;
     NSArray *_tabs;
@@ -28,6 +29,7 @@
 + (unsigned long long)tabCountInDictionary:(id)arg1;
 + (_Bool)isCloudTabDeviceDictionary:(id)arg1;
 + (id)_dictionaryWithDeviceName:(id)arg1 lastModified:(id)arg2 hasDuplicateName:(_Bool)arg3 tabs:(id)arg4 isEphemeralDevice:(_Bool)arg5;
+@property(readonly, nonatomic, getter=isCloudKitBookmarkSyncingSupported) _Bool cloudKitBookmarkSyncingSupported; // @synthesize cloudKitBookmarkSyncingSupported=_cloudKitBookmarkSyncingSupported;
 @property(readonly, nonatomic) NSDate *lastModified; // @synthesize lastModified=_lastModified;
 @property(readonly, copy, nonatomic) NSArray *tabs; // @synthesize tabs=_tabs;
 @property(readonly, copy, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;

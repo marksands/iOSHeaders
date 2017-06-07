@@ -100,8 +100,8 @@
 - (long long)fetchMessagesWithMessageIDs:(id)arg1 andSetFlags:(unsigned long long)arg2;
 - (_Bool)canFetchMessageIDs;
 - (id)remoteIDsFromUniqueRemoteIDs:(id)arg1;
-- (id)storeSearchResultMatchingSearchText:(id)arg1 criterion:(id)arg2 limit:(unsigned int)arg3 error:(id *)arg4;
-- (id)storeSearchResultMatchingCriterion:(id)arg1 limit:(unsigned int)arg2 error:(id *)arg3;
+- (id)storeSearchResultMatchingSearchText:(id)arg1 criterion:(id)arg2 limit:(unsigned int)arg3 offset:(id)arg4 error:(id *)arg5;
+- (id)storeSearchResultMatchingCriterion:(id)arg1 limit:(unsigned int)arg2 offset:(id)arg3 error:(id *)arg4;
 - (long long)fetchMessagesMatchingCriterion:(id)arg1 limit:(unsigned int)arg2;
 - (_Bool)canFetchSearchResults;
 - (id)copyMessagesWithRemoteIDs:(id)arg1 options:(unsigned int)arg2 inMailbox:(id)arg3;
@@ -124,6 +124,7 @@
 - (void)invalidateFetchWindow;
 - (_Bool)shouldGrowFetchWindow;
 - (_Bool)hasMoreFetchableMessages;
+- (unsigned long long)serverNonDeletedCount;
 - (unsigned long long)serverUnreadCount;
 - (unsigned long long)serverUnreadOnlyOnServerCount;
 - (unsigned long long)serverMessageCount;

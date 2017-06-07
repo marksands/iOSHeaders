@@ -16,7 +16,7 @@
 + (id)viewControllerWithRestorationIdentifierPath:(id)arg1 coder:(id)arg2;
 - (void).cxx_destruct;
 - (void)itemsOrSelectionDidChange:(_Bool)arg1;
-- (_Bool)shouldShowSearch;
+- (_Bool)hideSearchField;
 @property(retain, nonatomic) NSString *queryString;
 - (id)initWithModel:(id)arg1;
 - (id)init;

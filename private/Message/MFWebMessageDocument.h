@@ -19,10 +19,12 @@
     NSMutableDictionary *_partsByURL;
     NSMutableDictionary *_partsByFilename;
     unsigned int _preferredEncoding;
+    _Bool _visuallyEmpty;
     MFAttachmentManager *_attachmentManager;
 }
 
 @property(retain, nonatomic) MFAttachmentManager *attachmentManager; // @synthesize attachmentManager=_attachmentManager;
+@property(getter=isVisuallyEmpty) _Bool visuallyEmpty; // @synthesize visuallyEmpty=_visuallyEmpty;
 @property unsigned int preferredEncoding; // @synthesize preferredEncoding=_preferredEncoding;
 @property(readonly) NSData *htmlData; // @synthesize htmlData=_htmlData;
 @property(readonly) MFMimePart *mimePart; // @synthesize mimePart=_htmlPart;

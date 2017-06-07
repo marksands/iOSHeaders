@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class GSAddition, NSDictionary, NSURL, QLThumbnailVersion;
 
@@ -24,6 +24,7 @@
 + (_Bool)associateThumbnailsForDocumentAtURL:(id)arg1 withDocumentAtURL:(id)arg2 error:(id *)arg3;
 + (_Bool)setThumbnailsDictionary:(id)arg1 forURL:(id)arg2 error:(id *)arg3;
 + (void)downloadOrGenerateThumbnailAtPhysicalURL:(id)arg1;
++ (void)downloadOrGenerateThumbnailAtTaggedURL:(id)arg1;
 + (void)downloadOrGenerateThumbnailAtURL:(id)arg1;
 + (void)generateThumbnailIfPossibleAtLogicalURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)generateThumbnailIfPossibleAtLogicalURL:(id)arg1;
@@ -58,6 +59,7 @@
 @property(retain) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(retain) NSDictionary *thumbnailDataDictionary; // @synthesize thumbnailDataDictionary=_thumbnailDataDictionary;
 @property(retain) NSURL *additionURL; // @synthesize additionURL=_additionURL;
+- (void).cxx_destruct;
 @property(readonly) unsigned long long additionSize;
 - (id)allImageURLs;
 @property(readonly) GSAddition *genStoreAddition;
@@ -71,6 +73,7 @@
 - (_Bool)_initWithAdditionsPresentOnURLDirectly:(id)arg1 error:(id *)arg2;
 - (id)thumbnailDataForKey:(id)arg1;
 - (id)thumbnailURLForKey:(id)arg1;
+- (_Bool)shouldBeInvalidatedByThumbnailVersion:(id)arg1;
 - (void)dealloc;
 
 @end

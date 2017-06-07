@@ -23,6 +23,7 @@
 
 + (Class)surchargeUnitType;
 @property(retain, nonatomic) NSMutableArray *surchargeUnits; // @synthesize surchargeUnits=_surchargeUnits;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -42,7 +43,6 @@
 - (unsigned long long)surchargeUnitsCount;
 - (void)addSurchargeUnit:(id)arg1;
 - (void)clearSurchargeUnits;
-- (void)dealloc;
 
 @end
 

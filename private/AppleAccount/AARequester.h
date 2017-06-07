@@ -6,10 +6,12 @@
 
 #import <Foundation/NSOperation.h>
 
-@class AARequest, AAResponse, AKAppleIDSession, NSHTTPURLResponse, NSMutableData, NSObject, NSURLConnection;
+#import <AppleAccount/NSURLConnectionDelegate-Protocol.h>
+
+@class AARequest, AAResponse, AKAppleIDSession, NSHTTPURLResponse, NSMutableData, NSObject, NSString, NSURLConnection;
 @protocol OS_dispatch_queue;
 
-@interface AARequester : NSOperation
+@interface AARequester : NSOperation <NSURLConnectionDelegate>
 {
     AARequest *_request;
     AAResponse *_response;
@@ -36,14 +38,19 @@
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)connection:(id)arg1 didReceiveData:(id)arg2;
 - (void)connection:(id)arg1 didReceiveResponse:(id)arg2;
-- (void)connection:(id)arg1 didReceiveAuthenticationChallenge:(id)arg2;
-- (_Bool)connection:(id)arg1 canAuthenticateAgainstProtectionSpace:(id)arg2;
+- (void)connection:(id)arg1 willSendRequestForAuthenticationChallenge:(id)arg2;
 - (void)__unsafe_callHandler;
 - (void)_callHandler;
 - (void)_kickOffRequest:(id)arg1;
 - (void)start;
 - (void)cancel;
 - (id)initWithRequest:(id)arg1 handler:(CDUnknownBlockType)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

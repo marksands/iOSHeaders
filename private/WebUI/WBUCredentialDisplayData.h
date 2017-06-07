@@ -15,6 +15,7 @@
     NSDate *_creationDate;
 }
 
++ (id)descriptionForPasswordWithUser:(id)arg1 creationDate:(id)arg2;
 @property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(readonly, copy, nonatomic) NSString *detail; // @synthesize detail=_detail;
 @property(readonly, nonatomic) WBSCredentialMatch *match; // @synthesize match=_match;

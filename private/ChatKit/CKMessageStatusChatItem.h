@@ -11,19 +11,24 @@
 @interface CKMessageStatusChatItem : CKChatItem
 {
     _Bool _buttonSizeLoaded;
+    _Bool _labelSizeLoaded;
     NSAttributedString *_transcriptButtonText;
     struct CGSize _buttonSize;
+    struct CGSize _labelSize;
     struct UIEdgeInsets _buttonTextAlignmentInsets;
+    struct UIEdgeInsets _labelTextAlignmentInsets;
 }
 
 + (id)thePastDateFormatter;
 + (id)thisWeekRelativeDateFormatter;
 + (id)todayDateFormatter;
 + (id)createImageAsTextAttachment;
+@property(nonatomic, getter=isLabelSizeLoaded) _Bool labelSizeLoaded; // @synthesize labelSizeLoaded=_labelSizeLoaded;
 @property(nonatomic, getter=isButtonSizeLoaded) _Bool buttonSizeLoaded; // @synthesize buttonSizeLoaded=_buttonSizeLoaded;
 @property(copy, nonatomic) NSAttributedString *transcriptButtonText; // @synthesize transcriptButtonText=_transcriptButtonText;
 - (void).cxx_destruct;
 - (struct CGSize)loadButtonSizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(out struct UIEdgeInsets *)arg2;
+- (struct CGSize)loadLabelSizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(out struct UIEdgeInsets *)arg2;
 @property(readonly, nonatomic) _Bool allowsEffectAutoPlayback;
 - (id)loadTranscriptButtonText;
 - (id)effectsControlStatusTextForEffectStyleID:(id)arg1;
@@ -35,9 +40,12 @@
 - (id)now;
 @property(readonly, nonatomic) long long buttonType;
 @property(readonly, nonatomic) struct UIEdgeInsets buttonTextAlignmentInsets; // @synthesize buttonTextAlignmentInsets=_buttonTextAlignmentInsets;
+@property(readonly, nonatomic) struct UIEdgeInsets labelTextAlignmentInsets; // @synthesize labelTextAlignmentInsets=_labelTextAlignmentInsets;
+@property(readonly, nonatomic) struct CGSize labelSize; // @synthesize labelSize=_labelSize;
 @property(readonly, nonatomic) struct CGSize buttonSize; // @synthesize buttonSize=_buttonSize;
 - (struct CGSize)loadSizeThatFits:(struct CGSize)arg1 textAlignmentInsets:(out struct UIEdgeInsets *)arg2;
 - (id)loadTranscriptText;
+- (struct CGSize)size;
 - (_Bool)wantsDrawerLayout;
 - (struct UIEdgeInsets)transcriptTextAlignmentInsets;
 - (void)unloadSize;

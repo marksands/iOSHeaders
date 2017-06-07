@@ -11,7 +11,7 @@
 
 @protocol TSCECalculationEngineRegistration <TSKModel>
 - (TSPObject<TSCECalculationEngineRegistration> *)objectToArchiveInDependencyTracker;
-- (struct __CFUUID *)formulaOwnerID;
+- (UUIDData_5fbc143e)formulaOwnerUID;
 - (_Bool)registerLast;
 - (void)unregisterFromCalculationEngine:(TSCECalculationEngine *)arg1;
 - (void)registerWithCalculationEngineForDocumentLoad:(TSCECalculationEngine *)arg1;

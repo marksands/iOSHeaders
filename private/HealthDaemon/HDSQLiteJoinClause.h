@@ -32,6 +32,7 @@
 @property(readonly, copy, nonatomic) NSString *joinAsName;
 - (id)SQLJoinClause;
 - (id)_initWithJoinType:(long long)arg1 fromTable:(id)arg2 toTargetEntity:(Class)arg3 as:(id)arg4 localReference:(id)arg5 targetKey:(id)arg6;
+- (id)copyWithJoinType:(long long)arg1;
 
 @end
 

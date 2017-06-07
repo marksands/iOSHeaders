@@ -6,16 +6,19 @@
 
 #import <MarkupUI/NSObject-Protocol.h>
 
-@class NSArray, UIView;
+@class NSArray, UIScrollView, UIView;
 @protocol UICoordinateSpace;
 
 @protocol MUContentViewControllerProtocol <NSObject>
+@property(readonly, nonatomic) UIScrollView *contentViewScrollView;
+@property(readonly, nonatomic) long long defaultToolTag;
 @property(nonatomic) struct UIEdgeInsets edgeInsets;
 - (UIView *)contentSnapshot;
 - (struct CGRect)visibleContentRectInCoordinateSpace:(id <UICoordinateSpace>)arg1;
 - (struct CGRect)visibleContentRect;
 - (struct CGSize)idealContentSizeForScreenSize:(struct CGSize)arg1 windowDecorationSize:(struct CGSize)arg2;
 - (struct CGSize)contentSize;
+- (void)loadContentWithCompletionBlock:(void (^)(void))arg1;
 - (void)uninstallAllAnnotationControllerOverlays;
 - (void)teardown;
 - (void)setup;

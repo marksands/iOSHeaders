@@ -6,23 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, PDFDocument, PDFDocumentContentView, PageImagePool;
-@protocol PDFPageVisibilityDelegate;
+@class NSMutableDictionary, PDFDocument, PDFDocumentContentView, PDFRenderingProperties, PDFView, PageImagePool;
 
+__attribute__((visibility("hidden")))
 @interface PDFDocumentViewPrivate : NSObject
 {
+    PDFView *pdfView;
     PDFDocument *document;
-    long long displayBox;
+    PDFRenderingProperties *renderingProperties;
     struct CGSize documentViewSize;
     PDFDocumentContentView *contentView;
     NSMutableDictionary *pageViews;
     NSMutableDictionary *pageFrames;
     PageImagePool *pageImagePool;
-    id <PDFPageVisibilityDelegate> viewVisibilityDelegate;
     _Bool ignoreChangedBoundsForBoxNotification;
-    _Bool m_enablePageShadows;
-    _Bool shouldAntiAlias;
-    _Bool forceUseMainThread;
+    _Bool showTextSelectionHandles;
 }
 
 - (void).cxx_destruct;

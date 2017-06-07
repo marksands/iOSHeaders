@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOResourceManifestTileGroupObserver-Protocol.h>
 
 @class NSCache, NSLock, NSMutableArray, NSString;
-@protocol _GEOLocationShifterProxy;
+@protocol OS_dispatch_queue, _GEOLocationShifterProxy;
 
 @interface GEOLocationShifter : NSObject <GEOResourceManifestTileGroupObserver>
 {
@@ -19,12 +19,15 @@
     NSMutableArray *_locationsToShift;
     NSCache *_shiftFunctionCache;
     int _resetPrivacyToken;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (_Bool)isLocationShiftEnabled;
++ (_Bool)isLocationShiftRequiredForRegion:(id)arg1;
 + (_Bool)isLocationShiftRequiredForCoordinate:(CDStruct_c3b9c2ee)arg1;
 + (unsigned int)locationShiftFunctionVersion;
 + (void)useLocalProxy;
+- (void).cxx_destruct;
 - (_Bool)_shiftLocation:(id)arg1;
 - (void)_fetchShiftFunctionForCoordinate:(CDStruct_c3b9c2ee)arg1 withCompletionHandler:(CDUnknownBlockType)arg2 callbackQueue:(id)arg3;
 - (_Bool)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 accuracy:(double)arg2 shiftedCoordinate:(CDStruct_c3b9c2ee *)arg3 shiftedAccuracy:(double *)arg4;

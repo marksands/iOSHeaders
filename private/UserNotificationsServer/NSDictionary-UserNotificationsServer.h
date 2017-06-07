@@ -7,7 +7,7 @@
 #import <Foundation/NSDictionary.h>
 
 @interface NSDictionary (UserNotificationsServer)
-- (id)uns_nonNilStringForKey:(id)arg1;
+- (id)uns_safeCastNonNilStringForKey:(id)arg1;
 - (id)uns_nonNilDictionaryForKey:(id)arg1;
 - (id)uns_nonNilArrayForKey:(id)arg1;
 - (CDStruct_1b6d18a9)uns_CMTimeForKey:(id)arg1;

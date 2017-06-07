@@ -6,9 +6,12 @@
 
 #import <NewsCore/NSObject-Protocol.h>
 
-@class NSArray, NSDate, NSString;
+@class COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort, NSArray, NSDate, NSString;
 
 @protocol FCFeedPersonalizingArticle <NSObject>
+@property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *publisherCohort;
+@property(readonly, nonatomic) COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *globalCohort;
+@property(readonly, nonatomic) _Bool hasVideo;
 @property(readonly, nonatomic, getter=isPaid) _Bool paid;
 @property(readonly, nonatomic) unsigned long long articleContentType;
 @property(readonly, nonatomic) _Bool hasGlobalUserFeedback;
@@ -19,5 +22,6 @@
 @property(readonly, copy, nonatomic) NSDate *publishDate;
 @property(readonly, copy, nonatomic) NSString *articleID;
 @property(readonly, copy, nonatomic) NSString *sourceFeedID;
+- (void)enumerateTopicCohortsWithBlock:(void (^)(NSString *, COMAPPLEFELDSPARPROTOCOLLIVERPOOLCohort *))arg1;
 @end
 

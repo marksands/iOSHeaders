@@ -9,6 +9,7 @@
 @protocol IMServiceSessionProtocol
 
 @optional
+- (void)closeSessionChatID:(NSString *)arg1 identifier:(NSString *)arg2 style:(unsigned char)arg3;
 - (void)enrollSelfDeviceInSMSRelay;
 - (void)unEnrollDeviceInSMSRelay:(NSString *)arg1;
 - (void)enrollDeviceInSMSRelay:(NSString *)arg1;
@@ -26,6 +27,7 @@
 - (void)cancelVCRequestWithPerson:(NSString *)arg1 properties:(NSDictionary *)arg2 conference:(NSString *)arg3 reason:(NSNumber *)arg4;
 - (void)respondToVCInvitationWithPerson:(NSString *)arg1 properties:(NSDictionary *)arg2 conference:(NSString *)arg3;
 - (void)requestVCWithPerson:(NSString *)arg1 properties:(NSDictionary *)arg2 conference:(NSString *)arg3;
+- (void)sendDeleteCommand:(NSDictionary *)arg1 forChatGUID:(NSString *)arg2;
 - (void)sendCommand:(NSNumber *)arg1 withProperties:(NSDictionary *)arg2 toPerson:(NSString *)arg3 toChatID:(NSString *)arg4 identifier:(NSString *)arg5 style:(unsigned char)arg6;
 - (void)sendCommand:(NSNumber *)arg1 withProperties:(NSDictionary *)arg2 toPerson:(NSString *)arg3;
 - (void)sendFileTransfer:(IMFileTransfer *)arg1 toPerson:(NSString *)arg2;

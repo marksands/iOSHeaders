@@ -32,7 +32,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isHomogeneous;
 - (id)renderers;
 - (id)animationFiltersWithDefaultFilters:(id)arg1;
-- (id)sceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_339a9a6e)arg2;
+- (id)sceneWithChartInfo:(id)arg1 layoutSettings:(CDStruct_44ada6bf)arg2;
 - (Class)stageClass;
 - (id)categoryLabelPositioner;
 - (id)valueLabelPositioner;

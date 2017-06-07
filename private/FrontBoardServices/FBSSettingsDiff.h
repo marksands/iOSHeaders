@@ -31,6 +31,7 @@
 - (void)inspectOtherChangesWithBlock:(CDUnknownBlockType)arg1;
 - (void)inspectChangesWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, copy) NSString *description;
+- (void)evaluateWithInspector:(id)arg1 context:(void *)arg2;
 - (void)dealloc;
 - (id)init;
 - (id)_initWithChanges:(id)arg1 otherSettingsDiff:(id)arg2 settingsClass:(Class)arg3;

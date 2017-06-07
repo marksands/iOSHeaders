@@ -15,9 +15,11 @@
     UIImage *_modularSmallImage;
     UIImage *_utilitarianSmallImage;
     UIImage *_circularSmallImage;
+    UIImage *_extraLargeImage;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) UIImage *extraLargeImage; // @synthesize extraLargeImage=_extraLargeImage;
 @property(retain, nonatomic) UIImage *circularSmallImage; // @synthesize circularSmallImage=_circularSmallImage;
 @property(retain, nonatomic) UIImage *utilitarianSmallImage; // @synthesize utilitarianSmallImage=_utilitarianSmallImage;
 @property(retain, nonatomic) UIImage *modularSmallImage; // @synthesize modularSmallImage=_modularSmallImage;

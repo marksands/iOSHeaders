@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     _Bool _isDelete;
     _Bool _saveCompletionBlockCalled;
     _Bool _needsRefetch;
+    _Bool _didRollRecordPCSMasterKey;
     int _saveAttempts;
     CKDModifyRecordsOperation *_operation;
     CKRecord *_record;
@@ -33,6 +34,7 @@ __attribute__((visibility("hidden")))
 + (id)_stringForState:(unsigned long long)arg1;
 + (id)modifyHandlerForDeleteWithRecordID:(id)arg1 operation:(id)arg2;
 + (id)modifyHandlerWithRecord:(id)arg1 operation:(id)arg2;
+@property(nonatomic) _Bool didRollRecordPCSMasterKey; // @synthesize didRollRecordPCSMasterKey=_didRollRecordPCSMasterKey;
 @property(retain, nonatomic) CKRecordID *recordID; // @synthesize recordID=_recordID;
 @property(nonatomic) _Bool needsRefetch; // @synthesize needsRefetch=_needsRefetch;
 @property(nonatomic) _Bool saveCompletionBlockCalled; // @synthesize saveCompletionBlockCalled=_saveCompletionBlockCalled;
@@ -50,12 +52,14 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) CKRecord *record; // @synthesize record=_record;
 @property(nonatomic) __weak CKDModifyRecordsOperation *operation; // @synthesize operation=_operation;
 - (void).cxx_destruct;
+- (void)_clearRecordProtectionDataForRecord;
 - (void)clearProtectionDataForRecord;
 - (void)savePCSDataToCache;
 - (_Bool)_wrapEncryptedDataOnRecord:(id)arg1;
-- (_Bool)_wrapEncryptedData:(id)arg1 withPCS:(struct _OpaquePCSShareProtection *)arg2 forField:(id)arg3;
+- (_Bool)_wrapEncryptedDataForRecordValueStore:(id)arg1 withPCS:(struct _OpaquePCSShareProtection *)arg2;
+- (void)_pretendToWrapEncryptedDataForRecordValueStore:(id)arg1;
+- (_Bool)_wrapEncryptedData:(id)arg1 withPCS:(struct _OpaquePCSShareProtection *)arg2 forField:(id)arg3 recordID:(id)arg4;
 - (void)prepareForSave;
-- (id)_wrapAssetKey:(id)arg1 forRecord:(id)arg2 withError:(id *)arg3;
 - (_Bool)_prepareAsset:(id)arg1 recordKey:(id)arg2 record:(id)arg3 error:(id *)arg4;
 - (id)prepareAssetsForUploadWithError:(id *)arg1;
 - (void)fetchSharePCSData;

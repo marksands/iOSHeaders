@@ -10,6 +10,7 @@
 @protocol NCNotificationStaticContentProvidingDelegate;
 
 @protocol NCNotificationStaticContentProviding <NSObject>
+@property(readonly, nonatomic) _Bool showsTextInputOnAppearance;
 @property(readonly, nonatomic) unsigned long long messageNumberOfLines;
 @property(readonly, nonatomic) NSArray *interfaceActions;
 @property(readonly, copy, nonatomic) CDUnknownBlockType defaultAction;
@@ -17,7 +18,6 @@
 @property(readonly, copy, nonatomic) CDUnknownBlockType clearAction;
 @property(readonly, copy, nonatomic) CDUnknownBlockType cancelAction;
 @property(readonly, nonatomic) UIImage *thumbnail;
-@property(readonly, copy, nonatomic) NSString *hintText;
 @property(readonly, copy, nonatomic) NSString *secondaryText;
 @property(readonly, copy, nonatomic) NSString *primarySubtitleText;
 @property(readonly, copy, nonatomic) NSString *primaryText;

@@ -31,6 +31,7 @@
 @property(nonatomic) double transactionTimestamp; // @synthesize transactionTimestamp=_transactionTimestamp;
 @property(retain, nonatomic) NSString *merchantCode; // @synthesize merchantCode=_merchantCode;
 @property(retain, nonatomic) NSString *paymentNetwork; // @synthesize paymentNetwork=_paymentNetwork;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -47,7 +48,6 @@
 @property(nonatomic) _Bool hasTransactionTimestamp;
 @property(readonly, nonatomic) _Bool hasMerchantCode;
 @property(readonly, nonatomic) _Bool hasPaymentNetwork;
-- (void)dealloc;
 
 @end
 

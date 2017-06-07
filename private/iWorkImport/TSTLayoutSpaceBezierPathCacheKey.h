@@ -24,7 +24,6 @@ __attribute__((visibility("hidden")))
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 
 @end
 

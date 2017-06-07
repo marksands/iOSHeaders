@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 @class NSArray, NSNumber;
 
-@interface HAPMetadataCharacteristicValue : NSObject
+@interface HAPMetadataCharacteristicValue : HMFObject
 {
     NSNumber *_minValue;
     NSNumber *_maxValue;

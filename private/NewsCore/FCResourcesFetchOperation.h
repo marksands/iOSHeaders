@@ -22,9 +22,10 @@
 @property(readonly, nonatomic) NSArray *resourceIDs; // @synthesize resourceIDs=_resourceIDs;
 @property(nonatomic) _Bool shouldDownloadAssets; // @synthesize shouldDownloadAssets=_shouldDownloadAssets;
 - (void).cxx_destruct;
+- (_Bool)_shoudUsePermanentURLForResourceID:(id)arg1;
 - (id)completeFetchOperation;
 - (id)downloadAssetsWithCompletion:(CDUnknownBlockType)arg1;
-- (id)fetchResourceRecordsWithCompletion:(CDUnknownBlockType)arg1;
+- (id)fetchResourcesWithCompletion:(CDUnknownBlockType)arg1;
 - (id)initWithContext:(id)arg1 resourceURLs:(id)arg2;
 - (id)initWithContext:(id)arg1 resourceIDs:(id)arg2;
 - (id)init;

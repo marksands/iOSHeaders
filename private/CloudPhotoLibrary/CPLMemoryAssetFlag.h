@@ -11,17 +11,20 @@
 @interface CPLMemoryAssetFlag : PBCodable <NSCopying>
 {
     _Bool _isCurated;
+    _Bool _isExtendedCurated;
     _Bool _isKeyAsset;
     _Bool _isMovieCurated;
     _Bool _isRepresentative;
     struct {
         unsigned int isCurated:1;
+        unsigned int isExtendedCurated:1;
         unsigned int isKeyAsset:1;
         unsigned int isMovieCurated:1;
         unsigned int isRepresentative:1;
     } _has;
 }
 
+@property(nonatomic) _Bool isExtendedCurated; // @synthesize isExtendedCurated=_isExtendedCurated;
 @property(nonatomic) _Bool isKeyAsset; // @synthesize isKeyAsset=_isKeyAsset;
 @property(nonatomic) _Bool isMovieCurated; // @synthesize isMovieCurated=_isMovieCurated;
 @property(nonatomic) _Bool isCurated; // @synthesize isCurated=_isCurated;
@@ -35,6 +38,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasIsExtendedCurated;
 @property(nonatomic) _Bool hasIsKeyAsset;
 @property(nonatomic) _Bool hasIsMovieCurated;
 @property(nonatomic) _Bool hasIsCurated;

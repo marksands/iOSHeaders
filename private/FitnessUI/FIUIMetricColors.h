@@ -23,6 +23,10 @@
 
 + (id)keyColors;
 + (id)deepBreathingColors;
++ (id)cadenceColors;
++ (id)stepColors;
++ (id)powerColors;
++ (id)flightsClimbedColors;
 + (id)elevationColors;
 + (id)lapColors;
 + (id)clockColors;

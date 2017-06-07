@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <HMFoundation/HMFObject.h>
 
 #import <HomeKitDaemon/HMFTimerDelegate-Protocol.h>
 
-@class HMFTimer, NSHashTable, NSString;
+@class HMFTimer, NSHashTable, NSObject, NSString;
 @protocol OS_dispatch_queue;
 
-@interface HMDTimeInformationMonitor : NSObject <HMFTimerDelegate>
+@interface HMDTimeInformationMonitor : HMFObject <HMFTimerDelegate>
 {
     HMFTimer *_expirationTimer;
     NSHashTable *_delegates;

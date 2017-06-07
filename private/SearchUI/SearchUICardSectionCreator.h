@@ -10,11 +10,13 @@
 {
 }
 
-+ (id)precalculateGridDataForSections:(id)arg1;
++ (id)gridLayoutsForCardSections:(id)arg1;
 + (id)createCardSectionViewsWithController:(id)arg1 style:(unsigned long long)arg2 ForSections:(id)arg3;
-+ (void)createCardSectionViewForResult:(id)arg1 style:(unsigned long long)arg2 controller:(id)arg3 completion:(CDUnknownBlockType)arg4;
-+ (void)createCardSectionViewForResult:(id)arg1 style:(unsigned long long)arg2 completion:(CDUnknownBlockType)arg3;
-+ (void)createCardSectionViewForResult:(id)arg1 controller:(id)arg2 completion:(CDUnknownBlockType)arg3;
++ (id)viewForCardSection:(id)arg1 withController:(id)arg2 style:(unsigned long long)arg3;
++ (Class)classForCardViewSection:(id)arg1;
++ (id)viewsForCardSections:(id)arg1 style:(unsigned long long)arg2;
++ (id)viewForCardSection:(id)arg1 style:(unsigned long long)arg2;
++ (void)createCardSectionViewsForCard:(id)arg1 controller:(id)arg2 style:(unsigned long long)arg3 completion:(CDUnknownBlockType)arg4;
 
 @end
 

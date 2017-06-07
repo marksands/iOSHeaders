@@ -29,13 +29,13 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) unsigned long long albumType; // @synthesize albumType=_albumType;
 - (void).cxx_destruct;
-- (_Bool)supportsDeletion;
 - (id)propertiesDescription;
 - (void)setRelatedIdentifier:(id)arg1;
 - (id)relatedIdentifier;
 - (id)translateToClientChangeUsingIDMapping:(id)arg1 error:(id *)arg2;
 - (id)translateToCloudChangeUsingIDMapping:(id)arg1 error:(id *)arg2;
 - (id)identifiersForMapping;
+- (_Bool)validateRecordForTracker:(id)arg1;
 
 @end
 

@@ -11,7 +11,6 @@ __attribute__((visibility("hidden")))
 {
 }
 
-+ (struct CGImage *)newCGImageFromGL;
 + (id)brushProgram;
 + (id)sharedContext;
 + (void)loadSectionsForBrush:(id)arg1 inSVGDoc:(struct _xmlDoc *)arg2;
@@ -21,6 +20,7 @@ __attribute__((visibility("hidden")))
 + (void)loadBrush:(id)arg1;
 + (id)cacheDirectory;
 + (Class)mutableClass;
+- (struct CGImage *)newCGImageFromGLWithColorSpace:(struct CGColorSpace *)arg1;
 - (void)brushPath:(struct CGPath *)arg1 inContext:(struct CGContext *)arg2 parameterized:(_Bool)arg3 drawWithOpenGL:(_Bool)arg4 shouldReverseDrawOrder:(_Bool)arg5;
 - (void)brushPath:(id)arg1 withScaling:(CDStruct_c3b9c2ee)arg2 inElementRange:(struct _NSRange)arg3 intoPath:(id)arg4 orIntoVector:(vector_b5dead7b *)arg5 sectionIndex:(unsigned long long *)arg6 viewScale:(double)arg7;
 - (void)brushSection:(id)arg1 sectionIndex:(unsigned long long)arg2 ontoPath:(id)arg3 withScaling:(CDStruct_c3b9c2ee)arg4 inElementRange:(struct _NSRange)arg5 intoPath:(id)arg6 orIntoVector:(vector_b5dead7b *)arg7 viewScale:(double)arg8;
@@ -43,7 +43,6 @@ __attribute__((visibility("hidden")))
 - (id)strokeLineEnd:(id)arg1;
 - (double)suggestedMinimumLineWidth;
 - (double)lineEndInsetAdjustment;
-- (struct CGImage *)maskForId:(id)arg1;
 - (id)brushBoundsForId:(id)arg1;
 - (id)brushPathsForId:(id)arg1;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;

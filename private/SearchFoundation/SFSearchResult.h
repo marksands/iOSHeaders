@@ -8,11 +8,12 @@
 
 #import <SearchFoundation/NSCopying-Protocol.h>
 #import <SearchFoundation/NSSecureCoding-Protocol.h>
+#import <SearchFoundation/SFJSONSerializable-Protocol.h>
 #import <SearchFoundation/SFSearchResult-Protocol.h>
 
 @class NSArray, NSData, NSDictionary, NSNumber, NSString, NSURL, SFActionItem, SFCard, SFCustom, SFImage, SFMoreResults, SFPunchout, SFText;
 
-@interface SFSearchResult : NSObject <SFSearchResult, NSSecureCoding, NSCopying>
+@interface SFSearchResult : NSObject <SFJSONSerializable, SFSearchResult, NSSecureCoding, NSCopying>
 {
     _Bool _preventThumbnailImageScaling;
     _Bool _isSecondaryTitleDetached;
@@ -23,6 +24,10 @@
     _Bool _isStreaming;
     _Bool _isStaticCorrection;
     _Bool _publiclyIndexable;
+    int _auxiliaryBottomTextColor;
+    int _topHit;
+    int _placement;
+    int _type;
     NSString *_identifier;
     SFImage *_thumbnail;
     SFText *_title;
@@ -38,7 +43,6 @@
     NSString *_auxiliaryTopText;
     NSString *_auxiliaryMiddleText;
     NSString *_auxiliaryBottomText;
-    unsigned long long _auxiliaryBottomTextColor;
     SFActionItem *_action;
     SFPunchout *_punchout;
     NSString *_storeIdentifier;
@@ -57,13 +61,10 @@
     NSString *_applicationBundleIdentifier;
     NSString *_sectionBundleIdentifier;
     NSString *_userActivityRequiredString;
-    unsigned long long _topHit;
     NSString *_sectionHeader;
     NSString *_sectionHeaderMore;
     NSURL *_sectionHeaderMoreURL;
     double _rankingScore;
-    unsigned long long _placement;
-    unsigned long long _type;
     unsigned long long _minimumRankOfTopHitToSuppressResult;
     NSString *_mediaType;
     double _serverScore;
@@ -86,9 +87,19 @@
     NSString *_correctedQuery;
     NSString *_completedQuery;
     unsigned long long _queryId;
+    NSString *_userInput;
+    NSArray *_itemProviderDataTypes;
+    NSArray *_itemProviderFileTypes;
+    NSString *_fbr;
+    NSString *_srf;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(copy, nonatomic) NSString *srf; // @synthesize srf=_srf;
+@property(copy, nonatomic) NSString *fbr; // @synthesize fbr=_fbr;
+@property(copy, nonatomic) NSArray *itemProviderFileTypes; // @synthesize itemProviderFileTypes=_itemProviderFileTypes;
+@property(copy, nonatomic) NSArray *itemProviderDataTypes; // @synthesize itemProviderDataTypes=_itemProviderDataTypes;
+@property(copy, nonatomic) NSString *userInput; // @synthesize userInput=_userInput;
 @property(nonatomic) _Bool publiclyIndexable; // @synthesize publiclyIndexable=_publiclyIndexable;
 @property(nonatomic) unsigned long long queryId; // @synthesize queryId=_queryId;
 @property(copy, nonatomic) NSString *completedQuery; // @synthesize completedQuery=_completedQuery;
@@ -115,14 +126,14 @@
 @property(nonatomic) double serverScore; // @synthesize serverScore=_serverScore;
 @property(copy, nonatomic) NSString *mediaType; // @synthesize mediaType=_mediaType;
 @property(nonatomic) unsigned long long minimumRankOfTopHitToSuppressResult; // @synthesize minimumRankOfTopHitToSuppressResult=_minimumRankOfTopHitToSuppressResult;
-@property(nonatomic) unsigned long long type; // @synthesize type=_type;
-@property(nonatomic) unsigned long long placement; // @synthesize placement=_placement;
+@property(nonatomic) int type; // @synthesize type=_type;
+@property(nonatomic) int placement; // @synthesize placement=_placement;
 @property(nonatomic) double rankingScore; // @synthesize rankingScore=_rankingScore;
 @property(nonatomic) _Bool renderHorizontallyWithOtherResultsInCategory; // @synthesize renderHorizontallyWithOtherResultsInCategory=_renderHorizontallyWithOtherResultsInCategory;
 @property(copy, nonatomic) NSURL *sectionHeaderMoreURL; // @synthesize sectionHeaderMoreURL=_sectionHeaderMoreURL;
 @property(copy, nonatomic) NSString *sectionHeaderMore; // @synthesize sectionHeaderMore=_sectionHeaderMore;
 @property(copy, nonatomic) NSString *sectionHeader; // @synthesize sectionHeader=_sectionHeader;
-@property(nonatomic) unsigned long long topHit; // @synthesize topHit=_topHit;
+@property(nonatomic) int topHit; // @synthesize topHit=_topHit;
 @property(copy, nonatomic) NSString *userActivityRequiredString; // @synthesize userActivityRequiredString=_userActivityRequiredString;
 @property(nonatomic) _Bool isLocalApplicationResult; // @synthesize isLocalApplicationResult=_isLocalApplicationResult;
 @property(copy, nonatomic) NSString *sectionBundleIdentifier; // @synthesize sectionBundleIdentifier=_sectionBundleIdentifier;
@@ -142,7 +153,7 @@
 @property(copy, nonatomic) NSString *storeIdentifier; // @synthesize storeIdentifier=_storeIdentifier;
 @property(retain, nonatomic) SFPunchout *punchout; // @synthesize punchout=_punchout;
 @property(retain, nonatomic) SFActionItem *action; // @synthesize action=_action;
-@property(nonatomic) unsigned long long auxiliaryBottomTextColor; // @synthesize auxiliaryBottomTextColor=_auxiliaryBottomTextColor;
+@property(nonatomic) int auxiliaryBottomTextColor; // @synthesize auxiliaryBottomTextColor=_auxiliaryBottomTextColor;
 @property(copy, nonatomic) NSString *auxiliaryBottomText; // @synthesize auxiliaryBottomText=_auxiliaryBottomText;
 @property(copy, nonatomic) NSString *auxiliaryMiddleText; // @synthesize auxiliaryMiddleText=_auxiliaryMiddleText;
 @property(copy, nonatomic) NSString *auxiliaryTopText; // @synthesize auxiliaryTopText=_auxiliaryTopText;
@@ -165,6 +176,14 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

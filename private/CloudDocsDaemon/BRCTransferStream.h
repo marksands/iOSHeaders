@@ -7,12 +7,13 @@
 #import <objc/NSObject.h>
 
 #import <CloudDocsDaemon/BRCLifeCycle-Protocol.h>
+#import <CloudDocsDaemon/BRCSuspendable-Protocol.h>
 
 @class BRCAccountSession, BRCDeadlineSource, BRCSyncContext, NSArray, NSMutableDictionary, NSString;
 @protocol OS_dispatch_group, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
-@interface BRCTransferStream : NSObject <BRCLifeCycle>
+@interface BRCTransferStream : NSObject <BRCLifeCycle, BRCSuspendable>
 {
     BRCAccountSession *_session;
     BRCSyncContext *_syncContext;
@@ -35,9 +36,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
 @property(copy, nonatomic) CDUnknownBlockType streamDidBecomeReadyToTransferRecords; // @synthesize streamDidBecomeReadyToTransferRecords=_streamDidBecomeReadyToTransferRecords;
 - (void).cxx_destruct;
+- (void)suspend;
 - (void)close;
 - (void)cancel;
-- (void)suspend;
 - (void)resume;
 - (double)progressForTransferID:(id)arg1 operationID:(id)arg2;
 - (void)addAliasItem:(id)arg1 toTransferWithID:(id)arg2 operationID:(id)arg3;

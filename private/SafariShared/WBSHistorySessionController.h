@@ -25,7 +25,7 @@
 - (void)_dispatchHistorySessionsDidChangeNotification;
 - (void)_loadSessionCache;
 - (void)_clearSessionCache;
-- (void)_removeItemFromSessionCache:(id)arg1;
+- (void)_removeItemsFromSessionCache:(id)arg1;
 - (void)_addItemToSessionCache:(id)arg1;
 - (void)_insertItem:(id)arg1 withSessionKey:(id)arg2;
 - (_Bool)_getKey:(id *)arg1 forDate:(double)arg2;

@@ -36,6 +36,7 @@
 - (id)description;
 - (id)initWithLabel:(unsigned short)arg1 sourceNode:(id)arg2 targetNode:(id)arg3 domain:(unsigned short)arg4 weight:(float)arg5;
 - (id)init;
+- (_Bool)conformsToEdgeSchema:(id)arg1;
 
 @end
 

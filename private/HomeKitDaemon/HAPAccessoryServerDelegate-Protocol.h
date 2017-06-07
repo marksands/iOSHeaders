@@ -6,16 +6,16 @@
 
 #import <HomeKitDaemon/NSObject-Protocol.h>
 
-@class HAPAccessoryServer, HAPOSTransaction, NSArray, NSError, NSNumber, NSString;
+@class HAPAccessoryServer, HMFOSTransaction, NSArray, NSError, NSNumber, NSString;
 
 @protocol HAPAccessoryServerDelegate <NSObject>
 - (void)accessoryServer:(HAPAccessoryServer *)arg1 didUpdateName:(NSString *)arg2;
 - (void)accessoryServer:(HAPAccessoryServer *)arg1 didUpdateCategory:(NSNumber *)arg2;
 - (void)accessoryServerDidUpdateStateNumber:(HAPAccessoryServer *)arg1;
 - (void)accessoryServer:(HAPAccessoryServer *)arg1 didUpdateHasPairings:(_Bool)arg2;
-- (void)accessoryServer:(HAPAccessoryServer *)arg1 didUpdateValuesForCharacteristics:(NSArray *)arg2 stateNumber:(NSNumber *)arg3;
+- (void)accessoryServer:(HAPAccessoryServer *)arg1 didUpdateValuesForCharacteristics:(NSArray *)arg2 stateNumber:(NSNumber *)arg3 broadcast:(_Bool)arg4;
 - (void)accessoryServer:(HAPAccessoryServer *)arg1 isBlockedWithCompletionHandler:(void (^)(_Bool))arg2;
-- (void)accessoryServer:(HAPAccessoryServer *)arg1 didDiscoverAccessories:(NSArray *)arg2 transaction:(HAPOSTransaction *)arg3 error:(NSError *)arg4;
+- (void)accessoryServer:(HAPAccessoryServer *)arg1 didDiscoverAccessories:(NSArray *)arg2 transaction:(HMFOSTransaction *)arg3 error:(NSError *)arg4;
 - (void)accessoryServer:(HAPAccessoryServer *)arg1 didStopPairingWithError:(NSError *)arg2;
 - (void)accessoryServer:(HAPAccessoryServer *)arg1 didReceiveBadPasswordThrottleAttemptsWithDelay:(long long)arg2;
 - (void)accessoryServer:(HAPAccessoryServer *)arg1 requestUserPermission:(long long)arg2;

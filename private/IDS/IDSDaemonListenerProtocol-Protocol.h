@@ -52,9 +52,19 @@
 - (void)localDeviceInfo:(NSDictionary *)arg1;
 - (void)xpcObject:(NSObject<OS_xpc_object> *)arg1 objectContext:(NSDictionary *)arg2;
 - (void)openedSocket:(NSObject<OS_xpc_object> *)arg1 forHandlerID:(NSString *)arg2 error:(NSError *)arg3;
+- (void)allocationDone:(NSString *)arg1 sessionInfo:(NSDictionary *)arg2;
+- (void)groupStatusNotifier:(NSString *)arg1 didUpdateEvents:(NSSet *)arg2 forGroupID:(NSString *)arg3;
+- (void)groupStatusNotifier:(NSString *)arg1 didUpdateActiveGroup:(NSDictionary *)arg2;
+- (void)groupStatusNotifier:(NSString *)arg1 didUpdateActiveGroups:(NSSet *)arg2;
+- (void)session:(NSString *)arg1 didGetGroupSessionParticipants:(NSArray *)arg2 requestID:(NSNumber *)arg3 error:(NSNumber *)arg4;
+- (void)session:(NSString *)arg1 participantDidLeaveGroupWithInfo:(NSDictionary *)arg2;
+- (void)session:(NSString *)arg1 participantDidJoinGroupWithInfo:(NSDictionary *)arg2;
+- (void)sessionDidLeaveGroup:(NSString *)arg1 error:(NSError *)arg2;
+- (void)sessionDidJoinGroup:(NSString *)arg1 participantsInfo:(NSArray *)arg2 error:(NSError *)arg3;
 - (void)session:(NSString *)arg1 muted:(_Bool)arg2;
 - (void)session:(NSString *)arg1 audioEnabled:(_Bool)arg2;
 - (void)session:(NSString *)arg1 invitationSentToTokens:(NSSet *)arg2 shouldBreakBeforeMake:(_Bool)arg3;
+- (void)groupSessionEnded:(NSString *)arg1 withReason:(unsigned int)arg2 error:(NSError *)arg3;
 - (void)sessionEnded:(NSString *)arg1 withReason:(unsigned int)arg2 error:(NSError *)arg3;
 - (void)sessionStarted:(NSString *)arg1;
 - (void)sessionEndReceived:(NSString *)arg1 fromID:(NSString *)arg2 withData:(NSData *)arg3;
@@ -68,6 +78,7 @@
 - (void)account:(NSString *)arg1 localDeviceAdded:(NSDictionary *)arg2;
 - (void)account:(NSString *)arg1 dependentDevicesUpdatedUponReconnect:(NSArray *)arg2;
 - (void)account:(NSString *)arg1 dependentDevicesUpdated:(NSArray *)arg2;
+- (void)updateDeviceIdentity:(NSData *)arg1 error:(NSError *)arg2;
 - (void)refreshRegistrationForAccount:(NSString *)arg1;
 - (void)registrationFailedForAccount:(NSString *)arg1 needsDeletion:(NSNumber *)arg2;
 - (void)account:(NSString *)arg1 displayNameChanged:(NSString *)arg2;
@@ -84,6 +95,9 @@
 - (void)accountUpdated:(NSDictionary *)arg1;
 - (void)accountRemoved:(NSDictionary *)arg1;
 - (void)accountAdded:(NSDictionary *)arg1;
+- (void)checkTransportLogWithReason:(long long)arg1;
+- (void)engramDataReceived:(NSDictionary *)arg1 withGUID:(NSString *)arg2 forTopic:(NSString *)arg3 toIdentifier:(NSString *)arg4 fromID:(NSString *)arg5 context:(NSDictionary *)arg6;
+- (void)groupShareReceived:(NSData *)arg1 withGUID:(NSString *)arg2 forTopic:(NSString *)arg3 toIdentifier:(NSString *)arg4 fromID:(NSString *)arg5 context:(NSDictionary *)arg6;
 - (void)OTRTestCallback:(NSString *)arg1 time:(double)arg2 error:(NSError *)arg3;
 - (void)protobufReceived:(NSDictionary *)arg1 withGUID:(NSString *)arg2 forTopic:(NSString *)arg3 toIdentifier:(NSString *)arg4 fromID:(NSString *)arg5 context:(NSDictionary *)arg6;
 - (void)messageIdentifier:(NSString *)arg1 forTopic:(NSString *)arg2 toIdentifier:(NSString *)arg3 hasBeenDeliveredWithContext:(NSDictionary *)arg4;

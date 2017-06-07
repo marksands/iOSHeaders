@@ -15,6 +15,7 @@
 + (id)tombstoneWithComplication:(id)arg1;
 @property(readonly, nonatomic) NTKComplication *complication; // @synthesize complication=_complication;
 - (void).cxx_destruct;
+- (void)_addKeysToJSONDictionary:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

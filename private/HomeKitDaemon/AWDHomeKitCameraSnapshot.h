@@ -12,15 +12,15 @@
 
 @interface AWDHomeKitCameraSnapshot : PBCodable <NSCopying>
 {
-    unsigned long long _receivedSnapshotFromAccessory;
-    unsigned long long _sentSnapshotRequestToAccessory;
     unsigned long long _timestamp;
     AWDHomeKitCameraSnapshotMessaging *_controllerMessaging;
     unsigned int _errorCode;
     AWDHomeKitCameraIDSSessionSetup *_idsSessionSetup;
     AWDHomeKitCameraSnapshotIDSTransfer *_phoneToWatch;
+    unsigned int _receivedSnapshotFromAccessory;
     AWDHomeKitCameraSnapshotMessaging *_residentMessaging;
     AWDHomeKitCameraSnapshotIDSTransfer *_residentToPhone;
+    unsigned int _sentSnapshotRequestToAccessory;
     NSString *_sessionID;
     unsigned int _underlyingErrorCode;
     NSString *_underlyingErrorDomain;
@@ -29,10 +29,10 @@
     _Bool _forNotification;
     _Bool _isLocal;
     struct {
-        unsigned int receivedSnapshotFromAccessory:1;
-        unsigned int sentSnapshotRequestToAccessory:1;
         unsigned int timestamp:1;
         unsigned int errorCode:1;
+        unsigned int receivedSnapshotFromAccessory:1;
+        unsigned int sentSnapshotRequestToAccessory:1;
         unsigned int underlyingErrorCode:1;
         unsigned int forNotification:1;
         unsigned int isLocal:1;
@@ -46,8 +46,8 @@
 @property(retain, nonatomic) AWDHomeKitCameraSnapshotMessaging *residentMessaging; // @synthesize residentMessaging=_residentMessaging;
 @property(retain, nonatomic) AWDHomeKitCameraSnapshotMessaging *controllerMessaging; // @synthesize controllerMessaging=_controllerMessaging;
 @property(retain, nonatomic) AWDHomeKitCameraSnapshotMessaging *watchMessaging; // @synthesize watchMessaging=_watchMessaging;
-@property(nonatomic) unsigned long long receivedSnapshotFromAccessory; // @synthesize receivedSnapshotFromAccessory=_receivedSnapshotFromAccessory;
-@property(nonatomic) unsigned long long sentSnapshotRequestToAccessory; // @synthesize sentSnapshotRequestToAccessory=_sentSnapshotRequestToAccessory;
+@property(nonatomic) unsigned int receivedSnapshotFromAccessory; // @synthesize receivedSnapshotFromAccessory=_receivedSnapshotFromAccessory;
+@property(nonatomic) unsigned int sentSnapshotRequestToAccessory; // @synthesize sentSnapshotRequestToAccessory=_sentSnapshotRequestToAccessory;
 @property(retain, nonatomic) AWDHomeKitCameraIDSSessionSetup *idsSessionSetup; // @synthesize idsSessionSetup=_idsSessionSetup;
 @property(nonatomic) _Bool forNotification; // @synthesize forNotification=_forNotification;
 @property(nonatomic) _Bool isLocal; // @synthesize isLocal=_isLocal;

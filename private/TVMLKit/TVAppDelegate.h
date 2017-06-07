@@ -28,6 +28,7 @@
 - (void)_presetDialogWithError:(long long)arg1 appController:(id)arg2;
 - (void)_controllerDidDisplay:(id)arg1;
 - (id)_launchContext;
+- (void)_runScrollMoveTest:(id)arg1;
 - (id)launchOptionsWithDefaultOptions:(id)arg1;
 - (void)appController:(id)arg1 didFailWithError:(id)arg2;
 - (void)appController:(id)arg1 evaluateAppJavaScriptInContext:(id)arg2;

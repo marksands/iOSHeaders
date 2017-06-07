@@ -17,6 +17,7 @@
 @property(retain, nonatomic) NWPathEvaluator *evaluator; // @synthesize evaluator=_evaluator;
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)registerNetworkMonitorLaunchEvent:(_Bool)arg1;
 - (_Bool)isNetworkUp;
 - (_Bool)isMonitoring;
 - (void)stopMonitoring;

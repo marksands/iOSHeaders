@@ -10,26 +10,17 @@
 #import <CoreSuggestions/_SGSuggestionsServiceEventsConfirmRejectProtocol-Protocol.h>
 #import <CoreSuggestions/_SGSuggestionsServiceEventsObserverProtocol-Protocol.h>
 
-@class CSSearchableItem, NSArray, NSData, NSString;
+@class CSSearchableItem, NSArray;
 
 @protocol SGSuggestionsServiceMailProtocol <_SGSuggestionsServiceBaseProtocol, _SGSuggestionsServiceEventsConfirmRejectProtocol, _SGSuggestionsServiceContactsConfirmRejectProtocol, _SGSuggestionsServiceContactsObserverProtocol, _SGSuggestionsServiceEventsObserverProtocol>
 - (void)resolveFullDownloadRequests:(NSArray *)arg1 withCompletion:(void (^)(NSError *))arg2;
-- (_Bool)resolveFullDownloadRequests:(NSArray *)arg1 error:(id *)arg2;
 - (void)fullDownloadRequestBatch:(unsigned long long)arg1 withCompletion:(void (^)(NSArray *, NSError *))arg2;
-- (NSArray *)fullDownloadRequestBatch:(unsigned long long)arg1 error:(id *)arg2;
 - (void)updateMessages:(NSArray *)arg1 state:(unsigned long long)arg2 withCompletion:(void (^)(NSError *))arg3;
-- (_Bool)updateMessages:(NSArray *)arg1 state:(unsigned long long)arg2 error:(id *)arg3;
 - (void)reportMessagesFound:(NSArray *)arg1 lost:(NSArray *)arg2 withCompletion:(void (^)(NSError *))arg3;
-- (_Bool)reportMessagesFound:(NSArray *)arg1 lost:(NSArray *)arg2 error:(id *)arg3;
 - (void)messagesToRefreshWithCompletion:(void (^)(NSArray *, NSError *))arg1;
-- (NSArray *)messagesToRefreshWithError:(id *)arg1;
-- (void)suggestionsFromEmailContent:(NSString *)arg1 headers:(NSData *)arg2 source:(NSString *)arg3 options:(unsigned long long)arg4 withCompletion:(void (^)(NSArray *, NSError *))arg5;
-- (NSArray *)suggestionsFromEmailContent:(NSString *)arg1 headers:(NSData *)arg2 source:(NSString *)arg3 options:(unsigned long long)arg4 error:(id *)arg5;
 - (void)harvestedSuggestionsFromSearchableItem:(CSSearchableItem *)arg1 options:(unsigned long long)arg2 withCompletion:(void (^)(NSArray *, NSError *))arg3;
-- (NSArray *)harvestedSuggestionsFromSearchableItem:(CSSearchableItem *)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
 - (void)suggestionsFromSearchableItem:(CSSearchableItem *)arg1 options:(unsigned long long)arg2 withCompletion:(void (^)(NSArray *, NSError *))arg3;
-- (NSArray *)suggestionsFromSearchableItem:(CSSearchableItem *)arg1 options:(unsigned long long)arg2 error:(id *)arg3;
-- (void)prepareForRealtimeExtractionWithCompletion:(void (^)(NSError *))arg1;
 - (_Bool)prepareForRealtimeExtraction:(id *)arg1;
+- (void)prepareForRealtimeExtractionWithCompletion:(void (^)(NSError *))arg1;
 @end
 

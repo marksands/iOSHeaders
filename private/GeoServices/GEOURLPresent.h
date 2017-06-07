@@ -19,6 +19,7 @@
 + (Class)itemType;
 @property(retain, nonatomic) GEOURLOptions *options; // @synthesize options=_options;
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -33,7 +34,6 @@
 - (unsigned long long)itemsCount;
 - (void)addItem:(id)arg1;
 - (void)clearItems;
-- (void)dealloc;
 - (id)initWithDirectionsOptions:(id)arg1;
 - (id)initWithOptions:(id)arg1;
 

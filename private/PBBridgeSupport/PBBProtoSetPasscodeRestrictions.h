@@ -13,8 +13,13 @@
 @interface PBBProtoSetPasscodeRestrictions : PBCodable <NSCopying>
 {
     NSData *_restrictions;
+    _Bool _wristDetectionDisabled;
+    struct {
+        unsigned int wristDetectionDisabled:1;
+    } _has;
 }
 
+@property(nonatomic) _Bool wristDetectionDisabled; // @synthesize wristDetectionDisabled=_wristDetectionDisabled;
 @property(retain, nonatomic) NSData *restrictions; // @synthesize restrictions=_restrictions;
 - (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
@@ -26,6 +31,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasWristDetectionDisabled;
 
 @end
 

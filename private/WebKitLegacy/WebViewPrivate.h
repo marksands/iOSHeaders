@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableSet, NSString, NSURL, WAKWindow, WebFixedPositionContent, WebIndicateLayer, WebInspector, WebNodeHighlight, WebPreferences, WebVideoFullscreenController;
-@protocol WebCaretChangeListener, WebDeviceOrientationProvider, WebFormDelegate, WebGeolocationProvider, WebNotificationProvider;
+@class NSMutableSet, NSString, NSURL, WAKWindow, WebFixedPositionContent, WebIndicateLayer, WebInspector, WebNodeHighlight, WebPreferences, WebUITextIndicatorData, WebVideoFullscreenController;
+@protocol WebCaretChangeListener, WebDeviceOrientationProvider, WebFormDelegate, WebGeolocationProvider, WebNotificationProvider, WebUserMediaClient;
 
 __attribute__((visibility("hidden")))
 @interface WebViewPrivate : NSObject
@@ -73,11 +73,12 @@ __attribute__((visibility("hidden")))
     int didDrawTiles;
     // Error parsing type: {Lock="m_byte"{Atomic<unsigned char>="value"{atomic<unsigned char>="__a_"AC}}}, name: pendingFixedPositionLayoutRectMutex
     struct CGRect pendingFixedPositionLayoutRect;
+    WebUITextIndicatorData *textIndicatorData;
+    struct RetainPtr<WebUITextIndicatorData> dataOperationTextIndicator;
     struct HashMap<unsigned long, WTF::RetainPtr<id>, WTF::IntHash<unsigned long>, WTF::HashTraits<unsigned long>, WTF::HashTraits<WTF::RetainPtr<id>>> identifierMap;
     _Bool _keyboardUIModeAccessed;
     int _keyboardUIMode;
     _Bool shouldUpdateWhileOffscreen;
-    _Bool includesFlattenedCompositingLayersWhenDrawingToBitmap;
     _Bool needsOneShotDrawingSynchronization;
     _Bool postsAcceleratedCompositingNotifications;
     struct RefPtr<LayerFlushController> layerFlushController;
@@ -87,6 +88,7 @@ __attribute__((visibility("hidden")))
     id <WebGeolocationProvider> _geolocationProvider;
     id <WebDeviceOrientationProvider> m_deviceOrientationProvider;
     id <WebNotificationProvider> _notificationProvider;
+    id <WebUserMediaClient> m_userMediaClient;
     struct RefPtr<WebCore::HistoryItem> _globalHistoryItem;
     _Bool interactiveFormValidationEnabled;
     int validationMessageTimerMagnification;

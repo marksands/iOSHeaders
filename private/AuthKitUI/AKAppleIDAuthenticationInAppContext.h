@@ -11,7 +11,7 @@
 #import <AuthKitUI/RemoteUIControllerDelegate-Protocol.h>
 
 @class AAUICDPStingrayRemoteUIController, AKAppleIDServerResourceLoadDelegate, AKAppleIDServerUIDataHarvester, AKBasicLoginAlertController, NSHTTPURLResponse, NSString, RUIObjectModel, RemoteUIController, UINavigationController, UIViewController;
-@protocol AKAppleIDAuthenticationInAppContextDelegate;
+@protocol AKAppleIDAuthenticationInAppContextAlertDelegate, AKAppleIDAuthenticationInAppContextDelegate;
 
 @interface AKAppleIDAuthenticationInAppContext : AKAppleIDAuthenticationContext <AKBasicLoginAlertControllerDelegate, AKAppleIDAuthenticationUIProvider, RemoteUIControllerDelegate>
 {
@@ -29,8 +29,10 @@
     AAUICDPStingrayRemoteUIController *_stingrayController;
     UIViewController *_presentingViewController;
     id <AKAppleIDAuthenticationInAppContextDelegate> _delegate;
+    id <AKAppleIDAuthenticationInAppContextAlertDelegate> _alertDelegate;
 }
 
+@property(nonatomic) __weak id <AKAppleIDAuthenticationInAppContextAlertDelegate> alertDelegate; // @synthesize alertDelegate=_alertDelegate;
 @property(nonatomic) __weak id <AKAppleIDAuthenticationInAppContextDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 - (void).cxx_destruct;

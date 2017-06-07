@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSMutableSet *updatedTargetActions; // @synthesize updatedTargetActions=_updatedTargetActions;
 @property(retain, nonatomic) NSMutableSet *activeTargetActions; // @synthesize activeTargetActions=_activeTargetActions;
 @property(retain, nonatomic) CADisplayLink *storedDisplayLink; // @synthesize storedDisplayLink=_storedDisplayLink;
+- (void).cxx_destruct;
 - (void)_displayDidRefresh:(id)arg1;
 - (void)endRequiringWarmUpMode;
 - (void)beginRequiringWarmUpMode;
@@ -39,7 +40,6 @@
 @property(readonly, nonatomic) double timestamp;
 @property(readonly, nonatomic) double duration;
 @property(readonly, nonatomic, getter=isPaused) _Bool paused;
-- (void)dealloc;
 - (id)init;
 
 @end

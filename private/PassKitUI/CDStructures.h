@@ -85,6 +85,20 @@ typedef struct {
 } CDStruct_826e8cf1;
 
 typedef struct {
+    double visibility;
+    double visibilityAnimationTarget;
+    unsigned int animationCounter;
+} CDStruct_6c46ada8;
+
+typedef struct {
+    double cornerRadius;
+    long long shape;
+    long long style;
+    long long highlightEffect;
+    long long disabledEffect;
+} CDStruct_e6a35582;
+
+typedef struct {
     struct CGSize _field1;
     struct CGSize _field2;
     double _field3;

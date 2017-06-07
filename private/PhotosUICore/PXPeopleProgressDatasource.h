@@ -15,23 +15,21 @@
 @interface PXPeopleProgressDatasource : NSObject <PXPhotoLibraryUIChangeObserver, PXPeopleProgressDatasource>
 {
     _Bool _countCacheValid;
+    _Bool _faceProcessingComplete;
     unsigned long long _cachedUnlockValue;
     unsigned long long _pendingCount;
     unsigned long long _processedCount;
     unsigned long long _totalCount;
-    PHFetchResult *_favResult;
     PHFetchResult *_homeResult;
-    PHFetchResult *_plusResult;
     PHFetchResult *_verifyResult;
     NSObject<OS_dispatch_queue> *_scanningProgressQueue;
 }
 
+@property(nonatomic, getter=isFaceProcessingComplete) _Bool faceProcessingComplete; // @synthesize faceProcessingComplete=_faceProcessingComplete;
 @property(getter=isCountCacheValid) _Bool countCacheValid; // @synthesize countCacheValid=_countCacheValid;
 @property(readonly) NSObject<OS_dispatch_queue> *scanningProgressQueue; // @synthesize scanningProgressQueue=_scanningProgressQueue;
 @property(retain, nonatomic) PHFetchResult *verifyResult; // @synthesize verifyResult=_verifyResult;
-@property(retain, nonatomic) PHFetchResult *plusResult; // @synthesize plusResult=_plusResult;
 @property(retain, nonatomic) PHFetchResult *homeResult; // @synthesize homeResult=_homeResult;
-@property(retain, nonatomic) PHFetchResult *favResult; // @synthesize favResult=_favResult;
 @property(nonatomic) unsigned long long totalCount; // @synthesize totalCount=_totalCount;
 @property(nonatomic) unsigned long long processedCount; // @synthesize processedCount=_processedCount;
 @property(nonatomic) unsigned long long pendingCount; // @synthesize pendingCount=_pendingCount;
@@ -40,9 +38,7 @@
 - (void)_appWillEnterForeground;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1 withPreparedInfo:(id)arg2;
 - (double)_progressFromWorkerDictionary:(id)arg1;
-- (unsigned long long)verifiedCount;
 - (unsigned long long)totalAssetCount;
-- (unsigned long long)plusMembersCount;
 - (unsigned long long)homeMembersCount;
 - (unsigned long long)processedAssetCount;
 - (unsigned long long)pendingAssetCount;

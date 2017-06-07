@@ -8,7 +8,7 @@
 
 #import <NewsCore/FCReadingListContentControllerObserving-Protocol.h>
 
-@class FCCloudContext, FCMutexLock, FCReadingListContentController, NSArray, NSMutableDictionary, NSString;
+@class FCCloudContext, FCMTWriterMutexLock, FCReadingListContentController, NSArray, NSMutableDictionary, NSString;
 
 @interface FCReadingList : FCPrivateZoneController <FCReadingListContentControllerObserving>
 {
@@ -16,7 +16,7 @@
     FCReadingListContentController *_readingListContentController;
     FCCloudContext *_cloudContext;
     NSArray *_allSortedEntriesInReadingList;
-    FCMutexLock *_itemsLock;
+    FCMTWriterMutexLock *_itemsLock;
 }
 
 + (id)commandsToMergeLocalDataToCloud:(id)arg1;
@@ -28,7 +28,7 @@
 + (_Bool)requiresBatchedSync;
 + (_Bool)requiresPushNotificationSupport;
 + (id)desiredKeys;
-@property(retain, nonatomic) FCMutexLock *itemsLock; // @synthesize itemsLock=_itemsLock;
+@property(retain, nonatomic) FCMTWriterMutexLock *itemsLock; // @synthesize itemsLock=_itemsLock;
 @property(retain, nonatomic) NSArray *allSortedEntriesInReadingList; // @synthesize allSortedEntriesInReadingList=_allSortedEntriesInReadingList;
 @property(retain, nonatomic) FCCloudContext *cloudContext; // @synthesize cloudContext=_cloudContext;
 @property(retain, nonatomic) FCReadingListContentController *readingListContentController; // @synthesize readingListContentController=_readingListContentController;
@@ -53,6 +53,7 @@
 - (id)allSortedArticleIDsInReadingList;
 - (id)dateArticleWasAdded:(id)arg1;
 - (void)removeArticleFromReadingList:(id)arg1;
+- (void)addArticleToReadingList:(id)arg1 eventInitiationLevel:(long long)arg2 origin:(unsigned long long)arg3;
 - (void)addArticleToReadingList:(id)arg1;
 - (_Bool)isArticleOnReadingList:(id)arg1;
 - (_Bool)shouldHideHeadline:(id)arg1;

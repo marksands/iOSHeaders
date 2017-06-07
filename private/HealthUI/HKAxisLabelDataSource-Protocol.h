@@ -6,10 +6,10 @@
 
 #import <HealthUI/NSObject-Protocol.h>
 
-@class HKAxisLabel, NSArray;
+@class HKAxisLabel, HKValueRange, NSArray;
 
 @protocol HKAxisLabelDataSource <NSObject>
-- (struct CGPoint)renderPositionForLabel:(HKAxisLabel *)arg1 rect:(struct CGRect)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 constantOffset:(double)arg5 isHorizontal:(_Bool)arg6;
-- (NSArray *)labelsForChartRange:(struct HKRange)arg1 zoomScale:(double)arg2;
+- (struct CGPoint)renderPositionForLabel:(HKAxisLabel *)arg1 rect:(struct CGRect)arg2 zoomScale:(double)arg3 contentOffset:(struct CGPoint)arg4 constantOffset:(double)arg5 isHorizontal:(_Bool)arg6 optionalOffset:(struct CGPoint)arg7;
+- (NSArray *)findAxisLabelsInModelRange:(HKValueRange *)arg1 zoomScale:(double)arg2;
 @end
 

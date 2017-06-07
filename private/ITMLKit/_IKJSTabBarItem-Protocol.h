@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <ITMLKit/IKJSTabBarItem-Protocol.h>
 #import <ITMLKit/JSExport-Protocol.h>
 
 @class IKJSNavigationDocument, NSString;
 
-@protocol _IKJSTabBarItem <JSExport>
+@protocol _IKJSTabBarItem <IKJSTabBarItem, JSExport>
 @property(readonly, nonatomic) IKJSNavigationDocument *navigationDocument;
 @property(readonly, nonatomic) NSString *identifier;
 @end

@@ -18,12 +18,14 @@
     UITableViewController *_tableViewController;
     UIView *_containerView;
     long long _style;
+    _Bool _clearsSelectionOnViewWillAppear;
     long long _context;
     NSIndexPath *_selectedIndexPath;
 }
 
 @property(readonly, copy, nonatomic) NSIndexPath *selectedIndexPath; // @synthesize selectedIndexPath=_selectedIndexPath;
-@property(readonly, retain, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
+@property(nonatomic) _Bool clearsSelectionOnViewWillAppear; // @synthesize clearsSelectionOnViewWillAppear=_clearsSelectionOnViewWillAppear;
+@property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;
 @property(nonatomic) long long context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)scrollViewDidScroll:(id)arg1;
@@ -31,14 +33,13 @@
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
-@property(readonly, retain, nonatomic) UILabel *footerLabel;
-- (void)viewDidLayoutSubviews;
+@property(readonly, nonatomic) UILabel *footerLabel;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (unsigned long long)edgesForExtendedLayout;
 - (_Bool)extendedLayoutIncludesOpaqueBars;
-- (void)viewDidLoad;
 - (void)loadView;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 context:(long long)arg2;

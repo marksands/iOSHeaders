@@ -32,6 +32,7 @@
 @property(retain, nonatomic) NSString *descriptionText;
 @property(retain, nonatomic) NSString *titleText;
 @property(retain, nonatomic) UIImage *image;
+- (void)updateConstraints;
 - (void)prepareForReuse;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 

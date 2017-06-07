@@ -13,7 +13,6 @@
 + (unsigned long long)dimensionForLabel:(id)arg1;
 + (id)_locationLabelForDimension:(unsigned long long)arg1;
 + (id)_closestLocationNodeFromNode:(id)arg1 withDimension:(unsigned long long)arg2 remapMatchingDimensionBlock:(CDUnknownBlockType)arg3 reverse:(_Bool)arg4;
-+ (id)_sortedAreaNodesByWeightFromAreaNodes:(id)arg1;
 + (id)titleWithLineBreakForTitle:(id)arg1;
 + (id)titleWithLineBreakForTitle:(id)arg1 andUsedNames:(id)arg2;
 + (id)_closestSpaceMatchFromMatches:(id)arg1 withUsedNameRange:(struct _NSRange)arg2 searchForward:(_Bool)arg3;

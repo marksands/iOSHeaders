@@ -8,13 +8,13 @@
 
 #import <PassKitUI/PKPaymentVerificationControllerDelegate-Protocol.h>
 
-@class NSString, PKPaymentVerificationController, UIActivityIndicatorView, UIButton, UILabel, UIView;
+@class NSString, PKContinuousButton, PKPaymentVerificationController, UIActivityIndicatorView, UIButton, UILabel, UIView;
 
 @interface PKPassPaymentVerificationView : PKPassFooterContentView <PKPaymentVerificationControllerDelegate>
 {
     UILabel *_titleLabel;
     UILabel *_bodyLabel;
-    UIButton *_button;
+    PKContinuousButton *_button;
     UIActivityIndicatorView *_activityIndicator;
     UIButton *_alternateButton;
     UIView *_bottomRule;

@@ -8,7 +8,7 @@
 
 #import <CoreSuggestionsInternals/SGReverseTemplateJS-Protocol.h>
 
-@class JSContext, JSVirtualMachine, NSMutableArray, NSString, NSURL, SGAsset, SGReverseTemplatesJSDataDetectors;
+@class JSContext, JSVirtualMachine, NSMutableArray, NSString, NSURL, SGReverseTemplatesJSDataDetectors, _PASNotificationToken;
 @protocol OS_dispatch_queue;
 
 @interface SGReverseTemplateJS : NSObject <SGReverseTemplateJS>
@@ -17,13 +17,16 @@
     NSMutableArray *_memoryMappedFiles;
     JSContext *_jsContext;
     SGReverseTemplatesJSDataDetectors *_dd;
-    SGAsset *_asset;
+    _PASNotificationToken *_assetUpdateToken;
     NSURL *_assetPath;
     NSString *_localeIdentifier;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
++ (id)fakeFlightInformationWithAirlineCode:(id)arg1 flightNumber:(id)arg2 flightDate:(id)arg3;
 - (void).cxx_destruct;
+- (id)_prepareArguments:(id)arg1;
+- (id)_prepareEntity:(id)arg1;
 - (id)outputExceptionsFromOutput:(id)arg1;
 - (void)emailToJsonLd:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)schemaOrgToOutput:(id)arg1 reply:(CDUnknownBlockType)arg2;
@@ -35,11 +38,20 @@
 - (_Bool)shouldDownloadFull:(id)arg1;
 - (void)holdXpcTransactionForShortDelay;
 - (id)loadJSFromASCIIFile:(id)arg1;
+- (id)sfFlightStatusToString:(int)arg1;
+- (id)dictionaryFromTimezone:(id)arg1;
+- (id)sfAirportToDictionnary:(id)arg1;
+- (id)formattedDate:(id)arg1 withTimezone:(id)arg2;
+- (id)sfFlightsToDictionnary:(id)arg1;
+- (id)mappedArrayBufferForFileName:(id)arg1;
 - (void)initCurrentAsset;
+- (id)loadTrieWithFileName:(id)arg1;
 - (id)processLoadRequestWithFileName:(id)arg1;
-- (void)setAssetPath:(id)arg1 locale:(id)arg2;
+- (void)setAssetPath:(id)arg1;
+- (void)refreshAssetPath;
 - (void)freeJSContext;
 - (id)getJSContext;
+- (void)dealloc;
 - (id)init;
 
 @end

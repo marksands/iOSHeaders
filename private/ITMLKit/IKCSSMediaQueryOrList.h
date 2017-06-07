@@ -20,6 +20,7 @@
 - (_Bool)evaluate;
 - (void)addSubQueryList:(id)arg1;
 - (id)subQueryList;
+- (id)expressionAsString;
 - (id)init;
 
 @end

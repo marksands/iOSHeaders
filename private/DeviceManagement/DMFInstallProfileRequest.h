@@ -6,18 +6,22 @@
 
 #import <Catalyst/CATTaskRequest.h>
 
-@class NSData, NSString;
+@class NSData, NSFileHandle, NSString, NSURL;
 
 @interface DMFInstallProfileRequest : CATTaskRequest
 {
     unsigned long long _style;
     unsigned long long _type;
     NSString *_managingProfileIdentifier;
+    NSURL *_profileURL;
     NSData *_profileData;
+    NSFileHandle *_fileHandle;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(retain, nonatomic) NSFileHandle *fileHandle; // @synthesize fileHandle=_fileHandle;
 @property(copy, nonatomic) NSData *profileData; // @synthesize profileData=_profileData;
+@property(copy, nonatomic) NSURL *profileURL; // @synthesize profileURL=_profileURL;
 @property(copy, nonatomic) NSString *managingProfileIdentifier; // @synthesize managingProfileIdentifier=_managingProfileIdentifier;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic) unsigned long long style; // @synthesize style=_style;

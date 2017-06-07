@@ -8,20 +8,23 @@
 
 #import <iWorkImport/TSWPColumnMetrics-Protocol.h>
 #import <iWorkImport/TSWPLayoutParent-Protocol.h>
+#import <iWorkImport/TSWPStyleProvider-Protocol.h>
 
-@class TSWPLayout, TSWPPadding;
+@class NSString, TSWPLayout, TSWPPadding;
 
 __attribute__((visibility("hidden")))
-@interface KNNoteLayout : TSDLayout <TSWPLayoutParent, TSWPColumnMetrics>
+@interface KNNoteLayout : TSDLayout <TSWPStyleProvider, TSWPLayoutParent, TSWPColumnMetrics>
 {
-    struct CGSize mSizeOfScrollViewEnclosingCanvas;
-    TSWPLayout *mContainedLayout;
-    TSWPPadding *mPadding;
+    TSWPPadding *_padding;
+    TSWPLayout *_containedLayout;
+    struct CGSize _sizeOfScrollViewEnclosingCanvas;
 }
 
-@property(readonly, nonatomic) TSWPLayout *containedLayout; // @synthesize containedLayout=mContainedLayout;
+@property(nonatomic) struct CGSize sizeOfScrollViewEnclosingCanvas; // @synthesize sizeOfScrollViewEnclosingCanvas=_sizeOfScrollViewEnclosingCanvas;
+@property(readonly, nonatomic) TSWPLayout *containedLayout; // @synthesize containedLayout=_containedLayout;
+- (void).cxx_destruct;
 - (double)maxAutoGrowHeightForTextLayout:(id)arg1;
-- (_Bool)supportsBoldItalicUnderlineShortcuts;
+@property(readonly, nonatomic) _Bool supportsBoldItalicUnderlineShortcuts;
 - (_Bool)textIsVertical;
 @property(readonly, nonatomic) _Bool columnsAreLeftToRight;
 @property(readonly, nonatomic) _Bool shrinkTextToFit;
@@ -30,6 +33,7 @@ __attribute__((visibility("hidden")))
 - (double)gapForColumnIndex:(unsigned long long)arg1 bodyWidth:(double)arg2;
 - (double)widthForColumnIndex:(unsigned long long)arg1 bodyWidth:(double)arg2;
 @property(readonly, nonatomic) unsigned long long columnCount;
+- (_Bool)darkModeEnabled;
 @property(readonly, nonatomic) double textScaleFactor;
 - (double)textScaleFactorForPrinting;
 @property(readonly, nonatomic) TSWPPadding *layoutMargins;
@@ -45,6 +49,8 @@ __attribute__((visibility("hidden")))
 - (void)invalidateForAutosizingTextLayout:(id)arg1;
 - (int)verticalAlignmentForTextLayout:(id)arg1;
 - (unsigned int)autosizeFlagsForTextLayout:(id)arg1;
+- (id)paragraphStyleAtParIndex:(unsigned long long)arg1 effectiveRange:(struct _NSRange *)arg2;
+- (id)styleProvider;
 - (_Bool)p_isForPrint;
 - (id)layoutGeometryFromInfo;
 - (struct CGPoint)capturedInfoPositionForAttachment;
@@ -61,6 +67,12 @@ __attribute__((visibility("hidden")))
 - (id)children;
 - (id)computeLayoutGeometry;
 - (void)dealloc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -21,13 +21,15 @@
     int _CPLNotifyRegistrationToken;
     _Bool _CPLPrefetchingCancelled;
     NSObject<OS_dispatch_group> *_CPLPrefetchingWaitGroup;
-    int _prefetchCount;
+    _Bool _cachingAllowed;
+    int _requestCount;
     _Bool _didCompleteCPLPrefetchingWithSuccessOrError;
     _Bool _CPLPrefetchingWasCancelled;
     int _bestFormat;
     NSString *_virtualCPLTaskIdentifier;
 }
 
+@property(nonatomic) _Bool cachingAllowed; // @synthesize cachingAllowed=_cachingAllowed;
 @property _Bool CPLPrefetchingWasCancelled; // @synthesize CPLPrefetchingWasCancelled=_CPLPrefetchingWasCancelled;
 @property _Bool didCompleteCPLPrefetchingWithSuccessOrError; // @synthesize didCompleteCPLPrefetchingWithSuccessOrError=_didCompleteCPLPrefetchingWithSuccessOrError;
 @property(retain) NSString *virtualCPLTaskIdentifier; // @synthesize virtualCPLTaskIdentifier=_virtualCPLTaskIdentifier;
@@ -38,10 +40,9 @@
 @property(readonly, nonatomic) long long imageType; // @synthesize imageType=_imageType;
 @property(nonatomic) int bestFormat; // @synthesize bestFormat=_bestFormat;
 @property(readonly, nonatomic) int format; // @synthesize format=_format;
-- (_Bool)hasPrefetchCount;
-- (void)resetPrefetchCount;
-- (long long)decrementPrefetchCount;
-- (long long)incrementPrefetchCount;
+- (_Bool)isRetained;
+- (long long)decrementRequestCount;
+- (long long)incrementRequestCount;
 - (_Bool)isCancelled;
 - (void)cancelPreheatRequestWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)startPreheatRequestWithCompletionHandler:(CDUnknownBlockType)arg1;

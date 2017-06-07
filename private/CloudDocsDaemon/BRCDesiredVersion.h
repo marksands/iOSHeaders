@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (id)descriptionWithContext:(id)arg1;
 - (id)initWithServerVersion:(id)arg1 serverName:(id)arg2;
 - (id)initWithDesiredVersion:(id)arg1;
+- (void)markLiveAsFault;
 @property(nonatomic) unsigned int options;
 @property(readonly, nonatomic) _Bool userInitiated;
 @property(readonly, nonatomic) _Bool wantsThumbnail;

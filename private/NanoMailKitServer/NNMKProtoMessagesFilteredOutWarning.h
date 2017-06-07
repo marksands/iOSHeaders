@@ -8,15 +8,18 @@
 
 #import <NanoMailKitServer/NSCopying-Protocol.h>
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
 @interface NNMKProtoMessagesFilteredOutWarning : PBCodable <NSCopying>
 {
     unsigned int _fullSyncVersion;
+    NSString *_mailboxId;
     NSMutableArray *_removedMessageIds;
     CDStruct_a125a100 _has;
 }
 
++ (Class)removedMessageIdType;
+@property(retain, nonatomic) NSString *mailboxId; // @synthesize mailboxId=_mailboxId;
 @property(retain, nonatomic) NSMutableArray *removedMessageIds; // @synthesize removedMessageIds=_removedMessageIds;
 @property(nonatomic) unsigned int fullSyncVersion; // @synthesize fullSyncVersion=_fullSyncVersion;
 - (void).cxx_destruct;
@@ -29,6 +32,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasMailboxId;
 - (id)removedMessageIdAtIndex:(unsigned long long)arg1;
 - (unsigned long long)removedMessageIdsCount;
 - (void)addRemovedMessageId:(id)arg1;

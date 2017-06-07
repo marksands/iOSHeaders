@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOTransitLabelItem-Protocol.h>
 
@@ -22,7 +22,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) id <GEOTransitArtworkDataSource> labelArtwork; // @synthesize labelArtwork=_labelArtwork;
 @property(readonly, nonatomic) NSString *labelString; // @synthesize labelString=_labelString;
 @property(readonly, nonatomic) long long type; // @synthesize type=_type;
-- (void)dealloc;
+- (void).cxx_destruct;
 - (id)initWithType:(long long)arg1 labelString:(id)arg2 labelArtwork:(id)arg3;
 
 // Remaining properties

@@ -10,9 +10,10 @@
 
 @class PDFFormFieldPrivateVars;
 
+__attribute__((visibility("hidden")))
 @interface PDFFormField : NSObject <NSCopying>
 {
-    PDFFormFieldPrivateVars *_pdfPriv;
+    PDFFormFieldPrivateVars *_private;
 }
 
 - (void).cxx_destruct;

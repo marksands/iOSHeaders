@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <GameCenterUI/GKServiceViewControllerDelegate-Protocol.h>
+#import <GameCenterUI/GKExtensionHostProtocol-Protocol.h>
 
 @class NSArray, NSString;
 
-@protocol GKChallengeIssueHostProtocol <GKServiceViewControllerDelegate>
+@protocol GKChallengeIssueHostProtocol <GKExtensionHostProtocol>
+
+@optional
 - (void)didFinishWithPlayerIDs:(NSArray *)arg1 message:(NSString *)arg2;
 @end
 

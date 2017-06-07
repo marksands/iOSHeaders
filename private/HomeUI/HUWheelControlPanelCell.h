@@ -16,21 +16,23 @@
     HUWheelControlView *_wheelView;
     UILabel *_titleLabel;
     UILabel *_detailLabel;
-    UIView *_seperatorView;
-    NSArray *_titleLabelConstraints;
-    NSArray *_wheelViewConstraints;
+    UIView *_separatorView;
+    NSArray *_staticConstraints;
+    NSArray *_dynamicConstraints;
 }
 
-@property(copy, nonatomic) NSArray *wheelViewConstraints; // @synthesize wheelViewConstraints=_wheelViewConstraints;
-@property(copy, nonatomic) NSArray *titleLabelConstraints; // @synthesize titleLabelConstraints=_titleLabelConstraints;
-@property(retain, nonatomic) UIView *seperatorView; // @synthesize seperatorView=_seperatorView;
-@property(retain, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
-@property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
++ (_Bool)requiresConstraintBasedLayout;
+@property(retain, nonatomic) NSArray *dynamicConstraints; // @synthesize dynamicConstraints=_dynamicConstraints;
+@property(retain, nonatomic) NSArray *staticConstraints; // @synthesize staticConstraints=_staticConstraints;
+@property(readonly, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
+@property(readonly, nonatomic) UILabel *detailLabel; // @synthesize detailLabel=_detailLabel;
+@property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) _Bool wheelViewVisible; // @synthesize wheelViewVisible=_wheelViewVisible;
 @property(retain, nonatomic) HUWheelControlView *wheelView; // @synthesize wheelView=_wheelView;
 - (void).cxx_destruct;
 - (void)wheelControlView:(id)arg1 didUpdateValue:(id)arg2;
 - (void)prepareForReuse;
+- (void)layoutSubviews;
 - (void)updateConstraints;
 @property(readonly, nonatomic, getter=isDisabled) _Bool disabled;
 @property(copy, nonatomic) NSString *detailText;

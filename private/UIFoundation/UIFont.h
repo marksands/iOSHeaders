@@ -20,6 +20,7 @@
 + (id)ib_preferredFontForTextStyle:(id)arg1;
 + (id)defaultFontForTextStyle:(id)arg1;
 + (double)_readableWidth;
++ (double)_pointSize:(double)arg1 scaledLikeTextStyle:(id)arg2 maximumPointSize:(double)arg3 compatibleWithTraitCollection:(id)arg4;
 + (id)_supportedDynamicFontStyles;
 + (_Bool)_isSupportedDynamicFontTextStyle:(id)arg1;
 + (id)preferredFontForUsage:(id)arg1 contentSizeCategoryName:(id)arg2;
@@ -31,6 +32,7 @@
 + (double)buttonFontSize;
 + (double)labelFontSize;
 + (id)_systemFontsOfSize:(double)arg1 traits:(int)arg2;
++ (id)_fontWithDescriptor:(id)arg1 size:(double)arg2 textStyleForScaling:(id)arg3 pointSizeForScaling:(double)arg4 maximumPointSizeAfterScaling:(double)arg5 forIB:(_Bool)arg6;
 + (id)fontWithDescriptor:(id)arg1 size:(double)arg2;
 + (id)monospacedDigitSystemFontOfSize:(double)arg1 weight:(double)arg2;
 + (id)systemFontOfSize:(double)arg1 weight:(double)arg2 design:(id)arg3;
@@ -60,6 +62,10 @@
 - (id)markupDescription;
 - (id)familyNameForCSSFontFamilyValue;
 - (_Bool)isFixedPitch;
+@property(readonly, nonatomic) double maximumPointSizeAfterScaling;
+@property(readonly, nonatomic) double pointSizeForScaling;
+@property(readonly, nonatomic) NSString *textStyleForScaling;
+- (_Bool)isIBFontMetricsScaledFont;
 - (_Bool)isIBTextStyleFont;
 - (double)_leading;
 @property(readonly, nonatomic) double xHeight;
@@ -83,6 +89,7 @@
 - (id)initWithName:(id)arg1 size:(double)arg2;
 - (double)_scaledValueForValue:(double)arg1;
 - (double)readableWidth;
+- (id)_fontScaledLikeTextStyle:(id)arg1 maximumPointSize:(double)arg2 compatibleWithTraitCollection:(id)arg3 forIB:(_Bool)arg4;
 - (id)_fontAdjustedForContentSizeCategoryCompatibleWithTraitCollection:(id)arg1;
 - (id)_fontAdjustedForCurrentContentSizeCategory;
 - (id)_alternateSystemFonts;
@@ -94,7 +101,7 @@
 - (id)bestMatchingFontForCharacters:(const unsigned short *)arg1 length:(unsigned long long)arg2 attributes:(id)arg3 actualCoveredLength:(unsigned long long *)arg4;
 - (void)getBoundingRects:(struct CGRect *)arg1 forCGGlyphs:(const unsigned short *)arg2 count:(unsigned long long)arg3;
 - (unsigned int)_defaultGlyphForChar:(unsigned short)arg1;
-- (_Bool)_getLatin1GlyphMapping:(const unsigned short **)arg1 andAdvanceMapping:(const struct CGSize **)arg2;
+- (_Bool)_getLatin1Glyphs:(const unsigned short **)arg1 advanceWidths:(const double **)arg2;
 - (id)_familyName;
 - (unsigned long long)getCaretPositions:(double *)arg1 forGlyph:(unsigned int)arg2 maximumLength:(unsigned long long)arg3;
 - (unsigned int)hyphenGlyphForLocale:(id)arg1;

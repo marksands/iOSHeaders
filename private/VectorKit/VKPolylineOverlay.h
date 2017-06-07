@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <VectorKit/GEOComposedRouteObserver-Protocol.h>
 #import <VectorKit/VKOverlay-Protocol.h>
@@ -22,9 +22,13 @@
     id <VKPolylineOverlayRouteRibbonObserver> _routeRibbonObserver;
     double _trafficTimeStamp;
     struct TrafficSegmentsAlongRoute *_trafficSegments;
+    _Bool _selected;
+    _Bool _showTraffic;
 }
 
 @property(nonatomic) struct LabelExternalObjectsModerator *labelExternalObjectsModerator; // @synthesize labelExternalObjectsModerator=_labelExternalObjectsModerator;
+@property(nonatomic) _Bool showTraffic; // @synthesize showTraffic=_showTraffic;
+@property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 @property(nonatomic) id <VKPolylineOverlayRouteRibbonObserver> routeRibbonObserver; // @synthesize routeRibbonObserver=_routeRibbonObserver;
 @property(nonatomic) VKRouteLine *routeRibbon; // @synthesize routeRibbon=_routeRibbon;
 @property(readonly, nonatomic) double trafficTimeStamp; // @synthesize trafficTimeStamp=_trafficTimeStamp;
@@ -34,8 +38,8 @@
 - (void)composedRouteUpdatedTraffic:(id)arg1;
 - (void)composedRouteUpdatedSnappedPaths:(id)arg1;
 - (_Bool)isSnappingForSceneTiles;
-- (id)getPathsForPainter:(id)arg1 renderRegion:(id)arg2 shouldSnapToRoads:(_Bool)arg3 verifySnapping:(_Bool)arg4 snappingCompletionHandler:(CDUnknownBlockType)arg5;
-- (void)clearSnappedPathsForPainter:(id)arg1;
+- (id)getPathsForRenderRegion:(id)arg1 shouldSnapToRoads:(_Bool)arg2 verifySnapping:(_Bool)arg3 observer:(id)arg4;
+- (void)clearSnappedPathsForObserver:(id)arg1;
 - (void)_updateTraffic;
 - (struct _NSRange)sectionRangeForBounds:(Box_3d7e3c2c)arg1;
 @property(readonly, nonatomic) GEOMapRegion *boundingMapRegion;

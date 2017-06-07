@@ -29,15 +29,12 @@
     FBProcessWatchdog *_watchdog;
     FBSProcessWatchdogPolicy *_sceneCreateWatchdogPolicy;
     long long _terminationReason;
-    int _defaultSceneSuspendType;
     FBProcessCPUStatistics *_cpuStatistics;
     double _execTime;
     unsigned long long _htAppIdentifier;
     BKSProcess *_bksProcess;
     BKSProcessAssertion *_launchProcessAssertion;
     BKSProcessAssertion *_continuousProcessAssertion;
-    _Bool _supportsBackgroundTaskAssertions;
-    _Bool _supportsSuspendOnLock;
     _Bool _recordingAudio;
     _Bool _nowPlayingWithAudio;
     _Bool _connectedToExternalAccessory;
@@ -47,8 +44,6 @@
 @property(nonatomic, getter=isNowPlayingWithAudio) _Bool nowPlayingWithAudio; // @synthesize nowPlayingWithAudio=_nowPlayingWithAudio;
 @property(nonatomic, getter=isRecordingAudio) _Bool recordingAudio; // @synthesize recordingAudio=_recordingAudio;
 @property(readonly, retain, nonatomic, getter=_queue_cpuStatistics) FBProcessCPUStatistics *cpuStatistics; // @synthesize cpuStatistics=_cpuStatistics;
-@property(readonly, nonatomic, getter=_queue_supportsSuspendOnLock) _Bool supportsSuspendOnLock; // @synthesize supportsSuspendOnLock=_supportsSuspendOnLock;
-@property(readonly, nonatomic, getter=_queue_supportsBackgroundTaskAssertions) _Bool supportsBackgroundTaskAssertions; // @synthesize supportsBackgroundTaskAssertions=_supportsBackgroundTaskAssertions;
 @property(readonly, nonatomic) _Bool finishedLaunching; // @synthesize finishedLaunching=_finishedLaunching;
 @property(readonly, nonatomic, getter=isPendingExit) _Bool pendingExit; // @synthesize pendingExit=_pendingExit;
 @property(nonatomic, getter=isBeingDebugged) _Bool beingDebugged; // @synthesize beingDebugged=_beingDebugged;
@@ -78,10 +73,6 @@
 - (void)_queue_killWithSignal:(int)arg1;
 - (void)_queue_doGracefulKillWithDeliveryConfirmation:(CDUnknownBlockType)arg1;
 - (id)_queue_lockedFilePathsIgnoringAllowed;
-- (_Bool)_queue_consideredUnderLock;
-- (int)_queue_calculateDefaultSceneSuspendType;
-- (_Bool)_queue_supportsContinuousBackgroundMode;
-- (_Bool)_queue_isSystemApplication;
 - (int)_queue_ourTaskStateForBKSTaskState:(long long)arg1;
 - (id)_queue_name;
 - (_Bool)_queue_isAllowedLockedFilePath:(id)arg1 standardizedPath:(out id *)arg2;
@@ -89,9 +80,6 @@
 - (void)_queue_setTaskState:(int)arg1;
 - (void)_queue_setVisibility:(int)arg1;
 - (long long)_queue_bksVisibilityForVisibility:(int)arg1;
-- (int)_queue_effectiveVisibilityForSceneSettings:(id)arg1;
-- (int)_queue_effectiveVisibilityForVisibility:(int)arg1;
-- (int)_queue_effectiveVisibilityForVisibility:(int)arg1 underLock:(_Bool)arg2;
 - (id)_queue_newWatchdogForContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_queue_invalidateBKSProcess;
 - (id)_queue_internalDebugEnvironmentVariables;
@@ -106,12 +94,8 @@
 - (void)_queue_executeBlockAfterLaunchCompletes:(CDUnknownBlockType)arg1;
 - (void)executeBlockAfterLaunchCompletes:(CDUnknownBlockType)arg1;
 - (void)_queue_sceneNeedsGracefulExit:(id)arg1 withDeliveryConfirmation:(CDUnknownBlockType)arg2;
-- (void)_queue_sceneLifecycleStateChanged:(id)arg1;
 @property(readonly, nonatomic, getter=_queue_execTime) double execTime;
 @property(readonly, nonatomic, getter=_queue_terminationReason) long long terminationReason;
-@property(readonly, nonatomic, getter=_queue_defaultSuspendType) int defaultSuspendType;
-- (void)_queue_setSupportsBackgroundTaskAssertions:(_Bool)arg1;
-- (void)_queue_setSupportsSuspendOnLock:(_Bool)arg1;
 - (void)_queue_processReallyDidExit;
 - (void)_queue_processDidExit;
 - (void)_queue_launchIfNecessary;

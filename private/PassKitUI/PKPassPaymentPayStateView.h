@@ -16,9 +16,9 @@
     long long _style;
     double _glyphViewPadding;
     double _labelTopPadding;
-    _Bool _enhancedContrast;
     _Bool _touchRecognizingHint;
     _Bool _persistentEmulationHint;
+    _Bool _accessPass;
     long long _state;
     PKGlyphView *_glyph;
     UILabel *_label;
@@ -27,6 +27,7 @@
 }
 
 @property(nonatomic) id <PKPassPaymentPayStateViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool accessPass; // @synthesize accessPass=_accessPass;
 @property(nonatomic) _Bool persistentEmulationHint; // @synthesize persistentEmulationHint=_persistentEmulationHint;
 @property(nonatomic) _Bool touchRecognizingHint; // @synthesize touchRecognizingHint=_touchRecognizingHint;
 @property(nonatomic) double labelAlpha; // @synthesize labelAlpha=_labelAlpha;
@@ -46,7 +47,7 @@
 - (void)setState:(long long)arg1 textOverride:(id)arg2 animated:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)layoutSubviews;
 - (void)dealloc;
-- (id)initWithStyle:(long long)arg1 enhancedContrast:(_Bool)arg2;
+- (id)initWithStyle:(long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

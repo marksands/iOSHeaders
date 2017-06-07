@@ -27,7 +27,8 @@
     id <PKPerformActionViewControllerDelegate> _delegate;
 }
 
-+ (id)alertControllerForDisplayableError:(id)arg1;
++ (id)navigationBarBackgroundColor;
++ (id)alertControllerForUnableReason:(unsigned long long)arg1 displayableError:(id)arg2 addCardActionHandler:(CDUnknownBlockType)arg3;
 @property(nonatomic) __weak id <PKPerformActionViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PKPaymentWebService *webService; // @synthesize webService=_webService;
 @property(readonly, nonatomic) UIView<PKPerformActionView> *actionView; // @synthesize actionView=_actionView;
@@ -37,7 +38,7 @@
 - (void)_cancelButtonPressed:(id)arg1;
 - (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePurchase:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)paymentAuthorizationCoordinatorDidFinish:(id)arg1;
-- (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePayment:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)paymentAuthorizationCoordinator:(id)arg1 didAuthorizePayment:(id)arg2 handler:(CDUnknownBlockType)arg3;
 - (void)_showGenericErrorAlert:(CDUnknownBlockType)arg1;
 - (void)_canPerformPaymentWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_rightBarButtonPressed:(id)arg1;
@@ -46,7 +47,9 @@
 - (void)_fetchRemoteContentIfNeeded;
 - (void)setRightBarButtonEnabled:(_Bool)arg1;
 - (void)shakeCard;
-- (void)viewDidLayoutSubviews;
+- (_Bool)pkui_prefersNavigationBarShadowHidden;
+- (void)viewWillLayoutSubviews;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(_Bool)arg1;
 - (id)_actionViewForPass:(id)arg1 action:(id)arg2;

@@ -12,14 +12,17 @@
 #import <iWorkImport/TSWPStorageParent-Protocol.h>
 
 @class NSObject, NSString, TSDInfoGeometry, TSPObject, TSWPColumns, TSWPPadding, TSWPShapeStyle, TSWPStorage;
-@protocol TSDContainerInfo, TSDOwningAttachment;
+@protocol TSDContainerInfo, TSDOwningAttachment, TSWPFlowInfo;
 
 __attribute__((visibility("hidden")))
 @interface TSWPShapeInfo : TSDShapeInfo <TSDMixing, TSDContainerInfo, TSWPStorageParent, TSDSelectionStatisticsContributor>
 {
     TSWPStorage *_containedStorage;
+    TSPObject<TSWPFlowInfo> *_textFlow;
 }
 
++ (id)p_newEmptyStorageWithContext:(id)arg1 paragraphStyle:(id)arg2;
++ (id)defaultPlaceholderTextForLocale:(id)arg1;
 + (void)setDefaultInstructionalText:(id)arg1;
 + (unsigned long long)numberOfDifferencesBetweenStyleProperties:(id)arg1 betweenOutgoingStorage:(id)arg2 outgoingRange:(struct _NSRange)arg3 incomingStorage:(id)arg4 incomingRange:(struct _NSRange)arg5 maxDifferencesBeforeReturning:(unsigned long long)arg6;
 + (_Bool)shouldDisableTextMorphsFromPropertiesBetweenOutgoingStorage:(id)arg1 outgoingRange:(struct _NSRange)arg2 incomingStorage:(id)arg3 incomingRange:(struct _NSRange)arg4;
@@ -30,13 +33,14 @@ __attribute__((visibility("hidden")))
 + (id)textPropertiesAffectingVisualStyle;
 + (id)textPropertiesAffectingObjectMatch;
 + (id)textPropertiesNeedingCharacterAnimation;
-@property(retain, nonatomic) TSWPStorage *containedStorage; // @synthesize containedStorage=_containedStorage;
+@property(nonatomic) __weak TSPObject<TSWPFlowInfo> *textFlow; // @synthesize textFlow=_textFlow;
+- (void).cxx_destruct;
 - (void)processSelectedStoragesWithStatisticsController:(id)arg1;
 - (unsigned long long)chunkCountForTextureDeliveryStyle:(unsigned long long)arg1 byGlyphStyle:(int)arg2 animationFilter:(id)arg3;
+- (_Bool)p_isNonTopicParagraphBreakAtParagraphIndex:(unsigned long long)arg1;
+- (unsigned long long)p_nonTopicParagraphBreakCount;
 - (unsigned long long)p_chunkCountForByBulletGroup;
 - (unsigned long long)p_chunkCountForByBullet;
-- (_Bool)p_hasListLabelOrContentForParagraphIndex:(unsigned long long)arg1;
-- (_Bool)p_hasContentForRange:(struct _NSRange)arg1;
 - (_Bool)autoListTermination;
 - (_Bool)autoListRecognition;
 - (id)stylesForCopyStyle;
@@ -78,21 +82,25 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) int columnDirection;
 @property(nonatomic) int verticalAlignment;
 @property(nonatomic) _Bool textIsVertical;
+- (_Bool)textIsLinked;
 @property(nonatomic) _Bool shrinkTextToFit;
 - (_Bool)supportsShrinkTextToFit;
 - (_Bool)supportsTextInset;
+- (_Bool)canAnchor;
+@property(readonly, nonatomic) _Bool isLinked;
+- (id)i_ownedTextStorage;
+- (void)i_setOwnedTextStorage:(id)arg1;
+- (void)p_setOwnedTextStorage:(id)arg1;
+- (id)textStorageForHeadOfTextFlow;
+@property(readonly, nonatomic) TSWPStorage *containedStorage;
+@property(readonly, nonatomic) TSWPStorage *textStorage;
 - (void)saveToArchive:(struct ShapeInfoArchive *)arg1 archiver:(id)arg2;
 - (void)saveToArchiver:(id)arg1;
 - (void)loadFromArchive:(const struct ShapeInfoArchive *)arg1 unarchiver:(id)arg2;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
+- (void)upgradeOwnedStorageWithFileFormatVersion:(unsigned long long)arg1;
+- (void)upgradeWithNewOwnedStorage;
 - (_Bool)isEquivalentForCrossDocumentPasteMasterComparison:(id)arg1;
-- (id)localizedChunkNameForTextureDeliveryStyle:(unsigned long long)arg1 animationFilter:(id)arg2 chunkIndex:(unsigned long long)arg3;
-- (id)containedTextForDeliveryStyle:(unsigned long long)arg1 chunkIndex:(unsigned long long)arg2;
-- (id)defaultBuildChunkTitle;
-- (id)containedTextForRange:(struct _NSRange)arg1;
-- (id)p_chunkTitleByRemovingAdditionalLinesFromTitle:(id)arg1;
-- (id)containedText;
-- (_Bool)isBulleted;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
 - (_Bool)shouldHideEmptyBullets;

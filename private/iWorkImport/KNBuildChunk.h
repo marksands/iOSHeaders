@@ -37,6 +37,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) double delay; // @synthesize delay=_delay;
 @property(nonatomic) double duration; // @synthesize duration=_duration;
 @property(readonly, nonatomic) KNBuildChunkIdentifier *chunkIdentifier; // @synthesize chunkIdentifier=_buildChunkIdentifier;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool canEditAnimations;
 @property(readonly, nonatomic) NSSet *inspectableAttributes;
 @property(readonly, nonatomic) NSString *title;
@@ -56,9 +57,9 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) KNSlide *slide;
 @property(readonly, nonatomic) unsigned long long eventTrigger;
 @property(readonly, nonatomic) NSArray *availableEventTriggers;
-- (id)nextChunkOnSlide;
+@property(readonly, nonatomic) KNBuildChunk *nextChunkOnSlide;
 - (id)p_previousActiveChunkOnSlide;
-- (id)previousChunkOnSlide;
+@property(readonly, nonatomic) KNBuildChunk *previousChunkOnSlide;
 @property(readonly, nonatomic, getter=isAutomaticWithPreviousChunkOnSameDrawable) _Bool automaticWithPreviousChunkOnSameDrawable;
 @property(readonly, nonatomic, getter=isAutomaticWithPreviousChunk) _Bool automaticWithPreviousChunk;
 @property(readonly, nonatomic) _Bool supportsWithStart;
@@ -69,19 +70,11 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long referent;
 @property(nonatomic, getter=isAutomatic) _Bool automatic;
 @property(readonly, nonatomic) KNBuild *build;
-- (void)dealloc;
 - (void)didInitFromSOS;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithBuild:(id)arg1 referent:(unsigned long long)arg2 copyingRemainingAttributesFromChunk:(id)arg3;
 - (id)initWithBuild:(id)arg1 copyingAttributesFromChunk:(id)arg2;
 - (id)initWithBuild:(id)arg1;
-- (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
-- (void)saveToArchive:(struct BuildChunkArchive *)arg1 archiver:(id)arg2;
-- (void)p_setDurationFromBuildAttributes:(id)arg1;
-- (void)p_setDelayFromBuildAttributes:(id)arg1 withReferent:(unsigned long long)arg2 automatic:(_Bool)arg3;
-- (void)i_didLoadBuild:(id)arg1;
-- (void)loadFromArchive:(const struct BuildChunkArchive *)arg1 unarchiver:(id)arg2;
 - (void)i_updateChunkUUIDReferencesToBuild:(id)arg1;
 - (void)i_clearChunkIdentifier;
 - (void)i_setChunkIdentifier:(id)arg1;
@@ -90,6 +83,13 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) KNBuild *i_buildFromReference;
 - (void)i_setBuildPointer:(id)arg1 forUnarchive:(_Bool)arg2;
 - (void)i_invalidateCaches;
+- (void)saveToArchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
+- (void)saveToArchive:(struct BuildChunkArchive *)arg1 archiver:(id)arg2;
+- (void)p_setDurationFromBuildAttributes:(id)arg1;
+- (void)p_setDelayFromBuildAttributes:(id)arg1 withReferent:(unsigned long long)arg2 automatic:(_Bool)arg3;
+- (void)i_didLoadBuild:(id)arg1;
+- (void)loadFromArchive:(const struct BuildChunkArchive *)arg1 unarchiver:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

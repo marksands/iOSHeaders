@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <CoreKnowledge/_TtC13CoreKnowledge16CKKnowledgeStore.h>
+#import <CoreKnowledge/CKKnowledgeStore.h>
 
-@interface _TtC13CoreKnowledge22CKDeviceKnowledgeStore : _TtC13CoreKnowledge16CKKnowledgeStore
+@interface _TtC13CoreKnowledge22CKDeviceKnowledgeStore : CKKnowledgeStore
 {
 }
 

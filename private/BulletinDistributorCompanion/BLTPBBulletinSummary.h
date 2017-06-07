@@ -19,6 +19,7 @@
     NSString *_sectionID;
 }
 
++ (Class)keyType;
 @property(retain, nonatomic) NSMutableArray *keys; // @synthesize keys=_keys;
 @property(nonatomic) unsigned int destinations; // @synthesize destinations=_destinations;
 @property(retain, nonatomic) NSString *sectionID; // @synthesize sectionID=_sectionID;

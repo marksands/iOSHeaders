@@ -6,18 +6,20 @@
 
 #import <PhotoVision/PVObject.h>
 
-#import <PhotoVision/CVMLPhotosFaceRepresentation-Protocol.h>
+#import <PhotoVision/PFPhotosFaceRepresentation-Protocol.h>
 
 @class NSString, PVFaceprint;
 
-@interface PVFace : PVObject <CVMLPhotosFaceRepresentation>
+@interface PVFace : PVObject <PFPhotosFaceRepresentation>
 {
     _Bool _hidden;
     _Bool _isInTrash;
     _Bool _manual;
+    _Bool _isTooSmall;
     _Bool _hasSmile;
     _Bool _isLeftEyeClosed;
     _Bool _isRightEyeClosed;
+    int _trainingType;
     unsigned int _faceAlgorithmVersion;
     NSString *_personLocalIdentifier;
     long long _sourceWidth;
@@ -32,6 +34,7 @@
     double _mouthX;
     double _mouthY;
     double _blurScore;
+    double _exposureScore;
     NSString *_adjustmentVersion;
     long long _nameSource;
     double _poseRoll;
@@ -66,12 +69,15 @@
 @property(nonatomic) double posePitch; // @synthesize posePitch=_posePitch;
 @property(nonatomic) double poseYaw; // @synthesize poseYaw=_poseYaw;
 @property(nonatomic) double poseRoll; // @synthesize poseRoll=_poseRoll;
+@property(nonatomic) int trainingType; // @synthesize trainingType=_trainingType;
 @property(nonatomic) long long nameSource; // @synthesize nameSource=_nameSource;
 @property(copy, nonatomic) NSString *adjustmentVersion; // @synthesize adjustmentVersion=_adjustmentVersion;
 @property(nonatomic) _Bool isRightEyeClosed; // @synthesize isRightEyeClosed=_isRightEyeClosed;
 @property(nonatomic) _Bool isLeftEyeClosed; // @synthesize isLeftEyeClosed=_isLeftEyeClosed;
+@property(nonatomic) double exposureScore; // @synthesize exposureScore=_exposureScore;
 @property(nonatomic) double blurScore; // @synthesize blurScore=_blurScore;
 @property(nonatomic) _Bool hasSmile; // @synthesize hasSmile=_hasSmile;
+@property(nonatomic) _Bool isTooSmall; // @synthesize isTooSmall=_isTooSmall;
 @property(nonatomic) _Bool manual; // @synthesize manual=_manual;
 @property(nonatomic) _Bool isInTrash; // @synthesize isInTrash=_isInTrash;
 @property(nonatomic) _Bool hidden; // @synthesize hidden=_hidden;
@@ -88,11 +94,18 @@
 @property(nonatomic) long long sourceWidth; // @synthesize sourceWidth=_sourceWidth;
 @property(copy, nonatomic) NSString *personLocalIdentifier; // @synthesize personLocalIdentifier=_personLocalIdentifier;
 - (void).cxx_destruct;
-- (double)cvmlPhotosFaceRepresentationSize;
-- (double)cvmlPhotosFaceRepresentationCenterY;
-- (double)cvmlPhotosFaceRepresentationCenterX;
-- (long long)cvmlPhotosFaceRepresentationSourceHeight;
-- (long long)cvmlPhotosFaceRepresentationSourceWidth;
+- (id)photosFaceRepresentationLocalIdentifier;
+- (long long)photosFaceRepresentationClusterSequenceNumber;
+- (long long)photosFaceRepresentationQualityMeasure;
+- (_Bool)photosFaceRepresentationIsRightEyeClosed;
+- (_Bool)photosFaceRepresentationIsLeftEyeClosed;
+- (_Bool)photosFaceRepresentationHasSmile;
+- (double)photosFaceRepresentationBlurScore;
+- (double)photosFaceRepresentationSize;
+- (double)photosFaceRepresentationCenterY;
+- (double)photosFaceRepresentationCenterX;
+- (long long)photosFaceRepresentationSourceHeight;
+- (long long)photosFaceRepresentationSourceWidth;
 - (struct CGRect)absoluteFaceRectForImageSize:(struct CGSize)arg1;
 - (struct CGRect)absoluteFaceRect;
 - (struct CGRect)normalizedFaceRect;

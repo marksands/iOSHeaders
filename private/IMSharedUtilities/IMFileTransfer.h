@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSData, NSDate, NSDictionary, NSString, NSURL;
+@class NSArray, NSData, NSDate, NSDictionary, NSString, NSURL;
 
 @interface IMFileTransfer : NSObject
 {
@@ -24,8 +24,6 @@
     unsigned short _hfsFlags;
     unsigned int _hfsType;
     unsigned int _hfsCreator;
-    NSURL *_localURL;
-    NSData *_localBookmark;
     double _lastUpdatedInterval;
     double _lastAveragedInterval;
     unsigned long long _lastAveragedBytes;
@@ -50,14 +48,28 @@
     NSDictionary *_transcoderUserInfo;
     NSDictionary *_AuxTranscoderUserInfo;
     NSDictionary *_stickerUserInfo;
+    NSArray *_attachmentSendContexts;
+    long long _cloudKitSyncState;
+    NSData *_cloudKitServerChangeTokenBlob;
+    NSString *_cloudKitRecordID;
+    NSURL *_localURL;
+    NSURL *_temporaryHighQualityLocalURL;
     NSDictionary *_attributionInfo;
+    NSString *_originalGUID;
 }
 
 + (id)guidByStrippingAuxPrefix:(id)arg1;
 + (id)AuxGUIDFromFileTransferGUID:(id)arg1;
 + (_Bool)_doesLocalURLRequireArchiving:(id)arg1;
+@property(retain, nonatomic) NSString *originalGUID; // @synthesize originalGUID=_originalGUID;
 @property(nonatomic) _Bool appMessageFallbackImage; // @synthesize appMessageFallbackImage=_appMessageFallbackImage;
 @property(retain, nonatomic) NSDictionary *attributionInfo; // @synthesize attributionInfo=_attributionInfo;
+@property(retain, nonatomic) NSURL *temporaryHighQualityLocalURL; // @synthesize temporaryHighQualityLocalURL=_temporaryHighQualityLocalURL;
+@property(retain, nonatomic, setter=_setLocalURL:) NSURL *localURL; // @synthesize localURL=_localURL;
+@property(retain, nonatomic) NSString *cloudKitRecordID; // @synthesize cloudKitRecordID=_cloudKitRecordID;
+@property(retain, nonatomic) NSData *cloudKitServerChangeTokenBlob; // @synthesize cloudKitServerChangeTokenBlob=_cloudKitServerChangeTokenBlob;
+@property(nonatomic) long long cloudKitSyncState; // @synthesize cloudKitSyncState=_cloudKitSyncState;
+@property(retain, nonatomic) NSArray *attachmentSendContexts; // @synthesize attachmentSendContexts=_attachmentSendContexts;
 @property(nonatomic) _Bool hideAttachment; // @synthesize hideAttachment=_hideAttachment;
 @property(retain, nonatomic) NSDictionary *stickerUserInfo; // @synthesize stickerUserInfo=_stickerUserInfo;
 @property(nonatomic) _Bool isSticker; // @synthesize isSticker=_isSticker;
@@ -94,12 +106,13 @@
 @property(readonly, nonatomic) unsigned long long _lastAveragedBytes; // @synthesize _lastAveragedBytes;
 @property(nonatomic, setter=_setLastAveragedInterval:) double _lastAveragedInterval; // @synthesize _lastAveragedInterval;
 @property(nonatomic, setter=_setLastUpdatedInterval:) double _lastUpdatedInterval; // @synthesize _lastUpdatedInterval;
-@property(retain, nonatomic) NSData *localBookmark; // @synthesize localBookmark=_localBookmark;
-@property(readonly, retain, nonatomic) NSURL *localURLWithoutBookmarkResolution; // @synthesize localURLWithoutBookmarkResolution=_localURL;
+- (id)_auxVideoPathIfItExists;
 - (id)description;
 @property(readonly, retain, nonatomic) NSString *mimeType; // @synthesize mimeType=_mimeType;
-@property(retain, nonatomic, setter=_setLocalURL:) NSURL *localURL;
 @property(retain, nonatomic, setter=_setLocalPath:) NSString *localPath;
+@property(readonly, retain, nonatomic) NSString *permanentHighQualityLocalPath;
+@property(readonly, retain, nonatomic) NSString *temporaryHighQualityLocalPath;
+@property(readonly, nonatomic) _Bool isAutoloopVideo;
 @property(readonly, nonatomic) _Bool isRecipeBasedSticker;
 @property(readonly, nonatomic) _Bool existsAtLocalPath;
 @property(readonly, retain, nonatomic) NSString *displayName;

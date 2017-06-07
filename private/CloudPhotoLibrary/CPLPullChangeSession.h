@@ -14,9 +14,9 @@
 {
 }
 
++ (id)shortDescription;
 - (void)acknowledgeChangeBatch:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)getChangeBatchWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)_sessionLogDomain;
 - (id)init;
 
 // Remaining properties

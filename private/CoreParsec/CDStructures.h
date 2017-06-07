@@ -12,6 +12,11 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 // Ambiguous groups
 typedef struct {
+    unsigned int timestamp:1;
     unsigned int triggerEvent:1;
-} CDStruct_ce7c5ddc;
+} CDStruct_c6e3878d;
+
+typedef struct {
+    unsigned int timestamp:1;
+} CDStruct_b5306035;
 

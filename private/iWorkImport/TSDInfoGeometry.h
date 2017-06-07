@@ -44,6 +44,8 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqualExceptForPosition:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
+- (id)geometryWithValidNumbers;
+@property(readonly, nonatomic) _Bool allValuesValidNumbers;
 - (struct CGPoint)transformedBoundsOrigin;
 - (struct CGRect)transformedBounds;
 - (struct CGAffineTransform)transformWithoutFlips;

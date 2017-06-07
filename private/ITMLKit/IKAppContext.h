@@ -7,12 +7,13 @@
 #import <objc/NSObject.h>
 
 #import <ITMLKit/IKAppCacheDelegate-Protocol.h>
+#import <ITMLKit/IKJSInspectorControllerDelegate-Protocol.h>
 #import <ITMLKit/ISURLOperationDelegate-Protocol.h>
 
 @class IKAppCache, IKJSArrayBufferStore, IKJSFoundation, IKJSInspectorController, IKViewElementRegistry, JSContext, NSError, NSMutableArray, NSString;
 @protocol IKAppContextDelegate, IKAppScriptFallbackHandler, IKApplication, OS_dispatch_source;
 
-@interface IKAppContext : NSObject <ISURLOperationDelegate, IKAppCacheDelegate>
+@interface IKAppContext : NSObject <ISURLOperationDelegate, IKAppCacheDelegate, IKJSInspectorControllerDelegate>
 {
     IKJSArrayBufferStore *_arrayBufferStore;
     struct __CFRunLoop *_jsThreadRunLoop;
@@ -45,6 +46,7 @@
     IKJSInspectorController *_webInspectorController;
 }
 
++ (_Bool)isInFactoryMode;
 + (void)registerPrivateProtocols:(id)arg1 forClass:(Class)arg2;
 + (id)currentAppContext;
 + (void)load;
@@ -76,6 +78,8 @@
 - (void).cxx_destruct;
 - (void)handleCacheUpdate;
 - (void)appCache:(id)arg1 didUpdateWithChecksum:(id)arg2;
+- (_Bool)cancelHighlightView;
+- (_Bool)highlightViewForElementWithID:(long long)arg1 contentColor:(id)arg2 paddingColor:(id)arg3 borderColor:(id)arg4 marginColor:(id)arg5;
 - (id)_appTraitCollection;
 - (void)contextDidStartWithJS:(id)arg1 options:(id)arg2;
 - (void)contextDidFailWithError:(id)arg1;
@@ -114,7 +118,7 @@
 - (id)initWithApplication:(id)arg1 mode:(unsigned long long)arg2 delegate:(id)arg3;
 - (id)initWithApplication:(id)arg1 mode:(unsigned long long)arg2 cache:(_Bool)arg3 delegate:(id)arg4;
 @property(readonly, nonatomic) IKJSArrayBufferStore *arrayBufferStore;
-- (void)_evaluateFoundationWithDeviceConfig:(id)arg1;
+- (void)_evaluateFoundationWithDeviceConfig:(id)arg1 addPrivateInterfaces:(_Bool)arg2;
 - (void)exitAppWithOptions:(id)arg1;
 - (void)launchAppWithOptions:(id)arg1;
 - (void)evaluateFoundationJS;

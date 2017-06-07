@@ -42,10 +42,11 @@
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
 - (void)replaceFaceLocallyByCopy:(id)arg1 suppressingCallbackToObserver:(id)arg2;
-- (void)_fixSelectionBecauseSelectedUUIDWillBeRemovedAtIndex:(unsigned long long)arg1 suppressingCallbackToObserver:(id)arg2;
+- (id)_chooseNewSelectionBecauseSelectedUUIDWillBeRemovedAtIndex:(unsigned long long)arg1;
 - (void)_setSelectedUUID:(id)arg1 notify:(_Bool)arg2 suppressingCallbackToObserver:(id)arg3;
 - (void)_addFace:(id)arg1 forUUID:(id)arg2 atIndex:(unsigned long long)arg3 suppressingCallbackToObserver:(id)arg4;
 - (void)_removeFaceForUUID:(id)arg1 suppressingCallbackToObserver:(id)arg2;
+- (void)_upgradeFace:(id)arg1 forUUID:(id)arg2;
 - (void)_updateOrderedUUIDsFromReference:(id)arg1 andNotifyReordered:(_Bool)arg2;
 - (void)_selectFaceUUID:(id)arg1 notify:(_Bool)arg2;
 - (void)_removeFaceForUUID:(id)arg1;
@@ -71,6 +72,7 @@
 - (_Bool)containsFace:(id)arg1;
 - (unsigned long long)indexOfFace:(id)arg1;
 - (unsigned long long)numberOfFaces;
+- (void)dealloc;
 - (id)initWithCollectionIdentifier:(id)arg1 deviceUUID:(id)arg2;
 
 // Remaining properties

@@ -13,7 +13,15 @@
 
 - (id).cxx_construct;
 - (void).cxx_destruct;
-- (_Bool)didEndpointWithFeatures:(id)arg1 task:(id)arg2 samplingRate:(unsigned long long)arg3 audioTimestamp:(double)arg4;
+- (_Bool)acceptEagerResultWithFeatures:(id)arg1 featuresToLog:(id *)arg2;
+- (_Bool)didEndpointWithFeatures:(id)arg1 audioTimestamp:(double)arg2 featuresToLog:(id *)arg3 endpointPosterior:(float *)arg4;
+- (id)defaultServerEndpointFeatures;
+- (_Bool)didEndpointWithFeatures:(id)arg1 audioTimestamp:(double)arg2 featuresToLog:(id *)arg3 endpointPosterior:(float *)arg4 extraDelayMs:(int *)arg5;
+- (void)updateEndpointerDelayedTriggerSwitch:(_Bool)arg1;
+- (void)updateEndpointerThresholdWithValue:(float)arg1;
+- (_Bool)requestSupportedWithSamplingRate:(unsigned long long)arg1;
+- (id)initWithConfiguration:(id)arg1 delaysTrigger:(_Bool)arg2 modelVersion:(id *)arg3;
+- (id)initWithConfiguration:(id)arg1 modelVersion:(id *)arg2;
 - (id)initWithConfiguration:(id)arg1;
 
 @end

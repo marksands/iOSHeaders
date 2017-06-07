@@ -7,12 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <CameraKit/CMKStillImageCaptureRequestDelegate-Protocol.h>
-#import <CameraKit/UIAlertViewDelegate-Protocol.h>
 
-@class CMKLowDiskSpaceAlertView, CMKTimelapseState, NSCountedSet, NSDate, NSMutableSet, NSString;
+@class CMKLowDiskSpaceAlertController, CMKTimelapseState, NSCountedSet, NSDate, NSMutableSet, NSString;
 @protocol OS_dispatch_source;
 
-@interface CMKTimelapseController : NSObject <CMKStillImageCaptureRequestDelegate, UIAlertViewDelegate>
+@interface CMKTimelapseController : NSObject <CMKStillImageCaptureRequestDelegate>
 {
     _Bool __ignoringTimerCallbacksForTearDown;
     _Bool __ignoringTimerCallbacksWaitingForCaptureResponse;
@@ -22,7 +21,7 @@
     NSObject<OS_dispatch_source> *__captureTimer;
     NSCountedSet *__inFlightTimelapseUUIDs;
     NSMutableSet *__pendingCompletedStates;
-    CMKLowDiskSpaceAlertView *__diskSpaceAlert;
+    CMKLowDiskSpaceAlertController *__diskSpaceAlert;
 }
 
 + (void)recoverFromCrashIfNeededForceEndLastSession:(_Bool)arg1;
@@ -31,7 +30,7 @@
 + (id)sharedInstance;
 @property(nonatomic, setter=_setPreviewStarted:) _Bool _previewStarted; // @synthesize _previewStarted=__previewStarted;
 @property(nonatomic, setter=_setBackendRecoveryNeeded:) _Bool _backendRecoveryNeeded; // @synthesize _backendRecoveryNeeded=__backendRecoveryNeeded;
-@property(readonly, nonatomic) CMKLowDiskSpaceAlertView *_diskSpaceAlert; // @synthesize _diskSpaceAlert=__diskSpaceAlert;
+@property(readonly, nonatomic) CMKLowDiskSpaceAlertController *_diskSpaceAlert; // @synthesize _diskSpaceAlert=__diskSpaceAlert;
 @property(readonly, nonatomic) NSMutableSet *_pendingCompletedStates; // @synthesize _pendingCompletedStates=__pendingCompletedStates;
 @property(readonly, nonatomic) NSCountedSet *_inFlightTimelapseUUIDs; // @synthesize _inFlightTimelapseUUIDs=__inFlightTimelapseUUIDs;
 @property(readonly, nonatomic) _Bool _ignoringTimerCallbacksWaitingForCaptureResponse; // @synthesize _ignoringTimerCallbacksWaitingForCaptureResponse=__ignoringTimerCallbacksWaitingForCaptureResponse;
@@ -44,7 +43,6 @@
 - (void)_updateLocationIfNecessary;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
-- (void)alertView:(id)arg1 didDismissWithButtonIndex:(long long)arg2;
 - (void)_dismissDiskSpaceAlert;
 - (void)_notifyInsufficientDiskSpaceForContinuingCapture;
 - (void)_notifyInsufficientDiskSpaceForStartingCaptureWithNeededBytes:(long long)arg1 availableBytes:(long long)arg2;

@@ -20,6 +20,7 @@
 }
 
 @property(nonatomic) _Bool shouldEnableRedoSearch; // @synthesize shouldEnableRedoSearch=_shouldEnableRedoSearch;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) PBUnknownFields *unknownFields;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
@@ -31,7 +32,6 @@
 - (id)dictionaryRepresentation;
 - (id)description;
 @property(nonatomic) _Bool hasShouldEnableRedoSearch;
-- (void)dealloc;
 
 @end
 

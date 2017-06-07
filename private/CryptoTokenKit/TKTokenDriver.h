@@ -14,8 +14,11 @@
     id <TKTokenDriverDelegate> _delegate;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableDictionary *_tokens;
+    NSDictionary *_extensionAttributes;
 }
 
++ (id)driver;
+@property(retain) NSDictionary *extensionAttributes; // @synthesize extensionAttributes=_extensionAttributes;
 @property(retain) NSMutableDictionary *tokens; // @synthesize tokens=_tokens;
 @property(readonly) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property __weak id <TKTokenDriverDelegate> delegate; // @synthesize delegate=_delegate;
@@ -27,7 +30,6 @@
 - (id)tokenIDForInstanceID:(id)arg1;
 - (void)getTokenWithAttributes:(id)arg1 reply:(CDUnknownBlockType)arg2;
 @property(readonly) NSString *classID;
-@property(readonly) NSDictionary *extensionAttributes;
 - (id)init;
 
 @end

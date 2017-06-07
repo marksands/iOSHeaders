@@ -8,6 +8,7 @@
 
 @interface CAMCaptureConfiguration : NSObject
 {
+    _Bool _photoBooth;
     long long _mode;
     long long _device;
     long long _videoConfiguration;
@@ -19,12 +20,15 @@
     long long _irisMode;
     long long _photoModeEffectFilterType;
     long long _squareModeEffectFilterType;
+    long long _portraitModeEffectFilterType;
 }
 
 + (long long)_fallbackVideoConfigurationForUnsupportedConfiguration:(long long)arg1;
 + (long long)sanitizeVideoConfigurationForDesiredConfiguration:(long long)arg1 mode:(long long)arg2 device:(long long)arg3;
 + (long long)audioConfigurationForMode:(long long)arg1 device:(long long)arg2 emulationMode:(long long)arg3 duringCall:(_Bool)arg4;
 + (id)captureGraphConfigurationUsingConfiguration:(id)arg1;
+@property(readonly, nonatomic, getter=isPhotoBooth) _Bool photoBooth; // @synthesize photoBooth=_photoBooth;
+@property(readonly, nonatomic) long long portraitModeEffectFilterType; // @synthesize portraitModeEffectFilterType=_portraitModeEffectFilterType;
 @property(readonly, nonatomic) long long squareModeEffectFilterType; // @synthesize squareModeEffectFilterType=_squareModeEffectFilterType;
 @property(readonly, nonatomic) long long photoModeEffectFilterType; // @synthesize photoModeEffectFilterType=_photoModeEffectFilterType;
 @property(readonly, nonatomic) long long irisMode; // @synthesize irisMode=_irisMode;
@@ -36,7 +40,9 @@
 @property(readonly, nonatomic) long long videoConfiguration; // @synthesize videoConfiguration=_videoConfiguration;
 @property(readonly, nonatomic) long long device; // @synthesize device=_device;
 @property(readonly, nonatomic) long long mode; // @synthesize mode=_mode;
-- (id)initWithCaptureMode:(long long)arg1 captureDevice:(long long)arg2 videoConfiguration:(long long)arg3 audioConfiguration:(long long)arg4 flashMode:(long long)arg5 torchMode:(long long)arg6 HDRMode:(long long)arg7 irisMode:(long long)arg8 timerDuration:(long long)arg9 photoModeEffectFilterType:(long long)arg10 squareModeEffectFilterType:(long long)arg11;
+- (id)_previewFilters;
+- (id)initForPhotoBoothWithCaptureDevice:(long long)arg1;
+- (id)initWithCaptureMode:(long long)arg1 captureDevice:(long long)arg2 videoConfiguration:(long long)arg3 audioConfiguration:(long long)arg4 flashMode:(long long)arg5 torchMode:(long long)arg6 HDRMode:(long long)arg7 irisMode:(long long)arg8 timerDuration:(long long)arg9 photoModeEffectFilterType:(long long)arg10 squareModeEffectFilterType:(long long)arg11 portraitModeEffectFilterType:(long long)arg12;
 
 @end
 

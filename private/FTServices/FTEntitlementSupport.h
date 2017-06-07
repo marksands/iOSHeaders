@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSDictionary;
 
@@ -23,7 +23,7 @@
 - (void)_entitlementStatusChanged;
 - (void)_registrationStateChanged;
 - (id)_rawEntitlementValue;
-@property(readonly, retain, nonatomic) NSDictionary *registrationState;
+@property(readonly, nonatomic) NSDictionary *registrationState;
 @property(readonly, nonatomic) _Bool faceTimeNonWiFiEntitled;
 - (id)init;
 

@@ -259,6 +259,7 @@
 @property(copy, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 - (void).cxx_destruct;
 - (void)updateMedicalIDData;
+- (void)setHighFidelityGeneration:(_Bool)arg1;
 - (id)fullName;
 - (id)initWithFirstName:(id)arg1 lastName:(id)arg2 description:(id)arg3 birthDateComponents:(id)arg4 biologicalSex:(long long)arg5;
 

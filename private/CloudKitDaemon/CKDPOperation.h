@@ -43,6 +43,7 @@
 @property(nonatomic) _Bool hasType;
 @property(nonatomic) int type; // @synthesize type=_type;
 @property(readonly, nonatomic) _Bool hasOperationUUID;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 
 @end
 

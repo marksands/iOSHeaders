@@ -15,10 +15,12 @@
     NSError *_error;
     struct _opaque_pthread_mutex_t _lock;
     NSObject<OS_dispatch_queue> *_callbacks;
+    _Bool _yoDontLeaveMeHangingBro;
     _Bool _isComplete;
     NSObject<OS_dispatch_queue> *_workQueue;
 }
 
++ (id)createAfter:(id)arg1 onCreate:(CDUnknownBlockType)arg2;
 + (id)futureForObject:(id)arg1 withKey:(void *)arg2 onCreate:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic) _Bool isComplete; // @synthesize isComplete=_isComplete;

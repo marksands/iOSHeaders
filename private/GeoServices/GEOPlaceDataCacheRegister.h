@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 @class NSMutableDictionary;
 
@@ -18,6 +18,7 @@ __attribute__((visibility("hidden")))
 
 + (id)diskCachePath;
 + (void)setDiskCachePath:(id)arg1;
+- (void).cxx_destruct;
 - (id)_cacheKeysPerSize;
 - (void)evictAllEntries;
 - (void)deletePhoneNumberMapping;
@@ -28,7 +29,6 @@ __attribute__((visibility("hidden")))
 - (void)_loadAllCachesIfNecessary;
 - (id)cacheForProviderID:(int)arg1;
 - (id)_allExistingProviderIDs;
-- (void)dealloc;
 - (id)init;
 
 @end

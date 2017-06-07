@@ -11,10 +11,6 @@
 @interface ACAccount (AppleAccount)
 + (id)aa_dataclassesBoundToSingleAppleAccount;
 + (id)aa_dataclassesBoundToPrimaryAppleAccount;
-+ (void)load;
-- (_Bool)aa_isPCSErrorTransient:(struct __CFError *)arg1;
-- (_Bool)aa_needsPCSRepairWithAuthToken:(id)arg1;
-- (_Bool)aa_needsPCSRepair;
 @property(readonly, nonatomic) int aa_repairerPID;
 @property(nonatomic, setter=aa_setUndergoingRepair:) _Bool aa_isUndergoingRepair;
 @property(readonly, nonatomic) _Bool aa_isNotesMigrated;
@@ -52,6 +48,7 @@
 @property(readonly, nonatomic) NSArray *aa_appleIDAliases;
 @property(readonly, nonatomic) NSString *aa_protocolVersion;
 @property(readonly, nonatomic) NSString *aa_primaryEmail;
+@property(readonly, nonatomic) NSString *aa_formattedUsername;
 @property(readonly, nonatomic) NSString *aa_appleId;
 @property(nonatomic, setter=aa_setPrimaryEmailVerified:) _Bool aa_isPrimaryEmailVerified;
 @property(nonatomic, setter=aa_setPrimaryAccount:) _Bool aa_isPrimaryAccount;

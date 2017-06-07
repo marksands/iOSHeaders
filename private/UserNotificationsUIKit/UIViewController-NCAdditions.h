@@ -7,6 +7,7 @@
 #import <UIKit/UIViewController.h>
 
 @interface UIViewController (NCAdditions)
+- (id)nc_presentationContextDefiningViewController;
 - (id)nc_presentationControllerIfPresented;
 @property(nonatomic, setter=setNCTransitionAnimationState:) long long ncTransitionAnimationState; // @dynamic ncTransitionAnimationState;
 @end

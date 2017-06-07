@@ -17,7 +17,6 @@
     double _currentLogoPlatterXOffset;
 }
 
-+ (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 + (id)_swatchImageForColorOption:(id)arg1;
 + (id)_swatchForEditModeDependsOnOptions:(long long)arg1;
 - (void).cxx_destruct;
@@ -27,6 +26,7 @@
 - (double)_timeTravelStatusModuleCaptionConstraintPadding;
 - (void)_layoutTimeTravelCaptionView:(id)arg1;
 - (void)_layoutTimeTravelStatusModule:(id)arg1;
+- (id)_swatchImageForEditOption:(id)arg1 mode:(long long)arg2 withSelectedOptions:(id)arg3;
 - (double)_keylinePaddingForState:(long long)arg1;
 - (double)_keylineEdgeGapForState:(long long)arg1;
 - (void)_loadLayoutRules;
@@ -47,6 +47,7 @@
 - (void)_configureForTransitionFraction:(double)arg1 fromEditMode:(long long)arg2 toEditMode:(long long)arg3;
 - (void)_cleanupAfterEditing;
 - (void)_prepareForEditing;
+- (void)_applyBreathingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyRubberBandingFraction:(double)arg1 forCustomEditMode:(long long)arg2 slot:(id)arg3;
 - (void)_applyColor:(id)arg1 toComplicationView:(id)arg2;
 - (void)_applyTransitionFraction:(double)arg1 fromOption:(id)arg2 toOption:(id)arg3 forCustomEditMode:(long long)arg4 slot:(id)arg5;
@@ -54,6 +55,7 @@
 - (double)_verticalPaddingForStatusBar;
 - (void)_positionLogoPlatterView;
 - (void)layoutSubviews;
+- (id)_additionalPrelaunchApplicationIdentifiers;
 - (void)_logoTapped;
 - (void)_setupLogoViews;
 - (void)_unloadSnapshotContentViews;

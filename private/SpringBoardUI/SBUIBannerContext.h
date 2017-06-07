@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString, SBUIBannerAction, SBUIBannerItem;
+@class SBUIBannerItem;
 @protocol SBUIBannerSource, SBUIBannerTarget;
 
 @interface SBUIBannerContext : NSObject
@@ -15,12 +15,8 @@
     id <SBUIBannerSource> _source;
     id <SBUIBannerTarget> _target;
     _Bool _isValid;
-    _Bool _requestsModalPresentation;
-    NSString *_presentingActionIdentifier;
 }
 
-@property(copy, nonatomic) NSString *presentingActionIdentifier; // @synthesize presentingActionIdentifier=_presentingActionIdentifier;
-@property(nonatomic) _Bool requestsModalPresentation; // @synthesize requestsModalPresentation=_requestsModalPresentation;
 @property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_isValid;
 @property(readonly, nonatomic) id <SBUIBannerTarget> target; // @synthesize target=_target;
 @property(readonly, nonatomic) id <SBUIBannerSource> source; // @synthesize source=_source;
@@ -28,11 +24,6 @@
 - (void).cxx_destruct;
 - (id)description;
 - (void)invalidate;
-- (id)actionForIdentifier:(id)arg1;
-@property(readonly, nonatomic) SBUIBannerAction *textInputAction;
-@property(readonly, nonatomic) SBUIBannerAction *remoteInteractiveAction;
-- (id)_presentingAction;
-- (id)initWithItem:(id)arg1 source:(id)arg2 target:(id)arg3 presentingActionIdentifier:(id)arg4 requestModalPresentation:(_Bool)arg5;
 - (id)initWithItem:(id)arg1 source:(id)arg2 target:(id)arg3;
 
 @end

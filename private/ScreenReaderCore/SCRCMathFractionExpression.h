@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) SCRCMathExpression *operator; // @synthesize operator=_operator;
 @property(retain, nonatomic) SCRCMathExpression *denominator; // @synthesize denominator=_denominator;
 @property(retain, nonatomic) SCRCMathExpression *numerator; // @synthesize numerator=_numerator;
+- (void).cxx_destruct;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
 - (id)_dollarCodeDescriptionAsBinomialCoefficient:(_Bool)arg1 orMixedNumberFraction:(_Bool)arg2 withNumberOfOuterRadicals:(unsigned long long)arg3 treePosition:(id)arg4;
@@ -36,7 +37,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isUnlinedFraction;
 - (id)subExpressions;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 
 @end

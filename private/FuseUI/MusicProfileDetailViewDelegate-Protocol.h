@@ -14,7 +14,6 @@
 - (void)profileDetailViewDidSelectTitle:(MusicProfileDetailView *)arg1;
 - (void)profileDetailViewDidSelectShareActionsButton:(MusicProfileDetailView *)arg1;
 - (void)profileDetailViewDidSelectEditButton:(MusicProfileDetailView *)arg1;
-- (void)profileDetailViewDidSelectContextualActionsButton:(MusicProfileDetailView *)arg1;
 - (void)profileDetailView:(MusicProfileDetailView *)arg1 didUpdateFollowingState:(_Bool)arg2;
 @end
 

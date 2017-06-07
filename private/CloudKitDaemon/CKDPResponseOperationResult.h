@@ -35,6 +35,7 @@
 - (id)codeAsString:(int)arg1;
 @property(nonatomic) _Bool hasCode;
 @property(nonatomic) int code; // @synthesize code=_code;
+- (void)_CKLogToFileHandle:(id)arg1 atDepth:(int)arg2;
 
 @end
 

@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSString *appMinorVersion; // @synthesize appMinorVersion=_appMinorVersion;
 @property(retain, nonatomic) NSString *appMajorVersion; // @synthesize appMajorVersion=_appMajorVersion;
 @property(retain, nonatomic) NSString *appIdentifier; // @synthesize appIdentifier=_appIdentifier;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -32,7 +33,6 @@
 @property(readonly, nonatomic) _Bool hasAppMinorVersion;
 @property(readonly, nonatomic) _Bool hasAppMajorVersion;
 @property(readonly, nonatomic) _Bool hasAppIdentifier;
-- (void)dealloc;
 
 @end
 

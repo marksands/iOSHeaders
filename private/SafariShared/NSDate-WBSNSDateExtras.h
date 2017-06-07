@@ -8,6 +8,7 @@
 
 @interface NSDate (WBSNSDateExtras)
 + (double)safari_oneDayInSeconds;
++ (void)safari_dateFromNTPServerWithTimeout:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)safari_dateOfMidnightNumberOfDaysAgo:(long long)arg1;
 - (_Bool)safari_isNowOrInRecentPast;
 - (_Bool)safari_isInclusivelyBetweenDate:(id)arg1 andDate:(id)arg2;

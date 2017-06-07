@@ -14,9 +14,7 @@
 - (id)multipleAbnormalServicesWithRoomFormatString;
 - (id)oneAbnormalServiceWithRoomFormatString;
 - (id)oneAbnormalServiceFormatString;
-- (CDUnknownBlockType)isAbnormalTest;
-- (id)characteristicType;
-- (id)serviceType;
+- (id)serviceTypes;
 - (id)_subclass_updateWithOptions:(id)arg1;
 
 @end

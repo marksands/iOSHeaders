@@ -24,9 +24,10 @@ __attribute__((visibility("hidden")))
 + (id)properties;
 - (id)mixedObjectWithFraction:(double)arg1 ofObject:(id)arg2;
 - (long long)mixingTypeWithObject:(id)arg1 context:(id)arg2;
-- (id)initFromPreUFFArchiveWithUnarchiver:(id)arg1;
+- (void)handlePreUFFUpgradesForOverridePropertyMapWithUnarchiver:(id)arg1;
+- (void)loadFromPreUFFArchiveWithUnarchiver:(id)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (void)p_upgrade3DFillSubclassTSDFill:(id)arg1;
 - (void)p_upgradeRemoveShadowEnabledPropertyUsage:(id)arg1;
 - (void)p_upgrade3DChartProperties:(id)arg1;

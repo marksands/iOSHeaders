@@ -28,6 +28,7 @@
 @property(copy, nonatomic) NSLocale *userLocale; // @synthesize userLocale=_userLocale;
 @property(retain, nonatomic) NSCharacterSet *commonCharacters; // @synthesize commonCharacters=_commonCharacters;
 @property(retain, nonatomic) NSArray *langMaps; // @synthesize langMaps=_langMaps;
+- (void).cxx_destruct;
 - (void)_handleUserLocaleDidChange:(id)arg1;
 - (id)_loadLangMaps;
 - (id)characterSetForRanges:(id)arg1;
@@ -40,9 +41,9 @@
 - (id)dialectThatCanSpeakCharacter:(unsigned short)arg1;
 - (id)dialectsThatCanSpeakCharacter:(unsigned short)arg1;
 - (id)dialectForLanguageID:(id)arg1;
-@property(nonatomic) AXDialectMap *dialectForCurrentLocale;
-@property(readonly, nonatomic) AXDialectMap *dialectForUserLocale;
-@property(nonatomic) AXDialectMap *dialectForSystemLanguage;
+@property(nonatomic) __weak AXDialectMap *dialectForCurrentLocale;
+@property(readonly, nonatomic) __weak AXDialectMap *dialectForUserLocale;
+@property(nonatomic) __weak AXDialectMap *dialectForSystemLanguage;
 @property(readonly, nonatomic) NSString *systemLanguageID;
 - (id)debugDescription;
 - (id)basicDescription;

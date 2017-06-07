@@ -21,7 +21,6 @@
 - (void).cxx_destruct;
 - (void)setTarget:(id)arg1 action:(SEL)arg2;
 @property(nonatomic, getter=isOn) _Bool on;
-- (void)layoutSubviews;
 - (void)dealloc;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;
 - (id)initWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;

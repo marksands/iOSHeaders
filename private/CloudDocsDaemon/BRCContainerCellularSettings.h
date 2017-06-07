@@ -7,20 +7,23 @@
 #import <objc/NSObject.h>
 
 @class NSNumber;
-@protocol OS_dispatch_queue;
+@protocol NSObject, OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface BRCContainerCellularSettings : NSObject
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSNumber *_isCellularEnabledForDocumentsAndData;
+    id <NSObject> _accountDidChangeNotificationObserver;
 }
 
 + (id)containerCellularSettings;
++ (id)_notifAccountStore;
 - (void).cxx_destruct;
 - (_Bool)isCellularEnabledForContainerID:(id)arg1;
 - (_Bool)_isCellularEnabledForBundleID:(id)arg1;
 - (_Bool)_isCellularEnabledForDocumentsAndData;
+- (void)dealloc;
 - (id)init;
 - (void)_accountDidChange;
 

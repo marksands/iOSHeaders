@@ -17,8 +17,10 @@
     NSArray *_customResponses;
     NSString *_taggedText;
     NSArray *_sentenceEntities;
+    NSArray *_matchedRanges;
 }
 
+@property(retain) NSArray *matchedRanges; // @synthesize matchedRanges=_matchedRanges;
 @property(retain) NSArray *sentenceEntities; // @synthesize sentenceEntities=_sentenceEntities;
 @property(retain) NSString *taggedText; // @synthesize taggedText=_taggedText;
 @property(retain) NSArray *customResponses; // @synthesize customResponses=_customResponses;

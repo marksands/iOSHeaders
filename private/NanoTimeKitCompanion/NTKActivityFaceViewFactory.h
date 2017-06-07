@@ -11,7 +11,7 @@
 #import <NanoTimeKitCompanion/NTKWellnessTimelineModelSubscriber-Protocol.h>
 
 @class NSDate, NSString, NTKActivityFaceTimeline, NTKUtilityComplicationFactory, NTKWellnessEntryModel;
-@protocol NTKActivityFaceViewFactoryDelegate;
+@protocol NTKActivityFaceViewFactoryDelegate, OS_dispatch_source;
 
 @interface NTKActivityFaceViewFactory : NSObject <NTKUtilityComplicationFactoryDelegate, NTKWellnessTimelineModelSubscriber, NTKComplicationTimelineDelegate>
 {
@@ -19,6 +19,7 @@
     _Bool _timeTravellingOutsideBounds;
     double _lastWristRaiseTime;
     double _wristRaiseTimoutDuration;
+    NSObject<OS_dispatch_source> *_memoryNotificationEventSource;
     _Bool _hasBeenLiveOrOnDeck;
     _Bool _isHistoricalDataLoaded;
     _Bool _isLoadingData;
@@ -47,6 +48,7 @@
 @property(retain, nonatomic) NTKActivityFaceTimeline *timeline; // @synthesize timeline=_timeline;
 @property(retain, nonatomic) NTKUtilityComplicationFactory *complicationFactory; // @synthesize complicationFactory=_complicationFactory;
 - (void).cxx_destruct;
+- (id)debugStringForEntry:(id)arg1;
 - (id)_complicationSlots;
 - (id)_colorComplicationSlots;
 - (id)_utilityComplicationSlots;
@@ -84,6 +86,7 @@
 - (void)scrubToDate:(id)arg1;
 - (void)_startExtendOperationIfNecessaryForWindow:(id)arg1 withDate:(id)arg2 minBuffer:(double)arg3;
 - (void)_extendTimelineIfNecessaryAndPossible;
+- (void)_loadCurrentEntryForce:(_Bool)arg1;
 - (void)_loadCurrentEntry;
 - (void)_extendRightWithEntryModel:(id)arg1;
 - (void)wellnessTimeLineModelCurrentEntryModelUpdated:(id)arg1;

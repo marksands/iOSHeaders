@@ -13,21 +13,23 @@
 __attribute__((visibility("hidden")))
 @interface TSKAnnotationAuthor : TSPObject <TSPCopying>
 {
-    NSString *mName;
     TSUColor *mColor;
-    NSString *mPublicID;
-    _Bool mIsPublicAuthor;
-    NSString *_appearanceColorForAuthor;
+    _Bool _isPublicAuthor;
+    NSString *_name;
+    NSString *_publicID;
 }
 
++ (void)enumerateAnnotationsInDocument:(id)arg1 withAuthor:(id)arg2 usingHitBlock:(CDUnknownBlockType)arg3;
++ (id)p_authorNameStringWithLocalizedFormatString:(id)arg1 ubiquityUserName:(id)arg2;
++ (id)authorNameExplanatoryStringWithUseExplanation:(_Bool)arg1 withSettingsExplanation:(_Bool)arg2 ubiquityUserName:(id)arg3;
 + (id)normalizedAuthorNameForAuthorName:(id)arg1;
 + (id)defaultAuthorName;
-+ (id)collaboratorCursorColorByLightColor:(id)arg1;
 + (id)indicatorDarkColorByLightColor:(id)arg1;
 + (id)indicatorLightColorByAuthorColor:(id)arg1;
 + (id)indicatorDarkColorForIndex:(unsigned long long)arg1;
 + (id)indicatorLightColorForIndex:(unsigned long long)arg1;
 + (unsigned long long)p_authorColorIndexWithColor:(id)arg1 forIndicator:(_Bool)arg2;
++ (unsigned long long)authorColorIndexClosestToImportedFloatingCommentColor:(id)arg1;
 + (id)localizedAuthorColorNameForIndex:(unsigned long long)arg1;
 + (id)p_authorColorDictionaryForAuthorIndex:(unsigned long long)arg1;
 + (id)authorTextMarkupColorForIndex:(unsigned long long)arg1;
@@ -36,12 +38,12 @@ __attribute__((visibility("hidden")))
 + (id)authorColorForIndex:(unsigned long long)arg1 forKey:(id)arg2;
 + (unsigned long long)presetColorCount;
 + (id)p_publicIDFromSeed:(id)arg1 privateID:(id)arg2;
-@property(readonly, nonatomic) NSString *appearanceColorForAuthor; // @synthesize appearanceColorForAuthor=_appearanceColorForAuthor;
-@property(readonly, nonatomic) _Bool isPublicAuthor; // @synthesize isPublicAuthor=mIsPublicAuthor;
-@property(readonly, nonatomic) NSString *publicID; // @synthesize publicID=mPublicID;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=mName;
+@property(nonatomic) _Bool isPublicAuthor; // @synthesize isPublicAuthor=_isPublicAuthor;
+@property(copy, nonatomic) NSString *publicID; // @synthesize publicID=_publicID;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (void).cxx_destruct;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (_Bool)allowsImplicitComponentOwnership;
 - (id)componentRootObject;
 @property(readonly, nonatomic) _Bool showAuthorComments;
@@ -64,6 +66,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) TSUColor *flagPressedColor;
 @property(readonly, nonatomic) TSUColor *flagStrokeColor;
 @property(readonly, nonatomic) TSUColor *cellViolatorColor;
+@property(readonly, nonatomic) TSUColor *textHighlightOverlappingDuplicateColor;
 @property(readonly, nonatomic) TSUColor *textHighlightColor;
 @property(readonly, nonatomic) TSUColor *textMarkupColor;
 @property(readonly, nonatomic) TSUColor *popoverAuthorLabelColor;
@@ -78,7 +81,6 @@ __attribute__((visibility("hidden")))
 - (id)description;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
-- (void)dealloc;
 - (id)initWithContext:(id)arg1 name:(id)arg2 color:(id)arg3 publicID:(id)arg4 isPublicAuthor:(_Bool)arg5;
 - (id)initWithContext:(id)arg1 name:(id)arg2 color:(id)arg3 privateID:(id)arg4;
 - (id)initWithContext:(id)arg1 name:(id)arg2 color:(id)arg3;

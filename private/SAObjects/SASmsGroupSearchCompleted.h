@@ -16,6 +16,7 @@
 
 + (id)groupSearchCompletedWithDictionary:(id)arg1 context:(id)arg2;
 + (id)groupSearchCompleted;
+- (_Bool)requiresResponse;
 @property(copy, nonatomic) NSArray *smsGroups;
 - (id)encodedClassName;
 - (id)groupIdentifier;

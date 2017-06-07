@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)allowsAnonymousAccount;
 - (_Bool)requiresDeviceID;
 - (_Bool)requiresSignature;
+- (id)requestOptions;
 - (id)url;
 - (long long)partitionType;
 - (long long)serverType;

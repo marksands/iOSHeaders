@@ -8,20 +8,21 @@
 
 #import <iWorkImport/TSDCanvasSelection-Protocol.h>
 
-@class NSSet, NSString;
+@class NSSet, NSString, TSDInfoCollectionSelectionHelper;
 
 __attribute__((visibility("hidden")))
 @interface TSDCanvasSelection : TSKSelection <TSDCanvasSelection>
 {
-    NSSet *mInfos;
+    TSDInfoCollectionSelectionHelper *_selectionHelper;
 }
 
 + (id)emptySelection;
 + (Class)archivedSelectionClass;
+@property(retain, nonatomic) TSDInfoCollectionSelectionHelper *selectionHelper; // @synthesize selectionHelper=_selectionHelper;
+- (void).cxx_destruct;
 - (id)UUIDDescription;
 @property(readonly, copy) NSString *description;
-- (id)copyExcludingInfo:(id)arg1;
-- (id)copyIncludingInfo:(id)arg1;
+@property(readonly, nonatomic) NSString *subclassDescription;
 - (_Bool)containsUnlockedKindOfClass:(Class)arg1;
 @property(readonly, nonatomic) unsigned long long unlockedInfoCount;
 @property(readonly, nonatomic) NSSet *unlockedInfos;
@@ -31,10 +32,13 @@ __attribute__((visibility("hidden")))
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly, nonatomic) unsigned long long infoCount;
-@property(readonly, nonatomic) NSSet *infos;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
+@property(readonly, nonatomic) NSSet *nonInteractiveInfos;
+@property(readonly, nonatomic) NSSet *infosWithNonInteractiveInfos;
+@property(readonly, nonatomic) NSSet *infos;
+@property(readonly, nonatomic) NSSet *modelInfos;
 - (id)initWithInfos:(id)arg1;
+- (id)initWithInteractiveInfos:(id)arg1 nonInteractiveInfos:(id)arg2;
 - (void)saveToArchive:(struct CanvasSelectionArchive *)arg1 archiver:(id)arg2;
 - (id)initWithArchive:(const struct CanvasSelectionArchive *)arg1 unarchiver:(id)arg2;
 

@@ -17,7 +17,6 @@
     BKSProcessAssertion *_seoProcessAssertion;
     BKSProcessAssertion *_deliverMessageProcessAssertion;
     unsigned long long _deliverMessageProcessAssertionCount;
-    int _suspendType;
     _Bool _createResponseReceived;
 }
 
@@ -51,7 +50,7 @@
 - (void)_workspaceQueue_invalidate;
 - (id)parentWorkspace;
 - (void)dealloc;
-- (id)initWithParentWorkspace:(id)arg1 identity:(id)arg2;
+- (id)initWithParentWorkspace:(id)arg1 identifier:(id)arg2;
 
 @end
 

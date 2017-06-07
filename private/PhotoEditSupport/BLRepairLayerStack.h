@@ -29,13 +29,14 @@
 @property(retain, nonatomic) UIImage *repairSourceImage; // @synthesize repairSourceImage=_repairSourceImage;
 @property(retain, nonatomic) UIImage *sourceImage; // @synthesize sourceImage=_sourceImage;
 @property(retain, nonatomic) UIImage *analysisImage; // @synthesize analysisImage=_analysisImage;
+- (void).cxx_destruct;
 - (void)repairChanged;
 - (void)redEyeChanged;
 - (id)imagePatchListForLayerStack;
 - (struct CGContext *)newContextForRect:(struct CGRect)arg1 inDestRect:(struct CGRect)arg2 andScale:(double)arg3;
 - (struct CGImage *)newImageForRect:(struct CGRect)arg1 inDestRect:(struct CGRect)arg2 andScale:(double)arg3;
 - (_Bool)readyToDrawForMode:(int)arg1;
-@property(nonatomic) UIImage *redEyeRepairedImage;
+@property(nonatomic) __weak UIImage *redEyeRepairedImage;
 - (double)timestamp;
 - (void)dealloc;
 - (_Bool)hasRedEye;

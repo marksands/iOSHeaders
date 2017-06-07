@@ -4,21 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <PassKitCore/PKWebServiceResponse.h>
 
-@class NSData;
-
-@interface PKPaymentWebServiceResponse : NSObject
+@interface PKPaymentWebServiceResponse : PKWebServiceResponse
 {
-    NSData *_rawData;
-    id _JSONObject;
 }
-
-+ (id)responseWithData:(id)arg1;
-@property(readonly, nonatomic) id JSONObject; // @synthesize JSONObject=_JSONObject;
-@property(readonly, nonatomic) NSData *rawData; // @synthesize rawData=_rawData;
-- (void).cxx_destruct;
-- (id)initWithData:(id)arg1;
 
 @end
 

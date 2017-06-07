@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) KNAnimatedSlideView *animatedSlideView; // @synthesize animatedSlideView=mAnimator;
 @property(readonly, nonatomic) KNSlideNode *currentSlideNode;
 @property(readonly, nonatomic) KNSlide *currentSlide;
-@property(readonly, nonatomic) int playMode;
+@property(readonly, nonatomic) long long playMode;
 - (id)transitionRendererAtCurrentEvent;
 @property(readonly, nonatomic) KNPlaybackSession *playbackSession;
 @property(readonly, nonatomic) KNShow *show;

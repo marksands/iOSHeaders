@@ -31,6 +31,7 @@
 - (id)_sortedListOfJournalFiles;
 - (id)_nameOfNextJournalFile;
 - (_Bool)_appendData:(id)arg1 error:(id *)arg2;
+- (_Bool)_openNextJournalFileWithError:(id *)arg1;
 - (void)_executeAtomically:(CDUnknownBlockType)arg1;
 - (_Bool)mergeWithProfile:(id)arg1;
 - (_Bool)addJournalEntries:(id)arg1 error:(id *)arg2;

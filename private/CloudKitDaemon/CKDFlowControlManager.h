@@ -25,12 +25,12 @@ __attribute__((visibility("hidden")))
 - (double)currentBudget:(id)arg1;
 @property(nonatomic) double defaultRegeneration;
 @property(nonatomic) unsigned long long defaultBudget;
-- (void)updateFlowControlWithLocalErrorForOperation:(id)arg1;
-- (void)updateFlowControl:(id)arg1 withRetryAfter:(unsigned long long)arg2;
-- (void)updateFlowControl:(id)arg1 withCost:(unsigned long long)arg2;
+- (void)updateFlowControlForOperation:(id)arg1 reportableError:(id)arg2;
+- (void)updateFlowControl:(id)arg1 withRetryAfter:(unsigned long long)arg2 reportableError:(id)arg3;
+- (void)updateFlowControl:(id)arg1 withCost:(unsigned long long)arg2 reportableError:(id)arg3;
 - (id)_flowControlForOperation:(id)arg1;
 - (id)_flowControlForOperation:(id)arg1 createIfNecessary:(_Bool)arg2;
-- (_Bool)checkFlowControlIsLimited:(id)arg1;
+- (_Bool)checkFlowControlIsLimited:(id)arg1 outReportableError:(id *)arg2;
 - (double)secondsUntilFlowControlNotLimited:(id)arg1;
 - (id)CKStatusReportArray;
 - (_Bool)hasStatusToReport;

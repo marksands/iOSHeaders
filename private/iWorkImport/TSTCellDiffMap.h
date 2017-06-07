@@ -27,7 +27,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)saveToArchiver:(id)arg1;
-- (id)initFromUnarchiver:(id)arg1;
+- (void)loadFromUnarchiver:(id)arg1;
 - (id)p_copyAndAddCellDiff:(id)arg1 andCellUID:(struct TSTCellUID)arg2;
 - (void)enumerateCellIDElementsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateElementsUsingBlock:(CDUnknownBlockType)arg1;

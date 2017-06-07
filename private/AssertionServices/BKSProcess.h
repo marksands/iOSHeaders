@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 #import <AssertionServices/BKSProcessClientDelegate-Protocol.h>
 #import <AssertionServices/BSDescriptionProviding-Protocol.h>
@@ -31,13 +31,11 @@
     long long _taskState;
     BSProcessHandle *_handle;
     long long _terminationReason;
-    NSString *_activationReason;
 }
 
 + (id)busyExtensionInstances:(id)arg1;
 + (double)backgroundTimeRemaining;
 + (id)currentProcess;
-@property(copy, nonatomic) NSString *activationReason; // @synthesize activationReason=_activationReason;
 @property(nonatomic) long long terminationReason; // @synthesize terminationReason=_terminationReason;
 @property(nonatomic) _Bool recordingAudio; // @synthesize recordingAudio=_recordingAudio;
 @property(nonatomic) _Bool nowPlayingWithAudio; // @synthesize nowPlayingWithAudio=_nowPlayingWithAudio;

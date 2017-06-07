@@ -44,10 +44,13 @@
 @property(copy, nonatomic) NSData *IDCertificate; // @synthesize IDCertificate=_identityCert;
 @property(nonatomic) struct __SecKey *identityPrivateKey; // @synthesize identityPrivateKey=_identityKey;
 @property(copy, nonatomic) NSData *pushCertificate; // @synthesize pushCertificate=_pushCert;
+- (void).cxx_destruct;
 - (id)additionalMessageHeadersForOutgoingPush;
 - (id)additionalMessageHeaders;
+- (id)retryCountKey;
 - (long long)responseCommand;
 - (long long)command;
+@property(readonly) _Bool wantsIDSProtocolVersion;
 - (_Bool)wantsIDSServer;
 - (_Bool)wantsBinaryPush;
 - (_Bool)wantsBodySignature;

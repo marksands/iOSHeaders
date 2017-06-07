@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 @property(readonly, nonatomic) CPLPlatformObject *platformObject; // @synthesize platformObject=_platformObject;
 - (void).cxx_destruct;
+- (_Bool)checkIsEmpty;
 - (id)fileEnumerator;
 - (id)fileEnumeratorIncludingPropertiesForKeys:(id)arg1 errorHandler:(CDUnknownBlockType)arg2;
 - (_Bool)tryToFreeDiskSpace:(unsigned long long)arg1 actuallyFreedSpace:(unsigned long long *)arg2 includeOriginals:(_Bool)arg3 error:(id *)arg4;

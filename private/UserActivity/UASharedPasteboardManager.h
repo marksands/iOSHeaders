@@ -50,6 +50,7 @@
 - (void)fetchPasteboardDataForProcess:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)doClearLocalPasteboardInfo;
 - (void)fetchPasteboardTypesForProcess:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (_Bool)requestPasteboardFetchReturnEarly;
 - (void)requestRemotePasteboardDataForProcess:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)requestRemotePasteboardTypesForProcess:(int)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (_Bool)isRemotePasteboardAvaliable;

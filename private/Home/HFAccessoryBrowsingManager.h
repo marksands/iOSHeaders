@@ -8,16 +8,20 @@
 
 #import <Home/HMAccessoryBrowserDelegate-Protocol.h>
 
-@class HMAccessoryBrowser, NSArray, NSHashTable, NSString;
+@class HMAccessoryBrowser, NSArray, NSHashTable, NSMutableSet, NSString, SFDeviceDiscovery;
 
 @interface HFAccessoryBrowsingManager : NSObject <HMAccessoryBrowserDelegate>
 {
-    HMAccessoryBrowser *_browser;
+    HMAccessoryBrowser *_accessoryBrowser;
+    SFDeviceDiscovery *_sharingDeviceBrowser;
     NSHashTable *_observers;
+    NSMutableSet *_mutableDiscoveredSharingDevices;
 }
 
+@property(retain, nonatomic) NSMutableSet *mutableDiscoveredSharingDevices; // @synthesize mutableDiscoveredSharingDevices=_mutableDiscoveredSharingDevices;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
-@property(retain, nonatomic) HMAccessoryBrowser *browser; // @synthesize browser=_browser;
+@property(retain, nonatomic) SFDeviceDiscovery *sharingDeviceBrowser; // @synthesize sharingDeviceBrowser=_sharingDeviceBrowser;
+@property(retain, nonatomic) HMAccessoryBrowser *accessoryBrowser; // @synthesize accessoryBrowser=_accessoryBrowser;
 - (void).cxx_destruct;
 - (void)accessoryBrowser:(id)arg1 didRemoveNewAccessory:(id)arg2;
 - (void)accessoryBrowser:(id)arg1 didFindNewAccessory:(id)arg2;
@@ -25,6 +29,7 @@
 - (void)addBrowsingObserver:(id)arg1;
 - (void)stopSearchingForNewAccessories;
 - (void)startSearchingForNewAccessories;
+@property(readonly, nonatomic) NSArray *discoveredSharingDevices;
 @property(readonly, nonatomic) NSArray *discoveredHMAccessories;
 - (id)init;
 

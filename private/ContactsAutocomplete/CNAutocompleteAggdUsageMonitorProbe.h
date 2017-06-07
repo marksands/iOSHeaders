@@ -36,6 +36,7 @@
 - (void)recordDuetReturnedResults:(_Bool)arg1;
 - (void)recordUserSelectedIndex:(unsigned long long)arg1;
 - (void)recordUserSawResultsConsideredSuggestion:(unsigned long long)arg1;
+- (void)recordUserSawCuratedResults:(unsigned long long)arg1;
 - (void)recordUserSawPredictions;
 - (id)sourceKeysForSourceType:(unsigned long long)arg1;
 - (id)initWithAggdProbe:(id)arg1;

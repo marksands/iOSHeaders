@@ -24,6 +24,7 @@
 + (CDStruct_e4886f83 *)newExpiringTilesets;
 + (unsigned long long)expiringTilesetsCount;
 + (unsigned char)tileProviderIdentifier;
+- (void).cxx_destruct;
 - (void)tileRequesterFinished:(id)arg1;
 - (void)tileRequester:(id)arg1 receivedError:(id)arg2;
 - (void)tileRequester:(id)arg1 receivedData:(id)arg2 tileEdition:(unsigned int)arg3 tileSet:(unsigned int)arg4 etag:(id)arg5 forKey:(struct _GEOTileKey)arg6 userInfo:(id)arg7;

@@ -12,7 +12,6 @@
 @class NSArray, NSMapTable, NSString;
 @protocol OS_dispatch_queue;
 
-__attribute__((visibility("hidden")))
 @interface WBSParsecDFeedbackDispatcher : NSObject <WBSParsecFeedbackDispatcher, WBSParsecGlobalFeedbackDispatcher>
 {
     NSMapTable *_queriesToDictionariesFromSearchTypesToStartSearchFeedbacks;
@@ -23,11 +22,12 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (void)searchViewDisappearedBecauseOfEvent:(long long)arg1;
+- (void)searchViewAppearedBecauseOfEvent:(unsigned long long)arg1 isSafariReaderAvailable:(_Bool)arg2;
 - (void)searchViewAppearedBecauseOfEvent:(unsigned long long)arg1;
 - (id)_takeStartSearchFeedbackForSearchOfType:(long long)arg1 forQuery:(id)arg2;
 - (void)_setStartSearchFeedback:(id)arg1 forSearchOfType:(long long)arg2 withQuery:(id)arg3;
 - (void)sendClearInputFeedbackWithTriggerEvent:(unsigned long long)arg1;
-- (void)sendSmartSearchFieldClickedFeedback;
+- (void)sendSmartSearchFieldClickedFeedbackWithReaderAvailable:(_Bool)arg1;
 - (void)sendWindowMiniaturizeByMouseFeedback;
 - (void)sendWindowMiniaturizeByKeyboardFeedback;
 - (void)sendWindowCloseByMouseFeedback;
@@ -39,6 +39,7 @@ __attribute__((visibility("hidden")))
 - (void)sendAppLaunchFeedback;
 - (void)sendMapsPlaceCardEngagementFeedbackOfType:(int)arg1;
 - (void)sendCrowdsourcedAutoFillFeedback:(id)arg1;
+- (id)_customFeedbackOfType:(unsigned long long)arg1 JSONDictionary:(id)arg2;
 - (void)didReceiveParsecResultsAfterTimeout:(id)arg1;
 - (void)didRankSections:(id)arg1 blendingDuration:(double)arg2 feedbackForHiddenAndDuplicateResults:(id)arg3;
 - (void)didGenerateCompletionListItemsWithRankingObserver:(id)arg1;
@@ -49,6 +50,7 @@ __attribute__((visibility("hidden")))
 - (void)didReceiveLocalResultsForQuery:(id)arg1;
 - (void)didReceiveWebSuggestionsForQuery:(id)arg1 fromSearchProvider:(id)arg2 responseSize:(long long)arg3 statusCode:(long long)arg4 networkTimingData:(id)arg5;
 - (void)userTypedURLDirectly:(id)arg1;
+- (void)userDidEngageWithCompletionListItem:(id)arg1 onActionButton:(_Bool)arg2 method:(long long)arg3 doesMatchSiriSuggestion:(_Bool)arg4;
 - (void)userDidEngageWithCompletionListItem:(id)arg1 onActionButton:(_Bool)arg2 method:(long long)arg3;
 - (void)userDidEngageWithCardShowingResult:(id)arg1 onCardOfType:(id)arg2 actionType:(id)arg3 actionTarget:(id)arg4 destination:(id)arg5;
 - (void)didDisplayCompletionListItems:(id)arg1 forQuery:(id)arg2 forEvent:(long long)arg3;

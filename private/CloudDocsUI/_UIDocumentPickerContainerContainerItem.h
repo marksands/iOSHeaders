@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 
 - (void).cxx_destruct;
 - (id)sortPath;
-- (id)sortDate;
+- (id)modificationDate;
 - (id)_blockingThumbnailWithSize:(struct CGSize)arg1 scale:(double)arg2 wantsBorder:(_Bool *)arg3;
 - (id)url;
 - (id)subtitle;

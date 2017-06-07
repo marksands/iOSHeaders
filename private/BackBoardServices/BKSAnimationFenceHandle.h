@@ -6,27 +6,27 @@
 
 #import <objc/NSObject.h>
 
+#import <BackBoardServices/BSInvalidatable-Protocol.h>
 #import <BackBoardServices/BSXPCCoding-Protocol.h>
 #import <BackBoardServices/NSCopying-Protocol.h>
 #import <BackBoardServices/NSSecureCoding-Protocol.h>
 
 @class BSMachPortSendRight, NSString;
 
-@interface BKSAnimationFenceHandle : NSObject <BSXPCCoding, NSSecureCoding, NSCopying>
+@interface BKSAnimationFenceHandle : NSObject <BSXPCCoding, NSSecureCoding, NSCopying, BSInvalidatable>
 {
+    unsigned long long _fenceName;
     BSMachPortSendRight *_caFence;
     BSMachPortSendRight *_preFence;
     BSMachPortSendRight *_preFenceTrigger;
-    _Bool _notObservable;
-    int _invalidated;
+    unsigned long long _handleName;
+    int _valid;
+    _Bool _shouldTrace;
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)_xpcClient;
-+ (id)newHandleWithCAPort:(unsigned int)arg1;
 + (id)newSystemFenceHandle;
-@property(readonly, retain, nonatomic) BSMachPortSendRight *_caFence; // @synthesize _caFence;
-@property(readonly, retain, nonatomic) BSMachPortSendRight *preFenceTrigger; // @synthesize preFenceTrigger=_preFenceTrigger;
+@property(readonly, retain, nonatomic) BSMachPortSendRight *trigger; // @synthesize trigger=_preFenceTrigger;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -36,9 +36,10 @@
 - (unsigned int)CAPort;
 - (void)invalidate;
 @property(readonly, nonatomic, getter=isUsable) _Bool usable;
+@property(readonly, nonatomic) unsigned long long fenceName;
 - (void)dealloc;
 - (id)init;
-- (id)_initWithCAFence:(id)arg1 preFence:(id)arg2 preFenceTrigger:(id)arg3 notObservable:(_Bool)arg4;
+- (id)_initWithFenceName:(unsigned long long)arg1 fence:(id)arg2 preFence:(id)arg3 preFenceTrigger:(id)arg4 shouldTrace:(_Bool)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,7 +6,7 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSLocale, NSLock, NSMutableArray, NSMutableDictionary, NSString, NSTimeZone, OITSUDateParserLibrary;
+@class NSArray, NSCache, NSLocale, NSLock, NSMutableArray, NSMutableDictionary, NSString, NSTimeZone, OITSUDateParserLibrary;
 
 __attribute__((visibility("hidden")))
 @interface OITSULocale : NSObject
@@ -16,18 +16,22 @@ __attribute__((visibility("hidden")))
     NSString *_languageCode;
     NSString *_localeIdentifier;
     NSString *_documentLanguageIdentifier;
+    _Bool _isAutoUpdating;
     NSString *_currencyCode;
     NSString *_decimalSeparator;
     NSString *_currencyDecimalSeparator;
-    NSString *_listSeparator;
     NSString *_groupingSeparator;
+    NSString *_currencyGroupingSeparator;
+    NSString *_listSeparator;
     NSString *_percentSymbol;
     int _dateComponentOrdering;
+    NSArray *_monthSymbols;
     NSArray *_standaloneMonthSymbols;
     NSArray *_weekdaySymbols;
     NSArray *_standaloneWeekdaySymbols;
     NSArray *_shortMonthSymbols;
     NSArray *_shortStandaloneMonthSymbols;
+    NSArray *_shortWeekdaySymbols;
     NSArray *_shortStandaloneWeekdaySymbols;
     struct _opaque_pthread_mutex_t {
         long long __sig;
@@ -43,37 +47,52 @@ __attribute__((visibility("hidden")))
     struct __CFNumberFormatter *_noMinusSignCurrencyFormatter;
     NSString *_activeCurrencyCode;
     NSString *_activeNoMinusSignCurrencyCode;
-    unsigned int _groupingSize;
+    unsigned long long _groupingSize;
     NSLock *_localeSpecificStorageLock;
     NSMutableDictionary *_localeSpecificStorage;
+    NSCache *_cachedLocalizedStrings;
+    NSString *_trueString;
+    NSString *_falseString;
 }
 
 + (void)saveLocaleForReuse:(id)arg1;
 + (id)localeForLocaleIdentifier:(id)arg1 documentLanguageIdentifier:(id)arg2;
++ (_Bool)localeIsAutoUpdating:(struct __CFLocale *)arg1;
++ (id)deducedScriptForLocale:(id)arg1;
 + (id)canonicalizeLocaleIdentifierWithLanguageScriptAndRegionOnly:(id)arg1;
 + (id)canonicalizeLocaleIdentifierWithLanguageAndScriptOnly:(id)arg1;
 + (id)canonicalizeLocaleIdentifierWithLanguageAndRegionOnly:(id)arg1;
++ (id)canonicalizeLocaleIdentifierWithLanguageOnly:(id)arg1;
 + (id)canonicalizeLocaleIdentifier:(id)arg1;
++ (id)applicationLocale;
 + (id)currentLocale;
 + (id)preferredLanguages;
++ (id)cacheKeyForCFLocale:(struct __CFLocale *)arg1;
++ (unsigned long long)autoupdatingCurrentLocaleChangeCount;
 + (void)setLocalizedStringBundle:(struct __CFBundle *)arg1;
 + (void)initialize;
 @property(readonly) OITSUDateParserLibrary *dateParserLibrary; // @synthesize dateParserLibrary=_dateParserLibrary;
+@property(readonly) NSString *falseString; // @synthesize falseString=_falseString;
+@property(readonly) NSString *trueString; // @synthesize trueString=_trueString;
 @property(readonly) NSArray *shortStandaloneWeekdaySymbols; // @synthesize shortStandaloneWeekdaySymbols=_shortStandaloneWeekdaySymbols;
+@property(readonly) NSArray *shortWeekdaySymbols; // @synthesize shortWeekdaySymbols=_shortWeekdaySymbols;
 @property(readonly) NSArray *shortStandaloneMonthSymbols; // @synthesize shortStandaloneMonthSymbols=_shortStandaloneMonthSymbols;
 @property(readonly) NSArray *shortMonthSymbols; // @synthesize shortMonthSymbols=_shortMonthSymbols;
 @property(readonly) NSArray *standaloneWeekdaySymbols; // @synthesize standaloneWeekdaySymbols=_standaloneWeekdaySymbols;
 @property(readonly) NSArray *weekdaySymbols; // @synthesize weekdaySymbols=_weekdaySymbols;
 @property(readonly) NSArray *standaloneMonthSymbols; // @synthesize standaloneMonthSymbols=_standaloneMonthSymbols;
+@property(readonly) NSArray *monthSymbols; // @synthesize monthSymbols=_monthSymbols;
 @property(readonly) int dateComponentOrdering; // @synthesize dateComponentOrdering=_dateComponentOrdering;
 @property(readonly) struct __CFLocale *cfGregorianCalendarLocale; // @synthesize cfGregorianCalendarLocale=_gregorianCalendarLocale;
 @property(readonly) NSString *percentSymbol; // @synthesize percentSymbol=_percentSymbol;
-@property(readonly) NSString *groupingSeparator; // @synthesize groupingSeparator=_groupingSeparator;
-@property(readonly) unsigned int groupingSize; // @synthesize groupingSize=_groupingSize;
+@property(readonly) unsigned long long groupingSize; // @synthesize groupingSize=_groupingSize;
 @property(readonly) NSString *listSeparator; // @synthesize listSeparator=_listSeparator;
+@property(readonly) NSString *currencyGroupingSeparator; // @synthesize currencyGroupingSeparator=_currencyGroupingSeparator;
+@property(readonly) NSString *groupingSeparator; // @synthesize groupingSeparator=_groupingSeparator;
 @property(readonly) NSString *currencyDecimalSeparator; // @synthesize currencyDecimalSeparator=_currencyDecimalSeparator;
 @property(readonly) NSString *decimalSeparator; // @synthesize decimalSeparator=_decimalSeparator;
 @property(readonly) NSString *currencyCode; // @synthesize currencyCode=_currencyCode;
+@property(readonly) _Bool isAutoUpdating; // @synthesize isAutoUpdating=_isAutoUpdating;
 @property(readonly) NSString *documentLanguageIdentifier; // @synthesize documentLanguageIdentifier=_documentLanguageIdentifier;
 @property(readonly) NSString *localeIdentifier; // @synthesize localeIdentifier=_localeIdentifier;
 @property(readonly) NSString *languageCode; // @synthesize languageCode=_languageCode;
@@ -97,7 +116,11 @@ __attribute__((visibility("hidden")))
 @property(readonly) NSString *arrayRowSeparator;
 @property(readonly) NSLocale *gregorianCalendarLocale;
 @property(readonly) struct __CFLocale *cfLocale;
+- (id)displayLanguageName;
+- (id)simplifiedDisplayName;
 - (id)description;
+- (unsigned long long)hash;
+- (_Bool)isEqual:(id)arg1;
 - (void)dealloc;
 - (id)copyWithDocumentLanguageIdentifier:(id)arg1;
 - (id)localeIdentifierWithLanguageScriptAndRegionOnly;

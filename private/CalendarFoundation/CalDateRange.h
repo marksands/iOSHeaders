@@ -18,6 +18,12 @@
     NSDate *_endDate;
 }
 
++ (_Bool)rangesIntersectWithStartDate1:(id)arg1 endDate1:(id)arg2 startDate2:(id)arg3 endDate2:(id)arg4 allowSinglePointIntersection:(_Bool)arg5;
++ (_Bool)rangesIntersectWithStartDate1:(id)arg1 endDate1:(id)arg2 startDate2:(id)arg3 endDate2:(id)arg4;
++ (_Bool)range:(id)arg1 intersectsRangeWithStartDate:(id)arg2 endDate:(id)arg3 allowSinglePointIntersection:(_Bool)arg4;
++ (_Bool)range:(id)arg1 intersectsRangeWithStartDate:(id)arg2 endDate:(id)arg3;
++ (_Bool)range:(id)arg1 intersectsRange:(id)arg2 allowSinglePointIntersection:(_Bool)arg3;
++ (_Bool)range:(id)arg1 intersectsRange:(id)arg2;
 + (_Bool)supportsSecureCoding;
 + (id)rangeByExpandingRange:(id)arg1 direction:(long long)arg2 components:(id)arg3 calendar:(id)arg4;
 + (id)rangeByExpandingRange:(id)arg1 direction:(long long)arg2 duration:(double)arg3;
@@ -38,6 +44,7 @@
 - (id)unionRange:(id)arg1;
 - (id)intersectionWithRange:(id)arg1;
 - (_Bool)intersectsRangeWithStartDate:(id)arg1 endDate:(id)arg2 allowSinglePointIntersection:(_Bool)arg3;
+- (_Bool)intersectsRangeWithStartDate:(id)arg1 endDate:(id)arg2;
 - (_Bool)intersectsRange:(id)arg1 allowSinglePointIntersection:(_Bool)arg2;
 - (_Bool)intersectsRange:(id)arg1;
 - (_Bool)containsRange:(id)arg1;

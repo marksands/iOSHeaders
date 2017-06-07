@@ -6,23 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class NSNumber;
+@class NSLock, NSNumber;
 @protocol OS_dispatch_queue;
 
 @interface ISBiometricStore : NSObject
 {
     NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSLock *_lock;
     _Bool _shouldUseTouchID2;
 }
 
 + (id)keychainLabelForAccountID:(id)arg1;
 + (_Bool)shouldUseTouchID2;
++ (id)diskBasedPaymentSheet;
 + (id)sharedInstance;
 - (void).cxx_destruct;
-- (_Bool)_isIdentityMapValidForAccountIdentifier:(id)arg1;
-- (void)_updateTouchIDVersionWithBagKey:(id)arg1;
 - (void)_updateUserDefaultsKey:(struct __CFString *)arg1 withBooleanValue:(_Bool)arg2;
-- (id)signData:(id)arg1 reason:(id)arg2 fallback:(id)arg3 cancel:(id)arg4 forAccountIdentifier:(id)arg5 error:(id *)arg6;
+- (void)_updateTouchIDVersionWithBagKey:(id)arg1;
+- (id)signData:(id)arg1 context:(id)arg2 error:(id *)arg3;
 - (id)publicKeyDataForAccountIdentifier:(id)arg1 error:(id *)arg2;
 - (_Bool)deleteKeychainTokensForAccountIdentifier:(id)arg1 error:(id *)arg2;
 - (id)createAttestationDataForAccountIdentifier:(id)arg1 error:(id *)arg2;
@@ -31,6 +32,8 @@
 - (void)saveIdentityMapForAccountIdentifier:(id)arg1;
 - (void)registerAccountIdentifier:(id)arg1;
 @property(readonly) NSNumber *lastRegisteredAccountIdentifier;
+- (_Bool)isIdentityMapValidForAccountIdentifier:(id)arg1;
+@property(readonly, getter=isBiometricStateEnabled) _Bool biometricStateEnabled;
 - (unsigned long long)identityMapCount;
 - (void)clearLastRegisteredAccountIdentifier;
 - (_Bool)canPerformExtendedTouchIDActionsForAccountIdentifier:(id)arg1;

@@ -25,6 +25,7 @@
 - (unsigned long long)hash;
 - (id)description;
 - (id)_initWithRect:(struct CGRect)arg1 exclusiveTouchNormalizedSubRect:(struct CGRect)arg2;
+- (id)initWithRect:(struct CGRect)arg1 exclusiveTouchSubRect:(struct CGRect)arg2;
 - (id)initWithRect:(struct CGRect)arg1;
 
 @end

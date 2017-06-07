@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOCacheManaging-Protocol.h>
 
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSObject<OS_dispatch_queue> *_queue;
 }
 
+- (void).cxx_destruct;
 - (void)refreshLOIReverseGeocodedMapItems:(id)arg1 updatedCoordinates:(id)arg2 traits:(id)arg3 auditToken:(id)arg4 handler:(CDUnknownBlockType)arg5;
 - (void)refreshLOIAssociatedMapItems:(id)arg1 updatedCoordinates:(id)arg2 traits:(id)arg3 auditToken:(id)arg4 handler:(CDUnknownBlockType)arg5;
 - (id)_syncedRevGeoCoordinate:(CDStruct_c3b9c2ee)arg1 traits:(id)arg2 auditToken:(id)arg3;
@@ -32,7 +33,6 @@ __attribute__((visibility("hidden")))
 - (void)snapshotWithFilePathArray:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)checkHasExpiredWithInvalidationDatas:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)versionsForDomains:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)dealloc;
 - (id)init;
 
 // Remaining properties

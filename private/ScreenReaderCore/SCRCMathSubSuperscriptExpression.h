@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) SCRCMathExpression *base; // @synthesize base=_base;
 @property(retain, nonatomic) SCRCMathExpression *superscript; // @synthesize superscript=_superscript;
 @property(retain, nonatomic) SCRCMathExpression *subscript; // @synthesize subscript=_subscript;
+- (void).cxx_destruct;
 - (id)latexMathModeDescription;
 - (id)mathMLString;
 - (id)dollarCodeDescriptionWithNumberOfOuterRadicals:(unsigned long long)arg1 treePosition:(id)arg2;
@@ -29,7 +30,6 @@ __attribute__((visibility("hidden")))
 - (_Bool)isBaseSubSuperscript;
 - (_Bool)isRangeSubSuperscript;
 - (id)description;
-- (void)dealloc;
 - (id)initWithDictionary:(id)arg1;
 
 @end

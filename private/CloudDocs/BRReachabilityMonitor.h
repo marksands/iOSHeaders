@@ -14,18 +14,17 @@
     NSHashTable *_reachabilityObservers;
     struct __SCNetworkReachability *_reachabilityRef;
     unsigned int _reachabilityFlags;
-    _Bool _isNetworkReachable;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 + (id)sharedReachabilityMonitor;
 + (_Bool)isNetworkReachableForFlags:(unsigned int)arg1;
 @property(nonatomic) unsigned int reachabilityFlags; // @synthesize reachabilityFlags=_reachabilityFlags;
-@property(nonatomic) _Bool isNetworkReachable; // @synthesize isNetworkReachable=_isNetworkReachable;
 - (void).cxx_destruct;
 - (void)invalidate;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
+@property(readonly, nonatomic) _Bool isNetworkReachable;
 - (void)dealloc;
 - (id)init;
 

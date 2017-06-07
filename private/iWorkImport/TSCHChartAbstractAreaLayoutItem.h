@@ -6,11 +6,14 @@
 
 #import <iWorkImport/TSCHChartLayoutItem.h>
 
+@class NSDictionary;
+
 __attribute__((visibility("hidden")))
 @interface TSCHChartAbstractAreaLayoutItem : TSCHChartLayoutItem
 {
 }
 
+@property(readonly, copy, nonatomic) NSDictionary *seriesIndexedPieNormalizedLabelDistancesFromWedgeTips;
 @property(readonly, nonatomic) struct CGRect titleFrame;
 - (struct CGRect)calcDrawingRect;
 

@@ -23,8 +23,9 @@
     _Bool _blockPrefWriting;
 }
 
-@property(readonly, retain, nonatomic) NSDictionary *serviceProperties; // @synthesize serviceProperties=_serviceProperties;
+@property(retain, nonatomic) NSDictionary *serviceProperties; // @synthesize serviceProperties=_serviceProperties;
 @property(readonly, retain, nonatomic) NSBundle *bundle; // @synthesize bundle=_bundle;
+- (id)mainService;
 - (void)systemDidEnterMemoryPressure;
 - (void)systemDidStartBackup;
 - (id)description;
@@ -60,6 +61,8 @@
 - (id)_serviceDefaultsForDomain:(id)arg1;
 - (id)_defaultDefaults;
 - (void)synchronizeServiceDefaults;
+@property(readonly, nonatomic, getter=isDiscontinued) _Bool discontinued;
+@property(readonly, nonatomic) _Bool isLegacy;
 @property(readonly, nonatomic) _Bool isIDSBased;
 @property(readonly, nonatomic) Class accountClass;
 @property(readonly, nonatomic) Class sessionClass;
@@ -68,6 +71,7 @@
 - (id)_serviceDomain;
 - (id)oldInternalName;
 @property(readonly, retain, nonatomic) NSString *internalName;
+- (id)createDiscontinuedAccount;
 - (void)unloadServiceBundle;
 - (void)_reallyUnloadServiceBundle;
 - (void)loadServiceBundle;

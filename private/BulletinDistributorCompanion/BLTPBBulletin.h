@@ -14,14 +14,19 @@
 {
     double _date;
     double _publicationDate;
+    double _requiredExpirationDate;
+    NSMutableArray *_additionalAttachments;
     NSData *_alertSuppressionContexts;
+    NSData *_alertSuppressionContextsNulls;
     NSData *_attachment;
+    NSString *_attachmentID;
     unsigned int _attachmentType;
     NSString *_attachmentURL;
     NSString *_bulletinID;
     NSString *_category;
     NSString *_categoryID;
     NSData *_context;
+    NSData *_contextNulls;
     BLTPBAction *_dismissAction;
     NSString *_dismissalID;
     unsigned int _feed;
@@ -41,6 +46,7 @@
     NSString *_subtitle;
     NSMutableArray *_supplementaryActions;
     NSString *_teamID;
+    NSString *_threadID;
     NSString *_title;
     NSString *_universalSectionID;
     _Bool _containsUpdatedAttachment;
@@ -51,6 +57,7 @@
     struct {
         unsigned int date:1;
         unsigned int publicationDate:1;
+        unsigned int requiredExpirationDate:1;
         unsigned int attachmentType:1;
         unsigned int sectionSubtype:1;
         unsigned int soundAlertType:1;
@@ -61,8 +68,19 @@
     } _has;
 }
 
-+ (void)_addPrimaryAttachmentFromBBBulletin:(id)arg1 toBLTPBBulletin:(id)arg2 observer:(id)arg3 completion:(CDUnknownBlockType)arg4;
-+ (void)bulletinWithBBBulletin:(id)arg1 sockPuppetAppBundleID:(id)arg2 isSockPuppetAppInstalled:(_Bool)arg3 observer:(id)arg4 feed:(unsigned long long)arg5 teamID:(id)arg6 universalSectionID:(id)arg7 completion:(CDUnknownBlockType)arg8;
++ (Class)additionalAttachmentsType;
++ (Class)peopleIDsType;
++ (Class)subsectionIDsType;
++ (Class)supplementaryActionsType;
++ (void)_addAttachmentsFromBBBulletin:(id)arg1 toBLTPBBulletin:(id)arg2 observer:(id)arg3 completion:(CDUnknownBlockType)arg4;
++ (id)_attachmentFromBBAttachmentMetadata:(id)arg1 bulletin:(id)arg2 observer:(id)arg3 favorFile:(_Bool)arg4 completion:(CDUnknownBlockType)arg5;
++ (void)bulletinWithBBBulletin:(id)arg1 sockPuppetAppBundleID:(id)arg2 isSockPuppetAppInstalled:(_Bool)arg3 observer:(id)arg4 feed:(unsigned long long)arg5 teamID:(id)arg6 universalSectionID:(id)arg7 isCriticalBulletin:(_Bool)arg8 completion:(CDUnknownBlockType)arg9;
+@property(nonatomic) double requiredExpirationDate; // @synthesize requiredExpirationDate=_requiredExpirationDate;
+@property(retain, nonatomic) NSMutableArray *additionalAttachments; // @synthesize additionalAttachments=_additionalAttachments;
+@property(retain, nonatomic) NSString *attachmentID; // @synthesize attachmentID=_attachmentID;
+@property(retain, nonatomic) NSString *threadID; // @synthesize threadID=_threadID;
+@property(retain, nonatomic) NSData *alertSuppressionContextsNulls; // @synthesize alertSuppressionContextsNulls=_alertSuppressionContextsNulls;
+@property(retain, nonatomic) NSData *contextNulls; // @synthesize contextNulls=_contextNulls;
 @property(retain, nonatomic) NSString *categoryID; // @synthesize categoryID=_categoryID;
 @property(nonatomic) _Bool ignoresQuietMode; // @synthesize ignoresQuietMode=_ignoresQuietMode;
 @property(retain, nonatomic) NSMutableArray *peopleIDs; // @synthesize peopleIDs=_peopleIDs;
@@ -109,6 +127,15 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(nonatomic) _Bool hasRequiredExpirationDate;
+- (id)additionalAttachmentsAtIndex:(unsigned long long)arg1;
+- (unsigned long long)additionalAttachmentsCount;
+- (void)addAdditionalAttachments:(id)arg1;
+- (void)clearAdditionalAttachments;
+@property(readonly, nonatomic) _Bool hasAttachmentID;
+@property(readonly, nonatomic) _Bool hasThreadID;
+@property(readonly, nonatomic) _Bool hasAlertSuppressionContextsNulls;
+@property(readonly, nonatomic) _Bool hasContextNulls;
 @property(readonly, nonatomic) _Bool hasCategoryID;
 @property(nonatomic) _Bool hasIgnoresQuietMode;
 - (id)peopleIDsAtIndex:(unsigned long long)arg1;
@@ -154,7 +181,7 @@
 @property(readonly, nonatomic) _Bool hasBulletinID;
 - (id)description;
 - (id)attachmentURLURL;
-- (id)attachmentKey;
+- (id)attachmentKey:(id)arg1;
 - (id)publisherMatchID;
 
 @end

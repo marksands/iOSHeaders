@@ -8,8 +8,10 @@
 
 @interface PKPaymentPreferenceCell : PKTableViewCell
 {
+    _Bool _hasError;
 }
 
+@property(nonatomic) _Bool hasError; // @synthesize hasError=_hasError;
 - (void)dealloc;
 - (id)initWithReuseIdentifier:(id)arg1;
 

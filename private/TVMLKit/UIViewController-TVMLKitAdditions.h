@@ -9,8 +9,7 @@
 @class NSString;
 
 @interface UIViewController (TVMLKitAdditions)
-- (double)tv_containedBottomLayoutGuideLength;
-- (double)tv_containedTopLayoutGuideLength;
+- (void)_cancelImpressionsUpdate;
 - (void)tv_updateViewLayout;
 @property(copy, nonatomic, setter=tv_setIdentifier:) NSString *tvIdentifier;
 @end

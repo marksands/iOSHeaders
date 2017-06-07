@@ -14,6 +14,7 @@
     PXAssetsDataSource *_dataSource;
     PXIndexPathSet *_hiddenIndexPaths;
     PXIndexPathSet *_selectedIndexPaths;
+    PXIndexPathSet *_draggingIndexPaths;
     unsigned long long _selectionBadgeOptions;
     unsigned long long _badgeOptions;
     PXSelectionBadgeTileUserData *__selectedUserData;
@@ -30,6 +31,7 @@
 @property(readonly, nonatomic) PXSelectionBadgeTileUserData *_selectedUserData; // @synthesize _selectedUserData=__selectedUserData;
 @property(nonatomic) unsigned long long badgeOptions; // @synthesize badgeOptions=_badgeOptions;
 @property(nonatomic) unsigned long long selectionBadgeOptions; // @synthesize selectionBadgeOptions=_selectionBadgeOptions;
+@property(retain, nonatomic) PXIndexPathSet *draggingIndexPaths; // @synthesize draggingIndexPaths=_draggingIndexPaths;
 @property(retain, nonatomic) PXIndexPathSet *selectedIndexPaths; // @synthesize selectedIndexPaths=_selectedIndexPaths;
 @property(nonatomic) struct PXSimpleIndexPath focusedIndexPath; // @synthesize focusedIndexPath=_focusedIndexPath;
 @property(nonatomic) struct PXSimpleIndexPath highlightedIndexPath; // @synthesize highlightedIndexPath=_highlightedIndexPath;

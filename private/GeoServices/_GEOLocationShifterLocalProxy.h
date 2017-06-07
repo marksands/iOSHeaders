@@ -4,20 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/_GEOLocationShifterProxy-Protocol.h>
 
 @class GEOLocationShifterPersistence, NSString, _GEOLocationShiftRequester;
+@protocol OS_dispatch_queue;
 
 __attribute__((visibility("hidden")))
 @interface _GEOLocationShifterLocalProxy : NSObject <_GEOLocationShifterProxy>
 {
     _GEOLocationShiftRequester *_requester;
     int _resetPrivacyToken;
+    NSObject<OS_dispatch_queue> *_queue;
 }
 
+- (void).cxx_destruct;
 - (void)_prunePersistentCache;
+- (void)_doNetworkRequestForCoordinate:(CDStruct_c3b9c2ee)arg1 traits:(id)arg2 shouldCache:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)shiftCoordinate:(CDStruct_c3b9c2ee)arg1 completionHandler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) GEOLocationShifterPersistence *persistentCache;
 - (void)dealloc;

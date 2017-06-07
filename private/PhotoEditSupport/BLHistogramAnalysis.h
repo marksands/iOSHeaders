@@ -34,7 +34,6 @@
 @property(nonatomic) double blackPoint; // @synthesize blackPoint=_blackPoint;
 - (id)analysisDictionary;
 - (id)description;
-- (void)dealloc;
 - (id)initWithAnalysisDictionary:(id)arg1;
 - (id)initWithBLImage:(id)arg1;
 

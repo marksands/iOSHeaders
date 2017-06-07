@@ -10,6 +10,7 @@
 {
 }
 
++ (void)simulateCrashWithDescription:(id)arg1;
 + (_Bool)isCoreDataFatalError:(id)arg1;
 + (id)transformErrorForNSSecureCoding:(id)arg1;
 

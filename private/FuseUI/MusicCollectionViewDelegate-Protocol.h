@@ -6,14 +6,12 @@
 
 #import <FuseUI/UICollectionViewDelegate-Protocol.h>
 
-@class UIButton, UICollectionView, UICollectionViewCell;
+@class UICollectionView, UICollectionViewCell;
 
 @protocol MusicCollectionViewDelegate <UICollectionViewDelegate>
 
 @optional
 - (void)collectionViewTintColorDidChange:(UICollectionView *)arg1;
-- (void)collectionView:(UICollectionView *)arg1 didSelectContextualActionsButton:(UIButton *)arg2 forCell:(UICollectionViewCell *)arg3;
-- (void)collectionView:(UICollectionView *)arg1 didSelectPlayButtonAction:(unsigned long long)arg2 forCell:(UICollectionViewCell *)arg3;
 - (void)collectionView:(UICollectionView *)arg1 didSelectAddButtonForCell:(UICollectionViewCell *)arg2;
 @end
 

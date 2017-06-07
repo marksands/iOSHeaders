@@ -16,6 +16,7 @@
 + (id)_MD5StringForString:(id)arg1;
 + (id)_keyForChannel:(id)arg1 size:(struct CGSize)arg2;
 + (id)_imageURLForChannel:(id)arg1 size:(struct CGSize)arg2;
++ (double)iconCornerRadiusForSize:(struct CGSize)arg1;
 + (void)fetchIconForChannel:(id)arg1 size:(struct CGSize)arg2 completion:(CDUnknownBlockType)arg3;
 
 @end

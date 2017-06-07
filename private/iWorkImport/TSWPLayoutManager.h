@@ -8,8 +8,8 @@
 
 #import <iWorkImport/TSWPStorageObserver-Protocol.h>
 
-@class NSString, TSWPCTTypesetterCache, TSWPStorage;
-@protocol TSWPLayoutOwner;
+@class NSString, TSWPCTTypesetterCache, TSWPMutableTopicNumberHints, TSWPStorage;
+@protocol TSWPLayoutOwner, TSWPTopicNumberHints;
 
 __attribute__((visibility("hidden")))
 @interface TSWPLayoutManager : NSObject <TSWPStorageObserver>
@@ -19,12 +19,13 @@ __attribute__((visibility("hidden")))
     _Bool _useLigatures;
     struct TSWPDirtyRangeVector _dirtyRanges;
     TSWPCTTypesetterCache *_typesetterCache;
-    struct TSWPTopicNumberHints _cachedTopicNumbers;
+    TSWPMutableTopicNumberHints *_initialTopicNumbers;
     id <TSWPLayoutOwner> _owner;
 }
 
 + (void)fixColumnBoundsForTarget:(id)arg1 storage:(id)arg2 charIndex:(unsigned long long)arg3 firstColumnIndex:(unsigned long long)arg4 precedingHeight:(double)arg5 height:(double)arg6 alreadyHasMargins:(_Bool)arg7 styleProvider:(id)arg8 vertical:(_Bool)arg9;
 @property(readonly, nonatomic) id <TSWPLayoutOwner> owner; // @synthesize owner=_owner;
+@property(copy, nonatomic) NSObject<TSWPTopicNumberHints> *initialTopicNumberHints; // @synthesize initialTopicNumberHints=_initialTopicNumbers;
 @property(readonly, nonatomic) const struct TSWPDirtyRangeVector *dirtyRanges; // @synthesize dirtyRanges=_dirtyRanges;
 @property(readonly, retain, nonatomic) TSWPStorage *storage; // @synthesize storage=_storage;
 - (id).cxx_construct;
@@ -32,9 +33,10 @@ __attribute__((visibility("hidden")))
 - (int)p_layoutConfigFlagsForTarget:(id)arg1;
 @property(readonly, retain, nonatomic) TSWPCTTypesetterCache *typesetterCache;
 - (void)destroyLayoutState:(void *)arg1;
-- (void)inflateTarget:(id)arg1 fromHints:(const vector_7a2e319d *)arg2 childHint:(id)arg3 anchoredDrawablePositions:(id)arg4 topicNumbers:(const struct TSWPTopicNumberHints *)arg5;
-- (void)deflateTarget:(id)arg1 intoHints:(vector_7a2e319d *)arg2 childHints:(inout id)arg3 anchoredDrawablePositions:(id *)arg4 topicNumbers:(struct TSWPTopicNumberHints *)arg5 layoutState:(void *)arg6;
-- (void *)layoutStateForLayoutAfterHint:(const struct TSWPTargetHint *)arg1 childHint:(id)arg2 topicNumbers:(const struct TSWPTopicNumberHints *)arg3 textIsVertical:(_Bool)arg4;
+- (void)inflateTarget:(id)arg1 fromHints:(id)arg2 childHint:(id)arg3 anchoredDrawablePositions:(id)arg4 topicNumbers:(id)arg5;
+- (void)deflateTarget:(id)arg1 intoHints:(inout id)arg2 childHints:(inout id)arg3 anchoredDrawablePositions:(id *)arg4 startingPartitionedAttachments:(out id *)arg5 topicNumbers:(out id *)arg6 layoutState:(void *)arg7;
+- (void *)layoutStateForLayoutWithHint:(id)arg1 topicNumbers:(id)arg2 textIsVertical:(_Bool)arg3;
+- (void *)layoutStateForLayoutAfterHint:(id)arg1 childHint:(id)arg2 topicNumbers:(id)arg3 textIsVertical:(_Bool)arg4;
 - (void *)layoutIntoTarget:(id)arg1 withLayoutState:(void *)arg2 outSync:(_Bool *)arg3;
 - (_Bool)needsLayoutInColumn:(id)arg1;
 - (id)layoutMetricsCache;

@@ -15,6 +15,7 @@
 + (id)sharedInstance;
 @property(nonatomic) _Bool allowSnapBackHistoryMenu; // @synthesize allowSnapBackHistoryMenu=_allowSnapBackHistoryMenu;
 - (void)setDefaultValues;
+- (id)parentSettings;
 
 @end
 

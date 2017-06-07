@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSObject.h>
 
 @class NSDate, NSDictionary, NSString, NSURL;
 
@@ -16,7 +16,7 @@
     NSString *_clientName;
     NSString *_identifier;
     CDUnknownBlockType _progressHandler;
-    struct __MobileAsset *_cfAsset;
+    // Error parsing type: ^{__MobileAsset={__CFRuntimeBase=QAQ}^{__CFString}^{__CFDictionary}^{__MobileAssetQuery}^{__MobileAssetQuery}C}, name: _cfAsset
     _Bool _userInitiatedDownload;
 }
 
@@ -26,7 +26,7 @@
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
 @property(readonly, nonatomic) NSString *assetType; // @synthesize assetType=_assetType;
 - (id)_getLocalAttribute:(id)arg1;
-- (struct __MobileAsset *)mobileAsset;
+-     // Error parsing type: ^{__MobileAsset={__CFRuntimeBase=QAQ}^{__CFString}^{__CFDictionary}^{__MobileAssetQuery}^{__MobileAssetQuery}C}16@0:8, name: mobileAsset
 - (_Bool)purgeAndReturnError:(id *)arg1;
 - (void)purge:(CDUnknownBlockType)arg1;
 - (_Bool)cancelDownloadAndReturnError:(id *)arg1;
@@ -46,6 +46,8 @@
 - (long long)assetStateForStateString:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *attributes;
 @property(readonly, nonatomic) NSURL *localURL;
+- (id)assetServerUrl;
+- (id)systemAppServerUrl;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

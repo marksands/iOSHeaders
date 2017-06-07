@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <IDS/IDSDaemonProtocol-Protocol.h>
 
@@ -37,6 +37,7 @@
     _Bool _acquiringDaemonConnection;
     _Bool _autoReconnect;
     _Bool _hasBeenSuspended;
+    _Bool _fatalErrorOccured;
     int _curXPCMessagePriority;
     NSMutableSet *_notificationServices;
 }
@@ -46,9 +47,10 @@
 + (_Bool)_applicationWillTerminate;
 + (id)sharedInstance;
 @property(setter=_setAutoReconnect:) _Bool _autoReconnect; // @synthesize _autoReconnect;
-@property(nonatomic) id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *_remoteMessageQueue; // @synthesize _remoteMessageQueue;
-@property(readonly, retain, nonatomic) IDSDaemonListener *listener; // @synthesize listener=_daemonListener;
+@property(readonly, nonatomic) IDSDaemonListener *listener; // @synthesize listener=_daemonListener;
+- (void).cxx_destruct;
 - (void)systemApplicationDidResume;
 - (void)systemApplicationWillEnterForeground;
 - (void)systemApplicationDidEnterBackground;
@@ -76,7 +78,7 @@
 - (_Bool)setCommands:(id)arg1 forListenerID:(id)arg2;
 - (_Bool)setServices:(id)arg1 forListenerID:(id)arg2;
 - (id)servicesForListenerID:(id)arg1;
-- (_Bool)removeListenerID:(id)arg1;
+- (void)removeListenerID:(id)arg1;
 - (_Bool)hasListenerForID:(id)arg1;
 - (_Bool)addListenerID:(id)arg1 services:(id)arg2;
 - (_Bool)addListenerID:(id)arg1 services:(id)arg2 commands:(id)arg3;

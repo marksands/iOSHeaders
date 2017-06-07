@@ -12,29 +12,23 @@
 
 @interface HAPBridgedAccessory : HAPAccessory <HAPAccessoryServerInternalDelegate>
 {
-    _Bool _discoveredBridgeableAccessory;
     HAPCharacteristic *_reachabilityCharacteristic;
-    HAPCharacteristic *_categoryCharacteristic;
 }
 
-@property(nonatomic) __weak HAPCharacteristic *categoryCharacteristic; // @synthesize categoryCharacteristic=_categoryCharacteristic;
 @property(nonatomic) __weak HAPCharacteristic *reachabilityCharacteristic; // @synthesize reachabilityCharacteristic=_reachabilityCharacteristic;
-@property(nonatomic) _Bool discoveredBridgeableAccessory; // @synthesize discoveredBridgeableAccessory=_discoveredBridgeableAccessory;
 - (void).cxx_destruct;
 - (void)accessoryServer:(id)arg1 didUpdateValueForCharacteristic:(id)arg2;
 - (id)accessoryServerDidRequestCharacteristicsToRegisterForNotifications:(id)arg1;
+- (_Bool)mergeObject:(id)arg1;
+- (_Bool)shouldMergeObject:(id)arg1;
 - (_Bool)mergeWithAccessory:(id)arg1;
 - (_Bool)__parseBridgeService:(id)arg1;
 - (_Bool)__parseServices;
-- (id)__category;
-- (void)setCategory:(id)arg1;
 - (_Bool)__isReachable;
 - (void)setReachable:(_Bool)arg1;
 - (_Bool)isPrimary;
 - (id)shortDescription;
-- (id)_initWithServer:(id)arg1 instanceID:(id)arg2 parsedServices:(id)arg3 discoveredBridgeableAccessory:(_Bool)arg4;
 - (id)initWithServer:(id)arg1 instanceID:(id)arg2 parsedServices:(id)arg3;
-- (id)category;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

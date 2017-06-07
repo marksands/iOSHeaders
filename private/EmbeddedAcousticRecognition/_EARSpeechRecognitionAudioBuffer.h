@@ -25,7 +25,6 @@
 - (void)endAudio;
 - (void)addAudioSampleData:(id)arg1;
 - (void)addAudioSamples:(const short *)arg1 count:(unsigned long long)arg2;
-- (void)dealloc;
 - (id)_initWithAudioBuffer:(shared_ptr_809f9c31)arg1 speechRecognizer:(id)arg2;
 
 @end

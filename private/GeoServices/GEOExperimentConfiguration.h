@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Foundation/NSObject.h>
+#import <objc/NSObject.h>
 
 #import <GeoServices/GEOExperimentServerProxyDelegate-Protocol.h>
 
@@ -22,7 +22,8 @@
 }
 
 + (id)sharedConfiguration;
-+ (void)setServerProxyClass:(Class)arg1;
++ (void)useProxy:(Class)arg1;
+- (void).cxx_destruct;
 - (void)serverProxy:(id)arg1 didChangeExperimentsInfo:(id)arg2;
 - (void)removeExperimentObserver:(id)arg1;
 - (void)addExperimentObserver:(id)arg1 queue:(id)arg2;

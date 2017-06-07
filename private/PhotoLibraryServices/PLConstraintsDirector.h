@@ -21,6 +21,7 @@
 + (id)sharedConstraintsDirector;
 + (_Bool)_photoanalysisdIsRunning;
 - (void)foregroundMonitor:(id)arg1 changedStateToForeground:(_Bool)arg2 context:(id)arg3;
+- (void)informCameraAppCameraViewControllerVisibilityChanged:(_Bool)arg1;
 - (void)informOpportunisticTasksAllowed:(_Bool)arg1;
 - (void)dealloc;
 - (id)init;

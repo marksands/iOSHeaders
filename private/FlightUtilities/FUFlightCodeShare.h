@@ -6,18 +6,24 @@
 
 #import <objc/NSObject.h>
 
+#import <FlightUtilities/NSSecureCoding-Protocol.h>
+
 @class FUAirline;
 
 __attribute__((visibility("hidden")))
-@interface FUFlightCodeShare : NSObject
+@interface FUFlightCodeShare : NSObject <NSSecureCoding>
 {
     FUAirline *_airline;
-    long long _flightNumber;
+    unsigned long long _flightNumber;
 }
 
-@property long long flightNumber; // @synthesize flightNumber=_flightNumber;
++ (_Bool)supportsSecureCoding;
+@property unsigned long long flightNumber; // @synthesize flightNumber=_flightNumber;
 @property(retain) FUAirline *airline; // @synthesize airline=_airline;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (_Bool)isEqual:(id)arg1;
 
 @end
 

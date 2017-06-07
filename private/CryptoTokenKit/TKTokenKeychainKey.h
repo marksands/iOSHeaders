@@ -32,6 +32,7 @@
 @property(copy) NSString *keyType; // @synthesize keyType=_keyType;
 - (void).cxx_destruct;
 - (_Bool)satisfiesKeyUsage:(unsigned long long)arg1;
+@property(readonly) unsigned long long keyUsage;
 - (void)createConstraints:(unsigned char)arg1;
 - (id)keychainAttributes;
 - (id)initWithCertificate:(struct __SecCertificate *)arg1 objectID:(id)arg2;

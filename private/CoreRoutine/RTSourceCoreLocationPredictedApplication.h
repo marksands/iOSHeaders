@@ -25,7 +25,6 @@
 }
 
 + (_Bool)supportsSecureCoding;
-+ (id)allowedKeys;
 @property(retain, nonatomic) NSDate *endDate; // @synthesize endDate=_endDate;
 @property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(nonatomic) double distance; // @synthesize distance=_distance;

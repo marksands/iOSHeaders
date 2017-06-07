@@ -36,7 +36,8 @@
 - (void).cxx_destruct;
 - (_Bool)isEquivalentTo:(id)arg1;
 - (id)description;
-- (id)attributesDict;
+- (id)encryptedFields;
+- (id)unEncryptedFields;
 - (id)uniqueID;
 - (id)uniqueRecordName;
 - (id)uniqueRecordNameVer0;

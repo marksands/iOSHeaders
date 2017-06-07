@@ -30,8 +30,9 @@
     unsigned long long _gatewayPriority;
 }
 
++ (id)observerWithQueue:(id)arg1 calloutQueue:(id)arg2 forGatewayName:(id)arg3;
++ (id)gatewayWithQueue:(id)arg1 calloutQueue:(id)arg2 name:(id)arg3 priority:(unsigned long long)arg4;
 + (void)initialize;
-+ (id)observerGlobalQueue;
 @property(readonly, nonatomic) unsigned long long gatewayPriority; // @synthesize gatewayPriority=_gatewayPriority;
 @property(readonly, copy, nonatomic) NSString *gatewayName; // @synthesize gatewayName=_gatewayName;
 @property(nonatomic) unsigned long long observerFeed; // @synthesize observerFeed=_observerFeed;
@@ -85,7 +86,6 @@
 - (void)sendResponse:(id)arg1;
 - (void)getBulletinsForPublisherMatchIDs:(id)arg1 sectionID:(id)arg2 withCompletion:(CDUnknownBlockType)arg3;
 - (void)getPublisherMatchIDsOfBulletinsPublishedAfterDate:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)getBulletinsPublishedAfterDate:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getBulletinsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)getUniversalSectionIDForSectionID:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (void)getPrivilegedSenderTypesWithCompletion:(CDUnknownBlockType)arg1;
@@ -103,13 +103,15 @@
 - (void)_queue_invalidate;
 - (void)invalidate;
 - (void)dealloc;
-- (id)_initWithCalloutQueue:(id)arg1 gatewayName:(id)arg2 gatewayPriority:(unsigned long long)arg3 isGateway:(_Bool)arg4;
+- (id)initWithQueue:(id)arg1 calloutQueue:(id)arg2 gatewayName:(id)arg3 gatewayPriority:(unsigned long long)arg4 isGateway:(_Bool)arg5 connection:(id)arg6;
+- (id)_initWithQueue:(id)arg1 calloutQueue:(id)arg2 gatewayName:(id)arg3 gatewayPriority:(unsigned long long)arg4 isGateway:(_Bool)arg5;
+- (id)initWithQueue:(id)arg1 calloutQueue:(id)arg2;
+- (void)getPrimaryAttachmentDataForBulletin:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
+- (void)getAttachmentImageForBulletin:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 - (id)initWithQueue:(id)arg1 asGateway:(id)arg2 priority:(unsigned long long)arg3;
 - (id)initWithQueue:(id)arg1 forGateway:(id)arg2;
 - (id)initWithQueue:(id)arg1;
 - (id)init;
-- (void)getPrimaryAttachmentDataForBulletin:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-- (void)getAttachmentImageForBulletin:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

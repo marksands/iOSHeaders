@@ -8,18 +8,16 @@
 
 #import <CoreSuggestionsInternals/PMLTransformerProtocol-Protocol.h>
 
-@class NSCharacterSet, NSNumberFormatter, NSString;
+@class NSCharacterSet, NSString;
 
 @interface SGSymbolicMappingTransformer : NSObject <PMLTransformerProtocol>
 {
     NSString *_numericMapping;
     NSString *_characterMapping;
     NSCharacterSet *_characterSet;
-    NSNumberFormatter *_formatter;
 }
 
 + (id)withNumericMapping:(id)arg1 andSymbolicMapping:(id)arg2;
-@property(retain) NSNumberFormatter *formatter; // @synthesize formatter=_formatter;
 @property(retain) NSCharacterSet *characterSet; // @synthesize characterSet=_characterSet;
 @property(retain) NSString *characterMapping; // @synthesize characterMapping=_characterMapping;
 @property(retain) NSString *numericMapping; // @synthesize numericMapping=_numericMapping;

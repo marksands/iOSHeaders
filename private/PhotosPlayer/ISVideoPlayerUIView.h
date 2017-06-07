@@ -18,7 +18,9 @@
 - (void).cxx_destruct;
 - (void)_updateVideoGravity;
 - (void)setContentMode:(long long)arg1;
-- (id)init;
+- (void)_ISVideoPlayerUIView_commonInitialization;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

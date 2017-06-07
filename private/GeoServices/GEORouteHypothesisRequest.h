@@ -26,6 +26,7 @@
 @property(nonatomic) double expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(retain, nonatomic) GEOMapItemStorage *destinationLocation; // @synthesize destinationLocation=_destinationLocation;
 @property(nonatomic) double arrivalDate; // @synthesize arrivalDate=_arrivalDate;
+- (void).cxx_destruct;
 - (void)mergeFrom:(id)arg1;
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
@@ -42,7 +43,6 @@
 @property(nonatomic) int transportType; // @synthesize transportType=_transportType;
 @property(readonly, nonatomic) _Bool hasDestinationLocation;
 @property(nonatomic) _Bool hasArrivalDate;
-- (void)dealloc;
 
 @end
 

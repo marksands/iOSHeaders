@@ -10,7 +10,5 @@
 {
 }
 
-+ (void)startLogging:(char *)arg1 facility:(char *)arg2;
-
 @end
 

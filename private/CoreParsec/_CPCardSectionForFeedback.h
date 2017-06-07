@@ -6,31 +6,39 @@
 
 #import <ProtocolBuffer/PBCodable.h>
 
-#import <CoreParsec/NSCopying-Protocol.h>
+#import <CoreParsec/NSSecureCoding-Protocol.h>
+#import <CoreParsec/_CPCardSectionForFeedback-Protocol.h>
 
-@class NSMutableArray;
+@class NSData, NSString;
 
-@interface _CPCardSectionForFeedback : PBCodable <NSCopying>
+@interface _CPCardSectionForFeedback : PBCodable <_CPCardSectionForFeedback, NSSecureCoding>
 {
-    NSMutableArray *_punchoutOptions;
+    struct {
+        unsigned int type:1;
+    } _has;
+    int _type;
+    NSString *_cardSectionId;
 }
 
-+ (Class)punchoutOptionsType;
-@property(retain, nonatomic) NSMutableArray *punchoutOptions; // @synthesize punchoutOptions=_punchoutOptions;
+@property(nonatomic) int type; // @synthesize type=_type;
+@property(copy, nonatomic) NSString *cardSectionId; // @synthesize cardSectionId=_cardSectionId;
 - (void).cxx_destruct;
-- (void)mergeFrom:(id)arg1;
-- (unsigned long long)hash;
+- (id)initWithDictionary:(id)arg1;
+- (id)initWithJSON:(id)arg1;
+@property(readonly, nonatomic) NSData *jsonData;
+- (id)dictionaryRepresentation;
+@property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)copyTo:(id)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
-- (id)dictionaryRepresentation;
-- (id)description;
-- (id)punchoutOptionsAtIndex:(unsigned long long)arg1;
-- (unsigned long long)punchoutOptionsCount;
-- (void)addPunchoutOptions:(id)arg1;
-- (void)clearPunchoutOptions;
+@property(readonly, nonatomic) _Bool hasType;
+@property(readonly, nonatomic) _Bool hasCardSectionId;
+- (id)initWithFacade:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

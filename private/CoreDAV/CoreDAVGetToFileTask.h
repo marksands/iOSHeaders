@@ -14,10 +14,10 @@
 }
 
 @property(retain, nonatomic) NSFileHandle *destinationFile; // @synthesize destinationFile=_destinationFile;
+- (void).cxx_destruct;
 - (_Bool)shouldLogResponseBody;
 - (id)copyDefaultParserForContentType:(id)arg1;
 - (id)initWithURL:(id)arg1 destinationFile:(id)arg2;
-- (void)dealloc;
 
 @end
 

@@ -6,51 +6,45 @@
 
 #import <objc/NSObject.h>
 
-@class CKDGlobalConfigurationOperation, CKDServerConfiguration, NSMutableDictionary, NSOperationQueue;
+@class CKDServerConfiguration, NSMutableDictionary, NSMutableSet, NSOperationQueue;
 @protocol OS_dispatch_queue, OS_dispatch_source;
 
 __attribute__((visibility("hidden")))
 @interface CKDServerConfigurationManager : NSObject
 {
-    _Bool _usesBackgroundSession;
-    _Bool _allowsCellularAccess;
     int _iCloudEnvNotifToken;
     NSObject<OS_dispatch_source> *_switchNotifSource;
     NSOperationQueue *_configurationQueue;
     CKDServerConfiguration *_globalConfiguration;
-    CKDGlobalConfigurationOperation *_globalConfigurationOp;
+    NSMutableSet *_globalConfigurationOps;
     NSOperationQueue *_containerSpecificInfoQueue;
     NSMutableDictionary *_containerSpecificInfos;
     NSMutableDictionary *_containerSpecificInfoOperations;
-    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_propertyQueue;
 }
 
-+ (void)expireConfigurationForContext:(id)arg1;
-+ (void)expireGlobalConfiguration;
-+ (id)sharedManagerUsingBackgroundSession:(_Bool)arg1 allowsCellularAccess:(_Bool)arg2;
++ (id)sharedManager;
 @property(nonatomic) int iCloudEnvNotifToken; // @synthesize iCloudEnvNotifToken=_iCloudEnvNotifToken;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;
 @property(retain, nonatomic) NSMutableDictionary *containerSpecificInfoOperations; // @synthesize containerSpecificInfoOperations=_containerSpecificInfoOperations;
 @property(retain, nonatomic) NSMutableDictionary *containerSpecificInfos; // @synthesize containerSpecificInfos=_containerSpecificInfos;
 @property(retain, nonatomic) NSOperationQueue *containerSpecificInfoQueue; // @synthesize containerSpecificInfoQueue=_containerSpecificInfoQueue;
-@property(retain, nonatomic) CKDGlobalConfigurationOperation *globalConfigurationOp; // @synthesize globalConfigurationOp=_globalConfigurationOp;
+@property(retain, nonatomic) NSMutableSet *globalConfigurationOps; // @synthesize globalConfigurationOps=_globalConfigurationOps;
 @property(retain, nonatomic) CKDServerConfiguration *globalConfiguration; // @synthesize globalConfiguration=_globalConfiguration;
 @property(retain, nonatomic) NSOperationQueue *configurationQueue; // @synthesize configurationQueue=_configurationQueue;
-@property(nonatomic) _Bool allowsCellularAccess; // @synthesize allowsCellularAccess=_allowsCellularAccess;
-@property(nonatomic) _Bool usesBackgroundSession; // @synthesize usesBackgroundSession=_usesBackgroundSession;
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *switchNotifSource; // @synthesize switchNotifSource=_switchNotifSource;
 - (void).cxx_destruct;
 - (id)CKStatusReportArray;
-- (void)_expireConfigurationForContext:(id)arg1;
-- (void)_expireGlobalConfiguration;
+- (void)expireConfigurationForContext:(id)arg1;
+- (void)expireGlobalConfiguration;
 - (void)_behaviorOptionsChanged:(id)arg1;
 - (void)_dropAllConfigurations;
-- (void)serverEnvironmentForContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)containerScopedUserIDForContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)publicURLForServerType:(long long)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)configurationForContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)fetchContainerSpecificInfoForContext:(id)arg1 needUserID:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)fetchGlobalConfigWithContext:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)serverEnvironmentForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)containerScopedUserIDForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)publicURLForServerType:(long long)arg1 operation:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)configurationForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)fetchContainerSpecificInfoForOperation:(id)arg1 needUserID:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)fetchGlobalConfigForOperation:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)dealloc;
 - (id)init;
 - (void)_watchForSwitchPrefFileChanges;

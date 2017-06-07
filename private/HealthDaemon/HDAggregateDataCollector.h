@@ -42,7 +42,7 @@
 - (double)_queue_maxDatumDuration;
 @property double maxDatumDuration;
 - (double)_queue_aggregationInterval;
-- (id)initWithPrimaryProfile:(id)arg1;
+- (id)initWithProfile:(id)arg1;
 
 @end
 

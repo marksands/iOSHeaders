@@ -11,6 +11,7 @@
 @class NSString;
 
 @interface MPRemotePlaybackQueue (MPCAdditions) <MPCPlaybackContextCreating>
+- (void)getPlaybackContextWithCompletion:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

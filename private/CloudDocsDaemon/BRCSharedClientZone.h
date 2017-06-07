@@ -6,7 +6,7 @@
 
 #import <CloudDocsDaemon/BRCClientZone.h>
 
-@class BRCSharedAppLibrary, BRCSharedServerZone, NSMutableDictionary, NSString;
+@class BRCSharedServerZone, NSMutableDictionary, NSString;
 
 __attribute__((visibility("hidden")))
 @interface BRCSharedClientZone : BRCClientZone
@@ -19,8 +19,7 @@ __attribute__((visibility("hidden")))
 - (id)shareAcceptOperationForItemID:(id)arg1;
 - (void)addAcceptOperation:(id)arg1 forItemID:(id)arg2;
 - (struct PQLResultSet *)shareAcceptationSidefaultEnumerator;
-@property(readonly, nonatomic) NSString *mangledZoneID;
-@property(readonly, nonatomic) BRCSharedAppLibrary *appLibrary;
+- (id)rootItemID;
 - (void)setServerZone:(id)arg1;
 @property(readonly, nonatomic) BRCSharedServerZone *sharedZone;
 - (id)asSharedClientZone;

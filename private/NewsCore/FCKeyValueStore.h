@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class FCKeyValueStoreClassRegistry, FCMutexLock, NSMutableDictionary, NSString;
-@protocol FCKeyValueStoreMigrating;
+#import <NewsCore/FCOperationThrottlerDelegate-Protocol.h>
 
-@interface FCKeyValueStore : NSObject
+@class FCKeyValueStoreClassRegistry, FCMutexLock, NSMutableDictionary, NSString;
+@protocol FCKeyValueStoreMigrating, FCOperationThrottler;
+
+@interface FCKeyValueStore : NSObject <FCOperationThrottlerDelegate>
 {
     _Bool _needSave;
     NSString *_name;
@@ -21,9 +23,11 @@
     FCKeyValueStoreClassRegistry *_classRegistry;
     id <FCKeyValueStoreMigrating> _migrator;
     FCMutexLock *_writeLock;
+    id <FCOperationThrottler> _saveThrottler;
 }
 
 + (id)persistenceQueue;
+@property(retain, nonatomic) id <FCOperationThrottler> saveThrottler; // @synthesize saveThrottler=_saveThrottler;
 @property(retain, nonatomic) FCMutexLock *writeLock; // @synthesize writeLock=_writeLock;
 @property(retain, nonatomic) id <FCKeyValueStoreMigrating> migrator; // @synthesize migrator=_migrator;
 @property(retain, nonatomic) FCKeyValueStoreClassRegistry *classRegistry; // @synthesize classRegistry=_classRegistry;
@@ -44,6 +48,7 @@
 - (void)_logCacheStatus;
 - (void)_saveAsyncWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)_loadFromDisk;
+- (void)operationThrottler:(id)arg1 performAsyncOperationWithCompletion:(CDUnknownBlockType)arg2;
 - (void)saveWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)addAllEntriesToDictionary:(id)arg1;
 - (id)allKeys;
@@ -64,6 +69,12 @@
 - (id)initWithName:(id)arg1 directory:(id)arg2 version:(unsigned long long)arg3 options:(unsigned long long)arg4 classRegistry:(id)arg5;
 - (id)initWithName:(id)arg1 directory:(id)arg2 version:(unsigned long long)arg3 options:(unsigned long long)arg4 classRegistry:(id)arg5 migrator:(id)arg6;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

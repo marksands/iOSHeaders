@@ -17,6 +17,7 @@
     CLSHolidayCalendarEventRuleRequiredTraits *_requiredTraits;
     id <CLSHolidayCalendarEventDateRuleDelegate> _dateRuleDelegate;
     NSString *_localizedName;
+    unsigned long long _category;
 }
 
 + (id)localizedNameForName:(id)arg1;
@@ -30,6 +31,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)_isMatchingOnlyLocalDate:(id)arg1;
+@property(readonly, nonatomic) unsigned long long category; // @synthesize category=_category;
 @property(readonly, nonatomic) _Bool isCelebration;
 - (_Bool)evaluateOnlyTraits:(id)arg1;
 - (id)_dateRuleForYear:(long long)arg1;
